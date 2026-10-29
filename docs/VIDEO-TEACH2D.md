@@ -29,7 +29,8 @@
 
 ## Variety (owner 29/10: "đa dạng, đỡ nhàm chán")
 - Fixed per series (recognition): series chip + series tint on the canvas (`theme.json` tints: US/UK teal, Verbs gold, Stress coral, Stop Saying red-coral, Phrasal mint) + one teacher per series.
-- Rotating per episode (batch only after the owner's OK): hook style (question · challenge · "most learners…" · myth), card layout variant (2 per template), look (dark/dusk/light), example scene.
+- Layouts (`build.py --layout`, same cards + timing): `corner` (teacher bottom-centre) · `side` (teacher left, larger, caption right of the head) · `bubble` (big card, teacher in a round Kit call window). Every pilot ships a layout board (`layouts.jpg`).
+- Rotating per episode (batch only after the owner's OK): hook style (question · challenge · "most learners…" · myth), layout, example scene. Look = `dusk` (owner pick 29/10).
 - Planner rule: no two consecutive videos share template, teacher or look; a point (content hash) is never reused; ≥ 1 new template per month (`VIDEO-SERIES.md`).
 
 ## QC gates (`qc.py`, all must pass, weighted score ≥ 90)

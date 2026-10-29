@@ -98,8 +98,16 @@ const Canvas = ({ T, w, h, tint }) => (   // Stitch Kit canvas: flat tokens, sta
   </AbsoluteFill>
 );
 
-function Host({ host, f }) {   // speech-gated segments; the incoming clip fades in on top over xfade frames while the outgoing one keeps playing underneath
-  const [x0, y0, x1, y1] = host.box, xf = host.xfade || 0;
+function Host({ host, f, T }) {   // speech-gated segments; bubble layout = the same clip framed in a round Kit call window
+  if (!host.bubble) return <HostClips host={host} f={f} ox={0} oy={0} />;
+  const [b0, b1, b2, b3] = host.bubble;
+  return <div style={{ position: 'absolute', left: b0, top: b1, width: b2 - b0, height: b3 - b1, borderRadius: '50%', overflow: 'hidden', boxSizing: 'border-box',
+    background: `radial-gradient(circle at 50% 40%, ${T.tile} 0%, ${T.card} 70%)`, border: `8px solid ${T.primary}`, boxShadow: `0 10px 0 ${T.ledge}` }}>
+    <HostClips host={host} f={f} ox={b0 + 8} oy={b1 + 8} /></div>;
+}
+
+function HostClips({ host, f, ox, oy }) {   // the incoming clip fades in on top over xfade frames while the outgoing one keeps playing underneath
+  const [x0, y0, x1, y1] = host.box.map((v, i) => v - (i % 2 ? oy : ox)), xf = host.xfade || 0;
   return host.segs.map((s, i) => {
     const canExt = k => k >= 0 && k + 1 < host.segs.length && host.segs[k].start + host.segs[k].dur + xf <= (host.len || {})[host.segs[k].clip];
     // fade in only over an outgoing clip that keeps playing underneath; at a loop wrap (no overlap possible) the new clip is opaque at once
@@ -130,7 +138,7 @@ export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, 
   return (
     <AbsoluteFill>
       <Canvas T={T} w={w} h={h} tint={tint} />
-      {host ? <Host host={host} f={f} /> : null}
+      {host ? <Host host={host} f={f} T={T} /> : null}
       {audio ? <Audio src={staticFile(audio)} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} T={T} />)}</AbsoluteFill>
       <Captions caps={caps} box={capBox} t={t} T={T} />

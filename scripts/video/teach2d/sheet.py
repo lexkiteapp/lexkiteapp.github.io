@@ -25,6 +25,18 @@ if rows:
     W = max(r.width for r in rows); S = Image.new('RGB', (W, sum(r.height for r in rows)), '#0B171A'); y = 0
     for r in rows: S.paste(r, (0, y)); y += r.height
     S.thumbnail((4000, 6000)); S.save(f'{OUT}/review.jpg', quality=86)
+# layout board: one row per template, corner | side | bubble at the same moment (2 moments)
+lrows = []
+for e in eps:
+    ims = [fit(p, 560) for L in ('corner', 'side', 'bubble') for p in sorted(glob.glob(f'{A}/tv-{e}-short-*/lay_{L}_*.png'))[:2]]
+    if not ims: continue
+    r = Image.new('RGB', (sum(i.width for i in ims) + 16 * len(ims), 616), '#0B171A'); d = ImageDraw.Draw(r); d.text((10, 8), f'{e}   corner · corner | side · side | bubble · bubble', fill='#FFC94A', font=F); x = 0
+    for i in ims: r.paste(i, (x, 52)); x += i.width + 16
+    lrows.append(r)
+if lrows:
+    W = max(r.width for r in lrows); L_ = Image.new('RGB', (W, sum(r.height for r in lrows)), '#0B171A'); y = 0
+    for r in lrows: L_.paste(r, (0, y)); y += r.height
+    L_.thumbnail((4000, 6000)); L_.save(f'{OUT}/layouts.jpg', quality=86)
 for p in glob.glob(f'{A}/tv-embed-shots-*/*.png'): Image.open(p).convert('RGB').save(f'{OUT}/embed_{os.path.basename(p)[:-4]}.jpg', quality=85)
 open(f'{OUT}/review.md', 'w').write('\n'.join(md) + '\n'); print('\n'.join(md))
 bad = [q for q in qcs if not q['ok']]

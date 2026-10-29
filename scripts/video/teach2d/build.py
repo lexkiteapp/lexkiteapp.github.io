@@ -21,12 +21,18 @@ ap.add_argument('--format', default='short', choices=['short', 'wide'])
 ap.add_argument('--fps', type=int, default=30)
 ap.add_argument('--theme', default='', help='override the episode theme (dark | dusk | light)')
 ap.add_argument('--fonts', default=f'{ROOT}/brand/social/src/fonts')
+ap.add_argument('--layout', default='', help='short layout: corner (teacher bottom-centre) | side (teacher left, larger) | bubble (big card, teacher in a round call window)')
 o = ap.parse_args()
 EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); TH = _TJ[THEME]
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
-FMT = dict(short=dict(W=1080, H=1920, region=[60, 324, 960, 1150], chip=[60, 236], safe=[48, 232, 960, 1497], cap=[60, 1168, 960, 1282], host_h=640, host_cx=540),
+LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
+    corner=dict(region=[60, 324, 960, 1150], cap=[60, 1168, 960, 1282], host_h=640, host_cx=540),
+    side=dict(region=[60, 324, 960, 1150], cap=[480, 1196, 960, 1310], host_h=760, host_cx=260),
+    bubble=dict(region=[60, 324, 960, 1396], cap=[60, 1410, 610, 1496], host_h=744, host_cx=None, bubble=[632, 1440, 1032, 1840]))
+FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497], **LAYOUTS[o.layout or 'corner']),
            wide=dict(W=1920, H=1080, region=[96, 150, 1056, 990], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=None, host_h=960, host_cx=1460))[o.format]
+LAYOUT = (o.layout or 'corner') if o.format == 'short' else 'wide'
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
 PAD, GAP, LEDGE, RADIUS = 40, 24, 10, 44
@@ -371,10 +377,17 @@ while f < NF:
     while n > 0:
         take = min(n, LEN[k] - pos[k]); SEG.append(dict(clip=k, from_=f, dur=take, start=pos[k])); pos[k] = (pos[k] + take) % LEN[k]; f += take; n -= take
 for s_ in SEG: s_['from'] = s_.pop('from_')
-k = FMT['host_h'] / HG['h']; hw = HG['w'] * k
-HOST = dict(who=EP['teacher'], talk='host_talk.webm', listen='host_listen.webm', box=[round(FMT['host_cx'] - hw / 2, 1), H - FMT['host_h'], round(FMT['host_cx'] + hw / 2, 1), H], segs=SEG, xfade=4, len=LEN)
-hb = HG['head']; HEAD = [HOST['box'][0] + hb[0] * k, HOST['box'][1] + hb[1] * k, HOST['box'][0] + hb[2] * k, HOST['box'][1] + hb[3] * k]
-BODY = [HOST['box'][0] + HG['bbox'][0] * k, HOST['box'][1] + HG['bbox'][1] * k, HOST['box'][0] + HG['bbox'][2] * k, H]
+k = FMT['host_h'] / HG['h']; hw = HG['w'] * k; hb = HG['head']; BB = FMT.get('bubble')
+assert k <= 1.0, ('teacher would be enlarged > 1.0x', k)
+if BB:   # round call window: head + shoulders centred, head ~55 % of the window height (pure framing of the raw clip, no processing)
+    D = BB[2] - BB[0]; k = min(1.0, 0.55 * D / (hb[3] - hb[1])); hw = HG['w'] * k; cx, cy = (hb[0] + hb[2]) / 2 * k, (hb[1] + hb[3]) / 2 * k
+    x0, y0 = (BB[0] + BB[2]) / 2 - cx, BB[1] + 0.44 * D - cy; box = [round(x0, 1), round(y0, 1), round(x0 + hw, 1), round(y0 + HG['h'] * k, 1)]
+else: box = [round(FMT['host_cx'] - hw / 2, 1), H - FMT['host_h'], round(FMT['host_cx'] + hw / 2, 1), H]
+HOST = dict(who=EP['teacher'], talk='host_talk.webm', listen='host_listen.webm', box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
+if BB: HEAD = list(BB); BODY = list(BB)
+else:
+    HEAD = [box[0] + hb[0] * k, box[1] + hb[1] * k, box[0] + hb[2] * k, box[1] + hb[3] * k]
+    BODY = [box[0] + HG['bbox'][0] * k, box[1] + HG['bbox'][1] * k, box[0] + HG['bbox'][2] * k, H]
 
 # ---------------- audio: voice track (-16 LUFS) + soft synth ticks (countdown 3-2-1, answer chime) after loudnorm ----------------
 os.makedirs(o.public, exist_ok=True); SR = 48000
@@ -411,9 +424,9 @@ os.makedirs(f'{o.public}/fonts', exist_ok=True); shutil.copy(FJ, f'{o.public}/fo
 for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
 
 # ---------------- props + QC timeline ----------------
-props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
+props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
 json.dump(props, open(o.out, 'w'))
-json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
+json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause']) for k, v in LINES.items()},
                speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
                voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS),
