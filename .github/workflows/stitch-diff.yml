@@ -3,7 +3,7 @@
 name: Stitch diff
 on:
   pull_request:
-    paths: ['web/**', 'brand/stitch/**', 'scripts/test/stitch-diff.*', 'scripts/test/stitch-render.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', '.github/workflows/stitch-diff.yml']
+    paths: ['web/**', 'brand/stitch/**', 'scripts/test/stitch-diff.*', 'scripts/test/stitch-screens.mjs', 'scripts/test/final-qc.mjs', 'scripts/test/stitch-render.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', '.github/workflows/stitch-diff.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -13,7 +13,7 @@ concurrency:
 jobs:
   diff:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -39,3 +39,9 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: stitch-diff, path: out/stitch-diff, retention-days: 7 }
+      - name: QC cuối 1-1 (13 màn – RTL, giảm chuyển động, giáo viên không "dán đè", giọng = giáo viên, khớp miệng, âm hiệu ứng)
+        if: always()
+        run: node scripts/test/final-qc.mjs web out/stitch-diff out/final-qc
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: final-qc, path: out/final-qc, retention-days: 14 }

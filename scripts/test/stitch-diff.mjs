@@ -4,38 +4,13 @@
 // Hermetic (phục vụ thẳng web/, ?sandbox=1, 0 lượt chạm prod). Dùng: node scripts/test/stitch-diff.mjs [web] [out=out/stitch-diff]
 // CI: .github/workflows/stitch-diff.yml (cần playwright + pngjs + imagemagick). docs/DESIGN-SYSTEM.md §0.
 import fs from 'node:fs'; import path from 'node:path'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
-import { chromium } from 'playwright'; import { PNG } from 'pngjs'; import { createRequire } from 'node:module';
+import { chromium } from 'playwright'; import { SCREENS, V2REF, DRIVE, SEED_STREAK, SEED_LEAGUE, MIME } from './stitch-screens.mjs'; import { PNG } from 'pngjs'; import { createRequire } from 'node:module';
 const AXE = createRequire(path.resolve('package.json')).resolve('axe-core/axe.min.js'), a11y = {}; // WCAG 2.2 AA (axe-core) trong vùng màn Stitch (.st)
 const [ROOT = 'web', OUT = 'out/stitch-diff'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
-const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.mp4': 'video/mp4', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-// Bảng giải đấu mẫu giống Stitch (hạng 5 = mình): đặt lại sau mỗi lần tải lại trang (Sync.league là hàm thật cần đăng nhập → thay bằng dữ liệu mẫu)
-// Màn Chuỗi: chuỗi 14 ngày liên tiếp, hôm nay 14/20 (như mẫu "14 day streak!") – chỉ nạp khi vào màn này (không đổi dữ liệu các màn khác)
-const SEED_STREAK = async () => { const k = d => { const x = new Date(); x.setDate(x.getDate() - d); return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0'); };
-  const days = {}; for (let i = 1; i < 14; i++) days[k(i)] = 5; days[k(0)] = 14; App.state.stats.days = Object.assign(App.state.stats.days || {}, days); App.state.settings.dailyGoal = 20; await App.saveSettings(); await Core.Store.set('stats', App.state.stats); };
-const SEED_LEAGUE = () => {
-  const names = ['An Nguyen', 'Linh Khanh', 'Marcus Roy', 'Tariq Chen', 'You Lexkite', 'Sara Hansen', 'Daiki Kato'], xps = [1420, 1280, 1150, 980, 820, 760, 690]; // bảng giải đấu mẫu giống Stitch (hạng 5 = mình)
-  window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
-  Sync.league = async () => ({ member: { nick: 'You', tier: 3, xp: 820 }, week: { end: Date.now() + 3 * 864e5 }, rules: { up: 3, down: 2, maxTier: 5 }, board: names.map((n, i) => ({ rank: i + 1, nick: n, xp: xps[i], me: i === 4, zone: i < 3 ? 'up' : i >= 5 ? 'down' : '' })) });
-};
-const SCREENS = { home: 'home', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak' };
 const W = 390, G = 6;
-// Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak' }, V2PNG = process.env.STITCH_V2_PNG || 'out/stitch-v2/png';
+const V2PNG = process.env.STITCH_V2_PNG || 'out/stitch-v2/png';
 const refOf = (k, sc) => { const v = path.join(V2PNG, `${V2REF[k] || k}-${sc}.png`); return fs.existsSync(v) ? v : `brand/stitch/${k}-${sc}.jpg`; };
-// Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
-const DRIVE = async k => { const q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
-  const pick = it => { const o = qa('.lsn-opts .lsn-opt').find(b => b.dataset.o === String(it.answer)); if (o) o.click(); return !!o; };
-  for (let n = 0; n < 10 && !q('.lsn-opts .lsn-opt'); n++) { const it = App._lsn && App._lsn.sess.cur; if (!it) break;
-    if (q('#lsnGo')) { q('#lsnGo').click(); await w(300); continue; }
-    if (q('#lsnBank')) { const used = new Set(); for (const x of String(it.answer).split(/\s+/)) { const b = qa('#lsnBank .lsn-tile').find(t => !used.has(t) && t.textContent.trim() === x); if (b) { used.add(b); b.click(); } } }
-    else if (q('#lsnIn')) { q('#lsnIn').value = it.answer; q('#lsnIn').dispatchEvent(new Event('input')); }
-    else if (q('.lsn-match')) { for (const a of qa('.lsn-match [data-s="w"]')) { a.click(); const b = q(`.lsn-match [data-s="m"][data-m="${a.dataset.m}"]`); if (b) b.click(); await w(60); } }
-    else if (q('#lsnNoS')) { q('#lsnNoS').click(); await w(300); continue; }
-    await w(120); if (q('#lsnCheck') && !q('#lsnCheck').disabled) q('#lsnCheck').click(); await w(500); if (q('#lsnNext')) q('#lsnNext').click(); await w(400); }
-  const it = App._lsn && App._lsn.sess.cur; if (it) pick(it); await w(150);
-  if (k === 'feedback') { const c = q('#lsnCheck'); if (c && !c.disabled) c.click(); await w(900); if (document.activeElement) document.activeElement.blur(); }
-  scrollTo(0, 0); }; // so ở 390 px, thu nhỏ 6× → lưới ~65 px
 
 // ---- Tương phản thật (pixel): mỗi chữ/icon nhìn thấy trong .st/topbar/tab bar → màu chữ (computed, nhân opacity) so với NỀN THẬT lấy từ ảnh chụp
 //   (các màu nền chiếm ≥15 % vùng chữ, trừ điểm ảnh gần màu chữ → lấy màu XẤU NHẤT: bắt được chữ trên gradient/ảnh). Chữ thường ≥4.5, chữ lớn/đậm & icon ≥3.
