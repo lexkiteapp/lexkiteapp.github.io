@@ -36,6 +36,9 @@
  "cls": {
   ":scope > main > div > div:nth-child(1) > div > div:nth-child(3) > div:nth-child(2) > div": {
    "w-[65%]": "''"
+  },
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > div > div > span": {
+   "dk:text-[#2BA39A]": "'dk:text-[#4FD1C5]'"
   }
  },
  "tag": {
@@ -75,6 +78,9 @@
      "cls": {
       ":scope": {
        "translate-x-6": "r.off"
+      },
+      "button > span.material-symbols-outlined": {
+       "lt:text-[#FFFFFF]": "'lt:text-[#261A00]'"
       }
      }
     },
@@ -202,5 +208,6 @@
  "addClass": {
   ":scope > main > div > div:nth-child(2)": "overflow-x-clip",
   ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > button": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
- }
+ },
+ "_contrast": "Sửa tương phản (chỉ màu, lấy từ Stitch): icon sao nút vàng bản sáng = #261A00 như bản tối Stitch; icon sách dải chặng bản tối = #4FD1C5 (màu sửa tương phản Stitch v2.1)."
 }
