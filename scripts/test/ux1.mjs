@@ -186,6 +186,34 @@ w.sessionStorage.removeItem('lk.ux1.pv'); w.location.hash = '#/home';
 ok(!App.ux1On(), 'hết xem trước → tắt');
 // i18n: nhãn 5 tab có bản dịch tay cả 15 ngôn ngữ
 const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
+// ---------- Sẵn sàng thi #/goal (Stitch v2.1 exam-readiness): khung mới giữ đủ ý trang cũ ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; delete App.state.settings.goal;
+  await w.Core.Store.set('mocks', []); const P = w.document;
+  await go('#/goal', '.v2-exam-readiness');
+  ok($('.v2-exam-readiness') && $('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page', 'goal (v2): khung Stitch exam-readiness, tab Tôi đang chọn');
+  ok($('.v2-exam-readiness svg[role="img"]') && $('#start-drill-btn').getAttribute('data-href') === '#/mock' && !$$('.v2-exam-readiness [role="list"] > a').length, 'goal (v2): chưa có điểm thật → trạng thái trống mời thi thử (không bịa số), không ô kỹ năng');
+  ok(['gExam', 'gTarget', 'gDate', 'gSave'].every(i => P.getElementById(i)) && /Lập kế hoạch|Make plan|Set plan|plan/i.test($('#gSave').textContent) && $('#view h1'), 'goal (v2): form kỳ thi · điểm mục tiêu · ngày thi · lưu + tiêu đề h1 còn đủ');
+  const hrefs = new Set($$('#view a[href]').map(a => a.getAttribute('href')));
+  ok(['#/review', '#/listening', '#/reading', '#/write', '#/speaking', '#/grammar', '#/mock'].every(h => hrefs.has(h)), 'goal (v2): chỉ tiêu tuần (6 mục, bấm học ngay) + thi thử + cập nhật điểm còn đủ liên kết');
+  ok($$('#view .v2-exam-readiness span').some(x => /^Lần 1|Time 1|1:/.test(x.textContent)) || $$('#view .v2-exam-readiness span').some(x => /\d{1,4}/.test(x.textContent) && /\//.test(x.textContent)), 'goal (v2): lịch thi thử gợi ý + chỉ tiêu tuần x/y hiển thị');
+  ok(!!$('#view') && $('#gExam').options.length === 5, 'goal (v2): chọn đủ 5 kỳ thi');
+  await w.Core.Store.set('mocks', [{ overall: 6.5, bands: { listening: 7, reading: 7, writing: 6, speaking: 5.5 } }]);
+  await go('#/goal', '.v2-exam-readiness [role="list"] > a');
+  const sk = $$('.v2-exam-readiness [role="list"] > a');
+  ok(sk.length === 4 && sk.every(a => /^#\/skill\//.test(a.getAttribute('href')) && a.getAttribute('aria-label')), 'goal (v2): điểm thật từ thi thử → 4 ô kỹ năng (liên kết #/skill/…, nhãn đọc màn hình đủ trạng thái)');
+  ok($('#start-drill-btn').getAttribute('data-href') === '#/skill/speaking' && /5/.test($('#start-drill-btn').textContent), 'goal (v2): nút chính = luyện kỹ năng yếu nhất (Nói)');
+  ok(/6\.5/.test($('.v2-exam-readiness').textContent) && $$('.v2-exam-readiness svg path').length >= 2, 'goal (v2): vòng điểm hiện 6.5 + cung tiến độ');
+  P.getElementById('gDate').value = new Date(Date.now() + 60 * 864e5).toISOString().slice(0, 10); P.getElementById('gTarget').value = '8';
+  P.getElementById('gSave').click(); await tick(150);
+  ok(App.state.settings.goal && App.state.settings.goal.target === 8 && App.state.settings.examTarget === '8' && w.location.hash === '#/path', 'goal (v2): Lập kế hoạch lưu mục tiêu thật + chuyển vào lộ trình');
+  await go('#/goal', '.v2-exam-readiness');
+  ok(/Cập nhật kế hoạch|Update plan/.test($('#gSave').textContent) && $$('#view a').some(a => a.getAttribute('href') === '#/path'), 'goal (v2): đã có kế hoạch → nút Cập nhật + "Tiếp tục học lộ trình"');
+  const ex = P.getElementById('gExam'); ex.value = 'general'; ex.dispatchEvent(new w.Event('change')); await tick(30);
+  ok(P.getElementById('gTarget').tagName === 'SELECT' && /input/.test(P.getElementById('gDate').tagName.toLowerCase()), 'goal (v2): đổi sang CEFR → điểm mục tiêu thành ô chọn A1–C2');
+  delete App.state.settings.goal;
+}
+
 ok(['Ôn', 'Luyện', 'Giải đấu', 'Luyện thi', 'Bạn học để làm gì?'].every(k => fx[k] && Object.keys(fx[k]).length === 13), 'nhãn mới có bản dịch tay 13 ngôn ngữ (+ vi gốc, en)');
 ok(!consoleErr.length, '0 lỗi console' + (consoleErr.length ? ': ' + consoleErr.slice(0, 3).join(' | ') : ''));
 

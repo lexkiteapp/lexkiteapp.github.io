@@ -24,4 +24,7 @@
   "Khoảng cách": "Gap",
   "Trọng tâm:": "Focus:",
   "Đủ 4 kỹ năng": "All 4 skills",
+  "Dự báo tổng": "Overall projection",
+  "Tối thiểu": "Min",
+  "Tối đa": "Max",
 }); })(typeof self !== 'undefined' ? self : this);

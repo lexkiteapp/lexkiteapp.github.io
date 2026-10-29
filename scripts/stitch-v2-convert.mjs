@@ -78,7 +78,7 @@ function emit(root, bind, k) {
     // lặp có nhiều khuôn: variants {tên: bộ chọn mẫu}, pick = biểu thức chọn tên theo phần tử; các mẫu Stitch (samples) bị gỡ, chèn danh sách thật vào chỗ mẫu đầu
     for (const r of b.repeat || []) { const V = Object.entries(r.variants || { one: r.sel }).map(([n, sel]) => [n, QA(scope, sel)[0]]).filter(x => x[1]);
       if (!V.length) continue; const samples = r.samples ? QA(scope, r.samples) : V.map(x => x[1]), anchor = samples[0], T = {};
-      for (const [n, el] of V) { apply(el, (r.bind || {})[n] || r); T[n] = textify(el); }
+      for (const [n, el] of V) { const box = el.ownerDocument.createElement('div'); box.append(el.cloneNode(true)); apply(box.firstElementChild, (r.bind || {})[n] || r); T[n] = textify(box.firstElementChild); } // bản sao trong hộp: bind 'tag' trên :scope đổi thẻ vẫn lấy đúng HTML
       const names = Object.keys(T), body = names.length === 1 ? `\`${T[names[0]]}\`` : names.map((n, i) => i < names.length - 1 ? `_v === ${q(n)} ? \`${T[n]}\` : ` : `\`${T[n]}\``).join('');
       anchor.before(anchor.ownerDocument.createTextNode(mark(`(${r.list}).map((${r.as}, i) => { const _v = ${r.pick || "'one'"}; return ${body}; }).join('')`)));
       for (const x of new Set([...samples, ...V.map(v => v[1])])) x.remove(); }

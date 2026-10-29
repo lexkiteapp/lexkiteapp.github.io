@@ -30734,5 +30734,50 @@
     "ar": "مراجعات",
     "ru": "повторений",
     "tr": "tekrar"
+  },
+  "Dự báo tổng": {
+    "es": "Proyección general",
+    "pt": "Projeção geral",
+    "fr": "Projection globale",
+    "de": "Gesamtprognose",
+    "id": "Proyeksi total",
+    "th": "คาดการณ์รวม",
+    "zh": "总体预测",
+    "ja": "総合予測",
+    "ko": "종합 예측",
+    "hi": "कुल अनुमान",
+    "ar": "التوقع العام",
+    "ru": "Общий прогноз",
+    "tr": "Genel tahmin"
+  },
+  "Tối thiểu": {
+    "es": "Mín.",
+    "pt": "Mín.",
+    "fr": "Min.",
+    "de": "Min.",
+    "id": "Min",
+    "th": "ต่ำสุด",
+    "zh": "最低",
+    "ja": "最小",
+    "ko": "최소",
+    "hi": "न्यूनतम",
+    "ar": "الأدنى",
+    "ru": "Мин.",
+    "tr": "Min."
+  },
+  "Tối đa": {
+    "es": "Máx.",
+    "pt": "Máx.",
+    "fr": "Max.",
+    "de": "Max.",
+    "id": "Maks",
+    "th": "สูงสุด",
+    "zh": "最高",
+    "ja": "最大",
+    "ko": "최대",
+    "hi": "अधिकतम",
+    "ar": "الأقصى",
+    "ru": "Макс.",
+    "tr": "Maks."
   }
 }
