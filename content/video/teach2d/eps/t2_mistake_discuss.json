@@ -6,7 +6,7 @@
  "theme": "light",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 0.9,
+ "speed": 0.8,
  "area": "grammar-check",
  "lines": [
   {
@@ -93,7 +93,7 @@
  },
  "est": {
   "words": 65,
-  "seconds": 37.3,
-  "wpm": 104
+  "seconds": 40.9,
+  "wpm": 95
  }
 }

@@ -126,7 +126,7 @@ def make(row):
     assert who in REG['people'], ('teacher not in web/teach/characters.json', who)
     sp = T[t](row['in'])
     ep = dict(id=row['id'], template=t, series=SERIES[t], part=row.get('part', 1), theme=row['theme'], teacher=who,
-              voice=REG['people'][who]['voice']['video'], speed=row.get('speed', 0.9), area=sp['cta']['area'], **sp)
+              voice=REG['people'][who]['voice']['video'], speed=row.get('speed', 0.8), area=sp['cta']['area'], **sp)
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
     hk = ep['lines'][0]['text']

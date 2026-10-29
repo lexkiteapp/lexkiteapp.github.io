@@ -66,7 +66,7 @@ jobs:
         run: |
           E=content/video/teach2d/eps/${{ matrix.ep }}.json
           python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text']) for l in e['lines']]),open('lines.json','w'),indent=1)"
-          NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+          python3 scripts/video/tpl/pilot5_voice.py lines.json vo   # lines faster than ~15 chars/s are re-synthesised slower (news_voice.py, floor 0.7)
           n=$(ls vo/vis3/*.words.json | wc -l); echo "$n lines voiced"; [ "$n" -gt 5 ] || { echo "::error::no voice"; exit 1; }
       - uses: actions/upload-artifact@v4
         with: { name: 'tvo-${{ matrix.ep }}-${{ github.run_id }}', path: 'vo/vis3/', retention-days: 3 }

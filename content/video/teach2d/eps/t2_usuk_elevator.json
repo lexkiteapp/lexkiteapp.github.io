@@ -6,7 +6,7 @@
  "theme": "dark",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 0.9,
+ "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
@@ -82,7 +82,7 @@
  },
  "est": {
   "words": 64,
-  "seconds": 35.3,
-  "wpm": 109
+  "seconds": 38.8,
+  "wpm": 99
  }
 }

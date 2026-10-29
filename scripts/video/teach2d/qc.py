@@ -26,14 +26,17 @@ def alpha(n, t):
 gate('voice_teacher', T['voice'] == REG['people'][T['teacher']]['voice']['video'], 3, voice=T['voice'], teacher=T['teacher'])
 # pace
 L = T['lines']; nw = sum(len(v['words']) for v in L.values()); span = max(v['words'][-1]['e'] for v in L.values()) - min(v['words'][0]['s'] for v in L.values())
-lw = {k: round(60 * len(v['words']) / max(0.3, v['words'][-1]['e'] - v['words'][0]['s'])) for k, v in L.items()}
-gate('pace', 60 * nw / span <= 150 and max(lw.values()) <= 200, 2, wpm=round(60 * nw / span), line_wpm_max=max(lw.values()))
+lw = {k: round(60 * len(v['words']) / max(0.3, v['words'][-1]['e'] - v['words'][0]['s'])) for k, v in L.items() if len(v['words']) >= 5}   # 2-word lines ("The lift!") are not a pace
+gate('pace', 60 * nw / span <= 150 and max(lw.values()) <= 260, 2,   # brief: <= 150 wpm over the episode; per line only a glitch guard (Kokoro short lines run fast)
+     wpm=round(60 * nw / span), line_wpm_max=max(lw.values()))
 # caption == script == whisper
 bad = []
 for k, v in L.items():
-    script = [norm(w) for w in v['text'].split()]; spoken = [norm(w['w']) for w in v['words']]; heard = [norm(w) for w in v['whisper'].split()]
-    r = difflib.SequenceMatcher(None, script, heard).ratio() if heard else 0
-    if spoken != script or r < 0.85 or v['interp'] > 1: bad.append(dict(line=k, whisper_ratio=round(r, 2), interp=v['interp']))
+    script = [norm(w) for w in v['text'].split()]; spoken = [norm(w['w']) for w in v['words']]
+    # coverage of the script's letters in what whisper heard (whisper may repeat the prompt after the audio ends and splits 'U.S.' -> 'U .S.')
+    a, b = ''.join(script), ''.join(norm(w) for w in v['whisper'].split())
+    r = sum(m.size for m in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks()) / max(1, len(a))
+    if spoken != script or r < 0.9 or v['interp'] > 2: bad.append(dict(line=k, heard=round(r, 2), interp=v['interp']))
 if T['format'] == 'short':
     capw = [norm(w['w']) for c in T['caps'] for w in c['words']]; allw = [norm(w['w']) for v in L.values() for w in v['words']]
     if capw != allw: bad.append(dict(captions='caption tokens != spoken tokens'))

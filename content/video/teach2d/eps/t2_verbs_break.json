@@ -6,7 +6,7 @@
  "theme": "light",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 0.9,
+ "speed": 0.8,
  "area": "verbs",
  "lines": [
   {
@@ -82,7 +82,7 @@
  },
  "est": {
   "words": 62,
-  "seconds": 34.4,
-  "wpm": 108
+  "seconds": 37.8,
+  "wpm": 98
  }
 }
