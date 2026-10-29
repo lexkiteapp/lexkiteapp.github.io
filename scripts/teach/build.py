@@ -84,12 +84,14 @@ for who, P in R['people'].items():
              "[c][a]alphamerge,premultiply=inplace=1,format=rgba,split[p1][p2];[p1]format=rgb24[pm];[p2]alphaextract,format=gray,format=rgb24[ar];"
              f"[pm][ar]vstack=2,split[f][r];[r]reverse,trim=start_frame=1:end_frame={N - 1},setpts=N/({fps})/TB[b];[f][b]concat=n=2:v=1,setpts=N/({fps})/TB,format=yuv420p")
         o = f'{OUT}/{who}/{pose}.mp4'
-        run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g, '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow',
-            '-crf', str(F['crf']), '-tune', 'animation', '-movflags', '+faststart', o)
+        for q in range(F['crf'], F['crf'] + 5):   # vượt 240 KB → nén thêm từng nấc (≤ +4), giữ nguyên ngưỡng + độ dài clip
+            run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g, '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow',
+                '-crf', str(q), '-tune', 'animation', '-movflags', '+faststart', o)
+            if os.path.getsize(o) <= 240 * 1024: break
         got = probe(o, 'width,height,nb_read_frames')
         if got != f'{W},{H * 2},{2 * N - 2}': errs.append(f'{o}: {got} (cần {W},{H * 2},{2 * N - 2})')
         if os.path.getsize(o) > 240 * 1024: errs.append(f'{o}: {os.path.getsize(o) // 1024} KB > 240 KB')
-        print(f'  {pose:9s} {src}[{a}:{z}] {os.path.getsize(o) // 1024} KB')
+        print(f'  {pose:9s} {src}[{a}:{z}] {os.path.getsize(o) // 1024} KB crf {q}')
         # ảnh tĩnh từng tư thế @2× (khung tiêu biểu: 'still' trong registry, mặc định 40 % clip) – Chars.still / Chars.img({pose})
         still(cf, cm, c.get('still', a + N * 2 // 5), SC2, FA2, f'{OUT}/{who}/still-{pose}.webp')
         if pose in ('talk', 'listen'):   # clip HD cho chỗ lớn sống (Call): 2× điểm ảnh, ≤ 900 KB
