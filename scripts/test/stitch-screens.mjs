@@ -25,7 +25,7 @@ export const DRIVEN = /^(lesson|feedback|complete|story|call)/;
 export const DRIVE = async k => { const nz = v => String(v).trim().replace(/[.,!?;:]+$/, '').toLowerCase(), q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
   const pick = it => { const o = qa('.lsn-opts .lsn-opt').find(b => b.dataset.o === String(it.answer)); if (o) o.click(); return !!o; };
   if (k === 'story') { // nút Truyện của bản đồ thử (chỉ số 3 của chặng ux1): vào khung story-duo, câu thoại đầu đang phát (Ama nói, Carlos nghe)
-    localStorage.setItem('lk.lsn.path.demo', '3'); localStorage.removeItem('lk.lsn.s.story.demo'); await App.routes.lesson('go'); await w(1200); scrollTo(0, 0); return; }
+    localStorage.setItem('lk.lsn.path.demo', '3'); localStorage.removeItem('lk.lsn.s.story.demo'); await App.routes.lesson('go'); await w(1200); const g = q('#lsnGo'); if (g) { g.click(); await w(900); } /* 2 bong bóng như mẫu */ if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); return; }
   if (k === 'complete') { // bài thử: trả lời ĐÚNG mọi câu (chọn / xếp / gõ / ghép) tới khi hiện màn kết quả
     for (let n = 0; n < 40 && !q('.lsn-end'); n++) { const it = App._lsn && App._lsn.sess.cur; if (!it) break;
       if (q('#lsnGo')) { q('#lsnGo').click(); await w(300); continue; }
@@ -57,6 +57,6 @@ export const FINAL = [
   { stitch: 'exam-readiness', k: 'readiness', teacher: null }, { stitch: 'teacher-call', k: 'call', ready: '.tch', teacher: ['talk', 'listen'], speaks: true },
   { stitch: 'lesson-question', k: 'lesson', ready: '.lsn-opts .lsn-opt', teacher: ['listen', 'talk'], speaks: true }, { stitch: 'feedback-correct', k: 'feedback', ready: '.lsn-fv2.ok', teacher: ['cheer'], sfx: ['correct'] },
   { stitch: 'feedback-wrong', k: 'feedback-wrong', ready: '.lsn-fv2.bad', teacher: ['concern'], sfx: ['wrong'] }, { stitch: 'lesson-complete', k: 'complete', ready: '.lsn-end', teacher: ['cheer'], sfx: ['win'] },
-  { stitch: 'story-duo', k: 'story', ready: '.lsn-duo2', teacher: ['talk', 'listen'], duo: true, speaks: true },
+  { stitch: 'story-duo', k: 'story', ready: '.lsn-duo2 ~ * #lsnChat > *:nth-child(2), .lsn-duo2 + * #lsnChat > *:nth-child(2), #lsnChat > *:nth-child(2)', teacher: ['talk', 'listen'], duo: true, speaks: true },
 ];
 export const READY = Object.fromEntries(FINAL.filter(f => f.k && f.ready).map(f => [f.k, f.ready]));
