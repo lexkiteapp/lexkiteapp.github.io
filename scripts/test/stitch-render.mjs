@@ -85,5 +85,5 @@ const cell = (s, m) => done[`${s}-${m}`] || (() => { const o = path.join(OUT, 'p
 for (const [i, part] of [ORDER.slice(0, 7), ORDER.slice(7)].entries()) {
   const tiles = [...part.map(s => cell(s, 'dark')), ...part.map(s => cell(s, 'light'))];
   execFileSync('montage', [...tiles, '-tile', `${part.length}x2`, '-geometry', '195x+8+8', '-gravity', 'north', '-background', '#e9eef0',
-    '-title', `Stitch v2 (HTML tĩnh 390 px) · trên: tối · dưới: sáng · tờ ${i + 1}/2`, '-pointsize', '20', path.join(OUT, `sheet-${i + 1}.png`)]); }
+    '-title', `Stitch v2.1 (HTML tĩnh 390 px) · trên: tối · dưới: sáng · tờ ${i + 1}/2`, '-pointsize', '20', path.join(OUT, `sheet-${i + 1}.png`)]); }
 console.log(`stitch-render: ${Object.keys(done).length} màn → ${OUT}/png, tờ ${OUT}/sheet-1.png, sheet-2.png`);
