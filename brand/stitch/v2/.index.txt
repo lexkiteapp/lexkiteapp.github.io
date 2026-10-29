@@ -5,7 +5,7 @@ leagues-dark 25816bdfb2684ccbb90dc3beb68a4887    27532
 feedback-wrong-light eef43e22957d4be691418d9fb73a101a    13371
 streak-dark eabf361c52ba4e5b9266d16ada883ff4    20309
 exam-readiness-light 147ad9aaa44f4ec682120fba351c1b9a    19695
-practice-dark a2953fd1310e4b7b84a80ca311cad030    18581
+practice-dark a89055f190d6430893e3349587562558 (Lexkite v2 Dark — Practice, màu-only từ bản sáng; cũ: _old/)
 me-light 4213115585124105aba6f559c5c2c5e1    19612
 path-light 0ddd46e33baa41f6975cfc7b1cb18ced    18195
 path-dark 7770cc91ff0c47378ce5d65552e3e92c    20491
