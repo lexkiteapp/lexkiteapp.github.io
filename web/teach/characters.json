@@ -121,26 +121,25 @@
           "src": "gc10_laugh"
         },
         "wave": {
-          "src": "gc10_wave",
-          "pending": "gc10_wave đã tạo, matte PRO chưa qua cổng"
+          "src": "gc10_wave"
         },
         "cheer": {
-          "src": "gc10_cheer"
+          "src": "gc10_cheer_b"
         },
         "concern": {
           "src": "gc10_concern",
-          "pending": "miệng Carlos tự nhe răng – cần khung đầu môi khép"
+          "pending": "7/7 clip Kling mở miệng – cần cách khác (chủ quyết)"
         },
         "surprise": {
           "src": "gc10_surprise"
         },
         "point": {
           "src": "gc10_point",
-          "pending": "chưa tạo (hết ngân sách)"
+          "pending": "2 lần sai hướng tay – dừng (CREDIT-RULES)"
         },
         "empathy": {
           "src": "gc10_empathy",
-          "pending": "chưa tạo (hết ngân sách)"
+          "pending": "clip có, miệng nhe răng ~2,5 s + matte PRO chưa đạt – chờ chủ quyết"
         }
       }
     }
