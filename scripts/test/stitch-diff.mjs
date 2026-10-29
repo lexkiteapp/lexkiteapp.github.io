@@ -42,7 +42,8 @@ const DRIVE = async k => { const q = s => document.querySelector(s), qa = s => [
 //   Bỏ: sr-only, phần tử bị che (elementFromPoint), nút disabled (WCAG miễn), phần câu hỏi lùi sau tấm phản hồi (.st-dim).
 const CSCAN = () => { const out = [];
   for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) {
-    const icon = e.classList.contains('material-symbols-outlined'); if (!icon && ![...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
+    const icon = e.classList.contains('material-symbols-outlined') || e.classList.contains('material-symbols-rounded'); if (!icon && ![...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
+    if (!icon && /^[\p{Extended_Pictographic}\u200d\ufe0f\s]+$/u.test(e.textContent)) continue; // chỉ emoji = ảnh nhiều màu, không dùng màu chữ CSS → đo màu chữ là sai (chữ/icon khác vẫn đo đủ)
     if (e.closest('.sr-only,[disabled],[aria-disabled="true"],[hidden],.brand,.wordmark') || (e.closest('.st-dim') && !e.closest('.lsn-foot'))) continue;
     const cs = getComputedStyle(e); if (cs.visibility === 'hidden') continue;
     let op = 1; for (let q = e; q && q.nodeType === 1; q = q.parentElement) op *= +getComputedStyle(q).opacity; if (op < 0.05) continue;

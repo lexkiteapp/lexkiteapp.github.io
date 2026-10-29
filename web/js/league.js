@@ -11,12 +11,12 @@
   const view = App.view;
 
   const TIERS = [
-    { id: 0, name: () => t('Hạng Đồng'), en: 'Bronze', ic: '🥉', color: '#92541a', bg: 'rgba(205,127,50,.14)' },
-    { id: 1, name: () => t('Hạng Bạc'), en: 'Silver', ic: '🥈', color: '#475569', bg: 'rgba(148,163,184,.14)' },
-    { id: 2, name: () => t('Hạng Vàng'), en: 'Gold', ic: '🥇', color: '#b45309', bg: 'rgba(245,158,11,.16)' },
-    { id: 3, name: () => t('Hạng Ngọc bích'), en: 'Emerald', ic: '❇️', color: '#047857', bg: 'rgba(16,185,129,.16)' },
-    { id: 4, name: () => t('Hạng Hồng ngọc'), en: 'Ruby', ic: '♦️', color: '#be123c', bg: 'rgba(244,63,94,.16)' },
-    { id: 5, name: () => t('Hạng Kim cương'), en: 'Diamond', ic: '💎', color: '#0e7490', bg: 'rgba(6,182,212,.18)' }
+    { id: 0, name: () => t('Hạng Đồng'), en: 'Bronze', ic: '🥉', color: '#cd7f32', bg: 'rgba(205,127,50,.14)' },
+    { id: 1, name: () => t('Hạng Bạc'), en: 'Silver', ic: '🥈', color: '#94a3b8', bg: 'rgba(148,163,184,.14)' },
+    { id: 2, name: () => t('Hạng Vàng'), en: 'Gold', ic: '🥇', color: '#f59e0b', bg: 'rgba(245,158,11,.16)' },
+    { id: 3, name: () => t('Hạng Ngọc bích'), en: 'Emerald', ic: '❇️', color: '#10b981', bg: 'rgba(16,185,129,.16)' },
+    { id: 4, name: () => t('Hạng Hồng ngọc'), en: 'Ruby', ic: '♦️', color: '#f43f5e', bg: 'rgba(244,63,94,.16)' },
+    { id: 5, name: () => t('Hạng Kim cương'), en: 'Diamond', ic: '💎', color: '#06b6d4', bg: 'rgba(6,182,212,.18)' }
   ];
 
   function getTier(id) {
