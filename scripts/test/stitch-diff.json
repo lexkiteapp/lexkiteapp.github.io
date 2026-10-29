@@ -10,7 +10,7 @@
  },
  "feedback-dark": {
   "ssim": 0.176,
-  "rows": -0.058
+  "rows": -0.073
  },
  "readiness-dark": {
   "ssim": 0.188,
