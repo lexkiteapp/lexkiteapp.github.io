@@ -66,6 +66,9 @@ export const SENSITIVE = /\b(muslims?|islam(ic|ists?)?|jews?|jewish|christians?|
 export const ADULT = /\b(virgins?|virginity|sex|sexual(ly)?|sexy|intercourse|naked|nude|porn\w*|erotic|condoms?|prostitut\w*|orgasm\w*)\b/i;
 // ví dụ phải là CÂU hoàn chỉnh (pilot 20261028: ballet "a classically-trained ballet dancer" – cụm danh từ, không phải câu)
 export const isSentence = x => /^["'“‘(]?[A-Z0-9]/.test(String(x || '').trim()) && /[.!?]["'”’)]?$/.test(String(x || '').trim());
+/** biến tố của từ (không phái sinh): s/es/ed/d/ing/er/est, y→ies/ied, e câm, phụ âm đôi; bất quy tắc qua 4 chữ đầu chỉ khi từ ≥ 5 chữ và đuôi ngắn (forsook) */
+export function inflRe(w) { const b = String(w).toLowerCase().replace(/[^a-z-]/g, ''), st = b.replace(/e$/, ''), y = b.replace(/y$/, ''), dbl = b + b.slice(-1);
+  return new RegExp(`\\b(${b}(s|es|d|ed|ing|er|est)?|${st}(ed|ing|er|est)|${y}(ies|ied|ier|iest)|${dbl}(ed|ing|er|est))\\b`, 'i'); }
 // ---- "RA LÀ OK" (29/10): trắc nghiệm nghĩa 3 giám khảo (lxwsd) – một luật cho mọi trường (docs/LEXICON.md §Mở rộng 20k)
 /** probe đạt khi CẢ 3 giám khảo (khác họ) chọn đúng số nghĩa khoá (1-based); thiếu phiếu = không đạt */
 export const wsdOk = (votes, lock) => Array.isArray(votes) && votes.length >= 3 && votes.every(v => Number(v) === lock);

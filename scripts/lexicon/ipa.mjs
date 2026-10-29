@@ -100,6 +100,9 @@ export function arpaToIpa(phones, si) {
   // u ngắn chỉ khi đứng trước nguyên âm (ˈæktʃuəli); còn lại uː (ˈvæljuː, ˈkloʊkruːm)
   seg.forEach((x, i) => { if (x.a === 'UW' && x.st === 0) x.s = seg[i + 1] && seg[i + 1].v ? 'u' : 'uː'; });
   let out = seg.map((x, i) => marks[i] + x.s).join('');
+  // ER không nhấn đứng NGAY trước nguyên âm nhấn: /r/ là phụ âm đầu của âm tiết nhấn (soát pilot 29/10: liberation /ˌlɪbəˈreɪʃn/, arithmetic /əˈrɪθmətɪk/,
+  // không phải /ˌlɪbɜːrˈeɪʃn/, /ərˈɪθmətɪk/)
+  out = out.replace(/(ɜː|ə)r([ˈˌ])(?=[aeiouæɑɒɔəɛɪʊʌɜ])/g, 'ə$2r');
   // phụ âm thành âm tiết cuối từ: ˈbɑːtl, ˈlɪsn
   out = out.replace(new RegExp(`([${CONS}])əl$`), '$1l').replace(/([tdszʃʒ])ən$/, '$1n');
   return out;

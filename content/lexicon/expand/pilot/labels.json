@@ -331,8 +331,8 @@
    "k": "rhinoceros#n",
    "cls": "L7",
    "field": "def",
-   "bad": "‑|odd.toed",
-   "note": "soát Sonnet pilot 2 29/10 11:36",
+   "bad": "odd.toed|massive.powerful",
+   "note": "soát Sonnet pilot 2 29/10 11:36 (sửa mẫu: \"plant‑eating\" là cụm tự nhiên, không phải lỗi)",
    "re": true
   },
   {
@@ -444,6 +444,96 @@
    "field": "m.fr",
    "bad": "corbeau",
    "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "peel#v",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "gọt",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "demography#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "demographers",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "moonlight#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "smuggler",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "liberation#n",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/ˌlɪbɜːrˈeɪʃn/",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "arithmetic#n",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/ərˈɪθmətɪk/",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "diarrhea#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "tumou?r",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "thigh#n",
+   "cls": "L6",
+   "field": "ex",
+   "bad": "hand on (my|her|his) thigh",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "seawater#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "^water that has salts? dissolved in it$",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "adsorption#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "^.{0,40}gas molecules",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "rifle#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "rifled bore",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "cassette#n",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "hộp băng",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "bracelet#n",
+   "cls": "D1",
+   "field": "m.ja",
+   "bad": "腕輪",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
   }
  ],
  "good": [

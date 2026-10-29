@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, posShapeOk, omwHas, trIn } from '../lexicon/expand/lib.mjs';
+import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
@@ -164,6 +164,12 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
 }
 // L3 gốc (29/10): job.mjs phải LƯU nghĩa Wiktionary (g1) – trước đó KK chỉ giữ exs/trg nên khoá nghĩa theo Wiktionary chưa từng chạy
 { const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'); ok(/KK\[e\.w \+ '#' \+ e\.pos\] = \{[^}]*g1: k\.g1/.test(J) && /lockSense\(/.test(J) && /mode: 'lxwsd'/.test(J), 'job.mjs: lưu g1 + khoá nghĩa + trắc nghiệm nghĩa'); }
+// soát pilot 3 (29/10, LÕI 12/50): ví dụ chỉ chứa từ phái sinh (demography – "demographers"); IPA Mỹ ER0 trước nguyên âm nhấn (liberation, arithmetic);
+// def bám gloss WordNet thô (seawater, rifle) → lxdef/lxsrc nhận định nghĩa Wiktionary của ĐÚNG nghĩa khoá (wk)
+ok(!inflRe('demography').test('the demographers met') && inflRe('demography').test('Demography matters.') && inflRe('stop').test('stopped') && inflRe('bake').test('baking') && inflRe('happy').test('happier') && inflRe('peel').test('peels'), 'ví dụ: chỉ biến tố, không phái sinh');
+ok(arpaToIpa('L IH2 B ER0 EY1 SH AH0 N') === 'ˌlɪbəˈreɪʃn' && arpaToIpa('ER0 IH1 TH M AH0 T IH0 K') === 'əˈrɪθmətɪk' && arpaToIpa('P ER0 M IH1 T') === 'pərˈmɪt', 'IPA Mỹ: /r/ của ER0 làm âm đầu âm tiết nhấn kế tiếp');
+{ const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), P = fs.readFileSync(path.join(ROOT, 'functions/api/lexai.js'), 'utf8');
+  ok(/e\._wk = /.test(J) && /wk: e\._wk/.test(J) && /use "wk" as the main model/.test(P) && /\.\.\.\(x\.wk \? \{ wk: cut\(x\.wk/.test(P), 'def: định nghĩa Wiktionary của nghĩa khoá vào lxdef/lxsrc'); }
 if (fail) { console.error(`✗ lexicon-expand: ${fail} lỗi`); process.exit(1); }
 console.log(`✓ lexicon-expand: cổng mục + dịch ngược + ${Object.keys(REG.consumers).length} việc hạ nguồn · ${pub.length} mục đã xuất`);
 

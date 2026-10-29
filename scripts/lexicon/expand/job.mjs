@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viNorm, omwHas, trIn } from './lib.mjs';
+import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viNorm, omwHas, trIn } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -107,8 +107,8 @@ if (DRY) for (const e of pool) e._lock = 'dry'; else { const req = [];
     const L = senseList(e), got = lockSense(v.wk1, v.wk2, lockIdx(e), L.length);
     if (!got) { e._lock = false; e._lockVotes = v; stat.lock.fail++; continue; }
     const t = L[got.idx - 1]; if (t.syn !== e.syn) { Object.assign(e, { syn: t.syn, gloss: t.gloss, lemmas: t.lemmas, wnex: t.wnex, syns: t.syns, lex: t.lex }); stat.resense++; }
-    e._lock = got.by; stat.lock[got.by]++; } }
-const items = pool.map((e, i) => ({ k: e.w + '#' + e.pos, w: e.w, pos: e.pos, gloss: e.gloss, lemmas: e.lemmas || [], wnex: e.wnex || [], cefr: e.cefr, lex: e.lex, topics: TOPIC_CHOICES, _c: e, _ipa: ipa[i] }));
+    e._lock = got.by; stat.lock[got.by]++; e._wk = (KK[r.k].g1 || [])[got.by === 'wiktionary-2+semcor' ? 1 : 0] || ''; } } // e._wk: định nghĩa Wiktionary CỦA ĐÚNG nghĩa khoá (3 giám khảo đã xác nhận)
+const items = pool.map((e, i) => ({ k: e.w + '#' + e.pos, w: e.w, pos: e.pos, gloss: e.gloss, ...(e._wk ? { wk: e._wk } : {}), lemmas: e.lemmas || [], wnex: e.wnex || [], cefr: e.cefr, lex: e.lex, topics: TOPIC_CHOICES, _c: e, _ipa: ipa[i] }));
 const locked = x => !!x._c._lock;
 // ---- SOURCE-FIRST (24/10, pilot 8 soát 50 → ~10 sai): mỗi trường lấy từ NGUỒN NGƯỜI VIẾT, AI chỉ viết lại gloss + chấm + lấp chỗ trống.
 //   nghĩa/def: WordNet (SemCor) → lxdef viết lại ≤ B1 (cấm đổi nghĩa) → lxsrc 2 giám khảo: def ≡ gloss
@@ -128,7 +128,7 @@ const SY = {}; if (!DRY) { const tmp = (process.env.RUNNER_TEMP || process.env.T
   fs.writeFileSync(tmp + '.in.json', JSON.stringify(items.filter(locked).map(x => ({ k: x.k, w: x.w, pos: x.pos, syn: x._c.syn, wnex: x.wnex }))));
   try { console.log(execFileSync('python3', [fileURLToPath(new URL('synset.py', import.meta.url)), '--in', tmp + '.in.json', '--out', tmp + '.out.json'], { encoding: 'utf8', maxBuffer: 1 << 26 }).trim()); Object.assign(SY, JSON.parse(fs.readFileSync(tmp + '.out.json', 'utf8'))); }
   catch (e) { console.error('✗ synset.py', String(e.stderr || e.message).slice(-400)); } }
-const formRe = w => new RegExp('\\b' + w.replace(/[^a-z-]/g, '').slice(0, Math.max(3, Math.min(w.length, w.length - 1))) + '[a-z]*\\b', 'i');
+const formRe = w => inflRe(w); // CHỈ biến tố của từ (soát pilot 3: demography – câu chỉ có "demographers")
 if (DRY) { console.log(JSON.stringify(items.slice(0, 3).map(x => ({ ...strip(x), tat: EXT[x.k], wk: KK[x.k] }))), stat); process.exit(0); }
 // pilot 9: giám khảo B (họ khác – Llama CF) hay nghỉ 1 phút → 35/36 lô lxsrc bỏ qua. Chờ và hỏi lại CHỈ giám khảo B (vẫn bắt buộc khác họ A), tối đa 5 lần.
 async function pairWait(req) { let { a, b } = await AI.judgePair(req);
@@ -143,12 +143,13 @@ await pmap(chunks(items.filter(locked), 10), 8, async ch => { const r = await ca
 // 2. ứng viên người viết + giám khảo nguồn (2 họ)
 for (const x of items) { const k = KK[x.k] || {}, re = formRe(x.w);
   const GW = CW(x.gloss + ' ' + x.lemmas.join(' ')), wk = (k.exs || []).filter(e => re.test(e.t) && ov(CW(e.g), GW) >= 1).slice(0, 3).map(e => ({ t: e.t, src: 'wiktionary' })), tt = ((EXT[x.k] || {}).ex || []).map(e => ({ t: e.t, src: 'tatoeba:' + e.id }));
-  const wx = ((SY[x.k] || {}).wx || []).filter(t => re.test(t)).map(t => ({ t, src: 'wordnet:' + x._c.syn })); // ví dụ của CHÍNH synset trước (lớp L2)
-  x._cand = [...wx, ...tt.slice(0, 8 - wk.length - wx.length), ...wk]; x._cols = [...new Set([...(x._c.comp || []), ...((EXT[x.k] || {}).col || [])])].slice(0, 8); x._trg = k.trg || []; }
+  const wx = ((SY[x.k] || {}).wx || []).filter(t => re.test(t)).map(t => ({ t, src: 'wordnet:' + x._c.syn })); // ví dụ của CHÍNH synset (lớp L2)
+  // ví dụ WordNet xếp CUỐI (soát pilot 3: moonlight "…the smuggler's enemy", despair – câu châm ngôn/trích dẫn)
+  x._cand = [...tt.slice(0, 8 - wk.length - wx.length), ...wk, ...wx]; x._cols = [...new Set([...(x._c.comp || []), ...((EXT[x.k] || {}).col || [])])].slice(0, 8); x._trg = k.trg || []; }
 const live = items.filter(x => D[x.k] && D[x.k].keep !== false && D[x.k].def);
 async function srcPass(list) {
 await pmap(chunks(list, 10), 6, async ch => {
-  const req = { mode: 'lxsrc', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, cand: x._cand.map(c => c.t), cols: x._cols, ts: x._trg.map(g => g.g) })) };
+  const req = { mode: 'lxsrc', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, ...(x.wk ? { wk: x.wk } : {}), lemmas: x.lemmas, def: D[x.k].def, cand: x._cand.map(c => c.t), cols: x._cols, ts: x._trg.map(g => g.g) })) };
   const { a, b, c } = await pairWait(req);
   if (!a || !b || !c) return; for (const x of ch) if (a.out[x.k] && b.out[x.k] && c.out[x.k]) S[x.k] = { a: a.out[x.k], b: b.out[x.k], c: c.out[x.k] }; });
 for (const x of list) { const s = S[x.k]; if (!s) continue;
@@ -203,7 +204,7 @@ for (const x of okDef) { const P = {}, X1 = X[x.k], om = (SY[x.k] || {}).omw || 
   probe[x.k] = P; }
 const W1 = await wsd3(okDef.map(x => ({ k: x.k, w: x.w, pos: x.pos, senses: sensesTxt(x._c), probes: probe[x.k] })));
 const bagOf = t => new Set(t.toLowerCase().match(/[a-z']+/g) || []), dup = (p, c) => { const b = bagOf(c.t), q = bagOf(p.t); return [...b].filter(y => q.has(y)).length / new Set([...b, ...q]).size >= 0.5; };
-function pickEx(X1, cands) { for (const c of cands.filter(c => c.ok).sort((p, q) => (/^wordnet/.test(q.src) - /^wordnet/.test(p.src)) || p.t.split(' ').length - q.t.split(' ').length)) if (X1.ex.length < 2 && !X1.ex.some(p => dup(p, c))) X1.ex.push(c); }
+function pickEx(X1, cands) { for (const c of cands.filter(c => c.ok).sort((p, q) => (/^wordnet/.test(p.src) - /^wordnet/.test(q.src)) || p.t.split(' ').length - q.t.split(' ').length)) if (X1.ex.length < 2 && !X1.ex.some(p => dup(p, c))) X1.ex.push(c); }
 for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (!v) { X1.wsdInfra = true; continue; }
   const ok = id => { const r = wsdOk(v[id], L); if (r) stat.wsd.ok++; return r; };
   pickEx(X1, X1.exAll.slice(0, 6).map((c, i) => ({ ...c, ok: ok('ex' + i) })));
@@ -211,7 +212,7 @@ for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (
   X1.viOkSet = new Set([...viOk.map(c => c.v), ...X1.viW.filter((w, i) => ok('vw' + i))]);
   // vi chỉ AI (2 họ trùng, không Wiktionary): phải có trong từ điển tiếng Việt (Viet74K ∪ vi kho) – như cũ
   // vi PHẢI có nguồn người viết (Wiktionary) + ≥ 1 AI (soát pilot 2 29/10: vi chỉ AI đồng thuận – expel "trục xuất", congregate "tập trung" – sai nghĩa)
-  const viKeep = viOk.filter(c => c.src.includes('wk'));
+  const viKeep = viOk.filter(c => c.src.includes('wk')).sort((p, q) => q.src.length - p.src.length); // nhiều nguồn trùng nhất đứng đầu (soát pilot 3: cassette "hộp băng" trước "băng cát-sét")
   X1.m = {}; X1.trSrc = {}; X1.wsdTr = {};
   if (viKeep.length) { X1.m.vi = viKeep.map(c => c.v).join('; '); X1.trSrc.vi = viKeep.some(c => c.src.includes('wk')) ? 'wiktionary' : 'ai'; X1.viSrc = viKeep[0].src; }
   else X1.viFail = X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
