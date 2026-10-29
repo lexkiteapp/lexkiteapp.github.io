@@ -7,11 +7,12 @@ Cập nhật: 29/10/2026.
 
 Phương pháp chung cho mọi pipeline nội dung: `docs/QUALITY-PIPELINE.md` (pilot mẫu khó trên nhánh → đạt mới hàng loạt).
 
-## Ảnh từ vựng (`vocab-img-scene`) – TẠM DỪNG nhường kho CF cho pilot kho từ (29/10 05:15 UTC)
-- Vẽ `flux-2-klein-4b` qua kho CF_POOL (121 tài khoản, 10k neuron / 24 giờ TRƯỢT mỗi tài khoản, ~110 neuron/ảnh). Cơ chế + bài học: `docs/VOCAB-IMG-STYLE.md` §11; phương pháp: `docs/QUALITY-PIPELINE.md`.
-- Đang tắt: biến repo `VIMG_SCHEDULE=0`, `VIMG_CHAIN=0`; tác vụ hẹn giờ "vimg-e4-pilot-merge" đã disable. Bật lại khi phiên kho từ nhắn "xong pilot": `VIMG_SCHEDULE=1`, `VIMG_CHAIN=1`, bật lại tác vụ (đặt fireAt mới khi probe ≥ 40 tài khoản).
-- Nhánh `vimg-e4` (9d32c35, CHƯA gộp): thẻ cảnh e4 (câu cảnh ≤ 20 từ `ps` + câu hỏi `check` + `draw` ≥ 4), prompt ngắn, giám khảo chấm câu cảnh + kiểm nghĩa 2 mô hình. Pilot 40 nghĩa khó (trước 0 %): ~30 %/ảnh, 11/13 đúng nghĩa. Đo lại sạch rồi gộp nếu ≥ 15 %/ảnh và sai ≤ 1/20.
-- Số liệu: 1.240 ảnh (29/10 00:07 UTC); main hiện ~200–350 ảnh/ngày (prompt e3 đạt 2–7 %). Chỉ mục app v3 = 64 mảnh `web/js/vimg/` (tải theo từ).
+## Ảnh từ vựng (`vocab-img-scene`) – e4 trên main, chạy tự động (29/10)
+- Vẽ `flux-2-klein-4b` qua CF_POOL (10k neuron / 24 giờ TRƯỢT mỗi tài khoản). Cơ chế + bài học: `docs/VOCAB-IMG-STYLE.md` §11; phương pháp: `docs/QUALITY-PIPELINE.md`.
+- e4 đã gộp (pilot 40 nghĩa khó run 40865517506: 15/60 ảnh = 25 %, 11 nhận, sai nghĩa 1 = general#adj vì câu kiểm chỉ tả cảnh). Sửa thêm abb23df6: viết thẻ song song + hạn 35 phút, chỉ vẽ nghĩa có thẻ e4, `cardWins` lưu thẻ e4.
+- Fill e4 đầu (run 40897839512): 272 nhận / 1.826 vẽ = 14,9 %/ảnh (e3: 2–7 %). Kho: 1.564 ảnh, 1.431/3.290 thẻ e4.
+- Phiên kho từ TỰ đặt `VIMG_SCHEDULE`/`VIMG_CHAIN` = 0 quanh mỗi pilot, xong đặt lại 1. Probe tự kích fill khi phần vẽ ≥ 15 tài khoản.
+- Còn ngỏ: câu `check` của thẻ đôi khi chỉ lặp câu cảnh, không hỏi nghĩa (general#adj) → giám khảo nghĩa qua oan; theo dõi tỉ lệ sai trong tờ ảnh.
 
 ## Kho từ 20k (`lexicon-expand`) – cổng THEO TRƯỜNG, đang pilot
 - Kho vẫn 8.230 nghĩa. Mục xuất khi LÕI (def/ví dụ/IPA/CEFR + vi, 3 giám khảo) sai ≤ 1/50; 12 ngôn ngữ khác chỉ giữ khi Wiktionary khớp nghĩa + 3 giám khảo ≥ 4 + dịch ngược + từ có thật (ca744dd). IPA: `ipa-check.mjs` trong job + promote (Britfone/CMU).
