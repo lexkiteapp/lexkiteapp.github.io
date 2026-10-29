@@ -1,27 +1,107 @@
 {
- "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit.",
- "home-dark": {
-  "ssim": 0.294,
-  "rows": -0.099
+ "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 992786fa1 − 0,01.",
+ "call-dark": {
+  "ssim": 0.477,
+  "rows": -0.049
  },
- "lesson-dark": {
-  "ssim": 0.109,
-  "rows": 0.118
+ "call-light": {
+  "ssim": 0.467,
+  "rows": -0.102
+ },
+ "complete-dark": {
+  "ssim": 0.32,
+  "rows": 0.267
+ },
+ "complete-light": {
+  "ssim": 0.329,
+  "rows": 0.321
  },
  "feedback-dark": {
-  "ssim": 0.176,
-  "rows": -0.073
- },
- "readiness-dark": {
-  "ssim": 0.188,
-  "rows": 0.003
- },
- "home-light": {
-  "ssim": 0.376,
-  "rows": 0.286
+  "ssim": 0.251,
+  "rows": -0.084
  },
  "feedback-light": {
-  "ssim": 0.132,
-  "rows": -0.169
+  "ssim": 0.244,
+  "rows": 0.107
+ },
+ "feedback-wrong-dark": {
+  "ssim": 0.215,
+  "rows": 0.084
+ },
+ "feedback-wrong-light": {
+  "ssim": 0.175,
+  "rows": 0.07
+ },
+ "home-dark": {
+  "ssim": 0.464,
+  "rows": 0.298
+ },
+ "home-light": {
+  "ssim": 0.528,
+  "rows": 0.453
+ },
+ "leagues-dark": {
+  "ssim": 0.41,
+  "rows": 0.658
+ },
+ "leagues-light": {
+  "ssim": 0.324,
+  "rows": 0.435
+ },
+ "lesson-dark": {
+  "ssim": 0.185,
+  "rows": -0.004
+ },
+ "lesson-light": {
+  "ssim": 0.193,
+  "rows": 0.129
+ },
+ "me-dark": {
+  "ssim": 0.389,
+  "rows": 0.334
+ },
+ "me-light": {
+  "ssim": 0.342,
+  "rows": 0.484
+ },
+ "practice-dark": {
+  "ssim": 0.278,
+  "rows": 0.063
+ },
+ "practice-light": {
+  "ssim": 0.22,
+  "rows": 0.115
+ },
+ "readiness-dark": {
+  "ssim": 0.558,
+  "rows": 0.509
+ },
+ "readiness-light": {
+  "ssim": 0.58,
+  "rows": 0.681
+ },
+ "review-dark": {
+  "ssim": 0.5,
+  "rows": 0.542
+ },
+ "review-light": {
+  "ssim": 0.479,
+  "rows": 0.505
+ },
+ "story-dark": {
+  "ssim": 0.209,
+  "rows": -0.072
+ },
+ "story-light": {
+  "ssim": 0.221,
+  "rows": 0.02
+ },
+ "streak-dark": {
+  "ssim": 0.477,
+  "rows": 0.609
+ },
+ "streak-light": {
+  "ssim": 0.442,
+  "rows": 0.487
  }
 }
