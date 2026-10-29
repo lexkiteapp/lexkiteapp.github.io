@@ -15,7 +15,7 @@
   const v2On = () => !!(window.ST2 && window.ST2['teacher-call'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
   const CHIP = 'w-full min-h-[44px] px-3.5 py-2 rounded-[0.75rem] text-start text-[14px] leading-[20px] font-[600] transition-transform active:translate-y-0.5 lt:bg-[#f2f4f3] lt:text-[#0D6964] dk:[background-color:rgba(43,_163,_154,_0.15)] dk:[border:1px_solid_rgba(43,_163,_154,_0.3)] dk:text-[#EEF6F7]';
   // Mia (trang cũ) → Carlos (v2): ảnh/tên qua Chars; câu dịch giữ "Mia" Latin ở mọi ngôn ngữ nên thay thẳng tên
-  const nm = () => (v2On() ? Chars.name(WHO) : 'Mia'), M = x => x.replace('Mia', nm());
+  const nm = () => (v2On() ? Chars.name(WHO) : 'Mia'), M = x => x.split('Mia').join(nm()); // mọi bản dịch giữ tên Latin 'Mia' → thay hết bằng tên giáo viên Chars
   const face = (sz, st) => (v2On() ? Chars.img(WHO, { size: sz, alt: '', cls: 'call-face' }) : `<img src="${MIA}" alt="${st ? 'Mia' : ''}" width="${sz}" height="${sz}" ${st || 'loading="lazy"'}>`);
   const TIP_FIX = (bad, good, why) => `<span lang="en"><s>${esc(bad)}</s> → <b>${esc(good)}</b></span> <span class="block lt:text-[#4E5F62] dk:text-[#9DB5BA]">${esc(why)}</span>`;
   const NAME = { coffee: () => t('Mua cà phê cho cả nhóm'), weekend: () => t('Kể chuyện cuối tuần'), 'first-day': () => t('Ngày đầu đi làm ở Mỹ'), standup: () => t('Họp đầu ngày (stand-up)'), doctor: () => t('Đặt lịch khám bác sĩ'), apartment: () => t('Gọi hỏi thuê căn hộ') };
