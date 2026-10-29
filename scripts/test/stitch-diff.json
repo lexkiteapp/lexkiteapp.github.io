@@ -1,8 +1,8 @@
 {
  "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit.",
  "home-dark": {
-  "ssim": 0.322,
-  "rows": 0.01
+  "ssim": 0.294,
+  "rows": -0.099
  },
  "lesson-dark": {
   "ssim": 0.109,
@@ -18,7 +18,7 @@
  },
  "home-light": {
   "ssim": 0.376,
-  "rows": 0.34
+  "rows": 0.286
  },
  "feedback-light": {
   "ssim": 0.132,

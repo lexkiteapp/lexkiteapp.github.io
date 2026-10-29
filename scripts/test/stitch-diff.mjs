@@ -38,8 +38,8 @@ const CSCAN = () => { const out = [];
     const h = document.elementFromPoint(Math.min(innerWidth - 1, r.left + r.width / 2), Math.min(innerHeight - 1, Math.max(0, r.top + r.height / 2))); if (h && !(e.contains(h) || h.contains(e))) continue;
     const fs = parseFloat(cs.fontSize), fw = +cs.fontWeight || 400;
     // hộp chữ thật: bỏ phần line-height thừa (icon = ô vuông cỡ chữ, chữ = cao 1.2× cỡ chữ quanh tâm) → không lấy nhầm nền ngoài huy hiệu/viên
-    { const cy = r.top + r.height / 2, hh = Math.min(r.height, fs * (icon ? 1 : 1.2)), cx = r.left + r.width / 2, ww = icon ? Math.min(r.width, fs) : r.width; r = { left: cx - ww / 2, top: cy - hh / 2, width: ww, height: hh }; }
-    out.push({ k: (e.className.toString().match(/text-\S+/g) || []).slice(-2).join(' ') + (e.closest('[aria-pressed]') ? ' p=' + e.closest('[aria-pressed]').getAttribute('aria-pressed') : '') + (e.closest('.ok,.bad') ? ' fb' : ''), t: (icon ? '⟨' + e.textContent.trim() + '⟩' : e.textContent.trim()).slice(0, 28), x: r.left, y: r.top, w: r.width, h: r.height, c: cs.color, op, large: icon || fs >= 24 || (fs >= 18.66 && fw >= 700) }); }
+    { const cy = r.top + r.height / 2, hh = Math.min(r.height, fs * (icon ? 0.75 : 1.2)), cx = r.left + r.width / 2, ww = icon ? Math.min(r.width, fs * 0.75) : r.width; r = { left: cx - ww / 2, top: cy - hh / 2, width: ww, height: hh }; }
+    out.push({ cls: (e.className.toString().match(/text-\S+/g) || []).slice(-2).join(' ') + (e.closest('[aria-pressed]') ? ' p=' + e.closest('[aria-pressed]').getAttribute('aria-pressed') : '') + (e.closest('.ok,.bad') ? ' fb' : ''), t: (icon ? '⟨' + e.textContent.trim() + '⟩' : e.textContent.trim()).slice(0, 28), x: r.left, y: r.top, w: r.width, h: r.height, c: cs.color, op, large: icon || fs >= 24 || (fs >= 18.66 && fw >= 700) }); }
   return out; };
 const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
 const cratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
@@ -53,7 +53,7 @@ async function auditContrast(page, buf, tag) {
       if (Math.abs(R - m[0]) + Math.abs(G2 - m[1]) + Math.abs(B - m[2]) < 90) continue; far++; const q = ((R >> 3) << 10) | ((G2 >> 3) << 5) | (B >> 3); H.set(q, (H.get(q) || 0) + 1); }
     if (far < 6) continue; let cr = 99;
     for (const [q, c] of H) { if (c < far * 0.15) continue; const bg = [(q >> 10) * 8 + 4, ((q >> 5) & 31) * 8 + 4, (q & 31) * 8 + 4], fg = [0, 1, 2].map(k => m[k] * a + bg[k] * (1 - a)); cr = Math.min(cr, cratio(fg, bg)); }
-    if (cr === 99) continue; n++; const need = it.large ? 3 : 4.5; if (cr < need - 0.05) miss.push({ t: it.t, cr: +cr.toFixed(2), need, at: `${Math.round(it.x)},${Math.round(it.y)}`, k: it.k, fg: it.c }); }
+    if (cr === 99) continue; n++; const need = it.large ? 3 : 4.5; if (cr < need - 0.05) miss.push({ t: it.t, cr: +cr.toFixed(2), need, at: `${Math.round(it.x)},${Math.round(it.y)}`, cls: it.cls, fg: it.c }); }
   contrast[tag] = { n, miss }; }
 // gate: không ô giữ chỗ giáo viên / ảnh vỡ trong màn Stitch
 const PHSCAN = () => { const bad = []; for (const s of document.querySelectorAll('.st')) { if (/TEACHER SLOT|\[teacher\]|placeholder/i.test(s.innerText)) bad.push('chữ giữ chỗ'); for (const i of s.querySelectorAll('img')) if (i.complete && !i.naturalWidth && i.getBoundingClientRect().width) bad.push('ảnh vỡ ' + (i.getAttribute('src') || '').slice(-40)); } return bad; };
