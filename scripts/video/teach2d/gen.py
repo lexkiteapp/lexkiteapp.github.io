@@ -114,8 +114,109 @@ def phrasal(p):
         cta=cta('phrases', '#/phrases', 'Learn phrasal verbs'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
 
 
-T = dict(usuk=usuk, verbs=verbforms, stress=stress, mistake=mistake, phrasal=phrasal)
-SERIES = dict(usuk='US or UK?', verbs='Verb Forms Challenge', stress="Where's the Stress?", mistake='Stop Saying This', phrasal='Phrasal Verb in 30s')
+def bank(word):   # audited word bank row: (US IPA else UK, definition, example) – the same source qc.py checks
+    js = ("const {sources}=await import(process.argv[1]);const r=sources().byWord.get(process.argv[2]);"
+          "console.log(JSON.stringify(r?[r[10]||r[1],r[4],r[5]]:null))")
+    return json.loads(subprocess.run(['node', '--input-type=module', '-e', js, f'{ROOT}/scripts/scriptbank/lib.mjs', word], capture_output=True, text=True, check=True, cwd=ROOT).stdout)
+
+
+def gq(g):   # gold quiz -> (stem, options, answer index, right option)
+    q = g['quiz']; return q['q'], q['options'], q['answer'], q['options'][q['answer']]
+
+
+def pair(p):   # Same or Different? (gold x-vs-y): two word cards with one-line meanings, memory strip, quiz
+    g = GOLD[p['gold']]; stem, opts, ans, right = gq(g); m1, m2 = [x.strip() + '.' for x in g['why'].split('.') if x.strip()][:2]
+    return dict(lines=[
+        L('h', p['hook_say']),
+        L('r', g['right']),
+        L('w', f"Not: {g['wrong'][0].lower() + g['wrong'][1:]}"),
+        L('m1', m1), L('m2', m2),
+        L('k', g['aha']),
+        L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
+        L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
+        L('sh', p['share']),
+        L('c', 'Save this, and compare tricky words on lexkite.com.')],
+        data=dict(a=p['a'], b=p['b'], mean_a=m1, mean_b=m2, aha=g['aha'], right=g['right'], quiz=dict(stem=stem, options=opts, answer=ans)),
+        cta=cta('word-usage', f"#/usage/{p['a']}-{p['b']}", 'Compare tricky words'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
+
+
+def prep(p):   # Which Little Word? (gold preposition): sentence with a glowing slot, option bubbles, the slot fills on the answer
+    g = GOLD[p['gold']]; stem, opts, ans, right = gq(g)
+    return dict(lines=[
+        L('h', 'One little word. Which one?'),
+        L('s', f"{p['slot_say']} {opts[1 - ans].capitalize()}, or {right}?", 1.6, guess=True),
+        L('r', f"{right.capitalize()}! {g['right']}"),
+        L('y', g['why']),
+        L('k', g['aha']),
+        L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
+        L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
+        L('sh', p['share']),
+        L('c', 'Save this, and check your grammar on lexkite.com.')],
+        data=dict(slot=p['slot_text'], opts=[opts[1 - ans], right], right=right, full=g['right'], why=g['why'], aha=g['aha'], quiz=dict(stem=stem, options=opts, answer=ans)),
+        cta=cta('grammar-check', '#/fix', 'Check your grammar'), hook=dict(line='h', text='Which little word?'), src=dict(gold=g['id'], pid=g['pid']))
+
+
+def pattern(p):   # Verb Patterns (gold verb-pattern): formula bricks verb + pattern = phrase, crossed wrong brick
+    g = GOLD[p['gold']]; stem, opts, ans, right = gq(g)
+    return dict(lines=[
+        L('h', p['hook_say']),
+        L('w', f"Many learners say: {g['wrong']}"),
+        L('r', f"Better: {g['right']}"),
+        L('y', g['why']),
+        L('k', g['aha']),
+        L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
+        L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
+        L('sh', p['share']),
+        L('c', 'Save this, and practice verb patterns on lexkite.com.')],
+        data=dict(verb=p['verb'], pat=p['pat'], good=p['good'], bad=p['bad'], wrong=g['wrong'], right=g['right'], why=g['why'], aha=g['aha'], quiz=dict(stem=stem, options=opts, answer=ans)),
+        cta=cta('verbs', f"#/verb/{p['verb']}", 'Practice verb patterns'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
+
+
+def native(p):   # Say It Naturally (gold situational): textbook line vs native line with a NATIVE badge
+    g = GOLD[p['gold']]; stem, opts, ans, right = gq(g)
+    return dict(lines=[
+        L('h', 'Textbook English, or real English?'),
+        L('w', f"Textbook: {g['wrong']}"),
+        L('r', f"Natives say: {g['right']}"),
+        L('y', g['why']),
+        L('k', g['aha']),
+        L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
+        L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
+        L('sh', p['share']),
+        L('c', 'Save this, and learn real phrases on lexkite.com.')],
+        data=dict(wrong=g['wrong'], right=g['right'], strike=p['strike'], hl=p['hl'], why=g['why'], aha=g['aha'], scene=p['scene'], quiz=dict(stem=stem, options=opts, answer=ans)),
+        cta=cta('phrases', '#/phrases', 'Learn real phrases'), hook=dict(line='h', text='Textbook or real English?'), src=dict(gold=g['id'], pid=g['pid']))
+
+
+def guess(p):   # Guess the Word (audited word bank + img.json picture): 3 clues, letter tiles, picture sharpens on the reveal
+    w = p['word']; ipa, dfn, ex = bank(w); assert dfn and ipa, ('word not in the audited bank', w)
+    clue = re.sub(r'^(an?|the) (object|thing|device|place|person) (that|which|for) ', 'It ', dfn.split(';')[0]).rstrip('.') + '.'
+    clue = clue[0].upper() + clue[1:]; n = len(w); NUM = 'zero one two three four five six seven eight nine ten eleven twelve'.split()
+    return dict(lines=[
+        L('h', 'Guess the word in three clues!'),
+        L('c1', f'Clue one: {clue[0].lower() + clue[1:]}'),
+        L('c2', f'Clue two: it has {NUM[n]} letters.'),
+        L('c3', f'Clue three: it starts with {w[0].upper()}.'),
+        L('q', 'Got it? Comment your guess!', 3.0, quiz=True),
+        L('a', f"{w.capitalize()}! {ex}"),
+        L('sh', p['share']),
+        L('c', 'Save this, and look up any word on lexkite.com.')],
+        data=dict(word=w, ipa=ipa, clue=clue, n=n, img=p['img'], ex=ex),
+        cta=cta('dictionary', f'#/dict/{w}', 'Look up any word'), hook=dict(line='h', text='Guess the word!'))
+
+
+def level(p):   # Level Check (3 gold quiz items): progress dots, question card, score pill, trophy
+    Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Three quick questions.')]
+    for i, (stem, opts, ans, right) in enumerate(Q, 1):
+        lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 3.0, quiz=True), L(f'a{i}', f"{right.capitalize()}! {stem.replace('___', right)}")]
+    lines += [L('s', 'Three out of three? You are ready for more!'), L('sh', 'Comment your score!'), L('c', 'Save this, and take the free level test on lexkite.com.')]
+    return dict(lines=lines, data=dict(qs=[dict(stem=s_, options=o_, answer=a_) for s_, o_, a_, _ in Q]),
+                cta=cta('placement', '#/placement', 'Take the level test'), hook=dict(line='h', text='Level check!'), src=dict(gold=p['gold']))
+
+
+T = dict(usuk=usuk, verbs=verbforms, stress=stress, mistake=mistake, phrasal=phrasal, pair=pair, prep=prep, pattern=pattern, native=native, guess=guess, level=level)
+SERIES = dict(usuk='US or UK?', verbs='Verb Forms Challenge', stress="Where's the Stress?", mistake='Stop Saying This', phrasal='Phrasal Verb in 30s',
+              pair='Same or Different?', prep='Which Little Word?', pattern='Verb Patterns', native='Say It Naturally', guess='Guess the Word', level='Level Check')
 
 
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)

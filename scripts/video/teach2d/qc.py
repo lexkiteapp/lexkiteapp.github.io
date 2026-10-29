@@ -68,13 +68,14 @@ off = [dict(node=c['node'], tag=c['tag'], d=round(N[c['node']]['in']['t'] + C.HA
 offb = [x for x in off if abs(x['d']) > 0.08 and N[x['node']]['in']['t'] >= N[N[x['node']]['parent']]['in']['t'] + 1e-6 if N[x['node']].get('parent')]
 gate('cue_timing', not offb, 2, checked=len(off), bad=offb[:6])
 # layout: sampled every 0.1 s
-SAFE = T['safe']; head = T['head']; prob = []; leaf = {'text', 'chip', 'pill', 'ring', 'img', 'cta', 'tag', 'cross', 'check', 'qmark', 'eq', 'flags', 'candy', 'beat', 'ipapill', 'rhythm', 'vs', 'stamp'}
+SAFE = T['safe']; head = T['head']; prob = []; leaf = {'text', 'chip', 'pill', 'ring', 'img', 'cta', 'tag', 'cross', 'check', 'qmark', 'eq', 'flags', 'candy', 'beat', 'ipapill', 'rhythm', 'vs', 'stamp', 'slot', 'opt', 'brick', 'plus', 'pic', 'letter', 'track', 'score'}
 for i in range(int(T['total'] * 10)):
     t = i / 10; vis = [n for n in T['nodes'] if alpha(n, t) > 0.3]
     for n in vis:
         if n['type'] in leaf and not (SAFE[0] - 1 <= n['box'][0] and n['box'][2] <= SAFE[2] + 1 and SAFE[1] - 1 <= n['box'][1] and n['box'][3] <= SAFE[3] + 1) and n['id'] != 'series':
             prob.append(dict(t=t, id=n['id'], why='outside SAFE', box=n['box']))
         if n['type'] != 'confetti' and inter(n['box'], head): prob.append(dict(t=t, id=n['id'], why='on the teacher head', box=n['box']))
+        if T['cap_box'] and n['type'] in leaf | {'card', 'split'} and inter(n['box'], T['cap_box']) and any(c['t0'] <= t < c['t1'] for c in T['caps']): prob.append(dict(t=t, id=n['id'], why='under the caption band', box=n['box']))
     tx = [n for n in vis if n['type'] in leaf]
     for a in range(len(tx)):
         for b in range(a + 1, len(tx)):

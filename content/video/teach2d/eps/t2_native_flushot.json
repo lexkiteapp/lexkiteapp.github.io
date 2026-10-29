@@ -1,0 +1,95 @@
+{
+ "id": "t2_native_flushot",
+ "template": "native",
+ "series": "Say It Naturally",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Textbook English, or real English?",
+   "pause": 0.55
+  },
+  {
+   "id": "w",
+   "text": "Textbook: I need to get a flu injection.",
+   "pause": 0.55
+  },
+  {
+   "id": "r",
+   "text": "Natives say: I need to get a flu shot.",
+   "pause": 0.55
+  },
+  {
+   "id": "y",
+   "text": "In everyday American English, it's a flu shot.",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "A shot is any injection in casual talk!",
+   "pause": 0.55
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Shot! Many people get a flu shot every fall.",
+   "pause": 0.55
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who is moving to the States!",
+   "pause": 0.55
+  },
+  {
+   "id": "c",
+   "text": "Save this, and learn real phrases on lexkite.com.",
+   "pause": 0.55
+  }
+ ],
+ "data": {
+  "wrong": "I need to get a flu injection.",
+  "right": "I need to get a flu shot.",
+  "strike": "injection",
+  "hl": "shot",
+  "why": "In everyday American English, it's a flu shot.",
+  "aha": "A shot is any injection in casual talk!",
+  "scene": "pharmacy",
+  "quiz": {
+   "stem": "Many people get a flu ___ every fall.",
+   "options": [
+    "shoot",
+    "shot"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real phrases"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Textbook or real English?"
+ },
+ "src": {
+  "gold": "sb_612771f1",
+  "pid": "w:flu shot#n"
+ },
+ "est": {
+  "words": 72,
+  "seconds": 42.7,
+  "wpm": 101
+ }
+}

@@ -1,0 +1,98 @@
+{
+ "id": "t2_prep_smile",
+ "template": "prep",
+ "series": "Which Little Word?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One little word. Which one?",
+   "pause": 0.55
+  },
+  {
+   "id": "s",
+   "text": "She smiled... me. To, or at?",
+   "pause": 1.6,
+   "guess": true
+  },
+  {
+   "id": "r",
+   "text": "At! She smiled at me.",
+   "pause": 0.55
+  },
+  {
+   "id": "y",
+   "text": "You smile at a person, like you look at them.",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Laugh works the same way: laugh at!",
+   "pause": 0.55
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! The teacher smiled at the students.",
+   "pause": 0.55
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who smiles a lot!",
+   "pause": 0.55
+  },
+  {
+   "id": "c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "pause": 0.55
+  }
+ ],
+ "data": {
+  "slot": "She smiled ___ me.",
+  "opts": [
+   "to",
+   "at"
+  ],
+  "right": "at",
+  "full": "She smiled at me.",
+  "why": "You smile at a person, like you look at them.",
+  "aha": "Laugh works the same way: laugh at!",
+  "quiz": {
+   "stem": "The teacher smiled ___ the students.",
+   "options": [
+    "at",
+    "to"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Which little word?"
+ },
+ "src": {
+  "gold": "sb_011d162f",
+  "pid": "u:p:smile:at"
+ },
+ "est": {
+  "words": 63,
+  "seconds": 39.3,
+  "wpm": 96
+ }
+}

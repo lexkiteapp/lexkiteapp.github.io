@@ -93,6 +93,115 @@
     "sh": "Send this to a friend who says breaked!",
     "c": "Save this, and practice verb forms on lexkite.com."
    }
+  },
+  "t2_pair_raise": {
+   "template": "pair",
+   "hook": "Raise or rise?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "Raise or rise? Same or different?",
+    "r": "Please raise your hand.",
+    "w": "Not: please rise your hand.",
+    "m1": "Raise moves something.",
+    "m2": "Rise moves by itself.",
+    "k": "The sun rises. Nobody raises it!",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Rises! The sun rises at six.",
+    "sh": "Send this to a friend who mixes these up!",
+    "c": "Save this, and compare tricky words on lexkite.com."
+   }
+  },
+  "t2_native_flushot": {
+   "template": "native",
+   "hook": "Textbook or real English?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "Textbook English, or real English?",
+    "w": "Textbook: I need to get a flu injection.",
+    "r": "Natives say: I need to get a flu shot.",
+    "y": "In everyday American English, it's a flu shot.",
+    "k": "A shot is any injection in casual talk!",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Shot! Many people get a flu shot every fall.",
+    "sh": "Send this to a friend who is moving to the States!",
+    "c": "Save this, and learn real phrases on lexkite.com."
+   }
+  },
+  "t2_pattern_decide": {
+   "template": "pattern",
+   "hook": "Decide + ?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "Decide going, or decide to go?",
+    "w": "Many learners say: I decided going home.",
+    "r": "Better: I decided to go home.",
+    "y": "After decide, use to plus verb.",
+    "k": "Plan, hope and want also take to!",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To buy! They decided to buy a new car.",
+    "sh": "Send this to a friend who is learning English!",
+    "c": "Save this, and practice verb patterns on lexkite.com."
+   }
+  },
+  "t2_guess_umbrella": {
+   "template": "guess",
+   "hook": "Guess the word!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "Guess the word in three clues!",
+    "c1": "Clue one: it protects you from rain.",
+    "c2": "Clue two: it has eight letters.",
+    "c3": "Clue three: it starts with U.",
+    "q": "Got it? Comment your guess!",
+    "a": "Umbrella! Don't forget your umbrella; it might rain later.",
+    "sh": "Tag a friend who always forgets theirs!",
+    "c": "Save this, and look up any word on lexkite.com."
+   }
+  },
+  "t2_level_a2": {
+   "template": "level",
+   "hook": "Level check!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "Level check! Three quick questions.",
+    "q1": "Question one.",
+    "a1": "Ago! I started this job two years ago.",
+    "q2": "Question two.",
+    "a2": "Sitting! I hate sitting in traffic.",
+    "q3": "Question three.",
+    "a3": "For! What's the reason for the change?",
+    "s": "Three out of three? You are ready for more!",
+    "sh": "Comment your score!",
+    "c": "Save this, and take the free level test on lexkite.com."
+   }
+  },
+  "t2_prep_smile": {
+   "template": "prep",
+   "hook": "Which little word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "One little word. Which one?",
+    "s": "She smiled... me. To, or at?",
+    "r": "At! She smiled at me.",
+    "y": "You smile at a person, like you look at them.",
+    "k": "Laugh works the same way: laugh at!",
+    "q": "Quick quiz! Which one fits?",
+    "a": "At! The teacher smiled at the students.",
+    "sh": "Send this to a friend who smiles a lot!",
+    "c": "Save this, and check your grammar on lexkite.com."
+   }
   }
  }
 }

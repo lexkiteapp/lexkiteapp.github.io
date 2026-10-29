@@ -1,0 +1,116 @@
+{
+ "id": "t2_level_a2",
+ "template": "level",
+ "series": "Level Check",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Level check! Three quick questions.",
+   "pause": 0.55
+  },
+  {
+   "id": "q1",
+   "text": "Question one.",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "a1",
+   "text": "Ago! I started this job two years ago.",
+   "pause": 0.55
+  },
+  {
+   "id": "q2",
+   "text": "Question two.",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "a2",
+   "text": "Sitting! I hate sitting in traffic.",
+   "pause": 0.55
+  },
+  {
+   "id": "q3",
+   "text": "Question three.",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "a3",
+   "text": "For! What's the reason for the change?",
+   "pause": 0.55
+  },
+  {
+   "id": "s",
+   "text": "Three out of three? You are ready for more!",
+   "pause": 0.55
+  },
+  {
+   "id": "sh",
+   "text": "Comment your score!",
+   "pause": 0.55
+  },
+  {
+   "id": "c",
+   "text": "Save this, and take the free level test on lexkite.com.",
+   "pause": 0.55
+  }
+ ],
+ "data": {
+  "qs": [
+   {
+    "stem": "I started this job two years ___.",
+    "options": [
+     "before",
+     "ago"
+    ],
+    "answer": 1
+   },
+   {
+    "stem": "I hate ___ in traffic.",
+    "options": [
+     "sit",
+     "sitting"
+    ],
+    "answer": 1
+   },
+   {
+    "stem": "What's the reason ___ the change?",
+    "options": [
+     "for",
+     "of"
+    ],
+    "answer": 0
+   }
+  ]
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Level check!"
+ },
+ "src": {
+  "gold": [
+   "sb_0ce10d3a",
+   "sb_116f3374",
+   "sb_022772ea"
+  ]
+ },
+ "est": {
+  "words": 55,
+  "seconds": 39.8,
+  "wpm": 83
+ }
+}

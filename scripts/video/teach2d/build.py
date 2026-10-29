@@ -14,6 +14,7 @@ import numpy as np
 from PIL import ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); import core as C   # noqa: E402  (same maths as Remotion core.mjs)
+sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import bank_ipa   # noqa: E402  (audited IPA bank, same lookup as qc.py)
 
 ap = argparse.ArgumentParser()
 for a in ('ep', 'vo', 'host', 'public', 'out'): ap.add_argument('--' + a, required=True)
@@ -380,7 +381,127 @@ def T_phrasal():
     end_card()
 
 
-dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal)[EP['template']]()
+def side_cards(items, y, h, t_out):   # two side-by-side Kit cards (Stitch 'Same or different?' b0acc6b3…)
+    gap = 40; w2 = (RW - gap) / 2; boxes = []
+    for i, it in enumerate(items):
+        c = Card(y, tone='tile', x0=RX0 + i * (w2 + gap), w=w2)
+        chip(c, it['tag'], it['t'], tone=it.get('tone', 'chip'))
+        sz = min(96, int(96 * c.inner / max(1, tw(it['word'], 96)))); c.text([[it['word'], it['col']]], sz, it['t'], gap=4)
+        c.text([[it['ipa'], 'muted']], S['ipa'], it['t'], ipa=True, gap=16); IPA.append(dict(token=it['word'], ipa=it['ipa'], node=c.rows[-1]['id']))
+        c.text([[it['mean'], 'ink']], S['sub'], it['t_mean'])
+        boxes.append(c.place(it['t'], t_out, f'side{i}'))
+    return boxes
+
+
+def T_pair():
+    D = EP['data']; series_chip(); t_out = start('q') - 0.2; A, B = D['a'], D['b']
+    ia, ib = bank_ipa({A, B}, ROOT)[A], bank_ipa({A, B}, ROOT)[B]
+    title([['Same', 'primary'], [' or ', 'ink'], ['different?', 'coral']], 96, RY0 + 120, None, at('r', A) - 0.2, hook=True)
+    bx = side_cards([dict(tag='SOMETHING ↑', word=A, ipa=ia, col='primary', t=at('r', A), mean=D['mean_a'], t_mean=start('m1')),
+                     dict(tag='BY ITSELF ↑', word=B, ipa=ib, col='coral', t=at('w', B), mean=D['mean_b'], t_mean=start('m2'))], RY0, None, t_out)
+    yb = max(b[3] for b in bx)
+    top('vs', [RX0 + RW / 2 - 56, bx[0][1] + 150, RX0 + RW / 2 + 56, bx[0][1] + 262], at('w', B), k='pop', out=t_out, size=64, text='≠', pairs=[['#FFFFFF', '#E0482F', 64]])
+    c = Card(yb + 30, tone='card'); c.text([['💡 ', 'accent'], [D['aha'], 'accent']], S['sub'], start('k')); c.place(start('k'), t_out, 'b')   # memory strip
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
+    save_card([[[A, 'primary'], [' = ' + D['mean_a'].rstrip('.').lower(), 'ink']], [[B, 'coral'], [' = ' + D['mean_b'].rstrip('.').lower(), 'ink']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_prep():
+    """Stitch bd61498a… 'Which little word?': sentence card with a glowing slot, option bubbles, the slot fills with the right word on 'At!'."""
+    D = EP['data']; series_chip(); t_out = start('q') - 0.2; right = D['right']; t_rev = at('r', 0)
+    y = title([['Which ', 'ink'], ['little word', 'accent'], ['?', 'ink']], 84, RY0, None, t_out, hook=True) + 24
+    pre, post = D['slot'].split('___'); pre, post = pre.rstrip(), post.lstrip()
+    sz = 84; sw = max(tw(o, sz) for o in D['opts']) + 70; tot = tw(pre, sz) + sw + tw(post, sz) + 2 * 22; x = RX0 + (RW - tot) / 2; h = round(sz * 1.25)
+    top('card', [RX0, y, RX1, y + h + 120], start('s'), out=t_out, tone='card')
+    yy = y + 60
+    n1 = top('text', [x, yy, x + tw(pre, sz), yy + h], start('s'), out=t_out, runs=[[pre, 'ink']], size=sz, ipa=False); x += tw(pre, sz) + 22
+    top('slot', [x, yy - 6, x + sw, yy + h + 6], start('s'), out=t_out, word=right, size=sz, st=[dict(t=round(t_rev, 4), s='filled')], pairs=[[TH['good'], TH['card'], sz]]); x += sw + 22
+    top('text', [x, yy, x + tw(post, sz), yy + h], start('s'), out=t_out, runs=[[post, 'ink']], size=sz, ipa=False)
+    CUES.append(dict(node=n1['id'], t=start('s'), tag=D['slot']))
+    ob = y + h + 160; ow = 300; gap = 60; ox = RX0 + (RW - (2 * ow + gap)) / 2
+    for i, o in enumerate(D['opts']):
+        top('opt', [ox + i * (ow + gap), ob, ox + i * (ow + gap) + ow, ob + 170], at('s', o.capitalize() if i == 0 else o), out=t_out, text=o, size=88,
+            label=f'OPTION {"AB"[i]}', st=[dict(t=round(t_rev - C.MIX / 2, 4), s='right' if o == right else 'dim')], pairs=[[TH['ink'], TH['pill'], 88], [TH['ink'], TH['good_bg'], 88]])
+    c = Card(ob + 210, tone='card'); c.text([['💡 ', 'accent'], [D['why'], 'ink']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
+    save_card([[[D['full'], 'good']], [[D['aha'], 'muted']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_pattern():
+    """Stitch 535bbc79… 'Verb patterns': snap-together bricks VERB + PATTERN, then a ✓ row and a struck ✗ row."""
+    D = EP['data']; series_chip(); t_out = start('q') - 0.2
+    title([[D['verb'], 'ink'], [' + ', 'muted'], ['?', 'accent']], 112, RY0 + 140, None, start('w') - 0.2, hook=True)
+    y = title([['THE FORMULA', 'primary']], 40, RY0, start('r'), t_out) + 10
+    bw = 360; bh = 170; gap = 120; bx = RX0 + (RW - (2 * bw + gap)) / 2
+    top('brick', [bx, y, bx + bw, y + bh], at('r', 'decided'), out=t_out, label='BASE VERB', word=D['verb'], tone='dark', size=84, pairs=[[TH['ink'], TH['tile'], 84]])
+    top('plus', [bx + bw + gap / 2 - 40, y + bh / 2 - 40, bx + bw + gap / 2 + 40, y + bh / 2 + 40], at('r', 'to'), out=t_out)
+    top('brick', [bx + bw + gap, y, bx + 2 * bw + gap, y + bh], at('r', 'to'), out=t_out, label='ALWAYS', word=D['pat'], tone='glow', size=72, pairs=[['#062A27', '#5FD9CC', 72]])
+    y += bh + 36
+    c = Card(y, tone='good', badge='check', t_badge=at('r', 'better')); c.text([[D['right'], 'ink']], S['body'], at('r', 'better')); b1 = c.place(at('r', 'better'), t_out, 'a')
+    c = Card(b1[3] + 24, tone='bad', badge='cross', t_badge=start('w')); tn = c.text([[D['wrong'], 'ink']], S['body'], start('w'))[0]; b2 = c.place(start('w'), t_out, 'b')
+    strike_on(tn, D['bad'].split()[-1], at('w', D['bad'].split()[-1]) + 0.15)
+    c = Card(b2[3] + 24, tone='card'); c.text([['💡 ', 'accent'], [D['why'], 'ink']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
+    save_card([[[f"{D['verb']} + {D['pat']}", 'primary']], [[D['right'], 'good']], [[D['aha'], 'muted']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_native():
+    """Stitch aaeb1673… 'Say it naturally': scene chip, TEXTBOOK card (muted, strike) → NATIVE card (teal glow, sparkle badge)."""
+    D = EP['data']; series_chip(); t_out = start('q') - 0.2
+    title([['Textbook', 'muted'], [' or ', 'ink'], ['real', 'primary'], ['?', 'ink']], 104, RY0 + 140, None, start('w') - 0.2, hook=True)
+    c = Card(RY0, tone='tile'); chip(c, f"TEXTBOOK · AT THE {D['scene'].upper()}", start('w')); tn = c.text([[D['wrong'], 'muted']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    strike_on(tn, D['strike'], at('w', D['strike']) + 0.1)
+    c = Card(b1[3] + 30, tone='bubble_good'); chip(c, '✨ NATIVE', at('r', 'natives'), tone='good'); c.text(runs_hl(D['right'], D['hl'], 'accent', 'ongood'), S['body'], at('r', 'natives'))
+    c.text([[D['why'], 'ongood']], S['sub'], start('y')); c.place(at('r', 'natives'), t_out, 'b')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
+    save_card([[[D['right'], 'primary']], [[D['aha'], 'muted']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_guess():
+    """Guess the Word: picture card (sharpens on the reveal), 3 clue chips on their lines, letter tiles (first letter on clue 3, all on the answer)."""
+    D = EP['data']; series_chip(); w = D['word']; n = D['n']; t_rev = at('a', 0); t_out = start('sh') - 0.2
+    title([['Guess the ', 'ink'], ['word', 'accent'], ['!', 'ink']], 104, RY0 + 140, None, start('c1') - 0.2, hook=True)
+    P = 280; px = RX0 + (RW - P) / 2
+    top('pic', [px, RY0, px + P, RY0 + P], start('c1'), out=t_out, src='pic.png', st=[dict(t=round(t_rev, 4), s='clear')])
+    y = RY0 + P + 30
+    for i, (lid, txt) in enumerate([('c1', D['clue']), ('c2', f'{n} letters'), ('c3', f'Starts with {w[0].upper()}')]):
+        wd = tw(txt, 44) + 90; top('chip', [RX0 + (RW - wd) / 2, y, RX0 + (RW + wd) / 2, y + 70], start(lid), out=t_out, text=f'{i + 1} · {txt}', tone='chip', size=44); y += 80
+    y += 12; lw = min(90, (RW - 12 * (n - 1)) / n); x = RX0 + (RW - (lw * n + 12 * (n - 1))) / 2
+    for i, ch in enumerate(w.upper()):
+        st = [dict(t=round(at('c3', -1) if i == 0 else t_rev, 4), s='show')]
+        top('letter', [x, y, x + lw, y + lw * 1.2], start('c2'), out=t_out, ch=ch, size=int(lw * 0.7), st=st, pairs=[['#382600', '#FFC524', int(lw * 0.7)]]); x += lw + 12
+    top('ring', [RX1 - 110, RY0 + 10, RX1 - 10, RY0 + 110], end('q') + 0.05, out=end('q') + LINES['q']['pause'] + 0.3, ring=dict(t0=round(end('q') + 0.05, 3), t1=round(end('q') + LINES['q']['pause'] - 0.1, 3)), size=54)
+    nip = top('ipapill', [RX0 + (RW - 420) / 2, y + lw * 1.2 + 22, RX0 + (RW + 420) / 2, y + lw * 1.2 + 106], t_rev, out=t_out, text=D['ipa'], size=52, pairs=[[TH['ink'], TH['card'], 52]])
+    IPA.append(dict(token=w, ipa=D['ipa'], node=nip['id']))
+    save_card([[[w, 'primary'], ['  ' + D['ipa'], 'muted']], [[D['clue'], 'ink']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_level():
+    """Stitch ac026299… 'Level check': 3-step progress track + score pill, one question card per step, answer tiles light green on the answer."""
+    D = EP['data']; series_chip(); t_end = start('s') - 0.2; Q = D['qs']
+    title([['Level ', 'ink'], ['check!', 'accent']], 112, RY0 + 160, None, start('q1') - 0.2, hook=True)
+    ys = RY0; ans_t = [at(f'a{i}', 0) for i in (1, 2, 3)]
+    top('track', [RX0 + 20, ys, RX1 - 220, ys + 70], start('q1'), out=t_end, steps=3, st=[dict(t=round(start(f'q{i}'), 4), s=f'cur{i}') for i in (1, 2, 3)] + [dict(t=round(ans_t[2] + 0.2, 4), s='done')])
+    top('score', [RX1 - 190, ys, RX1, ys + 70], start('q1'), out=t_end, size=44, val=[dict(t=round(t, 4), d=0.3, a=i, b=i + 1) for i, t in enumerate(ans_t)], tot=3, pairs=[[TH['accent'], TH['chip_bg'], 44]])
+    for i, q in enumerate(Q, 1):
+        t_in = start(f'q{i}'); t_o = (start(f'q{i + 1}') if i < 3 else start('s')) - 0.2
+        c = Card(ys + 100, tone='card'); chip(c, f'QUESTION {i} / 3', t_in); c.text([[q['stem'], 'ink']], S['body'], t_in); b = c.place(t_in, t_o, f'q{i}')
+        tw2 = (RW - 40) / 2; yy = b[3] + 30; r = q['answer']
+        for j, o in enumerate(q['options']):
+            top('opt', [RX0 + j * (tw2 + 40), yy, RX0 + j * (tw2 + 40) + tw2, yy + 190], t_in, out=t_o, text=o, size=min(80, int(80 * (tw2 - 50) / max(1, tw(o, 80)))), label='AB'[j],
+                st=[dict(t=round(ans_t[i - 1] - C.MIX / 2, 4), s='right' if j == r else 'dim')], pairs=[[TH['ink'], TH['pill'], 72], [TH['ink'], TH['good_bg'], 72]])
+        NODES.append(dict(id=nid('r'), type='ring', ring=dict(t0=round(end(f'q{i}') + 0.05, 3), t1=round(end(f'q{i}') + LINES[f'q{i}']['pause'] - 0.1, 3)), size=54,
+                          box=[b[2] - 124, b[1] + 22, b[2] - 28, b[1] + 118], **{'in': cue(end(f'q{i}') + 0.05)}, out=dict(t=round(ans_t[i - 1] + 0.3, 3))))
+    c = Card(RY0, tone='good'); chip(c, '🏆 3 / 3', start('s'), tone='good'); c.text([['Ready for more!', 'ink']], S['hook'], start('s'), align='c'); c.place(start('s'), start('c') - 0.2, 'a')
+    end_card()
+
+
+dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, guess=T_guess, level=T_level)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
@@ -480,6 +601,10 @@ qr.make_image(fill_color=TH['qr_ink'], back_color='white').save(f'{o.public}/qr.
 shutil.copy(f'{ROOT}/brand/social/logo/lexkite-app-icon.png', f'{o.public}/icon.png')
 os.makedirs(f'{o.public}/fonts', exist_ok=True); shutil.copy(FJ, f'{o.public}/fonts/jakarta.ttf'); shutil.copy(FN, f'{o.public}/fonts/noto.ttf')
 for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
+if EP['template'] == 'guess':   # picture from content/lexicon/img.json (licensed bank image, the same one the app shows) -> pic.png
+    it = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items'][EP['data']['img']]; raw_ = f'{o.public}/_pic.webp'
+    subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', raw_, it['url']], check=True)
+    from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------
 props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')

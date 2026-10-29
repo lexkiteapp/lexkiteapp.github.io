@@ -3,7 +3,7 @@
 // on its spoken word (motion maths = ../stitch/core.mjs, the QC predicts the same frames) + one-row karaoke captions + voice track.
 import React, { useEffect, useState } from 'react';
 import { AbsoluteFill, OffthreadVideo, Audio, Img, Sequence, staticFile, useCurrentFrame, useVideoConfig, delayRender, continueRender } from 'remotion';
-import { pose, state, clamp01, easeOut } from '../stitch/core.mjs';
+import { pose, state, value, clamp01, easeOut } from '../stitch/core.mjs';
 import THEMES from './theme.json';
 
 const JAK = 'LkJakarta', NOTO = 'LkNoto';
@@ -73,7 +73,41 @@ function Body({ n, t, w, h, T }) {
         <div style={{ position: 'absolute', left: '50%', top: 24, bottom: 24, width: 2, background: T.edge }} /></div>;
     case 'vs':
       return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: '50%', background: `radial-gradient(circle at 40% 30%, #FF8A65 0%, #E0482F 70%)`, border: '5px solid #FFC94A',
-        boxShadow: '0 8px 0 #9E2B16, 0 0 30px rgba(242,85,59,.5)', color: '#FFFFFF', fontFamily: JAK, fontWeight: 800, fontStyle: 'italic', fontSize: n.size, lineHeight: `${h - 10}px`, textAlign: 'center' }}>VS</div>;
+        boxShadow: '0 8px 0 #9E2B16, 0 0 30px rgba(242,85,59,.5)', color: '#FFFFFF', fontFamily: JAK, fontWeight: 800, fontStyle: n.text ? 'normal' : 'italic', fontSize: n.size, lineHeight: `${h - 10}px`, textAlign: 'center' }}>{n.text || 'VS'}</div>;
+    case 'slot': { const [cur, , m] = state(n, t), k = cur === 'filled' ? easeOut(m) : 0;   // glowing empty slot -> the right word drops in
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 24, border: `4px ${k ? 'solid' : 'dashed'} ${mixc(T.primary, T.good, k)}`, background: mixc(T.tile, T.good_bg, k),
+        boxShadow: `0 0 ${24 + 16 * k}px ${k ? T.good : T.primary}55`, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 8}px`, textAlign: 'center', color: T.good }}>
+        <span style={{ opacity: k, display: 'inline-block', transform: `translateY(${(1 - k) * -24}px)` }}>{n.word}</span></div>; }
+    case 'opt': { const [cur, prev, m] = state(n, t), P = s => s === 'right' ? [T.good_bg, T.good, T.good_edge] : [T.pill, T.pill_edge, T.pill_ledge], A = P(prev), B = P(cur), x = k => mixc(A[k], B[k], m);
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 34, background: x(0), border: `3px solid ${x(1)}`, borderBottom: `9px solid ${x(2)}`, opacity: cur === 'dim' ? 1 - 0.4 * m : 1,
+        boxShadow: cur === 'right' ? `0 0 ${30 * m}px ${T.good}66` : 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${n.size + 6}px`, color: T.ink }}>{n.text}</div>
+        <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: 40, lineHeight: '46px', letterSpacing: '0.06em', color: cur === 'right' ? T.good : T.muted }}>{cur === 'right' ? '✓ CORRECT' : n.label}</div></div>; }
+    case 'brick': { const glow = n.tone === 'glow';   // snap-together toy brick: studs on top, ledge below
+      return <div style={{ position: 'absolute', inset: 0 }}>
+        {[0.25, 0.75].map(f => <div key={f} style={{ position: 'absolute', top: -14, left: `calc(${f * 100}% - 30px)`, width: 60, height: 20, borderRadius: '10px 10px 0 0', background: glow ? '#8BE9DE' : T.tile_edge }} />)}
+        <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 26, background: glow ? 'linear-gradient(180deg,#8BE9DE,#5FD9CC)' : T.tile, border: `3px solid ${glow ? '#C8FFF8' : T.tile_edge}`,
+          borderBottom: `10px solid ${glow ? '#1E8C84' : T.tile_ledge}`, boxShadow: glow ? '0 0 40px rgba(95,217,204,.45)' : 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: 40, letterSpacing: '0.06em', color: glow ? '#0B3B37' : T.muted }}>{n.label}</div>
+          <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${n.size + 6}px`, color: glow ? '#062A27' : T.ink }}>{n.word}</div></div></div>; }
+    case 'plus':
+      return <div style={{ width: w, height: h, borderRadius: '50%', background: T.card, border: `3px solid ${T.edge}`, color: T.primary, fontFamily: JAK, fontWeight: 800, fontSize: 56, lineHeight: `${h - 8}px`, textAlign: 'center' }}>+</div>;
+    case 'pic': { const [cur, , m] = state(n, t), k = cur === 'clear' ? easeOut(m) : 0;   // polaroid: picture blurred until the answer, then sharp
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 30, background: '#FFFFFF', padding: 22, paddingBottom: 54, transform: 'rotate(-3deg)', boxShadow: '0 14px 0 rgba(0,0,0,.25)' }}>
+        <div style={{ width: '100%', height: '100%', borderRadius: 16, overflow: 'hidden', background: '#E3F1EE', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Img src={staticFile(n.src)} style={{ width: '78%', height: '78%', objectFit: 'contain', filter: `blur(${(1 - k) * 22}px)`, opacity: 0.5 + 0.5 * k }} /></div></div>; }
+    case 'letter': { const [cur, , m] = state(n, t), k = cur === 'show' ? easeOut(m) : 0;
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 18, background: k ? mixc(T.tile, '#FFC524', k) : T.tile, border: `3px solid ${k ? '#FFF1A8' : T.tile_edge}`,
+        borderBottom: `8px solid ${k ? '#A87803' : T.tile_ledge}`, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 10}px`, textAlign: 'center', color: '#382600' }}><span style={{ opacity: k }}>{n.ch}</span></div>; }
+    case 'track': { const [cur] = state(n, t), at_ = cur === 'done' ? 4 : +(cur.replace('cur', '') || 0);
+      return <div style={{ width: w, height: h, position: 'relative' }}>
+        <div style={{ position: 'absolute', left: 30, right: 30, top: h / 2 - 5, height: 10, borderRadius: 5, background: T.tile_edge }} />
+        <div style={{ position: 'absolute', left: 30, top: h / 2 - 5, height: 10, borderRadius: 5, width: `calc(${Math.min(1, Math.max(0, (at_ - 1) / 2)) * 100}% - ${60 * Math.min(1, Math.max(0, (at_ - 1) / 2))}px)`, background: T.good }} />
+        {[1, 2, 3].map(i => { const done = i < at_, now = i === at_; return <div key={i} style={{ position: 'absolute', top: 0, left: `calc(${(i - 1) / 2 * 100}% - ${(i - 1) / 2 * 70}px)`, width: 70, height: 70, borderRadius: 35, boxSizing: 'border-box',
+          background: done ? T.good : now ? '#FFC524' : T.tile, border: `4px solid ${done ? T.good_edge : now ? '#FFF1A8' : T.tile_edge}`, color: done || now ? '#10191B' : T.muted, fontFamily: JAK, fontWeight: 800, fontSize: 34, lineHeight: '62px', textAlign: 'center' }}>{done ? '✓' : i}</div>; })}</div>; }
+    case 'score':
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: T.chip_bg, border: `2px solid ${T.chip_edge}`, color: T.accent, fontFamily: JAK, fontWeight: 800, fontSize: n.size,
+        lineHeight: `${h - 4}px`, textAlign: 'center', fontVariantNumeric: 'tabular-nums' }}>🏆 {Math.round(value(n, t) || 0)} / {n.tot}</div>;
     case 'tag':
       return <div style={{ height: h, display: 'flex', alignItems: 'center', gap: 12, boxSizing: 'border-box', padding: '0 18px 0 12px', borderRadius: 999, background: T.card, border: `2px solid ${T.edge}`, width: 'fit-content' }}>
         <Flag cc={n.cc} w={48} h={32} /><span style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, color: T.ink, letterSpacing: '0.06em' }}>{n.text}</span></div>;

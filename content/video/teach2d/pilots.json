@@ -101,6 +101,85 @@
     "answer_say": "Hang out! Want to hang out after class?",
     "share": "Send this to a friend you hang out with!"
    }
+  },
+  {
+   "id": "t2_pair_raise",
+   "template": "pair",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_3e77d39c",
+    "a": "raise",
+    "b": "rise",
+    "hook_say": "Raise or rise? Same or different?",
+    "hook_text": "Raise or rise?",
+    "share": "Send this to a friend who mixes these up!"
+   }
+  },
+  {
+   "id": "t2_prep_smile",
+   "template": "prep",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_011d162f",
+    "slot_say": "She smiled... me.",
+    "slot_text": "She smiled ___ me.",
+    "share": "Send this to a friend who smiles a lot!"
+   }
+  },
+  {
+   "id": "t2_pattern_decide",
+   "template": "pattern",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_05b65d49",
+    "verb": "decide",
+    "pat": "to + verb",
+    "good": "decided to go",
+    "bad": "decided going",
+    "hook_say": "Decide going, or decide to go?",
+    "hook_text": "Decide + ?",
+    "share": "Send this to a friend who is learning English!"
+   }
+  },
+  {
+   "id": "t2_native_flushot",
+   "template": "native",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_612771f1",
+    "strike": "injection",
+    "hl": "shot",
+    "scene": "pharmacy",
+    "share": "Send this to a friend who is moving to the States!"
+   }
+  },
+  {
+   "id": "t2_guess_umbrella",
+   "template": "guess",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "word": "umbrella",
+    "img": "umbrella#n",
+    "share": "Tag a friend who always forgets theirs!"
+   }
+  },
+  {
+   "id": "t2_level_a2",
+   "template": "level",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "gold": [
+     "sb_0ce10d3a",
+     "sb_116f3374",
+     "sb_022772ea"
+    ]
+   }
   }
  ]
 }

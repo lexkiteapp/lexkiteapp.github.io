@@ -1,0 +1,77 @@
+{
+ "id": "t2_guess_umbrella",
+ "template": "guess",
+ "series": "Guess the Word",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess the word in three clues!",
+   "pause": 0.55
+  },
+  {
+   "id": "c1",
+   "text": "Clue one: it protects you from rain.",
+   "pause": 0.55
+  },
+  {
+   "id": "c2",
+   "text": "Clue two: it has eight letters.",
+   "pause": 0.55
+  },
+  {
+   "id": "c3",
+   "text": "Clue three: it starts with U.",
+   "pause": 0.55
+  },
+  {
+   "id": "q",
+   "text": "Got it? Comment your guess!",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Umbrella! Don't forget your umbrella; it might rain later.",
+   "pause": 0.55
+  },
+  {
+   "id": "sh",
+   "text": "Tag a friend who always forgets theirs!",
+   "pause": 0.55
+  },
+  {
+   "id": "c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "pause": 0.55
+  }
+ ],
+ "data": {
+  "word": "umbrella",
+  "ipa": "/əmˈbrelə/",
+  "clue": "It protects you from rain.",
+  "n": 8,
+  "img": "umbrella#n",
+  "ex": "Don't forget your umbrella; it might rain later."
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/umbrella",
+  "link": "https://lexkite.com/app/#/dict/umbrella",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess the word!"
+ },
+ "est": {
+  "words": 56,
+  "seconds": 34.3,
+  "wpm": 98
+ }
+}
