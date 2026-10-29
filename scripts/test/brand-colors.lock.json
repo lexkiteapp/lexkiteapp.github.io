@@ -45,7 +45,16 @@
   "#ffedd5"
  ],
  "web/js/ux1.js": [],
- "web/js/lesson/ui.js": [],
+ "web/js/lesson/ui.js": [
+  "#142328",
+  "#233942",
+  "#2a0700",
+  "#422006",
+  "#4a5f65",
+  "#a9bfc1",
+  "#eadec8",
+  "#fff4d4"
+ ],
  "extension/popup.css": [
   "#0e8f8e",
   "#16a34a",
