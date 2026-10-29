@@ -129,13 +129,34 @@ if (V2T) { // khung Stitch v2: thẻ kỳ thi, nước rút, 8 mô-đun kỹ nă
   ok($('.v2-practice button[data-href="#/mock"], .v2-practice button[data-href="#/toeic"], .v2-practice button[data-href="#/toefl"], .v2-practice button[data-href="#/placement"]'), 'Luyện (Stitch v2): hàng thi thử đầy đủ mở đúng bài thi của mục tiêu');
 }
 const hub = new Set($$('#view a[href^="#/"]').map(a => a.getAttribute('href')));
-await go('#/me', '.me-head');
+await go('#/me', '.me-head, .v2-me');
 ok($('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page', 'tab Tôi đang chọn');
 const me = new Set($$('#view a[href^="#/"]').map(a => a.getAttribute('href')));
 const tabH = new Set(tabs.map(a => a.getAttribute('href')));
 const lost = OLD.filter(h => !hub.has(h) && !me.has(h) && !tabH.has(h));
 ok(OLD.length >= 20 && !lost.length, `không cắt: ${OLD.length} lối vào cũ đều tới được qua 5 tab / Luyện / Tôi` + (lost.length ? ' – thiếu: ' + lost.join(' ') : ''));
 for (const h of ['#/goal', '#/stats', '#/mistakes', '#/settings']) ok(me.has(h), 'Tôi có ' + h);
+if ($('.v2-me')) { // Tôi (Stitch v2): MỌI mục trang Tôi cũ còn tới được + công tắc/giá trị bám cài đặt thật
+  const hrefs = new Set($$('.v2-me a[href]').map(a => a.getAttribute('href'))), acts = new Set($$('.v2-me [data-act]').map(b => b.getAttribute('data-act')));
+  ok(['#/tracks', '#/goal', '#/stats', '#/league', '#/class', '#/mistakes', '#/settings', '#/method', '#/resources', '#/review?src=forgetting'].every(h => hrefs.has(h)) && (hrefs.has('#/deck') || hrefs.has('#/path')), 'Tôi (v2): mọi lối vào cũ (Gói học, Mục tiêu, Tiến độ, Giải đấu, Lớp học, Sổ lỗi sai, Cài đặt, Cách nhớ lâu, Tài nguyên, sổ từ, thời điểm vàng) đều có');
+  ok(['theme', 'lang', 'exam', 'notif', 'sfx', 'acct', 'out'].every(a => acts.has(a)) || ['theme', 'lang', 'exam', 'notif', 'sfx', 'out'].every(a => acts.has(a)), 'Tôi (v2): Chế độ màu · Ngôn ngữ · Kỳ thi · Nhắc học · Âm thanh · Đăng xuất/Đăng nhập là nút thật');
+  ok($('.v2-me a[href="#/goal"]') && /IELTS|TOEIC|TOEFL|General/.test($('.v2-me a[href="#/goal"]').closest('[data-row]').textContent), 'Tôi (v2): hàng mục tiêu thi → #/goal, hiện kỳ thi');
+  const sw = a => $(`.v2-me button[role=switch][data-act="${a}"]`), st0 = App.state.settings;
+  ok(sw('notif') && sw('sfx') && sw('notif').getAttribute('aria-checked') === String(!!st0.reminderOn) && sw('sfx').getAttribute('aria-checked') === String(st0.sfx !== false), 'Tôi (v2): công tắc Nhắc học/Âm thanh là role=switch, aria-checked đúng cài đặt thật');
+  const was = !!st0.reminderOn; sw('notif').click(); await tick(120);
+  ok(!!App.state.settings.reminderOn === !was && sw('notif').getAttribute('aria-checked') === String(!was), 'Tôi (v2): bấm công tắc Nhắc học đổi cài đặt thật + aria-checked');
+  const wasS = st0.sfx !== false; sw('sfx').click(); await tick(120);
+  ok((App.state.settings.sfx !== false) === !wasS && sw('sfx').getAttribute('aria-checked') === String(!wasS), 'Tôi (v2): công tắc Âm thanh đổi cài đặt thật (s.sfx)');
+  const th0 = App.state.settings.theme || 'auto'; $('.v2-me [data-act="theme"]').click(); await tick(120);
+  ok((App.state.settings.theme || 'auto') !== th0 && $('.v2-me [data-row="theme"]'), 'Tôi (v2): hàng Chế độ màu xoay auto → sáng → tối bằng cài đặt thật');
+  { const u0 = App.state.user, ui0 = w.Sync.ui, si0 = w.Sync.signIn; let outs = 0, ins = 0; w.Sync.ui = k => { if (k === 'out') outs++; }; w.Sync.signIn = () => { ins++; };
+    App.state.user = { displayName: 'Khách Test', email: 'k@example.com' }; await go('#/me', '.v2-me'); $('.v2-me [data-act="out"]').click();
+    App.state.user = null; await go('#/me', '.v2-me'); const lo = $('.v2-me [data-act="out"]'); lo && lo.click();
+    ok(outs === 1 && ins === 1, 'Tôi (v2): Đăng xuất (đã đăng nhập) → hộp xác nhận cũ Sync.ui("out"); chưa đăng nhập → nút Đăng nhập gọi Sync.signIn');
+    w.Sync.ui = ui0; w.Sync.signIn = si0; App.state.user = u0; }
+  App.state.settings.theme = th0; w.document.documentElement.removeAttribute('data-theme');
+  ok($('.v2-me').textContent.includes(String(App.streak())) && $$('.v2-me a[href="#/stats"]').length >= 3, 'Tôi (v2): ô chuỗi ngày/XP/từ đã lưu + huy hiệu dẫn tới #/stats, #/deck');
+}
 // Ôn (Stitch v2): vào bằng thanh tab → màn hub; nút Bắt đầu mở phiên ôn THẬT; lối cũ (#/review trần, ?ahead=, ?src=) vẫn vào thẳng phiên ôn
 { App.state.cards.hello = { word: 'hello', vi: 'xin chào', topic: 'mine', contexts: [], col: [], syn: [], ant: [], examples: [], added: Date.now(), srs: { ef: 2.5, interval: 3, reps: 2, lapses: 0, due: Date.now() - 1000, last: Date.now() - 4e8 } };
   if (V2T) {

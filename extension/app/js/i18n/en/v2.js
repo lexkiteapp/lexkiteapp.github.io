@@ -15,4 +15,9 @@
   "Ôn ngắt quãng đang bật": "Spaced Repetition Active",
   "Ôn tập hằng ngày": "Daily Review",
   "Đang luyện": "In training",
+  'Tùy chọn': 'Preferences',
+  'Ngôn ngữ': 'Language',
+  'Đã đạt': 'Earned',
+  'Chưa đạt': 'Not yet',
+  'Xem tất cả': 'View all',
 }); })(typeof self !== 'undefined' ? self : this);

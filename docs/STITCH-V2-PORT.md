@@ -33,3 +33,7 @@ Code KHÔNG vẽ lại giao diện: bộ chuyển sinh khung, mình chỉ gắn 
 - Game feel (cờ, mặc định tắt): `window.Feel && Feel.on` → Feel.count/fill/combo/swap (docs/GAME-FEEL.md).
 - WCAG 2.2 AA (stitch-diff kiểm pixel), chạm ≥ 44 px, giảm chuyển động, 15 ngôn ngữ + RTL, khung app ≤ 377 KB gz.
 - Lỗi tương phản còn trong MẪU: `brand/stitch/v2/known-issues.json` – app vẫn phải đạt.
+
+## Chỗ mới của các mục không có trong mẫu (không cắt tính năng)
+- **Giải đấu** (`bind/leagues.json`, `league.js` v2Board): banner tuần trước (Đã hiểu), đổi biệt danh, quy tắc → thẻ cùng khuôn thẻ "Earn +40 XP" (`d.cards`, nút `data-act`); dải thăng/xuống hạng + 30 dòng = `d.rows`; thời gian còn lại = chip; khách / chưa tham gia / lỗi mạng giữ khung cũ.
+- **Tôi** (`bind/me.json`, `web/js/ux1-me.js`): hồ sơ+chip kỳ thi · 3 ô (chuỗi/XP/từ đã lưu) · huy hiệu thật (Game.BADGES) · 5 nhóm hàng cùng khuôn "Preferences": Tùy chọn (màu, ngôn ngữ, mục tiêu→#/goal, công tắc nhắc học `reminderOn`, âm thanh `sfx`), Việc học (kỳ thi, gói, tiến độ, khoe, giải đấu, lớp, sổ lỗi), Từ vựng (sổ, đang học, đã thuộc, cần ôn, thời điểm vàng, chuỗi, đóng băng), Ứng dụng (tài khoản & đồng bộ → hộp có Sync.renderBox, quản trị, cài đặt, tải app), Tìm hiểu thêm (phương pháp, blog, giới thiệu, tài nguyên, trang vi) · Đăng xuất → `Sync.ui('out')` (hộp xác nhận cũ) / Đăng nhập → `Sync.signIn`.

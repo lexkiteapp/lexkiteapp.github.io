@@ -147,5 +147,47 @@ await window.App.routes.league();
 assert.ok(document.getElementById('view').innerHTML.includes('leagueSignInBtn'), 'Thật sự chưa đăng nhập → vẫn có nút đăng nhập');
 console.log('✓ League: chờ phiên đã nhớ, không hiện nhầm nút đăng nhập');
 
+
+// ---- Stitch v2 (cờ ux1 bật): CÙNG các hành vi trên khung tự sinh (web/js/st/v2/leagues.js) ----
+window.t = global.t; window.I18N = { lang: () => 'vi' }; window.Core = { todayKey: () => '2026-01-01' };
+window.App.state = { settings: {}, game: { xp: 450 }, stats: { days: {} } }; window.App.EXAMS = {}; window.App.streak = () => 3; window.App.ux1On = () => true;
+window.App.onCleanup = () => {};
+for (const f of ['runtime', 'shell', 'leagues']) vm.runInNewContext(fs.readFileSync(`web/js/st/v2/${f}.js`, 'utf8'), { window, self: window, document, console, App: window.App, I18N: window.I18N, Core: window.Core, t: global.t });
+assert.ok(window.ST2 && window.ST2.leagues, 'khung Stitch leagues nạp được');
+const modals = []; window.UI.modal = h => { modals.push(h); return null; };
+const mkBoard = n => Array.from({ length: n }, (_, i) => ({ rank: i + 1, nick: i === 8 ? 'Tuấn Anh' : 'User' + (i + 1), xp: 1000 - i * 50, me: i === 8, zone: i < 7 ? 'up' : i >= n - 5 ? 'down' : '' }));
+window.localStorage.removeItem('lk.leagueLastSeen');
+window.Sync.user = { uid: 'u123', displayName: 'Tuấn' }; window.Sync.authed = async () => window.Sync.user;
+window.Sync.league = async () => ({ member: { nick: 'Tuấn Anh', tier: 2, xp: 550 }, week: wk, board: mkBoard(14), rules: { group: 30, up: 7, down: 5, maxTier: 5 }, last: { week: 'w0', tier: 1, move: 1, rank: 3, of: 30, xp: 900 } });
+await window.App.routes.league();
+const v = document.getElementById('view');
+assert.ok(v.querySelector('.v2-leagues') && v.querySelector('h1').textContent.includes('Hạng Vàng'), 'v2: tiêu đề = hạng hiện tại (Hạng Vàng)');
+assert.ok(v.querySelector('.lg2-me[aria-current="true"]') && v.querySelector('.lg2-me').textContent.includes('Tuấn Anh') && v.querySelector('.lg2-me').textContent.includes('600'), 'v2: dòng của mình được tô sáng (lg2-me) với tên + XP');
+assert.equal(v.querySelectorAll('.lg2-row').length, 14, 'v2: đủ 14 dòng bảng xếp hạng thật');
+assert.ok(v.querySelector('.lg2-up') && v.querySelector('.lg2-down') && /Hạng Ngọc bích/.test(v.querySelector('.lg2-up').textContent), 'v2: dải vùng thăng hạng (lên Hạng Ngọc bích) và vùng xuống hạng');
+assert.ok(/còn|Đã kết thúc/.test(v.textContent), 'v2: hiện thời gian còn lại của tuần');
+assert.ok(v.querySelector('.lg2-me').textContent.includes('An toàn') && /Còn 101 XP để thăng hạng/.test(v.querySelector('.lg2-me').textContent), 'v2: nhãn vùng + số XP còn thiếu để thăng hạng');
+assert.equal(v.querySelector('[data-card="cta"] button').getAttribute('data-href'), '#/review', 'v2: nút học trỏ tới bài kế tiếp thật (#/review khi chưa có kế hoạch)');
+assert.ok(v.querySelector('[data-card="last"]') && /thăng hạng/.test(v.querySelector('[data-card="last"]').textContent), 'v2: banner kết quả tuần trước (thăng hạng) còn');
+v.querySelector('[data-card="last"] [data-act="last"]').click();
+assert.equal(window.localStorage.getItem('lk.leagueLastSeen'), 'w0', 'v2: bấm Đã hiểu → ghi nhớ đã xem tuần trước');
+assert.ok(!v.querySelector('[data-card="last"]'), 'v2: banner biến mất sau Đã hiểu');
+v.querySelector('[data-card="nick"] [data-act="nick"]').click();
+assert.ok(modals.some(h => /dlgNickInput/.test(h)), 'v2: nút Đổi biệt danh mở hộp đổi biệt danh');
+v.querySelector('[data-card="rules"] [data-act="rules"]').click();
+assert.ok(modals.some(h => /Quy tắc giải đấu tuần/.test(h) && /Top 7/.test(h)), 'v2: quy tắc giải đấu mở được');
+assert.ok(v.querySelector('nav[aria-label], [data-tab="league"]') || v.querySelector('nav'), 'v2: có thanh tab (tab Giải đấu)');
+// các trạng thái khác vẫn vào được khi cờ bật: khách → nút đăng nhập; chưa tham gia → form biệt danh
+window.Sync.league = async () => ({ member: null, week: wk });
+await window.App.routes.league();
+assert.ok(document.getElementById('view').innerHTML.includes('leagueJoinNick'), 'v2 bật: chưa tham gia vẫn có form gia nhập');
+window.Sync.user = null; window.Sync.authed = async () => null;
+await window.App.routes.league();
+assert.ok(document.getElementById('view').innerHTML.includes('leagueSignInBtn'), 'v2 bật: khách vẫn có nút đăng nhập');
+window.Sync.league = async () => { throw new Error('x'); }; window.Sync.user = { uid: 'u' };
+await window.App.routes.league();
+assert.ok(document.getElementById('view').innerHTML.includes('Thử lại'), 'v2 bật: lỗi mạng vẫn có nút Thử lại');
+console.log('✓ League (Stitch v2): hạng, dòng của mình, vùng thăng/xuống hạng, thời gian còn lại, CTA, banner tuần trước, đổi biệt danh, quy tắc, các trạng thái khác');
+
 console.log('✓ UI League: renderHomeCard & routes.league qua mọi trạng thái (khách, chưa tham gia, đã tham gia)');
 console.log('✓ league test PASS 100%');

@@ -1,0 +1,174 @@
+{
+ "_doc": "Màn Giải đấu (#/league) – d do League route (web/js/league.js) dựng từ dữ liệu thật Sync.league('me'). Đầu trang + thanh tab = chuẩn chung (shell.js). Banner tuần trước, đổi biệt danh, quy tắc → thẻ cùng khuôn thẻ 'Earn +40 XP' (d.cards).",
+ "remove": [
+  ":scope > header",
+  ":scope > nav",
+  ":scope > title",
+  ":scope > meta",
+  ":scope > link",
+  ":scope > svg.inline-defs-container"
+ ],
+ "text": {
+  "Sapphire League": "d.tier",
+  "3 DAYS LEFT": "d.left",
+  "Top 3 advance to": "d.lead",
+  "Ruby League": "d.next",
+  "Maintain safe rank to avoid demotion.": "d.zoneMsg"
+ },
+ "attr": {
+  ":scope > main > div > div > div:nth-child(1) > div:nth-child(1) > div": {
+   "aria-hidden": "'true'",
+   "aria-label": "''"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.rows",
+   "as": "r",
+   "samples": ":scope > main > div > div > div:nth-child(2) > div",
+   "variants": {
+    "p1": ":scope > main > div > div > div:nth-child(2) > div:nth-child(1)",
+    "p2": ":scope > main > div > div > div:nth-child(2) > div:nth-child(2)",
+    "p3": ":scope > main > div > div > div:nth-child(2) > div:nth-child(3)",
+    "up": ":scope > main > div > div > div:nth-child(2) > div:nth-child(4)",
+    "row": ":scope > main > div > div > div:nth-child(2) > div:nth-child(5)",
+    "me": ":scope > main > div > div > div:nth-child(2) > div:nth-child(6)",
+    "down": ":scope > main > div > div > div:nth-child(2) > div:nth-child(7)"
+   },
+   "pick": "r.v",
+   "bind": {
+    "p1": {
+     "text": {
+      "1": "r.rank",
+      "AN": "r.ini",
+      "An Nguyen": "r.nick",
+      "1,420": "r.xp",
+      "XP": "'XP'"
+     },
+     "cls": {
+      ":scope > div:nth-child(1) > div:nth-child(2)": {
+       "dk:[color:#2BA39A]": "'dk:[color:#6bd8ce]'"
+      }
+     },
+     "addClass": {
+      ":scope": "relative lg2-row"
+     }
+    },
+    "p2": {
+     "text": {
+      "2": "r.rank",
+      "LK": "r.ini",
+      "Linh Khanh": "r.nick",
+      "1,280": "r.xp",
+      "XP": "'XP'"
+     },
+     "addClass": {
+      ":scope": "relative lg2-row"
+     }
+    },
+    "p3": {
+     "text": {
+      "3": "r.rank",
+      "MR": "r.ini",
+      "Marcus Roy": "r.nick",
+      "1,150": "r.xp",
+      "XP": "'XP'"
+     },
+     "addClass": {
+      ":scope": "relative lg2-row"
+     }
+    },
+    "row": {
+     "text": {
+      "4": "r.rank",
+      "TC": "r.ini",
+      "Tariq Chen": "r.nick",
+      "980": "r.xp",
+      "XP": "'XP'"
+     },
+     "addClass": {
+      ":scope": "relative lg2-row"
+     }
+    },
+    "me": {
+     "text": {
+      "5": "r.rank",
+      "YO": "r.ini",
+      "You": "r.nick",
+      "SAFE": "r.chip",
+      "160 XP to Promotion": "r.gap",
+      "820": "r.xp",
+      "XP": "'XP'"
+     },
+     "cls": {
+      ":scope > div:nth-child(1) > div:nth-child(1)": {
+       "dk:[color:#003733]": "'dk:[color:#0d1a1e]'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)": {
+       "dk:[color:#003733]": "'dk:[color:#0d1a1e]'"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "aria-current": "'true'"
+      }
+     },
+     "addClass": {
+      ":scope": "relative lg2-row lg2-me"
+     }
+    },
+    "up": {
+     "text": {
+      "PROMOTION ZONE": "r.label"
+     },
+     "addClass": {
+      ":scope": "lg2-div lg2-up"
+     }
+    },
+    "down": {
+     "text": {
+      "DEMOTION ZONE": "r.label"
+     },
+     "addClass": {
+      ":scope": "lg2-div lg2-down"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.cards",
+   "as": "r",
+   "samples": ":scope > main > div > div > div:nth-child(3)",
+   "variants": {
+    "c": ":scope > main > div > div > div:nth-child(3)"
+   },
+   "bind": {
+    "c": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "r.icon"
+     },
+     "text": {
+      "Earn +40 XP to climb": "r.title",
+      "Complete 1 quick vocabulary sprint": "r.sub",
+      "Sprint": "r.btn"
+     },
+     "attr": {
+      ":scope > button": {
+       "data-href": "r.href||''",
+       "data-act": "r.act||''",
+       "aria-label": "r.aria"
+      },
+      ":scope": {
+       "data-card": "r.k"
+      }
+     },
+     "addClass": {
+      ":scope > div:nth-child(1)": "min-w-0",
+      ":scope > div:nth-child(1) > div:nth-child(2)": "min-w-0",
+      ":scope > button": "relative shrink-0 after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
+     }
+    }
+   }
+  }
+ ]
+}

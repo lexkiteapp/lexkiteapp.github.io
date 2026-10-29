@@ -1,0 +1,217 @@
+{
+ "_doc": "Màn Tôi (#/me, cờ ux1) – d do web/js/ux1-me.js dựng từ dữ liệu thật. Đầu trang + thanh tab = chuẩn chung (shell.js). Mọi mục trang Tôi cũ nằm ở d.secs (nhóm hàng cùng khuôn hàng 'Preferences'); công tắc = role=switch. Tương phản: công tắc TẮT dùng #4E5F62 (sáng) / #8FA9AF (tối) – màu có sẵn trong Stitch.",
+ "remove": [
+  ":scope > header",
+  ":scope > nav"
+ ],
+ "text": {
+  "Learner Kai": "d.name",
+  "Target 7.5": "d.target",
+  "14": "d.streak",
+  "820": "d.xp",
+  "142": "d.saved",
+  "Day streak": "d.lStreak",
+  "Total XP": "d.lXp",
+  "Saved words": "d.lSaved",
+  "Achievements": "d.lAch",
+  "View all": "d.lAll",
+  "Log out": "d.out",
+  "Lexkite v2.4": "d.ver"
+ },
+ "html": {
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(1) > span": "d.photo ? '<img src=\"' + e(d.photo) + '\" alt=\"\" referrerpolicy=\"no-referrer\" class=\"w-14 h-14 rounded-2xl object-cover\">' : e(d.ini)"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1)": {
+   "href": "'#/stats'"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2)": {
+   "href": "'#/stats'"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3)": {
+   "href": "'#/deck'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1) > a": {
+   "href": "'#/stats'"
+  },
+  ":scope > main > div > button": {
+   "data-act": "'out'",
+   "aria-label": "d.out"
+  },
+  ":scope > main > div > div:nth-child(1) > div > button": {
+   "data-href": "'#/settings'",
+   "aria-label": "d.lEdit"
+  }
+ },
+ "tag": {
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3)": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(1) > div > button": "relative after:absolute after:-inset-1 after:inset-x-0 after:content-['']",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+ },
+ "repeat": [
+  {
+   "list": "d.ach",
+   "as": "r",
+   "samples": ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div > div",
+   "pick": "r.v",
+   "variants": {
+    "a1": ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1)",
+    "a2": ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2)",
+    "a3": ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(3)"
+   },
+   "bind": {
+    "a1": {
+     "html": {
+      ":scope > div:nth-child(1) > span": "r.icon"
+     },
+     "text": {
+      "Streak Star": "r.name",
+      "Lvl 3": "r.sub"
+     }
+    },
+    "a2": {
+     "html": {
+      ":scope > div:nth-child(1) > span": "r.icon"
+     },
+     "text": {
+      "Fast Drill": "r.name",
+      "Lvl 2": "r.sub"
+     }
+    },
+    "a3": {
+     "html": {
+      ":scope > div:nth-child(1) > span": "r.icon"
+     },
+     "text": {
+      "Exam Pro": "r.name",
+      "Lvl 4": "r.sub"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.secs",
+   "as": "s",
+   "samples": ":scope > main > div > div:nth-child(4)",
+   "variants": {
+    "s": ":scope > main > div > div:nth-child(4)"
+   },
+   "bind": {
+    "s": {
+     "text": {
+      "Preferences": "s.title"
+     },
+     "html": {
+      ":scope > div:nth-child(1) > span:nth-child(1)": "s.icon"
+     },
+     "repeat": [
+      {
+       "list": "s.rows",
+       "as": "w",
+       "samples": ":scope > div:nth-child(2) > div",
+       "pick": "w.v",
+       "variants": {
+        "n1": ":scope > div:nth-child(2) > div:nth-child(1)",
+        "hr": ":scope > div:nth-child(2) > div:nth-child(2)",
+        "n2": ":scope > div:nth-child(2) > div:nth-child(3)",
+        "n3": ":scope > div:nth-child(2) > div:nth-child(5)",
+        "tg": ":scope > div:nth-child(2) > div:nth-child(7)"
+       },
+       "bind": {
+        "n1": {
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
+          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
+          ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
+          ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
+         },
+         "attr": {
+          ":scope": {
+           "data-row": "w.k"
+          }
+         },
+         "addClass": {
+          ":scope": "relative"
+         }
+        },
+        "n2": {
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
+          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
+          ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
+          ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
+         },
+         "attr": {
+          ":scope": {
+           "data-row": "w.k"
+          }
+         },
+         "addClass": {
+          ":scope": "relative"
+         }
+        },
+        "n3": {
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
+          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
+          ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
+          ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
+         },
+         "attr": {
+          ":scope": {
+           "data-row": "w.k"
+          }
+         },
+         "addClass": {
+          ":scope": "relative"
+         }
+        },
+        "tg": {
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon"
+         },
+         "text": {
+          "Notifications": "w.label"
+         },
+         "attr": {
+          ":scope": {
+           "data-row": "w.k"
+          },
+          ":scope > button": {
+           "aria-checked": "w.on ? 'true' : 'false'",
+           "aria-label": "w.label",
+           "data-act": "w.act",
+           "id": "'sw-' + w.k"
+          }
+         },
+         "cls": {
+          ":scope > button": {
+           "justify-end": "w.on ? 'justify-end' : 'justify-start'",
+           "lt:bg-[#0D6964]": "w.on ? 'lt:bg-[#0D6964]' : 'lt:bg-[#4E5F62]'",
+           "dk:bg-[#2BA39A]": "w.on ? 'dk:bg-[#2BA39A]' : 'dk:bg-[#8FA9AF]'"
+          }
+         },
+         "addClass": {
+          ":scope": "relative",
+          ":scope > button": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+         }
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "i18n": {}
+}
