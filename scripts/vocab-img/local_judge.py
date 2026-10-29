@@ -227,7 +227,7 @@ def check_yes(im, q, model=None):
         if a in ('yes', 'no'):
             try: c = float(o.get('confidence', 50))
             except Exception: c = 50.0
-            return a == 'yes' and c >= float(os.environ.get('VIMG_CHECK_CONF', '70'))
+            return (a == 'yes', c)
     return None
 
 def framing(im):
@@ -418,11 +418,13 @@ def main():
         if dup: r.append('duplicate (pHash)')
         # e4: ảnh cảnh đã qua (kể cả nhờ giám khảo kép) phải trả lời YES câu kiểm NGHĨA của thẻ – CẢ HAI mô hình (pilot 29/10: 'half', 'future' qua oan khi chỉ hỏi câu cảnh)
         def _check(rr):
+            # luật (29/10 rejudge: 1 mô hình bắt buộc loại oan 'here'): hỏi CẢ HAI mô hình; nhận khi ≥ 1 'yes' (≥ 70) và KHÔNG mô hình nào 'no' chắc (≥ 80); không ai trả lời → hàng chờ
             if rr or t['kind'] == 'object' or not t.get('check'): return rr
-            for m in CONS_MODELS:
-                y = check_yes(im, t['check'], m); ft.setdefault('chk', []).append(f"{m.split('/')[-1][:6]}:{y}")
-                if y is not True: return rr + [f'meaning check: {"no" if y is False else "no answer"} ({t["check"][:50]})']
-            return rr
+            res = [check_yes(im, t['check'], m) for m in CONS_MODELS]; ft['chk'] = [None if x is None else [x[0], x[1]] for x in res]
+            got = [x for x in res if x]
+            if not got: return rr + ['queue: meaning check unavailable']
+            yes = any(a and c >= float(os.environ.get('VIMG_CHECK_CONF', '70')) for a, c in got); hard_no = any((not a) and c >= 80 for a, c in got)
+            return rr if yes and not hard_no else rr + [f'meaning check: no ({t["check"][:50]})']
         if r and os.environ.get('VIMG_CONSENSUS') == '1' and t['kind'] != 'object' and not any(x.startswith(HARD) for x in r):
             ok, det = consensus(im, t, ft); ft['cons'] = det
             if ok: ft['cons_soft'] = r; ft.update(ask_yes=True, ask_model='consensus:' + '+'.join(m.split('/')[-1] for m in CONS_MODELS), ask_conf=ft.get('ask_conf') or CONS_CONF); r = []   # nhận nhờ giám khảo kép; giữ lý do cổng mềm để soát
