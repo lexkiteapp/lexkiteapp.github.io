@@ -198,7 +198,7 @@ def guess(p):   # Guess the Word (audited word bank + img.json picture): 3 clues
 
 
 def level(p):   # Level Check (3 gold quiz items): progress dots, question card, score pill, trophy
-    Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Three questions.')]
+    Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Ready?')]
     for i, (stem, opts, ans, right) in enumerate(Q, 1):
         lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 2.4, quiz=True), L(f'a{i}', stem.replace('___', right))]   # the answer = the full sentence (no lone word first: whisper drops it)
     lines += [L('s', 'Three out of three? Comment below!'), L('c', 'Save this. Free on lexkite.com.')]

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Level check! Three questions.",
+   "text": "Level check! Ready?",
    "pause": 0.42
   },
   {
@@ -104,8 +104,8 @@
   ]
  },
  "est": {
-  "words": 40,
-  "seconds": 29.3,
-  "wpm": 82
+  "words": 39,
+  "seconds": 28.8,
+  "wpm": 81
  }
 }
