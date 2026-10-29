@@ -54,7 +54,7 @@ async function run(width, scheme, lang) {
 
   // 🔥 Giữ chuỗi: mốc 7 ngày (tự hiện khi mở app) → rương → rã băng
   await page.evaluate(async () => { if (App.lazy) await App.lazy('streak', 'ret').catch(() => {}); if (window.Ret) Ret.check(); }).catch(() => {});
-  await page.waitForFunction(() => !!document.querySelector('#modal:not([hidden]) .ret-cel'), null, { timeout: 8000 }).catch(() => errs.push(`${tag}: mốc 7 ngày không hiện`));
+  await page.waitForFunction(() => !!document.querySelector('#modal:not([hidden]) .ret-cel, #modal:not([hidden]) [data-ret-cel]'), null, { timeout: 8000 }).catch(() => errs.push(`${tag}: mốc 7 ngày không hiện`));
   await check('ret-milestone');
   if (await click('#retChestTile')) { await page.waitForTimeout(1200); await check('ret-chest'); }
   await page.evaluate(() => { const m = document.getElementById('modal'); if (m) m.hidden = true; if (window.Ret) Ret.thaw(); });

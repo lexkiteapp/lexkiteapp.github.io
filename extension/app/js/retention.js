@@ -158,8 +158,8 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     const who = teacherFor(m), fz = state.game.freezeAt === m ? `<span class="ret-chip" data-noicon>🧊 +1</span>` : '';
     if (v2On()) { // 🎨 Stitch v2: cùng khung màn Chuỗi trong hộp thoại (không đầu trang cố định); thẻ phụ = chip băng + ô rương + chỗ quảng cáo
       const o = g.ST2.streak(v2Data({ n: m, title: t('{n} ngày! 🔥', { n: m }), say: who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!'), extra: `<div class="flex items-center justify-center gap-3 flex-wrap mb-[1rem]">${teach2(who)}${fz}${chestTile()}</div><div id="retAd"></div>` }));
-      const bd = document.body; if (!bd.classList.contains('v2on')) { bd.classList.add('st', 'v2on'); App.onCleanup && App.onCleanup(() => bd.classList.remove('st', 'v2on')); }
-      const box = UI.modal(`<div class="${o.root}">${o.main}</div>`);
+      // KHÔNG gắn st/v2on vào <body>: hộp thoại hiện trên mọi trang – v2on sẽ ẩn đầu trang/thanh tab của trang đang mở; khung .v2 tự đủ CSS
+      const box = UI.modal(`<div class="${o.root}" data-ret-cel>${o.main}</div>`);
       if (g.Sfx && g.Sfx.streak) g.Sfx.streak(); else if (g.Sfx && g.Sfx.win) g.Sfx.win();
       buzz([30, 40, 70]); if (!reduce() && typeof g.confetti === 'function') g.confetti(120);
       bindChest(box); bindNext(box); bindGoals(box); return;

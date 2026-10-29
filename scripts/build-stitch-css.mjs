@@ -34,6 +34,8 @@ const PRE = [
   // Font dự phòng khớp số đo (capsize: size-adjust 104.98 %, ascent 98.88 %, descent 21.15 %) → không CLS khi font web tới
   '@font-face{font-family:"Plus Jakarta Sans Fallback";src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Helvetica"),local("Roboto");size-adjust:104.98%;ascent-override:98.88%;descent-override:21.15%;line-gap-override:0%}',
   '@font-face{font-family:"Material Symbols Outlined";font-style:normal;font-weight:400 700;font-display:block;src:url(../fonts/msym.woff2) format("woff2")}',
+  // Stitch v2.1 dùng cả bản Rounded (Luyện/Tôi/Chuỗi…) → tự host bản Rounded cùng danh sách icon (web/fonts/msymr.woff2)
+  '@font-face{font-family:"Material Symbols Rounded";font-style:normal;font-weight:400 700;font-display:block;src:url(../fonts/msymr.woff2) format("woff2")}.material-symbols-rounded{font-family:"Material Symbols Rounded";font-weight:400;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased;width:1em;height:1em;overflow:hidden;flex-shrink:0;font-variation-settings:"FILL" 0}.material-symbols-rounded.fill{font-variation-settings:"FILL" 1}',
   '.material-symbols-outlined{font-family:"Material Symbols Outlined";font-weight:400;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased;width:1em;height:1em;overflow:hidden;flex-shrink:0;font-variation-settings:"FILL" 0}',
   '.material-symbols-outlined.fill{font-variation-settings:"FILL" 1}[dir=rtl] .st .ms-flip{transform:scaleX(-1)}',
   // Màn Stitch chiếm trọn #view (bỏ đệm/khung của app cũ); chuyển động: chỉ mờ dần 180 ms, tôn trọng giảm chuyển động
@@ -90,11 +92,13 @@ async function fonts() {
   const names = icons(), mcss = await (await get(`https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400..700,0..1,0&icon_names=${names.join(',')}&display=block`)).text();
   const mu = mcss.match(/url\((https:[^)]+)\)/); if (!mu) throw new Error('Material Symbols: không có url');
   fs.writeFileSync('web/fonts/msym.woff2', Buffer.from(await (await get(mu[1])).arrayBuffer()));
+  const rcss = await (await get(`https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400..700,0..1,0&icon_names=${names.join(',')}&display=block`)).text(), ru = rcss.match(/url\((https:[^)]+)\)/);
+  if (!ru) throw new Error('Material Symbols Rounded: không có url'); fs.writeFileSync('web/fonts/msymr.woff2', Buffer.from(await (await get(ru[1])).arrayBuffer()));
   fs.writeFileSync('web/fonts/msym.json', JSON.stringify(names) + '\n');
   console.log('font:', fs.readdirSync('web/fonts').map(f => `${f} ${(fs.statSync('web/fonts/' + f).size / 1024).toFixed(1)} KB`).join(' · '));
 }
 // Tên icon dùng trong mẫu: ms('tên') hoặc chú thích "@icons a b c" (icon chọn theo dữ liệu)
-function icons() { const s = new Set(); for (const f of new Set(Object.values(GROUPS).flat())) { const t = fs.readFileSync(f, 'utf8'); for (const m of t.matchAll(/\bms\(\s*'([a-z_0-9]+)'/g)) s.add(m[1]); for (const m of t.matchAll(/@icons ([a-z_0-9 ]+)/g)) m[1].trim().split(/\s+/).forEach(x => s.add(x)); for (const m of t.matchAll(/material-symbols-outlined[^>]*>\s*([a-z_0-9]+)\s*</g)) s.add(m[1]); } return [...s].sort(); }
+function icons() { const s = new Set(); for (const f of new Set(Object.values(GROUPS).flat())) { const t = fs.readFileSync(f, 'utf8'); for (const m of t.matchAll(/\bms\(\s*'([a-z_0-9]+)'/g)) s.add(m[1]); for (const m of t.matchAll(/@icons ([a-z_0-9 ]+)/g)) m[1].trim().split(/\s+/).forEach(x => s.add(x)); for (const m of t.matchAll(/material-symbols-(?:outlined|rounded)[^>]*>\s*([a-z_0-9]+)\s*</g)) s.add(m[1]); } return [...s].sort(); }
 
 if (A.has('--fonts')) await fonts();
 const bad = [];

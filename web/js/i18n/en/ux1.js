@@ -57,4 +57,10 @@
   "{n} mô-đun": "{n} Modules",
   "Thi thử {x} đầy đủ": "Full {x} Mock",
   "Bắt đầu thi thử {x}": "Start {x} mock",
+  // Stitch v2 – màn Tôi (ux1-me.js)
+  'Tùy chọn': 'Preferences',
+  'Ngôn ngữ': 'Language',
+  'Đã đạt': 'Earned',
+  'Chưa đạt': 'Not earned yet',
+  'Xem tất cả': 'View all',
 }); })(typeof self !== 'undefined' ? self : this);
