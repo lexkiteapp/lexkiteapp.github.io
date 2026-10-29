@@ -213,6 +213,35 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   ok(P.getElementById('gTarget').tagName === 'SELECT' && /input/.test(P.getElementById('gDate').tagName.toLowerCase()), 'goal (v2): đổi sang CEFR → điểm mục tiêu thành ô chọn A1–C2');
   delete App.state.settings.goal;
 }
+// ---------- Gọi giáo viên #/call (Stitch v2.1 teacher-call): khung mới giữ đủ ý trang Gọi cũ ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const P = w.document;
+  await go('#/call', '.call-card');
+  const cards = $$('.call-card'), CL = w.CALLS;
+  ok(cards.length === CL.length && cards.every(a => /^#\/call\/[\w-]+$/.test(a.getAttribute('href'))) && !$$('#view img').some(i => /img\/call\//.test(i.getAttribute('src'))), 'call (v2): danh sách đủ ' + CL.length + ' cuộc gọi, ảnh giáo viên qua Chars (không img/call/mia)');
+  await go('#/call/' + CL[0].id, '#callGo');
+  ok($('#callGo') && /teach\/carlos\//.test($('#view img').getAttribute('src')) && /Carlos/.test($('#view').textContent) && !/Mia/.test($('#view').textContent), 'call (v2): màn nhấc máy hiện Carlos (không Mia)');
+  $('#callGo').click(); await tick(300);
+  const R = $('.v2-teacher-call');
+  ok(R && !$('.call-ov') && $('#cEnd') && $('#cEnd2') && $('#cMic') && $('#cSpk') && $('#cOptTog') && $('#cT') && $('#cBar') && $('#cL1'), 'call (v2): khung Stitch teacher-call thay lớp phủ cũ, đủ nút (cúp máy ×2, mic, nghe lại, thu gọn gợi ý, đồng hồ, tiến độ)');
+  ok($('#cTch.tch img') && /teach\/carlos\//.test($('#cTch img').getAttribute('src')) && !R.innerHTML.includes('img/call/') && !R.querySelector('.call-av'), 'call (v2): giáo viên Carlos qua Chars/LessonTeacher, đứng trong phòng (không vòng/khung Mia)');
+  ok($('#cTch').getAttribute('aria-hidden') === 'true' && ($('#cL1').textContent || '').trim() === CL[0].turns[0].m && $('#cL1').getAttribute('lang') === 'en', 'call (v2): Carlos nói câu đầu, phụ đề tiếng Anh đúng kịch bản');
+  const op0 = $$('#cOpts button');
+  ok(op0.length === CL[0].turns[0].o.length && op0.every(b => b.getAttribute('lang') === 'en' && b.textContent.trim()), 'call (v2): gợi ý trả lời đủ ' + op0.length + ' chip');
+  ok(Array.from(R.querySelectorAll('button')).every(b => b.getAttribute('aria-label') || b.textContent.trim()), 'call (v2): mọi nút có nhãn');
+  // thu gọn / mở gợi ý
+  $('#cOptTog').click(); ok($('#cOpts').hidden && $('#cOptTog').getAttribute('aria-expanded') === 'false', 'call (v2): caret thu gọn gợi ý'); $('#cOptTog').click();
+  // trả lời bằng chip → Carlos đáp tiếp, tiến độ tăng
+  op0[0].click(); await tick(100);
+  ok(($('#cPct').textContent || '') === Math.round(1 / CL[0].turns.length * 100) + '%' && $('#cBar').style.width === Math.round(1 / CL[0].turns.length * 100) + '%' && ($('#cL1').textContent || '').includes(CL[0].turns[1] ? CL[0].turns[1].m : CL[0].end), 'call (v2): chọn chip → tiến độ % tăng + Carlos nói câu kế');
+  // sửa lỗi tế nhị qua CallMia.correct vẫn chạy
+  const fx = w.CallMia.correct('I very like coffee', 'What do you want?');
+  ok(fx && /really/.test(fx.good), 'call: sửa lỗi tế nhị (CallMia.correct) còn nguyên');
+  // cúp máy: có trả lời → tổng kết
+  $('#cEnd').click(); await tick(100);
+  ok(/Tổng kết|Call summary|summary/i.test($('#view h1').textContent) && $('#cSave') && $$('#view a[href^="#/call"]').length >= 2 && !$('.v2-teacher-call'), 'call (v2): cúp máy → tổng kết, thêm vào thẻ ôn, gọi lại / cuộc gọi khác');
+  w.localStorage.removeItem('lk.ux1');
+}
 
 ok(['Ôn', 'Luyện', 'Giải đấu', 'Luyện thi', 'Bạn học để làm gì?'].every(k => fx[k] && Object.keys(fx[k]).length === 13), 'nhãn mới có bản dịch tay 13 ngôn ngữ (+ vi gốc, en)');
 ok(!consoleErr.length, '0 lỗi console' + (consoleErr.length ? ': ' + consoleErr.slice(0, 3).join(' | ') : ''));

@@ -34,4 +34,6 @@
   'Cụm từ nên nhớ': 'Phrases to remember',
   'Thêm vào thẻ ôn': 'Add to review cards',
   'Đã thêm {n} thẻ': 'Added {n} cards',
+  'Trực tiếp': 'Live',
+  'Đang nghe': 'Listening',
 }); })(typeof self !== 'undefined' ? self : this);

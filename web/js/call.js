@@ -9,6 +9,15 @@
   const { routes } = App;
   const view = App.view;
   const ACCENT = 'en-US', MIA = 'img/call/mia.webp';
+  // 🧩 Stitch v2.1 teacher-call (cờ ux1): khung tự sinh brand/stitch/v2/bind/teacher-call.json. Giáo viên = Carlos, CHỈ qua Chars + LessonTeacher (2D, đứng sau thẻ phụ đề đục);
+  // trang cũ (Mia) giữ làm dự phòng khi chưa bật cờ / thiếu khung. Lớp học tiếng Anh: tư thế nói khi đang nói, nghe khi người học nói.
+  const WHO = 'carlos';
+  const v2On = () => !!(window.ST2 && window.ST2['teacher-call'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
+  const CHIP = 'w-full min-h-[44px] px-3.5 py-2 rounded-[0.75rem] text-start text-[14px] leading-[20px] font-[600] transition-transform active:translate-y-0.5 lt:bg-[#f2f4f3] lt:text-[#0D6964] dk:[background-color:rgba(43,_163,_154,_0.15)] dk:[border:1px_solid_rgba(43,_163,_154,_0.3)] dk:text-[#EEF6F7]';
+  // Mia (trang cũ) → Carlos (v2): ảnh/tên qua Chars; câu dịch giữ "Mia" Latin ở mọi ngôn ngữ nên thay thẳng tên
+  const nm = () => (v2On() ? Chars.name(WHO) : 'Mia'), M = x => x.replace('Mia', nm());
+  const face = (sz, st) => (v2On() ? Chars.img(WHO, { size: sz, alt: '', cls: 'call-face' }) : `<img src="${MIA}" alt="${st ? 'Mia' : ''}" width="${sz}" height="${sz}" ${st || 'loading="lazy"'}>`);
+  const TIP_FIX = (bad, good, why) => `<span lang="en"><s>${esc(bad)}</s> → <b>${esc(good)}</b></span> <span class="block lt:text-[#4E5F62] dk:text-[#9DB5BA]">${esc(why)}</span>`;
   const NAME = { coffee: () => t('Mua cà phê cho cả nhóm'), weekend: () => t('Kể chuyện cuối tuần'), 'first-day': () => t('Ngày đầu đi làm ở Mỹ'), standup: () => t('Họp đầu ngày (stand-up)'), doctor: () => t('Đặt lịch khám bác sĩ'), apartment: () => t('Gọi hỏi thuê căn hộ') };
   const nameOf = c => (NAME[c.id] ? NAME[c.id]() : c.title);
   const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem('vb.call.' + k); localStorage.setItem('vb.call.' + k, v); } catch (e) { return null; } };
@@ -68,7 +77,10 @@
 .call-mic{background:#0D6964}.call-mic.on{background:#14b8a6;animation:callTalk .6s ease-in-out infinite alternate}.call-end{background:#d1343a}.call-tr{background:rgba(255,255,255,.16);font-size:1rem!important;width:52px!important;height:52px!important}
 .call-ring{margin:auto;text-align:center}.call-ring .call-av{animation:callTalk .8s ease-in-out infinite alternate}
 .call-accept{background:#15803d!important}
-body.call-on{overflow:hidden}`;
+body.call-on{overflow:hidden}
+.call-card img.call-face,.call-face{border-radius:12px;background:none;object-fit:contain;flex:none}
+.v2-teacher-call .tch-rig{position:absolute;inset:0}.v2-teacher-call .tch-rig img,.v2-teacher-call .tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.v2-teacher-call .tch-rig.live img{visibility:hidden}
+.v2-teacher-call [hidden]{display:none}`;
     document.head.appendChild(st);
   }
 
@@ -77,29 +89,42 @@ body.call-on{overflow:hidden}`;
     const list = window.CALLS || [];
     const c = list.find(x => x.id === arg);
     if (c) return ring(c);
-    view.innerHTML = `<div class="page-head"><div><h1>📞 ${t('Gọi cho Mia')}</h1><p class="muted">${t('Cuộc gọi video luyện nói: Mia hỏi, bạn trả lời bằng giọng nói hoặc chọn gợi ý. Lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết.')}</p></div></div>
-      <div class="call-grid">${list.map(x => `<a class="call-card" href="#/call/${x.id}"><img src="${MIA}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> <span lang="en">${esc(x.title)}</span></span></span></a>`).join('')}</div>
+    view.innerHTML = `<div class="page-head"><div><h1>📞 ${M(t('Gọi cho Mia'))}</h1><p class="muted">${M(t('Cuộc gọi video luyện nói: Mia hỏi, bạn trả lời bằng giọng nói hoặc chọn gợi ý. Lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết.'))}</p></div></div>
+      <div class="call-grid">${list.map(x => `<a class="call-card" href="#/call/${x.id}">${face(56)}<span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> <span lang="en">${esc(x.title)}</span></span></span></a>`).join('')}</div>
       <p class="tiny muted" style="margin-top:1rem">${t('Lời bạn nói được nhận dạng ngay trên trình duyệt, Lexkite không lưu lại.')}</p>`;
   };
 
   // Màn "đang gọi đến" – chạm Nghe máy để bắt đầu (trình duyệt cần 1 lần chạm để phát âm thanh)
   function ring(c) {
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${esc(nameOf(c))}</h1><p class="muted"><span class="chip lv">${c.lv}</span> <span lang="en">${esc(c.title)}</span></p></div></div>
-      <div class="card center"><img src="${MIA}" alt="Mia" width="120" height="120" style="border-radius:50%;background:#f4efe6"><p><b>Mia</b> – <span lang="en">${esc(c.role)}</span></p>
+      <div class="card center">${face(120, 'style="border-radius:50%;background:#f4efe6"')}<p><b>${nm()}</b> – <span lang="en">${esc(c.role)}</span></p>
       <div class="row center" style="gap:.6rem;flex-wrap:wrap"><button class="btn primary lg" id="callGo">📞 ${t('Gọi ngay')}</button><a class="btn" href="#/call">${t('Cuộc gọi khác')}</a></div></div>`;
     $('#callGo').onclick = () => start(c);
   }
 
   function start(c) {
-    const ov = document.createElement('div'); ov.className = 'call-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', t('Cuộc gọi với Mia'));
-    document.body.appendChild(ov); document.body.classList.add('call-on');
+    const V2 = v2On();
+    let ov = null;
+    if (!V2) { ov = document.createElement('div'); ov.className = 'call-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', t('Cuộc gọi với Mia'));
+      document.body.appendChild(ov); document.body.classList.add('call-on'); }
+    let tchr = null;
     let i = 0, rec = null, dead = false, t0 = Date.now(), tick = 0, autoMic = false, showTr = pref('tr') !== '0' && I18N.lang() !== 'en', busy = false;
     const answers = [], tips = [], lat = [], tr = {};
-    const close = () => { dead = true; clearInterval(tick); UI.stopSpeak(); if (rec && rec.stop) try { rec.stop(); } catch (e) { /* bỏ qua */ } ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
+    const close = () => { dead = true; clearInterval(tick); UI.stopSpeak(); if (tchr) { try { tchr.destroy(); } catch (e) { /* bỏ qua */ } tchr = null; } if (rec && rec.stop) try { rec.stop(); } catch (e) { /* bỏ qua */ } if (!V2) ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
     App.cleanups.push(close);
     const onKey = e => { if (e.key === 'Escape') hang(); };
     document.addEventListener('keydown', onKey);
-    ov.innerHTML = `<div class="call-top"><span>🔒 ${t('Cuộc gọi luyện tập')}</span><span id="cT" aria-live="off">00:00</span></div>
+    if (V2) {
+      const canTrV = I18N.lang() !== 'en';
+      const d = { pct: 0, title: nameOf(c), lv: c.lv, who: Chars.name(WHO), line: '', tip: t('Gợi ý trả lời'), micLbl: t('Nói'), canTr: canTrV, showTr: String(showTr), trLbl: t('Bật/tắt phụ đề dịch'),
+        trHtml: canTrV ? '<span class="text-[14px] font-extrabold" aria-hidden="true">Aa</span>' : '<span class="material-symbols-outlined text-[20px]" aria-hidden="true">graphic_eq</span>',
+        teacher: '<div id="cTch" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[270px] h-[234px] max-w-full z-0 pointer-events-none" aria-hidden="true"></div>',
+        l2: '<p id="cL2" class="text-[14px] leading-[20px] mt-1 lt:text-[#4E5F62] dk:[color:#9DB5BA]"></p>',
+        opts: `<div id="cOpts" role="group" aria-label="${esc(t('Gợi ý trả lời'))}" class="flex flex-col gap-2 mt-3"></div>` };
+      ov = ST2.mount(view, 'teacher-call', d, null);
+      const tp = $('#cTip', ov), tn = document.createElement('span'); tn.id = 'cTipT'; if (tp && tp.lastChild) tp.replaceChild(tn, tp.lastChild);
+      tchr = LessonTeacher.mount($('#cTch', ov), WHO); // Carlos: canvas clip talk/listen (hoặc poster khi tiết kiệm dữ liệu / giảm chuyển động)
+    } else ov.innerHTML = `<div class="call-top"><span>🔒 ${t('Cuộc gọi luyện tập')}</span><span id="cT" aria-live="off">00:00</span></div>
       <div class="call-av" id="cAv"><img src="${MIA}" alt="Mia" width="230" height="230"></div>
       <div class="call-name">Mia</div><div class="call-sub" lang="en">${esc(c.role)}</div>
       <div class="call-cap" id="cCap" aria-live="polite"><div class="l1" lang="en" id="cL1"></div><div class="l2" id="cL2"></div></div>
@@ -112,20 +137,23 @@ body.call-on{overflow:hidden}`;
     // Dịch sẵn mọi câu của Mia trong 1 lần gọi (phụ đề dòng 2) – không chặn cuộc gọi; lỗi mạng thì chỉ hiện tiếng Anh
     const pieces = [...new Set(c.turns.flatMap(x => [x.m, x.re, ...(x.br || []).map(b => b[1])]).concat(c.end).filter(Boolean))];
     if (I18N.lang() !== 'en' && window.Dict && Dict.translateTo) Dict.translateTo(pieces.join('\n'), I18N.lang()).then(out => { const ls = String(out || '').split('\n'); if (ls.length === pieces.length) pieces.forEach((p, k) => { tr[p] = ls[k]; }); paintTr(); }).catch(() => {});
-    let cur = [];
+    let cur = [], last = '';
+    const AV = () => (V2 ? { classList: { add() {}, remove() {} } } : $('#cAv', ov)); // v2: tư thế do clip Carlos (talk/listen) thể hiện, không vòng sáng
     const canTr = I18N.lang() !== 'en' && window.Dict && Dict.translateTo;
     const fetchTr = ps => ps.filter(p => !tr[p]).forEach(p => Dict.translateTo(p, I18N.lang()).then(o => { if (o && alive()) { tr[p] = o; paintTr(); } }).catch(() => {}));
     const paintTr = () => { const l2 = $('#cL2', ov); if (l2) l2.textContent = showTr && cur.every(p => tr[p]) ? cur.map(p => tr[p]).join(' ') : ''; };
     const say = parts => {
       cur = parts.filter(Boolean); const text = cur.join(' ');
       $('#cL1', ov).textContent = text; paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200); // bản dịch gộp chưa về → dịch riêng câu đang nói
-      const av = $('#cAv', ov); av.classList.remove('listen'); av.classList.add('talk');
-      UI.tts(text, ACCENT, undefined, { onEnd: () => { if (!alive()) return; av.classList.remove('talk'); if (autoMic && i < c.turns.length) listen(); } });
+      const av = AV(); av.classList.remove('listen'); av.classList.add('talk'); last = text;
+      const done = () => { if (!alive()) return; av.classList.remove('talk'); if (autoMic && i < c.turns.length) listen(); };
+      if (tchr) tchr.say(text, { accent: ACCENT, voice: Chars.voice(WHO), onEnd: done }); // Carlos nói (clip talk), giọng = Chars.voice; im → clip listen
+      else UI.tts(text, ACCENT, undefined, { onEnd: done });
       setTimeout(() => alive() && av.classList.remove('talk'), Math.min(9000, 900 + text.length * 70)); // trình duyệt không báo kết thúc → vẫn dừng hiệu ứng
     };
     const showOpts = () => {
       const box = $('#cOpts', ov); const turn = c.turns[i];
-      box.innerHTML = turn ? turn.o.map((o, k) => `<button type="button" data-o="${k}" lang="en">💬 ${esc(o)}</button>`).join('') : '';
+      box.innerHTML = turn ? turn.o.map((o, k) => `<button type="button" data-o="${k}" lang="en"${V2 ? ` class="${CHIP}"` : ''}>${V2 ? '' : '💬 '}${esc(o)}</button>`).join('') : '';
       $$('[data-o]', box).forEach(b => b.onclick = () => answer(turn.o[+b.dataset.o], true));
     };
 
@@ -135,17 +163,18 @@ body.call-on{overflow:hidden}`;
       busy = true;
       const a0 = performance.now(), turn = c.turns[i];
       if (rec && rec.stop) try { rec.stop(); } catch (e) { /* bỏ qua */ }
-      const tipBox = $('#cTip', ov); tipBox.innerHTML = '';
+      const tipBox = V2 ? $('#cTipT', ov) : $('#cTip', ov); if (V2) tipBox.textContent = t('Gợi ý trả lời'); else tipBox.innerHTML = '';
       if (UNSAFE.test(text)) { busy = false; say(['Let\'s keep our chat friendly and on topic!', turn.m]); return; }
       const fix = picked ? null : correct(text, turn.m);
       answers.push({ text, picked, fix });
       if (fix) {
         tips.push(fix);
-        tipBox.innerHTML = `<div class="call-tip">💡 ${t('Mia hiểu ý bạn! Nói tự nhiên hơn:')}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;
+        if (V2) tipBox.innerHTML = TIP_FIX(fix.bad, fix.good, fix.why); else tipBox.innerHTML = `<div class="call-tip">💡 ${t('Mia hiểu ý bạn! Nói tự nhiên hơn:')}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;
       }
       let react = turn.re;
       for (const [re, line] of turn.br || []) { try { if (new RegExp('\\b(' + re + ')', 'i').test(text)) { react = line; break; } } catch (e) { /* bỏ qua */ } }
       i++;
+      if (V2) { const pc = Math.round(i / c.turns.length * 100), pe = $('#cPct', ov), pb = $('#cBar', ov); if (pe) pe.textContent = pc + '%'; if (pb) pb.style.width = pc + '%'; if (window.Feel && Feel.on && Feel.fill && pb) Feel.fill(pb.parentElement, pc); }
       const next = c.turns[i];
       say([react, next ? next.m : c.end]);
       lat.push(performance.now() - a0);
@@ -155,20 +184,26 @@ body.call-on{overflow:hidden}`;
 
     function listen() {
       if (!alive() || rec) return;
-      const mic = $('#cMic', ov), av = $('#cAv', ov), turn = c.turns[i]; if (!turn) return;
-      UI.stopSpeak(); av.classList.remove('talk');
+      const mic = $('#cMic', ov), av = AV(), turn = c.turns[i]; if (!turn) return;
+      const mlb = $('#cMicL', ov), mset = on => { if (!V2) return; mic.setAttribute('aria-pressed', String(on)); if (mlb) mlb.textContent = on ? t('Đang nghe') : t('Nói'); };
+      if (tchr) tchr.stop(); else UI.stopSpeak(); av.classList.remove('talk');
       rec = UI.recognize(turn.o[0], ACCENT, {
-        start: () => { mic.classList.add('on'); av.classList.add('listen'); },
+        start: () => { mic.classList.add('on'); av.classList.add('listen'); mset(true); },
         result: ({ heard }) => { if (heard) answer(heard, false); },
         error: code => { autoMic = false; if (code !== 'no-speech') toast(UI.recErrorText(code), 3500); },
-        end: () => { rec = null; mic.classList.remove('on'); av.classList.remove('listen'); },
+        end: () => { rec = null; mic.classList.remove('on'); av.classList.remove('listen'); mset(false); },
       });
-      if (rec) { mic.classList.add('on'); av.classList.add('listen'); }
+      if (rec) { mic.classList.add('on'); av.classList.add('listen'); mset(true); }
     }
     $('#cMic', ov).onclick = () => { if (rec) { try { rec.stop(); } catch (e) { /* bỏ qua */ } return; } autoMic = true; listen(); };
-    const trBtn = $('#cTr', ov); if (trBtn) trBtn.onclick = () => { showTr = !showTr; pref('tr', showTr ? '1' : '0'); trBtn.setAttribute('aria-pressed', String(showTr)); paintTr(); };
+    const trBtn = I18N.lang() !== 'en' ? $('#cTr', ov) : null; if (trBtn) trBtn.onclick = () => { showTr = !showTr; pref('tr', showTr ? '1' : '0'); trBtn.setAttribute('aria-pressed', String(showTr)); paintTr(); };
     const hang = () => { if (answers.length) finish(); else { close(); location.hash = '#/call'; } };
     $('#cEnd', ov).onclick = hang;
+    if (V2) { // chỗ mới của các nút Stitch: ✕ & Kết thúc = cúp máy · caret = thu/mở gợi ý trả lời · chip đầu phải = bật/tắt phụ đề dịch · loa = nghe lại câu vừa nói
+      $('#cEnd2', ov).onclick = hang;
+      const og = $('#cOptTog', ov), ob = $('#cOpts', ov); og.onclick = () => { const open = ob.hidden; ob.hidden = !open; og.setAttribute('aria-expanded', String(open)); };
+      $('#cSpk', ov).onclick = () => { if (last && tchr) tchr.say(last, { accent: ACCENT, voice: Chars.voice(WHO) }); };
+    }
 
     function finish() {
       if (!alive()) return;
@@ -193,8 +228,8 @@ body.call-on{overflow:hidden}`;
       <div class="row" style="gap:.6rem;flex-wrap:wrap;margin-top:1rem"><button class="btn primary" id="cSave">+ ${t('Thêm vào thẻ ôn')}</button><a class="btn" href="#/call/${c.id}">↻ ${t('Gọi lại')}</a><a class="btn" href="#/call">${t('Cuộc gọi khác')}</a></div></div>`;
     $('#cSave').onclick = async () => {
       const b = $('#cSave'); b.disabled = true;
-      for (const [p, d] of c.phrases) await App.addWord({ word: p, def: d, pos: 'phrase', emoji: '📞', topic: 'call' }, { text: d, title: 'Call Mia: ' + c.title }, { silent: true });
-      for (const x of tips) await App.addWord({ word: x.good, pos: 'phrase', ex: x.good, emoji: '📞', topic: 'call' }, { text: x.good, title: 'Call Mia: ' + c.title }, { silent: true });
+      for (const [p, d] of c.phrases) await App.addWord({ word: p, def: d, pos: 'phrase', emoji: '📞', topic: 'call' }, { text: d, title: 'Call ' + nm() + ': ' + c.title }, { silent: true });
+      for (const x of tips) await App.addWord({ word: x.good, pos: 'phrase', ex: x.good, emoji: '📞', topic: 'call' }, { text: x.good, title: 'Call ' + nm() + ': ' + c.title }, { silent: true });
       b.textContent = '✓ ' + t('Đã thêm {n} thẻ', { n: c.phrases.length + tips.length }); toast(t('Đã thêm {n} thẻ', { n: c.phrases.length + tips.length }));
     };
   }
