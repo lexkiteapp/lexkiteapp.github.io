@@ -41,7 +41,7 @@
  "tag": {
   ":scope > header > div > div:nth-child(2)": {
    "to": "a",
-   "addClass": "box-content p-1.5 -m-1.5 bg-clip-content"
+   "addClass": "relative after:absolute after:-inset-1.5 after:content-['']"
   }
  },
  "repeat": [
@@ -200,6 +200,7 @@
   }
  ],
  "addClass": {
-  ":scope > main > div > div:nth-child(2)": "overflow-x-clip"
+  ":scope > main > div > div:nth-child(2)": "overflow-x-clip",
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > button": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
  }
 }
