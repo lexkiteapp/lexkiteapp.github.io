@@ -21,7 +21,7 @@
   const INK = { star: 'text-[#6B4500]', headphones: 'text-[#0B3B37]', menu_book: 'text-[#0B3B37]', mic: 'text-[#5C1408]', edit: 'text-[#6B3500]', call: 'text-[#0E3A4A]', radio: 'text-[#0E3A4A]', auto_stories: 'text-[#3A1F5C]', replay: 'text-[#0B3F22]' };
   const ball = ic => BALL[ic] || BALL.star, ink = ic => INK[ic] || INK.star;
   const GLOSS = '<span class="absolute top-1 inset-x-3 h-4 rounded-full bg-white/40 pointer-events-none" aria-hidden="true"></span>';
-  const stars = k => `<div class="flex items-center gap-1 mt-2" role="img" aria-label="${esc(t('{n}/3 sao', { n: k }))}">${[1, 2, 3].map(i => ms('star', 'text-[14px] ' + (i <= k ? 'text-[#FFC94A] lt:text-[#B07800]' : 'text-outline lt:text-[#6F7F7D]'), true)).join('')}</div>`;
+  const stars = k => `<div class="relative z-10 flex items-center gap-1 mt-3 px-1.5 py-0.5 rounded-full bg-surface" role="img" aria-label="${esc(t('{n}/3 sao', { n: k }))}">${[1, 2, 3].map(i => ms('star', 'text-[14px] ' + (i <= k ? 'text-[#FFC94A] lt:text-[#B07800]' : 'text-outline lt:text-[#6F7F7D]'), true)).join('')}</div>`;
   const LOCK = `<span class="absolute inset-0 rounded-[inherit] bg-black/25 flex items-center justify-center" aria-hidden="true"><span class="w-7 h-7 rounded-full bg-[#E9EFEB] border-2 border-[#94A3B8] shadow-[0_2px_0_#64748B] flex items-center justify-center">${ms('lock', 'ux1-lk text-[16px] text-[#475569]', true)}</span></span>`;
   function node(o, i) {
     const x = XS[i % 6], ic = o.icon || 'star';

@@ -34,9 +34,11 @@ const CSCAN = () => { const out = [];
     if (e.closest('.sr-only,[disabled],[aria-disabled="true"],[hidden],.brand,.wordmark') || (e.closest('.st-dim') && !e.closest('.lsn-foot'))) continue;
     const cs = getComputedStyle(e); if (cs.visibility === 'hidden') continue;
     let op = 1; for (let q = e; q && q.nodeType === 1; q = q.parentElement) op *= +getComputedStyle(q).opacity; if (op < 0.05) continue;
-    const r = e.getBoundingClientRect(); if (r.width < 3 || r.height < 3 || r.bottom < 0 || r.top > innerHeight) continue;
+    let r = e.getBoundingClientRect(); if (r.width < 3 || r.height < 3 || r.bottom < 0 || r.top > innerHeight) continue;
     const h = document.elementFromPoint(Math.min(innerWidth - 1, r.left + r.width / 2), Math.min(innerHeight - 1, Math.max(0, r.top + r.height / 2))); if (h && !(e.contains(h) || h.contains(e))) continue;
     const fs = parseFloat(cs.fontSize), fw = +cs.fontWeight || 400;
+    // hộp chữ thật: bỏ phần line-height thừa (icon = ô vuông cỡ chữ, chữ = cao 1.2× cỡ chữ quanh tâm) → không lấy nhầm nền ngoài huy hiệu/viên
+    { const cy = r.top + r.height / 2, hh = Math.min(r.height, fs * (icon ? 1 : 1.2)), cx = r.left + r.width / 2, ww = icon ? Math.min(r.width, fs) : r.width; r = { left: cx - ww / 2, top: cy - hh / 2, width: ww, height: hh }; }
     out.push({ k: (e.className.toString().match(/text-\S+/g) || []).slice(-2).join(' ') + (e.closest('[aria-pressed]') ? ' p=' + e.closest('[aria-pressed]').getAttribute('aria-pressed') : '') + (e.closest('.ok,.bad') ? ' fb' : ''), t: (icon ? '⟨' + e.textContent.trim() + '⟩' : e.textContent.trim()).slice(0, 28), x: r.left, y: r.top, w: r.width, h: r.height, c: cs.color, op, large: icon || fs >= 24 || (fs >= 18.66 && fw >= 700) }); }
   return out; };
 const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
