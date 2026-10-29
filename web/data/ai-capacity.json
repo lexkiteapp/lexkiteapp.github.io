@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T04:14:39.401Z",
+ "updated": "2026-10-29T07:00:07.422Z",
  "measured": {
   "_at": "2026-10-24",
   "gemini": {
@@ -37,7 +37,7 @@
  },
  "workload": {
   "lexicon": {
-   "words": 9993,
+   "words": 9996,
    "gen": 2000,
    "genGeminiOnly": 1000,
    "judgeA": 1000,
