@@ -158,6 +158,8 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
   { const L = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/lexicon/expand/pilot/labels.json'), 'utf8')), P = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/lexicon/expand/pilot/hard.json'), 'utf8')).items;
     ok(L.bad.length >= 32 && L.good.length >= 45 && P.length >= 378 && L.bad.every(b => P.includes(b.k)) && ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'D1', 'D2', 'D3'].every(c => L.bad.some(b => b.cls === c)), 'mẫu cố định: đủ nhãn mọi lớp, mọi từ nhãn có trong pilot-hard'); }
 }
+// L3 gốc (29/10): job.mjs phải LƯU nghĩa Wiktionary (g1) – trước đó KK chỉ giữ exs/trg nên khoá nghĩa theo Wiktionary chưa từng chạy
+{ const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'); ok(/KK\[e\.w \+ '#' \+ e\.pos\] = \{[^}]*g1: k\.g1/.test(J) && /lockSense\(/.test(J) && /mode: 'lxwsd'/.test(J), 'job.mjs: lưu g1 + khoá nghĩa + trắc nghiệm nghĩa'); }
 if (fail) { console.error(`✗ lexicon-expand: ${fail} lỗi`); process.exit(1); }
 console.log(`✓ lexicon-expand: cổng mục + dịch ngược + ${Object.keys(REG.consumers).length} việc hạ nguồn · ${pub.length} mục đã xuất`);
 

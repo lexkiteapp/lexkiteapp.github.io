@@ -57,7 +57,7 @@ const REFS = { cmu: CMU, bf: (await loadRefs({ britfone: arg('--britfone'), cmu:
 // Vẫn thiếu = lỗ dữ liệu nguồn → bỏ qua (KHÔNG vào hàng duyệt), lượt sau làm lại.
 const VIW = {};
 const KK = {}; // Wiktionary (kaikki): ví dụ dùng + bảng dịch theo nghĩa – nguồn người viết
-const ipa = await pmap(pool, 10, async e => { const k = await kaikki(e.w, e.pos, stat); VIW[e.w + '#' + e.pos] = k.vi || []; KK[e.w + '#' + e.pos] = { exs: k.exs || [], trg: k.trg || [] };
+const ipa = await pmap(pool, 10, async e => { const k = await kaikki(e.w, e.pos, stat); VIW[e.w + '#' + e.pos] = k.vi || []; KK[e.w + '#' + e.pos] = { exs: k.exs || [], trg: k.trg || [], g1: k.g1 || [], err: !!k.err }; // g1: trước 29/10 KHÔNG lưu → khoá nghĩa theo Wiktionary chưa từng chạy (gốc lớp L3)
   const vs = CMU.get(e.w) || [], arp = pickPron(vs, e.pos), het = heteronym(vs);
   const us = arp ? '/' + arpaToIpa(arp) + '/' : clean(k.us);
   const cands = [...(k.ukAll || []), ...(het ? k.ukNoRegion || [] : [])].map(clean).filter(Boolean);
@@ -99,6 +99,7 @@ async function wsd3(list) { const out = {};
 stat.resense = 0; stat.lock = { 'wiktionary-1': 0, 'wiktionary-2+semcor': 0, semcor: 0, fail: 0, infra: 0 };
 if (DRY) for (const e of pool) e._lock = 'dry'; else { const req = [];
   for (const e of pool) { const g1 = (KK[e.w + '#' + e.pos] || {}).g1 || [];
+    if (!g1.length && (KK[e.w + '#' + e.pos] || {}).err) { e._lock = null; stat.lock.infra++; continue; } // kaikki lỗi mạng = hạ tầng, lượt sau làm lại
     if (!g1.length) { e._lock = e.cnt >= 2 ? 'semcor' : false; stat.lock[e._lock || 'fail']++; continue; }
     req.push({ k: e.w + '#' + e.pos, w: e.w, pos: e.pos, senses: sensesTxt(e), probes: { wk1: g1[0], ...(g1[1] ? { wk2: g1[1] } : {}) }, e }); }
   const V = await wsd3(req);
