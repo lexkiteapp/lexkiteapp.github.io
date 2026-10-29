@@ -498,7 +498,7 @@ def T_level():
                 st=[dict(t=round(ans_t[i - 1] - C.MIX / 2, 4), s='right' if j == r else 'dim')], pairs=[[TH['ink'], TH['pill'], 72], [TH['ink'], TH['good_bg'], 72]])
         NODES.append(dict(id=nid('r'), type='ring', ring=dict(t0=round(end(f'q{i}') + 0.05, 3), t1=round(end(f'q{i}') + LINES[f'q{i}']['pause'] - 0.1, 3)), size=54,
                           box=[b[2] - 124, b[1] + 22, b[2] - 28, b[1] + 118], **{'in': cue(end(f'q{i}') + 0.05)}, out=dict(t=round(ans_t[i - 1] + 0.3, 3))))
-    c = Card(ys + 100, tone='good'); chip(c, '🏆 3 / 3', start('s'), tone='good'); c.text([['Comment your score!', 'ink']], S['hook'], at('s', 'comment'), align='c'); c.place(start('s'), start('c') - 0.2, 'a')   # same slot as the question cards (clear of their rings)
+    c = Card(ys + 100, tone='good'); chip(c, '🏆 3 / 3', start('s'), tone='good'); c.text([['Comment below!', 'ink']], S['hook'], at('s', 'comment'), align='c'); c.place(start('s'), start('c') - 0.2, 'a')   # same slot as the question cards (clear of their rings)
     end_card()
 
 

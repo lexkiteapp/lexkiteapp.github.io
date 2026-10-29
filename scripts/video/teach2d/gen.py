@@ -69,7 +69,7 @@ def stress(p):
         L('b', f"Now say {b['word']}."),
         L('m', f"The stress moves to the {b['say']} part."),
         L('r', f"Say it with me: {b['word']}.", 1.8, repeat=True),
-        L('q', f"Quick quiz! Where's the stress in {b['word']}?", 3.0, quiz=True),
+        L('q', "Quick quiz! Where's the stress?", 3.0, quiz=True),
         L('ans', f"The {b['say']} part. {b['word'].capitalize()}."),
         L('sh', 'Send this to a friend!'),
         L('c', 'Save this. Free on lexkite.com.')],
@@ -201,7 +201,7 @@ def level(p):   # Level Check (3 gold quiz items): progress dots, question card,
     Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Three questions.')]
     for i, (stem, opts, ans, right) in enumerate(Q, 1):
         lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 2.4, quiz=True), L(f'a{i}', stem.replace('___', right))]   # the answer = the full sentence (no lone word first: whisper drops it)
-    lines += [L('s', 'Three out of three? Comment your score!'), L('c', 'Save this. Free on lexkite.com.')]
+    lines += [L('s', 'Three out of three? Comment below!'), L('c', 'Save this. Free on lexkite.com.')]
     return dict(lines=lines, data=dict(qs=[dict(stem=s_, options=o_, answer=a_) for s_, o_, a_, _ in Q]),
                 cta=cta('placement', '#/placement', 'Take the level test'), hook=dict(line='h', text='Level check!'), src=dict(gold=p['gold']))
 
@@ -271,7 +271,7 @@ def toeic(p):   # TOEIC Word (app TOEIC reading bank web/js/toeic/reading*.js, P
 def review(p):   # Remember This? (SRS flashcard, audited word bank): front -> think 3 s -> flip -> example -> the app's 4 grade buttons
     w = p['word']; ipa, dfn, ex = bank(w); assert dfn and ex, ('word not in the audited bank', w)
     return dict(lines=[
-        L('h', 'Do you remember this word?'),
+        L('h', 'Remember this word?'),
         L('f', f"Here's your card: {w}."),
         L('q', 'Think! What does it mean?', 3.0, quiz=True),
         L('b', f"It means {dfn}."),

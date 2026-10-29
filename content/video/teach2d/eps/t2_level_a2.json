@@ -49,7 +49,7 @@
   },
   {
    "id": "s",
-   "text": "Three out of three? Comment your score!",
+   "text": "Three out of three? Comment below!",
    "pause": 0.42
   },
   {
@@ -104,8 +104,8 @@
   ]
  },
  "est": {
-  "words": 41,
-  "seconds": 29.8,
-  "wpm": 83
+  "words": 40,
+  "seconds": 29.3,
+  "wpm": 82
  }
 }

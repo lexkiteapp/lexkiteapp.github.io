@@ -48,7 +48,7 @@
     "b": "Now say photographer.",
     "m": "The stress moves to the second part.",
     "r": "Say it with me: photographer.",
-    "q": "Quick quiz! Where's the stress in photographer?",
+    "q": "Quick quiz! Where's the stress?",
     "ans": "The second part. Photographer.",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
@@ -173,7 +173,7 @@
     "a2": "I hate sitting in traffic.",
     "q3": "Question three.",
     "a3": "What's the reason for the change?",
-    "s": "Three out of three? Comment your score!",
+    "s": "Three out of three? Comment below!",
     "c": "Save this. Free on lexkite.com."
    }
   },
@@ -249,7 +249,7 @@
    "hook_true": true,
    "script_reviewed": true,
    "script": {
-    "h": "Do you remember this word?",
+    "h": "Remember this word?",
     "f": "Here's your card: deadline.",
     "q": "Think! What does it mean?",
     "b": "It means the time by which something must be finished.",

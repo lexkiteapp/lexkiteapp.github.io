@@ -37,7 +37,7 @@
   },
   {
    "id": "q",
-   "text": "Quick quiz! Where's the stress in photographer?",
+   "text": "Quick quiz! Where's the stress?",
    "pause": 2.6,
    "quiz": true
   },
@@ -100,8 +100,8 @@
   "text": "Where's the stress?"
  },
  "est": {
-  "words": 47,
-  "seconds": 30.4,
-  "wpm": 93
+  "words": 45,
+  "seconds": 29.4,
+  "wpm": 92
  }
 }

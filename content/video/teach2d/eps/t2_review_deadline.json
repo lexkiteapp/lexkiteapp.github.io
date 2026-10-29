@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Do you remember this word?",
+   "text": "Remember this word?",
    "pause": 0.42
   },
   {
@@ -69,8 +69,8 @@
   "text": "Remember this word?"
  },
  "est": {
-  "words": 46,
-  "seconds": 27.7,
-  "wpm": 100
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
  }
 }
