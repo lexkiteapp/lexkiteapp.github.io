@@ -131,7 +131,7 @@ DARKBG = bool(PLH) and float(np.median(cv2.cvtColor(next(iter(PLH.values())), cv
 if DARKBG: frac_at = lambda F, b, t: float((np.abs(crop(F, b, 10) - crop(PLH[round(t, 4)], b, 10)).max(2) > 18).mean()) if round(t, 4) in PLH else frac(F, b)   # overlay coverage = differs from the plate by > 18 (a card's last fade-out frames / compression stay below)
 elif EMBED:   # embed: dark Kit cards on the flat canvas (props bg) – "light pixels" only sees the text (~7 %), so coverage = differs from the canvas colour
     _bg = np.array([int(P.get('bg', '#10191B')[i:i + 2], 16) for i in (5, 3, 1)], np.float32)   # BGR
-    frac_at = lambda F, b, t: float((np.abs(crop(F, b, 10) - _bg).max(2) > 18).mean())
+    frac_at = lambda F, b, t: float((np.abs(crop(F, b, 10) - _bg).max(2) > 6).mean())   # Tactile Night card fill #172427 is only 7-12 levels off the canvas #10191B; a fading card's last frames stay below
 else: frac_at = lambda F, b, t: frac(F, b)
 for r in rows:
     n = BY[r['node']]; b = n['box']; a, b0, c_ = [FS.get(round(r['appears'] + d, 4)) for d in (-0.30, -0.15, 0.20)]

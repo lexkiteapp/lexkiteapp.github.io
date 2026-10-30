@@ -115,7 +115,7 @@ jobs:
         run: |
           cd scripts/video/remotion
           for f in $([ "${{ matrix.kind }}" = short ] && echo short || echo wide sq45); do
-            Q="--crf=16 --audio-bitrate=192k"; [ $f = short ] || Q="--crf=30 --audio-bitrate=96k"
+            Q="--crf=16 --audio-bitrate=192k"; [ $f = short ] || Q="--crf=23 --audio-bitrate=96k"   # embeds: CRF 30 left ringing that flickers around static text (overlay_still) at 0.04 MB/s; 23 stays far under 0.30 MB/s
             npx remotion render src/index.jsx stitch-short "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.mp4" --props="$GITHUB_WORKSPACE/$O/$f.json" --public-dir="$GITHUB_WORKSPACE/$O/pub" \
               --codec=h264 $Q --audio-codec=aac --log=error
             M="$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.mp4"   # audio = the plate's own AAC track (the word clock); Remotion's AAC adds ~40 ms of encoder priming (av_sync)
