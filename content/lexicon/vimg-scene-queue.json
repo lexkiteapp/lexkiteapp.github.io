@@ -43,12 +43,6 @@
    "why": "vision: no (two more candidates); vision description-sentence sim 0.299",
    "b": "40088424311"
   },
-  "car rental#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (arrivals hall and car rental sign); clip-sentence sim 0.1253; vision description-sentence sim 0.0723",
-   "b": "40088424311"
-  },
   "careless#adj": {
    "at": "2026-10-24",
    "tries": 4,
@@ -61,12 +55,6 @@
    "why": "vision description-sentence sim 0.0577",
    "b": "40088424311"
   },
-  "countryside#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1825; vision description-sentence sim 0.0685",
-   "b": "40088424311"
-  },
   "decentralize#v": {
    "at": "2026-10-24",
    "tries": 4,
@@ -77,12 +65,6 @@
    "at": "2026-10-26",
    "tries": 4,
    "why": "clip-sentence sim 0.1542",
-   "b": "40276144478"
-  },
-  "do#v": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1856",
    "b": "40276144478"
   },
   "edit access#n": {
@@ -102,12 +84,6 @@
    "tries": 4,
    "why": "clip-sentence sim 0.1617",
    "b": "40276144478"
-  },
-  "globally#adv": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "text: ly; vision: no (global recognition); vision: text; vision description-sentence sim 0.0936",
-   "b": "40088424311"
   },
   "group booking#n": {
    "at": "2026-10-24",
@@ -162,12 +138,6 @@
    "tries": 4,
    "why": "vision: no (mistake not shown); clip-sentence sim 0.2143; vision description-sentence sim 0.0526",
    "b": "40088424311"
-  },
-  "natural#adj": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (no clear resource shown); vision description-sentence sim 0.0994",
-   "b": "40276144478"
   },
   "noticeboard#n": {
    "at": "2026-10-24",
