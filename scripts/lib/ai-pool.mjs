@@ -516,7 +516,7 @@ export function createPool(opts = {}) {
     },
     vision: (req) => run(CHAINS.vision, { mode: 'vision', ...req }, { role: 'judge' }),
     /** kiểm sức khỏe rẻ: lexai ping (đếm khóa Gemini sống, không gọi mô hình) + 1 lời nhắn nhỏ mỗi tuyến GrabCast/tài khoản 2 */
-    async health({ grabcast = true } = {}) {
+    async health({ grabcast = true, probeGem = false } = {}) {
       const h = {};
       try { const r = await lexaiPost({ mode: 'ping' }); const j = r.ok ? await r.json() : {}; h.lexai = { ok: r.ok && j.gemini > 0, gemini: j.gemini ?? null }; if (r.ok && !j.gemini) rest('lexai', null, 30 * 60e3, 'kho Gemini rỗng (ping)'); } catch (e) { h.lexai = { ok: false, err: String(e.message).slice(0, 60) }; }
       if (grabcast && env.GRABCAST_AI_KEY) for (const p of [...(CF_TEXT ? ['cloudflare'] : []), 'groq', 'gemini']) {
@@ -528,6 +528,12 @@ export function createPool(opts = {}) {
       if (CF2.length) { try { await cf2Run('@cf/meta/llama-3.1-8b-instruct-fast', { messages: [{ role: 'user', content: 'ok' }], max_tokens: 2 }); h.cf2 = { ok: true, accounts: CF2.length }; } catch (e) { h.cf2 = { ok: false, err: e.message, sample: used.cf2Err }; if (e.kind === 'route') rest('cf2', null, e.ms, e.message); } }
       else h.cf2 = { ok: false, err: 'chưa có CF_POOL/CF_AI_TOKEN_2' };
       for (const n of ['gem', 'groq']) if ((n === 'gem' ? GEM : GROQ).size) { const M = await discover(n).catch(() => null); h[n] = { ok: !!M, models: M }; }
+      // thăm dò hạn mức NGÀY Gemini (trạng thái khoá nghỉ không sống qua lượt CI): 8 khoá rải đều × 1 lời nhắn rất nhỏ → tỉ lệ khoá đã cạn ngày
+      if (GEM.size && h.gem && h.gem.ok && probeGem) { const step = Math.max(1, Math.floor(GEM.size / 8)), m = GEM_MODELS.judge[0]; let n = 0, day = 0;
+        for (let i = 0; i < GEM.size && n < 8; i += step) { const k = GEM.peek(i); if (!k) continue; n++;
+          const r = await F(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, { method: 'POST', headers: { 'x-goog-api-key': k.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: 'Reply with {"ok":1}' }] }], generationConfig: { maxOutputTokens: 8, responseMimeType: 'application/json' } }) }).catch(() => null);
+          if (r && r.status === 429) { const b = await r.text().catch(() => ''); if (/per ?day|PerDay|daily|RPD/i.test(b) && !/per ?minute|PerMinute|RPM/i.test(b)) day++; } }
+        h.gem.probe = { n, day }; }
       log('[ai-pool] sức khỏe ' + JSON.stringify(h)); return h;
     },
     stats: () => ({ used: { ...used }, budget: { ...budget }, by: JSON.parse(JSON.stringify(stats)), keys: { gem: GEM.stats(), groq: GROQ.stats() } }),

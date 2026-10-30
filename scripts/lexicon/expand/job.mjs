@@ -77,13 +77,14 @@ const viAgree = (vi, wk) => { const A = new Set(viNorm(vi)); return wk.some(x =>
 const AI = createPool({ budget: { lexai: CALLS } }), callOk = new Map();
 const used = new Set();
 async function call(mode, items) { stat.calls++; const r = await AI.gen({ mode, items }); if (!r) { stat.fail++; stat.pool = 'empty'; } else used.add(r.route + ':' + r.model); return r; }
-await AI.health();
+const H0 = await AI.health({ probeGem: !WORDS });
 // kho khoá cạn (30/10 lượt 41065198770: Gemini ~20 lượt/khoá/ngày đã dùng hết cho pilot → 2.175/2.400 mục "hạ tầng" sau 166 phút) → dừng NGAY, không ghi gì;
 // giám khảo B/C cần họ Gemini hoặc llama (kho CF chung với ảnh). Ngưỡng: ≥ 25 % khoá Gemini sống. --words (pilot) vẫn chạy để thấy lỗi.
 { const K = AI.stats().keys || {}, g = K.gem || { size: 0, live: 0 };
-  if (!WORDS && g.size && g.live < g.size / 4) { const r = { batch: BATCH, n: 0, pass: 0, yield: 0, why: { infra: 0 }, pool: 'low', keys: K };
+  const pr = (H0.gem || {}).probe; // ≥ 6/8 khoá thăm dò cạn hạn mức ngày ≈ cả kho cạn
+  if (!WORDS && g.size && (g.live < g.size / 4 || (pr && pr.n >= 4 && pr.day / pr.n >= 0.75))) { const r = { batch: BATCH, n: 0, pass: 0, yield: 0, why: { infra: 0 }, pool: 'low', keys: K };
     fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); fs.writeFileSync(new URL('reports/lexicon-expand.json', ROOT), JSON.stringify(r));
-    console.log(`⏹ kho khoá Gemini cạn (${g.live}/${g.size} sống) – dừng lượt, không ghi lô (lượt cron sau làm tiếp)`); process.exit(0); } }
+    console.log(`⏹ kho khoá Gemini cạn (${g.live}/${g.size} sống, thăm dò ${pr ? pr.day + '/' + pr.n + ' cạn ngày' : '–'}) – dừng lượt, không ghi lô (lượt cron sau làm tiếp)`); process.exit(0); } }
 const CW = t => new Set((String(t).toLowerCase().match(/[a-z]{3,}/g) || []).filter(x => !['the', 'and', 'for', 'with', 'that', 'which', 'from', 'into', 'something', 'someone', 'used', 'especially', 'usually', 'often', 'having', 'being', 'etc', 'one', 'other', 'any', 'such', 'are', 'not', 'its', 'has'].includes(x)).map(x => x.slice(0, 5)));
 const ov = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n; };
 const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, i * n + n));
