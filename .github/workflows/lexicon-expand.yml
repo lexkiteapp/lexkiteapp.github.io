@@ -27,7 +27,7 @@ concurrency: { group: lexicon-expand, cancel-in-progress: false }
 jobs:
   expand:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 200   # 30/10 đo pilot 9: ~14 s/từ (Gemini 3.x chậm) → LX_N 600 ≈ 140 phút
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -70,7 +70,7 @@ jobs:
         # LEASE_AI_B_NEURONS đặt NGAY trong lệnh: bước thuê ghi LEASE_AI_B_NEURONS=0 vào GITHUB_ENV (đè env của bước)
         # biến repo so TRONG bash: biểu thức GitHub coi '' == '0' (26/10) – dispatch thắng biến repo
         run: |
-          N="${{ github.event.inputs.n }}"; N="${N:-${{ vars.LX_N }}}"; N="${N:-2400}"
+          N="${{ github.event.inputs.n }}"; N="${N:-${{ vars.LX_N }}}"; N="${N:-600}"
           P="${{ github.event.inputs.pilot }}"; P="${P:-${{ vars.LX_PILOT }}}"
           RT="${{ github.event.inputs.retry }}"; RT="${RT:-${{ vars.LX_RETRY }}}"
           EXTRA=(); [ "$P" = 1 ] && EXTRA+=(--pilot); [ "$RT" = 0 ] && EXTRA+=(--no-retry)
