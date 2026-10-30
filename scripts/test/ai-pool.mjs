@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Test ai-pool (scripts/lib/ai-pool.mjs) – ngoại tuyến, mọi nhà cung cấp giả (fetch mock). docs/API-KEYS.md §8.
 import fs from 'fs';
-import { createPool, allowed, familyOf, judgeKey, modelInfo, CHAINS, untilPacificMidnight, JUDGE_B_SYS, sameFamOk, cfTextOn, pickModels } from '../lib/ai-pool.mjs';
+import { createPool, allowed, familyOf, judgeKey, modelInfo, CHAINS, untilPacificMidnight, JUDGE_B_SYS, sameFamOk, cfTextOn, pickModels, normOut } from '../lib/ai-pool.mjs';
 import { agree } from '../content-qa/lib.mjs';
 import { parseKeys, keyRing } from '../lib/key-pool.mjs';
 import { build } from '../../functions/api/lexai.js';
@@ -218,5 +218,7 @@ for (const f of ['../lexicon/expand/job.mjs', '../explain/job.mjs', '../scriptba
   const q = pickModels('groq', ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'whisper-large-v3', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'meta-llama/llama-guard-4-12b', 'llama-3.1-8b-instant', 'qwen/qwen3-32b']);
   ok(q && q.gen[0] === 'openai/gpt-oss-120b' && q.C[0] === 'meta-llama/llama-4-maverick-17b-128e-instruct' && q.C.every(m => !/gpt-oss|guard|whisper|8b-instant/.test(m)), 'pickModels groq: C họ khác gpt-oss, hạng L trước, bỏ guard/whisper/8b');
   ok(modelInfo('qwen/qwen3.8-27b').tier === 'M' && allowed('lxwsd', 'qwen/qwen3.8-27b') && pickModels('groq', ['openai/gpt-oss-120b', 'qwen/qwen3.8-27b', 'allam-2-7b']).C[0] === 'qwen/qwen3.8-27b', 'qwen3.8-27b (Groq 30/10) đủ chuẩn giám khảo C; allam-7b thì không');
+  { const I = [{ k: 'a#n' }, { k: 'b#v' }], o1 = normOut([{ 'b#v': { ex0: 2 } }, { 'a#n': { ex0: 1 } }], I), o2 = normOut({ 'a#n': { 'a#n': { wk1: 1 } }, 'b#v': { wk1: 3 } }, I);
+    ok(o1['a#n'].ex0 === 1 && o1['b#v'].ex0 === 2 && o2['a#n'].wk1 === 1 && o2['b#v'].wk1 === 3, 'normOut: mảng [{k:{…}}] (gpt-oss Groq) và tầng bọc trùng khoá → đúng mục'); }
   ok(pickModels('gem', []) === null && pickModels('groq', ['whisper-large-v3']) === null, 'pickModels: danh sách rỗng → giữ mặc định'); }
 console.log(`✓ ai-pool test: ${n} kiểm tra`);
