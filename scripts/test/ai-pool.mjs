@@ -221,4 +221,11 @@ for (const f of ['../lexicon/expand/job.mjs', '../explain/job.mjs', '../scriptba
   { const I = [{ k: 'a#n' }, { k: 'b#v' }], o1 = normOut([{ 'b#v': { ex0: 2 } }, { 'a#n': { ex0: 1 } }], I), o2 = normOut({ 'a#n': { 'a#n': { wk1: 1 } }, 'b#v': { wk1: 3 } }, I);
     ok(o1['a#n'].ex0 === 1 && o1['b#v'].ex0 === 2 && o2['a#n'].wk1 === 1 && o2['b#v'].wk1 === 3, 'normOut: mảng [{k:{…}}] (gpt-oss Groq) và tầng bọc trùng khoá → đúng mục'); }
   ok(pickModels('gem', []) === null && pickModels('groq', ['whisper-large-v3']) === null, 'pickModels: danh sách rỗng → giữ mặc định'); }
+{ const G = 'AIza' + 'e'.repeat(35); let n503 = 0, slept = 0;
+  const f = async url => { if (url.includes('/models?')) return J({ models: [{ name: 'models/gemini-3.8-flash', supportedGenerationMethods: ['generateContent'] }] });
+    if (url.includes('generativelanguage') && n503++ < 2) return new Response('{"error":{"code":503,"message":"The model is overloaded"}}', { status: 503 });
+    if (url.includes('generativelanguage')) return J({ candidates: [{ content: { parts: [{ text: JSON.stringify({ 'apple#n': { s: 5 } }) }] } }] });
+    if (url === LX) return J({ gemini: 0 }); throw new Error('unexpected ' + url); };
+  const P = createPool({ fetch: f, env: { GEMINI_POOL: G }, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: () => {}, sleep: async ms => { slept += ms; }, now: () => 1e12, prompt: async r => ({ sys: 'S', user: JSON.stringify(r.items) }) });
+  const g = await P.gen({ mode: 'lxdef', items: ITEMS }, { chain: ['gem'] }); ok(g && g.route === 'gem' && n503 === 3 && slept >= 32e3, 'gem 503 quá tải: chờ rồi thử lại (không rơi ngay sang giám khảo yếu)'); }
 console.log(`✓ ai-pool test: ${n} kiểm tra`);

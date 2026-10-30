@@ -49,7 +49,7 @@ export function pickModels(kind, ids) {
   const I = [...new Set((ids || []).map(x => String(x).replace(/^models\//, '')))];
   if (kind === 'gem') {
     const v = m => { const x = /^gemini-(\d+(?:\.\d+)?)-flash(-preview)?$/.exec(m); return x ? +x[1] - (x[2] ? 0.001 : 0) : null; };
-    const f = I.filter(m => v(m) != null).sort((a, b) => v(b) - v(a)); return f.length ? { gen: f.slice(0, 2), judge: f.slice(0, 2) } : null;
+    const f = I.filter(m => v(m) != null).sort((a, b) => v(b) - v(a)); return f.length ? { gen: f.slice(0, 3), judge: f.slice(0, 3) } : null;
   }
   if (kind === 'groq') {
     const big = I.filter(m => !/whisper|guard|tts|compound|prompt-guard|playai|orpheus|safeguard/i.test(m));
@@ -126,7 +126,7 @@ const LEXAI_MODELS = {
 };
 const CF2_MODELS = ['@cf/openai/gpt-oss-120b', '@cf/meta/llama-3.3-70b-instruct-fp8-fast'];
 // giám khảo C (27/10, chủ chọn đồng thuận 3 giám khảo cho kho từ): họ THỨ BA trên kho CF – khác gpt-oss và llama
-export const CF2_JUDGE_C = ['@cf/mistralai/mistral-small-3.1-24b-instruct', '@cf/qwen/qwq-32b'];
+export const CF2_JUDGE_C = ['@cf/meta/llama-3.3-70b-instruct-fp8-fast', '@cf/mistralai/mistral-small-3.1-24b-instruct', '@cf/qwen/qwq-32b']; // 30/10: llama 70B trước – mistral-small chê oan 145/169 def đúng (pilot 7)
 const CF2_VISION = '@cf/meta/llama-4-scout-17b-16e-instruct';
 // neuron/token ước lượng (bảng giá Workers AI) – để trừ ngân sách tài khoản 2
 const NEURON = { 'gpt-oss-120b': { in: 31818 / 1e6, out: 68182 / 1e6 }, 'llama-3.3-70b': { in: 26668 / 1e6, out: 204805 / 1e6 }, 'llama-4-scout': { in: 24545 / 1e6, out: 77273 / 1e6 } };
@@ -341,12 +341,14 @@ export function createPool(opts = {}) {
   used.gem = 0; used.groq = 0;
   const redact = t => t.replace(/AIza[\w-]{10,}|AQ\.[\w.-]{10,}|gsk_\w{10,}/g, '[khoá]');
   async function keyed(ring, name, doFetch) {
-    for (let t = 0; t < Math.min(ring.size, 16); t++) {
+    let busy = 0; // 503 "model overloaded" (Gemini 30/10: phần lớn lượt) = tạm thời phía máy chủ → chờ 8 s / 24 s rồi thử khoá kế, không rơi ngay sang giám khảo yếu hơn
+    for (let t = 0; t < Math.min(ring.size, 16) + busy; t++) {
       const k = ring.next(); if (!k) throw new PoolErr('route', `${name}: mọi khoá đang nghỉ (${ring.size})`, ring.soonest());
       const r = await doFetch(k.key).catch(() => null); if (!r) throw new PoolErr('net', name + ' net');
       if (r.status === 401 || r.status === 403) { ring.park(k.id, 6 * 3600e3, 'auth'); continue; }
       if (r.status === 429) { const b = await r.text().catch(() => ''), day = /per ?day|PerDay|daily|\bRPD\b|\bTPD\b/i.test(b) && !/per ?minute|PerMinute|\bRPM\b|\bTPM\b/i.test(b);
         ring.park(k.id, day ? untilUtcMidnight(now()) + (name === 'gem' ? 8 * 3600e3 : 0) : retryAfter(r), day ? 'day' : 'minute'); continue; }
+      if (r.status === 503 && busy < 2) { busy++; await sleep(8e3 * (busy === 1 ? 1 : 3)); continue; }
       if (r.status >= 500) throw new PoolErr('net', `${name} ${r.status}`);
       const j = await r.json().catch(() => null);
       if (!r.ok || !j) throw new PoolErr('bad', `${name} ${r.status} ${redact(String(j && j.error && [j.error.code || j.error.status, j.error.message].join(' ') || '')).slice(0, 160)}`);
