@@ -31349,5 +31349,35 @@
     "ar": "اتصال بالمعلّم",
     "ru": "Звонок учителю",
     "tr": "Öğretmenle ara"
+  },
+  "Nhóm bộ từ": {
+    "es": "Grupos de sets",
+    "pt": "Grupos de conjuntos",
+    "fr": "Groupes de séries",
+    "de": "Set-Gruppen",
+    "id": "Grup set",
+    "th": "กลุ่มชุดคำ",
+    "zh": "词集分组",
+    "ja": "セットのグループ",
+    "ko": "세트 그룹",
+    "hi": "सेट समूह",
+    "ar": "مجموعات المجموعات",
+    "ru": "Группы наборов",
+    "tr": "Set grupları"
+  },
+  "Nhập bộ thẻ Anki (.apkg) của bạn thành bộ từ để học và ôn.": {
+    "es": "Importa tu mazo de Anki (.apkg) como un set para aprender y repasar.",
+    "pt": "Importe seu baralho do Anki (.apkg) como um conjunto para aprender e revisar.",
+    "fr": "Importez votre paquet Anki (.apkg) comme une série à apprendre et à réviser.",
+    "de": "Importiere dein Anki-Deck (.apkg) als Set zum Lernen und Wiederholen.",
+    "id": "Impor dek Anki (.apkg) kamu sebagai set untuk belajar dan mengulang.",
+    "th": "นำเข้าสำรับ Anki (.apkg) ของคุณเป็นชุดคำศัพท์เพื่อเรียนและทบทวน",
+    "zh": "将你的 Anki 牌组（.apkg）导入为词集，用来学习和复习。",
+    "ja": "Ankiデッキ（.apkg）をセットとして取り込み、学習と復習に使えます。",
+    "ko": "Anki 덱(.apkg)을 세트로 가져와 학습하고 복습하세요.",
+    "hi": "अपना Anki डेक (.apkg) सेट के रूप में इम्पोर्ट करें और सीखें व दोहराएँ।",
+    "ar": "استورد مجموعة Anki الخاصة بك (.apkg) كمجموعة للتعلّم والمراجعة.",
+    "ru": "Импортируйте свою колоду Anki (.apkg) как набор для изучения и повторения.",
+    "tr": "Anki destenizi (.apkg) öğrenmek ve tekrar etmek için set olarak içe aktarın."
   }
 }

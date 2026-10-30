@@ -213,6 +213,32 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   ok(P.getElementById('gTarget').tagName === 'SELECT' && /input/.test(P.getElementById('gDate').tagName.toLowerCase()), 'goal (v2): đổi sang CEFR → điểm mục tiêu thành ô chọn A1–C2');
   delete App.state.settings.goal;
 }
+// ---------- Thư viện #/library (Stitch v2.1 library): khung mới giữ đủ ý trang cũ (tab nhóm, CEFR, lọc, Anki, Xem cả, Đang học + Thư viện của tôi) ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const P = w.document, A0 = App.anki, calls = []; App.anki = m => { calls.push(m); };
+  await go('#/library?g=all', '.v2-library');
+  ok($('.v2-library') && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page', 'library (v2): khung Stitch, tab Luyện đang chọn');
+  ok($('#libTabs [data-g="all"].on') && $('#libTabs [data-g="all"]').getAttribute('aria-pressed') === 'true' && $$('#libTabs [data-g]').length === w.IELTS_DATA.GROUPS.length + 2 && $('#libTabs [data-g="mine"]'), 'library (v2): #libTabs đủ nhóm + Tất cả + Đang học, .on/aria-pressed');
+  ok($$('.v2-library main section').length >= 3 && $$('.v2-library main section a[href^="#/topic/"]').length >= 6 && $('.v2-library [data-go-g]'), 'library (v2): mỗi nhóm thẻ bộ từ thật → #/topic/…, nhóm dài có "Xem cả n bộ" [data-go-g]');
+  ok($$('[data-lvf]').length === 7 && $('#libQ') && $('#libAnkiOut') && $('#libAnkiIn') && $('#libNewSet'), 'library (v2): 7 nút CEFR + ô lọc + Anki xuất/nhập + Tạo bộ từ');
+  $('#libAnkiOut').click(); $('#libAnkiIn').click(); $('#libNewSet').click();
+  ok(calls.join() === 'export,import,import', 'library (v2): Anki xuất/nhập + "Tạo bộ từ của bạn" gọi App.anki thật');
+  $('[data-lvf="B2"]').click(); await tick(30);
+  ok($('[data-lvf="B2"]').getAttribute('aria-pressed') === 'true' && $('[data-lvf="B2"]').classList.contains('on') && /lv=B2/.test(w.location.hash) && $$('.v2-library a[href*="?lv=B2"]').length > 0, 'library (v2): lọc CEFR B2 → aria-pressed, URL lv=B2, thẻ mở #/topic/…?lv=B2');
+  $('[data-lvf=""]').click(); await tick(30);
+  const qi = $('#libQ'); qi.value = 'zzzqqxx'; qi.dispatchEvent(new w.Event('input')); await tick(30);
+  ok($('[data-lib-empty]') && !$$('.v2-library main section a[href^="#/topic/"]').length && P.activeElement === $('#libQ') && $('#libQ').value === 'zzzqqxx', 'library (v2): lọc không khớp → thẻ trống, ô lọc giữ chữ + con trỏ');
+  $('#libQ').value = ''; $('#libQ').dispatchEvent(new w.Event('input')); await tick(30);
+  const gg = $('.v2-library [data-go-g]').getAttribute('data-go-g'); $('.v2-library [data-go-g]').click(); await tick(30);
+  ok($(`#libTabs [data-g="${gg}"]`).classList.contains('on') && new RegExp('g=' + gg + '$').test(w.location.hash) && $$('.v2-library main section').length === 1, 'library (v2): "Xem cả" chuyển sang tab nhóm đó, URL g=…');
+  const tp = w.IELTS_DATA.TOPICS[0]; await App.addWord(tp.words[0], { src: 'lookup' }, { silent: true });
+  await go('#/library?g=mine', '.v2-library');
+  ok($('#libTabs [data-g="mine"].on') && $(`.v2-library a[href="#/topic/${tp.id}"]`) && $('.v2-library a[href^="#/deck?from="]'), 'library (v2): tab Đang học = Thư viện của tôi (#/deck?from=…) + bộ đang học');
+  ok(!/display:none/.test($('.v2-library main > div').getAttribute('style') || '') && $$('.v2-library main > div button[data-href^="#/topic/"]').length === 1, 'library (v2): thẻ Gợi ý = bộ thật đang học dở → #/topic/…');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/library', '#libBody');
+  ok($('#libBody') && !$('.v2-library'), 'library: cờ tắt → trang cũ nguyên vẹn');
+  w.localStorage.setItem('lk.ux1', '1'); App.anki = A0;
+}
 // ---------- Gọi giáo viên #/call (Stitch v2.1 teacher-call): khung mới giữ đủ ý trang Gọi cũ ----------
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document;

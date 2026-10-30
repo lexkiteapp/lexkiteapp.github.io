@@ -35,4 +35,7 @@
   "Đang luyện": "In training",
   "Đáp án đúng:": "Correct answer:",
   "Đóng màn chuỗi": "Close session",
+  "Gợi ý cho bạn": "Recommended for you",
+  "Nhóm bộ từ": "Set groups",
+  "Nhập bộ thẻ Anki (.apkg) của bạn thành bộ từ để học và ôn.": "Import your Anki deck (.apkg) as a set to learn and review.",
 }); })(typeof self !== 'undefined' ? self : this);
