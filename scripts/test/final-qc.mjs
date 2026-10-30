@@ -116,7 +116,7 @@ async function visit(page, k, errs) {
 async function session(o) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, colorScheme: o.scheme, reducedMotion: o.rm ? 'reduce' : 'no-preference', serviceWorkers: 'block' });
   await serve(ctx, ROOT); await ctx.addInitScript(HOOK);
-  const page = await ctx.newPage(); page.__hl = o.hl; const errs = []; page.on('pageerror', e => errs.push(e.message.slice(0, 120)));
+  const page = await ctx.newPage(); page.__hl = o.hl; const errs = []; page.on('pageerror', e => errs.push(e.message.slice(0, 120))); await FIX_CLOCK(page); // đồng hồ cố định cho MỌI màn (chữ 'còn Xh', ngày) → điểm không trôi theo giờ chạy CI
   await page.goto(url('home', o.hl), { waitUntil: 'load' }); await page.waitForTimeout(2000); await page.evaluate(SEED).catch(e => errs.push('seed ' + e.message));
   return { ctx, page, errs };
 }

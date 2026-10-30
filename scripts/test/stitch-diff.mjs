@@ -78,7 +78,7 @@ const browser = await chromium.launch(), res = {}, errs = [];
 for (const scheme of ['dark', 'light']) {
   const ctx = await browser.newContext({ viewport: { width: W, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
-  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`${scheme}: ${e.message}`));
+  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`${scheme}: ${e.message}`)); await FIX_CLOCK(page); // đồng hồ cố định cho MỌI màn (chữ 'còn Xh', ngày) → điểm không trôi theo giờ chạy CI
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2500);
   await page.evaluate(async () => { // dữ liệu mẫu giống bối cảnh Stitch: IELTS mục tiêu 7.5, 1 lần thi thử có điểm 4 kỹ năng
@@ -109,7 +109,7 @@ const qc = {};
 for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
   const ctx = await browser.newContext({ viewport: { width: QW, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
-  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`${scheme}@${QW}: ${e.message}`));
+  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`${scheme}@${QW}: ${e.message}`)); await FIX_CLOCK(page); // đồng hồ cố định cho MỌI màn (chữ 'còn Xh', ngày) → điểm không trôi theo giờ chạy CI
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
   await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
@@ -153,7 +153,7 @@ try { execFileSync('montage', [path.join(OUT, 'gallery-dark.png'), path.join(OUT
 for (const scheme of ['dark', 'light']) {
   const ctx = await browser.newContext({ viewport: { width: 1366, height: 900 }, deviceScaleFactor: 1, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
-  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`desk ${scheme}: ${e.message}`));
+  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`desk ${scheme}: ${e.message}`)); await FIX_CLOCK(page); // đồng hồ cố định cho MỌI màn (chữ 'còn Xh', ngày) → điểm không trôi theo giờ chạy CI
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
   await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
