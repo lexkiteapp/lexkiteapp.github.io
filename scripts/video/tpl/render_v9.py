@@ -1070,7 +1070,7 @@ def keycol(lid, k):
     for name in ('red', 'green', 'yellow', 'mint'):
         if k in KEY[lid].get(name, []): return COL[name]
     return None
-PLATE = bool(BRD) and SP.get('caption_style', 'plate') == 'plate'   # v13 (owner 27/10): ONE caption style everywhere – fixed lower band, dark rounded plate, white text, active word yellow, no bounce
+PLATE = (bool(BRD) or bool(SET.get('registry'))) and SP.get('caption_style', 'plate') == 'plate'   # v13 (owner 27/10): ONE caption style everywhere (board sets + registry 2D set reg2d) – fixed lower band, dark rounded plate, white text, active word yellow, no bounce
 DESK = bool(BRD) and not PLATE and BRD['cap'].get('body_overlap_rows', 1) == 0 and BRD['cap']['w'] >= 700   # a clean desk-front / floor band below the teacher
 CAPINK = bool(BRD) and not DESK and not PLATE   # board mode: captions are WRITTEN ON THE BOARD in ink (navy, white edge, highlighter on the active word), moved with the camera
 CAP = dict(size=max(96, CAPF), min=CAPF, stroke=14, gapx=22, bounce=1.16, settle=1.08) if not BRD else dict(size=CAPF, min=CAPF, stroke=12 if CAPINK else 14, gapx=20, bounce=1.12, settle=1.06)
