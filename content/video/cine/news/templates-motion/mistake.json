@@ -4,16 +4,16 @@
  "title": "Motion Mistake vs Better #1 – \"I am agree\" -> \"I agree\" (+ IPA, stress)",
  "teacher": "ama",
  "clips": [
-  "a05b_ama2",
-  "a05t2_ama2_present",
-  "a05e1_ama2_excited",
-  "a05e2_ama2_question",
-  "a05e3_ama2_wow"
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
  ],
  "listen": [
-  "a05l2_ama2_listen"
+  "ga11_listen_2"
  ],
- "set": "classroom_board",
+ "set": "reg2d",
  "layout": "right",
  "host_fx": "raw",
  "speed": 0.7,

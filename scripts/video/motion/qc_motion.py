@@ -183,7 +183,9 @@ for nid, (a_, b_) in tsel.items():
     if d > 2.0: pxm.append((nid, a_, b_, round(d, 2)))
 R['overlay_still'] = dict(ok=not mv and not pxm, moving=mv[:4], pixels_moved=pxm[:4], checked=len(tsel), note='transform identity from settle to the next event (core) + card pixels hold still (|diff| <= 2, animated widgets excluded)')
 BANK = {x['id']: x for x in json.load(open(f'{ROOT}/brand/library/cine/teachers/bank.json'))['clips']}
-style = lambda c: None if c not in BANK else ('3d' if '3d' in (BANK[c].get('tags') or []) else '2d')
+sys.path.insert(0, f'{ROOT}/scripts'); from teach.registry import sources as _reg_src   # ONE character set (docs/CHARACTERS.md): registry 2D clips are their own family
+REG_SRC = _reg_src()
+style = lambda c: 'registry2d' if c in REG_SRC else (None if c not in BANK else ('3d' if '3d' in (BANK[c].get('tags') or []) else '2d'))
 used = sorted({c for f in PT['frames'] for c, k, w in f['src'] if w > 0.02}); par = PT.get('host_parent') or {}
 styles = {c: style(par.get(c, c)) for c in used}
 R['host_one_style'] = dict(ok=bool(used) and None not in styles.values() and len(set(styles.values())) == 1, styles=styles,

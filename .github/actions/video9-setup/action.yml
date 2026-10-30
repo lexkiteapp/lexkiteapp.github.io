@@ -36,8 +36,12 @@ runs:
         import json, os
         s = json.load(open(os.environ['SPEC'])); tr = json.load(open('content/video/cine/teachers.json')); st = tr['sets'][s['set']]; L = st['lib']
         p = ['/anchor/tools/foley/ding.wav'] + [f"/{L}/{st[k]}" for k in ('amb', 'ding') if st.get(k)]
-        for c in s['clips']: p += [f"/{L}/{st['path']}/{c}.mp4", f"/{L}/{st['path']}/{c}.json", f"/{L}/{st['meta']}/{c}/{s['teacher']}/"]
-        for c in s['clips'] + s.get('listen', []): p += [f"/{L}/clips/{c}.mp4"]   # raw host: the original clips (owner 26/10)
+        if st.get('registry'):   # registry 2D set (docs/CHARACTERS.md): only the green-screen sources; registry_plate.py builds the host clips
+          for c in s['clips'] + s.get('listen', []): p += [f"/anchor/green/kfull_pro/{c}.mp4", f"/anchor/green/kmask_pro/{c}.mkv"]
+          p += [f"/anchor/green/kmask_pro/{q['clips']['talk']['src']}.mkv" for q in json.load(open('web/teach/characters.json'))['people'].values()]   # shared head size
+        else:
+          for c in s['clips']: p += [f"/{L}/{st['path']}/{c}.mp4", f"/{L}/{st['path']}/{c}.json", f"/{L}/{st['meta']}/{c}/{s['teacher']}/"]
+          for c in s['clips'] + s.get('listen', []): p += [f"/{L}/clips/{c}.mp4"]   # raw host: the original clips (owner 26/10)
         print(' '.join(p))
         PY
         )

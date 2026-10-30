@@ -10,7 +10,7 @@ on:
     inputs:
       templates: { description: 'comma list', default: 'drill,mistake,tip,ready' }
   pull_request:
-    paths: ['scripts/video/motion/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', '.github/workflows/video-motion.yml']
+    paths: ['scripts/video/motion/**', 'scripts/teach/**', 'web/teach/characters.json', '.github/actions/video9-setup/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', '.github/workflows/video-motion.yml']
 permissions: { contents: read }
 concurrency: { group: 'video-motion-${{ github.ref }}-${{ github.event.inputs.templates }}', cancel-in-progress: true }
 env:
@@ -86,12 +86,13 @@ jobs:
         shell: bash
         run: |
           set -o pipefail; mkdir -p $O
+          python3 scripts/video/motion/registry_plate.py --spec $SPEC --green footage/anchor/green --foot footage --out-teachers $O/teachers.json   # registry 2D hosts (docs/CHARACTERS.md)
           python3 -m pyflakes scripts/video/tpl/render_v9.py scripts/video/motion/*.py | grep -E 'undefined name|syntax error' && exit 1 || true
           if [ "${{ matrix.kind }}" = short ]; then
-            python3 scripts/video/tpl/render_v9.py --spec $SPEC --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --overlay --kbps 24000 --out $O/plate.mp4 > $O/plate.log 2>&1 || { tail -40 $O/plate.log; exit 1; }
+            python3 scripts/video/tpl/render_v9.py --spec $SPEC --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --teachers $O/teachers.json --overlay --kbps 24000 --out $O/plate.mp4 > $O/plate.log 2>&1 || { tail -40 $O/plate.log; exit 1; }
           else   # embed: its own script (no social lines, hand-over line, calmer) + a caption-free plate (captions ship as VTT)
             python3 scripts/video/motion/embed_spec.py $SPEC > $O/spec.json
-            python3 scripts/video/tpl/render_v9.py --spec $O/spec.json --vo vo_e/vis3 --foot footage --fonts brand/social/src/fonts --img img --overlay --kbps 24000 --out $O/plate_cap.mp4 --clean $O/plate.mp4 > $O/plate.log 2>&1 || { tail -40 $O/plate.log; exit 1; }
+            python3 scripts/video/tpl/render_v9.py --spec $O/spec.json --vo vo_e/vis3 --foot footage --fonts brand/social/src/fonts --img img --teachers $O/teachers.json --overlay --kbps 24000 --out $O/plate_cap.mp4 --clean $O/plate.mp4 > $O/plate.log 2>&1 || { tail -40 $O/plate.log; exit 1; }
             cp $O/plate_cap.mp4.timeline.json $O/plate.mp4.timeline.json; rm -f $O/plate_cap.mp4
           fi
           grep -v '^frame ' $O/plate.log | tail -12
