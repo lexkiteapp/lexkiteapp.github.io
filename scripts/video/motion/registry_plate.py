@@ -65,7 +65,7 @@ BG = f'{LIB}/canvas_{o.look}.png'; canvas(T).save(BG)
 # the teacher is scaled down and placed with overlay on the canvas: hair, shoulders and gestures keep their alpha, the source's left/right/top
 # edges are feathered (never a hard cut line), and the body MUST run off the bottom of the frame (never floats). The head sits low enough
 # for the overlay's full-width top card (hair top ~2.6 eye->mouth above the eye; build_overlay asserts the fit); captions stay below the chin.
-EM_OUT, EX, EY, FEATHER = 110, round(FX * W), 910, 40
+EM_OUT, EX, EY, FEATHER = 110, round(FX * W), 950, 40
 FW, FH = map(int, probe(f"{o.green}/kmask_pro/{P['clips']['talk']['src']}.mkv", 'width,height').split(',')[:2])
 s = EM_OUT / P['eye_mouth']; SW, SH = round(FW * s / 2) * 2, round(FH * s / 2) * 2
 OX, OY = round(EX - P['eye'][0] * s), round(EY - P['eye'][1] * s)
