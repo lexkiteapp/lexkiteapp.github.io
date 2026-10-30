@@ -17460,20 +17460,20 @@
     "ru": "Ежедневная планёрка (стендап)",
     "tr": "Günlük stand-up toplantısı"
   },
-  "Gọi cho Mia": {
-    "es": "Llamar a Mia",
-    "pt": "Ligar para a Mia",
-    "fr": "Appeler Mia",
-    "de": "Mia anrufen",
-    "id": "Telepon Mia",
-    "th": "โทรหา Mia",
-    "zh": "给 Mia 打电话",
-    "ja": "Mia に電話",
-    "ko": "Mia에게 전화",
-    "hi": "Mia को कॉल करें",
-    "ar": "اتصل بـ Mia",
-    "ru": "Позвонить Mia",
-    "tr": "Mia’yı ara"
+  "Gọi Ama & Carlos": {
+    "es": "Llamar a Ama y Carlos",
+    "pt": "Ligar para Ama e Carlos",
+    "fr": "Appeler Ama et Carlos",
+    "de": "Ama & Carlos anrufen",
+    "id": "Telepon Ama & Carlos",
+    "th": "โทรหา Ama และ Carlos",
+    "zh": "给 Ama 和 Carlos 打电话",
+    "ja": "Ama と Carlos に電話",
+    "ko": "Ama·Carlos에게 전화",
+    "hi": "Ama और Carlos को कॉल करें",
+    "ar": "اتصل بـ Ama وCarlos",
+    "ru": "Позвонить Ama и Carlos",
+    "tr": "Ama ve Carlos’u ara"
   },
   "Gọi ngay": {
     "es": "Llamar ahora",
@@ -17504,21 +17504,6 @@
     "ar": "مكالمة أخرى",
     "ru": "Другой звонок",
     "tr": "Başka arama"
-  },
-  "Cuộc gọi với Mia": {
-    "es": "Llamada con Mia",
-    "pt": "Chamada com a Mia",
-    "fr": "Appel avec Mia",
-    "de": "Anruf mit Mia",
-    "id": "Panggilan dengan Mia",
-    "th": "สายสนทนากับ Mia",
-    "zh": "与 Mia 通话",
-    "ja": "Mia との通話",
-    "ko": "Mia와 통화",
-    "hi": "Mia के साथ कॉल",
-    "ar": "مكالمة مع Mia",
-    "ru": "Звонок с Mia",
-    "tr": "Mia ile arama"
   },
   "Cuộc gọi luyện tập": {
     "es": "Llamada de práctica",
@@ -29699,5 +29684,20 @@
     "ar": "أصوات وحركات بأسلوب الألعاب",
     "ru": "Игровые звуки и анимации",
     "tr": "Oyun tarzı sesler ve animasyonlar"
+  },
+  "Luyện nói & đóng vai tình huống qua cuộc gọi với Ama và Carlos": {
+    "es": "Practica conversación y juegos de rol en una videollamada con Ama y Carlos",
+    "pt": "Pratique conversação e role-play numa videochamada com Ama e Carlos",
+    "fr": "Entraînez-vous à parler et aux jeux de rôle en appel vidéo avec Ama et Carlos",
+    "de": "Sprechen & Rollenspiele im Videoanruf mit Ama und Carlos üben",
+    "id": "Latihan berbicara & bermain peran lewat panggilan video dengan Ama dan Carlos",
+    "th": "ฝึกพูดและเล่นบทบาทสมมติผ่านวิดีโอคอลกับ Ama และ Carlos",
+    "zh": "与 Ama 和 Carlos 视频通话，练习口语和情景角色扮演",
+    "ja": "Ama や Carlos とのビデオ通話で、スピーキングとロールプレイを練習",
+    "ko": "Ama, Carlos와 영상 통화로 말하기·역할극 연습",
+    "hi": "Ama और Carlos के साथ वीडियो कॉल पर बोलने और रोलप्ले का अभ्यास करें",
+    "ar": "تدرّب على التحدث ولعب الأدوار في مكالمة فيديو مع Ama وCarlos",
+    "ru": "Практикуйте речь и ролевые диалоги в видеозвонке с Ama и Carlos",
+    "tr": "Ama ve Carlos ile görüntülü aramada konuşma ve rol yapma pratiği yap"
   }
 }

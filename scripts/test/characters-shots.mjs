@@ -11,8 +11,6 @@ const args = process.argv.slice(2), LIVE = args.includes('--live') ? args[args.i
 const [ROOT = 'web', OUT = 'out/characters'] = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--live');
 fs.mkdirSync(OUT, { recursive: true });
 const R = JSON.parse(fs.readFileSync(`${ROOT}/teach/characters.json`, 'utf8'));
-// miễn trừ tạm, cùng mục WAIVE của characters-gate.mjs: ảnh Mia ở #/call – PR #194 thay bằng Ama/Carlos
-const WAIVE = [/\/img\/call\/mia\.webp$/];
 const OK = new Map(Object.entries(R.files).map(([f, v]) => [v.sha256, f]));
 const CHAR = /\/(teach\/|img\/teach\/|img\/call\/|cine\/teachers|teachers3d|chars\/)|sprite\.json|mouths\.webp/;
 // màn có giáo viên: bản đồ ux1 (giáo viên cạnh nút kế tiếp), bài học (Ama/Carlos đọc lời nhắc), truyện 2 người, chuỗi/ăn mừng, gọi, trang chủ
@@ -66,9 +64,8 @@ for (const [w, scheme] of [[390, 'light'], [390, 'dark'], [1366, 'dark']]) {
     for (const g of got) {
       const reg = g.sha && OK.get(g.sha);
       if (g.status >= 400) continue;   // 404 = không có tài sản → app ẩn/poster, không phải nhân vật lạ
-      const wv = !reg && WAIVE.some(w => w.test(g.u));
-      if (!reg && !wv) errs.push(`${tag}: tài sản nhân vật KHÔNG thuộc registry: ${g.u}`);
-      rows.push({ screen: tag, url: g.u.replace(/^https?:\/\/[^/]+/, ''), registry: reg || null, ok: wv ? null : !!reg, note: wv ? 'miễn trừ tạm #194 (Mia → Ama/Carlos)' : '' });
+      if (!reg) errs.push(`${tag}: tài sản nhân vật KHÔNG thuộc registry: ${g.u}`);
+      rows.push({ screen: tag, url: g.u.replace(/^https?:\/\/[^/]+/, ''), registry: reg || null, ok: !!reg, note: '' });
     }
     for (const e of onScreen) if (CHAR.test(e.src) && !rows.some(r => r.screen === tag && e.src.endsWith(r.url))) rows.push({ screen: tag, url: e.src.replace(/^https?:\/\/[^/]+/, ''), registry: null, ok: null, note: 'đang hiện (bộ nhớ đệm)' });
     await page.close();

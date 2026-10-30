@@ -1,5 +1,5 @@
 /* 📞 Call Ama / Carlos (#/call): cuộc gọi video luyện nói có kịch bản rẽ nhánh (IELTS Speaking Part 1/2/3, TOEIC, đời sống) – logic: js/call/engine.js.
- * Giáo viên = viseme sprite khớp môi (js/lesson/teacher.js, pilot B): giọng Kokoro sinh sẵn trên CI (scripts/gen-audio.mjs), thiếu file → giọng máy + miệng theo chữ.
+ * Giáo viên = clip 2D Ama/Carlos từ registry (js/lesson/teacher.js qua Chars): giọng Kokoro sinh sẵn trên CI (scripts/gen-audio.mjs), thiếu file → giọng máy + miệng theo chữ.
  * Lượt lời: giáo viên nói → "Đến lượt bạn" → micro nghe (vòng sáng + chữ "Đang nghe…"); bấm micro khi giáo viên đang nói = ngắt lời an toàn
  * (dừng giọng, kết quả nhận dạng của lượt cũ bị bỏ qua nhờ mã lượt). Nhận dạng TRÊN MÁY trước (Chrome processLocally / Whisper tiny.en tải 1 lần),
  * dịch vụ đám mây của trình duyệt chỉ khi người học tự chọn; luôn có gõ phím / chạm gợi ý. Âm thanh không rời khỏi máy theo mặc định.
@@ -11,9 +11,8 @@
   const view = App.view;
   const E = window.CallEngine;
   const ACCENT = 'en-US';
-  const WHO = { ama: 'Ama', carlos: 'Carlos' };
-  // Chỉ bộ giáo viên 2D (teach-green: poster.webp nền trong suốt) – chủ 28/10: một phong cách, KHÔNG trộn 3D. Thiếu ảnh → ô chữ cái trung tính (không lùi về ảnh 3D)
-  const poster = w => 'teach/' + (WHO[w] ? w : 'ama') + '/poster.webp';
+  // Giáo viên: CHỈ qua Chars (web/js/characters.js, registry web/teach/characters.json) – 2 người 2D Ama/Carlos, không đường dẫn cứng. Thiếu ảnh → ô chữ cái trung tính
+  const poster = w => Chars.poster(w);
   const poFix = root => $$('img[data-po]', root).forEach(i => { i.onerror = () => { i.onerror = null; const d = document.createElement('span'); d.className = 'call-ini ' + (i.className || ''); d.setAttribute('aria-hidden', 'true'); d.textContent = (i.alt || i.dataset.po || 'A')[0]; i.replaceWith(d); }; });
   const NAME = {
     coffee: () => t('Mua cà phê cho cả nhóm'), weekend: () => t('Kể chuyện cuối tuần'), 'first-day': () => t('Ngày đầu đi làm ở Mỹ'), standup: () => t('Họp đầu ngày (stand-up)'), doctor: () => t('Đặt lịch khám bác sĩ'), apartment: () => t('Gọi hỏi thuê căn hộ'),
@@ -110,7 +109,7 @@ body.call-on{overflow:hidden}`;
     const groups = ['all', 'ielts', 'toeic', 'everyday'];
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${t('Gọi cho Ama & Carlos')}</h1><p class="muted">${t('Cuộc gọi video luyện nói: giáo viên hỏi, bạn trả lời bằng giọng nói. Câu hỏi rẽ nhánh theo câu trả lời, lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết và luyện lại câu yếu.')}</p></div></div>
       <div class="call-flt" role="group" aria-label="${t('Lọc theo kỳ thi')}">${groups.map(gr => `<button type="button" class="btn sm ${flt === gr ? 'primary' : ''}" data-g="${gr}" aria-pressed="${flt === gr}">${gr === 'all' ? t('Tất cả') : GROUP[gr]()}</button>`).join('')}</div>
-      <div class="call-grid">${list.filter(x => flt === 'all' || groupOf(x) === flt).map(x => `<a class="call-card" href="#/call/${x.id}"><img data-po="${WHO[x.who]}" src="${poster(x.who)}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> ${WHO[x.who]} · <span lang="en">${esc(x.title)}</span></span></span></a>`).join('')}</div>
+      <div class="call-grid">${list.filter(x => flt === 'all' || groupOf(x) === flt).map(x => `<a class="call-card" href="#/call/${x.id}"><img data-po="${Chars.name(x.who)}" src="${poster(x.who)}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> ${Chars.name(x.who)} · <span lang="en">${esc(x.title)}</span></span></span></a>`).join('')}</div>
       <p class="tiny muted" style="margin-top:1rem"><span id="callPriv">${PRIV.ask()}</span>${pref('asr') ? ` <button type="button" class="btn sm ghost" id="callAsr">${t('Đổi cách nhận dạng')}</button>` : ''}</p>`;
     const ab = $('#callAsr'); if (ab) ab.onclick = () => { try { localStorage.removeItem('vb.call.asr'); } catch (e) { /* bỏ qua */ } toast(t('Lần gọi sau Lexkite sẽ hỏi lại cách nhận dạng.')); routes.call(); };
     poFix(view);
@@ -120,7 +119,7 @@ body.call-on{overflow:hidden}`;
 
   // Màn "đang gọi đến" – chạm Nghe máy để bắt đầu (trình duyệt cần 1 lần chạm để phát âm thanh)
   function ring(c) {
-    const nm = WHO[c.who];
+    const nm = Chars.name(c.who);
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${esc(nameOf(c))}</h1><p class="muted"><span class="chip lv">${c.lv}</span> <span lang="en">${esc(c.title)}</span></p></div></div>
       <div class="card center"><img class="call-rp" data-po src="${poster(c.who)}" alt="${nm}" width="120" height="160"><p><b>${nm}</b> – <span lang="en">${esc(c.role)}</span></p>
       <p class="tiny muted" id="callPriv">${PRIV.ask()}</p>
@@ -132,7 +131,7 @@ body.call-on{overflow:hidden}`;
 
   function start(c) {
     E.prep(c);
-    const nm = WHO[c.who], voice = (window.LessonTeacher && LessonTeacher.VOICE || {})[c.who];
+    const nm = Chars.name(c.who), voice = (window.LessonTeacher && LessonTeacher.VOICE || {})[c.who];
     const ov = document.createElement('div'); ov.className = 'call-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', t('Cuộc gọi với {name}', { name: nm }));
     document.body.appendChild(ov); document.body.classList.add('call-on');
     let id = c.start, rec = null, dead = false, t0 = Date.now(), tick = 0, autoMic = false, showTr = pref('tr') !== '0' && I18N.lang() !== 'en', busy = false;
@@ -164,9 +163,8 @@ body.call-on{overflow:hidden}`;
       else if (ck && longEnd) { const s = Math.ceil((longEnd - now) / 1000); ck.textContent = mmss(s); if (s <= 0) { longEnd = 0; endLong(); } }
     }, 500);
 
-    // Giáo viên khớp môi: sprite (teacher.js) – lỗi/thiếu → ảnh poster tĩnh, cuộc gọi vẫn chạy
-    // Giáo viên động chỉ khi bộ 2D có mặt (teach.json); không thì giữ poster 2D tĩnh – không bao giờ hiện bộ sprite 3D cũ
-    if (window.LessonTeacher) fetch('teach/' + c.who + '/teach.json', { method: 'HEAD' }).then(r => { if (!r.ok || dead || tch) return; const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); }).catch(() => {});
+    // Giáo viên động: clip 2D registry (teacher.js, qua Chars) – lỗi/thiếu clip → giữ poster 2D tĩnh, cuộc gọi vẫn chạy
+    if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); }
 
     // Phụ đề dịch (dòng 2): dịch sẵn mọi câu của giáo viên 1 lần – không chặn cuộc gọi; lỗi mạng thì chỉ hiện tiếng Anh
     const pieces = [...new Set(Object.values(c.nodes).flatMap(x => [x.m, x.re, ...(x.br || []).map(b => b[1])]).concat(c.end).filter(Boolean))];
@@ -326,7 +324,7 @@ body.call-on{overflow:hidden}`;
   const sayBtn = (w, rate) => `<button type="button" class="icon-btn sm" data-say="${esc(w)}" data-rate="${rate || ''}" aria-label="${t('Nghe')}">🔊</button>`;
 
   function summary(c, log, secs, avgLat) {
-    const r = E.recap(c, log), nm = WHO[c.who];
+    const r = E.recap(c, log), nm = Chars.name(c.who);
     const voiced = log.filter(x => !x.picked && !x.typed).length, xp = 5 + r.turns.length * 2 + voiced * 2 + (r.used.length ? 3 : 0);
     App.reward({ spoken: voiced, xp });
     const tx = r.turns.map(x => `<div class="call-tx ${x.weak ? 'weak' : ''}"><div class="small q" lang="en"><b>${nm}:</b> ${esc(x.m || '')}</div>
@@ -355,5 +353,4 @@ body.call-on{overflow:hidden}`;
       b.textContent = '✓ ' + t('Đã thêm {n} thẻ', { n: c.phrases.length + fixes.length }); toast(t('Đã thêm {n} thẻ', { n: c.phrases.length + fixes.length }));
     };
   }
-  window.CallMia = { correct: E.correct }; // tương thích kiểm thử cũ
 })();
