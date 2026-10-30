@@ -157,7 +157,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     await mutate(r => { r.ms = r.ms || {}; Core.MILESTONES.filter(x => x <= m).forEach(x => { if (!r.ms[x]) r.ms[x] = Date.now(); }); });
     const who = teacherFor(m), fz = state.game.freezeAt === m ? `<span class="ret-chip" data-noicon>🧊 +1</span>` : '';
     if (v2On()) { // 🎨 Stitch v2: cùng khung màn Chuỗi trong hộp thoại (không đầu trang cố định); thẻ phụ = chip băng + ô rương + chỗ quảng cáo
-      const o = g.ST2.streak(v2Data({ n: m, title: t('{n} ngày! 🔥', { n: m }), say: who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!'), extra: `<div class="flex items-center justify-center gap-3 flex-wrap mb-[1rem]">${teach2(who)}${fz}${chestTile()}</div><div id="retAd"></div>` }));
+      const o = g.ST2.streak(v2Data({ n: m, milestone: true, title: t('{n} ngày! 🔥', { n: m }), say: who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!'), extra: `<div class="flex items-center justify-center gap-3 flex-wrap mb-[1rem]">${teach2(who)}${fz}${chestTile()}</div><div id="retAd"></div>` }));
       // KHÔNG gắn st/v2on vào <body>: hộp thoại hiện trên mọi trang – v2on sẽ ẩn đầu trang/thanh tab của trang đang mở; khung .v2 tự đủ CSS
       const box = UI.modal(`<div class="v2s-streak"><div class="${o.root}" data-ret-cel>${o.main}</div></div>`);
       if (g.Sfx && g.Sfx.streak) g.Sfx.streak(); else if (g.Sfx && g.Sfx.win) g.Sfx.win();
@@ -279,7 +279,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     const lab = { done: t('Đã học'), frozen: t('Đóng băng giữ chuỗi'), today: t('Hôm nay'), future: '', miss: t('Chưa học') };
     const week = wk.map(x => ({ v: x.st === 'done' && x.k === k ? 'd5' : x.st === 'done' || x.st === 'frozen' ? 'd1' : 'd6', l: L[x.dow], icon: x.st === 'frozen' ? 'ac_unit' : 'local_fire_department', al: L[x.dow] + (lab[x.st] ? ': ' + lab[x.st] : '') }));
     const gain = (((state.game || {}).days || {})[k] || {}).xp || 0, got = wk.filter(x => x.st === 'done' || x.st === 'frozen').length;
-    return { n, title: o.title || t('Chuỗi {n} ngày!', { n }), say: o.say || (n % 2 ? t('Carlos: Thói quen tuyệt vời!') : t('Ama: Mỗi ngày một chút!')), gain: '+' + gain + ' XP', pct, now, goal, unit, off: (163.36 * (1 - pct / 100)).toFixed(2), wk: t('Đã học {a}/7 ngày', { a: got }),
+    return { n, fl: g.ST2.flameState(n, o), title: o.title || t('Chuỗi {n} ngày!', { n }), say: o.say || (n % 2 ? t('Carlos: Thói quen tuyệt vời!') : t('Ama: Mỗi ngày một chút!')), gain: '+' + gain + ' XP', pct, now, goal, unit, off: (163.36 * (1 - pct / 100)).toFixed(2), wk: t('Đã học {a}/7 ngày', { a: got }),
       left: now >= goal ? t('Đã đạt mục tiêu hôm nay') : t('Còn {n} {u} hôm nay', { n: goal - now, u: unit }), goalAria: t('Mục tiêu mỗi ngày'),
       week, goals: GOALS.map(([key, icon, v, min, nm]) => ({ k: v, v: goal === v ? 'on' : 'off', icon, name: t(nm), sub: t('{n} phút', { n: min }), xp: v + ' ' + unit })), extra: o.extra != null ? o.extra : v2Extra() };
   }

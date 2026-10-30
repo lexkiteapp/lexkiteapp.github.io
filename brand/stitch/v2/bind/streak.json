@@ -1,5 +1,5 @@
 {
- "_doc": "Màn Chuỗi (#/streak + màn chúc mừng mốc, cờ ux1) – d do web/js/retention.js dựng từ dữ liệu thật. Không thanh tab (mount tab null), giữ đầu trang × của Stitch. d.extra = các thẻ phụ (đóng băng, mốc kế, sự kiện, rương, bộ sưu tập) chèn giữa nhóm mục tiêu và nút CONTINUE, cùng khuôn thẻ của mẫu. Tương phản: chip ACTIVE bản tối dùng chữ #261A00 (màu có sẵn trong Stitch) trên nền #2BA39A.",
+ "_doc": "Màn Chuỗi (#/streak + màn chúc mừng mốc, cờ ux1) – d do web/js/retention.js dựng từ dữ liệu thật. Không thanh tab (mount tab null), giữ đầu trang × của Stitch. d.extra = các thẻ phụ (đóng băng, mốc kế, sự kiện, rương, bộ sưu tập) chèn giữa nhóm mục tiêu và nút CONTINUE, cùng khuôn thẻ của mẫu. Tương phản: chip ACTIVE bản tối dùng chữ #261A00 (màu có sẵn trong Stitch) trên nền #2BA39A. Ngọn lửa (30/10, Stitch \"Tactile Flame\"): class st-fl + data-fl = d.fl (active/frozen/lost/milestone, ST2.flameState) → màu trạng thái + lửa lay nhẹ ở ST2.flameCss (runtime.js); số chuỗi ở viên trắng dưới lửa, mực #10191B.",
  "i18n": {
   "Close session": "Đóng màn chuỗi",
   "Active Drill Session": "Phiên chuỗi ngày",
@@ -21,7 +21,7 @@
   "6 XP left today • 1 drill away": "d.left"
  },
  "html": {
-  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span": "e(d.n)"
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span": "e(d.n)"
  },
  "attr": {
   ":scope > header > div > button": {
@@ -57,6 +57,11 @@
   },
   ":scope > main > div > div:nth-child(2) > p": {
    "data-ret-say": "''"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > svg": {
+   "data-fl": "d.fl",
+   "aria-hidden": "'true'",
+   "focusable": "'false'"
   }
  },
  "cls": {
@@ -185,7 +190,8 @@
   }
  },
  "addClass": {
-  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']"
+  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > svg": "st-fl"
  },
  "_contrast": "Chip ACTIVE bản tối 2.78 → chữ #261A00 (màu có sẵn trong Stitch, như sao nút vàng ở bind/path.json) trên nền #2BA39A. Hồ sơ (avatar) thành nút → #/me. Icon lửa/dấu tick ô tuần bản sáng: trắng trên cam 1.6 → #261A00 (màu có sẵn trong Stitch)."
 }

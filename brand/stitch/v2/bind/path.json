@@ -212,5 +212,8 @@
   ":scope > main > div > div:nth-child(2)": "overflow-x-clip",
   ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > button": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
  },
- "_contrast": "Sửa tương phản (chỉ màu, lấy từ Stitch): icon sao nút vàng bản sáng = #261A00 như bản tối Stitch; icon sách dải chặng bản tối = #4FD1C5 (màu sửa tương phản Stitch v2.1)."
+ "_contrast": "Sửa tương phản (chỉ màu, lấy từ Stitch): icon sao nút vàng bản sáng = #261A00 như bản tối Stitch; icon sách dải chặng bản tối = #4FD1C5 (màu sửa tương phản Stitch v2.1).",
+ "html": {
+  ":scope > header > div > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "ST2.flame(ST2.flameState(d.hdr.streak), 20)"
+ }
 }

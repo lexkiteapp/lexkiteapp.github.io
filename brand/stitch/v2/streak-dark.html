@@ -11,41 +11,22 @@
 </div>
 <!-- Hero: Glossy 3D Streak Flame & Milestone Display -->
 <div class="flex flex-col items-center text-center mt-space-sm mb-space-lg">
-<!-- Tactile 3D Flame Container with Glowing Aura -->
-<div class="relative w-36 h-40 flex items-center justify-center my-space-xs">
-<!-- Ambient Glow Behind Flame -->
-<div class="absolute inset-1 rounded-full bg-gradient-to-tr from-[#F2553B]/40 via-[#FFB054]/30 to-transparent blur-2xl pointer-events-none"></div>
-<!-- Vector Flame with Radial Depths & Glossy Shield -->
-<svg class="w-full h-full drop-shadow-[0_12px_24px_rgba(242,85,59,0.45)]" fill="none" viewbox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<lineargradient gradientunits="userSpaceOnUse" id="flameBack" x1="60" x2="60" y1="10" y2="135">
-<stop offset="0%" stop-color="#FFB347"></stop>
-<stop offset="35%" stop-color="#F2553B"></stop>
-<stop offset="100%" stop-color="#B53A22"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="flameCore" x1="60" x2="60" y1="42" y2="128">
-<stop offset="0%" stop-color="#FFF0A0"></stop>
-<stop offset="55%" stop-color="#FFA834"></stop>
-<stop offset="100%" stop-color="#F2553B"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="innerSpark" x1="60" x2="60" y1="70" y2="122">
-<stop offset="0%" stop-color="#FFFFFF"></stop>
-<stop offset="100%" stop-color="#FFE17D"></stop>
-</lineargradient>
-</defs>
-<!-- Outer Sculpted Flame Silhouette -->
-<path d="M60 6C60 6 78 26 78 48C78 52 82 56 86 51C94 41 94 36 94 36C94 36 108 55 108 81C108 112 86.5 134 60 134C33.5 134 12 112 12 81C12 52 28 32 37 19C38 18 40 23 41 28C43 40 51 46 56 42C61 38 60 6 60 6Z" fill="url(#flameBack)"></path>
-<!-- Mid Fiery Tier -->
-<path d="M60 28C60 28 72 44 72 63C72 73 78 77 82 72C87 66 86 60 86 60C86 60 94 74 94 92C94 114 78.5 128 60 128C41.5 128 26 114 26 92C26 69 41 52 48 40C49 46 54 53 58 50C62 46 60 28 60 28Z" fill="url(#flameCore)"></path>
-<!-- Bottom Highlight / Core Luster -->
-<path d="M60 68C60 68 68 80 68 96C68 106 64 122 60 122C56 122 52 106 52 96C52 80 60 68 60 68Z" fill="url(#innerSpark)" opacity="0.9"></path>
+<!-- Tactile Sticker-Style Hero Streak Flame (Stitch screen 4f0fb8dd6f254f95a841ae4254a61ff1) -->
+<div class="flex flex-col items-center justify-center relative w-36 mb-2">
+<svg class="w-36 h-40" fill="none" id="streakFlame" viewbox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+<!-- a) fl-ledge: 3D bottom ledge shifted down 7px -->
+<path class="fl-ledge" d="M56 10C56 10 74 34 72 54C75 48 80 44 87 40C87 40 98 56 98 78C98 94 92 108 82 118C75 125 66 128 58 128C44 128 26 120 20 102C14 84 22 62 34 46C35 55 42 61 46 59C51 57 53 43 53 32C53 22 56 10 56 10Z" fill="#B53A22" transform="translate(0 7)"></path>
+<!-- b) fl-body: chunky friendly flame silhouette -->
+<path class="fl-body" d="M56 10C56 10 74 34 72 54C75 48 80 44 87 40C87 40 98 56 98 78C98 94 92 108 82 118C75 125 66 128 58 128C44 128 26 120 20 102C14 84 22 62 34 46C35 55 42 61 46 59C51 57 53 43 53 32C53 22 56 10 56 10Z" fill="#F2553B" stroke="#B53A22" stroke-linejoin="round" stroke-width="5"></path>
+<!-- c) fl-mid: inner flame tongue -->
+<path class="fl-mid" d="M57 38C57 38 69 54 68 70C71 65 74 62 80 60C80 60 84 74 82 89C80 102 71 114 58 116C46 116 34 107 32 94C30 81 37 68 44 58C45 64 49 67 52 65C55 63 56 50 57 38Z" fill="#FFB054"></path>
+<!-- d) fl-core: small inner teardrop -->
+<path class="fl-core" d="M58 66C58 66 68 78 68 92C68 102 61 108 55 108C49 108 44 101 44 93C44 82 52 74 58 66Z" fill="#FFC94A"></path>
+<!-- e) fl-shine: rounded highlight dab on upper left -->
+<path class="fl-shine" d="M36 50C33 55 28 67 27 78C26.5 83 29 86 31 83C33 80 34 73 37 64C38.5 59 39 53 36 50Z" fill="#FFE7C2"></path>
 </svg>
-<!-- Mechanical Number Display in Center of Flame -->
-<div class="absolute inset-0 flex flex-col items-center justify-center pt-8">
-<span class="font-display-hero-mobile text-display-hero-mobile text-white font-extrabold tracking-tighter drop-shadow-[0_2px_4px_rgba(0,0,0,0.65)]">
-          14
-        </span>
-</div>
+<!-- Streak number pill badge: overlapping flame's lower edge by 14px -->
+<div class="-mt-[14px] z-10 relative rounded-full px-4 py-1" style="background-color: #142328; border: 2px solid #233942; border-bottom: 4px solid #0d1a1e; box-shadow: 0 4px 0 #0d1a1e;"><span class="text-[36px] font-[800] leading-none font-['Plus_Jakarta_Sans']" style="color: #FFC94A;">14</span></div>
 </div>
 <!-- Motivational Copy -->
 <h1 class="font-headline-md text-headline-md text-[#EEF6F7] font-extrabold tracking-tight mt-1 mb-1">

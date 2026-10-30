@@ -110,5 +110,8 @@
  "after": {
   ":scope > main > div > div:nth-child(4)": "d.teacher",
   ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span:nth-child(2)": "d.more"
+ },
+ "html": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(3) > div:nth-child(1)": "ST2.flame(ST2.flameState(+d.streak), 26)"
  }
 }
