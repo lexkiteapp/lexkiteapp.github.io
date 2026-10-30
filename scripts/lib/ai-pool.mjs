@@ -53,7 +53,7 @@ export function pickModels(kind, ids) {
   }
   if (kind === 'groq') {
     const big = I.filter(m => !/whisper|guard|tts|compound|prompt-guard|playai|orpheus|safeguard/i.test(m));
-    const oss = big.filter(m => /gpt-oss-120b/.test(m)), C = big.filter(m => !['gpt-oss', 'gemini', 'other'].includes(familyOf(m)) && modelInfo(m).tier !== 'S').sort((a, b) => modelInfo(a).tier.localeCompare(modelInfo(b).tier));
+    const oss = big.filter(m => /gpt-oss-120b/.test(m)), C = big.filter(m => !['gpt-oss', 'gemini', 'other'].includes(familyOf(m)) && (modelInfo(m).tier !== 'S' || !/\b[1-9]b\b|instant|-mini|tiny/i.test(m))).sort((a, b) => 'LMS'.indexOf(modelInfo(a).tier) - 'LMS'.indexOf(modelInfo(b).tier));
     if (!oss.length && !C.length) return null;
     return { gen: oss.length ? oss : C.slice(0, 1), judge: [...oss, ...C.slice(0, 1)], C: C.slice(0, 2) };
   }
@@ -363,8 +363,8 @@ export function createPool(opts = {}) {
         const r = await (name === 'gem' ? F('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', { headers: { 'x-goog-api-key': k.key } }) : F('https://api.groq.com/openai/v1/models', { headers: { Authorization: 'Bearer ' + k.key } })).catch(() => null);
         j = r && r.ok ? await r.json().catch(() => null) : null; }
       const ids = name === 'gem' ? ((j || {}).models || []).filter(m => (m.supportedGenerationMethods || []).includes('generateContent')).map(m => m.name) : ((j || {}).data || []).filter(m => m.active !== false).map(m => m.id);
-      const P = pickModels(name, ids), M = name === 'gem' ? GEM_MODELS : GROQ_MODELS; if (P) for (const role of Object.keys(P)) if (P[role].length) M[role] = P[role];
-      log(`[ai-pool] mô hình ${name}: ${ids.length} có sẵn → ${JSON.stringify(M)}`); return M; })());
+      const P = pickModels(name, ids), M = name === 'gem' ? GEM_MODELS : GROQ_MODELS; if (P) for (const role of Object.keys(P)) if (P[role].length || role === 'C') M[role] = P[role]; // C rỗng = không đoán tên (tránh 404) → chuỗi rơi sang cf2
+      log(`[ai-pool] mô hình ${name}: ${ids.length} có sẵn${name === 'groq' ? ' ' + JSON.stringify(ids.map(x => String(x).replace(/^models\//, ''))) : ''} → ${JSON.stringify(M)}`); return M; })());
   }
   R.gem = { ok: () => GEM.size > 0, models: role => GEM_MODELS[role === 'gen' ? 'gen' : 'judge'],
     async call(model, req) {
