@@ -58,6 +58,6 @@ ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link)
 Excluded (strength filter, `VIDEO-SERIES.md`): accents/intonation, slang, roleplay, long listening.
 
 ## Not done yet (needs the owner)
-- Approval of the 5 pilots (review sheet) before any batch / cron / publish.
+- Owner OK 30/10 on the 5 new templates (grammar, dictation, toeic, review, call – CI f5c3fe8, all 32 renders QC 100). Batch / cron / publish still need their own OK.
 - Matching 2D scene backgrounds: today the Kit canvas (0 credits). A Kling 2D-scene bank would follow `CREDIT-RULES.md` (analysis → dry-run → 1 pilot) and needs an explicit credit OK.
 - 1080p bank (session teach-build-1080): `host.py` reads the same registry paths, no code change.
