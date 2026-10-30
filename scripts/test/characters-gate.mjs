@@ -37,8 +37,7 @@ for (const d of fs.readdirSync('web/teach')) if (!IDS.includes(d) && d !== 'char
 const REF = /(?<![\w-])(?:teach\/(?:ama|carlos|\$\{)|img\/teach\/|img\/call\/|cine\/teachers|teachers3d|sprite\.json|mouths\.webp|(?:teach|chars)\/[\w-]*poster\.jpe?g|brand\/characters\/(?!_candidates\/rooms\/))/g;
 const OTHER = /(?<![a-z])(?:mia|jake|leo|diane|daniel|mei|kai|ruth|priya)[\w-]*\.(?:png|jpe?g|webp|avif|gif|mp4|webm|mov)\b/gi;
 const ALLOW = new Set(['web/js/characters.js', 'scripts/teach/build.py', 'scripts/teach/sheet.py', 'scripts/build-extension.sh', 'scripts/test/characters-gate.mjs', 'scripts/test/characters-shots.mjs']);
-// Tạm thời, có hạn: PR đang mở đã nhận việc thay – khi PR xoá tham chiếu, mục này thành "cũ" và cổng đỏ → xoá mục.
-const WAIVE = { 'web/js/call.js': [/img\/call\/|mia\.webp/, '#194 Call Ama/Carlos (đổi Mia → Ama/Carlos, 15 ngôn ngữ) – rebase lên registry'], 'extension/app/js/call.js': [/img\/call\/|mia\.webp/, '#194'] };
+const WAIVE = {}; // miễn trừ tạm (có hạn): { 'tệp': [regex, 'PR thay'] } – hết tham chiếu → cổng đỏ "miễn trừ cũ" → xoá mục. Call (Mia) đã xong #194: KHÔNG thêm lại.
 const ROOTS = ['web', 'extension', 'functions', 'workers', 'store', 'mobile/www', 'brand/social/templates/templates.json', 'scripts/build-social-templates.mjs', 'scripts/build-social-kit.mjs', 'scripts/video/render.mjs', 'scripts/video/tpl/tokens.py'];
 const SKIP = /(^|\/)(node_modules|\.git|archive|i18n|data|lib|packs|dict|blog|audio)(\/|$)|\.min\.js$/;
 const walk = p => !fs.existsSync(p) ? [] : fs.statSync(p).isDirectory() ? fs.readdirSync(p).flatMap(f => SKIP.test(f) ? [] : walk(path.join(p, f))) : [p];
@@ -50,6 +49,9 @@ for (const f of ROOTS.flatMap(walk)) {
     const w = WAIVE[f]; if (w && w[0].test(m[0])) { used[f] = 1; continue; }
     errs.push(`${f}: "${m[0]}" – ảnh/clip nhân vật chỉ được lấy qua Chars (web/js/characters.js) / registry`);
   }
+  // tên nhân vật cũ trên giao diện: chuỗi t('…') ở mọi tệp, mọi chữ ở màn Call (call.js, call/*.js) – Mia… chỉ còn được là tên người trong bài đọc/hội thoại nội dung
+  for (const m of s.matchAll(/\bt\(\s*['"`][^'"`]*\b(Mia|Jake|Leo|Diane|Daniel|Mei|Kai|Ruth|Priya)\b/g)) errs.push(`${f}: chuỗi giao diện nhắc "${m[1]}" – giáo viên chỉ Ama/Carlos (Chars.name)`);
+  if (/(^|\/)call(\.js|\/)/.test(f)) for (const m of s.matchAll(/\b(Mia|Jake|Leo|Diane|Mei|Kai|Ruth|Priya)\b/g)) errs.push(`${f}: màn Call nhắc "${m[1]}" – chỉ Ama/Carlos`);
 }
 for (const f of Object.keys(WAIVE)) if (!used[f]) errs.push(`miễn trừ cũ: ${f} đã hết ${WAIVE[f][0]} → xoá mục WAIVE trong characters-gate.mjs`);
 else console.log(`⚠ miễn trừ tạm: ${f} còn ${WAIVE[f][0]} – ${WAIVE[f][1]}`);

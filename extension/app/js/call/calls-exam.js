@@ -104,7 +104,7 @@
       end: 'Enjoy your bread, and have a lovely day!',
     },
   ]);
-  // Gán giáo viên cho các cuộc gọi đời sống cũ (Mia → Ama / Carlos, 2 người dẫn duy nhất) + nhóm chủ đề
+  // Gán giáo viên cho các cuộc gọi đời sống cũ (Ama / Carlos – 2 giáo viên duy nhất, theo registry) + nhóm chủ đề
   const WHO = { coffee: 'ama', weekend: 'carlos', 'first-day': 'ama', standup: 'carlos', doctor: 'ama', apartment: 'carlos' };
   for (const c of g.CALLS) { if (!c.who) c.who = WHO[c.id] || 'ama'; if (!c.exam) c.exam = 'everyday'; }
 })(typeof self !== 'undefined' ? self : this);
