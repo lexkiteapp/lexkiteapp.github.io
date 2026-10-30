@@ -5928,6 +5928,38 @@
     "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo)"
    ],
    "at": "2026-10-30"
+  },
+  {
+   "id": "billion#adj",
+   "src": "lexicon-expand",
+   "batch": "requeue-30-10",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ]
+  },
+  {
+   "id": "crush#v",
+   "src": "lexicon-expand",
+   "batch": "requeue-30-10",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ]
+  },
+  {
+   "id": "stew#v",
+   "src": "lexicon-expand",
+   "batch": "requeue-30-10",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ]
+  },
+  {
+   "id": "swarm#v",
+   "src": "lexicon-expand",
+   "batch": "requeue-30-10",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ]
   }
  ]
 }
