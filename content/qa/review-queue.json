@@ -40423,6 +40423,212 @@
     "qa": {},
     "senseLock": "wiktionary-1-2of3+semcor"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "submarine#n",
+   "batch": "20261030",
+   "why": [
+    "soát mẫu: def limits submarine to warships; civilian/research submarines exist, so def is too narrow."
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "submarine",
+    "pos": "n",
+    "ipa": "/ˈsʌbməˌriːn/",
+    "ipaUS": "/ˈsʌbmərin/",
+    "def": "a warship that can travel and operate underwater, usually armed with torpedoes",
+    "ex": [
+     "China has the most submarines.",
+     "I've never been in a submarine."
+    ],
+    "col": [
+     "attack submarine",
+     "nuclear submarine"
+    ],
+    "syn": [
+     "sub"
+    ],
+    "level": "B1",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "z": 3.81,
+    "emoji": "",
+    "topic": "technology",
+    "vi": "tàu ngầm",
+    "note_vi": "",
+    "m": {
+     "pt": "submarino",
+     "fr": "sous-marin",
+     "id": "kapal selam",
+     "th": "เรือดำน้ำ",
+     "ja": "潜水艦",
+     "ar": "غواصة"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:submarine.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:11040743",
+      "tatoeba:5937880"
+     ],
+     "tr": {
+      "vi": "wiktionary",
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "id": "wiktionary+omw+ai",
+      "th": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ko": "wiktionary+ai",
+      "ar": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "undersea boat",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [
+       5,
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5,
+       5
+      ],
+      "hi": [],
+      "ar": [
+       5,
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5,
+       5
+      ]
+     },
+     "bt": 0.46,
+     "viBtw": [
+      "submarine",
+      "submarine",
+      "submarine"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B2",
+      "B1",
+      "B1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "id": true,
+       "th": true,
+       "zh": true,
+       "ja": true,
+       "ko": true,
+       "ar": true,
+       "ru": true,
+       "tr": true
+      }
+     },
+     "viSrc": [
+      "wk",
+      "a",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "hi": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)"
+     },
+     "trKeep": [
+      "pt",
+      "fr",
+      "id",
+      "th",
+      "ja",
+      "ar"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "technology.n"
+    ]
+   }
   }
  ]
 }
