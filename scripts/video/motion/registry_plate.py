@@ -20,7 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HER
 sys.path.insert(0, f'{ROOT}/scripts'); from teach.registry import REG, check  # noqa: E402
 
 W, H, FPS = 1080, 1920, 24
-FX, FY = 0.70, 0.40                     # eye position: right of centre (motion layout "right": full-width top card + left column free)
+FX, FY = 0.76, 0.40                     # eye position: right of centre (motion layout "right": full-width top card + left column free)
 MOOD = dict(talk='talk', explain='present', happy='excited', thinking='question', surprise='wow', listen='listen')   # registry pose -> render_v9 mood
 
 ap = argparse.ArgumentParser()
