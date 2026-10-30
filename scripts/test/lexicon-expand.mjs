@@ -303,6 +303,10 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   { const e = toIndex({ ...good(), ipa: '/ʌnˈɪntrəstɪŋ/', ipaUS: '/ʌnˈɪntrəstɪŋ/' }), f = toIndex({ ...good() }); ok(e.ipa === '/ʌnˈɪntrəstɪŋ/' && e.ipaUS === '' && f.ipaUS === '/fərˈseɪk/' && f.ipa === '/fəˈseɪk/', 'toIndex: ipa = Anh, ipaUS = Mỹ'); } }
 // hạ tầng (30/10 pilot 7 hỏng vì chú thích // nuốt nửa dòng): job.mjs / grade.mjs phải qua node --check
 { const { spawnSync } = await import('child_process'); for (const f of ['job.mjs', 'grade.mjs', 'promote.mjs']) ok(spawnSync(process.execPath, ['--check', 'scripts/lexicon/expand/' + f]).status === 0, `node --check ${f}`); }
+// L5 (30/10 soát pilot 7): UK do espeak lệch Britfone ə↔æ (malaria /mæˈleəriə/) lọt qua so khớp lỏng → espeak phải khớp CHẶT, lệch → lấy Britfone
+{ const IC = await import('../lexicon/ipa-check.mjs'), R = { bf: IC.parseBritfone('MALARIA, m ə l ˈɛə ɹ ɪə\n'), cmu: (await import('../lexicon/expand/cmu.mjs')).parseCmu('malaria M AH0 L EH1 R IY0 AH0\n') };
+  const m = IC.checkEntry({ w: 'malaria', pos: 'n', ipa: '/mæˈleəriə/', ipaUS: '/məˈleriə/', src: { ipaUK: 'espeak' } }, R);
+  ok(m.ipa === '/məˈleərɪə/' && IC.strictEq('/məˈleərɪə/', '/məˈlɛəɹiə/') && !IC.strictEq('/mæˈleəriə/', '/məˈlɛəɹɪə/'), 'IPA Anh espeak ↔ Britfone khớp chặt (malaria)'); }
 // L3 (30/10): giám khảo trả khuôn bọc → phiếu khoá nghĩa rỗng hàng loạt; đọc mọi khuôn thường gặp, khuôn lạ → null (không đoán)
 { const I = ['wk1', 'wk2'];
   ok(JSON.stringify(wsdUnwrap({ wk1: 2, wk2: '0' }, I)) === '{"wk1":2,"wk2":0}', 'wsdUnwrap phẳng');

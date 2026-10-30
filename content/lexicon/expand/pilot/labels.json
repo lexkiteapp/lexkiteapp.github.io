@@ -573,6 +573,20 @@
    "bad": "smaller than a continent or part of a larger one",
    "note": "soát Sonnet pilot 4 29/10 13:56",
    "re": true
+  },
+  {
+   "k": "malaria#n",
+   "cls": "L5",
+   "field": "ipa",
+   "bad": "/mæˈleəriə/",
+   "note": "soát Sonnet pilot 7 30/10 – UK espeak lệch Britfone məˈlɛəɹɪə"
+  },
+  {
+   "k": "playground#n",
+   "cls": "D1",
+   "field": "m.fr",
+   "bad": "terrain de jeu",
+   "note": "soát Sonnet pilot 7 30/10 – sân thể thao; khu vui chơi trẻ em = aire de jeux"
   }
  ],
  "good": [
