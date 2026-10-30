@@ -61,6 +61,9 @@ jobs:
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite (nếu còn khóa) → cf2 = kho CF_POOL xoay vòng (gpt-oss-120b soạn/giám khảo A, llama-3.3-70b giám khảo B) 
           # 26/10: GrabCast hỏng (500) → bỏ GRABCAST_AI_KEY. Chủ cho dùng MỌI tài khoản kho (VIMG_POOL_SKIP 0); không bao giờ tài khoản chính (CF_ACCOUNT_1 để loại).
           CF_POOL: ${{ secrets.CF_POOL }}
+          # 30/10: kho khoá miễn phí (chủ nạp) – ai-pool tuyến 'gem' (Gemini 2.5 Flash: soạn + dịch vi + giám khảo B) và 'groq' (gpt-oss-120b giám khảo A, llama-3.3-70b giám khảo C) đứng trước cf2
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
           VIMG_CF_USE_CF2: '0'   # tài khoản 2 thuộc script-bank/news-auto (workers_ai_b độc quyền) – lexicon chỉ dùng kho

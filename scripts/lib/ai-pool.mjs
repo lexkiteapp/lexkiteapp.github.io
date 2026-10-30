@@ -16,6 +16,7 @@
 // Lời nhắn (prompt) có MỘT nguồn: functions/api/lexai.js build(); tuyến không phải Gemini lấy { sys, user } qua `prompt: true`.
 import fs from 'fs';
 import { poolAccounts } from './cf-pool.mjs';
+import { parseKeys, keyRing } from './key-pool.mjs';
 
 // ---------- mô hình: họ + hạng (chất lượng) ----------
 // L = soạn + chấm · M = CHỈ chấm · S = cấm (quá nhỏ). Mô hình lạ = S (phải thêm vào đây sau khi đo).
@@ -78,10 +79,12 @@ export function allowed(mode, model) {
 // 25/10 (neuron CF → ảnh): soạn = Gemini kho Lexkite → Groq gpt-oss-120b; giám khảo A = Groq gpt-oss-120b; giám khảo B = Groq gpt-oss-20b với LỜI NHẮN KHÁC
 // (người soát thứ hai, tìm lỗi trước – JUDGE_B_SYS). Cùng họ gpt-oss chỉ được phép cho cặp 120b + 20b (SAME_FAM_PAIR, docs/CONTENT-QA.md §2 lớp 3).
 // gc-cf luôn ở CUỐI và chỉ sống khi AI_POOL_CF_TEXT=1. Gemini kho Lexkite vẫn đứng đầu soạn khi có khóa sống; 0 khóa → lexai nghỉ ngay.
+// 30/10 (chủ nạp GEMINI_POOL 85 khoá + GROQ_POOL 109 khoá): 'gem' (Gemini 2.5 Flash – soạn, dịch vi, giám khảo khác họ) và 'groq' (gpt-oss-120b / llama-3.3-70b / qwen3-32b)
+// đứng ĐẦU mọi chuỗi văn bản → văn bản không còn ăn neuron CF của ảnh; chỉ sống khi việc có secret (env) – việc khác giữ nguyên chuỗi cũ.
 export const CHAINS = {
-  gen: ['lexai', 'gc-groq', 'cf2', 'gc-gemini', 'gc-cf'],
-  judgeA: ['gc-groq', 'lexai', 'cf2', 'gc-gemini', 'gc-cf'],
-  judgeB: ['gc-groq', 'lexai', 'gc-gemini', 'cf2', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
+  gen: ['gem', 'groq', 'lexai', 'gc-groq', 'cf2', 'gc-gemini', 'gc-cf'],
+  judgeA: ['groq', 'gem', 'gc-groq', 'lexai', 'cf2', 'gc-gemini', 'gc-cf'],
+  judgeB: ['gem', 'groq', 'gc-groq', 'lexai', 'gc-gemini', 'cf2', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
   vision: ['gc-vision', 'studio', 'cf2-vision'],
 };
 /** văn bản Cloudflare qua GrabCast (bể neuron ảnh) – TẮT trừ khi AI_POOL_CF_TEXT=1 */
@@ -312,6 +315,45 @@ export function createPool(opts = {}) {
       return { out: await go(req, 0), model };
     },
   };
+  // ---- kho khoá Gemini / Groq (scripts/lib/key-pool.mjs): xoay khoá mỗi lần gọi; 429 theo phút → khoá nghỉ Retry-After, hết hạn mức NGÀY → nghỉ tới 00:00 UTC
+  // (Gemini đặt lại 00:00 giờ Thái Bình Dương ≈ 07:00–08:00 UTC: thêm 8 giờ), 401/403 → bỏ 6 giờ. Không bao giờ ghi khoá vào nhật ký (chỉ nhãn k<i>).
+  const GEM = keyRing(parseKeys(env.GEMINI_POOL, 'gemini'), { now }), GROQ = keyRing(parseKeys(env.GROQ_POOL, 'groq'), { now });
+  used.gem = 0; used.groq = 0;
+  async function keyed(ring, name, doFetch) {
+    for (let t = 0; t < Math.min(ring.size, 16); t++) {
+      const k = ring.next(); if (!k) throw new PoolErr('route', `${name}: mọi khoá đang nghỉ (${ring.size})`, ring.soonest());
+      const r = await doFetch(k.key).catch(() => null); if (!r) throw new PoolErr('net', name + ' net');
+      if (r.status === 401 || r.status === 403) { ring.park(k.id, 6 * 3600e3, 'auth'); continue; }
+      if (r.status === 429) { const b = await r.text().catch(() => ''), day = /per ?day|PerDay|daily|\bRPD\b|\bTPD\b/i.test(b) && !/per ?minute|PerMinute|\bRPM\b|\bTPM\b/i.test(b);
+        ring.park(k.id, day ? untilUtcMidnight(now()) + (name === 'gem' ? 8 * 3600e3 : 0) : retryAfter(r), day ? 'day' : 'minute'); continue; }
+      if (r.status >= 500) throw new PoolErr('net', `${name} ${r.status}`);
+      const j = await r.json().catch(() => null);
+      if (!r.ok || !j) throw new PoolErr('bad', `${name} ${r.status} ${String(j && j.error && (j.error.code || j.error.status) || '').slice(0, 40)}`);
+      used[name]++; return j;
+    }
+    throw new PoolErr('route', `${name}: ${Math.min(ring.size, 16)} khoá liên tiếp 429/từ chối`, 65e3);
+  }
+  // câu trả lời JSON hỏng/cụt → chia đôi lô (tối đa 2 tầng) rồi gộp – như cf2
+  const splitGo = one => { const go = async (r, depth) => { const o = await one(r); if ((o && typeof o === 'object') || depth >= 2 || !Array.isArray(r.items) || r.items.length < 2) return o && typeof o === 'object' ? o : null;
+    const h = Math.ceil(r.items.length / 2), a = await go({ ...r, items: r.items.slice(0, h) }, depth + 1); if (!a) return null; const b = await go({ ...r, items: r.items.slice(h) }, depth + 1); return b ? { ...a, ...b } : null; }; return go; };
+  const GEM_MODELS = ['gemini-2.5-flash'];
+  R.gem = { ok: () => GEM.size > 0, models: () => GEM_MODELS,
+    async call(model, req) {
+      const one = async r => { const p = await promptFor(r);
+        const j = await keyed(GEM, 'gem', key => F(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ systemInstruction: { parts: [{ text: sysFor(p, r) }] }, contents: [{ role: 'user', parts: [{ text: p.user }] }], generationConfig: { temperature: p.temp ?? 0.2, responseMimeType: 'application/json', maxOutputTokens: 32768, thinkingConfig: { thinkingBudget: 0 } } }) }));
+        const c = (j.candidates || [])[0] || {}; return parseJSON(((c.content || {}).parts || []).map(x => x.text || '').join('')); };
+      const out = await splitGo(one)(req, 0); if (!out) throw new PoolErr('bad', 'gem: không phải JSON'); return { out, model };
+    } };
+  const GROQ_MODELS = { gen: ['openai/gpt-oss-120b'], judge: ['openai/gpt-oss-120b', 'llama-3.3-70b-versatile'], C: ['llama-3.3-70b-versatile', 'qwen/qwen3-32b'] };
+  R.groq = { ok: () => GROQ.size > 0, models: (role, slot) => (slot === 'C' ? GROQ_MODELS.C : GROQ_MODELS[role === 'gen' ? 'gen' : 'judge']),
+    async call(model, req) {
+      const one = async r => { const p = await promptFor(r);
+        const j = await keyed(GROQ, 'groq', key => F('https://api.groq.com/openai/v1/chat/completions', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ model, messages: [{ role: 'system', content: sysFor(p, r) }, { role: 'user', content: p.user }], temperature: p.temp ?? 0.2, max_completion_tokens: 16384, response_format: { type: 'json_object' }, ...(/qwen3/.test(model) ? { reasoning_format: 'hidden' } : {}) }) }));
+        return parseJSON((((j.choices || [])[0] || {}).message || {}).content || ''); };
+      const out = await splitGo(one)(req, 0); if (!out) throw new PoolErr('bad', 'groq: không phải JSON'); return { out, model };
+    } };
   // thị giác (vocab-img giám khảo gọi tên): GrabCast vision (khi có URL) → Gemini kho Lexkite qua /api/studio (wai:0) → tài khoản 2 Llama 4 Scout
   R['gc-vision'] = {
     ok: () => !!env.GRABCAST_AI_KEY, models: () => ['vision'],
@@ -446,7 +488,7 @@ export function createPool(opts = {}) {
       else h.cf2 = { ok: false, err: 'chưa có CF_POOL/CF_AI_TOKEN_2' };
       log('[ai-pool] sức khỏe ' + JSON.stringify(h)); return h;
     },
-    stats: () => ({ used: { ...used }, budget: { ...budget }, by: JSON.parse(JSON.stringify(stats)) }),
+    stats: () => ({ used: { ...used }, budget: { ...budget }, by: JSON.parse(JSON.stringify(stats)), keys: { gem: GEM.stats(), groq: GROQ.stats() } }),
     /** ghi nhật ký ai đã trả lời (reports/ai-pool-<job>.json) */
     report(job, file = `reports/ai-pool-${job}.json`) { try { fs.mkdirSync('reports', { recursive: true }); fs.writeFileSync(file, JSON.stringify({ job, at: new Date(now()).toISOString(), ...api.stats() }, null, 1)); } catch { /* bỏ */ } },
   };
