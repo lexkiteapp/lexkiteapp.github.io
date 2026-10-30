@@ -1,5 +1,5 @@
 {
- "_note": "Teacher / set / clip registry for the v9 template family (docs/VIDEO-TEACHERS.md). Only to-camera talk loops with a Rhubarb mouth set. head = protected head mask in SOURCE pixels (hair + ears + chin + neck, union over the whole clip incl. head sway, checked by eye on the 13-frame average); no text box may ever touch it (qc_v9 head_clear, moved with the camera per frame). anchor = camera push centre. band = where pops go: below the chin, above the captions (computed by render_v9 from head + smax). path/meta = folders inside lexkite-footage.",
+ "_note": "Teacher / set / clip registry for the v9 template family (docs/VIDEO-TEACHERS.md). Only to-camera talk loops with a Rhubarb mouth set. head = protected head mask in SOURCE pixels (hair + ears + chin + neck, union over the whole clip incl. head sway, checked by eye on the 13-frame average); no text box may ever touch it (qc_v9 head_clear, moved with the camera per frame). anchor = camera push centre. band = where pops go: below the chin, above the captions (computed by render_v9 from head + smax). path/meta = folders inside lexkite-footage. RETIRED (owner 28/10): entries with a \"retired\" reason (Daniel/Mei/Ruth/Kai + 3D classroom sets and their clips) are never used; registry.check blocks render_v9.",
  "teachers": {
   "ama": {
    "name": "Ama",
@@ -17,25 +17,29 @@
    "name": "Daniel",
    "voice": "am_michael",
    "accent": "American (Kokoro am_michael)",
-   "persona": "friendly, clear American English teacher"
+   "persona": "friendly, clear American English teacher",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered (daniel is not a registry character)"
   },
   "mei": {
    "name": "Mei",
    "voice": "af_sarah",
    "accent": "American (Kokoro af_sarah)",
-   "persona": "bright, precise American English teacher"
+   "persona": "bright, precise American English teacher",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered (mei is not a registry character)"
   },
   "ruth": {
    "name": "Ruth",
    "voice": "af_kore",
    "accent": "American (Kokoro af_kore)",
-   "persona": "warm, experienced American English teacher"
+   "persona": "warm, experienced American English teacher",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered (ruth is not a registry character)"
   },
   "kai": {
    "name": "Kai",
    "voice": "am_puck",
    "accent": "American (Kokoro am_puck)",
-   "persona": "easy-going, upbeat American English teacher"
+   "persona": "easy-going, upbeat American English teacher",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered (kai is not a registry character)"
   }
  },
  "sets": {
@@ -71,7 +75,8 @@
    "ding": "",
    "smax": 1.0,
    "camera": "locked: board text is written on the board and the captions sit on the desk lip; a push would move the hands into the captions",
-   "bank": "brand/library/cine/teachers/bank.json"
+   "bank": "brand/library/cine/teachers/bank.json",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered (3D classroom set)"
   },
   "classroom_board": {
    "lib": "teachers",
@@ -80,7 +85,16 @@
    "amb": "tools/amb_classroom.wav",
    "ding": "",
    "smax": 1.06,
-   "bank": "brand/library/cine/teachers/bank.json"
+   "bank": "brand/library/cine/teachers/bank.json",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered (3D classroom set)"
+  },
+  "reg2d": {
+   "lib": "reg2d",
+   "path": "clips",
+   "meta": "meta",
+   "smax": 1.0,
+   "registry": "web/teach/characters.json",
+   "note": "ONE character set (owner 28/10): 2D green-screen Ama/Carlos from web/teach/characters.json over the Teach2D dusk canvas; clip ids = registry src ids; clips + teacher entries built on CI by scripts/video/motion/registry_plate.py (video-motion.yml), never stored here"
   }
  },
  "clips": {
@@ -244,7 +258,8 @@
    "anchor": [
     525,
     495
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "d02_daniel_ang2": {
    "set": "classroom",
@@ -262,7 +277,8 @@
    "anchor": [
     320,
     545
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "m01_mei_class": {
    "set": "classroom",
@@ -280,7 +296,8 @@
    "anchor": [
     500,
     525
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "m02_mei_ang2": {
    "set": "classroom",
@@ -298,7 +315,8 @@
    "anchor": [
     670,
     545
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "r01_ruth_class": {
    "set": "classroom",
@@ -316,7 +334,8 @@
    "anchor": [
     480,
     545
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "k01_kai_class": {
    "set": "classroom",
@@ -334,7 +353,8 @@
    "anchor": [
     530,
     435
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a02_ama_board": {
    "set": "classroom_board",
@@ -352,7 +372,8 @@
    "anchor": [
     670,
     755
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c01_carlos_board": {
    "set": "classroom_board",
@@ -370,7 +391,8 @@
    "anchor": [
     695,
     775
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "d03_daniel_desk": {
    "set": "classroom_board",
@@ -388,7 +410,8 @@
    "anchor": [
     805,
     600
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "m03_mei_desk": {
    "set": "classroom_board",
@@ -406,7 +429,8 @@
    "anchor": [
     715,
     650
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "k03_kai_desk": {
    "set": "classroom_board",
@@ -424,7 +448,8 @@
    "anchor": [
     780,
     700
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c04_carlos_3d": {
    "set": "classroom_board",
@@ -442,7 +467,8 @@
    "anchor": [
     787,
     813
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c04t2_carlos_3d_talk2": {
    "set": "classroom_board",
@@ -462,7 +488,8 @@
     813
    ],
    "parent": "c04_carlos_3d",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c04t3_carlos_3d_talk3": {
    "set": "classroom_board",
@@ -482,7 +509,8 @@
     813
    ],
    "parent": "c04_carlos_3d",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c04l_carlos_3d_listen": {
    "set": "classroom_board",
@@ -502,7 +530,8 @@
     813
    ],
    "parent": "c04_carlos_3d",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a02t2_ama_talk2": {
    "set": "classroom_board",
@@ -522,7 +551,8 @@
     755
    ],
    "parent": "a02_ama_board",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a02l_ama_listen": {
    "set": "classroom_board",
@@ -542,7 +572,8 @@
     755
    ],
    "parent": "a02_ama_board",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c01t2_carlos_talk2": {
    "set": "classroom_board",
@@ -562,7 +593,8 @@
     775
    ],
    "parent": "c01_carlos_board",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c01t3_carlos_talk3": {
    "set": "classroom_board",
@@ -582,7 +614,8 @@
     775
    ],
    "parent": "c01_carlos_board",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c01l_carlos_listen": {
    "set": "classroom_board",
@@ -602,7 +635,8 @@
     775
    ],
    "parent": "c01_carlos_board",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "d03t2_daniel_talk2": {
    "set": "classroom_board",
@@ -622,7 +656,8 @@
     600
    ],
    "parent": "d03_daniel_desk",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "d03l_daniel_listen": {
    "set": "classroom_board",
@@ -642,7 +677,8 @@
     600
    ],
    "parent": "d03_daniel_desk",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "k03l2_kai_listen": {
    "set": "classroom_board",
@@ -662,7 +698,8 @@
     700
    ],
    "parent": "k03_kai_desk",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "m03l2_mei_listen": {
    "set": "classroom_board",
@@ -682,7 +719,8 @@
     650
    ],
    "parent": "m03_mei_desk",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a02t3_ama_talk3": {
    "set": "classroom_board",
@@ -702,7 +740,8 @@
     755
    ],
    "parent": "a02_ama_board",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "d03t3_daniel_talk3": {
    "set": "classroom_board",
@@ -722,7 +761,8 @@
     600
    ],
    "parent": "d03_daniel_desk",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "k03t3_kai_talk3": {
    "set": "classroom_board",
@@ -742,7 +782,8 @@
     700
    ],
    "parent": "k03_kai_desk",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "m03t2_mei_talk2": {
    "set": "classroom_board",
@@ -762,7 +803,8 @@
     650
    ],
    "parent": "m03_mei_desk",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "m03t3_mei_talk3": {
    "set": "classroom_board",
@@ -782,7 +824,8 @@
     650
    ],
    "parent": "m03_mei_desk",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a04_ama_3d": {
    "set": "classroom_board",
@@ -800,7 +843,8 @@
    "anchor": [
     612,
     808
-   ]
+   ],
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a04t2_ama_3d_talk2": {
    "set": "classroom_board",
@@ -820,7 +864,8 @@
     808
    ],
    "parent": "a04_ama_3d",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a04l_ama_3d_listen": {
    "set": "classroom_board",
@@ -840,7 +885,8 @@
     808
    ],
    "parent": "a04_ama_3d",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c05_carlos2": {
    "set": "classroom_board",
@@ -860,7 +906,8 @@
     870
    ],
    "note": "3D bank v2 27/10: right-third medium shot, light-blue shirt + navy blazer; first frame lexkite-media cine/teachers/carlos2_first.png",
-   "mood": "talk"
+   "mood": "talk",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c05l_carlos2_listen": {
    "set": "classroom_board",
@@ -880,7 +927,8 @@
     870
    ],
    "parent": "c05_carlos2",
-   "raw": true
+   "raw": true,
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c05t2_carlos2_present": {
    "set": "classroom_board",
@@ -902,7 +950,8 @@
    "parent": "c05_carlos2",
    "raw": true,
    "note": "presenting gesture to the card",
-   "mood": "present"
+   "mood": "present",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c05t3_carlos2_talk3": {
    "set": "classroom_board",
@@ -930,7 +979,8 @@
     ]
    ],
    "note": "presenting; avoid = profile glance",
-   "mood": "present"
+   "mood": "present",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c05e1_carlos2_excited": {
    "set": "classroom_board",
@@ -952,7 +1002,8 @@
    "parent": "c05_carlos2",
    "raw": true,
    "note": "mood excited",
-   "mood": "excited"
+   "mood": "excited",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c05e2_carlos2_question": {
    "set": "classroom_board",
@@ -974,7 +1025,8 @@
    "parent": "c05_carlos2",
    "raw": true,
    "note": "mood question",
-   "mood": "question"
+   "mood": "question",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "c05e3_carlos2_wow": {
    "set": "classroom_board",
@@ -996,7 +1048,8 @@
    "parent": "c05_carlos2",
    "raw": true,
    "note": "mood wow / reveal",
-   "mood": "wow"
+   "mood": "wow",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a05b_ama2": {
    "set": "classroom_board",
@@ -1016,7 +1069,8 @@
     778
    ],
    "note": "3D bank v2 27/10: right-third medium shot (same layout/scale as Carlos); first frame lexkite-media cine/teachers/ama2_first.png",
-   "mood": "talk"
+   "mood": "talk",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a05l2_ama2_listen": {
    "set": "classroom_board",
@@ -1043,7 +1097,8 @@
      134
     ]
    ],
-   "note": "closed-mouth start frame; avoid = small o lips"
+   "note": "closed-mouth start frame; avoid = small o lips",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a05t2_ama2_present": {
    "set": "classroom_board",
@@ -1071,7 +1126,8 @@
     ]
    ],
    "note": "presenting; avoid = fast sway",
-   "mood": "present"
+   "mood": "present",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a05t3_ama2_present": {
    "set": "classroom_board",
@@ -1093,7 +1149,8 @@
    "parent": "a05b_ama2",
    "raw": true,
    "note": "RESERVE only (body sway 175 px) – not in default spec lists",
-   "mood": "present"
+   "mood": "present",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a05e1_ama2_excited": {
    "set": "classroom_board",
@@ -1115,7 +1172,8 @@
    "parent": "a05b_ama2",
    "raw": true,
    "note": "mood excited; tail sways/drifts",
-   "mood": "excited"
+   "mood": "excited",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a05e2_ama2_question": {
    "set": "classroom_board",
@@ -1137,7 +1195,8 @@
    "parent": "a05b_ama2",
    "raw": true,
    "note": "mood question",
-   "mood": "question"
+   "mood": "question",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   },
   "a05e3_ama2_wow": {
    "set": "classroom_board",
@@ -1159,7 +1218,8 @@
    "parent": "a05b_ama2",
    "raw": true,
    "note": "mood wow / reveal",
-   "mood": "wow"
+   "mood": "wow",
+   "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered"
   }
  }
 }

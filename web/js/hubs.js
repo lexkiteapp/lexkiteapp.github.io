@@ -89,7 +89,7 @@
   };
   CONTENT.listening.ieltsgt = CONTENT.listening.ielts; CONTENT.reading.ieltsgt = CONTENT.reading.ielts; CONTENT.speaking.ieltsgt = CONTENT.speaking.ielts;
   const FIX = () => ['#/fix', UI.icon('pen-line'), t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')];
-  const RP = () => ['#/roleplay', UI.icon('briefcase'), t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')], CALL = () => ['#/call', UI.icon('phone'), t('Gọi cho Mia'), t('Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng')];
+  const RP = () => ['#/roleplay', UI.icon('briefcase'), t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')], CALL = () => ['#/call', UI.icon('phone'), t('Gọi Ama & Carlos'), t('Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng')];
   const CONF = () => ['#/confidence', UI.icon('message-circle'), t('Giao tiếp tự tin'), t('Nói tự tin trong tình huống thật · 5–8 phút/bài')];
   const itemsFor = (sk, ex) => (CONTENT[sk][ex] || (() => null))();
   const tiles = list => list.map(([h, ic, n, d]) => card(h, ic, esc(n), d)).join('');

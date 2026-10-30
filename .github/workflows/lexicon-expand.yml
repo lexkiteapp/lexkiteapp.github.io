@@ -88,6 +88,7 @@ jobs:
         run: |
           cat reports/lexicon-expand.json 2>/dev/null >> "$GITHUB_STEP_SUMMARY" || true
           node scripts/ai-capacity.mjs || true   # thẻ Sức chứa AI (Quản trị › Khóa API)
+          node scripts/lexicon/expand/requeue.mjs --gaps || true   # mục trượt vì lỗ IPA nguồn → retry, không để kẹt hàng duyệt (npm test chặn)
           test -n "$(git status --porcelain content/lexicon/expand content/qa/review-queue.json web/data/ai-capacity.json)" || { echo 'không có thay đổi'; exit 0; }
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add content/lexicon/expand content/qa/review-queue.json web/data/ai-capacity.json

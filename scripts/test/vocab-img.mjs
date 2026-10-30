@@ -220,4 +220,23 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   const cf = await import('../vocab-img/cf-direct.mjs'), H = c => c.repeat(32), env = { CF_POOL: '0123456789'.split('').map(c => H(c) + ':t').join(','), VIMG_POOL_SKIP: '0', VIMG_DRAW_SHARE: '0.5', VIMG_MAX_CF: '10' };
   ok(cf.cfProvider('@cf/black-forest-labs/flux-2-klein-4b', env).stats.accounts === 5, 'vẽ chỉ dùng nửa đầu kho khi VIMG_DRAW_SHARE=0.5');
 }
+
+// 8. thẻ cảnh e4 (29/10): câu cảnh ngắn vẽ được + câu hỏi kiểm + điểm vẽ được; prompt ngắn; không vẽ thẻ draw < 4
+{ const sc = await import('../vocab-img/scene.mjs'), e = { w: 'cheap', pos: 'adj', ex: ['The food at the night market is cheap and tasty.'] };
+  const c = { ex: e.ex[0], ps: 'a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles', check: 'Is a big bowl of food being bought for one small coin?', cap: 'a woman buying noodles from a vendor', who: 2, draw: 4 };
+  ok(sc.sceneOk(e, c) === '' && /^skip: draw/.test(sc.sceneOk(e, { ...c, draw: 3 })) && sc.sceneOk(e, { ...c, ps: 'a man reads the price on a menu board at a small cafe today' }) !== '' && sc.sceneOk(e, { ...c, check: 'cheap' }) !== '', 'e4: thẻ hợp lệ; draw < 4 → bỏ; giá/chữ → loại; check phải là câu hỏi');
+  const p = sc.promptScene('cheap#adj', c, 1); ok(p.length < 520 && p.includes('hands one small coin') && p.indexOf('Flat vector') > p.indexOf('noodles') && !/a woman hands/.test(p), 'e4: prompt < 520 ký tự, câu cảnh trước phong cách, người đa dạng thay "a woman"'); }
+// 9. viết thẻ không được ăn hết giờ job (29/10 lượt fill 40875877636: 2.000 thẻ tuần tự 2 giờ 10 phút → quá giờ, mất thẻ, 0 ảnh); fill chỉ vẽ nghĩa có thẻ e4
+{ const src = rd('scripts/vocab-img/scene.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml');
+  const MIN = +(src.match(/VIMG_CARD_MIN \|\| (\d+)/) || [])[1], CONC = +(src.match(/VIMG_CARD_CONC \|\| (\d+)/) || [])[1];
+  const fillTo = +(wf.match(/\n  fill:[\s\S]*?timeout-minutes: (\d+)/) || [])[1];
+  ok(MIN > 0 && fillTo && MIN <= fillTo / 2 && /Date\.now\(\) < END/.test(src), 'viết thẻ có hạn ≤ nửa giờ job fill (còn giờ vẽ + ghi)');
+  ok(CONC >= 2 && /Promise\.all\(Array\.from\(\{ length: CONC \}/.test(src), 'viết thẻ chạy song song các lô');
+  ok(/e4bad \|\| 0\) < 3/.test(src), 'thẻ e4 hỏng 3 lần → thôi viết lại mỗi lượt');
+  const i = wf.indexOf('scene.mjs --cards --keys keys.json --write', wf.indexOf('\n  fill:')), j = wf.indexOf('scene.mjs --prune --keys keys.json');
+  const { cardWins: W, SCENE_V: V } = await import('../vocab-img/scene.mjs'), e3 = { sc: 'x', v: 'e3' }, e4 = { ps: 'y', v: V };
+  ok(W(undefined, e4) && W(e3, e4) && !W(e4, e3) && !W(e4, { ...e4, ps: 'z' }) && W(e3, { ...e3, e4bad: 1 }) && !W({ ...e3, e4bad: 2 }, { ...e3, e4bad: 1 }), 'scene-publish: thẻ e4 viết lại ĐÈ thẻ e3 (trước chỉ THÊM → mất), không đè thẻ e4 hiện hành');
+  ok(/import \{ cardWins \} from '\.\/scene\.mjs'/.test(rd('scripts/vocab-img/scene-publish.mjs')) && /cardWins\(cur\.items\[k\], v\)/.test(rd('scripts/vocab-img/scene-publish.mjs')), 'scene-publish dùng cardWins');
+  ok(i > 0 && j > i && j < wf.indexOf('scene-gen.mjs', i), 'fill: --prune sau khi viết thẻ, trước khi vẽ (không vẽ thẻ e3 cũ)');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);

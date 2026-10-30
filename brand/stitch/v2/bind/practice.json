@@ -1,0 +1,251 @@
+{
+ "_doc": "Màn Luyện (Practice) – d do Ux1 routes.train (web/js/ux1.js) dựng: thẻ kỳ thi, nước rút hằng ngày, 8 mô-đun kỹ năng + MỌI mục còn lại của GROUPS() cùng khuôn ô, hàng thi thử đầy đủ.",
+ "remove": [
+  ":scope > header",
+  ":scope > nav"
+ ],
+ "i18n": {
+  "Target Goal": "Mục tiêu nước rút",
+  "Focus Modules": "Mô-đun trọng tâm",
+  "Master discrete sub-skills at your pace": "Luyện từng kỹ năng nhỏ theo nhịp của bạn",
+  "Timed simulation": "Bấm giờ như thi thật"
+ },
+ "text": {
+  "Silver League": "d.ex.name",
+  "Top 15%": "d.ex.pred",
+  "Band 7.5 Target Prep": "d.ex.title",
+  "18h left": "d.ex.left",
+  "+25 XP": "d.sp.xp",
+  "Daily sprint 3/5": "d.sp.title",
+  "2 drills left": "d.sp.left",
+  "Resume": "d.sp.cta",
+  "8 Skills": "d.count",
+  "Full IELTS Mock": "d.mock.title",
+  "Sat 10:00": "d.mock.chip",
+  "Register": "d.mock.cta"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(2)": {
+   "aria-label": "d.ex.leftAria"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3)": {
+   "role": "'progressbar'",
+   "aria-valuenow": "d.sp.pct",
+   "aria-valuemin": "0",
+   "aria-valuemax": "100",
+   "aria-label": "d.sp.aria"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div": {
+   "style": "'width:' + d.sp.pct + '%'"
+  },
+  ":scope > main > div > div:nth-child(2) > button": {
+   "data-href": "d.sp.href",
+   "aria-label": "d.sp.aria"
+  },
+  ":scope > main > div > div:nth-child(5) > button": {
+   "data-href": "d.mock.href",
+   "aria-label": "d.mock.aria"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)": {
+   "aria-label": "''",
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)": {
+   "aria-label": "''",
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1) > div:nth-child(1)": {
+   "aria-label": "''",
+   "aria-hidden": "'true'"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(5) > button": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
+ },
+ "repeat": [
+  {
+   "list": "d.tiles",
+   "as": "r",
+   "variants": {
+    "c1": ":scope > main > div > div:nth-child(4) > div:nth-child(1)",
+    "c2": ":scope > main > div > div:nth-child(4) > div:nth-child(2)",
+    "c3": ":scope > main > div > div:nth-child(4) > div:nth-child(3)",
+    "c4": ":scope > main > div > div:nth-child(4) > div:nth-child(4)",
+    "c5": ":scope > main > div > div:nth-child(4) > div:nth-child(5)",
+    "c6": ":scope > main > div > div:nth-child(4) > div:nth-child(6)",
+    "c7": ":scope > main > div > div:nth-child(4) > div:nth-child(7)",
+    "c8": ":scope > main > div > div:nth-child(4) > div:nth-child(8)"
+   },
+   "samples": ":scope > main > div > div:nth-child(4) > div",
+   "pick": "'c' + (1 + r.ci % 8)",
+   "bind": {
+    "c1": {
+     "html": {
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > div > p": "e(r.sub)",
+      ":scope > div:nth-child(1) > span": "e(r.badge)",
+      ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div": {
+       "aria-label": "r.title"
+      },
+      ":scope": {
+       "data-grp": "r.badge"
+      }
+     },
+     "addClass": {
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+     }
+    },
+    "c2": {
+     "html": {
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > div > p": "e(r.sub)",
+      ":scope > div:nth-child(1) > span": "e(r.badge)",
+      ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div": {
+       "aria-label": "r.title"
+      },
+      ":scope": {
+       "data-grp": "r.badge"
+      }
+     },
+     "addClass": {
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+     }
+    },
+    "c3": {
+     "html": {
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > div > p": "e(r.sub)",
+      ":scope > div:nth-child(1) > span": "e(r.badge)",
+      ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div": {
+       "aria-label": "r.title"
+      },
+      ":scope": {
+       "data-grp": "r.badge"
+      }
+     },
+     "addClass": {
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+     }
+    },
+    "c4": {
+     "html": {
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > div > p": "e(r.sub)",
+      ":scope > div:nth-child(1) > span": "e(r.badge)",
+      ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div": {
+       "aria-label": "r.title"
+      },
+      ":scope": {
+       "data-grp": "r.badge"
+      }
+     },
+     "addClass": {
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+     }
+    },
+    "c5": {
+     "html": {
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > div > p": "e(r.sub)",
+      ":scope > div:nth-child(1) > span": "e(r.badge)",
+      ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div": {
+       "aria-label": "r.title"
+      },
+      ":scope": {
+       "data-grp": "r.badge"
+      }
+     },
+     "addClass": {
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+     }
+    },
+    "c6": {
+     "html": {
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > div > p": "e(r.sub)",
+      ":scope > div:nth-child(1) > span": "e(r.badge)",
+      ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div": {
+       "aria-label": "r.title"
+      },
+      ":scope": {
+       "data-grp": "r.badge"
+      }
+     },
+     "addClass": {
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+     }
+    },
+    "c7": {
+     "html": {
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > div > p": "e(r.sub)",
+      ":scope > div:nth-child(1) > span": "e(r.badge)",
+      ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div": {
+       "aria-label": "r.title"
+      },
+      ":scope": {
+       "data-grp": "r.badge"
+      }
+     },
+     "addClass": {
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+     }
+    },
+    "c8": {
+     "html": {
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > div > p": "e(r.sub)",
+      ":scope > div:nth-child(1) > span": "e(r.badge)",
+      ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div": {
+       "aria-label": "r.title"
+      },
+      ":scope": {
+       "data-grp": "r.badge"
+      }
+     },
+     "addClass": {
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+     }
+    }
+   }
+  }
+ ],
+ "cls": {
+  ":scope > main > div > div:nth-child(2) > button, :scope > main > div > div:nth-child(2) > button > span": {
+   "text-[#2A0700]": "'!text-[#2A0700]'"
+  }
+ },
+ "_contrast": " CTA nước rút: chữ/icon #2A0700 ép !important (bản tối đo 2.5/1.8); chip kỹ năng thêm vùng chạm ≥44."
+}

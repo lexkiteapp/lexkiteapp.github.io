@@ -288,6 +288,7 @@ jobs:
           node scripts/vocab-img/scene.mjs --gaps $NK --shard ${{ matrix.shard }}/$NSH > keys.json
           echo "nghĩa: $(node -p "require('./keys.json').items.length")"
           node scripts/vocab-img/scene.mjs --cards --keys keys.json --write
+          node scripts/vocab-img/scene.mjs --prune --keys keys.json
           mkdir -p $OUT && cp content/lexicon/vimg-scenes.json $OUT/cards.s${{ matrix.shard }}.json
       - name: Biến thể 1..V – vẽ, chấm, nhận biến thể đầu qua giám khảo
         if: steps.lease.outputs.skip != '1'

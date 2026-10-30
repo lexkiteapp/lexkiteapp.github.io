@@ -1,0 +1,6 @@
+/* Thẻ hạng trang chủ (league.js): lưới biểu tượng | chữ | nút; khung hẹp → nút xuống hàng – tải lười cùng gói league */
+.lg-hc { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-3); }
+.lg-hc-tx { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.lg-hc-t { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); }
+.lg-hc-cta { white-space: nowrap; }
+@container (max-width: 440px) { .lg-hc { grid-template-columns: auto minmax(0, 1fr); } .lg-hc-cta { grid-column: 1 / -1; justify-self: stretch; justify-content: center; } }

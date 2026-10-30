@@ -227,7 +227,7 @@
   // ---------- Nạp module theo trang (lazy loading): trang đầu chỉ tải phần lõi, phần nặng tải khi cần ----------
   const G = 'js/grammar/', BUNDLES = {
     grammar: ['js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check'].map(f => G + f + '.js'), 'js/grammar.js'],
-    pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron.js'],
+    pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
@@ -235,8 +235,8 @@
     reflex: ['js/reflex.js'],
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
-    call: ['js/call/calls.js', 'js/call.js'], // Call Mia: cuộc gọi luyện nói có kịch bản
-    courses: ['js/courses.js'], goal: ['js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
+    call: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/teacher-call.js', 'js/pron/pairs.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/call/calls.js', 'js/call/calls-exam.js', 'js/call/engine.js', 'js/call.js'], // Call Ama/Carlos: cuộc gọi luyện nói rẽ nhánh, giáo viên khớp môi (docs/CALL.md); khung Stitch v2 teacher-call
+    courses: ['js/courses.js'], goal: ['js/i18n/en/goal.js', 'js/st/common.js', 'js/st/goal.js', 'js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
     listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
     writing: ['js/i18n/en/ideast.js', 'js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
@@ -272,7 +272,7 @@
     adoffer: ['js/i18n/en/adoffer.js', 'js/ad-offers.js'], // 🎁 Cơ hội 2 · x2 XP ở thẻ kết quả (docs/ADS.md §1c)
     i18nx: ['structs', 'toefl', 'league', 'call', 'handoff'].map(n => `js/i18n/en/${n}.js`), // chuỗi giao diện trang tải lười (xem App.need)
     i18nl: ['verbs', 'exams', 'skills', 'lazyui'].map(n => `js/i18n/en/${n}.js`), // chuỗi Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm (ra khỏi en.js 27/10; add-on không cần nên tách khỏi i18nx)
-    ux1: ['js/i18n/en/ux1.js', 'js/ux1.js'], lesson: ['js/i18n/en/lesson.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
+    ux1: ['js/i18n/en/ux1.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/home.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/path.js', 'js/st/v2/review.js', 'js/st/v2/practice.js', 'js/st/v2/leagues.js', 'js/st/v2/me.js', 'js/st/v2/streak.js', 'js/st/v2/exam-readiness.js', 'js/ux1.js', 'js/ux1-me.js'], lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
   const ROUTE_BUNDLE = { train: 'ux1', lesson: 'lesson', streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
@@ -297,10 +297,13 @@
     if (m && window.I18N) { const l = I18N.lang(); if (l !== 'en' && l !== 'vi') await loadOne(`js/i18n/${l}/${m[1]}.js`); }
   };
   // Tải song song nhưng chạy đúng thứ tự (async=false); file thiếu được bỏ qua
-  // i18nx: chuỗi giao diện của các trang tải lười (TOEFL, Giải đấu, Call Mia, Chuyển dữ liệu, Cấu trúc câu) – ra khỏi en.js (khung app),
+  // i18nx: chuỗi giao diện của các trang tải lười (TOEFL, Giải đấu, Call Ama & Carlos, Chuyển dữ liệu, Cấu trúc câu) – ra khỏi en.js (khung app),
   // nạp kèm (song song) gói đầu tiên được mở → module luôn vẽ khi đã có bản dịch; tiếng Việt (ngôn ngữ gốc) không cần
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
-  const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript)).finally(() => { inflight--; }));
+  // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
+  const BCSS = { mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-path.css', 'css/st-v2-review.css', 'css/st-v2-practice.css', 'css/st-v2-leagues.css', 'css/st-v2-me.css', 'css/st-v2-streak.css', 'css/st-v2-exam-readiness.css'] }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
+  const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
+  const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || []).map(loadCss))).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
@@ -1106,7 +1109,7 @@
           <button class="btn sm ghost" data-use-sent="${esc(s.en)}">📌 ${t('Dùng làm ngữ cảnh')}</button></div>`).join('')}
       </div>` : ''}
 
-      <div class="card" style="margin-top:1rem" id="saveCard">
+      ${final ? `<div class="card" style="margin-top:1rem" id="saveCard">
         <h3>${card ? '📌 ' + t('Thêm ngữ cảnh cho từ này') : '➕ ' + t('Lưu vào flashcard kèm ngữ cảnh')}</h3>
         <label class="field"><span class="muted small" style="font-weight:500">${t('Câu bạn gặp từ này (bài đọc, phim, báo…) – ngữ cảnh giúp nhớ lâu gấp nhiều lần')}</span>
           <textarea class="input" id="ctx" placeholder="${t('Dán câu có chứa “{w}”…', { w: esc(e.word) })}"></textarea></label>
@@ -1116,7 +1119,7 @@
           <button class="btn primary" id="saveWord">${card ? t('Thêm ngữ cảnh') : t('Lưu vào flashcard')}</button>
           ${card ? `<span class="muted small">${t('{n} ngữ cảnh', { n: card.contexts.length })} · ${masteryDots(card.srs)}</span>` : ''}
         </div>
-      </div>
+      </div>` : UI.skel(t('Đang tra “{q}”…', { q: esc(e.word) }), 3)} <!-- ô lưu kèm ngữ cảnh chỉ có ở lần vẽ ĐỦ: lần vẽ nhanh có ô thì người đang gõ/bàn phím mở sẽ bị lần vẽ đủ đẩy xô (CLS 0,68 mobile-qa dict 360) -->
       ${final ? `<div class="card" style="margin-top:1rem"><div id="phraseBox"></div><div id="related"></div></div>` : ''}`; /* 2 khối điền muộn (Lex.phrases, Datamuse) ở CUỐI trang: về muộn không đẩy ô lưu/ô ngữ cảnh (CLS 0,66 mobile-qa 360) */
     bindCommon();
     App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
@@ -1137,6 +1140,8 @@
       $('#ctxVi').textContent = ctxVi ? `${flg} ${ctxVi}` : t('Không dịch được câu này.');
       return ctxVi;
     };
+    const qs = $('#quickSave');
+    if (!$('#ctx')) { if (qs) qs.onclick = async () => { await addWord(e, null); toast(t('Đã lưu “{w}” vào flashcard', { w: e.word })); routes.dict(e.word); }; return; } // lần vẽ nhanh: chưa có ô ngữ cảnh
     $('#trCtx').onclick = trCtx;
     $('#ctx').oninput = () => { ctxVi = ''; $('#ctxVi').textContent = ''; };
     $$('[data-use-sent]').forEach(b => b.onclick = () => {
@@ -1152,7 +1157,7 @@
       location.hash === `#/dict/${encodeURIComponent(e.word)}` ? routes.dict(e.word) : (location.hash = `#/dict/${encodeURIComponent(e.word)}`);
     };
     $('#saveWord').onclick = save;
-    const qs = $('#quickSave'); if (qs) qs.onclick = save;
+    if (qs) qs.onclick = save;
     }
   });
 

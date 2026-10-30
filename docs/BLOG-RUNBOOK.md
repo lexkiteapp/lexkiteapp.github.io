@@ -57,7 +57,7 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 
 ## Phương pháp viết (6 bước, mẫu ở `content/blog/prompts/`)
 1 brief từ khóa bản địa & đối thủ top 10 → 2 dàn ý → 3 viết (chuyên gia, tự viết 100%) → 4 kiểm chứng (nguồn chính thức) → 5 bản địa hóa (không dịch máy) → 6 chấm 100 điểm, **≥ 90** mới `status: ready`.
-Chuẩn bài: tiêu đề 30–65 ký tự, mô tả 110–160, ≥ 1.200 từ (evergreen 1.800–2.500), từ khóa ở tiêu đề/120 từ đầu/H2, ≥ 4 H2, ảnh bìa riêng (tự động) + ≥ 2 hình riêng thân bài (`shots:` → `media:@s1`, `diagrams:` → `{{diagram: d1}}`, chú thích riêng từng bài), ≥ 4 link bài khác + ≥ 2 link app + CTA, FAQ, slot YouTube để trống.
+Chuẩn bài: tiêu đề 30–65 ký tự (ru/ar/zh/ja/ko/th: chữ bản ngữ, keyword theo cách người bản xứ gõ – phiên âm Latin kiểu "Kak Dumat…" bị `[title-script]` chặn; chỉ tên kỳ thi/thương hiệu/thuật ngữ Anh giữ Latin; hi Hinglish được phép), mô tả 110–160, ≥ 1.200 từ (evergreen 1.800–2.500), từ khóa ở tiêu đề/120 từ đầu/H2, ≥ 4 H2, ảnh bìa riêng (tự động) + ≥ 2 hình riêng thân bài (`shots:` → `media:@s1`, `diagrams:` → `{{diagram: d1}}`, chú thích riêng từng bài), ≥ 4 link bài khác + ≥ 2 link app + CTA, FAQ, slot YouTube để trống.
 
 ## Ảnh riêng từng bài (17/10/2026)
 Mục tiêu: mỗi bài có ảnh CỦA NÓ (không dùng chung 31 ảnh), nhanh, không phình bản deploy kể cả 100k+ bài. Mọi việc nặng chạy trên GitHub Actions `blog-images.yml`; máy chỉ chạy lệnh nhẹ (`status`, `suggest`, test).

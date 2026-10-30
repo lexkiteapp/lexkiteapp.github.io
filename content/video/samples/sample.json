@@ -8,12 +8,12 @@
     "scene": "office",
     "time": "day",
     "lines": [
-      { "who": "mia", "beat": "hook", "text": "Wait, is \"I'm agree\" wrong?", "expr": "surprised", "gesture": "" },
-      { "who": "leo", "beat": "situation", "text": "In the meeting you said it three times.", "expr": "awkward forced smile", "gesture": "" },
-      { "who": "leo", "beat": "explain", "text": "Agree is a verb, so we just say I agree.", "expr": "happy smile", "gesture": "pointing", "punch": true },
-      { "who": "mia", "beat": "example", "text": "I agree with your plan for next week.", "expr": "happy smile", "gesture": "" },
+      { "who": "ama", "beat": "hook", "text": "Wait, is \"I'm agree\" wrong?", "expr": "surprised", "gesture": "" },
+      { "who": "carlos", "beat": "situation", "text": "In the meeting you said it three times.", "expr": "awkward forced smile", "gesture": "" },
+      { "who": "carlos", "beat": "explain", "text": "Agree is a verb, so we just say I agree.", "expr": "happy smile", "gesture": "pointing", "punch": true },
+      { "who": "ama", "beat": "example", "text": "I agree with your plan for next week.", "expr": "happy smile", "gesture": "" },
       { "who": "kit", "beat": "tip", "text": "Kit's tip: no am, is, or are before agree.", "expr": "proud", "gesture": "" },
-      { "who": "mia", "beat": "cta", "text": "Practice this free on lexkite.com", "expr": "happy smile", "gesture": "waving hello" }
+      { "who": "ama", "beat": "cta", "text": "Practice this free on lexkite.com", "expr": "happy smile", "gesture": "waving hello" }
     ],
     "keywords": ["I agree", "verb"],
     "caption": "Say \"I agree\", not \"I'm agree\" #englishtips #officeenglish",

@@ -26,7 +26,7 @@
    "gold": "w:sleeping bag#n",
    "topic": "travel",
    "plate": "airport_gate",
-   "host": "mia",
+   "host": "ama",
    "batch": 1
   },
   {
@@ -50,7 +50,7 @@
    "gold": "u:v:state:that",
    "topic": "exam",
    "plate": "library",
-   "host": "mia",
+   "host": "ama",
    "batch": 1
   },
   {
@@ -74,7 +74,7 @@
    "gold": "u:c:ago-before",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "carlos",
    "batch": 1
   },
   {
@@ -98,7 +98,7 @@
    "gold": "u:p:smile:at",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 1
   },
   {
@@ -122,7 +122,7 @@
    "gold": "u:p:listen:m0",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 2
   },
   {
@@ -146,7 +146,7 @@
    "gold": "u:p:reason:for",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "carlos",
    "batch": 2
   },
   {
@@ -170,7 +170,7 @@
    "gold": "u:s:so-as-to:m0",
    "topic": "study",
    "plate": "library",
-   "host": "mia",
+   "host": "carlos",
    "batch": 2
   },
   {
@@ -194,7 +194,7 @@
    "gold": "m:class#n",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 2
   },
   {
@@ -218,7 +218,7 @@
    "gold": "w:split the bill#phrase",
    "topic": "food",
    "plate": "restaurant_night",
-   "host": "mia",
+   "host": "ama",
    "batch": 3
   },
   {
@@ -242,7 +242,7 @@
    "gold": "w:smoke detector#n",
    "topic": "home",
    "plate": "kitchen",
-   "host": "mia",
+   "host": "carlos",
    "batch": 3
   },
   {
@@ -266,7 +266,7 @@
    "gold": "u:v:suppose:pass",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "ama",
    "batch": 3
   },
   {
@@ -290,7 +290,7 @@
    "gold": "u:c:rise-raise",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 3
   },
   {
@@ -314,7 +314,7 @@
    "gold": "u:p:fit:for",
    "topic": "shopping",
    "plate": "clothing_store",
-   "host": "mia",
+   "host": "ama",
    "batch": 4
   },
   {
@@ -338,7 +338,7 @@
    "gold": "u:p:solution:m0",
    "topic": "exam",
    "plate": "library",
-   "host": "mia",
+   "host": "ama",
    "batch": 4
   },
   {
@@ -362,7 +362,7 @@
    "gold": "m:self-checkout#n",
    "topic": "shopping",
    "plate": "supermarket",
-   "host": "mia",
+   "host": "carlos",
    "batch": 4
   },
   {
@@ -386,7 +386,7 @@
    "gold": "w:point at#phr v",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 4
   },
   {
@@ -410,7 +410,7 @@
    "gold": "w:free sample#n",
    "topic": "shopping",
    "plate": "clothing_store",
-   "host": "mia",
+   "host": "ama",
    "batch": 5
   },
   {
@@ -434,7 +434,7 @@
    "gold": "u:v:help:bare",
    "topic": "home",
    "plate": "kitchen",
-   "host": "mia",
+   "host": "ama",
    "batch": 5
   },
   {
@@ -458,7 +458,7 @@
    "gold": "u:c:practice-practise",
    "topic": "study",
    "plate": "library",
-   "host": "mia",
+   "host": "carlos",
    "batch": 5
   },
   {
@@ -482,7 +482,7 @@
    "gold": "u:v:arrange:to",
    "topic": "work",
    "plate": "meeting_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 5
   },
   {
@@ -506,7 +506,7 @@
    "gold": "u:c:discover-invent",
    "topic": "study",
    "plate": "library",
-   "host": "mia",
+   "host": "ama",
    "batch": 6
   },
   {
@@ -530,7 +530,7 @@
    "gold": "u:p:dream:of",
    "topic": "daily",
    "plate": "park",
-   "host": "mia",
+   "host": "ama",
    "batch": 6
   },
   {
@@ -554,7 +554,7 @@
    "gold": "u:c:make-do:m1",
    "topic": "study",
    "plate": "library",
-   "host": "mia",
+   "host": "ama",
    "batch": 6
   },
   {
@@ -578,7 +578,7 @@
    "gold": "m:discovery#n",
    "topic": "tech",
    "plate": "coworking",
-   "host": "mia",
+   "host": "carlos",
    "batch": 6
   },
   {
@@ -602,7 +602,7 @@
    "gold": "w:i would like to invite you to#phrase",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 7
   },
   {
@@ -626,7 +626,7 @@
    "gold": "w:insurance card#n",
    "topic": "health",
    "plate": "pharmacy",
-   "host": "mia",
+   "host": "carlos",
    "batch": 7
   },
   {
@@ -650,7 +650,7 @@
    "gold": "u:s:too-to",
    "topic": "food",
    "plate": "coffee_shop_day",
-   "host": "mia",
+   "host": "carlos",
    "batch": 7
   },
   {
@@ -674,7 +674,7 @@
    "gold": "w:recycling bin#n",
    "topic": "home",
    "plate": "kitchen",
-   "host": "mia",
+   "host": "carlos",
    "batch": 7
   },
   {
@@ -698,7 +698,7 @@
    "gold": "u:c:excited-exciting",
    "topic": "travel",
    "plate": "airport_gate",
-   "host": "mia",
+   "host": "carlos",
    "batch": 8
   },
   {
@@ -722,7 +722,7 @@
    "gold": "u:p:cope:with",
    "topic": "health",
    "plate": "pharmacy",
-   "host": "mia",
+   "host": "carlos",
    "batch": 8
   },
   {
@@ -746,7 +746,7 @@
    "gold": "u:p:rely:m0",
    "topic": "tech",
    "plate": "coworking",
-   "host": "mia",
+   "host": "carlos",
    "batch": 8
   },
   {
@@ -770,7 +770,7 @@
    "gold": "m:approximately#adv",
    "topic": "exam",
    "plate": "library",
-   "host": "mia",
+   "host": "carlos",
    "batch": 8
   },
   {
@@ -794,7 +794,7 @@
    "gold": "w:i took the initiative to#phrase",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "ama",
    "batch": 9
   },
   {
@@ -818,7 +818,7 @@
    "gold": "w:statute of limitations#n",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "carlos",
    "batch": 9
   },
   {
@@ -842,7 +842,7 @@
    "gold": "w:in compliance with#phrase",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "ama",
    "batch": 9
   },
   {
@@ -866,7 +866,7 @@
    "gold": "w:greenhouse gas#n",
    "topic": "exam",
    "plate": "library",
-   "host": "mia",
+   "host": "ama",
    "batch": 9
   },
   {
@@ -890,7 +890,7 @@
    "gold": "w:push back#phr v",
    "topic": "work",
    "plate": "meeting_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 10
   },
   {
@@ -914,7 +914,7 @@
    "gold": "u:c:beside-besides",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 10
   },
   {
@@ -938,7 +938,7 @@
    "gold": "u:v:forbid:ing",
    "topic": "exam",
    "plate": "exam_hall",
-   "host": "mia",
+   "host": "ama",
    "batch": 10
   },
   {
@@ -962,7 +962,7 @@
    "gold": "x:malnutrition#n:undernourishment",
    "topic": "health",
    "plate": "pharmacy",
-   "host": "mia",
+   "host": "ama",
    "batch": 10
   },
   {
@@ -986,7 +986,7 @@
    "gold": "u:p:inferior:to",
    "topic": "shopping",
    "plate": "clothing_store",
-   "host": "mia",
+   "host": "carlos",
    "batch": 11
   },
   {
@@ -1010,7 +1010,7 @@
    "gold": "u:p:married:m0",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 11
   },
   {
@@ -1034,7 +1034,7 @@
    "gold": "m:consumer#n",
    "topic": "shopping",
    "plate": "clothing_store",
-   "host": "mia",
+   "host": "carlos",
    "batch": 11
   },
   {
@@ -1058,7 +1058,7 @@
    "gold": "w:head off#phr v",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 11
   },
   {
@@ -1082,7 +1082,7 @@
    "gold": "w:stainless steel#n",
    "topic": "home",
    "plate": "living_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 12
   },
   {
@@ -1106,7 +1106,7 @@
    "gold": "w:make up for#phr v",
    "topic": "food",
    "plate": "restaurant_night",
-   "host": "mia",
+   "host": "carlos",
    "batch": 12
   },
   {
@@ -1130,7 +1130,7 @@
    "gold": "w:interlibrary loan#n",
    "topic": "study",
    "plate": "library",
-   "host": "mia",
+   "host": "carlos",
    "batch": 12
   },
   {
@@ -1154,7 +1154,7 @@
    "gold": "u:p:committed:m0",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "ama",
    "batch": 12
   },
   {
@@ -1178,7 +1178,7 @@
    "gold": "u:a:moreover:moreover",
    "topic": "exam",
    "plate": "exam_hall",
-   "host": "mia",
+   "host": "carlos",
    "batch": 13
   },
   {
@@ -1202,7 +1202,7 @@
    "gold": "u:p:lack:m0",
    "topic": "food",
    "plate": "coffee_shop_day",
-   "host": "mia",
+   "host": "ama",
    "batch": 13
   },
   {
@@ -1226,7 +1226,7 @@
    "gold": "u:v:hesitate:to",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "ama",
    "batch": 13
   },
   {
@@ -1250,7 +1250,7 @@
    "gold": "w:magnetic resonance imaging#n",
    "topic": "health",
    "plate": "pharmacy",
-   "host": "mia",
+   "host": "ama",
    "batch": 13
   },
   {
@@ -1274,7 +1274,7 @@
    "gold": "u:s:wish",
    "topic": "study",
    "plate": "library",
-   "host": "mia",
+   "host": "carlos",
    "batch": 14
   },
   {
@@ -1298,7 +1298,7 @@
    "gold": "w:property manager#n",
    "topic": "home",
    "plate": "kitchen",
-   "host": "mia",
+   "host": "ama",
    "batch": 14
   },
   {
@@ -1322,7 +1322,7 @@
    "gold": "u:c:damage-harm:m0",
    "topic": "home",
    "plate": "living_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 14
   },
   {
@@ -1346,7 +1346,7 @@
    "gold": "m:qualification#n",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "ama",
    "batch": 14
   },
   {
@@ -1370,7 +1370,7 @@
    "gold": "w:hang out#phr v",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 15
   },
   {
@@ -1394,7 +1394,7 @@
    "gold": "cf:interview:interested-in-because:x",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "carlos",
    "batch": 15
   },
   {
@@ -1418,7 +1418,7 @@
    "gold": "cf:complaints:isnt-working:x",
    "topic": "shopping",
    "plate": "clothing_store",
-   "host": "mia",
+   "host": "ama",
    "batch": 15
   },
   {
@@ -1442,7 +1442,7 @@
    "gold": "cf:airport:bag-didnt-arrive:x",
    "topic": "travel",
    "plate": "airport_gate",
-   "host": "mia",
+   "host": "carlos",
    "batch": 15
   },
   {
@@ -1466,7 +1466,7 @@
    "gold": "cf:airport:rebook-me:x",
    "topic": "travel",
    "plate": "airport_gate",
-   "host": "mia",
+   "host": "ama",
    "batch": 16
   },
   {
@@ -1490,7 +1490,7 @@
    "gold": "cf:calls:hold-on:x",
    "topic": "daily",
    "plate": "park",
-   "host": "mia",
+   "host": "carlos",
    "batch": 16
   },
   {
@@ -1514,7 +1514,7 @@
    "gold": "cf:job-interview:responsible-for:x",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "carlos",
    "batch": 16
   },
   {
@@ -1538,7 +1538,7 @@
    "gold": "cf:work-meeting:well-discuss:x",
    "topic": "work",
    "plate": "meeting_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 16
   },
   {
@@ -1562,7 +1562,7 @@
    "gold": "cf:presenting:ill-be-talking:x",
    "topic": "work",
    "plate": "meeting_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 17
   },
   {
@@ -1586,7 +1586,7 @@
    "gold": "cf:presenting:key-point:x",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "carlos",
    "batch": 17
   },
   {
@@ -1610,7 +1610,7 @@
    "gold": "cf:new-friends:really-into:x",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 17
   },
   {
@@ -1634,7 +1634,7 @@
    "gold": "cf:new-friends:are-you-free:x",
    "topic": "social",
    "plate": "living_room",
-   "host": "mia",
+   "host": "carlos",
    "batch": 17
   },
   {
@@ -1658,7 +1658,7 @@
    "gold": "cf:disagreeing:i-agree-with:x",
    "topic": "work",
    "plate": "coworking",
-   "host": "mia",
+   "host": "ama",
    "batch": 18
   },
   {
@@ -1682,7 +1682,7 @@
    "gold": "cf:renting:something-wrong-with:x",
    "topic": "home",
    "plate": "kitchen",
-   "host": "mia",
+   "host": "ama",
    "batch": 18
   },
   {
@@ -1706,7 +1706,7 @@
    "gold": "cf:renting:how-long-lease:x",
    "topic": "home",
    "plate": "living_room",
-   "host": "mia",
+   "host": "ama",
    "batch": 18
   },
   {
@@ -1730,7 +1730,7 @@
    "gold": "cf:complaints:id-prefer",
    "topic": "shopping",
    "plate": "supermarket",
-   "host": "mia",
+   "host": "ama",
    "batch": 18
   },
   {

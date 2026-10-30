@@ -1,12 +1,6 @@
 {
  "_note": "Nghĩa cảnh đã thử đủ biến thể mà không ảnh nào qua giám khảo cảnh – fill bỏ qua tới khi sửa thẻ (vimg-scenes.json) / prompt rồi xoá mục khỏi đây (scene-publish.mjs).",
  "items": {
-  "advertise#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (company, products, and advertising); clip-sentence sim 0.1875; vision description-sentence sim 0.1503",
-   "b": "40088424311"
-  },
   "advertisement#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -37,12 +31,6 @@
    "why": "vision: no (key action of leaving); clip-sentence sim 0.1737; vision description-sentence sim -0.0552",
    "b": "40088424311"
   },
-  "bright#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.17; vision description-sentence sim 0.2889",
-   "b": "40088424311"
-  },
   "busy#adj": {
    "at": "2026-10-26",
    "tries": 4,
@@ -67,46 +55,16 @@
    "why": "vision: text",
    "b": "40088424311"
   },
-  "check-in#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (clock or time indication); vision description-sentence sim 0.2104",
-   "b": "40088424311"
-  },
   "clause#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision description-sentence sim 0.0577",
    "b": "40088424311"
   },
-  "complain#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (multiple complainants); clip-sentence sim 0.2114; vision description-sentence sim 0.2751",
-   "b": "40088424311"
-  },
-  "contingency#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (project context and contingency); clip-sentence sim 0.2087; vision description-sentence sim 0.1828",
-   "b": "40088424311"
-  },
   "countryside#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "clip-sentence sim 0.1825; vision description-sentence sim 0.0685",
-   "b": "40088424311"
-  },
-  "crazy#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (speed context or shocked face)",
-   "b": "40088424311"
-  },
-  "data#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (too few people); vision description-sentence sim 0.2049",
    "b": "40088424311"
   },
   "decentralize#v": {
@@ -127,12 +85,6 @@
    "why": "clip-sentence sim 0.1856",
    "b": "40276144478"
   },
-  "downstairs#adv": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.196",
-   "b": "40276144478"
-  },
   "edit access#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -145,41 +97,11 @@
    "why": "clip-sentence sim 0.195",
    "b": "40276144478"
   },
-  "engineer#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.2167",
-   "b": "40088424311"
-  },
-  "extremely#adv": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1688; vision description-sentence sim 0.091",
-   "b": "40088424311"
-  },
-  "flexible hours#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.1876",
-   "b": "40088424311"
-  },
-  "football#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (brother, Saturday, alone); vision description-sentence sim 0.2876",
-   "b": "40276144478"
-  },
   "future#n": {
    "at": "2026-10-26",
    "tries": 4,
    "why": "clip-sentence sim 0.1617",
    "b": "40276144478"
-  },
-  "general#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.2044",
-   "b": "40088424311"
   },
   "globally#adv": {
    "at": "2026-10-24",
@@ -241,12 +163,6 @@
    "why": "vision: no (mistake not shown); clip-sentence sim 0.2143; vision description-sentence sim 0.0526",
    "b": "40088424311"
   },
-  "mutually#adv": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1883; vision description-sentence sim 0.0623",
-   "b": "40088424311"
-  },
   "natural#adj": {
    "at": "2026-10-26",
    "tries": 4,
@@ -259,23 +175,11 @@
    "why": "vision: no (noticeboard and action of putting up); clip-sentence sim 0.1609; vision description-sentence sim 0.0727",
    "b": "40088424311"
   },
-  "object#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (thousands of objects); vision description-sentence sim 0.1904",
-   "b": "40276144478"
-  },
   "page#n": {
    "at": "2026-10-26",
    "tries": 4,
    "why": "clip-sentence sim 0.1967",
    "b": "40276144478"
-  },
-  "party#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (name and day of party); vision description-sentence sim 0.2766",
-   "b": "40088424311"
   },
   "polite#adj": {
    "at": "2026-10-24",
@@ -293,18 +197,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (postal code, form details); clip-sentence sim 0.2015; vision description-sentence sim 0.0852",
-   "b": "40088424311"
-  },
-  "primary#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (specific year or age not shown); clip-sentence sim 0.1884; vision description-sentence sim 0.1835",
-   "b": "40088424311"
-  },
-  "print#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (document to print and action); clip-sentence sim 0.2052",
    "b": "40088424311"
   },
   "producer#n": {
@@ -337,22 +229,10 @@
    "why": "vision: no (library not shown); clip-sentence sim 0.2177; vision description-sentence sim 0.2903",
    "b": "40088424311"
   },
-  "savings account#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (savings account and monthly action); clip-sentence sim 0.1982; vision description-sentence sim 0.0289",
-   "b": "40088424311"
-  },
   "schedule#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (schedule or calendar); clip-sentence sim 0.1449; vision description-sentence sim -0.0213",
-   "b": "40088424311"
-  },
-  "seller#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (agreement action unclear); clip-sentence sim 0.1708; vision description-sentence sim 0.1008",
    "b": "40088424311"
   },
   "sister#n": {
@@ -361,29 +241,11 @@
    "why": "clip-sentence sim 0.1965",
    "b": "40088424311"
   },
-  "smuggle#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (officer checking container)",
-   "b": "40088424311"
-  },
-  "specific#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (requester and specific example); clip-sentence sim 0.2003; vision description-sentence sim -0.0184",
-   "b": "40088424311"
-  },
   "there#adv": {
    "at": "2026-10-26",
    "tries": 4,
    "why": "vision: no (street view and bakery sign)",
    "b": "40276144478"
-  },
-  "time off#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1785; vision description-sentence sim 0.0742",
-   "b": "40088424311"
   },
   "topic#n": {
    "at": "2026-10-26",
@@ -395,12 +257,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (no clear improvement action); vision: text; vision description-sentence sim 0.1487",
-   "b": "40088424311"
-  },
-  "weak#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (long illness context); clip-sentence sim 0.1737; vision description-sentence sim -0.0184",
    "b": "40088424311"
   }
  }

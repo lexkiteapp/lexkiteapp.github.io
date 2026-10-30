@@ -652,6 +652,83 @@
    },
    "source": "sb_0a35f2ef",
    "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample, opener changed to \"This is how natives say it.\")"
+  },
+  "mo_drill_risen": {
+   "template": "drill",
+   "hook": "Only ONE is correct.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: motion layer samples, IPA from the audited app dictionary; no GrabCast)",
+   "script": {
+    "d_h": "Only one answer is correct. Can you spot it?",
+    "d_q": "The price of food has blank sharply.",
+    "d_o": "Rose, risen, raised, or rised?",
+    "d_a": "B! Risen. Rise, rose, risen.",
+    "d_w": "Raised needs an object, like: they raised prices.",
+    "d_sh": "Send this to a friend who's learning English!",
+    "d_c": "Save this, and practice verb forms on lexkite.com."
+   },
+   "promise": {
+    "count": true
+   },
+   "note": "Rise-rose-risen: 'has risen' (present perfect, intransitive) is the only correct form; 'raised' needs an object; 'rised' is not a word. Pills appear as each option is spoken."
+  },
+  "mo_mistake_agree": {
+   "template": "mistake",
+   "hook": "I am agree.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: motion layer samples, IPA from the audited app dictionary; no GrabCast)",
+   "script": {
+    "m_h": "Stop saying: I am agree.",
+    "m_w": "Agree is a verb, so you don't need am.",
+    "m_b": "Just say: I agree with you.",
+    "m_s": "Listen: agree. The stress is on the end.",
+    "m_x": "And if you don't, say: I disagree.",
+    "m_sh": "Send this to a friend who says I am agree!",
+    "m_c": "Save this, and fix your grammar on lexkite.com."
+   },
+   "promise": {},
+   "note": "'Agree' is a verb: 'I agree', never 'I am agree'. US IPA /əˈɡriː/ from the app dictionary (audited, PR #178): stress on the 2nd syllable. 'I disagree' is the natural negative."
+  },
+  "mo_tip_since_for": {
+   "template": "tip",
+   "hook": "Since or for?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: motion layer samples, IPA from the audited app dictionary; no GrabCast)",
+   "script": {
+    "t_h": "Since or for? Here's the easy rule.",
+    "t_1": "Use for with a length of time.",
+    "t_2": "I've been here for three days.",
+    "t_3": "Use since with a starting point.",
+    "t_4": "I've been here since Monday.",
+    "t_5": "So: for three days, since Monday.",
+    "t_sh": "Send this to a friend who mixes them up!",
+    "t_c": "Save this, and practice grammar on lexkite.com."
+   },
+   "promise": {},
+   "note": "'for' + length of time (for three days); 'since' + starting point (since Monday) with the present perfect. Each rule tile appears when spoken."
+  },
+  "mo_ready_band7": {
+   "template": "ready",
+   "hook": "Can you reach Band 7?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: motion layer samples, IPA from the audited app dictionary; no GrabCast)",
+   "script": {
+    "r_h": "Can you reach Band 7? Let's check.",
+    "r_q1": "Which word is more formal: get, or obtain?",
+    "r_a1": "Obtain! The formal word for get.",
+    "r_q2": "The number of cars blank growing. Is, or are?",
+    "r_a2": "Is! The number is singular.",
+    "r_s": "Two for two? You're on track for Band 7.",
+    "r_c": "Save this, and take a free mock test on lexkite.com."
+   },
+   "promise": {
+    "count": true
+   },
+   "note": "'obtain' is the formal synonym of 'get' (Lexical Resource); 'the number of + plural noun' takes a singular verb ('is'). The band bar is a motivational estimate (5.0 -> 7.0), not a score claim."
   }
  }
 }
