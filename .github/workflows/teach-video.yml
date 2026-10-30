@@ -185,7 +185,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: { name: 'tv-embed-shots-${{ github.run_id }}', path: shots/, retention-days: 14 }
   sheet:   # one review sheet for the owner: every pilot's frames + QC score, both themes
-    needs: [render, embed]
+    needs: [preqc, render, embed]
     if: always() && needs.render.result != 'cancelled'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -195,6 +195,7 @@ jobs:
         with: { pattern: 'tv-*-${{ github.run_id }}', path: art }
       - run: pip install -q pillow==11.0.0
       - name: Review sheet + score table (red when any pilot < 90 or a gate fails, or nothing rendered)
+        env: { TV_EPS: '${{ needs.preqc.outputs.list }}' }   # the episodes this run was asked for (empty input = every pilot)
         run: python3 scripts/video/teach2d/sheet.py art review
       - uses: actions/upload-artifact@v4
         with: { name: 'tv-review-${{ github.run_id }}', path: review/, retention-days: 14 }
