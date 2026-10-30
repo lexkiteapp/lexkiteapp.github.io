@@ -152,7 +152,8 @@ console.log('✓ League: chờ phiên đã nhớ, không hiện nhầm nút đă
 window.t = global.t; window.I18N = { lang: () => 'vi' }; window.Core = { todayKey: () => '2026-01-01' };
 window.App.state = { settings: {}, game: { xp: 450 }, stats: { days: {} } }; window.App.EXAMS = {}; window.App.streak = () => 3; window.App.ux1On = () => true;
 window.App.onCleanup = () => {};
-for (const f of ['runtime', 'shell', 'leagues']) vm.runInNewContext(fs.readFileSync(`web/js/st/v2/${f}.js`, 'utf8'), { window, self: window, document, console, App: window.App, I18N: window.I18N, Core: window.Core, t: global.t });
+window.ST2 = window.ST2 || {}; // khung tự sinh gọi ST2.flame(...) trần (trình duyệt: ST2 là biến toàn cục) → đưa ST2 vào ngữ cảnh vm
+for (const f of ['runtime', 'shell', 'leagues']) vm.runInNewContext(fs.readFileSync(`web/js/st/v2/${f}.js`, 'utf8'), { window, self: window, document, console, App: window.App, I18N: window.I18N, Core: window.Core, t: global.t, ST2: window.ST2 });
 assert.ok(window.ST2 && window.ST2.leagues, 'khung Stitch leagues nạp được');
 const modals = []; window.UI.modal = h => { modals.push(h); return null; };
 const mkBoard = n => Array.from({ length: n }, (_, i) => ({ rank: i + 1, nick: i === 8 ? 'Tuấn Anh' : 'User' + (i + 1), xp: 1000 - i * 50, me: i === 8, zone: i < 7 ? 'up' : i >= n - 5 ? 'down' : '' }));
