@@ -8,6 +8,7 @@
   "Chia sẻ kết quả": "Share results",
   "Chuỗi": "STREAK",
   "Chính xác": "ACCURACY",
+  "Các đáp án": "Answer options",
   "Hướng dẫn chặng": "Guide",
   "Hồ sơ người học": "User Profile",
   "Kết thúc": "Leave",

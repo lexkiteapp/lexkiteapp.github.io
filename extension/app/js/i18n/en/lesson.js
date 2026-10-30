@@ -60,6 +60,8 @@
     "Mẫu âm thanh": "Audio sample",
     "Đúng rồi!": "Correct!",
     "Giáo viên của bạn": "Your teacher",
+    "Đáp án của bạn": "Your answer",
+    "Lựa chọn đúng": "Correct choice",
     "Tăng điểm": "Score booster",
     "Nói hay hơn": "Better phrase",
     "Chạm cụm từ để nghe phát âm chuẩn": "Tap a phrase to hear the native pronunciation",

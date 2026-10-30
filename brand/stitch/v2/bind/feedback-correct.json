@@ -1,27 +1,59 @@
 {
- "_doc": "Tấm phản hồi ĐÚNG (#lsnFoot, #/lesson/go) – chỉ phần tấm (keep); câu hỏi/đầu trang là khung lesson-question. d do web/js/lesson/ui.js feedback() dựng: head (Tuyệt!), xp (+2 XP, trống = ẩn viên XP), extra (giáo viên · từ · phát âm · nghĩa · Vì sao? · Tăng điểm · Giải thích – chỗ mẫu không vẽ, chèn dưới hàng tiêu đề). Tiếp tục = #lsnNext.",
+ "_doc": "Tấm phản hồi ĐÚNG (#lsnFoot, #/lesson/go) – chỉ phần tấm (keep); câu hỏi/đầu trang là khung lesson-question (thẻ đáp án đúng/sai do web/js/lesson/ui.js v2optMark). Mẫu v2.1 'dict' (30/10) có thẻ từ điển + Vì sao? → gắn dữ liệu thật: d do ui.js feedbackV2 dựng: head, xp (trống = ẩn viên XP), tlabel (giáo viên · Giáo viên của bạn), word, ipa (2 giọng khác → cả 2), a1/a2 + acc/url/ar (2 loa đúng giọng, thứ tự UI.accOrder), mean, extra (chuỗi/combo – cờ Feel), boxes (Tăng điểm/Giải thích, ẩn tới khi có). Không có thẻ từ (ghép cặp) → ui.js gỡ .lsn-dict/.lsn-whyrow. Tiếp tục = #lsnNext.",
  "keep": ":scope > main > div > div:nth-child(3)",
+ "i18n": {
+  "Why?": "Vì sao?"
+ },
  "text": {
   "Excellent!": "d.head",
   "+10 XP": "d.xp",
   "CONTINUE": "t('Tiếp tục')"
  },
+ "html": {
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(1)": "d.tlabel",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)": "d.word",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)": "d.ipa",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > p": "d.mean",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(1) > span:nth-child(2)": "d.a1",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(2) > span:nth-child(2)": "d.a2"
+ },
  "attr": {
   ":scope > main > div > div:nth-child(3) > div:nth-child(1)": {
    "role": "'status'"
   },
-  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > button": {
+  ":scope > main > div > div:nth-child(3) > div:nth-child(3) > button": {
+   "id": "'lsnWhy'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(4) > button": {
    "id": "'lsnNext'",
    "type": "'button'"
   },
   ":scope > main > div > div:nth-child(3) .material-symbols-outlined": {
    "aria-hidden": "'true'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(1)": {
+   "type": "'button'",
+   "data-speak": "d.say",
+   "data-accent": "d.acc1",
+   "data-url": "d.url1",
+   "aria-label": "d.ar1"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(2)": {
+   "type": "'button'",
+   "data-speak": "d.say",
+   "data-accent": "d.acc2",
+   "data-url": "d.url2",
+   "aria-label": "d.ar2"
   }
  },
  "addClass": {
-  ":scope > main > div > div:nth-child(3) > div:nth-child(1) > div:nth-child(2)": "lsn-xpp"
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1) > div:nth-child(2)": "lsn-xpp",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2)": "lsn-dict",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(3)": "lsn-whyrow"
  },
  "after": {
-  ":scope > main > div > div:nth-child(3) > div:nth-child(1)": "d.extra"
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1)": "d.extra",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(3)": "d.boxes"
  }
 }

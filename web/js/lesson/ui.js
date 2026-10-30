@@ -99,9 +99,10 @@
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null;
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
-    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: cards.concat(STARTER()), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
+    let pool0 = [];
+    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
-    L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
+    L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
     if (demo) App._lsn = L; // bài thử: gác bố cục CI (scripts/test/ux1-guard.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
     const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
@@ -413,22 +414,46 @@
       if (good) b.classList.add(...OPT_OK.split(' ')); else if (bad) b.classList.add(...OPT_BAD.split(' ')); else b.classList.add('opacity-90');
       if (good || bad) { const ds = b.querySelectorAll(':scope > div'), hd = ds[ds.length - 1]; if (ds.length > 1) hd.className = 'w-6 h-6 flex items-center justify-center shrink-0'; hd.querySelectorAll('.material-symbols-outlined,.material-symbols-rounded').forEach(x => { const p = x.parentElement; (p !== hd && !p.textContent.replace(x.textContent, '').trim() ? p : x).remove(); }); } // cả vòng tròn chứa dấu ✓ // bỏ dấu ✓ 'đang chọn' của mẫu → chỉ còn 1 dấu kết quả
       if (good || bad) { const ds = b.querySelectorAll(':scope > div'); ds[ds.length - 1].insertAdjacentHTML('beforeend', `<span class="material-symbols-outlined text-[20px] ${good ? 'lt:text-[#0D6964] dk:text-[#2BA39A]' : 'lt:text-[#ba1a1a] dk:text-[#F2553B]'}" style="font-variation-settings:'FILL' 1" aria-hidden="true">${good ? 'check_circle' : 'cancel'}</span>`); }
+      if (!ok) v2optWrong(it, b, good, bad);
     });
+    const gap = $('#lsnGap'); if (gap) gap.className = 'lsn-gap inline-block px-2.5 py-0.5 rounded-lg font-bold ' + (ok ? GAP_OK : GAP_BAD); // Stitch: từ điền vào câu = viên teal (đúng) / viên đỏ "lỗi" (sai)
+  }
+  // Stitch feedback-wrong: thẻ đáp án chữ to + nhãn phụ (nghĩa của từ, ngôn ngữ người học) + tag "Đáp án của bạn" (✕) / "Lựa chọn đúng" (✓); thẻ khác giữ chỗ tag (h-4) cho lưới đều
+  const GAP_OK = 'lt:bg-[#0D6964]/15 lt:text-[#0D6964] border lt:border-[#0D6964]/30 dk:bg-[#2BA39A]/20 dk:text-[#4FD1C5] dk:border-[#2BA39A]/40';
+  const GAP_BAD = 'lt:bg-[#ffdad6] lt:text-[#ba1a1a] lt:shadow-[0_2px_0_0_#ba1a1a] dk:bg-[#3B1510] dk:text-[#F2553B] border border-transparent dk:border-[#F2553B]/50 dk:shadow-[0_2px_0_0_#9B1E0A]';
+  const same = (a, b) => String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
+  function optMean(it, o) {
+    if (it.card && (same(o, it.answer) || same(o, it.card.word))) return meanOf(it.card);
+    const c = (L.pool || []).find(x => x && same(x.word, o)); return c ? meanOf(c) : '';
+  }
+  function v2optWrong(it, b, good, bad) {
+    const w = b.querySelector(':scope > span'); if (!w) return;
+    b.classList.remove('h-24'); b.classList.add('min-h-[6rem]');
+    const k = b.querySelector(':scope > div > span'); if (k) k.className = 'w-6 h-6 rounded-full flex items-center justify-center text-[13px] leading-[18px] font-bold ' + (good ? 'lt:bg-[#0D6964] lt:text-white dk:bg-[#2BA39A] dk:text-[#091518]' : bad ? 'lt:bg-[#b42814] lt:text-white dk:bg-[#F2553B] dk:text-[#2A0700]' : 'lt:bg-[#e6e9e8] lt:text-[#0F3D3E] dk:bg-[#1D323A] dk:text-[#EEF6F7]'); // chữ cái trong vòng tròn (Stitch; chữ tối trên san hô để đạt AA)
+    w.className = 'block text-[22px] leading-[30px] tracking-tight font-bold ' + (good ? 'lt:text-[#0D6964] dk:text-[#EEF6F7]' : bad ? 'lt:text-[#b42814] dk:text-[#EEF6F7]' : 'lt:text-[#0F3D3E] dk:text-[#EEF6F7]');
+    const box = document.createElement('div'); box.className = 'my-1 min-w-0'; w.replaceWith(box); box.appendChild(w);
+    const m = optMean(it, b.dataset.o);
+    if (m) { const sub = document.createElement('span'); sub.className = 'lsn-osub block text-[11px] leading-[14px] tracking-[0.04em] font-semibold break-words ' + (good ? 'lt:text-[#0F6B63] dk:text-[#4FD1C5]' : bad ? 'lt:text-[#900f00] dk:text-[#ff8a7a]' : 'lt:text-[#4A5F65] dk:text-[#9DB5BA]'); sub.lang = document.documentElement.lang || ''; sub.dir = 'auto'; sub.textContent = m; box.appendChild(sub); }
+    box.insertAdjacentHTML('afterend', good || bad ? `<div class="lsn-otag mt-1 flex items-center gap-1 ${good ? 'lt:text-[#0D6964] dk:text-[#4FD1C5]' : 'lt:text-[#ba1a1a] dk:text-[#ff8a7a]'}" lang="${esc(document.documentElement.lang || '')}" dir="auto"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">${good ? 'check' : 'arrow_downward'}</span><span class="text-[11px] leading-[14px] tracking-[0.04em] font-bold">${esc(good ? t('Lựa chọn đúng') : t('Đáp án của bạn'))}</span></div>` : '<div class="h-4" aria-hidden="true"></div>');
   }
   function feedbackV2(it, ok) {
     const foot = $('#lsnFoot'), c = it.card, last = L.sess.log.slice(-1)[0] || {}, qf = view.querySelector('.lsn-qfoot'), combo = L.sess.combo, streak = App.streak ? App.streak() : 0;
     if (qf) { qf.hidden = true; qf.after(foot); }
     foot.hidden = false; foot.className = 'lsn-fv2 ' + (ok ? 'ok' : 'bad');
     if (L.teacher && L.teacher.pose) L.teacher.pose(ok ? 'cheer' : 'concern');
-    const PILL = 'inline-flex items-center gap-1 min-h-[28px] px-3 rounded-[9999px] border border-white/60 text-white text-[11px] leading-[14px] tracking-[0.04em] font-bold', CARD = ok ? 'bg-[#FFF4D4] text-[#422006]' : 'bg-[#FFFFFF] text-[#2A0700]';
+    const PILL = 'inline-flex items-center gap-1 min-h-[28px] px-3 rounded-[9999px] border border-white/60 text-white text-[11px] leading-[14px] tracking-[0.04em] font-bold';
     const pills = (streak ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">local_fire_department</span>${esc(t('{n} ngày liên tiếp', { n: streak }))}</span>` : '') + (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
-    const word = c ? `<div class="${CARD} rounded-[0.75rem] p-3 flex flex-col gap-0.5"><p class="m-0 text-[11px] leading-[14px] tracking-[0.04em] font-bold uppercase">${esc(TNAME(L.who))} · ${esc(t('Giáo viên của bạn'))}</p><p class="m-0 text-[22px] leading-[30px] font-extrabold"><b lang="en">${esc(c.word)}</b> <span class="text-[13px] leading-[18px] font-bold [&_*]:[color:inherit] [&_button]:!bg-transparent [&_button]:!border-current">${UI.pronHtml(c, { noEx: true })}</span></p><p class="m-0 text-[16px] leading-[24px]">${esc(meanOf(c))}</p></div>` : '';
-    const why = c ? `<button type="button" id="lsnWhy" class="min-h-[44px] self-start px-4 rounded-[9999px] border border-white/60 text-white flex items-center gap-1.5 text-[13px] leading-[18px] font-bold active:translate-y-0.5 motion-reduce:transition-none"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">lightbulb</span>${esc(t('Vì sao?'))}</button>` : '';
+    // Thẻ từ điển + nút Vì sao? = khuôn Stitch v2.1 "dict" (brand/stitch/v2/feedback-*-light.html); chỉ gắn dữ liệu thật: giáo viên · từ · IPA (2 giọng khác nhau → cả 2) · 2 loa đúng giọng · nghĩa
+    const ord = UI.accOrder ? UI.accOrder() : ['en-GB', 'en-US'], LB = { 'en-GB': 'UK', 'en-US': 'US' }, AR = { 'en-GB': 'Nghe giọng Anh–Anh', 'en-US': 'Nghe giọng Anh–Mỹ' };
+    const ip = a => (c ? UI.ipaHtml(c, a, { noEx: true }) : ''), i1 = ip(ord[0]), i2 = ip(ord[1]);
+    const dict = c ? { tlabel: esc(TNAME(L.who)) + ' · ' + esc(t('Giáo viên của bạn')), word: `<span lang="en">${esc(c.word)}</span>`, ipa: i1 && i2 && i1 !== i2 ? `${LB[ord[0]]} ${i1} · ${LB[ord[1]]} ${i2}` : i1 || i2, mean: esc(meanOf(c)),
+      a1: LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
     const box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
-    const extra = `<div class="lsn-fb flex flex-col gap-[0.5rem]">${pills ? `<div class="flex flex-wrap gap-[0.5rem]">${pills}</div>` : ''}${word}${why}${box}</div>`;
-    const d = ok ? { head: t('Tuyệt!'), xp: last.retry ? '' : '+2 XP', extra } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer, extra };
+    const extra = pills ? `<div class="lsn-fb flex flex-wrap gap-[0.5rem]">${pills}</div>` : '';
+    const d = Object.assign(ok ? { head: t('Tuyệt!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
     foot.innerHTML = `<div class="v2s-${ok ? 'feedback-correct' : 'feedback-wrong'}">${ST2[ok ? 'feedback-correct' : 'feedback-wrong'](d).main}</div>`;
     const xp = foot.querySelector('.lsn-xpp'); if (xp && !d.xp) xp.hidden = true; const an = foot.querySelector('.lsn-ans'); if (an && !d.answer) an.hidden = true;
+    if (!c) foot.querySelectorAll('.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); // ghép cặp (không có 1 từ) → không thẻ từ / Vì sao?
     v2optMark(it, ok);
     if (c) $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();

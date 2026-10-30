@@ -30959,5 +30959,35 @@
     "ar": "حوار",
     "ru": "Диалог",
     "tr": "Diyalog"
+  },
+  "Đáp án của bạn": {
+    "es": "Tu respuesta",
+    "pt": "Sua resposta",
+    "fr": "Ta réponse",
+    "de": "Deine Antwort",
+    "id": "Jawabanmu",
+    "th": "คำตอบของคุณ",
+    "zh": "你的答案",
+    "ja": "あなたの答え",
+    "ko": "내 답",
+    "hi": "आपका उत्तर",
+    "ar": "إجابتك",
+    "ru": "Ваш ответ",
+    "tr": "Senin cevabın"
+  },
+  "Lựa chọn đúng": {
+    "es": "Opción correcta",
+    "pt": "Opção correta",
+    "fr": "Bon choix",
+    "de": "Richtige Wahl",
+    "id": "Pilihan benar",
+    "th": "ตัวเลือกที่ถูก",
+    "zh": "正确选项",
+    "ja": "正しい選択",
+    "ko": "정답 선택지",
+    "hi": "सही विकल्प",
+    "ar": "الخيار الصحيح",
+    "ru": "Верный вариант",
+    "tr": "Doğru seçenek"
   }
 }
