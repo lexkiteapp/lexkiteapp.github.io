@@ -13,6 +13,8 @@
   const ls = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* bỏ qua */ } } };
   const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const cefrN = s => CEFR.indexOf(String(s || '').toUpperCase().slice(0, 2)) + 1;
+  // Ảnh giáo viên trong app: MỘT nguồn (luật 1 phong cách nhân vật/ màn – đổi bộ ảnh = đổi dòng này)
+  App.teacherImg = w => 'teach/' + (w === 'carlos' ? 'carlos' : 'ama') + '/poster.webp'; // bộ 2D phông xanh tách nền (nền trong suốt; Ama 358×480, Carlos 514×480)
   const keyOf = w => (window.Core && Core.keyOf ? Core.keyOf(w) : String(w || '').toLowerCase());
 
   // ---------- 5 tab ----------
@@ -47,7 +49,7 @@
     document.body.classList.add('ux1'); css();
     const tabs = TABS();
     const bn = document.getElementById('bnav');
-    if (bn) { bn.setAttribute('aria-label', t('Điều hướng chính')); bn.innerHTML = tabs.map(([k, h, i, l]) => `<a href="${h}" data-tab="${k}"><span class="bn-ic">${ic(i)}</span><bdi>${esc(l)}</bdi>${k === 'review' ? '<i class="badge" data-due hidden></i>' : ''}</a>`).join(''); }
+    if (bn) { bn.setAttribute('aria-label', t('Điều hướng chính')); bn.classList.add('st-nav', ...ST.NAV_CLS.split(' ')); bn.innerHTML = ST.nav(tabs); } // thanh tab kiểu Stitch (web/js/st/common.js)
     const nav = document.getElementById('nav');
     if (nav) nav.innerHTML = tabs.map(([k, h, i, l]) => `<a href="${h}" data-route="${k}" class="nav-top"><span class="ic">${ic(i)}</span><bdi>${esc(l)}</bdi>${k === 'review' ? '<i class="badge" data-due hidden></i>' : ''}</a>`).join('');
     const shell = document.querySelector('.shell');
@@ -143,25 +145,51 @@
   // ---------- Bản đồ (gọi từ lesson/ui.js) ----------
   const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: t('Ôn lỗi'), story: t('Truyện'), radio: 'Radio' }[k] || k);
   const KICON = { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'repeat', story: 'book-open', radio: 'audio-lines' };
+  const KMIN = { lesson: 4, listen: 3, speak: 3, review: 3, story: 4, radio: 3, exam: 5 }; // phút ước tính mỗi loại bài (nhãn "· 4 phút")
+  const stars = () => { try { return JSON.parse(ls.get('lk.ux1.st') || '{}'); } catch (e) { return {}; } }; // sao thật mỗi nút đã học (lesson/ui.js ghi khi xong bài)
   function map(o) {
     const { demo, plan: P, n } = o;
     if (!demo && !picked() && !/[?&]all=1\b/.test(location.hash)) return pick();
     if (/[?&]pick=1\b/.test(location.hash)) return pick();
     const at = n % P.length, u = unitAt(n, P.length), Q = demo ? '?demo=1' : '', who = ls.get('lk.lsn.who') === 'ama' ? 'carlos' : 'ama';
-    const have = u.words.length ? u.words.filter(w => (state.cards || {})[keyOf(w.word)]).length : 0;
+    const have = u.words.length ? u.words.filter(w => (state.cards || {})[keyOf(w.word)]).length : 0, ST_ = demo ? {} : stars();
+    const cpAt = P.findIndex((p, i) => i >= at && p.kind === 'exam'), xpTo = cpAt >= 0 ? (cpAt - at + 1) * 20 : 0, X = (App.EXAMS || {})[exam()] || { short: 'IELTS' };
+    const nxMin = KMIN[(P[at] || {}).kind] || 4;
+    // 🎨 Màn Học = mẫu Stitch "IELTS Learning Path" (web/js/st/home.js · css/st-home.css nạp cùng gói ux1)
     const nodes = P.map((p, i) => {
-      const st = i < at ? 'done' : i === at ? 'next' : 'lock', x = [0, 44, 0, -44, 0, 44][i % 6], cp = p.kind === 'exam' ? check(n) : null;
-      const label = cp ? cp.name : KNAME(p.kind), icon = st === 'done' ? 'circle-check' : cp ? cp.icon : KICON[p.kind] || 'star';
-      const dot = st === 'next' ? `<a class="lsn-dot" href="#/lesson/go${Q}" aria-label="${esc(label)}">${ic(icon)}</a>` : `<span class="lsn-dot" role="img" aria-label="${esc(label)}${st === 'done' ? ' ✓' : ''}">${ic(icon)}${st === 'lock' ? `<i class="ux1-lk">${ic('lock')}</i>` : ''}</span>`;
-      return `<li class="lsn-node ux1-n ${st}${cp ? ' cp' : ''}" style="--x:${x}px;--i:${i}">${st === 'next' ? `<a class="btn primary lg lsn-start ux1-go" href="#/lesson/go${Q}">${t('Bắt đầu')}</a>` : ''}
-        <span class="ux1-dw">${st === 'next' ? `${Chars.img(who, { cls: 'ux1-tch', alt: '' })}` : ''}${dot}</span><span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}</span></li>`;
-    }).join('');
-    view.innerHTML = `<div class="ux1-home">${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}${examCard('ux1-exam-top')}
-      <section class="ux1-unit u-${u.color}"><div class="grow"><small>${t('Chặng học {n}', { n: u.no })} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1>${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1><p>${esc(CAN()[u.id] || '')}</p></div>
-        <div class="ux1-uside"><span class="ux1-chip">${at}/${P.length}</span>${u.words.length ? `<span class="ux1-chip" title="${t('Kiến thức đã có')}">${ic('library')} ${have}/${u.words.length}</span>` : ''}${(state.settings || {}).placement ? '' : `<a class="ux1-chip" href="#/placement">${ic('compass')} ${t('Kiểm tra trình độ')}</a>`}</div></section>
-      <ol class="lsn-path ux1-path">${nodes}</ol></div>`;
+      const st = i < at ? 'done' : i === at ? 'next' : 'lock', cp = p.kind === 'exam' ? check(n) : null, k = ST_[n - at + i];
+      const label = cp ? cp.name : KNAME(p.kind);
+      return { st, no: i + 1, label, cp: !!cp && st === 'lock', ms: t('Mốc'), stars: st === 'done' ? k || 0 : 0, href: `#/lesson/go${Q}`, start: t('Bắt đầu'), sub: [cp ? t('Kiểm tra nhanh') : '', t('{n} phút', { n: KMIN[p.kind] || 4 })].filter(Boolean).join(' • '), tch: st === 'next' ? Chars.still(who, 'point') : '', icon: cp ? ({ headphones: 'headphones', newspaper: 'menu_book', mic: 'mic', 'pen-line': 'edit', mail: 'edit', ruler: 'menu_book', phone: 'call' }[cp.icon] || 'emoji_events') : ({ lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio', call: 'call', write: 'edit' }[p.kind] || 'star') };
+    });
+    const ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS', ic: 'graduation-cap' }, tg = target(), cur = current(ex), pc = pctOf(ex, cur, tg), g = (state.settings || {}).goal, left = g && g.date ? Math.ceil((new Date(g.date) - Date.now()) / 864e5) : 0, C = 2 * Math.PI * 20;
+    const examH = ST.exam({ cls: 'ux1-exam-top', p: pc, C, off: pc != null ? C * (1 - pc / 100) : 0, icon: { briefcase: 'work', landmark: 'account_balance', 'message-circle': 'forum' }[Xe.ic] || 'school', title: Xe.short + (tg ? ' · ' + tg : ''), sub: [cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '), href: MOCK[ex] || '#/tests', mock: t('Thi thử') });
+    const coach = who === 'ama' ? 'Carlos' : 'Ama', placed = !!(state.settings || {}).placement;
+    const chips = [u.words.length ? { icon: 'local_library', text: `${have}/${u.words.length}`, title: t('Kiến thức đã có') } : null, placed ? null : { href: '#/placement', icon: 'explore', text: t('Kiểm tra trình độ') }].filter(Boolean);
+    if (self.ST2 && ST2.path) { // 🎨 Stitch v2 "Learning Path" – khung tự sinh (web/js/st/v2/path.js · css/st-v2-path.css), chỉ gắn dữ liệu thật ở đây
+      const SNAKE = ['translate-x-6', '-translate-x-8', 'translate-x-0', 'translate-x-8', '-translate-x-6', 'translate-x-0'], STT = { done: t('Đã xong'), next: t('Đang học'), lock: t('Đã khóa') };
+      const nu = unitAt(n + P.length, P.length), pct = Math.round(at / P.length * 100);
+      const d = { unit: { title: u.name, pct, pctText: t('{p}% hoàn thành', { p: pct }), guideHref: '#/lesson?pick=1' }, stage: t('Chặng học {n}', { n: u.no }), step: `${Math.min(at + 1, P.length)}/${P.length}`,
+        nextUnit: t('Tiếp theo: {u}', { u: nu.name }), teacher: Chars.img('ama', { kind: 'still', pose: 'point', cls: 'absolute right-full bottom-2 mr-2 w-24 h-auto pointer-events-none select-none', alt: '', size: 96 }), // teacher-pose-map: Ama "point" chỉ nút đang học
+        nodes: nodes.map((x, i) => ({ st: x.st, kind: P[i].kind, cp: x.cp || (P[i].kind === 'exam'), label: x.label, title: x.label + (x.sub ? ' · ' + x.sub : ''), icon: x.icon, aria: `${x.label} – ${STT[x.st]}`, href: x.st === 'lock' ? '' : x.href, off: SNAKE[i % SNAKE.length] })) };
+      const root = ST2.mount(view, 'path', d, 'learn');
+      if (demo) { const s = document.createElement('p'); s.className = 'sr-only'; s.setAttribute('role', 'status'); s.textContent = t('Bài thử (không lưu tiến độ)'); root.prepend(s); if (App.toast) App.toast(t('Bài thử (không lưu tiến độ)')); }
+      // "Guide" (nút có sẵn trong mẫu Stitch) mở bảng giữ ĐỦ tính năng cũ của màn Học mà mẫu không vẽ: câu "Bạn sẽ…", kiến thức đã có, thẻ kỳ thi + thi thử, kiểm tra trình độ, đổi mục tiêu
+      const g = root.querySelector('[data-act="guide"]'); if (g) g.addEventListener('click', e => { e.preventDefault();
+        const ch = chips.map(c => c.href ? `<a class="btn sm" href="${c.href}">${ic(c.icon === 'explore' ? 'compass' : 'library')} ${esc(c.text)}</a>` : `<span class="chip" title="${esc(c.title || '')}">${ic('library')} ${esc(c.text)} · ${esc(c.title || '')}</span>`).join(' ');
+        const box = UI.modal(`<div class="ux1-guide"><p class="muted small">${esc(t('Chặng học {n}', { n: u.no }))} · ${esc(X.short)}</p><h2>${esc(u.name)}</h2>${CAN()[u.id] ? `<p class="ux1-unit-tip">${esc(CAN()[u.id])}</p>` : ''}${examCard('')}<p>${ch}</p><p><a class="btn" href="#/lesson?pick=1">${ic('target')} ${t('Đổi mục tiêu')}</a></p></div>`);
+        fillMock(box || document); });
+      const cur = root.querySelector('[data-cur]'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
+      return;
+    }
+    document.body.classList.add('st');
+    view.innerHTML = ST.home({ demoNote: demo ? t('Bài thử (không lưu tiến độ)') : '', exam: examH, ucls: 'u-' + u.color, badge: t('Chặng học {n}', { n: u.no }), meta: X.short + ' · ' + (u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]), title: u.name, img: ST.tImg(coach.toLowerCase()),
+      step: t('Bước {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), xpTo: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', pct: Math.round(at / P.length * 100), aria: { now: at, max: P.length }, coach: { name: coach, tip: CAN()[u.id] || '' }, chips, nodes,
+      cta: { href: `#/lesson/go${Q}`, text: t('Tiếp tục') } }); // mẫu v2: chỉ "Tiếp tục" (chặng + phút đã có ở băng chặng/nút hiện tại, cho trình đọc màn hình)
+    App.onCleanup && App.onCleanup(() => document.body.classList.remove('st'));
     fillMock(view);
-    const cur = view.querySelector('.ux1-n.next'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 90) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
+    const ol = view.querySelector('.ux1-path');
+    requestAnimationFrame(() => { if (ol.isConnected) ST.trail(ol, at); });
+    const nx = view.querySelector('.ux1-n.next'); if (nx && nx.getBoundingClientRect().bottom > innerHeight - 160) try { nx.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
   }
 
   // ---------- Cột phải (máy tính ≥ 1024 px) ----------
@@ -186,7 +214,47 @@
     [t('Kỹ năng'), '', [['#/skill/listening', 'headphones', t('Nghe hiểu')], ['#/skill/reading', 'newspaper', t('Đọc hiểu')], ['#/skill/writing', 'pen-line', t('Viết')], ['#/skill/speaking', 'mic', t('Nói')], ['#/grammar', 'ruler', t('Ngữ pháp')], ['#/pron', 'audio-lines', t('Phát âm')], ['#/confidence', 'message-circle', t('Giao tiếp tự tin')], ['#/courses', 'school', t('Khóa học theo lộ trình')], ['#/roleplay', 'users', t('Roleplay công sở')], ['#/call', 'phone', t('Gọi Ama & Carlos')], ['#/fix', 'pencil', t('Sửa ngữ pháp')], ['#/skills', 'layout-grid', t('Tổng quan')]]],
     [t('Thêm'), '', [['#/home?all=1', 'calendar', t('Kế hoạch hôm nay')], ['#/handsfree', 'headphones', t('Học rảnh tay')], ['#/reflex', 'brain', t('Phản xạ 60 giây')], ['#/lesson', 'sparkles', t('Bài học trộn')], ['#/tracks', 'compass', t('Gói học')], ['#/class', 'school', t('Lớp học')], ['#/resources', 'globe', t('Tài nguyên miễn phí')], ['#/method', 'flask-conical', t('Cách Lexkite giúp bạn nhớ lâu')]]],
   ];
+  // 🎨 Stitch v2 "Practice" (khung tự sinh web/js/st/v2/practice.js · bind/practice.json): thẻ kỳ thi, nước rút hằng ngày, 8 mô-đun, hàng thi thử.
+  // Mọi mục còn lại của GROUPS() vẫn có: cùng khuôn ô mô-đun, huy hiệu = tên nhóm (không cắt tính năng nào).
+  // @icons headphones menu_book edit mic auto_fix_high graphic_eq call auto_stories school work account_balance flag checklist explore bar_chart map local_library edit_note bolt timer extension search text_fields grid_view forum groups event psychology auto_awesome public science
+  const MS = { 'graduation-cap': 'school', briefcase: 'work', landmark: 'account_balance', flag: 'flag', 'clipboard-list': 'checklist', compass: 'explore', 'chart-column': 'bar_chart', map: 'map', library: 'local_library', 'notebook-pen': 'edit_note', zap: 'bolt', timer: 'timer', puzzle: 'extension', search: 'search', 'a-large-small': 'text_fields', 'book-a': 'menu_book', 'layout-grid': 'grid_view', headphones: 'headphones', newspaper: 'menu_book', 'pen-line': 'edit', mic: 'mic', ruler: 'auto_fix_high', 'audio-lines': 'graphic_eq', 'message-circle': 'forum', school: 'school', users: 'groups', phone: 'call', pencil: 'edit', calendar: 'event', brain: 'psychology', sparkles: 'auto_awesome', globe: 'public', 'flask-conical': 'science' };
+  const FOCUS = ['#/skill/listening', '#/skill/reading', '#/skill/writing', '#/skill/speaking', '#/grammar', '#/pron', '#/call']; // 7 ô đầu = mục có sẵn của nhóm Kỹ năng; ô 8 = Truyện
+  async function trainV2() {
+    const tok = location.hash, ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS' }, tg = target(), cur = current(ex), g = state.game || {}, k = window.Core && Core.todayKey ? Core.todayKey() : '';
+    const left = (state.settings || {}).goal && state.settings.goal.date ? Math.ceil((new Date(state.settings.goal.date) - Date.now()) / 864e5) : 0, hrs = Math.max(1, Math.ceil((new Date().setHours(24, 0, 0, 0) - Date.now()) / 36e5));
+    const leftT = left > 0 ? t('còn {n} ngày', { n: left }) : t('còn {n} giờ', { n: hrs });
+    let plan = []; try { plan = (App.todayPlan ? await App.todayPlan() : []) || []; } catch (e) { plan = []; }
+    if (location.hash !== tok) return; // đã sang trang khác trong lúc tải kế hoạch
+    const gr = GROUPS(), pool = new Map(); gr.forEach(([h, , items]) => items.forEach(([href, i, n, d]) => { const key = href + '|' + n; if (!pool.has(key)) pool.set(key, { href, icon: MS[i] || 'auto_awesome', title: n, sub: d || '', badge: h }); }));
+    const all = [...pool.values()], pick = h => all.find(x => x.href === h), skills = gr[2] ? gr[2][0] : '';
+    const focus = FOCUS.map(pick).filter(Boolean).map(x => (x.href === '#/call' ? Object.assign({}, x, { title: t('Gọi giáo viên') }) : x)); focus.push({ href: '#/lesson', icon: 'auto_stories', title: t('Truyện'), sub: '', badge: gr[3] ? gr[3][0] : skills });
+    const rest = all.filter(x => !FOCUS.includes(x.href)), tiles = [...focus, ...rest].map((x, ci) => Object.assign({ ci }, x));
+    const tot = plan.length, dn = plan.filter(x => x.done).length, nx = plan.find(x => !x.done), pct = tot ? Math.round(dn / tot * 100) : 0, sprAria = t('Tiếp tục nước rút ngày');
+    const mockName = t('Thi thử {x} đầy đủ', { x: Xe.short }), mins = { ielts: 165, ieltsgt: 165, toeic: 120, toefl: 120 }[ex];
+    const d = { ex: { name: Xe.short, pred: cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), title: Xe.short + (tg ? ' · ' + tg : ''), left: leftT, leftAria: leftT },
+      sp: { xp: '+' + (((g.days || {})[k] || {}).xp || 0) + ' XP', title: t('Nước rút ngày {a}/{b}', { a: dn, b: tot }), left: t('Còn {n} bài', { n: tot - dn }), pct, aria: sprAria, cta: t('Tiếp tục'), href: nx && nx.href ? nx.href : '#/home?all=1' },
+      count: t('{n} mô-đun', { n: tiles.length }), tiles,
+      mock: { title: mockName, chip: mins ? t('{n} phút', { n: mins }) : Xe.short, cta: t('Bắt đầu'), href: MOCK[ex] || '#/mock', aria: t('Bắt đầu thi thử {x}', { x: Xe.short }) } };
+    ST2.mount(view, 'practice', d, 'train');
+  }
+  // 🎨 Stitch v2 "Review" (hub Ôn): số thẻ đến hạn, trí nhớ, bộ thẻ theo nguồn; nút Bắt đầu mở phiên ôn thật (#/review → study.js). study.js gọi khi vào bằng thanh tab (#/review?hub=1).
+  const ORI_IC = { youtube: 'smart_display', web: 'language', reading: 'auto_stories', dict: 'search', library: 'local_library', anki: 'style' }; // @icons smart_display language auto_stories search local_library style
+  function reviewHub() {
+    document.body.classList.remove('focus');
+    const { SRS, Cards, endOfToday } = Core, end = endOfToday(), all = Object.values(state.cards), dc = Cards.dueCount(state.cards, state.settings, state.stats), due = dc.total;
+    const studied = all.filter(c => c.srs.last || c.srs.reps > 0), rets = studied.map(c => SRS.retention(c.srs)).filter(x => x != null), avg = rets.length ? rets.reduce((a, b) => a + b, 0) / rets.length * 100 : 0;
+    const done = (state.stats.days || {})[window.Core.todayKey()] || 0, C = 2 * Math.PI * 50, crit = Math.min(App.forgetting().length, dc.due), soon = all.filter(c => c.srs.last && c.srs.due > end && c.srs.due <= end + 2 * 864e5).length;
+    const ahead = !due && soon > 0, groups = {}; all.forEach(c => { const o = App.origin(c); (groups[o] = groups[o] || []).push(c); });
+    const decks = Object.entries(groups).map(([o, l]) => { const dl = l.filter(c => (c.srs.last || c.srs.reps > 0) && c.srs.due <= end).length, rs = l.map(c => SRS.retention(c.srs)).filter(x => x != null), O = App.ORIGINS[o] || {};
+      return { k: o, name: O.name || o, icon: ORI_IC[o] || 'style', href: '#/deck?from=' + o, ret: rs.length ? Math.round(rs.reduce((a, b) => a + b, 0) / rs.length * 100) + '%' : '–', cards: t('{n} thẻ trong bộ', { n: l.length }), dueText: t('{n} đến hạn', { n: dl }), due: dl, n: l.length }; }).sort((a, b) => b.due - a.due || b.n - a.n);
+    const d = { due, off: due || done ? C * (1 - done / (done + due)) : C, mem: t('{p}% trí nhớ', { p: avg.toFixed(1) }), lock: t('Ghi {n} thẻ vào trí nhớ dài hạn', { n: due }),
+      critText: t('{n} sắp quên', { n: crit }), famText: t('{n} quen', { n: Math.max(0, dc.due - crit) }), critHref: crit ? '#/review?src=forgetting' : '#/review', critAria: t('Thẻ sắp quên: {n}', { n: crit }),
+      cta: ahead ? t('Ôn trước →') : t('Bắt đầu ôn'), startHref: ahead ? '#/review?ahead=2' : '#/review', startAria: t('Bắt đầu ôn: {n} thẻ đến hạn', { n: due }), est: t('Ước tính ~{m} phút', { m: Math.max(1, Math.ceil(due / 3)) }),
+      training: studied.filter(c => SRS.mastery(c.srs) < 3).length, perm: studied.filter(c => SRS.mastery(c.srs) === 3).length, decksTitle: t('Bộ thẻ • {n} đang dùng', { n: decks.length }), decks };
+    return ST2.mount(view, 'review', d, 'review');
+  }
   routes.train = function () {
+    if (self.ST2 && ST2.practice && on()) { trainV2(); return; }
     css();
     view.innerHTML = `<div class="page-head"><div><h1>${ic('target')} ${t('Luyện')}</h1><p class="muted">${t('Mọi bài luyện ở một chỗ.')}</p></div></div>`
       + GROUPS().map(([h, big, items]) => `<h2 class="set-h ux1-gh">${esc(h)}</h2><div class="ux1-tiles${big ? ' big' : ''}">${items.map(([href, i, n, d]) => `<a class="ux1-tile" href="${href}"><span class="ux1-ti" aria-hidden="true">${ic(i)}</span><b>${esc(n)}</b>${big && d ? `<small>${esc(d)}</small>` : ''}</a>`).join('')}</div>`).join('');
@@ -202,35 +270,11 @@ body.ux1 #nav{display:flex;flex-direction:column;gap:.2rem}
 body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.5rem .8rem;border-radius:var(--r-md);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.85rem;color:var(--muted);border:2px solid transparent}
 body.ux1 #nav a.active{color:var(--primary-text);background:var(--primary-soft);border-color:var(--primary)}
 body.ux1 #nav a .ic svg{width:26px;height:26px}
-.ux1-home{max-width:620px;margin:0 auto}
-body{--ux1-u:var(--primary);--ux1-uk:var(--primary-ink)}
-.ux1-unit.u-primary{--ux1-u:var(--primary);--ux1-uk:var(--primary-ink)}.ux1-unit.u-accent{--ux1-u:var(--accent-soft);--ux1-uk:var(--accent-text)}.ux1-unit.u-good{--ux1-u:var(--good-soft);--ux1-uk:var(--good-text)}.ux1-unit.u-gold{--ux1-u:var(--gold-soft);--ux1-uk:var(--gold-text)}.ux1-unit.u-again{--ux1-u:var(--again-soft);--ux1-uk:var(--again-text)}
-.ux1-unit{display:flex;gap:.8rem;align-items:flex-start;background:var(--ux1-u);color:var(--ux1-uk);border-radius:var(--r-lg);padding:1rem 1.1rem;margin:.8rem 0 .4rem;box-shadow:0 4px 0 color-mix(in srgb,var(--ux1-uk) 22%,transparent)}
-.ux1-unit small{font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.92}
-.ux1-unit h1{margin:.15rem 0;font-size:var(--fs-lg);color:inherit}.ux1-unit p{margin:0;font-size:var(--fs-sm);opacity:.95}
-.ux1-uside{display:flex;flex-direction:column;gap:.35rem;align-items:flex-end;flex:none}
-.ux1-chip{display:inline-flex;align-items:center;gap:.3rem;min-height:30px;padding:.2rem .6rem;border-radius:var(--r-pill);background:color-mix(in srgb,currentColor 14%,transparent);color:inherit;font-weight:700;font-size:var(--fs-xs);text-decoration:none;white-space:nowrap}
-a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,transparent)}
-.ux1-chip svg{width:14px;height:14px}
-.ux1-path{gap:1.1rem;margin:1.2rem 0 1rem}
-.ux1-n .ux1-dw{position:relative;display:inline-flex}
-.ux1-n .lsn-dot{width:70px;height:64px}.ux1-n.next .lsn-dot{width:84px;height:78px;animation:ux1Pulse 2.2s ease-in-out infinite}
-.ux1-n.lock .lsn-dot{background:var(--surface-2);color:var(--text);border:2px solid var(--line)}
-.ux1-n.cp:not(.done) .lsn-dot{border-radius:22px;background:var(--gold-soft);color:var(--gold-text);box-shadow:0 6px 0 var(--gold)}
-.ux1-n.cp.next .lsn-dot{background:var(--gold);color:var(--brand-ink)}
-.ux1-lk{position:absolute;right:-4px;bottom:-4px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--line);color:var(--muted)}
-.ux1-lk svg{width:13px!important;height:13px!important}
-.ux1-lbl{margin-top:.45rem;font-weight:700;font-size:var(--fs-sm);color:var(--text);text-align:center;display:flex;flex-direction:column;line-height:1.2}
-.ux1-lbl small{font-size:.68rem;color:var(--gold-text);text-transform:uppercase;letter-spacing:.05em;font-weight:800}
-.ux1-n.lock .ux1-lbl{color:var(--muted)}
-.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:52px;height:52px;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 3px 3px rgb(0 0 0 / .22))}
-.ux1-go{animation:none!important;min-width:200px}
-@keyframes ux1Pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
 .ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}
 .ux1-ring{width:44px;height:44px;flex:none;transform:rotate(-90deg)}.ux1-ring.ic{transform:none;display:grid;place-items:center;border-radius:50%;background:var(--accent-soft);color:var(--accent-text)}
-.ux1-ring circle{fill:none;stroke:var(--surface-3);stroke-width:5}.ux1-ring .fg{stroke:var(--accent);stroke-linecap:round}
+.ux1-ring circle{fill:none;stroke:var(--surface-3);stroke-width:5}.ux1-ring .fg{stroke:var(--done);stroke-linecap:round}
 .ux1-mock{min-height:44px;flex:none}
 .ux1-pick{max-width:720px;margin:0 auto;text-align:center}.ux1-pick h1{margin-bottom:.2rem}
 .ux1-pk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0;text-align:start}
@@ -258,17 +302,16 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-stat span:first-child{color:var(--primary-text)}.ux1-stat span:last-child{color:var(--gold-text)}
 .ux1-today{display:flex;flex-direction:column;gap:.45rem;color:var(--text);text-decoration:none}.ux1-today small{color:var(--muted)}
 .ux1-promo{display:flex;gap:.5rem;flex-wrap:wrap}.ux1-promo:not(:has(a:not([hidden]))){display:none}.ux1-promo .btn{min-height:44px}
-@media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}.ux1-unit{flex-direction:column}.ux1-uside{flex-direction:row;flex-wrap:wrap;align-items:flex-start}.ux1-tch{width:44px;height:44px}}
+@media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))!important}}
 /* chuyển động: chỉ transform/opacity (60 fps), View Transitions cho đổi tab, @starting-style cho thẻ cột phải */
-.ux1-n{animation:ux1In .34s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i,0) * 45ms)}
-@keyframes ux1In{from{opacity:0;transform:translateX(var(--x)) scale(.7)}to{opacity:1;transform:translateX(var(--x)) scale(1)}}
-.ux1-unit,.ux1-exam,.ux1-tile{transition:transform .15s ease,box-shadow .15s ease}.ux1-tile:active,.ux1-pk-main:active{transform:translateY(2px)}
-.ux1-rail>*{transition:opacity .22s ease,translate .22s ease}@starting-style{.ux1-rail>*{opacity:0;translate:0 6px}}
+.ux1-exam,.ux1-tile{transition:transform .15s ease,box-shadow .15s ease}.ux1-tile:active,.ux1-pk-main:active{transform:translateY(2px)}
+.ux1-rail>*{transition:opacity .18s ease}@starting-style{.ux1-rail>*{opacity:0}}
 body.ux1 .bottom-nav{view-transition-name:ux1nav}body.ux1 .sidebar{view-transition-name:ux1side}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
-@media (prefers-reduced-motion:reduce){.ux1-n,.ux1-n.next .lsn-dot{animation:none}.ux1-rail>*{transition:none}.ux1-tile:active,.ux1-pk-main:active{transform:none}}`;
+@media (prefers-reduced-motion:reduce){.ux1-rail>*{transition:none}.ux1-tile:active,.ux1-pk-main:active{transform:none}}`;
     document.head.appendChild(s);
   }
 
-  window.Ux1 = { init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
+  window.Ux1 = { reviewHub, init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
 })();

@@ -25,6 +25,16 @@
   const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem('vb.call.' + k); localStorage.setItem('vb.call.' + k, v); } catch (e) { return null; } };
   // An toàn: lời lẽ thô tục/nhạy cảm → giáo viên nhẹ nhàng đưa cuộc gọi về chủ đề, không lặp lại lời đó
   const UNSAFE = /\b(fuck|shit|bitch|asshole|dick|sex|kill|suicide|drugs?|nigg|whore|slut)\w*/i;
+  // 🧩 Stitch v2.1 teacher-call (cờ ux1): khung tự sinh brand/stitch/v2/bind/teacher-call.json (ST2.mount → .v2s-teacher-call), giáo viên = c.who (Ama/Carlos) CHỈ qua Chars + LessonTeacher,
+  // giọng = Chars.voice(who). Logic giữ nguyên CallEngine (nhánh, quyền riêng tư, lượt dài, gõ phím); trang cũ (.call-ov) làm dự phòng khi chưa bật cờ / thiếu khung.
+  const v2On = () => !!(window.ST2 && window.ST2['teacher-call'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
+  const CHIP = 'w-full min-h-[44px] px-3.5 py-2 rounded-[0.75rem] text-start text-[14px] leading-[20px] font-[600] transition-transform active:translate-y-0.5 lt:bg-[#f2f4f3] lt:text-[#0D6964] dk:[background-color:rgba(43,_163,_154,_0.15)] dk:[border:1px_solid_rgba(43,_163,_154,_0.3)] dk:text-[#EEF6F7]';
+  const MUT = 'lt:text-[#4E5F62] dk:text-[#9DB5BA]';
+  // nút biểu tượng nhỏ cùng hàng "Gợi ý trả lời" (không thêm chiều cao khung Stitch; vùng chạm 44px bằng lề âm) · @icons lock cloud edit
+  const IB = 'inline-flex items-center justify-center min-w-[44px] min-h-[44px] -my-[12px] -me-[10px] bg-transparent border-0 p-0 cursor-pointer lt:text-[#0D6964] dk:text-[#2BA39A]';
+  const PRIV_IC = { cloud: 'cloud', tap: 'edit' };
+  const TIP_FIX = (bad, good, why) => `<span lang="en"><s>${esc(bad)}</s> → <b>${esc(good)}</b></span> <span class="block ${MUT}">${esc(why)}</span>`;
+  const vOf = w => (Chars.voice ? Chars.voice(w) : (window.LessonTeacher && LessonTeacher.VOICE || {})[w]);
   const mmss = s => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.max(0, s) % 60).padStart(2, '0');
 
   // ---------- Nhận dạng: dò khả năng trên máy (1 lần) ----------
@@ -96,7 +106,12 @@
 .call-done{min-height:44px;padding:0 1rem;border-radius:99px;border:0;background:#15803d;color:#fff;font:inherit;font-weight:700;cursor:pointer}
 .call-tx{border-top:1px solid var(--line);padding:.6rem 0}.call-tx .q{color:var(--muted)}.call-tx .a{margin:.2rem 0}.call-tx.weak .a::before{content:'↻ ';color:var(--warn,#b45309)}
 .call-score{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}.call-chips{display:flex;gap:.35rem;flex-wrap:wrap}
-body.call-on{overflow:hidden}`;
+body.call-on{overflow:hidden}
+.v2-teacher-call [hidden]{display:none}.v2-teacher-call .tch{overflow:visible}
+.v2-teacher-call .call-cue,.v2-teacher-call .call-ask{max-width:none;margin:.6rem 0 0;padding:.6rem .8rem;border-radius:.75rem;background:transparent;border:1px dashed currentColor;color:inherit}
+.v2-teacher-call .call-ask{border-style:solid}.v2-teacher-call .call-you{max-width:none;margin:.5rem 0 0;opacity:1}
+.v2-teacher-call .call-type{max-width:none}.v2-teacher-call .call-type input{border-radius:.75rem;border:1px solid currentColor;background:transparent;color:inherit}
+.v2-teacher-call .call-done{background:#0D6964}`;
     document.head.appendChild(st);
   }
 
@@ -131,17 +146,36 @@ body.call-on{overflow:hidden}`;
 
   function start(c) {
     E.prep(c);
-    const nm = Chars.name(c.who), voice = (window.LessonTeacher && LessonTeacher.VOICE || {})[c.who];
-    const ov = document.createElement('div'); ov.className = 'call-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', t('Cuộc gọi với {name}', { name: nm }));
-    document.body.appendChild(ov); document.body.classList.add('call-on');
+    const nm = Chars.name(c.who), voice = vOf(c.who), V2 = v2On(); // giọng = ĐÚNG giọng của người hiện trên màn (Chars.voice)
+    let ov = null;
+    if (!V2) { ov = document.createElement('div'); ov.className = 'call-ov'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', t('Cuộc gọi với {name}', { name: nm }));
+      document.body.appendChild(ov); document.body.classList.add('call-on'); }
     let id = c.start, rec = null, dead = false, t0 = Date.now(), tick = 0, autoMic = false, showTr = pref('tr') !== '0' && I18N.lang() !== 'en', busy = false;
     let turn = 0, phase = 'talk', tAsk = 0, longBuf = [], longEnd = 0, prepEnd = 0, tch = null, sayRun = 0;
     const log = [], lat = [], tr = {};
-    const close = () => { dead = true; clearInterval(tick); sayRun++; if (tch) try { tch.stop(); tch.destroy && tch.destroy(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); stopRec(); ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
+    const close = () => { dead = true; clearInterval(tick); sayRun++; if (tch) try { tch.stop(); tch.destroy && tch.destroy(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); stopRec(); if (!V2) ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
     App.cleanups.push(close);
     const onKey = e => { if (e.key === 'Escape') hang(); };
     document.addEventListener('keydown', onKey);
-    ov.innerHTML = `<div class="call-top"><span id="cPriv">${(PRIV[mode()] || PRIV.ask)()}</span><span id="cT" aria-live="off">00:00</span></div>
+    const TYPE = `<form class="call-type" id="cType" autocomplete="off"><input id="cIn" lang="en" aria-label="${t('Gõ câu trả lời')}" placeholder="${t('Hoặc gõ câu trả lời…')}" enterkeyhint="send"><button type="submit">${t('Gửi')}</button></form>`;
+    if (V2) {
+      const canTrV = I18N.lang() !== 'en';
+      const d = { pct: 0, title: nameOf(c), lv: c.lv, who: nm, line: '', tip: t('Gợi ý trả lời'), micLbl: t('Nói'), canTr: canTrV, showTr: String(showTr), trLbl: t('Bật/tắt phụ đề dịch'),
+        trHtml: canTrV ? '<span class="text-[14px] font-extrabold" aria-hidden="true">Aa</span>' : '<span class="material-symbols-outlined text-[20px]" aria-hidden="true">graphic_eq</span>',
+        teacher: '<div id="cTch" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[270px] h-[234px] max-w-full z-0 pointer-events-none" aria-hidden="true"></div>',
+        l2: `<p id="cL2" class="text-[14px] leading-[20px] mt-1 ${MUT}"></p>`,
+        // khối của CallEngine (lượt dài, chọn nhận dạng, lời bạn, gõ phím, quyền riêng tư, trạng thái lượt lời cho trình đọc màn hình) nằm trong vùng gợi ý của khung
+        opts: `<div id="cCue"></div><div id="cAsk"></div><div class="call-you text-[14px] ${MUT}" id="cYou" lang="en" aria-live="polite"></div>
+          <div id="cOpts" role="group" aria-label="${esc(t('Gợi ý trả lời'))}" class="flex flex-col gap-2 mt-3"></div><div id="cTypeW" class="mt-2" hidden>${TYPE}</div>
+          <span class="sr-only" id="cSt" role="status" aria-live="polite"><span id="cStT"></span></span>` };
+      ov = ST2.mount(view, 'teacher-call', d, null);
+      const tp = $('#cTip', ov), tn = document.createElement('span'); tn.id = 'cTipT'; tn.className = 'flex-1'; if (tp && tp.lastChild) tp.replaceChild(tn, tp.lastChild); tn.textContent = t('Gợi ý trả lời');
+      // cuối hàng gợi ý: 🔒/☁️ quyền riêng tư (chạm = đọc đủ câu; trình đọc màn hình đọc #cPriv) · ✏️ mở ô gõ câu trả lời (ẩn mặc định → khung giữ đúng chiều cao Stitch)
+      tp.insertAdjacentHTML('beforeend', `<button type="button" id="cPrivB" class="${IB}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true" id="cPrivI">lock</span><span class="sr-only" id="cPriv"></span></button>`
+        + `<button type="button" id="cKb" class="${IB}" aria-expanded="false" aria-controls="cTypeW" aria-label="${esc(t('Gõ câu trả lời'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">edit</span></button>`);
+      const kb = $('#cKb', ov), tw = $('#cTypeW', ov); kb.onclick = () => { const open = tw.hidden; tw.hidden = !open; kb.setAttribute('aria-expanded', String(open)); if (open) $('#cIn', ov).focus(); };
+      $('#cPrivB', ov).onclick = () => toast($('#cPriv', ov).textContent, 5000);
+    } else ov.innerHTML = `<div class="call-top"><span id="cPriv">${(PRIV[mode()] || PRIV.ask)()}</span><span id="cT" aria-live="off">00:00</span></div>
       <div class="call-av" id="cAv"><img class="call-po" data-po src="${poster(c.who)}" alt="${nm}" width="210" height="280"></div>
       <div class="call-name">${nm}</div><div class="call-sub" lang="en">${esc(c.role)}</div>
       <div style="margin-top:.4rem"><span class="call-st" id="cSt" role="status" aria-live="polite"><i aria-hidden="true"><b></b><b></b><b></b></i><span id="cStT"></span></span></div>
@@ -151,9 +185,11 @@ body.call-on{overflow:hidden}`;
       <div class="call-you" id="cYou" lang="en" aria-live="polite"></div>
       <div id="cTip" style="width:100%;display:flex;justify-content:center"></div>
       <div class="call-opts" id="cOpts" role="group" aria-label="${t('Gợi ý trả lời')}"></div>
-      <form class="call-type" id="cType" autocomplete="off"><input id="cIn" lang="en" aria-label="${t('Gõ câu trả lời')}" placeholder="${t('Hoặc gõ câu trả lời…')}" enterkeyhint="send"><button type="submit">${t('Gửi')}</button></form>
+      ${TYPE}
       <div class="call-ctl">${I18N.lang() !== 'en' ? `<button class="call-sm" id="cTr" aria-pressed="${showTr}" aria-label="${t('Bật/tắt phụ đề dịch')}">Aa</button>` : ''}<button class="call-mic" id="cMic" aria-label="${t('Nói')}">🎙️</button><button class="call-end" id="cEnd" aria-label="${t('Kết thúc cuộc gọi')}">📵</button></div>`;
     poFix(ov);
+    function privPaint() { const m = mode(), p = $('#cPriv', ov); if (p) p.textContent = (PRIV[m] || PRIV.ask)(); const ic = $('#cPrivI', ov); if (ic) ic.textContent = PRIV_IC[m] || 'lock'; }
+    privPaint();
     const alive = () => !dead && document.body.contains(ov);
     const node = () => c.nodes[id];
     tick = setInterval(() => {
@@ -164,7 +200,8 @@ body.call-on{overflow:hidden}`;
     }, 500);
 
     // Giáo viên động: clip 2D registry (teacher.js, qua Chars) – lỗi/thiếu clip → giữ poster 2D tĩnh, cuộc gọi vẫn chạy
-    if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); }
+    if (V2) tch = LessonTeacher.mount($('#cTch', ov), c.who); // Ama/Carlos đứng sau thẻ phụ đề: clip talk/listen (poster khi tiết kiệm dữ liệu / giảm chuyển động)
+    else if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); }
 
     // Phụ đề dịch (dòng 2): dịch sẵn mọi câu của giáo viên 1 lần – không chặn cuộc gọi; lỗi mạng thì chỉ hiện tiếng Anh
     const pieces = [...new Set(Object.values(c.nodes).flatMap(x => [x.m, x.re, ...(x.br || []).map(b => b[1])]).concat(c.end).filter(Boolean))];
@@ -177,10 +214,11 @@ body.call-on{overflow:hidden}`;
     // Trạng thái lượt lời: talk (giáo viên nói) · you (đến lượt bạn) · listen (đang nghe) · think (đang hiểu câu)
     function setPhase(p) {
       phase = p;
-      const av = $('#cAv', ov), st = $('#cSt', ov), txt = $('#cStT', ov), mic = $('#cMic', ov); if (!av) return;
-      av.classList.toggle('talk', p === 'talk'); av.classList.toggle('listen', p === 'listen'); st.className = 'call-st ' + p;
+      const av = $('#cAv', ov), st = $('#cSt', ov), txt = $('#cStT', ov), mic = $('#cMic', ov); if (!st || !mic) return;
+      if (av) { av.classList.toggle('talk', p === 'talk'); av.classList.toggle('listen', p === 'listen'); } st.className = (V2 ? 'sr-only call-st ' : 'call-st ') + p; // v2: tư thế do clip giáo viên (talk/listen), không vòng sáng
       txt.textContent = p === 'talk' ? t('{name} đang nói…', { name: nm }) : p === 'listen' ? t('Đang nghe bạn…') : p === 'think' ? t('Đang hiểu câu của bạn…') : p === 'done' ? t('Cuộc gọi kết thúc') : t('Đến lượt bạn – bấm micro để nói');
       mic.classList.toggle('on', p === 'listen'); mic.setAttribute('aria-label', p === 'listen' ? t('Dừng nghe') : t('Nói'));
+      if (V2) { mic.setAttribute('aria-pressed', String(p === 'listen')); const ml = $('#cMicL', ov); if (ml) ml.textContent = p === 'listen' ? t('Đang nghe') : t('Nói'); }
     }
     // Nói lần lượt từng câu (mỗi câu 1 file Kokoro sinh sẵn) – sayRun đổi = bị ngắt lời → bỏ phần còn lại
     function say(parts, then) {
@@ -203,7 +241,7 @@ body.call-on{overflow:hidden}`;
       const box = $('#cOpts', ov), n = node(), cue = $('#cCue', ov);
       cue.innerHTML = n && (n.cue || n.long) ? `<div class="call-cue"><div class="row between">${n.prep ? `<b lang="en">${esc(n.m.split('. ').slice(-1)[0])}</b>` : `<b>${esc(t('Lượt nói dài: 1–2 phút'))}</b>`}<span class="call-clock" id="cClock" aria-live="off"></span></div>${(n.cue || (c.nodes[c.start] && c.nodes[c.start].cue) || []).length ? `<div class="tiny" style="opacity:.8;margin-top:.3rem">${t('Bạn nên nói:')}</div><ul lang="en">${(n.cue || c.nodes[c.start].cue).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${n.long ? `<div class="row" style="margin-top:.5rem;gap:.5rem;align-items:center"><button type="button" class="call-done" id="cLongDone">✓ ${t('Tôi nói xong')}</button><span class="tiny" id="cLongN" style="opacity:.8"></span></div>` : ''}</div>` : '';
       const ld = $('#cLongDone', cue); if (ld) ld.onclick = () => endLong();
-      box.innerHTML = n ? n.o.map((o, k) => `<button type="button" data-o="${k}" lang="en">💬 ${esc(n.long ? o.split(/(?<=\.)\s/).slice(0, 2).join(' ') + ' …' : o)}</button>`).join('') : '';
+      box.innerHTML = n ? n.o.map((o, k) => `<button type="button" data-o="${k}" lang="en"${V2 ? ` class="${CHIP}"` : ''}>${V2 ? '' : '💬 '}${esc(n.long ? o.split(/(?<=\.)\s/).slice(0, 2).join(' ') + ' …' : o)}</button>`).join('') : '';
       $$('[data-o]', box).forEach(b => b.onclick = () => (n.long ? answer(n.o[+b.dataset.o], true, true) : answer(n.o[+b.dataset.o], true)));
     };
 
@@ -222,17 +260,20 @@ body.call-on{overflow:hidden}`;
       const a0 = performance.now(); stopRec(); hush();
       if (n.long && longBuf.length && !picked) text = longBuf.join(' ');
       if (n.long) { longEnd = 0; longBuf = []; }
-      const tipBox = $('#cTip', ov); tipBox.innerHTML = '';
+      const tipBox = V2 ? $('#cTipT', ov) : $('#cTip', ov); if (V2) tipBox.textContent = t('Gợi ý trả lời'); else tipBox.innerHTML = '';
       if (UNSAFE.test(text)) { busy = false; say(['Let\'s keep our chat friendly and on topic!', n.m]); return; }
       const secs = tAsk ? Math.max(0, (Date.now() - tAsk) / 1000) : 0;
       if (!n.prep) log.push(Object.assign({ id, text, picked: !!picked, secs: extra.secs != null ? extra.secs : (picked ? 0 : secs) }, extra));
       if (!picked) $('#cYou', ov).textContent = '🗣️ ' + text;
       const fix = picked || n.prep ? null : E.correct(text, n.m), sl = picked || n.prep ? [] : E.slips(text, c, n);
-      if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;
+      if (fix && V2) tipBox.innerHTML = TIP_FIX(fix.bad, fix.good, fix.why);
+      else if (sl.length && V2) tipBox.textContent = '👂 ' + t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant });
+      else if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="en"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;
       else if (sl.length) tipBox.innerHTML = `<div class="call-tip">👂 ${t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant })}</div>`;
       const r = E.step(c, id, text);
       id = r.next; turn++;
       const nx = node();
+      if (V2) { const pc = nx ? Math.min(95, Math.round(log.length / Math.max(1, E.depth(c)) * 100)) : 100, pe = $('#cPct', ov), pb = $('#cBar', ov); if (pe) pe.textContent = pc + '%'; if (pb) pb.style.width = pc + '%'; if (window.Feel && Feel.on && Feel.fill && pb) Feel.fill(pb.parentElement, pc); }
       lat.push(performance.now() - a0);
       busy = false;
       $('#cIn', ov).value = '';
@@ -256,7 +297,7 @@ body.call-on{overflow:hidden}`;
       const n = node(); if (!n || n.prep) return;
       const m = mode();
       if (m === 'ask') return askAsr();
-      if (m === 'tap') { autoMic = false; toast(t('Trên thiết bị này hãy chạm gợi ý hoặc gõ câu trả lời.'), 3500); return; }
+      if (m === 'tap') { autoMic = false; const tw = V2 && $('#cTypeW', ov); if (tw && tw.hidden) $('#cKb', ov).click(); toast(t('Trên thiết bị này hãy chạm gợi ý hoặc gõ câu trả lời.'), 3500); return; }
       hush(); setPhase('listen');
       const my = ++turn, s0 = Date.now(), words = [...new Set(E.words(n.o.join(' ') + ' ' + (n.kw || []).join(' ') + ' ' + (c.words || []).join(' ')))].filter(w => w.length > 3).slice(0, 40);
       const cb = {
@@ -275,16 +316,16 @@ body.call-on{overflow:hidden}`;
       const box = $('#cAsk', ov); if (!box || box.firstChild) return;
       const SR = SRC();
       box.innerHTML = `<div class="call-ask" role="group" aria-label="${t('Chọn cách nhận dạng giọng nói')}"><b>🎙️ ${t('Chọn cách nhận dạng giọng nói')}</b>
-        ${env.localDl && SR && SR.install ? `<button type="button" data-a="chrome">🔒 ${t('Tải gói nhận dạng của Chrome (chạy trên máy)')}</button>` : ''}
-        ${env.media && !env.ext ? `<button type="button" data-a="device">🔒 ${t('Nhận dạng trên máy bằng Whisper (tải ~40 MB một lần, nên dùng Wi-Fi)')}</button>` : ''}
-        ${env.sr ? `<button type="button" data-a="cloud">☁️ ${t('Dùng dịch vụ của trình duyệt (âm thanh được gửi đi để nhận dạng)')}</button>` : ''}
-        <button type="button" data-a="tap">⌨️ ${t('Chỉ chạm gợi ý hoặc gõ phím')}</button></div>`;
+        ${env.localDl && SR && SR.install ? `<button type="button" data-a="chrome"${V2 ? ` class="${CHIP}"` : ''}>🔒 ${t('Tải gói nhận dạng của Chrome (chạy trên máy)')}</button>` : ''}
+        ${env.media && !env.ext ? `<button type="button" data-a="device"${V2 ? ` class="${CHIP}"` : ''}>🔒 ${t('Nhận dạng trên máy bằng Whisper (tải ~40 MB một lần, nên dùng Wi-Fi)')}</button>` : ''}
+        ${env.sr ? `<button type="button" data-a="cloud"${V2 ? ` class="${CHIP}"` : ''}>☁️ ${t('Dùng dịch vụ của trình duyệt (âm thanh được gửi đi để nhận dạng)')}</button>` : ''}
+        <button type="button" data-a="tap"${V2 ? ` class="${CHIP}"` : ''}>⌨️ ${t('Chỉ chạm gợi ý hoặc gõ phím')}</button></div>`;
       $$('[data-a]', box).forEach(b => b.onclick = async () => {
         const a = b.dataset.a; box.innerHTML = '';
         if (a === 'chrome') { try { toast(t('Đang tải gói nhận dạng…'), 3000); const okI = await SR.install({ langs: [ACCENT], processLocally: true }); if (okI) { env.local = true; env.localDl = false; } } catch (e) { /* lỗi → hỏi lại */ } }
         else if (a === 'device') { try { localStorage.setItem('vb.whisper', '1'); } catch (e) { /* bỏ qua */ } pref('asr', 'device'); if (UI.whisperWarm) UI.whisperWarm(p => { const st = $('#cStT', ov); if (st && phase !== 'listen') st.textContent = t('Đang tải mô hình nhận dạng giọng nói… {p}%', { p: Math.round(p) }); }).catch(() => {}); }
         else pref('asr', a);
-        $('#cPriv', ov).textContent = (PRIV[mode()] || PRIV.ask)();
+        privPaint();
         if (mode() === 'tap') { $('#cMic', ov).disabled = true; return; }
         autoMic = true; listen();
       });
@@ -293,9 +334,14 @@ body.call-on{overflow:hidden}`;
 
     $('#cMic', ov).onclick = () => { if (phase === 'listen' && rec) { const r0 = rec; try { r0.stop(); } catch (e) { /* bỏ qua */ } return; } autoMic = true; listen(); };
     $('#cType', ov).onsubmit = e => { e.preventDefault(); const v = $('#cIn', ov).value; if (!v.trim()) return; turn++; stopRec(); answer(v, false, false, { typed: true }); };
-    const trBtn = $('#cTr', ov); if (trBtn) trBtn.onclick = () => { showTr = !showTr; pref('tr', showTr ? '1' : '0'); trBtn.setAttribute('aria-pressed', String(showTr)); paintTr(); };
+    const trBtn = I18N.lang() !== 'en' ? $('#cTr', ov) : null; if (trBtn) trBtn.onclick = () => { showTr = !showTr; pref('tr', showTr ? '1' : '0'); trBtn.setAttribute('aria-pressed', String(showTr)); paintTr(); };
     const hang = () => { if (log.length) finish(); else { close(); location.hash = '#/call'; } };
     $('#cEnd', ov).onclick = hang;
+    if (V2) { // chỗ mới của các nút Stitch: ✕ & Kết thúc = cúp máy · caret = thu/mở gợi ý trả lời · loa = nghe lại câu vừa nói (đúng giọng giáo viên)
+      $('#cEnd2', ov).onclick = hang;
+      const og = $('#cOptTog', ov), ob = $('#cOpts', ov); og.onclick = () => { const open = ob.hidden; ob.hidden = !open; og.setAttribute('aria-expanded', String(open)); };
+      $('#cSpk', ov).onclick = () => { const x = cur.join(' '); if (!x || phase === 'listen') return; if (tch) tch.say(x, { voice, accent: ACCENT }); else UI.tts(x, ACCENT); };
+    }
 
     function finish() {
       if (!alive()) return;
@@ -303,7 +349,7 @@ body.call-on{overflow:hidden}`;
       close();
       summary(c, log, secs, avgLat);
     }
-    probe().then(() => { if (alive()) $('#cPriv', ov).textContent = (PRIV[mode()] || PRIV.ask)(); });
+    probe().then(() => { if (alive()) privPaint(); });
     showOpts();
     const first = c.nodes[c.start];
     say([first.m], () => enter(first));

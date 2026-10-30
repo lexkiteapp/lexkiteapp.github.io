@@ -88,4 +88,6 @@
   'Lời bạn nói chỉ được xử lý trên máy để chấm và hiện lời thoại – Lexkite không lưu lại.': 'Your speech is only processed on your device to score it and show the transcript – Lexkite does not keep it.',
   'Đổi cách nhận dạng': 'Change recognition',
   'Lần gọi sau Lexkite sẽ hỏi lại cách nhận dạng.': 'On your next call, Lexkite will ask again how to recognize your speech.',
+  'Trực tiếp': 'Live',
+  'Đang nghe': 'Listening',
 }); })(typeof self !== 'undefined' ? self : this);

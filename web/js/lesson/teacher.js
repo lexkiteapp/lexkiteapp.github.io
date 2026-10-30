@@ -65,6 +65,10 @@
     let hq = null;
     const api = {
       who,
+      // pose('cheer'|'concern'…): ảnh tĩnh tư thế (đầu→hông) thay người đang đứng NGAY chỗ cũ (phản hồi đúng/sai); pose(null) → trả lại vòng nghe/nói sống
+      pose(p) { let im = rig.querySelector('.tch-still'); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
+        if (im) im.src = Chars.still(who, p); else { rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 })); }
+        rig.classList.add('posed'); },
       // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – vòng nói chạy đúng độ dài file; thiếu file → giọng máy
       say(text, o = {}) {
         const my = ++run, rate = o.rate || 0.95;
@@ -73,7 +77,7 @@
         const tts = () => {
           if (my !== run) return;
           const dur = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
-          if (g.UI && g.UI.tts) g.UI.tts(text, o.accent || 'en-US', rate, { onEnd: end }); else setTimeout(end, dur * 1000);
+          if (g.UI && g.UI.tts) { const t0 = Date.now(); g.UI.tts(text, o.accent || 'en-US', rate, { onEnd: () => { const used = Date.now() - t0; if (used < 300 && my === run) setTimeout(end, Math.max(0, dur * 1000 - used)); else end(); } }); } else setTimeout(end, dur * 1000); // máy không có giọng → onEnd tức thì: giữ vòng nói đủ thời lượng ước tính (khớp miệng)
         };
         if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; }
         const base = (g.AUDIO_BASES || [])[0];
@@ -89,6 +93,6 @@
     };
     return api;
   }
-  const VOICE = { ama: 'af_heart', carlos: 'am_michael' }; // cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
+  const VOICE = { ama: g.Chars.voice('ama'), carlos: g.Chars.voice('carlos') }; // giọng app của giáo viên – chỉ qua Chars (registry), cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
   g.LessonTeacher = { mount, lite, VOICE };
 })(self);

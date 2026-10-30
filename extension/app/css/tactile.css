@@ -1,0 +1,23 @@
+/* Tactile (lõi) – lớp dùng chung (app, add-on, web, nhúng). Màu từ brand/tokens.json; đổi phong cách = đổi biến :root. Phần mở rộng (lựa chọn A–D, tấm trượt, thẻ giáo viên): tactile-x.css. docs/DESIGN-SYSTEM.md §0 */
+:root{--r-card:16px;--r-pill2:24px;--r-tile:12px;--lip-h:4px;--press:3px;--lip:0 var(--lip-h) 0 var(--ledge);--hi:inset 0 1px 0 rgba(255,255,255,.08);--elev-card:0 6px 18px -8px rgba(15,61,62,.16);--elev-sheet:0 -8px 28px rgba(15,61,62,.14);--cta-grad:linear-gradient(180deg,var(--cta-1),var(--cta-2));--cta-shadow:0 5px 0 var(--cta-lip),0 12px 24px -6px color-mix(in srgb,var(--cta-2) 22%,transparent);--font-display:"Bricolage Grotesque",var(--font,system-ui,sans-serif);--track:.06em}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--elev-card:0 8px 24px -10px rgba(0,0,0,.4);--elev-sheet:0 -8px 32px rgba(0,0,0,.45);--hi:inset 0 1px 0 rgba(255,255,255,.06)}
+}
+:root[data-theme="dark"]{--elev-card:0 8px 24px -10px rgba(0,0,0,.4);--elev-sheet:0 -8px 32px rgba(0,0,0,.45);--hi:inset 0 1px 0 rgba(255,255,255,.06)}
+.tk-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--hi),var(--elev-card)}
+.tk-tile{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-pill2);box-shadow:var(--hi),var(--lip)}
+.tk-btn,.btn.primary:not(.ghost){background:var(--cta-grad);border:0;color:var(--cta-ink);box-shadow:var(--hi),var(--cta-shadow);letter-spacing:.01em}
+.tk-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:56px;padding:0 1.4rem;border-radius:999px;font-weight:800;text-decoration:none;cursor:pointer}
+.tk-btn:active:not(:disabled),.btn.primary:not(.ghost):active:not(:disabled){transform:translateY(var(--press));box-shadow:var(--hi),0 2px 0 var(--cta-lip)}
+.tk-btn:disabled,.btn.primary:disabled{background:var(--surface-3);color:var(--muted);box-shadow:var(--lip);filter:none}
+.tk-btn.wide{width:100%;min-height:56px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.tk-chip{display:inline-flex;align-items:center;gap:.3rem;width:fit-content;min-height:24px;padding:.1rem .6rem;border-radius:999px;background:var(--surface-2);color:var(--done);font-size:.75rem;font-weight:800;letter-spacing:var(--track);text-transform:uppercase}
+.tk-chip.gold{color:var(--gold-text,var(--sun))}
+.tk-chip.ok{background:var(--good-soft);color:var(--good-text)}
+.tk-chip.bad{background:var(--again-soft);color:var(--again-text)}
+.tk-bar{display:block;height:10px;border-radius:999px;background:var(--surface-3);overflow:hidden}
+.tk-bar>i{display:block;height:100%;border-radius:999px;background:var(--done);transition:width .18s ease}
+.tk-bar[style*="--seg"]{-webkit-mask:repeating-linear-gradient(90deg,black 0 calc(100% / var(--seg) - 5px),transparent 0 calc(100% / var(--seg)));mask:repeating-linear-gradient(90deg,black 0 calc(100% / var(--seg) - 5px),transparent 0 calc(100% / var(--seg)))}
+.tk-display,.page-head h1{font-family:var(--font-display);letter-spacing:-.015em;color:var(--heading,var(--text))}
+.tk-num{font-family:var(--font-display);font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){.tk-bar>i{transition:none}
+}

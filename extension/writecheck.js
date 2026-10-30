@@ -120,8 +120,9 @@
     .why a { color: #0E8F8E; font-weight: 700; text-decoration: none; cursor: pointer; display: inline-block; margin-top: 4px; }
     .src { font-size: 11px; color: #8a8fa3; margin-top: 4px; }
     @media (prefers-color-scheme: dark) {
-      .card { background: #1b1c26; color: #ecedf5; border-color: #2e3040; } .btn { background: #242533; border-color: #2e3040; color: #ecedf5; }
-      .msg { color: #b8bbcc; } .bad { color: #9a9db0; } .acts { border-color: #2e3040; } .why { background: #15302f; border-color: #1f4b48; } .why a { color: #2dd4bf; }
+      /*@tokens*/:host,.card{--d-bg:#10191B;--d-sf:#172427;--d-sf2:#1E2F33;--d-sf3:#26393E;--d-line:#1F3337;--d-line2:#23373B;--d-text:#F3F8F8;--d-muted:#A3B9B7}/*@end*/
+      .card { background: var(--d-sf); color: var(--d-text); border-color: var(--d-line); } .btn { background: var(--d-sf3); border-color: var(--d-line); color: var(--d-text); }
+      .msg { color: var(--d-muted); } .bad { color: var(--d-muted); } .acts { border-color: var(--d-line); } .why { background: #15302f; border-color: #1f4b48; } .why a { color: #2dd4bf; }
     }`;
   cleanups.push(() => { try { detach(); } catch (e) { /* bỏ qua */ } if (hostEl) hostEl.remove(); });
   let hostEl = null, root = null, layer = null, card = null, badge = null, mirror = null;

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite v2 — Teacher Call</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            dark: {
+              bg: '#081417',
+              card: '#132328',
+              raised: '#1C3137',
+              border: '#28464E'
+            },
+            teal: {
+              DEFAULT: '#2BA39A',
+              deep: '#1F7A75',
+              ledge: '#12514D',
+              glow: '#3EE0D2'
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              ledge: '#B53A22'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050E10;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile 3D Button Physics */
+    .tactile-btn {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px) !important;
+    }
+
+    /* Specific Button Ledges */
+    .btn-speaker {
+      background: linear-gradient(180deg, #1E3339 0%, #16262B 100%);
+      box-shadow: 0 5px 0 #0B171A, 0 10px 18px rgba(0, 0, 0, 0.45);
+      border: 2px solid #2C4A52;
+    }
+    .btn-speaker:active {
+      box-shadow: 0 2px 0 #0B171A, 0 4px 8px rgba(0, 0, 0, 0.45);
+    }
+
+    .btn-mic {
+      background: linear-gradient(180deg, #37BDB3 0%, #2BA39A 55%, #238981 100%);
+      box-shadow: 0 6px 0 #12514D, 0 14px 28px rgba(43, 163, 154, 0.35);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .btn-mic:active {
+      box-shadow: 0 2px 0 #12514D, 0 6px 12px rgba(43, 163, 154, 0.3);
+    }
+
+    .btn-end {
+      background: linear-gradient(180deg, #FF6A50 0%, #F2553B 60%, #DE3F25 100%);
+      box-shadow: 0 5px 0 #9E2B16, 0 12px 24px rgba(242, 85, 59, 0.35);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+    }
+    .btn-end:active {
+      box-shadow: 0 2px 0 #9E2B16, 0 4px 10px rgba(242, 85, 59, 0.35);
+    }
+
+    /* Waveform Animation */
+    @keyframes wavePulse {
+      0%, 100% { height: 6px; }
+      50% { height: 22px; }
+    }
+    .wave-bar {
+      animation: wavePulse 1.2s ease-in-out infinite;
+      border-radius: 9999px;
+    }
+
+    /* Pulsing Radial Mic Halo */
+    @keyframes pulseRing {
+      0% {
+        transform: scale(0.92);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 0.25;
+      }
+      100% {
+        transform: scale(0.92);
+        opacity: 0.8;
+      }
+    }
+    .pulse-halo {
+      animation: pulseRing 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .pulse-halo-subtle {
+      animation: pulseRing 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      animation-delay: 0.6s;
+    }
+
+    /* Live Red Dot Pulse */
+    @keyframes liveGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .live-dot {
+      animation: liveGlow 1.4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <!-- Mobile Container (390px x 844px standard viewport) -->
+  <main class="w-[390px] h-[844px] relative overflow-hidden flex flex-col justify-between select-none shadow-2xl rounded-[44px] border-[6px] border-[#142327]">
+
+    <!-- Background: Calm Teal-to-Navy Gradient with Gentle Radial Ambiance -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#091C20] via-[#09171A] to-[#050D0F] pointer-events-none"></div>
+
+    <!-- Soft Radial Ambiance Light behind the teacher spot -->
+    <div class="absolute top-[28%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(43,163,154,0.18)_0%,_rgba(18,52,58,0.08)_50%,_transparent_75%)] blur-2xl pointer-events-none"></div>
+    <div class="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[280px] h-[160px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(43,163,154,0.12)_0%,_transparent_70%)] blur-xl pointer-events-none"></div>
+
+    <!-- TOP BAR / CALL TELEMETRY -->
+    <header class="relative z-20 pt-6 px-5 flex flex-col items-center gap-2">
+      <!-- Status Pill & Timer Row -->
+      <div class="w-full flex items-center justify-between">
+        <!-- Close / Minimize Utility -->
+        <button aria-label="Minimize Call" class="w-9 h-9 rounded-full bg-[#122327]/80 border border-[#233C42] flex items-center justify-center text-[#9AB3B8] active:scale-95 transition-transform">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Center: LIVE Pill + Timer -->
+        <div class="flex items-center gap-2 bg-[#0E1E22]/90 border border-[#233F46] px-3.5 py-1.5 rounded-full shadow-lg backdrop-blur-md">
+          <div class="flex items-center gap-1.5 pr-2 border-r border-[#203940]">
+            <span class="w-2 h-2 rounded-full bg-[#F2553B] live-dot shadow-[0_0_8px_#F2553B]"></span>
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-[#FF7A63]">LIVE</span>
+          </div>
+          <span class="font-mono text-[13px] font-bold text-[#E5F5F4] tracking-wider">02:41</span>
+        </div>
+
+        <!-- Connection Quality Indicator -->
+        <div class="flex items-center gap-1 bg-[#0E1E22]/80 border border-[#233C42] px-2.5 py-2 rounded-full text-[#2BA39A]">
+          <span class="w-1 h-2 rounded-full bg-[#2BA39A]"></span>
+          <span class="w-1 h-3 rounded-full bg-[#2BA39A]"></span>
+          <span class="w-1 h-4 rounded-full bg-[#2BA39A]"></span>
+        </div>
+      </div>
+
+      <!-- Syllabus Topic Chip -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#122429]/90 border border-[#26444B] shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-[#FFC94A]"></span>
+        <span class="text-[12px] font-bold text-[#CEE4E6] tracking-tight">IELTS Speaking Part 2</span>
+        <span class="text-[10px] font-extrabold text-[#2BA39A] bg-[#0E2024] px-1.5 py-0.5 rounded-md border border-[#1A3E44]">Band 7.5</span>
+      </div>
+    </header>
+
+    <!-- CENTER HERO: LARGE EMPTY TEACHER SPOT (260x360) -->
+    <!-- Strictly NO person, NO photo, NO frame — only the soft oval floor shadow where our 2D teacher stands live in code -->
+    <div class="relative z-10 flex-1 flex flex-col items-center justify-end pb-3">
+      <!-- 260x360 Teacher Stage Area -->
+      <div class="w-[260px] h-[360px] relative flex flex-col items-center justify-end">
+
+        <!-- Ambient floor light ring -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[220px] h-[40px] rounded-full bg-[#2BA39A]/10 blur-md pointer-events-none"></div>
+
+        <!-- Soft oval contact floor shadow -->
+        <div class="w-[200px] h-[26px] rounded-[100%] bg-[#03090B]/90 shadow-[0_8px_24px_rgba(0,0,0,0.85)] filter blur-[4px]"></div>
+
+        <!-- Grounding star sparkles on floor (Lexkite tactile signature) -->
+        <div class="absolute bottom-1 w-full flex justify-center gap-12 text-[#2A4B54] text-[10px] select-none opacity-40">
+          <span>✦</span>
+          <span>✦</span>
+          <span>✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOWER SECTION: CAPTION PILL + LIVELY AUDIO WAVEFORM -->
+    <div class="relative z-20 px-4 flex flex-col items-center gap-5 pb-6">
+
+      <!-- Caption Pill with Question & Lively Waveform -->
+      <div class="w-full bg-[#102227]/95 border-2 border-[#26434B] rounded-2xl p-3.5 shadow-[0_12px_28px_rgba(0,0,0,0.5),0_4px_0_#0A171A] backdrop-blur-md flex items-center justify-between gap-3">
+        <!-- Speaker / Avatar Mini Glyph -->
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-b from-[#2BA39A] to-[#1F7A75] border border-[#3EDBCF]/40 flex items-center justify-center shrink-0 shadow-sm">
+          <svg class="w-5 h-5 text-[#071F22]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+          </svg>
+        </div>
+
+        <!-- Question Text (Single Line, Clear, Legible) -->
+        <div class="flex-1 min-w-0 pr-1">
+          <div class="text-[10px] font-extrabold uppercase tracking-wider text-[#2BA39A]">Teacher Ama</div>
+          <p class="text-[14px] font-bold text-[#EDF7F7] truncate leading-tight mt-0.5">
+            "Describe a memorable journey you took by train."
+          </p>
+        </div>
+
+        <!-- Lively Animated Audio Waveform -->
+        <div class="flex items-center gap-[3px] h-7 px-2 py-1 rounded-lg bg-[#0A1619] border border-[#1B353B] shrink-0" aria-label="Audio Waveform">
+          <span class="w-[3px] bg-[#2BA39A] wave-bar" style="animation-delay: 0.1s; height: 10px;"></span>
+          <span class="w-[3px] bg-[#2BA39A] wave-bar" style="animation-delay: 0.35s; height: 18px;"></span>
+          <span class="w-[3px] bg-[#3DE5D6] wave-bar" style="animation-delay: 0.05s; height: 24px;"></span>
+          <span class="w-[3px] bg-[#2BA39A] wave-bar" style="animation-delay: 0.5s; height: 16px;"></span>
+          <span class="w-[3px] bg-[#2BA39A] wave-bar" style="animation-delay: 0.25s; height: 8px;"></span>
+        </div>
+      </div>
+
+      <!-- BOTTOM CONTROL BAR: 3 ROUND CHUNKY CALL BUTTONS WITH LEDGES -->
+      <div class="w-full flex items-center justify-center gap-7 pt-1">
+
+        <!-- 1) SPEAKER BUTTON (Chunky 60px Round with 5px Ledge) -->
+        <button aria-label="Toggle Speaker" class="tactile-btn btn-speaker w-[60px] h-[60px] rounded-full flex flex-col items-center justify-center relative group">
+          <!-- Top Specular Highlight Ring -->
+          <span class="absolute inset-[2px] rounded-full border-t border-white/20 pointer-events-none"></span>
+          <svg class="w-6 h-6 text-[#9EC4C9] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+        </button>
+
+        <!-- 2) HERO MIC BUTTON (Big 80px Round Teal with Pulsing Ring & 6px Ledge) -->
+        <div class="relative flex items-center justify-center">
+          <!-- Outer Pulsing Halo Rings -->
+          <div class="absolute w-[108px] h-[108px] rounded-full border-2 border-[#2BA39A]/40 pulse-halo pointer-events-none"></div>
+          <div class="absolute w-[94px] h-[94px] rounded-full bg-[#2BA39A]/15 pulse-halo-subtle pointer-events-none"></div>
+
+          <!-- Hero Button -->
+          <button aria-label="Microphone active" class="tactile-btn btn-mic w-[80px] h-[80px] rounded-full relative z-10 flex items-center justify-center shadow-lg">
+            <!-- Glossy Top Specular Crescent -->
+            <span class="absolute top-1 left-3 right-3 h-[18px] rounded-full bg-white/25 blur-[1px] pointer-events-none"></span>
+
+            <!-- Mic Icon -->
+            <svg class="w-8 h-8 text-[#072427] relative z-10" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- 3) RED END-CALL BUTTON (Chunky 60px Round with 5px Ledge) -->
+        <button aria-label="End Call" class="tactile-btn btn-end w-[60px] h-[60px] rounded-full flex items-center justify-center relative">
+          <!-- Top Specular Highlight -->
+          <span class="absolute top-1 left-2.5 right-2.5 h-[14px] rounded-full bg-white/30 blur-[0.5px] pointer-events-none"></span>
+          <!-- Phone Hangup Glyph -->
+          <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08a.99.99 0 010-1.41C3.41 8.5 7.46 6.75 12 6.75s8.59 1.75 11.71 4.92c.39.39.39 1.02 0 1.41l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.1-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/>
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Safe Area Indicator / Micro hint -->
+      <div class="w-32 h-1 bg-[#1A333A]/70 rounded-full mt-1"></div>
+    </div>
+
+  </main>
+</body>
+</html>
+

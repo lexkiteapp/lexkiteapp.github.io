@@ -127,6 +127,8 @@ on:
       - 'video-shard-equiv'
       - 'Perf profile'
       - 'UX cards'
+      - 'Stitch diff'
+      - 'Brand build'
       - 'Admin – gác bố cục'
       - 'call-qa'
       - 'Teach build'
