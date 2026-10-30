@@ -40719,6 +40719,882 @@
     "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
    ],
    "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fatal#adj",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: fatal accident)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "fatal",
+    "pos": "adj",
+    "ipa": "/ˈfeɪtəl/",
+    "ipaUS": "/ˈfeɪtl/",
+    "def": "decided by fate; destined to happen",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "fateful"
+    ],
+    "level": "B2",
+    "cefrF": "B1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 4.1,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fatal.s.04",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: fatal accident",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-qualities.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "passionate#adj",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: romantic)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "passionate",
+    "pos": "adj",
+    "ipa": "/ˈpæʃənət/",
+    "ipaUS": "/ˈpæʃənət/",
+    "def": "Showing very strong feelings, often romantic or sexual",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "B1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 4.09,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:passionate.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "fired with intense feeling",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: romantic",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-feelings.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fabulous#adj",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: wonderful)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "fabulous",
+    "pos": "adj",
+    "ipa": "/ˈfæbjʊləs/",
+    "ipaUS": "/ˈfæbjələs/",
+    "def": "relating to myths or legends; not based on fact",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "mythic",
+     "mythical",
+     "mythological"
+    ],
+    "level": "B2",
+    "cefrF": "B1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 4.08,
+    "emoji": "",
+    "topic": "xw-religion-history",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fabulous.s.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: wonderful",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-religion-history.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "intimate#adj",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: sexual intimacy / adds sexual connotation not in gloss / also fits: s)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "intimate",
+    "pos": "adj",
+    "ipa": "/ˈɪntɪmət/",
+    "ipaUS": "/ˈɪntəmət/",
+    "def": "very close and familiar, often in a personal or sexual way",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "B2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 4.06,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:intimate.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "closely acquainted; familiar",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: sexual intimacy / adds sexual connotation not in gloss / also fits: sexual",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-feelings.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "desperately#adv",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[1,0,0],\"wk2\":[0,0,0]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "compassion#n",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[2,2,1],\"wk2\":[0,2,1]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "vanity#n",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: excessive pride)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "vanity",
+    "pos": "n",
+    "ipa": "/ˈvænɪti/",
+    "ipaUS": "/ˈvænəti/",
+    "def": "the quality of being vain, useless, or without value",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "emptiness"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.74,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:vanity.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "that which is vain",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: excessive pride",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-qualities.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "pint#n",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[0,0,0],\"wk2\":[0,0,0]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "mastery#n",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (adds skill meaning not in gloss)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "mastery",
+    "pos": "n",
+    "ipa": "/ˈmɑːstəri/",
+    "ipaUS": "/ˈmæstəri/",
+    "def": "complete control or superior skill over something",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "domination",
+     "supremacy"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.57,
+    "emoji": "",
+    "topic": "work",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:domination.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "adds skill meaning not in gloss",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "work.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "commemorate#v",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[1,2,2],\"wk2\":[3,3,3]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "nutshell#n",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: brief summary)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "nutshell",
+    "pos": "n",
+    "ipa": "/ˈnʌtʃel/",
+    "ipaUS": "/ˈnʌtʃel/",
+    "def": "the hard outer shell that surrounds a nut's kernel",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.43,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:nutshell.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "the shell that surrounds the kernel of a nut",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: brief summary",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "sulfur#n",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: rotten eggs)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "sulfur",
+    "pos": "n",
+    "ipa": "/ˈsʌlfə/",
+    "ipaUS": "/ˈsʌlfər/",
+    "def": "a bright yellow chemical element, odorless and tasteless, found in minerals and volcanic areas",
+    "ex": [],
+    "col": [
+     "sulfur mine",
+     "native sulfur"
+    ],
+    "syn": [
+     "sulphur"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.43,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:sulfur.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "element",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: rotten eggs",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "pickle#n",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: a difficult situation)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "pickle",
+    "pos": "n",
+    "ipa": "/ˈpɪkəl/",
+    "ipaUS": "/ˈpɪkl/",
+    "def": "a cucumber preserved in brine or vinegar solution",
+    "ex": [],
+    "col": [
+     "sweet pickle",
+     "dill pickle"
+    ],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.39,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:pickle.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "preserved cucumber",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: a difficult situation",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "coherence#n",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[1,2,2],\"wk2\":[2,1,2]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "desolation#n",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: act of destroying (different from state) / also fits: abandonment)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "desolation",
+    "pos": "n",
+    "ipa": "/ˌdesəˈleɪʃən/",
+    "ipaUS": "/ˌdesəˈleɪʃn/",
+    "def": "the act of destroying a place and causing it to be empty",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "devastation"
+    ],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.03,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:devastation.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "state of being desolated or laid waste",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1-2of3+semcor"
+    },
+    "qa": {},
+    "defChanged": "also fits: act of destroying (different from state) / also fits: abandonment",
+    "senseLock": "wiktionary-1-2of3+semcor",
+    "tp": [
+     "society.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "instill#v",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[1,3,4],\"wk2\":[2,2,2]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "furor#n",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[2,2,1],\"wk2\":[2,0,0]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "humanize#v",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[1,0,0],\"wk2\":[1,0,1]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "indent#v",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: formatting)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "indent",
+    "pos": "v",
+    "ipa": "/ˌɪnˈdent/",
+    "ipaUS": "/ɪnˈdent/",
+    "def": "to cut a series of small notches or teeth into something",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 2.44,
+    "emoji": "",
+    "topic": "technology",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:indent.v.04",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: formatting",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "technology.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "debut#n",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (too narrow; gloss includes non-performers / also fits: first public appearance)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "debut",
+    "pos": "n",
+    "ipa": "/ˈdeɪbjuː/",
+    "ipaUS": "/ˈdeɪbjuː/",
+    "def": "a performer’s first public performance",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "introduction",
+     "launching",
+     "unveiling"
+    ],
+    "level": "C1",
+    "cefrF": "A2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 4.52,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:introduction.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [],
+     "tr": {},
+     "trSense": "a performer's first-time performance to the public",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Anh /ˈdebjuː/ → /ˈdeɪbjuː/ (Britfone)"
+     ]
+    },
+    "qa": {},
+    "defChanged": "too narrow; gloss includes non-performers / also fits: first public appearance",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "culture.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "suspension#n",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[6,0,6],\"wk2\":[2,2,2]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "vest#v",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: invest power)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "vest",
+    "pos": "v",
+    "ipa": "/vest/",
+    "ipaUS": "/vest/",
+    "def": "to dress someone in formal or religious robes",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "robe"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.73,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:vest.v.05",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: invest power",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "society.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "repayment#n",
+   "batch": "20261030",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[1,2,2],\"wk2\":[2,0,2]})"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fiddle#v",
+   "batch": "20261030",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (also fits: play with something)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-30",
+   "data": {
+    "w": "fiddle",
+    "pos": "v",
+    "ipa": "/ˈfɪdəl/",
+    "ipaUS": "/ˈfɪdl/",
+    "def": "to play the violin, especially in folk or country music",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 3.43,
+    "emoji": "",
+    "topic": "xw-actions",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fiddle.v.03",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "defChanged": "also fits: play with something",
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-actions.v"
+    ]
+   }
   }
  ]
 }
