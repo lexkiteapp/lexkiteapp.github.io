@@ -186,7 +186,7 @@ await pmap(chunks(okDef, 10), 8, async ch => { const r = await call('lxtr', ch.m
 // lxvi: HAI họ khác (llama + mistral) – vi nhận khi ≥ 2 trong 4 nguồn trùng (Wiktionary · A · B · C)
 const viReq = ch => ({ mode: 'lxvi', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def })) });
 await pmap(chunks(okDef, 10), 6, async ch => { const fa = ch.map(x => FA[x.k]).find(Boolean) || 'gpt-oss'; stat.calls += 2;
-  const b = await AI.judge(viReq(ch), { chain: ['gem', 'groq', 'cf2'], exclude: [fa] }), // B = Gemini (chủ 30/10: Gemini dịch vi), họ khác bản lxtr c = b && await AI.judge(viReq(ch), { chain: ['groq', 'cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
+  /* B = Gemini (chủ 30/10: Gemini dịch vi), họ khác bản lxtr */ const b = await AI.judge(viReq(ch), { chain: ['gem', 'groq', 'cf2'], exclude: [fa] }), c = b && await AI.judge(viReq(ch), { chain: ['groq', 'cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
   for (const [r, V] of [[b, VB], [c, VC]]) if (r) { used.add(r.route + ':' + r.model); for (const x of ch) { const o = r.out[x.k] || {}; if (typeof o.vi === 'string' && o.vi.trim()) V[x.k] = o.vi.trim(); } } });
 const OMWL = ['ja', 'zh', 'th', 'id', 'fr', 'es', 'pt', 'ar'];
 stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw+ai': 0, 'omw+ai': 0, 'wiktionary+ai': 0 };

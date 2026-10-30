@@ -301,6 +301,8 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/acc === 'us' \? 'af_heart\|' : 'bf_emma\|'/.test(NT), 'newtab.js: us → af_heart, còn lại bf_emma');
   // mục mở rộng vào app với ipaUS riêng (toIndex: trùng Anh → để trống = dùng Anh)
   { const e = toIndex({ ...good(), ipa: '/ʌnˈɪntrəstɪŋ/', ipaUS: '/ʌnˈɪntrəstɪŋ/' }), f = toIndex({ ...good() }); ok(e.ipa === '/ʌnˈɪntrəstɪŋ/' && e.ipaUS === '' && f.ipaUS === '/fərˈseɪk/' && f.ipa === '/fəˈseɪk/', 'toIndex: ipa = Anh, ipaUS = Mỹ'); } }
+// hạ tầng (30/10 pilot 7 hỏng vì chú thích // nuốt nửa dòng): job.mjs / grade.mjs phải qua node --check
+{ const { spawnSync } = await import('child_process'); for (const f of ['job.mjs', 'grade.mjs', 'promote.mjs']) ok(spawnSync(process.execPath, ['--check', 'scripts/lexicon/expand/' + f]).status === 0, `node --check ${f}`); }
 // L3 (30/10): giám khảo trả khuôn bọc → phiếu khoá nghĩa rỗng hàng loạt; đọc mọi khuôn thường gặp, khuôn lạ → null (không đoán)
 { const I = ['wk1', 'wk2'];
   ok(JSON.stringify(wsdUnwrap({ wk1: 2, wk2: '0' }, I)) === '{"wk1":2,"wk2":0}', 'wsdUnwrap phẳng');
