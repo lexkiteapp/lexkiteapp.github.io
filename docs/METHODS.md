@@ -14,11 +14,11 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Prompt Stitch: MỖI LẦN 1 MÀN, tả cảm giác/trải nghiệm, không liệt kê thông số.
 - Nhân vật: CHỈ Ama + Carlos 2D (tóc đen, trang phục sáng), qua `Chars.*` từ `web/teach/characters.json`; không 3D, không trộn, không viền; đổi phong cách phải hỏi chủ. Engine = puppet 2D động; art phải từ nguồn thật (1 sheet AI Studio, chủ duyệt art trước) – SVG vẽ tay đã bị loại. Ama = giọng nữ, Carlos = giọng nam ở mọi nơi (CI kiểm).
 - Đặt giáo viên trên màn (HARD): trông như một phần thiết kế kiểu Duolingo – cùng ánh sáng/tỉ lệ/chạm nền, viền sạch; cấm quầng cắt, đường cắt, khung, thân mờ dần hay kiểu "dán lên" (trượt QC, chủ duyệt ảnh).
-- Tương phản: CI đo mọi chữ/icon trên nền thật (thân ≥ 4,5:1, lớn/icon ≥ 3:1) cả sáng lẫn tối.
+- Tương phản: CI đo mọi chữ/icon trên nền thật (thân ≥ 4,5:1, lớn/icon ≥ 3:1) cả sáng lẫn tối; không thẻ tối trong chế độ sáng, không xám-trên-xám ở chế độ tối, không placeholder.
 - Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
 - Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
 - QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt.
-- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp; logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
+- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp (ngoại lệ: lớp game-feel tự duyệt khi ≥ 95); logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
 - Việc nặng (tách nền, render) CHỈ trên CI – script tự từ chối chạy ngoài `$CI`.
 - Phiên: mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn.
 <!-- auto:direction:end -->
