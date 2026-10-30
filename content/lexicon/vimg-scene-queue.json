@@ -1,12 +1,6 @@
 {
  "_note": "Nghĩa cảnh đã thử đủ biến thể mà không ảnh nào qua giám khảo cảnh – fill bỏ qua tới khi sửa thẻ (vimg-scenes.json) / prompt rồi xoá mục khỏi đây (scene-publish.mjs).",
  "items": {
-  "advertise#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (company, products, and advertising); clip-sentence sim 0.1875; vision description-sentence sim 0.1503",
-   "b": "40088424311"
-  },
   "advertisement#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -59,12 +53,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: text",
-   "b": "40088424311"
-  },
-  "check-in#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (clock or time indication); vision description-sentence sim 0.2104",
    "b": "40088424311"
   },
   "clause#n": {
@@ -293,12 +281,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "clip-sentence sim 0.1965",
-   "b": "40088424311"
-  },
-  "smuggle#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (officer checking container)",
    "b": "40088424311"
   },
   "there#adv": {
