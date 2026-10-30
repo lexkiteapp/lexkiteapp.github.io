@@ -63,7 +63,7 @@
 .call-ov{position:fixed;inset:0;z-index:9000;display:flex;flex-direction:column;align-items:center;background:radial-gradient(120% 80% at 50% 0%,#1f4f4d 0%,#0f2223 55%,#0a1414 100%);color:#fff;padding:max(14px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));overflow-y:auto}
 .call-top{width:100%;max-width:560px;display:flex;justify-content:space-between;align-items:center;gap:.6rem;font-size:.85rem;opacity:.9}
 .call-av{position:relative;width:min(46vw,210px);aspect-ratio:3/4;margin:1.4vh auto .8vh;border-radius:22px;overflow:hidden;background:transparent;box-shadow:0 0 0 4px rgba(255,255,255,.08);flex:none;transition:box-shadow .2s}
-.call-av>img.call-po{width:100%;height:100%;object-fit:contain;object-position:50% 100%}.call-av .tch{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.call-av>img.call-po{width:100%;height:100%;object-fit:contain;object-position:50% 100%}.call-av:has(>.tch:not([style*="none"]))>img.call-po{visibility:hidden}.call-av .tch{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
 .tch-rig{position:absolute;inset:0}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
 .call-ini{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.4rem;color:var(--primary,#0D6964);background:rgba(13,105,100,.12);border-radius:50%}
 .call-rp{width:120px;height:160px;object-fit:contain;object-position:50% 100%;margin:0 auto}.call-ini.call-rp{border-radius:18px}
