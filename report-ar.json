@@ -1,0 +1,557 @@
+{
+ "lang": "ar",
+ "results": [
+  {
+   "lang": "ar",
+   "check": "app: trang chủ hiển thị",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "môi trường: gọi được dịch máy (gtx)",
+   "ok": true,
+   "detail": "có"
+  },
+  {
+   "lang": "ar",
+   "check": "app: #/review có nội dung",
+   "ok": true,
+   "detail": "✅ 0 · 29 بطاقات متبقية\n?\nوضع المراجعة\nتلقائي\nاقلب البطاقة\nاكتبها\nاستمع واختر\n🇬\ud83c"
+  },
+  {
+   "lang": "ar",
+   "check": "app: #/review không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "app: #/vocab có nội dung",
+   "ok": true,
+   "detail": " المفردات\n\nتعلم كلمات جديدة، وراجعها مباشرة قبل أن تنسى، وابحث عن الأشياء بسرعة."
+  },
+  {
+   "lang": "ar",
+   "check": "app: #/vocab không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "app: #/settings có nội dung",
+   "ok": true,
+   "detail": "حسابي\nالإعدادات\n\nالحساب والتذكير والأهداف والمظهر\n\nالحساب\nالمظهر\nأهداف الدراسة\nا"
+  },
+  {
+   "lang": "ar",
+   "check": "app: #/settings không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "app: #/dict/house có nội dung",
+   "ok": true,
+   "detail": "المفردات\nالإنجليزية - القاموس الفيتنامي\n\nتعريفات لغات أكسفورد · IPA في المملكة ا"
+  },
+  {
+   "lang": "ar",
+   "check": "app: #/dict/house không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "dữ liệu mẫu: có thẻ trong chrome.storage",
+   "ok": true,
+   "detail": "60"
+  },
+  {
+   "lang": "ar",
+   "check": "gạch chân bằng CSS Highlight API: không chèn <vb-mark> vào DOM trang",
+   "ok": true,
+   "detail": "api=true vb-mark=0"
+  },
+  {
+   "lang": "ar",
+   "check": "content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang",
+   "ok": true,
+   "detail": "18: Urban, infrastructure, Dense, resilience, initial, considerable"
+  },
+  {
+   "lang": "ar",
+   "check": "gạch chân cả trong hộp thoại role=dialog (Highlight API không làm hỏng form React)",
+   "ok": true,
+   "detail": "8"
+  },
+  {
+   "lang": "ar",
+   "check": "SPA kiểu React: có gạch chân trong khung #root + hộp thoại",
+   "ok": true,
+   "detail": "all=10 dlg=6"
+  },
+  {
+   "lang": "ar",
+   "check": "SPA kiểu React: vẽ lại chữ sau khi gạch chân → không lỗi trang (removeChild)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "SPA kiểu React: gạch chân tính lại sau khi vẽ lại (kể cả hộp thoại)",
+   "ok": true,
+   "detail": "all=10 dlg=6 Considerable,approach,significant,research,approach"
+  },
+  {
+   "lang": "ar",
+   "check": "bấm vào từ được gạch chân (Highlight API) → mở bảng tra",
+   "ok": true,
+   "detail": "🔬\nresearchاسمA2\n/rɪˈsɜːtʃ/ · /rɪˈsɜːrtʃ/\n🔊 UK\n🔊 US\n🐢\nدراسة, بحث علمي\nاسم\ncar"
+  },
+  {
+   "lang": "ar",
+   "check": "bấm đúp: hiện bảng tra",
+   "ok": true,
+   "detail": "💪\nresilienceاسمC1\n/rɪˈzɪlɪəns/ · /rɪˈzɪliəns/\n🔊 UK\n🔊 US\n🐢\nالمرونة\nاسم\nthe ab"
+  },
+  {
+   "lang": "ar",
+   "check": "bấm đúp: đúng từ + phiên âm",
+   "ok": true,
+   "detail": "💪\nresilienceاسمC1\n/rɪˈzɪlɪəns/ · /rɪˈzɪliəns/\n🔊 UK\n🔊 US\n🐢\nالمرونة\nاسم\nthe ability to recover quickly from difficulti"
+  },
+  {
+   "lang": "ar",
+   "check": "bảng tra: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tương phản bảng tra (trang sáng) ≥ 4.5:1",
+   "ok": true,
+   "detail": "46 chữ; lỗi: "
+  },
+  {
+   "lang": "ar",
+   "check": "trang sáng → bảng tra sáng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "bảng tra: không treo \"Đang dịch câu\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tra lồng trong bảng tra (bấm đúp từ trong định nghĩa)",
+   "ok": true,
+   "detail": "ability → 📘ability"
+  },
+  {
+   "lang": "ar",
+   "check": "danh từ \"forest\": có ảnh minh họa (đã tải xong)",
+   "ok": true,
+   "detail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aer"
+  },
+  {
+   "lang": "ar",
+   "check": "\"action\": không có tiêu đề từ loại trống",
+   "ok": true,
+   "detail": "0 nhóm trống"
+  },
+  {
+   "lang": "ar",
+   "check": "\"action\": có ảnh minh họa (đã tải xong)",
+   "ok": false,
+   "detail": "none"
+  },
+  {
+   "lang": "ar",
+   "check": "trạng từ \"exactly\": hiện bảng tra",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "trạng từ \"exactly\": không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "ar",
+   "check": "tính từ \"available\": không ảnh lệch nghĩa, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "ar",
+   "check": "bôi đen (chế độ nút 🌐): hiện nút",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "bấm 🌐: hiện bản dịch",
+   "ok": true,
+   "detail": "🌐 ترجم التحديد\nEN → AR\n×\nAlthough the initial cost is considerable, the long-term benefits to public health far outweig"
+  },
+  {
+   "lang": "ar",
+   "check": "tương phản bản dịch ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "bản dịch: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "bôi đen (tự dịch): hiện bản dịch ngay",
+   "ok": true,
+   "detail": "🌐 ترجم التحديد\nEN → AR\n×\nAlthough the initial cost is considerable, the long-te"
+  },
+  {
+   "lang": "ar",
+   "check": "bôi đen (tắt): không hiện gì",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "ô nhập chữ (textarea): bôi đen → nút 🌐",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tắt \"Bấm đúp để tra\": không hiện bảng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "trang CSP chặn ảnh: vẫn có ảnh (canvas)",
+   "ok": true,
+   "detail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aer"
+  },
+  {
+   "lang": "ar",
+   "check": "trang CSP chặn <style>: bảng tra vẫn đúng kiểu (adoptedStyleSheets)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "trong iframe: bấm đúp tra được",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "trang RTL (Ả Rập): bảng tra hiện",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "máy chế độ tối + trang sáng: bảng tra hiện",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "máy tối + trang sáng → bảng tra SÁNG, tương phản đạt",
+   "ok": true,
+   "detail": "dark=false "
+  },
+  {
+   "lang": "ar",
+   "check": "trang tối → bảng tra TỐI, tương phản đạt",
+   "ok": true,
+   "detail": "dark=true "
+  },
+  {
+   "lang": "ar",
+   "check": "thẻ thông báo (sáng): \"available\" – bảng tra theo nền trang, tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": "dark=false "
+  },
+  {
+   "lang": "ar",
+   "check": "thẻ thông báo (sáng): tính từ \"available\" không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "ar",
+   "check": "thẻ thông báo (sáng): danh từ \"library\" – tương phản ≥ 4.5:1, không ô chữ cái",
+   "ok": true,
+   "detail": "img "
+  },
+  {
+   "lang": "ar",
+   "check": "thẻ thông báo (sáng): ảnh minh họa có alt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "thẻ thông báo (tối): \"available\" – bảng tra theo nền trang, tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": "dark=true "
+  },
+  {
+   "lang": "ar",
+   "check": "thẻ thông báo (tối): tính từ \"available\" không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "ar",
+   "check": "thẻ thông báo (tối): danh từ \"library\" – tương phản ≥ 4.5:1, không ô chữ cái",
+   "ok": true,
+   "detail": "img "
+  },
+  {
+   "lang": "ar",
+   "check": "thẻ thông báo (tối): ảnh minh họa có alt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "popup: hiển thị số thẻ cần ôn",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "popup: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "popup: nút \"Ôn ngay\" không bị che",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "popup: bấm \"Ôn ngay\" mở ứng dụng",
+   "ok": true,
+   "detail": "chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/review"
+  },
+  {
+   "lang": "ar",
+   "check": "popup: tra nhanh \"house\"",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "popup: đổi \"Khi bôi đen chữ\" → lưu",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: có thẻ từ",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: vẽ thẻ < 100 ms (không chờ mạng)",
+   "ok": true,
+   "detail": "80 ms"
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: đầu thẻ có từ + nhãn (loại từ/CEFR/kỳ thi)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: có nút nghe giọng Anh",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: họ từ/cụm từ… thu gọn mặc định",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: thẻ + ô tìm ≤ 45 % màn 1366×768",
+   "ok": true,
+   "detail": "308 px"
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: nút UK phát âm",
+   "ok": true,
+   "detail": "{\"k\":\"mp3\",\"r\":1,\"d\":1,\"pp\":true}"
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: nút US phát âm",
+   "ok": true,
+   "detail": "{\"k\":\"mp3\",\"r\":1,\"d\":1,\"pp\":true}"
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: nút 🐢 phát âm",
+   "ok": true,
+   "detail": "{\"k\":\"mp3\",\"r\":0.7,\"d\":0.7,\"pp\":true}"
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: 🐢 phát chậm (tốc độ < 1, giọng vừa nghe = US)",
+   "ok": true,
+   "detail": "{\"k\":\"mp3\",\"r\":0.7,\"d\":0.7,\"pp\":true}"
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: chế độ Tự kiểm tra che nghĩa",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: Space hiện nghĩa",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: phím N sang từ khác",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: không lẫn tiếng Việt (giao diện)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "tab mới: bấm \"Đã nhớ\" sang thẻ khác / cập nhật",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "lexkite.com (chào mừng): bấm đúp có bảng tra (add-on hoặc web)",
+   "ok": true,
+   "detail": "từ=YouTube addon=true web=false"
+  },
+  {
+   "lang": "ar",
+   "check": "lexkite.com: không hiện 2 bảng cùng lúc",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "lexkite.com đang thi (#/mock): add-on khóa tra",
+   "ok": true,
+   "detail": "null"
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: mặc định TẮT (không gạch chân)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: textarea có lỗi → gạch chân",
+   "ok": true,
+   "detail": "u=3 u spelling,u grammar,u grammar"
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: bấm chữ bị gạch → hộp gợi ý",
+   "ok": true,
+   "detail": "الإملاء\nكلمة شائعة الخطأ إملائيًا\n×\nrecieve\nreceive\nتجاهل\n💡 لماذا؟\nإيقاف في هذا الموقع"
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: \"Vì sao?\" có giải thích",
+   "ok": true,
+   "detail": "هذه الكلمة بها خطأ إملائي. تعلم التهجئة الصحيحة - غالبًا ما تتم إضافة الكلمات التي تخطئ في كتابتها إ"
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: hộp gợi ý không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: sửa 1 chạm",
+   "ok": true,
+   "detail": "I receive your email and she have a informations about it. "
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: lỗi ngữ pháp có gợi ý",
+   "ok": true,
+   "detail": "القواعد\nتوافق الفاعل والفعل\n×\nhave\nhas\nتجاهل\n💡 لماذا؟\nإيقاف في هذا الموقع"
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: ô mật khẩu → không gạch chân",
+   "ok": true,
+   "detail": "u=0"
+  },
+  {
+   "lang": "ar",
+   "check": "soát lỗi viết: contenteditable → gạch chân",
+   "ok": true,
+   "detail": "u=3 u grammar,u grammar,u style"
+  },
+  {
+   "lang": "ar",
+   "check": "errLog của add-on rỗng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ar",
+   "check": "không có lỗi console/trang từ add-on",
+   "ok": false,
+   "detail": "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline script because it violates the following Content Security Policy directive: \"script-src 'self'\". Either the 'unsafe-inline' keyword, a @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/home | console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline script because i"
+  }
+ ],
+ "errors": [
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline script because it violates the following Content Security Policy directive: \"script-src 'self'\". Either the 'unsafe-inline' keyword, a @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/home",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline script because it violates the following Content Security Policy directive: \"script-src 'self' 'wasm-unsafe-eval' 'inline-speculation- @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/home",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline event handler because it violates the following Content Security Policy directive: \"script-src 'self'\". Either the 'unsafe-inline' key @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/home",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline event handler because it violates the following Content Security Policy directive: \"script-src 'self' 'wasm-unsafe-eval' 'inline-specu @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/home",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline script because it violates the following Content Security Policy directive: \"script-src 'self'\". Either the 'unsafe-inline' keyword, a @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html?demo=1&hl=ar#/home",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline script because it violates the following Content Security Policy directive: \"script-src 'self' 'wasm-unsafe-eval' 'inline-speculation- @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html?demo=1&hl=ar#/home",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline event handler because it violates the following Content Security Policy directive: \"script-src 'self'\". Either the 'unsafe-inline' key @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html?demo=1&hl=ar#/home",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline event handler because it violates the following Content Security Policy directive: \"script-src 'self' 'wasm-unsafe-eval' 'inline-specu @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html?demo=1&hl=ar#/home",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline script because it violates the following Content Security Policy directive: \"script-src 'self'\". Either the 'unsafe-inline' keyword, a @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html?hl=ar#/review",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline script because it violates the following Content Security Policy directive: \"script-src 'self' 'wasm-unsafe-eval' 'inline-speculation- @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html?hl=ar#/review",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline event handler because it violates the following Content Security Policy directive: \"script-src 'self'\". Either the 'unsafe-inline' key @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html?hl=ar#/review",
+  "console chrome-extension://kblfilcmclonmeecilfiflfpingdofc: Refused to execute inline event handler because it violates the following Content Security Policy directive: \"script-src 'self' 'wasm-unsafe-eval' 'inline-specu @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html?hl=ar#/review",
+  "page chrome-extension://kblfilcmclonmeecilfiflfpingdofca/popup.ht: Cannot access 'ipaAcc' before initialization",
+  "page chrome-extension://kblfilcmclonmeecilfiflfpingdofca/popup.ht: Cannot access 'ipaAcc' before initialization",
+  "page chrome-extension://kblfilcmclonmeecilfiflfpingdofca/popup.ht: Cannot access 'ipaAcc' before initialization"
+ ],
+ "errLog": []
+}
