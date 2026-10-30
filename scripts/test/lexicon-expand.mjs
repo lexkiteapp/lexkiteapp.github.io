@@ -316,6 +316,11 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/g\.live < g\.size \/ 4/.test(J) && /pr\.day \/ pr\.n >= 0\.75/.test(J) && /probeGem: !WORDS/.test(J) && /pool: 'low'/.test(J), 'job: dừng sớm khi kho Gemini cạn (khoá sống / thăm dò hạn mức ngày)');
   ok(/n: \{[^}]*default: '' \}/.test(Y), "workflow: input n mặc định '' (dùng LX_N)");
   ok(/GEM_PAR = \d/.test(P) && /w >= 8/.test(P), 'ai-pool: xếp hàng Gemini + chờ khoá nghỉ theo phút'); }
+// mục đã lưu (qa.trKeep): xét lại theo ngôn ngữ còn giữ – vẫn chặn bản dịch hỏng / ngôn ngữ ngoài trKeep (lô xuất đầu tiên 30/10 lộ lỗi cổng không lũy đẳng)
+{ const pubE = loadExpand(); if (pubE.length) { const e0 = JSON.parse(JSON.stringify(pubE[0].e)), l = e0.qa.trKeep.find(x => e0.m[x]);
+  ok(gateEntry(e0).ok, 'mục đã lưu qua lại cổng');
+  if (l) { const e1 = JSON.parse(JSON.stringify(e0)); e1.m[l] = e1.w; ok(!gateEntry(e1).ok || ['es', 'pt', 'fr', 'de', 'id', 'tr'].includes(l), 'mục đã lưu: bản dịch chép nguyên tiếng Anh vẫn bị chặn'); }
+  const e2 = JSON.parse(JSON.stringify(e0)), extra = LANGS.find(x => !e2.qa.trKeep.includes(x)); if (extra) { e2.m[extra] = 'x'; ok(!gateEntry(e2).ok, 'mục đã lưu: ngôn ngữ ngoài trKeep bị chặn'); } } }
 // L3 (30/10): giám khảo trả khuôn bọc → phiếu khoá nghĩa rỗng hàng loạt; đọc mọi khuôn thường gặp, khuôn lạ → null (không đoán)
 { const I = ['wk1', 'wk2'];
   ok(JSON.stringify(wsdUnwrap({ wk1: 2, wk2: '0' }, I)) === '{"wk1":2,"wk2":0}', 'wsdUnwrap phẳng');
