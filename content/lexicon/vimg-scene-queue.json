@@ -199,12 +199,6 @@
    "why": "vision: no (postal code, form details); clip-sentence sim 0.2015; vision description-sentence sim 0.0852",
    "b": "40088424311"
   },
-  "print#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (document to print and action); clip-sentence sim 0.2052",
-   "b": "40088424311"
-  },
   "producer#n": {
    "at": "2026-10-24",
    "tries": 4,
