@@ -18,7 +18,7 @@ Phương pháp chung cho mọi pipeline nội dung: `docs/QUALITY-PIPELINE.md` (
 - Cổng "ra là ok": khoá nghĩa Wiktionary↔WordNet 3/3, ví dụ CHỈ người viết, vi = Wiktionary + ≥ 1 AI, 12 ngôn ngữ = AI ∩ (OMW/Wiktionary), mọi trường qua trắc nghiệm nghĩa `lxwsd` 3 giám khảo khác họ (gpt-oss · Gemini 3.x · qwen3.8); bài học L1–L8/D1–D3 ở docs/LEXICON.md.
 - Pilot 9 mẫu cố định (`content/lexicon/expand/pilot/hard.json`, run 41050558083): LÕI 1/50 · DỊCH 0/50 · IPA 0 · nhãn xấu lọt 0 · yield 0.16 → `pilot/yield.json`; chuỗi tự dừng khi yield < 0.08.
 - Đã đưa 2.701 mục cũ (7 lô pending + hàng duyệt) về `retry/words.json` làm lại bằng luật mới; 98 mục keep:false giữ ở hàng duyệt.
-- Xuất: `promote.mjs <lô> --checked` sau soát mẫu. Trần: 14.056 ứng viên × 0.16 ≈ +2,2k → kho ~10,5k; 20k cần mục đa nghĩa/đa từ loại (phiên riêng).
+- Lượt đầu 41094203295: 600 mục → 155 đạt (yield 0.26); lô 20261030 soát 50 (sai 1) → xuất 154 (#236). Xuất: `promote.mjs <lô> --checked` sau soát mẫu. Trần: 14.056 ứng viên × 0.16 ≈ +2,2k → kho ~10,5k; 20k cần mục đa nghĩa/đa từ loại (phiên riêng).
 - AI: `ai-pool` đọc danh sách mô hình thật (GEMINI_POOL 85 + GROQ_POOL 109 khoá, không in khoá); CF_POOL chỉ dự phòng (cạn khi ảnh chạy).
 
 ## Chờ chủ
