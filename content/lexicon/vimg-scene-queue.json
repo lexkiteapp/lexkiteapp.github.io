@@ -61,22 +61,10 @@
    "why": "vision description-sentence sim 0.0577",
    "b": "40088424311"
   },
-  "contingency#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (project context and contingency); clip-sentence sim 0.2087; vision description-sentence sim 0.1828",
-   "b": "40088424311"
-  },
   "countryside#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "clip-sentence sim 0.1825; vision description-sentence sim 0.0685",
-   "b": "40088424311"
-  },
-  "crazy#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (speed context or shocked face)",
    "b": "40088424311"
   },
   "decentralize#v": {
@@ -107,18 +95,6 @@
    "at": "2026-10-26",
    "tries": 4,
    "why": "clip-sentence sim 0.195",
-   "b": "40276144478"
-  },
-  "engineer#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.2167",
-   "b": "40088424311"
-  },
-  "football#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (brother, Saturday, alone); vision description-sentence sim 0.2876",
    "b": "40276144478"
   },
   "future#n": {
@@ -199,23 +175,11 @@
    "why": "vision: no (noticeboard and action of putting up); clip-sentence sim 0.1609; vision description-sentence sim 0.0727",
    "b": "40088424311"
   },
-  "object#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (thousands of objects); vision description-sentence sim 0.1904",
-   "b": "40276144478"
-  },
   "page#n": {
    "at": "2026-10-26",
    "tries": 4,
    "why": "clip-sentence sim 0.1967",
    "b": "40276144478"
-  },
-  "party#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (name and day of party); vision description-sentence sim 0.2766",
-   "b": "40088424311"
   },
   "polite#adj": {
    "at": "2026-10-24",
