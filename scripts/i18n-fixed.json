@@ -31334,5 +31334,20 @@
     "ar": "تدرّب على التحدث ولعب الأدوار في مكالمة فيديو مع Ama وCarlos",
     "ru": "Практикуйте речь и ролевые диалоги в видеозвонке с Ama и Carlos",
     "tr": "Ama ve Carlos ile görüntülü aramada konuşma ve rol yapma pratiği yap"
+  },
+  "Gọi giáo viên": {
+    "es": "Llamar al profe",
+    "pt": "Ligar ao professor",
+    "fr": "Appel prof",
+    "de": "Lehrer-Anruf",
+    "id": "Telepon guru",
+    "th": "โทรหาครู",
+    "zh": "老师通话",
+    "ja": "先生と通話",
+    "ko": "선생님과 통화",
+    "hi": "शिक्षक से कॉल",
+    "ar": "اتصال بالمعلّم",
+    "ru": "Звонок учителю",
+    "tr": "Öğretmenle ara"
   }
 }

@@ -30,6 +30,9 @@
   const v2On = () => !!(window.ST2 && window.ST2['teacher-call'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
   const CHIP = 'w-full min-h-[44px] px-3.5 py-2 rounded-[0.75rem] text-start text-[14px] leading-[20px] font-[600] transition-transform active:translate-y-0.5 lt:bg-[#f2f4f3] lt:text-[#0D6964] dk:[background-color:rgba(43,_163,_154,_0.15)] dk:[border:1px_solid_rgba(43,_163,_154,_0.3)] dk:text-[#EEF6F7]';
   const MUT = 'lt:text-[#4E5F62] dk:text-[#9DB5BA]';
+  // nút biểu tượng nhỏ cùng hàng "Gợi ý trả lời" (không thêm chiều cao khung Stitch; vùng chạm 44px bằng lề âm) · @icons lock cloud edit
+  const IB = 'inline-flex items-center justify-center min-w-[44px] min-h-[44px] -my-[12px] -me-[10px] bg-transparent border-0 p-0 cursor-pointer lt:text-[#0D6964] dk:text-[#2BA39A]';
+  const PRIV_IC = { cloud: 'cloud', tap: 'edit' };
   const TIP_FIX = (bad, good, why) => `<span lang="en"><s>${esc(bad)}</s> → <b>${esc(good)}</b></span> <span class="block ${MUT}">${esc(why)}</span>`;
   const vOf = w => (Chars.voice ? Chars.voice(w) : (window.LessonTeacher && LessonTeacher.VOICE || {})[w]);
   const mmss = s => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.max(0, s) % 60).padStart(2, '0');
@@ -163,11 +166,15 @@ body.call-on{overflow:hidden}
         l2: `<p id="cL2" class="text-[14px] leading-[20px] mt-1 ${MUT}"></p>`,
         // khối của CallEngine (lượt dài, chọn nhận dạng, lời bạn, gõ phím, quyền riêng tư, trạng thái lượt lời cho trình đọc màn hình) nằm trong vùng gợi ý của khung
         opts: `<div id="cCue"></div><div id="cAsk"></div><div class="call-you text-[14px] ${MUT}" id="cYou" lang="en" aria-live="polite"></div>
-          <div id="cOpts" role="group" aria-label="${esc(t('Gợi ý trả lời'))}" class="flex flex-col gap-2 mt-3"></div>${TYPE}
-          <p id="cPriv" class="text-[12px] leading-[16px] mt-2 ${MUT}"></p><span class="sr-only" id="cSt" role="status" aria-live="polite"><span id="cStT"></span></span>` };
+          <div id="cOpts" role="group" aria-label="${esc(t('Gợi ý trả lời'))}" class="flex flex-col gap-2 mt-3"></div><div id="cTypeW" class="mt-2" hidden>${TYPE}</div>
+          <span class="sr-only" id="cSt" role="status" aria-live="polite"><span id="cStT"></span></span>` };
       ov = ST2.mount(view, 'teacher-call', d, null);
-      const tp = $('#cTip', ov), tn = document.createElement('span'); tn.id = 'cTipT'; if (tp && tp.lastChild) tp.replaceChild(tn, tp.lastChild); tn.textContent = t('Gợi ý trả lời');
-      $('#cPriv', ov).textContent = (PRIV[mode()] || PRIV.ask)();
+      const tp = $('#cTip', ov), tn = document.createElement('span'); tn.id = 'cTipT'; tn.className = 'flex-1'; if (tp && tp.lastChild) tp.replaceChild(tn, tp.lastChild); tn.textContent = t('Gợi ý trả lời');
+      // cuối hàng gợi ý: 🔒/☁️ quyền riêng tư (chạm = đọc đủ câu; trình đọc màn hình đọc #cPriv) · ✏️ mở ô gõ câu trả lời (ẩn mặc định → khung giữ đúng chiều cao Stitch)
+      tp.insertAdjacentHTML('beforeend', `<button type="button" id="cPrivB" class="${IB}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true" id="cPrivI">lock</span><span class="sr-only" id="cPriv"></span></button>`
+        + `<button type="button" id="cKb" class="${IB}" aria-expanded="false" aria-controls="cTypeW" aria-label="${esc(t('Gõ câu trả lời'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">edit</span></button>`);
+      const kb = $('#cKb', ov), tw = $('#cTypeW', ov); kb.onclick = () => { const open = tw.hidden; tw.hidden = !open; kb.setAttribute('aria-expanded', String(open)); if (open) $('#cIn', ov).focus(); };
+      $('#cPrivB', ov).onclick = () => toast($('#cPriv', ov).textContent, 5000);
     } else ov.innerHTML = `<div class="call-top"><span id="cPriv">${(PRIV[mode()] || PRIV.ask)()}</span><span id="cT" aria-live="off">00:00</span></div>
       <div class="call-av" id="cAv"><img class="call-po" data-po src="${poster(c.who)}" alt="${nm}" width="210" height="280"></div>
       <div class="call-name">${nm}</div><div class="call-sub" lang="en">${esc(c.role)}</div>
@@ -181,6 +188,8 @@ body.call-on{overflow:hidden}
       ${TYPE}
       <div class="call-ctl">${I18N.lang() !== 'en' ? `<button class="call-sm" id="cTr" aria-pressed="${showTr}" aria-label="${t('Bật/tắt phụ đề dịch')}">Aa</button>` : ''}<button class="call-mic" id="cMic" aria-label="${t('Nói')}">🎙️</button><button class="call-end" id="cEnd" aria-label="${t('Kết thúc cuộc gọi')}">📵</button></div>`;
     poFix(ov);
+    function privPaint() { const m = mode(), p = $('#cPriv', ov); if (p) p.textContent = (PRIV[m] || PRIV.ask)(); const ic = $('#cPrivI', ov); if (ic) ic.textContent = PRIV_IC[m] || 'lock'; }
+    privPaint();
     const alive = () => !dead && document.body.contains(ov);
     const node = () => c.nodes[id];
     tick = setInterval(() => {
@@ -288,7 +297,7 @@ body.call-on{overflow:hidden}
       const n = node(); if (!n || n.prep) return;
       const m = mode();
       if (m === 'ask') return askAsr();
-      if (m === 'tap') { autoMic = false; toast(t('Trên thiết bị này hãy chạm gợi ý hoặc gõ câu trả lời.'), 3500); return; }
+      if (m === 'tap') { autoMic = false; const tw = V2 && $('#cTypeW', ov); if (tw && tw.hidden) $('#cKb', ov).click(); toast(t('Trên thiết bị này hãy chạm gợi ý hoặc gõ câu trả lời.'), 3500); return; }
       hush(); setPhase('listen');
       const my = ++turn, s0 = Date.now(), words = [...new Set(E.words(n.o.join(' ') + ' ' + (n.kw || []).join(' ') + ' ' + (c.words || []).join(' ')))].filter(w => w.length > 3).slice(0, 40);
       const cb = {
@@ -316,7 +325,7 @@ body.call-on{overflow:hidden}
         if (a === 'chrome') { try { toast(t('Đang tải gói nhận dạng…'), 3000); const okI = await SR.install({ langs: [ACCENT], processLocally: true }); if (okI) { env.local = true; env.localDl = false; } } catch (e) { /* lỗi → hỏi lại */ } }
         else if (a === 'device') { try { localStorage.setItem('vb.whisper', '1'); } catch (e) { /* bỏ qua */ } pref('asr', 'device'); if (UI.whisperWarm) UI.whisperWarm(p => { const st = $('#cStT', ov); if (st && phase !== 'listen') st.textContent = t('Đang tải mô hình nhận dạng giọng nói… {p}%', { p: Math.round(p) }); }).catch(() => {}); }
         else pref('asr', a);
-        $('#cPriv', ov).textContent = (PRIV[mode()] || PRIV.ask)();
+        privPaint();
         if (mode() === 'tap') { $('#cMic', ov).disabled = true; return; }
         autoMic = true; listen();
       });
@@ -340,7 +349,7 @@ body.call-on{overflow:hidden}
       close();
       summary(c, log, secs, avgLat);
     }
-    probe().then(() => { if (alive()) $('#cPriv', ov).textContent = (PRIV[mode()] || PRIV.ask)(); });
+    probe().then(() => { if (alive()) privPaint(); });
     showOpts();
     const first = c.nodes[c.start];
     say([first.m], () => enter(first));
