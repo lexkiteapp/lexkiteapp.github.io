@@ -63,14 +63,14 @@ BG = f'{LIB}/canvas_{o.look}.png'; canvas(T).save(BG)
 
 # one head size + one eye line for both teachers (registry eye / eye_mouth). The registry sources are tight portrait shots (1080x1916), so
 # the teacher is scaled down and placed with overlay on the canvas: hair, shoulders and gestures keep their alpha, the source's left/right/top
-# edges are feathered (never a hard cut line), and the body MUST run off the bottom of the frame (never floats). Chin + 240 px pop band stays
-# above render_v9's caption band (BAND_Y1 1328).
-EM_OUT, EX, EY, FEATHER = 120, round(FX * W), 790, 40
+# edges are feathered (never a hard cut line), and the body MUST run off the bottom of the frame (never floats). The head sits low enough
+# for the overlay's full-width top card (hair top ~2.6 eye->mouth above the eye; build_overlay asserts the fit); captions stay below the chin.
+EM_OUT, EX, EY, FEATHER = 110, round(FX * W), 910, 40
 FW, FH = map(int, probe(f"{o.green}/kmask_pro/{P['clips']['talk']['src']}.mkv", 'width,height').split(',')[:2])
 s = EM_OUT / P['eye_mouth']; SW, SH = round(FW * s / 2) * 2, round(FH * s / 2) * 2
 OX, OY = round(EX - P['eye'][0] * s), round(EY - P['eye'][1] * s)
 assert OY + SH >= H, f'{WHO}: body ends at y {OY + SH} < {H} (would float) – lower EY or raise EM_OUT'
-assert EY + 2 * EM_OUT + 14 + 240 <= 1328, 'no room under the chin for pops'
+assert EY - 2.6 * EM_OUT >= 600 and EY + 2 * EM_OUT <= 1328 - 26, 'head must leave the top card band (y 232..600) and end above the captions'
 print(f'{WHO}: source {FW}x{FH} x{s:.3f} -> {SW}x{SH} at ({OX}, {OY}), eye->mouth {EM_OUT} px, eye at ({EX}, {EY})', flush=True)
 
 out = dict(TR); out['clips'] = dict(TR['clips']); errs = []
