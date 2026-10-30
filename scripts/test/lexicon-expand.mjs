@@ -311,6 +311,11 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
 { const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), m = /timeout-minutes: (\d+)/.exec(Y), n = /N="\$\{N:-(\d+)\}"/.exec(Y);
   ok(/stat\.retry = pool\.length - Math\.min\(N, pool\.length\); pool = pool\.slice\(0, N\)/.test(J), 'job: retry + mới cắt về N');
   ok(m && n && +n[1] * 14 / 60 <= +m[1] * 0.8, `N mặc định ${n && n[1]} × 14 s/từ vừa 80 % timeout ${m && m[1]} phút`); }
+// hạ tầng (30/10 lượt 41065198770): kho Gemini cạn → dừng ngay (không đốt 166 phút ra 2.175 mục hạ tầng); dispatch không đè LX_N
+{ const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), P = fs.readFileSync('scripts/lib/ai-pool.mjs', 'utf8');
+  ok(/g\.live < g\.size \/ 4/.test(J) && /pool: 'low'/.test(J), 'job: dừng sớm khi < 25 % khoá Gemini sống');
+  ok(/n: \{[^}]*default: '' \}/.test(Y), "workflow: input n mặc định '' (dùng LX_N)");
+  ok(/GEM_PAR = \d/.test(P) && /w >= 8/.test(P), 'ai-pool: xếp hàng Gemini + chờ khoá nghỉ theo phút'); }
 // L3 (30/10): giám khảo trả khuôn bọc → phiếu khoá nghĩa rỗng hàng loạt; đọc mọi khuôn thường gặp, khuôn lạ → null (không đoán)
 { const I = ['wk1', 'wk2'];
   ok(JSON.stringify(wsdUnwrap({ wk1: 2, wk2: '0' }, I)) === '{"wk1":2,"wk2":0}', 'wsdUnwrap phẳng');
