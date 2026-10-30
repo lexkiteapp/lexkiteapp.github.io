@@ -219,24 +219,27 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   await go('#/call', '.call-card');
   const cards = $$('.call-card'), CL = w.CALLS;
   ok(cards.length === CL.length && cards.every(a => /^#\/call\/[\w-]+$/.test(a.getAttribute('href'))) && !$$('#view img').some(i => /img\/call\//.test(i.getAttribute('src'))), 'call (v2): danh sách đủ ' + CL.length + ' cuộc gọi, ảnh giáo viên qua Chars (không img/call/mia)');
+  const E = w.CallEngine, C0 = E.prep(CL[0]), WHO = C0.who, NM = w.Chars.name(WHO), N0 = C0.nodes[C0.start]; // giáo viên theo kịch bản (c.who Ama/Carlos – CallEngine #194)
   await go('#/call/' + CL[0].id, '#callGo');
-  ok($('#callGo') && /teach\/carlos\//.test($('#view img').getAttribute('src')) && /Carlos/.test($('#view').textContent) && !/Mia/.test($('#view').textContent), 'call (v2): màn nhấc máy hiện Carlos (không Mia)');
+  ok($('#callGo') && new RegExp('teach/' + WHO + '/').test($('#view img').getAttribute('src')) && $('#view').textContent.includes(NM) && !/Mia/.test($('#view').textContent), 'call (v2): màn nhấc máy hiện ' + NM + ' (c.who, không Mia)');
   $('#callGo').click(); await tick(300);
   const R = $('.v2-teacher-call');
   ok(R && !$('.call-ov') && $('#cEnd') && $('#cEnd2') && $('#cMic') && $('#cSpk') && $('#cOptTog') && $('#cT') && $('#cBar') && $('#cL1'), 'call (v2): khung Stitch teacher-call thay lớp phủ cũ, đủ nút (cúp máy ×2, mic, nghe lại, thu gọn gợi ý, đồng hồ, tiến độ)');
-  ok($('#cTch.tch img') && /teach\/carlos\//.test($('#cTch img').getAttribute('src')) && !R.innerHTML.includes('img/call/') && !R.querySelector('.call-av'), 'call (v2): giáo viên Carlos qua Chars/LessonTeacher, đứng trong phòng (không vòng/khung Mia)');
-  ok($('#cTch').getAttribute('aria-hidden') === 'true' && ($('#cL1').textContent || '').trim() === CL[0].turns[0].m && $('#cL1').getAttribute('lang') === 'en', 'call (v2): Carlos nói câu đầu, phụ đề tiếng Anh đúng kịch bản');
+  ok($('#cTch.tch img') && new RegExp('teach/' + WHO + '/').test($('#cTch img').getAttribute('src')) && !R.innerHTML.includes('img/call/') && !R.querySelector('.call-av'), 'call (v2): giáo viên ' + NM + ' qua Chars/LessonTeacher, đứng trong phòng (không vòng/khung Mia)');
+  ok($('#cTch').getAttribute('aria-hidden') === 'true' && ($('#cL1').textContent || '').trim() === N0.m && $('#cL1').getAttribute('lang') === 'en', 'call (v2): ' + NM + ' nói câu đầu, phụ đề tiếng Anh đúng kịch bản');
+  ok($('#cPrivB') && ($('#cPriv').textContent || '').length > 10 && $('#cTypeW').hidden && ($('#cKb').click(), !$('#cTypeW').hidden && $('#cIn')) && ($('#cKb').click(), $('#cTypeW').hidden) && $('#cSt[role=status]'), 'call (v2): quyền riêng tư (🔒 + chữ cho trình đọc màn hình), nút ✏️ mở/đóng ô gõ, trạng thái lượt lời role=status');
   const op0 = $$('#cOpts button');
-  ok(op0.length === CL[0].turns[0].o.length && op0.every(b => b.getAttribute('lang') === 'en' && b.textContent.trim()), 'call (v2): gợi ý trả lời đủ ' + op0.length + ' chip');
+  ok(op0.length === N0.o.length && op0.every(b => b.getAttribute('lang') === 'en' && b.textContent.trim()), 'call (v2): gợi ý trả lời đủ ' + op0.length + ' chip');
   ok(Array.from(R.querySelectorAll('button')).every(b => b.getAttribute('aria-label') || b.textContent.trim()), 'call (v2): mọi nút có nhãn');
   // thu gọn / mở gợi ý
   $('#cOptTog').click(); ok($('#cOpts').hidden && $('#cOptTog').getAttribute('aria-expanded') === 'false', 'call (v2): caret thu gọn gợi ý'); $('#cOptTog').click();
-  // trả lời bằng chip → Carlos đáp tiếp, tiến độ tăng
+  // trả lời bằng chip → giáo viên đáp tiếp theo nhánh, tiến độ tăng
+  const r1 = E.step(C0, C0.start, N0.o[0]), n1 = C0.nodes[r1.next], pc1 = n1 ? Math.min(95, Math.round(1 / Math.max(1, E.depth(C0)) * 100)) : 100;
   op0[0].click(); await tick(100);
-  ok(($('#cPct').textContent || '') === Math.round(1 / CL[0].turns.length * 100) + '%' && $('#cBar').style.width === Math.round(1 / CL[0].turns.length * 100) + '%' && ($('#cL1').textContent || '').includes(CL[0].turns[1] ? CL[0].turns[1].m : CL[0].end), 'call (v2): chọn chip → tiến độ % tăng + Carlos nói câu kế');
-  // sửa lỗi tế nhị qua CallMia.correct vẫn chạy
-  const fx = w.CallMia.correct('I very like coffee', 'What do you want?');
-  ok(fx && /really/.test(fx.good), 'call: sửa lỗi tế nhị (CallMia.correct) còn nguyên');
+  ok(($('#cPct').textContent || '') === pc1 + '%' && $('#cBar').style.width === pc1 + '%' && ($('#cL1').textContent || '').includes(n1 ? n1.m : C0.end), 'call (v2): chọn chip → tiến độ % tăng + ' + NM + ' nói câu kế (nhánh CallEngine)');
+  // sửa lỗi tế nhị qua CallEngine.correct vẫn chạy
+  const fx = E.correct('I very like coffee', 'What do you want?');
+  ok(fx && /really/.test(fx.good), 'call: sửa lỗi tế nhị (CallEngine.correct) còn nguyên');
   // cúp máy: có trả lời → tổng kết
   $('#cEnd').click(); await tick(100);
   ok(/Tổng kết|Call summary|summary/i.test($('#view h1').textContent) && $('#cSave') && $$('#view a[href^="#/call"]').length >= 2 && !$('.v2-teacher-call'), 'call (v2): cúp máy → tổng kết, thêm vào thẻ ôn, gọi lại / cuộc gọi khác');
