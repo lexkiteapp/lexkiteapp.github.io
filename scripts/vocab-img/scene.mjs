@@ -86,15 +86,22 @@ export function soften(prompt, level = 1) {
 // ---- thẻ cảnh: lời nhắn MỘT nguồn (người viết thẻ phải dùng câu ví dụ của kho; được trả skip) ----
 export const SCENE_SYS = `You design ONE wordless picture that teaches an English word through its example sentence. A simple flat-vector image model must be able to draw it right in ONE try, and a learner who sees the picture with the sentence under it must understand the word.
 For each input item {k, w, pos, def, ex:[sentences]} reply with one JSON object keyed by k:
-{"ex": "the ONE input sentence (copied exactly) whose meaning is most VISIBLE", "ps": "the picture as ONE plain sentence of 8-20 words: at most two people named as 'a woman', 'a man', 'a girl' or 'a boy', ONE clear visible action, at most two key objects, optionally one simple place shown by an object in it", "check": "a yes/no question a viewer answers from the picture alone, YES only when the picture shows the meaning of w in this sentence", "cap": "a neutral 6-14 word caption of the picture that does NOT contain the word w", "who": number of people 0-2, "draw": 1-5 how surely a learner understands w from this picture plus the sentence (5 = obvious)}
+{"ex": "the ONE input sentence (copied exactly) whose meaning is most VISIBLE", "ps": "the picture as ONE plain sentence of 8-20 words: at most two people named as 'a woman', 'a man', 'a girl' or 'a boy', ONE clear visible action, at most two key objects, optionally one simple place shown by an object in it", "check": "a yes/no question about the MEANING of w (def), answered from the picture alone: ask for the visible sign of that meaning in words different from ps, so the same people and objects WITHOUT that meaning get NO", "cap": "a neutral 6-14 word caption of the picture that does NOT contain the word w", "who": number of people 0-2, "draw": 1-5 how surely a learner understands w from this picture plus the sentence (5 = obvious)}
 Hard rules for ps: everything must be visible in a small thumbnail; no text, letters, numbers, prices, money amounts, times, clocks, calendars, schedules, screens, phones showing content, signs, logos, flags, arrows, lightbulbs, hearts, question marks, speech or thought bubbles; no metaphors.
 Choose the sentence about actions, emotions, physical states or concrete objects over sentences about prices, times, schedules, numbers, rules, plans, the internet or opinions. Abstract noun = one everyday moment where the idea shows on faces and actions; verb = the clearest moment of the action, whole body visible; adjective = exaggerate the quality or show a contrast pair side by side; groups or comparisons = show both sides.
+check must test the meaning, never restate the scene: bad check for cheap = "Is a woman handing a coin to a vendor for noodles?" (only repeats ps).
 If no sentence reaches draw >= 4 without breaking the hard rules, reply {"skip": "short reason"} for that k (no picture is better than a wrong one).
-Example: cheap (adj) ["The food at the night market is cheap and tasty."] -> {"ex":"The food at the night market is cheap and tasty.","ps":"a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles","check":"Is a big bowl of food being bought for one small coin?","cap":"a woman buying a big bowl of noodles from a vendor","who":2,"draw":4}
-Example: consider (v) ["We are considering moving to the countryside."] -> {"ex":"We are considering moving to the countryside.","ps":"a woman and a man at a kitchen table look thoughtfully at two photos, a city flat and a cottage","check":"Are two people thinking hard while comparing a city home and a country home?","cap":"a couple comparing photos of a city flat and a cottage","who":2,"draw":4}
+Example: cheap (adj) ["The food at the night market is cheap and tasty."] -> {"ex":"The food at the night market is cheap and tasty.","ps":"a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles","check":"Does the big meal clearly cost very little money?","cap":"a woman buying a big bowl of noodles from a vendor","who":2,"draw":4}
+Example: consider (v) ["We are considering moving to the countryside."] -> {"ex":"We are considering moving to the countryside.","ps":"a woman and a man at a kitchen table look thoughtfully at two photos, a city flat and a cottage","check":"Are the two people carefully deciding between two choices before acting?","cap":"a couple comparing photos of a city flat and a cottage","who":2,"draw":4}
 Reply JSON only.`;
 export const sceneUser = items => JSON.stringify(items.map(({ k, e }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: [].concat(e.ex || []).filter(Boolean).slice(0, 3).map(s => String(s).slice(0, 220)) })));
-/** kiểm thẻ cảnh: ex phải là câu của kho, không chữ trong sc, cap không chứa từ */
+// check lặp lại ps (30/10, pilot 40865517506 general#adj: "Are both people smiling and giving thumbs up near a park bench?") → giám khảo nghĩa trả YES cho ảnh sai nghĩa.
+// echo = tỉ lệ từ nội dung của check (bỏ hư từ/người, gốc thô 5 ký tự) đã có trong ps; ≥ CHECK_ECHO → loại thẻ, viết lại.
+const ECHO_STOP = new Set('a an the is are was were be been being am do does did has have had can could will would should may might must this that these those there here it its they them their he she his her him we you i of to in on at by for with from into onto over under near next and or but so as than then both each either one two three some any all another other very really clearly picture image shown show shows showing visible see seen someone somebody people person woman man women men girl boy girls boys while who what which where when how why not no yes'.split(' '));
+const echoWords = s => [...new Set((String(s).toLowerCase().match(/[a-z]+/g) || []).filter(w => w.length > 1 && !ECHO_STOP.has(w)).map(w => w.replace(/(ing|ed|es|s|ly|e)$/, '').slice(0, 5)))];
+export const CHECK_ECHO = 0.75;
+export function checkEcho(ps, check) { const q = echoWords(check), p = new Set(echoWords(ps)); return q.length ? q.filter(w => p.has(w)).length / q.length : 1; }
+/** kiểm thẻ cảnh: ex phải là câu của kho, không chữ trong sc, cap không chứa từ, check hỏi nghĩa (không lặp ps) */
 export function sceneOk(e, c) {
   if (!c || typeof c !== 'object') return 'no card';
   if (c.skip) return 'skip: ' + String(c.skip).slice(0, 60);
@@ -105,6 +112,7 @@ export function sceneOk(e, c) {
     if (n < 6 || n > 24) return 'ps not 6-24 words';
     if (!(+c.draw >= 4)) return 'skip: draw ' + c.draw;
     if (!/\?\s*$/.test(String(c.check || ''))) return 'no check question';
+    if (checkEcho(c.ps, c.check) >= CHECK_ECHO) return 'check repeats ps';
     if (/\b(text|letters?|words?|sign|label|caption|written|writing|numbers?|price|clock|calendar|screen)\b/i.test(c.ps)) return 'ps asks for text/symbol';
     { const h = negHit(c.ps, e.w); if (h) return 'ps uses a symbol: ' + h; }
     if (!c.cap || new RegExp('\\b' + e.w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(c.cap)) return 'cap names the word';
@@ -150,7 +158,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
   } else if (process.argv.includes('--pilot')) { const fr = +(arg('from') || 0), pl = pilot(lex, sel, +(arg('n') || 60) + fr, +(arg('fn') || 20)); if (fr) { pl.scene = pl.scene.slice(fr); pl.items = [...pl.scene, ...pl.concept]; } process.stdout.write(JSON.stringify(pl, null, 1)); }
   else if (process.argv.includes('--prune')) {
     // fill: chỉ vẽ nghĩa cảnh đã có thẻ e4 (thẻ cũ e3 đạt 2–7 % – đốt neuron); vật/hư từ giữ nguyên
-    const f = arg('keys'), kj = JSON.parse(fs.readFileSync(f, 'utf8')), keep = k => { const c = cards.items[k]; return !lex[k] || kind(k, lex[k], (sel[k] || [])[1], c) !== 'scene' || !!(c && !c.skip && c.v === SCENE_V && c.ps); };
+    const f = arg('keys'), kj = JSON.parse(fs.readFileSync(f, 'utf8')), keep = k => { const c = cards.items[k]; return !lex[k] || kind(k, lex[k], (sel[k] || [])[1], c) !== 'scene' || !!(c && !c.skip && c.v === SCENE_V && c.ps && !sceneOk(lex[k], c)); };   // thẻ check lặp ps không vẽ
     const n0 = kj.items.length; kj.items = kj.items.filter(keep); if (kj.scene) kj.scene = kj.scene.filter(keep);
     fs.writeFileSync(f, JSON.stringify(kj)); console.log(`nghĩa có thẻ e4 để vẽ: ${kj.items.length}/${n0}`);
   }
@@ -160,7 +168,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
     const SKIP = new Set(Object.keys((fs.existsSync(P(QF)) ? rd(QF) : { items: {} }).items));
     // mục = {k, w} (không phải chuỗi k): ai-pool normOut khớp lại câu trả lời lệch khoá (bọc 1 lớp, theo từ w, 1 mục trần) – 24/10 lượt fill đầu: 194/200 'no card' vì mục là chuỗi
     const AI = createPool({ prompt: req => ({ sys: SCENE_SYS, user: sceneUser(req.items.map(x => ({ k: x.k || x, e: lex[x.k || x] }))), temp: 0.3 }) });
-    const todo = keysOf().filter(k => lex[k] && (!cards.items[k] || (!cards.items[k].skip && cards.items[k].v !== SCENE_V && (cards.items[k].e4bad || 0) < 3))); let add = 0, bad = 0;   // e4: viết lại thẻ cũ (kể cả nghĩa trong hàng chờ – prompt cũ là lý do trượt)
+    const todo = keysOf().filter(k => lex[k] && (!cards.items[k] || (!cards.items[k].skip && (cards.items[k].v !== SCENE_V || sceneOk(lex[k], cards.items[k])) && (cards.items[k].e4bad || 0) < 3))); let add = 0, bad = 0;   // e4: viết lại thẻ cũ (kể cả nghĩa trong hàng chờ – prompt cũ là lý do trượt) + thẻ e4 nay trượt sceneOk (vd. check lặp ps)
     // 29/10 lượt fill 40875877636: 2.000 thẻ e4 tuần tự (8/lần, 20–220 s) chạy 2 giờ 10 phút → job quá giờ, mất hết thẻ, 0 ảnh.
     // Nay: VIMG_CARD_CONC lô song song + hạn VIMG_CARD_MIN phút (còn lại để lượt sau) → luôn kịp ghi thẻ và vẽ.
     const CONC = Math.max(1, +(process.env.VIMG_CARD_CONC || 4)), MIN = +(process.env.VIMG_CARD_MIN || 35), END = Date.now() + MIN * 60e3;
