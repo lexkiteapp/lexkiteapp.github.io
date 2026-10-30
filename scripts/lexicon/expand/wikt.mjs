@@ -36,7 +36,7 @@ export async function kaikki(w, pos, stat = {}) {
         uk: (all(UKR)[0] || {}).ipa || '', us: (all(USR)[0] || {}).ipa || '', ukAll: all(UKR).map(s => s.ipa), ukNoRegion: snd.filter(s => !s.tg.some(t => UKR.test(t) || USR.test(t) || /^(US|Canada|Australia|Scotland|Ireland|Northern-England|archaic)$/.test(t))).map(s => s.ipa), vi };
     } catch { await new Promise(s => setTimeout(s, 1500 * (i + 1))); }
   }
-  return {};
+  return { err: true }; // 3 lần lỗi mạng ≠ "không có mục" (404 → {}) – job.mjs coi là hạ tầng
 }
 // /…/ đầu tiên → quy ước kho. Pilot 40077853589: bản cũ đổi ɡ → g (ngoài bảng) và bỏ sót t͡ʃ, ̯, ̩ → 40 mục trượt IPA oan.
 export const clean = s => { s = String(s || '').trim(); const m = /^\/[^/]+\//.exec(s); if (!m) return '';

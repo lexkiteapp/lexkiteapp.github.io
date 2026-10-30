@@ -66,6 +66,52 @@ export const SENSITIVE = /\b(muslims?|islam(ic|ists?)?|jews?|jewish|christians?|
 export const ADULT = /\b(virgins?|virginity|sex|sexual(ly)?|sexy|intercourse|naked|nude|porn\w*|erotic|condoms?|prostitut\w*|orgasm\w*)\b/i;
 // ví dụ phải là CÂU hoàn chỉnh (pilot 20261028: ballet "a classically-trained ballet dancer" – cụm danh từ, không phải câu)
 export const isSentence = x => /^["'“‘(]?[A-Z0-9]/.test(String(x || '').trim()) && /[.!?]["'”’)]?$/.test(String(x || '').trim());
+/** biến tố của từ (không phái sinh): s/es/ed/d/ing/er/est, y→ies/ied, e câm, phụ âm đôi; bất quy tắc qua 4 chữ đầu chỉ khi từ ≥ 5 chữ và đuôi ngắn (forsook) */
+export function inflRe(w) { const b = String(w).toLowerCase().replace(/[^a-z-]/g, ''), st = b.replace(/e$/, ''), y = b.replace(/y$/, ''), dbl = b + b.slice(-1);
+  return new RegExp(`\\b(${b}(s|es|d|ed|ing|er|est)?|${st}(ed|ing|er|est)|${y}(ies|ied|ier|iest)|${dbl}(ed|ing|er|est))\\b`, 'i'); }
+// ---- "RA LÀ OK" (29/10): trắc nghiệm nghĩa 3 giám khảo (lxwsd) – một luật cho mọi trường (docs/LEXICON.md §Mở rộng 20k)
+/** probe đạt khi CẢ 3 giám khảo (khác họ) chọn đúng số nghĩa khoá (1-based); thiếu phiếu = không đạt */
+export const wsdOk = (votes, lock) => Array.isArray(votes) && votes.length >= 3 && votes.every(v => Number(v) === lock);
+/** KHÓA NGHĨA THÔNG DỤNG (lớp L3): nghĩa 1 của Wiktionary (xếp theo độ thông dụng) → số nghĩa WordNet mà CẢ 3 giám khảo chọn.
+ *  Không đồng thuận → chấp nhận nghĩa SemCor chỉ khi nghĩa 2 Wiktionary được cả 3 chọn ĐÚNG nghĩa đó (nghĩa phổ biến thật); còn lại null = bỏ từ (hàng duyệt). */
+export function lockSense(v1, v2, semIdx, n) {
+  const one = v => Array.isArray(v) && v.length >= 3 && v.every(x => Number(x) === Number(v[0])) && Number(v[0]) >= 1 && Number(v[0]) <= n ? Number(v[0]) : 0;
+  if (one(v1)) return { idx: one(v1), by: 'wiktionary-1' };
+  if (one(v2) && one(v2) === semIdx) return { idx: semIdx, by: 'wiktionary-2+semcor' };
+  // 2/3 giám khảo chọn nghĩa 1 Wiktionary = ĐÚNG nghĩa SemCor (tần suất ngữ liệu) → hai tín hiệu độc lập cùng chỉ một nghĩa (pilot 29/10: expel, transcend)
+  const maj = v => (Array.isArray(v) && v.length >= 3 ? [...new Set(v.map(Number))].find(x => x >= 1 && v.filter(y => Number(y) === x).length >= 2) : 0) || 0;
+  if (maj(v1) && maj(v1) === semIdx) return { idx: semIdx, by: 'wiktionary-1-2of3+semcor' };
+  return null;
+}
+/** vi chuẩn hoá để so nguồn: thường, bỏ ngoặc, NFC */
+export const viNorm = v => String(v || '').toLowerCase().normalize('NFC').replace(/\([^)]*\)/g, '').split(/[;,]/).map(x => x.trim().replace(/\s+/g, ' ')).filter(Boolean);
+/** vi HAI NGUỒN ĐỘC LẬP (lớp L1): nguồn = { wk: Wiktionary (bảng khớp nghĩa ∪ mục vi cùng từ loại), a: lxtr, b: lxvi (họ khác) }.
+ *  Trả [{ v, src: [...] }] theo thứ tự wk → a → b, chỉ phương án có ≥ 2 nguồn. */
+// khoá so khớp vi (pilot 29/10: "khinh bỉ" ≠ "sự khinh bỉ" → trượt oan): bỏ từ chỉ loại đầu (sự/việc/cái/con/nỗi/niềm/cuộc/chiếc; "tính" chỉ khi còn ≥ 2 âm tiết – tính toán ≠ toán; KHÔNG bỏ "lòng": lòng bàn tay ≠ bàn tay),
+// giữ thứ tự âm tiết (đảo = đổi nghĩa). Phương án hiển thị = dạng gặp đầu tiên (Wiktionary trước).
+export const viKey = v => viNorm(v)[0] ? viNorm(v)[0].replace(/^(sự|việc|cái|con|nỗi|niềm|cuộc|chiếc) (?=\S)/, '').replace(/^tính (?=\S+ \S)/, '') : ''; // KHÔNG đảo âm tiết: thần tượng ≠ tượng thần
+export function viAgreeSources(srcs) {
+  const m = new Map();
+  for (const s of Object.keys(srcs)) for (const v of [].concat(srcs[s] || []).flatMap(viNorm)) { const k = viKey(v); if (!k) continue; const o = m.get(k) || m.set(k, { v, src: [] }).get(k); if (!o.src.includes(s)) o.src.push(s); }
+  return [...m.values()].filter(o => o.src.length >= 2);
+}
+/** bản dịch 12 ngôn ngữ cũng cần ≥ 2 nguồn độc lập (pilot 29/10: detriment ko 상해 – chỉ bảng Wiktionary + trắc nghiệm nghĩa vẫn lọt) */
+// soát 50 mẫu pilot 29/10: 9/11 bản dịch sai chỉ 1 nguồn; 2 còn lại khớp Wiktionary ∩ OMW nhưng không tự nhiên (pt surpresa, zh 蚤) → AI họ A xác nhận + nguồn người viết;
+export const TR2 = /^wiktionary\+omw\+ai$/; // soát pilot 2: 5/7 lỗi dịch chỉ 2 nguồn (omw+ai, wiktionary+ai) → cần ĐỦ 3 nguồn
+export function trNorm(l, t) { return String(t || '').split(/\s*;\s*/)[0].toLowerCase().trim().replace(/[\u064B-\u0652\u0670]/g, '').replace(/[+_]/g, l === 'ja' ? '' : ' ').replace(/\s+/g, ' ').replace(l === 'ja' ? /する$/ : /$^/, ''); }
+export const trIn = (l, t, list) => { const T = trNorm(l, t); return !!T && [].concat(list || []).flatMap(x => String(x || '').split(/\s*;\s*/)).some(x => trNorm(l, x) === T); };
+// HÌNH TỪ LOẠI của bản dịch (lớp D3: carelessly es "descuidado" tính từ, dizzy tr danh từ) – luật tất định cho đuôi rõ ràng; không có luật → đạt (giám khảo lxwsd chặn tiếp)
+export function posShapeOk(l, pos, t, w = '') {
+  const x = String(t || '').trim().split(/\s*;\s*/)[0] || '', f = x.split(/\s+/)[0], last = x.split(/\s+/).pop();
+  if (!x) return false;
+  if (pos === 'adv' && /ly$/.test(w)) { if (['es', 'pt'].includes(l)) return /mente$/.test(last); if (l === 'fr') return /ment$/.test(last); if (l === 'ru') return /[оеи]$/.test(f); }
+  if (pos === 'v') { if (['es', 'pt'].includes(l)) return /(r|rse|r-se)$/.test(f); if (l === 'fr') return /^(se |s')?\S*(er|ir|re|oir)$/.test(x.replace(/^(se |s')/, '')) || /(er|ir|re|oir)$/.test(f); if (l === 'ru') return /(ть|ти|чь)(ся|сь)?$/.test(f); if (l === 'tr') return /(mak|mek)$/.test(last); if (l === 'de') return /n$/.test(last); if (l === 'ko') return /다$/.test(last); }
+  if (pos === 'adj') { if (l === 'ru') return /(ый|ий|ой|ая|яя|ое|ее|ые|ие)$/.test(f); if (l === 'ko') return /(다|운|은|는|한|인|른|된)$/.test(last); }
+  if (pos === 'n' && l === 'de') return /^[A-ZÄÖÜ]/.test(last);
+  return true;
+}
+/** khớp OMW (lớp D1): bản dịch (từ đầu) có trong lemma OMW của CHÍNH synset (chuẩn hoá: thường, bỏ harakat, bỏ "する" đuôi tiếng Nhật) */
+export const omwHas = (l, t, list) => trIn(l, t, list);
 export function gateEntry(e, { keep } = {}) {
   const why = [];
   if (!e) return { ok: false, why: ['gen: không sinh được'] };
@@ -97,6 +143,12 @@ export function gateEntry(e, { keep } = {}) {
   // KHÓA NGHĨA (pilot 7: prop/tweet lệch nghĩa): cả 2 giám khảo phải trả lời "yes" – thiếu = trượt
   if (Array.isArray(e.qa.sense) && !(e.qa.sense.length >= 2 && e.qa.sense.every(x => x === 'yes'))) why.push('nghĩa: ví dụ/dịch không đúng nghĩa khóa (' + e.qa.sense.join('/') + ')');
   if (e.posDrift) why.push('nghĩa: đổi từ loại ' + e.pos + '→' + e.posDrift);
+  // khoá nghĩa thông dụng (lớp L3) + trắc nghiệm nghĩa 3 giám khảo (lớp L1/L2): thiếu đồng thuận = trượt, không bao giờ nhận
+  if (e.senseLock === false) why.push('nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo)');
+  const W = e.qa.wsd;
+  if (W) { if (!Array.isArray(W.ex) || W.ex.length !== 2 || !W.ex.every(Boolean)) why.push('nghĩa: ví dụ chưa qua trắc nghiệm nghĩa 3 giám khảo');
+    if (W.vi !== true) why.push('dịch vi: chưa qua trắc nghiệm nghĩa 3 giám khảo');
+    if (!Array.isArray(e.qa.viSrc) || e.qa.viSrc.length < 2 || !e.qa.viSrc.includes('wk')) why.push('dịch vi: cần Wiktionary + ≥ 1 AI trùng (2 nguồn độc lập)'); }
   if (e.ipaPos === false) why.push('ipa-pos: không có IPA Anh khớp từ loại (cặp đổi trọng âm danh–động)');
   // CEFR: nguồn kiểu EVP (CEFR-J/Octanove) thắng; chỉ dải tần suất → giám khảo kiểm, lệch ≥ 2 bậc → trượt (pilot 7: assault A2)
   if (CE.includes(e.level) && (e.cefrSrc || 'freq') === 'freq' && Array.isArray(e.qa.cefrJ)) { const off = e.qa.cefrJ.filter(x => CE.includes(x)).map(x => Math.abs(CE.indexOf(x) - CE.indexOf(e.level))); if (off.some(d => d >= 2)) why.push('cefr: giám khảo lệch ≥ 2 bậc (' + e.qa.cefrJ.join('/') + ' ≠ ' + e.level + ')'); }
@@ -113,7 +165,10 @@ export function gateEntry(e, { keep } = {}) {
     if (e.perLang) {
       // CỔNG THEO TRƯỜNG (chủ 27/10): ngôn ngữ chỉ HIỆN khi bản dịch đó đạt – nguồn người viết (bảng Wiktionary khớp nghĩa chắc chắn), đủ 3 giám khảo ≥ 4,
       // từ có thật (trcheck), dịch ngược khớp; trượt → bỏ ngôn ngữ đó khỏi mục (app dùng đường dịch hiện có của kho), KHÔNG làm trượt cả mục.
-      if (t && ((e.src && e.src.tr) || {})[l] !== 'wiktionary') is.push('không phải nguồn người viết (Wiktionary)');
+      if (t && !/^(wiktionary|omw)/.test(((e.src && e.src.tr) || {})[l] || '')) is.push('không phải nguồn người viết (Wiktionary/OMW)');
+      else if (t && W && !TR2.test(((e.src && e.src.tr) || {})[l] || '')) is.push('cần 2 nguồn độc lập (Wiktionary / OMW / AI)');
+      if (t && W && !(W.tr && W.tr[l] === true)) is.push('chưa qua trắc nghiệm nghĩa 3 giám khảo');
+      if (t && !posShapeOk(l, e.pos, t, e.w)) is.push('sai hình từ loại ' + e.pos);
       if (t && e.trBad && e.trBad[l]) is.push('từ không có thật (wordfreq: ' + [].concat(e.trBad[l]).join(', ') + ')');
       if (t && !is.length && (sc.length < 3 || Math.min(...sc) < 4)) is.push('giám khảo < 4 (' + sc.join('/') + ')');
       if (t && !is.length && !btOk(e, l)) is.push('dịch ngược không khớp');
@@ -160,3 +215,15 @@ export function poolEmpty(status, body) { return (status === 503 || status === 4
 export function queueable(r, callOk) { return !r.ok && !(callOk === false && /^gen:/.test(r.why[0] || '')); }
 /** Cầu dao: sau `max` lần liên tiếp kho rỗng thì mở (ngừng gọi) */
 export function breaker(max = 3) { let n = 0; const b = { open: false, hit(empty) { n = empty ? n + 1 : 0; if (n >= max) b.open = true; return b.open; } }; return b; }
+
+/** câu trả lời trắc nghiệm nghĩa của 1 mục → {probeId: số}. Mô hình hay bọc thêm 1 tầng ({probes:{…}}, {answers:{…}}, [{id, sense}]) – 30/10 gpt-oss trên Groq
+ *  trả khuôn bọc nên giám khảo A luôn "null" → khoá nghĩa trượt hàng loạt. null = không đọc được (ghi nhật ký, không đoán). */
+export function wsdUnwrap(o, ids) {
+  const num = v => (typeof v === 'number' || (typeof v === 'string' && /^\d+$/.test(v.trim())) ? Number(v) : (v && typeof v === 'object' && !Array.isArray(v) && ['sense', 'n', 'answer', 'value'].some(x => x in v) ? num(v.sense ?? v.n ?? v.answer ?? v.value) : undefined));
+  const flat = x => { if (!x || typeof x !== 'object') return null;
+    if (Array.isArray(x)) { const r = {}; for (const y of x) if (y && typeof y === 'object') { const id = y.id ?? y.probe ?? y.k; if (id != null) r[id] = num(y.sense ?? y.n ?? y.answer ?? y.value); } return r; }
+    const r = {}; for (const id of ids) if (id in x) r[id] = num(x[id]); return Object.values(r).some(v => v !== undefined) ? r : null; };
+  const d = flat(o); if (d) return d;
+  if (o && typeof o === 'object') for (const key of ['probes', 'answers', 'senses', 'result', 'results', 'out']) { const r = flat(o[key]); if (r && Object.values(r).some(v => v !== undefined)) return r; }
+  return null;
+}

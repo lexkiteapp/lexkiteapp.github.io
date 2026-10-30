@@ -159,7 +159,7 @@
     ['imply', '/ɪmˈplaɪ/', 'v', 'ngụ ý', 'to suggest something without saying it directly', 'The findings imply that current policies are ineffective.', 'imply that|strongly imply', 'suggest|indicate', 'B2', '🤫'],
     ['initial', '/ɪˈnɪʃl/', 'adj', 'ban đầu', 'happening at the beginning', 'Initial results from the trial are encouraging.', 'initial stage|initial results', 'first|early', 'B2', '🔰'],
     ['instance', '/ˈɪnstəns/', 'n', 'ví dụ, trường hợp', 'a particular example or case of something', 'In many instances, the problem was caused by poor training.', 'for instance|in this instance', 'example|case', 'B2', '📌'],
-    ['interact', '/ˌɪntərˈækt/', 'v', 'tương tác', 'to communicate with or affect each other', 'Children learn by interacting with others.', 'interact with|socially interact', 'communicate|engage', 'B2', '🔄'],
+    ['interact', '/ˌɪntərˈækt/', 'v', 'tương tác', 'to communicate with or affect each other', 'Children learn by interacting with others.', 'interact with|socially interact', 'communicate|engage', 'B2', '🔄', '/ˌɪntəˈrækt/'],
     ['justify', '/ˈdʒʌstɪfaɪ/', 'v', 'biện minh', 'to show that something is reasonable or right', 'It is hard to justify spending so much on space exploration.', 'justify the cost|fully justified', 'defend|warrant', 'B2', '🛡️', '/ˈdʒʌstəfaɪ/'],
     ['layer', '/ˈleɪə/', 'n', 'lớp; tầng', 'a level or sheet of material lying over or under another', 'The ozone layer protects the earth from harmful radiation.', 'ozone layer|thin layer', 'level|stratum', 'B1', '🍰', '/ˈleɪər/'],
     ['link', '/lɪŋk/', 'n', 'liên kết; mối liên hệ', 'a connection between two things', 'There is a clear link between smoking and lung cancer.', 'strong link|establish a link', 'connection|relationship', 'A2', '🔗'],
