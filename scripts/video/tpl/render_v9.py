@@ -436,8 +436,9 @@ def to_screen(b, s): x0, y0, x1, y1 = b; return [AX + (x0 - AX) * s, AY + (y0 - 
 HEAD_MAX = [min(to_screen(h, SMAX)[k] for h in HEAD.values()) if k < 2 else max(to_screen(h, SMAX)[k] for h in HEAD.values()) for k in range(4)]
 BAND = (int(math.ceil(HEAD_MAX[3])) + 14, BAND_Y1); BAND_CY = (BAND[0] + BAND[1]) / 2; BAND_H = BAND[1] - BAND[0]
 print(f'pop band y {BAND[0]}..{BAND[1]} ({BAND_H} px), head at smax {[round(v) for v in HEAD_MAX]}', flush=True)
-assert BAND_H >= 240 or BRD or o.overlay, 'no room under the chin for pops'   # --overlay never draws band pops (the motion layer lays out its cards and asserts their fit)
-POPW, POPH = CAPW, BAND_H; ZONE = None; MINPX_BOARD = 48; MINPX_TEXT = 50
+PLAN_H = max(BAND_H, 240) if o.overlay else BAND_H   # --overlay never draws band pops (the motion layer lays out its cards and asserts their fit): plan them at the standard band size
+assert PLAN_H >= 240 or BRD, 'no room under the chin for pops'
+POPW, POPH = CAPW, PLAN_H; ZONE = None; MINPX_BOARD = 48; MINPX_TEXT = 50
 if BRD:
     _z = BRD.get('zone_free') or BRD['zone']; ZONE = [_z[0] + 4, _z[1] + 4, _z[2] - 4, _z[3] - 4]
     if BRD.get('zone_free'):   # trim to the camera-safe window: every point stays inside SAFE at every scale 1..smax about (AX, AY)
@@ -722,7 +723,7 @@ class Pop:
     def __init__(s, P):
         s.P = P; s.id = P['id']; s.kind = P['kind']; s.t0 = max(1.0 / FPS, tm_of(P['from'])) if P['from'][0] != 't' else max(1.0 / FPS, float(P['from'][1]))
         s.t1 = tm_of(P['to']) if P['to'][0] != 'end' else TOTAL - 0.40; s.an = P.get('anim', 'spring'); s.cx = P.get('cx', CX); s.cache = {}
-        s.text = ''; s.px = 0; s.variant = None; s.where = 'band'; s.region = None; s.PW, s.PH = CAPW, BAND_H; s.slot = P.get('slot'); s.tall = False
+        s.text = ''; s.px = 0; s.variant = None; s.where = 'band'; s.region = None; s.PW, s.PH = CAPW, PLAN_H; s.slot = P.get('slot'); s.tall = False
     def make(s):
         if BRD: s.build_board()
         else: s.build()
@@ -761,7 +762,7 @@ class Pop:
             elif s.kind == 'cta': s.build_cta_ink(rw, rh)
             elif s.kind == 'lesson': s.build_lesson(rw, rh)
             elif s.kind == 'note': s.build_note(rw, rh)
-        finally: INK = False; POPW, POPH = CAPW, BAND_H
+        finally: INK = False; POPW, POPH = CAPW, PLAN_H
         s.where = 'board'; s.mcur = s.meas
         print(f"pop {s.id} -> board {s.variant or ''} {s.im.size} in {rw}x{rh} meas {[(a, round(b)) for a, b in s.meas]} pages {len(getattr(s, 'pages', []) or [1])} region {s.region}", flush=True)
     def fits(s, im, rw, rh): return im.width <= rw - 4 and im.height <= rh - 4
