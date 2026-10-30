@@ -319,6 +319,7 @@ export function createPool(opts = {}) {
   // (Gemini đặt lại 00:00 giờ Thái Bình Dương ≈ 07:00–08:00 UTC: thêm 8 giờ), 401/403 → bỏ 6 giờ. Không bao giờ ghi khoá vào nhật ký (chỉ nhãn k<i>).
   const GEM = keyRing(parseKeys(env.GEMINI_POOL, 'gemini'), { now }), GROQ = keyRing(parseKeys(env.GROQ_POOL, 'groq'), { now });
   used.gem = 0; used.groq = 0;
+  const redact = t => t.replace(/AIza[\w-]{10,}|AQ\.[\w.-]{10,}|gsk_\w{10,}/g, '[khoá]');
   async function keyed(ring, name, doFetch) {
     for (let t = 0; t < Math.min(ring.size, 16); t++) {
       const k = ring.next(); if (!k) throw new PoolErr('route', `${name}: mọi khoá đang nghỉ (${ring.size})`, ring.soonest());
@@ -328,7 +329,7 @@ export function createPool(opts = {}) {
         ring.park(k.id, day ? untilUtcMidnight(now()) + (name === 'gem' ? 8 * 3600e3 : 0) : retryAfter(r), day ? 'day' : 'minute'); continue; }
       if (r.status >= 500) throw new PoolErr('net', `${name} ${r.status}`);
       const j = await r.json().catch(() => null);
-      if (!r.ok || !j) throw new PoolErr('bad', `${name} ${r.status} ${String(j && j.error && (j.error.code || j.error.status) || '').slice(0, 40)}`);
+      if (!r.ok || !j) throw new PoolErr('bad', `${name} ${r.status} ${redact(String(j && j.error && [j.error.code || j.error.status, j.error.message].join(' ') || '')).slice(0, 160)}`);
       used[name]++; return j;
     }
     throw new PoolErr('route', `${name}: ${Math.min(ring.size, 16)} khoá liên tiếp 429/từ chối`, 65e3);
@@ -441,6 +442,7 @@ export function createPool(opts = {}) {
         } catch (e) {
           const k = e instanceof PoolErr ? e.kind : 'net';
           hit(id, model, 'fail'); why.push(`${id}:${model} ${k} ${String(e.message).slice(0, 80)}`);
+          if (stats[id + '|' + model].fail <= 2) log(`[ai-pool] ✗ ${mode} ${id} ${model} ${k} ${redact(String(e.message)).slice(0, 200)}`); // 2 lỗi đầu mỗi mô hình – thấy lý do mà không ngập nhật ký
           if (k === 'route') { rest(id, null, e.ms || 30 * 60e3, e.message); break; }
           if (k === 'budget') break;
           if (k === 'model') rest(id, model, e.ms || 65e3, e.message);
