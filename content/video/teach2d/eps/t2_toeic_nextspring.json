@@ -1,0 +1,81 @@
+{
+ "id": "t2_toeic_nextspring",
+ "template": "toeic",
+ "series": "TOEIC Word",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "toeic",
+ "lines": [
+  {
+   "id": "h",
+   "text": "TOEIC question. Ten seconds!",
+   "pause": 0.42
+  },
+  {
+   "id": "s",
+   "text": "Brightwell Logistics blank its new distribution center in Da Nang next spring.",
+   "pause": 0.6
+  },
+  {
+   "id": "k",
+   "text": "Find the clue: next spring.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Will open! Next spring is the future.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "stem": "Brightwell Logistics ___ its new distribution center in Da Nang next spring.",
+  "options": [
+   "opened",
+   "will open",
+   "has opened",
+   "was opening"
+  ],
+  "answer": 1,
+  "cue": "next spring",
+  "n": 102,
+  "right": "will open"
+ },
+ "cta": {
+  "area": "toeic",
+  "route": "#/toeic",
+  "link": "https://lexkite.com/app/#/toeic",
+  "say": "Practice TOEIC free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "TOEIC in 10 seconds"
+ },
+ "src": {
+  "toeic": "tr1",
+  "n": 102
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.9,
+  "wpm": 98
+ }
+}
