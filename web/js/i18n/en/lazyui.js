@@ -539,4 +539,5 @@
   'Hiện có:': 'Available:',
   '{n}/{max} lượt khả dụng': '{n}/{max} freezes available',
   'Đóng băng chuỗi 🧊': 'Streak freeze 🧊',
+  '{n} ngày liên tiếp': '{n}-day streak', // dùng chung: lộ trình + bài học (chuyển từ pathx 30/10)
 }); })(typeof self !== 'undefined' ? self : this);

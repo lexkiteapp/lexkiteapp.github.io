@@ -107,7 +107,7 @@ const LAYOUT = () => { const W = innerWidth, over = [], clip = [];
 const browser = await chromium.launch(); const url = (h, hl) => `https://lk.test/app/?sandbox=1&hl=${hl}#/${h}`;
 async function visit(page, k, errs) {
   await page.goto(url(SCREENS[k], page.__hl), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1600);
-  if (k === 'streak' || k === 'complete') { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); }
+  { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); }
   if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
   if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message));
   await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {}); // như stitch-diff: thông báo sandbox không che ảnh/đo
