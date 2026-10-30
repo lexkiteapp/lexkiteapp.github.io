@@ -95,8 +95,22 @@ check must test the meaning, never restate the scene, never contain w, never ask
 If no sentence reaches draw >= 4 without breaking the hard rules, reply {"skip": "short reason"} for that k (no picture is better than a wrong one).
 Example: cheap (adj) ["The food at the night market is cheap and tasty."] -> {"ex":"The food at the night market is cheap and tasty.","ps":"a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles","check":"Does the big meal clearly cost very little money?","cap":"a woman buying a big bowl of noodles from a vendor","who":2,"draw":4}
 Example: consider (v) ["We are considering moving to the countryside."] -> {"ex":"We are considering moving to the countryside.","ps":"a woman and a man at a kitchen table look thoughtfully at two photos, a city flat and a cottage","check":"Are the two people carefully deciding between two choices before acting?","cap":"a couple comparing photos of a city flat and a cottage","who":2,"draw":4}
+If an item has "fix", your previous card for it was rejected for that reason: write a NEW card that avoids it (another sentence or scene is fine).
 Reply JSON only.`;
-export const sceneUser = items => JSON.stringify(items.map(({ k, e }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: [].concat(e.ex || []).filter(Boolean).slice(0, 3).map(s => String(s).slice(0, 220)) })));
+export const sceneUser = items => JSON.stringify(items.map(({ k, e, fix }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: [].concat(e.ex || []).filter(Boolean).slice(0, 3).map(s => String(s).slice(0, 220)), ...(fix ? { fix: String(fix).slice(0, 240) } : {}) })));
+// soát văn bản thẻ trước khi vẽ (31/10, pilot 41018500365 engineer: ex 'software engineer' → ps mũ bảo hộ; 41079076743 background: ex 'xuất thân' → check hỏi tranh tường phía sau)
+export const VERIFY_SYS = `You strictly review picture cards for an English-learning app. For each input item {k, w, pos, def, ex, ps, check} reply with one JSON object keyed by k:
+{"sense": true only if ps shows w in the SAME sense as def and as used in ex (same kind of person, job, place and thing; a different sense of the word = false), "test": true only if a YES answer to check needs a picture that shows def (false if check can be answered YES from the people, objects or place of ps alone, or asks about another sense), "why": short reason when sense or test is false}
+Reply JSON only.`;
+export const verifyUser = items => JSON.stringify(items.map(({ k, e, c }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: c.ex, ps: c.ps, check: c.check })));
+/** kết quả soát → '' nếu đạt, lý do nếu trượt (thiếu/không rõ = trượt: không ảnh còn hơn ảnh sai) */
+export function verifyOk(v) {
+  if (!v || typeof v !== 'object') return 'verify: no answer';
+  if (v.sense !== true) return 'verify: wrong sense – ' + String(v.why || '').slice(0, 100);
+  if (v.test !== true) return 'verify: check does not test def – ' + String(v.why || '').slice(0, 100);
+  return '';
+}
+export const CARD_TRIES = 3;   // viết lại NGAY trong lượt (kèm lý do trượt) tối đa 3 lần/nghĩa
 // check lặp lại ps (30/10, pilot 40865517506 general#adj: "Are both people smiling and giving thumbs up near a park bench?") → giám khảo nghĩa trả YES cho ảnh sai nghĩa.
 // echo = tỉ lệ từ nội dung của check (bỏ hư từ/người, gốc thô 5 ký tự) đã có trong ps; ≥ CHECK_ECHO → loại thẻ, viết lại.
 const ECHO_STOP = new Set('a an the is are was were be been being am do does did has have had can could will would should may might must this that these those there here it its they them their he she his her him we you i of to in on at by for with from into onto over under near next and or but so as than then both each either one two three some any all another other very really clearly picture image shown show shows showing visible see seen someone somebody people person woman man women men girl boy girls boys while who what which where when how why not no yes'.split(' '));
@@ -185,17 +199,30 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
     // 29/10 lượt fill 40875877636: 2.000 thẻ e4 tuần tự (8/lần, 20–220 s) chạy 2 giờ 10 phút → job quá giờ, mất hết thẻ, 0 ảnh.
     // Nay: VIMG_CARD_CONC lô song song + hạn VIMG_CARD_MIN phút (còn lại để lượt sau) → luôn kịp ghi thẻ và vẽ.
     const CONC = Math.max(1, +(process.env.VIMG_CARD_CONC || 4)), MIN = +(process.env.VIMG_CARD_MIN || 35), END = Date.now() + MIN * 60e3;
-    let next = 0, stop = false;
-    await Promise.all(Array.from({ length: CONC }, async () => { while (!stop && next < todo.length && Date.now() < END) {
-      const part = todo.slice(next, next += 8);
-      // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút); 25/10: CF văn bản cuối chuỗi + TẮT (AI_POOL_CF_TEXT) – neuron CF dành cho ảnh
-      const r = await AI.gen({ mode: 'vscene', items: part.map(k => ({ k, w: lex[k].w })) }, { chain: ['gc-groq', 'gc-gemini', 'cf2', 'gc-cf'] });
-      if (!r) { if (!stop) console.log('⏭ không tuyến nào trả lời – dừng (lượt sau viết tiếp)'); stop = true; break; }
-      const out = normOut(r.out, part.map(k => ({ k, w: lex[k].w }))) || {};
-      for (const k of part) { const c = out[k]; const why = sceneOk(lex[k], c); if (c && c.skip) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } else if (/^skip: draw/.test(why)) { cards.items[k] = { skip: 'draw ' + c.draw + ': ' + String(c.ps || '').slice(0, 60), v: SCENE_V, by: r.model }; add++; } else if (!why) { cards.items[k] = { ex: c.ex, ps: String(c.ps).replace(/["“”]/g, '').slice(0, 200), sc: String(c.ps).replace(/["“”]/g, '').slice(0, 200), check: String(c.check).slice(0, 160), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), draw: +c.draw, v: SCENE_V, by: r.model }; add++; } else { bad++; if (cards.items[k]) cards.items[k].e4bad = (cards.items[k].e4bad || 0) + 1; console.log('✗ thẻ', k, why); } }
+    // 31/10: thẻ trượt cổng/soát → viết lại NGAY trong lượt kèm lý do (fix), tối đa CARD_TRIES lần; qua sceneOk còn phải qua soát văn bản VERIFY_SYS (nghĩa def, đúng câu ex)
+    const AIV = createPool({ prompt: req => ({ sys: VERIFY_SYS, user: verifyUser(req.items.map(x => ({ k: x.k, e: lex[x.k], c: x.c }))), temp: 0 }) });
+    const CHAIN = { chain: ['gc-groq', 'gc-gemini', 'cf2', 'gc-cf'] }, tries = {}, fix = {}, queue = [...todo];
+    let stop = false, busy = 0;
+    const fail = (k, why) => { tries[k] = (tries[k] || 0) + 1; if (tries[k] < CARD_TRIES) { fix[k] = why; queue.push(k); return; } bad++; if (cards.items[k]) cards.items[k].e4bad = (cards.items[k].e4bad || 0) + 1; console.log('✗ thẻ', k, why); };
+    await Promise.all(Array.from({ length: CONC }, async () => { while (!stop && Date.now() < END && (queue.length || busy)) {
+      if (!queue.length) { await new Promise(r => setTimeout(r, 300)); continue; }
+      const part = queue.splice(0, 8); busy++;
+      try {
+        // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút); 25/10: CF văn bản cuối chuỗi + TẮT (AI_POOL_CF_TEXT) – neuron CF dành cho ảnh
+        const r = await AI.gen({ mode: 'vscene', items: part.map(k => ({ k, w: lex[k].w, ...(fix[k] ? { fix: fix[k] } : {}) })) }, CHAIN);
+        if (!r) { if (!stop) console.log('⏭ không tuyến nào trả lời – dừng (lượt sau viết tiếp)'); stop = true; break; }
+        const out = normOut(r.out, part.map(k => ({ k, w: lex[k].w }))) || {}, cand = [];
+        for (const k of part) { const c = out[k]; const why = sceneOk(lex[k], c); if (c && c.skip) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } else if (/^skip: draw/.test(why)) { cards.items[k] = { skip: 'draw ' + c.draw + ': ' + String(c.ps || '').slice(0, 60), v: SCENE_V, by: r.model }; add++; } else if (!why) cand.push({ k, c: { ...c, ps: String(c.ps).replace(/["“”]/g, '').slice(0, 200) }, model: r.model }); else fail(k, why + (c && c.ps ? ' (ps: ' + String(c.ps).slice(0, 80) + ' | check: ' + String(c.check || '').slice(0, 80) + ')' : '')); }
+        if (!cand.length) continue;
+        const rv = await AIV.gen({ mode: 'vverify', items: cand.map(x => ({ k: x.k, w: lex[x.k].w, c: x.c })) }, CHAIN);
+        const vo = rv ? normOut(rv.out, cand.map(x => ({ k: x.k, w: lex[x.k].w }))) || {} : {};
+        for (const { k, c, model } of cand) { const why = rv ? verifyOk(vo[k]) : 'verify: unavailable'; if (why) { fail(k, why + ' (ps: ' + c.ps.slice(0, 80) + ' | check: ' + String(c.check).slice(0, 80) + ')'); continue; }
+          cards.items[k] = { ex: c.ex, ps: c.ps, sc: c.ps, check: String(c.check).slice(0, 160), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), draw: +c.draw, v: SCENE_V, by: model, vby: rv.model }; add++; }
+      } finally { busy--; }
     } }));
-    if (next < todo.length && Date.now() >= END) console.log(`⏱ hết ${MIN} phút viết thẻ – còn ${todo.length - next} nghĩa, lượt sau viết tiếp`);
+    const left = queue.length;
+    if (left) console.log(`⏱ hết ${MIN} phút viết thẻ – còn ${left} nghĩa, lượt sau viết tiếp`);
     if (process.argv.includes('--write')) { cards.items = Object.fromEntries(Object.entries(cards.items).sort(([a], [b]) => (a < b ? -1 : 1))); fs.writeFileSync(P(SC), JSON.stringify(cards, null, 1) + '\n'); }
-    console.log(`✓ thẻ cảnh +${add} · hỏng ${bad}`); AI.report('vocab-img-scene');
+    console.log(`✓ thẻ cảnh +${add} · hỏng ${bad} · viết lại trong lượt ${Object.keys(fix).length}`); AI.report('vocab-img-scene'); AIV.report('vocab-img-scene-verify');
   }
 }
