@@ -28,18 +28,19 @@ def L(i, text, pause=0.42, **kw): return dict(id=i, text=text, pause=min(pause, 
 def cta(area, route, say): return dict(area=area, route=route, link=APP + route, say=say)
 
 
-def usuk(p):
-    us, uk = p['us'], p['uk']
+def usuk(p):   # optional row fields (hook_say, uk_tail, twist, quiz_ask, answer_say) keep the first pilot's output when absent
+    us, uk = p['us'], p['uk']; tw_ = p.get('twist')
     return dict(lines=[
-        L('h', 'U.S. or U.K.?'),
+        L('h', p.get('hook_say', 'U.S. or U.K.?')),
         L('us', f"In America, {p['us_say']}"),
-        L('uk', f"In Britain, {p['uk_say']} Same thing!"),
+        L('uk', f"In Britain, {p['uk_say']} {p.get('uk_tail', 'Same thing!')}"),
+        *([L('tw', tw_['say'])] if tw_ else []),   # the surprise (cookie/biscuit: in America a biscuit is soft bread)
         L('x', p['example']),
-        L('q', f"Quick quiz! You're in {p['quiz_city']}. What do you look for?", 3.0, quiz=True),
-        L('a', f"The {uk}!"),
+        L('q', f"Quick quiz! You're in {p['quiz_city']}. {p.get('quiz_ask', 'What do you look for?')}", 3.0, quiz=True),
+        L('a', p.get('answer_say', f"The {uk}!")),
         L('sh', 'Send this to a friend!'),
         L('c', 'Save this. Free on lexkite.com.')],
-        data=dict(us=us, uk=uk, ipa_us=p['ipa_us'], ipa_uk=p['ipa_uk'], same=p['same'], quiz=dict(options=[us, uk], answer=1)),
+        data=dict(us=us, uk=uk, ipa_us=p['ipa_us'], ipa_uk=p['ipa_uk'], same=p['same'], quiz=dict(options=[us, uk], answer=1), **({'twist': tw_} if tw_ else {})),
         cta=cta('dictionary', f'#/dict/{us}', 'Look up any word'), hook=dict(line='h', text='US or UK?'))
 
 
@@ -48,7 +49,7 @@ def verbforms(p):
     over = next((m['arg'] for m in V['m'] if m['code'] == 'overreg'), None)
     assert f['irregular'] and over, ('verb template needs an irregular verb with an over-regularised mistake', base)
     return dict(lines=[
-        L('h', f'Three forms of {base}. Ready?'),
+        L('h', p.get('hook_say', f'Three forms of {base}. Ready?')),
         L('b', f"Base form: {base}."),
         L('p', f"Past: {past}. {p['ex_past']}"),
         L('pp', f"Past participle: {pp}."),
@@ -64,7 +65,7 @@ def verbforms(p):
 def stress(p):
     a, b = p['a'], p['b']
     return dict(lines=[
-        L('h', f"Where's the stress? {a['word'].capitalize()}!"),
+        L('h', p.get('hook_say', f"Where's the stress? {a['word'].capitalize()}!")),
         L('a', f"{a['word'].capitalize()}. Stress on the {a['say']} part."),
         L('b', f"Now say {b['word']}."),
         L('m', f"The stress moves to the {b['say']} part."),
@@ -309,19 +310,30 @@ SERIES = dict(usuk='US or UK?', verbs='Verb Forms Challenge', stress="Where's th
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)
 
 
+SCENES = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/scenes.json'))['scenes']   # matching 2D scene backdrops (build.py / TeachShort.jsx)
+
+
 def make(row):
     t = row['template']; who = row['teacher']
     assert who in REG['people'], ('teacher not in web/teach/characters.json', who)
     sp = T[t](row['in'])
     ep = dict(id=row['id'], template=t, series=SERIES[t], part=row.get('part', 1), theme=row['theme'], teacher=who,
               voice=REG['people'][who]['voice']['video'], speed=row.get('speed', 0.8), area=sp['cta']['area'], **sp)
+    # optional (absent = the first pilots' output, byte-identical): scene backdrop, hook deadline (qc hook gate), Kokoro speed of the hook line only
+    if 'scene' in row: assert row['scene'] in SCENES, ('unknown scene', row['scene'], sorted(SCENES)); ep['scene'] = row['scene']
+    if 'hook_by' in row: ep['hook_by'] = row['hook_by']
+    if 'hook_speed' in row: ep['lines'][0]['speed'] = row['hook_speed']
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
+    est -= sum(len(words(l['text'])) / 2.55 * (1 / ep['speed'] - 1 / l['speed']) for l in ep['lines'] if 'speed' in l)   # lines with their own speed
     hk = ep['lines'][0]['text']
     assert len(words(hk)) <= 7, ('hook too long', hk)
+    if 'hook_by' in ep:   # spoken by the deadline: T0 0.10 + words at the hook speed, 0.1 s margin for Kokoro's lead-in
+        hs = 0.10 + len(words(hk)) / (2.55 * ep['lines'][0].get('speed', ep['speed']))
+        assert hs <= ep['hook_by'] - 0.1, ('hook too slow for hook_by', hk, round(hs, 2), ep['hook_by'])
     assert 30 <= n <= 70, ('word count', n)
     assert 60 * n / est <= 150, ('pace', 60 * n / est)
-    ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
+    ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est), **({'hook_s': round(hs, 2)} if 'hook_by' in ep else {}))
     return ep
 
 

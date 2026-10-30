@@ -257,6 +257,112 @@
     "ans_say": "I will pay for you.",
     "quote": "It's my treat today!"
    }
+  },
+  {
+   "id": "t3_usuk_soccer",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "scene": "field",
+   "hook_by": 1.5,
+   "hook_speed": 1.2,
+   "in": {
+    "us": "soccer",
+    "uk": "football",
+    "ipa_us": "/ˈsɑːkər/",
+    "ipa_uk": "/ˈfʊtbɔːl/",
+    "same": "Same game!",
+    "situation": "You want to watch the big match tonight.",
+    "hook_say": "Soccer or football?",
+    "us_say": "it's soccer.",
+    "uk_say": "it's football.",
+    "uk_tail": "Same game!",
+    "twist": {
+     "say": "Careful! American football is different.",
+     "card": "another game"
+    },
+    "example": "Want to watch soccer tonight?",
+    "quiz_city": "London",
+    "quiz_ask": "What's it called?",
+    "answer_say": "Football! Same game.",
+    "share": "Send this to a friend who loves soccer!"
+   }
+  },
+  {
+   "id": "t3_mistake_discuss",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "scene": "office",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "in": {
+    "gold": "sb_786153bb",
+    "hook_say": "Just say discuss!",
+    "hook_text": "Stop saying “discuss about”",
+    "wrong_say": "We will discuss about the budget.",
+    "right_say": "We will discuss the budget.",
+    "strike": "about",
+    "answer_say": "Discuss! We need to discuss the budget.",
+    "share": "Send this to a friend who says discuss about!"
+   }
+  },
+  {
+   "id": "t3_stress_photographer",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "studio",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "in": {
+    "a": {
+     "word": "photograph",
+     "syl": [
+      "pho",
+      "to",
+      "graph"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈfoʊtəɡræf/"
+    },
+    "b": {
+     "word": "photographer",
+     "syl": [
+      "pho",
+      "to",
+      "gra",
+      "pher"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/fəˈtɑːɡrəfər/"
+    },
+    "tip": "Photography moves it too.",
+    "share": "Tag a friend who loves taking photos!",
+    "hook_say": "Where's the stress?"
+   }
+  },
+  {
+   "id": "t3_verbs_break",
+   "template": "verbs",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "classroom",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "in": {
+    "base": "break",
+    "ex_base": "Don't break the glass!",
+    "ex_past": "Yesterday, I broke my phone.",
+    "ex_pp": "Now my phone is broken.",
+    "quiz_q": "The window is broke, or broken?",
+    "quiz_stem": "The window is ___.",
+    "quiz_right": "broken",
+    "quiz_a": "Broken! The window is broken.",
+    "hook_say": "Broke or broken?"
+   }
   }
  ]
 }

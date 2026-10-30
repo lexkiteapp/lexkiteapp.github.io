@@ -2,14 +2,17 @@
 """Teach2D QC (docs/VIDEO-TEACH2D.md): every gate must pass and the weighted score must be >= 90, else exit 1 (nothing ships).
   python3 scripts/video/teach2d/qc.py --timeline PROPS.json.timeline.json [--video OUT.mp4] [--sheet OUT.sheet.jpg] [--out qc.json]
 Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (talk only while speaking, listen in pauses)
-· hook (on screen at frame 0, <= 6 words, spoken by 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear)
+· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
-· duration · file (fps, AAC, duration, -16 LUFS) · frames (teacher visible every second, no blank frame) – the last two need --video."""
+· scene_clear (known scene; counter + props never over captions / text / QR / CTA; calm card region; text + captions readable on the scene)
+· bed (social music bed -40 +-3 dBFS RMS, voice dominates) · duration · file (fps, AAC, duration, -16 LUFS) · frames (teacher visible every second
+against the expected scene background, no blank frame) – the last two need --video."""
 import argparse, json, os, re, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/scripts/video/tpl')
 import core as C  # noqa: E402
 sys.path.insert(0, HERE); import pace as P  # noqa: E402
+import scene as SC  # noqa: E402
 from overlay_gates import contrast as _cr, bank_ipa, stress_index  # noqa: E402
 def contrast(a, b): return _cr(*[[int(x[i:i + 2], 16) for i in (1, 3, 5)] for x in (a, b)])
 ap = argparse.ArgumentParser(); ap.add_argument('--timeline', required=True); ap.add_argument('--video'); ap.add_argument('--sheet'); ap.add_argument('--out')
@@ -61,8 +64,9 @@ gate('host_cover', not holes and HL, 3, holes=holes[:6], frames=nf)
 gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
 # hook
 hk = [n for n in T['nodes'] if n.get('hook')]
-gate('hook', hk and alpha(hk[0], 0.0) >= 0.99 and len(L['h']['text'].split()) <= 6 and L['h']['words'][-1]['e'] <= 2.2, 3,
-     hook_words=len(L['h']['text'].split()), spoken_by=L['h']['words'][-1]['e'])
+HB = T.get('hook_by', 2.2)   # per episode (new samples 1.5 s), default 2.2 s
+gate('hook', hk and alpha(hk[0], 0.0) >= 0.99 and len(L['h']['text'].split()) <= 6 and L['h']['words'][-1]['e'] <= HB, 3,
+     hook_words=len(L['h']['text'].split()), spoken_by=L['h']['words'][-1]['e'], hook_by=HB)
 # cue timing: every element appears on its word
 off = [dict(node=c['node'], tag=c['tag'], d=round(N[c['node']]['in']['t'] + C.HALF[N[c['node']]['in']['k']] - c['t'], 3)) for c in T['cues'] if c['t'] is not None and c['node'] in N]
 offb = [x for x in off if abs(x['d']) > 0.08 and N[x['node']]['in']['t'] >= N[N[x['node']]['parent']]['in']['t'] + 1e-6 if N[x['node']].get('parent')]
@@ -123,6 +127,37 @@ for name, fg, bg, sz in pairs:
     cr = contrast(fg, bg)
     if cr < need(sz): low.append(dict(id=name, cr=cr, need=need(sz)))
 gate('contrast', not low, 3, low=low[:8], theme=T['theme'])
+# matching 2D scene: known key; the foreground counter + props on it never cover captions / cards / text / QR / CTA; card region stays calm;
+# free text and captions stay readable on the composited scene (scene.py = the same items TeachShort.jsx draws)
+SCN = T.get('scene'); sp_ = []
+if SCN:
+    W_, H_ = (1080, 1920) if T['format'] == 'short' else (1920, 1080); tint = SCN.get('tint'); bg_, bg2_ = [[int(TH[k][i:i + 2], 16) for i in (1, 3, 5)] for k in ('bg', 'bg2')]
+    base = lambda y: [u + (v - u) * y / H_ for u, v in zip(bg_, bg2_)]   # Kit canvas gradient bg -> bg2
+    comp = lambda x, y: [round(v) for v in SC.composite(SCN['items'], x, y, base(y), TH, tint, ('back', 'front'))]
+    if SCN['key'] not in SC.SCENES: sp_.append(dict(why='unknown scene', key=SCN['key']))
+    fg = ([SCN['counter']] + [SC.bbox(x) for x in SCN['items'] if x.get('l') == 'front' and SC.bbox(x)[1] < SCN['counter'][1]]) if SCN['counter'] else []
+    for r_ in fg:
+        if T['cap_box'] and inter(r_, T['cap_box']): sp_.append(dict(why='counter over the captions', box=r_))
+        sp_ += [dict(why='counter over a node', id=n['id'], type=n['type'], box=r_) for n in T['nodes'] if n['type'] != 'confetti' and inter(r_, n['box'])]
+    R0 = T['region']; calm = max([C_ for C_ in (contrast(SC.hexc(comp(x, y)), SC.hexc(base(y))) for x in range(int(R0[0]), int(R0[2]), 16) for y in range(int(R0[1]), int(R0[3]), 16))] or [1.0])
+    if calm > 1.35: sp_.append(dict(why='scene fights the card region', max_cr=calm))
+    for n in T['nodes']:   # free text (on the canvas, no card fill under it)
+        if n['type'] != 'text' or n.get('parent'): continue
+        bx = n['box']; pts = [(x, y) for x in range(int(bx[0]), int(bx[2]) + 1, 24) for y in (int(bx[1]) + 4, int((bx[1] + bx[3]) / 2), int(bx[3]) - 4)]
+        lo = min(contrast(TH.get(k, k), SC.hexc(comp(x, y))) for x, y in pts for s, k in n['runs'] if s.strip())
+        if lo < need(n['size']): sp_.append(dict(why='text on the scene', id=n['id'], cr=lo))
+    if T['cap_box']:
+        m_ = re.match(r'rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)', TH['cap_plate']); pa = float(m_[4]) if m_ else 1.0
+        pr_ = [int(m_[i]) for i in (1, 2, 3)] if m_ else [int(TH['cap_plate'][i:i + 2], 16) for i in (1, 3, 5)]; cb = T['cap_box']; lo = 99
+        for x in range(int(cb[0]), int(cb[2]), 16):
+            for y in range(int(cb[1]), int(cb[3]), 16):
+                pl = SC.hexc([p_ * pa + q_ * (1 - pa) for p_, q_ in zip(pr_, comp(x, y))]); lo = min(lo, contrast(TH['cap_ink'], pl), contrast(TH['cap_now'], pl))
+        if lo < need(58): sp_.append(dict(why='captions on the scene', cr=lo))
+gate('scene_clear', not sp_, 2, scene=SCN and SCN['key'], counter=SCN and SCN['counter'], problems=sp_[:6])
+# music bed (social shorts): background bed -40 dBFS RMS +-3 (voice dominates), ducked under the voice; lesson embeds carry no bed
+bed = [x for x in T.get('sfx') or [] if 'music' in x]
+if T['format'] == 'short': gate('bed', len(bed) == 1 and 'rms_meas' in bed[0] and abs(bed[0]['rms_meas'] + 40) <= 3 and bed[0].get('duck_db', 0) <= -12, 2, bed=bed[:1], want='-40 +-3 dBFS RMS, duck >= 12 dB')
+else: gate('bed', not bed, 2, bed=bed[:1], want='no music bed in the lesson embed')
 # min text size
 fl = 40 if T['format'] == 'short' else 34; small = [n['id'] for n in T['nodes'] if n.get('size') and n['size'] < fl]
 gate('min_text', not small, 2, floor=fl, small=small)
@@ -147,9 +182,11 @@ if o.video:
     import numpy as np
     W, H = v['width'], v['height']; raw = subprocess.check_output(['ffmpeg', '-nostdin', '-v', 'error', '-i', o.video, '-vf', 'fps=4', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     fr = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 3); bgc = np.array([int(TH['bg2'][i:i + 2], 16) for i in (1, 3, 5)])
-    hx = [int(max(0, x)) for x in T['body']]; hostvis = []; blank = []
+    hx = [int(max(0, x)) for x in T['body']]; hx[2] = min(hx[2], W); hx[3] = min(hx[3], H); hostvis = []; blank = []
+    if SCN and SCN['counter'] and SCN['counter'][1] > hx[1] + 100: hx[3] = min(hx[3], int(SCN['counter'][1]))   # the counter hides the teacher's lower edge by design
+    ref = SC.expected(SCN['items'], hx, bgc, TH, SCN.get('tint')) if SCN else bgc   # teacher = pixels unlike the frame WITHOUT her (scene drawn), not unlike flat bg2
     for i, im in enumerate(fr):
-        crop = im[hx[1]:hx[3], hx[0]:hx[2]].astype(int); diff = (np.abs(crop - bgc).sum(2) > 60).mean(); hostvis.append(round(float(diff), 3))
+        crop = im[hx[1]:hx[3], hx[0]:hx[2]].astype(int); diff = (np.abs(crop - ref).sum(2) > 60).mean(); hostvis.append(round(float(diff), 3))
         if im.std() < 4: blank.append(i)
     gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet

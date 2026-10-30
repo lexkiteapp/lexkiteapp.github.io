@@ -15,6 +15,7 @@ from PIL import ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); import core as C   # noqa: E402  (same maths as Remotion core.mjs)
 sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import bank_ipa   # noqa: E402  (audited IPA bank, same lookup as qc.py)
+sys.path.insert(0, HERE)
 
 ap = argparse.ArgumentParser()
 for a in ('ep', 'vo', 'host', 'public', 'out'): ap.add_argument('--' + a, required=True)
@@ -357,6 +358,8 @@ def T_usuk():
     top('vs', [RX0 + half - 60, RY0 + H2 - 66, RX0 + half + 60, RY0 + H2 + 54]   # medallion on the bottom seam (never on a word)
        , at('uk', 'Britain'), k='pop', out=t_split, size=60, pairs=[['#FFFFFF', '#E0482F', 60]])
     c = Card(RY0 + H2 + 76); c.text([[D['same'], 'accent']], S['body'], at('uk', 'same'), align='c', gap=GAP)
+    if 'tw' in LINES:   # the surprise line (cookie ep: in America a biscuit is soft bread) on its spoken word, same card
+        c.text([['US ', 'muted'], [D['uk'], 'primary'], [' = ' + D['twist']['card'], 'ink']], S['sub'], start('tw'), align='c', gap=GAP)
     c.text(runs_hl(LINES['x']['text'], D['us']), S['body'], start('x'), align='c'); c.place(at('uk', 'same'), start('q') - 0.2, 'b')
     qc_ = Card(RY0 + H2 + 76); chip(qc_, 'QUICK QUIZ', start('q')); pills(qc_, [D['us'], D['uk']], start('q'), at('a', D['uk']), 1)
     b = qc_.place(start('q'), t_split, 'b'); ring(b, end('q') + 0.05, end('q') + LINES['q']['pause'] - 0.1)
@@ -698,6 +701,17 @@ else:
         cx_, cy_ = HOST['cam']['ox'], HOST['cam']['oy']; hs = [[cx_ + (x - cx_) * sh_[q] + sh_['dx'], cy_ + (y - cy_) * sh_[q]] for sh_ in SHOTS for q in ('s0', 's1') for x, y in ((HEAD[0], HEAD[1]), (HEAD[2], HEAD[3]))]
         HEAD = [min(p_[0] for p_ in hs), min(p_[1] for p_ in hs), max(p_[0] for p_ in hs), max(p_[1] for p_ in hs)]
 
+# ---------------- matching 2D scene (scenes.json via scene.py): backdrop behind the teacher + foreground counter above her (grounding) ----------------
+import scene as SC   # noqa: E402  (scripts/video/teach2d/scene.py, same items qc.py re-checks)
+SCENE = SC.resolve(EP.get('scene'), o.format, LAYOUT, W, H, FMT['host_cx'], hw, FMT['host_h'], NODES, FMT['region'])
+if SCENE:
+    SCENE['tint'] = TINT
+    fg = [SCENE['counter']] + [SC.bbox(x) for x in SCENE['items'] if x.get('l') == 'front' and x['b'][1] < SCENE['counter'][1]] if SCENE['counter'] else []
+    for r_ in fg:   # the counter and the props standing on it never cover a caption, card, text, QR or CTA (lift the node or shrink the band)
+        assert not (FMT['cap'] and r_[0] < FMT['cap'][2] and FMT['cap'][0] < r_[2] and r_[1] < FMT['cap'][3] and FMT['cap'][1] < r_[3]), ('scene counter over the captions', r_, FMT['cap'])
+        hit = [n['id'] for n in NODES if n['type'] != 'confetti' and r_[0] < n['box'][2] and n['box'][0] < r_[2] and r_[1] < n['box'][3] and n['box'][1] < r_[3]]
+        assert not hit, ('scene counter over nodes', r_, hit)
+
 # ---------------- audio: voice track (-16 LUFS) + soft synth ticks (countdown 3-2-1, answer chime) after loudnorm ----------------
 os.makedirs(o.public, exist_ok=True); SR = 48000
 vo = np.zeros(int(TOTAL * SR) + SR, np.float32)
@@ -740,7 +754,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     for n in NODES:
         if n['type'] in ('check',) and n['in']['k'] == 'pop': put('riser', max(0, n['in']['t'] - 1.45), -8); put('ding', n['in']['t'], -4)
         if n['type'] in ('stamp', 'vs'): put('pop', n['in']['t'], 0)
-    # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
+    # music bed: preset by series, -40 dBFS RMS (rule: background bed ~ -40 dB, the voice dominates), ducked 12 dB under the voice (smooth 0.25 s), fades in/out
     PRE = dict(usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
                grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright')
@@ -748,12 +762,13 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
     if ch_ == 2: mu = mu.reshape(-1, 2).mean(1)
     mu = np.interp(np.arange(len(mix)) / SR, np.arange(len(mu)) / sr_, mu).astype(np.float32); os.remove(mf)
-    mu *= 10 ** (-30 / 20) / max(1e-6, float(np.sqrt(np.mean(mu ** 2))))
+    BED_DB = -40; mu *= 10 ** (BED_DB / 20) / max(1e-6, float(np.sqrt(np.mean(mu ** 2))))
     duck = np.zeros(len(mix), np.float32)
     for a_, b_ in SPEECH: duck[max(0, int((a_ - 0.1) * SR)):int((b_ + 0.15) * SR)] = 1
     kk = int(0.25 * SR); duck = np.convolve(duck, np.ones(kk) / kk, 'same'); gain = 10 ** (-12 * duck / 20)
     env = np.minimum(1, np.minimum(np.arange(len(mix)) / (0.6 * SR), (len(mix) - np.arange(len(mix))) / (0.8 * SR)))
-    mix += mu * gain * env; SFX.append(dict(music=PRE.get(EP['template']), rms_db=-30, duck_db=-12))
+    bed = mu * env; mix += bed * gain
+    SFX.append(dict(music=PRE.get(EP['template']), rms_db=BED_DB, rms_meas=round(20 * math.log10(max(1e-9, float(np.sqrt(np.mean(bed ** 2))))), 2), duck_db=-12))   # qc.py bed gate
     mix = np.tanh(mix * 1.1) / 1.1   # soft limiter
 wav_out(f'{o.public}/voice.wav', mix); os.remove(raw); os.remove(f'{o.public}/_voice_n.wav')
 
@@ -770,12 +785,12 @@ if EP['template'] == 'guess':   # picture from content/lexicon/img.json (license
     from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------
-props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
+props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav', scene=SCENE)
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause']) for k, v in LINES.items()},
                speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
-               voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS),
+               voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], hook_by=EP.get('hook_by', 2.2), cta=EP['cta'], nodes=NODES, caps=CAPS, scene=SCENE),
           open(o.out + '.timeline.json', 'w'), indent=0)
 if EMBED:   # captions + chapters as WebVTT (translatable, one cue per line)
     ts = lambda x: f'{int(x // 3600):02d}:{int(x % 3600 // 60):02d}:{x % 60:06.3f}'

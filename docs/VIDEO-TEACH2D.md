@@ -14,6 +14,7 @@
 ## Look (Stitch "Lexkite Kit", tokens `scripts/video/remotion/src/teach/theme.json`)
 - Three looks, same components: `dark` (A Tactile Night, = app dark), `dusk` (brighter teal dark for social feeds – owner 29/10 "màu hơi tối"), `light` (B Bright Day). Every pilot ships stills of the other two looks for the owner's pick; contrast gate runs on all three.
 - Canvas = flat Kit gradient + 3 static soft blobs (0 credits, no AI plate, no blur, nothing moving). Teacher bottom-centre, one fixed transform, never > 1.0× (short 640 px tall, embed 960 px).
+- Scene (optional pilot field `scene`: kitchen · office · studio · classroom · field; add one = a key in `src/teach/scenes.json`): flat Kit vector room in theme tokens + series tint (no text, no people, static) between canvas and teacher, plus grounding from `scene.py`: floor plane, soft contact shadow, and a FOREGROUND counter above the teacher (short top y 1800, wide y 900 right of the card region) that hides the bust cut. Bubble layout = backdrop below the card region only, no counter. `build.py` asserts the counter never covers captions / nodes; props + timeline carry `scene`.
 - Cards = Kit card (2 px border, darker ledge, radius 44) in ONE region above the head; series chip top-left; one-row karaoke caption between cards and head.
 - Motion: `soft` entrance (fade 0.24 s + 16 px ease-out, no spring – owner rejected #191's bounce), state colour mix 0.18 s, strike draw 0.30 s; ONE light celebration (✓ pop + confetti ≤ 0.9 s) on the quiz answer. Static while read.
 - Stitch reference screens (project 7268539912208977707): US/UK twin tiles `4cb4e39f975b4d7c9b9e9497016a5618`; quiz/mistake/tip `b83dd6cf…/ad30b370…/9c86169b…` (#191).
@@ -36,12 +37,14 @@
 - Fixed per series (recognition): series chip + series tint on the canvas (`theme.json` tints: US/UK teal, Verbs gold, Stress coral, Stop Saying red-coral, Phrasal mint) + one teacher per series.
 - Layouts (`build.py --layout`, same cards + timing): `corner` (teacher bottom-centre) · `side` (teacher left, larger, caption right of the head) · `bubble` (big card, teacher in a round Kit call window). Every pilot ships a layout board (`layouts.jpg`).
 - Rotating per episode (batch only after the owner's OK): hook style (question · challenge · "most learners…" · myth), layout, example scene. Look = `dusk` (owner pick 29/10).
+- Audio: voice −16 LUFS dominates; social music bed −40 dBFS RMS (ducked 12 dB under the voice). Optional row fields `hook_by` (hook deadline, default 2.2 s; t3 samples 1.5) and `hook_speed` (Kokoro speed of the hook line only; gen.py asserts 0.10 + words / (2.55 × speed) ≤ hook_by − 0.1).
 - Planner rule: no two consecutive videos share template, teacher or look; a point (content hash) is never reused; ≥ 1 new template per month (`VIDEO-SERIES.md`).
 
 ## QC gates (`qc.py`, all must pass, weighted score ≥ 90)
-voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · mouth (talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
+voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · mouth (talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook (by `hook_by`) · cue_timing ±80 ms ·
+scene_clear (known key; counter + props off captions / text / QR / CTA; card region calm ≤ 1.35:1; text + captions readable on the composited scene) · bed (−40 ± 3 dBFS RMS, none in embeds) ·
 layout (text in SAFE, no overlap, nothing on the head, caption off the face, nothing under the ring) · contrast (≥ 4.5:1, ≥ 56 px ≥ 3:1, real fill) · min_text (40 / 34 px) ·
-ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link) · duration 18–42 s · file (30 fps, AAC, −16 LUFS ±1.5) · frames (teacher visible every second, no blank frame).
+ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link) · duration 18–42 s · file (30 fps, AAC, −16 LUFS ±1.5) · frames (teacher visible every second against the expected scene background, no blank frame).
 
 ## Topic plan – every app area, zero-coverage first (only machine-checkable points)
 | order | app area (route) | template | point source | status |
@@ -59,5 +62,6 @@ Excluded (strength filter, `VIDEO-SERIES.md`): accents/intonation, slang, rolepl
 
 ## Not done yet (needs the owner)
 - Owner OK 30/10 on the 5 new templates (grammar, dictation, toeic, review, call – CI f5c3fe8, all 32 renders QC 100). Batch / cron / publish still need their own OK.
-- Matching 2D scene backgrounds: today the Kit canvas (0 credits). A Kling 2D-scene bank would follow `CREDIT-RULES.md` (analysis → dry-run → 1 pilot) and needs an explicit credit OK.
+- Cookie/biscuit usuk ep (kitchen scene) waits for `biscuit#n` in the audited IPA bank (`content/lexicon/expand/retry`).
+- Matching 2D scenes: vector scene layer done (0 credits); samples `t3_usuk_soccer` (field), `t3_mistake_discuss` (office), `t3_stress_photographer` (studio), `t3_verbs_break` (classroom), hook by 1.5 s – owner look OK pending. A Kling 2D-scene bank would still follow `CREDIT-RULES.md` and need an explicit credit OK.
 - 1080p bank (session teach-build-1080): `host.py` reads the same registry paths, no code change.

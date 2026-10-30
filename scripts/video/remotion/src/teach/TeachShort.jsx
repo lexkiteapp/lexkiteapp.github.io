@@ -183,6 +183,27 @@ const Canvas = ({ T, w, h, tint }) => (   // Stitch Kit canvas: flat tokens, sta
   </AbsoluteFill>
 );
 
+// Matching 2D scene (scenes.json via build.py / scene.py): flat Kit vector shapes in theme tokens, no text, no people, nothing moving.
+// layer 'back' sits between the canvas and the teacher (floor, contact shadow, room); 'front' is the counter (+ props on it) above the teacher.
+function Scene({ scene, layer, T, tint, w, h }) {
+  if (!scene) return null;
+  const col = c => (c === 'tint' ? tint || T.blobA : T[c] || c), items = scene.items.filter(x => (x.l || 'back') === layer);
+  if (!items.length) return null;
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{ position: 'absolute', left: 0, top: 0 }}>
+      <defs><radialGradient id={`sg-${layer}`}><stop offset="0%" stopColor={T.ledge} stopOpacity="1" /><stop offset="100%" stopColor={T.ledge} stopOpacity="0" /></radialGradient></defs>
+      {items.map((x, i) => {
+        if (x.k === 'p') return <polygon key={i} points={x.pts.map(p => p.join(',')).join(' ')} fill={col(x.c)} opacity={x.a} />;
+        const [x0, y0, x1, y1] = x.b, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, rx = (x1 - x0) / 2, ry = (y1 - y0) / 2;
+        if (x.k === 'r') return <rect key={i} x={x0} y={y0} width={x1 - x0} height={y1 - y0} rx={x.r || 0} fill={col(x.c)} opacity={x.a} />;
+        if (x.k === 'o') return <ellipse key={i} cx={cx} cy={cy} rx={rx} ry={ry} fill={col(x.c)} opacity={x.a} />;
+        if (x.k === 'g') return <ellipse key={i} cx={cx} cy={cy} rx={rx} ry={ry} fill={`url(#sg-${layer})`} opacity={x.a} />;   // soft contact shadow (token ledge)
+        if (x.k === 'ring') { const sw = x.sw || 6; return <ellipse key={i} cx={cx} cy={cy} rx={rx - sw / 2} ry={ry - sw / 2} fill="none" stroke={col(x.c)} strokeWidth={sw} opacity={x.a} />; }
+        return null;
+      })}
+    </svg>);
+}
+
 function Host({ host, f, T }) {   // speech-gated segments; bubble layout = the same clip framed in a round Kit call window
   if (!host.bubble) {   // social camera: push / cut per shot, scale anchored at the top of the head (head never rises into the captions)
     const c = host.cam, sh = c ? c.shots.find(x => f >= x.f0 && f < x.f1) || c.shots[c.shots.length - 1] : null;
@@ -221,14 +242,16 @@ function Captions({ caps, box, t, T }) {
     </div>);
 }
 
-export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, theme = 'dark', tint = null, audio = null, w = 1080, h = 1920 }) => {
+export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, theme = 'dark', tint = null, audio = null, scene = null, w = 1080, h = 1920 }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps, T = THEMES[theme] || THEMES.dark;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
     <AbsoluteFill>
       <Canvas T={T} w={w} h={h} tint={tint} />
+      <Scene scene={scene} layer="back" T={T} tint={tint} w={w} h={h} />
       {host ? <Host host={host} f={f} T={T} /> : null}
+      <Scene scene={scene} layer="front" T={T} tint={tint} w={w} h={h} />
       {audio ? <Audio src={staticFile(audio)} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} T={T} />)}</AbsoluteFill>
       <Captions caps={caps} box={capBox} t={t} T={T} />

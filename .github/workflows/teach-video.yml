@@ -65,7 +65,7 @@ jobs:
       - name: Voice (Kokoro teacher voice from the registry -> Rhubarb -> whisper word clock)
         run: |
           E=content/video/teach2d/eps/${{ matrix.ep }}.json
-          python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text']) for l in e['lines']]),open('lines.json','w'),indent=1)"
+          python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in e['lines']]),open('lines.json','w'),indent=1)"   # a line's own speed (hook_speed) wins
           python3 scripts/video/tpl/pilot5_voice.py lines.json vo   # lines faster than ~15 chars/s are re-synthesised slower (news_voice.py, floor 0.7)
           # learner pace (> 4.6 syllables/s) or a bad whisper clock -> voice that line again (max 2 rounds); qc.py gates the result
           for r in 1 2; do python3 scripts/video/teach2d/pace.py lines.json vo || break; NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo; done
