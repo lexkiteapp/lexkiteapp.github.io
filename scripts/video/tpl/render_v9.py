@@ -366,6 +366,10 @@ def plan_gated(nf):
         seq[fi] = [(cc, kk, ww * (1 - w)) for cc, kk, ww in seq[fi] if ww * (1 - w) > 1e-4] + [(c0, k0, w)]
     seq[-1] = [(c0, k0, 1.0)]
     return seq, joins
+def body_cells(rows):   # registry 2D host (registry_plate.py): the whole teacher's alpha envelope [[y, x0, x1], ...] -> 8 px cells, like move_mask
+    m_ = np.zeros((H // 8, W // 8), bool)
+    for y_, x0_, x1_ in rows: m_[y_ // 8, x0_ // 8:(x1_ + 7) // 8] = True
+    return m_
 def move_mask(c):   # cells (8 px) where the teacher actually moves in this clip (hands, arms, head): text over them = occlusion
     fr_ = [cv2.resize(cv2.cvtColor(norm_frame(RAW[c][k]), cv2.COLOR_BGR2GRAY), (W // 8, H // 8), interpolation=cv2.INTER_AREA).astype(np.int16) for k in range(CL[c]['usable'][0], min(len(RAW[c]), CL[c]['usable'][1] + 1), 3)]
     med = np.median(np.stack(fr_), 0); m_ = np.zeros_like(med, bool)
@@ -1373,7 +1377,7 @@ def identity_check():   # owner 27/10 "đồng nhất nhân vật": every source
             if sc < 0.75: hits.append((c, k, round(sc, 3)))
     return hits
 ID_HITS = identity_check(); print('identity check:', len(ID_HITS), 'frames off-model', ID_HITS[:5], flush=True)
-FRAMES = []; SHARP = []; SHARP_DUE = False; BODY_HITS = []; MOVE = {c: move_mask(c) for c in {x[0] for f_ in SEQ for x in f_}} if BRD else {}; POPID = {f'pop.{p.id}': p for p in POPS}
+FRAMES = []; SHARP = []; SHARP_DUE = False; BODY_HITS = []; MOVE = {c: move_mask(c) for c in {x[0] for f_ in SEQ for x in f_}} if BRD else {c: body_cells(TR['clips'][c]['body']) for c in {x[0] for f_ in SEQ for x in f_} if TR['clips'][c].get('body')}; POPID = {f'pop.{p.id}': p for p in POPS}
 if o.frames:   # sharded run: the sharpness-sample latch is state that crosses frames; replay it for the frames before this shard (SEQ is known without rendering)
     for fi in range(SEG0):
         if fi % 24 == 12: SHARP_DUE = True

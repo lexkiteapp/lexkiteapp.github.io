@@ -98,7 +98,9 @@ for c in dict.fromkeys(IDS):
     rows = np.where(A[:, :chin, max(0, xa):min(W, xb)].any((0, 2)))[0]
     cols = np.where(A[:, int(EY - 0.5 * em):int(EY + 1.2 * em), :].any((0, 1)))[0]
     head = [int(max(0, max(cols.min(), xa) - 6)), int(max(0, rows.min() - 6)), int(min(W, min(cols.max(), xb) + 6)), min(H, chin + 6)]
-    out['clips'][c] = dict(set=SP['set'], who=WHO, usable=[0, nf - 1], head=head, anchor=[round(EX), round(EY)], mood=MOOD.get(pose, 'talk'),
+    U = A.any(0); U = U[:H // 8 * 8].reshape(H // 8, 8, W // 8, 8).any((1, 3)); U[1:] |= U[:-1].copy(); U[:-1] |= U[1:].copy(); U[:, 1:] |= U[:, :-1].copy(); U[:, :-1] |= U[:, 1:].copy()
+    body = [[y * 8, int(np.flatnonzero(r)[0]) * 8, int(np.flatnonzero(r)[-1]) * 8 + 8] for y, r in enumerate(U) if r.any()]   # whole teacher (alpha union, 8 px cells, dilated 1) = render_v9 host_move
+    out['clips'][c] = dict(set=SP['set'], who=WHO, usable=[0, nf - 1], head=head, body=body, anchor=[round(EX), round(EY)], mood=MOOD.get(pose, 'talk'),
                            src=c, pose=pose, note='registry 2D (web/teach/characters.json) over the Teach2D canvas – registry_plate.py')
     print(f'  {c:20s} {pose:9s} [{a}:{z}] {nf} f  head {head}  {os.path.getsize(v) // 1024} KB', flush=True)
 
