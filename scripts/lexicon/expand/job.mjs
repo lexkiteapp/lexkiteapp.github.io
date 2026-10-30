@@ -208,6 +208,7 @@ const W1 = await wsd3(okDef.map(x => ({ k: x.k, w: x.w, pos: x.pos, senses: sens
 const bagOf = t => new Set(t.toLowerCase().match(/[a-z']+/g) || []), dup = (p, c) => { const b = bagOf(c.t), q = bagOf(p.t); return [...b].filter(y => q.has(y)).length / new Set([...b, ...q]).size >= 0.5; };
 function pickEx(X1, cands) { for (const c of cands.filter(c => c.ok).sort((p, q) => (/^wordnet/.test(p.src) - /^wordnet/.test(q.src)) || p.t.split(' ').length - q.t.split(' ').length)) if (X1.ex.length < 2 && !X1.ex.some(p => dup(p, c))) X1.ex.push(c); }
 for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (!v) { X1.wsdInfra = true; continue; }
+  X1.dbg = { lock: L, vi: X1.viC.map((c, i) => [c.v, [].concat(c.src).join('+'), v['vi' + i]]), vw: X1.viW.map((w, i) => [w, v['vw' + i]]), ex: X1.exAll.slice(0, 8).map((c, i) => [c.src, v['ex' + i]]) }; // tờ pilot: phiếu trắc nghiệm từng phương án (chẩn đoán trượt)
   const ok = id => { const r = wsdOk(v[id], L); if (r) stat.wsd.ok++; return r; };
   pickEx(X1, X1.exAll.slice(0, 8).map((c, i) => ({ ...c, ok: ok('ex' + i) })));
   const viOk = X1.viC.filter((c, i) => ok('vi' + i));
@@ -280,7 +281,7 @@ for (const x of items) {
   // khoá nghĩa / ví dụ / vi không qua trắc nghiệm nghĩa = lỗi NỘI DUNG → hàng duyệt (không bỏ qua hạ tầng – trước 29/10 mục thiếu ví dụ bị chọn lại mãi)
   { const cf = c._lock === false ? ['nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo' + (c._lockVotes ? ' ' + JSON.stringify(c._lockVotes) : '') + ')']
       : X[x.k] && !X[x.k].wsdInfra ? [X[x.k].exFail, X[x.k].viFail].filter(Boolean) : [];
-    if (cf.length && c._lock !== null) { why[cf[0].split(':')[0]] = (why[cf[0].split(':')[0]] || 0) + 1; OUT[x.k] = { pass: false, why: cf };
+    if (cf.length && c._lock !== null) { why[cf[0].split(':')[0]] = (why[cf[0].split(':')[0]] || 0) + 1; OUT[x.k] = { pass: false, why: cf, ...(X[x.k] && X[x.k].dbg ? { dbg: X[x.k].dbg } : {}) };
       if (!WORDS) { queue.items = queue.items.filter(q => !(q.src === 'lexicon-expand' && q.id === x.k)); queue.items.push({ src: 'lexicon-expand', id: x.k, batch: BATCH, why: cf, at: new Date().toISOString().slice(0, 10), ...(ent ? { data: ent } : {}) }); }
       continue; } }
   if (c._lock === null || (X[x.k] && X[x.k].wsdInfra)) { why.infra = (why.infra || 0) + 1; continue; } // trắc nghiệm nghĩa thiếu giám khảo = hạ tầng
@@ -293,7 +294,7 @@ for (const x of items) {
     if (c.fix.length) { ent.ipa = c.ipa; ent.ipaUS = c.ipaUS; ent.src.ipaFix = c.fix; if (c.fix.some(f => /ukToUs/.test(f))) ent.src.ipaUS = 'ukToUs'; stat.ipaFix = (stat.ipaFix || 0) + 1; }
     if (c.bad.length) { ent.ipaBad = c.bad; stat.ipaBad = (stat.ipaBad || 0) + 1; } }
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
-  OUT[x.k] = { pass: !!r.ok, why: r.why || [], ...(ent ? { ent } : {}) };
+  OUT[x.k] = { pass: !!r.ok, why: r.why || [], ...(ent ? { ent } : {}), ...(!r.ok && X[x.k] && X[x.k].dbg ? { dbg: X[x.k].dbg } : {}) };
   if (hasGap(r)) { why.gap = (why.gap || 0) + 1; gaps.add(x.k); continue; } // có lỗ dữ liệu nguồn (thiếu IPA…, kể cả kèm lỗi nội dung – vd. 20261027-pilot) → không vào hàng duyệt, lượt sau sinh lại
   if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; delete ent.qa.viLem; if (r.drop) { for (const l of Object.keys(r.drop)) delete ent.m[l]; ent.qa.trDrop = r.drop; ent.qa.trKeep = r.keep.filter(l => ent.m[l]); delete ent.perLang; } pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }

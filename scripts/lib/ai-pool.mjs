@@ -31,7 +31,7 @@ const TIERS = [
   [/llama-4-scout|llama-3\.2-(90|11)b-vision/i, 'llama', 'M'],
   [/llama/i, 'llama', 'S'],
   [/qwen3-235b|qwen3-coder-480b/i, 'qwen', 'L'],
-  [/qwen3-32b|qwq-32b|qwen2\.5-72b/i, 'qwen', 'M'],
+  [/qwen3-32b|qwq-32b|qwen2\.5-72b|qwen3\.\d+-(2[4-9]|[3-9]\d|1\d\d)b/i, 'qwen', 'M'], // 30/10 Groq chỉ còn qwen3.8-27b (họ thứ ba cho giám khảo C)
   [/qwen/i, 'qwen', 'S'],
   [/kimi-k2/i, 'kimi', 'L'],
   [/mistral-small-3|mistral-large/i, 'mistral', 'M'],
@@ -53,7 +53,7 @@ export function pickModels(kind, ids) {
   }
   if (kind === 'groq') {
     const big = I.filter(m => !/whisper|guard|tts|compound|prompt-guard|playai|orpheus|safeguard/i.test(m));
-    const oss = big.filter(m => /gpt-oss-120b/.test(m)), C = big.filter(m => !['gpt-oss', 'gemini', 'other'].includes(familyOf(m)) && (modelInfo(m).tier !== 'S' || !/\b[1-9]b\b|instant|-mini|tiny/i.test(m))).sort((a, b) => 'LMS'.indexOf(modelInfo(a).tier) - 'LMS'.indexOf(modelInfo(b).tier));
+    const oss = big.filter(m => /gpt-oss-120b/.test(m)), C = big.filter(m => !['gpt-oss', 'gemini', 'other'].includes(familyOf(m)) && modelInfo(m).tier !== 'S').sort((a, b) => 'LMS'.indexOf(modelInfo(a).tier) - 'LMS'.indexOf(modelInfo(b).tier));
     if (!oss.length && !C.length) return null;
     return { gen: oss.length ? oss : C.slice(0, 1), judge: [...oss, ...C.slice(0, 1)], C: C.slice(0, 2) };
   }
