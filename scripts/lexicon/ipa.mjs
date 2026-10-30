@@ -13,7 +13,7 @@ const BROKEN = [[/t͡ʃ/g, 'tʃ'], [/d͡ʒ/g, 'dʒ'], [/͡/g, ''], [/ä/g, 'a'],
 export function ukStyle(s) {
   return String(s || '').replace(/a(?![ɪʊː])/g, 'æ').replace(/\(ə\)/g, 'ə').replace(/\(r\)(?=[^\s\/,…‿-])/g, '');
 }
-export const ukStyleBad = s => /a(?![ɪʊː])|\((?!r\)(?:[\s\/,…‿-]|$))/.test(String(s || ''));
+export const ukStyleBad = s => /a(?![ɪʊː])|\((?!r\)(?:[\s\/,…‿-]|$))|əː/.test(String(s || '')); // əː = ký hiệu cũ của Wiktionary (pilot 20261028@13:31Z: vinegar /ˈvɪnəɡəː/), kho dùng ɜː/ə
 export function fixBroken(s) { let o = s; for (const [a, b] of BROKEN) o = o.replace(a, b); return o; }
 
 // r kiểu Mỹ (r cuối âm tiết, không đứng trước nguyên âm) trong ô giọng Anh → RP không-r

@@ -12,28 +12,28 @@
   "template": "roleplay",
   "lines": [
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "hook",
     "text": "Um… where do I go?",
     "expr": "confused",
     "gesture": ""
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "situation",
     "text": "Good morning! Are you here for an interview?",
     "expr": "curious",
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "example",
-    "text": "Hi, I'm Mia Chen. I have an interview with Ms. Park at ten.",
+    "text": "Hi, I'm Ama Brown. I have an interview with Ms. Park at ten.",
     "expr": "friendly",
     "gesture": ""
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "explain",
     "text": "Thanks, Ms. Chen. Please have a seat. She'll be out in a minute.",
     "expr": "friendly",
@@ -48,7 +48,7 @@
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "cta",
     "text": "Roleplay this free on lexkite.com",
     "expr": "happy smile",

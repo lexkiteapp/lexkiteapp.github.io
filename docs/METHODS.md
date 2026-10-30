@@ -7,6 +7,22 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 **Luật tài liệu: một chủ đề = một file sở hữu, link thay vì chép lại (bảng chủ đề → file: `docs/README.md`).**
 **Tiêu credit (Kling/mọi dịch vụ trả phí) → BẮT BUỘC `docs/CREDIT-RULES.md` trước.**
 
+## 0. Hướng hiện tại (tự đồng bộ mỗi giờ – chỉ sửa giữa 2 dấu)
+<!-- auto:direction:start -->
+- Giao diện: MỌI bề mặt (app, web, add-on, admin, iOS/Android, video) theo **"Lexkite Kit"** trên Stitch (design system `1b7a8a3d3d52404bb332d9ba3f783547`, tờ mẫu `39b977682d554b5da4b26651797f2c3f`, project `7268539912208977707`). Tối = A "Tactile Night", sáng = B "Bright Day", mặc định theo hệ thống.
+- Stitch làm HẾT (bố cục, icon, nút, hình): code port HTML Stitch trung thành (Tailwind biên dịch trên CI, không CDN, CI so ảnh SSIM); chỉ thay logo (diều Lexkite) và giáo viên (`Chars.*`). Chỉnh đẹp TRONG Stitch, không style lại bằng code.
+- Prompt Stitch: MỖI LẦN 1 MÀN, tả cảm giác/trải nghiệm, không liệt kê thông số.
+- Nhân vật: CHỈ Ama + Carlos 2D (tóc đen, trang phục sáng), qua `Chars.*` từ `web/teach/characters.json`; không 3D, không trộn, không viền; đổi phong cách phải hỏi chủ. Engine = puppet 2D động; art phải từ nguồn thật (1 sheet AI Studio, chủ duyệt art trước) – SVG vẽ tay đã bị loại. Ama = giọng nữ, Carlos = giọng nam ở mọi nơi (CI kiểm).
+- Đặt giáo viên trên màn (HARD): trông như một phần thiết kế kiểu Duolingo – cùng ánh sáng/tỉ lệ/chạm nền, viền sạch; cấm quầng cắt, đường cắt, khung, thân mờ dần hay kiểu "dán lên" (trượt QC, chủ duyệt ảnh).
+- Tương phản: CI đo mọi chữ/icon trên nền thật (thân ≥ 4,5:1, lớn/icon ≥ 3:1) cả sáng lẫn tối.
+- Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
+- Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
+- QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt.
+- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp; logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
+- Việc nặng (tách nền, render) CHỈ trên CI – script tự từ chối chạy ngoài `$CI`.
+- Phiên: mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn.
+<!-- auto:direction:end -->
+
 ## 1. Điều phối
 - Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình.
 - Vùng file: `docs/COORDINATION.md` (cuối file). `web/js/app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE khi được duyệt.
@@ -29,7 +45,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
 
 ## 3. Ngân sách dung lượng
-- Khung app (shell) ≤ 380 KB gz → tính năng mới phải tải lười (module riêng). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).
+- Khung app (shell) ≤ 377 KB gz (đo Node 22 = CI; không nâng) → tính năng mới phải tải lười. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.
 - `scripts/test/size-budget.mjs`; ngưỡng `visual-qa.budget.json` chỉ được GIẢM.
 
