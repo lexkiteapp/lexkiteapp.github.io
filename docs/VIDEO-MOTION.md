@@ -56,3 +56,9 @@ overlay_host (no card on the head box / moving-body mask, every frame) · overla
 The overlay never draws the teacher. `src/stitch/hosts.js` registry: `host.kind = 'puppet'` → the puppet component (`<Teacher {...host} t fps/>`,
 session puppet-2d-ama); geometry `content/video/puppet/<who>.json` {head, envelope rows} → `build_overlay.py --host-geom`. Until it lands the
 samples use the render_v9 footage plate as a placeholder, tagged "PLACEHOLDER HOST" (top-left, inside the platform UI band).
+
+## Fixes 30/10 (first green run, PR #228)
+Springs taper to exact rest at SETTLE (core.py == core.mjs) · HALF draw = 0.062 s (ease-out half point) · master audio = the plate's AAC
+(Remotion's AAC priming lagged ~40 ms) · embeds CRF 23 (CRF 30 ringing flickered static text) · handover coverage measured against the
+plate (short, dark canvas) / canvas colour (embed); pills hand over like cards · 16:9 pills shrink to stay inside SAFE incl. the rise
+offset · registry set: v13 plate captions inside SAFE, no PLACEHOLDER tag.
