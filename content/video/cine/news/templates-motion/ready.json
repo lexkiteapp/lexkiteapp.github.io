@@ -4,17 +4,16 @@
  "title": "Motion Readiness Hook #1 – Can you reach Band 7? (2 quick questions, band bar)",
  "teacher": "carlos",
  "clips": [
-  "c05_carlos2",
-  "c05t2_carlos2_present",
-  "c05e1_carlos2_excited",
-  "c05t3_carlos2_talk3",
-  "c05e2_carlos2_question",
-  "c05e3_carlos2_wow"
+  "gc11_talk",
+  "gc11_explain",
+  "gc11_happy",
+  "gc11_thinking",
+  "gc11_surprise_2"
  ],
  "listen": [
-  "c05l_carlos2_listen"
+  "gc11_listen"
  ],
- "set": "classroom_board",
+ "set": "reg2d",
  "layout": "right",
  "host_fx": "raw",
  "speed": 0.7,

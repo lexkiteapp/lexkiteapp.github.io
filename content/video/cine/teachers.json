@@ -87,6 +87,14 @@
    "smax": 1.06,
    "bank": "brand/library/cine/teachers/bank.json",
    "retired": "owner 28/10: ONE character set everywhere = 2D green-screen Ama + Carlos outfit 1 (web/teach/characters.json, docs/CHARACTERS.md); render_v9 3D classroom sets/teachers are hard-blocked by scripts/teach/registry.check – kept as data only, never rendered (3D classroom set)"
+  },
+  "reg2d": {
+   "lib": "reg2d",
+   "path": "clips",
+   "meta": "meta",
+   "smax": 1.0,
+   "registry": "web/teach/characters.json",
+   "note": "ONE character set (owner 28/10): 2D green-screen Ama/Carlos from web/teach/characters.json over the Teach2D dusk canvas; clip ids = registry src ids; clips + teacher entries built on CI by scripts/video/motion/registry_plate.py (video-motion.yml), never stored here"
   }
  },
  "clips": {

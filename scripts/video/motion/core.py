@@ -12,9 +12,9 @@ def spring(tau, z, w):   # underdamped step response 0 -> 1
 def ease_out(x): x = clamp01(x); return 1 - (1 - x) ** 3
 
 FADE_IN = dict(rise=0.12, pop=0.06, fade=0.14, draw=0.0, soft=0.24, punch=0.0)   # alpha ramp per entrance kind
-HALF = dict(rise=0.06, pop=0.03, fade=0.07, draw=0.15, soft=0.12, punch=0.0)      # time from in.t to the "appears" instant (alpha 0.5 / half drawn): builders start in.t = word.s - HALF
+HALF = dict(rise=0.06, pop=0.03, fade=0.07, draw=0.062, soft=0.12, punch=0.0)      # time from in.t to the "appears" instant (alpha 0.5 / half drawn: ease_out(x) = 0.5 at x = 1 - 0.5^(1/3) -> 0.30 s x 0.206): builders start in.t = word.s - HALF
 SETTLE = dict(rise=0.45, pop=0.40, fade=0.14, draw=0.30, soft=0.32, punch=0.25)    # after this the node is static (no motion while it is read)
-DRAW = 0.30; OUT = 0.16; MIX = 0.18; RISE_DY = 36; OUT_DY = 14; SOFT_DY = 16; SOFT_T = 0.32
+DRAW = 0.30; TAPER = 0.12; OUT = 0.16; MIX = 0.18; RISE_DY = 36; OUT_DY = 14; SOFT_DY = 16; SOFT_T = 0.32
 
 def pose(n, t):
     """-> dict(a=alpha, s=scale, dy=px, p=draw progress) of node n at time t."""
@@ -23,8 +23,9 @@ def pose(n, t):
     elif k == 'punch': a = 1.0 if tau >= 0 else 0.0; s = 1.15 - 0.15 * ease_out(tau / 0.25) if tau >= 0 else 1.15; dy = 0.0; p = 1.0
     else:
         a = clamp01(tau / FADE_IN[k]) if tau >= 0 else 0.0; p = 1.0
-        if k == 'rise': sp = spring(tau, 0.8, 20.0); s = 0.94 + 0.06 * sp; dy = RISE_DY * (1 - sp)
-        elif k == 'pop': s = spring(tau, 0.45, 24.0); dy = 0.0
+        tp = clamp01((SETTLE[k] - tau) / TAPER)   # springs: the residual wobble fades out over the last TAPER s -> exact rest at SETTLE (static while read)
+        if k == 'rise': sp = 1 + (spring(tau, 0.8, 20.0) - 1) * tp; s = 0.94 + 0.06 * sp; dy = RISE_DY * (1 - sp)
+        elif k == 'pop': s = 1 + (spring(tau, 0.45, 24.0) - 1) * tp; dy = 0.0
         elif k == 'soft': s = 1.0; dy = SOFT_DY * (1 - ease_out(tau / SOFT_T)) if tau >= 0 else SOFT_DY
         else: s = 1.0; dy = 0.0
     o = n.get('out')

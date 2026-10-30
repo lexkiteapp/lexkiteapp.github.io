@@ -366,6 +366,10 @@ def plan_gated(nf):
         seq[fi] = [(cc, kk, ww * (1 - w)) for cc, kk, ww in seq[fi] if ww * (1 - w) > 1e-4] + [(c0, k0, w)]
     seq[-1] = [(c0, k0, 1.0)]
     return seq, joins
+def body_cells(rows):   # registry 2D host (registry_plate.py): the whole teacher's alpha envelope [[y, x0, x1], ...] -> 8 px cells, like move_mask
+    m_ = np.zeros((H // 8, W // 8), bool)
+    for y_, x0_, x1_ in rows: m_[y_ // 8, x0_ // 8:(x1_ + 7) // 8] = True
+    return m_
 def move_mask(c):   # cells (8 px) where the teacher actually moves in this clip (hands, arms, head): text over them = occlusion
     fr_ = [cv2.resize(cv2.cvtColor(norm_frame(RAW[c][k]), cv2.COLOR_BGR2GRAY), (W // 8, H // 8), interpolation=cv2.INTER_AREA).astype(np.int16) for k in range(CL[c]['usable'][0], min(len(RAW[c]), CL[c]['usable'][1] + 1), 3)]
     med = np.median(np.stack(fr_), 0); m_ = np.zeros_like(med, bool)
@@ -432,8 +436,9 @@ def to_screen(b, s): x0, y0, x1, y1 = b; return [AX + (x0 - AX) * s, AY + (y0 - 
 HEAD_MAX = [min(to_screen(h, SMAX)[k] for h in HEAD.values()) if k < 2 else max(to_screen(h, SMAX)[k] for h in HEAD.values()) for k in range(4)]
 BAND = (int(math.ceil(HEAD_MAX[3])) + 14, BAND_Y1); BAND_CY = (BAND[0] + BAND[1]) / 2; BAND_H = BAND[1] - BAND[0]
 print(f'pop band y {BAND[0]}..{BAND[1]} ({BAND_H} px), head at smax {[round(v) for v in HEAD_MAX]}', flush=True)
-assert BAND_H >= 240 or BRD, 'no room under the chin for pops'
-POPW, POPH = CAPW, BAND_H; ZONE = None; MINPX_BOARD = 48; MINPX_TEXT = 50
+PLAN_H = max(BAND_H, 240) if o.overlay else BAND_H   # --overlay never draws band pops (the motion layer lays out its cards and asserts their fit): plan them at the standard band size
+assert PLAN_H >= 240 or BRD, 'no room under the chin for pops'
+POPW, POPH = CAPW, PLAN_H; ZONE = None; MINPX_BOARD = 48; MINPX_TEXT = 50
 if BRD:
     _z = BRD.get('zone_free') or BRD['zone']; ZONE = [_z[0] + 4, _z[1] + 4, _z[2] - 4, _z[3] - 4]
     if BRD.get('zone_free'):   # trim to the camera-safe window: every point stays inside SAFE at every scale 1..smax about (AX, AY)
@@ -718,7 +723,7 @@ class Pop:
     def __init__(s, P):
         s.P = P; s.id = P['id']; s.kind = P['kind']; s.t0 = max(1.0 / FPS, tm_of(P['from'])) if P['from'][0] != 't' else max(1.0 / FPS, float(P['from'][1]))
         s.t1 = tm_of(P['to']) if P['to'][0] != 'end' else TOTAL - 0.40; s.an = P.get('anim', 'spring'); s.cx = P.get('cx', CX); s.cache = {}
-        s.text = ''; s.px = 0; s.variant = None; s.where = 'band'; s.region = None; s.PW, s.PH = CAPW, BAND_H; s.slot = P.get('slot'); s.tall = False
+        s.text = ''; s.px = 0; s.variant = None; s.where = 'band'; s.region = None; s.PW, s.PH = CAPW, PLAN_H; s.slot = P.get('slot'); s.tall = False
     def make(s):
         if BRD: s.build_board()
         else: s.build()
@@ -757,7 +762,7 @@ class Pop:
             elif s.kind == 'cta': s.build_cta_ink(rw, rh)
             elif s.kind == 'lesson': s.build_lesson(rw, rh)
             elif s.kind == 'note': s.build_note(rw, rh)
-        finally: INK = False; POPW, POPH = CAPW, BAND_H
+        finally: INK = False; POPW, POPH = CAPW, PLAN_H
         s.where = 'board'; s.mcur = s.meas
         print(f"pop {s.id} -> board {s.variant or ''} {s.im.size} in {rw}x{rh} meas {[(a, round(b)) for a, b in s.meas]} pages {len(getattr(s, 'pages', []) or [1])} region {s.region}", flush=True)
     def fits(s, im, rw, rh): return im.width <= rw - 4 and im.height <= rh - 4
@@ -1065,7 +1070,7 @@ def keycol(lid, k):
     for name in ('red', 'green', 'yellow', 'mint'):
         if k in KEY[lid].get(name, []): return COL[name]
     return None
-PLATE = bool(BRD) and SP.get('caption_style', 'plate') == 'plate'   # v13 (owner 27/10): ONE caption style everywhere – fixed lower band, dark rounded plate, white text, active word yellow, no bounce
+PLATE = (bool(BRD) or bool(SET.get('registry'))) and SP.get('caption_style', 'plate') == 'plate'   # v13 (owner 27/10): ONE caption style everywhere (board sets + registry 2D set reg2d) – fixed lower band, dark rounded plate, white text, active word yellow, no bounce
 DESK = bool(BRD) and not PLATE and BRD['cap'].get('body_overlap_rows', 1) == 0 and BRD['cap']['w'] >= 700   # a clean desk-front / floor band below the teacher
 CAPINK = bool(BRD) and not DESK and not PLATE   # board mode: captions are WRITTEN ON THE BOARD in ink (navy, white edge, highlighter on the active word), moved with the camera
 CAP = dict(size=max(96, CAPF), min=CAPF, stroke=14, gapx=22, bounce=1.16, settle=1.08) if not BRD else dict(size=CAPF, min=CAPF, stroke=12 if CAPINK else 14, gapx=20, bounce=1.12, settle=1.06)
@@ -1092,7 +1097,7 @@ def _wpx(seg, sz, bounce=None):   # page row width incl. the active word's bounc
 ROW2 = False; PITCH = 0; STRIP1 = STRIP2 = None; POPZ = POPZ_TALL = ZONE
 PLATE_Y = 1430
 if PLATE:   # the whole board is for the lesson cards; captions sit on a fixed plate in the lower safe area (over desk or body, like the approved mock)
-    CCX = W / 2; CAPWC = 860; _im, _ib = word_im('Hgjy', CAP['size'], (255, 255, 255), 1.0); PITCH = int(_ib[3] - _ib[1]) + 2
+    CCX = W / 2; CAPWC = 860 if BRD else int(2 * (SAFE['x1'] - CCX) - 2 * 28 - 8); _im, _ib = word_im('Hgjy', CAP['size'], (255, 255, 255), 1.0); PITCH = int(_ib[3] - _ib[1]) + 2   # registry 2D set: the caption plate (+28 px each side) stays inside the platform-safe area
     CAP_CY = PLATE_Y - int((_ib[1] + _ib[3]) / 2 - _im.height / 2); STRIP1 = [int(CCX - CAPWC / 2 - 28), PLATE_Y - 48, int(CCX + CAPWC / 2 + 28), PLATE_Y + 48]; STRIP2 = STRIP1
     print(f'plate captions: band {STRIP1}, pops on the full board zone {POPZ}', flush=True)
 elif DESK:   # captions on the measured clean desk front / floor band (CapCut white + stroke, screen space, camera anchored on them)
@@ -1373,7 +1378,7 @@ def identity_check():   # owner 27/10 "đồng nhất nhân vật": every source
             if sc < 0.75: hits.append((c, k, round(sc, 3)))
     return hits
 ID_HITS = identity_check(); print('identity check:', len(ID_HITS), 'frames off-model', ID_HITS[:5], flush=True)
-FRAMES = []; SHARP = []; SHARP_DUE = False; BODY_HITS = []; MOVE = {c: move_mask(c) for c in {x[0] for f_ in SEQ for x in f_}} if BRD else {}; POPID = {f'pop.{p.id}': p for p in POPS}
+FRAMES = []; SHARP = []; SHARP_DUE = False; BODY_HITS = []; MOVE = {c: move_mask(c) for c in {x[0] for f_ in SEQ for x in f_}} if BRD else {c: body_cells(TR['clips'][c]['body']) for c in {x[0] for f_ in SEQ for x in f_} if TR['clips'][c].get('body')}; POPID = {f'pop.{p.id}': p for p in POPS}
 if o.frames:   # sharded run: the sharpness-sample latch is state that crosses frames; replay it for the frames before this shard (SEQ is known without rendering)
     for fi in range(SEG0):
         if fi % 24 == 12: SHARP_DUE = True

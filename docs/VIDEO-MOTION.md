@@ -3,18 +3,21 @@
 > TL;DR: v14 host plate (render_v9 --overlay) + Stitch Tactile Night cards drawn by Remotion at 60 fps, every element appearing on its spoken word (±80 ms); CI-only workflow video-motion, 0 credits; gates = qc_v9 + qc_motion.
 
 Owner 28/10: "dùng tạo animation chuẩn đẹp khớp hơn + stitch". The learning shorts keep the approved v14 host engine
-(render_v9.py, Kokoro voice, captions, 3D hosts Carlos/Ama, 0 credits); the lesson graphics are Stitch "Tactile Night" cards drawn and
+(render_v9.py, Kokoro voice, captions, 0 credits) with the ONE registry character set (2D Ama/Carlos, `web/teach/characters.json`); the lesson graphics are Stitch "Tactile Night" cards drawn and
 animated by Remotion at 60 fps, every element keyed to the spoken word. QC contract: docs/VIDEO-TEMPLATES.md §16.
 
 ## Pipeline (CI only: `.github/workflows/video-motion.yml`, never render locally)
 1. voice: Kokoro + Rhubarb + word clock (`pilot5_voice.py`), same as video-templates9.
-2. plate: `render_v9.py --overlay` = teacher + captions + audio; pops planned but not drawn, no pop sfx, writes `host_move`
+2. hosts (30/10, #201 registry gate): set `reg2d` – `scripts/video/motion/registry_plate.py` composites the registry green-screen clips
+   (`gc11_*`/`ga11_*`, spec ids = registry src ids) over the Teach2D dusk canvas, one eye line + head size for both teachers, teacher right
+   of centre; writes the clip entries render_v9 reads (`--teachers`). The old 3D classroom clips stay retired (registry.check blocks them).
+3. plate: `render_v9.py --overlay` = teacher + captions + audio; pops planned but not drawn, no pop sfx, writes `host_move`
    (per-clip moving-body mask). Spec `"layout": "right"` = v14 medium shot (host lowered 180 px, wall above, inside the top UI band)
    with the host kept at its native x → full-width top card + left column free.
-3. overlay: `scripts/video/motion/build_overlay.py` – free area = SAFE − head − moving body (camera push included) − caption plate;
+4. overlay: `scripts/video/motion/build_overlay.py` – free area = SAFE − head − moving body (camera push included) − caption plate;
    ONE fixed top-card rectangle + left column; text measured with the fonts Remotion uses (Plus Jakarta Sans 800, Noto Sans IPA).
-4. render: Remotion composition `stitch-short` (`scripts/video/remotion/src/stitch/`), 60 fps over the plate, CRF 16.
-5. QC: `qc_motion.py` – every qc_v9 gate on a 24 fps proxy (overlay cards as elements, card fills re-measured on the frames) + motion gates.
+5. render: Remotion composition `stitch-short` (`scripts/video/remotion/src/stitch/`), 60 fps over the plate, CRF 16.
+6. QC: `qc_motion.py` – every qc_v9 gate on a 24 fps proxy (overlay cards as elements, card fills re-measured on the frames) + motion gates.
 
 ## Motion rules (core.py == core.mjs, parity test `scripts/test/motion-core.mjs`)
 - Entrances: `rise` (fade 0.12 s + spring 0.94→1, 36 px lift), `pop` (bouncy, checks/+XP/ring), `draw` (strike 0.30 s), state mix 0.18 s.
@@ -53,3 +56,9 @@ overlay_host (no card on the head box / moving-body mask, every frame) · overla
 The overlay never draws the teacher. `src/stitch/hosts.js` registry: `host.kind = 'puppet'` → the puppet component (`<Teacher {...host} t fps/>`,
 session puppet-2d-ama); geometry `content/video/puppet/<who>.json` {head, envelope rows} → `build_overlay.py --host-geom`. Until it lands the
 samples use the render_v9 footage plate as a placeholder, tagged "PLACEHOLDER HOST" (top-left, inside the platform UI band).
+
+## Fixes 30/10 (first green run, PR #228)
+Springs taper to exact rest at SETTLE (core.py == core.mjs) · HALF draw = 0.062 s (ease-out half point) · master audio = the plate's AAC
+(Remotion's AAC priming lagged ~40 ms) · embeds CRF 23 (CRF 30 ringing flickered static text) · handover coverage measured against the
+plate (short, dark canvas) / canvas colour (embed); pills hand over like cards · 16:9 pills shrink to stay inside SAFE incl. the rise
+offset · registry set: v13 plate captions inside SAFE, no PLACEHOLDER tag.

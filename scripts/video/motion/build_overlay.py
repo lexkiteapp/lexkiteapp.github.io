@@ -181,19 +181,22 @@ def fix_ring(card, h_chip=60):   # move the ring item to the card's top-right co
 
 def pills(y0, opts, cues, reveal, right, cid='opts'):
     """Stacked A-D option pills in the left column; each appears on its spoken word, the index ring turns into a check on the reveal word."""
-    x1 = col_x1(y0, y0 + len(opts) * 140); x1 = min(x1, X0 + 640); w = x1 - X0; h = 118; out = []   # embed (wide): pills keep a pill shape, not the full panel
+    x1 = col_x1(y0, y0 + len(opts) * 140); x1 = min(x1, X0 + 640); w = x1 - X0; out = []
+    g = 24; h = min(118, (SAFE['y1'] - C.RISE_DY - y0 + g) // len(opts) - g)   # 16:9 embed: the pills shrink so even the 'rise' entrance (36 px below) stays inside SAFE
+    if h < round(S_BODY * 1.18) + 12: g = 16; h = min(118, (SAFE['y1'] - C.RISE_DY - y0 + g) // len(opts) - g)
+    assert h >= round(S_BODY * 1.18) + 12, ('option pills do not fit inside SAFE', h)   # never below the text line + 12 px   # embed (wide): pills keep a pill shape, not the full panel
     need = max(tw(t, S_BODY) for t in opts) + 60 + 18 + 2 * 20
     assert need <= w, ('option column too narrow', round(need), w)
     rin, rcue = cue(reveal, 'pop')
     for i, (txt, c) in enumerate(zip(opts, cues)):
-        y = y0 + i * (h + 24); ins, cw = cue(c, 'rise'); CUES.append(dict(node=f'{cid}.{i}', **cw))
+        y = y0 + i * (h + g); ins, cw = cue(c, 'rise'); CUES.append(dict(node=f'{cid}.{i}', **cw))
         st = [dict(t=round(rcue['at'] - 0.02, 4), s='right' if i == right else 'dim')]
         out.append(node(id=f'{cid}.{i}', type='pill', box=[X0, y, x1, y + h], idx='ABCD'[i], label=txt, size=S_BODY, **{'in': ins}, st=st, pal=PILL, card=cid))
-    out.append(node(id=f'{cid}.chk', type='check', parent=f'{cid}.{right}', box=[X0 + 20, y0 + right * (h + 24) + 25, X0 + 20 + 60, y0 + right * (h + 24) + 85], **{'in': rin}))
+    out.append(node(id=f'{cid}.chk', type='check', parent=f'{cid}.{right}', box=[X0 + 20, y0 + right * (h + g) + (h - 60) // 2, X0 + 20 + 60, y0 + right * (h + g) + (h - 60) // 2 + 60], **{'in': rin}))
     CUES.append(dict(node=f'{cid}.chk', **rcue))
     CARDS[cid] = dict(card=None, nodes=[n['id'] for n in out[:-1]], kind='lesson', group='pop', text=' / '.join(f'{"ABCD"[i]} {t}' for i, t in enumerate(opts)),
                       m=[['body', S_BODY * CAP_J]], px=S_BODY, extra={})
-    return out, y0 + len(opts) * (h + 24) - 24
+    return out, y0 + len(opts) * (h + g) - g
 
 END_TOP_H = PAD + 132 + GAP + round(S_BODY * 1.18) + PAD + LEDGE_H
 def end_card_embed(c_line, top_h):
