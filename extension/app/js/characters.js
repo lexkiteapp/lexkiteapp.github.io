@@ -2,7 +2,7 @@
  * Dữ liệu đầy đủ (nguồn clip, khung, sha256): web/teach/characters.json · dựng: scripts/teach/build.py (CI) · cổng: scripts/test/characters-gate.mjs. */
 (function (g) {
   const NAME = { ama: 'Ama', carlos: 'Carlos' }, POSES = ['talk', 'listen', 'explain', 'happy', 'encourage', 'thinking', 'laugh', 'wave', 'cheer', 'concern', 'surprise', 'point', 'empathy'];
-  const PENDING = { carlos: ['wave', 'concern', 'point', 'empathy'] }; // clip đang tạo → tạm dùng 'talk' cùng người (không bao giờ đổi kiểu/nhân vật)
+  const PENDING = {}; // clip đang tạo → tạm dùng 'talk' cùng người (không bao giờ đổi kiểu/nhân vật)
   const id = w => (NAME[w] ? w : 'ama'), f = (w, x) => 'teach/' + id(w) + '/' + x, ok = (w, p) => POSES.includes(p) && !(PENDING[id(w)] || []).includes(p) ? p : 'talk';
   g.Chars = {
     ids: Object.keys(NAME), poses: POSES, name: w => NAME[id(w)], id,
