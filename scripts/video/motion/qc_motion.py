@@ -121,14 +121,17 @@ for r in rows: ts += [r['appears'] - 0.30, r['appears'] - 0.15, r['appears'] + 0
 FS = grab(o.master, ts); bad = []; early = []; okn = 0
 cardin = sorted((n['in']['t'], n['id']) for n in NODES if n['type'] == 'card')
 def handed(n):   # a card that takes over a slot right after another card left it (the outgoing fade sits in the 'before' window)
-    return n['type'] == 'card' and any(0 < n['in']['t'] - (m.get('out') or {}).get('t', -9) < 0.5 for m in NODES if m['type'] == 'card' and m is not n and inter(m['box'], n['box']))
+    return n['type'] in ('card', 'pill') and any(0 < n['in']['t'] - (m.get('out') or {}).get('t', -9) < 0.5 for m in NODES if m['type'] in ('card', 'pill') and m is not n and inter(m['box'], n['box']))   # option pills hand over their slot like cards (q1 pills -> q2 pills)
 lum = lambda F, b: cv2.cvtColor(crop(F, b, 10).astype(np.uint8), cv2.COLOR_BGR2GRAY)
 frac = lambda F, b: float(((lum(F, b) < 80) if not EMBED else (lum(F, b) > 150)).mean())   # short: dark card on the light board; embed: light text on the dark canvas
 FSH = grab(o.master, [r['appears'] - 0.075 for r in rows if handed(BY[r['node']])])
 _ts_h = [r['appears'] + d for r in rows if handed(BY[r['node']]) for d in (-0.075, 0.20)]
 PLH = grab(o.plate, _ts_h) if not EMBED else {}   # short: the plate (same frame size, no overlay) at the same instants
 DARKBG = bool(PLH) and float(np.median(cv2.cvtColor(next(iter(PLH.values())), cv2.COLOR_BGR2GRAY)[240:700])) < 110   # dark canvas (registry 2D set) – "dark pixels" can't tell a card from the canvas
-if DARKBG: frac_at = lambda F, b, t: float((np.abs(crop(F, b, 10) - crop(PLH[round(t, 4)], b, 10)).max(2) > 8).mean()) if round(t, 4) in PLH else frac(F, b)   # overlay coverage = differs from the plate
+if DARKBG: frac_at = lambda F, b, t: float((np.abs(crop(F, b, 10) - crop(PLH[round(t, 4)], b, 10)).max(2) > 18).mean()) if round(t, 4) in PLH else frac(F, b)   # overlay coverage = differs from the plate by > 18 (a card's last fade-out frames / compression stay below)
+elif EMBED:   # embed: dark Kit cards on the flat canvas (props bg) – "light pixels" only sees the text (~7 %), so coverage = differs from the canvas colour
+    _bg = np.array([int(P.get('bg', '#10191B')[i:i + 2], 16) for i in (5, 3, 1)], np.float32)   # BGR
+    frac_at = lambda F, b, t: float((np.abs(crop(F, b, 10) - _bg).max(2) > 18).mean())
 else: frac_at = lambda F, b, t: frac(F, b)
 for r in rows:
     n = BY[r['node']]; b = n['box']; a, b0, c_ = [FS.get(round(r['appears'] + d, 4)) for d in (-0.30, -0.15, 0.20)]

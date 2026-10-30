@@ -100,7 +100,7 @@ jobs:
         run: |
           S=$SPEC; [ "${{ matrix.kind }}" = short ] || S=$O/spec.json
           for f in $([ "${{ matrix.kind }}" = short ] && echo short || echo wide sq45); do
-            python3 scripts/video/motion/build_overlay.py --format $f --fps $([ $f = short ] && echo 60 || echo 30) --spec $S --plate $O/plate.mp4 --fonts brand/social/src/fonts --public $O/pub --out $O/$f.json; done
+            python3 scripts/video/motion/build_overlay.py --format $f --fps $([ $f = short ] && echo 60 || echo 30) --spec $S --plate $O/plate.mp4 --tag '' --fonts brand/social/src/fonts --public $O/pub --out $O/$f.json; done
           cp $O/plate.mp4 $O/pub/plate.mp4
           ffmpeg -nostdin -v error -y -i $O/plate.mp4 -vn -ac 2 -ar 48000 $O/pub/plate.wav   # audio track for Remotion: decoded with the edit list (no AAC priming offset)
       - uses: actions/setup-node@v4
