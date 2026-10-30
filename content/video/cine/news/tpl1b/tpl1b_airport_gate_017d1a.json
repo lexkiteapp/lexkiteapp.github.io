@@ -11,7 +11,7 @@
  "area": "grammar-check",
  "plate": "airport_gate",
  "host": "ama",
- "clip": "ga9_talk",
+ "clip": "ga11_talk",
  "hook": {
   "line": "n_017d1a_h",
   "quote": "The car collided to a bus.",
