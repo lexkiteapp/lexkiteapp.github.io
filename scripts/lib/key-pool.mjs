@@ -15,6 +15,8 @@ export function keyRing(keys, { now = Date.now, start = 0 } = {}) {
     size: K.length,
     live: () => K.filter(k => k.until <= now()).length,
     next() { for (let n = 0; n < K.length; n++) { const k = K[i++ % K.length]; if (k.until <= now()) return k; } return null; },
+    /** khoá sống thứ n mà KHÔNG xoay vòng (đọc danh sách mô hình) */
+    peek(n = 0) { return K.filter(k => k.until <= now())[n] || null; },
     park(id, ms, why = '') { const k = K.find(x => x.id === id); if (k) { k.until = now() + ms; k.why = why; } },
     soonest: () => Math.max(5e3, Math.min(...K.map(k => k.until)) - now()),
     stats: () => ({ size: K.length, live: K.filter(k => k.until <= now()).length, parked: K.filter(k => k.until > now()).reduce((o, k) => (o[k.why || '?'] = (o[k.why || '?'] || 0) + 1, o), {}) }),

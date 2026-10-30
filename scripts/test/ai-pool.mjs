@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Test ai-pool (scripts/lib/ai-pool.mjs) – ngoại tuyến, mọi nhà cung cấp giả (fetch mock). docs/API-KEYS.md §8.
 import fs from 'fs';
-import { createPool, allowed, familyOf, judgeKey, modelInfo, CHAINS, untilPacificMidnight, JUDGE_B_SYS, sameFamOk, cfTextOn } from '../lib/ai-pool.mjs';
+import { createPool, allowed, familyOf, judgeKey, modelInfo, CHAINS, untilPacificMidnight, JUDGE_B_SYS, sameFamOk, cfTextOn, pickModels } from '../lib/ai-pool.mjs';
 import { agree } from '../content-qa/lib.mjs';
 import { parseKeys, keyRing } from '../lib/key-pool.mjs';
 import { build } from '../../functions/api/lexai.js';
@@ -198,6 +198,8 @@ for (const f of ['../lexicon/expand/job.mjs', '../explain/job.mjs', '../scriptba
   ring.park('k0', 60e3, 'minute'); ok(ring.next().key === G2 && ring.next().key === G2 && ring.live() === 1, 'keyRing: khoá nghỉ bị bỏ qua'); t += 61e3; ok(ring.live() === 2, 'keyRing: hết nghỉ thì dùng lại');
   const logs = [], seen = [];
   const f = async (url, init = {}) => { const body = init.body ? JSON.parse(init.body) : {}, h = init.headers || {}; seen.push(h['x-goog-api-key'] || h.Authorization);
+    if (url.includes('generativelanguage') && url.includes('/models?')) return J({ models: [{ name: 'models/gemini-2.5-flash', supportedGenerationMethods: ['generateContent'] }, { name: 'models/gemini-3.8-flash', supportedGenerationMethods: ['generateContent'] }, { name: 'models/gemini-3.8-flash-lite', supportedGenerationMethods: ['generateContent'] }] });
+    if (url.endsWith('api.groq.com/openai/v1/models')) return J({ data: [{ id: 'openai/gpt-oss-120b' }, { id: 'meta-llama/llama-4-maverick-17b-128e-instruct' }, { id: 'whisper-large-v3' }] });
     if (url.includes('generativelanguage')) { if (h['x-goog-api-key'] === G1) return new Response('{"error":{"message":"Quota exceeded for metric generate_content_free_tier_requests, limit 250 PerDay"}}', { status: 429 });
       return J({ candidates: [{ content: { parts: [{ text: JSON.stringify({ 'apple#n': { s: 5 } }) }] } }] }); }
     if (url.includes('api.groq.com')) { if (h.Authorization === 'Bearer ' + Q1) return new Response('{"error":{"message":"Rate limit reached ... requests per minute (RPM)"}}', { status: 429, headers: { 'Retry-After': '7' } });
@@ -205,10 +207,15 @@ for (const f of ['../lexicon/expand/job.mjs', '../explain/job.mjs', '../scriptba
     if (url === LX && body.mode === 'ping') return J({ gemini: 0 });
     throw new Error('unexpected ' + url); };
   const P = createPool({ fetch: f, env: { GEMINI_POOL: `${G1}\n${G2}`, GROQ_POOL: `${Q1}\n${Q2}` }, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: l => logs.push(l), sleep: async () => {}, now: () => t, prompt: async r => ({ sys: 'S', user: JSON.stringify(r.items) }) });
-  const g = await P.gen({ mode: 'lxdef', items: ITEMS }); ok(g && g.route === 'gem' && /gemini-2\.5-flash/.test(g.model) && g.out['apple#n'].s === 5, 'gem: soạn bằng Gemini 2.5 Flash, khoá hết hạn mức ngày → khoá kế');
+  const g = await P.gen({ mode: 'lxdef', items: ITEMS }); ok(g && g.route === 'gem' && /gemini-3\.8-flash/.test(g.model) && g.out['apple#n'].s === 5, 'gem: soạn bằng Gemini Flash mới nhất (đọc danh sách mô hình thật), khoá hết hạn mức ngày → khoá kế');
   const st = P.stats().keys; ok(st.gem.live === 1 && st.gem.parked.day === 1, 'gem: khoá hết hạn mức NGÀY nghỉ (không thử lại trong lượt)');
   const j = await P.judge({ mode: 'lxjudge', items: ITEMS }); ok(j && j.route === 'groq' && j.fam === 'gpt-oss' && P.stats().keys.groq.parked.minute === 1, 'groq: giám khảo A gpt-oss, 429 theo phút → khoá nghỉ Retry-After');
   const pair = await P.judgePair({ mode: 'lxjudge', items: ITEMS }); ok(pair.a && pair.b && pair.a.fam !== pair.b.fam, 'gem + groq: 2 giám khảo khác họ');
   const c = await P.judge({ mode: 'lxjudge', items: ITEMS }, { chain: ['groq', 'cf2'], slot: 'C', exclude: [pair.a.fam, pair.b.fam] }); ok(c && c.fam === 'llama', 'groq: giám khảo C họ thứ ba (llama)');
   ok(!logs.join('\n').includes(G1) && !logs.join('\n').includes(Q1) && !JSON.stringify(P.stats()).includes(G1) && !JSON.stringify(P.stats()).includes(Q2), 'không bao giờ ghi khoá ra nhật ký/thống kê'); }
+{ const g = pickModels('gem', ['models/gemini-2.5-flash', 'models/gemini-3.8-flash', 'models/gemini-3.8-flash-lite', 'models/gemini-4-flash-preview', 'models/gemini-3.6-flash', 'models/gemini-3.8-flash-image']);
+  ok(g && g.gen[0] === 'gemini-4-flash-preview' && g.gen[1] === 'gemini-3.8-flash' && !g.gen.some(m => /lite|image/.test(m)), 'pickModels gem: Flash bản mới nhất từ danh sách thật, bỏ lite/image');
+  const q = pickModels('groq', ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'whisper-large-v3', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'meta-llama/llama-guard-4-12b', 'llama-3.1-8b-instant', 'qwen/qwen3-32b']);
+  ok(q && q.gen[0] === 'openai/gpt-oss-120b' && q.C[0] === 'meta-llama/llama-4-maverick-17b-128e-instruct' && q.C.every(m => !/gpt-oss|guard|whisper|8b-instant/.test(m)), 'pickModels groq: C họ khác gpt-oss, hạng L trước, bỏ guard/whisper/8b');
+  ok(pickModels('gem', []) === null && pickModels('groq', ['whisper-large-v3']) === null, 'pickModels: danh sách rỗng → giữ mặc định'); }
 console.log(`✓ ai-pool test: ${n} kiểm tra`);
