@@ -137,7 +137,7 @@ async function pairWait(req) { let { a, b } = await AI.judgePair(req);
   for (let i = 0; a && !b && i < 5; i++) { await new Promise(r => setTimeout(r, 70e3)); b = await AI.judge(req, { exclude: [a.fam] }); stat.pairWait = (stat.pairWait || 0) + 1; }
   // ĐỒNG THUẬN 3 GIÁM KHẢO (chủ 27/10, soát pilot 2: ~9/50 sai qua 2 giám khảo): C = họ thứ ba (mistral/qwen trên kho CF), lời nhắn soát đối nghịch như B.
   // Thiếu C = bỏ qua trung tính (hạ tầng, lượt sau làm lại) – không bao giờ nhận với 2 giám khảo.
-  let c = null; if (a && b) { c = await AI.judge(req, { chain: ['groq', 'cf2'], slot: 'C', exclude: [a.fam, b.fam], excludeModels: [a.model, b.model] }); if (!c) stat.judgeCMiss = (stat.judgeCMiss || 0) + 1; }
+  let c = null; if (a && b) { c = await AI.judge(req, { chain: ['groq', 'gem', 'cf2'], slot: 'C', exclude: [a.fam, b.fam], excludeModels: [a.model, b.model] }); if (!c) stat.judgeCMiss = (stat.judgeCMiss || 0) + 1; }
   return { a, b, c }; }
 const D = {}, S = {}, X = {}, T = {}, JA = {}, JB = {}, JC = {}; let mGen = '', mA = '', mB = ''; const GM = {};
 // 1. định nghĩa: viết lại gloss
@@ -186,7 +186,7 @@ await pmap(chunks(okDef, 10), 8, async ch => { const r = await call('lxtr', ch.m
 // lxvi: HAI họ khác (llama + mistral) – vi nhận khi ≥ 2 trong 4 nguồn trùng (Wiktionary · A · B · C)
 const viReq = ch => ({ mode: 'lxvi', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def })) });
 await pmap(chunks(okDef, 10), 6, async ch => { const fa = ch.map(x => FA[x.k]).find(Boolean) || 'gpt-oss'; stat.calls += 2;
-  /* B = Gemini (chủ 30/10: Gemini dịch vi), họ khác bản lxtr */ const b = await AI.judge(viReq(ch), { chain: ['gem', 'groq', 'cf2'], exclude: [fa] }), c = b && await AI.judge(viReq(ch), { chain: ['groq', 'cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
+  /* B = Gemini (chủ 30/10: Gemini dịch vi), họ khác bản lxtr */ const b = await AI.judge(viReq(ch), { chain: ['gem', 'groq', 'cf2'], exclude: [fa] }), c = b && await AI.judge(viReq(ch), { chain: ['groq', 'gem', 'cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
   for (const [r, V] of [[b, VB], [c, VC]]) if (r) { used.add(r.route + ':' + r.model); for (const x of ch) { const o = r.out[x.k] || {}; if (typeof o.vi === 'string' && o.vi.trim()) V[x.k] = o.vi.trim(); } } });
 const OMWL = ['ja', 'zh', 'th', 'id', 'fr', 'es', 'pt', 'ar'];
 stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw+ai': 0, 'omw+ai': 0, 'wiktionary+ai': 0 };
