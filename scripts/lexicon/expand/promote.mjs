@@ -30,5 +30,9 @@ if (s.ok) {
   for (const k of bad) { q.items.push({ src: 'lexicon-expand', id: k, batch: id, why: ['soát mẫu: ' + (checked.find(x => x.id === k).note || 'sai')], at: b.at, data: P.items[k] }); delete P.items[k]; }
   P.n = Object.keys(P.items).length; wr(QUEUE, JSON.stringify(q, null, 1) + '\n');
   wr(`content/lexicon/expand/${id}.json`, rd(PEND).length && JSON.stringify(P).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n'); fs.unlinkSync(new URL(PEND, ROOT));
+  // từ vừa xuất có TỪ LOẠI KHÁC đang chờ ở retry (duck#n xuất → duck#v): job.mjs không làm được nữa (doneWords theo từ) → hàng duyệt, chờ mục đa từ loại
+  { const RT = 'content/lexicon/expand/retry/words.json'; if (fs.existsSync(new URL(RT, ROOT))) { const R = JSON.parse(rd(RT)), W = new Set(Object.keys(P.items).map(k => k.split('#')[0])), mv = R.items.filter(k => W.has(k.split('#')[0]) && !(k in P.items));
+    if (mv.length) { const q2 = JSON.parse(rd(QUEUE)); for (const k of mv) if (!q2.items.some(x => x.src === 'lexicon-expand' && x.id === k)) q2.items.push({ src: 'lexicon-expand', id: k, batch: id, why: ['keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)'], at: new Date().toISOString().slice(0, 10) });
+      R.items = R.items.filter(k => !mv.includes(k)); wr(RT, JSON.stringify(R, null, 1) + '\n'); wr(QUEUE, JSON.stringify(q2, null, 1) + '\n'); console.log(`↪ ${mv.length} mục retry khác từ loại → hàng duyệt (${mv.slice(0, 6).join(', ')})`); } } }
 }
 console.log(`${s.ok ? '✓ xuất' : '✗ loại'} lô ${id}: ${keys.length} mục · soát ${checked.length} · sai ${bad.size}${s.ok ? '' : ' – ' + s.why}`);

@@ -40629,6 +40629,96 @@
      "technology.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "curry#v",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "duck#v",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fifth#adj",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fuss#v",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "giggle#v",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "hatch#v",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "hop#v",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "jar#v",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "sparkle#v",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "torture#n",
+   "batch": "20261030",
+   "why": [
+    "keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)"
+   ],
+   "at": "2026-10-30"
   }
  ]
 }
