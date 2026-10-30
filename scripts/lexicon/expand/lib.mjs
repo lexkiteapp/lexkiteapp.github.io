@@ -215,3 +215,15 @@ export function poolEmpty(status, body) { return (status === 503 || status === 4
 export function queueable(r, callOk) { return !r.ok && !(callOk === false && /^gen:/.test(r.why[0] || '')); }
 /** Cầu dao: sau `max` lần liên tiếp kho rỗng thì mở (ngừng gọi) */
 export function breaker(max = 3) { let n = 0; const b = { open: false, hit(empty) { n = empty ? n + 1 : 0; if (n >= max) b.open = true; return b.open; } }; return b; }
+
+/** câu trả lời trắc nghiệm nghĩa của 1 mục → {probeId: số}. Mô hình hay bọc thêm 1 tầng ({probes:{…}}, {answers:{…}}, [{id, sense}]) – 30/10 gpt-oss trên Groq
+ *  trả khuôn bọc nên giám khảo A luôn "null" → khoá nghĩa trượt hàng loạt. null = không đọc được (ghi nhật ký, không đoán). */
+export function wsdUnwrap(o, ids) {
+  const num = v => (typeof v === 'number' || (typeof v === 'string' && /^\d+$/.test(v.trim())) ? Number(v) : (v && typeof v === 'object' && !Array.isArray(v) && ['sense', 'n', 'answer', 'value'].some(x => x in v) ? num(v.sense ?? v.n ?? v.answer ?? v.value) : undefined));
+  const flat = x => { if (!x || typeof x !== 'object') return null;
+    if (Array.isArray(x)) { const r = {}; for (const y of x) if (y && typeof y === 'object') { const id = y.id ?? y.probe ?? y.k; if (id != null) r[id] = num(y.sense ?? y.n ?? y.answer ?? y.value); } return r; }
+    const r = {}; for (const id of ids) if (id in x) r[id] = num(x[id]); return Object.values(r).some(v => v !== undefined) ? r : null; };
+  const d = flat(o); if (d) return d;
+  if (o && typeof o === 'object') for (const key of ['probes', 'answers', 'senses', 'result', 'results', 'out']) { const r = flat(o[key]); if (r && Object.values(r).some(v => v !== undefined)) return r; }
+  return null;
+}

@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
+import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
@@ -301,4 +301,9 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/acc === 'us' \? 'af_heart\|' : 'bf_emma\|'/.test(NT), 'newtab.js: us → af_heart, còn lại bf_emma');
   // mục mở rộng vào app với ipaUS riêng (toIndex: trùng Anh → để trống = dùng Anh)
   { const e = toIndex({ ...good(), ipa: '/ʌnˈɪntrəstɪŋ/', ipaUS: '/ʌnˈɪntrəstɪŋ/' }), f = toIndex({ ...good() }); ok(e.ipa === '/ʌnˈɪntrəstɪŋ/' && e.ipaUS === '' && f.ipaUS === '/fərˈseɪk/' && f.ipa === '/fəˈseɪk/', 'toIndex: ipa = Anh, ipaUS = Mỹ'); } }
+// L3 (30/10): giám khảo trả khuôn bọc → phiếu khoá nghĩa rỗng hàng loạt; đọc mọi khuôn thường gặp, khuôn lạ → null (không đoán)
+{ const I = ['wk1', 'wk2'];
+  ok(JSON.stringify(wsdUnwrap({ wk1: 2, wk2: '0' }, I)) === '{"wk1":2,"wk2":0}', 'wsdUnwrap phẳng');
+  ok(wsdUnwrap({ probes: { wk1: 1, wk2: 3 } }, I).wk2 === 3 && wsdUnwrap({ answers: { wk1: { sense: 4 } } }, I).wk1 === 4, 'wsdUnwrap bọc probes/answers/{sense}');
+  ok(wsdUnwrap([{ id: 'wk1', sense: 1 }], I).wk1 === 1 && wsdUnwrap({ foo: 1 }, I) === null && wsdUnwrap(null, I) === null, 'wsdUnwrap mảng / khuôn lạ → null'); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }

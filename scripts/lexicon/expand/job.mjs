@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viNorm, omwHas, trIn } from './lib.mjs';
+import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -87,11 +87,13 @@ const senseList = e => (e.senses && e.senses.length ? e.senses : [{ syn: e.syn, 
 const sensesTxt = e => senseList(e).map((s, i) => `${i + 1}. ${s.gloss}${s.lemmas && s.lemmas.length ? ' (= ' + s.lemmas.slice(0, 3).join(', ') + ')' : ''}`);
 const lockIdx = e => senseList(e).findIndex(s => s.syn === e.syn) + 1;
 stat.wsd = { calls: 0, probes: 0, ok: 0 };
+const wsdShapeLogged = {};
 async function wsd3(list) { const out = {};
   await pmap(chunks(list, 8), 6, async ch => { stat.wsd.calls++; const { a, b, c } = await pairWait({ mode: 'lxwsd', items: ch.map(r => ({ k: r.k, w: r.w, pos: r.pos, senses: r.senses, probes: r.probes })) });
     if (!a || !b || !c) return;
     for (const r of ch) { const A = a.out[r.k], B = b.out[r.k], Z = c.out[r.k]; if (!A || !B || !Z) continue;
-      out[r.k] = Object.fromEntries(Object.keys(r.probes).map(id => [id, [A[id], B[id], Z[id]].map(v => (v == null || v === '' ? NaN : Number(v)))])); stat.wsd.probes += Object.keys(r.probes).length; } });
+      const ids = Object.keys(r.probes), [pa, pb, pc] = [[A, a], [B, b], [Z, c]].map(([o, j]) => { const u = wsdUnwrap(o, ids); if (!u && !wsdShapeLogged[j.model]) { wsdShapeLogged[j.model] = 1; console.log(`⚠ lxwsd ${j.model}: khuôn lạ ${JSON.stringify(o).slice(0, 240)}`); } return u || {}; });
+      out[r.k] = Object.fromEntries(ids.map(id => [id, [pa[id], pb[id], pc[id]].map(v => (v == null || v === '' ? NaN : Number(v)))])); stat.wsd.probes += ids.length; } });
   return out; }
 // KHÓA NGHĨA THÔNG DỤNG cho MỌI từ (lớp L3, 29/10 – thay luật cũ chỉ khi SemCor < 2): nghĩa 1 (và 2) của Wiktionary – xếp theo độ thông dụng – là nghĩa
 // WordNet số mấy (lib.mjs lockSense: cả 3 giám khảo cùng số; nghĩa 2 chỉ xác nhận nghĩa SemCor). Không khoá được → hàng duyệt (bỏ từ), không đoán.
