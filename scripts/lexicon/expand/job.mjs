@@ -149,11 +149,12 @@ for (const x of items) { const k = KK[x.k] || {}, re = formRe(x.w);
   // ví dụ WordNet xếp CUỐI (soát pilot 3: moonlight "…the smuggler's enemy", despair – câu châm ngôn/trích dẫn)
   x._cand = [...tt.slice(0, 10 - wk.length - wx.length), ...wk, ...wx]; x._cols = [...new Set([...(x._c.comp || []), ...((EXT[x.k] || {}).col || [])])].slice(0, 8); x._trg = k.trg || []; }
 const live = items.filter(x => D[x.k] && D[x.k].keep !== false && D[x.k].def);
+stat.defNo = {};
 async function srcPass(list) {
 await pmap(chunks(list, 10), 6, async ch => {
   const req = { mode: 'lxsrc', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, ...(x.wk ? { wk: x.wk } : {}), lemmas: x.lemmas, def: D[x.k].def, cand: x._cand.map(c => c.t), cols: x._cols, ts: x._trg.map(g => g.g) })) };
   const { a, b, c } = await pairWait(req);
-  if (!a || !b || !c) return; for (const x of ch) if (a.out[x.k] && b.out[x.k] && c.out[x.k]) S[x.k] = { a: a.out[x.k], b: b.out[x.k], c: c.out[x.k] }; });
+  if (!a || !b || !c) return; for (const x of ch) if (a.out[x.k] && b.out[x.k] && c.out[x.k]) { S[x.k] = { a: a.out[x.k], b: b.out[x.k], c: c.out[x.k] }; for (const j of [a, b, c]) if (j.out[x.k].def !== 'same') stat.defNo[j.model] = (stat.defNo[j.model] || 0) + 1; } }); // defNo: giám khảo nào chê def (chẩn đoán)
 for (const x of list) { const s = S[x.k]; if (!s) continue;
   // câu cả 3 giám khảo nguồn chọn → ỨNG VIÊN; chọn 2 câu SAU trắc nghiệm nghĩa (pickEx): WordNet trước, rồi ngắn nhất, không trùng ý
   const A = new Set(idx(s.a.ex)), exAll = x._cand.filter((c, i) => A.has(i) && idx(s.b.ex).includes(i) && idx(s.c.ex).includes(i));
@@ -185,7 +186,7 @@ await pmap(chunks(okDef, 10), 8, async ch => { const r = await call('lxtr', ch.m
 // lxvi: HAI họ khác (llama + mistral) – vi nhận khi ≥ 2 trong 4 nguồn trùng (Wiktionary · A · B · C)
 const viReq = ch => ({ mode: 'lxvi', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def })) });
 await pmap(chunks(okDef, 10), 6, async ch => { const fa = ch.map(x => FA[x.k]).find(Boolean) || 'gpt-oss'; stat.calls += 2;
-  const b = await AI.judge(viReq(ch), { exclude: [fa] }), c = b && await AI.judge(viReq(ch), { chain: ['groq', 'cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
+  const b = await AI.judge(viReq(ch), { chain: ['gem', 'groq', 'cf2'], exclude: [fa] }), // B = Gemini (chủ 30/10: Gemini dịch vi), họ khác bản lxtr c = b && await AI.judge(viReq(ch), { chain: ['groq', 'cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
   for (const [r, V] of [[b, VB], [c, VC]]) if (r) { used.add(r.route + ':' + r.model); for (const x of ch) { const o = r.out[x.k] || {}; if (typeof o.vi === 'string' && o.vi.trim()) V[x.k] = o.vi.trim(); } } });
 const OMWL = ['ja', 'zh', 'th', 'id', 'fr', 'es', 'pt', 'ar'];
 stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw+ai': 0, 'omw+ai': 0, 'wiktionary+ai': 0 };
@@ -317,7 +318,7 @@ for (const x of items) { const e = pend.items[x.k]; if (!e || !e.src || !e.src.e
   for (const l of LANGS) { const t = (e.src.tr || {})[l]; if (t && e.m[l]) cov.tr[t] = (cov.tr[t] || 0) + 1; else cov.tr.none = (cov.tr.none || 0) + 1; } cov.vi[(e.src.tr || {}).vi === 'wiktionary' ? 'wiktionary' : 'ai']++;
   cov.col[e.col.length ? 'src' : 'none']++; cov.syn[e.syn.length ? 'wordnet' : 'none']++; cov.cefr[e.cefrSrc] = (cov.cefr[e.cefrSrc] || 0) + 1; }
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
-const rep = { batch: BATCH, n: items.length, pass, exShort: stat.exShort || 0, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, trBad: stat.trBad || 0, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
+const rep = { batch: BATCH, n: items.length, pass, exShort: stat.exShort || 0, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, defNo: stat.defNo, defRedo: stat.defRedo, defRedoOk: stat.defRedoOk, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, trBad: stat.trBad || 0, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
 AI.report('lexicon-expand'); fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
 // kho AI cạn hoàn toàn (mọi mục bỏ qua hạ tầng, không mục nào vào hàng duyệt) = KHÔNG phải lỗi: lịch 3 giờ thử lại (27/10 – kho CF cửa sổ 24 giờ trượt)

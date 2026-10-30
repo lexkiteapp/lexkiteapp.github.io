@@ -529,13 +529,6 @@
    "note": "soát Sonnet pilot 3 29/10 12:52"
   },
   {
-   "k": "bracelet#n",
-   "cls": "D1",
-   "field": "m.ja",
-   "bad": "腕輪",
-   "note": "soát Sonnet pilot 3 29/10 12:52"
-  },
-  {
    "k": "coffin#n",
    "cls": "L2",
    "field": "ex",
@@ -807,6 +800,16 @@
    "k": "prominence#n",
    "sense": "prominence.n.01",
    "vi": "danh tiếng"
+  }
+ ],
+ "fixedLabels": [
+  {
+   "k": "bracelet#n",
+   "cls": "D1",
+   "field": "m.ja",
+   "bad": "腕輪",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "why": "sửa nhãn 30/10: 腕輪 (うでわ) = bracelet/bangle theo JMdict; Wiktionary + Japanese WordNet + AI cùng đưa ra → nhãn soát pilot 3 sai, không phải lỗi dịch"
   }
  ]
 }
