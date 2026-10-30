@@ -8,7 +8,7 @@ export const serve = (ctx, ROOT) => ctx.route('**/*', r => { const u = new URL(r
 export const SEED = async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
   await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]); localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); };
 // Bảng giải đấu mẫu giống Stitch (hạng 5 = mình): đặt lại sau mỗi lần tải lại trang (Sync.league là hàm thật cần đăng nhập → thay bằng dữ liệu mẫu)
-// Màn Chuỗi: chuỗi 14 ngày liên tiếp, hôm nay 14/20 (như mẫu "14 day streak!") – chỉ nạp khi vào màn này (không đổi dữ liệu các màn khác)
+// Màn Chuỗi + Hoàn thành bài (ô Streak = 14 như mẫu): chuỗi 14 ngày liên tiếp, hôm nay 14/20 (như mẫu "14 day streak!") – chỉ nạp khi vào màn này (không đổi dữ liệu các màn khác)
 // Đồng hồ cố định cho MỌI màn (stitch-diff + final-qc gọi ngay khi mở trang; màn Chuỗi cần nhất): mẫu Stitch = thứ Sáu (T2–T5 lửa, T6 ✓ hôm nay, "5 of 7") → chụp/QC luôn cùng lịch tuần, không trôi theo ngày chạy CI
 export const STREAK_NOW = '2026-10-30T12:00:00Z';
 export const FIX_CLOCK = page => page.clock.setFixedTime(new Date(STREAK_NOW));
