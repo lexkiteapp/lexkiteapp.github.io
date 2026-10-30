@@ -2,6 +2,7 @@
 
 > TL;DR: Giáo viên video, bộ cảnh và clip nói (họ template v9): clip dùng ngay 0 credit, mặt nạ đầu, thêm giáo viên, bank CLASSROOM, chữ trên bảng. Nguồn: content/video/cine/teachers.json.
 > Đọc khi: sửa giáo viên/cảnh video.
+> (obsolete 29/10: họ v9/render_v9 tạm dừng; giáo viên CHỈ 2D từ `web/teach/characters.json` → `VIDEO-TEACH2D.md`.)
 
 Source of truth for the renderer: `content/video/cine/teachers.json` (clip ids, usable frames, head mask, camera anchor, set paths).
 Footage lives in `lexkite-footage` (CI sparse checkout); 24 fps "dl24" clips, 1080×1920 (hotel/airport 1080×1916 → uniform 1920 scale + 1 px side crop).

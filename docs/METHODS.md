@@ -24,7 +24,9 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 <!-- auto:direction:end -->
 
 ## 1. Điều phối
-- Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình.
+- Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình (quy tắc vàng: `COORDINATION.md`).
+- Phiên/agent: ≤ 2 phiên làm việc, tự thu gọn phiên dài, xoay agent con, lưu trữ phiên xong – `TOKEN-RULES.md` §9.
+- Duyệt hình (chủ 28/10 tối: tự duyệt ủy quyền đã THU HỒI): mọi thay đổi hình cần chủ OK trên ảnh. Ngoại lệ duy nhất (chủ 29/10): lớp game-feel (`GAME-FEEL.md`) tự QC + gộp khi điểm trung thực ≥ 95/100.
 - Vùng file: `docs/COORDINATION.md` (cuối file). `web/js/app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE khi được duyệt.
 - Antigravity nhận/trả việc qua `docs/agents/BOARD.md`; phiên chính nghiệm thu (diff, test, chạy thật, soi alt) rồi cherry-pick/gộp TAY (không merge nhánh cũ – xem §8).
 - Báo cáo của agent khác chỉ là báo cáo → tự kiểm (diff, test, live). Dừng thật: `stop_session`. Hết hạn mức giữa chừng: nhắn agent làm tiếp, không chạy lại từ đầu.
@@ -36,7 +38,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Ship: `~/.config/lexkite/ship.sh "<mô tả>"` (smoke → tsc → YAML → vi-lint → i18n → bump SW + add-on → commit → push → chờ live).
 - Smoke: `node scripts/test/smoke.js "$PWD/web"` (phải ra `ERRORS none`).
 - tsc: `npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json`.
-- Mergecheck: `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp).
+- Mergecheck (nguồn duy nhất, TOKEN-RULES §4 trỏ về đây): `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp).
 - Trước ship: `npm test` (hoặc các test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới phải ở `infra/resources.json`).
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
 - **Trước MỖI lần push: `npm run prepush`** (tự dựng lại ci-triage, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
@@ -62,7 +64,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 ## 5. i18n (15 ngôn ngữ) – pipeline G0
 - `docs/I18N-PIPELINE.md`. Bố cục G0: chuỗi mới vào nguồn en (`web/js/i18n/en/*.js`, nhóm tải lười = danh sách LAZY trong `scripts/build-i18n.sh` → `web/js/i18n/<lang>/<nhóm>.js`) → `bash scripts/build-i18n.sh` → dịch thật 15 ngôn ngữ (`i18n-fix.mjs` / `scripts/i18n-fixed.json`) → `node scripts/i18n-missing.mjs --strict` + `node scripts/i18n-qa.mjs --strict`. Không để chữ en lọt ở 13 ngôn ngữ.
-- Không gọi `t()` lúc nạp module; dữ liệu lưu KHÓA, không lưu chữ đã dịch; chờ `I18N.whenReady()` trước khi vẽ (`i18n-switch.mjs --scan`).
+- Không gọi `t()` lúc nạp module, dữ liệu lưu KHÓA (`I18N-PIPELINE.md` §2.8); chờ `I18N.whenReady()` trước khi vẽ (`i18n-switch.mjs --scan`).
 - Chuỗi dữ liệu qua `t(biến)` không bị `i18n-missing` bắt → tự kiểm khóa tiếng Anh. Chữ quản trị soạn: luôn `esc()` + lọc URL.
 - Khoá cụm tiếng Anh mẫu (cấu trúc, câu ví dụ) trước khi dịch máy.
 - Xung đột `web/js/i18n/<lang>.js`: giữ cả 2 phía rồi `node scripts/i18n-dedupe.cjs` → size-budget + i18n-switch.
@@ -75,11 +77,12 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Gộp blog Antigravity: `git diff <mốc> HEAD -- content/blog | git apply -3`, gộp `briefs.json` theo lang+slug, kiểm `publishAt` bài cũ không đổi; không checkout cả `content/blog`.
 
 ## 7. Video (chi tiết `docs/VIDEO.md`)
-- Định dạng chính = NEWS-ANCHOR (Ama trái, Carlos phải, phông xanh), chỉ tiếng Anh, 1 ý/clip; diễn cảnh tạm dừng; nhà hàng/Priya loại.
+- Hiện hành (29/10): MỘT pipeline Remotion + Stitch, giáo viên 2D – `docs/VIDEO-TEACH2D.md`. Nhân vật CHỈ 2D (28/10 tối; mọi chỗ ghi "3D" là cũ). render_v9 / qc_v9 TẠM DỪNG.
+- Chỉ tiếng Anh, 1 ý/clip. NEWS-ANCHOR (Ama trái, Carlos phải, phông xanh) – ghi "định dạng chính" 22/10, chờ chủ xác nhận còn dùng sau 29/10; diễn cảnh tạm dừng; nhà hàng/Priya loại.
 - Kho footage (`brand/library/cine`, gitignore) → sao lưu `bash scripts/footage-backup.sh` (repo riêng `lexkite-footage`) sau mỗi lần thêm; không để footage chỉ ở scratchpad.
 - Short ĐẠT lưu bền ở repo riêng `lexkite-shorts` (artifact CI hết hạn 14 ngày) + Drive (`drive-shorts.yml`).
 - **Cổng duyệt (chủ 22/10)**: mẫu mới/lô mới → tự QA → gửi anh mẫu + báo cáo số đo → CHỜ anh OK mới bật auto/dựng hàng loạt/xếp lịch.
-- Luật dựng/QA/tách nền/Kling/kho 3D/cách giảng/ngữ pháp dựng: `docs/VIDEO.md` §9 (chuyển nguyên văn từ METHODS 27/10). QC mọi khâu: `VIDEO-QC.md`; chống trùng: `VIDEO-SCALE-PLAN.md`.
+- Luật dựng/QA/tách nền/Kling/cách giảng/ngữ pháp dựng: `docs/VIDEO.md` §9 (chuyển nguyên văn từ METHODS 27/10). QC mọi khâu: `VIDEO-QC.md`; chống trùng: `VIDEO-SCALE-PLAN.md`.
 
 
 - App: ưu tiên chạy trên máy; tải theo bài; YouTube nhúng ảnh xem trước; ảnh AVIF/WebP.
