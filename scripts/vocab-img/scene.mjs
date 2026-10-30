@@ -16,7 +16,8 @@ import { STYLE, PEOPLE, fnv, scrub, negHit, classOf } from './style.mjs';
 import { ruleCheck } from './strict.mjs';
 import { isFunction } from './concept.mjs';
 
-export const SCENE_V = 'e4';   // e4 (29/10): thẻ = câu cảnh ngắn vẽ được (ps ≤ 20 từ) + câu hỏi kiểm (check) + điểm vẽ được (draw) – prompt ngắn, giám khảo chấm đúng câu cảnh
+export const SCENE_V = 'e5';   // e5 (30/10): như e4 nhưng check hỏi NGHĨA def (không lặp ps, không chứa từ, không 'indicating/represents') – mọi thẻ e4 viết lại
+// e4 (29/10): thẻ = câu cảnh ngắn vẽ được (ps ≤ 20 từ) + câu hỏi kiểm (check) + điểm vẽ được (draw) – prompt ngắn, giám khảo chấm đúng câu cảnh
 // MỘT bộ token phong cách cho cả 20k (cùng STYLE.base s1 đã duyệt) + phần riêng cho cảnh: tối đa 2 người, bố cục rõ, không chữ.
 // e2 (nhãn 24/10, 245 ảnh): FLUX schnell không có negative prompt – nhắc 'signs/speech bubbles' lại làm HIỆN biển/bong bóng chữ (HOSPITAL, BANK, HOTEL,
 // bong bóng thoại chữ vô nghĩa ở 30/74 ảnh bài học) → mô tả TÍCH CỰC: tường/mặt phẳng trơn, người giao tiếp bằng nét mặt + cử chỉ.
@@ -89,7 +90,7 @@ For each input item {k, w, pos, def, ex:[sentences]} reply with one JSON object 
 {"ex": "the ONE input sentence (copied exactly) whose meaning is most VISIBLE", "ps": "the picture as ONE plain sentence of 8-20 words: at most two people named as 'a woman', 'a man', 'a girl' or 'a boy', ONE clear visible action, at most two key objects, optionally one simple place shown by an object in it", "check": "a yes/no question about the MEANING of w (def), answered from the picture alone: ask for the visible sign of that meaning in words different from ps, so the same people and objects WITHOUT that meaning get NO", "cap": "a neutral 6-14 word caption of the picture that does NOT contain the word w", "who": number of people 0-2, "draw": 1-5 how surely a learner understands w from this picture plus the sentence (5 = obvious)}
 Hard rules for ps: everything must be visible in a small thumbnail; no text, letters, numbers, prices, money amounts, times, clocks, calendars, schedules, screens, phones showing content, signs, logos, flags, arrows, lightbulbs, hearts, question marks, speech or thought bubbles; no metaphors.
 Choose the sentence about actions, emotions, physical states or concrete objects over sentences about prices, times, schedules, numbers, rules, plans, the internet or opinions. Abstract noun = one everyday moment where the idea shows on faces and actions; verb = the clearest moment of the action, whole body visible; adjective = exaggerate the quality or show a contrast pair side by side; groups or comparisons = show both sides.
-check must test the meaning, never restate the scene: bad check for cheap = "Is a woman handing a coin to a vendor for noodles?" (only repeats ps).
+check must test the meaning, never restate the scene, never contain w, never ask whether something "indicates", "represents" or "illustrates" an idea: bad checks for cheap = "Is a woman handing a coin to a vendor for noodles?" (only repeats ps), "Is the vendor indicating cheap food?".
 If no sentence reaches draw >= 4 without breaking the hard rules, reply {"skip": "short reason"} for that k (no picture is better than a wrong one).
 Example: cheap (adj) ["The food at the night market is cheap and tasty."] -> {"ex":"The food at the night market is cheap and tasty.","ps":"a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles","check":"Does the big meal clearly cost very little money?","cap":"a woman buying a big bowl of noodles from a vendor","who":2,"draw":4}
 Example: consider (v) ["We are considering moving to the countryside."] -> {"ex":"We are considering moving to the countryside.","ps":"a woman and a man at a kitchen table look thoughtfully at two photos, a city flat and a cottage","check":"Are the two people carefully deciding between two choices before acting?","cap":"a couple comparing photos of a city flat and a cottage","who":2,"draw":4}
@@ -100,6 +101,9 @@ export const sceneUser = items => JSON.stringify(items.map(({ k, e }) => ({ k, w
 const ECHO_STOP = new Set('a an the is are was were be been being am do does did has have had can could will would should may might must this that these those there here it its they them their he she his her him we you i of to in on at by for with from into onto over under near next and or but so as than then both each either one two three some any all another other very really clearly picture image shown show shows showing visible see seen someone somebody people person woman man women men girl boy girls boys while who what which where when how why not no yes'.split(' '));
 const echoWords = s => [...new Set((String(s).toLowerCase().match(/[a-z]+/g) || []).filter(w => w.length > 1 && !ECHO_STOP.has(w)).map(w => w.replace(/(ing|ed|es|s|ly|e)$/, '').slice(0, 5)))];
 export const CHECK_ECHO = 0.75;
+// pilot 41015594601 (30/10): car rental#n 'Is a woman at a desk with a car model, indicating a car rental service?' → YES cho xe đồ chơi; check có từ đích / 'indicating' = giám khảo đoán theo nhãn, không nhìn nghĩa
+export const CHECK_VAGUE = /\b(indicat\w*|represent\w*|symboli[sz]\w*|illustrat\w*|suggest\w*|the (idea|concept|notion) of)\b/i;
+const wordRe = w => new RegExp('\\b' + String(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
 export function checkEcho(ps, check) { const q = echoWords(check), p = new Set(echoWords(ps)); return q.length ? q.filter(w => p.has(w)).length / q.length : 1; }
 /** kiểm thẻ cảnh: ex phải là câu của kho, không chữ trong sc, cap không chứa từ, check hỏi nghĩa (không lặp ps) */
 export function sceneOk(e, c) {
@@ -113,6 +117,8 @@ export function sceneOk(e, c) {
     if (!(+c.draw >= 4)) return 'skip: draw ' + c.draw;
     if (!/\?\s*$/.test(String(c.check || ''))) return 'no check question';
     if (checkEcho(c.ps, c.check) >= CHECK_ECHO) return 'check repeats ps';
+    if (wordRe(e.w).test(c.check)) return 'check names the word';
+    if (CHECK_VAGUE.test(c.check)) return 'check asks for a label';
     if (/\b(text|letters?|words?|sign|label|caption|written|writing|numbers?|price|clock|calendar|screen)\b/i.test(c.ps)) return 'ps asks for text/symbol';
     { const h = negHit(c.ps, e.w); if (h) return 'ps uses a symbol: ' + h; }
     if (!c.cap || new RegExp('\\b' + e.w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(c.cap)) return 'cap names the word';
@@ -160,7 +166,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
     // fill: chỉ vẽ nghĩa cảnh đã có thẻ e4 (thẻ cũ e3 đạt 2–7 % – đốt neuron); vật/hư từ giữ nguyên
     const f = arg('keys'), kj = JSON.parse(fs.readFileSync(f, 'utf8')), keep = k => { const c = cards.items[k]; return !lex[k] || kind(k, lex[k], (sel[k] || [])[1], c) !== 'scene' || !!(c && !c.skip && c.v === SCENE_V && c.ps && !sceneOk(lex[k], c)); };   // thẻ check lặp ps không vẽ
     const n0 = kj.items.length; kj.items = kj.items.filter(keep); if (kj.scene) kj.scene = kj.scene.filter(keep);
-    fs.writeFileSync(f, JSON.stringify(kj)); console.log(`nghĩa có thẻ e4 để vẽ: ${kj.items.length}/${n0}`);
+    fs.writeFileSync(f, JSON.stringify(kj)); console.log(`nghĩa có thẻ ${SCENE_V} để vẽ: ${kj.items.length}/${n0}`);
   }
   else if (process.argv.includes('--dry')) { for (const k of keysOf()) console.log(k, '→', cards.items[k] ? promptScene(k, cards.items[k]).slice(0, 220) : '(chưa có thẻ)'); }
   else if (process.argv.includes('--cards')) {
