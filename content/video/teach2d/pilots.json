@@ -1,0 +1,262 @@
+{
+ "_note": "Teach2D pilots (docs/VIDEO-TEACH2D.md): ONE episode per template, owner review gate before any batch. Facts: gold bank rows (gold), verb engine (verbs-core.js), audited IPA bank (qc.py overlay_ipa). Curated rows below are re-checked by qc.py. Look: 'dusk' for all (owner 29/10: 'mức 2 có vẻ ok hơn').",
+ "pilots": [
+  {
+   "id": "t2_usuk_elevator",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "us": "elevator",
+    "uk": "lift",
+    "ipa_us": "/ˈeləveɪtər/",
+    "ipa_uk": "/lɪft/",
+    "same": "Same thing!",
+    "situation": "You need to go up to the tenth floor.",
+    "us_say": "you take the elevator.",
+    "uk_say": "you take the lift.",
+    "example": "Excuse me, where's the elevator?",
+    "quiz_city": "London",
+    "share": "Send this to a friend who travels!"
+   }
+  },
+  {
+   "id": "t2_verbs_break",
+   "template": "verbs",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "base": "break",
+    "ex_base": "Don't break the glass!",
+    "ex_past": "Yesterday, I broke my phone.",
+    "ex_pp": "Now my phone is broken.",
+    "quiz_q": "The window is broke, or broken?",
+    "quiz_stem": "The window is ___.",
+    "quiz_right": "broken",
+    "quiz_a": "Broken! The window is broken."
+   }
+  },
+  {
+   "id": "t2_stress_photographer",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "a": {
+     "word": "photograph",
+     "syl": [
+      "pho",
+      "to",
+      "graph"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈfoʊtəɡræf/"
+    },
+    "b": {
+     "word": "photographer",
+     "syl": [
+      "pho",
+      "to",
+      "gra",
+      "pher"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/fəˈtɑːɡrəfər/"
+    },
+    "tip": "Photography moves it too.",
+    "share": "Tag a friend who loves taking photos!"
+   }
+  },
+  {
+   "id": "t2_mistake_discuss",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_786153bb",
+    "hook_say": "Stop saying discuss about!",
+    "hook_text": "Stop saying “discuss about”",
+    "wrong_say": "We will discuss about the budget.",
+    "right_say": "We will discuss the budget.",
+    "strike": "about",
+    "answer_say": "Discuss! We need to discuss the budget.",
+    "share": "Send this to a friend who says discuss about!"
+   }
+  },
+  {
+   "id": "t2_phrasal_hangout",
+   "template": "phrasal",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_2408f7fd",
+    "pv": "hang out",
+    "hook_say": "Don't say play together!",
+    "hook_text": "Don't say “play together”",
+    "mean_say": "Hang out means relax together.",
+    "mean_card": "= spend free time together",
+    "strike": "play together",
+    "answer_say": "Hang out! Want to hang out after class?",
+    "share": "Send this to a friend you hang out with!"
+   }
+  },
+  {
+   "id": "t2_pair_raise",
+   "template": "pair",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_3e77d39c",
+    "a": "raise",
+    "b": "rise",
+    "hook_say": "Raise or rise? Same thing?",
+    "hook_text": "Raise or rise?",
+    "share": "Send this to a friend who mixes these up!"
+   }
+  },
+  {
+   "id": "t2_prep_smile",
+   "template": "prep",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_011d162f",
+    "slot_say": "She smiled... me.",
+    "slot_text": "She smiled ___ me.",
+    "share": "Send this to a friend who smiles a lot!"
+   }
+  },
+  {
+   "id": "t2_pattern_decide",
+   "template": "pattern",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_05b65d49",
+    "verb": "decide",
+    "pat": "to + verb",
+    "good": "decided to go",
+    "bad": "decided going",
+    "hook_say": "Decide going, or decide to go?",
+    "hook_text": "Decide + ?",
+    "share": "Send this to a friend who is learning English!"
+   }
+  },
+  {
+   "id": "t2_native_flushot",
+   "template": "native",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "gold": "sb_612771f1",
+    "strike": "injection",
+    "hl": "shot",
+    "scene": "pharmacy",
+    "share": "Send this to a friend who is moving to the States!"
+   }
+  },
+  {
+   "id": "t2_guess_umbrella",
+   "template": "guess",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "word": "umbrella",
+    "img": "umbrella#n",
+    "share": "Tag a friend who always forgets theirs!"
+   }
+  },
+  {
+   "id": "t2_level_a2",
+   "template": "level",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "gold": [
+     "sb_0ce10d3a",
+     "sb_116f3374",
+     "sb_022772ea"
+    ]
+   }
+  },
+  {
+   "id": "t2_grammar_presentsimple",
+   "template": "grammar",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "file": "tenses",
+    "gid": "present-simple",
+    "mistake": 1,
+    "quiz": 1,
+    "pick": 1,
+    "rule_say": "He, she or it? The verb gets an s.",
+    "bricks": [
+     "he / she / it",
+     "verb",
+     "-s / -es"
+    ],
+    "brick_check": [
+     "V-s/es",
+     "does"
+    ],
+    "strike": "don't",
+    "hl": "doesn't"
+   }
+  },
+  {
+   "id": "t2_dictation_surname",
+   "template": "dictation",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "file": "test1",
+    "pid": "t1p1",
+    "line": 6,
+    "gap": "spell the surname",
+    "word": "surname",
+    "mean_say": "your family name"
+   }
+  },
+  {
+   "id": "t2_toeic_nextspring",
+   "template": "toeic",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "file": "reading1",
+    "tid": "tr1",
+    "n": 102,
+    "cue": "next spring",
+    "why_say": "Next spring is the future."
+   }
+  },
+  {
+   "id": "t2_review_deadline",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "word": "deadline"
+   }
+  },
+  {
+   "id": "t2_call_mytreat",
+   "template": "call",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "cid": "coffee",
+    "turn": 5,
+    "phrase": "my treat",
+    "reply": 0,
+    "alt": "no worries",
+    "quiz_say": "You pay for a friend. What do you say?",
+    "ans_say": "I will pay for you.",
+    "quote": "It's my treat today!"
+   }
+  }
+ ]
+}

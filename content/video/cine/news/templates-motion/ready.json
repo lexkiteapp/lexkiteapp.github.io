@@ -1,0 +1,350 @@
+{
+ "id": "mo_ready_band7",
+ "template": "ready",
+ "title": "Motion Readiness Hook #1 – Can you reach Band 7? (2 quick questions, band bar)",
+ "teacher": "carlos",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "set": "classroom_board",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "ielts",
+  "link": "https://lexkite.com/app/#/mock",
+  "say": "Take a free mock test"
+ },
+ "series": {
+  "name": "Band Check",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "r_h",
+   "text": "Can you reach Band 7? Let's check."
+  },
+  {
+   "id": "r_q1",
+   "text": "Which word is more formal: get, or obtain?",
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "r_a1",
+   "text": "Obtain! The formal word for get.",
+   "gap": 0.7
+  },
+  {
+   "id": "r_q2",
+   "text": "The number of cars blank growing. Is, or are?",
+   "gap": 0.7
+  },
+  {
+   "id": "_count2",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "r_a2",
+   "text": "Is! The number is singular.",
+   "gap": 0.7
+  },
+  {
+   "id": "r_s",
+   "text": "Two for two? You're on track for Band 7.",
+   "gap": 0.7
+  },
+  {
+   "id": "r_c",
+   "text": "Save this, and take a free mock test on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "r_h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Can you reach",
+      "white"
+     ]
+    ],
+    [
+     [
+      "Band 7?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "r_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "hook_text": "Can you reach Band 7?",
+  "end_line": "r_c",
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "IELTS readiness",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Can you reach"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Band 7?",
+        "gold"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "q1",
+    "at": [
+     "r_q1",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Q1 · vocabulary",
+      "tone": "teal",
+      "ring": "_count"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "Which word is"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "more formal?"
+       ]
+      ]
+     }
+    ],
+    "xp": [
+     {
+      "at": [
+       "r_a1",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   },
+   {
+    "id": "q2",
+    "at": [
+     "r_q2",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Q2 · grammar",
+      "tone": "teal",
+      "ring": "_count2"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "The number of cars"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "___",
+        "muted"
+       ],
+       [
+        " growing."
+       ]
+      ],
+      "slot": {
+       "run": 0,
+       "word": "is"
+      }
+     }
+    ],
+    "reveal": [
+     "r_a2",
+     0
+    ],
+    "xp": [
+     {
+      "at": [
+       "r_a2",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "opts",
+    "id": "o1",
+    "opts": [
+     "get",
+     "obtain"
+    ],
+    "cues": [
+     [
+      "r_q1",
+      5
+     ],
+     [
+      "r_q1",
+      7
+     ]
+    ],
+    "reveal": [
+     "r_a1",
+     0
+    ],
+    "right": 1
+   },
+   {
+    "t": "opts",
+    "id": "o2",
+    "opts": [
+     "is",
+     "are"
+    ],
+    "cues": [
+     [
+      "r_q2",
+      6
+     ],
+     [
+      "r_q2",
+      8
+     ]
+    ],
+    "reveal": [
+     "r_a2",
+     0
+    ],
+    "right": 0
+   }
+  ],
+  "bar": {
+   "id": "band",
+   "at": [
+    "r_h",
+    3
+   ],
+   "steps": [
+    [
+     [
+      "r_h",
+      3
+     ],
+     5.0,
+     6.0
+    ],
+    [
+     [
+      "r_a1",
+      0
+     ],
+     6.0,
+     6.5
+    ],
+    [
+     [
+      "r_a2",
+      0
+     ],
+     6.5,
+     7.0
+    ]
+   ],
+   "target": 7.0,
+   "lo": 4.0,
+   "hi": 9.0
+  }
+ },
+ "embed": {
+  "drop": [
+   "r_c"
+  ],
+  "end": {
+   "id": "r_n",
+   "text": "Next, let's try a full practice test."
+  }
+ }
+}

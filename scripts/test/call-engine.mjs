@@ -46,7 +46,7 @@ eq(E.step(toeic, 'when', 'How about Monday morning?').react.slice(0, 6), 'Monday
 const coffee = byId('coffee'); eq(coffee.start, 't0'); eq(E.step(coffee, 't0', 'no thanks').react, 'No problem! How about a snack, then?'); eq(E.step(coffee, 't5', 'ok').next, null);
 eq(E.depth(coffee), 6);
 
-// 3. Sửa ngữ pháp (giữ nguyên hành vi cũ của CallMia.correct)
+// 3. Sửa ngữ pháp (giữ nguyên hành vi sửa ngữ pháp cũ)
 eq(E.correct('I am agree with you', 'x').good, 'I agree with you');
 eq(E.correct('Yesterday I go to the beach', 'What did you do?').good, 'Yesterday I went to the beach');
 eq(E.correct('I go to the beach', 'Where do you like to go?'), null, 'không phải quá khứ');

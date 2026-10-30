@@ -3,15 +3,16 @@
 > TL;DR: Một trang ngắn: việc nền đang chạy, số liệu mới nhất, việc tiếp theo, việc chờ chủ. Cập nhật mỗi mốc (≤ 6 dòng mỗi mục), không chép lại tài liệu khác.
 > Đọc khi: đầu phiên, trước khi nhận việc ảnh từ vựng / kho từ 20k.
 
-Cập nhật: 27/10/2026.
+Cập nhật: 29/10/2026.
 
 Phương pháp chung cho mọi pipeline nội dung: `docs/QUALITY-PIPELINE.md` (pilot mẫu khó trên nhánh → đạt mới hàng loạt).
 
-## Ảnh từ vựng (`vocab-img-scene`) – ĐANG CHẠY tự động
-- Vẽ `flux-2-klein-4b` qua kho CF_POOL (121 tài khoản, chỉ Lexkite dùng). Cơ chế, cổng chất lượng, bài học: `docs/VOCAB-IMG-STYLE.md` §11 – không chép lại ở đây.
-- Chạy: tự nối lượt → kho nửa đầu cạn (4006) thì dừng → `cf-pool-probe` (mỗi 3 giờ) thấy ≥ 30 tài khoản mở thì tự khởi động lại. Fill ≤ 5 máy GitHub cùng lúc. Tắt: biến `VIMG_SCHEDULE`≠1 / `VIMG_CHAIN=0`.
-- Số liệu: 639 ảnh (27/10 10:15 UTC); lượt đầu 6.000 ảnh → 264 đạt; ảnh chỉ tăng khi cả lượt xong (bước fillpub).
-- Giám khảo kép ĐÃ soát (28/10, run 40614789632): 13/13 ảnh nhận thêm đúng nghĩa; tỉ lệ đạt klein 2/40 → 10/40 → giữ `VIMG_CONSENSUS=1`. klein-4b ≈ 110 neuron/ảnh (đo 27/10); phần vẽ 70 % khi `LX_PILOT=1`, 50 % khi kho từ chạy hàng loạt.
+## Ảnh từ vựng (`vocab-img-scene`) – e4 trên main, chạy tự động (29/10)
+- Vẽ `flux-2-klein-4b` qua CF_POOL (10k neuron / 24 giờ TRƯỢT mỗi tài khoản). Cơ chế + bài học: `docs/VOCAB-IMG-STYLE.md` §11; phương pháp: `docs/QUALITY-PIPELINE.md`.
+- e4 đã gộp (pilot 40 nghĩa khó run 40865517506: 15/60 ảnh = 25 %, 11 nhận, sai nghĩa 1 = general#adj vì câu kiểm chỉ tả cảnh). Sửa thêm abb23df6: viết thẻ song song + hạn 35 phút, chỉ vẽ nghĩa có thẻ e4, `cardWins` lưu thẻ e4.
+- Fill e4 đầu (run 40897839512): 272 nhận / 1.826 vẽ = 14,9 %/ảnh (e3: 2–7 %). Kho: 1.564 ảnh, 1.431/3.290 thẻ e4.
+- Phiên kho từ TỰ đặt `VIMG_SCHEDULE`/`VIMG_CHAIN` = 0 quanh mỗi pilot, xong đặt lại 1. Probe tự kích fill khi phần vẽ ≥ 15 tài khoản.
+- Còn ngỏ: câu `check` của thẻ đôi khi chỉ lặp câu cảnh, không hỏi nghĩa (general#adj) → giám khảo nghĩa qua oan; theo dõi tỉ lệ sai trong tờ ảnh.
 
 ## Kho từ 20k (`lexicon-expand`) – cổng THEO TRƯỜNG, đang pilot
 - Kho vẫn 8.230 nghĩa. Mục xuất khi LÕI (def/ví dụ/IPA/CEFR + vi, 3 giám khảo) sai ≤ 1/50; 12 ngôn ngữ khác chỉ giữ khi Wiktionary khớp nghĩa + 3 giám khảo ≥ 4 + dịch ngược + từ có thật (ca744dd). IPA: `ipa-check.mjs` trong job + promote (Britfone/CMU).

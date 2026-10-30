@@ -83,8 +83,8 @@
 | 2 | ✅ (MVP §2c) **Truyện (Stories)**: hội thoại minh họa Ama ↔ Carlos, giữa truyện có "chạm từ bạn nghe" + ghép cặp cụm VN↔EN, câu hỏi hiểu | kịch bản JSON + Kokoro + cue Rhubarb **sinh sẵn trên CI** (tĩnh) | engine (`build`/`match`), `teacher.js` |
 | 3 | ✅ (MVP §2c) **Radio**: nghe 1–2 phút (2 giọng) + 3 câu hỏi | Kokoro sinh sẵn trên CI | `listening.js` qengine |
 | 4 | **Practice Hub** hằng ngày: từ yếu · đến hạn · lỗi cũ | chỉ đọc FSRS + nhật ký Lỗi cũ trên máy | `dueList`, `LessonEngine.results` |
-| 5 | **Cuộc gọi Ama/Carlos**: kịch bản rẽ nhánh + **tổng kết** ("bạn đã dùng 11 từ") + **xem lại lời thoại** có ghi chú sửa (bread ≠ breast, "trả lời đầy đủ hơn") | khớp từ tại máy; cặp âm dễ nhầm từ `pron/pairs.js` | `call.js`, `pron` |
+| 5 | ✅ (`docs/CALL.md`) **Cuộc gọi Ama/Carlos**: kịch bản rẽ nhánh + **tổng kết** ("bạn đã dùng 11 từ") + **xem lại lời thoại** có ghi chú sửa (bread ≠ breast, "trả lời đầy đủ hơn") | khớp từ tại máy; cặp âm dễ nhầm từ `pron/pairs.js` | `call.js`, `pron` |
 | 6 | **Giải thích theo lớp lỗi** (giới từ, thì, mạo từ…) trước, Gemini Nano khi có (desktop) | luật trên máy, Nano trên máy | `writecheck-rules.js`, `ai-local.js` |
-| 7 | Nhận giọng trên máy mặc định khi tải được: Whisper tiny.en (đã có) / Moonshine tiny; Web Speech chỉ dự phòng (gửi âm thanh tới Google, WebView Android chập chờn) | tải lười khi vào bài nói, theo ngân sách §5 | `UI.recognize` |
+| 7 | ✅ cho cuộc gọi (`docs/CALL.md`; Moonshine chưa) Nhận giọng trên máy mặc định khi tải được: Whisper tiny.en (đã có) / Moonshine tiny; Web Speech chỉ dự phòng (gửi âm thanh tới Google, WebView Android chập chờn) | tải lười khi vào bài nói, theo ngân sách §5 | `UI.recognize` |
 | 8 | Chấm âm vị "beta" (wav2vec2 CTC + GOP, chỉnh theo speechocean762 CC BY 4.0) – desktop/WebGPU trước (~300M tham số) | trên máy | `pron` GOP hiện có |
 FSRS giữ bản trong `core.js` (đã chạy, có test) – không đổi sang ts-fsrs. Rive chỉ cân nhắc cho hoạt cảnh phản ứng nếu sprite chưa đủ.
