@@ -64,7 +64,8 @@
   ":scope > main > div > div:nth-child(5) > div:nth-child(1) > div:nth-child(2)": "lsn-xpp",
   ":scope > main > div > div:nth-child(5) > div:nth-child(2)": "lsn-dict",
   ":scope > main > div > div:nth-child(5) > div:nth-child(3)": "lsn-whyrow",
-  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > p": "lsn-fqs"
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > p": "lsn-fqs",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > button": "min-w-[44px] min-h-[44px] -m-[13px]"
  },
  "after": {
   ":scope > main > div > div:nth-child(5) > div:nth-child(1)": "d.extra",
