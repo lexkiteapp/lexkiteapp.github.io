@@ -95,9 +95,9 @@ def comps(w):
 out, seen, excl = [], set(), {}
 need = a.target - len(have)
 OLPW = {h for h, _ in OLP}
-nfreq = 0  # từ CHỈ có tần suất (ngoài danh sách người học) – trần need × 1,25 (dư 25 % cho hàng duyệt/loại); từ danh sách người học luôn lấy hết
+nfreq = 0  # từ CHỈ có tần suất (ngoài danh sách người học) – trần need × 3 (dư 25 % cho hàng duyệt/loại); từ danh sách người học luôn lấy hết
 for w in top_n_list('en', 80000):
-    if nfreq >= need * 1.25 and w not in OLPW and not lists.get(w): continue
+    if nfreq >= need * 3 and w not in OLPW and not lists.get(w): continue  # ×3 (29/10): cổng chặt hơn → sản lượng pilot ~0,3–0,5; cần đủ ứng viên tới 20k
     if w in have or w in seen or not re.fullmatch(r'[a-z]{3,}(-[a-z]+)?', w) or w not in cmu and '-' not in w: continue
     if w in bad or any(b in bad for b in w.split('-')): continue
     syn = wn.synsets(w)
@@ -129,7 +129,12 @@ for w in top_n_list('en', 80000):
                 # nghĩa thay thế khi SemCor yếu (cnt < 2): job.mjs chọn lại theo nghĩa ĐẦU Wiktionary (xếp theo độ thông dụng) – mesh ≠ "số lỗ/inch"
                 'alts': [{'syn': l.synset().name(), 'gloss': l.synset().definition(), 'lemmas': [m.name().replace('_', ' ') for m in l.synset().lemmas() if m.name() != w][:4], 'wnex': l.synset().examples()[:2],
                           'syns': [m.name() for m in l.synset().lemmas() if m.name() != w and '_' not in m.name() and m.name().islower() and zipf_frequency(m.name(), 'en') >= 2.8][:3], 'lex': l.synset().lexname()}
-                         for l in cand if l.synset() != s0][:3], 'lists': sorted(set(lists.get(w, [])))})
+                         for l in cand if l.synset() != s0][:3], 'lists': sorted(set(lists.get(w, []))),
+                # KHÓA NGHĨA THÔNG DỤNG (29/10, lớp L3 – conservatory "the faculty and students", fissure "khe của cơ quan", judgement văn bản pháp lý ở B1):
+                # MỌI nghĩa cùng từ loại theo thứ tự WordNet → job.mjs hỏi 3 giám khảo "nghĩa 1 của Wiktionary là nghĩa WordNet số mấy" (lxwsd) rồi mới soạn
+                'senses': [{'syn': l.synset().name(), 'gloss': l.synset().definition(), 'lemmas': [m.name().replace('_', ' ') for m in l.synset().lemmas() if m.name() != w][:4], 'wnex': l.synset().examples()[:2],
+                            'syns': [m.name() for m in l.synset().lemmas() if m.name() != w and '_' not in m.name() and m.name().islower() and zipf_frequency(m.name(), 'en') >= 2.8][:3], 'lex': l.synset().lexname(), 'cnt': l.count()}
+                           for l in cand][:12]})
 # thứ tự sinh (26/10, chuẩn từ điển người học): TẦNG 0 = hồ sơ CEFR kiểu EVP (CEFR-J A1–B2 + Octanove C1/C2) hoặc danh sách NGSL/NAWL/BSL
 # của repo, xếp theo cấp A1 → C2 rồi tần suất; TẦNG 1 = chỉ tần suất (wordfreq), dải Zipf 0,5 giảm dần. Tầng 0 hết → kho đủ lõi người học rồi mới mở rộng theo tần suất.
 tier = lambda e: 0 if e['cefrSrc'] != 'freq' or e['lists'] else 1

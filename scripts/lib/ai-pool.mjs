@@ -16,6 +16,7 @@
 // Lời nhắn (prompt) có MỘT nguồn: functions/api/lexai.js build(); tuyến không phải Gemini lấy { sys, user } qua `prompt: true`.
 import fs from 'fs';
 import { poolAccounts } from './cf-pool.mjs';
+import { parseKeys, keyRing } from './key-pool.mjs';
 
 // ---------- mô hình: họ + hạng (chất lượng) ----------
 // L = soạn + chấm · M = CHỈ chấm · S = cấm (quá nhỏ). Mô hình lạ = S (phải thêm vào đây sau khi đo).
@@ -30,7 +31,7 @@ const TIERS = [
   [/llama-4-scout|llama-3\.2-(90|11)b-vision/i, 'llama', 'M'],
   [/llama/i, 'llama', 'S'],
   [/qwen3-235b|qwen3-coder-480b/i, 'qwen', 'L'],
-  [/qwen3-32b|qwq-32b|qwen2\.5-72b/i, 'qwen', 'M'],
+  [/qwen3-32b|qwq-32b|qwen2\.5-72b|qwen3\.\d+-(2[4-9]|[3-9]\d|1\d\d)b/i, 'qwen', 'M'], // 30/10 Groq chỉ còn qwen3.8-27b (họ thứ ba cho giám khảo C)
   [/qwen/i, 'qwen', 'S'],
   [/kimi-k2/i, 'kimi', 'L'],
   [/mistral-small-3|mistral-large/i, 'mistral', 'M'],
@@ -42,6 +43,22 @@ export function modelInfo(model) {
   return { fam: 'other', tier: 'S' };
 }
 export const familyOf = m => modelInfo(m).fam;
+/** chọn mô hình từ DANH SÁCH THẬT của nhà cung cấp (30/10: gemini-2.5-flash "no longer available to new users", Groq gỡ llama-3.3-70b-versatile/qwen3-32b → không ghi cứng tên).
+ * gem: Flash bản số lớn nhất (bản ổn định trước preview, bỏ lite/image/tts) · groq: gen/judge gpt-oss-120b, slot C = họ KHÁC gpt-oss/gemini, hạng L trước M. null = giữ mặc định. */
+export function pickModels(kind, ids) {
+  const I = [...new Set((ids || []).map(x => String(x).replace(/^models\//, '')))];
+  if (kind === 'gem') {
+    const v = m => { const x = /^gemini-(\d+(?:\.\d+)?)-flash(-preview)?$/.exec(m); return x ? +x[1] - (x[2] ? 0.001 : 0) : null; };
+    const f = I.filter(m => v(m) != null).sort((a, b) => v(b) - v(a)); return f.length ? { gen: f.slice(0, 3), judge: f.slice(0, 3) } : null;
+  }
+  if (kind === 'groq') {
+    const big = I.filter(m => !/whisper|guard|tts|compound|prompt-guard|playai|orpheus|safeguard/i.test(m));
+    const oss = big.filter(m => /gpt-oss-120b/.test(m)), C = big.filter(m => !['gpt-oss', 'gemini', 'other'].includes(familyOf(m)) && modelInfo(m).tier !== 'S').sort((a, b) => 'LMS'.indexOf(modelInfo(a).tier) - 'LMS'.indexOf(modelInfo(b).tier));
+    if (!oss.length && !C.length) return null;
+    return { gen: oss.length ? oss : C.slice(0, 1), judge: [...oss, ...C.slice(0, 1)], C: C.slice(0, 2) };
+  }
+  return null;
+}
 /** khóa giám khảo chuẩn cho qa.j: '<họ>:<mô hình>' */
 export const judgeKey = m => familyOf(m) + ':' + String(m || '?').replace(/^@cf\/[^/]+\//, '').replace(/^@cf\//, '');
 
@@ -53,7 +70,9 @@ export const TASKS = {
   lxtr: { kind: 'gen', deny: ['llama'] },
   lxdef: { kind: 'gen', deny: ['llama'] }, // source-first 24/10: viết lại gloss WordNet (cấm đổi nghĩa)
   lxex: { kind: 'gen', deny: ['llama'] },  // ví dụ AI CHỈ khi không có câu người viết
-  lxsrc: { kind: 'judge', deny: [] },      // giám khảo nguồn: def ≡ gloss, câu nào đúng nghĩa, bảng dịch nào khớp
+  lxsrc: { kind: 'judge', deny: [] },
+  lxwsd: { kind: 'judge', deny: [] },      // trắc nghiệm nghĩa (29/10): mỗi câu/vi/bản dịch → số nghĩa WordNet, 3 giám khảo phải cùng chọn nghĩa khoá
+  lxvi: { kind: 'judge', deny: [] },       // nguồn vi thứ hai (họ khác lxtr) – vi chỉ nhận khi ≥ 2 nguồn độc lập trùng      // giám khảo nguồn: def ≡ gloss, câu nào đúng nghĩa, bảng dịch nào khớp
   xgen: { kind: 'gen', deny: ['llama'] },
   xtr: { kind: 'gen', deny: ['llama'] },
   vgen: { kind: 'gen', deny: [] },
@@ -76,10 +95,12 @@ export function allowed(mode, model) {
 // 25/10 (neuron CF → ảnh): soạn = Gemini kho Lexkite → Groq gpt-oss-120b; giám khảo A = Groq gpt-oss-120b; giám khảo B = Groq gpt-oss-20b với LỜI NHẮN KHÁC
 // (người soát thứ hai, tìm lỗi trước – JUDGE_B_SYS). Cùng họ gpt-oss chỉ được phép cho cặp 120b + 20b (SAME_FAM_PAIR, docs/CONTENT-QA.md §2 lớp 3).
 // gc-cf luôn ở CUỐI và chỉ sống khi AI_POOL_CF_TEXT=1. Gemini kho Lexkite vẫn đứng đầu soạn khi có khóa sống; 0 khóa → lexai nghỉ ngay.
+// 30/10 (chủ nạp GEMINI_POOL 85 khoá + GROQ_POOL 109 khoá): 'gem' (Gemini 2.5 Flash – soạn, dịch vi, giám khảo khác họ) và 'groq' (gpt-oss-120b / llama-3.3-70b / qwen3-32b)
+// đứng ĐẦU mọi chuỗi văn bản → văn bản không còn ăn neuron CF của ảnh; chỉ sống khi việc có secret (env) – việc khác giữ nguyên chuỗi cũ.
 export const CHAINS = {
-  gen: ['lexai', 'gc-groq', 'cf2', 'gc-gemini', 'gc-cf'],
-  judgeA: ['gc-groq', 'lexai', 'cf2', 'gc-gemini', 'gc-cf'],
-  judgeB: ['gc-groq', 'lexai', 'gc-gemini', 'cf2', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
+  gen: ['gem', 'groq', 'lexai', 'gc-groq', 'cf2', 'gc-gemini', 'gc-cf'],
+  judgeA: ['groq', 'gem', 'gc-groq', 'lexai', 'cf2', 'gc-gemini', 'gc-cf'],
+  judgeB: ['gem', 'groq', 'gc-groq', 'lexai', 'gc-gemini', 'cf2', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
   vision: ['gc-vision', 'studio', 'cf2-vision'],
 };
 /** văn bản Cloudflare qua GrabCast (bể neuron ảnh) – TẮT trừ khi AI_POOL_CF_TEXT=1 */
@@ -105,7 +126,7 @@ const LEXAI_MODELS = {
 };
 const CF2_MODELS = ['@cf/openai/gpt-oss-120b', '@cf/meta/llama-3.3-70b-instruct-fp8-fast'];
 // giám khảo C (27/10, chủ chọn đồng thuận 3 giám khảo cho kho từ): họ THỨ BA trên kho CF – khác gpt-oss và llama
-export const CF2_JUDGE_C = ['@cf/mistralai/mistral-small-3.1-24b-instruct', '@cf/qwen/qwq-32b'];
+export const CF2_JUDGE_C = ['@cf/meta/llama-3.3-70b-instruct-fp8-fast', '@cf/mistralai/mistral-small-3.1-24b-instruct', '@cf/qwen/qwq-32b']; // 30/10: llama 70B trước – mistral-small chê oan 145/169 def đúng (pilot 7)
 const CF2_VISION = '@cf/meta/llama-4-scout-17b-16e-instruct';
 // neuron/token ước lượng (bảng giá Workers AI) – để trừ ngân sách tài khoản 2
 const NEURON = { 'gpt-oss-120b': { in: 31818 / 1e6, out: 68182 / 1e6 }, 'llama-3.3-70b': { in: 26668 / 1e6, out: 204805 / 1e6 }, 'llama-4-scout': { in: 24545 / 1e6, out: 77273 / 1e6 } };
@@ -122,6 +143,9 @@ export const untilUtcMidnight = (now = Date.now()) => { const d = new Date(now);
 // mô hình hay trả sai hình: 1 mục trần { k, … } hoặc mảng [{ k, … }] → chuẩn { k: … }
 export function normOut(out, items) {
   out = normOut0(out, items);
+  // 30/10: gpt-oss (Groq) trả mảng [{"<k>": {…}}, …] → ghép theo vị trí thành {"<k>": {"<k>": {…}}} – mọi phiếu giám khảo A rỗng. Gỡ tầng bọc trùng khoá.
+  if (out && typeof out === 'object' && !Array.isArray(out) && Array.isArray(items)) for (const x of items) { const v = x && out[x.k];
+    if (v && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === 1 && v[x.k] && typeof v[x.k] === 'object') out[x.k] = v[x.k]; }
   // pilot 8: giám khảo trả khóa lệch (từ không kèm #loại, bọc 1 lớp {"results": {…}}, mảng không có "k") → khớp lại theo k / w
   if (out && typeof out === 'object' && Array.isArray(items) && items.length && !items.some(x => x && x.k in out)) {
     const vals = Object.values(out), one = vals.length === 1 && vals[0] && typeof vals[0] === 'object' ? normOut0(vals[0], items) : null;
@@ -135,6 +159,7 @@ export function normOut(out, items) {
 function normOut0(out, items) {
   // pilot 8b: llama trả 1 mục TRẦN không có khóa k ({"sense":…, "s":…}) khi lô chỉ 1 mục → gói lại theo k
   if (out && typeof out === 'object' && !Array.isArray(out) && Array.isArray(items) && items.length === 1 && items[0] && !(items[0].k in out) && out.k == null && ('s' in out || 'def' in out || 'es' in out || 'ex' in out || 'vi' in out || 'ts' in out || 'sc' in out || 'skip' in out)) return { [items[0].k]: out };
+  if (Array.isArray(out) && Array.isArray(items) && out.length && out.every(x => x && typeof x === 'object' && !Array.isArray(x) && x.k == null && Object.keys(x).length === 1 && items.some(i => i && i.k === Object.keys(x)[0]))) return Object.assign({}, ...out);
   if (Array.isArray(out) && Array.isArray(items) && out.length === items.length && out.every(x => x && typeof x === 'object' && x.k == null)) return Object.fromEntries(items.map((x, i) => [x.k, out[i]]));
   if (Array.isArray(out)) return Object.fromEntries(out.filter(x => x && x.k != null).map(({ k, ...v }) => [k, v]));
   if (out && typeof out === 'object' && typeof out.k === 'string' && !(out.k in out) && Array.isArray(items) && items.some(x => x && x.k === out.k)) { const { k, ...v } = out; return { [k]: v }; }
@@ -310,6 +335,62 @@ export function createPool(opts = {}) {
       return { out: await go(req, 0), model };
     },
   };
+  // ---- kho khoá Gemini / Groq (scripts/lib/key-pool.mjs): xoay khoá mỗi lần gọi; 429 theo phút → khoá nghỉ Retry-After, hết hạn mức NGÀY → nghỉ tới 00:00 UTC
+  // (Gemini đặt lại 00:00 giờ Thái Bình Dương ≈ 07:00–08:00 UTC: thêm 8 giờ), 401/403 → bỏ 6 giờ. Không bao giờ ghi khoá vào nhật ký (chỉ nhãn k<i>).
+  const GEM = keyRing(parseKeys(env.GEMINI_POOL, 'gemini'), { now }), GROQ = keyRing(parseKeys(env.GROQ_POOL, 'groq'), { now });
+  used.gem = 0; used.groq = 0;
+  const redact = t => t.replace(/AIza[\w-]{10,}|AQ\.[\w.-]{10,}|gsk_\w{10,}/g, '[khoá]');
+  async function keyed(ring, name, doFetch) {
+    let busy = 0; // 503 "model overloaded" (Gemini 30/10: phần lớn lượt) = tạm thời phía máy chủ → chờ 8 s / 24 s rồi thử khoá kế, không rơi ngay sang giám khảo yếu hơn
+    for (let t = 0; t < Math.min(ring.size, 16) + busy; t++) {
+      const k = ring.next(); if (!k) throw new PoolErr('route', `${name}: mọi khoá đang nghỉ (${ring.size})`, ring.soonest());
+      const r = await doFetch(k.key).catch(() => null); if (!r) throw new PoolErr('net', name + ' net');
+      if (r.status === 401 || r.status === 403) { ring.park(k.id, 6 * 3600e3, 'auth'); continue; }
+      if (r.status === 429) { const b = await r.text().catch(() => ''), day = /per ?day|PerDay|daily|\bRPD\b|\bTPD\b/i.test(b) && !/per ?minute|PerMinute|\bRPM\b|\bTPM\b/i.test(b);
+        ring.park(k.id, day ? untilUtcMidnight(now()) + (name === 'gem' ? 8 * 3600e3 : 0) : retryAfter(r), day ? 'day' : 'minute'); continue; }
+      if (r.status === 503 && busy < 2) { busy++; await sleep(8e3 * (busy === 1 ? 1 : 3)); continue; }
+      if (r.status >= 500) throw new PoolErr('net', `${name} ${r.status}`);
+      const j = await r.json().catch(() => null);
+      if (!r.ok || !j) throw new PoolErr('bad', `${name} ${r.status} ${redact(String(j && j.error && [j.error.code || j.error.status, j.error.message].join(' ') || '')).slice(0, 160)}`);
+      used[name]++; return j;
+    }
+    throw new PoolErr('route', `${name}: ${Math.min(ring.size, 16)} khoá liên tiếp 429/từ chối`, 65e3);
+  }
+  // câu trả lời JSON hỏng/cụt → chia đôi lô (tối đa 2 tầng) rồi gộp – như cf2
+  const splitGo = one => { const go = async (r, depth) => { const o = await one(r); if ((o && typeof o === 'object') || depth >= 2 || !Array.isArray(r.items) || r.items.length < 2) return o && typeof o === 'object' ? o : null;
+    const h = Math.ceil(r.items.length / 2), a = await go({ ...r, items: r.items.slice(0, h) }, depth + 1); if (!a) return null; const b = await go({ ...r, items: r.items.slice(h) }, depth + 1); return b ? { ...a, ...b } : null; }; return go; };
+  const GEM_MODELS = { gen: ['gemini-3.8-flash', 'gemini-3.6-flash'], judge: ['gemini-3.8-flash', 'gemini-3.6-flash'] };
+  // đọc danh sách mô hình thật 1 lần (1 khoá, không tốn hạn mức sinh) → thay tên mặc định; lỗi → giữ mặc định
+  const listed = { gem: null, groq: null };
+  async function discover(name) {
+    if (listed[name]) return listed[name];
+    return (listed[name] = (async () => { const ring = name === 'gem' ? GEM : GROQ; let j = null;
+      for (let t = 0; t < 3 && !j; t++) { const k = ring.peek(t); if (!k) break; // 3 khoá đầu (không xoay vòng): khoá hỏng/429 → khoá kế
+        const r = await (name === 'gem' ? F('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', { headers: { 'x-goog-api-key': k.key } }) : F('https://api.groq.com/openai/v1/models', { headers: { Authorization: 'Bearer ' + k.key } })).catch(() => null);
+        j = r && r.ok ? await r.json().catch(() => null) : null; }
+      const ids = name === 'gem' ? ((j || {}).models || []).filter(m => (m.supportedGenerationMethods || []).includes('generateContent')).map(m => m.name) : ((j || {}).data || []).filter(m => m.active !== false).map(m => m.id);
+      const P = pickModels(name, ids), M = name === 'gem' ? GEM_MODELS : GROQ_MODELS; if (P) for (const role of Object.keys(P)) if (P[role].length || role === 'C') M[role] = P[role]; // C rỗng = không đoán tên (tránh 404) → chuỗi rơi sang cf2
+      log(`[ai-pool] mô hình ${name}: ${ids.length} có sẵn${name === 'groq' ? ' ' + JSON.stringify(ids.map(x => String(x).replace(/^models\//, ''))) : ''} → ${JSON.stringify(M)}`); return M; })());
+  }
+  R.gem = { ok: () => GEM.size > 0, models: role => GEM_MODELS[role === 'gen' ? 'gen' : 'judge'],
+    async call(model, req) {
+      await discover('gem'); if (!GEM_MODELS.gen.includes(model) && !GEM_MODELS.judge.includes(model)) throw new PoolErr('model', 'gem: không còn ' + model, 6 * 3600e3);
+      const one = async r => { const p = await promptFor(r);
+        const j = await keyed(GEM, 'gem', key => F(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ systemInstruction: { parts: [{ text: sysFor(p, r) }] }, contents: [{ role: 'user', parts: [{ text: p.user }] }], generationConfig: { temperature: p.temp ?? 0.2, responseMimeType: 'application/json', maxOutputTokens: 32768, thinkingConfig: /gemini-2\./.test(model) ? { thinkingBudget: 0 } : { thinkingLevel: 'low' } } }) }));
+        const c = (j.candidates || [])[0] || {}; return parseJSON(((c.content || {}).parts || []).map(x => x.text || '').join('')); };
+      const out = await splitGo(one)(req, 0); if (!out) throw new PoolErr('bad', 'gem: không phải JSON'); return { out, model };
+    } };
+  const GROQ_MODELS = { gen: ['openai/gpt-oss-120b'], judge: ['openai/gpt-oss-120b'], C: ['meta-llama/llama-4-maverick-17b-128e-instruct', 'moonshotai/kimi-k2-instruct'] }; // C: mặc định, discover() thay bằng danh sách thật
+  R.groq = { ok: () => GROQ.size > 0, models: (role, slot) => (slot === 'C' ? GROQ_MODELS.C : GROQ_MODELS[role === 'gen' ? 'gen' : 'judge']),
+    async call(model, req) {
+      await discover('groq'); if (![...GROQ_MODELS.gen, ...GROQ_MODELS.judge, ...GROQ_MODELS.C].includes(model)) throw new PoolErr('model', 'groq: không còn ' + model, 6 * 3600e3);
+      const one = async r => { const p = await promptFor(r);
+        const j = await keyed(GROQ, 'groq', key => F('https://api.groq.com/openai/v1/chat/completions', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ model, messages: [{ role: 'system', content: sysFor(p, r) }, { role: 'user', content: p.user }], temperature: p.temp ?? 0.2, max_completion_tokens: 16384, response_format: { type: 'json_object' }, ...(/qwen3/.test(model) ? { reasoning_format: 'hidden' } : {}) }) }));
+        return parseJSON((((j.choices || [])[0] || {}).message || {}).content || ''); };
+      const out = await splitGo(one)(req, 0); if (!out) throw new PoolErr('bad', 'groq: không phải JSON'); return { out, model };
+    } };
   // thị giác (vocab-img giám khảo gọi tên): GrabCast vision (khi có URL) → Gemini kho Lexkite qua /api/studio (wai:0) → tài khoản 2 Llama 4 Scout
   R['gc-vision'] = {
     ok: () => !!env.GRABCAST_AI_KEY, models: () => ['vision'],
@@ -397,6 +478,7 @@ export function createPool(opts = {}) {
         } catch (e) {
           const k = e instanceof PoolErr ? e.kind : 'net';
           hit(id, model, 'fail'); why.push(`${id}:${model} ${k} ${String(e.message).slice(0, 80)}`);
+          if (stats[id + '|' + model].fail <= 2) log(`[ai-pool] ✗ ${mode} ${id} ${model} ${k} ${redact(String(e.message)).slice(0, 200)}`); // 2 lỗi đầu mỗi mô hình – thấy lý do mà không ngập nhật ký
           if (k === 'route') { rest(id, null, e.ms || 30 * 60e3, e.message); break; }
           if (k === 'budget') break;
           if (k === 'model') rest(id, model, e.ms || 65e3, e.message);
@@ -442,9 +524,10 @@ export function createPool(opts = {}) {
       }
       if (CF2.length) { try { await cf2Run('@cf/meta/llama-3.1-8b-instruct-fast', { messages: [{ role: 'user', content: 'ok' }], max_tokens: 2 }); h.cf2 = { ok: true, accounts: CF2.length }; } catch (e) { h.cf2 = { ok: false, err: e.message, sample: used.cf2Err }; if (e.kind === 'route') rest('cf2', null, e.ms, e.message); } }
       else h.cf2 = { ok: false, err: 'chưa có CF_POOL/CF_AI_TOKEN_2' };
+      for (const n of ['gem', 'groq']) if ((n === 'gem' ? GEM : GROQ).size) { const M = await discover(n).catch(() => null); h[n] = { ok: !!M, models: M }; }
       log('[ai-pool] sức khỏe ' + JSON.stringify(h)); return h;
     },
-    stats: () => ({ used: { ...used }, budget: { ...budget }, by: JSON.parse(JSON.stringify(stats)) }),
+    stats: () => ({ used: { ...used }, budget: { ...budget }, by: JSON.parse(JSON.stringify(stats)), keys: { gem: GEM.stats(), groq: GROQ.stats() } }),
     /** ghi nhật ký ai đã trả lời (reports/ai-pool-<job>.json) */
     report(job, file = `reports/ai-pool-${job}.json`) { try { fs.mkdirSync('reports', { recursive: true }); fs.writeFileSync(file, JSON.stringify({ job, at: new Date(now()).toISOString(), ...api.stats() }, null, 1)); } catch { /* bỏ */ } },
   };

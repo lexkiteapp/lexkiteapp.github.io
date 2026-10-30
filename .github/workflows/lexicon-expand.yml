@@ -18,6 +18,7 @@ on:
       batch: { description: 'Mã lô (trống = ngày)', default: '' }
       neurons: { description: 'Trần neuron kho CF_POOL lượt này (ai-pool cf2; 4006 → tài khoản kế)', default: '600000' }
       retry: { description: 'Làm lại danh sách retry trước (0 = lượt kiểm nhỏ, bỏ qua)', default: '1' }
+      words: { description: 'Mẫu pilot CỐ ĐỊNH (vd content/lexicon/expand/pilot/hard.json): chỉ xử lý các từ đó, chấm tự động (grade.mjs), KHÔNG ghi repo', default: '' }
 permissions:
   contents: write
   actions: write    # tự nối lượt (workflow_dispatch) khi còn việc + còn neuron
@@ -26,7 +27,7 @@ concurrency: { group: lexicon-expand, cancel-in-progress: false }
 jobs:
   expand:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 200   # 30/10 đo pilot 9: ~14 s/từ (Gemini 3.x chậm) → LX_N 600 ≈ 140 phút
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -40,8 +41,8 @@ jobs:
       - name: Nguồn miễn phí (wordfreq CC BY-SA 4.0 · WordNet · CMUdict BSD-2 · LDNOOBW CC BY 4.0)
         if: ${{ steps.lease.outputs.skip != '1' }}
         run: |
-          pip install -q wordfreq==3.1.1 nltk==3.9.1 espeakng-loader==0.2.4   # espeak-ng en-gb: IPA Anh khi Wiktionary thiếu (hiệu chuẩn espeak-calib.mjs)
-          python -c "import nltk; nltk.download('wordnet', quiet=True); nltk.download('averaged_perceptron_tagger_eng', quiet=True)"
+          pip install -q 'wordfreq[cjk]==3.1.1' nltk==3.9.1 espeakng-loader==0.2.4   # cjk: trcheck --exist cho zh/ja/ko (lớp D2)   # espeak-ng en-gb: IPA Anh khi Wiktionary thiếu (hiệu chuẩn espeak-calib.mjs)
+          python -c "import nltk; nltk.download('wordnet', quiet=True); nltk.download('averaged_perceptron_tagger_eng', quiet=True); nltk.download('omw-1.4', quiet=True)"   # OMW 1.4: lemma theo synset 8 ngôn ngữ (synset.py, lớp D1)
           # câu ví dụ NGƯỜI VIẾT: Tatoeba (CC BY 2.0 FR) – examples.py lọc lemma + từ loại + câu dễ (source-first 24/10)
           curl -sfL https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2 | bunzip2 > "$RUNNER_TEMP/tatoeba.tsv" || true
           # vi do AI lấp chỉ nhận phương án có trong Viet74K (duyet/vietnamese-wordlist, GPL-2.0 – CHỈ để kiểm trong CI, không phân phối)
@@ -60,23 +61,30 @@ jobs:
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite (nếu còn khóa) → cf2 = kho CF_POOL xoay vòng (gpt-oss-120b soạn/giám khảo A, llama-3.3-70b giám khảo B) 
           # 26/10: GrabCast hỏng (500) → bỏ GRABCAST_AI_KEY. Chủ cho dùng MỌI tài khoản kho (VIMG_POOL_SKIP 0); không bao giờ tài khoản chính (CF_ACCOUNT_1 để loại).
           CF_POOL: ${{ secrets.CF_POOL }}
+          # 30/10: kho khoá miễn phí (chủ nạp) – ai-pool tuyến 'gem' (Gemini 2.5 Flash: soạn + dịch vi + giám khảo B) và 'groq' (gpt-oss-120b giám khảo A, llama-3.3-70b giám khảo C) đứng trước cf2
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
           VIMG_CF_USE_CF2: '0'   # tài khoản 2 thuộc script-bank/news-auto (workers_ai_b độc quyền) – lexicon chỉ dùng kho
         # LEASE_AI_B_NEURONS đặt NGAY trong lệnh: bước thuê ghi LEASE_AI_B_NEURONS=0 vào GITHUB_ENV (đè env của bước)
         # biến repo so TRONG bash: biểu thức GitHub coi '' == '0' (26/10) – dispatch thắng biến repo
         run: |
-          N="${{ github.event.inputs.n }}"; N="${N:-${{ vars.LX_N }}}"; N="${N:-2400}"
+          N="${{ github.event.inputs.n }}"; N="${N:-${{ vars.LX_N }}}"; N="${N:-600}"
           P="${{ github.event.inputs.pilot }}"; P="${P:-${{ vars.LX_PILOT }}}"
           RT="${{ github.event.inputs.retry }}"; RT="${RT:-${{ vars.LX_RETRY }}}"
           EXTRA=(); [ "$P" = 1 ] && EXTRA+=(--pilot); [ "$RT" = 0 ] && EXTRA+=(--no-retry)
           B="${{ github.event.inputs.batch }}"; [ -n "$B" ] && EXTRA+=(--batch "$B")
+          WD="${{ github.event.inputs.words }}"; [ -n "$WD" ] && { EXTRA+=(--words "$WD"); P=0; echo "LX_RUN_WORDS=$WD" >> "$GITHUB_ENV"; }
           echo "LX_RUN_N=$N" >> "$GITHUB_ENV"; echo "LX_RUN_PILOT=$P" >> "$GITHUB_ENV"
           # pilot theo lịch: lô pilot hôm nay đã có mục → không chạy thêm (chờ soát 50 mẫu, không phí neuron)
-          if [ "$P" = 1 ] && [ -z "${{ github.event.inputs.pilot }}" ] && [ -s "content/lexicon/expand/pending/$(date -u +%Y%m%d)-pilot.json" ]; then echo "⏭ lô pilot hôm nay đã có – chờ soát"; echo "LX_RUN_PILOT=1" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -z "$WD" ] && [ "$P" = 1 ] && [ -z "${{ github.event.inputs.pilot }}" ] && [ -s "content/lexicon/expand/pending/$(date -u +%Y%m%d)-pilot.json" ]; then echo "⏭ lô pilot hôm nay đã có – chờ soát"; echo "LX_RUN_PILOT=1" >> "$GITHUB_ENV"; exit 0; fi
           LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --britfone "$RUNNER_TEMP/britfone.csv" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "${{ github.event.inputs.calls || '0' }}" "${EXTRA[@]}"
+      - name: Chấm tự động mẫu cố định (nhãn xấu không được lọt · LÕI / DỊCH / IPA – docs/QUALITY-PIPELINE.md bước 3)
+        if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words != '' }}
+        run: node scripts/lexicon/expand/grade.mjs --labels content/lexicon/expand/pilot/labels.json --sheet 50
       - name: Lưu kết quả (chờ soát – chưa xuất)
-        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words == '' }}
         run: |
           cat reports/lexicon-expand.json 2>/dev/null >> "$GITHUB_STEP_SUMMARY" || true
           node scripts/ai-capacity.mjs || true   # thẻ Sức chứa AI (Quản trị › Khóa API)
@@ -90,15 +98,16 @@ jobs:
         if: always()
         with: { name: lexicon-expand, path: reports/, retention-days: 14 }
       - name: Tự nối lượt (chạy liên tục trong ngày thay vì chờ cron – như vocab-img-scene)
-        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words == '' }}
         env: { GH_TOKEN: '${{ github.token }}', CHAIN: '${{ vars.LX_CHAIN }}' }
         run: |
           [ "$CHAIN" = 0 ] && { echo "chuỗi tắt (LX_CHAIN=0)"; exit 0; }
           [ "$LX_RUN_PILOT" = 1 ] && { echo "pilot → không nối (chờ soát 50 mẫu, rồi đặt LX_PILOT=0)"; exit 0; }
           [ -s reports/lexicon-expand.json ] || { echo "không có báo cáo → dừng chuỗi"; exit 0; }
           # nối khi: lượt có mục đạt, ≤ 50 % bỏ qua hạ tầng (kho CF còn neuron), và còn đủ ứng viên (n ≥ 90 % N)
-          GO=$(node -p "const r=require('./reports/lexicon-expand.json'), inf=(r.why||{}).infra||0; (r.pass>0 && inf<=r.n*0.5 && r.n>=0.9*(+process.env.LX_RUN_N||2400)) ? 1 : 0")
-          [ "$GO" = 1 ] || { echo "⏹ dừng chuỗi: hết neuron kho CF (4006) / hết ứng viên / 0 mục đạt – lượt cron 00:12 UTC tiếp"; exit 0; }
+          # QUALITY-PIPELINE bước 5: sản lượng (đạt / mục không hạ tầng) tụt dưới MỘT NỬA mức pilot đã duyệt (content/lexicon/expand/pilot/yield.json) → dừng chuỗi
+          GO=$(node -p "const fs=require('fs'), r=require('./reports/lexicon-expand.json'), inf=(r.why||{}).infra||0, py=fs.existsSync('content/lexicon/expand/pilot/yield.json')?require('./content/lexicon/expand/pilot/yield.json').yield:0, low=py&&(r.n-inf)>=50&&r.yield<py/2; if(low) console.error('⏹ sản lượng '+r.yield+' < '+(py/2)+' (nửa mức pilot '+py+')'); (r.pass>0 && !low && inf<=r.n*0.5 && r.n>=0.9*(+process.env.LX_RUN_N||2400)) ? 1 : 0")
+          [ "$GO" = 1 ] || { echo "⏹ dừng chuỗi: hết neuron kho CF (4006) / hết ứng viên / 0 mục đạt / sản lượng < nửa pilot – lượt cron tiếp"; echo "::warning::lexicon-expand dừng chuỗi (xem log bước này)"; exit 0; }
           gh workflow run lexicon-expand.yml -R ${{ github.repository }} --ref main
           echo "↻ đã gọi lượt lexicon-expand kế tiếp"
       - name: Trả thuê
