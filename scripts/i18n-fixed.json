@@ -30989,5 +30989,20 @@
     "ar": "الخيار الصحيح",
     "ru": "Верный вариант",
     "tr": "Doğru seçenek"
+  },
+  "Chạm loa để nghe lại câu.": {
+    "es": "Toca el altavoz para volver a oír la frase.",
+    "pt": "Toque no alto-falante para ouvir a frase de novo.",
+    "fr": "Touche le haut-parleur pour réécouter la phrase.",
+    "de": "Tippe auf den Lautsprecher, um den Satz erneut zu hören.",
+    "id": "Ketuk speaker untuk mendengar kalimat lagi.",
+    "th": "แตะลำโพงเพื่อฟังประโยคอีกครั้ง",
+    "zh": "点按喇叭再听一遍句子。",
+    "ja": "スピーカーをタップしてもう一度文を聞こう。",
+    "ko": "스피커를 눌러 문장을 다시 들어 보세요.",
+    "hi": "वाक्य फिर से सुनने के लिए स्पीकर पर टैप करें।",
+    "ar": "اضغط على مكبّر الصوت لسماع الجملة مرة أخرى.",
+    "ru": "Нажмите на динамик, чтобы снова прослушать фразу.",
+    "tr": "Cümleyi tekrar dinlemek için hoparlöre dokun."
   }
 }

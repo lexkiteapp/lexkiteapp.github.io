@@ -203,6 +203,7 @@
   function next() {
     if (!L || L.dead) return;
     if (L.duo && L.sess.cur) frame(L.sess.cur);
+    view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); // thẻ câu của tấm phản hồi chỉ sống tới câu kế
     bar();
     if (L.teacher && L.teacher.pose) L.teacher.pose(null); // ra khỏi tư thế phản hồi (cheer/concern) → lại nghe/nói sống
     const it = L.sess.cur;
@@ -450,8 +451,14 @@
       a1: LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
     const box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
     const extra = pills ? `<div class="lsn-fb flex flex-wrap gap-[0.5rem]">${pills}</div>` : '';
-    const d = Object.assign(ok ? { head: t('Tuyệt!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
-    foot.innerHTML = `<div class="v2s-${ok ? 'feedback-correct' : 'feedback-wrong'}">${ST2[ok ? 'feedback-correct' : 'feedback-wrong'](d).main}</div>`;
+    // Thẻ câu của mẫu (Fill in the blank / Spot the error & fix, parts.qcard): câu có chỗ trống điền từ đã chọn (đúng = viên teal, sai = viên đỏ); dạng không có câu → chỉ viên từ
+    const pick = ok ? String(it.answer) : String(L.pick == null ? '' : L.pick), B = it.type === 'gap' && it.blank, T = B ? it.blank.toks : [];
+    const q = { qkind: TITLE(it), qpre: B ? T.slice(0, B.i).join(' ') : '', qpick: pick, qpost: B ? T.slice(B.i + B.n).join(' ') : '' };
+    const d = Object.assign(ok ? { head: t('Tuyệt!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, q, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
+    const K = ok ? 'feedback-correct' : 'feedback-wrong', o2 = ST2[K](d);
+    foot.innerHTML = `<div class="v2s-${K}">${o2.main}</div>`;
+    view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); const og0 = $('#lsnBody');
+    if (o2.qcard && og0 && pick) { og0.insertAdjacentHTML('beforebegin', `<div class="lsn-fq v2s-${K} mb-[1rem]">${o2.qcard}</div>`); const fp = $('#lsnFqPlay'); if (fp) fp.onclick = () => say(B ? it.sent : pick, false, it.who); }
     const xp = foot.querySelector('.lsn-xpp'); if (xp && !d.xp) xp.hidden = true; const an = foot.querySelector('.lsn-ans'); if (an && !d.answer) an.hidden = true;
     if (!c) foot.querySelectorAll('.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); // ghép cặp (không có 1 từ) → không thẻ từ / Vì sao?
     v2optMark(it, ok);

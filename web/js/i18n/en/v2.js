@@ -8,6 +8,7 @@
   "Chia sẻ kết quả": "Share results",
   "Chuỗi": "STREAK",
   "Chính xác": "ACCURACY",
+  "Chạm loa để nghe lại câu.": "Tap the speaker to hear the sentence again.",
   "Các đáp án": "Answer options",
   "Hướng dẫn chặng": "Guide",
   "Hồ sơ người học": "User Profile",

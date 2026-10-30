@@ -101,10 +101,11 @@ function emit(root, bind, k) {
     for (const e of [el, ...el.querySelectorAll('*')]) for (const a of ['aria-label', 'title', 'alt', 'placeholder']) { const v = e.getAttribute(a); if (v && !/\u0001/.test(v) && needT(v)) e.setAttribute(a, tr(v, a)); }
     return el.outerHTML.replace(/\s+/g, ' ').replace(/[`\\]|\$\{/g, m => '\\' + m).replace(/\u0001(\d+)\u0002/g, (_, i) => '${' + M[+i] + '}'); };
   apply(root, bind);
+  const parts = Object.entries(bind.parts || {}).map(([n, sel]) => { const el = QA(root, sel)[0]; return [n, el ? '`' + textify(el) + '`' : '``']; }); // parts {tên: bộ chọn}: thêm phần khung có tên (vd thẻ câu của tấm phản hồi chèn vào khung câu hỏi) → ST2.<màn>(d).<tên>
   if (bind.keep) { const kp = QA(root, bind.keep)[0]; if (kp) { root.textContent = ''; root.append(kp); } } // keep: màn chỉ lấy MỘT phần khung (vd tấm phản hồi gắn vào khung câu hỏi có sẵn) – bộ chọn của các phép khác vẫn theo khung đầy đủ
   const part = sel => { const el = root.querySelector(sel); if (!el) return '``'; const s = textify(el); el.remove(); return '`' + s + '`'; };
   const header = part(':scope > header'), nav = part(':scope > nav'), main = '`' + textify(root).replace(/^<div[^>]*>|<\/div>$/g, '') + '`';
-  return { header, nav, main, root: root.getAttribute('class') || '' }; }
+  return { header, nav, main, parts, root: root.getAttribute('class') || '' }; }
 
 // ---- chạy ----
 for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
@@ -122,7 +123,7 @@ for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (
     const so = path.join(OUT, 'shell.js'); if (CHECK) { if (!fs.existsSync(so) || fs.readFileSync(so, 'utf8') !== sh) errs.push(`${so} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(so, sh); }
     o.header = '``'; o.nav = '``'; }
   const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` +
-    `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav} });\n`;
+    `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n`;
   const out = path.join(OUT, k + '.js');
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
   else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }

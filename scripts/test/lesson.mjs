@@ -273,6 +273,7 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
     if (['q', 'gap', 'mean', 'pic'].includes(it.type) && (it.options || []).length) { const og = $('#lsnBody.lsn-opts'); ok(og && og.querySelectorAll('.lsn-opt[data-o]').length === it.options.length && !D.querySelector('#card-A, #card-B'), `v2: lưới đáp án A–D (${it.type})`); }
     await solve(true);
     ok($('#lsnFoot.ok') && !$('#lsnFoot').hidden, `v2: đúng → sheet xanh (${it.type})`);
+    if (it.type === 'gap') ok(D.querySelector('.lsn-fq .lsn-fqs') && D.querySelector('#lsnFqPlay') && D.querySelector('.lsn-fq').textContent.includes(String(it.answer)), 'v2.1 đúng: thẻ câu Stitch (Fill in the blank) có câu + đáp án + loa');
     ok($('#lsnFoot .v2s-feedback-correct') && /cheer/.test((D.querySelector('#lsnTch .tch-still') || {}).src || '') && $('#lsn').contains($('#lsnFoot')) && $('#lsnFoot').textContent.length > 8, `v2: đúng → tấm Stitch feedback-correct trong luồng + Ama cheer (${it.type})`);
     if (['q', 'gap', 'mean', 'pic'].includes(it.type) && (it.options || []).length) { const gd = [...D.querySelectorAll('#lsnBody.lsn-opts .lsn-opt')].find(b => b.dataset.o === String(it.answer)); ok(gd && /bg-\[#E8F5F3\]/.test(gd.className) && gd.querySelector('.material-symbols-outlined') && D.querySelectorAll('#lsnBody.lsn-opts .opacity-90').length === it.options.length - 1, `v2: sau Kiểm tra đáp án đúng = thẻ teal ✓, thẻ khác mờ (${it.type})`); }
     $('#lsnNext').click(); await tick();

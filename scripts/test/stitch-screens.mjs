@@ -9,6 +9,9 @@ export const SEED = async () => { localStorage.setItem('lk.ux1', '1'); localStor
   await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]); localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); };
 // Bảng giải đấu mẫu giống Stitch (hạng 5 = mình): đặt lại sau mỗi lần tải lại trang (Sync.league là hàm thật cần đăng nhập → thay bằng dữ liệu mẫu)
 // Màn Chuỗi: chuỗi 14 ngày liên tiếp, hôm nay 14/20 (như mẫu "14 day streak!") – chỉ nạp khi vào màn này (không đổi dữ liệu các màn khác)
+// Đồng hồ cố định cho màn Chuỗi: mẫu Stitch = thứ Sáu (T2–T5 lửa, T6 ✓ hôm nay, "5 of 7") → chụp/QC luôn cùng lịch tuần, không trôi theo ngày chạy CI
+export const STREAK_NOW = '2026-10-30T12:00:00Z';
+export const FIX_CLOCK = page => page.clock.setFixedTime(new Date(STREAK_NOW));
 export const SEED_STREAK = async () => { const k = d => { const x = new Date(); x.setDate(x.getDate() - d); return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0'); };
   const days = {}; for (let i = 1; i < 14; i++) days[k(i)] = 5; days[k(0)] = 14; App.state.stats.days = Object.assign(App.state.stats.days || {}, days); App.state.settings.dailyGoal = 20; await App.saveSettings(); await Core.Store.set('stats', App.state.stats); };
 export const SEED_LEAGUE = () => {
