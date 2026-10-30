@@ -16,7 +16,7 @@ import { STYLE, PEOPLE, fnv, scrub, negHit, classOf } from './style.mjs';
 import { ruleCheck } from './strict.mjs';
 import { isFunction } from './concept.mjs';
 
-export const SCENE_V = 'e5';   // e5 (30/10): như e4 nhưng check hỏi NGHĨA def (không lặp ps, không chứa từ, không 'indicating/represents') – mọi thẻ e4 viết lại
+export const SCENE_V = 'e5';   // e5 (30/10): như e4 nhưng check hỏi NGHĨA def (không lặp ps, không chứa từ, không 'indicating/represents') + ps không có vật mang chữ – mọi thẻ e4 viết lại
 // e4 (29/10): thẻ = câu cảnh ngắn vẽ được (ps ≤ 20 từ) + câu hỏi kiểm (check) + điểm vẽ được (draw) – prompt ngắn, giám khảo chấm đúng câu cảnh
 // MỘT bộ token phong cách cho cả 20k (cùng STYLE.base s1 đã duyệt) + phần riêng cho cảnh: tối đa 2 người, bố cục rõ, không chữ.
 // e2 (nhãn 24/10, 245 ảnh): FLUX schnell không có negative prompt – nhắc 'signs/speech bubbles' lại làm HIỆN biển/bong bóng chữ (HOSPITAL, BANK, HOTEL,
@@ -88,7 +88,7 @@ export function soften(prompt, level = 1) {
 export const SCENE_SYS = `You design ONE wordless picture that teaches an English word through its example sentence. A simple flat-vector image model must be able to draw it right in ONE try, and a learner who sees the picture with the sentence under it must understand the word.
 For each input item {k, w, pos, def, ex:[sentences]} reply with one JSON object keyed by k:
 {"ex": "the ONE input sentence (copied exactly) whose meaning is most VISIBLE", "ps": "the picture as ONE plain sentence of 8-20 words: at most two people named as 'a woman', 'a man', 'a girl' or 'a boy', ONE clear visible action, at most two key objects, optionally one simple place shown by an object in it", "check": "a yes/no question about the MEANING of w (def), answered from the picture alone: ask for the visible sign of that meaning in words different from ps, so the same people and objects WITHOUT that meaning get NO", "cap": "a neutral 6-14 word caption of the picture that does NOT contain the word w", "who": number of people 0-2, "draw": 1-5 how surely a learner understands w from this picture plus the sentence (5 = obvious)}
-Hard rules for ps: everything must be visible in a small thumbnail; no text, letters, numbers, prices, money amounts, times, clocks, calendars, schedules, screens, phones showing content, signs, logos, flags, arrows, lightbulbs, hearts, question marks, speech or thought bubbles; no metaphors.
+Hard rules for ps: everything must be visible in a small thumbnail; no text, letters, numbers, prices, money amounts, times, clocks, calendars, schedules, screens, phones showing content, signs, logos, flags, arrows, lightbulbs, hearts, question marks, speech or thought bubbles; no paper that carries writing (documents, invoices, contracts, reports, tests, forms, menus, tickets, maps, flashcards); laptops and phones only seen from behind; no metaphors.
 Choose the sentence about actions, emotions, physical states or concrete objects over sentences about prices, times, schedules, numbers, rules, plans, the internet or opinions. Abstract noun = one everyday moment where the idea shows on faces and actions; verb = the clearest moment of the action, whole body visible; adjective = exaggerate the quality or show a contrast pair side by side; groups or comparisons = show both sides.
 check must test the meaning, never restate the scene, never contain w, never ask whether something "indicates", "represents" or "illustrates" an idea: bad checks for cheap = "Is a woman handing a coin to a vendor for noodles?" (only repeats ps), "Is the vendor indicating cheap food?".
 If no sentence reaches draw >= 4 without breaking the hard rules, reply {"skip": "short reason"} for that k (no picture is better than a wrong one).
@@ -100,6 +100,8 @@ export const sceneUser = items => JSON.stringify(items.map(({ k, e }) => ({ k, w
 // echo = tỉ lệ từ nội dung của check (bỏ hư từ/người, gốc thô 5 ký tự) đã có trong ps; ≥ CHECK_ECHO → loại thẻ, viết lại.
 const ECHO_STOP = new Set('a an the is are was were be been being am do does did has have had can could will would should may might must this that these those there here it its they them their he she his her him we you i of to in on at by for with from into onto over under near next and or but so as than then both each either one two three some any all another other very really clearly picture image shown show shows showing visible see seen someone somebody people person woman man women men girl boy girls boys while who what which where when how why not no yes'.split(' '));
 const echoWords = s => [...new Set((String(s).toLowerCase().match(/[a-z]+/g) || []).filter(w => w.length > 1 && !ECHO_STOP.has(w)).map(w => w.replace(/(ing|ed|es|s|ly|e)$/, '').slice(0, 5)))];
+// vật mang chữ trong ps → mô hình vẽ chữ → giám khảo loại (pilot 41015594601: 9/36 ảnh cảnh trượt 'text': invoice, test sheet, report, contract, map, flashcard, laptop)
+export const TEXT_OBJ = /\b(invoices?|receipts?|contracts?|documents?|reports?|resumes?|paper forms?|flashcards?|worksheets?|exam papers?|test (sheet|paper)s?|menus?|tickets?|badges?|name tags?|whiteboards?|blackboards?|chalkboards?|maps?|certificates?|envelopes?)\b/i;
 export const CHECK_ECHO = 0.75;
 // pilot 41015594601 (30/10): car rental#n 'Is a woman at a desk with a car model, indicating a car rental service?' → YES cho xe đồ chơi; check có từ đích / 'indicating' = giám khảo đoán theo nhãn, không nhìn nghĩa
 export const CHECK_VAGUE = /\b(indicat\w*|represent\w*|symboli[sz]\w*|illustrat\w*|suggest\w*|the (idea|concept|notion) of)\b/i;
@@ -121,6 +123,7 @@ export function sceneOk(e, c) {
     if (CHECK_VAGUE.test(c.check)) return 'check asks for a label';
     if (/\b(text|letters?|words?|sign|label|caption|written|writing|numbers?|price|clock|calendar|screen)\b/i.test(c.ps)) return 'ps asks for text/symbol';
     { const h = negHit(c.ps, e.w); if (h) return 'ps uses a symbol: ' + h; }
+    { const m = String(c.ps).match(TEXT_OBJ); if (m && !wordRe(e.w).test(m[0]) && !wordRe(m[0]).test(e.w)) return 'ps has a text object: ' + m[0].toLowerCase(); }
     if (!c.cap || new RegExp('\\b' + e.w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(c.cap)) return 'cap names the word';
     return '';
   }
