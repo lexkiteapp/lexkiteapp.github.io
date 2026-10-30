@@ -61,20 +61,17 @@ def canvas(T):   # TeachShort.jsx <Canvas>: 180deg gradient bg -> bg2, three sta
 T = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json'))[o.look]
 BG = f'{LIB}/canvas_{o.look}.png'; canvas(T).save(BG)
 
-# one head size for both teachers: the smallest eye->mouth (px, output) whose crop window fits inside EVERY registry source
-size = {}
-for who, Q in REG['people'].items():
-    t0 = Q['clips']['talk']['src']; size[who] = tuple(map(int, probe(f"{o.green}/kmask_pro/{t0}.mkv", 'width,height').split(',')[:2]))
-em_out = 0
-for who, Q in REG['people'].items():
-    FW, FH = size[who]; em = Q['eye_mouth']; ex, ey = Q['eye']
-    em_out = max(em_out, H * FY * em / ey, H * (1 - FY) * em / (FH - ey), W * FX * em / ex, W * (1 - FX) * em / (FW - ex))
-em_out = int(em_out) + 1
-s = P['eye_mouth'] / em_out; CW, CH = round(W * s / 2) * 2, round(H * s / 2) * 2
-CX, CY = round(P['eye'][0] - FX * CW), round(P['eye'][1] - FY * CH); FW, FH = size[WHO]
-CX = max(0, min(FW - CW, CX)); CY = max(0, min(FH - CH, CY))
-EX, EY = (P['eye'][0] - CX) / s, (P['eye'][1] - CY) / s
-print(f'{WHO}: source {FW}x{FH}, crop {CW}x{CH}+{CX}+{CY}, eye->mouth {em_out} px, eye at ({EX:.0f}, {EY:.0f})', flush=True)
+# one head size + one eye line for both teachers (registry eye / eye_mouth). The registry sources are tight portrait shots (1080x1916), so
+# the teacher is scaled down and placed with overlay on the canvas: hair, shoulders and gestures keep their alpha, the source's left/right/top
+# edges are feathered (never a hard cut line), and the body MUST run off the bottom of the frame (never floats). Chin + 240 px pop band stays
+# above render_v9's caption band (BAND_Y1 1328).
+EM_OUT, EX, EY, FEATHER = 120, round(FX * W), 790, 40
+FW, FH = map(int, probe(f"{o.green}/kmask_pro/{P['clips']['talk']['src']}.mkv", 'width,height').split(',')[:2])
+s = EM_OUT / P['eye_mouth']; SW, SH = round(FW * s / 2) * 2, round(FH * s / 2) * 2
+OX, OY = round(EX - P['eye'][0] * s), round(EY - P['eye'][1] * s)
+assert OY + SH >= H, f'{WHO}: body ends at y {OY + SH} < {H} (would float) – lower EY or raise EM_OUT'
+assert EY + 2 * EM_OUT + 14 + 240 <= 1328, 'no room under the chin for pops'
+print(f'{WHO}: source {FW}x{FH} x{s:.3f} -> {SW}x{SH} at ({OX}, {OY}), eye->mouth {EM_OUT} px, eye at ({EX}, {EY})', flush=True)
 
 out = dict(TR); out['clips'] = dict(TR['clips']); errs = []
 for c in dict.fromkeys(IDS):
@@ -83,20 +80,21 @@ for c in dict.fromkeys(IDS):
     if not (os.path.exists(cf) and os.path.exists(cm)): errs.append(f'{c}: missing green source'); continue
     fps = probe(cf, 'r_frame_rate').split(',')[0]
     n = min(int(probe(f, 'nb_read_frames')) for f in (cf, cm)); a, z = spec.get('from', 0), min(spec.get('to', n - 1), n - 1) + 1
-    crop = f'{CW}:{CH}:{CX}:{CY}'; trim = f'trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB'
-    al = lambda i: f'[{i}:v]{trim},format=gray,crop={crop},scale={W}:{H}:flags=lanczos'
-    g = (f"{al(2)}[al];[1:v]{trim},crop={crop},scale={W}:{H}:flags=lanczos,despill=type=green:mix=0.6:expand=0.1,format=rgba[co];"
-         "[co][al]alphamerge[fg];[0:v]format=rgba[bg];[bg][fg]overlay=shortest=1,format=yuv420p")
+    trim = f'trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB'
+    fe = f"geq=lum='p(X,Y)*clip(min(min(X,W-1-X),Y)/{FEATHER},0,1)'"   # feather the source's side + top edges (bottom runs off the frame)
+    al = lambda i: f'[{i}:v]{trim},format=gray,{fe},scale={SW}:{SH}:flags=lanczos'
+    g = (f"{al(2)}[al];[1:v]{trim},scale={SW}:{SH}:flags=lanczos,despill=type=green:mix=0.6:expand=0.1,format=rgba[co];"
+         f"[co][al]alphamerge[fg];[0:v]format=rgba[bg];[bg][fg]overlay={OX}:{OY}:shortest=1,format=yuv420p")
     v = f'{LIB}/clips/{c}.mp4'
     run('ffmpeg', '-v', 'error', '-y', '-loop', '1', '-r', fps, '-i', BG, '-i', cf, '-i', cm, '-filter_complex', g, '-an', '-r', str(FPS),
         '-c:v', 'libx264', '-preset', 'medium', '-crf', '12', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', v)
     nf = int(probe(v, 'nb_read_frames')); got = probe(v, 'width,height')
     if got != f'{W},{H}' or nf < 48: errs.append(f'{v}: {got}, {nf} frames'); continue
     # head box = union over the clip of the alpha around the face (hair top .. chin), measured at 4 fps on the output frames
-    m = subprocess.run(['ffmpeg', '-v', 'error', '-i', cm, '-filter_complex', f'{al(0)},fps=4[o]', '-map', '[o]', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'],
+    m = subprocess.run(['ffmpeg', '-v', 'error', '-i', cm, '-filter_complex', f'{al(0)},fps=4[a0];color=black:s={W}x{H}:r=4,format=gray[k];[k][a0]overlay={OX}:{OY}:shortest=1,format=gray[o]', '-map', '[o]', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'],
                        check=True, capture_output=True).stdout
     A = np.frombuffer(m, np.uint8).reshape(-1, H, W) > 128
-    em = em_out; xa, xb = int(EX - 1.6 * em), int(EX + 1.6 * em); chin = int(EY + 2.0 * em)
+    em = EM_OUT; xa, xb = int(EX - 1.6 * em), int(EX + 1.6 * em); chin = int(EY + 2.0 * em)
     rows = np.where(A[:, :chin, max(0, xa):min(W, xb)].any((0, 2)))[0]
     cols = np.where(A[:, int(EY - 0.5 * em):int(EY + 1.2 * em), :].any((0, 1)))[0]
     head = [int(max(0, max(cols.min(), xa) - 6)), int(max(0, rows.min() - 6)), int(min(W, min(cols.max(), xb) + 6)), min(H, chin + 6)]
