@@ -1,24 +1,24 @@
 {
- "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: THÊM ngưỡng SSIM THEO VÙNG 'reg' (header/top/mid/low/cta, tính trên khung Stitch) = điểm CI 40921224454 − 0,01 cho 13 màn × sáng/tối; chỉ nâng.",
+ "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: THÊM ngưỡng SSIM THEO VÙNG 'reg' (header/top/mid/low/cta, tính trên khung Stitch) = điểm CI 40921224454 − 0,01 cho 13 màn × sáng/tối; chỉ nâng. 30/10 (chủ duyệt 4 thay đổi thiết kế: lửa mới ở đầu trang, ô 3 cột, Ama ở màn đúng/sai – mẫu ghép từ thành phần Stitch, Ama ở màn gọi): đặt lại = điểm CI 41042494107 − 0,01 CHỈ các chỉ số đỏ của: đầu trang (home/review/practice/me/readiness/streak/leagues), ô 3 cột (complete/me/streak/review mid-low-cta, complete rows), feedback ×2, call top/low/ssim. Không màn/chỉ số nào khác hạ.",
  "call-dark": {
   "ssim": 0.477,
   "rows": -0.049,
   "reg": {
    "header": 0.614,
-   "top": 0.89,
+   "top": 0.862,
    "mid": 0.404,
-   "low": 0.225,
+   "low": 0.164,
    "cta": 0.228
   }
  },
  "call-light": {
-  "ssim": 0.467,
+  "ssim": 0.439,
   "rows": -0.102,
   "reg": {
    "header": 0.551,
-   "top": 0.839,
+   "top": 0.798,
    "mid": 0.381,
-   "low": 0.261,
+   "low": 0.171,
    "cta": 0.259
   }
  },
@@ -30,18 +30,18 @@
    "top": 0.792,
    "mid": 0.347,
    "low": 0.046,
-   "cta": 0.22
+   "cta": 0.012
   }
  },
  "complete-light": {
   "ssim": 0.413,
-  "rows": 0.417,
+  "rows": 0.403,
   "reg": {
    "header": 0.844,
    "top": 0.802,
    "mid": 0.338,
    "low": 0.081,
-   "cta": 0.229
+   "cta": 0.027
   }
  },
  "feedback-dark": {
@@ -50,7 +50,7 @@
   "reg": {
    "header": 0.685,
    "top": 0.348,
-   "mid": 0.234,
+   "mid": 0.22,
    "low": 0.075,
    "cta": 0.012
   }
@@ -60,10 +60,10 @@
   "rows": -0.113,
   "reg": {
    "header": 0.751,
-   "top": 0.361,
+   "top": 0.31,
    "mid": 0.179,
    "low": 0.057,
-   "cta": 0.134
+   "cta": 0.021
   }
  },
  "feedback-wrong-dark": {
@@ -84,7 +84,7 @@
    "header": 0.696,
    "top": 0.245,
    "mid": 0.06,
-   "low": 0.607,
+   "low": 0.378,
    "cta": 0.006
   }
  },
@@ -92,7 +92,7 @@
   "ssim": 0.464,
   "rows": 0.298,
   "reg": {
-   "header": 0.739,
+   "header": 0.576,
    "top": 0.716,
    "mid": 0.143,
    "low": 0.533,
@@ -103,7 +103,7 @@
   "ssim": 0.528,
   "rows": 0.453,
   "reg": {
-   "header": 0.7,
+   "header": 0.635,
    "top": 0.757,
    "mid": 0.143,
    "low": 0.582,
@@ -114,7 +114,7 @@
   "ssim": 0.41,
   "rows": 0.658,
   "reg": {
-   "header": 0.655,
+   "header": 0.506,
    "top": 0.742,
    "mid": 0.213,
    "low": 0.347,
@@ -125,7 +125,7 @@
   "ssim": 0.324,
   "rows": 0.435,
   "reg": {
-   "header": 0.732,
+   "header": 0.584,
    "top": 0.741,
    "mid": -0.018,
    "low": 0.27,
@@ -158,29 +158,29 @@
   "ssim": 0.389,
   "rows": 0.334,
   "reg": {
-   "header": 0.542,
+   "header": 0.446,
    "top": 0.574,
    "mid": 0.249,
    "low": 0.344,
-   "cta": 0.227
+   "cta": 0.112
   }
  },
  "me-light": {
   "ssim": 0.342,
   "rows": 0.484,
   "reg": {
-   "header": 0.502,
+   "header": 0.488,
    "top": 0.599,
    "mid": 0.206,
    "low": 0.238,
-   "cta": 0.166
+   "cta": 0.094
   }
  },
  "practice-dark": {
   "ssim": 0.279,
   "rows": 0.064,
   "reg": {
-   "header": 0.764,
+   "header": 0.584,
    "top": 0.217,
    "mid": 0.24,
    "low": 0.375,
@@ -191,7 +191,7 @@
   "ssim": 0.22,
   "rows": 0.115,
   "reg": {
-   "header": 0.74,
+   "header": 0.721,
    "top": 0.204,
    "mid": 0.183,
    "low": 0.231,
@@ -202,7 +202,7 @@
   "ssim": 0.558,
   "rows": 0.509,
   "reg": {
-   "header": 0.459,
+   "header": 0.381,
    "top": 0.664,
    "mid": 0.824,
    "low": 0.406,
@@ -213,7 +213,7 @@
   "ssim": 0.58,
   "rows": 0.681,
   "reg": {
-   "header": 0.502,
+   "header": 0.488,
    "top": 0.719,
    "mid": 0.826,
    "low": 0.471,
@@ -224,9 +224,9 @@
   "ssim": 0.5,
   "rows": 0.542,
   "reg": {
-   "header": 0.512,
+   "header": 0.435,
    "top": 0.646,
-   "mid": 0.735,
+   "mid": 0.699,
    "low": 0.252,
    "cta": 0.117
   }
@@ -235,11 +235,11 @@
   "ssim": 0.479,
   "rows": 0.505,
   "reg": {
-   "header": 0.655,
+   "header": 0.541,
    "top": 0.618,
-   "mid": 0.726,
+   "mid": 0.703,
    "low": 0.179,
-   "cta": 0.098
+   "cta": 0.079
   }
  },
  "story-dark": {
@@ -270,9 +270,9 @@
   "reg": {
    "header": 0.98,
    "top": 0.952,
-   "mid": 0.305,
+   "mid": 0.293,
    "low": 0.308,
-   "cta": -0.018
+   "cta": -0.092
   }
  },
  "streak-light": {
@@ -283,7 +283,7 @@
    "top": 0.952,
    "mid": 0.245,
    "low": 0.225,
-   "cta": 0.025
+   "cta": -0.045
   }
  }
 }
