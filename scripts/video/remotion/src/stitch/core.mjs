@@ -8,6 +8,7 @@ export function spring(tau, z, w) {
 }
 export const easeOut = x => 1 - (1 - clamp01(x)) ** 3;
 export const FADE_IN = { rise: 0.12, pop: 0.06, fade: 0.14, draw: 0, soft: 0.24, punch: 0 };
+export const SETTLE = { rise: 0.45, pop: 0.4, fade: 0.14, draw: 0.3, soft: 0.32, punch: 0.25 }, TAPER = 0.12;
 export const DRAW = 0.3, OUT = 0.16, MIX = 0.18, RISE_DY = 36, OUT_DY = 14, SOFT_DY = 16, SOFT_T = 0.32;
 const r = (x, d) => Math.round(x * 10 ** d) / 10 ** d;
 
@@ -18,8 +19,9 @@ export function pose(n, t) {
   else if (k === 'punch') { a = tau >= 0 ? 1 : 0; s = tau >= 0 ? 1.15 - 0.15 * easeOut(tau / 0.25) : 1.15; dy = 0; p = 1; }
   else {
     a = tau >= 0 ? clamp01(tau / FADE_IN[k]) : 0; p = 1;
-    if (k === 'rise') { const sp = spring(tau, 0.8, 20); s = 0.94 + 0.06 * sp; dy = RISE_DY * (1 - sp); }
-    else if (k === 'pop') { s = spring(tau, 0.45, 24); dy = 0; }
+    const tp = clamp01((SETTLE[k] - tau) / TAPER);   // springs: residual wobble fades out over the last TAPER s -> exact rest at SETTLE
+    if (k === 'rise') { const sp = 1 + (spring(tau, 0.8, 20) - 1) * tp; s = 0.94 + 0.06 * sp; dy = RISE_DY * (1 - sp); }
+    else if (k === 'pop') { s = 1 + (spring(tau, 0.45, 24) - 1) * tp; dy = 0; }
     else if (k === 'soft') { s = 1; dy = tau >= 0 ? SOFT_DY * (1 - easeOut(tau / SOFT_T)) : SOFT_DY; }
     else { s = 1; dy = 0; }
   }

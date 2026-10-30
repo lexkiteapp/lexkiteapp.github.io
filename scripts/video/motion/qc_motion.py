@@ -125,10 +125,15 @@ def handed(n):   # a card that takes over a slot right after another card left i
 lum = lambda F, b: cv2.cvtColor(crop(F, b, 10).astype(np.uint8), cv2.COLOR_BGR2GRAY)
 frac = lambda F, b: float(((lum(F, b) < 80) if not EMBED else (lum(F, b) > 150)).mean())   # short: dark card on the light board; embed: light text on the dark canvas
 FSH = grab(o.master, [r['appears'] - 0.075 for r in rows if handed(BY[r['node']])])
+_ts_h = [r['appears'] + d for r in rows if handed(BY[r['node']]) for d in (-0.075, 0.20)]
+PLH = grab(o.plate, _ts_h) if not EMBED else {}   # short: the plate (same frame size, no overlay) at the same instants
+DARKBG = bool(PLH) and float(np.median(cv2.cvtColor(next(iter(PLH.values())), cv2.COLOR_BGR2GRAY)[240:700])) < 110   # dark canvas (registry 2D set) – "dark pixels" can't tell a card from the canvas
+if DARKBG: frac_at = lambda F, b, t: float((np.abs(crop(F, b, 10) - crop(PLH[round(t, 4)], b, 10)).max(2) > 8).mean()) if round(t, 4) in PLH else frac(F, b)   # overlay coverage = differs from the plate
+else: frac_at = lambda F, b, t: frac(F, b)
 for r in rows:
     n = BY[r['node']]; b = n['box']; a, b0, c_ = [FS.get(round(r['appears'] + d, 4)) for d in (-0.30, -0.15, 0.20)]
     if handed(n) and c_ is not None and FSH.get(round(r['appears'] - 0.075, 4)) is not None:   # the gap between the two cards: neither shown
-        f0, f1 = frac(FSH[round(r['appears'] - 0.075, 4)], b), frac(c_, b)
+        f0, f1 = frac_at(FSH[round(r['appears'] - 0.075, 4)], b, r['appears'] - 0.075), frac_at(c_, b, r['appears'] + 0.20)
         if f0 < 0.25 and f1 > max(0.4, f0 + 0.25): okn += 1
         else: early.append((r['node'], 'handover', round(f0, 2), round(f1, 2)))
         continue

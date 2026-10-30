@@ -118,6 +118,8 @@ jobs:
             Q="--crf=16 --audio-bitrate=192k"; [ $f = short ] || Q="--crf=30 --audio-bitrate=96k"
             npx remotion render src/index.jsx stitch-short "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.mp4" --props="$GITHUB_WORKSPACE/$O/$f.json" --public-dir="$GITHUB_WORKSPACE/$O/pub" \
               --codec=h264 $Q --audio-codec=aac --log=error
+            M="$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.mp4"   # audio = the plate's own AAC track (the word clock); Remotion's AAC adds ~40 ms of encoder priming (av_sync)
+            ffmpeg -nostdin -v error -y -i "$M" -i "$GITHUB_WORKSPACE/$O/plate.mp4" -map 0:v:0 -map 1:a:0 -c copy -movflags +faststart -shortest "$M.av.mp4" && mv "$M.av.mp4" "$M"
             [ $f = short ] || ffmpeg -nostdin -v error -y -ss $(python3 -c "import json;print(json.load(open('$GITHUB_WORKSPACE/$O/$f.json'))['poster_t'])") -i "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.mp4" -frames:v 1 -q:v 4 "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.poster.jpg"
           done
       - name: QC (qc_v9 on a 24 fps proxy + motion gates) + phone copy

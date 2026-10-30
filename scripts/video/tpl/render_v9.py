@@ -1097,7 +1097,7 @@ def _wpx(seg, sz, bounce=None):   # page row width incl. the active word's bounc
 ROW2 = False; PITCH = 0; STRIP1 = STRIP2 = None; POPZ = POPZ_TALL = ZONE
 PLATE_Y = 1430
 if PLATE:   # the whole board is for the lesson cards; captions sit on a fixed plate in the lower safe area (over desk or body, like the approved mock)
-    CCX = W / 2; CAPWC = 860; _im, _ib = word_im('Hgjy', CAP['size'], (255, 255, 255), 1.0); PITCH = int(_ib[3] - _ib[1]) + 2
+    CCX = W / 2; CAPWC = 860 if BRD else int(2 * (SAFE['x1'] - CCX) - 2 * 28 - 8); _im, _ib   # registry 2D set: the plate (+28 px each side) stays inside the platform-safe area = word_im('Hgjy', CAP['size'], (255, 255, 255), 1.0); PITCH = int(_ib[3] - _ib[1]) + 2
     CAP_CY = PLATE_Y - int((_ib[1] + _ib[3]) / 2 - _im.height / 2); STRIP1 = [int(CCX - CAPWC / 2 - 28), PLATE_Y - 48, int(CCX + CAPWC / 2 + 28), PLATE_Y + 48]; STRIP2 = STRIP1
     print(f'plate captions: band {STRIP1}, pops on the full board zone {POPZ}', flush=True)
 elif DESK:   # captions on the measured clean desk front / floor band (CapCut white + stroke, screen space, camera anchored on them)
