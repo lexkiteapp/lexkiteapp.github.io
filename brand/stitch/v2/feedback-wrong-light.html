@@ -14,23 +14,22 @@
 </div>
 </div>
 <!-- Question Presentation Card with Visual Tactile Feel -->
-<div class="w-full bg-card-surface rounded-xl p-space-md shadow-[0_4px_16px_rgba(16,25,27,0.06)] relative overflow-hidden">
-<div class="flex items-start justify-between mb-space-sm">
-<span class="font-label-sm text-label-sm text-[#4A5F65] font-bold uppercase tracking-wider">Spot the Error &amp; Fix</span>
-<button aria-label="Play audio pronunciation" class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-[#4A5F65] hover:text-text-primary transition-colors">
-<span class="material-symbols-outlined text-[16px]">volume_up</span>
+<div class="w-full flex flex-col"><!-- spliced 30/10 from feedback-correct (light) stage + bubble; owner-approved Ama + Replay --><div class="w-full h-[150px] relative flex items-end justify-center">
+<img src="../../../web/teach/ama/still-concern.webp" alt="" width="120" height="140" class="absolute bottom-[10px] left-1/2 -translate-x-1/2 h-[140px] w-auto object-contain object-bottom z-[1]"/><div class="w-36 h-4 bg-black/10 rounded-full blur-[2px] mb-1"></div>
+</div><div class="bg-white rounded-[20px] p-4 border border-[#EADEC8] " style="box-shadow: 0 4px 0 #D8CFBC;">
+<button class="rounded-full bg-[#F0F4F3] border border-[#E2E8E7] px-4 py-2.5 flex items-center gap-3 w-full text-left cursor-pointer hover:bg-white transition-colors" type="button">
+<div class="w-7 h-7 rounded-full bg-[#0D6964] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-white" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[11px] font-extrabold uppercase tracking-wide text-[#0D6964] leading-tight">REPLAY</span>
+<span class="text-[10px] text-[#4E5F62] leading-tight mt-0.5">Ama · Your teacher</span>
+</div>
 </button>
-</div>
-<!-- Sentence Display with Highlighted Mistake -->
-<div class="my-space-xs p-3 rounded-lg bg-surface-container-low flex flex-wrap items-center gap-1.5">
-<span class="font-headline-sm text-headline-sm text-text-primary">I like</span>
-<span class="font-headline-sm text-headline-sm text-[#ba1a1a] bg-[#ffdad6] px-2 py-0.5 rounded shadow-[0_2px_0_0_#ba1a1a] font-bold">listen</span>
-<span class="font-headline-sm text-headline-sm text-text-primary">to music.</span>
-</div>
-<p class="font-body-sm text-body-sm text-[#4A5F65] mt-2">
-      Tap the correct grammatical form to complete this sentence naturally.
-    </p>
-</div>
+<div class="mt-4 text-center font-headline-sm text-[22px] font-semibold text-[#10191B] tracking-tight">
+    "I like <span class="font-headline-sm text-headline-sm text-[#ba1a1a] bg-[#ffdad6] px-2 py-0.5 rounded shadow-[0_2px_0_0_#ba1a1a] font-bold">listen</span> to music."
+  </div>
+</div></div>
 <!-- 2x2 Answer Grid -->
 <div class="grid grid-cols-2 gap-space-sm w-full">
 <!-- Option A: Selected / Wrong -->
