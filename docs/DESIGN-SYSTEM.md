@@ -79,6 +79,17 @@ The 4 core screens (Learn path, Lesson drill, Feedback sheet, Exam readiness) us
 - Build: `node scripts/build-stitch-css.mjs` → `web/css/st-{home,lesson,goal}.css` (Tailwind 3.4.17, no preflight, ≤ 10 KB gz each, lazy via BCSS). `--check` on CI = drift gate; `--fonts` re-downloads self-hosted Plus Jakarta Sans (latin/latin-ext/vietnamese WOFF2, swap) + Material Symbols subset (icon names from `ms('…')` / `@icons`).
 - Gate: `scripts/test/stitch-diff.mjs` (SSIM + row rhythm vs `brand/stitch/*.jpg`, thresholds only go up, axe WCAG 2.2 AA inside `.st`), owner sheets `side-*.jpg` / `desk-*.jpg`. Gallery: `web/design/gallery.html` (light/dark/RTL).
 
+## 5d. App frame (owner 31/10, every app ref + every port)
+One structural frame for every Lexkite app screen. Taken from the Kit sheet (screen 39b977682d554b5da4b26651797f2c3f) + the real shell (`extension/app/index.html` `.topbar`, `#bnav`). The Kit sheet's tab names (Learn/Review/Practice/Leagues) were placeholders; the real tabs win.
+- **Canvas:** phone 390 px, one column, 16 px side margins, 8 px spacing grid, safe area = no status bar drawn (OS adds it). Desktop-width Stitch output for an app screen is an automatic fail.
+- **Top bar 56 px, 4 variants:** `hub` = kite logo + wordmark · IELTS exam chip · flame streak · star XP · avatar (`#/me`). `inner` = round tactile back button + title + ≤ 1 icon action. `modal` = round close (X) + title, nothing right. `focus` (lesson / test / game in play) = close (X) + thick progress bar + 1 status chip.
+- **Tab bar 64 px** on `hub` + `inner` only: 5 equal tabs, icon over label, in this order: Today (house, `#/home`), Vocab (open book + due badge, `#/vocab`), Skills (target, `#/skills`), Tests (flag, `#/tests`), Me (person, `#/me`). Active = teal icon in a soft teal pill + bold teal label; others dark ink. Never on `modal` / `focus`.
+- **Cards:** 16 px radius, 2 px border, 5 px bottom ledge. **Primary CTA:** full-width orange tactile button, 6 px ledge, brown-black label; fixed at the bottom on task screens (above the tab bar if any), inline in its card on hub screens.
+- **Teacher slot** (only where a teacher belongs): empty dashed 120×140 box at the left directly under the top bar, speech bubble to its right; the real 2D teacher comes from `Chars.*`.
+- **Empty / error state:** one glossy illustrated icon, one heading, one line, one primary + one text button.
+- **Templates:** `brand/stitch/v2/app/frame-{hub,inner,modal,focus}-{light,dark}.html` are the reference frames. New app refs are drawn as Stitch *edits of the template* of their variant (bars kept, body replaced), so bars stay pixel-consistent. The compact prompt text lives in `brand/stitch/v2/app/FRAME.txt` and goes into every app prompt, queue job and redraw.
+- **Gate:** `scripts/test/stitch-refs-qc.mjs` frame check: ref PNG must be phone width; top-bar and tab-bar crops are compared with the template of the same variant + theme (SSIM + token colours); tab labels must be exactly the five above, in order. Thresholds only go up.
+
 ## 6. Checks before shipping UI
 `npm test` (size budget: shell ≤ 377 KB gz, a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
 Mirror into the add-on with `bash scripts/build-extension.sh`. Never edit `extension/content.js` for app UI.

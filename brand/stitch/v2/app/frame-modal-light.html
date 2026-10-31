@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Leave Lesson (Bright Day)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              page: '#FFF8F3',
+              card: '#FFFFFF',
+              subtle: '#FFF1E7',
+              border: '#EAD8CA',
+            },
+            teal: {
+              brand: '#136A63',
+              dark: '#0B4843',
+              light: '#E1F3F0',
+              border: '#B6DDD8',
+            },
+            orange: {
+              candy: '#FF8800',
+              ledge: '#C96500',
+            },
+            coral: {
+              red: '#E04F44',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF8F3;
+      color: #1A1A1A;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile button ledge styles */
+    .tactile-btn-orange {
+      background-color: #FF8800;
+      color: #1F1200;
+      border: 2px solid #C96500;
+      box-shadow: 0 6px 0 0 #C96500;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-orange:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 0 #C96500;
+    }
+
+    /* Tactile circular close button */
+    .tactile-circle-btn {
+      background-color: #FFFFFF;
+      border: 2px solid #EAD8CA;
+      box-shadow: 0 3px 0 0 #D9C3B2;
+      transition: all 0.1s ease;
+    }
+    .tactile-circle-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D9C3B2;
+    }
+
+    /* Chunky card with 5px ledge */
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 2px solid #EAD8CA;
+      border-radius: 16px;
+      box-shadow: 0 5px 0 0 #E2CDBC;
+    }
+
+    /* Speech bubble arrow */
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 24px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 9px solid #EAD8CA;
+    }
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 25px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 7px solid #FFFFFF;
+    }
+  </style>
+</head>
+<body class="bg-cream-page">
+<!-- Phone screen 390px wide, single column, no device mockup -->
+<main class="w-[390px] min-h-screen bg-cream-page flex flex-col justify-between relative pb-8">
+<!-- TOP BAR (MODAL variant: 56px, round close button left, title, nothing right) -->
+<header class="h-[56px] w-full px-4 flex items-center border-b-2 border-cream-border bg-cream-page sticky top-0 z-30">
+<div class="flex items-center gap-3 w-full">
+<!-- Tactile close button -->
+<button aria-label="Close" class="w-10 h-10 rounded-full tactile-circle-btn flex items-center justify-center text-teal-dark">
+<span class="material-symbols-rounded text-[22px] leading-none select-none">close</span>
+</button>
+<!-- Modal title -->
+<h1 class="text-[19px] font-extrabold tracking-tight text-[#162221]">Leave lesson?</h1>
+</div>
+</header>
+<!-- CONTENT AREA -->
+<section class="flex-1 px-4 pt-6 flex flex-col">
+<!-- Teacher Slot + Speech Bubble section -->
+<div class="flex items-start gap-3 w-full mb-6">
+<!-- Empty dashed teacher slot: 120x140 box, rounded, dashed border, TEACHER inside -->
+<div class="w-[120px] h-[140px] shrink-0 rounded-[16px] border-2 border-dashed border-[#CCAFA0] bg-[#FAF1EB] flex flex-col items-center justify-center p-2 text-center select-none">
+<span class="text-[12px] font-extrabold tracking-wider text-[#9E7F6F]">TEACHER SLOT</span>
+</div>
+<!-- Speech bubble to the right -->
+<div class="flex-1 tactile-card speech-bubble relative p-4 mt-2">
+<p class="text-[16px] font-extrabold text-[#142321] leading-snug">Wait, don’t go!</p>
+<p class="text-[13px] font-semibold text-[#5C5047] mt-1.5 leading-normal">You’ll lose this lesson’s progress</p>
+</div>
+</div>
+<!-- Warning Motivation Bento Card -->
+<div class="tactile-card p-6 flex flex-col items-center text-center my-auto">
+<!-- Glossy hourglass illustration / badge -->
+<div class="w-14 h-14 rounded-full bg-[#FFF0E0] border-2 border-[#FFD0A8] flex items-center justify-center mb-3 shadow-[0_2px_0_0_#F0C49C]">
+<span class="material-symbols-rounded text-[28px] text-orange-candy">hourglass_top</span>
+</div>
+<h2 class="text-[18px] font-extrabold text-[#1B2927] mb-2">Progress will be lost</h2>
+<p class="text-[14px] font-semibold text-[#66574C] leading-relaxed max-w-[270px]">
+          Stay for 2 more minutes to finish your drill and keep your daily streak alive!
+        </p>
+<!-- Quick motivational stat pill -->
+<div class="mt-4 px-3.5 py-1.5 rounded-full bg-cream-subtle border border-cream-border flex items-center gap-1.5 text-[12px] font-bold text-teal-brand">
+<span class="material-symbols-rounded text-[16px]">local_fire_department</span>
+<span>Day 14 streak on the line</span>
+</div>
+</div>
+</section>
+<!-- FIXED/BOTTOM ACTION BUTTONS (NO TAB BAR ON MODAL) -->
+<footer class="w-full px-4 pt-4 flex flex-col items-center gap-3">
+<!-- Big orange candy tactile 'Keep learning' button with 6px ledge and deep brown-black label -->
+<button class="w-full h-14 rounded-[16px] tactile-btn-orange font-extrabold text-[17px] tracking-wide flex items-center justify-center gap-2 select-none">
+<span>Keep learning</span>
+<span class="material-symbols-rounded text-[20px]">play_arrow</span>
+</button>
+<!-- Red text button 'End lesson' with high contrast -->
+<button class="py-2.5 px-4 font-bold text-[15px] text-coral-red hover:underline active:opacity-80 transition-opacity">
+        End lesson
+      </button>
+</footer>
+</main>
+</body>
+</html>

@@ -4,7 +4,7 @@
 name: Stitch refs QC
 on:
   pull_request:
-    paths: ['brand/stitch/v2/web/**', 'brand/stitch/v2/email/**', 'brand/stitch/v2/addon/**', 'brand/stitch/v2/admin/**', 'brand/stitch/v2/app/**', 'brand/stitch/v2/store/**', 'scripts/test/stitch-refs-qc.mjs', 'scripts/lib/pixel-contrast.mjs', '.github/workflows/stitch-refs-qc.yml']
+    paths: ['brand/stitch/v2/web/**', 'brand/stitch/v2/email/**', 'brand/stitch/v2/addon/**', 'brand/stitch/v2/admin/**', 'brand/stitch/v2/app/**', 'brand/stitch/v2/store/**', 'scripts/test/stitch-refs-qc.mjs', 'scripts/lib/pixel-contrast.mjs', 'scripts/lib/frame-check.mjs', '.github/workflows/stitch-refs-qc.yml']
   push:
     branches: [stitch-refs-factory]
   workflow_dispatch:

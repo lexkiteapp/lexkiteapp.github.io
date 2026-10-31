@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Lesson Drill (Tactile Night)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#2b373a",
+            "on-primary-fixed-variant": "#00504b",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary-fixed": "#ffdf9e",
+            "tertiary": "#f4bf40",
+            "surface-container-high": "#202c2f",
+            "error-container": "#93000a",
+            "secondary-container": "#981201",
+            "on-secondary": "#660800",
+            "inverse-primary": "#006a64",
+            "on-error": "#690005",
+            "secondary": "#ffb4a6",
+            "surface-bright": "#2f3b3e",
+            "on-surface-variant": "#bcc9c7",
+            "on-tertiary": "#402e00",
+            "surface-container-low": "#121d20",
+            "inverse-on-surface": "#263236",
+            "on-primary-container": "#00322e",
+            "outline-variant": "#3d4947",
+            "on-surface": "#d8e5e9",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-background": "#d8e5e9",
+            "primary": "#6bd8ce",
+            "on-secondary-fixed": "#3f0300",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed": "#ffdad3",
+            "surface-container-highest": "#2b373a",
+            "secondary-fixed-dim": "#ffb4a6",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-secondary-container": "#ffa493",
+            "primary-fixed": "#88f5ea",
+            "surface-dim": "#091518",
+            "outline": "#879391",
+            "surface": "#091518",
+            "background": "#091518",
+            "on-tertiary-fixed": "#261a00",
+            "on-tertiary-container": "#392900",
+            "surface-tint": "#6bd8ce",
+            "primary-container": "#2ba39a",
+            "tertiary-container": "#ba8b00",
+            "on-primary-fixed": "#00201e",
+            "inverse-surface": "#d8e5e9",
+            "error": "#ffb4ab",
+            "surface-container": "#162125",
+            "surface-container-lowest": "#051013",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary": "#003733"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans"],
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#e6f2f0] antialiased flex justify-center min-h-screen select-none">
+<!-- 390px Mobile Viewport Container -->
+<main class="w-[390px] max-w-[390px] min-h-screen bg-[#091518] flex flex-col justify-between relative px-4 pb-4 overflow-x-hidden">
+<!-- TOP BAR (FOCUS MODE) -->
+<header class="h-[56px] w-full flex items-center justify-between gap-3 pt-2">
+<!-- Close Button -->
+<button aria-label="Close drill" class="w-10 h-10 rounded-full bg-[#162428] border-2 border-[#2b3c40] shadow-[0_3px_0_0_#0e171a] active:translate-y-0.5 active:shadow-[0_1px_0_0_#0e171a] flex items-center justify-center text-[#e6f2f0] transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<!-- Chunky Progress Bar (6/10 = 60%) -->
+<div class="flex-1 h-[14px] bg-[#121d20] border border-[#203136] rounded-full p-[2px] shadow-inner relative overflow-hidden">
+<div class="h-full bg-[#2ba39a] rounded-full w-[60%] relative shadow-[inset_0_2px_0_rgba(255,255,255,0.35)]">
+<div class="absolute right-1 top-[2px] w-1.5 h-1.5 rounded-full bg-[#88f5ea] opacity-90"></div>
+</div>
+</div>
+<!-- Combo Streak Pill -->
+<div class="h-9 px-2.5 rounded-full bg-[#342410] border-2 border-[#b86e00] shadow-[0_3px_0_0_#1c1305,inset_0_1.5px_0_rgba(255,200,100,0.25)] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#f4bf40] text-[18px]" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-label-sm font-label-sm text-[#ffd67a] tracking-tight font-extrabold">COMBO ×4</span>
+</div>
+</header>
+<!-- CONTENT CANVAS -->
+<div class="flex-1 flex flex-col pt-3 pb-4 gap-4">
+<!-- 1. Teacher Slot and Speech Bubble Row -->
+<section class="flex items-center gap-3">
+<!-- Teacher Slot Placeholder -->
+<div class="w-[115px] h-[134px] rounded-2xl border-2 border-dashed border-[#2d454a] bg-[#162428] flex flex-col items-center justify-center text-[#749196] flex-shrink-0">
+<span class="material-symbols-outlined text-[32px] mb-1 text-[#749196]" data-icon="school">school</span>
+<span class="text-label-sm font-label-sm tracking-wider font-extrabold text-[#96b4b8]">TEACHER</span>
+<span class="text-label-sm font-label-sm tracking-widest text-[#5c777c] text-[10px]">SLOT</span>
+</div>
+<!-- Speech Bubble Card with Left Triangular Pointer -->
+<div class="relative flex-1 bg-[#162428] border-2 border-[#2b3c40] rounded-DEFAULT p-3.5 shadow-[0_4px_0_0_#0d1719]">
+<!-- Speech Bubble Notch -->
+<div class="absolute -left-[9px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[9px] border-r-[#2b3c40]"></div>
+<div class="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[7px] border-r-[#162428]"></div>
+<!-- Prompt Question Content -->
+<div class="inline-block px-2 py-0.5 rounded-full bg-[#362608] border border-[#785a00] mb-1.5">
+<span class="text-label-sm font-label-sm text-[#ffc633] uppercase text-[10px] tracking-wider font-extrabold">Question</span>
+</div>
+<p class="text-body-md font-body-md text-[#e6f2f0] leading-snug font-semibold">
+            Which word means <span class="text-[#6bd8ce] font-extrabold underline decoration-2 underline-offset-2">very important</span>?
+          </p>
+</div>
+</section>
+<!-- 2. Tactile Audio Controls Row -->
+<section class="grid grid-cols-2 gap-2.5">
+<button class="h-10 px-3 bg-[#162428] border-2 border-[#2b3c40] rounded-full shadow-[0_3px_0_0_#0d1719] active:translate-y-0.5 active:shadow-[0_1px_0_0_#0d1719] flex items-center justify-center gap-1.5 text-[#e6f2f0] transition-all">
+<span class="material-symbols-outlined text-[18px] text-[#6bd8ce]" data-icon="volume_up">volume_up</span>
+<span class="text-label-md font-label-md text-[#e6f2f0]">Listen again</span>
+</button>
+<button class="h-10 px-3 bg-[#162428] border-2 border-[#2b3c40] rounded-full shadow-[0_3px_0_0_#0d1719] active:translate-y-0.5 active:shadow-[0_1px_0_0_#0d1719] flex items-center justify-center gap-1.5 text-[#e6f2f0] transition-all">
+<span class="material-symbols-outlined text-[18px] text-[#f4bf40]" data-icon="bolt">bolt</span>
+<span class="text-label-md font-label-md text-[#e6f2f0]">Slower</span>
+</button>
+</section>
+<!-- 3. Four Tactile Answer Tiles (2x2 Grid) -->
+<section class="grid grid-cols-2 gap-3 flex-1 content-start mt-1">
+<!-- Tile 1: Selected ('crucial') -->
+<button class="relative h-[116px] rounded-DEFAULT p-3 bg-[#133030] border-2 border-[#6bd8ce] shadow-[0_5px_0_0_#00504b] active:translate-y-1 active:shadow-[0_1px_0_0_#00504b] flex flex-col justify-between text-left transition-all">
+<!-- Checkmark Badge -->
+<div class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#6bd8ce] text-[#003733] flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-extrabold" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-[#6bd8ce] font-extrabold uppercase text-[11px] tracking-wider">A</span>
+<div class="text-headline-sm font-headline-sm font-extrabold text-[#ffffff] tracking-tight mt-0.5">crucial</div>
+</div>
+<span class="text-body-sm font-body-sm text-[#88f5ea] font-bold">essential</span>
+</button>
+<!-- Tile 2: Resting ('trivial') -->
+<button class="relative h-[116px] rounded-DEFAULT p-3 bg-[#162428] border-2 border-[#2b3c40] shadow-[0_5px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_1px_0_0_#0d1719] flex flex-col justify-between text-left hover:border-[#3d5055] transition-all">
+<div>
+<span class="text-label-sm font-label-sm text-[#87a3a0] font-extrabold uppercase text-[11px] tracking-wider">B</span>
+<div class="text-headline-sm font-headline-sm font-extrabold text-[#e6f2f0] tracking-tight mt-0.5">trivial</div>
+</div>
+<span class="text-body-sm font-body-sm text-[#c0dad6]">minor</span>
+</button>
+<!-- Tile 3: Resting ('vague') -->
+<button class="relative h-[116px] rounded-DEFAULT p-3 bg-[#162428] border-2 border-[#2b3c40] shadow-[0_5px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_1px_0_0_#0d1719] flex flex-col justify-between text-left hover:border-[#3d5055] transition-all">
+<div>
+<span class="text-label-sm font-label-sm text-[#87a3a0] font-extrabold uppercase text-[11px] tracking-wider">C</span>
+<div class="text-headline-sm font-headline-sm font-extrabold text-[#e6f2f0] tracking-tight mt-0.5">vague</div>
+</div>
+<span class="text-body-sm font-body-sm text-[#c0dad6]">unclear</span>
+</button>
+<!-- Tile 4: Resting ('casual') -->
+<button class="relative h-[116px] rounded-DEFAULT p-3 bg-[#162428] border-2 border-[#2b3c40] shadow-[0_5px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_1px_0_0_#0d1719] flex flex-col justify-between text-left hover:border-[#3d5055] transition-all">
+<div>
+<span class="text-label-sm font-label-sm text-[#87a3a0] font-extrabold uppercase text-[11px] tracking-wider">D</span>
+<div class="text-headline-sm font-headline-sm font-extrabold text-[#e6f2f0] tracking-tight mt-0.5">casual</div>
+</div>
+<span class="text-body-sm font-body-sm text-[#c0dad6]">relaxed</span>
+</button>
+</section>
+</div>
+<!-- 4. BOTTOM STICKY ACTION AREA -->
+<footer class="w-full pt-2 pb-1">
+<button class="w-full h-14 bg-[#f4820a] border-2 border-[#ba5f00] rounded-DEFAULT shadow-[0_6px_0_0_#873f00] active:translate-y-1 active:shadow-[0_2px_0_0_#873f00] flex items-center justify-center gap-2 text-[#1a1005] transition-all">
+<span class="material-symbols-outlined text-[24px] font-black text-[#1a1005]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-lg font-label-lg font-black tracking-wide text-[18px] text-[#1a1005]">Check</span>
+</button>
+</footer>
+</main>
+</body></html>
