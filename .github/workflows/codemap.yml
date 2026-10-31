@@ -1,0 +1,35 @@
+# Bản đồ mã nguồn: sinh lại docs/CODEMAP.md (≤ 25 KB, đọc đầu phiên) + docs/codemap.json khi mã đổi trên main; chỉ commit nếu có khác. Không phụ thuộc gói ngoài (node scripts/codemap.mjs), chạy < 1 phút. Luật: docs/TOKEN-RULES.md §1.
+name: codemap
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'functions/**'
+      - 'workers/**'
+      - 'scripts/**'
+      - 'extension/**'
+      - '!extension/app/**'
+      - 'infra/**'
+      - '.github/workflows/**'
+      - 'package.json'
+  workflow_dispatch:
+concurrency: { group: codemap, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Sinh bản đồ
+        run: node scripts/codemap.mjs
+      - name: Ghi vào main nếu đổi
+        run: |
+          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git add docs/CODEMAP.md docs/codemap.json
+          git diff --cached --quiet && { echo "bản đồ không đổi"; exit 0; }
+          git commit -qm "codemap #${{ github.run_number }}: cập nhật bản đồ mã nguồn [CF-Pages-Skip] [skip ci]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
