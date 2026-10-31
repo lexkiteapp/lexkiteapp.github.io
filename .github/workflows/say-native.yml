@@ -4,7 +4,7 @@ name: Say it like a native – meanings
 on:
   push:   # feature branches: a series edit re-runs only the missing meanings (main has no new series without a PR)
     branches-ignore: [main]
-    paths: ['content/say-native/series.json', 'scripts/say-native/translate.mjs']
+    paths: ['content/say-native/series.json', 'scripts/say-native/translate.mjs', '.github/workflows/say-native.yml']
   workflow_dispatch:
     inputs:
       langs: { description: 'comma list (empty = all 14)', default: '' }
