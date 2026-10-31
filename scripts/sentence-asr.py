@@ -14,7 +14,11 @@ def norm(s):
     if _N is None:
         from whisper_normalizer.english import EnglishTextNormalizer
         _N = EnglishTextNormalizer()
-    return _N(s).split()
+    return ' '.join(CANON.get(w, w) for w in _N(s).split()).split()
+# Chuẩn hoá ĐỐI XỨNG (áp cho cả chữ gốc lẫn chữ nghe) các cách viết cùng một lời đọc – lượt thử 31/10: "Web site"/"website", "OK"/"Okay",
+# "any more"/"anymore", đáp án "C."/"See", adviser/advisor. Không phải nới: hai bên cùng đổi về một dạng, ngưỡng WER giữ nguyên.
+CANON = {'website': 'web site', 'websites': 'web sites', 'okay': 'ok', 'anymore': 'any more', 'alright': 'all right', 'cannot': 'can not',
+         'advisor': 'adviser', 'advisors': 'advisers', 'see': 'c', 'sea': 'c', 'bee': 'b', 'be': 'b'}
 def wer(ref, hyp):
     r, h = norm(ref), norm(hyp)
     if not r: return 0.0 if not h else 1.0

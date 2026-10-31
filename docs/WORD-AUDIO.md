@@ -65,7 +65,7 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
 - `.github/workflows/sentence-audio-asr.yml`: tiếp tục được (câu chưa có kết quả cuối trong `web/audio/l/asr.tsv` được làm lại), shard song song.
   Danh sách câu: `scripts/sentence-audio/todo.mjs` (kho câu dùng chung với `scripts/gen-audio.mjs` – `scripts/sentence-audio/corpus.mjs`).
 - Tiêu chí (`scripts/sentence-asr.py`, KHÔNG nới): faster-whisper small.en (cùng `asr_lib.hear`) nghe file đang phục vụ;
-  sau chuẩn hoá Whisper (EnglishTextNormalizer) **WER ≤ 10 %**. Cụm ≤ 3 chữ (từ vựng đọc đơn) đạt thêm nếu đúng tiêu chí từ đơn ở trên (đồng âm `HOMO`).
+  sau chuẩn hoá Whisper (EnglishTextNormalizer + `CANON`: cách viết cùng lời đọc như OK/okay, Web site/website, đổi đối xứng hai bên) **WER ≤ 10 %**. Cụm ≤ 3 chữ (từ vựng đọc đơn) đạt thêm nếu đúng tiêu chí từ đơn ở trên (đồng âm `HOMO`).
 - Trượt → `scripts/sentence-audio/render.mjs`: Kokoro fp32, cùng giọng của câu; câu: tốc độ 1,0 → 0,92 → 1,08; cụm ≤ 3 chữ: `METHODS` ở trên.
   Bản đầu tiên qua lại cổng → mp3 64 kbps khóa mới `<khóa>-s2.mp3` (không ghi đè khóa cũ), `LISTEN_AUDIO_S2` trong `web/js/listen/audio-index.js`,
   `web/js/ui.js` `audioUrl` tự trỏ sang. Vẫn trượt → `web/audio/l/asr-fail.tsv` (lý do: chữ Whisper nghe, WER), app phát bản cũ.
