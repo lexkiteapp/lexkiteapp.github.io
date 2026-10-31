@@ -8,7 +8,7 @@ translationKey: tu-vung-ielts-chu-de-technology-ai
 category: ielts
 tags: [ielts, mufradat, tiknuluja, ai]
 cover: read-article
-coverAlt: "Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc"
+coverAlt: "نص القراءة The Growing Problem of Space Debris في Lexkite: كلمات مفتاحية ملونة، النقر للبحث والحفظ، قائمة الكلمات المفتاحية وأسئلة True/False/Not Given"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -26,6 +26,7 @@ quiz: [
     explain: "في الكتابة الأكاديمية لاختبار الآيلتس، تعد متلازمة 'displace the workforce' أو 'supplant human labor' الخيار الطبيعي والمهني الذي يمنحك تقييماً مرتفعاً في معيار الثروة اللغوية (Lexical Resource) لباند 7.5+."
   }
 ]
+publishAt: 2026-11-24T09:58:00+03:00
 ---
 
 تعتبر موضوعات الذكاء الاصطناعي (AI)، والأتمتة، والتحول الرقمي من بين الموضوعات الأكثر تكراراً في اختباري **IELTS Writing Task 2** و **IELTS Speaking Part 3**. يقع قطاع كبير من المتقدمين للاختبار في فخ التكرار اللفظي الساذج، فيعتمدون على عبارات ركيكة مثل *«technology develops fast»* أو *«AI has many pros and cons»* أو *«robots replace people»*، مما يقيد درجاتهم في معيار **الثروة اللغوية (Lexical Resource)** عند سقف Band 5.5 أو 6.0 فقط.
@@ -59,7 +60,7 @@ quiz: [
 
 اقرأ المقالات العلمية وطالع هذه المصطلحات في سياقاتها الواقعية عبر [منصة القراءة في Lexkite](/#/reading).
 
-![Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc](media:read-article "Giao diện bài đọc The Growing Problem of Space Debris trên Lexkite giúp tra cứu và ghi nhớ từ khóa trực tiếp")
+![نص القراءة The Growing Problem of Space Debris في Lexkite: كلمات مفتاحية ملونة، النقر للبحث والحفظ، قائمة الكلمات المفتاحية وأسئلة True/False/Not Given](media:read-article "قراءة نص عن مخلفات الفضاء في Lexkite والنقر على الكلمات المفتاحية للبحث عنها وحفظها")
 
 ## 2. كلمات ايلتس عن التكنولوجيا: سوق العمل والأتمتة
 
@@ -77,7 +78,7 @@ quiz: [
 
 تحقق من الاستخدامات وحروف الجر المصاحبة في [قاموس Lexkite المتقدم](/#/dict/resilient).
 
-![قاموس ثنائي اللغة Lexkite: البحث عن كلمة resilient مع النسخ الصوتي الصوتي البريطاني/الأمريكي وجمل أمثلة](media:dict "فحص مصطلحات التكنولوجيا والأمثلة الأكاديمية وحروف الجر في القاموس الذكي")
+![قاموس Lexkite: البحث عن كلمة resilient مع النطق البريطاني/الأمريكي والمعنى وجمل الأمثلة والمتلازمات اللفظية والمرادفات](media:dict "فحص مصطلحات التكنولوجيا والأمثلة الأكاديمية وحروف الجر في القاموس الذكي")
 
 ## 3. الأبعاد الأخلاقية والاجتماعية للتكنولوجيا
 
@@ -98,7 +99,7 @@ quiz: [
 
 تدرب على ترسيخ هذه المصطلحات في ذاكرتك من خلال التمارين التفاعلية في [منصة التدريب في Lexkite](/#/practice).
 
-![Màn hình luyện từ vựng qua bài tập quiz và smartLearn trên Lexkite](media:practice "Giao diện bài tập quiz và smartLearn trên Lexkite giúp ghi nhớ từ vựng qua phản xạ lặp lại ngắt quãng")
+![شاشة التمارين والألعاب في Lexkite: التعلم الذكي، مطابقة البطاقات، النطق، الاختيار من متعدد، ملء الفراغات، الاستماع والكتابة، الاختبار وغرفة الكتابة](media:practice "تمارين وألعاب لتثبيت مفردات التكنولوجيا في Lexkite")
 
 ## نموذج تطبيقي لباند 8: يقرأ في مقال Writing Task 2
 

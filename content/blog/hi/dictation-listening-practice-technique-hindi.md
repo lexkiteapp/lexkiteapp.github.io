@@ -8,7 +8,7 @@ translationKey: luyen-nghe-tieng-anh-bang-phuong-phap-dictation
 category: phuong-phap
 tags: [dictation, listening, connected-speech, fast-speech]
 cover: listening
-coverAlt: "Phòng luyện listening và dictation chép chính tả trên Lexkite"
+coverAlt: "Lexkite का IELTS लिसनिंग रूम: 10 टेस्ट, हर टेस्ट में 4 भाग, ब्रिटिश-अमेरिकी-ऑस्ट्रेलियाई उच्चारण, समायोज्य गति और अभ्यास / पहली बार सुनें / डिक्टेशन बटन"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -26,6 +26,7 @@ quiz: [
     explain: "अंग्रेजी की कनेक्टेड स्पीच (Connected Speech) में जब कोई शब्द व्यंजन पर समाप्त होता है और अगला शब्द स्वर से शुरू होता है, तो दोनों ध्वनियाँ आपस में सहजता से जुड़ जाती हैं।"
   }
 ]
+publishAt: 2026-11-22T19:30:00+05:30
 ---
 
 अंग्रेजी सीखने में **डिक्टेशन इंग्लिश लिसनिंग** तकनीक (सुनकर लिखने का अभ्यास) तेज बोलने वाले मूल वक्ताओं को समझने का सबसे अचूक उपाय है। भारतीय छात्रों की एक बहुत बड़ी शिकायत होती है कि वे अंग्रेजी की किताबें पढ़ लेते हैं, व्याकरण के नियम जानते हैं और अच्छी वोकैबुलरी भी रखते हैं, लेकिन जब कोई विदेशी या मूल वक्ता (Native Speaker) बोलता है, तो ऐसा लगता है कि वह "बहुत तेज बोल रहा है और सारे शब्द आपस में गड्ड-मड्ड हो गए हैं"।
@@ -47,7 +48,7 @@ quiz: [
 
 सुनकर एक-एक वाक्य टाइप करने का अभ्यास [Lexkite लिसनिंग रूम](/#/listening) में करें।
 
-![Phòng luyện listening và dictation chép chính tả trên Lexkite](media:listening "Lexkite में ऑडियो सुनकर टाइप करने और स्वतः स्पेलिंग चेक की उन्नत डिक्टेशन प्रणाली")
+![Lexkite का IELTS लिसनिंग रूम: 10 टेस्ट, हर टेस्ट में 4 भाग, ब्रिटिश-अमेरिकी-ऑस्ट्रेलियाई उच्चारण, समायोज्य गति और अभ्यास / पहली बार सुनें / डिक्टेशन बटन](media:listening "Lexkite में ऑडियो की गति बदलकर सुनने और डिक्टेशन का अभ्यास करने का कमरा")
 
 ## 4 स्टेप्स: डिक्टेशन इंग्लिश लिसनिंग का रोजाना 20 मिनट अभ्यास
 
@@ -98,7 +99,7 @@ quiz: [
 
 लिसनिंग से सीखे गए शब्दों और वाक्यांशों का अभ्यास [Lexkite इंटरएक्टिव टेस्ट](/#/practice) में करें।
 
-![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "Màn hình bài kiểm tra trắc nghiệm từ vựng run out of trên Lexkite giúp củng cố phản xạ ghi nhớ")
+![Lexkite का बहुविकल्पीय टेस्ट: चार विकल्पों में से run out of का सही अर्थ चुनना](media:practice-test "बहुविकल्पीय टेस्ट से run out of जैसे वाक्यांशों को पक्का करें, Lexkite पर")
 
 ## केस स्टडी: एक कठिन एकेडमिक वाक्य का डिक्टेशन विश्लेषण
 

@@ -8,7 +8,7 @@ translationKey: cau-phuc-ielts-writing-complex-sentences
 category: ielts
 tags: [ielts, writing, complex-sentences, qawaid]
 cover: write
-coverAlt: "Phòng viết writing IELTS Task 2 trên Lexkite với gợi ý ý tưởng và bài mẫu band 8"
+coverAlt: "غرفة كتابة IELTS Task 2 في Lexkite: اختيار الموضوع، أفكار مقترحة، مفردات، هيكل المقال ونموذج إجابة باند 8 مع شروحات"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -26,6 +26,7 @@ quiz: [
     explain: "التركيب 'Having analyzed...' هو Perfect Participle Clause يوضح انتهاء الفعل الأول قبل بدء الفعل الرئيسي، مما يربط السبب بالنتيجة بأسلوب أكاديمي رفيع دون تكرار الفاعل."
   }
 ]
+publishAt: 2026-11-20T08:01:00+03:00
 ---
 
 في اختباري **IELTS Writing Task 1** و **Task 2**، يمثل معيار **التنوع النحوي والدقة (Grammatical Range and Accuracy)** العقبة الأكبر التي تحول دون حصول المتقدمين على درجة 7.0 أو أعلى. تنص المعايير الرسمية المعتمدة لتصحيح الآيلتس على أن المترشح الحاصل على Band 7 فما فوق يجب أن *«uses a variety of complex structures with frequent error-free sentences»* (يستخدم تشكيلة متنوعة من الهياكل المعقدة مع وفرة في الجمل الخالية تماماً من الأخطاء).
@@ -45,7 +46,7 @@ quiz: [
 
 تدرب على صياغة الجمل الأكاديمية وتحليل تنوعك النحوي في [غرفة الكتابة في Lexkite](/#/write).
 
-![Phòng viết writing IELTS Task 2 trên Lexkite với gợi ý ý tưởng và bài mẫu band 8](media:write "Viết bài luận IELTS và kiểm tra các cấu trúc câu phức ngay trong phòng viết Lexkite")
+![غرفة كتابة IELTS Task 2 في Lexkite: اختيار الموضوع، أفكار مقترحة، مفردات، هيكل المقال ونموذج إجابة باند 8 مع شروحات](media:write "اكتب مقال IELTS وراجع بنية جملك المعقدة في غرفة الكتابة في Lexkite")
 
 ## 5 تراكيب ذهبية لصياغة جمل معقدة لباند 7.5+
 
@@ -67,7 +68,7 @@ quiz: [
 
 تعلم تفاصيل الجمل الموصولة وتدرب عليها في [منهج القواعد التفاعلي في Lexkite](/#/grammar).
 
-![Màn hình học grammar tiếng Anh trên Lexkite với danh sách bài học và bài tập cấu trúc câu](media:grammar "Học và củng cố ngữ pháp câu phức mệnh đề quan hệ và đảo ngữ trên Lexkite")
+![قواعد IELTS في Lexkite: مسار الفصول والأزمنة الاثني عشر (المضارع البسيط والمستمر والتام…) والمستويات A1–B2 وتمارين شاملة](media:grammar "تعلم الأزمنة والقواعد الأساسية وتمارين الجمل في مسار القواعد في Lexkite")
 
 ### 3. أشباه الجمل المشتقة من الأفعال (Participle Clauses)
 تعتبر أشباه جمل اسم الفاعل (*Present Participle -ing*) واسم المفعول (*Past Participle -ed*) تاج الكتابة الأكاديمية، حيث تلغي تكرار الفاعل وتضفي طابعاً رصيناً:
@@ -93,7 +94,7 @@ quiz: [
 
 تحقق من حروف الجر والروابط الأكاديمية الصحيحة في [قاموس Lexkite المتقدم](/#/dict/resilient).
 
-![قاموس ثنائي اللغة Lexkite: البحث عن كلمة resilient مع النسخ الصوتي الصوتي البريطاني/الأمريكي وجمل أمثلة](media:dict "البحث عن الكلمات والمتلازمات الأكاديمية وجمل الأمثلة المترجمة في قاموس Lexkite")
+![قاموس Lexkite: البحث عن كلمة resilient مع النطق البريطاني/الأمريكي والمعنى وجمل الأمثلة والمتلازمات اللفظية والمرادفات](media:dict "البحث عن الكلمات والمتلازمات الأكاديمية وجمل الأمثلة المترجمة في قاموس Lexkite")
 
 ## تمارين دمج الجمل المعقدة (Sentence Combining Practice)
 
