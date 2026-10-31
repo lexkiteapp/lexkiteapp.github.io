@@ -13,8 +13,10 @@
   "Chấm điểm band": "Band scoring",
   "Chế độ luyện": "Practice modes",
   "Các đáp án": "Answer options",
+  "Câu trả lời của bạn:": "Your answer:",
   "Cụm từ đi kèm:": "Collocations:",
   "Danh sách từ": "Word deck breakdown",
+  "Flashcard": "Flashcard",
   "Ghép nhanh 60 giây": "Fast 60s pair",
   "Ghép thẻ từ": "Match cards",
   "Hướng dẫn chặng": "Guide",
@@ -46,5 +48,6 @@
   "Đang chọn": "ACTIVE",
   "Đang luyện": "In training",
   "Đáp án đúng:": "Correct answer:",
+  "Đã hiểu (+2 XP)": "Got it (+2 XP)",
   "Đóng màn chuỗi": "Close session",
 }); })(typeof self !== 'undefined' ? self : this);

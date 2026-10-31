@@ -71,4 +71,9 @@
   'Gợi ý cho bạn': 'Recommended for you',
   'Nhập bộ thẻ Anki (.apkg) của bạn thành bộ từ để học và ôn.': 'Import your Anki deck (.apkg) as a set to learn and review.',
   'Xem cả {n} từ': 'View all {n} words',
+  // Sổ lỗi sai (Stitch v2.1, web/js/ux1-mistakes.js)
+  '{n} lỗi cần xem lại': '{n} mistakes to review',
+  'Cô {name} • Lexkite': 'Teacher {name} • Lexkite',
+  'Mẹo:': 'Tip:',
+  'Loại lỗi': 'Mistake types',
 }); })(typeof self !== 'undefined' ? self : this);
