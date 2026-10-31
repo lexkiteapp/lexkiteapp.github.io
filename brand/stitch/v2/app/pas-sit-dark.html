@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
     tailwind.config = {
@@ -95,20 +94,22 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-[#050b0d] text-on-surface antialiased flex justify-center min-h-screen select-none font-body">
 <!-- Mobile Viewport Canvas strictly 390px, zero outer mockup frame -->
 <div class="w-full max-w-[390px] min-h-screen bg-background relative flex flex-col pb-28 shadow-2xl">
-<!-- Top Bar -->
-<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b border-[#162a30]">
-<button class="w-10 h-10 rounded-full bg-[#12282e] border border-[#1e3e46] shadow-[0_3px_0_#061013] active:translate-y-[2px] active:shadow-[0_1px_0_#061013] flex items-center justify-center text-primary transition-all">
+<!-- Top Bar (Left-aligned title matching light layout) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 h-16 flex items-center justify-between border-b border-[#162a30]">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full bg-[#12282e] border border-[#1e3e46] shadow-[0_3px_0_#061013] active:translate-y-[2px] active:shadow-[0_1px_0_#061013] flex items-center justify-center text-primary transition-all flex-shrink-0">
 <span class="material-symbols-outlined text-xl">arrow_back</span>
 </button>
-<div class="flex flex-col items-center text-center">
-<h1 class="text-base font-extrabold text-white tracking-tight">Café &amp; restaurant</h1>
+<div class="flex flex-col text-left">
+<h1 class="text-base font-extrabold text-white tracking-tight leading-tight">Café &amp; restaurant</h1>
 <span class="text-[10px] font-extrabold tracking-wider text-primary">SPEAKING DRILL • LEVEL B1</span>
 </div>
-<button class="w-10 h-10 rounded-full bg-[#12282e] border border-[#1e3e46] shadow-[0_3px_0_#061013] active:translate-y-[2px] active:shadow-[0_1px_0_#061013] flex items-center justify-center text-on-surface-variant transition-all">
+</div>
+<button class="w-10 h-10 rounded-full bg-[#12282e] border border-[#1e3e46] shadow-[0_3px_0_#061013] active:translate-y-[2px] active:shadow-[0_1px_0_#061013] flex items-center justify-center text-on-surface-variant transition-all flex-shrink-0">
 <span class="material-symbols-outlined text-xl">info</span>
 </button>
 </header>
@@ -216,7 +217,7 @@
 </div>
 </div>
 </section>
-<!-- Mission Checklist (1/3 done) -->
+<!-- Mission Checklist (1/3 done - crisp readability on all rows) -->
 <section class="rounded-2xl bg-[#12282E] border border-[#1E3E46] p-3 shadow-[0_4px_0_#061013] flex flex-col gap-2">
 <div class="flex items-center justify-between px-0.5">
 <span class="text-xs font-extrabold text-white flex items-center gap-1.5">
@@ -251,18 +252,18 @@
 </div>
 <span class="bg-[#241f11] text-tertiary border border-tertiary/40 text-[9px] font-extrabold px-2 py-0.5 rounded-full">Target</span>
 </div>
-<!-- Checklist Item 3 -->
-<div class="bg-[#102227] border border-[#1a353c] rounded-xl p-2.5 flex items-center justify-between opacity-80 shadow-[0_2px_0_#061013]">
+<!-- Checklist Item 3 (Full crisp contrast & readability, no dimming or graying out) -->
+<div class="bg-[#163038] border border-[#1e3e46] rounded-xl p-2.5 flex items-center justify-between shadow-[0_2px_0_#061013]">
 <div class="flex items-center gap-2.5">
-<div class="w-6 h-6 rounded-full border border-outline flex items-center justify-center flex-shrink-0">
-<div class="w-1.5 h-1.5 rounded-full bg-outline"></div>
+<div class="w-6 h-6 rounded-full border border-primary/60 bg-[#102227] flex items-center justify-center flex-shrink-0">
+<div class="w-2 h-2 rounded-full bg-primary/70"></div>
 </div>
 <div class="flex flex-col">
-<span class="text-xs font-semibold text-on-surface">Change one item</span>
+<span class="text-xs font-bold text-white">Change one item</span>
 <span class="text-[11px] text-on-surface-variant italic">“Could I swap the milk for oat milk?”</span>
 </div>
 </div>
-<span class="bg-[#12282e] text-on-surface-variant border border-[#1e3e46] text-[9px] font-extrabold px-2 py-0.5 rounded-full">Target</span>
+<span class="bg-[#102227] text-on-surface border border-[#1e3e46] text-[9px] font-extrabold px-2 py-0.5 rounded-full">Target</span>
 </div>
 </section>
 <!-- Phrases Mastered Card -->
@@ -313,19 +314,19 @@
 </section>
 <!-- Action Buttons -->
 <section class="flex flex-col gap-2.5 pt-1">
-<!-- Primary CTA Button: Candy sunny orange with deep brown-black ink & 3D ledge -->
-<button class="w-full h-14 rounded-2xl bg-[#f59e0b] hover:bg-[#fbbf24] active:translate-y-[3px] active:shadow-[0_2px_0_#9a3412] shadow-[0_6px_0_#9a3412] border-t border-[#fde68a]/50 text-[#1c1003] font-headline font-extrabold text-base flex items-center justify-center gap-2 transition-all">
+<!-- Primary CTA Button: Candy sunny orange with deep brown-black ink (#1C1003) & 3D drop ledge -->
+<button class="w-full h-14 rounded-2xl bg-[#f59e0b] hover:bg-[#fbbf24] active:translate-y-[3px] active:shadow-[0_2px_0_#9a3412] shadow-[0_6px_0_#9a3412] border-t border-[#fde68a]/50 text-[#1C1003] font-headline font-extrabold text-base flex items-center justify-center gap-2 transition-all">
 <span>Start speaking drill</span>
 <span class="material-symbols-outlined font-black">arrow_forward</span>
 </button>
-<!-- Secondary CTA: Role-play with Carlos in deep tactile teal -->
+<!-- Secondary CTA: Role-play with Carlos in deep tactile teal with speech bubble -->
 <button class="w-full h-12 rounded-2xl bg-[#0e5e58] hover:bg-[#12726b] active:translate-y-[2px] active:shadow-[0_2px_0_#063330] shadow-[0_4px_0_#063330] border border-[#2ba39a]/60 text-white font-headline font-bold text-sm flex items-center justify-center gap-2 transition-all">
 <span class="material-symbols-outlined text-primary-fixed">chat_bubble</span>
 <span>Role-play with Carlos</span>
 </button>
 </section>
 </main>
-<!-- Docked Bottom Navigation Bar (5 tabs across exactly 390px) -->
+<!-- Docked Bottom Navigation Bar (5 tabs evenly distributed across 390px canvas) -->
 <nav class="fixed bottom-0 w-full max-w-[390px] z-50 bg-[#091518]/95 backdrop-blur-md px-2 py-2 flex justify-around items-center border-t border-[#162a30] shadow-[0_-4px_12px_rgba(0,0,0,0.5)]">
 <!-- Tab 1: Today -->
 <button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white px-2 py-1 transition-all active:translate-y-[1px]">
@@ -340,8 +341,8 @@
 </div>
 <span class="text-[10px] font-bold mt-0.5">Vocab</span>
 </button>
-<!-- Tab 3: Skills (ACTIVE TAB: tactile teal glowing pill) -->
-<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary rounded-xl px-3.5 py-1 shadow-[0_3px_0_#00322e] active:translate-y-[2px] transition-all">
+<!-- Tab 3: Skills (ACTIVE TAB: tactile teal glowing pill with white text) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-white rounded-xl px-4 py-1.5 shadow-[0_3px_0_#00322e] active:translate-y-[2px] transition-all">
 <span class="material-symbols-outlined material-symbols-fill text-xl">psychology</span>
 <span class="text-[10px] font-extrabold mt-0.5">Skills</span>
 </button>
