@@ -34,63 +34,46 @@
   function css() {
     if ($('#lsnCss')) return;
     const st = document.createElement('style'); st.id = 'lsnCss';
-    st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem;padding-bottom:calc(var(--lsn-fh,8rem) + 1.5rem)}
-.lsn-top{display:flex;align-items:center;gap:.6rem}.lsn-x{flex:none}.lsn-bar{flex:1;height:14px;border-radius:99px;background:var(--surface-3);overflow:hidden}
-.lsn-bar i{display:block;height:100%;width:0;background:var(--done);border-radius:99px;transition:width .35s ease}
-.lsn-combo{flex:none;font-weight:800;color:var(--gold-text);background:var(--gold-soft);border-radius:99px;padding:.15rem .6rem;font-size:.85rem;visibility:hidden}.lsn-combo.on{visibility:visible;animation:lsnPop .3s ease}
-@keyframes lsnPop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
-.lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:96px;height:128px;border-radius:16px;overflow:hidden;position:relative;background:var(--surface-2)}
-.tch-rig{position:absolute;left:0;top:0;width:480px;height:640px;transform-origin:0 0}.tch-rig img,.tch-rig video{position:absolute;inset:0;width:480px;height:640px;object-fit:cover}
-.tch-face{position:absolute;left:0;top:0;width:480px;height:640px;transform-origin:0 0}.tch-m{position:absolute;background-repeat:no-repeat;opacity:0;transition:opacity 60ms linear}
-.lsn-bub{position:relative;flex:1;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:.7rem .9rem;font-weight:700}
-.lsn-bub small{display:block;font-weight:400;color:var(--muted);margin-top:.2rem}.lsn-tag{display:inline-block;font-size:.75rem;font-weight:800;color:var(--again-text);background:var(--again-soft);border-radius:99px;padding:.05rem .5rem;margin-bottom:.3rem}
-.lsn-tag.own{color:var(--accent-text);background:var(--accent-soft)}
-.lsn-snd{display:flex;gap:.5rem;align-items:center}.lsn-sent{font-size:1.2rem;line-height:1.6}.lsn-gap{display:inline-block;min-width:4.5em;border-bottom:3px solid var(--primary);text-align:center}
-.lsn-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:.6rem}
-.lsn-opt,.lsn-tile{border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--text);border-radius:14px;padding:.7rem .8rem;font:inherit;font-weight:700;cursor:pointer;min-height:48px}
-.lsn-opt[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft)}.lsn-tile{padding:.45rem .7rem;min-height:44px}
-.lsn-ans{min-height:3.4rem;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:.4rem;padding:.3rem 0}.lsn-bank{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
-.lsn-tile.used{visibility:hidden}.lsn-pic{width:min(220px,60vw);aspect-ratio:1;border-radius:16px;background:var(--surface-2);margin:0 auto;display:block;object-fit:cover}
-.lsn-mic{display:flex;flex-direction:column;align-items:center;gap:.5rem}.lsn-mic .btn{min-width:200px}
-.lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:75vh;overflow-y:auto;background:var(--bg);border-top:2px solid var(--line);padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom))}
-.lsn-foot>div{max-width:640px;margin:0 auto;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.lsn-foot .grow{flex:1}
-.lsn-foot.ok{background:var(--good-soft);border-color:var(--good)}.lsn-foot.bad{background:var(--again-soft);border-color:var(--again)}
-.lsn-fb{flex:1 1 100%;min-width:0}.lsn-fb h3{margin:0 0 .2rem;font-size:1.15rem}.lsn-foot.ok h3{color:var(--good-text)}.lsn-foot.bad h3{color:var(--again-text)}
-.lsn-fb p{margin:.15rem 0}.lsn-xp{background:var(--surface);border-radius:12px;padding:.6rem .8rem;margin-top:.4rem;max-height:40vh;overflow:auto}
-.lsn-skip{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:.4rem}
-.lsn-in{width:100%;font:inherit;font-size:1.2rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text)}
-.lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
+    st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;padding:0 1rem calc(var(--lsn-fh,8rem) + 1.5rem)}
+/* 🎨 Giao diện câu hỏi/tấm phản hồi = class Tailwind của mẫu Stitch (web/js/st/lesson.js · css/st-lesson.css); dưới đây chỉ bố cục + trạng thái */
+.lsn-combo{visibility:hidden}.lsn-combo.on{visibility:visible}
+/* 🧩 Stitch v2.1 lesson-question (khung tự sinh: brand/stitch/v2/bind/lesson-question.json) – Ama đứng SAU thẻ đề bài đục; không vòng/hào quang/khung/mặt nạ */
+.lsn-v2 [hidden]{display:none}.lsn-v2 .lsn-fv2{margin:0 0 1rem}.lsn-v2 .tch-rig.posed img.tch-still{visibility:visible}.lsn-v2 .tch-rig.posed canvas,.lsn-v2 .tch-rig.posed img.tch-poster{visibility:hidden}.lsn-v2 .tch,.lsn-v2 .tch-rig{position:absolute;inset:0}.lsn-v2 .tch-rig img,.lsn-v2 .tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.lsn-v2 .tch-rig.live img{visibility:hidden}
+.lsn-v2.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);pointer-events:none}.lsn-v2.st-end .lsn-tchw,.lsn-v2.st-end .lsn-qcard,.lsn-v2.st-end .lsn-qfoot,.lsn-v2.st-end .lsn-qchips{display:none}.lsn-v2.lsn-end .lsn-tchw.lsn-endt{display:flex}
+.lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:112px;height:138px;position:relative;margin-bottom:-6px;z-index:1}
+.tch-rig{position:absolute;inset:0;filter:drop-shadow(0 4px 5px rgb(0 0 0 / .22))}.tch::after{content:"";position:absolute;left:18%;right:18%;bottom:-3px;height:8px;border-radius:50%;background:radial-gradient(rgb(0 0 0 / .18),transparent 70%);z-index:-1}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
+/* bán thân: đầu + vai + áo tươi (áo gánh độ nổi trên nền tối như Duolingo, tóc giữ đen); eo mờ dần (không khung, không ô) – docs/CHARACTERS.md */
+.lsn-ask .tch,.lsn-duo .tch{-webkit-mask-image:linear-gradient(#000 80%,transparent 100%);mask-image:linear-gradient(#000 80%,transparent 100%)}.lsn-ask .tch .tch-rig,.lsn-duo .tch .tch-rig{overflow:hidden}.lsn-ask .tch-rig img,.lsn-ask .tch-rig canvas,.lsn-duo .tch-rig img,.lsn-duo .tch-rig canvas{inset:auto;left:50%;top:-2%;width:172%;height:auto;object-fit:fill;transform:translateX(-50%)}
+.lsn-tile.used{visibility:hidden}.lsn-opt.done{opacity:.35}.lsn-opt.miss{background:rgb(var(--st-error-container))}
+.lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:80vh;overflow-y:auto;padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom))}
+.lsn-foot>*{max-width:608px;margin-inline:auto}.lsn-foot.sheet{display:flex;flex-direction:column;gap:1rem;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}.lsn-foot.sheet>*{width:100%}
+.lsn.st-end .lsn-ask,.lsn.st-end .lsn-meta{display:none}.lsn.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);animation:st-fade .18s ease both;pointer-events:none} /* tấm phản hồi: phần câu hỏi lùi sau lớp phủ (mẫu Stitch) */
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
-.lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;border-radius:18px;overflow:hidden;position:relative;background:var(--surface-2);transition:transform .2s ease,box-shadow .2s ease}
-.lsn-duo .tch.talk{transform:scale(1.06);box-shadow:0 0 0 4px var(--primary)}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
-.lsn-chat{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem;max-height:38vh;overflow:auto}.lsn-ln{background:var(--surface-2);border-radius:14px;padding:.45rem .7rem;max-width:85%}.lsn-ln.carlos{align-self:flex-end;background:var(--primary-soft)}.lsn-ln b{display:block;font-size:.75rem;color:var(--muted)}
+.lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;position:relative;transition:transform .2s ease,filter .2s ease}
+.lsn-duo .tch.talk{transform:scale(1.06);filter:drop-shadow(0 0 5px var(--primary))}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
+.lsn-chat{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem;max-height:38vh;overflow:auto}.lsn-chat .lsn-ln{background:var(--surface-2);border-radius:14px;padding:.45rem .7rem;max-width:85%}.lsn-chat .lsn-ln.carlos{align-self:flex-end;background:var(--primary-soft)}.lsn-chat .lsn-ln b{display:block;font-size:.75rem;color:var(--muted)}
 /* bản đồ */
-.lsn-path{list-style:none;margin:1rem 0;padding:0;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
-.lsn-node{position:relative;transform:translateX(var(--x));display:flex;flex-direction:column;align-items:center}
-.lsn-dot{width:76px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--muted);box-shadow:0 6px 0 var(--line);text-decoration:none}
-.lsn-dot svg{width:32px;height:32px}.lsn-node.done .lsn-dot{background:var(--done);color:var(--on-done);box-shadow:0 6px 0 var(--done-ink)}
-.lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:#fff;box-shadow:0 7px 0 var(--primary-ink);animation:lsnGlow 1.6s ease-in-out infinite}
-.lsn-start{margin-bottom:.7rem;min-width:180px;animation:lsnBob 1.6s ease-in-out infinite}
+.lsn-map .lsn-path{list-style:none;margin:1rem 0;padding:0;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+.lsn-map .lsn-node{position:relative;transform:translateX(var(--x));display:flex;flex-direction:column;align-items:center}
+.lsn-map .lsn-dot{width:76px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--muted);box-shadow:0 6px 0 var(--line);text-decoration:none}
+.lsn-map .lsn-dot svg{width:32px;height:32px}.lsn-map .lsn-node.done .lsn-dot{background:var(--done);color:var(--on-done);box-shadow:0 6px 0 var(--done-ink)}
+.lsn-map .lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:#fff;box-shadow:0 7px 0 var(--primary-ink);animation:lsnGlow 1.6s ease-in-out infinite}
+.lsn-map .lsn-start{margin-bottom:.7rem;min-width:180px;animation:lsnBob 1.6s ease-in-out infinite}
 @keyframes lsnGlow{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 14px var(--primary))}}
 @keyframes lsnBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-/* game feel */
-.lsn-big{width:84px;height:84px;border-radius:22px;border:0;background:var(--primary);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 0 var(--primary-ink);font-size:1.6rem}
-.lsn-big.sm{width:60px;height:60px;background:var(--surface-2);color:var(--text);box-shadow:0 4px 0 var(--line)}.lsn-big svg{width:36px;height:36px}.lsn-big:active{transform:translateY(3px);box-shadow:none}
-.lsn-snd{justify-content:center}.lsn-tile.pop{animation:lsnPop .2s ease}
-.lsn-tw{position:relative;flex:none}.lsn-emo{position:absolute;right:-8px;top:-8px;font-size:1.6rem;opacity:0;transform:scale(.4)}.lsn-emo.on{animation:lsnEmo .9s ease forwards}
-@keyframes lsnEmo{0%{opacity:0;transform:scale(.4)}25%{opacity:1;transform:scale(1.2)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1) translateY(-10px)}}
-.tch.nod{animation:lsnNod .5s ease}.tch.shake{animation:lsnShake .4s ease}
-@keyframes lsnNod{0%,100%{transform:translateY(0)}40%{transform:translateY(5px)}}@keyframes lsnShake{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg)}70%{transform:rotate(3deg)}}
-.lsn-bar.glow i{animation:lsnBar .6s ease}@keyframes lsnBar{50%{box-shadow:0 0 12px var(--good);filter:brightness(1.2)}}
-.lsn-foot.ok,.lsn-foot.bad{animation:lsnUp .22s ease-out}@keyframes lsnUp{from{transform:translateY(40%);opacity:.4}to{transform:none;opacity:1}}
-.lsn-go{min-width:220px;margin:.4rem 0}
+.lsn-tw{position:relative;flex:none}.lsn-emo{position:absolute;right:-8px;top:-8px;font-size:1.2rem;opacity:0}.lsn-emo.on{animation:lsnEmo .9s ease forwards}
+@keyframes lsnEmo{0%{opacity:0}25%{opacity:1}70%{opacity:1}100%{opacity:0}}
+/* Chuyển động tiết chế (chủ 28/10): chỉ mờ dần 150–200 ms, không nảy/rung/phát sáng/pháo giấy */
+.lsn-combo.on,.lsn-tile.pop,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-node.next .lsn-dot,.lsn-start{animation:none} /* nút nhún khi bấm do lớp active: (Stitch) – chủ mở luật 28/10 */
+.lsn-emo{display:none}.lsn-bar i{transition:width .18s ease}
+.lsn-foot.ok,.lsn-foot.bad{animation:lsnFade .18s ease-out}@keyframes lsnFade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.lsn-bar i,.lsn-combo.on,.lsn-node.next .lsn-dot,.lsn-start,.lsn-tile.pop,.lsn-emo.on,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-foot.ok,.lsn-foot.bad{transition:none;animation:none}.lsn-emo.on{opacity:1;transform:none}}`;
     document.head.appendChild(st);
   }
 
   let L = null; // bài đang chạy
   App.lessonState = () => L; // cho test CI (scripts/test/lesson.mjs) – chỉ đọc
-  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; if (footRO) { footRO.disconnect(); footRO = null; } const f = $('#lsnFoot'); if (f) f.remove(); };
+  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.teachers && L.teachers.carlos) L.teachers.carlos.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; if (footRO) { footRO.disconnect(); footRO = null; } const f = $('#lsnFoot'); if (f) f.remove(); };
   let footRO = null; // chân bài học cố định: đo chiều cao thật (phiếu đúng/sai + "Vì sao?") → chừa đủ chỗ cuối trang, không che nội dung
 
   // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
@@ -116,21 +99,23 @@
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null;
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
-    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: cards.concat(STARTER()), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
-    const prev = ls.get('lk.lsn.who'), who = prev === 'ama' ? 'carlos' : 'ama'; ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
-    L = { demo, items, sess: new E.Session(items, { ease: ux }), picks, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
+    let pool0 = [];
+    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
+    const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
+    L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
     if (demo) App._lsn = L; // bài thử: gác bố cục CI (scripts/test/ux1-guard.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
-    view.innerHTML = `<div class="lsn" id="lsn">
-      <div class="lsn-top"><a class="icon-btn lsn-x" href="#/lesson${Q(demo)}" aria-label="${t('Thoát bài học')}">✕</a>
-        <div class="lsn-bar" role="progressbar" aria-label="${t('Tiến độ bài học')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
-        <span class="lsn-combo" id="lsnCombo" aria-live="polite"></span></div>
-      ${story ? `<div class="lsn-duo">${story.kind === 'radio' ? '<span class="lsn-air">● ON AIR</span>' : ''}<div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-tw"><div id="lsnTch2"></div></div></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div><ol class="lsn-chat" id="lsnChat"></ol>`
-        : `<div class="lsn-ask"><div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>`}
-      <div id="lsnBody"></div></div>`;
-    const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
+    const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
+    document.body.classList.add('st'); App.onCleanup(() => document.body.classList.remove('st'));
+    const sh = { close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: KNAME(node.kind) || t('Bài học'), icon: { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio' }[node.kind] || 'star', barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn') };
+    L.title = sh.title; L.chip = sh.chip; // màn kết (lesson-complete) dùng lại
+    L.sh = sh;
+    if (V2) v2shell(sh);
+    else if (DUO) { /* khung truyện dựng ở frame() theo từng bước */ }
+    else view.innerHTML = ST.lsnShell(Object.assign(sh, { story: story ? ST.lsnStory(story.kind === 'radio' ? '● ON AIR' : '') : '' })); // 🎨 mẫu Stitch "Speaking Micro-Drill" (web/js/st/lesson.js) – dự phòng khi chưa bật cờ ux1
+    const foot = document.createElement('div'); foot.className = ST.FOOT; foot.id = 'lsnFoot'; foot.hidden = V2 || DUO; document.body.appendChild(foot); L.foot = foot;
     if (window.ResizeObserver) { footRO = new ResizeObserver(() => view.style.setProperty('--lsn-fh', foot.offsetHeight + 'px')); footRO.observe(foot); }
-    try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
+    if (!DUO) try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
     next();
   };
 
@@ -147,12 +132,43 @@
       <ol class="lsn-path">${nodes}</ol><p class="tiny muted center">${t('Miễn phí, không giới hạn')}</p></div>`;
   }
 
+  // 🧩 Stitch v2.1 lesson-question (cờ ux1): khung tự sinh, Ama (Chars+LessonTeacher, 2D) đứng sau thẻ đề bài đục; trang cũ (ST.lsnShell) giữ làm dự phòng + cho Truyện/Radio (2 giáo viên)
+  const v2On = () => !!(window.ST2 && window.ST2['lesson-question'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
+  const GRID = 'grid grid-cols-2 gap-[1rem] mb-[1rem] lsn-opts', FLOW = 'flex flex-col gap-3 mb-[1rem]', LET = 'ABCDEFGH';
+  const SLOW = 'absolute top-[1.2rem] right-[1.5rem] z-20 w-7 h-7 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
+  function v2shell(sh) {
+    const d = { close: sh.close, title: sh.title, pct: 0, combo: '', chip: sh.chip, play: t('Nghe lại'), who: sh.who,
+      teacher: '<div class="lsn-tchw relative z-0 -mb-14 h-[172px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[200px] h-[172px] max-w-full"></div></div>',
+      slow: `<button id="lsnSlow" type="button" class="${SLOW}" hidden aria-label="${esc(t('Nghe chậm hơn'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">slow_motion_video</span></button>`,
+      opts: ['off', 'on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
+    const root = ST2.mount(view, 'lesson-question', d, null); root.id = 'lsn'; root.classList.add('lsn-v2');
+    const g = root.querySelector('#lsnBody'); L.tpl = { off: g.children[0], on: g.children[1] }; g.textContent = ''; // khuôn thẻ đáp án (chưa chọn / đã chọn) lấy từ khung Stitch
+    if (!sh.chip) root.querySelector('.lsn-combo').nextElementSibling.hidden = true;
+  }
+  const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; return n; };
+  function v2foot(it, foot) {
+    foot.className = ST.FOOT; foot.innerHTML = ''; foot.hidden = true; // chân cố định chỉ dành cho tấm phản hồi
+    const q = view.querySelector('.lsn-qfoot'); q.hidden = false;
+    $('#lsnPlay').hidden = $('#lsnSlow').hidden = !LISTENS(it);
+    view.querySelectorAll('.lsn-skip2').forEach(x => x.remove());
+    const sk = q.querySelector('.lsn-skipb'), list = [LISTENS(it) && ['lsnNoL', t('Không nghe được lúc này'), 'hearing_disabled'], SPEAKS(it) && ['lsnNoS', t('Không nói được lúc này'), 'mic_off']].filter(Boolean);
+    const set = (b, [id, lb, ic]) => { b.id = id; b.setAttribute('aria-label', lb); b.title = lb; b.querySelector('.material-symbols-outlined').textContent = ic; };
+    sk.hidden = !list.length; if (list[0]) set(sk, list[0]);
+    if (list[1]) { const c = sk.cloneNode(true); c.classList.add('lsn-skip2'); set(c, list[1]); sk.after(c); }
+    const chk = $('#lsnCheck'); chk.hidden = SPEAKS(it); chk.disabled = true;
+    $('#lsnRep').onclick = () => { const cid = 'lesson:' + it.type + ':' + String(it.word || (it.card && it.card.word) || '').slice(0, 40); if (window.LexReportLoad) LexReportLoad().then(R => R.open({ cat: 'content', cid })).catch(() => {}); else window.open('#/report/new', '_blank'); };
+  }
+  const VOICE = w => (window.Chars && Chars.voice ? Chars.voice(w || (L && L.who) || 'ama') : null); // giọng đúng của giáo viên đang nói (registry Chars) – thiếu file mp3 → giọng máy
+
   const say = (text, slow, who, onEnd) => {
     if (!L) return;
     const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.7 : 0.95;
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
-    if (T) T.say(text, { rate, voice: L.story && who && window.LessonTeacher ? LessonTeacher.VOICE[who] : null, onEnd }); else { UI.tts(text, 'en-US', rate, { onEnd }); }
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd }); else { UI.tts(text, 'en-US', rate, { onEnd }); }
   };
+  // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
+  const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };
+  const TNAME = w => (w === 'carlos' ? 'Carlos' : 'Ama');
   const TITLE = it => ({
     gap: t('Chọn từ còn thiếu'),
     build: t('Xếp thành câu'),
@@ -170,63 +186,134 @@
 
   function bar() {
     const s = L.sess, b = $('.lsn-bar'); if (!b) return;
-    b.firstChild.style.width = Math.round(s.progress * 100) + '%'; b.setAttribute('aria-valuenow', Math.round(s.progress * 100));
+    if (L.duo && L.frame === 'duo') { const pc = Math.round(s.progress * 100), fl = $('#lsnFill'), pe = $('#lsnPct'); if (fl) fl.style.width = pc + '%'; b.setAttribute('aria-valuenow', pc); if (pe) pe.textContent = pc + '%'; if (window.Feel && Feel.on && Feel.fill) Feel.fill(b, pc); return; } // khung story-duo: 1 dải liền + %
+    if (L.v2) { // khung Stitch: 1 thanh đầy dần + % + chip COMBO
+      const pc = Math.round(s.progress * 100), fl = $('#lsnFill'), pe = $('#lsnPct'), qn2 = $('#lsnQn'), cb = $('#lsnCombo'), ct = $('#lsnComboT');
+      if (fl) fl.style.width = pc + '%'; b.setAttribute('aria-valuenow', pc); if (pe) pe.textContent = pc + '%';
+      if (qn2) qn2.textContent = t('Câu {a}/{b}', { a: Math.min(s.solved + 1, s.total), b: s.total });
+      if (ct) ct.textContent = s.combo >= 3 ? t('COMBO ×{n}', { n: s.combo }) : ''; if (cb) cb.classList.toggle('on', s.combo >= 3);
+      if (window.Feel && Feel.on) { if (Feel.fill) Feel.fill(b, pc); if (Feel.combo && s.combo >= 3 && cb) Feel.combo(cb, s.combo); }
+      return;
+    }
+    const nS = Math.max(1, Math.min(12, s.total)); b.innerHTML = ST.lsnSegs(nS, Math.round(s.progress * nS)); b.setAttribute('aria-valuenow', Math.round(s.progress * 100)); // thanh chia đoạn = số câu (mẫu Stitch: viên thuốc)
+    const qn = $('#lsnQn'), pc = $('#lsnPct'); if (qn) qn.textContent = t('Câu {a}/{b}', { a: Math.min(s.solved + 1, s.total), b: s.total }); if (pc) pc.textContent = Math.round(s.progress * 100) + '%';
     const c = $('#lsnCombo'); if (c) { c.textContent = s.combo >= 3 ? '🔥 ' + t('COMBO ×{n}', { n: s.combo }) : ''; c.classList.toggle('on', s.combo >= 3); }
   }
 
   function next() {
     if (!L || L.dead) return;
+    if (L.duo && L.sess.cur) frame(L.sess.cur);
+    view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); // thẻ câu của tấm phản hồi chỉ sống tới câu kế
     bar();
+    if (L.teacher && L.teacher.pose) L.teacher.pose(null); // ra khỏi tư thế phản hồi (cheer/concern) → lại nghe/nói sống
     const it = L.sess.cur;
     if (!it) return finish();
     L.pick = null; L.tiles = []; L.checked = false;
+    if (it.type === 'line' && L.frame === 'duo') return lineDuo(it);
+    if (it.type === 'q' && L.frame === 'duo') return qDuo(it);
     const bub = $('#lsnBub'), body = $('#lsnBody');
-    const tag = it.retry ? `<span class="lsn-tag">↺ ${t('Lỗi cũ')}</span><br>` : (it.own && (it.type === 'gap' || it.type === 'build') ? `<span class="lsn-tag own">🔎 ${t('Từ bạn đã tra')}</span><br>` : '');
+    const tag = it.retry ? ST.lsnTag('↺ ' + t('Lỗi cũ')) : (it.own && (it.type === 'gap' || it.type === 'build') ? ST.lsnTag('🔎 ' + t('Từ bạn đã tra'), true) : '');
+    const lv = view.querySelector('#lsn'); if (lv) lv.classList.remove('st-dim');
     let sub = '';
-    if (it.type === 'tr') sub = esc(it.prompt);
-    else if (it.type === 'mean') sub = esc(meanOf(it.card));
-    else if (it.type === 'type' && it.noAudio) sub = esc(meanOf(it.card));
-    else if (it.type === 'build' && it.noAudio) sub = esc(it.prompt || meanOf(it.card));
-    bub.innerHTML = tag + esc(TITLE(it)) + (sub ? `<small lang="${it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en'}">${sub}</small>` : '');
-    const snd = LISTENS(it) ? `<div class="lsn-snd"><button class="lsn-big" id="lsnPlay" aria-label="${t('Nghe lại')}">${UI.icon('audio-lines')}</button><button class="lsn-big sm" id="lsnSlow" aria-label="${t('Nghe chậm hơn')}">🐢</button></div>` : '';
+    if (it.type === 'tr') sub = it.prompt;
+    else if (it.type === 'mean') sub = meanOf(it.card);
+    else if (it.type === 'type' && it.noAudio) sub = meanOf(it.card);
+    else if (it.type === 'build' && it.noAudio) sub = it.prompt || meanOf(it.card);
+    bub.innerHTML = tag + (L.v2 && it.type === 'gap' ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en') : '');
+    const V = L.v2, snd = LISTENS(it) && !V ? ST.lsnSnd({ play: t('Nghe lại'), slow: t('Nghe chậm hơn'), label: t('Mẫu âm thanh'), name: TNAME(it.who || L.who) }) : '';
+    const fill = (html, grid) => { if (V) body.className = grid ? GRID : FLOW; body.innerHTML = V && grid ? '' : html; }; // v2: lưới 2 cột cho trắc nghiệm (bindItem vẽ thẻ), dạng khác = cột dọc cùng ô
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
-    if (it.type === 'line') return line(it);
+    if (it.type === 'line') return L.frame === 'duo' ? lineDuo(it) : line(it);
     const chat = $('#lsnChat'); if (chat) chat.hidden = true; // bài kiểm giữa truyện: ẩn lời thoại (không lộ đáp án)
     if (it.type === 'q') {
-      bub.innerHTML = tag + esc(TITLE(it)) + `<small lang="en">${esc(it.prompt)}</small>`;
-      body.innerHTML = `<div class="lsn-opts" role="group">${it.options.map(o => `<button class="lsn-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      bub.innerHTML = tag + esc(TITLE(it)) + ST.lsnSub(it.prompt, 'en');
+      fill(ST.lsnOpts(it.options), true);
     } else if (it.type === 'gap') {
-      const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? `<span class="lsn-gap" id="lsnGap">&nbsp;</span>` : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
-      body.innerHTML = `${snd}<p class="lsn-sent" lang="en">${sent}</p><div class="lsn-opts" role="group">${it.options.map(o => `<button class="lsn-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? ST.GAP : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
+      if (V) bub.insertAdjacentHTML('beforeend', ST.lsnSent(sent)); // câu có chỗ trống nằm trong thẻ đề bài
+      fill(V ? '' : snd + ST.lsnSent(sent) + ST.lsnOpts(it.options), true);
     } else if (it.type === 'type') {
-      body.innerHTML = `${snd}<input class="lsn-in" id="lsnIn" lang="en" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="${t('Câu trả lời của bạn')}">`;
+      fill(snd + ST.lsnIn(t('Câu trả lời của bạn')), false);
     } else if (it.type === 'match') {
       const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
-      body.innerHTML = `<div class="lsn-match"><div>${L1.map(i => `<button class="lsn-opt" lang="en" data-m="${i}" data-s="w">${esc(it.pairs[i].word)}</button>`).join('')}</div><div>${L2.map(i => `<button class="lsn-opt" data-m="${i}" data-s="m">${esc(it.pairs[i].mean || meanOf(it.pairs[i]))}</button>`).join('')}</div></div>`;
+      fill(ST.lsnMatch(L1.map(i => ({ i, t: it.pairs[i].word })), L2.map(i => ({ i, t: it.pairs[i].mean || meanOf(it.pairs[i]) }))), false);
     } else if (it.type === 'mean' || (it.type === 'pic' && it.choice)) {
-      body.innerHTML = `${it.type === 'pic' ? `<img class="lsn-pic" src="${esc(imgUrl(it.word, it.card.pos))}" alt="${esc(t('Ảnh minh họa'))}" width="220" height="220">` : ''}<div class="lsn-opts" role="group">${it.options.map(o => `<button class="lsn-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      const pic = it.type === 'pic' ? ST.lsnPic(imgUrl(it.word, it.card.pos), t('Ảnh minh họa')) : '';
+      if (V) bub.insertAdjacentHTML('beforeend', pic); // ảnh nằm trong thẻ đề bài
+      fill(V ? '' : pic + ST.lsnOpts(it.options), true);
     } else if (it.type === 'build' || it.type === 'tr') {
-      body.innerHTML = `${snd}<div class="lsn-ans" id="lsnAns" aria-label="${t('Câu trả lời của bạn')}" lang="en"></div><div class="lsn-bank" id="lsnBank" lang="en">${it.tiles.map((w, i) => `<button class="lsn-tile" data-i="${i}">${esc(w)}</button>`).join('')}</div>`;
+      fill(snd + ST.lsnBuild(it.tiles), false); $('#lsnAns').setAttribute('aria-label', t('Câu trả lời của bạn'));
     } else {
-      body.innerHTML = `${it.type === 'pic' ? `<img class="lsn-pic" src="${esc(imgUrl(it.word, it.card.pos))}" alt="${esc(t('Ảnh minh họa'))}" width="220" height="220">` : `${snd}<p class="lsn-sent center" lang="en"><b>${esc(it.answer)}</b></p>`}
-        <div class="lsn-mic"><button class="btn primary lg" id="lsnMic">🎤 ${t('Chạm để nói')}</button><p class="tiny muted" id="lsnHeard" aria-live="polite"></p></div>`;
+      fill((it.type === 'pic' ? ST.lsnPic(imgUrl(it.word, it.card.pos), t('Ảnh minh họa')) : snd + ST.lsnSent(`<b>${esc(it.answer)}</b>`, true)) + ST.lsnMic('🎤 ' + t('Chạm để nói')), false);
     }
     // chân trang: bỏ qua nghe/nói + Kiểm tra
-    const foot = $('#lsnFoot'); foot.className = 'lsn-foot';
-    foot.innerHTML = `<div>${LISTENS(it) ? `<button class="lsn-skip" id="lsnNoL">${t('Không nghe được lúc này')}</button>` : ''}${SPEAKS(it) ? `<button class="lsn-skip" id="lsnNoS">${t('Không nói được lúc này')}</button>` : ''}<span class="grow"></span>
-      ${SPEAKS(it) ? '' : `<button class="btn primary lg" id="lsnCheck" disabled>${t('Kiểm tra')}</button>`}</div>`;
+    const foot = $('#lsnFoot'); foot.className = ST.FOOT;
+    if (V) v2foot(it, foot); else foot.innerHTML = ST.lsnFoot({ skips: [LISTENS(it) ? ['lsnNoL', t('Không nghe được lúc này')] : null, SPEAKS(it) ? ['lsnNoS', t('Không nói được lúc này')] : null].filter(Boolean), check: SPEAKS(it) ? '' : t('Kiểm tra') });
+    const slot = $('#lsnSndSlot'), sn = body.querySelector('.lsn-snd'); if (slot) { slot.innerHTML = ''; if (sn) slot.appendChild(sn); } // mẫu v2: 2 nút loa nằm trong bong bóng lời
     bindItem(it, audioText);
     if (LISTENS(it)) setTimeout(() => say(audioText, false, it.who), 250);
   }
 
+  // 🧩 Stitch v2.1 story-duo (cờ ux1): câu thoại = khung 'story-duo' (Ama trái + Carlos phải, cả hai Chars/LessonTeacher đứng SAU khung chat đục); bài kiểm giữa truyện = khung lesson-question (người nói của câu đó + thẻ đáp án + tấm phản hồi).
+  const duoOn = () => v2On() && !!ST2['story-duo'], RADIO = '🔊 · · ·';
+  function frame(it) {
+    const want = it.type === 'line' || (it.type === 'q' && L.duo) ? 'duo' : 'q-' + (it.who || 'ama'); if (L.frame === want) return;
+    [L.teacher, L.teachers && L.teachers.carlos].forEach(x => { if (x) { try { x.destroy(); } catch (e) { /* bỏ qua */ } } }); L.teacher = null; L.teachers = null; L.frame = want;
+    if (L.foot) { L.foot.hidden = true; L.foot.innerHTML = ''; L.foot.className = ST.FOOT; document.body.appendChild(L.foot); } // tấm phản hồi nằm trong khung cũ → đưa về body trước khi dựng khung mới
+    if (want === 'duo') return duoMount();
+    L.v2 = true; L.who = it.who || 'ama'; v2shell(L.sh);
+    try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; } catch (e) { L.teacher = null; }
+  }
+  function duoMount() {
+    L.v2 = false; L.log = L.log || [];
+    const row = x => ({ v: x.who === 'carlos' ? 'carlos' : 'ama', name: TNAME(x.who), en: x.radio ? RADIO : x.sent, play: t('Nghe lại') + ' · ' + TNAME(x.who) });
+    const box = id => `<div class="lsn-tchw relative z-0 h-[160px] w-[150px] flex justify-center pointer-events-none" aria-hidden="true"><div id="${id}" class="relative w-[150px] h-[160px]"></div></div>`;
+    const d = { close: L.sh.close, title: L.sh.title, pct: '0%', mid: L.story.kind === 'radio' ? '● ON AIR' : t('Đối thoại'), duo: `<div class="lsn-duo2 relative z-0 flex justify-between items-end">${box('lsnTch')}${box('lsnTch2')}</div>`,
+      log: [{ who: 'ama' }, { who: 'carlos' }].concat(L.log).map(row), qt: '', opts: ['on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
+    d.log[0].v = 'ama'; d.log[1].v = 'carlos';
+    const root = ST2.mount(view, 'story-duo', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-story');
+    const chat = $('#lsnChat'); L.tl = { ama: chat.children[0], carlos: chat.children[1] }; L.tl.ama.remove(); L.tl.carlos.remove(); // 2 bong bóng mẫu = khuôn cho câu thoại mới
+    const og = $('#lsnBody'); L.tplq = { on: og.children[0], off: og.children[1] }; og.textContent = ''; L.qblk = view.querySelector('.lsn-qblk'); L.qfootEl = view.querySelector('.lsn-qfoot'); L.qblk.style.display = og.style.display = 'none'; // khuôn thẻ đáp án (đã chọn / chưa) lấy từ mẫu; khối câu hỏi chỉ hiện ở bước kiểm
+    chat.querySelectorAll('.lsn-ln button').forEach((b, i) => { b.onclick = () => say(L.log[i].sent, false, L.log[i].who); });
+    try { const ama = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; L.teacher = ama; L.teachers = ama ? { ama, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') } : null; } catch (e) { L.teacher = null; L.teachers = null; }
+  }
+  // Khung story-duo có 2 chế độ trên MỘT màn: thoại (khối câu hỏi ẩn, nút = Tiếp tục #lsnGo) / kiểm (khối câu hỏi + thẻ A/B/C hiện, nút = Kiểm tra #lsnCheck)
+  function duoMode(q) {
+    const foot = $('#lsnFoot'); if (foot) { foot.hidden = true; foot.innerHTML = ''; foot.className = ST.FOOT; document.body.appendChild(foot); } // tấm phản hồi của câu trước → về body
+    const lv = view.querySelector('#lsn'); if (lv) lv.classList.remove('st-dim');
+    L.v2 = !!q; L.qblk.style.display = $('#lsnBody').style.display = q ? '' : 'none';
+    const b = L.qfootEl.querySelector('button'), sp = b.querySelector('span:not(.material-symbols-outlined)');
+    b.id = q ? 'lsnCheck' : 'lsnGo'; b.classList.toggle('lsn-gonext', !q); sp.textContent = q ? t('Kiểm tra đáp án') : t('Tiếp tục'); b.disabled = q;
+  }
+  function qDuo(it) {
+    duoMode(true); L.v2 = true; L.who = it.who || L.who || 'ama';
+    const og = $('#lsnBody'), chk = $('#lsnCheck'); { const qh = $('#lsnBub'); qh.textContent = it.prompt; qh.lang = 'en'; qh.dir = 'auto'; } og.textContent = '';
+    const paint = () => { og.textContent = ''; it.options.forEach((o, i) => { const n = L.tplq[L.pick === o ? 'on' : 'off'].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.dir = 'auto'; n.classList.add('lsn-opt'); n.setAttribute('aria-checked', String(L.pick === o)); n.tabIndex = 0;
+      const sp = n.querySelectorAll(':scope > div > span'); sp[0].textContent = LET[i]; sp[1].textContent = o;
+      const pickIt = () => { if (L.checked) return; L.pick = o; chk.disabled = false; paint(); const nb = og.children[i]; if (nb) nb.focus({ preventScroll: true }); };
+      n.onclick = pickIt; n.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickIt(); } }; og.appendChild(n); }); };
+    paint(); chk.onclick = () => submit(L.pick);
+    const c = $('#lsnChat'); c.scrollIntoView({ block: 'nearest' }); setTimeout(() => say(it.prompt, false, it.who), 200);
+  }
+  function lineDuo(it) {
+    const chat = $('#lsnChat'), s = it.who === 'carlos' ? 'carlos' : 'ama', name = TNAME(it.who);
+    if (L.log.indexOf(it) < 0) L.log.push(it); duoMode(false);
+    const n = L.tl[s].cloneNode(true), p = n.querySelector('p'), b = n.querySelector('button');
+    n.querySelector(':scope > div:nth-child(1) > span').textContent = name; p.textContent = it.radio ? RADIO : it.sent; p.dir = 'auto'; b.setAttribute('aria-label', t('Nghe lại') + ' · ' + name);
+    chat.querySelectorAll('#lsnPlay').forEach(x => x.removeAttribute('id')); b.id = 'lsnPlay'; b.onclick = () => say(it.sent, false, it.who);
+    chat.appendChild(n);
+    const go = $('#lsnGo'); go.onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
+    n.scrollIntoView({ block: 'nearest' }); go.scrollIntoView({ block: 'nearest' }); go.focus({ preventScroll: true });
+    setTimeout(() => say(it.sent, false, it.who), 200);
+  }
   // Một câu thoại của truyện/radio: người nói sáng lên + đọc (giọng Kokoro), truyện hiện chữ (radio chỉ nghe), chạm Tiếp tục
   function line(it) {
     const name = it.who === 'carlos' ? 'Carlos' : 'Ama';
-    $('#lsnBub').innerHTML = `<b>${name}</b>` + (it.radio ? ` <span aria-hidden="true">🔊 · · ·</span>` : `<small lang="en">${esc(it.sent)}</small>`);
+    $('#lsnBub').innerHTML = `<b>${name}</b>` + (it.radio ? ` <span aria-hidden="true">🔊 · · ·</span>` : ST.lsnSub(it.sent, 'en'));
     const log = $('#lsnChat'); $('#lsnBody').innerHTML = ''; log.hidden = false;
     if (!it.radio) { const li = document.createElement('li'); li.className = 'lsn-ln ' + it.who; li.lang = 'en'; li.innerHTML = `<b>${name}</b> ${esc(it.sent)}`; log.appendChild(li); li.scrollIntoView({ block: 'nearest' }); }
-    const foot = $('#lsnFoot'); foot.className = 'lsn-foot';
-    foot.innerHTML = `<div><button class="lsn-big sm" id="lsnPlay" aria-label="${t('Nghe lại')}">${UI.icon('audio-lines')}</button><span class="grow"></span><button class="btn primary lg" id="lsnGo">${t('Tiếp tục')}</button></div>`;
+    const foot = $('#lsnFoot'); foot.className = ST.FOOT;
+    foot.innerHTML = ST.lsnGo(t('Nghe lại'), t('Tiếp tục'));
     $('#lsnPlay').onclick = () => say(it.sent, false, it.who);
     $('#lsnGo').onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
     setTimeout(() => say(it.sent, false, it.who), 200);
@@ -254,10 +341,14 @@
         if (done === it.pairs.length) setTimeout(() => submit(miss === 0), 250);
       }; });
     }
-    document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
+    const og = $('#lsnBody.lsn-opts');
+    if (L.v2 && og) { // khung Stitch: vẽ lại 4 thẻ A–D mỗi lần chọn (khuôn chưa chọn / đã chọn)
+      const paint = focus => { og.textContent = ''; it.options.forEach((o, i) => { const b = v2opt(L.pick === o ? 'on' : 'off', i, o); b.onclick = () => { if (L.checked) return; L.pick = o; const g = $('#lsnGap'); if (g) g.textContent = o; if (chk) chk.disabled = false; paint(true); }; og.appendChild(b); if (focus && L.pick === o) setTimeout(() => b.focus(), 0); }); };
+      paint(false);
+    } else if (!L.v2) document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
     if (bank) {
-      const draw = () => { ans.innerHTML = L.tiles.map((i, k) => `<button class="lsn-tile${k === L.tiles.length - 1 && L.popLast ? ' pop' : ''}" data-a="${i}">${esc(it.tiles[i])}</button>`).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
+      const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
       bank.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked || L.tiles.includes(+b.dataset.i)) return; L.tiles.push(+b.dataset.i); L.popLast = true; if (window.Sfx) Sfx.pop(); draw(); L.popLast = false; };
       ans.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked) return; L.tiles = L.tiles.filter(i => i !== +b.dataset.a); draw(); };
     }
@@ -275,6 +366,7 @@
   function submit(ans, heard) {
     if (!L || L.checked) return; L.checked = true;
     const it = L.sess.cur, ok = E.check(it, ans), r = L.sess.answer(ok);
+    document.querySelectorAll('#lsnBody button, #lsnIn').forEach(x => { x.disabled = true; }); // đã chấm: khóa đáp án (luật QA)
     bar();
     react(ok, r.combo);
     feedback(it, ok, heard);
@@ -288,27 +380,102 @@
     if (el) { el.classList.remove('nod', 'shake'); void el.offsetWidth; el.classList.add(ok ? 'nod' : 'shake'); }
     if (pop) { pop.textContent = ok ? (combo >= 3 ? '🔥' : '✓') : '↺'; pop.classList.remove('on'); void pop.offsetWidth; pop.classList.add('on'); } // ký hiệu, KHÔNG emoji nhân vật (luật: chỉ Ama/Carlos bank v2)
     const lines = ok ? OK_LINES : NO_LINES;
-    if (L.teacher) L.teacher.say(lines[(L.sess.n + (combo || 0)) % lines.length], { rate: 1 });
+    if (L.teacher) L.teacher.say(lines[(L.sess.n + (combo || 0)) % lines.length], { rate: 1, voice: VOICE(L.who) });
     const b = $('.lsn-bar'); if (b && ok) { b.classList.remove('glow'); void b.offsetWidth; b.classList.add('glow'); }
   }
 
+  // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)
+  const chips = ok => ST.lsnChips({ ok, face: ST.tStill(L.who === 'carlos' ? 'carlos' : 'ama', ok ? 'cheer' : 'concern'), okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
+  // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster": chip đúng/sai + chuỗi · thẻ giáo viên 2D · Tăng điểm · Vì sao? + Tiếp tục
   function feedback(it, ok, heard) {
-    const foot = $('#lsnFoot');
-    foot.className = 'lsn-foot ' + (ok ? 'ok' : 'bad');
-    if (!it.card) { // ghép cặp: không gắn một từ
-      foot.innerHTML = `<div><div class="lsn-fb" role="status"><h3>${ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'))}</h3>${!ok && it.type !== 'match' ? `<p><b lang="en">${esc(it.answer)}</b></p>` : ''}</div><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
-      $('#lsnNext').onclick = () => next(); $('#lsnNext').focus(); return;
-    }
-    const c = it.card;
-    foot.innerHTML = `<div><div class="lsn-fb" role="status">
-        <h3>${ok ? '✓ ' + t('Tuyệt!') : '✗ ' + t('Chưa đúng')}</h3>
-        ${ok ? '' : `<p><b lang="en">${esc(it.answer)}</b></p>`}
-        <p><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p>
-        <div class="lsn-xp" id="lsnXp" hidden></div></div>
-      <button class="btn" id="lsnWhy">💡 ${t('Vì sao?')}</button><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
-    $('#lsnWhy').onclick = () => explain(it);
+    if (L.v2 && window.ST2 && ST2['feedback-correct'] && ST2['feedback-wrong']) return feedbackV2(it, ok);
+    const foot = $('#lsnFoot'), lv = view.querySelector('#lsn');
+    foot.hidden = false; const qf = view.querySelector('.lsn-qfoot'); if (qf) qf.hidden = true;
+    foot.className = ST.SHEET + ' ' + (ok ? ST.SHEET_OK : ST.SHEET_BAD); if (lv) lv.classList.add('st-dim'); // phần câu hỏi lùi lại sau tấm (mẫu: opacity 40 %)
+    const c = it.card, w = L.who === 'carlos' ? 'carlos' : 'ama';
+    const coach = c ? ST.lsnCoach({ why: t('Vì sao?'), name: TNAME(L.who), role: t('Giáo viên của bạn'), head: ok ? t('Tuyệt!') : t('Đáp án'),
+      body: `${ok ? '' : `<p class="m-0 font-body-md text-body-md text-primary font-bold"><b lang="en">${esc(it.answer)}</b></p>`}<p class="m-0 font-headline-sm text-headline-sm text-on-surface leading-snug"><b lang="en">${esc(c.word)}</b> <span class="font-body-sm text-body-sm">${UI.pronHtml(c, { noEx: true })}</span></p><p class="m-0 font-body-md text-body-md text-on-surface-variant">${esc(meanOf(c))}</p>` }) : ''; // mẫu v2: từ (to) · phát âm · nghĩa (nhạt)
+    foot.innerHTML = ST.lsnSheet({ ok, chips: chips(ok), coach, card: !!c, head: ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng')), answer: !c && !ok && it.type !== 'match' ? it.answer : '',
+      why: c ? t('Vì sao?') : '', next: t('Tiếp tục') });
+    if (c) $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus();
+    if (c) booster(it);
+  }
+
+  // 🧩 Stitch v2.1 feedback-correct / feedback-wrong (khung tự sinh: brand/stitch/v2/bind/feedback-*.json): CHỈ tấm phản hồi, đặt TRONG luồng ngay chỗ chân Kiểm tra (không cố định → không che đáp án/ô nào).
+  // Giáo viên (Ama/Carlos) đổi sang ảnh tĩnh cheer (đúng) / concern (sai) NGAY chỗ cũ – vẫn đứng sau thẻ đề bài đục. Mục mẫu không vẽ (từ · phát âm · nghĩa · Vì sao? · Tăng điểm · Giải thích · chuỗi · combo) nằm trong `extra`.
+  // Stitch feedback-correct/wrong: sau Kiểm tra, thẻ đáp án đúng = thẻ teal "đúng" (✓), đáp án người học chọn sai = thẻ đỏ (✕), còn lại mờ nhẹ (opacity 90 %)
+  const OPT_OK = 'lt:!bg-[#E8F5F3] lt:!border-[#0D6964] lt:![box-shadow:0_4px_0_0_#0D6964] dk:!bg-[#163632] dk:!border-[#2BA39A] dk:![box-shadow:0_4px_0_0_#0f4f49]';
+  const OPT_BAD = 'lt:!bg-[#FFEEE4] lt:!border-[#ba1a1a] lt:![box-shadow:0_4px_0_0_#ba1a1a] dk:!border-[#F2553B] dk:![box-shadow:0_4px_0_0_#9B1E0A]';
+  function v2optMark(it, ok) {
+    const og = $('#lsnBody.lsn-opts'); if (!og) return;
+    og.querySelectorAll('.lsn-opt').forEach(b => {
+      const good = b.dataset.o === String(it.answer), bad = !ok && b.dataset.o === L.pick && !good;
+      if (good) b.classList.add(...OPT_OK.split(' ')); else if (bad) b.classList.add(...OPT_BAD.split(' ')); else b.classList.add('opacity-90');
+      if (good || bad) { const ds = b.querySelectorAll(':scope > div'), hd = ds[ds.length - 1]; if (ds.length > 1) hd.className = 'w-6 h-6 flex items-center justify-center shrink-0'; hd.querySelectorAll('.material-symbols-outlined,.material-symbols-rounded').forEach(x => { const p = x.parentElement; (p !== hd && !p.textContent.replace(x.textContent, '').trim() ? p : x).remove(); }); } // cả vòng tròn chứa dấu ✓ // bỏ dấu ✓ 'đang chọn' của mẫu → chỉ còn 1 dấu kết quả
+      if (good || bad) { const ds = b.querySelectorAll(':scope > div'); ds[ds.length - 1].insertAdjacentHTML('beforeend', `<span class="material-symbols-outlined text-[20px] ${good ? 'lt:text-[#0D6964] dk:text-[#2BA39A]' : 'lt:text-[#ba1a1a] dk:text-[#F2553B]'}" style="font-variation-settings:'FILL' 1" aria-hidden="true">${good ? 'check_circle' : 'cancel'}</span>`); }
+      if (!ok) v2optWrong(it, b, good, bad);
+    });
+    const gap = $('#lsnGap'); if (gap) gap.className = 'lsn-gap inline-block px-2.5 py-0.5 rounded-lg font-bold ' + (ok ? GAP_OK : GAP_BAD); // Stitch: từ điền vào câu = viên teal (đúng) / viên đỏ "lỗi" (sai)
+  }
+  // Stitch feedback-wrong: thẻ đáp án chữ to + nhãn phụ (nghĩa của từ, ngôn ngữ người học) + tag "Đáp án của bạn" (✕) / "Lựa chọn đúng" (✓); thẻ khác giữ chỗ tag (h-4) cho lưới đều
+  const GAP_OK = 'lt:bg-[#0D6964]/15 lt:text-[#0D6964] border lt:border-[#0D6964]/30 dk:bg-[#2BA39A]/20 dk:text-[#4FD1C5] dk:border-[#2BA39A]/40';
+  const GAP_BAD = 'lt:bg-[#ffdad6] lt:text-[#ba1a1a] lt:shadow-[0_2px_0_0_#ba1a1a] dk:bg-[#3B1510] dk:text-[#F2553B] border border-transparent dk:border-[#F2553B]/50 dk:shadow-[0_2px_0_0_#9B1E0A]';
+  const same = (a, b) => String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
+  function optMean(it, o) {
+    if (it.card && (same(o, it.answer) || same(o, it.card.word))) return meanOf(it.card);
+    const c = (L.pool || []).find(x => x && same(x.word, o)); return c ? meanOf(c) : '';
+  }
+  function v2optWrong(it, b, good, bad) {
+    const w = b.querySelector(':scope > span'); if (!w) return;
+    b.classList.remove('h-24'); b.classList.add('min-h-[6rem]');
+    const k = b.querySelector(':scope > div > span'); if (k) k.className = 'w-6 h-6 rounded-full flex items-center justify-center text-[13px] leading-[18px] font-bold ' + (good ? 'lt:bg-[#0D6964] lt:text-white dk:bg-[#2BA39A] dk:text-[#091518]' : bad ? 'lt:bg-[#b42814] lt:text-white dk:bg-[#F2553B] dk:text-[#2A0700]' : 'lt:bg-[#e6e9e8] lt:text-[#0F3D3E] dk:bg-[#1D323A] dk:text-[#EEF6F7]'); // chữ cái trong vòng tròn (Stitch; chữ tối trên san hô để đạt AA)
+    w.className = 'block text-[22px] leading-[30px] tracking-tight font-bold ' + (good ? 'lt:text-[#0D6964] dk:text-[#EEF6F7]' : bad ? 'lt:text-[#b42814] dk:text-[#EEF6F7]' : 'lt:text-[#0F3D3E] dk:text-[#EEF6F7]');
+    const box = document.createElement('div'); box.className = 'my-1 min-w-0'; w.replaceWith(box); box.appendChild(w);
+    const m = optMean(it, b.dataset.o);
+    if (m) { const sub = document.createElement('span'); sub.className = 'lsn-osub block text-[11px] leading-[14px] tracking-[0.04em] font-semibold break-words ' + (good ? 'lt:text-[#0F6B63] dk:text-[#4FD1C5]' : bad ? 'lt:text-[#900f00] dk:text-[#ff8a7a]' : 'lt:text-[#4A5F65] dk:text-[#9DB5BA]'); sub.lang = document.documentElement.lang || ''; sub.dir = 'auto'; sub.textContent = m; box.appendChild(sub); }
+    box.insertAdjacentHTML('afterend', good || bad ? `<div class="lsn-otag mt-1 flex items-center gap-1 ${good ? 'lt:text-[#0D6964] dk:text-[#4FD1C5]' : 'lt:text-[#ba1a1a] dk:text-[#ff8a7a]'}" lang="${esc(document.documentElement.lang || '')}" dir="auto"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">${good ? 'check' : 'arrow_downward'}</span><span class="text-[11px] leading-[14px] tracking-[0.04em] font-bold">${esc(good ? t('Lựa chọn đúng') : t('Đáp án của bạn'))}</span></div>` : '<div class="h-4" aria-hidden="true"></div>');
+  }
+  function feedbackV2(it, ok) {
+    const foot = $('#lsnFoot'), c = it.card, last = L.sess.log.slice(-1)[0] || {}, qf = view.querySelector('.lsn-qfoot'), combo = L.sess.combo, streak = App.streak ? App.streak() : 0;
+    if (qf) { qf.hidden = true; qf.after(foot); }
+    foot.hidden = false; foot.className = 'lsn-fv2 ' + (ok ? 'ok' : 'bad');
+    if (L.teacher && L.teacher.pose) L.teacher.pose(ok ? 'cheer' : 'concern');
+    const PILL = 'inline-flex items-center gap-1 min-h-[28px] px-3 rounded-[9999px] border border-white/60 text-white text-[11px] leading-[14px] tracking-[0.04em] font-bold';
+    const pills = (streak ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">local_fire_department</span>${esc(t('{n} ngày liên tiếp', { n: streak }))}</span>` : '') + (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
+    // Thẻ từ điển + nút Vì sao? = khuôn Stitch v2.1 "dict" (brand/stitch/v2/feedback-*-light.html); chỉ gắn dữ liệu thật: giáo viên · từ · IPA (2 giọng khác nhau → cả 2) · 2 loa đúng giọng · nghĩa
+    const ord = UI.accOrder ? UI.accOrder() : ['en-GB', 'en-US'], LB = { 'en-GB': 'UK', 'en-US': 'US' }, AR = { 'en-GB': 'Nghe giọng Anh–Anh', 'en-US': 'Nghe giọng Anh–Mỹ' };
+    const ip = a => (c ? UI.ipaHtml(c, a, { noEx: true }) : ''), i1 = ip(ord[0]), i2 = ip(ord[1]);
+    const dict = c ? { tlabel: esc(TNAME(L.who)) + ' · ' + esc(t('Giáo viên của bạn')), word: `<span lang="en">${esc(c.word)}</span>`, ipa: i1 && i2 && i1 !== i2 ? `${LB[ord[0]]} ${i1} · ${LB[ord[1]]} ${i2}` : i1 || i2, mean: esc(meanOf(c)),
+      a1: LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
+    const box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
+    const extra = pills ? `<div class="lsn-fb flex flex-wrap gap-[0.5rem]">${pills}</div>` : '';
+    // Thẻ câu của mẫu (Fill in the blank / Spot the error & fix, parts.qcard): câu có chỗ trống điền từ đã chọn (đúng = viên teal, sai = viên đỏ); dạng không có câu → chỉ viên từ
+    const pick = ok ? String(it.answer) : String(L.pick == null ? '' : L.pick), B = it.type === 'gap' && it.blank, T = B ? it.blank.toks : [];
+    const q = { qkind: TITLE(it), qpre: B ? T.slice(0, B.i).join(' ') : '', qpick: pick, qpost: B ? T.slice(B.i + B.n).join(' ') : '' };
+    const d = Object.assign(ok ? { head: t('Tuyệt!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, q, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
+    const K = ok ? 'feedback-correct' : 'feedback-wrong', o2 = ST2[K](d);
+    foot.innerHTML = `<div class="v2s-${K}">${o2.main}</div>`;
+    view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); const og0 = $('#lsnBody');
+    if (o2.qcard && og0 && pick) { og0.insertAdjacentHTML('beforebegin', `<div class="lsn-fq v2s-${K} mb-[1rem]">${o2.qcard}</div>`); const fp = $('#lsnFqPlay'); if (fp) fp.onclick = () => say(B ? it.sent : pick, false, it.who); }
+    const xp = foot.querySelector('.lsn-xpp'); if (xp && !d.xp) xp.hidden = true; const an = foot.querySelector('.lsn-ans'); if (an && !d.answer) an.hidden = true;
+    if (!c) foot.querySelectorAll('.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); // ghép cặp (không có 1 từ) → không thẻ từ / Vì sao?
+    v2optMark(it, ok);
+    if (c) $('#lsnWhy').onclick = () => explain(it);
+    $('#lsnNext').onclick = () => next();
+    $('#lsnNext').focus({ preventScroll: true });
+    foot.scrollIntoView({ block: 'end', behavior: 'auto' }); // tấm phản hồi + Tiếp tục luôn trong tầm nhìn
+    if (c) booster(it);
+  }
+
+  // ⚡ "Tăng điểm": lỗi hay gặp → cách nói tốt hơn (gold bank, 0 AI), chạm cụm để nghe. Từ chưa có cặp sai/đúng → ẩn
+  async function booster(it) {
+    try { await App.need('lgold'); } catch (e) { return; }
+    const box = $('#lsnBoost'); if (!box || !L || L.sess.cur !== it) return;
+    const x = ((window.LESSON_GOLD || {})[E.norm(it.card.word)] || []).find(g => g.w && g.r); if (!x) return;
+    box.innerHTML = ST.lsnBoost({ title: t('Tăng điểm'), bad: t('Hay sai'), good: t('Nói hay hơn'), w: x.w, r: x.r });
+    box.hidden = false; box.querySelector('.lsn-say').onclick = e => say(e.currentTarget.dataset.say, false, L.who);
   }
 
   // "Giải thích" từ dữ liệu sẵn có, 0 lượt AI: gold bank (vì sao + sai → đúng + mẹo) → định nghĩa + ví dụ + câu của chính người học
@@ -335,14 +502,39 @@
     box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
   }
 
+  const weak0 = s => [...s.wrong.keys()].filter(k => k[0] !== '#');
+  // 🧩 Stitch v2.1 lesson-complete (brand/stitch/v2/bind/lesson-complete.json): Ama (cheer, ảnh tĩnh) đứng SAU thẻ đục "sub" (thẻ kéo lên chồng đáy hình, che đường hông + vùng mờ)
+  function finishV2(s, xp, weak, cheer) {
+    const mins = Math.max(1, Math.round((Date.now() - L.t0) / 60000)), streak = App.streak ? App.streak() : 0, w = L.picks || [], q = Q(L.demo);
+    const ic = n => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${n}</span>`, ROW = 'flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1 text-[13px] leading-[18px] font-bold lt:text-[#0F3D3E] dk:text-[#EEF6F7]';
+    const more = `<span class="${ROW}"><span class="inline-flex items-center gap-1">${ic('local_fire_department')}${esc(t('COMBO cao nhất'))}: ${s.best}</span><span class="inline-flex items-center gap-1">${ic('timer')}${esc(t('Thời gian'))}: ${mins}′</span></span>` +
+      (weak.length ? `<span class="${ROW} font-medium"><span class="inline-flex items-start gap-1">${ic('replay')}<span lang="en">${esc(weak.join(', '))}</span></span></span>` : `<span class="${ROW}"><span class="inline-flex items-center gap-1">${ic('star')}${esc(t('Không sai câu nào!'))}</span></span>`);
+    const d = { close: `#/lesson${q}`, mapL: t('Bản đồ bài học'), title: L.title, pct: '100%', chip: L.chip || L.title, xp: '+' + xp, acc: s.accuracy + '%', streak: String(streak),
+      off1: Math.round(490 * (1 - Math.min(100, s.accuracy) / 100)), off2: Math.round(414 * (1 - Math.min(1, s.ok1 / Math.max(1, s.total)))),
+      sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: w.length ? t('Bạn đã học:') + ' ' + w.map(p => p.card.word).join(' · ') : ' ', more,
+      rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'), revHref: weak.length ? '#/mistakes' : `#/lesson${q}`,
+      teacher: '<div class="lsn-tchw lsn-endt relative z-0 -mb-10 -mt-3 h-[132px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[154px] h-[132px] max-w-full"></div></div>' };
+    if (L.teachers && L.teachers.carlos) { try { L.teachers.carlos.destroy(); } catch (e) { /* bỏ qua */ } } L.teachers = null;
+    if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
+    const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end');
+    try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; if (L.teacher) { if (L.teacher.pose) L.teacher.pose('cheer'); L.teacher.say(cheer, { rate: 1, voice: VOICE('ama') }); } } catch (e) { L.teacher = null; }
+    if (window.Feel && Feel.on) { const x = root.querySelector('.lsn-stats > div:nth-child(1) > span:nth-child(2)'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
+    const sh = $('#lsnShare'); if (sh) sh.onclick = async () => { const text = t('Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP', { a: s.accuracy, x: xp }); try { if (navigator.share) await navigator.share({ title: 'Lexkite', text, url: location.origin + '/' }); else if (navigator.clipboard) { await navigator.clipboard.writeText(text); UI.toast(t('Đã sao chép')); } } catch (e) { /* người dùng hủy */ } };
+    $('#lsnAgain').onclick = () => routes.lesson('go');
+    $('#lsnAgain').focus({ preventScroll: true });
+  }
+
   async function finish() {
     const s = L.sess, res = E.results(s, L.items, L.demo ? {} : state.cards), foot = $('#lsnFoot');
     if (foot) foot.remove();
-    if (L.teacher) L.teacher.say(s.accuracy >= 80 ? 'Great job!' : 'Good work. Keep going!', { rate: 1 });
+    const CV = L.v2 && window.ST2 && ST2['lesson-complete']; // khung Stitch lesson-complete (cờ ux1); không có → màn kết cũ
+    const cheer = s.accuracy >= 80 ? 'Great job!' : 'Good work. Keep going!';
+    if (L.teacher && !CV) L.teacher.say(cheer, { rate: 1, voice: VOICE(L.who) });
+    if (!L.demo) try { const k = 'lk.ux1.st', m = JSON.parse(ls.get(k) || '{}'), i = pathN(false); m[i] = s.accuracy >= 90 ? 3 : s.accuracy >= 70 ? 2 : 1; Object.keys(m).filter(x => +x < i - 60).forEach(x => delete m[x]); ls.set(k, JSON.stringify(m)); } catch (e) { /* bỏ qua */ } // sao thật của nút vừa xong (bản đồ ux1)
     ls.set(PKEY(L.demo), String(pathN(L.demo) + 1));
     ls.set('lk.lsn.acc', String(s.accuracy)); // nút kế tiếp thích nghi theo bài này (ux1)
     if (L.story) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
-    try { if (window.Sfx) Sfx.win(); if (window.confetti && !matchMedia('(prefers-reduced-motion: reduce)').matches) confetti(90); } catch (e) { /* bỏ qua */ }
+    try { if (window.Sfx) Sfx.win(); /* không pháo giấy: chuyển động tiết chế (chủ 28/10) */ } catch (e) { /* bỏ qua */ }
     let added = 0; const xp = 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
       for (const r of res) {
@@ -354,15 +546,17 @@
       }
       try { await App.reward({ quizzes: 1, spoken: L.spoken, perfect: s.wrong.size ? 0 : 1, xp }); } catch (e) { /* bỏ qua */ }
     }
-    const weak = [...s.wrong.keys()].filter(k => k[0] !== '#');
-    view.querySelector('#lsnBody').innerHTML = '';
+    const weak = weak0(s);
+    if (CV) return finishV2(s, xp, weak0(s), cheer);
+    view.querySelector('#lsnBody').innerHTML = ''; if (L.v2) view.querySelector('#lsnBody').className = FLOW;
     $('#lsnBub').textContent = s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!');
-    view.querySelector('#lsnBody').innerHTML = `<div class="card lsn-end"><h2>🎉 ${t('Hoàn thành bài học!')}</h2>
-      <div class="lsn-stats"><div><b>+${xp}</b><span class="tiny muted">XP</span></div><div><b>${s.accuracy}%</b><span class="tiny muted">${t('Tỉ lệ trả lời đúng')}</span></div><div><b>🔥 ${s.best}</b><span class="tiny muted">${t('COMBO cao nhất')}</span></div><div><b>${Math.max(1, Math.round((Date.now() - L.t0) / 60000))}′</b><span class="tiny muted">${t('Thời gian')}</span></div></div>
-      ${(L.picks || []).length ? `<p class="small">📘 ${t('Bạn đã học:')} <b lang="en">${L.picks.map(p => esc(p.card.word)).join(' · ')}</b></p>` : ''}
-      ${weak.length ? `<p class="small">🔁 <b lang="en">${weak.map(esc).join(', ')}</b></p>` : `<p>⭐ ${t('Không sai câu nào!')}</p>`}
-      <button class="btn primary lg lsn-go" id="lsnAgain">${t('Bài khác')} →</button><p><a class="small" href="#/lesson${Q(L.demo)}">${UI.icon('map')} ${t('Bản đồ bài học')}</a></p></div>`;
-    bar(); $('.lsn-bar').firstChild.style.width = '100%';
+    const lv = view.querySelector('#lsn'); if (lv) lv.classList.add('st-end'); // 🎨 màn hoàn thành = khoảnh khắc ăn mừng (web/js/st/lesson.js lsnEnd)
+    const w = L.who === 'carlos' ? 'carlos' : 'ama', mins = Math.max(1, Math.round((Date.now() - L.t0) / 60000));
+    view.querySelector('#lsnBody').innerHTML = ST.lsnEnd({ face: ST.tFace(w, s.accuracy >= 80 ? 'cheer' : 'encourage', 'absolute inset-0 w-full h-full object-contain object-bottom'),
+      title: t('Hoàn thành bài học!'), sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),
+      stats: [{ icon: 'bolt', val: '+' + xp + ' XP', label: 'XP', tone: 'gold' }, { icon: 'target', val: s.accuracy + '%', label: t('Tỉ lệ trả lời đúng'), tone: 'teal' }, { icon: 'local_fire_department', val: String(s.best), label: t('COMBO cao nhất'), tone: 'coral' }, { icon: 'timer', val: mins + '′', label: t('Thời gian') }],
+      learnedL: t('Bạn đã học:'), learned: (L.picks || []).map(p => p.card.word).join(' · '), weak: weak.join(', '), perfect: t('Không sai câu nào!'), again: t('Bài khác'), mapHref: `#/lesson${Q(L.demo)}`, mapL: t('Bản đồ bài học') });
+    bar();
     $('#lsnAgain').onclick = () => routes.lesson('go');
     $('#lsnAgain').focus();
   }

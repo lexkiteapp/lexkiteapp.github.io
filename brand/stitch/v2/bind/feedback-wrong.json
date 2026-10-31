@@ -1,0 +1,61 @@
+{
+ "_doc": "Tấm phản hồi SAI (#lsnFoot, #/lesson/go) – chỉ phần tấm (keep). d như feedback-correct + answer (đáp án đúng; trống = ẩn dòng). Thẻ đáp án chữ to + nhãn phụ (nghĩa) + tag Đáp án của bạn / Lựa chọn đúng, từ sai tô đỏ trong câu = ui.js v2optWrong (khung lesson-question). Đã hiểu = #lsnNext (sang câu kế).",
+ "keep": ":scope > main > div > div:nth-child(4)",
+ "i18n": {
+  "Correct answer:": "Đáp án đúng:",
+  "Why?": "Vì sao?"
+ },
+ "text": {
+  "Not quite": "d.head",
+  "listening": "d.answer",
+  "GOT IT": "t('Đã hiểu')"
+ },
+ "html": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > span:nth-child(1)": "d.tlabel",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": "d.word",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "d.ipa",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > p": "d.mean",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1) > span:nth-child(2)": "d.a1",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > button:nth-child(2) > span:nth-child(2)": "d.a2"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1)": {
+   "role": "'status'"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(3) > button": {
+   "id": "'lsnWhy'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(4) > button": {
+   "id": "'lsnNext'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(4) .material-symbols-outlined": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)": {
+   "type": "'button'",
+   "data-speak": "d.say",
+   "data-accent": "d.acc1",
+   "data-url": "d.url1",
+   "aria-label": "d.ar1"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > button:nth-child(2)": {
+   "type": "'button'",
+   "data-speak": "d.say",
+   "data-accent": "d.acc2",
+   "data-url": "d.url2",
+   "aria-label": "d.ar2"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "lsn-ans",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(4) > button > span:nth-child(1)": "uppercase",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2)": "lsn-dict",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(3)": "lsn-whyrow"
+ },
+ "after": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1)": "d.extra",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(3)": "d.boxes"
+ }
+}

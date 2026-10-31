@@ -36,6 +36,8 @@ function align(a, b, loose) {
   return { d: D[n][m][0], st: D[n][m][1] };
 }
 export const diff = (a, b) => align(a, b).d;
+/** khớp CHẶT (UK máy ↔ Britfone): cùng chuỗi âm vị, chỉ cho nguyên âm yếu đổi nhau (ə ɪ i ʊ u); ə ≠ nguyên âm đầy (æ…) dù không nhấn */
+export const strictEq = (a, b) => { const x = P(a), y = P(b); return x.length === y.length && x.every((q, i) => q.p === y[i].p || (WEAKV.has(q.p) && WEAKV.has(y[i].p))); };
 export const exact = (a, b) => P(a).map(x => x.p).join('') === P(b).map(x => x.p).join('');
 export const near = (a, b) => diff(P(a), P(b)) === 0;
 // trung tính giọng (so Anh ↔ Mỹ): bỏ r sau nguyên âm, gộp ɑ/ɒ/ɔ
@@ -129,7 +131,9 @@ export function checkEntry(e, refs) {
   // Anh
   if (out.ipa) {
     set('ipa', prefixStress(out.ipa, w, has), 'ranh giới tiền tố');
-    if (bf && (!bfI.some(b => nearL(un(out.ipa), b)) || stressBad(out.ipa))) {
+    // UK do espeak (máy) mà Britfone (người) có từ: phải KHỚP CHẶT (nearL cho ə≈æ… – soát pilot 7: malaria espeak /mæˈleəriə/ ≠ Britfone məˈlɛəɹɪə)
+    const machine = (e.src || {}).ipaUK === 'espeak', strictOk = () => bfI.some(b => strictEq(un(out.ipa), b));
+    if (bf && (!bfI.some(b => nearL(un(out.ipa), b)) || stressBad(out.ipa) || (machine && !strictOk()))) {
       const opts = uniq(bf.map(b => oxStress(ukStyle(prefixStress(bfToOx(b), w, has))))).filter(agree).filter(o => !vs.length || cmuIpa(vs).some(c => nNear(o, c))).filter(o => optOk(o, out.ipa));
       if (opts.length === 1) set('ipa', opts[0], 'Britfone'); else out.bad.push(`Anh ${out.ipa} ≠ Britfone ${bf.join(' | ')}${vs.length ? ' / CMU ' + cmuIpa(vs).join(' | ') : ''}`);
     } else if (!bf && vs.length && cmuIpa(vs).every(c => gross(out.ipa, c))) out.bad.push(`Anh ${out.ipa} ≠ CMU ${cmuIpa(vs).join(' | ')} (không có Britfone)`);

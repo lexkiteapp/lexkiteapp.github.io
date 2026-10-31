@@ -1,0 +1,47 @@
+# 🎯 Bám mẫu Stitch: vẽ 4 màn (Học · Bài học · Phản hồi · Sẵn sàng thi) ở 390 px sáng/tối, so SSIM + nhịp hàng với brand/stitch/*.jpg,
+# đỏ khi dưới ngưỡng scripts/test/stitch-diff.json (chỉ được nâng). Artifact: tờ "Stitch | app" cho chủ duyệt. Hermetic, 0 lượt chạm prod.
+name: Stitch diff
+on:
+  pull_request:
+    paths: ['web/**', 'brand/stitch/**', 'scripts/test/stitch-diff.*', 'scripts/test/stitch-screens.mjs', 'scripts/test/final-qc.mjs', 'scripts/test/stitch-render.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', '.github/workflows/stitch-diff.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stitch-diff-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  diff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: CSS Stitch khớp mẫu (Tailwind biên dịch sẵn, ≤ 10 KB gz/nhóm)
+        run: |
+          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 playwright@1.48.2 pngjs@7.0.0 axe-core@4.10.2 jsdom@25.0.1
+          node scripts/stitch-v2-convert.mjs --check
+          node scripts/build-stitch-css.mjs --check
+      - name: Vẽ HTML Stitch v2 tĩnh (tắt hoạt ảnh) → tờ duyệt tối/sáng
+        if: always()
+        run: |
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
+          node scripts/test/stitch-render.mjs brand/stitch/v2 out/stitch-v2
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: stitch-v2-review, path: out/stitch-v2, retention-days: 14 }
+      - name: So với mẫu Stitch
+        if: always()
+        run: |
+          node scripts/test/stitch-diff.mjs web out/stitch-diff
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: stitch-diff, path: out/stitch-diff, retention-days: 7 }
+      - name: QC cuối 1-1 (13 màn – RTL, giảm chuyển động, giáo viên không "dán đè", giọng = giáo viên, khớp miệng, âm hiệu ứng)
+        if: always()
+        run: node scripts/test/final-qc.mjs web out/stitch-diff out/final-qc
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: final-qc, path: out/final-qc, retention-days: 14 }

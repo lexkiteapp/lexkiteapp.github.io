@@ -1,0 +1,75 @@
+{
+ "id": "t2_dictation_surname",
+ "template": "dictation",
+ "series": "What Did She Say?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What did she say? Listen!",
+   "pause": 0.42
+  },
+  {
+   "id": "s1",
+   "text": "Could you spell the surname for me, please?",
+   "pause": 1.0
+  },
+  {
+   "id": "g",
+   "text": "Once more. Fill the gap!",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Could you spell the surname for me, please?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Spell the surname! Surname means your family name.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "line": "Could you spell the surname for me, please?",
+  "gap": "spell the surname",
+  "word": "surname",
+  "ipa": "/ˈsɜːrneɪm/",
+  "mean": "the family name you share with your relatives"
+ },
+ "cta": {
+  "area": "dictation",
+  "route": "#/dictation/t1p1",
+  "link": "https://lexkite.com/app/#/dictation/t1p1",
+  "say": "Try free dictation"
+ },
+ "hook": {
+  "line": "h",
+  "text": "What did she say?"
+ },
+ "src": {
+  "listening": "t1p1",
+  "line": 6
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.8,
+  "wpm": 97
+ }
+}

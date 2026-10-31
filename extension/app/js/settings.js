@@ -44,7 +44,8 @@
         + tog('sAuto', s.autoSpeak, t('Tự phát âm khi hiện thẻ'))
         + tog('sWhisper', s.whisperMode, '🤫 ' + t('Chế độ thì thầm khi luyện nói'))
         + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
-        + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh')))}
+        + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh'))
+        + tog('sFeel', !!(window.Sfx && Sfx.feel && Sfx.feel()), t('Âm thanh & hiệu ứng kiểu trò chơi')))}
       ${sec('remind', UI.icon('alarm-clock') + t('Nhắc học hằng ngày'),
         tog('sRem', s.reminderOn, t('Bật nhắc học'))
         + `<div id="remOpts" ${s.reminderOn ? '' : 'hidden'}>`
@@ -121,6 +122,7 @@
     $('#sAuto').onchange = e => { s.autoSpeak = e.target.checked; save(); };
     $('#sWhisper').onchange = e => { s.whisperMode = e.target.checked; save(); if (s.whisperMode) toast(t('Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.'), 4500); };
     $('#sHq').onchange = e => { s.hqVoice = e.target.checked; save(); };
+    if ($('#sFeel')) $('#sFeel').onchange = e => { if (window.Sfx && Sfx.feel) Sfx.feel(e.target.checked); }; // 🎮 docs/GAME-FEEL.md – lưu vb.feel, bật/tắt ngay
     $('#sSfx').onchange = e => { s.sfx = e.target.checked; save(); if (s.sfx) { Core.sfxOff = false; Sfx.correct(); } };
     $$('#sTheme button').forEach(b => b.onclick = () => { s.theme = b.dataset.v; applyTheme(); save(); $$('#sTheme button').forEach(x => x.classList.toggle('on', x === b)); });
     $('#sTest').onclick = () => R && R.notify(true);

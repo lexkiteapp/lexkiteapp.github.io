@@ -1,8 +1,8 @@
 ---
 slug: toefl-ibt-academic-discussion-writing-rukovodstvo
-title: "TOEFL iBT Academic Discussion Writing Rukovodstvo"
-description: "TOEFL iBT academic discussion writing rukovodstvo: стратегии ответа за 10 минут, шаблоны аргументации, структура эссе на 100+ слов и пример на 5/5."
-keyword: "toefl ibt academic discussion writing rukovodstvo"
+title: "Руководство по TOEFL Academic Discussion: ответ на 5/5"
+description: "Руководство по TOEFL Academic Discussion (iBT Writing): стратегия ответа за 10 минут, шаблоны аргументации, структура на 100+ слов и пример на 5/5."
+keyword: "руководство по toefl academic discussion"
 lang: ru
 translationKey: luyen-thi-toefl-ibt-writing-academic-discussion-theknik
 category: toefl
@@ -52,11 +52,11 @@ quiz: [
 ]
 ---
 
-Масштабная реформа экзамена TOEFL iBT, проведенная организацией ETS, полностью изменила структуру секции Writing: традиционное 30-минутное независимое эссе (*Independent Writing*) было навсегда упразднено. На смену ему пришел ультрадинамичный формат **Writing for an Academic Discussion**, требующий за 10 минут проанализировать вопрос профессора, прочитать реплики двух сокурсников и написать аргументированный пост объемом от 100 слов. Грамотное **toefl ibt academic discussion writing rukovodstvo** позволяет адаптироваться к жесткому таймингу и стабильно получать максимальные 5 из 5 баллов.
+Масштабная реформа экзамена TOEFL iBT, проведенная организацией ETS, полностью изменила структуру секции Writing: традиционное 30-минутное независимое эссе (*Independent Writing*) было навсегда упразднено. На смену ему пришел ультрадинамичный формат **Writing for an Academic Discussion**, требующий за 10 минут проанализировать вопрос профессора, прочитать реплики двух сокурсников и написать аргументированный пост объемом от 100 слов. Грамотное **руководство по TOEFL Academic Discussion** позволяет адаптироваться к жесткому таймингу и стабильно получать максимальные 5 из 5 баллов.
 
 В этом подробном гиде мы разберем специфику нового формата, шкалу оценивания алгоритма ETS e-rater, распределение 10 минут по секундам, универсальные шаблоны формулировок и идеальный пример ответа уровня C1+.
 
-## TOEFL iBT Academic Discussion Writing Rukovodstvo: Новый Формат ETS
+## Руководство по TOEFL Academic Discussion: Новый Формат ETS
 
 Интерфейс задания симулирует интерактивный онлайн-семинар в американском университете. На экране одновременно отображаются три информационных блока:
 

@@ -103,5 +103,12 @@
   'Cách kiếm XP:': 'How to earn XP:',
   'Tích lũy XP qua mọi hoạt động: ôn thẻ từ vựng FSRS (+10–15 XP), đọc bài (+10–20 XP), làm trắc nghiệm, luyện thi.': 'Earn XP through all activities: reviewing FSRS vocabulary cards (+10–15 XP), reading articles (+10–20 XP), doing quizzes, and taking mock tests.',
   'Quyền riêng tư:': 'Privacy:',
-  'Chỉ hiển thị biệt danh và XP tuần. Bạn có thể đổi biệt danh bất kỳ lúc nào hoặc rời giải đấu trong mục Cài đặt.': 'Only nickname and weekly XP are displayed. You can change your nickname anytime or leave the league in Settings.'
+  'Chỉ hiển thị biệt danh và XP tuần. Bạn có thể đổi biệt danh bất kỳ lúc nào hoặc rời giải đấu trong mục Cài đặt.': 'Only nickname and weekly XP are displayed. You can change your nickname anytime or leave the league in Settings.',
+  'Nguy cơ': 'At risk',
+  'An toàn': 'Safe',
+  'Còn {n} XP để thăng hạng': '{n} XP to promotion',
+  'Kiếm +{n} XP để leo hạng': 'Earn +{n} XP to climb',
+  'Giữ vững vị trí': 'Hold your spot',
+  'Top {n} lên': 'Top {n} advance to',
+  'Top {n} giữ hạng': 'Top {n} stay in',
 }); })(typeof self !== 'undefined' ? self : this);

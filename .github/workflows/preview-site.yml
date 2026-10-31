@@ -1,0 +1,97 @@
+# Site PREVIEW cho chủ duyệt redesign: main mới nhất + mọi PR mở gắn nhãn `preview` (gộp tăng dần theo số PR) → Cloudflare Pages
+# dự án RIÊNG `lexkite-preview` (nhánh `preview` ⇒ https://preview.lexkite-preview.pages.dev). KHÔNG đụng dự án production `lexkite`.
+# Nhánh gộp chỉ tồn tại trong runner, không bao giờ push. PR xung đột / hỏng cú pháp / hỏng build ⇒ BỎ QUA, ghi vào summary.
+name: Preview site
+on:
+  schedule:
+    - cron: '53 */3 * * *'   # lệch 30 phút so với pages-deploy (23 */3)
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: read
+  actions: write   # gọi post-deploy-check
+concurrency:
+  group: preview-site
+  cancel-in-progress: true
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7
+      PROJECT: lexkite-preview
+      PREVIEW_URL: https://preview.lexkite-preview.pages.dev
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Gộp PR nhãn preview vào nhánh tạm (không push)
+        run: |
+          git config user.name preview-bot; git config user.email preview-bot@users.noreply.github.com
+          git checkout -q -b preview-integration
+          : > /tmp/included.txt; : > /tmp/skipped.txt
+          for n in $(gh pr list --label preview --state open --json number --jq 'sort_by(.number)[].number'); do
+            git fetch -q origin "pull/$n/head:pr-$n" || { echo "skipped: #$n không tải được" >> /tmp/skipped.txt; continue; }
+            sha=$(git rev-parse --short=9 "pr-$n")
+            if ! git merge -q --no-edit "pr-$n" >/tmp/merge.log 2>&1; then
+              git merge --abort 2>/dev/null || git reset -q --hard HEAD
+              echo "skipped: #$n xung đột khi gộp ($sha)" >> /tmp/skipped.txt; continue
+            fi
+            # kiểm nhanh tệp đổi: cú pháp JS + JSON hợp lệ (hỏng ⇒ lùi PR này)
+            bad=""
+            for f in $(git diff --name-only "HEAD^1" HEAD); do
+              [ -f "$f" ] || continue
+              case "$f" in
+                *.js|*.mjs) node --check "$f" 2>/dev/null || bad="$f";;
+                *.json) node -e 'JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"))' "$f" 2>/dev/null || bad="$f";;
+              esac
+            done
+            if [ -n "$bad" ]; then git reset -q --hard HEAD^1; echo "skipped: #$n lỗi cú pháp ở $bad ($sha)" >> /tmp/skipped.txt; continue; fi
+            echo "#$n $sha" >> /tmp/included.txt
+          done
+          cat /tmp/included.txt /tmp/skipped.txt
+      - name: Dựng site (như production)
+        run: |
+          if ! (npm ci --no-audit --no-fund && bash scripts/build-web.sh) > /tmp/build.log 2>&1; then
+            tail -30 /tmp/build.log
+            echo "Build gộp lỗi → dựng lại chỉ với main" 
+            # thử loại từng PR từ cuối: dựng lại với main thuần, mọi PR vào danh sách bỏ qua
+            sed 's/^/skipped: /; s/$/ (build gộp lỗi, dựng main thuần)/' /tmp/included.txt >> /tmp/skipped.txt; : > /tmp/included.txt
+            git reset -q --hard main
+            npm ci --no-audit --no-fund && bash scripts/build-web.sh
+          fi
+      - name: Chỉ dành cho preview – chặn lập chỉ mục, tắt quảng cáo/phân tích
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
+          rm -f dist/sitemap*.xml dist/ads.txt dist/app-ads.txt
+          { printf '/*\n  X-Robots-Tag: noindex, nofollow, noarchive\n\n'; cat dist/_headers; } > /tmp/h && mv /tmp/h dist/_headers
+          grep -q 'enabled: false' dist/js/ads/config.js 2>/dev/null && echo "✓ ads.enabled=false" || echo "::warning::không xác nhận được ads.enabled=false"
+      - name: Deploy lên Cloudflare Pages (dự án lexkite-preview, nhánh preview)
+        run: |
+          [ -n "$CLOUDFLARE_API_TOKEN" ] || { echo "::error::Thiếu secret CLOUDFLARE_API_TOKEN"; exit 1; }
+          npx -y wrangler@3.114.0 pages project create "$PROJECT" --production-branch main 2>&1 | tail -3 || true
+          npx -y wrangler@3.114.0 pages deploy dist --project-name lexkite-preview --branch preview --commit-hash "$GITHUB_SHA" --commit-message "preview $(date -u +%FT%TZ)" --commit-dirty=true
+      - name: Kiểm lỗi như production (post-deploy-check)
+        id: chk
+        run: |
+          ref=""
+          for r in main ci/post-deploy-check; do
+            gh api "repos/$GITHUB_REPOSITORY/contents/.github/workflows/post-deploy-check.yml?ref=$r" >/dev/null 2>&1 && { ref=$r; break; }
+          done
+          if [ -z "$ref" ]; then echo "result=TODO: post-deploy-check.yml chưa có (main hay ci/post-deploy-check)" >> $GITHUB_OUTPUT; exit 0; fi
+          sleep 60   # chờ bản deploy phân phối
+          gh workflow run post-deploy-check.yml --ref "$ref" -f base_url="$PREVIEW_URL"
+          sleep 20
+          id=$(gh run list --workflow post-deploy-check.yml --branch "$ref" --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId')
+          if timeout 1500 gh run watch "$id" --exit-status >/dev/null 2>&1; then r=PASS; else r=FAIL; fi
+          echo "result=$r (ref $ref, run $id)" >> $GITHUB_OUTPUT
+      - name: Tóm tắt
+        if: always()
+        run: |
+          { echo "## Preview site"; echo "URL: $PREVIEW_URL"; echo "main: $(git rev-parse --short=9 main)"; echo
+            echo "### PR đã gộp"; [ -s /tmp/included.txt ] && sed 's/^/- /' /tmp/included.txt || echo "- (không có)"
+            echo "### Bỏ qua"; [ -s /tmp/skipped.txt ] && sed 's/^/- /' /tmp/skipped.txt || echo "- (không có)"
+            echo "### Kết quả kiểm: ${{ steps.chk.outputs.result }}"; } >> $GITHUB_STEP_SUMMARY

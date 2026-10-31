@@ -23,7 +23,7 @@ node scripts/build-social-templates.mjs
 | Ảnh bìa Shorts / Reels / TikTok 1080×1920 | `short-pov`, `short-native`, `short-why` | nội dung nằm trong vùng x 90–930, y 270–1600, tránh thanh trên cùng, cột nút bên phải và chú thích bên dưới |
 | Ảnh bài đăng IG/FB | `post-word` và `post-idiom` (1:1), `post-dont-say` và `post-quiz` (4:5) | đều có bản `-blank` |
 | End card | `endcard-qr-1080x1920` (dọc), `endcard-qr-1920x1080` (ngang) | mã QR dẫn tới https://lexkite.com, đã quét thử và đọc đúng. Đặt ở 5–20 giây cuối video |
-| Lower-third | `lower-third-<mia\|leo\|ama\|diane\|carlos\|kit>-1920x1080.png` và `-1080x1920.png` | PNG nền trong suốt, đặt chồng lên video. Bản dọc nằm ở y≈1330, phía trên phần chú thích |
+| Lower-third | `lower-third-<ama\|carlos\|kit>-1920x1080.png` và `-1080x1920.png` | PNG nền trong suốt, đặt chồng lên video. Bản dọc nằm ở y≈1330, phía trên phần chú thích |
 | Bảng nhận diện | `brand-sheet-1920x1080` | bảng màu theo BRAND-RULES, phông chữ, nhân vật, Kit |
 
 - **Thư mục:** `png/` chứa ảnh dùng ngay (JPG q88, sRGB; lower-third là PNG). `svg/` chứa bản sửa được: chữ hook và tên trong lower-third là chữ thật (`<text class="hook">`, `id="name"`, `id="role"`). Ảnh nhân vật được tham chiếu tương đối tới `../assets/chars/`.

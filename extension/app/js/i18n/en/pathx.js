@@ -27,7 +27,6 @@
     "can / could / may – xin phép và nhờ giúp": "can / could / may – asking permission and favours",
     "Đề nghị lịch sự": "Polite requests",
     "Tiến độ bài": "Lesson progress",
-    "{n} ngày liên tiếp": "{n}-day streak",
     "+{xp} XP hôm nay": "+{xp} XP today",
     "{done}/{total} bước": "{done}/{total} steps",
     "Bước tiếp theo: {step}": "Next step: {step}",
