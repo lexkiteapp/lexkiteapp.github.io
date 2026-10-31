@@ -4,13 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lexkite Badges</title>
-  <!-- Plus Jakarta Sans Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- Material Symbols Outlined -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0..1,0" />
-  <!-- Tailwind CDN -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400..700,0..1,0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -20,21 +17,21 @@
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
           },
           colors: {
-            cream: {
-              50: '#fffbf7',
-              100: '#fff7f0',
-              200: '#faede0',
-              300: '#f3dfcc',
-            },
-            teal: {
-              brand: '#136b66',
-              dark: '#0c4945',
-              soft: '#e1f4f2',
-            },
-            orange: {
-              brand: '#f59e0b',
-              vivid: '#ea580c',
-              light: '#fef3c7',
+            brand: {
+              cream: '#FFF9F3',
+              card: '#FFFFFF',
+              ledge: '#EADCCE',
+              darkLedge: '#D9C8B5',
+              teal: '#136B66',
+              tealDark: '#0D504C',
+              tealLight: '#E8F5F3',
+              amber: '#F59E0B',
+              amberDark: '#B45309',
+              amberLight: '#FEF3C7',
+              ink: '#1A1816',
+              inkMuted: '#5C4E43',
+              inkSoft: '#7A6B5F',
+              btnInk: '#1C1003'
             }
           }
         }
@@ -44,508 +41,589 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #fff7f0;
-      color: #1a2726;
+      background-color: #FFF9F3;
+      color: #1A1816;
       -webkit-font-smoothing: antialiased;
     }
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-    }
-    .material-symbols-outlined.unfilled {
-      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-    }
-    /* 3D Tactile Buttons & Badges */
-    .tactile-card {
-      box-shadow: 0 4px 0 #ecdacf;
+    .tactile-btn {
       transition: transform 0.1s ease, box-shadow 0.1s ease;
     }
-    .tactile-card:active {
+    .tactile-btn:active {
       transform: translateY(2px);
-      box-shadow: 0 2px 0 #ecdacf;
+      box-shadow: 0 1px 0 0 #D9C8B5 !important;
     }
-    .tactile-back-btn {
-      box-shadow: 0 3px 0 #ecd8cb;
-    }
-    .tactile-back-btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 #ecd8cb;
-    }
-    /* Glossy Medallion 3D styling */
-    .medallion-earned {
-      box-shadow: 0 6px 0 var(--ledge-color, #c2410c), 0 8px 16px rgba(0,0,0,0.08);
-      position: relative;
-    }
-    .medallion-earned:active {
-      transform: translateY(3px);
-      box-shadow: 0 3px 0 var(--ledge-color, #c2410c), 0 4px 8px rgba(0,0,0,0.06);
-    }
-    .gloss-sheen {
-      position: absolute;
-      top: 3px;
-      left: 6px;
-      right: 6px;
-      height: 44%;
-      border-radius: 9999px 9999px 40px 40px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.08) 100%);
-      pointer-events: none;
-    }
-    .ring-progress {
-      stroke-linecap: round;
-      transform: rotate(-90deg);
-      transform-origin: 50% 50%;
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
     }
   </style>
 </head>
-<body class="bg-[#fff7f0] min-h-screen flex flex-col justify-between max-w-md mx-auto relative select-none pb-28">
+<body class="min-h-screen bg-[#FFF9F3] text-[#1A1816] flex flex-col items-center justify-between pb-24">
 
-  <!-- TOP APP BAR -->
-  <header class="sticky top-0 z-30 bg-[#fff7f0]/95 backdrop-blur-md px-4 pt-3 pb-3 border-b-2 border-[#f1ded2] flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <button class="tactile-back-btn w-10 h-10 rounded-2xl bg-white border-2 border-[#ebd8cb] flex items-center justify-center text-[#136b66] active:translate-y-0.5 transition-transform" aria-label="Go back">
-        <span class="material-symbols-outlined unfilled text-xl">arrow_back</span>
+  <!-- Main Container Mobile Column -->
+  <main class="w-full max-w-md px-4 pt-4 flex flex-col items-center">
+
+    <!-- Top App Bar -->
+    <header class="w-full flex items-center justify-between py-2 mb-4">
+      <!-- Back Button -->
+      <button class="tactile-btn w-11 h-11 rounded-2xl bg-white border border-[#EADCCE] shadow-[0_3px_0_0_#D9C8B5] flex items-center justify-center text-[#136B66] hover:bg-[#FAF4EC]" aria-label="Go back">
+        <span class="material-symbols-rounded text-2xl font-bold">arrow_back</span>
       </button>
-      <div>
-        <h1 class="text-xl font-extrabold text-[#112423] tracking-tight">Badges</h1>
+
+      <!-- Screen Title -->
+      <h1 class="text-2xl font-black text-[#1A1816] tracking-tight">Badges</h1>
+
+      <!-- Badge Count Pill -->
+      <div class="h-11 px-4 rounded-2xl bg-white border border-[#EADCCE] shadow-[0_3px_0_0_#D9C8B5] flex items-center gap-2">
+        <span class="material-symbols-rounded text-xl text-[#F59E0B]">star</span>
+        <span class="text-sm font-extrabold text-[#1A1816] tracking-wide">7 / 19</span>
       </div>
-    </div>
+    </header>
 
-    <!-- 7 / 19 Counter Chip -->
-    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#fcece0] border-2 border-[#edd2be] shadow-sm">
-      <span class="material-symbols-outlined text-[#ea580c] text-lg">military_tech</span>
-      <span class="text-xs font-black text-[#1e2625] tracking-wide">7 / 19</span>
-    </div>
-  </header>
+    <!-- Milestone Goal Card -->
+    <section class="w-full bg-white rounded-3xl border border-[#EADCCE] shadow-[0_5px_0_0_#D9C8B5] p-4 mb-6">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <!-- Icon Tile -->
+          <div class="w-12 h-12 rounded-2xl bg-[#E8F5F3] border border-[#CDE5E2] shadow-[0_3px_0_0_#B6D8D4] flex items-center justify-center">
+            <span class="material-symbols-rounded text-2xl text-[#136B66]">military_tech</span>
+          </div>
+          <div>
+            <span class="text-[11px] font-black uppercase tracking-wider text-[#136B66] block">Milestone Goal</span>
+            <span class="text-base font-black text-[#1A1816] block">Collector Tier 2</span>
+          </div>
+        </div>
 
-  <!-- MAIN BADGES GRID CONTAINER -->
-  <main class="flex-1 px-4 pt-5 pb-6">
-
-    <!-- Progress Overview Banner (Candy card) -->
-    <div class="tactile-card bg-white border-2 border-[#fae2d0] rounded-3xl p-4 mb-6 flex items-center justify-between">
-      <div class="flex items-center gap-3.5">
-        <div class="w-12 h-12 rounded-2xl bg-[#fff0e4] border-2 border-[#fcd5b8] flex items-center justify-center text-[#ea580c]">
-          <span class="material-symbols-outlined text-2xl">workspace_premium</span>
-        </div>
-        <div>
-          <div class="text-xs font-bold text-[#145953] uppercase tracking-wider">Level 2 Collector</div>
-          <div class="text-sm font-extrabold text-[#112423]">12 Badges to unlock</div>
-        </div>
-      </div>
-      <!-- Progress Bar Pill -->
-      <div class="w-24">
-        <div class="flex justify-between items-center mb-1">
-          <span class="text-[11px] font-extrabold text-[#2a3c3b]">37%</span>
-        </div>
-        <div class="w-full bg-[#f3e5db] h-2.5 rounded-full overflow-hidden p-0.5 border border-[#e8d2c3]">
-          <div class="bg-[#f59e0b] h-full rounded-full" style="width: 37%"></div>
+        <!-- Progress Right -->
+        <div class="flex flex-col items-end gap-1.5">
+          <span class="text-xs font-black text-[#5C4E43]">12 to unlock</span>
+          <div class="w-24 h-2.5 bg-[#F2E5D7] rounded-full overflow-hidden p-0.5 border border-[#E4D4C3]">
+            <div class="h-full bg-[#F59E0B] rounded-full shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)]" style="width: 58%;"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 19 BADGES GRID (3 per row) -->
-    <div class="grid grid-cols-3 gap-y-7 gap-x-3 justify-items-center">
+    <!-- Badge Grid (3 columns) -->
+    <div class="w-full grid grid-cols-3 gap-y-7 gap-x-3 mb-8 place-items-center">
 
-      <!-- 1. HATCHING CHICK (EARNED) -->
-      <!-- First review -->
-      <div class="flex flex-col items-center group cursor-pointer">
-        <div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#fff176] bg-gradient-to-b from-[#ffeb3b] to-[#fbc02d]" style="--ledge-color: #d97706;">
-          <div class="gloss-sheen"></div>
-          <!-- Illustrated chick hatching SVG -->
-          <svg class="w-11 h-11 drop-shadow-sm" viewBox="0 0 48 48" fill="none">
-            <!-- Egg Shell Bottom -->
-            <path d="M12 28C12 36.837 17.373 44 24 44C30.627 44 36 36.837 36 28L31.5 25L27 29L24 25L20.5 29L16.5 25L12 28Z" fill="#FFFFFF" stroke="#D97706" stroke-width="2.5" stroke-linejoin="round"/>
-            <!-- Baby Chick Head -->
-            <circle cx="24" cy="20" r="11" fill="#FDE047"/>
-            <circle cx="21" cy="18" r="1.8" fill="#1C1917"/>
-            <circle cx="27" cy="18" r="1.8" fill="#1C1917"/>
-            <!-- Beak -->
-            <path d="M22 21L26 21L24 24Z" fill="#F97316"/>
-            <!-- Small Shell on head -->
-            <path d="M18 13L21 8L24 11L27 8L30 13C28 11.5 20 11.5 18 13Z" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8" stroke-linejoin="round"/>
+      <!-- 1. First Review (Unlocked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20 filter drop-shadow-[0_6px_8px_rgba(180,83,9,0.22)]">
+            <defs>
+              <linearGradient id="g_egg" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FDE68A"/>
+                <stop offset="45%" stop-color="#F59E0B"/>
+                <stop offset="100%" stop-color="#D97706"/>
+              </linearGradient>
+              <radialGradient id="spec_first" cx="35%" cy="25%" r="65%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+                <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- Ledge shadow -->
+            <circle cx="40" cy="43" r="36" fill="#B45309" opacity="0.35"/>
+            <!-- Medallion base -->
+            <circle cx="40" cy="40" r="36" fill="url(#g_egg)" stroke="#FFFBEB" stroke-width="2.5"/>
+            <circle cx="40" cy="40" r="36" fill="url(#spec_first)"/>
+            <!-- Hatching chick illustration -->
+            <path d="M 28 42 Q 40 26 52 42 Q 52 54 40 54 Q 28 54 28 42 Z" fill="#FEF3C7"/>
+            <circle cx="35" cy="38" r="2.2" fill="#1C1003"/>
+            <circle cx="45" cy="38" r="2.2" fill="#1C1003"/>
+            <path d="M 38 41 Q 40 44 42 41 Z" fill="#EA580C"/>
+            <!-- Egg shell bottom -->
+            <path d="M 25 43 L 30 48 L 36 43 L 42 49 L 48 43 L 55 48 C 53 58 27 58 25 43 Z" fill="#FFFFFF"/>
+            <!-- Specular glint -->
+            <ellipse cx="40" cy="18" rx="16" ry="6" fill="#FFFFFF" opacity="0.5"/>
           </svg>
         </div>
-        <span class="mt-2 text-xs font-extrabold text-[#152e2c] text-center tracking-tight leading-tight">First Review</span>
+        <span class="text-xs font-black text-[#1A1816] text-center tracking-tight">First Review</span>
       </div>
 
-      <!-- 2. GREEN NOTEBOOK (EARNED) -->
-      <!-- 50 Words -->
-      <div class="flex flex-col items-center group cursor-pointer">
-        <div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#a7f3d0] bg-gradient-to-b from-[#34d399] to-[#059669]" style="--ledge-color: #047857;">
-          <div class="gloss-sheen"></div>
-          <!-- Illustrated green notebook -->
-          <svg class="w-11 h-11 drop-shadow-sm" viewBox="0 0 48 48" fill="none">
-            <rect x="14" y="10" width="22" height="28" rx="3.5" fill="#047857" stroke="#064E3B" stroke-width="2"/>
-            <rect x="17" y="12" width="18" height="24" rx="2" fill="#6EE7B7"/>
+      <!-- 2. 50 Words (Unlocked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20 filter drop-shadow-[0_6px_8px_rgba(19,107,102,0.25)]">
+            <defs>
+              <linearGradient id="g_book" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#5EEAD4"/>
+                <stop offset="40%" stop-color="#14B8A6"/>
+                <stop offset="100%" stop-color="#0F766E"/>
+              </linearGradient>
+            </defs>
+            <circle cx="40" cy="43" r="36" fill="#0D504C" opacity="0.35"/>
+            <circle cx="40" cy="40" r="36" fill="url(#g_book)" stroke="#CCFBF1" stroke-width="2.5"/>
+            <!-- Notebook icon -->
+            <rect x="27" y="24" width="26" height="32" rx="4" fill="#042F2C"/>
+            <rect x="29" y="26" width="22" height="28" rx="3" fill="#2DD4BF"/>
             <!-- Bookmark ribbon -->
-            <path d="M28 12V24L31 21.5L34 24V12H28Z" fill="#F59E0B"/>
-            <!-- Spine rings -->
-            <circle cx="14" cy="16" r="1.6" fill="#FFFFFF"/>
-            <circle cx="14" cy="24" r="1.6" fill="#FFFFFF"/>
-            <circle cx="14" cy="32" r="1.6" fill="#FFFFFF"/>
+            <path d="M 43 24 L 43 38 L 40 35 L 37 38 L 37 24 Z" fill="#F59E0B"/>
+            <ellipse cx="40" cy="18" rx="16" ry="6" fill="#FFFFFF" opacity="0.45"/>
           </svg>
         </div>
-        <span class="mt-2 text-xs font-extrabold text-[#152e2c] text-center tracking-tight leading-tight">50 Words</span>
+        <span class="text-xs font-black text-[#1A1816] text-center tracking-tight">50 Words</span>
       </div>
 
-      <!-- 3. STACK OF BOOKS (EARNED) -->
-      <!-- 200 Words -->
-      <div class="flex flex-col items-center group cursor-pointer">
-        <div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#fed7aa] bg-gradient-to-b from-[#fb923c] to-[#ea580c]" style="--ledge-color: #c2410c;">
-          <div class="gloss-sheen"></div>
-          <!-- Illustrated stack of books -->
-          <svg class="w-11 h-11 drop-shadow-sm" viewBox="0 0 48 48" fill="none">
-            <!-- Book 1 (Bottom - Blue) -->
-            <rect x="10" y="30" width="28" height="7" rx="2" fill="#0284C7" stroke="#0369A1" stroke-width="1.8"/>
-            <rect x="34" y="32" width="2" height="3" fill="#FFFFFF"/>
-            <!-- Book 2 (Middle - Gold) -->
-            <rect x="12" y="22" width="24" height="7" rx="2" fill="#FBBF24" stroke="#D97706" stroke-width="1.8"/>
-            <rect x="32" y="24" width="2" height="3" fill="#FFFFFF"/>
-            <!-- Book 3 (Top - Teal) -->
-            <rect x="15" y="14" width="20" height="7" rx="2" fill="#14B8A6" stroke="#0F766E" stroke-width="1.8"/>
-            <!-- Bookmark on top book -->
-            <path d="M19 14V21L21.5 19.5L24 21V14H19Z" fill="#F43F5E"/>
+      <!-- 3. 200 Words (Unlocked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20 filter drop-shadow-[0_6px_8px_rgba(234,88,12,0.25)]">
+            <defs>
+              <linearGradient id="g_orange" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FDBA74"/>
+                <stop offset="40%" stop-color="#F97316"/>
+                <stop offset="100%" stop-color="#C2410C"/>
+              </linearGradient>
+            </defs>
+            <circle cx="40" cy="43" r="36" fill="#9A3412" opacity="0.35"/>
+            <circle cx="40" cy="40" r="36" fill="url(#g_orange)" stroke="#FFEDD5" stroke-width="2.5"/>
+            <!-- Book stack -->
+            <rect x="25" y="44" width="30" height="7" rx="2" fill="#FFFFFF"/>
+            <rect x="28" y="36" width="24" height="7" rx="2" fill="#5EEAD4"/>
+            <rect x="27" y="28" width="26" height="7" rx="2" fill="#FEF08A"/>
+            <ellipse cx="40" cy="18" rx="16" ry="6" fill="#FFFFFF" opacity="0.45"/>
           </svg>
         </div>
-        <span class="mt-2 text-xs font-extrabold text-[#152e2c] text-center tracking-tight leading-tight">200 Words</span>
+        <span class="text-xs font-black text-[#1A1816] text-center tracking-tight">200 Words</span>
       </div>
 
-      <!-- 4. GRAND LIBRARY (LOCKED) -->
-      <!-- 500 Words (Locked - 310/500) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="85" />
+      <!-- 4. Grand Library (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <!-- Locked Disc in Light Theme: warm cream disc with border & subtle ledge -->
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <!-- Partial Progress Ring (Teal) -->
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="120" stroke-linecap="round"/>
+            <!-- Library Icon -->
+            <path d="M 28 35 L 40 28 L 52 35 Z" fill="#9C8B7E"/>
+            <rect x="31" y="37" width="3" height="11" fill="#9C8B7E"/>
+            <rect x="38.5" y="37" width="3" height="11" fill="#9C8B7E"/>
+            <rect x="46" y="37" width="3" height="11" fill="#9C8B7E"/>
+            <rect x="27" y="48" width="26" height="3" rx="1" fill="#9C8B7E"/>
+            <!-- Lock Badge -->
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <!-- Flat Library Graphic -->
-          <svg class="w-9 h-9 opacity-50 grayscale" viewBox="0 0 48 48" fill="none">
-            <path d="M8 20L24 10L40 20H8Z" fill="#6B7280"/>
-            <rect x="11" y="20" width="5" height="15" fill="#9CA3AF"/>
-            <rect x="21.5" y="20" width="5" height="15" fill="#9CA3AF"/>
-            <rect x="32" y="20" width="5" height="15" fill="#9CA3AF"/>
-            <rect x="8" y="35" width="32" height="4" rx="1" fill="#6B7280"/>
-          </svg>
-          <!-- Small Padlock badge -->
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">Grand Library</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">Grand Library</span>
       </div>
 
-      <!-- 5. BRAIN (EARNED) -->
-      <!-- 10 Mastered -->
-      <div class="flex flex-col items-center group cursor-pointer">
-        <div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#fbcfe8] bg-gradient-to-b from-[#f472b6] to-[#db2777]" style="--ledge-color: #be185d;">
-          <div class="gloss-sheen"></div>
-          <!-- Illustrated stylized brain -->
-          <svg class="w-11 h-11 drop-shadow-sm" viewBox="0 0 48 48" fill="none">
-            <!-- Left lobe -->
-            <path d="M22 13C17.5 13 13 16.5 13 21C13 22.5 13.5 24 14.5 25C13.5 26.5 13 28 13 30C13 34 16.5 36 21 36L22 36V13Z" fill="#FCE7F3" stroke="#9D174D" stroke-width="2" stroke-linejoin="round"/>
-            <!-- Right lobe -->
-            <path d="M26 13C30.5 13 35 16.5 35 21C35 22.5 34.5 24 33.5 25C34.5 26.5 35 28 35 30C35 34 31.5 36 27 36L26 36V13Z" fill="#FCE7F3" stroke="#9D174D" stroke-width="2" stroke-linejoin="round"/>
-            <!-- Fissures -->
-            <path d="M17 21C19 23 21 21 22 24" stroke="#BE185D" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M31 21C29 23 27 21 26 24" stroke="#BE185D" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M17 31C19 30 20 32 22 31" stroke="#BE185D" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M31 31C29 30 28 32 26 31" stroke="#BE185D" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- 5. Master 10 (Unlocked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20 filter drop-shadow-[0_6px_8px_rgba(219,39,119,0.22)]">
+            <defs>
+              <linearGradient id="g_pink" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#F472B6"/>
+                <stop offset="40%" stop-color="#EC4899"/>
+                <stop offset="100%" stop-color="#BE185D"/>
+              </linearGradient>
+            </defs>
+            <circle cx="40" cy="43" r="36" fill="#9D174D" opacity="0.35"/>
+            <circle cx="40" cy="40" r="36" fill="url(#g_pink)" stroke="#FCE7F3" stroke-width="2.5"/>
+            <!-- Candy brain/synapse icon -->
+            <path d="M 33 34 C 30 34 28 36 28 39 C 28 42 30 43 30 45 C 30 47 32 49 35 49 C 37 49 38 48 38 46 L 38 34 Z" fill="#FFFFFF"/>
+            <path d="M 47 34 C 50 34 52 36 52 39 C 52 42 50 43 50 45 C 50 47 48 49 45 49 C 43 49 42 48 42 46 L 42 34 Z" fill="#FFFFFF"/>
+            <line x1="40" y1="33" x2="40" y2="47" stroke="#DB2777" stroke-width="1.8"/>
+            <ellipse cx="40" cy="18" rx="16" ry="6" fill="#FFFFFF" opacity="0.45"/>
           </svg>
         </div>
-        <span class="mt-2 text-xs font-extrabold text-[#152e2c] text-center tracking-tight leading-tight">Master 10</span>
+        <span class="text-xs font-black text-[#1A1816] text-center tracking-tight">Master 10</span>
       </div>
 
-      <!-- 6. TROPHY (LOCKED) -->
-      <!-- 100 Mastered (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="175" />
+      <!-- 6. Master 100 (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="150" stroke-linecap="round"/>
+            <!-- Trophy silhouette -->
+            <path d="M 32 30 L 48 30 L 46 41 C 46 44 42 46 40 46 C 38 46 34 44 34 41 Z" fill="#9C8B7E"/>
+            <path d="M 32 32 C 28 32 28 38 32 38" fill="none" stroke="#9C8B7E" stroke-width="1.8"/>
+            <path d="M 48 32 C 52 32 52 38 48 38" fill="none" stroke="#9C8B7E" stroke-width="1.8"/>
+            <rect x="38" y="46" width="4" height="6" fill="#9C8B7E"/>
+            <rect x="34" y="52" width="12" height="3" rx="1" fill="#9C8B7E"/>
+            <!-- Lock badge -->
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <span class="material-symbols-outlined text-[#8a9897] text-3xl opacity-60">trophy</span>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">Master 100</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">Master 100</span>
       </div>
 
-      <!-- 7. SMALL FLAME (EARNED) -->
-      <!-- Streak 3 -->
-      <div class="flex flex-col items-center group cursor-pointer">
-        <div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#ffedd5] bg-gradient-to-b from-[#f97316] to-[#c2410c]" style="--ledge-color: #9a3412;">
-          <div class="gloss-sheen"></div>
-          <!-- Illustrated bright flame -->
-          <svg class="w-11 h-11 drop-shadow-sm" viewBox="0 0 48 48" fill="none">
-            <!-- Outer fire -->
-            <path d="M24 8C24 16 14 18 14 28C14 34.627 18.477 39 24 39C29.523 39 34 34.627 34 28C34 18 24 14 24 8Z" fill="#FBBF24" stroke="#EA580C" stroke-width="2"/>
-            <!-- Inner core fire -->
-            <path d="M24 18C24 22 19 24 19 29C19 32.5 21.2 35 24 35C26.8 35 29 32.5 29 29C29 24 24 21 24 18Z" fill="#FFFFFF"/>
+      <!-- 7. 3-Day Streak (Unlocked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20 filter drop-shadow-[0_6px_8px_rgba(245,158,11,0.25)]">
+            <defs>
+              <linearGradient id="g_streak" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FCD34D"/>
+                <stop offset="45%" stop-color="#F59E0B"/>
+                <stop offset="100%" stop-color="#D97706"/>
+              </linearGradient>
+            </defs>
+            <circle cx="40" cy="43" r="36" fill="#B45309" opacity="0.35"/>
+            <circle cx="40" cy="40" r="36" fill="url(#g_streak)" stroke="#FEF3C7" stroke-width="2.5"/>
+            <!-- Flame icon -->
+            <path d="M 40 24 C 44 30 52 35 52 44 C 52 51 47 56 40 56 C 33 56 28 51 28 44 C 28 36 34 30 40 24 Z" fill="#FFFFFF"/>
+            <path d="M 40 35 C 42 39 46 42 46 46 C 46 50 43 52 40 52 C 37 52 34 50 34 46 C 34 42 37 39 40 35 Z" fill="#EA580C"/>
+            <ellipse cx="40" cy="18" rx="16" ry="6" fill="#FFFFFF" opacity="0.45"/>
           </svg>
         </div>
-        <span class="mt-2 text-xs font-extrabold text-[#152e2c] text-center tracking-tight leading-tight">3-Day Streak</span>
+        <span class="text-xs font-black text-[#1A1816] text-center tracking-tight">3-Day Streak</span>
       </div>
 
-      <!-- 8. VOLCANO (EARNED) -->
-      <!-- Streak 7 -->
-      <div class="flex flex-col items-center group cursor-pointer">
-        <div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#fecaca] bg-gradient-to-b from-[#ef4444] to-[#b91c1c]" style="--ledge-color: #991b1b;">
-          <div class="gloss-sheen"></div>
-          <!-- Illustrated volcano -->
-          <svg class="w-11 h-11 drop-shadow-sm" viewBox="0 0 48 48" fill="none">
-            <!-- Mountain base -->
-            <path d="M10 38L18 22H30L38 38H10Z" fill="#78350F" stroke="#451A03" stroke-width="2" stroke-linejoin="round"/>
-            <!-- Magma crater -->
-            <ellipse cx="24" cy="22" rx="6" ry="2.5" fill="#EF4444" stroke="#B91C1C" stroke-width="1.5"/>
-            <!-- Lava eruption sparks -->
-            <path d="M24 20V12" stroke="#FDE047" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M20 21L15 15" stroke="#F97316" stroke-width="2" stroke-linecap="round"/>
-            <path d="M28 21L33 15" stroke="#F97316" stroke-width="2" stroke-linecap="round"/>
-            <!-- Lava drip -->
-            <path d="M22 23V29L24 31L26 28V23" fill="#EF4444"/>
+      <!-- 8. 7-Day Volcano (Unlocked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20 filter drop-shadow-[0_6px_8px_rgba(225,29,72,0.25)]">
+            <defs>
+              <linearGradient id="g_volcano" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FDA4AF"/>
+                <stop offset="40%" stop-color="#F43F5E"/>
+                <stop offset="100%" stop-color="#BE123C"/>
+              </linearGradient>
+            </defs>
+            <circle cx="40" cy="43" r="36" fill="#881337" opacity="0.35"/>
+            <circle cx="40" cy="40" r="36" fill="url(#g_volcano)" stroke="#FFE4E6" stroke-width="2.5"/>
+            <!-- Volcano illustration -->
+            <polygon points="26,52 54,52 46,38 34,38" fill="#4C0519"/>
+            <circle cx="40" cy="33" r="4.5" fill="#FEF08A"/>
+            <circle cx="36" cy="27" r="2" fill="#F59E0B"/>
+            <circle cx="44" cy="26" r="2.5" fill="#F59E0B"/>
+            <ellipse cx="40" cy="18" rx="16" ry="6" fill="#FFFFFF" opacity="0.45"/>
           </svg>
         </div>
-        <span class="mt-2 text-xs font-extrabold text-[#152e2c] text-center tracking-tight leading-tight">7-Day Volcano</span>
+        <span class="text-xs font-black text-[#1A1816] text-center tracking-tight">7-Day Volcano</span>
       </div>
 
-      <!-- 9. DIAMOND (LOCKED) -->
-      <!-- Streak 30 (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="180" />
+      <!-- 9. 30-Day Spark (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="100" stroke-linecap="round"/>
+            <!-- Diamond shape silhouette -->
+            <polygon points="40,28 52,36 40,52 28,36" fill="#9C8B7E"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <span class="material-symbols-outlined text-[#8a9897] text-3xl opacity-60">diamond</span>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">30-Day Spark</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">30-Day Spark</span>
       </div>
 
-      <!-- 10. ROCKET (LOCKED) -->
-      <!-- 500 Reviews (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="110" />
+      <!-- 10. 500 Reviews (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="130" stroke-linecap="round"/>
+            <!-- Rocket icon -->
+            <path d="M 40 26 C 45 32 46 42 46 45 L 34 45 C 34 42 35 32 40 26 Z" fill="#9C8B7E"/>
+            <polygon points="34,40 28,45 34,45" fill="#9C8B7E"/>
+            <polygon points="46,40 52,45 46,45" fill="#9C8B7E"/>
+            <circle cx="40" cy="35" r="3" fill="#F4EAE0"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <span class="material-symbols-outlined text-[#8a9897] text-3xl opacity-60">rocket_launch</span>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">500 Reviews</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">500 Reviews</span>
       </div>
 
-      <!-- 11. PERFECT-SCORE MEDAL (EARNED) -->
-      <!-- Perfect Score -->
-      <div class="flex flex-col items-center group cursor-pointer">
-        <div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#bae6fd] bg-gradient-to-b from-[#38bdf8] to-[#0284c7]" style="--ledge-color: #0369a1;">
-          <div class="gloss-sheen"></div>
-          <!-- Illustrated gold & star medal -->
-          <svg class="w-11 h-11 drop-shadow-sm" viewBox="0 0 48 48" fill="none">
-            <!-- Ribbon -->
-            <path d="M19 10L24 18L17 22L14 13L19 10Z" fill="#F43F5E"/>
-            <path d="M29 10L24 18L31 22L34 13L29 10Z" fill="#E11D48"/>
-            <!-- Medal circle -->
-            <circle cx="24" cy="27" r="11" fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
-            <circle cx="24" cy="27" r="8" fill="#F59E0B"/>
-            <!-- Star inside medal -->
-            <path d="M24 21L25.8 24.8L30 25.3L26.8 28.2L27.7 32.3L24 30.1L20.3 32.3L21.2 28.2L18 25.3L22.2 24.8L24 21Z" fill="#FFFFFF"/>
+      <!-- 11. Flawless 100% (Unlocked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20 filter drop-shadow-[0_6px_8px_rgba(2,132,199,0.22)]">
+            <defs>
+              <linearGradient id="g_blue" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#7DD3FC"/>
+                <stop offset="40%" stop-color="#38BDF8"/>
+                <stop offset="100%" stop-color="#0284C7"/>
+              </linearGradient>
+            </defs>
+            <circle cx="40" cy="43" r="36" fill="#0369A1" opacity="0.35"/>
+            <circle cx="40" cy="40" r="36" fill="url(#g_blue)" stroke="#E0F2FE" stroke-width="2.5"/>
+            <!-- Star medal -->
+            <polygon points="40,27 43,36 52,36 45,42 48,51 40,46 32,51 35,42 28,36 37,36" fill="#FEF08A" stroke="#F59E0B" stroke-width="1.5"/>
+            <ellipse cx="40" cy="18" rx="16" ry="6" fill="#FFFFFF" opacity="0.45"/>
           </svg>
         </div>
-        <span class="mt-2 text-xs font-extrabold text-[#152e2c] text-center tracking-tight leading-tight">Flawless 100%</span>
+        <span class="text-xs font-black text-[#1A1816] text-center tracking-tight">Flawless 100%</span>
       </div>
 
-      <!-- 12. MICROPHONE (EARNED) -->
-      <!-- Pronunciation Master -->
-      <div class="flex flex-col items-center group cursor-pointer">
-        <div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#99f6e4] bg-gradient-to-b from-[#2dd4bf] to-[#0d9488]" style="--ledge-color: #0f766e;">
-          <div class="gloss-sheen"></div>
-          <!-- Illustrated retro studio mic -->
-          <svg class="w-11 h-11 drop-shadow-sm" viewBox="0 0 48 48" fill="none">
-            <!-- Sound waves -->
-            <path d="M12 21C11 23 11 25 12 27" stroke="#CCFBF1" stroke-width="2" stroke-linecap="round"/>
-            <path d="M36 21C37 23 37 25 36 27" stroke="#CCFBF1" stroke-width="2" stroke-linecap="round"/>
-            <!-- Capsule -->
-            <rect x="20" y="12" width="8" height="15" rx="4" fill="#FFFFFF" stroke="#0F766E" stroke-width="2"/>
-            <!-- Cradle -->
-            <path d="M17 21V23C17 26.866 20.134 30 24 30C27.866 30 31 23 31 21" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Stand base -->
-            <path d="M24 30V36M19 36H29" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- 12. Orator (Unlocked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20 filter drop-shadow-[0_6px_8px_rgba(20,184,166,0.25)]">
+            <defs>
+              <linearGradient id="g_teal" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#99F6E4"/>
+                <stop offset="40%" stop-color="#2DD4BF"/>
+                <stop offset="100%" stop-color="#0F766E"/>
+              </linearGradient>
+            </defs>
+            <circle cx="40" cy="43" r="36" fill="#115E59" opacity="0.35"/>
+            <circle cx="40" cy="40" r="36" fill="url(#g_teal)" stroke="#F0FDFA" stroke-width="2.5"/>
+            <!-- Mic icon -->
+            <rect x="36" y="27" width="8" height="15" rx="4" fill="#FFFFFF"/>
+            <path d="M 32 37 C 32 43 48 43 48 37" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="40" y1="43" x2="40" y2="48" stroke="#FFFFFF" stroke-width="2.2"/>
+            <line x1="35" y1="48" x2="45" y2="48" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <ellipse cx="40" cy="18" rx="16" ry="6" fill="#FFFFFF" opacity="0.45"/>
           </svg>
         </div>
-        <span class="mt-2 text-xs font-extrabold text-[#152e2c] text-center tracking-tight leading-tight">Orator</span>
+        <span class="text-xs font-black text-[#1A1816] text-center tracking-tight">Orator</span>
       </div>
 
-      <!-- 13. OPEN BOOK (LOCKED) -->
-      <!-- Reader (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="150" />
+      <!-- 13. Bookworm (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="80" stroke-linecap="round"/>
+            <!-- Open book icon -->
+            <path d="M 28 35 C 33 33 37 34 40 36 C 43 34 47 33 52 35 L 52 46 C 47 44 43 45 40 47 C 37 45 33 44 28 46 Z" fill="#9C8B7E"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <span class="material-symbols-outlined text-[#8a9897] text-3xl opacity-60">auto_stories</span>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">Bookworm</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">Bookworm</span>
       </div>
 
-      <!-- 14. LIGHTNING BOLT (LOCKED) -->
-      <!-- Speed (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="60" />
+      <!-- 14. Speed Demon (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="140" stroke-linecap="round"/>
+            <!-- Lightning bolt -->
+            <polygon points="41,27 31,39 39,39 37,51 49,38 41,38" fill="#9C8B7E"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <span class="material-symbols-outlined text-[#8a9897] text-3xl opacity-60">bolt</span>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">Speed Demon</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">Speed Demon</span>
       </div>
 
-      <!-- 15. OWL (LOCKED) -->
-      <!-- Night Learner (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="190" />
+      <!-- 15. Night Owl (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="110" stroke-linecap="round"/>
+            <!-- Owl face silhouette -->
+            <path d="M 28 32 L 32 37 C 34 36 37 36 40 36 C 43 36 46 36 48 37 L 52 32 C 52 46 46 51 40 51 C 34 51 28 46 28 32 Z" fill="#9C8B7E"/>
+            <circle cx="35" cy="42" r="3" fill="#F4EAE0"/>
+            <circle cx="45" cy="42" r="3" fill="#F4EAE0"/>
+            <polygon points="38,44 42,44 40,47" fill="#9C8B7E"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <!-- Owl silhouette SVG -->
-          <svg class="w-9 h-9 opacity-50 grayscale" viewBox="0 0 48 48" fill="none">
-            <path d="M24 10C16 10 14 16 14 24C14 32 18 38 24 38C30 38 34 32 34 24C34 16 32 10 24 10Z" fill="#6B7280"/>
-            <circle cx="19" cy="22" r="3.5" fill="#E5E7EB"/>
-            <circle cx="29" cy="22" r="3.5" fill="#E5E7EB"/>
-            <path d="M22 25L24 28L26 25H22Z" fill="#FBBF24"/>
-          </svg>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">Night Owl</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">Night Owl</span>
       </div>
 
-      <!-- 16. EARLY BIRD (LOCKED) -->
-      <!-- Morning review (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="200" />
+      <!-- 16. Early Bird (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="135" stroke-linecap="round"/>
+            <!-- Sunrise icon -->
+            <path d="M 30 46 C 30 40 34 36 40 36 C 46 36 50 40 50 46 Z" fill="#9C8B7E"/>
+            <line x1="28" y1="48" x2="52" y2="48" stroke="#9C8B7E" stroke-width="2"/>
+            <line x1="40" y1="30" x2="40" y2="33" stroke="#9C8B7E" stroke-width="2"/>
+            <line x1="31" y1="34" x2="33" y2="36" stroke="#9C8B7E" stroke-width="2"/>
+            <line x1="49" y1="34" x2="47" y2="36" stroke="#9C8B7E" stroke-width="2"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <span class="material-symbols-outlined text-[#8a9897] text-3xl opacity-60">wb_twilight</span>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">Early Bird</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">Early Bird</span>
       </div>
 
-      <!-- 17. ARCHER'S BOW (LOCKED) -->
-      <!-- Word Hunter (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="140" />
+      <!-- 17. Word Hunter (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="95" stroke-linecap="round"/>
+            <!-- Bow & Arrow icon -->
+            <path d="M 46 28 C 42 34 42 46 46 52" fill="none" stroke="#9C8B7E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="46" y1="28" x2="46" y2="52" stroke="#9C8B7E" stroke-width="1.2"/>
+            <line x1="32" y1="40" x2="48" y2="40" stroke="#9C8B7E" stroke-width="2"/>
+            <polygon points="32,40 37,37 37,43" fill="#9C8B7E"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <!-- Archer bow SVG -->
-          <svg class="w-9 h-9 opacity-50 grayscale" viewBox="0 0 48 48" fill="none">
-            <path d="M14 12C28 12 36 20 36 34" stroke="#4B5563" stroke-width="3" stroke-linecap="round"/>
-            <path d="M14 12L36 34" stroke="#9CA3AF" stroke-width="1.8"/>
-            <path d="M16 32L34 14M34 14H28M34 14V20" stroke="#1F2937" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">Word Hunter</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">Word Hunter</span>
       </div>
 
-      <!-- 18. MILITARY MEDAL (LOCKED) -->
-      <!-- Level 5 (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="170" />
+      <!-- 18. Veteran V (Locked) -->
+      <div class="flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="120" stroke-linecap="round"/>
+            <!-- Medal icon -->
+            <polygon points="36,26 44,26 46,36 34,36" fill="#9C8B7E"/>
+            <circle cx="40" cy="42" r="7" fill="#9C8B7E"/>
+            <polygon points="40,38 41,41 44,41 42,43 43,46 40,44 37,46 38,43 36,41 39,41" fill="#F4EAE0"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <span class="material-symbols-outlined text-[#8a9897] text-3xl opacity-60">military_tech</span>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">Veteran V</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">Veteran V</span>
       </div>
 
-      <!-- 19. GOLDEN CROWN (LOCKED) -->
-      <!-- Level 10 (Locked) -->
-      <div class="flex flex-col items-center group cursor-pointer opacity-90">
-        <div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#f0e4d9] border-2 border-[#dfcec1]">
-          <!-- Progress SVG Ring -->
-          <svg class="absolute inset-0 w-20 h-20" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="#e0cfc1" stroke-width="3" />
-            <circle class="ring-progress" cx="40" cy="40" r="36" fill="none" stroke="#136b66" stroke-width="3.5" stroke-dasharray="226" stroke-dashoffset="210" />
+      <!-- 19. IELTS Crown (Locked - Centered in row 7) -->
+      <div class="col-start-1 col-end-4 flex flex-col items-center gap-2 group cursor-pointer">
+        <div class="relative w-20 h-20 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 80 80" class="w-20 h-20">
+            <circle cx="40" cy="42" r="36" fill="#E6D7C8" opacity="0.6"/>
+            <circle cx="40" cy="40" r="36" fill="#F4EAE0" stroke="#E2D4C6" stroke-width="2"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#E2D4C6" stroke-width="3"/>
+            <circle cx="40" cy="40" r="31" fill="none" stroke="#136B66" stroke-width="3" stroke-dasharray="195" stroke-dashoffset="160" stroke-linecap="round"/>
+            <!-- Crown silhouette -->
+            <polygon points="28,48 52,48 50,34 44,41 40,31 36,41 30,34" fill="#9C8B7E"/>
+            <circle cx="40" cy="30" r="1.5" fill="#9C8B7E"/>
+            <circle cx="30" cy="33" r="1.5" fill="#9C8B7E"/>
+            <circle cx="50" cy="33" r="1.5" fill="#9C8B7E"/>
+            <g transform="translate(48, 48)">
+              <circle cx="6" cy="6" r="8" fill="#136B66" stroke="#FFFFFF" stroke-width="1.5"/>
+              <path d="M 4 5 L 4 3.5 C 4 2.5 4.8 1.8 6 1.8 C 7.2 1.8 8 2.5 8 3.5 L 8 5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+              <rect x="3" y="5" width="6" height="5" rx="1" fill="#FFFFFF"/>
+            </g>
           </svg>
-          <span class="material-symbols-outlined text-[#8a9897] text-3xl opacity-60">crown</span>
-          <div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#1c2e2c] border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-white text-[13px]">lock</span>
-          </div>
         </div>
-        <span class="mt-2 text-xs font-bold text-[#445b59] text-center tracking-tight leading-tight">IELTS Crown</span>
+        <span class="text-xs font-bold text-[#5C4E43] text-center tracking-tight">IELTS Crown</span>
       </div>
 
     </div>
+
+    <!-- Empty Dashed Teacher Slot (Preserved per prompt, strictly no people) -->
+    <div class="w-full mb-6">
+      <div class="w-full bg-[#FCF8F2] border-2 border-dashed border-[#136B66]/40 rounded-3xl p-5 flex items-center justify-between">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-[#E8F5F3] border border-[#CDE5E2] flex items-center justify-center">
+            <span class="material-symbols-rounded text-2xl text-[#136B66]">school</span>
+          </div>
+          <div>
+            <span class="text-xs font-black uppercase tracking-wider text-[#136B66] block">Teacher Slot</span>
+            <span class="text-xs font-bold text-[#5C4E43] block">2D teacher loads here</span>
+          </div>
+        </div>
+        <span class="text-[11px] font-extrabold px-3 py-1.5 rounded-full bg-[#EADCCE] text-[#1A1816]">Standby</span>
+      </div>
+    </div>
+
+    <!-- "Next unlock in reach!" Banner -->
+    <section class="w-full bg-white rounded-3xl border border-[#EADCCE] shadow-[0_5px_0_0_#D9C8B5] p-4.5 mb-6">
+      <div class="flex items-start gap-3.5">
+        <!-- Mint/Teal lightning bolt badge with tactile depth -->
+        <div class="w-12 h-12 rounded-2xl bg-[#E8F5F3] border border-[#CDE5E2] shadow-[0_3px_0_0_#B6D8D4] flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-rounded text-2xl text-[#136B66]">bolt</span>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-sm font-black text-[#1A1816] tracking-tight">Next unlock in reach!</h2>
+          <p class="text-xs font-bold text-[#5C4E43] leading-relaxed mt-0.5">
+            Complete today's 3-minute dictation to level up Grand Library.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- BOTTOM BAR / DOCKED NAV -->
-  <footer class="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-40 bg-white/95 backdrop-blur-md border-t-2 border-[#ebd8cb] px-4 py-2.5 flex items-center justify-around shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
-    <!-- Today -->
-    <button class="flex flex-col items-center gap-0.5 text-[#516462] hover:text-[#136b66] transition-colors">
-      <span class="material-symbols-outlined unfilled text-2xl">today</span>
-      <span class="text-[11px] font-bold">Today</span>
-    </button>
-    <!-- Vocab -->
-    <button class="flex flex-col items-center gap-0.5 text-[#516462] hover:text-[#136b66] transition-colors">
-      <span class="material-symbols-outlined unfilled text-2xl">menu_book</span>
-      <span class="text-[11px] font-bold">Vocab</span>
-    </button>
-    <!-- Skills -->
-    <button class="flex flex-col items-center gap-0.5 text-[#516462] hover:text-[#136b66] transition-colors">
-      <span class="material-symbols-outlined unfilled text-2xl">psychology</span>
-      <span class="text-[11px] font-bold">Skills</span>
-    </button>
-    <!-- Tests -->
-    <button class="flex flex-col items-center gap-0.5 text-[#516462] hover:text-[#136b66] transition-colors">
-      <span class="material-symbols-outlined unfilled text-2xl">assignment</span>
-      <span class="text-[11px] font-bold">Tests</span>
-    </button>
-    <!-- Me (Active / Stats source) -->
-    <button class="flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl bg-[#136b66] text-white shadow-[0_3px_0_#0c4542] active:translate-y-0.5 transition-all">
-      <span class="material-symbols-outlined text-2xl">person</span>
-      <span class="text-[11px] font-extrabold tracking-wide">Me</span>
-    </button>
-  </footer>
+  <!-- Docked Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 w-full bg-white border-t-2 border-[#EADCCE] py-2 px-3 z-50 flex justify-center">
+    <div class="w-full max-w-md flex items-center justify-around">
+      
+      <!-- 1. Today -->
+      <button class="tactile-btn flex flex-col items-center justify-center py-1 px-3 text-[#5C4E43] hover:text-[#1A1816]">
+        <span class="material-symbols-rounded text-2xl">calendar_today</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-0.5">Today</span>
+      </button>
+
+      <!-- 2. Vocab -->
+      <button class="tactile-btn flex flex-col items-center justify-center py-1 px-3 text-[#5C4E43] hover:text-[#1A1816]">
+        <span class="material-symbols-rounded text-2xl">style</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-0.5">Vocab</span>
+      </button>
+
+      <!-- 3. Skills -->
+      <button class="tactile-btn flex flex-col items-center justify-center py-1 px-3 text-[#5C4E43] hover:text-[#1A1816]">
+        <span class="material-symbols-rounded text-2xl">psychology</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-0.5">Skills</span>
+      </button>
+
+      <!-- 4. Tests -->
+      <button class="tactile-btn flex flex-col items-center justify-center py-1 px-3 text-[#5C4E43] hover:text-[#1A1816]">
+        <span class="material-symbols-rounded text-2xl">assignment</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-0.5">Tests</span>
+      </button>
+
+      <!-- 5. Me (Active Destination) -->
+      <button class="tactile-btn flex flex-col items-center justify-center py-1 px-4 bg-[#136B66] text-white rounded-2xl shadow-[0_3px_0_0_#0D504C]">
+        <span class="material-symbols-rounded text-2xl text-white">person</span>
+        <span class="text-[11px] font-black tracking-tight mt-0.5 text-white">Me</span>
+      </button>
+
+    </div>
+  </nav>
 
 </body>
 </html>
-

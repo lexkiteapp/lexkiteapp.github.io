@@ -3,40 +3,33 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite Badges</title>
-<!-- Plus Jakarta Sans Font -->
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Badges Collection</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols Outlined -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0..1,0" rel="stylesheet"/>
-<!-- Tailwind CDN -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          },
           colors: {
-            cream: {
-              50: '#fffbf7',
-              100: '#fff7f0',
-              200: '#faede0',
-              300: '#f3dfcc',
-            },
-            teal: {
-              brand: '#136b66',
-              dark: '#0c4945',
-              soft: '#e1f4f2',
-            },
-            orange: {
-              brand: '#f59e0b',
-              vivid: '#ea580c',
-              light: '#fef3c7',
-            }
+            surface: '#fff8f3',
+            'surface-card': '#ffffff',
+            'surface-dim': '#f5ede4',
+            'outline-warm': '#ede2d5',
+            'ledge-warm': '#e0cfbe',
+            primary: '#136b66',
+            'primary-dark': '#0c4945',
+            'primary-subtle': '#e7f5f4',
+            accent: '#f59e0b',
+            'accent-dark': '#b45309',
+            'dark-ink': '#1c1003',
+            'text-main': '#191c1d',
+            'text-muted': '#584335',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
           }
         }
       }
@@ -44,414 +37,643 @@
   </script>
 <style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #fff7f0;
-      color: #1a2726;
+      background-color: #fff8f3;
+      color: #191c1d;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
       -webkit-font-smoothing: antialiased;
     }
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-    }
-    .material-symbols-outlined.unfilled {
-      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-    }
-    /* 3D Tactile Buttons & Badges */
-    .tactile-card {
-      box-shadow: 0 4px 0 #ecdacf;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .tactile-card:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #ecdacf;
-    }
-    .tactile-back-btn {
-      box-shadow: 0 3px 0 #ecd8cb;
-    }
-    .tactile-back-btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 #ecd8cb;
-    }
-    /* Glossy Medallion 3D styling */
-    .medallion-earned {
-      box-shadow: 0 6px 0 var(--ledge-color, #c2410c), 0 8px 16px rgba(0,0,0,0.08);
+    .phone-container {
+      width: 390px;
+      min-height: 100vh;
+      background-color: #fff8f3;
       position: relative;
+      overflow-x: hidden;
+      padding-bottom: 96px; /* space for bottom nav bar */
     }
-    .medallion-earned:active {
-      transform: translateY(3px);
-      box-shadow: 0 3px 0 var(--ledge-color, #c2410c), 0 4px 8px rgba(0,0,0,0.06);
+    .tactile-chip {
+      box-shadow: 0 3px 0 0 #e0cfbe;
     }
-    .gloss-sheen {
-      position: absolute;
-      top: 3px;
-      left: 6px;
-      right: 6px;
-      height: 44%;
-      border-radius: 9999px 9999px 40px 40px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.08) 100%);
-      pointer-events: none;
+    .tactile-header-chip {
+      box-shadow: 0 3px 0 0 #d8c2ad;
     }
-    .ring-progress {
-      stroke-linecap: round;
-      transform: rotate(-90deg);
-      transform-origin: 50% 50%;
+    .tactile-nav-active {
+      box-shadow: 0 3px 0 0 #0c4945;
     }
   </style>
 </head>
-<body class="bg-[#091518] text-[#d8e5e9] min-h-screen flex flex-col justify-between max-w-md mx-auto relative select-none pb-28">
-<!-- TOP APP BAR -->
-<header class="sticky top-0 z-30 bg-[#0c181b]/95 backdrop-blur-md px-4 pt-3 pb-3 border-b border-[#1d353c] flex items-center justify-between">
-<div class="flex items-center gap-3">
-<button aria-label="Go back" class="w-10 h-10 rounded-2xl bg-[#14262c] border border-[#223d45] flex items-center justify-center text-[#e6f4f5] shadow-[0_3px_0_#091316] active:translate-y-0.5 transition-transform">
-<span class="material-symbols-outlined unfilled text-xl">arrow_back</span>
+<body>
+<div class="phone-container">
+<!-- FIXED TOP BAR -->
+<header class="fixed top-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-[#0d1d21] border-b-2 border-[#1d353b] z-40 flex items-center justify-between px-4 shadow-[0_3px_0_0_#061013]">
+<!-- Back Arrow (tactile button) -->
+<button aria-label="Back" class="w-10 h-10 rounded-full bg-[#12252a] border-2 border-[#25464f] flex items-center justify-center text-[#6bd8ce] active:translate-y-0.5 transition-transform shadow-[0_2px_0_0_#061013]" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7"></path>
+</svg>
 </button>
-<div>
-<h1 class="text-xl font-extrabold text-[#f0f8f8] tracking-tight">Badges</h1>
-</div>
-</div>
-<!-- 7 / 19 Counter Chip -->
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#14262c] border border-[#26434c] shadow-sm">
-<span class="material-symbols-outlined text-[#f59e0b] text-lg">military_tech</span>
-<span class="text-xs font-black text-[#f0f8f8] tracking-wide">7 / 19</span>
+<!-- Centered Title -->
+<h1 class="text-xl font-black text-[#f0f8f8] tracking-tight">Badges</h1>
+<!-- Counter Chip (7 / 19) -->
+<div class="h-9 px-3.5 rounded-full bg-[#162a30] border-2 border-[#2a4d56] flex items-center gap-1.5 shadow-[0_2px_0_0_#061013]">
+<svg class="w-4 h-4 text-[#f59e0b]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2l2.6 6.3 6.9.5-5.2 4.6 1.6 6.7L12 16.6 6.1 20.1l1.6-6.7-5.2-4.6 6.9-.5L12 2z"></path>
+</svg>
+<span class="text-xs font-black text-[#f0f8f8] tracking-wider">7 / 19</span>
 </div>
 </header>
-<!-- MAIN BADGES GRID CONTAINER -->
-<main class="flex-1 px-4 pt-5 pb-6">
-<!-- Progress Overview Banner (Tactile Night card) -->
-<div class="bg-[#121f24] border border-[#223d45] shadow-[0_4px_0_#0a1316] rounded-3xl p-4 mb-6 flex items-center justify-between">
-<div class="flex items-center gap-3.5">
-<div class="w-12 h-12 rounded-2xl bg-[#271f16] border border-[#683e15] flex items-center justify-center text-[#f59e0b]">
-<span class="material-symbols-outlined text-2xl">workspace_premium</span>
+<!-- CONTENT BODY (starts below fixed header) -->
+<main class="pt-[76px] px-4">
+<!-- PROGRESS SUMMARY BANNER -->
+<div class="mt-2 bg-[#12252a] rounded-3xl p-4 border-2 border-[#25464f] shadow-[0_4px_0_0_#061013] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-[#1c383f] border-2 border-[#2b5661] flex items-center justify-center text-[#f59e0b] shadow-[0_2px_0_0_#091518]">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 15a3 3 0 100-6 3 3 0 000 6z"></path>
+<path clip-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" fill-rule="evenodd"></path>
+</svg>
 </div>
 <div>
-<div class="text-xs font-bold text-[#41cbbd] uppercase tracking-wider">Level 2 Collector</div>
-<div class="text-sm font-extrabold text-[#f2f8f8]">12 Badges to unlock</div>
+<div class="text-[11px] font-extrabold uppercase tracking-wider text-[#6bd8ce]">Milestone Goal</div>
+<div class="text-sm font-black text-[#f0f8f8]">Collector Tier 2</div>
 </div>
 </div>
-<!-- Progress Bar Pill -->
-<div class="w-24">
-<div class="flex justify-between items-center mb-1">
-<span class="text-[11px] font-extrabold text-[#e2eff1]">37%</span>
-</div>
-<div class="w-full bg-[#0c181b] h-2.5 rounded-full overflow-hidden p-0.5 border border-[#1d353c]">
-<div class="bg-[#f59e0b] h-full rounded-full shadow-[0_0_8px_rgba(245,158,11,0.5)]" style="width: 37%"></div>
+<div class="text-right">
+<div class="text-xs font-bold text-[#a5c6cb] mb-1">12 to unlock</div>
+<div class="w-24 h-2.5 bg-[#0e1e22] rounded-full overflow-hidden border border-[#25464f]">
+<div class="bg-[#f59e0b] h-full rounded-full" style="width: 37%"></div>
 </div>
 </div>
 </div>
 <!-- 19 BADGES GRID (3 per row) -->
-<div class="grid grid-cols-3 gap-y-7 gap-x-3 justify-items-center">
+<div class="mt-5 grid grid-cols-3 gap-x-2 gap-y-5">
 <!-- 1. HATCHING CHICK (EARNED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#fff176] bg-gradient-to-b from-[#ffeb3b] to-[#fbc02d]" style="--ledge-color: #92400e;">
-<div class="gloss-sheen"></div>
-<svg class="w-11 h-11 drop-shadow-sm" fill="none" viewbox="0 0 48 48">
-<path d="M12 28C12 36.837 17.373 44 24 44C30.627 44 36 36.837 36 28L31.5 25L27 29L24 25L20.5 29L16.5 25L12 28Z" fill="#FFFFFF" stroke="#D97706" stroke-linejoin="round" stroke-width="2.5"></path>
-<circle cx="24" cy="20" fill="#FDE047" r="11"></circle>
-<circle cx="21" cy="18" fill="#1C1917" r="1.8"></circle>
-<circle cx="27" cy="18" fill="#1C1917" r="1.8"></circle>
-<path d="M22 21L26 21L24 24Z" fill="#F97316"></path>
-<path d="M18 13L21 8L24 11L27 8L30 13C28 11.5 20 11.5 18 13Z" fill="#FFFFFF" stroke="#D97706" stroke-linejoin="round" stroke-width="1.8"></path>
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<defs>
+<radialgradient cx="35%" cy="30%" id="chickBg" r="70%">
+<stop offset="0%" stop-color="#fffbeb"></stop>
+<stop offset="45%" stop-color="#fef08a"></stop>
+<stop offset="85%" stop-color="#f59e0b"></stop>
+<stop offset="100%" stop-color="#d97706"></stop>
+</radialgradient>
+<lineargradient id="gloss" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"></stop>
+<stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<ellipse cx="48" cy="54" fill="#b45309" rx="38" ry="38"></ellipse>
+<circle cx="48" cy="48" fill="url(#chickBg)" r="38" stroke="#ffffff" stroke-width="2.5"></circle>
+<path d="M 20 38 A 34 34 0 0 1 76 38 A 30 20 0 0 0 20 38 Z" fill="url(#gloss)"></path>
+<ellipse cx="48" cy="20" fill="#ffffff" opacity="0.6" rx="18" ry="6"></ellipse>
+<path d="M 28 50 Q 28 66 48 66 Q 68 66 68 50 L 61 54 L 54 48 L 48 54 L 42 48 L 35 54 Z" fill="#ffffff" stroke="#e2d4c0" stroke-width="1.5"></path>
+<path d="M 33 48 C 33 34 63 34 63 48 Z" fill="#f59e0b"></path>
+<polygon fill="#ea580c" points="45,43 51,43 48,48"></polygon>
+<circle cx="41" cy="41" fill="#78350f" r="2.2"></circle>
+<circle cx="55" cy="41" fill="#78350f" r="2.2"></circle>
+<circle cx="41.5" cy="40.5" fill="#ffffff" r="0.7"></circle>
+<circle cx="55.5" cy="40.5" fill="#ffffff" r="0.7"></circle>
+<path d="M 70 20 Q 70 26 64 26 Q 70 26 70 32 Q 70 26 76 26 Q 70 26 70 20 Z" fill="#ffffff" opacity="0.9"></path>
 </svg>
 </div>
-<span class="mt-2 text-xs font-extrabold text-[#f0f8f8] text-center tracking-tight leading-tight">First Review</span>
+<span class="mt-1 text-xs font-extrabold text-[#f0f8f8] text-center leading-tight">First Review</span>
 </div>
 <!-- 2. GREEN NOTEBOOK (EARNED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#a7f3d0] bg-gradient-to-b from-[#34d399] to-[#059669]" style="--ledge-color: #064e3b;">
-<div class="gloss-sheen"></div>
-<svg class="w-11 h-11 drop-shadow-sm" fill="none" viewbox="0 0 48 48">
-<rect fill="#047857" height="28" rx="3.5" stroke="#064E3B" stroke-width="2" width="22" x="14" y="10"></rect>
-<rect fill="#6EE7B7" height="24" rx="2" width="18" x="17" y="12"></rect>
-<path d="M28 12V24L31 21.5L34 24V12H28Z" fill="#F59E0B"></path>
-<circle cx="14" cy="16" fill="#FFFFFF" r="1.6"></circle>
-<circle cx="14" cy="24" fill="#FFFFFF" r="1.6"></circle>
-<circle cx="14" cy="32" fill="#FFFFFF" r="1.6"></circle>
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<defs>
+<radialgradient cx="35%" cy="30%" id="notebookBg" r="70%">
+<stop offset="0%" stop-color="#ccfbf1"></stop>
+<stop offset="45%" stop-color="#2dd4bf"></stop>
+<stop offset="85%" stop-color="#14b8a6"></stop>
+<stop offset="100%" stop-color="#0f766e"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="48" cy="54" fill="#0b524c" rx="38" ry="38"></ellipse>
+<circle cx="48" cy="48" fill="url(#notebookBg)" r="38" stroke="#ffffff" stroke-width="2.5"></circle>
+<path d="M 20 38 A 34 34 0 0 1 76 38 A 30 20 0 0 0 20 38 Z" fill="url(#gloss)"></path>
+<ellipse cx="48" cy="20" fill="#ffffff" opacity="0.6" rx="18" ry="6"></ellipse>
+<g transform="translate(48, 48) rotate(-5)">
+<rect fill="#094742" height="36" rx="4" width="32" x="-16" y="-18"></rect>
+<rect fill="#136b66" height="36" rx="4" stroke="#5eead4" stroke-width="1.2" width="32" x="-16" y="-19"></rect>
+<circle cx="-16" cy="-12" fill="#fef08a" r="2.5"></circle>
+<circle cx="-16" cy="-4" fill="#fef08a" r="2.5"></circle>
+<circle cx="-16" cy="4" fill="#fef08a" r="2.5"></circle>
+<circle cx="-16" cy="12" fill="#fef08a" r="2.5"></circle>
+<line stroke="#0b524c" stroke-width="1.5" x1="-10" x2="-10" y1="-18" y2="16"></line>
+<path d="M 2 16 L 2 24 L 6 21 L 10 24 L 10 16 Z" fill="#f59e0b"></path>
+<rect fill="#ffffff" height="8" opacity="0.9" rx="2" width="12" x="-3" y="-8"></rect>
+<line stroke="#136b66" stroke-linecap="round" stroke-width="1.2" x1="-1" x2="7" y1="-5" y2="-5"></line>
+</g>
+<path d="M 70 20 Q 70 26 64 26 Q 70 26 70 32 Q 70 26 76 26 Q 70 26 70 20 Z" fill="#ffffff" opacity="0.9"></path>
 </svg>
 </div>
-<span class="mt-2 text-xs font-extrabold text-[#f0f8f8] text-center tracking-tight leading-tight">50 Words</span>
+<span class="mt-1 text-xs font-extrabold text-[#f0f8f8] text-center leading-tight">50 Words</span>
 </div>
 <!-- 3. STACK OF BOOKS (EARNED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#fed7aa] bg-gradient-to-b from-[#fb923c] to-[#ea580c]" style="--ledge-color: #7c2d12;">
-<div class="gloss-sheen"></div>
-<svg class="w-11 h-11 drop-shadow-sm" fill="none" viewbox="0 0 48 48">
-<rect fill="#0284C7" height="7" rx="2" stroke="#0369A1" stroke-width="1.8" width="28" x="10" y="30"></rect>
-<rect fill="#FFFFFF" height="3" width="2" x="34" y="32"></rect>
-<rect fill="#FBBF24" height="7" rx="2" stroke="#D97706" stroke-width="1.8" width="24" x="12" y="22"></rect>
-<rect fill="#FFFFFF" height="3" width="2" x="32" y="24"></rect>
-<rect fill="#14B8A6" height="7" rx="2" stroke="#0F766E" stroke-width="1.8" width="20" x="15" y="14"></rect>
-<path d="M19 14V21L21.5 19.5L24 21V14H19Z" fill="#F43F5E"></path>
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<defs>
+<radialgradient cx="35%" cy="30%" id="stackBg" r="70%">
+<stop offset="0%" stop-color="#ffedd5"></stop>
+<stop offset="45%" stop-color="#fb923c"></stop>
+<stop offset="85%" stop-color="#ea580c"></stop>
+<stop offset="100%" stop-color="#c2410c"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="48" cy="54" fill="#9a3412" rx="38" ry="38"></ellipse>
+<circle cx="48" cy="48" fill="url(#stackBg)" r="38" stroke="#ffffff" stroke-width="2.5"></circle>
+<path d="M 20 38 A 34 34 0 0 1 76 38 A 30 20 0 0 0 20 38 Z" fill="url(#gloss)"></path>
+<ellipse cx="48" cy="20" fill="#ffffff" opacity="0.6" rx="18" ry="6"></ellipse>
+<g transform="translate(48, 49)">
+<rect fill="#0d5e58" height="9" rx="3" width="40" x="-20" y="5"></rect>
+<rect fill="#14b8a6" height="9" rx="3" width="40" x="-20" y="4"></rect>
+<rect fill="#fffbeb" height="5" rx="1" width="35" x="-18" y="6"></rect>
+<rect fill="#b45309" height="9" rx="3" width="34" x="-17" y="-4"></rect>
+<rect fill="#f59e0b" height="9" rx="3" width="34" x="-17" y="-5"></rect>
+<rect fill="#fffbeb" height="5" rx="1" width="30" x="-15" y="-3"></rect>
+<rect fill="#be123c" height="9" rx="3" width="28" x="-14" y="-13"></rect>
+<rect fill="#f43f5e" height="9" rx="3" width="28" x="-14" y="-14"></rect>
+<rect fill="#fffbeb" height="5" rx="1" width="24" x="-12" y="-12"></rect>
+</g>
+<path d="M 70 20 Q 70 26 64 26 Q 70 26 70 32 Q 70 26 76 26 Q 70 26 70 20 Z" fill="#ffffff" opacity="0.9"></path>
 </svg>
 </div>
-<span class="mt-2 text-xs font-extrabold text-[#f0f8f8] text-center tracking-tight leading-tight">200 Words</span>
+<span class="mt-1 text-xs font-extrabold text-[#f0f8f8] text-center leading-tight">200 Words</span>
 </div>
-<!-- 4. GRAND LIBRARY (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="85" stroke-width="3.5"></circle>
-</svg>
-<svg class="w-9 h-9 text-[#5b7b85]" fill="currentColor" viewbox="0 0 48 48">
-<path d="M8 20L24 10L40 20H8Z" opacity="0.9"></path>
-<rect height="15" opacity="0.7" width="5" x="11" y="20"></rect>
-<rect height="15" opacity="0.7" width="5" x="21.5" y="20"></rect>
-<rect height="15" opacity="0.7" width="5" x="32" y="20"></rect>
-<rect height="4" opacity="0.9" rx="1" width="32" x="8" y="35"></rect>
-</svg>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
-</div>
-</div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">Grand Library</span>
-</div>
-<!-- 5. BRAIN (EARNED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#fbcfe8] bg-gradient-to-b from-[#f472b6] to-[#db2777]" style="--ledge-color: #831843;">
-<div class="gloss-sheen"></div>
-<svg class="w-11 h-11 drop-shadow-sm" fill="none" viewbox="0 0 48 48">
-<path d="M22 13C17.5 13 13 16.5 13 21C13 22.5 13.5 24 14.5 25C13.5 26.5 13 28 13 30C13 34 16.5 36 21 36L22 36V13Z" fill="#FCE7F3" stroke="#9D174D" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M26 13C30.5 13 35 16.5 35 21C35 22.5 34.5 24 33.5 25C34.5 26.5 35 28 35 30C35 34 31.5 36 27 36L26 36V13Z" fill="#FCE7F3" stroke="#9D174D" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M17 21C19 23 21 21 22 24" stroke="#BE185D" stroke-linecap="round" stroke-width="1.8"></path>
-<path d="M31 21C29 23 27 21 26 24" stroke="#BE185D" stroke-linecap="round" stroke-width="1.8"></path>
-<path d="M17 31C19 30 20 32 22 31" stroke="#BE185D" stroke-linecap="round" stroke-width="1.8"></path>
-<path d="M31 31C29 30 28 32 26 31" stroke="#BE185D" stroke-linecap="round" stroke-width="1.8"></path>
+<!-- 4. GRAND LIBRARY (LOCKED, Word collection 500) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="130 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 44)">
+<polygon fill="#8faeb4" points="0,-16 -18,-6 18,-6"></polygon>
+<rect fill="#8faeb4" height="3" width="34" x="-17" y="-6"></rect>
+<rect fill="#8faeb4" height="15" rx="1" width="5" x="-15" y="-3"></rect>
+<rect fill="#8faeb4" height="15" rx="1" width="5" x="-7" y="-3"></rect>
+<rect fill="#8faeb4" height="15" rx="1" width="5" x="2" y="-3"></rect>
+<rect fill="#8faeb4" height="15" rx="1" width="5" x="10" y="-3"></rect>
+<rect fill="#8faeb4" height="4" rx="1" width="38" x="-19" y="12"></rect>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
 </div>
-<span class="mt-2 text-xs font-extrabold text-[#f0f8f8] text-center tracking-tight leading-tight">Master 10</span>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">Grand Library</span>
 </div>
-<!-- 6. TROPHY (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="175" stroke-width="3.5"></circle>
-</svg>
-<span class="material-symbols-outlined text-[#5b7b85] text-3xl">trophy</span>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
-</div>
-</div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">Master 100</span>
-</div>
-<!-- 7. SMALL FLAME (EARNED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#ffedd5] bg-gradient-to-b from-[#f97316] to-[#c2410c]" style="--ledge-color: #7c2d12;">
-<div class="gloss-sheen"></div>
-<svg class="w-11 h-11 drop-shadow-sm" fill="none" viewbox="0 0 48 48">
-<path d="M24 8C24 16 14 18 14 28C14 34.627 18.477 39 24 39C29.523 39 34 34.627 34 28C34 18 24 14 24 8Z" fill="#FBBF24" stroke="#EA580C" stroke-width="2"></path>
-<path d="M24 18C24 22 19 24 19 29C19 32.5 21.2 35 24 35C26.8 35 29 32.5 29 29C29 24 24 21 24 18Z" fill="#FFFFFF"></path>
-</svg>
-</div>
-<span class="mt-2 text-xs font-extrabold text-[#f0f8f8] text-center tracking-tight leading-tight">3-Day Streak</span>
-</div>
-<!-- 8. VOLCANO (EARNED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#fecaca] bg-gradient-to-b from-[#ef4444] to-[#b91c1c]" style="--ledge-color: #7f1d1d;">
-<div class="gloss-sheen"></div>
-<svg class="w-11 h-11 drop-shadow-sm" fill="none" viewbox="0 0 48 48">
-<path d="M10 38L18 22H30L38 38H10Z" fill="#78350F" stroke="#451A03" stroke-linejoin="round" stroke-width="2"></path>
-<ellipse cx="24" cy="22" fill="#EF4444" rx="6" ry="2.5" stroke="#B91C1C" stroke-width="1.5"></ellipse>
-<path d="M24 20V12" stroke="#FDE047" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M20 21L15 15" stroke="#F97316" stroke-linecap="round" stroke-width="2"></path>
-<path d="M28 21L33 15" stroke="#F97316" stroke-linecap="round" stroke-width="2"></path>
-<path d="M22 23V29L24 31L26 28V23" fill="#EF4444"></path>
+<!-- 5. BRAIN (EARNED, 10 Mastered) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<defs>
+<radialgradient cx="35%" cy="30%" id="brainBg" r="70%">
+<stop offset="0%" stop-color="#fdf4ff"></stop>
+<stop offset="45%" stop-color="#f472b6"></stop>
+<stop offset="85%" stop-color="#d946ef"></stop>
+<stop offset="100%" stop-color="#a21caf"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="48" cy="54" fill="#701a75" rx="38" ry="38"></ellipse>
+<circle cx="48" cy="48" fill="url(#brainBg)" r="38" stroke="#ffffff" stroke-width="2.5"></circle>
+<path d="M 20 38 A 34 34 0 0 1 76 38 A 30 20 0 0 0 20 38 Z" fill="url(#gloss)"></path>
+<ellipse cx="48" cy="20" fill="#ffffff" opacity="0.6" rx="18" ry="6"></ellipse>
+<g transform="translate(48, 48)">
+<ellipse cx="-8" cy="-5" fill="#fdf4ff" opacity="0.9" rx="8" ry="9"></ellipse>
+<ellipse cx="8" cy="-5" fill="#fdf4ff" opacity="0.9" rx="8" ry="9"></ellipse>
+<ellipse cx="-10" cy="5" fill="#fdf4ff" opacity="0.9" rx="7" ry="7"></ellipse>
+<ellipse cx="10" cy="5" fill="#fdf4ff" opacity="0.9" rx="7" ry="7"></ellipse>
+<path d="M -7 -10 Q -4 -5 -7 0 Q -10 5 -5 9" fill="none" stroke="#a21caf" stroke-linecap="round" stroke-width="2"></path>
+<path d="M 7 -10 Q 4 -5 7 0 Q 10 5 5 9" fill="none" stroke="#a21caf" stroke-linecap="round" stroke-width="2"></path>
+<line stroke="#701a75" stroke-linecap="round" stroke-width="2.2" x1="0" x2="0" y1="-12" y2="10"></line>
+</g>
+<path d="M 70 20 Q 70 26 64 26 Q 70 26 70 32 Q 70 26 76 26 Q 70 26 70 20 Z" fill="#ffffff" opacity="0.9"></path>
 </svg>
 </div>
-<span class="mt-2 text-xs font-extrabold text-[#f0f8f8] text-center tracking-tight leading-tight">7-Day Volcano</span>
+<span class="mt-1 text-xs font-extrabold text-[#f0f8f8] text-center leading-tight">Master 10</span>
 </div>
-<!-- 9. DIAMOND (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="180" stroke-width="3.5"></circle>
+<!-- 6. TROPHY (LOCKED, 100 Mastered) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="90 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 44)">
+<path d="M -12 -12 L 12 -12 L 10 2 C 10 9 0 10 0 10 C 0 10 -10 9 -10 2 Z" fill="#8faeb4"></path>
+<path d="M -11 -9 C -17 -9 -17 0 -10 1" fill="none" stroke="#8faeb4" stroke-width="2"></path>
+<path d="M 11 -9 C 17 -9 17 0 10 1" fill="none" stroke="#8faeb4" stroke-width="2"></path>
+<rect fill="#8faeb4" height="6" width="6" x="-3" y="10"></rect>
+<rect fill="#8faeb4" height="4" rx="1.5" width="20" x="-10" y="15"></rect>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
-<span class="material-symbols-outlined text-[#5b7b85] text-3xl">diamond</span>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
 </div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">Master 100</span>
 </div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">30-Day Spark</span>
-</div>
-<!-- 10. ROCKET (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="110" stroke-width="3.5"></circle>
+<!-- 7. SMALL FLAME (EARNED, 3-Day Streak) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<defs>
+<radialgradient cx="35%" cy="30%" id="flameBg" r="70%">
+<stop offset="0%" stop-color="#fff7ed"></stop>
+<stop offset="45%" stop-color="#fdba74"></stop>
+<stop offset="85%" stop-color="#f97316"></stop>
+<stop offset="100%" stop-color="#ea580c"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="48" cy="54" fill="#9a3412" rx="38" ry="38"></ellipse>
+<circle cx="48" cy="48" fill="url(#flameBg)" r="38" stroke="#ffffff" stroke-width="2.5"></circle>
+<path d="M 20 38 A 34 34 0 0 1 76 38 A 30 20 0 0 0 20 38 Z" fill="url(#gloss)"></path>
+<ellipse cx="48" cy="20" fill="#ffffff" opacity="0.6" rx="18" ry="6"></ellipse>
+<g transform="translate(48, 50)">
+<path d="M 0 -18 C 6 -10 14 -4 14 6 C 14 14 8 18 0 18 C -8 18 -14 14 -14 6 C -14 -4 -6 -10 0 -18 Z" fill="#b45309" opacity="0.3" transform="translate(0, 1.5)"></path>
+<path d="M 0 -18 C 6 -10 14 -4 14 6 C 14 14 8 18 0 18 C -8 18 -14 14 -14 6 C -14 -4 -6 -10 0 -18 Z" fill="#ffedd5"></path>
+<path d="M 0 -15 C 5 -8 12 -2 12 6 C 12 13 7 16 0 16 C -7 16 -12 13 -12 6 C -12 -2 -5 -8 0 -15 Z" fill="#f59e0b"></path>
+<path d="M 0 -7 C 3 -3 6 0 6 5 C 6 8 3 10 0 10 C -3 10 -6 8 -6 5 C -6 0 -3 -3 0 -7 Z" fill="#ffffff"></path>
+</g>
+<path d="M 70 20 Q 70 26 64 26 Q 70 26 70 32 Q 70 26 76 26 Q 70 26 70 20 Z" fill="#ffffff" opacity="0.9"></path>
 </svg>
-<span class="material-symbols-outlined text-[#5b7b85] text-3xl">rocket_launch</span>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
 </div>
+<span class="mt-1 text-xs font-extrabold text-[#f0f8f8] text-center leading-tight">3-Day Streak</span>
 </div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">500 Reviews</span>
+<!-- 8. VOLCANO (EARNED, 7-Day Streak) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<defs>
+<radialgradient cx="35%" cy="30%" id="volcanoBg" r="70%">
+<stop offset="0%" stop-color="#fee2e2"></stop>
+<stop offset="45%" stop-color="#f87171"></stop>
+<stop offset="85%" stop-color="#ef4444"></stop>
+<stop offset="100%" stop-color="#b91c1c"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="48" cy="54" fill="#7f1d1d" rx="38" ry="38"></ellipse>
+<circle cx="48" cy="48" fill="url(#volcanoBg)" r="38" stroke="#ffffff" stroke-width="2.5"></circle>
+<path d="M 20 38 A 34 34 0 0 1 76 38 A 30 20 0 0 0 20 38 Z" fill="url(#gloss)"></path>
+<ellipse cx="48" cy="20" fill="#ffffff" opacity="0.6" rx="18" ry="6"></ellipse>
+<g transform="translate(48, 51)">
+<polygon fill="#450a0a" points="0,-6 18,15 -18,15"></polygon>
+<polygon fill="#7f1d1d" points="0,-8 16,14 -16,14"></polygon>
+<path d="M -4 -4 L -6 6 L -3 14" fill="none" stroke="#f59e0b" stroke-linecap="round" stroke-width="2"></path>
+<path d="M 3 -4 L 6 8 L 4 14" fill="none" stroke="#f59e0b" stroke-linecap="round" stroke-width="2"></path>
+<path d="M 0 -5 L 0 5" stroke="#fef08a" stroke-linecap="round" stroke-width="1.8"></path>
+<circle cx="-6" cy="-14" fill="#fef08a" r="2.5"></circle>
+<circle cx="6" cy="-15" fill="#f59e0b" r="2"></circle>
+<circle cx="0" cy="-18" fill="#ffffff" r="3"></circle>
+</g>
+<path d="M 70 20 Q 70 26 64 26 Q 70 26 70 32 Q 70 26 76 26 Q 70 26 70 20 Z" fill="#ffffff" opacity="0.9"></path>
+</svg>
+</div>
+<span class="mt-1 text-xs font-extrabold text-[#f0f8f8] text-center leading-tight">7-Day Volcano</span>
+</div>
+<!-- 9. DIAMOND (LOCKED, 30-Day Streak) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="48 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 44)">
+<polygon fill="#8faeb4" points="0,15 15,2 10,-10 -10,-10 -15,2"></polygon>
+<line stroke="#102227" stroke-width="1.5" x1="-15" x2="15" y1="2" y2="2"></line>
+<line stroke="#102227" stroke-width="1.5" x1="-10" x2="-4" y1="-10" y2="2"></line>
+<line stroke="#102227" stroke-width="1.5" x1="10" x2="4" y1="-10" y2="2"></line>
+<line stroke="#102227" stroke-width="1.5" x1="-4" x2="0" y1="2" y2="15"></line>
+<line stroke="#102227" stroke-width="1.5" x1="4" x2="0" y1="2" y2="15"></line>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
+</svg>
+</div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">30-Day Spark</span>
+</div>
+<!-- 10. ROCKET (LOCKED, 500 Reviews) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="75 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 44) rotate(-35)">
+<path d="M 0 -16 C 6 -10 7 2 7 12 L -7 12 C -7 2 -6 -10 0 -16 Z" fill="#8faeb4"></path>
+<polygon fill="#8faeb4" points="-7,5 -14,14 -7,12"></polygon>
+<polygon fill="#8faeb4" points="7,5 14,14 7,12"></polygon>
+<circle cx="0" cy="0" fill="#102227" r="3" stroke="#8faeb4" stroke-width="1.5"></circle>
+<polygon fill="#8faeb4" points="-4,13 0,19 4,13"></polygon>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
+</svg>
+</div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">500 Reviews</span>
 </div>
 <!-- 11. PERFECT-SCORE MEDAL (EARNED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#bae6fd] bg-gradient-to-b from-[#38bdf8] to-[#0284c7]" style="--ledge-color: #075985;">
-<div class="gloss-sheen"></div>
-<svg class="w-11 h-11 drop-shadow-sm" fill="none" viewbox="0 0 48 48">
-<path d="M19 10L24 18L17 22L14 13L19 10Z" fill="#F43F5E"></path>
-<path d="M29 10L24 18L31 22L34 13L29 10Z" fill="#E11D48"></path>
-<circle cx="24" cy="27" fill="#FBBF24" r="11" stroke="#D97706" stroke-width="2"></circle>
-<circle cx="24" cy="27" fill="#F59E0B" r="8"></circle>
-<path d="M24 21L25.8 24.8L30 25.3L26.8 28.2L27.7 32.3L24 30.1L20.3 32.3L21.2 28.2L18 25.3L22.2 24.8L24 21Z" fill="#FFFFFF"></path>
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<defs>
+<radialgradient cx="35%" cy="30%" id="medalBg" r="70%">
+<stop offset="0%" stop-color="#e0f2fe"></stop>
+<stop offset="45%" stop-color="#38bdf8"></stop>
+<stop offset="85%" stop-color="#0284c7"></stop>
+<stop offset="100%" stop-color="#0369a1"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="48" cy="54" fill="#075985" rx="38" ry="38"></ellipse>
+<circle cx="48" cy="48" fill="url(#medalBg)" r="38" stroke="#ffffff" stroke-width="2.5"></circle>
+<path d="M 20 38 A 34 34 0 0 1 76 38 A 30 20 0 0 0 20 38 Z" fill="url(#gloss)"></path>
+<ellipse cx="48" cy="20" fill="#ffffff" opacity="0.6" rx="18" ry="6"></ellipse>
+<g transform="translate(48, 48)">
+<polygon fill="#ef4444" points="-7,-14 -12,2 -4,0"></polygon>
+<polygon fill="#ef4444" points="7,-14 12,2 4,0"></polygon>
+<circle cx="0" cy="2" fill="#b45309" r="13"></circle>
+<circle cx="0" cy="1" fill="#f59e0b" r="13" stroke="#fef08a" stroke-width="1.5"></circle>
+<polygon fill="#ffffff" points="0,-6 2,-1 7,-1 3,2 4,7 0,4 -4,7 -3,2 -7,-1 -2,-1"></polygon>
+</g>
+<path d="M 70 20 Q 70 26 64 26 Q 70 26 70 32 Q 70 26 76 26 Q 70 26 70 20 Z" fill="#ffffff" opacity="0.9"></path>
 </svg>
 </div>
-<span class="mt-2 text-xs font-extrabold text-[#f0f8f8] text-center tracking-tight leading-tight">Flawless 100%</span>
+<span class="mt-1 text-xs font-extrabold text-[#f0f8f8] text-center leading-tight">Flawless 100%</span>
 </div>
-<!-- 12. MICROPHONE (EARNED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full medallion-earned flex items-center justify-center border-4 border-[#99f6e4] bg-gradient-to-b from-[#2dd4bf] to-[#0d9488]" style="--ledge-color: #115e59;">
-<div class="gloss-sheen"></div>
-<svg class="w-11 h-11 drop-shadow-sm" fill="none" viewbox="0 0 48 48">
-<path d="M12 21C11 23 11 25 12 27" stroke="#CCFBF1" stroke-linecap="round" stroke-width="2"></path>
-<path d="M36 21C37 23 37 25 36 27" stroke="#CCFBF1" stroke-linecap="round" stroke-width="2"></path>
-<rect fill="#FFFFFF" height="15" rx="4" stroke="#0F766E" stroke-width="2" width="8" x="20" y="12"></rect>
-<path d="M17 21V23C17 26.866 20.134 30 24 30C27.866 30 31 23 31 21" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M24 30V36M19 36H29" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- 12. MICROPHONE (EARNED, Pronunciation) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<defs>
+<radialgradient cx="35%" cy="30%" id="micBg" r="70%">
+<stop offset="0%" stop-color="#e6fffa"></stop>
+<stop offset="45%" stop-color="#2dd4bf"></stop>
+<stop offset="85%" stop-color="#0f766e"></stop>
+<stop offset="100%" stop-color="#115e59"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="48" cy="54" fill="#042f2e" rx="38" ry="38"></ellipse>
+<circle cx="48" cy="48" fill="url(#micBg)" r="38" stroke="#ffffff" stroke-width="2.5"></circle>
+<path d="M 20 38 A 34 34 0 0 1 76 38 A 30 20 0 0 0 20 38 Z" fill="url(#gloss)"></path>
+<ellipse cx="48" cy="20" fill="#ffffff" opacity="0.6" rx="18" ry="6"></ellipse>
+<g transform="translate(48, 47)">
+<rect fill="#042f2e" height="18" rx="6" width="12" x="-6" y="-14"></rect>
+<rect fill="#ffffff" height="18" rx="6" stroke="#99f6e4" stroke-width="1.5" width="12" x="-6" y="-15"></rect>
+<line stroke="#0f766e" stroke-width="1.2" x1="-6" x2="6" y1="-8" y2="-8"></line>
+<path d="M -10 -4 C -10 8 10 8 10 -4" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="2.5"></path>
+<line stroke="#ffffff" stroke-linecap="round" stroke-width="2.5" x1="0" x2="0" y1="8" y2="15"></line>
+<line stroke="#ffffff" stroke-linecap="round" stroke-width="2.5" x1="-7" x2="7" y1="15" y2="15"></line>
+<path d="M -15 -10 A 14 14 0 0 0 -15 2" fill="none" stroke="#fef08a" stroke-linecap="round" stroke-width="1.8"></path>
+<path d="M 15 -10 A 14 14 0 0 1 15 2" fill="none" stroke="#fef08a" stroke-linecap="round" stroke-width="1.8"></path>
+</g>
+<path d="M 70 20 Q 70 26 64 26 Q 70 26 70 32 Q 70 26 76 26 Q 70 26 70 20 Z" fill="#ffffff" opacity="0.9"></path>
 </svg>
 </div>
-<span class="mt-2 text-xs font-extrabold text-[#f0f8f8] text-center tracking-tight leading-tight">Orator</span>
+<span class="mt-1 text-xs font-extrabold text-[#f0f8f8] text-center leading-tight">Orator</span>
 </div>
-<!-- 13. OPEN BOOK (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="150" stroke-width="3.5"></circle>
+<!-- 13. OPEN BOOK (LOCKED, Reader) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="140 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 45)">
+<path d="M 0 8 C -8 3 -16 3 -16 3 L -16 -11 C -16 -11 -8 -11 0 -6 C 8 -11 16 -11 16 -11 L 16 3 C 16 3 8 3 0 8 Z" fill="#8faeb4"></path>
+<line stroke="#102227" stroke-width="2" x1="0" x2="0" y1="-6" y2="8"></line>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
-<span class="material-symbols-outlined text-[#5b7b85] text-3xl">auto_stories</span>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
 </div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">Bookworm</span>
 </div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">Bookworm</span>
-</div>
-<!-- 14. LIGHTNING BOLT (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="60" stroke-width="3.5"></circle>
+<!-- 14. LIGHTNING BOLT (LOCKED, Speed) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="60 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 45)">
+<polygon fill="#8faeb4" points="2,-16 -10,0 -2,0 -4,16 10,-2 2,-2"></polygon>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
-<span class="material-symbols-outlined text-[#5b7b85] text-3xl">bolt</span>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
 </div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">Speed Demon</span>
 </div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">Speed Demon</span>
-</div>
-<!-- 15. OWL (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="190" stroke-width="3.5"></circle>
+<!-- 15. OWL (LOCKED, Night learner) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="110 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 45)">
+<path d="M -14 -12 L -8 -7 L 8 -7 L 14 -12 L 12 10 C 12 14 -12 14 -12 10 Z" fill="#8faeb4"></path>
+<circle cx="-5" cy="0" fill="#102227" r="4.5" stroke="#8faeb4" stroke-width="1.5"></circle>
+<circle cx="5" cy="0" fill="#102227" r="4.5" stroke="#8faeb4" stroke-width="1.5"></circle>
+<circle cx="-5" cy="0" fill="#8faeb4" r="1.8"></circle>
+<circle cx="5" cy="0" fill="#8faeb4" r="1.8"></circle>
+<polygon fill="#8faeb4" points="0,2 2,5 -2,5"></polygon>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
-<svg class="w-9 h-9 text-[#5b7b85]" fill="currentColor" viewbox="0 0 48 48">
-<path d="M24 10C16 10 14 16 14 24C14 32 18 38 24 38C30 38 34 32 34 24C34 16 32 10 24 10Z" opacity="0.9"></path>
-<circle cx="19" cy="22" fill="#15252b" r="3.5"></circle>
-<circle cx="29" cy="22" fill="#15252b" r="3.5"></circle>
-<path d="M22 25L24 28L26 25H22Z" fill="#f59e0b"></path>
-</svg>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
 </div>
-</div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">Night Owl</span>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">Night Owl</span>
 </div>
 <!-- 16. EARLY BIRD (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="200" stroke-width="3.5"></circle>
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="85 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 45)">
+<path d="M -14 6 C -14 -4 14 -4 14 6 Z" fill="#8faeb4"></path>
+<line stroke="#8faeb4" stroke-width="2" x1="-16" x2="16" y1="7" y2="7"></line>
+<line stroke="#8faeb4" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="-8" y2="-13"></line>
+<line stroke="#8faeb4" stroke-linecap="round" stroke-width="2" x1="-8" x2="-12" y1="-5" y2="-9"></line>
+<line stroke="#8faeb4" stroke-linecap="round" stroke-width="2" x1="8" x2="12" y1="-5" y2="-9"></line>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
-<span class="material-symbols-outlined text-[#5b7b85] text-3xl">wb_twilight</span>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
 </div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">Early Bird</span>
 </div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">Early Bird</span>
-</div>
-<!-- 17. ARCHER'S BOW (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="140" stroke-width="3.5"></circle>
+<!-- 17. ARCHER'S BOW (LOCKED, Word hunter) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="100 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 45) rotate(45)">
+<path d="M -12 -12 Q 2 -10 12 -12" fill="none" stroke="#8faeb4" stroke-linecap="round" stroke-width="2.5"></path>
+<line stroke="#8faeb4" stroke-width="1.2" x1="-12" x2="0" y1="-12" y2="4"></line>
+<line stroke="#8faeb4" stroke-width="1.2" x1="12" x2="0" y1="-12" y2="4"></line>
+<line stroke="#8faeb4" stroke-width="2" x1="0" x2="0" y1="4" y2="-16"></line>
+<polygon fill="#8faeb4" points="0,-18 3,-13 -3,-13"></polygon>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
-<svg class="w-9 h-9 text-[#5b7b85]" fill="none" stroke="currentColor" viewbox="0 0 48 48">
-<path d="M14 12C28 12 36 20 36 34" stroke-linecap="round" stroke-width="3"></path>
-<path d="M14 12L36 34" stroke-width="1.8"></path>
-<path d="M16 32L34 14M34 14H28M34 14V20" stroke-linecap="round" stroke-width="2.5"></path>
+</div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">Word Hunter</span>
+</div>
+<!-- 18. MILITARY MEDAL (LOCKED, Level 5) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="160 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 44)">
+<rect fill="#8faeb4" height="12" width="16" x="-8" y="-16"></rect>
+<line stroke="#102227" stroke-width="2" x1="0" x2="0" y1="-16" y2="-4"></line>
+<circle cx="0" cy="-3" fill="none" r="2.5" stroke="#8faeb4" stroke-width="1.5"></circle>
+<polygon fill="#8faeb4" points="0,0 3,5 9,6 5,10 6,16 0,13 -6,16 -5,10 -9,6 -3,5"></polygon>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
 </div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">Veteran V</span>
 </div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">Word Hunter</span>
-</div>
-<!-- 18. MILITARY MEDAL (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="170" stroke-width="3.5"></circle>
+<!-- 19. GOLDEN CROWN (LOCKED, Level 10) -->
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 96 96">
+<ellipse cx="48" cy="52" fill="#061013" rx="36" ry="36"></ellipse>
+<circle cx="48" cy="48" fill="#102227" r="36" stroke="#1c363d" stroke-width="2"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#162a30" stroke-width="3"></circle>
+<circle cx="48" cy="48" fill="none" r="33" stroke="#6bd8ce" stroke-dasharray="25 207" stroke-dashoffset="0" stroke-linecap="round" stroke-width="3"></circle>
+<g opacity="0.55" transform="translate(48, 45)">
+<path d="M -14 8 L 14 8 L 12 -4 L 5 2 L 0 -8 L -5 2 L -12 -4 Z" fill="#8faeb4"></path>
+<circle cx="-12" cy="-5" fill="#8faeb4" r="1.5"></circle>
+<circle cx="0" cy="-9" fill="#8faeb4" r="1.8"></circle>
+<circle cx="12" cy="-5" fill="#8faeb4" r="1.5"></circle>
+<rect fill="#8faeb4" height="2" width="28" x="-14" y="9"></rect>
+</g>
+<g transform="translate(62, 62)">
+<circle cx="0" cy="0" fill="#162a30" r="10" stroke="#2a4d56" stroke-width="1.5"></circle>
+<rect fill="#6bd8ce" height="8" rx="2" width="10" x="-5" y="-2"></rect>
+<path d="M -3 -2 L -3 -5 A 3 3 0 0 1 3 -5 L 3 -2" fill="none" stroke="#6bd8ce" stroke-width="1.8"></path>
+</g>
 </svg>
-<span class="material-symbols-outlined text-[#5b7b85] text-3xl">military_tech</span>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
+</div>
+<span class="mt-1 text-xs font-bold text-[#8faeb4] text-center leading-tight">IELTS Crown</span>
 </div>
 </div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">Veteran V</span>
-</div>
-<!-- 19. GOLDEN CROWN (LOCKED) -->
-<div class="flex flex-col items-center group cursor-pointer">
-<div class="relative w-20 h-20 rounded-full flex items-center justify-center bg-[#15252b] border border-[#223d45]">
-<svg class="absolute inset-0 w-20 h-20" viewbox="0 0 80 80">
-<circle cx="40" cy="40" fill="none" r="36" stroke="#1d353c" stroke-width="3"></circle>
-<circle class="ring-progress" cx="40" cy="40" fill="none" r="36" stroke="#2ba39a" stroke-dasharray="226" stroke-dashoffset="210" stroke-width="3.5"></circle>
+<!-- BOTTOM ENCOURAGEMENT CARD -->
+<div class="mt-8 mb-4 bg-[#12252a] rounded-3xl p-4 border-2 border-[#25464f] shadow-[0_4px_0_0_#061013] flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl bg-[#162f36] border-2 border-[#2c5762] flex items-center justify-center text-[#6bd8ce] flex-shrink-0 shadow-[0_2px_0_0_#061013]">
+<svg class="w-6 h-6 text-[#6bd8ce]" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
-<span class="material-symbols-outlined text-[#5b7b85] text-3xl">crown</span>
-<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#0a1619] border border-[#223d45] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[#8fb3bc] text-[13px]">lock</span>
 </div>
-</div>
-<span class="mt-2 text-xs font-semibold text-[#9ebbc1] text-center tracking-tight leading-tight">IELTS Crown</span>
+<div>
+<div class="text-xs font-black text-[#f0f8f8]">Next unlock in reach!</div>
+<div class="text-[11px] font-bold text-[#a5c6cb] leading-tight mt-0.5">Complete today's 3-minute dictation to level up Grand Library.</div>
 </div>
 </div>
 </main>
-<!-- BOTTOM BAR / DOCKED NAV -->
-<footer class="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-40 bg-[#0d191d]/95 backdrop-blur-md border-t border-[#1c343b] px-4 py-2.5 flex items-center justify-around shadow-[0_-4px_16px_rgba(0,0,0,0.4)]">
-<!-- Today -->
-<button class="flex flex-col items-center gap-0.5 text-[#83a5ad] hover:text-[#6bd8ce] transition-colors">
-<span class="material-symbols-outlined unfilled text-2xl">today</span>
+<!-- FIXED BOTTOM TAB BAR (5 tabs: Today, Vocab, Skills, Tests, Me with Me active) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[72px] bg-[#091518] border-t-2 border-[#1b353b] z-40 flex items-center justify-around px-2 shadow-[0_-3px_0_0_#061013]">
+<!-- 1. Today -->
+<a class="flex flex-col items-center justify-center px-2 py-1 text-[#8faeb4] hover:text-[#f0f8f8] transition-colors" href="#/today">
+<svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<rect height="18" rx="3" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
 <span class="text-[11px] font-bold">Today</span>
-</button>
-<!-- Vocab -->
-<button class="flex flex-col items-center gap-0.5 text-[#83a5ad] hover:text-[#6bd8ce] transition-colors">
-<span class="material-symbols-outlined unfilled text-2xl">menu_book</span>
+</a>
+<!-- 2. Vocab -->
+<a class="flex flex-col items-center justify-center px-2 py-1 text-[#8faeb4] hover:text-[#f0f8f8] transition-colors" href="#/vocab">
+<svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+</svg>
 <span class="text-[11px] font-bold">Vocab</span>
-</button>
-<!-- Skills -->
-<button class="flex flex-col items-center gap-0.5 text-[#83a5ad] hover:text-[#6bd8ce] transition-colors">
-<span class="material-symbols-outlined unfilled text-2xl">psychology</span>
+</a>
+<!-- 3. Skills -->
+<a class="flex flex-col items-center justify-center px-2 py-1 text-[#8faeb4] hover:text-[#f0f8f8] transition-colors" href="#/skills">
+<svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="8"></circle>
+<path d="M12 8v8"></path>
+<path d="M8 12h8"></path>
+</svg>
 <span class="text-[11px] font-bold">Skills</span>
-</button>
-<!-- Tests -->
-<button class="flex flex-col items-center gap-0.5 text-[#83a5ad] hover:text-[#6bd8ce] transition-colors">
-<span class="material-symbols-outlined unfilled text-2xl">assignment</span>
+</a>
+<!-- 4. Tests -->
+<a class="flex flex-col items-center justify-center px-2 py-1 text-[#8faeb4] hover:text-[#f0f8f8] transition-colors" href="#/tests">
+<svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
+<rect height="4" rx="1" width="6" x="9" y="3"></rect>
+<path d="M9 14l2 2 4-4"></path>
+</svg>
 <span class="text-[11px] font-bold">Tests</span>
-</button>
-<!-- Me (Active / Stats source) -->
-<button class="flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl bg-[#136b66] text-white shadow-[0_3px_0_#093532] active:translate-y-0.5 transition-all">
-<span class="material-symbols-outlined text-2xl">person</span>
-<span class="text-[11px] font-extrabold tracking-wide">Me</span>
-</button>
-</footer>
+</a>
+<!-- 5. Me (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-[#136b66] text-white rounded-2xl px-3.5 py-1.5 shadow-[0_3px_0_0_#061013] active:translate-y-0.5 transition-all" href="#/me">
+<svg class="w-5 h-5 mb-0.5" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-[11px] font-black tracking-tight">Me</span>
+</a>
+</nav>
+</div>
 </body>
 </html>
-

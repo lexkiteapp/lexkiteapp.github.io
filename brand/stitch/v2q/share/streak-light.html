@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=1080, height=1080, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=1080, height=1080, initial-scale=1.0" name="viewport"/>
 <title>Lexkite 45-Day Streak Share Card</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -64,244 +65,157 @@
 </style>
 </head>
 <body class="w-[1080px] h-[1080px] bg-[#fff8f3] flex flex-col justify-between p-14 relative overflow-hidden">
-
-  <!-- Subtle playful background decorative elements (confetti & sparkles, no faces/characters) -->
-  <div class="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-amber-100/50 blur-3xl pointer-events-none"></div>
-  <div class="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-teal-100/40 blur-3xl pointer-events-none"></div>
-
-  <!-- Sparkle stars (pure geometric SVGs) -->
-  <svg class="absolute top-28 left-20 text-amber-400 w-8 h-8 opacity-80" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"/>
-  </svg>
-  <svg class="absolute top-20 right-32 text-teal-500 w-7 h-7 opacity-75" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"/>
-  </svg>
-  <svg class="absolute bottom-44 right-20 text-orange-400 w-6 h-6 opacity-70" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"/>
-  </svg>
-  <svg class="absolute bottom-56 left-28 text-teal-600 w-5 h-5 opacity-60" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"/>
-  </svg>
-
-  <!-- 1. TOP HEADER: Kite Logo & 'Lexkite' small -->
-  <header class="flex items-center justify-between w-full z-10">
-    <div class="flex items-center gap-3.5 bg-white/80 backdrop-blur-md px-5 py-3 rounded-full border-2 border-[#ecdccf] shadow-[0_4px_0_0_#dfcbbb]">
-      <!-- Kite Logo SVG -->
-      <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 2L28 14L16 28L4 14L16 2Z" fill="#0d9488" stroke="#115e59" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M16 2V28" stroke="#f59e0b" stroke-width="2"/>
-        <path d="M4 14H28" stroke="#f59e0b" stroke-width="2"/>
-        <!-- Kite Tail ribbon dots -->
-        <path d="M16 28C16 30 19 30.5 19 32" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span class="text-2xl font-black tracking-tight text-[#134e4a]">Lexkite</span>
-      <span class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]"></span>
-      <span class="text-xs font-extrabold uppercase tracking-widest text-[#134e4a]/70">IELTS · TOEIC</span>
-    </div>
-
-    <!-- Milestone category chip -->
-    <div class="flex items-center gap-2 bg-[#fef3c7] text-[#1c1003] px-5 py-2.5 rounded-full border-2 border-[#fcd34d] shadow-[0_3px_0_0_#f59e0b]">
-      <span class="w-2.5 h-2.5 rounded-full bg-[#ea580c] animate-pulse"></span>
-      <span class="text-sm font-extrabold tracking-wide uppercase">Streak Milestone</span>
-    </div>
-  </header>
-
-  <!-- 2. MAIN CARD: Bold Warm Composition -->
-  <main class="w-full bg-white rounded-[44px] border-[3.5px] border-[#ecdccf] shadow-[0_12px_0_0_#dfcbbb,0_24px_35px_-8px_rgba(0,0,0,0.06)] p-12 z-10 flex flex-col justify-between my-auto">
-    
-    <!-- Top row within card: Big Streak Counter + Huge Glossy Flame + Teacher Slot -->
-    <div class="flex items-center justify-between gap-8">
-      
-      <!-- Left side: Huge Glossy Flame Medallion + 45 Big beside it + day streak under it -->
-      <div class="flex items-center gap-9 flex-1">
-        
-        <!-- Huge Glossy Flame Medallion -->
-        <div class="relative flex-shrink-0">
-          <!-- Multi-ring 3D glossy coin medallion base -->
-          <div class="w-48 h-48 rounded-full bg-gradient-to-b from-[#fef3c7] via-[#fde68a] to-[#f59e0b] p-3 border-[4px] border-[#d97706] shadow-[0_12px_0_0_#b45309,0_16px_25px_rgba(234,88,12,0.3)] flex items-center justify-center relative">
-            
-            <!-- Inner gloss highlight ring -->
-            <div class="w-full h-full rounded-full bg-gradient-to-br from-[#ea580c] to-[#c2410c] flex items-center justify-center relative overflow-hidden border-2 border-[#fbbf24]/60">
-              
-              <!-- Glass gloss top sheen reflection -->
-              <div class="absolute -top-6 -left-6 w-36 h-28 bg-white/30 rounded-full blur-[2px] transform -rotate-12 pointer-events-none"></div>
-              
-              <!-- Tactile 3D Vector Flame -->
-              <svg class="w-28 h-28 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.25)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Outer Ember Body -->
-                <path d="M50 8C50 8 30 32 30 54C30 72 40 84 50 86C60 84 70 72 70 54C70 38 56 20 50 8Z" fill="#ffedd5"/>
-                <!-- Main Red-Orange Flame -->
-                <path d="M50 12C48 24 33 36 33 56C33 71.5 41.5 83 50 85C58.5 83 67 71.5 67 56C67 36 52 24 50 12Z" fill="url(#flame_grad_outer)"/>
-                <!-- Secondary Gold Flame Core -->
-                <path d="M50 28C48 37 40 46 40 60C40 70 45 77 50 78C55 77 60 70 60 60C60 46 52 37 50 28Z" fill="url(#flame_grad_mid)"/>
-                <!-- Inner Bright Yellow/White Core -->
-                <path d="M50 44C49 50 45 55 45 64C45 70 47.5 73.5 50 74C52.5 73.5 55 70 55 64C55 55 51 50 50 44Z" fill="#ffffff"/>
-                <!-- Sparkle highlights -->
-                <circle cx="56" cy="38" r="2.5" fill="#ffffff" opacity="0.9"/>
-                <circle cx="44" cy="48" r="2" fill="#ffffff" opacity="0.8"/>
-                <defs>
-                  <linearGradient id="flame_grad_outer" x1="50" y1="12" x2="50" y2="85" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#f97316"/>
-                    <stop offset="1" stop-color="#dc2626"/>
-                  </linearGradient>
-                  <linearGradient id="flame_grad_mid" x1="50" y1="28" x2="50" y2="78" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#fef08a"/>
-                    <stop offset="0.6" stop-color="#f59e0b"/>
-                    <stop offset="1" stop-color="#ea580c"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            
-            <!-- Bottom badge ledge indicator -->
-            <div class="absolute -bottom-3.5 bg-[#f59e0b] border-2 border-[#b45309] text-[#1c1003] px-3.5 py-1 rounded-full text-xs font-black tracking-wider uppercase shadow-[0_2px_0_0_#92400e]">
+<!-- Subtle playful background decorative elements (confetti & sparkles, no faces/characters) -->
+<div class="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-amber-100/50 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-teal-100/40 blur-3xl pointer-events-none"></div>
+<!-- Sparkle stars (pure geometric SVGs) -->
+<svg class="absolute top-28 left-20 text-amber-400 w-8 h-8 opacity-80" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"></path>
+</svg>
+<svg class="absolute top-20 right-32 text-teal-500 w-7 h-7 opacity-75" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"></path>
+</svg>
+<svg class="absolute bottom-44 right-20 text-orange-400 w-6 h-6 opacity-70" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"></path>
+</svg>
+<svg class="absolute bottom-56 left-28 text-teal-600 w-5 h-5 opacity-60" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"></path>
+</svg>
+<!-- 1. TOP HEADER: Kite Logo & 'Lexkite' small -->
+<header class="flex items-center justify-between w-full z-10">
+<div class="flex items-center gap-3.5 bg-white/80 backdrop-blur-md px-5 py-3 rounded-full border-2 border-[#ecdccf] shadow-[0_4px_0_0_#dfcbbb]">
+<!-- Kite Logo SVG -->
+<svg class="w-8 h-8" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 2L28 14L16 28L4 14L16 2Z" fill="#0d9488" stroke="#115e59" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M16 2V28" stroke="#f59e0b" stroke-width="2"></path>
+<path d="M4 14H28" stroke="#f59e0b" stroke-width="2"></path>
+<!-- Kite Tail ribbon dots -->
+<path d="M16 28C16 30 19 30.5 19 32" stroke="#ea580c" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<span class="text-2xl font-black tracking-tight text-[#134e4a]">Lexkite</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]"></span>
+<span class="text-xs font-extrabold uppercase tracking-widest text-[#134e4a]">IELTS · TOEIC</span>
+</div>
+<!-- Milestone category chip -->
+<div class="flex items-center gap-2 bg-[#fef3c7] text-[#1c1003] px-5 py-2.5 rounded-full border-2 border-[#fcd34d] shadow-[0_3px_0_0_#f59e0b]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#ea580c] animate-pulse"></span>
+<span class="text-sm font-extrabold tracking-wide uppercase">Streak Milestone</span>
+</div>
+</header>
+<!-- 2. MAIN CARD: Bold Warm Composition -->
+<main class="w-full bg-white rounded-[44px] border-[3.5px] border-[#ecdccf] shadow-[0_12px_0_0_#dfcbbb,0_24px_35px_-8px_rgba(0,0,0,0.06)] p-12 z-10 flex flex-col justify-between my-auto">
+<!-- Top row within card: Big Streak Counter + Huge Glossy Flame + Teacher Slot -->
+<div class="flex items-center justify-between gap-8">
+<!-- Left side: Huge Glossy Flame Medallion + 45 Big beside it + day streak under it -->
+<div class="flex items-center gap-9 flex-1">
+<!-- Huge Glossy Flame Medallion -->
+<div class="relative flex-shrink-0">
+<!-- Multi-ring 3D glossy coin medallion base -->
+<div class="w-48 h-48 rounded-full bg-gradient-to-b from-[#fef3c7] via-[#fde68a] to-[#f59e0b] p-3 border-[4px] border-[#d97706] shadow-[0_12px_0_0_#b45309,0_16px_25px_rgba(234,88,12,0.3)] flex items-center justify-center relative">
+<!-- Inner gloss highlight ring -->
+<div class="w-full h-full rounded-full bg-gradient-to-br from-[#ea580c] to-[#c2410c] flex items-center justify-center relative overflow-hidden border-2 border-[#fbbf24]/60">
+<!-- Glass gloss top sheen reflection -->
+<div class="absolute -top-6 -left-6 w-36 h-28 bg-white/30 rounded-full blur-[2px] transform -rotate-12 pointer-events-none"></div>
+<!-- Tactile 3D Vector Flame -->
+<svg class="w-28 h-28 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.25)]" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<!-- Outer Ember Body -->
+<path d="M50 8C50 8 30 32 30 54C30 72 40 84 50 86C60 84 70 72 70 54C70 38 56 20 50 8Z" fill="#ffedd5"></path>
+<!-- Main Red-Orange Flame -->
+<path d="M50 12C48 24 33 36 33 56C33 71.5 41.5 83 50 85C58.5 83 67 71.5 67 56C67 36 52 24 50 12Z" fill="url(#flame_grad_outer)"></path>
+<!-- Secondary Gold Flame Core -->
+<path d="M50 28C48 37 40 46 40 60C40 70 45 77 50 78C55 77 60 70 60 60C60 46 52 37 50 28Z" fill="url(#flame_grad_mid)"></path>
+<!-- Inner Bright Yellow/White Core -->
+<path d="M50 44C49 50 45 55 45 64C45 70 47.5 73.5 50 74C52.5 73.5 55 70 55 64C55 55 51 50 50 44Z" fill="#ffffff"></path>
+<!-- Sparkle highlights -->
+<circle cx="56" cy="38" fill="#ffffff" opacity="0.9" r="2.5"></circle>
+<circle cx="44" cy="48" fill="#ffffff" opacity="0.8" r="2"></circle>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="flame_grad_outer" x1="50" x2="50" y1="12" y2="85">
+<stop stop-color="#f97316"></stop>
+<stop offset="1" stop-color="#dc2626"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="flame_grad_mid" x1="50" x2="50" y1="28" y2="78">
+<stop stop-color="#fef08a"></stop>
+<stop offset="0.6" stop-color="#f59e0b"></stop>
+<stop offset="1" stop-color="#ea580c"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<!-- Bottom badge ledge indicator -->
+<div class="absolute -bottom-3.5 bg-[#f59e0b] border-2 border-[#b45309] text-[#1c1003] px-3.5 py-1 rounded-full text-xs font-black tracking-wider uppercase shadow-[0_2px_0_0_#92400e]">
               🔥 Active
             </div>
-          </div>
-        </div>
-
-        <!-- 45 Big beside it + day streak under it -->
-        <div class="flex flex-col justify-center">
-          <div class="flex items-baseline gap-2">
-            <span class="text-[124px] font-black leading-none tracking-tight text-[#134e4a] drop-shadow-sm font-sans">45</span>
-            <span class="text-4xl font-extrabold text-[#ea580c] leading-none mb-4">★</span>
-          </div>
-          <div class="text-[34px] font-extrabold text-[#1c1917] tracking-tight -mt-1 leading-tight flex items-center gap-2">
+</div>
+</div>
+<!-- 45 Big beside it + day streak under it -->
+<div class="flex flex-col justify-center">
+<div class="flex items-baseline gap-2">
+<span class="text-[124px] font-black leading-none tracking-tight text-[#134e4a] drop-shadow-sm font-sans">45</span>
+<span class="text-4xl font-extrabold text-[#ea580c] leading-none mb-4">★</span>
+</div>
+<div class="text-[34px] font-extrabold text-[#1c1917] tracking-tight -mt-1 leading-tight flex items-center gap-2">
             day streak
           </div>
-          <p class="text-lg font-bold text-[#134e4a]/75 mt-1">
+<p class="text-lg font-bold text-[#134e4a]/75 mt-1">
             Top 3% consistency this month
           </p>
-        </div>
-      </div>
-
-      <!-- Empty Dashed Teacher Slot (rounded, about 140x170, NO person/face/character drawn) -->
-      <div class="w-[144px] h-[174px] rounded-3xl border-3 border-dashed border-[#0d9488]/50 bg-[#f0fdfa]/70 flex flex-col items-center justify-center p-3 text-center relative flex-shrink-0 shadow-inner">
-        <!-- Dashed slot badge / identifier -->
-        <div class="w-10 h-10 rounded-2xl bg-[#ccfbf1] border-2 border-[#14b8a6] flex items-center justify-center mb-2 shadow-[0_2px_0_0_#0f766e]">
-          <svg class="w-5 h-5 text-[#0f766e]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 5v14M5 12h14"/>
-          </svg>
-        </div>
-        <span class="text-[13px] font-black text-[#0f766e] uppercase tracking-wider">Teacher</span>
-        <span class="text-[11px] font-bold text-[#115e59]/70 leading-tight mt-0.5">Slot</span>
-      </div>
-
-    </div>
-
-    <!-- Divider bar -->
-    <div class="w-full h-1 bg-[#ecdccf] rounded-full my-8"></div>
-
-    <!-- Bottom section within card: Tiny 7-day row of lit circles + Daily Goal reached pill -->
-    <div class="flex items-center justify-between">
-      
-      <!-- 7-day row of lit circles -->
-      <div class="flex flex-col gap-2.5">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-[#134e4a]/80">This Week's Activity</span>
-        <div class="flex items-center gap-3">
-          
-          <!-- Mon: Lit -->
-          <div class="flex flex-col items-center gap-1.5">
-            <div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#ea580c] font-black text-base">
-              ✓
-            </div>
-            <span class="text-xs font-bold text-[#1c1917]">M</span>
-          </div>
-
-          <!-- Tue: Lit -->
-          <div class="flex flex-col items-center gap-1.5">
-            <div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#ea580c] font-black text-base">
-              ✓
-            </div>
-            <span class="text-xs font-bold text-[#1c1917]">T</span>
-          </div>
-
-          <!-- Wed: Lit -->
-          <div class="flex flex-col items-center gap-1.5">
-            <div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#ea580c] font-black text-base">
-              ✓
-            </div>
-            <span class="text-xs font-bold text-[#1c1917]">W</span>
-          </div>
-
-          <!-- Thu: Lit -->
-          <div class="flex flex-col items-center gap-1.5">
-            <div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#ea580c] font-black text-base">
-              ✓
-            </div>
-            <span class="text-xs font-bold text-[#1c1917]">T</span>
-          </div>
-
-          <!-- Fri: Lit -->
-          <div class="flex flex-col items-center gap-1.5">
-            <div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#ea580c] font-black text-base">
-              ✓
-            </div>
-            <span class="text-xs font-bold text-[#1c1917]">F</span>
-          </div>
-
-          <!-- Sat: Lit -->
-          <div class="flex flex-col items-center gap-1.5">
-            <div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#ea580c] font-black text-base">
-              ✓
-            </div>
-            <span class="text-xs font-bold text-[#1c1917]">S</span>
-          </div>
-
-          <!-- Sun: Lit (Today - glowing with flame highlight) -->
-          <div class="flex flex-col items-center gap-1.5">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-b from-[#f59e0b] to-[#ea580c] border-2 border-[#b45309] shadow-[0_3px_0_0_#9a3412] flex items-center justify-center text-white font-black text-base relative">
-              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C10.5 7 7 9 7 14C7 17.5 9.5 20 12 20C14.5 20 17 17.5 17 14C17 9 13.5 7 12 2Z"/>
-              </svg>
-            </div>
-            <span class="text-xs font-black text-[#ea580c]">Today</span>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Tactile pressable badge pill with soft ledge -->
-      <div class="flex items-center gap-3 bg-[#f0fdf4] border-2 border-[#86efac] px-6 py-4 rounded-2xl shadow-[0_4px_0_0_#4ade80]">
-        <div class="w-8 h-8 rounded-full bg-[#22c55e] flex items-center justify-center text-white font-black text-base">
+</div>
+</div>
+<!-- Empty Dashed Teacher Slot (rounded, about 140x170, NO person/face/character drawn) -->
+<div class="w-[144px] h-[174px] rounded-3xl border-3 border-dashed border-[#0d9488]/50 bg-[#f0fdfa]/70 flex flex-col items-center justify-center p-3 text-center relative flex-shrink-0 shadow-inner">
+<!-- Dashed slot badge / identifier -->
+<div class="w-10 h-10 rounded-2xl bg-[#ccfbf1] border-2 border-[#14b8a6] flex items-center justify-center mb-2 shadow-[0_2px_0_0_#0f766e]">
+<svg class="w-5 h-5 text-[#0f766e]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M12 5v14M5 12h14"></path>
+</svg>
+</div>
+<span class="text-[13px] font-black text-[#0f766e] uppercase tracking-wider">Teacher</span>
+<span class="text-[11px] font-bold text-[#134e4a] leading-tight mt-0.5">Slot</span>
+</div>
+</div>
+<!-- Divider bar -->
+<div class="w-full h-1 bg-[#ecdccf] rounded-full my-8"></div>
+<!-- Bottom section within card: Tiny 7-day row of lit circles + Daily Goal reached pill -->
+<div class="flex items-center justify-between">
+<!-- 7-day row of lit circles -->
+<div class="flex flex-col gap-2.5">
+<span class="text-xs font-extrabold uppercase tracking-widest text-[#134e4a]/80">This Week's Activity</span>
+<div class="flex items-center gap-3"><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#1c1003] font-black text-base">✓</div><span class="text-xs font-black text-[#1c1917]">M</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#1c1003] font-black text-base">✓</div><span class="text-xs font-black text-[#1c1917]">T</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#1c1003] font-black text-base">✓</div><span class="text-xs font-black text-[#1c1917]">W</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#1c1003] font-black text-base">✓</div><span class="text-xs font-black text-[#1c1917]">T</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#1c1003] font-black text-base">✓</div><span class="text-xs font-black text-[#1c1917]">F</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#f59e0b] shadow-[0_3px_0_0_#d97706] flex items-center justify-center text-[#1c1003] font-black text-base">✓</div><span class="text-xs font-black text-[#1c1917]">S</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-gradient-to-b from-[#f59e0b] to-[#ea580c] border-2 border-[#b45309] shadow-[0_3px_0_0_#9a3412] flex items-center justify-center text-white font-black text-base relative"><svg class="w-6 h-6 text-white filter drop-shadow-sm" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C10.5 7 7 9 7 14C7 17.5 9.5 20 12 20C14.5 20 17 17.5 17 14C17 9 13.5 7 12 2Z"></path></svg></div><span class="text-xs font-black text-[#b45309]">Today</span></div></div>
+</div>
+<!-- Tactile pressable badge pill with soft ledge -->
+<div class="flex items-center gap-3 bg-[#f0fdf4] border-2 border-[#86efac] px-6 py-4 rounded-2xl shadow-[0_4px_0_0_#4ade80]">
+<div class="w-8 h-8 rounded-full bg-[#22c55e] flex items-center justify-center text-white font-black text-base">
           ✓
         </div>
-        <div>
-          <div class="text-base font-extrabold text-[#14532d] leading-snug">Daily Goal Complete</div>
-          <div class="text-xs font-bold text-[#166534]/80">+50 XP Earned Today</div>
-        </div>
-      </div>
-
-    </div>
-
-  </main>
-
-  <!-- 3. FOOTER STRIP: QR code square placeholder & 'lexkite.com' -->
-  <footer class="w-full flex items-center justify-between pt-2 z-10">
-    
-    <div class="flex items-center gap-4">
-      <!-- QR code square placeholder (clean geometric graphic, 68x68) -->
-      <div class="w-[68px] h-[68px] bg-white rounded-2xl border-2 border-[#ecdccf] shadow-[0_4px_0_0_#dfcbbb] p-2 flex items-center justify-center flex-shrink-0">
-        <!-- SVG QR code pattern placeholder -->
-        <svg class="w-full h-full text-[#134e4a]" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M2 2H10V10H2V2ZM4 4V8H8V4H4ZM14 2H22V10H14V2ZM16 4V8H20V4H16ZM2 14H10V22H2V14ZM4 16V20H8V16H4ZM14 14H16V16H14V14ZM16 16H18V18H16V16ZM18 14H20V16H18V14ZM20 16H22V18H20V16ZM14 18H16V20H14V18ZM16 20H18V22H16V20ZM18 18H20V20H18V18ZM20 20H22V22H20V20ZM18 20H20V22H18V20ZM12 4H13V6H12V4ZM12 8H13V10H12V8ZM12 14H13V16H12V14ZM12 18H13V20H12V18Z"/>
-        </svg>
-      </div>
-
-      <div class="flex flex-col">
-        <span class="text-lg font-black tracking-tight text-[#134e4a]">lexkite.com</span>
-        <span class="text-xs font-bold text-[#1c1917]/70">Free English prep for IELTS & TOEIC</span>
-      </div>
-    </div>
-
-    <!-- Playful Candy CTA Button with soft tactile ledge -->
-    <div class="flex items-center gap-3 bg-[#f59e0b] border-2 border-[#b45309] text-[#1c1003] px-7 py-3.5 rounded-2xl shadow-[0_5px_0_0_#9a3412] font-black text-base cursor-pointer">
-      <span>Join the Challenge</span>
-      <span class="text-lg">→</span>
-    </div>
-
-  </footer>
-
+<div>
+<div class="text-base font-extrabold text-[#14532d] leading-snug">Daily Goal Complete</div>
+<div class="text-xs font-extrabold text-[#14532d]">+50 XP Earned Today</div>
+</div>
+</div>
+</div>
+</main>
+<!-- 3. FOOTER STRIP: QR code square placeholder & 'lexkite.com' -->
+<footer class="w-full flex items-center justify-between pt-2 z-10">
+<div class="flex items-center gap-4">
+<!-- QR code square placeholder (clean geometric graphic, 68x68) -->
+<div class="w-[68px] h-[68px] bg-white rounded-2xl border-2 border-[#ecdccf] shadow-[0_4px_0_0_#dfcbbb] p-2 flex items-center justify-center flex-shrink-0">
+<!-- SVG QR code pattern placeholder -->
+<svg class="w-full h-full text-[#134e4a]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M2 2H10V10H2V2ZM4 4V8H8V4H4ZM14 2H22V10H14V2ZM16 4V8H20V4H16ZM2 14H10V22H2V14ZM4 16V20H8V16H4ZM14 14H16V16H14V14ZM16 16H18V18H16V16ZM18 14H20V16H18V14ZM20 16H22V18H20V16ZM14 18H16V20H14V18ZM16 20H18V22H16V20ZM18 18H20V20H18V18ZM20 20H22V22H20V20ZM18 20H20V22H18V20ZM12 4H13V6H12V4ZM12 8H13V10H12V8ZM12 14H13V16H12V14ZM12 18H13V20H12V18Z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-black tracking-tight text-[#134e4a]">lexkite.com</span>
+<span class="text-xs font-bold text-[#1c1917]/70">Free English prep for IELTS &amp; TOEIC</span>
+</div>
+</div>
+<!-- Playful Candy CTA Button with soft tactile ledge -->
+<div class="flex items-center gap-3 bg-[#f59e0b] border-2 border-[#b45309] text-[#1c1003] px-7 py-3.5 rounded-2xl shadow-[0_5px_0_0_#9a3412] font-black text-base cursor-pointer">
+<span>Join the Challenge</span>
+<span class="text-lg">→</span>
+</div>
+</footer>
 </body>
 </html>
 
