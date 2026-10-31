@@ -12760,6 +12760,328 @@
       "angle": "IELTS राइटिंग कॉम्प्लेक्स सेंटेंस कैसे बनाएं: सबऑर्डिनेट क्लॉज, पार्टिसिपल और इन्वर्जन से बैंड 7.5+",
       "intent": "informational",
       "lang": "hi"
+    },
+    {
+      "slug": "vocabulario-ielts-medio-ambiente-environment",
+      "keyword": "vocabulario ielts medio ambiente",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "vocabulario",
+        "medio-ambiente",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "Vocabulario académico de IELTS sobre el medio ambiente, cambio climático, collocations avanzadas y modelos de Writing Task 2",
+      "intent": "informational"
+    },
+    {
+      "slug": "vocabulario-ielts-meio-ambiente-sustentabilidade",
+      "keyword": "vocabulário ielts meio ambiente",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "vocabulario",
+        "meio-ambiente",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "Vocabulário acadêmico de IELTS sobre meio ambiente, sustentabilidade, energias renováveis e modelos de redação Task 2",
+      "intent": "informational"
+    },
+    {
+      "slug": "kosakata-ielts-lingkungan-environment",
+      "keyword": "kosakata ielts lingkungan",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "kosakata",
+        "lingkungan",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "Daftar kosakata IELTS tema lingkungan hidup, perubahan iklim, energi terbarukan, collocations akademik, dan contoh esai Task 2",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-kankyou-mondai-eitango-collocation",
+      "keyword": "ielts 環境 単語",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "eitango",
+        "kankyou",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTSライティング・スピーキングで頻出の環境問題・気候変動の重要英単語・コロケーション35選とBand 7.5+模範解答",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-hwangyeong-daneo-collocation",
+      "keyword": "ielts 환경 단어",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "voca",
+        "environment",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTS 라이팅 Task 2 및 스피킹 빈출 환경·기후변화 핵심 어휘 35개와 Band 7.5+ 모델 에세이",
+      "intent": "informational"
+    },
+    {
+      "slug": "ya-si-huan-bao-ci-hui-environment-collocations",
+      "keyword": "雅思 环保 词汇",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "cihui",
+        "environment",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "雅思写作Task 2与口语环境类高频学术词汇、专业搭配（Collocations）及Band 8范文解析",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-vokabeln-umwelt-klimawandel-collocations",
+      "keyword": "ielts vokabeln umwelt",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "vokabeln",
+        "umwelt",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "Wichtige IELTS-Vokabeln und akademische Kollokationen zum Thema Umwelt, erneuerbare Energien und Klimawandel für Writing Task 2",
+      "intent": "informational"
+    },
+    {
+      "slug": "vocabulaire-ielts-environnement-changement-climatique",
+      "keyword": "vocabulaire ielts environnement",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "vocabulaire",
+        "environnement",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "Vocabulaire académique IELTS sur l environnement, le réchauffement climatique, les collocations indispensables et modèles d essais Task 2",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-slovarnyy-zapas-ekologiya-okruzhayushchaya-sreda",
+      "keyword": "ielts словарь экология",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "slovarnyy-zapas",
+        "ekologiya",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "Академический словарный запас IELTS по теме экология, изменение климата, коллокации и примеры эссе Writing Task 2 на Band 7.5+",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-cevre-ve-iklim-kelimeleri-collocations",
+      "keyword": "ielts çevre kelimeleri",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "kelimeler",
+        "cevre",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTS Writing Task 2 ve Speaking için çevre, iklim değişikliği ve yenilenebilir enerji akademik kelimeleri, collocations ve model paragraflar",
+      "intent": "informational"
+    },
+    {
+      "slug": "kham-sap-ielts-singwaetlom-environment",
+      "keyword": "คำศัพท์ ielts สิ่งแวดล้อม",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "khamsap",
+        "singwaetlom",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "รวบรวมคำศัพท์ IELTS หมวดสิ่งแวดล้อม ภาวะโลกร้อน พลังงานทดแทน พร้อม Collocations วิชาการและตัวอย่างเรียงความ Writing Task 2 แบนด์ 7.5+",
+      "intent": "informational"
+    },
+    {
+      "slug": "mustalahat-ielts-al-biah-wa-al-manakh",
+      "keyword": "مصطلحات ielts البيئة",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "mustalahat",
+        "al-biah",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "مصطلحات وتلازمات أكاديمية لاختبار الآيلتس في موضوع البيئة وتغير المناخ والطاقة المتجددة مع نماذج مقالات Writing Task 2 لباند 7.5+",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-vocabulary-environment-climate-change-hindi",
+      "keyword": "ielts पर्यावरण वोकैबुलरी",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "vocabulary",
+        "environment",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTS पर्यावरण वोकैबुलरी और जलवायु परिवर्तन: 35 एकेडमिक कोलोकेशन्स, उदाहरण वाक्य, राइटिंग टास्क 2 विचार और मॉडल पैराग्राफ",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-vocabulary-for-environment-and-climate-change",
+      "keyword": "ielts vocabulary for environment",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "vocabulary",
+        "environment",
+        "writing"
+      ],
+      "shots": [
+        "library",
+        "read-article",
+        "dict"
+      ],
+      "routes": [
+        "/#/library",
+        "/#/reading",
+        "/#/dict/resilient"
+      ],
+      "angle": "Essential IELTS vocabulary for environment and climate change: collocations, Band 8 sample sentences, essay outlines and common pitfalls",
+      "intent": "informational"
     }
   ]
 }
