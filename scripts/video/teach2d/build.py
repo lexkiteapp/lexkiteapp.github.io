@@ -275,6 +275,11 @@ def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1, lines
         OWN_HOOK[0] = False; runs = runs_hl(EP['hook']['text'], EP['hook'].get('hl'), 'accent'); fit = True
     while fit and size > 64 and len(Card(y, x0=x0, w=x1 - x0).wrap(runs, size, width=x1 - x0)) > lines: size -= 4   # fits the template's hook space
     c = Card(y, x0=x0, w=x1 - x0); lines = c.wrap(runs, size, width=x1 - x0); ns = []; yy = y
+    if len(lines) == 2:   # balanced 2-line title (no orphan '· B1' / single word on line 2): narrowest width that still gives 2 lines
+        full = tw(''.join(r[0] for r in runs).strip(), size)
+        for wd_ in range(int(full / 2), int(x1 - x0) + 1, 8):
+            l2 = c.wrap(runs, size, width=wd_)
+            if len(l2) == 2: lines = l2; break
     for ln in lines:
         ln[-1][0] = ln[-1][0].rstrip(); lw = sum(tw(r[0], size) for r in ln); h = round(size * 1.18)
         xx = x0 + ((x1 - x0) - lw) / 2 if align == 'c' else x0
@@ -376,7 +381,7 @@ def T_usuk():
     H2 = 330; half = RW / 2; VS_HALF = 50
     top('split', [RX0, RY0, RX1, RY0 + H2], at('us', D['us']), out=t_split)
     for i, (cc, wd, ipa, col, lid, lab) in enumerate([('us', D['us'], D['ipa_us'], 'primary', 'us', 'US ENGLISH'), ('uk', D['uk'], D['ipa_uk'], 'coral', 'uk', 'UK ENGLISH')]):
-        x0 = RX0 + i * half; t_w = at(lid, wd); inner = half - 2 * VS_HALF - 20   # word + IPA centred in the half, >= 10 px clear of the VS medallion on the seam
+        x0 = RX0 + i * half; t_w = at(lid, wd); inner = half - 2 * VS_HALF - 48   # word + IPA centred in the half, >= 24 px clear of the VS medallion on the seam
         top('tag', [x0 + 30, RY0 + 30, x0 + 30 + FT.tag_w(lab, 40), RY0 + 98], t_w, out=t_split, cc=cc, text=lab, size=40)   # flag + ONE-line label inside the pill
         sz = min(104, int(104 * inner / max(1, tw(wd, 104)))); ww = tw(wd, sz)
         nw = top('text', [x0 + (half - ww) / 2, RY0 + 112, x0 + (half + ww) / 2, RY0 + 112 + round(sz * 1.2)], t_w, out=t_split, runs=[[wd, col]], size=sz, ipa=False, parent=None)
