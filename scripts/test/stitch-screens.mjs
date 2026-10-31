@@ -20,14 +20,21 @@ export const SEED_MISTAKES = async () => { const now = Date.now(), D = 864e5;
     { kind: 'grammar', q: 'I like ___ to music on my daily commute.', answer: 'listening', given: 'listen', explain: 'Preference verbs (like, love, enjoy, avoid) almost always take the -ing form.', ref: 'tenses', key: 'sg1', n: 3, at: now - D, fixed: false },
     { kind: 'vocab', q: 'The budget cut will severely ___ laboratory research.', answer: 'affect', given: 'effect', explain: 'Affect is a verb, effect is a noun.', ref: 'affect', key: 'sv1', n: 2, at: now - 6 * D, fixed: false },
     { kind: 'reading', q: 'I am confident that she is good ___ data analysis.', answer: 'at', given: 'in', explain: "Say 'good at' for subjects, skills and sports.", ref: '', key: 'sr1', n: 2, at: now - 8 * D, fixed: false }]); };
+// Tiến độ mẫu (#/stats, như mẫu Stitch: cấp ~7, 1.420 lượt ôn, lịch 4 tháng có hoạt động, 30 từ ở đủ 5 cấp nhớ, 6 huy hiệu đã mở) – chỉ nạp khi vào màn này
+export const SEED_STATS = async () => { const D = 864e5, now = Date.now(), k = d => Core.todayKey(new Date(now - d * D)), g = App.state.game, st = App.state.stats;
+  g.xp = Math.max(g.xp || 0, 2340); g.total = Object.assign(g.total || {}, { reviews: 1420, quizzes: 94, spoken: 386, readings: 42 });
+  for (let i = 0; i < 120; i++) { if (i % 3 === 2 && i > 14) continue; const x = g.days[k(i)] || (g.days[k(i)] = {}); x.xp = (x.xp || 0) + 20 + (i * 7) % 60; x.reviews = (x.reviews || 0) + 10 + (i * 5) % 30; x.newWords = (x.newWords || 0) + i % 4; x.quizzes = (x.quizzes || 0) + i % 2; st.days[k(i)] = (st.days[k(i)] || 0) + 10 + (i * 5) % 30; }
+  g.badges = Object.assign({ first: now - 50 * D, streak3: now - 20 * D, streak7: now - 10 * D, words50: now - 5 * D, reader: now - 3 * D, level5: now - D }, g.badges || {});
+  for (const [i, w] of IELTS_DATA.TOPICS[0].words.slice(0, 30).entries()) { await App.addWord(w, null, { silent: true }); const c = App.state.cards[w.word.toLowerCase()], iv = [0.5, 2, 6, 15, 40][i % 5];
+    if (c) c.srs = Object.assign(c.srs || {}, { reps: 1 + i % 5, interval: iv, last: now - iv * D, due: now + ((i % 7) - 1) * D, S: iv, D: 5 }); } };
 export const SEED_LEAGUE = () => {
   const names = ['An Nguyen', 'Linh Khanh', 'Marcus Roy', 'Tariq Chen', 'You Lexkite', 'Sara Hansen', 'Daiki Kato'], xps = [1420, 1280, 1150, 980, 820, 760, 690]; // bảng giải đấu mẫu giống Stitch (hạng 5 = mình)
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
   Sync.league = async () => ({ member: { nick: 'You', tier: 3, xp: 820 }, week: { end: Date.now() + 3 * 864e5 }, rules: { up: 3, down: 2, maxTier: 5 }, board: names.map((n, i) => ({ rank: i + 1, nick: n, xp: xps[i], me: i === 4, zone: i < 3 ? 'up' : i >= 5 ? 'down' : '' })) });
 };
-export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', library: 'library?g=all', topic: 'topic/education', deck: 'deck', mistakes: 'mistakes' };
+export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', library: 'library?g=all', topic: 'topic/education', deck: 'deck', mistakes: 'mistakes', stats: 'stats' };
 // Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-export const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', library: 'library', topic: 'topic', deck: 'deck', mistakes: 'mistakes' };
+export const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', library: 'library', topic: 'topic', deck: 'deck', mistakes: 'mistakes', stats: 'stats' };
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 // màn cần lái tới trạng thái (bài học/phản hồi/kết quả/truyện/cuộc gọi) – stitch-diff và final-qc dùng CHUNG (từng chỉ lái lesson/feedback → chụp nhầm câu đầu)
 export const DRIVEN = /^(lesson|feedback|complete|story|call)/;
@@ -77,5 +84,6 @@ export const FINAL = [
   { stitch: 'feedback-wrong', k: 'feedback-wrong', ready: '.lsn-fv2.bad', teacher: ['concern'], sfx: ['wrong'] }, { stitch: 'lesson-complete', k: 'complete', ready: '.lsn-end', teacher: ['cheer'], sfx: ['win'] },
   { stitch: 'story-duo', k: 'story', ready: '.lsn-qblk ~ #lsnBody .lsn-opt, .lsn-qblk + #lsnBody .lsn-opt', teacher: ['talk', 'listen'], duo: true, speaks: true },
   { stitch: 'library', k: 'library', teacher: null }, { stitch: 'topic', k: 'topic', teacher: null }, // nhóm B (31/10)
+  { stitch: 'stats', k: 'stats', teacher: ['encourage'] },
 ];
 export const READY = Object.fromEntries(FINAL.filter(f => f.k && f.ready).map(f => [f.k, f.ready]));
