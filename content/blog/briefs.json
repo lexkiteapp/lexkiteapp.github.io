@@ -12472,6 +12472,294 @@
       "angle": "โครงสร้าง complex sentences ielts writing: การเขียนประโยคความซ้อน อนุประโยค participial clauses และ inversion คว้าแบนด์ 7.5+",
       "intent": "informational",
       "lang": "th"
+    },
+    {
+      "slug": "dalil-rumuz-al-sawtiyyah-ipa-al-injliziyyah",
+      "keyword": "جدول رموز ipa الانجليزية",
+      "category": "phat-am",
+      "tags": [
+        "ipa",
+        "nutq",
+        "sawtiyyat",
+        "pronunciation"
+      ],
+      "shots": [
+        "pron",
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "دليل جدول رموز ipa الانجليزية: شرح 44 رمزا صوتيا، الحروف المتحركة والساكنة وأخطاء النطق الشائعة",
+      "intent": "informational",
+      "lang": "ar"
+    },
+    {
+      "slug": "kayfa-tatrah-as-ilah-bi-al-injliziyyah-5w1h",
+      "keyword": "تكوين السؤال في اللغة الانجليزية",
+      "category": "ngu-phap",
+      "tags": [
+        "qawaid",
+        "as-ilah",
+        "5w1h",
+        "auxiliary-verbs"
+      ],
+      "shots": [
+        "grammar",
+        "practice",
+        "dict"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice",
+        "/#/dict/resilient"
+      ],
+      "angle": "تكوين السؤال في اللغة الانجليزية: قواعد Yes/No و5W1H، واستخدام الأفعال المساعدة وأسئلة الفاعل",
+      "intent": "informational",
+      "lang": "ar"
+    },
+    {
+      "slug": "kayfa-tastakhdim-qamus-injlizi-injlizi",
+      "keyword": "كيفية استخدام القاموس انجليزي انجليزي",
+      "category": "tu-vung",
+      "tags": [
+        "qamus",
+        "mufradat",
+        "taallum",
+        "collocations"
+      ],
+      "shots": [
+        "dict",
+        "read-article",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/reading",
+        "/#/review"
+      ],
+      "angle": "كيفية استخدام القاموس انجليزي انجليزي: التوقف عن الترجمة الفورية، التفكير بالإنجليزية، وحفظ المتلازمات",
+      "intent": "informational",
+      "lang": "ar"
+    },
+    {
+      "slug": "taqniyyat-al-imla-dictation-tahsin-al-istima",
+      "keyword": "تقنية الاملاء dictation لغة انجليزية",
+      "category": "phuong-phap",
+      "tags": [
+        "dictation",
+        "istima",
+        "connected-speech",
+        "listening"
+      ],
+      "shots": [
+        "listening",
+        "dict",
+        "practice-test"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "تقنية الاملاء dictation لغة انجليزية: 4 خطوات لفهم الكلام السريع وفك شفرة وصل الأصوات",
+      "intent": "informational",
+      "lang": "ar"
+    },
+    {
+      "slug": "mustalahat-ielts-al-tiknuluja-wa-al-dhaka-al-istinai",
+      "keyword": "كلمات ايلتس عن التكنولوجيا",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "mufradat",
+        "tiknuluja",
+        "ai"
+      ],
+      "shots": [
+        "read-article",
+        "dict",
+        "practice"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "كلمات ايلتس عن التكنولوجيا والذكاء الاصطناعي: 35 متلازمة لفظية أكاديمية لرايتنج تاسك 2 ومحادثة باند 7.5+",
+      "intent": "informational",
+      "lang": "ar"
+    },
+    {
+      "slug": "al-jumal-al-muaqqadah-complex-sentences-ielts-writing",
+      "keyword": "جمل معقدة complex sentences ايلتس",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "complex-sentences",
+        "qawaid"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "طريقة كتابة جمل معقدة complex sentences ايلتس: الجمل الموصولة وأشباه الجمل والتقديم والتأخير لباند 7+",
+      "intent": "informational",
+      "lang": "ar"
+    },
+    {
+      "slug": "english-ipa-chart-pronunciation-guide-hindi",
+      "keyword": "इंग्लिश ipa चार्ट",
+      "category": "phat-am",
+      "tags": [
+        "ipa",
+        "pronunciation",
+        "phonetics",
+        "ucharan"
+      ],
+      "shots": [
+        "pron",
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "इंग्लिश ipa चार्ट और उच्चारण नियम: 44 फोनेटिक सिंबल, स्वर, व्यंजन और सही बोलने के तरीके",
+      "intent": "informational",
+      "lang": "hi"
+    },
+    {
+      "slug": "english-me-sawal-kaise-puchhe-5w1h-rules",
+      "keyword": "इंग्लिश में सवाल कैसे पूछे",
+      "category": "ngu-phap",
+      "tags": [
+        "grammar",
+        "questions",
+        "5w1h",
+        "auxiliary-verbs"
+      ],
+      "shots": [
+        "grammar",
+        "practice",
+        "dict"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice",
+        "/#/dict/resilient"
+      ],
+      "angle": "इंग्लिश में सवाल कैसे पूछे: Yes/No और 5W1H रूल्स, do/does/did का प्रयोग और सामान्य गलतियाँ",
+      "intent": "informational",
+      "lang": "hi"
+    },
+    {
+      "slug": "english-to-english-dictionary-kaise-use-kare",
+      "keyword": "इंग्लिश टू इंग्लिश डिक्शनरी कैसे उपयोग करें",
+      "category": "tu-vung",
+      "tags": [
+        "dictionary",
+        "vocabulary",
+        "learning-tips",
+        "collocations"
+      ],
+      "shots": [
+        "dict",
+        "read-article",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/reading",
+        "/#/review"
+      ],
+      "angle": "इंग्लिश टू इंग्लिश डिक्शनरी कैसे उपयोग करें: हिंदी में ट्रांसलेट करना छोड़ें, इंग्लिश में सोचना सीखें",
+      "intent": "informational",
+      "lang": "hi"
+    },
+    {
+      "slug": "dictation-listening-practice-technique-hindi",
+      "keyword": "डिक्टेशन इंग्लिश लिसनिंग",
+      "category": "phuong-phap",
+      "tags": [
+        "dictation",
+        "listening",
+        "connected-speech",
+        "fast-speech"
+      ],
+      "shots": [
+        "listening",
+        "dict",
+        "practice-test"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "डिक्टेशन इंग्लिश लिसनिंग तकनीक: 4 स्टेप्स में फास्ट इंग्लिश समझें और कनेक्टेड स्पीच पहचानें",
+      "intent": "informational",
+      "lang": "hi"
+    },
+    {
+      "slug": "ielts-vocabulary-technology-artificial-intelligence-hindi",
+      "keyword": "ielts टेक्नोलॉजी वोकैबुलरी",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "vocabulary",
+        "technology",
+        "ai"
+      ],
+      "shots": [
+        "read-article",
+        "dict",
+        "practice"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "IELTS टेक्नोलॉजी वोकैबुलरी और AI: राइटिंग टास्क 2 और स्पीकिंग के लिए 35 एकेडमिक कोलोकेशन्स",
+      "intent": "informational",
+      "lang": "hi"
+    },
+    {
+      "slug": "complex-sentences-for-ielts-writing-task-2-hindi",
+      "keyword": "ielts राइटिंग कॉम्प्लेक्स सेंटेंस",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "complex-sentences",
+        "grammar"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTS राइटिंग कॉम्प्लेक्स सेंटेंस कैसे बनाएं: सबऑर्डिनेट क्लॉज, पार्टिसिपल और इन्वर्जन से बैंड 7.5+",
+      "intent": "informational",
+      "lang": "hi"
     }
   ]
 }
