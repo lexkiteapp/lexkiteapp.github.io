@@ -51,6 +51,7 @@
 - **Một agent = một đợt việc có điểm kết thúc rõ** (≤ ~2 giờ hoặc 1 mốc giao hàng). Xong mốc → báo cáo → DỪNG. Việc tiếp theo = agent MỚI với brief ≤25 dòng (tóm tắt trạng thái + file + việc còn lại), KHÔNG SendMessage tiếp vào agent đã dùng nhiều (> ~80k token, 30/10; trước 23/10 là ~300k).
 - **≤ 2 phiên làm việc cùng lúc**; mỗi khu vực 1 phiên.
 - **Tự thu gọn (29/10, bắt buộc):** phiên dài (≈ 150k, xong 1 mốc, hoặc sau khi nén ngữ cảnh) → bàn giao ≤ 15 dòng → phiên MỚI, cùng cổng chất lượng.
+- **Không nén ngữ cảnh (anh chủ 31/10, TOÀN HỆ THỐNG, kể cả phiên điều phối):** không /compact. Phiên dài (con ≈ 130–150k sau 1 mốc; điều phối ≈ 80k) → bàn giao ≤ 15 dòng vào side-session-notes → phiên MỚI → lưu trữ phiên cũ. Phiên con chỉ báo khi xong mốc hoặc cần anh/điều phối quyết; không kết thúc lượt chỉ để báo "đang chờ CI" (mỗi lượt đánh thức điều phối); điều phối không trả lời các tin "đang chờ".
 - **Điều phối xoay agent con** > ~80k token ngay sau khi nó xong 1 mốc; phiên xong việc → tự lưu trữ (archive).
 - **Không agent nào được chờ CI/quota trong ngữ cảnh của nó**: phải dừng và để Claude chính hẹn giờ (CronCreate 1 lần) hoặc lệnh nền `until … sleep 120`.
 - **Agent tự hỏi trạng thái lặp lại** (thông báo "vẫn đang chờ…") → TaskStop ngay.
