@@ -46,7 +46,7 @@ const page = (lang, name, body, translated, draft) => {
   <meta name="theme-color" content="#0F3D3E">
   <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
-  <style>${FOOT_CSS}${TSW_CSS}.lg .tbx{display:flex;align-items:center;gap:8px}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc a,footer .bar>p a{text-decoration:underline;text-underline-offset:2px}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
+  <style>${FOOT_CSS}${TSW_CSS}.lg .tbx{display:flex;align-items:center;gap:8px}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc a,footer .bar>p a{text-decoration:underline;text-underline-offset:2px}.doc table{width:100%;border-collapse:collapse;font-size:.92rem;display:block;overflow-x:auto}.doc td,.doc th{overflow-wrap:anywhere}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
 </head>
 <body>
   <main class="doc">
