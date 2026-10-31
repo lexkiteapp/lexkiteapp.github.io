@@ -262,6 +262,18 @@ async function j2(h) {
   for (let i = 0; i < 8 && !(await h.has('#cfRp')); i++) { if (await h.has('#cfSkip')) await h.click('#cfSkip', { wait: 500 }); else if (await h.has('#cfNext')) await h.click('#cfNext', { wait: 500 }); else await sleep(500); }
   if (h.ok(await h.has('#cfRp'), 'bài tự tin đi tới bước nhập vai')) { await h.click('#cfRp', { wait: 1500 }); h.ok(/\bB2\b/.test(await page.locator('#view').innerText()), 'nhập vai từ bài tự tin hiển thị mức B2'); }
   await h.audit('confidence');
+  // 🗣️ Say it like a native (docs/SAY-NATIVE.md): danh sách loạt → thẻ (mặt trước) → lật (mặt sau); web/data/say.json do CI say-native.yml dựng
+  if (await page.evaluate(() => fetch('data/say.json').then(r => r.ok, () => false))) {
+    await h.go('#/say'); await h.wait('#sayList a', 8000);
+    h.ok(await page.locator('#sayList a').count() >= 3, 'Say it like a native: ≥ 3 loạt thẻ');
+    await h.audit('say-list'); await h.shot('say-list');
+    await h.click('#sayList a', { wait: 1200 });
+    h.ok(await h.has('#sCard[data-face="front"] img'), 'thẻ mặt trước có giáo viên (Chars)');
+    await h.audit('say-front'); await h.shot('say-front');
+    await h.click('#sFlip', { wait: 900 });
+    h.ok(await h.has('#sCard[data-face="back"]'), 'chạm "Lật" → mặt sau');
+    await h.audit('say-back'); await h.shot('say-back');
+  } else console.log('⚠ journey: chưa có web/data/say.json (CI say-native.yml chưa dịch xong) – bỏ qua bước Say it like a native');
   await h.go('#/roleplay/salary');
   const lv = await page.locator('.rp-seg button[aria-pressed="true"]').first().innerText().catch(() => '');
   h.ok(/B2/.test(lv), 'nhập vai: mức chọn sẵn B2 (' + lv + ')');
