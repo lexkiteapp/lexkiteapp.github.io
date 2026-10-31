@@ -22,7 +22,7 @@
     const st = load(), p = prog(st, s.id), all = lines(s), mastered = all.filter(x => (p.lines[x.id] || {}).stars >= 2).length, wkN = (st.week || {})[wk()] || 0;
     const stageSt = s.stages.map(g => g.lines.every(id => (p.lines[id] || {}).stars >= 1)), cur = Math.max(0, stageSt.indexOf(false) === -1 ? s.stages.length - 1 : stageSt.indexOf(false));
     const starsOf = g => { const v = g.lines.map(id => (p.lines[id] || {}).stars || 0); return Math.min(...v); };
-    const nodes = s.stages.map((g, i) => ({ label: L(g.title), st: stageSt[i] ? 'done' : i === cur ? 'cur' : 'todo', stars: [1, 2, 3].map(n => ({ on: starsOf(g) >= n })), href: '#/speak/' + s.id + '/drill?stage=' + g.id }));
+    const nodes = s.stages.map((g, i) => ({ label: L(g.title), st: stageSt[i] ? 'done' : i === cur ? 'cur' : 'todo', stars: [1, 2, 3].map(n => ({ on: starsOf(g) >= n })), starsAria: t('{n}/3 sao', { n: starsOf(g) }), href: '#/speak/' + s.id + '/drill?stage=' + g.id }));
     const tasks = s.mission.tasks.map(k => ({ title: L(k.title), ex: '“' + byId(s, k.intents[0]).en + '”', done: !!p.tasks[k.id] }));
     const ti = tasks.findIndex(k => !k.done); tasks.forEach((k, i) => { k.st = k.done ? 'done' : i === ti ? 'cur' : 'todo'; });
     const saved = Object.values((App.state || {}).cards || {}).map(c => c && (c.word || c.w)).filter(Boolean).map(w => String(w).toLowerCase());
