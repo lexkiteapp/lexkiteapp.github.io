@@ -4,12 +4,12 @@
  * không bao giờ trả app cũ ở "/", chỉ khi MẤT MẠNG mở "/" hoặc "/index.html" (PWA cài cũ có start_url "/index.html#/home",
  * iOS không cập nhật start_url) thì chuyển hướng sang /app/ (đã có trong cache của /app/) → vẫn học offline được.
  * Dữ liệu học (IndexedDB, localStorage) thuộc nguồn lexkite.com, không phụ thuộc phạm vi SW → không mất. Test: scripts/test/landing-routing.mjs */
-const CACHE = 'lexkite-20261031223614';
+const CACHE = 'lexkite-20261031233659';
 const APP = '/app/';
 const LEGACY = new URL(self.registration.scope).pathname === '/';
 // Chỉ phần lõi (các file trong app/index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
-const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads.js', '/js/kit.js', '/js/characters.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/app.js', '/js/study.js', '/js/reading.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png'];
-const KEEP = k => k === CACHE || k === 'lk-meta' || k === AUDIO || k === VIMG; // dữ liệu người dùng & cache dùng chung – không bao giờ xóa khi dọn
+const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads.js', '/js/kit.js', '/js/characters.js', '/js/audio.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/app.js', '/js/study.js', '/js/reading.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png'];
+const KEEP = k => k === CACHE || k === 'lk-meta' || k === AUDIO || k === VIMG || k === OFFLINE; // dữ liệu người dùng & cache dùng chung – không bao giờ xóa khi dọn
 
 self.addEventListener('install', e => {
   if (LEGACY) { e.waitUntil(self.skipWaiting()); return; } // bản cũ: thay ngay, không cache gì
@@ -78,6 +78,54 @@ self.addEventListener('fetch', e => {
       clearTimeout(t); if (!done) { done = true; resolve(r); }
     }).catch(() => { clearTimeout(t); fallback().then(r => { if (!done) { done = true; resolve(r || Response.error()); } }); });
   }));
+});
+// 📥 Gói nghe offline (người dùng bật trong Cài đặt – mặc định tắt; web/js/audio.js LKAudio.offline): cache riêng 'lk-offline', không bị trimAudio đẩy ra.
+// Từ: /data/offline-pack.json (~3000 từ thông dụng, khóa audio/w theo giọng – scripts/audio/offline-pack.mjs) · bài đang học: tối đa OFF_LESSON file gần nhất.
+// Trần OFF_MAX_MB; trạng thái ghi trong '/__offline' của chính cache này. Fetch audio ở trên dùng caches.match → trúng cache này khi offline.
+const OFFLINE = 'lk-offline', OFF_MAX_MB = 40, OFF_LESSON = 600, OFF_META = '/__offline';
+let offJob = 0;
+const offMeta = async c => { const r = await c.match(OFF_META); return (r && (await r.json().catch(() => null))) || { voice: '', total: 0, done: 0, bytes: 0, fail: 0, lesson: [] }; };
+const offSave = (c, m) => c.put(OFF_META, new Response(JSON.stringify(m), { headers: { 'Content-Type': 'application/json' } }));
+const offGet = async (c, m, url) => { // → số byte đã thêm (0 = đã có / lỗi)
+  if (await c.match(url)) return 0;
+  try { const r = await fetch(url, { mode: 'cors' }); if (!r.ok) { m.fail++; return 0; } const b = await r.clone().blob(); await c.put(url, r); return b.size; } catch (e) { m.fail++; return 0; }
+};
+async function offStart(o) {
+  const job = ++offJob, c = await caches.open(OFFLINE); let m = await offMeta(c);
+  if (m.voice && m.voice !== o.voice) { await caches.delete(OFFLINE); return offStart(o); } // đổi giọng Anh ↔ Mỹ → tải lại đúng giọng
+  const pack = await fetch('/data/offline-pack.json', { cache: 'no-cache' }).then(r => r.json()).catch(() => null);
+  const keys = pack && pack.w && pack.w[o.voice]; if (!keys) return;
+  const base = String(o.base || 'https://audio.lexkite.com/audio/l/').replace(/l\/$/, 'w/');
+  Object.assign(m, { voice: o.voice, total: keys.length, done: 0, fail: 0, full: false, at: Date.now() });
+  let i = 0;
+  const worker = async () => {
+    while (i < keys.length && job === offJob && !m.full) {
+      const url = base + keys[i++] + '.mp3';
+      const n = await offGet(c, m, url); m.bytes += n; m.done++; // đọc m.bytes SAU await – 4 luồng không cộng đè nhau
+      if (m.bytes > OFF_MAX_MB * 1048576) m.full = true;
+      if (m.done % 100 === 0) await offSave(c, m);
+    }
+  };
+  await Promise.all([worker(), worker(), worker(), worker()]); // 4 luồng – nhẹ cho mạng di động
+  if (job === offJob) { m.complete = m.done >= m.total; await offSave(c, m); }
+}
+async function offAdd(urls) {
+  const c = await caches.open(OFFLINE), m = await offMeta(c); if (!m.voice) return; // gói đã tắt
+  for (const u of urls) {
+    if (typeof u !== 'string' || !/^https:\/\/(audio\.lexkite\.com|lexkiteapp\.github\.io)\/.*\.mp3$/.test(u) || m.bytes > OFF_MAX_MB * 1048576) continue;
+    const n = await offGet(c, m, u); m.bytes += n; if (n) m.lesson.push([u, n]);
+  }
+  while (m.lesson.length > OFF_LESSON) { const [u, n] = m.lesson.shift(); await c.delete(u); m.bytes -= n; }
+  await offSave(c, m);
+}
+self.addEventListener('message', e => {
+  const d = e.data || {}, port = e.ports && e.ports[0], reply = x => { try { port && port.postMessage(x); } catch (er) { /* bỏ qua */ } };
+  if (d.type !== 'lk-offline' || LEGACY) return;
+  const status = () => caches.has(OFFLINE).then(h => (h ? caches.open(OFFLINE).then(offMeta) : null)).then(m => reply(Object.assign({ running: !!offJob && !!(m && !m.complete && !m.full), maxMb: OFF_MAX_MB }, m || { off: true })));
+  if (d.op === 'start') { const p = offStart(d); e.waitUntil(p.catch(() => {})); return status(); }
+  if (d.op === 'add') { e.waitUntil(offAdd(d.urls || []).catch(() => {}).then(status)); return; }
+  if (d.op === 'clear') { offJob++; e.waitUntil(caches.delete(OFFLINE).then(() => reply({ off: true }))); return; }
+  if (d.op === 'status') e.waitUntil(status());
 });
 self.addEventListener('notificationclick', e => {
   e.notification.close();

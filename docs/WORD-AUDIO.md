@@ -50,6 +50,14 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
   Vòng 1 = phương án đầu của `METHODS`; vòng 2 = các phương án còn lại cho (từ, giọng) trượt.
 - ci-triage không bao giờ "Re-run" lượt đã bị thay thế (có lượt mới hơn hoặc workflow/script/module đã đổi) – `supersededWhy` trong `scripts/ci/triage.mjs`.
 
+## Phát trên máy người dùng (`web/js/audio.js` – LKAudio)
+- Mở khóa ở lần chạm đầu (iOS Safari), một kênh giọng đọc (giọng mới dừng giọng cũ, kể cả giọng máy; sfx không tính).
+- Mỗi file: thử lần lượt `AUDIO_BASES` (lỗi/404/quá 7 giây → gốc kế tiếp), hết gốc mới dùng giọng máy đúng người nói (Ama nữ, Carlos nam, UK/US);
+  dự phòng ghi `console.info('[audio] dự phòng …')` + đếm theo ngày ở `localStorage lk.audio.fb`.
+- Gói nghe offline (mặc định tắt, nút trong Cài đặt sau cờ `offline_pack`): `web/data/offline-pack.json` (~3000 từ đầu của s3.tsv,
+  `scripts/audio/offline-pack.mjs`, word-audio.yml tự cập nhật) + audio bài đang học → cache `lk-offline` của `web/sw.js`, trần 40 MB.
+- Test: `scripts/test/audio-voice.mjs`, `scripts/test/audio-play.mjs` (Chromium + WebKit, `.github/workflows/audio-play.yml`).
+
 ## Giấy phép
 - Kokoro-82M (hexgrad) – Apache-2.0; kokoro-js – Apache-2.0; giọng bf_emma, af_heart đi kèm mô hình (Apache-2.0).
 - faster-whisper – MIT; Whisper small.en (OpenAI) – MIT. Chỉ dùng trên CI để kiểm, không phát hành.

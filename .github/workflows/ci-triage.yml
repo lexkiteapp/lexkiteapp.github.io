@@ -144,6 +144,7 @@ on:
       - 'Bản dịch câu ví dụ cho bài học (15 ngôn ngữ)'
       - 'QA bot'
       - 'Cổng ASR audio câu'
+      - 'Phát audio (Chromium + WebKit)'
   schedule:
     - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
   workflow_dispatch:

@@ -77,19 +77,18 @@
         const tts = () => {
           if (my !== run) return;
           const dur = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
-          if (g.UI && g.UI.tts) { const t0 = Date.now(); g.UI.tts(text, o.accent || 'en-US', rate, { onEnd: () => { const used = Date.now() - t0; if (used < 300 && my === run) setTimeout(end, Math.max(0, dur * 1000 - used)); else end(); } }); } else setTimeout(end, dur * 1000); // máy không có giọng → onEnd tức thì: giữ vòng nói đủ thời lượng ước tính (khớp miệng)
+          const kv = g.LKAudio && g.LKAudio.kokoro(o.voice); // giọng máy dự phòng đúng người nói: Ama nữ, Carlos nam, đúng UK/US
+          if (g.UI && g.UI.tts) { const t0 = Date.now(); g.UI.tts(text, o.accent || (kv && kv.accent) || 'en-US', rate, { voice: o.voice, noHq: !!o.voice, onEnd: () => { const used = Date.now() - t0; if (used < 300 && my === run) setTimeout(end, Math.max(0, dur * 1000 - used)); else end(); } }); } else setTimeout(end, dur * 1000); // máy không có giọng → onEnd tức thì: giữ vòng nói đủ thời lượng ước tính (khớp miệng)
         };
-        if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; }
-        const base = (g.AUDIO_BASES || [])[0];
-        if (!o.voice || !g.KVoice || !base || !g.Audio) return tts();
-        const a = hq = new g.Audio(base + g.KVoice.lineKey(o.voice, text) + '.mp3');
-        if (rate < 0.9) a.playbackRate = 0.75; // 🐢 nghe chậm
-        a.onended = end;
-        a.onerror = () => { if (hq === a) { hq = null; tts(); } };
-        const p = a.play(); if (p && p.catch) p.catch(() => { if (hq === a) { hq = null; tts(); } });
+        if (hq) { hq.stop(); hq = null; }
+        if (!o.voice || !g.KVoice || !g.audioUrls || !g.LKAudio) return tts();
+        // LKAudio: thử lần lượt các gốc CDN (lỗi/404/quá giờ → gốc kế tiếp), hết gốc → giọng máy (ghi nhật ký dự phòng)
+        const h = hq = g.LKAudio.play(g.audioUrls(g.KVoice.lineKey(o.voice, text)), { rate: rate < 0.9 ? 0.75 : 1, // 🐢 nghe chậm
+          onBase: () => g.audioFail && g.audioFail(), onEnd: end,
+          onFail: why => { if (hq === h) { hq = null; g.LKAudio.note('tts', why + ' ' + o.voice); tts(); } } });
       },
-      stop() { run++; talking(false); if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
-      destroy() { dead = true; run++; if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; } cancelAnimationFrame(raf); for (const v of V) { if (v) try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* bỏ qua */ } } el.innerHTML = ''; },
+      stop() { run++; talking(false); if (hq) { hq.stop(); hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
+      destroy() { dead = true; run++; if (hq) { hq.stop(); hq = null; } cancelAnimationFrame(raf); for (const v of V) { if (v) try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* bỏ qua */ } } el.innerHTML = ''; },
     };
     return api;
   }
