@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T20:26:47.370Z",
+ "updated": "2026-10-31T20:43:32.515Z",
  "measured": {
   "_at": "2026-10-24",
   "gemini": {
@@ -37,11 +37,11 @@
  },
  "workload": {
   "lexicon": {
-   "words": 1368,
-   "gen": 274,
-   "genGeminiOnly": 137,
-   "judgeA": 137,
-   "judgeB": 137
+   "words": 778,
+   "gen": 156,
+   "genGeminiOnly": 78,
+   "judgeA": 78,
+   "judgeB": 78
   },
   "explain": {
    "gen": 3340,
@@ -61,9 +61,9 @@
    "perDay": 400
   },
   "total": {
-   "gen": 4681,
-   "genGeminiOnly": 3477,
-   "judge": 6561
+   "gen": 4563,
+   "genGeminiOnly": 3418,
+   "judge": 6443
   }
  },
  "table": [
