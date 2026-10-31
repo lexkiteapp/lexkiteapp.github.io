@@ -351,5 +351,27 @@
    "low": 0.668,
    "cta": 0.983
   }
+ },
+ "badge-unlocked-dark": {
+  "ssim": 0.557,
+  "rows": 0.689,
+  "reg": {
+   "header": 0.852,
+   "top": 0.809,
+   "mid": 0.445,
+   "low": 0.336,
+   "cta": 0.439
+  }
+ },
+ "badge-unlocked-light": {
+  "ssim": 0.486,
+  "rows": 0.739,
+  "reg": {
+   "header": 0.822,
+   "top": 0.79,
+   "mid": 0.451,
+   "low": 0.264,
+   "cta": 0.084
+  }
  }
 }
