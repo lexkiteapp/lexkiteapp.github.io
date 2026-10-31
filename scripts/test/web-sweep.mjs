@@ -4,7 +4,7 @@
 //  err (lỗi console/pageerror) · http (tài nguyên cùng gốc ≥ 400, trừ /api/) · hscroll · clip/overlap/spill (scripts/lib/layout-scan.mjs)
 //  tap (< 44 px, link trong câu được miễn – WCAG 2.5.8) · contrast + axe (axe-core AA) · cls (> 0.1) · lcp (> 2500 ms)
 //  theme (tối mà nền sáng / sáng mà nền tối) · meta (title, description, viewport, canonical, og:title/description/image trên trang index được)
-//  lang (html lang khớp thư mục ngôn ngữ, ar có dir=rtl).
+//  lang (html lang khớp thư mục ngôn ngữ, ar có dir=rtl). Lỗi tải tài nguyên chỉ tính ở http (máy chủ tĩnh CI không có /api/).
 // Ngưỡng = scripts/test/web-sweep.known.json: số lỗi mỗi loại×kiểm chỉ được GIẢM (cái mới = 0). Hết lỗi → hạ số trong file (không bao giờ nâng).
 // Dùng: node scripts/test/web-sweep.mjs <base-url> <dist> <out> [--write-known]
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
@@ -22,7 +22,7 @@ fs.mkdirSync(OUT, { recursive: true });
 const files = [];
 (function walk(d, rel = '') { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const r = rel + e.name; if (e.isDirectory()) { if (!SKIP.test(r + '/')) walk(path.join(d, e.name), r + '/'); } else if (e.name.endsWith('.html')) files.push(r); } })(DIST);
 const typeOf = f => {
-  const p = f.split('/'); let lang = '';
+  const p = f.replace(/^assets\//, '').split('/'); let lang = '';
   if (LANGS.includes(p[0]) && p.length > 1) { lang = p[0]; p[0] = 'L'; }
   if (p.length >= 3 || (p.length === 2 && p[0] !== 'L')) p[p.length - (p.at(-1) === 'index.html' ? 2 : 1)] = '*';
   return { type: '/' + p.join('/').replace(/index\.html$/, ''), lang };
@@ -42,8 +42,8 @@ for (const [type, t] of byType) {
     const miss = need.filter(s => !head.replace(/'/g, '"').includes(s));
     if (miss.length) { meta++; ex ||= `${f}: thiếu ${miss.join(', ')}`; }
     const { lang: dl } = typeOf(f), hl = (h.match(/<html[^>]*\blang=["']?([\w-]+)/i) || [])[1] || '';
-    const want = dl || (f.startsWith('blog-lang') ? '' : 'vi'); // trang gốc không thư mục = bản tiếng Việt
-    if ((want && hl.split('-')[0].toLowerCase() !== want) || (dl === 'ar' && !/<html[^>]*dir=["']?rtl/i.test(h))) { lang++; exl ||= `${f}: lang="${hl}"${dl === 'ar' ? ' (cần dir=rtl)' : ''}`; }
+    // trang không thư mục ngôn ngữ: chỉ cần có lang (gốc có trang vi lẫn en)
+    if ((dl ? hl.split('-')[0].toLowerCase() !== dl : !hl) || (dl === 'ar' && !/<html[^>]*dir=["']?rtl/i.test(h))) { lang++; exl ||= `${f}: lang="${hl}"${dl === 'ar' ? ' (cần dir=rtl)' : ''}`; }
   }
   add(type, 'meta', meta, ex); add(type, 'lang', lang, exl);
 }
@@ -69,7 +69,7 @@ const report = [];
 async function run(j) {
   const ctx = await browser.newContext({ viewport: { width: VPS[j.vp].width, height: VPS[j.vp].height }, isMobile: !!VPS[j.vp].isMobile, hasTouch: !!VPS[j.vp].hasTouch, colorScheme: j.scheme });
   const page = await ctx.newPage(); const errs = [], http = [];
-  page.on('console', m => m.type() === 'error' && !/favicon|ERR_CONNECTION|net::ERR|\/api\//.test(m.text()) && errs.push(m.text().slice(0, 120)));
+  page.on('console', m => m.type() === 'error' && !/favicon|ERR_CONNECTION|net::ERR|\/api\/|Failed to load resource/.test(m.text()) && errs.push(m.text().slice(0, 120)));
   page.on('pageerror', e => errs.push(String(e).slice(0, 120)));
   page.on('response', r => { const u = r.url(); if (r.status() >= 400 && u.startsWith(BASE) && !u.includes('/api/')) http.push(`${r.status()} ${u.slice(BASE.length, BASE.length + 80)}`); });
   await page.addInitScript(() => { window.__cls = 0; try { new PerformanceObserver(l => { for (const e of l.getEntries()) window.__lcp = e.startTime; }).observe({ type: 'largest-contentful-paint', buffered: true }); new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); } catch {} });
@@ -88,7 +88,7 @@ async function run(j) {
   add(T, 'contrast', c?.n || 0, `${k} ${c?.t}`); add(T, 'axe', other.reduce((a, v) => a + v.n, 0), `${k} ${other.map(v => v.id + '×' + v.n).join(' ')}`);
   add(T, 'cls', +(p.cls > 0.1), `${k} CLS ${p.cls}`); add(T, 'lcp', +(p.lcp > 2500), `${k} LCP ${p.lcp}`);
   add(T, 'theme', +(j.scheme === 'dark' ? p.bg > 0.4 : p.bg < 0.2), `${k} nền L=${p.bg.toFixed(2)}`);
-  if (j.vp === 'm') await page.screenshot({ path: path.join(OUT, `${T.replace(/[^\w]+/g, '_')}-${j.f.split('/')[0]}-${k}.jpg`), quality: 60, type: 'jpeg' }).catch(() => {});
+  if (j.vp === 'm' || j.scheme === 'light') await page.screenshot({ path: path.join(OUT, `${T.replace(/[^\w]+/g, '_')}-${j.f.split('/')[0]}-${k}.jpg`), quality: 60, type: 'jpeg' }).catch(() => {});
   report.push({ ...j, errs: errs.length, http: http.length, tap: p.small.length, contrast: c?.n || 0, cls: p.cls, lcp: p.lcp });
   await ctx.close();
 }
