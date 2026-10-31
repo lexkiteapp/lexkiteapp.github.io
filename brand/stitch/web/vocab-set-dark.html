@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Environment — Band 7 Academic Vocabulary | Lexkite</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFFFF',
+              100: '#FFFDF9',
+              200: '#FFF8F3',
+              300: '#FBF2EA',
+              400: '#F5E8DC',
+              500: '#EAD7C5',
+            },
+            teal: {
+              primary: '#136B66',
+              deep: '#0D504C',
+              darker: '#093A37',
+              tint: '#EAF6F5',
+              surface: '#F2FAF9',
+            },
+            amber: {
+              cta: '#F59E0B',
+              ledge: '#B45309',
+              ink: '#1C1003',
+              pale: '#FEF3C7',
+            },
+            ink: {
+              primary: '#191E20',
+              secondary: '#424C50',
+              tertiary: '#69767B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .tactile-btn-orange {
+      background-color: #F59E0B;
+      box-shadow: 0 4px 0 #B45309;
+      color: #1C1003;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-orange:hover {
+      background-color: #FBBF24;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #B45309;
+    }
+    .tactile-btn-orange:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #B45309;
+    }
+
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 2px solid #EFE4D8;
+      box-shadow: 0 4px 0 #E4D5C5;
+      border-radius: 1.25rem;
+    }
+
+    .tactile-listen-btn {
+      background-color: #F4FAF9;
+      border: 2px solid #D5EBE8;
+      box-shadow: 0 3px 0 #BCDCD7;
+      transition: all 0.1s ease;
+    }
+    .tactile-listen-btn:hover {
+      background-color: #E6F5F3;
+      border-color: #136B66;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 #BCDCD7;
+    }
+    .tactile-listen-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #BCDCD7;
+    }
+
+    .tactile-chip {
+      box-shadow: 0 2px 0 #E2D3C2;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#E2E8F0] font-sans antialiased min-h-screen flex flex-col selection:bg-[#2ba39a] selection:text-white">
+<!-- ================= SITE HEADER ================= -->
+<!-- Exactly matching the standard Lexkite web header -->
+<header class="w-full bg-[#0E1F24] border-b border-[#1E3E46] sticky top-0 z-40 shadow-[0_4px_0_#050D10]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-9 h-9 relative flex-shrink-0 flex items-center justify-center">
+<svg class="w-8 h-8 filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<polygon fill="#2DD4BF" points="16,3 27,15 16,15"></polygon>
+<polygon fill="#EA580C" points="27,15 16,29 16,15"></polygon>
+<polygon fill="#FBBF24" points="16,29 5,15 16,15"></polygon>
+<polygon fill="#0F766E" points="5,15 16,3 16,15"></polygon>
+<circle cx="16" cy="30" fill="#F59E0B" r="1.5"></circle>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-black text-2xl tracking-tight text-white leading-none group-hover:text-[#6BD8CE] transition-colors">Lexkite</span>
+<span class="text-[10px] font-extrabold uppercase tracking-widest text-[#6BD8CE] mt-0.5">IELTS &amp; VOCAB</span>
+</div>
+</a>
+<nav class="hidden md:flex items-center gap-2">
+<a class="px-3.5 py-1.5 rounded-full text-sm font-bold bg-[#162C33] text-[#6BD8CE] border border-[#244C55] shadow-[0_2px_0_#050D10] flex items-center gap-1.5" href="#">
+<span class="material-symbols-rounded text-lg text-[#6BD8CE]">menu_book</span>
+            Words
+          </a>
+<a class="px-3.5 py-1.5 rounded-full text-sm font-bold text-[#A5C6CB] hover:text-white hover:bg-[#162C33] transition-colors flex items-center gap-1.5" href="#">
+<span class="material-symbols-rounded text-lg">construction</span>
+            Tools
+          </a>
+<a class="px-3.5 py-1.5 rounded-full text-sm font-bold text-[#A5C6CB] hover:text-white hover:bg-[#162C33] transition-colors flex items-center gap-1.5" href="#">
+<span class="material-symbols-rounded text-lg">newspaper</span>
+            Blog
+          </a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-3 py-1.5 rounded-full text-xs font-bold text-[#A5C6CB] hover:text-white border border-[#1E3E46] bg-[#12252A] shadow-[0_2px_0_#050D10] flex items-center gap-1.5 hover:bg-[#162C33] transition-all">
+<span class="material-symbols-rounded text-base text-[#6BD8CE]">language</span>
+<span>EN</span>
+<span class="material-symbols-rounded text-sm">expand_more</span>
+</button>
+<a class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white bg-[#12252A] hover:bg-[#162C33] border border-[#1E3E46] shadow-[0_2px_0_#050D10] transition-all" href="#">
+<span class="material-symbols-rounded text-base text-[#6BD8CE]">extension</span>
+          Add to Chrome
+        </a>
+<a class="tactile-btn-orange px-5 py-2 rounded-full text-xs sm:text-sm font-black flex items-center gap-1.5 text-[#1C1003]" href="#">
+<span>Start free</span>
+<span class="material-symbols-rounded text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT CONTAINER ================= -->
+<main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+<!-- BREADCRUMBS -->
+<nav class="flex items-center gap-2 text-xs font-bold text-[#A5C6CB] mb-6 overflow-x-auto whitespace-nowrap pb-1">
+<a class="hover:text-[#6BD8CE] flex items-center gap-1 transition-colors" href="#">
+<span class="material-symbols-rounded text-base text-[#6BD8CE]">home</span>
+        Home
+      </a>
+<span class="material-symbols-rounded text-sm text-[#41656F]">chevron_right</span>
+<a class="hover:text-[#6BD8CE] transition-colors" href="#">Vocab Library</a>
+<span class="material-symbols-rounded text-sm text-[#41656F]">chevron_right</span>
+<a class="hover:text-[#6BD8CE] transition-colors" href="#">IELTS Academic Topics</a>
+<span class="material-symbols-rounded text-sm text-[#41656F]">chevron_right</span>
+<span class="text-white font-extrabold truncate">Environment &amp; Climate</span>
+</nav>
+<!-- HEADER / HERO META OF THE VOCABULARY SET -->
+<section class="mb-8">
+<div class="tactile-card p-6 sm:p-8 bg-[#0E1F24] border-2 border-[#1E3E46] shadow-[0_4px_0_#050D10]">
+<div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+<div class="flex flex-wrap items-center gap-2.5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-[#122F35] text-[#6BD8CE] border border-[#245D69]">
+<span class="material-symbols-rounded text-sm">eco</span>
+              IELTS TOPIC DECK
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-black bg-[#332204] text-[#FBBF24] border border-[#85530B]">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+              Band 7.0 · C1 Advanced
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-[#162C33] text-[#A5C6CB] border border-[#1E3E46]">
+<span class="material-symbols-rounded text-sm text-[#6BD8CE]">sort</span>
+              12 Lexemes
+            </span>
+<span class="hidden sm:inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-[#162C33] text-[#A5C6CB] border border-[#1E3E46]">
+<span class="material-symbols-rounded text-sm text-[#6BD8CE]">volume_up</span>
+              100% Native Audio
+            </span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-full bg-[#12252A] hover:bg-[#162C33] border-2 border-[#1E3E46] flex items-center justify-center text-[#A5C6CB] hover:text-[#6BD8CE] transition-colors shadow-[0_2px_0_#050D10]" title="Bookmark set">
+<span class="material-symbols-rounded text-xl">bookmark_border</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-[#12252A] hover:bg-[#162C33] border-2 border-[#1E3E46] flex items-center justify-center text-[#A5C6CB] hover:text-[#6BD8CE] transition-colors shadow-[0_2px_0_#050D10]" title="Share set">
+<span class="material-symbols-rounded text-xl">share</span>
+</button>
+</div>
+</div>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-3">
+          Environment — Band 7 words
+        </h1>
+<p class="text-base sm:text-lg text-[#A5C6CB] font-medium leading-relaxed max-w-3xl">
+          High-tier academic vocabulary for environmental preservation, ecosystem disruption, renewable technology, and climate policy. Tailored for Band 7+ essays and speaking cues.
+        </p>
+<div class="mt-6 pt-6 border-t border-[#1E3E46] flex flex-wrap items-center justify-between gap-4 text-xs font-bold text-[#A5C6CB]">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1.5 text-[#E2E8F0]">
+<span class="material-symbols-rounded text-base text-[#6BD8CE]">fact_check</span>
+              Academic Writing Task 2 &amp; Speaking Part 3
+            </span>
+<span class="hidden md:flex items-center gap-1.5 text-[#E2E8F0]">
+<span class="material-symbols-rounded text-base text-[#F59E0B]">schedule</span>
+              Est. study time: 8 mins
+            </span>
+</div>
+<div class="flex items-center gap-2 text-white">
+<span>IPA transcriptions included</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#6BD8CE]"></span>
+<span>UK &amp; US pronunciation</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 2-COLUMN STUDY LAYOUT ================= -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN (8 cols): CLEAN LIST OF WORD ROWS (STUDY SHEET) -->
+<div class="lg:col-span-8 space-y-4">
+<div class="flex items-center justify-between px-2 text-xs font-bold text-[#A5C6CB]">
+<div class="flex items-center gap-2">
+<span class="uppercase tracking-wider text-[#6BD8CE] font-black">Vocabulary Sheet</span>
+<span class="text-[#7598A0]">(Showing all 12 items)</span>
+</div>
+<div class="flex items-center gap-3 text-[#A5C6CB]">
+<span class="hidden sm:inline">Tap audio button to hear pronunciation</span>
+<button class="text-[#6BD8CE] hover:underline font-extrabold flex items-center gap-1">
+<span class="material-symbols-rounded text-base">expand_all</span>
+              Expand all
+            </button>
+</div>
+</div>
+<!-- WORD ROW 1: Biodegradable -->
+<article class="tactile-card p-5 sm:p-6 transition-all hover:border-[#6BD8CE]/60 bg-[#0E1F24]">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#1E3E46]">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2.5">
+<h2 class="text-2xl font-black text-white tracking-tight">biodegradable</h2>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#122F35] text-[#6BD8CE] border border-[#245D69]">
+                  adjective
+                </span>
+<span class="px-2 py-0.5 rounded-md text-[11px] font-black bg-[#162C33] text-[#A5C6CB] font-mono border border-[#1E3E46]">
+                  B2 / C1
+                </span>
+</div>
+<div class="flex items-center gap-2 text-sm font-semibold text-[#A5C6CB] font-mono">
+<span>/ˌbaɪ.əʊ.dɪˈɡreɪ.də.bəl/</span>
+<span class="text-xs font-sans text-[#6BD8CE] font-bold bg-[#12252A] border border-[#1E3E46] px-2 py-0.5 rounded-full">UK · US</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start">
+<button aria-label="Listen to pronunciation of biodegradable" class="tactile-listen-btn w-11 h-11 rounded-full flex items-center justify-center text-[#6BD8CE] focus:outline-none">
+<span class="material-symbols-rounded text-2xl">volume_up</span>
+</button>
+</div>
+</div>
+<div class="pt-4 space-y-3">
+<div>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#6BD8CE] block mb-1">Definition</span>
+<p class="text-base text-white font-semibold leading-relaxed">
+                Capable of being decomposed by bacteria or other biological means, avoiding permanent chemical pollution.
+              </p>
+</div>
+<div class="bg-[#12252A] rounded-xl p-3.5 border border-[#1E3E46]">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#7598A0] block mb-1">Academic Context</span>
+<p class="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-medium">
+                “Replacing conventional single-use plastics with certified 
+                <mark class="bg-[#FBBF24] text-[#1C1003] font-extrabold px-1.5 py-0.5 rounded border border-[#B45309]">biodegradable</mark> 
+                polymers would significantly alleviate the accumulation of microplastics in aquatic habitats.”
+              </p>
+</div>
+</div>
+</article>
+<!-- WORD ROW 2: Ecosystem -->
+<article class="tactile-card p-5 sm:p-6 transition-all hover:border-[#6BD8CE]/60 bg-[#0E1F24]">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#1E3E46]">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2.5">
+<h2 class="text-2xl font-black text-white tracking-tight">ecosystem</h2>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#122F35] text-[#6BD8CE] border border-[#245D69]">
+                  noun
+                </span>
+<span class="px-2 py-0.5 rounded-md text-[11px] font-black bg-[#162C33] text-[#A5C6CB] font-mono border border-[#1E3E46]">
+                  B2
+                </span>
+</div>
+<div class="flex items-center gap-2 text-sm font-semibold text-[#A5C6CB] font-mono">
+<span>/ˈiː.kəʊˌsɪs.təm/</span>
+<span class="text-xs font-sans text-[#6BD8CE] font-bold bg-[#12252A] border border-[#1E3E46] px-2 py-0.5 rounded-full">UK · US</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start">
+<button aria-label="Listen to pronunciation of ecosystem" class="tactile-listen-btn w-11 h-11 rounded-full flex items-center justify-center text-[#6BD8CE] focus:outline-none">
+<span class="material-symbols-rounded text-2xl">volume_up</span>
+</button>
+</div>
+</div>
+<div class="pt-4 space-y-3">
+<div>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#6BD8CE] block mb-1">Definition</span>
+<p class="text-base text-white font-semibold leading-relaxed">
+                All living organisms in an area and the non-living physical components with which they continuously interact.
+              </p>
+</div>
+<div class="bg-[#12252A] rounded-xl p-3.5 border border-[#1E3E46]">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#7598A0] block mb-1">Academic Context</span>
+<p class="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-medium">
+                “Overfishing disrupts the delicate equilibrium of marine 
+                <mark class="bg-[#FBBF24] text-[#1C1003] font-extrabold px-1.5 py-0.5 rounded border border-[#B45309]">ecosystems</mark>, 
+                triggering trophic cascades that diminish predatory fish stocks.”
+              </p>
+</div>
+</div>
+</article>
+<!-- WORD ROW 3: Deforestation -->
+<article class="tactile-card p-5 sm:p-6 transition-all hover:border-[#6BD8CE]/60 bg-[#0E1F24]">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#1E3E46]">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2.5">
+<h2 class="text-2xl font-black text-white tracking-tight">deforestation</h2>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#122F35] text-[#6BD8CE] border border-[#245D69]">
+                  noun
+                </span>
+<span class="px-2 py-0.5 rounded-md text-[11px] font-black bg-[#162C33] text-[#A5C6CB] font-mono border border-[#1E3E46]">
+                  B2 / C1
+                </span>
+</div>
+<div class="flex items-center gap-2 text-sm font-semibold text-[#A5C6CB] font-mono">
+<span>/diːˌfɒr.ɪˈsteɪ.ʃən/</span>
+<span class="text-xs font-sans text-[#6BD8CE] font-bold bg-[#12252A] border border-[#1E3E46] px-2 py-0.5 rounded-full">UK · US</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start">
+<button aria-label="Listen to pronunciation of deforestation" class="tactile-listen-btn w-11 h-11 rounded-full flex items-center justify-center text-[#6BD8CE] focus:outline-none">
+<span class="material-symbols-rounded text-2xl">volume_up</span>
+</button>
+</div>
+</div>
+<div class="pt-4 space-y-3">
+<div>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#6BD8CE] block mb-1">Definition</span>
+<p class="text-base text-white font-semibold leading-relaxed">
+                The permanent clearance and destruction of vast forest tracts to make land available for agriculture or urbanisation.
+              </p>
+</div>
+<div class="bg-[#12252A] rounded-xl p-3.5 border border-[#1E3E46]">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#7598A0] block mb-1">Academic Context</span>
+<p class="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-medium">
+                “Unchecked tropical 
+                <mark class="bg-[#FBBF24] text-[#1C1003] font-extrabold px-1.5 py-0.5 rounded border border-[#B45309]">deforestation</mark> 
+                releases immense reserves of sequestered carbon back into the atmosphere.”
+              </p>
+</div>
+</div>
+</article>
+<!-- WORD ROW 4: Renewable -->
+<article class="tactile-card p-5 sm:p-6 transition-all hover:border-[#6BD8CE]/60 bg-[#0E1F24]">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#1E3E46]">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2.5">
+<h2 class="text-2xl font-black text-white tracking-tight">renewable</h2>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#122F35] text-[#6BD8CE] border border-[#245D69]">
+                  adjective
+                </span>
+<span class="px-2 py-0.5 rounded-md text-[11px] font-black bg-[#162C33] text-[#A5C6CB] font-mono border border-[#1E3E46]">
+                  B1 / B2
+                </span>
+</div>
+<div class="flex items-center gap-2 text-sm font-semibold text-[#A5C6CB] font-mono">
+<span>/rɪˈnjuː.ə.bəl/</span>
+<span class="text-xs font-sans text-[#6BD8CE] font-bold bg-[#12252A] border border-[#1E3E46] px-2 py-0.5 rounded-full">UK · US</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start">
+<button aria-label="Listen to pronunciation of renewable" class="tactile-listen-btn w-11 h-11 rounded-full flex items-center justify-center text-[#6BD8CE] focus:outline-none">
+<span class="material-symbols-rounded text-2xl">volume_up</span>
+</button>
+</div>
+</div>
+<div class="pt-4 space-y-3">
+<div>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#6BD8CE] block mb-1">Definition</span>
+<p class="text-base text-white font-semibold leading-relaxed">
+                Relating to energy sources that are not depleted by use, such as solar, wind, tidal, or geothermal power.
+              </p>
+</div>
+<div class="bg-[#12252A] rounded-xl p-3.5 border border-[#1E3E46]">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#7598A0] block mb-1">Academic Context</span>
+<p class="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-medium">
+                “Subsidising photovoltaic and wind infrastructure enables emerging nations to transition toward 
+                <mark class="bg-[#FBBF24] text-[#1C1003] font-extrabold px-1.5 py-0.5 rounded border border-[#B45309]">renewable</mark> 
+                energy without sacrificing industrial growth.”
+              </p>
+</div>
+</div>
+</article>
+<!-- WORD ROW 5: Conservation -->
+<article class="tactile-card p-5 sm:p-6 transition-all hover:border-[#6BD8CE]/60 bg-[#0E1F24]">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#1E3E46]">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2.5">
+<h2 class="text-2xl font-black text-white tracking-tight">conservation</h2>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#122F35] text-[#6BD8CE] border border-[#245D69]">
+                  noun
+                </span>
+<span class="px-2 py-0.5 rounded-md text-[11px] font-black bg-[#162C33] text-[#A5C6CB] font-mono border border-[#1E3E46]">
+                  B2 / C1
+                </span>
+</div>
+<div class="flex items-center gap-2 text-sm font-semibold text-[#A5C6CB] font-mono">
+<span>/ˌkɒn.səˈveɪ.ʃən/</span>
+<span class="text-xs font-sans text-[#6BD8CE] font-bold bg-[#12252A] border border-[#1E3E46] px-2 py-0.5 rounded-full">UK · US</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start">
+<button aria-label="Listen to pronunciation of conservation" class="tactile-listen-btn w-11 h-11 rounded-full flex items-center justify-center text-[#6BD8CE] focus:outline-none">
+<span class="material-symbols-rounded text-2xl">volume_up</span>
+</button>
+</div>
+</div>
+<div class="pt-4 space-y-3">
+<div>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#6BD8CE] block mb-1">Definition</span>
+<p class="text-base text-white font-semibold leading-relaxed">
+                The careful protection, management, and preservation of natural wildlife, habitats, and ecological resources.
+              </p>
+</div>
+<div class="bg-[#12252A] rounded-xl p-3.5 border border-[#1E3E46]">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#7598A0] block mb-1">Academic Context</span>
+<p class="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-medium">
+                “Community-led wildlife 
+                <mark class="bg-[#FBBF24] text-[#1C1003] font-extrabold px-1.5 py-0.5 rounded border border-[#B45309]">conservation</mark> 
+                initiatives have proven considerably more effective than enforcement-only park boundaries.”
+              </p>
+</div>
+</div>
+</article>
+<!-- WORD ROW 6: Contaminant -->
+<article class="tactile-card p-5 sm:p-6 transition-all hover:border-[#6BD8CE]/60 bg-[#0E1F24]">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#1E3E46]">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2.5">
+<h2 class="text-2xl font-black text-white tracking-tight">contaminant</h2>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#122F35] text-[#6BD8CE] border border-[#245D69]">
+                  noun
+                </span>
+<span class="px-2 py-0.5 rounded-md text-[11px] font-black bg-[#162C33] text-[#A5C6CB] font-mono border border-[#1E3E46]">
+                  C1
+                </span>
+</div>
+<div class="flex items-center gap-2 text-sm font-semibold text-[#A5C6CB] font-mono">
+<span>/kənˈtæm.ɪ.nənt/</span>
+<span class="text-xs font-sans text-[#6BD8CE] font-bold bg-[#12252A] border border-[#1E3E46] px-2 py-0.5 rounded-full">UK · US</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start">
+<button aria-label="Listen to pronunciation of contaminant" class="tactile-listen-btn w-11 h-11 rounded-full flex items-center justify-center text-[#6BD8CE] focus:outline-none">
+<span class="material-symbols-rounded text-2xl">volume_up</span>
+</button>
+</div>
+</div>
+<div class="pt-4 space-y-3">
+<div>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#6BD8CE] block mb-1">Definition</span>
+<p class="text-base text-white font-semibold leading-relaxed">
+                A polluting substance that makes water, air, or soil impure, toxic, or hazardous to living organisms.
+              </p>
+</div>
+<div class="bg-[#12252A] rounded-xl p-3.5 border border-[#1E3E46]">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#7598A0] block mb-1">Academic Context</span>
+<p class="text-sm sm:text-base text-[#E2E8F0] leading-relaxed font-medium">
+                “Agricultural runoff introduces toxic chemical 
+                <mark class="bg-[#FBBF24] text-[#1C1003] font-extrabold px-1.5 py-0.5 rounded border border-[#B45309]">contaminants</mark> 
+                into groundwater tables, complicating municipal filtration procedures.”
+              </p>
+</div>
+</div>
+</article>
+<!-- Pagination / Full set status notice -->
+<div class="p-4 rounded-xl bg-[#0E1F24] border border-[#1E3E46] text-center flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-[#A5C6CB] shadow-[0_3px_0_#050D10]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-rounded text-[#6BD8CE] text-base">check_circle</span>
+<span class="text-white">Set 1 of 1 · 6 of 12 previewed above</span>
+</div>
+<button class="px-4 py-2 rounded-full bg-[#162C33] hover:bg-[#1E3E46] border border-[#244C55] text-[#6BD8CE] font-extrabold transition-colors shadow-[0_2px_0_#050D10]">
+            Load all 12 words in this set
+          </button>
+</div>
+</div>
+<!-- RIGHT COLUMN (4 cols): STICKY SIDE PANEL -->
+<aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
+<!-- 1. EMPTY DASHED TEACHER SLOT (Lexkite standard Tactile Night) -->
+<div class="rounded-2xl border-2 border-dashed border-[#2BA39A]/60 bg-[#0E252A]/80 p-5 flex items-start gap-4 shadow-[0_4px_0_#050D10]">
+<div class="w-12 h-12 rounded-xl bg-[#12252A] border border-[#2BA39A]/50 flex items-center justify-center text-[#6BD8CE] flex-shrink-0 shadow-sm">
+<span class="material-symbols-rounded text-2xl">school</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-xs font-black uppercase tracking-wider text-[#6BD8CE]">TEACHER SLOT</span>
+<span class="text-[10px] font-extrabold bg-[#16383E] text-[#88F5EA] px-2 py-0.5 rounded-full border border-[#2BA39A]/30">STUDY DRILL</span>
+</div>
+<p class="text-xs font-bold text-[#E2E8F0] mt-1">
+              Coach Ama introduces environmental collocations and common Band 7 examiner traps.
+            </p>
+<span class="text-[11px] font-semibold text-[#7598A0] block mt-1">2D teacher loads here</span>
+</div>
+</div>
+<!-- 2. "PRACTISE THESE WORDS" PRIMARY ACTION CARD -->
+<div class="tactile-card p-6 border-2 border-[#1E3E46] bg-[#0E1F24] shadow-[0_4px_0_#050D10]">
+<div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#6BD8CE] mb-3">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+            ACTIVE RECALL DRILL
+          </div>
+<h3 class="text-xl font-black text-white tracking-tight mb-2">
+            Practise these words
+          </h3>
+<p class="text-sm font-medium text-[#A5C6CB] leading-relaxed mb-5">
+            Test active recall, listen to native stress patterns, and build your sentence accuracy in 3 quick drill formats.
+          </p>
+<div class="space-y-2 mb-6 text-xs font-bold text-[#E2E8F0]">
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#12252A] border border-[#1E3E46] shadow-[0_2px_0_#050D10]">
+<span class="flex items-center gap-2">
+<span class="material-symbols-rounded text-base text-[#6BD8CE]">style</span>
+                Spaced Flashcards
+              </span>
+<span class="text-[11px] text-[#A5C6CB] font-mono">12 cards</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#12252A] border border-[#1E3E46] shadow-[0_2px_0_#050D10]">
+<span class="flex items-center gap-2">
+<span class="material-symbols-rounded text-base text-[#F59E0B]">headphones</span>
+                Dictation &amp; Spelling
+              </span>
+<span class="text-[11px] text-[#A5C6CB] font-mono">3 mins</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-[#12252A] border border-[#1E3E46] shadow-[0_2px_0_#050D10]">
+<span class="flex items-center gap-2">
+<span class="material-symbols-rounded text-base text-[#6BD8CE]">record_voice_over</span>
+                Speaking Rhythm Drill
+              </span>
+<span class="text-[11px] text-[#A5C6CB] font-mono">AI voice check</span>
+</div>
+</div>
+<button class="tactile-btn-orange w-full py-3.5 px-6 rounded-xl font-black text-base flex items-center justify-center gap-2 text-center text-[#1C1003]">
+<span>Start Practice Sprint</span>
+<span class="material-symbols-rounded text-xl">arrow_forward</span>
+</button>
+<p class="text-center text-[11px] font-bold text-[#7598A0] mt-3">
+            Free diagnostic active • Earn +30 XP toward daily streak
+          </p>
+</div>
+<!-- 3. RELATED VOCABULARY SETS -->
+<div class="tactile-card p-6 border-2 border-[#1E3E46] bg-[#0E1F24] shadow-[0_4px_0_#050D10]">
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-sm font-black uppercase tracking-wider text-white">Related Sets</h4>
+<a class="text-xs font-extrabold text-[#6BD8CE] hover:underline" href="#">View all 42</a>
+</div>
+<div class="space-y-3">
+<a class="block p-3 rounded-xl border border-[#1E3E46] bg-[#12252A] hover:border-[#6BD8CE]/60 hover:bg-[#162C33] transition-all group shadow-[0_2px_0_#050D10]" href="#">
+<div class="flex items-center justify-between">
+<span class="text-xs font-extrabold text-[#6BD8CE]">Technology &amp; AI</span>
+<span class="text-[10px] font-bold bg-[#162C33] text-[#A5C6CB] px-1.5 py-0.5 rounded border border-[#1E3E46]">C1</span>
+</div>
+<p class="text-sm font-bold text-white group-hover:text-[#6BD8CE] transition-colors mt-0.5">
+                Automation &amp; Machine Learning
+              </p>
+<div class="text-[11px] font-medium text-[#7598A0] mt-1 flex items-center gap-2">
+<span>14 words</span>
+<span>•</span>
+<span>Task 2 essay lexicon</span>
+</div>
+</a>
+<a class="block p-3 rounded-xl border border-[#1E3E46] bg-[#12252A] hover:border-[#6BD8CE]/60 hover:bg-[#162C33] transition-all group shadow-[0_2px_0_#050D10]" href="#">
+<div class="flex items-center justify-between">
+<span class="text-xs font-extrabold text-[#6BD8CE]">Society &amp; Urban Life</span>
+<span class="text-[10px] font-bold bg-[#162C33] text-[#A5C6CB] px-1.5 py-0.5 rounded border border-[#1E3E46]">B2-C1</span>
+</div>
+<p class="text-sm font-bold text-white group-hover:text-[#6BD8CE] transition-colors mt-0.5">
+                Urbanisation &amp; Public Infrastructure
+              </p>
+<div class="text-[11px] font-medium text-[#7598A0] mt-1 flex items-center gap-2">
+<span>16 words</span>
+<span>•</span>
+<span>Speaking Part 3 focus</span>
+</div>
+</a>
+<a class="block p-3 rounded-xl border border-[#1E3E46] bg-[#12252A] hover:border-[#6BD8CE]/60 hover:bg-[#162C33] transition-all group shadow-[0_2px_0_#050D10]" href="#">
+<div class="flex items-center justify-between">
+<span class="text-xs font-extrabold text-[#6BD8CE]">Health &amp; Medicine</span>
+<span class="text-[10px] font-bold bg-[#162C33] text-[#A5C6CB] px-1.5 py-0.5 rounded border border-[#1E3E46]">C1</span>
+</div>
+<p class="text-sm font-bold text-white group-hover:text-[#6BD8CE] transition-colors mt-0.5">
+                Public Health &amp; Epidemic Prevention
+              </p>
+<div class="text-[11px] font-medium text-[#7598A0] mt-1 flex items-center gap-2">
+<span>12 words</span>
+<span>•</span>
+<span>Includes collocations</span>
+</div>
+</a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- ================= SITE FOOTER ================= -->
+<!-- Matching the standard calm Lexkite footer -->
+<footer class="w-full bg-[#0E1F24] border-t border-[#1E3E46] mt-16 pt-12 pb-10 shadow-[0_-4px_0_#050D10]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-[#1E3E46]">
+<div class="md:col-span-2 space-y-4">
+<div class="flex items-center gap-3">
+<svg class="w-7 h-7 flex-shrink-0 filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<polygon fill="#2DD4BF" points="16,3 27,15 16,15"></polygon>
+<polygon fill="#EA580C" points="27,15 16,29 16,15"></polygon>
+<polygon fill="#FBBF24" points="16,29 5,15 16,15"></polygon>
+<polygon fill="#0F766E" points="5,15 16,3 16,15"></polygon>
+</svg>
+<span class="font-black text-xl text-white tracking-tight">Lexkite</span>
+</div>
+<p class="text-xs text-[#A5C6CB] leading-relaxed max-w-sm font-medium">
+            Tactile, dopamine-rich language learning tailored for high-stakes IELTS &amp; TOEIC candidates worldwide.
+          </p>
+</div>
+<div>
+<h5 class="text-xs font-black uppercase tracking-wider text-white mb-3">Study Tools</h5>
+<ul class="space-y-2 text-xs font-bold text-[#A5C6CB]">
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Dictionary</a></li>
+<li><a class="text-[#6BD8CE] hover:underline" href="#">IELTS Prep</a></li>
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">TOEIC Prep</a></li>
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Collocations Deck</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-black uppercase tracking-wider text-white mb-3">Resources</h5>
+<ul class="space-y-2 text-xs font-bold text-[#A5C6CB]">
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Speaking Rubric</a></li>
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Free Mock Tests</a></li>
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Chrome Extension</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-black uppercase tracking-wider text-white mb-3">Company</h5>
+<ul class="space-y-2 text-xs font-bold text-[#A5C6CB]">
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">About Lexkite</a></li>
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Help &amp; Support</a></li>
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-[#6BD8CE] transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-[#7598A0]">
+<p>© 2024 Lexkite Language Technologies. Gamified English learning.</p>
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1.5 text-[#6BD8CE] font-extrabold">
+<span class="w-2 h-2 rounded-full bg-[#6BD8CE]"></span>
+            Band 8.5 Engine Active
+          </span>
+<a class="hover:text-[#6BD8CE] transition-colors" href="#">Privacy</a>
+<a class="hover:text-[#6BD8CE] transition-colors" href="#">Terms</a>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
+

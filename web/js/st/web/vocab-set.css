@@ -1,0 +1,9 @@
+/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của brand/stitch/web/vocab-set-light|dark.html – KHÔNG sửa tay. */
+:W .tactile-btn-orange{background-color: #F59E0B; box-shadow: 0 4px 0 #B45309; color: #1C1003; transition: all 0.1s ease;}
+:W .tactile-btn-orange:hover{background-color: #FBBF24; transform: translateY(-1px); box-shadow: 0 5px 0 #B45309;}
+:W .tactile-btn-orange:active{transform: translateY(3px); box-shadow: 0 1px 0 #B45309;}
+:W .tactile-card{background-color: #FFFFFF; border: 2px solid #EFE4D8; box-shadow: 0 4px 0 #E4D5C5; border-radius: 1.25rem;}
+:W .tactile-listen-btn{background-color: #F4FAF9; border: 2px solid #D5EBE8; box-shadow: 0 3px 0 #BCDCD7; transition: all 0.1s ease;}
+:W .tactile-listen-btn:hover{background-color: #E6F5F3; border-color: #136B66; transform: translateY(-1px); box-shadow: 0 4px 0 #BCDCD7;}
+:W .tactile-listen-btn:active{transform: translateY(2px); box-shadow: 0 1px 0 #BCDCD7;}
+:W .tactile-chip{box-shadow: 0 2px 0 #E2D3C2;}

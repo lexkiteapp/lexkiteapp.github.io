@@ -1,0 +1,226 @@
+{
+ "remove": [
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)",
+  ":scope > footer",
+  ":scope > header"
+ ],
+ "after": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "d.ama",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "'<output id=\"qn\" for=\"q\" class=\"sr\" aria-live=\"polite\" data-f=\"' + e(d.found) + '\" data-n=\"' + e(d.none) + '\"></output>'"
+ },
+ "html": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "d.crumbH",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.h1)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.lead)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.tPill)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.tName)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(4)": "e(d.tSay)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(1)": "'style'",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(2)": "e(d.tBox)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(2)": "e(d.tFree)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.go)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.free)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "e(d.ctaH)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2) > :nth-child(2)": "e(d.ctaP)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1)": "e(d.ctaBtn)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2)": "e(d.gramL)"
+ },
+ "attr": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "aria-label": "d.crumbL"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(5)": {
+   "href": "d.appHref"
+  },
+  ":scope > :nth-child(2) > :nth-child(2)": {
+   "id": "'nd'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "id": "'q'",
+   "type": "'search'",
+   "placeholder": "d.search",
+   "aria-label": "d.searchL",
+   "autocomplete": "'off'",
+   "enterkeyhint": "'search'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3)": {
+   "type": "'button'",
+   "aria-label": "d.clearL",
+   "hidden": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2)": {
+   "type": "'button'",
+   "data-qgo": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+   "aria-label": "d.filterL"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(3) > :nth-child(1)": {
+   "href": "d.appHref"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(3) > :nth-child(2)": {
+   "href": "d.gramHref"
+  }
+ },
+ "addClass": {
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1)": "filter",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": "tf",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3)": "qc",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "flex-wrap min-w-0"
+ },
+ "tag": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "to": "nav"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(5)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+   "to": "nav"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.stats",
+   "as": "s",
+   "sel": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3) > div",
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(1)": "s.icon",
+    ":scope > :nth-child(1) > :nth-child(2)": "e(s.b)",
+    ":scope > :nth-child(2) > :nth-child(1)": "e(s.v)",
+    ":scope > :nth-child(2) > :nth-child(2)": "e(s.l)"
+   }
+  },
+  {
+   "list": "d.filters",
+   "as": "f",
+   "variants": {
+    "on": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(1)",
+    "off": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2) > button",
+   "pick": "f.on ? 'on' : 'off'",
+   "bind": {
+    "on": {
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "f.href",
+       "data-g": "f.g"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1)": "e(f.label)"
+     }
+    },
+    "off": {
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "f.href",
+       "data-g": "f.g"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1)": "e(f.label)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.groups",
+   "as": "g",
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(3) > section",
+   "addClass": {
+    ":scope": "grp"
+   },
+   "attr": {
+    ":scope": {
+     "aria-labelledby": "'g-' + g.k"
+    },
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+     "id": "'g-' + g.k"
+    },
+    ":scope > :nth-child(1) > :nth-child(2)": {
+     "href": "'#g-' + g.k",
+     "data-gf": "'g-' + g.k"
+    },
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+     "aria-hidden": "'true'"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "g.icon",
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(g.name)",
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(g.count)",
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(g.desc)",
+    ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(g.more)"
+   },
+   "repeat": [
+    {
+     "list": "g.items",
+     "as": "c",
+     "sel": ":scope > :nth-child(2) > :nth-child(1)",
+     "samples": ":scope > :nth-child(2) > article",
+     "attr": {
+      ":scope": {
+       "data-k": "c.key"
+      },
+      ":scope > :nth-child(2) > :nth-child(2)": {
+       "href": "c.app"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+       "inline-flex": "c.au ? 'inline-flex' : 'hidden'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+       "px-2.5": "c.level ? 'px-2.5' : 'hidden'"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(c.level)",
+      ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1)": "'<a href=\"' + e(c.href) + '\">' + e(c.title) + '</a>'",
+      ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(c.sub)",
+      ":scope > :nth-child(1) > :nth-child(3) > :nth-child(1)": "e(d.lexL)",
+      ":scope > :nth-child(2) > :nth-child(1)": "e(c.exam)"
+     },
+     "repeat": [
+      {
+       "list": "c.words",
+       "as": "w",
+       "sel": ":scope > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1)",
+       "samples": ":scope > :nth-child(1) > :nth-child(3) > :nth-child(2) > span",
+       "attr": {
+        ":scope": {
+         "lang": "'en'"
+        }
+       },
+       "html": {
+        ":scope": "e(w)"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "i18n": {
+  "Clear search": "Xóa ô lọc",
+  "Audio": "Có audio",
+  "Practise in app": "Luyện trong app"
+ }
+}

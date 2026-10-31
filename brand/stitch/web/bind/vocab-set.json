@@ -1,0 +1,266 @@
+{
+ "remove": [
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1)",
+  ":scope > footer",
+  ":scope > header"
+ ],
+ "html": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.crumbs[1][0])",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": "e(d.grpCrumb[0])",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(7)": "e(d.crumbs[2][0])",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "d.kIcon",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.h1)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.lead)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "'menu_book'",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(2) > :nth-child(1)": "e(d.ipa)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(2) > :nth-child(3)": "e(d.au)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(d.sheet)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.showing)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.tap)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :last-child > :nth-child(1) > :nth-child(2)": "e(d.allShown)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :last-child > :nth-child(2)": "e(d.learnAll)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(d.tName)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.tipK)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.tip)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(3)": "e(d.tipNote)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(2)": "e(d.drillH)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3)": "e(d.drillP)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'style'",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "e(d.rows[0][1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "'headphones'",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(2)": "e(d.rows[1][1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(3) > :nth-child(1) > :nth-child(1)": "'checklist'",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(4) > :nth-child(3) > :nth-child(2)": "e(d.rows[2][1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(5) > :nth-child(1)": "e(d.open)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(6)": "e(d.free)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1)": "e(d.relH)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2)": "e(d.viewAll)"
+ },
+ "text": {
+  "Home": "d.crumbs[0][0]",
+  "IELTS TOPIC DECK": "d.kick",
+  "Band 7.0 · C1 Advanced": "d.lvl",
+  "Academic Writing Task 2 & Speaking Part 3": "d.meta[0]",
+  "Est. study time: 8 mins": "d.meta[1]",
+  "ACTIVE RECALL DRILL": "d.drillK",
+  "Spaced Flashcards": "d.rows[0][0]",
+  "Dictation & Spelling": "d.rows[1][0]",
+  "Speaking Rhythm Drill": "d.rows[2][0]",
+  "12 Lexemes": "d.chips[0]",
+  "100% Native Audio": "d.chips[1]",
+  "Expand all": "d.expand"
+ },
+ "after": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "d.ama"
+ },
+ "attr": {
+  ":scope > :nth-child(2) > :nth-child(1)": {
+   "aria-label": "d.crumbL"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+   "href": "d.crumbs[0][1]"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(3)": {
+   "href": "d.crumbs[1][1]"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": {
+   "href": "d.grpCrumb[1]"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(7)": {
+   "aria-current": "'page'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(4)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(6)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "href": "d.app",
+   "aria-label": "d.save",
+   "title": "d.save"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "type": "'button'",
+   "data-share": "''",
+   "aria-label": "d.share",
+   "title": "d.share",
+   "data-ok": "d.copied"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "type": "'button'",
+   "data-xall": "''",
+   "aria-expanded": "'true'",
+   "data-on": "d.expandOn",
+   "data-off": "d.expand"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :last-child > :nth-child(2)": {
+   "href": "d.app",
+   "data-hit": "d.hit",
+   "data-page": "'vocab'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(5)": {
+   "href": "d.app",
+   "data-hit": "d.hit",
+   "data-page": "'vocab'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2)": {
+   "href": "d.hub"
+  }
+ },
+ "cls": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "sm:inline": "d.tap ? 'sm:inline' : ''"
+  }
+ },
+ "addClass": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1)": "vs-list",
+  ":scope > :nth-child(2) > :nth-child(1)": "flex-wrap",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(2)": "vs-rel"
+ },
+ "tag": {
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :last-child > :nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(5)": {
+   "to": "a"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.words",
+   "as": "w",
+   "variants": {
+    "au": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3)",
+    "no": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > article",
+   "pick": "w.k ? 'au' : 'no'",
+   "bind": {
+    "au": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(w.w)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(w.pos)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(3)": "e(w.lvl)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(w.ipa)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(w.us)",
+      ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(d.defL)",
+      ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(w.def)",
+      ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1)": "e(d.ctxL)",
+      ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": "w.exH"
+     },
+     "attr": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+       "type": "'button'",
+       "data-a": "w.k",
+       "aria-label": "w.play",
+       "title": "w.play",
+       "aria-pressed": "'false'"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+       "px-2.5": "w.pos ? 'px-2.5' : 'hidden'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(3)": {
+       "px-2": "w.lvl ? 'px-2' : 'hidden'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+       "text-xs": "w.us ? 'text-xs' : 'hidden'"
+      },
+      ":scope > :nth-child(2) > :nth-child(2)": {
+       "p-3.5": "w.ex ? 'p-3.5' : 'hidden'"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2)": "vs-body",
+      ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1)": "au"
+     }
+    },
+    "no": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(w.w)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(w.pos)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(3)": "e(w.lvl)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(w.ipa)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(w.us)",
+      ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(d.defL)",
+      ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(w.def)",
+      ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1)": "e(d.ctxL)",
+      ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": "w.exH"
+     },
+     "attr": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+       "lang": "'en'"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+       "px-2.5": "w.pos ? 'px-2.5' : 'hidden'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(3)": {
+       "px-2": "w.lvl ? 'px-2' : 'hidden'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+       "text-xs": "w.us ? 'text-xs' : 'hidden'"
+      },
+      ":scope > :nth-child(2) > :nth-child(2)": {
+       "p-3.5": "w.ex ? 'p-3.5' : 'hidden'"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2)": "vs-body"
+     },
+     "remove": [
+      ":scope > :nth-child(1) > :nth-child(2)"
+     ]
+    }
+   }
+  },
+  {
+   "list": "d.rel",
+   "as": "r",
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(2) > a",
+   "attr": {
+    ":scope": {
+     "href": "r.href"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(2)": "e(r.title)",
+    ":scope > :nth-child(1) > :nth-child(1)": "e(r.grp)",
+    ":scope > :nth-child(1) > :nth-child(2)": "e(r.lvl)",
+    ":scope > :nth-child(3) > :nth-child(1)": "e(r.n)",
+    ":scope > :nth-child(3) > :nth-child(3)": "e(r.ex)"
+   },
+   "cls": {
+    ":scope > :nth-child(1) > :nth-child(2)": {
+     "px-1.5": "r.lvl ? 'px-1.5' : 'hidden'"
+    }
+   }
+  }
+ ],
+ "i18n": {}
+}

@@ -279,18 +279,18 @@ ${GLP_CSS}
 
 // Trang hoàn chỉnh: <head> SEO của generator giữ NGUYÊN (meta/canonical/<!--HL-->/OG/JSON-LD) – chỉ thân + CSS theo Stitch.
 //   crumbs: [[tên, href]] (breadcrumb hiển thị = khung Stitch, JSON-LD BreadcrumbList vẫn trong head) · alt: bản vi↔en (đổi ngôn ngữ trên thanh đầu trang).
-export function stPage({ lang, head, crumbs, alt, k, d, ext = '' }) {
+export function stPage({ lang, head, crumbs, alt, k, d, ext = '', css = '', js = '', res = [] }) { // css/js: phần mẫu không vẽ của trang (vd VOCAB_CSS) · res: liên kết thêm cột Tài nguyên chân trang (sectionNav cũ)
   const t = SEO_L[lang], c = LAND(lang), self = crumbs[crumbs.length - 1][1], app = t.app;
   const langHref = l => l === lang ? self : alt && l === t.switchTo[1] ? alt : landingHref(l);
   const chrome = siteChrome({ lang, nav: [[app, t.open, lang], ...t.nav.map(([h, n]) => [h, n, lang])], open: [`${app}#/welcome/setup`, c.nav.start], signin: [`${app}#/welcome/login`, c.nav.login],
-    home: landingHref(lang), langHref, label: c.langL, text: t.foot, tm: t.tm });
+    home: landingHref(lang), langHref, label: c.langL, text: t.foot, tm: t.tm, extraRes: res });
   const pg = stRender(k, { ...d, crumbs, crumbL: S[lang].crumbL }, { lang, chrome });
   const body = pg.body.replace('</main>', () => ext + '</main>');
   // nạp sớm chữ Plus Jakarta Sans (font-display:swap) → chữ thật có trước lần vẽ đầu, không nhảy bố cục khi máy thiếu font dự phòng khớp số đo (Arial/Liberation – CLS cổng stitch-web)
   const pre = ['latin', ...(lang === 'vi' ? ['vietnamese'] : [])].map(x => `<link rel="preload" href="/fonts/pjs-${x}.woff2" as="font" type="font/woff2" crossorigin>`).join('');
-  return compact(`<!doctype html><html lang="${lang}"><head>${head}${pre}<style>${pg.css}\n${STW_CSS}</style></head><body class="stw st"><a class="skip" href="#main">${t.skip}</a>
+  return compact(`<!doctype html><html lang="${lang}"><head>${head}${pre}<style>${pg.css}\n${STW_CSS}${css ? '\n' + css : ''}</style></head><body class="stw st"><a class="skip" href="#main">${t.skip}</a>
 ${body}
-${smpTail(lang)}<script>${copyJs(lang)}${UI_JS}</script></body></html>`);
+${smpTail(lang)}<script>${copyJs(lang)}${UI_JS}${js}</script></body></html>`);
 }
 
 // d của trang bài mẫu Task 2. o: { p, m, paras, st, gl:[[cụm, nghĩa?]], ess: HTML các đoạn (đã thủy ấn), modelHref, writeHref, secHref, secName, rel:[thẻ], ak(cụm)→khóa audio }

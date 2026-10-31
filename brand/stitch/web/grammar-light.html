@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Grammar Guide: Present Perfect vs Past Simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: '#fff8f3',
+            'surface-bright': '#ffffff',
+            'surface-card': '#ffffff',
+            'surface-dim': '#f5ede4',
+            'surface-dark': '#0d1e22',
+            primary: '#136b66',
+            'primary-dark': '#0c4945',
+            'primary-light': '#e6f5f3',
+            'primary-border': '#b7dfdb',
+            amber: {
+              DEFAULT: '#f59e0b',
+              dark: '#b45309',
+              light: '#fef3c7',
+              border: '#fde68a'
+            },
+            coral: {
+              DEFAULT: '#e11d48',
+              light: '#ffe4e6',
+              border: '#fecdd3'
+            },
+            emerald: {
+              DEFAULT: '#059669',
+              light: '#d1fae5',
+              border: '#a7f3d0'
+            },
+            ink: {
+              primary: '#141819',
+              secondary: '#42372d',
+              muted: '#6b5c51',
+              button: '#1c1003'
+            },
+            border: {
+              card: '#eee3d7',
+              ledge: '#dfd2c4'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif']
+          },
+          boxShadow: {
+            'tactile-sm': '0 3px 0 #dfd2c4',
+            'tactile-md': '0 5px 0 #dfd2c4',
+            'tactile-lg': '0 8px 0 #d6c6b5',
+            'tactile-orange': '0 4px 0 #b45309',
+            'tactile-orange-sm': '0 2px 0 #b45309',
+            'tactile-teal': '0 4px 0 #0c4945',
+            'tactile-teal-sm': '0 2px 0 #0c4945'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .highlight-pill-amber {
+      background-color: #fef3c7;
+      border-bottom: 2px solid #f59e0b;
+      padding: 0.1rem 0.35rem;
+      border-radius: 0.375rem;
+      font-weight: 700;
+      color: #92400e;
+    }
+    .highlight-pill-teal {
+      background-color: #e6f5f3;
+      border-bottom: 2px solid #136b66;
+      padding: 0.1rem 0.35rem;
+      border-radius: 0.375rem;
+      font-weight: 700;
+      color: #0c4945;
+    }
+  </style>
+</head>
+<body class="bg-[#fff8f3] text-ink-primary font-sans antialiased selection:bg-amber-light selection:text-ink-button min-h-screen flex flex-col justify-between">
+
+  <!-- ================= TOP SITE HEADER ================= -->
+  <header class="sticky top-0 z-50 bg-[#fff8f3]/95 backdrop-blur-md border-b-2 border-border-card">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo Wordmark (Left) -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-primary rounded-xl p-1">
+        <div class="w-10 h-10 rounded-xl bg-white border-2 border-border-card shadow-tactile-sm flex items-center justify-center p-1.5 transition-transform group-hover:scale-105">
+          <!-- Lexkite 4-facet kite logo -->
+          <svg viewBox="0 0 32 32" class="w-full h-full" fill="none">
+            <polygon points="16,2 26,13 16,16" fill="#f59e0b" />
+            <polygon points="16,16 26,13 16,30" fill="#136b66" />
+            <polygon points="16,30 6,13 16,16" fill="#0d514d" />
+            <polygon points="6,13 16,2 16,16" fill="#fbbf24" />
+            <circle cx="16" cy="16" r="2.5" fill="#ffffff" />
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-2xl font-black tracking-tight text-ink-primary flex items-center gap-1 leading-none">
+            Lexkite<span class="w-2 h-2 rounded-full bg-amber inline-block ml-0.5"></span>
+          </span>
+          <span class="text-[10px] font-extrabold uppercase tracking-widest text-primary leading-tight mt-0.5">
+            IELTS & Vocab
+          </span>
+        </div>
+      </a>
+
+      <!-- Primary Nav Links -->
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="#words" class="px-4 py-2 rounded-xl text-sm font-bold text-ink-secondary hover:text-primary hover:bg-white hover:border hover:border-border-card transition-all flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          Words
+        </a>
+        <a href="#tools" class="px-4 py-2 rounded-xl text-sm font-bold text-ink-secondary hover:text-primary hover:bg-white hover:border hover:border-border-card transition-all flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+          Tools
+        </a>
+        <a href="#blog" class="px-4 py-2 rounded-xl text-sm font-bold text-primary bg-white border border-border-card shadow-tactile-sm flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+          Blog
+        </a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Language selector globe button -->
+        <button class="flex items-center gap-1.5 px-3 py-2 bg-white border-2 border-border-card rounded-xl text-xs font-extrabold text-ink-primary shadow-tactile-sm hover:border-primary transition-all">
+          <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+          <span>EN</span>
+          <svg class="w-3 h-3 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+
+        <!-- Ghost "Add to Chrome" button -->
+        <a href="#extension" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 bg-white border-2 border-border-card rounded-xl text-xs font-extrabold text-ink-primary shadow-tactile-sm hover:border-primary active:translate-y-[2px] transition-all">
+          <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg>
+          Add to Chrome
+        </a>
+
+        <!-- Orange "Start free" CTA button -->
+        <a href="#start" class="inline-flex items-center gap-1.5 px-5 py-2.5 bg-amber hover:bg-amber-dark text-ink-button rounded-xl text-xs font-black shadow-tactile-orange active:translate-y-[2px] transition-all">
+          <span>Start free</span>
+          <svg class="w-3.5 h-3.5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <main id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+    
+    <!-- Top Breadcrumb Bar -->
+    <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-xs font-bold text-ink-muted mb-6">
+      <a href="#home" class="hover:text-primary transition-colors flex items-center gap-1">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+        Home
+      </a>
+      <span class="text-border-ledge">/</span>
+      <a href="#grammar" class="hover:text-primary transition-colors">Grammar Library</a>
+      <span class="text-border-ledge">/</span>
+      <a href="#tenses" class="hover:text-primary transition-colors">Verb Tenses</a>
+      <span class="text-border-ledge">/</span>
+      <span class="text-primary bg-primary-light px-2.5 py-0.5 rounded-lg border border-primary-border font-extrabold">Present perfect vs past simple</span>
+    </nav>
+
+    <!-- Header Section with Title, Badges, and One-line Summary -->
+    <div class="mb-10 bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-border-card shadow-tactile-md relative overflow-hidden">
+      <!-- Decorative kite background accent -->
+      <div class="absolute -right-8 -bottom-8 w-44 h-44 opacity-5 pointer-events-none">
+        <svg viewBox="0 0 32 32" class="w-full h-full" fill="currentColor">
+          <polygon points="16,2 26,13 16,16" />
+          <polygon points="16,16 26,13 16,30" />
+          <polygon points="16,30 6,13 16,16" />
+          <polygon points="6,13 16,2 16,16" />
+        </svg>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-primary text-white shadow-tactile-teal-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber inline-block"></span>
+          GRAMMAR NOTEBOOK
+        </span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-amber-light text-ink-button border border-amber-border">
+          Band 6.5 → 8.0 Essential
+        </span>
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-ink-muted">
+          <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          6-min read & self-test
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-ink-primary tracking-tight mb-4 leading-tight">
+        Present perfect <span class="text-primary italic font-serif">vs</span> past simple
+      </h1>
+
+      <p class="text-lg sm:text-xl font-bold text-ink-secondary max-w-3xl leading-relaxed">
+        Use <span class="text-primary underline decoration-2 underline-offset-4 font-black">past simple</span> when the time door is closed and finished; use <span class="text-amber-dark underline decoration-2 underline-offset-4 font-black">present perfect</span> when the experience still touches right now.
+      </p>
+
+      <!-- Key Quick Insight Ribbon -->
+      <div class="mt-6 pt-6 border-t-2 border-border-card flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-primary-light text-primary flex items-center justify-center font-black text-sm border border-primary-border">
+            💡
+          </div>
+          <span class="text-sm font-extrabold text-ink-primary">
+            Golden rule: <span class="text-ink-secondary font-semibold">Specific timestamp in the past? Drop "have" immediately.</span>
+          </span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="text-xs font-bold text-ink-muted hover:text-primary flex items-center gap-1 px-3 py-1.5 bg-surface rounded-xl border border-border-card hover:border-primary transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            Print lesson notes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TWO-COLUMN GRID: CONTENT + TOC RAIL ================= -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- MAIN LESSON CONTENT (8 cols on wide screens) -->
+      <div class="lg:col-span-8 space-y-10">
+
+        <!-- SECTION 1: WHEN TO USE -->
+        <section id="when-to-use" class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-border-card shadow-tactile-md">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b-2 border-border-card">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-xl bg-primary text-white font-black text-sm flex items-center justify-center shadow-tactile-teal-sm">
+                01
+              </span>
+              <h2 class="text-2xl font-black text-ink-primary tracking-tight">
+                When to use: The Mental Picture
+              </h2>
+            </div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-primary bg-primary-light px-3 py-1 rounded-full border border-primary-border">
+              Core Concept
+            </span>
+          </div>
+
+          <p class="text-base text-ink-secondary font-medium mb-6 leading-relaxed">
+            Think of tenses not as formulas to memorize, but as <strong class="text-ink-primary font-bold">cameras focusing on time</strong>. Both discuss actions before this exact second, but their cameras are pointed in completely opposite directions:
+          </p>
+
+          <!-- 2 Contrast Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+            
+            <!-- Past Simple Box -->
+            <div class="bg-surface rounded-2xl p-5 border-2 border-border-card shadow-tactile-sm flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-black uppercase tracking-wider text-ink-muted">Action in a closed box</span>
+                  <span class="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-white border border-border-card text-ink-primary">Historic</span>
+                </div>
+                <h3 class="text-xl font-black text-primary mb-2 flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-primary inline-block"></span>
+                  Past Simple
+                </h3>
+                <p class="text-xs sm:text-sm text-ink-secondary leading-relaxed font-semibold mb-4">
+                  The event started and completely finished at an identified time. The period is over, and the door to that chapter is shut.
+                </p>
+                <div class="p-3 bg-white rounded-xl border border-border-card text-xs font-bold text-ink-primary space-y-1.5 mb-2">
+                  <div class="text-[11px] font-black uppercase text-ink-muted tracking-wider">Dead giveaways (Time markers):</div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="px-2 py-0.5 bg-surface-dim rounded text-ink-primary font-bold">yesterday</span>
+                    <span class="px-2 py-0.5 bg-surface-dim rounded text-ink-primary font-bold">in 2021</span>
+                    <span class="px-2 py-0.5 bg-surface-dim rounded text-ink-primary font-bold">3 weeks ago</span>
+                    <span class="px-2 py-0.5 bg-surface-dim rounded text-ink-primary font-bold">last night</span>
+                    <span class="px-2 py-0.5 bg-surface-dim rounded text-ink-primary font-bold">when I was young</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-border-card text-xs text-primary font-bold italic">
+                “I lived in Tokyo for two years.” <span class="text-ink-muted not-italic">(I don't live there anymore)</span>
+              </div>
+            </div>
+
+            <!-- Present Perfect Box -->
+            <div class="bg-primary-light/40 rounded-2xl p-5 border-2 border-primary-border shadow-tactile-sm flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-black uppercase tracking-wider text-primary">Connected to right now</span>
+                  <span class="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-white border border-primary-border text-primary">Life experience</span>
+                </div>
+                <h3 class="text-xl font-black text-amber-dark mb-2 flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-amber inline-block"></span>
+                  Present Perfect
+                </h3>
+                <p class="text-xs sm:text-sm text-ink-secondary leading-relaxed font-semibold mb-4">
+                  The action happened at an unspecified moment in life, or continues up to today, or creates a direct consequence on this current minute.
+                </p>
+                <div class="p-3 bg-white rounded-xl border border-primary-border text-xs font-bold text-ink-primary space-y-1.5 mb-2">
+                  <div class="text-[11px] font-black uppercase text-primary tracking-wider">Dead giveaways (Connectors):</div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="px-2 py-0.5 bg-amber-light rounded text-ink-button font-bold">already</span>
+                    <span class="px-2 py-0.5 bg-amber-light rounded text-ink-button font-bold">yet</span>
+                    <span class="px-2 py-0.5 bg-amber-light rounded text-ink-button font-bold">since Monday</span>
+                    <span class="px-2 py-0.5 bg-amber-light rounded text-ink-button font-bold">for 5 years</span>
+                    <span class="px-2 py-0.5 bg-amber-light rounded text-ink-button font-bold">ever / never</span>
+                    <span class="px-2 py-0.5 bg-amber-light rounded text-ink-button font-bold">so far</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-primary-border text-xs text-amber-dark font-bold italic">
+                “I have lived in Tokyo for two years.” <span class="text-ink-muted not-italic">(I still live there today)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tutor Tip Callout -->
+          <div class="bg-surface-dim/70 rounded-2xl p-4 sm:p-5 border-2 border-border-card flex items-start gap-4">
+            <span class="text-2xl mt-0.5 select-none">☕</span>
+            <div>
+              <h4 class="text-sm font-black text-ink-primary uppercase tracking-wider mb-1">
+                Tutor Observation: The Broken Key Test
+              </h4>
+              <p class="text-xs sm:text-sm font-medium text-ink-secondary leading-relaxed">
+                If you tell someone <strong class="text-ink-primary">“I lost my keys”</strong> (Past Simple), you are just recounting history; maybe you found them an hour later. But if you say <strong class="text-amber-dark font-extrabold">“I have lost my keys!”</strong> (Present Perfect), it means you are standing outside your door right now with no way to get in. The consequence lives in the present.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: FORM TABLE -->
+        <section id="form-table" class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-border-card shadow-tactile-md">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b-2 border-border-card">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-xl bg-primary text-white font-black text-sm flex items-center justify-center shadow-tactile-teal-sm">
+                02
+              </span>
+              <h2 class="text-2xl font-black text-ink-primary tracking-tight">
+                Structure & Form Reference
+              </h2>
+            </div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-ink-muted bg-surface px-3 py-1 rounded-full border border-border-card">
+              Syntax Guide
+            </span>
+          </div>
+
+          <p class="text-base text-ink-secondary font-medium mb-6">
+            Compare the structural anatomy of both tenses side-by-side across positive, negative, and interrogative sentences:
+          </p>
+
+          <!-- Responsive Table Container -->
+          <div class="overflow-x-auto rounded-2xl border-2 border-border-card shadow-tactile-sm">
+            <table class="w-full text-left border-collapse min-w-[580px]">
+              <thead>
+                <tr class="bg-surface text-ink-primary text-xs font-black uppercase tracking-wider border-b-2 border-border-card">
+                  <th class="py-4 px-4 sm:px-6 w-1/4">Sentence Type</th>
+                  <th class="py-4 px-4 sm:px-6 w-3/8 text-primary bg-primary-light/30 border-r border-border-card">
+                    Past Simple (V2 / did)
+                  </th>
+                  <th class="py-4 px-4 sm:px-6 w-3/8 text-amber-dark bg-amber-light/30">
+                    Present Perfect (have/has + V3)
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y-2 divide-border-card text-xs sm:text-sm font-semibold">
+                
+                <!-- Positive -->
+                <tr class="hover:bg-surface/50 transition-colors">
+                  <td class="py-4 px-4 sm:px-6 font-extrabold text-ink-primary bg-surface/30">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-light text-emerald font-black text-xs border border-emerald-border">
+                      (+) Positive
+                    </span>
+                  </td>
+                  <td class="py-4 px-4 sm:px-6 text-ink-secondary border-r border-border-card">
+                    <span class="font-extrabold text-ink-primary block mb-1">Subject + V2 (past form)</span>
+                    <span class="text-ink-muted text-xs italic">“She <span class="text-primary font-bold">finished</span> her master’s thesis yesterday.”</span>
+                  </td>
+                  <td class="py-4 px-4 sm:px-6 text-ink-secondary">
+                    <span class="font-extrabold text-ink-primary block mb-1">Subject + have/has + V3 (past participle)</span>
+                    <span class="text-ink-muted text-xs italic">“She <span class="text-amber-dark font-bold">has finished</span> her master’s thesis.”</span>
+                  </td>
+                </tr>
+
+                <!-- Negative -->
+                <tr class="hover:bg-surface/50 transition-colors">
+                  <td class="py-4 px-4 sm:px-6 font-extrabold text-ink-primary bg-surface/30">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-coral-light text-coral font-black text-xs border border-coral-border">
+                      (−) Negative
+                    </span>
+                  </td>
+                  <td class="py-4 px-4 sm:px-6 text-ink-secondary border-r border-border-card">
+                    <span class="font-extrabold text-ink-primary block mb-1">Subject + did not + base verb</span>
+                    <span class="text-ink-muted text-xs italic">“They <span class="text-primary font-bold">did not meet</span> the deadline last Friday.”</span>
+                  </td>
+                  <td class="py-4 px-4 sm:px-6 text-ink-secondary">
+                    <span class="font-extrabold text-ink-primary block mb-1">Subject + have/has not + V3</span>
+                    <span class="text-ink-muted text-xs italic">“They <span class="text-amber-dark font-bold">have not met</span> the deadline yet.”</span>
+                  </td>
+                </tr>
+
+                <!-- Question -->
+                <tr class="hover:bg-surface/50 transition-colors">
+                  <td class="py-4 px-4 sm:px-6 font-extrabold text-ink-primary bg-surface/30">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-dim text-ink-primary font-black text-xs border border-border-card">
+                      (?) Question
+                    </span>
+                  </td>
+                  <td class="py-4 px-4 sm:px-6 text-ink-secondary border-r border-border-card">
+                    <span class="font-extrabold text-ink-primary block mb-1">Did + Subject + base verb?</span>
+                    <span class="text-ink-muted text-xs italic">“<span class="text-primary font-bold">Did you see</span> the manager this morning?”</span>
+                  </td>
+                  <td class="py-4 px-4 sm:px-6 text-ink-secondary">
+                    <span class="font-extrabold text-ink-primary block mb-1">Have/Has + Subject + V3?</span>
+                    <span class="text-ink-muted text-xs italic">“<span class="text-amber-dark font-bold">Have you seen</span> the manager today?”</span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Quick mnemonic footnote -->
+          <div class="mt-4 flex items-center gap-2 text-xs font-bold text-ink-muted">
+            <span class="text-amber-dark font-black">★ Memory latch:</span>
+            <span>With <code class="bg-surface-dim px-1.5 py-0.5 rounded text-ink-primary font-mono font-bold">did</code> in past simple negatives/questions, the main verb reverts to base form (<em class="text-ink-primary">did you eat</em>, not <em class="line-through text-coral">did you ate</em>).</span>
+          </div>
+        </section>
+
+        <!-- SECTION 3: EXAMPLE SENTENCES -->
+        <section id="example-sentences" class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-border-card shadow-tactile-md">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b-2 border-border-card">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-xl bg-primary text-white font-black text-sm flex items-center justify-center shadow-tactile-teal-sm">
+                03
+              </span>
+              <h2 class="text-2xl font-black text-ink-primary tracking-tight">
+                Real Sentences in Academic & Daily Context
+              </h2>
+            </div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-primary bg-primary-light px-3 py-1 rounded-full border border-primary-border">
+              Contextual Pairs
+            </span>
+          </div>
+
+          <p class="text-base text-ink-secondary font-medium mb-6">
+            Study how subtle shifts in nuance dramatically alter meaning in essays and interviews:
+          </p>
+
+          <div class="space-y-4">
+            
+            <!-- Pair 1 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card hover:border-primary/40 transition-all">
+              <div class="text-xs font-extrabold text-ink-muted uppercase tracking-wider mb-2">Scenario A: Scientific breakthroughs & history</div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-semibold">
+                <div class="p-3 bg-white rounded-xl border border-border-card">
+                  <span class="text-xs font-bold uppercase tracking-wider text-primary block mb-1">Past Simple (Finished milestone)</span>
+                  <p class="text-ink-primary">
+                    “Alexander Fleming <span class="highlight-pill-teal">discovered</span> penicillin in 1928.”
+                  </p>
+                  <span class="text-[11px] text-ink-muted block mt-1">Specific year stated: 1928 is firmly closed history.</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-primary-border">
+                  <span class="text-xs font-bold uppercase tracking-wider text-amber-dark block mb-1">Present Perfect (Ongoing field)</span>
+                  <p class="text-ink-primary">
+                    “Researchers <span class="highlight-pill-amber">have discovered</span> several new antibiotics in recent years.”
+                  </p>
+                  <span class="text-[11px] text-ink-muted block mt-1">Unspecified time range continuing into our modern era.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pair 2 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card hover:border-primary/40 transition-all">
+              <div class="text-xs font-extrabold text-ink-muted uppercase tracking-wider mb-2">Scenario B: Career experience in IELTS Speaking</div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-semibold">
+                <div class="p-3 bg-white rounded-xl border border-border-card">
+                  <span class="text-xs font-bold uppercase tracking-wider text-primary block mb-1">Past Simple (Prior position)</span>
+                  <p class="text-ink-primary">
+                    “I <span class="highlight-pill-teal">worked</span> as a graphic designer before starting university.”
+                  </p>
+                  <span class="text-[11px] text-ink-muted block mt-1">The job has ended; the speaker is now a student.</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-primary-border">
+                  <span class="text-xs font-bold uppercase tracking-wider text-amber-dark block mb-1">Present Perfect (Current profession)</span>
+                  <p class="text-ink-primary">
+                    “I <span class="highlight-pill-amber">have worked</span> in tech for over six years.”
+                  </p>
+                  <span class="text-[11px] text-ink-muted block mt-1">The speaker began 6 years ago and still works in tech today.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pair 3 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card hover:border-primary/40 transition-all">
+              <div class="text-xs font-extrabold text-ink-muted uppercase tracking-wider mb-2">Scenario C: "Today" / Time period still open</div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-semibold">
+                <div class="p-3 bg-white rounded-xl border border-border-card">
+                  <span class="text-xs font-bold uppercase tracking-wider text-primary block mb-1">Past Simple (Spoken at 9:00 PM)</span>
+                  <p class="text-ink-primary">
+                    “I <span class="highlight-pill-teal">drank</span> three cups of coffee this morning.”
+                  </p>
+                  <span class="text-[11px] text-ink-muted block mt-1">The morning has passed; the coffee drinking is over.</span>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-primary-border">
+                  <span class="text-xs font-bold uppercase tracking-wider text-amber-dark block mb-1">Present Perfect (Spoken at 10:30 AM)</span>
+                  <p class="text-ink-primary">
+                    “I <span class="highlight-pill-amber">have drunk</span> two cups of coffee this morning.”
+                  </p>
+                  <span class="text-[11px] text-ink-muted block mt-1">It is still morning; the speaker might brew another cup!</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 4: COMMON MISTAKES -->
+        <section id="common-mistakes" class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-border-card shadow-tactile-md">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b-2 border-border-card">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-xl bg-coral text-white font-black text-sm flex items-center justify-center shadow-tactile-orange-sm">
+                04
+              </span>
+              <h2 class="text-2xl font-black text-ink-primary tracking-tight">
+                Exam Pitfalls: Wrong → Right Pairs
+              </h2>
+            </div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-coral bg-coral-light px-3 py-1 rounded-full border border-coral-border">
+              Band 7 Fixes
+            </span>
+          </div>
+
+          <p class="text-base text-ink-secondary font-medium mb-6">
+            These are the 3 most frequent tense blunders examiners penalize in IELTS Task 2 essays and Speaking cues:
+          </p>
+
+          <div class="space-y-4">
+            
+            <!-- Trap 1 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card">
+              <div class="text-xs font-black text-ink-muted uppercase tracking-wider mb-3">
+                Trap 1: Mixing present perfect with exact past timestamps
+              </div>
+              <div class="space-y-2 mb-3">
+                <div class="p-3 rounded-xl bg-coral-light/60 border border-coral-border flex items-start gap-3">
+                  <span class="text-coral font-black text-sm select-none">✕ WRONG:</span>
+                  <span class="text-ink-primary text-sm font-bold">
+                    “I <span class="line-through decoration-coral decoration-2 text-coral">have seen</span> that documentary <span class="underline">last night</span>.”
+                  </span>
+                </div>
+                <div class="p-3 rounded-xl bg-emerald-light/60 border border-emerald-border flex items-start gap-3">
+                  <span class="text-emerald font-black text-sm select-none">✓ RIGHT:</span>
+                  <span class="text-ink-primary text-sm font-bold">
+                    “I <span class="text-primary font-black">saw</span> that documentary <span class="underline">last night</span>.”
+                  </span>
+                </div>
+              </div>
+              <p class="text-xs text-ink-secondary font-semibold pl-1">
+                <strong>Why?</strong> Words like <em>yesterday, last night, in 2019, when I arrived</em> anchor the action to a closed time window. Present perfect is strictly forbidden with fixed past timestamps.
+              </p>
+            </div>
+
+            <!-- Trap 2 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card">
+              <div class="text-xs font-black text-ink-muted uppercase tracking-wider mb-3">
+                Trap 2: Confusing "since" (start point) and "for" (duration)
+              </div>
+              <div class="space-y-2 mb-3">
+                <div class="p-3 rounded-xl bg-coral-light/60 border border-coral-border flex items-start gap-3">
+                  <span class="text-coral font-black text-sm select-none">✕ WRONG:</span>
+                  <span class="text-ink-primary text-sm font-bold">
+                    “Global emissions <span class="line-through decoration-coral decoration-2 text-coral">increased</span> <span class="underline">since 1990</span>.”
+                  </span>
+                </div>
+                <div class="p-3 rounded-xl bg-emerald-light/60 border border-emerald-border flex items-start gap-3">
+                  <span class="text-emerald font-black text-sm select-none">✓ RIGHT:</span>
+                  <span class="text-ink-primary text-sm font-bold">
+                    “Global emissions <span class="text-amber-dark font-black">have increased</span> <span class="underline">since 1990</span>.”
+                  </span>
+                </div>
+              </div>
+              <p class="text-xs text-ink-secondary font-semibold pl-1">
+                <strong>Why?</strong> The word <em>since</em> bridges the starting year (1990) straight into today. Because the timeline is still stretching forward, present perfect is required.
+              </p>
+            </div>
+
+            <!-- Trap 3 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card">
+              <div class="text-xs font-black text-ink-muted uppercase tracking-wider mb-3">
+                Trap 3: Using past simple for uncompleted life experiences
+              </div>
+              <div class="space-y-2 mb-3">
+                <div class="p-3 rounded-xl bg-coral-light/60 border border-coral-border flex items-start gap-3">
+                  <span class="text-coral font-black text-sm select-none">✕ WRONG:</span>
+                  <span class="text-ink-primary text-sm font-bold">
+                    “<span class="line-through decoration-coral decoration-2 text-coral">Did you ever visit</span> London?”
+                  </span>
+                </div>
+                <div class="p-3 rounded-xl bg-emerald-light/60 border border-emerald-border flex items-start gap-3">
+                  <span class="text-emerald font-black text-sm select-none">✓ RIGHT:</span>
+                  <span class="text-ink-primary text-sm font-bold">
+                    “<span class="text-amber-dark font-black">Have you ever visited</span> London?”
+                  </span>
+                </div>
+              </div>
+              <p class="text-xs text-ink-secondary font-semibold pl-1">
+                <strong>Why?</strong> Unless the person is deceased, their lifespan is still active. Questions inquiring about life experience before now use <em>Have you ever...</em>
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 5: MINI CHECK QUIZ -->
+        <section id="mini-check" class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-border-card shadow-tactile-md">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b-2 border-border-card">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-xl bg-amber text-ink-button font-black text-sm flex items-center justify-center shadow-tactile-orange-sm">
+                05
+              </span>
+              <h2 class="text-2xl font-black text-ink-primary tracking-tight">
+                3-Question Mini Check
+              </h2>
+            </div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-ink-button bg-amber-light px-3 py-1 rounded-full border border-amber-border">
+              Interactive Drill
+            </span>
+          </div>
+
+          <p class="text-base text-ink-secondary font-medium mb-6">
+            Test your instinct before moving to the next drill. Select your answer, then click <strong class="text-ink-primary font-bold">“Reveal Explanation”</strong>:
+          </p>
+
+          <div class="space-y-6">
+            
+            <!-- Question 1 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card" id="q1-box">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-extrabold text-primary uppercase tracking-wider">Question 1 of 3</span>
+                <span class="text-xs font-bold text-ink-muted">Single Choice</span>
+              </div>
+              <p class="text-base font-extrabold text-ink-primary mb-4">
+                1. "Dr. Adams ______ his findings at the symposium yesterday afternoon."
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                <label class="flex items-center gap-3 p-3.5 bg-white rounded-xl border-2 border-border-card hover:border-primary cursor-pointer transition-all">
+                  <input type="radio" name="q1" value="A" class="w-4 h-4 text-primary focus:ring-primary">
+                  <span class="text-sm font-bold text-ink-primary">A) has presented</span>
+                </label>
+                <label class="flex items-center gap-3 p-3.5 bg-white rounded-xl border-2 border-border-card hover:border-primary cursor-pointer transition-all">
+                  <input type="radio" name="q1" value="B" class="w-4 h-4 text-primary focus:ring-primary">
+                  <span class="text-sm font-bold text-ink-primary">B) presented</span>
+                </label>
+              </div>
+
+              <details class="group">
+                <summary class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-border-card rounded-xl text-xs font-extrabold text-primary shadow-tactile-sm cursor-pointer hover:border-primary active:translate-y-[2px] transition-all list-none">
+                  <span>Reveal Answer & Explanation</span>
+                  <svg class="w-3.5 h-3.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div class="mt-4 p-4 rounded-xl bg-emerald-light/60 border border-emerald-border text-xs sm:text-sm font-semibold text-ink-primary">
+                  <span class="text-emerald font-black uppercase tracking-wider block mb-1">Correct Answer: B) presented</span>
+                  Because <em>“yesterday afternoon”</em> is an explicit past time anchor, past simple is strictly required. Present perfect cannot take past timestamps.
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card" id="q2-box">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-extrabold text-primary uppercase tracking-wider">Question 2 of 3</span>
+                <span class="text-xs font-bold text-ink-muted">Single Choice</span>
+              </div>
+              <p class="text-base font-extrabold text-ink-primary mb-4">
+                2. "I can't open my email account because I ______ my login credentials."
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                <label class="flex items-center gap-3 p-3.5 bg-white rounded-xl border-2 border-border-card hover:border-primary cursor-pointer transition-all">
+                  <input type="radio" name="q2" value="A" class="w-4 h-4 text-primary focus:ring-primary">
+                  <span class="text-sm font-bold text-ink-primary">A) have forgotten</span>
+                </label>
+                <label class="flex items-center gap-3 p-3.5 bg-white rounded-xl border-2 border-border-card hover:border-primary cursor-pointer transition-all">
+                  <input type="radio" name="q2" value="B" class="w-4 h-4 text-primary focus:ring-primary">
+                  <span class="text-sm font-bold text-ink-primary">B) forgot</span>
+                </label>
+              </div>
+
+              <details class="group">
+                <summary class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-border-card rounded-xl text-xs font-extrabold text-primary shadow-tactile-sm cursor-pointer hover:border-primary active:translate-y-[2px] transition-all list-none">
+                  <span>Reveal Answer & Explanation</span>
+                  <svg class="w-3.5 h-3.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div class="mt-4 p-4 rounded-xl bg-emerald-light/60 border border-emerald-border text-xs sm:text-sm font-semibold text-ink-primary">
+                  <span class="text-emerald font-black uppercase tracking-wider block mb-1">Correct Answer: A) have forgotten</span>
+                  The present result is prominent: <em>“I can't open my email account [right now]”</em>. The past forgetting directly causes the present blockage, demanding Present Perfect.
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="p-5 rounded-2xl bg-surface border-2 border-border-card" id="q3-box">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-extrabold text-primary uppercase tracking-wider">Question 3 of 3</span>
+                <span class="text-xs font-bold text-ink-muted">Single Choice</span>
+              </div>
+              <p class="text-base font-extrabold text-ink-primary mb-4">
+                3. "How long ______ in Hanoi before you relocated to Melbourne?"
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                <label class="flex items-center gap-3 p-3.5 bg-white rounded-xl border-2 border-border-card hover:border-primary cursor-pointer transition-all">
+                  <input type="radio" name="q3" value="A" class="w-4 h-4 text-primary focus:ring-primary">
+                  <span class="text-sm font-bold text-ink-primary">A) have you lived</span>
+                </label>
+                <label class="flex items-center gap-3 p-3.5 bg-white rounded-xl border-2 border-border-card hover:border-primary cursor-pointer transition-all">
+                  <input type="radio" name="q3" value="B" class="w-4 h-4 text-primary focus:ring-primary">
+                  <span class="text-sm font-bold text-ink-primary">B) did you live</span>
+                </label>
+              </div>
+
+              <details class="group">
+                <summary class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-border-card rounded-xl text-xs font-extrabold text-primary shadow-tactile-sm cursor-pointer hover:border-primary active:translate-y-[2px] transition-all list-none">
+                  <span>Reveal Answer & Explanation</span>
+                  <svg class="w-3.5 h-3.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div class="mt-4 p-4 rounded-xl bg-emerald-light/60 border border-emerald-border text-xs sm:text-sm font-semibold text-ink-primary">
+                  <span class="text-emerald font-black uppercase tracking-wider block mb-1">Correct Answer: B) did you live</span>
+                  The living period in Hanoi is completely terminated because the speaker relocated to Melbourne. Use Past Simple for completed durations in past chapters.
+                </div>
+              </details>
+            </div>
+
+          </div>
+
+          <!-- Bottom Practice CTA inside lesson -->
+          <div class="mt-8 pt-6 border-t-2 border-border-card flex flex-col sm:flex-row items-center justify-between gap-4 bg-primary-light/30 p-5 rounded-2xl border border-primary-border">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber text-ink-button flex items-center justify-center font-black text-lg shadow-tactile-orange-sm">
+                ⚡
+              </div>
+              <div>
+                <h4 class="text-sm font-black text-ink-primary">Ready to practice speaking with Carlos?</h4>
+                <p class="text-xs text-ink-secondary font-semibold">Run a 3-minute interactive drill to reinforce both tenses.</p>
+              </div>
+            </div>
+            <a href="#speaking-drill" class="w-full sm:w-auto text-center px-5 py-3 bg-amber hover:bg-amber-dark text-ink-button font-black text-xs uppercase tracking-wider rounded-xl shadow-tactile-orange active:translate-y-[2px] transition-all">
+              Launch 3-Min Drill →
+            </a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT SIDEBAR / TOC RAIL (4 cols on wide screens) -->
+      <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
+
+        <!-- Table of Contents Card -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-border-card shadow-tactile-md">
+          <div class="flex items-center gap-2 mb-4 pb-3 border-b-2 border-border-card">
+            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+            <h3 class="text-xs font-black uppercase tracking-widest text-ink-primary">
+              Lesson Contents
+            </h3>
+          </div>
+
+          <nav class="space-y-1.5 text-sm font-bold">
+            <a href="#when-to-use" class="flex items-center justify-between p-2.5 rounded-xl text-primary bg-primary-light border border-primary-border transition-all">
+              <span class="flex items-center gap-2">
+                <span class="text-xs font-extrabold text-primary">01</span>
+                <span>When to use: Mental Picture</span>
+              </span>
+              <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+
+            <a href="#form-table" class="flex items-center justify-between p-2.5 rounded-xl text-ink-secondary hover:text-primary hover:bg-surface transition-all">
+              <span class="flex items-center gap-2">
+                <span class="text-xs font-extrabold text-ink-muted">02</span>
+                <span>Structure & Form Table</span>
+              </span>
+              <svg class="w-3.5 h-3.5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+
+            <a href="#example-sentences" class="flex items-center justify-between p-2.5 rounded-xl text-ink-secondary hover:text-primary hover:bg-surface transition-all">
+              <span class="flex items-center gap-2">
+                <span class="text-xs font-extrabold text-ink-muted">03</span>
+                <span>Contextual Example Pairs</span>
+              </span>
+              <svg class="w-3.5 h-3.5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+
+            <a href="#common-mistakes" class="flex items-center justify-between p-2.5 rounded-xl text-ink-secondary hover:text-primary hover:bg-surface transition-all">
+              <span class="flex items-center gap-2">
+                <span class="text-xs font-extrabold text-ink-muted">04</span>
+                <span>Common Mistakes (Wrong → Right)</span>
+              </span>
+              <svg class="w-3.5 h-3.5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+
+            <a href="#mini-check" class="flex items-center justify-between p-2.5 rounded-xl text-ink-secondary hover:text-primary hover:bg-surface transition-all">
+              <span class="flex items-center gap-2">
+                <span class="text-xs font-extrabold text-ink-muted">05</span>
+                <span>3-Question Mini Check</span>
+              </span>
+              <svg class="w-3.5 h-3.5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Tutor Slot (Dashed Empty Slot) -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-border-card shadow-tactile-md">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-black uppercase tracking-wider text-ink-muted">Grammar Coach</span>
+            <span class="w-2 h-2 rounded-full bg-emerald"></span>
+          </div>
+
+          <!-- Strict Empty Dashed Teacher Slot -->
+          <div class="w-full aspect-[4/3] rounded-2xl border-2 border-dashed border-primary/50 bg-primary-light/20 flex flex-col items-center justify-center p-4 text-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-white border-2 border-border-card shadow-tactile-sm flex items-center justify-center text-primary mb-2">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+            </div>
+            <span class="text-xs font-black text-primary uppercase tracking-wider">TEACHER SLOT</span>
+            <span class="text-[11px] font-bold text-ink-muted mt-0.5">2D coach loads here during active study sessions</span>
+          </div>
+
+          <div class="p-4 bg-surface rounded-2xl border border-border-card">
+            <div class="text-[11px] font-black uppercase text-amber-dark mb-1">Coach Ama's Tip</div>
+            <p class="text-xs font-semibold text-ink-secondary leading-relaxed">
+              “In IELTS Writing Task 1 charts from 2000 to 2020, stick 100% to Past Simple. Only bring in Present Perfect if the chart runs up to the present year!”
+            </p>
+          </div>
+        </div>
+
+        <!-- Related Grammar Topics -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-border-card shadow-tactile-md">
+          <h3 class="text-xs font-black uppercase tracking-widest text-ink-primary mb-4 pb-3 border-b-2 border-border-card">
+            Related Grammar Guides
+          </h3>
+          <div class="space-y-3">
+            <a href="#continuous" class="block p-3 rounded-2xl bg-surface hover:bg-surface-dim border border-border-card transition-all">
+              <span class="text-xs font-extrabold text-ink-primary block">Present Perfect Continuous vs Simple</span>
+              <span class="text-[11px] text-ink-muted font-bold">Focus on duration vs result • 5 min</span>
+            </a>
+            <a href="#past-perf" class="block p-3 rounded-2xl bg-surface hover:bg-surface-dim border border-border-card transition-all">
+              <span class="text-xs font-extrabold text-ink-primary block">Past Simple vs Past Perfect</span>
+              <span class="text-[11px] text-ink-muted font-bold">The 'past of the past' made easy • 7 min</span>
+            </a>
+            <a href="#used-to" class="block p-3 rounded-2xl bg-surface hover:bg-surface-dim border border-border-card transition-all">
+              <span class="text-xs font-extrabold text-ink-primary block">Used to vs Would vs Past Simple</span>
+              <span class="text-[11px] text-ink-muted font-bold">Habits in the past • 4 min</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- ================= SITE FOOTER (LEXKITE STANDARD) ================= -->
+  <footer class="mt-20 border-t-2 border-border-card bg-[#fff8f3]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+        
+        <!-- Left Brand & Mission (2 cols) -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-xl bg-white border-2 border-border-card shadow-tactile-sm flex items-center justify-center p-1">
+              <svg viewBox="0 0 32 32" class="w-full h-full" fill="none">
+                <polygon points="16,2 26,13 16,16" fill="#f59e0b" />
+                <polygon points="16,16 26,13 16,30" fill="#136b66" />
+                <polygon points="16,30 6,13 16,16" fill="#0d514d" />
+                <polygon points="6,13 16,2 16,16" fill="#fbbf24" />
+                <circle cx="16" cy="16" r="2.5" fill="#ffffff" />
+              </svg>
+            </div>
+            <span class="text-xl font-black tracking-tight text-ink-primary">
+              Lexkite
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm font-semibold text-ink-muted max-w-sm leading-relaxed">
+            Tactile, dopamine-rich language learning tailored for high-stakes IELTS & TOEIC candidates worldwide.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-white border border-border-card text-ink-secondary shadow-tactile-sm">
+              <span class="w-2 h-2 rounded-full bg-emerald"></span>
+              Band 8.5 Diagnostic Engine Active
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 1: Study Tools -->
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-ink-primary mb-3">Study Tools</h4>
+          <ul class="space-y-2 text-xs font-bold text-ink-secondary">
+            <li><a href="#dict" class="hover:text-primary transition-colors">Dictionary</a></li>
+            <li><a href="#ielts" class="text-primary hover:underline">IELTS Prep</a></li>
+            <li><a href="#toeic" class="hover:text-primary transition-colors">TOEIC Prep</a></li>
+            <li><a href="#collocations" class="hover:text-primary transition-colors">Collocations Deck</a></li>
+            <li><a href="#grammar-all" class="hover:text-primary transition-colors">Grammar Notebooks</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Resources -->
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-ink-primary mb-3">Resources</h4>
+          <ul class="space-y-2 text-xs font-bold text-ink-secondary">
+            <li><a href="#blog" class="hover:text-primary transition-colors">Blog</a></li>
+            <li><a href="#rubric" class="hover:text-primary transition-colors">Speaking Rubric</a></li>
+            <li><a href="#mock-tests" class="hover:text-primary transition-colors">Free Mock Tests</a></li>
+            <li><a href="#extension" class="hover:text-primary transition-colors">Chrome Extension</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-ink-primary mb-3">Company</h4>
+          <ul class="space-y-2 text-xs font-bold text-ink-secondary">
+            <li><a href="#about" class="hover:text-primary transition-colors">About Lexkite</a></li>
+            <li><a href="#support" class="hover:text-primary transition-colors">Help & Support</a></li>
+            <li><a href="#terms" class="hover:text-primary transition-colors">Terms of Service</a></li>
+            <li><a href="#privacy" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Footnote Row -->
+      <div class="mt-12 pt-6 border-t-2 border-border-card flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-ink-muted">
+        <div>
+          © 2024 Lexkite Language Technologies. Gamified English learning.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#privacy" class="hover:text-primary">Privacy</a>
+          <a href="#terms" class="hover:text-primary">Terms</a>
+          <a href="#security" class="hover:text-primary">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
