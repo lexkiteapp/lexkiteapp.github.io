@@ -156,6 +156,31 @@ Mẫu thẻ:
     * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
 - Cần sửa / Nhận xét:
 
+### [B5-L3] Lô 3 Blog 12 bài chuẩn SEO (6 ZH + 6 DE) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Trung giản thể (ZH) và Tiếng Đức (DE). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi, tra từ điển Anh-Anh, luyện nghe Dictation, từ vựng IELTS AI/Technology và 복합문/Komplexe Sätze).
+- **Báo cáo (Antigravity 31/10):**
+  - **Commit:** `9bb71f25` → `687663e0d` (12 commit riêng biệt từng bài + briefs).
+  - **Danh sách 6 bài ZH (Tiếng Trung giản thể):**
+    1. `ipa-guo-ji-yin-biao-ying-yu-fa-yin-biao.md` (`9bb71f25`)
+    2. `ying-yu-yi-wen-ju-gou-zao-ji-chu.md` (`69c89fea`)
+    3. `ying-ying-ci-dian-shi-yong-fang-fa.md` (`9a03a31b`)
+    4. `ying-yu-ting-xie-dictation-xun-lian-fa.md` (`17ffa0f5`)
+    5. `ya-si-ke-ji-ren-gong-zhi-neng-ci-hui.md` (`0518532b`)
+    6. `ya-si-xie-zuo-fu-he-ju-complex-sentences.md` (`f261342f2`)
+  - **Danh sách 6 bài DE (Tiếng Đức):**
+    1. `ipa-lautschrift-englisch-tabelle-aussprache.md` (`c73939283`)
+    2. `englische-fragen-bilden-fragewoerter-regeln.md` (`e2d5510eb`)
+    3. `einsprachiges-woerterbuch-englisch-nutzen.md` (`e63148827`)
+    4. `dictation-englisch-hoerverstehen-ueben.md` (`cdcbf77a2`)
+    5. `ielts-vokabeln-technologie-kuenstliche-intelligenz.md` (`59e5724f3`)
+    6. `ielts-writing-komplexe-saetze-complex-sentences.md` (`687663e0d`)
+  - **Cổng chất lượng kiểm tra toàn diện:**
+    * `node scripts/blog-check.mjs`: 502 bài, 0 lỗi.
+    * `node scripts/blog-captions.mjs --check-all`: 502 bài, 1.211 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * `node scripts/blog-dupes.mjs`: 502 bài, 0 lỗi (độ chồng lấn cao nhất 8.8% < 12%).
+    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
+- Cần sửa / Nhận xét:
+
 ### [B5] Viết lại 6 bài Hindi (hi) bằng chữ Devanagari bản địa · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Viết lại toàn bộ 6 bài hi bằng chữ Devanagari bản địa (हिन्दी) như 28 bài hi hiện có, chỉ giữ tiếng Anh ở ví dụ/từ khóa, tự kiểm tỉ lệ Devanagari ≥ 70%, để trống \`publishAt\`.
 - **Báo cáo (Antigravity 23/10):**
