@@ -54,8 +54,10 @@ jobs:
           # CEFR kiểu EVP: CEFR-J Wordlist 1.5 (Tono Lab TUFS, miễn phí kể cả thương mại, ghi nguồn) + Octanove C1/C2 (CC BY-SA 4.0) – openlanguageprofiles/olp-en-cefrj
           curl -sfL -o "$RUNNER_TEMP/cefrj.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/cefrj-vocabulary-profile-1.5.csv || true
           curl -sfL -o "$RUNNER_TEMP/octanove.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/octanove-vocabulary-profile-c1c2-1.0.csv || true
+          # 31/10 đa từ loại: mục hàng duyệt "keep: … từ loại khác" (chờ khoá từ#loại) → retry; lũy đẳng; mẫu cố định (words) không ghi repo
+          if [ -z "${{ github.event.inputs.words }}" ]; then node scripts/lexicon/expand/requeue.mjs --pos; fi
           node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
-          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
+          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --want content/lexicon/expand/retry/words.json ${{ github.event.inputs.words }} --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
       - name: Sinh + 2 giám khảo + cổng
         if: ${{ steps.lease.outputs.skip != '1' }}
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite (nếu còn khóa) → cf2 = kho CF_POOL xoay vòng (gpt-oss-120b soạn/giám khảo A, llama-3.3-70b giám khảo B) 

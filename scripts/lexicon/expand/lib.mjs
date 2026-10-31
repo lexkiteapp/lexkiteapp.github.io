@@ -192,11 +192,13 @@ export function gateEntry(e, { keep } = {}) {
   return why.length ? { ok: false, why } : { ok: true, bt: +btr.toFixed(2) };
 }
 const files = sub => ex(DIR + sub) ? fs.readdirSync(new URL(DIR + sub, ROOT)).filter(f => /^[\w.-]+\.json$/.test(f) && f !== 'candidates.json').map(f => DIR + sub + f) : [];
-// từ đã xử lý (đã xuất + chờ soát + hàng duyệt) – để chạy lại không làm trùng
+// MỤC đã xử lý (đã xuất + chờ soát + hàng duyệt) theo khoá `từ#loại` – để chạy lại không làm trùng. 30/10 (đa từ loại): trước đây khoá theo TỪ
+// nên kho có duck#n thì duck#v không bao giờ được làm → trần ~11–12k. Mục hàng duyệt 'keep: … từ loại khác' KHÔNG tính (requeue.mjs --pos đưa về retry).
+export const OTHER_POS = /^keep: từ đã có trong kho với từ loại khác/;
 export function doneWords() {
   const s = new Set();
-  for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k.split('#')[0]);
-  if (ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] })) s.add(String(q.id).split('#')[0]);
+  for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k);
+  if (ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] }) && !OTHER_POS.test((q.why || [])[0] || '')) s.add(String(q.id));
   return s;
 }
 // Mục ĐÃ XUẤT: lô ở content/lexicon/expand/<lô>.json có tệp kiểm mẫu content/qa/batches/lx-<lô>.json đạt (status published)
@@ -211,6 +213,9 @@ export function loadExpand() {
 }
 // Dạng INDEX (giống IELTS_DATA.INDEX của trình duyệt) cho mảnh tra từ
 export const toIndex = e => ({ word: e.w, ipa: e.ipa, pos: e.pos, vi: e.vi, def: e.def, ex: e.ex[0], col: e.col, syn: e.syn, level: e.level, emoji: e.emoji || '', ipaUS: e.ipaUS === e.ipa ? '' : e.ipaUS, topic: e.topic || '', ex2: e.ex[1], ...(e.note_vi ? { note: e.note_vi } : {}), x: 1 });
+// Từ loại PHỤ của một từ đã có mục (30/10 đa từ loại: kho có duck#n, mở rộng thêm duck#v) → INDEX[duck].more[] – mảnh tra từ chở theo mục chính,
+// từ điển hiện ở khối đúng từ loại (dictionary.js build). Nghĩa 13 ngôn ngữ ở mảnh ngôn ngữ, khoá `từ#loại` (như gói web/packs).
+export const toMore = e => { const { word, emoji, note, ...m } = toIndex(e); return m; };
 // Dạng dòng kho (scripts/lexicon/lib.mjs loadAll) cho việc Node hạ nguồn (âm thanh, kịch bản, dist/lexicon.json…)
 export const expandRows = () => loadExpand().map(({ e, batch, file }) => ({ file, line: -1, set: e.topic || 'xw-everyday', x: 1, batch, row: [e.w, e.ipa, e.pos, e.vi, e.def, e.ex[0], e.col.join('|'), e.syn.join('|'), e.level, e.emoji || '', e.ipaUS === e.ipa ? '' : e.ipaUS] }));
 

@@ -31,8 +31,12 @@ const t0 = Date.now(), stat = { calls: 0, fail: 0, kaikki: 0, ukMiss: 0 };
 // ---- chọn từ: nối tiếp (theo tần suất) hoặc pilot rải đều dải tần suất × nhóm WordNet
 const done = doneWords();
 const RETRY = 'content/lexicon/expand/retry/words.json', retry = fs.existsSync(new URL(RETRY, ROOT)) ? JSON.parse(rd(RETRY)) : { _doc: 'Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.', items: [] };
-const want = new Set(retry.items.map(k => k.split('#')[0]));
-let pool = C.items.filter(e => !done.has(e.w) && !want.has(e.w)); // từ làm lại KHÔNG tính vào N từ mới
+const kk = e => e.w + '#' + e.pos; // khoá trùng = từ#loại (30/10 đa từ loại: kho có duck#n vẫn làm duck#v)
+// mục retry khớp ĐÚNG từ#loại; khoá cũ không còn ứng viên cùng loại (ứng viên đổi từ loại chính) → ứng viên cùng từ chưa làm (như trước, không mất mục)
+const CK = new Set(C.items.map(kk)), byW = new Map(); for (const e of C.items) if (!done.has(kk(e)) && !byW.has(e.w)) byW.set(e.w, kk(e));
+retry.items = [...new Set(retry.items.map(k => CK.has(k) ? k : byW.get(k.split('#')[0]) || k))]; // đổi khoá cũ ngay → lưu lại đúng khoá, gỡ được khi đạt
+const want = new Set(retry.items.filter(k => CK.has(k)));
+let pool = C.items.filter(e => !done.has(kk(e)) && !want.has(kk(e))); // từ làm lại KHÔNG tính vào N từ mới
 if (WORDS) { const want = JSON.parse(fs.readFileSync(WORDS, 'utf8')).items, miss = [];
   pool = want.map(k => { const [w, p] = k.split('#'); return C.items.find(e => e.w === w && e.pos === p) || C.items.find(e => e.w === w) || (miss.push(k), null); }).filter(Boolean);
   pool = [...new Map(pool.map(e => [e.w + '#' + e.pos, e])).values()]; if (miss.length) console.log(`⚠ pilot cố định: ${miss.length} từ không còn trong ứng viên (${miss.slice(0, 12).join(', ')})`);
@@ -45,7 +49,7 @@ if (WORDS) { const want = JSON.parse(fs.readFileSync(WORDS, 'utf8')).items, miss
 } else pool = pool.slice(0, N);
 // làm lại TRƯỚC: lỗ dữ liệu nguồn + mục đưa về chờ (content/lexicon/expand/retry/words.json) – TÍNH TRONG N (30/10: 2.701 mục requeue + N mới
 // trong 1 lượt ≈ 20 giờ ≫ timeout 200 phút → mất cả lượt); retry nhiều hơn N thì lượt sau làm tiếp
-if (!NORETRY && !WORDS) { const inPool = new Set(pool.map(e => e.w)); const seenW = new Set(); pool = [...C.items.filter(e => want.has(e.w) && !done.has(e.w) && !inPool.has(e.w) && !seenW.has(e.w) && seenW.add(e.w)), ...pool]; stat.retry = pool.length - Math.min(N, pool.length); pool = pool.slice(0, N); stat.retry = Math.min(stat.retry, N); }
+if (!NORETRY && !WORDS) { const inPool = new Set(pool.map(kk)); const seenW = new Set(); pool = [...C.items.filter(e => want.has(kk(e)) && !done.has(kk(e)) && !inPool.has(kk(e)) && !seenW.has(kk(e)) && seenW.add(kk(e))), ...pool]; stat.retry = pool.length - Math.min(N, pool.length); pool = pool.slice(0, N); stat.retry = Math.min(stat.retry, N); }
 console.log(`lexicon-expand ${BATCH}: ${pool.length} từ (đã có ${done.size}) · bands ${JSON.stringify(pool.reduce((o, e) => (o[e.band] = (o[e.band] || 0) + 1, o), {}))}`);
 
 // ---- IPA: CMUdict (Mỹ) + Wiktionary/kaikki (Anh, Mỹ dự phòng)

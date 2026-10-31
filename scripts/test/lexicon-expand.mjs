@@ -91,7 +91,7 @@ ok(btMatch('after', 'afterwards') && btMatch('to claim back', 'reclaim') && !btM
 const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items || [];
 ok(!Q.some(q => q.src === 'lexicon-expand' && /^gen:/.test((q.why || [])[0] || '') && !q.data), 'hàng duyệt không chứa mục lexicon-expand "gen" rỗng (lỗi hạ tầng)');
 ok(!Q.some(q => q.src === 'lexicon-expand' && (q.why || []).some(y => /^ipa[ :]/.test(y))), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
-{ const R = path.join(ROOT, 'content/lexicon/expand/retry/words.json'); if (fs.existsSync(R)) { const d = doneWords(), r = JSON.parse(fs.readFileSync(R, 'utf8')).items; ok(r.every(k => !d.has(k.split('#')[0])), 'từ trong retry/words.json không bị doneWords() loại'); } }
+{ const R = path.join(ROOT, 'content/lexicon/expand/retry/words.json'); if (fs.existsSync(R)) { const d = doneWords(), r = JSON.parse(fs.readFileSync(R, 'utf8')).items; ok(r.every(k => !d.has(k)), 'mục trong retry/words.json không bị doneWords() loại (khoá từ#loại)'); } }
 // chủ đề (content/lexicon/topics.json): cây đủ tên 15 ngôn ngữ + nối 104 bộ; bộ học 10–20, nút 10–60, ≤ 2 chủ đề/từ, không mồ côi
 { const T = await import('../lexicon/expand/topics.mjs'), { TOPIC_CHOICES } = await import('../lexicon/expand/lib.mjs'), tax = T.TAX(), exs = T.existingSets();
   ok(exs.size === 104, `104 bộ hiện có (thấy ${exs.size})`);
@@ -326,4 +326,36 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(JSON.stringify(wsdUnwrap({ wk1: 2, wk2: '0' }, I)) === '{"wk1":2,"wk2":0}', 'wsdUnwrap phẳng');
   ok(wsdUnwrap({ probes: { wk1: 1, wk2: 3 } }, I).wk2 === 3 && wsdUnwrap({ answers: { wk1: { sense: 4 } } }, I).wk1 === 4, 'wsdUnwrap bọc probes/answers/{sense}');
   ok(wsdUnwrap([{ id: 'wk1', sense: 1 }], I).wk1 === 1 && wsdUnwrap({ foo: 1 }, I) === null && wsdUnwrap(null, I) === null, 'wsdUnwrap mảng / khuôn lạ → null'); }
+// ---- ĐA TỪ LOẠI (31/10): khoá trùng = từ#loại; từ loại phụ → INDEX[từ].more → từ điển hiện ở đúng khối từ loại
+{ const { mergeExpand } = await import('../lexicon/shards.mjs'); const { toMore, OTHER_POS } = await import('../lexicon/expand/lib.mjs');
+  const mk = (w, pos, vi, def) => ({ w, pos, ipa: '/dʌk/', ipaUS: '/dʌk/', vi, def, ex: ['a', 'b'], col: [], syn: [], level: 'B1', m: { es: vi + '-es' } });
+  const IDX = { duck: { word: 'duck', pos: 'n', vi: 'con vịt', def: 'a water bird' } }, base = IDX.duck, XM = new Map();
+  mergeExpand(IDX, XM, [mk('duck', 'v', 'cúi né', 'to lower your head quickly'), mk('duck', 'n', 'vịt khác', 'x'), mk('swan', 'n', 'thiên nga', 'a large white bird')]);
+  ok(IDX.duck.more && IDX.duck.more.length === 1 && IDX.duck.more[0].pos === 'v' && IDX.duck.more[0].vi === 'cúi né', 'đa từ loại: duck#v (mục mở rộng) → INDEX.duck.more, không mất');
+  ok(IDX.duck.vi === 'con vịt' && !base.more, 'đa từ loại: mục sẵn có thắng cùng từ loại; không sửa đối tượng của bộ chủ đề (bản sao)');
+  ok(IDX.swan && IDX.swan.x === 1 && !IDX.swan.more, 'đa từ loại: từ mới vẫn là mục chính');
+  ok(XM.get('duck#v').es === 'cúi né-es', 'đa từ loại: nghĩa 13 ngôn ngữ của từ loại phụ theo khoá từ#loại');
+  ok(!('word' in toMore(mk('duck', 'v', 'cúi', 'to'))) && toMore(mk('duck', 'v', 'cúi', 'to')).pos === 'v', 'toMore: không lặp từ, giữ từ loại');
+  mergeExpand(IDX, XM, [mk('duck', 'v', 'cúi né', 'to lower')]); ok(IDX.duck.more.length === 1, 'đa từ loại: ghép lại lũy đẳng');
+  ok(OTHER_POS.test('keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)'), 'OTHER_POS khớp lý do hàng duyệt cũ');
+  const d = doneWords(), keys = [...d]; ok(keys.length && keys.every(k => /#/.test(k)), 'doneWords: khoá từ#loại (không theo từ – duck#n không chặn duck#v)');
+  const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items.filter(x => x.src === 'lexicon-expand' && OTHER_POS.test((x.why || [])[0] || ''));
+  ok(Q.every(x => !d.has(x.id)), 'doneWords: mục "keep: … từ loại khác" không bị loại (requeue --pos đưa về retry)');
+  // từ điển: nghĩa biên soạn của từ loại phụ vào ĐÚNG khối, sau từ loại chính; không đè khối có sẵn
+  const vm = await import('node:vm'), src = fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8'), g = { I18N: { meanLang: () => 'vi', learnLang: () => 'en' }, fetch: async () => ({ ok: false }), AbortController, setTimeout, clearTimeout, console };
+  g.self = g; vm.createContext(g); vm.runInContext(src, g);
+  const loc = { word: 'duck', pos: 'n', vi: 'con vịt', def: 'a water bird', ex: 'A duck swam.', more: [{ pos: 'v', vi: 'cúi né', def: 'to lower your head quickly', ex: 'He ducked.' }] };
+  const e1 = g.Dict.buildEntry('duck', loc, null, null, null, '', []);
+  ok(e1.oxford.length === 2 && e1.oxford[0].pos === 'noun' && e1.oxford[1].pos === 'verb' && e1.oxford[1].defs[0].def === 'to lower your head quickly', 'từ điển: từ loại phụ = khối "verb" sau khối chính (ngoại tuyến)');
+  const gg = { senses: [{ pos: 'danh từ', terms: ['vịt'] }], defs: [{ pos: 'noun', defs: [{ def: 'a bird' }] }, { pos: 'verb', defs: [{ def: 'to bend down' }] }], syn: [], vi: 'vịt' };
+  const e2 = g.Dict.buildEntry('duck', loc, gg, null, null, '', []);
+  ok(e2.senses.length === 2 && e2.senses[1].pos === 'verb' && e2.senses[1].terms[0] === 'cúi né' && e2.senses[0].terms[0] === 'con vịt', 'từ điển: nghĩa vi từ loại phụ vào khối động từ, từ loại chính đứng đầu');
+  ok(e2.oxford.find(m => m.pos === 'verb').defs[0].def === 'to lower your head quickly' && e2.oxford.find(m => m.pos === 'verb').defs.some(x => x.def === 'to bend down'), 'từ điển: định nghĩa kho đứng đầu khối động từ, giữ định nghĩa nguồn ngoài');
+  const e3 = g.Dict.buildEntry('duck', { ...loc, more: undefined }, null, null, null, '', []); ok(e3.oxford.length === 1, 'từ điển: không more → như cũ'); }
+// pick_words.py: khoá trùng từ#loại + từ loại phụ (mã nguồn – chạy thật trên CI lexicon-expand)
+{ const py = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/pick_words.py'), 'utf8');
+  ok(/have_wp/.test(py) && /f'\{w\}#\{pos\}' in have_wp/.test(py) && !/if w in have or w in seen/.test(py), 'pick_words: bỏ trùng theo từ#loại, không theo từ');
+  ok(/SEC_MIN/.test(py) && /SEC_SHARE/.test(py) && /math\.log10\(cnt\[pos\] \/ tot\)/.test(py), 'pick_words: từ loại phụ có ngưỡng SemCor + CEFR theo tần suất của từ loại đó');
+  const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
+  ok(/!done\.has\(kk\(e\)\)/.test(job) && !/done\.has\(e\.w\)/.test(job), 'job.mjs: chọn theo từ#loại'); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
