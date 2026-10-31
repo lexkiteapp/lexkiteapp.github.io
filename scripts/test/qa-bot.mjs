@@ -159,7 +159,7 @@ async function journey(w, theme) {
   await step('review', async () => {
     const due0 = await page.evaluate(async () => Object.values(await Core.Cards.all()).filter(c => c.srs && c.srs.due <= Date.now()).length);
     await go(page, '/review');
-    for (let i = 0; i < 24 && !(await has('.rev-done')); i++) {
+    for (let i = 0; i < 60 && !(await has('.rev-done')); i++) {
       if (await has('#typeIn')) { await page.fill('#typeIn', i % 2 ? 'zzz' : ''); await page.press('#typeIn', 'Enter'); await sleep(500); }
       else if (await has('[data-opt="0"]')) await click('[data-opt="0"]', 500);
       else if (await has('#flipBtn')) await click('#flipBtn', 350);
