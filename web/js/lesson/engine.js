@@ -225,7 +225,7 @@
       (st.checks || []).filter(c => c.at === i).forEach(c => {
         const base = { id: ++id, word: '#story', card: null, retry: 0 };
         if (c.type === 'tap') { const T = toks(st.lines[c.line].en), extra = shuffle(words.filter(w => !T.some(x => x.toLowerCase() === w)), r).slice(0, 2); out.push(Object.assign(base, { type: 'build', sent: st.lines[c.line].en, who: st.lines[c.line].who, answer: T.join(' '), tiles: shuffle(T.concat(extra), r) })); }
-        else if (c.type === 'q') out.push(Object.assign(base, { type: 'q', prompt: c.q, answer: c.options[c.answer], options: shuffle(c.options.slice(), r) }));
+        else if (c.type === 'q') out.push(Object.assign(base, { type: 'q', prompt: c.q, answer: c.options[c.answer], options: c.keep ? c.options.slice() : shuffle(c.options.slice(), r) }));
         else if (c.type === 'match') out.push(Object.assign(base, { type: 'match', pairs: c.pairs.map(p => ({ word: p.en, mean: p.m[lang] || p.m.en })) }));
       });
     });

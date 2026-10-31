@@ -220,4 +220,52 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   const cf = await import('../vocab-img/cf-direct.mjs'), H = c => c.repeat(32), env = { CF_POOL: '0123456789'.split('').map(c => H(c) + ':t').join(','), VIMG_POOL_SKIP: '0', VIMG_DRAW_SHARE: '0.5', VIMG_MAX_CF: '10' };
   ok(cf.cfProvider('@cf/black-forest-labs/flux-2-klein-4b', env).stats.accounts === 5, 'vẽ chỉ dùng nửa đầu kho khi VIMG_DRAW_SHARE=0.5');
 }
+
+// 8. thẻ cảnh e4 (29/10): câu cảnh ngắn vẽ được + câu hỏi kiểm + điểm vẽ được; prompt ngắn; không vẽ thẻ draw < 4
+{ const sc = await import('../vocab-img/scene.mjs'), e = { w: 'cheap', pos: 'adj', ex: ['The food at the night market is cheap and tasty.'] };
+  const c = { ex: e.ex[0], ps: 'a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles', check: 'Is a big bowl of food being bought for one small coin?', cap: 'a woman buying noodles from a vendor', who: 2, draw: 4 };
+  ok(sc.sceneOk(e, c) === '' && /^skip: draw/.test(sc.sceneOk(e, { ...c, draw: 3 })) && sc.sceneOk(e, { ...c, ps: 'a man reads the price on a menu board at a small cafe today' }) !== '' && sc.sceneOk(e, { ...c, check: 'cheap' }) !== '', 'e4: thẻ hợp lệ; draw < 4 → bỏ; giá/chữ → loại; check phải là câu hỏi');
+  const p = sc.promptScene('cheap#adj', c, 1); ok(p.length < 520 && p.includes('hands one small coin') && p.indexOf('Flat vector') > p.indexOf('noodles') && !/a woman hands/.test(p), 'e4: prompt < 520 ký tự, câu cảnh trước phong cách, người đa dạng thay "a woman"'); }
+// 9. viết thẻ không được ăn hết giờ job (29/10 lượt fill 40875877636: 2.000 thẻ tuần tự 2 giờ 10 phút → quá giờ, mất thẻ, 0 ảnh); fill chỉ vẽ nghĩa có thẻ e4
+{ const src = rd('scripts/vocab-img/scene.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml');
+  const MIN = +(src.match(/VIMG_CARD_MIN \|\| (\d+)/) || [])[1], CONC = +(src.match(/VIMG_CARD_CONC \|\| (\d+)/) || [])[1];
+  const fillTo = +(wf.match(/\n  fill:[\s\S]*?timeout-minutes: (\d+)/) || [])[1];
+  ok(MIN > 0 && fillTo && MIN <= fillTo / 2 && /Date\.now\(\) < END/.test(src), 'viết thẻ có hạn ≤ nửa giờ job fill (còn giờ vẽ + ghi)');
+  ok(CONC >= 2 && /Promise\.all\(Array\.from\(\{ length: CONC \}/.test(src), 'viết thẻ chạy song song các lô');
+  ok(/e4bad \|\| 0\) < 3/.test(src), 'thẻ e4 hỏng 3 lần → thôi viết lại mỗi lượt');
+  const i = wf.indexOf('scene.mjs --cards --keys keys.json --write', wf.indexOf('\n  fill:')), j = wf.indexOf('scene.mjs --prune --keys keys.json');
+  const { cardWins: W, SCENE_V: V } = await import('../vocab-img/scene.mjs'), e3 = { sc: 'x', v: 'e3' }, e4 = { ps: 'y', v: V };
+  ok(W(undefined, e4) && W(e3, e4) && !W(e4, e3) && !W(e4, { ...e4, ps: 'z' }) && W(e3, { ...e3, e4bad: 1 }) && !W({ ...e3, e4bad: 2 }, { ...e3, e4bad: 1 }), 'scene-publish: thẻ e4 viết lại ĐÈ thẻ e3 (trước chỉ THÊM → mất), không đè thẻ e4 hiện hành');
+  ok(/import \{ cardWins \} from '\.\/scene\.mjs'/.test(rd('scripts/vocab-img/scene-publish.mjs')) && /cardWins\(cur\.items\[k\], v\)/.test(rd('scripts/vocab-img/scene-publish.mjs')), 'scene-publish dùng cardWins');
+  ok(i > 0 && j > i && j < wf.indexOf('scene-gen.mjs', i), 'fill: --prune sau khi viết thẻ, trước khi vẽ (không vẽ thẻ e3 cũ)');
+}
+// 10. lượt 0 ảnh (31/10 pilot 41146130096/41146121856: kho CF cạn → 0 thẻ, 0 ảnh → tờ ảnh Image 0 px → "cannot write empty image as JPEG", job final đỏ)
+//     → gộp/tờ ảnh in "0 ảnh" và thoát sạch. Có Pillow+numpy: chạy cả scene_final.py trên thư mục rỗng; không có: sheet() với PIL/numpy giả (nhánh 0 ảnh không vẽ gì).
+{ const { execFileSync } = await import('child_process'), os = await import('os'), path = await import('path');
+  const d = fs.mkdtempSync(path.join(os.tmpdir(), 'vimg0-')), sh = path.join(d, 'sheet.jpg');
+  const py = `import sys,types,os,runpy
+try:
+    import numpy, PIL.Image; real = True
+except Exception:
+    real = False; sys.modules['numpy'] = types.ModuleType('numpy'); P = types.ModuleType('PIL')
+    for n in ('Image', 'ImageDraw', 'ImageFont'): m = types.ModuleType('PIL.' + n); setattr(P, n, m); sys.modules['PIL.' + n] = m
+    sys.modules['PIL'] = P
+if real:
+    sys.argv = ['scene_final.py', '--dir', sys.argv[1], '--sheet', sys.argv[2]]; runpy.run_path('scripts/vocab-img/scene_final.py', run_name='__main__')
+else:
+    g = runpy.run_path('scripts/vocab-img/scene_final.py'); g['sheet'](sys.argv[1], {}, {}, sys.argv[2])`;
+  const out = execFileSync('python3', ['-c', py, d, sh], { encoding: 'utf8' });
+  ok(/0 ảnh/.test(out) && !fs.existsSync(sh), 'scene_final: 0 ảnh → in "0 ảnh", không ghi tờ ảnh, thoát 0 (không ValueError)');
+  fs.rmSync(d, { recursive: true, force: true });
+  const wf = rd('.github/workflows/vocab-img-scene.yml');
+  ok(/id: probe\n\s+if: github\.event\.inputs\.mode != 'calibrate'/.test(wf) && /NH=10; NT=5; \[ "\$\{\{ github\.event\.inputs\.pool \}\}" = tail \] && \{ NH=0; NT=15; \}/.test(wf) && /\[ "\$MODE" = pilot \] && \{ \[ "\$PROBE_ALIVE" -lt 10 \] \|\| \[ "\$PROBE_HEAD" -lt \$NH \] \|\| \[ "\$PROBE_TAIL" -lt \$NT \]/.test(wf) && /PROBE_HEAD=\$\{\{ vars\.LX_PILOT/.test(wf), 'pilot cũng dò kho CF trước, đủ CẢ phần vẽ (đầu) lẫn phần viết thẻ (đuôi) – kho cạn → bỏ lượt rõ ràng (41146130096: 35 phút thẻ rỗng; 41158516082: thẻ ăn hết, vẽ 0)');
+  // pilot pool=tail (31/10): fill vét phần đầu ngay khi hồi → pilot vẽ từ đuôi, chừa 10 tài khoản cuối cho giám khảo; fill không bao giờ đổi
+  { const { drawAccounts } = await import('../vocab-img/cf-direct.mjs'), H = c => c.repeat(32), pool = Array.from({ length: 40 }, (_, i) => (i < 10 ? H(String(i)) : H(String.fromCharCode(97 + (i % 6))).slice(0, 30) + String(i).padStart(2, '0')) + ':t').join(','), e = { CF_POOL: pool, VIMG_POOL_SKIP: '0', VIMG_DRAW_SHARE: '0.5' };
+    const hd = drawAccounts(e).map(a => a.id), tl = drawAccounts({ ...e, VIMG_DRAW_FROM: 'tail' }).map(a => a.id);
+    ok(hd.length === 20 && hd[0] === 'pool0' && tl.length === 10 && tl[0] === 'pool29' && tl[9] === 'pool20' && !tl.some(x => hd.includes(x)) && !tl.includes('pool30'), 'pool=tail: vẽ đuôi kho từ pool29 ngược về pool20, chừa 10 tài khoản cuối cho giám khảo, không đụng phần đầu');
+    const fillEnv = wf.slice(wf.indexOf('\n  fill:'), wf.indexOf('\n  fillpub:'));
+    ok(!/VIMG_DRAW_FROM/.test(fillEnv) && /VIMG_DRAW_FROM: "\$\{\{ github\.event\.inputs\.mode == 'pilot' && github\.event\.inputs\.pool \|\| '' \}\}"/.test(wf), 'VIMG_DRAW_FROM chỉ ở pilot (input pool), fill không đổi'); }
+  ok(/alive_head=\$\{head\}/.test(rd('scripts/lib/cf-pool-probe.mjs')) && /if \(i < HEAD\) head\+\+/.test(rd('scripts/lib/cf-pool-probe.mjs')), 'cf-pool-probe: PROBE_HEAD đếm riêng phần vẽ');
+  ok(/def js\(o\)/.test(rd('scripts/vocab-img/calibrate.py')) && /default=js/.test(rd('scripts/vocab-img/calibrate.py')), 'calibrate.py: đặc trưng có đối tượng mô hình không làm hỏng calibration.json (TypeError SentenceTransformer)');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);

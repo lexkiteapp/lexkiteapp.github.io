@@ -1,0 +1,51 @@
+# 🎨 Dựng tài sản thương hiệu từ brand/tokens.json (docs/BRAND-RULES.md) trên CI – máy cá nhân không render.
+# Đẩy nhánh brand-build*: build-tokens → build-social-kit (PNG icon/logo/mạng xã hội) → build-extension → commit lại nhánh;
+# rồi chụp trước/sau (scripts/test/brand-shots.mjs: popup add-on, bài học, icon 48/96/512 sáng/tối). Artifact 7 ngày.
+name: Brand build
+on:
+  push:
+    branches: ['brand-build*']
+permissions:
+  contents: write
+concurrency:
+  group: brand-build-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[brand-build]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng
+        run: |
+          node scripts/build-tokens.mjs
+          SOCIAL_KIT_DEPS=/tmp/kitdeps node scripts/build-social-kit.mjs
+          bash scripts/build-extension.sh
+          node scripts/test/brand-check.mjs
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A brand web extension store
+          git diff --cached --quiet || { git commit -q -m "brand: dựng PNG icon/logo/mạng xã hội từ brand/tokens.json [brand-build] [CF-Pages-Skip]"; git push -q origin HEAD:${GITHUB_REF_NAME}; }
+  shots:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: "${{ github.ref_name }}", fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+          git worktree add -q /tmp/before "$(git merge-base origin/main HEAD)"
+          node scripts/test/brand-shots.mjs "$PWD" /tmp/before out/brand
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: brand-shots, path: out/brand, retention-days: 7 }

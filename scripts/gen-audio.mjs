@@ -30,6 +30,15 @@ for (const p of parts) {
   const V = { ama: 'af_heart', carlos: 'am_michael' };
   for (const st of c.LESSON_STORIES || []) for (const l of st.lines) { const key = c.KVoice.lineKey(V[l.who], l.en); if (!has(key)) jobs.set(key, { voice: V[l.who], text: l.en.trim() }); }
 }
+// Cuộc gọi Ama/Carlos (#/call, docs/CALL.md): mỗi câu giáo viên nói (câu hỏi, câu đáp nhánh, câu kết) 1 file theo giọng người gọi → sprite khớp môi đúng độ dài file
+{
+  for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
+  const V = { ama: 'af_heart', carlos: 'am_michael' };
+  for (const k of c.CALLS || []) {
+    const v = V[k.who] || V.ama, nodes = k.nodes ? Object.values(k.nodes) : (k.turns || []);
+    for (const x of [...nodes.flatMap(n => [n.m, n.re, ...(n.br || []).map(b => b[1])]), k.end, "Let's keep our chat friendly and on topic!"]) if (x) { const key = c.KVoice.lineKey(v, x); if (!has(key)) jobs.set(key, { voice: v, text: String(x).trim() }); }
+  }
+}
 // Câu đọc đơn (UI.tts): giọng chung theo accent – câu hỏi giám khảo Speaking (Anh & Mỹ), TOEFL Listen & Repeat / Interview
 const GEN = { 'en-GB': 'bf_emma', 'en-US': 'af_heart' };
 const addOne = (voice, text) => { const key = c.KVoice.lineKey(voice, text); if (!has(key)) jobs.set(key, { voice, text: String(text).trim() }); };

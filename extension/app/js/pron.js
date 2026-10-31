@@ -15,6 +15,7 @@
   ];
   const done = () => state.game.pronDone || {};
   const accent = () => state.settings.accent;
+  const RHYTHM = ['weak-forms', 'word-stress', 'stress-shift', 'connected-speech', 'chunking', 'intonation'];
 
   routes.pron = function (id) {
     if (id) return lesson(decodeURIComponent(id));
@@ -84,6 +85,7 @@
         <div class="small muted" id="pHint" style="margin-top:.5rem"></div></div>
 
       ${window.PronPairs && PronPairs.forSkill(x.id).length ? `<div class="card" style="margin-top:1rem" id="sayIt"></div>` : ''}
+      ${window.PronRhythm && RHYTHM.includes(x.id) ? `<div class="card" style="margin-top:1rem" id="pRhythm"></div>` : ''}
 
       ${(x.pairs || []).length ? `<div class="card" style="margin-top:1rem"><h3>👂 ${t('Nghe & phân biệt cặp từ')}</h3><p class="small muted">${t('Nghe một từ trong cặp rồi chọn đúng từ bạn nghe được. Luyện tai trước, miệng sẽ chuẩn theo.')}</p>
         <div class="row">${x.pairs.map(p => `<span class="chip">${esc(p[0])} ↔ ${esc(p[1])}</span>`).join('')}</div>
@@ -130,6 +132,7 @@
     // Trò chơi nghe – phân biệt cặp từ
     const sp = $('#startPairs');
     // Luyện NÓI cặp từ (pron/sayit.js) – micro bị chặn → chuyển sang trò nghe ở trên
+    if (window.PronRhythm && $('#pRhythm')) PronRhythm.mount($('#pRhythm'), x); // nhịp câu, dạng yếu, shadowing (pron/rhythm.js)
     if (window.PronSay) PronSay.mount($('#sayIt'), x, { fallback: () => { const pg = $('#pairGame'); if (pg) { pg.scrollIntoView({ behavior: 'smooth', block: 'center' }); if (sp) sp.click(); } } });
     if (sp) sp.onclick = () => {
       const rounds = shuffle(Array.from({ length: 8 }, (_, k) => x.pairs[k % x.pairs.length])).map(p => ({ p, ans: Math.random() < .5 ? 0 : 1 }));

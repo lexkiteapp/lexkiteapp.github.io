@@ -182,7 +182,7 @@ export const SMP_CSS = `.smp .prompt{position:relative;background:var(--surface)
 @media (max-width:560px){.pg2{grid-template-columns:1fr}.pg2 .nx{grid-column:1}}
 .smp .part{margin-top:30px;scroll-margin-top:16px}.smp .part>h2{display:flex;align-items:center;gap:10px;margin:0 0 2px}
 .pb{display:inline-grid;place-items:center;min-width:36px;height:36px;border-radius:10px;background:var(--brand);color:#fff;font-size:16px;font-weight:800}
-@media (prefers-color-scheme:dark){.pb{color:#0f1017}}
+@media (prefers-color-scheme:dark){.pb{color:var(--bg)}}
 .pdesc{color:var(--muted);margin:0 0 8px;font-size:15px}
 .qa{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;margin:12px 0}
 .smp .qa h3{display:flex;gap:10px;align-items:flex-start;margin:0 0 8px;font-size:17px;line-height:1.45}

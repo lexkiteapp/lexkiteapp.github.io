@@ -20,7 +20,6 @@
   const FRAMES = { teal: 'linear-gradient(135deg,#14b8a6,#0e7490)', ice: 'linear-gradient(135deg,#bae6fd,#38bdf8)', fire: 'linear-gradient(135deg,#fb923c,#dc2626)', gold: 'linear-gradient(135deg,#fde68a,#d97706)', night: 'linear-gradient(135deg,#6366f1,#1e1b4b)', rainbow: 'conic-gradient(#f43f5e,#f59e0b,#22c55e,#0ea5e9,#8b5cf6,#f43f5e)', leaf: 'linear-gradient(135deg,#f59e0b,#b45309)', snow: 'linear-gradient(135deg,#e0f2fe,#7dd3fc)', bloom: 'linear-gradient(135deg,#fbcfe8,#ec4899)' };
   const STICKERS = { star: '⭐', kite: '🪁', book: '📘', rocket: '🚀', crown: '👑', goal: '🎯', sun: '🌞', gem: '💎' };
   const POOL = ['f:ice', 's:star', 'f:fire', 's:kite', 's:book', 'f:gold', 's:rocket', 'f:night', 's:goal', 's:sun', 'f:rainbow', 's:gem', 's:crown'];
-  const TEACH = { ama: 'img/teach/ama.webp', carlos: 'img/teach/carlos.webp' };
 
   // ---------- Lõi thuần (kiểm thử: scripts/test/retention.mjs) ----------
   const Core = {
@@ -73,7 +72,7 @@
   const today = () => keyOf(new Date());
   const reduce = () => g.matchMedia && g.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const teacherFor = n => (MILESTONES.indexOf(n) % 2 ? 'carlos' : 'ama');
-  const teachImg = (who, size) => `<img class="ret-teach" src="${TEACH[who]}" width="${size}" height="${size}" alt="${esc(who === 'ama' ? 'Ama' : 'Carlos')}" loading="lazy" decoding="async">`;
+  const teachImg = (who, size) => Chars.img(who, { cls: 'ret-teach', size, lazy: true }); // nhân vật: chỉ qua Chars (web/js/characters.js)
   const DOW = () => [t('T2'), t('T3'), t('T4'), t('T5'), t('T6'), t('T7'), t('CN')];
   const prizeName = p => {
     const [k, id] = p.split(':');
@@ -87,8 +86,8 @@
 .ret-d i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-style:normal;font-size:1rem;background:var(--surface-2);border:2px solid transparent}
 .ret-d.done i{background:rgba(249,115,22,.16)}.ret-d.frozen i{background:rgba(56,189,248,.18)}.ret-d.today i{border-color:var(--primary)}.ret-d.miss i{opacity:.55}
 .ret-big{font-size:2.6rem;font-weight:800;line-height:1}.ret-bar{height:10px;border-radius:99px;background:var(--surface-2);overflow:hidden}.ret-bar i{display:block;height:100%;background:linear-gradient(90deg,#f59e0b,#f97316)}
-.ret-teach{border-radius:50%;object-fit:cover;flex:none;background:var(--surface-2)}
-.ret-cel{text-align:center;padding:.4rem 0}.ret-cel .ret-teach{box-shadow:0 0 0 4px rgba(249,115,22,.35);animation:retPop .5s ease-out}
+.ret-teach{object-fit:contain;object-position:50% 100%;flex:none;filter:drop-shadow(0 3px 3px rgb(0 0 0 / .22))}
+.ret-cel{text-align:center;padding:.4rem 0}.ret-cel .ret-teach{animation:retPop .5s ease-out}
 .ret-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:.6rem}
 .ret-item{display:flex;flex-direction:column;align-items:center;gap:.3rem;padding:.6rem .3rem;border:1px solid var(--line);border-radius:14px;background:none;color:var(--text);font:inherit;font-size:.78rem;min-height:44px;cursor:pointer}
 .ret-item[disabled]{opacity:.4;cursor:default}.ret-item.on{border-color:var(--primary);box-shadow:0 0 0 2px var(--primary-soft,transparent)}
@@ -140,7 +139,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   };
   const buzz = p => { try { if (navigator.vibrate && !reduce()) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
   const nextBtn = () => `<button class="btn primary lg block ret-next" id="retNext">${t('Bài tiếp theo')} →</button>`;
-  const bindNext = box => { const b = box && box.querySelector && box.querySelector('#retNext'); if (b) b.onclick = async () => { const h = await nextHref(); UI.closeModal(); location.hash = h; }; };
+  const bindNext = box => { const b = box && box.querySelector && box.querySelector('#retNext'); if (b) b.onclick = async () => { const h = await nextHref(); if (UI.closeModal && box !== view()) UI.closeModal(); location.hash = h; }; };
   // Ô rương to, chạm để mở ngay trong màn (không màn phụ); khung mới tự đeo (đổi lại ở Bộ sưu tập)
   const chestTile = () => (Core.chests(ret()) > 0 ? `<button type="button" class="ret-tile" id="retChestTile" data-noicon aria-label="${esc(t('Mở rương'))}"><span class="ret-chest" aria-hidden="true">🎁</span><span>${t('Chạm để mở')}</span></button>` : '');
   async function reveal(box) {
@@ -157,6 +156,14 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   async function celebrate(m) {
     await mutate(r => { r.ms = r.ms || {}; Core.MILESTONES.filter(x => x <= m).forEach(x => { if (!r.ms[x]) r.ms[x] = Date.now(); }); });
     const who = teacherFor(m), fz = state.game.freezeAt === m ? `<span class="ret-chip" data-noicon>🧊 +1</span>` : '';
+    if (v2On()) { // 🎨 Stitch v2: cùng khung màn Chuỗi trong hộp thoại (không đầu trang cố định); thẻ phụ = chip băng + ô rương + chỗ quảng cáo
+      const o = g.ST2.streak(v2Data({ n: m, milestone: true, title: t('{n} ngày! 🔥', { n: m }), say: who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!'), extra: `<div class="flex items-center justify-center gap-3 flex-wrap mb-[1rem]">${teach2(who)}${fz}${chestTile()}</div><div id="retAd"></div>` }));
+      // KHÔNG gắn st/v2on vào <body>: hộp thoại hiện trên mọi trang – v2on sẽ ẩn đầu trang/thanh tab của trang đang mở; khung .v2 tự đủ CSS
+      const box = UI.modal(`<div class="v2s-streak"><div class="${o.root}" data-ret-cel>${o.main}</div></div>`);
+      if (g.Sfx && g.Sfx.streak) g.Sfx.streak(); else if (g.Sfx && g.Sfx.win) g.Sfx.win();
+      buzz([30, 40, 70]); if (!reduce() && typeof g.confetti === 'function') g.confetti(120);
+      bindChest(box); bindNext(box); bindGoals(box); return;
+    }
     const box = UI.modal(`<div class="ret-cel">${teachImg(who, 128)}
       <h2 class="ret-h">${t('{n} ngày! 🔥', { n: m })}</h2>
       <p class="ret-say">${esc(who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!'))}</p>
@@ -230,9 +237,70 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   // ---------- Dữ liệu widget (native.js đọc khi có g.Ret): giáo viên + ngày học gần nhất → widget tự đổi biểu cảm khi qua ngày ----------
   Ret.widget = st => { const d = Core.activeDays(st || state), k = [...d].sort().pop() || ''; return { who: new Date().getDate() % 2 ? 'ama' : 'carlos', sd: k, ok: t('Hôm nay đã học'), risk: t('Giữ chuỗi hôm nay nhé!') }; };
 
+  // ---------- Stitch v2 (cờ ux1): khung TỰ SINH web/js/st/v2/streak.js (bind/streak.json); mọi class dưới đây viết nguyên văn từ khung → biên dịch qua V2DATA ----------
+  const V = {
+    card: 'relative p-[1rem] mb-[1rem] lt:bg-[#FFFFFF] lt:rounded-[0.75rem] lt:shadow-[0_4px_12px_rgba(16,25,27,0.04)] lt:[border:1.5px_solid_rgb(234,_222,_200)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#233942] dk:[box-shadow:0_5px_0_#0d1a1e]',
+    hd: 'flex items-center justify-between pb-[0.5rem]', hl: 'flex items-center gap-1.5',
+    ico: "material-symbols-outlined text-[16px] [font-variation-settings:'FILL'_1] lt:text-[#8A5A00] dk:text-[#FFD36B]", // màu vàng đậm/sáng có sẵn trong Stitch (đạt ≥ 3:1 trên ô vàng nhạt)
+    frz: 'lt:bg-[#E6F3F2] lt:text-[#0D6964] lt:border-[#87d4cd] dk:bg-[#093c37] dk:text-[#8FD6CF] dk:border-[#2BA39A]', // huy hiệu 🧊 cũ (#0284c7 trên xanh nhạt 3,6:1) → cặp teal có sẵn trong Stitch (≥5,8:1)
+    lab: 'text-[11px] leading-[14px] uppercase tracking-wider font-extrabold lt:text-[#10191B] dk:text-[#EEF6F7]',
+    pill: 'flex items-center gap-1 py-0.5 rounded-[9999px] lt:px-2 lt:bg-[#f2f4f3] dk:px-2.5 dk:bg-[#2BA39A]/15 dk:border dk:border-[#2BA39A]/30',
+    pillT: 'text-[11px] leading-[14px] tracking-[0.04em] font-bold lt:text-[#0D6964] dk:text-[#4FD1C5]',
+    body: 'text-[14px] leading-[20px] tracking-[0em] font-medium lt:text-[#4E5F62] dk:text-[#8FA9AF]',
+    strong: 'text-[15px] leading-[20px] tracking-[0.01em] font-bold lt:text-[#10191B] dk:text-[#EEF6F7]',
+    track: 'w-full h-2 rounded-[9999px] overflow-hidden lt:bg-[#e6e9e8] dk:bg-[#1A2C33]', fill: 'h-full rounded-[9999px] lt:bg-[#0D6964] dk:bg-[#2BA39A]',
+    off: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#ffffff] lt:[border:1.5px_solid_rgb(226,_232,_231)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#233942] dk:[box-shadow:0_5px_0_#0d1a1e]',
+    on: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#E6F3F2] lt:shadow-sm lt:[border:2px_solid_rgb(13,_105,_100)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#2BA39A] dk:[box-shadow:0_5px_0_#093c37]',
+  };
+  const teach2 = who => Chars.img(who, { kind: 'still', pose: 'encourage', cls: 'w-32 h-auto select-none shrink-0', alt: '', size: 128, lazy: true }); // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi); đứng SAU hàng huy hiệu nền đục màu thẻ (-mt-7) → đường hông/chỗ mờ của ảnh đầu→hông khuất hẳn
+  const v2On = () => !!(g.ST2 && g.ST2.streak && App.ux1On && App.ux1On());
+  // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
+  const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)
+  const GOALS = [['casual', 'spa', 10, 5, 'Nhẹ nhàng'], ['regular', 'fitness_center', 20, 10, 'Đều đặn'], ['intense', 'whatshot', 50, 20, 'Tăng tốc']];
+  function v2Extra() { // thẻ phụ cùng khuôn thẻ của mẫu: đóng băng + mốc kế, sự kiện, rương, bộ sưu tập (không bỏ tính năng nào của trang cũ)
+    const n = streakN(), nx = Core.next(n), r = ret(), fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 };
+    const ev = Core.event(today()), got = ev ? ((r.ev || {})[ev.id] || []).length : 0, ch = Core.chests(r), own = r.own || {};
+    const items = ['f:teal', ...Object.keys(FRAMES).filter(f => f !== 'teal').map(f => 'f:' + f), ...Object.keys(STICKERS).map(s => 's:' + s)];
+    const head = (ic, label, right) => `<div class="${V.hd}"><div class="${V.hl}"><span class="${V.ico}" aria-hidden="true">${ic}</span><h2 class="${V.lab}">${esc(label)}</h2></div>${right || ''}</div>`;
+    let h = `<section class="${V.card}">${head('local_fire_department', t('Mốc tiếp theo: {n} ngày', { n: nx }), `<span class="${V.pill}"><span class="${V.pillT}">${n}/${nx}</span></span>`)}
+      <div class="${V.track}" role="progressbar" aria-valuemin="0" aria-valuemax="${nx}" aria-valuenow="${n}" aria-label="${esc(t('Mốc tiếp theo: {n} ngày', { n: nx }))}"><div class="${V.fill}" style="width:${Math.min(100, Math.round(n / nx * 100))}%"></div></div>
+      <div class="flex items-end gap-3 pt-[0.5rem]">${teach2(n % 2 ? 'carlos' : 'ama')}<p class="${V.body} self-center" data-noicon>${t('Mỗi mốc 🎁 · 7 ngày 🧊 · miễn phí')}</p></div>
+      <div class="relative z-[1] -mt-7 pt-[0.5rem] lt:bg-[#FFFFFF] dk:bg-[#142328]">${g.StreakUI ? g.StreakUI.badgeHtml(state.game).replace('class="streak-freeze-badge"', `class="streak-freeze-badge ${V.frz}"`) : `<span>🧊×${fi.left}</span>`}</div></section>`;
+    if (ev) h += `<section class="${V.card}">${head('calendar_today', t('Gom {n} mảnh', { n: ev.need }))}<p class="${V.body}">${t('Học 1 ngày = 1 mảnh')}</p>
+      <div class="flex gap-1.5 pt-[0.5rem]" data-noicon role="img" aria-label="${esc(t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need }))}">${Array.from({ length: ev.need }, (_, i) => `<span class="material-symbols-outlined text-[24px] ${i < got ? "[font-variation-settings:'FILL'_1]" : ''} ${i < got ? "lt:text-[#8A5A00] dk:text-[#FFD36B]" : "[font-variation-settings:'FILL'_0] lt:text-[#4E5F62] dk:text-[#9DB5BA]"}" aria-hidden="true">${EV_IC[ev.id] || 'eco'}</span>`).join('')}</div></section>`;
+    h += `<section class="${V.card} text-center"><div class="text-[48px]" aria-hidden="true" data-noicon>🎁</div><p class="${V.body} pb-[0.5rem]">${ch ? t('Bạn có {n} rương chưa mở', { n: ch }) : t('Mốc tiếp theo: {n} ngày', { n: nx })}</p>${ch ? `<button type="button" id="retChest" class="${V.off}">${t('Mở rương')}</button>` : ''}</section>
+      <section class="${V.card}">${head('fitness_center', t('Bộ sưu tập'))}<div class="grid grid-cols-3 gap-2">${items.map(p => { const has = p === 'f:teal' || own[p], on = p[0] === 'f' && (r.frame || 'teal') === p.slice(2);
+        return `<button type="button" data-noicon class="${on ? V.on : V.off}${has && p[0] === 'f' ? '' : ' opacity-60'}" data-ret-item="${esc(p)}" ${has && p[0] === 'f' ? '' : 'disabled'} aria-pressed="${on}">${prizeArt(p)}<span class="${V.body}">${has ? esc(prizeName(p)) : '🔒'}</span></button>`; }).join('')}</div></section>`;
+    return h;
+  }
+  function v2Data(o) {
+    const k = today(), se = state.settings || {}, goal = +se.dailyGoal || 20, now = ((state.stats || {}).days || {})[k] || 0, pct = Math.min(100, Math.round(now / goal * 100)), unit = t('lượt ôn');
+    const n = o.n != null ? o.n : streakN(), L = DOW(), wk = Core.week(days(), (state.game || {}).frozen, Date.now());
+    const lab = { done: t('Đã học'), frozen: t('Đóng băng giữ chuỗi'), today: t('Hôm nay'), future: '', miss: t('Chưa học') };
+    const week = wk.map(x => ({ v: x.st === 'done' && x.k === k ? 'd5' : x.st === 'done' || x.st === 'frozen' ? 'd1' : 'd6', l: L[x.dow], icon: x.st === 'frozen' ? 'ac_unit' : 'local_fire_department', al: L[x.dow] + (lab[x.st] ? ': ' + lab[x.st] : '') }));
+    const gain = (((state.game || {}).days || {})[k] || {}).xp || 0, got = wk.filter(x => x.st === 'done' || x.st === 'frozen').length;
+    return { n, fl: g.ST2.flameState(n, o), title: o.title || t('Chuỗi {n} ngày!', { n }), say: o.say || (n % 2 ? t('Carlos: Thói quen tuyệt vời!') : t('Ama: Mỗi ngày một chút!')), gain: '+' + gain + ' XP', pct, now, goal, unit, off: (163.36 * (1 - pct / 100)).toFixed(2), wk: t('Đã học {a}/7 ngày', { a: got }),
+      left: now >= goal ? t('Đã đạt mục tiêu hôm nay') : t('Còn {n} {u} hôm nay', { n: goal - now, u: unit }), goalAria: t('Mục tiêu mỗi ngày'),
+      week, goals: GOALS.map(([key, icon, v, min, nm]) => ({ k: v, v: goal === v ? 'on' : 'off', icon, name: t(nm), sub: t('{n} phút', { n: min }), xp: v + ' ' + unit })), extra: o.extra != null ? o.extra : v2Extra() };
+  }
+  async function setGoal(v) { state.settings = state.settings || {}; state.settings.dailyGoal = v; try { if (App.saveSettings) await App.saveSettings(); if (g.Sync && g.Sync.schedule) g.Sync.schedule(); } catch (e) { /* bỏ qua */ } }
+  function bindGoals(root) { // chọn mục tiêu (radio): chạm / Enter / Space → lưu vào cài đặt thật (dailyGoal) rồi vẽ lại
+    const pick = async el => { await setGoal(+el.dataset.goal); const cel = root !== view(); if (cel) { root.querySelectorAll('[data-goal]').forEach(x => x.setAttribute('aria-checked', String(x === el))); return; } v2Page(); const b = view().querySelector('[data-goal="' + el.dataset.goal + '"]'); if (b) b.focus(); };
+    root.querySelectorAll('[data-goal]').forEach(el => { el.onclick = () => pick(el); el.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(el); } }; });
+  }
+  function v2Page() {
+    const root = g.ST2.mount(view(), 'streak', v2Data({}), null);
+    bindNext(view()); bindGoals(view());
+    const c = document.getElementById('retChest'); if (c) c.onclick = openChest;
+    view().querySelectorAll('[data-ret-item]').forEach(b => { b.onclick = () => wear(b.dataset.retItem === 'f:teal' ? '' : b.dataset.retItem.slice(2)); });
+    check(); return root;
+  }
+
   // ---------- Trang #/streak ----------
   function page() {
     css(); applyFrame();
+    if (App.ux1On && App.ux1On() && !v2On() && !page.tried && App.lazy) { page.tried = 1; App.lazy('ux1').then(page, page); return; } // khung Stitch nằm ở gói ux1
+    if (v2On()) { v2Page(); return; }
     const n = streakN(), nx = Core.next(n), r = ret(), fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 };
     const ev = Core.event(today()), got = ev ? ((r.ev || {})[ev.id] || []).length : 0, ch = Core.chests(r), own = r.own || {};
     const items = ['f:teal', ...Object.keys(FRAMES).filter(f => f !== 'teal').map(f => 'f:' + f), ...Object.keys(STICKERS).map(s => 's:' + s)];

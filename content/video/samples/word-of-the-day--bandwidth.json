@@ -12,21 +12,21 @@
   "template": "word-of-the-day",
   "lines": [
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "hook",
     "text": "No bandwidth.",
     "expr": "deadpan",
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "situation",
     "text": "Bandwidth? Like the Wi-Fi?",
     "expr": "confused",
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "explain",
     "text": "Ah, bandwidth means time and energy to take on more work.",
     "expr": "confident",
@@ -34,7 +34,7 @@
     "punch": true
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "example",
     "text": "Do you have the bandwidth to help on Friday?",
     "expr": "curious",
@@ -48,7 +48,7 @@
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "cta",
     "text": "Look up any word on lexkite.com",
     "expr": "happy smile",

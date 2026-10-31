@@ -10,9 +10,9 @@
  "roles": { "learner": "người nói \"very …\" + CTA", "explainer": "người đưa từ mạnh + nghĩa", "modeler": "người nói lại câu với từ mạnh", "kit": "Kit – thêm 1 cặp very … → từ mạnh" },
  "scenes": {
   "library": { "roles": { "learner": ["ama"], "explainer": ["ama"], "modeler": ["ama"] } },
-  "classroom": { "roles": { "learner": ["ama"], "explainer": ["diane"], "modeler": ["diane"] } },
+  "classroom": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } },
   "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } },
-  "office": { "roles": { "learner": ["mia"], "explainer": ["diane"], "modeler": ["diane"] } }
+  "office": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } }
  },
  "vars": {
   "weak": { "desc": "cụm nhạt \"very + tính từ\" (very tired) – thẻ BORING ≤ 32 ký tự", "required": true, "maxWords": 3 },

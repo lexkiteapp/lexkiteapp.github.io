@@ -13,8 +13,10 @@
 - [BACKLOG.md](BACKLOG.md) — Việc tồn đọng theo thứ tự ưu tiên: đang làm, chờ anh chủ; việc xong chuyển xuống mục đã xong; đọc khi: chọn việc mới cần làm
 - [BLOG-RUNBOOK.md](BLOG-RUNBOOK.md) — Sổ tay vận hành blog & SEO: repo/dịch vụ, 15 ngôn ngữ và cụm bài, lịch đăng thông minh, workflow tự động, 6 bước viết bài; đọc khi: viết/lên lịch/sửa bài blog hoặc ảnh blog
 - [BRAND-RULES.md](BRAND-RULES.md) — Nguồn thương hiệu duy nhất cho Lexkite: bảng màu (Kit chỉ từ web/js/kit.js, teal), thứ đã bỏ (xanh cũ #2F62C0), đổi tên thương hiệu, watermark video; đọc khi: đụng logo, màu, tên, watermark
+- [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CI-RUNNERS.md](CI-RUNNERS.md) — Ngân sách 20 runner GitHub Actions: việc nền ≤ ~10 (max-parallel), concurrency PR hủy lượt cũ, prod-release 1 lượt chờ, lượt ma queued; đọc khi: thêm workflow ma trận/nền hoặc check PR phải xếp hàng
+- [QUALITY-PIPELINE.md](QUALITY-PIPELINE.md) — Phương pháp "làm 1 lần ăn ngay" cho pipeline sinh nội dung (ảnh, kho từ): thước đo trước, nhánh riêng, pilot mẫu khó cố định, đạt mới hàng loạt, tự dừng khi tụt, mỗi lỗi một test; đọc khi: bắt đầu/đổi prompt, mô hình, giám khảo, nguồn
 - [SYNC-DRIVE.md](SYNC-DRIVE.md) — Đồng bộ local-first qua Google Drive appDataFolder của chính người học: so sánh hạn mức, thiết kế, di chuyển từ D1, việc chủ duyệt; đọc khi: sửa đồng bộ/đăng nhập/xóa tài khoản.
 - [FREE-TIER.md](FREE-TIER.md) — Free-tier guard hằng ngày: số dùng thật so với trần gói miễn phí (Workers, D1, R2, Pages build, repo), chế độ shed của Worker; đọc khi: thêm Worker/trang tự sinh/việc nền hoặc có issue free-tier
 - [CLASSROOM.md](CLASSROOM.md) — Chế độ lớp học (giáo viên/học sinh): tạo lớp, giao bài qua Google Classroom, dữ liệu tối thiểu, chi phí D1 và giới hạn; đọc khi: sửa tính năng lớp học
@@ -32,6 +34,8 @@
 - [CWS-RULES.md](CWS-RULES.md) — Quy tắc Chrome Web Store và quy trình phát hành add-on: không mã từ xa, giới hạn cửa hàng, phát hành tự động, thiết lập workflow, kiểm thử; đọc khi: sửa extension/ hoặc phát hành add-on
 - [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) — Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên; đọc khi: mọi thay đổi giao diện
 - [STITCH-WEB.md](STITCH-WEB.md) — Thiết kế lại mọi trang web + add-on theo Stitch: 16 loại trang → file sinh trang → màn Stitch, luật port, thứ tự PR; đọc khi: đổi giao diện trang tĩnh/blog/công cụ/add-on
+- [STITCH-V2-PORT](STITCH-V2-PORT.md) — port màn Stitch v2 vào app bằng bộ chuyển tự động; đọc khi port/sửa màn v2
+- [GAME-FEEL.md](GAME-FEEL.md) — Lớp game feel: gói âm CC0, rung, chuyển động phản hồi (XP, thanh, combo), nhân vật phản ứng, cờ ?feel=1; đọc khi: sửa âm/hiệu ứng phản hồi
 - [DISTRIBUTION.md](DISTRIBUTION.md) — Kênh & phân phối (nhúng + social): vai trò kênh, định tuyến, hợp đồng cho tác tử social (GrabCast), hệ thống web/app; đọc khi: sửa phân phối/social
 - [EDGE-SUBMIT.md](EDGE-SUBMIT.md) — Gói hồ sơ đăng Lexkite lên Microsoft Edge Add-ons: dùng chung zip Chrome, các bước trên Partner Center, lưu ý chính sách; đọc khi: đăng/cập nhật add-on trên Edge
 - [EXPLAIN.md](EXPLAIN.md) — Lược đồ lời giải đáp án: một thẻ dùng chung explain-card.js, dữ liệu web/js/explain/<bộ>/<lang>.json, mặc định hiện Cấu trúc + Vì sao; đọc khi: sửa phản hồi bài luyện
@@ -43,6 +47,7 @@
 - [INDEX.md](INDEX.md) — mục lục chuẩn này; đọc khi: tìm tài liệu hoặc thêm doc mới (phải thêm 1 dòng ở đây)
 - [JOBS.md](JOBS.md) — Sổ việc nền & điều phối, SINH TỰ ĐỘNG từ infra/jobs.json (không sửa tay): luật, tài nguyên, lịch UTC, đồ thị kho từ; đọc khi: thêm cron/CI nền
 - [LESSON-ENGINE.md](LESSON-ENGINE.md) — Bài học trộn bài tập nhỏ #/lesson (nghe chọn từ, xếp câu, nói theo, ảnh→nói, dịch ô chữ): cá nhân hóa từ FSRS + add-on, lỗi cũ, COMBO, Giải thích 0 AI, Ama/Carlos sprite, cờ lesson_mix; đọc khi: sửa/mở rộng màn bài học
+- [CALL.md](CALL.md) — Cuộc gọi Ama/Carlos #/call (kịch bản IELTS/TOEIC rẽ nhánh, nhận dạng trên máy, tổng kết sửa lỗi, luyện lại câu yếu) + nhịp câu/shadowing phát âm; đọc khi: sửa call*.js, pron/coach.js, pron/rhythm.js
 - [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
 - [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
 - [MEDIA-QA-RUBRIC.md](MEDIA-QA-RUBRIC.md) — Thang chấm 100 cho tài nguyên nhân vật & video: ảnh nhân vật, bối cảnh, video, Call Mia, vòng lặp sau đăng; chỉ dùng khi ≥ 90; đọc khi: chấm lô ảnh/video
@@ -77,6 +82,8 @@
 - [VIDEO-STORAGE.md](VIDEO-STORAGE.md) — Lưu trữ short theo công thức (recipe-first) $0, mở rộng tới 100k clip: nơi lưu, luồng, dựng lại từ công thức, di trú repo cũ; đọc khi: lưu/dựng lại short
 - [VIDEO-TEACHERS.md](VIDEO-TEACHERS.md) — Giáo viên video, bộ cảnh và clip nói (họ template v9): clip dùng ngay 0 credit, mặt nạ đầu, thêm giáo viên, bank CLASSROOM, chữ trên bảng; đọc khi: sửa giáo viên/cảnh video
 - [VIDEO-TEMPLATES.md](VIDEO-TEMPLATES.md) — Template video v1 (24/10) nhất quán theo thiết kế: lưới, thang chữ, màu từ kit.js, token chuyển động, luật, cấu trúc beat; đọc khi: sửa template video
+- [VIDEO-MOTION](VIDEO-MOTION.md) — Stitch overlay cards + Remotion motion keyed to the voice; read before touching scripts/video/motion or the stitch-short composition
+- [VIDEO-TEACH2D](VIDEO-TEACH2D.md) — 5 teaching templates (2D registry teacher + Kit cards, short + lesson embed), QC before/after render, topic plan; read before any teaching video work
 - [VIDEO-SERIES.md](VIDEO-SERIES.md) — 6 series video đánh số + bộ lọc chủ đề máy làm tốt + chuẩn pipeline quy mô lớn: lý do save/share, kho 10 tập đầu mỗi series, luật series, nhịp giảng; đọc khi: lên nội dung video
 - [VIDEO.md](VIDEO.md) — Nguồn sự thật video hiện hành: chiến lược (NEWS-ANCHOR), look v5, builder scripts/cine/, CI cine-render, lưu trữ, kho footage; đọc khi: mọi việc video
 - [VISUAL-LEARNING-PLAN.md](VISUAL-LEARNING-PLAN.md) — Kế hoạch ảnh học ngoài thẻ từ vựng: các ứng viên theo giá trị/công sức, giai đoạn 1 (24/10), luật cho mọi giai đoạn; đọc khi: thêm ảnh minh họa mới
@@ -120,3 +127,4 @@
 - [VIDEO-PIPELINE.md](archive/VIDEO-PIPELINE.md) — Toàn văn cũ pipeline video; bản hiện hành VIDEO.md; đọc khi: tra pipeline cũ
 - [VIDEO-SYSTEM-PLAN.md](archive/VIDEO-SYSTEM-PLAN.md) — Toàn văn cũ kế hoạch hệ video; bản hiện hành VIDEO.md; đọc khi: tra kế hoạch hệ video cũ
 - [i18n-review-2026-10-16.md](archive/i18n-review-2026-10-16.md) — Nhật ký rà soát bản dịch 16/10 (chuyển từ docs/, nguyên văn); đọc khi: tra quyết định dịch
+- [LEXICON-expand-pilots-24-10.md](archive/LEXICON-expand-pilots-24-10.md) — Nhật ký pilot 5–10 kho từ 20k (24/10, nguyên văn từ LEXICON.md); đọc khi: tra vì sao có espeak/retry/dịch ngược theo ngôn ngữ
