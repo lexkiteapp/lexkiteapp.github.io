@@ -369,7 +369,7 @@
    "hook": "Most learners miss this",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (state verbs such as belong / want / know are not used in the -ing form) from the app grammar point stative-dynamic: listed mistake 'This book is belonging to the library.' -> 'This book belongs to the library.', listed quiz 'I ___ this graph.' -> don't understand (also a state verb, same point); rule line 'State verbs stay simple.' matches the bricks 'belong · want · know + simple form'; 'MOST LEARNERS' hook 'Most learners miss this!' - stative-in-progressive is one of the most frequent learner errors (the app's own note: learners translate 'đang muốn'), acceptable as a social hook; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/grammar/stative-dynamic; natural American English; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (state verbs such as belong / want / know are not used in the -ing form) from the app grammar point stative-dynamic: listed mistake 'This book is belonging to the library.' -> 'This book belongs to the library.', listed quiz 'I ___ this graph.' -> don't understand (also a state verb, same point); rule line 'State verbs stay simple.' matches the bricks 'belong · want · know + simple form'; 'MOST LEARNERS' hook 'Most learners miss this!' - stative-in-progressive is one of the most frequent learner errors (the app's own note: learners translate 'đang muốn'), acceptable as a social hook; 3 words at hook speed 1.25; CTA #/grammar/stative-dynamic; natural American English; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Most learners miss this!",
     "r": "State verbs stay simple.",
@@ -421,7 +421,7 @@
    "hook": "“Grab a coffee”?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one phrase ('grab a coffee' = get a coffee quickly) from the app call script coffee, turn 0 (quote and meaning are the app's own data, reply 'Yes, please!' = the app's first reply option); quiz answer 'Let's grab a coffee!' is natural American English for inviting a tired friend, distractor 'No worries!' is an app phrase that does not fit; QUESTION hook 'What's grab a coffee?' (asking for the meaning, informal spoken style) = on-screen '“Grab a coffee”?'; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/call/coffee (in-app caller is Mia: CTA says Practice a real call); facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one phrase ('grab a coffee' = get a coffee quickly) from the app call script coffee, turn 0 (quote and meaning are the app's own data, reply 'Yes, please!' = the app's first reply option); quiz answer 'Let's grab a coffee!' is natural American English for inviting a tired friend, distractor 'No worries!' is an app phrase that does not fit; QUESTION hook 'What's grab a coffee?' (asking for the meaning, informal spoken style) = on-screen '“Grab a coffee”?'; 3 words at hook speed 1.25; CTA #/call/coffee (in-app caller is Mia: CTA says Practice a real call); facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "What's grab a coffee?",
     "m": "Your teammate says: I'm going to grab a coffee for the team.",
@@ -437,7 +437,7 @@
    "hook": "Breaked? Not a word!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (break - broke - broken, not 'breaked') from the verb engine (same facts as t3); MYTH hook 'Breaked? Not a word!' - true for standard English; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/verb/break; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (break - broke - broken, not 'breaked') from the verb engine (same facts as t3); MYTH hook 'Breaked? Not a word!' - true for standard English; 3 words at hook speed 1.25; CTA #/verb/break; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Breaked? Not a word!",
     "b": "Base form: break.",
@@ -455,7 +455,7 @@
    "hook": "Catch every word!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one listening line, verbatim from the app script t4p1 line 7 (lost bag at a station): 'No, it was definitely one of yours. The commuter line.' said twice, gap 'commuter line' (2 words); 'commuter' = audited bank word (/kəˈmjuːtər/, 'a person who travels into a city to work each day'); spoken gloss 'someone who travels to work daily' is accurate; CHALLENGE hook 'Can you catch this?' / on screen 'Catch every word!'; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/dictation/t4p1; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one listening line, verbatim from the app script t4p1 line 7 (lost bag at a station): 'No, it was definitely one of yours. The commuter line.' said twice, gap 'commuter line' (2 words); 'commuter' = audited bank word (/kəˈmjuːtər/, 'a person who travels into a city to work each day'); spoken gloss 'someone who travels to work daily' is accurate; CHALLENGE hook 'Can you catch this?' / on screen 'Catch every word!'; 3 words at hook speed 1.25; CTA #/dictation/t4p1; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Can you catch this?",
     "s1": "No, it was definitely one of yours. The commuter line.",
@@ -489,7 +489,7 @@
    "hook": "Most learners mix these up",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (beside = next to, besides = also), gold sb_2ed92c40; IPA beside /bɪˈsaɪd/, besides /bɪˈsaɪdz/ = audited bank; card tags NEXT TO / ALSO match the two meaning lines; quiz 'Besides coffee, I also like tea.' answered aloud; 'MOST LEARNERS' hook 'Most learners mix these!' - beside / besides is a well-known confusion (even for native writers), acceptable; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/usage/beside-besides; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (beside = next to, besides = also), gold sb_2ed92c40; IPA beside /bɪˈsaɪd/, besides /bɪˈsaɪdz/ = audited bank; card tags NEXT TO / ALSO match the two meaning lines; quiz 'Besides coffee, I also like tea.' answered aloud; 'MOST LEARNERS' hook 'Most learners mix these!' - beside / besides is a well-known confusion (even for native writers), acceptable; 3 words at hook speed 1.25; CTA #/usage/beside-besides; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Most learners mix these!",
     "r": "Sit beside me.",
@@ -525,7 +525,7 @@
    "hook": "Sound like a local!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (Americans say parking spot / parking space, not 'car place'), gold sb_a79c3048; chip 'TEXTBOOK · AT THE MALL', strike on 'car place', 'parking spot' highlighted; quiz 'It took ten minutes to find a parking spot.'; CHALLENGE hook 'Sound like a local!' - names the payoff (natural American wording); 4 words at hook speed 1.25 (est. 1.35 s); CTA #/phrases; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (Americans say parking spot / parking space, not 'car place'), gold sb_a79c3048; chip 'TEXTBOOK · AT THE MALL', strike on 'car place', 'parking spot' highlighted; quiz 'It took ten minutes to find a parking spot.'; CHALLENGE hook 'Sound like a local!' - names the payoff (natural American wording); 3 words at hook speed 1.25; CTA #/phrases; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Sound like a local!",
     "w": "Textbook: I can't find a car place.",
@@ -542,7 +542,7 @@
    "hook": "Can you guess it?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one word (balloon) from the audited bank (/bəˈluːn/, 'a rubber bag filled with air', bank example sentence) + its licensed img.json picture balloon#n; clues true (7 letters, starts with B); QUESTION hook 'Can you guess it?' = on screen; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/dict/balloon; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one word (balloon) from the audited bank (/bəˈluːn/, 'a rubber bag filled with air', bank example sentence) + its licensed img.json picture balloon#n; clues true (7 letters, starts with B); QUESTION hook 'Can you guess it?' = on screen; 3 words at hook speed 1.25; CTA #/dict/balloon; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Can you guess it?",
     "c1": "Clue one: a rubber bag filled with air.",
@@ -559,7 +559,7 @@
    "hook": "Most learners miss one",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: three gold quiz items (sb_08f69142 It depends, sb_13a16c00 exciting vs excited, sb_47b3e9e9 stole vs robbed), each answer spoken as the full correct sentence; 'MOST LEARNERS' hook 'Most learners miss one!' - all three are among the most common learner errors, so missing at least one is the typical result; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/placement; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: three gold quiz items (sb_08f69142 It depends, sb_13a16c00 exciting vs excited, sb_47b3e9e9 stole vs robbed), each answer spoken as the full correct sentence; 'MOST LEARNERS' hook 'Most learners miss one!' - all three are among the most common learner errors, so missing at least one is the typical result; 3 words at hook speed 1.25; CTA #/placement; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Most learners miss one!",
     "q1": "Question one.",
@@ -577,7 +577,7 @@
    "hook": "10 seconds. Go!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one TOEIC Part 5 item (app bank tr1 #106, answer key 'by', cue 'the end of each month'); explanation 'No later than month end.' = the meaning of 'by' with a deadline, correct; CHALLENGE hook 'Ten seconds. Ready? Go!' / on screen '10 seconds. Go!'; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/toeic; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one TOEIC Part 5 item (app bank tr1 #106, answer key 'by', cue 'the end of each month'); explanation 'No later than month end.' = the meaning of 'by' with a deadline, correct; CHALLENGE hook 'Ten seconds. Ready? Go!' / on screen '10 seconds. Go!'; 3 words at hook speed 1.25; CTA #/toeic; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Ten seconds. Ready? Go!",
     "s": "Expense reports should be submitted blank the end of each month.",
@@ -593,9 +593,9 @@
    "hook": "Eventually = maybe? No!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one word (eventually) from the audited bank (/ɪˈventʃəwəli/, 'in the end, after a long time or a lot of problems', bank example); MYTH hook 'Eventually means maybe? No!' / on screen 'Eventually = maybe? No!' - true: a classic false friend (eventuell / eventualmente = possibly), and the card's meaning shows 'in the end'; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/review?w=eventually; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one word (eventually) from the audited bank (/ɪˈventʃəwəli/, 'in the end, after a long time or a lot of problems', bank example); MYTH hook 'Eventually? Not maybe!' (re-review 31/10: CI hook gate measured 1.64 s for the 4-word version > 1.5 s, so the spoken line is 3 words) / on screen 'Eventually = maybe? No!' - true: a classic false friend (eventuell / eventualmente = possibly), and the card's meaning shows 'in the end'; 3 words at hook speed 1.25; CTA #/review?w=eventually; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
-    "h": "Eventually means maybe? No!",
+    "h": "Eventually? Not maybe!",
     "f": "Here's your card: eventually.",
     "q": "Think! What does it mean?",
     "b": "It means in the end, after a long time or a lot of problems.",
@@ -609,7 +609,7 @@
    "hook": "Contacting, or to contact?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (hesitate + to + verb, not -ing), gold sb_29c61515 (right line 'Don't hesitate to contact us.', quiz 'Please don't hesitate to call us.'); bricks hesitate + to + verb; QUESTION hook 'Contacting, or to contact?' = on screen, answered by the right line and the quiz; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/verb/hesitate; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (hesitate + to + verb, not -ing), gold sb_29c61515 (right line 'Don't hesitate to contact us.', quiz 'Please don't hesitate to call us.'); bricks hesitate + to + verb; QUESTION hook 'Contacting, or to contact?' = on screen, answered by the right line and the quiz; 3 words at hook speed 1.25; CTA #/verb/hesitate; facts true, one point, English only, <= 150 wpm, no jargon)",
    "script": {
     "h": "Contacting, or to contact?",
     "w": "Many learners say: Don't hesitate contacting us.",

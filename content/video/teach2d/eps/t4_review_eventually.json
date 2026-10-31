@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Eventually means maybe? No!",
+   "text": "Eventually? Not maybe!",
    "pause": 0.42,
    "speed": 1.25
   },
@@ -75,9 +75,9 @@
  "hook_by": 1.5,
  "layout": "bubble",
  "est": {
-  "words": 49,
-  "seconds": 28.4,
-  "wpm": 103,
-  "hook_s": 1.35
+  "words": 48,
+  "seconds": 28.1,
+  "wpm": 102,
+  "hook_s": 1.04
  }
 }

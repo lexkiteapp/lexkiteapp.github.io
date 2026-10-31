@@ -728,7 +728,7 @@
    "hook_hl": "No!",
    "in": {
     "word": "eventually",
-    "hook_say": "Eventually means maybe? No!",
+    "hook_say": "Eventually? Not maybe!",
     "hook_text": "Eventually = maybe? No!"
    }
   },
