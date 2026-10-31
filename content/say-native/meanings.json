@@ -1,6 +1,7 @@
 {
  "behind schedule": {
   "ar": "متأخر عن الجدول; متأخر عن الموعد; متأخر عن الخطة",
+  "de": "hinter dem Zeitplan; im Rückstand",
   "es": "con retraso; retrasado",
   "fr": "en retard; en retard sur le planning",
   "hi": "समय से पीछे; निर्धारित समय से पीछे",
@@ -109,12 +110,14 @@
   "es": "te debo una; te lo debo",
   "fr": "je te dois une; je te revaudrai",
   "id": "saya berhutang budi padamu; nanti saya balas",
+  "ja": "借りができた; 恩に着る; 次は私が返す",
   "ko": "신세 졌어요; 다음에 보답할게",
   "pt": "te devo uma; vou te pagar essa; te devo um favor",
   "ru": "в долгу; отплачу",
   "th": "ขอบคุณ ฉันจะตอบแทน; ขอบคุณ ฉันจะช่วยคุณต่อไป",
   "tr": "borçluyum; sana bir borcum var",
-  "zh": "欠你一次; 我欠你个人情; 下次我请客"
+  "zh": "欠你一次; 我欠你个人情; 下次我请客",
+  "hi": "मैं आपका एहसानमंद हूँ; आपका एक एहसान रहा"
  },
  "i partly agree": {
   "ar": "أوافق جزئياً; أقبل جزئياً",
@@ -151,6 +154,7 @@
   "de": "Ich verstehe deinen Standpunkt, aber; ich sehe deinen Punkt, aber",
   "es": "veo tu punto, pero; entiendo tu argumento, pero",
   "fr": "je vois ton point de vue, mais; je comprends ton argument, mais",
+  "hi": "मैं आपकी बात समझता हूँ, पर; मैं आपकी बात समझता हूँ, लेकिन",
   "id": "Saya mengerti pendapatmu, tapi; Saya mengerti maksudmu, namun",
   "ja": "あなたの意見は分かりますが; 言いたいことは分かりますが",
   "ko": "당신 말은 알겠지만; 네 의견은 이해하지만",
@@ -186,6 +190,7 @@
   "ko": "그건 사양하겠다; 그건 안 할게요",
   "pt": "vou ter que passar; vou ter que recusar",
   "ru": "мне придётся отказаться; я пропущу; я не смогу прийти",
+  "th": "ขอข้ามไปก่อน; คงต้องขอตัวก่อน",
   "tr": "bu sefer katılamam; bu sefer kaçırmam gerekir",
   "zh": "我得婉拒; 我只能不去; 我得谢绝"
  },
@@ -317,6 +322,7 @@
   "hi": "बहुत खुश; खुशी से झूम रहा हूँ",
   "id": "sangat bahagia; senang sekali",
   "ja": "有頂天だ; 大喜びだ",
+  "ko": "기뻐서 하늘을 날다; 행복이 넘치다",
   "pt": "nas nuvens; estar nas nuvens",
   "ru": "на седьмом небе; в полном восторге; в экстазе",
   "th": "ดีใจสุดๆ; มีความสุขมาก",
@@ -371,6 +377,7 @@
  "sleep on it": {
   "ar": "يتمهل في القرار; يفكر في الأمر حتى الغد",
   "de": "darüber schlafen; eine Nacht darüber schlafen",
+  "es": "consultarlo con la almohada; pensarlo bien",
   "fr": "dormir dessus; réfléchir à tête reposée",
   "hi": "रात भर सोकर देखना; रात भर सोच लेना",
   "id": "tidur dulu, pikirkan lagi; pikirkan dulu besok",
@@ -379,7 +386,8 @@
   "pt": "dormir sobre isso; pensar antes de decidir",
   "ru": "подумать до утра; отложить решение; вздремнуть над этим",
   "tr": "bir gece uyuyup karar ver; bir gece düşün",
-  "zh": "再想想; 再睡一觉再说"
+  "zh": "再想想; 再睡一觉再说",
+  "th": "ขอไปคิดดูก่อน; ขอเวลาคิดอีกหน่อย"
  },
  "take it easy": {
   "ar": "اهدأ; خذ الأمور بسهولة; استرخي",
@@ -402,6 +410,7 @@
   "es": "la gota que colma el vaso; la última gota",
   "fr": "la goutte qui fait déborder le vase; la goutte d'eau qui fait déborder le vase",
   "hi": "आखिरी कड़वी गोली; हद हो गई",
+  "id": "titik didih; batas kesabaran",
   "ja": "最後の一滴; 我慢の限界",
   "ko": "마지막 한 방; 더 이상 못 참는 상황",
   "pt": "a gota d'água; a última gota",

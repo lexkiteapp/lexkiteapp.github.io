@@ -24,15 +24,15 @@
   const say = (text, who, rate) => UI.tts(text, 'en-US', rate, { voice: Chars.voice(who) });
   const err = view => { view.innerHTML = `<div class="empty"><p>${esc(t('Không tải được – thử lại sau'))}</p><a class="btn" href="#/say">${esc(t('Thử lại'))}</a></div>`; };
 
-  routes.say = async function (arg) {
-    const view = $('#view');
-    let D; try { D = await (App.W || (p => p))(data()); } catch (e) { return err(view); }
+  routes.say = App.guard(async function (arg) {
+    const view = $('#view'), w = App.W; // App.W của CHÍNH lượt này (guard đặt trước khi gọi) – App.W cũ của trang khác treo lời hứa
+    let D; try { D = await w(data()); } catch (e) { return err(view); }
     const [sid, iid] = String(arg || '').split('/'), s = D.series.find(x => x.id === sid);
     if (!s) return list(view, D);
     const i = Math.max(0, s.items.findIndex(x => x.id === iid));
     if (!iid || s.items[i].id !== iid) { location.replace('#/say/' + s.id + '/' + s.items[i].id); return; }
     card(view, s, i);
-  };
+  });
 
   // 📚 Các loạt (chưa có ref Stitch riêng → cùng token/khuôn thẻ của mặt trước; chủ duyệt ảnh)
   function list(view, D) {
