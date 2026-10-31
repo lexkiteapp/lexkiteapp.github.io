@@ -2,103 +2,108 @@
 
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Say it like a native - Lexkite</title>
-<!-- Material Symbols Outlined -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Google Fonts: Plus Jakarta Sans -->
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Say it like a native</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS CDN -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind Config verbatim matching Design System -->
 <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
-          "colors": {
-            "outline-variant": "#3d4947",
-            "on-secondary": "#660800",
-            "on-secondary-fixed-variant": "#900f00",
-            "on-tertiary-fixed": "#261a00",
-            "tertiary-fixed": "#ffdf9e",
-            "on-primary": "#003733",
-            "tertiary": "#f4bf40",
-            "on-error-container": "#ffdad6",
-            "surface-container": "#162125",
-            "on-tertiary": "#402e00",
-            "surface-container-low": "#121d20",
-            "inverse-surface": "#d8e5e9",
-            "secondary": "#ffb4a6",
-            "background": "#091518",
-            "inverse-primary": "#006a64",
-            "secondary-container": "#981201",
-            "on-secondary-fixed": "#3f0300",
-            "on-primary-fixed": "#00201e",
-            "surface-variant": "#2b373a",
-            "tertiary-fixed-dim": "#f4bf40",
+          colors: {
             "on-background": "#d8e5e9",
-            "surface-container-highest": "#2b373a",
-            "surface-dim": "#091518",
-            "outline": "#879391",
-            "primary-fixed-dim": "#6bd8ce",
-            "error-container": "#93000a",
-            "on-tertiary-container": "#392900",
-            "surface-tint": "#6bd8ce",
-            "primary-container": "#2ba39a",
             "tertiary-container": "#ba8b00",
-            "surface-container-high": "#202c2f",
-            "on-error": "#690005",
-            "inverse-on-surface": "#263236",
             "surface-container-lowest": "#051013",
-            "surface": "#091518",
-            "on-secondary-container": "#ffa493",
-            "secondary-fixed-dim": "#ffb4a6",
-            "on-surface-variant": "#bcc9c7",
-            "error": "#ffb4ab",
-            "primary-fixed": "#88f5ea",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "secondary-fixed": "#ffdad3",
-            "on-surface": "#d8e5e9",
-            "primary": "#6bd8ce",
-            "on-primary-container": "#00322e",
+            "surface-container-low": "#121d20",
+            "surface-container": "#162125",
+            "surface-container-high": "#202c2f",
+            "surface-container-highest": "#2b373a",
+            "surface-variant": "#2b373a",
+            "surface-dim": "#091518",
             "surface-bright": "#2f3b3e",
-            "on-primary-fixed-variant": "#00504b"
+            "surface": "#091518",
+            "on-surface": "#d8e5e9",
+            "on-surface-variant": "#bcc9c7",
+            "inverse-surface": "#d8e5e9",
+            "inverse-on-surface": "#263236",
+            "outline": "#879391",
+            "outline-variant": "#3d4947",
+            "surface-tint": "#6bd8ce",
+            "background": "#091518",
+            "primary": "#6bd8ce",
+            "on-primary": "#003733",
+            "primary-container": "#2ba39a",
+            "on-primary-container": "#00322e",
+            "inverse-primary": "#006a64",
+            "secondary": "#ffb4a6",
+            "on-secondary": "#660800",
+            "secondary-container": "#981201",
+            "on-secondary-container": "#ffa493",
+            "tertiary": "#f4bf40",
+            "on-tertiary": "#402e00",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+            "error-container": "#93000a",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#88f5ea",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary-fixed": "#00201e",
+            "secondary-fixed": "#ffdad3",
+            "secondary-fixed-dim": "#ffb4a6",
+            "tertiary-fixed": "#ffdf9e",
+            "tertiary-fixed-dim": "#f4bf40"
           },
-          "borderRadius": {
+          borderRadius: {
             "DEFAULT": "0.25rem",
             "lg": "0.5rem",
-            "xl": "0.75rem",
+            "xl": "1rem",
+            "2xl": "1.25rem",
             "full": "9999px"
           },
-          "fontFamily": {
-            "headline": ["Plus Jakarta Sans", "sans-serif"],
-            "display": ["Plus Jakarta Sans", "sans-serif"],
-            "body": ["Plus Jakarta Sans", "sans-serif"],
-            "label": ["Plus Jakarta Sans", "sans-serif"]
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
           }
-        },
-      },
+        }
+      }
     }
   </script>
 <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      background-color: #091518;
-      color: #d8e5e9;
-      user-select: none;
-    }
     .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
       line-height: 1;
       display: inline-block;
+      user-select: none;
     }
-    .pb-safe {
-      padding-bottom: env(safe-area-inset-bottom, 14px);
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile button sink interaction */
+    .tactile-press {
+      transition: transform 75ms ease, box-shadow 75ms ease;
+    }
+    .tactile-press:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #051013 !important;
+    }
+    .tactile-pill-press:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #051013 !important;
+    }
+    /* Subtle custom scrollbar hiding */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 <style>
@@ -107,230 +112,182 @@
     }
   </style>
   </head>
-<body class="bg-background text-on-surface antialiased flex flex-col items-center justify-start min-h-screen">
-<!-- Mobile Viewport 390px Container -->
-<main class="w-[390px] min-h-screen bg-background relative flex flex-col pb-24 overflow-x-hidden selection:bg-primary-container selection:text-on-primary">
-<!-- 1. TOP APP BAR (from Shared Components JSON) -->
-<header class="flex justify-between items-center w-full px-4 h-16 max-w-[390px] mx-auto bg-background dark:bg-background text-primary dark:text-inverse-primary border-b-2 border-surface-container-highest dark:border-surface-variant relative z-20">
-<!-- Leading: arrow_back tactile button -->
-<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-on-surface shadow-[0_3px_0_theme(colors.surface-container-lowest)] active:translate-y-[2px] transition-transform duration-75 hover:bg-surface-container">
+<body class="bg-[#051013] text-on-surface font-body antialiased flex justify-center items-start min-h-screen p-0 m-0">
+<!-- Mobile Portrait Shell (Exact 390px, Single Column, 8pt rhythm) -->
+<main class="w-[390px] min-h-screen bg-background relative flex flex-col justify-between overflow-x-hidden shadow-2xl pb-[76px]">
+<!-- Ambient Subtle Top Glow -->
+<div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[340px] h-48 bg-primary/5 blur-[90px] rounded-full"></div>
+<!-- 1. TOP APP BAR (56px, Shared Component Anchored) -->
+<header class="h-14 w-full px-4 flex items-center justify-between z-30 sticky top-0 bg-background/95 backdrop-blur-md">
+<!-- Left: Round tactile back-arrow button -->
+<button aria-label="Go back" class="tactile-press w-10 h-10 rounded-full bg-surface-container-high border-2 border-[#234e57] shadow-[0_4px_0_#051013] flex items-center justify-center text-primary hover:text-white transition-colors">
 <span class="material-symbols-outlined text-[20px]">arrow_back</span>
 </button>
-<!-- Center Headline: exact JSON string -->
-<h1 class="text-base font-extrabold tracking-tight text-on-surface dark:text-inverse-on-surface font-headline">
-        Say it like a native
-      </h1>
-<!-- Trailing: flag icon tactile button -->
-<button aria-label="Report or flag item" class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-on-surface shadow-[0_3px_0_theme(colors.surface-container-lowest)] active:translate-y-[2px] transition-transform duration-75 hover:bg-surface-container">
-<span class="material-symbols-outlined text-[20px]">flag</span>
+<!-- Center: Page title 'Say it like a native' -->
+<div class="flex items-center gap-2">
+<h1 class="text-white font-headline text-[17px] font-extrabold tracking-tight">Say it like a native</h1>
+</div>
+<!-- Right: Round tactile flag icon button -->
+<button aria-label="Report or flag item" class="tactile-press w-10 h-10 rounded-full bg-surface-container-high border-2 border-[#234e57] shadow-[0_4px_0_#051013] flex items-center justify-center text-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[19px]">flag</span>
 </button>
 </header>
-<!-- Progress & Streak Strip -->
-<section class="w-full px-4 pt-3 pb-2 flex flex-col gap-2.5">
-<div class="flex items-center justify-between gap-2">
-<!-- Step Chip -->
-<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#102328] border border-primary/20 text-xs font-bold text-on-surface shadow-[0_2px_0_#051013]">
-<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
-<span class="text-on-surface font-semibold truncate">Disagree without a fight</span>
-<span class="text-outline">·</span>
-<span class="text-primary font-bold">3/8</span>
+<!-- CONTENT SCROLLER -->
+<div class="flex-1 px-4 pt-1 flex flex-col gap-3.5 z-10 no-scrollbar">
+<!-- 2. TEACHER SLOT & SPEECH BUBBLE -->
+<section class="flex items-center gap-3 w-full">
+<!-- TEACHER SLOT: strictly empty dashed box with graduation cap silhouette -->
+<div class="w-[120px] h-[132px] shrink-0 rounded-2xl border-2 border-dashed border-primary/40 bg-surface-container-low/80 flex flex-col items-center justify-center text-center p-2.5 shadow-[0_3px_0_#051013]">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest/60 flex items-center justify-center mb-1.5 border border-primary/20">
+<span class="material-symbols-outlined text-primary/70 text-[22px]">school</span>
 </div>
-<!-- Streak Pill -->
-<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-tertiary-container/40 text-tertiary font-extrabold text-xs shadow-[0_2px_0_#051013]">
-<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
-<span>4 Streak</span>
+<span class="text-[9px] font-extrabold tracking-wide uppercase text-primary/90 leading-tight">Teacher Slot</span>
+<span class="text-[8px] font-medium text-on-surface-variant/80 leading-3 mt-0.5">2D coach loads here</span>
 </div>
+<!-- SPEECH BUBBLE pointing left -->
+<div class="relative flex-1 bg-surface-container-high border-2 border-[#234e57] rounded-2xl p-3.5 shadow-[0_4px_0_#051013]">
+<!-- Speech triangle pointer left -->
+<div class="absolute -left-[9px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[9px] border-r-[#234e57]"></div>
+<div class="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[7px] border-r-surface-container-high"></div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-extrabold uppercase tracking-wider text-primary">Pro tip</span>
 </div>
-<!-- Thin mint/teal Progress Bar -->
-<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden p-[1px] border border-surface-container-highest">
-<div class="h-full bg-gradient-to-r from-primary-container via-primary to-primary-fixed rounded-full w-[37.5%] transition-all duration-300"></div>
+<p class="text-white text-[13px] font-bold leading-snug">
+            “Smooth! Nobody gets hurt.”
+          </p>
+<p class="text-on-surface-variant text-[11px] font-medium mt-1 leading-normal">
+            De-escalate friction like a charismatic diplomat.
+          </p>
 </div>
 </section>
-<!-- CONTENT CANVAS -->
-<div class="w-full px-4 flex flex-col gap-3 mt-1">
-<!-- 2. THE MAIN FLIPPED REACTION FLASHCARD (Back Side) -->
-<article class="w-full rounded-2xl bg-[#0e1f24] border-2 border-primary/25 shadow-[0_6px_0_#051013] p-4.5 relative overflow-hidden flex flex-col gap-3.5">
-<!-- Ambient Top Sheen Glow -->
-<div class="absolute -top-10 -right-10 w-36 h-36 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
-<!-- Top Row: Badge + Muted Tag + Speaker Audio Button -->
-<div class="flex items-center justify-between z-10">
-<div class="flex items-center gap-2">
-<!-- Polite Badge -->
-<span class="inline-flex items-center gap-1 bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 rounded-full px-2.5 py-0.5 font-extrabold text-[11px] tracking-wide uppercase">
-<span class="material-symbols-outlined text-[13px] font-black">check_circle</span>
-              POLITE
-            </span>
-<!-- Level / Registry Pill -->
-<span class="text-[11px] font-bold text-outline uppercase tracking-wider bg-surface-container-lowest/80 px-2 py-0.5 rounded-md border border-outline-variant/30">
-              B2 · Formal
-            </span>
-</div>
-<!-- Tactile Audio Button -->
-<button aria-label="Listen to pronunciation" class="w-9 h-9 rounded-full bg-[#183238] border border-primary/30 text-primary hover:text-white flex items-center justify-center shadow-[0_3px_0_#051013] active:translate-y-[2px] transition-transform duration-75">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
-</button>
-</div>
-<!-- Phrase Header (Coral Accent) -->
-<div class="z-10 flex flex-col gap-0.5">
-<span class="text-xs font-bold text-[#ffb4a6] uppercase tracking-wider">English Native Expression</span>
-<p class="text-base sm:text-lg font-bold text-[#ffb4a6] tracking-tight">
-            "I see where you're coming from"
-          </p>
-</div>
-<!-- Big Native Meaning (Vietnamese Translation) -->
-<div class="z-10 bg-surface-container-lowest/60 rounded-xl p-3 border border-outline-variant/40 flex flex-col gap-1">
+<!-- 3. ONE BIG CARD (Back of flipped reaction flashcard) -->
+<section class="bg-surface-container-high border-2 border-[#234e57] rounded-2xl p-4 shadow-[0_5px_0_#051013] flex flex-col gap-3 relative">
+<!-- Row 1: Badge + Speaker Button -->
 <div class="flex items-center justify-between">
-<span class="text-[10px] font-extrabold uppercase tracking-widest text-outline">Native Meaning</span>
-<span class="text-[11px] font-bold text-tertiary">VN</span>
+<div class="flex items-center gap-1.5 bg-[#003733]/90 border border-primary/50 text-primary px-2.5 py-0.5 rounded-full shadow-[0_2px_0_#051013]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-[10px] font-extrabold tracking-wider uppercase">Polite</span>
 </div>
-<h2 class="text-2xl font-black text-white tracking-tight leading-snug">
-            Tôi hiểu ý bạn
+<button aria-label="Listen to pronunciation" class="tactile-press w-9 h-9 rounded-full bg-surface-container border-2 border-[#234e57] shadow-[0_3px_0_#051013] flex items-center justify-center text-primary hover:text-white">
+<span class="material-symbols-outlined text-[19px]">volume_up</span>
+</button>
+</div>
+<!-- Row 2: English Phrase -->
+<div class="space-y-0.5">
+<span class="text-[10px] uppercase font-extrabold tracking-wider text-outline">Target Phrase</span>
+<h2 class="text-[#ff7b89] text-[21px] font-extrabold tracking-tight leading-tight">
+            I see where you're coming from.
           </h2>
-<p class="text-xs font-semibold text-primary/90 leading-relaxed mt-0.5">
-            used to show you understand someone's point of view before presenting your thoughts
+</div>
+<!-- Row 3: Meaning in Vietnamese -->
+<div class="bg-surface-container-lowest/80 border border-outline-variant/60 rounded-xl px-3 py-2">
+<div class="text-[10px] uppercase font-bold text-outline tracking-wider">Vietnamese Meaning</div>
+<p class="text-white text-[17px] font-extrabold tracking-tight mt-0.5 leading-snug">
+            Tôi hiểu vì sao bạn nghĩ vậy
+          </p>
+<!-- Row 4: Witty line -->
+<p class="text-[#2dd4bf] text-[12px] font-bold mt-1 tracking-tight flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+            Translation: I won't fight you… yet.
           </p>
 </div>
-<!-- 3. WHEN TO USE & CONTEXT SECTION -->
-<div class="z-10 flex flex-col gap-1.5">
-<div class="flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
-<span class="text-[11px] font-black uppercase tracking-wider text-outline">WHEN TO USE</span>
+<!-- Row 5: Section Label "USE IT WHEN" -->
+<div class="flex items-center gap-2 pt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-on-surface-variant">Use it when</span>
+<div class="h-px flex-1 bg-outline-variant/50"></div>
 </div>
-<!-- Conversational Speech Bubble -->
-<div class="bg-surface-container-high/90 border border-outline-variant/50 rounded-2xl rounded-tl-sm p-3 relative shadow-inner">
-<p class="text-xs sm:text-[13px] text-on-surface leading-relaxed">
-              "<span class="text-primary font-extrabold underline decoration-primary/50 decoration-2 underline-offset-2">I see where you're coming from</span>, but I think we need more time to review the figures."
+<!-- Row 6: Chat Bubble Row -->
+<div class="bg-surface-container-lowest/90 border border-[#234e57] rounded-xl p-2.5 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-primary">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+</div>
+<p class="text-on-surface text-[12px] font-medium leading-relaxed">
+<span class="text-white font-bold">“I see where you're coming from,</span> but I need more time.”
+          </p>
+</div>
+<!-- Row 7: Two Equal Mini Cards Side-by-Side -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<!-- Left: DON'T SAY (Red / Rose Tinted) -->
+<div class="bg-[#1f1012] border-2 border-error/40 rounded-xl p-2.5 flex flex-col justify-between shadow-[0_3px_0_#051013]">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[9px] font-extrabold uppercase tracking-wider text-error">Don't say</span>
+<span class="bg-error/20 border border-error/40 text-error text-[8px] font-extrabold px-1.5 py-0.5 rounded-full">Blunt</span>
+</div>
+<p class="text-error font-extrabold text-[13px] tracking-wide my-1">
+              Y•••'• w••••.
             </p>
+<span class="text-[9px] text-error/80 font-medium">Sounds aggressive</span>
 </div>
-</div>
-<!-- 4. SIDE-BY-SIDE COMPARISON: Don't say vs Say instead -->
-<div class="z-10 grid grid-cols-2 gap-2 mt-0.5">
-<!-- Rude Card -->
-<div class="bg-rose-950/30 border border-rose-800/40 rounded-xl p-2.5 flex flex-col justify-between">
-<div>
+<!-- Right: SAY THIS (Green / Emerald Tinted) -->
+<div class="bg-[#0b1f1c] border-2 border-primary/50 rounded-xl p-2.5 flex flex-col justify-between shadow-[0_3px_0_#051013]">
 <div class="flex items-center justify-between mb-1.5">
-<span class="bg-rose-900 text-rose-200 font-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wide">
-                  RUDE
-                </span>
-<span class="material-symbols-outlined text-rose-400 text-[14px]">close</span>
+<span class="text-[9px] font-extrabold uppercase tracking-wider text-primary">Say this</span>
+<span class="bg-primary/20 border border-primary/40 text-primary text-[8px] font-extrabold px-1.5 py-0.5 rounded-full">Validates</span>
 </div>
-<p class="text-[12px] font-semibold text-rose-300/80 line-through filter blur-[0.3px] leading-tight">
-                "You're wrong!"
-              </p>
-</div>
-<span class="text-[9px] font-medium text-rose-400/70 mt-2 block">Sounds aggressive</span>
-</div>
-<!-- Better Card -->
-<div class="bg-emerald-950/30 border border-emerald-700/50 rounded-xl p-2.5 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-1.5">
-<span class="bg-emerald-900 text-emerald-200 font-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wide">
-                  SAY INSTEAD
-                </span>
-<span class="material-symbols-outlined text-emerald-300 text-[14px]">check</span>
-</div>
-<p class="text-[12px] font-bold text-emerald-200 leading-tight">
-                "I see where you're coming from..."
-              </p>
-</div>
-<span class="text-[9px] font-semibold text-emerald-400/90 mt-2 block">Validates perspective</span>
+<p class="text-white font-extrabold text-[13px] tracking-tight my-1">
+              I see your point.
+            </p>
+<span class="text-[9px] text-primary/80 font-medium">Keeps rapport</span>
 </div>
 </div>
-<!-- 5. GROUNDED 2D TEACHER GRAPHIC: Carlos in relieved encouraging pose -->
-<div class="z-10 mt-1 pt-2 border-t border-surface-container-highest/60 flex items-center justify-between bg-surface-container-low/70 rounded-xl px-3 py-2">
-<div class="flex items-center gap-2.5">
-<!-- 2D Geometric Flat Vector Avatar (Teacher Carlos) -->
-<div class="w-11 h-11 rounded-full bg-[#18393e] flex-shrink-0 flex items-center justify-center overflow-hidden border-2 border-primary/40 shadow-sm relative">
-<svg aria-hidden="true" class="w-full h-full" viewbox="0 0 100 100">
-<!-- Navy blazer background -->
-<path d="M 0 100 L 0 82 Q 50 78 100 82 L 100 100 Z" fill="#162534"></path>
-<!-- Bright Teal shirt -->
-<path d="M 30 100 L 32 74 Q 50 82 68 74 L 70 100 Z" fill="#2ba39a"></path>
-<!-- Shirt Collar -->
-<polygon fill="#6bd8ce" points="50,78 40,70 50,66"></polygon>
-<polygon fill="#6bd8ce" points="50,78 60,70 50,66"></polygon>
-<!-- Neck -->
-<rect fill="#cb8a60" height="15" width="16" x="42" y="58"></rect>
-<!-- Head & Face -->
-<ellipse cx="50" cy="46" fill="#df9b6d" rx="20" ry="22"></ellipse>
-<!-- Short Neat Black Hair -->
-<path d="M 28 44 C 28 22, 72 22, 72 44 C 72 32, 60 22, 50 22 C 38 22, 30 32, 28 44 Z" fill="#161c20"></path>
-<path d="M 28 40 Q 34 26 50 25 Q 66 26 72 40 Q 64 34 50 34 Q 36 34 28 40 Z" fill="#0f1417"></path>
-<!-- Smiling Eyes / Winking Happy Expression -->
-<path d="M 38 45 Q 43 42 47 45" fill="none" stroke="#261a00" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M 53 45 Q 57 42 62 45" fill="none" stroke="#261a00" stroke-linecap="round" stroke-width="2.5"></path>
-<!-- Friendly Smile -->
-<path d="M 43 54 Q 50 61 57 54" fill="none" stroke="#660800" stroke-linecap="round" stroke-width="2.5"></path>
-</svg>
-</div>
-<!-- Dialogue Coach Note -->
-<div class="flex flex-col">
-<span class="text-[11px] font-extrabold text-on-surface flex items-center gap-1">
-                Carlos
-                <span class="text-[9px] font-bold px-1.5 py-0.2 bg-primary/20 text-primary rounded">Coach</span>
-</span>
-<p class="text-[11px] font-medium text-on-surface-variant italic">
-                "That's much better! Natural and disarming."
-              </p>
-</div>
-</div>
-<!-- Micro reaction badge -->
-<div class="flex items-center text-tertiary font-bold text-xs bg-tertiary-container/30 border border-tertiary/30 px-2 py-1 rounded-lg">
-<span>+15 XP</span>
-</div>
-</div>
-</article>
-<!-- 6. BOTTOM ACTION CONTROLS -->
-<section class="w-full flex items-center gap-2.5 pt-1.5">
-<!-- Primary CTA: 'Say it' (sunny amber-orange with 3D drop ledge, deep brown-black text #1C1003) -->
-<button aria-label="Practice speaking this phrase" class="flex-1 h-14 bg-gradient-to-b from-[#FBBF24] to-[#F59E0B] text-[#1C1003] font-black text-base rounded-2xl flex items-center justify-center gap-2 shadow-[0_5px_0_#9A3412] active:translate-y-[3px] active:shadow-[0_2px_0_#9A3412] transition-all duration-75 border-t border-[#FDE68A]/60">
-<span class="material-symbols-outlined text-[22px] font-bold" style="font-variation-settings: 'FILL' 1;">mic</span>
-<span class="tracking-tight">Say it</span>
+</section>
+<!-- 4. BOTTOM ACTIONS (Fixed above tab bar, Tactile Buttons) -->
+<section class="flex items-center gap-2.5 pt-1 pb-1">
+<!-- Primary Button: Candy-Orange Tactile (#f59e0b, 6px ledge #9a3412, text #1c1003) -->
+<button aria-label="Practice speaking this phrase" class="tactile-press flex-1 h-14 rounded-2xl bg-[#f59e0b] hover:bg-[#fbbf24] border-2 border-[#f59e0b] shadow-[0_6px_0_#9a3412] flex items-center justify-center gap-2.5 text-[#1c1003] font-headline font-extrabold text-[16px] tracking-tight">
+<span class="material-symbols-outlined text-[24px]">mic</span>
+<span>Say it</span>
 </button>
-<!-- Secondary CTA: 'Next card' (tactile dark teal/mint button) -->
-<button aria-label="Go to next flashcard" class="h-14 px-5 bg-[#133238] border border-teal-600/50 text-teal-100 font-extrabold text-sm rounded-2xl flex items-center justify-center gap-1.5 shadow-[0_4px_0_#07191d] active:translate-y-[2px] active:shadow-[0_2px_0_#07191d] transition-all duration-75 hover:bg-[#183e46]">
+<!-- Next Card Button: Secondary Tactile with physical ledge -->
+<button aria-label="Go to next flashcard" class="tactile-press h-14 px-4 rounded-2xl bg-surface-container-high hover:bg-surface-bright border-2 border-[#234e57] shadow-[0_5px_0_#051013] flex items-center justify-center gap-1 text-white font-headline font-bold text-[14px] shrink-0">
 <span>Next card</span>
 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
 </button>
 </section>
 </div>
-<!-- 7. DOCKED BOTTOM NAVIGATION BAR (from Shared Components JSON) -->
-<!-- Destination count: 5. Labels: ["Today", "Vocab", "Skills", "Tests", "Me"]. Active: "Skills" -->
-<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-1 py-1 max-w-[390px] mx-auto pb-safe bg-surface dark:bg-surface border-t-2 border-surface-container-highest dark:border-surface-variant select-none">
-<!-- Tab 1: Today (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:text-primary dark:hover:text-inverse-primary active:translate-y-[2px] transition-transform duration-75" href="#">
-<span class="material-symbols-outlined text-[22px]">calendar_today</span>
-<span class="text-[11px] font-bold mt-0.5 font-label">Today</span>
-</a>
-<!-- Tab 2: Vocab (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:text-primary dark:hover:text-inverse-primary active:translate-y-[2px] transition-transform duration-75" href="#">
-<span class="material-symbols-outlined text-[22px]">menu_book</span>
-<span class="text-[11px] font-bold mt-0.5 font-label">Vocab</span>
-</a>
-<!-- Tab 3: Skills (ACTIVE: Speaking reaction matches Skills domain) -->
-<!-- Styled exactly via JSON style_active_navigation: "flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-3 py-1.5 shadow-[0_3px_0_theme(colors.secondary)]" -->
-<a aria-current="page" class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-3.5 py-1.5 shadow-[0_3px_0_theme(colors.secondary)] active:translate-y-[2px] transition-transform duration-75" href="#">
-<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
-<span class="text-[11px] font-extrabold mt-0.5 font-label">Skills</span>
-</a>
-<!-- Tab 4: Tests (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:text-primary dark:hover:text-inverse-primary active:translate-y-[2px] transition-transform duration-75" href="#">
-<span class="material-symbols-outlined text-[22px]">assignment</span>
-<span class="text-[11px] font-bold mt-0.5 font-label">Tests</span>
-</a>
-<!-- Tab 5: Me (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:text-primary dark:hover:text-inverse-primary active:translate-y-[2px] transition-transform duration-75" href="#">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="text-[11px] font-bold mt-0.5 font-label">Me</span>
-</a>
+<!-- 5. BOTTOM NAVIGATION BAR (Exact Shared Component Docked, 5 Tabs) -->
+<!-- Rules: Exactly 5 items: ["Today", "Vocab", "Skills", "Tests", "Me"], icons: ["calendar_today", "menu_book", "record_voice_over", "assignment", "person"] -->
+<!-- Page intent is vocal/speech practice ("Say it like a native"), mapping "Skills" as Active Tab -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] z-50 bg-surface border-t-2 border-surface-container-highest dark:border-surface-variant flex justify-around items-center px-1 shadow-[0_-4px_12px_rgba(5,16,19,0.7)]">
+<!-- Tab 1: Today -->
+<button aria-label="Today" class="tactile-press flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-transform duration-75 active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="text-[10px] font-label font-extrabold mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab (with due badge 8) -->
+<button aria-label="Vocab" class="tactile-press relative flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-transform duration-75 active:translate-y-[2px]">
+<span class="relative">
+<span class="material-symbols-outlined text-[21px]">menu_book</span>
+<span class="absolute -top-1 -right-2 bg-secondary text-on-secondary text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow-[0_1px_0_#660800]">8</span>
+</span>
+<span class="text-[10px] font-label font-extrabold mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (ACTIVE MAPPING as specified in style_active_navigation) -->
+<button aria-current="page" aria-label="Skills, current page" class="tactile-press flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-3.5 py-1.5 shadow-[0_3px_0_theme(colors.secondary)] transition-transform duration-75 active:translate-y-[2px]">
+<span class="material-symbols-outlined fill text-[20px]">record_voice_over</span>
+<span class="text-[10px] font-label font-extrabold mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button aria-label="Tests" class="tactile-press flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-transform duration-75 active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+<span class="text-[10px] font-label font-extrabold mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button aria-label="Me" class="tactile-press flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-transform duration-75 active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="text-[10px] font-label font-extrabold mt-0.5">Me</span>
+</button>
 </nav>
 </main>
 <script>
-    // Lightweight audio feedback simulation micro-interaction
-    document.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (window.navigator && window.navigator.vibrate) {
-          window.navigator.vibrate(15);
+    // Audio mic micro-interaction click ripple simulation
+    document.querySelectorAll('.tactile-press').forEach(button => {
+      button.addEventListener('click', () => {
+        // Haptic feedback if supported
+        if (navigator.vibrate) {
+          navigator.vibrate(15);
         }
       });
     });
