@@ -345,6 +345,126 @@
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
+  },
+  "t4_usuk_soccer": {
+   "template": "usuk",
+   "hook": "Soccer or football?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (US soccer = UK football), same facts as t3_usuk_soccer (IPA soccer /ˈsɑːkər/, football /ˈfʊtbɔːl/ = audited bank; twist true: in the US 'football' is American football); QUESTION hook 'Soccer or football?' = on-screen hook, true, 3 words at hook speed 1.2 (est. 1.08 s); CTA #/dict/soccer; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Soccer or football?",
+    "us": "In America, it's soccer.",
+    "uk": "In Britain, it's football. Same game!",
+    "tw": "Careful! American football is different.",
+    "x": "Want to watch soccer tonight?",
+    "q": "Quick quiz! You're in London. What's it called?",
+    "a": "Football! Same game.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_grammar_stative": {
+   "template": "grammar",
+   "hook": "Most learners miss this",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (state verbs such as belong / want / know are not used in the -ing form) from the app grammar point stative-dynamic: listed mistake 'This book is belonging to the library.' -> 'This book belongs to the library.', listed quiz 'I ___ this graph.' -> don't understand (also a state verb, same point); rule line 'State verbs stay simple.' matches the bricks 'belong · want · know + simple form'; 'MOST LEARNERS' hook 'Most learners miss this!' - stative-in-progressive is one of the most frequent learner errors (the app's own note: learners translate 'đang muốn'), acceptable as a social hook; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/grammar/stative-dynamic; natural American English; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Most learners miss this!",
+    "r": "State verbs stay simple.",
+    "w": "Not: This book is belonging to the library.",
+    "b": "Say: This book belongs to the library.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Don't understand! I don't understand this graph. Can you explain it?",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_mistake_discuss": {
+   "template": "mistake",
+   "hook": "Discuss about? Not a thing.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point ('discuss' takes a direct object - no 'about'), gold bank sb_786153bb (same facts as t3); MYTH hook spoken 'Discuss about? Nope!', on screen 'Discuss about? Not a thing.' (5 words) - true: 'discuss about' is not standard English (only the noun takes it: 'a discussion about'); 3 words at hook speed 1.0 (est. 1.28 s); CTA #/fix; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Discuss about? Nope!",
+    "w": "Many learners say: We will discuss about the budget.",
+    "r": "Better: We will discuss the budget.",
+    "y": "Discuss needs no about. Discuss the plan.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Discuss! We need to discuss the budget.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_stress_photographer": {
+   "template": "stress",
+   "hook": "Stress test: photographer",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (stress shift PHOtograph -> phoTOgrapher), IPA = audited bank, stress dot == IPA mark (same facts as t3); CHALLENGE hook 'Stress test: photographer!' / on screen 'Stress test: photographer' - names the payoff, true; 3 words at hook speed 1.0 (est. 1.28 s); CTA #/pron/photographer; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Stress test: photographer!",
+    "a": "Photograph. Stress on the first part.",
+    "b": "Now say photographer.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: photographer.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The second part. Photographer.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_call_grabcoffee": {
+   "template": "call",
+   "hook": "“Grab a coffee”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one phrase ('grab a coffee' = get a coffee quickly) from the app call script coffee, turn 0 (quote and meaning are the app's own data, reply 'Yes, please!' = the app's first reply option); quiz answer 'Let's grab a coffee!' is natural American English for inviting a tired friend, distractor 'No worries!' is an app phrase that does not fit; QUESTION hook 'What's grab a coffee?' (asking for the meaning, informal spoken style) = on-screen '“Grab a coffee”?'; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/call/coffee (in-app caller is Mia: CTA says Practice a real call); facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "What's grab a coffee?",
+    "m": "Your teammate says: I'm going to grab a coffee for the team.",
+    "y": "Grab a coffee means: get a coffee quickly.",
+    "o": "Say: Yes, please!",
+    "q": "Quick quiz! Your friend looks tired. What do you say?",
+    "a": "Let's grab a coffee! Quick break, together.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_verbs_break": {
+   "template": "verbs",
+   "hook": "Breaked? Not a word!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (break - broke - broken, not 'breaked') from the verb engine (same facts as t3); MYTH hook 'Breaked? Not a word!' - true for standard English; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/verb/break; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Breaked? Not a word!",
+    "b": "Base form: break.",
+    "p": "Past: broke. Yesterday, I broke my phone.",
+    "pp": "Past participle: broken.",
+    "w": "Not breaked! Break is irregular.",
+    "q": "Quick quiz! The window is broke, or broken?",
+    "a": "Broken! The window is broken.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_dictation_commuter": {
+   "template": "dictation",
+   "hook": "Catch every word!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one listening line, verbatim from the app script t4p1 line 7 (lost bag at a station): 'No, it was definitely one of yours. The commuter line.' said twice, gap 'commuter line' (2 words); 'commuter' = audited bank word (/kəˈmjuːtər/, 'a person who travels into a city to work each day'); spoken gloss 'someone who travels to work daily' is accurate; CHALLENGE hook 'Can you catch this?' / on screen 'Catch every word!'; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/dictation/t4p1; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Can you catch this?",
+    "s1": "No, it was definitely one of yours. The commuter line.",
+    "g": "Once more. Fill the gap!",
+    "q": "No, it was definitely one of yours. The commuter line.",
+    "a": "Commuter line! Commuter means someone who travels to work daily.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }

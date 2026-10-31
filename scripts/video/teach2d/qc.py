@@ -2,9 +2,10 @@
 """Teach2D QC (docs/VIDEO-TEACH2D.md): every gate must pass and the weighted score must be >= 90, else exit 1 (nothing ships).
   python3 scripts/video/teach2d/qc.py --timeline PROPS.json.timeline.json [--video OUT.mp4] [--sheet OUT.sheet.jpg] [--out qc.json]
 Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (talk only while speaking, listen in pauses)
-· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear)
+· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear,
+every chip / pill text on one line inside its pill)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
-· scene_clear (known scene; counter + props never over captions / text / QR / CTA; calm card region; text + captions readable on the scene)
+· scene_clear (known scene; counter + props never over captions / text / QR / CTA, nor over the teacher's head / body; calm card region; text + captions readable on the scene)
 · bed (social music bed -40 +-3 dBFS RMS, voice dominates) · duration · file (fps, AAC, duration, -16 LUFS) · frames (teacher visible every second
 against the expected scene background, no blank frame) – the last two need --video."""
 import argparse, json, os, re, subprocess, sys
@@ -13,6 +14,7 @@ sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/
 import core as C  # noqa: E402
 sys.path.insert(0, HERE); import pace as P  # noqa: E402
 import scene as SC  # noqa: E402
+import fit as FT  # noqa: E402  (chip / pill text fit, same maths as build.py)
 from overlay_gates import contrast as _cr, bank_ipa, stress_index  # noqa: E402
 def contrast(a, b): return _cr(*[[int(x[i:i + 2], 16) for i in (1, 3, 5)] for x in (a, b)])
 ap = argparse.ArgumentParser(); ap.add_argument('--timeline', required=True); ap.add_argument('--video'); ap.add_argument('--sheet'); ap.add_argument('--out')
@@ -91,6 +93,8 @@ for i in range(int(T['total'] * 10)):
         for b in range(a + 1, len(cards)):
             if inter(cards[a]['box'], cards[b]['box']): prob.append(dict(t=t, ids=[cards[a]['id'], cards[b]['id']], why='cards overlap'))
 if T['cap_box'] and inter(T['cap_box'], head): prob.append(dict(why='caption band on the head', cap=T['cap_box'], head=head))
+for n in T['nodes']:   # every chip / pill / tag text on ONE line inside its own pill, measured with the rendered font (fit.py)
+    for what, s_, nd, room in FT.need(n): prob.append(dict(id=n['id'], why='text does not fit its pill', what=what, text=s_[:30], need=nd, room=room))
 rings = [n for n in T['nodes'] if n['type'] == 'ring']
 for r in rings:
     for n in T['nodes']:
@@ -139,6 +143,8 @@ if SCN:
     for r_ in fg:
         if T['cap_box'] and inter(r_, T['cap_box']): sp_.append(dict(why='counter over the captions', box=r_))
         sp_ += [dict(why='counter over a node', id=n['id'], type=n['type'], box=r_) for n in T['nodes'] if n['type'] != 'confetti' and inter(r_, n['box'])]
+    if SCN['counter'] and T.get('body_clear'):   # no counter prop over the teacher's head / body above the counter (every camera framing)
+        sp_ += [dict(why='scene prop over the teacher', part=p_, box=b_) for _, b_, p_ in SC.on_teacher(SCN, T['head'], T['body_clear'])]
     R0 = T['region']; calm = max([C_ for C_ in (contrast(SC.hexc(comp(x, y)), SC.hexc(base(y))) for x in range(int(R0[0]), int(R0[2]), 16) for y in range(int(R0[1]), int(R0[3]), 16))] or [1.0])
     if calm > 1.35: sp_.append(dict(why='scene fights the card region', max_cr=calm))
     for n in T['nodes']:   # free text (on the canvas, no card fill under it)

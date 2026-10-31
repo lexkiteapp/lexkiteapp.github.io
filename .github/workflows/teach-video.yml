@@ -94,16 +94,17 @@ jobs:
           mkdir -p $O; W=$(python3 -c "import json;print(json.load(open('$E'))['teacher'])")
           python3 scripts/video/teach2d/host.py $W host > $O/host.log
           TH=$(python3 -c "import json;print(json.load(open('$E'))['theme'])"); echo "TH=$TH" >> "$GITHUB_ENV"
+          EL=$(python3 -c "import json;print(json.load(open('$E')).get('layout','corner'))"); echo "EL=$EL" >> "$GITHUB_ENV"   # the episode's own short layout (pilot row field, default corner)
           python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --public $O/pub --out $O/props.json
           for A in dark dusk light; do [ $A = $TH ] && continue   # the other looks, for the owner's colour pick (stills only)
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $A --public $O/pub_$A --out $O/props_$A.json; done
-          if [ ${{ matrix.fmt }} = short ]; then for L in side bubble; do   # layout variants (owner 29/10: show layout variety) – stills only
+          if [ ${{ matrix.fmt }} = short ]; then for L in corner side bubble; do [ $L = $EL ] && continue   # the other layouts (owner 29/10: show layout variety) – stills only
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format short --layout $L --public $O/pub_lay_$L --out $O/props_lay_$L.json; done; fi
       - name: QC before render (timeline gates, every look – stops here, no render minutes spent on a bad layout)
         run: |
           python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --out $O/qc_pre.json
           for A in dark dusk light; do [ $A = $TH ] || python3 scripts/video/teach2d/qc.py --timeline $O/props_$A.json.timeline.json --out $O/qc_pre_$A.json; done
-          for L in side bubble; do [ -f $O/props_lay_$L.json ] && python3 scripts/video/teach2d/qc.py --timeline $O/props_lay_$L.json.timeline.json --out $O/qc_pre_lay_$L.json; done; true
+          for L in corner side bubble; do [ -f $O/props_lay_$L.json ] && python3 scripts/video/teach2d/qc.py --timeline $O/props_lay_$L.json.timeline.json --out $O/qc_pre_lay_$L.json; done; true
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - uses: actions/cache@v4
@@ -121,8 +122,8 @@ jobs:
               npx remotion still src/index.jsx teach-short "$R/alt_${A}_$t.png" --props="$R/props_$A.json" --public-dir="$R/pub_$A" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
           if [ ${{ matrix.fmt }} = short ]; then
             TS=$(python3 -c "import json;T=json.load(open('$R/props.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (3,len(L)-3)))")
-            for t in $TS; do ffmpeg -nostdin -v error -y -ss $t -i "$R/${{ matrix.ep }}-short.mp4" -frames:v 1 "$R/lay_corner_$t.png"
-              for L in side bubble; do npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
+            for t in $TS; do ffmpeg -nostdin -v error -y -ss $t -i "$R/${{ matrix.ep }}-short.mp4" -frames:v 1 "$R/lay_${EL}_$t.png"
+              for L in corner side bubble; do [ $L = $EL ] && continue; npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
           fi
       - name: QC after render (file, loudness, teacher visible, frames) + contact sheet
         shell: bash

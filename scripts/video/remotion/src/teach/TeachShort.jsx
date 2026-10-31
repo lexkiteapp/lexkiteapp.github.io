@@ -24,14 +24,18 @@ const Flag = ({ cc, w, h }) => cc === 'us'
   : <svg width={w} height={h} viewBox="0 0 30 20"><rect width="30" height="20" rx="3" fill="#26408F" /><path d="M0 0L30 20M30 0L0 20" stroke="#FFF" strokeWidth="4" /><path d="M0 0L30 20M30 0L0 20" stroke="#D22F3C" strokeWidth="1.6" />
       <path d="M15 0V20M0 10H30" stroke="#FFF" strokeWidth="6" /><path d="M15 0V20M0 10H30" stroke="#D22F3C" strokeWidth="3.4" /></svg>;
 
+const growH = (g, t, h) => {   // card height sized to the rows on screen (build.py Card.place 'grow' steps), eased 0.24 s per step
+  if (!g || !g.length) return h; let i = 0; while (i + 1 < g.length && t >= g[i + 1].t) i++;
+  return i === 0 ? g[0].h : g[i - 1].h + (g[i].h - g[i - 1].h) * easeOut(clamp01((t - g[i].t) / 0.24)); };
+
 const TONES = T => ({ card: [T.card, T.edge, T.ledge], tile: [T.tile, T.tile_edge, T.tile_ledge], good: [T.good_bg, T.good_edge, T.ledge], bad: [T.bad_bg, T.bad_edge, T.ledge],
   bubble_bad: [T.bubble_bad, T.bubble_bad_edge, '#7A1E10'], bubble_good: [T.bubble_good, T.bubble_good_edge, '#0B4540'] });
 
 function Body({ n, t, w, h, T }) {
   const c = k => T[k] || k;
   switch (n.type) {
-    case 'card': { const [f, e, l] = TONES(T)[n.tone] || TONES(T).card;
-      return <div style={{ position: 'absolute', inset: 0 }}>
+    case 'card': { const [f, e, l] = TONES(T)[n.tone] || TONES(T).card, gh = growH(n.grow, t, h);   // grows with rows that arrive on later words
+      return <div style={{ position: 'absolute', left: 0, top: 0, right: 0, height: gh }}>
         <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', background: f, borderRadius: n.tail ? 40 : 44, border: `2px solid ${e}`, borderBottom: `10px solid ${l}`,
           boxShadow: n.hook ? `0 18px 40px -18px ${T.ledge}` : 'none' }} />
         {n.tail ? <svg width="44" height="40" style={{ position: 'absolute', bottom: -26, [n.tail === 'l' ? 'left' : 'right']: 40 }} viewBox="0 0 44 40">
@@ -124,8 +128,8 @@ function Body({ n, t, w, h, T }) {
       return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: T.chip_bg, border: `2px solid ${T.chip_edge}`, color: T.accent, fontFamily: JAK, fontWeight: 800, fontSize: n.size,
         lineHeight: `${h - 4}px`, textAlign: 'center', fontVariantNumeric: 'tabular-nums' }}>🏆 {Math.round(value(n, t) || 0)} / {n.tot}</div>;
     case 'tag':
-      return <div style={{ height: h, display: 'flex', alignItems: 'center', gap: 12, boxSizing: 'border-box', padding: '0 18px 0 12px', borderRadius: 999, background: T.card, border: `2px solid ${T.edge}`, width: 'fit-content' }}>
-        <Flag cc={n.cc} w={48} h={32} /><span style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, color: T.ink, letterSpacing: '0.06em' }}>{n.text}</span></div>;
+      return <div style={{ width: w, height: h, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, boxSizing: 'border-box', padding: '0 18px 0 12px', borderRadius: 999, background: T.card, border: `2px solid ${T.edge}` }}>
+        <Flag cc={n.cc} w={48} h={32} /><span style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, color: T.ink, letterSpacing: '0.06em', whiteSpace: 'pre', flexShrink: 0 }}>{n.text}</span></div>;   // ONE line, flag inside (fit.py sizes the pill)
     case 'flags':
       return <div style={{ width: w, height: h, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><Flag cc="us" w={135} h={90} /><Flag cc="uk" w={135} h={90} /></div>;
     case 'bar': return <div style={{ width: w, height: h, borderRadius: h / 2, background: c(n.tone) }} />;
@@ -191,13 +195,17 @@ function Scene({ scene, layer, T, tint, w, h }) {
   if (!items.length) return null;
   return (
     <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{ position: 'absolute', left: 0, top: 0 }}>
-      <defs><radialGradient id={`sg-${layer}`}><stop offset="0%" stopColor={T.ledge} stopOpacity="1" /><stop offset="100%" stopColor={T.ledge} stopOpacity="0" /></radialGradient></defs>
+      <defs>{items.map((x, i) => x.k === 'g'   // soft radial pool (contact shadow / lamp / window light): alpha 1 -> 0 linear in the radius, as scene.py
+        ? <radialGradient key={i} id={`sg-${layer}-${i}`}><stop offset="0%" stopColor={col(x.c)} stopOpacity="1" /><stop offset="100%" stopColor={col(x.c)} stopOpacity="0" /></radialGradient>
+        : x.k === 'lg' ? <linearGradient key={i} id={`sg-${layer}-${i}`} x1="0" y1="0" x2={x.dir === 'h' ? 1 : 0} y2={x.dir === 'h' ? 0 : 1}>   {/* wall-to-floor shading, window light */}
+          <stop offset="0%" stopColor={col(x.c)} stopOpacity={x.a} /><stop offset="100%" stopColor={col(x.c)} stopOpacity={x.a2 || 0} /></linearGradient> : null)}</defs>
       {items.map((x, i) => {
         if (x.k === 'p') return <polygon key={i} points={x.pts.map(p => p.join(',')).join(' ')} fill={col(x.c)} opacity={x.a} />;
         const [x0, y0, x1, y1] = x.b, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, rx = (x1 - x0) / 2, ry = (y1 - y0) / 2;
         if (x.k === 'r') return <rect key={i} x={x0} y={y0} width={x1 - x0} height={y1 - y0} rx={x.r || 0} fill={col(x.c)} opacity={x.a} />;
         if (x.k === 'o') return <ellipse key={i} cx={cx} cy={cy} rx={rx} ry={ry} fill={col(x.c)} opacity={x.a} />;
-        if (x.k === 'g') return <ellipse key={i} cx={cx} cy={cy} rx={rx} ry={ry} fill={`url(#sg-${layer})`} opacity={x.a} />;   // soft contact shadow (token ledge)
+        if (x.k === 'g') return <ellipse key={i} cx={cx} cy={cy} rx={rx} ry={ry} fill={`url(#sg-${layer}-${i})`} opacity={x.a} />;
+        if (x.k === 'lg') return <rect key={i} x={x0} y={y0} width={x1 - x0} height={y1 - y0} rx={x.r || 0} fill={`url(#sg-${layer}-${i})`} />;
         if (x.k === 'ring') { const sw = x.sw || 6; return <ellipse key={i} cx={cx} cy={cy} rx={rx - sw / 2} ry={ry - sw / 2} fill="none" stroke={col(x.c)} strokeWidth={sw} opacity={x.a} />; }
         return null;
       })}

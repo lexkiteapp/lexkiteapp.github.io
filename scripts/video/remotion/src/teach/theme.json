@@ -1,5 +1,5 @@
 {
- "_note": "Teach2D colour tokens = Stitch design systems 'Lexkite Kit' (dark A Tactile Night, assets/1b7a8a3d3d52404bb332d9ba3f783547) and 'Bright Day Tactile' (light B, assets/72d685ef743a4ae7a36bd67dd84b15db). ONE source for Remotion (TeachShort.jsx) and the QC contrast gate (qc.py). 'dusk' = brighter teal dark for social feeds (owner 29/10: 'màu hơi tối') – same components, only colours.",
+ "_note": "Teach2D colour tokens = Stitch design systems 'Lexkite Kit' (dark A Tactile Night, assets/1b7a8a3d3d52404bb332d9ba3f783547) and 'Bright Day Tactile' (light B, assets/72d685ef743a4ae7a36bd67dd84b15db). ONE source for Remotion (TeachShort.jsx) and the QC contrast gate (qc.py). 'dusk' = brighter teal dark for social feeds (owner 29/10: 'màu hơi tối') – same components, only colours. Scene tokens (wall · sky · glow · wood · leaf · shade) colour the matching 2D scenes (scenes.json): window light, lamp pools, wall-to-floor shading.",
  "dark": {
   "bg": "#091518",
   "bg2": "#0E2226",
@@ -49,7 +49,13 @@
   "bubble_bad_edge": "#F0826C",
   "bubble_good": "#17786F",
   "bubble_good_edge": "#5FC7BC",
-  "onhl": "#FFE08A"
+  "onhl": "#FFE08A",
+  "wall": "#13292D",
+  "sky": "#3E7F86",
+  "glow": "#FFD98A",
+  "wood": "#6B4A2E",
+  "leaf": "#3FA66B",
+  "shade": "#020708"
  },
  "light": {
   "bg": "#F6F8F7",
@@ -100,7 +106,13 @@
   "bubble_bad_edge": "#F0826C",
   "bubble_good": "#17786F",
   "bubble_good_edge": "#5FC7BC",
-  "onhl": "#FFE08A"
+  "onhl": "#FFE08A",
+  "wall": "#D6EAE6",
+  "sky": "#BFE6F2",
+  "glow": "#FFF1C4",
+  "wood": "#C99A6B",
+  "leaf": "#5DB37E",
+  "shade": "#8FA8A4"
  },
  "dusk": {
   "bg": "#15434A",
@@ -151,7 +163,13 @@
   "bubble_bad_edge": "#F0826C",
   "bubble_good": "#17786F",
   "bubble_good_edge": "#5FC7BC",
-  "onhl": "#FFE08A"
+  "onhl": "#FFE08A",
+  "wall": "#235D64",
+  "sky": "#9AD8DA",
+  "glow": "#FFE2A0",
+  "wood": "#8A6040",
+  "leaf": "#4FBF7F",
+  "shade": "#082429"
  },
  "tints": {"usuk": "rgba(107,216,206,0.30)", "verbs": "rgba(255,201,74,0.26)", "stress": "rgba(255,143,117,0.26)", "mistake": "rgba(242,85,59,0.22)", "phrasal": "rgba(91,214,143,0.24)", "pair": "rgba(107,216,206,0.26)", "prep": "rgba(255,201,74,0.24)", "pattern": "rgba(95,217,204,0.28)", "native": "rgba(91,214,143,0.24)", "guess": "rgba(255,143,117,0.24)", "level": "rgba(255,201,74,0.30)", "grammar": "rgba(110,180,255,0.24)", "dictation": "rgba(178,150,255,0.24)", "toeic": "rgba(250,140,22,0.22)", "review": "rgba(91,214,143,0.26)", "call": "rgba(90,200,250,0.26)"}
 }
