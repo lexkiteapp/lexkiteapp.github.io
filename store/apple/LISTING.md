@@ -630,7 +630,7 @@ Lexkite เป็นผลิตภัณฑ์อิสระ ไม่มี�
 |---|---|---|
 | Name | `Lexkite：英语单词` | 12/30 |
 | Subtitle | `背单词闪卡，词典与备考` | 11/30 |
-| Keywords | `词汇,学英语,词典,发音,语法,听力,复习,间隔重复,单词本,英文,考试,短语动词,音标,离线,四六级,考研,词汇量,打卡,学习计划,例句,听写,小组件,生词本,记忆,背诵,拼写,近义词,同义词` | 97/100 |
+| Keywords | `词汇,学英语,词典,发音,语法,听力,复习,间隔重复,单词本,英文,考试,短语动词,音标,离线,词汇量,打卡,学习计划,例句,听写,小组件,生词本,记忆,背诵,拼写,近义词,同义词` | 90/100 |
 | Privacy policy URL | https://lexkite.com/zh/privacy | |
 | Support URL | https://lexkite.com/app/?hl=zh#/contact | |
 | Marketing URL | https://lexkite.com/zh/ | |
@@ -758,7 +758,7 @@ Lexkite は独立した製品であり、British Council、IDP、Cambridge Unive
 |---|---|---|
 | Name | `Lexkite: 영어 단어` | 14/30 |
 | Subtitle | `플래시카드와 사전으로 암기` | 14/30 |
-| Keywords | `단어장,영단어,사전,문법,발음,듣기,복습,외우기,어휘,영어공부,간격반복,오프라인,구동사,예문,위젯,회화,레벨테스트,수능,어휘력,받아쓰기,영문법,스펠링,기초영어,생활영어,초급,중급` | 99/100 |
+| Keywords | `단어장,영단어,사전,문법,발음,듣기,복습,외우기,어휘,영어공부,간격반복,오프라인,구동사,예문,위젯,회화,레벨테스트,어휘력,받아쓰기,영문법,스펠링,기초영어,생활영어,초급,중급` | 96/100 |
 | Privacy policy URL | https://lexkite.com/ko/privacy | |
 | Support URL | https://lexkite.com/app/?hl=ko#/contact | |
 | Marketing URL | https://lexkite.com/ko/ | |
