@@ -42,7 +42,7 @@ const settings = theme => JSON.stringify({ onboarded: true, theme });
 const STATES = [
   ['home', '/home'], ['vocab', '/vocab'], ['review', '/review'], ['practice', '/practice'], ['skills', '/skills'], ['tests', '/tests'],
   ['me', '/me'], ['settings', '/settings'], ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
-  ['review-card', '/review', { ux1: 1 }], ['ux1-home', '/home', { ux1: 1 }], ['ux1-train', '/train', { ux1: 1 }], ['ux1-me', '/me', { ux1: 1 }],
+  ['review-card', '/review', { ux1: 1, mode: 'flip' }], ['review-type', '/review', { ux1: 1, mode: 'type' }], ['ux1-home', '/home', { ux1: 1 }], ['ux1-train', '/train', { ux1: 1 }], ['ux1-me', '/me', { ux1: 1 }],
 ];
 // Cột trái máy tính: mép trái nội dung của mục menu, khối tiến độ và chân thanh bên phải thẳng một hàng
 const ALIGN = [{ name: 'sidebar', items: ['.sidebar #nav > a', '.sidebar #nav > details > summary', '.sidebar .side-foot > :first-child'] }];
@@ -212,10 +212,11 @@ async function ui(w, theme) {
     const list = STATES.filter(s => !!(s[2] && s[2].ux1) === !!ux); if (!list.length) continue;
     const { ctx, page, take } = await context(w, theme, { ux1: ux });
     if (AXE) await ctx.addInitScript(AXE);
-    for (const [name, hash] of list) {
+    for (const [name, hash, so = {}] of list) {
       const ctxKey = `${name}@${w}${theme[0]}`, rec = { state: name, w, theme, key: ctxKey, issues: [], cls: 0, errors: [] };
       try {
         await page.goto('about:blank'); await boot(page, hash);
+        if (so.mode && await page.locator('#rmSel').isVisible().catch(() => false)) { await page.selectOption('#rmSel', so.mode).catch(() => {}); await sleep(700); } // kiểu thẻ ôn: lật (có dòng phiên âm US/UK) / gõ
         await page.evaluate(() => { scrollTo(0, 0); if (document.activeElement) document.activeElement.blur(); });
         await sleep(600);
         rec.issues = await page.evaluate(o => QAB.scan(o), { tap: 44, align: w >= 901 ? ALIGN : [] });
