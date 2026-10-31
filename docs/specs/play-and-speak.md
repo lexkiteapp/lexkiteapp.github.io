@@ -1,6 +1,6 @@
-# Play & Speak: vừa học vừa chơi, luyện nói theo tình huống (spec v2, CHỜ CHỦ DUYỆT)
+# Play & Speak: vừa học vừa chơi, luyện nói theo tình huống (spec v2.2, chủ đã duyệt 31/10 – đang ở M0)
 
-> TL;DR: Gom các phần đã có (Call, Roleplay, Confidence, Pron, game/league/streak) thành MỘT vòng: Tình huống → Nghe → Nói theo 3 nhịp → Nhập vai có nhiệm vụ → Chơi → Ôn lại theo FSRS. Chấm ngay trên máy, $0, offline. Ưu thế duy nhất cả thị trường: một app gom đủ nhập vai bằng giọng + chấm âm vị + chạy offline, miễn phí hết, lại nối với add-on. P0 = F1 (thử 5 tình huống), F2, F4, đo bằng A/B có nhóm đối chứng và tiêu chí dừng. Viết 31/10/2026 (v2 sau QC độc lập: 49 → §8). Chưa có code.
+> TL;DR: Gom các phần đã có (Call, Roleplay, Confidence, Pron, game/league/streak) thành MỘT vòng: Tình huống → Nghe → Nói theo 3 nhịp → Nhập vai có nhiệm vụ → Chơi → Ôn lại theo FSRS. Chấm ngay trên máy, $0, offline. Ưu thế duy nhất cả thị trường: một app gom đủ nhập vai bằng giọng + chấm âm vị + chạy offline, miễn phí hết, lại nối với add-on. P0 = F1 (thử 5 tình huống), F2, F4 + **cơ chế chủ lực F7-lite** (từ vừa tra trên add-on thành câu để nói ngay trong buổi hôm đó), đo bằng A/B có nhóm đối chứng và tiêu chí dừng. Viết 31/10/2026 (QC độc lập: v1 49 → v2 77 → v2.1 84 → v2.2, xem §8). Chưa có code.
 > Đọc khi: duyệt hoặc giao việc luyện nói theo tình huống, mini-game nói, nhập vai AI, chấm nói.
 
 ## 1. Đã có gì, còn yếu chỗ nào (main de5b6c45b)
@@ -52,7 +52,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 | F3 | **Nhiệm vụ nhập vai** (danh sách việc cần làm, Ama/Carlos nhớ người học) | Ngang Speak/Duolingo Max, mà free | Ít quota → nhận ý định trên máy, LLM chỉ tổng kết (§5) | 5 | Cao | P1 |
 | F5 | **Thả diều**: nói đúng thì diều lên, đua với bóng ma điểm hôm qua | Vui, chơi lại nhiều | Độ trễ → ngân sách ≤300 ms phản hồi | 5 | TB | P1 |
 | F6 | **Bản đồ âm khó** → bài riêng theo FSRS | Cá nhân hoá kiểu ELSA | Chờ GOP #286 | 4 | TB | P1 |
-| F7 | **Nói từ vừa tra** (add-on → app) | Chỉ mình có | Câu ghép phải qua QA; không thêm quyền add-on (permissions.lock) | 4 | TB | P1 |
+| F7 | **Nói từ vừa tra** (add-on → app). Bản lite ở M1: chỉ ghép từ đã lưu với câu F1 có sẵn, không cần sinh câu mới | Chỉ mình có; là cơ chế chủ lực, được đo trong A/B | Câu ghép phải qua QA; không thêm quyền add-on (permissions.lock) | 5 | TB | P0 lite / P1 đủ |
 | F9 | **Đua với bạn** qua link (chỉ gửi điểm, không gửi âm thanh) | Lan truyền tự nhiên | Gian lận → máy chủ ký điểm (HMAC theo phiên), trần XP/ngày, giới hạn tốc độ theo IP băm | 4 | TB | P1 |
 | F8 | **Ngữ điệu karaoke** (đường cao độ chồng lên nhau) | Đẹp, dễ hiểu | Nhiễu trên máy yếu → tự tắt khi độ tin < 0,6 | 3 | Cao | P2 |
 | F10 | **Nói thoải mái kiểu IELTS** (Speech Analyzer miễn phí: wpm, ngừng, đa dạng từ, độ dài câu, ý định) | Đối đầu ELSA Speech Analyzer | Không có band thật → ghi "ước lượng" | 4 | TB | P2 |
@@ -63,7 +63,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - Rương thưởng ngẫu nhiên sau mỗi lần xong: trang phục cho diều, freeze, sticker Ama/Carlos 2D (thưởng cho việc nói, không bán).
 - Huy hiệu "Thạo tình huống".
 - Cuối buổi: xem trước tình huống ngày mai.
-- **Lý do quay lại giữa tuần**: mục tiêu nói hằng tuần (ví dụ 50 câu) và sự kiện chủ đề mỗi tháng (du lịch hè, phỏng vấn mùa tuyển dụng) dùng chung mùa với RETENTION.
+- **Lý do quay lại giữa tuần**: mục tiêu nói hằng tuần (ví dụ 50 câu; có thể **ghép đôi với 1 bạn**, cùng góp vào một mục tiêu chung, chỉ gửi số câu, M2) và sự kiện chủ đề mỗi tháng (du lịch hè, phỏng vấn mùa tuyển dụng) dùng chung mùa với RETENTION.
 - Nhắc học theo [REMINDERS.md](../REMINDERS.md).
 
 ## 5. Chấm điểm: hợp đồng, hiệu chuẩn, độ trễ, quota
@@ -77,7 +77,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 **Hiệu chuẩn chạy trên CI, dữ liệu miễn phí có giấy phép dùng thương mại:**
 - speechocean762 (CC BY 4.0, 5.000 câu có điểm chuyên gia).
 - Common Voice English (CC0), lấy ≥ 6 giọng L1 thuộc 15 ngôn ngữ giao diện, ≥ 300 câu.
-- Thêm bản ghi người thử nội bộ (không dùng tài khoản thật).
+- Thêm bản ghi người thử nội bộ (không dùng tài khoản thật). Ít nhất nhóm người học Việt: 30 câu × 2 người chấm, báo PCC riêng cho từng L1 có dữ liệu.
 - Ngưỡng đạt chuẩn:
   - Tương quan với điểm chuyên gia PCC ≥ 0,6 (GOP).
   - Tỉ lệ chấm sai câu đúng ≤ 10% mỗi nền tảng.
@@ -95,9 +95,9 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 
 **Quota $0:**
 - Mỗi lượt nói **không gọi LLM**. Ý định được nhận trên máy, theo thứ tự: từ khoá/mẫu câu F1 → embedding nhỏ nếu đo thấy cần → Gemini Nano nếu có.
-- LLM chỉ dùng cho tổng kết F3, tối đa 1 lần/người/ngày.
+- LLM chỉ dùng cho tổng kết F3, tối đa 1 lần/người/ngày. Lọc Llama Guard chỉ chạy khi có chữ tự do gửi lên (≈ +50 neurons/lần, tính vào trần dưới). Embedding ý định (nếu cần) phải ≤ 25 MB, chạy trên máy, tải lười, tính vào ngân sách tải cùng Whisper.
 - Chuỗi dự phòng: Nano → kho Gemini (K key × ~20) → Workers AI (≤ 50% của 10k neurons, có cầu dao trong `_quota.js`) → tổng kết từ mẫu, không LLM.
-- Trần người dùng AI/ngày ≈ 20K + 5.000 ÷ ~300 neurons mỗi lần tổng kết (ước tính) ≈ 20K + 16. Số neurons thật đo ở M1 rồi sửa lại. Quá trần vẫn chơi đủ, chỉ phần tổng kết dùng mẫu. D1: ≤ 3 lượt ghi/người/ngày (điểm, sao, XP), nằm trong 100k ([QUOTAS.md](../QUOTAS.md)).
+- Trần người dùng AI/ngày ≈ 20K + 5.000 ÷ ~350 neurons (tổng kết + lọc) mỗi lần tổng kết (ước tính) ≈ 20K + 14. Số neurons thật đo ở M1 rồi sửa lại. Quá trần vẫn chơi đủ, chỉ phần tổng kết dùng mẫu. D1: ≤ 3 lượt ghi/người/ngày (điểm, sao, XP), nằm trong 100k ([QUOTAS.md](../QUOTAS.md)).
 
 ## 6. Nội dung và cổng chất lượng
 **Schema `content/situations/<id>.json`:**
@@ -145,7 +145,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 | Mốc | Giao | Chủ việc (≤ 2 phiên cùng lúc) | Điều kiện qua |
 |---|---|---|---|
 | M0 | Anh duyệt spec + 3 ref Stitch (tình huống, Nói theo 3 nhịp, bản đồ/sao), sáng và tối | xưởng Stitch | Anh OK trên ảnh |
-| M1 | 5 tình huống; `Speak.score` + hiệu chuẩn CI; F2 + F4 sau cờ | 1 phiên nội dung + 1 phiên code | QA xanh, ngưỡng §5, A/B §7 |
+| M1 | 5 tình huống; `Speak.score` + hiệu chuẩn CI; F2 + F4 + F7-lite sau cờ | 1 phiên nội dung + 1 phiên code | QA xanh, ngưỡng §5, A/B §7 |
 | M2 | 40 tình huống; F3 có trí nhớ; F6; F7 | như trên | A/B thắng, không vi phạm ngưỡng an toàn |
 | M3 | F5, F9 | phiên game | game-feel ≥ 95 + anh duyệt hình |
 | M4 | F8, F10, 120 tình huống | phiên mới | đo nhiễu Android tầm trung |
@@ -162,4 +162,4 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - Port trung thành từ ref Stitch (Kit, khung 390 px); giáo viên qua `Chars.*`.
 - Không bỏ/nới test, ngưỡng hay nội dung nào (luật no-cuts).
 
-**QC spec:** giám khảo độc lập, cùng 10 tiêu chí: v1 = 49/100 → v2 = 77/100 → v2.1 sửa 8 điểm giám khảo còn nêu.
+**QC spec:** giám khảo độc lập, cùng 10 tiêu chí: v1 = 49/100 → v2 = 77/100 → v2.1 84/100 → v2.2 sửa nốt 5 điểm (giám khảo ước +5–6). Lên 95 cần số đo thật từ M1 (PCC theo L1, A/B).
