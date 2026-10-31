@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Blog — Free IELTS, TOEIC & Grammar Guides</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+
+  <style>
+    :root {
+      --bg-cream: #FFF7EA;
+      --card-white: #FFFFFF;
+      --border-warm: #EADEC8;
+      --ledge-warm: #D8CFBC;
+      --text-dark: #0F3D3E;
+      --text-muted: #4E6668;
+      --teal-primary: #0D6964;
+      --teal-dark: #074743;
+      --teal-light: #E6F5F4;
+      --coral-accent: #F2553B;
+      --amber-accent: #FFB054;
+      --cta-ledge: #B53A22;
+      --gold-accent: #FFC94A;
+      --success-green: #2FBF71;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Tactile 3D Button Styles matching Lexkite Master Kit */
+    .btn-3d-primary {
+      background: linear-gradient(180deg, #F2553B 0%, #FFB054 100%);
+      box-shadow: 0 5px 0 var(--cta-ledge);
+      transition: all 0.12s ease-in-out;
+    }
+    .btn-3d-primary:hover {
+      filter: brightness(1.03);
+    }
+    .btn-3d-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 var(--cta-ledge);
+    }
+
+    .btn-3d-secondary {
+      background-color: #FFFFFF;
+      border: 2px solid var(--border-warm);
+      box-shadow: 0 4px 0 var(--ledge-warm);
+      transition: all 0.12s ease-in-out;
+      color: var(--text-dark);
+    }
+    .btn-3d-secondary:hover {
+      background-color: #FAF4E8;
+    }
+    .btn-3d-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--ledge-warm);
+    }
+
+    .btn-3d-teal {
+      background-color: var(--teal-primary);
+      box-shadow: 0 4px 0 #084844;
+      transition: all 0.12s ease-in-out;
+      color: #FFFFFF;
+    }
+    .btn-3d-teal:hover {
+      filter: brightness(1.05);
+    }
+    .btn-3d-teal:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #084844;
+    }
+
+    /* Tactile Card with Solid Bottom Ledge */
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 2px solid var(--border-warm);
+      border-radius: 20px;
+      box-shadow: 0 5px 0 var(--ledge-warm);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 var(--ledge-warm);
+    }
+
+    .tactile-featured {
+      background-color: #FFFFFF;
+      border: 2.5px solid var(--border-warm);
+      border-radius: 24px;
+      box-shadow: 0 6px 0 var(--ledge-warm);
+    }
+
+    /* Filter pill active & inactive */
+    .filter-pill {
+      border: 2px solid var(--border-warm);
+      box-shadow: 0 3px 0 var(--ledge-warm);
+      transition: all 0.1s ease;
+    }
+    .filter-pill:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--ledge-warm);
+    }
+    .filter-pill.active {
+      background-color: var(--teal-primary);
+      border-color: var(--teal-primary);
+      color: #FFFFFF;
+      box-shadow: 0 3px 0 var(--teal-dark);
+    }
+
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#FFF7EA] text-[#0F3D3E]">
+
+  <!-- SHARED PUBLIC HEADER -->
+  <header class="sticky top-0 z-50 bg-[#FFF7EA]/95 backdrop-blur-md border-b-2 border-[#EADEC8]">
+    <div class="max-w-[1240px] mx-auto px-4 sm:px-6 h-[72px] flex items-center justify-between">
+      
+      <!-- Brand Logo Mark + Wordmark -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <!-- Tactile Kite Logo Mark -->
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#F2553B] to-[#FFB054] border-2 border-[#B53A22] shadow-[0_3px_0_#B53A22] flex items-center justify-center transform group-hover:scale-105 transition-transform">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L20 12L12 22L4 12L12 2Z" fill="#FFFFFF" fill-opacity="0.95"/>
+            <path d="M12 2V22M4 12H20" stroke="#F2553B" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="2" fill="#FFB054"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-2xl font-extrabold tracking-tight text-[#0F3D3E] leading-none">Lexkite</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#0D6964] leading-tight">Exam Hub</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1.5">
+        <a href="#" class="px-3.5 py-2 rounded-xl text-sm font-bold text-[#0D6964] bg-[#E6F5F4] border border-[#0D6964]/20">Blog</a>
+        <a href="#" class="px-3.5 py-2 rounded-xl text-sm font-bold text-[#4E6668] hover:text-[#0F3D3E] hover:bg-[#F2E5D0] transition-colors">Vocabulary</a>
+        <a href="#" class="px-3.5 py-2 rounded-xl text-sm font-bold text-[#4E6668] hover:text-[#0F3D3E] hover:bg-[#F2E5D0] transition-colors">Samples</a>
+        <a href="#" class="px-3.5 py-2 rounded-xl text-sm font-bold text-[#4E6668] hover:text-[#0F3D3E] hover:bg-[#F2E5D0] transition-colors flex items-center gap-1">
+          Open app
+          <span class="material-symbols-rounded text-sm text-[#0D6964]">open_in_new</span>
+        </a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-2.5 sm:gap-3.5">
+        <!-- Language Globe Chip -->
+        <button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white border-2 border-[#EADEC8] shadow-[0_2px_0_#D8CFBC] text-xs font-bold text-[#0F3D3E] hover:bg-[#FAF4E8]">
+          <span class="material-symbols-rounded text-[18px] text-[#0D6964]">language</span>
+          <span>EN</span>
+        </button>
+
+        <!-- Ghost Sign In Button -->
+        <a href="#" class="hidden sm:inline-flex text-sm font-bold text-[#0F3D3E] px-3.5 py-2 rounded-xl hover:bg-[#F2E5D0] transition-colors">
+          Sign in
+        </a>
+
+        <!-- Primary 3D Get Started Button -->
+        <a href="#" class="btn-3d-primary inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-xl font-extrabold text-sm text-[#10191B] tracking-wide">
+          Get started
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="md:hidden w-10 h-10 rounded-xl bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC] flex items-center justify-center text-[#0F3D3E]">
+          <span class="material-symbols-rounded text-xl">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-grow max-w-[1240px] w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-8 sm:space-y-10">
+
+    <!-- HERO SECTION: Compact Shelf & Carlos Teacher Slot -->
+    <section class="tactile-card p-6 sm:p-8 bg-gradient-to-r from-white via-white to-[#FDF8EE] relative overflow-hidden">
+      <!-- Decorative background kite watermarks -->
+      <div class="absolute -right-8 -top-8 w-44 h-44 opacity-5 pointer-events-none">
+        <svg viewBox="0 0 100 100" fill="#0D6964">
+          <polygon points="50,5 95,50 50,95 5,50"/>
+        </svg>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-8 space-y-3.5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E6F5F4] border border-[#0D6964]/30 text-xs font-extrabold text-[#0D6964] uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-[#0D6964] animate-pulse"></span>
+            Free Open Library • 180+ Lessons & Topics
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0F3D3E] leading-[1.15]">
+            Lexkite Blog
+          </h1>
+
+          <p class="text-base sm:text-lg text-[#4E6668] font-medium max-w-2xl leading-relaxed">
+            A bright, tidy shelf of exam-tested lessons, IELTS writing templates, and grammar decision trees.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-1 text-xs sm:text-sm font-bold text-[#4E6668]">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#FFF7EA] border border-[#EADEC8]">
+              <span class="material-symbols-rounded text-base text-[#0D6964]">verified</span>
+              Cambridge & CEFR Aligned
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#FFF7EA] border border-[#EADEC8]">
+              <span class="material-symbols-rounded text-base text-[#F2553B]">lock_open</span>
+              100% Free • No Paywall
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: 2D Illustrated Teacher Slot (Carlos Waving) -->
+        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+          <div class="relative w-44 sm:w-48 h-52 sm:h-56 flex flex-col items-center justify-end">
+            <!-- Ground Contact Shadow -->
+            <div class="absolute bottom-1 w-32 h-4 rounded-[100%] bg-[#E6D8BE] opacity-80"></div>
+
+            <!-- Carlos Illustrated SVG Slot (Full Body Standing 2D Teacher, Navy Blazer, Waving) -->
+            <svg class="relative z-10 w-full h-full" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Shadow base inside SVG -->
+              <ellipse cx="80" cy="192" rx="55" ry="6" fill="#D8CFBC"/>
+
+              <!-- Trousers / Legs -->
+              <path d="M66 125L63 186H74L77 125H66Z" fill="#1C2E38"/>
+              <path d="M84 125L87 186H97L94 125H84Z" fill="#1C2E38"/>
+              <!-- Shoes (Leather Oxfords) -->
+              <rect x="58" y="184" width="18" height="8" rx="4" fill="#0D161B"/>
+              <rect x="85" y="184" width="18" height="8" rx="4" fill="#0D161B"/>
+
+              <!-- Torso Shirt (Crisp Light Blue) -->
+              <path d="M64 68H96L100 128H60L64 68Z" fill="#D9EEF7"/>
+              <path d="M80 68V128" stroke="#B0D5E6" stroke-width="2"/>
+              <!-- Tie (Coral Accent) -->
+              <path d="M78 74L80 72L82 74L83 96L80 102L77 96L78 74Z" fill="#F2553B"/>
+
+              <!-- Navy Blazer Body -->
+              <path d="M58 68L68 126H92L102 68C102 68 95 62 80 62C65 62 58 68 58 68Z" fill="#1B3B4B"/>
+              <!-- Blazer Lapels -->
+              <path d="M68 64L76 96L68 98L62 76L68 64Z" fill="#142C38"/>
+              <path d="M92 64L84 96L92 98L98 76L92 64Z" fill="#142C38"/>
+              <!-- Pocket Square (Amber) -->
+              <rect x="66" y="86" width="6" height="2" rx="1" fill="#FFB054"/>
+
+              <!-- Left Arm (Resting at side) -->
+              <path d="M58 72L50 114L57 116L64 78" fill="#1B3B4B"/>
+              <circle cx="53" cy="120" r="5" fill="#D0926C"/>
+
+              <!-- Right Arm (Raised & Waving Friendly) -->
+              <path d="M102 72L116 88L126 78L112 64" fill="#1B3B4B"/>
+              <!-- Hand Waving (Latino skin tone #D0926C) -->
+              <path d="M125 78L132 72C133 71 135 72 135 74L134 81L128 85L125 78Z" fill="#D0926C"/>
+              <circle cx="129" cy="74" r="2.5" fill="#D0926C"/>
+
+              <!-- Neck -->
+              <rect x="74" y="52" width="12" height="14" rx="2" fill="#D0926C"/>
+
+              <!-- Head & Face -->
+              <rect x="68" y="24" width="24" height="30" rx="11" fill="#D0926C"/>
+              <!-- Friendly Eyes & Smile -->
+              <circle cx="75" cy="36" r="2" fill="#0D161B"/>
+              <circle cx="85" cy="36" r="2" fill="#0D161B"/>
+              <path d="M76 43C78 46 82 46 84 43" stroke="#0D161B" stroke-width="2" stroke-linecap="round"/>
+              <!-- Eyebrows -->
+              <path d="M73 31C75 30 77 31 77 31" stroke="#2B1A12" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M83 31C85 30 87 31 87 31" stroke="#2B1A12" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- Ears -->
+              <circle cx="67" cy="37" r="3" fill="#D0926C"/>
+              <circle cx="93" cy="37" r="3" fill="#D0926C"/>
+
+              <!-- Hair (Short, Neat Trim, Dark Brown) -->
+              <path d="M67 27C67 18 73 14 80 14C87 14 93 18 93 27C89 23 85 24 80 24C75 24 71 23 67 27Z" fill="#2B1A12"/>
+              <path d="M67 27V34L70 29" stroke="#2B1A12" stroke-width="2" stroke-linecap="round"/>
+
+              <!-- Teacher Carlos Nametag Floating Pill -->
+              <g transform="translate(10, 16)">
+                <rect x="0" y="0" width="84" height="24" rx="12" fill="#FFFFFF" stroke="#0D6964" stroke-width="2"/>
+                <text x="42" y="15" text-anchor="middle" font-size="10" font-weight="800" fill="#0D6964" font-family="'Plus Jakarta Sans', sans-serif">CARLOS • LEAD</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER CHIP BAR -->
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row gap-3.5 items-stretch sm:items-center justify-between">
+        
+        <!-- Search Field -->
+        <div class="relative flex-grow max-w-md">
+          <span class="material-symbols-rounded absolute left-3.5 top-1/2 -translate-y-1/2 text-xl text-[#4E6668]">search</span>
+          <input 
+            type="text" 
+            placeholder="Search lessons, IELTS prompts, grammar rules..." 
+            class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC] text-sm font-semibold text-[#0F3D3E] placeholder-[#4E6668]/70 focus:outline-none focus:border-[#0D6964] transition-all"
+          >
+          <kbd class="hidden sm:inline-block absolute right-3 top-1/2 -translate-y-1/2 px-2 py-0.5 rounded text-[11px] font-mono-code font-bold bg-[#FFF7EA] text-[#4E6668] border border-[#EADEC8]">⌘K</kbd>
+        </div>
+
+        <!-- Result count counter badge -->
+        <div class="text-xs font-bold text-[#4E6668] self-center sm:self-auto flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-[#2FBF71]"></span>
+          <span>Showing <strong>48 curated guides</strong></span>
+        </div>
+
+      </div>
+
+      <!-- Filter Chip Row (All, IELTS, TOEIC, TOEFL, Grammar, Vocabulary) -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <button class="filter-pill active px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap">
+          All Guides
+        </button>
+        <button class="filter-pill bg-white px-4 py-2 rounded-full text-xs font-extrabold text-[#0F3D3E] hover:bg-[#FAF4E8] whitespace-nowrap flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-[#0D6964]"></span>
+          IELTS Academic
+        </button>
+        <button class="filter-pill bg-white px-4 py-2 rounded-full text-xs font-extrabold text-[#0F3D3E] hover:bg-[#FAF4E8] whitespace-nowrap flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-[#FFB054]"></span>
+          TOEIC
+        </button>
+        <button class="filter-pill bg-white px-4 py-2 rounded-full text-xs font-extrabold text-[#0F3D3E] hover:bg-[#FAF4E8] whitespace-nowrap flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+          TOEFL iBT
+        </button>
+        <button class="filter-pill bg-white px-4 py-2 rounded-full text-xs font-extrabold text-[#0F3D3E] hover:bg-[#FAF4E8] whitespace-nowrap flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-[#F2553B]"></span>
+          Grammar Rules
+        </button>
+        <button class="filter-pill bg-white px-4 py-2 rounded-full text-xs font-extrabold text-[#0F3D3E] hover:bg-[#FAF4E8] whitespace-nowrap flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-[#074743]"></span>
+          Collocations & Vocab
+        </button>
+      </div>
+    </section>
+
+    <!-- FEATURED LARGE CARD (Newest Headline Item) -->
+    <section>
+      <div class="tactile-featured p-6 sm:p-8 hover:shadow-[0_8px_0_#D8CFBC] transition-all">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+          
+          <!-- Tactile Cover Placeholder / Visual Art -->
+          <div class="lg:col-span-6">
+            <div class="w-full aspect-[16/10] rounded-2xl bg-gradient-to-br from-[#0D6964] via-[#103D3D] to-[#052626] border-2 border-[#074743] shadow-[0_4px_0_#052626] relative overflow-hidden flex flex-col justify-between p-6">
+              
+              <!-- Subtle decorative geometry -->
+              <div class="absolute -right-6 -bottom-6 w-48 h-48 rounded-full border-4 border-white/10 pointer-events-none"></div>
+              <div class="absolute right-12 top-6 w-20 h-20 rounded-2xl bg-[#FFB054]/10 transform rotate-12 pointer-events-none"></div>
+
+              <!-- Top Chips over cover -->
+              <div class="flex items-center justify-between z-10">
+                <span class="px-3 py-1 rounded-full bg-[#FFB054] text-[#0F3D3E] font-extrabold text-xs shadow-[0_2px_0_#C97F29]">
+                  NEW RELEASE
+                </span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/40 backdrop-blur-md text-white text-xs font-bold flex items-center gap-1">
+                  <span class="material-symbols-rounded text-sm text-[#FFB054]">schedule</span>
+                  5 min read
+                </span>
+              </div>
+
+              <!-- Center Graphic Motif: Articles Decision Tree Node -->
+              <div class="z-10 py-4 flex flex-col items-center justify-center">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-xl bg-white border-2 border-[#0D6964] shadow-[0_3px_0_#052626] flex items-center justify-center font-extrabold text-lg text-[#F2553B]">
+                    A / An
+                  </div>
+                  <span class="material-symbols-rounded text-2xl text-[#FFB054]">arrow_forward</span>
+                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#0D6964] to-[#2BA39A] border-2 border-white shadow-[0_4px_0_#052626] flex items-center justify-center font-extrabold text-xl text-white">
+                    THE
+                  </div>
+                  <span class="material-symbols-rounded text-2xl text-[#FFB054]">arrow_forward</span>
+                  <div class="w-12 h-12 rounded-xl bg-white/20 backdrop-blur border-2 border-white/40 flex items-center justify-center font-extrabold text-lg text-white">
+                    Ø Zero
+                  </div>
+                </div>
+                <span class="text-[11px] font-bold text-[#E6F5F4] uppercase tracking-wider mt-3">Interactive Grammar Decision Tree</span>
+              </div>
+
+              <!-- Bottom Bar inside cover -->
+              <div class="flex items-center justify-between text-xs font-bold text-[#E6F5F4] z-10 pt-2 border-t border-white/15">
+                <span>By Teacher Carlos & Ama</span>
+                <span class="text-[#FFC94A]">CEFR A2 → C1</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Featured Card Information Content -->
+          <div class="lg:col-span-6 space-y-4">
+            <div class="flex items-center gap-2.5">
+              <span class="px-3 py-1 rounded-full bg-[#E6F5F4] text-[#0D6964] border border-[#0D6964]/30 font-extrabold text-xs uppercase tracking-wide">
+                Grammar Essential
+              </span>
+              <span class="text-xs font-bold text-[#4E6668]">Published Yesterday</span>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0F3D3E] hover:text-[#0D6964] transition-colors leading-snug">
+              <a href="#">A, An, The Rules: A Simple Decision Tree for English Articles</a>
+            </h2>
+
+            <p class="text-sm sm:text-base text-[#4E6668] font-medium leading-relaxed">
+              Stop guessing whether to use "the", "a", or no article at all. This 4-step mental flow chart resolves 95% of article slips in IELTS Task 2 essays and job interviews.
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <a href="#" class="btn-3d-primary inline-flex items-center gap-2 px-5 py-3 rounded-xl font-extrabold text-sm text-[#10191B]">
+                <span>Read Full Lesson</span>
+                <span class="material-symbols-rounded text-base">arrow_forward</span>
+              </a>
+
+              <button class="btn-3d-secondary px-4 py-3 rounded-xl font-bold text-sm flex items-center gap-1.5">
+                <span class="material-symbols-rounded text-base text-[#0D6964]">bookmark_add</span>
+                <span>Save to Deck</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RESPONSIVE GRID OF ITEM CARDS (3 columns desktop, 1 on phone) -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-[#0F3D3E]">
+          Recent Guides & Topic Breakdowns
+        </h3>
+        <span class="text-xs font-bold text-[#0D6964] hover:underline cursor-pointer">Sort by: Newest first ↓</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- CARD 1: Present Perfect vs Past Simple -->
+        <article class="tactile-card flex flex-col justify-between overflow-hidden group">
+          <div>
+            <!-- Cover Placeholder with custom tactile illustration -->
+            <div class="h-44 w-full bg-gradient-to-br from-[#FFF7EA] to-[#F3E5CF] border-b-2 border-[#EADEC8] relative flex items-center justify-center p-4">
+              <!-- Visual motif -->
+              <div class="flex items-center gap-2">
+                <div class="px-3 py-2 rounded-xl bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC] text-center">
+                  <span class="block text-[10px] font-extrabold uppercase text-[#F2553B]">Past Simple</span>
+                  <span class="text-xs font-bold text-[#0F3D3E]">Yesterday (Done)</span>
+                </div>
+                <span class="font-extrabold text-base text-[#0D6964]">VS</span>
+                <div class="px-3 py-2 rounded-xl bg-[#0D6964] border-2 border-[#074743] shadow-[0_3px_0_#074743] text-center text-white">
+                  <span class="block text-[10px] font-extrabold uppercase text-[#FFB054]">Present Perfect</span>
+                  <span class="text-xs font-bold">Life Experience</span>
+                </div>
+              </div>
+
+              <!-- Top badges -->
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-0.5 rounded-full bg-white text-[#0D6964] border border-[#0D6964]/30 text-[11px] font-extrabold">
+                  Grammar
+                </span>
+              </div>
+              <div class="absolute top-3 right-3 text-[11px] font-bold text-[#4E6668] bg-white/80 px-2 py-0.5 rounded-md">
+                4 min read
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 space-y-2.5">
+              <h4 class="text-lg font-extrabold text-[#0F3D3E] group-hover:text-[#0D6964] transition-colors leading-snug">
+                <a href="#">Present Perfect vs Past Simple: The Clear Way to Choose</a>
+              </h4>
+              <p class="text-sm text-[#4E6668] font-medium line-clamp-2 leading-relaxed">
+                Connect past actions to the current conversation without freezing up. Key time markers: 'since', 'for', 'ago', and 'in 2022'.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-[#EADEC8]/60 text-xs font-bold text-[#4E6668]">
+            <span>Oct 24, 2025</span>
+            <span class="text-[#0D6964] inline-flex items-center gap-0.5 group-hover:translate-x-1 transition-transform">
+              Read guide <span class="material-symbols-rounded text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 2: TOEIC Test Format -->
+        <article class="tactile-card flex flex-col justify-between overflow-hidden group">
+          <div>
+            <!-- Cover Placeholder -->
+            <div class="h-44 w-full bg-gradient-to-br from-[#FFF3E0] to-[#FFE0B2] border-b-2 border-[#EADEC8] relative flex items-center justify-center p-4">
+              <!-- Visual motif: 7 parts badge ring -->
+              <div class="w-20 h-20 rounded-2xl bg-white border-2 border-[#FFB054] shadow-[0_4px_0_#D8CFBC] flex flex-col items-center justify-center">
+                <span class="text-2xl font-extrabold text-[#FFB054] leading-none">7</span>
+                <span class="text-[9px] font-extrabold uppercase text-[#0F3D3E] tracking-tight">Parts Breakdown</span>
+                <span class="text-[9px] font-bold text-[#0D6964]">200 Questions</span>
+              </div>
+
+              <!-- Top badges -->
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-0.5 rounded-full bg-white text-[#FFB054] border border-[#FFB054]/40 text-[11px] font-extrabold">
+                  TOEIC Prep
+                </span>
+              </div>
+              <div class="absolute top-3 right-3 text-[11px] font-bold text-[#4E6668] bg-white/80 px-2 py-0.5 rounded-md">
+                7 min read
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 space-y-2.5">
+              <h4 class="text-lg font-extrabold text-[#0F3D3E] group-hover:text-[#0D6964] transition-colors leading-snug">
+                <a href="#">TOEIC Test Format: All 7 Parts, Timing and Scoring Explained</a>
+              </h4>
+              <p class="text-sm text-[#4E6668] font-medium line-clamp-2 leading-relaxed">
+                Complete pacing blueprint for Listening (Parts 1–4) and Reading (Parts 5–7), including how to save 12 minutes in Part 7 passages.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-[#EADEC8]/60 text-xs font-bold text-[#4E6668]">
+            <span>Oct 22, 2025</span>
+            <span class="text-[#0D6964] inline-flex items-center gap-0.5 group-hover:translate-x-1 transition-transform">
+              Read guide <span class="material-symbols-rounded text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 3: IELTS Speaking Part 2 -->
+        <article class="tactile-card flex flex-col justify-between overflow-hidden group">
+          <div>
+            <!-- Cover Placeholder -->
+            <div class="h-44 w-full bg-gradient-to-br from-[#E6F5F4] to-[#CBECE9] border-b-2 border-[#EADEC8] relative flex items-center justify-center p-4">
+              <!-- Visual motif: Microphone + Stopwatch -->
+              <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-2xl bg-[#0D6964] border-2 border-[#074743] shadow-[0_3px_0_#074743] flex items-center justify-center text-white">
+                  <span class="material-symbols-rounded text-2xl">mic</span>
+                </div>
+                <div class="bg-white px-3 py-1.5 rounded-xl border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC]">
+                  <span class="text-xs font-extrabold text-[#F2553B] block">2:00 MINS</span>
+                  <span class="text-[10px] font-bold text-[#4E6668]">Cue Card Fluency</span>
+                </div>
+              </div>
+
+              <!-- Top badges -->
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-0.5 rounded-full bg-white text-[#0D6964] border border-[#0D6964]/30 text-[11px] font-extrabold">
+                  IELTS Speaking
+                </span>
+              </div>
+              <div class="absolute top-3 right-3 text-[11px] font-bold text-[#4E6668] bg-white/80 px-2 py-0.5 rounded-md">
+                6 min read
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 space-y-2.5">
+              <h4 class="text-lg font-extrabold text-[#0F3D3E] group-hover:text-[#0D6964] transition-colors leading-snug">
+                <a href="#">IELTS Speaking Part 2: Cue Card Tips to Talk for 2 Minutes</a>
+              </h4>
+              <p class="text-sm text-[#4E6668] font-medium line-clamp-2 leading-relaxed">
+                Use the PAST-PRESENT-FUTURE framework during your 1-minute prep to never run out of ideas before the examiner stops you.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-[#EADEC8]/60 text-xs font-bold text-[#4E6668]">
+            <span>Oct 19, 2025</span>
+            <span class="text-[#0D6964] inline-flex items-center gap-0.5 group-hover:translate-x-1 transition-transform">
+              Read guide <span class="material-symbols-rounded text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 4: Academic Writing Task 2 Connectors -->
+        <article class="tactile-card flex flex-col justify-between overflow-hidden group">
+          <div>
+            <!-- Cover Placeholder -->
+            <div class="h-44 w-full bg-gradient-to-br from-[#FFF5F3] to-[#FCE0DC] border-b-2 border-[#EADEC8] relative flex items-center justify-center p-4">
+              <!-- Visual motif: Cohesion blocks -->
+              <div class="flex flex-col gap-1.5 w-44">
+                <div class="px-2.5 py-1 rounded-lg bg-white border border-[#F2553B]/30 text-xs font-bold text-[#0F3D3E] flex justify-between">
+                  <span>Notwithstanding</span>
+                  <span class="text-[#F2553B] font-extrabold">Band 8.0</span>
+                </div>
+                <div class="px-2.5 py-1 rounded-lg bg-[#F2553B] text-white text-xs font-bold flex justify-between">
+                  <span>Conversely</span>
+                  <span class="text-[#FFC94A] font-extrabold">Band 7.5</span>
+                </div>
+              </div>
+
+              <!-- Top badges -->
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-0.5 rounded-full bg-white text-[#F2553B] border border-[#F2553B]/30 text-[11px] font-extrabold">
+                  Writing Task 2
+                </span>
+              </div>
+              <div class="absolute top-3 right-3 text-[11px] font-bold text-[#4E6668] bg-white/80 px-2 py-0.5 rounded-md">
+                5 min read
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 space-y-2.5">
+              <h4 class="text-lg font-extrabold text-[#0F3D3E] group-hover:text-[#0D6964] transition-colors leading-snug">
+                <a href="#">Cohesive Devices That Don't Sound Forced in Task 2</a>
+              </h4>
+              <p class="text-sm text-[#4E6668] font-medium line-clamp-2 leading-relaxed">
+                Examiners penalize overused robotic linkers like 'Moreover' and 'Furthermore'. Here is how native writers build effortless flow.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-[#EADEC8]/60 text-xs font-bold text-[#4E6668]">
+            <span>Oct 15, 2025</span>
+            <span class="text-[#0D6964] inline-flex items-center gap-0.5 group-hover:translate-x-1 transition-transform">
+              Read guide <span class="material-symbols-rounded text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 5: 14 High-Weight Collocations -->
+        <article class="tactile-card flex flex-col justify-between overflow-hidden group">
+          <div>
+            <!-- Cover Placeholder -->
+            <div class="h-44 w-full bg-gradient-to-br from-[#FFF7EA] to-[#F1E4CB] border-b-2 border-[#EADEC8] relative flex items-center justify-center p-4">
+              <!-- Visual motif: Collocation Pairs -->
+              <div class="w-full max-w-[200px] space-y-1.5">
+                <div class="px-3 py-1.5 rounded-xl bg-white border border-[#EADEC8] shadow-[0_2px_0_#D8CFBC] flex items-center justify-between">
+                  <span class="text-xs font-bold text-[#0F3D3E]">profound impact</span>
+                  <span class="material-symbols-rounded text-sm text-[#2FBF71]">check</span>
+                </div>
+                <div class="px-3 py-1.5 rounded-xl bg-white border border-[#EADEC8] shadow-[0_2px_0_#D8CFBC] flex items-center justify-between">
+                  <span class="text-xs font-bold text-[#0F3D3E]">readily available</span>
+                  <span class="material-symbols-rounded text-sm text-[#2FBF71]">check</span>
+                </div>
+              </div>
+
+              <!-- Top badges -->
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-0.5 rounded-full bg-white text-[#0D6964] border border-[#0D6964]/30 text-[11px] font-extrabold">
+                  Vocabulary
+                </span>
+              </div>
+              <div class="absolute top-3 right-3 text-[11px] font-bold text-[#4E6668] bg-white/80 px-2 py-0.5 rounded-md">
+                8 min read
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 space-y-2.5">
+              <h4 class="text-lg font-extrabold text-[#0F3D3E] group-hover:text-[#0D6964] transition-colors leading-snug">
+                <a href="#">14 High-Weight Collocations That Boost Your Lexical Score</a>
+              </h4>
+              <p class="text-sm text-[#4E6668] font-medium line-clamp-2 leading-relaxed">
+                Swap common adjective-noun pairs for verified Cambridge collocations that signal natural native precision.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-[#EADEC8]/60 text-xs font-bold text-[#4E6668]">
+            <span>Oct 11, 2025</span>
+            <span class="text-[#0D6964] inline-flex items-center gap-0.5 group-hover:translate-x-1 transition-transform">
+              Read guide <span class="material-symbols-rounded text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 6: Inversion in Writing -->
+        <article class="tactile-card flex flex-col justify-between overflow-hidden group">
+          <div>
+            <!-- Cover Placeholder -->
+            <div class="h-44 w-full bg-gradient-to-br from-[#E6F5F4] to-[#BFE3E0] border-b-2 border-[#EADEC8] relative flex items-center justify-center p-4">
+              <!-- Visual motif: Syntax inversion formula -->
+              <div class="px-3.5 py-2 rounded-xl bg-white border-2 border-[#0D6964] shadow-[0_3px_0_#D8CFBC] text-center">
+                <span class="text-[10px] font-extrabold uppercase text-[#4E6668] block">Advanced Syntax</span>
+                <span class="text-xs font-bold text-[#0D6964]">Rarely have I seen...</span>
+              </div>
+
+              <!-- Top badges -->
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-0.5 rounded-full bg-white text-[#0D6964] border border-[#0D6964]/30 text-[11px] font-extrabold">
+                  TOEFL / IELTS
+                </span>
+              </div>
+              <div class="absolute top-3 right-3 text-[11px] font-bold text-[#4E6668] bg-white/80 px-2 py-0.5 rounded-md">
+                5 min read
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 space-y-2.5">
+              <h4 class="text-lg font-extrabold text-[#0F3D3E] group-hover:text-[#0D6964] transition-colors leading-snug">
+                <a href="#">Inversion Structures in Academic Writing: When & How to Use</a>
+              </h4>
+              <p class="text-sm text-[#4E6668] font-medium line-clamp-2 leading-relaxed">
+                Add grammatical range to your essays using negative adverbials like 'Not only... but also', 'Seldom', and 'Under no circumstances'.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-[#EADEC8]/60 text-xs font-bold text-[#4E6668]">
+            <span>Oct 08, 2025</span>
+            <span class="text-[#0D6964] inline-flex items-center gap-0.5 group-hover:translate-x-1 transition-transform">
+              Read guide <span class="material-symbols-rounded text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- 'LOAD MORE' 3D SECONDARY BUTTON -->
+      <div class="flex justify-center pt-4 sm:pt-6">
+        <button class="btn-3d-secondary px-8 py-3.5 rounded-2xl font-extrabold text-sm sm:text-base flex items-center gap-2 group">
+          <span>Load more guides (42 remaining)</span>
+          <span class="material-symbols-rounded text-lg text-[#0D6964] group-hover:translate-y-0.5 transition-transform">expand_more</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- CLOSING CARD: 'Learn free with Lexkite' (No spam newsletter, pure app value) -->
+    <section class="tactile-card p-6 sm:p-10 bg-gradient-to-br from-[#0D6964] to-[#084844] text-white border-2 border-[#074743] shadow-[0_6px_0_#052626]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        
+        <div class="lg:col-span-8 space-y-3">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-[#FFC94A] font-extrabold text-xs tracking-wider uppercase">
+            <span class="material-symbols-rounded text-sm">bolt</span>
+            Spaced Repetition & Daily Micro-Drills
+          </div>
+          
+          <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight">
+            Learn free with Lexkite
+          </h3>
+
+          <p class="text-sm sm:text-base text-[#E6F5F4]/90 font-medium max-w-xl leading-relaxed">
+            Practice all these vocabulary pairs and sentence templates directly in our game-like drill trainer. Zero ads, zero paywalls, 100% free exam prep.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-1 text-xs text-[#E6F5F4]">
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-rounded text-sm text-[#2FBF71]">check_circle</span>
+              IELTS Band 7.5+ Targets
+            </span>
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-rounded text-sm text-[#2FBF71]">check_circle</span>
+              Available on Web & Chrome
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center lg:items-end">
+          <a href="#" class="btn-3d-primary w-full sm:w-auto text-center px-6 py-3.5 rounded-xl font-extrabold text-sm text-[#10191B] tracking-wide inline-flex items-center justify-center gap-2">
+            <span>Start Learning — Free</span>
+            <span class="material-symbols-rounded text-base">arrow_forward</span>
+          </a>
+          <a href="#" class="w-full sm:w-auto text-center px-6 py-2.5 rounded-xl font-bold text-xs text-[#E6F5F4] hover:text-white hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-1">
+            <span>Add Chrome Extension</span>
+            <span class="material-symbols-rounded text-sm">extension</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SHARED PUBLIC FOOTER -->
+  <footer class="mt-16 bg-white border-t-2 border-[#EADEC8] pt-12 pb-8">
+    <div class="max-w-[1240px] mx-auto px-4 sm:px-6 space-y-10">
+      
+      <!-- Top Row: Brand + 3 Link Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        
+        <!-- Left: Logo + Tagline -->
+        <div class="md:col-span-4 space-y-3.5">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#F2553B] to-[#FFB054] border border-[#B53A22] flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L20 12L12 22L4 12L12 2Z" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <span class="text-xl font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+          </div>
+
+          <p class="text-sm text-[#4E6668] font-medium leading-relaxed max-w-sm">
+            Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice.
+          </p>
+
+          <p class="text-xs text-[#4E6668]/80">
+            Engineered around empirical linguistics and spaced repetition.
+          </p>
+        </div>
+
+        <!-- Col 1: Product -->
+        <div class="md:col-span-2 sm:col-span-4 space-y-2.5">
+          <h5 class="text-xs font-extrabold uppercase tracking-wider text-[#0F3D3E]">Product</h5>
+          <ul class="space-y-2 text-sm font-semibold text-[#4E6668]">
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Learning Path</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Spaced Review</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Speaking Drills</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Chrome Add-on</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Resources -->
+        <div class="md:col-span-3 sm:col-span-4 space-y-2.5">
+          <h5 class="text-xs font-extrabold uppercase tracking-wider text-[#0F3D3E]">Resources</h5>
+          <ul class="space-y-2 text-sm font-semibold text-[#4E6668]">
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Blog & Guides</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">IELTS Speaking Topics</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Writing Task 2 Samples</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Open Research (100 Pairs)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div class="md:col-span-3 sm:col-span-4 space-y-2.5">
+          <h5 class="text-xs font-extrabold uppercase tracking-wider text-[#0F3D3E]">Company</h5>
+          <ul class="space-y-2 text-sm font-semibold text-[#4E6668]">
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">About & Teachers</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Editorial Standards</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-[#0D6964] transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Language Row -->
+      <div class="pt-6 border-t border-[#EADEC8] flex flex-wrap items-center justify-between gap-4 text-xs font-medium text-[#4E6668]">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <span class="font-bold text-[#0F3D3E]">Languages:</span>
+          <a href="#" class="text-[#0D6964] font-bold">English</a>
+          <a href="#" class="hover:text-[#0F3D3E]">Español</a>
+          <a href="#" class="hover:text-[#0F3D3E]">Tiếng Việt</a>
+          <a href="#" class="hover:text-[#0F3D3E]">한국어</a>
+          <a href="#" class="hover:text-[#0F3D3E]">日本語</a>
+          <a href="#" class="hover:text-[#0F3D3E]">简体中文</a>
+          <a href="#" class="hover:text-[#0F3D3E]">Bahasa Indonesia</a>
+          <a href="#" class="hover:text-[#0F3D3E]">Français</a>
+          <a href="#" class="hover:text-[#0F3D3E]">Deutsch</a>
+        </div>
+
+        <div>
+          © 2025 Lexkite Prep Inc. All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

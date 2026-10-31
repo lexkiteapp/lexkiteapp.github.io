@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — English vocabulary that sticks, scores that climb</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            'light-bg': '#091518',
+            'light-card': '#142328',
+            'light-card-subtle': '#1A2C33',
+            'light-border': '#233942',
+            'light-ledge': '#0D1A1E',
+            'light-text': '#EEF6F7',
+            'light-text-muted': '#A9BFC1',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#6BD8CE',
+            'teal-ledge': '#12514D',
+            'coral-brand': '#F2553B',
+            'amber-brand': '#FFB054',
+            'cta-ledge': '#B53A22',
+            'gold-brand': '#FFC94A',
+            'gold-ledge': '#C9931E',
+            'success-brand': '#2FBF71',
+            'success-ledge': '#1B8A4E',
+          },
+          boxShadow: {
+            'tactile-cta': '0 6px 0 #B53A22, 0 10px 20px -4px rgba(242, 85, 59, 0.35)',
+            'tactile-card': '0 5px 0 #0D1A1E',
+            'tactile-card-hover': '0 7px 0 #0D1A1E',
+            'tactile-teal': '0 5px 0 #0D1A1E',
+            'tactile-btn': '0 4px 0 #0D1A1E',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* 3D button press tactile mechanics */
+    .btn-3d-primary {
+      background: linear-gradient(180deg, #F2553B 0%, #EA4C32 100%);
+      box-shadow: 0 5px 0 #B53A22, 0 8px 16px rgba(242, 85, 59, 0.3);
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-3d-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 #B53A22, 0 12px 20px rgba(242, 85, 59, 0.4);
+    }
+    .btn-3d-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22, 0 3px 6px rgba(242, 85, 59, 0.2);
+    }
+
+    .btn-3d-secondary {
+      background: #142328;
+      border: 2px solid #233942;
+      box-shadow: 0 4px 0 #0D1A1E;
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-3d-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #0D1A1E;
+      border-color: #36505A;
+      background: #1A2C33;
+    }
+    .btn-3d-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #0D1A1E;
+    }
+
+    .card-tactile {
+      background: #142328;
+      border: 2px solid #233942;
+      box-shadow: 0 5px 0 #0D1A1E;
+      border-radius: 20px;
+      transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .card-tactile:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 0 #0D1A1E, 0 12px 24px -6px rgba(0, 0, 0, 0.4);
+      border-color: #36505A;
+    }
+
+    /* Details accordion summary arrow */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary .faq-icon {
+      transform: rotate(180deg);
+      background-color: #2BA39A;
+      color: #091518;
+    }
+  </style>
+</head>
+<body class="bg-light-bg text-light-text font-sans antialiased min-h-screen selection:bg-teal-brand/30 selection:text-white">
+<!-- ========================================================================= -->
+<!-- SHARED SITE CHROME: STICKY HEADER -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-50 bg-[#091518]/90 backdrop-blur-md border-b-2 border-light-border transition-all shadow-[0_4px_0_#0D1A1E]">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo + Wordmark -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-11 h-11 rounded-2xl bg-teal-brand flex items-center justify-center border-2 border-teal-deep shadow-[0_4px_0_#0D1A1E] group-hover:scale-105 transition-transform">
+<!-- Kite geometric icon mark -->
+<svg fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#091518" stroke="#EEF6F7" stroke-linejoin="round" stroke-width="1.8"></path>
+<path d="M12 2V22M4 10H20" stroke="#EEF6F7" stroke-linecap="round" stroke-width="1.6"></path>
+<circle cx="12" cy="10" fill="#F2553B" r="2.2"></circle>
+</svg>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-light-text">Lexkite</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-bold text-sm text-light-text-muted hover:text-teal-brand transition-colors" href="#resources">Blog</a>
+<a class="font-bold text-sm text-light-text-muted hover:text-teal-brand transition-colors" href="#features">Vocabulary</a>
+<a class="font-bold text-sm text-light-text-muted hover:text-teal-brand transition-colors" href="#resources">Samples</a>
+<a class="font-bold text-sm text-light-text-muted hover:text-teal-brand transition-colors" href="#how-it-works">Open app</a>
+</nav>
+<!-- Right Header Actions -->
+<div class="hidden md:flex items-center gap-4">
+<!-- Language Globe Chip -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-light-border bg-[#142328] text-xs font-extrabold text-light-text hover:border-teal-brand transition-colors shadow-[0_2px_0_#0D1A1E] active:translate-y-0.5">
+<span class="material-symbols-outlined text-base text-teal-brand">language</span>
+<span>EN</span>
+</button>
+<!-- Ghost Sign in -->
+<button class="px-4 py-2 text-sm font-bold text-light-text-muted hover:text-teal-brand transition-colors">
+          Sign in
+        </button>
+<!-- Primary 3D Get Started Button -->
+<a class="btn-3d-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-extrabold text-sm tracking-wide" href="#hero">
+<span>Get started</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+<!-- Mobile Hamburger Toggle -->
+<div class="flex items-center gap-2 md:hidden">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full border-2 border-light-border bg-[#142328] text-xs font-bold text-light-text">
+<span class="material-symbols-outlined text-sm text-teal-brand">language</span>
+          EN
+        </button>
+<button aria-label="Open menu" class="w-10 h-10 rounded-xl bg-[#142328] border-2 border-light-border shadow-[0_3px_0_#0D1A1E] flex items-center justify-center text-light-text active:translate-y-0.5" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Nav Flyout -->
+<div class="hidden md:hidden border-t-2 border-light-border bg-[#091518] px-6 py-6 space-y-4" id="mobile-menu">
+<div class="flex flex-col gap-3 font-bold text-base text-light-text">
+<a class="py-2 hover:text-teal-brand" href="#features">Vocabulary</a>
+<a class="py-2 hover:text-teal-brand" href="#browser-extension">Chrome Add-on</a>
+<a class="py-2 hover:text-teal-brand" href="#how-it-works">How it works</a>
+<a class="py-2 hover:text-teal-brand" href="#resources">Free Resources &amp; Blog</a>
+<a class="py-2 hover:text-teal-brand" href="#faq">FAQ</a>
+</div>
+<div class="pt-4 border-t border-light-border flex items-center justify-between gap-4">
+<button class="w-1/2 py-2.5 font-bold text-sm text-light-text-muted text-center rounded-xl bg-[#142328] border-2 border-light-border shadow-[0_2px_0_#0D1A1E]">
+          Sign in
+        </button>
+<a class="w-1/2 btn-3d-primary py-2.5 text-center rounded-xl text-white font-extrabold text-sm" href="#hero">
+          Get started
+        </a>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- SECTION 1: HERO -->
+<!-- ========================================================================= -->
+<section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden" id="hero">
+<!-- Subtle Background Dot Grid Texture -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#233942 1.2px, transparent 1.2px); background-size: 24px 24px;"></div>
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left Hero Content Column (7 cols) -->
+<div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+<!-- Eyebrow Pill -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#142328] border-2 border-light-border shadow-[0_3px_0_#0D1A1E]">
+<span class="w-2.5 h-2.5 rounded-full bg-teal-brand animate-pulse"></span>
+<span class="text-xs sm:text-sm font-extrabold text-teal-deep tracking-wide uppercase">
+              For IELTS, TOEIC &amp; TOEFL learners
+            </span>
+</div>
+<!-- Main Display Headline -->
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-light-text tracking-tight leading-[1.12]">
+            English vocabulary that <span class="relative whitespace-nowrap text-coral-brand">
+              sticks<svg class="absolute -bottom-2 left-0 w-full h-3 text-amber-brand/80" preserveaspectratio="none" viewbox="0 0 100 20"><path d="M0 12 Q 50 20 100 8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="6"></path></svg>
+</span>, scores that climb.
+          </h1>
+<!-- Short Subline -->
+<p class="text-lg sm:text-xl text-light-text-muted font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Master high-band collocations, formal nuances, and active recall with spaced repetition — structured like an addictive tactile game, 100% free.
+          </p>
+<!-- 3D Tactile CTAs -->
+<div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+<!-- Primary 3D 'Start free' CTA -->
+<a class="btn-3d-primary w-full sm:w-auto px-8 py-4 rounded-2xl text-white font-extrabold text-lg tracking-wide flex items-center justify-center gap-3" href="#how-it-works">
+<span>Start free</span>
+<span class="material-symbols-outlined text-2xl">arrow_forward</span>
+</a>
+<!-- Secondary 3D 'Add to Chrome' CTA -->
+<a class="btn-3d-secondary w-full sm:w-auto px-7 py-4 rounded-2xl text-light-text font-extrabold text-base flex items-center justify-center gap-3" href="#browser-extension">
+<!-- Chrome mini icon -->
+<svg class="w-5 h-5" fill="none" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10" stroke="#EEF6F7" stroke-width="2"></circle>
+<circle cx="12" cy="12" fill="#2BA39A" r="4"></circle>
+<path d="M12 2C15.5 2 18.5 4 20.3 7L12 12" stroke="#F2553B" stroke-width="2"></path>
+<path d="M20.3 7C21.4 8.8 22 10.9 22 13.1C22 16.2 20.2 19 17.5 20.5L12 12" stroke="#FFC94A" stroke-width="2"></path>
+<path d="M17.5 20.5C15.9 21.5 14 22 12 22C7.5 22 3.8 19 2.5 15L12 12" stroke="#2BA39A" stroke-width="2"></path>
+</svg>
+<span>Add to Chrome</span>
+</a>
+</div>
+<!-- Trust Subtext / Micro Badges -->
+<div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs font-bold text-light-text-muted">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-teal-brand text-base">check_circle</span>
+<span>100% Free forever</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-teal-brand text-base">check_circle</span>
+<span>No ads or lockouts</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-teal-brand text-base">check_circle</span>
+<span>Available in 15 languages</span>
+</div>
+</div>
+</div>
+<!-- Right Hero Mockup + Teacher Ama Slot Column (5 cols) -->
+<div class="lg:col-span-5 relative flex items-center justify-center">
+<div class="relative w-full max-w-[420px] mx-auto">
+<!-- TEACHER SLOT: Ama (2D Illustrated Teacher - Full body standing beside phone) -->
+<div class="absolute -left-12 sm:-left-16 bottom-0 z-20 flex flex-col items-center pointer-events-none" style="filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.45));">
+<!-- Illustrated Ama SVG Representation (Young Black woman, curly hair bun, yellow headband, coral cardigan, teal top) -->
+<svg class="w-[125px] sm:w-[145px] h-auto" fill="none" height="270" viewbox="0 0 150 270" width="150" xmlns="http://www.w3.org/2000/svg">
+<!-- Ground Contact Shadow -->
+<ellipse cx="75" cy="262" fill="#0D1A1E" rx="42" ry="6"></ellipse>
+<!-- Shoes / Feet -->
+<rect fill="#0D1A1E" height="15" rx="7" width="18" x="52" y="244"></rect>
+<rect fill="#0D1A1E" height="15" rx="7" width="18" x="78" y="244"></rect>
+<!-- Trousers / Legs -->
+<rect fill="#142C33" height="66" rx="6" width="16" x="54" y="180"></rect>
+<rect fill="#142C33" height="66" rx="6" width="16" x="78" y="180"></rect>
+<!-- Belt -->
+<rect fill="#C9931E" height="8" rx="2" width="44" x="52" y="174"></rect>
+<!-- Torso: Inner Top -->
+<rect fill="#2BA39A" height="50" rx="4" width="32" x="58" y="126"></rect>
+<!-- Torso: Cardigan Outer -->
+<path d="M46 120C46 116 54 114 62 114H86C94 114 102 116 102 120L106 178C106 181 103 183 100 183H48C45 183 42 181 42 178L46 120Z" fill="#F2553B"></path>
+<!-- Cardigan Lapels / Detail -->
+<path d="M60 114L74 165L88 114" stroke="#FFF7EA" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Arms / Hands gesturing toward phone -->
+<path d="M46 126L34 160C32 165 36 172 42 170L48 168" stroke="#F2553B" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></path>
+<circle cx="48" cy="168" fill="#8C5332" r="6"></circle>
+<!-- Right arm waving / pointing -->
+<path d="M102 126L118 148C123 154 130 152 133 146L138 136" stroke="#F2553B" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></path>
+<circle cx="138" cy="136" fill="#8C5332" r="6.5"></circle>
+<!-- Neck -->
+<rect fill="#8C5332" height="18" rx="4" width="12" x="68" y="98"></rect>
+<!-- Head -->
+<circle cx="74" cy="78" fill="#8C5332" r="22"></circle>
+<!-- Hair (Bun on top) -->
+<circle cx="74" cy="46" fill="#1C1815" r="19"></circle>
+<circle cx="60" cy="54" fill="#1C1815" r="14"></circle>
+<circle cx="88" cy="54" fill="#1C1815" r="14"></circle>
+<path d="M52 74C52 60 62 58 74 58C86 58 96 60 96 74C96 76 96 82 96 82C90 78 82 78 74 78C66 78 58 78 52 82V74Z" fill="#1C1815"></path>
+<!-- Yellow Headband -->
+<path d="M54 66C60 62 88 62 94 66" stroke="#FFC94A" stroke-linecap="round" stroke-width="6"></path>
+<circle cx="56" cy="67" fill="#FFC94A" r="4.5"></circle>
+<!-- Face Details: Glasses & Smile -->
+<rect fill="rgba(255,255,255,0.4)" height="9" rx="3" stroke="#0F3D3E" stroke-width="1.8" width="11" x="61" y="74"></rect>
+<rect fill="rgba(255,255,255,0.4)" height="9" rx="3" stroke="#0F3D3E" stroke-width="1.8" width="11" x="76" y="74"></rect>
+<path d="M72 78H76" stroke="#0F3D3E" stroke-width="1.8"></path>
+<path d="M68 89C71 92 77 92 80 89" stroke="#0F3D3E" stroke-linecap="round" stroke-width="2"></path>
+<!-- Gold Hoop Earrings -->
+<circle cx="52" cy="80" fill="none" r="3.5" stroke="#FFC94A" stroke-width="1.5"></circle>
+</svg>
+<!-- Teacher Speech Bubble / Label -->
+<div class="bg-[#142328] border-2 border-light-border px-3 py-1 rounded-xl shadow-[0_3px_0_#0D1A1E] -mt-4 z-30">
+<p class="text-[11px] font-extrabold text-teal-deep">Ama · Exam Lead</p>
+</div>
+</div>
+<!-- TILTED PHONE MOCKUP (Lexkite App Tactile Night) -->
+<div class="relative ml-8 sm:ml-12 rotate-2 hover:rotate-0 transition-transform duration-300">
+<!-- Phone Outer Frame -->
+<div class="w-[285px] sm:w-[315px] bg-[#051013] p-3 rounded-[38px] shadow-[0_18px_36px_-6px_rgba(0,0,0,0.6),0_6px_0_#02080a] border-2 border-[#233942]">
+<!-- Screen Bezel Screen -->
+<div class="bg-[#091518] rounded-[28px] overflow-hidden border-2 border-[#1A2C33] p-3 space-y-3">
+<!-- Top Bar Status & Flame -->
+<div class="flex items-center justify-between px-1 pt-1">
+<div class="flex items-center gap-1.5 bg-[#142328] border-2 border-light-border px-2.5 py-0.5 rounded-full shadow-[0_2px_0_#0D1A1E]">
+<span class="material-symbols-outlined text-sm text-coral-brand">local_fire_department</span>
+<span class="text-xs font-extrabold text-light-text">14</span>
+</div>
+<div class="flex items-center gap-1 bg-[#142328] border-2 border-light-border px-2.5 py-0.5 rounded-full shadow-[0_2px_0_#0D1A1E]">
+<span class="material-symbols-outlined text-sm text-amber-brand">bolt</span>
+<span class="text-xs font-extrabold text-light-text">820 XP</span>
+</div>
+</div>
+<!-- Unit Banner -->
+<div class="bg-[#12514D] border-2 border-teal-brand rounded-2xl p-3 shadow-[0_4px_0_#0D1A1E] text-white">
+<div class="flex justify-between items-center text-[10px] font-extrabold tracking-wider uppercase opacity-90 text-teal-deep">
+<span>IELTS Academic</span>
+<span>Unit 3</span>
+</div>
+<p class="text-sm font-extrabold mt-0.5 text-white">Writing Task 1 &amp; Cohesion</p>
+<div class="w-full bg-[#091518]/60 h-2 rounded-full mt-2 overflow-hidden border border-[#233942]">
+<div class="bg-gold-brand h-full rounded-full w-2/3"></div>
+</div>
+</div>
+<!-- Path Question Card inside Phone -->
+<div class="bg-[#142328] border-2 border-light-border rounded-2xl p-3 shadow-[0_4px_0_#0D1A1E] space-y-2">
+<div class="flex items-center justify-between text-[11px] font-bold text-teal-deep">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">volume_up</span> 0:02
+                      </span>
+<span class="text-[10px] px-2 py-0.5 bg-amber-brand/15 text-amber-brand rounded-full font-extrabold border border-amber-brand/30">Band 7.5+</span>
+</div>
+<p class="text-xs font-bold text-light-text">
+                      "The economy proved <span class="bg-teal-brand/20 text-teal-deep border border-teal-brand/40 px-1.5 py-0.5 rounded-md font-extrabold">resilient</span> against shocks."
+                    </p>
+</div>
+<!-- Answer Chips -->
+<div class="grid grid-cols-2 gap-2 text-[11px]">
+<div class="bg-teal-brand/20 border-2 border-teal-brand rounded-xl p-2 font-bold text-teal-deep flex items-center justify-between shadow-[0_2px_0_#0D1A1E]">
+<span>B · resilient</span>
+<span class="material-symbols-outlined text-xs text-teal-deep">check_circle</span>
+</div>
+<div class="bg-[#142328] border-2 border-light-border rounded-xl p-2 font-bold text-light-text-muted shadow-[0_2px_0_#0D1A1E]">
+<span>A · resisted</span>
+</div>
+</div>
+<!-- Bottom Green Feedback Strip inside Phone -->
+<div class="bg-[#1B8A4E] border-2 border-success-brand rounded-2xl p-2.5 text-white flex items-center justify-between shadow-[0_3px_0_#0D1A1E]">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-white text-[#1B8A4E] flex items-center justify-center font-bold text-xs">✓</div>
+<div>
+<p class="text-[11px] font-extrabold leading-tight">Excellent!</p>
+<p class="text-[9px] opacity-90 text-teal-100">+10 XP • Academic Lexicon</p>
+</div>
+</div>
+<span class="bg-black/25 text-[10px] font-extrabold px-2 py-1 rounded-lg">CONTINUE →</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 2: EVERYTHING YOU NEED TO BUILD YOUR VOCABULARY (6 TILES) -->
+<!-- ========================================================================= -->
+<section class="py-20 bg-[#0B171A] border-y-2 border-light-border relative" id="features">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#142328] border-2 border-light-border text-xs font-extrabold text-teal-deep uppercase">
+          Curriculum Features
+        </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-light-text tracking-tight">
+          Everything you need to build your vocabulary
+        </h2>
+<p class="text-base sm:text-lg text-light-text-muted font-medium">
+          Tested cognitive models engineered for Cambridge IELTS, ETS TOEFL, and TOEIC exam criteria.
+        </p>
+</div>
+<!-- 6 Illustrated Feature Tiles Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+<!-- Tile 1: Smart Flashcards (FSRS) -->
+<div class="card-tactile p-6 sm:p-7 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-amber-brand/20 border-2 border-amber-brand flex items-center justify-center shadow-[0_4px_0_#0D1A1E] mb-5">
+<span class="material-symbols-outlined text-amber-brand text-3xl">psychology</span>
+</div>
+<h3 class="text-xl font-extrabold text-light-text mb-2">Smart flashcards (FSRS)</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Algorithmic interval scheduling serves cards right before memory decay occurs. Prioritizes C1/C2 collocations with zero cramming fatigue.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-light-border flex items-center justify-between text-xs font-bold text-teal-deep">
+<span>Adaptive decay modeling</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</div>
+</div>
+<!-- Tile 2: IELTS, TOEIC & TOEFL Practice -->
+<div class="card-tactile p-6 sm:p-7 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-teal-brand/20 border-2 border-teal-brand flex items-center justify-center shadow-[0_4px_0_#0D1A1E] mb-5">
+<span class="material-symbols-outlined text-teal-brand text-3xl">school</span>
+</div>
+<h3 class="text-xl font-extrabold text-light-text mb-2">IELTS, TOEIC &amp; TOEFL practice</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Targeted drills for Academic Writing Task 2, TOEIC Part 5 Incomplete Sentences, and TOEFL Integrated Reading passages with verified corpora.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-light-border flex items-center justify-between text-xs font-bold text-teal-deep">
+<span>Official rubrics aligned</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</div>
+</div>
+<!-- Tile 3: AI Feedback on Writing & Speaking -->
+<div class="card-tactile p-6 sm:p-7 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-coral-brand/20 border-2 border-coral-brand flex items-center justify-center shadow-[0_4px_0_#0D1A1E] mb-5">
+<span class="material-symbols-outlined text-coral-brand text-3xl">record_voice_over</span>
+</div>
+<h3 class="text-xl font-extrabold text-light-text mb-2">AI feedback on writing &amp; speaking</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Instant Lexical Resource scoring. Swap repeated low-band words like "very bad" or "important" for high-impact synonyms like "detrimental" and "pivotal".
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-light-border flex items-center justify-between text-xs font-bold text-teal-deep">
+<span>Instant band elevation</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</div>
+</div>
+<!-- Tile 4: Chrome Add-on -->
+<div class="card-tactile p-6 sm:p-7 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-blue-500/20 border-2 border-blue-400 flex items-center justify-center shadow-[0_4px_0_#0D1A1E] mb-5">
+<span class="material-symbols-outlined text-blue-400 text-3xl">extension</span>
+</div>
+<h3 class="text-xl font-extrabold text-light-text mb-2">Chrome add-on</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Double-click any unfamiliar word on BBC, The Economist, or Wikipedia to inspect IPA phonetic transcription, band levels, and sync straight to your phone.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-light-border flex items-center justify-between text-xs font-bold text-teal-deep">
+<span>1-click in-page lookup</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</div>
+</div>
+<!-- Tile 5: Grammar & Pronunciation -->
+<div class="card-tactile p-6 sm:p-7 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center shadow-[0_4px_0_#0D1A1E] mb-5">
+<span class="material-symbols-outlined text-emerald-400 text-3xl">graphic_eq</span>
+</div>
+<h3 class="text-xl font-extrabold text-light-text mb-2">Grammar &amp; pronunciation</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Dual UK Received Pronunciation and US General American audio with clear pitch markers, connected speech patterns, and preposition traps.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-light-border flex items-center justify-between text-xs font-bold text-teal-deep">
+<span>Native audio waveforms</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</div>
+</div>
+<!-- Tile 6: In 15 Languages -->
+<div class="card-tactile p-6 sm:p-7 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-purple-500/20 border-2 border-purple-400 flex items-center justify-center shadow-[0_4px_0_#0D1A1E] mb-5">
+<span class="material-symbols-outlined text-purple-400 text-3xl">translate</span>
+</div>
+<h3 class="text-xl font-extrabold text-light-text mb-2">In 15 languages</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Bilingual definitions, false friends alerts, and native language grammar interference notes in Vietnamese, Spanish, Korean, Japanese, Chinese, and more.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-light-border flex items-center justify-between text-xs font-bold text-teal-deep">
+<span>Localized L1 hints</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 3: LOOK UP WORDS ON ANY WEBSITE (BROWSER MOCKUP) -->
+<!-- ========================================================================= -->
+<section class="py-20 md:py-28 bg-[#091518] relative overflow-hidden" id="browser-extension">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Copy Column (5 cols) -->
+<div class="lg:col-span-5 space-y-6">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#142328] border-2 border-light-border text-xs font-extrabold text-teal-deep uppercase shadow-[0_2px_0_#0D1A1E]">
+            Browser Extension
+          </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-light-text tracking-tight leading-tight">
+            Look up words on any website with one double-click
+          </h2>
+<p class="text-base sm:text-lg text-light-text-muted font-medium leading-relaxed">
+            Turn your everyday web reading into high-scoring exam vocabulary. As you read The Economist, BBC, or academic papers, instant IELTS Band labels appear directly inline.
+          </p>
+<ul class="space-y-3 pt-2 text-sm font-bold text-light-text">
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-lg bg-teal-brand/20 text-teal-deep flex items-center justify-center">✓</div>
+<span>Real-time CEFR &amp; IELTS Band tags (6.5, 7.5, 8.5)</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-lg bg-teal-brand/20 text-teal-deep flex items-center justify-center">✓</div>
+<span>Dual UK / US native pronunciation with stress marks</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-lg bg-teal-brand/20 text-teal-deep flex items-center justify-center">✓</div>
+<span>Instantly syncs to your phone for evening S-curve review</span>
+</li>
+</ul>
+<div class="pt-3">
+<a class="btn-3d-secondary inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl text-light-text font-extrabold text-base" href="#">
+<span class="material-symbols-outlined text-teal-brand text-xl">download</span>
+<span>Install Chrome Extension (Free)</span>
+</a>
+</div>
+</div>
+<!-- Right Browser Window Mockup (7 cols) -->
+<div class="lg:col-span-7">
+<div class="bg-[#142328] border-2 border-light-border rounded-3xl shadow-[0_12px_28px_-6px_rgba(0,0,0,0.5),0_6px_0_#0D1A1E] overflow-hidden">
+<!-- Browser Header Bar -->
+<div class="bg-[#1A2C33] px-4 py-3 border-b-2 border-light-border flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-coral-brand/80 border border-coral-brand"></span>
+<span class="w-3 h-3 rounded-full bg-amber-brand/80 border border-amber-brand"></span>
+<span class="w-3 h-3 rounded-full bg-teal-brand/80 border border-teal-brand"></span>
+</div>
+<!-- URL Bar -->
+<div class="w-3/5 bg-[#091518] border border-light-border px-3 py-1 rounded-lg text-xs font-mono text-light-text-muted flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-xs text-teal-brand">lock</span>
+<span>economist.com/finance/logistical-shocks</span>
+</div>
+<div class="w-6"></div>
+</div>
+<!-- Web Article Body Area with Popup -->
+<div class="p-6 sm:p-8 relative bg-[#142328] min-h-[360px]">
+<div class="text-xs font-bold uppercase tracking-wider text-teal-deep mb-2">Global Logistics &amp; Supply Analysis</div>
+<h3 class="text-xl sm:text-2xl font-extrabold text-light-text mb-4">
+                The Fragility of Just-in-Time Commerce
+              </h3>
+<div class="space-y-4 text-sm text-light-text-muted font-medium leading-relaxed">
+<p>
+                  Global manufacturing chains face systemic vulnerabilities as cross-border trade friction escalates. Industrial managers now reckon with deep
+                  <!-- Selected word highlight -->
+<span class="relative inline-block bg-teal-brand/25 border-b-2 border-teal-brand text-teal-deep font-bold px-1 rounded-sm">
+                    bottlenecks
+                  </span>
+                  across international deepwater ports and airfreight hubs.
+                </p>
+<p class="text-xs opacity-70">
+                  Consequently, regulatory authorities have begun drafting targeted stabilization frameworks to mitigate persistent supply stress...
+                </p>
+</div>
+<!-- POPUP WORD BUBBLE (Interactive Tactile Card) -->
+<div class="absolute left-6 sm:left-24 top-28 z-20 w-[290px] sm:w-[320px] bg-[#1A2C33] border-2 border-light-border rounded-2xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.6),0_6px_0_#0D1A1E] p-4 space-y-3">
+<div class="flex items-center justify-between border-b border-light-border pb-2">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-base font-extrabold text-light-text">bottleneck</span>
+<span class="text-[10px] font-mono text-light-text-muted">/ˈbɑːtlnek/</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-brand/20 text-amber-brand border border-amber-brand/30">C1 Academic</span>
+<span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-teal-brand/20 text-teal-deep border border-teal-brand/30">IELTS 7.5+</span>
+</div>
+</div>
+<button aria-label="Listen pronunciation" class="w-8 h-8 rounded-full bg-[#142328] border border-light-border flex items-center justify-center text-teal-brand hover:scale-105">
+<span class="material-symbols-outlined text-base">volume_up</span>
+</button>
+</div>
+<p class="text-xs text-light-text font-medium leading-snug">
+                  A point of congestion that slows down or impedes an entire system or production process.
+                </p>
+<!-- Collocations Pill -->
+<div class="text-[11px] bg-[#142328] p-2 rounded-xl border border-light-border">
+<span class="font-extrabold text-teal-deep">Collocation:</span>
+<span class="font-medium text-light-text">"severe bottlenecks in distribution"</span>
+</div>
+<!-- Add to flashcard button inside bubble -->
+<button class="w-full btn-3d-primary py-2 rounded-xl text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-[0_3px_0_#B53A22]">
+<span class="material-symbols-outlined text-sm">bookmark_add</span>
+<span>Save to My Deck (+5 XP)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 4: HOW IT WORKS (3 NUMBERED STEPS) -->
+<!-- ========================================================================= -->
+<section class="py-20 bg-[#0B171A] border-b-2 border-light-border" id="how-it-works">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#142328] border-2 border-light-border text-xs font-extrabold text-teal-deep uppercase">
+          Learning Path
+        </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-light-text tracking-tight">
+          How it works
+        </h2>
+<p class="text-base sm:text-lg text-light-text-muted font-medium">
+          A frictionless daily loop designed to turn passive reading into spontaneous exam production.
+        </p>
+</div>
+<!-- 3 Numbered Step Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="card-tactile p-8 relative flex flex-col justify-between">
+<div class="space-y-4">
+<!-- Step Number Badge -->
+<div class="w-12 h-12 rounded-2xl bg-teal-brand text-white font-extrabold text-xl flex items-center justify-center border-2 border-teal-deep shadow-[0_4px_0_#0D1A1E]">
+              01
+            </div>
+<h3 class="text-xl font-extrabold text-light-text">Pick your exam &amp; target</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Select IELTS (Academic or General), TOEIC 850+, or TOEFL iBT. Lexkite tunes your syllabus to the exact vocabulary frequency curves required by your target score.
+            </p>
+</div>
+<div class="mt-6 flex items-center gap-2 text-xs font-bold text-teal-deep">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Target Band 6.5 → 8.5</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="card-tactile p-8 relative flex flex-col justify-between">
+<div class="space-y-4">
+<!-- Step Number Badge -->
+<div class="w-12 h-12 rounded-2xl bg-amber-brand text-[#091518] font-extrabold text-xl flex items-center justify-center border-2 border-gold-brand shadow-[0_4px_0_#0D1A1E]">
+              02
+            </div>
+<h3 class="text-xl font-extrabold text-light-text">Learn a little every day</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Complete a 5-minute bite-sized drill on your phone or laptop. Contextual fill-in-the-blanks, minimal pair audio, and phrase assembly keep momentum strong without burnout.
+            </p>
+</div>
+<div class="mt-6 flex items-center gap-2 text-xs font-bold text-amber-brand">
+<span class="material-symbols-outlined text-sm">local_fire_department</span>
+<span>Maintain your 14-day streak</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="card-tactile p-8 relative flex flex-col justify-between">
+<div class="space-y-4">
+<!-- Step Number Badge -->
+<div class="w-12 h-12 rounded-2xl bg-coral-brand text-white font-extrabold text-xl flex items-center justify-center border-2 border-cta-ledge shadow-[0_4px_0_#0D1A1E]">
+              03
+            </div>
+<h3 class="text-xl font-extrabold text-light-text">Practise &amp; track progress</h3>
+<p class="text-sm font-medium text-light-text-muted leading-relaxed">
+              Inspect your estimated readiness score anytime. Watch words migrate from "At Risk" to "Solid" to "Permanently Mastered" in your personal memory graph.
+            </p>
+</div>
+<div class="mt-6 flex items-center gap-2 text-xs font-bold text-coral-brand">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>Simulated readiness projection</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 5: FREE LEARNING RESOURCES (ROW OF LINK CARDS) -->
+<!-- ========================================================================= -->
+<section class="py-20 bg-[#091518]" id="resources">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+<div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#142328] border-2 border-light-border text-xs font-extrabold text-teal-deep uppercase shadow-[0_2px_0_#0D1A1E] mb-3">
+            Open Syllabus
+          </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-light-text tracking-tight">
+            Free learning resources
+          </h2>
+</div>
+<p class="text-sm font-bold text-light-text-muted">
+          All curriculum notes are public and open-access.
+        </p>
+</div>
+<!-- Row of 5 Link Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+<!-- Card 1: Writing samples -->
+<a class="card-tactile p-5 flex flex-col justify-between group hover:border-teal-brand" href="#">
+<div>
+<div class="w-11 h-11 rounded-xl bg-teal-brand/20 text-teal-deep flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">edit_note</span>
+</div>
+<h3 class="text-base font-extrabold text-light-text mb-1">Writing samples</h3>
+<p class="text-xs text-light-text-muted font-medium">
+              Band 8.0 &amp; 9.0 model essays with sentence-by-sentence Lexical Resource breakdowns.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-light-border flex items-center gap-1 text-xs font-extrabold text-teal-deep">
+<span>Explore essays</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</a>
+<!-- Card 2: Speaking topics -->
+<a class="card-tactile p-5 flex flex-col justify-between group hover:border-teal-brand" href="#">
+<div>
+<div class="w-11 h-11 rounded-xl bg-coral-brand/20 text-coral-brand flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">mic</span>
+</div>
+<h3 class="text-base font-extrabold text-light-text mb-1">Speaking topics</h3>
+<p class="text-xs text-light-text-muted font-medium">
+              Part 2 cue cards and Part 3 abstract discussion prompts with natural native discourse markers.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-light-border flex items-center gap-1 text-xs font-extrabold text-teal-deep">
+<span>Cue card bank</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</a>
+<!-- Card 3: Grammar -->
+<a class="card-tactile p-5 flex flex-col justify-between group hover:border-teal-brand" href="#">
+<div>
+<div class="w-11 h-11 rounded-xl bg-amber-brand/20 text-amber-brand flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</div>
+<h3 class="text-base font-extrabold text-light-text mb-1">Grammar</h3>
+<p class="text-xs text-light-text-muted font-medium">
+              Inversion structures, third conditionals, gerund patterns, and common preposition slips.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-light-border flex items-center gap-1 text-xs font-extrabold text-teal-deep">
+<span>Rules &amp; drills</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</a>
+<!-- Card 4: Vocabulary lists -->
+<a class="card-tactile p-5 flex flex-col justify-between group hover:border-teal-brand" href="#">
+<div>
+<div class="w-11 h-11 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">format_list_bulleted</span>
+</div>
+<h3 class="text-base font-extrabold text-light-text mb-1">Vocabulary lists</h3>
+<p class="text-xs text-light-text-muted font-medium">
+              Curated topic sets: Environment, Technology, Urban Planning, Health, and Academic Nuances.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-light-border flex items-center gap-1 text-xs font-extrabold text-teal-deep">
+<span>Browse 180 sets</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</a>
+<!-- Card 5: Blog -->
+<a class="card-tactile p-5 flex flex-col justify-between group hover:border-teal-brand" href="#">
+<div>
+<div class="w-11 h-11 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl">article</span>
+</div>
+<h3 class="text-base font-extrabold text-light-text mb-1">Blog</h3>
+<p class="text-xs text-light-text-muted font-medium">
+              Deep dives by Teacher Ama and Carlos on exam changes, grading rubrics, and memory science.
+            </p>
+</div>
+<div class="mt-4 pt-3 border-t border-light-border flex items-center gap-1 text-xs font-extrabold text-teal-deep">
+<span>Read articles</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 6: FREQUENTLY ASKED QUESTIONS ACCORDION -->
+<!-- ========================================================================= -->
+<section class="py-20 bg-[#0B171A] border-y-2 border-light-border" id="faq">
+<div class="max-w-[860px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-14 space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#142328] border-2 border-light-border text-xs font-extrabold text-teal-deep uppercase">
+          Got Questions?
+        </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-light-text tracking-tight">
+          Frequently asked questions
+        </h2>
+<p class="text-base text-light-text-muted font-medium">
+          Clear answers regarding access, algorithms, and exam alignment.
+        </p>
+</div>
+<!-- Accordion Stack -->
+<div class="space-y-4">
+<!-- FAQ 1 -->
+<details class="card-tactile group p-5 cursor-pointer">
+<summary class="flex items-center justify-between font-extrabold text-base sm:text-lg text-light-text select-none">
+<span>Is Lexkite really 100% free?</span>
+<div class="faq-icon w-8 h-8 rounded-full bg-[#1A2C33] border border-light-border flex items-center justify-center text-teal-deep transition-all">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</div>
+</summary>
+<div class="pt-4 text-sm text-light-text-muted font-medium leading-relaxed border-t border-light-border mt-3">
+            Yes. There are no paywalls, hidden credit card forms, or "hearts" lockouts that stop your practice. All core drills, spaced repetition decks, and the browser extension remain entirely open to all learners worldwide.
+          </div>
+</details>
+<!-- FAQ 2 -->
+<details class="card-tactile group p-5 cursor-pointer">
+<summary class="flex items-center justify-between font-extrabold text-base sm:text-lg text-light-text select-none">
+<span>How does the spaced repetition algorithm (FSRS) work?</span>
+<div class="faq-icon w-8 h-8 rounded-full bg-[#1A2C33] border border-light-border flex items-center justify-center text-teal-deep transition-all">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</div>
+</summary>
+<div class="pt-4 text-sm text-light-text-muted font-medium leading-relaxed border-t border-light-border mt-3">
+            Lexkite utilizes the Free Spaced Repetition Scheduler (FSRS), an advanced cognitive memory model that outperforms traditional SM-2. It measures word complexity and your response lag to compute the optimal moment to review words just as neural recall begins to fade.
+          </div>
+</details>
+<!-- FAQ 3 -->
+<details class="card-tactile group p-5 cursor-pointer">
+<summary class="flex items-center justify-between font-extrabold text-base sm:text-lg text-light-text select-none">
+<span>Can I use Lexkite for TOEIC and TOEFL as well as IELTS?</span>
+<div class="faq-icon w-8 h-8 rounded-full bg-[#1A2C33] border border-light-border flex items-center justify-center text-teal-deep transition-all">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</div>
+</summary>
+<div class="pt-4 text-sm text-light-text-muted font-medium leading-relaxed border-t border-light-border mt-3">
+            Yes. You can switch your exam focus anytime in your preferences. TOEIC prioritizes commercial collocations and speed reading, TOEFL focuses on academic synthesis and lecture terminology, and IELTS targets nuanced task rubrics.
+          </div>
+</details>
+<!-- FAQ 4 -->
+<details class="card-tactile group p-5 cursor-pointer">
+<summary class="flex items-center justify-between font-extrabold text-base sm:text-lg text-light-text select-none">
+<span>Does the Chrome extension track my browsing activity?</span>
+<div class="faq-icon w-8 h-8 rounded-full bg-[#1A2C33] border border-light-border flex items-center justify-center text-teal-deep transition-all">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</div>
+</summary>
+<div class="pt-4 text-sm text-light-text-muted font-medium leading-relaxed border-t border-light-border mt-3">
+            Never. The add-on only executes when you intentionally double-click a word or trigger the lookup shortcut. No site histories, session cookies, or personal data are collected or transferred.
+          </div>
+</details>
+<!-- FAQ 5 -->
+<details class="card-tactile group p-5 cursor-pointer">
+<summary class="flex items-center justify-between font-extrabold text-base sm:text-lg text-light-text select-none">
+<span>Does it work on mobile phones?</span>
+<div class="faq-icon w-8 h-8 rounded-full bg-[#1A2C33] border border-light-border flex items-center justify-center text-teal-deep transition-all">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</div>
+</summary>
+<div class="pt-4 text-sm text-light-text-muted font-medium leading-relaxed border-t border-light-border mt-3">
+            Yes! Lexkite runs smoothly in any mobile web browser and supports full offline drills when added to your home screen as a progressive web app.
+          </div>
+</details>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 7: CLOSING CALL-TO-ACTION BAND WITH TEACHER CARLOS SLOT -->
+<!-- ========================================================================= -->
+<section class="py-20 md:py-24 bg-[#091518] relative overflow-hidden">
+<div class="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Tactile Card Container for CTA -->
+<div class="bg-[#142328] border-2 border-light-border rounded-3xl p-8 sm:p-12 lg:p-16 shadow-[0_12px_0_#0D1A1E] relative overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+<!-- Content Side (8 cols) -->
+<div class="lg:col-span-8 space-y-6 text-center lg:text-left">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-brand/20 border border-teal-brand text-xs font-extrabold text-teal-deep uppercase">
+              Ready to climb?
+            </div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-light-text tracking-tight leading-tight">
+              Start building your vocabulary today
+            </h2>
+<p class="text-base sm:text-lg text-light-text-muted font-medium max-w-xl mx-auto lg:mx-0">
+              Join learners mastering exam-ready academic phrases. No credit card, no ads, always free.
+            </p>
+<div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+<!-- Primary 3D CTA button -->
+<a class="btn-3d-primary w-full sm:w-auto px-8 py-4 rounded-2xl text-white font-extrabold text-base sm:text-lg tracking-wide flex items-center justify-center gap-3" href="#hero">
+<span>Start learning — free</span>
+<span class="material-symbols-outlined text-2xl">arrow_forward</span>
+</a>
+<a class="btn-3d-secondary w-full sm:w-auto px-6 py-4 rounded-2xl text-light-text font-extrabold text-base flex items-center justify-center gap-2" href="#browser-extension">
+<span>Add to Chrome</span>
+</a>
+</div>
+</div>
+<!-- TEACHER SLOT: Carlos Cheering Column (4 cols) -->
+<div class="lg:col-span-4 flex flex-col items-center justify-center relative">
+<!-- Illustrated Carlos SVG Slot (Latino man, navy blazer, cheering gesture, full body standing, no circle frame) -->
+<div class="relative flex flex-col items-center pointer-events-none" style="filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.45));">
+<svg class="w-[140px] sm:w-[155px] h-auto" fill="none" height="260" viewbox="0 0 160 260" width="160" xmlns="http://www.w3.org/2000/svg">
+<!-- Ground Contact Shadow -->
+<ellipse cx="80" cy="254" fill="#0D1A1E" rx="46" ry="6"></ellipse>
+<!-- Shoes -->
+<rect fill="#091518" height="15" rx="7" width="20" x="54" y="238"></rect>
+<rect fill="#091518" height="15" rx="7" width="20" x="86" y="238"></rect>
+<!-- Grey/Navy Trousers -->
+<rect fill="#1C2E38" height="66" rx="6" width="18" x="56" y="174"></rect>
+<rect fill="#1C2E38" height="66" rx="6" width="18" x="86" y="174"></rect>
+<!-- Belt -->
+<rect fill="#8C5332" height="7" rx="2" width="52" x="54" y="168"></rect>
+<!-- Inner Light Shirt -->
+<path d="M70 114L80 148L90 114H70Z" fill="#FFF7EA"></path>
+<path d="M80 120V150" stroke="#F2553B" stroke-width="2"></path>
+<!-- Torso: Navy Blazer -->
+<path d="M48 116C48 112 56 110 66 110H94C104 110 112 112 112 116L116 172C116 175 113 177 110 177H50C47 177 44 175 44 172L48 116Z" fill="#0F3D3E"></path>
+<!-- Lapel Lines -->
+<path d="M64 110L77 150L83 150L96 110" stroke="#1F7A75" stroke-linecap="round" stroke-width="3"></path>
+<!-- Arms: Cheering (Both arms raised up high!) -->
+<!-- Left Arm cheering up -->
+<path d="M50 120L32 94C29 89 24 93 25 99L35 125" stroke="#0F3D3E" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></path>
+<circle cx="28" cy="90" fill="#BA8262" r="7"></circle>
+<!-- Right Arm cheering up -->
+<path d="M110 120L128 94C131 89 136 93 135 99L125 125" stroke="#0F3D3E" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></path>
+<circle cx="132" cy="90" fill="#BA8262" r="7"></circle>
+<!-- Neck -->
+<rect fill="#BA8262" height="18" rx="4" width="12" x="74" y="94"></rect>
+<!-- Head -->
+<circle cx="80" cy="74" fill="#BA8262" r="21"></circle>
+<!-- Hair (Short neat dark crop) -->
+<path d="M60 70C60 56 68 52 80 52C92 52 100 56 100 70C100 72 98 76 96 74C92 68 84 66 80 66C74 66 66 68 64 74C62 76 60 72 60 70Z" fill="#1C1815"></path>
+<!-- Face Details: Happy Smile & Eyes -->
+<circle cx="73" cy="73" fill="#0F3D3E" r="2.2"></circle>
+<circle cx="87" cy="73" fill="#0F3D3E" r="2.2"></circle>
+<path d="M74 83C77 87 83 87 86 83" stroke="#0F3D3E" stroke-linecap="round" stroke-width="2.2"></path>
+<!-- Eyebrows -->
+<path d="M70 68C73 66 76 67 76 67" stroke="#1C1815" stroke-linecap="round" stroke-width="1.8"></path>
+<path d="M84 67C84 67 87 66 90 68" stroke="#1C1815" stroke-linecap="round" stroke-width="1.8"></path>
+</svg>
+<!-- Cheering Badge -->
+<div class="bg-[#142328] border-2 border-light-border px-3 py-1 rounded-xl shadow-[0_3px_0_#0D1A1E] -mt-2">
+<p class="text-[11px] font-extrabold text-teal-deep">Carlos · Lexicographer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SHARED SITE CHROME: FOOTER -->
+<!-- ========================================================================= -->
+<footer class="bg-[#091518] border-t-2 border-light-border pt-16 pb-12">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Top Columns Area -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-light-border">
+<!-- Brand & Tagline Column (5 cols) -->
+<div class="lg:col-span-5 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-2xl bg-teal-brand flex items-center justify-center border-2 border-teal-deep shadow-[0_3px_0_#0D1A1E]">
+<svg fill="none" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#091518" stroke="#EEF6F7" stroke-linejoin="round" stroke-width="1.8"></path>
+<path d="M12 2V22M4 10H20" stroke="#EEF6F7" stroke-linecap="round" stroke-width="1.6"></path>
+<circle cx="12" cy="10" fill="#F2553B" r="2.2"></circle>
+</svg>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-light-text">Lexkite</span>
+</div>
+<p class="text-sm font-semibold text-light-text-muted max-w-sm leading-relaxed">
+            Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice.
+          </p>
+<p class="text-xs text-light-text-muted/80">
+            Engineered around cognitive item-response modeling and empirical lexicons. 100% free and open access for students everywhere.
+          </p>
+</div>
+<!-- Links Column 1: Product (2 cols) -->
+<div class="lg:col-span-2 space-y-3">
+<h4 class="text-xs font-extrabold uppercase tracking-wider text-light-text">Product</h4>
+<ul class="space-y-2 text-sm font-bold text-light-text-muted">
+<li><a class="hover:text-teal-brand transition-colors" href="#features">Learning Path</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#features">Speaking Drills</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#features">FSRS Flashcards</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#browser-extension">Chrome Add-on</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#how-it-works">Web App Login</a></li>
+</ul>
+</div>
+<!-- Links Column 2: Resources (2 cols) -->
+<div class="lg:col-span-2 space-y-3">
+<h4 class="text-xs font-extrabold uppercase tracking-wider text-light-text">Resources</h4>
+<ul class="space-y-2 text-sm font-bold text-light-text-muted">
+<li><a class="hover:text-teal-brand transition-colors" href="#resources">IELTS Lexical Guide</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#resources">TOEIC Practice Sets</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#resources">Writing Samples</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#resources">Blog &amp; Guides</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#resources">Phonetics Lab</a></li>
+</ul>
+</div>
+<!-- Links Column 3: Company (3 cols) -->
+<div class="lg:col-span-3 space-y-3">
+<h4 class="text-xs font-extrabold uppercase tracking-wider text-light-text">Company</h4>
+<ul class="space-y-2 text-sm font-bold text-light-text-muted">
+<li><a class="hover:text-teal-brand transition-colors" href="#">About Lexkite</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#">Editorial Standards</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-teal-brand transition-colors" href="#">Open Source Datasets</a></li>
+</ul>
+</div>
+</div>
+<!-- Language Selection Row -->
+<div class="py-6 border-b border-light-border flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold text-light-text-muted">
+<span class="text-light-text font-extrabold">Supported Languages:</span>
+<a class="text-teal-deep underline" href="#">English</a>
+<a class="hover:text-teal-brand" href="#">Español</a>
+<a class="hover:text-teal-brand" href="#">Tiếng Việt</a>
+<a class="hover:text-teal-brand" href="#">한국어</a>
+<a class="hover:text-teal-brand" href="#">日本語</a>
+<a class="hover:text-teal-brand" href="#">简体中文</a>
+<a class="hover:text-teal-brand" href="#">繁體中文</a>
+<a class="hover:text-teal-brand" href="#">Bahasa Indonesia</a>
+<a class="hover:text-teal-brand" href="#">ไทย</a>
+<a class="hover:text-teal-brand" href="#">Português</a>
+<a class="hover:text-teal-brand" href="#">Français</a>
+<a class="hover:text-teal-brand" href="#">Deutsch</a>
+<a class="hover:text-teal-brand" href="#">العربية</a>
+<a class="hover:text-teal-brand" href="#">हिन्दी</a>
+<a class="hover:text-teal-brand" href="#">Türkçe</a>
+</div>
+<!-- Bottom Copyright & Trademark Note -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs font-medium text-light-text-muted/70 gap-4 text-center sm:text-left">
+<p>© 2025 Lexkite Prep Inc. Tactile vocabulary mastery for IELTS, TOEIC &amp; TOEFL. All rights reserved.</p>
+<p>IELTS® is a registered trademark of Cambridge Assessment English and IDP. Lexkite is an independent educational suite.</p>
+</div>
+</div>
+</footer>
+</body></html>

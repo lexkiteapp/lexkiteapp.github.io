@@ -17,6 +17,11 @@ const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['w
 const V2 = fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [];
 const V2DATA = { path: ['web/js/ux1.js'], review: ['web/js/ux1.js'], practice: ['web/js/ux1.js'], me: ['web/js/ux1-me.js'], streak: ['web/js/retention.js'], 'exam-readiness': ['web/js/goal.js'], 'teacher-call': ['web/js/call.js'], 'lesson-question': ['web/js/lesson/ui.js'], 'feedback-correct': ['web/js/lesson/ui.js'], 'feedback-wrong': ['web/js/lesson/ui.js'], 'lesson-complete': ['web/js/lesson/ui.js'], 'story-duo': ['web/js/lesson/ui.js'] }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
 for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', `web/js/st/v2/${k}.js`, ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
+// Trang web tĩnh Stitch (lexkite.com – khung TỰ SINH web/js/st/web/<trang>.js, `stitch-v2-convert.mjs --web`): mỗi trang 1 nhóm w-<trang>, CSS được generator NHÚNG vào <style> (scripts/lib/st-web.mjs).
+//   Nhóm w-* nạp cả file dựng dữ liệu (generator) vì nó có thể chèn class Tailwind viết tay; vỏ chung (đầu trang + chân trang) nằm trong web/js/st/web/chrome.js.
+const WEB = fs.existsSync('web/js/st/web') ? fs.readdirSync('web/js/st/web').filter(f => f.endsWith('.js') && f !== 'chrome.js').map(f => f.slice(0, -3)) : [];
+const WEBDATA = { home: ['scripts/build-landing.mjs'], sample: ['scripts/lib/samples-ui.mjs'], speaking: ['scripts/lib/samples-ui.mjs'], post: ['scripts/build-blog.mjs', 'scripts/lib/st-web.mjs'], hub: ['scripts/build-blog.mjs', 'scripts/lib/samples-ui.mjs'] };
+for (const k of WEB) GROUPS['w-' + k] = ['web/js/st/web/chrome.js', `web/js/st/web/${k}.js`, 'scripts/lib/st-web.mjs', ...(WEBDATA[k] || [])].filter(f => fs.existsSync(f));
 const OUT = g => `web/css/st-${g}.css`;
 
 const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(' ');
@@ -55,12 +60,15 @@ const PRE = [
   '@media (max-width:1023px){body.v2on .topbar,body.v2on #bnav{display:none!important}}body.v2on #view{padding:0;max-width:none}@media (min-width:1024px){body.v2on .v2>header,body.v2on .v2>nav{display:none}body.v2on .v2>main{padding-top:0;padding-bottom:0}body.v2on .v2{max-width:480px;margin:0 auto;min-height:0}}',
   '.st-fade{animation:st-fade .18s cubic-bezier(.2,0,0,1) both}@keyframes st-fade{from{opacity:0}to{opacity:1}}.st-rise{animation:st-rise .2s cubic-bezier(.2,0,0,1) both}@keyframes st-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media (prefers-reduced-motion:reduce){.st-fade,.st-rise{animation:none}.st *{transition:none!important}}',
 ].join('\n');
+// Trang web tĩnh: chỉ biến màu + font + icon + reset .v2 + chuyển động (bỏ phần vỏ app: topbar/thanh tab/menu trái); CSS nhúng trong trang → đường dẫn font tuyệt đối
+const WPRE = PRE.split('\n').filter(l => !/^(body\.(ux1|st) |@media \((max|min)-width:\d+px\)\{body\.(ux1|v2on)|\.bottom-nav)/.test(l)).join('\n').replace(/\.\.\/fonts\//g, '/fonts/') +
+  '\n.st{font-family:"Plus Jakarta Sans","Plus Jakarta Sans Fallback",system-ui,sans-serif;-webkit-tap-highlight-color:transparent}.st :focus-visible{outline:3px solid rgb(var(--st-secondary));outline-offset:2px}body.stw{margin:0;background:rgb(var(--st-surface))}';
 
 function configV2(content, g) { // Tailwind mặc định + biến thể lt:/dk:/rtl: (không token cũ của app → bo góc/khoảng cách y như Stitch)
   // important: '.v2s-<màn>' = khóa phạm vi: gói ux1 nạp CSS NHIỀU màn cùng lúc → rule cùng tên ở file nạp sau đè file trước (vd from-* đặt lại --tw-gradient-to → mất màu cuối gradient).
   // Có phạm vi: rule chỉ áp trong khung màn đó, độ ưu tiên cao hơn CSS chung → thứ tự nạp file không còn ảnh hưởng. runtime.js bọc khung trong <div class="v2s-<màn>">.
   return `const plugin = require(${JSON.stringify(path.join(twDir(), 'plugin'))});
-module.exports = { important: ${JSON.stringify('.v2s-' + g.slice(3))}, content: ${JSON.stringify(content.map(f => path.join(ROOT, f)))}, corePlugins: { preflight: false },
+module.exports = { important: ${JSON.stringify('.v2s-' + g.replace(/^(v2|w)-/, (m, p) => p === 'w' ? 'web-' : ''))}, content: ${JSON.stringify(content.map(f => path.join(ROOT, f)))}, corePlugins: { preflight: false },
   plugins: [plugin(({ addVariant }) => { addVariant('lt', ['@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) & }', ':root[data-theme=light] &']); addVariant('dk', ['@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) & }', ':root[data-theme=dark] &']); addVariant('rtl', '[dir=rtl] &'); })] };`; }
 function config(content) {
   const colors = Object.fromEntries(C.map(([k]) => [k, `rgb(var(--st-${k}) / <alpha-value>)`]));
@@ -79,9 +87,10 @@ function twDir() { if (process.env.TAILWIND_DIR) return process.env.TAILWIND_DIR
 
 function build(g) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'st-')), cfg = path.join(tmp, 'tw.config.cjs'), inp = path.join(tmp, 'in.css'), out = path.join(tmp, 'out.css');
-  fs.writeFileSync(cfg, (g.startsWith('v2-') ? configV2 : config)(GROUPS[g], g)); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
+  fs.writeFileSync(cfg, (/^(v2|w)-/.test(g) ? configV2 : config)(GROUPS[g], g)); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
   execFileSync(process.execPath, [path.join(twDir(), 'lib/cli.js'), '-c', cfg, '-i', inp, '-o', out, '--minify'], { stdio: ['ignore', 'ignore', 'pipe'] });
-  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${PRE}\n${fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, '')}\n`;
+  const wc = g.startsWith('w-') ? ['home', g.slice(2)].filter((x, i, a) => a.indexOf(x) === i).map(x => `web/js/st/web/${x}.css`).filter(f => fs.existsSync(f)).map(f => fs.readFileSync(f, 'utf8').replace(/^\/\*[^\n]*\*\/\n/, '').replace(/:W /g, `.v2s-web-${g.slice(2)} `)).join('') : ''; // CSS thành phần Stitch (nút 3D/thẻ) của vỏ chung (home) + trang
+  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${g.startsWith('w-') ? WPRE : PRE}\n${fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, '')}\n${wc}`;
 }
 
 // ---- font tự host (chạy khi đổi danh sách icon): Google Fonts CSS2 API, UA Chrome để nhận WOFF2 ----

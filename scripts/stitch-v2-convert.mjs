@@ -6,14 +6,15 @@
 //   • Chữ: theo bản đồ gắn dữ liệu brand/stitch/v2/bind/<màn>.json – dữ liệu thật (text/attr/html/repeat) hoặc t('khóa Việt') (bản EN = chữ Stitch).
 //     Chữ tĩnh chưa có khóa dịch → ĐỎ (không để lọt chữ cứng). Icon Material giữ tên ligature.
 // Ra: web/js/st/v2/<màn>.js (ST2.<màn>(d) → {root, header, main, nav}) + web/js/i18n/en/v2.js (vi → en). Kiểm: --check (trôi = đỏ).
-// Dùng: node scripts/stitch-v2-convert.mjs [màn…] [--check]      (cần jsdom – devDependency)
+// Dùng: node scripts/stitch-v2-convert.mjs [màn…] [--check] [--web]    (cần jsdom – devDependency)
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import { JSDOM, VirtualConsole } from 'jsdom'; const VC = new VirtualConsole(); // im tiếng lỗi CSS @layer của jsdom (vô hại)
-const SRC = 'brand/stitch/v2', OUT = 'web/js/st/v2', EN = 'web/js/i18n/en/v2.js', A = process.argv.slice(2), CHECK = A.includes('--check');
+const A = process.argv.slice(2), WEB = A.includes('--web'), CHECK = A.includes('--check'); // --web: trang web tĩnh (lexkite.com) – cùng phép, nguồn/đích riêng, dựng lúc build (Node) bằng scripts/lib/st-web.mjs
+const SRC = WEB ? 'brand/stitch/web' : 'brand/stitch/v2', OUT = WEB ? 'web/js/st/web' : 'web/js/st/v2', EN = WEB ? 'web/js/i18n/en/v2web.js' : 'web/js/i18n/en/v2.js';
 const ALL = fs.readdirSync(path.join(SRC, 'bind')).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5));
 const ONLY = A.filter(a => !a.startsWith('--')), SCREENS = ALL; // luôn chạy MỌI màn (nhanh) để en/v2.js đủ khóa; chỉ GHI file màn được nêu (ONLY)
 const errs = [], enMap = {};
 // Khóa dịch đã có ở các nhóm EN khác: trùng nghĩa → dùng lại (không ghi lại), khác nghĩa → ĐỎ (không được đổi nghĩa chữ ở chỗ khác của app)
-const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js') && f !== 'v2.js')) for (const m of fs.readFileSync('web/js/i18n/en/' + f, 'utf8').matchAll(/^\s*(["'])((?:\\.|(?!\1).)*)\1\s*:\s*(["'])((?:\\.|(?!\3).)*)\3/gm)) EN_HAVE[m[2]] = [m[4], f];
+const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js') && f !== 'v2.js' && f !== 'v2web.js')) for (const m of fs.readFileSync('web/js/i18n/en/' + f, 'utf8').matchAll(/^\s*(["'])((?:\\.|(?!\1).)*)\1\s*:\s*(["'])((?:\\.|(?!\3).)*)\3/gm)) EN_HAVE[m[2]] = [m[4], f];
 
 // ---- tailwind.config riêng của file → bảng tra tên → giá trị ----
 function cfgOf(html, f) { const m = html.match(/tailwind\.config\s*=\s*(\{[\s\S]*?\})\s*<\/script>/); if (!m) return {};
@@ -104,8 +105,24 @@ function emit(root, bind, k) {
   const parts = Object.entries(bind.parts || {}).map(([n, sel]) => { const el = QA(root, sel)[0]; return [n, el ? '`' + textify(el) + '`' : '``']; }); // parts {tên: bộ chọn}: thêm phần khung có tên (vd thẻ câu của tấm phản hồi chèn vào khung câu hỏi) → ST2.<màn>(d).<tên>
   if (bind.keep) { const kp = QA(root, bind.keep)[0]; if (kp) { root.textContent = ''; root.append(kp); } } // keep: màn chỉ lấy MỘT phần khung (vd tấm phản hồi gắn vào khung câu hỏi có sẵn) – bộ chọn của các phép khác vẫn theo khung đầy đủ
   const part = sel => { const el = root.querySelector(sel); if (!el) return '``'; const s = textify(el); el.remove(); return '`' + s + '`'; };
-  const header = part(':scope > header'), nav = part(':scope > nav'), main = '`' + textify(root).replace(/^<div[^>]*>|<\/div>$/g, '') + '`';
-  return { header, nav, main, parts, root: root.getAttribute('class') || '' }; }
+  const header = part(':scope > header'), nav = part(':scope > nav'), footer = WEB ? part(':scope > footer') : '``', main = '`' + textify(root).replace(/^<div[^>]*>|<\/div>$/g, '') + '`';
+  return { header, nav, footer, main, parts, root: root.getAttribute('class') || '' }; }
+
+// web: CSS thành phần trong <style> của Stitch (nút 3D, thẻ tactile, chấm FAQ…) → web/js/st/web/<trang>.css, giữ NGUYÊN giá trị Stitch.
+//   Bỏ phần nền (html/body/@layer/@import/font icon – đã có ở WPRE). Rule giống nhau ở 2 bản → chung; khác → bản sáng/tối theo cùng cơ chế lt:/dk:.
+//   Bộ chọn mang tiền tố `:W ` – scripts/build-stitch-css.mjs thay bằng .v2s-web-<trang> (khóa phạm vi như app).
+function webCss(hl, hd) {
+  const rules = h => { const out = new Map(), doc = new JSDOM(h, { virtualConsole: VC }).window.document;
+    for (const sh of doc.styleSheets) { let rs; try { rs = sh.cssRules; } catch { continue; } for (const r of rs) { if (!r.selectorText || !r.style) continue;
+      const sel = r.selectorText.split(',').map(x => x.trim()).filter(x => !/^(html|body|:root|\*)\b|material-symbols|::-webkit-scrollbar/.test(x)); if (!sel.length) continue;
+      const k = sel.join(','), body = r.style.cssText.trim(); out.set(k, (out.get(k) || '') + body); } } return out; };
+  const L = rules(hl), D = rules(hd), pre = (k, wrap) => k.split(',').map(x => wrap(':W ' + x)).join(','), lines = [];
+  const LT = x => `:root:not([data-theme=dark]) ${x}`, DK = x => `:root:not([data-theme=light]) ${x}`;
+  for (const k of new Set([...L.keys(), ...D.keys()])) { const l = L.get(k), d = D.get(k);
+    if (l && l === d) { lines.push(`${pre(k, x => x)}{${l}}`); continue; }
+    if (l) lines.push(`@media (prefers-color-scheme:light){${pre(k, LT)}{${l}}}${pre(k, x => `:root[data-theme=light] ${x}`)}{${l}}`);
+    if (d) lines.push(`@media (prefers-color-scheme:dark){${pre(k, DK)}{${d}}}${pre(k, x => `:root[data-theme=dark] ${x}`)}{${d}}`); }
+  return lines.join('\n') + (lines.length ? '\n' : ''); }
 
 // ---- chạy ----
 for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
@@ -118,15 +135,21 @@ for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
     walk(root, 0, '·'); continue; }
   const o = emit(root, bind, k);
+  if (WEB) { const cs = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của ${SRC}/${k}-light|dark.html – KHÔNG sửa tay. */\n` + webCss(hl, hd), cf = path.join(OUT, k + '.css');
+    if (CHECK) { if (!fs.existsSync(cf) || fs.readFileSync(cf, 'utf8') !== cs) errs.push(`${cf} trôi`); } else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(cf, cs); } }
   if (bind.shell) { // đầu trang + thanh tab chuẩn chung cho mọi màn có tab (lấy từ màn này) → shell.js; màn này chỉ giữ main
     const sh = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs (đầu trang + thanh tab chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).shell = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${o.header},\n nav: ${o.nav} });\n`;
     const so = path.join(OUT, 'shell.js'); if (CHECK) { if (!fs.existsSync(so) || fs.readFileSync(so, 'utf8') !== sh) errs.push(`${so} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(so, sh); }
     o.header = '``'; o.nav = '``'; }
+  if (WEB && bind.chrome) { // web: đầu trang + chân trang chung cho MỌI trang tĩnh (lấy từ trang này) → chrome.js; các trang khác `remove` header/footer của Stitch
+    const ch = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web (đầu trang + chân trang chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).chrome = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${o.header},\n footer: ${o.footer} });\n`;
+    const co = path.join(OUT, 'chrome.js'); if (CHECK) { if (!fs.existsSync(co) || fs.readFileSync(co, 'utf8') !== ch) errs.push(`${co} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(co, ch); }
+    o.header = '``'; o.footer = '``'; }
   const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` +
-    `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n`;
+    `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n`;
   const out = path.join(OUT, k + '.js');
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
   else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }
-{ const en = `/* English UI – v2 (màn Stitch v2: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(enMap).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
+{ const en = `/* English UI – ${WEB ? 'v2web (trang web Stitch' : 'v2 (màn Stitch v2'}: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(enMap).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
   if (CHECK) { if (!fs.existsSync(EN) || fs.readFileSync(EN, 'utf8') !== en) errs.push(`${EN} trôi`); } else if (!A.includes('--dump')) fs.writeFileSync(EN, en); } // --dump chỉ in sơ đồ: KHÔNG ghi en/v2.js (bỏ qua màn → mất khóa các màn khác)
 if (errs.length) { console.error('✗ stitch-v2-convert:\n  ' + errs.join('\n  ')); process.exit(1); }
