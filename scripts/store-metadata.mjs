@@ -31,7 +31,7 @@ const RANKING = [
 const COMPETITORS = /\b(anki|ankidroid|duolingo|quizlet|memrise|busuu|babbel|elsa|mochi|mochivocab|tflat|magoosh|lingoland|cake|rosetta stone|cambly|praktika|ewa)\b/i;
 // Giá / khuyến mãi: cấm trong tên + mô tả ngắn (Play) và tên + phụ đề + từ khoá (Apple). Được phép trong mô tả dài / promo.
 const PRICE = /(\bfree\b|\bfreemium\b|\bsale\b|\bdiscount|miễn phí|\bgratis\b|\bgrátis\b|\bgratuit|\bkostenlos|ฟรี|免费|免費|無料|무료|मुफ़्त|मुफ्त|مجان|бесплатн|ücretsiz|%)/i;
-const EXAMS = /(\bielts\b|\btoeic\b|\btoefl\b|\byds\b|英検|雅思|托福|托业|托業|토익|토플|아이엘츠|آيلتس|ايلتس|توفل|تويك|айелтс|тоефл)/i;                         // thương hiệu: chỉ mô tả, không đưa vào tên/phụ đề/từ khoá Apple
+const EXAMS = /(\bielts\b|\btoeic\b|\btoefl\b|\byds\b|英検|四六级|考研|高考|中考|수능|雅思|托福|托业|托業|토익|토플|아이엘츠|آيلتس|ايلتس|توفل|تويك|айелтс|тоефл)/i;                         // thương hiệu: chỉ mô tả, không đưa vào tên/phụ đề/từ khoá Apple
 const EMOJI = /\p{Extended_Pictographic}/u;
 const chars = s => [...(s || '')].length;
 const norm = s => (s || '').toLocaleLowerCase().normalize('NFC').replace(/[-–—:,.&/()（）：、・，]+/g, ' ').replace(/\s+/g, ' ').trim();
