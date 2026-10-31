@@ -239,6 +239,31 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   ok($('#libBody') && !$('.v2-library'), 'library: cờ tắt → trang cũ nguyên vẹn');
   w.localStorage.setItem('lk.ux1', '1'); App.anki = A0;
 }
+// ---------- Bộ từ #/topic/:id (Stitch v2.1 topic): khung mới giữ đủ ý trang cũ ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const A0 = App.anki, calls = []; App.anki = (m, o) => { calls.push(m + ':' + (o && o.name)); };
+  const tp = App.topicOf('education'), lvs = [...new Set(tp.words.map(x => x.level).filter(Boolean))];
+  await go('#/topic/education', '.v2-topic');
+  ok($('.v2-topic') && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page' && $('.v2-topic a[href="#/library?g=topics"]'), 'topic (v2): khung Stitch, tab Luyện, quay lại #/library?g=nhóm');
+  ok(['learn', 'match', 'test'].every(m => $(`.v2-topic a[href="#/practice/${m}?src=topic:education"]`)) && $('.v2-topic a[href="#/handsfree/education"]'), 'topic (v2): 4 chế độ luyện (Học/Ghép thẻ/Kiểm tra/Rảnh tay) theo bộ');
+  $('#tpAnki').click(); ok(calls[0] === 'export:' + tp.name, 'topic (v2): #tpAnki xuất Anki đúng bộ');
+  const rows = () => $$('#wordList article');
+  ok(rows().length === Math.min(20, tp.words.length) && rows().every(a => a.querySelector('a.w[href^="#/dict/"]') && a.querySelector('[data-speak]')), 'topic (v2): #wordList – từ → #/dict/…, nút [data-speak]');
+  ok(lvs.length < 2 || ($$('#lvTabs [data-lv]').length === lvs.length + 1 && $('#lvTabs [data-lv=""].on')), 'topic (v2): #lvTabs đủ cấp CEFR + Tất cả (.on)');
+  { const big = w.IELTS_DATA.TOPICS.find(x => x.words.length > 20 && new Set(x.words.map(y => y.level)).size < 2) || w.IELTS_DATA.TOPICS.find(x => x.words.length > 20); await go('#/topic/' + big.id, '.v2-topic');
+    const n0 = rows().length, vis0 = !/display:none/.test($('#tpMore').parentElement.getAttribute('style') || ''); $('#tpMore').click(); await tick(20);
+    ok(n0 === 20 && vis0 && rows().length === big.words.filter(x => !$('#lvTabs [data-lv].on') || !$('#lvTabs [data-lv].on').dataset.lv || x.level === $('#lvTabs [data-lv].on').dataset.lv).length && /display:none/.test($('#tpMore').parentElement.getAttribute('style') || ''), 'topic (v2): bộ > 20 từ → 20 đầu + "Xem cả n từ" hiện đủ mọi từ');
+    await go('#/topic/education', '.v2-topic'); }
+  if (lvs.length > 1) { const L = lvs[0]; $(`#lvTabs [data-lv="${L}"]`).click(); await tick(20); ok($(`#lvTabs [data-lv="${L}"]`).classList.contains('on') && rows().length === Math.min(20, tp.words.filter(x => x.level === L).length), 'topic (v2): lọc CEFR chỉ còn từ cấp đó'); $('#lvTabs [data-lv=""]').click(); await tick(20); }
+  const seed = $('#wordList [data-add-seed][data-topic="education"]'), sw = seed && seed.getAttribute('data-add-seed');
+  if (seed) { seed.click(); for (let i = 0; i < 20 && !App.inDeck(sw); i++) await tick(30); await tick(50); }
+  ok(seed && App.inDeck(sw) && $(`#wordList [data-added="${sw}"]`) && $(`#wordList [data-added="${sw}"]`).disabled && /\d/.test($('#tCount').textContent), 'topic (v2): [data-add-seed] thêm 1 từ → hàng thành Đã thêm, #tCount cập nhật');
+  $('#addAll').click(); for (let i = 0; i < 60 && !tp.words.every(x => App.inDeck(x.word)); i++) await tick(30); await tick(50);
+  ok(tp.words.every(x => App.inDeck(x.word)) && $('#addAll').disabled && $('.v2-topic').textContent.includes('100%'), 'topic (v2): #addAll thêm mọi từ còn thiếu → nút tắt, 100%');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/topic/education', '#wordList');
+  ok($('#wordList') && !$('.v2-topic') && $('#addAll'), 'topic: cờ tắt → trang cũ nguyên vẹn');
+  w.localStorage.setItem('lk.ux1', '1'); App.anki = A0;
+}
 // ---------- Gọi giáo viên #/call (Stitch v2.1 teacher-call): khung mới giữ đủ ý trang Gọi cũ ----------
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document;

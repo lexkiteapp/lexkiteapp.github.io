@@ -65,4 +65,10 @@
   'Truyện': 'Story', // thẻ Luyện → Truyện (cùng nghĩa nhóm lesson; màn Luyện không tải nhóm lesson)
   'Gọi giáo viên': 'Teacher call', // ô Luyện → #/call (nhãn Stitch v2 practice, 1 dòng)
   'Xem tất cả': 'View all',
+  // Thư viện + Bộ từ (Stitch v2.1, web/js/ux1-lib.js · ux1-topic.js) – khóa viết tay (en/v2.js do bộ chuyển tự sinh, không ghi vào đó)
+  '{n} bộ': '{n} sets',
+  'Nhóm bộ từ': 'Set groups',
+  'Gợi ý cho bạn': 'Recommended for you',
+  'Nhập bộ thẻ Anki (.apkg) của bạn thành bộ từ để học và ôn.': 'Import your Anki deck (.apkg) as a set to learn and review.',
+  'Xem cả {n} từ': 'View all {n} words',
 }); })(typeof self !== 'undefined' ? self : this);
