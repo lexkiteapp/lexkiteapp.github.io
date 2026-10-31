@@ -57,6 +57,30 @@
     if (out.length > 1 && out[0].end - out[0].start < MIN_HOLD) { out[1].start = 0; out.shift(); }
     return out;
   }
+  /** Tinh chỉnh mốc (CI, trước smooth): neo chỗ miệng mở sau im / khép trước im vào lúc tiếng thật bắt đầu / tắt.
+   * env = RMS 100 Hz của file tiếng; words = [{start,end}] thời điểm từ của Kokoro (tuỳ chọn) → mép từ đầu/cuối mỗi cụm.
+   * Sửa lỗi Rhubarb mở miệng sớm ở âm hơi "H" (Hi/Hey) và mở trễ ở phụ âm tắc đầu câu. Chỉ dời mốc trong ±WIN, không đổi hình. */
+  function align(cues, env, o = {}) {
+    const WIN = o.win ?? 0.15, hz = o.hz ?? 100, peak = Math.max(...env, 1e-6), thr = peak * (o.thr ?? 0.1), W = o.words || [];
+    const on = i => env[i] > thr, at = t => Math.max(0, Math.min(env.length - 1, Math.round(t * hz)));
+    const near = (t, ws, k) => { let b = null; for (const w of ws) { const d = Math.abs(w[k] - t); if (d <= WIN && (!b || d < Math.abs(b[k] - t))) b = w; } return b; };
+    const out = cues.map(c => ({ ...c }));
+    for (let i = 1; i < out.length; i++) {
+      const p = out[i - 1], c = out[i];
+      if (p.value === 'X' && c.value !== 'X') { // im → mở: lúc tiếng bắt đầu
+        const w = near(c.start, W, 'start'); let t = w ? w.start : c.start;
+        let k = at(t - WIN); while (k < at(t + WIN) && !on(k)) k++;
+        if (on(k)) t = k / hz;
+        t = Math.max(p.start + 0.01, Math.min(c.end - 0.01, t)); p.end = c.start = t;
+      } else if (p.value !== 'X' && c.value === 'X') { // mở → im: lúc tiếng tắt
+        const w = near(c.start, W, 'end'); let t = w ? w.end : c.start;
+        let k = at(t + WIN); while (k > at(t - WIN) && !on(k)) k--;
+        if (on(k)) t = (k + 1) / hz;
+        t = Math.max(p.start + 0.01, Math.min(c.end - 0.01, t)); p.end = c.start = t;
+      }
+    }
+    return out;
+  }
   /** Trạng thái vẽ ở thời điểm t: a = hình trước, b = hình hiện tại, k = tỉ lệ trộn sang b. */
   function stateAt(cues, t) {
     t += LEAD; let i = 0; while (i < cues.length - 1 && cues[i + 1].start <= t) i++;
@@ -132,6 +156,6 @@
     return self;
   }
 
-  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, P2V, units, fromText, smooth, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, P2V, units, fromText, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

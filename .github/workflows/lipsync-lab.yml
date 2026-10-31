@@ -3,7 +3,7 @@ name: lipsync-lab
 on:
   workflow_dispatch:
   push:
-    paths: ['scripts/lipsync/**', 'web/js/call/lipsync.js', 'web/lab/lipsync.html', '.github/workflows/lipsync-lab.yml']
+    paths: ['scripts/lipsync/**', 'web/js/call/lipsync.js', 'web/js/call/mouths.js', 'web/lab/lipsync.html', '.github/workflows/lipsync-lab.yml']
 concurrency:
   group: lipsync-lab-${{ github.ref }}
   cancel-in-progress: true
@@ -30,6 +30,10 @@ jobs:
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - name: Test đơn vị
         run: node scripts/test/lipsync.mjs
+      - name: Bảng 9 miệng vẽ (Ama + Carlos) để anh duyệt
+        run: |
+          python3 -m pip install -q resvg-py==0.2.0 pillow
+          python3 scripts/lipsync/mouth_board.py qa/lipsync/mouth-board.png
       - name: Cắt hình miệng
         run: |
           mkdir -p qa/lipsync
@@ -49,5 +53,6 @@ jobs:
             qa/lipsync/lipsync.mp4
             qa/lipsync/lipsync.gif
             qa/lipsync/harvest-*.jpg
+            qa/lipsync/mouth-board.png
             web/lab/lipsync/
           retention-days: 14

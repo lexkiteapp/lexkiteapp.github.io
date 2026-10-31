@@ -21,6 +21,10 @@
 
 **Phương án B (nếu miệng cắt từ clip chưa đạt):** vẽ lại Ama/Carlos thành Rive state machine, giống cách Duolingo làm Lily. Lớp miệng (input số = viseme) chạy song song lớp tư thế/biểu cảm. [Runtime web](https://github.com/rive-app/rive-wasm) MIT, ~150 KB, chạy thời gian thực, nhận đúng cues ở trên. Không dùng nhân vật cộng đồng chưa kiểm license, phải được cho dùng thương mại. Đổi hình cần anh duyệt.
 
+## Miệng VẼ (31/10, thay miệng cắt-dán)
+Anh chủ xem video miệng cắt từ clip: "lỗi ghê quá" → bỏ. Thay bằng `web/js/call/mouths.js` (`LipMouth`): 9 hình X–H là bộ số (rộng, mở trên/dưới, tròn, cười, răng, lưỡi) → SVG vector theo nét từng giáo viên (Ama: môi nâu đỏ, nét miệng tối; Carlos: nét đen, ria vẽ đè lên). Trộn 2 hình = nội suy bộ số (morph), cùng kiểu lớp miệng Rive (input số = viseme) – file .riv có thể dựng sau từ chính bộ số này. Bảng duyệt: `scripts/lipsync/mouth_board.py` (CI: artifact `mouth-board.png`). **Chờ anh duyệt hình** trước khi gắn vào lab/luồng Call.
+Mốc: `LipSync.align(cues, env, {words})` neo mép im↔mở vào lúc tiếng bắt đầu/tắt (RMS 100 Hz), tuỳ chọn thời điểm từ Kokoro; report ghi lệch trước/sau (`AV lag (thô)`).
+
 ## Kiến trúc
 - **Hình**: `scripts/lipsync/harvest.py` (CI) căn từng khung `talk-hd` vào nền `listen-hd` (ECC affine, che miệng), chọn 9 khung đại diện theo độ mở, răng, bề ngang, mép mảnh mờ dần. X = miệng gốc của nền. Có mí mắt chớp và roi miệng trên từng tư thế `still-<pose>` khớp được.
 - **Mốc**: `pre` = cues Rhubarb (đã `smooth`: giữ ≥ 50 ms, không nháy). `live` = `LipSync.live()`, nhân quả: con trỏ âm vị chỉ tiến khi có tiếng (VAD có trễ tắt), im → X. Nếu không có âm thanh (speechSynthesis) thì chạy theo ước lượng và neo lại theo `onboundary`.

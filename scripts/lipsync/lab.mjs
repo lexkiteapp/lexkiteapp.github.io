@@ -19,6 +19,15 @@ const LINES = [
   ['carlos', 'thinking', 'So, why do you want to work abroad?'],
   ['carlos', 'cheer', 'Fantastic! That was a very natural answer.']];
 
+// PCM wav → RMS 100 Hz
+const rms100 = f => { const b = fs.readFileSync(f); let o = 12; while (b.toString('ascii', o, o + 4) !== 'data') o += 8 + b.readUInt32LE(o + 4);
+  const n = b.readUInt32LE(o + 4) / 2, s = o + 8, hop = 240, R = []; for (let i = 0; i + hop <= n; i += hop) { let e = 0; for (let j = 0; j < hop; j++) { const x = b.readInt16LE(s + 2 * (i + j)) / 32768; e += x * x; } R.push(Math.sqrt(e / hop)); } return R; };
+const OPEN = { X: 0, A: 0, B: .35, C: .7, D: 1, E: .55, F: .3, G: .25, H: .6 };
+const open100 = (cues, n) => Array.from({ length: n }, (_, k) => { const s = LS.stateAt(cues, k / 100); return OPEN[s.a] * (1 - s.k) + OPEN[s.b] * s.k; });
+const xlag = (a, b) => { const m = v => { const u = v.reduce((x, y) => x + y, 0) / v.length; return v.map(x => x - u); }; a = m(a); b = m(b); let best = -1e9, L = 0;
+  for (let l = -30; l <= 30; l++) { let s = 0; for (let i = 0; i < a.length; i++) { const j = i - l; if (j >= 0 && j < b.length) s += a[i] * b[j]; } if (s > best) { best = s; L = l; } } return L * 10; }; // ms, + = miệng trễ hơn tiếng
+const pct = (v, p) => { const s = [...v].sort((x, y) => x - y); return s.length ? s[Math.min(s.length - 1, Math.floor(p * s.length))] : 0; };
+
 // 1) Giọng + mốc Rhubarb (có văn bản lời thoại → nhận dạng chính xác hơn)
 const np = process.env.KOKORO_NODE_PATH; const { KokoroTTS } = createRequire(np + '/')('kokoro-js');
 const tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' });
@@ -31,19 +40,12 @@ for (const [i, [who, emo, text]] of LINES.entries()) {
   fs.writeFileSync(`${QA}/${id}.txt`, text);
   const rh = JSON.parse(sh(process.env.RHUBARB || 'rhubarb', ['-f', 'json', '-q', '-d', `${QA}/${id}.txt`, '--extendedShapes', 'GHX', wav]));
   const dur = rh.metadata.duration, raw0 = rh.mouthCues;
-  lines.push({ id, who, emo, text, voice, dur, mp3: `audio/${id}.mp3`, cues: LS.smooth(raw0), rawFlicker: raw0.filter(c => c.end - c.start < LS.MIN_HOLD).length });
+    // mốc Rhubarb → neo mép im/mở vào lúc tiếng bắt đầu/tắt (LS.align) → chống nháy; giữ lệch của mốc thô để so
+  const env = rms100(wav), cues = LS.smooth(LS.align(raw0, env)), rawLag = xlag(open100(LS.smooth(raw0), env.length), env);
+  lines.push({ id, who, emo, text, voice, dur, mp3: `audio/${id}.mp3`, cues, rawLagMs: rawLag, rawFlicker: raw0.filter(c => c.end - c.start < LS.MIN_HOLD).length });
 }
 fs.writeFileSync(`${OUT}/lines.json`, JSON.stringify(lines));
 fs.copyFileSync('content/lexicon/cmudict-subset.txt', `${OUT}/cmudict.txt`);
-
-// PCM wav → RMS 100 Hz
-const rms100 = f => { const b = fs.readFileSync(f); let o = 12; while (b.toString('ascii', o, o + 4) !== 'data') o += 8 + b.readUInt32LE(o + 4);
-  const n = b.readUInt32LE(o + 4) / 2, s = o + 8, hop = 240, R = []; for (let i = 0; i + hop <= n; i += hop) { let e = 0; for (let j = 0; j < hop; j++) { const x = b.readInt16LE(s + 2 * (i + j)) / 32768; e += x * x; } R.push(Math.sqrt(e / hop)); } return R; };
-const OPEN = { X: 0, A: 0, B: .35, C: .7, D: 1, E: .55, F: .3, G: .25, H: .6 };
-const open100 = (cues, n) => Array.from({ length: n }, (_, k) => { const s = LS.stateAt(cues, k / 100); return OPEN[s.a] * (1 - s.k) + OPEN[s.b] * s.k; });
-const xlag = (a, b) => { const m = v => { const u = v.reduce((x, y) => x + y, 0) / v.length; return v.map(x => x - u); }; a = m(a); b = m(b); let best = -1e9, L = 0;
-  for (let l = -30; l <= 30; l++) { let s = 0; for (let i = 0; i < a.length; i++) { const j = i - l; if (j >= 0 && j < b.length) s += a[i] * b[j]; } if (s > best) { best = s; L = l; } } return L * 10; }; // ms, + = miệng trễ hơn tiếng
-const pct = (v, p) => { const s = [...v].sort((x, y) => x - y); return s.length ? s[Math.min(s.length - 1, Math.floor(p * s.length))] : 0; };
 
 // 2) Chromium: phục vụ web/, phát thật (CPU 4×) + dựng khung
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.webp': 'image/webp', '.mp3': 'audio/mpeg', '.txt': 'text/plain' };
@@ -71,7 +73,7 @@ for (const [i, l] of lines.entries()) {
   if (lv && lv.cues) { const st = lv.cues.slice(1).map(c => c.start); liveB = l.cues.slice(1).map(c => Math.min(...st.map(s => Math.abs(s - c.start))) * 1000).filter(isFinite);
     const cl = v => (v === 'X' || v === 'A' ? 0 : 1); let ok = 0, n = 0; for (let t = 0; t < l.dur; t += 0.01) { n++; if (cl(LS.stateAt(l.cues, t).b) === cl(LS.stateAt(lv.cues, t).b)) ok++; } agree = Math.round(100 * ok / n);
     liveFlick = lv.cues.filter((c, k) => k > 0 && k < lv.cues.length - 1 && c.end - c.start < LS.MIN_HOLD - 0.005).length; }
-  M.lines.push({ id: l.id, emo: l.emo, dur: l.dur, cues: l.cues.length, avLagMs: lag, schedMeanMs: Math.round(sched.reduce((a, b) => a + b, 0) / (sched.length || 1)), schedP95Ms: Math.round(pct(sched, 0.95)),
+  M.lines.push({ id: l.id, emo: l.emo, dur: l.dur, cues: l.cues.length, avLagMs: lag, avLagRawMs: l.rawLagMs, schedMeanMs: Math.round(sched.reduce((a, b) => a + b, 0) / (sched.length || 1)), schedP95Ms: Math.round(pct(sched, 0.95)),
     fps: pre && pre.fps, longFrames: pre && pre.long, worstMs: pre && pre.worstMs, preFlicker: l.cues.filter(c => c.end - c.start < LS.MIN_HOLD - 0.005).length, rawFlicker: l.rawFlicker,
     liveBoundaryMedMs: Math.round(pct(liveB, 0.5)), liveBoundaryP90Ms: Math.round(pct(liveB, 0.9)), liveOpenAgreePct: agree, liveFlicker: liveFlick, liveFps: lv && lv.fps, timeout: !!(pre && pre.timeout) });
 }
@@ -100,8 +102,8 @@ M.video = { seconds: +tot.toFixed(1), frames: fn, lines: segs.map(l => l.id) };
 await br.close(); srv.close();
 fs.writeFileSync(`${QA}/metrics.json`, JSON.stringify(M, null, 1));
 const md = [`# Lip-sync lab – ${new Date().toISOString().slice(0, 16)}`, '', '| gate | ok |', '|---|---|', ...Object.entries(M.gates).map(([k, v]) => `| ${k} | ${v ? '✅' : '❌'} |`), '',
-  '```', JSON.stringify(S, null, 1), '```', '', '| line | emo | dur s | AV lag ms | sched p95 ms | fps (4×) | long | flicker pre/raw | live bnd med ms | live open % |', '|---|---|---|---|---|---|---|---|---|---|',
-  ...M.lines.map(x => `| ${x.id} | ${x.emo} | ${x.dur} | ${x.avLagMs} | ${x.schedP95Ms} | ${x.fps} | ${x.longFrames} | ${x.preFlicker}/${x.rawFlicker} | ${x.liveBoundaryMedMs} | ${x.liveOpenAgreePct} |`)].join('\n');
+  '```', JSON.stringify(S, null, 1), '```', '', '| line | emo | dur s | AV lag ms (thô) | sched p95 ms | fps (4×) | long | flicker pre/raw | live bnd med ms | live open % |', '|---|---|---|---|---|---|---|---|---|---|',
+  ...M.lines.map(x => `| ${x.id} | ${x.emo} | ${x.dur} | ${x.avLagMs} (${x.avLagRawMs}) | ${x.schedP95Ms} | ${x.fps} | ${x.longFrames} | ${x.preFlicker}/${x.rawFlicker} | ${x.liveBoundaryMedMs} | ${x.liveOpenAgreePct} |`)].join('\n');
 fs.writeFileSync(`${QA}/report.md`, md); console.log(md);
 fs.rmSync(`${QA}/frames`, { recursive: true, force: true });
 if (!Object.values(M.gates).every(Boolean)) { console.error('GATE FAIL'); process.exitCode = 1; }
