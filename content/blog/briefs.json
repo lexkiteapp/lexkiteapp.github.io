@@ -11030,6 +11030,296 @@
    "angle": "Colocaciones académicas y vocabulario temático imprescindible para obtener Band 7+ en IELTS Writing y Speaking sobre inteligencia artificial y privacidad digital",
    "intent": "informational",
    "lang": "es"
+  },
+  {
+   "slug": "ipa-hatsuon-kigou-hyou-eigo",
+   "keyword": "ipa 発音記号 英語",
+   "category": "phat-am",
+   "tags": [
+    "ipa",
+    "hatsuon",
+    "speaking",
+    "phonetics"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak",
+    "study"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/practice/speak",
+    "/#/study"
+   ],
+   "angle": "英語の国際音声記号（IPA）完全入門ガイド：日本人学習者が苦手な母音・子音の読み分け、アクセント記号、毎日の発音改善ステップ",
+   "intent": "informational",
+   "lang": "ja"
+  },
+  {
+   "slug": "eigo-kateihou-if-koubun-tsukaikata",
+   "keyword": "英語 仮定法 if",
+   "category": "ngu-phap",
+   "tags": [
+    "kateihou",
+    "grammar",
+    "if-clauses",
+    "writing"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/test",
+    "/#/study"
+   ],
+   "angle": "英語の仮定法（仮定法過去・仮定法過去完了・混合仮定法・倒置）を公式と実例でわかりやすく総整理",
+   "intent": "informational",
+   "lang": "ja"
+  },
+  {
+   "slug": "eigo-gimonbun-tsukurikata-kouzou",
+   "keyword": "英語 疑問文 作り方",
+   "category": "ngu-phap",
+   "tags": [
+    "gimonbun",
+    "grammar",
+    "speaking",
+    "auxiliary-verbs"
+   ],
+   "shots": [
+    "grammar",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "英語の疑問文の作り方：Yes/No疑問文、Wh疑問文、付加疑問文、間接疑問文の語順ルールをゼロから解説",
+   "intent": "informational",
+   "lang": "ja"
+  },
+  {
+   "slug": "eiei-jisho-tsukaikata-osusume",
+   "keyword": "英英辞典 使い方",
+   "category": "phuong-phap",
+   "tags": [
+    "jisho",
+    "vocabulary",
+    "learning-methods",
+    "self-study"
+   ],
+   "shots": [
+    "dict",
+    "library",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/library",
+    "/#/review"
+   ],
+   "angle": "脱・日本語訳！英英辞典の正しい使い方：語義の読み解き方、文法記号の読み方、FSRSフラッシュカードへの活用術",
+   "intent": "informational",
+   "lang": "ja"
+  },
+  {
+   "slug": "eigo-dictation-yarikata-listening",
+   "keyword": "英語 ディクテーション やり方",
+   "category": "ky-nang",
+   "tags": [
+    "dictation",
+    "listening",
+    "spelling",
+    "active-learning"
+   ],
+   "shots": [
+    "listening",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "英語リスニング力を根本から鍛えるディクテーション（書き取り）のやり方5ステップと効果的な学習法",
+   "intent": "informational",
+   "lang": "ja"
+  },
+  {
+   "slug": "ielts-technology-ai-eitango",
+   "keyword": "ielts 単語 テクノロジー",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "technology",
+    "vocabulary",
+    "writing",
+    "speaking"
+   ],
+   "shots": [
+    "library",
+    "write",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/write",
+    "/#/dict/resilient"
+   ],
+   "angle": "IELTS Writing/Speakingで7.0以上を突破する「テクノロジー・AI・データプライバシー」頻出アカデミック語彙・コロケーション",
+   "intent": "informational",
+   "lang": "ja"
+  },
+  {
+   "slug": "ipa-baleum-giho-yeongeo-pyo",
+   "keyword": "ipa 발음기호 영어",
+   "category": "phat-am",
+   "tags": [
+    "ipa",
+    "balum",
+    "speaking",
+    "phonetics"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak",
+    "study"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/practice/speak",
+    "/#/study"
+   ],
+   "angle": "영어 국제음성기호(IPA) 완벽 가이드: 한국인이 헷갈리는 모음/자음(f/p, v/b, r/l), 강세 기호와 실전 발음 교정법",
+   "intent": "informational",
+   "lang": "ko"
+  },
+  {
+   "slug": "yeongeo-uimunmun-mandeulgi-gongsig",
+   "keyword": "영어 의문문 만들기",
+   "category": "ngu-phap",
+   "tags": [
+    "uimunmun",
+    "grammar",
+    "speaking",
+    "auxiliary-verbs"
+   ],
+   "shots": [
+    "grammar",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "영어 의문문 만들기 공식: Yes/No 의문문, Wh- 의문문, 부가의문문, 간접의문문 어순을 한 번에 정복하는 법",
+   "intent": "informational",
+   "lang": "ko"
+  },
+  {
+   "slug": "yeong-yeong-sajeon-hwalyongbeop",
+   "keyword": "영영사전 활용법",
+   "category": "phuong-phap",
+   "tags": [
+    "sajeon",
+    "vocabulary",
+    "learning-methods",
+    "self-study"
+   ],
+   "shots": [
+    "dict",
+    "library",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/library",
+    "/#/review"
+   ],
+   "angle": "한국어 번역 습관을 깨는 영영사전 활용법: 문법 코드([C]/[U]), 연어(콜로케이션) 파악 및 FSRS 단어장 연계",
+   "intent": "informational",
+   "lang": "ko"
+  },
+  {
+   "slug": "yeongeo-dictation-cheuksa-gongbubeop",
+   "keyword": "영어 딕테이션 공부법",
+   "category": "ky-nang",
+   "tags": [
+    "dictation",
+    "listening",
+    "spelling",
+    "active-learning"
+   ],
+   "shots": [
+    "listening",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "귀가 뚫리는 영어 딕테이션(받아쓰기) 5단계 공부법: 연음, 약형, 축약형을 잡고 리스닝 점수를 극대화하는 법",
+   "intent": "informational",
+   "lang": "ko"
+  },
+  {
+   "slug": "ielts-technology-ai-daneo-collocation",
+   "keyword": "ielts 단어 기술 ai",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "technology",
+    "vocabulary",
+    "writing",
+    "speaking"
+   ],
+   "shots": [
+    "library",
+    "write",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/write",
+    "/#/dict/resilient"
+   ],
+   "angle": "IELTS Writing/Speaking 7.0+ 달성을 위한 테크놀로지, 인공지능(AI), 데이터 프라이버시 필수 아카데믹 어휘와 모범 답안",
+   "intent": "informational",
+   "lang": "ko"
+  },
+  {
+   "slug": "ielts-writing-bokhabmun-complex-sentences",
+   "keyword": "ielts 라이팅 복합문",
+   "category": "ngu-phap",
+   "tags": [
+    "complex-sentences",
+    "grammar",
+    "ielts",
+    "writing"
+   ],
+   "shots": [
+    "grammar",
+    "write",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/write",
+    "/#/study"
+   ],
+   "angle": "IELTS Writing Task 2 Grammatical Range 7.0+을 위한 복합문(부사절, 관계사절, 분사구문, 명사절) 완벽 작성법",
+   "intent": "informational",
+   "lang": "ko"
   }
  ]
 }
