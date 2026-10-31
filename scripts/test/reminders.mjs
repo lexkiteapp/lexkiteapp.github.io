@@ -141,7 +141,9 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
     ok(first && first.periodInMinutes === undefined, 'add-on: báo thức một lần, kế hoạch dựng lại sau mỗi lần nhắc');
     mem.settings.quietStart = '00:00'; mem.settings.quietEnd = '00:00'; // tắt chốt giờ yên lặng theo đồng hồ thật để kiểm xác định
     await g.sendReminder(false, first.when);
-    ok(notes.length === 1 && /3/.test(notes[0].title + notes[0].message), 'add-on: tới giờ → thông báo cụ thể có số thẻ đến hạn: ' + (notes[0] && notes[0].title + ' / ' + notes[0].message));
+    // Chủ nhật kế hoạch ưu tiên tổng kết tuần (remind.js: dt.getDay() === 0) – kiểm đúng loại theo thứ của mốc, không phụ thuộc ngày chạy CI
+    const txt = notes[0] && notes[0].title + ' / ' + notes[0].message, sun = new Date(first.when).getDay() === 0;
+    ok(notes.length === 1 && (sun ? /tuần|week/i.test(txt) : /3/.test(txt)), 'add-on: tới giờ → thông báo cụ thể (' + (sun ? 'CN: tổng kết tuần' : 'số thẻ đến hạn') + '): ' + txt);
     await g.sendReminder(false, first.when); ok(notes.length === 1, 'add-on: tối đa 1 lời nhắc/ngày (gọi lại cùng ngày không hiện thêm)');
     await g.sendReminder(false, first.when + 3 * 864e5); ok(notes.length === 1 || notes.length === 2, 'add-on: mốc không có trong kế hoạch không gây lỗi');
     mem.settings.quietStart = '22:00'; mem.settings.quietEnd = '08:00'; notes.length = 0;
