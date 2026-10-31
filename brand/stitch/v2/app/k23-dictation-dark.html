@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Dictation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#051013",
+            "on-primary-fixed": "#00201e",
+            "on-primary-container": "#00322e",
+            "surface-dim": "#091518",
+            "primary-fixed-dim": "#6bd8ce",
+            "secondary-fixed-dim": "#ffb4a6",
+            "primary-fixed": "#88f5ea",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "inverse-primary": "#006a64",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-variant": "#2b373a",
+            "inverse-surface": "#d8e5e9",
+            "secondary": "#ffb4a6",
+            "on-surface": "#f1f8f7",
+            "primary-container": "#2ba39a",
+            "on-tertiary-fixed": "#261a00",
+            "on-background": "#f1f8f7",
+            "on-error-container": "#ffdad6",
+            "surface-container": "#162125",
+            "secondary-fixed": "#ffdad3",
+            "surface": "#091518",
+            "tertiary": "#f4bf40",
+            "surface-container-low": "#101d21",
+            "tertiary-fixed-dim": "#f4bf40",
+            "tertiary-container": "#ba8b00",
+            "on-tertiary": "#402e00",
+            "on-primary-fixed-variant": "#00504b",
+            "on-error": "#690005",
+            "error-container": "#4e141a",
+            "outline-variant": "#264a52",
+            "inverse-on-surface": "#263236",
+            "outline": "#4a6c74",
+            "on-secondary-fixed": "#3f0300",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-bright": "#20343a",
+            "surface-container-highest": "#243c42",
+            "on-tertiary-container": "#392900",
+            "error": "#ff6b6b",
+            "on-secondary-container": "#ffa493",
+            "on-primary": "#003733",
+            "surface-tint": "#6bd8ce",
+            "on-secondary": "#660800",
+            "secondary-container": "#f59e0b",
+            "on-surface-variant": "#a6cbcf",
+            "background": "#091518",
+            "primary": "#6bd8ce",
+            "surface-container-high": "#1b2c31"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "1.25rem",
+            "space-md": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.25rem",
+            "gutter-sm": "0.75rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Be Vietnam Pro"],
+            "label": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .wavy-incorrect {
+      text-decoration: underline wavy #ff6b6b;
+      text-underline-offset: 4px;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#f1f8f7] antialiased selection:bg-[#2ba39a] selection:text-[#00201e] min-h-screen pb-24">
+<!-- TOP APP BAR -->
+<header class="w-full bg-[#091518]">
+<div class="flex justify-between items-center w-full px-margin py-space-sm max-w-xl mx-auto">
+<!-- Leading back icon button -->
+<button aria-label="Back" class="w-10 h-10 rounded-xl bg-[#142a2f] border-2 border-[#264a52] flex items-center justify-center text-[#d8ece9] shadow-[0_3px_0_0_#061114] active:translate-y-0.5 active:shadow-[0_1px_0_0_#061114] transition-all hover:bg-[#1b353b]" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center Title & Progress Indicator -->
+<div class="flex flex-col items-center gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline text-headline-sm font-bold text-[#f1f8f7]">Dictation</span>
+<span class="font-label text-label-sm font-bold px-2 py-0.5 rounded-full bg-[#1b353b] border border-[#2ba39a]/40 text-[#6bd8ce] shadow-[0_2px_0_0_#061114]">(3/20)</span>
+</div>
+<!-- Playful Mini Progress Bar -->
+<div class="w-24 h-2 rounded-full bg-[#142a2f] border border-[#264a52]/60 overflow-hidden shadow-[inset_0_1.5px_0_0_rgba(0,0,0,0.4)]">
+<div class="h-full bg-[#f59e0b] rounded-full w-[15%] shadow-[0_1px_0_0_#78350f]"></div>
+</div>
+</div>
+<!-- Trailing Settings icon button -->
+<button aria-label="Settings" class="w-10 h-10 rounded-xl bg-[#142a2f] border-2 border-[#264a52] flex items-center justify-center text-[#d8ece9] shadow-[0_3px_0_0_#061114] active:translate-y-0.5 active:shadow-[0_1px_0_0_#061114] transition-all hover:bg-[#1b353b]" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- MAIN VIEWPORT CANVAS -->
+<main class="max-w-xl mx-auto px-margin pt-space-sm flex flex-col gap-space-md">
+<!-- 1. MODE & DIFFICULTY SELECTORS -->
+<section class="flex flex-wrap items-center justify-between gap-space-xs">
+<!-- Segmented Mode Tab -->
+<div class="inline-flex p-1 rounded-2xl bg-[#0f2024] border-2 border-[#264a52] shadow-[inset_0_2px_0_0_rgba(0,0,0,0.5)]">
+<button class="px-3 py-1.5 rounded-xl font-label text-label-md font-bold bg-[#1b353b] text-[#f1f8f7] border border-[#2ba39a]/30 shadow-[0_3px_0_0_#061114] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+          Whole sentence
+        </button>
+<button class="px-3 py-1.5 rounded-xl font-label text-label-md font-bold text-[#a6cbcf] hover:text-[#f1f8f7] transition-colors" type="button">
+          Fill words
+        </button>
+</div>
+<!-- Difficulty Chips -->
+<div class="inline-flex items-center gap-1.5">
+<button class="px-3 py-1 rounded-full font-label text-label-sm font-bold bg-[#2ba39a] text-[#00201e] border-2 border-[#6bd8ce] shadow-[0_3px_0_0_#0a3734] active:translate-y-0.5 transition-all" type="button">
+          Medium
+        </button>
+<button class="px-3 py-1 rounded-full font-label text-label-sm font-bold bg-[#142a2f] text-[#a6cbcf] border-2 border-[#264a52] shadow-[0_2px_0_0_#061114] active:translate-y-0.5 transition-all hover:bg-[#1b353b] hover:text-[#f1f8f7]" type="button">
+          Hard
+        </button>
+</div>
+</section>
+<!-- 2. AUDIO PLAYER & CONTROL CLUSTER -->
+<section class="bg-[#0f2024] rounded-2xl p-space-md border-2 border-[#264a52] shadow-[0_4px_0_0_#061114] flex flex-col items-center gap-space-sm">
+<div class="flex items-center justify-center gap-5 w-full">
+<!-- Prev Button -->
+<button aria-label="Previous Sentence" class="w-12 h-12 rounded-full bg-[#142a2f] border-2 border-[#264a52] flex items-center justify-center text-[#d8ece9] shadow-[0_4px_0_0_#061114] active:translate-y-1 active:shadow-none transition-all hover:bg-[#1b353b]" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<!-- Big Candy Replay Button -->
+<button aria-label="Replay Audio" class="w-20 h-20 rounded-full bg-[#2ba39a] border-2 border-[#6bd8ce] text-[#00201e] flex flex-col items-center justify-center shadow-[0_5px_0_0_#0a3734] active:translate-y-1.5 active:shadow-[0_1px_0_0_#0a3734] transition-all hover:brightness-110 relative overflow-hidden group" type="button">
+<!-- Gloss Rim Top -->
+<span class="absolute top-1 inset-x-3 h-2.5 rounded-full bg-white opacity-25 pointer-events-none"></span>
+<span class="material-symbols-outlined text-[34px] group-hover:scale-110 transition-transform text-[#002b28]" data-icon="volume_up">volume_up</span>
+<span class="font-label text-label-sm font-extrabold tracking-wider uppercase -mt-0.5 text-[#002b28]">Replay</span>
+</button>
+<!-- Next Button -->
+<button aria-label="Next Sentence" class="w-12 h-12 rounded-full bg-[#142a2f] border-2 border-[#264a52] flex items-center justify-center text-[#d8ece9] shadow-[0_4px_0_0_#061114] active:translate-y-1 active:shadow-none transition-all hover:bg-[#1b353b]" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Auto-replay Toggle Switch -->
+<label class="inline-flex items-center gap-2.5 cursor-pointer mt-1 select-none">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-[#142a2f] peer-checked:bg-[#2ba39a] rounded-full border-2 border-[#264a52] peer-checked:border-[#6bd8ce] transition-all relative shadow-[inset_0_2px_0_0_rgba(0,0,0,0.4)]">
+<div class="w-4 h-4 bg-[#f1f8f7] rounded-full absolute top-0.5 left-0.5 peer-checked:left-[1.35rem] shadow-[0_2px_0_0_#061114] transition-all"></div>
+</div>
+<span class="font-label text-label-md font-bold text-[#f1f8f7]">Auto-replay</span>
+</label>
+</section>
+<!-- 3. TYPING & TRANSCRIPTION ASSESSMENT BOX -->
+<section class="bg-[#0f2024] rounded-2xl border-2 border-[#264a52] p-space-lg shadow-[0_4px_0_0_#061114] flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between border-b-2 border-[#264a52]/80 pb-space-xs">
+<span class="font-label text-label-sm font-bold text-[#a6cbcf] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#6bd8ce]" data-icon="edit_note">edit_note</span>
+          Transcription feedback
+        </span>
+<span class="font-label text-label-sm font-bold px-2 py-0.5 rounded-md bg-[#142a2f] border border-[#264a52] text-[#a6cbcf]">Press Enter ↵</span>
+</div>
+<!-- Word-level Pills & Sentence Stream -->
+<div class="min-h-[110px] leading-relaxed flex flex-wrap items-center gap-x-1.5 gap-y-2 text-[#f1f8f7]">
+<!-- Correct word pill 1 -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#142a2f] text-[#6bd8ce] border border-[#2ba39a] shadow-[0_2px_0_0_#061114] font-body text-body-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-[#6bd8ce]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          The
+        </span>
+<!-- Correct word pill 2 -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#142a2f] text-[#6bd8ce] border border-[#2ba39a] shadow-[0_2px_0_0_#061114] font-body text-body-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-[#6bd8ce]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          rapid
+        </span>
+<!-- Correct word pill 3 -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#142a2f] text-[#6bd8ce] border border-[#2ba39a] shadow-[0_2px_0_0_#061114] font-body text-body-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-[#6bd8ce]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          expansion
+        </span>
+<!-- Correct word pill 4 -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#142a2f] text-[#6bd8ce] border border-[#2ba39a] shadow-[0_2px_0_0_#061114] font-body text-body-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-[#6bd8ce]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          of
+        </span>
+<!-- Missed / Incorrect word tag -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#321318] text-[#ff8080] border border-[#ff6b6b] shadow-[0_2px_0_0_#061114] font-body text-body-md font-semibold wavy-incorrect">
+<span class="material-symbols-outlined text-[16px] text-[#ff8080]" data-icon="error">error</span>
+          technological
+        </span>
+<!-- Next word typed attempt -->
+<span class="font-body text-body-md text-[#f1f8f7] font-semibold px-1">
+          innovations
+        </span>
+<!-- Active caret / typing cursor indicator -->
+<span class="inline-block w-0.5 h-5 bg-[#6bd8ce] animate-pulse ml-0.5 rounded-full"></span>
+</div>
+<!-- Sunken Input Affordance Bottom Hint -->
+<div class="bg-[#091518] rounded-xl p-2.5 border border-[#264a52] flex items-center justify-between text-[#a6cbcf]">
+<span class="font-body text-body-sm italic text-[#87a9ad]">Type what you hear...</span>
+<span class="material-symbols-outlined text-[18px] text-[#87a9ad]" data-icon="keyboard">keyboard</span>
+</div>
+</section>
+<!-- 4. RESULT COUNTERS (FEEDBACK ROW) -->
+<section class="grid grid-cols-3 gap-space-xs">
+<!-- Correct Badge -->
+<div class="flex items-center justify-between px-3 py-2 rounded-xl bg-[#0f2024] border-2 border-[#264a52] shadow-[0_3px_0_0_#061114]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#6bd8ce] shadow-[0_0_6px_#6bd8ce]"></span>
+<span class="font-label text-label-sm font-bold text-[#a6cbcf]">Correct</span>
+</div>
+<span class="font-headline text-headline-sm font-bold text-[#6bd8ce]">14</span>
+</div>
+<!-- Missed Badge -->
+<div class="flex items-center justify-between px-3 py-2 rounded-xl bg-[#0f2024] border-2 border-[#264a52] shadow-[0_3px_0_0_#061114]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#ff6b6b] shadow-[0_0_6px_#ff6b6b]"></span>
+<span class="font-label text-label-sm font-bold text-[#a6cbcf]">Missed</span>
+</div>
+<span class="font-headline text-headline-sm font-bold text-[#ff6b6b]">2</span>
+</div>
+<!-- Extra Badge -->
+<div class="flex items-center justify-between px-3 py-2 rounded-xl bg-[#0f2024] border-2 border-[#264a52] shadow-[0_3px_0_0_#061114]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#879391]"></span>
+<span class="font-label text-label-sm font-bold text-[#a6cbcf]">Extra</span>
+</div>
+<span class="font-headline text-headline-sm font-bold text-[#f1f8f7]">0</span>
+</div>
+</section>
+<!-- 5. ACTION BUTTONS -->
+<section class="flex flex-col gap-2.5 pt-1">
+<!-- Sunny Orange Candy "Answer" Button (strictly deep brown-black ink text) -->
+<button class="w-full py-3.5 px-6 rounded-2xl bg-[#f59e0b] border-2 border-[#d97706] font-headline text-headline-sm font-extrabold text-[#1f1300] flex items-center justify-center gap-2 shadow-[0_4px_0_0_#78350f] active:translate-y-1 active:shadow-[0_1px_0_0_#78350f] transition-all hover:brightness-105" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#1f1300]" data-icon="task_alt">task_alt</span>
+<span>Answer</span>
+</button>
+<!-- Clear All Secondary Tactile Button -->
+<button class="w-full py-2.5 px-6 rounded-2xl bg-[#142a2f] border-2 border-[#264a52] font-label text-label-lg font-bold text-[#f1f8f7] flex items-center justify-center gap-1.5 shadow-[0_4px_0_0_#061114] active:translate-y-0.5 active:shadow-[0_1px_0_0_#061114] transition-all hover:bg-[#1b353b]" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#a6cbcf]" data-icon="restart_alt">restart_alt</span>
+<span>Clear all</span>
+</button>
+</section>
+</main>
+<!-- 6. FIXED BOTTOM TAB BAR (FROM SHARED COMPONENTS JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-sm py-space-xs pb-space-sm max-w-xl mx-auto bg-[#091518] border-t-2 border-[#264a52] shadow-none">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-[#a6cbcf] px-3 py-1 hover:bg-[#142a2f] rounded-xl transition-all active:translate-y-0.5" href="#/today">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="font-label text-label-sm font-bold mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex flex-col items-center justify-center text-[#a6cbcf] px-3 py-1 hover:bg-[#142a2f] rounded-xl transition-all active:translate-y-0.5" href="#/vocab">
+<span class="material-symbols-outlined text-[22px]" data-icon="style">style</span>
+<span class="font-label text-label-sm font-bold mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center bg-[#f59e0b] text-[#1f1300] rounded-xl px-3 py-1 font-bold shadow-[0_3px_0_0_#78350f] active:translate-y-0.5 transition-transform duration-100" href="#/skills">
+<span class="material-symbols-outlined text-[22px] text-[#1f1300]" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label text-label-sm font-extrabold mt-0.5 text-[#1f1300]">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-[#a6cbcf] px-3 py-1 hover:bg-[#142a2f] rounded-xl transition-all active:translate-y-0.5" href="#/tests">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment">assignment</span>
+<span class="font-label text-label-sm font-bold mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-[#a6cbcf] px-3 py-1 hover:bg-[#142a2f] rounded-xl transition-all active:translate-y-0.5" href="#/me">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label text-label-sm font-bold mt-0.5">Me</span>
+</a>
+</nav>
+</body></html>

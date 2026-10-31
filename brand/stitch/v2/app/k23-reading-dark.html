@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS - Reading Practice</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#202c2f",
+            "surface-variant": "#1d3b41",
+            "on-secondary": "#660800",
+            "primary": "#6bd8ce",
+            "error-container": "#93000a",
+            "on-primary-fixed": "#00201e",
+            "secondary": "#ffb4a6",
+            "secondary-container": "#f59e0b",
+            "on-secondary-fixed-variant": "#900f00",
+            "outline": "#879391",
+            "inverse-surface": "#d8e5e9",
+            "surface-container-lowest": "#0e1e22",
+            "on-surface-variant": "#a3bdc2",
+            "secondary-fixed": "#ffdad3",
+            "tertiary-fixed": "#ffdf9e",
+            "tertiary": "#f4bf40",
+            "surface-container-highest": "#24484f",
+            "on-surface": "#e6f1f2",
+            "surface-bright": "#2f3b3e",
+            "on-secondary-container": "#241400",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#6bd8ce",
+            "on-background": "#e6f1f2",
+            "surface-container-low": "#112327",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-dim": "#091518",
+            "on-tertiary": "#402e00",
+            "on-primary-fixed-variant": "#00504b",
+            "tertiary-container": "#ba8b00",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary-container": "#00322e",
+            "primary-fixed": "#88f5ea",
+            "primary-container": "#2ba39a",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary-fixed": "#3f0300",
+            "error": "#ffb4ab",
+            "inverse-on-surface": "#263236",
+            "inverse-primary": "#006a64",
+            "background": "#091518",
+            "on-tertiary-container": "#392900",
+            "surface": "#091518",
+            "on-error": "#690005",
+            "surface-container": "#16282c",
+            "outline-variant": "#1d3b41",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary": "#003733"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#e6f1f2] antialiased min-h-screen pb-28 selection:bg-[#2ba39a] selection:text-white">
+<!-- Top App Bar Component -->
+<header class="sticky top-0 z-40 bg-[#091518] border-b border-[#1d3b41] shadow-[0_4px_0_#060f12]">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-screen-md mx-auto">
+<div class="flex items-center gap-3">
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-[#112327] flex items-center justify-center border-2 border-[#1d3b41] shadow-[0_3px_0_#071114] active:translate-y-[2px] transition-transform duration-100 hover:bg-[#162d32]" type="button">
+<span class="material-symbols-outlined text-[#6bd8ce] text-[20px] font-bold">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="font-extrabold text-[20px] text-[#6bd8ce] tracking-tight">Lexkite IELTS</span>
+<span class="bg-[#112327] text-[#a3bdc2] text-xs px-2.5 py-0.5 rounded-full border border-[#1d3b41] font-extrabold tracking-wide">#/read</span>
+</div>
+</div>
+<!-- Trailing Action: Read aloud pill -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#112327] border-2 border-[#1d3b41] shadow-[0_3px_0_#071114] active:translate-y-[2px] transition-transform duration-100 hover:bg-[#162d32]" type="button">
+<span class="material-symbols-outlined text-[#6bd8ce] text-[18px]">volume_up</span>
+<span class="text-[#e6f1f2] text-xs font-bold">Read aloud</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="max-w-screen-md mx-auto px-4 pt-6 space-y-6">
+<!-- Progress / Streak Micro-Widget -->
+<div class="flex items-center justify-between bg-[#0e1e22] border-2 border-[#1d3b41] rounded-2xl px-4 py-2.5 shadow-[0_3px_0_#060f12]">
+<div class="flex items-center gap-2.5">
+<span class="bg-[#f59e0b] text-[#241400] w-8 h-8 rounded-xl flex items-center justify-center shadow-[0_2px_0_#b45309]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</span>
+<div>
+<p class="text-[#e6f1f2] text-[14px] font-extrabold leading-none">Daily Band 8 Streak</p>
+<p class="text-[#88a9af] text-xs mt-1">Academic Reading • Passage 1</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-[#14282c] px-3 py-1 rounded-full border border-[#1d3b41]">
+<span class="material-symbols-outlined text-[#6bd8ce] text-base">timer</span>
+<span class="text-xs text-[#e6f1f2] font-extrabold">18:45</span>
+</div>
+</div>
+<!-- Passage Section -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h1 class="text-[22px] font-extrabold text-[#f1f7f7] tracking-tight">The Secret Life of Urban Bees</h1>
+<span class="px-2.5 py-1 bg-[#14282c] text-[#a3bdc2] text-xs rounded-full border border-[#1d3b41] font-bold">650 words</span>
+</div>
+<!-- Tactile Highlight Toggle Chips Row -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<!-- Chip 1: Keywords (Active Amber) -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#3d2402] border-2 border-[#f59e0b] shadow-[0_3px_0_#854d0e] active:translate-y-[2px] transition-transform duration-100" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] shadow-sm"></span>
+<span class="text-[#ffdf9e] text-xs font-extrabold">Keywords</span>
+</button>
+<!-- Chip 2: Academic words (Glowing teal accent) -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0a2e2b] border-2 border-[#2ba39a] shadow-[0_3px_0_#0f5a54] active:translate-y-[2px] transition-transform duration-100 hover:bg-[#103d39]" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-[#6bd8ce]"></span>
+<span class="text-[#88f5ea] text-xs font-bold">Academic words</span>
+</button>
+<!-- Chip 3: Linking words -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#112327] border-2 border-[#1d3b41] shadow-[0_3px_0_#060f12] active:translate-y-[2px] transition-transform duration-100 hover:bg-[#162d32]" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#88a9af]">link</span>
+<span class="text-[#cce0e3] text-xs font-bold">Linking</span>
+</button>
+<!-- Chip 4: My words -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#112327] border-2 border-[#1d3b41] shadow-[0_3px_0_#060f12] active:translate-y-[2px] transition-transform duration-100 hover:bg-[#162d32]" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#f4bf40]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[#cce0e3] text-xs font-bold">My words</span>
+</button>
+</div>
+<!-- Passage Card with Chunky Depth -->
+<div class="bg-[#0e1e22] rounded-3xl p-5 md:p-6 border-2 border-[#1d3b41] shadow-[0_5px_0_#060f12]">
+<div class="space-y-4 text-[16px] text-[#d8e5e7] leading-relaxed">
+<p>
+            Recent entomological research indicates that metropolitan environments offer surprisingly hospitable refuges for pollinator colonies. Far from languishing in concrete jungles, colonies residing on urban rooftops display distinct adaptations in their 
+            <mark class="bg-[#382103] text-[#ffd699] font-extrabold px-2 py-0.5 rounded-md border border-[#b45309] inline-block shadow-sm">foraging behavior</mark>, traveling shorter median distances than their agricultural counterparts due to dense floral patches maintained in municipal gardens and private balconies.
+          </p>
+<p>
+            Moreover, nutritional variety appears to bolster the immunity of 
+            <mark class="bg-[#0c3632] text-[#88f5ea] font-extrabold px-2 py-0.5 rounded-md border border-[#2ba39a] inline-block shadow-sm">subsequent colonies</mark> against invasive parasites. While agricultural monocultures subject insect populations to acute nutritional shortages between harvest cycles, rich urban 
+            <mark class="bg-[#382103] text-[#ffd699] font-extrabold px-2 py-0.5 rounded-md border border-[#b45309] inline-block shadow-sm">biodiversity</mark> ensures constant sustenance. However, apiculturists continue to deliberate whether higher ambient temperatures accelerate metabolic exhaustion across queen bees.
+          </p>
+</div>
+</div>
+</section>
+<!-- Question Section -->
+<section class="space-y-4 pt-2">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-[18px] text-[#f1f7f7] font-extrabold">Questions 1–3: True / False / Not Given</h2>
+<p class="text-sm text-[#88a9af]">Verify statements based strictly on the passage above.</p>
+</div>
+<span class="bg-[#0f4641] text-[#88f5ea] text-xs font-extrabold px-2.5 py-1 rounded-full border border-[#2ba39a]/40">Band 7.5+</span>
+</div>
+<!-- Statement 1 Card -->
+<div class="bg-[#0e1e22] rounded-3xl p-5 border-2 border-[#1d3b41] shadow-[0_4px_0_#060f12] space-y-4">
+<div class="flex items-start gap-3">
+<span class="w-7 h-7 rounded-xl bg-[#14282c] text-[#6bd8ce] text-sm font-extrabold flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#1d3b41]">1</span>
+<p class="text-[16px] text-[#f1f7f7] font-bold">
+            Urban hives produce more honey than rural hives due to shorter travel distances.
+          </p>
+</div>
+<!-- 3 Tactile Option Buttons (True / False / Not Given) -->
+<div class="grid grid-cols-3 gap-2.5 pt-1">
+<!-- True -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-[#14282c] border-2 border-[#234b52] shadow-[0_4px_0_#071316] active:translate-y-[3px] active:shadow-[0_1px_0_#071316] hover:bg-[#1a3439] transition-all" type="button">
+<span class="text-[#e2eef0] text-sm font-extrabold">True</span>
+</button>
+<!-- False -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-[#14282c] border-2 border-[#234b52] shadow-[0_4px_0_#071316] active:translate-y-[3px] active:shadow-[0_1px_0_#071316] hover:bg-[#1a3439] transition-all" type="button">
+<span class="text-[#e2eef0] text-sm font-extrabold">False</span>
+</button>
+<!-- Not Given (Selected State Example) -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-[#124d47] border-2 border-[#2ba39a] shadow-[0_4px_0_#062825] active:translate-y-[3px] active:shadow-[0_1px_0_#062825] transition-all" type="button">
+<span class="text-[#ffffff] text-sm font-extrabold flex items-center gap-1">
+              Not Given
+              <span class="material-symbols-outlined text-[#88f5ea] text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</button>
+</div>
+</div>
+<!-- Statement 2 Card -->
+<div class="bg-[#0e1e22] rounded-3xl p-5 border-2 border-[#1d3b41] shadow-[0_4px_0_#060f12] space-y-4">
+<div class="flex items-start gap-3">
+<span class="w-7 h-7 rounded-xl bg-[#14282c] text-[#6bd8ce] text-sm font-extrabold flex items-center justify-center flex-shrink-0 mt-0.5 border border-[#1d3b41]">2</span>
+<p class="text-[16px] text-[#f1f7f7] font-bold">
+            Varied flower types in cities provide more consistent food than rural crop fields.
+          </p>
+</div>
+<!-- 3 Tactile Option Buttons -->
+<div class="grid grid-cols-3 gap-2.5 pt-1">
+<!-- True (Selected State Example) -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-[#124d47] border-2 border-[#2ba39a] shadow-[0_4px_0_#062825] active:translate-y-[3px] active:shadow-[0_1px_0_#062825] transition-all" type="button">
+<span class="text-[#ffffff] text-sm font-extrabold flex items-center gap-1">
+              True
+              <span class="material-symbols-outlined text-[#88f5ea] text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</button>
+<!-- False -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-[#14282c] border-2 border-[#234b52] shadow-[0_4px_0_#071316] active:translate-y-[3px] active:shadow-[0_1px_0_#071316] hover:bg-[#1a3439] transition-all" type="button">
+<span class="text-[#e2eef0] text-sm font-extrabold">False</span>
+</button>
+<!-- Not Given -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-[#14282c] border-2 border-[#234b52] shadow-[0_4px_0_#071316] active:translate-y-[3px] active:shadow-[0_1px_0_#071316] hover:bg-[#1a3439] transition-all" type="button">
+<span class="text-[#e2eef0] text-sm font-extrabold">Not Given</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Primary Action Section: Grade Button -->
+<div class="pt-3 pb-4">
+<!-- 
+        Tactile Sunny Orange CTA:
+        Vibrant orange/amber (#f59e0b) with deep brown-black ink (#1c0d02 / #241400), NEVER white!
+        Tactile bottom ledge: shadow-[0_5px_0_#9a4200] and border-2 border-[#fbbf24]
+      -->
+<button class="w-full py-4 px-6 rounded-2xl bg-[#f59e0b] border-2 border-[#fbbf24] hover:bg-[#f6a61e] active:translate-y-[3px] active:shadow-[0_1px_0_#9a4200] shadow-[0_5px_0_#9a4200] transition-all duration-100 flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[#241400] text-[22px]" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="text-[#241400] text-[18px] font-extrabold tracking-wide">Grade</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Docked 5 tabs: Today, Vocab, Skills, Tests, Me) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#091518] border-t border-[#1d3b41] shadow-[0_-4px_0_#060f12]">
+<div class="flex justify-around items-center px-2 py-2 max-w-screen-md mx-auto">
+<!-- Tab 1: Today (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#7a9ea3] px-3 py-1 hover:text-[#e6f1f2] hover:bg-[#112327] transition-colors rounded-xl" href="#/today">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="text-xs font-extrabold mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#7a9ea3] px-3 py-1 hover:text-[#e6f1f2] hover:bg-[#112327] transition-colors rounded-xl" href="#/vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-xs font-extrabold mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE TAB: Lexkite IELTS Reading fits under Skills) -->
+<a class="flex flex-col items-center justify-center bg-[#2ba39a] text-[#00322e] rounded-xl px-4 py-1 border border-[#6bd8ce] shadow-[0_3px_0_#0e5852] active:translate-y-[2px]" href="#/read">
+<span class="material-symbols-outlined text-[22px] text-[#00322e]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[#00322e] text-xs font-extrabold mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#7a9ea3] px-3 py-1 hover:text-[#e6f1f2] hover:bg-[#112327] transition-colors rounded-xl" href="#/tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-xs font-extrabold mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me (Inactive) -->
+<a class="flex flex-col items-center justify-center text-[#7a9ea3] px-3 py-1 hover:text-[#e6f1f2] hover:bg-[#112327] transition-colors rounded-xl" href="#/me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-xs font-extrabold mt-0.5">Me</span>
+</a>
+</div>
+</nav>
+</body></html>

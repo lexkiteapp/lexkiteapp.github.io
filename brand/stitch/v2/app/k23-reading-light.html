@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS - Reading Practice</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#f0e7de",
+            "surface-variant": "#eae1d8",
+            "on-secondary": "#ffffff",
+            "primary": "#00514d",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#00201e",
+            "secondary": "#895100",
+            "secondary-container": "#fe9d19",
+            "on-secondary-fixed-variant": "#683c00",
+            "outline": "#6f7978",
+            "inverse-surface": "#34302a",
+            "surface-container-lowest": "#ffffff",
+            "on-surface-variant": "#3f4947",
+            "secondary-fixed": "#ffdcbc",
+            "tertiary-fixed": "#ffdad4",
+            "tertiary": "#8e190f",
+            "surface-container-highest": "#eae1d8",
+            "on-surface": "#1f1b16",
+            "surface-bright": "#fff8f3",
+            "on-secondary-container": "#663b00",
+            "on-error-container": "#93000a",
+            "surface-tint": "#106a65",
+            "on-background": "#1f1b16",
+            "surface-container-low": "#fcf2e9",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "surface-dim": "#e2d8d0",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-container": "#b03224",
+            "primary-fixed-dim": "#88d4cd",
+            "on-primary-container": "#9ce9e2",
+            "primary-fixed": "#a4f0e9",
+            "primary-container": "#136b66",
+            "on-tertiary-fixed": "#410000",
+            "on-secondary-fixed": "#2c1600",
+            "error": "#ba1a1a",
+            "inverse-on-surface": "#f9efe6",
+            "inverse-primary": "#88d4cd",
+            "background": "#fff8f3",
+            "on-tertiary-container": "#ffd0c9",
+            "surface": "#fff8f3",
+            "on-error": "#ffffff",
+            "surface-container": "#f6ece4",
+            "outline-variant": "#bec9c7",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "secondary-fixed-dim": "#ffb86c",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-28 selection:bg-secondary-fixed selection:text-on-surface">
+<!-- Top App Bar Component -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface shadow-[0_4px_0_#eae1d8] dark:shadow-[0_4px_0_#34302a]">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-screen-md mx-auto">
+<div class="flex items-center gap-3">
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center border-2 border-surface-variant shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform duration-100 hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-primary text-headline-sm font-headline-sm">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed tracking-tight">Lexkite IELTS</span>
+<span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded-full border border-surface-variant font-extrabold tracking-wide">#/read</span>
+</div>
+</div>
+<!-- Trailing Action: Read aloud pill -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform duration-100 hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-primary text-label-lg font-label-lg">volume_up</span>
+<span class="text-on-surface font-label-sm text-label-sm font-bold">Read aloud</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="max-w-screen-md mx-auto px-4 pt-6 space-y-6">
+<!-- Progress / Streak Micro-Widget -->
+<div class="flex items-center justify-between bg-surface-container-low border-2 border-surface-variant rounded-2xl px-4 py-2.5 shadow-[0_3px_0_#eae1d8]">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container text-on-surface w-8 h-8 rounded-xl flex items-center justify-center shadow-[0_2px_0_#d97b00]">
+<span class="material-symbols-outlined text-headline-sm font-headline-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</span>
+<div>
+<p class="text-on-surface font-label-md text-label-md font-extrabold leading-none">Daily Band 8 Streak</p>
+<p class="text-on-surface-variant font-label-sm text-label-sm mt-0.5">Academic Reading • Passage 1</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1 rounded-full border border-surface-variant">
+<span class="material-symbols-outlined text-primary text-label-md font-label-md">timer</span>
+<span class="font-label-sm text-label-sm text-on-surface font-extrabold">18:45</span>
+</div>
+</div>
+<!-- Passage Section -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h1 class="text-headline-md font-headline-md text-on-surface font-extrabold tracking-tight">The Secret Life of Urban Bees</h1>
+<span class="px-2.5 py-1 bg-surface-container-high text-on-surface font-label-sm text-label-sm rounded-full border border-surface-variant font-bold">650 words</span>
+</div>
+<!-- Tactile Highlight Toggle Chips Row -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<!-- Chip 1: Keywords (Active) -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-secondary-fixed border-2 border-secondary-container shadow-[0_3px_0_#fe9d19] active:translate-y-[2px] transition-transform duration-100" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shadow-sm"></span>
+<span class="text-on-surface font-label-sm text-label-sm font-extrabold">Keywords</span>
+</button>
+<!-- Chip 2: Academic words (Inactive with teal accent border) -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-lowest border-2 border-primary-fixed-dim shadow-[0_3px_0_#bec9c7] active:translate-y-[2px] transition-transform duration-100 hover:bg-surface-container" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="text-on-surface font-label-sm text-label-sm font-bold">Academic words</span>
+</button>
+<!-- Chip 3: Linking words -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform duration-100 hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-label-md font-label-md text-on-surface-variant">link</span>
+<span class="text-on-surface font-label-sm text-label-sm font-bold">Linking</span>
+</button>
+<!-- Chip 4: My words -->
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform duration-100 hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-label-md font-label-md text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-on-surface font-label-sm text-label-sm font-bold">My words</span>
+</button>
+</div>
+<!-- Passage Card with Chunky Depth -->
+<div class="bg-surface-container-lowest rounded-3xl p-5 md:p-6 border-2 border-surface-variant shadow-[0_5px_0_#eae1d8]">
+<div class="space-y-4 font-body-md text-body-md text-on-surface leading-relaxed">
+<p>
+            Recent entomological research indicates that metropolitan environments offer surprisingly hospitable refuges for pollinator colonies. Far from languishing in concrete jungles, colonies residing on urban rooftops display distinct adaptations in their 
+            <mark class="bg-secondary-fixed text-on-surface font-extrabold px-1.5 py-0.5 rounded-md border border-secondary-fixed-dim inline-block">foraging behavior</mark>, traveling shorter median distances than their agricultural counterparts due to dense floral patches maintained in municipal gardens and private balconies.
+          </p>
+<p>
+            Moreover, nutritional variety appears to bolster the immunity of 
+            <mark class="bg-primary-fixed text-on-surface font-extrabold px-1.5 py-0.5 rounded-md border border-primary-fixed-dim inline-block">subsequent colonies</mark> against invasive parasites. While agricultural monocultures subject insect populations to acute nutritional shortages between harvest cycles, rich urban 
+            <mark class="bg-secondary-fixed text-on-surface font-extrabold px-1.5 py-0.5 rounded-md border border-secondary-fixed-dim inline-block">biodiversity</mark> ensures constant sustenance. However, apiculturists continue to deliberate whether higher ambient temperatures accelerate metabolic exhaustion across queen bees.
+          </p>
+</div>
+</div>
+</section>
+<!-- Question Section -->
+<section class="space-y-4 pt-2">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-extrabold">Questions 1–3: True / False / Not Given</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Verify statements based strictly on the passage above.</p>
+</div>
+<span class="bg-primary-fixed-dim text-on-primary-fixed font-label-sm text-label-sm font-extrabold px-2.5 py-1 rounded-full">Band 7.5+</span>
+</div>
+<!-- Statement 1 Card -->
+<div class="bg-surface-container-lowest rounded-3xl p-5 border-2 border-surface-variant shadow-[0_4px_0_#eae1d8] space-y-4">
+<div class="flex items-start gap-3">
+<span class="w-7 h-7 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md font-extrabold flex items-center justify-center flex-shrink-0 mt-0.5 border border-surface-variant">1</span>
+<p class="font-body-md text-body-md text-on-surface font-bold">
+            Urban hives produce more honey than rural hives due to shorter travel distances.
+          </p>
+</div>
+<!-- 3 Tactile Option Buttons (True / False / Not Given) -->
+<div class="grid grid-cols-3 gap-2.5 pt-1">
+<!-- True -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] hover:bg-surface-container transition-all" type="button">
+<span class="text-on-surface font-label-md text-label-md font-extrabold">True</span>
+</button>
+<!-- False -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] hover:bg-surface-container transition-all" type="button">
+<span class="text-on-surface font-label-md text-label-md font-extrabold">False</span>
+</button>
+<!-- Not Given (Selected State Example) -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-[#EAF3F2] border-2 border-primary-container shadow-[0_4px_0_#136b66] active:translate-y-[3px] active:shadow-[0_1px_0_#136b66] transition-all" type="button">
+<span class="text-on-surface font-label-md text-label-md font-extrabold flex items-center gap-1">
+              Not Given
+              <span class="material-symbols-outlined text-primary-container text-body-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</button>
+</div>
+</div>
+<!-- Statement 2 Card -->
+<div class="bg-surface-container-lowest rounded-3xl p-5 border-2 border-surface-variant shadow-[0_4px_0_#eae1d8] space-y-4">
+<div class="flex items-start gap-3">
+<span class="w-7 h-7 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md font-extrabold flex items-center justify-center flex-shrink-0 mt-0.5 border border-surface-variant">2</span>
+<p class="font-body-md text-body-md text-on-surface font-bold">
+            Varied flower types in cities provide more consistent food than rural crop fields.
+          </p>
+</div>
+<!-- 3 Tactile Option Buttons -->
+<div class="grid grid-cols-3 gap-2.5 pt-1">
+<!-- True (Selected State Example) -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-[#EAF3F2] border-2 border-primary-container shadow-[0_4px_0_#136b66] active:translate-y-[3px] active:shadow-[0_1px_0_#136b66] transition-all" type="button">
+<span class="text-on-surface font-label-md text-label-md font-extrabold flex items-center gap-1">
+              True
+              <span class="material-symbols-outlined text-primary-container text-body-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</button>
+<!-- False -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] hover:bg-surface-container transition-all" type="button">
+<span class="text-on-surface font-label-md text-label-md font-extrabold">False</span>
+</button>
+<!-- Not Given -->
+<button class="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] hover:bg-surface-container transition-all" type="button">
+<span class="text-on-surface font-label-md text-label-md font-extrabold">Not Given</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Primary Action Section: Grade Button -->
+<div class="pt-3 pb-4">
+<!-- 
+        CRITICAL CONTRAST REQUIREMENT ENFORCED: 
+        Orange button MUST use deep brown-black ink (#1F1B16 / text-on-surface), NEVER white text! 
+        Chunky candy-like bottom ledge: shadow-[0_5px_0_#d97b00] and border-2 border-secondary-container
+      -->
+<button class="w-full py-4 px-6 rounded-2xl bg-secondary-container border-2 border-secondary hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_#d97b00] shadow-[0_5px_0_#d97b00] transition-all duration-100 flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-on-surface text-headline-sm font-headline-sm" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="text-on-surface font-headline-sm text-headline-sm font-extrabold tracking-wide">Grade</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Docked 5 tabs: Today, Vocab, Skills, Tests, Me) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-inverse-surface shadow-[0_-4px_0_#eae1d8] dark:shadow-[0_-4px_0_#34302a]">
+<div class="flex justify-around items-center px-2 py-2 max-w-screen-md mx-auto">
+<!-- Tab 1: Today (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface px-3 py-1 hover:bg-surface-container-high transition-colors rounded-xl" href="#/today">
+<span class="material-symbols-outlined text-headline-sm font-headline-sm text-on-surface">today</span>
+<span class="text-on-surface font-label-sm text-label-sm font-extrabold">Today</span>
+</a>
+<!-- Tab 2: Vocab (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface px-3 py-1 hover:bg-surface-container-high transition-colors rounded-xl" href="#/vocab">
+<span class="material-symbols-outlined text-headline-sm font-headline-sm text-on-surface">menu_book</span>
+<span class="text-on-surface font-label-sm text-label-sm font-extrabold">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE TAB: Lexkite IELTS Reading fits under Skills) -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary rounded-xl px-4 py-1 shadow-[0_3px_0_#0c4542] active:translate-y-[2px]" href="#/read">
+<span class="material-symbols-outlined text-headline-sm font-headline-sm text-on-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-on-primary font-label-sm text-label-sm font-extrabold">Skills</span>
+</a>
+<!-- Tab 4: Tests (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface px-3 py-1 hover:bg-surface-container-high transition-colors rounded-xl" href="#/tests">
+<span class="material-symbols-outlined text-headline-sm font-headline-sm text-on-surface">assignment</span>
+<span class="text-on-surface font-label-sm text-label-sm font-extrabold">Tests</span>
+</a>
+<!-- Tab 5: Me (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface px-3 py-1 hover:bg-surface-container-high transition-colors rounded-xl" href="#/me">
+<span class="material-symbols-outlined text-headline-sm font-headline-sm text-on-surface">person</span>
+<span class="text-on-surface font-label-sm text-label-sm font-extrabold">Me</span>
+</a>
+</div>
+</nav>
+</body></html>

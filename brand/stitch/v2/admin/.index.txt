@@ -1,9 +1,0 @@
-# Stitch v2.1 refs – admin (factory, project 7268539912208977707, DS assets/1b7a8a3d3d52404bb332d9ba3f783547 Lexkite Kit). page light-id dark-id device verdict | note | prompt = scratchpad prompts.tsv line (copied in prompts.txt)
-overview 534ffec1f9294012be6c58472e93eb55 19568cc9745f4709af2f1316bb364d95 DESKTOP PASS | dark r1 rejected (white cards bottom) → dark2; sidebar sections = real admin-*.js modules; numbers are sample data (fixtures/admin-fx)
-reports c41cf112f00c4e7db36d31f44bc1490e 72c03843324d4ec0bc4fb8aaaa55d099 DESKTOP PASS | 
-quota a6c41dee4cbd4df4b83eddfc2b1658d4 3ff98627b94f4187b6d52f84e2df0f12 DESKTOP PASS | dark r1 rejected (white meter cards) → dark2; meters = real quotas (AI pool, D1, images, renders, email)
-growth be07e9d996a14b78addbcf521dd814c3 d5a2bab17d0b4928be7bec9fe495bb0b DESKTOP PASS | 
-notices 0598c34682cf438982a973e158a9329b b6486a591f194b77b11d64cfb1ca61a7 DESKTOP PASS | Fake stats chips (142.8k users, 9.4% avg), CSV export, CDN/KV footer, sample notices; hide on port. Dark ok (cream preview mock intentional). Orange btn text dark.
-studio e62ff42c91a1465f954bb1ba8f2a30aa 87574ff9f1b944e1a45d6c71af9cbdc3 DESKTOP PASS | dark r1 rejected → dark2; Dark is a blank bg (nothing rendered). Light ok but shows photo of a person (host Liam) in thumbs/preview; fake QC %, voice model, Edit Script, avatar profile.
-social fc9bd70435f846ddbbadcafd76068c38 1d002a4059004f5080411c4d11314198 DESKTOP PASS | dark r1 rejected → dark2; Dark has white elements: Schedule button, caption box, top search chip. Light ok. Fake stats (342.8k views, +4,290), Edit/Export CSV, Instagram/X targets, curriculum tag.
-signin a0dea72d7bf5408fb1c1f15940300872 10b1d9aae2ef44f9b1eb12fd534f6ceb DESKTOP PASS | Light and dark both ok. Extra: Restricted Access/Edge auth pills, footer line, Google btn is white (not candy). Hide extra pills.
