@@ -19,6 +19,8 @@
 - Việc máy móc (dịch, chuyển file, gộp, kiểm tra) → `model: sonnet`/`haiku`; việc thiết kế/khó mới dùng model mạnh.
 - Đặt trần token cho mỗi agent (~150k); vượt → dừng và báo.
 
+- **Đặc tả gọn trước khi code (anh chủ 31/10, kiểu Spec Kit rút gọn):** tính năng lớn (≥3 màn hoặc >½ ngày) → 1 file `docs/specs/<tên>.md` ≤1 trang: mục tiêu, tiêu chí "xong", danh sách việc, cổng kiểm tra; duyệt xong mới code. Việc nhỏ/sửa lỗi làm thẳng.
+
 ## 3. Chờ & theo dõi
 - CI/quota: 1 lệnh `until …; do sleep 20–120; done` hoặc hẹn giờ 1 lần (CronCreate); không hỏi trạng thái lặp lại (đã làm cạn D1 2 lần), không đọc file output của agent.
 - Thông báo tạm của agent ("đang chờ CI") → không gọi tool, tối đa 1 dòng.
