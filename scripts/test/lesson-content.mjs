@@ -47,7 +47,8 @@ for (const [i, c] of all.entries()) {
       if (it.type === 'build' || it.type === 'tr') {
         const bag = it.tiles.map(E.norm); ok(E.toks(it.answer).every(w => { const j = bag.indexOf(E.norm(w)); if (j < 0) return false; bag.splice(j, 1); return true; }), 'đáp án xếp được từ các ô', id);
         ok(it.prompt || !it.noAudio, 'xếp câu luôn có đề (bản dịch câu hoặc âm thanh)', id);
-        if (it.prompt) { const p = E.norm(it.prompt); ok(p !== E.norm(c.def) && p !== E.norm(c.vi) && p !== E.norm(it.mean) && !(c.def && p.includes(E.norm(c.def))), 'đề xếp câu không phải định nghĩa/nghĩa của từ', id); }
+        if (it.prompt) { const nu = x => String(x || '').toLowerCase().replace(/\s+/g, ' ').trim(), p = nu(it.prompt); ok(p !== nu(c.def) && p !== nu(c.vi) && p !== nu(it.mean) && !(c.def && p.includes(nu(c.def))), // chuẩn hóa giữ mọi chữ viết (ja/ar…)
+           'đề xếp câu không phải định nghĩa/nghĩa của từ', id); }
         if (L && usable(c) && it.type === 'build') ok(!!it.prompt, 'có bản dịch câu tiếng mẹ đẻ khi người học không dùng tiếng Anh', id);
       }
       if (it.type === 'type') {

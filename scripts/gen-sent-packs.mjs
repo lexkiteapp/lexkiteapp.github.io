@@ -28,12 +28,12 @@ const tl = l => (l === 'zh' ? 'zh-CN' : l);
 let warned = 0;
 async function tr(lang, list) {
   const q = encodeURIComponent(list.join('\n')); // GET như gen-word-packs (gtx không nhận POST); lô giới hạn theo độ dài URL ở run()
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 7; i++) {
     try {
       const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl(lang)}&dt=t&q=${q}`);
       if (r.ok) { const j = await r.json(); const o = j[0].map(x => x[0]).join('').split('\n').map(s => s.trim()); return o.length === list.length ? o : null; }
       if (warned++ < 5) console.warn(lang, 'HTTP', r.status, 'lô', list.length, 'câu, URL', q.length);
-      if (r.status === 429) await sleep(30000);
+      if (r.status === 429) await sleep(60000 * (i + 1)); // bị chặn tạm theo IP: chờ dài dần (tới ~28 phút tổng) rồi thử lại
       else if (r.status === 400 || r.status === 413 || r.status === 414) return null; // lô quá dài → tách từng câu
     } catch (e) { if (warned++ < 5) console.warn(lang, 'lỗi mạng', e.message); }
     await sleep(3000 * (i + 1));
