@@ -265,6 +265,7 @@
     if (document.getElementById('ux1Css')) return;
     const s = document.createElement('style'); s.id = 'ux1Css';
     s.textContent = `
+body.ux1 .side-level{display:none}
 body.ux1 .sidebar{--nav-pad:.8rem}
 body.ux1 #nav{display:flex;flex-direction:column;gap:.2rem}
 body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.5rem var(--nav-pad);border-radius:var(--r-md);font-weight:700;font-size:1rem;color:var(--text);border:2px solid transparent}
