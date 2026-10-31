@@ -137,6 +137,7 @@ on:
       - 'hair-try'
       - 'video-motion'
       - 'teach-video'
+      - 'Cards render (share/OG/email)'
       - 'Kiểm tra sau deploy (post-deploy-check)'
       - 'Preview site'
   schedule:
