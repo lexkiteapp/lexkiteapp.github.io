@@ -13,7 +13,7 @@ export const IMG_FILL = 'w-full h-full object-cover';                 // ảnh b
 export const IMG_ABS = 'absolute inset-0 w-full h-full object-cover'; // ảnh thẻ hub + thẻ nổi bật (nằm dưới viên chuyên mục / thời gian đọc)
 export const EMPTY_CLS = 'text-base font-medium leading-relaxed';      // chữ "bài đầu tiên sắp ra mắt" (lớp đoạn giới thiệu hub)
 export const TAGS_CLS = 'flex flex-wrap gap-2';                       // hàng thẻ #tag (viên chuyên mục của mẫu, liên kết inline)
-export const CRUMB_A = 'underline';                                   // liên kết đường dẫn trong viên đầu hero hub
+export const CRUMB_A = 'underline inline-flex items-center justify-center min-h-[44px] min-w-[44px]';                                 // liên kết đường dẫn trong viên đầu hero hub
 const PRE_X = 'p-4 font-mono text-[14px] leading-[20px]', CAP_X = 'p-4', LINK_X = 'underline';
 
 const O = (f, d = {}) => f({ ...d, html: '\u0000' }).split('\u0000'); // khuôn → [thẻ mở, thẻ đóng]

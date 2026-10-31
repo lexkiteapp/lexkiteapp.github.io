@@ -107,7 +107,12 @@
    },
    "remove": [
     ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)"
-   ]
+   ],
+   "cls": {
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3)": {
+     "lt:text-[#4E6668]": "'lt:text-[#0F3D3E]'"
+    }
+   }
   },
   {
    "list": "d.pager.links",
@@ -210,13 +215,17 @@
   },
   ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3)": {
    "flex": "d.pager.links.length ? 'flex' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "text-[#FFC94A]": "'lt:text-[#FFFFFF] dk:text-[#FFC94A]'"
   }
  },
  "addClass": {
   ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "ms-flip",
   ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "ms-flip",
   ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "min-h-[44px]",
-  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3)": "gap-4 flex-wrap"
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3)": "gap-4 flex-wrap",
+  ":scope": "[--border-warm:#EADEC8] [--ledge-warm:#D8CFBC] [--text-dark:#0F3D3E] [--border-night:#233942] [--ledge-night:#0D1A1E] [--card-night:#142328] [--text-bright:#EEF6F7] [--cta-ledge:#B53A22] lt:[--teal-primary:#0D6964] dk:[--teal-primary:#2BA39A] lt:[--teal-dark:#074743] dk:[--teal-dark:#12383B]"
  },
  "tag": {
   ":scope > :nth-child(2)": {

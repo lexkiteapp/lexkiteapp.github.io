@@ -286,7 +286,9 @@ export function stPage({ lang, head, crumbs, alt, k, d, ext = '' }) {
     home: landingHref(lang), langHref, label: c.langL, text: t.foot, tm: t.tm });
   const pg = stRender(k, { ...d, crumbs, crumbL: S[lang].crumbL }, { lang, chrome });
   const body = pg.body.replace('</main>', () => ext + '</main>');
-  return compact(`<!doctype html><html lang="${lang}"><head>${head}<style>${pg.css}\n${STW_CSS}</style></head><body class="stw st"><a class="skip" href="#main">${t.skip}</a>
+  // nạp sớm chữ Plus Jakarta Sans (font-display:swap) → chữ thật có trước lần vẽ đầu, không nhảy bố cục khi máy thiếu font dự phòng khớp số đo (Arial/Liberation – CLS cổng stitch-web)
+  const pre = ['latin', ...(lang === 'vi' ? ['vietnamese'] : [])].map(x => `<link rel="preload" href="/fonts/pjs-${x}.woff2" as="font" type="font/woff2" crossorigin>`).join('');
+  return compact(`<!doctype html><html lang="${lang}"><head>${head}${pre}<style>${pg.css}\n${STW_CSS}</style></head><body class="stw st"><a class="skip" href="#main">${t.skip}</a>
 ${body}
 ${smpTail(lang)}<script>${copyJs(lang)}${UI_JS}</script></body></html>`);
 }
@@ -304,7 +306,7 @@ export function writingD(lang, o) {
     tools: [{ k: 'hl', icon: 'palette', t: U.tgHl }, ...(lang === 'vi' ? [{ k: 'gl', icon: 'translate', t: U.tgGl }] : []), { k: 'pr', icon: 'print', t: U.print }],
     phrH: U.phrH(gl.length), save: U.save, modelHref: o.modelHref, writeHref: o.writeHref,
     phr: gl.map(([e, v]) => ({ e, m: v || '', k: o.ak(e), play: SEO_L[lang].play(e) })),
-    appL: U.appL, cta: ctaT, kit: kitT, ama: teacher('ama', 'point', { size: 72 }),
+    appL: U.appL, cta: ctaT, kit: kitT, ama: teacher('ama', 'point', { size: 128 }), // ô Stitch: hình đứng 70×110 trong khung h-28 (112 px) → ảnh cao 111 px
     relK: U.qType(p.type), relH: SEO_L[lang].related, secHref: o.secHref, secName: o.secName, rel: o.rel };
 }
 // Thẻ bài mẫu cho lưới "bài trước / sau / liên quan": [p, m] + rel ('prev' | 'next' | '')
@@ -323,7 +325,7 @@ export function speakingD(lang, o) {
   return { h1: o.h1, lead: o.lead, partsL: U.partsL,
     chips: [{ icon: 'quiz', t: `${qs.length} ${U.questions}` }, { icon: 'menu_book', t: `${nV} ${U.phrases}` }, { icon: 'schedule', t: U.min(mins(nW)) }, ...(o.topic ? [{ icon: 'layers', t: o.topic }] : []),
       { icon: 'format_list_numbered', t: U.topicN(o.i + 1, o.N) }, ...U.partH.map((t, k) => ({ href: `#part-${k + 1}`, t }))],
-    carlos: teacher('carlos', 'listen', { size: 72 }), carlosN: 'Carlos', bubble: U.bubble, cta: ctaT, kit: kitT, ctaK: U.ctaK, p1Href: o.p1Href, p2Href: o.p2Href,
+    carlos: teacher('carlos', 'listen', { size: 74 }) /* ô Stitch: khối w-16 h-16 (64 px; md:w-18 không có trong Tailwind) → ảnh cao 64 px */, carlosN: 'Carlos', bubble: U.bubble, cta: ctaT, kit: kitT, ctaK: U.ctaK, p1Href: o.p1Href, p2Href: o.p2Href,
     partH: U.partH, partD: U.parts, partN: [`${p1.length} ${U.questions}`, '', `${p3.length} ${U.questions}`], vocabL: U.vocab, p1, p3,
     cueL: U.cueL, prepL: U.prepL, youShould: U.youShould, sampleL: U.sampleA,
     cue: { q: b.p2.q, points: b.p2.points, a: SA[b.p2.q] ? String(SA[b.p2.q].a).split(/\n\s*\n/).map(x => markVocab(x, SA[b.p2.q].vocab)) : [], v: cv },

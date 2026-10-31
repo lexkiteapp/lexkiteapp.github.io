@@ -122,11 +122,19 @@
  "cls": {
   ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
    "mt-3": "d.ask ? 'mt-3' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3)": {
+   "lt:text-amber-700/80": "'lt:text-[#9A5A00]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(5)": {
+   "text-white": "'text-[#10191B]'"
   }
  },
  "addClass": {
   ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(1)": "flex-wrap gap-3",
-  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(2)": "ess2"
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(2)": "ess2",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(3)": "flex-wrap min-w-0 gap-y-1",
+  ":scope > :nth-child(2) > :nth-child(1) > *": "shrink-0"
  },
  "tag": {
   ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2)": {

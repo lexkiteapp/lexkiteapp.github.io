@@ -416,7 +416,8 @@
    "aria-label": "d.langLabel"
   },
   ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
-   "href": "d.start"
+   "href": "d.start",
+   "data-cta": "'start'"
   },
   ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
    "href": "d.store",
@@ -523,6 +524,9 @@
   ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
    "-left-12": "'-left-16'",
    "sm:-left-16": "'sm:-left-[140px] lg:-left-[160px]'"
+  },
+  ".btn-3d-primary": {
+   "text-white": "'text-[#10191B]'"
   }
  },
  "addClass": {

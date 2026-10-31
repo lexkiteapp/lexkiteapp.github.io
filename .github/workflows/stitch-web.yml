@@ -30,7 +30,7 @@ jobs:
       - name: So với mẫu Stitch + axe + chạm + CLS
         run: |
           npx playwright install --with-deps chromium >/dev/null
-          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
+          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji fonts-liberation >/dev/null || true  # Liberation = font dự phòng khớp số đo (như Arial trên máy người dùng) → CLS đo đúng
           node scripts/test/stitch-web-diff.mjs dist out/stitch-web
       - name: Lighthouse mobile – không thấp hơn bản đang chạy
         if: ${{ !cancelled() }}

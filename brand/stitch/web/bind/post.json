@@ -85,6 +85,11 @@
    "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1) > :nth-child(1)",
    "html": {
     ":scope": "e(d.n)"
+   },
+   "cls": {
+    ":scope": {
+     "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+    }
    }
   },
   "litext": {
@@ -201,6 +206,11 @@
    "sel": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)",
    "html": {
     ":scope > :nth-child(2)": "d.html"
+   },
+   "cls": {
+    ":scope > :nth-child(2)": {
+     "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+    }
    }
   },
   "link": {
@@ -226,7 +236,12 @@
    },
    "remove": [
     ":scope > :nth-child(1) > :nth-child(3)"
-   ]
+   ],
+   "cls": {
+    ":scope > :nth-child(2)": {
+     "lt:text-white": "'lt:text-[#1e1b14]'"
+    }
+   }
   },
   "quiz": {
    "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5)",
@@ -362,7 +377,7 @@
    },
    "addClass": {
     ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "ms-flip",
-    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": "min-h-[44px] underline"
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": "min-h-[44px] min-w-[44px] underline"
    },
    "tag": {
     ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
@@ -371,7 +386,19 @@
    },
    "remove": [
     ":scope > :nth-child(1) > :nth-child(1)"
-   ]
+   ],
+   "cls": {
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+     "dk:text-[#8BA3A6]": "'dk:text-[#EEF6F7]'",
+     "lt:text-[#f5ede0]": "'lt:text-[#FFFFFF]'"
+    },
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+     "lt:text-white": "'lt:text-[#1e1b14]'"
+    },
+    ":scope > :nth-child(1) > :nth-child(3)": {
+     "lt:text-[#a3f0e9]": "'lt:text-[#FFFFFF]'"
+    }
+   }
   },
   "promoPwa": {
    "sel": ":scope > :nth-child(2) > :nth-child(4)",
@@ -398,7 +425,7 @@
    },
    "addClass": {
     ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "ms-flip",
-    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": "min-h-[44px] underline"
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": "min-h-[44px] min-w-[44px] underline"
    },
    "tag": {
     ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
@@ -407,7 +434,19 @@
    },
    "remove": [
     ":scope > :nth-child(1) > :nth-child(1)"
-   ]
+   ],
+   "cls": {
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+     "dk:text-[#8BA3A6]": "'dk:text-[#EEF6F7]'",
+     "lt:text-[#f5ede0]": "'lt:text-[#FFFFFF]'"
+    },
+    ":scope > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+     "lt:text-white": "'lt:text-[#1e1b14]'"
+    },
+    ":scope > :nth-child(1) > :nth-child(3)": {
+     "lt:text-[#a3f0e9]": "'lt:text-[#FFFFFF]'"
+    }
+   }
   }
  },
  "repeat": [
@@ -430,6 +469,9 @@
      },
      "html": {
       ":scope": "e(c.name)"
+     },
+     "addClass": {
+      ":scope": "inline-flex items-center justify-center min-h-[44px] min-w-[44px]"
      }
     },
     "sep": {},
@@ -467,6 +509,11 @@
      "addClass": {
       ":scope": "min-h-[44px]",
       ":scope > :nth-child(1)": "ms-flip"
+     },
+     "cls": {
+      ":scope": {
+       "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+      }
      }
     },
     "one": {
@@ -542,6 +589,11 @@
    },
    "addClass": {
     ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": "ms-flip"
+   },
+   "cls": {
+    ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+     "lt:text-[#FFC94A]": "'lt:text-[#B53A22]'"
+    }
    }
   }
  ],
@@ -585,13 +637,23 @@
    "sm:inline": "d.fc ? 'sm:inline' : 'sm:hidden'"
   },
   ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(7)": {
-   "flex": "d.fc ? 'flex' : 'hidden'"
+   "flex": "d.fc ? 'flex' : 'hidden'",
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
   },
   ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1)": {
    "tactile-card": "d.toc.length >= 3 ? 'tactile-card' : 'hidden'"
   },
   ":scope > :nth-child(2) > :nth-child(5)": {
    "mt-16": "d.related.length ? 'mt-16' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(1)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "lt:text-[#1F7A75]": "'lt:text-[#12514D]'"
   }
  },
  "addClass": {

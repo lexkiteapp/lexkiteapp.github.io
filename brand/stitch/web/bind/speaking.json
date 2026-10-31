@@ -142,6 +142,15 @@
   },
   ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(5)": {
    "mt-6": "d.cue.v.length ? 'mt-6' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2)": {
+   "lt:text-[#B37800]": "'lt:text-[#805500]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(3)": {
+   "lt:text-white": "'lt:text-[#10191B]'"
+  },
+  ":scope > :nth-child(2) > :nth-child(6) > :nth-child(3) > :nth-child(1) > :nth-child(1)": {
+   "lt:text-[#98e5df]": "'lt:text-white'"
   }
  },
  "tag": {
@@ -198,6 +207,11 @@
      },
      "html": {
       ":scope": "e(c.t)"
+     },
+     "cls": {
+      ":scope": {
+       "lt:text-[#B37800]": "'lt:text-[#805500]'"
+      }
      }
     }
    }
@@ -279,6 +293,9 @@
       },
       ":scope > :nth-child(2)": {
        "pt-3": "q.v.length ? 'pt-3' : 'hidden'"
+      },
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+       "lt:text-[#B37800]": "'lt:text-[#805500]'"
       }
      },
      "remove": [
@@ -359,6 +376,11 @@
       ":scope > :nth-child(4) > :nth-child(1)": {
        "aria-hidden": "'true'"
       }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(1)": {
+       "lt:text-[#B37800]": "'lt:text-[#805500]'"
+      }
      }
     },
     "one": {
@@ -382,9 +404,17 @@
       ":scope > :nth-child(4) > :nth-child(1)": {
        "aria-hidden": "'true'"
       }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(1)": {
+       "lt:text-[#B37800]": "'lt:text-[#805500]'"
+      }
      }
     }
    }
   }
- ]
+ ],
+ "addClass": {
+  ":scope > :nth-child(2) > :nth-child(1) > *": "shrink-0"
+ }
 }

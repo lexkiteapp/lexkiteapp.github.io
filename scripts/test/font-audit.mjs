@@ -117,7 +117,8 @@ function inPage() {
       if (w > max + 50 || w < min - 50) add('faux-weight', 'warn', el, `đậm ${w} nhưng "${f1}" chỉ tải ${min}–${max} → trình duyệt tô đậm giả`);
       if (cs.fontStyle !== 'normal' && !face.it) add('faux-italic', 'warn', el, `nghiêng giả – "${f1}" chưa tải bản italic`);
     }
-    if (!ctrl && /hidden|clip/.test(cs.overflowX) && cs.textOverflow !== 'ellipsis' && el.scrollWidth > el.clientWidth + 2) add('clipped', 'warn', el, 'chữ bị cắt mất (tràn ngang, không có …)');
+    // icon Material (ligature → 1 glyph) không phải chữ: tên ligature dài hơn hộp icon là đúng, không tính "bị cắt"
+    if (!ctrl && !/Material Symbols/.test(cs.fontFamily) && /hidden|clip/.test(cs.overflowX) && cs.textOverflow !== 'ellipsis' && el.scrollWidth > el.clientWidth + 2) add('clipped', 'warn', el, 'chữ bị cắt mất (tràn ngang, không có …)');
   }
   const missing = [...declared].filter(f => !faces[f]);
   for (const f of missing) issues.push({ type: 'webfont-missing', sev: 'warn', sel: 'document', text: '', msg: `CSS khai báo "${f}" nhưng trang không tải webfont → mỗi máy hiện font khác nhau` });

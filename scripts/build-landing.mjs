@@ -12,9 +12,11 @@ import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { minify } from 'terser';
+import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
 import { esc, ld, siteChrome, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
-import { render as stRender, teacher, compact } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → web/js/st/web/home.js + chrome.js) + CSS biên dịch sẵn
+import { render as stRender, teacher, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → web/js/st/web/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr
@@ -59,7 +61,8 @@ const gaBtn = (l, place, appQ, web, look = place) => `<a class="${GA_CLS[look]}"
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 const URLS = Object.fromEntries(LANGS.map(l => [l, landingHref(l)]));
-const hintJs = lang => `(function(){try{var P=${JSON.stringify(lang)},S=${JSON.stringify(SUG)},U=${JSON.stringify(URLS)},ls=window.localStorage;if(ls.getItem('lk.lhint'))return;
+// Chung cho 15 trang (nằm trong /js/site.js): ngôn ngữ trang = <html lang> (cùng mã với LANGS)
+const HINT_JS = `(function(){try{var P=document.documentElement.lang,S=${JSON.stringify(SUG)},U=${JSON.stringify(URLS)},ls=window.localStorage;if(ls.getItem('lk.lhint'))return;
 var n=ls.getItem('vb.uiLang')||(navigator.languages&&navigator.languages[0])||navigator.language||'';n=String(n).toLowerCase().split('-')[0];if(!S[n]||n===P)return;
 var d=document.createElement('div');d.className='lhint';d.lang=n;if(n==='ar')d.dir='rtl';d.setAttribute('role','region');d.setAttribute('aria-label',S[n][0]);
 d.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';d.firstChild.textContent=S[n][0];var a=d.querySelector('a'),b=d.querySelector('button');a.href=U[n];a.textContent=S[n][1];b.setAttribute('aria-label',S[n][2]);
@@ -92,8 +95,61 @@ function renderPurged(lang) { return compact(renderFull(lang)); }
 // từ bản gốc). 27/10: ru 16489 B gzip trên Node 22 > 16384 → còn ≈ 16 000 B, không cắt nội dung/tính năng, không nâng ngân sách.
 // render() giữ đồng bộ: mọi đoạn script của 15 trang được thu gọn sẵn một lần lúc nạp module (await cấp cao nhất, xem MINI bên dưới).
 const SCRIPT = /(<script(?: id="[\w-]+")?>)([\s\S]*?)(<\/script>)/g, MINI = new Map();
+const renderInline = lang => renderPurged(lang).replace(SCRIPT, (all, a, code, b) => MINI.has(code) ? a + MINI.get(code) + b : all);
+
+// ----- Tách khỏi HTML (giữ landing ≤ 16 KB gzip, không cắt nội dung) -----
+//   JS: mọi <script> nội tuyến trong <body> (menu ngôn ngữ + menu điện thoại, gợi ý ngôn ngữ, nút add-on, Tải app) → MỘT file cùng gốc /js/site.js
+//     (<script defer>, ?v=<hash nội dung> → cache dài). Đoạn script giống hệt nhau ở 15 trang (ngôn ngữ trang đọc từ <html lang>) → build kiểm tra bằng nhau.
+//     #lk-route / #lk-dc vẫn nội tuyến đầu <head> (phải chạy trước khi vẽ).
+//   CSS: <style> chỉ giữ CSS TỚI HẠN = luật khớp (bộ chọn, jsdom) một phần tử nằm trong vùng đầu trang: mọi thứ đứng trước/thuộc <section> đầu tiên
+//     (link bỏ qua + đầu trang chung + hero) và tổ tiên của nó (html/body/khung), ở mọi @media (390 lẫn 1280, sáng lẫn tối), cùng @font-face/@property
+//     và @keyframes được CSS tới hạn dùng. Lớp do #lk-dc gắn lên <html> trước khi vẽ (dc/ga) coi như có. Bộ chọn trạng thái (:hover, ::before…) bỏ phần
+//     giả lớp khi so; bộ chọn jsdom không hiểu → coi là tới hạn (an toàn).
+//     Phần còn lại nạp không chặn: /css/home-<lang>.css (media="print" data-swap, site.js đổi sang "all" khi tải xong; <noscript> có bản thường).
+//     File ngoài = TOÀN BỘ CSS của trang theo đúng thứ tự gốc (không chỉ phần dư) → thứ tự cascade y hệt bản nội tuyến cũ dù 2 khối bị tách.
+//     Mỗi ngôn ngữ một file vì compact() đổi tên lớp theo tần suất trong từng trang (tên ngắn khác nhau giữa các ngôn ngữ) – mỗi trang chỉ cần file của mình.
+const h8 = s => createHash('sha256').update(s).digest('hex').slice(0, 8);
+export const cssFile = l => `/css/home-${l}.css`;
+export const SITE_JS_FILE = '/js/site.js';
+const SWAP_JS = `document.querySelectorAll('link[data-swap]').forEach(function(l){function s(){l.media='all'}l.sheet?s():l.addEventListener('load',s)});`;
+const HEAD_CLS = [...(DC_JS + GA_JS).matchAll(/(?:className=|classList\.add\()'([\w-]+)'/g)].map(x => x[1]); // lớp #lk-dc gắn trước khi vẽ
+const PSEUDO_EL = /::?(?:before|after|first-line|first-letter)\b|::[\w-]+(?:\([^)]*\))?/g;
+const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any-link|checked|disabled|enabled|placeholder-shown|target|open|popover-open|invalid|valid|required|optional|autofill|-webkit-autofill|indeterminate|default|read-only|read-write|user-invalid|user-valid)(?![\w-])/g;
+export function criticalCss(css, html) {
+  const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
+  doc.documentElement.classList.add(...HEAD_CLS);
+  const first = doc.querySelector('section'), crit = new Set();
+  for (const e of doc.querySelectorAll('*')) if (e === first || first.contains(e) || e.contains(first) || (e.compareDocumentPosition(first) & 4)) crit.add(e);
+  const memo = new Map(), hit = sel => { if (memo.has(sel)) return memo.get(sel);
+    let q = sel.replace(PSEUDO_EL, '').replace(PSEUDO_DYN, '').replace(/:not\(\s*\)/g, '').trim(); if (!q || /[>+~]$/.test(q)) q += '*';
+    let r; try { r = [...doc.querySelectorAll(q)].some(e => crit.has(e)); } catch { r = true; }
+    memo.set(sel, r); return r; };
+  const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
+    if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
+    if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
+    const k = splitSel(sel).filter(hit); return k.length ? k.join(',') + b.slice(j) : ''; }).join('');
+  const out = pick(css);
+  const anim = new Set([...out.matchAll(/animation(?:-name)?:([^;}]+)/g)].flatMap(x => x[1].split(/[\s,]+/)));
+  return out.replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
+}
+const BUILT = new Map();
+function build(lang) {
+  if (BUILT.has(lang)) return BUILT.get(lang);
+  const full = renderInline(lang), at = full.indexOf('<body'), js = [];
+  const body = full.slice(at).replace(/<script>([\s\S]*?)<\/script>\n?/g, (_, c) => { js.push(c); return ''; });
+  const head = full.slice(0, at), m = head.match(/<style>([\s\S]*?)<\/style>/), css = m[1] + '\n';
+  const crit = criticalCss(m[1], head + body), href = `${cssFile(lang)}?v=${h8(css)}`;
+  const r = { head, body, css, crit, href, js: [SWAP_JS, ...js].join('\n') + '\n' };
+  BUILT.set(lang, r); return r;
+}
+// /js/site.js: dựng từ trang en; build (ghi lẫn --check) xác nhận 15 trang tách ra đúng cùng đoạn này
+export const siteJs = () => build('en').js;
+export const siteCss = l => build(l).css;
 export function render(lang) {
-  return renderPurged(lang).replace(SCRIPT, (all, a, code, b) => MINI.has(code) ? a + MINI.get(code) + b : all);
+  const { head, body, crit, href } = build(lang), js = `${SITE_JS_FILE}?v=${h8(siteJs())}`;
+  return head.replace(/<style>[\s\S]*?<\/style>/, () => `<style>${crit}</style>
+<link rel="stylesheet" href="${href}" media="print" data-swap><noscript><link rel="stylesheet" href="${href}"></noscript>
+<script defer src="${js}"></script>`) + body;
 }
 function renderFull(lang) {
   const c = copyOf(lang), rtl = lang === 'ar', url = pageUrl(lang), app = appHref(lang);
@@ -157,9 +213,9 @@ ${ld(graph)}
 <body class="stw st">
 <a class="skip" href="#main">${esc(c.skip)}</a>
 ${page.body}
-<script>${hintJs(lang)}</script>
+<script>${HINT_JS}</script>
 <script>${EXT_JS}
-self.LK_GETAPP_T='${gaFile(lang)}';
+self.LK_GETAPP_T='${gaFile("'+document.documentElement.lang+'")}';
 ${GETAPP_JS}</script>
 </body>
 </html>
@@ -188,6 +244,12 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     const f = new URL('web' + gaFile(l), R), j = gaJson(l);
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web' + gaFile(l)); continue; }
     fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, j);
+  }
+  for (const l of LANGS) if (build(l).js !== siteJs()) { console.error(`✗ build-landing: script trang ${fileOf(l)} khác /js/site.js (đoạn script phải chung cho 15 ngôn ngữ)`); process.exit(1); }
+  for (const [p, txt] of [[SITE_JS_FILE, siteJs()], ...LANGS.map(l => [cssFile(l), siteCss(l)])]) { // file tách ra (site.js chung + CSS đầy đủ từng ngôn ngữ)
+    const f = new URL('web' + p, R);
+    if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== txt) stale.push('web' + p); continue; }
+    fs.writeFileSync(f, txt);
   }
   { const f = new URL('web/404.html', R), cur = fs.readFileSync(f, 'utf8'), html = render404(cur); if (check) { if (html !== cur) stale.push('web/404.html'); } else fs.writeFileSync(f, html); }
   if (stale.length && !process.env.CI) { // cục bộ (npm test): tự dựng lại cho khỏi dừng giữa chừng; trên CI (CI=true) vẫn nghiêm ngặt

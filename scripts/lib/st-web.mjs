@@ -59,8 +59,8 @@ export function teacher(who, pose, { size = 240, cls = 'chr', alt } = {}) {
 //   prefers-color-scheme) → bỏ nhánh :root[data-theme=…] (không bao giờ khớp) · 3) bỏ biến --st-*/--tw-* không ai dùng · 4) đổi tên lớp (cùng lúc trong
 //   class="" ngoài <script> và bộ chọn CSS). Giữ nguyên: lớp JS nhắc tới, v2s-web-* (cổng stitch-web-diff), lớp khớp [class*=…] trong CSS.
 //   Dùng cho trang có ngân sách gzip cứng (landing ≤ 16 KB). html phải có đúng 1 <style>.
-const blocks = s => { const out = []; let d = 0, st = 0; for (let i = 0; i < s.length; i++) { if (s[i] === '/' && s[i + 1] === '*') { i = s.indexOf('*/', i + 2) + 1; st = i + 1; continue; } if (s[i] === '{') d++; else if (s[i] === '}' && --d === 0) { out.push(s.slice(st, i + 1).trim()); st = i + 1; } } return out; };
-const splitSel = s => { const r = []; let d = 0, a = 0; for (let i = 0; i < s.length; i++) { const c = s[i]; if (c === '\\') { i++; continue; } if (c === '(' || c === '[') d++; else if (c === ')' || c === ']') d--; else if (c === ',' && !d) { r.push(s.slice(a, i)); a = i + 1; } } r.push(s.slice(a)); return r.map(x => x.trim()).filter(Boolean); };
+export const blocks = s => { const out = []; let d = 0, st = 0; for (let i = 0; i < s.length; i++) { if (s[i] === '/' && s[i + 1] === '*') { i = s.indexOf('*/', i + 2) + 1; st = i + 1; continue; } if (s[i] === '{') d++; else if (s[i] === '}' && --d === 0) { out.push(s.slice(st, i + 1).trim()); st = i + 1; } } return out; };
+export const splitSel = s => { const r = []; let d = 0, a = 0; for (let i = 0; i < s.length; i++) { const c = s[i]; if (c === '\\') { i++; continue; } if (c === '(' || c === '[') d++; else if (c === ')' || c === ']') d--; else if (c === ',' && !d) { r.push(s.slice(a, i)); a = i + 1; } } r.push(s.slice(a)); return r.map(x => x.trim()).filter(Boolean); };
 const CLS = /\.((?:\\.|[\w-])+)/g, unesc = s => s.replace(/\\(.)/g, '$1');
 export function compact(html) {
   const m = html.match(/<style>([\s\S]*?)<\/style>/); if (!m) return html;

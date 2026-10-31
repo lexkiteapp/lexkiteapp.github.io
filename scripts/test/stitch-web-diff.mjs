@@ -34,7 +34,7 @@ function rows(A, B, h) { const prof = G => { const o = []; for (let y = 0; y < h
 
 // ---- kiểm trên trang thật ----
 const AUDIT = () => { const OWN = /^https?:\/\/(([a-z0-9-]+\.)?lexkite\.com|127\.0\.0\.1|i\.ytimg\.com)\//; // ảnh của mình (lexkite.com + CDN media.lexkite.com) + ảnh bìa YouTube của khung video có sẵn (video-web.mjs)
-  const vis = e => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 1 && r.height > 1 && cs.visibility !== 'hidden' && cs.display !== 'none' && !/rect\(0(px)?,? 0(px)?,? 0(px)?,? 0(px)?\)|inset\(50%\)/.test(cs.clip + ' ' + cs.clipPath); }; // bỏ link 'bỏ qua tới nội dung' ẩn (sr-only, hiện khi focus)
+  const vis = e => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 1 && r.height > 1 && r.bottom > 0 && r.right > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !/rect\(0(px)?,? 0(px)?,? 0(px)?,? 0(px)?\)|inset\(50%\)/.test(cs.clip + ' ' + cs.clipPath); }; // bỏ link 'bỏ qua tới nội dung' ẩn (sr-only, hiện khi focus)
   const small = [...document.querySelectorAll('a[href],button,input,select,summary,[role=button]')].filter(e => vis(e) && !e.closest('p,li>p,.prose,article p,[data-inline]')).filter(e => { const r = e.getBoundingClientRect(); return r.width < 44 || r.height < 44; })
     .filter(e => !(e.tagName === 'A' && getComputedStyle(e).display === 'inline')).map(e => (e.textContent || e.getAttribute('aria-label') || e.tagName).trim().slice(0, 24));
   const imgs = [...document.images].filter(i => i.complete && !i.naturalWidth && i.loading !== 'lazy').map(i => i.getAttribute('src')), ext = [...document.querySelectorAll('img[src^="http"]')].filter(i => !OWN.test(i.src)).map(i => i.src);
@@ -49,7 +49,7 @@ async function shot(url, vp, scheme, file) {
   const h = Math.min(CAP, await page.evaluate(() => document.documentElement.scrollHeight)); await page.setViewportSize({ width: vp.width, height: h }); await page.waitForTimeout(200);
   const buf = await page.screenshot({ fullPage: false }); fs.writeFileSync(file, buf);
   let audit = null; if (!url.startsWith('file:')) { await page.setViewportSize(vp); audit = await page.evaluate(AUDIT); audit.cls = +(await page.evaluate(() => window.__cls)).toFixed(3);
-    await page.addScriptTag({ path: AXE }); audit.axe = await page.evaluate(async () => (await axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'] } })).violations.map(v => ({ id: v.id, impact: v.impact, n: v.nodes.length, t: v.nodes.slice(0, 3).map(x => x.target.join(' ')) }))); }
+    await page.addScriptTag({ path: AXE }); audit.axe = await page.evaluate(async () => (await axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'] } })).violations.map(v => ({ id: v.id, impact: v.impact, n: v.nodes.length, t: v.nodes.slice(0, 30).map(x => { const c = (x.any[0] || {}).data || {}; return x.target.join(' ') + (c.fgColor ? ` [${c.fgColor} trên ${c.bgColor} = ${c.contrastRatio}:1, cần ${c.expectedContrastRatio}] «${(x.html || '').replace(/<[^>]+>/g, '').trim().slice(0, 30)}»` : ''); }) }))); }
   await ctx.close(); return { buf, audit }; }
 
 for (const [k, u] of Object.entries(PAGES)) for (const [v, vp] of Object.entries(VPS)) { const row = [];
