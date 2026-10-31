@@ -1,0 +1,661 @@
+{
+ "_note": "Say it like a native – reaction cards (docs/SAY-NATIVE.md). Source of truth for the web cards (#/say) and the teach2d 'react' videos. Every `key` is a lexicon headword (IPA + English meaning from the audited bank); meanings in 15 languages come from meanings.json (hand-checked, sense-correct – web/packs idiom glosses are literal and are NOT used). reg = polite | neutral | casual (the taught line is never rude); `dont` = a blunt/rude line taught only as 'don't say X, say Y', always masked on screen and never voiced. pose = the teacher's reaction clip (web/teach/characters.json clips).",
+ "series": [
+  {
+   "id": "say-no",
+   "title": "Say No Nicely",
+   "topic": "refusing",
+   "teacher": "ama",
+   "items": [
+    {
+     "key": "not my cup of tea",
+     "say": "It's not my cup of tea.",
+     "reg": "polite",
+     "mean": "I don't really enjoy it.",
+     "when": "A friend invites you to a horror movie.",
+     "swap": {
+      "text": "It's not really my thing.",
+      "reg": "neutral"
+     },
+     "dont": {
+      "text": "That's boring!",
+      "reg": "blunt"
+     },
+     "pose": "thinking",
+     "quiz": {
+      "ask": "You don't like jazz. What do you say?",
+      "options": [
+       "Jazz is not my cup of tea.",
+       "Jazz is not my cup of coffee."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "not really my thing",
+     "say": "It's not really my thing.",
+     "reg": "neutral",
+     "mean": "I don't like it very much.",
+     "when": "Someone asks you to go dancing.",
+     "swap": {
+      "text": "It's not my cup of tea.",
+      "reg": "polite"
+     },
+     "pose": "empathy",
+     "quiz": {
+      "ask": "You don't like camping. Which one sounds natural?",
+      "options": [
+       "Camping is not really my thing.",
+       "Camping is not really my stuff thing."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "I'll have to give it a miss",
+     "say": "I'll have to give it a miss.",
+     "reg": "casual",
+     "mean": "I won't come this time.",
+     "when": "Friends invite you out on a busy night.",
+     "swap": {
+      "text": "I'm afraid I can't make it.",
+      "reg": "polite"
+     },
+     "dont": {
+      "text": "No. I don't want to.",
+      "reg": "blunt"
+     },
+     "pose": "concern",
+     "quiz": {
+      "ask": "You can't come to the party. What do you say?",
+      "options": [
+       "I'll have to give it a miss.",
+       "I'll have to give it a lose."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "I'm afraid",
+     "say": "I'm afraid I can't.",
+     "reg": "polite",
+     "mean": "Sorry, but the answer is no.",
+     "when": "Your coworker asks for help on Friday night.",
+     "swap": {
+      "text": "Sorry, I can't.",
+      "reg": "neutral"
+     },
+     "pose": "concern",
+     "quiz": {
+      "ask": "Here, 'I'm afraid' means…",
+      "options": [
+       "I am scared.",
+       "I'm sorry, but…"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "key": "sleep on it",
+     "say": "Let me sleep on it.",
+     "reg": "neutral",
+     "mean": "I need time to think before I decide.",
+     "when": "A salesperson pushes you to buy now.",
+     "swap": {
+      "text": "Can I get back to you tomorrow?",
+      "reg": "polite"
+     },
+     "pose": "thinking",
+     "quiz": {
+      "ask": "You need a night to decide. What do you say?",
+      "options": [
+       "Let me sleep on it.",
+       "Let me sleep in it."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "I haven't decided yet",
+     "say": "I haven't decided yet.",
+     "reg": "neutral",
+     "mean": "My answer is not ready.",
+     "when": "Someone asks if you will take the job.",
+     "swap": {
+      "text": "I'm still thinking about it.",
+      "reg": "neutral"
+     },
+     "pose": "thinking",
+     "quiz": {
+      "ask": "Which one is correct?",
+      "options": [
+       "I didn't decide yet.",
+       "I haven't decided yet."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "key": "can't stand",
+     "say": "I can't stand it.",
+     "reg": "casual",
+     "mean": "I really, really don't like it.",
+     "when": "Your roommate plays loud music at night.",
+     "swap": {
+      "text": "I'm not a big fan of it.",
+      "reg": "polite"
+     },
+     "dont": {
+      "text": "I hate you!",
+      "reg": "rude"
+     },
+     "pose": "concern",
+     "quiz": {
+      "ask": "Which one is softer?",
+      "options": [
+       "I can't stand it.",
+       "I'm not a big fan of it."
+      ],
+      "answer": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "not-fine",
+   "title": "Better Than \"I'm Fine\"",
+   "topic": "feelings",
+   "teacher": "carlos",
+   "items": [
+    {
+     "key": "over the moon",
+     "say": "I'm over the moon!",
+     "reg": "casual",
+     "mean": "I'm extremely happy.",
+     "when": "You just passed your driving test.",
+     "swap": {
+      "text": "I'm really happy.",
+      "reg": "neutral"
+     },
+     "pose": "cheer",
+     "quiz": {
+      "ask": "You got the job! You are…",
+      "options": [
+       "over the moon.",
+       "under the moon."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "under the weather",
+     "say": "I'm a bit under the weather.",
+     "reg": "neutral",
+     "mean": "I feel a little sick.",
+     "when": "A coworker asks how you are on a bad day.",
+     "swap": {
+      "text": "I don't feel very well.",
+      "reg": "neutral"
+     },
+     "pose": "empathy",
+     "quiz": {
+      "ask": "You have a cold. You feel…",
+      "options": [
+       "under the weather.",
+       "under the rain."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "have a lot on my plate",
+     "say": "I have a lot on my plate.",
+     "reg": "neutral",
+     "mean": "I'm very busy right now.",
+     "when": "Your boss asks you to take one more task.",
+     "swap": {
+      "text": "I'm really busy this week.",
+      "reg": "neutral"
+     },
+     "dont": {
+      "text": "Not my problem.",
+      "reg": "blunt"
+     },
+     "pose": "concern",
+     "quiz": {
+      "ask": "You are very busy. You have a lot on your…",
+      "options": [
+       "plate.",
+       "table."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "on the go",
+     "say": "I've been on the go all day.",
+     "reg": "casual",
+     "mean": "I've been busy and moving all day.",
+     "when": "A friend asks why you look tired.",
+     "swap": {
+      "text": "It's been a busy day.",
+      "reg": "neutral"
+     },
+     "pose": "laugh",
+     "quiz": {
+      "ask": "Busy all day? You've been…",
+      "options": [
+       "on the go.",
+       "in the go."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "recharge my batteries",
+     "say": "I need to recharge my batteries.",
+     "reg": "casual",
+     "mean": "I need rest to get my energy back.",
+     "when": "Someone asks about your weekend plans.",
+     "swap": {
+      "text": "I need some rest.",
+      "reg": "neutral"
+     },
+     "pose": "happy",
+     "quiz": {
+      "ask": "You need rest. You want to…",
+      "options": [
+       "recharge my batteries.",
+       "recharge my phone feelings."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "the last straw",
+     "say": "That's the last straw!",
+     "reg": "casual",
+     "mean": "That's one problem too many. I've had enough.",
+     "when": "Your neighbor's dog barks at 3 a.m. again.",
+     "swap": {
+      "text": "I've had enough.",
+      "reg": "neutral"
+     },
+     "dont": {
+      "text": "Shut up!",
+      "reg": "rude"
+     },
+     "pose": "surprise",
+     "quiz": {
+      "ask": "One problem too many is…",
+      "options": [
+       "the last straw.",
+       "the last grass."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "take it easy",
+     "say": "Just take it easy.",
+     "reg": "casual",
+     "mean": "Relax and don't work too hard.",
+     "when": "Your friend is stressed before an exam.",
+     "swap": {
+      "text": "Try to relax.",
+      "reg": "neutral"
+     },
+     "pose": "encourage",
+     "quiz": {
+      "ask": "Your friend is stressed. You say…",
+      "options": [
+       "Take it easy.",
+       "Take it easily."
+      ],
+      "answer": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "disagree",
+   "title": "Disagree Without a Fight",
+   "topic": "arguing politely",
+   "teacher": "ama",
+   "items": [
+    {
+     "key": "I see where you're coming from",
+     "say": "I see where you're coming from.",
+     "reg": "polite",
+     "mean": "I understand why you think that.",
+     "when": "Your friend has a different opinion.",
+     "swap": {
+      "text": "I see your point.",
+      "reg": "polite"
+     },
+     "dont": {
+      "text": "You're wrong.",
+      "reg": "blunt"
+     },
+     "pose": "thinking",
+     "quiz": {
+      "ask": "Which one is polite?",
+      "options": [
+       "You're wrong.",
+       "I see where you're coming from."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "key": "I see your point, but",
+     "say": "I see your point, but I don't agree.",
+     "reg": "polite",
+     "mean": "I understand you, but I think differently.",
+     "when": "A coworker wants to change the plan.",
+     "swap": {
+      "text": "Fair point, but…",
+      "reg": "casual"
+     },
+     "dont": {
+      "text": "That's stupid.",
+      "reg": "rude"
+     },
+     "pose": "explain",
+     "quiz": {
+      "ask": "Which one keeps the talk friendly?",
+      "options": [
+       "I see your point, but…",
+       "No. Wrong."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "I partly agree",
+     "say": "I partly agree.",
+     "reg": "neutral",
+     "mean": "I agree with some of it, not all.",
+     "when": "Your teacher asks your opinion.",
+     "swap": {
+      "text": "You're partly right.",
+      "reg": "neutral"
+     },
+     "pose": "explain",
+     "quiz": {
+      "ask": "You agree with half of it. You say…",
+      "options": [
+       "I partly agree.",
+       "I part agree."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "see eye to eye",
+     "say": "We don't see eye to eye.",
+     "reg": "neutral",
+     "mean": "We don't agree.",
+     "when": "You and your sister disagree about money.",
+     "swap": {
+      "text": "We don't agree on this.",
+      "reg": "neutral"
+     },
+     "pose": "concern",
+     "quiz": {
+      "ask": "You don't agree. You don't see…",
+      "options": [
+       "eye to eye.",
+       "face to face."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "calm down",
+     "say": "Let's all calm down.",
+     "reg": "neutral",
+     "mean": "Let's be less angry.",
+     "when": "A meeting gets loud.",
+     "swap": {
+      "text": "Let's take a short break.",
+      "reg": "polite"
+     },
+     "dont": {
+      "text": "Shut up!",
+      "reg": "rude"
+     },
+     "pose": "empathy",
+     "quiz": {
+      "ask": "A meeting gets loud. You say…",
+      "options": [
+       "Let's all calm down.",
+       "Let's all calm up."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "it depends",
+     "say": "Well, it depends.",
+     "reg": "neutral",
+     "mean": "The answer changes with the situation.",
+     "when": "Someone asks: Is it better to rent or buy?",
+     "swap": {
+      "text": "That's a tricky question.",
+      "reg": "neutral"
+     },
+     "pose": "thinking",
+     "quiz": {
+      "ask": "No clear answer? You say…",
+      "options": [
+       "It depends.",
+       "It depends of."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "I strongly disagree",
+     "say": "I strongly disagree.",
+     "reg": "neutral",
+     "mean": "I don't agree at all.",
+     "when": "Someone says homework should be banned.",
+     "swap": {
+      "text": "I don't think so.",
+      "reg": "neutral"
+     },
+     "dont": {
+      "text": "Are you crazy?",
+      "reg": "blunt"
+     },
+     "pose": "explain",
+     "quiz": {
+      "ask": "Which one disagrees without insulting?",
+      "options": [
+       "Are you crazy?",
+       "I strongly disagree."
+      ],
+      "answer": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "office",
+   "title": "Office English",
+   "topic": "work",
+   "teacher": "carlos",
+   "items": [
+    {
+     "key": "call it a day",
+     "say": "Let's call it a day.",
+     "reg": "casual",
+     "mean": "Let's stop working for today.",
+     "when": "It's 6 p.m. and the team is tired.",
+     "swap": {
+      "text": "Let's stop here for today.",
+      "reg": "neutral"
+     },
+     "pose": "happy",
+     "quiz": {
+      "ask": "Time to stop work. You say…",
+      "options": [
+       "Let's call it a day.",
+       "Let's call it a night work."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "Keep me posted",
+     "say": "Keep me posted.",
+     "reg": "casual",
+     "mean": "Tell me any news.",
+     "when": "A coworker is waiting for a client's reply.",
+     "swap": {
+      "text": "Please keep me updated.",
+      "reg": "polite"
+     },
+     "pose": "point",
+     "quiz": {
+      "ask": "You want the news later. You say…",
+      "options": [
+       "Keep me posted.",
+       "Keep me posting."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "just following up on",
+     "say": "Just following up on my email.",
+     "reg": "polite",
+     "mean": "This is a friendly reminder.",
+     "when": "Your client didn't answer for a week.",
+     "swap": {
+      "text": "Any update on this?",
+      "reg": "casual"
+     },
+     "dont": {
+      "text": "Why didn't you answer?",
+      "reg": "blunt"
+     },
+     "pose": "explain",
+     "quiz": {
+      "ask": "Which one is a polite reminder?",
+      "options": [
+       "Why didn't you answer?",
+       "Just following up on my email."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "key": "running late",
+     "say": "Sorry, I'm running late.",
+     "reg": "neutral",
+     "mean": "I will arrive late.",
+     "when": "You're stuck in traffic before a meeting.",
+     "swap": {
+      "text": "I'll be ten minutes late.",
+      "reg": "neutral"
+     },
+     "pose": "concern",
+     "quiz": {
+      "ask": "You will be late. You say…",
+      "options": [
+       "I'm running late.",
+       "I'm walking late."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "I'll look into it",
+     "say": "I'll look into it.",
+     "reg": "polite",
+     "mean": "I will check this problem.",
+     "when": "A customer reports a bug.",
+     "swap": {
+      "text": "Let me check.",
+      "reg": "neutral"
+     },
+     "dont": {
+      "text": "Not my job.",
+      "reg": "blunt"
+     },
+     "pose": "point",
+     "quiz": {
+      "ask": "A customer has a problem. You say…",
+      "options": [
+       "Not my job.",
+       "I'll look into it."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "key": "I owe you one",
+     "say": "Thanks! I owe you one.",
+     "reg": "casual",
+     "mean": "Thank you. I will help you next time.",
+     "when": "A coworker covers your shift.",
+     "swap": {
+      "text": "Thank you so much for your help.",
+      "reg": "polite"
+     },
+     "pose": "laugh",
+     "quiz": {
+      "ask": "A friend helped you. You say…",
+      "options": [
+       "I owe you one.",
+       "I owe you once."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "behind schedule",
+     "say": "We're a bit behind schedule.",
+     "reg": "neutral",
+     "mean": "We are later than the plan.",
+     "when": "Your manager asks about the project.",
+     "swap": {
+      "text": "We need a little more time.",
+      "reg": "polite"
+     },
+     "pose": "concern",
+     "quiz": {
+      "ask": "The project is late. It's…",
+      "options": [
+       "behind schedule.",
+       "after schedule."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "key": "could we reschedule",
+     "say": "Could we reschedule?",
+     "reg": "polite",
+     "mean": "Can we change the meeting time?",
+     "when": "Something urgent comes up before a call.",
+     "swap": {
+      "text": "Can we move the meeting?",
+      "reg": "neutral"
+     },
+     "pose": "empathy",
+     "quiz": {
+      "ask": "You can't make the meeting. You ask…",
+      "options": [
+       "Could we reschedule?",
+       "Could we reschedule you?"
+      ],
+      "answer": 0
+     }
+    }
+   ]
+  }
+ ]
+}
