@@ -1,0 +1,34 @@
+{
+  "locale": "ko",
+  "playLocale": "ko-KR",
+  "appleLocale": "ko",
+  "webLang": "ko",
+  "keywords": {
+    "primary": "영어 단어",
+    "secondary": [
+      "영단어",
+      "단어장",
+      "토익 단어",
+      "영어 공부",
+      "영어 사전",
+      "영어 발음",
+      "플래시카드"
+    ],
+    "research": "2026-10-31: App Store 검색 힌트(한국), Google Play 상위 30(hl=ko, gl=KR), Google 추천 검색어. '영어 단어', '영단어', '단어장', '토익 단어'가 핵심. Lexkite는 상위 30위 밖."
+  },
+  "play": {
+    "title": "Lexkite: 영어 단어",
+    "shortDescription": "영어 단어를 FSRS 플래시카드로 암기. 사전, IELTS·TOEIC·TOEFL 단어와 모의고사",
+    "fullDescription": "Lexkite는 100% 무료로 쓸 수 있는 영어 단어 학습 앱입니다. 일상 영어 공부는 물론 IELTS, TOEIC, TOEFL 준비에도 좋습니다. 구독도, 인앱 결제도, 하트나 에너지 제한도 없고, 계정이나 로그인도 필요 없습니다. 앱을 열고 바로 시작하세요.\n\n■ 영어 단어 늘리기\n• 발음기호(IPA)와 음성이 있는 6,800개 이상의 단어: NGSL 핵심 어휘, 570단어의 학술 어휘 목록(AWL), TOEIC 단어 1,250개, IELTS 주제별 단어, 구동사, 연어.\n• 새 단어와 복습을 함께 담은 하루 학습 계획. 목표와 수준에 맞춰 짜 드립니다.\n• 5분 레벨 테스트로 현재 실력을 확인하고 학습 방향을 추천받으세요.\n\n■ 대신 기억해 주는 플래시카드\n• 영어 단어 플래시카드는 최신 간격 반복 알고리즘 FSRS가 복습 시점을 관리합니다.\n• 카드마다 얼마나 기억했는지 평가하면, 잊어버리기 직전에 다음 복습이 찾아옵니다.\n• 매일 알림, 그리고 오늘 복습할 카드 수와 연속 학습일을 보여 주는 홈 화면 위젯.\n\n■ 발음이 있는 영어 사전\n• 영국식·미국식 발음, 품사별 뜻, 정의, 예문.\n• 궁금한 단어는 한 번 탭으로 플래시카드에 저장.\n\n■ IELTS, TOEIC, TOEFL 연습\n• IELTS: 밴드 환산이 되는 4개 영역 모의고사, 40문항 Listening 테스트, Reading 연습.\n• TOEIC: Listening & Reading 실전 테스트로 10–990점 점수 예상.\n• TOEFL iBT: Reading, Listening, Writing, Speaking 영역별 연습.\n• 모든 문제에 해설이 있고, 점수 기록도 확인할 수 있습니다.\n\n■ 문법, 쓰임, 4가지 기술\n• 문법 주제와 40문항 종합 문법 점검.\n• affect와 effect, interested와 interesting처럼 자주 하는 실수를 쉽게 정리.\n• 듣기와 받아쓰기, 마이크를 이용한 발음 연습, 읽기 지문, 단어 게임.\n• AI 작문 피드백과 롤플레이 대화(인터넷 연결 필요).\n\n■ 매일 꾸준히 공부하도록\n• 오프라인 지원: 연결이 없어도 플래시카드 복습과 학습이 가능합니다. 새 단어 검색과 AI 기능은 인터넷이 필요합니다.\n• 연속 학습일, 일일 목표, XP, 학습 통계.\n• 라이트 모드와 다크 모드.\n• 15개 언어 인터페이스: 영어, 베트남어, 스페인어, 포르투갈어, 프랑스어, 독일어, 인도네시아어, 태국어, 중국어, 일본어, 한국어, 힌디어, 아랍어, 러시아어, 튀르키예어.\n\n■ 개인정보 보호\n• 학습 데이터는 내 기기에 저장됩니다.\n• 개인정보처리방침: https://lexkite.com/ko/privacy\n\n영어 단어를 매일 조금씩. Lexkite는 모든 기능을 모두에게 무료로 제공합니다.\n\n문의 및 의견: support@lexkite.com · https://lexkite.com\n\nLexkite는 독립 제품이며 British Council, IDP, Cambridge University Press & Assessment, ETS와 제휴하거나 승인을 받지 않았습니다. IELTS, TOEIC, TOEFL은 각 소유자의 상표입니다."
+  },
+  "apple": {
+    "name": "Lexkite: 영어 단어",
+    "subtitle": "플래시카드와 사전으로 암기",
+    "keywords": "단어장,영단어,사전,문법,발음,듣기,복습,외우기,어휘,영어공부,간격반복,오프라인,구동사,예문,위젯,회화,레벨테스트,수능,어휘력,받아쓰기,영문법,스펠링,기초영어,생활영어,초급,중급",
+    "promotionalText": "100% 무료 영어 단어 연습: FSRS 플래시카드, 알기 쉬운 사전, IELTS·TOEIC·TOEFL 모의고사. 구독도 로그인도 필요 없고, 오프라인에서도 쓸 수 있어요.",
+    "description": "Lexkite는 100% 무료로 쓸 수 있는 영어 단어 학습 앱입니다. 일상 영어 공부는 물론 IELTS, TOEIC, TOEFL 준비에도 좋습니다. 구독도, 인앱 결제도, 하트나 에너지 제한도 없고, 계정이나 로그인도 필요 없습니다. 앱을 열고 바로 시작하세요.\n\n■ 영어 단어 늘리기\n• 발음기호(IPA)와 음성이 있는 6,800개 이상의 단어: NGSL 핵심 어휘, 570단어의 학술 어휘 목록(AWL), TOEIC 단어 1,250개, IELTS 주제별 단어, 구동사, 연어.\n• 새 단어와 복습을 함께 담은 하루 학습 계획. 목표와 수준에 맞춰 짜 드립니다.\n• 5분 레벨 테스트로 현재 실력을 확인하고 학습 방향을 추천받으세요.\n\n■ 대신 기억해 주는 플래시카드\n• 영어 단어 플래시카드는 최신 간격 반복 알고리즘 FSRS가 복습 시점을 관리합니다.\n• 카드마다 얼마나 기억했는지 평가하면, 잊어버리기 직전에 다음 복습이 찾아옵니다.\n• 매일 알림, 그리고 오늘 복습할 카드 수와 연속 학습일을 보여 주는 홈 화면·잠금 화면 위젯.\n\n■ 발음이 있는 영어 사전\n• 영국식·미국식 발음, 품사별 뜻, 정의, 예문.\n• 궁금한 단어는 한 번 탭으로 플래시카드에 저장.\n\n■ IELTS, TOEIC, TOEFL 연습\n• IELTS: 밴드 환산이 되는 4개 영역 모의고사, 40문항 Listening 테스트, Reading 연습.\n• TOEIC: Listening & Reading 실전 테스트로 10–990점 점수 예상.\n• TOEFL iBT: Reading, Listening, Writing, Speaking 영역별 연습.\n• 모든 문제에 해설이 있고, 점수 기록도 확인할 수 있습니다.\n\n■ 문법, 쓰임, 4가지 기술\n• 문법 주제와 40문항 종합 문법 점검.\n• affect와 effect, interested와 interesting처럼 자주 하는 실수를 쉽게 정리.\n• 듣기와 받아쓰기, 마이크를 이용한 발음 연습, 읽기 지문, 단어 게임.\n• 화면을 잠가도 계속 재생되는 핸즈프리 오디오 학습.\n• AI 작문 피드백과 롤플레이 대화(인터넷 연결 필요).\n\n■ 매일 꾸준히 공부하도록\n• 오프라인 지원: 연결이 없어도 플래시카드 복습과 학습이 가능합니다. 새 단어 검색과 AI 기능은 인터넷이 필요합니다.\n• 연속 학습일, 일일 목표, XP, 학습 통계.\n• 라이트 모드와 다크 모드.\n• 15개 언어 인터페이스: 영어, 베트남어, 스페인어, 포르투갈어, 프랑스어, 독일어, 인도네시아어, 태국어, 중국어, 일본어, 한국어, 힌디어, 아랍어, 러시아어, 튀르키예어.\n\n■ 개인정보 보호\n• 학습 데이터는 내 기기에 저장됩니다. 수업, 퀴즈, 시험 중에는 광고가 없습니다.\n• 개인정보처리방침: https://lexkite.com/ko/privacy\n\n영어 단어를 매일 조금씩. Lexkite는 모든 기능을 모두에게 무료로 제공합니다.\n\n문의 및 의견: support@lexkite.com · https://lexkite.com\n\nLexkite는 독립 제품이며 British Council, IDP, Cambridge University Press & Assessment, ETS와 제휴하거나 승인을 받지 않았습니다. IELTS, TOEIC, TOEFL은 각 소유자의 상표입니다.",
+    "privacyPolicyUrl": "https://lexkite.com/ko/privacy",
+    "supportUrl": "https://lexkite.com/app/?hl=ko#/contact",
+    "marketingUrl": "https://lexkite.com/ko/"
+  }
+}
