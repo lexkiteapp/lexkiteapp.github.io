@@ -17,7 +17,16 @@ const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f =>
 
 // ---- tailwind.config riêng của file → bảng tra tên → giá trị ----
 function cfgOf(html, f) { const m = html.match(/tailwind\.config\s*=\s*(\{[\s\S]*?\})\s*<\/script>/); if (!m) return {};
-  try { return vm.runInNewContext('(' + m[1] + ')', Object.create(null), { timeout: 200 }).theme?.extend || {}; } catch (e) { errs.push(`${f}: tailwind.config đọc lỗi`); return {}; } }
+  let ext; try { ext = vm.runInNewContext('(' + m[1] + ')', Object.create(null), { timeout: 200 }).theme?.extend || {}; } catch (e) { errs.push(`${f}: tailwind.config đọc lỗi`); return {}; }
+  const col = {}; for (const [k, v] of Object.entries(ext.colors || {})) if (v && typeof v === 'object') { for (const [s, x] of Object.entries(v)) col[s === 'DEFAULT' ? k : `${k}-${s}`] = x; } else col[k] = v; // màu lồng (brand: {teal}) → brand-teal
+  ext.colors = col; ext.css = cssOf(html); return ext; } // css chỉ dùng khi bind có "pageCss": true (màn cũ giữ nguyên khung đã duyệt)
+// <style> riêng của file Stitch: class tự đặt (.btn-teal{…} .word-card:active{…} .no-scrollbar::-webkit-scrollbar{…}) → class thuộc tính tuỳ ý [prop:val] (+ biến thể active:/hover:/focus:, [&::x]:)
+function cssOf(html) { const out = {}; for (const [, css] of html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)) for (const [, sel, body] of css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g))
+  for (const one of sel.split(',').map(x => x.trim())) { const m = one.match(/^\.([\w-]+)(::?[\w-]+)?$/); if (!m) continue;
+    const pv = !m[2] ? '' : /^:(active|hover|focus|focus-visible|disabled)$/.test(m[2]) ? m[2].slice(1) + ':' : m[2].startsWith('::') ? `[&${m[2]}]:` : null; if (pv == null) continue;
+    for (const d of body.split(';').map(x => x.trim()).filter(Boolean)) { const i = d.indexOf(':'); if (i < 0) continue; const imp = /!important/.test(d) ? '!' : '';
+      (out[m[1]] = out[m[1]] || []).push(`${pv}${imp}[${d.slice(0, i).trim().toLowerCase()}:${arb(d.slice(i + 1).replace(/!important/, ''))}]`); } }
+  return out; }
 const COLOR_P = ['bg', 'text', 'border', 'border-t', 'border-b', 'border-l', 'border-r', 'border-x', 'border-y', 'ring', 'ring-offset', 'from', 'via', 'to', 'fill', 'stroke', 'shadow', 'outline', 'divide', 'placeholder', 'decoration', 'accent', 'caret'];
 const SPACE_P = ['p', 'px', 'py', 'pt', 'pb', 'pl', 'pr', 'm', 'mx', 'my', 'mt', 'mb', 'ml', 'mr', 'gap', 'gap-x', 'gap-y', 'space-x', 'space-y', 'w', 'h', 'min-w', 'min-h', 'max-w', 'max-h', 'top', 'bottom', 'left', 'right', 'inset', 'inset-x', 'inset-y', 'translate-x', 'translate-y'];
 const RAD_P = ['rounded', 'rounded-t', 'rounded-b', 'rounded-l', 'rounded-r', 'rounded-tl', 'rounded-tr', 'rounded-bl', 'rounded-br'];
@@ -25,8 +34,9 @@ const arb = v => String(v).trim().replace(/\s+/g, '_');
 // "hover:!-mt-2/50" → {pre:'hover:', imp:'!', neg:'-', base:'mt-2', op:'/50'}
 const split = c => { const i = c.lastIndexOf(':', c.includes('[') ? c.indexOf('[') : c.length); const pre = i >= 0 ? c.slice(0, i + 1) : '', rest = c.slice(i + 1);
   const m = rest.match(/^(!?)(-?)(.*?)(\/[\w.[\]]+)?$/); return { pre, imp: m[1], neg: m[2], base: m[3], op: m[4] || '' }; };
-function resolver(ext) { const col = ext.colors || {}, fs_ = ext.fontSize || {}, rad = ext.borderRadius || {}, sp = ext.spacing || {};
-  return (cls, has) => { const { pre, imp, neg, base, op } = split(cls), out = [];
+function resolver(ext, pageCss) { const col = ext.colors || {}, fs_ = ext.fontSize || {}, rad = ext.borderRadius || {}, sp = ext.spacing || {}, css = pageCss && ext.css || {}, bsh = pageCss && ext.boxShadow || {};
+  return (cls, has) => { if (css[cls]) return css[cls]; const { pre, imp, neg, base, op } = split(cls), out = [];
+    if (base.startsWith('shadow-') && bsh[base.slice(7)]) return [`${pre}${imp}shadow-[${arb(bsh[base.slice(7)]).replace(/,_*/g, ',')}]`]; // bóng tên riêng (shadow-tactile-card) → giá trị thật (chỉ màn pageCss: khung cũ giữ nguyên)
     if (base.startsWith('font-') && (ext.fontFamily || {})[base.slice(5)]) return []; // họ chữ: cả app dùng Plus Jakarta Sans ở gốc
     for (const p of COLOR_P) if (base.startsWith(p + '-') && col[base.slice(p.length + 1)] != null) { const v = col[base.slice(p.length + 1)]; return [`${pre}${imp}${p}-[${arb(v)}]${op}`]; }
     if (base.startsWith('text-') && fs_[base.slice(5)]) { const v = fs_[base.slice(5)], [size, o = {}] = Array.isArray(v) ? v : [v]; const lh = typeof o === 'string' ? o : o.lineHeight;
@@ -99,7 +109,7 @@ function emit(root, bind, k) {
     const tw = el.ownerDocument.createTreeWalker(el, 4); const texts = []; while (tw.nextNode()) texts.push(tw.currentNode);
     for (const n of texts) { const s = n.textContent; if (/\u0001/.test(s) || !needT(s) || (n.parentElement && isIcon(n.parentElement))) continue; n.textContent = s.replace(s.trim(), tr(s, 'chữ')); }
     for (const e of [el, ...el.querySelectorAll('*')]) for (const a of ['aria-label', 'title', 'alt', 'placeholder']) { const v = e.getAttribute(a); if (v && !/\u0001/.test(v) && needT(v)) e.setAttribute(a, tr(v, a)); }
-    return el.outerHTML.replace(/\s+/g, ' ').replace(/[`\\]|\$\{/g, m => '\\' + m).replace(/\u0001(\d+)\u0002/g, (_, i) => '${' + M[+i] + '}'); };
+    return el.outerHTML.replace(/ class="[^"]*&amp;[^"]*"/g, m => m.replace(/&amp;/g, '&')).replace(/\s+/g, ' ').replace(/[`\\]|\$\{/g, m => '\\' + m).replace(/\u0001(\d+)\u0002/g, (_, i) => '${' + M[+i] + '}'); };
   apply(root, bind);
   const parts = Object.entries(bind.parts || {}).map(([n, sel]) => { const el = QA(root, sel)[0]; return [n, el ? '`' + textify(el) + '`' : '``']; }); // parts {tên: bộ chọn}: thêm phần khung có tên (vd thẻ câu của tấm phản hồi chèn vào khung câu hỏi) → ST2.<màn>(d).<tên>
   if (bind.keep) { const kp = QA(root, bind.keep)[0]; if (kp) { root.textContent = ''; root.append(kp); } } // keep: màn chỉ lấy MỘT phần khung (vd tấm phản hồi gắn vào khung câu hỏi có sẵn) – bộ chọn của các phép khác vẫn theo khung đầy đủ
@@ -110,7 +120,7 @@ function emit(root, bind, k) {
 // ---- chạy ----
 for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
   const hl = fs.readFileSync(f('light'), 'utf8'), hd = fs.readFileSync(f('dark'), 'utf8'), bind = JSON.parse(fs.readFileSync(path.join(SRC, 'bind', k + '.json'), 'utf8'));
-  const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light')), RD = resolver(cfgOf(hd, k + '-dark'));
+  const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light'), bind.pageCss), RD = resolver(cfgOf(hd, k + '-dark'), bind.pageCss);
   const doc = new JSDOM('<div></div>').window.document, body = merge(L.body, D.body, RL, RD, doc), root = doc.createElement('div');
   root.setAttribute('class', `st v2 v2-${k} ` + (body.getAttribute('class') || '')); root.append(...body.childNodes);
   if (A.includes('--dump') && ONLY.length && !ONLY.includes(k)) continue;
@@ -118,6 +128,10 @@ for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
     walk(root, 0, '·'); continue; }
   const o = emit(root, bind, k);
+  if (bind.recolor) for (const [f, to] of Object.entries(bind.recolor)) { // recolor {class mẫu: class thay}: đổi màu ĐỒNG LOẠT cả màn (sau cls) để đạt tương phản AA – chỉ màn khai báo; class không có trong khung = lỗi
+    const re = new RegExp(`(?<=[\\s"'])${f.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}(?=[\\s"'])`, 'g'); let n = 0;
+    for (const key of ['header', 'main', 'nav']) o[key] = o[key].replace(re, () => (n++, to)); o.parts = o.parts.map(([nm, h]) => [nm, h.replace(re, () => (n++, to))]);
+    if (!n) errs.push(`${k}: recolor – không có class ${f} trong khung`); }
   if (bind.shell) { // đầu trang + thanh tab chuẩn chung cho mọi màn có tab (lấy từ màn này) → shell.js; màn này chỉ giữ main
     const sh = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs (đầu trang + thanh tab chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).shell = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${o.header},\n nav: ${o.nav} });\n`;
     const so = path.join(OUT, 'shell.js'); if (CHECK) { if (!fs.existsSync(so) || fs.readFileSync(so, 'utf8') !== sh) errs.push(`${so} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(so, sh); }

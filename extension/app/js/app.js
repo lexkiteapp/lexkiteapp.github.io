@@ -272,7 +272,7 @@
     adoffer: ['js/i18n/en/adoffer.js', 'js/ad-offers.js'], // 🎁 Cơ hội 2 · x2 XP ở thẻ kết quả (docs/ADS.md §1c)
     i18nx: ['structs', 'toefl', 'league', 'call', 'handoff'].map(n => `js/i18n/en/${n}.js`), // chuỗi giao diện trang tải lười (xem App.need)
     i18nl: ['verbs', 'exams', 'skills', 'lazyui'].map(n => `js/i18n/en/${n}.js`), // chuỗi Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm (ra khỏi en.js 27/10; add-on không cần nên tách khỏi i18nx)
-    ux1: ['js/i18n/en/ux1.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/home.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/path.js', 'js/st/v2/review.js', 'js/st/v2/practice.js', 'js/st/v2/leagues.js', 'js/st/v2/me.js', 'js/st/v2/streak.js', 'js/st/v2/exam-readiness.js', 'js/ux1.js', 'js/ux1-me.js'], lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
+    ux1: ['js/i18n/en/ux1.js', 'js/i18n/en/v2.js', 'js/i18n/en/share.js', 'js/i18n/en/rmodes.js', 'js/i18n/en/pron.js', 'js/st/common.js', 'js/st/home.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/path.js', 'js/st/v2/review.js', 'js/st/v2/practice.js', 'js/st/v2/leagues.js', 'js/st/v2/me.js', 'js/st/v2/streak.js', 'js/st/v2/exam-readiness.js', 'js/st/v2/library.js', 'js/st/v2/topic.js', 'js/st/v2/deck.js', 'js/st/v2/mistakes.js', 'js/st/v2/dictionary.js', 'js/st/v2/stats.js', 'js/ux1.js', 'js/ux1-me.js', 'js/ux1-lib.js', 'js/ux1-topic.js', 'js/ux1-deck.js', 'js/ux1-mistakes.js', 'js/ux1-dictionary.js', 'js/ux1-stats.js'], lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
   const ROUTE_BUNDLE = { train: 'ux1', lesson: 'lesson', streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
@@ -301,7 +301,7 @@
   // nạp kèm (song song) gói đầu tiên được mở → module luôn vẽ khi đã có bản dịch; tiếng Việt (ngôn ngữ gốc) không cần
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
   // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
-  const BCSS = { mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-path.css', 'css/st-v2-review.css', 'css/st-v2-practice.css', 'css/st-v2-leagues.css', 'css/st-v2-me.css', 'css/st-v2-streak.css', 'css/st-v2-exam-readiness.css'] }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
+  const BCSS = { mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-path.css', 'css/st-v2-review.css', 'css/st-v2-practice.css', 'css/st-v2-leagues.css', 'css/st-v2-me.css', 'css/st-v2-streak.css', 'css/st-v2-exam-readiness.css', 'css/st-v2-library.css', 'css/st-v2-topic.css', 'css/st-v2-deck.css', 'css/st-v2-mistakes.css', 'css/st-v2-dictionary.css', 'css/st-v2-stats.css', 'css/v2-hit.css'] }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
   const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || []).map(loadCss))).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
@@ -513,6 +513,7 @@
   // Khối "Hiểu sâu": HTML đã dựng nhớ theo từ → lần vẽ lại (từ điển: bản nhanh → bản đủ) vẽ luôn trong cùng lần, không chèn muộn đẩy nội dung bên dưới (CLS 0,66 #/dict @360)
   const notesMem = new Map(), notesP = {};
   App.notesReady = word => { const w = String(word || '').toLowerCase(); if (notesMem.has(w)) return Promise.resolve(notesMem.get(w)); return notesP[w] || (notesP[w] = Promise.all([notesFile(w), App.need('wordcard').then(() => window.WordCard && WordCard.ready)]).then(([m]) => { const n = Object.hasOwn(m, w) && m[w], h = n && window.WordCard ? WordCard.notes(n, w) : ''; notesMem.set(w, h); return h; }).catch(() => { delete notesP[w]; return ''; })); };
+  App.notesData = word => { const w = String(word || '').toLowerCase(); return notesFile(w).then(m => (Object.hasOwn(m, w) && m[w]) || null).catch(() => null); }; // ghi chú thô {m,e,u,f} (màn Stitch v2 Từ điển tự vẽ vào 4 mục Hiểu sâu)
   App.notesHtml = word => { const w = String(word || '').toLowerCase(), h = notesMem.get(w); return h != null ? `<div class="wn-slot" data-notes="${esc(w)}" data-done="1">${h}</div>` : `<div class="wn-slot" data-notes="${esc(w)}"></div>`; };
   const fillNotes = () => document.querySelectorAll('.wn-slot[data-notes]:not([data-done])').forEach(el => { el.dataset.done = 1; App.notesReady(el.dataset.notes).then(h => { if (h && el.isConnected) el.innerHTML = h; }); });
   // Chip cụm từ/đồng nghĩa/họ từ: chạm = nghe · chạm lần 2 (hoặc giữ) = tra nghĩa tại chỗ (đang học) / mở từ điển
@@ -1014,6 +1015,7 @@
     ipad: [t('Cài Lexkite lên iPad'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari')],
     mac: [t('Cài Lexkite lên Mac'), t('Trong Safari, chọn <b>Tệp › Thêm vào Dock</b>'), t('Bấm <b>Thêm</b> – Lexkite sẽ mở như một app')], ok: t('Đã hiểu') });
   App.getApp = root => Store.isExtension ? Promise.resolve(null) : (gaP || (gaP = extCta().then(() => loadScript('js/get-app.js')).catch(() => {}))).then(() => { if (window.LKGetApp) LKGetApp.scan(root || document); return window.LKGetApp || null; });
+  App.extCta = extCta; App.dictSeen = lk => !lookedUp.has(lk) && !!lookedUp.add(lk); // màn Stitch v2 Từ điển: lời mời add-on + thưởng 1 lần/ngày/từ như trang cũ
   routes.dict = App.guard(async function (q) {
     const fastP = q ? Dict.quick(q) : null, vimgP = App.vimgReady(q ? [q] : null); // tra song song với đọc 'recent' (từ trong kho: vài ms) + chỉ mục ảnh (cờ bật)
     const w = App.W, recent = await w(Store.get('recent', []));
@@ -1161,12 +1163,17 @@
     }
   });
 
-  // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
-  function drawPhrases(e, lx) {
-    const el = $('#phraseBox'); if (!el) return;
+  // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học (phrasesOf/relatedOf dùng chung với màn Stitch v2 ux1-dictionary.js)
+  function phrasesOf(e, lx) {
     const re = UI.wordRegex(e.word), lx2 = (lx || []).filter(w => re.test(w.word));
     const lib = [...lx2, ...Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word) && !lx2.some(l => l.word === w.word))].slice(0, 10);
     const mine = Object.values(state.cards).filter(c => /\s/.test(c.word) && re.test(c.word) && !lib.some(l => l.word === c.word)).slice(0, 10);
+    return { lib, mine };
+  }
+  App.dictPhrases = phrasesOf;
+  function drawPhrases(e, lx) {
+    const el = $('#phraseBox'); if (!el) return;
+    const { lib, mine } = phrasesOf(e, lx);
     const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent-text);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
       <div class="row" style="margin-top:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${own || inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã lưu')}</span>` : `<button class="btn sm ghost" data-add-seed="${esc(w.word)}">+ ${t('Lưu cụm')}</button>`}</div></div>`;
     el.innerHTML = `<div style="margin-top:1rem"><div class="row between"><h3 style="margin:0">🧩 ${t('Cụm từ & cấu trúc với “{w}”', { w: esc(e.word) })}</h3><button class="btn sm" id="addPhr">＋ ${t('Lưu cụm / cấu trúc của bạn')}</button></div>
@@ -1176,7 +1183,7 @@
   }
 
   // Từ liên quan (Datamuse): tính từ hay đi kèm, danh từ hay đi kèm, trái nghĩa, gần nghĩa
-  async function loadRelated(e) {
+  async function relatedOf(e) {
     const w = encodeURIComponent(e.word);
     const get = async u => { try { const r = await fetch(u).then(r => r.json()); return Array.isArray(r) ? r : []; } catch (x) { return []; } };
     // Danh từ → tính từ hay đi kèm; tính từ → danh từ hay đi sau (tránh cụm vô nghĩa)
@@ -1189,15 +1196,20 @@
       get(`https://api.datamuse.com/words?ml=${w}&max=16&md=f`),
     ]);
     const jjb = isAdj ? [] : jjb0.filter(x => !STOP.has(x.word) && x.score > 300).slice(0, 10);
+    const syn = new Set(e.syn);
+    const stemE = e.word.slice(0, Math.max(5, e.word.length - 4));
+    const mlf = ml.filter(x => !syn.has(x.word) && !/\s/.test(x.word) && !x.word.startsWith(stemE) && !e.word.startsWith(x.word.slice(0, 6)) && +(((x.tags || []).find(t => t.startsWith('f:')) || 'f:0').slice(2)) >= 1).slice(0, 8);
+    return { jjb, jja, ant, mlf };
+  }
+  App.dictRelated = relatedOf;
+  async function loadRelated(e) {
+    const { jjb, jja, ant, mlf } = await relatedOf(e);
     const el = $('#related'); if (!el || parseHash().arg !== e.word && parseHash().arg.toLowerCase() !== e.word) return;
     const chips = (arr, fmt) => arr.map(x => `<a class="chip" href="#/dict/${encodeURIComponent(x.word)}">${esc(fmt(x.word))}</a>`).join(' ');
     let html = '';
     if (jjb.length) html += `<div style="margin-top:.6rem"><b>🧩 ${t('Tính từ hay đi với “{w}”:', { w: esc(e.word) })}</b> ${chips(jjb, x => `${x} ${e.word}`)}</div>`;
     if (jja.length) html += `<div style="margin-top:.6rem"><b>🧩 ${t('Danh từ hay đi sau:')}</b> ${chips(jja, x => `${e.word} ${x}`)}</div>`;
     if (ant.length) html += `<div style="margin-top:.6rem"><b>↔ ${t('Trái nghĩa:')}</b> ${chips(ant, x => x)}</div>`;
-    const syn = new Set(e.syn);
-    const stemE = e.word.slice(0, Math.max(5, e.word.length - 4));
-    const mlf = ml.filter(x => !syn.has(x.word) && !/\s/.test(x.word) && !x.word.startsWith(stemE) && !e.word.startsWith(x.word.slice(0, 6)) && +(((x.tags || []).find(t => t.startsWith('f:')) || 'f:0').slice(2)) >= 1).slice(0, 8);
     if (mlf.length) html += `<div style="margin-top:.6rem"><b>🔀 ${t('Từ gần nghĩa:')}</b> ${chips(mlf, x => x)}</div>`;
     el.innerHTML = html;
   }
@@ -1619,6 +1631,7 @@
     });
   }
   App.bindCommon = bindCommon;
+  App.shareDeck = shareDeck; App.editCard = editCard; // màn Sổ từ Stitch v2 (ux1-deck.js) dùng lại hộp chia sẻ / sửa thẻ cũ
 
   // ---------- Cài app (PWA) & trạng thái mạng ----------
   let installEvt = null;

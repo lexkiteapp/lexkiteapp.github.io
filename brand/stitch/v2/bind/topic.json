@@ -1,0 +1,262 @@
+{
+ "_doc": "Bộ từ (#/topic/:id, cờ ux1) – d do web/js/ux1-topic.js dựng từ IELTS_DATA.TOPICS thật. Giữ đủ ý trang cũ: quay lại nhóm (#/library?g=…), #addAll (Thêm n từ vào flashcard), #tCount, 4 chế độ luyện (learn/match/test ?src=topic:id, #/handsfree/id), #tpAnki xuất Anki, #lvTabs (data-lv, .on) đếm từ theo CEFR, #wordList: từ → #/dict/…, [data-speak], [data-add-seed][data-topic], nghĩa + định nghĩa, câu ví dụ tô từ, collocation. 'Sort: Frequency' ẩn (không có sắp xếp thật – A/B chủ). 'View all n words' = hiện hết khi bộ > 20 từ. Thanh tab dưới = shell (tab Luyện).",
+ "remove": [
+  ":scope > div > nav"
+ ],
+ "i18n": {
+  "Practice modes": "Chế độ luyện",
+  "Anki export (.apkg)": "Xuất Anki (.apkg)",
+  "Learn": "Học",
+  "Spaced drill": "Luyện ngắt quãng",
+  "Match cards": "Ghép thẻ từ",
+  "Fast 60s pair": "Ghép nhanh 60 giây",
+  "Test": "Kiểm tra bộ từ",
+  "Band scoring": "Chấm điểm band",
+  "Hands-free": "Rảnh tay",
+  "Audio loop": "Nghe lặp liên tục",
+  "Word deck breakdown": "Danh sách từ",
+  "Added": "Đã thêm",
+  "Add": "Thêm",
+  "Collocations:": "Cụm từ đi kèm:",
+  "Sort: Frequency": "Sắp xếp: Tần suất"
+ },
+ "attr": {
+  ":scope > div > header > a": {
+   "href": "'#/library?g=' + d.group",
+   "aria-label": "d.backL"
+  },
+  ":scope > div > main > div:nth-child(1) > button": {
+   "id": "'addAll'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > span:nth-child(2)": {
+   "id": "'tCount'"
+  },
+  ":scope > div > main > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div > svg > path:nth-child(2)": {
+   "stroke-dasharray": "d.pct + ', 100'"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > a": {
+   "id": "'tpAnki'",
+   "href": "'#'",
+   "role": "'button'"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(1)": {
+   "href": "'#/practice/learn?src=topic:' + d.id"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(2)": {
+   "href": "'#/practice/match?src=topic:' + d.id"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(3)": {
+   "href": "'#/practice/test?src=topic:' + d.id"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(4)": {
+   "href": "'#/handsfree/' + d.id"
+  },
+  ":scope > div > main > section:nth-child(3) > div:nth-child(1) > span": {
+   "style": "'display:none'"
+  },
+  ":scope > div > main > section:nth-child(3) > div:nth-child(2)": {
+   "id": "'lvTabs'",
+   "role": "'group'",
+   "aria-label": "d.lvL",
+   "style": "d.lvs.length ? '' : 'display:none'"
+  },
+  ":scope > div > main > section:nth-child(4)": {
+   "id": "'wordList'"
+  },
+  ":scope > div > main > div:nth-child(5)": {
+   "style": "d.more ? '' : 'display:none'"
+  },
+  ":scope > div > main > div:nth-child(5) > button": {
+   "id": "'tpMore'",
+   "type": "'button'"
+  }
+ },
+ "tag": {
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div": {
+   "to": "a"
+  }
+ },
+ "html": {
+  ":scope > div > header > a > span:nth-child(2)": "e(d.gname)",
+  ":scope > div > header > div > div:nth-child(1) > span:nth-child(2)": "e(d.hdr.streak)",
+  ":scope > div > header > div > div:nth-child(2) > span:nth-child(2)": "e(d.hdr.xp)",
+  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "e(d.emoji)",
+  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > span": "e(d.tag)",
+  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > h1": "e(d.name)",
+  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > p": "e(d.desc)",
+  ":scope > div > main > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > span": "e(d.pct + '%')",
+  ":scope > div > main > div:nth-child(1) > button > span:nth-child(1)": "e(d.missing ? 'bookmark_add' : 'check')",
+  ":scope > div > main > div:nth-child(1) > button > span:nth-child(2)": "e(d.addL)",
+  ":scope > div > main > div:nth-child(5) > button > span:nth-child(1)": "e(d.moreL)"
+ },
+ "text": {
+  "40 words": "d.wordsN",
+  "12 added": "d.addedN"
+ },
+ "repeat": [
+  {
+   "list": "d.lvs",
+   "as": "r",
+   "samples": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > button",
+   "pick": "r.on ? 'on' : 'off'",
+   "variants": {
+    "on": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > button:nth-child(1)",
+    "off": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > button:nth-child(2)"
+   },
+   "bind": {
+    "on": {
+     "addClass": {
+      ":scope": "on"
+     },
+     "attr": {
+      ":scope": {
+       "data-lv": "r.l",
+       "aria-pressed": "'true'",
+       "type": "'button'"
+      }
+     },
+     "text": {
+      "All": "r.label"
+     },
+     "html": {
+      ":scope > span": "e(r.n)"
+     }
+    },
+    "off": {
+     "attr": {
+      ":scope": {
+       "data-lv": "r.l",
+       "aria-pressed": "'false'",
+       "type": "'button'"
+      }
+     },
+     "text": {
+      "B1": "r.label"
+     },
+     "html": {
+      ":scope > span": "e(r.n)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.rows",
+   "as": "w",
+   "samples": ":scope > div > main > section:nth-child(4) > article",
+   "pick": "w.added ? 'added' : 'add'",
+   "variants": {
+    "added": ":scope > div > main > section:nth-child(4) > article:nth-child(1)",
+    "add": ":scope > div > main > section:nth-child(4) > article:nth-child(2)"
+   },
+   "bind": {
+    "added": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "e(w.emoji)",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > h3": "w.wordH",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(2)": "e(w.pos)",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(3)": "e(w.level)",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > span": "w.ipaH",
+      ":scope > div:nth-child(2) > p:nth-child(1)": "e(w.mean)",
+      ":scope > div:nth-child(2) > p:nth-child(2)": "e(w.def)",
+      ":scope > div:nth-child(3)": "w.exH",
+      ":scope > div:nth-child(4) > span:nth-child(3)": "e(w.col)",
+      ":scope > div:nth-child(4) > span:nth-child(4)": "''",
+      ":scope > div:nth-child(4) > span:nth-child(5)": "''"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(2)": {
+       "style": "w.pos ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(3)": {
+       "style": "w.level ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > button": {
+       "data-speak": "w.word",
+       "aria-label": "d.speakL",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(2) > p:nth-child(2)": {
+       "style": "w.def ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(3)": {
+       "style": "w.exH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4)": {
+       "style": "w.col ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4) > span:nth-child(4)": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(4) > span:nth-child(5)": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(1) > button": {
+       "data-added": "w.word",
+       "type": "'button'"
+      }
+     }
+    },
+    "add": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "e(w.emoji)",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > h3": "w.wordH",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(2)": "e(w.pos)",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(3)": "e(w.level)",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > span": "w.ipaH",
+      ":scope > div:nth-child(2) > p:nth-child(1)": "e(w.mean)",
+      ":scope > div:nth-child(2) > p:nth-child(2)": "e(w.def)",
+      ":scope > div:nth-child(3)": "w.exH",
+      ":scope > div:nth-child(4) > span:nth-child(3)": "e(w.col)",
+      ":scope > div:nth-child(4) > span:nth-child(4)": "''",
+      ":scope > div:nth-child(4) > span:nth-child(5)": "''"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(2)": {
+       "style": "w.pos ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(1) > span:nth-child(3)": {
+       "style": "w.level ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > button": {
+       "data-speak": "w.word",
+       "aria-label": "d.speakL",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(2) > p:nth-child(2)": {
+       "style": "w.def ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(3)": {
+       "style": "w.exH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4)": {
+       "style": "w.col ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4) > span:nth-child(4)": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(4) > span:nth-child(5)": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(1) > button": {
+       "data-add-seed": "w.word",
+       "data-topic": "d.id",
+       "type": "'button'"
+      }
+     }
+    }
+   }
+  }
+ ],
+ "recolor": {
+  "lt:text-[#2FBF71]": "lt:text-[#14753F]",
+  "text-[#FFB054]": "lt:text-[#8A5A00] dk:text-[#FFB054]",
+  "lt:text-[#E08A24]": "lt:text-[#8A5A00]"
+ },
+ "_contrast": "recolor: #tCount/nút xanh lá sáng #2FBF71→#14753F đạt AA trên #EAF8F1 (axe CI 31/10). | AA (31/10): nút 'Thêm n từ' chữ #2A0700 trên san hô (5.4–7.5); tia chớp/icon vàng sáng → #8A5A00 (5.4–5.9); từ tô trong câu ví dụ: bỏ màu gạch chân /40 (ux1-topic.js HL) để điểm gạch chân không bị đo như nền.",
+ "cls": {
+  ":scope > div > main > div:nth-child(1) > button": {
+   "text-white": "'text-[#2A0700]'"
+  }
+ }
+}

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite v2.1 Light — Dictionary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'light-bg': '#FFF7EA',
+            'light-card': '#FFFFFF',
+            'light-card-alt': '#F8F3E8',
+            'light-border': '#EADEC8',
+            'light-ledge': '#D8CFBC',
+            'light-text': '#0F3D3E',
+            'light-text-muted': '#5D7375',
+            'teal-brand': '#0D6964',
+            'teal-light': '#E6F5F4',
+            'teal-border': '#2BA39A',
+            'teal-ledge': '#12514D',
+            'coral-accent': '#F2553B',
+            'amber-accent': '#FFB054',
+            'cta-ledge': '#B53A22',
+            'error-red': '#E53E3E',
+            'success-green': '#2FBF71',
+            'gold-badge': '#FFC94A',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'tactile-btn': '0 5px 0 #B53A22',
+            'tactile-btn-pressed': '0 2px 0 #B53A22',
+            'tactile-card': '0 5px 0 #D8CFBC',
+            'tactile-card-sm': '0 3px 0 #D8CFBC',
+            'tactile-teal': '0 4px 0 #12514D',
+            'tactile-teal-sm': '0 2px 0 #12514D',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Physical tactile button pressing mechanics */
+    .tactile-cta {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      box-shadow: 0 5px 0 #B53A22;
+    }
+    .tactile-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+
+    .tactile-chip {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+
+    .tactile-teal-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      box-shadow: 0 4px 0 #12514D;
+    }
+    .tactile-teal-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #12514D;
+    }
+
+    /* Soft scrollbar */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light-bg text-light-text font-sans antialiased min-h-screen flex justify-center selection:bg-teal-light selection:text-teal-brand">
+
+  <!-- Mobile Device Shell (390px) -->
+  <div class="w-full max-w-[420px] min-h-screen bg-light-bg flex flex-col pb-28 relative shadow-2xl border-x border-light-border/40">
+
+    <!-- Top App Bar (Sticky Header) -->
+    <header class="sticky top-0 z-40 bg-light-bg/95 backdrop-blur-md px-4 pt-3 pb-2 border-b border-light-border flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button class="w-10 h-10 rounded-full bg-light-card border-2 border-light-border flex items-center justify-center text-light-text shadow-tactile-card-sm active:translate-y-0.5 active:shadow-none transition-all">
+          <span class="material-symbols-rounded text-[22px]">arrow_back</span>
+        </button>
+        <div>
+          <h1 class="text-[20px] font-extrabold tracking-tight text-light-text leading-tight">Dictionary</h1>
+          <p class="text-[11px] font-bold text-light-text-muted uppercase tracking-wider">Cambridge & IELTS 7.5+ Lexicon</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <!-- Streak pill matching Lexkite Kit -->
+        <div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-light-card border border-light-border shadow-tactile-card-sm text-[12px] font-extrabold text-amber-600">
+          <span class="material-symbols-rounded text-[16px] text-coral-accent">local_fire_department</span>
+          <span>14</span>
+        </div>
+        <!-- Bookmark quick drawer -->
+        <button class="w-10 h-10 rounded-full bg-light-card border-2 border-light-border flex items-center justify-center text-teal-brand shadow-tactile-card-sm active:translate-y-0.5 active:shadow-none transition-all">
+          <span class="material-symbols-rounded text-[20px]">bookmarks</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 px-4 pt-3 flex flex-col gap-4">
+
+      <!-- Search Section -->
+      <section class="flex flex-col gap-2.5">
+        <div class="relative flex items-center">
+          <div class="w-10 h-10 absolute left-2 flex items-center justify-center text-light-text-muted pointer-events-none">
+            <span class="material-symbols-rounded text-[22px]">search</span>
+          </div>
+          <input 
+            type="text" 
+            value="resilient" 
+            placeholder="Type any English word or idiom..." 
+            class="w-full h-13 pl-11 pr-24 bg-light-card border-2 border-light-border rounded-2xl text-[16px] font-bold text-light-text shadow-tactile-card-sm focus:border-teal-brand focus:outline-none placeholder:text-light-text-muted/60 placeholder:font-medium transition-all"
+          />
+          <button class="absolute right-1.5 px-3.5 py-1.5 rounded-xl bg-teal-brand text-white font-extrabold text-[13px] shadow-tactile-teal-sm active:translate-y-0.5 active:shadow-none transition-all flex items-center gap-1">
+            <span>Find</span>
+            <span class="material-symbols-rounded text-[16px]">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Recent Search Chips -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-[12px] font-bold text-light-text-muted">
+          <span class="text-[11px] font-extrabold uppercase text-light-text-muted/80 mr-1 flex items-center gap-0.5 shrink-0">
+            <span class="material-symbols-rounded text-[14px]">history</span> Recent:
+          </span>
+          <button class="px-2.5 py-1 rounded-full bg-light-card border border-light-border text-teal-brand font-extrabold shadow-tactile-card-sm shrink-0 active:translate-y-0.5">resilient</button>
+          <button class="px-2.5 py-1 rounded-full bg-light-card border border-light-border shrink-0 active:translate-y-0.5">ubiquitous</button>
+          <button class="px-2.5 py-1 rounded-full bg-light-card border border-light-border shrink-0 active:translate-y-0.5">affect vs effect</button>
+          <button class="px-2.5 py-1 rounded-full bg-light-card border border-light-border shrink-0 active:translate-y-0.5">bottleneck</button>
+        </div>
+      </section>
+
+      <!-- HERO WORD CARD -->
+      <section class="bg-light-card rounded-[22px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-4 relative overflow-hidden">
+        
+        <!-- Top Metadata & Level Chips -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-lg bg-teal-light border border-teal-border/40 text-teal-brand text-[12px] font-extrabold uppercase tracking-wider">adj.</span>
+            <span class="px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-700 text-[12px] font-extrabold flex items-center gap-1">
+              <span class="material-symbols-rounded text-[14px]">verified</span> B2 Upper-Int
+            </span>
+            <span class="px-2 py-0.5 rounded-lg bg-purple-50 border border-purple-200 text-purple-700 text-[11px] font-extrabold">IELTS 7.5+</span>
+          </div>
+
+          <!-- Quick Bookmark Icon -->
+          <button class="w-8 h-8 rounded-full bg-light-card-alt border border-light-border flex items-center justify-center text-teal-brand hover:bg-teal-light transition-colors">
+            <span class="material-symbols-rounded text-[18px]">bookmark_add</span>
+          </button>
+        </div>
+
+        <!-- Huge Word & Illustration Slot Row -->
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex-1">
+            <h2 class="text-[34px] font-extrabold tracking-tight text-light-text leading-[1.05]">
+              resilient
+            </h2>
+            <p class="text-[13px] font-bold text-teal-brand mt-1 flex items-center gap-1.5">
+              <span>(plural: resilient · comparative: more resilient)</span>
+            </p>
+          </div>
+
+          <!-- Small Tactile Picture Slot (Conceptual Origami Kite Springing Back) -->
+          <div class="w-16 h-16 rounded-2xl bg-light-card-alt border-2 border-light-border flex flex-col items-center justify-center shadow-tactile-card-sm shrink-0 relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-teal-50 to-amber-50 opacity-60"></div>
+            <!-- Tactile vector icon depicting spring/elasticity recovery -->
+            <span class="material-symbols-rounded text-teal-brand text-[28px] relative z-10">flutter</span>
+            <span class="text-[9px] font-extrabold uppercase text-light-text-muted relative z-10 mt-0.5">visual</span>
+          </div>
+        </div>
+
+        <!-- Pronunciation & IPA Audio Pills -->
+        <div class="grid grid-cols-2 gap-2">
+          <!-- UK Pronunciation Pill -->
+          <div class="bg-light-card-alt rounded-xl border border-light-border p-2 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <button class="w-8 h-8 rounded-full bg-teal-brand text-white flex items-center justify-center shadow-tactile-teal-sm active:translate-y-0.5">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+              <div>
+                <div class="flex items-center gap-1">
+                  <span class="text-[10px] font-extrabold uppercase px-1 rounded bg-teal-light text-teal-brand">UK</span>
+                  <span class="text-[12px] font-mono font-semibold text-light-text">/rɪˈzɪl.i.ənt/</span>
+                </div>
+                <span class="text-[10px] font-bold text-light-text-muted">British Accent</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- US Pronunciation Pill -->
+          <div class="bg-light-card-alt rounded-xl border border-light-border p-2 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <button class="w-8 h-8 rounded-full bg-teal-brand text-white flex items-center justify-center shadow-tactile-teal-sm active:translate-y-0.5">
+                <span class="material-symbols-rounded text-[18px]">volume_up</span>
+              </button>
+              <div>
+                <div class="flex items-center gap-1">
+                  <span class="text-[10px] font-extrabold uppercase px-1 rounded bg-amber-100 text-amber-800">US</span>
+                  <span class="text-[12px] font-mono font-semibold text-light-text">/rəˈzɪl.jənt/</span>
+                </div>
+                <span class="text-[10px] font-bold text-light-text-muted">American Accent</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slow Pronunciation Bar with Waveform Tip -->
+        <div class="flex items-center justify-between bg-teal-light/50 border border-teal-border/30 rounded-xl px-3 py-1.5">
+          <div class="flex items-center gap-2">
+            <button class="w-6 h-6 rounded-full bg-white border border-teal-border/40 text-teal-brand flex items-center justify-center shadow-sm active:scale-95">
+              <span class="material-symbols-rounded text-[14px]">slow_motion_video</span>
+            </button>
+            <span class="text-[12px] font-bold text-teal-brand">Listen slow (0.75× speed)</span>
+          </div>
+          <span class="text-[11px] font-extrabold uppercase tracking-wide text-teal-brand bg-white px-2 py-0.5 rounded-md border border-teal-border/30">Stress: 2nd syllable</span>
+        </div>
+
+        <!-- Meaning in Learner's Language & English Definition -->
+        <div class="flex flex-col gap-2 pt-1 border-t border-light-border/60">
+          <!-- Meaning in Vietnamese / Learner's native language -->
+          <div class="flex items-baseline gap-2">
+            <span class="text-[11px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 tracking-wide">VI</span>
+            <p class="text-[18px] font-extrabold text-light-text tracking-tight">
+              kiên cường, có khả năng phục hồi nhanh
+            </p>
+          </div>
+          <!-- Clear, friendly English definition -->
+          <p class="text-[14px] font-semibold text-light-text-muted leading-relaxed">
+            Able to withstand or quickly recover from difficult conditions, shock, or misfortune.
+          </p>
+        </div>
+
+        <!-- 2D Teacher Stage Floor Spot (Reserved empty spot with grounded oval shadow on left) -->
+        <div class="pt-2 flex items-center gap-4 bg-light-card-alt/60 rounded-2xl p-3 border border-light-border/70">
+          <!-- Grounded Empty Teacher Stage Slot -->
+          <div class="w-24 h-28 rounded-xl border-2 border-dashed border-teal-border/50 bg-white/70 flex flex-col items-center justify-end pb-2 relative shrink-0">
+            <!-- Reserved badge -->
+            <div class="absolute top-2 px-1.5 py-0.5 rounded bg-teal-light text-teal-brand text-[9px] font-extrabold uppercase">
+              Teacher Slot
+            </div>
+            <!-- Teacher silhouette guide hint icon -->
+            <div class="flex flex-col items-center gap-1 opacity-40 mb-3">
+              <span class="material-symbols-rounded text-[26px] text-teal-brand">record_voice_over</span>
+              <span class="text-[9px] font-bold text-teal-brand">Live Tutor Spot</span>
+            </div>
+            <!-- SOFT GROUND FLOOR OVAL SHADOW (Centered at bottom, no drawn person) -->
+            <div class="w-16 h-3 rounded-full bg-black/10 blur-[2px]"></div>
+          </div>
+
+          <!-- Teacher Explanation Note / Prompt Hook -->
+          <div class="flex-1 flex flex-col justify-center">
+            <div class="flex items-center gap-1.5 text-teal-brand text-[12px] font-extrabold uppercase tracking-wider mb-0.5">
+              <span class="material-symbols-rounded text-[16px]">psychology</span>
+              <span>Teacher Ama's Note</span>
+            </div>
+            <p class="text-[13px] font-medium text-light-text leading-snug">
+              "Examiners award higher Band scores when you swap common words like <span class="line-through text-coral-accent">strong</span> for <span class="font-bold text-teal-brand underline decoration-teal-brand">resilient</span> in Writing Task 2."
+            </p>
+          </div>
+        </div>
+
+        <!-- Primary Chunky CTA -->
+        <button class="w-full h-14 rounded-2xl bg-gradient-to-r from-coral-accent to-amber-accent text-white font-extrabold text-[17px] tactile-cta flex items-center justify-center gap-2">
+          <span class="material-symbols-rounded text-[22px]">add_circle</span>
+          <span>Save to flashcards</span>
+        </button>
+
+        <!-- Secondary Action Pills Row -->
+        <div class="grid grid-cols-3 gap-2">
+          <button class="py-2.5 px-2 rounded-xl bg-light-card-alt border border-light-border text-teal-brand font-extrabold text-[12px] shadow-tactile-card-sm flex items-center justify-center gap-1 active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[16px]">mic</span>
+            <span>Practise</span>
+          </button>
+          <button class="py-2.5 px-2 rounded-xl bg-light-card-alt border border-light-border text-teal-brand font-extrabold text-[12px] shadow-tactile-card-sm flex items-center justify-center gap-1 active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[16px]">schema</span>
+            <span>Conjugate</span>
+          </button>
+          <button class="py-2.5 px-2 rounded-xl bg-light-card-alt border border-light-border text-teal-brand font-extrabold text-[12px] shadow-tactile-card-sm flex items-center justify-center gap-1 active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[16px]">menu_book</span>
+            <span>Usage</span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- STACKED TACTILE CARD 1: Example Sentence -->
+      <section class="bg-light-card rounded-[20px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[12px] font-extrabold uppercase tracking-wider text-light-text-muted flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-[18px] text-teal-brand">format_quote</span>
+            <span>Natural Example Sentence</span>
+          </span>
+          <span class="text-[11px] font-extrabold px-2 py-0.5 rounded bg-teal-light text-teal-brand">IELTS Model 8.0</span>
+        </div>
+
+        <div class="p-3 bg-light-card-alt rounded-xl border border-light-border flex items-start gap-3">
+          <button class="w-9 h-9 rounded-full bg-teal-brand text-white flex items-center justify-center shadow-tactile-teal-sm shrink-0 mt-0.5 active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[18px]">volume_up</span>
+          </button>
+          <div class="flex-1">
+            <p class="text-[15px] font-bold text-light-text leading-snug">
+              "The local economy proved remarkably <span class="text-teal-brand underline decoration-2">resilient</span> despite severe inflationary pressures."
+            </p>
+            <p class="text-[12px] font-semibold text-light-text-muted mt-1 italic">
+              Nền kinh tế địa phương tỏ ra kiên cường đáng kể bất chấp áp lực lạm phát nghiêm trọng.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACKED TACTILE CARD 2: Collocations ("Goes well with") & Synonyms -->
+      <section class="bg-light-card rounded-[20px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-3.5">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[12px] font-extrabold uppercase tracking-wider text-light-text-muted flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-[18px] text-teal-brand">hub</span>
+              <span>Goes well with (Collocations)</span>
+            </span>
+            <span class="text-[11px] font-extrabold text-teal-brand underline">View all</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <button class="px-2.5 py-1.5 rounded-xl bg-light-card-alt border border-light-border text-[13px] font-bold text-light-text tactile-chip flex items-center gap-1">
+              <span>remarkably resilient</span>
+              <span class="text-[10px] text-teal-brand font-extrabold">adv</span>
+            </button>
+            <button class="px-2.5 py-1.5 rounded-xl bg-light-card-alt border border-light-border text-[13px] font-bold text-light-text tactile-chip flex items-center gap-1">
+              <span>resilient workforce</span>
+              <span class="text-[10px] text-teal-brand font-extrabold">noun</span>
+            </button>
+            <button class="px-2.5 py-1.5 rounded-xl bg-light-card-alt border border-light-border text-[13px] font-bold text-light-text tactile-chip flex items-center gap-1">
+              <span>highly resilient</span>
+              <span class="text-[10px] text-teal-brand font-extrabold">adv</span>
+            </button>
+            <button class="px-2.5 py-1.5 rounded-xl bg-light-card-alt border border-light-border text-[13px] font-bold text-light-text tactile-chip flex items-center gap-1">
+              <span>resilient supply chain</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-light-border/60">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[12px] font-extrabold uppercase tracking-wider text-light-text-muted flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-[18px] text-amber-600">compare_arrows</span>
+              <span>Synonyms & Antonyms</span>
+            </span>
+            <span class="text-[11px] font-bold text-light-text-muted">Tap to swap</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <button class="px-2.5 py-1 rounded-lg bg-teal-light border border-teal-border/40 text-[12px] font-extrabold text-teal-brand tactile-chip flex items-center gap-1">
+              <span class="material-symbols-rounded text-[14px]">add</span> tenacious
+            </button>
+            <button class="px-2.5 py-1 rounded-lg bg-teal-light border border-teal-border/40 text-[12px] font-extrabold text-teal-brand tactile-chip flex items-center gap-1">
+              <span class="material-symbols-rounded text-[14px]">add</span> adaptable
+            </button>
+            <button class="px-2.5 py-1 rounded-lg bg-teal-light border border-teal-border/40 text-[12px] font-extrabold text-teal-brand tactile-chip flex items-center gap-1">
+              <span class="material-symbols-rounded text-[14px]">add</span> robust
+            </button>
+            <button class="px-2.5 py-1 rounded-lg bg-red-50 border border-red-200 text-[12px] font-extrabold text-error-red tactile-chip flex items-center gap-1">
+              <span class="material-symbols-rounded text-[14px]">remove</span> fragile
+            </button>
+            <button class="px-2.5 py-1 rounded-lg bg-red-50 border border-red-200 text-[12px] font-extrabold text-error-red tactile-chip flex items-center gap-1">
+              <span class="material-symbols-rounded text-[14px]">remove</span> vulnerable
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACKED TACTILE CARD 3: "Go deeper" (Collapsible Rows) -->
+      <section class="bg-light-card rounded-[20px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[14px] font-extrabold text-light-text flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center">
+              <span class="material-symbols-rounded text-[16px]">lightbulb</span>
+            </span>
+            <span>Go deeper into "resilient"</span>
+          </span>
+          <span class="text-[11px] font-extrabold text-teal-brand">4 Insights</span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <!-- Row 1: Memory Tip (Open by default) -->
+          <div class="rounded-xl border border-light-border bg-light-card-alt overflow-hidden">
+            <div class="p-3 flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-rounded text-[18px] text-amber-600">psychology_alt</span>
+                <span class="text-[13px] font-extrabold text-light-text">Memory tip (Mnemonic)</span>
+              </div>
+              <span class="material-symbols-rounded text-[18px] text-light-text-muted">expand_less</span>
+            </div>
+            <div class="px-3 pb-3 pt-1 text-[13px] font-medium text-light-text-muted border-t border-light-border/40">
+              Think of <span class="font-bold text-light-text">"RE-bounding SILK"</span>: It bends, twists under harsh pressure, but instantly leaps right back into its true form.
+            </div>
+          </div>
+
+          <!-- Row 2: Common Mistakes (wrong ✕ / right ✓ pair) -->
+          <div class="rounded-xl border border-light-border bg-light-card-alt overflow-hidden">
+            <div class="p-3 flex items-center justify-between cursor-pointer">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-rounded text-[18px] text-error-red">cancel</span>
+                <span class="text-[13px] font-extrabold text-light-text">Common mistakes (Don't say vs Say)</span>
+              </div>
+              <span class="material-symbols-rounded text-[18px] text-light-text-muted">expand_less</span>
+            </div>
+            <div class="px-3 pb-3 pt-1 flex flex-col gap-2 border-t border-light-border/40 text-[13px]">
+              <!-- Wrong pair -->
+              <div class="p-2 rounded-lg bg-red-50/70 border border-red-200/80 flex items-start gap-2">
+                <span class="material-symbols-rounded text-error-red text-[16px] mt-0.5 shrink-0">close</span>
+                <div>
+                  <span class="font-bold text-error-red line-through">"He is very resilient against cold weather."</span>
+                  <p class="text-[11px] text-light-text-muted mt-0.5">Use <span class="font-bold">resistant to</span> for physical elements or temperature.</p>
+                </div>
+              </div>
+              <!-- Right pair -->
+              <div class="p-2 rounded-lg bg-teal-light/70 border border-teal-border/40 flex items-start gap-2">
+                <span class="material-symbols-rounded text-teal-brand text-[16px] mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <span class="font-bold text-teal-brand">"He remained resilient in the face of career failure."</span>
+                  <p class="text-[11px] text-light-text-muted mt-0.5">Correct: resilient relates to psychological stamina and bouncing back.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: Exam use -->
+          <div class="rounded-xl border border-light-border bg-light-card-alt p-3 flex items-center justify-between cursor-pointer">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-rounded text-[18px] text-purple-600">school</span>
+              <span class="text-[13px] font-extrabold text-light-text">Exam use (IELTS & TOEIC criteria)</span>
+            </div>
+            <span class="material-symbols-rounded text-[18px] text-light-text-muted">expand_more</span>
+          </div>
+
+          <!-- Row 4: Word family -->
+          <div class="rounded-xl border border-light-border bg-light-card-alt p-3 flex items-center justify-between cursor-pointer">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-rounded text-[18px] text-teal-brand">family_history</span>
+              <span class="text-[13px] font-extrabold text-light-text">Word family (resilience, resiliently)</span>
+            </div>
+            <span class="material-symbols-rounded text-[18px] text-light-text-muted">expand_more</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACKED TACTILE CARD 4: Meanings by part of speech -->
+      <section class="bg-light-card rounded-[20px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-3">
+        <span class="text-[14px] font-extrabold text-light-text flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-teal-light text-teal-brand flex items-center justify-center">
+            <span class="material-symbols-rounded text-[16px]">menu_book</span>
+          </span>
+          <span>Meanings by part of speech</span>
+        </span>
+
+        <div class="flex flex-col gap-3">
+          <!-- Definition 1 (Psychological/Human) -->
+          <div class="p-3 bg-light-card-alt rounded-xl border border-light-border flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[12px] font-extrabold text-teal-brand flex items-center gap-1">
+                <span class="w-4 h-4 rounded-full bg-teal-brand text-white text-[10px] flex items-center justify-center">1</span>
+                <span>ADJECTIVE • Psychological</span>
+              </span>
+              <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">Primary sense</span>
+            </div>
+            <p class="text-[13px] font-bold text-light-text">
+              Able to quickly become strong, healthy, or happy again after a major illness or problem.
+            </p>
+            <p class="text-[12px] font-medium text-light-text-muted italic border-l-2 border-teal-brand pl-2 mt-1">
+              "Children are usually far more resilient than adults give them credit for."
+            </p>
+          </div>
+
+          <!-- Definition 2 (Physical/Materials) -->
+          <div class="p-3 bg-light-card-alt rounded-xl border border-light-border flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[12px] font-extrabold text-light-text-muted flex items-center gap-1">
+                <span class="w-4 h-4 rounded-full bg-light-text-muted text-white text-[10px] flex items-center justify-center">2</span>
+                <span>ADJECTIVE • Materials & Physics</span>
+              </span>
+              <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-gray-100 text-light-text-muted">Technical</span>
+            </div>
+            <p class="text-[13px] font-bold text-light-text">
+              Able to return to its original shape after being bent, stretched, or compressed.
+            </p>
+            <p class="text-[12px] font-medium text-light-text-muted italic border-l-2 border-amber-accent pl-2 mt-1">
+              "High-grade silicone creates a resilient seal against high pressure."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACKED TACTILE CARD 5: Bilingual sentences -->
+      <section class="bg-light-card rounded-[20px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[14px] font-extrabold text-light-text flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center">
+              <span class="material-symbols-rounded text-[16px]">translate</span>
+            </span>
+            <span>Bilingual sentences</span>
+          </span>
+          <span class="text-[11px] font-extrabold text-teal-brand">2 Examples</span>
+        </div>
+
+        <div class="flex flex-col gap-2.5">
+          <!-- Sentence 1 -->
+          <div class="p-3 bg-light-card-alt rounded-xl border border-light-border flex flex-col gap-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-extrabold uppercase text-light-text-muted">Business Context</span>
+              <button class="text-[11px] font-extrabold text-teal-brand hover:underline flex items-center gap-0.5">
+                <span>Use as context</span>
+                <span class="material-symbols-rounded text-[14px]">arrow_outward</span>
+              </button>
+            </div>
+            <p class="text-[13px] font-bold text-light-text">
+              "Building resilient supply networks requires proactive disaster management."
+            </p>
+            <p class="text-[12px] font-medium text-light-text-muted italic">
+              Xây dựng các mạng lưới cung ứng kiên cường đòi hỏi sự quản lý rủi ro thiên tai chủ động.
+            </p>
+          </div>
+
+          <!-- Sentence 2 -->
+          <div class="p-3 bg-light-card-alt rounded-xl border border-light-border flex flex-col gap-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-extrabold uppercase text-light-text-muted">Personal Growth</span>
+              <button class="text-[11px] font-extrabold text-teal-brand hover:underline flex items-center gap-0.5">
+                <span>Use as context</span>
+                <span class="material-symbols-rounded text-[14px]">arrow_outward</span>
+              </button>
+            </div>
+            <p class="text-[13px] font-bold text-light-text">
+              "She remained optimistic and resilient throughout the challenging recovery."
+            </p>
+            <p class="text-[12px] font-medium text-light-text-muted italic">
+              Cô ấy vẫn giữ sự lạc quan và kiên cường suốt quá trình hồi phục đầy thử thách.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACKED TACTILE CARD 6: "Save with context" -->
+      <section class="bg-light-card rounded-[20px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[14px] font-extrabold text-light-text flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-teal-light text-teal-brand flex items-center justify-center">
+              <span class="material-symbols-rounded text-[16px]">edit_note</span>
+            </span>
+            <span>Save with your own context</span>
+          </span>
+          <!-- Mastery dots -->
+          <div class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+            <span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+            <span class="w-2 h-2 rounded-full bg-light-border"></span>
+            <span class="w-2 h-2 rounded-full bg-light-border"></span>
+            <span class="text-[10px] font-bold text-light-text-muted ml-1">Lvl 2</span>
+          </div>
+        </div>
+
+        <p class="text-[12px] font-medium text-light-text-muted">
+          Write or paste a sentence where you encountered <span class="font-bold text-teal-brand">resilient</span> to remember it 3× faster:
+        </p>
+
+        <div class="relative">
+          <textarea 
+            rows="3" 
+            placeholder="e.g., Even when the pitch was rejected, our startup team stayed resilient..." 
+            class="w-full p-3 bg-light-card-alt border-2 border-light-border rounded-xl text-[13px] font-semibold text-light-text focus:outline-none focus:border-teal-brand placeholder:text-light-text-muted/60 resize-none"
+          ></textarea>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button class="py-2.5 px-3 rounded-xl bg-light-card-alt border border-light-border text-teal-brand font-extrabold text-[12px] shadow-tactile-card-sm flex items-center gap-1 active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[16px]">g_translate</span>
+            <span>Translate sentence</span>
+          </button>
+
+          <button class="flex-1 py-2.5 rounded-xl bg-teal-brand text-white font-extrabold text-[13px] shadow-tactile-teal-sm flex items-center justify-center gap-1 active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[16px]">save</span>
+            <span>Save context</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- STACKED TACTILE CARD 7: Phrases list -->
+      <section class="bg-light-card rounded-[20px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[14px] font-extrabold text-light-text flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-coral-accent/10 text-coral-accent flex items-center justify-center">
+              <span class="material-symbols-rounded text-[16px]">chat_bubble</span>
+            </span>
+            <span>Essential Phrases</span>
+          </span>
+          <span class="text-[11px] font-bold text-light-text-muted">3 key idioms</span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <!-- Phrase 1 -->
+          <div class="p-2.5 bg-light-card-alt rounded-xl border border-light-border flex items-center justify-between">
+            <div>
+              <p class="text-[13px] font-extrabold text-light-text">bounce back resiliently</p>
+              <p class="text-[11px] font-semibold text-light-text-muted">Hồi sinh / phục hồi mạnh mẽ</p>
+            </div>
+            <button class="px-2.5 py-1 rounded-lg bg-teal-light text-teal-brand text-[11px] font-extrabold border border-teal-border/40 hover:bg-teal-brand hover:text-white transition-colors">
+              + Save phrase
+            </button>
+          </div>
+
+          <!-- Phrase 2 -->
+          <div class="p-2.5 bg-light-card-alt rounded-xl border border-light-border flex items-center justify-between">
+            <div>
+              <p class="text-[13px] font-extrabold text-light-text">resilient spirit</p>
+              <p class="text-[11px] font-semibold text-light-text-muted">Tinh thần bất khuất, kiên cường</p>
+            </div>
+            <button class="px-2.5 py-1 rounded-lg bg-teal-light text-teal-brand text-[11px] font-extrabold border border-teal-border/40 hover:bg-teal-brand hover:text-white transition-colors">
+              + Save phrase
+            </button>
+          </div>
+
+          <!-- Phrase 3 -->
+          <div class="p-2.5 bg-light-card-alt rounded-xl border border-light-border flex items-center justify-between">
+            <div>
+              <p class="text-[13px] font-extrabold text-light-text">climate-resilient infrastructure</p>
+              <p class="text-[11px] font-semibold text-light-text-muted">Cơ sở hạ tầng thích ứng biến đổi khí hậu</p>
+            </div>
+            <button class="px-2.5 py-1 rounded-lg bg-teal-light text-teal-brand text-[11px] font-extrabold border border-teal-border/40 hover:bg-teal-brand hover:text-white transition-colors">
+              + Save phrase
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACKED TACTILE CARD 8: Related words -->
+      <section class="bg-light-card rounded-[20px] border-2 border-light-border p-4 shadow-tactile-card flex flex-col gap-2.5">
+        <span class="text-[12px] font-extrabold uppercase tracking-wider text-light-text-muted flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-[16px] text-teal-brand">travel_explore</span>
+          <span>Related Exam Words to Explore</span>
+        </span>
+        <div class="flex flex-wrap gap-1.5">
+          <button class="px-3 py-1.5 rounded-xl bg-light-card-alt border border-light-border text-[12px] font-extrabold text-light-text tactile-chip flex items-center gap-1">
+            <span>tenacity</span>
+            <span class="text-[10px] text-amber-600 font-extrabold">C1</span>
+          </button>
+          <button class="px-3 py-1.5 rounded-xl bg-light-card-alt border border-light-border text-[12px] font-extrabold text-light-text tactile-chip flex items-center gap-1">
+            <span>fortitude</span>
+            <span class="text-[10px] text-purple-600 font-extrabold">C2</span>
+          </button>
+          <button class="px-3 py-1.5 rounded-xl bg-light-card-alt border border-light-border text-[12px] font-extrabold text-light-text tactile-chip flex items-center gap-1">
+            <span>endurance</span>
+            <span class="text-[10px] text-teal-brand font-extrabold">B2</span>
+          </button>
+          <button class="px-3 py-1.5 rounded-xl bg-light-card-alt border border-light-border text-[12px] font-extrabold text-light-text tactile-chip flex items-center gap-1">
+            <span>perseverance</span>
+            <span class="text-[10px] text-teal-brand font-extrabold">B2</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Bottom Spacer for smooth scrolling -->
+      <div class="h-4"></div>
+    </main>
+
+    <!-- FIXED BOTTOM TAB BAR (Lexkite Kit Master Standard: 5 tabs, Train/Practice active with 2px teal border & tint) -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-[420px] mx-auto bg-light-card/95 backdrop-blur-md border-t-2 border-light-border py-2 px-3 flex items-center justify-around z-50">
+      
+      <!-- Tab 1: Learn -->
+      <button class="flex flex-col items-center justify-center py-1 px-3 rounded-xl text-light-text-muted hover:text-teal-brand transition-all">
+        <span class="material-symbols-rounded text-[24px]">route</span>
+        <span class="text-[10px] font-extrabold mt-0.5">Learn</span>
+      </button>
+
+      <!-- Tab 2: Review -->
+      <button class="flex flex-col items-center justify-center py-1 px-3 rounded-xl text-light-text-muted hover:text-teal-brand transition-all relative">
+        <span class="material-symbols-rounded text-[24px]">layers</span>
+        <span class="text-[10px] font-extrabold mt-0.5">Review</span>
+        <span class="absolute top-1 right-2 w-2 h-2 rounded-full bg-coral-accent"></span>
+      </button>
+
+      <!-- Tab 3: Train / Practice (ACTIVE with rounded square, 2px teal border, teal tint) -->
+      <button class="flex flex-col items-center justify-center py-1.5 px-4 rounded-2xl bg-teal-light border-2 border-teal-border text-teal-brand shadow-tactile-teal-sm">
+        <span class="material-symbols-rounded text-[24px]">bolt</span>
+        <span class="text-[10px] font-extrabold mt-0.5">Train</span>
+      </button>
+
+      <!-- Tab 4: Leagues -->
+      <button class="flex flex-col items-center justify-center py-1 px-3 rounded-xl text-light-text-muted hover:text-teal-brand transition-all">
+        <span class="material-symbols-rounded text-[24px]">emoji_events</span>
+        <span class="text-[10px] font-extrabold mt-0.5">Leagues</span>
+      </button>
+
+      <!-- Tab 5: Me -->
+      <button class="flex flex-col items-center justify-center py-1 px-3 rounded-xl text-light-text-muted hover:text-teal-brand transition-all">
+        <span class="material-symbols-rounded text-[24px]">person</span>
+        <span class="text-[10px] font-extrabold mt-0.5">Me</span>
+      </button>
+
+    </nav>
+
+  </div>
+
+</body>
+</html>
+

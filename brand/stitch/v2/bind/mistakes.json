@@ -1,0 +1,457 @@
+{
+ "_doc": "Sổ lỗi sai (#/mistakes, cờ ux1) – d do web/js/ux1-mistakes.js dựng từ Store 'mistakes' thật (lỗi chưa sửa) + App.mistakeView. Giữ đủ ý trang cũ (plan.js): tiêu đề + mô tả (mô tả = lời cô Ama trong bong bóng, Ama tư thế thinking qua Chars thay chỗ giữ người Stitch), số lỗi cần xem lại ở dòng phụ đầu trang, Làm lại lỗi sai (#/mistakes?retry=1) ⇄ Xem danh sách (#/mistakes) = nút CTA lớn, Ôn từ sắp quên (#/practice/learn?src=forgetting), #clearFixed Dọn lỗi đã sửa (toast), #mTabs (data-k, .on) Tất cả + 4 loại có đếm, #mList thẻ lỗi: loại + 'sai n lần · ngày', câu hỏi (+IPA, 1 loa [data-speak|data-speak-text]), Câu trả lời của bạn ✗ / Đáp án ✓ (+IPA, loa), giải thích, [data-fix] Đã hiểu (+2 XP), Xem lại bài (#/grammar/…), Tra lại từ (#/dict/…), [data-add-seed] Flashcard, Đọc lại bài (#/read/…), Nghe lại phần này (#/listen/…). Chế độ làm lại: ô gõ [data-rt] [data-in] + [data-chk] Kiểm tra / [data-show] Hiện đáp án chèn dưới khung câu hỏi (khuôn nút ô của mẫu); đáp án + giải thích [data-ans] ẩn tới khi trả lời; [data-self] Mình làm đúng / Vẫn sai cùng khuôn nút nhỏ. Khuôn thẻ: ngữ pháp = thẻ 1 (teal), từ vựng = thẻ 2 (amber), đọc/nghe/khác = thẻ 3. Danh sách rỗng → thẻ trống cùng khuôn thẻ (d.emptyH). Ẩn (không có tính năng thật – A/B chủ): ghi chú phải hàng 'Câu trả lời của bạn' (bare infinitive), nút 'Dictionary' thẻ ngữ pháp, nút 'Collocations' thẻ từ vựng. Vùng chạm ≥ 44 px: nút nhỏ của mẫu thêm lớp giả after: trong suốt (addClass, không đổi hình). Đuôi bong bóng: -start-2 + rtl:rotate-[225deg] (RTL chỉ về phía cô Ama). Đầu trang: dùng đầu trang riêng của mẫu (quay lại #/me, tiêu đề, đếm, chuỗi/XP) – ux1-mistakes.js gỡ đầu trang shell cố định đang che nó. Thanh tab dưới = shell (tab Tôi).",
+ "remove": [
+  ":scope > div > nav",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(1) > div:nth-child(2)"
+ ],
+ "i18n": {
+  "Your answer:": "Câu trả lời của bạn:",
+  "Answer:": "Đáp án:",
+  "Got it (+2 XP)": "Đã hiểu (+2 XP)",
+  "Flashcard": "Flashcard"
+ },
+ "after": {
+  ":scope > div > main > section:nth-child(1) > div:nth-child(1) > div:nth-child(1)": "d.tch",
+  ":scope > div > main > div:nth-child(4)": "d.emptyH"
+ },
+ "attr": {
+  ":scope > div > header > div:nth-child(1) > button": {
+   "data-href": "'#/me'",
+   "aria-label": "d.backL",
+   "type": "'button'"
+  },
+  ":scope > div > main > section:nth-child(1)": {
+   "data-m-teacher": "'ama'"
+  },
+  ":scope > div > main > section:nth-child(2) > button": {
+   "id": "'mRetry'",
+   "type": "'button'",
+   "data-href": "d.ctaHref",
+   "style": "d.open ? '' : 'display:none'"
+  },
+  ":scope > div > main > section:nth-child(2) > div > button:nth-child(1)": {
+   "id": "'mForget'",
+   "type": "'button'",
+   "data-href": "'#/practice/learn?src=forgetting'",
+   "style": "d.open ? '' : 'visibility:hidden'"
+  },
+  ":scope > div > main > section:nth-child(2) > div > button:nth-child(2)": {
+   "id": "'clearFixed'",
+   "type": "'button'"
+  },
+  ":scope > div > main > nav": {
+   "id": "'mTabs'",
+   "role": "'group'",
+   "aria-label": "d.tabsL"
+  },
+  ":scope > div > main > div:nth-child(4)": {
+   "id": "'mList'"
+  }
+ },
+ "html": {
+  ":scope > div > header > div:nth-child(1) > div > h1": "e(d.title)",
+  ":scope > div > header > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(d.hdr.streak)",
+  ":scope > div > header > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)": "e(d.hdr.xp + ' XP')",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > p": "e(d.desc)",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > span:nth-child(2)": "e(d.who)",
+  ":scope > div > main > section:nth-child(2) > button > span:nth-child(1)": "e(d.ctaIcon)",
+  ":scope > div > main > section:nth-child(2) > button > span:nth-child(2)": "e(d.ctaL)",
+  ":scope > div > main > section:nth-child(2) > div > button:nth-child(1) > span:nth-child(2)": "e(d.forgetL)",
+  ":scope > div > main > section:nth-child(2) > div > button:nth-child(2) > span:nth-child(2)": "e(d.clearL)"
+ },
+ "text": {
+  "14 items ready for mastery • 0 penalty": "d.countL"
+ },
+ "repeat": [
+  {
+   "list": "d.kinds",
+   "as": "r",
+   "samples": ":scope > div > main > nav > button",
+   "pick": "r.on ? 'on' : 'off'",
+   "variants": {
+    "on": ":scope > div > main > nav > button:nth-child(1)",
+    "off": ":scope > div > main > nav > button:nth-child(2)"
+   },
+   "bind": {
+    "on": {
+     "addClass": {
+      ":scope": "on"
+     },
+     "attr": {
+      ":scope": {
+       "data-k": "r.k",
+       "aria-pressed": "'true'",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope > span:nth-child(1)": "e(r.label)",
+      ":scope > span:nth-child(2)": "e(r.n)"
+     },
+     "cls": {
+      ":scope": {
+       "text-white": "'lt:text-white dk:text-[#0B171A]'"
+      },
+      ":scope > span:nth-child(2)": {
+       "lt:bg-white/20": "'lt:bg-white/10'"
+      }
+     }
+    },
+    "off": {
+     "attr": {
+      ":scope": {
+       "data-k": "r.k",
+       "aria-pressed": "'false'",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope > span:nth-child(1)": "e(r.label)",
+      ":scope > span:nth-child(2)": "e(r.n)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.rows",
+   "as": "m",
+   "samples": ":scope > div > main > div:nth-child(4) > article",
+   "pick": "m.v",
+   "variants": {
+    "g": ":scope > div > main > div:nth-child(4) > article:nth-child(1)",
+    "v": ":scope > div > main > div:nth-child(4) > article:nth-child(2)",
+    "o": ":scope > div > main > div:nth-child(4) > article:nth-child(3)"
+   },
+   "bind": {
+    "g": {
+     "attr": {
+      ":scope": {
+       "data-mk": "m.key",
+       "data-kind": "m.kind"
+      },
+      ":scope > div:nth-child(3) > button": {
+       "data-qsay": "m.qSay",
+       "aria-label": "d.sayL",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(4)": {
+       "data-ans": "''"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1)": {
+       "data-row": "'no'",
+       "style": "m.given ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1) > span": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2)": {
+       "data-row": "'ok'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(3)": {
+       "lang": "m.ansLang",
+       "dir": "m.ansDir"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": {
+       "lang": "'en'",
+       "dir": "'ltr'",
+       "style": "m.ansIpaH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > button": {
+       "data-asay": "m.ansSay",
+       "aria-label": "d.sayL",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(5)": {
+       "data-ans": "''",
+       "data-tip": "''",
+       "style": "m.tip ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": {
+       "href": "m.srcHref",
+       "style": "m.srcHref ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > div > button:nth-child(2)": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(6) > div > button:nth-child(3)": {
+       "data-add-seed": "m.seed",
+       "type": "'button'",
+       "style": "m.seed ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > button": {
+       "data-fix": "m.key",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(3) > p": {
+       "dir": "'auto'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1) > div > span:nth-child(3)": {
+       "dir": "'auto'"
+      },
+      ":scope > div:nth-child(5) > p": {
+       "dir": "'auto'"
+      }
+     },
+     "tag": {
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": {
+       "to": "a"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(2) > span:nth-child(1) > span": "e(m.icon)",
+      ":scope > div:nth-child(3) > p": "m.qH",
+      ":scope > div:nth-child(4) > div:nth-child(1) > div > span:nth-child(3)": "e(m.given)",
+      ":scope > div:nth-child(4) > div:nth-child(1) > span": "''",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(3)": "e(m.ans)",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": "m.ansIpaH",
+      ":scope > div:nth-child(5) > p": "m.tipH",
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": "e(m.srcL)",
+      ":scope > div:nth-child(6) > div > button:nth-child(2)": "''"
+     },
+     "text": {
+      "Grammar Slip • Gerunds": "m.kindL",
+      "Mistaken 3 times • Yesterday": "m.meta"
+     },
+     "after": {
+      ":scope > div:nth-child(3)": "m.rtH",
+      ":scope > div:nth-child(5)": "m.selfH"
+     },
+     "addClass": {
+      ":scope > div:nth-child(3) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(4) > div:nth-child(2) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(6) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": "[&_.ipa]:[color:inherit]",
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": "relative after:absolute after:-inset-3 after:content-['']",
+      ":scope > div:nth-child(6) > div > button:nth-child(2)": "relative after:absolute after:-inset-3 after:content-['']",
+      ":scope > div:nth-child(6) > div > button:nth-child(3)": "relative after:absolute after:-inset-3 after:content-['']"
+     }
+    },
+    "v": {
+     "attr": {
+      ":scope": {
+       "data-mk": "m.key",
+       "data-kind": "m.kind"
+      },
+      ":scope > div:nth-child(3) > button": {
+       "data-qsay": "m.qSay",
+       "aria-label": "d.sayL",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(4)": {
+       "data-ans": "''"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1)": {
+       "data-row": "'no'",
+       "style": "m.given ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1) > span": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2)": {
+       "data-row": "'ok'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(3)": {
+       "lang": "m.ansLang",
+       "dir": "m.ansDir"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": {
+       "lang": "'en'",
+       "dir": "'ltr'",
+       "style": "m.ansIpaH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > button": {
+       "data-asay": "m.ansSay",
+       "aria-label": "d.sayL",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(5)": {
+       "data-ans": "''",
+       "data-tip": "''",
+       "style": "m.tip ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": {
+       "href": "m.srcHref",
+       "style": "m.srcHref ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > div > button:nth-child(2)": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(6) > div > button:nth-child(3)": {
+       "data-add-seed": "m.seed",
+       "type": "'button'",
+       "style": "m.seed ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > button": {
+       "data-fix": "m.key",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(3) > p": {
+       "dir": "'auto'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1) > div > span:nth-child(3)": {
+       "dir": "'auto'"
+      },
+      ":scope > div:nth-child(5) > p": {
+       "dir": "'auto'"
+      }
+     },
+     "tag": {
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": {
+       "to": "a"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(2) > span:nth-child(1) > span": "e(m.icon)",
+      ":scope > div:nth-child(3) > p": "m.qH",
+      ":scope > div:nth-child(4) > div:nth-child(1) > div > span:nth-child(3)": "e(m.given)",
+      ":scope > div:nth-child(4) > div:nth-child(1) > span": "''",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(3)": "e(m.ans)",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": "m.ansIpaH",
+      ":scope > div:nth-child(5) > p": "m.tipH",
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": "e(m.srcL)",
+      ":scope > div:nth-child(6) > div > button:nth-child(2)": "''"
+     },
+     "text": {
+      "Vocab Precision • IELTS Task 2": "m.kindL",
+      "Mistaken 2 times • Oct 24": "m.meta"
+     },
+     "after": {
+      ":scope > div:nth-child(3)": "m.rtH",
+      ":scope > div:nth-child(5)": "m.selfH"
+     },
+     "addClass": {
+      ":scope > div:nth-child(3) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(4) > div:nth-child(2) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(6) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": "[&_.ipa]:[color:inherit]",
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": "relative after:absolute after:-inset-3 after:content-['']",
+      ":scope > div:nth-child(6) > div > button:nth-child(2)": "relative after:absolute after:-inset-3 after:content-['']",
+      ":scope > div:nth-child(6) > div > button:nth-child(3)": "relative after:absolute after:-inset-3 after:content-['']"
+     }
+    },
+    "o": {
+     "attr": {
+      ":scope": {
+       "data-mk": "m.key",
+       "data-kind": "m.kind"
+      },
+      ":scope > div:nth-child(3) > button": {
+       "data-qsay": "m.qSay",
+       "aria-label": "d.sayL",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(4)": {
+       "data-ans": "''"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1)": {
+       "data-row": "'no'",
+       "style": "m.given ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1) > span": {
+       "style": "'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2)": {
+       "data-row": "'ok'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(3)": {
+       "lang": "m.ansLang",
+       "dir": "m.ansDir"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": {
+       "lang": "'en'",
+       "dir": "'ltr'",
+       "style": "m.ansIpaH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(2) > button": {
+       "data-asay": "m.ansSay",
+       "aria-label": "d.sayL",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(5)": {
+       "data-ans": "''",
+       "data-tip": "''",
+       "style": "m.tip ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": {
+       "href": "m.srcHref",
+       "style": "m.srcHref ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > div > button:nth-child(2)": {
+       "data-add-seed": "m.seed",
+       "type": "'button'",
+       "style": "m.seed ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(6) > button": {
+       "data-fix": "m.key",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(3) > p": {
+       "dir": "'auto'"
+      },
+      ":scope > div:nth-child(4) > div:nth-child(1) > div > span:nth-child(3)": {
+       "dir": "'auto'"
+      },
+      ":scope > div:nth-child(5) > p": {
+       "dir": "'auto'"
+      }
+     },
+     "tag": {
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": {
+       "to": "a"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(2) > span:nth-child(1) > span": "e(m.icon)",
+      ":scope > div:nth-child(3) > p": "m.qH",
+      ":scope > div:nth-child(4) > div:nth-child(1) > div > span:nth-child(3)": "e(m.given)",
+      ":scope > div:nth-child(4) > div:nth-child(1) > span": "''",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(3)": "e(m.ans)",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": "m.ansIpaH",
+      ":scope > div:nth-child(5) > p": "m.tipH",
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": "e(m.srcL)"
+     },
+     "text": {
+      "Collocation • Natural Native": "m.kindL",
+      "Mistaken 2 times • Oct 22": "m.meta"
+     },
+     "after": {
+      ":scope > div:nth-child(3)": "m.rtH",
+      ":scope > div:nth-child(5)": "m.selfH"
+     },
+     "addClass": {
+      ":scope > div:nth-child(3) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(4) > div:nth-child(2) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(6) > button": "relative after:absolute after:-inset-2 after:content-['']",
+      ":scope > div:nth-child(4) > div:nth-child(2) > div > span:nth-child(4)": "[&_.ipa]:[color:inherit]",
+      ":scope > div:nth-child(6) > div > button:nth-child(1)": "relative after:absolute after:-inset-3 after:content-['']",
+      ":scope > div:nth-child(6) > div > button:nth-child(2)": "relative after:absolute after:-inset-3 after:content-['']"
+     }
+    }
+   }
+  }
+ ],
+ "addClass": {
+  ":scope > div > header > div:nth-child(1) > button": "relative after:absolute after:-inset-2 after:content-['']",
+  ":scope > div > main > section:nth-child(2) > div > button:nth-child(1)": "relative after:absolute after:-inset-2 after:content-['']",
+  ":scope > div > main > section:nth-child(2) > div > button:nth-child(2)": "relative after:absolute after:-inset-2 after:content-['']",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "rtl:rotate-[225deg]",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(1)": "overflow-hidden rounded-2xl border lt:bg-[#EAF6F4] lt:border-[#E2E8E7] dk:bg-[#142328] dk:border-[#233942]"
+ },
+ "cls": {
+  ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": {
+   "-left-2": "'-start-2'"
+  },
+  ":scope > div > main > section:nth-child(2) > button": {
+   "text-white": "'text-[#2A0700]'"
+  },
+  ":scope > div > header": {
+   "h-16": "'min-h-16 py-2'"
+  }
+ },
+ "recolor": {
+  "lt:text-[#B37800]": "lt:text-[#8A5A00]",
+  "dk:[color:#2BA39A]": "dk:[color:#4FD1C5]",
+  "dk:[background-color:#2FBF71]": "dk:[background-color:#2FBF71] dk:text-[#0B171A]"
+ },
+ "_contrast": "AA (stitch-diff 31/10): CTA Retry chữ #2A0700 trên san hô (5.4); tab đang chọn bản tối chữ #0B171A trên #2BA39A (5.9), huy hiệu đếm bản sáng white/10 (5.2); chữ teal tối #2BA39A→#4FD1C5 (5.4 trên chip); vàng sáng #B37800→#8A5A00 (5.6); vòng ✓ tối chữ #0B171A trên #2FBF71 (7.6)."
+}
