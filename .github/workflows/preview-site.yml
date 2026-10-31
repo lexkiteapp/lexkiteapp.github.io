@@ -73,7 +73,7 @@ jobs:
         run: |
           [ -n "$CLOUDFLARE_API_TOKEN" ] || { echo "::error::Thiếu secret CLOUDFLARE_API_TOKEN"; exit 1; }
           npx -y wrangler@3.114.0 pages project create "$PROJECT" --production-branch main 2>&1 | tail -3 || true
-          npx -y wrangler@3.114.0 pages deploy dist --project-name "$PROJECT" --branch preview --commit-hash "$GITHUB_SHA" --commit-message "preview $(date -u +%FT%TZ)" --commit-dirty=true
+          npx -y wrangler@3.114.0 pages deploy dist --project-name lexkite-preview --branch preview --commit-hash "$GITHUB_SHA" --commit-message "preview $(date -u +%FT%TZ)" --commit-dirty=true
       - name: Kiểm lỗi như production (post-deploy-check)
         id: chk
         run: |
