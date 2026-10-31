@@ -11,6 +11,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 <!-- auto:direction:start -->
 - Giao diện: MỌI bề mặt (app, web, add-on, admin, iOS/Android, video) theo **"Lexkite Kit"** trên Stitch (design system `1b7a8a3d3d52404bb332d9ba3f783547`, tờ mẫu `39b977682d554b5da4b26651797f2c3f`, project `7268539912208977707`). Tối = A "Tactile Night", sáng = B "Bright Day", mặc định theo hệ thống.
 - Stitch làm HẾT (bố cục, icon, nút, hình): code port HTML Stitch trung thành (Tailwind biên dịch trên CI, không CDN, CI so ảnh SSIM); chỉ thay logo (diều Lexkite) và giáo viên (`Chars.*`). Chỉnh đẹp TRONG Stitch, không style lại bằng code.
+- MỘT khung app (HARD): mọi ref/màn theo 1 khung – điện thoại 390 px, top-bar cố định, 5 tab Today/Vocab/Skills/Tests/Me, khoảng cách, thẻ, CTA, chỗ giáo viên; spec ở [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md), dán vào mọi prompt; CI frame-consistency trượt khi lệch hoặc ra khổ desktop.
 - Prompt Stitch: MỖI LẦN 1 MÀN, tả cảm giác/trải nghiệm, không liệt kê thông số. DÙNG HẾT 400 lượt/ngày: 1 phiên "xưởng ref Stitch" vẽ trước ref (sáng + tối, Kit) cho mọi bề mặt còn lại; ref vẫn qua QC CI sau khi port và chủ OK ảnh trước khi gộp.
 - Nhân vật: CHỈ Ama + Carlos 2D (tóc đen, trang phục sáng), qua `Chars.*` từ `web/teach/characters.json`; không 3D, không trộn, không viền; đổi phong cách phải hỏi chủ. Engine = puppet 2D động; art phải từ nguồn thật (1 sheet AI Studio, chủ duyệt art trước) – SVG vẽ tay đã bị loại. Ama = giọng nữ, Carlos = giọng nam ở mọi nơi (CI kiểm).
 - Đặt giáo viên trên màn (HARD): trông như một phần thiết kế kiểu Duolingo – cùng ánh sáng/tỉ lệ/chạm nền, viền sạch; cấm quầng cắt, đường cắt, khung, thân mờ dần hay kiểu "dán lên" (trượt QC, chủ duyệt ảnh).
@@ -19,8 +20,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
 - QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt.
 - Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp (ngoại lệ: lớp game-feel tự duyệt khi ≥ 95); logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
-- Việc nặng (tách nền, render) CHỈ trên CI – script tự từ chối chạy ngoài `$CI`.
-- Phiên: mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn.
+- Phiên: việc nặng (tách nền, render) CHỈ trên CI (script tự từ chối ngoài `$CI`); mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn.
 <!-- auto:direction:end -->
 
 ## 1. Điều phối
