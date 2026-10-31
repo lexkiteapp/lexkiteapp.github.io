@@ -43,10 +43,10 @@ jobs:
       # 31/10: pilot cũng dò (cả kho: thẻ cảnh dùng phần đuôi, vẽ dùng phần đầu) – pilot 41146130096/41146121856 chạy lúc kho 121/121 báo 4006 → 35 phút viết thẻ rỗng, 0 ảnh
       - id: probe
         if: github.event.inputs.mode != 'calibrate' && github.event.inputs.mode != 'rejudge' && github.event.inputs.from_run == ''
-        run: PROBE_SHARE=${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }} PROBE_QUICK=1 env ${PILOT_SHARE:+PROBE_SHARE=$PILOT_SHARE} node scripts/lib/cf-pool-probe.mjs
+        run: PROBE_SHARE=${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }} PROBE_QUICK=1 env ${PILOT_SHARE:+PROBE_SHARE=$PILOT_SHARE PROBE_HEAD=${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }}} node scripts/lib/cf-pool-probe.mjs
         env: { CF_POOL: '${{ secrets.CF_POOL }}', PILOT_SHARE: "${{ (github.event.inputs.mode != 'fill' && github.event_name != 'schedule') && '1' || '' }}" }
       - id: p
-        env: { PROBE_ALIVE: '${{ steps.probe.outputs.alive || 99 }}' }
+        env: { PROBE_ALIVE: '${{ steps.probe.outputs.alive || 99 }}', PROBE_HEAD: '${{ steps.probe.outputs.alive_head || 99 }}', PROBE_TAIL: '${{ steps.probe.outputs.alive_tail || 99 }}' }
         run: |
           n=${{ github.event.inputs.shards || '1' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1
           if [ -n "${{ github.event.inputs.from_run }}" ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
@@ -54,7 +54,8 @@ jobs:
           if [ "${{ github.event_name }}" = schedule ] && [ "${{ vars.VIMG_SCHEDULE }}" != 1 ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 28/10: fill – dò nhanh PHẦN VẼ của kho (~60 neuron) trước khi bật 10 máy; < 10 tài khoản còn neuron → bỏ lượt (đêm 27/10: 4 lượt rỗng, mỗi lượt cài giám khảo 10 máy rồi mới thấy kho cạn)
           if [ "$MODE" = fill ] && [ "$PROBE_ALIVE" -lt 10 ]; then echo "⏹ phần vẽ của kho CF còn $PROBE_ALIVE tài khoản – bỏ lượt"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
-          if [ "$MODE" = pilot ] && [ "$PROBE_ALIVE" -lt 10 ]; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron – pilot bỏ lượt (thẻ cảnh + vẽ cần kho; chạy lại sau lượt cf-pool-probe báo ≥ 10)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
+          # 31/10 pilot 41158516082: 15/121 sống → thẻ cảnh (đuôi kho) ăn hết, phần vẽ (đầu kho) cạn → 0 ảnh. Pilot cần CẢ hai: vẽ ≥ 10, viết ≥ 5
+          if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt 10 ] || [ "$PROBE_HEAD" -lt 10 ] || [ "$PROBE_TAIL" -lt 5 ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần vẽ $PROBE_HEAD, phần viết $PROBE_TAIL) – pilot bỏ lượt (cần vẽ ≥ 10, viết ≥ 5)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || '10' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }

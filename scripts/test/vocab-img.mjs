@@ -258,7 +258,8 @@ else:
   ok(/0 ảnh/.test(out) && !fs.existsSync(sh), 'scene_final: 0 ảnh → in "0 ảnh", không ghi tờ ảnh, thoát 0 (không ValueError)');
   fs.rmSync(d, { recursive: true, force: true });
   const wf = rd('.github/workflows/vocab-img-scene.yml');
-  ok(/id: probe\n\s+if: github\.event\.inputs\.mode != 'calibrate'/.test(wf) && /\[ "\$MODE" = pilot \] && \[ "\$PROBE_ALIVE" -lt/.test(wf), 'pilot cũng dò kho CF trước (kho cạn → bỏ lượt rõ ràng, không chạy 35 phút rồi vẽ 0 ảnh)');
+  ok(/id: probe\n\s+if: github\.event\.inputs\.mode != 'calibrate'/.test(wf) && /\[ "\$MODE" = pilot \] && \{ \[ "\$PROBE_ALIVE" -lt 10 \] \|\| \[ "\$PROBE_HEAD" -lt 10 \] \|\| \[ "\$PROBE_TAIL" -lt 5 \]/.test(wf) && /PROBE_HEAD=\$\{\{ vars\.LX_PILOT/.test(wf), 'pilot cũng dò kho CF trước, đủ CẢ phần vẽ (đầu) lẫn phần viết thẻ (đuôi) – kho cạn → bỏ lượt rõ ràng (41146130096: 35 phút thẻ rỗng; 41158516082: thẻ ăn hết, vẽ 0)');
+  ok(/alive_head=\$\{head\}/.test(rd('scripts/lib/cf-pool-probe.mjs')) && /if \(i < HEAD\) head\+\+/.test(rd('scripts/lib/cf-pool-probe.mjs')), 'cf-pool-probe: PROBE_HEAD đếm riêng phần vẽ');
   ok(/def js\(o\)/.test(rd('scripts/vocab-img/calibrate.py')) && /default=js/.test(rd('scripts/vocab-img/calibrate.py')), 'calibrate.py: đặc trưng có đối tượng mô hình không làm hỏng calibration.json (TypeError SentenceTransformer)');
 }
 console.log(`✓ vocab-img: ${n} kiểm`);
