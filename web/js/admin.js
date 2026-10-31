@@ -127,6 +127,9 @@
     'Đã khôi phục thành công {n} tài liệu': 'Successfully restored {n} documents', 'Lỗi khôi phục: {e}': 'Restore error: {e}',
     '🔎 Tìm email, tên hoặc UID': '🔎 Search email, name or UID', 'Tìm người dùng': 'Search users', 'Vai trò': 'Role', 'Trạng thái': 'Status', 'Hoạt động 7 ngày': 'Active (7 days)', 'Ngủ đông >30 ngày': 'Dormant >30 days', 'Mới 7 ngày': 'New (7 days)',
     'Sắp xếp': 'Sort', 'Mới nhất': 'Newest', 'Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)': 'Download CSV for the current filter (max 5,000 rows)',
+    'Quốc gia': 'Country', 'Chưa rõ': 'Unknown', 'Chưa rõ quốc gia': 'Unknown country', 'Tham gia từ': 'Joined from', 'đến ngày': 'to', 'Tham gia sớm nhất': 'Earliest joined', 'Vào nhiều nhất': 'Most visits', 'Bỏ lọc': 'Clear filters',
+    '🌍 Người dùng theo quốc gia': '🌍 Users by country', 'Lần đồng bộ gần nhất · bấm để lọc': 'Latest sync · click to filter', '{n} quốc gia': ['{n} country', '{n} countries'], 'xem tất cả trong ô lọc Quốc gia': 'see all in the Country filter',
+    '"Chưa rõ" = tài khoản chưa đồng bộ lại từ khi có thống kê quốc gia': '"Unknown" = accounts that have not synced since country stats were added',
     'Tổng người dùng': 'Total users', 'tài khoản đã đồng bộ': 'synced accounts', 'Hoạt động hôm nay': 'Active today', '24 giờ qua': 'last 24 hours', 'Hoạt động 7 / 30 ngày': 'Active 7 / 30 days', '{p}% còn hoạt động trong tháng': '{p}% active this month',
     'tài khoản đăng ký mới': 'new sign-ups', 'Theo nền tảng': 'By platform', 'Lần vào': 'Visits', 'Chi tiết': 'Details', 'Xóa dữ liệu': 'Delete data', 'Không có người dùng khớp bộ lọc': 'No users match the filter', 'Thử bỏ bớt bộ lọc hoặc từ khóa.': 'Try removing some filters or search terms.',
     ' (lọc từ {n})': ' (filtered from {n})', '← Trước': '← Prev', 'Sau →': 'Next →', '⏳ Đang xuất…': '⏳ Exporting…', 'Đã xuất {n} dòng': ['Exported {n} row', 'Exported {n} rows'], 'Lỗi xuất CSV': 'CSV export failed',
@@ -777,6 +780,7 @@
         <dl class="u-facts">
           ${fact('UID', copyBtn(u.uid || uid))}
           ${fact(L('Nền tảng'), `${platIcon(u.plat)} ${esc(platName(u.plat))}`)}
+          ${fact(L('Quốc gia'), u.cc ? `${esc(FLAG(u.cc))} · ${esc(cname(u.cc))}` : `<span class="muted">${L('Chưa rõ')}</span>`)}
           ${fact(L('Ngày tạo'), rel(u.created))}
           ${fact(L('Hoạt động gần nhất'), rel(u.seen))}
           ${fact(L('Số lần vào (đồng bộ)'), num(u.n))}
@@ -1110,7 +1114,12 @@
     },
     async users() {
       let f; try { f = JSON.parse(sessionStorage.getItem('adm.uf') || '{}'); } catch (e) { f = {}; }
-      f = { q: '', role: '', status: '', plat: '', sort: 'seen', offset: 0, ...f };
+      f = { q: '', role: '', status: '', plat: '', cc: '', from: '', to: '', sort: 'seen', offset: 0, ...f };
+      // Quốc gia: mã 2 chữ Cloudflare lưu ở lần đồng bộ gần nhất (users.cc, không lưu IP) – cờ + tên theo ngôn ngữ trang quản trị
+      const flagOf = c => realCC(c) ? String.fromCodePoint(...[...c].map(x => 127397 + x.charCodeAt(0))) : c === 'T1' ? '🧅' : '🌐';
+      const ccName = c => (c ? cname(c) : L('Chưa rõ quốc gia'));
+      const ccCell = c => `<span aria-hidden="true">${flagOf(c)}</span> ${c ? esc(ccName(c)) : `<span class="muted">${L('Chưa rõ')}</span>`}`;
+      let ccs = [];
       const sel = (id, label, opts) => `<label class="u-sel"><span>${L(label)}</span><select id="${id}">${opts.map(([v, t]) => `<option value="${v}" ${f[id.slice(1)] === v ? 'selected' : ''}>${L(t)}</option>`).join('')}</select></label>`;
       setActions(`<button type="button" class="btn sm" id="ucsv" title="${esc(L('Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)'))}">⬇ CSV</button>`);
       main.innerHTML = `
@@ -1121,11 +1130,16 @@
             ${sel('frole', 'Vai trò', [['', 'Tất cả'], ['admin', 'Quản trị'], ['learner', 'Người học']])}
             ${sel('fstatus', 'Trạng thái', [['', 'Tất cả'], ['active7', 'Hoạt động 7 ngày'], ['dormant', 'Ngủ đông >30 ngày'], ['new7', 'Mới 7 ngày']])}
             ${sel('fplat', 'Nền tảng', [['', 'Tất cả'], ['web', 'Web'], ['ios', 'iOS'], ['android', 'Android'], ['ext', 'Add-on Chrome'], ['app', 'App (cũ)']])}
-            ${sel('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất']])}
+            <label class="u-sel"><span>${L('Quốc gia')}</span><select id="fcc"><option value="">${L('Tất cả')}</option>${f.cc ? `<option value="${esc(f.cc)}" selected>${esc(f.cc === '??' ? L('Chưa rõ quốc gia') : ccName(f.cc))}</option>` : ''}</select></label>
+            <label class="u-sel"><span>${L('Tham gia từ')}</span><input type="date" id="ffrom" value="${esc(f.from)}"></label>
+            <label class="u-sel"><span>${L('đến ngày')}</span><input type="date" id="fto" value="${esc(f.to)}"></label>
+            ${sel('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất'], ['old', 'Tham gia sớm nhất'], ['n', 'Vào nhiều nhất']])}
+            <button type="button" class="btn ghost sm" id="uclr" ${['q', 'role', 'status', 'plat', 'cc', 'from', 'to'].some(k => f[k]) ? '' : 'hidden'}>${L('Bỏ lọc')}</button>
           </div>
           <div class="tbl-wrap scroll" id="uTable"><span class="sk sk-block" style="margin:0"></span></div>
           <div class="u-pager" id="uPager"></div>
-        </div>`;
+        </div>
+        <section class="card mt" aria-labelledby="uCcH"><div class="card-h"><h2 class="h3" id="uCcH">${L('🌍 Người dùng theo quốc gia')}</h2><span class="small muted">${L('Lần đồng bộ gần nhất · bấm để lọc')}</span></div><div id="uCc"><span class="sk sk-block" style="margin:0"></span></div></section>`;
       const save = () => sessionStorage.setItem('adm.uf', JSON.stringify(f));
       let my = 0;
       const load = async () => {
@@ -1133,21 +1147,32 @@
         try { r = await api('users', f); } catch (e) { if (me === my && tab === 'users') $('#uTable').innerHTML = errBox(e); return; }
         if (me !== my || tab !== 'users') return;
         const k = r.kpi || {}, tot = r.total || 0;
+        ccs = r.countries || [];
+        const known = ccs.filter(c => c.k), top = known.slice(0, 15), unk = (ccs.find(c => !c.k) || {}).n || 0;
+        const fcc = $('#fcc'); fcc.innerHTML = `<option value="">${L('Tất cả')}</option>${[...known].sort((a, b) => ccName(a.k).localeCompare(ccName(b.k), LOC())).map(c => `<option value="${esc(c.k)}">${flagOf(c.k)} ${esc(ccName(c.k))} (${num(c.n)})</option>`).join('')}${unk ? `<option value="??">${esc(L('Chưa rõ quốc gia'))} (${num(unk)})</option>` : ''}`;
+        if (f.cc && ![...fcc.options].some(o => o.value === f.cc)) fcc.insertAdjacentHTML('beforeend', `<option value="${esc(f.cc)}">${esc(ccName(f.cc))}</option>`);
+        fcc.value = f.cc;
+        const max = Math.max(1, ...ccs.map(c => c.n)), sum = ccs.reduce((t, c) => t + c.n, 0) || 1;
+        const ccRow = (c, lbl) => `<button type="button" class="row2 u-ccrow" data-cc="${esc(c.k || '??')}" aria-pressed="${f.cc === (c.k || '??')}"><span class="k">${lbl}</span><span class="track"><i style="width:${c.n / max * 100}%"></i></span><span class="v">${num(c.n)}<small> · ${Math.round(c.n / sum * 100)}%</small></span></button>`;
+        $('#uCc').innerHTML = ccs.length ? `<div class="hbars u-cc">${top.map(c => ccRow(c, ccCell(c.k))).join('')}${unk ? ccRow({ k: '', n: unk }, `<span aria-hidden="true">🌐</span> <span class="muted">${L('Chưa rõ quốc gia')}</span>`) : ''}</div>
+          <p class="small muted">${L('{n} quốc gia', { n: num(known.length) })}${known.length > top.length ? ' · ' + L('xem tất cả trong ô lọc Quốc gia') : ''}${unk ? ' · ' + L('"Chưa rõ" = tài khoản chưa đồng bộ lại từ khi có thống kê quốc gia') : ''}</p>` : NODATA();
+        $('#uCc').querySelectorAll('[data-cc]').forEach(b => { b.onclick = () => { f.cc = f.cc === b.dataset.cc ? '' : b.dataset.cc; f.offset = 0; load(); }; });
+        $('#uclr').hidden = !['q', 'role', 'status', 'plat', 'cc', 'from', 'to'].some(x => f[x]);
         $('#uKpi').innerHTML = `
           ${tile({ l: L('Tổng người dùng'), v: num(tot), s: L('tài khoản đã đồng bộ') })}
           ${tile({ l: L('Hoạt động hôm nay'), v: num(k.act1), s: L('24 giờ qua') })}
           ${tile({ l: L('Hoạt động 7 / 30 ngày'), v: `${num(k.act7)} <small>/ ${num(k.act30)}</small>`, s: L('{p}% còn hoạt động trong tháng', { p: tot ? Math.round((k.act30 || 0) / tot * 100) : 0 }) })}
           ${tile({ l: L('Mới 7 ngày'), v: num(k.new7), s: L('tài khoản đăng ký mới') })}
           <div class="kstat"><span class="tile-l">${L('Theo nền tảng')}</span><div class="u-plats">${(r.plats || []).map(p => `<span class="chip">${platIcon(p.k)} ${esc(platName(p.k))} · <b>${num(p.n)}</b></span>`).join('') || '<span class="small muted">–</span>'}</div></div>`;
-        $('#uTable').innerHTML = `<table class="tbl u-tbl"><thead><tr><th scope="col">${L('Người dùng')}</th><th scope="col">${L('Vai trò')}</th><th scope="col">${L('Nền tảng')}</th><th scope="col">${L('Ngày tạo')}</th><th scope="col">${L('Hoạt động gần nhất')}</th><th scope="col" class="num">${L('Lần vào')}</th><th scope="col"><span class="sr-only">${L('Thao tác')}</span></th></tr></thead><tbody>
+        $('#uTable').innerHTML = `<table class="tbl u-tbl"><thead><tr><th scope="col">${L('Người dùng')}</th><th scope="col">${L('Vai trò')}</th><th scope="col">${L('Nền tảng')}</th><th scope="col">${L('Quốc gia')}</th><th scope="col">${L('Ngày tạo')}</th><th scope="col">${L('Hoạt động gần nhất')}</th><th scope="col" class="num">${L('Lần vào')}</th><th scope="col"><span class="sr-only">${L('Thao tác')}</span></th></tr></thead><tbody>
           ${(r.rows || []).map(u => {
             const utags = (Array.isArray(u.tags) ? u.tags : (() => { try { return JSON.parse(u.tags || '[]'); } catch (e) { return []; } })());
             return `<tr><td><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><b>${esc(u.name || L('(không tên)'))}</b> ${u.blocked ? `<span class="chip bad sm">⛔ ${L('Bị khóa')}</span>` : ''}<br><span class="small muted">${esc(u.email || u.uid)}</span>${utags.length ? `<div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.2rem">${utags.map(t => `<span class="chip sm">${esc(t)}</span>`).join('')}</div>` : ''}</span></div></td>
             <td>${rolePill(u.isAdmin)}</td>
-            <td class="nowrap">${platIcon(u.plat)} ${esc(platName(u.plat))}</td><td class="small nowrap">${rel(u.created)}</td>
+            <td class="nowrap">${platIcon(u.plat)} ${esc(platName(u.plat))}</td><td class="nowrap">${ccCell(u.cc)}</td><td class="small nowrap">${rel(u.created)}</td>
             <td class="small nowrap"><span class="dot ${Date.now() - u.seen < 7 * 864e5 ? 'ok' : Date.now() - u.seen > 30 * 864e5 ? '' : 'warn'}"></span>${rel(u.seen)}</td><td class="num">${num(u.n)}</td>
             <td class="nowrap"><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${L('Chi tiết')}</button> <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${L('Gửi thông báo')}">📣 ${L('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${L('Xóa dữ liệu')}</button></td></tr>`;
-          }).join('') || `<tr><td colspan="7">${emptyState(L('Không có người dùng khớp bộ lọc'), L('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}</td></tr>`}</tbody></table>`;
+          }).join('') || `<tr><td colspan="8">${emptyState(L('Không có người dùng khớp bộ lọc'), L('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}</td></tr>`}</tbody></table>`;
         const from = r.filtered ? f.offset + 1 : 0, to = Math.min(f.offset + 50, r.filtered);
         $('#uPager').innerHTML = `<span>${num(from)}–${num(to)} / ${num(r.filtered)}${r.filtered !== tot ? L(' (lọc từ {n})', { n: num(tot) }) : ''}</span><span><button type="button" class="btn sm" id="uprev" ${f.offset ? '' : 'disabled'}>${L('← Trước')}</button> <button type="button" class="btn sm" id="unext" ${to < r.filtered ? '' : 'disabled'}>${L('Sau →')}</button></span>`;
         $('#uprev').onclick = () => { f.offset = Math.max(0, f.offset - 50); load(); };
@@ -1157,14 +1182,15 @@
         main.querySelectorAll('[data-notif]').forEach(b => { b.onclick = () => { try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: b.dataset.notif, email: b.dataset.em })); } catch (e) { /* bỏ qua */ } show('notices'); }; });
       };
       let deb; $('#uq').oninput = () => { clearTimeout(deb); deb = setTimeout(() => { f.q = $('#uq').value.trim(); f.offset = 0; load(); }, 350); };
-      [['#frole', 'role'], ['#fstatus', 'status'], ['#fplat', 'plat'], ['#fsort', 'sort']].forEach(([id, k]) => { $(id).onchange = () => { f[k] = $(id).value; f.offset = 0; load(); }; });
+      [['#frole', 'role'], ['#fstatus', 'status'], ['#fplat', 'plat'], ['#fcc', 'cc'], ['#ffrom', 'from'], ['#fto', 'to'], ['#fsort', 'sort']].forEach(([id, k]) => { $(id).onchange = () => { f[k] = $(id).value; f.offset = 0; load(); }; });
+      $('#uclr').onclick = () => { Object.assign(f, { q: '', role: '', status: '', plat: '', cc: '', from: '', to: '', offset: 0 }); ['#uq', '#frole', '#fstatus', '#fplat', '#fcc', '#ffrom', '#fto'].forEach(id => { $(id).value = ''; }); load(); };
       $('#ucsv').onclick = async () => {
         const b = $('#ucsv'); b.disabled = true; b.textContent = L('⏳ Đang xuất…');
         try {
           const r = await api('usersExport', { ...f, offset: 0 });
           const cell = v => { let x = String(v == null ? '' : v); if (/^[=+\-@\t\r]/.test(x)) x = "'" + x; return /[",\n\r;]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; };
           const iso = t => t ? new Date(t).toISOString() : '';
-          const lines = [['email', 'name', 'role', 'plat', 'created', 'seen', 'n'], ...r.rows.map(u => [u.email, u.name, u.isAdmin ? 'admin' : 'learner', u.plat, iso(u.created), iso(u.seen), u.n])].map(x => x.map(cell).join(','));
+          const lines = [['email', 'name', 'role', 'plat', 'country', 'created', 'seen', 'n'], ...r.rows.map(u => [u.email, u.name, u.isAdmin ? 'admin' : 'learner', u.plat, u.cc || '', iso(u.created), iso(u.seen), u.n])].map(x => x.map(cell).join(','));
           const url = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' }));
           const a = document.createElement('a'); a.href = url; a.download = `lexkite-users-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
           toast(L('Đã xuất {n} dòng', { n: num(r.rows.length) }));

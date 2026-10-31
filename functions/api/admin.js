@@ -64,6 +64,8 @@ async function setup(db) {
   await db.prepare('ALTER TABLE users ADD COLUMN blocked INTEGER DEFAULT 0').run().catch(() => {});
   await db.prepare('ALTER TABLE users ADD COLUMN tags TEXT').run().catch(() => {});
   await db.prepare('ALTER TABLE users ADD COLUMN notes TEXT').run().catch(() => {});
+  await db.prepare('ALTER TABLE users ADD COLUMN cc TEXT').run().catch(() => {}); // quốc gia lần đồng bộ gần nhất (sync.js)
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_users_cc ON users (cc)').run().catch(() => {});
   await db.prepare('CREATE INDEX IF NOT EXISTS idx_user_backups_uid ON user_backups (uid, at)').run().catch(() => {});
   ready = true;
 }
@@ -106,7 +108,15 @@ function userWhere(b, env) {
   else if (b.status === 'dormant') { a.push(now - 30 * DAY); w.push('seen < ?' + a.length); }
   else if (b.status === 'new7') { a.push(now - 7 * DAY); w.push('created > ?' + a.length); }
   if (/^(web|ios|android|ext|app)$/.test(b.plat || '')) { a.push(b.plat); w.push('plat = ?' + a.length); }
-  return { sql: w.length ? ' WHERE ' + w.join(' AND ') : '', args: a, order: b.sort === 'new' ? 'created DESC' : 'seen DESC', admins };
+  if (b.cc === '??') w.push('cc IS NULL'); // chưa rõ quốc gia (tài khoản chưa đồng bộ lại từ khi có cột cc)
+  else if (/^[A-Z][A-Z1-9]$/.test(b.cc || '')) { a.push(b.cc); w.push('cc = ?' + a.length); }
+  // Ngày tham gia (YYYY-MM-DD, giờ Việt Nam như biểu đồ đăng ký): từ ngày … đến hết ngày …
+  const day = (x, end) => /^\d{4}-\d{2}-\d{2}$/.test(x || '') ? Date.parse(x + 'T00:00:00+07:00') + (end ? DAY : 0) : NaN;
+  const from = day(b.from), to = day(b.to, 1);
+  if (Number.isFinite(from)) { a.push(from); w.push('created >= ?' + a.length); }
+  if (Number.isFinite(to)) { a.push(to); w.push('created < ?' + a.length); }
+  const order = { new: 'created DESC', old: 'created ASC', n: 'n DESC, seen DESC' }[b.sort] || 'seen DESC';
+  return { sql: w.length ? ' WHERE ' + w.join(' AND ') : '', args: a, order, admins };
 }
 const isAdm = (admins, email) => admins.includes(String(email || '').toLowerCase());
 // Đọc tài liệu đồng bộ (dạng {json} hoặc {z: gzip base64}) – chỉ dùng cho tài liệu nhỏ (meta)
@@ -119,7 +129,7 @@ async function docJson(body) {
 }
 // Đệm kết quả trong Cache API của Cloudflare (giảm lượt đọc D1 khi trang Quản trị tự cập nhật)
 async function cached(key, ttl, fn) {
-  const c = caches.default, req = new Request('https://cache.lexkite.internal/' + key);
+  const c = typeof caches === 'undefined' ? null : /** @type {any} */ (caches).default, req = new Request('https://cache.lexkite.internal/' + key); // không có Cache API (dev/test) → đọc thẳng
   try { const hit = await c.match(req); if (hit) return hit.json(); } catch (e) { /* không có cache (dev) */ }
   const out = await fn();
   try { await c.put(req, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=' + ttl } })); } catch (e) { /* bỏ qua */ }
@@ -182,16 +192,18 @@ const OPS = {
   async users(db, b, who, env) {
     const f = userWhere(b, env), off = Math.max(0, Math.floor(+b.offset || 0)), now = Date.now();
     const [rows, cnt, k, plats] = await Promise.all([
-      all(db, `SELECT uid, email, name, created, seen, plat, n, COALESCE(blocked, 0) AS blocked, tags FROM users${f.sql} ORDER BY ${f.order} LIMIT 50 OFFSET ${off}`, ...f.args),
+      all(db, `SELECT uid, email, name, created, seen, plat, n, COALESCE(blocked, 0) AS blocked, tags, cc FROM users${f.sql} ORDER BY ${f.order} LIMIT 50 OFFSET ${off}`, ...f.args),
       one(db, `SELECT COUNT(*) AS n FROM users${f.sql}`, ...f.args),
       one(db, 'SELECT COUNT(*) AS total, SUM(seen > ?1) AS act1, SUM(seen > ?2) AS act7, SUM(seen > ?3) AS act30, SUM(created > ?2) AS new7 FROM users', now - DAY, now - 7 * DAY, now - 30 * DAY),
       all(db, "SELECT COALESCE(plat, '') AS k, COUNT(*) AS n FROM users GROUP BY k ORDER BY n DESC"),
     ]);
-    return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })), filtered: cnt.n || 0, total: k.total || 0, kpi: k, plats, offset: off };
+    // Người dùng theo quốc gia (chỉ đọc chỉ mục idx_users_cc; đệm 5 phút ở Cache API – trang quản trị lọc/lật trang không đọc lại D1)
+    const countries = await cached('admin-users-cc', 300, () => all(db, "SELECT COALESCE(cc, '') AS k, COUNT(*) AS n FROM users GROUP BY cc ORDER BY n DESC LIMIT 250")).catch(() => []);
+    return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })), filtered: cnt.n || 0, total: k.total || 0, kpi: k, plats, countries, offset: off };
   },
   async usersExport(db, b, who, env) {
     const f = userWhere(b, env);
-    const rows = await all(db, `SELECT email, name, plat, created, seen, n, COALESCE(blocked, 0) AS blocked, tags FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
+    const rows = await all(db, `SELECT email, name, plat, created, seen, n, COALESCE(blocked, 0) AS blocked, tags, cc FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
     return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })) };
   },
   async user(db, b, who, env) {
