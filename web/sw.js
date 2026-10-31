@@ -4,7 +4,7 @@
  * không bao giờ trả app cũ ở "/", chỉ khi MẤT MẠNG mở "/" hoặc "/index.html" (PWA cài cũ có start_url "/index.html#/home",
  * iOS không cập nhật start_url) thì chuyển hướng sang /app/ (đã có trong cache của /app/) → vẫn học offline được.
  * Dữ liệu học (IndexedDB, localStorage) thuộc nguồn lexkite.com, không phụ thuộc phạm vi SW → không mất. Test: scripts/test/landing-routing.mjs */
-const CACHE = 'lexkite-20261031210943';
+const CACHE = 'lexkite-20261031212019';
 const APP = '/app/';
 const LEGACY = new URL(self.registration.scope).pathname === '/';
 // Chỉ phần lõi (các file trong app/index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
@@ -101,7 +101,7 @@ async function offStart(o) {
   const worker = async () => {
     while (i < keys.length && job === offJob && !m.full) {
       const url = base + keys[i++] + '.mp3';
-      m.bytes += await offGet(c, m, url); m.done++;
+      const n = await offGet(c, m, url); m.bytes += n; m.done++; // đọc m.bytes SAU await – 4 luồng không cộng đè nhau
       if (m.bytes > OFF_MAX_MB * 1048576) m.full = true;
       if (m.done % 100 === 0) await offSave(c, m);
     }
