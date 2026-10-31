@@ -71,3 +71,5 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
   `web/js/ui.js` `audioUrl` tự trỏ sang. Vẫn trượt → `web/audio/l/asr-fail.tsv` (lý do: chữ Whisper nghe, WER), app phát bản cũ.
 - Số liệu: `web/audio/l/asr-stats.json`; test `scripts/test/sentence-asr.mjs` (trong `npm test`). Câu mới từ `gen-audio.mjs` xuất 64 kbps và qua cổng ở lượt sau.
 - Chưa làm: newtab add-on (`extension/newtab.js`) vẫn phát bản cũ cho từ có `-s2` (bản cũ còn trên CDN).
+- Lượt thử 300 câu (run 41211034940, 31/10): bản đang phục vụ đạt 282/300 (94,0 %); sau render lại đạt 295/300 (98,3 %).
+  Trượt thật: từ đơn đọc sai (wine → "Wind", reap → "rape", farm → "Thumbed"). Khoảng 2 s/câu (small.en int8) → 25k câu ≈ 15–20 giờ máy, 6 shard × 1500 câu/lượt.

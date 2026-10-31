@@ -4,7 +4,6 @@
 # Xem docs/WORD-AUDIO.md mục "Audio câu". KHÔNG thay audio.yml (tạo câu mới) – workflow này chỉ kiểm + render lại.
 name: Cổng ASR audio câu
 on:
-  push: { branches: [sentence-audio-asr] }   # TẠM: lượt thử 300 câu – bỏ trước khi gộp
   schedule:
     - cron: '50 1-23/4 * * *'   # mỗi 4 giờ (lệch word-audio.yml) tới khi kiểm hết (bước "Đếm" bỏ qua khi xong)
   workflow_dispatch:
@@ -28,7 +27,7 @@ jobs:
       - id: c
         run: |
           echo "left=$(node scripts/sentence-audio/todo.mjs --count | grep -o 'cần nghe [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
-          n="${{ github.event.inputs.shards || (github.event_name == 'push' && '3') || '6' }}"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
+          n="${{ github.event.inputs.shards || '6' }}"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
   check:
     needs: plan
     if: needs.plan.outputs.left != '0'
@@ -49,7 +48,7 @@ jobs:
       - uses: actions/cache@v4
         with: { path: ~/.cache/huggingface, key: whisper-small-en-ct2 }
       - name: Danh sách câu của shard
-        run: node scripts/sentence-audio/todo.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || (github.event_name == 'push' && '100') || '1500' }}" --out .sa/todo.json
+        run: node scripts/sentence-audio/todo.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}" --out .sa/todo.json
       - name: Nghe bản đang phục vụ
         run: python3 scripts/sentence-asr.py --todo .sa/todo.json --res .sa/res-${{ matrix.shard }}.json --minutes 100
       - name: Cài kokoro-js (chỉ khi có câu trượt)
