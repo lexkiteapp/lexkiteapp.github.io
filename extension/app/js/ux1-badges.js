@@ -134,7 +134,7 @@
       if (!reduce()) w.querySelectorAll('[data-bu-medal]').forEach(m => { const C = ['#F59E0B', '#2BA39A', '#E5502F', '#FFC94A', '#6BD8CE']; // tung hoa giấy nhẹ quanh huy chương (st-burst, tắt khi giảm chuyển động)
         m.insertAdjacentHTML('beforeend', `<span class="st-burst" aria-hidden="true">${Array.from({ length: 14 }, (_, i) => { const a = i / 14 * Math.PI * 2, r = 90 + (i % 3) * 18; return `<i style="--x:${Math.round(Math.cos(a) * r)}px;--y:${Math.round(Math.sin(a) * r)}px;--r:${i * 47}deg;background:${C[i % C.length]}"></i>`; }).join('')}</span>`); });
       w.addEventListener('click', e => { if (e.target.closest('[data-bu-next]')) close(); else if (e.target.closest('[data-share]')) setTimeout(close, 0); });
-      w.querySelectorAll('header [data-bu-next]').forEach(b => { b.className += ' ' + HIT; });
+      w.querySelectorAll('header [data-bu-next]').forEach(b => { b.className += ' ' + HIT.replace(/^relative /, ''); }); // nút đã absolute (mẫu) → giữ vị trí, chỉ thêm vùng chạm
       const n = w.querySelector('footer [data-bu-next]') || w.querySelector('[data-bu-next]'); if (n) n.focus();
     },
   };
