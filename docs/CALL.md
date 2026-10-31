@@ -11,10 +11,11 @@
 | Giao diện | `web/js/call.js` | lượt lời talk → you → listen → think; mã lượt chống kết quả muộn; gõ phím luôn có; Part 2 gom nhiều đoạn nói, đồng hồ 2 phút |
 | Giáo viên | `lesson/teacher.js` (chỉ dùng, không sửa ở đây) | giọng Kokoro sinh sẵn: `scripts/gen-audio.mjs` (audio.yml đêm) quét `CALLS`; thiếu file → giọng máy + miệng theo chữ |
 | Phát âm | `pron/coach.js` (thuần) · `pron/rhythm.js` | nhịp câu + dạng yếu theo `UI.WEAK` (UK/US, PR #178), nghe chậm, shadowing, nghe lại giọng mình 0,75×, gợi ý luyện tiếp; gắn vào bài `weak-forms`, `word-stress`, `connected-speech`… |
+| Thời gian thực (cờ `lk.call_rt`) | `call/endpoint.js` (thuần) · `call/rt.js` · `call/fillers.js` | Silero VAD trên máy biết nói xong (độ chờ im thích nghi), nói chen → giáo viên im, câu đệm Kokoro che trễ – [specs/call-realtime.md](specs/call-realtime.md) |
 
 ## Nhận dạng (riêng tư mặc định)
 `asrMode`: Chrome `processLocally` có gói → trên máy · chưa có → hỏi 1 lần (tải gói Chrome / Whisper tiny.en ~40 MB / dịch vụ trình duyệt – ghi rõ gửi âm thanh / chỉ chạm-gõ). Không bao giờ tự gửi âm thanh lên đám mây. Đổi lại: nút "Đổi cách nhận dạng" ở danh sách.
 
 ## QA
-`scripts/test/call-engine.mjs`, `pron-coach.mjs` (npm test) · `call-qa.yml`: e2e Chromium (`call-e2e.mjs`), Whisper thật với mẫu espeak-ng, ảnh 1280/375, video, bảng trước/sau (artifact `call-qa`).
+`scripts/test/call-engine.mjs`, `call-rt.mjs`, `pron-coach.mjs` (npm test) · `call-rt.yml`: đo trễ/nói chen/fps ở CPU 4× (`call-rt-e2e.mjs`) · `call-qa.yml`: e2e Chromium (`call-e2e.mjs`), Whisper thật với mẫu espeak-ng, ảnh 1280/375, video, bảng trước/sau (artifact `call-qa`).
 Chưa làm: chấm âm vị GOP (chờ mô hình qua cổng `docs/research/pron-phoneme-plan.md` §6), Moonshine, restyle Stitch (sau PR #185).

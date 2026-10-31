@@ -1,0 +1,53 @@
+# 📞⚡ Call thời gian thực (cờ lk.call_rt, docs/specs/call-realtime.md): đo trên Chromium thật ở CPU chậm 4× –
+# tiếng tắt → giáo viên có tiếng (p50/p95, cờ bật/tắt), nói chen → giáo viên im (≤ 200 ms), fps ≥ 50, không lỗi JS. Silero VAD thật (jsdelivr).
+# Artifact call-rt: report.md, metrics.json, call-rt.gif (375 px), ảnh. Kịch bản: scripts/test/call-rt-e2e.mjs
+name: call-rt
+on:
+  pull_request:
+    paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'scripts/test/call-rt*.mjs', '.github/workflows/call-rt.yml']
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency:
+  group: call-rt-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  rt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright + espeak-ng
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
+      - name: Logic (node)
+        run: node scripts/test/call-rt.mjs
+      - name: Mẫu giọng người học (espeak-ng, 16 kHz mono, lặng 0,3 s trước / 0,2 s sau)
+        run: |
+          mkdir -p fx; i=0; echo '{' > fx/text.json
+          while IFS= read -r line; do i=$((i+1))
+            espeak-ng -v en-us -s 150 -w fx/raw.wav "$line"
+            ffmpeg -y -loglevel error -f lavfi -t 0.3 -i anullsrc=r=16000:cl=mono -i fx/raw.wav -f lavfi -t 0.2 -i anullsrc=r=16000:cl=mono -filter_complex "[1:a]aresample=16000,aformat=channel_layouts=mono[v];[0:a][v][2:a]concat=n=3:v=0:a=1" -ar 16000 -ac 1 fx/a$i.wav
+            [ $i -gt 1 ] && echo ',' >> fx/text.json; printf '"a%s.wav": "%s"' "$i" "$line" >> fx/text.json
+          done <<'TXT'
+          I would like a large latte, please.
+          Yes, I usually go there on weekends.
+          I went hiking with my friends.
+          Sounds great, thank you so much.
+          Maybe around seven o'clock.
+          I think that is a really good idea.
+          TXT
+          echo '}' >> fx/text.json; rm fx/raw.wav; cat fx/text.json
+      - name: Đo (CPU 4×)
+        run: node scripts/test/call-rt-e2e.mjs --fx fx --out qa-rt
+      - name: GIF + tóm tắt
+        if: always()
+        run: |
+          for f in qa-rt/video-on/*.webm; do [ -f "$f" ] && ffmpeg -y -loglevel error -t 40 -i "$f" -vf "fps=10,scale=300:-2:flags=lanczos,split[a][b];[a]palettegen=max_colors=96[p];[b][p]paletteuse" qa-rt/call-rt.gif && break; done
+          cat qa-rt/report.md >> $GITHUB_STEP_SUMMARY || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: call-rt, path: qa-rt, retention-days: 14 }
