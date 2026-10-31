@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Café & restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF9F3',
+              200: '#FDF2E7',
+              300: '#F6E7D8',
+              400: '#EBD8C4',
+              500: '#D9C1A9',
+            },
+            teal: {
+              deep: '#136B66',
+              dark: '#0E5450',
+              accent: '#2DD4BF',
+              soft: '#E6F5F3',
+              border: '#BFE7E2',
+            },
+            amber: {
+              sunny: '#F59E0B',
+              ledge: '#B45309',
+              light: '#FEF3C7',
+            },
+            ink: {
+              main: '#191E20',
+              muted: '#4A5558',
+              brown: '#1C1003',
+            }
+          },
+          boxShadow: {
+            'card-ledge': '0 5px 0 #E3CFBB',
+            'btn-orange': '0 6px 0 #B45309',
+            'btn-teal': '0 5px 0 #0C4B47',
+            'btn-subtle': '0 4px 0 #DCC8B4',
+            'node-done': '0 4px 0 #0E5450',
+            'node-curr': '0 5px 0 #B45309',
+            'node-lock': '0 4px 0 #D6C3AF',
+            'chip-ledge': '0 3px 0 #D6C2AE',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFF9F3;
+      color: #191E20;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    /* Touch active animations */
+    .tactile-press:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 var(--ledge-color, #B45309) !important;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF9F3] text-ink-main antialiased selection:bg-teal-accent selection:text-ink-main">
+
+  <!-- Mobile screen container (Exact 390px, no chrome, no outer bezel) -->
+  <div class="w-full max-w-[390px] min-h-screen bg-[#FFF9F3] flex flex-col justify-between pb-[76px] relative shadow-none mx-auto overflow-x-hidden">
+
+    <!-- ==================== TOP BAR: INNER VARIANT (56px) ==================== -->
+    <header class="h-[56px] px-4 flex items-center justify-between sticky top-0 bg-[#FFF9F3]/95 backdrop-blur-sm z-30 border-b border-[#F0DFCD]">
+      <!-- Left: Round tactile back button + Title -->
+      <div class="flex items-center gap-3">
+        <button type="button" aria-label="Go back" class="w-10 h-10 rounded-full bg-white border-2 border-[#E7D6C4] shadow-[0_3px_0_#D9C3AE] flex items-center justify-center tactile-press active:translate-y-[2px] transition-all">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#136B66" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div>
+          <h1 class="text-[19px] font-extrabold tracking-tight text-[#162022] leading-none">Café &amp; restaurant</h1>
+          <p class="text-[11px] font-bold text-teal-deep tracking-wide uppercase mt-0.5">Speaking Drill • Level B1</p>
+        </div>
+      </div>
+
+      <!-- Right: At most one round icon button (Bookmark / Info) -->
+      <button type="button" aria-label="Info" class="w-10 h-10 rounded-full bg-white border-2 border-[#E7D6C4] shadow-[0_3px_0_#D9C3AE] flex items-center justify-center tactile-press active:translate-y-[2px] transition-all">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#136B66" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+      </button>
+    </header>
+
+    <!-- ==================== MAIN CONTENT SCROLL AREA ==================== -->
+    <main class="flex-1 px-4 py-3 flex flex-col gap-[14px]">
+
+      <!-- ================= 1. TEACHER SLOT + SPEECH BUBBLE ================= -->
+      <div class="flex items-start gap-3 pt-1">
+        <!-- Empty dashed rounded 120x140 teacher box at the left -->
+        <div class="w-[120px] h-[140px] rounded-[16px] border-2 border-dashed border-teal-deep/70 bg-[#F4EBE0]/50 flex flex-col items-center justify-center p-2 text-center shrink-0">
+          <div class="w-10 h-10 rounded-full bg-teal-soft border-2 border-teal-deep/30 flex items-center justify-center mb-1.5 shadow-[0_2px_0_#D1E7E4]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#136B66" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <span class="text-[12px] font-black uppercase text-teal-deep tracking-wider leading-tight">Teacher<br>Slot</span>
+          <span class="text-[9px] font-bold text-ink-muted/90 mt-1">2D coach loads here</span>
+        </div>
+
+        <!-- Speech bubble at the right -->
+        <div class="flex-1 self-center relative bg-white border-2 border-[#E7D6C4] rounded-[18px] p-3.5 shadow-card-ledge">
+          <!-- Speech triangle pointer pointing left to teacher box -->
+          <div class="absolute -left-2.5 top-6 w-0 h-0 border-t-[8px] border-t-transparent border-r-[10px] border-r-[#E7D6C4] border-b-[8px] border-b-transparent"></div>
+          <div class="absolute -left-[7px] top-6 w-0 h-0 border-t-[7px] border-t-transparent border-r-[9px] border-r-white border-b-[7px] border-b-transparent"></div>
+
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="w-2 h-2 rounded-full bg-amber-sunny animate-pulse"></span>
+            <span class="text-[11px] font-black uppercase tracking-wider text-teal-deep">Mission Cue</span>
+          </div>
+          <p class="text-[15px] font-extrabold text-[#191E20] leading-snug">
+            “Today's mission: <span class="text-teal-deep underline decoration-amber-sunny decoration-2 underline-offset-2">order for two!</span>”
+          </p>
+          <div class="mt-2 flex items-center gap-1 text-[11px] font-bold text-ink-muted">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <span>+25 XP upon completion</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 2. HORIZONTAL SITUATION PATH (ADVENTURE MAP) ================= -->
+      <section class="bg-white border-2 border-[#E7D6C4] rounded-[16px] p-3.5 shadow-card-ledge">
+        <div class="flex items-center justify-between mb-3 px-1">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[12px] font-black uppercase text-teal-deep tracking-wider">Adventure Path</span>
+            <span class="text-[11px] font-bold bg-[#FEF3C7] text-ink-brown px-2 py-0.5 rounded-full border border-amber-sunny/40">Step 3 of 5</span>
+          </div>
+          <span class="text-[11px] font-bold text-ink-muted">Café Sprint</span>
+        </div>
+
+        <!-- 5 round nodes connected by dotted line -->
+        <div class="relative py-2 px-1">
+          <!-- Connecting dotted line behind nodes -->
+          <div class="absolute top-[28px] left-[26px] right-[26px] h-0 border-t-2 border-dashed border-[#D2BBA4] z-0"></div>
+
+          <div class="grid grid-cols-5 gap-1 relative z-10 text-center">
+            
+            <!-- Node 1: Order (Done, 3 stars) -->
+            <div class="flex flex-col items-center">
+              <div class="w-[42px] h-[42px] rounded-full bg-teal-deep border-2 border-white shadow-node-done flex items-center justify-center text-white">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <span class="text-[11px] font-bold text-ink-main mt-1.5">Order</span>
+              <div class="flex items-center justify-center gap-0.5 mt-0.5">
+                <span class="text-[#F59E0B] text-[10px]">★</span>
+                <span class="text-[#F59E0B] text-[10px]">★</span>
+                <span class="text-[#F59E0B] text-[10px]">★</span>
+              </div>
+            </div>
+
+            <!-- Node 2: Pay (Done, 3 stars) -->
+            <div class="flex flex-col items-center">
+              <div class="w-[42px] h-[42px] rounded-full bg-teal-deep border-2 border-white shadow-node-done flex items-center justify-center text-white">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <span class="text-[11px] font-bold text-ink-main mt-1.5">Pay</span>
+              <div class="flex items-center justify-center gap-0.5 mt-0.5">
+                <span class="text-[#F59E0B] text-[10px]">★</span>
+                <span class="text-[#F59E0B] text-[10px]">★</span>
+                <span class="text-[#F59E0B] text-[10px]">★</span>
+              </div>
+            </div>
+
+            <!-- Node 3: Book a table (Current, glowing, 1 star) -->
+            <div class="flex flex-col items-center scale-105">
+              <div class="w-[44px] h-[44px] rounded-full bg-amber-sunny border-2 border-white shadow-btn-orange flex items-center justify-center text-ink-brown relative ring-4 ring-amber-sunny/30 animate-pulse">
+                <!-- Glossy highlight -->
+                <div class="absolute top-1 left-2 w-3 h-1.5 bg-white/70 rounded-full rotate-[-20deg]"></div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1003" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+              <span class="text-[11px] font-extrabold text-teal-deep mt-1 leading-tight">Book table</span>
+              <div class="flex items-center justify-center gap-0.5 mt-0.5">
+                <span class="text-[#F59E0B] text-[10px]">★</span>
+                <span class="text-[#D1C3B4] text-[10px]">★</span>
+                <span class="text-[#D1C3B4] text-[10px]">★</span>
+              </div>
+            </div>
+
+            <!-- Node 4: Locked -->
+            <div class="flex flex-col items-center opacity-75">
+              <div class="w-[42px] h-[42px] rounded-full bg-[#EFE4D6] border-2 border-[#DFCFBE] shadow-node-lock flex items-center justify-center text-[#7F7061]">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <span class="text-[11px] font-bold text-ink-muted mt-1.5">Review</span>
+              <div class="flex items-center justify-center gap-0.5 mt-0.5">
+                <span class="text-[#D1C3B4] text-[10px]">★</span>
+                <span class="text-[#D1C3B4] text-[10px]">★</span>
+                <span class="text-[#D1C3B4] text-[10px]">★</span>
+              </div>
+            </div>
+
+            <!-- Node 5: Locked -->
+            <div class="flex flex-col items-center opacity-75">
+              <div class="w-[42px] h-[42px] rounded-full bg-[#EFE4D6] border-2 border-[#DFCFBE] shadow-node-lock flex items-center justify-center text-[#7F7061]">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <span class="text-[11px] font-bold text-ink-muted mt-1.5">Boss tip</span>
+              <div class="flex items-center justify-center gap-0.5 mt-0.5">
+                <span class="text-[#D1C3B4] text-[10px]">★</span>
+                <span class="text-[#D1C3B4] text-[10px]">★</span>
+                <span class="text-[#D1C3B4] text-[10px]">★</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. MISSION CARD (3 CHECKLIST ITEMS) ================= -->
+      <section class="bg-white border-2 border-[#E7D6C4] rounded-[16px] p-3.5 shadow-card-ledge">
+        <div class="flex items-center justify-between mb-2.5">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-teal-deep"></span>
+            <h2 class="text-[14px] font-black uppercase text-teal-deep tracking-wider">Mission Checklist</h2>
+          </div>
+          <span class="text-[12px] font-extrabold text-ink-muted">1 / 3 done</span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <!-- Task 1: Order two drinks (done) -->
+          <div class="flex items-center gap-3 p-2.5 rounded-[12px] bg-[#F1FAF8] border border-teal-border/70">
+            <div class="w-6 h-6 rounded-full bg-teal-deep flex items-center justify-center text-white shrink-0 shadow-[0_2px_0_#0C4B47]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-[14px] font-extrabold text-teal-dark line-through decoration-teal-deep/60">Order two drinks</p>
+              <p class="text-[11px] font-bold text-teal-deep/80">“Could we get two iced lattes?”</p>
+            </div>
+            <span class="text-[10px] font-extrabold uppercase bg-teal-deep text-white px-2 py-0.5 rounded-full">DONE</span>
+          </div>
+
+          <!-- Task 2: Ask the price -->
+          <div class="flex items-center gap-3 p-2.5 rounded-[12px] bg-[#FFFDF9] border border-[#ECDCCB]">
+            <div class="w-6 h-6 rounded-full bg-white border-2 border-[#D4C1AE] flex items-center justify-center shrink-0 shadow-[0_2px_0_#DFCFBE]">
+              <div class="w-2 h-2 rounded-full bg-amber-sunny"></div>
+            </div>
+            <div class="flex-1">
+              <p class="text-[14px] font-extrabold text-[#191E20]">Ask the price</p>
+              <p class="text-[11px] font-bold text-ink-muted">“How much does that come to?”</p>
+            </div>
+            <span class="text-[11px] font-bold text-ink-muted">Target</span>
+          </div>
+
+          <!-- Task 3: Change one item -->
+          <div class="flex items-center gap-3 p-2.5 rounded-[12px] bg-[#FFFDF9] border border-[#ECDCCB]">
+            <div class="w-6 h-6 rounded-full bg-white border-2 border-[#D4C1AE] flex items-center justify-center shrink-0 shadow-[0_2px_0_#DFCFBE]"></div>
+            <div class="flex-1">
+              <p class="text-[14px] font-extrabold text-[#191E20]">Change one item</p>
+              <p class="text-[11px] font-bold text-ink-muted">“Could I swap the milk for oat milk?”</p>
+            </div>
+            <span class="text-[11px] font-bold text-ink-muted">Target</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 4. PROGRESS CARD ================= -->
+      <section class="bg-white border-2 border-[#E7D6C4] rounded-[16px] p-3.5 shadow-card-ledge">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-baseline gap-1.5">
+            <span class="text-[16px] font-black text-[#191E20]">8 / 12 phrases</span>
+            <span class="text-[11px] font-bold text-ink-muted">mastered</span>
+          </div>
+          <!-- Weekly goal chip -->
+          <span class="text-[11px] font-black bg-[#E6F5F3] text-teal-deep px-2.5 py-1 rounded-full border border-teal-border">
+            Weekly goal 32 / 50 sentences
+          </span>
+        </div>
+
+        <!-- Chunky progress bar -->
+        <div class="w-full h-4 rounded-full bg-[#EFE3D4] p-[2px] border border-[#E0D0BF] shadow-inner">
+          <div class="h-full rounded-full bg-gradient-to-r from-teal-deep to-teal-accent relative overflow-hidden" style="width: 66.6%;">
+            <!-- Specular gloss bar shine -->
+            <div class="absolute top-0 left-0 right-0 h-[40%] bg-white/40 rounded-full"></div>
+          </div>
+        </div>
+        <div class="flex justify-between items-center mt-1.5 text-[11px] font-bold text-ink-muted">
+          <span>67% Café readiness</span>
+          <span class="text-teal-deep font-extrabold">4 phrases remaining</span>
+        </div>
+      </section>
+
+      <!-- ================= 5. FROM YOUR ADD-ON CARD ================= -->
+      <section class="bg-white border-2 border-[#E7D6C4] rounded-[16px] p-3.5 shadow-card-ledge">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[13px] font-black uppercase text-teal-deep tracking-wider">From your add-on</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-sunny"></span>
+          </div>
+          <span class="text-[11px] font-bold text-teal-deep bg-teal-soft px-2 py-0.5 rounded-md">Smart review</span>
+        </div>
+
+        <p class="text-[13px] font-extrabold text-ink-main mb-2.5">
+          Say them in a sentence today
+        </p>
+
+        <!-- Two word chips -->
+        <div class="flex items-center gap-2">
+          <!-- Chip 1: latte -->
+          <div class="flex-1 flex items-center justify-between px-3 py-2 rounded-[12px] bg-[#FFF9F3] border-2 border-[#E8D7C6] shadow-chip-ledge">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-sunny"></span>
+              <span class="text-[14px] font-extrabold text-[#191E20]">latte</span>
+            </div>
+            <span class="text-[10px] font-extrabold text-ink-muted bg-[#EFE3D5] px-1.5 py-0.5 rounded">/ˈlɑː.teɪ/</span>
+          </div>
+
+          <!-- Chip 2: receipt -->
+          <div class="flex-1 flex items-center justify-between px-3 py-2 rounded-[12px] bg-[#FFF9F3] border-2 border-[#E8D7C6] shadow-chip-ledge">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-teal-deep"></span>
+              <span class="text-[14px] font-extrabold text-[#191E20]">receipt</span>
+            </div>
+            <span class="text-[10px] font-extrabold text-ink-muted bg-[#EFE3D5] px-1.5 py-0.5 rounded">/rɪˈsiːt/</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 6. ACTION BUTTONS (INLINE) ================= -->
+      <div class="flex flex-col gap-2.5 pt-1">
+        <!-- Inline Primary candy-orange button with 6px darker ledge and deep brown-black label -->
+        <button type="button" class="w-full h-[52px] rounded-[16px] bg-amber-sunny border-2 border-[#D97706] shadow-btn-orange flex items-center justify-center gap-2 tactile-press active:translate-y-[3px] transition-all">
+          <span class="text-[16px] font-black text-ink-brown tracking-wide">Start speaking drill</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1003" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <!-- Secondary tactile teal button: 'Role-play with Carlos' -->
+        <button type="button" class="w-full h-[48px] rounded-[16px] bg-teal-deep border-2 border-teal-dark shadow-btn-teal flex items-center justify-center gap-2 text-white tactile-press active:translate-y-[3px] transition-all">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span class="text-[15px] font-extrabold tracking-wide">Role-play with Carlos</span>
+        </button>
+      </div>
+
+    </main>
+
+    <!-- ==================== BOTTOM TAB BAR (64px) ==================== -->
+    <!-- White bar with top border, exactly 5 equal tabs, icon above label. Active: Skills -->
+    <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-[64px] bg-white border-t-2 border-[#E7D6C4] px-1 flex items-center justify-around z-50">
+      
+      <!-- Tab 1: Today (house) -->
+      <a href="#today" class="flex-1 flex flex-col items-center justify-center py-1 text-ink-muted hover:text-ink-main transition-colors">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="text-[11px] font-bold mt-0.5">Today</span>
+      </a>
+
+      <!-- Tab 2: Vocab (open book, small red due badge) -->
+      <a href="#vocab" class="flex-1 flex flex-col items-center justify-center py-1 text-ink-muted hover:text-ink-main transition-colors relative">
+        <div class="relative">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          <!-- Small red due badge -->
+          <span class="absolute -top-1 -right-2 w-4 h-4 bg-[#E11D48] text-white text-[9px] font-black rounded-full flex items-center justify-center border border-white">
+            8
+          </span>
+        </div>
+        <span class="text-[11px] font-bold mt-0.5">Vocab</span>
+      </a>
+
+      <!-- Tab 3: Skills (target) - ACTIVE TAB -->
+      <!-- Active tab has teal icon inside a soft teal pill and bold teal label -->
+      <a href="#skills" class="flex-1 flex flex-col items-center justify-center py-1">
+        <div class="px-3.5 py-1 rounded-full bg-teal-soft border border-teal-border shadow-[0_2px_0_#D1E7E4] flex items-center justify-center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#136B66" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="6"></circle>
+            <circle cx="12" cy="12" r="2"></circle>
+          </svg>
+        </div>
+        <span class="text-[11px] font-black text-teal-deep mt-0.5">Skills</span>
+      </a>
+
+      <!-- Tab 4: Tests (flag) -->
+      <a href="#tests" class="flex-1 flex flex-col items-center justify-center py-1 text-ink-muted hover:text-ink-main transition-colors">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+          <line x1="4" y1="22" x2="4" y2="15"></line>
+        </svg>
+        <span class="text-[11px] font-bold mt-0.5">Tests</span>
+      </a>
+
+      <!-- Tab 5: Me (person) -->
+      <a href="#me" class="flex-1 flex flex-col items-center justify-center py-1 text-ink-muted hover:text-ink-main transition-colors">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="text-[11px] font-bold mt-0.5">Me</span>
+      </a>
+
+    </nav>
+
+  </div>
+</body>
+</html>
+
