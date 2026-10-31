@@ -20,6 +20,7 @@ a = ap.parse_args()
 SEC_MIN, SEC_SHARE = a.sec_min, a.sec_share
 # mục retry (content/lexicon/expand/retry/words.json) luôn có ứng viên đúng từ#loại kể cả dưới ngưỡng từ loại phụ – không kẹt retry mãi
 FORCE = {k for f in a.want if os.path.exists(f) for k in json.load(open(f))['items']}
+FORCE_W = {k.split('#')[0] for k in FORCE}
 EX = json.load(open(a.existing))
 # existing.json: {từ: CEFR} + {từ#loại: CEFR} (30/10 đa từ loại – kho đã có duck#n vẫn thiếu duck#v; khoá trùng = từ#loại)
 have = {k for k in EX if '#' not in k}; have_wp = {k for k in EX if '#' in k}
@@ -102,7 +103,7 @@ need = a.target - max(len(have), len(have_wp))  # mốc 20k đếm theo mục t�
 OLPW = {h for h, _ in OLP}
 nfreq = 0  # từ CHỈ có tần suất (ngoài danh sách người học) – trần need × 3 (dư 25 % cho hàng duyệt/loại); từ danh sách người học luôn lấy hết
 for w in top_n_list('en', 80000):
-    if nfreq >= need * 3 and w not in OLPW and not lists.get(w): continue  # ×3 (29/10): cổng chặt hơn → sản lượng pilot ~0,3–0,5; cần đủ ứng viên tới 20k
+    if nfreq >= need * 3 and w not in OLPW and not lists.get(w) and w not in FORCE_W: continue  # ×3 (29/10): cổng chặt hơn → sản lượng pilot ~0,3–0,5; cần đủ ứng viên tới 20k
     if w in seen or not re.fullmatch(r'[a-z]{3,}(-[a-z]+)?', w) or w not in cmu and '-' not in w: continue
     if w in bad or any(b in bad for b in w.split('-')): continue
     syn = wn.synsets(w)
@@ -123,7 +124,7 @@ for w in top_n_list('en', 80000):
     tot = sum(cnt.values())
     poss = [pos] + sorted((p for p in cnt if p != pos and ((w, p) in OLP or f'{w}#{p}' in FORCE or (sc[p] >= SEC_MIN and cnt[p] / tot >= SEC_SHARE))), key=lambda p: -cnt[p])
     for pos in poss:
-        if f'{w}#{pos}' in have_wp: continue  # đã có đúng từ#loại (kho, mục mở rộng, chờ soát, hàng duyệt)
+        if f'{w}#{pos}' in have_wp and f'{w}#{pos}' not in FORCE: continue  # đã có đúng từ#loại (kho, mục mở rộng, chờ soát, hàng duyệt); mẫu cố định (--want) luôn đủ – 31/10 hard.json âm thầm co còn 204/378
         sec = pos != poss[0]
         # KHÓA NGHĨA: đúng 1 nghĩa = nghĩa người học hay gặp nhất của từ loại này: số đếm SemCor (WordNet lemma.count) lớn nhất,
         # hoà → thứ tự nghĩa WordNet (cũng xếp theo tần suất). Ưu tiên nghĩa mà từ là lemma ĐẦU (không phải biến thể/từ cắt của từ khác).

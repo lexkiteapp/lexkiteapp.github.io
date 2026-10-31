@@ -356,6 +356,7 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
 { const py = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/pick_words.py'), 'utf8');
   ok(/have_wp/.test(py) && /f'\{w\}#\{pos\}' in have_wp/.test(py) && !/if w in have or w in seen/.test(py), 'pick_words: bỏ trùng theo từ#loại, không theo từ');
   ok(/SEC_MIN/.test(py) && /SEC_SHARE/.test(py) && /math\.log10\(cnt\[pos\] \/ tot\)/.test(py), 'pick_words: từ loại phụ có ngưỡng SemCor + CEFR theo tần suất của từ loại đó');
+  ok(/not in FORCE/.test(py) && /w not in FORCE_W/.test(py), 'pick_words: mẫu cố định/retry (--want) luôn có ứng viên đúng từ#loại – mẫu pilot không âm thầm co (31/10: 204/378)');
   const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
   ok(/!done\.has\(kk\(e\)\)/.test(job) && !/done\.has\(e\.w\)/.test(job), 'job.mjs: chọn theo từ#loại'); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
