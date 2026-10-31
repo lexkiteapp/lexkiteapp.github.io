@@ -25,7 +25,7 @@
   "Gõ ngắn gọn: \"Got it, thanks!\" hoặc dùng emoji 👍": "Reply briefly: \"Got it, thanks!\" or just send 👍",
   "Gợi ý tính năng dành riêng cho bạn:": "Recommended features for you:",
   "Hoàn thành trong {s} giây!": "Finished in {s} seconds!",
-  "Hài hước, phóng khoáng, gặp nhau là ríu rít cả ngày 🥳": "Fun and outgoing, always up for a chat 🥳",
+  "Hài hước, phóng khóang, gặp nhau là ríu rít cả ngày 🥳": "Fun and outgoing, always up for a chat 🥳",
   "Hãy lưu một vài từ vựng hoặc học theo lộ trình trước khi chơi nhanh nhé.": "Save a few words or follow your learning path first, then try Quick Play.",
   "Hết 15 giây!": "Time’s up!",
   "Hệ Cầu Toàn & Chuẩn Xác": "Precision Architect",

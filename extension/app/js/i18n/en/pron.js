@@ -20,7 +20,7 @@
   'Đọc rõ đuôi -ed: /t/ sau âm vô thanh, /d/ sau âm hữu thanh, /ɪd/ sau t, d.': 'Say the -ed ending clearly: /t/ after voiceless sounds, /d/ after voiced sounds, /ɪd/ after t or d.',
   'Chu môi tròn ra trước, lưỡi lùi về sau một chút, thổi “suỵt” /ʃ/.': 'Round your lips and push them forward, pull your tongue back a little and say “shh” /ʃ/.',
   'Môi dẹt, đầu lưỡi sát răng trên, xì hơi mảnh “sss” – không chu môi.': 'Keep your lips flat and your tongue tip near your top teeth; make a thin “sss” – no lip rounding.',
-  'Bắt đầu bằng một cú chặn /t/ rồi bật ra “ch” – âm ngắn, dứt khoát.': 'Start with a quick /t/ stop, then release into “ch” – short and sharp.',
+  'Bắt đầu bằng một cú chặn /t/ rồi bật ra “ch” – âm ngắn, dứt khóat.': 'Start with a quick /t/ stop, then release into “ch” – short and sharp.',
   'Không chặn lưỡi: để hơi chảy liên tục “shhh”.': 'No stop: let the air flow continuously, “shhh”.',
   'Như “ch” nhưng không rung cổ – chỉ bật hơi.': 'Like “ch” with no voice – just a burst of air.',
   'Cùng khẩu hình với “ch” nhưng rung cổ: “j” trong “jeep”.': 'The same mouth shape as “ch” but with your voice on: the “j” in “jeep”.',
