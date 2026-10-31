@@ -30,18 +30,32 @@ def font(sz):
     return ImageFont.load_default()
 
 
+# vùng xoá thêm (x0, y0, x1, y1): nét mực của poster không thuộc lớp vector – Carlos: phần trên vệt mũi dài (từ chân mày xuống, chạm mắt phải; anh chủ 31/10: "nét đen thừa"), giữ móc mũi ngắn
+WIPE = {'ama': [], 'carlos': [(562, 258, 604, 326)]}
+EDGE = {'ama': False, 'carlos': True}  # lấp cả mực tràn sát viền elip (ria/mi Carlos để lại vệt tối) – Ama không có vệt, viền tóc sát mày → giữ cách cũ
+
+
 def bare_head(who, R=None):
-    """poster-2x → đầu trơn: mỗi elip `erase` (cx, cy, rx, ry) được lấp bằng nghiệm Laplace (Jacobi) từ viền ngoài → da liền, không vệt."""
+    """poster-2x → đầu trơn: mỗi elip `erase` (cx, cy, rx, ry) + vùng WIPE được lấp bằng nghiệm Laplace (Jacobi) từ viền ngoài → da liền, không vệt.
+    Điểm mực tối sát viền vùng xoá (ria/mi tràn ra ngoài elip, ≤ 10 px) cũng vào vùng lấp → không còn vệt tối kéo vào da."""
     R = R or rig()[who]
     im = np.asarray(Image.open(ROOT / f'web/teach/{who}/poster-2x.webp').convert('RGBA')).astype(np.float32).copy()
     H, W = im.shape[:2]
     yy, xx = np.mgrid[0:H, 0:W]
-    for cx, cy, rx, ry in R['erase']:
-        m = ((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2 <= 1
-        x0, x1, y0, y1 = int(cx - rx - 3), int(cx + rx + 4), int(cy - ry - 3), int(cy + ry + 4)
+    sk = int(R['skin'][1:3], 16) + int(R['skin'][3:5], 16) + int(R['skin'][5:7], 16)
+    dark = (im[..., :3].sum(2) < 0.45 * sk) & (im[..., 3] > 128)  # mực = tối hơn hẳn màu da của chính người đó (da Ama tối → ngưỡng theo da)
+    for k in range(2):  # nới vùng tối 2 px (viền khử răng cưa của nét mực)
+        dark = dark | np.roll(dark, 1, 0) | np.roll(dark, -1, 0) | np.roll(dark, 1, 1) | np.roll(dark, -1, 1)
+    P = 14 if EDGE.get(who) else 3  # khung lấp quanh elip (Ama: đúng như bản đã duyệt)
+    regions = [(((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2 <= 1, ((xx - cx) / (rx + 10)) ** 2 + ((yy - cy) / (ry + 10)) ** 2 <= 1, (cx - rx - P, cx + rx + P + 1, cy - ry - P, cy + ry + P + 1)) for cx, cy, rx, ry in R['erase']]
+    regions += [(np.zeros((H, W), bool), (xx >= x0) & (xx <= x1) & (yy >= y0) & (yy <= y1), (x0 - 6, x1 + 7, y0 - 6, y1 + 7)) for x0, y0, x1, y1 in WIPE.get(who, [])]
+    for core, near, (x0, x1, y0, y1) in regions:
+        m = core | (near & dark) if EDGE.get(who) or not core.any() else core
+        x0, x1, y0, y1 = int(x0), int(x1), int(y0), int(y1)
         sub, mm = im[y0:y1, x0:x1, :3], m[y0:y1, x0:x1]
-        sub[mm] = sub[~mm].mean(0)
-        for _ in range(900):
+        ring = ~mm & ~dark[y0:y1, x0:x1] if EDGE.get(who) else ~mm
+        sub[mm] = sub[ring].mean(0) if ring.any() else sub[~mm].mean(0)
+        for _ in range(1500 if EDGE.get(who) else 900):
             avg = (np.roll(sub, 1, 0) + np.roll(sub, -1, 0) + np.roll(sub, 1, 1) + np.roll(sub, -1, 1)) / 4
             sub[mm] = avg[mm]
         im[y0:y1, x0:x1, :3] = sub
