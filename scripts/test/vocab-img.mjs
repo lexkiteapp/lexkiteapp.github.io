@@ -239,4 +239,26 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   ok(/import \{ cardWins \} from '\.\/scene\.mjs'/.test(rd('scripts/vocab-img/scene-publish.mjs')) && /cardWins\(cur\.items\[k\], v\)/.test(rd('scripts/vocab-img/scene-publish.mjs')), 'scene-publish dùng cardWins');
   ok(i > 0 && j > i && j < wf.indexOf('scene-gen.mjs', i), 'fill: --prune sau khi viết thẻ, trước khi vẽ (không vẽ thẻ e3 cũ)');
 }
+// 10. lượt 0 ảnh (31/10 pilot 41146130096/41146121856: kho CF cạn → 0 thẻ, 0 ảnh → tờ ảnh Image 0 px → "cannot write empty image as JPEG", job final đỏ)
+//     → gộp/tờ ảnh in "0 ảnh" và thoát sạch. Có Pillow+numpy: chạy cả scene_final.py trên thư mục rỗng; không có: sheet() với PIL/numpy giả (nhánh 0 ảnh không vẽ gì).
+{ const { execFileSync } = await import('child_process'), os = await import('os'), path = await import('path');
+  const d = fs.mkdtempSync(path.join(os.tmpdir(), 'vimg0-')), sh = path.join(d, 'sheet.jpg');
+  const py = `import sys,types,os,runpy
+try:
+    import numpy, PIL.Image; real = True
+except Exception:
+    real = False; sys.modules['numpy'] = types.ModuleType('numpy'); P = types.ModuleType('PIL')
+    for n in ('Image', 'ImageDraw', 'ImageFont'): m = types.ModuleType('PIL.' + n); setattr(P, n, m); sys.modules['PIL.' + n] = m
+    sys.modules['PIL'] = P
+if real:
+    sys.argv = ['scene_final.py', '--dir', sys.argv[1], '--sheet', sys.argv[2]]; runpy.run_path('scripts/vocab-img/scene_final.py', run_name='__main__')
+else:
+    g = runpy.run_path('scripts/vocab-img/scene_final.py'); g['sheet'](sys.argv[1], {}, {}, sys.argv[2])`;
+  const out = execFileSync('python3', ['-c', py, d, sh], { encoding: 'utf8' });
+  ok(/0 ảnh/.test(out) && !fs.existsSync(sh), 'scene_final: 0 ảnh → in "0 ảnh", không ghi tờ ảnh, thoát 0 (không ValueError)');
+  fs.rmSync(d, { recursive: true, force: true });
+  const wf = rd('.github/workflows/vocab-img-scene.yml');
+  ok(/id: probe\n\s+if: github\.event\.inputs\.mode != 'calibrate'/.test(wf) && /\[ "\$MODE" = pilot \] && \[ "\$PROBE_ALIVE" -lt/.test(wf), 'pilot cũng dò kho CF trước (kho cạn → bỏ lượt rõ ràng, không chạy 35 phút rồi vẽ 0 ảnh)');
+  ok(/def js\(o\)/.test(rd('scripts/vocab-img/calibrate.py')) && /default=js/.test(rd('scripts/vocab-img/calibrate.py')), 'calibrate.py: đặc trưng có đối tượng mô hình không làm hỏng calibration.json (TypeError SentenceTransformer)');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);
