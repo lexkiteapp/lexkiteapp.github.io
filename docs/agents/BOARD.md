@@ -179,6 +179,29 @@ Mẫu thẻ:
     * `node scripts/blog-captions.mjs --check-all`: 502 bài, 1.211 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
     * `node scripts/blog-dupes.mjs`: 502 bài, 0 lỗi (độ chồng lấn cao nhất 8.8% < 12%).
     * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
+### [B5-L4] Lô 4 Blog 12 bài chuẩn SEO (6 FR + 6 RU) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Pháp (FR) và Tiếng Nga (RU). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingue/толковый, luyện nghe Dictation/диктант, từ vựng IELTS AI/Technology và Phrases complexes/Сложные предложения).
+- **Báo cáo (Antigravity 31/10):**
+  - **Commit:** `0486c63d0` → `146b5e295` (12 commit riêng biệt từng bài + briefs).
+  - **Danh sách 6 bài FR (Tiếng Pháp):**
+    1. `alphabet-phonetique-international-anglais-ipa.md` (`0486c63d0`)
+    2. `poser-des-questions-en-anglais-regles.md` (`28794623e`)
+    3. `utiliser-dictionnaire-anglais-unilingue.md` (`4975ab63b`)
+    4. `dictee-en-anglais-ameliorer-comprehension-orale.md` (`07349928b`)
+    5. `vocabulaire-ielts-technologie-intelligence-artificielle.md` (`563050afb`)
+    6. `phrases-complexes-ielts-writing-task-2.md` (`686acbfc3`)
+  - **Danh sách 6 bài RU (Tiếng Nga):**
+    1. `foneticheskaya-transkriptsiya-ipa-angliyskiy-tablitsa.md` (`32dbec7c5`)
+    2. `kak-stavit-voprosy-v-angliyskom-yazyke-pravila.md` (`b0a38f22f`)
+    3. `kak-polzovatsya-anglo-angliyskim-slovarem.md` (`f50c70eef`)
+    4. `diktant-po-angliyskomu-dictation-audirovanie.md` (`20bd7e1ce`)
+    5. `ielts-slovarnyy-zapas-tehnologii-iskusstvennyy-intellekt.md` (`bb3234f1f`)
+    6. `slozhnye-predlozheniya-ielts-writing-complex-sentences.md` (`146b5e295`)
+  - **Cổng chất lượng kiểm tra toàn diện:**
+    * `node scripts/blog-check.mjs`: 514 bài, 0 lỗi.
+    * `node scripts/blog-captions.mjs --check-all`: 514 bài, 1.247 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * `node scripts/blog-dupes.mjs`: 514 bài, 0 lỗi (độ chồng lấn cao nhất 8.8% < 12%).
+    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
 - Cần sửa / Nhận xét:
 
 ### [B5] Viết lại 6 bài Hindi (hi) bằng chữ Devanagari bản địa · @antigravity · ưu tiên: RẤT CAO
