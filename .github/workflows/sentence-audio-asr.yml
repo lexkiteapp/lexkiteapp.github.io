@@ -1,0 +1,106 @@
+# Cổng ASR cho audio câu Kokoro (audio/l, ~25k câu) – miễn phí trên máy chủ GitHub, tiếp tục được (trạng thái: web/audio/l/asr.tsv).
+# Nghe file đang phục vụ bằng faster-whisper small.en (WER ≤ 10 % sau chuẩn hoá) → câu trượt render lại (Kokoro fp32, cùng giọng, nhiều phương án)
+# → qua lại cổng → mp3 64 kbps khóa mới <khóa>-s2 (kho media, không ghi đè khóa cũ). Vẫn trượt → web/audio/l/asr-fail.tsv, app phát bản cũ.
+# Xem docs/WORD-AUDIO.md mục "Audio câu". KHÔNG thay audio.yml (tạo câu mới) – workflow này chỉ kiểm + render lại.
+name: Cổng ASR audio câu
+on:
+  schedule:
+    - cron: '50 1-23/4 * * *'   # mỗi 4 giờ (lệch word-audio.yml) tới khi kiểm hết (bước "Đếm" bỏ qua khi xong)
+  workflow_dispatch:
+    inputs:
+      limit: { description: 'Số câu mỗi shard', default: '600' }
+      shards: { description: 'Số shard (song song tối đa 3)', default: '6' }
+permissions:
+  contents: write
+concurrency: { group: sentence-audio-asr, cancel-in-progress: false }
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      left: ${{ steps.c.outputs.left }}
+      shards: ${{ steps.c.outputs.shards }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - id: c
+        run: |
+          echo "left=$(node scripts/sentence-audio/todo.mjs --count | grep -o 'cần nghe [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+          n="${{ github.event.inputs.shards || '6' }}"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
+  check:
+    needs: plan
+    if: needs.plan.outputs.left != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    strategy: { max-parallel: 3, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Cài ffmpeg + faster-whisper + chuẩn hoá Whisper
+        # PyAV 19 bỏ tham số metadata_errors mà faster-whisper (≤1.2.1) vẫn truyền vào av.open → khoá av<19 (như word-audio.yml)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q 'faster-whisper==1.2.1' 'av==18.1.0' 'whisper-normalizer==0.1.12'
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/huggingface, key: whisper-small-en-ct2 }
+      - name: Danh sách câu của shard
+        run: node scripts/sentence-audio/todo.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '600' }}" --out .sa/todo.json
+      - name: Nghe bản đang phục vụ
+        run: python3 scripts/sentence-asr.py --todo .sa/todo.json --res .sa/res-${{ matrix.shard }}.json --minutes 100
+      - name: Cài kokoro-js (chỉ khi có câu trượt)
+        run: |
+          [ "$(cat .sa/fail.json)" = "[]" ] && exit 0
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-fp32 }
+      - name: Render lại câu trượt (Kokoro fp32, cùng giọng)
+        run: '[ "$(cat .sa/fail.json)" = "[]" ] || AUDIO_MIN=25 NODE_PATH=/tmp/kk/node_modules node scripts/sentence-audio/render.mjs .sa/fail.json .sa/cands.json'
+      - name: Nghe lại bản render
+        run: '[ -f .sa/cands.json ] && python3 scripts/sentence-asr.py --cands .sa/cands.json --res .sa/res-${{ matrix.shard }}.json --minutes 30 || true'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sa-${{ matrix.shard }}
+          path: |
+            .media-out/
+            .sa/res-*.json
+          retention-days: 3
+          include-hidden-files: true
+  publish:
+    needs: [plan, check]
+    if: always() && needs.plan.outputs.left != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'sa-*', merge-multiple: true, path: . }
+      - name: Khoá deploy kho media
+        if: github.ref == 'refs/heads/main'   # lượt thử trên nhánh khác: chỉ in tỉ lệ đạt, không đẩy/commit
+        env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
+      - name: Đẩy mp3 -s2 (chỉ bản đạt) lên kho media
+        if: github.ref == 'refs/heads/main'   # lượt thử trên nhánh khác: chỉ in tỉ lệ đạt, không đẩy/commit
+        run: |
+          [ -d .media-out/audio/l ] && ls .media-out/audio/l | head -1 | grep -q . || { echo "không có file mới"; exit 0; }
+          node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/l: câu render lại s2 (đã qua Whisper) – run ${{ github.run_id }}"
+      - name: Gộp kết quả → asr.tsv + asr-fail.tsv + LISTEN_AUDIO_S2
+        run: ls .sa/ && node scripts/sentence-audio/merge.mjs .sa/res-*.json && node scripts/test/sentence-asr.mjs
+      - name: Lưu chỉ mục vào repo
+        if: github.ref == 'refs/heads/main'   # lượt thử trên nhánh khác: chỉ in tỉ lệ đạt, không đẩy/commit
+        run: |
+          rm -f ~/.ssh/m2
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          bash scripts/build-extension.sh >/dev/null   # bản add-on của audio-index.js phải khớp web/ (scripts/test/ext-sync.mjs)
+          git add web/audio/l/ web/js/listen/audio-index.js extension/app/js/listen/audio-index.js
+          git diff --cached --quiet && exit 0
+          git commit -qm "Cổng ASR audio câu: thêm lô đã kiểm (còn ${{ needs.plan.outputs.left }} câu trước lượt này) [CF-Pages-Skip]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
