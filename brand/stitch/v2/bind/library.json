@@ -437,5 +437,14 @@
  "text": {
   "in": "t('Nhập')",
   "Anki": "'Anki'"
- }
+ },
+ "recolor": {
+  "dk:text-[#2BA39A]": "dk:text-[#6BD8CE]",
+  "lt:text-[#829A9C]": "lt:text-[#556B6D]",
+  "text-[#F2553B]": "lt:text-[#B53A22] dk:text-[#FF8A73]",
+  "lt:bg-[#F2553B]": "lt:bg-[#C8432B]",
+  "text-[#FFB054]": "lt:text-[#8A5A00] dk:text-[#FFB054]",
+  "bg-[#F2553B]": "bg-[#B53A22]"
+ },
+ "_contrast": "recolor: màu chữ nhỏ đạt WCAG AA (axe CI 31/10) bằng sắc có sẵn trong hệ (như me.json): teal tối #6BD8CE, xám sáng #556B6D, san hô #B53A22/#FF8A73 (nền chữ trắng #C8432B/#B53A22), vàng #8A5A00, xanh lá #14753F."
 }

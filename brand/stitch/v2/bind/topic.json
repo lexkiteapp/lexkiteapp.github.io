@@ -247,5 +247,9 @@
     }
    }
   }
- ]
+ ],
+ "recolor": {
+  "lt:text-[#2FBF71]": "lt:text-[#14753F]"
+ },
+ "_contrast": "recolor: #tCount/nút xanh lá sáng #2FBF71→#14753F đạt AA trên #EAF8F1 (axe CI 31/10)."
 }

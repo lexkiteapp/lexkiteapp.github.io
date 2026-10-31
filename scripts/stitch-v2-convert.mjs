@@ -123,6 +123,9 @@ for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (
   const doc = new JSDOM('<div></div>').window.document, body = merge(L.body, D.body, RL, RD, doc), root = doc.createElement('div');
   root.setAttribute('class', `st v2 v2-${k} ` + (body.getAttribute('class') || '')); root.append(...body.childNodes);
   if (A.includes('--dump') && ONLY.length && !ONLY.includes(k)) continue;
+  if (bind.recolor) { const hit = {}; for (const el of root.querySelectorAll('*')) { const c = (el.getAttribute('class') || '').split(' '); let ch = false; // recolor {class mẫu: class thay}: đổi màu ĐỒNG LOẠT cả màn để đạt tương phản AA (chỉ màn khai báo; class không có trong mẫu = lỗi)
+      for (let i = 0; i < c.length; i++) if (bind.recolor[c[i]] != null) { hit[c[i]] = 1; c[i] = bind.recolor[c[i]]; ch = true; } if (ch) el.setAttribute('class', c.join(' ')); }
+    for (const f of Object.keys(bind.recolor)) if (!hit[f]) errs.push(`${k}: recolor – không có class ${f} trong mẫu`); }
   if (A.includes('--dump')) { const walk = (e, d, path) => { const cls = (e.getAttribute('class') || '').split(' ').filter(c => !/^(lt|dk):/.test(c)).slice(0, 4).join('.'), al = e.getAttribute('aria-label'), tx = [...e.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join(' ');
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
     walk(root, 0, '·'); continue; }
