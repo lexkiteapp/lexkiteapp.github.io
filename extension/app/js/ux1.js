@@ -266,10 +266,11 @@
     const s = document.createElement('style'); s.id = 'ux1Css';
     s.textContent = `
 body.ux1 .side-level{display:none}
+body.ux1 .sidebar{--nav-pad:.8rem}
 body.ux1 #nav{display:flex;flex-direction:column;gap:.2rem}
-body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.5rem .8rem;border-radius:var(--r-md);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.85rem;color:var(--muted);border:2px solid transparent}
+body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.5rem var(--nav-pad);border-radius:var(--r-md);font-weight:700;font-size:1rem;color:var(--text);border:2px solid transparent}
 body.ux1 #nav a.active{color:var(--primary-text);background:var(--primary-soft);border-color:var(--primary)}
-body.ux1 #nav a .ic svg{width:26px;height:26px}
+body.ux1 #nav a .ic{width:26px}body.ux1 #nav a .ic svg{width:26px;height:26px}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
 .ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}

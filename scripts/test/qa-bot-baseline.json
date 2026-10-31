@@ -1,14 +1,6 @@
 {
- "note": "Lỗi giao diện đã biết (qa-bot). Chỉ được XOÁ dòng khi đã sửa – không thêm dòng để làm xanh. docs/QA-BOT.md",
+ "note": "L\u1ed7i giao di\u1ec7n \u0111\u00e3 bi\u1ebft (qa-bot). Ch\u1ec9 \u0111\u01b0\u1ee3c XO\u00c1 d\u00f2ng khi \u0111\u00e3 s\u1eeda \u2013 kh\u00f4ng th\u00eam d\u00f2ng \u0111\u1ec3 l\u00e0m xanh. docs/QA-BOT.md",
  "known": {
-  "align|sidebar:aside.sidebar>nav.side-foot>a": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
-  ],
   "clip|div#lsnTch>div.tch-rig": [
    "lesson@390l",
    "lesson@390d",
@@ -16,14 +8,6 @@
    "lesson@768d",
    "lesson@1440l",
    "lesson@1440d"
-  ],
-  "clip|div.shell>aside.sidebar": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
   ],
   "clip|main#view>div.card.hero-main": [
    "stats@390l",
@@ -81,56 +65,6 @@
    "ux1-train@1440l",
    "ux1-train@1440d"
   ],
-  "covered|button#lkRep": [
-   "ux1-train@1440l",
-   "ux1-me@1440l",
-   "ux1-train@1440d",
-   "ux1-me@1440d"
-  ],
-  "indicator|nav#nav>a.nav-top[home]": [
-   "home@1440l",
-   "home@1440d"
-  ],
-  "indicator|nav#nav>a.nav-top[learn]": [
-   "ux1-home@1440l",
-   "ux1-home@1440d"
-  ],
-  "indicator|nav#nav>a.nav-top[me]": [
-   "ux1-me@1440l",
-   "ux1-me@1440d"
-  ],
-  "indicator|nav#nav>a.nav-top[train]": [
-   "ux1-train@1440l",
-   "ux1-train@1440d"
-  ],
-  "indicator|nav#nav>details.nav-group[me]>a[me]": [
-   "me@1440l",
-   "me@1440d"
-  ],
-  "indicator|nav#nav>details.nav-group[me]>a[settings]": [
-   "settings@1440l",
-   "settings@1440d"
-  ],
-  "indicator|nav#nav>details.nav-group[me]>a[stats]": [
-   "stats@1440l",
-   "stats@1440d"
-  ],
-  "indicator|nav#nav>details.nav-group[skills]>a[skills]": [
-   "skills@1440l",
-   "skills@1440d"
-  ],
-  "indicator|nav#nav>details.nav-group[tests]>a[tests]": [
-   "tests@1440l",
-   "tests@1440d"
-  ],
-  "indicator|nav#nav>details.nav-group[vocab]>a[practice]": [
-   "practice@1440l",
-   "practice@1440d"
-  ],
-  "indicator|nav#nav>details.nav-group[vocab]>a[vocab]": [
-   "vocab@1440l",
-   "vocab@1440d"
-  ],
   "nolabel|div.set-row>div.set-c>select.input.lang-select": [
    "settings@390l",
    "settings@390d",
@@ -183,14 +117,6 @@
    "settings@390l",
    "settings@390d"
   ],
-  "spill|button#lkRep": [
-   "ux1-home@1440l",
-   "ux1-train@1440l",
-   "ux1-me@1440l",
-   "ux1-home@1440d",
-   "ux1-train@1440d",
-   "ux1-me@1440d"
-  ],
   "spill|div.set-wrap>nav.set-nav.fade-end>button": [
    "settings@390l",
    "settings@390d"
@@ -208,22 +134,6 @@
    "ux1-home@1440d",
    "ux1-train@1440d",
    "ux1-me@1440d"
-  ],
-  "tap|aside.sidebar>nav.side-foot>a": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
-  ],
-  "tap|aside.sidebar>nav.side-foot>a[about]": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
   ],
   "tap|button#aiSet": [
    "settings@768l",
@@ -254,14 +164,6 @@
    "skills@768l",
    "tests@768l",
    "me@768l"
-  ],
-  "tap|button#lkRep": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
   ],
   "tap|button#notifBtn": [
    "home@768l",
@@ -566,162 +468,6 @@
    "home@768d",
    "home@1440l",
    "home@1440d"
-  ],
-  "tap|nav#nav>a.nav-top[home]": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
-  ],
-  "tap|nav#nav>details.nav-group[me]>a": [
-   "me@1440l",
-   "settings@1440l",
-   "stats@1440l",
-   "me@1440d",
-   "settings@1440d",
-   "stats@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[me]>a[goal]": [
-   "me@1440l",
-   "settings@1440l",
-   "stats@1440l",
-   "me@1440d",
-   "settings@1440d",
-   "stats@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[me]>a[league]": [
-   "me@1440l",
-   "settings@1440l",
-   "stats@1440l",
-   "me@1440d",
-   "settings@1440d",
-   "stats@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[me]>a[me]": [
-   "me@1440l",
-   "settings@1440l",
-   "stats@1440l",
-   "me@1440d",
-   "settings@1440d",
-   "stats@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[me]>a[mistakes]": [
-   "me@1440l",
-   "settings@1440l",
-   "stats@1440l",
-   "me@1440d",
-   "settings@1440d",
-   "stats@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[me]>a[settings]": [
-   "me@1440l",
-   "settings@1440l",
-   "stats@1440l",
-   "me@1440d",
-   "settings@1440d",
-   "stats@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[me]>a[stats]": [
-   "me@1440l",
-   "settings@1440l",
-   "stats@1440l",
-   "me@1440d",
-   "settings@1440d",
-   "stats@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[skills]>a[grammar]": [
-   "skills@1440l",
-   "skills@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[skills]>a[pron]": [
-   "skills@1440l",
-   "skills@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[skills]>a[skill-listening]": [
-   "skills@1440l",
-   "skills@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[skills]>a[skill-reading]": [
-   "skills@1440l",
-   "skills@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[skills]>a[skill-speaking]": [
-   "skills@1440l",
-   "skills@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[skills]>a[skill-writing]": [
-   "skills@1440l",
-   "skills@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[skills]>a[skills]": [
-   "skills@1440l",
-   "skills@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[tests]>a[placement]": [
-   "tests@1440l",
-   "tests@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[tests]>a[tests]": [
-   "tests@1440l",
-   "tests@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[vocab]>a[deck]": [
-   "vocab@1440l",
-   "practice@1440l",
-   "vocab@1440d",
-   "practice@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[vocab]>a[dict]": [
-   "vocab@1440l",
-   "practice@1440l",
-   "vocab@1440d",
-   "practice@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[vocab]>a[library]": [
-   "vocab@1440l",
-   "practice@1440l",
-   "vocab@1440d",
-   "practice@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[vocab]>a[path]": [
-   "vocab@1440l",
-   "practice@1440l",
-   "vocab@1440d",
-   "practice@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[vocab]>a[phrases]": [
-   "vocab@1440l",
-   "practice@1440l",
-   "vocab@1440d",
-   "practice@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[vocab]>a[practice]": [
-   "vocab@1440l",
-   "practice@1440l",
-   "vocab@1440d",
-   "practice@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[vocab]>a[review]": [
-   "vocab@1440l",
-   "practice@1440l",
-   "vocab@1440d",
-   "practice@1440d"
-  ],
-  "tap|nav#nav>details.nav-group[vocab]>a[vocab]": [
-   "vocab@1440l",
-   "practice@1440l",
-   "vocab@1440d",
-   "practice@1440d"
-  ],
-  "tap|nav.side-foot>details.sf-more>summary": [
-   "home@1440l",
-   "vocab@1440l",
-   "practice@1440l",
-   "skills@1440l",
-   "tests@1440l",
-   "me@1440l"
   ],
   "tap|section.card.rings-card>div.rings-legend>a": [
    "home@768l",
