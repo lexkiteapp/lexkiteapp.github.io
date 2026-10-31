@@ -1,4 +1,4 @@
 # Stitch quality refs – share (session 6f610bf6, key3 project 18075333702575270507, DS assets/16469239436252875897 = Lexkite Kit copy). page light-id dark-id device verdict | note (fake bits to hide on port)
 band d1147496751d4ea1b80dbf6d5cfdc6ce f11f44a5d3284401888c140e4c214f8b DESKTOP PASS teacher-slot | share-card.js band variant; band from goal.js (mock/placement only); HIDE "Official prediction", "Top 15% tier", "14-day sprint"
 cert 545b3d1ebdb14565beb18a6484fe24da ab6e57e4a19f472fb84a423974d27651 DESKTOP PASS | NEW feature (no certificates yet) → owner OK on feature; verify code = HMAC in Pages Function
-streak e7226b64ae81497ca718189c8b38ea1b d023331ea9a047eb8fe12a1529a1656e DESKTOP PASS teacher-slot | share-card.js 1080² (port as square); HIDE "Top 3% consistency", "Join the Challenge" → "lexkite.com"; teacher from Chars
+streak 59d55ffe4f7f451282047c458db2653f d023331ea9a047eb8fe12a1529a1656e DESKTOP PASS teacher-slot | share-card.js 1080² (port as square); HIDE "Top 3% consistency", "Join the Challenge" → "lexkite.com"; teacher from Chars

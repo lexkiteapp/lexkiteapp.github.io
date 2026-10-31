@@ -26,6 +26,9 @@ for (const r of rows) { const res = { surface: r.s, page: r.page, fails: [], inf
     const p = await ctx.newPage(), errs = []; p.on('pageerror', e => errs.push(String(e.message || e).slice(0, 120)));
     await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle', timeout: 60000 }).catch(e => errs.push('load: ' + e.message.slice(0, 80)));
     await p.addStyleTag({ content: STILL }); await p.evaluate(() => document.fonts && document.fonts.ready); await p.waitForTimeout(300);
+    // Chụp fullPage: phần tử fixed (top bar, tab bar, CTA dưới) bị vẽ đè giữa trang → neo về đúng chỗ khi cuộn: thanh trên ở đầu trang, thanh dưới ở cuối trang.
+    await p.evaluate(() => { const H = document.documentElement.scrollHeight, fx = [...document.querySelectorAll('body *')].filter(e => getComputedStyle(e).position === 'fixed');
+      for (const e of fx) { const r = e.getBoundingClientRect(); e.style.position = 'absolute'; e.style.bottom = 'auto'; e.style.top = (r.top > innerHeight / 2 ? H - (innerHeight - r.top) : r.top) + 'px'; } });
     const png = path.join(OUT, 'png', `${r.s}-${r.page}-${m}.png`); await p.screenshot({ path: png, fullPage: true });
     await p.evaluate(() => { for (const e of document.querySelectorAll('svg text, svg tspan')) { const fl = getComputedStyle(e).fill; if (/^rgb/.test(fl)) e.style.color = fl; } }); // chữ SVG: màu thật = fill
     const boxes = await p.evaluate(textBoxes), txt = await p.evaluate(() => document.body.innerText);
