@@ -647647,6 +647647,620 @@
      "xw-everyday.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "scorn#v",
+   "batch": "20261031",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-10-31",
+   "data": {
+    "w": "scorn",
+    "pos": "v",
+    "ipa": "/skɔːn/",
+    "ipaUS": "/skɔːrn/",
+    "def": "to feel or show that you have no respect for someone or something",
+    "ex": [
+     "The professor scorns the students who don't catch on immediately."
+    ],
+    "col": [],
+    "syn": [
+     "despise",
+     "disdain"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.68,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:contemn.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wordnet:contemn.v.01"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "th": "omw+ai",
+      "zh": "omw+ai",
+      "ja": "omw+ai",
+      "hi": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "to feel contempt or disdain for something or somebody",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "workaholic#n",
+   "batch": "20261031",
+   "why": [
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-10-31",
+   "data": {
+    "w": "workaholic",
+    "pos": "n",
+    "ipa": "/ˌwɜːkəˈhɒlɪk/",
+    "ipaUS": "/ˌwɜːrkəˈhɑːlɪk/",
+    "def": "a person who works very hard and finds it difficult to stop",
+    "ex": [
+     "I thought only Japanese were workaholics.",
+     "Tom and Mary are both workaholics."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.64,
+    "emoji": "",
+    "topic": "work",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:workaholic.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:257926",
+      "tatoeba:12318382"
+     ],
+     "tr": {
+      "zh": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "person",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "repaint#v",
+   "batch": "20261031",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-10-31",
+   "data": {
+    "w": "repaint",
+    "pos": "v",
+    "ipa": "/rɪˈpeɪnt/",
+    "ipaUS": "/rɪˈpeɪnt/",
+    "def": "to paint something again",
+    "ex": [
+     "Why don't you repaint your house?",
+     "I want to repaint my house."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.61,
+    "emoji": "",
+    "topic": "xw-actions",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:repaint.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:2210870",
+      "tatoeba:6266124"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "fr": "wiktionary+ai"
+     },
+     "trSense": "to paint again",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "doze#v",
+   "batch": "20261031",
+   "why": [
+    "giám khảo nêu lỗi: CEFR C2 is too high for a common verb",
+    "cefr: giám khảo lệch ≥ 2 bậc (B1/B2/B1 ≠ C2)"
+   ],
+   "at": "2026-10-31",
+   "data": {
+    "w": "doze",
+    "pos": "v",
+    "ipa": "/dəʊz/",
+    "ipaUS": "/doʊz/",
+    "def": "to sleep lightly or for a short period of time",
+    "ex": [
+     "He dozed all the while.",
+     "I dozed off for a while."
+    ],
+    "col": [
+     "doze off"
+    ],
+    "syn": [
+     "snooze"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.56,
+    "emoji": "",
+    "topic": "xw-body",
+    "vi": "ngủ gật",
+    "note_vi": "",
+    "m": {
+     "pt": "cochilar",
+     "fr": "somnoler",
+     "de": "dösen",
+     "ja": "うたた寝する",
+     "ru": "дремать"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:snooze.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:290652",
+      "tatoeba:9466326"
+     ],
+     "tr": {
+      "vi": "wiktionary",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "to sleep lightly or briefly",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "gemini:gemini-3.8-flash": 5,
+      "qwen:qwen/qwen3.8-27b": 4
+     },
+     "f": [
+      "CEFR C2 is too high for a common verb"
+     ],
+     "tr": {
+      "es": [],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": null,
+     "btw": {
+      "es": [],
+      "pt": [
+       "to doze",
+       "to doze; to nap",
+       "to doze"
+      ],
+      "fr": [
+       "to doze",
+       "to doze; to slumber",
+       "to doze"
+      ],
+      "de": [
+       "to doze",
+       "to doze",
+       "to doze"
+      ],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [
+       "to doze",
+       "to doze; to nap",
+       "to doze"
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       "to doze",
+       "to doze; to slumber",
+       "to doze"
+      ],
+      "tr": []
+     },
+     "viBtw": [
+      "to nod off; to doze",
+      "to doze off; to nod off",
+      "to doze; to nod off"
+     ],
+     "viLem": [
+      "snooze",
+      "drowse"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B1",
+      "B2",
+      "B1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "ja": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wk",
+      "a",
+      "c"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-body.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fete#v",
+   "batch": "20261031",
+   "why": [
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-10-31",
+   "data": {
+    "w": "fete",
+    "pos": "v",
+    "ipa": "/feɪt/",
+    "ipaUS": "/feɪt/",
+    "def": "to celebrate or honor someone or something with a special event",
+    "ex": [
+     "Tom was feted almost like a pop star.",
+     "The director will be feted at the festival."
+    ],
+    "col": [],
+    "syn": [
+     "celebrate"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.5,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:celebrate.v.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:9981229",
+      "tatoeba:12358272"
+     ],
+     "tr": {
+      "pt": "omw+ai",
+      "fr": "omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "zh": "omw+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "to celebrate or make much of a person",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "blurt#v",
+   "batch": "20261031",
+   "why": [
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-10-31",
+   "data": {
+    "w": "blurt",
+    "pos": "v",
+    "ipa": "/ˈblɜːt/",
+    "ipaUS": "/blɜːrt/",
+    "def": "to say something suddenly and without thinking",
+    "ex": [
+     "William quickly blurted out his name.",
+     "Donald blurted the first thing that came to mind."
+    ],
+    "col": [
+     "blurt out"
+    ],
+    "syn": [
+     "blunder"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.48,
+    "emoji": "",
+    "topic": "language",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:blurt_out.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:11605897",
+      "tatoeba:11488616"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai"
+     },
+     "trSense": "to speak suddenly and unadvisedly",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "centigrade#adj",
+   "batch": "20261031",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)"
+   ],
+   "at": "2026-10-31",
+   "data": {
+    "w": "centigrade",
+    "pos": "adj",
+    "ipa": "/ˈsentɪˌɡreɪd/",
+    "ipaUS": "/ˈsentəɡreɪd/",
+    "def": "measured on a temperature scale where water freezes at 0 degrees and boils at 100 degrees",
+    "ex": [],
+    "col": [
+     "centigrade scale",
+     "degree centigrade",
+     "centigrade thermometer"
+    ],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.47,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:centigrade.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {
+      "pt": "omw+ai"
+     },
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-2+semcor"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-2+semcor"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "anticancer#adj",
+   "batch": "20261031",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-10-31",
+   "data": {
+    "w": "anticancer",
+    "pos": "adj",
+    "ipa": "/ˌæntɪˈkænsə/",
+    "ipaUS": "/ˌæntaɪˈkænsər/",
+    "def": "used to treat or prevent cancer",
+    "ex": [
+     "Mitomycin C is an anticancer drug, and may be administered as part of chemotherapy."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.44,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:anticancer.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wiktionary"
+     ],
+     "tr": {
+      "fr": "omw+ai",
+      "zh": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "used to treat cancer",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "sneer#v",
+   "batch": "20261031",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[1,2,2],\"wk2\":[0,1,1]})"
+   ],
+   "at": "2026-10-31"
   }
  ]
 }
