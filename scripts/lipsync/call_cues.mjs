@@ -1,4 +1,4 @@
-// Mốc khớp miệng cho câu giáo viên trong Call (docs/specs/call-lipsync.md §Đưa vào hệ thống; CI audio.yml): Kokoro python sinh tiếng VÀ mốc âm vị CÙNG một lần
+// Mốc khớp miệng cho câu giáo viên dựng sẵn – Call + Truyện bài học (docs/specs/call-lipsync.md §Đưa vào hệ thống; CI audio.yml): Kokoro python sinh tiếng VÀ mốc âm vị CÙNG một lần
 // (scripts/lipsync/kokoro_ts.py) → <khoá>-ls.mp3 (kho media, bản riêng – mp3 cũ đệm immutable 1 năm nên không ghi đè) + mốc đã align/smooth/lead như lab.mjs.
 // Mỗi câu phải qua cổng mặt vẽ như lab (drawn_frames.mjs): lệch tiếng–miệng ≤ 45 ms · đúng hình theo âm vị ≥ 80 % · 0 nháy. Câu trượt → không ghi mốc (app tự chạy live), báo trong bảng.
 // Ra: .media-out/audio/l/<khoá>-ls.mp3 + web/js/call/cues.js (LK_CUES: mốc nén + độ lớn tiếng 100 Hz 8 bit + từ điển nhỏ cho live) – chỉ commit sau khi đẩy mp3 thành công.
@@ -16,9 +16,12 @@ for (const k of c.CALLS || []) {
   const who = V[k.who] ? k.who : 'ama', voice = V[who].voice.app, nodes = k.nodes ? Object.values(k.nodes) : (k.turns || []);
   for (const x of [...nodes.flatMap(n => [n.m, n.re, ...(n.br || []).map(b => b[1])]), k.end, "Let's keep our chat friendly and on topic!"]) if (x) { const text = String(x).trim(); lines.set(c.KVoice.lineKey(voice, text), { who, voice, text }); }
 }
+// Truyện của #/lesson (giáo viên đứng trên màn, cùng giọng – khớp scripts/gen-audio.mjs §Truyện): bài học dùng chung mặt vẽ (lesson/ui.js)
+vm.runInContext(fs.readFileSync('web/js/lesson/stories.js', 'utf8'), c);
+for (const st of c.LESSON_STORIES || []) for (const l of st.lines) { const who = V[l.who] ? l.who : 'ama', voice = V[who].voice.app, text = String(l.en).trim(); lines.set(c.KVoice.lineKey(voice, text), { who, voice, text }); }
 const old = (() => { try { const g = {}; new Function('self', fs.readFileSync(IDX, 'utf8'))(g); return g.LK_CUES.k; } catch (e) { return {}; } })();
 const todo = process.argv.includes('--index-only') ? [] : [...lines].filter(([k]) => !old[k]); // --index-only: chỉ ghi lại chỉ mục (từ điển + mốc đã có), không sinh tiếng
-console.log(`${lines.size} câu Call · có mốc ${Object.keys(old).length} · cần tạo ${todo.length}`);
+console.log(`${lines.size} câu giáo viên (Call + Truyện) · có mốc ${Object.keys(old).length} · cần tạo ${todo.length}`);
 if (process.argv.includes('--count')) process.exit(0);
 
 // từ điển nhỏ cho chế độ live (không có mốc): chỉ các từ trong kịch bản Call (spec §4 – giữ nhẹ)
