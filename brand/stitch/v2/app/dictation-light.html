@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Dictation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#6f7977",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#855300",
+            "primary-fixed": "#afefe6",
+            "on-primary-fixed-variant": "#03504a",
+            "outline-variant": "#bfc9c6",
+            "surface-bright": "#fff8f5",
+            "on-primary-fixed": "#00201d",
+            "on-secondary-container": "#684000",
+            "tertiary-fixed": "#ffdbce",
+            "surface-variant": "#ebe0da",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#93d2ca",
+            "on-secondary-fixed": "#2a1700",
+            "tertiary-fixed-dim": "#ffb599",
+            "surface-container": "#f7ece5",
+            "primary": "#00403c",
+            "tertiary-container": "#8e3000",
+            "on-surface": "#201b17",
+            "on-background": "#201b17",
+            "secondary-fixed-dim": "#ffb95f",
+            "surface-container-low": "#fdf1ea",
+            "surface-tint": "#286862",
+            "secondary-container": "#fea619",
+            "inverse-surface": "#352f2b",
+            "inverse-on-surface": "#faefe8",
+            "tertiary": "#682100",
+            "on-error-container": "#93000a",
+            "on-surface-variant": "#3f4947",
+            "inverse-primary": "#93d2ca",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#ffddb8",
+            "on-tertiary-fixed": "#370e00",
+            "surface": "#fff8f5",
+            "on-tertiary-container": "#ffae8f",
+            "surface-container-high": "#f1e6df",
+            "surface-container-highest": "#ebe0da",
+            "surface-dim": "#e3d8d1",
+            "background": "#fff8f5",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#7f2b00",
+            "on-secondary-fixed-variant": "#653e00",
+            "primary-container": "#145953",
+            "on-primary-container": "#8fcec6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "1.25rem",
+            "space-md": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.25rem",
+            "gutter-sm": "0.75rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Be Vietnam Pro"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Be Vietnam Pro"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .wavy-incorrect {
+      text-decoration: underline wavy #ba1a1a;
+      text-underline-offset: 4px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary-container min-h-screen pb-24">
+<!-- TOP APP BAR -->
+<header class="w-full bg-surface">
+<div class="flex justify-between items-center w-full px-margin py-space-sm max-w-xl mx-auto">
+<!-- Leading back icon button -->
+<button aria-label="Back" class="w-10 h-10 rounded-xl bg-surface-container-lowest border-2 border-outline-variant flex items-center justify-center text-on-surface shadow-[0_3px_0_0_#bfc9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bfc9c6] transition-all hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center Title & Progress Indicator -->
+<div class="flex flex-col items-center gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Dictation</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-container text-surface-bright shadow-[0_2px_0_0_#00403c]">(3/20)</span>
+</div>
+<!-- Playful Mini Progress Bar -->
+<div class="w-24 h-2 rounded-full bg-surface-container-highest overflow-hidden shadow-[inset_0_1.5px_0_0_rgba(32,27,23,0.12)]">
+<div class="h-full bg-secondary-container rounded-full w-[15%] shadow-[0_1px_0_0_#b45309]"></div>
+</div>
+</div>
+<!-- Trailing Settings icon button -->
+<button aria-label="Settings" class="w-10 h-10 rounded-xl bg-surface-container-lowest border-2 border-outline-variant flex items-center justify-center text-on-surface shadow-[0_3px_0_0_#bfc9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bfc9c6] transition-all hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- MAIN VIEWPORT CANVAS -->
+<main class="max-w-xl mx-auto px-margin pt-space-sm flex flex-col gap-space-md">
+<!-- 1. MODE & DIFFICULTY SELECTORS -->
+<section class="flex flex-wrap items-center justify-between gap-space-xs">
+<!-- Segmented Mode Tab -->
+<div class="inline-flex p-1 rounded-2xl bg-surface-container-highest border-2 border-outline-variant shadow-[inset_0_2px_0_0_rgba(32,27,23,0.06)]">
+<button class="px-3 py-1.5 rounded-xl font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-[0_3px_0_0_#bfc9c6] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+          Whole sentence
+        </button>
+<button class="px-3 py-1.5 rounded-xl font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+          Fill words
+        </button>
+</div>
+<!-- Difficulty Chips -->
+<div class="inline-flex items-center gap-1.5">
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary-container text-surface-bright border-2 border-primary shadow-[0_3px_0_0_#00403c] active:translate-y-0.5 transition-all" type="button">
+          Medium
+        </button>
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant border-2 border-outline-variant shadow-[0_2px_0_0_#bfc9c6] active:translate-y-0.5 transition-all hover:bg-surface-container" type="button">
+          Hard
+        </button>
+</div>
+</section>
+<!-- 2. AUDIO PLAYER & CONTROL CLUSTER -->
+<section class="bg-surface-container-low rounded-2xl p-space-md border-2 border-outline-variant shadow-[0_4px_0_0_#bfc9c6] flex flex-col items-center gap-space-sm">
+<div class="flex items-center justify-center gap-5 w-full">
+<!-- Prev Button -->
+<button aria-label="Previous Sentence" class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-outline-variant flex items-center justify-center text-on-surface shadow-[0_4px_0_0_#bfc9c6] active:translate-y-1 active:shadow-none transition-all hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<!-- Big Candy Replay Button -->
+<button aria-label="Replay Audio" class="w-20 h-20 rounded-full bg-primary-container border-2 border-primary text-surface-bright flex flex-col items-center justify-center shadow-[0_5px_0_0_#00403c] active:translate-y-1.5 active:shadow-[0_1px_0_0_#00403c] transition-all hover:brightness-105 relative overflow-hidden group" type="button">
+<!-- Gloss Rim Top -->
+<span class="absolute top-1 inset-x-3 h-2.5 rounded-full bg-surface-container-lowest opacity-20 pointer-events-none"></span>
+<span class="material-symbols-outlined text-[34px] group-hover:scale-110 transition-transform" data-icon="volume_up">volume_up</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase -mt-0.5">Replay</span>
+</button>
+<!-- Next Button -->
+<button aria-label="Next Sentence" class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-outline-variant flex items-center justify-center text-on-surface shadow-[0_4px_0_0_#bfc9c6] active:translate-y-1 active:shadow-none transition-all hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Auto-replay Toggle Switch -->
+<label class="inline-flex items-center gap-2.5 cursor-pointer mt-1 select-none">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-checked:bg-primary-container rounded-full border-2 border-outline-variant peer-checked:border-primary transition-all relative shadow-[inset_0_2px_0_0_rgba(32,27,23,0.1)]">
+<div class="w-4 h-4 bg-surface-container-lowest rounded-full absolute top-0.5 left-0.5 peer-checked:left-[1.35rem] shadow-[0_2px_0_0_#bfc9c6] transition-all"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Auto-replay</span>
+</label>
+</section>
+<!-- 3. TYPING & TRANSCRIPTION ASSESSMENT BOX -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-outline-variant p-space-lg shadow-[0_4px_0_0_#bfc9c6] flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between border-b-2 border-outline-variant pb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="edit_note">edit_note</span>
+          Transcription feedback
+        </span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant">Press Enter ↵</span>
+</div>
+<!-- Word-level Pills & Sentence Stream -->
+<div class="min-h-[110px] leading-relaxed flex flex-wrap items-center gap-x-1.5 gap-y-2 text-on-surface">
+<!-- Correct word pill 1 -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-surface-bright text-primary border border-primary shadow-[0_2px_0_0_#00403c] font-body-md text-body-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          The
+        </span>
+<!-- Correct word pill 2 -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-surface-bright text-primary border border-primary shadow-[0_2px_0_0_#00403c] font-body-md text-body-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          rapid
+        </span>
+<!-- Correct word pill 3 -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-surface-bright text-primary border border-primary shadow-[0_2px_0_0_#00403c] font-body-md text-body-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          expansion
+        </span>
+<!-- Correct word pill 4 -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-surface-bright text-primary border border-primary shadow-[0_2px_0_0_#00403c] font-body-md text-body-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          of
+        </span>
+<!-- Missed / Incorrect word tag -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-error-container text-error border border-error shadow-[0_2px_0_0_#ba1a1a] font-body-md text-body-md font-semibold wavy-incorrect">
+<span class="material-symbols-outlined text-[16px] text-error" data-icon="error">error</span>
+          technological
+        </span>
+<!-- Next word typed attempt -->
+<span class="font-body-md text-body-md text-on-surface font-semibold px-1">
+          innovations
+        </span>
+<!-- Active caret / typing cursor indicator -->
+<span class="inline-block w-0.5 h-5 bg-primary animate-pulse ml-0.5 rounded-full"></span>
+</div>
+<!-- Sunken Input Affordance Bottom Hint -->
+<div class="bg-surface-container rounded-xl p-2.5 border border-outline-variant flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm italic">Type what you hear...</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="keyboard">keyboard</span>
+</div>
+</section>
+<!-- 4. RESULT COUNTERS (FEEDBACK ROW) -->
+<section class="grid grid-cols-3 gap-space-xs">
+<!-- Correct Badge -->
+<div class="flex items-center justify-between px-3 py-2 rounded-xl bg-surface-container-lowest border-2 border-outline-variant shadow-[0_3px_0_0_#bfc9c6]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Correct</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">14</span>
+</div>
+<!-- Missed Badge -->
+<div class="flex items-center justify-between px-3 py-2 rounded-xl bg-surface-container-lowest border-2 border-outline-variant shadow-[0_3px_0_0_#bfc9c6]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Missed</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-error">2</span>
+</div>
+<!-- Extra Badge -->
+<div class="flex items-center justify-between px-3 py-2 rounded-xl bg-surface-container-lowest border-2 border-outline-variant shadow-[0_3px_0_0_#bfc9c6]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Extra</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">0</span>
+</div>
+</section>
+<!-- 5. ACTION BUTTONS -->
+<section class="flex flex-col gap-2.5 pt-1">
+<!-- Sunny Orange Candy "Answer" Button (strictly deep brown-black ink text) -->
+<button class="w-full py-3.5 px-6 rounded-2xl bg-secondary-container border-2 border-secondary font-headline-sm text-headline-sm text-on-surface flex items-center justify-center gap-2 shadow-[0_4px_0_0_#b45309] active:translate-y-1 active:shadow-[0_1px_0_0_#b45309] transition-all hover:brightness-105" type="button">
+<span class="material-symbols-outlined text-[22px] text-on-surface" data-icon="task_alt">task_alt</span>
+<span>Answer</span>
+</button>
+<!-- Clear All Secondary Tactile Button -->
+<button class="w-full py-2.5 px-6 rounded-2xl bg-surface-container-lowest border-2 border-outline-variant font-label-lg text-label-lg text-on-surface flex items-center justify-center gap-1.5 shadow-[0_3px_0_0_#bfc9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bfc9c6] transition-all hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="restart_alt">restart_alt</span>
+<span>Clear all</span>
+</button>
+</section>
+</main>
+<!-- 6. FIXED BOTTOM TAB BAR (FROM SHARED COMPONENTS JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-sm py-space-xs pb-space-sm max-w-xl mx-auto bg-surface-bright dark:bg-surface-container-lowest border-t-2 border-outline-variant dark:border-outline shadow-none">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high transition-all active:translate-y-0.5" href="#/today">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high transition-all active:translate-y-0.5" href="#/vocab">
+<span class="material-symbols-outlined text-[22px]" data-icon="style">style</span>
+<span class="font-label-sm text-label-sm mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-container text-on-secondary-container dark:text-on-secondary-container rounded-xl px-3 py-1 font-bold shadow-[0_3px_0_0_#b45309] active:translate-y-0.5 transition-transform duration-100" href="#/skills">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high transition-all active:translate-y-0.5" href="#/tests">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high transition-all active:translate-y-0.5" href="#/me">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Me</span>
+</a>
+</nav>
+</body></html>

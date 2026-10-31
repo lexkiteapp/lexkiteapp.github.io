@@ -1,7 +1,7 @@
 # Stitch v2.1 refs – addon (factory, project 7268539912208977707, DS assets/1b7a8a3d3d52404bb332d9ba3f783547 Lexkite Kit). page light-id dark-id device verdict | note | prompt = scratchpad prompts.tsv line (copied in prompts.txt)
-popup 55e7189a36404469b23a117adf5aa464 65ec4a168fdc4b9d8700401432947c6d MOBILE PASS | all toggles = real popup.html ids (siteOn, wcOn, selMode, acOn, ntOn, ctxOn, QR, report)
-newtab 2876a643f2c64aca94a4da36b7f9209d 2132b77119df461aa9e3a6a7819500bb DESKTOP PASS | 
-newtab-off b0d7522062aa4374b2a57198c2c16f9a 62d6be67483b4070a1237c9ff6088b27 DESKTOP PASS | 
-word-popup 998101662573463399cf0d6482bb1ab8 473d6395248441bf8efd27ac34d6829c DESKTOP PASS | dark r1 rejected (white popup card in dark) → dark2; background article = context only, not ported
-select-fab b5bce8fe4f684db0b796d4c8154804b2 a93b2693e9c84814a5e9ba19ee774084 DESKTOP PASS | FAB + tooltip + toast; article background = context only
-writecheck 0260ed9f66784a9c9093f966f1c02b9d b596cb80e96e45e8bb331ec10059781c DESKTOP PASS | port only the underline + suggestion card + count badge; Stitch side tabs/footer cards in the mock composer are context, not features
+popup 55e7189a36404469b23a117adf5aa464 65ec4a168fdc4b9d8700401432947c6d 7268539912208977707 MOBILE PASS | all toggles = real popup.html ids (siteOn, wcOn, selMode, acOn, ntOn, ctxOn, QR, report)
+newtab 2876a643f2c64aca94a4da36b7f9209d 2132b77119df461aa9e3a6a7819500bb 7268539912208977707 DESKTOP PASS | 
+newtab-off b0d7522062aa4374b2a57198c2c16f9a 62d6be67483b4070a1237c9ff6088b27 7268539912208977707 DESKTOP PASS | 
+word-popup 998101662573463399cf0d6482bb1ab8 473d6395248441bf8efd27ac34d6829c 7268539912208977707 DESKTOP PASS | dark r1 rejected (white popup card in dark) → dark2; background article = context only, not ported
+select-fab b5bce8fe4f684db0b796d4c8154804b2 a93b2693e9c84814a5e9ba19ee774084 7268539912208977707 DESKTOP PASS | FAB + tooltip + toast; article background = context only
+writecheck 0260ed9f66784a9c9093f966f1c02b9d b596cb80e96e45e8bb331ec10059781c 7268539912208977707 DESKTOP PASS | port only the underline + suggestion card + count badge; Stitch side tabs/footer cards in the mock composer are context, not features

@@ -15,7 +15,8 @@ fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
 const rows = [];
 for (const s of SURF) { const f = path.join(SRC, s, '.index.txt'); if (!fs.existsSync(f)) continue;
   for (const l of fs.readFileSync(f, 'utf8').split('\n')) { if (!l.trim() || l.startsWith('#')) continue;
-    const [head] = l.split(' | '), [page, , , dev, verdict, ...flags] = head.split(/\s+/);
+    const [head] = l.split(' | '), tok = head.split(/\s+/); if (/^\d+$/.test(tok[3])) tok.splice(3, 1); // cột 4 = project Stitch (key1/2/3) nếu có
+    const [page, , , dev, verdict, ...flags] = tok;
     if (verdict === 'PASS') rows.push({ s, page, w: dev === 'DESKTOP' ? 1280 : 390, teacher: flags.includes('teacher-slot') }); } }
 const browser = await chromium.launch(), report = [];
 for (const r of rows) { const res = { surface: r.s, page: r.page, fails: [], info: {} }, words = {};

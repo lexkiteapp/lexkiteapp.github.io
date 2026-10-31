@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Speaking Room</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#136a63",
+            "on-tertiary-fixed": "#251a00",
+            "on-primary-container": "#9be7de",
+            "on-primary": "#ffffff",
+            "on-surface": "#211a14",
+            "inverse-on-surface": "#fdeee3",
+            "primary-fixed": "#a4f1e7",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#633700",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#ffb872",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "tertiary": "#5b4300",
+            "surface-variant": "#efe0d6",
+            "on-surface-variant": "#3f4947",
+            "surface": "#fff8f5",
+            "primary-fixed-dim": "#88d4cb",
+            "inverse-surface": "#372f28",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#fff1e8",
+            "tertiary-fixed-dim": "#f5bf31",
+            "surface-container-high": "#f4e5db",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-bright": "#fff8f5",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#ffdf9b",
+            "primary": "#00504b",
+            "outline": "#6f7977",
+            "secondary-fixed": "#ffdcbf",
+            "on-tertiary-container": "#ffd370",
+            "on-background": "#211a14",
+            "inverse-primary": "#88d4cb",
+            "secondary": "#8c5000",
+            "surface-container-highest": "#efe0d6",
+            "surface-dim": "#e6d7cd",
+            "on-primary-fixed": "#00201d",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container": "#faebe1",
+            "surface-tint": "#126a63",
+            "secondary-container": "#fd9500",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#785a00",
+            "background": "#fff8f5",
+            "outline-variant": "#bec9c6",
+            "on-secondary-fixed": "#2d1600",
+            "on-secondary-fixed-variant": "#6a3b00"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "margin-md": "2rem",
+            "space-md": "1rem",
+            "margin-lg": "3rem",
+            "margin": "1rem",
+            "gutter-lg": "2rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "gutter-md": "1.5rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile Micro-Interactions */
+    .tactile-btn {
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px) !important;
+      box-shadow: 0 1px 0 currentColor !important;
+    }
+    
+    /* Pulse glow for mic recording badge */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.96); opacity: 0.8; }
+      50% { transform: scale(1.06); opacity: 0.3; }
+      100% { transform: scale(0.96); opacity: 0.8; }
+    }
+    .mic-ambient {
+      animation: pulse-ring 3s infinite ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-24 selection:bg-secondary-fixed selection:text-on-secondary-fixed flex flex-col items-center">
+<!-- Main Container: Mobile focused viewport canvas -->
+<div class="w-full max-w-md min-h-screen bg-surface flex flex-col relative shadow-[0_0_40px_rgba(0,0,0,0.03)]">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-space-md py-space-sm border-b-2 border-surface-variant shadow-[0_4px_0_#efe0d6]">
+<div class="flex items-center justify-between gap-2">
+<!-- Back Button -->
+<button aria-label="Go back" class="tactile-btn h-10 w-10 flex items-center justify-center rounded-xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_#efe0d6] text-primary hover:bg-surface-container active:translate-y-1 transition-all">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<!-- Brand / Header Title -->
+<div class="flex flex-col items-center flex-1">
+<h1 class="font-headline-sm text-headline-sm text-primary font-extrabold tracking-tight">Speaking Room</h1>
+</div>
+<!-- Topic Selector Pill -->
+<button class="tactile-btn flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low border-2 border-surface-variant shadow-[0_3px_0_#efe0d6] text-on-surface hover:bg-surface-container active:translate-y-1">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Travel & Places</span>
+<span class="material-symbols-outlined text-outline text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+</header>
+<!-- CONTENT BODY -->
+<main class="flex-1 px-space-md py-space-md flex flex-col gap-5">
+<!-- SUB-HEADER BAR: Parts navigation segmented tabs -->
+<section aria-label="Parts Selection" class="flex items-center justify-between bg-surface-container p-1 rounded-2xl border-2 border-surface-variant shadow-[0_3px_0_#efe0d6]">
+<!-- Part 1 (Inactive) -->
+<button class="tactile-btn flex-1 py-2 text-center rounded-xl font-label-md text-label-md text-on-surface-variant font-bold hover:text-primary transition-colors">
+          Part 1
+        </button>
+<!-- Part 2 (Active - High Energy Chunky Pill) -->
+<button class="tactile-btn flex-1 py-2 text-center rounded-xl font-label-md text-label-md text-[#2b1700] bg-secondary-container border-2 border-[#d97300] shadow-[0_3px_0_#d97300] font-extrabold">
+          Part 2
+        </button>
+<!-- Part 3 (Inactive) -->
+<button class="tactile-btn flex-1 py-2 text-center rounded-xl font-label-md text-label-md text-on-surface-variant font-bold hover:text-primary transition-colors">
+          Part 3
+        </button>
+</section>
+<!-- Target Timer Badge -->
+<div class="flex items-center justify-between px-1">
+<div class="inline-flex items-center gap-2 bg-[#ffdf9b] border-2 border-[#d49b10] px-3.5 py-1.5 rounded-full shadow-[0_2px_0_#d49b10]">
+<span class="material-symbols-outlined text-[#251a00] text-[18px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-label-sm text-label-sm text-[#251a00] font-extrabold uppercase tracking-wide">Aim for 2 minutes</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary-container font-label-sm text-label-sm bg-primary-fixed/40 px-3 py-1.5 rounded-full border border-primary-fixed-dim">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-bold text-primary">Cue Card Task</span>
+</div>
+</div>
+<!-- QUESTION CARD -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] p-space-md flex flex-col gap-4 relative overflow-hidden">
+<!-- Card Top Accents -->
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-extrabold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+            IELTS Speaking Prompt
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">1 min prep</span>
+</div>
+<!-- Question Headline -->
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold leading-snug">
+            Describe a place you like to visit.
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 font-medium">
+            You should say where it is, how often you go there, what you do when you are there, and explain why you like visiting this place.
+          </p>
+</div>
+<!-- Card Action Buttons Matrix (Tactile 3D pressable) -->
+<div class="grid grid-cols-2 gap-3 pt-2">
+<!-- Hear the examiner -->
+<button class="tactile-btn flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-surface-container-low text-primary border-2 border-primary-fixed-dim shadow-[0_3px_0_#88d4cb] font-label-md text-label-md hover:bg-surface-container active:translate-y-1">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<span class="font-bold text-primary">Hear examiner</span>
+</button>
+<!-- Another question -->
+<button class="tactile-btn flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_3px_0_#efe0d6] font-label-md text-label-md hover:bg-surface-container-low active:translate-y-1">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">shuffle</span>
+<span class="font-bold text-on-surface">Another task</span>
+</button>
+</div>
+</section>
+<!-- MAIN RECORDING CONTROLLER (Arcade Tactile Mic) -->
+<section class="flex flex-col items-center justify-center py-2 relative">
+<!-- Ambient pulsating aura behind mic button -->
+<div class="relative flex items-center justify-center">
+<div class="mic-ambient absolute w-36 h-36 rounded-full bg-secondary-fixed/50 -z-0"></div>
+<!-- Tactile Juicy Candy Mic Button -->
+<button aria-label="Start Recording speech" class="tactile-btn relative z-10 w-24 h-24 rounded-full bg-secondary-container border-4 border-[#d97300] shadow-[0_6px_0_#b56000] text-[#2b1700] flex flex-col items-center justify-center group active:translate-y-1" style="box-shadow: 0 6px 0 #b56000;">
+<!-- Gloss highlight glint -->
+<div class="absolute top-1.5 left-3 right-3 h-5 rounded-full bg-white/40 pointer-events-none"></div>
+<span class="material-symbols-outlined text-[38px] text-[#2b1700]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<!-- Press Prompt & State -->
+<div class="mt-3 text-center">
+<span class="font-label-lg text-label-lg text-on-surface font-extrabold tracking-tight block">
+            Tap mic to begin speaking
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            AI feedback analyzes fluency, lexical range & tone
+          </span>
+</div>
+</section>
+<!-- VOCABULARY TO USE CARD -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] p-space-md flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-extrabold text-[18px]">Vocabulary to use</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold bg-primary-fixed/30 px-2.5 py-0.5 rounded-full">Band 7.5+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tap any keyword during your speech to flag natural usage:</p>
+<!-- Tactile Word Chips Flex Matrix -->
+<div class="flex flex-wrap gap-2 pt-1">
+<!-- Word Chip 1 -->
+<button class="tactile-btn px-3 py-1.5 rounded-xl bg-surface-container-low border-2 border-surface-variant shadow-[0_3px_0_#efe0d6] text-on-surface font-label-md text-label-md font-bold hover:border-primary-fixed-dim active:translate-y-0.5">
+            bustling
+          </button>
+<!-- Word Chip 2 -->
+<button class="tactile-btn px-3 py-1.5 rounded-xl bg-surface-container-low border-2 border-surface-variant shadow-[0_3px_0_#efe0d6] text-on-surface font-label-md text-label-md font-bold hover:border-primary-fixed-dim active:translate-y-0.5">
+            picturesque
+          </button>
+<!-- Word Chip 3 (Highlighted) -->
+<button class="tactile-btn px-3 py-1.5 rounded-xl bg-[#ffdf9b] border-2 border-[#d49b10] shadow-[0_3px_0_#d49b10] text-[#2b1700] font-label-md text-label-md font-extrabold active:translate-y-0.5">
+            unwind
+          </button>
+<!-- Word Chip 4 -->
+<button class="tactile-btn px-3 py-1.5 rounded-xl bg-surface-container-low border-2 border-surface-variant shadow-[0_3px_0_#efe0d6] text-on-surface font-label-md text-label-md font-bold hover:border-primary-fixed-dim active:translate-y-0.5">
+            breathtaking
+          </button>
+<!-- Word Chip 5 -->
+<button class="tactile-btn px-3 py-1.5 rounded-xl bg-surface-container-low border-2 border-surface-variant shadow-[0_3px_0_#efe0d6] text-on-surface font-label-md text-label-md font-bold hover:border-primary-fixed-dim active:translate-y-0.5">
+            hospitality
+          </button>
+<!-- Word Chip 6 -->
+<button class="tactile-btn px-3 py-1.5 rounded-xl bg-surface-container-low border-2 border-surface-variant shadow-[0_3px_0_#efe0d6] text-on-surface font-label-md text-label-md font-bold hover:border-primary-fixed-dim active:translate-y-0.5">
+            serene
+          </button>
+</div>
+</section>
+<!-- PART TIPS CARD -->
+<section class="bg-surface-container-low rounded-2xl border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] p-space-md flex items-center justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0 border-2 border-[#0b423e] shadow-[0_2px_0_#0b423e]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-extrabold">Part tips</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium mt-0.5">
+              Structure your response into past, present, and future feelings.
+            </p>
+</div>
+</div>
+<!-- Distinct Band-8 Sample Link Button -->
+<button class="tactile-btn shrink-0 px-3.5 py-2 rounded-xl bg-surface-container-lowest border-2 border-primary-fixed-dim shadow-[0_3px_0_#88d4cb] text-primary font-label-md text-label-md font-bold hover:bg-surface active:translate-y-1">
+          Band-8 sample
+        </button>
+</section>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Standard 5 Tabs from Shared Components JSON) -->
+<!-- Destination Tabs: "Today", "Vocab", "Skills" (Active), "Tests", "Me" -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-sm bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_#efe0d6]">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary active:scale-95 transition-transform duration-100" href="#/today">
+<span class="material-symbols-outlined text-[24px]">today</span>
+<span class="mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary active:scale-95 transition-transform duration-100" href="#/vocab">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (Active Intent for Speaking Room: Highlighted Pill) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-space-md py-space-xs shadow-[0_2px_0_#d97300] font-label-sm text-label-sm active:scale-95 transition-transform duration-100" href="#/speaking">
+<span class="material-symbols-outlined text-[24px] text-[#2b1700]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="mt-0.5 text-[#2b1700] font-extrabold">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary active:scale-95 transition-transform duration-100" href="#/tests">
+<span class="material-symbols-outlined text-[24px]">assignment_turned_in</span>
+<span class="mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary active:scale-95 transition-transform duration-100" href="#/me">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

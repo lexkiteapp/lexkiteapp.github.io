@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Writing Room</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#3f4947",
+            "background": "#fff8f5",
+            "on-tertiary-fixed": "#251a00",
+            "error": "#ba1a1a",
+            "secondary-container": "#fd9500",
+            "surface-bright": "#fff8f5",
+            "inverse-on-surface": "#fdeee3",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#88d4cb",
+            "primary-fixed": "#a4f1e7",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#f4e5db",
+            "tertiary": "#5b4300",
+            "on-surface": "#211a14",
+            "on-primary-fixed-variant": "#00504a",
+            "on-primary-fixed": "#00201d",
+            "tertiary-fixed": "#ffdf9b",
+            "tertiary-container": "#785a00",
+            "inverse-surface": "#372f28",
+            "surface-container-highest": "#efe0d6",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "error-container": "#ffdad6",
+            "outline-variant": "#bec9c6",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#88d4cb",
+            "surface-container": "#faebe1",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#9be7de",
+            "surface-dim": "#e6d7cd",
+            "primary-container": "#136a63",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary-fixed-dim": "#f5bf31",
+            "surface-variant": "#efe0d6",
+            "on-tertiary-container": "#ffd370",
+            "on-background": "#211a14",
+            "on-secondary-container": "#633700",
+            "secondary": "#8c5000",
+            "outline": "#6f7977",
+            "on-secondary-fixed": "#2d1600",
+            "surface-container-low": "#fff1e8",
+            "primary": "#00504b",
+            "on-error": "#ffffff",
+            "surface-tint": "#126a63",
+            "secondary-fixed-dim": "#ffb872",
+            "secondary-fixed": "#ffdcbf",
+            "surface": "#fff8f5"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-md": "2rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter-lg": "2rem",
+            "margin-lg": "3rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "500" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "800" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "display-lg": ["44px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "800" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.03em", fontWeight: "700" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }],
+            "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbar for chrome, safari and opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen antialiased flex flex-col font-body-md text-body-md pb-28">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 left-0 w-full z-40 bg-surface flex justify-between items-center px-gutter py-space-sm border-b-2 border-outline-variant shadow-[0_4px_0_0_#BEC9C6]">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-outline-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#BEC9C6] active:translate-y-1 active:shadow-none transition-all duration-100 hover:bg-surface-container">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-extrabold text-primary tracking-tight">Writing Room</h1>
+</div>
+<!-- Timer Badge Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border-2 border-outline-variant shadow-[0_3px_0_0_#BEC9C6] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-[18px]">schedule</span>
+<span class="font-label-md text-label-md font-extrabold text-on-surface">34:12</span>
+</div>
+</header>
+<!-- MAIN SCROLLABLE WRITING CANVAS -->
+<main class="w-full max-w-md mx-auto px-gutter pt-space-md flex flex-col gap-space-md">
+<!-- TASK CARD -->
+<section class="bg-surface-container-lowest border-2 border-outline-variant rounded-2xl p-space-md shadow-[0_4px_0_0_#BEC9C6] flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider shadow-[0_2px_0_0_#00201d]">
+          IELTS Task 2
+        </span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant font-bold">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">stars</span> 40 mins
+        </span>
+</div>
+<!-- Question Prompt -->
+<p class="font-headline-sm text-[17px] leading-snug font-bold text-[#1e293b] pt-1">
+        Some people believe that unpaid community service should be a compulsory part of high school programmes. To what extent do you agree or disagree?
+      </p>
+<!-- Task Action Buttons -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface font-label-md text-label-md shadow-[0_3px_0_0_#BEC9C6] active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-primary text-[18px]">shuffle</span>
+<span>Random task</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface font-label-md text-label-md shadow-[0_3px_0_0_#BEC9C6] active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-secondary text-[18px]">lightbulb</span>
+<span>Ideas</span>
+</button>
+</div>
+</section>
+<!-- ESSAY TYPE OUTLINE HINT -->
+<div class="flex items-center">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border-2 border-secondary/30 shadow-[0_2px_0_0_#efe0d6]">
+<span class="material-symbols-outlined text-secondary text-[18px]">lightbulb</span>
+<span class="font-label-md text-label-md font-bold text-on-secondary-container">Opinion / Agree &amp; Disagree Essay</span>
+</div>
+</div>
+<!-- ESSAY EDITOR CARD -->
+<section class="bg-surface-container-lowest border-2 border-outline-variant rounded-2xl shadow-[0_4px_0_0_#BEC9C6] flex flex-col overflow-hidden">
+<!-- Live drafting text container -->
+<div class="p-space-md">
+<textarea aria-label="IELTS Essay Draft" class="w-full resize-none border-none p-0 focus:ring-0 text-[#1e293b] font-body-md text-[15px] leading-relaxed bg-transparent focus:outline-none" id="essay-textarea" rows="7">In contemporary education, whether voluntary social work should be mandated for secondary school students sparks fierce debate. While opponents argue this adds excessive burden onto already pressured teenagers, I firmly believe that introducing compulsory civic service cultivates essential life skills, empathy, and community cohesion...</textarea>
+</div>
+<!-- Editor Sub-bar -->
+<div class="flex items-center justify-between px-space-md py-space-sm bg-surface-container-low border-t-2 border-outline-variant/60">
+<!-- Live word counter badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container-lowest border-2 border-outline-variant shadow-[0_2px_0_0_#BEC9C6]">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-label-md text-label-md font-extrabold text-[#1e293b]">213 words</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">(Target: 250+)</span>
+</div>
+<!-- Timer Indicator -->
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[16px] text-primary">timer</span>
+<span>34:12 left</span>
+</div>
+</div>
+</section>
+<!-- SUGGESTED WORDS TACTILE CHIPS -->
+<section class="flex flex-col gap-space-xs">
+<h2 class="font-label-sm text-label-sm uppercase font-extrabold text-[#2d3748] tracking-wider px-1">
+        Suggested Words
+      </h2>
+<div class="flex gap-2 overflow-x-auto no-scrollbar py-1 px-1">
+<button class="flex-shrink-0 flex items-center px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-outline-variant text-[#1e293b] font-label-md text-label-md shadow-[0_3px_0_0_#BEC9C6] active:translate-y-1 active:shadow-none hover:bg-surface-container transition-all" onclick="insertWord('Furthermore')">
+<span class="font-extrabold text-primary mr-1">+</span> Furthermore
+        </button>
+<button class="flex-shrink-0 flex items-center px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-outline-variant text-[#1e293b] font-label-md text-label-md shadow-[0_3px_0_0_#BEC9C6] active:translate-y-1 active:shadow-none hover:bg-surface-container transition-all" onclick="insertWord('Invaluable')">
+<span class="font-extrabold text-primary mr-1">+</span> Invaluable
+        </button>
+<button class="flex-shrink-0 flex items-center px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-outline-variant text-[#1e293b] font-label-md text-label-md shadow-[0_3px_0_0_#BEC9C6] active:translate-y-1 active:shadow-none hover:bg-surface-container transition-all" onclick="insertWord('Foster')">
+<span class="font-extrabold text-primary mr-1">+</span> Foster
+        </button>
+<button class="flex-shrink-0 flex items-center px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-outline-variant text-[#1e293b] font-label-md text-label-md shadow-[0_3px_0_0_#BEC9C6] active:translate-y-1 active:shadow-none hover:bg-surface-container transition-all" onclick="insertWord('Civic duty')">
+<span class="font-extrabold text-primary mr-1">+</span> Civic duty
+        </button>
+<button class="flex-shrink-0 flex items-center px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-outline-variant text-[#1e293b] font-label-md text-label-md shadow-[0_3px_0_0_#BEC9C6] active:translate-y-1 active:shadow-none hover:bg-surface-container transition-all" onclick="insertWord('Substantially')">
+<span class="font-extrabold text-primary mr-1">+</span> Substantially
+        </button>
+</div>
+</section>
+<!-- BOTTOM ACTIONS CLUSTER -->
+<div class="flex flex-col gap-space-sm pt-space-xs pb-space-sm">
+<!-- Band-8 Sample Link Pill -->
+<button class="self-center flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-surface-container border-2 border-outline-variant text-[#134e48] font-label-md text-label-md font-bold shadow-[0_2px_0_0_#BEC9C6] active:translate-y-0.5 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+<span>Band-8 sample</span>
+</button>
+<!-- Primary Big Orange Button -->
+<button class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-secondary-container border-2 border-[#b45309] text-[#241400] font-headline-sm text-headline-sm font-extrabold shadow-[0_5px_0_0_#b45309] active:translate-y-1 active:shadow-[0_1px_0_0_#b45309] transition-all cursor-pointer">
+<span class="material-symbols-outlined fill-icon text-[24px] text-[#241400]">auto_awesome</span>
+<span>Analyse vocabulary</span>
+</button>
+</div>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Mandatory Exact 5 Tabs) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-space-xs bg-surface-container-lowest border-t-2 border-outline-variant shadow-[0_-4px_0_0_#BEC9C6]">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-space-xs hover:text-primary transition-transform active:translate-y-0.5" href="#/today">
+<span class="material-symbols-outlined text-[24px]">wb_sunny</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-bold">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-space-xs hover:text-primary transition-transform active:translate-y-0.5" href="#/vocab">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-bold">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg px-space-sm py-space-xs border-2 border-secondary shadow-[0_3px_0_0_#633700] active:translate-y-0.5 active:shadow-[0_1px_0_0_#633700]" href="#/write">
+<span class="material-symbols-outlined fill-icon text-[24px] text-[#241400]">psychology</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-extrabold text-[#241400]">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-space-xs hover:text-primary transition-transform active:translate-y-0.5" href="#/tests">
+<span class="material-symbols-outlined text-[24px]">assignment</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-bold">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-space-xs hover:text-primary transition-transform active:translate-y-0.5" href="#/profile">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-bold">Me</span>
+</a>
+</nav>
+<script>
+    function insertWord(word) {
+      const textarea = document.getElementById('essay-textarea');
+      if (textarea) {
+        textarea.value += ' ' + word;
+        textarea.scrollTop = textarea.scrollHeight;
+        textarea.focus();
+      }
+    }
+  </script>
+</body></html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS - Writing Feedback</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#091518",
+            "surface-dim": "#091518",
+            "surface": "#091518",
+            "surface-container-lowest": "#051013",
+            "surface-container-low": "#101f23",
+            "surface-container": "#15272d",
+            "surface-container-high": "#192d34",
+            "surface-container-highest": "#20383f",
+            "outline-border": "#20383f",
+            "primary": "#46d1c5",
+            "primary-container": "#2ba39a",
+            "on-primary": "#003733",
+            "secondary": "#f59e0b",
+            "secondary-dark": "#b45309",
+            "ink-dark": "#1b0e03",
+            "on-surface": "#f1f8f8",
+            "body-text": "#d9ebed",
+            "muted-text": "#9eb7ba",
+            "error-tint": "#3d1419",
+            "error-border": "#69171f",
+            "error-text": "#ff8585"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-background text-body-text min-h-screen flex flex-col antialiased selection:bg-primary selection:text-ink-dark pb-28">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-[#091518]/95 backdrop-blur-md border-b-2 border-outline-border shadow-[0_3px_0_#051013] w-full">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-screen-md mx-auto">
+<!-- Back Button -->
+<a class="w-10 h-10 rounded-full bg-surface-container-low border-2 border-outline-border shadow-[0_3px_0_#051013] flex items-center justify-center text-primary active:translate-y-[2px] transition-transform duration-100 hover:bg-surface-container" href="#/write">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</a>
+<!-- Subtitle & Headline -->
+<div class="flex flex-col items-center">
+<span class="text-[11px] font-extrabold tracking-widest text-[#f59e0b] uppercase">IELTS TASK 2</span>
+<h1 class="text-[17px] font-bold text-on-surface tracking-tight leading-snug">Writing Feedback</h1>
+</div>
+<!-- Share Action -->
+<button class="w-10 h-10 rounded-full bg-surface-container-low border-2 border-outline-border shadow-[0_3px_0_#051013] flex items-center justify-center text-primary active:translate-y-[2px] transition-transform duration-100 hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-screen-md mx-auto px-4 pt-5 space-y-5">
+<!-- Hero Score & AI Feedback Card (Tactile Chunky Bento) -->
+<section class="bg-surface-container-low border-2 border-outline-border rounded-2xl p-5 shadow-[0_4px_0_#051013] relative overflow-hidden">
+<!-- Top banner strip -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b-2 border-outline-border/60">
+<div class="flex items-center gap-3.5">
+<!-- Circular / Tactile Band Badge -->
+<div class="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-[#f59e0b] border-2 border-[#d97706] shadow-[0_4px_0_#78350f] shrink-0 active:translate-y-[2px] transition-transform">
+<span class="text-[9px] font-extrabold text-[#1b0e03] uppercase tracking-wider leading-none">BAND</span>
+<span class="text-[9px] font-extrabold text-[#1b0e03] uppercase tracking-wider leading-tight">SCORE</span>
+<span class="text-3xl font-extrabold text-[#1b0e03] leading-none mt-0.5">6.5</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-[#143936] text-[#46d1c5] border border-[#2ba39a]/60">
+<span class="material-symbols-outlined text-[13px] mr-1" style="font-variation-settings: 'FILL' 1;">verified</span>
+                AI Evaluated
+              </span>
+<span class="text-xs font-semibold text-muted-text">420 words</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface mt-1">Competent User</h2>
+<p class="text-sm font-medium text-muted-text leading-snug">Good synthesis with room for lexical nuance.</p>
+</div>
+</div>
+<!-- Streak Pill Mini-Widget -->
+<div class="self-start sm:self-center flex items-center gap-1.5 bg-surface-container px-3.5 py-1.5 rounded-full border border-outline-border shadow-[0_2px_0_#051013]">
+<span class="material-symbols-outlined text-[#f59e0b] text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-xs font-bold text-on-surface">5 Day Streak</span>
+</div>
+</div>
+<!-- 4 IELTS Criteria Rows -->
+<div class="mt-4 space-y-3">
+<!-- Criteria 1 -->
+<div class="bg-surface-container p-3.5 rounded-xl border border-outline-border flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-[0_2px_0_#051013]">
+<div class="flex items-start gap-3">
+<span class="w-10 h-7 rounded-lg bg-[#2ba39a] text-[#003733] font-bold text-sm flex items-center justify-center shrink-0 shadow-[0_2px_0_#145b54]">6.5</span>
+<div>
+<p class="text-sm font-bold text-on-surface leading-tight">Task Response</p>
+<p class="text-xs font-medium text-muted-text mt-0.5">Fully addresses prompt, needs deeper examples</p>
+</div>
+</div>
+<div class="w-full sm:w-28 bg-surface-dim h-2.5 rounded-full overflow-hidden shrink-0 border border-outline-border/40">
+<div class="bg-[#2ba39a] h-full rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+<!-- Criteria 2 -->
+<div class="bg-surface-container p-3.5 rounded-xl border border-outline-border flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-[0_2px_0_#051013]">
+<div class="flex items-start gap-3">
+<span class="w-10 h-7 rounded-lg bg-[#2ba39a] text-[#003733] font-bold text-sm flex items-center justify-center shrink-0 shadow-[0_2px_0_#145b54]">7.0</span>
+<div>
+<p class="text-sm font-bold text-on-surface leading-tight">Coherence &amp; Cohesion</p>
+<p class="text-xs font-medium text-muted-text mt-0.5">Clear progression &amp; logical paragraphing</p>
+</div>
+</div>
+<div class="w-full sm:w-28 bg-surface-dim h-2.5 rounded-full overflow-hidden shrink-0 border border-outline-border/40">
+<div class="bg-[#2ba39a] h-full rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+<!-- Criteria 3 -->
+<div class="bg-surface-container p-3.5 rounded-xl border border-outline-border flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-[0_2px_0_#051013]">
+<div class="flex items-start gap-3">
+<span class="w-10 h-7 rounded-lg bg-[#f59e0b] text-[#1b0e03] font-bold text-sm flex items-center justify-center shrink-0 shadow-[0_2px_0_#78350f]">6.0</span>
+<div>
+<p class="text-sm font-bold text-on-surface leading-tight">Lexical Resource</p>
+<p class="text-xs font-medium text-muted-text mt-0.5">Good range, some repetitive phrasing</p>
+</div>
+</div>
+<div class="w-full sm:w-28 bg-surface-dim h-2.5 rounded-full overflow-hidden shrink-0 border border-outline-border/40">
+<div class="bg-[#f59e0b] h-full rounded-full" style="width: 66%;"></div>
+</div>
+</div>
+<!-- Criteria 4 -->
+<div class="bg-surface-container p-3.5 rounded-xl border border-outline-border flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-[0_2px_0_#051013]">
+<div class="flex items-start gap-3">
+<span class="w-10 h-7 rounded-lg bg-[#2ba39a] text-[#003733] font-bold text-sm flex items-center justify-center shrink-0 shadow-[0_2px_0_#145b54]">6.5</span>
+<div>
+<p class="text-sm font-bold text-on-surface leading-tight">Grammatical Range &amp; Accuracy</p>
+<p class="text-xs font-medium text-muted-text mt-0.5">Frequent error-free sentences, complex mix</p>
+</div>
+</div>
+<div class="w-full sm:w-28 bg-surface-dim h-2.5 rounded-full overflow-hidden shrink-0 border border-outline-border/40">
+<div class="bg-[#2ba39a] h-full rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Strengths & To Improve Dual Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Strengths -->
+<section class="bg-surface-container-low border-2 border-outline-border rounded-2xl p-4 shadow-[0_4px_0_#051013]">
+<div class="flex items-center gap-2.5 mb-3">
+<div class="w-7 h-7 rounded-full bg-[#143936] text-[#46d1c5] flex items-center justify-center border border-[#2ba39a]/60">
+<span class="material-symbols-outlined text-[17px]" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+</div>
+<h3 class="text-base font-bold text-on-surface">Strengths</h3>
+</div>
+<ul class="space-y-2.5">
+<li class="flex items-start gap-2.5 bg-surface-container p-2.5 rounded-xl border border-outline-border">
+<span class="material-symbols-outlined text-[#46d1c5] text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="text-xs font-medium text-body-text leading-relaxed">Clear central thesis present in introduction</span>
+</li>
+<li class="flex items-start gap-2.5 bg-surface-container p-2.5 rounded-xl border border-outline-border">
+<span class="material-symbols-outlined text-[#46d1c5] text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="text-xs font-medium text-body-text leading-relaxed">Effective linkers between major body points</span>
+</li>
+</ul>
+</section>
+<!-- To Improve -->
+<section class="bg-surface-container-low border-2 border-outline-border rounded-2xl p-4 shadow-[0_4px_0_#051013]">
+<div class="flex items-center gap-2.5 mb-3">
+<div class="w-7 h-7 rounded-full bg-[#402010] text-[#f59e0b] flex items-center justify-center border border-[#b45309]/60">
+<span class="material-symbols-outlined text-[17px]" style="font-variation-settings: 'FILL' 1;">build</span>
+</div>
+<h3 class="text-base font-bold text-on-surface">To improve</h3>
+</div>
+<ul class="space-y-2.5">
+<li class="flex items-start gap-2.5 bg-surface-container p-2.5 rounded-xl border border-outline-border">
+<span class="material-symbols-outlined text-[#f59e0b] text-[18px] shrink-0 mt-0.5">arrow_upward</span>
+<span class="text-xs font-medium text-body-text leading-relaxed">Precision of academic terms in Body 2</span>
+</li>
+<li class="flex items-start gap-2.5 bg-surface-container p-2.5 rounded-xl border border-outline-border">
+<span class="material-symbols-outlined text-[#f59e0b] text-[18px] shrink-0 mt-0.5">arrow_upward</span>
+<span class="text-xs font-medium text-body-text leading-relaxed">Punctuation in complex conditional clauses</span>
+</li>
+</ul>
+</section>
+</div>
+<!-- Errors to fix (Interactive Transformation Pills) -->
+<section class="bg-surface-container-low border-2 border-outline-border rounded-2xl p-5 shadow-[0_4px_0_#051013]">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-[#401217] text-[#ff8585] flex items-center justify-center border border-[#69171f]">
+<span class="material-symbols-outlined text-[17px]">spellcheck</span>
+</div>
+<h3 class="text-base font-bold text-on-surface">Errors to fix</h3>
+</div>
+<span class="text-[11px] font-bold bg-surface-container text-muted-text px-2.5 py-1 rounded-full border border-outline-border">3 key corrections</span>
+</div>
+<div class="space-y-3">
+<!-- Error Item 1 -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 rounded-xl bg-surface-container border border-outline-border shadow-[0_2px_0_#051013]">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-lg bg-[#3d1419] text-[#ff8585] line-through text-xs font-medium border border-[#69171f]">
+              "more and more people"
+            </span>
+<span class="material-symbols-outlined text-muted-text text-[16px]">arrow_forward</span>
+<span class="px-3 py-1 rounded-lg bg-[#143936] text-[#46d1c5] text-xs font-bold border border-[#2ba39a]/60 shadow-[0_2px_0_#072421]">
+              "an increasing proportion of citizens"
+            </span>
+</div>
+<span class="text-xs font-semibold text-muted-text italic">Style &amp; Tone</span>
+</div>
+<!-- Error Item 2 -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 rounded-xl bg-surface-container border border-outline-border shadow-[0_2px_0_#051013]">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-lg bg-[#3d1419] text-[#ff8585] line-through text-xs font-medium border border-[#69171f]">
+              "affect on economy"
+            </span>
+<span class="material-symbols-outlined text-muted-text text-[16px]">arrow_forward</span>
+<span class="px-3 py-1 rounded-lg bg-[#143936] text-[#46d1c5] text-xs font-bold border border-[#2ba39a]/60 shadow-[0_2px_0_#072421]">
+              "effect on the economy"
+            </span>
+</div>
+<span class="text-xs font-semibold text-muted-text italic">Collocation</span>
+</div>
+<!-- Error Item 3 -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 rounded-xl bg-surface-container border border-outline-border shadow-[0_2px_0_#051013]">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-lg bg-[#3d1419] text-[#ff8585] line-through text-xs font-medium border border-[#69171f]">
+              "in the another hand"
+            </span>
+<span class="material-symbols-outlined text-muted-text text-[16px]">arrow_forward</span>
+<span class="px-3 py-1 rounded-lg bg-[#143936] text-[#46d1c5] text-xs font-bold border border-[#2ba39a]/60 shadow-[0_2px_0_#072421]">
+              "on the other hand"
+            </span>
+</div>
+<span class="text-xs font-semibold text-muted-text italic">Fixed Idiom</span>
+</div>
+</div>
+</section>
+<!-- Vocabulary Upgrades (Tactile Chips) -->
+<section class="bg-surface-container-low border-2 border-outline-border rounded-2xl p-5 shadow-[0_4px_0_#051013]">
+<div class="flex items-center gap-2.5 mb-2">
+<div class="w-7 h-7 rounded-full bg-[#402010] text-[#f59e0b] flex items-center justify-center border border-[#b45309]/60">
+<span class="material-symbols-outlined text-[17px]" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+</div>
+<h3 class="text-base font-bold text-on-surface">Vocabulary Upgrades</h3>
+</div>
+<p class="text-xs font-medium text-muted-text mb-3.5">Tap chips to inspect formal collocations.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<!-- Chip 1 -->
+<div class="bg-surface-container border-2 border-outline-border rounded-xl p-3 shadow-[0_3px_0_#051013] flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer active:translate-y-[2px]">
+<span class="text-xs font-medium text-muted-text line-through mb-1.5">"good"</span>
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold text-primary">"beneficial"</span>
+<span class="material-symbols-outlined text-[#f59e0b] text-[18px]">star</span>
+</div>
+</div>
+<!-- Chip 2 -->
+<div class="bg-surface-container border-2 border-outline-border rounded-xl p-3 shadow-[0_3px_0_#051013] flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer active:translate-y-[2px]">
+<span class="text-xs font-medium text-muted-text line-through mb-1.5">"big problem"</span>
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold text-primary">"pressing challenge"</span>
+<span class="material-symbols-outlined text-[#f59e0b] text-[18px]">star</span>
+</div>
+</div>
+<!-- Chip 3 -->
+<div class="bg-surface-container border-2 border-outline-border rounded-xl p-3 shadow-[0_3px_0_#051013] flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer active:translate-y-[2px]">
+<span class="text-xs font-medium text-muted-text line-through mb-1.5">"show"</span>
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold text-primary">"demonstrate"</span>
+<span class="material-symbols-outlined text-[#f59e0b] text-[18px]">star</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Folded 'Band-8 Rewrite' Row (Accordion) -->
+<section class="bg-surface-container-low border-2 border-outline-border rounded-2xl p-4 shadow-[0_4px_0_#051013] transition-all">
+<details class="group cursor-pointer">
+<summary class="list-none flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-[#143936] text-[#46d1c5] flex items-center justify-center border border-[#2ba39a]/60 shadow-[0_2px_0_#072421]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="text-sm font-bold text-on-surface">Band-8 Rewrite</h4>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#402010] text-[#f59e0b] border border-[#b45309]/60">High Band Sample</span>
+</div>
+<p class="text-xs font-medium text-muted-text mt-0.5">Tap to expand model paragraph restructuring</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-muted-text group-open:rotate-180 transition-transform duration-200">expand_more</span>
+</summary>
+<div class="mt-4 pt-3.5 border-t-2 border-outline-border/60 space-y-3">
+<div class="bg-surface-container p-3.5 rounded-xl border border-outline-border">
+<p class="text-sm font-normal text-body-text leading-relaxed italic">
+              "While critics assert that industrial globalization exerts detrimental pressures on indigenous heritage, an increasing proportion of citizens recognize that cross-border economic integration provides indispensable financial vitality..."
+            </p>
+</div>
+<div class="flex items-center gap-2 text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+<span>Synthesizes complex relative clauses with sophisticated cohesive devices.</span>
+</div>
+</div>
+</details>
+</section>
+<!-- Primary Action Button: Chunky 3D Grade Again -->
+<div class="pt-2">
+<button class="w-full bg-[#f59e0b] text-[#1b0e03] font-extrabold text-base py-4 px-6 rounded-2xl border-2 border-[#d97706] shadow-[0_4px_0_#b45309] active:translate-y-[3px] active:shadow-[0_1px_0_#b45309] transition-all flex items-center justify-center gap-2.5 cursor-pointer">
+<span class="material-symbols-outlined text-[24px]">refresh</span>
+<span>↻ Grade again</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#091518]/95 backdrop-blur-md border-t-2 border-outline-border shadow-[0_-3px_0_#051013]">
+<div class="flex justify-around items-center px-2 py-2 max-w-screen-md mx-auto">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-muted-text hover:text-on-surface px-3 py-1 transition-colors rounded-lg" href="#/today">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex flex-col items-center justify-center text-muted-text hover:text-on-surface px-3 py-1 transition-colors rounded-lg" href="#/vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-[11px] font-bold mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE MAPPING) -->
+<a class="flex flex-col items-center justify-center bg-[#2ba39a] text-[#003733] rounded-xl px-4 py-1.5 shadow-[0_3px_0_#145b54] active:translate-y-[2px]" href="#/write">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[11px] font-extrabold mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-muted-text hover:text-on-surface px-3 py-1 transition-colors rounded-lg" href="#/tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-muted-text hover:text-on-surface px-3 py-1 transition-colors rounded-lg" href="#/profile">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</a>
+</div>
+</nav>
+</body></html>

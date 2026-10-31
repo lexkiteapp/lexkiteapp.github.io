@@ -1,2 +1,2 @@
 # Stitch v2.1 refs – email (factory, project 7268539912208977707, DS assets/1b7a8a3d3d52404bb332d9ba3f783547 Lexkite Kit). page light-id dark-id device verdict | note | prompt = scratchpad prompts.tsv line (copied in prompts.txt)
-digest 86dd09615eb54acb9e3103a5afae539d 2b1791f369164f74ba5c93d89c9ce865 DESKTOP PASS teacher-slot | email only (r1 prompt drew site chrome → reprompted as email surface); teacher slot
+digest 86dd09615eb54acb9e3103a5afae539d 2b1791f369164f74ba5c93d89c9ce865 7268539912208977707 DESKTOP PASS teacher-slot | email only (r1 prompt drew site chrome → reprompted as email surface); teacher slot

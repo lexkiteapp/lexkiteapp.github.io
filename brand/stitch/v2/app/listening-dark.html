@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - IELTS Section 2 Practice</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with form plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#f4bf40",
+            "outline": "#879391",
+            "on-primary": "#003733",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary-fixed-variant": "#00504b",
+            "tertiary-container": "#ba8b00",
+            "surface-container-low": "#121d20",
+            "on-tertiary-fixed": "#261a00",
+            "secondary-container": "#981201",
+            "on-secondary-variant": "#900f00",
+            "background": "#091518",
+            "surface-dim": "#091518",
+            "surface-container-highest": "#2b373a",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "secondary": "#ffb4a6",
+            "surface-tint": "#6bd8ce",
+            "primary": "#6bd8ce",
+            "on-secondary-container": "#ffa493",
+            "surface-variant": "#2b373a",
+            "primary-container": "#2ba39a",
+            "on-primary-container": "#00322e",
+            "on-primary-fixed": "#00201e",
+            "tertiary": "#f4bf40",
+            "on-error-container": "#ffdad6",
+            "on-secondary-fixed": "#3f0300",
+            "error": "#ffb4ab",
+            "surface-container": "#162125",
+            "inverse-primary": "#006a64",
+            "surface-container-lowest": "#051013",
+            "secondary-fixed": "#ffdad3",
+            "on-surface-variant": "#bcc9c7",
+            "primary-fixed": "#88f5ea",
+            "on-background": "#d8e5e9",
+            "inverse-surface": "#d8e5e9",
+            "surface-container-high": "#202c2f",
+            "tertiary-fixed": "#ffdf9e",
+            "secondary-fixed-dim": "#ffb4a6",
+            "error-container": "#93000a",
+            "outline-variant": "#2b373a",
+            "on-tertiary-container": "#392900",
+            "surface": "#091518",
+            "on-tertiary": "#402e00",
+            "on-surface": "#f0f6f5",
+            "on-secondary": "#660800",
+            "inverse-on-surface": "#263236",
+            "surface-bright": "#2f3b3e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-[#f0f6f5] min-h-screen antialiased flex flex-col font-['Plus_Jakarta_Sans'] select-none">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-surface border-b-2 border-outline-variant shadow-[0_4px_0_#051013]">
+<div class="flex justify-between items-center w-full px-4 py-2.5 max-w-md mx-auto">
+<!-- Leading Back Button -->
+<button aria-label="Go back" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low border-2 border-outline-variant text-primary shadow-[0_3px_0_#051013] active:translate-y-1 active:shadow-none transition-all duration-100">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center Headline & Context -->
+<div class="flex flex-col items-center">
+<span class="text-xl font-extrabold text-primary tracking-tight">
+          IELTS Section 2
+        </span>
+<span class="text-xs font-semibold text-on-surface-variant">
+          Campus Tour &amp; Facilities
+        </span>
+</div>
+<!-- Trailing Action: Subtitles / Transcript Toggle -->
+<button aria-label="Toggle subtitles" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low border-2 border-outline-variant text-primary shadow-[0_3px_0_#051013] active:translate-y-1 active:shadow-none transition-all duration-100">
+<span class="material-symbols-outlined" data-icon="subtitles">subtitles</span>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Learning Canvas -->
+<main class="flex-1 w-full max-w-md mx-auto px-4 pt-4 pb-36 space-y-4">
+<!-- Mode Selector & Live Countdown Pill -->
+<div class="flex items-center justify-between gap-2">
+<!-- Practice vs Exam Mode Toggle -->
+<div class="flex bg-surface-container-low p-1 rounded-full border-2 border-outline-variant shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+<button class="px-4 py-1 bg-[#1d2c30] text-primary font-bold text-sm rounded-full border border-primary/40 shadow-[0_2px_0_#051013]">
+          Practice
+        </button>
+<button class="px-4 py-1 text-on-surface-variant font-bold text-sm hover:text-primary transition-colors">
+          Exam
+        </button>
+</div>
+<!-- Tactile Timer Pill Indicator -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-low border-2 border-outline-variant rounded-full shadow-[0_2px_0_#051013]">
+<span class="material-symbols-outlined text-[#ff9800] font-bold text-base" data-icon="timer">timer</span>
+<span class="text-xs text-[#f0f6f5] font-extrabold tracking-wide">04:15</span>
+<span class="text-[10px] text-on-surface-variant font-medium">left</span>
+</div>
+</div>
+<!-- Tactile Audio Player Card -->
+<section class="bg-[#121d20] border-2 border-outline-variant rounded-2xl p-4 shadow-[0_4px_0_#051013] space-y-4">
+<!-- Scrub Bar & Track Info -->
+<div class="space-y-2">
+<div class="flex justify-between items-center text-xs font-semibold text-on-surface-variant">
+<span class="text-primary font-bold">01:24</span>
+<span class="flex items-center gap-1.5 text-[#f0f6f5]">
+<span class="w-2 h-2 rounded-full bg-[#ff9800] animate-pulse"></span>
+            Part 2 of 4
+          </span>
+<span>03:45</span>
+</div>
+<!-- Tactile Gamified Progress Bar -->
+<div class="relative w-full h-4 bg-[#091518] rounded-full overflow-hidden p-0.5 border border-outline-variant">
+<div class="h-full bg-primary-container rounded-full relative" style="width: 38%;">
+<div class="absolute inset-x-0 top-0 h-1 bg-white/30 rounded-t-full"></div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#ff9800] rounded-full border-2 border-[#121d20] shadow-sm"></div>
+</div>
+</div>
+</div>
+<!-- Controls Matrix -->
+<div class="flex items-center justify-between pt-1">
+<!-- Replay Previous Sentence (-5s) -->
+<button class="flex items-center gap-1.5 px-3 py-2 bg-surface-container-high border-2 border-outline-variant rounded-xl text-primary font-bold text-xs shadow-[0_3px_0_#051013] active:translate-y-1 active:shadow-none transition-all duration-100" title="Replay 5 seconds">
+<span class="material-symbols-outlined text-base" data-icon="replay_5">replay_5</span>
+<span>Replay 5s</span>
+</button>
+<!-- Chunky Main Play/Pause Button -->
+<button aria-label="Play audio" class="w-14 h-14 rounded-full bg-primary-container text-on-primary flex items-center justify-center border-2 border-primary shadow-[0_5px_0_#003833] active:translate-y-1 active:shadow-[0_1px_0_#003833] transition-all duration-100">
+<span class="material-symbols-outlined text-3xl fill" data-icon="play_arrow">play_arrow</span>
+</button>
+<!-- Speed Selector Pill -->
+<button class="flex items-center gap-1 px-3 py-2 bg-surface-container-high border-2 border-outline-variant rounded-xl text-primary font-bold text-xs shadow-[0_3px_0_#051013] active:translate-y-1 active:shadow-none transition-all duration-100">
+<span>1.0x</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+<!-- Transcript Toggle Row -->
+<div class="flex items-center justify-between pt-3 border-t border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="article">article</span>
+<span class="text-xs font-semibold text-[#f0f6f5]">Show live transcript</span>
+</div>
+<!-- Pill Toggle Switch -->
+<button aria-checked="false" class="w-12 h-6 bg-[#091518] rounded-full relative p-0.5 border border-outline-variant transition-colors" role="switch">
+<div class="w-5 h-5 bg-[#2b373a] rounded-full shadow-[0_2px_0_#051013] transition-transform"></div>
+</button>
+</div>
+</section>
+<!-- Question Group 1: Note Completion Block (Q1–4) -->
+<section class="space-y-3">
+<!-- Section Instruction Card -->
+<div class="bg-surface-container-low border-2 border-outline-variant rounded-2xl p-4 shadow-[0_3px_0_#051013]">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 bg-[#ff9800]/20 text-[#ffb4a6] border border-[#ff9800]/40 text-[11px] font-extrabold rounded-md uppercase tracking-wider">
+            Questions 1–4
+          </span>
+<span class="text-xs font-bold text-[#ffb4a6]">Note Completion</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+          Complete the notes below. Write <strong class="text-[#f0f6f5] font-extrabold">NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each answer.
+        </p>
+</div>
+<!-- Campus Guide Note Sheet -->
+<div class="bg-[#121d20] border-2 border-outline-variant rounded-2xl p-4 shadow-[0_4px_0_#051013] space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant">
+<h3 class="text-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+            Campus Guide: Central Facilities
+          </h3>
+<span class="text-xs font-semibold text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded-full border border-outline-variant/60">Audio Part 2</span>
+</div>
+<!-- Note Item 1 -->
+<div class="space-y-1.5">
+<label class="text-sm text-[#f0f6f5] font-semibold flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-xs font-bold text-primary">1</span>
+            Library opening hours on weekends:
+          </label>
+<div class="relative">
+<input class="w-full bg-[#091518] border-2 border-primary-container rounded-xl py-2 px-3 pr-10 text-base font-bold text-[#f0f6f5] shadow-[0_3px_0_#003833] focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="10:00 AM"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Note Item 2 -->
+<div class="space-y-1.5">
+<label class="text-sm text-[#f0f6f5] font-semibold flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-xs font-bold text-primary">2</span>
+            Maximum books borrowed at one time:
+          </label>
+<div class="relative">
+<input class="w-full bg-[#091518] border-2 border-primary-container rounded-xl py-2 px-3 pr-10 text-base font-bold text-[#f0f6f5] shadow-[0_3px_0_#003833] focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="8 books"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Note Item 3 -->
+<div class="space-y-1.5">
+<label class="text-sm text-[#f0f6f5] font-semibold flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-xs font-bold text-primary">3</span>
+            Study room reservation requires student:
+          </label>
+<div class="relative">
+<input class="w-full bg-[#091518] border-2 border-primary-container rounded-xl py-2 px-3 pr-10 text-base font-bold text-[#f0f6f5] shadow-[0_3px_0_#003833] focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="ID card"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Note Item 4 -->
+<div class="space-y-1.5">
+<label class="text-sm text-[#f0f6f5] font-semibold flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-xs font-bold text-primary">4</span>
+            Printing balance reload location:
+          </label>
+<div class="relative">
+<input class="w-full bg-[#091518] border-2 border-primary-container rounded-xl py-2 px-3 pr-10 text-base font-bold text-[#f0f6f5] shadow-[0_3px_0_#003833] focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="Student Union"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Question Group 2: Multiple Choice (Q5–6) -->
+<section class="space-y-3">
+<!-- Section Instruction Card -->
+<div class="bg-surface-container-low border-2 border-outline-variant rounded-2xl p-4 shadow-[0_3px_0_#051013]">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 bg-[#ff9800]/20 text-[#ffb4a6] border border-[#ff9800]/40 text-[11px] font-extrabold rounded-md uppercase tracking-wider">
+            Questions 5–6
+          </span>
+<span class="text-xs font-bold text-[#ffb4a6]">Multiple Choice</span>
+</div>
+<p class="text-sm text-on-surface-variant">
+          Choose the correct letter, <strong class="text-[#f0f6f5] font-extrabold">A</strong>, <strong class="text-[#f0f6f5] font-extrabold">B</strong>, or <strong class="text-[#f0f6f5] font-extrabold">C</strong>.
+        </p>
+</div>
+<!-- Question 5 -->
+<div class="bg-[#121d20] border-2 border-outline-variant rounded-2xl p-4 shadow-[0_4px_0_#051013] space-y-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">5</span>
+<h4 class="text-base font-bold text-[#f0f6f5]">
+            Where can postgraduate students access quiet study pods?
+          </h4>
+</div>
+<div class="space-y-2 pt-1">
+<!-- Option A (Resting) -->
+<div class="flex items-center p-3 rounded-2xl bg-[#172427] border-2 border-outline-variant shadow-[0_3px_0_#051013] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
+<span class="w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-bold text-xs flex items-center justify-center mr-3 shadow-inner">A</span>
+<span class="text-sm font-medium text-[#d8e5e9]">Ground floor annex</span>
+</div>
+<!-- Option B (Selected/Checked) -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-[#1a2d31] border-2 border-primary shadow-[0_4px_0_#004743] cursor-pointer">
+<div class="flex items-center">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary font-bold text-xs flex items-center justify-center mr-3 shadow-sm">B</span>
+<span class="text-sm font-bold text-primary">Third floor west wing</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="check">check</span>
+</div>
+</div>
+<!-- Option C (Resting) -->
+<div class="flex items-center p-3 rounded-2xl bg-[#172427] border-2 border-outline-variant shadow-[0_3px_0_#051013] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
+<span class="w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-bold text-xs flex items-center justify-center mr-3 shadow-inner">C</span>
+<span class="text-sm font-medium text-[#d8e5e9]">Science library basement</span>
+</div>
+</div>
+</div>
+<!-- Question 6 -->
+<div class="bg-[#121d20] border-2 border-outline-variant rounded-2xl p-4 shadow-[0_4px_0_#051013] space-y-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">6</span>
+<h4 class="text-base font-bold text-[#f0f6f5]">
+            What is required before using the 3D printers?
+          </h4>
+</div>
+<div class="space-y-2 pt-1">
+<!-- Option A (Selected) -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-[#1a2d31] border-2 border-primary shadow-[0_4px_0_#004743] cursor-pointer">
+<div class="flex items-center">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary font-bold text-xs flex items-center justify-center mr-3 shadow-sm">A</span>
+<span class="text-sm font-bold text-primary">Safety induction session</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="check">check</span>
+</div>
+</div>
+<!-- Option B (Resting) -->
+<div class="flex items-center p-3 rounded-2xl bg-[#172427] border-2 border-outline-variant shadow-[0_3px_0_#051013] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
+<span class="w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-bold text-xs flex items-center justify-center mr-3 shadow-inner">B</span>
+<span class="text-sm font-medium text-[#d8e5e9]">Faculty advisor signature</span>
+</div>
+<!-- Option C (Resting) -->
+<div class="flex items-center p-3 rounded-2xl bg-[#172427] border-2 border-outline-variant shadow-[0_3px_0_#051013] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
+<span class="w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-bold text-xs flex items-center justify-center mr-3 shadow-inner">C</span>
+<span class="text-sm font-medium text-[#d8e5e9]">Additional materials fee</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Action Button: Chunky 3D Sunny Orange Submit -->
+<div class="pt-2 pb-4">
+<button class="w-full py-4 px-6 bg-[#ff9800] border-2 border-[#ffb03a] shadow-[0_5px_0_#9a4800] active:translate-y-1 active:shadow-[0_1px_0_#9a4800] rounded-2xl flex items-center justify-center gap-3 transition-all duration-100">
+<span class="material-symbols-outlined text-[#261400] font-extrabold text-2xl" data-icon="task_alt">task_alt</span>
+<span class="text-[#261400] font-extrabold text-lg tracking-wide">Submit &amp; see answers</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-1 py-2 bg-surface border-t-2 border-outline-variant shadow-[0_-4px_0_#051013]">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 text-xs active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined mb-0.5" data-icon="today">today</span>
+<span>Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 text-xs active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined mb-0.5" data-icon="menu_book">menu_book</span>
+<span>Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 text-xs active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined mb-0.5" data-icon="psychology">psychology</span>
+<span>Skills</span>
+</button>
+<!-- Tab 4: Tests (ACTIVE STATE for IELTS Practice Exam) -->
+<button class="flex flex-col items-center justify-center bg-[#ff9800] text-[#261400] rounded-full px-5 py-1 shadow-[0_3px_0_#9a4800] text-xs active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined mb-0.5 fill text-[#261400]" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-extrabold">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 text-xs active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined mb-0.5" data-icon="person">person</span>
+<span>Me</span>
+</button>
+</nav>
+</body></html>
