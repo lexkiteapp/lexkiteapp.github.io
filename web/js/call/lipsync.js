@@ -64,7 +64,22 @@
     const WIN = o.win ?? 0.15, hz = o.hz ?? 100, peak = Math.max(...env, 1e-6), thr = peak * (o.thr ?? 0.1), W = o.words || [];
     const on = i => env[i] > thr, at = t => Math.max(0, Math.min(env.length - 1, Math.round(t * hz)));
     const near = (t, ws, k) => { let b = null; for (const w of ws) { const d = Math.abs(w[k] - t); if (d <= WIN && (!b || d < Math.abs(b[k] - t))) b = w; } return b; };
-    const out = cues.map(c => ({ ...c }));
+    let out = cues.map(c => ({ ...c }));
+    // chỗ ngắt im ≥ GAP giữa câu mà Rhubarb vẫn để miệng mở (âm hơi "H" kéo hình sớm) → chèn X đúng khoảng im
+    const GAP = o.gap ?? 0.12, first = env.findIndex((_, i) => on(i)); let last = env.length - 1; while (last > 0 && !on(last)) last--;
+    for (let k = first + 1; first >= 0 && k < last; k++) {
+      if (on(k)) continue; let e = k; while (e < last && !on(e)) e++;
+      const a = k / hz, b = e / hz; k = e;
+      if (b - a < GAP) continue;
+      const nx = [];
+      for (const c of out) {
+        if (c.end <= a || c.start >= b || c.value === 'X') { nx.push(c); continue; }
+        if (c.start < a) nx.push({ ...c, end: a });
+        if (!nx.some(x => x.value === 'X' && x.start === a)) nx.push({ start: a, end: b, value: 'X' });
+        if (c.end > b) nx.push({ ...c, start: b });
+      }
+      out = nx.sort((x, y) => x.start - y.start).filter((c, i, A) => !(c.value === 'X' && A[i - 1] && A[i - 1].value === 'X' && (A[i - 1].end = Math.max(A[i - 1].end, c.end))));
+    }
     for (let i = 1; i < out.length; i++) {
       const p = out[i - 1], c = out[i];
       if (p.value === 'X' && c.value !== 'X') { // im → mở: lúc tiếng bắt đầu

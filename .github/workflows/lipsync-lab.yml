@@ -40,6 +40,12 @@ jobs:
           for w in ama carlos; do python3 scripts/lipsync/harvest.py $w web/lab/lipsync/$w; cp web/lab/lipsync/$w/harvest.jpg qa/lipsync/harvest-$w.jpg; done
       - name: Đo + dựng video
         run: node scripts/lipsync/lab.mjs
+      - name: Miệng VẼ khớp tiếng (đo lệch ≤ 45 ms + video ≤ 20 s)
+        if: always() && hashFiles('web/lab/lipsync/lines.json') != ''
+        run: |
+          rc=0; node scripts/lipsync/drawn_frames.mjs > qa/lipsync/drawn.txt || rc=$?
+          cat qa/lipsync/drawn.txt; (echo; cat qa/lipsync/drawn.txt) >> qa/lipsync/report.md
+          python3 scripts/lipsync/drawn_video.py; exit $rc
       - name: Tóm tắt
         if: always()
         run: cat qa/lipsync/report.md >> "$GITHUB_STEP_SUMMARY" || true
@@ -54,5 +60,7 @@ jobs:
             qa/lipsync/lipsync.gif
             qa/lipsync/harvest-*.jpg
             qa/lipsync/mouth-board.png
+            qa/lipsync/drawn.mp4
+            qa/lipsync/drawn.gif
             web/lab/lipsync/
           retention-days: 14

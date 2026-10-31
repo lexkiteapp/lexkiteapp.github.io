@@ -21,6 +21,9 @@ const env = Array.from({ length: 100 }, (_, i) => (i >= 30 && i < 70 ? 0.5 : 0.0
 const al = LS.align([{ start: 0, end: 0.22, value: 'X' }, { start: 0.22, end: 0.5, value: 'C' }, { start: 0.5, end: 0.8, value: 'B' }, { start: 0.8, end: 1, value: 'X' }], env);
 assert.ok(Math.abs(al[1].start - 0.3) < 1e-9 && al[0].end === al[1].start, 'mở đúng lúc có tiếng'); assert.ok(Math.abs(al[3].start - 0.7) < 1e-9, 'khép lúc tiếng tắt');
 assert.ok(Math.abs(LS.align([{ start: 0, end: 0.27, value: 'X' }, { start: 0.27, end: 1, value: 'C' }], env, { words: [{ start: 0.28, end: 0.6 }] })[1].start - 0.3) < 1e-9);
+const env2 = Array.from({ length: 100 }, (_, i) => (i >= 10 && i < 40) || (i >= 60 && i < 90) ? 0.5 : 0.001);
+const al2 = LS.smooth(LS.align([{ start: 0, end: 0.1, value: 'X' }, { start: 0.1, end: 0.45, value: 'C' }, { start: 0.45, end: 0.9, value: 'B' }, { start: 0.9, end: 1, value: 'X' }], env2));
+assert.ok(al2.some(c => c.value === 'X' && Math.abs(c.start - 0.4) < 1e-9 && Math.abs(c.end - 0.6) < 1e-9), 'chỗ ngắt im → miệng nghỉ');
 // LipMouth: đủ 9 hình vẽ cho cả 2 giáo viên, trộn bộ số
 const LM = createRequire(import.meta.url)('../../web/js/call/mouths.js');
 assert.deepEqual(LM.SHAPES, LS.SHAPES, 'cùng bộ 9 hình');
