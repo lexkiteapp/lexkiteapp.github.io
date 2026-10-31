@@ -24,3 +24,6 @@ teacher-call-light d5c26ebf2dbc4c48916c37c296137fe9 (Lexkite v2 Light — Teache
 teacher-call-dark d486adc21af249a59708400ae6385b10 (Lexkite v2.1 Dark — Teacher Call fix)
 exam-readiness-light 7f69405209b44c7c8fe1fbd8ff1c4dfc (Lexkite v2.1 Light — Exam Readiness) + spliced 30/10: header streak icon = Tactile Flame from d91761d3 (owner-approved)
 exam-readiness-dark c6877409bff24b0b9aa4f33f4c1a9532 (Lexkite v2.1 Dark — Exam Readiness r2) + spliced 30/10: header streak icon = Tactile Flame from 4f0fb8dd (owner-approved)
+today-light 161ef34efafd4729816377ad7f952b86 / today-dark 30b0c1ef10034be6bddcbbc26ec76007 (Home v2 Today – chủ duyệt 31/10, bản sao app/home-v2/today-*)
+today-new-light a4e2a4cdd838421baf6da5331e548b86 / today-new-dark fc5ac0e346c7485c9c14da0a00749ab7 (Home v2 người mới – app/home-v2/new-*)
+today-desk-light a987323cf148447f9f563b64d5200507 / today-desk-dark c6b09b9251974eeebb54dcd4efe97497 (Home v2 desktop – app/home-v2/desk-*; today-rail dùng chung)

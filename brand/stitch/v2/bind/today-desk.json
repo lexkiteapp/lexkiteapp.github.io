@@ -1,0 +1,218 @@
+{
+ "_doc": "Màn Hôm nay – máy tính ≥ 1024 px (mẫu desk): CHỈ cột giữa (keep main). Menu trái của mẫu thuộc phiên khác (không dùng). Cột phải = màn today-rail (cùng HTML). d do ux1.js home2() dựng – cùng dữ liệu với màn today.",
+ "styles": true,
+ "keep": ":scope > div > main",
+ "i18n": {
+  "Today": "Hôm nay",
+  "Language selector": "Chọn ngôn ngữ giao diện",
+  "Today's Focus": "Trọng tâm hôm nay",
+  "CONTINUE": "Tiếp tục",
+  "Review": "Ôn tập",
+  "Quick practice · 1 min": "Luyện nhanh · 1 phút",
+  "All drills": "Mọi bài luyện",
+  "Mistakes": "Lỗi sai",
+  "Words": "Từ vựng cần ôn",
+  "Listening": "Nghe hiểu",
+  "Audio sprint": "Nghe nhanh",
+  "Speaking": "Nói",
+  "Pronounce": "Bài luyện phát âm",
+  "Stories & audio": "Truyện & âm thanh",
+  "View library": "Xem thư viện",
+  "Your path": "Lộ trình học của bạn",
+  "See full path →": "Tới bài hiện tại →"
+ },
+ "text": {
+  "VI": "d.lang",
+  "“Good morning! 2 lessons and 8 words to review today.”": "d.say",
+  "+25 XP ready": "d.xpReady",
+  "UNIT 1 · EVERYDAY ENGLISH": "d.k.unit",
+  "Lesson 1/6": "d.k.of",
+  "Fix common mistakes": "d.k.title",
+  "⏱ 3 min": "'⏱ ' + d.k.mins",
+  "✍️ 6 exercises": "''",
+  "A2": "d.k.lvl",
+  "8 words are fading": "d.r.title",
+  "Review now (2 min)": "d.r.sub",
+  "5 to fix": "d.q.mist",
+  "8 due": "d.q.due",
+  "Everyday English journey": "d.unitName"
+ },
+ "html": {
+  ":scope > div > main > div:nth-child(2) > div:nth-child(1)": "d.teacher",
+  ":scope > div > main > div:nth-child(3) > div:nth-child(2) > p": "d.k.words",
+  ":scope > div > main > div:nth-child(7) > div:nth-child(2)": "d.pathHtml"
+ },
+ "attr": {
+  ":scope > div > main > div:nth-child(1) > button": {
+   "data-act": "'lang'",
+   "aria-haspopup": "'dialog'"
+  },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(1)": {
+   "data-tch": "1"
+  },
+  ":scope > div > main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:nth-child(3)": {
+   "data-show": "d.xpReady ? 1 : 0"
+  },
+  ":scope > div > main > div:nth-child(3) > div:nth-child(2) > p": {
+   "data-show": "d.k.words ? 1 : 0"
+  },
+  ":scope > div > main > div:nth-child(3) > div:nth-child(3) > span:nth-child(2)": {
+   "data-show": "0"
+  },
+  ":scope > div > main > div:nth-child(3) > div:nth-child(3) > div > div > div": {
+   "style": "'width:' + d.k.pct + '%'",
+   "role": "'progressbar'",
+   "aria-valuenow": "d.k.pct",
+   "aria-valuemin": "0",
+   "aria-valuemax": "100",
+   "aria-label": "t('Tiến độ')"
+  },
+  ":scope > div > main > div:nth-child(3) > button": {
+   "data-href": "d.k.href",
+   "data-cont": "1"
+  },
+  ":scope > div > main > div:nth-child(4)": {
+   "data-show": "d.r.due ? 1 : 0",
+   "data-blk": "'due'"
+  },
+  ":scope > div > main > div:nth-child(4) > button": {
+   "data-href": "'#/review'"
+  },
+  ":scope > div > main > div:nth-child(5)": {
+   "data-blk": "'quick'"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(1) > a": {
+   "href": "'#/train'"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(1)": {
+   "href": "d.q.mistHref"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)": {
+   "data-show": "d.q.mistN ? 1 : 0"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(2)": {
+   "href": "d.q.dueHref"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > span:nth-child(3)": {
+   "data-show": "d.q.dueN ? 1 : 0"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(3)": {
+   "href": "'#/listening'"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(4)": {
+   "href": "'#/pron'"
+  },
+  ":scope > div > main > div:nth-child(6)": {
+   "data-show": "d.s.length ? 1 : 0",
+   "data-blk": "'stories'"
+  },
+  ":scope > div > main > div:nth-child(6) > div:nth-child(1) > a": {
+   "href": "'#/train'"
+  },
+  ":scope > div > main > div:nth-child(7)": {
+   "data-blk": "'path'"
+  },
+  ":scope > div > main > div:nth-child(7) > div:nth-child(1) > a": {
+   "href": "'#/home'",
+   "data-act": "'path'"
+  }
+ },
+ "cls": {
+  ":scope > div > main > div:nth-child(3) > div:nth-child(3) > div > div > div": {
+   "[width:65%]": "''"
+  }
+ },
+ "tag": {
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(3)": {
+   "to": "a"
+  },
+  ":scope > div > main > div:nth-child(5) > div:nth-child(2) > div:nth-child(4)": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > div > main > div:nth-child(1) > button": "relative after:absolute after:-inset-y-[10px] after:-inset-x-1 after:content-['']",
+  ":scope > div > main > div:nth-child(5) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
+  ":scope > div > main > div:nth-child(6) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
+  ":scope > div > main > div:nth-child(7) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
+  ":scope > div > main > div:nth-child(2)": "rtl:flex-row-reverse"
+ },
+ "repeat": [
+  {
+   "list": "d.s",
+   "as": "r",
+   "variants": {
+    "a": ":scope > div > main > div:nth-child(6) > div:nth-child(2) > div:nth-child(1)",
+    "b": ":scope > div > main > div:nth-child(6) > div:nth-child(2) > div:nth-child(2)",
+    "c": ":scope > div > main > div:nth-child(6) > div:nth-child(2) > div:nth-child(3)"
+   },
+   "samples": ":scope > div > main > div:nth-child(6) > div:nth-child(2) > div",
+   "pick": "['a', 'b', 'c'][i % 3]",
+   "bind": {
+    "a": {
+     "text": {
+      "At the airport": "r.title",
+      "Everyday travel": "r.sub",
+      "2 min": "r.min",
+      "A2": "r.cefr"
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "title": "r.title"
+      }
+     },
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     }
+    },
+    "b": {
+     "text": {
+      "Job interview": "r.title",
+      "Formal phrases": "r.sub",
+      "3 min": "r.min",
+      "B1": "r.cefr"
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "title": "r.title"
+      }
+     },
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     }
+    },
+    "c": {
+     "text": {
+      "Small talk": "r.title",
+      "Casual fluency": "r.sub",
+      "2 min": "r.min",
+      "A2": "r.cefr"
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "title": "r.title"
+      }
+     },
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     }
+    }
+   }
+  }
+ ]
+}

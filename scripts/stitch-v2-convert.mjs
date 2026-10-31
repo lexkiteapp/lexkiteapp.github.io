@@ -25,7 +25,8 @@ const arb = v => String(v).trim().replace(/\s+/g, '_');
 // "hover:!-mt-2/50" → {pre:'hover:', imp:'!', neg:'-', base:'mt-2', op:'/50'}
 const split = c => { const i = c.lastIndexOf(':', c.includes('[') ? c.indexOf('[') : c.length); const pre = i >= 0 ? c.slice(0, i + 1) : '', rest = c.slice(i + 1);
   const m = rest.match(/^(!?)(-?)(.*?)(\/[\w.[\]]+)?$/); return { pre, imp: m[1], neg: m[2], base: m[3], op: m[4] || '' }; };
-function resolver(ext) { const col = ext.colors || {}, fs_ = ext.fontSize || {}, rad = ext.borderRadius || {}, sp = ext.spacing || {};
+const flat = (o, p = '') => Object.entries(o || {}).reduce((a, [k, v]) => (v && typeof v === 'object' ? Object.assign(a, flat(v, p + (k === 'DEFAULT' ? '' : k) + '-')) : (a[(p + (k === 'DEFAULT' ? '' : k)).replace(/-$/, '')] = v), a), {}); // màu lồng (brand: {teal}) → brand-teal
+function resolver(ext) { const col = flat(ext.colors), fs_ = ext.fontSize || {}, rad = ext.borderRadius || {}, sp = ext.spacing || {};
   return (cls, has) => { const { pre, imp, neg, base, op } = split(cls), out = [];
     if (base.startsWith('font-') && (ext.fontFamily || {})[base.slice(5)]) return []; // họ chữ: cả app dùng Plus Jakarta Sans ở gốc
     for (const p of COLOR_P) if (base.startsWith(p + '-') && col[base.slice(p.length + 1)] != null) { const v = col[base.slice(p.length + 1)]; return [`${pre}${imp}${p}-[${arb(v)}]${op}`]; }
@@ -36,8 +37,18 @@ function resolver(ext) { const col = ext.colors || {}, fs_ = ext.fontSize || {},
     for (const p of SPACE_P) if (base.startsWith(p + '-') && sp[base.slice(p.length + 1)]) return [`${pre}${imp}${neg}${p}-[${arb(sp[base.slice(p.length + 1)])}]`];
     return [cls]; }; }
 const styleCls = s => (s || '').split(';').map(x => x.trim()).filter(Boolean).map(x => { const i = x.indexOf(':'); return `[${x.slice(0, i).trim().toLowerCase()}:${arb(x.slice(i + 1).replace(/!important/, ''))}]`; });
+// bind "styles": true → class tự đặt trong <style> của mẫu (vd .tactile-card, .speech-bubble::before) → class thuộc tính tuỳ ý Tailwind ([prop:val], kèm active:/hover:/before:/after:)
+//   Chỉ bật theo màn (màn cũ không có class tự đặt → khung sinh không đổi). Bộ chọn khác dạng ".tên[:biến thể]" → ĐỎ (không lặng lẽ bỏ kiểu).
+const VAR = { '': '', ':active': 'active:', ':hover': 'hover:', '::before': 'before:', '::after': 'after:', '::-webkit-scrollbar': '[&::-webkit-scrollbar]:' };
+function stylesOf(html, f) { const M = {}, css = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n').replace(/\/\*[\s\S]*?\*\//g, '');
+  for (const [, sel, body] of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) for (const one of sel.split(',').map(x => x.trim())) {
+    if (/^(html|body|\*|:root)\b/.test(one) || /^@/.test(one)) continue; const m = one.match(/^\.([\w-]+)((?::{1,2}[\w-]+)?)$/);
+    if (!m || VAR[m[2]] == null) { errs.push(`${f}: <style> bộ chọn chưa hỗ trợ: ${one}`); continue; }
+    for (const d of body.split(';').map(x => x.trim()).filter(Boolean)) { const i = d.indexOf(':'), pr = d.slice(0, i).trim().toLowerCase(), v = d.slice(i + 1).trim().replace(/\s*!important/, '');
+      (M[m[1]] = M[m[1]] || []).push(pr === 'content' && /^(""|'')$/.test(v) ? VAR[m[2]] + "content-['']" : `${VAR[m[2]]}[${pr}:${arb(v)}]`); } }
+  return M; }
 function classesOf(el, R) { const raw = (el.getAttribute('class') || '').split(/\s+/).filter(Boolean), has = re => raw.some(c => re.test(split(c).base)), out = [];
-  for (const c of raw) out.push(...R(c, has)); out.push(...styleCls(el.getAttribute('style'))); return out; }
+  for (const c of raw) { if (R.sty && R.sty[c]) { out.push(...R.sty[c]); continue; } out.push(...R(c, has)); } out.push(...styleCls(el.getAttribute('style'))); return out; }
 
 // ---- ghép 2 cây ----
 const sig = n => n.nodeType === 1 ? n.tagName : n.nodeType === 3 ? (n.textContent.trim() ? '#t' : '') : '';
@@ -89,7 +100,7 @@ function emit(root, bind, k) {
       for (const [from, expr] of Object.entries(o)) { const i = c.indexOf(from); if (i < 0) errs.push(`${k}: không có class ${from} ở ${sel}`); else c[i] = mark(expr); } el.setAttribute('class', c.join(' ')); }
     for (const [sel, c] of Object.entries(b.addClass || {})) for (const el of QA(scope, sel)) el.setAttribute('class', ((el.getAttribute('class') || '') + ' ' + c).trim()); // chỉ class không đổi hình (cắt tràn, móc kiểm thử…)
     for (const [sel, o] of Object.entries(b.tag || {})) for (const el of QA(scope, sel)) { const n = el.ownerDocument.createElement(o.to); for (const a of el.attributes) n.setAttribute(a.name, a.value); // đổi thẻ (div → a href) giữ nguyên class
-      if (o.addClass) n.setAttribute('class', (n.getAttribute('class') || '') + ' ' + o.addClass); n.append(...el.childNodes); el.replaceWith(n); }
+      if (o.addClass) n.setAttribute('class', (n.getAttribute('class') || '') + ' ' + o.addClass); n.append(...el.childNodes); el.replaceWith(n); if (el === scope) scope = n; } // đổi thẻ chính phần tử gốc → các phép sau (chữ) chạy trên thẻ mới
     for (const sel of b.remove || []) for (const el of QA(scope, sel)) el.remove(); // chỉ phần tử Stitch giữ chỗ (người vẽ/ảnh mẫu) – thay bằng Chars qua html/after
     const tw = scope.ownerDocument.createTreeWalker(scope, 4); const texts = []; while (tw.nextNode()) texts.push(tw.currentNode);
     for (const n of texts) { const s = n.textContent, key = s.trim(); if (!key || /\u0001/.test(s)) continue; if (n.parentElement && isIcon(n.parentElement)) continue;
@@ -108,9 +119,11 @@ function emit(root, bind, k) {
   return { header, nav, main, parts, root: root.getAttribute('class') || '' }; }
 
 // ---- chạy ----
-for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
-  const hl = fs.readFileSync(f('light'), 'utf8'), hd = fs.readFileSync(f('dark'), 'utf8'), bind = JSON.parse(fs.readFileSync(path.join(SRC, 'bind', k + '.json'), 'utf8'));
+for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC, 'bind', k + '.json'), 'utf8')), f = s => path.join(SRC, `${bind.src || k}-${s}.html`); // src: màn lấy khung từ cặp HTML của màn khác (vd cột phải today-rail ← today-desk)
+  if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
+  const hl = fs.readFileSync(f('light'), 'utf8'), hd = fs.readFileSync(f('dark'), 'utf8');
   const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light')), RD = resolver(cfgOf(hd, k + '-dark'));
+  if (bind.styles) { RL.sty = stylesOf(hl, k + '-light'); RD.sty = stylesOf(hd, k + '-dark'); }
   const doc = new JSDOM('<div></div>').window.document, body = merge(L.body, D.body, RL, RD, doc), root = doc.createElement('div');
   root.setAttribute('class', `st v2 v2-${k} ` + (body.getAttribute('class') || '')); root.append(...body.childNodes);
   if (A.includes('--dump') && ONLY.length && !ONLY.includes(k)) continue;
