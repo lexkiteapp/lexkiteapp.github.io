@@ -35,7 +35,7 @@ jobs:
       - name: Kokoro python (Apache-2.0) – sinh tiếng + mốc âm vị cùng một lần
         run: |
           sudo apt-get install -y -qq espeak-ng >/dev/null
-          python3 -m pip install -q torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
           python3 -m pip install -q kokoro==0.9.4 soundfile
           echo "KOKORO_PY=1" >> "$GITHUB_ENV"
       - name: Test đơn vị
