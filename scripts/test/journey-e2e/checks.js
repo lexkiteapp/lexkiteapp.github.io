@@ -34,12 +34,13 @@
   // warn: (c) chữ bị cắt không có ellipsis chủ ý · (f) nút chính < 44 px. (e) ảnh đơn sắc: tính ở phía Node (journey-e2e.mjs) từ ảnh chụp.
   const sel = e => { if (!e || !e.tagName) return '?'; let s = e.tagName.toLowerCase(); if (e.id) return s + '#' + e.id; const c = [...e.classList].slice(0, 2).join('.'); if (c) s += '.' + c; const p = e.parentElement; return (p && p !== D.body ? (p.id ? '#' + p.id : p.tagName.toLowerCase() + (p.classList[0] ? '.' + p.classList[0] : '')) + ' > ' : '') + s; };
   const txt = e => (e.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 40);
-  const CHROME = '#modal, .modal, .bottom-nav, .topbar, .app-head, header, .skip-link, .xp-float, .cele-still, .lfx-cb, canvas';
+  const CHROME = '#modal, .modal, .bottom-nav, .v2 > nav, .topbar, .app-head, header, .skip-link, .xp-float, .cele-still, .lfx-cb, canvas'; // .v2 > nav = thanh tab chung màn Stitch v2 (shell.js) thay .bottom-nav khi body.v2on
   const inVp = r => r.bottom > 0 && r.right > 0 && r.top < innerHeight && r.left < innerWidth;
   const area = (a, b) => Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left)) * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
   function visual(tag) {
     const fail = [], warn = [], pre = (tag ? '[' + tag + '] ' : '') + location.hash.split('?')[0] + ' ';
-    const mb = D.querySelector('#modal:not([hidden]) #modalBox'), modalOn = !!(mb && vis(mb));
+    // hộp thoại = #modal của app HOẶC lớp phủ cố định role=dialog aria-modal (màn Stitch: bảng chi tiết / chúc mừng huy hiệu) – trang dưới bị che, chỉ xét nút trong hộp
+    const mb = [D.querySelector('#modal:not([hidden]) #modalBox'), ...D.querySelectorAll('[role=dialog][aria-modal=true]')].find(x => x && vis(x) && (x.id === 'modalBox' || getComputedStyle(x).position === 'fixed')), modalOn = !!mb;
     // (a) lớp nổi cố định đè nút
     const floats = [];
     for (const e of D.body.querySelectorAll('*')) {

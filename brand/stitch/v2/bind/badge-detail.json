@@ -1,0 +1,53 @@
+{
+ "_doc": "Bảng chi tiết huy hiệu (chạm 1 ô ở #/badges) – web/js/ux1-badges.js vẽ phần bảng (đáy màn) + lớp mờ của mẫu lên trên trang huy hiệu; nền trang giả của mẫu (khung xương) bỏ – trang thật nằm dưới. Hình = huy chương Stitch (badge-art.js), tên/mô tả thật qua t(), ngày nhận thật (state.game.badges[id]); chưa nhận → 'Còn n nữa' + ổ khóa, ẩn Chia sẻ. Chia sẻ → share-card.js có sẵn (data-share). Đóng: nút Đóng, chạm lớp mờ, Esc.",
+ "i18n": {
+  "Share": "Chia sẻ",
+  "Close": "Đóng"
+ },
+ "text": {
+  "Diamond": "d.name",
+  "Keep a 30-day streak": "d.desc",
+  "Earned 12 Oct": "d.when"
+ },
+ "html": {
+  ":scope > div > div:nth-child(3) > div > div:nth-child(2) > div:nth-child(2)": "d.art",
+  ":scope > div > div:nth-child(3) > div > div:nth-child(5) > span:nth-child(1)": "e(d.whenIc)"
+ },
+ "remove": [
+  ":scope > div > div:nth-child(1)"
+ ],
+ "attr": {
+  ":scope > div > div:nth-child(2)": {
+   "data-bd-close": "''",
+   "aria-hidden": "'true'"
+  },
+  ":scope > div > div:nth-child(3) > div": {
+   "id": "'bdSheet'",
+   "tabindex": "'-1'"
+  },
+  ":scope > div > div:nth-child(3) > div > h2": {
+   "id": "'bdName'"
+  },
+  ":scope > div > div:nth-child(3) > div > div:nth-child(6) > button:nth-child(1)": {
+   "type": "'button'",
+   "data-share": "''",
+   "id": "'bdShare'"
+  },
+  ":scope > div > div:nth-child(3) > div > div:nth-child(6) > button:nth-child(2)": {
+   "type": "'button'",
+   "data-bd-close": "''",
+   "id": "'bdClose'"
+  }
+ },
+ "cls": {
+  ":scope > div > div:nth-child(3) > div > div:nth-child(6) > button:nth-child(1)": {
+   "flex-1": "d.got ? 'flex-1' : 'hidden'"
+  },
+  ":scope > div": {
+   "min-h-screen": "'h-full'",
+   "lt:bg-[#fff8f3]": "''",
+   "dk:bg-[#091518]": "''",
+   "shadow-2xl": "''"
+  }
+ }
+}
