@@ -137,6 +137,11 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
   ok(gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['wv', 'a'] } }).ok && gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['wv'] } }).why.some(x => /2 nguồn/.test(x)), 'L1: vi Wiktionary tiếng Việt + 1 AI = đạt; 1 nguồn = trượt');
   { const r = viAgreeSources({ wk: [], wv: ['bóc vỏ', 'gọt vỏ', 'lột'], a: 'bóc vỏ', b: 'lột vỏ', c: '' }); ok(r.length === 1 && r[0].v === 'bóc vỏ' && r[0].src.join() === 'wv,a', 'viAgreeSources: wv + AI trùng → phương án (peel#v "bóc vỏ")');
     ok(!viContested({ v: 'bóc vỏ', src: ['wv', 'a', 'b'] }, { a: 'bóc vỏ', b: 'bóc vỏ', c: 'lột' }) && viContested({ v: 'gọt', src: ['wv', 'a'] }, { a: 'gọt', b: 'bóc vỏ', c: 'lột vỏ' }), 'viContested: wv là người viết – không tính phiếu ủng hộ AI; AI họ khác phản bác vẫn chặn'); }
+  { const f = (wv, a, c) => viAgreeSources({ wk: [], wv, a, b: '', c });
+    ok(f(['mụ phù thuỷ'], 'phù thủy', '').length === 0 && f(['phù thuỷ'], 'phù thủy', '')[0].src.join() === 'wv,a', 'viKey: dấu thanh kiểu cũ/mới (thuỷ = thủy)');
+    ok(f(['giấc ngủ ngắn lơ mơ'], 'giấc ngủ ngắn', '')[0].src.join() === 'a,wv' && f(['ném lên'], 'ném', '')[0].v === 'ném', 'viAgreeSources: khớp đầu ngữ (người viết = phương án + ≤ 2 âm tiết sau)');
+    ok(f(['lòng bàn tay'], 'bàn tay', '').length === 0 && f(['dãy núi lởm chởm cao vút'], 'dãy núi', '').length === 0, 'viAgreeSources: KHÔNG khớp đuôi (lòng bàn tay ≠ bàn tay), không quá 2 âm tiết');
+    ok(f(['thói nghiện'], 'nghiện', '')[0].src.join() === 'wv,a', 'viKey: bỏ "thói" chỉ loại đầu'); }
   { const py = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/viwikt.py'), 'utf8'), J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), Y = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
     ok(/wv: WV\[x\.k\]/.test(J) && /--viwk/.test(Y) && /viwiktionary\/raw-wiktextract-data\.jsonl\.gz/.test(Y) && /CC BY-SA 4\.0/.test(py) && /Wiktionary en \+ vi CC BY-SA 4\.0/.test(J), 'viwikt: nối vào job + workflow, ghi giấy phép'); }
   { const R = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/requeue.mjs'), 'utf8'), Y = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');

@@ -97,10 +97,17 @@ export const viNorm = v => String(v || '').toLowerCase().normalize('NFC').replac
  *  Trả [{ v, src: [...] }] theo thứ tự wk → a → b, chỉ phương án có ≥ 2 nguồn. */
 // khoá so khớp vi (pilot 29/10: "khinh bỉ" ≠ "sự khinh bỉ" → trượt oan): bỏ từ chỉ loại đầu (sự/việc/cái/con/nỗi/niềm/cuộc/chiếc; "tính" chỉ khi còn ≥ 2 âm tiết – tính toán ≠ toán; KHÔNG bỏ "lòng": lòng bàn tay ≠ bàn tay),
 // giữ thứ tự âm tiết (đảo = đổi nghĩa). Phương án hiển thị = dạng gặp đầu tiên (Wiktionary trước).
-export const viKey = v => viNorm(v)[0] ? viNorm(v)[0].replace(/^(sự|việc|cái|con|nỗi|niềm|cuộc|chiếc) (?=\S)/, '').replace(/^tính (?=\S+ \S)/, '') : ''; // KHÔNG đảo âm tiết: thần tượng ≠ tượng thần
+// dấu thanh kiểu cũ/mới (31/10 pilot phễu: witch "phù thuỷ" ≠ "phù thủy"): oa/oe/uy không phụ âm cuối → dấu về nguyên âm cuối (hoà = hòa, thuỷ = thủy)
+const TONE = /[\u0300\u0301\u0303\u0309\u0323]/;
+export const viTone = v => String(v || '').normalize('NFD').split(' ').map(w => { const t = w.match(TONE); if (!t) return w; const b = w.replace(TONE, ''); return /(o[ae]|uy)$/.test(b) ? b + t[0] : w; }).join(' ').normalize('NFC');
+export const viKey = v => viNorm(v)[0] ? viTone(viNorm(v)[0]).replace(/^(sự|việc|cái|con|nỗi|niềm|cuộc|chiếc|thói) (?=\S)/, '').replace(/^tính (?=\S+ \S)/, '') : ''; // KHÔNG đảo âm tiết: thần tượng ≠ tượng thần
 export function viAgreeSources(srcs) {
   const m = new Map();
   for (const s of Object.keys(srcs)) for (const v of [].concat(srcs[s] || []).flatMap(viNorm)) { const k = viKey(v); if (!k) continue; const o = m.get(k) || m.set(k, { v, src: [] }).get(k); if (!o.src.includes(s)) o.src.push(s); }
+  // khớp ĐẦU NGỮ (31/10 pilot phễu: doze "giấc ngủ ngắn" ⊂ "giấc ngủ ngắn lơ mơ", toss "ném" ⊂ "ném lên"): tiếng Việt đầu ngữ đứng trước → từ người viết = phương án AI
+  // + ≤ 2 âm tiết bổ nghĩa SAU thì phương án AI (rộng hơn) được nguồn người viết đỡ. KHÔNG khớp đuôi (lòng bàn tay ≠ bàn tay). Trắc nghiệm 3/3 vẫn chấm CHÍNH phương án AI.
+  const HUMS = ['wk', 'wv'], all = [...m.entries()], hum = all.filter(([, o]) => o.src.some(x => HUMS.includes(x)));
+  for (const [k, o] of all) if (!o.src.some(x => HUMS.includes(x))) for (const [hk, h] of hum) if (hk.startsWith(k + ' ') && hk.split(' ').length - k.split(' ').length <= 2) for (const x of h.src) if (HUMS.includes(x) && !o.src.includes(x)) o.src.push(x);
   return [...m.values()].filter(o => o.src.length >= 2);
 }
 /** vi BỊ PHẢN BÁC (lớp L1, pilot 31/10 peel#v "gọt": Wiktionary + lxtr trùng, qua trắc nghiệm 3/3 nhưng sai – lxtr nhận câu ví dụ "peel apples" nên neo vào từ hẹp).
