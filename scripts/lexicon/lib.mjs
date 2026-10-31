@@ -64,4 +64,4 @@ export function normPos(p) {
 
 // Kho + mục mở rộng đã xuất (content/lexicon/expand – docs/LEXICON.md §Mở rộng 20k) cho việc Node HẠ NGUỒN chỉ đọc (âm thanh, kịch bản, dist/lexicon.json…).
 // KHÔNG dùng cho saveAll (mục mở rộng không có dòng trong web/js). Test scripts/test/lexicon-consumers.mjs chặn việc hạ nguồn bỏ sót.
-export async function loadAllPlus() { const { expandRows } = await import('./expand/lib.mjs'); const base = loadAll(), have = new Set(base.map(e => e.row[0].toLowerCase().trim())); return [...base, ...expandRows().filter(e => !have.has(e.row[0].toLowerCase()))]; }
+export async function loadAllPlus() { const { expandRows } = await import('./expand/lib.mjs'); const base = loadAll(), have = new Set(base.map(e => key(e.row))); return [...base, ...expandRows().filter(e => !have.has(key(e.row)))]; } // khoá từ#loại: duck#v mở rộng vẫn vào dù kho có duck#n
