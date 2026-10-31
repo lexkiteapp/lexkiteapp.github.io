@@ -9,7 +9,7 @@ const rms100 = f => { const b = fs.readFileSync(f); let o = 12; while (b.toStrin
 const xlag = (a, b) => { const m = v => { const u = v.reduce((x, y) => x + y, 0) / v.length; return v.map(x => x - u); }; a = m(a); b = m(b); let best = -1e9, L = 0;
   for (let l = -30; l <= 30; l++) { let s = 0; for (let i = 0; i < a.length; i++) { const j = i - l; if (j >= 0 && j < b.length) s += a[i] * b[j]; } if (s > best) { best = s; L = l; } } return L * 10; };
 // hình "đúng" theo âm vị Kokoro ở thời điểm t (bỏ dấu nhấn/khoảng trắng)
-const truthAt = (ph, t) => { const x = ph.find(q => q.s <= t && t < q.e && !/[ˈˌː\s]/.test(q.p)); return x ? (/[^\p{L}ᵊ]/u.test(x.p) ? 'X' : LS.IPA[x.p] || 'B') : null; };
+const truthAt = (sp, t) => { const x = sp.find(q => q.s <= t && t < q.e && q.v !== ' '); return x ? x.v : null; }; // sp = LS.phoneSpans(ph)
 const machineOf = (l, i, env) => LF.machine(l.who, { cues: l.cues, env, dur: l.dur, emo: l.emo, seed: 11 + i, text: l.text });
 const out = { fps: FPS, lines: [], lag: {}, rows: [] };
 let blinkN = 0, blinkT = 0, blinkBad = 0;
@@ -19,7 +19,8 @@ for (const [i, l] of lines.entries()) {
   const lag = xlag(S.map(s => s.mouth.u + s.mouth.d), env); out.lag[l.id] = lag;
   // đúng hình (chỉ khi có mốc Kokoro): khung có tiếng, khớp nếu hình vẽ trùng hình âm vị nào trong ±40 ms
   let ok = 0, tot = 0, rok = 0;
-  if (l.ph) for (let k = 0; k < n; k++) { if (env[k] < peak * .1) continue; const want = new Set(); for (let d = -4; d <= 4; d++) { const v = truthAt(l.ph, (k + d) / 100); if (v) want.add(v); } if (!want.size) continue;
+  const sp = l.ph && LS.phoneSpans(l.ph);
+  if (sp) for (let k = 0; k < n; k++) { if (env[k] < peak * .1) continue; const want = new Set(); for (let d = -4; d <= 4; d++) { const v = truthAt(sp, (k + d) / 100); if (v) want.add(v); } if (!want.size) continue;
     tot++; if (want.has(S[k].shape)) ok++; const rs = LS.stateAt(l.rhCues, k / 100); if (want.has(rs.k >= .5 ? rs.b : rs.a)) rok++; }
   // nháy: một hình hiện liền < MIN_HOLD rồi đổi (đo trên khung vẽ 100 Hz)
   let flick = 0, run = 1; for (let k = 1; k < n; k++) { if (S[k].shape === S[k - 1].shape) { run++; continue; } if (k - run > 0 && run < Math.round(LS.MIN_HOLD * 100) - 1) flick++; run = 1; } // dung sai 1 khung đo (10 ms)

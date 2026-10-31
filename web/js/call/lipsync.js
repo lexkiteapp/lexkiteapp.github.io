@@ -61,9 +61,15 @@
    * env = RMS 100 Hz của file tiếng; words = [{start,end}] thời điểm từ của Kokoro (tuỳ chọn) → mép từ đầu/cuối mỗi cụm.
    * Sửa lỗi Rhubarb mở miệng sớm ở âm hơi "H" (Hi/Hey) và mở trễ ở phụ âm tắc đầu câu. Chỉ dời mốc trong ±WIN, không đổi hình. */
   function align(cues, env, o = {}) {
-    const WIN = o.win ?? 0.15, hz = o.hz ?? 100, peak = Math.max(...env, 1e-6), thr = peak * (o.thr ?? 0.1), W = o.words || [];
+    const WIN = o.win ?? 0.15, FAR = o.far ?? 0.5, hz = o.hz ?? 100, peak = Math.max(...env, 1e-6), thr = peak * (o.thr ?? 0.1), W = o.words || [];
     const on = i => env[i] > thr, at = t => Math.max(0, Math.min(env.length - 1, Math.round(t * hz)));
     const near = (t, ws, k) => { let b = null; for (const w of ws) { const d = Math.abs(w[k] - t); if (d <= WIN && (!b || d < Math.abs(b[k] - t))) b = w; } return b; };
+    // mép của ĐÚNG đoạn tiếng chứa mốc t (dir 1 = lúc bắt đầu, −1 = lúc tắt): đang có tiếng → lùi/tiến tới mép trong ±WIN; đang im → tìm đoạn tiếng gần nhất về phía nó trong FAR
+    // (Kokoro kéo dài âm cuối như "r" trong "slower" tới 300 ms sau khi tiếng tắt; không vớ tiếng của từ kế tiếp)
+    const edge = (t, dir) => { let k = at(t);
+      if (on(k)) { if (dir > 0) { while (k > at(t - WIN) && on(k - 1)) k--; return k / hz; } while (k < at(t + WIN) && on(k + 1)) k++; return (k + 1) / hz; }
+      if (dir > 0) { const e = at(t + FAR); while (k < e && !on(k)) k++; return on(k) ? k / hz : t; }
+      const e = at(t - FAR); while (k > e && !on(k)) k--; return on(k) ? (k + 1) / hz : t; };
     let out = cues.map(c => ({ ...c }));
     // chỗ ngắt im ≥ GAP giữa câu mà Rhubarb vẫn để miệng mở (âm hơi "H" kéo hình sớm) → chèn X đúng khoảng im
     const GAP = o.gap ?? 0.12, first = env.findIndex((_, i) => on(i)); let last = env.length - 1; while (last > 0 && !on(last)) last--;
@@ -84,13 +90,11 @@
       const p = out[i - 1], c = out[i];
       if (p.value === 'X' && c.value !== 'X') { // im → mở: lúc tiếng bắt đầu
         const w = near(c.start, W, 'start'); let t = w ? w.start : c.start;
-        let k = at(t - WIN); while (k < at(t + WIN) && !on(k)) k++;
-        if (on(k)) t = k / hz;
+        t = edge(t, 1);
         t = Math.max(p.start + 0.01, Math.min(c.end - 0.01, t)); p.end = c.start = t;
       } else if (p.value !== 'X' && c.value === 'X') { // mở → im: lúc tiếng tắt
         const w = near(c.start, W, 'end'); let t = w ? w.end : c.start;
-        let k = at(t + WIN); while (k > at(t - WIN) && !on(k)) k--;
-        if (on(k)) t = (k + 1) / hz;
+        t = edge(t, -1);
         t = Math.max(p.start + 0.01, Math.min(c.end - 0.01, t)); p.end = c.start = t;
       }
     }
@@ -99,19 +103,29 @@
   // Âm vị IPA của Kokoro/misaki (en-US; chữ hoa = nguyên âm đôi: A eɪ · I aɪ · W aʊ · Y ɔɪ · O oʊ · T flap) → hình miệng (cùng bảng P2V)
   const IPA = { m: 'A', b: 'A', p: 'A', f: 'G', v: 'G', l: 'H', w: 'F', u: 'F', 'ʊ': 'F', O: 'F', Y: 'F', 'ɔ': 'E', 'ɜ': 'E', 'ɝ': 'E', 'ɚ': 'E', 'ɹ': 'E',
     'ɑ': 'D', I: 'D', W: 'D', 'æ': 'C', 'ɛ': 'C', 'ʌ': 'C', 'ə': 'C', 'ɐ': 'C', 'ᵊ': 'C', A: 'C', 'ɪ': 'B', i: 'B' }; // phụ âm còn lại → B
-  const MARK = /[ˈˌː]/;
-  /** Mốc âm vị Kokoro (scripts/lipsync/kokoro_ts.py: [{p, s, e}] giây, đúng thời lượng model đã dùng để sinh tiếng) → cues.
-   * Khoảng trắng ngắn (< 80 ms) nối vào âm sau; dấu câu / ngắt dài → X. Dấu nhấn (ˈˌː) theo âm kế bên. */
-  function fromPhones(ph, dur) {
-    const cues = [{ start: 0, end: ph.length ? ph[0].s : dur, value: 'X' }];
+  /** Âm vị Kokoro [{p,s,e}] → khúc [{v,s,e}]: dấu nhấn (ˈˌ) và dấu dài (ː) có thời lượng riêng trong pred_dur, model phát nguyên âm SAU trong khoảng đó
+   * → gộp vào âm sau (ː gộp vào âm trước). v = hình miệng · 'X' = dấu câu/ngắt · ' ' = khoảng trắng giữa từ. */
+  function phoneSpans(ph) {
+    const out = []; let pend = null;
     for (const x of ph) {
-      if (MARK.test(x.p)) { cues[cues.length - 1].end = x.e; continue; }
-      const gap = !/[a-zA-Zɐ-ʒʤʧᵊæðŋθ]/.test(x.p), v = gap ? (x.e - x.s < 0.08 && x.p === ' ' ? null : 'X') : (IPA[x.p] || 'B');
+      if (/[ˈˌ]/.test(x.p)) { pend = pend ?? x.s; continue; }
+      if (x.p === 'ː') { if (out.length) out[out.length - 1].e = x.e; continue; }
+      const v = x.p === ' ' ? ' ' : !/[a-zA-Zɐ-ʒʤʧᵊæðŋθ]/.test(x.p) ? 'X' : (IPA[x.p] || 'B');
+      out.push({ v, s: pend ?? x.s, e: x.e }); pend = null;
+    }
+    return out;
+  }
+  /** Mốc âm vị Kokoro (scripts/lipsync/kokoro_ts.py: [{p, s, e}] giây, đúng thời lượng model đã dùng để sinh tiếng) → cues.
+   * Khoảng trắng ngắn (< 80 ms) nối vào âm sau; dấu câu / ngắt dài → X. */
+  function fromPhones(ph, dur) {
+    const sp = phoneSpans(ph), cues = [{ start: 0, end: sp.length ? sp[0].s : dur, value: 'X' }];
+    for (const x of sp) {
+      const v = x.v === ' ' ? (x.e - x.s < 0.08 ? null : 'X') : x.v;
       if (!v) { cues[cues.length - 1].end = x.e; continue; }
       cues.push({ start: x.s, end: x.e, value: v });
     }
     const last = cues[cues.length - 1]; if (last.value !== 'X' || last.end < dur) cues.push({ start: last.end, end: Math.max(last.end, dur), value: 'X' });
-    for (let i = 1; i < cues.length; i++) cues[i].start = cues[i - 1].end;
+    for (let i = 1; i < cues.length; i++) cues[i - 1].end = cues[i].start;
     return smooth(cues);
   }
   /** Độ đi trước riêng từng hình (Rive/Duolingo: môi khép M/B/P, răng-môi F/V, chu môi W/OO phải tới TRƯỚC tiếng). LEAD chung đã có trong stateAt → chỉ dời phần dư, hình trước vẫn giữ ≥ MIN_HOLD (không nháy). */
@@ -205,6 +219,6 @@
     return self;
   }
 
-  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

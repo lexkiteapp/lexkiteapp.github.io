@@ -49,3 +49,6 @@ for (const w of ['ama', 'carlos']) { const M = LF.machine(w, { cues: kc, env: ge
   assert.ok(M.blinks.length >= 1); assert.deepEqual(M.at(0.95), LF.machine(w, { cues: kc, env: genv, dur: 2, emo: 'happy', seed: 3, text: 'Hi mom?' }).at(0.95), 'tất định');
   assert.ok(M.at(M.blinks[0] + 0.07).blink > 0.9 && M.at(M.blinks[0] + 0.2).blink === 0, 'chớp 150 ms'); }
 console.log('lipsync face ok');
+// dấu nhấn Kokoro (ˈ) có thời lượng → thuộc nguyên âm SAU (model phát nguyên âm trong khoảng đó)
+const sp = LS.phoneSpans([{ p: 't', s: 0, e: .1 }, { p: 'ˈ', s: .1, e: .25 }, { p: 'I', s: .25, e: .4 }]);
+assert.deepEqual(sp.map(x => [x.v, x.s]), [['B', 0], ['D', .1]]);
