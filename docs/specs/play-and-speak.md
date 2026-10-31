@@ -25,7 +25,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 | Cake | Nói theo clip; AI tutor | Clip ngắn, phần lõi free | Chấm lỏng; thiếu lộ trình |
 | Babbel | Babbel Speak (beta 9/2025): kịch bản AI ngắn 5–6 lượt | Bài theo giáo trình | Hội thoại ngắn; ít yếu tố chơi |
 | Busuu | AI Conversations theo CEFR (từ 10/2024) + cộng đồng chấm | Cộng đồng | Người thật chấm chậm |
-| Memrise | Clip người bản ngữ; MemBot chỉ chat chữ | Video bản ngữ | Không chấm giọng nói |
+| Memrise | Clip người bản ngữ, bài nói lặp lại; MemBot chỉ chat chữ | Video bản ngữ | Chat AI không có giọng, chấm nói lỏng |
 
 **Lợi thế thật (không phải "chỉ mình free"):**
 1. Trong một app: nhập vai bằng giọng + chấm âm vị + chơi + chạy offline, 0 đồng, không trần lượt nói. Mỗi đối thủ chỉ có một phần.
@@ -40,6 +40,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - **Nhớ lại có chủ đích** (Roediger & Karpicke 2006) + **giãn cách** (Cepeda 2006): nhịp 3 che câu đi; mỗi câu F1 là một thẻ FSRS (không chỉ âm lỗi).
 - **Phải nói ra + nhận phản hồi** (Swain 1985; Lyster & Ranta 1997): sửa bằng cách nhắc lại câu đúng (recast) cho ngữ pháp, sửa trực tiếp cho âm. Mỗi lần tối đa 1–2 lỗi.
 - **Tách trôi chảy và chính xác** (Nation, 4/3/2): vòng "Nói thoải mái" không sửa lỗi, chỉ đo wpm và độ ngừng; vòng "Nói chuẩn" chấm từng từ.
+- **Gợi ý mờ dần trong buổi**: đủ chữ → chữ cái đầu → trống. **Thời lượng nói tăng theo CEFR**: A1 câu ≤ 6 từ; B2 trả lời mở 30–45 s.
 - **Câu trả lời mở**: mỗi tình huống có 2 câu "trả lời theo ý bạn", chấm bằng ý định + từ khoá, không bắt khớp nguyên văn.
 
 ## 4. Tính năng (đều $0; độ hút trên thang 5)
@@ -52,7 +53,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 | F5 | **Thả diều**: nói đúng thì diều lên, đua với bóng ma điểm hôm qua | Vui, chơi lại nhiều | Độ trễ → ngân sách ≤300 ms phản hồi | 5 | TB | P1 |
 | F6 | **Bản đồ âm khó** → bài riêng theo FSRS | Cá nhân hoá kiểu ELSA | Chờ GOP #286 | 4 | TB | P1 |
 | F7 | **Nói từ vừa tra** (add-on → app) | Chỉ mình có | Câu ghép phải qua QA; không thêm quyền add-on (permissions.lock) | 4 | TB | P1 |
-| F9 | **Đua với bạn** qua link (chỉ gửi điểm, không gửi âm thanh) | Lan truyền tự nhiên | Gian lận → máy chủ kiểm trần XP/ngày, chữ ký phiên | 4 | TB | P1 |
+| F9 | **Đua với bạn** qua link (chỉ gửi điểm, không gửi âm thanh) | Lan truyền tự nhiên | Gian lận → máy chủ ký điểm (HMAC theo phiên), trần XP/ngày, giới hạn tốc độ theo IP băm | 4 | TB | P1 |
 | F8 | **Ngữ điệu karaoke** (đường cao độ chồng lên nhau) | Đẹp, dễ hiểu | Nhiễu trên máy yếu → tự tắt khi độ tin < 0,6 | 3 | Cao | P2 |
 | F10 | **Nói thoải mái kiểu IELTS** (Speech Analyzer miễn phí: wpm, ngừng, đa dạng từ, độ dài câu, ý định) | Đối đầu ELSA Speech Analyzer | Không có band thật → ghi "ước lượng" | 4 | TB | P2 |
 
@@ -62,6 +63,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - Rương thưởng ngẫu nhiên sau mỗi lần xong: trang phục cho diều, freeze, sticker Ama/Carlos 2D (thưởng cho việc nói, không bán).
 - Huy hiệu "Thạo tình huống".
 - Cuối buổi: xem trước tình huống ngày mai.
+- **Lý do quay lại giữa tuần**: mục tiêu nói hằng tuần (ví dụ 50 câu) và sự kiện chủ đề mỗi tháng (du lịch hè, phỏng vấn mùa tuyển dụng) dùng chung mùa với RETENTION.
 - Nhắc học theo [REMINDERS.md](../REMINDERS.md).
 
 ## 5. Chấm điểm: hợp đồng, hiệu chuẩn, độ trễ, quota
@@ -79,14 +81,14 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - Ngưỡng đạt chuẩn:
   - Tương quan với điểm chuyên gia PCC ≥ 0,6 (GOP).
   - Tỉ lệ chấm sai câu đúng ≤ 10% mỗi nền tảng.
-  - **Công bằng:** tỉ lệ đạt giữa các giọng lệch ≤ 5 điểm %.
+  - **Công bằng (nói rõ phạm vi):** cổng chỉ đo tỉ lệ chấm sai câu đúng giữa các giọng L1 (lệch ≤ 5 điểm %), chưa đo độ chính xác điểm. speechocean762 chỉ có người nói L1 tiếng Trung; nhãn giọng của Common Voice do người nói tự khai. CI liệt kê L1 nào đủ ≥ 30 câu. L1 nào thiếu thì phải thu ≥ 30 câu nội bộ trước khi tuyên bố công bằng. Ghi nguồn speechocean762 theo CC BY.
   - Tỉ lệ đạt mục tiêu 80–85% ([LEARNING-PATH.md](../LEARNING-PATH.md)).
 
 **Chọn bộ chấm theo nền tảng và ngân sách độ trễ** (p75, tính từ lúc dứt câu):
 | Nền tảng | Bộ chấm | Độ trễ |
 |---|---|---|
 | Chrome / Edge | Web Speech (`processLocally` khi có), GOP khi #286 gộp | ≤ 800 ms |
-| Safari iOS, Firefox | Whisper tiny.en q8 (~40 MB, tải sau khi đồng ý, chỉ qua Wi-Fi, cache) | ≤ 2,5 s, có hiệu ứng "đang chấm" |
+| Safari iOS, Firefox | Whisper tiny.en q8 (~40 MB, tải sau khi đồng ý, chỉ qua Wi-Fi, cache; RAM ≤ 300 MB trên Android tầm trung). Chưa tải được thì dùng chế độ chạm ghép câu, không được sao | ≤ 2,5 s, có hiệu ứng "đang chấm" |
 | Android WebView / app | Web Speech nếu có, không thì Whisper | như trên |
 | Add-on | Mở tab app (add-on không có mic, không thêm quyền) | — |
 | F5 game | Bộ chấm nhanh nhất có sẵn | ≤ 300 ms phản hồi |
@@ -95,7 +97,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - Mỗi lượt nói **không gọi LLM**. Ý định được nhận trên máy, theo thứ tự: từ khoá/mẫu câu F1 → embedding nhỏ nếu đo thấy cần → Gemini Nano nếu có.
 - LLM chỉ dùng cho tổng kết F3, tối đa 1 lần/người/ngày.
 - Chuỗi dự phòng: Nano → kho Gemini (K key × ~20) → Workers AI (≤ 50% của 10k neurons, có cầu dao trong `_quota.js`) → tổng kết từ mẫu, không LLM.
-- Trần người dùng AI/ngày ≈ 20K + (Workers AI 5k neurons ÷ số neurons đo được mỗi lần tổng kết ở M1). Quá trần vẫn chơi đủ, chỉ phần tổng kết dùng mẫu. D1: ≤ 3 lượt ghi/người/ngày (điểm, sao, XP), nằm trong 100k ([QUOTAS.md](../QUOTAS.md)).
+- Trần người dùng AI/ngày ≈ 20K + 5.000 ÷ ~300 neurons mỗi lần tổng kết (ước tính) ≈ 20K + 16. Số neurons thật đo ở M1 rồi sửa lại. Quá trần vẫn chơi đủ, chỉ phần tổng kết dùng mẫu. D1: ≤ 3 lượt ghi/người/ngày (điểm, sao, XP), nằm trong 100k ([QUOTAS.md](../QUOTAS.md)).
 
 ## 6. Nội dung và cổng chất lượng
 **Schema `content/situations/<id>.json`:**
@@ -117,6 +119,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - Đăng ký `content/qa/sources.json`, qua 7 lớp gate.
 - 2 giám khảo khác họ: độ tự nhiên ≥ 4/5, đúng CEFR, ≤ 12 từ ở A1–A2; lệch ≤ 1.
 - Baseline chỉ được giảm.
+- Bản đồ lỗi L1: ngoài 2 giám khảo AI, mỗi ngôn ngữ có 1 người bản ngữ duyệt (cộng tác viên miễn phí hoặc cờ báo lỗi trong app qua [REPORTS.md](../REPORTS.md)). Chưa duyệt thì ẩn ghi chú đó.
 - Ghi chú 15 ngôn ngữ qua [I18N-PIPELINE.md](../I18N-PIPELINE.md) + i18n-qa.
 - Audio theo [WORD-AUDIO.md](../WORD-AUDIO.md): Ama nữ, Carlos nam (CI kiểm), −16 LUFS, ≤ 150 wpm + bản chậm.
 - Giọng phụ (en-GB/en-AU) cho bài nghe chỉ dùng khi anh duyệt (vẫn không thêm nhân vật).
@@ -134,7 +137,7 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - Chỉ số chính: **tỉ lệ người nói ≥ 1 câu vào ngày thứ 7**.
 - Chỉ số phụ: D7 chung, số câu nói/người.
 - Ngưỡng an toàn: D1 chung, lỗi JS, thời gian chạy, tỉ lệ từ chối mic.
-- Cỡ mẫu: độ lệch nhỏ nhất cần thấy 3 điểm % trên nền ~20% → ≈ 2.800 người/nhóm, ≥ 14 ngày.
+- Cỡ mẫu: độ lệch nhỏ nhất cần thấy 3 điểm % trên nền ~20% → ≈ 3.000 người/nhóm, ≥ 14 ngày. Kiểm lưu lượng trước M1: người mới đủ điều kiện mỗi ngày × 10% × 14 phải ≥ 3.000. Thiếu thì kéo dài thử nghiệm hoặc tăng lên 20%/20%.
 - **Tiêu chí dừng:** D1 giảm ≥ 1 điểm %, hoặc lỗi JS tăng, hoặc chấm sai câu đúng > 10% → tắt cờ, sửa theo loại lỗi.
 - Ghi số liệu: `ext_events` kind `spk:…`, không lưu PII.
 
@@ -159,4 +162,4 @@ Khoảng trống: thiếu một vòng nói theo tình huống liền mạch; m�
 - Port trung thành từ ref Stitch (Kit, khung 390 px); giáo viên qua `Chars.*`.
 - Không bỏ/nới test, ngưỡng hay nội dung nào (luật no-cuts).
 
-**QC spec:** giám khảo độc lập, cùng 10 tiêu chí: v1 = 49/100 → v2: xem PR #291.
+**QC spec:** giám khảo độc lập, cùng 10 tiêu chí: v1 = 49/100 → v2 = 77/100 → v2.1 sửa 8 điểm giám khảo còn nêu.
