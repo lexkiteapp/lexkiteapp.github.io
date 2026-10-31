@@ -34,7 +34,7 @@ for (const r of rows) { const res = { surface: r.s, page: r.page, fails: [], inf
     if (errs.length) res.fails.push(`${m}: lỗi JS ${errs[0]}`);
     if (m === 'dark' && br > MAX_BRIGHT_DARK) res.fails.push(`dark: mảng sáng ${(br * 100).toFixed(0)}% > ${MAX_BRIGHT_DARK * 100}% (thẻ trắng trong nền tối?)`);
     if (m === 'light' && br < MIN_BRIGHT_LIGHT) res.fails.push(`light: chỉ ${(br * 100).toFixed(0)}% sáng < ${MIN_BRIGHT_LIGHT * 100}% (bản sáng bị tối?)`);
-    if (r.teacher && !/teacher/i.test(txt) && !(await p.evaluate(() => [...document.querySelectorAll('*')].some(e => getComputedStyle(e).borderStyle === 'dashed'))))
+    if (r.teacher && !/teacher/i.test(txt) && !(await p.evaluate(() => /teacher/i.test(document.body.textContent) || [...document.querySelectorAll('*')].some(e => getComputedStyle(e).borderStyle === 'dashed' || (e.getAttribute('stroke-dasharray') || '').trim()))))
       res.fails.push(`${m}: mất ô giáo viên (teacher slot)`);
     const gl = await p.evaluate(() => { const out = [];
       for (const e of document.querySelectorAll('[class*="material-symbols"],[class*="material-icons"]')) { const b = e.getBoundingClientRect(); if (b.width > 0 && b.width > b.height * 1.6) out.push(e.textContent.trim()); }

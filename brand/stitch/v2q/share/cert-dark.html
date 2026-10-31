@@ -1,1 +1,394 @@
-PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDExMzAiIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjExMzAiIHN0eWxlPSJiYWNrZ3JvdW5kOiMwOTE1MTg7IGZvbnQtZmFtaWx5OidQbHVzIEpha2FydGEgU2FucycsIHN5c3RlbS11aSwgLWFwcGxlLXN5c3RlbSwgc2Fucy1zZXJpZjsiPgogIDxkZWZzPgogICAgPCEtLSBCYWNrZ3JvdW5kIEdyYWRpZW50cyAoVGFjdGlsZSBOaWdodCkgLS0+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Im5pZ2h0QmdHcmFkIiBjeD0iNTAlIiBjeT0iNDAlIiByPSI3MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTQyODJlIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjMGMxYjFmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA5MTUxOCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIAogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJuaWdodENhcmRHbG93IiBjeD0iNTAlIiBjeT0iMjUlIiByPSI3NSUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTYyYzMyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNjAlIiBzdG9wLWNvbG9yPSIjMTEyMjI3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBkMWIxZiIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KCiAgICA8IS0tIERlZXAgRHJvcCBTaGFkb3dzICYgM0QgTGVkZ2VzIC0tPgogICAgPGZpbHRlciBpZD0ibmlnaHRDYXJkU2hhZG93IiB4PSItMTAlIiB5PSItMTAlIiB3aWR0aD0iMTIwJSIgaGVpZ2h0PSIxMjUlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjE0IiBzdGREZXZpYXRpb249IjAiIGZsb29kLWNvbG9yPSIjMDQwYjBkIi8+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIyOCIgc3RkRGV2aWF0aW9uPSIyNCIgZmxvb2QtY29sb3I9IiMwMDAwMDAiIGZsb29kLW9wYWNpdHk9IjAuNiIvPgogICAgPC9maWx0ZXI+CiAgICAKICAgIDxmaWx0ZXIgaWQ9Im1lZGFsbGlvblNoYWRvd05pZ2h0IiB4PSItMzAlIiB5PSItMjAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjEwIiBzdGREZXZpYXRpb249IjAiIGZsb29kLWNvbG9yPSIjMDUwZTEwIiBmbG9vZC1vcGFjaXR5PSIwLjkiLz4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjIwIiBzdGREZXZpYXRpb249IjE2IiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIgZmxvb2Qtb3BhY2l0eT0iMC41Ii8+CiAgICA8L2ZpbHRlcj4KCiAgICA8ZmlsdGVyIGlkPSJwaWxsU2hhZG93TmlnaHQiIHg9Ii0xMCUiIHk9Ii0xNSUiIHdpZHRoPSIxMjAlIiBoZWlnaHQ9IjEzNSUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iNSIgc3RkRGV2aWF0aW9uPSIwIiBmbG9vZC1jb2xvcj0iIzA1MGUxMCIvPgogICAgPC9maWx0ZXI+CgogICAgPGZpbHRlciBpZD0idGVhbEdsb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzJkZDRiZiIgZmxvb2Qtb3BhY2l0eT0iMC40Ii8+CiAgICA8L2ZpbHRlcj4KCiAgICA8ZmlsdGVyIGlkPSJnb2xkR2xvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIwIiBzdGREZXZpYXRpb249IjgiIGZsb29kLWNvbG9yPSIjZjU5ZTBiIiBmbG9vZC1vcGFjaXR5PSIwLjM1Ii8+CiAgICA8L2ZpbHRlcj4KCiAgICA8IS0tIE1lZGFsbGlvbiAmIFJpYmJvbiBHcmFkaWVudHMgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InJpYmJvbkxlZnROaWdodCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmYmJmMjQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI0MCUiIHN0b3AtY29sb3I9IiNmNTllMGIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYjQ1MzA5Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaWJib25SaWdodE5pZ2h0IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZkZTA0NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjQ1JSIgc3RvcC1jb2xvcj0iI2Y1OWUwYiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5YTM0MTIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CgogICAgPCEtLSBHb2xkIE1lZGFsbGlvbiBPdXRlciBTY2FsbG9wICYgQ29yZSAoVGFjdGlsZSAzRCBTaGVlbikgLS0+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9ImdvbGRPdXRlclJpbmdOaWdodCIgY3g9IjM1JSIgY3k9IjMwJSIgcj0iNzAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZjA4YSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjM1JSIgc3RvcC1jb2xvcj0iI2Y1OWUwYiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjgwJSIgc3RvcC1jb2xvcj0iI2Q5NzcwNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3ODM1MGYiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJnb2xkQ29yZU5pZ2h0IiBjeD0iNDAlIiBjeT0iMzUlIiByPSI2NSUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmZmYmViIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMjUlIiBzdG9wLWNvbG9yPSIjZmVmM2M3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNjUlIiBzdG9wLWNvbG9yPSIjZmRlNjhhIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Q5NzcwNiIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KCiAgICA8IS0tIEtpdGUgTG9nbyBHcmFkaWVudHMgKEdsb3dpbmcgZm9yIE5pZ2h0KSAtLT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ia2l0ZVRlYWxHbG93IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzVlZWFkNCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZjc2NmUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImtpdGVPcmFuZ2VHbG93IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjZDM0ZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYTU4MGMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImtpdGVZZWxsb3dHbG93IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZjA4YSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNTllMGIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImtpdGVEZWVwVGVhbEdsb3ciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMmRkNGJmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzExNWU1OSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KCiAgICA8IS0tIENvdXJzZSBDYXJkIElubmVyIFN1cmZhY2UgR3JhZGllbnQgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImNvdXJzZUNhcmRTdXJmYWNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxNzJmMzYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTEyNDI5Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgoKICAgIDwhLS0gU3ltYm9scyAtLT4KICAgIDxnIGlkPSJzcGFya2xlLWdvbGQiPgogICAgICA8cGF0aCBkPSJNIDAgLTEyIFEgMSAtMiAxMiAwIFEgMSAyIDAgMTIgUSAtMSAyIC0xMiAwIFEgLTEgLTIgMCAtMTIgWiIgZmlsbD0iI2Y1OWUwYiIvPgogICAgPC9nPgogICAgPGcgaWQ9InNwYXJrbGUtdGVhbCI+CiAgICAgIDxwYXRoIGQ9Ik0gMCAtMTAgUSAxIC0xIDEwIDAgUSAxIDEgMCAxMCBRIC0xIDEgLTEwIDAgUSAtMSAtMSAwIC0xMCBaIiBmaWxsPSIjMmRkNGJmIi8+CiAgICA8L2c+CiAgICA8ZyBpZD0ibWluaS1raXRlLW5pZ2h0Ij4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIwLC0xMCA3LDAgMCwwIiBmaWxsPSIjZmRlMDQ3Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwwIDcsMCAwLDEwIiBmaWxsPSIjZjk3MzE2Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTcsMCAwLDAgMCwxMCIgZmlsbD0iIzBkOTQ4OCIvPgogICAgICA8cG9seWdvbiBwb2ludHM9Ii03LDAgMCwtMTAgMCwwIiBmaWxsPSIjMmRkNGJmIi8+CiAgICA8L2c+CiAgPC9kZWZzPgoKICA8IS0tIEJhY2tncm91bmQgQmFzZSBDYW52YXMgLS0+CiAgPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTEzMCIgZmlsbD0idXJsKCNuaWdodEJnR3JhZCkiLz4KCiAgPCEtLSBTdWJ0bGUgUGxheWZ1bCBTdGFyIER1c3QgaW4gT3V0ZXIgQ2FudmFzIC0tPgogIDx1c2UgaHJlZj0iI3NwYXJrbGUtZ29sZCIgeD0iMTIwIiB5PSI5MCIgdHJhbnNmb3JtPSJzY2FsZSgwLjg1KSIgb3BhY2l0eT0iMC42NSIvPgogIDx1c2UgaHJlZj0iI3NwYXJrbGUtdGVhbCIgeD0iMTQ4MCIgeT0iMTEwIiB0cmFuc2Zvcm09InNjYWxlKDAuOTUpIiBvcGFjaXR5PSIwLjciLz4KICA8dXNlIGhyZWY9IiNzcGFya2xlLWdvbGQiIHg9IjE1MDAiIHk9IjEwMjAiIHRyYW5zZm9ybT0ic2NhbGUoMC44NSkiIG9wYWNpdHk9IjAuNjUiLz4KICA8dXNlIGhyZWY9IiNzcGFya2xlLXRlYWwiIHg9IjExMCIgeT0iMTAxMCIgdHJhbnNmb3JtPSJzY2FsZSgwLjkpIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSI1NjAiIHI9IjQuNSIgZmlsbD0iI2Y1OWUwYiIgb3BhY2l0eT0iMC41Ii8+CiAgPGNpcmNsZSBjeD0iMTQyMCIgY3k9IjUyMCIgcj0iNSIgZmlsbD0iIzJkZDRiZiIgb3BhY2l0eT0iMC41Ii8+CgogIDwhLS0gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQogICAgICAgTUFJTiBUQUNUSUxFIENFUlRJRklDQVRFIENBUkQgKDE0NDAgeCA5OTApCiAgICAgICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwLCA3MCkiIGZpbHRlcj0idXJsKCNuaWdodENhcmRTaGFkb3cpIj4KICAgIDwhLS0gQmFzZSBDYXJkIEZpbGwgd2l0aCAzRCBib3R0b20gbGVkZ2UgZWZmZWN0IC0tPgogICAgPHJlY3Qgd2lkdGg9IjE0NDAiIGhlaWdodD0iOTkwIiByeD0iNDIiIGZpbGw9InVybCgjbmlnaHRDYXJkR2xvdykiIHN0cm9rZT0iIzIyNDI0YiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgICAKICAgIDwhLS0gVGFjdGlsZSBJbm5lciBCb3JkZXIgRnJhbWUgLS0+CiAgICA8cmVjdCB4PSIyNCIgeT0iMjQiIHdpZHRoPSIxMzkyIiBoZWlnaHQ9Ijk0MiIgcng9IjMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxOTMzM2EiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgICA8cmVjdCB4PSIzNiIgeT0iMzYiIHdpZHRoPSIxMzY4IiBoZWlnaHQ9IjkxOCIgcng9IjI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNTRhNTQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtZGFzaGFycmF5PSIxMCA4IiBvcGFjaXR5PSIwLjg1Ii8+CgogICAgPCEtLSBEZWNvcmF0aXZlIENvcm5lciBLaXRlcyAmIEFjY2VudHMgLS0+CiAgICA8IS0tIFRvcC1MZWZ0IENvcm5lciAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY4LCA2OCkiPgogICAgICA8dXNlIGhyZWY9IiNtaW5pLWtpdGUtbmlnaHQiIHRyYW5zZm9ybT0ic2NhbGUoMS40KSIvPgogICAgICA8Y2lyY2xlIGN4PSIyOCIgY3k9IjAiIHI9IjMuNSIgZmlsbD0iI2Y1OWUwYiIgb3BhY2l0eT0iMC44Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIyOCIgcj0iMy41IiBmaWxsPSIjMmRkNGJmIiBvcGFjaXR5PSIwLjgiLz4KICAgIDwvZz4KICAgIDwhLS0gVG9wLVJpZ2h0IENvcm5lciAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzNzIsIDY4KSI+CiAgICAgIDx1c2UgaHJlZj0iI21pbmkta2l0ZS1uaWdodCIgdHJhbnNmb3JtPSJzY2FsZSgxLjQpIi8+CiAgICAgIDxjaXJjbGUgY3g9Ii0yOCIgY3k9IjAiIHI9IjMuNSIgZmlsbD0iI2Y1OWUwYiIgb3BhY2l0eT0iMC44Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIyOCIgcj0iMy41IiBmaWxsPSIjMmRkNGJmIiBvcGFjaXR5PSIwLjgiLz4KICAgIDwvZz4KICAgIDwhLS0gQm90dG9tLUxlZnQgQ29ybmVyIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjgsIDkyMikiPgogICAgICA8dXNlIGhyZWY9IiNtaW5pLWtpdGUtbmlnaHQiIHRyYW5zZm9ybT0ic2NhbGUoMS40KSIvPgogICAgICA8Y2lyY2xlIGN4PSIyOCIgY3k9IjAiIHI9IjMuNSIgZmlsbD0iIzJkZDRiZiIgb3BhY2l0eT0iMC44Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSItMjgiIHI9IjMuNSIgZmlsbD0iI2Y1OWUwYiIgb3BhY2l0eT0iMC44Ii8+CiAgICA8L2c+CiAgICA8IS0tIEJvdHRvbS1SaWdodCBDb3JuZXIgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzcyLCA5MjIpIj4KICAgICAgPHVzZSBocmVmPSIjbWluaS1raXRlLW5pZ2h0IiB0cmFuc2Zvcm09InNjYWxlKDEuNCkiLz4KICAgICAgPGNpcmNsZSBjeD0iLTI4IiBjeT0iMCIgcj0iMy41IiBmaWxsPSIjMmRkNGJmIiBvcGFjaXR5PSIwLjgiLz4KICAgICAgPGNpcmNsZSBjeD0iMCIgY3k9Ii0yOCIgcj0iMy41IiBmaWxsPSIjZjU5ZTBiIiBvcGFjaXR5PSIwLjgiLz4KICAgIDwvZz4KCiAgICA8IS0tIEZsb2F0aW5nIFBsYXlmdWwgTW90aWZzIEluc2lkZSBGcmFtZSAtLT4KICAgIDx1c2UgaHJlZj0iI3NwYXJrbGUtZ29sZCIgeD0iMTgwIiB5PSIyMTAiIG9wYWNpdHk9IjAuNzUiLz4KICAgIDx1c2UgaHJlZj0iI3NwYXJrbGUtdGVhbCIgeD0iMTI2MCIgeT0iMjMwIiBvcGFjaXR5PSIwLjgiLz4KICAgIDx1c2UgaHJlZj0iI3NwYXJrbGUtZ29sZCIgeD0iMjIwIiB5PSI3MzAiIHRyYW5zZm9ybT0ic2NhbGUoMC44NSkiIG9wYWNpdHk9IjAuNyIvPgogICAgPHVzZSBocmVmPSIjc3BhcmtsZS10ZWFsIiB4PSIxMjIwIiB5PSI3MDAiIHRyYW5zZm9ybT0ic2NhbGUoMC45KSIgb3BhY2l0eT0iMC44Ii8+CiAgICA8Y2lyY2xlIGN4PSIyNzAiIGN5PSI0NzAiIHI9IjQuNSIgZmlsbD0iI2Y1OWUwYiIgb3BhY2l0eT0iMC42Ii8+CiAgICA8Y2lyY2xlIGN4PSIxMTcwIiBjeT0iNDYwIiByPSI1IiBmaWxsPSIjMmRkNGJmIiBvcGFjaXR5PSIwLjYiLz4KCiAgICA8IS0tID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KICAgICAgICAgSEVBREVSIFNFQ1RJT046IExleGtpdGUgQnJhbmQgTG9nbwogICAgICAgICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzIwLCAxMTgpIj4KICAgICAgPCEtLSBMb2dvIFRpbGUgQ29udGFpbmVyIHdpdGggM0QgTGVkZ2UgLS0+CiAgICAgIDxnIGZpbHRlcj0idXJsKCNwaWxsU2hhZG93TmlnaHQpIj4KICAgICAgICA8cmVjdCB4PSItMTQwIiB5PSItMzIiIHdpZHRoPSIyODAiIGhlaWdodD0iNjQiIHJ4PSIzMiIgZmlsbD0iIzBkMWIxZiIgc3Ryb2tlPSIjMjU0NjRmIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgICAgPC9nPgogICAgICAKICAgICAgPCEtLSBLaXRlIEdyYXBoaWMgKENlbnRlcmVkIGF0IHg9LTg1KSAtLT4KICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTg1LCAwKSI+CiAgICAgICAgPHBvbHlnb24gcG9pbnRzPSIwLC0xOCAxNiwtMiAwLC0yIiBmaWxsPSJ1cmwoI2tpdGVUZWFsR2xvdykiLz4KICAgICAgICA8cG9seWdvbiBwb2ludHM9IjE2LC0yIDAsMTggMCwtMiIgZmlsbD0idXJsKCNraXRlT3JhbmdlR2xvdykiLz4KICAgICAgICA8cG9seWdvbiBwb2ludHM9IjAsMTggLTE2LC0yIDAsLTIiIGZpbGw9InVybCgja2l0ZVllbGxvd0dsb3cpIi8+CiAgICAgICAgPHBvbHlnb24gcG9pbnRzPSItMTYsLTIgMCwtMTggMCwtMiIgZmlsbD0idXJsKCNraXRlRGVlcFRlYWxHbG93KSIvPgogICAgICAgIDwhLS0gU3BlY3VsYXIgR2xpbnQgLS0+CiAgICAgICAgPGNpcmNsZSBjeD0iLTMiIGN5PSItNiIgcj0iMy41IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjg1Ii8+CiAgICAgIDwvZz4KCiAgICAgIDwhLS0gQnJhbmQgVHlwb2dyYXBoeSAoTHVtaW5vdXMgQ3Jpc3ApIC0tPgogICAgICA8dGV4dCB4PSItNTYiIHk9IjgiIGZvbnQtc2l6ZT0iMjgiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNmMGY3ZjgiIGxldHRlci1zcGFjaW5nPSItMC41Ij5MZXhraXRlPC90ZXh0PgogICAgICA8Y2lyY2xlIGN4PSI1NiIgY3k9Ii0xIiByPSIzIiBmaWxsPSIjZjU5ZTBiIi8+CiAgICAgIDx0ZXh0IHg9IjY4IiB5PSI2IiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjMmRkNGJmIiBsZXR0ZXItc3BhY2luZz0iMS4yIj5JRUxUUyBQUkVQPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gVG9wIEJhZGdlIFBpbGw6ICJPRkZJQ0lBTCBNSUxFU1RPTkUiIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzIwLCAyMDUpIj4KICAgICAgPGcgZmlsdGVyPSJ1cmwoI3BpbGxTaGFkb3dOaWdodCkiPgogICAgICAgIDwhLS0gTGVkZ2UgLS0+CiAgICAgICAgPHJlY3QgeD0iLTExNSIgeT0iLTE0IiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjM0IiByeD0iMTciIGZpbGw9IiMwNzEzMTYiLz4KICAgICAgICA8IS0tIFBpbGwgZmFjZSAtLT4KICAgICAgICA8cmVjdCB4PSItMTE1IiB5PSItMTciIHdpZHRoPSIyMzAiIGhlaWdodD0iMzQiIHJ4PSIxNyIgZmlsbD0iIzFiMjgxOCIgc3Ryb2tlPSIjZjU5ZTBiIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgICA8L2c+CiAgICAgIDxjaXJjbGUgY3g9Ii05MCIgY3k9IjAiIHI9IjQuNSIgZmlsbD0iI2Y1OWUwYiIvPgogICAgICA8dGV4dCB4PSItNzYiIHk9IjUiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNmZWYwOGEiIGxldHRlci1zcGFjaW5nPSIxLjgiPk9GRklDSUFMIE1JTEVTVE9ORTwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tIEhlYWRlciBUaXRsZTogIkNlcnRpZmljYXRlIG9mIGNvbXBsZXRpb24iIChDcmlzcCBicmlnaHQgd2hpdGUpIC0tPgogICAgPHRleHQgeD0iNzIwIiB5PSIyODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iNDQiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSItMSI+Q2VydGlmaWNhdGUgb2YgY29tcGxldGlvbjwvdGV4dD4KCiAgICA8IS0tIFN1YnRpdGxlIC8gSW50cm8gVGV4dCAtLT4KICAgIDx0ZXh0IHg9IjcyMCIgeT0iMzM2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjYTVjNmNiIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5Qcm91ZGx5IGF3YXJkZWQgdG88L3RleHQ+CgogICAgPCEtLSA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CiAgICAgICAgIExFQVJORVIgTkFNRSBTRUNUSU9OOiBCaWcgIk1pbmggQW5oIgogICAgICAgICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzIwLCA0MjApIj4KICAgICAgPCEtLSBOYW1lIFJpYmJvbiBBY2NlbnQgR2xvdy9VbmRlcmxpbmUgLS0+CiAgICAgIDxwYXRoIGQ9Ik0gLTM0MCAwIFEgMCAtMTIgMzQwIDAiIHN0cm9rZT0iI2Y1OWUwYiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNzUiIGZpbHRlcj0idXJsKCNnb2xkR2xvdykiLz4KICAgICAgCiAgICAgIDwhLS0gQmlnIEJvbGQgTGVhcm5lciBOYW1lIChQdXJlIENyaXNwIFdoaXRlKSAtLT4KICAgICAgPHRleHQgeD0iMCIgeT0iLTEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjY0IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iLTEuNSI+TWluaCBBbmg8L3RleHQ+CiAgICAgIAogICAgICA8IS0tIFRhY3RpbGUgU3RhciBBY2NlbnRzIGZsYW5raW5nIG5hbWUgLS0+CiAgICAgIDx1c2UgaHJlZj0iI3NwYXJrbGUtZ29sZCIgeD0iLTI2MCIgeT0iLTM0IiB0cmFuc2Zvcm09InNjYWxlKDEuMikiIGZpbHRlcj0idXJsKCNnb2xkR2xvdykiLz4KICAgICAgPHVzZSBocmVmPSIjc3BhcmtsZS1nb2xkIiB4PSIyNjAiIHk9Ii0zNCIgdHJhbnNmb3JtPSJzY2FsZSgxLjIpIiBmaWx0ZXI9InVybCgjZ29sZEdsb3cpIi8+CiAgICA8L2c+CgogICAgPCEtLSAiaGFzIGNvbXBsZXRlZCIgVGFnIChEYXJrIFRlYWwgUGlsbCB3aXRoIE1pbnQgQm9yZGVyKSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcyMCwgNDc4KSI+CiAgICAgIDxyZWN0IHg9Ii03OCIgeT0iLTEzIiB3aWR0aD0iMTU2IiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9IiMwNjEyMTUiLz4KICAgICAgPHJlY3QgeD0iLTc4IiB5PSItMTYiIHdpZHRoPSIxNTYiIGhlaWdodD0iMzIiIHJ4PSIxNiIgZmlsbD0iIzBmMjYyYSIgc3Ryb2tlPSIjMmRkNGJmIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgICA8dGV4dCB4PSIwIiB5PSI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjNWVlYWQ0IiBsZXR0ZXItc3BhY2luZz0iMC4zIj5oYXMgY29tcGxldGVkPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQogICAgICAgICBDT1VSU0UgTkFNRSBDQVJEOiAiSUVMVFMgRm91bmRhdGlvbiDigJQgMzAgbGVzc29ucyIKICAgICAgICAgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcyMCwgNTYwKSI+CiAgICAgIDwhLS0gVGFjdGlsZSBDYXJkIENvbnRhaW5lciB3aXRoIExlZGdlIGluIGRhcmsgdGVhbCAtLT4KICAgICAgPGcgZmlsdGVyPSJ1cmwoI25pZ2h0Q2FyZFNoYWRvdykiPgogICAgICAgIDwhLS0gM0QgYm90dG9tIGxlZGdlIC0tPgogICAgICAgIDxyZWN0IHg9Ii0zNzAiIHk9Ii0zOCIgd2lkdGg9Ijc0MCIgaGVpZ2h0PSI4OCIgcng9IjI4IiBmaWxsPSIjMDcxMzE2Ii8+CiAgICAgICAgPCEtLSBGYWNlIC0tPgogICAgICAgIDxyZWN0IHg9Ii0zNzAiIHk9Ii00NCIgd2lkdGg9Ijc0MCIgaGVpZ2h0PSI4OCIgcng9IjI4IiBmaWxsPSJ1cmwoI2NvdXJzZUNhcmRTdXJmYWNlKSIgc3Ryb2tlPSIjMjc0ODUxIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgICAgPC9nPgogICAgICAKICAgICAgPCEtLSBEZWNvcmF0aXZlIEljb24gTGVmdDogT3BlbiBCb29rIC8gVHJvcGh5IFRpbGUgLS0+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zMjAsIDApIj4KICAgICAgICA8cmVjdCB4PSItMjQiIHk9Ii0yMSIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiMwOTE4MWIiLz4KICAgICAgICA8cmVjdCB4PSItMjQiIHk9Ii0yNCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiMxZjMzMjUiIHN0cm9rZT0iI2Y1OWUwYiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgICAgICA8cGF0aCBkPSJNIC0xMiAtOCBMIDAgLTEyIEwgMTIgLTggTCAxMiA4IEwgMCA0IEwgLTEyIDggWiIgZmlsbD0iI2Y1OWUwYiIvPgogICAgICAgIDxsaW5lIHgxPSIwIiB5MT0iLTEyIiB4Mj0iMCIgeTI9IjQiIHN0cm9rZT0iI2ZlZjA4YSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDwvZz4KCiAgICAgIDwhLS0gQ291cnNlIFRpdGxlIFRleHQgKENyaXNwIEx1bWlub3VzIExpZ2h0IE5ldXRyYWxzKSAtLT4KICAgICAgPHRleHQgeD0iLTI3MCIgeT0iNyIgdGV4dC1hbmNob3I9InN0YXJ0IiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjZjBmN2Y4IiBsZXR0ZXItc3BhY2luZz0iLTAuNSI+SUVMVFMgRm91bmRhdGlvbiDigJQgMzAgbGVzc29uczwvdGV4dD4KCiAgICAgIDwhLS0gQmFkZ2UgUmlnaHQ6ICIxMDAlIFBBU1MiIFBpbGwgLS0+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI2OCwgMCkiPgogICAgICAgIDxyZWN0IHg9Ii02NSIgeT0iLTE1IiB3aWR0aD0iMTMwIiBoZWlnaHQ9IjM2IiByeD0iMTgiIGZpbGw9IiMwNDIwMWMiLz4KICAgICAgICA8cmVjdCB4PSItNjUiIHk9Ii0xOCIgd2lkdGg9IjEzMCIgaGVpZ2h0PSIzNiIgcng9IjE4IiBmaWxsPSIjMGQ0ZDQ0IiBzdHJva2U9IiMyZGQ0YmYiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iLTQ1IiBjeT0iMCIgcj0iNSIgZmlsbD0iIzJkZDRiZiIvPgogICAgICAgIDxwYXRoIGQ9Ik0gLTQ4IDAgTCAtNDYgMiBMIC00MiAtMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDkyODIzIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICAgICAgPHRleHQgeD0iLTMyIiB5PSI1IiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjNWVlYWQ0IiBsZXR0ZXItc3BhY2luZz0iMC40Ij4xMDAlIFBBU1M8L3RleHQ+CiAgICAgIDwvZz4KICAgIDwvZz4KCiAgICA8IS0tID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KICAgICAgICAgQ0VOVFJBTCBHTE9TU1kgR09MRCBNRURBTExJT04gU0VBTCBXSVRIIFJJQkJPTlMKICAgICAgICAgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcyMCwgNzE1KSI+CiAgICAgIDwhLS0gUmliYm9uIFRhaWxzIEhhbmdpbmcgRG93biBCZWhpbmQgU2VhbCAtLT4KICAgICAgPCEtLSBMZWZ0IFJpYmJvbiBUYWlsIC0tPgogICAgICA8ZyBmaWx0ZXI9InVybCgjbWVkYWxsaW9uU2hhZG93TmlnaHQpIj4KICAgICAgICA8cGF0aCBkPSJNIC0yMiAzMCBMIC00OCAxMTUgTCAtMjYgOTUgTCAtNCAxMTUgTCAtMiAzMCBaIiBmaWxsPSJ1cmwoI3JpYmJvbkxlZnROaWdodCkiIHN0cm9rZT0iIzc4MzUwZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDwvZz4KICAgICAgPCEtLSBSaWdodCBSaWJib24gVGFpbCAtLT4KICAgICAgPGcgZmlsdGVyPSJ1cmwoI21lZGFsbGlvblNoYWRvd05pZ2h0KSI+CiAgICAgICAgPHBhdGggZD0iTSAyIDMwIEwgNCAxMTUgTCAyNiA5NSBMIDQ4IDExNSBMIDIyIDMwIFoiIGZpbGw9InVybCgjcmliYm9uUmlnaHROaWdodCkiIHN0cm9rZT0iIzc4MzUwZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDwvZz4KCiAgICAgIDwhLS0gTWVkYWxsaW9uIE91dGVyIFNjYWxsb3AgJiBTdW5idXJzdCAtLT4KICAgICAgPGcgZmlsdGVyPSJ1cmwoI21lZGFsbGlvblNoYWRvd05pZ2h0KSI+CiAgICAgICAgPCEtLSBPdXRlciBEZXB0aCBMZWRnZSAtLT4KICAgICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iNiIgcj0iNjYiIGZpbGw9IiMwNTBlMTAiLz4KICAgICAgICA8IS0tIFNjYWxsb3BlZCBTdW5idXJzdCBCYWNraW5nIC0tPgogICAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSI2NiIgZmlsbD0iIzc4MzUwZiIvPgogICAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSI2NCIgZmlsbD0idXJsKCNnb2xkT3V0ZXJSaW5nTmlnaHQpIi8+CiAgICAgICAgCiAgICAgICAgPCEtLSBTY2FsbG9wIGRldGFpbHM6IDE2IGRlY29yYXRpdmUgZ29sZCBwZWFybHMgLS0+CiAgICAgICAgPGcgZmlsbD0iI2ZlZjA4YSIgc3Ryb2tlPSIjYjQ1MzA5IiBzdHJva2Utd2lkdGg9IjEiPgogICAgICAgICAgPGNpcmNsZSBjeD0iMCIgY3k9Ii01NiIgcj0iNCIvPgogICAgICAgICAgPGNpcmNsZSBjeD0iMjEiIGN5PSItNTIiIHI9IjQiLz4KICAgICAgICAgIDxjaXJjbGUgY3g9IjM5IiBjeT0iLTM5IiByPSI0Ii8+CiAgICAgICAgICA8Y2lyY2xlIGN4PSI1MiIgY3k9Ii0yMSIgcj0iNCIvPgogICAgICAgICAgPGNpcmNsZSBjeD0iNTYiIGN5PSIwIiByPSI0Ii8+CiAgICAgICAgICA8Y2lyY2xlIGN4PSI1MiIgY3k9IjIxIiByPSI0Ii8+CiAgICAgICAgICA8Y2lyY2xlIGN4PSIzOSIgY3k9IjM5IiByPSI0Ii8+CiAgICAgICAgICA8Y2lyY2xlIGN4PSIyMSIgY3k9IjUyIiByPSI0Ii8+CiAgICAgICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iNTYiIHI9IjQiLz4KICAgICAgICAgIDxjaXJjbGUgY3g9Ii0yMSIgY3k9IjUyIiByPSI0Ii8+CiAgICAgICAgICA8Y2lyY2xlIGN4PSItMzkiIGN5PSIzOSIgcj0iNCIvPgogICAgICAgICAgPGNpcmNsZSBjeD0iLTUyIiBjeT0iMjEiIHI9IjQiLz4KICAgICAgICAgIDxjaXJjbGUgY3g9Ii01NiIgY3k9IjAiIHI9IjQiLz4KICAgICAgICAgIDxjaXJjbGUgY3g9Ii01MiIgY3k9Ii0yMSIgcj0iNCIvPgogICAgICAgICAgPGNpcmNsZSBjeD0iLTM5IiBjeT0iLTM5IiByPSI0Ii8+CiAgICAgICAgICA8Y2lyY2xlIGN4PSItMjEiIGN5PSItNTIiIHI9IjQiLz4KICAgICAgICA8L2c+CgogICAgICAgIDwhLS0gTWVkYWxsaW9uIFJpbSBMYXllciAtLT4KICAgICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNDgiIGZpbGw9IiM5MjQwMGUiLz4KICAgICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNDUiIGZpbGw9InVybCgjZ29sZENvcmVOaWdodCkiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CgogICAgICAgIDwhLS0gR2xvc3N5IFNwZWN1bGFyIENyZXNjZW50IFJlZmxlY3Rpb24gKFRvcCBFZGdlKSAtLT4KICAgICAgICA8cGF0aCBkPSJNIC0zNCAtMTQgQSAzOCAzOCAwIDAgMSAzNCAtMTQgQSAzNiAyOCAwIDAgMCAtMzQgLTE0IFoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz4KCiAgICAgICAgPCEtLSBTZWFsIEVtYm9zcyBJY29uOiAzRCBMYXVyZWwgJiBCaWcgU3RhciAtLT4KICAgICAgICA8cG9seWdvbiBwb2ludHM9IjAsLTIyIDYsLTggMjEsLTcgMTAsNCAxNCwxOSAwLDEwIC0xNCwxOSAtMTAsNCAtMjEsLTcgLTYsLTgiIGZpbGw9IiM3ODM1MGYiLz4KICAgICAgICA8cG9seWdvbiBwb2ludHM9IjAsLTI0IDUsLTEwIDIwLC05IDksMyAxMywxNyAwLDkgLTEzLDE3IC05LDMgLTIwLC05IC01LC0xMCIgZmlsbD0iI2Y1OWUwYiIvPgogICAgICAgIDwhLS0gU3RhciBoaWdobGlnaHQgLS0+CiAgICAgICAgPGNpcmNsZSBjeD0iLTIiIGN5PSItOCIgcj0iNCIgZmlsbD0iI2ZmZmJlYiIgb3BhY2l0eT0iMC45Ii8+CiAgICAgIDwvZz4KCiAgICAgIDwhLS0gU2VhbCBBcmMgVGV4dCAvIENhcHRpb24gKENyaXNwIFdhcm0gR29sZCkgLS0+CiAgICAgIDx0ZXh0IHg9IjAiIHk9IjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjZmVmMDhhIiBsZXR0ZXItc3BhY2luZz0iMS41Ij5WRVJJRklFRCBFWENFTExFTkNFPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQogICAgICAgICBCT1RUT00gU0VDVElPTjogVmVyaWZpY2F0aW9uLCBEYXRlICYgUVIgQ29kZQogICAgICAgICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IC0tPgogICAgPCEtLSBMZWZ0IE1ldGFkYXRhIFBhbmVsOiBEYXRlICYgVmVyaWZ5IENvZGUgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODAsIDg0MCkiPgogICAgICA8IS0tIERhdGUgQmxvY2sgLS0+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDApIj4KICAgICAgICA8dGV4dCB4PSIwIiB5PSIwIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjYTVjNmNiIiBsZXR0ZXItc3BhY2luZz0iMS4yIj5EQVRFIE9GIElTU1VBTkNFPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjAiIHk9IjI2IiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjZjBmN2Y4Ij5PY3RvYmVyIDI0LCAyMDI0PC90ZXh0PgogICAgICA8L2c+CgogICAgICA8IS0tIFZlcmlmeSBDb2RlIEJsb2NrIC0tPgogICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNDAsIDApIj4KICAgICAgICA8dGV4dCB4PSIwIiB5PSIwIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjYTVjNmNiIiBsZXR0ZXItc3BhY2luZz0iMS4yIj5WRVJJRlkgQ09ERTwvdGV4dD4KICAgICAgICAKICAgICAgICA8IS0tIFRhY3RpbGUgY2hpcCBjb250YWluZXIgaW4gZGFyayB0ZWFsIC0tPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDgpIj4KICAgICAgICAgIDxyZWN0IHg9Ii04IiB5PSIwIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0iIzA2MTExNCIvPgogICAgICAgICAgPHJlY3QgeD0iLTgiIHk9Ii0zIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0iIzEyMjUyYSIgc3Ryb2tlPSIjMmE0ZDU1IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgICAgICAgPHRleHQgeD0iMTIiIHk9IjE2IiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjMmRkNGJmIiBsZXR0ZXItc3BhY2luZz0iMSI+TFhLLTk4NDItRkROPC90ZXh0PgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgoKICAgIDwhLS0gUmlnaHQgQ29ybmVyOiBBdXRoZW50aWMgVGFjdGlsZSBRUiBDb2RlIEJveCAoVGFjdGlsZSBOaWdodCkgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjIwLCA4MDUpIj4KICAgICAgPCEtLSBPdXRlciBDYXJkIHdpdGggdGFjdGlsZSBsZWRnZSAtLT4KICAgICAgPGcgZmlsdGVyPSJ1cmwoI3BpbGxTaGFkb3dOaWdodCkiPgogICAgICAgIDxyZWN0IHg9Ii04NSIgeT0iLTExIiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjExMCIgcng9IjE4IiBmaWxsPSIjMDYxMTE0Ii8+CiAgICAgICAgPHJlY3QgeD0iLTg1IiB5PSItMTUiIHdpZHRoPSIxNzAiIGhlaWdodD0iMTEwIiByeD0iMTgiIGZpbGw9IiMxMjI1MmEiIHN0cm9rZT0iIzI1NDY0ZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDwvZz4KICAgICAgCiAgICAgIDwhLS0gUVIgR3JhcGhpYyBQbGFjZWhvbGRlciAoR2xvd2luZyBNaW50ICYgQW1iZXIgb24gRGFyaykgLS0+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03MCwgMCkiPgogICAgICAgIDwhLS0gVG9wLUxlZnQgRmluZGVyIC0tPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcng9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJkZDRiZiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgICAgICAgPHJlY3QgeD0iNiIgeT0iNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMiIgZmlsbD0iIzJkZDRiZiIvPgogICAgICAgIAogICAgICAgIDwhLS0gVG9wLVJpZ2h0IEZpbmRlciAtLT4KICAgICAgICA8cmVjdCB4PSI0NCIgeT0iMCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMmRkNGJmIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgICAgICA8cmVjdCB4PSI1MCIgeT0iNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMiIgZmlsbD0iIzJkZDRiZiIvPgogICAgICAgIAogICAgICAgIDwhLS0gQm90dG9tLUxlZnQgRmluZGVyIC0tPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjQ0IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyZGQ0YmYiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICAgIDxyZWN0IHg9IjYiIHk9IjUwIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHJ4PSIyIiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgCiAgICAgICAgPCEtLSBRUiBCaXRzIC0tPgogICAgICAgIDxyZWN0IHg9IjMwIiB5PSI0IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgPHJlY3QgeD0iMzAiIHk9IjE0IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgPHJlY3QgeD0iMzAiIHk9IjMyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4IiByeD0iMS41IiBmaWxsPSIjZjU5ZTBiIi8+CiAgICAgICAgPHJlY3QgeD0iMTIiIHk9IjMwIiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgPHJlY3QgeD0iNDQiIHk9IjMyIiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgPHJlY3QgeD0iNTQiIHk9IjMyIiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgPHJlY3QgeD0iMzIiIHk9IjQ4IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgPHJlY3QgeD0iNDQiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4IiByeD0iMS41IiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgPHJlY3QgeD0iNTgiIHk9IjU2IiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMmRkNGJmIi8+CiAgICAgICAgPHJlY3QgeD0iNDQiIHk9IjYwIiB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjZjU5ZTBiIi8+CiAgICAgIDwvZz4KCiAgICAgIDwhLS0gTGFiZWwgbmV4dCB0byBRUiBjb2RlIChDcmlzcCBNaW50ICYgTmV1dHJhbCkgLS0+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwLCAyMCkiPgogICAgICAgIDx0ZXh0IHg9IjAiIHk9IjAiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMyZGQ0YmYiIGxldHRlci1zcGFjaW5nPSIwLjUiPlNDQU4gVE88L3RleHQ+CiAgICAgICAgPHRleHQgeD0iMCIgeT0iMTQiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMyZGQ0YmYiIGxldHRlci1zcGFjaW5nPSIwLjUiPlZFUklGWTwvdGV4dD4KICAgICAgICA8dGV4dCB4PSIwIiB5PSIzMCIgZm9udC1zaXplPSI5IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjYTVjNmNiIj5sZXhraXRlLmNvbTwvdGV4dD4KICAgICAgPC9nPgogICAgPC9nPgoKICAgIDwhLS0gQm90dG9tIENlbnRlciBGb290bm90ZSAvIFNpZ24tb2ZmIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzIwLCA5MzUpIj4KICAgICAgPHRleHQgeD0iMCIgeT0iMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzVlODA4NiIgbGV0dGVyLXNwYWNpbmc9IjAuOCI+TEVYS0lURSBHQU1JRklFRCBMQU5HVUFHRSBMRUFSTklORyDigKIgQUNDUkVESVRFRCBTRUxGLVNUVURZPC90ZXh0PgogICAgPC9nPgogIDwvZz4KPC9zdmc+
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=1600"><title>share/cert-dark.html</title><style>html,body{margin:0;padding:0}svg{display:block}</style></head><body>
+<!-- Stitch trả SVG (ảnh tĩnh): nguồn = file .svg cùng tên; bọc HTML chỉ để QC chấm -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1130" width="1600" height="1130" style="background:#091518; font-family:'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Background Gradients (Tactile Night) -->
+    <radialGradient id="nightBgGrad" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#14282e"/>
+      <stop offset="55%" stop-color="#0c1b1f"/>
+      <stop offset="100%" stop-color="#091518"/>
+    </radialGradient>
+    
+    <radialGradient id="nightCardGlow" cx="50%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#162c32"/>
+      <stop offset="60%" stop-color="#112227"/>
+      <stop offset="100%" stop-color="#0d1b1f"/>
+    </radialGradient>
+
+    <!-- Deep Drop Shadows & 3D Ledges -->
+    <filter id="nightCardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="0" flood-color="#040b0d"/>
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+    <filter id="medallionShadowNight" x="-30%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="0" flood-color="#050e10" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="20" stdDeviation="16" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <filter id="pillShadowNight" x="-10%" y="-15%" width="120%" height="135%">
+      <feDropShadow dx="0" dy="5" stdDeviation="0" flood-color="#050e10"/>
+    </filter>
+
+    <filter id="tealGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#2dd4bf" flood-opacity="0.4"/>
+    </filter>
+
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#f59e0b" flood-opacity="0.35"/>
+    </filter>
+
+    <!-- Medallion & Ribbon Gradients -->
+    <linearGradient id="ribbonLeftNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="40%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="ribbonRightNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="45%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+
+    <!-- Gold Medallion Outer Scallop & Core (Tactile 3D Sheen) -->
+    <radialGradient id="goldOuterRingNight" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="35%" stop-color="#f59e0b"/>
+      <stop offset="80%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </radialGradient>
+
+    <radialGradient id="goldCoreNight" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="25%" stop-color="#fef3c7"/>
+      <stop offset="65%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </radialGradient>
+
+    <!-- Kite Logo Gradients (Glowing for Night) -->
+    <linearGradient id="kiteTealGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="kiteOrangeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="kiteYellowGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="kiteDeepTealGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#115e59"/>
+    </linearGradient>
+
+    <!-- Course Card Inner Surface Gradient -->
+    <linearGradient id="courseCardSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#172f36"/>
+      <stop offset="100%" stop-color="#112429"/>
+    </linearGradient>
+
+    <!-- Symbols -->
+    <g id="sparkle-gold">
+      <path d="M 0 -12 Q 1 -2 12 0 Q 1 2 0 12 Q -1 2 -12 0 Q -1 -2 0 -12 Z" fill="#f59e0b"/>
+    </g>
+    <g id="sparkle-teal">
+      <path d="M 0 -10 Q 1 -1 10 0 Q 1 1 0 10 Q -1 1 -10 0 Q -1 -1 0 -10 Z" fill="#2dd4bf"/>
+    </g>
+    <g id="mini-kite-night">
+      <polygon points="0,-10 7,0 0,0" fill="#fde047"/>
+      <polygon points="0,0 7,0 0,10" fill="#f97316"/>
+      <polygon points="-7,0 0,0 0,10" fill="#0d9488"/>
+      <polygon points="-7,0 0,-10 0,0" fill="#2dd4bf"/>
+    </g>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="1600" height="1130" fill="url(#nightBgGrad)"/>
+
+  <!-- Subtle Playful Star Dust in Outer Canvas -->
+  <use href="#sparkle-gold" x="120" y="90" transform="scale(0.85)" opacity="0.65"/>
+  <use href="#sparkle-teal" x="1480" y="110" transform="scale(0.95)" opacity="0.7"/>
+  <use href="#sparkle-gold" x="1500" y="1020" transform="scale(0.85)" opacity="0.65"/>
+  <use href="#sparkle-teal" x="110" y="1010" transform="scale(0.9)" opacity="0.7"/>
+  <circle cx="200" cy="560" r="4.5" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="1420" cy="520" r="5" fill="#2dd4bf" opacity="0.5"/>
+
+  <!-- ==============================================
+       MAIN TACTILE CERTIFICATE CARD (1440 x 990)
+       ============================================== -->
+  <g transform="translate(80, 70)" filter="url(#nightCardShadow)">
+    <!-- Base Card Fill with 3D bottom ledge effect -->
+    <rect width="1440" height="990" rx="42" fill="url(#nightCardGlow)" stroke="#22424b" stroke-width="3"/>
+    
+    <!-- Tactile Inner Border Frame -->
+    <rect x="24" y="24" width="1392" height="942" rx="30" fill="none" stroke="#19333a" stroke-width="2.5"/>
+    <rect x="36" y="36" width="1368" height="918" rx="24" fill="none" stroke="#254a54" stroke-width="1.5" stroke-dasharray="10 8" opacity="0.85"/>
+
+    <!-- Decorative Corner Kites & Accents -->
+    <!-- Top-Left Corner -->
+    <g transform="translate(68, 68)">
+      <use href="#mini-kite-night" transform="scale(1.4)"/>
+      <circle cx="28" cy="0" r="3.5" fill="#f59e0b" opacity="0.8"/>
+      <circle cx="0" cy="28" r="3.5" fill="#2dd4bf" opacity="0.8"/>
+    </g>
+    <!-- Top-Right Corner -->
+    <g transform="translate(1372, 68)">
+      <use href="#mini-kite-night" transform="scale(1.4)"/>
+      <circle cx="-28" cy="0" r="3.5" fill="#f59e0b" opacity="0.8"/>
+      <circle cx="0" cy="28" r="3.5" fill="#2dd4bf" opacity="0.8"/>
+    </g>
+    <!-- Bottom-Left Corner -->
+    <g transform="translate(68, 922)">
+      <use href="#mini-kite-night" transform="scale(1.4)"/>
+      <circle cx="28" cy="0" r="3.5" fill="#2dd4bf" opacity="0.8"/>
+      <circle cx="0" cy="-28" r="3.5" fill="#f59e0b" opacity="0.8"/>
+    </g>
+    <!-- Bottom-Right Corner -->
+    <g transform="translate(1372, 922)">
+      <use href="#mini-kite-night" transform="scale(1.4)"/>
+      <circle cx="-28" cy="0" r="3.5" fill="#2dd4bf" opacity="0.8"/>
+      <circle cx="0" cy="-28" r="3.5" fill="#f59e0b" opacity="0.8"/>
+    </g>
+
+    <!-- Floating Playful Motifs Inside Frame -->
+    <use href="#sparkle-gold" x="180" y="210" opacity="0.75"/>
+    <use href="#sparkle-teal" x="1260" y="230" opacity="0.8"/>
+    <use href="#sparkle-gold" x="220" y="730" transform="scale(0.85)" opacity="0.7"/>
+    <use href="#sparkle-teal" x="1220" y="700" transform="scale(0.9)" opacity="0.8"/>
+    <circle cx="270" cy="470" r="4.5" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="1170" cy="460" r="5" fill="#2dd4bf" opacity="0.6"/>
+
+    <!-- ==============================================
+         HEADER SECTION: Lexkite Brand Logo
+         ============================================== -->
+    <g transform="translate(720, 118)">
+      <!-- Logo Tile Container with 3D Ledge -->
+      <g filter="url(#pillShadowNight)">
+        <rect x="-140" y="-32" width="280" height="64" rx="32" fill="#0d1b1f" stroke="#25464f" stroke-width="2"/>
+      </g>
+      
+      <!-- Kite Graphic (Centered at x=-85) -->
+      <g transform="translate(-85, 0)">
+        <polygon points="0,-18 16,-2 0,-2" fill="url(#kiteTealGlow)"/>
+        <polygon points="16,-2 0,18 0,-2" fill="url(#kiteOrangeGlow)"/>
+        <polygon points="0,18 -16,-2 0,-2" fill="url(#kiteYellowGlow)"/>
+        <polygon points="-16,-2 0,-18 0,-2" fill="url(#kiteDeepTealGlow)"/>
+        <!-- Specular Glint -->
+        <circle cx="-3" cy="-6" r="3.5" fill="#ffffff" opacity="0.85"/>
+      </g>
+
+      <!-- Brand Typography (Luminous Crisp) -->
+      <text x="-56" y="8" font-size="28" font-weight="900" fill="#f0f7f8" letter-spacing="-0.5">Lexkite</text>
+      <circle cx="56" cy="-1" r="3" fill="#f59e0b"/>
+      <text x="68" y="6" font-size="14" font-weight="800" fill="#2dd4bf" letter-spacing="1.2">IELTS PREP</text>
+    </g>
+
+    <!-- Top Badge Pill: "OFFICIAL MILESTONE" -->
+    <g transform="translate(720, 205)">
+      <g filter="url(#pillShadowNight)">
+        <!-- Ledge -->
+        <rect x="-115" y="-14" width="230" height="34" rx="17" fill="#071316"/>
+        <!-- Pill face -->
+        <rect x="-115" y="-17" width="230" height="34" rx="17" fill="#1b2818" stroke="#f59e0b" stroke-width="1.5"/>
+      </g>
+      <circle cx="-90" cy="0" r="4.5" fill="#f59e0b"/>
+      <text x="-76" y="5" font-size="12" font-weight="900" fill="#fef08a" letter-spacing="1.8">OFFICIAL MILESTONE</text>
+    </g>
+
+    <!-- Header Title: "Certificate of completion" (Crisp bright white) -->
+    <text x="720" y="285" text-anchor="middle" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="-1">Certificate of completion</text>
+
+    <!-- Subtitle / Intro Text -->
+    <text x="720" y="336" text-anchor="middle" font-size="20" font-weight="700" fill="#a5c6cb" letter-spacing="0.5">Proudly awarded to</text>
+
+    <!-- ==============================================
+         LEARNER NAME SECTION: Big "Minh Anh"
+         ============================================== -->
+    <g transform="translate(720, 420)">
+      <!-- Name Ribbon Accent Glow/Underline -->
+      <path d="M -340 0 Q 0 -12 340 0" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.75" filter="url(#goldGlow)"/>
+      
+      <!-- Big Bold Learner Name (Pure Crisp White) -->
+      <text x="0" y="-12" text-anchor="middle" font-size="64" font-weight="900" fill="#ffffff" letter-spacing="-1.5">Minh Anh</text>
+      
+      <!-- Tactile Star Accents flanking name -->
+      <use href="#sparkle-gold" x="-260" y="-34" transform="scale(1.2)" filter="url(#goldGlow)"/>
+      <use href="#sparkle-gold" x="260" y="-34" transform="scale(1.2)" filter="url(#goldGlow)"/>
+    </g>
+
+    <!-- "has completed" Tag (Dark Teal Pill with Mint Border) -->
+    <g transform="translate(720, 478)">
+      <rect x="-78" y="-13" width="156" height="32" rx="16" fill="#061215"/>
+      <rect x="-78" y="-16" width="156" height="32" rx="16" fill="#0f262a" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#5eead4" letter-spacing="0.3">has completed</text>
+    </g>
+
+    <!-- ==============================================
+         COURSE NAME CARD: "IELTS Foundation — 30 lessons"
+         ============================================== -->
+    <g transform="translate(720, 560)">
+      <!-- Tactile Card Container with Ledge in dark teal -->
+      <g filter="url(#nightCardShadow)">
+        <!-- 3D bottom ledge -->
+        <rect x="-370" y="-38" width="740" height="88" rx="28" fill="#071316"/>
+        <!-- Face -->
+        <rect x="-370" y="-44" width="740" height="88" rx="28" fill="url(#courseCardSurface)" stroke="#274851" stroke-width="2"/>
+      </g>
+      
+      <!-- Decorative Icon Left: Open Book / Trophy Tile -->
+      <g transform="translate(-320, 0)">
+        <rect x="-24" y="-21" width="48" height="48" rx="14" fill="#09181b"/>
+        <rect x="-24" y="-24" width="48" height="48" rx="14" fill="#1f3325" stroke="#f59e0b" stroke-width="1.5"/>
+        <path d="M -12 -8 L 0 -12 L 12 -8 L 12 8 L 0 4 L -12 8 Z" fill="#f59e0b"/>
+        <line x1="0" y1="-12" x2="0" y2="4" stroke="#fef08a" stroke-width="2"/>
+      </g>
+
+      <!-- Course Title Text (Crisp Luminous Light Neutrals) -->
+      <text x="-270" y="7" text-anchor="start" font-size="28" font-weight="900" fill="#f0f7f8" letter-spacing="-0.5">IELTS Foundation — 30 lessons</text>
+
+      <!-- Badge Right: "100% PASS" Pill -->
+      <g transform="translate(268, 0)">
+        <rect x="-65" y="-15" width="130" height="36" rx="18" fill="#04201c"/>
+        <rect x="-65" y="-18" width="130" height="36" rx="18" fill="#0d4d44" stroke="#2dd4bf" stroke-width="1.5"/>
+        <circle cx="-45" cy="0" r="5" fill="#2dd4bf"/>
+        <path d="M -48 0 L -46 2 L -42 -2" fill="none" stroke="#092823" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="-32" y="5" font-size="13" font-weight="900" fill="#5eead4" letter-spacing="0.4">100% PASS</text>
+      </g>
+    </g>
+
+    <!-- ==============================================
+         CENTRAL GLOSSY GOLD MEDALLION SEAL WITH RIBBONS
+         ============================================== -->
+    <g transform="translate(720, 715)">
+      <!-- Ribbon Tails Hanging Down Behind Seal -->
+      <!-- Left Ribbon Tail -->
+      <g filter="url(#medallionShadowNight)">
+        <path d="M -22 30 L -48 115 L -26 95 L -4 115 L -2 30 Z" fill="url(#ribbonLeftNight)" stroke="#78350f" stroke-width="2"/>
+      </g>
+      <!-- Right Ribbon Tail -->
+      <g filter="url(#medallionShadowNight)">
+        <path d="M 2 30 L 4 115 L 26 95 L 48 115 L 22 30 Z" fill="url(#ribbonRightNight)" stroke="#78350f" stroke-width="2"/>
+      </g>
+
+      <!-- Medallion Outer Scallop & Sunburst -->
+      <g filter="url(#medallionShadowNight)">
+        <!-- Outer Depth Ledge -->
+        <circle cx="0" cy="6" r="66" fill="#050e10"/>
+        <!-- Scalloped Sunburst Backing -->
+        <circle cx="0" cy="0" r="66" fill="#78350f"/>
+        <circle cx="0" cy="0" r="64" fill="url(#goldOuterRingNight)"/>
+        
+        <!-- Scallop details: 16 decorative gold pearls -->
+        <g fill="#fef08a" stroke="#b45309" stroke-width="1">
+          <circle cx="0" cy="-56" r="4"/>
+          <circle cx="21" cy="-52" r="4"/>
+          <circle cx="39" cy="-39" r="4"/>
+          <circle cx="52" cy="-21" r="4"/>
+          <circle cx="56" cy="0" r="4"/>
+          <circle cx="52" cy="21" r="4"/>
+          <circle cx="39" cy="39" r="4"/>
+          <circle cx="21" cy="52" r="4"/>
+          <circle cx="0" cy="56" r="4"/>
+          <circle cx="-21" cy="52" r="4"/>
+          <circle cx="-39" cy="39" r="4"/>
+          <circle cx="-52" cy="21" r="4"/>
+          <circle cx="-56" cy="0" r="4"/>
+          <circle cx="-52" cy="-21" r="4"/>
+          <circle cx="-39" cy="-39" r="4"/>
+          <circle cx="-21" cy="-52" r="4"/>
+        </g>
+
+        <!-- Medallion Rim Layer -->
+        <circle cx="0" cy="0" r="48" fill="#92400e"/>
+        <circle cx="0" cy="0" r="45" fill="url(#goldCoreNight)" stroke="#ffffff" stroke-width="2"/>
+
+        <!-- Glossy Specular Crescent Reflection (Top Edge) -->
+        <path d="M -34 -14 A 38 38 0 0 1 34 -14 A 36 28 0 0 0 -34 -14 Z" fill="#ffffff" opacity="0.75"/>
+
+        <!-- Seal Emboss Icon: 3D Laurel & Big Star -->
+        <polygon points="0,-22 6,-8 21,-7 10,4 14,19 0,10 -14,19 -10,4 -21,-7 -6,-8" fill="#78350f"/>
+        <polygon points="0,-24 5,-10 20,-9 9,3 13,17 0,9 -13,17 -9,3 -20,-9 -5,-10" fill="#f59e0b"/>
+        <!-- Star highlight -->
+        <circle cx="-2" cy="-8" r="4" fill="#fffbeb" opacity="0.9"/>
+      </g>
+
+      <!-- Seal Arc Text / Caption (Crisp Warm Gold) -->
+      <text x="0" y="60" text-anchor="middle" font-size="11" font-weight="900" fill="#fef08a" letter-spacing="1.5">VERIFIED EXCELLENCE</text>
+    </g>
+
+    <!-- ==============================================
+         BOTTOM SECTION: Verification, Date & QR Code
+         ============================================== -->
+    <!-- Left Metadata Panel: Date & Verify Code -->
+    <g transform="translate(180, 840)">
+      <!-- Date Block -->
+      <g transform="translate(0, 0)">
+        <text x="0" y="0" font-size="12" font-weight="800" fill="#a5c6cb" letter-spacing="1.2">DATE OF ISSUANCE</text>
+        <text x="0" y="26" font-size="20" font-weight="900" fill="#f0f7f8">October 24, 2024</text>
+      </g>
+
+      <!-- Verify Code Block -->
+      <g transform="translate(240, 0)">
+        <text x="0" y="0" font-size="12" font-weight="800" fill="#a5c6cb" letter-spacing="1.2">VERIFY CODE</text>
+        
+        <!-- Tactile chip container in dark teal -->
+        <g transform="translate(0, 8)">
+          <rect x="-8" y="0" width="170" height="28" rx="8" fill="#061114"/>
+          <rect x="-8" y="-3" width="170" height="28" rx="8" fill="#12252a" stroke="#2a4d55" stroke-width="1.5"/>
+          <text x="12" y="16" font-size="15" font-weight="800" fill="#2dd4bf" letter-spacing="1">LXK-9842-FDN</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Right Corner: Authentic Tactile QR Code Box (Tactile Night) -->
+    <g transform="translate(1220, 805)">
+      <!-- Outer Card with tactile ledge -->
+      <g filter="url(#pillShadowNight)">
+        <rect x="-85" y="-11" width="170" height="110" rx="18" fill="#061114"/>
+        <rect x="-85" y="-15" width="170" height="110" rx="18" fill="#12252a" stroke="#25464f" stroke-width="2"/>
+      </g>
+      
+      <!-- QR Graphic Placeholder (Glowing Mint & Amber on Dark) -->
+      <g transform="translate(-70, 0)">
+        <!-- Top-Left Finder -->
+        <rect x="0" y="0" width="24" height="24" rx="4" fill="none" stroke="#2dd4bf" stroke-width="3"/>
+        <rect x="6" y="6" width="12" height="12" rx="2" fill="#2dd4bf"/>
+        
+        <!-- Top-Right Finder -->
+        <rect x="44" y="0" width="24" height="24" rx="4" fill="none" stroke="#2dd4bf" stroke-width="3"/>
+        <rect x="50" y="6" width="12" height="12" rx="2" fill="#2dd4bf"/>
+        
+        <!-- Bottom-Left Finder -->
+        <rect x="0" y="44" width="24" height="24" rx="4" fill="none" stroke="#2dd4bf" stroke-width="3"/>
+        <rect x="6" y="50" width="12" height="12" rx="2" fill="#2dd4bf"/>
+        
+        <!-- QR Bits -->
+        <rect x="30" y="4" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="30" y="14" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="30" y="32" width="8" height="8" rx="1.5" fill="#f59e0b"/>
+        <rect x="12" y="30" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="44" y="32" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="54" y="32" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="32" y="48" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="44" y="48" width="8" height="8" rx="1.5" fill="#2dd4bf"/>
+        <rect x="58" y="56" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="44" y="60" width="6" height="6" fill="#f59e0b"/>
+      </g>
+
+      <!-- Label next to QR code (Crisp Mint & Neutral) -->
+      <g transform="translate(10, 20)">
+        <text x="0" y="0" font-size="11" font-weight="900" fill="#2dd4bf" letter-spacing="0.5">SCAN TO</text>
+        <text x="0" y="14" font-size="11" font-weight="900" fill="#2dd4bf" letter-spacing="0.5">VERIFY</text>
+        <text x="0" y="30" font-size="9" font-weight="700" fill="#a5c6cb">lexkite.com</text>
+      </g>
+    </g>
+
+    <!-- Bottom Center Footnote / Sign-off -->
+    <g transform="translate(720, 935)">
+      <text x="0" y="0" text-anchor="middle" font-size="12" font-weight="800" fill="#5e8086" letter-spacing="0.8">LEXKITE GAMIFIED LANGUAGE LEARNING • ACCREDITED SELF-STUDY</text>
+    </g>
+  </g>
+</svg>
+</body></html>

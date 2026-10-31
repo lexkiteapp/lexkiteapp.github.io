@@ -1,1 +1,333 @@
-PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDYzMCIgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIiBzdHlsZT0iYmFja2dyb3VuZDojMDkxNTE4OyBmb250LWZhbWlseTonUGx1cyBKYWthcnRhIFNhbnMnLCBzeXN0ZW0tdWksIC1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWY7Ij4KICA8ZGVmcz4KICAgIDwhLS0gQmFja2dyb3VuZCBSYWRpYWwgR3JhZGllbnQgKFRhY3RpbGUgTmlnaHQgZGVlcCB0ZWFsLWJsYWNrKSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0ibmlnaHRPZ0JnIiBjeD0iMzAlIiBjeT0iMjUlIiByPSI4NSUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTQyODJEIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwRTFEMjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwOTE1MTgiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KCiAgICA8IS0tIENhcmQgJiBMZWRnZSBEcm9wIFNoYWRvd3MgZm9yIERhcmsgU3VyZmFjZXMgLS0+CiAgICA8ZmlsdGVyIGlkPSJuaWdodENhcmRTaGFkb3ciIHg9Ii0xNSUiIHk9Ii0xNSUiIHdpZHRoPSIxMzAlIiBoZWlnaHQ9IjEzNSUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMTQiIHN0ZERldmlhdGlvbj0iMTYiIGZsb29kLWNvbG9yPSIjMDIwNzA4IiBmbG9vZC1vcGFjaXR5PSIwLjYiIC8+CiAgICA8L2ZpbHRlcj4KICAgIDxmaWx0ZXIgaWQ9Im9yYlNoYWRvd05pZ2h0IiB4PSItMjUlIiB5PSItMjAlIiB3aWR0aD0iMTUwJSIgaGVpZ2h0PSIxNTAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjE2IiBzdGREZXZpYXRpb249IjIyIiBmbG9vZC1jb2xvcj0iIzAxMDUwNiIgZmxvb2Qtb3BhY2l0eT0iMC43IiAvPgogICAgPC9maWx0ZXI+CiAgICA8ZmlsdGVyIGlkPSJjYW5keUdsb3dUZWFsTmlnaHQiIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMCIgc3RkRGV2aWF0aW9uPSIxMiIgZmxvb2QtY29sb3I9IiMyREQ0QkYiIGZsb29kLW9wYWNpdHk9IjAuMyIgLz4KICAgIDwvZmlsdGVyPgogICAgPGZpbHRlciBpZD0iY2FuZHlHbG93T3JhbmdlTmlnaHQiIHg9Ii0yNSUiIHk9Ii0yNSUiIHdpZHRoPSIxNTAlIiBoZWlnaHQ9IjE1MCUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSIxNCIgZmxvb2QtY29sb3I9IiMwMDAwMDAiIGZsb29kLW9wYWNpdHk9IjAuNSIgLz4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjAiIHN0ZERldmlhdGlvbj0iMTAiIGZsb29kLWNvbG9yPSIjRjU5RTBCIiBmbG9vZC1vcGFjaXR5PSIwLjMiIC8+CiAgICA8L2ZpbHRlcj4KCiAgICA8IS0tIEtpdGUgRW1ibGVtIEdyYWRpZW50cyAoR2xvd2luZyBmb3IgTmlnaHQpIC0tPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJraXRlVGVhbEdyYWROaWdodCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1RUVBRDQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEY3NjZFIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJraXRlT3JhbmdlR3JhZE5pZ2h0IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZCQkYyNCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFQTU4MEMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CgogICAgPCEtLSBHbG9zc3kgU3BlY3VsYXIgSGlnaGxpZ2h0cyAtLT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ2xhc3NHbG9zc05pZ2h0IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRkZGRkYiIHN0b3Atb3BhY2l0eT0iMC44NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjQ1JSIgc3RvcC1jb2xvcj0iIzJERDRCRiIgc3RvcC1vcGFjaXR5PSIwLjIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iY2FyZEdsb3NzSGlnaGxpZ2h0TmlnaHQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIgc3RvcC1vcGFjaXR5PSIwLjEyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNDAlIiBzdG9wLWNvbG9yPSIjMkRENEJGIiBzdG9wLW9wYWNpdHk9IjAuMDQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CgogICAgPCEtLSBSaWdodCBTaWRlIEdsb3NzeSBPcmIgLyBBYnN0cmFjdCBCbG9iIEdyYWRpZW50cyBmb3IgVGFjdGlsZSBOaWdodCAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYWJzdHJhY3RCbG9iR3JhZE5pZ2h0IiBjeD0iMzUlIiBjeT0iMzAlIiByPSI3MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMkRENEJGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNDAlIiBzdG9wLWNvbG9yPSIjMTRCOEE2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMEQ1RTU4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA2MzEyRSIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KCiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Indhcm1PcmJHbG93TmlnaHQiIGN4PSI0MCUiIGN5PSIzNSUiIHI9IjY1JSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRUYwOEEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIzNSUiIHN0b3AtY29sb3I9IiNGQkJGMjQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI3NSUiIHN0b3AtY29sb3I9IiNGNTlFMEIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOUEzNDEyIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZmxvYXRpbmdLaXRlVGFpbEdyYWROaWdodCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNDAlIiBzdG9wLWNvbG9yPSIjRjk3MzE2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMkRENEJGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBGNzY2RSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KCiAgICA8IS0tIENhcmQgRmFjZXMgaW4gbGF5ZXJlZCBkYXJrIHRlYWwgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImRlZmluaXRpb25DYXJkU3VyZmFjZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTUyQjMxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBFMUUyMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CgogIDwhLS0gQmFja2dyb3VuZCBCYXNlIFN1cmZhY2UgLS0+CiAgPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIiBmaWxsPSJ1cmwoI25pZ2h0T2dCZykiLz4KCiAgPCEtLSBQbGF5ZnVsIEJhY2tncm91bmQgRW1iZXJzICYgU3RhciBDb25mZXR0aSAtLT4KICA8ZyBvcGFjaXR5PSIwLjc1Ij4KICAgIDwhLS0gU3RhciBzcGFya2xlcyAtLT4KICAgIDxwYXRoIGQ9Ik0gMTEwIDIyMCBRIDExMCAyMzYgOTQgMjM2IFEgMTEwIDIzNiAxMTAgMjUyIFEgMTEwIDIzNiAxMjYgMjM2IFEgMTEwIDIzNiAxMTAgMjIwIFoiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxwYXRoIGQ9Ik0gNjQwIDg1IFEgNjQwIDk4IDYyNyA5OCBRIDY0MCA5OCA2NDAgMTExIFEgNjQwIDk4IDY1MyA5OCBRIDY0MCA5OCA2NDAgODUgWiIgZmlsbD0iIzJERDRCRiIvPgogICAgPHBhdGggZD0iTSAxMTMwIDE0MCBRIDExMzAgMTU2IDExMTQgMTU2IFEgMTEzMCAxNTYgMTEzMCAxNzIgUSAxMTMwIDE1NiAxMTQ2IDE1NiBRIDExMzAgMTU2IDExMzAgMTQwIFoiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxwYXRoIGQ9Ik0gNzIwIDU0MCBRIDcyMCA1NTIgNzA4IDU1MiBRIDcyMCA1NTIgNzIwIDU2NCBRIDcyMCA1NTIgNzMyIDU1MiBRIDcyMCA1NTIgNzIwIDU0MCBaIiBmaWxsPSIjMTRCOEE2Ii8+CgogICAgPCEtLSBGbG9hdGluZyBjaXJjbGVzICYgbG96ZW5nZXMgLS0+CiAgICA8Y2lyY2xlIGN4PSI1OTAiIGN5PSIyMjAiIHI9IjUiIGZpbGw9IiNGNTlFMEIiIG9wYWNpdHk9IjAuODUiLz4KICAgIDxjaXJjbGUgY3g9Ijg1IiBjeT0iNDUwIiByPSI1LjUiIGZpbGw9IiMyREQ0QkYiIG9wYWNpdHk9IjAuNyIvPgogICAgPGNpcmNsZSBjeD0iMTE0MCIgY3k9IjQyMCIgcj0iNyIgZmlsbD0iI0Y5NzMxNiIgb3BhY2l0eT0iMC44Ii8+CiAgICA8cmVjdCB4PSI2NzAiIGN5PSIzODAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDI1IDY3NSAzODUpIiBmaWxsPSIjMkRENEJGIiBvcGFjaXR5PSIwLjYiLz4KICAgIDxyZWN0IHg9IjEwODAiIGN5PSI5MCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoMTggMTA4NiA5NikiIGZpbGw9IiNGNTlFMEIiIG9wYWNpdHk9IjAuOCIvPgogICAgPHJlY3QgeD0iODUiIGN5PSIxMTUiIHdpZHRoPSI5IiBoZWlnaHQ9IjkiIHJ4PSIyLjUiIHRyYW5zZm9ybT0icm90YXRlKDQ1IDg5IDExOSkiIGZpbGw9IiMxNEI4QTYiIG9wYWNpdHk9IjAuNSIvPgogIDwvZz4KCiAgPCEtLSA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CiAgICAgICBMRUZUIENPTFVNTjogTEVYS0lURSBESUNUSU9OQVJZIEVOVFJZIChEQVJLIFRIRU1FKQogICAgICAgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAtLT4KCiAgPCEtLSAxLiBUT1AtTEVGVCBCUkFORCBCQURHRTogS2l0ZSBMb2dvICsgIkxleGtpdGUgZGljdGlvbmFyeSIgb24gRGFyayBUZWFsIFBpbGwgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAsIDY4KSI+CiAgICA8IS0tIFBpbGwgTGVkZ2UgLS0+CiAgICA8cmVjdCB4PSIwIiB5PSI0IiB3aWR0aD0iMjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMjQiIGZpbGw9IiMwNjEwMTMiLz4KICAgIDwhLS0gUGlsbCBCb2R5IGluIGxheWVyZWQgZGFyayB0ZWFsIC0tPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjI0OCIgaGVpZ2h0PSI0OCIgcng9IjI0IiBmaWxsPSIjMTIyNTJBIiBzdHJva2U9IiMyNTQ2NEYiIHN0cm9rZS13aWR0aD0iMS44Ii8+CgogICAgPCEtLSBLaXRlIEVtYmxlbSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0LCAyNCkiPgogICAgICA8IS0tIFRvcCBXaW5nIC0tPgogICAgICA8cG9seWdvbiBwb2ludHM9IjAsLTE0IDEwLC0zIDAsMCAtMTAsLTMiIGZpbGw9InVybCgja2l0ZU9yYW5nZUdyYWROaWdodCkiLz4KICAgICAgPCEtLSBCb3R0b20gQm9keSAtLT4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIwLDAgMTAsLTMgMCwxNCAtMTAsLTMiIGZpbGw9InVybCgja2l0ZVRlYWxHcmFkTmlnaHQpIi8+CiAgICAgIDwhLS0gUmliYm9uIFN0cmluZyAmIEJlYWRzIC0tPgogICAgICA8cGF0aCBkPSJNIDAsMTQgUSA0LDE5IDEsMjMgUSAtMiwyNiAyLDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgICAgPGNpcmNsZSBjeD0iMiIgY3k9IjMwIiByPSIxLjgiIGZpbGw9IiNFMTFENDgiLz4KICAgIDwvZz4KCiAgICA8IS0tIFdvcmRtYXJrICYgU2VjdGlvbjogTHVtaW5vdXMgY3Jpc3Agb2ZmLXdoaXRlICYgZ2xvd2luZyB0ZWFsIC0tPgogICAgPHRleHQgeD0iNjAiIHk9IjI5IiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjRjBGN0Y4IiBsZXR0ZXItc3BhY2luZz0iMC40Ij5MZXhraXRlPC90ZXh0PgogICAgPHRleHQgeD0iMTMwIiB5PSIyOSIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzJERDRCRiIgbGV0dGVyLXNwYWNpbmc9IjAuMiI+ZGljdGlvbmFyeTwvdGV4dD4KICAgIDxjaXJjbGUgY3g9IjIyMCIgY3k9IjI0IiByPSIzLjUiIGZpbGw9IiNGNTlFMEIiLz4KICA8L2c+CgogIDwhLS0gMi4gSEVBRFdPUkQ6IEhVR0UgQU5EIEJPTEQgInNlcmVuZGlwaXR5IiAoQ3Jpc3AgYnJpZ2h0IHdoaXRlKSAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MCwgMjAyKSI+CiAgICA8dGV4dCB4PSIwIiB5PSIwIiBmb250LXNpemU9IjY4IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjRkZGRkZGIiBsZXR0ZXItc3BhY2luZz0iLTIiPnNlcmVuZGlwaXR5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSAzLiBNRVRBREFUQSBST1c6IFBhcnQgb2Ygc3BlZWNoLCBJUEEgd2l0aCBTcGVha2VyIGJ1dHRvbiwgYW5kIENFRlIgTGV2ZWwgQzEgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAsIDIzOCkiPgogICAgPCEtLSBQYXJ0LW9mLXNwZWVjaCBDaGlwOiAnbm91bicgKFRhY3RpbGUgR2xvd2luZyBUZWFsIENoaXAgd2l0aCBMZWRnZSkgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCAwKSI+CiAgICAgIDwhLS0gTGVkZ2UgLS0+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjMiIHdpZHRoPSI5NCIgaGVpZ2h0PSIzOCIgcng9IjE5IiBmaWxsPSIjMDQyQzI4Ii8+CiAgICAgIDwhLS0gQ2hpcCBCb2R5IC0tPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iOTQiIGhlaWdodD0iMzgiIHJ4PSIxOSIgZmlsbD0iIzBENUU1OCIgc3Ryb2tlPSIjMTRCOEE2IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgICA8IS0tIExhYmVsOiBIaWdoLWNvbnRyYXN0IHdoaXRlIHRleHQgLS0+CiAgICAgIDx0ZXh0IHg9IjQ3IiB5PSIyNCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iI0ZGRkZGRiIgbGV0dGVyLXNwYWNpbmc9IjAuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+bm91bjwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tIElQQSBDaGlwICsgQXVkaW8gU3BlYWtlcjogJy/LjHNlci7JmW7LiGTJqnAuyZkudGkvJyAoVGFjdGlsZSBEYXJrIFRlYWwgQ2FyZCB3aXRoIExlZGdlKSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwOCwgMCkiPgogICAgICA8IS0tIExlZGdlIC0tPgogICAgICA8cmVjdCB4PSIwIiB5PSIzIiB3aWR0aD0iMjY4IiBoZWlnaHQ9IjM4IiByeD0iMTkiIGZpbGw9IiMwNjEwMTMiLz4KICAgICAgPCEtLSBDaGlwIEJvZHkgLS0+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyNjgiIGhlaWdodD0iMzgiIHJ4PSIxOSIgZmlsbD0iIzEyMjUyQSIgc3Ryb2tlPSIjMjU0NjRGIiBzdHJva2Utd2lkdGg9IjEuNiIvPgoKICAgICAgPCEtLSBTcGVha2VyIFBsYXkgQnV0dG9uIEljb24gQmFkZ2UgLS0+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwLCAxOSkiPgogICAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIxMiIgZmlsbD0iIzFDMzgzRiIvPgogICAgICAgIDwhLS0gU3BlYWtlciBob3JuIGljb24gLS0+CiAgICAgICAgPHBhdGggZD0iTSAtNCwtMyBMIC0yLC0zIEwgMiwtNiBMIDIsNiBMIC0yLDMgTCAtNCwzIFoiIGZpbGw9IiMyREQ0QkYiLz4KICAgICAgICA8cGF0aCBkPSJNIDQsLTMgQyA1LC0xLjUgNSwxLjUgNCwzIiBmaWxsPSJub25lIiBzdHJva2U9IiMyREQ0QkYiIHN0cm9rZS13aWR0aD0iMS42IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgICAgICA8cGF0aCBkPSJNIDYsLTUgQyA4LC0yIDgsMiA2LDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJERDRCRiIgc3Ryb2tlLXdpZHRoPSIxLjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgICA8L2c+CgogICAgICA8IS0tIElQQSBUZXh0OiBTaGFycCwgbHVtaW5vdXMgbGlnaHQgbmV1dHJhbCAtLT4KICAgICAgPHRleHQgeD0iNDQiIHk9IjI0IiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjRjBGN0Y4IiBsZXR0ZXItc3BhY2luZz0iMC4yIj4vy4xzZXIuyZluy4hkyapwLsmZLnRpLzwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tIENFRlIgTGV2ZWwgQ2hpcDogJ0MxJyAoV2FybSBHb2xkL0FtYmVyIFBpbGwgd2l0aCBMZWRnZSAmIERlZXAgQnJvd24tQmxhY2sgSW5rKSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM5MCwgMCkiPgogICAgICA8IS0tIExlZGdlIC0tPgogICAgICA8cmVjdCB4PSIwIiB5PSIzIiB3aWR0aD0iNzYiIGhlaWdodD0iMzgiIHJ4PSIxOSIgZmlsbD0iIzlBMzQxMiIvPgogICAgICA8IS0tIENoaXAgQm9keSAoU3VubnkgQW1iZXItT3JhbmdlKSAtLT4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijc2IiBoZWlnaHQ9IjM4IiByeD0iMTkiIGZpbGw9IiNGNTlFMEIiLz4KICAgICAgPCEtLSBTVFJJQ1Q6IERlZXAgYnJvd24tYmxhY2sgaW5rICgjMUMxMDAzKSBvbiBvcmFuZ2UvYW1iZXIgLS0+CiAgICAgIDx0ZXh0IHg9IjM4IiB5PSIyNCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iIzFDMTAwMyIgbGV0dGVyLXNwYWNpbmc9IjAuOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QzE8L3RleHQ+CiAgICA8L2c+CiAgPC9nPgoKICA8IS0tIDQuIE1FQU5JTkcgU0VDVElPTjogVGFjdGlsZSBjYXJkIHdpdGggb25lIHNob3J0IG1lYW5pbmcgbGluZSAoRGFyayBUZWFsIFN1cmZhY2UpIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwLCAzMTgpIiBmaWx0ZXI9InVybCgjbmlnaHRDYXJkU2hhZG93KSI+CiAgICA8IS0tIDNEIENhcmQgTGVkZ2UgLS0+CiAgICA8cmVjdCB4PSIwIiB5PSI2IiB3aWR0aD0iNTgwIiBoZWlnaHQ9IjExNCIgcng9IjI4IiBmaWxsPSIjMDYxMDEzIi8+CiAgICA8IS0tIENhcmQgRmFjZSBpbiBsYXllcmVkIGRhcmsgdGVhbCAtLT4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI1ODAiIGhlaWdodD0iMTE0IiByeD0iMjgiIGZpbGw9InVybCgjZGVmaW5pdGlvbkNhcmRTdXJmYWNlKSIgc3Ryb2tlPSIjMjU0NjRGIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDwhLS0gU3VidGxlIHRvcCBnbG9zcyBzaGVlbiAtLT4KICAgIDxwYXRoIGQ9Ik0gMiwyOCBDIDIsMTQgMTQsMiAyOCwyIEwgNTUyLDIgQyA1NjYsMiA1NzgsMTQgNTc4LDI4IEwgNTc4LDQyIEMgNDAwLDMyIDE4MCwzMiAyLDQyIFoiIGZpbGw9InVybCgjY2FyZEdsb3NzSGlnaGxpZ2h0TmlnaHQpIi8+CgogICAgPCEtLSBNZWFuaW5nIEhlYWRlciBMYWJlbCB3aXRoIGFjY2VudCBkb3QgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOCwgMzIpIj4KICAgICAgPGNpcmNsZSBjeD0iMCIgY3k9Ii00IiByPSIzLjUiIGZpbGw9IiNGNTlFMEIiLz4KICAgICAgPHRleHQgeD0iMTIiIHk9IjAiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMyREQ0QkYiIGxldHRlci1zcGFjaW5nPSIxLjIiPkRFRklOSVRJT048L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBPbmUgc2hvcnQgbWVhbmluZyBsaW5lOiBDcmlzcCB3aGl0ZSAmIG1pbnQgdGVhbCwgaGlnaGx5IHJlYWRhYmxlIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjgsIDcwKSI+CiAgICAgIDx0ZXh0IHg9IjAiIHk9IjAiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNGMEY3RjgiIGxldHRlci1zcGFjaW5nPSItMC4zIj4KICAgICAgICBUaGUgb2NjdXJyZW5jZSBvZiBmaW5kaW5nIHZhbHVhYmxlIG9yIHBsZWFzYW50CiAgICAgIDwvdGV4dD4KICAgICAgPHRleHQgeD0iMCIgeT0iMjYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMyREQ0QkYiIGxldHRlci1zcGFjaW5nPSItMC4zIj4KICAgICAgICB0aGluZ3MgYnkgZ29vZCBsdWNrIG9yIGhhcHB5IGNoYW5jZS4KICAgICAgPC90ZXh0PgogICAgPC9nPgogIDwvZz4KCiAgPCEtLSA1LiBCT1RUT00gQkFSIC8gQ0FMTCBUTyBBQ1RJT046IENhbmR5IHRhY3RpbGUgYnV0dG9uICYgYnJhbmQgZm9vdGVyIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwLCA1MTQpIj4KICAgIDwhLS0gQ2FuZHkgVGFjdGlsZSBCdXR0b246ICJFeHBsb3JlIFdvcmQg4oaSIiB3aXRoIFNUUklDVCBkZWVwIGJyb3duLWJsYWNrIGluayAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDApIj4KICAgICAgPCEtLSBMZWRnZSAtLT4KICAgICAgPHJlY3QgeD0iMCIgeT0iNSIgd2lkdGg9IjIwNCIgaGVpZ2h0PSI0OCIgcng9IjI0IiBmaWxsPSIjOUEzNDEyIi8+CiAgICAgIDwhLS0gQnV0dG9uIEJvZHk6IFN1bm55IE9yYW5nZSAtLT4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjIwNCIgaGVpZ2h0PSI0OCIgcng9IjI0IiBmaWxsPSIjRjU5RTBCIi8+CiAgICAgIDwhLS0gU1RSSUNUOiBEZWVwIGJyb3duLWJsYWNrIGluayAoIzFDMTAwMykgb24gb3JhbmdlIGJ1dHRvbiAtLT4KICAgICAgPHRleHQgeD0iMzIiIHk9IjMwIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjMUMxMDAzIiBsZXR0ZXItc3BhY2luZz0iMC4zIj5FeHBsb3JlIFdvcmQ8L3RleHQ+CiAgICAgIDwhLS0gQXJyb3cgSWNvbiBpbiBkZWVwIGJyb3duLWJsYWNrIGluayAtLT4KICAgICAgPHBhdGggZD0iTSAxNjAsMjQgTCAxNTQsMTkgTSAxNjAsMjQgTCAxNTQsMjkgTSAxNDYsMjQgTCAxNjAsMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzFDMTAwMyIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPC9nPgoKICAgIDwhLS0gV2ViIGRvbWFpbiAmIEZyZWUgQXBwIFRhZyBpbiBsdW1pbm91cyBsaWdodCB0ZWFsIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjM2LCAxNCkiPgogICAgICA8dGV4dCB4PSIwIiB5PSIxOSIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iIzJERDRCRiIgbGV0dGVyLXNwYWNpbmc9Ii0wLjMiPmxleGtpdGUuY29tPC90ZXh0PgogICAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMyIgcj0iMyIgZmlsbD0iIzNCNTk2MSIvPgogICAgICA8dGV4dCB4PSIxMzQiIHk9IjE5IiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjQTVDNkNCIj5GcmVlIEVuZ2xpc2ggUHJlcDwvdGV4dD4KICAgIDwvZz4KICA8L2c+CgoKICA8IS0tID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KICAgICAgIFJJR0hUIENPTFVNTjogU09GVCBHTE9TU1kgSUxMVVNUUkFURUQgQUJTVFJBQ1QgU0hBUEUKICAgICAgIChTcGFya2xlcyBhbmQgYSBraXRlIHRhaWwg4oCUIE5PIHdvcmRzLCBOTyBwZXJzb25zLCBOTyBmYWNlcykKICAgICAgID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gLS0+CiAgPGcgaWQ9IlJpZ2h0SWxsdXN0cmF0ZWRTY2VuZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTMwLCAzMTUpIj4KICAgIDwhLS0gRmxvb3IgU2hhZG93IGZvciAzRCBEaW1lbnNpb24gLS0+CiAgICA8ZWxsaXBzZSBjeD0iMCIgY3k9IjIwMCIgcng9IjIxMCIgcnk9IjM0IiBmaWxsPSIjMDQwQjBEIiBvcGFjaXR5PSIwLjgiLz4KICAgIDxlbGxpcHNlIGN4PSIwIiBjeT0iMjAwIiByeD0iMTQwIiByeT0iMjAiIGZpbGw9IiMwNjEyMTUiIG9wYWNpdHk9IjAuNiIvPgoKICAgIDwhLS0gTGFyZ2UgUm91bmRlZCBUYWN0aWxlIEJhY2tpbmcgQ2FyZCBpbiBEYXJrIFRlYWwgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTk1LCAtMjAwKSIgZmlsdGVyPSJ1cmwoI25pZ2h0Q2FyZFNoYWRvdykiPgogICAgICA8IS0tIFBoeXNpY2FsIDNEIGJvdHRvbSBsZWRnZSAtLT4KICAgICAgPHJlY3QgeD0iMCIgeT0iMTAiIHdpZHRoPSIzOTAiIGhlaWdodD0iMzkwIiByeD0iNDgiIGZpbGw9IiMwNjEwMTMiLz4KICAgICAgPCEtLSBDYXJkIEZhY2UgLS0+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzOTAiIGhlaWdodD0iMzkwIiByeD0iNDgiIGZpbGw9IiMxMDIwMjUiIHN0cm9rZT0iIzI1NDY0RiIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgICAgPCEtLSBTb2Z0IGlubmVyIHJhZGlhbCBnbG93IC0tPgogICAgICA8Y2lyY2xlIGN4PSIxOTUiIGN5PSIxOTUiIHI9IjE2MCIgZmlsbD0iIzE1MkIzMSIgb3BhY2l0eT0iMC43Ii8+CiAgICA8L2c+CgogICAgPCEtLSBTb2Z0IEdsb3NzeSBBYnN0cmFjdCBPcmIgLyBCbG9iIENvbXBvc2l0aW9uIC0tPgogICAgPCEtLSBQcmltYXJ5IEJpZyBUZWFsLU1pbnQgR2xvc3N5IE9yYiAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMCwgMjApIiBmaWx0ZXI9InVybCgjb3JiU2hhZG93TmlnaHQpIj4KICAgICAgPCEtLSBVbmRlci1sZWRnZSBzaGFkb3cgLS0+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSI4IiByPSIxMTgiIGZpbGw9IiMwNDBCMEQiIG9wYWNpdHk9IjAuNSIvPgogICAgICA8IS0tIE1haW4gT3JiIEJvZHkgLS0+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIxMTgiIGZpbGw9InVybCgjYWJzdHJhY3RCbG9iR3JhZE5pZ2h0KSIgc3Ryb2tlPSIjNUVFQUQ0IiBzdHJva2Utd2lkdGg9IjMiLz4KICAgICAgPCEtLSBTcGVjdWxhciBHbG9zcyBDcmVzY2VudCBSZWZsZWN0aW9uIG9uIFRvcCAtLT4KICAgICAgPHBhdGggZD0iTSAtODAsLTUwIEEgOTYgOTYgMCAwIDEgODAsLTUwIEEgOTAgNzAgMCAwIDAgLTgwLC01MCBaIiBmaWxsPSJ1cmwoI2dsYXNzR2xvc3NOaWdodCkiLz4KICAgICAgPGVsbGlwc2UgY3g9IjAiIGN5PSItNjAiIHJ4PSI1NSIgcnk9IjI0IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjU1Ii8+CiAgICAgIDxjaXJjbGUgY3g9Ii00MiIgY3k9Ii00NSIgcj0iOCIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC43NSIvPgogICAgPC9nPgoKICAgIDwhLS0gU2Vjb25kYXJ5IE92ZXJsYXBwaW5nIFdhcm0gR29sZGVuIFN1biBPcmIgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3NSwgLTU1KSIgZmlsdGVyPSJ1cmwoI2NhbmR5R2xvd09yYW5nZU5pZ2h0KSI+CiAgICAgIDwhLS0gUGh5c2ljYWwgYm90dG9tIGxlZGdlIC0tPgogICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iNSIgcj0iNjYiIGZpbGw9IiMwMDAwMDAiIG9wYWNpdHk9IjAuNSIvPgogICAgICA8IS0tIE9yYiBCb2R5IC0tPgogICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNjYiIGZpbGw9InVybCgjd2FybU9yYkdsb3dOaWdodCkiIHN0cm9rZT0iI0ZFRjA4QSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgICAgIDwhLS0gU3BlY3VsYXIgZ2xvc3MgaGlnaGxpZ2h0IC0tPgogICAgICA8ZWxsaXBzZSBjeD0iLTE1IiBjeT0iLTI4IiByeD0iMzAiIHJ5PSIxNCIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC43Ii8+CiAgICAgIDxjaXJjbGUgY3g9Ii0yNSIgY3k9Ii0yNSIgcj0iNSIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC44NSIvPgogICAgPC9nPgoKICAgIDwhLS0gU21hbGwgQ29yYWwgQ2FuZHkgRHJvcGxldCBTYXRlbGxpdGUgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTA1LCA5NSkiPgogICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMyIgcj0iMjYiIGZpbGw9IiMwNDBCMEQiIG9wYWNpdHk9IjAuNiIvPgogICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iMjYiIGZpbGw9IiNGQjcxODUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDxlbGxpcHNlIGN4PSItNSIgY3k9Ii0xMCIgcng9IjEwIiByeT0iNSIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC43Ii8+CiAgICA8L2c+CgogICAgPCEtLSBTbWFsbCBHb2xkZW4gQmVhZCBTYXRlbGxpdGUgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTAsIDgwKSI+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIyIiByPSIxNiIgZmlsbD0iIzA0MEIwRCIgb3BhY2l0eT0iMC42Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIxNiIgZmlsbD0iI0ZCQkYyNCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjEuOCIvPgogICAgICA8Y2lyY2xlIGN4PSItNCIgY3k9Ii00IiByPSI0IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjgiLz4KICAgIDwvZz4KCiAgICA8IS0tIEdyYWNlZnVsIFBsYXlmdWwgS2l0ZSBUYWlsIFRyYWlsaW5nIHRocm91Z2ggdGhlIENvbXBvc2l0aW9uIC0tPgogICAgPGcgaWQ9IktpdGVUYWlsQW5kUmliYm9ucyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAsIC0xMTUpIj4KICAgICAgPCEtLSBNYWluIER5bmFtaWMgVGFpbCBTdHJpbmcgLS0+CiAgICAgIDxwYXRoIGQ9Ik0gMCwwIFEgLTQ1LDQ1IC0yMCw5NSBRIDEwLDE0NSAtMzUsMTk1IFEgLTY1LDIzMCAtMjUsMjY1IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZmxvYXRpbmdLaXRlVGFpbEdyYWROaWdodCkiIHN0cm9rZS13aWR0aD0iNC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgICAgCiAgICAgIDwhLS0gVGFjdGlsZSBCb3cgMSAoU3VubnkgT3JhbmdlKSAtLT4KICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyLCA1NSkgcm90YXRlKC0yNCkiPgogICAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTEyLC02IDAsMCAtMTIsNiIgZmlsbD0iI0Y1OUUwQiIvPgogICAgICAgIDxwb2x5Z29uIHBvaW50cz0iMTIsLTYgMCwwIDEyLDYiIGZpbGw9IiNGNTlFMEIiLz4KICAgICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iMy41IiBmaWxsPSIjMUMxMDAzIi8+CiAgICAgIDwvZz4KCiAgICAgIDwhLS0gVGFjdGlsZSBCb3cgMiAoR2xvd2luZyBDeWFuLVRlYWwpIC0tPgogICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNiwgMTIwKSByb3RhdGUoMTgpIj4KICAgICAgICA8cG9seWdvbiBwb2ludHM9Ii0xMywtNyAwLDAgLTEzLDciIGZpbGw9IiMyREQ0QkYiLz4KICAgICAgICA8cG9seWdvbiBwb2ludHM9IjEzLC03IDAsMCAxMyw3IiBmaWxsPSIjMkRENEJGIi8+CiAgICAgICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjMuNSIgZmlsbD0iIzBGNzY2RSIvPgogICAgICA8L2c+CgogICAgICA8IS0tIFRhY3RpbGUgQm93IDMgKENvcmFsIFBpbmspIC0tPgogICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzQsIDE4NSkgcm90YXRlKC0xNikiPgogICAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTExLC02IDAsMCAtMTEsNiIgZmlsbD0iI0ZCNzE4NSIvPgogICAgICAgIDxwb2x5Z29uIHBvaW50cz0iMTEsLTYgMCwwIDExLDYiIGZpbGw9IiNGQjcxODUiLz4KICAgICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iMyIgZmlsbD0iI0ZGRTRFNiIvPgogICAgICA8L2c+CgogICAgICA8IS0tIFRhY3RpbGUgQm93IDQgKE1pbnQgVGVhbCkgLS0+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zMCwgMjU1KSByb3RhdGUoMjgpIj4KICAgICAgICA8cG9seWdvbiBwb2ludHM9Ii0xMiwtNiAwLDAgLTEyLDYiIGZpbGw9IiM1RUVBRDQiLz4KICAgICAgICA8cG9seWdvbiBwb2ludHM9IjEyLC02IDAsMCAxMiw2IiBmaWxsPSIjNUVFQUQ0Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjMiIGZpbGw9IiMwRTVFNTgiLz4KICAgICAgPC9nPgogICAgPC9nPgoKICAgIDwhLS0gRmxvYXRpbmcgQ3Jpc3AgNC1Qb2ludCBHb2xkICYgTWludCBTcGFya2xlcyAtLT4KICAgIDxnIGlkPSJTcGFya2xlc0luU2NlbmUiPgogICAgICA8IS0tIEJpZyBHb2xkZW4gU3BhcmtsZSBUb3AtTGVmdCAtLT4KICAgICAgPHBhdGggZD0iTSAtOTAgLTEyMCBRIC05MCAtMTAyIC0xMDggLTEwMiBRIC05MCAtMTAyIC05MCAtODQgUSAtOTAgLTEwMiAtNzIgLTEwMiBRIC05MCAtMTAyIC05MCAtMTIwIFoiIGZpbGw9IiNGNTlFMEIiIGZpbHRlcj0idXJsKCNjYW5keUdsb3dPcmFuZ2VOaWdodCkiLz4KICAgICAgPGNpcmNsZSBjeD0iLTkwIiBjeT0iLTEwMiIgcj0iMyIgZmlsbD0iI0ZGRkJFQiIvPgoKICAgICAgPCEtLSBNaW50IFRlYWwgU3BhcmtsZSBSaWdodCAtLT4KICAgICAgPHBhdGggZD0iTSAxMjUgLTEwIFEgMTI1IDQgMTExIDQgUSAxMjUgNCAxMjUgMTggUSAxMjUgNCAxMzkgNCBRIDEyNSA0IDEyNSAtMTAgWiIgZmlsbD0iIzJERDRCRiIgZmlsdGVyPSJ1cmwoI2NhbmR5R2xvd1RlYWxOaWdodCkiLz4KICAgICAgPGNpcmNsZSBjeD0iMTI1IiBjeT0iNCIgcj0iMi41IiBmaWxsPSIjRkZGRkZGIi8+CgogICAgICA8IS0tIFNtYWxsIFN0YXIgU3BhcmtsZSBCb3R0b20tTGVmdCAtLT4KICAgICAgPHBhdGggZD0iTSAtMTIwIDIwIFEgLTEyMCAzMCAtMTMwIDMwIFEgLTEyMCAzMCAtMTIwIDQwIFEgLTEyMCAzMCAtMTEwIDMwIFEgLTEyMCAzMCAtMTIwIDIwIFoiIGZpbGw9IiNGNTlFMEIiLz4KCiAgICAgIDwhLS0gTWljcm8gU3BhcmtsZSBCb3R0b20tUmlnaHQgLS0+CiAgICAgIDxwYXRoIGQ9Ik0gNjAgMTQ1IFEgNjAgMTUzIDUyIDE1MyBRIDYwIDE1MyA2MCAxNjEgUSA2MCAxNTMgNjggMTUzIFEgNjAgMTUzIDYwIDE0NSBaIiBmaWxsPSIjNUVFQUQ0Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=1200"><title>og/word-dark.html</title><style>html,body{margin:0;padding:0}svg{display:block}</style></head><body>
+<!-- Stitch trả SVG (ảnh tĩnh): nguồn = file .svg cùng tên; bọc HTML chỉ để QC chấm -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" style="background:#091518; font-family:'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Background Radial Gradient (Tactile Night deep teal-black) -->
+    <radialGradient id="nightOgBg" cx="30%" cy="25%" r="85%">
+      <stop offset="0%" stop-color="#14282D" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#0E1D21" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#091518" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Card & Ledge Drop Shadows for Dark Surfaces -->
+    <filter id="nightCardShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#020708" flood-opacity="0.6" />
+    </filter>
+    <filter id="orbShadowNight" x="-25%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#010506" flood-opacity="0.7" />
+    </filter>
+    <filter id="candyGlowTealNight" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#2DD4BF" flood-opacity="0.3" />
+    </filter>
+    <filter id="candyGlowOrangeNight" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000000" flood-opacity="0.5" />
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#F59E0B" flood-opacity="0.3" />
+    </filter>
+
+    <!-- Kite Emblem Gradients (Glowing for Night) -->
+    <linearGradient id="kiteTealGradNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5EEAD4"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="kiteOrangeGradNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+
+    <!-- Glossy Specular Highlights -->
+    <linearGradient id="glassGlossNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#2DD4BF" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    
+    <linearGradient id="cardGlossHighlightNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#2DD4BF" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Right Side Glossy Orb / Abstract Blob Gradients for Tactile Night -->
+    <radialGradient id="abstractBlobGradNight" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="40%" stop-color="#14B8A6"/>
+      <stop offset="75%" stop-color="#0D5E58"/>
+      <stop offset="100%" stop-color="#06312E"/>
+    </radialGradient>
+
+    <radialGradient id="warmOrbGlowNight" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="35%" stop-color="#FBBF24"/>
+      <stop offset="75%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#9A3412"/>
+    </radialGradient>
+
+    <linearGradient id="floatingKiteTailGradNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="40%" stop-color="#F97316"/>
+      <stop offset="75%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+
+    <!-- Card Faces in layered dark teal -->
+    <linearGradient id="definitionCardSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#152B31"/>
+      <stop offset="100%" stop-color="#0E1E22"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base Surface -->
+  <rect width="1200" height="630" fill="url(#nightOgBg)"/>
+
+  <!-- Playful Background Embers & Star Confetti -->
+  <g opacity="0.75">
+    <!-- Star sparkles -->
+    <path d="M 110 220 Q 110 236 94 236 Q 110 236 110 252 Q 110 236 126 236 Q 110 236 110 220 Z" fill="#F59E0B"/>
+    <path d="M 640 85 Q 640 98 627 98 Q 640 98 640 111 Q 640 98 653 98 Q 640 98 640 85 Z" fill="#2DD4BF"/>
+    <path d="M 1130 140 Q 1130 156 1114 156 Q 1130 156 1130 172 Q 1130 156 1146 156 Q 1130 156 1130 140 Z" fill="#F59E0B"/>
+    <path d="M 720 540 Q 720 552 708 552 Q 720 552 720 564 Q 720 552 732 552 Q 720 552 720 540 Z" fill="#14B8A6"/>
+
+    <!-- Floating circles & lozenges -->
+    <circle cx="590" cy="220" r="5" fill="#F59E0B" opacity="0.85"/>
+    <circle cx="85" cy="450" r="5.5" fill="#2DD4BF" opacity="0.7"/>
+    <circle cx="1140" cy="420" r="7" fill="#F97316" opacity="0.8"/>
+    <rect x="670" cy="380" width="10" height="10" rx="3" transform="rotate(25 675 385)" fill="#2DD4BF" opacity="0.6"/>
+    <rect x="1080" cy="90" width="12" height="12" rx="3" transform="rotate(18 1086 96)" fill="#F59E0B" opacity="0.8"/>
+    <rect x="85" cy="115" width="9" height="9" rx="2.5" transform="rotate(45 89 119)" fill="#14B8A6" opacity="0.5"/>
+  </g>
+
+  <!-- ==============================================
+       LEFT COLUMN: LEXKITE DICTIONARY ENTRY (DARK THEME)
+       ============================================== -->
+
+  <!-- 1. TOP-LEFT BRAND BADGE: Kite Logo + "Lexkite dictionary" on Dark Teal Pill -->
+  <g transform="translate(80, 68)">
+    <!-- Pill Ledge -->
+    <rect x="0" y="4" width="248" height="48" rx="24" fill="#061013"/>
+    <!-- Pill Body in layered dark teal -->
+    <rect x="0" y="0" width="248" height="48" rx="24" fill="#12252A" stroke="#25464F" stroke-width="1.8"/>
+
+    <!-- Kite Emblem -->
+    <g transform="translate(34, 24)">
+      <!-- Top Wing -->
+      <polygon points="0,-14 10,-3 0,0 -10,-3" fill="url(#kiteOrangeGradNight)"/>
+      <!-- Bottom Body -->
+      <polygon points="0,0 10,-3 0,14 -10,-3" fill="url(#kiteTealGradNight)"/>
+      <!-- Ribbon String & Beads -->
+      <path d="M 0,14 Q 4,19 1,23 Q -2,26 2,30" fill="none" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="2" cy="30" r="1.8" fill="#E11D48"/>
+    </g>
+
+    <!-- Wordmark & Section: Luminous crisp off-white & glowing teal -->
+    <text x="60" y="29" font-size="16" font-weight="900" fill="#F0F7F8" letter-spacing="0.4">Lexkite</text>
+    <text x="130" y="29" font-size="15" font-weight="700" fill="#2DD4BF" letter-spacing="0.2">dictionary</text>
+    <circle cx="220" cy="24" r="3.5" fill="#F59E0B"/>
+  </g>
+
+  <!-- 2. HEADWORD: HUGE AND BOLD "serendipity" (Crisp bright white) -->
+  <g transform="translate(80, 202)">
+    <text x="0" y="0" font-size="68" font-weight="900" fill="#FFFFFF" letter-spacing="-2">serendipity</text>
+  </g>
+
+  <!-- 3. METADATA ROW: Part of speech, IPA with Speaker button, and CEFR Level C1 -->
+  <g transform="translate(80, 238)">
+    <!-- Part-of-speech Chip: 'noun' (Tactile Glowing Teal Chip with Ledge) -->
+    <g transform="translate(0, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="3" width="94" height="38" rx="19" fill="#042C28"/>
+      <!-- Chip Body -->
+      <rect x="0" y="0" width="94" height="38" rx="19" fill="#0D5E58" stroke="#14B8A6" stroke-width="1.5"/>
+      <!-- Label: High-contrast white text -->
+      <text x="47" y="24" font-size="15" font-weight="800" fill="#FFFFFF" letter-spacing="0.5" text-anchor="middle">noun</text>
+    </g>
+
+    <!-- IPA Chip + Audio Speaker: '/ˌser.ənˈdɪp.ə.ti/' (Tactile Dark Teal Card with Ledge) -->
+    <g transform="translate(108, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="3" width="268" height="38" rx="19" fill="#061013"/>
+      <!-- Chip Body -->
+      <rect x="0" y="0" width="268" height="38" rx="19" fill="#12252A" stroke="#25464F" stroke-width="1.6"/>
+
+      <!-- Speaker Play Button Icon Badge -->
+      <g transform="translate(20, 19)">
+        <circle cx="0" cy="0" r="12" fill="#1C383F"/>
+        <!-- Speaker horn icon -->
+        <path d="M -4,-3 L -2,-3 L 2,-6 L 2,6 L -2,3 L -4,3 Z" fill="#2DD4BF"/>
+        <path d="M 4,-3 C 5,-1.5 5,1.5 4,3" fill="none" stroke="#2DD4BF" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M 6,-5 C 8,-2 8,2 6,5" fill="none" stroke="#2DD4BF" stroke-width="1.6" stroke-linecap="round"/>
+      </g>
+
+      <!-- IPA Text: Sharp, luminous light neutral -->
+      <text x="44" y="24" font-size="16" font-weight="700" fill="#F0F7F8" letter-spacing="0.2">/ˌser.ənˈdɪp.ə.ti/</text>
+    </g>
+
+    <!-- CEFR Level Chip: 'C1' (Warm Gold/Amber Pill with Ledge & Deep Brown-Black Ink) -->
+    <g transform="translate(390, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="3" width="76" height="38" rx="19" fill="#9A3412"/>
+      <!-- Chip Body (Sunny Amber-Orange) -->
+      <rect x="0" y="0" width="76" height="38" rx="19" fill="#F59E0B"/>
+      <!-- STRICT: Deep brown-black ink (#1C1003) on orange/amber -->
+      <text x="38" y="24" font-size="15" font-weight="900" fill="#1C1003" letter-spacing="0.8" text-anchor="middle">C1</text>
+    </g>
+  </g>
+
+  <!-- 4. MEANING SECTION: Tactile card with one short meaning line (Dark Teal Surface) -->
+  <g transform="translate(80, 318)" filter="url(#nightCardShadow)">
+    <!-- 3D Card Ledge -->
+    <rect x="0" y="6" width="580" height="114" rx="28" fill="#061013"/>
+    <!-- Card Face in layered dark teal -->
+    <rect x="0" y="0" width="580" height="114" rx="28" fill="url(#definitionCardSurface)" stroke="#25464F" stroke-width="2"/>
+    <!-- Subtle top gloss sheen -->
+    <path d="M 2,28 C 2,14 14,2 28,2 L 552,2 C 566,2 578,14 578,28 L 578,42 C 400,32 180,32 2,42 Z" fill="url(#cardGlossHighlightNight)"/>
+
+    <!-- Meaning Header Label with accent dot -->
+    <g transform="translate(28, 32)">
+      <circle cx="0" cy="-4" r="3.5" fill="#F59E0B"/>
+      <text x="12" y="0" font-size="12" font-weight="900" fill="#2DD4BF" letter-spacing="1.2">DEFINITION</text>
+    </g>
+
+    <!-- One short meaning line: Crisp white & mint teal, highly readable -->
+    <g transform="translate(28, 70)">
+      <text x="0" y="0" font-size="20" font-weight="800" fill="#F0F7F8" letter-spacing="-0.3">
+        The occurrence of finding valuable or pleasant
+      </text>
+      <text x="0" y="26" font-size="20" font-weight="800" fill="#2DD4BF" letter-spacing="-0.3">
+        things by good luck or happy chance.
+      </text>
+    </g>
+  </g>
+
+  <!-- 5. BOTTOM BAR / CALL TO ACTION: Candy tactile button & brand footer -->
+  <g transform="translate(80, 514)">
+    <!-- Candy Tactile Button: "Explore Word →" with STRICT deep brown-black ink -->
+    <g transform="translate(0, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="5" width="204" height="48" rx="24" fill="#9A3412"/>
+      <!-- Button Body: Sunny Orange -->
+      <rect x="0" y="0" width="204" height="48" rx="24" fill="#F59E0B"/>
+      <!-- STRICT: Deep brown-black ink (#1C1003) on orange button -->
+      <text x="32" y="30" font-size="16" font-weight="900" fill="#1C1003" letter-spacing="0.3">Explore Word</text>
+      <!-- Arrow Icon in deep brown-black ink -->
+      <path d="M 160,24 L 154,19 M 160,24 L 154,29 M 146,24 L 160,24" fill="none" stroke="#1C1003" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Web domain & Free App Tag in luminous light teal -->
+    <g transform="translate(236, 14)">
+      <text x="0" y="19" font-size="18" font-weight="900" fill="#2DD4BF" letter-spacing="-0.3">lexkite.com</text>
+      <circle cx="120" cy="13" r="3" fill="#3B5961"/>
+      <text x="134" y="19" font-size="14" font-weight="800" fill="#A5C6CB">Free English Prep</text>
+    </g>
+  </g>
+
+
+  <!-- ==============================================
+       RIGHT COLUMN: SOFT GLOSSY ILLUSTRATED ABSTRACT SHAPE
+       (Sparkles and a kite tail — NO words, NO persons, NO faces)
+       ============================================== -->
+  <g id="RightIllustratedScene" transform="translate(930, 315)">
+    <!-- Floor Shadow for 3D Dimension -->
+    <ellipse cx="0" cy="200" rx="210" ry="34" fill="#040B0D" opacity="0.8"/>
+    <ellipse cx="0" cy="200" rx="140" ry="20" fill="#061215" opacity="0.6"/>
+
+    <!-- Large Rounded Tactile Backing Card in Dark Teal -->
+    <g transform="translate(-195, -200)" filter="url(#nightCardShadow)">
+      <!-- Physical 3D bottom ledge -->
+      <rect x="0" y="10" width="390" height="390" rx="48" fill="#061013"/>
+      <!-- Card Face -->
+      <rect x="0" y="0" width="390" height="390" rx="48" fill="#102025" stroke="#25464F" stroke-width="2.5"/>
+      <!-- Soft inner radial glow -->
+      <circle cx="195" cy="195" r="160" fill="#152B31" opacity="0.7"/>
+    </g>
+
+    <!-- Soft Glossy Abstract Orb / Blob Composition -->
+    <!-- Primary Big Teal-Mint Glossy Orb -->
+    <g transform="translate(-20, 20)" filter="url(#orbShadowNight)">
+      <!-- Under-ledge shadow -->
+      <circle cx="0" cy="8" r="118" fill="#040B0D" opacity="0.5"/>
+      <!-- Main Orb Body -->
+      <circle cx="0" cy="0" r="118" fill="url(#abstractBlobGradNight)" stroke="#5EEAD4" stroke-width="3"/>
+      <!-- Specular Gloss Crescent Reflection on Top -->
+      <path d="M -80,-50 A 96 96 0 0 1 80,-50 A 90 70 0 0 0 -80,-50 Z" fill="url(#glassGlossNight)"/>
+      <ellipse cx="0" cy="-60" rx="55" ry="24" fill="#FFFFFF" opacity="0.55"/>
+      <circle cx="-42" cy="-45" r="8" fill="#FFFFFF" opacity="0.75"/>
+    </g>
+
+    <!-- Secondary Overlapping Warm Golden Sun Orb -->
+    <g transform="translate(75, -55)" filter="url(#candyGlowOrangeNight)">
+      <!-- Physical bottom ledge -->
+      <circle cx="0" cy="5" r="66" fill="#000000" opacity="0.5"/>
+      <!-- Orb Body -->
+      <circle cx="0" cy="0" r="66" fill="url(#warmOrbGlowNight)" stroke="#FEF08A" stroke-width="3"/>
+      <!-- Specular gloss highlight -->
+      <ellipse cx="-15" cy="-28" rx="30" ry="14" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="-25" cy="-25" r="5" fill="#FFFFFF" opacity="0.85"/>
+    </g>
+
+    <!-- Small Coral Candy Droplet Satellite -->
+    <g transform="translate(-105, 95)">
+      <circle cx="0" cy="3" r="26" fill="#040B0D" opacity="0.6"/>
+      <circle cx="0" cy="0" r="26" fill="#FB7185" stroke="#FFFFFF" stroke-width="2"/>
+      <ellipse cx="-5" cy="-10" rx="10" ry="5" fill="#FFFFFF" opacity="0.7"/>
+    </g>
+
+    <!-- Small Golden Bead Satellite -->
+    <g transform="translate(110, 80)">
+      <circle cx="0" cy="2" r="16" fill="#040B0D" opacity="0.6"/>
+      <circle cx="0" cy="0" r="16" fill="#FBBF24" stroke="#FFFFFF" stroke-width="1.8"/>
+      <circle cx="-4" cy="-4" r="4" fill="#FFFFFF" opacity="0.8"/>
+    </g>
+
+    <!-- Graceful Playful Kite Tail Trailing through the Composition -->
+    <g id="KiteTailAndRibbons" transform="translate(30, -115)">
+      <!-- Main Dynamic Tail String -->
+      <path d="M 0,0 Q -45,45 -20,95 Q 10,145 -35,195 Q -65,230 -25,265" fill="none" stroke="url(#floatingKiteTailGradNight)" stroke-width="4.5" stroke-linecap="round"/>
+      
+      <!-- Tactile Bow 1 (Sunny Orange) -->
+      <g transform="translate(-32, 55) rotate(-24)">
+        <polygon points="-12,-6 0,0 -12,6" fill="#F59E0B"/>
+        <polygon points="12,-6 0,0 12,6" fill="#F59E0B"/>
+        <circle cx="0" cy="0" r="3.5" fill="#1C1003"/>
+      </g>
+
+      <!-- Tactile Bow 2 (Glowing Cyan-Teal) -->
+      <g transform="translate(-6, 120) rotate(18)">
+        <polygon points="-13,-7 0,0 -13,7" fill="#2DD4BF"/>
+        <polygon points="13,-7 0,0 13,7" fill="#2DD4BF"/>
+        <circle cx="0" cy="0" r="3.5" fill="#0F766E"/>
+      </g>
+
+      <!-- Tactile Bow 3 (Coral Pink) -->
+      <g transform="translate(-34, 185) rotate(-16)">
+        <polygon points="-11,-6 0,0 -11,6" fill="#FB7185"/>
+        <polygon points="11,-6 0,0 11,6" fill="#FB7185"/>
+        <circle cx="0" cy="0" r="3" fill="#FFE4E6"/>
+      </g>
+
+      <!-- Tactile Bow 4 (Mint Teal) -->
+      <g transform="translate(-30, 255) rotate(28)">
+        <polygon points="-12,-6 0,0 -12,6" fill="#5EEAD4"/>
+        <polygon points="12,-6 0,0 12,6" fill="#5EEAD4"/>
+        <circle cx="0" cy="0" r="3" fill="#0E5E58"/>
+      </g>
+    </g>
+
+    <!-- Floating Crisp 4-Point Gold & Mint Sparkles -->
+    <g id="SparklesInScene">
+      <!-- Big Golden Sparkle Top-Left -->
+      <path d="M -90 -120 Q -90 -102 -108 -102 Q -90 -102 -90 -84 Q -90 -102 -72 -102 Q -90 -102 -90 -120 Z" fill="#F59E0B" filter="url(#candyGlowOrangeNight)"/>
+      <circle cx="-90" cy="-102" r="3" fill="#FFFBEB"/>
+
+      <!-- Mint Teal Sparkle Right -->
+      <path d="M 125 -10 Q 125 4 111 4 Q 125 4 125 18 Q 125 4 139 4 Q 125 4 125 -10 Z" fill="#2DD4BF" filter="url(#candyGlowTealNight)"/>
+      <circle cx="125" cy="4" r="2.5" fill="#FFFFFF"/>
+
+      <!-- Small Star Sparkle Bottom-Left -->
+      <path d="M -120 20 Q -120 30 -130 30 Q -120 30 -120 40 Q -120 30 -110 30 Q -120 30 -120 20 Z" fill="#F59E0B"/>
+
+      <!-- Micro Sparkle Bottom-Right -->
+      <path d="M 60 145 Q 60 153 52 153 Q 60 153 60 161 Q 60 153 68 153 Q 60 153 60 145 Z" fill="#5EEAD4"/>
+    </g>
+  </g>
+</svg>
+</body></html>
