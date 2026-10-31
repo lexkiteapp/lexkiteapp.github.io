@@ -50,7 +50,9 @@
       stats.mode = S ? (S.L ? 'live' : 'pre') : 'idle';
       if (S) { const t = S.clk(); if (S.L) { S.L.tick(t, S.voiced(), Math.min(dt, 0.1)); s = S.M.at(Math.max(0, t - LS.LEAD)); } else s = S.M.at(t); }
       else s = idle.at((now / 1000) % 120);
-      const h = LF.svg(who, s, id); if (h !== last) { G.innerHTML = h; last = h; }
+      // chỉ dựng lại lớp vector khi trạng thái đổi thấy được (bước 1/100) – khung nghỉ/giữ hình không tốn gì (máy yếu giữ ≥ 50 fps)
+      const m = s.mouth, k = [m.w, m.u, m.d, m.a, m.s, m.tt, m.tb, m.tg, m.tu, m.bite, m.lip, s.blink, s.look.x, s.look.y, s.brow, s.knit, s.open].map(v => Math.round((v || 0) * 100)).join();
+      if (k !== last) { G.innerHTML = LF.svg(who, s, id); last = k; }
       const tf = `rotate(${(-s.tilt).toFixed(2)} ${R.pivot[0]} ${R.pivot[1]}) translate(0 ${s.nod.toFixed(1)})`; if (tf !== lastTf) { W.setAttribute('transform', tf); lastTf = tf; }
       raf = requestAnimationFrame(frame);
     };

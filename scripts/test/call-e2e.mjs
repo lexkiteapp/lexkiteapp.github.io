@@ -227,12 +227,15 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
 // ===== 4b) Mặt VẼ khớp miệng (cờ lk.lipsync, docs/specs/call-lipsync.md): đầu trơn + lớp vector thay clip, nói & nghỉ (chớp/liếc), fps ≥ 50 ở CPU 4×, không lỗi JS =====
 // Tiếng thật từ kho media: câu có mốc CI (web/js/call/cues.js) phải phát chế độ "pre" (<khoá>-ls.mp3); video màn Call → lip-m.webm (gửi anh duyệt)
 {
-  const { ctx, page, errs } = await open({ vp: { width: 375, height: 812 }, video: true, audio: true });
+  // fps đo ở ngữ cảnh KHÔNG quay màn hình (bộ quay chiếm CPU trình duyệt); video gửi duyệt quay ở lượt sau, cùng màn
+  for (const rec of [false, true]) {
+  const { ctx, page, errs } = await open({ vp: { width: 375, height: 812 }, video: rec, audio: true });
   await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
   await go(page, '#/call/coffee'); await page.waitForSelector('#callGo'); await page.click('#callGo');
   const on = await until(page, () => document.querySelector('.tch-rig.drawn .tch-face g.lk-face'), null, 15000).then(() => true, () => false);
   ok(on, 'mặt vẽ: đầu trơn + mắt/mày/miệng vector thay clip');
   ok(!(await page.$('.tch-cv')) && !(await page.$('.tch-rig video')), 'mặt vẽ: không tải clip WebGL');
+  if (!rec) {
   const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
   const a = (await state(page)).lip, modes = new Set();
   for (let i = 0; i < 15; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes.add(l.mode); }
@@ -243,11 +246,13 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   const cued = await page.evaluate(() => Object.keys((window.LK_CUES || {}).k || {}).length);
   console.log(`  mặt vẽ: chế độ ${[...modes].join(', ')} · ${cued} câu Call có mốc CI`);
   ok(!cued || modes.has('pre'), 'mặt vẽ: câu có mốc CI phát chế độ pre (bản -ls.mp3)');
-  await shot(page, 'lip-m');
+  }
+  if (rec) await shot(page, 'lip-m');
   await until(page, () => /Đến lượt bạn|lượt bạn/i.test(document.body.textContent), null, 15000).catch(() => {});
   const chip = await page.$('.v2s-teacher-call button:has-text("latte"), button:has-text("latte")'); if (chip) { await chip.click().catch(() => {}); await page.waitForTimeout(5000); }
   ok(!errs.length, 'mặt vẽ: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ').slice(0, 300) : ''));
   const vid = page.video(); await ctx.close(); if (vid) fs.copyFileSync(await vid.path(), path.join(OUT, 'lip-m.webm'));
+  }
 }
 
 // ===== 5) Tùy chọn: Whisper THẬT trên máy với mẫu âm thanh thu sẵn =====
