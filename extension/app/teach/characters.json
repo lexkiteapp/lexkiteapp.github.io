@@ -177,6 +177,14 @@
       "sha256": "0a51af9e2361806aa42051e3f57e43ca737c425481fb27b391acb1f4f3fa6eff",
       "bytes": 149699
     },
+    "ama/head-bare-2x.webp": {
+      "sha256": "464bc8eebd4b21dafb7dce772e90c520d2967aa412a65546bb5f7f27cab5bfc8",
+      "bytes": 26694
+    },
+    "ama/head-bare.webp": {
+      "sha256": "2bf1d4a0b2658642c9131016eae288aecd1293ff1e0d95a845625eb5d3faa616",
+      "bytes": 13892
+    },
     "ama/laugh.mp4": {
       "sha256": "ca24680ac5e18c55da62b7b02adb53bf2328bc36a1a82ceee60bc956bde903bf",
       "bytes": 127583
@@ -304,6 +312,14 @@
     "carlos/happy.mp4": {
       "sha256": "70b408a5c91527d59ce94a837eb49945708b55a859679e4759f28c33a849b4b1",
       "bytes": 147267
+    },
+    "carlos/head-bare-2x.webp": {
+      "sha256": "7d351d7179513d5639e3dbdf19ccad99871e1f3b4b914436ff15204e7011c769",
+      "bytes": 30034
+    },
+    "carlos/head-bare.webp": {
+      "sha256": "99237c27562afe2546926075f73eb8c067dc6ad01f541721a4441f8f716da6a4",
+      "bytes": 18036
     },
     "carlos/laugh.mp4": {
       "sha256": "aee800b0f0fd2edb5289d61ed3642a96632ec64ec7e323b60f08c7ad2884358e",

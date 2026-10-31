@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       limit: { description: 'Số câu mỗi lần', default: '1500' }
+      only_call_cues: { description: 'Chỉ sinh mốc khớp miệng câu Call (bỏ qua giọng còn thiếu khác)', type: boolean, default: false }
 permissions:
   contents: write
 concurrency:
@@ -24,7 +25,12 @@ jobs:
           node-version: 22
       - name: Đếm câu còn thiếu
         id: count
-        run: echo "left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+        run: |
+          left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
+          [ "${{ github.event.inputs.only_call_cues }}" = "true" ] && left=0
+          cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
+          work=0; [ "$left" != "0" ] || [ "$cues" != "0" ] && work=1
+          echo "left=$left" >> "$GITHUB_OUTPUT"; echo "cues=$cues" >> "$GITHUB_OUTPUT"; echo "work=$work" >> "$GITHUB_OUTPUT"
       - name: Cài kokoro-js + ffmpeg (nén mp3 – ảnh máy chủ GitHub mới không còn sẵn ffmpeg)
         if: steps.count.outputs.left != '0'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
@@ -38,22 +44,36 @@ jobs:
         if: steps.count.outputs.left != '0'
         run: |
           AUDIO_MIN=240 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '1500' }}"
+      # Mốc khớp miệng câu giáo viên Call (docs/specs/call-lipsync.md): Kokoro python sinh tiếng + mốc âm vị cùng một lần → <khoá>-ls.mp3 + web/js/call/cues.js (cổng mặt vẽ từng câu)
+      - uses: actions/cache@v4
+        if: steps.count.outputs.cues != '0'
+        with:
+          path: ~/.cache/huggingface
+          key: kokoro-py-82m-v1
+      - name: Mốc khớp miệng Call (Kokoro python, Apache-2.0)
+        if: steps.count.outputs.cues != '0'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng >/dev/null
+          python3 -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -q kokoro==0.9.4 soundfile
+          node scripts/lipsync/call_cues.mjs
       - name: Khoá deploy kho media
-        if: steps.count.outputs.left != '0'
+        if: steps.count.outputs.work == '1'
         env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
       - name: Đẩy mp3 lên kho media
-        if: steps.count.outputs.left != '0'
+        if: steps.count.outputs.work == '1'
         run: |
           node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/l: thêm giọng Kokoro (run ${{ github.run_id }})"
       - name: Lưu chỉ mục vào repo
-        if: steps.count.outputs.left != '0'
+        if: steps.count.outputs.work == '1'
         run: |
           rm -f ~/.ssh/m2
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/js/listen/audio-index.js
+          git add web/js/listen/audio-index.js web/js/call/cues.js
           git diff --cached --quiet && exit 0
-          git commit -qm "Âm thanh: thêm giọng Kokoro (còn ${{ steps.count.outputs.left }} câu trước lượt này) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+          git commit -qm "Âm thanh: thêm giọng Kokoro (còn ${{ steps.count.outputs.left }} câu, ${{ steps.count.outputs.cues }} mốc Call trước lượt này) [CF-Pages-Skip]"
+          B="${GITHUB_REF_NAME}"   # chạy tay trên nhánh → lưu vào chính nhánh đó (không bao giờ đẩy nhánh lên main)
+          for i in 1 2 3 4 5; do git pull -q --rebase origin "$B" && git push -q origin "HEAD:$B" && exit 0; sleep 5; done; exit 1
