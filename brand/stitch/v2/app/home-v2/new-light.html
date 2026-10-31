@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Today Hub - New Learner (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FFF9F3',
+              card: '#FFFFFF',
+              dark: '#141819',
+              teal: '#136B66',
+              'teal-dark': '#0C4E49',
+              'teal-light': '#E6F6F5',
+              orange: '#F59E0B',
+              'orange-dark': '#B45309',
+              'ink-dark': '#1C1003',
+              border: '#EFE3D5',
+              ledge: '#DEC9B5',
+              muted: '#5A4E45',
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 5px 0 #DEC9B5',
+            'tactile-btn': '0 6px 0 #B45309',
+            'tactile-tile': '0 4px 0 #E3D2C2',
+            'tactile-pill': '0 2px 0 #DBC8B5',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF9F3;
+      color: #141819;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EFE3D5;
+      border-radius: 16px;
+      box-shadow: 0 5px 0 #DEC9B5;
+    }
+    .tactile-tile {
+      background: #FFFFFF;
+      border: 2px solid #EFE3D5;
+      border-radius: 16px;
+      box-shadow: 0 4px 0 #DEC9B5;
+    }
+    .tactile-btn-orange {
+      background: #F59E0B;
+      color: #1C1003;
+      border-radius: 16px;
+      box-shadow: 0 6px 0 #B45309;
+      font-weight: 800;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-orange:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #B45309;
+    }
+    .dashed-teacher-slot {
+      border: 2px dashed #136B66;
+      border-radius: 20px;
+      background: #F4FAF9;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center bg-[#FFF9F3]">
+<!-- 390px Mobile Viewport Container (Zero status bar, Zero mock device bezels) -->
+<main class="w-[390px] max-w-[390px] min-h-screen bg-[#FFF9F3] flex flex-col pb-[84px] relative selection:bg-brand-teal selection:text-white">
+<!-- ==============================================
+         TOP BAR: 56px HUB Variant
+         Left: Kite Logo + 'Lexkite' Wordmark
+         Right: Language Switcher (globe + VI + chevron) + Avatar 'L'
+         ============================================== -->
+<header class="h-[56px] px-4 flex items-center justify-between border-b-2 border-brand-border bg-[#FFF9F3] sticky top-0 z-30">
+<!-- Left: Kite Brand Emblem + Wordmark -->
+<div class="flex items-center gap-2">
+<svg class="w-7 h-7 drop-shadow-sm" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<!-- Top Wing: Sunny Amber/Orange -->
+<polygon fill="#F59E0B" points="16,3 26,13 16,16 6,13"></polygon>
+<!-- Bottom Body: Rich Teal -->
+<polygon fill="#136B66" points="16,16 26,13 16,29 6,13"></polygon>
+<!-- Kite Tail Ribbon -->
+<path d="M16 29 Q19 32 17 35" stroke="#F59E0B" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="17" cy="35" fill="#E11D48" r="1.5"></circle>
+</svg>
+<span class="text-xl font-black text-brand-dark tracking-tight">Lexkite</span>
+</div>
+<!-- Right: Language Pill & Avatar -->
+<div class="flex items-center gap-2.5">
+<!-- Compact Language Switcher Pill -->
+<button aria-label="Switch language" class="h-8 px-2.5 flex items-center gap-1.5 bg-white border-2 border-brand-border rounded-full text-xs font-bold text-brand-dark shadow-[0_2px_0_#DEC9B5] active:translate-y-0.5" type="button">
+<!-- Globe Icon -->
+<svg class="w-3.5 h-3.5 text-brand-teal" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+<span class="text-[12px] font-extrabold text-brand-dark">VI</span>
+<!-- Small Chevron -->
+<svg class="w-3 h-3 text-brand-muted" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<polyline points="6 9 12 15 18 9"></polyline>
+</svg>
+</button>
+<!-- Round Avatar 'L' -->
+<div class="w-8 h-8 rounded-full bg-brand-teal text-white flex items-center justify-center font-black text-xs border-2 border-brand-teal-dark shadow-[0_2px_0_#0C4E49]">
+          L
+        </div>
+</div>
+</header>
+<!-- ==============================================
+         MAIN CONTENT: 16px Side Margins, 8px Grid Spacing
+         ============================================== -->
+<div class="px-4 py-4 flex flex-col gap-4">
+<!-- 1) STATS STRIP: 4 Equal Tactile Mini-Cards (Friendly & Welcoming First-Day State) -->
+<section aria-label="Learner stats" class="grid grid-cols-4 gap-2">
+<!-- Stat 1: Target -->
+<div class="tactile-tile p-2 flex flex-col items-center justify-center text-center h-[76px]">
+<div class="w-5 h-5 flex items-center justify-center text-brand-teal mb-0.5">
+<!-- Target / Bullseye Icon -->
+<svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.6" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="12" cy="12" fill="currentColor" r="1"></circle>
+</svg>
+</div>
+<span class="text-sm font-black text-brand-dark leading-tight">–</span>
+<span class="text-[10px] font-extrabold text-brand-teal leading-tight mt-0.5">Set target</span>
+</div>
+<!-- Stat 2: Streak -->
+<div class="tactile-tile p-2 flex flex-col items-center justify-center text-center h-[76px]">
+<div class="w-5 h-5 flex items-center justify-center text-brand-orange mb-0.5">
+<!-- Flame Icon -->
+<svg class="w-4 h-4 text-brand-orange" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C8.5 6 7 9 7 13a5 5 0 0 0 10 0c0-4-1.5-7-5-11zm0 16a3 3 0 0 1-3-3c0-2 1-3.5 3-6 2 2.5 3 4 3 6a3 3 0 0 1-3 3z"></path>
+</svg>
+</div>
+<span class="text-sm font-black text-brand-dark leading-tight">0</span>
+<span class="text-[10px] font-bold text-brand-muted leading-tight mt-0.5">Day streak</span>
+</div>
+<!-- Stat 3: XP -->
+<div class="tactile-tile p-2 flex flex-col items-center justify-center text-center h-[76px]">
+<div class="w-5 h-5 flex items-center justify-center text-brand-orange mb-0.5">
+<!-- Star Icon -->
+<svg class="w-4 h-4 text-amber-500 fill-amber-400" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+</div>
+<span class="text-sm font-black text-brand-dark leading-tight">0</span>
+<span class="text-[10px] font-bold text-brand-muted leading-tight mt-0.5">XP</span>
+</div>
+<!-- Stat 4: Goal Ring -->
+<div class="tactile-tile p-2 flex flex-col items-center justify-center text-center h-[76px]">
+<div class="w-5 h-5 flex items-center justify-center text-brand-teal mb-0.5">
+<!-- Goal Circle Ring Icon -->
+<svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9" stroke="#EFE3D5"></circle>
+<path d="M12 3a9 9 0 0 1 9 9" stroke="#136B66" stroke-linecap="round"></path>
+</svg>
+</div>
+<span class="text-sm font-black text-brand-dark leading-tight">0/10</span>
+<span class="text-[10px] font-bold text-brand-muted leading-tight mt-0.5">Daily goal</span>
+</div>
+</section>
+<!-- 2) TEACHER SLOT: Empty Dashed 120x140 Box + Speech Bubble to the right -->
+<section aria-label="Teacher greeting" class="flex items-center gap-3">
+<!-- Empty Dashed Teacher Slot Box (120x140px, Strictly NO character or human face) -->
+<div aria-label="Teacher slot placeholder" class="w-[120px] h-[140px] dashed-teacher-slot flex-shrink-0 flex flex-col items-center justify-center p-2 text-center" role="region">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-brand-teal/40 flex items-center justify-center text-brand-teal mb-1.5 shadow-[0_2px_0_#D1E7E5]">
+<!-- Graduation Cap Silhouette / Academic Emblem -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+</svg>
+</div>
+<span class="text-[11px] font-black text-brand-teal uppercase tracking-wider leading-tight">TEACHER<br/>SLOT</span>
+<span class="text-[9px] font-bold text-brand-teal/70 mt-1 leading-tight">Stands grounded</span>
+</div>
+<!-- Speech Bubble to the Right -->
+<div class="flex-1 relative bg-white border-2 border-brand-border rounded-2xl p-3.5 shadow-[0_4px_0_#DEC9B5]">
+<!-- Speech Bubble Triangular Indicator pointing left -->
+<div class="absolute -left-[9px] top-6 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[9px] border-r-white z-10"></div>
+<div class="absolute -left-[11px] top-6 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[9px] border-r-brand-border z-0"></div>
+<!-- Small Welcoming Tag -->
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+<span class="text-[11px] font-black text-brand-teal uppercase tracking-wide">WELCOME TO LEXKITE</span>
+</div>
+<!-- Exact verbatim greeting -->
+<p class="text-[14px] font-extrabold text-brand-dark leading-snug">
+            “Hi, I'm Ama! Let's get you ready in 3 small steps.”
+          </p>
+</div>
+</section>
+<!-- 3) 'GET STARTED' CARD: 3-step Vertical Stepper with Full-Width 'LET'S GO' Button -->
+<section class="tactile-card p-4 flex flex-col gap-4">
+<!-- Header -->
+<div class="flex items-center justify-between border-b-2 border-brand-border/60 pb-2.5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-lg bg-brand-teal-light flex items-center justify-center text-brand-teal font-black text-xs">
+              ⚡
+            </div>
+<h2 class="text-base font-black text-brand-dark tracking-tight">Get started</h2>
+</div>
+<span class="text-[11px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
+            First Day
+          </span>
+</div>
+<!-- Vertical Stepper -->
+<div class="flex flex-col gap-3 relative">
+<!-- Step 1 (Active): Choose your goal -->
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-brand-teal-light/50 border-2 border-brand-teal/30">
+<!-- Step Circle Icon -->
+<div class="w-8 h-8 rounded-full bg-brand-teal text-white flex items-center justify-center font-black text-sm flex-shrink-0 shadow-[0_2px_0_#0C4E49]">
+              1
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-black text-brand-dark">Choose your goal</span>
+<!-- Chevron Indicating Selection -->
+<svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" viewbox="0 0 24 24">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</div>
+<p class="text-[11px] font-bold text-brand-teal mt-0.5">IELTS, TOEIC, everyday</p>
+</div>
+</div>
+<!-- Connecting vertical line -->
+<div class="w-0.5 h-3 bg-brand-border ml-6 -my-1"></div>
+<!-- Step 2: Quick level check -->
+<div class="flex items-start gap-3 p-2 rounded-xl bg-white border border-brand-border">
+<div class="w-8 h-8 rounded-full bg-[#F4EAE0] text-brand-dark flex items-center justify-center font-extrabold text-sm flex-shrink-0">
+              2
+            </div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-bold text-brand-dark">Quick level check</span>
+<span class="text-[11px] font-extrabold text-brand-muted">2 min</span>
+</div>
+<p class="text-[11px] font-medium text-brand-muted mt-0.5">8 fast diagnostic questions</p>
+</div>
+</div>
+<!-- Connecting vertical line -->
+<div class="w-0.5 h-3 bg-brand-border ml-6 -my-1"></div>
+<!-- Step 3: Your first lesson -->
+<div class="flex items-start gap-3 p-2 rounded-xl bg-white border border-brand-border">
+<div class="w-8 h-8 rounded-full bg-[#F4EAE0] text-brand-dark flex items-center justify-center font-extrabold text-sm flex-shrink-0">
+              3
+            </div>
+<div class="flex-1 min-w-0 pt-0.5">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-bold text-brand-dark">Your first lesson</span>
+<span class="text-[11px] font-extrabold text-brand-muted">3 min</span>
+</div>
+<p class="text-[11px] font-medium text-brand-muted mt-0.5">High-frequency vocabulary sprint</p>
+</div>
+</div>
+</div>
+<!-- Primary Action Button: Full-width Candy-Orange Tactile Button with Deep Brown-Black Text -->
+<button class="tactile-btn-orange w-full h-[52px] flex items-center justify-center gap-2 text-base tracking-wide" style="color: #1C1003;" type="button">
+<span>LET'S GO</span>
+<svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<line x1="5" x2="19" y1="12" y2="12"></line>
+<polyline points="12 5 19 12 12 19"></polyline>
+</svg>
+</button>
+<!-- Secondary Quiet Text Button -->
+<button class="w-full text-center text-xs font-extrabold text-brand-teal hover:underline py-1" style="color: #136B66;" type="button">
+          I already know my level
+        </button>
+</section>
+<!-- 4) SECTION: 'What you can do here' – 2x3 Grid of Small Square Tactile Tiles -->
+<section aria-labelledby="section-features" class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="text-sm font-black text-brand-dark tracking-tight" id="section-features">What you can do here</h2>
+<span class="text-[11px] font-extrabold text-brand-teal">Explore all</span>
+</div>
+<div class="grid grid-cols-3 gap-2.5">
+<!-- Tile 1: Lessons -->
+<div class="tactile-tile p-3 flex flex-col items-center justify-center text-center aspect-square gap-1.5 cursor-pointer hover:border-brand-teal/40 transition-colors">
+<!-- Glossy illustrated icon: Lessons / Book -->
+<div class="w-10 h-10 rounded-2xl bg-amber-100 flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_2px_4px_rgba(180,83,9,0.15)] border border-amber-200">
+<svg class="w-5 h-5 text-amber-700" fill="currentColor" viewbox="0 0 24 24">
+<path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-brand-dark leading-tight">Lessons</span>
+</div>
+<!-- Tile 2: Review -->
+<div class="tactile-tile p-3 flex flex-col items-center justify-center text-center aspect-square gap-1.5 cursor-pointer hover:border-brand-teal/40 transition-colors">
+<!-- Glossy illustrated icon: Review / Flashcards -->
+<div class="w-10 h-10 rounded-2xl bg-emerald-100 flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_2px_4px_rgba(5,150,105,0.15)] border border-emerald-200">
+<svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24">
+<polyline points="23 4 23 10 17 10"></polyline>
+<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-brand-dark leading-tight">Review</span>
+</div>
+<!-- Tile 3: Quick drills -->
+<div class="tactile-tile p-3 flex flex-col items-center justify-center text-center aspect-square gap-1.5 cursor-pointer hover:border-brand-teal/40 transition-colors">
+<!-- Glossy illustrated icon: Lightning Drill -->
+<div class="w-10 h-10 rounded-2xl bg-orange-100 flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_2px_4px_rgba(234,88,12,0.15)] border border-orange-200">
+<svg class="w-5 h-5 text-orange-600" fill="currentColor" viewbox="0 0 24 24">
+<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+</svg>
+</div>
+<span class="text-xs font-black text-brand-dark leading-tight">Quick drills</span>
+</div>
+<!-- Tile 4: Mock tests -->
+<div class="tactile-tile p-3 flex flex-col items-center justify-center text-center aspect-square gap-1.5 cursor-pointer hover:border-brand-teal/40 transition-colors">
+<!-- Glossy illustrated icon: Flag / Tests -->
+<div class="w-10 h-10 rounded-2xl bg-cyan-100 flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_2px_4px_rgba(14,116,144,0.15)] border border-cyan-200">
+<svg class="w-5 h-5 text-cyan-700" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+<line x1="4" x2="4" y1="22" y2="15"></line>
+</svg>
+</div>
+<span class="text-xs font-black text-brand-dark leading-tight">Mock tests</span>
+</div>
+<!-- Tile 5: Stories -->
+<div class="tactile-tile p-3 flex flex-col items-center justify-center text-center aspect-square gap-1.5 cursor-pointer hover:border-brand-teal/40 transition-colors">
+<!-- Glossy illustrated icon: Headphones / Audio Stories -->
+<div class="w-10 h-10 rounded-2xl bg-indigo-100 flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_2px_4px_rgba(67,56,202,0.15)] border border-indigo-200">
+<svg class="w-5 h-5 text-indigo-700" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+<path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-brand-dark leading-tight">Stories</span>
+</div>
+<!-- Tile 6: Call a teacher -->
+<div class="tactile-tile p-3 flex flex-col items-center justify-center text-center aspect-square gap-1.5 cursor-pointer hover:border-brand-teal/40 transition-colors">
+<!-- Glossy illustrated icon: Phone / Call Teacher -->
+<div class="w-10 h-10 rounded-2xl bg-teal-100 flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),0_2px_4px_rgba(19,107,102,0.15)] border border-teal-200">
+<svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-brand-dark leading-tight">Call a teacher</span>
+</div>
+</div>
+</section>
+<!-- 5) SOFT MOTIVATION CARD: Calendar Habit Proof -->
+<section class="tactile-card p-3.5 bg-gradient-to-r from-white to-[#FDF4EA] flex items-center gap-3">
+<!-- Tiny Calendar Illustration with checkmark -->
+<div class="w-11 h-11 rounded-2xl bg-amber-100 border-2 border-amber-300 flex-shrink-0 flex flex-col items-center justify-center shadow-[0_2px_0_#DEC9B5] relative">
+<!-- Calendar Top Header Strip -->
+<div class="absolute top-0 inset-x-0 h-2.5 bg-amber-500 rounded-t-[14px]"></div>
+<div class="pt-2 text-center">
+<span class="text-[12px] font-black text-amber-900 leading-none">5m</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[12px] font-bold text-brand-dark leading-snug">Just 5 minutes a day keeps your streak alive.</p>
+</div>
+</section>
+</div>
+<!-- ==============================================
+         BOTTOM TAB BAR: 64px HUB Screen Specification
+         Fixed docked bottom, exactly 5 equal tabs:
+         Today (active teal pill), Vocab (due badge), Skills, Tests, Me
+         ============================================== -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-white border-t-2 border-brand-border flex items-center justify-around px-2 z-40">
+<!-- Tab 1: Today (ACTIVE - Soft teal pill, teal icon, bold teal label) -->
+<a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 py-1 px-3 rounded-xl bg-brand-teal-light text-brand-teal" href="#today">
+<!-- House Icon -->
+<svg class="w-5 h-5 text-brand-teal" fill="currentColor" viewbox="0 0 24 24">
+<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+</svg>
+<span class="text-[10px] font-black text-brand-teal">Today</span>
+</a>
+<!-- Tab 2: Vocab (Open Book + Small Red Due Badge '3') -->
+<a class="flex flex-col items-center justify-center gap-0.5 py-1 px-3 text-[#5A4E45] hover:text-brand-teal transition-colors relative" href="#vocab">
+<div class="relative">
+<!-- Open Book Icon -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+</svg>
+<!-- Small Red Due Badge -->
+<span class="absolute -top-1 -right-2 w-3.5 h-3.5 rounded-full bg-rose-500 text-white text-[8px] font-black flex items-center justify-center border border-white">
+            3
+          </span>
+</div>
+<span class="text-[10px] font-bold text-[#5A4E45]">Vocab</span>
+</a>
+<!-- Tab 3: Skills (Target Icon) -->
+<a class="flex flex-col items-center justify-center gap-0.5 py-1 px-3 text-[#5A4E45] hover:text-brand-teal transition-colors" href="#skills">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<circle cx="12" cy="12" r="6"></circle>
+<circle cx="12" cy="12" r="2"></circle>
+</svg>
+<span class="text-[10px] font-bold text-[#5A4E45]">Skills</span>
+</a>
+<!-- Tab 4: Tests (Flag Icon) -->
+<a class="flex flex-col items-center justify-center gap-0.5 py-1 px-3 text-[#5A4E45] hover:text-brand-teal transition-colors" href="#tests">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+<line x1="4" x2="4" y1="22" y2="15"></line>
+</svg>
+<span class="text-[10px] font-bold text-[#5A4E45]">Tests</span>
+</a>
+<!-- Tab 5: Me (Person Icon) -->
+<a class="flex flex-col items-center justify-center gap-0.5 py-1 px-3 text-[#5A4E45] hover:text-brand-teal transition-colors" href="#me">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+<span class="text-[10px] font-bold text-[#5A4E45]">Me</span>
+</a>
+</nav>
+</main>
+</body>
+</html>
+

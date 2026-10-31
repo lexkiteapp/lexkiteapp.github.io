@@ -75,6 +75,7 @@
 - [TECH-RADAR.md](TECH-RADAR.md) — Tech radar: chuẩn chọn công nghệ (miễn phí, tiên tiến, chạy ở máy người dùng/biên); danh sách áp dụng, theo dõi, không dùng và lý do; đọc khi: thêm thư viện/dịch vụ
 - [TOKEN-RULES.md](TOKEN-RULES.md) — Luật tiết kiệm token: đọc ít, giao việc cho agent ngắn, không chờ/poll, gộp kiểm thử, nội dung hàng loạt, báo cáo ngắn; đọc khi: ĐẦU MỖI PHIÊN và khi giao việc
 - [UX-BENCHMARK.md](UX-BENCHMARK.md) — So sánh UX web app với Duolingo, Babbel, Busuu, Speak, Elsa, Anki/Quizlet: scorecard, tiêu chí, top 10 cải tiến, UX v3 (icon + token); đọc khi: cải tiến UX
+- [HOME-V2.md](HOME-V2.md) — Trang chủ v2 "Hôm nay": benchmark Duolingo/Busuu/ELSA → khối home, ưu tiên HIỆN tính năng sẵn có; đọc khi: sửa #/home
 - [UX-PUBLIC.md](UX-PUBLIC.md) — Audit UX trang vào cửa + app (24/10): lỗi nặng nhất, token vai trò, mẫu lỗi toàn app, Lighthouse trước→sau, LCP màn đầu; đọc khi: sửa landing/UX công khai
 - [VIDEO-QC.md](VIDEO-QC.md) — Chuẩn QC video trước & sau, tự động trên CI: trượt 1 cổng là không dùng/không đăng; kết quả qc/<id>.json + điểm 100; đọc khi: kiểm tài nguyên/clip video
 - [VIDEO-SCALE-PLAN.md](VIDEO-SCALE-PLAN.md) — Kho video đa dạng + chuẩn 100/100: tránh bị nền tảng coi trùng lặp, bảy trục đa dạng, thang 100 điểm, đường ống 0 credit; đọc khi: nhân rộng video

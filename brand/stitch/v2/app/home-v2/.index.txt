@@ -1,0 +1,4 @@
+# home-v2 refs (key3 project 18075333702575270507, Kit DS assets/16469239436252875897) – CHỜ CHỦ DUYỆT 31/10 · docs/HOME-V2.md
+today light 161ef34efafd4729816377ad7f952b86 dark 30b0c1ef10034be6bddcbbc26ec76007 | frame-hub, đang học; teacher slot → Chars.*; path = lộ trình thật (pathPlan)
+new light a4e2a4cdd838421baf6da5331e548b86 dark fc5ac0e346c7485c9c14da0a00749ab7 | frame-hub, người mới (empty state)
+desk light a987323cf148447f9f563b64d5200507 dark c6b09b9251974eeebb54dcd4efe97497 | desktop 1440: sidebar (của qa-bot-sidebar) + cột giữa + rail phải
