@@ -38,6 +38,7 @@
     };
     const draw = () => {
       const root = ST2.mount(view, 'topic', data(), 'train'), $r = s => root.querySelector(s), $$r = s => [...root.querySelectorAll(s)];
+      { const sh = root.querySelector(':scope > header'); if (sh && root.querySelector(':scope > div > header')) sh.remove(); } // mẫu có đầu trang riêng (quay lại nhóm + chuỗi/XP) → bỏ đầu trang shell cố định đang che nó; thanh tab dưới giữ
       const add = $r('#addAll'); add.disabled = !missing().length;
       $$r('[data-added]').forEach(b => { b.disabled = true; });
       $$r('#lvTabs [data-lv]').forEach(b => b.onclick = () => { lv = b.dataset.lv; all = false; draw(); });

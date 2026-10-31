@@ -81,4 +81,9 @@
   'Từ đã lưu ({n} đang hiện)': 'Saved words ({n} shown)',
   'Sắp xếp: mới thêm': 'Sort: newest',
   'Sắp xếp: dễ quên trước': 'Sort: retention',
+  // Sổ lỗi sai (Stitch v2.1, web/js/ux1-mistakes.js)
+  '{n} lỗi cần xem lại': '{n} mistakes to review',
+  'Cô {name} • Lexkite': 'Teacher {name} • Lexkite',
+  'Mẹo:': 'Tip:',
+  'Loại lỗi': 'Mistake types',
 }); })(typeof self !== 'undefined' ? self : this);

@@ -14,14 +14,20 @@ export const STREAK_NOW = '2026-10-30T12:00:00Z';
 export const FIX_CLOCK = page => page.clock.setFixedTime(new Date(STREAK_NOW));
 export const SEED_STREAK = async () => { const k = d => { const x = new Date(); x.setDate(x.getDate() - d); return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0'); };
   const days = {}; for (let i = 1; i < 14; i++) days[k(i)] = 5; days[k(0)] = 14; App.state.stats.days = Object.assign(App.state.stats.days || {}, days); App.state.game = App.state.game || {}; App.state.game.xp = Math.max(App.state.game.xp || 0, 820); App.state.settings.dailyGoal = 20; await App.saveSettings(); await Core.Store.set('stats', App.state.stats); };
+// Sổ lỗi sai mẫu giống Stitch (3 thẻ: ngữ pháp · từ vựng · khác) – chỉ nạp khi vào màn này (không đổi dữ liệu các màn khác)
+export const SEED_MISTAKES = async () => { const now = Date.now(), D = 864e5;
+  await Core.Store.set('mistakes', [
+    { kind: 'grammar', q: 'I like ___ to music on my daily commute.', answer: 'listening', given: 'listen', explain: 'Preference verbs (like, love, enjoy, avoid) almost always take the -ing form.', ref: 'tenses', key: 'sg1', n: 3, at: now - D, fixed: false },
+    { kind: 'vocab', q: 'The budget cut will severely ___ laboratory research.', answer: 'affect', given: 'effect', explain: 'Affect is a verb, effect is a noun.', ref: 'affect', key: 'sv1', n: 2, at: now - 6 * D, fixed: false },
+    { kind: 'reading', q: 'I am confident that she is good ___ data analysis.', answer: 'at', given: 'in', explain: "Say 'good at' for subjects, skills and sports.", ref: '', key: 'sr1', n: 2, at: now - 8 * D, fixed: false }]); };
 export const SEED_LEAGUE = () => {
   const names = ['An Nguyen', 'Linh Khanh', 'Marcus Roy', 'Tariq Chen', 'You Lexkite', 'Sara Hansen', 'Daiki Kato'], xps = [1420, 1280, 1150, 980, 820, 760, 690]; // bảng giải đấu mẫu giống Stitch (hạng 5 = mình)
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
   Sync.league = async () => ({ member: { nick: 'You', tier: 3, xp: 820 }, week: { end: Date.now() + 3 * 864e5 }, rules: { up: 3, down: 2, maxTier: 5 }, board: names.map((n, i) => ({ rank: i + 1, nick: n, xp: xps[i], me: i === 4, zone: i < 3 ? 'up' : i >= 5 ? 'down' : '' })) });
 };
-export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', library: 'library?g=all', topic: 'topic/education', deck: 'deck' };
+export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', library: 'library?g=all', topic: 'topic/education', deck: 'deck', mistakes: 'mistakes' };
 // Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-export const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', library: 'library', topic: 'topic', deck: 'deck' };
+export const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', library: 'library', topic: 'topic', deck: 'deck', mistakes: 'mistakes' };
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 // màn cần lái tới trạng thái (bài học/phản hồi/kết quả/truyện/cuộc gọi) – stitch-diff và final-qc dùng CHUNG (từng chỉ lái lesson/feedback → chụp nhầm câu đầu)
 export const DRIVEN = /^(lesson|feedback|complete|story|call)/;
