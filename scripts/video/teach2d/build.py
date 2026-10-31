@@ -425,8 +425,9 @@ def T_pair():
     D = EP['data']; series_chip(); t_out = start('q') - 0.2; A, B = D['a'], D['b']
     ia, ib = bank_ipa({A, B}, ROOT)[A], bank_ipa({A, B}, ROOT)[B]
     title([['Same', 'primary'], [' or ', 'ink'], ['different?', 'coral']], 96, RY0 + 120, None, at('r', A) - 0.2, hook=True)
-    bx = side_cards([dict(tag='SOMETHING ↑', word=A, ipa=ia, col='primary', t=at('r', A), mean=D['mean_a'], t_mean=start('m1')),
-                     dict(tag='BY ITSELF ↑', word=B, ipa=ib, col='coral', t=at('w', B), mean=D['mean_b'], t_mean=start('m2'))], RY0, None, t_out)
+    tg = D.get('tags', ['SOMETHING ↑', 'BY ITSELF ↑'])
+    bx = side_cards([dict(tag=tg[0], word=A, ipa=ia, col='primary', t=at('r', A), mean=D['mean_a'], t_mean=start('m1')),
+                     dict(tag=tg[1], word=B, ipa=ib, col='coral', t=at('w', B), mean=D['mean_b'], t_mean=start('m2'))], RY0, None, t_out)
     yb = max(b[3] for b in bx)
     top('vs', [RX0 + RW / 2 - 56, bx[0][1] + 150, RX0 + RW / 2 + 56, bx[0][1] + 262], at('w', B), k='pop', out=t_out, size=64, text='≠', pairs=[['#FFFFFF', '#E0482F', 64]])
     c = Card(yb + 30, tone='card'); c.text([['💡 ', 'accent'], [D['aha'], 'accent']], S['sub'], start('k')); c.place(start('k'), t_out, 'b')   # memory strip
@@ -440,7 +441,10 @@ def T_prep():
     D = EP['data']; series_chip(); t_out = start('q') - 0.2; right = D['right']; t_rev = at('r', 0)
     y = title([['Which ', 'ink'], ['little word', 'accent'], ['?', 'ink']], 84, RY0, None, t_out, hook=True, lines=1) + 24
     pre, post = D['slot'].split('___'); pre, post = pre.rstrip(), post.lstrip()
-    sz = 84; sw = max(tw(o, sz) for o in D['opts']) + 70; tot = tw(pre, sz) + sw + tw(post, sz) + 2 * 22; x = RX0 + (RW - tot) / 2; h = round(sz * 1.25)
+    sz = 84; sw = max(tw(o, sz) for o in D['opts']) + 70; tot = tw(pre, sz) + sw + tw(post, sz) + 2 * 22
+    while tot > RW - 40 and sz > 48:   # a longer sentence steps down until it fits the card on one row
+        sz -= 4; sw = max(tw(o, sz) for o in D['opts']) + 70; tot = tw(pre, sz) + sw + tw(post, sz) + 2 * 22
+    assert tot <= RW, ('slot sentence too wide for one row', D['slot'], tot); x = RX0 + (RW - tot) / 2; h = round(sz * 1.25)
     top('card', [RX0, y, RX1, y + h + 120], start('s'), out=t_out, tone='card')
     yy = y + 60
     n1 = top('text', [x, yy, x + tw(pre, sz), yy + h], start('s'), out=t_out, runs=[[pre, 'ink']], size=sz, ipa=False); x += tw(pre, sz) + 22
@@ -463,14 +467,26 @@ def T_pattern():
     title([[D['verb'], 'ink'], [' + ', 'muted'], ['?', 'accent']], 112, RY0 + 140, None, start('w') - 0.2, hook=True)
     y = title([['THE FORMULA', 'primary']], 40, RY0, start('r'), t_out) + 10
     bw = 360; bh = 170; gap = 120; bx = RX0 + (RW - (2 * bw + gap)) / 2
-    top('brick', [bx, y, bx + bw, y + bh], at('r', 'decided'), out=t_out, label='BASE VERB', word=D['verb'], tone='dark', size=84, pairs=[[TH['ink'], TH['tile'], 84]])
-    top('plus', [bx + bw + gap / 2 - 40, y + bh / 2 - 40, bx + bw + gap / 2 + 40, y + bh / 2 + 40], at('r', 'to'), out=t_out)
-    top('brick', [bx + bw + gap, y, bx + 2 * bw + gap, y + bh], at('r', 'to'), out=t_out, label='ALWAYS', word=D['pat'], tone='glow', size=72, pairs=[['#062A27', '#5FD9CC', 72]])
-    y += bh + 36
-    c = Card(y, tone='good', badge='check', t_badge=at('r', 'better')); c.text([[D['right'], 'ink']], S['body'], at('r', 'better')); b1 = c.place(at('r', 'better'), t_out, 'a')
-    c = Card(b1[3] + 24, tone='bad', badge='cross', t_badge=start('w')); tn = c.text([[D['wrong'], 'ink']], S['body'], start('w'))[0]; b2 = c.place(start('w'), t_out, 'b')
-    strike_on(tn, D['bad'].split()[-1], at('w', D['bad'].split()[-1]) + 0.15)
-    c = Card(b2[3] + 24, tone='card'); c.text([['💡 ', 'accent'], [D['why'], 'ink']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')
+    g1, g2 = D['good'].split()[:2]   # the verb form and the first word of its pattern, as spoken in the right line (decided · to)
+    s1 = 84
+    while s1 > 48 and FT.width(D['verb'], s1) > bw - 6 - 2 * FT.MINPAD: s1 -= 4   # long verbs (hesitate) step down to fit the brick (fit.py)
+    s2 = 72
+    while s2 > 48 and FT.width(D['pat'], s2) > bw - 6 - 2 * FT.MINPAD: s2 -= 4
+    top('brick', [bx, y, bx + bw, y + bh], at('r', g1), out=t_out, label='BASE VERB', word=D['verb'], tone='dark', size=s1, pairs=[[TH['ink'], TH['tile'], s1]])
+    top('plus', [bx + bw + gap / 2 - 40, y + bh / 2 - 40, bx + bw + gap / 2 + 40, y + bh / 2 + 40], at('r', g2), out=t_out)
+    top('brick', [bx + bw + gap, y, bx + 2 * bw + gap, y + bh], at('r', g2), out=t_out, label='ALWAYS', word=D['pat'], tone='glow', size=s2, pairs=[['#062A27', '#5FD9CC', s2]])
+    y += bh + 36; bad = D['bad'].split()[-1]
+    for sz in (S['body'], 52, 48):   # the ✓ / ✗ / tip cards at the largest size that stays inside the region (longer sentences step down)
+        snap = (len(NODES), len(CUES), len(SLOTS))
+        try:
+            c = Card(y, tone='good', badge='check', t_badge=at('r', 'better')); c.text([[D['right'], 'ink']], sz, at('r', 'better')); b1 = c.place(at('r', 'better'), t_out, 'a')
+            c = Card(b1[3] + 24, tone='bad', badge='cross', t_badge=start('w')); tl = c.text([[D['wrong'], 'ink']], sz, start('w')); b2 = c.place(start('w'), t_out, 'b')
+            tn = next(x for x in tl if bad.lower() in ''.join(r[0] for r in x['runs']).lower())   # the wrapped line that holds the struck word
+            strike_on(tn, bad, at('w', bad) + 0.15)
+            c = Card(b2[3] + 24, tone='card'); c.text([['💡 ', 'accent'], [D['why'], 'ink']], S['sub'] if sz == S['body'] else 44, start('y')); c.place(start('y'), t_out, 'c'); break
+        except AssertionError:
+            if sz == 48: raise
+            del NODES[snap[0]:], CUES[snap[1]:], SLOTS[snap[2]:]
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
     save_card([[[f"{D['verb']} + {D['pat']}", 'primary']], [[D['right'], 'good']], [[D['aha'], 'muted']]], start('sh'), start('c') - 0.2)
     end_card()
@@ -481,7 +497,7 @@ def T_native():
     D = EP['data']; series_chip(); t_out = start('q') - 0.2
     title([['Textbook', 'muted'], [' or ', 'ink'], ['real', 'primary'], ['?', 'ink']], 104, RY0 + 140, None, start('w') - 0.2, hook=True)
     c = Card(RY0, tone='tile'); chip(c, f"TEXTBOOK · AT THE {D['scene'].upper()}", start('w')); tn = c.text([[D['wrong'], 'muted']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
-    strike_on(tn, D['strike'], at('w', D['strike']) + 0.1)
+    strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.1)
     c = Card(b1[3] + 30, tone='bubble_good'); chip(c, '✨ NATIVE', at('r', 'natives'), tone='good'); c.text(runs_hl(D['right'], D['hl'], 'onhl', 'ongood'), S['body'], at('r', 'natives'))
     c.text([[D['why'], 'ongood']], S['sub'], start('y')); c.place(at('r', 'natives'), t_out, 'b')
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)

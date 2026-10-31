@@ -1,0 +1,83 @@
+{
+ "id": "t4_review_eventually",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dark",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Eventually means maybe? No!",
+   "pause": 0.42,
+   "speed": 1.25
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: eventually.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means in the end, after a long time or a lot of problems.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "After many attempts, he eventually passed his driving test.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "eventually",
+  "ipa": "/ɪˈventʃəwəli/",
+  "mean": "in the end, after a long time or a lot of problems",
+  "ex": "After many attempts, he eventually passed his driving test.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "review",
+  "route": "#/review?w=eventually",
+  "link": "https://lexkite.com/app/#/review?w=eventually",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Eventually = maybe? No!",
+  "style": "myth",
+  "hl": "No!"
+ },
+ "scene": "library",
+ "hook_by": 1.5,
+ "layout": "bubble",
+ "est": {
+  "words": 49,
+  "seconds": 28.4,
+  "wpm": 103,
+  "hook_s": 1.35
+ }
+}

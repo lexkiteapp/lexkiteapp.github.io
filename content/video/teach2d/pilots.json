@@ -570,6 +570,188 @@
     "hook_say": "Can you catch this?",
     "hook_text": "Catch every word!"
    }
+  },
+  {
+   "id": "t4_phrasal_splitbill",
+   "template": "phrasal",
+   "teacher": "carlos",
+   "theme": "light",
+   "scene": "cafe",
+   "layout": "corner",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "hook_style": "question",
+   "hook_hl": "split",
+   "in": {
+    "gold": "sb_0a35f2ef",
+    "pv": "split the bill",
+    "hook_say": "Divide or split?",
+    "hook_text": "Divide or split the bill?",
+    "mean_say": "Split the bill means everyone pays a part.",
+    "mean_card": "= share the cost",
+    "strike": "divide",
+    "answer_say": "Split! Let's split the bill."
+   }
+  },
+  {
+   "id": "t4_pair_beside",
+   "template": "pair",
+   "teacher": "ama",
+   "theme": "dark",
+   "scene": "park",
+   "layout": "bubble",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "most",
+   "hook_hl": "Most learners",
+   "in": {
+    "gold": "sb_2ed92c40",
+    "a": "beside",
+    "b": "besides",
+    "hook_say": "Most learners mix these!",
+    "hook_text": "Most learners mix these up",
+    "tags": [
+     "NEXT TO",
+     "ALSO"
+    ]
+   }
+  },
+  {
+   "id": "t4_prep_fond",
+   "template": "prep",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "home",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "hook_style": "myth",
+   "hook_hl": "Wrong!",
+   "in": {
+    "gold": "sb_0c46f8a4",
+    "slot_say": "I'm fond... my grandma.",
+    "slot_text": "I'm fond ___ my grandma.",
+    "hook_say": "Fond with? Wrong!",
+    "hook_text": "“Fond with”? Wrong!"
+   }
+  },
+  {
+   "id": "t4_native_parking",
+   "template": "native",
+   "teacher": "ama",
+   "theme": "light",
+   "scene": "street",
+   "layout": "corner",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "challenge",
+   "hook_hl": "local",
+   "in": {
+    "gold": "sb_a79c3048",
+    "strike": "car place",
+    "hl": "parking spot",
+    "scene": "mall",
+    "hook_say": "Sound like a local!",
+    "hook_text": "Sound like a local!"
+   }
+  },
+  {
+   "id": "t4_guess_balloon",
+   "template": "guess",
+   "teacher": "carlos",
+   "theme": "dark",
+   "scene": "park",
+   "layout": "bubble",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "question",
+   "hook_hl": "guess",
+   "in": {
+    "word": "balloon",
+    "img": "balloon#n",
+    "hook_say": "Can you guess it?",
+    "hook_text": "Can you guess it?"
+   }
+  },
+  {
+   "id": "t4_level_mix",
+   "template": "level",
+   "teacher": "ama",
+   "theme": "dusk",
+   "scene": "classroom",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "most",
+   "hook_hl": "Most learners",
+   "in": {
+    "gold": [
+     "sb_08f69142",
+     "sb_13a16c00",
+     "sb_47b3e9e9"
+    ],
+    "hook_say": "Most learners miss one!",
+    "hook_text": "Most learners miss one"
+   }
+  },
+  {
+   "id": "t4_toeic_monthend",
+   "template": "toeic",
+   "teacher": "carlos",
+   "theme": "light",
+   "scene": "office",
+   "layout": "corner",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "challenge",
+   "hook_hl": "Go!",
+   "in": {
+    "file": "reading1",
+    "tid": "tr1",
+    "n": 106,
+    "cue": "the end of each month",
+    "why_say": "No later than month end.",
+    "hook_say": "Ten seconds. Ready? Go!",
+    "hook_text": "10 seconds. Go!"
+   }
+  },
+  {
+   "id": "t4_review_eventually",
+   "template": "review",
+   "teacher": "ama",
+   "theme": "dark",
+   "scene": "library",
+   "layout": "bubble",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "myth",
+   "hook_hl": "No!",
+   "in": {
+    "word": "eventually",
+    "hook_say": "Eventually means maybe? No!",
+    "hook_text": "Eventually = maybe? No!"
+   }
+  },
+  {
+   "id": "t4_pattern_hesitate",
+   "template": "pattern",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "office",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "question",
+   "hook_hl": "to contact",
+   "in": {
+    "gold": "sb_29c61515",
+    "verb": "hesitate",
+    "pat": "to + verb",
+    "good": "hesitate to contact",
+    "bad": "hesitate contacting",
+    "hook_say": "Contacting, or to contact?",
+    "hook_text": "Contacting, or to contact?"
+   }
   }
  ]
 }

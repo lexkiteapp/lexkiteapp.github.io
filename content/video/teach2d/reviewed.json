@@ -465,6 +465,161 @@
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
+  },
+  "t4_phrasal_splitbill": {
+   "template": "phrasal",
+   "hook": "Divide or split the bill?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (share a restaurant cost = split the bill, not divide the bill), gold sb_0a35f2ef (wrong / right / aha / quiz are the bank's); meaning line 'everyone pays a part' is accurate; QUESTION hook 'Divide or split?' / on screen 'Divide or split the bill?', answered by the quiz; 3 words at hook speed 1.0 (est. 1.28 s); CTA #/phrases; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Divide or split?",
+    "w": "Not: Let's divide the bill.",
+    "r": "Say: Let's split the bill.",
+    "m": "Split the bill means everyone pays a part.",
+    "k": "You can split a taxi too!",
+    "q": "Quick quiz! Which one sounds natural?",
+    "a": "Split! Let's split the bill.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_pair_beside": {
+   "template": "pair",
+   "hook": "Most learners mix these up",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (beside = next to, besides = also), gold sb_2ed92c40; IPA beside /bɪˈsaɪd/, besides /bɪˈsaɪdz/ = audited bank; card tags NEXT TO / ALSO match the two meaning lines; quiz 'Besides coffee, I also like tea.' answered aloud; 'MOST LEARNERS' hook 'Most learners mix these!' - beside / besides is a well-known confusion (even for native writers), acceptable; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/usage/beside-besides; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Most learners mix these!",
+    "r": "Sit beside me.",
+    "w": "Not: sit besides me.",
+    "m1": "Beside means next to.",
+    "m2": "Besides means also.",
+    "k": "One extra S changes the meaning!",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Besides! Besides coffee, I also like tea.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_prep_fond": {
+   "template": "prep",
+   "hook": "“Fond with”? Wrong!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (fond OF, not fond with), gold sb_0c46f8a4: slot sentence = the bank's right line, options with / of, quiz 'He's fond of spicy food.'; MYTH hook 'Fond with? Wrong!' / on screen '“Fond with”? Wrong!' - true ('fond with' is not standard English); 3 words at hook speed 1.0 (est. 1.28 s); CTA #/fix; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Fond with? Wrong!",
+    "s": "I'm fond... my grandma. With, or of?",
+    "r": "Of! I'm fond of my grandma.",
+    "y": "Fond of means you like someone warmly.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Of! He's fond of spicy food.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_native_parking": {
+   "template": "native",
+   "hook": "Sound like a local!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (Americans say parking spot / parking space, not 'car place'), gold sb_a79c3048; chip 'TEXTBOOK · AT THE MALL', strike on 'car place', 'parking spot' highlighted; quiz 'It took ten minutes to find a parking spot.'; CHALLENGE hook 'Sound like a local!' - names the payoff (natural American wording); 4 words at hook speed 1.25 (est. 1.35 s); CTA #/phrases; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Sound like a local!",
+    "w": "Textbook: I can't find a car place.",
+    "r": "Natives say: I can't find a parking spot.",
+    "y": "Americans say parking spot or parking space.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Spot! It took ten minutes to find a parking spot.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_guess_balloon": {
+   "template": "guess",
+   "hook": "Can you guess it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one word (balloon) from the audited bank (/bəˈluːn/, 'a rubber bag filled with air', bank example sentence) + its licensed img.json picture balloon#n; clues true (7 letters, starts with B); QUESTION hook 'Can you guess it?' = on screen; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/dict/balloon; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Can you guess it?",
+    "c1": "Clue one: a rubber bag filled with air.",
+    "c2": "Clue two: it has seven letters.",
+    "c3": "Clue three: it starts with B.",
+    "q": "Got it? Comment your guess!",
+    "a": "Balloon! The store was decorated with balloons for the opening.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_level_mix": {
+   "template": "level",
+   "hook": "Most learners miss one",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: three gold quiz items (sb_08f69142 It depends, sb_13a16c00 exciting vs excited, sb_47b3e9e9 stole vs robbed), each answer spoken as the full correct sentence; 'MOST LEARNERS' hook 'Most learners miss one!' - all three are among the most common learner errors, so missing at least one is the typical result; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/placement; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Most learners miss one!",
+    "q1": "Question one.",
+    "a1": "How much is it? It depends.",
+    "q2": "Question two.",
+    "a2": "The movie was so exciting!",
+    "q3": "Question three.",
+    "a3": "Someone stole my wallet!",
+    "s": "Three out of three? Comment below!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_toeic_monthend": {
+   "template": "toeic",
+   "hook": "10 seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one TOEIC Part 5 item (app bank tr1 #106, answer key 'by', cue 'the end of each month'); explanation 'No later than month end.' = the meaning of 'by' with a deadline, correct; CHALLENGE hook 'Ten seconds. Ready? Go!' / on screen '10 seconds. Go!'; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/toeic; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Ten seconds. Ready? Go!",
+    "s": "Expense reports should be submitted blank the end of each month.",
+    "k": "Find the clue: the end of each month.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "By! No later than month end.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_review_eventually": {
+   "template": "review",
+   "hook": "Eventually = maybe? No!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one word (eventually) from the audited bank (/ɪˈventʃəwəli/, 'in the end, after a long time or a lot of problems', bank example); MYTH hook 'Eventually means maybe? No!' / on screen 'Eventually = maybe? No!' - true: a classic false friend (eventuell / eventualmente = possibly), and the card's meaning shows 'in the end'; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/review?w=eventually; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Eventually means maybe? No!",
+    "f": "Here's your card: eventually.",
+    "q": "Think! What does it mean?",
+    "b": "It means in the end, after a long time or a lot of problems.",
+    "x": "After many attempts, he eventually passed his driving test.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_pattern_hesitate": {
+   "template": "pattern",
+   "hook": "Contacting, or to contact?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (hesitate + to + verb, not -ing), gold sb_29c61515 (right line 'Don't hesitate to contact us.', quiz 'Please don't hesitate to call us.'); bricks hesitate + to + verb; QUESTION hook 'Contacting, or to contact?' = on screen, answered by the right line and the quiz; 4 words at hook speed 1.25 (est. 1.35 s); CTA #/verb/hesitate; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Contacting, or to contact?",
+    "w": "Many learners say: Don't hesitate contacting us.",
+    "r": "Better: Don't hesitate to contact us.",
+    "y": "Hesitate is followed by to plus verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To call! Please don't hesitate to call us.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }

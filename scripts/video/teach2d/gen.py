@@ -132,7 +132,8 @@ def pair(p):   # Same or Different? (gold x-vs-y): two word cards with one-line 
         L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
         L('sh', 'Send this to a friend!'),
         L('c', 'Save this. Free on lexkite.com.')],
-        data=dict(a=p['a'], b=p['b'], mean_a=m1, mean_b=m2, aha=g['aha'], right=g['right'], quiz=dict(stem=stem, options=opts, answer=ans)),
+        data=dict(a=p['a'], b=p['b'], mean_a=m1, mean_b=m2, aha=g['aha'], right=g['right'], quiz=dict(stem=stem, options=opts, answer=ans),
+                  **({'tags': p['tags']} if 'tags' in p else {})),   # the two word-card tags (default raise / rise: SOMETHING ↑ · BY ITSELF ↑)
         cta=cta('word-usage', f"#/usage/{p['a']}-{p['b']}", 'Compare tricky words'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
 
 
