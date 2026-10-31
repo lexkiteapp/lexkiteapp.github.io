@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
+import { defGrammarBad } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -138,6 +139,9 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
   { const peel = viAgreeSources({ wk: ['gọt'], a: 'gọt', b: '', c: 'bóc vỏ' })[0];
     ok(peel && viContested(peel, { a: 'gọt', b: '', c: 'bóc vỏ' }) && !viContested(peel, { a: 'gọt', b: '', c: '' }) && !viContested(peel, { a: 'gọt', b: 'gọt vỏ', c: '' }) && viContested(peel, { a: 'gọt', b: 'lột vỏ', c: 'bóc vỏ' })
       && !viContested(viAgreeSources({ wk: ['ba lê'], a: 'ba lê', c: 'múa ba lê' })[0], { a: 'ba lê', b: '', c: 'múa ba lê' }) && !viContested(viAgreeSources({ wk: ['ốc sên'], a: 'ốc sên', c: 'ốc sên' })[0], { a: 'ốc sên', b: 'con ốc', c: 'ốc sên' }), 'L1: vi Wiktionary + 1 AI bị AI họ khác phản bác → không nhận (peel "gọt")'); }
+  // L4 def sai ngữ pháp (soát Sonnet 31/10: resuscitate "…or life to", orphan "whose both parents") → viết lại 1 lần, còn sai = trượt schema
+  ok(defGrammarBad('to restore consciousness, energy, or life to') && defGrammarBad('a child whose both parents have died') && !defGrammarBad('a child whose parents have both died') && !defGrammarBad('to stop fighting and give in') && !defGrammarBad('to bring someone back to life.')
+    && gateEntry({ ...base(), def: 'to restore consciousness, energy, or life to' }).why.some(x => /ngữ pháp/.test(x)), 'L4: định nghĩa sai ngữ pháp (giới từ cụt, lượng từ sau "whose") → trượt');
   // L2 (31/10 snail#n "We were late going to look for snails." – LeeSooHa eng cấp 4): câu đúng nghĩa nên qua trắc nghiệm; chặn theo nguồn – chỉ chủ câu bản ngữ (eng cấp 5)
   { const nat = nativeOwners('eng\t5\tCK\tAmerican English Native Speaker.\neng\t4\tLeeSooHa\tMalaysian English\nfra\t5\tsacredceltic\t\neng\t5\t\\N\t\n');
     ok(nat.has('CK') && !nat.has('LeeSooHa') && !nat.has('sacredceltic') && !nat.has('\\N') && nativeLine('10109473\teng\tWould you like me to peel an apple for you?\tCK\t\\N\t\\N', nat)

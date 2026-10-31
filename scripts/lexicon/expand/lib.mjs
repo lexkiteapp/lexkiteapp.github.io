@@ -54,6 +54,14 @@ const formOf = (w, s) => { const t = words(s), st = w.split('-')[0].slice(0, Mat
 // Cổng 1 mục (CỨNG): lược đồ · IPA hợp lệ (Anh từ Wiktionary, Mỹ từ CMUdict) · 2 giám khảo khác họ ≥ 4 lệch ≤ 1 · CEFR · dịch (≥ 4 cả 2 giám khảo, đúng chữ viết, không lẫn tiếng Việt, dịch ngược ≥ 0.8)
 // định nghĩa đúng HÌNH từ loại (quy ước kho, đo 26/10: v 1348/1348 "to …", adj/adv 0 mạo từ/"to", n 0 "to") – pilot 11: purple#adj "a colour that…"
 export const DEF_POS_FIX = { v: 'a verb definition must start with "to …"', adj: 'an adjective definition must describe a quality (no "a/an/the …" noun phrase, no "to …")', adv: 'an adverb definition must not start with "a/an/the" or "to"', n: 'a noun definition must not start with "to …"' };
+/** NGỮ PHÁP def tất định (soát Sonnet pilot 31/10: resuscitate "to restore consciousness, energy, or life to" – giới từ cụt; orphan "a child whose both parents have died" – lượng từ sau "whose").
+ *  Trả lý do (tiếng Anh, đưa vào lxdef viết lại 1 lần) hoặc ''. */
+export function defGrammarBad(def) {
+  const d = String(def || '').trim().toLowerCase().replace(/[.;:,\s]+$/, '');
+  if (/\b(to|of|with|from|a|an|the|and|or)$/.test(d)) return 'the definition must not end with a dangling "' + d.split(/\s+/).pop() + '" – give the object or rephrase';
+  if (/\bwhose (both|all|each|every|either|neither)\b/.test(d)) return 'ungrammatical quantifier after "whose" – e.g. "whose parents have both died"';
+  return '';
+}
 export function defPosOk(def, pos) {
   const d = String(def || '').trim().toLowerCase();
   if (pos === 'v') return /^to /.test(d);
@@ -141,6 +149,7 @@ export function gateEntry(e, { keep } = {}) {
   if (!e.ipaUS) why.push('ipa: thiếu IPA Mỹ'); else if (badChars(e.ipaUS).length) why.push('ipa: Mỹ ngoài bảng ' + badChars(e.ipaUS).join(''));
   if (!e.def || words(e.def).length > 18 || words(e.def).includes(e.w)) why.push('schema: định nghĩa');
   else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);
+  else if (defGrammarBad(e.def)) why.push('schema: định nghĩa sai ngữ pháp – ' + defGrammarBad(e.def));
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
   else if (e.ex.some(x => !isSentence(x))) why.push('ví dụ: không phải câu hoàn chỉnh (viết hoa đầu, có dấu câu cuối)');
   if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa

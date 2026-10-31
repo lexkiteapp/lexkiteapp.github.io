@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -183,9 +183,9 @@ const idx = v => (Array.isArray(v) ? v : []).map(Number).filter(Number.isInteger
 const cov = { def: { wordnet: 0 }, ex: { wordnet: 0, tatoeba: 0, wiktionary: 0, ai: 0 }, tr: { wiktionary: 0, ai: 0 }, vi: { wiktionary: 0, ai: 0 }, col: { src: 0, none: 0 }, syn: { wordnet: 0, none: 0 }, cefr: {} };
 await srcPass(live);
 // def bị giám khảo bác → viết lại 1 lần theo lý do (gần chữ gloss hơn) rồi chấm lại; vẫn bác → hàng duyệt
-// + định nghĩa sai hình từ loại (defPosOk – pilot 11 purple#adj "a colour…") cũng viết lại 1 lần với lý do cụ thể
-{ const posBad = x => !defPosOk(D[x.k].def, x.pos), redo = live.filter(x => X[x.k] && (!X[x.k].defOk || posBad(x))); stat.defRedo = redo.length; stat.defPosRedo = redo.filter(posBad).length;
-  await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxdef', ch.map(x => ({ ...strip(x), fix: [X[x.k].defOk ? '' : X[x.k].defWhy || 'meaning changed', posBad(x) ? DEF_POS_FIX[x.pos] : ''].filter(Boolean).join('; ') }))); if (r) for (const x of ch) { const o = r.out[x.k]; if (o && o.def && o.keep !== false) { D[x.k] = { ...D[x.k], def: o.def }; delete S[x.k]; delete X[x.k]; } } });
+// + định nghĩa sai hình từ loại (defPosOk – pilot 11 purple#adj "a colour…") hoặc sai ngữ pháp (defGrammarBad – soát 31/10 resuscitate/orphan) cũng viết lại 1 lần với lý do cụ thể
+{ const posBad = x => !defPosOk(D[x.k].def, x.pos) || !!defGrammarBad(D[x.k].def), redo = live.filter(x => X[x.k] && (!X[x.k].defOk || posBad(x))); stat.defRedo = redo.length; stat.defPosRedo = redo.filter(posBad).length;
+  await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxdef', ch.map(x => ({ ...strip(x), fix: [X[x.k].defOk ? '' : X[x.k].defWhy || 'meaning changed', !defPosOk(D[x.k].def, x.pos) ? DEF_POS_FIX[x.pos] : '', defGrammarBad(D[x.k].def)].filter(Boolean).join('; ') }))); if (r) for (const x of ch) { const o = r.out[x.k]; if (o && o.def && o.keep !== false) { D[x.k] = { ...D[x.k], def: o.def }; delete S[x.k]; delete X[x.k]; } } });
   await srcPass(redo.filter(x => !X[x.k])); stat.defRedoOk = redo.filter(x => X[x.k] && X[x.k].defOk).length; } // KHÔNG lấy nguyên gloss WordNet làm def (soát pilot 2 29/10: sulfur "tasteless odorless multivalent…" – thô, sai với người học)
 
 // 3. "RA LÀ OK" (29/10) – mỗi trường nhận khi qua TRẮC NGHIỆM NGHĨA 3 giám khảo (wsd3) + nguồn độc lập:
