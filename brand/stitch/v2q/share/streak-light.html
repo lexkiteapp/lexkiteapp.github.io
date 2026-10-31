@@ -1,210 +1,302 @@
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
+<html class="" lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=1080, height=1080, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lexkite 45-Day Streak Share Card</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-        },
-        colors: {
-          lexkite: {
-            cream: '#fff8f3',
-            surface: '#fcf1e7',
-            card: '#ffffff',
-            border: '#ecdccf',
-            ledge: '#dfcbbb',
-            darkteal: '#134e4a',
-            deepink: '#1c1917',
-            brownink: '#1c1003',
-            orange: '#f59e0b',
-            orangeLedge: '#b45309',
-            flameOrange: '#ea580c',
-            flameAmber: '#fbbf24',
-            teal: '#0d9488',
-            tealDark: '#115e59',
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#ba8b00",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-background": "#d8e5e9",
+            "on-primary-fixed-variant": "#00504b",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-error": "#690005",
+            "background": "#091518",
+            "surface-container": "#162125",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#6bd8ce",
+            "surface-bright": "#2f3b3e",
+            "on-primary": "#003733",
+            "inverse-on-surface": "#263236",
+            "on-tertiary-fixed": "#261a00",
+            "surface-container-highest": "#2b373a",
+            "on-secondary-container": "#ffa493",
+            "inverse-primary": "#006a64",
+            "primary": "#6bd8ce",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-variant": "#2b373a",
+            "secondary-container": "#981201",
+            "tertiary": "#f4bf40",
+            "secondary": "#ffb4a6",
+            "surface-container-lowest": "#051013",
+            "surface": "#091518",
+            "outline-variant": "#3d4947",
+            "surface-dim": "#091518",
+            "on-primary-container": "#00322e",
+            "surface-container-high": "#202c2f",
+            "on-secondary": "#660800",
+            "secondary-fixed": "#ffdad3",
+            "inverse-surface": "#d8e5e9",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary-fixed": "#3f0300",
+            "on-tertiary-container": "#392900",
+            "primary-container": "#2ba39a",
+            "primary-fixed": "#88f5ea",
+            "surface-container-low": "#121d20",
+            "on-secondary-fixed-variant": "#900f00",
+            "error-container": "#93000a",
+            "on-surface": "#d8e5e9",
+            "secondary-fixed-dim": "#ffb4a6",
+            "outline": "#879391",
+            "on-tertiary": "#402e00",
+            "on-primary-fixed": "#00201e",
+            "error": "#ffb4ab"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans"],
+            display: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"]
           }
         },
-        boxShadow: {
-          'tactile-card': '0 10px 0 0 #dfcbbb, 0 20px 25px -5px rgba(0, 0, 0, 0.06)',
-          'tactile-sm': '0 4px 0 0 #dfcbbb',
-          'tactile-btn': '0 6px 0 0 #b45309',
-          'tactile-flame': '0 14px 0 0 #d97706, 0 22px 30px -4px rgba(234, 88, 12, 0.35)',
-        }
-      }
+      },
     }
-  }
-</script>
+  </script>
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    width: 1080px;
-    height: 1080px;
-    max-width: 1080px;
-    max-height: 1080px;
-    overflow: hidden;
-    background-color: #fff8f3;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #1c1917;
-    position: relative;
-    user-select: none;
-  }
-</style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #091518;
+      color: #d8e5e9;
+      user-select: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    /* Tactile tactile bevel and 3D bounce effects */
+    .tactile-press {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-press:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #5b4300 !important;
+    }
+  </style>
 </head>
-<body class="w-[1080px] h-[1080px] bg-[#fff8f3] flex flex-col justify-between p-14 relative overflow-hidden">
-<!-- Subtle playful background decorative elements (confetti & sparkles, no faces/characters) -->
-<div class="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-amber-100/50 blur-3xl pointer-events-none"></div>
-<div class="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-teal-100/40 blur-3xl pointer-events-none"></div>
-<!-- Sparkle stars (pure geometric SVGs) -->
-<svg class="absolute top-28 left-20 text-amber-400 w-8 h-8 opacity-80" fill="currentColor" viewbox="0 0 24 24">
-<path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"></path>
-</svg>
-<svg class="absolute top-20 right-32 text-teal-500 w-7 h-7 opacity-75" fill="currentColor" viewbox="0 0 24 24">
-<path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"></path>
-</svg>
-<svg class="absolute bottom-44 right-20 text-orange-400 w-6 h-6 opacity-70" fill="currentColor" viewbox="0 0 24 24">
-<path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"></path>
-</svg>
-<svg class="absolute bottom-56 left-28 text-teal-600 w-5 h-5 opacity-60" fill="currentColor" viewbox="0 0 24 24">
-<path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z"></path>
-</svg>
-<!-- 1. TOP HEADER: Kite Logo & 'Lexkite' small -->
-<header class="flex items-center justify-between w-full z-10">
-<div class="flex items-center gap-3.5 bg-white/80 backdrop-blur-md px-5 py-3 rounded-full border-2 border-[#ecdccf] shadow-[0_4px_0_0_#dfcbbb]">
-<!-- Kite Logo SVG -->
-<svg class="w-8 h-8" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 2L28 14L16 28L4 14L16 2Z" fill="#0d9488" stroke="#115e59" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M16 2V28" stroke="#f59e0b" stroke-width="2"></path>
-<path d="M4 14H28" stroke="#f59e0b" stroke-width="2"></path>
-<!-- Kite Tail ribbon dots -->
-<path d="M16 28C16 30 19 30.5 19 32" stroke="#ea580c" stroke-linecap="round" stroke-width="2"></path>
-</svg>
-<span class="text-2xl font-black tracking-tight text-[#134e4a]">Lexkite</span>
-<span class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]"></span>
-<span class="text-xs font-extrabold uppercase tracking-widest text-[#134e4a]">IELTS · TOEIC</span>
+<body class="bg-[#fff8f3] min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 relative overflow-x-hidden text-[#1f1b16]">
+<!-- Ambient Decorative Sparkles / Floating Diamonds -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0"><div class="absolute top-1/4 left-8 text-[#136b66] opacity-20 transform rotate-12 scale-125"><span class="material-symbols-outlined text-3xl">arrow_back_ios_new</span></div><div class="absolute top-16 right-1/4 text-[#895100] opacity-25 transform -rotate-6 scale-90"><span class="material-symbols-outlined text-2xl">star_rate</span></div><div class="absolute bottom-1/3 left-1/5 text-[#136b66] opacity-15 transform rotate-45"><span class="material-symbols-outlined text-4xl">auto_awesome</span></div><div class="absolute bottom-20 right-12 text-[#895100] opacity-20 transform -rotate-12 scale-110"><span class="material-symbols-outlined text-3xl">arrow_back_ios_new</span></div><div class="absolute top-2/3 right-1/3 opacity-30 w-3 h-3 rounded-full bg-[#136b66]/30"></div><div class="absolute top-12 left-1/3 opacity-25 w-2 h-2 rounded-full bg-[#fe9d19]"></div></div>
+<!-- Main Canvas Container -->
+<main class="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-6"><!-- 1. Floating Header (Top Bar Badges) -->
+<header class="w-full flex items-center justify-between flex-wrap gap-4">
+<!-- Top-left badge: Kite Logo + Wordmark + Exam Track -->
+<div class="flex items-center gap-3 bg-white border-2 border-[#e8dacb] rounded-2xl px-4 py-2.5 shadow-[0_4px_0_0_#e8dacb] backdrop-blur-md">
+<!-- Glossy Geometric Kite Emblem -->
+<div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#136b66] via-[#2ba39a] to-[#fe9d19] p-0.5 shadow-sm flex items-center justify-center">
+<div class="w-full h-full bg-[#fff8f3] rounded-[10px] flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-[#00514d] text-xl font-bold">air</span>
+<div class="absolute -top-1 -right-1 w-3 h-3 bg-[#fe9d19] rounded-full opacity-80 blur-[1px]"></div>
 </div>
-<!-- Milestone category chip -->
-<div class="flex items-center gap-2 bg-[#fef3c7] text-[#1c1003] px-5 py-2.5 rounded-full border-2 border-[#fcd34d] shadow-[0_3px_0_0_#f59e0b]">
-<span class="w-2.5 h-2.5 rounded-full bg-[#ea580c] animate-pulse"></span>
-<span class="text-sm font-extrabold tracking-wide uppercase">Streak Milestone</span>
+</div>
+<div class="flex items-center gap-2.5">
+<span class="font-headline font-extrabold text-xl tracking-tight text-[#0f2e2b]">Lexkite</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#bec9c7]"></span>
+<span class="text-xs font-label font-extrabold uppercase tracking-wider text-[#00514d]">IELTS • TOEIC</span>
+</div>
+</div>
+<!-- Top-right milestone badge: Tactile Pill -->
+<div class="flex items-center gap-2.5 bg-[#ffdcbc] border-2 border-[#ffb86c] rounded-full px-4 py-2.5 shadow-[0_4px_0_0_#ebdcc9]">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fe9d19] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-[#fe9d19] shadow-[0_0_8px_#fe9d19]"></span>
+</span>
+<span class="text-xs font-label font-extrabold tracking-widest text-[#1c1003] uppercase">STREAK MILESTONE</span>
 </div>
 </header>
-<!-- 2. MAIN CARD: Bold Warm Composition -->
-<main class="w-full bg-white rounded-[44px] border-[3.5px] border-[#ecdccf] shadow-[0_12px_0_0_#dfcbbb,0_24px_35px_-8px_rgba(0,0,0,0.06)] p-12 z-10 flex flex-col justify-between my-auto">
-<!-- Top row within card: Big Streak Counter + Huge Glossy Flame + Teacher Slot -->
-<div class="flex items-center justify-between gap-8">
-<!-- Left side: Huge Glossy Flame Medallion + 45 Big beside it + day streak under it -->
-<div class="flex items-center gap-9 flex-1">
-<!-- Huge Glossy Flame Medallion -->
-<div class="relative flex-shrink-0">
-<!-- Multi-ring 3D glossy coin medallion base -->
-<div class="w-48 h-48 rounded-full bg-gradient-to-b from-[#fef3c7] via-[#fde68a] to-[#f59e0b] p-3 border-[4px] border-[#d97706] shadow-[0_12px_0_0_#b45309,0_16px_25px_rgba(234,88,12,0.3)] flex items-center justify-center relative">
-<!-- Inner gloss highlight ring -->
-<div class="w-full h-full rounded-full bg-gradient-to-br from-[#ea580c] to-[#c2410c] flex items-center justify-center relative overflow-hidden border-2 border-[#fbbf24]/60">
-<!-- Glass gloss top sheen reflection -->
-<div class="absolute -top-6 -left-6 w-36 h-28 bg-white/30 rounded-full blur-[2px] transform -rotate-12 pointer-events-none"></div>
-<!-- Tactile 3D Vector Flame -->
-<svg class="w-28 h-28 filter drop-shadow-[0_6px_8px_rgba(0,0,0,0.25)]" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-<!-- Outer Ember Body -->
-<path d="M50 8C50 8 30 32 30 54C30 72 40 84 50 86C60 84 70 72 70 54C70 38 56 20 50 8Z" fill="#ffedd5"></path>
-<!-- Main Red-Orange Flame -->
-<path d="M50 12C48 24 33 36 33 56C33 71.5 41.5 83 50 85C58.5 83 67 71.5 67 56C67 36 52 24 50 12Z" fill="url(#flame_grad_outer)"></path>
-<!-- Secondary Gold Flame Core -->
-<path d="M50 28C48 37 40 46 40 60C40 70 45 77 50 78C55 77 60 70 60 60C60 46 52 37 50 28Z" fill="url(#flame_grad_mid)"></path>
-<!-- Inner Bright Yellow/White Core -->
-<path d="M50 44C49 50 45 55 45 64C45 70 47.5 73.5 50 74C52.5 73.5 55 70 55 64C55 55 51 50 50 44Z" fill="#ffffff"></path>
-<!-- Sparkle highlights -->
-<circle cx="56" cy="38" fill="#ffffff" opacity="0.9" r="2.5"></circle>
-<circle cx="44" cy="48" fill="#ffffff" opacity="0.8" r="2"></circle>
-<defs>
-<lineargradient gradientunits="userSpaceOnUse" id="flame_grad_outer" x1="50" x2="50" y1="12" y2="85">
-<stop stop-color="#f97316"></stop>
-<stop offset="1" stop-color="#dc2626"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="flame_grad_mid" x1="50" x2="50" y1="28" y2="78">
-<stop stop-color="#fef08a"></stop>
-<stop offset="0.6" stop-color="#f59e0b"></stop>
-<stop offset="1" stop-color="#ea580c"></stop>
-</lineargradient>
-</defs>
-</svg>
-</div>
-<!-- Bottom badge ledge indicator -->
-<div class="absolute -bottom-3.5 bg-[#f59e0b] border-2 border-[#b45309] text-[#1c1003] px-3.5 py-1 rounded-full text-xs font-black tracking-wider uppercase shadow-[0_2px_0_0_#92400e]">
-              🔥 Active
-            </div>
+<!-- 2. Central Hero Share Card -->
+<section class="w-full bg-white border-2 border-[#e8dacb] rounded-[32px] p-6 sm:p-10 shadow-[0_10px_0_0_#ebdcc9] relative overflow-hidden">
+<!-- Subtle top inner sheen highlight -->
+<div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#ffd0c9]/40 to-transparent"></div>
+<!-- Top Row: Medallion + Streak Info & Teacher Slot -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8">
+<!-- Left: Streak Medallion + Stats Cluster -->
+<div class="flex items-center gap-6 sm:gap-8 flex-wrap sm:flex-nowrap">
+<!-- Tactile Streak Flame Medallion -->
+<div class="relative flex flex-col items-center">
+<!-- 3D Beveled Coin -->
+<div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-b from-[#ffeaaf] via-[#f4bf40] to-[#895100] p-1.5 shadow-[0_8px_0_0_#ebdcc9] flex items-center justify-center relative group">
+<!-- Inner glossy coin ring -->
+<div class="w-full h-full rounded-full bg-gradient-to-br from-[#f4bf40] via-[#fe9d19] to-[#895100] border-2 border-[#ffeaaf] flex items-center justify-center shadow-inner relative overflow-hidden">
+<!-- Top glossy highlight reflection -->
+<div class="absolute top-0 inset-x-0 h-1/2 bg-white/30 rounded-t-full pointer-events-none"></div>
+<!-- Flame Icon Drop -->
+<div class="relative z-10 flex items-center justify-center transform drop-shadow-[0_4px_8px_rgba(0,0,0,0.25)]">
+<span class="material-symbols-outlined text-5xl sm:text-6xl text-[#fff8f3]" style="filter: drop-shadow(0 0 10px #fe9d19);">
+                local_fire_department
+              </span>
 </div>
 </div>
-<!-- 45 Big beside it + day streak under it -->
-<div class="flex flex-col justify-center">
-<div class="flex items-baseline gap-2">
-<span class="text-[124px] font-black leading-none tracking-tight text-[#134e4a] drop-shadow-sm font-sans">45</span>
-<span class="text-4xl font-extrabold text-[#ea580c] leading-none mb-4">★</span>
 </div>
-<div class="text-[34px] font-extrabold text-[#1c1917] tracking-tight -mt-1 leading-tight flex items-center gap-2">
-            day streak
-          </div>
-<p class="text-lg font-bold text-[#134e4a] mt-1">Top 3% consistency this month</p>
+<!-- Tactile bottom badge pill "ACTIVE" -->
+<div class="absolute -bottom-3.5 bg-gradient-to-r from-[#f4bf40] to-[#fe9d19] border-2 border-[#ffdf9e] px-3.5 py-0.5 rounded-full shadow-[0_3px_0_0_#895100] flex items-center gap-1">
+<span class="text-[11px] leading-tight font-label font-extrabold uppercase tracking-wider text-[#1c1003]">
+            🔥 ACTIVE
+          </span>
 </div>
 </div>
-<!-- Empty Dashed Teacher Slot (rounded, about 140x170, NO person/face/character drawn) -->
-<div class="w-[144px] h-[174px] rounded-3xl border-3 border-dashed border-[#0d9488]/50 bg-[#f0fdfa]/70 flex flex-col items-center justify-center p-3 text-center relative flex-shrink-0 shadow-inner"><div class="w-10 h-10 rounded-2xl bg-[#ccfbf1] border-2 border-[#14b8a6] flex items-center justify-center mb-2 shadow-[0_2px_0_0_#0f766e]"><svg class="w-5 h-5 text-[#0f766e]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></div><span class="text-[13px] font-extrabold text-[#134e4a] uppercase tracking-wider">Teacher</span></div>
+<!-- Numbers & Text Details -->
+<div class="flex flex-col justify-center gap-0.5">
+<div class="flex items-baseline gap-3">
+<span class="font-display font-extrabold text-6xl sm:text-7xl lg:text-8xl tracking-tight text-[#0f2e2b] leading-none">
+            45
+          </span>
+<span class="material-symbols-outlined text-4xl sm:text-5xl text-[#fe9d19] drop-shadow-[0_0_8px_rgba(254,157,25,0.4)]">
+            grade
+          </span>
 </div>
-<!-- Divider bar -->
-<div class="w-full h-1 bg-[#ecdccf] rounded-full my-8"></div>
-<!-- Bottom section within card: Tiny 7-day row of lit circles + Daily Goal reached pill -->
-<div class="flex items-center justify-between">
-<!-- 7-day row of lit circles -->
-<div class="flex flex-col gap-2.5">
-<span class="text-xs font-extrabold uppercase tracking-widest text-[#134e4a]">This Week's Activity</span>
-<div class="flex items-center gap-3"><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#d97706] shadow-[0_3px_0_0_#b45309] flex items-center justify-center text-[#1c1003]"><svg class="w-6 h-6 text-[#1c1003]" fill="none" stroke="#1c1003" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div><span class="text-xs font-black text-[#1c1917]">M</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#d97706] shadow-[0_3px_0_0_#b45309] flex items-center justify-center text-[#1c1003]"><svg class="w-6 h-6 text-[#1c1003]" fill="none" stroke="#1c1003" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div><span class="text-xs font-black text-[#1c1917]">T</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#d97706] shadow-[0_3px_0_0_#b45309] flex items-center justify-center text-[#1c1003]"><svg class="w-6 h-6 text-[#1c1003]" fill="none" stroke="#1c1003" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div><span class="text-xs font-black text-[#1c1917]">W</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#d97706] shadow-[0_3px_0_0_#b45309] flex items-center justify-center text-[#1c1003]"><svg class="w-6 h-6 text-[#1c1003]" fill="none" stroke="#1c1003" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div><span class="text-xs font-black text-[#1c1917]">T</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#d97706] shadow-[0_3px_0_0_#b45309] flex items-center justify-center text-[#1c1003]"><svg class="w-6 h-6 text-[#1c1003]" fill="none" stroke="#1c1003" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div><span class="text-xs font-black text-[#1c1917]">F</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-[#fef3c7] border-2 border-[#d97706] shadow-[0_3px_0_0_#b45309] flex items-center justify-center text-[#1c1003]"><svg class="w-6 h-6 text-[#1c1003]" fill="none" stroke="#1c1003" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div><span class="text-xs font-black text-[#1c1917]">S</span></div><div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-full bg-gradient-to-b from-[#ea580c] to-[#c2410c] border-2 border-[#b45309] shadow-[0_3px_0_0_#9a3412] flex items-center justify-center text-white font-black text-base relative"><svg class="w-6 h-6 text-white filter drop-shadow-sm" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C10.5 7 7 9 7 14C7 17.5 9.5 20 12 20C14.5 20 17 17.5 17 14C17 9 13.5 7 12 2Z"></path></svg></div><span class="text-xs font-black text-[#1c1003]">Today</span></div></div>
-</div>
-<!-- Tactile pressable badge pill with soft ledge -->
-<div class="flex items-center gap-3 bg-[#f0fdf4] border-2 border-[#86efac] px-6 py-4 rounded-2xl shadow-[0_4px_0_0_#4ade80]">
-<div class="w-8 h-8 rounded-full bg-[#22c55e] flex items-center justify-center text-white font-black text-base">
-          ✓
+<div class="font-display font-bold text-2xl sm:text-3xl tracking-tight text-[#1f1b16]">
+          day streak
         </div>
+<p class="font-body font-semibold text-sm sm:text-base text-[#3f4947] mt-1.5 flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-[#00514d]"></span>
+          Top 3% consistency this month
+        </p>
+</div>
+</div>
+<!-- Right: Empty Teacher Slot -->
+<div class="w-full md:w-56 h-36 rounded-2xl border-2 border-dashed border-[#136b66] bg-[#fdf6ee] p-4 flex flex-col items-center justify-center text-center gap-2 shadow-inner">
+<div class="w-12 h-12 rounded-full bg-[#e2d8d0] border-2 border-[#bec9c7] flex items-center justify-center text-[#00514d] shadow-[0_2px_0_0_#ebdcc9]">
+<span class="material-symbols-outlined text-2xl font-bold">school</span>
+</div>
 <div>
-<div class="text-base font-extrabold text-[#14532d] leading-snug">Daily Goal Complete</div>
-<div class="text-xs font-extrabold text-[#14532d]">+50 XP Earned Today</div>
+<div class="font-label font-extrabold text-sm uppercase tracking-widest text-[#062b28]">Teacher</div>
 </div>
 </div>
 </div>
-</main>
-<!-- 3. FOOTER STRIP: QR code square placeholder & 'lexkite.com' -->
-<footer class="w-full flex items-center justify-between pt-2 z-10">
-<div class="flex items-center gap-4">
-<!-- QR code square placeholder (clean geometric graphic, 68x68) -->
-<div class="w-[68px] h-[68px] bg-white rounded-2xl border-2 border-[#ecdccf] shadow-[0_4px_0_0_#dfcbbb] p-2 flex items-center justify-center flex-shrink-0">
-<!-- SVG QR code pattern placeholder -->
-<svg class="w-full h-full text-[#134e4a]" fill="currentColor" viewbox="0 0 24 24">
-<path d="M2 2H10V10H2V2ZM4 4V8H8V4H4ZM14 2H22V10H14V2ZM16 4V8H20V4H16ZM2 14H10V22H2V14ZM4 16V20H8V16H4ZM14 14H16V16H14V14ZM16 16H18V18H16V16ZM18 14H20V16H18V14ZM20 16H22V18H20V16ZM14 18H16V20H14V18ZM16 20H18V22H16V20ZM18 18H20V20H18V18ZM20 20H22V22H20V20ZM18 20H20V22H18V20ZM12 4H13V6H12V4ZM12 8H13V10H12V8ZM12 14H13V16H12V14ZM12 18H13V20H12V18Z"></path>
-</svg>
+<!-- Subtle Horizontal Divider -->
+<div class="w-full h-0.5 bg-[#f0e7de] rounded-full my-6"></div>
+<!-- Bottom Row: Weekly Activity & Daily Goal Completed -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6 pt-2">
+<!-- Left: Week Tracker -->
+<div class="flex flex-col gap-3">
+<span class="font-label font-extrabold text-xs tracking-widest text-[#3f4947] uppercase">
+        THIS WEEK'S ACTIVITY
+      </span>
+<div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+<!-- Mon -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffeaaf] to-[#f4bf40] border-2 border-[#ffdf9e] flex items-center justify-center shadow-[0_3px_0_0_#ebdcc9]">
+<span class="material-symbols-outlined text-lg font-bold text-[#1c1003]">check</span>
+</div>
+<span class="font-label font-extrabold text-xs text-[#1c1003]">M</span>
+</div>
+<!-- Tue -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffeaaf] to-[#f4bf40] border-2 border-[#ffdf9e] flex items-center justify-center shadow-[0_3px_0_0_#ebdcc9]">
+<span class="material-symbols-outlined text-lg font-bold text-[#1c1003]">check</span>
+</div>
+<span class="font-label font-extrabold text-xs text-[#1c1003]">T</span>
+</div>
+<!-- Wed -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffeaaf] to-[#f4bf40] border-2 border-[#ffdf9e] flex items-center justify-center shadow-[0_3px_0_0_#ebdcc9]">
+<span class="material-symbols-outlined text-lg font-bold text-[#1c1003]">check</span>
+</div>
+<span class="font-label font-extrabold text-xs text-[#1c1003]">W</span>
+</div>
+<!-- Thu -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffeaaf] to-[#f4bf40] border-2 border-[#ffdf9e] flex items-center justify-center shadow-[0_3px_0_0_#ebdcc9]">
+<span class="material-symbols-outlined text-lg font-bold text-[#1c1003]">check</span>
+</div>
+<span class="font-label font-extrabold text-xs text-[#1c1003]">T</span>
+</div>
+<!-- Fri -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffeaaf] to-[#f4bf40] border-2 border-[#ffdf9e] flex items-center justify-center shadow-[0_3px_0_0_#ebdcc9]">
+<span class="material-symbols-outlined text-lg font-bold text-[#1c1003]">check</span>
+</div>
+<span class="font-label font-extrabold text-xs text-[#1c1003]">F</span>
+</div>
+<!-- Sat -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffeaaf] to-[#f4bf40] border-2 border-[#ffdf9e] flex items-center justify-center shadow-[0_3px_0_0_#ebdcc9]">
+<span class="material-symbols-outlined text-lg font-bold text-[#1c1003]">check</span>
+</div>
+<span class="font-label font-extrabold text-xs text-[#1c1003]">S</span>
+</div>
+<!-- Today (Active Highlight) -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffb4a6] via-[#fe9d19] to-[#8e190f] border-2 border-[#ffdf9e] flex items-center justify-center shadow-[0_4px_0_0_#ebdcc9] ring-2 ring-[#fe9d19]/40">
+<span class="material-symbols-outlined text-xl text-[#1c1003]">local_fire_department</span>
+</div>
+<span class="font-label font-extrabold text-xs text-[#1c1003] uppercase tracking-wider">Today</span>
+</div>
+</div>
+</div>
+<!-- Right: Daily Goal Complete Card / Badge -->
+<div class="bg-[#fcf2e9] border-2 border-[#88d4cd] rounded-2xl p-4 sm:px-6 flex items-center gap-4 shadow-[0_4px_0_0_#ebdcc9]">
+<div class="w-11 h-11 rounded-xl bg-gradient-to-b from-[#88d4cd] to-[#00514d] border-2 border-[#a4f0e9] flex items-center justify-center shadow-[0_3px_0_0_#003733]">
+<span class="material-symbols-outlined text-2xl font-extrabold text-white">done_all</span>
 </div>
 <div class="flex flex-col">
-<span class="text-lg font-black tracking-tight text-[#134e4a]">lexkite.com</span>
-<span class="text-xs font-bold text-[#1c1917]">Free English prep for IELTS &amp; TOEIC</span>
+<span class="font-display font-bold text-base text-[#064e3b] leading-tight">
+          Daily Goal Complete
+        </span>
+<span class="font-label font-extrabold text-xs text-[#00514d] mt-0.5 tracking-wide">
+          +50 XP Earned Today
+        </span>
 </div>
 </div>
-<!-- Playful Candy CTA Button with soft tactile ledge -->
-<div class="flex items-center gap-3 bg-[#f59e0b] border-2 border-[#b45309] text-[#1c1003] px-7 py-3.5 rounded-2xl shadow-[0_5px_0_0_#9a3412] font-black text-base cursor-pointer">
+</div>
+</section>
+<!-- 3. Footer Row (Below Main Card) -->
+<footer class="w-full flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-1">
+<!-- Bottom-Left: Brand / QR Card -->
+<div class="bg-white border-2 border-[#e8dacb] rounded-2xl p-3 sm:px-4 sm:py-3 shadow-[0_4px_0_0_#ebdcc9] flex items-center gap-3.5">
+<!-- Stylized Micro QR Code matrix -->
+<div class="w-10 h-10 rounded-lg bg-[#fff8f3] border border-[#bec9c7] p-1 grid grid-cols-3 gap-0.5 shadow-inner">
+<div class="bg-[#00514d] rounded-sm"></div>
+<div class="bg-[#fe9d19] rounded-sm"></div>
+<div class="bg-[#00514d] rounded-sm"></div>
+<div class="bg-[#00514d] rounded-sm"></div>
+<div class="bg-[#fff8f3] rounded-sm"></div>
+<div class="bg-[#00514d] rounded-sm"></div>
+<div class="bg-[#fe9d19] rounded-sm"></div>
+<div class="bg-[#00514d] rounded-sm"></div>
+<div class="bg-[#fe9d19] rounded-sm"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-display font-bold text-sm text-[#0f2e2b] tracking-tight leading-tight">lexkite.com</span>
+<span class="font-body text-xs text-[#3f4947] font-medium leading-normal">Free English prep for IELTS &amp; TOEIC</span>
+</div>
+</div>
+<!-- Bottom-Right: Primary CTA Button "Join the Challenge →" -->
+<button class="tactile-press inline-flex items-center justify-center gap-2.5 h-14 px-8 rounded-2xl bg-gradient-to-r from-[#f4bf40] via-[#fe9d19] to-[#f4bf40] border-2 border-[#ffdf9e] shadow-[0_5px_0_0_#895100] text-[#1c1003] font-headline font-extrabold text-base tracking-wide transition-all cursor-pointer" type="button">
 <span>Join the Challenge</span>
-<span class="text-lg">→</span>
-</div>
-</footer>
-</body>
-</html>
-
+<span class="material-symbols-outlined text-xl font-extrabold text-[#1c1003]">arrow_forward</span>
+</button>
+</footer></main>
+</body></html>
