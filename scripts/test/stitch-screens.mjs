@@ -19,14 +19,23 @@ export const SEED_LEAGUE = () => {
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
   Sync.league = async () => ({ member: { nick: 'You', tier: 3, xp: 820 }, week: { end: Date.now() + 3 * 864e5 }, rules: { up: 3, down: 2, maxTier: 5 }, board: names.map((n, i) => ({ rank: i + 1, nick: n, xp: xps[i], me: i === 4, zone: i < 3 ? 'up' : i >= 5 ? 'down' : '' })) });
 };
-export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1' };
+export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', 'week-report': 'week', badges: 'badges', 'badge-detail': 'badges', 'badge-unlocked': 'badges' };
 // Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-export const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo' };
+export const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', 'week-report': 'week-report', badges: 'badges', 'badge-detail': 'badge-detail', 'badge-unlocked': 'badge-unlocked' };
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 // màn cần lái tới trạng thái (bài học/phản hồi/kết quả/truyện/cuộc gọi) – stitch-diff và final-qc dùng CHUNG (từng chỉ lái lesson/feedback → chụp nhầm câu đầu)
-export const DRIVEN = /^(lesson|feedback|complete|story|call)/;
+export const DRIVEN = /^(lesson|feedback|complete|story|call|week|badge)/;
 export const DRIVE = async k => { const nz = v => String(v).trim().replace(/[.,!?;:]+$/, '').toLowerCase(), q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
   const pick = it => { const o = qa('.lsn-opts .lsn-opt').find(b => b.dataset.o === String(it.answer)); if (o) o.click(); return !!o; };
+  if (/^(week|badge)/.test(k)) { // báo cáo tuần + huy hiệu (ux1-badges.js): XP tuần này/tuần trước + 8 huy hiệu đã nhận như bối cảnh mẫu Stitch; chi tiết = chạm "Kim cương"; chúc mừng = "Cỗ máy ôn tập" (tên lửa như mẫu)
+    const g = App.state.game, kd = n => { const x = new Date(); x.setDate(x.getDate() - n); return Core.todayKey(x); }, dow = (new Date().getDay() + 6) % 7;
+    g.days = g.days || {}; [180, 220, 0, 260, 310, 350, 100].slice(0, dow + 1).forEach((xp, i) => { g.days[kd(dow - i)] = Object.assign(g.days[kd(dow - i)] || {}, { xp, newWords: [12, 9, 0, 11, 16][i % 5], reviews: [30, 22, 0, 35, 37][i % 5], quizzes: [2, 3, 0, 2, 2][i % 5] }); });
+    for (let i = 1; i <= 7; i++) g.days[kd(dow + i)] = Object.assign(g.days[kd(dow + i)] || {}, { xp: 140, newWords: 6, reviews: 15, quizzes: 1 });
+    g.badges = { first: Date.now() - 20 * 864e5, words50: Date.now() - 12 * 864e5, words200: Date.now() - 6 * 864e5, master10: Date.now() - 9 * 864e5, streak3: Date.now() - 11 * 864e5, streak7: Date.now() - 7 * 864e5, perfect5: Date.now() - 3 * 864e5, speaker: Date.now() - 864e5, streak30: Date.UTC(2026, 9, 12, 9) }; // Kim cương đã nhận 12/10 như mẫu badge-detail
+    await App.need('badges'); await App.routes[k === 'week-report' ? 'week' : 'badges'](); await w(500);
+    if (k === 'badge-detail') { const b = q('[data-badge="streak30"]'); if (b) b.click(); await w(400); }
+    if (k === 'badge-unlocked') { BadgeUI.unlocked(Game.BADGES.find(b => b.id === 'rev500')); await w(1200); }
+    if (document.activeElement && k !== 'badge-detail' && k !== 'badge-unlocked') document.activeElement.blur(); scrollTo(0, 0); return; }
   if (k === 'story') { // nút Truyện của bản đồ thử (chỉ số 3 của chặng ux1): vào khung story-duo, câu thoại đầu đang phát (Ama nói, Carlos nghe)
     localStorage.setItem('lk.lsn.path.demo', '3'); localStorage.removeItem('lk.lsn.s.story.demo'); await App.need('lesson'); // ĐỀ QC = đúng nội dung mẫu Stitch story-duo (2 bong bóng + câu hỏi + A/B/C) để so như-với-như; dữ liệu bài thật giữ nguyên
     window.LESSON_STORIES = [{ id: 's-qc', kind: 'story', cefr: 'B1', em: '🚆', title: 'Train timetable', lines: [{ who: 'ama', en: 'Did the new train timetable affect your morning commute?' }, { who: 'carlos', en: 'Yes, it had a huge impact on my schedule!' }], checks: [{ at: 1, type: 'q', q: 'What did the new timetable do to Carlos?', options: ['It altered his daily routine', 'It canceled his train tickets', 'It did not change anything'], answer: 0, keep: 1 }] }];
@@ -70,5 +79,7 @@ export const FINAL = [
   { stitch: 'lesson-question', k: 'lesson', ready: '.lsn-opts .lsn-opt', teacher: ['listen', 'talk'], speaks: true }, { stitch: 'feedback-correct', k: 'feedback', ready: '.lsn-fv2.ok', teacher: ['cheer'], sfx: ['correct'] },
   { stitch: 'feedback-wrong', k: 'feedback-wrong', ready: '.lsn-fv2.bad', teacher: ['concern'], sfx: ['wrong'] }, { stitch: 'lesson-complete', k: 'complete', ready: '.lsn-end', teacher: ['cheer'], sfx: ['win'] },
   { stitch: 'story-duo', k: 'story', ready: '.lsn-qblk ~ #lsnBody .lsn-opt, .lsn-qblk + #lsnBody .lsn-opt', teacher: ['talk', 'listen'], duo: true, speaks: true },
+  { stitch: 'week-report', k: 'week-report', ready: '#wkChart', teacher: ['encourage'] }, { stitch: 'badges', k: 'badges', ready: '#bdGrid [data-badge]', teacher: null },
+  { stitch: 'badge-detail', k: 'badge-detail', ready: '#bdSheet', teacher: null }, { stitch: 'badge-unlocked', k: 'badge-unlocked', ready: '[data-bu-next]', teacher: ['cheer'] },
 ];
 export const READY = Object.fromEntries(FINAL.filter(f => f.k && f.ready).map(f => [f.k, f.ready]));
