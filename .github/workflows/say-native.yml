@@ -12,7 +12,9 @@ on:
 permissions:
   contents: write
   id-token: write   # OIDC for /api/lexai
-concurrency: { group: say-native-${{ github.ref }}, cancel-in-progress: false }
+concurrency:
+  group: say-native-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   meanings:
     runs-on: ubuntu-latest
