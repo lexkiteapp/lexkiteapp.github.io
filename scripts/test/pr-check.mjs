@@ -68,6 +68,15 @@ const PL = { id: 'x', platform: 'dev.to', url: 'https://dev.to/u/post-1', status
 // ---------- 4) Phân loại ----------
 {
   const live = { ...PL }, okR = { state: 'ok', link: true, rel: 'follow', noindex: false };
+  { // expectedRel 'none' (chỉ nhắc tên, vd Figshare 27/10): không link = bình thường, có link = báo đổi, bị gỡ vẫn là sự cố
+    const men = { ...live, expectedRel: 'none' }, noL = { ...okR, state: 'link-missing', link: false, rel: null };
+    const vf = P.validatePlacement({ id: 'figshare-confused-words', platform: 'Figshare', type: 'listing', url: 'https://figshare.com/articles/dataset/x/34789332', submittedAt: '2026-10-26', status: 'live', expectedRel: 'none' });
+    ok(vf.ok && vf.row.expectedRel === 'none', "expectedRel 'none' hợp lệ: " + vf.errors);
+    const a = P.classify(men, noL); ok(a.level === 'ok' && !a.reasons.includes('link-gone') && a.relBase === null, "'none' + không link → ok (không báo link-gone)");
+    ok(P.classify(men, okR).reasons.includes('link-added') && P.classify(men, okR).level === 'change', "'none' + có link → báo đổi link-added");
+    ok(P.classify(men, { ...noL, state: 'removed' }).level === 'regression', "'none' + bị gỡ → vẫn là sự cố");
+    ok(P.classify(live, noL).reasons.includes('link-gone'), 'mục thường mất link → vẫn link-gone');
+  }
   let c = P.classify(live, okR); ok(c.level === 'ok' && c.relBase === 'follow' && c.noindexBase === false, 'lần đầu: mốc rel = follow');
   ok(P.classify(live, { ...okR, rel: 'nofollow' }, { relBase: 'follow', noindexBase: false }).reasons.includes('rel-nofollow'), 'follow → nofollow = sự cố');
   ok(P.classify(live, { ...okR, rel: 'nofollow ugc' }, { relBase: 'follow' }).level === 'regression', 'sự cố rel giữ nguyên tới khi sửa (vẫn so với mốc)');

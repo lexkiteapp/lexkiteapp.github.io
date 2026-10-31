@@ -41,6 +41,7 @@
     'Bài gốc': 'Original', 'Trang nghi chép': 'Suspected copy',
     // Biểu mẫu
     'Sửa mục': 'Edit item', 'Mã (vd. devto-bai-moi)': 'ID (e.g. devto-new-post)', 'Tên trang': 'Site name', 'URL công khai (https://)': 'Public URL (https://)', 'Tài khoản (tên công khai, không email)': 'Account (public username, no email)',
+    'chỉ nhắc tên – không có link': 'mention only – no link',
     'Ngày gửi': 'Submitted', 'Tên miền đích': 'Target domain', 'rel mong đợi': 'Expected rel', 'chưa biết (lấy lần kiểm đầu)': 'unknown (use first check)',
     'Thiếu hoặc sai: {f}': 'Missing or invalid: {f}', 'Mã đã tồn tại': 'This ID already exists', 'Không ghi email ở đây (repo/quản trị chỉ lưu tên công khai).': 'No emails here (only public usernames are stored).',
     'Đã lưu': 'Saved', 'Đã xóa': 'Deleted', 'Xóa mục này khỏi sổ theo dõi?': 'Remove this item from tracking?', 'Lỗi: {e}': 'Error: {e}', 'Sao chép': 'Copy', 'Đã sao chép': 'Copied', 'Đóng': 'Close',
@@ -165,7 +166,7 @@
         ${sel('type', 'Loại', Object.entries(TYPE).map(([k, t]) => [k, B(t[1])]))}${sel('status', 'Trạng thái', Object.entries(STATUS).map(([k, t]) => [k, B(t[1])]))}
         ${inp('url', 'URL công khai (https://)', 'type="url" placeholder="https://"')}${inp('account', 'Tài khoản (tên công khai, không email)')}
         ${inp('submittedAt', 'Ngày gửi', 'type="date"')}${inp('expectLink', 'Tên miền đích')}
-        ${sel('expectedRel', 'rel mong đợi', [['unknown', B('chưa biết (lấy lần kiểm đầu)')], ['follow', 'follow'], ['nofollow', 'nofollow'], ['ugc', 'ugc'], ['sponsored', 'sponsored']])}
+        ${sel('expectedRel', 'rel mong đợi', [['unknown', B('chưa biết (lấy lần kiểm đầu)')], ['follow', 'follow'], ['nofollow', 'nofollow'], ['ugc', 'ugc'], ['sponsored', 'sponsored'], ['none', B('chỉ nhắc tên – không có link')]])}
         <label class="bw-f wide">${esc(B('Ghi chú'))}<textarea name="notes" rows="2" maxlength="500">${esc(v.notes || '')}</textarea></label></div>
         <p class="fld-err" id="bwErr" role="alert"></p>
         <div class="row between">${isNew ? '<span></span>' : `<button type="button" class="btn sm ghost danger" id="bwDel">${esc(B('Xóa'))}</button>`}<span class="row" style="gap:.5rem"><button type="button" class="btn sm ghost" id="bwCancel">${esc(B('Hủy'))}</button><button type="button" class="btn sm primary" id="bwSave">${esc(B('Lưu'))}</button></span></div></div>`;

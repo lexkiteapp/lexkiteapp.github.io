@@ -2,7 +2,7 @@
 // và kiểm tra hợp lệ dữ liệu sổ Backlink/PR & tài khoản thương hiệu. Tệp _*.js không phải route của Pages Functions.
 export const TYPES = ['article', 'listing', 'profile', 'pr', 'directory'];
 export const STATUSES = ['live', 'pending', 'draft', 'removed'];
-export const RELS = ['follow', 'nofollow', 'ugc', 'sponsored', 'unknown'];
+export const RELS = ['follow', 'nofollow', 'ugc', 'sponsored', 'unknown', 'none']; // none: nền tảng chỉ cho nhắc tên/URL chữ, không có link (vd Figshare 27/10) – vẫn kiểm gỡ/khóa, không đòi link
 export const LEVELS = ['ok', 'skip', 'manual', 'change', 'regression'];
 export const PLATFORMS = ['x', 'facebook', 'instagram', 'tiktok', 'youtube', 'threads', 'linkedin', 'pinterest', 'reddit', 'github', 'bluesky'];
 export const HANDLE_STATUSES = ['owned', 'not-yet'];

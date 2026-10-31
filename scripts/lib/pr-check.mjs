@@ -125,7 +125,7 @@ const relRank = r => (r == null ? 0 : r === 'follow' ? 3 : 1);
 export function classify(p, r, prev = null) {
   const reasons = [], add = (lv, why) => { reasons.push(why); if (ORDER[lv] > ORDER[level]) level = lv; };
   let level = 'ok';
-  const relBase = prev && prev.relBase ? prev.relBase : p.expectedRel && p.expectedRel !== 'unknown' ? p.expectedRel : r.link ? r.rel : null;
+  const relBase = prev && prev.relBase ? prev.relBase : p.expectedRel && p.expectedRel !== 'unknown' && p.expectedRel !== 'none' ? p.expectedRel : r.link ? r.rel : null;
   const noindexBase = prev && prev.noindexBase != null ? !!prev.noindexBase : r.link ? !!r.noindex : null;
   const live = r.state === 'ok' || r.state === 'pr-merged' || r.state === 'link-missing';
   if (r.state === 'skipped') return { level: 'skip', reasons: ['no-url'], relBase, noindexBase };
@@ -136,8 +136,9 @@ export function classify(p, r, prev = null) {
     else if (r.state === 'pr-closed') add('regression', 'removed');
     else if (r.state === 'pr-open') add('change', 'pr-open');
     else if (live) {
-      if (!r.link) add('regression', 'link-gone');
+      if (!r.link) { if (p.expectedRel !== 'none') add('regression', 'link-gone'); } // 'none': chỉ nhắc tên – không có link là bình thường
       else {
+        if (p.expectedRel === 'none') add('change', 'link-added'); // nền tảng đã cho chèn link → đổi expectedRel để theo dõi rel
         if (relBase && relRank(r.rel) < relRank(relBase)) add('regression', 'rel-nofollow');
         else if (relBase && relBase !== 'follow' && r.rel === 'follow') add('change', 'rel-follow');
         if (r.noindex && noindexBase === false) add('regression', 'noindex-added');
