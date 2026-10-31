@@ -21,6 +21,7 @@ jobs:
       - name: Specs regenerate identically + reviewed scripts
         run: |
           python3 scripts/video/teach2d/gen.py
+          python3 scripts/video/teach2d/scene_draw.py --check || { echo "::error::scenes.json differs from scene_draw.py – run scene_draw.py --write"; exit 1; }
           git diff --exit-code content/video/teach2d/eps || { echo "::error::eps/*.json differ from gen.py output – regenerate and review"; exit 1; }
           python3 - <<'PY'
           import json, glob, sys

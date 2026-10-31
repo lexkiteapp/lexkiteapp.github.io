@@ -7,9 +7,12 @@ Item kinds: r rect (b, r radius) · o ellipse · ring ellipse outline (sw) · p 
 colour c: contact shadow, lamp / window light) · lg linear gradient rect (alpha a -> a2 top to bottom, or left to right with dir 'h': wall-to-floor
 shading, window light). l 'front' = drawn above the teacher; g = prop group id (front props move / shrink / step behind as one piece so they never
 sit on the teacher's head or body - build.py asserts it, qc.py re-checks)."""
-import json, os, re
+import ast, json, os, re
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 SCENES = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/scenes.json'))['scenes']
+_B = ast.parse(open(f'{ROOT}/scripts/video/teach2d/build.py').read())   # build.py LAYOUTS (caption box per short layout) = the one source, read without running build.py
+LAYOUTS = eval(compile(ast.Expression(next(n.value for n in _B.body if isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') == 'LAYOUTS')), 'build.py', 'eval'), {'dict': dict})
+LANE = 8   # props stay this far below the caption box
 CT = dict(short=1800, wide=900)    # default counter top edge (wide = the short band x 1.5 teacher scale); build.py v2 short layouts pass ct=1830
 FLOOR = dict(short=1660, wide=800)  # back wall / floor line
 REF_CT = dict(short=1830, wide=900)  # the counter top scenes.json front props are drawn on (they follow the real counter top)
@@ -26,6 +29,39 @@ def _move(x, dx=0.0, dy=0.0, s=1.0, ax=0.0, ay=0.0):   # translate / scale one i
     else: x['b'] = f(x['b'][0], x['b'][1]) + f(x['b'][2], x['b'][3])
     if 'sw' in x and s != 1.0: x['sw'] = round(x['sw'] * s, 1)
     return x
+
+
+def surface(x, W):   # wall / floor band across the frame (>= 90 % of the width): may run behind a caption plate; anything narrower is a prop
+    b = bbox(x); return b[2] - b[0] >= 0.9 * W
+
+
+def _below_caps(items, W, cap):
+    """owner 31/10 'cảnh không bao giờ đè phụ đề': when any backdrop prop reaches into the caption box, the whole backdrop (every non-surface item, light
+    pools included, one transform so the room stays one piece) scales down about the floor line's centre until its top sits LANE px under the caption box."""
+    if not cap: return items
+    pr = [x for x in items if not surface(x, W)]
+    if not any(_hit(bbox(x), cap) for x in pr): return items
+    y0 = min(bbox(x)[1] for x in pr); fl = FLOOR['short']; s = (fl - cap[3] - LANE) / (fl - y0)
+    return [x if surface(x, W) else _move(x, s=s, ax=W / 2, ay=fl) for x in items]
+
+
+def _hit(a, b, m=0): return a[0] < b[2] - m and b[0] < a[2] - m and a[1] < b[3] - m and b[1] < a[3] - m
+
+
+def texty(n): return any(k in n for k in ('runs', 'text', 'label', 'lines'))   # timeline node that shows words (text, chip, tag, pill, CTA ...)
+
+
+def over_text(scn, cap, nodes, W):
+    """scene props (any layer, surfaces excepted) over the caption box or any node that shows text -> [(why, item bbox, what)] – qc.py scene_clear,
+    scene_pick.py clear check. Surfaces (wall / floor bands, the counter) are already covered by the caption plate / counter checks."""
+    if not scn: return []
+    out = []
+    for x in scn['items']:
+        if surface(x, W): continue
+        b = bbox(x)
+        if cap and _hit(b, cap): out.append(('prop over the captions', b, 'cap'))
+        out += [('prop over text', b, n['id']) for n in nodes if texty(n) and _hit(b, n['box'])]
+    return out
 
 
 def _union(bs): return [min(b[0] for b in bs), min(b[1] for b in bs), max(b[2] for b in bs), max(b[3] for b in bs)]
@@ -70,9 +106,11 @@ def resolve(key, fmt, layout, W, H, host_cx, host_w, host_h, nodes, region, ct=N
     if not key: return None
     assert key in SCENES, ('unknown scene', key, sorted(SCENES))
     S_ = SCENES[key]; src = [dict(x) for x in (S_['wide'] if fmt == 'wide' else S_.get(layout) or S_['short'])]
-    back = [dict(k='r', b=[0, FLOOR[fmt], W, H], r=0, c='ledge', a=0.22)] + [x for x in src if x.get('l') != 'front']   # floor plane first
-    if layout == 'bubble':   # the big card region reaches lower here: keep only the backdrop below it
-        return dict(key=key, items=[back[0]] + [x for x in back[1:] if bbox(x)[1] >= region[3]], counter=None)
+    cap = LAYOUTS[layout]['cap'] if fmt == 'short' and layout in LAYOUTS else None
+    back = [x for x in src if x.get('l') != 'front']
+    if layout == 'bubble': back = [x for x in back if bbox(x)[1] >= region[3]]   # the big card region reaches lower here: keep only the backdrop below it
+    back = [dict(k='r', b=[0, FLOOR[fmt], W, H], r=0, c='ledge', a=0.22)] + _below_caps(back, W, cap)   # floor plane first; props never under the captions
+    if layout == 'bubble': return dict(key=key, items=back, counter=None)
     ct = ct or CT[fmt]; x0 = -40
     if fmt == 'wide':   # desk on the teacher's side only: left edge just past the card region / any node reaching below its top edge
         x0 = max([region[2]] + [n['box'][2] for n in nodes if n['box'][3] > ct and n['type'] != 'confetti']) + 16

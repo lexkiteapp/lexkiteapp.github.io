@@ -324,6 +324,7 @@ def make(row):
               voice=REG['people'][who]['voice']['video'], speed=row.get('speed', 0.8), area=sp['cta']['area'], **sp)
     # optional (absent = the first pilots' output, byte-identical): scene backdrop, hook deadline (qc hook gate), Kokoro speed of the hook line only
     if 'scene' in row: assert row['scene'] in SCENES, ('unknown scene', row['scene'], sorted(SCENES)); ep['scene'] = row['scene']
+    ep.update(__import__('scene_pick').pick(row, ep))   # no row scene: picked by topic, never the previous ep's, clear of captions / text (scene_pick.py)
     if 'hook_by' in row: ep['hook_by'] = row['hook_by']
     if 'hook_speed' in row: ep['lines'][0]['speed'] = row['hook_speed']
     # v2 variety (31/10, optional): short layout (build.py uses it when --layout is not given), hook style (question · challenge · most · myth -> the

@@ -75,6 +75,8 @@
   "call": "coffee",
   "turn": 5
  },
+ "scene": "cafe",
+ "scene_why": "keyword: coffee",
  "est": {
   "words": 50,
   "seconds": 29.6,

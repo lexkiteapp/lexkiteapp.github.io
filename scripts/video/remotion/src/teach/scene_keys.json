@@ -1,0 +1,32 @@
+{
+ "_note": "Teach2D automatic scene pick (scripts/video/teach2d/scene_pick.py, owner 31/10 'tự nhận diện cảnh theo chủ đề'). keys: scene -> whole words / phrases looked for in the episode's lines, data and pilot row (lower case, a plain plural matches too); the scene with the most distinct hits wins, ties in this order. fallback: template -> scenes tried when nothing matches. An explicit pilot `scene` always wins. Every key must be a scenes.json scene.",
+ "keys": {
+  "field": ["soccer", "football", "goal", "stadium", "match", "coach", "sport", "team practice"],
+  "kitchen": ["kitchen", "cook", "cooking", "recipe", "oven", "bake", "biscuit", "cookie", "fridge", "breakfast"],
+  "meeting": ["meeting", "presentation", "discuss", "agenda", "conference", "slides", "proposal"],
+  "office": ["office", "report", "deadline", "boss", "email", "budget", "colleague", "manager", "client", "job", "project", "logistics", "company"],
+  "studio": ["photo", "photographer", "camera", "picture", "music", "song", "paint", "artist"],
+  "classroom": ["class", "classroom", "teacher", "student", "school", "exam", "homework", "lesson"],
+  "cafe": ["coffee", "cafe", "café", "tea", "latte", "bill", "croissant", "coffee run"],
+  "restaurant": ["restaurant", "dinner", "lunch", "menu", "waiter", "dish", "meal", "my treat", "order food"],
+  "library": ["library", "book", "novel", "reading", "borrow", "quiet"],
+  "station": ["train", "station", "platform", "commute", "commuter", "subway", "metro", "railway"],
+  "bus": ["bus", "bus stop", "passenger", "ride", "fare"],
+  "airport": ["airport", "flight", "plane", "passport", "boarding", "luggage", "suitcase", "abroad", "check-in desk"],
+  "hotel": ["hotel", "elevator", "lift", "lobby", "reservation", "room key", "guest", "surname", "check in"],
+  "clinic": ["doctor", "clinic", "hospital", "nurse", "flu", "shot", "injection", "medicine", "sick", "headache", "appointment"],
+  "gym": ["gym", "workout", "exercise", "fitness", "running", "jog", "muscles"],
+  "supermarket": ["supermarket", "grocery", "groceries", "shopping", "shop", "store", "price", "cheap", "expensive", "fruit", "vegetables"],
+  "beach": ["beach", "sea", "ocean", "swim", "swimming", "sand", "sunny", "summer", "holiday", "vacation"],
+  "bedroom": ["bed", "bedroom", "sleep", "wake up", "alarm", "nap", "tired", "dream", "pillow"],
+  "home": ["home", "house", "family", "sofa", "living room", "mom", "dad", "neighbor"],
+  "park": ["park", "picnic", "balloon", "dog", "tree", "bench", "walk", "beside"],
+  "street": ["street", "parking", "park the car", "car", "traffic", "road", "drive", "rain", "umbrella", "crosswalk"]
+ },
+ "fallback": {
+  "usuk": ["street", "cafe"], "verbs": ["classroom", "office"], "stress": ["studio", "classroom"], "mistake": ["office", "meeting"],
+  "phrasal": ["cafe", "park"], "pair": ["park", "home"], "prep": ["home", "bedroom"], "pattern": ["office", "meeting"],
+  "native": ["street", "restaurant"], "guess": ["park", "home"], "level": ["classroom", "library"], "grammar": ["classroom", "library"],
+  "dictation": ["bus", "station"], "toeic": ["office", "meeting"], "review": ["library", "bedroom"], "call": ["cafe", "restaurant"]
+ }
+}

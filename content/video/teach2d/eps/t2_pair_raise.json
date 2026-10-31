@@ -91,6 +91,8 @@
   "gold": "sb_3e77d39c",
   "pid": "u:c:rise-raise"
  },
+ "scene": "park",
+ "scene_why": "fallback: pair",
  "est": {
   "words": 49,
   "seconds": 30.4,

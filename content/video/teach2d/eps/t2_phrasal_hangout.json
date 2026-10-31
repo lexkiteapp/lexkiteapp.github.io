@@ -87,6 +87,8 @@
   "gold": "sb_2408f7fd",
   "pid": "w:hang out#phr v"
  },
+ "scene": "classroom",
+ "scene_why": "keyword: class",
  "est": {
   "words": 53,
   "seconds": 31.9,

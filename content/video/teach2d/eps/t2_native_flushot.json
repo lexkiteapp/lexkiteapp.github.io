@@ -82,6 +82,8 @@
   "gold": "sb_612771f1",
   "pid": "w:flu shot#n"
  },
+ "scene": "clinic",
+ "scene_why": "keyword: flu",
  "est": {
   "words": 54,
   "seconds": 32.0,
