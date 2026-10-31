@@ -102,6 +102,35 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
+### [B5-L1] Lô 1 Blog 16 bài chuẩn SEO (10 EN + 6 ES) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Bổ sung 16 bài viết chuyên sâu cho 2 thị trường lớn Tiếng Anh toàn cầu (EN) và Tây Ban Nha (ES). Chuẩn hóa 100% quy tắc Claude: ảnh chụp app thật từ \`shots.json\`, qualityScore ≥ 94, \`blog-check\` 0 lỗi, \`blog-captions\` 0 lỗi, \`blog-dupes\` 0 lỗi (<9%), tích hợp Mini-Quiz tương tác, để trống \`publishAt\` cho Claude xếp lịch.
+- **Báo cáo (Antigravity 31/10):**
+  - **Commit:** \`7f3537fc\` → \`92558232\` (16 commits riêng cho 16 bài + briefs).
+  - **Danh sách 10 bài EN:**
+    1. \`ipa-pronunciation-guide-for-english-learners.md\` (\`7f3537fc\`)
+    2. \`conditional-sentences-in-english-rules-and-examples.md\` (\`32425c65\`)
+    3. \`how-to-form-questions-in-english.md\` (\`dd2960fd\`)
+    4. \`how-to-use-an-english-english-dictionary.md\` (\`63b71c9a\`)
+    5. \`english-dictation-practice-guide.md\` (\`75b9fd1c\`)
+    6. \`toeic-part-5-grammar-and-vocabulary-strategies.md\` (\`5431ba5a\`)
+    7. \`toeic-listening-part-2-tactics.md\` (\`955716ce\`)
+    8. \`ielts-vocabulary-for-technology-and-ai.md\` (\`e1495e0c\`)
+    9. \`ielts-vocabulary-for-health-and-lifestyle.md\` (\`bef323fc\`)
+    10. \`complex-sentences-for-ielts-writing.md\` (\`df53f8ac\`)
+  - **Danh sách 6 bài ES:**
+    1. \`guia-pronunciacion-ipa-ingles.md\` (\`2990f753\`)
+    2. \`oraciones-condicionales-en-ingles-reglas-y-ejemplos.md\` (\`c18ddb05\`)
+    3. \`como-hacer-preguntas-en-ingles-estructura.md\` (\`ba04e61b\`)
+    4. \`como-usar-un-diccionario-ingles-ingles.md\` (\`9819cd6e\`)
+    5. \`tecnica-dictado-en-ingles-listening.md\` (\`93b6029a\`)
+    6. \`vocabulario-ielts-tecnologia-e-innovacion.md\` (\`92558232\`)
+  - **Cổng chất lượng kiểm tra:**
+    * \`node scripts/blog-check.mjs\`: 478 bài, 0 lỗi.
+    * \`node scripts/blog-captions.mjs\`: 478 bài, 1.147 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * \`node scripts/blog-dupes.mjs\`: 478 bài, 0 lỗi (độ trùng cao nhất 8.8% < 10%).
+    * \`publishAt: ""\` để trống theo đúng runbook để Claude xếp lịch tự động.
+- Cần sửa / Nhận xét:
+
 ### [B5] Viết lại 6 bài Hindi (hi) bằng chữ Devanagari bản địa · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Viết lại toàn bộ 6 bài hi bằng chữ Devanagari bản địa (हिन्दी) như 28 bài hi hiện có, chỉ giữ tiếng Anh ở ví dụ/từ khóa, tự kiểm tỉ lệ Devanagari ≥ 70%, để trống \`publishAt\`.
 - **Báo cáo (Antigravity 23/10):**
