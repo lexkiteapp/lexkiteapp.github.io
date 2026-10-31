@@ -1,0 +1,46 @@
+# Dựng thử thẻ chia sẻ (1080x1080), chứng chỉ, ảnh xem trước liên kết OG (1200x630) và email HTML từ mẫu Stitch (Tailwind biên dịch trên CI, không CDN). Đỏ nếu chữ tràn/cắt, thiếu slot, tương phản thấp, gọi mạng ngoài, email > 100 KB hoặc thiếu liên kết huỷ đăng ký. Kết quả: artifact cards-out.
+name: Cards render (share/OG/email)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['brand/cards/**', 'brand/email/**', 'scripts/cards/**', 'scripts/email/**', '.github/workflows/cards-render.yml']
+permissions:
+  contents: read
+concurrency:
+  group: cards-render-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài công cụ + font
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 tailwindcss@3.4.17 juice@10.0.1
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y --no-install-recommends fonts-noto-core fonts-noto-cjk
+      - name: Dựng thẻ + email
+        run: |
+          set -euo pipefail
+          mkdir -p out/cards; n=0
+          # thẻ: mẫu thử + mẫu thật (brand/cards/*.html kèm .json cùng tên), mỗi cái sáng + tối
+          for t in scripts/cards/fixtures/card.html scripts/cards/fixtures/og.html brand/cards/*.html; do
+            [ -f "$t" ] || continue
+            d="${t%.html}.json"; [ -f "$d" ] || { echo "✗ thiếu $d"; exit 1; }
+            b="$(basename "${t%.html}")"; [ "${t#brand/}" != "$t" ] || b="fixture-$b"
+            for th in light dark; do node scripts/cards/render.mjs "$t" "$d" "out/cards/$b-$th.png" --theme "$th"; n=$((n+1)); done
+          done
+          # email: mẫu thử + brand/email/*.html
+          for t in scripts/cards/fixtures/email.html brand/email/*.html; do
+            [ -f "$t" ] || continue
+            d="${t%.html}.json"; [ -f "$d" ] || { echo "✗ thiếu $d"; exit 1; }
+            b="$(basename "${t%.html}")"; [ "${t#brand/}" != "$t" ] || b="fixture-$b"
+            node scripts/email/build.mjs "$t" "$d" "out/cards/$b.html"; n=$((n+1))
+          done
+          echo "đã dựng $n mục"; [ "$n" -gt 0 ] || { echo "✗ không dựng được mục nào"; exit 1; }
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: cards-out, path: out/cards, if-no-files-found: ignore }

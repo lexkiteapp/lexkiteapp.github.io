@@ -83,3 +83,8 @@ The 4 core screens (Learn path, Lesson drill, Feedback sheet, Exam readiness) us
 `npm test` (size budget: shell ≤ 377 KB gz, a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
 Mirror into the add-on with `bash scripts/build-extension.sh`. Never edit `extension/content.js` for app UI.
 - Module-only CSS (e.g. `.cbt-*` in `js/cbt.js`, `.lq-*` in `js/qengine.js`) is injected by its lazy bundle, so it stays outside the shell.
+
+## 7. Cards / OG / email pipeline (Stitch → PNG/HTML, CI only)
+- Templates: `brand/cards/<name>.html` + `<name>.json` (share 1080x1080, certificate 1600x1130, OG 1200x630; size from `<meta name="lk-size" content="WxH">`), `brand/email/<name>.html` + `.json` (600 px). Paste the Stitch HTML as-is (Tailwind classes, `tailwind.config` script is read then dropped); text goes in `data-slot="key"`, images in `data-slot-src` (`teacher: "ama"|"carlos"` + optional `pose` resolves to `web/teach/`), email links in `data-slot-href` (`href.unsubscribe` mandatory).
+- Build: `scripts/cards/render.mjs <tpl> <data> <out.png> [--size WxH] [--theme light|dark]`, `scripts/email/build.mjs <tpl> <data> <out.html>`; Tailwind 3.4.17 compiled from `brand/stitch/tokens.dtcg.json` via `scripts/cards/tw.mjs` (never the CDN). Run through `cards-render.yml` (PR on those paths or dispatch), not locally.
+- Gates (red = fail): CDN/external resources, empty slot, text overflow/clip, scroll, network calls, text contrast AA measured on real pixels (4.5:1, large 3:1), email > 100 KB, no unsubscribe link, no dark block.
