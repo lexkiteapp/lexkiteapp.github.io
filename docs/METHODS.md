@@ -17,9 +17,9 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Tương phản: CI đo mọi chữ/icon trên nền thật (thân ≥ 4,5:1, lớn/icon ≥ 3:1) cả sáng lẫn tối; không thẻ tối trong chế độ sáng, không xám-trên-xám ở chế độ tối, không placeholder.
 - Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
 - Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
-- QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt.
+- QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt; âm thanh chuẩn hoá −16 LUFS (cổng CI). Bài học: lời dẫn mỗi bài tập khớp dữ liệu, chú nghĩa bản ngữ đủ 15 ngôn ngữ.
 - Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp (ngoại lệ: lớp game-feel tự duyệt khi ≥ 95); logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
-- Một khung app (HARD): mọi ref/màn theo MỘT khung – điện thoại 390 px, top-bar cố định, 5 tab Today/Vocab/Skills/Tests/Me, khoảng cách, thẻ, vị trí CTA và chỗ giáo viên; spec ở `docs/DESIGN-SYSTEM.md`, dán vào mọi prompt; CI frame-consistency trượt khi lệch hoặc ra bản rộng desktop.
+- Một khung app (HARD): mọi ref/màn theo MỘT khung – điện thoại 390 px, top-bar cố định (hub/inner/modal), 5 tab Today/Vocab/Skills/Tests/Me, khoảng cách, thẻ, vị trí CTA và chỗ giáo viên; spec ở `docs/DESIGN-SYSTEM.md`, dán vào mọi prompt; CI frame-consistency trượt khi lệch hoặc ra bản rộng desktop.
 - Phiên: việc nặng (tách nền, render) CHỈ trên CI (script từ chối ngoài `$CI`); mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn.
 <!-- auto:direction:end -->
 
