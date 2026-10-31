@@ -9,7 +9,7 @@ import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'
 import { loadBrowserIndex } from './lexicon/shards.mjs';
 import { seoPic } from './lexicon/img.mjs';
 import { loadVocab } from './lib/seo-data.mjs';
-import { CSS, SEO_CSS, UI_JS, esc, clip, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref, LANG_NAMES } from './lib/site-layout.mjs';
+import { CSS, SEO_CSS, UI_JS, esc, themePage, clip, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref, LANG_NAMES } from './lib/site-layout.mjs';
 import { LANGS, S, POS, YOU, fill } from './lib/seo-pages-i18n.mjs';
 import { toolPath, toolStrings } from './lib/tools-links.mjs';
 // Liên kết nội bộ sang bài kiểm tra trình độ miễn phí (docs/SEO-TOOLS.md) – chuỗi theo ngôn ngữ trang, thiếu bản dịch → không hiện
@@ -80,7 +80,7 @@ const fileOf = p => path.join(D, p.endsWith('/') ? p + 'index.html' : p + '.html
 const usedT = new Set(), usedD = new Set(); // tiêu đề/mô tả duy nhất trong mỗi ngôn ngữ (cổng seo-pages)
 const uniq = (set, l, s, alt) => { let v = s; if (set.has(l + v)) v = alt; set.add(l + v); return v; };
 const write = (p, html, { lm, alts, type, lang, index }) => {
-  const f = fileOf(p); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html);
+  const f = fileOf(p); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html = themePage(html)); // chống nháy giao diện (site-layout themePage)
   if (index) { urls.push([url(p), lm, alts, type, lang]); hashes.push(url(p) + ' ' + crypto.createHash('sha1').update(html).digest('hex').slice(0, 12)); }
 };
 const hl = alts => alts.map(([l, p]) => `<link rel="alternate" hreflang="${l}" href="${url(p)}">`).join('');
