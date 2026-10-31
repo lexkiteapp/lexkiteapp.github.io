@@ -25,6 +25,13 @@
 Anh chủ xem video miệng cắt từ clip: "lỗi ghê quá" → bỏ. Thay bằng `web/js/call/mouths.js` (`LipMouth`): 9 hình X–H là bộ số (rộng, mở trên/dưới, tròn, cười, răng, lưỡi) → SVG vector theo nét từng giáo viên (Ama: môi nâu đỏ, nét miệng tối; Carlos: nét đen, ria vẽ đè lên). Trộn 2 hình = nội suy bộ số (morph), cùng kiểu lớp miệng Rive (input số = viseme) – file .riv có thể dựng sau từ chính bộ số này. Bảng duyệt: `scripts/lipsync/mouth_board.py` (CI: artifact `mouth-board.png`). **Chờ anh duyệt hình** trước khi gắn vào lab/luồng Call.
 Mốc: `LipSync.align(cues, env, {words})` neo mép im↔mở vào lúc tiếng bắt đầu/tắt (RMS 100 Hz), tuỳ chọn thời điểm từ Kokoro; report ghi lệch trước/sau (`AV lag (thô)`).
 
+## Mặt VẼ nhiều lớp + mốc Kokoro (31/10, chuẩn Duolingo/Rive)
+- **Lớp mặt** `web/js/call/face.js` (`LipFace`): đầu trơn (poster-2x xoá mắt/mày/miệng/ria, lấp da bằng nội suy Laplace – `scripts/lipsync/face_board.py`) + mắt, mi (mí trên = chớp), mày, ria Carlos, miệng (`LipMouth`) đều vector, toạ độ đo trên poster-2x. Input số kiểu Rive: viseme, gain, blink, look, brow, knit, tilt, nod.
+- **Máy biểu cảm** `LipFace.machine()`: các lớp chạy song song, tất định theo hạt giống: chớp 150 ms mỗi 2.8–5.6 s (15 % chớp đôi), liếc chỉ ở chỗ im, nhướng mày ở chỗ nhấn (tiếng bật lên sau ≥150 ms im) và cuối câu hỏi, nghiêng/gật đầu nhẹ theo năng lượng nói, thiên hướng theo cảm xúc (`EMO`).
+- **Mốc Kokoro** `scripts/lipsync/kokoro_ts.py`: Kokoro python sinh tiếng và mốc âm vị (pred_dur, 1/40 s) cùng một lần → `LipSync.fromPhones()` → `align` → `smooth` → `lead`. Rhubarb vẫn chạy để so.
+- **Độ đi trước riêng** `LipSync.lead()`: M/B/P 65 ms, F/V 45 ms, W/OO 40 ms, còn lại 20 ms (hình trước vẫn ≥ 50 ms). **Độ mở theo độ lớn tiếng** `LipSync.gain(env)` ∈ [0.45, 1.15].
+- **Điểm chất lượng** (`drawn_frames.mjs`, cổng CI): lệch ≤ 45 ms · đúng hình theo âm vị Kokoro ≥ 80 % (khung có tiếng, ±40 ms) · 0 nháy · chớp 6–30 lần/phút · fps mặt vẽ ≥ 50 ở CPU 4× (`web/lab/face.html`). Bảng `face-board.png`, video `drawn.gif`. **Chờ anh duyệt hình.**
+
 ## Kiến trúc
 - **Hình**: `scripts/lipsync/harvest.py` (CI) căn từng khung `talk-hd` vào nền `listen-hd` (ECC affine, che miệng), chọn 9 khung đại diện theo độ mở, răng, bề ngang, mép mảnh mờ dần. X = miệng gốc của nền. Có mí mắt chớp và roi miệng trên từng tư thế `still-<pose>` khớp được.
 - **Mốc**: `pre` = cues Rhubarb (đã `smooth`: giữ ≥ 50 ms, không nháy). `live` = `LipSync.live()`, nhân quả: con trỏ âm vị chỉ tiến khi có tiếng (VAD có trễ tắt), im → X. Nếu không có âm thanh (speechSynthesis) thì chạy theo ước lượng và neo lại theo `onboundary`.

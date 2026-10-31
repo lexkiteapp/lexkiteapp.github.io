@@ -28,21 +28,25 @@ const xlag = (a, b) => { const m = v => { const u = v.reduce((x, y) => x + y, 0)
   for (let l = -30; l <= 30; l++) { let s = 0; for (let i = 0; i < a.length; i++) { const j = i - l; if (j >= 0 && j < b.length) s += a[i] * b[j]; } if (s > best) { best = s; L = l; } } return L * 10; }; // ms, + = miệng trễ hơn tiếng
 const pct = (v, p) => { const s = [...v].sort((x, y) => x - y); return s.length ? s[Math.min(s.length - 1, Math.floor(p * s.length))] : 0; };
 
-// 1) Giọng + mốc Rhubarb (có văn bản lời thoại → nhận dạng chính xác hơn)
-const np = process.env.KOKORO_NODE_PATH; const { KokoroTTS } = createRequire(np + '/')('kokoro-js');
-const tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' });
+// 1) Giọng + mốc. KOKORO_PY=1 (CI): Kokoro python sinh tiếng VÀ mốc âm vị cùng một lần (scripts/lipsync/kokoro_ts.py) → mốc chính; Rhubarb chạy song song để so.
+//    Không có python: kokoro-js + Rhubarb như cũ.
+if (process.env.KOKORO_PY) { fs.writeFileSync(`${QA}/kk-in.json`, JSON.stringify(LINES.map(([who, , text], i) => ({ id: `${who}-${i}`, text: text.replace(/["“”]/g, ''), voice: chars[who].voice.app }))));
+  execFileSync('python3', ['scripts/lipsync/kokoro_ts.py', `${QA}/kk-in.json`, QA], { stdio: 'inherit' }); }
+let tts = null; const kjs = async () => { if (!tts) { const { KokoroTTS } = createRequire(process.env.KOKORO_NODE_PATH + '/')('kokoro-js'); tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } return tts; };
 const lines = [];
 for (const [i, [who, emo, text]] of LINES.entries()) {
-  const id = `${who}-${i}`, raw = `${QA}/${id}.raw.wav`, wav = `${QA}/${id}.wav`, voice = chars[who].voice.app;
-  const a = await tts.generate(text.replace(/["“”]/g, ''), { voice, speed: 1 }); await a.save(raw);
+  const id = `${who}-${i}`, raw = `${QA}/${id}.raw.wav`, wav = `${QA}/${id}.wav`, voice = chars[who].voice.app, phf = `${QA}/${id}.ph.json`;
+  const kp = fs.existsSync(phf) ? JSON.parse(fs.readFileSync(phf, 'utf8')) : null;
+  if (!kp) { const a = await (await kjs()).generate(text.replace(/["“”]/g, ''), { voice, speed: 1 }); await a.save(raw); }
   sh('ffmpeg', ['-y', '-v', 'error', '-i', raw, '-af', 'loudnorm=I=-16:TP=-1.5', '-ar', '24000', '-ac', '1', wav]);
   sh('ffmpeg', ['-y', '-v', 'error', '-i', wav, '-c:a', 'libmp3lame', '-b:a', '64k', `${OUT}/audio/${id}.mp3`]);
   fs.writeFileSync(`${QA}/${id}.txt`, text);
   const rh = JSON.parse(sh(process.env.RHUBARB || 'rhubarb', ['-f', 'json', '-q', '-d', `${QA}/${id}.txt`, '--extendedShapes', 'GHX', wav]));
-  const dur = rh.metadata.duration, raw0 = rh.mouthCues;
-    // mốc Rhubarb → neo mép im/mở vào lúc tiếng bắt đầu/tắt (LS.align) → chống nháy; giữ lệch của mốc thô để so
-  const env = rms100(wav), cues = LS.smooth(LS.align(raw0, env)), rawLag = xlag(open100(LS.smooth(raw0), env.length), env);
-  lines.push({ id, who, emo, text, voice, dur, mp3: `audio/${id}.mp3`, cues, rawLagMs: rawLag, rawFlicker: raw0.filter(c => c.end - c.start < LS.MIN_HOLD).length });
+  const dur = rh.metadata.duration, raw0 = rh.mouthCues, env = rms100(wav);
+  // mốc → neo mép im/mở vào lúc tiếng bắt đầu/tắt (LS.align) → chống nháy → độ đi trước riêng từng hình (LS.lead); giữ lệch của mốc thô để so
+  const rhCues = LS.smooth(LS.align(raw0, env)), src = kp ? 'kokoro' : 'rhubarb';
+  const cues = kp ? LS.lead(LS.smooth(LS.align(LS.fromPhones(kp.ph, dur), env, { words: kp.words }))) : LS.lead(rhCues), rawLag = xlag(open100(LS.smooth(raw0), env.length), env);
+  lines.push({ id, who, emo, text, voice, dur, mp3: `audio/${id}.mp3`, src, cues, rhCues, ph: kp && kp.ph, words: kp && kp.words, rawLagMs: rawLag, rhLagMs: xlag(open100(rhCues, env.length), env), rawFlicker: raw0.filter(c => c.end - c.start < LS.MIN_HOLD).length });
 }
 fs.writeFileSync(`${OUT}/lines.json`, JSON.stringify(lines));
 fs.copyFileSync('content/lexicon/cmudict-subset.txt', `${OUT}/cmudict.txt`);
@@ -61,10 +65,15 @@ for (const [i, l] of lines.entries()) for (const mode of ['pre', 'live']) {
   const r = await pg.evaluate(([i, mode, ms]) => Promise.race([window.lab.say(i, mode), new Promise(z => setTimeout(() => z({ timeout: 1 }), ms))]), [i, mode, (l.dur + 6) * 1000]);
   RT.push({ ...r, id: l.id });
 }
+// mặt VẼ (LipFace, web/lab/face.html): cùng CPU 4× → fps khi dựng lại lớp vector mỗi khung
+const fpg = await br.newPage({ viewport: { width: 600, height: 600 } }); await fpg.goto('http://localhost:8123/lab/face.html?lab=1'); await fpg.waitForFunction(() => window.face && window.face.ready);
+const fcdp = await fpg.context().newCDPSession(fpg); await fcdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+const FACE = []; for (const [i, l] of lines.entries()) FACE.push(await fpg.evaluate(([i, ms]) => Promise.race([window.face.run(i), new Promise(z => setTimeout(() => z({ timeout: 1, fps: 0 }), ms))]), [i, (l.dur + 6) * 1000]));
+await fcdp.send('Emulation.setCPUThrottlingRate', { rate: 1 }); await fpg.close();
 await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
 
 // 3) Số đo
-const M = { lines: [], gates: {} };
+const M = { lines: [], gates: {}, face: FACE };
 for (const [i, l] of lines.entries()) {
   const pre = RT.find(r => r.id === l.id && r.mode === 'pre'), lv = RT.find(r => r.id === l.id && r.mode === 'live');
   const sched = (pre && pre.sw || []).map(([t, v]) => { const c = l.cues.filter(c => c.value === v).map(c => t - (c.start - LS.LEAD)).filter(d => d > -0.02); return c.length ? Math.min(...c) * 1000 : null; }).filter(x => x != null);
@@ -79,9 +88,9 @@ for (const [i, l] of lines.entries()) {
 }
 const all = k => M.lines.map(x => x[k]).filter(x => x != null);
 M.summary = { avLagMsMaxAbs: Math.max(...all('avLagMs').map(Math.abs)), schedP95Ms: Math.max(...all('schedP95Ms')), fpsMin: Math.min(...all('fps')), longFrames: all('longFrames').reduce((a, b) => a + b, 0),
-  preFlicker: all('preFlicker').reduce((a, b) => a + b, 0), liveBoundaryMedMs: Math.round(pct(all('liveBoundaryMedMs'), 0.5)), liveOpenAgreePct: Math.round(all('liveOpenAgreePct').reduce((a, b) => a + b, 0) / (all('liveOpenAgreePct').length || 1)) };
+  faceFpsMin: Math.min(...FACE.map(x => x.fps)), faceLong: FACE.reduce((a, x) => a + (x.long || 0), 0), preFlicker: all('preFlicker').reduce((a, b) => a + b, 0), liveBoundaryMedMs: Math.round(pct(all('liveBoundaryMedMs'), 0.5)), liveOpenAgreePct: Math.round(all('liveOpenAgreePct').reduce((a, b) => a + b, 0) / (all('liveOpenAgreePct').length || 1)) };
 const S = M.summary;
-M.gates = { av_lag_le_45ms: S.avLagMsMaxAbs <= 45, sched_p95_le_40ms: S.schedP95Ms <= 40, fps_ge_50_cpu4x: S.fpsMin >= 50, no_flicker_pre: S.preFlicker === 0, live_open_agree_ge_75: S.liveOpenAgreePct >= 75 };
+M.gates = { av_lag_le_45ms: S.avLagMsMaxAbs <= 45, sched_p95_le_40ms: S.schedP95Ms <= 40, fps_ge_50_cpu4x: S.fpsMin >= 50, face_fps_ge_50_cpu4x: S.faceFpsMin >= 50, no_flicker_pre: S.preFlicker === 0, live_open_agree_ge_75: S.liveOpenAgreePct >= 75 };
 
 // 4) Video ≤ 20 s: vẽ tĩnh từng khung (cùng hàm stateAt với phát thật) + ghép tiếng
 const rp = await br.newPage({ viewport: { width: 900, height: 900 }, deviceScaleFactor: 1 });

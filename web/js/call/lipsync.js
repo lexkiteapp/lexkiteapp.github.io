@@ -96,6 +96,40 @@
     }
     return out;
   }
+  // Âm vị IPA của Kokoro/misaki (en-US; chữ hoa = nguyên âm đôi: A eɪ · I aɪ · W aʊ · Y ɔɪ · O oʊ · T flap) → hình miệng (cùng bảng P2V)
+  const IPA = { m: 'A', b: 'A', p: 'A', f: 'G', v: 'G', l: 'H', w: 'F', u: 'F', 'ʊ': 'F', O: 'F', Y: 'F', 'ɔ': 'E', 'ɜ': 'E', 'ɝ': 'E', 'ɚ': 'E', 'ɹ': 'E',
+    'ɑ': 'D', I: 'D', W: 'D', 'æ': 'C', 'ɛ': 'C', 'ʌ': 'C', 'ə': 'C', 'ɐ': 'C', 'ᵊ': 'C', A: 'C', 'ɪ': 'B', i: 'B' }; // phụ âm còn lại → B
+  const MARK = /[ˈˌː]/;
+  /** Mốc âm vị Kokoro (scripts/lipsync/kokoro_ts.py: [{p, s, e}] giây, đúng thời lượng model đã dùng để sinh tiếng) → cues.
+   * Khoảng trắng ngắn (< 80 ms) nối vào âm sau; dấu câu / ngắt dài → X. Dấu nhấn (ˈˌː) theo âm kế bên. */
+  function fromPhones(ph, dur) {
+    const cues = [{ start: 0, end: ph.length ? ph[0].s : dur, value: 'X' }];
+    for (const x of ph) {
+      if (MARK.test(x.p)) { cues[cues.length - 1].end = x.e; continue; }
+      const gap = !/[a-zA-Zɐ-ʒʤʧᵊæðŋθ]/.test(x.p), v = gap ? (x.e - x.s < 0.08 && x.p === ' ' ? null : 'X') : (IPA[x.p] || 'B');
+      if (!v) { cues[cues.length - 1].end = x.e; continue; }
+      cues.push({ start: x.s, end: x.e, value: v });
+    }
+    const last = cues[cues.length - 1]; if (last.value !== 'X' || last.end < dur) cues.push({ start: last.end, end: Math.max(last.end, dur), value: 'X' });
+    for (let i = 1; i < cues.length; i++) cues[i].start = cues[i - 1].end;
+    return smooth(cues);
+  }
+  /** Độ đi trước riêng từng hình (Rive/Duolingo: môi khép M/B/P, răng-môi F/V, chu môi W/OO phải tới TRƯỚC tiếng). LEAD chung đã có trong stateAt → chỉ dời phần dư, hình trước vẫn giữ ≥ MIN_HOLD (không nháy). */
+  const LEADS = { A: 0.065, G: 0.045, F: 0.04 };
+  function lead(cues) {
+    const out = cues.map(c => ({ ...c }));
+    for (let i = 1; i < out.length; i++) { const d = (LEADS[out[i].value] || LEAD) - LEAD; if (d <= 0) continue;
+      const t = Math.max(out[i - 1].start + MIN_HOLD, out[i].start - d); if (t < out[i].start) out[i - 1].end = out[i].start = t; }
+    return out;
+  }
+  /** Độ mở theo độ lớn tiếng: env = RMS 100 Hz → g(t) ∈ [GMIN, GMAX] (lên nhanh 30 ms, xuống 120 ms, đi trước LEAD) – tiếng nhỏ cuối câu → miệng mở hẹp, nhấn mạnh → mở to. */
+  const GMIN = 0.45, GMAX = 1.15;
+  function gain(env, o = {}) {
+    const hz = o.hz ?? 100, ref = [...env].sort((a, b) => a - b)[Math.floor(env.length * 0.95)] || 1e-6, sm = new Float32Array(env.length); let y = 0;
+    const ka = 1 - Math.exp(-1 / (0.03 * hz)), kr = 1 - Math.exp(-1 / (0.12 * hz));
+    for (let i = 0; i < env.length; i++) { const x = Math.min(1.3, env[i] / ref); y += (x > y ? ka : kr) * (x - y); sm[i] = y; }
+    return t => { const i = Math.max(0, Math.min(env.length - 1, Math.round((t + LEAD) * hz))); return Math.max(GMIN, Math.min(GMAX, GMIN + (GMAX - GMIN) * Math.pow(sm[i] / 1.1, 0.6))); };
+  }
   /** Trạng thái vẽ ở thời điểm t: a = hình trước, b = hình hiện tại, k = tỉ lệ trộn sang b. */
   function stateAt(cues, t) {
     t += LEAD; let i = 0; while (i < cues.length - 1 && cues[i + 1].start <= t) i++;
@@ -171,6 +205,6 @@
     return self;
   }
 
-  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, P2V, units, fromText, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

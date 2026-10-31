@@ -30,3 +30,22 @@ assert.deepEqual(LM.SHAPES, LS.SHAPES, 'cùng bộ 9 hình');
 for (const w of ['ama', 'carlos']) for (const k of LM.SHAPES) { const g = LM.svg(w, k, 'm' + k); assert.ok(/^<g class="lk-mouth">.*<\/g>$/.test(g) && !/NaN|undefined/.test(g), w + k); }
 assert.equal(LM.mix('X', 'D', 0.5).d, LM.SHAPE.D.d / 2); assert.ok(!/NaN/.test(LM.svg('ama', LM.mix('C', 'F', 0.3))));
 console.log('lipsync ok');
+// Kokoro âm vị (IPA misaki) → cues: M/B/P → A, khoảng trắng ngắn nối, dấu câu → X, không mảnh < MIN_HOLD
+const ph = [['h', 0.1, 0.16], ['ˈ', 0.16, 0.17], ['I', 0.17, 0.32], ['!', 0.32, 0.5], [' ', 0.5, 0.52], ['m', 0.52, 0.6], ['ɑ', 0.6, 0.75], ['m', 0.75, 0.82], [' ', 0.82, 0.85], ['f', 0.85, 0.93], ['u', 0.93, 1.1], ['d', 1.1, 1.13]].map(([p, s, e]) => ({ p, s, e }));
+const kc = LS.fromPhones(ph, 1.3);
+assert.equal(kc.map(c => c.value).join(''), 'XBDXADAGFX', 'Kokoro → hình: ' + kc.map(c => c.value).join(''));
+assert.ok(kc.every(x => x.end - x.start >= LS.MIN_HOLD - 1e-9) && kc.every((x, i) => !i || x.start === kc[i - 1].end));
+// lead: M/B/P khép sớm hơn (LEADS.A) nhưng hình trước vẫn ≥ MIN_HOLD
+const ld = LS.lead(kc), ia = kc.findIndex(c => c.value === 'A');
+assert.ok(ld[ia].start < kc[ia].start && ld[ia - 1].end - ld[ia - 1].start >= LS.MIN_HOLD - 1e-9, 'A đi trước');
+assert.ok(ld.every(x => x.end - x.start >= LS.MIN_HOLD - 1e-9));
+// gain: tiếng nhỏ → mở hẹp, tiếng to → mở to, luôn trong [.45, 1.15]
+const genv = Array.from({ length: 200 }, (_, i) => (i < 100 ? 0.5 : 0.08)), G = LS.gain(genv);
+assert.ok(G(0.8) > G(1.8) + 0.2 && G(0.8) <= 1.15 && G(1.8) >= 0.45, `gain ${G(0.8)} ${G(1.8)}`);
+// LipFace: lớp mặt đủ cho 2 giáo viên, máy biểu cảm có chớp mắt, cùng hạt giống → cùng kết quả
+const LF = createRequire(import.meta.url)('../../web/js/call/face.js');
+for (const w of ['ama', 'carlos']) { const M = LF.machine(w, { cues: kc, env: genv, dur: 2, emo: 'happy', seed: 3, text: 'Hi mom?' });
+  const g = LF.svg(w, M.at(0.6), 't'); assert.ok(/^<g class="lk-face">.*<\/g>$/.test(g) && !/NaN|undefined/.test(g), w);
+  assert.ok(M.blinks.length >= 1); assert.deepEqual(M.at(0.95), LF.machine(w, { cues: kc, env: genv, dur: 2, emo: 'happy', seed: 3, text: 'Hi mom?' }).at(0.95), 'tất định');
+  assert.ok(M.at(M.blinks[0] + 0.07).blink > 0.9 && M.at(M.blinks[0] + 0.2).blink === 0, 'chớp 150 ms'); }
+console.log('lipsync face ok');
