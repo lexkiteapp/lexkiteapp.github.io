@@ -1,0 +1,2 @@
+trùng mô tả "Applies to the Lexkite web app (lexkite.com), the Lexkite iOS/Android ": /en/privacy.html, /en/terms.html
+sitemap sitemap-pages.xml: https://lexkite.com/en/grammar/present-continuous là noindex

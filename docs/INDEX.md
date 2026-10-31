@@ -33,6 +33,7 @@
 - [CWS-FEATURED.md](CWS-FEATURED.md) — Checklist huy hiệu Featured trên Chrome Web Store: kỹ thuật & tuân thủ, listing & trải nghiệm, cách gửi xét, cách giữ huy hiệu; đọc khi: chuẩn bị listing add-on
 - [CWS-RULES.md](CWS-RULES.md) — Quy tắc Chrome Web Store và quy trình phát hành add-on: không mã từ xa, giới hạn cửa hàng, phát hành tự động, thiết lập workflow, kiểm thử; đọc khi: sửa extension/ hoặc phát hành add-on
 - [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) — Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên; đọc khi: mọi thay đổi giao diện
+- [WEB-PAGES](WEB-PAGES.md) — kiểm kê mọi trang không phải app + admin: trạng thái Stitch Kit, screen, PR chủ, cổng web-sweep; đọc khi đổi giao diện trang tĩnh/blog/SEO/pháp lý/admin
 - [STITCH-V2-PORT](STITCH-V2-PORT.md) — port màn Stitch v2 vào app bằng bộ chuyển tự động; đọc khi port/sửa màn v2
 - [GAME-FEEL.md](GAME-FEEL.md) — Lớp game feel: gói âm CC0, rung, chuyển động phản hồi (XP, thanh, combo), nhân vật phản ứng, cờ ?feel=1; đọc khi: sửa âm/hiệu ứng phản hồi
 - [DISTRIBUTION.md](DISTRIBUTION.md) — Kênh & phân phối (nhúng + social): vai trò kênh, định tuyến, hợp đồng cho tác tử social (GrabCast), hệ thống web/app; đọc khi: sửa phân phối/social
