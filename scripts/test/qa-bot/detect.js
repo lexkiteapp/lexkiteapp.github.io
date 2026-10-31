@@ -35,8 +35,10 @@
   const txt = e => (e.innerText || e.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ').slice(0, 40);
   function vis(e) {
     if (!e || !e.getBoundingClientRect) return null;
-    const r = e.getBoundingClientRect(); if (r.width < 1 || r.height < 1) return null;
-    for (let x = e; x && x.nodeType === 1; x = x.parentElement) { const cs = getComputedStyle(x); if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity < 0.05) return null; if (x.hasAttribute('inert')) return null; }
+    const r = e.getBoundingClientRect(); if (r.width <= 1 || r.height <= 1) return null; // 1×1 = chữ chỉ cho trình đọc màn hình (sr-only)
+    for (let x = e; x && x.nodeType === 1; x = x.parentElement) {
+      if (x.parentElement && x.parentElement.tagName === 'DETAILS' && !x.parentElement.open && x.tagName !== 'SUMMARY') return null; // nội dung <details> đang đóng
+      const c = getComputedStyle(x); if (c.clipPath === 'inset(50%)' || /rect\(0(px)?,? 0(px)?/.test(c.clip)) return null; const cs = getComputedStyle(x); if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity < 0.05) return null; if (x.hasAttribute('inert')) return null; }
     return r;
   }
   const INTER = 'a[href],button,input:not([type=hidden]),select,textarea,summary,[role=button],[role=tab],[role=link],[role=menuitem],[role=radio],[role=checkbox],[role=switch],[tabindex]:not([tabindex="-1"])';
@@ -110,7 +112,10 @@
         const hit = D.elementFromPoint(cx, cy);
         if (hit && hit !== e && !e.contains(hit) && !hit.contains(e) && !(hit.closest && hit.closest('label') && hit.closest('label').contains(e))) {
           const hs = getComputedStyle(hit);
-          if (hs.pointerEvents !== 'none' && !/^(html|body)$/i.test(hit.tagName)) add('covered', 'fail', e, `"${txt(e)}" bị ${lab(hit)} đè lên`);
+          // nội dung cuộn nằm sau thanh cố định (thanh tab đáy, đầu trang dính) = bình thường ở vị trí cuộn này; chỉ báo khi 2 thứ cùng lớp hoặc lớp nổi đè lên thanh cố định
+          const layer = x => { for (let y = x; y && y !== D.body; y = y.parentElement) { const p = getComputedStyle(y).position; if (p === 'fixed' || p === 'sticky') return y; } return null; };
+          const lh = layer(hit), le = layer(e);
+          if (hs.pointerEvents !== 'none' && !/^(html|body)$/i.test(hit.tagName) && !(lh && !le)) add('covered', 'fail', e, `"${txt(e)}" bị ${lab(hit)} đè lên`);
         }
       }
       // vùng chạm: link chữ nằm giữa đoạn văn được miễn (WCAG 2.5.8 ngoại lệ "inline")

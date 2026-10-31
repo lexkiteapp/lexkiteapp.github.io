@@ -94,7 +94,7 @@ const PLAY = async ({ wrongEvery = 2, maxSteps = 60 } = {}) => {
   const q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms)), nz = s => String(s || '').trim().toLowerCase().replace(/[^\p{L}\p{N}' ]/gu, '');
   const seen = { right: 0, wrong: 0, skip: 0, audio: 0, steps: 0 };
   for (let n = 0; n < maxSteps && !q('.lsn-end'); n++) {
-    const it = window.App && App._lsn && App._lsn.sess && App._lsn.sess.cur; if (!it) { await w(400); continue; }
+    const it = window.App && App._lsn && App._lsn.sess && App._lsn.sess.cur; if (!it) { if (n === 3 && window.App && App.need) { await App.need('lesson'); await App.routes.lesson('go'); } await w(400); continue; }
     seen.steps++;
     if (q('#lsnGo')) { q('#lsnGo').click(); await w(400); continue; }
     if (!seen.audio && q('#lsnPlay')) { q('#lsnPlay').click(); seen.audio++; await w(300); }
@@ -115,7 +115,7 @@ const PLAY = async ({ wrongEvery = 2, maxSteps = 60 } = {}) => {
 // ---------- 1) Hành trình học ----------
 async function journey(w, theme) {
   const tag = `journey@${w}${theme[0]}`, fails = [], steps = [];
-  const { ctx, page, take } = await context(w, theme, { seed: { 'sbx.settings': JSON.stringify({ theme }) } }); // chưa onboarded → đi qua thiết lập
+  const { ctx, page, take } = await context(w, theme, { ux1: 1, seed: { 'sbx.settings': JSON.stringify({ theme }) } }); // chưa onboarded → đi qua thiết lập; ux1 = như bản live (cờ ux1=1) – #/lesson/go cần ux1
   const ok = (c, m) => { if (!c) { fails.push(m); console.log(`  ✗ [${tag}] ${m}`); } return !!c; };
   const step = async (name, fn) => {
     const t0 = Date.now();
@@ -125,7 +125,9 @@ async function journey(w, theme) {
     await page.screenshot({ path: `${OUT}/shots/${tag}-${name}.png` }).catch(() => {});
     steps.push({ name, ms: Date.now() - t0 });
   };
-  const click = async (sel, wait = 450) => { const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: 10000 }); await l.click({ timeout: 8000 }); await sleep(wait); };
+  // hộp "Lên cấp N!" bật trễ sau khi cộng XP → che nút đang bấm; người dùng thật bấm "Awesome!" rồi đi tiếp
+  const levelUp = async () => { const b = page.locator('#modal:not([hidden]) #modalBox button[data-close]').first(); if (await b.isVisible().catch(() => false)) { await b.click().catch(() => {}); await sleep(400); } };
+  const click = async (sel, wait = 450) => { await levelUp(); const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: 10000 }); await l.click({ timeout: 8000 }); await sleep(wait); };
   const has = sel => page.locator(sel).first().isVisible().catch(() => false);
 
   await step('onboarding', async () => {
@@ -220,7 +222,7 @@ async function ui(w, theme) {
         const pf = await page.evaluate(() => QAB.perf()); rec.cls = pf.cls;
         if (pf.cls > BUDGET.cls) rec.issues.push({ k: 'cls', sev: 'fail', sig: 'cls|' + name, msg: `CLS ${pf.cls} > ${BUDGET.cls} (${pf.clsSrc.join(', ')})` });
         if (AXE) {
-          const cc = await page.evaluate(async () => { const r = await axe.run(document, { runOnly: ['color-contrast'], resultTypes: ['violations'] }); return r.violations.flatMap(v => v.nodes.map(n => ({ t: n.target.join(' '), m: (n.any[0] || {}).message || '' }))); }).catch(() => []);
+          const cc = await page.evaluate(async () => { const r = await axe.run(document, { runOnly: ['color-contrast'], resultTypes: ['violations'] }); return r.violations.flatMap(v => v.nodes.map(n => ({ t: n.target.join(' '), m: (n.any[0] || {}).message || '' }))); }).catch(e => { rec.errors.push('axe không chạy được: ' + String(e.message).slice(0, 120)); return []; });
           for (const c of cc.slice(0, 20)) rec.issues.push({ k: 'contrast', sev: 'fail', sig: 'contrast|' + c.t.replace(/:nth-child\(\d+\)/g, '').slice(0, 120), msg: `${c.t} – ${c.m.slice(0, 140)}` });
         }
         await page.screenshot({ path: `${OUT}/shots/${ctxKey}.png` });
