@@ -65,4 +65,26 @@
   'Truyện': 'Story', // thẻ Luyện → Truyện (cùng nghĩa nhóm lesson; màn Luyện không tải nhóm lesson)
   'Gọi giáo viên': 'Teacher call', // ô Luyện → #/call (nhãn Stitch v2 practice, 1 dòng)
   'Xem tất cả': 'View all',
+  // Báo cáo tuần + huy hiệu (web/js/ux1-badges.js, gói 'badges')
+  'Band {b}': 'Band {b}',
+  '{n} XP': '{n} XP',
+  'Tuần này bạn đang rất sung! 🔥': "You're on fire this week! 🔥",
+  'Tiến bộ hơn tuần trước!': 'Better than last week!',
+  'Giữ nhịp đều mỗi ngày nhé!': 'Keep a steady daily rhythm!',
+  'Tuần mới, khởi đầu mới!': 'New week, fresh start!',
+  'Chuỗi {n} ngày liên tiếp · {d} ngày học tuần này.': '{n}-day streak · {d} study days this week.',
+  'Học 5 phút hôm nay để bắt đầu chuỗi ngày.': 'Study 5 minutes today to start a streak.',
+  '{p}% so với tuần trước': '{p}% vs last week',
+  'XP từng ngày trong tuần': 'XP per day this week',
+  'Đã nhận {a}/{b} huy hiệu': '{a} of {b} badges earned',
+  'Còn {n} để mở': '{n} to unlock',
+  'Bạn đã sưu tầm đủ cả bộ – tuyệt vời!': 'You collected every badge – amazing!',
+  'Chỉ còn {n} nữa là có “{b}”!': 'Just {n} more to earn “{b}”!',
+  'Học mỗi ngày để mở thêm huy hiệu nhé!': 'Study every day to unlock more badges!',
+  'Nhận ngày {d}': 'Earned {d}',
+  'Tiến độ {a}/{b}': 'Progress {a}/{b}',
+  'Huy hiệu thứ {n}/{m}': 'Badge {n} of {m}',
+  'Bạn vừa mở khóa “{b}”!': 'You just unlocked “{b}”!',
+  'Cứ thế phát huy nhé.': 'Keep it up.',
+  'Đã sưu tầm {a}/{b} huy hiệu': '{a}/{b} badges collected',
 }); })(typeof self !== 'undefined' ? self : this);
