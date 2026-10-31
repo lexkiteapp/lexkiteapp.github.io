@@ -30,7 +30,7 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          P=$(python3 -c "import json;R=json.load(open('web/teach/characters.json'));print(' '.join(f'/anchor/green/kfull_pro/{c[\"src\"]}.mp4 /anchor/green/kmask_pro/{c[\"src\"]}.mkv' for p in R['people'].values() for c in p['clips'].values()))")
+          P=$(python3 -c "import json;R=json.load(open('web/teach/characters.json'));print(' '.join(f'/anchor/green/kfull_pro/{c[\"src\"]}.mp4 /anchor/green/kmask_pro/{c[\"src\"]}.mkv /anchor/green/kmask_pro/{c[\"src\"]}.qa.json' for p in R['people'].values() for c in p['clips'].values()))")
           git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
       - name: Clip mới từ lượt matte-pro (chưa vào kho)
         if: inputs.matte_run != ''

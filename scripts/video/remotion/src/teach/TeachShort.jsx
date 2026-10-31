@@ -225,16 +225,16 @@ function Host({ host, f, T }) {   // speech-gated segments; bubble layout = the 
     <HostClips host={host} f={f} ox={b0 + 8} oy={b1 + 8} /></div>;
 }
 
-function HostClips({ host, f, ox, oy }) {   // the incoming clip fades in on top over xfade frames while the outgoing one keeps playing underneath
-  const [x0, y0, x1, y1] = host.box.map((v, i) => v - (i % 2 ? oy : ox)), xf = host.xfade || 0;
+function HostClips({ host, f, ox, oy }) {   // the incoming clip fades in on top over its xfade frames while the outgoing one keeps playing underneath
+  const [x0, y0, x1, y1] = host.box.map((v, i) => v - (i % 2 ? oy : ox)), XF = k => (k < host.segs.length && host.segs[k].xf) || host.xfade || 0;   // gesture pose edges: seg.xf (8)
   return host.segs.map((s, i) => {
-    const canExt = k => k >= 0 && k + 1 < host.segs.length && host.segs[k].start + host.segs[k].dur + xf <= (host.len || {})[host.segs[k].clip];
+    const canExt = k => k >= 0 && k + 1 < host.segs.length && host.segs[k].start + host.segs[k].dur + XF(k + 1) <= (host.len || {})[host.segs[k].clip];
     // fade in only over an outgoing clip that keeps playing underneath; at a loop wrap (no overlap possible) the new clip is opaque at once
-    const ext = canExt(i) ? xf : 0, local = f - s.from, a = i === 0 || !xf || !canExt(i - 1) ? 1 : easeOut(local / xf);
+    const xf = XF(i), ext = canExt(i) ? XF(i + 1) : 0, local = f - s.from, a = i === 0 || !xf || !canExt(i - 1) ? 1 : easeOut(local / xf);
     return (
       <Sequence key={i} from={s.from} durationInFrames={s.dur + ext} layout="none">
         <div style={{ position: 'absolute', left: x0, top: y0, width: x1 - x0, height: y1 - y0, opacity: a }}>
-          <OffthreadVideo src={staticFile(host[s.clip])} startFrom={s.start} transparent muted style={{ width: '100%', height: '100%' }} />
+          <OffthreadVideo src={staticFile((host.files || host)[s.clip])} startFrom={s.start} transparent muted style={{ width: '100%', height: '100%' }} />
         </div>
       </Sequence>);
   });

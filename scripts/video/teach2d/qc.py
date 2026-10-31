@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Teach2D QC (docs/VIDEO-TEACH2D.md): every gate must pass and the weighted score must be >= 90, else exit 1 (nothing ships).
   python3 scripts/video/teach2d/qc.py --timeline PROPS.json.timeline.json [--video OUT.mp4] [--sheet OUT.sheet.jpg] [--out qc.json]
-Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (talk only while speaking, listen in pauses)
+Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (a lip-moving pose only while speaking, a closed-mouth pose in pauses)
+· pose (pose.py: point on the quiz, thinking in the 3-2-1, happy / cheer on the answer, explain on the rule line, encourage on the share line; no gesture off its cue;
+every pose clip = the talk-hd frame and never shown > 1.0x, camera push included)
 · hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear,
 every chip / pill text on one line inside its pill)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
@@ -13,6 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HER
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/scripts/video/tpl')
 import core as C  # noqa: E402
 sys.path.insert(0, HERE); import pace as P  # noqa: E402
+import pose as PZ  # noqa: E402  (pose cues + mouth class, same plan as build.py)
 import scene as SC  # noqa: E402
 import fit as FT  # noqa: E402  (chip / pill text fit, same maths as build.py)
 from overlay_gates import contrast as _cr, bank_ipa, stress_index  # noqa: E402
@@ -47,23 +50,47 @@ if T['format'] == 'short':
     if capw != allw: bad.append(dict(captions='caption tokens != spoken tokens'))
 gate('caption_sync', not bad, 3, bad=bad[:6])
 # mouth: talk frames cover every spoken word, no talk in silences > 0.35 s
-fps = T['fps']; nf = int(round(T['total'] * fps)); talk = [False] * nf
+fps = T['fps']; nf = int(round(T['total'] * fps)); talk = [False] * nf; lab = ['listen'] * nf
+MO = {k: v['mouth'] for k, v in (T.get('host_geom') or {}).get('clips', {}).items()} or PZ.MOUTH
 for s in T['segs']:
-    for f in range(s['from'], min(nf, s['from'] + s['dur'])): talk[f] = s['clip'] == 'talk'
+    for f in range(s['from'], min(nf, s['from'] + s['dur'])): talk[f] = MO.get(s['clip']) == 'talk'; lab[f] = s['clip']
 miss = [w['w'] for v in L.values() for w in v['words'] if not all(talk[f] for f in range(int(w['s'] * fps) + 1, max(int(w['s'] * fps) + 2, int(w['e'] * fps))) if f < nf)]
 sp = sorted(T['speech']); long_talk = []
 for (a0, a1), (b0, b1) in zip(sp, sp[1:]):
     if b0 - a1 > 0.35 and any(talk[f] for f in range(int((a1 + 0.15) * fps), int((b0 - 0.1) * fps))): long_talk.append(round(a1, 2))
 # host coverage on EVERY frame (same rule as TeachShort.jsx Host): an incoming clip fades in only over an outgoing one that can keep playing
-HS = T['segs']; XF = T.get('host_xfade', 4); HL = T.get('host_len') or {}
-can = lambda k: 0 <= k < len(HS) - 1 and HS[k]['start'] + HS[k]['dur'] + XF <= HL.get(HS[k]['clip'], 0)
+HS = T['segs']; XF0 = T.get('host_xfade', 4); HL = T.get('host_len') or {}
+XF = lambda k: (HS[k].get('xf') if k < len(HS) else None) or XF0   # gesture pose edges carry their own (longer) crossfade
+can = lambda k: 0 <= k < len(HS) - 1 and HS[k]['start'] + HS[k]['dur'] + XF(k + 1) <= HL.get(HS[k]['clip'], 0)
 cov = [0.0] * nf
 for i, s_ in enumerate(HS):
-    for f in range(s_['from'], min(nf, s_['from'] + s_['dur'] + (XF if can(i) else 0))):
-        a_ = 1.0 if i == 0 or not XF or not can(i - 1) else C.ease_out((f - s_['from']) / XF); cov[f] = max(cov[f], a_)
+    for f in range(s_['from'], min(nf, s_['from'] + s_['dur'] + (XF(i + 1) if can(i) else 0))):
+        a_ = 1.0 if i == 0 or not XF(i) or not can(i - 1) else C.ease_out((f - s_['from']) / XF(i)); cov[f] = max(cov[f], a_)
 holes = [round(f / fps, 2) for f in range(nf) if cov[f] < 0.99]   # an outgoing clip under a fade counts 1.0
 gate('host_cover', not holes and HL, 3, holes=holes[:6], frames=nf)
 gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
+# pose: every cue shows its gesture (>= 60 % of the cue's frames of that mouth class), no gesture outside its cue (0.1 s slack), every pose clip HD + <= 1.0x
+order = list(L); W = PZ.windows(order, L, T['template'], T.get('rule_line')); pbad = []
+if [[p_, round(a_, 3), round(b_, 3)] for p_, a_, b_ in W] != T.get('pose_windows'): pbad.append(dict(windows='timeline pose_windows != pose.py plan'))
+need = {'point', 'thinking', 'happy'} if any(re.fullmatch(r'q\d*', k) for k in order) else set()
+if PZ.RULE.get(T['template']) or T.get('rule_line'): need.add('explain')
+miss_p = sorted(need - {p_ for p_, _, _ in W}); pbad += [dict(no_cue=m_) for m_ in miss_p]
+for p_, a_, b_ in W:
+    fr = range(max(0, int(round(a_ * fps))), min(nf, int(round(b_ * fps)) + 1)); cls = [f for f in fr if MO.get(lab[f]) == PZ.MOUTH[p_]]
+    got = sum(lab[f] == p_ for f in cls) / max(1, len(cls))
+    if got < 0.6: pbad.append(dict(pose=p_, t=[a_, b_], share=round(got, 2)))
+sl = int(0.1 * fps) + 1
+off = sorted({round(f / fps, 2) for f in range(nf) if lab[f] in PZ.GESTURES and not any(p_ == lab[f] and a_ * fps - sl <= f <= b_ * fps + sl for p_, a_, b_ in W)})
+if off: pbad.append(dict(gesture_off_cue=off[:6]))
+HG_ = T.get('host_geom') or {}; bx = T.get('host_box'); cam = max([max(x['s0'], x['s1']) for x in ((T.get('cam') or {}).get('shots') or [])] or [1.0])
+scl = {}
+for k_ in sorted({s_['clip'] for s_ in HS}):
+    c_ = (HG_.get('clips') or {}).get(k_)
+    if not c_ or not bx: pbad.append(dict(clip=k_, geom='missing')); continue
+    scl[k_] = round((bx[3] - bx[1]) / c_['h'] * cam, 4)
+    if (c_['w'], c_['h']) != (HG_['w'], HG_['h']): pbad.append(dict(clip=k_, frame=[c_['w'], c_['h']], talk_hd=[HG_['w'], HG_['h']]))
+    if scl[k_] > 1.0 + 1e-6: pbad.append(dict(clip=k_, scale=scl[k_]))
+gate('pose', not pbad, 3, bad=pbad[:6], cues=[[p_, round(a_, 2)] for p_, a_, _ in W], scale=scl)
 # hook
 hk = [n for n in T['nodes'] if n.get('hook')]
 HB = T.get('hook_by', 2.2)   # per episode (new samples 1.5 s), default 2.2 s
