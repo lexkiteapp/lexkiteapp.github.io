@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths: ['scripts/lipsync/**', 'web/js/call/lipsync.js', 'web/lab/lipsync.html', '.github/workflows/lipsync-lab.yml']
-concurrency: { group: lipsync-lab-${{ github.ref }}, cancel-in-progress: true }
+concurrency:
+  group: lipsync-lab-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   lab:
     runs-on: ubuntu-latest
