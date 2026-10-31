@@ -1,283 +1,196 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite — Quit Lesson Confirm (Tactile Night)</title>
-<!-- Typography & Icons -->
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Quit Midway Confirm (Tactile Night)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CDN -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind Theme Configuration -->
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "on-secondary-fixed-variant": "#900f00",
-            "error": "#ffb4ab",
-            "surface-bright": "#2f3b3e",
-            "on-error": "#690005",
-            "secondary-fixed-dim": "#ffb4a6",
-            "primary-fixed-dim": "#6bd8ce",
-            "on-background": "#d8e5e9",
-            "on-secondary-fixed": "#3f0300",
-            "on-secondary": "#660800",
-            "tertiary-fixed-dim": "#f4bf40",
-            "outline-variant": "#3d4947",
-            "on-tertiary": "#402e00",
-            "surface": "#091518",
-            "secondary-fixed": "#ffdad3",
-            "background": "#091518",
-            "on-error-container": "#ffdad6",
-            "on-tertiary-fixed": "#261a00",
-            "surface-container-lowest": "#051013",
-            "surface-container": "#162125",
-            "on-primary-fixed": "#00201e",
-            "tertiary-container": "#ba8b00",
-            "secondary-container": "#981201",
-            "on-primary-fixed-variant": "#00504b",
-            "secondary": "#ffb4a6",
-            "error-container": "#93000a",
-            "primary": "#6bd8ce",
-            "tertiary-fixed": "#ffdf9e",
-            "surface-dim": "#091518",
-            "surface-container-low": "#121d20",
-            "on-tertiary-container": "#392900",
-            "on-secondary-container": "#ffa493",
-            "surface-container-high": "#202c2f",
-            "outline": "#879391",
-            "on-primary-container": "#00322e",
-            "surface-tint": "#6bd8ce",
-            "inverse-surface": "#d8e5e9",
-            "inverse-on-surface": "#263236",
-            "primary-container": "#2ba39a",
-            "surface-variant": "#2b373a",
-            "surface-container-highest": "#2b373a",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "inverse-primary": "#006a64",
-            "on-surface": "#d8e5e9",
-            "on-surface-variant": "#bcc9c7",
-            "on-primary": "#003733",
-            "primary-fixed": "#88f5ea",
-            "tertiary": "#f4bf40"
-          },
-          "borderRadius": {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-          "spacing": {
-            "space-xl": "32px",
-            "space-md": "16px",
-            "space-lg": "24px",
-            "space-xs": "4px",
-            "margin": "16px",
-            "gutter": "16px",
-            "space-sm": "8px"
-          },
-          "fontFamily": {
-            "display": [
-              "Plus Jakarta Sans"
-            ],
-            "title": [
-              "Plus Jakarta Sans"
-            ],
-            "label": [
-              "Plus Jakarta Sans"
-            ],
-            "body": [
-              "Plus Jakarta Sans"
-            ]
-          },
-          "fontSize": {
-            "display": [
-              "32px",
-              {
-                "lineHeight": "38px",
-                "fontWeight": "800"
-              }
-            ],
-            "title": [
-              "22px",
-              {
-                "lineHeight": "28px",
-                "fontWeight": "700"
-              }
-            ],
-            "label": [
-              "12px",
-              {
-                "lineHeight": "16px",
-                "letterSpacing": "0.06em",
-                "fontWeight": "800"
-              }
-            ],
-            "body": [
-              "16px",
-              {
-                "lineHeight": "24px",
-                "fontWeight": "500"
-              }
-            ]
-          }
-        },
-      },
-    }
-  </script>
 <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 1;
-    }
-    .material-symbols-outlined[data-weight="fill"] {
-      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-    }
-    
-    /* Tactile 3D Button Physics */
-    .tactile-btn-primary {
-      box-shadow: 0 5px 0 #B53A22;
-      transition: all 0.08s ease-in-out;
-    }
-    .tactile-btn-primary:active {
-      transform: translateY(4px);
-      box-shadow: 0 1px 0 #B53A22;
-    }
-    
-    .tactile-dialog {
-      box-shadow: 0 8px 0 #071113;
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #051013;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Ambient Subtle Grid Pattern */
-    .bg-tactile-grid {
-      background-size: 28px 28px;
-      background-image: 
-        radial-gradient(circle, rgba(43, 163, 154, 0.08) 1.2px, transparent 1.2px);
+    .phone-container {
+      width: 390px;
+      min-height: 844px;
+      background-color: #091518;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Tactile 3D Button Effects */
+    .tactile-btn-orange {
+      background-color: #ff8c00;
+      box-shadow: 0 6px 0 0 #a84c00;
+      color: #1a0f02;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-orange:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 0 #a84c00;
+    }
+
+    .tactile-btn-icon {
+      background-color: #16262a;
+      box-shadow: 0 3px 0 0 #081316;
+      border: 2px solid #2a4c55;
+      color: #f0f7f6;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-icon:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #081316;
+    }
+
+    /* Tactile sheet in dark teal */
+    .tactile-sheet {
+      background-color: #101d20;
+      border: 2px solid #233f47;
+      box-shadow: 0 8px 0 0 #060d0f;
+      border-radius: 24px 24px 20px 20px;
+    }
+
+    /* Speech Bubble Triangle Dark */
+    .speech-notch {
+      position: absolute;
+      left: -9px;
+      top: 26px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 10px solid #2a4c55;
+    }
+    .speech-notch::after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: -7px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 9px solid #16262a;
     }
   </style>
 </head>
-<body class="bg-surface text-on-surface font-body min-h-screen relative overflow-hidden select-none antialiased">
-<!-- ======================================================== -->
-<!-- BACKGROUND LAYER: IN-PROGRESS LESSON CANVAS (BLURRED)   -->
-<!-- ======================================================== -->
-<div class="fixed inset-0 w-full h-full flex flex-col justify-between p-space-md pointer-events-none opacity-40 blur-[5px] scale-[0.99] transition-all duration-300">
-<!-- Lesson Header -->
-<header class="w-full max-w-2xl mx-auto flex items-center justify-between gap-space-md pt-space-xs">
-<button class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant">
-<span class="material-symbols-outlined">close</span>
-</button>
-<div class="flex-1 bg-surface-container-high h-3.5 rounded-full overflow-hidden p-0.5 border border-outline-variant/30">
-<div class="bg-primary h-full rounded-full w-[65%]"></div>
-</div>
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container border border-outline-variant/30">
-<span class="material-symbols-outlined text-secondary" data-weight="fill">favorite</span>
-<span class="font-display font-extrabold text-xs text-on-surface">5</span>
-</div>
-</header>
-<!-- Lesson Question Area -->
-<main class="w-full max-w-xl mx-auto flex flex-col items-center justify-center gap-space-lg flex-1 py-space-md">
+<body>
+<div class="phone-container">
+<!-- TOP BAR (MODAL VARIANT: 56px, close X on left, title, nothing on right) -->
+<header class="w-full h-[56px] px-4 flex items-center justify-between border-b-2 border-[#1a2c32] bg-[#091518] shrink-0 z-30">
 <div class="flex items-center gap-3">
-<div class="w-12 h-12 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-2xl">volume_up</span>
+<button aria-label="Close modal" class="tactile-btn-icon w-10 h-10 rounded-full flex items-center justify-center cursor-pointer">
+<span class="material-symbols-rounded text-[22px]">close</span>
+</button>
+<h1 class="text-[19px] font-extrabold text-[#f0f7f6] tracking-tight">Leave lesson?</h1>
 </div>
-<div class="p-4 rounded-2xl bg-surface-container-high border-2 border-surface-container-highest">
-<p class="font-title text-title text-on-surface">¿Cómo se dice "good morning"?</p>
+<div><!-- Nothing on right as per MODAL spec --></div>
+</header>
+<!-- CONTENT AREA -->
+<main class="relative flex-1 flex flex-col justify-between overflow-hidden">
+<!-- BACKGROUND / DIMMED LESSON LAYER -->
+<div class="absolute inset-0 px-4 pt-3 flex flex-col gap-3 pointer-events-none select-none opacity-25 filter blur-[1.5px]">
+<!-- Dimmed lesson status bar -->
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-[#16262a] border border-[#2a4c55] flex items-center justify-center text-[#879391]">
+<span class="material-symbols-rounded text-[18px]">close</span>
+</div>
+<div class="flex-1 h-3 bg-[#121d20] border border-[#233f47] rounded-full overflow-hidden">
+<div class="w-3/5 h-full bg-[#6bd8ce] rounded-full"></div>
+</div>
+<div class="px-2.5 py-0.5 rounded-full bg-[#202c2f] border border-[#3d4947] text-[#f4bf40] text-[11px] font-bold">
+            🔥 COMBO ×4
+          </div>
+</div>
+<!-- Dimmed question card -->
+<div class="p-4 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col gap-2 mt-1">
+<span class="text-[11px] font-extrabold text-[#6bd8ce] uppercase tracking-wider">Question 4 of 10</span>
+<p class="text-[15px] font-bold text-[#f0f7f6]">Which word means <span class="text-[#6bd8ce] underline">very important</span>?</p>
+</div>
+<!-- Dimmed options grid -->
+<div class="grid grid-cols-2 gap-2.5 mt-1">
+<div class="p-3.5 rounded-2xl bg-[#162e31] border-2 border-[#6bd8ce] shadow-[0_4px_0_0_#003733] flex flex-col">
+<span class="text-[14px] font-extrabold text-[#6bd8ce]">crucial</span>
+<span class="text-[12px] font-medium text-[#9bc4be]">essential</span>
+</div>
+<div class="p-3.5 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
+<span class="text-[14px] font-extrabold text-[#f0f7f6]">trivial</span>
+<span class="text-[12px] font-medium text-[#879391]">minor</span>
+</div>
+<div class="p-3.5 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
+<span class="text-[14px] font-extrabold text-[#f0f7f6]">vague</span>
+<span class="text-[12px] font-medium text-[#879391]">unclear</span>
+</div>
+<div class="p-3.5 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
+<span class="text-[14px] font-extrabold text-[#f0f7f6]">casual</span>
+<span class="text-[12px] font-medium text-[#879391]">relaxed</span>
 </div>
 </div>
-<!-- Multiple Choice Options -->
-<div class="w-full grid grid-cols-1 gap-space-sm max-w-md">
-<div class="p-4 rounded-2xl bg-surface-container border-2 border-surface-container-highest flex items-center justify-between">
-<span class="font-body font-bold text-on-surface">Buenas noches</span>
-<span class="w-6 h-6 rounded-lg bg-surface-container-highest text-xs font-bold flex items-center justify-center text-on-surface-variant">A</span>
 </div>
-<div class="p-4 rounded-2xl bg-primary/10 border-2 border-primary-container flex items-center justify-between">
-<span class="font-body font-bold text-primary">Buenos días</span>
-<span class="w-6 h-6 rounded-lg bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">B</span>
+<!-- SEMI-TRANSPARENT BACKDROP OVERLAY / SCRIM -->
+<div class="absolute inset-0 bg-[#091518]/70 backdrop-blur-[2px] z-10"></div>
+<!-- TOP SECTION: EMPTY DASHED TEACHER SLOT UNDER TOP BAR -->
+<div class="relative z-20 px-4 pt-3 flex items-start gap-3">
+<!-- TEACHER SLOT: empty dashed rounded 120x140 box with word TEACHER SLOT inside, no person -->
+<div class="w-[120px] h-[140px] rounded-2xl border-2 border-dashed border-[#33535c] bg-[#101d20]/90 flex flex-col items-center justify-center text-center p-2 shrink-0 shadow-[0_4px_0_0_#060d0f]">
+<span class="material-symbols-rounded text-[#879391] text-[28px] mb-1">school</span>
+<span class="text-[12px] font-extrabold text-[#9bc4be] tracking-wider">TEACHER</span>
+<span class="text-[10px] font-semibold text-[#6d8a87]">SLOT</span>
 </div>
-<div class="p-4 rounded-2xl bg-surface-container border-2 border-surface-container-highest flex items-center justify-between">
-<span class="font-body font-bold text-on-surface">Hola amigo</span>
-<span class="w-6 h-6 rounded-lg bg-surface-container-highest text-xs font-bold flex items-center justify-center text-on-surface-variant">C</span>
+<!-- Speech bubble to the right of the teacher slot -->
+<div class="relative flex-1 bg-[#16262a] border-2 border-[#2a4c55] rounded-2xl p-3.5 shadow-[0_4px_0_0_#081316] mt-2">
+<div class="speech-notch"></div>
+<p class="text-[15px] font-extrabold text-[#f0f7f6] leading-tight">Wait, don’t go!</p>
+<p class="text-[12px] font-semibold text-[#9bc4be] mt-1 leading-snug">You’ll lose this lesson’s progress</p>
+</div>
+</div>
+<!-- BOTTOM SHEET: QUIT-MIDWAY CONFIRM PANEL -->
+<div class="relative z-20 px-4 pb-6 pt-2">
+<div class="tactile-sheet p-5 flex flex-col items-center text-center">
+<!-- Grab handle pill -->
+<div class="w-10 h-1 bg-[#2a4c55] rounded-full mb-4"></div>
+<!-- Glossy Illustrated Icon Badge -->
+<div class="w-16 h-16 rounded-full bg-[#201a09] border-2 border-[#7a4e03] flex items-center justify-center shadow-[0_4px_0_0_#140e02] mb-3 relative">
+<span class="material-symbols-rounded text-[34px] text-[#f4bf40]">hourglass_bottom</span>
+<!-- Alert badge accent -->
+<span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#e63946] text-white flex items-center justify-center text-[11px] font-black border-2 border-[#101d20]">!</span>
+</div>
+<!-- Heading -->
+<h2 class="text-[20px] font-extrabold text-[#f0f7f6] tracking-tight">Wait, don’t go!</h2>
+<!-- Subtext -->
+<p class="text-[13px] font-semibold text-[#9bc4be] mt-1 max-w-[260px] leading-relaxed">
+            You’ll lose this lesson’s progress
+          </p>
+<!-- Daily streak retention tag -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#16262a] border border-[#2a4c55] text-[#f0f7f6] text-[12px] font-bold mt-3 mb-5">
+<span class="material-symbols-rounded text-[15px] text-[#f4bf40]">local_fire_department</span>
+<span>Day 14 streak on the line</span>
+</div>
+<!-- ACTIONS: Big tactile candy-orange button + red text button -->
+<div class="w-full flex flex-col gap-2.5">
+<button class="tactile-btn-orange w-full h-[54px] rounded-2xl flex items-center justify-center gap-2 text-[16px] font-extrabold cursor-pointer">
+<span>Keep learning</span>
+<span class="material-symbols-rounded text-[20px]">play_arrow</span>
+</button>
+<button class="w-full py-2.5 text-[14px] font-extrabold text-[#ff6b6b] hover:text-[#ff8787] active:text-[#e05353] transition-colors cursor-pointer">
+              End lesson
+            </button>
+</div>
 </div>
 </div>
 </main>
-<!-- Lesson Bottom Action Bar -->
-<footer class="w-full max-w-2xl mx-auto py-space-sm border-t-2 border-surface-container-high flex justify-end">
-<div class="px-8 py-3.5 rounded-2xl bg-primary-container text-on-primary-container font-label text-label tracking-wide">
-        CONTINUE
-      </div>
-</footer>
-</div>
-<!-- ======================================================== -->
-<!-- MODAL BACKDROP OVERLAY                                   -->
-<!-- Rich dark teal-black atmosphere with backdrop blur       -->
-<!-- ======================================================== -->
-<div class="fixed inset-0 z-40 bg-[#041013]/80 backdrop-blur-md bg-tactile-grid flex items-center justify-center p-space-md">
-<!-- Soft Ambient Dark Teal Radial Glow -->
-<div class="absolute w-[500px] h-[500px] bg-primary/10 rounded-full blur-[110px] pointer-events-none -translate-y-4"></div>
-<!-- ======================================================== -->
-<!-- DIALOG CARD: QUIT LESSON CONFIRMATION                     -->
-<!-- Desktop width: max-w-md (approx 430px)                   -->
-<!-- ======================================================== -->
-<div aria-labelledby="dialog-title" aria-modal="true" class="tactile-dialog relative w-full max-w-md bg-[#111E22] border-2 border-[#284149] rounded-3xl p-6 sm:p-7 flex flex-col items-center text-center z-50 transition-transform duration-150 animate-in fade-in zoom-in-95" role="dialog">
-<!-- Glossy Specular Top Shine Line -->
-<div class="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-[#6bd8ce]/30 to-transparent"></div>
-<!-- Top Pull Bar Indicator -->
-<div class="w-10 h-1 bg-[#284149] rounded-full mb-5"></div>
-<!-- EMPTY DASHED TEACHER SLOT -->
-<!-- Explicitly kept empty of avatars/human figures as mandated -->
-<div class="relative w-[140px] h-[154px] rounded-2xl border-2 border-dashed border-[#2BA39A]/60 bg-[#0D1A1D] flex flex-col items-center justify-center p-3 mb-5 overflow-hidden group">
-<!-- Slot Tag Pill -->
-<div class="absolute top-2.5 px-2 py-0.5 rounded-full bg-[#183338] border border-[#2BA39A]/40 flex items-center gap-1.5 shadow-sm">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
-<span class="font-label text-[9px] text-[#A9BFC1] tracking-wider uppercase">TEACHER SLOT</span>
-</div>
-<!-- Empty State Visual Cue -->
-<div class="w-12 h-12 rounded-2xl bg-[#183338] border border-[#284149] flex items-center justify-center mb-2 mt-4 text-[#2BA39A]">
-<span class="material-symbols-outlined text-2xl">school</span>
-</div>
-<!-- Slot Specifications & Placeholder Label -->
-<span class="font-label text-[11px] font-bold text-on-surface tracking-wide">140 × 170 Slot</span>
-<span class="font-body text-[10px] text-[#A9BFC1]/80 mt-0.5">Teacher Carlos / Ama</span>
-</div>
-<!-- Headline -->
-<h2 class="font-display text-[26px] leading-[30px] font-extrabold text-[#EEF6F7] tracking-tight mb-2" id="dialog-title">
-        Wait, don't go!
-      </h2>
-<!-- Subtitle (Clear, readable, ≥4.5:1 contrast) -->
-<p class="font-body text-[15px] leading-5 text-[#A9BFC1] font-medium mb-6 max-w-xs">
-        You'll lose this lesson's progress
-      </p>
-<!-- Primary & Secondary Action Stack -->
-<div class="w-full flex flex-col gap-3">
-<!-- Primary Action Button: KEEP LEARNING -->
-<button class="tactile-btn-primary w-full h-[52px] rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FF8C38] flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8C38] focus:ring-offset-[#111E22]" type="button">
-<span class="font-display text-[#150502] font-black text-[15px] tracking-wider uppercase">
-            KEEP LEARNING
-          </span>
-<span class="material-symbols-outlined text-[#150502] text-lg font-bold" data-weight="fill">play_arrow</span>
-</button>
-<!-- Secondary Action Button: END LESSON -->
-<button class="w-full h-11 rounded-2xl bg-transparent hover:bg-surface-container flex items-center justify-center transition-colors cursor-pointer group" type="button">
-<span class="font-label text-sm font-bold text-[#F2553B] group-hover:text-[#FF8C38] tracking-widest uppercase transition-colors">
-            END LESSON
-          </span>
-</button>
-</div>
-<!-- Streak Reassurance Footer Note -->
-<div class="mt-4 pt-4 border-t border-[#284149]/50 w-full flex items-center justify-center gap-2 text-center">
-<span class="material-symbols-outlined text-[#2BA39A] text-lg" data-weight="fill">bolt</span>
-<span class="font-body text-[13px] font-medium text-[#A9BFC1]">
-          14-day streak saved until midnight
-        </span>
-</div>
-</div>
 </div>
 </body></html>

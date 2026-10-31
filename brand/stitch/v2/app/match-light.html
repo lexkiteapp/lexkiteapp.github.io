@@ -3,10 +3,10 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite Match Drill</title>
+<title>Lexkite - Match Drill</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -16,53 +16,53 @@
       theme: {
         extend: {
           "colors": {
-            "tertiary-container": "#785a00",
-            "on-background": "#211a14",
-            "surface-container": "#faebe1",
-            "background": "#fff8f5",
-            "secondary-fixed": "#ffdcbf",
-            "on-secondary-fixed": "#2d1600",
             "on-secondary-container": "#633700",
-            "secondary-container": "#fd9500",
-            "on-error": "#ffffff",
-            "inverse-surface": "#372f28",
-            "secondary": "#8c5000",
-            "on-primary-fixed": "#00201d",
-            "surface-dim": "#e6d7cd",
-            "tertiary-fixed": "#ffdf9b",
-            "on-error-container": "#93000a",
-            "on-tertiary-fixed": "#251a00",
-            "on-surface-variant": "#3f4947",
-            "on-primary": "#ffffff",
-            "surface-variant": "#efe0d6",
-            "inverse-primary": "#88d4cb",
-            "primary": "#00504b",
-            "error-container": "#ffdad6",
-            "on-primary-fixed-variant": "#00504a",
+            "surface-container-low": "#fff1e8",
+            "tertiary-container": "#785a00",
+            "surface-container-high": "#f4e5db",
+            "on-surface": "#211a14",
             "primary-fixed-dim": "#88d4cb",
-            "on-tertiary-container": "#ffd370",
-            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "on-primary-container": "#9be7de",
+            "background": "#fff8f5",
+            "surface-tint": "#126a63",
+            "surface-container": "#faebe1",
+            "surface-variant": "#efe0d6",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fff8f5",
+            "on-background": "#211a14",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#fd9500",
+            "outline-variant": "#bec9c6",
+            "on-tertiary-fixed": "#251a00",
+            "tertiary-fixed": "#ffdf9b",
+            "secondary-fixed-dim": "#ffb872",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#ffdcbf",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b4300",
             "primary-fixed": "#a4f1e7",
             "primary-container": "#136a63",
-            "on-surface": "#211a14",
-            "surface-container-low": "#fff1e8",
-            "inverse-on-surface": "#fdeee3",
-            "tertiary-fixed-dim": "#f5bf31",
+            "inverse-primary": "#88d4cb",
             "surface-container-highest": "#efe0d6",
-            "outline-variant": "#bec9c6",
             "outline": "#6f7977",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "error": "#ba1a1a",
-            "secondary-fixed-dim": "#ffb872",
-            "surface-container-lowest": "#ffffff",
-            "surface-bright": "#fff8f5",
-            "surface-container-high": "#f4e5db",
-            "surface": "#fff8f5",
-            "on-secondary-fixed-variant": "#6a3b00",
-            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#ffd370",
             "tertiary": "#5b4300",
-            "surface-tint": "#126a63",
-            "on-primary-container": "#9be7de"
+            "on-surface-variant": "#3f4947",
+            "secondary": "#8c5000",
+            "inverse-surface": "#372f28",
+            "inverse-on-surface": "#fdeee3",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-dim": "#e6d7cd",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#f5bf31",
+            "primary": "#00504b",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed": "#2d1600",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "surface": "#fff8f5"
           },
           "borderRadius": {
             "DEFAULT": "1rem",
@@ -71,189 +71,174 @@
             "full": "9999px"
           },
           "spacing": {
-            "margin-md": "2rem",
-            "margin-lg": "3rem",
             "space-xs": "0.25rem",
-            "space-xl": "2.5rem",
-            "margin": "1rem",
-            "gutter-md": "1.5rem",
-            "gutter": "1rem",
-            "space-lg": "1.5rem",
-            "gutter-lg": "2rem",
+            "space-sm": "0.5rem",
             "space-md": "1rem",
-            "space-sm": "0.5rem"
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1rem",
+            "gutter-md": "1.5rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "margin-md": "2rem",
+            "margin-lg": "3rem"
           },
           "fontFamily": {
-            "headline-md": ["Plus Jakarta Sans"],
-            "body-lg": ["Plus Jakarta Sans"],
-            "headline-sm": ["Plus Jakarta Sans"],
             "display-lg": ["Plus Jakarta Sans"],
-            "body-sm": ["Plus Jakarta Sans"],
-            "display-lg-mobile": ["Plus Jakarta Sans"],
-            "label-sm": ["Plus Jakarta Sans"],
-            "headline-lg": ["Plus Jakarta Sans"],
-            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
             "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
             "label-md": ["Plus Jakarta Sans"],
-            "body-md": ["Plus Jakarta Sans"]
+            "display-lg-mobile": ["Plus Jakarta Sans"]
           },
           "fontSize": {
-            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
-            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
-            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
-            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
-            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
-            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
-            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
-            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
-            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
           }
         }
       }
     }
   </script>
 <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+  </style>
+<style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
   </head>
-<body class="bg-background text-on-background min-h-screen flex flex-col justify-between selection:bg-secondary-fixed selection:text-on-secondary-fixed antialiased pb-24">
-<!-- Top App Bar / Drill Header -->
-<header class="w-full bg-background border-b-2 border-outline-variant shadow-[0_4px_0_0_#bec9c6]">
-<div class="flex justify-between items-center w-full px-4 h-16 max-w-5xl mx-auto">
-<!-- Leading Close Button -->
-<button aria-label="Close" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-outline-variant shadow-[0_3px_0_0_#bec9c6] active:translate-y-0.5 active:shadow-[0_1px_0_0_#bec9c6] flex items-center justify-center transition-all duration-75" type="button">
-<span class="material-symbols-outlined text-primary text-xl font-bold">close</span>
+<body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
+<div class="w-[390px] min-h-screen bg-background flex flex-col relative select-none pb-28">
+<header class="h-14 px-4 flex items-center justify-between gap-3 bg-background sticky top-0 z-30 shadow-[0_3px_0_0_#efe0d6]">
+<button aria-label="Close Drill" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface shadow-[0_3px_0_0_#bec9c6] active:translate-y-1 active:shadow-none transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
 </button>
-<!-- Center Countdown / Stopwatch -->
-<div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-low border-2 border-surface-variant shadow-[0_3px_0_0_#e6d7cd]">
-<span class="material-symbols-outlined text-primary-container text-base" style="font-variation-settings: 'FILL' 1;">timer</span>
-<span class="font-label-lg text-label-lg text-on-surface font-extrabold tracking-wide">0:38</span>
+<div class="flex-1 px-1">
+<div class="w-full h-3.5 bg-surface-variant rounded-full relative overflow-hidden p-0.5 shadow-inner">
+<div class="h-full bg-primary-container rounded-full w-[66%] relative transition-all duration-300">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/40 rounded-full"></div>
 </div>
-<!-- Trailing Action Counter -->
-<div class="flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-secondary-fixed border-2 border-secondary shadow-[0_3px_0_0_#8c5000]">
-<span class="material-symbols-outlined text-on-secondary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
-<span class="font-label-md text-label-md text-on-secondary-fixed font-extrabold">4/6 pairs</span>
 </div>
+</div>
+<div class="h-8 px-2.5 rounded-full bg-surface-container-high border-2 border-surface-variant flex items-center gap-1.5 shadow-[0_2px_0_0_#bec9c6]">
+<span class="material-symbols-outlined fill text-secondary-container text-[16px]">stars</span>
+<span class="font-label-sm text-label-sm text-on-surface">4/6</span>
 </div>
 </header>
-<!-- Main Game Canvas Container -->
-<main class="w-full max-w-lg mx-auto px-4 pt-4 flex-1 flex flex-col justify-start">
-<!-- Penalty Notice Pill Banner -->
-<div class="flex items-center justify-center mb-5">
-<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container border border-outline-variant shadow-[0_2px_0_0_#bec9c6]">
+<main class="flex-1 px-4 pt-3 flex flex-col">
+<div class="flex items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_0_#bec9c6]">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span class="font-label-md text-label-md text-primary font-extrabold tracking-wide">0:38</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-tertiary-fixed border-2 border-[#d49b10] shadow-[0_3px_0_0_#b5840d]">
+<span class="material-symbols-outlined fill text-tertiary text-[18px]">verified</span>
+<span class="font-label-md text-label-md text-on-tertiary-fixed font-extrabold">4/6 pairs</span>
+</div>
+</div>
+<div class="flex justify-center mb-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-surface-variant text-on-surface-variant">
 <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-on-surface font-extrabold tracking-wide">+1 s per miss</span>
-<span class="material-symbols-outlined text-on-surface-variant text-sm">schedule</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">+1 s per miss ⏱️</span>
 </div>
 </div>
-<!-- Match Drill Matrix: 12 Tactile Chunky Tiles -->
-<div class="grid grid-cols-2 gap-3.5 sm:gap-4 w-full">
-<!-- Tile 1: Solved / Matched (Dimmed) -->
-<div class="opacity-45 pointer-events-none rounded-2xl bg-surface-variant border-2 border-outline-variant p-4 flex flex-col justify-center items-center min-h-[92px] shadow-[0_2px_0_0_#bec9c6] text-center select-none">
-<span class="font-headline-sm text-headline-sm text-on-surface-variant line-through decoration-primary-container decoration-2">meticulous</span>
-<span class="flex items-center gap-1 mt-1 text-primary-container font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-          Matched
-        </span>
+<div class="grid grid-cols-2 gap-2.5 flex-1">
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/60 border-2 border-outline-variant/60 flex flex-col justify-center items-center text-center opacity-60 shadow-[0_2px_0_0_#bec9c6]">
+<span class="font-headline-sm text-label-md text-on-surface-variant line-through decoration-2">meticulous</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+          </span>
 </div>
-<!-- Tile 2: Default Pressable -->
-<button class="group rounded-2xl bg-surface-container-lowest border-2 border-outline-variant p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#bec9c6] active:translate-y-1 active:shadow-[0_0_0_0_#bec9c6] hover:bg-surface-container transition-all duration-75 text-center" type="button">
-<span class="font-headline-sm text-headline-sm text-on-surface group-active:scale-95 transition-transform duration-75">candid</span>
-</button>
-<!-- Tile 3: Selected Active (Pair Part 1) -->
-<button class="rounded-2xl bg-surface-container-lowest border-2 border-primary-container p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#136a63] translate-y-0.5 ring-2 ring-primary-fixed text-center relative overflow-hidden transition-all duration-75" type="button">
-<div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary-container"></div>
-<span class="font-headline-sm text-headline-sm text-primary-container font-extrabold">ubiquitous</span>
-</button>
-<!-- Tile 4: Solved / Matched (Dimmed) -->
-<div class="opacity-45 pointer-events-none rounded-2xl bg-surface-variant border-2 border-outline-variant p-4 flex flex-col justify-center items-center min-h-[92px] shadow-[0_2px_0_0_#bec9c6] text-center select-none">
-<span class="font-body-md text-body-md text-on-surface-variant line-through decoration-primary-container decoration-2">very careful</span>
-<span class="flex items-center gap-1 mt-1 text-primary-container font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-          Matched
-        </span>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/60 border-2 border-outline-variant/60 flex flex-col justify-center items-center text-center opacity-60 shadow-[0_2px_0_0_#bec9c6]">
+<span class="font-headline-sm text-label-md text-on-surface-variant line-through decoration-2">very careful</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+          </span>
 </div>
-<!-- Tile 5: Default Pressable -->
-<button class="group rounded-2xl bg-surface-container-lowest border-2 border-outline-variant p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#bec9c6] active:translate-y-1 active:shadow-[0_0_0_0_#bec9c6] hover:bg-surface-container transition-all duration-75 text-center" type="button">
-<span class="font-headline-sm text-headline-sm text-on-surface group-active:scale-95 transition-transform duration-75">scrutinize</span>
-</button>
-<!-- Tile 6: Selected Active (Pair Part 2 - Matches Tile 3) -->
-<button class="rounded-2xl bg-surface-container-lowest border-2 border-primary-container p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#136a63] translate-y-0.5 ring-2 ring-primary-fixed text-center relative overflow-hidden transition-all duration-75" type="button">
-<div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary-container"></div>
-<span class="font-body-md text-body-md text-primary-container font-extrabold">found everywhere</span>
-</button>
-<!-- Tile 7: Default Pressable -->
-<button class="group rounded-2xl bg-surface-container-lowest border-2 border-outline-variant p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#bec9c6] active:translate-y-1 active:shadow-[0_0_0_0_#bec9c6] hover:bg-surface-container transition-all duration-75 text-center" type="button">
-<span class="font-headline-sm text-headline-sm text-on-surface group-active:scale-95 transition-transform duration-75">pragmatic</span>
-</button>
-<!-- Tile 8: Default Pressable -->
-<button class="group rounded-2xl bg-surface-container-lowest border-2 border-outline-variant p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#bec9c6] active:translate-y-1 active:shadow-[0_0_0_0_#bec9c6] hover:bg-surface-container transition-all duration-75 text-center" type="button">
-<span class="font-body-md text-body-md text-on-surface group-active:scale-95 transition-transform duration-75">frank &amp; direct</span>
-</button>
-<!-- Tile 9: Default Pressable -->
-<button class="group rounded-2xl bg-surface-container-lowest border-2 border-outline-variant p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#bec9c6] active:translate-y-1 active:shadow-[0_0_0_0_#bec9c6] hover:bg-surface-container transition-all duration-75 text-center" type="button">
-<span class="font-body-md text-body-md text-on-surface group-active:scale-95 transition-transform duration-75">examine closely</span>
-</button>
-<!-- Tile 10: Default Pressable -->
-<button class="group rounded-2xl bg-surface-container-lowest border-2 border-outline-variant p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#bec9c6] active:translate-y-1 active:shadow-[0_0_0_0_#bec9c6] hover:bg-surface-container transition-all duration-75 text-center" type="button">
-<span class="font-body-md text-body-md text-on-surface group-active:scale-95 transition-transform duration-75">practical minded</span>
-</button>
-<!-- Tile 11: Solved / Matched (Dimmed) -->
-<div class="opacity-45 pointer-events-none rounded-2xl bg-surface-variant border-2 border-outline-variant p-4 flex flex-col justify-center items-center min-h-[92px] shadow-[0_2px_0_0_#bec9c6] text-center select-none">
-<span class="font-headline-sm text-headline-sm text-on-surface-variant line-through decoration-primary-container decoration-2">lucid</span>
-<span class="flex items-center gap-1 mt-1 text-primary-container font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-          Matched
-        </span>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
+<span class="font-headline-sm text-label-lg text-on-surface font-extrabold">candid</span>
+<span class="font-label-sm text-label-sm text-outline font-semibold">ADJECTIVE</span>
 </div>
-<!-- Tile 12: Solved / Matched (Dimmed) -->
-<div class="opacity-45 pointer-events-none rounded-2xl bg-surface-variant border-2 border-outline-variant p-4 flex flex-col justify-center items-center min-h-[92px] shadow-[0_2px_0_0_#bec9c6] text-center select-none">
-<span class="font-body-sm text-body-sm text-on-surface-variant line-through decoration-primary-container decoration-2">clear &amp; easy to understand</span>
-<span class="flex items-center gap-1 mt-1 text-primary-container font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-          Matched
-        </span>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
+<span class="font-headline-sm text-label-md text-on-surface font-bold leading-tight">frank &amp; direct</span>
+<span class="font-label-sm text-label-sm text-outline font-semibold">MEANING</span>
+</div>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-primary-fixed/20 border-2 border-primary-container flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#00504b] translate-y-0.5 transition-all cursor-pointer relative ring-2 ring-primary-container/20">
+<div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary-container animate-ping"></div>
+<span class="font-headline-sm text-label-lg text-primary font-extrabold">ubiquitous</span>
+<span class="font-label-sm text-label-sm text-primary-container font-extrabold">SELECTED</span>
+</div>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-primary-fixed/20 border-2 border-primary-container flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#00504b] translate-y-0.5 transition-all cursor-pointer relative ring-2 ring-primary-container/20">
+<div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary-container animate-ping"></div>
+<span class="font-headline-sm text-label-md text-primary font-extrabold leading-tight">found everywhere</span>
+<span class="font-label-sm text-label-sm text-primary-container font-extrabold">SELECTED</span>
+</div>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
+<span class="font-headline-sm text-label-lg text-on-surface font-extrabold">scrutinize</span>
+<span class="font-label-sm text-label-sm text-outline font-semibold">VERB</span>
+</div>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
+<span class="font-headline-sm text-label-md text-on-surface font-bold leading-tight">examine closely</span>
+<span class="font-label-sm text-label-sm text-outline font-semibold">MEANING</span>
+</div>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
+<span class="font-headline-sm text-label-lg text-on-surface font-extrabold">pragmatic</span>
+<span class="font-label-sm text-label-sm text-outline font-semibold">ADJECTIVE</span>
+</div>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
+<span class="font-headline-sm text-label-md text-on-surface font-bold leading-tight">practical minded</span>
+<span class="font-label-sm text-label-sm text-outline font-semibold">MEANING</span>
+</div>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/60 border-2 border-outline-variant/60 flex flex-col justify-center items-center text-center opacity-60 shadow-[0_2px_0_0_#bec9c6]">
+<span class="font-headline-sm text-label-md text-on-surface-variant line-through decoration-2">lucid</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+          </span>
+</div>
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/60 border-2 border-outline-variant/60 flex flex-col justify-center items-center text-center opacity-60 shadow-[0_2px_0_0_#bec9c6]">
+<span class="font-headline-sm text-label-sm text-on-surface-variant line-through decoration-2 leading-tight">clear &amp; easy to understand</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+          </span>
 </div>
 </div>
-<!-- Motivational Combo Hint -->
-<div class="mt-5 mb-2 flex items-center justify-center gap-2">
-<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-low rounded-full border border-surface-variant">
-<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">bolt</span>
-<span class="font-label-sm text-label-sm text-secondary font-extrabold">2 in a row! Keep going!</span>
+<div class="my-3 flex justify-center">
+<div class="h-9 px-4 rounded-full bg-secondary-fixed border-2 border-[#d97300] flex items-center gap-1.5 shadow-[0_3px_0_0_#c06200]">
+<span class="material-symbols-outlined fill text-on-secondary-fixed text-[18px]">bolt</span>
+<span class="font-label-md text-label-md text-on-secondary-fixed font-extrabold">2 in a row! Keep going!</span>
 </div>
 </div>
 </main>
-<!-- Bottom Navigation Bar (Shared Component Anchor) -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container-lowest border-t-2 border-outline-variant shadow-[0_-4px_0_0_#efe0d6]">
-<!-- Tab 1: Today -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-primary active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl">today</span>
-<span class="font-label-sm text-label-sm">Today</span>
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] p-4 bg-background/95 backdrop-blur-sm z-40">
+<button class="w-full h-14 rounded-DEFAULT bg-secondary-container text-on-secondary-fixed font-headline-sm text-headline-sm font-extrabold flex items-center justify-center gap-2 border-2 border-[#d97300] shadow-[0_6px_0_0_#8c5000] active:translate-y-1.5 active:shadow-[0_0_0_0_#8c5000] transition-all duration-75" type="button">
+<span>Check Pairs</span>
+<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
 </button>
-<!-- Tab 2: Vocab (Active) -->
-<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-fixed rounded-full px-3 py-1.5 shadow-[0_3px_0_0_#8c5000] active:translate-y-0.5 active:shadow-none active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl font-bold" style="font-variation-settings: 'FILL' 1;">style</span>
-<span class="font-label-sm text-label-sm">Vocab</span>
-</button>
-<!-- Tab 3: Skills -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-primary active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl">psychology</span>
-<span class="font-label-sm text-label-sm">Skills</span>
-</button>
-<!-- Tab 4: Tests -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-primary active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl">assignment</span>
-<span class="font-label-sm text-label-sm">Tests</span>
-</button>
-<!-- Tab 5: Me -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-primary active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl">person</span>
-<span class="font-label-sm text-label-sm">Me</span>
-</button>
-</nav>
+</div>
+</div>
 </body></html>

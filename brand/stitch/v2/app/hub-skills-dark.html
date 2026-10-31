@@ -1,177 +1,342 @@
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite — Skills Hub</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Lexkite Skills Hub</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet"/>
-<script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          "colors": {
+            "secondary-fixed": "#ffdad3",
+            "inverse-surface": "#d8e5e9",
+            "primary-fixed": "#88f5ea",
+            "surface-bright": "#2f3b3e",
+            "on-primary-fixed": "#00201e",
+            "on-surface": "#d8e5e9",
+            "on-tertiary": "#402e00",
+            "primary-container": "#2ba39a",
+            "surface-variant": "#2b373a",
+            "surface-tint": "#6bd8ce",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "tertiary": "#f4bf40",
+            "outline-variant": "#3d4947",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface": "#091518",
+            "outline": "#879391",
+            "surface-container-low": "#121d20",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#981201",
+            "on-tertiary-container": "#392900",
+            "on-background": "#d8e5e9",
+            "inverse-on-surface": "#263236",
+            "secondary": "#ffb4a6",
+            "on-secondary-container": "#ffa493",
+            "on-secondary": "#660800",
+            "surface-container-highest": "#2b373a",
+            "inverse-primary": "#006a64",
+            "surface-container-high": "#202c2f",
+            "on-primary": "#003733",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-error": "#690005",
+            "on-secondary-fixed-variant": "#900f00",
+            "tertiary-container": "#ba8b00",
+            "surface-dim": "#091518",
+            "primary": "#6bd8ce",
+            "surface-container-lowest": "#051013",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-primary-container": "#00322e",
+            "tertiary-fixed": "#ffdf9e",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-secondary-fixed": "#3f0300",
+            "on-surface-variant": "#bcc9c7",
+            "background": "#091518",
+            "surface-container": "#162125",
+            "on-tertiary-fixed": "#261a00",
+            "on-primary-fixed-variant": "#00504b"
           },
-          colors: {
-            cream: {
-              50: '#FFFDF9',
-              100: '#FFF7EA',
-              200: '#FBF0DE',
-              300: '#F4E5CC',
-            },
-            ink: {
-              950: '#061C1D',
-              900: '#0A2628',
-              800: '#0F3436',
-              700: '#154345',
-              600: '#23595B',
-            },
-            teal: {
-              400: '#34B8AE',
-              500: '#2BA39A',
-              600: '#1F7A75',
-              700: '#12514D',
-              800: '#0B3835',
-            },
-            coral: {
-              400: '#FF6F59',
-              500: '#F2553B',
-              600: '#D9442B',
-              700: '#B53A22',
-            },
-            amber: {
-              300: '#FFC875',
-              400: '#FFB854',
-              500: '#FF9E2C',
-              600: '#E68214',
-            },
-            gold: {
-              400: '#FFD45A',
-              500: '#FFC42B',
-              600: '#DFA312',
-            },
-            blue: {
-              400: '#53A8F5',
-              500: '#348FE6',
-              600: '#2074C4',
-              700: '#155694',
-            },
-            purple: {
-              400: '#B075F0',
-              500: '#9454DE',
-              600: '#7938C2',
-              700: '#5C2299',
-            }
-          }
-        }
-      }
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {},
+          "fontFamily": {
+            "headline": [
+              "Plus Jakarta Sans"
+            ],
+            "display": [
+              "Plus Jakarta Sans"
+            ],
+            "body": [
+              "Plus Jakarta Sans"
+            ],
+            "label": [
+              "Plus Jakarta Sans"
+            ]
+          },
+          "fontSize": {}
+        },
+      },
     }
   </script>
 <style>
     body {
-      background-color: #FFF7EA;
-      color: #0A2628;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* 3D Tactile Ledging & Press Physics */
-    .tactile-btn {
-      position: relative;
-      transition: transform 0.08s ease, box-shadow 0.08s ease;
-      box-shadow: 0 5px 0 var(--ledge-color, #B53A22);
-    }
-    .tactile-btn:active {
-      transform: translateY(3px);
-      box-shadow: 0 2px 0 var(--ledge-color, #B53A22);
-    }
-
-    .tactile-card {
-      position: relative;
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
-      box-shadow: 0 6px 0 var(--card-ledge, #E0D3BC);
-    }
-    .tactile-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 0 var(--card-ledge, #E0D3BC);
-    }
-    .tactile-card:active {
-      transform: translateY(3px);
-      box-shadow: 0 3px 0 var(--card-ledge, #E0D3BC);
-    }
-
-    .tactile-mini-card {
-      position: relative;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-      box-shadow: 0 4px 0 var(--card-ledge, #E2D6C0);
-    }
-    .tactile-mini-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 0 var(--card-ledge, #E2D6C0);
-    }
-    .tactile-mini-card:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 var(--card-ledge, #E2D6C0);
-    }
-
-    /* Glossy 3D badge lighting effects */
-    .gloss-shine {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 65%);
-    }
-
-    .candy-sphere {
-      box-shadow: inset 0 3px 4px rgba(255, 255, 255, 0.75), inset 0 -4px 6px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(10, 38, 40, 0.08);
+      min-height: max(884px, 100dvh);
     }
   </style>
-</head>
-<body class="bg-[#081518] min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white" style="background-color: #081518; color: #EEF7F8;">
-<!-- ================= APP HEADER ================= -->
-<header class="w-full bg-[#0B1A1E] border-b-2 border-[#1E3B42] sticky top-0 z-30">
-<div class="max-w-2xl mx-auto px-5 h-16 flex items-center justify-between">
-<!-- Brand Logo -->
-<div class="flex items-center gap-2.5 cursor-pointer">
-<div class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-[0_3px_0_#12514D] border-2 border-teal-600 relative overflow-hidden">
-<div class="absolute inset-0 gloss-shine"></div>
-<!-- Tactile Kite Emblem -->
-<svg class="w-5 h-5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" fill="none" viewbox="0 0 24 24">
-<path d="M12 2L20 12L12 22L4 12L12 2Z" fill="#FFF7EA" stroke="#FFF7EA" stroke-linejoin="round" stroke-width="1.2"></path>
-<path d="M12 2L20 12H12V2Z" fill="#FFB854"></path>
-<path d="M12 12L20 12L12 22V12Z" fill="#F2553B"></path>
-<circle cx="12" cy="12" fill="#0A2628" r="1.5"></circle>
-</svg>
+  </head>
+<body class="bg-background text-on-surface font-body antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex justify-center">
+<!-- Mobile Canvas Frame: 390px edge-to-edge -->
+<main class="w-[390px] max-w-[390px] min-h-screen bg-surface flex flex-col pb-28 relative shadow-2xl">
+<!-- 1. TOP BAR (HUB VARIANT, 56px) -->
+<header class="h-14 px-4 bg-surface flex items-center justify-between sticky top-0 z-40">
+<!-- Left: Logo & Wordmark -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border-2 border-outline-variant flex items-center justify-center shadow-[0_3px_0_#051013]">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="kitesurfing" style="font-variation-settings: 'FILL' 1;">kitesurfing</span>
 </div>
-<span class="text-xl font-extrabold tracking-tight text-[#EEF7F8]">Lexkite</span>
-<span class="ml-1 text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#122A2E] text-[#62D7CE] border border-[#23535B]">
-          IELTS • TOEIC
-        </span>
+<span class="text-on-surface font-headline font-extrabold text-[17px] tracking-tight">Lexkite</span>
 </div>
-<!-- Header Pills (Streak + XP) -->
-<div class="flex items-center gap-2.5"><div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#112428] border-2 border-[#22444C] shadow-[0_3px_0_#0C191C] cursor-pointer hover:bg-[#162D33] transition-colors"><span class="material-symbols-rounded text-coral-500 text-lg leading-none">local_fire_department</span><span class="text-sm font-extrabold text-[#EEF7F8]">14</span></div><div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#112428] border-2 border-[#22444C] shadow-[0_3px_0_#0C191C] cursor-pointer hover:bg-[#162D33] transition-colors"><span class="material-symbols-rounded text-amber-500 text-lg leading-none">bolt</span><span class="text-sm font-extrabold text-[#EEF7F8]">820</span></div></div>
+<!-- Right: Badges cluster -->
+<div class="flex items-center gap-1.5">
+<!-- Exam chip -->
+<span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold font-label bg-surface-container-high text-primary border border-outline-variant shadow-[0_2px_0_#051013]">IELTS</span>
+<!-- Flame Streak Pill -->
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant shadow-[0_2px_0_#051013]">
+<span class="material-symbols-outlined text-tertiary text-[15px]" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[12px] font-extrabold font-label text-on-surface">14</span>
+</div>
+<!-- Star XP Pill -->
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant shadow-[0_2px_0_#051013]">
+<span class="material-symbols-outlined text-tertiary text-[15px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[12px] font-extrabold font-label text-on-surface">820</span>
+</div>
+<!-- Avatar -->
+<div class="w-7 h-7 rounded-full bg-primary-container border-2 border-outline-variant flex items-center justify-center text-on-primary-container font-extrabold text-xs shadow-[0_2px_0_#051013]">
+          L
+        </div>
 </div>
 </header>
-<!-- ================= MAIN CONTENT ================= -->
-<main class="w-full max-w-2xl mx-auto px-5 py-6 flex-1 flex flex-col gap-6">
-<!-- Section Title & Motivation Strip -->
-<div class="flex items-end justify-between"><div><span class="text-[12px] font-extrabold tracking-widest uppercase text-[#62D7CE] block mb-1">Target Band 7.5+</span><h1 class="text-2xl sm:text-3xl font-extrabold text-[#EEF7F8] tracking-tight">Skills Hub</h1></div><div class="flex items-center gap-1.5 bg-[#112428] px-3 py-1.5 rounded-xl border-2 border-[#22444C] shadow-[0_3px_0_#0C191C]"><span class="material-symbols-rounded text-[#52D4C9] text-base">verified</span><span class="text-xs font-bold text-[#A5C8CB]">Exam Calibrated</span></div></div>
-<!-- ================= 2x2 CORE SKILLS GRID ================= -->
-<section>
-<div class="grid grid-cols-2 gap-4"><div class="tactile-card bg-[#112226] rounded-2xl p-4 sm:p-5 border-2 border-[#25464E] cursor-pointer flex flex-col justify-between" style="--card-ledge: #0C191C;"><div class="flex items-start justify-between mb-4"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#38C6BA] to-[#177A73] candy-sphere flex items-center justify-center border-2 border-[#52D4C9] relative overflow-hidden"><div class="absolute inset-0 gloss-shine"></div><span class="material-symbols-rounded text-[#FFFFFF] text-3xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]">headphones</span></div><div class="relative w-11 h-11 flex items-center justify-center"><svg class="w-11 h-11 -rotate-90" viewbox="0 0 36 36"><path class="text-[#1B363C]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path><path class="text-[#52D4C9]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="78, 100" stroke-linecap="round" stroke-width="3.5"></path></svg><span class="absolute text-[11px] font-extrabold text-[#EEF7F8]">78%</span></div></div><div><div class="flex items-center justify-between"><h2 class="text-lg font-extrabold text-[#EEF7F8] tracking-tight">Listening</h2><span class="material-symbols-rounded text-[#62D7CE] text-lg">arrow_forward</span></div><p class="text-xs font-bold text-[#A5C8CB] mt-0.5">Section 1–4 Audio</p></div><div class="mt-3.5 pt-3 border-t border-[#1C393F] flex items-center justify-between"><span class="text-[11px] font-bold text-[#A5C8CB]">Band 7.5</span><span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#16363B] text-[#52D4C9] border border-[#23565F]">On Track</span></div></div><div class="tactile-card bg-[#112226] rounded-2xl p-4 sm:p-5 border-2 border-[#25464E] cursor-pointer flex flex-col justify-between" style="--card-ledge: #0C191C;"><div class="flex items-start justify-between mb-4"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#53A8F5] to-[#1C68B4] candy-sphere flex items-center justify-center border-2 border-[#7CBDF8] relative overflow-hidden"><div class="absolute inset-0 gloss-shine"></div><span class="material-symbols-rounded text-[#FFFFFF] text-3xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]">auto_stories</span></div><div class="relative w-11 h-11 flex items-center justify-center"><svg class="w-11 h-11 -rotate-90" viewbox="0 0 36 36"><path class="text-[#1B363C]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path><path class="text-[#53A8F5]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="85, 100" stroke-linecap="round" stroke-width="3.5"></path></svg><span class="absolute text-[11px] font-extrabold text-[#EEF7F8]">85%</span></div></div><div><div class="flex items-center justify-between"><h2 class="text-lg font-extrabold text-[#EEF7F8] tracking-tight">Reading</h2><span class="material-symbols-rounded text-[#62D7CE] text-lg">arrow_forward</span></div><p class="text-xs font-bold text-[#A5C8CB] mt-0.5">3 Academic Texts</p></div><div class="mt-3.5 pt-3 border-t border-[#1C393F] flex items-center justify-between"><span class="text-[11px] font-bold text-[#A5C8CB]">Band 8.0</span><span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#122A42] text-[#7CBDF8] border border-[#1F4972]">Mastered</span></div></div><div class="tactile-card bg-[#112226] rounded-2xl p-4 sm:p-5 border-2 border-[#25464E] cursor-pointer flex flex-col justify-between" style="--card-ledge: #0C191C;"><div class="flex items-start justify-between mb-4"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FFC24D] to-[#E68214] candy-sphere flex items-center justify-center border-2 border-[#FFD982] relative overflow-hidden"><div class="absolute inset-0 gloss-shine"></div><span class="material-symbols-rounded text-[#FFFFFF] text-3xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]">edit_note</span></div><div class="relative w-11 h-11 flex items-center justify-center"><svg class="w-11 h-11 -rotate-90" viewbox="0 0 36 36"><path class="text-[#1B363C]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path><path class="text-amber-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="60, 100" stroke-linecap="round" stroke-width="3.5"></path></svg><span class="absolute text-[11px] font-extrabold text-[#EEF7F8]">60%</span></div></div><div><div class="flex items-center justify-between"><h2 class="text-lg font-extrabold text-[#EEF7F8] tracking-tight">Writing</h2><span class="material-symbols-rounded text-[#62D7CE] text-lg">arrow_forward</span></div><p class="text-xs font-bold text-[#A5C8CB] mt-0.5">Task 1 &amp; Task 2</p></div><div class="mt-3.5 pt-3 border-t border-[#1C393F] flex items-center justify-between"><span class="text-[11px] font-bold text-[#A5C8CB]">Band 6.5</span><span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#352511] text-[#FFB854] border border-[#5E421E]">Focus Area</span></div></div><div class="tactile-card bg-[#112226] rounded-2xl p-4 sm:p-5 border-2 border-[#25464E] cursor-pointer flex flex-col justify-between" style="--card-ledge: #0C191C;"><div class="flex items-start justify-between mb-4"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF735C] to-[#CE3820] candy-sphere flex items-center justify-center border-2 border-[#FFA191] relative overflow-hidden"><div class="absolute inset-0 gloss-shine"></div><span class="material-symbols-rounded text-[#FFFFFF] text-3xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]">mic</span></div><div class="relative w-11 h-11 flex items-center justify-center"><svg class="w-11 h-11 -rotate-90" viewbox="0 0 36 36"><path class="text-[#1B363C]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path><path class="text-coral-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="52, 100" stroke-linecap="round" stroke-width="3.5"></path></svg><span class="absolute text-[11px] font-extrabold text-[#EEF7F8]">52%</span></div></div><div><div class="flex items-center justify-between"><h2 class="text-lg font-extrabold text-[#EEF7F8] tracking-tight">Speaking</h2><span class="material-symbols-rounded text-[#62D7CE] text-lg">arrow_forward</span></div><p class="text-xs font-bold text-[#A5C8CB] mt-0.5">Part 1, 2, 3 Drills</p></div><div class="mt-3.5 pt-3 border-t border-[#1C393F] flex items-center justify-between"><span class="text-[11px] font-bold text-[#A5C8CB]">Band 6.5</span><span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#351614] text-[#FF8573] border border-[#5C2621]">Daily Sprint</span></div></div></div>
+<!-- CONTENT CANVAS -->
+<div class="px-4 pt-3 flex flex-col gap-5">
+<!-- 2. SUBHEADER & TITLE SECTION -->
+<section class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[11px] font-extrabold font-label tracking-wide text-primary">CORE MASTERY</span>
+</div>
+<span class="text-[11px] font-bold text-on-surface-variant bg-surface-container px-2.5 py-0.5 rounded-full border border-outline-variant">4 Core Modules</span>
+</div>
+<h1 class="text-[26px] leading-8 font-headline font-extrabold text-on-surface tracking-tight">Skills Hub</h1>
+<p class="text-[13px] leading-[18px] text-on-surface-variant font-medium">Adaptive multi-modal drills aligned with Cambridge IELTS Band 7.5+ metrics.</p>
 </section>
-<!-- ================= SECONDARY TILES ROW ================= -->
-<section class="mt-1"><div class="flex items-center justify-between mb-3"><h3 class="text-sm font-extrabold uppercase tracking-wider text-[#62D7CE]">Targeted Practice</h3><span class="text-xs font-bold text-[#A5C8CB]">4 Modules</span></div><div class="grid grid-cols-2 sm:grid-cols-4 gap-3"><div class="tactile-mini-card bg-[#112226] rounded-2xl p-3.5 border-2 border-[#25464E] cursor-pointer flex flex-col items-center text-center" style="--card-ledge: #0C191C;"><div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#38C6BA] to-[#177A73] candy-sphere flex items-center justify-center border-2 border-[#52D4C9] mb-2.5 relative overflow-hidden"><div class="absolute inset-0 gloss-shine"></div><span class="material-symbols-rounded text-[#FFFFFF] text-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">draw</span></div><span class="text-sm font-extrabold text-[#EEF7F8] leading-tight block">Grammar</span><span class="text-[11px] font-bold text-[#A5C8CB] mt-0.5">Rules &amp; Syntax</span></div><div class="tactile-mini-card bg-[#112226] rounded-2xl p-3.5 border-2 border-[#25464E] cursor-pointer flex flex-col items-center text-center" style="--card-ledge: #0C191C;"><div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#B075F0] to-[#6A25BC] candy-sphere flex items-center justify-center border-2 border-[#CCA5FA] mb-2.5 relative overflow-hidden"><div class="absolute inset-0 gloss-shine"></div><span class="material-symbols-rounded text-[#FFFFFF] text-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">graphic_eq</span></div><span class="text-sm font-extrabold text-[#EEF7F8] leading-tight block">Pronunciation</span><span class="text-[11px] font-bold text-[#A5C8CB] mt-0.5">Phonetics &amp; IPA</span></div><div class="tactile-mini-card bg-[#112226] rounded-2xl p-3.5 border-2 border-[#25464E] cursor-pointer flex flex-col items-center text-center" style="--card-ledge: #0C191C;"><div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#53A8F5] to-[#1C68B4] candy-sphere flex items-center justify-center border-2 border-[#7CBDF8] mb-2.5 relative overflow-hidden"><div class="absolute inset-0 gloss-shine"></div><span class="material-symbols-rounded text-[#FFFFFF] text-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">phone_in_talk</span></div><span class="text-sm font-extrabold text-[#EEF7F8] leading-tight block">Roleplay</span><span class="text-[11px] font-bold text-[#A5C8CB] mt-0.5">Teacher Live Call</span></div><div class="tactile-mini-card bg-[#112226] rounded-2xl p-3.5 border-2 border-[#25464E] cursor-pointer flex flex-col items-center text-center" style="--card-ledge: #0C191C;"><div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF735C] to-[#CE3820] candy-sphere flex items-center justify-center border-2 border-[#FFA191] mb-2.5 relative overflow-hidden"><div class="absolute inset-0 gloss-shine"></div><span class="material-symbols-rounded text-[#FFFFFF] text-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">spellcheck</span></div><span class="text-sm font-extrabold text-[#EEF7F8] leading-tight block">Text fixer</span><span class="text-[11px] font-bold text-[#A5C8CB] mt-0.5">Essay Scan AI</span></div></div></section>
-<!-- Quick Action Banner (Candy CTA) -->
-<div class="mt-1 bg-[#112226] rounded-2xl p-4 sm:p-5 border-2 border-[#25464E] shadow-[0_5px_0_#0C191C] flex flex-col sm:flex-row items-center justify-between gap-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-[#17373D] text-[#52D4C9] border border-[#27535B] flex items-center justify-center shrink-0"><span class="material-symbols-rounded text-2xl">trophy</span></div><div><span class="text-sm font-extrabold text-[#EEF7F8] block">Today's Exam Goal</span><span class="text-xs font-bold text-[#A5C8CB]">Complete 1 Speaking &amp; 1 Writing drill</span></div></div><button class="tactile-btn w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-coral-500 via-amber-400 to-amber-500 text-[#1A0500] font-extrabold text-sm tracking-wide flex items-center justify-center gap-2 border-t border-white/40 cursor-pointer" style="--ledge-color: #B53A22;"><span>Start Daily Sprint</span><span class="material-symbols-rounded text-base font-extrabold text-[#1A0500]">arrow_forward</span></button></div>
+<!-- 3. 2x2 CORE MASTERY GRID -->
+<section class="grid grid-cols-2 gap-3">
+<!-- Card 1: Listening -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 flex flex-col justify-between shadow-[0_5px_0_#051013] active:translate-y-1 active:shadow-[0_2px_0_#051013] transition-all">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]" data-icon="headphones" style="font-variation-settings: 'FILL' 1;">headphones</span>
+</div>
+<!-- Progress Circle (68%) -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8 -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-container-high" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-primary" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="88" stroke-dashoffset="28" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="absolute text-[9px] font-extrabold text-on-surface">68%</span>
+</div>
+</div>
+<div class="mt-3">
+<h2 class="text-base font-extrabold font-headline text-on-surface">Listening</h2>
+<p class="text-[11px] text-on-surface-variant font-medium mt-0.5">Parts 1–4 Audio</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant flex items-center justify-between text-primary text-xs font-bold">
+<span>Practice</span>
+<span class="text-sm">→</span>
+</div>
+</article>
+<!-- Card 2: Reading -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 flex flex-col justify-between shadow-[0_5px_0_#051013] active:translate-y-1 active:shadow-[0_2px_0_#051013] transition-all">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 border border-tertiary/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<!-- Progress Circle (74%) -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8 -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-container-high" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-tertiary" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="88" stroke-dashoffset="22" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="absolute text-[9px] font-extrabold text-on-surface">74%</span>
+</div>
+</div>
+<div class="mt-3">
+<h2 class="text-base font-extrabold font-headline text-on-surface">Reading</h2>
+<p class="text-[11px] text-on-surface-variant font-medium mt-0.5">Passages 1–3</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant flex items-center justify-between text-tertiary text-xs font-bold">
+<span>Practice</span>
+<span class="text-sm">→</span>
+</div>
+</article>
+<!-- Card 3: Writing -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 flex flex-col justify-between shadow-[0_5px_0_#051013] active:translate-y-1 active:shadow-[0_2px_0_#051013] transition-all">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]" data-icon="edit" style="font-variation-settings: 'FILL' 1;">edit</span>
+</div>
+<!-- Progress Circle (52%) -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8 -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-container-high" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-secondary" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="88" stroke-dashoffset="42" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="absolute text-[9px] font-extrabold text-on-surface">52%</span>
+</div>
+</div>
+<div class="mt-3">
+<h2 class="text-base font-extrabold font-headline text-on-surface">Writing</h2>
+<p class="text-[11px] text-on-surface-variant font-medium mt-0.5">Task 1 &amp; Task 2</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant flex items-center justify-between text-secondary text-xs font-bold">
+<span>Practice</span>
+<span class="text-sm">→</span>
+</div>
+</article>
+<!-- Card 4: Speaking -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 flex flex-col justify-between shadow-[0_5px_0_#051013] active:translate-y-1 active:shadow-[0_2px_0_#051013] transition-all">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 border border-primary-container/50 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[22px]" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<!-- Progress Circle (60%) -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8 -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-container-high" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-primary-fixed" cx="18" cy="18" fill="none" r="14" stroke="currentColor" stroke-dasharray="88" stroke-dashoffset="35" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="absolute text-[9px] font-extrabold text-on-surface">60%</span>
+</div>
+</div>
+<div class="mt-3">
+<h2 class="text-base font-extrabold font-headline text-on-surface">Speaking</h2>
+<p class="text-[11px] text-on-surface-variant font-medium mt-0.5">Part 1, 2 &amp; 3</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant flex items-center justify-between text-primary-fixed text-xs font-bold">
+<span>Practice</span>
+<span class="text-sm">→</span>
+</div>
+</article>
+</section>
+<!-- 4. MOCK TEST MARATHON BANNER -->
+<section class="relative overflow-hidden bg-surface-container-high border-2 border-primary-container/40 rounded-xl p-4 shadow-[0_5px_0_#051013]">
+<div class="flex items-center justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="text-tertiary font-bold text-sm">⚡</span>
+<h2 class="text-sm font-extrabold font-headline text-on-surface tracking-tight">Mock Test Marathon</h2>
+</div>
+<p class="text-[11px] leading-4 text-on-surface-variant mt-1 font-medium">Complete 2 drills to earn 50 XP bonus</p>
+</div>
+<!-- Tactile Candy Orange CTA button with deep brown text -->
+<button class="px-3.5 py-2.5 bg-gradient-to-b from-tertiary-fixed to-tertiary text-on-tertiary-fixed rounded-lg font-headline font-extrabold text-xs shadow-[0_4px_0_#8f6200] active:translate-y-1 active:shadow-[0_1px_0_#8f6200] transition-all whitespace-nowrap">
+            Boost XP
+          </button>
+</div>
+</section>
+<!-- 5. SPECIALIZED PRACTICE SECTION -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<h2 class="text-base font-extrabold font-headline text-on-surface">Specialized Practice</h2>
+<button class="text-xs font-bold text-primary hover:underline">View all</button>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Tile 1: Grammar -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3 flex items-center gap-3 shadow-[0_4px_0_#051013] active:translate-y-1 active:shadow-[0_1px_0_#051013] transition-all">
+<div class="w-9 h-9 rounded-lg bg-tertiary/15 border border-tertiary/40 flex items-center justify-center text-tertiary font-extrabold text-sm shrink-0">
+              A
+            </div>
+<div class="min-w-0">
+<h3 class="text-xs font-extrabold font-headline text-on-surface truncate">Grammar</h3>
+<p class="text-[10px] text-on-surface-variant truncate font-medium">Rules &amp; Drills</p>
+</div>
+</article>
+<!-- Tile 2: Pronunciation -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3 flex items-center gap-3 shadow-[0_4px_0_#051013] active:translate-y-1 active:shadow-[0_1px_0_#051013] transition-all">
+<div class="w-9 h-9 rounded-lg bg-primary/15 border border-primary/40 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[19px]" data-icon="graphic_eq">graphic_eq</span>
+</div>
+<div class="min-w-0">
+<h3 class="text-xs font-extrabold font-headline text-on-surface truncate">Pronunciation</h3>
+<p class="text-[10px] text-on-surface-variant truncate font-medium">Phonetics &amp; /θ/</p>
+</div>
+</article>
+<!-- Tile 3: Roleplay -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3 flex items-center gap-3 shadow-[0_4px_0_#051013] active:translate-y-1 active:shadow-[0_1px_0_#051013] transition-all">
+<div class="w-9 h-9 rounded-lg bg-secondary/15 border border-secondary/40 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[19px]" data-icon="forum" style="font-variation-settings: 'FILL' 1;">forum</span>
+</div>
+<div class="min-w-0">
+<h3 class="text-xs font-extrabold font-headline text-on-surface truncate">Roleplay</h3>
+<p class="text-[10px] text-on-surface-variant truncate font-medium">AI Examiner</p>
+</div>
+</article>
+<!-- Tile 4: Text fixer -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3 flex items-center gap-3 shadow-[0_4px_0_#051013] active:translate-y-1 active:shadow-[0_1px_0_#051013] transition-all">
+<div class="w-9 h-9 rounded-lg bg-surface-bright border border-outline flex items-center justify-center text-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-[19px]" data-icon="draw" style="font-variation-settings: 'FILL' 1;">draw</span>
+</div>
+<div class="min-w-0">
+<h3 class="text-xs font-extrabold font-headline text-on-surface truncate">Text fixer</h3>
+<p class="text-[10px] text-on-surface-variant truncate font-medium">Draft checker</p>
+</div>
+</article>
+</div>
+</section>
+<!-- Optional teacher slot: kept dashed and empty per design instructions -->
+<div class="border-2 border-dashed border-outline-variant/40 rounded-xl p-3 text-center hidden"></div>
+</div>
+<!-- 6. BOTTOM TAB BAR (Docked Canonical 64px Bar) -->
+<nav class="fixed bottom-0 w-[390px] h-16 z-50 flex justify-around items-center px-1 bg-surface-container-lowest border-t-2 border-outline-variant shadow-[0_-4px_12px_rgba(0,0,0,0.5)]">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 font-label text-[11px] active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab with badge -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 font-label text-[11px] relative active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book">menu_book</span>
+<span class="absolute top-0.5 right-1.5 w-4 h-4 rounded-full bg-secondary-container border border-surface text-[9px] font-extrabold text-on-surface flex items-center justify-center">8</span>
+<span class="mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 shadow-[0_2px_0_#d97300] dark:shadow-none font-label text-[11px] font-bold active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 font-label text-[11px] active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 font-label text-[11px] active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="mt-0.5">Me</span>
+</a>
+</nav>
 </main>
-<!-- ================= BOTTOM TAB NAVIGATION ================= -->
-<!-- 5 tabs: Learn, Review, Practice, Leagues, Me (with Practice active) -->
-<nav class="w-full bg-[#0B1A1E] border-t-2 border-[#1E3B42] sticky bottom-0 z-30 shadow-[0_-4px_16px_rgba(0,0,0,0.4)]"><div class="max-w-2xl mx-auto px-4 h-16 flex items-center justify-around"><a class="flex flex-col items-center justify-center text-[#7F9EA3] hover:text-[#EEF7F8] transition-colors py-1 px-3" href="#learn"><span class="material-symbols-rounded text-2xl leading-none">route</span><span class="text-[11px] font-extrabold tracking-tight mt-1">Learn</span></a><a class="flex flex-col items-center justify-center text-[#7F9EA3] hover:text-[#EEF7F8] transition-colors py-1 px-3" href="#review"><span class="material-symbols-rounded text-2xl leading-none">layers</span><span class="text-[11px] font-extrabold tracking-tight mt-1">Review</span></a><a class="flex flex-col items-center justify-center py-1.5 px-3.5 rounded-xl bg-[#143238] text-[#52D4C9] border-2 border-teal-500 shadow-[0_2px_0_#0C191C] transition-transform" href="#practice"><span class="material-symbols-rounded text-2xl leading-none text-[#52D4C9]">bolt</span><span class="text-[11px] font-extrabold tracking-tight mt-0.5 text-[#EEF7F8]">Practice</span></a><a class="flex flex-col items-center justify-center text-[#7F9EA3] hover:text-[#EEF7F8] transition-colors py-1 px-3" href="#leagues"><span class="material-symbols-rounded text-2xl leading-none">trophy</span><span class="text-[11px] font-extrabold tracking-tight mt-1">Leagues</span></a><a class="flex flex-col items-center justify-center text-[#7F9EA3] hover:text-[#EEF7F8] transition-colors py-1 px-3" href="#me"><span class="material-symbols-rounded text-2xl leading-none">person</span><span class="text-[11px] font-extrabold tracking-tight mt-1">Me</span></a></div></nav>
-</body>
-</html>
-
+</body></html>

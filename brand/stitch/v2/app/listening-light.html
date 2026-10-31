@@ -4,14 +4,11 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lexkite - IELTS Section 2 Practice</title>
-<!-- Material Symbols Outlined -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Plus Jakarta Sans Font -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS with form plugins -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
     tailwind.config = {
@@ -19,53 +16,53 @@
       theme: {
         extend: {
           "colors": {
+            "surface": "#fff8f5",
+            "primary-container": "#136a63",
+            "tertiary-fixed-dim": "#f5bf31",
             "tertiary-container": "#785a00",
+            "surface-container-high": "#f4e5db",
+            "inverse-primary": "#88d4cb",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary": "#00504b",
+            "on-tertiary": "#ffffff",
             "background": "#fff8f5",
-            "on-primary-fixed": "#00201d",
-            "on-background": "#211a14",
-            "on-secondary-fixed": "#2d1600",
-            "secondary": "#8c5000",
-            "surface-tint": "#126a63",
-            "primary-fixed": "#a4f1e7",
-            "on-secondary-container": "#633700",
-            "on-primary": "#ffffff",
             "surface-container-low": "#fff1e8",
-            "on-surface": "#211a14",
+            "on-tertiary-container": "#ffd370",
+            "on-background": "#211a14",
+            "tertiary": "#5b4300",
             "primary-fixed-dim": "#88d4cb",
             "surface-variant": "#efe0d6",
-            "secondary-fixed-dim": "#ffb872",
-            "tertiary-fixed-dim": "#f5bf31",
-            "on-primary-fixed-variant": "#00504a",
-            "surface-container": "#faebe1",
             "on-error": "#ffffff",
-            "tertiary-fixed": "#ffdf9b",
-            "surface-container-highest": "#efe0d6",
-            "inverse-surface": "#372f28",
-            "on-primary-container": "#9be7de",
-            "surface": "#fff8f5",
-            "inverse-on-surface": "#fdeee3",
-            "surface-container-lowest": "#ffffff",
-            "on-surface-variant": "#3f4947",
+            "on-primary-fixed-variant": "#00504a",
+            "on-secondary-container": "#633700",
             "error-container": "#ffdad6",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "surface-bright": "#fff8f5",
-            "on-tertiary-container": "#ffd370",
-            "on-error-container": "#93000a",
-            "secondary-container": "#fd9500",
-            "on-tertiary-fixed": "#251a00",
-            "secondary-fixed": "#ffdcbf",
-            "on-secondary-fixed-variant": "#6a3b00",
-            "outline": "#6f7977",
             "error": "#ba1a1a",
-            "surface-container-high": "#f4e5db",
+            "secondary-container": "#fd9500",
+            "inverse-on-surface": "#fdeee3",
+            "secondary-fixed": "#ffdcbf",
+            "secondary-fixed-dim": "#ffb872",
+            "primary-fixed": "#a4f1e7",
+            "on-secondary-fixed": "#2d1600",
+            "inverse-surface": "#372f28",
             "surface-dim": "#e6d7cd",
-            "primary": "#00504b",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "secondary": "#8c5000",
+            "outline": "#6f7977",
+            "on-tertiary-fixed": "#251a00",
+            "surface-tint": "#126a63",
+            "on-surface-variant": "#3f4947",
+            "tertiary-fixed": "#ffdf9b",
             "outline-variant": "#bec9c6",
+            "on-primary-container": "#9be7de",
+            "on-primary-fixed": "#00201d",
+            "on-primary": "#ffffff",
+            "on-surface": "#211a14",
+            "surface-container-highest": "#efe0d6",
             "on-secondary": "#ffffff",
-            "inverse-primary": "#88d4cb",
-            "on-tertiary": "#ffffff",
-            "tertiary": "#5b4300",
-            "primary-container": "#136a63"
+            "surface-bright": "#fff8f5",
+            "surface-container": "#faebe1",
+            "on-error-container": "#93000a"
           },
           "borderRadius": {
             "DEFAULT": "1rem",
@@ -74,45 +71,45 @@
             "full": "9999px"
           },
           "spacing": {
-            "margin-md": "2rem",
-            "gutter": "1rem",
-            "gutter-lg": "2rem",
-            "space-lg": "1.5rem",
-            "margin-lg": "3rem",
-            "gutter-md": "1.5rem",
-            "space-sm": "0.5rem",
-            "space-xs": "0.25rem",
-            "space-xl": "2.5rem",
             "space-md": "1rem",
-            "margin": "1rem"
+            "margin-md": "2rem",
+            "gutter-md": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "margin-lg": "3rem",
+            "margin": "1rem",
+            "gutter-lg": "2rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
           },
           "fontFamily": {
-            "label-md": ["Plus Jakarta Sans"],
-            "headline-lg-mobile": ["Plus Jakarta Sans"],
-            "headline-lg": ["Plus Jakarta Sans"],
             "label-sm": ["Plus Jakarta Sans"],
-            "body-lg": ["Plus Jakarta Sans"],
-            "display-lg-mobile": ["Plus Jakarta Sans"],
-            "headline-sm": ["Plus Jakarta Sans"],
-            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
             "body-sm": ["Plus Jakarta Sans"],
-            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
             "display-lg": ["Plus Jakarta Sans"],
-            "label-lg": ["Plus Jakarta Sans"]
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
           },
           "fontSize": {
-            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
-            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
-            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
             "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
-            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
-            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
-            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
             "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
-            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
             "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }]
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
           }
         }
       }
@@ -120,13 +117,44 @@
   </script>
 <style>
     .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
-      display: inline-block;
-      vertical-align: middle;
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
       line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
     }
-    .material-symbols-outlined.fill {
-      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    
+    /* Tactile 3D Extrusion Depress States */
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(4px);
+    }
+    .tactile-btn-sm:active {
+      transform: translateY(2px);
+    }
+    
+    /* Glint gloss highlight */
+    .gloss-shine {
+      box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.45);
+    }
+    
+    /* Hide native radio / styling helpers */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 <style>
@@ -135,278 +163,295 @@
     }
   </style>
   </head>
-<body class="bg-background text-on-background min-h-screen antialiased flex flex-col font-body-md text-body-md select-none">
-<!-- Top App Bar (Shared Component Anchor) -->
-<header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface border-b-2 border-surface-variant dark:border-outline-variant shadow-[0_4px_0_#efe0d6] dark:shadow-none">
-<div class="flex justify-between items-center w-full px-space-md py-space-sm max-w-md mx-auto">
-<!-- Leading Back Button -->
-<button aria-label="Go back" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-lowest border-2 border-surface-variant text-primary shadow-[0_3px_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all duration-100">
-<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+<body class="bg-background text-on-surface antialiased flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen">
+<!-- Mobile Frame Container (Strict 390px, Bright Day theme) -->
+<main class="w-[390px] min-h-screen bg-surface flex flex-col relative pb-[84px] shadow-2xl">
+<!-- TOP BAR (Canonical Shared Component: TopAppBar Inner Variant, 56px) -->
+<header class="sticky top-0 z-40 h-[56px] bg-surface flex items-center justify-between px-space-md border-b-2 border-surface-variant shadow-[0_4px_0_#efe0d6]">
+<div class="flex items-center gap-space-sm">
+<!-- Tactile Round Back Button -->
+<button aria-label="Go back" class="tactile-btn-sm w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] active:translate-y-[3px] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined font-bold" data-icon="arrow_back">arrow_back</span>
 </button>
-<!-- Center Headline & Context -->
-<div class="flex flex-col items-center">
-<span class="text-headline-sm font-headline-sm font-extrabold text-primary dark:text-inverse-primary tracking-tight">
-          IELTS Section 2
-        </span>
-<span class="text-label-sm font-label-sm text-on-surface-variant">
-          Campus Tour &amp; Facilities
-        </span>
+<!-- Screen Identity & Section Route -->
+<div>
+<h1 class="text-headline-sm font-headline-sm text-primary tracking-tight leading-tight">IELTS Section 2</h1>
+<p class="text-[11px] font-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Campus Tour &amp; Facilities</p>
 </div>
-<!-- Trailing Action: Subtitles / Transcript Toggle -->
-<button aria-label="Toggle subtitles" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-lowest border-2 border-surface-variant text-primary shadow-[0_3px_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all duration-100">
+</div>
+<!-- Right Trailing Subtitles/Transcript Icon Button -->
+<button aria-label="Transcript toggle" class="tactile-btn-sm w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] active:translate-y-[3px] flex items-center justify-center text-primary">
 <span class="material-symbols-outlined" data-icon="subtitles">subtitles</span>
 </button>
-</div>
 </header>
-<!-- Main Scrollable Learning Canvas -->
-<main class="flex-1 w-full max-w-md mx-auto px-space-md pt-space-md pb-36 space-y-space-md">
-<!-- Mode Selector & Live Countdown Pill -->
-<div class="flex items-center justify-between gap-space-sm">
-<!-- Practice vs Exam Mode Toggle -->
-<div class="flex bg-surface-container p-1 rounded-full border-2 border-surface-variant shadow-[inset_0_2px_4px_rgba(0,0,0,0.04)]">
-<button class="px-space-md py-1 bg-surface-container-lowest text-primary font-label-md text-label-md rounded-full border border-surface-variant shadow-[0_2px_0_#efe0d6]">
-          Practice
-        </button>
-<button class="px-space-md py-1 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors">
-          Exam
-        </button>
+<!-- CONTENT BODY (16px side margins: px-space-md, 8px layout rhythm) -->
+<div class="flex-1 px-space-md pt-3 flex flex-col gap-4">
+<!-- MODE SWITCH & TIMER ROW -->
+<section class="flex items-center justify-between gap-space-sm">
+<!-- Tactile Segmented Pill Switch -->
+<div class="flex p-1 bg-surface-container-highest rounded-full border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8]">
+<button class="px-space-md py-1 rounded-full text-label-sm font-label-sm bg-primary-container text-on-primary shadow-[0_2px_0_#0b423e] gloss-shine transition-transform">
+            Practice
+          </button>
+<button class="px-space-md py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant font-bold hover:text-on-surface transition-colors">
+            Exam
+          </button>
 </div>
-<!-- Tactile Timer Pill Indicator -->
-<div class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-low border-2 border-surface-variant rounded-full shadow-[0_2px_0_#efe0d6]">
-<span class="material-symbols-outlined text-secondary font-bold text-sm" data-icon="timer">timer</span>
-<span class="font-label-sm text-label-sm text-on-surface font-extrabold tracking-wide">04:15</span>
-<span class="text-[10px] text-on-surface-variant font-medium">left</span>
+<!-- Timer Chip -->
+<div class="flex items-center gap-1.5 px-space-md py-1.5 rounded-full bg-surface-container-lowest border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8]">
+<span class="material-symbols-outlined text-[16px] text-secondary font-bold" data-icon="timer">timer</span>
+<span class="text-label-sm font-label-sm text-on-surface font-extrabold tracking-wide">04:15 left</span>
 </div>
+</section>
+<!-- AUDIO PLAYER CARD -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-dim shadow-[0_5px_0_#d8c5b8] p-3.5 flex flex-col gap-3">
+<!-- Header Info -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-secondary font-extrabold uppercase tracking-wide">Audio Track</span>
 </div>
-<!-- Tactile Audio Player Card -->
-<section class="bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-space-md shadow-[0_4px_0_#efe0d6] space-y-space-md">
-<!-- Scrub Bar & Track Info -->
-<div class="space-y-1.5">
-<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
-<span class="text-primary font-bold">01:24</span>
-<span class="flex items-center gap-1 text-on-surface">
-<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
-            Part 2 of 4
-          </span>
-<span>03:45</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[11px] font-bold border border-surface-dim">Part 2 of 4</span>
 </div>
-<!-- Tactile Gamified Progress Bar -->
-<div class="relative w-full h-4 bg-surface-variant rounded-full overflow-hidden p-0.5 border border-surface-variant">
+<!-- Scrubber Bar -->
+<div class="flex flex-col gap-1.5">
+<div class="relative w-full h-3 bg-surface-variant rounded-full overflow-visible flex items-center border border-surface-dim">
 <div class="h-full bg-primary-container rounded-full relative" style="width: 38%;">
-<div class="absolute inset-x-0 top-0 h-1 bg-white/40 rounded-t-full"></div>
-<div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-secondary-container rounded-full border-2 border-white shadow-sm"></div>
+<!-- White Horizontal Glint Streak -->
+<div class="absolute inset-x-0 top-0 h-1 bg-white/40 rounded-full"></div>
+</div>
+<!-- Chunky Scrubber Thumb -->
+<div class="absolute w-4 h-4 bg-secondary-container border-2 border-surface-container-lowest rounded-full shadow-[0_2px_0_#d97300] -ml-2 left-[38%] cursor-pointer hover:scale-110 transition-transform"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span>01:24</span>
+<span class="text-outline">03:45</span>
 </div>
 </div>
-</div>
-<!-- Controls Matrix -->
-<div class="flex items-center justify-between pt-1">
-<!-- Replay Previous Sentence (-5s) -->
-<button class="flex items-center gap-1 px-3 py-2 bg-surface-container-low border-2 border-surface-variant rounded-xl text-primary font-label-sm text-label-sm shadow-[0_3px_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all duration-100" title="Replay 5 seconds">
-<span class="material-symbols-outlined text-base" data-icon="replay_5">replay_5</span>
+<!-- Player Controls Row -->
+<div class="flex items-center justify-between pt-1 border-t border-surface-variant">
+<!-- Replay 5s Button -->
+<button class="tactile-btn-sm flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-primary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="replay_5">replay_5</span>
 <span>Replay 5s</span>
 </button>
-<!-- Chunky Main Play/Pause Button -->
-<button aria-label="Play audio" class="w-14 h-14 rounded-full bg-primary-container text-on-primary flex items-center justify-center border-2 border-primary shadow-[0_5px_0_#00504b] active:translate-y-1 active:shadow-[0_1px_0_#00504b] transition-all duration-100">
-<span class="material-symbols-outlined text-3xl fill" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+<!-- Large Primary Play/Pause Circle -->
+<button aria-label="Play or Pause audio" class="tactile-btn w-12 h-12 rounded-full bg-primary-container text-on-primary border-2 border-[#0b423e] shadow-[0_4px_0_#0b423e] active:shadow-[0_0_0_#0b423e] flex items-center justify-center gloss-shine">
+<span class="material-symbols-outlined text-[28px]" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
 </button>
-<!-- Speed Selector Pill -->
-<button class="flex items-center gap-1 px-3 py-2 bg-surface-container-low border-2 border-surface-variant rounded-xl text-primary font-label-sm text-label-sm shadow-[0_3px_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all duration-100">
+<!-- Speed Dropdown Button -->
+<button class="tactile-btn-sm flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low border-2 border-surface-dim shadow-[0_3px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-on-surface font-label-sm text-label-sm">
 <span>1.0x</span>
-<span class="material-symbols-outlined text-base" data-icon="arrow_drop_down">arrow_drop_down</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="expand_more">expand_more</span>
 </button>
 </div>
-<!-- Transcript Toggle Row -->
-<div class="flex items-center justify-between pt-2 border-t border-surface-variant">
+<!-- Live Transcript Toggle Row -->
+<div class="flex items-center justify-between pt-2 border-t border-surface-variant/80">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-lg" data-icon="article">article</span>
-<span class="text-label-sm font-label-sm text-on-surface">Show live transcript</span>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="notes">notes</span>
+<span class="text-body-sm font-body-sm text-on-surface font-bold">Show live transcript</span>
 </div>
-<!-- Pill Toggle Switch -->
-<button aria-checked="false" class="w-12 h-6 bg-surface-variant rounded-full relative p-0.5 border border-surface-variant transition-colors" role="switch">
-<div class="w-5 h-5 bg-surface-container-lowest rounded-full shadow-[0_2px_0_#efe0d6] transition-transform"></div>
+<!-- Tactile Toggle Switch (Active state) -->
+<button aria-checked="true" class="w-11 h-6 bg-primary-container rounded-full p-0.5 border border-[#0b423e] shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] flex items-center justify-end pr-0.5 cursor-pointer" role="switch">
+<div class="w-5 h-5 bg-white rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.3)]"></div>
 </button>
 </div>
 </section>
-<!-- Question Group 1: Note Completion Block (Q1–4) -->
-<section class="space-y-space-sm">
-<!-- Section Instruction Card -->
-<div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-space-md shadow-[0_3px_0_#efe0d6]">
-<div class="flex items-center gap-2 mb-1">
-<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed text-[11px] font-extrabold rounded-md uppercase tracking-wider">
-            Questions 1–4
+<!-- QUESTION GROUP 1: NOTE COMPLETION -->
+<section class="flex flex-col gap-2.5">
+<!-- Header Badge -->
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed border-2 border-[#d97300] text-label-sm font-label-sm uppercase tracking-wide gloss-shine">
+            QUESTIONS 1–4 · Note Completion
           </span>
-<span class="text-label-sm font-label-sm text-secondary font-bold">Note Completion</span>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">
-          Complete the notes below. Write <strong class="text-on-surface font-extrabold">NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each answer.
+<!-- Instructions -->
+<p class="text-body-sm font-body-sm text-on-surface-variant font-medium leading-snug">
+          Complete the notes below. Write <strong class="text-on-surface font-extrabold underline decoration-secondary">NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each answer.
         </p>
+<!-- Campus Guide Notes Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-dim shadow-[0_5px_0_#d8c5b8] p-4 flex flex-col gap-3.5">
+<!-- Card Title Header -->
+<div class="flex items-center justify-between pb-2 border-b-2 border-surface-variant">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="school">school</span>
+</span>
+<h2 class="text-label-lg font-label-lg text-primary font-extrabold">Campus Guide: Central Facilities</h2>
 </div>
-<!-- Student Housing & Campus Guide Note Sheet -->
-<div class="bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-space-md shadow-[0_4px_0_#efe0d6] space-y-4">
-<div class="flex items-center justify-between pb-2 border-b border-surface-variant">
-<h3 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
-<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
-            Campus Guide: Central Facilities
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-bold">Audio Part 2</span>
+</div>
+<!-- Q1 Gap Note -->
+<div class="flex flex-col gap-1.5">
+<label class="text-body-sm font-body-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-variant text-on-surface text-[12px] font-extrabold flex items-center justify-center">1</span>
+<span>Library opening hours on weekends:</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface font-bold text-body-md rounded-DEFAULT border-2 border-primary-container px-3.5 py-2 shadow-[0_3px_0_#136a63] focus:outline-none" readonly="" type="text" value="10:00 AM"/>
+<div class="absolute right-3 w-6 h-6 rounded-full bg-[#1DB954] text-white flex items-center justify-center shadow-[0_2px_0_#138a3c]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+<!-- Q2 Gap Note -->
+<div class="flex flex-col gap-1.5">
+<label class="text-body-sm font-body-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-variant text-on-surface text-[12px] font-extrabold flex items-center justify-center">2</span>
+<span>Maximum books borrowed at one time:</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface font-bold text-body-md rounded-DEFAULT border-2 border-primary-container px-3.5 py-2 shadow-[0_3px_0_#136a63] focus:outline-none" readonly="" type="text" value="8 books"/>
+<div class="absolute right-3 w-6 h-6 rounded-full bg-[#1DB954] text-white flex items-center justify-center shadow-[0_2px_0_#138a3c]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+<!-- Q3 Gap Note -->
+<div class="flex flex-col gap-1.5">
+<label class="text-body-sm font-body-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-variant text-on-surface text-[12px] font-extrabold flex items-center justify-center">3</span>
+<span>Study room reservation requires student:</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface font-bold text-body-md rounded-DEFAULT border-2 border-primary-container px-3.5 py-2 shadow-[0_3px_0_#136a63] focus:outline-none" readonly="" type="text" value="ID card"/>
+<div class="absolute right-3 w-6 h-6 rounded-full bg-[#1DB954] text-white flex items-center justify-center shadow-[0_2px_0_#138a3c]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+<!-- Q4 Gap Note -->
+<div class="flex flex-col gap-1.5">
+<label class="text-body-sm font-body-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-variant text-on-surface text-[12px] font-extrabold flex items-center justify-center">4</span>
+<span>Printing balance reload location:</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface font-bold text-body-md rounded-DEFAULT border-2 border-primary-container px-3.5 py-2 shadow-[0_3px_0_#136a63] focus:outline-none" readonly="" type="text" value="Student Union"/>
+<div class="absolute right-3 w-6 h-6 rounded-full bg-[#1DB954] text-white flex items-center justify-center shadow-[0_2px_0_#138a3c]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- QUESTION GROUP 2: MULTIPLE CHOICE -->
+<section class="flex flex-col gap-2.5">
+<!-- Header Badge -->
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant border-2 border-primary-container text-label-sm font-label-sm uppercase tracking-wide gloss-shine">
+            QUESTIONS 5–6 · Multiple Choice
+          </span>
+</div>
+<!-- Instructions -->
+<p class="text-body-sm font-body-sm text-on-surface-variant font-medium leading-snug">
+          Choose the correct letter, <strong class="text-on-surface font-bold">A, B, or C</strong>.
+        </p>
+<!-- Q5 Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-dim shadow-[0_5px_0_#d8c5b8] p-4 flex flex-col gap-3">
+<h3 class="text-body-md font-body-md font-extrabold text-on-surface leading-tight">
+            5. Where can postgraduate students access quiet study pods?
           </h3>
-<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">Audio Part 2</span>
-</div>
-<!-- Note Item 1 -->
-<div class="space-y-1.5">
-<label class="text-body-sm font-body-sm text-on-surface font-semibold flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-surface-container border border-surface-variant flex items-center justify-center text-xs font-bold text-primary">1</span>
-            Library opening hours on weekends:
-          </label>
-<div class="relative">
-<input class="w-full bg-surface-container-lowest border-2 border-primary-container rounded-xl py-2 px-3 text-body-md font-body-md font-bold text-on-surface shadow-[0_3px_0_#136a63] focus:ring-0 focus:outline-none" type="text" value="10:00 AM"/>
-<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary-container text-xl" data-icon="check_circle">check_circle</span>
-</div>
-</div>
-<!-- Note Item 2 -->
-<div class="space-y-1.5">
-<label class="text-body-sm font-body-sm text-on-surface font-semibold flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-surface-container border border-surface-variant flex items-center justify-center text-xs font-bold text-primary">2</span>
-            Maximum books borrowed at one time:
-          </label>
-<div class="relative">
-<input class="w-full bg-surface-container-lowest border-2 border-primary-container rounded-xl py-2 px-3 text-body-md font-body-md font-bold text-on-surface shadow-[0_3px_0_#136a63] focus:ring-0 focus:outline-none" type="text" value="8 books"/>
-<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary-container text-xl" data-icon="check_circle">check_circle</span>
-</div>
-</div>
-<!-- Note Item 3 -->
-<div class="space-y-1.5">
-<label class="text-body-sm font-body-sm text-on-surface font-semibold flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-surface-container border border-surface-variant flex items-center justify-center text-xs font-bold text-primary">3</span>
-            Study room reservation requires student:
-          </label>
-<div class="relative">
-<input class="w-full bg-surface-container-lowest border-2 border-primary-container rounded-xl py-2 px-3 text-body-md font-body-md font-bold text-on-surface shadow-[0_3px_0_#136a63] focus:ring-0 focus:outline-none" type="text" value="ID card"/>
-<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary-container text-xl" data-icon="check_circle">check_circle</span>
-</div>
-</div>
-<!-- Note Item 4 -->
-<div class="space-y-1.5">
-<label class="text-body-sm font-body-sm text-on-surface font-semibold flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-surface-container border border-surface-variant flex items-center justify-center text-xs font-bold text-primary">4</span>
-            Printing balance reload location:
-          </label>
-<div class="relative">
-<input class="w-full bg-surface-container-lowest border-2 border-primary-container rounded-xl py-2 px-3 text-body-md font-body-md font-bold text-on-surface shadow-[0_3px_0_#136a63] focus:ring-0 focus:outline-none" type="text" value="Student Union"/>
-<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary-container text-xl" data-icon="check_circle">check_circle</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Question Group 2: Multiple Choice (Q5–6) -->
-<section class="space-y-space-md">
-<!-- Section Instruction Card -->
-<div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-space-md shadow-[0_3px_0_#efe0d6]">
-<div class="flex items-center gap-2 mb-1">
-<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed text-[11px] font-extrabold rounded-md uppercase tracking-wider">
-            Questions 5–6
-          </span>
-<span class="text-label-sm font-label-sm text-secondary font-bold">Multiple Choice</span>
-</div>
-<p class="text-body-sm font-body-sm text-on-surface-variant">
-          Choose the correct letter, <strong class="text-on-surface font-extrabold">A</strong>, <strong class="text-on-surface font-extrabold">B</strong>, or <strong class="text-on-surface font-extrabold">C</strong>.
-        </p>
-</div>
-<!-- Question 5 -->
-<div class="bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-space-md shadow-[0_4px_0_#efe0d6] space-y-3">
-<div class="flex items-start gap-2">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5">5</span>
-<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">
-            Where can postgraduate students access quiet study pods?
-          </h4>
-</div>
-<div class="space-y-2 pt-1">
+<div class="flex flex-col gap-2">
 <!-- Option A (Resting) -->
-<div class="flex items-center p-3 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
-<span class="w-7 h-7 rounded-full bg-surface-container border border-surface-variant text-primary font-bold text-xs flex items-center justify-center mr-3 shadow-inner">A</span>
-<span class="text-body-md font-body-md text-on-surface">Ground floor annex</span>
+<button class="tactile-btn-sm w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-dim shadow-[0_4px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-surface-variant border border-surface-dim font-label-md text-on-surface flex items-center justify-center font-bold">A</span>
+<span class="text-body-sm font-body-sm text-on-surface font-semibold">Ground floor annex</span>
 </div>
-<!-- Option B (Selected/Checked with tactile ring) -->
-<div class="flex items-center justify-between p-3 rounded-2xl bg-surface border-2 border-primary-container shadow-[0_4px_0_#136a63] cursor-pointer">
-<div class="flex items-center">
-<span class="w-7 h-7 rounded-full bg-primary-container text-white font-bold text-xs flex items-center justify-center mr-3 shadow-sm">B</span>
-<span class="text-body-md font-body-md font-bold text-primary">Third floor west wing</span>
+</button>
+<!-- Option B (Selected with Teal Border & Checkmark) -->
+<button class="w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-low border-2 border-primary-container shadow-[0_4px_0_#136a63] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-primary-container text-white font-label-md flex items-center justify-center font-extrabold">B</span>
+<span class="text-body-sm font-body-sm text-primary font-bold">Third floor west wing</span>
 </div>
-<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-sm font-bold" data-icon="check">check</span>
+<div class="w-6 h-6 rounded-full bg-primary-container text-white flex items-center justify-center shadow-[0_2px_0_#0b423e]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
 </div>
-</div>
+</button>
 <!-- Option C (Resting) -->
-<div class="flex items-center p-3 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
-<span class="w-7 h-7 rounded-full bg-surface-container border border-surface-variant text-primary font-bold text-xs flex items-center justify-center mr-3 shadow-inner">C</span>
-<span class="text-body-md font-body-md text-on-surface">Science library basement</span>
+<button class="tactile-btn-sm w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-dim shadow-[0_4px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-surface-variant border border-surface-dim font-label-md text-on-surface flex items-center justify-center font-bold">C</span>
+<span class="text-body-sm font-body-sm text-on-surface font-semibold">Science library basement</span>
+</div>
+</button>
 </div>
 </div>
+<!-- Q6 Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-dim shadow-[0_5px_0_#d8c5b8] p-4 flex flex-col gap-3">
+<h3 class="text-body-md font-body-md font-extrabold text-on-surface leading-tight">
+            6. What is required before using the 3D printers?
+          </h3>
+<div class="flex flex-col gap-2">
+<!-- Option A (Selected with Teal Border & Checkmark) -->
+<button class="w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-low border-2 border-primary-container shadow-[0_4px_0_#136a63] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-primary-container text-white font-label-md flex items-center justify-center font-extrabold">A</span>
+<span class="text-body-sm font-body-sm text-primary font-bold">Safety induction session</span>
 </div>
-<!-- Question 6 -->
-<div class="bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-space-md shadow-[0_4px_0_#efe0d6] space-y-3">
-<div class="flex items-start gap-2">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5">6</span>
-<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">
-            What is required before using the 3D printers?
-          </h4>
+<div class="w-6 h-6 rounded-full bg-primary-container text-white flex items-center justify-center shadow-[0_2px_0_#0b423e]">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
 </div>
-<div class="space-y-2 pt-1">
-<!-- Option A (Selected) -->
-<div class="flex items-center justify-between p-3 rounded-2xl bg-surface border-2 border-primary-container shadow-[0_4px_0_#136a63] cursor-pointer">
-<div class="flex items-center">
-<span class="w-7 h-7 rounded-full bg-primary-container text-white font-bold text-xs flex items-center justify-center mr-3 shadow-sm">A</span>
-<span class="text-body-md font-body-md font-bold text-primary">Safety induction session</span>
-</div>
-<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-sm font-bold" data-icon="check">check</span>
-</div>
-</div>
+</button>
 <!-- Option B (Resting) -->
-<div class="flex items-center p-3 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
-<span class="w-7 h-7 rounded-full bg-surface-container border border-surface-variant text-primary font-bold text-xs flex items-center justify-center mr-3 shadow-inner">B</span>
-<span class="text-body-md font-body-md text-on-surface">Faculty advisor signature</span>
+<button class="tactile-btn-sm w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-dim shadow-[0_4px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-surface-variant border border-surface-dim font-label-md text-on-surface flex items-center justify-center font-bold">B</span>
+<span class="text-body-sm font-body-sm text-on-surface font-semibold">Faculty advisor signature</span>
 </div>
+</button>
 <!-- Option C (Resting) -->
-<div class="flex items-center p-3 rounded-2xl bg-surface-container-lowest border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] active:translate-y-1 active:shadow-none transition-all cursor-pointer">
-<span class="w-7 h-7 rounded-full bg-surface-container border border-surface-variant text-primary font-bold text-xs flex items-center justify-center mr-3 shadow-inner">C</span>
-<span class="text-body-md font-body-md text-on-surface">Additional materials fee</span>
+<button class="tactile-btn-sm w-full flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-dim shadow-[0_4px_0_#d8c5b8] active:shadow-[0_0_0_#d8c5b8] text-left">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-surface-variant border border-surface-dim font-label-md text-on-surface flex items-center justify-center font-bold">C</span>
+<span class="text-body-sm font-body-sm text-on-surface font-semibold">Additional materials fee</span>
 </div>
+</button>
 </div>
 </div>
 </section>
-<!-- Bottom Action Button: Chunky 3D Sunny Orange Submit -->
-<div class="pt-2 pb-4">
-<button class="w-full py-4 px-6 bg-[#ff9800] border-2 border-[#d97300] shadow-[0_5px_0_#b85400] active:translate-y-1 active:shadow-[0_1px_0_#b85400] rounded-2xl flex items-center justify-center gap-3 transition-all duration-100">
-<span class="material-symbols-outlined text-[#291400] font-extrabold text-2xl" data-icon="task_alt">task_alt</span>
-<span class="text-[#291400] font-extrabold text-lg tracking-wide">Submit &amp; see answers</span>
+<!-- PRIMARY ACTION BUTTON -->
+<section class="pt-2 pb-4">
+<!-- Candy-Orange Tactile Button with 6px Dark Ledge (#d97300), Strict Deep Brown-Black Text (#1a1005) -->
+<button class="tactile-btn w-full py-4 px-space-md rounded-DEFAULT bg-secondary-container text-[#1a1005] font-extrabold text-label-lg border-2 border-[#d97300] shadow-[0_6px_0_#d97300] active:shadow-[0_0_0_#d97300] active:translate-y-[6px] flex items-center justify-center gap-2 gloss-shine">
+<span class="material-symbols-outlined text-[24px] text-[#1a1005] font-black" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="tracking-wide">Submit &amp; see answers</span>
 </button>
+</section>
 </div>
-</main>
-<!-- Bottom Navigation Bar (Shared Component Anchor) -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-sm bg-surface-container-lowest dark:bg-inverse-surface border-t-2 border-surface-variant dark:border-outline-variant shadow-[0_-4px_0_#efe0d6] dark:shadow-none">
-<!-- Tab 1: Today -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs font-label-sm text-label-sm active:scale-95 transition-transform duration-100">
-<span class="material-symbols-outlined mb-0.5" data-icon="today">today</span>
-<span>Today</span>
-</button>
-<!-- Tab 2: Vocab -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs font-label-sm text-label-sm active:scale-95 transition-transform duration-100">
-<span class="material-symbols-outlined mb-0.5" data-icon="menu_book">menu_book</span>
-<span>Vocab</span>
-</button>
-<!-- Tab 3: Skills -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs font-label-sm text-label-sm active:scale-95 transition-transform duration-100">
-<span class="material-symbols-outlined mb-0.5" data-icon="psychology">psychology</span>
-<span>Skills</span>
-</button>
-<!-- Tab 4: Tests (ACTIVE STATE for IELTS Practice Exam) -->
-<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-space-md py-space-xs shadow-[0_2px_0_#d97300] dark:shadow-none font-label-sm text-label-sm active:scale-95 transition-transform duration-100">
-<span class="material-symbols-outlined mb-0.5 fill text-[#2d1600]" data-icon="assignment_turned_in" data-weight="fill">assignment_turned_in</span>
-<span class="text-[#2d1600] font-extrabold">Tests</span>
-</button>
-<!-- Tab 5: Me -->
-<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-space-sm py-space-xs font-label-sm text-label-sm active:scale-95 transition-transform duration-100">
-<span class="material-symbols-outlined mb-0.5" data-icon="person">person</span>
-<span>Me</span>
-</button>
+<!-- BOTTOM TAB BAR (Canonical Shared Component: BottomNavBar, 64px docked height) -->
+<!-- Executing Shared Component JSON specification: exactly 5 destinations, 'Skills' tab strictly active -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 w-[390px] h-[64px] z-50 flex justify-around items-center px-space-xs bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_#efe0d6]">
+<!-- Destination 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary transition-colors" href="#today">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</a>
+<!-- Destination 2: Vocab (with due dot badge) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary transition-colors relative" href="#vocab">
+<div class="relative inline-flex">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book">menu_book</span>
+<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-error border border-white"></span>
+</div>
+<span class="text-[11px] font-bold mt-0.5">Vocab</span>
+</a>
+<!-- Destination 3: Skills (ACTIVE MAPPING per Context & JSON) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-primary-fixed text-primary rounded-full px-space-md py-1 shadow-[0_2px_0_#136a63] font-label-sm text-label-sm" href="#skills">
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[11px] font-extrabold mt-0.5">Skills</span>
+</a>
+<!-- Destination 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary transition-colors" href="#tests">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Destination 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm hover:text-primary transition-colors" href="#me">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</a>
 </nav>
+</main>
 </body></html>

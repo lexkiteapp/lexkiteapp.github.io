@@ -1,397 +1,567 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite - Offline State</title>
+<title>Lexkite Offline (Bright Day)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "surface": "#091518",
-            "on-tertiary-container": "#392900",
-            "on-secondary-container": "#ffa493",
-            "primary-container": "#2ba39a",
-            "on-tertiary": "#402e00",
-            "inverse-on-surface": "#263236",
-            "background": "#091518",
-            "on-error-container": "#ffdad6",
-            "secondary-fixed": "#ffdad3",
-            "secondary-container": "#981201",
-            "surface-variant": "#2b373a",
-            "primary-fixed": "#88f5ea",
-            "tertiary": "#f4bf40",
-            "surface-container-high": "#202c2f",
-            "error": "#ffb4ab",
-            "on-secondary-fixed-variant": "#900f00",
-            "on-primary-fixed-variant": "#00504b",
-            "on-tertiary-fixed": "#261a00",
-            "inverse-surface": "#d8e5e9",
-            "surface-tint": "#6bd8ce",
-            "primary-fixed-dim": "#6bd8ce",
-            "secondary-fixed-dim": "#ffb4a6",
-            "on-primary": "#003733",
-            "on-primary-container": "#00322e",
-            "surface-container-low": "#121d20",
-            "primary": "#6bd8ce",
-            "inverse-primary": "#006a64",
-            "surface-container": "#162125",
-            "surface-container-highest": "#2b373a",
-            "on-surface-variant": "#bcc9c7",
-            "on-background": "#d8e5e9",
-            "tertiary-fixed": "#ffdf9e",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "secondary": "#ffb4a6",
-            "on-primary-fixed": "#00201e",
-            "surface-container-lowest": "#051013",
-            "surface-bright": "#2f3b3e",
-            "on-error": "#690005",
-            "outline": "#879391",
-            "on-secondary": "#660800",
-            "error-container": "#93000a",
-            "tertiary-container": "#ba8b00",
-            "surface-dim": "#091518",
-            "on-surface": "#d8e5e9",
-            "tertiary-fixed-dim": "#f4bf40",
-            "outline-variant": "#3d4947",
-            "on-secondary-fixed": "#3f0300"
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-          spacing: {
-            "space-xs": "4px",
-            "space-md": "16px",
-            "margin": "16px",
-            "space-lg": "24px",
-            "gutter": "16px",
-            "space-sm": "8px",
-            "space-xl": "32px"
-          },
-          fontFamily: {
-            "title": ["Plus Jakarta Sans"],
-            "label": ["Plus Jakarta Sans"],
-            "display": ["Plus Jakarta Sans"],
-            "body": ["Plus Jakarta Sans"]
-          },
-          fontSize: {
-            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }],
-            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
-            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }],
-            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }]
-          }
-        }
-      }
-    };
-  </script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <style>
-    .material-symbols-outlined {
-      font-family: 'Material Symbols Outlined';
-      font-weight: normal;
-      font-style: normal;
-      font-size: 24px;
-      line-height: 1;
-      letter-spacing: normal;
-      text-transform: none;
-      display: inline-block;
-      white-space: nowrap;
-      word-wrap: normal;
-      direction: ltr;
-      -webkit-font-feature-settings: 'liga';
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       -webkit-font-smoothing: antialiased;
     }
-    
-    /* Tactile micro-press behaviors */
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #fff8f5;
+      color: #172426;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0;
+      padding: 0;
+    }
+    .screen-root {
+      width: 100%;
+      max-width: 390px;
+      min-height: 100vh;
+      background-color: #fff8f5;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 76px; /* Space for 64px bottom nav + padding */
+    }
+
+    /* TOP BAR (HUB VARIANT 56px) */
+    .top-bar {
+      height: 56px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff8f5;
+      border-bottom: 2px solid #ecdcd1;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .brand-logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: #136a63;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 0 #0b433e;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #136a63;
+      letter-spacing: -0.5px;
+    }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      border: 1.5px solid;
+    }
+    .chip-exam {
+      background: #e4f5f2;
+      color: #115751;
+      border-color: #bee5de;
+    }
+    .chip-streak {
+      background: #fff0e2;
+      color: #943e00;
+      border-color: #f7cdb0;
+    }
+    .chip-xp {
+      background: #fdf5d6;
+      color: #7d5700;
+      border-color: #f3df9b;
+    }
+    .avatar-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #116861;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 0 #ecdcd1;
+      flex-shrink: 0;
+    }
+
+    /* MAIN CONTENT */
+    .content-area {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+
+    /* MAIN OFFLINE CARD */
+    .offline-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 2px solid #ecdcd1;
+      box-shadow: 0 5px 0 #e4cfc2;
+      padding: 24px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* ILLUSTRATION CONTAINER */
+    .illustration-wrapper {
+      width: 104px;
+      height: 104px;
+      background: #fbf1e8;
+      border-radius: 28px;
+      border: 2px solid #edd9cc;
+      box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.9), 0 4px 0 #e2cbbe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .offline-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #172426;
+      letter-spacing: -0.4px;
+      margin-bottom: 6px;
+    }
+    .offline-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4b6366;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      max-width: 270px;
+    }
+
+    /* PRIMARY TACTILE BUTTON */
     .btn-tactile-primary {
-      box-shadow: 0 6px 0 #B53A22;
-      transition: all 0.08s ease-in-out;
+      width: 100%;
+      height: 52px;
+      background: #ff8400;
+      border: 2px solid #c25900;
+      border-radius: 16px;
+      box-shadow: 0 6px 0 #ba5200;
+      color: #1f0f00; /* Deep brown-black ink strictly never white */
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.08s ease;
+      user-select: none;
     }
     .btn-tactile-primary:active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 #B53A22;
-    }
-    
-    .card-tactile-hero {
-      box-shadow: 0 5px 0 #D8CFBC;
-    }
-    
-    .card-tactile-tile {
-      box-shadow: 0 4px 0 #D8CFBC;
-      transition: all 0.08s ease-in-out;
-    }
-    .card-tactile-tile:active {
       transform: translateY(3px);
-      box-shadow: 0 1px 0 #D8CFBC;
+      box-shadow: 0 3px 0 #ba5200;
     }
 
-    .pill-tactile {
-      box-shadow: 0 2.5px 0 #EADEC8;
-      transition: all 0.08s ease-in-out;
+    /* SECTION HEADER FOR OFFLINE ITEMS */
+    .section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #136a63;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-top: 4px;
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .pill-tactile:active {
-      transform: translateY(1.5px);
-      box-shadow: 0 1px 0 #EADEC8;
+    .section-title svg {
+      color: #136a63;
     }
 
-    /* Glossy specular node highlight */
-    .glossy-top-shine {
+    /* OFFLINE TILES LIST */
+    .tiles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tactile-tile {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 2px solid #ecdcd1;
+      box-shadow: 0 5px 0 #e4cfc2;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: all 0.08s ease;
+      user-select: none;
+    }
+    .tactile-tile:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #e4cfc2;
+    }
+    .tile-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid;
+      flex-shrink: 0;
+    }
+    .box-deck {
+      background: #eaf5f3;
+      border-color: #badfd9;
+      color: #136a63;
+      box-shadow: 0 3px 0 #a9d4cd;
+    }
+    .box-review {
+      background: #fff2e4;
+      border-color: #f9d5b4;
+      color: #c75a00;
+      box-shadow: 0 3px 0 #ecc098;
+    }
+    .box-lessons {
+      background: #eef1f8;
+      border-color: #cdd8eb;
+      color: #2b5497;
+      box-shadow: 0 3px 0 #b9cbe6;
+    }
+
+    .tile-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: left;
+    }
+    .tile-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #172426;
+      line-height: 1.2;
+    }
+    .tile-caption {
+      font-size: 12px;
+      font-weight: 600;
+      color: #556c6e;
+    }
+    .tile-arrow {
+      color: #7d9698;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* BOTTOM TAB BAR (CANONICAL 64px) */
+    .bottom-tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 390px;
+      height: 64px;
+      background: #ffffff;
+      border-top: 2px solid #ecdcd1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 6px;
+      z-index: 50;
+      box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.02);
+    }
+    .tab-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      gap: 3px;
+      padding: 4px 0;
+      cursor: pointer;
+    }
+    /* Active Today Tab with Teal Pill */
+    .tab-item.active .tab-icon-wrap {
+      background: #e2f4f1;
+      color: #136a63;
+      border-radius: 999px;
+      padding: 3px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tab-item.active .tab-label {
+      color: #136a63;
+      font-weight: 800;
+    }
+    /* Inactive Tabs */
+    .tab-item:not(.active) .tab-icon-wrap {
+      color: #374749; /* High contrast dark grey ink */
+      padding: 3px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      overflow: hidden;
     }
-    .glossy-top-shine::before {
-      content: "";
+    .tab-item:not(.active) .tab-label {
+      color: #374749; /* High contrast dark grey ink >= 4.5:1 */
+      font-weight: 700;
+    }
+    .tab-label {
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: -0.1px;
+    }
+
+    /* DUE BADGE ON VOCAB */
+    .badge-dot {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 38%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 100%);
-      border-top-left-radius: inherit;
-      border-top-right-radius: inherit;
-      pointer-events: none;
-    }
-
-    /* Floating cloud soft animation */
-    @keyframes gentleFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-4px); }
-    }
-    .float-anim {
-      animation: gentleFloat 3.2s ease-in-out infinite;
-    }
-
-    /* Sway animation for detached cord */
-    @keyframes plugSway {
-      0%, 100% { transform: rotate(-4deg); }
-      50% { transform: rotate(5deg); }
-    }
-    .sway-anim {
-      transform-origin: top center;
-      animation: plugSway 2.4s ease-in-out infinite;
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+      top: 1px;
+      right: 12px;
+      width: 8px;
+      height: 8px;
+      background: #e63946;
+      border: 1.5px solid #ffffff;
+      border-radius: 999px;
     }
   </style>
 </head>
-<body class="bg-[#081518] text-[#EEF6F7] font-body min-h-screen antialiased selection:bg-[#2BA39A]/30">
-<!-- TOP APP BAR (56px fixed mobile chrome) -->
-<header class="fixed top-0 left-0 right-0 h-14 bg-[#091518] border-b-2 border-[#1B323B] z-50 flex items-center justify-between px-4 max-w-md mx-auto">
-<!-- Brand Kite Emblem & Wordmark -->
-<div class="flex items-center gap-2">
-<!-- Geometric Diamond Kite Icon -->
-<div class="w-8 h-8 relative flex items-center justify-center filter drop-shadow-sm">
-<svg fill="none" height="28" viewbox="0 0 28 28" width="28" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 2L2 14L14 17L14 2Z" fill="#F2553B"></path>
-<path d="M14 2L26 14L14 17L14 2Z" fill="#FFB054"></path>
-<path d="M14 17L2 14L14 26L14 17Z" fill="#6BD8CE"></path>
-<path d="M14 17L26 14L14 26L14 17Z" fill="#2BA39A"></path>
-<path d="M14 2V26" stroke="#112025" stroke-linecap="round" stroke-width="1.2"></path>
-<path d="M2 14H26" stroke="#112025" stroke-linecap="round" stroke-width="1.2"></path>
+<body>
+<div class="screen-root">
+<!-- TOP BAR: HUB VARIANT (56px) -->
+<header class="top-bar">
+<div class="brand-left">
+<div class="brand-logo-icon"><svg fill="none" height="18" viewbox="0 0 24 24" width="18">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#091518" stroke="#091518" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M12 2V22" stroke="#2dd4bf" stroke-width="1.5"></path>
+<path d="M4 10H20" stroke="#2dd4bf" stroke-width="1.5"></path>
+</svg></div>
+<span class="brand-title">Lexkite</span>
+</div>
+<div class="top-bar-right">
+<!-- IELTS Exam Chip -->
+<span class="pill-chip chip-exam">IELTS</span>
+<!-- Flame Streak Pill '14' -->
+<span class="pill-chip chip-streak">
+<svg fill="#c44e00" height="12" viewbox="0 0 24 24" width="12">
+<path d="M12 23c-4.97 0-9-3.8-9-8.5 0-3.3 2.1-6.4 4.5-8.5.5-.4 1.2-.1 1.3.5.3 1.8 1.1 3.5 2.2 4.8.2.2.5.2.7 0 .9-.9 1.6-2.1 1.9-3.4.1-.5.7-.7 1.1-.4C17.6 9.8 21 13.9 21 16.5c0 3.6-3.8 6.5-9 6.5z"></path>
 </svg>
-</div>
-<span class="font-display font-extrabold text-[22px] tracking-tight text-[#EEF6F7]">Lexkite</span>
-</div>
-<!-- Right Header Badges: Streak & XP -->
-<div class="flex items-center gap-2">
-<!-- Streak Pill -->
-<div class="pill-tactile bg-[#112025] border-2 border-[#223F49] rounded-full px-2.5 py-1 flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[#FF7043] text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
-<span class="font-label text-[13px] text-[#EEF6F7] font-black">14</span>
-</div>
-<!-- XP Pill -->
-<div class="pill-tactile bg-[#112025] border-2 border-[#223F49] rounded-full px-2.5 py-1 flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[#F4BF40] text-[18px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
-<span class="font-label text-[13px] text-[#EEF6F7] font-black">820 XP</span>
-</div>
+          14
+        </span>
+<!-- Star XP Pill '820' -->
+<span class="pill-chip chip-xp">
+<svg fill="#c98a00" height="12" viewbox="0 0 24 24" width="12">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+          820
+        </span>
+<!-- Avatar 'L' -->
+<div class="avatar-badge">L</div>
 </div>
 </header>
-<!-- MAIN SCROLLABLE CONTENT CANVAS -->
-<main class="pt-[72px] pb-[96px] px-4 max-w-md mx-auto flex flex-col gap-4"><!-- OFFLINE STATUS HERO CARD (Elevated dark teal container #112025 with 2px border and 5px bottom ledge) -->
-<section class="card-tactile-hero bg-[#112025] border-2 border-[#2A4550] rounded-[24px] p-5 text-center flex flex-col items-center">
-<!-- Dreamy Night-themed Sleeping Cloud with glowing sleepy eyes and coral unplugged cord -->
-<div class="w-full flex justify-center py-2 relative float-anim">
-<svg fill="none" height="150" viewbox="0 0 220 150" width="220" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<lineargradient gradientunits="userSpaceOnUse" id="nightCloudBody" x1="110" x2="110" y1="18" y2="108">
-<stop stop-color="#223942"></stop>
-<stop offset="1" stop-color="#182B32"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="nightCloudLedge" x1="110" x2="110" y1="104" y2="112">
-<stop stop-color="#101C20"></stop>
-<stop offset="1" stop-color="#081215"></stop>
-</lineargradient>
-</defs>
-<!-- Soft shadow under cloud -->
-<ellipse cx="110" cy="118" fill="#050F11" opacity="0.85" rx="68" ry="8"></ellipse>
-<!-- Extruded bottom ledge -->
-<path d="M60 108C50 108 42 102 40 94C31 92 24 83 26 73C27 65 33 58 41 56C42 42 54 30 68 30C72 30 76 31 80 33C87 23 99 17 112 17C127 17 140 25 146 38C151 35 156 34 162 34C175 34 186 44 187 57C194 60 199 68 198 76C197 86 189 94 179 94C177 102 168 108 158 108H60Z" fill="url(#nightCloudLedge)" transform="translate(0, 5)"></path>
-<!-- Cloud Base Shape -->
-<path d="M60 108C50 108 42 102 40 94C31 92 24 83 26 73C27 65 33 58 41 56C42 42 54 30 68 30C72 30 76 31 80 33C87 23 99 17 112 17C127 17 140 25 146 38C151 35 156 34 162 34C175 34 186 44 187 57C194 60 199 68 198 76C197 86 189 94 179 94C177 102 168 108 158 108H60Z" fill="url(#nightCloudBody)" stroke="#2D4B57" stroke-linejoin="round" stroke-width="2.5"></path>
-<!-- Soft glossy moonlight cloud ridge -->
-<path d="M96 23C101 20 107 19 113 19C125 19 135 25 141 35" stroke="#4D7A89" stroke-linecap="round" stroke-width="3.5"></path>
-<path d="M54 36C60 32 66 32 70 33" stroke="#4D7A89" stroke-linecap="round" stroke-width="3"></path>
-<!-- Sleeping Gentle Eyes (luminescent mint/cyan) -->
-<path d="M86 67C89 71 96 71 99 67" stroke="#88F5EA" stroke-linecap="round" stroke-width="3"></path>
-<path d="M121 67C124 71 131 71 134 67" stroke="#88F5EA" stroke-linecap="round" stroke-width="3"></path>
-<!-- Rosy peach blush cheeks -->
-<ellipse cx="78" cy="73" fill="#FF8A7A" opacity="0.55" rx="7" ry="4.5"></ellipse>
-<ellipse cx="142" cy="73" fill="#FF8A7A" opacity="0.55" rx="7" ry="4.5"></ellipse>
-<!-- Cute little snoozing mouth -->
-<path d="M107 77C110 79 113 79 115 77" stroke="#88F5EA" stroke-linecap="round" stroke-width="2"></path>
-<!-- Dangling disconnected power cable group with sway animation -->
-<g class="sway-anim">
-<path d="M110 108 C 110 118, 126 114, 124 130" fill="none" stroke="#FFB054" stroke-linecap="round" stroke-width="3.5"></path>
-<rect fill="#0A161A" height="11" rx="3" stroke="#2D4B57" stroke-width="1.2" width="14" x="117" y="129"></rect>
-<rect fill="#FFB054" height="5" rx="1" width="2.5" x="119.5" y="140"></rect>
-<rect fill="#FFB054" height="5" rx="1" width="2.5" x="126" y="140"></rect>
-</g>
-<!-- Mint sleeping whispers 'Z z' -->
-<text fill="#6BD8CE" font-family="Plus Jakarta Sans" font-size="13" font-weight="800" x="162" y="38">z</text>
-<text fill="#6BD8CE" font-family="Plus Jakarta Sans" font-size="16" font-weight="900" x="174" y="28">Z</text>
-<!-- Severed glowing power dots -->
-<circle cx="106" cy="136" fill="#F2553B" r="2.5"></circle>
-<circle cx="138" cy="135" fill="#6BD8CE" r="2"></circle>
+<!-- CONTENT AREA -->
+<main class="content-area">
+<!-- OFFLINE MAIN CARD -->
+<section class="offline-card">
+<!-- Glossy Illustrated Cloud & Unplugged Cable -->
+<div class="illustration-wrapper"><svg fill="none" height="84" viewbox="0 0 88 88" width="84">
+<ellipse cx="44" cy="58" fill="#091518" opacity="0.6" rx="30" ry="6"></ellipse>
+<path d="M63 46C63 40.5 58.5 36 53 36C52.4 36 51.8 36.1 51.2 36.2C49.3 30.2 43.6 26 37 26C28.7 26 22 32.7 22 41C22 41.7 22.1 42.4 22.2 43.1C18.6 44.5 16 48 16 52C16 56.9 20.1 61 25 61H61C66 61 70 57 70 52C70 47.7 66.9 44.1 63 46Z" fill="#1e3b43" stroke="#2e5762" stroke-width="2.5"></path>
+<path d="M37 29C42.5 29 47.3 32.3 49 37C47 36.5 44 36.8 41 38C38 39.2 35 41 33 44C32.3 40 33 34 37 29Z" fill="#2dd4bf" opacity="0.2"></path>
+<circle cx="28" cy="48" fill="#fb7185" opacity="0.7" r="3.5"></circle>
+<circle cx="58" cy="49" fill="#fb7185" opacity="0.7" r="3.5"></circle>
+<path d="M36 49C37.5 51 40 51 41.5 49" stroke="#a2c0c7" stroke-linecap="round" stroke-width="2"></path>
+<path d="M46.5 49C48 51 50.5 51 52 49" stroke="#a2c0c7" stroke-linecap="round" stroke-width="2"></path>
+<ellipse cx="44" cy="54" fill="#fb7185" opacity="0.8" rx="2.5" ry="1.5"></ellipse>
+<path d="M34 60V66C34 68 32 70 29 70H25" stroke="#2dd4bf" stroke-linecap="round" stroke-width="3"></path>
+<rect fill="#2dd4bf" height="8" rx="2" width="8" x="17" y="66"></rect>
+<line stroke="#fbbf24" stroke-linecap="round" stroke-width="2" x1="25" x2="28" y1="68" y2="68"></line>
+<line stroke="#fbbf24" stroke-linecap="round" stroke-width="2" x1="25" x2="28" y1="72" y2="72"></line>
+<rect fill="#ea580c" height="8" rx="2" width="9" x="33" y="66"></rect>
+<line stroke="#7c2d12" stroke-width="1.5" x1="33" x2="35" y1="68.5" y2="68.5"></line>
+<line stroke="#7c2d12" stroke-width="1.5" x1="33" x2="35" y1="71.5" y2="71.5"></line>
+<path d="M42 70H48C51 70 54 67 54 64V61" stroke="#ea580c" stroke-linecap="round" stroke-width="3"></path>
+<path d="M30 63L31 65L30 67" stroke="#f87171" stroke-linecap="round" stroke-width="1.5"></path>
+<circle cx="31" cy="74" fill="#f59e0b" r="1.5"></circle>
+</svg></div>
+<h1 class="offline-title">You're offline</h1>
+<p class="offline-subtitle">Saved words and downloaded lessons still work</p>
+<!-- Candy-Orange Tactile Button -->
+<button class="btn-tactile-primary" type="button">
+<svg fill="none" height="20" stroke="#1f0f00" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="20">
+<path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"></path>
 </svg>
-</div>
-<!-- Headline: crisp ice-white #EEF6F7 -->
-<h1 class="font-display font-black text-[28px] leading-tight text-[#EEF6F7] tracking-tight mt-1 mb-1.5">
-    You're offline
-  </h1>
-<!-- Subtitle: high contrast slate-mint #A9BFC1 (WCAG AA compliant > 4.5:1) -->
-<p class="font-body text-[15px] leading-snug font-medium text-[#A9BFC1] max-w-[280px] mb-5">
-    Saved words and downloaded lessons still work
-  </p>
-<!-- Primary CTA: Tactile coral-to-amber button with dark ink label -->
-<button class="btn-tactile-primary glossy-top-shine w-full h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFC94A] flex items-center justify-center gap-2 border border-[#F2553B] cursor-pointer">
-<span class="material-symbols-outlined text-[#1A0702] text-[22px] font-black" style="font-variation-settings: 'FILL' 0, 'wght' 700;">refresh</span>
-<span class="font-display font-extrabold text-[17px] text-[#1A0702] tracking-wide">Try again</span>
-</button>
+          Try again
+        </button>
 </section>
-<!-- SECTION DIVIDER LABEL: READY WITHOUT WI-FI in dark slate-mint -->
-<div class="flex items-center gap-2 px-1 pt-2">
-<span class="material-symbols-outlined text-[#6BD8CE] text-[18px]">cloud_done</span>
-<h2 class="font-label text-xs tracking-wider text-[#6BD8CE] font-extrabold uppercase">
-    READY WITHOUT WI-FI
-  </h2>
-<div class="h-0.5 flex-1 bg-[#1E3740] rounded-full ml-1"></div>
+<!-- SECTION TITLE -->
+<div class="section-title">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16">
+<path d="M20 6L9 17l-5-5"></path>
+</svg>
+<span>Works offline</span>
 </div>
-<!-- TACTILE FEATURE TILES (3 dark elevated cards #162930, 2px border #2A4550) -->
-<div class="flex flex-col gap-3">
+<!-- 3 TACTILE TILES -->
+<div class="tiles-list">
 <!-- Tile 1: My deck -->
-<div class="card-tactile-tile bg-[#162930] border-2 border-[#2A4550] rounded-[16px] p-3.5 flex items-center justify-between cursor-pointer">
-<div class="flex items-center gap-3.5">
-<div class="glossy-top-shine w-12 h-12 rounded-xl bg-[#FFB054] border-2 border-[#E0983A] flex items-center justify-center text-[#1A0702] shadow-[0_3px_0_#9E5F0E]">
-<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">style</span>
+<div class="tactile-tile">
+<div class="tile-icon-box box-deck"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<rect height="15" rx="2" width="13" x="3" y="3"></rect>
+<path d="M8 8h3m-3 4h5"></path>
+<rect fill="#2dd4bf" fill-opacity="0.15" height="15" rx="2" width="13" x="8" y="6"></rect>
+</svg></div>
+<div class="tile-text">
+<span class="tile-title">My deck</span>
+<span class="tile-caption">142 saved vocabulary flashcards</span>
 </div>
-<div class="flex flex-col text-left">
-<span class="font-title font-extrabold text-[17px] text-[#EEF6F7] leading-tight">My deck</span>
-<span class="font-body text-[13px] font-semibold text-[#8DA6AA]">142 saved words</span>
-</div>
-</div>
-<div class="flex items-center gap-1">
-<span class="bg-[#0E1E23] text-[#EEF6F7] font-label text-[11px] font-black px-3 py-1.5 rounded-full border border-[#25424D]">
-        Practice
-      </span>
-<span class="material-symbols-outlined text-[#8DA6AA] text-[20px]">chevron_right</span>
+<div class="tile-arrow">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
 </div>
 </div>
 <!-- Tile 2: Review -->
-<div class="card-tactile-tile bg-[#162930] border-2 border-[#2A4550] rounded-[16px] p-3.5 flex items-center justify-between cursor-pointer">
-<div class="flex items-center gap-3.5">
-<div class="glossy-top-shine w-12 h-12 rounded-xl bg-[#2BA39A] border-2 border-[#1E7D76] flex items-center justify-center text-white shadow-[0_3px_0_#15625D]">
-<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">replay</span>
+<div class="tactile-tile">
+<div class="tile-icon-box box-review">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<circle cx="12" cy="12" r="9"></circle>
+<polyline points="12 7 12 12 15 14"></polyline>
+</svg>
 </div>
-<div class="flex flex-col text-left">
-<span class="font-title font-extrabold text-[17px] text-[#EEF6F7] leading-tight">Review</span>
-<div class="flex items-center gap-1.5 mt-0.5">
-<span class="w-2 h-2 rounded-full bg-[#FF7043]"></span>
-<span class="font-body text-[13px] font-bold text-[#FF8A7A]">12 due today</span>
+<div class="tile-text">
+<span class="tile-title">Review</span>
+<span class="tile-caption">Spaced repetition queue ready</span>
 </div>
-</div>
-</div>
-<div class="flex items-center gap-1">
-<span class="bg-[#2BA39A]/20 text-[#6BD8CE] font-label text-[11px] font-black px-3 py-1.5 rounded-full border border-[#2BA39A]/40">
-        Start
-      </span>
-<span class="material-symbols-outlined text-[#8DA6AA] text-[20px]">chevron_right</span>
+<div class="tile-arrow">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
 </div>
 </div>
 <!-- Tile 3: Downloaded lessons -->
-<div class="card-tactile-tile bg-[#162930] border-2 border-[#2A4550] rounded-[16px] p-3.5 flex items-center justify-between cursor-pointer">
-<div class="flex items-center gap-3.5">
-<div class="glossy-top-shine w-12 h-12 rounded-xl bg-[#F2553B] border-2 border-[#CC432C] flex items-center justify-center text-white shadow-[0_3px_0_#B53A22]">
-<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">school</span>
+<div class="tactile-tile">
+<div class="tile-icon-box box-lessons">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" x2="12" y1="15" y2="3"></line>
+</svg>
 </div>
-<div class="flex flex-col text-left">
-<span class="font-title font-extrabold text-[17px] text-[#EEF6F7] leading-tight">Downloaded lessons</span>
-<span class="font-body text-[13px] font-semibold text-[#8DA6AA]">Unit 3 ready</span>
+<div class="tile-text">
+<span class="tile-title">Downloaded lessons</span>
+<span class="tile-caption">4 IELTS offline audio &amp; drills</span>
 </div>
-</div>
-<div class="flex items-center gap-1">
-<span class="bg-[#0E1E23] text-[#EEF6F7] font-label text-[11px] font-black px-3 py-1.5 rounded-full border border-[#25424D]">
-        Resume
-      </span>
-<span class="material-symbols-outlined text-[#8DA6AA] text-[20px]">chevron_right</span>
+<div class="tile-arrow">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="18">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
 </div>
 </div>
 </div>
-<!-- TACTILE OFFLINE SYNC CALLOUT BADGE -->
-<div class="bg-[#101F24] border-2 border-[#223F49] rounded-xl px-3.5 py-2.5 flex items-center gap-2.5 mt-1">
-<span class="material-symbols-outlined text-[#6BD8CE] text-[20px]">sync_saved_locally</span>
-<p class="font-body text-[12px] font-bold text-[#A9BFC1] leading-tight">
-    Progress syncs automatically once you re-connect.
-  </p>
-</div></main>
-<!-- FIXED BOTTOM NAVIGATION BAR (Identical to Lexkite Kit 5-tab structure) -->
-<nav class="fixed bottom-0 left-0 right-0 h-16 bg-[#091518] border-t-2 border-[#1B323B] z-50 flex items-center justify-around px-2 max-w-md mx-auto">
-<!-- Tab 1: Learn -->
-<a class="flex flex-col items-center justify-center py-1 px-2.5 text-[#6D8A8B] hover:text-[#EEF6F7] transition-colors" href="#">
-<span class="material-symbols-outlined text-[22px]">school</span>
-<span class="font-label text-[11px] tracking-tight font-extrabold mt-0.5">Learn</span>
+</main>
+<!-- BOTTOM TAB BAR (64px CANONICAL, 'Today' ACTIVE) -->
+<nav aria-label="Bottom Navigation" class="bottom-tab-bar">
+<!-- Today (Active) -->
+<a class="tab-item active" href="#today">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="20">
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+</div>
+<span class="tab-label">Today</span>
 </a>
-<!-- Tab 2: Review (Active state in dark theme with 2px teal border & cyan glow) -->
-<a class="flex flex-col items-center justify-center bg-[#2BA39A]/20 text-[#88F5EA] rounded-xl py-1 px-3 border-2 border-[#2BA39A] shadow-[0_2px_0_#1E7D76]" href="#">
-<span class="material-symbols-outlined text-[22px] text-[#6BD8CE]" style="font-variation-settings: 'FILL' 1;">replay</span>
-<span class="font-label text-[11px] tracking-tight font-extrabold mt-0.5 text-[#EEF6F7]">Review</span>
+<!-- Vocab (with due badge) -->
+<a class="tab-item" href="#vocab">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+</svg>
+<span class="badge-dot"></span>
+</div>
+<span class="tab-label">Vocab</span>
 </a>
-<!-- Tab 3: Practice -->
-<a class="flex flex-col items-center justify-center py-1 px-2.5 text-[#6D8A8B] hover:text-[#EEF6F7] transition-colors" href="#">
-<span class="material-symbols-outlined text-[22px]">bolt</span>
-<span class="font-label text-[11px] tracking-tight font-extrabold mt-0.5">Practice</span>
+<!-- Skills (target) -->
+<a class="tab-item" href="#skills">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<circle cx="12" cy="12" r="10"></circle>
+<circle cx="12" cy="12" r="6"></circle>
+<circle cx="12" cy="12" r="2"></circle>
+</svg>
+</div>
+<span class="tab-label">Skills</span>
 </a>
-<!-- Tab 4: Leagues -->
-<a class="flex flex-col items-center justify-center py-1 px-2.5 text-[#6D8A8B] hover:text-[#EEF6F7] transition-colors" href="#">
-<span class="material-symbols-outlined text-[22px]">trophy</span>
-<span class="font-label text-[11px] tracking-tight font-extrabold mt-0.5">Leagues</span>
+<!-- Tests (flag) -->
+<a class="tab-item" href="#tests">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+<line x1="4" x2="4" y1="22" y2="15"></line>
+</svg>
+</div>
+<span class="tab-label">Tests</span>
 </a>
-<!-- Tab 5: Me / Profile -->
-<a class="flex flex-col items-center justify-center py-1 px-2.5 text-[#6D8A8B] hover:text-[#EEF6F7] transition-colors" href="#">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="font-label text-[11px] tracking-tight font-extrabold mt-0.5">Me</span>
+<!-- Me (person) -->
+<a class="tab-item" href="#me">
+<div class="tab-icon-wrap">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+</div>
+<span class="tab-label">Me</span>
 </a>
 </nav>
-<!-- Tiny interactive vibration click feedback for buttons -->
-<script>
-    document.querySelectorAll('button, .card-tactile-tile').forEach(item => {
-      item.addEventListener('click', () => {
-        if ('vibrate' in navigator) {
-          navigator.vibrate(10);
-        }
-      });
-    });
-  </script>
-</body></html>
+</div>
+</body>
+</html>
+

@@ -1,315 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lexkite — My Deck (Empty State)</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite My Deck Empty State</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          colors: {
-            'cream-bg': '#FFF7EA',
-            'cream-surface': '#FFF2DE',
-            'card-bg': '#FFFFFF',
-            'border-warm': '#EADEC8',
-            'border-ledge': '#D8CFBC',
-            'teal-primary': '#0D6964',
-            'teal-brand': '#2BA39A',
-            'teal-deep': '#1F7A75',
-            'teal-ledge': '#12514D',
-            'teal-light': '#E6F7F5',
-            'coral-primary': '#F2553B',
-            'amber-primary': '#FFB054',
-            'cta-ledge': '#B53A22',
-            'text-ink': '#0F3D3E',
-            'text-muted': '#3A5C5E',
-            'btn-ink': '#220D06',
+          "colors": {
+            "primary-fixed": "#a4f1e7",
+            "on-surface-variant": "#3f4947",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "on-error": "#ffffff",
+            "surface-container-low": "#fff1e8",
+            "primary": "#00504b",
+            "on-primary-fixed": "#00201d",
+            "tertiary-fixed-dim": "#f5bf31",
+            "tertiary-container": "#785a00",
+            "surface-container-high": "#f4e5db",
+            "on-tertiary-container": "#ffd370",
+            "tertiary-fixed": "#ffdf9b",
+            "on-tertiary-fixed": "#251a00",
+            "inverse-on-surface": "#fdeee3",
+            "error-container": "#ffdad6",
+            "secondary": "#8c5000",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-dim": "#e6d7cd",
+            "on-secondary-fixed": "#2d1600",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#88d4cb",
+            "primary-container": "#136a63",
+            "on-error-container": "#93000a",
+            "outline-variant": "#bec9c6",
+            "secondary-fixed": "#ffdcbf",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary-container": "#633700",
+            "tertiary": "#5b4300",
+            "outline": "#6f7977",
+            "surface-container-highest": "#efe0d6",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-primary-container": "#9be7de",
+            "surface-variant": "#efe0d6",
+            "inverse-primary": "#88d4cb",
+            "on-surface": "#211a14",
+            "on-secondary": "#ffffff",
+            "on-background": "#211a14",
+            "surface-bright": "#fff8f5",
+            "error": "#ba1a1a",
+            "surface-container": "#faebe1",
+            "surface-tint": "#126a63",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#ffb872",
+            "inverse-surface": "#372f28",
+            "secondary-container": "#fd9500",
+            "on-tertiary": "#ffffff"
           },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "gutter-md": "1.5rem",
+            "margin-lg": "3rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "margin-md": "2rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
           }
-        }
-      }
+        },
+      },
     }
   </script>
-  <style>
+<style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #FFF7EA;
-      color: #0F3D3E;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* 3D Tactile Buttons & Ledges */
-    .tactile-btn-primary {
-      background: linear-gradient(180deg, #FF9447 0%, #F2553B 100%);
-      box-shadow: 0 5px 0 0 #B53A22, 0 8px 16px rgba(242, 85, 59, 0.25);
-      transition: all 0.1s ease;
-    }
-    .tactile-btn-primary:active {
-      transform: translateY(3px);
-      box-shadow: 0 2px 0 0 #B53A22, 0 4px 8px rgba(242, 85, 59, 0.2);
-    }
-
-    .tactile-btn-secondary {
-      background: #FFFFFF;
-      box-shadow: 0 5px 0 0 #D8CFBC, 0 6px 14px rgba(15, 61, 62, 0.05);
-      border: 2px solid #EADEC8;
-      transition: all 0.1s ease;
-    }
-    .tactile-btn-secondary:active {
-      transform: translateY(3px);
-      box-shadow: 0 2px 0 0 #D8CFBC, 0 2px 6px rgba(15, 61, 62, 0.05);
-    }
-
-    .tactile-card {
-      background: #FFFFFF;
-      border: 2px solid #EADEC8;
-      box-shadow: 0 5px 0 0 #D8CFBC;
-      border-radius: 20px;
-    }
-
-    .tactile-pill {
-      background: #FFFFFF;
-      border: 2px solid #EADEC8;
-      box-shadow: 0 3px 0 0 #D8CFBC;
-    }
-
-    .tab-active {
-      background: #E6F7F5;
-      border: 2px solid #2BA39A;
-      box-shadow: 0 3px 0 0 #1F7A75;
-      color: #0D6964;
-    }
-
-    .dashed-slot {
-      background: rgba(255, 255, 255, 0.6);
-      border: 2px dashed #2BA39A;
+      min-height: max(884px, 100dvh);
     }
   </style>
-</head>
-<body class="min-h-screen flex flex-col justify-between bg-cream-bg select-none">
-
-  <!-- ================= TOP HEADER (Fixed 56px standard Lexkite chrome) ================= -->
-  <header class="w-full h-14 bg-cream-bg border-b border-border-warm flex items-center justify-between px-5 sticky top-0 z-30">
-    <!-- Left: App Brand Kite Emblem + Name -->
-    <div class="flex items-center gap-2.5">
-      <div class="w-8 h-8 rounded-xl bg-card-bg border border-border-warm shadow-[0_2px_0_0_#D8CFBC] flex items-center justify-center p-1">
-        <!-- Lexkite geometric origami kite icon -->
-        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none">
-          <path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#2BA39A" />
-          <path d="M12 2L20 10L12 13L4 10L12 2Z" fill="#FFB054" opacity="0.9" />
-          <path d="M12 13L20 10L12 22Z" fill="#1F7A75" />
-          <path d="M12 13L4 10L12 22Z" fill="#0D6964" />
-          <circle cx="12" cy="11" r="1.5" fill="#FFFFFF" />
-        </svg>
-      </div>
-      <span class="text-xl font-extrabold tracking-tight text-text-ink">Lexkite</span>
-    </div>
-
-    <!-- Right: Streak Flame & XP Chips -->
-    <div class="flex items-center gap-2">
-      <!-- Flame Streak Pill -->
-      <div class="flex items-center gap-1.5 px-3 py-1 rounded-full tactile-pill">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2C9.5 6 6 8.5 6 13.5C6 17.5 8.7 21 12 21C15.3 21 18 17.5 18 13.5C18 10 16 7.5 14 5.5C13.5 7.5 12 9 10.5 9.5C11.5 7.5 12.2 4.5 12 2Z" fill="#F2553B"/>
-          <path d="M12 12C10.5 13.5 9.5 15 9.5 16.5C9.5 18 10.6 19.5 12 19.5C13.4 19.5 14.5 18 14.5 16.5C14.5 15 13.5 13.8 12 12Z" fill="#FFB054"/>
-        </svg>
-        <span class="text-xs font-extrabold text-text-ink">14</span>
-      </div>
-
-      <!-- XP Bolt Pill -->
-      <div class="flex items-center gap-1.5 px-3 py-1 rounded-full tactile-pill">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
-          <path d="M13 2L4 14H11L9 22L20 10H13L15 2H13Z" fill="#FFB054" stroke="#D98A28" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-        <span class="text-xs font-extrabold text-text-ink">820 XP</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- ================= MAIN CONTENT (EMPTY STATE) ================= -->
-  <main class="flex-1 flex flex-col items-center justify-center px-6 py-4 max-w-md mx-auto w-full">
-
-    <!-- Top Teacher Slot + Friendly Speech Bubble Container -->
-    <div class="flex flex-col items-center w-full mb-3">
-      
-      <!-- Teacher Ama / Carlos 140x170 Empty Slot -->
-      <div class="relative w-[140px] h-[170px] rounded-2xl dashed-slot flex flex-col items-center justify-center p-3 shadow-sm mb-3">
-        <!-- Teacher Icon Placeholder Tag -->
-        <div class="w-10 h-10 rounded-full bg-teal-light border border-teal-brand flex items-center justify-center mb-2">
-          <svg class="w-5 h-5 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-          </svg>
-        </div>
-        <span class="text-[11px] font-extrabold tracking-wider uppercase text-teal-deep">TEACHER</span>
-        <span class="text-[10px] font-semibold text-text-muted mt-0.5">140 × 170 Slot</span>
-        
-        <!-- Live Teacher Badge -->
-        <div class="absolute -top-2.5 bg-teal-brand text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full shadow-sm">
-          Coach Ama
-        </div>
-      </div>
-
-      <!-- Friendly Speech Bubble -->
-      <div class="relative bg-white border-2 border-border-warm rounded-2xl px-4 py-2.5 shadow-[0_3px_0_0_#D8CFBC] text-center max-w-[310px]">
-        <!-- Speech Bubble Triangle Tail Pointing Up -->
-        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white border-t-2 border-l-2 border-border-warm rotate-45"></div>
-        <p class="text-xs font-bold text-text-ink relative z-10 leading-snug">
-          "Ready to build your personal lexicon? Collect words as you learn!"
+  </head>
+<body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
+<!-- Mobile Viewport Container (390px) -->
+<main class="w-[390px] min-h-screen bg-surface flex flex-col relative pb-[84px] shadow-2xl overflow-x-hidden selection:bg-primary-fixed selection:text-primary">
+<!-- Top Bar: Exactly 56px, Inner Variant -->
+<header class="h-[56px] px-margin bg-surface border-b border-surface-variant flex items-center justify-between sticky top-0 z-40">
+<div class="flex items-center gap-space-md">
+<!-- Tactile Back Button -->
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-[3px] active:shadow-none transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Page Title -->
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">My deck</h1>
+</div>
+<!-- Action Button -->
+<button aria-label="Search and filter deck" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-[3px] active:shadow-none transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</button>
+</header>
+<!-- Content Canvas -->
+<section class="px-margin pt-space-md flex flex-col gap-space-md flex-1">
+<!-- Teacher Slot & Speech Bubble Section -->
+<div class="flex items-center gap-space-sm w-full">
+<!-- Empty Teacher Slot -->
+<div class="w-[120px] h-[140px] shrink-0 rounded-2xl border-2 border-dashed border-[#d8c7bc] bg-surface-container-low flex flex-col items-center justify-center select-none relative group">
+<span class="font-label-sm text-label-sm text-outline tracking-widest font-extrabold uppercase">TEACHER</span>
+</div>
+<!-- Speech Bubble -->
+<div class="flex-1 bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#efe0d6] relative">
+<!-- Bubble Left Pointer Arrow -->
+<div class="absolute -left-[9px] top-8 w-4 h-4 bg-surface-container-lowest border-l-2 border-b-2 border-surface-variant rotate-45"></div>
+<h2 class="font-label-lg text-label-lg text-primary font-extrabold tracking-tight flex items-center gap-1.5 mb-1">
+            Start your deck!
+            <span class="text-secondary-container">✦</span>
+</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+            Every new word you bookmark while practicing will live right here.
+          </p>
+</div>
+</div>
+<!-- Empty State Hero Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant shadow-[0_5px_0_0_#efe0d6] p-space-lg flex flex-col items-center text-center mt-space-xs">
+<!-- Playful Illustrated Graphic: Treasure Box with Star -->
+<div class="w-24 h-24 mb-space-sm flex items-center justify-center relative">
+<svg class="drop-shadow-sm" fill="none" height="96" viewbox="0 0 96 96" width="96" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="boxGrad" x1="16" x2="80" y1="40" y2="86">
+<stop stop-color="#198279"></stop>
+<stop offset="1" stop-color="#0f524c"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="cardGrad" x1="32" x2="64" y1="20" y2="54">
+<stop stop-color="#FFFDF9"></stop>
+<stop offset="1" stop-color="#F2E6DC"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="starGrad" x1="40" x2="60" y1="6" y2="28">
+<stop stop-color="#FFD659"></stop>
+<stop offset="1" stop-color="#FFA800"></stop>
+</lineargradient>
+<filter filterunits="userSpaceOnUse" height="92" id="shadowFilter" width="96" x="0" y="4">
+<fedropshadow dx="0" dy="3" flood-color="#0B423E" stddeviation="0"></fedropshadow>
+</filter>
+</defs>
+<!-- Back Card poking out -->
+<rect fill="#E2D4C7" height="28" rx="6" stroke="#C4B3A3" stroke-width="2" transform="rotate(-10 28 24)" width="34" x="28" y="24"></rect>
+<!-- Front Card poking out -->
+<g transform="rotate(8 52 28)">
+<rect fill="url(#cardGrad)" height="30" rx="6" stroke="#136A63" stroke-width="2" width="36" x="36" y="22"></rect>
+<line stroke="#136A63" stroke-linecap="round" stroke-width="2.5" x1="42" x2="64" y1="30" y2="30"></line>
+<line stroke="#BEC9C6" stroke-linecap="round" stroke-width="2" x1="42" x2="56" y1="36" y2="36"></line>
+</g>
+<!-- Box Base Body -->
+<path d="M16 46C16 41.5817 19.5817 38 24 38H72C76.4183 38 80 41.5817 80 46V72C80 77.5228 75.5228 82 70 82H26C20.4772 82 16 77.5228 16 72V46Z" fill="url(#boxGrad)" stroke="#0B423E" stroke-width="3"></path>
+<!-- Box Front Rim / Latch Rim -->
+<path d="M14 44C14 41.7909 15.7909 40 18 40H78C80.2091 40 82 41.7909 82 44V51C82 53.2091 80.2091 55 78 55H18C15.7909 55 14 53.2091 14 51V44Z" fill="#20988E" stroke="#0B423E" stroke-width="3"></path>
+<rect fill="#FFC83B" height="14" rx="3" stroke="#8C5000" stroke-width="2" width="12" x="42" y="47"></rect>
+<circle cx="48" cy="54" fill="#5B4300" r="2"></circle>
+<!-- Sparkling Star hovering -->
+<path d="M48 6L51.2 14.8L60 18L51.2 21.2L48 30L44.8 21.2L36 18L44.8 14.8L48 6Z" fill="url(#starGrad)" stroke="#8C5000" stroke-width="1.5"></path>
+<circle cx="68" cy="22" fill="#FFC83B" r="3"></circle>
+<circle cx="26" cy="32" fill="#20988E" r="2.5"></circle>
+</svg>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-[#0f1d1c] font-extrabold tracking-tight mb-space-xs">
+          Your deck is empty
+        </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg leading-relaxed max-w-[280px]">
+          Save unfamiliar words from drills or dictionary to build your personal flashcard deck.
         </p>
-      </div>
-    </div>
-
-    <!-- Playful Tactile Illustration: Warm 3D Empty Card Box with Golden Sparkles -->
-    <div class="relative my-2 flex items-center justify-center">
-      <!-- Ambient decorative confetti / spark stars -->
-      <div class="absolute -top-3 -right-4 w-7 h-7 text-amber-primary">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
-        </svg>
-      </div>
-      <div class="absolute -bottom-1 -left-5 w-5 h-5 text-teal-brand opacity-90">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
-        </svg>
-      </div>
-      <div class="absolute top-2 -left-6 w-3 h-3 rounded-full bg-coral-primary opacity-80"></div>
-      <div class="absolute bottom-6 -right-6 w-3.5 h-3.5 rounded-full bg-amber-primary opacity-70"></div>
-
-      <!-- Central Isometric Tactile Card Box Graphic -->
-      <div class="w-32 h-32 flex items-center justify-center">
-        <svg viewBox="0 0 140 140" class="w-full h-full filter drop-shadow-[0_10px_12px_rgba(216,207,188,0.5)]">
-          <!-- Soft Shadow Base -->
-          <ellipse cx="70" cy="116" rx="46" ry="12" fill="#EADEC8" />
-          
-          <!-- Box Back Wall (Inner Depth) -->
-          <polygon points="35,62 70,44 105,62 70,80" fill="#E2F4F2" stroke="#2BA39A" stroke-width="2.5" stroke-linejoin="round"/>
-          
-          <!-- Blank Fresh Index Card in Box -->
-          <g transform="translate(0, -6)">
-            <path d="M48,56 L70,44 L92,56 L70,68 Z" fill="#FFFFFF" stroke="#EADEC8" stroke-width="2"/>
-            <path d="M52,58 L68,49" stroke="#2BA39A" stroke-width="2" stroke-linecap="round"/>
-            <path d="M56,62 L74,52" stroke="#FFB054" stroke-width="2" stroke-linecap="round"/>
-          </g>
-
-          <!-- Box Left Side Panel -->
-          <polygon points="35,62 70,80 70,112 35,94" fill="#2BA39A" stroke="#1F7A75" stroke-width="2.5" stroke-linejoin="round"/>
-          <!-- Box Left Shadow Rim -->
-          <polygon points="35,94 70,112 70,116 35,98" fill="#12514D" />
-
-          <!-- Box Right Side Panel -->
-          <polygon points="70,80 105,62 105,94 70,112" fill="#38BCB2" stroke="#1F7A75" stroke-width="2.5" stroke-linejoin="round"/>
-          <!-- Box Right Shadow Rim -->
-          <polygon points="70,112 105,94 105,98 70,116" fill="#1F7A75" />
-
-          <!-- Front Fold Flap / Card Tray Rim -->
-          <path d="M35,62 L70,80 L105,62" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-
-          <!-- Golden Kite Badge on Front of Box -->
-          <g transform="translate(62, 85)">
-            <path d="M8,0 L16,8 L8,18 L0,8 Z" fill="#FFB054" stroke="#D98A28" stroke-width="1.5"/>
-            <circle cx="8" cy="8" r="2" fill="#FFFFFF"/>
-          </g>
-
-          <!-- Shiny Sparkle Rising from Box -->
-          <g transform="translate(68, 22)">
-            <path d="M12,2 L15,10 L23,13 L15,16 L12,24 L9,16 L1,13 L9,10 Z" fill="#FFC94A" stroke="#E5A610" stroke-width="1.5" stroke-linejoin="round"/>
-            <circle cx="12" cy="13" r="2.5" fill="#FFFFFF"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-
-    <!-- Title & Single Explanatory Line -->
-    <div class="text-center my-3 max-w-xs">
-      <h1 class="text-2xl font-extrabold tracking-tight text-text-ink mb-1">
-        Your deck is empty
-      </h1>
-      <p class="text-sm font-semibold text-text-muted leading-snug">
-        Save high-scoring exam words to review with smart spaced repetition.
-      </p>
-    </div>
-
-    <!-- Two Tactile Action Buttons -->
-    <div class="w-full flex flex-col gap-3.5 mt-2">
-      <!-- Primary CTA: 'Look up a word' (Vibrant Coral/Orange Gradient with 5px #B53A22 Ledge and Deep Brown-Black Text) -->
-      <button class="tactile-btn-primary w-full h-14 rounded-2xl flex items-center justify-center gap-2.5 px-6 cursor-pointer">
-        <svg class="w-5 h-5 text-btn-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8" d="M21 21l-4.35-4.35m1.35-5.65a7 7 0 11-14 0 7 7 0 0114 0z"/>
-        </svg>
-        <span class="text-base font-extrabold text-btn-ink tracking-wide">
-          Look up a word
-        </span>
-      </button>
-
-      <!-- Secondary CTA: 'Browse word sets' (Card Surface with Warm 2px Border and 5px #D8CFBC Ledge) -->
-      <button class="tactile-btn-secondary w-full h-14 rounded-2xl flex items-center justify-center gap-2.5 px-6 cursor-pointer">
-        <svg class="w-5 h-5 text-teal-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-        </svg>
-        <span class="text-base font-extrabold text-text-ink tracking-wide">
-          Browse word sets
-        </span>
-      </button>
-    </div>
-
-  </main>
-
-  <!-- ================= FIXED BOTTOM TAB NAVIGATION BAR (Lexkite 5-Tab Chrome) ================= -->
-  <footer class="w-full bg-white border-t border-border-warm py-2 px-3 sticky bottom-0 z-30 shadow-[0_-4px_12px_rgba(15,61,62,0.03)]">
-    <nav class="max-w-md mx-auto grid grid-cols-5 gap-1.5 items-center">
-      
-      <!-- Tab 1: Learn (Route) -->
-      <button class="flex flex-col items-center justify-center py-1.5 rounded-xl hover:bg-cream-surface transition-colors">
-        <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-        </svg>
-        <span class="text-[11px] font-bold text-text-muted mt-0.5">Learn</span>
-      </button>
-
-      <!-- Tab 2: Review (Layers / Decks - ACTIVE TAB) -->
-      <button class="flex flex-col items-center justify-center py-1.5 rounded-xl tab-active cursor-pointer">
-        <svg class="w-6 h-6 text-teal-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-        </svg>
-        <span class="text-[11px] font-extrabold text-teal-primary mt-0.5">Review</span>
-      </button>
-
-      <!-- Tab 3: Practice (Bolt) -->
-      <button class="flex flex-col items-center justify-center py-1.5 rounded-xl hover:bg-cream-surface transition-colors">
-        <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
-        <span class="text-[11px] font-bold text-text-muted mt-0.5">Practice</span>
-      </button>
-
-      <!-- Tab 4: Leagues (Trophy) -->
-      <button class="flex flex-col items-center justify-center py-1.5 rounded-xl hover:bg-cream-surface transition-colors">
-        <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-        </svg>
-        <span class="text-[11px] font-bold text-text-muted mt-0.5">Leagues</span>
-      </button>
-
-      <!-- Tab 5: Me (Person) -->
-      <button class="flex flex-col items-center justify-center py-1.5 rounded-xl hover:bg-cream-surface transition-colors">
-        <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-        </svg>
-        <span class="text-[11px] font-bold text-text-muted mt-0.5">Me</span>
-      </button>
-
-    </nav>
-  </footer>
-
-</body>
-</html>
-
+<!-- CTA Buttons Stack -->
+<div class="w-full flex flex-col gap-space-sm">
+<!-- Primary CTA: Candy Orange Tactile Button -->
+<button class="w-full h-13 py-3 px-space-md rounded-DEFAULT bg-[#ff8800] border-2 border-[#b35300] shadow-[0_6px_0_0_#b35300] active:translate-y-[6px] active:shadow-none transition-all flex items-center justify-center gap-space-sm group">
+<span class="material-symbols-outlined text-[20px] text-[#1a0f02]" data-icon="search">search</span>
+<span class="font-label-lg text-label-lg font-extrabold text-[#1a0f02] tracking-wide">Look up a word</span>
+</button>
+<!-- Secondary CTA: Soft Cream / Teal Tactile Button -->
+<button class="w-full h-12 py-2.5 px-space-md rounded-DEFAULT bg-surface-container-lowest border-2 border-primary-container shadow-[0_4px_0_0_#136a63] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary-container" data-icon="folder_open">folder_open</span>
+<span class="font-label-lg text-label-lg font-extrabold text-primary-container tracking-wide">Browse word sets</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Bottom Tab Navigation Bar: Exactly 64px Canonical Lexkite -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-surface-container-lowest border-t-2 border-surface-variant flex items-center justify-around px-space-xs z-50 shadow-[0_-2px_8px_rgba(0,0,0,0.02)]">
+<!-- Destination 1: Today -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#5a6664] hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="home">home</span>
+<span class="font-label-sm text-[11px] leading-tight font-bold mt-0.5">Today</span>
+</button>
+<!-- Destination 2: Vocab (Active) -->
+<button class="flex flex-col items-center justify-center flex-1 py-0.5 relative">
+<div class="flex items-center justify-center bg-[#d1f2ee] text-primary-container px-3.5 py-1 rounded-full shadow-[0_2px_0_0_#136a63] active:translate-y-[2px] active:shadow-none transition-all">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<!-- Due Badge Dot -->
+<span class="absolute -top-1 -right-1.5 w-2 h-2 rounded-full bg-error border border-surface-container-lowest"></span>
+</div>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold ml-1.5 text-primary-container">Vocab</span>
+</div>
+</button>
+<!-- Destination 3: Skills -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#5a6664] hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="track_changes">track_changes</span>
+<span class="font-label-sm text-[11px] leading-tight font-bold mt-0.5">Skills</span>
+</button>
+<!-- Destination 4: Tests -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#5a6664] hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="flag">flag</span>
+<span class="font-label-sm text-[11px] leading-tight font-bold mt-0.5">Tests</span>
+</button>
+<!-- Destination 5: Me -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#5a6664] hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label-sm text-[11px] leading-tight font-bold mt-0.5">Me</span>
+</button>
+</nav>
+</main>
+</body></html>

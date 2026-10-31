@@ -1,223 +1,263 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite Match Drill</title>
+<title>Lexkite - Match Drill</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-          "tertiary": "#f4bf40",
-          "surface": "#091518",
-          "on-primary": "#003733",
-          "outline-variant": "#243a3e",
-          "tertiary-container": "#ba8b00",
-          "inverse-primary": "#006a64",
-          "surface-tint": "#6bd8ce",
-          "on-primary-fixed-variant": "#00504b",
-          "inverse-surface": "#d8e5e9",
-          "secondary-fixed-dim": "#ffb4a6",
-          "on-error": "#690005",
-          "surface-container-highest": "#2b373a",
-          "on-secondary-fixed": "#3f0300",
-          "primary-fixed-dim": "#6bd8ce",
-          "on-error-container": "#ffdad6",
-          "on-background": "#d8e5e9",
-          "surface-bright": "#2f3b3e",
-          "secondary-fixed": "#ffdad3",
-          "on-tertiary-fixed-variant": "#5b4300",
-          "inverse-on-surface": "#263236",
-          "background": "#091518",
-          "error-container": "#93000a",
-          "tertiary-fixed": "#ffdf9e",
-          "on-secondary-container": "#ffa493",
-          "primary-container": "#2ba39a",
-          "outline": "#879391",
-          "tertiary-fixed-dim": "#f4bf40",
-          "primary-fixed": "#88f5ea",
-          "on-tertiary": "#402e00",
-          "surface-container-low": "#121d20",
-          "surface-container": "#162529",
-          "secondary": "#ffb4a6",
-          "error": "#ffb4ab",
-          "surface-variant": "#2b373a",
-          "on-primary-container": "#00322e",
-          "on-secondary": "#660800",
-          "secondary-container": "#fd9500",
-          "surface-container-high": "#202c2f",
-          "on-surface-variant": "#bcc9c7",
-          "on-secondary-fixed-variant": "#900f00",
-          "on-surface": "#d8e5e9",
-          "on-tertiary-fixed": "#261a00",
-          "on-primary-fixed": "#00201e",
-          "on-tertiary-container": "#392900",
-          "primary": "#6bd8ce",
-          "surface-container-lowest": "#051013",
-          "surface-dim": "#091518"
-        },
-        "borderRadius": {
-          "DEFAULT": "0.25rem",
-          "lg": "0.5rem",
-          "xl": "0.75rem",
-          "full": "9999px"
-        },
-        "fontFamily": {
-          "headline": ["Plus Jakarta Sans"],
-          "display": ["Plus Jakarta Sans"],
-          "body": ["Plus Jakarta Sans"],
-          "label": ["Plus Jakarta Sans"]
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-container": "#633700",
+            "surface-container-low": "#fff1e8",
+            "tertiary-container": "#785a00",
+            "surface-container-high": "#f4e5db",
+            "on-surface": "#211a14",
+            "primary-fixed-dim": "#88d4cb",
+            "on-primary-fixed": "#00201d",
+            "on-primary-container": "#9be7de",
+            "background": "#fff8f5",
+            "surface-tint": "#126a63",
+            "surface-container": "#faebe1",
+            "surface-variant": "#efe0d6",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fff8f5",
+            "on-background": "#211a14",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#fd9500",
+            "outline-variant": "#bec9c6",
+            "on-tertiary-fixed": "#251a00",
+            "tertiary-fixed": "#ffdf9b",
+            "secondary-fixed-dim": "#ffb872",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#ffdcbf",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary-fixed": "#a4f1e7",
+            "primary-container": "#136a63",
+            "inverse-primary": "#88d4cb",
+            "surface-container-highest": "#efe0d6",
+            "outline": "#6f7977",
+            "on-tertiary-container": "#ffd370",
+            "tertiary": "#5b4300",
+            "on-surface-variant": "#3f4947",
+            "secondary": "#8c5000",
+            "inverse-surface": "#372f28",
+            "inverse-on-surface": "#fdeee3",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-dim": "#e6d7cd",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#f5bf31",
+            "primary": "#00504b",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed": "#2d1600",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "surface": "#fff8f5"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1rem",
+            "gutter-md": "1.5rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "margin-md": "2rem",
+            "margin-lg": "3rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
         }
       }
     }
-  }
-</script>
+  </script>
 <style>
-  body {
-    min-height: max(884px, 100dvh);
-  }
-</style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
 </head>
-<body class="bg-background text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container antialiased pb-24 font-body">
-<!-- Top App Bar / Drill Header -->
-<header class="w-full bg-[#091518] border-b-2 border-[#1a2c30] shadow-[0_4px_0_0_#051013]">
-<div class="flex justify-between items-center w-full px-4 h-16 max-w-5xl mx-auto">
-<!-- Leading Close Button -->
-<button aria-label="Close" class="w-10 h-10 rounded-full bg-[#121d20] border-2 border-[#243a3e] shadow-[0_3px_0_0_#070e10] active:translate-y-0.5 active:shadow-[0_1px_0_0_#070e10] flex items-center justify-center transition-all duration-75 text-primary hover:text-white" type="button">
-<span class="material-symbols-outlined text-xl font-bold">close</span>
+<body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
+<div class="w-[390px] min-h-screen bg-[#091518] text-[#d8e5e9] flex flex-col relative select-none pb-28 font-['Plus_Jakarta_Sans',sans-serif]">
+<!-- Header: Focus Variant -->
+<header class="h-14 px-4 flex items-center justify-between gap-3 bg-[#091518] sticky top-0 z-30 border-b border-[#162a2e] shadow-[0_3px_0_0_#051013]">
+<button aria-label="Close Drill" class="w-10 h-10 rounded-full bg-[#112125] border-2 border-[#1f3b40] flex items-center justify-center text-[#d8e5e9] shadow-[0_3px_0_0_#081316] active:translate-y-1 active:shadow-none transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
 </button>
-<!-- Center Countdown / Stopwatch -->
-<div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#121d20] border-2 border-[#243a3e] shadow-[0_3px_0_0_#070e10]">
-<span class="material-symbols-outlined text-primary text-base" style="font-variation-settings: 'FILL' 1;">timer</span>
-<span class="text-sm text-[#f0f6f5] font-extrabold tracking-wide font-headline">0:38</span>
+<div class="flex-1 px-1">
+<div class="w-full h-3.5 bg-[#112125] rounded-full relative overflow-hidden p-0.5 border border-[#1f3b40]/50 shadow-inner">
+<div class="h-full bg-[#2ba39a] rounded-full w-[66%] relative transition-all duration-300 shadow-[0_0_8px_rgba(43,163,154,0.4)]">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/30 rounded-full"></div>
 </div>
-<!-- Trailing Action Counter -->
-<div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#241d08] border-2 border-[#f4bf40] shadow-[0_3px_0_0_#7c5c00]">
-<span class="material-symbols-outlined text-[#f4bf40] text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
-<span class="text-xs text-[#ffdf9e] font-extrabold font-headline">4/6 pairs</span>
 </div>
+</div>
+<div class="h-8 px-2.5 rounded-full bg-[#162a2e] border-2 border-[#23484f] flex items-center gap-1.5 shadow-[0_2px_0_0_#081316]">
+<span class="material-symbols-outlined fill text-[#f4bf40] text-[16px]">stars</span>
+<span class="text-[12px] font-extrabold tracking-wide text-[#d8e5e9]">4/6</span>
 </div>
 </header>
-<!-- Main Game Canvas Container -->
-<main class="w-full max-w-lg mx-auto px-4 pt-4 flex-1 flex flex-col justify-start">
-<!-- Penalty Notice Pill Banner -->
-<div class="flex items-center justify-center mb-5">
-<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#121d20] border border-[#243a3e] shadow-[0_2px_0_0_#070e10]">
-<span class="w-2 h-2 rounded-full bg-[#fd9500] animate-pulse"></span>
-<span class="text-xs text-[#d8e5e9] font-bold tracking-wide font-headline">+1 s per miss</span>
-<span class="material-symbols-outlined text-[#879391] text-sm">schedule</span>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-3 flex flex-col">
+<!-- Top Chips Row -->
+<div class="flex items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#13282d] border-2 border-[#1f3b40] shadow-[0_3px_0_0_#081316]">
+<span class="material-symbols-outlined text-[#6bd8ce] text-[18px]">schedule</span>
+<span class="text-[14px] text-[#6bd8ce] font-extrabold tracking-wide">0:38</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2a220b] border-2 border-[#d49b10]/70 shadow-[0_3px_0_0_#1a1405]">
+<span class="material-symbols-outlined fill text-[#f4bf40] text-[18px]">verified</span>
+<span class="text-[14px] text-[#ffdf9e] font-extrabold">4/6 pairs</span>
 </div>
 </div>
-<!-- Match Drill Matrix: 12 Tactile Chunky Tiles -->
-<div class="grid grid-cols-2 gap-3.5 sm:gap-4 w-full">
-<!-- Tile 1: Solved / Matched (Row 1 Col 1) -->
-<div class="rounded-2xl bg-[#0e171a] border-2 border-[#1b2b2f] p-4 flex flex-col justify-center items-center min-h-[92px] shadow-[0_2px_0_0_#051013] text-center select-none opacity-60">
-<span class="text-base sm:text-lg text-[#7f9495] line-through decoration-[#2ba39a] decoration-2 font-bold font-headline">meticulous</span>
-<span class="flex items-center gap-1 mt-1 text-[#6bd8ce] text-xs font-extrabold font-headline">
-<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        Matched
-      </span>
-</div>
-<!-- Tile 2: Default Pressable (Row 1 Col 2) -->
-<button class="group rounded-2xl bg-[#142226] border-2 border-[#243a3e] p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_0_0_0_#0d1719] hover:bg-[#18292e] transition-all duration-75 text-center" type="button">
-<span class="text-base sm:text-lg text-[#f0f6f5] font-extrabold font-headline group-active:scale-95 transition-transform duration-75">candid</span>
-</button>
-<!-- Tile 3: Selected Active (Row 2 Col 1) -->
-<button class="rounded-2xl bg-[#133235] border-2 border-[#2ba39a] p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#0d2224] ring-2 ring-[#6bd8ce]/50 translate-y-0.5 text-center relative overflow-hidden transition-all duration-75" type="button">
-<div class="absolute top-2 right-2.5 w-2 h-2 rounded-full bg-[#6bd8ce] shadow-[0_0_8px_#6bd8ce]"></div>
-<span class="text-base sm:text-lg text-[#4de0d2] font-extrabold font-headline tracking-tight">ubiquitous</span>
-</button>
-<!-- Tile 4: Solved / Matched (Row 2 Col 2) -->
-<div class="rounded-2xl bg-[#0e171a] border-2 border-[#1b2b2f] p-4 flex flex-col justify-center items-center min-h-[92px] shadow-[0_2px_0_0_#051013] text-center select-none opacity-60">
-<span class="text-sm sm:text-base text-[#7f9495] line-through decoration-[#2ba39a] decoration-2 font-semibold">very careful</span>
-<span class="flex items-center gap-1 mt-1 text-[#6bd8ce] text-xs font-extrabold font-headline">
-<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        Matched
-      </span>
-</div>
-<!-- Tile 5: Default Pressable (Row 3 Col 1) -->
-<button class="group rounded-2xl bg-[#142226] border-2 border-[#243a3e] p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_0_0_0_#0d1719] hover:bg-[#18292e] transition-all duration-75 text-center" type="button">
-<span class="text-base sm:text-lg text-[#f0f6f5] font-extrabold font-headline group-active:scale-95 transition-transform duration-75">scrutinize</span>
-</button>
-<!-- Tile 6: Selected Active (Row 3 Col 2 - Matches Tile 3) -->
-<button class="rounded-2xl bg-[#133235] border-2 border-[#2ba39a] p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#0d2224] ring-2 ring-[#6bd8ce]/50 translate-y-0.5 text-center relative overflow-hidden transition-all duration-75" type="button">
-<div class="absolute top-2 right-2.5 w-2 h-2 rounded-full bg-[#6bd8ce] shadow-[0_0_8px_#6bd8ce]"></div>
-<span class="text-sm sm:text-base text-[#4de0d2] font-extrabold font-headline leading-tight">found everywhere</span>
-</button>
-<!-- Tile 7: Default Pressable (Row 4 Col 1) -->
-<button class="group rounded-2xl bg-[#142226] border-2 border-[#243a3e] p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_0_0_0_#0d1719] hover:bg-[#18292e] transition-all duration-75 text-center" type="button">
-<span class="text-base sm:text-lg text-[#f0f6f5] font-extrabold font-headline group-active:scale-95 transition-transform duration-75">pragmatic</span>
-</button>
-<!-- Tile 8: Default Pressable (Row 4 Col 2) -->
-<button class="group rounded-2xl bg-[#142226] border-2 border-[#243a3e] p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_0_0_0_#0d1719] hover:bg-[#18292e] transition-all duration-75 text-center" type="button">
-<span class="text-sm sm:text-base text-[#f0f6f5] font-bold group-active:scale-95 transition-transform duration-75">frank &amp; direct</span>
-</button>
-<!-- Tile 9: Default Pressable (Row 5 Col 1) -->
-<button class="group rounded-2xl bg-[#142226] border-2 border-[#243a3e] p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_0_0_0_#0d1719] hover:bg-[#18292e] transition-all duration-75 text-center" type="button">
-<span class="text-sm sm:text-base text-[#f0f6f5] font-bold group-active:scale-95 transition-transform duration-75">examine closely</span>
-</button>
-<!-- Tile 10: Default Pressable (Row 5 Col 2) -->
-<button class="group rounded-2xl bg-[#142226] border-2 border-[#243a3e] p-4 flex items-center justify-center min-h-[92px] shadow-[0_4px_0_0_#0d1719] active:translate-y-1 active:shadow-[0_0_0_0_#0d1719] hover:bg-[#18292e] transition-all duration-75 text-center" type="button">
-<span class="text-sm sm:text-base text-[#f0f6f5] font-bold group-active:scale-95 transition-transform duration-75">practical minded</span>
-</button>
-<!-- Tile 11: Solved / Matched (Row 6 Col 1) -->
-<div class="rounded-2xl bg-[#0e171a] border-2 border-[#1b2b2f] p-4 flex flex-col justify-center items-center min-h-[92px] shadow-[0_2px_0_0_#051013] text-center select-none opacity-60">
-<span class="text-base sm:text-lg text-[#7f9495] line-through decoration-[#2ba39a] decoration-2 font-bold font-headline">lucid</span>
-<span class="flex items-center gap-1 mt-1 text-[#6bd8ce] text-xs font-extrabold font-headline">
-<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        Matched
-      </span>
-</div>
-<!-- Tile 12: Solved / Matched (Row 6 Col 2) -->
-<div class="rounded-2xl bg-[#0e171a] border-2 border-[#1b2b2f] p-4 flex flex-col justify-center items-center min-h-[92px] shadow-[0_2px_0_0_#051013] text-center select-none opacity-60">
-<span class="text-xs sm:text-sm text-[#7f9495] line-through decoration-[#2ba39a] decoration-2 font-semibold">clear &amp; easy to understand</span>
-<span class="flex items-center gap-1 mt-1 text-[#6bd8ce] text-xs font-extrabold font-headline">
-<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        Matched
-      </span>
+<!-- Miss Penalty Badge -->
+<div class="flex justify-center mb-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1c1810] border border-[#d49b10]/40 text-[#f4bf40] shadow-[0_2px_0_0_#0e0c07]">
+<span class="w-2 h-2 rounded-full bg-[#f4bf40] animate-pulse"></span>
+<span class="text-[12px] text-[#ffdf9e] font-bold">+1 s per miss ⏱️</span>
 </div>
 </div>
-<!-- Motivational Combo Hint -->
-<div class="mt-5 mb-2 flex items-center justify-center">
-<div class="flex items-center gap-1.5 px-4 py-1.5 bg-[#201c10] rounded-full border border-[#ba8b00]/60 shadow-[0_2px_0_0_#4a3700]">
-<span class="material-symbols-outlined text-[#f4bf40] text-base" style="font-variation-settings: 'FILL' 1;">bolt</span>
-<span class="text-xs text-[#ffdf9e] font-extrabold font-headline tracking-wide">2 in a row! Keep going!</span>
+<!-- Card Tiles Grid -->
+<div class="grid grid-cols-2 gap-2.5 flex-1">
+<!-- 1. Meticulous (Matched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#0d1c20]/60 border-2 border-[#193237] flex flex-col justify-center items-center text-center opacity-65 shadow-[0_2px_0_0_#060f12]">
+<span class="text-[14px] text-[#608287] line-through decoration-2 font-bold">meticulous</span>
+<span class="inline-flex items-center gap-0.5 text-[12px] text-[#4bb8ae] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+        </span>
+</div>
+<!-- 2. Very careful (Matched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#0d1c20]/60 border-2 border-[#193237] flex flex-col justify-center items-center text-center opacity-65 shadow-[0_2px_0_0_#060f12]">
+<span class="text-[14px] text-[#608287] line-through decoration-2 font-bold">very careful</span>
+<span class="inline-flex items-center gap-0.5 text-[12px] text-[#4bb8ae] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+        </span>
+</div>
+<!-- 3. Candid (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[16px] text-[#e6f4f1] font-extrabold">candid</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">ADJECTIVE</span>
+</div>
+<!-- 4. Frank & direct (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[15px] text-[#e6f4f1] font-extrabold leading-tight">frank &amp; direct</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">MEANING</span>
+</div>
+<!-- 5. Ubiquitous (Selected) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#184b47] border-2 border-[#2ba39a] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#08201e] translate-y-0.5 transition-all cursor-pointer relative ring-2 ring-[#2ba39a]/40">
+<div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-[#6bd8ce] shadow-[0_0_6px_#6bd8ce]"></div>
+<span class="text-[16px] text-[#88f5ea] font-extrabold">ubiquitous</span>
+<span class="text-[12px] text-[#6bd8ce] font-extrabold tracking-wide">SELECTED</span>
+</div>
+<!-- 6. Found everywhere (Selected) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#184b47] border-2 border-[#2ba39a] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#08201e] translate-y-0.5 transition-all cursor-pointer relative ring-2 ring-[#2ba39a]/40">
+<div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-[#6bd8ce] shadow-[0_0_6px_#6bd8ce]"></div>
+<span class="text-[15px] text-[#88f5ea] font-extrabold leading-tight">found everywhere</span>
+<span class="text-[12px] text-[#6bd8ce] font-extrabold tracking-wide">SELECTED</span>
+</div>
+<!-- 7. Scrutinize (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[16px] text-[#e6f4f1] font-extrabold">scrutinize</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">VERB</span>
+</div>
+<!-- 8. Examine closely (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[15px] text-[#e6f4f1] font-extrabold leading-tight">examine closely</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">MEANING</span>
+</div>
+<!-- 9. Pragmatic (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[16px] text-[#e6f4f1] font-extrabold">pragmatic</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">ADJECTIVE</span>
+</div>
+<!-- 10. Practical minded (Unmatched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#132428] border-2 border-[#1f3b40] flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#081316] active:translate-y-1 active:shadow-[0_1px_0_0_#081316] transition-all cursor-pointer">
+<span class="text-[15px] text-[#e6f4f1] font-extrabold leading-tight">practical minded</span>
+<span class="text-[12px] text-[#82adb3] font-semibold tracking-wide">MEANING</span>
+</div>
+<!-- 11. Lucid (Matched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#0d1c20]/60 border-2 border-[#193237] flex flex-col justify-center items-center text-center opacity-65 shadow-[0_2px_0_0_#060f12]">
+<span class="text-[14px] text-[#608287] line-through decoration-2 font-bold">lucid</span>
+<span class="inline-flex items-center gap-0.5 text-[12px] text-[#4bb8ae] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+        </span>
+</div>
+<!-- 12. Clear & easy to understand (Matched) -->
+<div class="h-[76px] rounded-[1rem] p-2.5 bg-[#0d1c20]/60 border-2 border-[#193237] flex flex-col justify-center items-center text-center opacity-65 shadow-[0_2px_0_0_#060f12]">
+<span class="text-[13px] text-[#608287] line-through decoration-2 leading-tight font-bold">clear &amp; easy to understand</span>
+<span class="inline-flex items-center gap-0.5 text-[12px] text-[#4bb8ae] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+        </span>
+</div>
+</div>
+<!-- Streak Badge -->
+<div class="my-3 flex justify-center">
+<div class="h-9 px-4 rounded-full bg-[#2b1f0e] border-2 border-[#d97706] flex items-center gap-1.5 shadow-[0_3px_0_0_#1a1005]">
+<span class="material-symbols-outlined fill text-[#f59e0b] text-[18px]">bolt</span>
+<span class="text-[14px] text-[#fde68a] font-extrabold tracking-wide">2 in a row! Keep going!</span>
 </div>
 </div>
 </main>
-<!-- Bottom Navigation Bar (Docked) -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-[#0d181b] border-t-2 border-[#1a2c30] shadow-[0_-4px_0_0_#051013]">
-<!-- Tab 1: Today -->
-<button class="flex flex-col items-center justify-center text-[#879391] px-3 py-1.5 hover:text-[#6bd8ce] active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl">today</span>
-<span class="text-xs font-bold font-headline mt-0.5">Today</span>
+<!-- Bottom Check Pairs Action Area -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] p-4 bg-[#091518]/95 backdrop-blur-sm z-40 border-t border-[#162a2e]/50">
+<button class="w-full h-14 rounded-[1rem] bg-[#f59e0b] text-[#1a0f02] text-[18px] font-extrabold flex items-center justify-center gap-2 border-2 border-[#d97706] shadow-[0_6px_0_0_#92400e] active:translate-y-1.5 active:shadow-none transition-all duration-75" type="button">
+<span>Check Pairs</span>
+<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
 </button>
-<!-- Tab 2: Vocab (Active) -->
-<button class="flex flex-col items-center justify-center bg-[#fd9500] text-[#241400] rounded-full px-4 py-1.5 shadow-[0_3px_0_0_#a86000] active:translate-y-0.5 active:shadow-none active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl font-bold" style="font-variation-settings: 'FILL' 1;">style</span>
-<span class="text-xs font-extrabold font-headline">Vocab</span>
-</button>
-<!-- Tab 3: Skills -->
-<button class="flex flex-col items-center justify-center text-[#879391] px-3 py-1.5 hover:text-[#6bd8ce] active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl">psychology</span>
-<span class="text-xs font-bold font-headline mt-0.5">Skills</span>
-</button>
-<!-- Tab 4: Tests -->
-<button class="flex flex-col items-center justify-center text-[#879391] px-3 py-1.5 hover:text-[#6bd8ce] active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl">assignment</span>
-<span class="text-xs font-bold font-headline mt-0.5">Tests</span>
-</button>
-<!-- Tab 5: Me -->
-<button class="flex flex-col items-center justify-center text-[#879391] px-3 py-1.5 hover:text-[#6bd8ce] active:scale-95 transition-transform duration-75" type="button">
-<span class="material-symbols-outlined text-2xl">person</span>
-<span class="text-xs font-bold font-headline mt-0.5">Me</span>
-</button>
-</nav>
+</div>
+</div>
 </body></html>

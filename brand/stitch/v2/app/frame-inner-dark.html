@@ -1,361 +1,312 @@
 <!DOCTYPE html>
 
-<html lang="en">
-<head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite Irregular Verbs (Canonical Tab Bar)</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Lexkite - Irregular Verbs</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container": "#392900",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-bright": "#2f3b3e",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-error": "#690005",
+            "surface-dim": "#091518",
+            "on-background": "#d8e5e9",
+            "secondary": "#ffb4a6",
+            "surface-tint": "#6bd8ce",
+            "on-tertiary-fixed": "#261a00",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-fixed-variant": "#00504b",
+            "surface": "#091518",
+            "on-secondary": "#660800",
+            "error": "#ffb4ab",
+            "secondary-fixed": "#ffdad3",
+            "primary-container": "#2ba39a",
+            "error-container": "#93000a",
+            "on-primary-fixed": "#00201e",
+            "on-tertiary": "#402e00",
+            "on-secondary-container": "#ffa493",
+            "outline-variant": "#3d4947",
+            "on-primary-container": "#00322e",
+            "on-secondary-fixed": "#3f0300",
+            "background": "#091518",
+            "surface-variant": "#2b373a",
+            "surface-container-lowest": "#051013",
+            "on-error-container": "#ffdad6",
+            "surface-container": "#162125",
+            "inverse-on-surface": "#263236",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-container-highest": "#2b373a",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary": "#f4bf40",
+            "surface-container-low": "#121d20",
+            "primary-fixed": "#88f5ea",
+            "primary": "#6bd8ce",
+            "tertiary-container": "#ba8b00",
+            "surface-container-high": "#202c2f",
+            "outline": "#879391",
+            "inverse-primary": "#006a64",
+            "secondary-container": "#981201",
+            "on-surface": "#d8e5e9",
+            "on-primary": "#003733",
+            "inverse-surface": "#d8e5e9"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
 <style>
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #fff8f5;
-      color: #1e2624;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #091518;
+      color: #d8e5e9;
+      -webkit-tap-highlight-color: transparent;
     }
-    /* Tactile card & button effects */
-    .tactile-card {
-      background: #ffffff;
-      border: 2px solid #e2d2c5;
-      border-radius: 16px;
-      box-shadow: 0 5px 0 0 #dfcdc0;
-    }
-    .tactile-btn-primary {
-      background: #f5820d;
-      border: 2px solid #b85b00;
-      box-shadow: 0 6px 0 0 #b85b00;
-      color: #1f1204;
-      border-radius: 16px;
-      transition: all 0.1s ease;
-    }
-    .tactile-btn-primary:active {
-      transform: translateY(3px);
-      box-shadow: 0 3px 0 0 #b85b00;
-    }
-    .tactile-round-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 9999px;
-      background: #ffffff;
-      border: 2px solid #dfcdc0;
-      box-shadow: 0 3px 0 0 #dfcdc0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #136a63;
-      transition: all 0.1s ease;
-    }
-    .tactile-round-btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 0 #dfcdc0;
-    }
-    .chip-active {
-      background: #136a63;
-      color: #ffffff;
-      border: 2px solid #0d4d48;
-      box-shadow: 0 3px 0 0 #0d4d48;
-    }
-    .chip-inactive {
-      background: #ffffff;
-      color: #334440;
-      border: 2px solid #dfcdc0;
-      box-shadow: 0 3px 0 0 #dfcdc0;
-    }
-    .verb-row {
-      transition: background-color 0.1s ease;
-    }
-    .verb-row:not(:last-child) {
-      border-bottom: 2px solid #f1e4db;
-    }
-    .speaker-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 9999px;
-      background: #fdf5f0;
-      border: 1.5px solid #dfcdc0;
-      box-shadow: 0 2px 0 0 #dfcdc0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #136a63;
-      flex-shrink: 0;
-    }
-    .speaker-btn:active {
-      transform: translateY(1px);
-      box-shadow: 0 1px 0 0 #dfcdc0;
-    }
-    /* Hide scrollbar for clean chip rail */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
     }
   </style>
-</head>
-<body class="flex justify-center min-h-screen bg-[#091518] text-[#f0f7f6]">
-<!-- Main Container: exactly 390px phone canvas, edge-to-edge content, no outer device frame -->
-<div class="w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-[84px] shadow-sm">
-<!-- TOP BAR (INNER variant): 56px, dark teal-black background, 2px bottom border, round tactile back button, title, bookmark icon -->
-<header class="h-[56px] w-full px-4 flex items-center justify-between border-b-2 border-[#1d353b] bg-[#091518] sticky top-0 z-40">
-<div class="flex items-center gap-3">
-<!-- Tactile round back button -->
-<button aria-label="Go back" class="tactile-round-btn">
-<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
-<polyline points="15 18 9 12 15 6"></polyline>
-</svg>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-surface antialiased flex justify-center">
+<!-- Mobile Screen Container (390px edge-to-edge frame) -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-surface relative pb-28">
+<!-- 1. TOP BAR (Docked, 56px height, Inner variant) -->
+<header class="sticky top-0 z-40 h-[56px] w-full px-4 flex items-center justify-between bg-surface border-b-2 border-surface-variant shadow-[0_4px_0_0_#051013]">
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container border-2 border-outline-variant shadow-[0_3px_0_0_#051013] flex items-center justify-center text-primary active:translate-y-0.5 transition-transform duration-100 hover:bg-surface-container-high">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
 </button>
-<!-- Page Title -->
-<h1 class="text-[19px] font-extrabold tracking-tight text-[#f0f7f6]">Irregular verbs</h1>
-</div>
-<!-- At most one round icon button on the right (Bookmark / Saved verbs) -->
-<button aria-label="Saved verbs" class="tactile-round-btn">
-<svg class="w-5 h-5 stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
-<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-</svg>
+<h1 class="text-[19px] font-extrabold tracking-tight text-[#f1f8f7]">
+        Irregular Verbs
+      </h1>
+<button aria-label="Bookmark" class="w-10 h-10 rounded-full bg-surface-container border-2 border-outline-variant shadow-[0_3px_0_0_#051013] flex items-center justify-center text-primary active:translate-y-0.5 transition-transform duration-100 hover:bg-surface-container-high">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
 </button>
 </header>
-<!-- PAGE CONTENT (route #/verb): 16px side margins, 8px grid rhythm -->
-<main class="flex-1 px-4 pt-4 pb-4 flex flex-col gap-3.5">
-<!-- Search field with tactile border -->
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 pt-3 flex flex-col gap-4">
+<!-- 2. SEARCH & FILTER SECTION -->
+<section class="flex flex-col gap-2.5">
+<!-- Search Input Box -->
 <div class="relative w-full">
-<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#6bd8ce]">
-<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<circle cx="11" cy="11" r="7"></circle>
-<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
-</svg>
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined" data-icon="search">search</span>
 </div>
-<input class="w-full h-11 pl-11 pr-4 bg-[#122024] border-2 border-[#1d353b] rounded-[14px] text-[14px] font-semibold text-[#f0f7f6] placeholder-[#7d8b87] shadow-[0_3px_0_0_#0a1315] focus:outline-none focus:border-[#6bd8ce]" placeholder="Search base, past or meaning..." type="text" value=""/>
+<input class="w-full h-11 pl-11 pr-4 rounded-xl bg-surface-container-low border-2 border-surface-variant shadow-[0_3px_0_0_#051013] text-sm font-medium text-on-surface placeholder:text-outline focus:outline-none focus:border-primary transition-colors" placeholder="Search base, past or meaning..." type="text"/>
 </div>
-<!-- Pattern filter chips: AAA, ABB, ABA, ABC, Confusing -->
-<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4">
-<!-- ALL / Active -->
-<button class="chip-active px-3.5 py-1.5 rounded-full text-[13px] font-bold flex-shrink-0 cursor-pointer">
-          All (180)
-        </button>
-<!-- AAA -->
-<button class="chip-inactive px-3.5 py-1.5 rounded-full text-[13px] font-bold flex-shrink-0 cursor-pointer">
-          AAA (put)
-        </button>
-<!-- ABB -->
-<button class="chip-inactive px-3.5 py-1.5 rounded-full text-[13px] font-bold flex-shrink-0 cursor-pointer">
-          ABB (buy)
-        </button>
-<!-- ABA -->
-<button class="chip-inactive px-3.5 py-1.5 rounded-full text-[13px] font-bold flex-shrink-0 cursor-pointer">
-          ABA (run)
-        </button>
-<!-- ABC -->
-<button class="chip-inactive px-3.5 py-1.5 rounded-full text-[13px] font-bold flex-shrink-0 cursor-pointer">
-          ABC (sing)
-        </button>
-<!-- Confusing -->
-<button class="chip-inactive px-3.5 py-1.5 rounded-full text-[13px] font-bold flex-shrink-0 cursor-pointer text-[#ffb4a6]">
-          Confusing
-        </button>
+<!-- Filter Chips Row -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+<!-- Active Chip: All (180) -->
+<button class="shrink-0 px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-extrabold text-xs tracking-wide border-2 border-primary shadow-[0_3px_0_0_#00322e] active:translate-y-0.5 transition-transform">
+            All (180)
+          </button>
+<!-- Inactive Chips -->
+<button class="shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-bold text-xs border-2 border-surface-variant shadow-[0_3px_0_0_#051013] active:translate-y-0.5 transition-transform hover:bg-surface-container">
+            AAA (put)
+          </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-bold text-xs border-2 border-surface-variant shadow-[0_3px_0_0_#051013] active:translate-y-0.5 transition-transform hover:bg-surface-container">
+            ABB (buy)
+          </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-bold text-xs border-2 border-surface-variant shadow-[0_3px_0_0_#051013] active:translate-y-0.5 transition-transform hover:bg-surface-container">
+            ABA (run)
+          </button>
 </div>
-<!-- Irregular Verbs Table Card: 16px radius, 2px border, 5px bottom ledge -->
-<div class="tactile-card overflow-hidden bg-[#101d20] border-2 border-[#1d353b]">
-<!-- Table Column Headers -->
-<div class="bg-[#14252a] px-3.5 py-2.5 border-b-2 border-[#1d353b] grid grid-cols-12 gap-1 items-center text-[11px] font-extrabold uppercase tracking-wider text-[#8ea8a4]">
-<div class="col-span-3">Base</div>
-<div class="col-span-3">Past (V2)</div>
-<div class="col-span-3">Participle</div>
-<div class="col-span-3 text-right pr-1">Audio / Info</div>
+</section>
+<!-- 3. TABLE / CARD LIST -->
+<section class="rounded-2xl bg-surface-container-low border-2 border-surface-variant shadow-[0_5px_0_0_#051013] overflow-hidden">
+<!-- Column Header Row -->
+<div class="grid grid-cols-12 px-3.5 py-2.5 bg-surface-container border-b-2 border-surface-variant text-[11px] font-extrabold text-[#8faab0] tracking-wider uppercase">
+<div class="col-span-3">BASE</div>
+<div class="col-span-3">PAST (V2)</div>
+<div class="col-span-3">PARTICIPLE</div>
+<div class="col-span-3 text-right">AUDIO / INFO</div>
 </div>
-<!-- Row 1: speak - spoke - spoken -->
-<div class="verb-row px-3.5 py-3 grid grid-cols-12 gap-1 items-center">
-<div class="col-span-9 flex flex-col">
-<div class="grid grid-cols-9 gap-1 items-baseline">
-<span class="col-span-3 text-[15px] font-extrabold text-[#f0f7f6]">speak</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">spoke</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">spoken</span>
-</div>
-<span class="text-[12px] font-medium text-[#9dc4be] mt-0.5">communicate words orally</span>
-</div>
+<!-- Verb Rows -->
+<div class="divide-y divide-surface-variant">
+<!-- Row 1: speak -->
+<div class="p-3 hover:bg-surface-container/60 transition-colors">
+<div class="grid grid-cols-12 items-center">
+<div class="col-span-3 font-extrabold text-sm text-[#f1f8f7]">speak</div>
+<div class="col-span-3 font-bold text-sm text-primary">spoke</div>
+<div class="col-span-3 font-bold text-sm text-primary">spoken</div>
 <div class="col-span-3 flex items-center justify-end gap-1.5">
-<button aria-label="Listen speak" class="speaker-btn">
-<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
-<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
-</svg>
+<button aria-label="Listen speak" class="w-7 h-7 rounded-lg bg-surface-container border border-surface-variant shadow-[0_2px_0_0_#051013] flex items-center justify-center text-primary hover:bg-surface-container-high active:translate-y-0.5">
+<span class="material-symbols-outlined text-[17px]" data-icon="volume_up">volume_up</span>
 </button>
-<svg class="w-4 h-4 text-[#7fa09c] stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<polyline points="9 18 15 12 9 6"></polyline>
-</svg>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="chevron_right">chevron_right</span>
 </div>
 </div>
-<!-- Row 2: choose - chose - chosen -->
-<div class="verb-row px-3.5 py-3 grid grid-cols-12 gap-1 items-center">
-<div class="col-span-9 flex flex-col">
-<div class="grid grid-cols-9 gap-1 items-baseline">
-<span class="col-span-3 text-[15px] font-extrabold text-[#f0f7f6]">choose</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">chose</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">chosen</span>
+<p class="text-[11px] font-medium text-on-surface-variant mt-1">communicate words orally</p>
 </div>
-<span class="text-[12px] font-medium text-[#9dc4be] mt-0.5">select among options</span>
-</div>
+<!-- Row 2: choose -->
+<div class="p-3 hover:bg-surface-container/60 transition-colors">
+<div class="grid grid-cols-12 items-center">
+<div class="col-span-3 font-extrabold text-sm text-[#f1f8f7]">choose</div>
+<div class="col-span-3 font-bold text-sm text-primary">chose</div>
+<div class="col-span-3 font-bold text-sm text-primary">chosen</div>
 <div class="col-span-3 flex items-center justify-end gap-1.5">
-<button aria-label="Listen choose" class="speaker-btn">
-<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
-<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
-</svg>
+<button aria-label="Listen choose" class="w-7 h-7 rounded-lg bg-surface-container border border-surface-variant shadow-[0_2px_0_0_#051013] flex items-center justify-center text-primary hover:bg-surface-container-high active:translate-y-0.5">
+<span class="material-symbols-outlined text-[17px]" data-icon="volume_up">volume_up</span>
 </button>
-<svg class="w-4 h-4 text-[#7fa09c] stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<polyline points="9 18 15 12 9 6"></polyline>
-</svg>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="chevron_right">chevron_right</span>
 </div>
 </div>
-<!-- Row 3: freeze - froze - frozen -->
-<div class="verb-row px-3.5 py-3 grid grid-cols-12 gap-1 items-center">
-<div class="col-span-9 flex flex-col">
-<div class="grid grid-cols-9 gap-1 items-baseline">
-<span class="col-span-3 text-[15px] font-extrabold text-[#f0f7f6]">freeze</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">froze</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">frozen</span>
+<p class="text-[11px] font-medium text-on-surface-variant mt-1">select among options</p>
 </div>
-<span class="text-[12px] font-medium text-[#9dc4be] mt-0.5">turn into ice; halt motion</span>
-</div>
+<!-- Row 3: freeze -->
+<div class="p-3 hover:bg-surface-container/60 transition-colors">
+<div class="grid grid-cols-12 items-center">
+<div class="col-span-3 font-extrabold text-sm text-[#f1f8f7]">freeze</div>
+<div class="col-span-3 font-bold text-sm text-primary">froze</div>
+<div class="col-span-3 font-bold text-sm text-primary">frozen</div>
 <div class="col-span-3 flex items-center justify-end gap-1.5">
-<button aria-label="Listen freeze" class="speaker-btn">
-<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
-<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
-</svg>
+<button aria-label="Listen freeze" class="w-7 h-7 rounded-lg bg-surface-container border border-surface-variant shadow-[0_2px_0_0_#051013] flex items-center justify-center text-primary hover:bg-surface-container-high active:translate-y-0.5">
+<span class="material-symbols-outlined text-[17px]" data-icon="volume_up">volume_up</span>
 </button>
-<svg class="w-4 h-4 text-[#7fa09c] stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<polyline points="9 18 15 12 9 6"></polyline>
-</svg>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="chevron_right">chevron_right</span>
 </div>
 </div>
-<!-- Row 4: arise - arose - arisen -->
-<div class="verb-row px-3.5 py-3 grid grid-cols-12 gap-1 items-center">
-<div class="col-span-9 flex flex-col">
-<div class="grid grid-cols-9 gap-1 items-baseline">
-<span class="col-span-3 text-[15px] font-extrabold text-[#f0f7f6]">arise</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">arose</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">arisen</span>
+<p class="text-[11px] font-medium text-on-surface-variant mt-1">turn into ice; halt motion</p>
 </div>
-<span class="text-[12px] font-medium text-[#9dc4be] mt-0.5">originate, come into notice</span>
-</div>
+<!-- Row 4: arise -->
+<div class="p-3 hover:bg-surface-container/60 transition-colors">
+<div class="grid grid-cols-12 items-center">
+<div class="col-span-3 font-extrabold text-sm text-[#f1f8f7]">arise</div>
+<div class="col-span-3 font-bold text-sm text-primary">arose</div>
+<div class="col-span-3 font-bold text-sm text-primary">arisen</div>
 <div class="col-span-3 flex items-center justify-end gap-1.5">
-<button aria-label="Listen arise" class="speaker-btn">
-<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
-<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
-</svg>
+<button aria-label="Listen arise" class="w-7 h-7 rounded-lg bg-surface-container border border-surface-variant shadow-[0_2px_0_0_#051013] flex items-center justify-center text-primary hover:bg-surface-container-high active:translate-y-0.5">
+<span class="material-symbols-outlined text-[17px]" data-icon="volume_up">volume_up</span>
 </button>
-<svg class="w-4 h-4 text-[#7fa09c] stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<polyline points="9 18 15 12 9 6"></polyline>
-</svg>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="chevron_right">chevron_right</span>
 </div>
 </div>
-<!-- Row 5: shrink - shrank - shrunk -->
-<div class="verb-row px-3.5 py-3 grid grid-cols-12 gap-1 items-center">
-<div class="col-span-9 flex flex-col">
-<div class="grid grid-cols-9 gap-1 items-baseline">
-<span class="col-span-3 text-[15px] font-extrabold text-[#f0f7f6]">shrink</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">shrank</span>
-<span class="col-span-3 text-[14px] font-bold text-[#6bd8ce]">shrunk</span>
+<p class="text-[11px] font-medium text-on-surface-variant mt-1">originate, come into notice</p>
 </div>
-<span class="text-[12px] font-medium text-[#9dc4be] mt-0.5">become smaller in size</span>
-</div>
+<!-- Row 5: shrink -->
+<div class="p-3 hover:bg-surface-container/60 transition-colors">
+<div class="grid grid-cols-12 items-center">
+<div class="col-span-3 font-extrabold text-sm text-[#f1f8f7]">shrink</div>
+<div class="col-span-3 font-bold text-sm text-primary">shrank</div>
+<div class="col-span-3 font-bold text-sm text-primary">shrunk</div>
 <div class="col-span-3 flex items-center justify-end gap-1.5">
-<button aria-label="Listen shrink" class="speaker-btn">
-<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
-<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
-</svg>
+<button aria-label="Listen shrink" class="w-7 h-7 rounded-lg bg-surface-container border border-surface-variant shadow-[0_2px_0_0_#051013] flex items-center justify-center text-primary hover:bg-surface-container-high active:translate-y-0.5">
+<span class="material-symbols-outlined text-[17px]" data-icon="volume_up">volume_up</span>
 </button>
-<svg class="w-4 h-4 text-[#7fa09c] stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<polyline points="9 18 15 12 9 6"></polyline>
-</svg>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="chevron_right">chevron_right</span>
 </div>
 </div>
-<!-- Row 6: lie - lay - lain (Confusing trap item) -->
-<div class="verb-row px-3.5 py-3 grid grid-cols-12 gap-1 items-center bg-[#16272b]">
-<div class="col-span-9 flex flex-col">
-<div class="grid grid-cols-9 gap-1 items-baseline">
-<span class="col-span-3 text-[15px] font-extrabold text-[#ffb4a6]">lie</span>
-<span class="col-span-3 text-[14px] font-bold text-[#f4bf40]">lay</span>
-<span class="col-span-3 text-[14px] font-bold text-[#f4bf40]">lain</span>
+<p class="text-[11px] font-medium text-on-surface-variant mt-1">become smaller in size</p>
 </div>
-<div class="flex items-center gap-1.5 mt-0.5">
-<span class="text-[12px] font-medium text-[#9dc4be]">rest flat (vs lay / laid)</span>
-<span class="bg-[#981201] text-[#ffdad3] text-[10px] font-extrabold px-1.5 py-0.2 rounded">Trap</span>
+<!-- Row 6: lie (TRAP CARD) -->
+<div class="p-3 bg-[#1e1a12]/30 hover:bg-[#1e1a12]/50 transition-colors">
+<div class="grid grid-cols-12 items-center">
+<div class="col-span-3 flex items-center gap-1.5">
+<span class="font-extrabold text-sm text-tertiary">lie</span>
+<span class="px-1.5 py-0.5 text-[9px] font-black uppercase rounded bg-tertiary-container text-on-tertiary-container border border-tertiary">Trap</span>
 </div>
-</div>
+<div class="col-span-3 font-bold text-sm text-tertiary">lay</div>
+<div class="col-span-3 font-bold text-sm text-tertiary">lain</div>
 <div class="col-span-3 flex items-center justify-end gap-1.5">
-<button aria-label="Listen lie" class="speaker-btn">
-<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
-<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
-</svg>
+<button aria-label="Listen lie" class="w-7 h-7 rounded-lg bg-surface-container border border-surface-variant shadow-[0_2px_0_0_#051013] flex items-center justify-center text-tertiary hover:bg-surface-container-high active:translate-y-0.5">
+<span class="material-symbols-outlined text-[17px]" data-icon="volume_up">volume_up</span>
 </button>
-<svg class="w-4 h-4 text-[#7fa09c] stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<polyline points="9 18 15 12 9 6"></polyline>
-</svg>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="chevron_right">chevron_right</span>
 </div>
 </div>
-</div>
-<!-- Quick Drill Inline Card / Action -->
-<div class="tactile-card p-3.5 flex items-center justify-between bg-[#101d20] border-2 border-[#1d353b]">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-[12px] bg-[#3a2007] border-2 border-[#7a3b00] flex items-center justify-center text-[#ffb4a6] flex-shrink-0">
-<svg class="w-5 h-5 fill-current text-[#f5820d]" viewbox="0 0 24 24">
-<path d="M7 2v11h3v9l7-12h-4l4-8z"></path>
-</svg>
-</div>
-<div>
-<h3 class="text-[14px] font-extrabold text-[#f0f7f6]">Speed Drill</h3>
-<p class="text-[12px] font-semibold text-[#8ea8a4]">10 irregular forms · +25 XP</p>
+<p class="text-[11px] font-medium text-tertiary-fixed mt-1">rest flat (vs lay / laid)</p>
 </div>
 </div>
-<button class="tactile-btn-primary px-3.5 py-1.5 text-[13px] font-extrabold flex items-center gap-1 shadow-[0_4px_0_0_#a34d00]">
-          Start ▸
-        </button>
+</section>
+<!-- 4. BOTTOM DRILL CARD -->
+<section class="rounded-2xl p-3.5 bg-surface-container-low border-2 border-surface-variant shadow-[0_5px_0_0_#051013] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<!-- Soft amber square badge with lightning -->
+<div class="w-11 h-11 shrink-0 rounded-xl bg-tertiary-container/30 border-2 border-tertiary/40 flex items-center justify-center text-tertiary shadow-[0_3px_0_0_#051013]">
+<span class="material-symbols-outlined text-2xl" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
 </div>
+<div class="flex flex-col truncate">
+<span class="font-extrabold text-sm text-[#f1f8f7] tracking-tight">Speed Drill</span>
+<span class="text-xs font-semibold text-outline truncate">10 irregular forms · +25 XP</span>
+</div>
+</div>
+<!-- Candy-orange tactile button -->
+<button class="shrink-0 h-10 px-4 rounded-xl bg-gradient-to-b from-[#ffb03a] to-[#ff9800] text-[#1a0d02] font-extrabold text-xs tracking-wider border-t border-[#ffe082] shadow-[0_4px_0_0_#8c3d00] active:translate-y-1 active:shadow-[0_1px_0_0_#8c3d00] transition-all flex items-center gap-1.5">
+<span>Start</span>
+<span class="text-[10px]">▶</span>
+</button>
+</section>
 </main>
-<!-- CANONICAL LEXKITE BOTTOM TAB BAR (Tactile Night): 
-         64px, dark teal-black bar (#091518), 2px top border (#1d353b), 5 tabs.
-         ACTIVE TAB = 'Vocab' with glowing teal pill, bold mint label (#6bd8ce).
-         INACTIVE TABS = mint-grey icon and label (#8ba5a2).
-    -->
-<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-[#091518] border-t-2 border-[#1d353b] flex items-center justify-around px-1 z-50">
-<!-- Tab 1: Today (Inactive) -->
-<button aria-label="Today" class="flex-1 flex flex-col items-center justify-center py-1 text-[#8ba5a2] hover:text-[#6bd8ce] transition-colors">
-<svg class="w-[20px] h-[20px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
-<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-<polyline points="9 22 9 12 15 12 15 22"></polyline>
-</svg>
-<span class="text-[11px] font-bold mt-1 text-[#8ba5a2]">Today</span>
+<!-- 5. BOTTOM NAVIGATION BAR (Docked, 64px, 5 equal tabs) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 z-50 bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_0_#051013] flex items-center justify-around px-2">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="today">today</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Today</span>
 </button>
-<!-- Tab 2: Vocab (ACTIVE: teal pill, teal icon, bold mint label) -->
-<button aria-label="Vocab" class="flex-1 flex flex-col items-center justify-center py-0.5">
-<div class="relative w-[56px] h-[28px] bg-[#164e49] rounded-full flex items-center justify-center text-[#6bd8ce]">
-<!-- Open book icon -->
-<svg class="w-[19px] h-[19px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
-<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-</svg>
-<!-- Red due badge dot -->
-<span class="absolute top-[3px] right-[13px] w-2 h-2 rounded-full bg-[#e63946] border border-[#091518]"></span>
+<!-- Tab 2: Vocab (Active) -->
+<button class="relative flex flex-col items-center justify-center flex-1 py-1 text-primary active:translate-y-0.5">
+<!-- Glowing soft teal pill background -->
+<div class="px-3.5 py-0.5 rounded-full bg-primary-container/25 border border-primary/50 shadow-[0_2px_0_0_#00322e] flex flex-col items-center">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<!-- Red dot notification badge -->
+<span class="absolute -top-1 -right-1.5 w-2 h-2 rounded-full bg-secondary-container ring-1 ring-background"></span>
 </div>
-<span class="text-[11px] font-extrabold mt-0.5 text-[#6bd8ce]">Vocab</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5 text-primary">Vocab</span>
+</div>
 </button>
-<!-- Tab 3: Skills (Inactive: Target / concentric circles) -->
-<button aria-label="Skills" class="flex-1 flex flex-col items-center justify-center py-1 text-[#8ba5a2] hover:text-[#6bd8ce] transition-colors">
-<svg class="w-[20px] h-[20px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
-<circle cx="12" cy="12" r="6"></circle>
-<circle cx="12" cy="12" r="2"></circle>
-</svg>
-<span class="text-[11px] font-bold mt-1 text-[#8ba5a2]">Skills</span>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="psychology">psychology</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Skills</span>
 </button>
-<!-- Tab 4: Tests (Inactive: Flag) -->
-<button aria-label="Tests" class="flex-1 flex flex-col items-center justify-center py-1 text-[#8ba5a2] hover:text-[#6bd8ce] transition-colors">
-<svg class="w-[20px] h-[20px] stroke-[2.2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
-<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-</svg></button></nav></div></body>
-</html>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="assignment">assignment</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="person">person</span>
+<span class="text-[11px] font-extrabold tracking-wide mt-0.5">Me</span>
+</button>
+</nav>
+</div>
+</body></html>

@@ -3,265 +3,249 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lexkite — Loading Learning Path (Tactile Night)</title>
+<title>Lexkite Learn Path Skeleton (Tactile Night)</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #081518;
-      color: #D8E5E9;
+      background-color: #051013;
+      color: #d8e5e9;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
       -webkit-font-smoothing: antialiased;
-      background-image: radial-gradient(circle at 50% 120px, rgba(43, 163, 154, 0.08) 0%, transparent 60%),
-                        radial-gradient(#152A2F 0.85px, transparent 0.85px);
-      background-size: 100% 100%, 24px 24px;
     }
 
-    /* Tactile dark shimmer animation */
+    /* Skeleton shimmer effect - Tactile Night */
     @keyframes shimmer {
       0% {
-        transform: translateX(-100%);
+        background-position: -250% 0;
       }
       100% {
-        transform: translateX(100%);
+        background-position: 250% 0;
       }
     }
 
-    .shimmer-dark {
-      position: relative;
-      overflow: hidden;
-      background-color: #193238;
-    }
-
-    .shimmer-dark::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+    .shimmer-box {
       background: linear-gradient(
         90deg,
-        rgba(107, 216, 206, 0) 0%,
-        rgba(107, 216, 206, 0.16) 50%,
-        rgba(107, 216, 206, 0) 100%
+        #12282c 0%,
+        #1b383e 35%,
+        #274d55 50%,
+        #1b383e 65%,
+        #12282c 100%
       );
+      background-size: 250% 100%;
       animation: shimmer 2s infinite ease-in-out;
     }
 
-    .shimmer-teal {
-      position: relative;
-      overflow: hidden;
-      background-color: #164344;
-    }
-
-    .shimmer-teal::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+    .shimmer-box-subtle {
       background: linear-gradient(
         90deg,
-        rgba(136, 245, 234, 0) 0%,
-        rgba(136, 245, 234, 0.35) 50%,
-        rgba(136, 245, 234, 0) 100%
+        #0d2024 0%,
+        #162f35 40%,
+        #21434b 50%,
+        #162f35 60%,
+        #0d2024 100%
       );
-      animation: shimmer 1.9s infinite ease-in-out;
+      background-size: 250% 100%;
+      animation: shimmer 2s infinite ease-in-out;
     }
 
-    /* Tactile 3D bottom ledges in Night Theme */
-    .tactile-unit-banner-dark {
-      background-color: #112529;
-      border: 2px solid #28555E;
-      border-radius: 20px;
-      box-shadow: 0 6px 0 0 #091316, 0 10px 24px -4px rgba(43, 163, 154, 0.12);
+    .shimmer-accent {
+      background: linear-gradient(
+        90deg,
+        rgba(45, 212, 191, 0.25) 0%,
+        rgba(107, 216, 206, 0.6) 50%,
+        rgba(45, 212, 191, 0.25) 100%
+      );
+      background-size: 250% 100%;
+      animation: shimmer 2s infinite ease-in-out;
     }
 
-    .tactile-node-shadow-dark {
-      box-shadow: 0 6px 0 0 #091316, inset 0 1px 0 0 rgba(107, 216, 206, 0.15);
+    /* Tactile bottom ledge styling for dark mode */
+    .tactile-card {
+      border: 2px solid #1d383e;
+      box-shadow: 0 5px 0 0 #060d0f;
     }
 
-    .tactile-current-node-shadow-dark {
-      box-shadow: 0 8px 0 0 #060E10, 0 0 20px 2px rgba(43, 163, 154, 0.2);
+    .tactile-node-shadow {
+      box-shadow: 0 5px 0 0 #060d0f;
     }
 
-    .tactile-chip {
-      box-shadow: 0 3px 0 0 #081215;
+    .tactile-node-active-shadow {
+      box-shadow: 0 5px 0 0 #060d0f, 0 0 16px rgba(45, 212, 191, 0.35);
     }
 
-    .active-nav-glow {
-      box-shadow: 0 3px 0 0 #0F4945, 0 0 14px rgba(43, 163, 154, 0.3);
+    /* Pulse dot */
+    @keyframes gentle-pulse {
+      0%, 100% { opacity: 0.5; transform: scale(0.96); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+    .pulse-anim {
+      animation: gentle-pulse 2.2s infinite ease-in-out;
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#081518] flex flex-col items-center justify-between pb-24 select-none">
-<!-- ================= TOP APP BAR (56px) ================= -->
-<header class="w-full max-w-md h-14 bg-[#081518]/90 backdrop-blur-md border-b-2 border-[#1E3A40] px-4 flex items-center justify-between sticky top-0 z-40">
-<!-- Brand Logo: Kite emblem + Lexkite -->
+<body class="bg-[#051013]">
+<!-- Mobile phone viewport container 390px wide -->
+<div class="w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-[84px] shadow-2xl overflow-x-hidden">
+<!-- 1. TOP BAR 56px: HUB VARIANT (Lexkite Kit Tactile Night) -->
+<header class="h-[56px] px-4 flex items-center justify-between border-b-2 border-[#102226] bg-[#091518] sticky top-0 z-40">
+<!-- Logo + Wordmark on the left -->
 <div class="flex items-center gap-2">
-<!-- 2D origami diamond kite emblem -->
-<svg fill="none" height="28" viewbox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 2L30 16L16 30L2 16L16 2Z" fill="#2BA39A"></path>
-<path d="M16 2L30 16L16 16L16 2Z" fill="#1A6863"></path>
-<path d="M16 16L30 16L16 30L16 16Z" fill="#FFB054"></path>
-<path d="M2 16L16 16L16 30L2 16Z" fill="#F2553B"></path>
-<circle cx="16" cy="16" fill="#E8F9F8" r="2.5"></circle>
+<!-- Lexkite Teal Logo Mark -->
+<div class="w-8 h-8 rounded-xl bg-[#163a3f] border border-[#2dd4bf]/40 flex items-center justify-center text-[#2dd4bf] shadow-[0_2px_0_0_#060d0f]">
+<svg class="w-5 h-5 text-[#2dd4bf]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L4 12l8 4 8-4-8-10zm0 18l-4-2 4-2 4 2-4 2z"></path>
 </svg>
-<span class="text-[20px] font-extrabold tracking-tight text-[#E1F1F3]">Lexkite</span>
 </div>
-<!-- Shimmering Placeholder Metric Chips (Streak & XP) in Dark Teal -->
-<div class="flex items-center gap-2">
-<!-- Streak chip placeholder -->
-<div class="h-8 w-16 rounded-full border-2 border-[#25464E] bg-[#112226] tactile-chip flex items-center px-2 gap-1.5 overflow-hidden">
-<div class="w-4 h-4 rounded-full shimmer-dark shrink-0"></div>
-<div class="h-3 w-7 rounded shimmer-dark"></div>
+<span class="text-[19px] font-extrabold tracking-tight text-[#2dd4bf]">Lexkite</span>
 </div>
-<!-- XP chip placeholder -->
-<div class="h-8 w-20 rounded-full border-2 border-[#25464E] bg-[#112226] tactile-chip flex items-center px-2 gap-1.5 overflow-hidden">
-<div class="w-4 h-4 rounded-full shimmer-dark shrink-0"></div>
-<div class="h-3 w-9 rounded shimmer-dark"></div>
+<!-- Right stats chips: IELTS chip, streak flame pill, star XP pill, avatar 'L' -->
+<div class="flex items-center gap-1.5">
+<span class="px-2.5 py-1 bg-[#10272c] text-[#6bd8ce] text-xs font-bold rounded-full border border-[#2dd4bf]/30">
+          IELTS
+        </span>
+<div class="flex items-center gap-1 px-2 py-1 bg-[#28170c] text-[#fb923c] text-xs font-bold rounded-full border border-[#ea580c]/40">
+<span class="text-xs leading-none drop-shadow-[0_0_4px_rgba(249,115,22,0.6)]">🔥</span>
+<span>14</span>
 </div>
+<div class="flex items-center gap-1 px-2 py-1 bg-[#292209] text-[#facc15] text-xs font-bold rounded-full border border-[#eab308]/40">
+<span class="text-xs leading-none drop-shadow-[0_0_4px_rgba(234,179,8,0.6)]">⭐</span>
+<span>820</span>
+</div>
+<div class="w-7 h-7 rounded-full bg-[#133036] text-[#2dd4bf] flex items-center justify-center text-xs font-bold border border-[#2dd4bf]/40 shadow-[0_1px_0_0_#060d0f]">
+          L
+        </div>
 </div>
 </header>
-<!-- ================= MAIN CONTENT (Path & Skeletons) ================= -->
-<main class="w-full max-w-md px-4 pt-5 pb-8 flex flex-col items-center">
-<!-- UNIT BANNER PLACEHOLDER (Chunky tactile card with bottom ledge) -->
-<div class="w-full tactile-unit-banner-dark p-4 relative overflow-hidden mb-8">
+<!-- 2. SKELETON BODY: Learn Path Loading Placeholder -->
+<main class="flex-1 px-4 pt-4 flex flex-col items-center">
+<!-- Unit header placeholder banner with tactile card ledge -->
+<div class="w-full bg-[#0d2024] rounded-[16px] tactile-card p-4 mb-6 relative overflow-hidden">
+<!-- Top row: chips skeleton placeholders -->
 <div class="flex items-center justify-between mb-3">
-<!-- Unit pill placeholder -->
-<div class="h-5 w-24 rounded-full shimmer-teal"></div>
-<!-- Guidebook icon placeholder -->
-<div class="w-8 h-8 rounded-xl border-2 border-[#2A5C66] bg-[#0E1D21] shadow-[0_2px_0_0_#071114] flex items-center justify-center">
-<div class="w-4 h-4 rounded shimmer-teal"></div>
+<div class="w-24 h-5 rounded-full shimmer-box"></div>
+<div class="w-16 h-5 rounded-full shimmer-box"></div>
+</div>
+<!-- Unit Title placeholder -->
+<div class="w-3/4 h-6 rounded-lg shimmer-box mb-2"></div>
+<!-- Subtitle placeholder -->
+<div class="w-1/2 h-4 rounded-md shimmer-box mb-4"></div>
+<!-- Progress track skeleton -->
+<div class="w-full h-3 rounded-full bg-[#081518] border border-[#162e33] overflow-hidden relative">
+<div class="w-2/5 h-full rounded-full shimmer-accent"></div>
 </div>
 </div>
-<!-- Headline placeholder -->
-<div class="h-6 w-3/4 rounded-lg shimmer-teal mb-3"></div>
-<!-- Progress Bar Track placeholder -->
-<div class="w-full h-3.5 bg-[#0A171A] border border-[#254A52] rounded-full overflow-hidden p-0.5">
-<div class="h-full w-2/5 rounded-full shimmer-teal"></div>
+<!-- Section Title & Badge Shimmer Bar -->
+<div class="w-full flex items-center justify-between px-1 mb-6">
+<div class="w-28 h-5 rounded-lg shimmer-box"></div>
+<div class="w-14 h-4 rounded-full shimmer-box"></div>
 </div>
-</div>
-<!-- ================= WINDING PATH SKELETON ================= -->
-<div class="relative w-full flex flex-col items-center gap-7 py-2">
-<!-- Background Winding Connector SVG Line (glowing muted teal dashes) -->
-<svg class="absolute top-8 left-0 w-full h-[520px] pointer-events-none -z-0" fill="none" viewbox="0 0 360 520" xmlns="http://www.w3.org/2000/svg">
-<path d="M 180 30 C 230 70, 270 90, 250 140 C 230 190, 110 180, 105 245 C 100 310, 260 300, 240 370 C 220 430, 185 450, 180 500" stroke="#21474F" stroke-dasharray="14 10" stroke-linecap="round" stroke-width="10"></path>
+<!-- Winding Path of Round Learning Node Skeletons -->
+<div class="w-full relative flex flex-col items-center pb-8">
+<!-- SVG Curved Sinuous Winding Path connecting nodes -->
+<svg class="absolute top-8 left-0 w-full h-[520px] pointer-events-none z-0" fill="none" viewbox="0 0 358 520">
+<path d="M 179 28 
+                   C 179 65, 88 75, 88 122 
+                   C 88 175, 270 185, 270 236 
+                   C 270 295, 120 305, 120 355 
+                   C 120 405, 240 415, 240 465" stroke="#16343b" stroke-dasharray="14 10" stroke-linecap="round" stroke-width="12"></path>
+<path d="M 179 28 
+                   C 179 65, 88 75, 88 122" stroke="#2dd4bf" stroke-linecap="round" stroke-opacity="0.45" stroke-width="12"></path>
 </svg>
-<!-- NODE 1 (Center): Completed milestone style placeholder -->
-<div class="relative z-10 flex flex-col items-center">
-<div class="w-[72px] h-[72px] rounded-full bg-[#122428] border-[3px] border-[#25464E] tactile-node-shadow-dark flex items-center justify-center p-3">
-<div class="w-full h-full rounded-full shimmer-dark"></div>
+<!-- Node 1 (Center): Active Current Step Skeleton (Glowing vibrant teal ring) -->
+<div class="relative z-10 flex flex-col items-center mb-14" style="margin-left: 0px;">
+<!-- Floating crown / flag placeholder above current node -->
+<div class="w-8 h-4 rounded-full shimmer-box-subtle mb-1 pulse-anim border border-[#2dd4bf]/30"></div>
+<div class="w-[72px] h-[72px] rounded-full bg-[#12282c] border-[3px] border-[#2dd4bf] tactile-node-active-shadow flex items-center justify-center relative p-1.5 overflow-hidden">
+<!-- Shimmering inner disk -->
+<div class="w-full h-full rounded-full shimmer-box flex items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-[#2dd4bf]/30 pulse-anim"></div>
 </div>
-<!-- Small star/badge placeholder -->
-<div class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#162D33] border-2 border-[#2B5660] shadow-[0_2px_0_0_#091316] flex items-center justify-center">
-<div class="w-3 h-3 rounded-full shimmer-dark"></div>
-</div>
-</div>
-<!-- NODE 2 (Shifted Right): Listening/Vocab node placeholder -->
-<div class="relative z-10 flex flex-col items-center translate-x-16">
-<div class="w-[72px] h-[72px] rounded-full bg-[#122428] border-[3px] border-[#25464E] tactile-node-shadow-dark flex items-center justify-center p-3">
-<div class="w-full h-full rounded-full shimmer-dark"></div>
-</div>
-<div class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#162D33] border-2 border-[#2B5660] shadow-[0_2px_0_0_#091316] flex items-center justify-center">
-<div class="w-3 h-3 rounded-full shimmer-dark"></div>
+<!-- Star mini badge -->
+<div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#162e33] border border-[#2dd4bf]/40 flex items-center justify-center">
+<div class="w-3 h-3 rounded-full shimmer-accent"></div>
 </div>
 </div>
-<!-- NODE 3 (Current / Active Target - Shifted Left): Outer tactile ring & Start speech bubble placeholder -->
-<div class="relative z-10 flex flex-col items-center -translate-x-16 my-2">
-<!-- Floating speech badge placeholder (where 'START' pill would sit) -->
-<div class="absolute -top-7 h-7 w-20 rounded-full border-2 border-[#2D5A64] bg-[#142A2F] shadow-[0_3px_0_0_#071215] flex items-center justify-center px-2 mb-1">
-<div class="h-3 w-12 rounded-full shimmer-teal"></div>
+<!-- Label pill placeholder under node -->
+<div class="w-16 h-3 rounded-full shimmer-box mt-2"></div>
 </div>
-<!-- Chunky Active Node with double ring in cyan/teal neon accent -->
-<div class="w-[84px] h-[84px] rounded-full bg-[#142B30] border-[3px] border-[#346F7A] tactile-current-node-shadow-dark flex items-center justify-center p-2">
-<div class="w-[66px] h-[66px] rounded-full bg-[#102226] border-2 border-[#254C54] flex items-center justify-center p-3">
-<div class="w-full h-full rounded-full shimmer-teal"></div>
+<!-- Node 2 (Shifted Left): Next Step Node Skeleton -->
+<div class="relative z-10 flex flex-col items-center mb-14 -translate-x-[90px]">
+<div class="w-[66px] h-[66px] rounded-full bg-[#102327] border-2 border-[#1d383e] tactile-node-shadow flex items-center justify-center relative p-1.5 overflow-hidden">
+<div class="w-full h-full rounded-full shimmer-box-subtle flex items-center justify-center">
+<div class="w-5 h-5 rounded-md bg-[#1d383e]/50"></div>
 </div>
 </div>
-<!-- Pedagogical mascot pedestal / floor mark beside active node -->
-<div class="absolute -right-20 top-6 w-14 h-5 rounded-[100%] bg-[#12262B]/80 border border-[#1F3F47]/70"></div>
+<div class="w-14 h-3 rounded-full shimmer-box mt-2"></div>
 </div>
-<!-- NODE 4 (Shifted Right): Locked node placeholder -->
-<div class="relative z-10 flex flex-col items-center translate-x-14">
-<div class="w-[72px] h-[72px] rounded-full bg-[#0E1F23] border-[3px] border-[#1D3B42] tactile-node-shadow-dark flex items-center justify-center p-3">
-<div class="w-full h-full rounded-full shimmer-dark opacity-70"></div>
-</div>
-<!-- Lock badge placeholder -->
-<div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#152B30] border-2 border-[#23454D] flex items-center justify-center shadow-[0_2px_0_0_#081215]">
-<div class="w-2.5 h-2.5 rounded-sm shimmer-dark"></div>
+<!-- Node 3 (Shifted Right): Mid Step Node Skeleton (Milestone / Chest size) -->
+<div class="relative z-10 flex flex-col items-center mb-14 translate-x-[90px]">
+<div class="w-[70px] h-[70px] rounded-full bg-[#102327] border-2 border-[#1d383e] tactile-node-shadow flex items-center justify-center relative p-1.5 overflow-hidden">
+<div class="w-full h-full rounded-full shimmer-box-subtle flex items-center justify-center">
+<div class="w-6 h-6 rounded-lg bg-[#1d383e]/50"></div>
 </div>
 </div>
-<!-- NODE 5 (Center): Trophy / Assessment Chest placeholder -->
-<div class="relative z-10 flex flex-col items-center pt-2">
-<div class="w-[76px] h-[76px] rounded-2xl bg-[#0E1F23] border-[3px] border-[#1D3B42] tactile-node-shadow-dark flex items-center justify-center p-3.5">
-<div class="w-full h-full rounded-xl shimmer-dark opacity-70"></div>
+<div class="w-16 h-3 rounded-full shimmer-box mt-2"></div>
 </div>
-<!-- Lock badge placeholder -->
-<div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#152B30] border-2 border-[#23454D] flex items-center justify-center shadow-[0_2px_0_0_#081215]">
-<div class="w-2.5 h-2.5 rounded-sm shimmer-dark"></div>
+<!-- Node 4 (Shifted Left): Review Node Skeleton -->
+<div class="relative z-10 flex flex-col items-center mb-14 -translate-x-[60px]">
+<div class="w-[64px] h-[64px] rounded-full bg-[#102327] border-2 border-[#1d383e] tactile-node-shadow flex items-center justify-center relative p-1.5 overflow-hidden">
+<div class="w-full h-full rounded-full shimmer-box-subtle flex items-center justify-center">
+<div class="w-5 h-5 rounded-md bg-[#1d383e]/50"></div>
 </div>
+</div>
+<div class="w-12 h-3 rounded-full shimmer-box mt-2"></div>
+</div>
+<!-- Node 5 (Shifted Right): Checkpoint / Unit Trophy Skeleton -->
+<div class="relative z-10 flex flex-col items-center mb-4 translate-x-[60px]">
+<div class="w-[74px] h-[74px] rounded-[22px] bg-[#102327] border-2 border-[#1d383e] tactile-node-shadow flex items-center justify-center relative p-2 overflow-hidden">
+<div class="w-full h-full rounded-[14px] shimmer-box-subtle flex items-center justify-center">
+<div class="w-7 h-7 rounded-md bg-[#1d383e]/60"></div>
+</div>
+</div>
+<div class="w-20 h-3.5 rounded-full shimmer-box mt-2"></div>
 </div>
 </div>
 </main>
-<!-- ================= FIXED BOTTOM TAB BAR (5 Tabs) ================= -->
-<nav class="fixed bottom-0 left-0 right-0 w-full bg-[#0B171A] border-t border-[#1C3238] shadow-[0_-4px_16px_rgba(0,0,0,0.45)] z-50">
-<div class="max-w-md mx-auto h-16 px-3 flex items-center justify-around">
-<!-- Tab 1: Learn (Active) -> Chunky rounded square with 2px teal border & cyan glow -->
-<div class="flex flex-col items-center justify-center w-14 h-13 py-1 px-2 rounded-xl border-2 border-[#2BA39A] bg-[#142D31] active-nav-glow cursor-pointer">
-<svg fill="none" height="22" stroke="#6BD8CE" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="22">
-<circle cx="6" cy="19" r="3"></circle>
-<path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"></path>
-<circle cx="18" cy="5" r="3"></circle>
-</svg>
-<span class="text-[11px] font-bold text-[#88F5EA] mt-0.5">Learn</span>
+<!-- 3. BOTTOM TAB BAR 64px (CANONICAL LEXKITE 5 TABS - TACTILE NIGHT) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-[#061114] border-t-2 border-[#1d383e] flex items-center justify-around px-2 z-50 shadow-[0_-4px_16px_rgba(0,0,0,0.5)]">
+<!-- 1. Today (ACTIVE: glowing teal pill, bright teal icon, bold teal label) -->
+<button class="flex flex-col items-center justify-center py-1 px-3 rounded-full bg-[#122e33] border border-[#2dd4bf]/30 transition-all">
+<span class="material-symbols-outlined text-[23px] text-[#2dd4bf]">home</span>
+<span class="text-[11px] font-extrabold text-[#2dd4bf] leading-tight">Today</span>
+</button>
+<!-- 2. Vocab (INACTIVE: slate text + red due badge) -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 transition-all relative">
+<div class="relative">
+<span class="material-symbols-outlined text-[23px] text-[#9db2b6]">menu_book</span>
+<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-[#f43f5e] shadow-[0_0_5px_rgba(244,63,94,0.7)]"></span>
 </div>
-<!-- Tab 2: Review (Inactive) -->
-<div class="flex flex-col items-center justify-center w-14 py-1 text-[#7A989C] hover:text-[#BCC9C7] transition-colors cursor-pointer">
-<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22">
-<path d="M12 2v4"></path>
-<path d="M12 18v4"></path>
-<path d="m4.93 4.93 2.83 2.83"></path>
-<path d="m16.24 16.24 2.83 2.83"></path>
-<path d="M2 12h4"></path>
-<path d="M18 12h4"></path>
-<path d="m4.93 19.07 2.83-2.83"></path>
-<path d="m16.24 7.76 2.83-2.83"></path>
-</svg>
-<span class="text-[11px] font-semibold text-[#8DAEB2] mt-0.5">Review</span>
-</div>
-<!-- Tab 3: Practice (Inactive) -->
-<div class="flex flex-col items-center justify-center w-14 py-1 text-[#7A989C] hover:text-[#BCC9C7] transition-colors cursor-pointer">
-<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22">
-<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-</svg>
-<span class="text-[11px] font-semibold text-[#8DAEB2] mt-0.5">Practice</span>
-</div>
-<!-- Tab 4: Leagues (Inactive) -->
-<div class="flex flex-col items-center justify-center w-14 py-1 text-[#7A989C] hover:text-[#BCC9C7] transition-colors cursor-pointer">
-<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22">
-<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-<path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-<path d="M4 22h16"></path>
-<path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"></path>
-<path d="M6 4h12a2 2 0 0 1 2 2v3a6 6 0 0 1-6 6h0a6 6 0 0 1-6-6V6a2 2 0 0 1 2-2Z"></path>
-</svg>
-<span class="text-[11px] font-semibold text-[#8DAEB2] mt-0.5">Leagues</span>
-</div>
-<!-- Tab 5: Me (Inactive) -->
-<div class="flex flex-col items-center justify-center w-14 py-1 text-[#7A989C] hover:text-[#BCC9C7] transition-colors cursor-pointer">
-<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22">
-<circle cx="12" cy="8" r="5"></circle>
-<path d="M20 21a8 8 0 0 0-16 0"></path>
-</svg>
-<span class="text-[11px] font-semibold text-[#8DAEB2] mt-0.5">Me</span>
-</div>
-</div>
+<span class="text-[11px] font-bold text-[#9db2b6] leading-tight">Vocab</span>
+</button>
+<!-- 3. Skills (INACTIVE: target icon, muted slate) -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 transition-all">
+<span class="material-symbols-outlined text-[23px] text-[#9db2b6]">target</span>
+<span class="text-[11px] font-bold text-[#9db2b6] leading-tight">Skills</span>
+</button>
+<!-- 4. Tests (INACTIVE: flag icon, muted slate) -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 transition-all">
+<span class="material-symbols-outlined text-[23px] text-[#9db2b6]">flag</span>
+<span class="text-[11px] font-bold text-[#9db2b6] leading-tight">Tests</span>
+</button>
+<!-- 5. Me (INACTIVE: person icon, muted slate) -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 transition-all">
+<span class="material-symbols-outlined text-[23px] text-[#9db2b6]">person</span>
+<span class="text-[11px] font-bold text-[#9db2b6] leading-tight">Me</span>
+</button>
 </nav>
+</div>
 </body></html>
