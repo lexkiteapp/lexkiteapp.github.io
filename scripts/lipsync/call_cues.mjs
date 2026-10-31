@@ -20,8 +20,8 @@ for (const k of c.CALLS || []) {
 vm.runInContext(fs.readFileSync('web/js/lesson/stories.js', 'utf8'), c);
 for (const st of c.LESSON_STORIES || []) for (const l of st.lines) { const who = V[l.who] ? l.who : 'ama', voice = V[who].voice.app, text = String(l.en).trim(); lines.set(c.KVoice.lineKey(voice, text), { who, voice, text }); }
 const old = (() => { try { const g = {}; new Function('self', fs.readFileSync(IDX, 'utf8'))(g); return g.LK_CUES.k; } catch (e) { return {}; } })();
-const todo = process.argv.includes('--index-only') ? [] : [...lines].filter(([k]) => !old[k]); // --index-only: chỉ ghi lại chỉ mục (từ điển + mốc đã có), không sinh tiếng
-console.log(`${lines.size} câu giáo viên (Call + Truyện) · có mốc ${Object.keys(old).length} · cần tạo ${todo.length}`);
+const todo = process.argv.includes('--index-only') ? [] : [...lines].filter(([k]) => !(k in old)); // --index-only: chỉ ghi lại chỉ mục (từ điển + mốc đã có), không sinh tiếng
+console.log(`${lines.size} câu giáo viên (Call + Truyện) · có mốc ${Object.values(old).filter(Boolean).length} · cần tạo ${todo.length}`);
 if (process.argv.includes('--count')) process.exit(0);
 
 // từ điển nhỏ cho chế độ live (không có mốc): chỉ các từ trong kịch bản Call (spec §4 – giữ nhẹ)
@@ -57,13 +57,13 @@ if (todo.length) {
     const env = rms100(back), dur = env.length / 100, kp = JSON.parse(fs.readFileSync(`${QA}/${key}.ph.json`, 'utf8'));
     const cues = LS.lead(LS.smooth(LS.align(LS.fromPhones(kp.ph, dur), env, { words: kp.words }))), s = score(l, cues, env, kp.ph), pass = Math.abs(s.lagMs) <= 45 && s.visemePct >= 80 && s.flicker === 0;
     rows.push({ key, text: l.text, ...s, pass });
-    if (pass) K[key] = pack(cues, env); else fs.rmSync(mp3); // trượt cổng → không đẩy mp3, không ghi mốc → app dùng live
+    if (pass) K[key] = pack(cues, env); else { fs.rmSync(mp3); K[key] = 0; } // trượt cổng → không đẩy mp3, ghi 0 (app dùng live, đêm sau không thử lại – đổi câu = khoá mới)
   }
 }
-const keys = Object.keys(K).filter(k => lines.has(k)).sort(), body = Object.fromEntries(keys.map(k => [k, K[k]]));
-fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên Call (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khoá] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64] cho <khoá>-ls.mp3 · dict = từ điển nhỏ cho live. */\n`
+const keys = Object.keys(K).filter(k => lines.has(k)).sort(), good = keys.filter(k => K[k]), body = Object.fromEntries(keys.map(k => [k, K[k]]));
+fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khoá] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64] cho <khoá>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
   + `(function (g) { g.LK_CUES = ${JSON.stringify({ v: 1, k: body, dict })}; })(typeof self !== 'undefined' ? self : this);\n`);
-const bad = rows.filter(r => !r.pass), md = [`## Mốc khớp miệng Call – ${keys.length}/${lines.size} câu có mốc · lượt này ${rows.length} câu, trượt cổng ${bad.length}`, '',
+const bad = rows.filter(r => !r.pass), md = [`## Mốc khớp miệng – ${good.length}/${lines.size} câu có mốc (${keys.length - good.length} trượt cổng → live) · lượt này ${rows.length} câu, trượt cổng ${bad.length}`, '',
   rows.length ? `lệch max ${Math.max(0, ...rows.filter(r => r.lagMs != null).map(r => Math.abs(r.lagMs)))} ms · đúng hình min ${Math.min(100, ...rows.filter(r => r.visemePct != null).map(r => r.visemePct))} % · nháy ${rows.reduce((a, r) => a + (r.flicker || 0), 0)}` : '',
   ...(bad.length ? ['', '| khoá | câu | lệch ms | đúng hình % | nháy |', '|---|---|---|---|---|', ...bad.map(r => `| ${r.key} | ${r.text.slice(0, 60)} | ${r.lagMs ?? r.err} | ${r.visemePct ?? ''} | ${r.flicker ?? ''} |`)] : [])].join('\n');
 console.log(md); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
