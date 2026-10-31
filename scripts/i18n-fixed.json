@@ -31860,20 +31860,20 @@
     "ru": "Задание ситуации",
     "tr": "Durum görevi"
   },
-  "Bắt đầu luyện nói": {
-    "es": "Empezar práctica de habla",
-    "pt": "Começar treino de fala",
-    "fr": "Commencer l’exercice d’oral",
-    "de": "Sprechübung starten",
-    "id": "Mulai latihan bicara",
-    "th": "เริ่มฝึกพูด",
-    "zh": "开始口语练习",
-    "ja": "スピーキング練習を始める",
-    "ko": "말하기 연습 시작",
-    "hi": "बोलने का अभ्यास शुरू करें",
-    "ar": "ابدأ تمرين التحدث",
-    "ru": "Начать тренировку речи",
-    "tr": "Konuşma alıştırmasını başlat"
+  "Bắt đầu luyện nói →": {
+    "es": "Empezar práctica de habla →",
+    "pt": "Começar treino de fala →",
+    "fr": "Commencer l’exercice d’oral →",
+    "de": "Sprechübung starten →",
+    "id": "Mulai latihan bicara →",
+    "th": "เริ่มฝึกพูด →",
+    "zh": "开始口语练习 →",
+    "ja": "スピーキング練習を始める →",
+    "ko": "말하기 연습 시작 →",
+    "hi": "बोलने का अभ्यास शुरू करें →",
+    "ar": "ابدأ تمرين التحدث ←",
+    "ru": "Начать тренировку речи →",
+    "tr": "Konuşma alıştırmasını başlat →"
   },
   "Câu mẫu để nói": {
     "es": "Frase modelo",

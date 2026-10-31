@@ -4,7 +4,7 @@
   "Bấm giờ như thi thật": "Timed simulation",
   "Bậc thầy chuỗi": "STREAK MASTER",
   "Bắt đầu bài học": "START LESSON",
-  "Bắt đầu luyện nói": "Start speaking drill",
+  "Bắt đầu luyện nói →": "Start speaking drill →",
   "Bỏ qua câu hỏi": "Skip question",
   "Chia sẻ kết quả": "Share results",
   "Chuỗi": "STREAK",

@@ -8,7 +8,7 @@
   "Target": "Mục tiêu nói",
   "From your add-on": "Từ tiện ích của bạn",
   "Say them in a sentence today": "Hôm nay hãy nói các từ này trong một câu",
-  "Start speaking drill": "Bắt đầu luyện nói",
+  "Start speaking drill →": "Bắt đầu luyện nói →",
   "Role-play with Carlos": "Nhập vai với Carlos"
  },
  "text": {
@@ -135,16 +135,16 @@
      },
      "cls": {
       ":scope > div:nth-child(3) > span:nth-child(1)": {
-       "lt:text-[#F59E0B]": "r.stars[0].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#f59e0b]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#B45309]": "r.stars[0].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#f59e0b]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(2)": {
-       "lt:text-[#F59E0B]": "r.stars[1].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#f59e0b]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#B45309]": "r.stars[1].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#f59e0b]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(3)": {
-       "lt:text-[#F59E0B]": "r.stars[2].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#f59e0b]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#B45309]": "r.stars[2].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#f59e0b]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       }
      },
      "tag": {
@@ -171,16 +171,16 @@
      },
      "cls": {
       ":scope > div:nth-child(3) > span:nth-child(1)": {
-       "lt:text-[#F59E0B]": "r.stars[0].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#f59e0b]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#B45309]": "r.stars[0].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#f59e0b]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(2)": {
-       "lt:text-[#D1C3B4]": "r.stars[1].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#475569]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#7A6A5C]": "r.stars[1].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#94a3b8]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(3)": {
-       "lt:text-[#D1C3B4]": "r.stars[2].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#475569]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#7A6A5C]": "r.stars[2].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#94a3b8]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       }
      },
      "tag": {
@@ -206,16 +206,16 @@
      },
      "cls": {
       ":scope > div:nth-child(3) > span:nth-child(1)": {
-       "lt:text-[#D1C3B4]": "r.stars[0].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#475569]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#7A6A5C]": "r.stars[0].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#94a3b8]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(2)": {
-       "lt:text-[#D1C3B4]": "r.stars[1].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#475569]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#7A6A5C]": "r.stars[1].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#94a3b8]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(3)": {
-       "lt:text-[#D1C3B4]": "r.stars[2].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
-       "dk:text-[#475569]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
+       "lt:text-[#7A6A5C]": "r.stars[2].on ? 'lt:text-[#B45309]' : 'lt:text-[#7A6A5C]'",
+       "dk:text-[#94a3b8]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#94a3b8]'"
       }
      },
      "tag": {
