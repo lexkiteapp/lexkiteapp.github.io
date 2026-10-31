@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Badge Unlocked (Review machine) - Tactile Night</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              bg: '#091518',
+              card: '#12252A',
+              cardLedge: '#061013',
+              cardBorder: '#25464F',
+              subCard: '#14282E',
+              subPill: '#192F35',
+              tealGlow: '#2DD4BF',
+              tealLight: '#6BD8CE',
+              textPrimary: '#FFFFFF',
+              textSecondary: '#D1E7EA',
+              textMuted: '#8FAEB4',
+              amber: '#F59E0B',
+              amberLedge: '#9A3412',
+              amberText: '#FBBF24',
+              ink: '#1C1003',
+            }
+          },
+          boxShadow: {
+            'tactile-main': '0 8px 0 #061013, 0 20px 30px rgba(0,0,0,0.55)',
+            'tactile-card': '0 4px 0 #061013',
+            'tactile-amber': '0 5px 0 #9a3412',
+            'tactile-teal': '0 4px 0 #061013',
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #091518;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#FFFFFF] antialiased flex items-center justify-center p-0 m-0">
+<!-- MOBILE CONTAINER: Full edge-to-edge mobile portrait 390px, zero device bezel -->
+<div class="w-[390px] min-h-[844px] bg-[#091518] relative overflow-hidden flex flex-col justify-center items-center px-4 py-6">
+<!-- Dimmed / Ambient Glow in Background -->
+<div class="absolute inset-0 bg-[#091518]/90 z-0 pointer-events-none"></div>
+<!-- Playful Confetti & Sparkle Bursts in Tactile Night Glow -->
+<div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+<!-- 4-point gold star sparkle top-left -->
+<svg class="absolute top-10 left-6 w-8 h-8 text-[#F59E0B] opacity-90 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z"></path>
+</svg>
+<!-- Teal star sparkle top-right -->
+<svg class="absolute top-12 right-7 w-7 h-7 text-[#2DD4BF] opacity-85 drop-shadow-[0_0_8px_rgba(45,212,191,0.6)]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z"></path>
+</svg>
+<!-- Gold star sparkle lower-right -->
+<svg class="absolute bottom-28 right-5 w-6 h-6 text-[#F59E0B] opacity-85 drop-shadow-[0_0_6px_rgba(245,158,11,0.5)]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z"></path>
+</svg>
+<!-- Teal star sparkle lower-left -->
+<svg class="absolute bottom-24 left-6 w-6 h-6 text-[#2DD4BF] opacity-80 drop-shadow-[0_0_6px_rgba(45,212,191,0.5)]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z"></path>
+</svg>
+<!-- Glowing Confetti shapes -->
+<div class="absolute top-24 left-14 w-3.5 h-3.5 rounded-sm bg-[#F59E0B] rotate-12 opacity-85"></div>
+<div class="absolute top-28 right-12 w-3 h-2 rounded bg-[#2DD4BF] -rotate-45 opacity-85"></div>
+<div class="absolute top-64 left-4 w-2.5 h-3.5 rounded bg-[#FBBF24] rotate-45 opacity-85"></div>
+<div class="absolute top-72 right-5 w-3 h-3 rounded-full bg-[#38BDF8] opacity-75"></div>
+<div class="absolute bottom-40 left-10 w-3 h-2 rounded bg-[#F59E0B] rotate-12 opacity-80"></div>
+<div class="absolute bottom-36 right-16 w-3 h-3 rounded-sm bg-[#2DD4BF] -rotate-12 opacity-75"></div>
+</div>
+<!-- ==============================================
+         CENTRAL CELEBRATION POP-UP CARD (TACTILE NIGHT)
+         ============================================== -->
+<div class="relative z-10 w-full max-w-[362px] bg-[#12252A] rounded-[32px] p-5 pt-4 pb-5 border-2 border-[#25464F] shadow-tactile-main flex flex-col items-center">
+<!-- Top Badge Pill: "MILESTONE COMPLETE" -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#12252A] border border-[#F59E0B]/60 shadow-[0_2px_0_#061013] mb-2">
+<span class="material-symbols-rounded text-[#F59E0B] text-[16px] leading-none">star</span>
+<span class="text-[11px] font-black tracking-wider uppercase text-[#FBBF24]">MILESTONE COMPLETE</span>
+</div>
+<!-- Main Headline: "New badge!" in crisp bright white -->
+<h1 class="text-[32px] font-black tracking-tight text-[#FFFFFF] leading-none mb-3">
+        New badge!
+      </h1>
+<!-- GLOSSY CANDY ROCKET MEDALLION BURSTING OUT OF CONCENTRIC ORBITAL RINGS -->
+<div class="relative w-[180px] h-[180px] flex items-center justify-center my-1">
+<!-- Outer radiating dashed burst ring -->
+<svg class="absolute inset-0 w-full h-full animate-[spin_24s_linear_infinite]" viewbox="0 0 180 180">
+<circle cx="90" cy="90" fill="none" opacity="0.65" r="82" stroke="#F59E0B" stroke-dasharray="6 6" stroke-width="2.5"></circle>
+<circle cx="90" cy="90" fill="none" opacity="0.85" r="74" stroke="#2DD4BF" stroke-dasharray="4 8" stroke-width="1.8"></circle>
+</svg>
+<!-- Deep Dark Ledge under medallion -->
+<div class="absolute w-[148px] h-[148px] rounded-full bg-[#061013] translate-y-2"></div>
+<!-- SVG Glossy Medallion (144x144) -->
+<svg class="relative w-[144px] h-[144px] drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)]" fill="none" viewbox="0 0 144 144" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Medallion Rim Gradient (Luminous Gem Teal) -->
+<radialgradient cx="35%" cy="30%" id="rimGrad" r="70%">
+<stop offset="0%" stop-color="#5EEAD4"></stop>
+<stop offset="45%" stop-color="#2DD4BF"></stop>
+<stop offset="85%" stop-color="#0F766E"></stop>
+<stop offset="100%" stop-color="#093835"></stop>
+</radialgradient>
+<!-- Medallion Inner Space Lens Gradient -->
+<radialgradient cx="50%" cy="35%" id="lensGrad" r="65%">
+<stop offset="0%" stop-color="#164E63"></stop>
+<stop offset="60%" stop-color="#0E3A47"></stop>
+<stop offset="100%" stop-color="#06181F"></stop>
+</radialgradient>
+<!-- Specular Crescent Gloss -->
+<lineargradient id="glossGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"></stop>
+<stop offset="60%" stop-color="#ffffff" stop-opacity="0.12"></stop>
+<stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+</lineargradient>
+<!-- Rocket Hull Gradients -->
+<lineargradient id="rocketBody" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#FFFFFF"></stop>
+<stop offset="70%" stop-color="#E2E8F0"></stop>
+<stop offset="100%" stop-color="#CBD5E1"></stop>
+</lineargradient>
+<lineargradient id="rocketCone" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#FB7185"></stop>
+<stop offset="100%" stop-color="#E11D48"></stop>
+</lineargradient>
+<lineargradient id="rocketFin" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#F43F5E"></stop>
+<stop offset="100%" stop-color="#BE123C"></stop>
+</lineargradient>
+<lineargradient id="flameGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#FEF08A"></stop>
+<stop offset="40%" stop-color="#F59E0B"></stop>
+<stop offset="100%" stop-color="#EA580C"></stop>
+</lineargradient>
+</defs>
+<!-- Outer Gold Bevel Ring -->
+<circle cx="72" cy="72" fill="#14282E" r="70" stroke="#F59E0B" stroke-width="3"></circle>
+<circle cx="72" cy="72" fill="url(#rimGrad)" r="66"></circle>
+<!-- Inner Deep Space Port Lens -->
+<circle cx="72" cy="72" fill="url(#lensGrad)" r="56" stroke="#5EEAD4" stroke-width="2"></circle>
+<!-- Background Stars inside lens -->
+<circle cx="50" cy="52" fill="#FEF08A" opacity="0.95" r="1.5"></circle>
+<circle cx="94" cy="50" fill="#5EEAD4" opacity="0.9" r="1.8"></circle>
+<circle cx="86" cy="98" fill="#FFFFFF" opacity="0.8" r="1.2"></circle>
+<circle cx="48" cy="88" fill="#F59E0B" opacity="0.9" r="1.5"></circle>
+<!-- Star sparkle -->
+<path d="M72 32 Q72 37 67 37 Q72 37 72 42 Q72 37 77 37 Q72 37 72 32 Z" fill="#FFFFFF" opacity="0.95"></path>
+<!-- Rocket Exhaust Flame -->
+<path d="M68 96 Q72 108 72 114 Q72 108 76 96 Z" fill="url(#flameGrad)"></path>
+<path d="M70 96 Q72 104 72 108 Q72 104 74 96 Z" fill="#FFFFFF"></path>
+<!-- Rocket Fins -->
+<path d="M60 84 L50 94 L62 95 Z" fill="url(#rocketFin)"></path>
+<path d="M84 84 L94 94 L82 95 Z" fill="url(#rocketFin)"></path>
+<!-- Rocket Body -->
+<ellipse cx="72" cy="74" fill="url(#rocketBody)" rx="14" ry="24"></ellipse>
+<!-- Red Nose Cone -->
+<path d="M58.5 64 Q72 40 72 40 Q72 40 85.5 64 Z" fill="url(#rocketCone)"></path>
+<!-- Porthole Window -->
+<circle cx="72" cy="70" fill="#0284C7" r="7" stroke="#FFFFFF" stroke-width="2.2"></circle>
+<circle cx="70" cy="68" fill="#FFFFFF" opacity="0.95" r="2.2"></circle>
+<!-- Specular Glass Crescent on Top Lens -->
+<path d="M 28 60 A 52 52 0 0 1 116 60 A 48 38 0 0 0 28 60 Z" fill="url(#glossGrad)"></path>
+<ellipse cx="72" cy="38" fill="#FFFFFF" opacity="0.45" rx="28" ry="10"></ellipse>
+</svg>
+<!-- Mini Energy Bolt Badge Overlaid at bottom right of medallion -->
+<div class="absolute bottom-3 right-4 w-8 h-8 rounded-full bg-[#F59E0B] border-2 border-[#12252A] shadow-[0_2px_0_#9a3412] flex items-center justify-center">
+<span class="material-symbols-rounded text-[#1C1003] text-[18px] font-black">bolt</span>
+</div>
+</div>
+<!-- BADGE DETAILS TACTILE CARD: DARK TEAL CARD (#14282E) -->
+<div class="w-full bg-[#14282E] rounded-2xl p-3 pt-2.5 pb-3 border border-[#25464F] shadow-tactile-card text-center my-2">
+<!-- Sub-tag: LEVEL 3 UNLOCKED inside dark teal/amber pill -->
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#192F35] border border-[#25464F] text-[10px] font-extrabold text-[#F59E0B] tracking-wide uppercase shadow-sm mb-1.5">
+<span class="material-symbols-rounded text-[#F59E0B] text-[14px]">auto_awesome</span>
+<span>LEVEL 3 UNLOCKED</span>
+</div>
+<!-- Badge Title: Review machine in crisp white -->
+<h2 class="text-[22px] font-black tracking-tight text-[#FFFFFF] leading-tight">
+          Review machine
+        </h2>
+<!-- One Short Line in crisp light neutral teal (#D1E7EA) -->
+<p class="text-[13px] font-bold text-[#D1E7EA] mt-0.5">
+          Reviewed 50 spaced flashcards today!
+        </p>
+</div>
+<!-- TEACHER SLOT & TINY HAPPY SPEECH BUBBLE ROW -->
+<div class="w-full flex items-center justify-between gap-3 my-2">
+<!-- TEACHER SLOT: Strictly empty, dark teal background, dashed teal border -->
+<div class="w-[104px] h-[120px] rounded-2xl border-2 border-dashed border-[#2DD4BF] bg-[#0E1F24] flex flex-col items-center justify-center p-2 text-center shrink-0">
+<div class="w-10 h-10 rounded-full bg-[#14282E] border border-[#25464F] flex items-center justify-center mb-1.5 shadow-sm">
+<span class="material-symbols-rounded text-[#2DD4BF] text-[22px]">school</span>
+</div>
+<span class="text-[10px] font-black text-[#2DD4BF] tracking-wide uppercase leading-tight">TEACHER<br/>SLOT</span>
+<span class="text-[8px] font-bold text-[#8FAEB4] mt-0.5 leading-none">2D teacher loads here</span>
+</div>
+<!-- TINY HAPPY SPEECH BUBBLE: Dark teal card (#12252A) with border and notch -->
+<div class="flex-1 bg-[#12252A] rounded-2xl p-3 border border-[#25464F] shadow-tactile-card relative flex flex-col justify-center">
+<!-- Speech bubble left pointer notch -->
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-r-[8px] border-r-[#25464F]"></div>
+<div class="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[7px] border-r-[#12252A]"></div>
+<div class="flex items-center gap-1 mb-1">
+<span class="text-sm">🎉</span>
+<span class="text-[11px] font-extrabold uppercase tracking-wide text-[#F59E0B]">Great pace!</span>
+</div>
+<div class="text-[13px] font-black text-[#FFFFFF] leading-tight">
+            Super memory streak!
+          </div>
+<div class="text-[11px] font-bold text-[#D1E7EA] mt-0.5">
+            Keep it up.
+          </div>
+</div>
+</div>
+<!-- TACTILE ACTION BUTTONS (Continue & Share) -->
+<div class="w-full flex flex-col gap-2.5 mt-2">
+<!-- CONTINUE BUTTON: Rich Sunny Orange (#F59E0B) with 3D Ledge (#9A3412) & Strict Ink (#1C1003) -->
+<button class="w-full h-12 rounded-2xl bg-[#F59E0B] hover:bg-[#FBBF24] active:translate-y-1 text-[#1C1003] font-black text-[16px] tracking-wide flex items-center justify-center gap-2 shadow-tactile-amber transition-all cursor-pointer">
+<span class="text-[#1C1003] font-black">Continue</span>
+<span class="material-symbols-rounded text-[20px] font-black text-[#1C1003]">arrow_forward</span>
+</button>
+<!-- SHARE BUTTON: Dark Teal Surface (#12252A) with Ledge (#061013), Border (#25464F), and Luminous Light Text (#F0F8F8) -->
+<button class="w-full h-12 rounded-2xl bg-[#12252A] hover:bg-[#162D33] active:translate-y-1 text-[#F0F8F8] font-black text-[15px] tracking-wide flex items-center justify-center gap-2 border-2 border-[#25464F] shadow-tactile-teal transition-all cursor-pointer">
+<span class="material-symbols-rounded text-[#2DD4BF] text-[19px]">ios_share</span>
+<span class="text-[#F0F8F8]">Share</span>
+</button>
+</div>
+<!-- XP Earned Footer Micro-tag: light muted teal (#8FAEB4) -->
+<div class="mt-3 flex items-center gap-1.5 text-center">
+<span class="text-[11px] font-extrabold text-[#8FAEB4]">
+          +30 XP earned towards Band 7.5 target
+        </span>
+</div>
+</div>
+</div>
+</body></html>

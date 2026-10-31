@@ -1,0 +1,94 @@
+{
+ "_doc": "Màn chúc mừng huy hiệu mới (sự kiện 'badge' của Game.track, game.js:101 → App.reward) – web/js/ux1-badges.js mở lớp phủ toàn màn, nhiều huy hiệu cùng lúc → lần lượt. Mẫu sáng/tối KHÁC bố cục (Stitch vẽ 2 khung) → bộ chuyển giữ cả 2 cây (lt:/dk:hidden), gắn dữ liệu cả 2. Huy chương = badge-art.js (thay tên lửa Stitch). 'LEVEL 3 UNLOCKED' (bịa) → 'Huy hiệu thứ n/19' thật; '+30 XP towards Band 7.5' (bịa) → số huy hiệu đã sưu tầm thật. Ô giáo viên = Chars (Ama/Carlos cheer, luân phiên). Chuyển động: st-pop + st-burst (tắt khi giảm chuyển động).",
+ "i18n": {
+  "MILESTONE COMPLETE": "Đạt cột mốc",
+  "New badge!": "Huy hiệu mới!",
+  "Share": "Chia sẻ",
+  "Continue →": "Tiếp tục →",
+  "Continue": "Tiếp tục",
+  "Unlocked Badge Visual": "Huy chương vừa mở",
+  "Feedback and Teacher Status": "Lời khen của giáo viên"
+ },
+ "text": {
+  "LEVEL 3 UNLOCKED": "d.kicker",
+  "Review machine": "d.name",
+  "Reviewed 50 spaced flashcards today!": "d.desc",
+  "🎉 GREAT PACE!": "'🎉 ' + d.chip",
+  "Great pace!": "d.chip",
+  "Super memory streak!": "d.say",
+  "Keep it up.": "d.sub",
+  "+30 XP earned towards Band 7.5 target": "d.foot"
+ },
+ "html": {
+  ":scope > main > section:nth-child(3) > div > div:nth-child(3)": "d.art",
+  ":scope > main > section:nth-child(5) > div:nth-child(1)": "d.teacher",
+  ":scope > div > div:nth-child(3) > div:nth-child(5) > div:nth-child(1)": "d.teacher"
+ },
+ "remove": [
+  ":scope > div > div:nth-child(3) > div:nth-child(3) > svg:nth-child(3)"
+ ],
+ "after": {
+  ":scope > div > div:nth-child(3) > div:nth-child(3) > div:nth-child(2)": "d.art"
+ },
+ "attr": {
+  ":scope > main > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > div > div:nth-child(2)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > section:nth-child(3)": {
+   "data-bu-medal": "''"
+  },
+  ":scope > div > div:nth-child(3) > div:nth-child(3)": {
+   "data-bu-medal": "''"
+  },
+  ":scope > main > section:nth-child(5) > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > div > div:nth-child(3) > div:nth-child(5) > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > footer > div:nth-child(1) > button:nth-child(1)": {
+   "type": "'button'",
+   "data-share": "''",
+   "aria-label": "t('Chia sẻ')"
+  },
+  ":scope > main > footer > div:nth-child(1) > button:nth-child(2)": {
+   "type": "'button'",
+   "data-bu-next": "''",
+   "aria-label": "t('Tiếp tục')"
+  },
+  ":scope > div > div:nth-child(3) > div:nth-child(6) > button:nth-child(1)": {
+   "type": "'button'",
+   "data-bu-next": "''"
+  },
+  ":scope > div > div:nth-child(3) > div:nth-child(6) > button:nth-child(2)": {
+   "type": "'button'",
+   "data-share": "''"
+  }
+ },
+ "cls": {
+  ":scope > main > section:nth-child(5) > div:nth-child(1)": {
+   "border-dashed": "''",
+   "border-2": "''",
+   "bg-[#fcf2e9]": "''",
+   "border-[#136b66]": "''",
+   "shadow-[0_4px_0_0_#E5DACB]": "''",
+   "p-2.5": "'p-0 overflow-hidden'",
+   "justify-center": "'justify-end'"
+  },
+  ":scope > div > div:nth-child(3) > div:nth-child(5) > div:nth-child(1)": {
+   "border-dashed": "''",
+   "border-2": "''",
+   "bg-[#0E1F24]": "''",
+   "border-[#2DD4BF]": "''",
+   "p-2": "'p-0 overflow-hidden'",
+   "justify-center": "'justify-end'"
+  },
+  ":scope > div": {
+   "w-[390px]": "'w-full'",
+   "min-h-[844px]": "'min-h-screen'"
+  }
+ }
+}

@@ -1410,6 +1410,8 @@
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thêm cho hôm nay": "More for today", "{n} thẻ cần ôn": "{n} cards to review"}); })(typeof self !== 'undefined' ? self : this);
 /* Bài học trộn (#/lesson) trên trang chủ – khi cờ lesson_mix bật */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Bài học trộn": "Mixed lesson", "Nghe · nói · xếp câu từ chính các từ của bạn": "Listen, speak and build sentences with your own words"}); })(typeof self !== 'undefined' ? self : this);
+/* Lối vào báo cáo tuần + tất cả huy hiệu từ #/stats (web/js/ux1-badges.js) */
+(function (g) { Object.assign(g.I18N_DICT.en, {"Xem báo cáo tuần": "See weekly report", "Xem tất cả huy hiệu": "See all badges"}); })(typeof self !== 'undefined' ? self : this);
 
 /* Chữ giao diện add-on (content/popup/background) – nguồn tiếng Anh để Actions dịch sang 13 ngôn ngữ khác */
 (function (g) { Object.assign(g.I18N_DICT.en, {
