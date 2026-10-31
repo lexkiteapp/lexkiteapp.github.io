@@ -4,7 +4,7 @@
 // Dùng: node scripts/test/stitch-render.mjs [brand/stitch/v2] [out/stitch-v2]   (cần playwright + imagemagick; CI: stitch-diff.yml)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process'; import { chromium } from 'playwright'; import { PNG } from 'pngjs';
 const [SRC = 'brand/stitch/v2', OUT = 'out/stitch-v2'] = process.argv.slice(2); fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
-export const ORDER = ['path', 'lesson-question', 'feedback-correct', 'feedback-wrong', 'lesson-complete', 'story-duo', 'review', 'practice', 'leagues', 'streak', 'me', 'teacher-call', 'exam-readiness'];
+export const ORDER = ['path', 'lesson-question', 'feedback-correct', 'feedback-wrong', 'lesson-complete', 'story-duo', 'review', 'practice', 'leagues', 'streak', 'me', 'teacher-call', 'exam-readiness', 'library', 'topic', 'deck', 'mistakes', 'dictionary', 'stats'];
 const STILL = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
 const browser = await chromium.launch(), ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
 const done = {}, info = {};
@@ -84,11 +84,11 @@ const nz = x => x.replace(/\d+(\.\d+)?(?=<|;|$)/g, '#').replace(/ \d+ chữ/, ' 
 const fresh = must.filter((x, i) => !KN.includes(MN[i])), gone = KNOWN.filter((x, i) => !MN.includes(KN[i]));
 if (gone.length) console.log('ℹ lỗi mẫu đã hết (xóa khỏi known-issues.json):\n  ' + gone.join('\n  '));
 if (fresh.length) { console.error('✗ lỗi mẫu MỚI:\n  ' + fresh.join('\n  ')); process.exitCode = 1; }
-// tờ duyệt: 2 tờ (7 + 6 màn), mỗi ô thu 50 %, thiếu bản → ô xám "chưa có trong Stitch"
+// tờ duyệt: 3 tờ (7 + 6 + 6 màn), mỗi ô thu 50 %, thiếu bản → ô xám "chưa có trong Stitch"
 const cell = (s, m) => done[`${s}-${m}`] || (() => { const o = path.join(OUT, 'png', `_missing-${s}-${m}.png`);
   execFileSync('convert', ['-size', '390x844', 'xc:#777', '-gravity', 'center', '-pointsize', '28', '-fill', 'white', '-annotate', '0', `${s}\n${m}\nchưa có trong Stitch`, o]); return o; })();
-for (const [i, part] of [ORDER.slice(0, 7), ORDER.slice(7)].entries()) {
+for (const [i, part] of [ORDER.slice(0, 7), ORDER.slice(7, 13), ORDER.slice(13)].entries()) {
   const tiles = [...part.map(s => cell(s, 'dark')), ...part.map(s => cell(s, 'light'))];
   execFileSync('montage', [...tiles, '-tile', `${part.length}x2`, '-geometry', '195x+8+8', '-gravity', 'north', '-background', '#e9eef0',
-    '-title', `Stitch v2.1 (HTML tĩnh 390 px) · trên: tối · dưới: sáng · tờ ${i + 1}/2`, '-pointsize', '20', path.join(OUT, `sheet-${i + 1}.png`)]); }
-console.log(`stitch-render: ${Object.keys(done).length} màn → ${OUT}/png, tờ ${OUT}/sheet-1.png, sheet-2.png`);
+    '-title', `Stitch v2.1 (HTML tĩnh 390 px) · trên: tối · dưới: sáng · tờ ${i + 1}/3`, '-pointsize', '20', path.join(OUT, `sheet-${i + 1}.png`)]); }
+console.log(`stitch-render: ${Object.keys(done).length} màn → ${OUT}/png, tờ ${OUT}/sheet-1..3.png`);
