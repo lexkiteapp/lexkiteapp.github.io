@@ -2,7 +2,7 @@
 <!-- Lab mặt VẼ (docs/specs/call-lipsync.md): LipFace (lớp vector + máy biểu cảm) phát theo audio.currentTime; CI (scripts/lipsync/lab.mjs) đo fps ở CPU chậm 4×. Chưa vào luồng Call. -->
 <style>body{margin:0;background:#EEF5F5;font:14px system-ui}.fc{position:relative;width:480px;aspect-ratio:1108/960}.fc img,.fc svg{position:absolute;inset:0;width:100%;height:100%}</style></head>
 <body><div class="fc" id="fc"><img id="base" alt=""><svg id="lay" viewBox="0 0 1108 960"><g id="g"></g></svg></div>
-<script src="../js/call/lipsync.js"></script><script src="../js/call/mouths.js"></script><script src="../js/call/face.js"></script>
+<script src="../js/characters.js"></script><script src="../js/call/lipsync.js"></script><script src="../js/call/mouths.js"></script><script src="../js/call/face.js"></script>
 <script>
 (async () => {
   const lines = await (await fetch('lipsync/lines.json')).json(), fc = document.getElementById('fc'), G = document.getElementById('g'), base = document.getElementById('base');
@@ -10,7 +10,7 @@
   const ac = new AudioContext(), envOf = async url => { const b = await ac.decodeAudioData(await (await fetch(url)).arrayBuffer()), x = b.getChannelData(0), hop = b.sampleRate / 100, e = [];
     for (let i = 0; i + hop <= x.length; i += hop) { let s = 0; for (let j = 0; j < hop; j++) s += x[i + j] * x[i + j]; e.push(Math.sqrt(s / hop)); } return e; };
   async function run(i) {
-    const l = lines[i], au = new Audio('lipsync/' + l.mp3), env = await envOf('lipsync/' + l.mp3); base.src = `../teach/${l.who}/poster-2x.webp`;
+    const l = lines[i], au = new Audio('lipsync/' + l.mp3), env = await envOf('lipsync/' + l.mp3); base.src = '../' + Chars.head(l.who, 1);
     const M = LipFace.machine(l.who, { cues: l.cues, env, dur: l.dur, emo: l.emo, seed: 11 + i, text: l.text }), R = LipFace.RIG[l.who];
     if (au.readyState < 3) await new Promise(z => au.addEventListener('canplay', z, { once: true })); // tiếng có thể đã tải xong trong lúc giải mã env → không chờ sự kiện đã qua
     await au.play();
