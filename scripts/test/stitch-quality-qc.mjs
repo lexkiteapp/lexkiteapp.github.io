@@ -21,11 +21,13 @@ for (const s of SURF) { const f = path.join(SRC, s, '.index.txt'); if (!fs.exist
 const browser = await chromium.launch(), report = [];
 for (const r of rows) { const res = { surface: r.s, page: r.page, fails: [], info: {} }, words = {};
   for (const m of ['light', 'dark']) { const f = path.join(SRC, r.s, `${r.page}-${m}.html`); if (!fs.existsSync(f)) { res.fails.push(`${m}: thiếu file`); continue; }
-    const ctx = await browser.newContext({ viewport: { width: r.w, height: r.w > 800 ? 900 : 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: m });
+    const sv = fs.readFileSync(f, 'utf8').match(/<svg[^>]*?\swidth="(\d+)"[^>]*?\sheight="(\d+)"/); // ảnh tĩnh SVG: khung = đúng cỡ ảnh (không tính lề trắng)
+    const ctx = await browser.newContext({ viewport: sv ? { width: +sv[1], height: +sv[2] } : { width: r.w, height: r.w > 800 ? 900 : 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: m });
     const p = await ctx.newPage(), errs = []; p.on('pageerror', e => errs.push(String(e.message || e).slice(0, 120)));
     await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle', timeout: 60000 }).catch(e => errs.push('load: ' + e.message.slice(0, 80)));
     await p.addStyleTag({ content: STILL }); await p.evaluate(() => document.fonts && document.fonts.ready); await p.waitForTimeout(300);
     const png = path.join(OUT, 'png', `${r.s}-${r.page}-${m}.png`); await p.screenshot({ path: png, fullPage: true });
+    await p.evaluate(() => { for (const e of document.querySelectorAll('svg text, svg tspan')) { const fl = getComputedStyle(e).fill; if (/^rgb/.test(fl)) e.style.color = fl; } }); // chữ SVG: màu thật = fill
     const boxes = await p.evaluate(textBoxes), txt = await p.evaluate(() => document.body.innerText);
     words[m] = (txt.match(/\S+/g) || []).length;
     const miss = contrastMiss(png, boxes), br = brightShare(png);
