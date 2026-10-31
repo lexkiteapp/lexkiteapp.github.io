@@ -25,13 +25,17 @@ export function sentences() {
 }
 
 const tl = l => (l === 'zh' ? 'zh-CN' : l);
+let warned = 0;
 async function tr(lang, list) {
+  const q = encodeURIComponent(list.join('\n')); // GET như gen-word-packs (gtx không nhận POST); lô giới hạn theo độ dài URL ở run()
   for (let i = 0; i < 4; i++) {
     try {
-      const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl(lang)}&dt=t`, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }, body: 'q=' + encodeURIComponent(list.join('\n')) });
+      const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl(lang)}&dt=t&q=${q}`);
       if (r.ok) { const j = await r.json(); const o = j[0].map(x => x[0]).join('').split('\n').map(s => s.trim()); return o.length === list.length ? o : null; }
+      if (warned++ < 5) console.warn(lang, 'HTTP', r.status, 'lô', list.length, 'câu, URL', q.length);
       if (r.status === 429) await sleep(30000);
-    } catch (e) { /* thử lại */ }
+      else if (r.status === 400 || r.status === 413 || r.status === 414) return null; // lô quá dài → tách từng câu
+    } catch (e) { if (warned++ < 5) console.warn(lang, 'lỗi mạng', e.message); }
     await sleep(3000 * (i + 1));
   }
   return undefined; // mạng/giới hạn
@@ -46,8 +50,10 @@ async function run(lang) {
   console.log(lang, S.size, 'câu, cần dịch', miss.length);
   const put = (x, s) => { (shards[shardOf(x.word)] ||= {})[x.word] = [x.ex, s]; };
   let stop = false;
-  for (let i = 0; i < miss.length && !stop; i += 40) {
-    const b = miss.slice(i, i + 40), o = await tr(lang, b.map(x => x.ex));
+  for (let i = 0; i < miss.length && !stop;) {
+    const b = []; let len = 0; // lô ≤ ~6000 ký tự đã mã hóa (URL GET an toàn), ≤ 40 câu
+    while (i < miss.length && b.length < 40) { const n = encodeURIComponent(miss[i].ex).length + 3; if (b.length && len + n > 6000) break; b.push(miss[i++]); len += n; }
+    const o = await tr(lang, b.map(x => x.ex));
     if (o === undefined) { stop = true; break; }
     if (o) b.forEach((x, n) => o[n] && put(x, o[n]));
     else for (const x of b) { const one = await tr(lang, [x.ex]); if (one === undefined) { stop = true; break; } if (one && one[0]) put(x, one[0]); await sleep(400); } // lô lệch dòng → dịch từng câu
