@@ -1,0 +1,46 @@
+name: Độ to giọng nói (−16 LUFS)
+# Đo MỌI clip giọng app phát (audio/l câu + giọng giáo viên, audio/w từ đơn) trong các kho media (infra/media-repos.json, kind audio)
+# bằng ffmpeg ebur128 – chuẩn scripts/audio/norm.mjs. Báo cáo ở Summary + artifact loudness-report.
+on:
+  pull_request:
+    paths: ['scripts/audio/**', '.github/workflows/audio-loudness.yml']
+  workflow_dispatch:
+    inputs:
+      limit: { description: 'Số clip tối đa mỗi kho (0 = tất cả)', default: '0' }
+permissions:
+  contents: read
+concurrency:
+  group: audio-loudness-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && ffmpeg -version | head -1
+      - name: Tải clip từ các kho media âm thanh
+        run: |
+          for r in $(node -e "const c=require('./infra/media-repos.json');console.log(c.repos.filter(r=>r.kinds.includes('audio')&&r.state!=='planned').map(r=>r.repo).join(' '))"); do
+            d=/tmp/media/$(basename $r); git clone -q --depth 1 https://github.com/$r.git $d && echo "$r: $(find $d/audio -name '*.mp3' | wc -l) mp3"
+          done
+      - name: Đo (ebur128, đỉnh thật)
+        run: |
+          mkdir -p out
+          dirs=$(ls -d /tmp/media/*/audio/l /tmp/media/*/audio/w 2>/dev/null)
+          CI=1 node scripts/audio/loudness.mjs measure $dirs --limit "${{ github.event.inputs.limit || '0' }}" --out out/loudness.json --md out/loudness.md
+          cat out/loudness.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Thử chuẩn hoá 400 clip lệch xa nhất (câu + từ) rồi đo lại – cổng ±1 LU
+        run: |
+          node -e "const r=require('./out/loudness.json').rows.filter(x=>x.v!=='ok').sort((a,b)=>Math.abs(b.I+16)-Math.abs(a.I+16));const g=k=>r.filter(x=>x.f.includes('/audio/'+k+'/')).slice(0,200);console.log([...g('l'),...g('w'),...r.filter(x=>x.TP>0).slice(0,40)].map(x=>x.f).join('\\n'))" | sort -u > out/trial.txt
+          mkdir -p /tmp/trial && while read f; do d=/tmp/trial/$(basename $(dirname $f)); mkdir -p $d; cp "$f" $d/; done < out/trial.txt
+          CI=1 node scripts/audio/loudness.mjs normalize /tmp/trial
+          CI=1 node scripts/audio/loudness.mjs measure /tmp/trial --out out/trial.json --md out/trial.md
+          echo '### Sau chuẩn hoá (mẫu khó nhất)' >> "$GITHUB_STEP_SUMMARY"; cat out/trial.md >> "$GITHUB_STEP_SUMMARY"
+          node scripts/audio/loudness.mjs gate out/trial.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: loudness-report, path: out/, retention-days: 30 }
