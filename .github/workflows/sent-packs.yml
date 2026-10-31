@@ -1,0 +1,38 @@
+name: Bản dịch câu ví dụ cho bài học (15 ngôn ngữ)
+# Sinh web/packs/sent/<lang>/<mảnh>.json (scripts/gen-sent-packs.mjs) – nghĩa tiếng mẹ đẻ của câu ở bài Xếp câu / Chọn từ thiếu.
+# Chạy lại = chỉ dịch câu mới/đổi. Đẩy kết quả về đúng nhánh đã chạy (dispatch trên nhánh PR → commit vào PR).
+on:
+  schedule:
+    - cron: '50 21 * * *'   # 04:50 giờ VN, sau word-packs
+  workflow_dispatch:
+    inputs:
+      langs: { description: 'mã ngôn ngữ cách nhau dấu cách (trống = tất cả)', required: false, default: '' }
+  push:
+    branches: [main]
+    paths: [scripts/gen-sent-packs.mjs, .github/workflows/sent-packs.yml]
+permissions:
+  contents: write
+concurrency: { group: google-translate, cancel-in-progress: false }  # chung hàng đợi với word-packs: không gọi Google Translate song song
+jobs:
+  sent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dịch từng ngôn ngữ, lưu sau mỗi ngôn ngữ
+        env: { LANGS_IN: '${{ github.event.inputs.langs }}', BR: '${{ github.ref_name }}' }
+        run: |
+          git config user.name "lexkite-bot"
+          git config user.email "lexkite-bot@users.noreply.github.com"
+          L="$LANGS_IN"; [ -z "$L" ] && L="vi $(grep -v '^#' scripts/i18n-langs.txt | tr '\n' ' ')"
+          for l in $L; do
+            node scripts/gen-sent-packs.mjs "$l" || echo "lỗi $l"
+            git add -A web/packs/sent
+            git diff --cached --quiet && continue
+            git commit -q -m "Bản dịch câu bài học: $l [CF-Pages-Skip]"
+            for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin "$BR" && git push -q origin "HEAD:$BR" && break; sleep $((i * 7)); done
+          done
+      - name: Độ phủ
+        run: for d in web/packs/sent/*/; do echo "$d $(cat $d*.json | grep -o '":\["' | wc -l)"; done

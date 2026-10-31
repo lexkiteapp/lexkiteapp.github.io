@@ -633,6 +633,20 @@
    "lease": false
   },
   {
+   "id": "sent-packs",
+   "workflow": "sent-packs.yml",
+   "cron": [
+    "50 21 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "wordlists",
    "workflow": "wordlists.yml",
    "cron": [

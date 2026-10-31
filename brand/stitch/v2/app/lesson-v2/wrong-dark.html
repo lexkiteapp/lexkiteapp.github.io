@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Lesson - Answer Wrong Bottom Sheet (Tactile Night)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #051013;
+      color: #d8e5e9;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#051013] flex justify-center items-start antialiased selection:bg-[#2ba39a] selection:text-[#00201e]">
+<!-- Phone Canvas (390px wide, single column, no phone status bar, no mockup frame) -->
+<main class="w-[390px] min-h-[844px] relative bg-[#091518] flex flex-col justify-between overflow-hidden shadow-2xl">
+<!-- ==============================================
+         BACKGROUND LAYER: DIMMED FOCUS LESSON EXERCISE (TACTILE NIGHT)
+         ============================================== -->
+<div aria-hidden="true" class="w-full flex flex-col px-4 pt-3 pb-24 select-none opacity-40 filter blur-[0.4px] pointer-events-none">
+<!-- TOP BAR: FOCUS variant (56px) -->
+<header class="w-full h-14 flex items-center justify-between gap-3 mb-4">
+<!-- Round Close Button (Tactile 40x40) -->
+<button class="w-10 h-10 rounded-full bg-[#162125] border-2 border-[#2b373a] shadow-[0_3px_0_#101b1e] flex items-center justify-center text-[#d8e5e9]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Thick Rounded Progress Bar (60%) -->
+<div class="flex-1 h-3.5 bg-[#121d20] border border-[#2b373a] rounded-full overflow-hidden p-0.5 shadow-inner">
+<div class="h-full bg-[#2ba39a] rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.3)]" style="width: 60%;"></div>
+</div>
+<!-- Small Status Chip on the Right -->
+<div class="px-2.5 py-1.5 rounded-full bg-[#202c2f] border-2 border-[#3d4947] shadow-[0_2px_0_#121d20] flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#ffb4a6]"></span>
+<span class="text-[12px] font-extrabold text-[#d8e5e9] tracking-tight">8 / 15</span>
+</div>
+</header>
+<!-- LESSON CONTENT: "Type the English word" -->
+<section class="flex flex-col gap-4 mt-2">
+<!-- Sub-label & Exercise Title -->
+<div>
+<span class="text-[12px] font-extrabold uppercase tracking-wider text-[#6bd8ce] bg-[#12252a] px-2.5 py-1 rounded-full border border-[#1e3d44]">
+            Vocabulary Practice
+          </span>
+<h1 class="text-[22px] font-black text-[#d8e5e9] mt-2.5 tracking-tight">
+            Type the English word
+          </h1>
+<p class="text-[14px] font-medium text-[#bcc9c7] mt-0.5">
+            Dịch: <span class="font-bold text-[#ffffff]">thân thiện với người dùng</span>
+</p>
+</div>
+<!-- Exercise Card with Prompt -->
+<div class="w-full bg-[#121d20] rounded-[16px] border-2 border-[#23353a] shadow-[0_5px_0_#0c1518] p-4 flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1a292d] border-2 border-[#2c4046] flex items-center justify-center text-[#6bd8ce]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-[11px] font-extrabold uppercase text-[#879391] tracking-wider">Compound Adjective</p>
+<p class="text-[15px] font-bold text-[#d8e5e9]">Designed to be easy to use</p>
+</div>
+</div>
+<!-- The Learner's Incorrect Input 'user friendy' -->
+<div class="w-full mt-1 bg-[#261214] border-2 border-[#7f1d1d] rounded-xl p-3.5 shadow-inner">
+<span class="text-[16px] font-extrabold text-[#ffb4ab]">user friendy</span>
+</div>
+</div>
+</section>
+<!-- Dimmed Bottom Check Action (Inactive placeholder behind sheet) -->
+<div class="mt-8">
+<button class="w-full h-13 py-3.5 bg-[#f43f5e] rounded-2xl border-2 border-[#9f1239] shadow-[0_6px_0_#4c0519] text-[#1c1003] font-black text-[16px] text-center">
+          Check
+        </button>
+</div>
+</div>
+<!-- SEMI-TRANSPARENT NIGHT SCRIM OVER BACKGROUND -->
+<div aria-hidden="true" class="absolute inset-0 bg-[#051013]/70 backdrop-blur-[2px] z-10"></div>
+<!-- ==============================================
+         BOTTOM SHEET: "ANSWER WAS WRONG" (TACTILE NIGHT)
+         Dark teal container (#102429 / #12252a), tactile drop depth
+         ============================================== -->
+<section aria-labelledby="sheet-heading" class="absolute bottom-0 inset-x-0 z-20 bg-[#102429] border-t-2 border-x-2 border-[#1e3d44] rounded-t-[32px] shadow-[0_-10px_35px_rgba(0,0,0,0.65)] flex flex-col pt-3 pb-5 px-4">
+<!-- Drag handle indicator -->
+<div class="w-10 h-1.5 bg-[#254c55] rounded-full mx-auto mb-3"></div>
+<!-- HEADER ROW: Coral/Red X Badge + Heading "Not quite" -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<!-- Circular badge with ✕ in coral/red (#ef4444) -->
+<div class="w-9 h-9 rounded-full bg-gradient-to-b from-[#ef4444] to-[#dc2626] border-2 border-[#f87171]/40 shadow-[0_3px_0_#991b1b,0_4px_10px_rgba(239,68,68,0.35)] flex items-center justify-center text-white relative overflow-hidden flex-shrink-0">
+<!-- Specular sheen -->
+<div class="absolute -top-1 left-1.5 w-6 h-3 bg-white/30 rounded-full blur-[0.5px]"></div>
+<svg class="w-5 h-5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Heading -->
+<div>
+<h2 class="text-[20px] font-black text-white tracking-tight leading-tight" id="sheet-heading">
+              Not quite
+            </h2>
+<p class="text-[12px] font-bold text-[#a5c7cb]">You're very close! Check the spelling.</p>
+</div>
+</div>
+<!-- Report button with flag in dark tactile surface with light text -->
+<button class="flex items-center gap-1.5 text-[12px] font-extrabold text-[#d8e5e9] bg-[#162f36] border border-[#27535e] px-2.5 py-1 rounded-full shadow-[0_2px_0_#0d1e22] active:translate-y-0.5 transition-all hover:bg-[#1b3a42]">
+<svg class="w-3.5 h-3.5 text-[#ff8a7a]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M5 21V4h9l.4 2H20v10h-7l-.4-2H7v7H5z"></path>
+</svg>
+<span>Report</span>
+</button>
+</div>
+<!-- CARD 1: THE CORRECT ANSWER + AUDIO + IPA -->
+<div class="w-full bg-[#0e2126] rounded-[16px] border-2 border-[#1e3d44] shadow-[0_5px_0_#071417] p-3.5 flex flex-col gap-2.5 mb-2.5">
+<!-- Label -->
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-black uppercase tracking-wider text-[#2dd4bf]">
+            CORRECT ANSWER:
+          </span>
+<span class="text-[11px] font-bold text-[#a5c7cb] bg-[#143038] px-2 py-0.5 rounded-full border border-[#224853]">
+            Compound Adjective
+          </span>
+</div>
+<!-- Big Bold Word + Speaker Play Button -->
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-baseline gap-2">
+<span class="text-[24px] font-black text-[#ffffff] tracking-tight">
+              user-friendly
+            </span>
+</div>
+<!-- Tactile Audio Speaker Button in tactile teal (#0d5e58) with glowing cyan icon and white text -->
+<button aria-label="Listen to pronunciation" class="px-3 py-1.5 rounded-xl bg-[#0d5e58] border-2 border-[#14837b] shadow-[0_3px_0_#083e3a] flex items-center gap-1.5 text-white hover:bg-[#11706a] active:translate-y-0.5 transition-all">
+<svg class="w-4 h-4 text-[#6bd8ce] fill-current" viewbox="0 0 24 24">
+<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
+</svg>
+<span class="text-[12px] font-extrabold text-white">Hear</span>
+</button>
+</div>
+<!-- IPA Pronunciation Pill -->
+<div class="flex items-center gap-1.5">
+<span class="text-[13px] font-bold text-[#879391] tracking-wide">
+            IPA:
+          </span>
+<span class="text-[13px] font-extrabold text-[#a5c7cb] bg-[#12272d] px-2 py-0.5 rounded-md border border-[#1e3d44]">
+            /ˌjuː.zəˈfrend.li/
+          </span>
+</div>
+</div>
+<!-- CARD 2: SPELLING HIGHLIGHT DIFF & TEACHING WHY -->
+<div class="w-full bg-[#0e2126] rounded-[16px] border-2 border-[#1e3d44] shadow-[0_5px_0_#071417] p-3.5 flex flex-col gap-2.5 mb-3">
+<!-- Diff Visualizer -->
+<div>
+<p class="text-[11px] font-extrabold uppercase tracking-wider text-[#a5c7cb] mb-1">
+            YOUR SPELLING VS. CORRECT:
+          </p>
+<div class="flex items-center flex-wrap gap-2 text-[14px] font-bold">
+<!-- YOU: user friendy pill with coral background/border (#3b181c / #f87171) and crisp white/coral text -->
+<div class="flex items-center gap-1 bg-[#3b181c] border border-[#f87171] rounded-lg px-2.5 py-1 text-[#ffb4ab]">
+<span class="text-[11px] font-black uppercase text-[#ff8a7a]">YOU:</span>
+<span class="line-through decoration-[#ff8a7a] decoration-2 text-white">user friendy</span>
+</div>
+<!-- Arrow in light mint -->
+<svg class="w-4 h-4 text-[#6bd8ce]" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<!-- FIX: user - friend l y comparison pill in dark cyan/teal (#0d3e3a) with highlighted fix letter in bright yellow/cyan with dark ink (#1c1003) -->
+<div class="flex items-center gap-1 bg-[#0d3e3a] border border-[#1e615b] rounded-lg px-2.5 py-1 text-[#e0f2fe]">
+<span class="text-[11px] font-black uppercase text-[#6bd8ce]">FIX:</span>
+<span>user<span class="bg-[#f4bf40] text-[#1c1003] px-1 rounded font-black">-</span>friend<span class="bg-[#6bd8ce] text-[#1c1003] px-1 rounded font-black underline">l</span>y</span>
+</div>
+</div>
+<!-- Bullet alert in light coral/white (#fca5a5) -->
+<p class="text-[11px] font-bold text-[#fca5a5] mt-1.5 flex items-center gap-1">
+<svg class="w-3.5 h-3.5 inline text-[#f87171] flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path>
+</svg>
+            Missing hyphen (-) and the letter 'l' before the 'y'.
+          </p>
+</div>
+<!-- Divider line -->
+<hr class="border-t border-[#1a343a]"/>
+<!-- Short Explanation Line -->
+<div class="flex items-start gap-2">
+<div class="w-5 h-5 rounded-full bg-[#2a2412] border border-[#f4bf40]/60 flex items-center justify-center text-[#f4bf40] text-[11px] font-black mt-0.5 flex-shrink-0">
+            i
+          </div>
+<div class="flex-1">
+<p class="text-[13px] font-bold text-[#e2e8f0] leading-snug">
+              Hyphenated adjective: <span class="text-[#6bd8ce]">user + friendly</span>.
+            </p>
+<!-- Meaning in learner's language -->
+<p class="text-[13px] font-semibold text-[#a5c7cb] mt-0.5">
+              Nghĩa: <span class="font-extrabold text-[#f4bf40]">thân thiện với người dùng</span>
+</p>
+</div>
+<!-- Small 'Why?' text button in glowing cyan (#2dd4bf) -->
+<button class="text-[12px] font-black text-[#2dd4bf] underline hover:text-[#88f5ea] self-center">
+            Why?
+          </button>
+</div>
+</div>
+<!-- FULL-WIDTH TACTILE PRIMARY BUTTON: GOT IT → -->
+<!-- Tactile button with deep 3D ledge. Coral/red-orange (#ea580c / #f43f5e) with STRICT deep brown-black ink (#1c1003) for the label text -->
+<button class="w-full h-14 bg-[#ea580c] hover:bg-[#f97316] active:translate-y-1 active:shadow-[0_2px_0_#9a3412] rounded-2xl border-2 border-[#fb923c] shadow-[0_6px_0_#9a3412] text-[#1c1003] font-black text-[17px] tracking-wider uppercase flex items-center justify-center gap-2 transition-all">
+<span>GOT IT</span>
+<svg class="w-5 h-5 text-[#1c1003]" fill="none" stroke="currentColor" stroke-width="3.5" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</section>
+</main>
+</body></html>

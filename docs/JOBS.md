@@ -80,6 +80,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |
 | 21:00 | `wordlists` | `0 21 * * *` | render | gh_minutes | 20 | — | — |
 | 21:30 | `lexicon-i18n` | `30 21 * * *` | render | gemini, gh_minutes | 60 | — | — |
+| 21:50 | `sent-packs` | `50 21 * * *` | render | gh_minutes | 60 | — | — |
 | 22:00 | `i18n-leak` | `0 22 * * *` | reports | gh_minutes | 20 | — | — |
 | 22:40 | `quality-sweep` | `40 22 * * *` | reports | gh_minutes | 45 | — | ✓ |
 | 23:10 | `content-qa` | `10 23 * * *` | reports | gh_minutes | 5 | — | — |

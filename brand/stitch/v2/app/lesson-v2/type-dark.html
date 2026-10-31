@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Dictation - Type the English Word (Tactile Night)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400..700,0..1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              bg: '#0E1A1C',
+              surface: '#12252A',
+              card: '#102226',
+              border: '#1E3D44',
+              ledge: '#071316',
+              slot: '#0B1A1D',
+            },
+            lexteal: {
+              DEFAULT: '#136B66',
+              glow: '#2DD4BF',
+              dark: '#0D5E58',
+              light: '#5EEAD4',
+            },
+            ambercta: {
+              DEFAULT: '#F59E0B',
+              ledge: '#9A3412',
+              ink: '#1C1003',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0E1A1C;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #F0F7F8;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .teacher-dashed {
+      border: 2px dashed #2DD4BF;
+    }
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #071316 !important;
+    }
+    .tactile-amber-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #9A3412 !important;
+    }
+  </style>
+</head>
+<body class="bg-[#0E1A1C] text-[#F0F7F8] min-h-screen flex flex-col justify-between selection:bg-[#2DD4BF] selection:text-[#0E1A1C]">
+
+  <!-- Top Progress Bar Navigation -->
+  <header class="w-full max-w-2xl mx-auto px-6 pt-6 pb-4 flex items-center gap-4">
+    <!-- Close Button -->
+    <button class="w-10 h-10 rounded-full bg-[#12252A] hover:bg-[#163036] active:translate-y-0.5 border border-[#1E3D44] flex items-center justify-center text-[#A5C7CB] hover:text-white transition-all shadow-[0_3px_0_0_#071316]">
+      <span class="material-symbols-rounded text-xl">close</span>
+    </button>
+
+    <!-- Progress Meter -->
+    <div class="flex-1 h-3.5 bg-[#12252A] rounded-full border border-[#1E3D44] overflow-hidden p-[2px]">
+      <div class="h-full bg-gradient-to-r from-[#136B66] to-[#2DD4BF] rounded-full shadow-[0_0_12px_rgba(45,212,191,0.5)]" style="width: 66%;"></div>
+    </div>
+
+    <!-- Question Counter Pill -->
+    <div class="px-3.5 py-1.5 rounded-full bg-[#12252A] border border-[#1E3D44] text-xs font-bold text-[#A5C7CB] tracking-wide shadow-[0_2px_0_0_#071316]">
+      Question 6/9
+    </div>
+  </header>
+
+  <!-- Main Lesson Content Area -->
+  <main class="w-full max-w-2xl mx-auto px-6 py-2 flex-1 flex flex-col gap-5">
+
+    <!-- Clue & Prompt Row: Teacher Slot + Prompt Card -->
+    <section class="grid grid-cols-12 gap-3.5 items-stretch">
+      <!-- Empty Dashed Teacher Slot -->
+      <div class="col-span-4 rounded-3xl bg-[#102226] teacher-dashed p-4 flex flex-col items-center justify-center text-center shadow-[0_4px_0_0_#071316]">
+        <div class="w-12 h-12 rounded-2xl bg-[#0D5E58] border border-[#2DD4BF]/40 flex items-center justify-center text-[#2DD4BF] mb-2.5 shadow-inner">
+          <span class="material-symbols-rounded text-2xl">school</span>
+        </div>
+        <p class="text-xs font-extrabold text-[#2DD4BF] tracking-wider leading-tight">TEACHER<br>SLOT</p>
+        <span class="text-[10px] font-semibold text-[#82A8AE] mt-1">Stands grounded</span>
+      </div>
+
+      <!-- Vietnamese Clue & Audio Controls Card -->
+      <div class="col-span-8 rounded-3xl bg-[#12252A] border border-[#1E3D44] p-4 flex flex-col justify-between shadow-[0_4px_0_0_#071316]">
+        <!-- Top Action Buttons (Audio) -->
+        <div class="flex items-center gap-2.5 mb-2.5">
+          <button class="tactile-btn flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0D5E58] hover:bg-[#116e67] border border-[#2DD4BF]/50 text-white font-bold text-xs shadow-[0_3px_0_0_#062A27]">
+            <span class="material-symbols-rounded text-base text-[#2DD4BF]">volume_up</span>
+            Play
+          </button>
+          <button class="tactile-btn flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#102226] hover:bg-[#163036] border border-[#1E3D44] text-[#A5C7CB] font-bold text-xs shadow-[0_3px_0_0_#071316]">
+            <span class="material-symbols-rounded text-base text-[#F59E0B]">slow_motion_video</span>
+            Slow
+          </button>
+        </div>
+
+        <!-- Clue Content -->
+        <div class="bg-[#0B1A1D] rounded-2xl p-3.5 border border-[#1E3D44]/70">
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+            <span class="text-[10px] font-black uppercase tracking-wider text-[#A5C7CB]">VIETNAMESE</span>
+          </div>
+          <h3 class="text-base font-extrabold text-white tracking-tight">thân thiện với người dùng</h3>
+        </div>
+
+        <!-- English Clue Helper -->
+        <p class="text-[11px] font-medium text-[#A5C7CB] mt-2.5 pl-1 leading-relaxed">
+          easy for people who are not experts to use or understand
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Question Heading & Subtitle -->
+    <section class="mt-1">
+      <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+        Type the English word
+      </h1>
+      <p class="text-xs sm:text-sm font-semibold text-[#A5C7CB] mt-1">
+        Listen to the clue and fill in the missing letters.
+      </p>
+    </section>
+
+    <!-- Word Structure & Fill-in Slots Card -->
+    <section class="rounded-3xl bg-[#12252A] border border-[#1E3D44] p-5 shadow-[0_4px_0_0_#071316] flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-black uppercase tracking-wider text-[#2DD4BF]">Word Structure</span>
+        <span class="text-xs font-bold text-[#A5C7CB]">13 letters · compound</span>
+      </div>
+
+      <!-- Letter Slots Rack -->
+      <div class="bg-[#0B1A1D] rounded-2xl p-4 border border-[#1E3D44] flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+        <!-- Letter 1 (Revealed) -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#0D5E58] border-2 border-[#2DD4BF] flex items-center justify-center font-black text-white text-base sm:text-lg shadow-[0_2px_0_0_#062A27]">
+          u
+        </div>
+        <!-- Letter 2 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 3 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 4 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Hyphen -->
+        <div class="w-4 h-10 flex items-center justify-center font-black text-[#2DD4BF] text-lg">
+          -
+        </div>
+        <!-- Letter 5 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 6 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 7 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 8 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 9 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 10 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 11 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+        <!-- Letter 12 -->
+        <div class="w-8 h-10 sm:w-9 sm:h-11 rounded-xl bg-[#102226] border border-[#1E3D44] flex items-end justify-center pb-2 text-[#497078] font-bold text-sm">
+          _
+        </div>
+      </div>
+
+      <!-- Active Typing Input Box -->
+      <div class="flex flex-col gap-1.5">
+        <div class="relative flex items-center">
+          <input type="text" placeholder="Type in English" autofocus
+            class="w-full h-14 bg-[#0B1A1D] border-2 border-[#2DD4BF] focus:border-[#5EEAD4] focus:outline-none rounded-2xl px-5 pr-14 text-white text-base sm:text-lg font-bold placeholder-[#648B91] shadow-inner" />
+          <div class="absolute right-4 text-[#2DD4BF] flex items-center pointer-events-none">
+            <span class="material-symbols-rounded text-2xl">keyboard</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between px-1 text-xs font-bold text-[#A5C7CB]">
+          <span>13 letters · starts with u</span>
+          <span class="text-[#2DD4BF]">Press Enter ↵</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Tactile Hint Action Row -->
+    <section class="grid grid-cols-2 gap-3.5">
+      <button class="tactile-btn flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-[#12252A] hover:bg-[#163036] border border-[#1E3D44] text-[#F0F7F8] font-extrabold text-xs sm:text-sm shadow-[0_3px_0_0_#071316]">
+        <span class="material-symbols-rounded text-lg text-[#F59E0B]">lightbulb</span>
+        Hint: reveal letter
+      </button>
+
+      <button class="tactile-btn flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-[#12252A] hover:bg-[#163036] border border-[#1E3D44] text-[#F0F7F8] font-extrabold text-xs sm:text-sm shadow-[0_3px_0_0_#071316]">
+        <span class="material-symbols-rounded text-lg text-[#2DD4BF]">grid_view</span>
+        Use word bank
+      </button>
+    </section>
+
+    <!-- Friendly Reinforcement Banner -->
+    <div class="flex items-center justify-center gap-2 py-2 text-center text-xs font-bold text-[#2DD4BF]">
+      <span class="material-symbols-rounded text-base">verified_user</span>
+      Always friendly &amp; doable • Hints never penalize XP
+    </div>
+  </main>
+
+  <!-- Sticky Bottom Footer Bar with Orange CHECK Button -->
+  <footer class="w-full bg-[#0E1A1C] border-t border-[#1E3D44] sticky bottom-0 z-30 pt-4 pb-6 px-6">
+    <div class="max-w-2xl mx-auto flex flex-col items-center gap-2">
+      <!-- Big Tactile Sunny Orange Button with Brown-Black Ink -->
+      <button class="tactile-amber-btn w-full h-14 sm:h-16 rounded-2xl bg-[#F59E0B] hover:bg-[#FBBF24] border-t border-[#FDE68A]/60 flex items-center justify-center gap-2 text-[#1C1003] font-black text-lg sm:text-xl tracking-wider shadow-[0_5px_0_0_#9A3412] active:translate-y-1 transition-all">
+        CHECK
+        <span class="material-symbols-rounded text-2xl font-black">check</span>
+      </button>
+
+      <!-- Subtitle helper prompt -->
+      <p class="text-xs font-semibold text-[#82A8AE]">
+        Press Enter to submit · Answers auto-saved
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
