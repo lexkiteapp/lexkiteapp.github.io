@@ -1,5 +1,6 @@
 # Bài học v2 – rõ ràng như Duolingo (phân tích + kế hoạch, 31/10)
 
+> TL;DR: Đề mỗi dạng bài phải khớp dữ liệu (xếp câu = bản dịch CÂU, không bao giờ là định nghĩa từ), có nghĩa tiếng mẹ đẻ (gói `web/packs/sent`, CI `sent-packs.yml`), gợi ý tăng dần, gõ từ có độ dài/chữ đầu/ô chữ cái; CI `lesson-content.mjs` kiểm mọi từ × dạng × ngôn ngữ.
 > Đọc khi: sửa màn `#/lesson`, thêm dạng bài, đổi đề/gợi ý/kiểm nội dung. Thiết kế lõi: [LESSON-ENGINE.md](LESSON-ENGINE.md). Khung app: DESIGN-SYSTEM §5d (biến thể `focus`).
 
 ## 1. Gốc lỗi (chủ thử iPhone 390 px, sáng)

@@ -75,6 +75,7 @@
   'Gợi ý: <b>{hint}</b>': 'Hint: <b>{hint}</b>',
   'bắt đầu bằng “{letter}”, {n} ký tự': 'starts with “{letter}”, {n} letters',
   'Gõ từ tiếng Anh': 'Type the English word',
+  'Xếp câu tiếng Anh': 'Build the sentence in English',
   'Gõ đáp án…': 'Type your answer…',
   'Kiểm tra': 'Check',
   'Không biết – xem đáp án': 'I don’t know – show answer',
