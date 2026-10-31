@@ -5,7 +5,7 @@
  *   /data/lex/<lang>/<hash>-<j>.json        → { khóa: [nghĩa, cờ, tin cậy] } – mảnh j phủ mảnh lõi [j·g, (j+1)·g)
  * Bộ đệm: bộ nhớ (đã parse) → IndexedDB 'lk-lex' (khóa = đường dẫn có hash ⇒ đổi phiên bản kho là tự hết hạn; LRU ≤ MAX tệp) → mạng.
  * Không có mảnh (file://, test, mất mạng lần đầu) → dùng IELTS_DATA.INDEX với CÙNG chuẩn hóa + tách gốc từ.
- * API: Lex.norm(s) · Lex.get(s, { lang }) → { entry, key, via, from, mean, au } | null · Lex.peek(s) · Lex.suggest(q, n) · Lex.phrases(s) · Lex.warm() · Lex.version()
+ * API: Lex.norm(s) · Lex.get(s, { lang }) → { entry, key, via, from, mean, means?, au } | null (entry.more = từ loại phụ, means = nghĩa bản địa của chúng) · Lex.peek(s) · Lex.suggest(q, n) · Lex.phrases(s) · Lex.warm() · Lex.version()
  * Chạy được trong Node (module.exports) để test: scripts/test/lex.mjs. */
 (function (g) {
   'use strict';
@@ -150,9 +150,10 @@
     }
     return null;
   }
-  async function meanOf(key, entry, lang) {
+  async function meanOf(key, entry, lang, sub) { // sub = từ loại phụ (entry.more[].pos): khóa `từ#loại` nằm CÙNG mảnh ngôn ngữ với từ chính
     if (!lang || lang === 'vi' || lang === 'en') return null;
-    if (idx && idx.l && idx.l[lang]) { try { const L = await getJSON(`/data/lex/${lang}/${idx.l[lang]}-${Math.floor(pickI(idx.c, key) / (idx.g || 1))}.json`); return own(L, key) || null; } catch (e) { /* mất mạng → dự phòng gói */ } }
+    if (idx && idx.l && idx.l[lang]) { try { const L = await getJSON(`/data/lex/${lang}/${idx.l[lang]}-${Math.floor(pickI(idx.c, key) / (idx.g || 1))}.json`); return own(L, sub ? key + '#' + sub : key) || null; } catch (e) { /* mất mạng → dự phòng gói */ } }
+    if (sub) return null;
     const P = g.App && g.App.packs && g.App.packs[lang]; if (!P) return null;
     const pos = String(entry.pos || '').toLowerCase(), gp = /^(n|noun)\b/.test(pos) ? 'n' : /^(phr ?v|phrasal)/.test(pos) ? 'phrv' : /^(v|verb)\b/.test(pos) ? 'v' : /^adj/.test(pos) ? 'adj' : /^adv/.test(pos) ? 'adv' : pos;
     return own(P, key + '#' + gp) || own(P, key) || null;
@@ -164,6 +165,7 @@
     let r = null;
     try { r = await resolve(raw); } catch (e) { if (!idx) throw e; r = await resolve(raw, true); } // mảnh lỗi mạng (offline, chưa có trong bộ đệm) → bảng dự phòng
     const out = r ? { entry: r.entry, key: r.key, via: r.via, from: r.from || '', au: !!(r.sh && r.sh.a && r.sh.a.includes(r.key)), mean: await meanOf(r.key, r.entry, lang).catch(() => null) } : null;
+    if (out && lang && r.entry && Array.isArray(r.entry.more) && r.entry.more.length) { out.means = {}; for (const m of r.entry.more) { const v = await meanOf(r.key, r.entry, lang, m.pos).catch(() => null); if (v) out.means[m.pos] = v; } } // nghĩa bản địa từng từ loại phụ
     if (out || (idx && !idxErr)) { memo.set(mk, out); if (memo.size > 500) memo.delete(memo.keys().next().value); }
     return out;
   }

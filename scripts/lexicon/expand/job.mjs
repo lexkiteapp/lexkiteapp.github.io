@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -31,8 +31,12 @@ const t0 = Date.now(), stat = { calls: 0, fail: 0, kaikki: 0, ukMiss: 0 };
 // ---- chọn từ: nối tiếp (theo tần suất) hoặc pilot rải đều dải tần suất × nhóm WordNet
 const done = doneWords();
 const RETRY = 'content/lexicon/expand/retry/words.json', retry = fs.existsSync(new URL(RETRY, ROOT)) ? JSON.parse(rd(RETRY)) : { _doc: 'Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.', items: [] };
-const want = new Set(retry.items.map(k => k.split('#')[0]));
-let pool = C.items.filter(e => !done.has(e.w) && !want.has(e.w)); // từ làm lại KHÔNG tính vào N từ mới
+const kk = e => e.w + '#' + e.pos; // khoá trùng = từ#loại (30/10 đa từ loại: kho có duck#n vẫn làm duck#v)
+// mục retry khớp ĐÚNG từ#loại; khoá cũ không còn ứng viên cùng loại (ứng viên đổi từ loại chính) → ứng viên cùng từ chưa làm (như trước, không mất mục)
+const CK = new Set(C.items.map(kk)), byW = new Map(); for (const e of C.items) if (!done.has(kk(e)) && !byW.has(e.w)) byW.set(e.w, kk(e));
+retry.items = [...new Set(retry.items.map(k => CK.has(k) ? k : byW.get(k.split('#')[0]) || k))]; // đổi khoá cũ ngay → lưu lại đúng khoá, gỡ được khi đạt
+const want = new Set(retry.items.filter(k => CK.has(k)));
+let pool = C.items.filter(e => !done.has(kk(e)) && !want.has(kk(e))); // từ làm lại KHÔNG tính vào N từ mới
 if (WORDS) { const want = JSON.parse(fs.readFileSync(WORDS, 'utf8')).items, miss = [];
   pool = want.map(k => { const [w, p] = k.split('#'); return C.items.find(e => e.w === w && e.pos === p) || C.items.find(e => e.w === w) || (miss.push(k), null); }).filter(Boolean);
   pool = [...new Map(pool.map(e => [e.w + '#' + e.pos, e])).values()]; if (miss.length) console.log(`⚠ pilot cố định: ${miss.length} từ không còn trong ứng viên (${miss.slice(0, 12).join(', ')})`);
@@ -45,7 +49,7 @@ if (WORDS) { const want = JSON.parse(fs.readFileSync(WORDS, 'utf8')).items, miss
 } else pool = pool.slice(0, N);
 // làm lại TRƯỚC: lỗ dữ liệu nguồn + mục đưa về chờ (content/lexicon/expand/retry/words.json) – TÍNH TRONG N (30/10: 2.701 mục requeue + N mới
 // trong 1 lượt ≈ 20 giờ ≫ timeout 200 phút → mất cả lượt); retry nhiều hơn N thì lượt sau làm tiếp
-if (!NORETRY && !WORDS) { const inPool = new Set(pool.map(e => e.w)); const seenW = new Set(); pool = [...C.items.filter(e => want.has(e.w) && !done.has(e.w) && !inPool.has(e.w) && !seenW.has(e.w) && seenW.add(e.w)), ...pool]; stat.retry = pool.length - Math.min(N, pool.length); pool = pool.slice(0, N); stat.retry = Math.min(stat.retry, N); }
+if (!NORETRY && !WORDS) { const inPool = new Set(pool.map(kk)); const seenW = new Set(); pool = [...C.items.filter(e => want.has(kk(e)) && !done.has(kk(e)) && !inPool.has(kk(e)) && !seenW.has(kk(e)) && seenW.add(kk(e))), ...pool]; stat.retry = pool.length - Math.min(N, pool.length); pool = pool.slice(0, N); stat.retry = Math.min(stat.retry, N); }
 console.log(`lexicon-expand ${BATCH}: ${pool.length} từ (đã có ${done.size}) · bands ${JSON.stringify(pool.reduce((o, e) => (o[e.band] = (o[e.band] || 0) + 1, o), {}))}`);
 
 // ---- IPA: CMUdict (Mỹ) + Wiktionary/kaikki (Anh, Mỹ dự phòng)
@@ -85,8 +89,7 @@ const H0 = await AI.health({ probeGem: !WORDS });
   if (!WORDS && g.size && (g.live < g.size / 4 || (pr && pr.n >= 4 && pr.day / pr.n >= 0.75))) { const r = { batch: BATCH, n: 0, pass: 0, yield: 0, why: { infra: 0 }, pool: 'low', keys: K };
     fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); fs.writeFileSync(new URL('reports/lexicon-expand.json', ROOT), JSON.stringify(r));
     console.log(`⏹ kho khoá Gemini cạn (${g.live}/${g.size} sống, thăm dò ${pr ? pr.day + '/' + pr.n + ' cạn ngày' : '–'}) – dừng lượt, không ghi lô (lượt cron sau làm tiếp)`); process.exit(0); } }
-const CW = t => new Set((String(t).toLowerCase().match(/[a-z]{3,}/g) || []).filter(x => !['the', 'and', 'for', 'with', 'that', 'which', 'from', 'into', 'something', 'someone', 'used', 'especially', 'usually', 'often', 'having', 'being', 'etc', 'one', 'other', 'any', 'such', 'are', 'not', 'its', 'has'].includes(x)).map(x => x.slice(0, 5)));
-const ov = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n; };
+// CW / ov: lib.mjs (chung với trTableAmbiguous)
 const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, i * n + n));
 const strip = x => { const { _c, _ipa, ...r } = x; return r; };
 // ---- TRẮC NGHIỆM NGHĨA 3 GIÁM KHẢO (lxwsd, "ra là ok" 29/10): mỗi probe (nghĩa Wiktionary, câu, vi, bản dịch) → số nghĩa WordNet; nhận khi cả 3 cùng chọn nghĩa khoá.
@@ -176,16 +179,18 @@ for (const x of list) { const s = S[x.k]; if (!s) continue;
   // (soát pilot 2: idol "representation of anything revered" → vi "thần tượng" cho nghĩa TƯỢNG thờ). Không chắc → không dùng bảng, ngôn ngữ đó do lxtr + 3 giám khảo.
   const ti = Number(s.a.ts), same3 = Number.isInteger(ti) && ti >= 0 && ti === Number(s.b.ts) && ti === Number(s.c.ts);
   const lab = same3 && x._trg[ti] ? x._trg[ti].g : '', labOk = lab && ov(CW(lab), CW(x.gloss + ' ' + D[x.k].def + ' ' + x.lemmas.join(' '))) >= 1;
-  const grp = same3 && labOk ? x._trg[ti] : null; if (same3 && !labOk) stat.tsLabelReject = (stat.tsLabelReject || 0) + 1;
+  // bảng MƠ HỒ (lớp D1, pilot 31/10 razor pt "navalha": chọn bảng "shaving knife" trong khi gloss WordNet "edge tool used in shaving" khớp ngang "shaving instrument") → không dùng bảng
+  const amb = labOk && trTableAmbiguous(x._trg.map(g => g.g), ti, x.gloss + ' ' + x.lemmas.join(' ')); if (amb) stat.tsAmbiguous = (stat.tsAmbiguous || 0) + 1;
+  const grp = same3 && labOk && !amb ? x._trg[ti] : null; if (same3 && !labOk) stat.tsLabelReject = (stat.tsLabelReject || 0) + 1;
   X[x.k] = { defOk: s.a.def === 'same' && s.b.def === 'same' && s.c.def === 'same', defWhy: [s.a, s.b, s.c].filter(j => j.def !== 'same').map(j => j.f || 'changed').join(' / '), exAll, ex: [], col, tr: grp ? grp.tr : {}, tg: grp ? grp.g : '' }; }
 }
 const idx = v => (Array.isArray(v) ? v : []).map(Number).filter(Number.isInteger);
 const cov = { def: { wordnet: 0 }, ex: { wordnet: 0, tatoeba: 0, wiktionary: 0, ai: 0 }, tr: { wiktionary: 0, ai: 0 }, vi: { wiktionary: 0, ai: 0 }, col: { src: 0, none: 0 }, syn: { wordnet: 0, none: 0 }, cefr: {} };
 await srcPass(live);
 // def bị giám khảo bác → viết lại 1 lần theo lý do (gần chữ gloss hơn) rồi chấm lại; vẫn bác → hàng duyệt
-// + định nghĩa sai hình từ loại (defPosOk – pilot 11 purple#adj "a colour…") cũng viết lại 1 lần với lý do cụ thể
-{ const posBad = x => !defPosOk(D[x.k].def, x.pos), redo = live.filter(x => X[x.k] && (!X[x.k].defOk || posBad(x))); stat.defRedo = redo.length; stat.defPosRedo = redo.filter(posBad).length;
-  await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxdef', ch.map(x => ({ ...strip(x), fix: [X[x.k].defOk ? '' : X[x.k].defWhy || 'meaning changed', posBad(x) ? DEF_POS_FIX[x.pos] : ''].filter(Boolean).join('; ') }))); if (r) for (const x of ch) { const o = r.out[x.k]; if (o && o.def && o.keep !== false) { D[x.k] = { ...D[x.k], def: o.def }; delete S[x.k]; delete X[x.k]; } } });
+// + định nghĩa sai hình từ loại (defPosOk – pilot 11 purple#adj "a colour…") hoặc sai ngữ pháp (defGrammarBad – soát 31/10 resuscitate/orphan) cũng viết lại 1 lần với lý do cụ thể
+{ const posBad = x => !defPosOk(D[x.k].def, x.pos) || !!defGrammarBad(D[x.k].def), redo = live.filter(x => X[x.k] && (!X[x.k].defOk || posBad(x))); stat.defRedo = redo.length; stat.defPosRedo = redo.filter(posBad).length;
+  await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxdef', ch.map(x => ({ ...strip(x), fix: [X[x.k].defOk ? '' : X[x.k].defWhy || 'meaning changed', !defPosOk(D[x.k].def, x.pos) ? DEF_POS_FIX[x.pos] : '', defGrammarBad(D[x.k].def)].filter(Boolean).join('; ') }))); if (r) for (const x of ch) { const o = r.out[x.k]; if (o && o.def && o.keep !== false) { D[x.k] = { ...D[x.k], def: o.def }; delete S[x.k]; delete X[x.k]; } } });
   await srcPass(redo.filter(x => !X[x.k])); stat.defRedoOk = redo.filter(x => X[x.k] && X[x.k].defOk).length; } // KHÔNG lấy nguyên gloss WordNet làm def (soát pilot 2 29/10: sulfur "tasteless odorless multivalent…" – thô, sai với người học)
 
 // 3. "RA LÀ OK" (29/10) – mỗi trường nhận khi qua TRẮC NGHIỆM NGHĨA 3 giám khảo (wsd3) + nguồn độc lập:
@@ -229,10 +234,12 @@ for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (
   X1.viOkSet = new Set([...viOk.map(c => c.v), ...X1.viW.filter((w, i) => ok('vw' + i))]);
   // vi chỉ AI (2 họ trùng, không Wiktionary): phải có trong từ điển tiếng Việt (Viet74K ∪ vi kho) – như cũ
   // vi PHẢI có nguồn người viết (Wiktionary) + ≥ 1 AI (soát pilot 2 29/10: vi chỉ AI đồng thuận – expel "trục xuất", congregate "tập trung" – sai nghĩa)
-  const viKeep = viOk.filter(c => c.src.includes('wk')).sort((p, q) => q.src.length - p.src.length); // nhiều nguồn trùng nhất đứng đầu (soát pilot 3: cassette "hộp băng" trước "băng cát-sét")
+  const viAI = { a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '' }; X1.dbg.viAI = viAI;
+  // AI họ khác phản bác (peel#v "gọt" 31/10 – wk + lxtr đồng ý, llama/mistral "bóc vỏ") → không nhận: ủng hộ phải NHIỀU HƠN phản bác (lib.mjs viContested)
+  const viKeep = viOk.filter(c => c.src.includes('wk') && !viContested(c, viAI)).sort((p, q) => q.src.length - p.src.length); // nhiều nguồn trùng nhất đứng đầu (soát pilot 3: cassette "hộp băng" trước "băng cát-sét")
   X1.m = {}; X1.trSrc = {}; X1.wsdTr = {};
   if (viKeep.length) { X1.m.vi = viKeep.map(c => c.v).join('; '); X1.trSrc.vi = viKeep.some(c => c.src.includes('wk')) ? 'wiktionary' : 'ai'; X1.viSrc = viKeep[0].src; }
-  else X1.viFail = X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
+  else X1.viFail = viOk.some(c => c.src.includes('wk')) ? 'dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)' : X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
   for (const l of LANGS) if (X1.trC[l] && ok('tr_' + l)) { X1.m[l] = X1.trC[l].t; X1.trSrc[l] = X1.trC[l].src; X1.wsdTr[l] = true; stat.tr[X1.trC[l].src]++; } }
 // ví dụ CHỈ từ nguồn người viết (Tatoeba / Wiktionary / WordNet) – soát pilot 4 (29/10): ví dụ AI chiếm 12/69 mục đạt nhưng gây 3/5 lỗi LÕI
 // (coffin "onto the church altar", demography "demography reports", succulent dùng tính từ) dù đã qua trắc nghiệm nghĩa 3 giám khảo → thiếu 2 câu = hàng duyệt
@@ -308,7 +315,7 @@ for (const x of items) {
     if (c.fix.length) { ent.ipa = c.ipa; ent.ipaUS = c.ipaUS; ent.src.ipaFix = c.fix; if (c.fix.some(f => /ukToUs/.test(f))) ent.src.ipaUS = 'ukToUs'; stat.ipaFix = (stat.ipaFix || 0) + 1; }
     if (c.bad.length) { ent.ipaBad = c.bad; stat.ipaBad = (stat.ipaBad || 0) + 1; } }
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
-  OUT[x.k] = { pass: !!r.ok, why: r.why || [], ...(ent ? { ent } : {}), ...(!r.ok && X[x.k] && X[x.k].dbg ? { dbg: X[x.k].dbg } : {}) };
+  OUT[x.k] = { pass: !!r.ok, why: r.why || [], ...(ent ? { ent } : {}), ...(X[x.k] && X[x.k].dbg ? { dbg: X[x.k].dbg } : {}) }; // dbg cả mục ĐẠT (tờ soát: nguồn vi từng AI)
   if (hasGap(r)) { why.gap = (why.gap || 0) + 1; gaps.add(x.k); continue; } // có lỗ dữ liệu nguồn (thiếu IPA…, kể cả kèm lỗi nội dung – vd. 20261027-pilot) → không vào hàng duyệt, lượt sau sinh lại
   if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; delete ent.qa.viLem; if (r.drop) { for (const l of Object.keys(r.drop)) delete ent.m[l]; ent.qa.trDrop = r.drop; ent.qa.trKeep = r.keep.filter(l => ent.m[l]); delete ent.perLang; } pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }
