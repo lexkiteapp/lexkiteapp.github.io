@@ -11320,6 +11320,294 @@
    "angle": "IELTS Writing Task 2 Grammatical Range 7.0+을 위한 복합문(부사절, 관계사절, 분사구문, 명사절) 완벽 작성법",
    "intent": "informational",
    "lang": "ko"
+  },
+  {
+   "slug": "ipa-guo-ji-yin-biao-ying-yu-fa-yin-biao",
+   "keyword": "英语国际音标发音表",
+   "category": "phat-am",
+   "tags": [
+    "ipa",
+    "pronunciation",
+    "yin-biao",
+    "phonetics"
+   ],
+   "shots": [
+    "pron",
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/dict/resilient",
+    "/#/practice/speak"
+   ],
+   "angle": "英语国际音标48个发音全表图解：单元音、双元音与清浊辅音的发音口型技巧与中国人易错发音精讲",
+   "intent": "informational",
+   "lang": "zh"
+  },
+  {
+   "slug": "ying-yu-yi-wen-ju-gou-zao-ji-chu",
+   "keyword": "英语疑问句结构",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "questions",
+    "yi-wen-ju",
+    "speaking"
+   ],
+   "shots": [
+    "grammar",
+    "dict",
+    "practice"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/dict/resilient",
+    "/#/practice"
+   ],
+   "angle": "英语一般疑问句、特殊疑问句（5W1H）、反义疑问句与间接疑问句的语序公式与实战用法总整理",
+   "intent": "informational",
+   "lang": "zh"
+  },
+  {
+   "slug": "ying-ying-ci-dian-shi-yong-fang-fa",
+   "keyword": "英英词典使用方法",
+   "category": "phuong-phap",
+   "tags": [
+    "dictionary",
+    "vocabulary",
+    "learning-english",
+    "collocation"
+   ],
+   "shots": [
+    "dict",
+    "practice",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/practice",
+    "/#/grammar"
+   ],
+   "angle": "如何用英英词典培养英语思维：牛津朗文学习者词典释义词汇原理、搭配提取与避免中英直译陷阱",
+   "intent": "informational",
+   "lang": "zh"
+  },
+  {
+   "slug": "ying-yu-ting-xie-dictation-xun-lian-fa",
+   "keyword": "英语听写训练方法",
+   "category": "phuong-phap",
+   "tags": [
+    "dictation",
+    "listening",
+    "shadowing",
+    "audio"
+   ],
+   "shots": [
+    "listening",
+    "dict",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/dict/resilient",
+    "/#/practice"
+   ],
+   "angle": "英语听写（Dictation）精听训练四步法：如何突破连读、弱读与吞音障碍，大幅提升雅思四六级听力分数",
+   "intent": "informational",
+   "lang": "zh"
+  },
+  {
+   "slug": "ya-si-ke-ji-ren-gong-zhi-neng-ci-hui",
+   "keyword": "雅思科技人工智能词汇",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "vocabulary",
+    "technology",
+    "ai"
+   ],
+   "shots": [
+    "read-article",
+    "dict",
+    "practice"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/dict/resilient",
+    "/#/practice"
+   ],
+   "angle": "雅思写作Task 2与口语Part 3科技与人工智能（AI）高频学术词汇与搭配35选（附Band 8范文）",
+   "intent": "informational",
+   "lang": "zh"
+  },
+  {
+   "slug": "ya-si-xie-zuo-fu-he-ju-complex-sentences",
+   "keyword": "雅思写作复合句",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "writing",
+    "complex-sentences",
+    "grammar"
+   ],
+   "shots": [
+    "write",
+    "grammar",
+    "dict"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/grammar",
+    "/#/dict/resilient"
+   ],
+   "angle": "雅思写作Task 2复合句终极指南：从定语从句、状语从句到分词短语与倒装句，突破Grammatical Range 7.0+",
+   "intent": "informational",
+   "lang": "zh"
+  },
+  {
+   "slug": "ipa-lautschrift-englisch-tabelle-aussprache",
+   "keyword": "ipa lautschrift englisch",
+   "category": "phat-am",
+   "tags": [
+    "ipa",
+    "pronunciation",
+    "lautschrift",
+    "phonetics"
+   ],
+   "shots": [
+    "pron",
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/dict/resilient",
+    "/#/practice/speak"
+   ],
+   "angle": "IPA Lautschrift Englisch Tabelle: Vokale, Diphthonge und Konsonanten richtig aussprechen mit Tipps für deutsche Muttersprachler",
+   "intent": "informational",
+   "lang": "de"
+  },
+  {
+   "slug": "englische-fragen-bilden-fragewoerter-regeln",
+   "keyword": "englische fragen bilden",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "questions",
+    "fragewoerter",
+    "speaking"
+   ],
+   "shots": [
+    "grammar",
+    "dict",
+    "practice"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/dict/resilient",
+    "/#/practice"
+   ],
+   "angle": "Englische Fragen bilden leicht gemacht: Regeln für be-Verben, Vollverben (Do/Does/Did), Fragewörter (5W1H) und Question Tags",
+   "intent": "informational",
+   "lang": "de"
+  },
+  {
+   "slug": "einsprachiges-woerterbuch-englisch-nutzen",
+   "keyword": "einsprachiges wörterbuch englisch",
+   "category": "phuong-phap",
+   "tags": [
+    "dictionary",
+    "vocabulary",
+    "english-learning",
+    "collocation"
+   ],
+   "shots": [
+    "dict",
+    "practice",
+    "grammar"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/practice",
+    "/#/grammar"
+   ],
+   "angle": "Englisch-Englisch Wörterbuch effektiv nutzen: Warum Lernerwörterbücher (OALD, LDOCE) das Englischdenken nachhaltig fördern",
+   "intent": "informational",
+   "lang": "de"
+  },
+  {
+   "slug": "dictation-englisch-hoerverstehen-ueben",
+   "keyword": "dictation englisch üben",
+   "category": "phuong-phap",
+   "tags": [
+    "dictation",
+    "listening",
+    "shadowing",
+    "audio"
+   ],
+   "shots": [
+    "listening",
+    "dict",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/dict/resilient",
+    "/#/practice"
+   ],
+   "angle": "Dictation Methode für besseres Englisch-Hörverstehen: Schritt-für-Schritt Diktat-Anleitung gegen undeutliche Laute und Connected Speech",
+   "intent": "informational",
+   "lang": "de"
+  },
+  {
+   "slug": "ielts-vokabeln-technologie-kuenstliche-intelligenz",
+   "keyword": "ielts vokabeln technologie",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "vocabulary",
+    "technology",
+    "ai"
+   ],
+   "shots": [
+    "read-article",
+    "dict",
+    "practice"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/dict/resilient",
+    "/#/practice"
+   ],
+   "angle": "35 unverzichtbare IELTS Vokabeln & Kollokationen zu Technologie & Künstlicher Intelligenz (AI) für Writing Task 2 und Speaking Band 7+",
+   "intent": "informational",
+   "lang": "de"
+  },
+  {
+   "slug": "ielts-writing-komplexe-saetze-complex-sentences",
+   "keyword": "ielts writing komplexe sätze",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "writing",
+    "complex-sentences",
+    "grammar"
+   ],
+   "shots": [
+    "write",
+    "grammar",
+    "dict"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/grammar",
+    "/#/dict/resilient"
+   ],
+   "angle": "Komplexe Sätze im IELTS Writing Task 2: Relativsätze, Partizipialkonstruktionen und Inversion für Grammatical Range 7.0+",
+   "intent": "informational",
+   "lang": "de"
   }
  ]
 }
