@@ -51,6 +51,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 01:30 | `pr-check` | `30 1 * * *` | publishing | gh_minutes | 10 | — | — |
 | 01:30 | `screens` | `30 1 * * *` | render | gh_minutes | 25 | — | — |
 | 01:35 | `free-tier-guard` | `35 1 * * *` | reports | gh_minutes | 2 | — | — |
+| 01:43 | `sentence-audio-asr` | `43 1-23/4 * * *` | render | gh_minutes | 170 | — | — |
 | 01:45 | `footage-archive` | `45 1,2,6,14,15,16,17,18,20,21,22 * * *` | archive | drive_pool, d1_internal, gh_minutes | 50 | d1_internal_reads≈3000, drive_calls≈700 | ✓ |
 | 01:50 | `contrast` | `50 1 * * *` | reports | gh_minutes | 15 | — | — |
 | 02:00 | `dict-stage` | `0 2 * * 2` | reports | gh_minutes | 5 | — | — |
@@ -80,6 +81,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |
 | 21:00 | `wordlists` | `0 21 * * *` | render | gh_minutes | 20 | — | — |
 | 21:30 | `lexicon-i18n` | `30 21 * * *` | render | gemini, gh_minutes | 60 | — | — |
+| 21:50 | `sent-packs` | `50 21 * * *` | render | gh_minutes | 60 | — | — |
 | 22:00 | `i18n-leak` | `0 22 * * *` | reports | gh_minutes | 20 | — | — |
 | 22:40 | `quality-sweep` | `40 22 * * *` | reports | gh_minutes | 45 | — | ✓ |
 | 23:10 | `content-qa` | `10 23 * * *` | reports | gh_minutes | 5 | — | — |
