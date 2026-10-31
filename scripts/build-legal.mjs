@@ -5,7 +5,7 @@
 // - /privacy, /terms (gốc) = bản tiếng Anh + tự chuyển sang ngôn ngữ người dùng đã chọn trong app hoặc của trình duyệt.
 // Dùng: node scripts/build-legal.mjs [--translate]   (--translate: gọi Google Translate cho dòng còn thiếu – chạy trong GitHub Action)
 import fs from 'fs';
-import { siteFooter, FOOT_CSS, SEO_L, landingHref, langSwitch, FOOT } from './lib/site-layout.mjs';
+import { siteFooter, FOOT_CSS, SEO_L, landingHref, langSwitch, FOOT, themePage, themeSwitch, TSW_CSS, twinOr } from './lib/site-layout.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const LANGS = { en: 'English', vi: 'Tiếng Việt', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
 const PAGES = ['privacy', 'terms', 'schools', 'credits'], SITE = 'https://lexkite.com';
@@ -31,8 +31,9 @@ const OK = {}; // name → ngôn ngữ đã dịch đủ (không nháp): hreflan
 const page = (lang, name, body, translated, draft) => {
   body = body.replace(/href="\/#\//g, 'href="/app/#/'); // liên kết vào app (form liên hệ…) – app học ở /app/
   const h1 = (body.match(/<h1>(.*?)<\/h1>/) || [, 'Lexkite'])[1].replace(/<[^>]+>/g, '');
+  const twin = twinOr({ ...Object.fromEntries(Object.keys(LANGS).filter(l => !OK[name] || OK[name].has(l)).map(l => [l, `/${l}/${name}`])), [lang]: `/${lang}/${name}` }); // bản dịch đủ (= hreflang) → còn lại /<l>/blog/
   const alt = draft ? '' : Object.keys(LANGS).filter(l => !OK[name] || OK[name].has(l)).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}/${l}/${name}">`).join('\n  ');
-  return `<!doctype html>
+  return themePage(`<!doctype html>
 <html lang="${draft ? 'en' : lang}"${lang === 'ar' && !draft ? ' dir="rtl"' : ''}>
 <head>
   <meta charset="utf-8">
@@ -45,18 +46,18 @@ const page = (lang, name, body, translated, draft) => {
   <meta name="theme-color" content="#0F3D3E">
   <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
-  <style>${FOOT_CSS}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc a,footer .bar>p a{text-decoration:underline;text-underline-offset:2px}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
+  <style>${FOOT_CSS}${TSW_CSS}.lg .tbx{display:flex;align-items:center;gap:8px}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc a,footer .bar>p a{text-decoration:underline;text-underline-offset:2px}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
 </head>
 <body>
   <main class="doc">
     <div class="lg"><a class="brand" href="${landingHref(draft ? 'en' : lang)}" style="padding:0"><img class="logo" src="/icons/icon.svg?v=2" alt=""><span class="wordmark">lex<b>kite</b></span></a>
-      ${langSwitch({ lang, langHref: l => `/${l}/${name}`, label: FOOT[draft ? 'en' : lang][16] })}</div>
+      <div class="tbx">${themeSwitch(draft ? 'en' : lang)}${langSwitch({ lang, langHref: twin, label: FOOT[draft ? 'en' : lang][16] })}</div></div>
 ${translated ? `    <p class="tnote">${translated}</p>\n` : ''}${body.split('\n').filter(Boolean).map(l => '    ' + l).join('\n')}
   </main>
-${siteFooter({ lang: draft ? 'en' : lang, text: SEO_L[lang === 'vi' && !draft ? 'vi' : 'en'].foot, tm: SEO_L[lang === 'vi' && !draft ? 'vi' : 'en'].tm, langHref: l => `/${l}/${name}` }).replace('<footer class="site-foot">', `<footer class="site-foot"${draft && lang !== 'en' ? ' lang="en"' : ''}>`)}
+${siteFooter({ lang: draft ? 'en' : lang, text: SEO_L[lang === 'vi' && !draft ? 'vi' : 'en'].foot, tm: SEO_L[lang === 'vi' && !draft ? 'vi' : 'en'].tm, langHref: twin }).replace('<footer class="site-foot">', `<footer class="site-foot"${draft && lang !== 'en' ? ' lang="en"' : ''}>`)}
 </body>
 </html>
-`;
+`);
 };
 
 const cachePath = l => new URL(`content/legal/cache/${l}.json`, R);

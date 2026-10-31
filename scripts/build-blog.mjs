@@ -6,7 +6,7 @@ import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEG
 import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
 import { joinPath } from './lib/url-guard.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
+import { CSS, TAP_CSS, esc, ld, themePage, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
 import { loadAds, adsOn } from './lib/ads-static.mjs';
@@ -271,7 +271,7 @@ const BLOG_LANGS = new Set([DEF, ...all.filter(p => p.status !== 'draft').map(p 
 const parentOf = l => BLOG_LANGS.has(l) ? base(l) : landingHref(l);
 function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt, type = 'website', body, jsonld = [], robots = 'index,follow', extraHead = '', script = '' }) {
   const t = T(lang), b = base(lang), langHref = l => l === lang ? url : (alt.find(a => a.lang === l) || {}).url || to(l) || parentOf(l);
-  return `<!doctype html>
+  return themePage(`<!doctype html>
 <html lang="${lang}" dir="${T(lang).dir || 'ltr'}">
 <head>
 <meta charset="utf-8">
@@ -307,7 +307,7 @@ ${body}
 ${siteFooter({ lang, text: t.foot, tm: t.tm, year: new Date(NOW).getFullYear(), extra: [[`${b}rss.xml`, 'RSS']], langHref })}
 ${script}
 </body>
-</html>`;
+</html>`);
 }
 const YT_JS = `<script>document.addEventListener('click',e=>{const b=e.target.closest('.yt button');if(!b)return;const d=b.parentNode,f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+d.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen';f.allowFullscreen=true;d.replaceChildren(f)})</script>`;
 const QUIZ_JS = `<script>(function(){var q=document.querySelector('.blog-quiz');if(!q)return;var l=function(){if(window._LK_QZ_S)return;window._LK_QZ_S=1;var s=document.createElement('script');s.src='/blog/quiz.js';s.defer=true;document.body.appendChild(s)};if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++)if(es[i].isIntersecting){o.disconnect();l();break}},{rootMargin:'300px'});o.observe(q)}else{l()}})();</script>`;

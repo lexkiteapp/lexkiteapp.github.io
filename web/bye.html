@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"><script data-lkt>try{var t=localStorage.getItem('lk.theme');if(t=='light'||t=='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Lexkite – Sorry to see you go</title>
   <link rel="icon" href="icons/icon.svg?v=2">
   <style>
     :root { --bg: #f6f4ef; --card: #fff; --text: #1d2a2b; --muted: #5d6b6c; --line: #e3ded3; --primary: #1F7A72; }
-    @media (prefers-color-scheme: dark) { :root { --bg: #0f1a1c; --card: #172427; --text: #e7eeee; --muted: #9db0b1; --line: #27393c; --primary: #3fb3a6; } }
+    @media (prefers-color-scheme: dark) {:root:not([data-theme=light]){ --bg: #0f1a1c; --card: #172427; --text: #e7eeee; --muted: #9db0b1; --line: #27393c; --primary: #3fb3a6; }}:root[data-theme=dark]{ --bg: #0f1a1c; --card: #172427; --text: #e7eeee; --muted: #9db0b1; --line: #27393c; --primary: #3fb3a6; }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
     .box { width: 100%; max-width: 520px; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px 24px; text-align: center; }
@@ -22,7 +22,7 @@
     .thanks { color: var(--primary); font-weight: 600; min-height: 1.5em; }
     .links a { color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 .5rem; }
     .lng { position: fixed; top: 12px; right: 16px; font: inherit; font-size: .85rem; background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
-  </style>
+  :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}</style>
 </head>
 <body>
   <button class="lng" id="lng" type="button"></button>

@@ -2,7 +2,7 @@
 // video (bìa trước, không tự phát) + phụ đề TIẾNG ANH + transcript tiếng Anh (khung trang theo ngôn ngữ) + JSON-LD VideoObject + hreflang; dist/sitemap-video.xml (chuẩn video sitemap).
 // Nguồn: web/data/videos.json + content/video/web/captions/<id>.json (scripts/video/web-rendition.mjs). Mẫu thử (test) → noindex, không vào sitemap.
 import fs from 'node:fs';
-import { CSS, esc, ld, landingHref, appHref } from './lib/site-layout.mjs';
+import { CSS, esc, ld, landingHref, appHref, themePage, themeSwitch, TSW_JS } from './lib/site-layout.mjs';
 import { LANGS, MANIFEST, CAPTIONS_DIR, readJSON, videoHref } from './lib/video-web.mjs';
 
 const SITE = 'https://lexkite.com', D = 'dist/';
@@ -37,16 +37,16 @@ for (const it of items) {
     const vo = { '@context': 'https://schema.org', '@type': 'VideoObject', name: it.title, description: desc, thumbnailUrl: [it.poster], uploadDate: it.created || man.updated, duration: iso(it.duration),
       contentUrl: it.src, inLanguage: 'en', isFamilyFriendly: true, transcript: cap.transcript.map(x => x.text).join(' '), publisher: { '@type': 'Organization', name: 'Lexkite', logo: { '@type': 'ImageObject', url: SITE + '/icons/icon-512.png' } },
       ...(it.quiz ? { learningResourceType: 'video lesson' } : {}), educationalLevel: it.tags.cefr || undefined };
-    const html = `<!doctype html><html lang="${lang}"${RTL.has(lang) ? ' dir="rtl"' : ''}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    const html = themePage(`<!doctype html><html lang="${lang}"${RTL.has(lang) ? ' dir="rtl"' : ''}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(it.title)} – ${esc(dsc)} | Lexkite</title><meta name="description" content="${esc(desc)}">${it.test ? '<meta name="robots" content="noindex">' : ''}
 <link rel="canonical" href="${url}">${alts}<meta property="og:type" content="video.other"><meta property="og:title" content="${esc(it.title)}"><meta property="og:image" content="${esc(it.poster)}"><meta property="og:video" content="${esc(it.src)}">
 <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">${ld(vo)}<style>${CSS}
 .vp{max-width:760px;margin:0 auto;padding:16px}.vp video{display:block;width:100%;max-width:360px;aspect-ratio:9/16;margin:16px auto;border-radius:16px;background:#000}.vp ol{padding-inline-start:1.2em;line-height:1.6}.vp li{margin:.4em 0}.vp .btn{display:inline-block}.top a{font-weight:700}</style></head>
-<body><header class="top" style="padding:12px 16px"><a href="${landingHref(lang)}" style="display:inline-flex;align-items:center;min-height:44px">Lexkite</a></header><main id="nd" class="vp">
+<body><header class="top" style="padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px"><a href="${landingHref(lang)}" style="display:inline-flex;align-items:center;min-height:44px">Lexkite</a>${themeSwitch(lang)}</header><main id="nd" class="vp">
 <h1 lang="en">${esc(it.title)}</h1><p>${esc(dsc)} · ${Math.round(it.duration)}s${it.tags.cefr ? ' · CEFR ' + esc(it.tags.cefr) : ''}</p>
 <video controls playsinline preload="none" crossorigin="anonymous" poster="${esc(it.poster)}" aria-label="${esc(it.title)}"><source src="${esc(it.src)}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="${esc(it.vtt_en)}" default></video>
 <p><a class="btn" href="${appHref(lang)}">${esc(cta)} – ${esc(open)} ${RTL.has(lang) ? '←' : '→'}</a></p>
-<h2>${esc(tLab)} <small lang="en">(English)</small></h2><ol>${lines}</ol></main></body></html>`;
+<h2>${esc(tLab)} <small lang="en">(English)</small></h2><ol>${lines}</ol></main><script>${TSW_JS}</script></body></html>`);
     const dir = D + videoHref(lang, it.slug).slice(1); fs.mkdirSync(dir, { recursive: true }); fs.writeFileSync(dir + 'index.html', html); pages++;
     if (!it.test) sm.push(`<url><loc>${url}</loc>${LANGS.map(l => `<xhtml:link rel="alternate" hreflang="${l}" href="${SITE}${videoHref(l, it.slug)}"/>`).join('')}<video:video><video:thumbnail_loc>${esc(it.poster)}</video:thumbnail_loc><video:title>${esc(it.title)}</video:title><video:description>${esc(desc)}</video:description><video:content_loc>${esc(it.src)}</video:content_loc><video:duration>${Math.round(it.duration)}</video:duration><video:family_friendly>yes</video:family_friendly></video:video></url>`);
   }

@@ -5,7 +5,7 @@
 // Chỉ ĐỌC: content/authority/** (chuỗi + kênh thật), web/js/usage/pair.js + usage-core.js (cặp từ dễ nhầm do đội biên tập soạn – KHÔNG dữ liệu người dùng).
 // Ghi: dist/<lang>/{about,research,embed}/**, dist/research/*, dist/embed/*, dist/sitemap-authority.xml. Tắt: AUTHORITY_PAGES=0.
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
-import { CSS, SEO_CSS, UI_JS, esc, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref } from './lib/site-layout.mjs';
+import { CSS, SEO_CSS, UI_JS, esc, ld, themePage, siteHeader, siteFooter, crumbsHtml, landingHref, appHref } from './lib/site-layout.mjs';
 import { S } from './lib/seo-pages-i18n.mjs';
 import { AUTH_LANGS as LANGS, SITE, authPath, authStrings, orgNode, editorialNode, DATASET } from './lib/authority-links.mjs';
 import { toolPath } from './lib/tools-links.mjs';
@@ -52,7 +52,7 @@ export function toCsv(pairs) {
 // ---------- Khung trang ----------
 const urls = [];
 const url = p => SITE + p;
-const write = (p, html) => { const f = path.join(D, p, p.endsWith('/') ? 'index.html' : ''); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); };
+const write = (p, html) => { const f = path.join(D, p, p.endsWith('/') ? 'index.html' : ''); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, p.startsWith('/embed/') ? html : themePage(html)); }; // iframe nhúng /embed/ (0 storage) theo hệ thống của trang chủ nhà
 const altsOf = kind => [...LANGS.map(l => [l, authPath(l, kind)]), ['x-default', authPath('en', kind)]];
 const AUTH_CSS = `.auth .lead{font-size:1.1rem;max-width:62ch}.auth section{max-width:72ch}.auth .rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:.6rem;padding:0;list-style:none}.auth .rel a{display:flex;align-items:center;min-height:48px;padding:.6rem 1rem;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-decoration:none;color:inherit;font-weight:600}.auth .rel a[aria-current]{border-color:var(--accent)}
 .auth ol.steps{padding-inline-start:1.3rem}.auth ol.steps li{margin:.7rem 0}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.7rem;margin:1rem 0;padding:0;list-style:none}.stats li{padding:.8rem 1rem;border-radius:12px;background:var(--accent-soft)}.stats b{display:block;font-size:1.8rem;line-height:1.1;color:var(--brand)}

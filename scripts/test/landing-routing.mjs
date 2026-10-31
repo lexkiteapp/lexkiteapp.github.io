@@ -155,10 +155,20 @@ async function hint(file, langs, local = {}) {
   const nf = new JSDOM(rd('web/404.html')).window.document;
   ok(nf.querySelectorAll('[data-lsw] [role=menuitem]').length === LANGS.length && nf.querySelector('[data-lsw] [lang=ja]').getAttribute('href') === '/ja/', '404: nút đổi ngôn ngữ → trang chủ từng ngôn ngữ');
   const lg = new JSDOM(rd('web/de/terms.html')).window.document;
-  ok(lg.querySelector('[data-lsw] [lang=ko]').getAttribute('href') === '/ko/terms' && lg.querySelector('[data-lsw] [aria-current]').lang === 'de' && !lg.querySelector('select'), 'pháp lý: nút đổi ngôn ngữ → cùng trang ở ngôn ngữ kia (/ko/terms)');
+  ok(lg.querySelector('[data-lsw] [aria-current]').lang === 'de' && !lg.querySelector('select'), 'pháp lý: nút đổi ngôn ngữ đánh dấu ngôn ngữ trang');
+  // Mọi trang pháp lý: mỗi mục ngôn ngữ (đầu trang + chân trang) = bản dịch đủ có trong hreflang của trang, hoặc blog ngôn ngữ đó – không bao giờ trỏ bản nháp noindex
+  const legalBad = [];
+  for (const l of LANGS) for (const n of ['privacy', 'terms', 'schools', 'credits']) {
+    const f = `web/${l}/${n}.html`; if (!fs.existsSync(f)) continue;
+    const doc = new JSDOM(rd(f)).window.document, hl = new Set([...doc.querySelectorAll('link[rel=alternate][hreflang]')].map(x => x.getAttribute('hreflang')));
+    const done = x => fs.existsSync(`web/${x}/${n}.html`) && !/<meta name="robots" content="noindex"/.test(rd(`web/${x}/${n}.html`)); // bản dịch đủ = trang được lập chỉ mục
+    if (hl.size && [...hl].some(x => x !== 'x-default' && !done(x))) legalBad.push(`${f}: hreflang trỏ bản nháp`);
+    for (const a of doc.querySelectorAll('[data-lsw] [role=menuitem], .flangs a')) { const x = a.lang, want = x === l || done(x) ? `/${x}/${n}` : `/${x}/blog/`; if (a.getAttribute('href') !== want) legalBad.push(`${f} ${x}: ${a.getAttribute('href')} ≠ ${want}`); }
+  }
+  ok(!legalBad.length, `pháp lý: nút đổi ngôn ngữ → bản dịch theo hreflang, thiếu → /<lang>/blog/ (${legalBad.slice(0, 3).join('; ')})`);
   const sp = new JSDOM(seoPage({ lang: 'vi', head: '', crumbs: [['Trang chủ', '/'], ['Speaking', '/speaking/'], ['X', '/speaking/x']], body: '', alt: '/en/speaking/x', section: '/speaking/' })).window.document;
   const href = l => sp.querySelector(`header [data-lsw] [lang=${l}]`).getAttribute('href');
-  ok(href('vi') === '/speaking/x' && href('en') === '/en/speaking/x' && href('ja') === '/ja/' && sp.querySelector(`footer [lang=en]`).getAttribute('href') === '/en/speaking/x', 'trang SEO: vi ↔ en theo hreflang, ngôn ngữ khác → trang chủ ngôn ngữ đó (header = chân trang)');
+  ok(href('vi') === '/speaking/x' && href('en') === '/en/speaking/x' && href('ja') === '/ja/blog/' && sp.querySelector(`footer [lang=en]`).getAttribute('href') === '/en/speaking/x' && sp.querySelector(`footer [lang=ja]`).getAttribute('href') === '/ja/blog/', 'trang SEO: vi ↔ en theo hreflang, ngôn ngữ chưa có bản dịch → blog ngôn ngữ đó (header = chân trang)');
 }
 
 // ---------- 4) Service worker: di chuyển bản cài cũ ----------

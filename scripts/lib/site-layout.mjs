@@ -5,6 +5,7 @@
 // Không phụ thuộc gói ngoài; font hệ thống; CSS nội tuyến (< 14 KB/trang), không JS chặn hiển thị.
 
 import fs from 'node:fs';
+import vm from 'node:vm';
 import { toolFoot } from './tools-links.mjs';
 import { authFoot, authAbout } from './authority-links.mjs'; // trang Giới thiệu / chính sách biên tập / nghiên cứu (docs/SEO-AUTHORITY.md)
 import { S as SP } from './seo-pages-i18n.mjs';
@@ -22,6 +23,55 @@ export const EXT_JS = jsLite(rdWeb('js/ext-config.js')) + '\n' + jsLite(rdWeb('j
 export const GETAPP_JS = jsLite(rdWeb('js/get-app.js'));
 export const LSW_CSS = (rdWeb('css/style.css').match(/\/\* lsw [^*]*\*\/\n([\s\S]*?)\/\* \/lsw \*\//) || [, ''])[1].replace(/\n/g, '');
 export const LSW_JS = rdWeb('js/lang-menu.js').replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim().replace(/\s\/\/ [^'"]*$/, '')).filter(l => l && !l.startsWith('//')).join('\n');
+// ---------- Nút giao diện Sáng/Tối/Tự động (mọi trang tĩnh) – cùng mẫu với app (web/css/style.css: :root:not([data-theme=light]) trong media + :root[data-theme=dark]) ----------
+// Lựa chọn lưu localStorage 'lk.theme' (light|dark; tự động = không lưu, bỏ thuộc tính data-theme → theo prefers-color-scheme).
+// THEME_HEAD đặt NGAY sau <meta charset>, trước mọi <style>/<link> → không nháy sáng khi tải (scripts/test/theme-switch.mjs kiểm).
+export const THEME_KEY = 'lk.theme';
+export const THEME_HEAD = `<script data-lkt>try{var t=localStorage.getItem('${THEME_KEY}');if(t=='light'||t=='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>`;
+// Nhãn nút lấy thẳng từ chuỗi giao diện app đã dịch đủ 15 ngôn ngữ (web/js/i18n/<lang>.js, pipeline docs/I18N-PIPELINE.md) – không chép bản dịch thứ hai
+const TSW_KEYS = ['Giao diện theo hệ thống', 'Giao diện sáng', 'Giao diện tối', 'Đổi giao diện sáng/tối'], TSW_L = {};
+export const themeLabels = lang => {
+  if (TSW_L[lang]) return TSW_L[lang];
+  let D = {};
+  if (lang !== 'vi') try { const g = {}; vm.runInNewContext(rdWeb(`js/i18n/${lang}.js`), { self: g, window: g, globalThis: g }); D = (g.I18N_DICT || {})[lang] || {}; } catch (e) { D = {}; }
+  const out = TSW_KEYS.map(k => lang === 'vi' ? k : D[k]);
+  if (out.some(x => !x)) return (TSW_L[lang] = lang in LANG_NAMES && lang !== 'en' ? themeLabels('en') : out.map((x, i) => x || TSW_KEYS[i]));
+  return (TSW_L[lang] = out);
+};
+// Một <svg>, ba nhóm biểu tượng; CSS chọn nhóm theo trạng thái hiện tại (không chờ JS → không nháy biểu tượng): ◐ tự động · ☀ sáng · ☾ tối
+const TSW_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><g class="ta"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></g><g class="tl"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></g><path class="td" d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>';
+// aria-label tĩnh = trạng thái "tự động" (đúng khi chưa chọn / không JS); TSW_JS cập nhật aria-label + title theo lựa chọn đã lưu
+export const themeSwitch = lang => { const L = themeLabels(lang in LANG_NAMES ? lang : 'en'); return `<button type="button" class="tsw" data-tsw data-l="${esc(L.join('|'))}" aria-label="${esc(`${L[3]}: ${L[0]}`)}">${TSW_SVG}</button>`; };
+export const TSW_CSS = `.tsw{display:inline-flex;align-items:center;justify-content:center;flex:none;min-width:var(--tap,36px);min-height:var(--tap,36px);padding:0;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);cursor:pointer}.tsw:hover{border-color:var(--primary)}.tsw svg{width:18px;height:18px}.tsw svg>*{display:none}:root:not([data-theme]) .tsw .ta,:root[data-theme=light] .tsw .tl,:root[data-theme=dark] .tsw .td{display:inline}@media(pointer:coarse){.tsw{min-width:45px;min-height:45px}}`;
+// Bấm: tự động → sáng → tối → tự động (cùng thứ tự nút app #themeBtn); đồng bộ giữa các tab qua sự kiện storage
+export const TSW_JS = `(function(d,r,K){var O=['auto','light','dark'],c=function(){return r.getAttribute('data-theme')||'auto'},f=function(t){t=='light'||t=='dark'?r.setAttribute('data-theme',t):r.removeAttribute('data-theme');[].forEach.call(d.querySelectorAll('[data-tsw]'),function(b){var L=b.getAttribute('data-l').split('|');b.title=L[3]+': '+L[O.indexOf(c())];b.setAttribute('aria-label',b.title)})};f(c());d.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-tsw]'),t=O[(O.indexOf(c())+1)%3];if(!b)return;f(t);try{t=='auto'?localStorage.removeItem(K):localStorage.setItem(K,t)}catch(x){}});addEventListener('storage',function(e){if(e.key==K)f(e.newValue)})})(document,document.documentElement,'${THEME_KEY}');`;
+// Đổi luật màu tối/sáng viết bằng @media (prefers-color-scheme) sang mẫu app: trong media thêm :root:not([data-theme=<ngược>]),
+// rồi chép thêm một bản ép :root[data-theme=<chế độ>] ngoài media → nút ghi đè được hệ thống ở cả hai chiều. Khối đã có data-theme giữ nguyên.
+const splitTop = s => { const out = []; let d = 0, st = 0; for (let i = 0; i < s.length; i++) { const c = s[i]; if (c === '(' || c === '[') d++; else if (c === ')' || c === ']') d--; else if (c === ',' && !d) { out.push(s.slice(st, i)); st = i + 1; } } out.push(s.slice(st)); return out.map(x => x.trim()).filter(Boolean); };
+const blocksOf = s => { const out = []; let d = 0, st = 0; for (let i = 0; i < s.length; i++) { if (s[i] === '/' && s[i + 1] === '*') { i = s.indexOf('*/', i + 2) + 1; continue; } if (s[i] === '{') d++; else if (s[i] === '}' && --d === 0) { out.push(s.slice(st, i + 1).trim()); st = i + 1; } } return out; };
+const prefixRules = (css, pre) => blocksOf(css).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim(), body = b.slice(j);
+  if (sel.startsWith('@')) return /^@(media|supports)/.test(sel) ? `${sel}{${prefixRules(b.slice(j + 1, -1), pre)}}` : b;
+  return splitTop(sel).map(x => /^(:root|html)(?![\w-])/.test(x) ? pre + x.replace(/^(:root|html)/, '') : /^\[dir=\w+\]/.test(x) ? pre + x : `${pre} ${x}`).join(',') + body; }).join(''); // [dir=…] nằm trên <html>
+const SCHEME_MQ = /@media\s*([^{]*?)\(\s*prefers-color-scheme\s*:\s*(dark|light)\s*\)([^{]*)\{/g;
+export function themeCss(css) {
+  let out = '', i = 0, m, hit = false; SCHEME_MQ.lastIndex = 0;
+  while ((m = SCHEME_MQ.exec(css))) {
+    let d = 1, k = m.index + m[0].length; for (; k < css.length && d; k++) { if (css[k] === '{') d++; else if (css[k] === '}') d--; }
+    const inner = css.slice(m.index + m[0].length, k - 1), mode = m[2], other = mode === 'dark' ? 'light' : 'dark';
+    out += css.slice(i, m.index); i = k; SCHEME_MQ.lastIndex = k;
+    if (/data-theme/.test(inner)) { out += css.slice(m.index, k); continue; }
+    hit = true; const rest = (m[1] + m[3]).replace(/^\s*and\s+|\s+and\s*$/g, '').trim();
+    out += `${m[0]}${prefixRules(inner, `:root:not([data-theme=${other}])`)}}` + (rest ? `@media ${rest}{${prefixRules(inner, `:root[data-theme=${mode}]`)}}` : prefixRules(inner, `:root[data-theme=${mode}]`));
+  }
+  out += css.slice(i);
+  return hit && !/\[data-theme=dark\]\{color-scheme:dark\}/.test(out) ? out + ':root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}' : out;
+}
+// Hậu kỳ MỌI trang tĩnh: chèn THEME_HEAD sau <meta charset> + đổi luật màu trong mọi <style>. Gọi 2 lần vẫn ra một kết quả.
+export const themePage = html => {
+  html = html.replace(/(<style[^>]*>)([\s\S]*?)(<\/style>)/g, (all, a, c, b) => a + themeCss(c) + b);
+  if (html.includes('<script data-lkt>')) return html;
+  return /<meta charset=[^>]*>/i.test(html) ? html.replace(/<meta charset=[^>]*>/i, x => x + THEME_HEAD) : html.replace(/<head>/i, x => x + THEME_HEAD);
+};
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // Cắt mô tả meta ≤ n ký tự ở ranh giới từ (Google hiện ~155–160 ký tự; mô tả 200–320 ký tự bị cắt giữa chừng trên kết quả tìm kiếm)
 export const clip = (s, n = 158) => { s = String(s ?? '').replace(/\s+/g, ' ').trim(); if (s.length <= n) return s; const c = s.slice(0, n - 1); return c.slice(0, Math.max(c.lastIndexOf(' '), n * .6)).replace(/[\s,;:–—-]+$/, '') + '…'; };
@@ -68,6 +118,7 @@ a.app{font-weight:600}
 .trybox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:32px 0}.trybox h2{margin:0 0 6px;font-size:20px}.trybox p{margin:0 0 12px;color:var(--muted)}
 [dir=rtl] blockquote{border-left:0;border-right:4px solid var(--primary);border-radius:12px 0 0 12px}[dir=rtl] .toc ol{padding-left:0;padding-right:20px}[dir=rtl] th,[dir=rtl] td{text-align:right}[dir=rtl] .skip:focus{left:auto;right:8px}
 ${LSW_CSS}
+${TSW_CSS}
 ${FOOT_CSS}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}`;
 
@@ -75,7 +126,7 @@ ${FOOT_CSS}
 // Sáng: nút cam đậm #CC3F1C (= --primary của app, chữ trắng đạt AA 4.9:1); tối giữ #FF8466 với chữ tối.
 // Vùng chạm ≥ 44px + thanh đầu một hàng trên điện thoại – dùng chung cho MỌI trang tĩnh có siteHeader/crumbs/footer (trang SEO + blog; quality-sweep touch-target)
 export const TAP_CSS = `.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;line-height:1.2;transition:filter .15s,transform .15s}.btn:hover{filter:brightness(1.06)}.btn:active{transform:translateY(1px)}
-nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:0 4px}.lsw .lsw-b{min-height:44px;padding:0 14px}
+nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:0 4px}.lsw .lsw-b{min-height:44px;padding:0 14px}.tsw{min-width:44px;min-height:44px}
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 6px;margin:0 0 8px}.crumbs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.crumbs [aria-current]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
 .cats a,.tf a,.jump a{display:inline-flex;align-items:center;min-height:44px;padding-top:0;padding-bottom:0}
 .site-foot li a,.flangs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.site-foot li a{justify-content:flex-start}.pager a{display:inline-flex;align-items:center;min-height:44px}.site-foot li{margin:0}
@@ -166,7 +217,7 @@ ${TAP_CSS}
 // ---------- Khối khung trang (header, footer, breadcrumb) – blog và trang SEO dùng chung ----------
 // lang + langHref(l): thêm nút đổi ngôn ngữ (langSwitch) cuối thanh điều hướng
 export const siteHeader = ({ nav, open, home = '/', extra = '', lang, langHref, label }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=2" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
-<nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a>${extra}${lang ? langSwitch({ lang, langHref, label }) : ''}</nav></div></header>`;
+<nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a>${extra}${lang ? themeSwitch(lang) + langSwitch({ lang, langHref, label }) : ''}</nav></div></header>`;
 export const GLOBE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/></svg>';
 // Nút 🌐 + mã ngôn ngữ → menu 15 ngôn ngữ (tên bản địa, lang/hreflang từng mục). langHref(l) = trang TƯƠNG ĐƯƠNG bằng ngôn ngữ l
 // (cùng ánh xạ với hreflang của trang), không có thì trang cha gần nhất (blog ngôn ngữ đó → trang chủ ngôn ngữ đó). Không JS: menu ẩn,
@@ -175,6 +226,9 @@ export const langSwitch = ({ lang, langHref = landingHref, label }) => {
   const L = esc(label || (FOOT[lang] || FOOT.en)[16]), cur = lang in LANG_NAMES ? lang : 'en';
   return `<div class="lsw" data-lsw><button type="button" class="lsw-b" aria-haspopup="true" aria-expanded="false" aria-controls="lsw-m" aria-label="${cur.toUpperCase()} – ${L}: ${LANG_NAMES[cur]}">${GLOBE}<span class="lsw-c">${cur.toUpperCase()}</span></button><ul class="lsw-m" id="lsw-m" role="menu" aria-label="${L}" translate="no" hidden>${Object.entries(LANG_NAMES).map(([l, n]) => `<li role="none"><a role="menuitem" href="${langHref(l)}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}${l === cur ? ' aria-current="page"' : ''}>${n}</a></li>`).join('')}</ul></div>`;
 };
+// Nút ngôn ngữ trỏ đúng bản dịch: twins = { lang: đường dẫn } lấy từ CHÍNH danh sách hreflang của trang; ngôn ngữ chưa có bản dịch → /<l>/blog/
+// (blog có đủ 15 ngôn ngữ – content/blog/<lang>/), không bao giờ về trang nháp/noindex hay đoán URL.
+export const twinOr = twins => l => twins[l] || `/${l}/blog/`;
 // Footer chung cho MỌI trang tĩnh (blog 15 ngôn ngữ, trang SEO, 404, chọn ngôn ngữ blog): thương hiệu · Sản phẩm · Học miễn phí · Thông tin & pháp lý · đổi ngôn ngữ · ©.
 // Trang pháp lý /<lang>/privacy|terms có đủ 15 ngôn ngữ (scripts/build-legal.mjs); #cookies, #delete là mốc trong trang privacy.
 export const LANG_NAMES = { vi: 'Tiếng Việt', en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
@@ -232,7 +286,8 @@ export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
   return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p>${getApp}</div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
 <nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}</p></div></footer>
-<script>${LSW_JS}</script>`;
+<script>${LSW_JS}
+${TSW_JS}</script>`;
 };
 export const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`).join(' › ')}</nav>`;
 export const crumbsLd = (site, items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: site + u })) });
@@ -370,16 +425,16 @@ export const pwaBox = (lang, page = 'vocab') => {
 export function seoPage({ lang, head, crumbs, body, alt, section }) {
   const t = SEO_L[lang];
   const nav = t.nav.map(([h, n]) => [h, n, h === section ? ' aria-current="page"' : '']);
-  // Đổi ngôn ngữ: chính trang này (mục cuối breadcrumb) · bản vi↔en (alt, cũng là hreflang) · ngôn ngữ khác → trang chủ ngôn ngữ đó
-  const self = crumbs[crumbs.length - 1][1], langHref = l => l === lang ? self : alt && l === t.switchTo[1] ? alt : landingHref(l);
-  return `<!doctype html><html lang="${lang}"><head>${head}<style>${CSS}\n${SEO_CSS}</style></head><body><a class="skip" href="#nd">${t.skip}</a>
+  // Đổi ngôn ngữ: chính trang này (mục cuối breadcrumb) · bản vi↔en (alt, cũng là hreflang) · ngôn ngữ khác (chưa có bản dịch) → blog ngôn ngữ đó
+  const self = crumbs[crumbs.length - 1][1], langHref = twinOr({ [lang]: self, ...(alt ? { [t.switchTo[1]]: alt } : {}) });
+  return themePage(`<!doctype html><html lang="${lang}"><head>${head}<style>${CSS}\n${SEO_CSS}</style></head><body><a class="skip" href="#nd">${t.skip}</a>
 ${siteHeader({ nav, open: [t.app, t.open], home: landingHref(lang), lang, langHref })}
 <main id="nd">
 ${crumbsHtml(crumbs)}
 ${body}
 </main>
 ${siteFooter({ lang, text: t.foot, tm: t.tm, langHref })}
-<script>${copyJs(lang)}${UI_JS}</script></body></html>`;
+<script>${copyJs(lang)}${UI_JS}</script></body></html>`);
 }
 // Thanh chuyển mục (Từ vựng · Ngữ pháp · Bài mẫu…) trên trang danh sách
 export const sectionNav = (lang, cur) => `<nav class="cats" aria-label="${SEO_L[lang].sectionsL}">${SEO_L[lang].sections.map(([h, n]) => `<a href="${h}"${h === cur ? ' aria-current="page"' : ''}>${esc(n)}</a>`).join('')}</nav>`;

@@ -91,3 +91,9 @@ Playwright 4G/CPU×4: FCP 3,0 → 1,1 s, LCP 3,6 → 1,15 s. Cổng: `app-loader
 
 ## Luật LCP (chuyển từ METHODS 27/10)
 - **LCP app (24/10):** màn đầu /app/ phải vẽ được chỉ bằng HTML + style.css; JS khung nạp sau khung hình đầu (dist, `scripts/app-loader.mjs`). Không thêm `<script>`/preload/hiệu ứng mờ dần cho màn đầu; đo bằng `app-lcp.yml` (đẩy nhánh `perf/app-lcp*`) trước/sau – docs/UX-PUBLIC.md §LCP.
+
+## Giao diện Sáng/Tối/Tự động trên trang tĩnh (31/10)
+- Mọi trang ngoài app (landing, pháp lý, 404, blog, công cụ, SEO/từ điển, uy tín, video; blog-lang + bye chỉ chống nháy) có nút ◐/☀/☾ cạnh nút ngôn ngữ. Nguồn duy nhất `scripts/lib/site-layout.mjs`: `THEME_HEAD` (script ngay sau `<meta charset>`, trước mọi CSS → không nháy), `themeSwitch()` + `TSW_CSS` + `TSW_JS`, `themePage()` (hậu kỳ mọi builder: chèn `THEME_HEAD` + `themeCss()` đổi `@media (prefers-color-scheme)` sang mẫu app `:root:not([data-theme=…])` + `:root[data-theme=…]`).
+- Lưu `localStorage['lk.theme']` = light|dark (tự động = không lưu → theo hệ thống); vòng bấm tự động → sáng → tối như `#themeBtn` của app; đồng bộ tab. Nhãn lấy từ chuỗi app đã dịch 15 ngôn ngữ (`web/js/i18n/<lang>.js`). App chưa đọc `lk.theme` (theme app lưu trong settings) – việc tiếp theo khi `web/js/app.js` rảnh.
+- Nút ngôn ngữ trang tĩnh: bản dịch đúng theo hreflang (twin), ngôn ngữ chưa có bản dịch → `/<lang>/blog/` (`twinOr`), không trỏ bản nháp noindex.
+- Cổng: `scripts/test/theme-switch.mjs` (npm test với web/, `build-web.sh` với dist/ – thiếu là không deploy) + `scripts/test/theme-static.mjs` (Chromium × 4 chế độ, axe tương phản, không nháy, 44 px, không tràn @360 – CI `theme-qa.yml`, ảnh ở artifact `theme-shots`).

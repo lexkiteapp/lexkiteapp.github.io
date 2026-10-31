@@ -4,7 +4,7 @@
 // (Part 5 tự soạn của app), web/i18n/explain/<lang>.json (lời giải đã dịch của app).
 // Ghi: dist/<lang>/<slug>/**, dist/data/tools/*.json, dist/sitemap-tools.xml. Chạy trong build-web.sh trước build-sitemap-index. Tắt: TOOLS_PAGES=0.
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
-import { CSS, SEO_CSS, UI_JS, esc, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref } from './lib/site-layout.mjs';
+import { CSS, SEO_CSS, UI_JS, esc, ld, themePage, siteHeader, siteFooter, crumbsHtml, landingHref, appHref } from './lib/site-layout.mjs';
 import { S } from './lib/seo-pages-i18n.mjs';
 import { TOOL_LANGS as LANGS, toolPath, toolStrings } from './lib/tools-links.mjs';
 
@@ -41,7 +41,7 @@ export const PLAN = { A1: ['grammar', 'vocab', 'pron', 'path'], A2: ['path', 'vo
 // ---------- Khung trang ----------
 const urls = []; // [path, lastmod, alts]
 const url = p => SITE + p;
-const write = (p, html) => { const f = path.join(D, p, 'index.html'); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); };
+const write = (p, html) => { const f = path.join(D, p, 'index.html'); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, themePage(html)); }; // nút + script chống nháy giao diện (site-layout themePage)
 const altsOf = fn => [...LANGS.map(l => [l, fn(l)]), ['x-default', fn('en')]];
 const TOOL_CSS = `.tool .lead{font-size:1.1rem;max-width:62ch}.facts{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:1rem 0;list-style:none}.facts li{padding:.35rem .8rem;border-radius:999px;background:var(--accent-soft);color:var(--text);font-weight:600;font-size:.92rem}
 .qz{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:1.1rem;margin:1.2rem 0;min-height:15rem}.qz[aria-busy=true]{opacity:.7}.qz .bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:.2rem 0 .9rem}.qz .bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
