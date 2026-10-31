@@ -61,6 +61,8 @@ const REFS = { cmu: CMU, bf: (await loadRefs({ britfone: arg('--britfone'), cmu:
 // UK: Wiktionary → (thiếu) espeak-ng en-gb đã hiệu chuẩn (espeak-calib.mjs: 300 từ, khớp gần 94 % ≥ 90 %) → src.ipaUK = 'espeak'.
 // Vẫn thiếu = lỗ dữ liệu nguồn → bỏ qua (KHÔNG vào hàng duyệt), lượt sau làm lại.
 const VIW = {};
+// nghĩa vi NGƯỜI VIẾT thứ hai: Wiktionary tiếng Việt (viwikt.py, CC BY-SA 4.0) – phủ 94 % mục rớt vì thiếu vi Wiktionary tiếng Anh (31/10); chỉ là nguồn đối chiếu
+const WV = (() => { const f = arg('--viwk'); try { return f && fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {}; } catch { return {}; } })();
 const KK = {}; // Wiktionary (kaikki): ví dụ dùng + bảng dịch theo nghĩa – nguồn người viết
 const ipa = await pmap(pool, 10, async e => { const k = await kaikki(e.w, e.pos, stat); VIW[e.w + '#' + e.pos] = k.vi || []; KK[e.w + '#' + e.pos] = { exs: k.exs || [], trg: k.trg || [], g1: k.g1 || [], err: !!k.err }; // g1: trước 29/10 KHÔNG lưu → khoá nghĩa theo Wiktionary chưa từng chạy (gốc lớp L3)
   const vs = CMU.get(e.w) || [], arp = pickPron(vs, e.pos), het = heteronym(vs);
@@ -212,7 +214,7 @@ stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw+ai': 0, 'omw+ai': 0
 const probe = {};
 for (const x of okDef) { const P = {}, X1 = X[x.k], om = (SY[x.k] || {}).omw || {};
   X1.exAll.slice(0, 8).forEach((c, i) => { P['ex' + i] = c.t; });
-  X1.viC = viAgreeSources({ wk: [...(X1.tr.vi || []), ...(VIW[x.k] || []).map(v => v.w)], a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '' }).slice(0, 3); stat.vi[X1.viC.length ? 'agree' : 'none']++;
+  X1.viC = viAgreeSources({ wk: [...(X1.tr.vi || []), ...(VIW[x.k] || []).map(v => v.w)], wv: WV[x.k] || [], a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '' }).slice(0, 3); stat.vi[X1.viC.length ? 'agree' : 'none']++;
   X1.viC.forEach((c, i) => { P['vi' + i] = c.v; });
   // vi Wiktionary lẻ (để kiểm phương án sửa vi_fix của lxjudge – chỉ nhận vi_fix đã qua trắc nghiệm nghĩa)
   X1.viW = [...new Set((VIW[x.k] || []).map(v => viNorm(v.w)[0]).filter(v => v && !X1.viC.some(c => c.v === v)))].slice(0, 3); X1.viW.forEach((v, i) => { P['vw' + i] = v; });
@@ -237,10 +239,11 @@ for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (
   // vi PHẢI có nguồn người viết (Wiktionary) + ≥ 1 AI (soát pilot 2 29/10: vi chỉ AI đồng thuận – expel "trục xuất", congregate "tập trung" – sai nghĩa)
   const viAI = { a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '' }; X1.dbg.viAI = viAI;
   // AI họ khác phản bác (peel#v "gọt" 31/10 – wk + lxtr đồng ý, llama/mistral "bóc vỏ") → không nhận: ủng hộ phải NHIỀU HƠN phản bác (lib.mjs viContested)
-  const viKeep = viOk.filter(c => c.src.includes('wk') && !viContested(c, viAI)).sort((p, q) => q.src.length - p.src.length); // nhiều nguồn trùng nhất đứng đầu (soát pilot 3: cassette "hộp băng" trước "băng cát-sét")
+  const HUM = c => c.src.includes('wk') || c.src.includes('wv'); // nguồn người viết: Wiktionary tiếng Anh (bảng dịch/vi) hoặc Wiktionary tiếng Việt
+  const viKeep = viOk.filter(c => HUM(c) && !viContested(c, viAI)).sort((p, q) => q.src.length - p.src.length); // nhiều nguồn trùng nhất đứng đầu (soát pilot 3: cassette "hộp băng" trước "băng cát-sét")
   X1.m = {}; X1.trSrc = {}; X1.wsdTr = {};
-  if (viKeep.length) { X1.m.vi = viKeep.map(c => c.v).join('; '); X1.trSrc.vi = viKeep.some(c => c.src.includes('wk')) ? 'wiktionary' : 'ai'; X1.viSrc = viKeep[0].src; }
-  else X1.viFail = viOk.some(c => c.src.includes('wk')) ? 'dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)' : X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
+  if (viKeep.length) { X1.m.vi = viKeep.map(c => c.v).join('; '); X1.trSrc.vi = viKeep[0].src.includes('wk') ? 'wiktionary' : 'wiktionary-vi'; X1.viSrc = viKeep[0].src; }
+  else X1.viFail = viOk.some(HUM) ? 'dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)' : X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
   for (const l of LANGS) if (X1.trC[l] && ok('tr_' + l)) { X1.m[l] = X1.trC[l].t; X1.trSrc[l] = X1.trC[l].src; X1.wsdTr[l] = true; stat.tr[X1.trC[l].src]++; } }
 // ví dụ CHỈ từ nguồn người viết (Tatoeba / Wiktionary / WordNet) – soát pilot 4 (29/10): ví dụ AI chiếm 12/69 mục đạt nhưng gây 3/5 lỗi LÕI
 // (coffin "onto the church altar", demography "demography reports", succulent dùng tính từ) dù đã qua trắc nghiệm nghĩa 3 giám khảo → thiếu 2 câu = hàng duyệt
@@ -282,7 +285,7 @@ for (const x of items) {
      cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', perLang: true, ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
     src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: (D[x.k] || {}).src || 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
-      lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
+      lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
   if (ent && X[x.k] && !X[x.k].defOk) ent.defChanged = X[x.k].defWhy || 'changed';
   if (ent) { ent.senseLock = c._lock || false; ent.src.senseLock = c._lock || ''; }
   if (ent && g.pos && g.pos !== x.pos) ent.posDrift = g.pos; // khóa nghĩa: từ loại cố định theo nghĩa WordNet đã chọn
@@ -336,7 +339,7 @@ wr(QUEUE, JSON.stringify(queue, null, 1) + '\n');
 // độ phủ theo trường: nguồn người viết vs AI (mục ĐẠT của lượt này)
 for (const x of items) { const e = pend.items[x.k]; if (!e || !e.src || !e.src.ex) continue; cov.def.wordnet++;
   for (const s of e.src.ex) cov.ex[s.startsWith('tatoeba') ? 'tatoeba' : s.startsWith('wordnet') ? 'wordnet' : s]++;
-  for (const l of LANGS) { const t = (e.src.tr || {})[l]; if (t && e.m[l]) cov.tr[t] = (cov.tr[t] || 0) + 1; else cov.tr.none = (cov.tr.none || 0) + 1; } cov.vi[(e.src.tr || {}).vi === 'wiktionary' ? 'wiktionary' : 'ai']++;
+  for (const l of LANGS) { const t = (e.src.tr || {})[l]; if (t && e.m[l]) cov.tr[t] = (cov.tr[t] || 0) + 1; else cov.tr.none = (cov.tr.none || 0) + 1; } { const v = (e.src.tr || {}).vi; cov.vi[v === 'wiktionary' || v === 'wiktionary-vi' ? v : 'ai'] = (cov.vi[v === 'wiktionary' || v === 'wiktionary-vi' ? v : 'ai'] || 0) + 1; }
   cov.col[e.col.length ? 'src' : 'none']++; cov.syn[e.syn.length ? 'wordnet' : 'none']++; cov.cefr[e.cefrSrc] = (cov.cefr[e.cefrSrc] || 0) + 1; }
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
 const rep = { batch: BATCH, n: items.length, pass, exShort: stat.exShort || 0, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, defNo: stat.defNo, defRedo: stat.defRedo, defRedoOk: stat.defRedoOk, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, trBad: stat.trBad || 0, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };

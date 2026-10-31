@@ -93,7 +93,7 @@ export function lockSense(v1, v2, semIdx, n) {
 }
 /** vi chuẩn hoá để so nguồn: thường, bỏ ngoặc, NFC */
 export const viNorm = v => String(v || '').toLowerCase().normalize('NFC').replace(/\([^)]*\)/g, '').split(/[;,]/).map(x => x.trim().replace(/\s+/g, ' ')).filter(Boolean);
-/** vi HAI NGUỒN ĐỘC LẬP (lớp L1): nguồn = { wk: Wiktionary (bảng khớp nghĩa ∪ mục vi cùng từ loại), a: lxtr, b: lxvi (họ khác) }.
+/** vi HAI NGUỒN ĐỘC LẬP (lớp L1): nguồn = { wk: Wiktionary (bảng khớp nghĩa ∪ mục vi cùng từ loại), wv: Wiktionary tiếng Việt (31/10), a: lxtr, b: lxvi (họ khác) }.
  *  Trả [{ v, src: [...] }] theo thứ tự wk → a → b, chỉ phương án có ≥ 2 nguồn. */
 // khoá so khớp vi (pilot 29/10: "khinh bỉ" ≠ "sự khinh bỉ" → trượt oan): bỏ từ chỉ loại đầu (sự/việc/cái/con/nỗi/niềm/cuộc/chiếc; "tính" chỉ khi còn ≥ 2 âm tiết – tính toán ≠ toán; KHÔNG bỏ "lòng": lòng bàn tay ≠ bàn tay),
 // giữ thứ tự âm tiết (đảo = đổi nghĩa). Phương án hiển thị = dạng gặp đầu tiên (Wiktionary trước).
@@ -107,7 +107,7 @@ export function viAgreeSources(srcs) {
  *  ai = { a, b, c }: câu trả lời vi của từng AI. Phương án c (từ viAgreeSources) chỉ nhận khi số AI ỦNG HỘ > số AI PHẢN BÁC
  *  (AI có trả lời mà không phương án nào trùng khoá / bao nhau với c: "múa ba lê" ⊃ "ba lê" = không phản bác). */
 export function viContested(c, ai) {
-  const k = viKey(c.v), sup = c.src.filter(s => s !== 'wk' && ai[s]).length;
+  const k = viKey(c.v), sup = c.src.filter(s => s !== 'wk' && s !== 'wv' && ai[s]).length;
   const dis = Object.keys(ai).filter(s => !c.src.includes(s) && viNorm(ai[s]).length && !viNorm(ai[s]).some(v => { const q = viKey(v); return q && (q === k || q.includes(k) || k.includes(q)); })).length;
   return sup <= dis;
 }
@@ -174,7 +174,7 @@ export function gateEntry(e, { keep } = {}) {
   const W = e.qa.wsd;
   if (W) { if (!Array.isArray(W.ex) || W.ex.length !== 2 || !W.ex.every(Boolean)) why.push('nghĩa: ví dụ chưa qua trắc nghiệm nghĩa 3 giám khảo');
     if (W.vi !== true) why.push('dịch vi: chưa qua trắc nghiệm nghĩa 3 giám khảo');
-    if (!Array.isArray(e.qa.viSrc) || e.qa.viSrc.length < 2 || !e.qa.viSrc.includes('wk')) why.push('dịch vi: cần Wiktionary + ≥ 1 AI trùng (2 nguồn độc lập)'); }
+    if (!Array.isArray(e.qa.viSrc) || e.qa.viSrc.length < 2 || !(e.qa.viSrc.includes('wk') || e.qa.viSrc.includes('wv'))) why.push('dịch vi: cần Wiktionary (en/vi) + ≥ 1 nguồn khác trùng (2 nguồn độc lập)'); }
   if (e.ipaPos === false) why.push('ipa-pos: không có IPA Anh khớp từ loại (cặp đổi trọng âm danh–động)');
   // CEFR: nguồn kiểu EVP (CEFR-J/Octanove) thắng; chỉ dải tần suất → giám khảo kiểm, lệch ≥ 2 bậc → trượt (pilot 7: assault A2)
   if (CE.includes(e.level) && (e.cefrSrc || 'freq') === 'freq' && Array.isArray(e.qa.cefrJ)) { const off = e.qa.cefrJ.filter(x => CE.includes(x)).map(x => Math.abs(CE.indexOf(x) - CE.indexOf(e.level))); if (off.some(d => d >= 2)) why.push('cefr: giám khảo lệch ≥ 2 bậc (' + e.qa.cefrJ.join('/') + ' ≠ ' + e.level + ')'); }

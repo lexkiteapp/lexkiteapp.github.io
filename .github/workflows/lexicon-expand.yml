@@ -63,6 +63,8 @@ jobs:
           if [ -z "${{ github.event.inputs.words }}" ]; then node scripts/lexicon/expand/requeue.mjs --pos; fi
           node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
           python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --want content/lexicon/expand/retry/words.json ${{ github.event.inputs.words }} --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
+          # nghĩa vi NGƯỜI VIẾT thứ hai (31/10, lớp L1 – rớt vi 178/600): Wiktionary tiếng Việt qua kaikki.org/viwiktionary (CC BY-SA 4.0, ~33 MB gz); tải lỗi = như cũ (chỉ Wiktionary tiếng Anh)
+          curl -sfL --retry 2 -o "$RUNNER_TEMP/viwk.jsonl.gz" https://kaikki.org/viwiktionary/raw-wiktextract-data.jsonl.gz && python scripts/lexicon/expand/viwikt.py --raw "$RUNNER_TEMP/viwk.jsonl.gz" --candidates "$RUNNER_TEMP/candidates.json" --out "$RUNNER_TEMP/viwk.json" || echo "::warning::viwikt: không tải được Wiktionary tiếng Việt"
       - name: Sinh + 2 giám khảo + cổng
         if: ${{ steps.lease.outputs.skip != '1' && github.event.inputs.audit == '' }}
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite (nếu còn khóa) → cf2 = kho CF_POOL xoay vòng (gpt-oss-120b soạn/giám khảo A, llama-3.3-70b giám khảo B) 
@@ -86,7 +88,7 @@ jobs:
           echo "LX_RUN_N=$N" >> "$GITHUB_ENV"; echo "LX_RUN_PILOT=$P" >> "$GITHUB_ENV"
           # pilot theo lịch: lô pilot hôm nay đã có mục → không chạy thêm (chờ soát 50 mẫu, không phí neuron)
           if [ -z "$WD" ] && [ "$P" = 1 ] && [ -z "${{ github.event.inputs.pilot }}" ] && [ -s "content/lexicon/expand/pending/$(date -u +%Y%m%d)-pilot.json" ]; then echo "⏭ lô pilot hôm nay đã có – chờ soát"; echo "LX_RUN_PILOT=1" >> "$GITHUB_ENV"; exit 0; fi
-          LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --britfone "$RUNNER_TEMP/britfone.csv" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "${{ github.event.inputs.calls || '0' }}" "${EXTRA[@]}"
+          LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --viwk "$RUNNER_TEMP/viwk.json" --cmu "$RUNNER_TEMP/cmu.dict" --britfone "$RUNNER_TEMP/britfone.csv" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "${{ github.event.inputs.calls || '0' }}" "${EXTRA[@]}"
       - name: Chấm tự động mẫu cố định (nhãn xấu không được lọt · LÕI / DỊCH / IPA – docs/QUALITY-PIPELINE.md bước 3)
         if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words != '' }}
         run: node scripts/lexicon/expand/grade.mjs --labels content/lexicon/expand/pilot/labels.json --sheet 50
