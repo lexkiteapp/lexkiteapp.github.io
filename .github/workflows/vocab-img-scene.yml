@@ -22,6 +22,7 @@ on:
       provider: { description: 'Nhà vẽ + giám khảo thị giác: cf = Workers AI THẲNG (CF_POOL → tài khoản 2, cf-direct.mjs; 26/10 GrabCast hỏng) · grabcast', default: 'cf' }
       model: { description: 'Mô hình ảnh GrabCast (A/B, docs/VOCAB-IMG-STYLE.md); rỗng = mặc định flux-1-schnell, không gửi trường model', default: '' }
       only: { description: 'pilot: CHỈ các khoá này – tệp JSON {items} (vd. content/visual/pilot-40.json) hoặc danh sách phẩy · bắt đầu bằng + = THÊM vào pilot (thay input extra cũ, vd. +equal#adj,race#n)', default: '' }
+      pool: { description: 'pilot: tail = vẽ từ ĐUÔI kho CF (chừa 10 tài khoản cuối cho giám khảo) – không chờ fill nhả phần đầu · rỗng = đầu kho như fill', default: '' }
       lab_run: { description: 'Lượt cũ (run id có vimg-scene-final) → tính lại đặc trưng giám khảo cảnh cho ảnh đã gán nhãn', default: '' }
 permissions:
   contents: read
@@ -55,7 +56,9 @@ jobs:
           # 28/10: fill – dò nhanh PHẦN VẼ của kho (~60 neuron) trước khi bật 10 máy; < 10 tài khoản còn neuron → bỏ lượt (đêm 27/10: 4 lượt rỗng, mỗi lượt cài giám khảo 10 máy rồi mới thấy kho cạn)
           if [ "$MODE" = fill ] && [ "$PROBE_ALIVE" -lt 10 ]; then echo "⏹ phần vẽ của kho CF còn $PROBE_ALIVE tài khoản – bỏ lượt"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 31/10 pilot 41158516082: 15/121 sống → thẻ cảnh (đuôi kho) ăn hết, phần vẽ (đầu kho) cạn → 0 ảnh. Pilot cần CẢ hai: vẽ ≥ 10, viết ≥ 5
-          if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt 10 ] || [ "$PROBE_HEAD" -lt 10 ] || [ "$PROBE_TAIL" -lt 5 ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần vẽ $PROBE_HEAD, phần viết $PROBE_TAIL) – pilot bỏ lượt (cần vẽ ≥ 10, viết ≥ 5)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
+          # pool=tail: pilot vẽ + viết thẻ + giám khảo đều ở đuôi → chỉ cần đuôi ≥ 15 (10 chừa giám khảo + vẽ/viết), không cần đầu (fill giữ)
+          NH=10; NT=5; [ "${{ github.event.inputs.pool }}" = tail ] && { NH=0; NT=15; }
+          if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt 10 ] || [ "$PROBE_HEAD" -lt $NH ] || [ "$PROBE_TAIL" -lt $NT ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần đầu $PROBE_HEAD, phần đuôi $PROBE_TAIL) – pilot bỏ lượt (cần đầu ≥ $NH, đuôi ≥ $NT)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || '10' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
@@ -154,6 +157,7 @@ jobs:
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
       VIMG_DRAW_SHARE: "${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }}"   # 28/10: kho từ pilot (~100k/ngày) → ảnh 70 %; hàng loạt (~600k) → 50 %. Biến chưa đặt = 0.5 (an toàn)   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_FROM: "${{ github.event.inputs.mode == 'pilot' && github.event.inputs.pool || '' }}"   # 31/10: pilot pool=tail vẽ từ đuôi kho (cf-direct drawAccounts) – fill không bao giờ
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
