@@ -10642,6 +10642,394 @@
    "source": "passive-voice-rules",
    "role": "cluster",
    "cluster": "passive-voice"
+  },
+  {
+   "slug": "ipa-pronunciation-guide-for-english-learners",
+   "keyword": "ipa pronunciation guide",
+   "category": "phat-am",
+   "tags": [
+    "ipa",
+    "pronunciation",
+    "speaking",
+    "phonetics"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak",
+    "study"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/practice/speak",
+    "/#/study"
+   ],
+   "angle": "Complete guide to the International Phonetic Alphabet (IPA) for English learners: vowel charts, tricky consonants, stress marks and daily practice routine",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "conditional-sentences-in-english-rules-and-examples",
+   "keyword": "conditional sentences in english",
+   "category": "ngu-phap",
+   "tags": [
+    "conditionals",
+    "grammar",
+    "if-clauses",
+    "writing"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/test",
+    "/#/study"
+   ],
+   "angle": "Master the 4 English conditionals (Zero, First, Second, Third) and mixed conditionals with clear formulas, realistic examples, and common test traps",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "how-to-form-questions-in-english",
+   "keyword": "how to form questions in english",
+   "category": "ngu-phap",
+   "tags": [
+    "questions",
+    "grammar",
+    "speaking",
+    "auxiliary-verbs"
+   ],
+   "shots": [
+    "grammar",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "Step-by-step framework for forming English questions: Yes/No questions, Wh-questions, question tags, and indirect questions without auxiliary confusion",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "how-to-use-an-english-english-dictionary",
+   "keyword": "how to use english english dictionary",
+   "category": "phuong-phap",
+   "tags": [
+    "dictionary",
+    "vocabulary",
+    "learning-methods",
+    "self-study"
+   ],
+   "shots": [
+    "dict",
+    "library",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/library",
+    "/#/review"
+   ],
+   "angle": "Why monolingual English learners dictionaries accelerate fluency, how to decode register, collocation notes, and extract example sentences into flashcards",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "english-dictation-practice-guide",
+   "keyword": "english dictation practice",
+   "category": "ky-nang",
+   "tags": [
+    "dictation",
+    "listening",
+    "spelling",
+    "active-learning"
+   ],
+   "shots": [
+    "listening",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "How the dictation technique rebuilds your listening ear, catches weak forms and contractions, with a 5-step daily training protocol",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "toeic-part-5-grammar-and-vocabulary-strategies",
+   "keyword": "toeic part 5 strategies",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-5",
+    "reading",
+    "grammar",
+    "exam-prep"
+   ],
+   "shots": [
+    "library",
+    "practice-test",
+    "study"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/test",
+    "/#/study"
+   ],
+   "angle": "Proven 30-second decision rules for TOEIC Part 5 incomplete sentences: part-of-speech elimination, collocation shortcuts, and timing management",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "toeic-listening-part-2-tactics",
+   "keyword": "toeic listening part 2 tactics",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "listening",
+    "part-2",
+    "exam-prep"
+   ],
+   "shots": [
+    "listening",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "How to master TOEIC Part 2 Question-Response: identifying indirect replies, avoiding similar-sounding distractor traps, and tracking WH-question words",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "ielts-vocabulary-for-technology-and-ai",
+   "keyword": "ielts vocabulary technology",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "technology",
+    "vocabulary",
+    "writing",
+    "speaking"
+   ],
+   "shots": [
+    "library",
+    "write",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/write",
+    "/#/dict/resilient"
+   ],
+   "angle": "High-scoring academic collocations and topic vocabulary for IELTS Writing and Speaking on Artificial Intelligence, automation, and digital privacy",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "ielts-vocabulary-for-health-and-lifestyle",
+   "keyword": "ielts vocabulary health",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "health",
+    "vocabulary",
+    "writing",
+    "speaking"
+   ],
+   "shots": [
+    "library",
+    "write",
+    "review"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/write",
+    "/#/review"
+   ],
+   "angle": "Essential Band 7+ vocabulary, formal phrases, and collocations for IELTS essays and discussions on healthcare systems, mental well-being, and diet",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "complex-sentences-for-ielts-writing",
+   "keyword": "complex sentences ielts writing",
+   "category": "ngu-phap",
+   "tags": [
+    "complex-sentences",
+    "grammar",
+    "ielts",
+    "writing"
+   ],
+   "shots": [
+    "grammar",
+    "write",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/write",
+    "/#/study"
+   ],
+   "angle": "How to build grammatical range in IELTS Writing without losing clarity: adverbial clauses, relative clauses, participle clauses, and noun clauses",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "guia-pronunciacion-ipa-ingles",
+   "keyword": "guia pronunciacion ipa ingles",
+   "category": "phat-am",
+   "tags": [
+    "ipa",
+    "pronunciacion",
+    "speaking",
+    "fonetica"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak",
+    "study"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/practice/speak",
+    "/#/study"
+   ],
+   "angle": "Guía completa del Alfabeto Fonético Internacional (IPA) para hispanohablantes: vocales del inglés, consonantes conflictivas (v/b, sh/ch, z/s) y ritmo",
+   "intent": "informational",
+   "lang": "es"
+  },
+  {
+   "slug": "oraciones-condicionales-en-ingles-reglas-y-ejemplos",
+   "keyword": "oraciones condicionales en ingles",
+   "category": "ngu-phap",
+   "tags": [
+    "condicionales",
+    "gramatica",
+    "if-clauses",
+    "writing"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/test",
+    "/#/study"
+   ],
+   "angle": "Domina los 4 condicionales en inglés (Zero, First, Second, Third) y los condicionales mixtos: fórmulas claras, errores comunes y ejercicios prácticos",
+   "intent": "informational",
+   "lang": "es"
+  },
+  {
+   "slug": "como-hacer-preguntas-en-ingles-estructura",
+   "keyword": "como hacer preguntas en ingles",
+   "category": "ngu-phap",
+   "tags": [
+    "preguntas",
+    "gramatica",
+    "speaking",
+    "auxiliares"
+   ],
+   "shots": [
+    "grammar",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "Estructura paso a paso para formular preguntas en inglés sin dudar: preguntas Yes/No, Wh- questions, question tags y preguntas indirectas",
+   "intent": "informational",
+   "lang": "es"
+  },
+  {
+   "slug": "como-usar-un-diccionario-ingles-ingles",
+   "keyword": "como usar diccionario ingles ingles",
+   "category": "phuong-phap",
+   "tags": [
+    "diccionario",
+    "vocabulario",
+    "metodos-aprendizaje",
+    "autoaprendizaje"
+   ],
+   "shots": [
+    "dict",
+    "library",
+    "review"
+   ],
+   "routes": [
+    "/#/dict/resilient",
+    "/#/library",
+    "/#/review"
+   ],
+   "angle": "Por qué dar el salto al diccionario monolingüe en inglés revoluciona tu aprendizaje: interpretar registros, notas de colocaciones y crear tarjetas FSRS",
+   "intent": "informational",
+   "lang": "es"
+  },
+  {
+   "slug": "tecnica-dictado-en-ingles-listening",
+   "keyword": "tecnica dictado en ingles",
+   "category": "ky-nang",
+   "tags": [
+    "dictado",
+    "listening",
+    "ortografia",
+    "aprendizaje-activo"
+   ],
+   "shots": [
+    "listening",
+    "practice",
+    "study"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice",
+    "/#/study"
+   ],
+   "angle": "Cómo la técnica de dictation entrena el oído para captar el habla rápida en inglés, contracciones y weak forms: protocolo diario en 5 pasos",
+   "intent": "informational",
+   "lang": "es"
+  },
+  {
+   "slug": "vocabulario-ielts-tecnologia-e-innovacion",
+   "keyword": "vocabulario ielts tecnologia",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tecnologia",
+    "vocabulario",
+    "writing",
+    "speaking"
+   ],
+   "shots": [
+    "library",
+    "write",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/write",
+    "/#/dict/resilient"
+   ],
+   "angle": "Colocaciones académicas y vocabulario temático imprescindible para obtener Band 7+ en IELTS Writing y Speaking sobre inteligencia artificial y privacidad digital",
+   "intent": "informational",
+   "lang": "es"
   }
  ]
 }
