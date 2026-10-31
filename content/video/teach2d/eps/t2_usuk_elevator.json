@@ -75,6 +75,8 @@
   "line": "h",
   "text": "US or UK?"
  },
+ "scene": "hotel",
+ "scene_why": "keyword: elevator",
  "est": {
   "words": 47,
   "seconds": 28.6,

@@ -68,6 +68,8 @@
   "line": "h",
   "text": "Remember this word?"
  },
+ "scene": "library",
+ "scene_why": "fallback: review",
  "est": {
   "words": 44,
   "seconds": 26.7,

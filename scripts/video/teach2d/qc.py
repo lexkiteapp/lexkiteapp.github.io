@@ -7,7 +7,7 @@ every pose clip = the talk-hd frame and never shown > 1.0x, camera push included
 · hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear,
 every chip / pill text on one line inside its pill)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
-· scene_clear (known scene; counter + props never over captions / text / QR / CTA, nor over the teacher's head / body; calm card region; text + captions readable on the scene)
+· scene_clear (known scene; counter + props never over captions / text / QR / CTA, no scene prop of any layer over the caption box or a text node, nor over the teacher's head / body; calm card region; text + captions readable on the scene)
 · bed (social music bed -40 +-3 dBFS RMS, voice dominates) · duration · file (fps, AAC, duration, -16 LUFS) · frames (teacher visible every second
 against the expected scene background, no blank frame) – the last two need --video."""
 import argparse, json, os, re, subprocess, sys
@@ -170,6 +170,7 @@ if SCN:
     for r_ in fg:
         if T['cap_box'] and inter(r_, T['cap_box']): sp_.append(dict(why='counter over the captions', box=r_))
         sp_ += [dict(why='counter over a node', id=n['id'], type=n['type'], box=r_) for n in T['nodes'] if n['type'] != 'confetti' and inter(r_, n['box'])]
+    sp_ += [dict(why=w_, box=b_, on=o_) for w_, b_, o_ in SC.over_text(SCN, T['cap_box'], T['nodes'], W_)]   # no scene prop (any layer) over captions / any text node
     if SCN['counter'] and T.get('body_clear'):   # no counter prop over the teacher's head / body above the counter (every camera framing)
         sp_ += [dict(why='scene prop over the teacher', part=p_, box=b_) for _, b_, p_ in SC.on_teacher(SCN, T['head'], T['body_clear'])]
     R0 = T['region']; calm = max([C_ for C_ in (contrast(SC.hexc(comp(x, y)), SC.hexc(base(y))) for x in range(int(R0[0]), int(R0[2]), 16) for y in range(int(R0[1]), int(R0[3]), 16))] or [1.0])

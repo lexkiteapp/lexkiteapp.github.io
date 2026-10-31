@@ -83,6 +83,8 @@
   "gold": "sb_05b65d49",
   "pid": "u:v:decide:to"
  },
+ "scene": "home",
+ "scene_why": "keyword: home",
  "est": {
   "words": 50,
   "seconds": 30.0,

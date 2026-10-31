@@ -85,6 +85,8 @@
  "src": {
   "grammar": "present-simple"
  },
+ "scene": "classroom",
+ "scene_why": "fallback: grammar",
  "est": {
   "words": 49,
   "seconds": 29.6,

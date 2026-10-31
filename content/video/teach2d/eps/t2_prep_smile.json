@@ -85,6 +85,8 @@
   "gold": "sb_011d162f",
   "pid": "u:p:smile:at"
  },
+ "scene": "classroom",
+ "scene_why": "keyword: teacher",
  "est": {
   "words": 49,
   "seconds": 30.7,

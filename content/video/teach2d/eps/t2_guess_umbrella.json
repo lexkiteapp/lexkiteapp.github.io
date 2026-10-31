@@ -69,6 +69,8 @@
   "line": "h",
   "text": "Guess the word!"
  },
+ "scene": "street",
+ "scene_why": "keyword: rain",
  "est": {
   "words": 50,
   "seconds": 30.0,

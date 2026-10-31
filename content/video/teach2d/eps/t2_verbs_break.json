@@ -80,6 +80,8 @@
   "line": "h",
   "text": "break · broke · broken"
  },
+ "scene": "classroom",
+ "scene_why": "fallback: verbs",
  "est": {
   "words": 47,
   "seconds": 29.0,

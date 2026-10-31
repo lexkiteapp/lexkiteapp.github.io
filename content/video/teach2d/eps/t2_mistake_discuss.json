@@ -80,6 +80,8 @@
   "gold": "sb_786153bb",
   "pid": "cf:work-meeting:well-discuss:x"
  },
+ "scene": "meeting",
+ "scene_why": "keyword: discuss",
  "est": {
   "words": 49,
   "seconds": 29.6,

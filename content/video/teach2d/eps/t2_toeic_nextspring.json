@@ -73,6 +73,8 @@
   "toeic": "tr1",
   "n": 102
  },
+ "scene": "office",
+ "scene_why": "keyword: logistics",
  "est": {
   "words": 44,
   "seconds": 26.9,
