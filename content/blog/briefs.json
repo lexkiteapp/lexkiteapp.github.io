@@ -11896,6 +11896,294 @@
       "angle": "Сложные предложения в IELTS Writing Task 2 (Complex Sentences): Придаточные предложения, причастные обороты и инверсия для Band 7.0+",
       "intent": "informational",
       "lang": "ru"
+    },
+    {
+      "slug": "tabela-ipa-alfabeto-fonetico-ingles",
+      "keyword": "tabela ipa inglês pronúncia",
+      "category": "phat-am",
+      "tags": [
+        "ipa",
+        "pronuncia",
+        "speaking",
+        "fonetica"
+      ],
+      "shots": [
+        "pron",
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "Tabela IPA do inglês completa: como ler os 44 símbolos fonéticos, vogais curtas vs longas e dicas de pronúncia para falantes de português",
+      "intent": "informational",
+      "lang": "pt"
+    },
+    {
+      "slug": "como-fazer-perguntas-em-ingles-regras",
+      "keyword": "como fazer perguntas em ingles",
+      "category": "ngu-phap",
+      "tags": [
+        "gramatica",
+        "perguntas",
+        "5w1h",
+        "verbos-auxiliares"
+      ],
+      "shots": [
+        "grammar",
+        "practice",
+        "dict"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice",
+        "/#/dict/resilient"
+      ],
+      "angle": "Como fazer perguntas em inglês: Regras essenciais, estrutura 5W1H, verbos auxiliares (do/does/did) e inversão para falar com segurança",
+      "intent": "informational",
+      "lang": "pt"
+    },
+    {
+      "slug": "como-usar-dicionario-monolingue-ingles",
+      "keyword": "como usar dicionario ingles ingles",
+      "category": "tu-vung",
+      "tags": [
+        "dicionario",
+        "vocabulario",
+        "metodo-de-estudo",
+        "collocations"
+      ],
+      "shots": [
+        "dict",
+        "read-article",
+        "study"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/reading",
+        "/#/study"
+      ],
+      "angle": "Como usar um dicionário monolíngue inglês-inglês para destravar o pensamento em inglês, evitar traduções viciadas e dominar collocations",
+      "intent": "informational",
+      "lang": "pt"
+    },
+    {
+      "slug": "ditado-em-ingles-dictation-listening",
+      "keyword": "ditado em ingles listening",
+      "category": "phuong-phap",
+      "tags": [
+        "ditado",
+        "listening",
+        "connected-speech",
+        "audicao"
+      ],
+      "shots": [
+        "listening",
+        "dict",
+        "practice-test"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "Ditado em inglês (Dictation): O método definitivo para treinar o listening, decifrar connected speech e entender nativos falando rápido",
+      "intent": "informational",
+      "lang": "pt"
+    },
+    {
+      "slug": "vocabulario-ielts-tecnologia-inteligencia-artificial",
+      "keyword": "vocabulario ielts tecnologia",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "vocabulario",
+        "tecnologia",
+        "ai"
+      ],
+      "shots": [
+        "read-article",
+        "dict",
+        "practice"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "Vocabulário IELTS sobre tecnologia e inteligência artificial: 35 collocations acadêmicas e ideias para redação Writing Task 2 Band 7+",
+      "intent": "informational",
+      "lang": "pt"
+    },
+    {
+      "slug": "frases-complexas-ielts-writing-task-2",
+      "keyword": "frases complexas ielts writing",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "frases-complexas",
+        "gramatica"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "Frases complexas no IELTS Writing Task 2: Orações subordinadas, particípios e inversão para garantir Band 7.0+ em Grammatical Range",
+      "intent": "informational",
+      "lang": "pt"
+    },
+    {
+      "slug": "tabel-simbol-ipa-bahasa-inggris",
+      "keyword": "tabel ipa bahasa inggris",
+      "category": "phat-am",
+      "tags": [
+        "ipa",
+        "pengucapan",
+        "speaking",
+        "fonetika"
+      ],
+      "shots": [
+        "pron",
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "Tabel simbol IPA bahasa Inggris lengkap: Panduan membaca 44 bunyi fonetik, vokal panjang-pendek, dan tips pengucapan untuk penutur Indonesia",
+      "intent": "informational",
+      "lang": "id"
+    },
+    {
+      "slug": "rumus-kalimat-tanya-bahasa-inggris-5w1h",
+      "keyword": "rumus kalimat tanya bahasa inggris",
+      "category": "ngu-phap",
+      "tags": [
+        "tata-bahasa",
+        "kalimat-tanya",
+        "5w1h",
+        "auxiliary-verbs"
+      ],
+      "shots": [
+        "grammar",
+        "practice",
+        "dict"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice",
+        "/#/dict/resilient"
+      ],
+      "angle": "Rumus kalimat tanya bahasa Inggris lengkap: Panduan pola Yes/No questions, 5W1H, kata kerja bantu (do/does/did) dan contoh praktis",
+      "intent": "informational",
+      "lang": "id"
+    },
+    {
+      "slug": "cara-menggunakan-kamus-bahasa-inggris-monolingual",
+      "keyword": "cara menggunakan kamus bahasa inggris",
+      "category": "tu-vung",
+      "tags": [
+        "kamus",
+        "kosakata",
+        "metode-belajar",
+        "collocations"
+      ],
+      "shots": [
+        "dict",
+        "read-article",
+        "study"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/reading",
+        "/#/study"
+      ],
+      "angle": "Cara menggunakan kamus bahasa Inggris monolingual (Inggris-Inggris) untuk melatih pola pikir native, memahami konteks dan kolokasi",
+      "intent": "informational",
+      "lang": "id"
+    },
+    {
+      "slug": "metode-dictation-meningkatkan-listening-bahasa-inggris",
+      "keyword": "metode dictation bahasa inggris",
+      "category": "phuong-phap",
+      "tags": [
+        "dictation",
+        "listening",
+        "connected-speech",
+        "mendengarkan"
+      ],
+      "shots": [
+        "listening",
+        "dict",
+        "practice-test"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "Metode dictation bahasa Inggris: Cara efektif meningkatkan listening, membedakan weak forms dan connected speech penutur asli",
+      "intent": "informational",
+      "lang": "id"
+    },
+    {
+      "slug": "kosakata-ielts-tema-teknologi-ai",
+      "keyword": "kosakata ielts tema teknologi",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "kosakata",
+        "teknologi",
+        "ai"
+      ],
+      "shots": [
+        "read-article",
+        "dict",
+        "practice"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "Kosakata IELTS tema teknologi dan kecerdasan buatan (AI): 35 kolokasi akademik tingkat tinggi untuk Writing Task 2 dan Speaking Band 7+",
+      "intent": "informational",
+      "lang": "id"
+    },
+    {
+      "slug": "kalimat-kompleks-ielts-writing-task-2",
+      "keyword": "kalimat kompleks ielts writing",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "kalimat-kompleks",
+        "tata-bahasa"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "Kalimat kompleks IELTS Writing Task 2: Panduan klausa subordinatif, frasa partisipial, dan inversi untuk meraih skor Band 7.0+",
+      "intent": "informational",
+      "lang": "id"
     }
   ]
 }

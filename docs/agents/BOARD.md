@@ -201,6 +201,28 @@ Mẫu thẻ:
     * `node scripts/blog-check.mjs`: 514 bài, 0 lỗi.
     * `node scripts/blog-captions.mjs --check-all`: 514 bài, 1.247 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
     * `node scripts/blog-dupes.mjs`: 514 bài, 0 lỗi (độ chồng lấn cao nhất 8.8% < 12%).
+### [B5-L5] Lô 5 Blog 12 bài chuẩn SEO (6 PT + 6 ID) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường trọng điểm: Tiếng Bồ Đào Nha (PT) và Tiếng Indonesia (ID). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh monolingual/monolíngue, luyện nghe Dictation/ditado, từ vựng IELTS AI/Technology và Frases complexas/Kalimat kompleks).
+- **Báo cáo (Antigravity 31/10):**
+  - **Commit:** `719f7b26a` → `8a9a8cd15` (12 commit riêng biệt từng bài + briefs).
+  - **Danh sách 6 bài PT (Tiếng Bồ Đào Nha):**
+    1. `tabela-ipa-alfabeto-fonetico-ingles.md` (`719f7b26a`)
+    2. `como-fazer-perguntas-em-ingles-regras.md` (`17349de0a`)
+    3. `como-usar-dicionario-monolingue-ingles.md` (`cdabe34df`)
+    4. `ditado-em-ingles-dictation-listening.md` (`79ecb253f`)
+    5. `vocabulario-ielts-tecnologia-inteligencia-artificial.md` (`fdd78c47b`)
+    6. `frases-complexas-ielts-writing-task-2.md` (`9ff06f648`)
+  - **Danh sách 6 bài ID (Tiếng Indonesia):**
+    1. `tabel-simbol-ipa-bahasa-inggris.md` (`3285ef77d`)
+    2. `rumus-kalimat-tanya-bahasa-inggris-5w1h.md` (`b7b6038f9`)
+    3. `cara-menggunakan-kamus-bahasa-inggris-monolingual.md` (`a8f59d3c6`)
+    4. `metode-dictation-meningkatkan-listening-bahasa-inggris.md` (`df5425047`)
+    5. `kosakata-ielts-tema-teknologi-ai.md` (`ba3331faa`)
+    6. `kalimat-kompleks-ielts-writing-task-2.md` (`8a9a8cd15`)
+  - **Cổng chất lượng kiểm tra toàn diện:**
+    * `node scripts/blog-check.mjs`: 526 bài, 0 lỗi.
+    * `node scripts/blog-captions.mjs --check-all`: 526 bài, 1.283 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * `node scripts/blog-dupes.mjs`: 526 bài, 0 lỗi (độ chồng lấn cao nhất 10.0% < 12%).
     * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
 - Cần sửa / Nhận xét:
 
