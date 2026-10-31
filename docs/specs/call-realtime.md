@@ -24,8 +24,31 @@ Cả 3 dùng GPU máy chủ trả phí → không hợp $0 ở 1 triệu ngườ
 ## M2 – phản hồi kiểu bản xứ (sau mỗi lượt)
 JSON `{native, why{15 ngôn ngữ}, register: polite|neutral|casual, alts[2], tip{linking, stress}}`, kiểm schema, đệm theo băm câu nói (IndexedDB + kho sinh sẵn trên CI cho câu mẫu `o[]`). Dữ liệu chung với Say-native (`web/data/say.json`) khi khớp cụm.
 
-## M3 – nói tự do có rào
-Khung kịch bản theo kỳ thi giữ nguyên; AI chỉ sinh **câu hỏi nối tiếp** ≤ 20 từ. Thứ tự: Gemini Nano (Prompt API) → đệm → `/api/ai` (cầu dao hạn mức sẵn có) → câu kịch bản. Đọc dần, nói từng câu: `speechSynthesis` + miệng live; kokoro-js tuỳ chọn.
+## M3 – nói tự do có rào, theo sức máy
+Kịch bản theo kỳ thi giữ khung. AI chỉ sinh **câu hỏi nối tiếp** ≤ 20 từ, trả JSON đã kiểm; sai thì dùng câu kịch bản. **Sửa lỗi và giải thích** không giao cho LLM nhỏ (mô hình 1–3B hay sửa sai), mà lấy từ luật `CallEngine.correct`, dữ liệu đã duyệt (M2, Say-native) và bộ đệm máy chủ. Đọc dần, nói từng câu.
+| Bậc | Khi nào (`CallRT.tier()`) | LLM | Nhận dạng | Giọng |
+|---|---|---|---|---|
+| A | có WebGPU (adapter + `maxBufferSize`), `deviceMemory` ≥ 8, ≥ 4 lõi, không saveData, chạy thử đạt | Qwen2.5-1.5B-Instruct q4 ([Apache-2.0](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)) qua [WebLLM](https://github.com/mlc-ai/web-llm) (Apache-2.0) · dự phòng SmolLM2-1.7B (Apache-2.0) | Moonshine tiny ([MIT](https://huggingface.co/UsefulSensors/moonshine-tiny)) / Whisper tiny.en | Kokoro-82M ONNX (Apache-2.0) WebGPU |
+| B | Chrome có Gemini Nano (`LanguageModel.availability()`) | Prompt API (trên máy) | như hiện tại | Kokoro sinh sẵn / `speechSynthesis` + miệng live |
+| C | điện thoại yếu, iOS cũ, add-on | kịch bản → đệm → `/api/ai` (cầu dao hạn mức) | như hiện tại | câu sinh sẵn / `speechSynthesis`; Piper WASM ([MIT](https://github.com/rhasspy/piper), không dùng bản piper1-gpl) chỉ khi đo thấy nhẹ |
+Loại: Qwen2.5-3B (license "other", tức Qwen Research, cấm thương mại). Llama-3.2-1B và Gemma 3 1B có điều khoản riêng, bị khoá (gated), nên chỉ dùng nếu anh đồng ý điều khoản. Dò máy một lần rồi lưu kết quả. Hạ bậc tự động khi fps < 50, khi lời đầu tiên > 1,5 s, hoặc khi `navigator.getBattery` báo pin < 20 % và không sạc.
+**Đo trước khi hứa** (CI, có throttle): dung lượng tải, RAM (`performance.measureUserAgentSpecificMemory`), token/s, thời gian tới lời đầu tiên, fps khi mô hình chạy nền. Runner CI không có GPU thật, nên bậc A trên CI chỉ đo được WASM/SwiftShader và ghi rõ như vậy. Pin không đo được trên CI, chỉ có thời gian CPU làm số thay thế.
+
+## Lưu trữ: một nguồn, app không phình
+- **Nguồn duy nhất cho mô hình**: Hugging Face Hub (repo `onnx-community` / `mlc-ai`, ghim commit). Lý do: miễn phí, không ăn băng thông hay hạn mức R2 của ta (ở 1 triệu người/ngày, R2 sẽ vượt mức đọc miễn phí), và nhánh Whisper đã dùng sẵn. Mã chạy (ort, vad-web, web-llm) lấy từ jsDelivr, ghim phiên bản. Không gì nằm trong gói app/add-on; shell ≤ 377 KB gz giữ nguyên.
+- **Trên máy**: chỉ tải khi người học bật và đồng ý. Mặc định chờ Wi-Fi. Trước khi tải: gọi `navigator.storage.estimate()` để kiểm chỗ trống và `persist()`. Lưu vào Cache Storage/OPFS, tải từng khúc để nối tiếp được khi đứt mạng, kiểm sha256. Tải và chạy trong Web Worker, luồng chính không giật.
+- **Màn "Dữ liệu AI trên máy"** (Cài đặt): hiện từng mô hình, dung lượng và bậc, có nút xoá. Tự xoá mô hình ít dùng khi `QuotaExceededError` hoặc khi chỗ trống < 2× kích thước mô hình.
+
+## Hiểu người học hơn sau mỗi buổi (không fine-tune)
+Không huấn luyện trọng số trên máy vì nặng, tốn pin và dễ làm hỏng chất lượng. Thay vào đó là **trí nhớ người học** `call/memory.js`, vài KB trong IndexedDB:
+- lưu: lỗi hay mắc (ngữ pháp, cặp âm từ `slips`), từ đã vững/chưa vững, trình độ, chủ đề thích, tốc độ nói (từ/phút), xu hướng sai theo thời gian;
+- cập nhật sau mỗi lượt; đồng bộ qua tài khoản sẵn có nếu người học đăng nhập.
+
+Trí nhớ được dùng ở hai chỗ:
+- trong prompt: tóm tắt ≤ 300 token;
+- trong bộ chọn cuộc gọi/câu hỏi kế: giáo viên nhắc lại lỗi cũ, ôn đúng chỗ yếu, chỉnh độ khó.
+
+Người học xem và xoá được trí nhớ này. Test chứng minh hành vi đổi theo trí nhớ: cùng một kịch bản, trí nhớ khác thì câu hỏi hoặc lời nhắc khác.
 
 ## Xong khi
 Mỗi mốc: test node + e2e xanh, số đo + GIF gửi anh duyệt trước khi gộp, mặc định tắt sau cờ `lk.call_rt` (localStorage `1` hoặc config `call_rt`). Không sửa `call/{face,lipsync,mouths}.js`, `lesson/teacher.js` tới khi #293 gộp.
