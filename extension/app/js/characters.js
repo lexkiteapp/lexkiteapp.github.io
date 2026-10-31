@@ -9,6 +9,7 @@
     ids: Object.keys(NAME), poses: POSES, name: w => NAME[id(w)], id,
     voice: w => VOICE[id(w)],
     poster: w => f(w, 'poster.webp'), avatar: w => f(w, 'avatar.webp'),
+    head: (w, x2) => f(w, 'head-bare' + (x2 ? '-2x' : '') + '.webp'), // "đầu trơn" (khung poster, đã xoá mắt/mày/miệng/ria) – nền cho mặt VẼ khớp miệng (web/js/call/face.js)
     still: (w, p) => f(w, 'still-' + ok(w, p) + '.webp'), // ảnh tĩnh từng tư thế (đã 2×, nền trong suốt)
     clip: (w, p, o = {}) => f(w, ok(w, p) + (o.hd && /^(talk|listen)$/.test(ok(w, p)) ? '-hd' : '') + '.mp4'), // hd: chỗ lớn sống (Call), 2× điểm ảnh
     // o.kind: 'avatar' (mặc định, vuông đầu-vai) | 'poster' (đầu→hông) | 'still' (+ o.pose) · luôn kèm bản 2× cho màn retina

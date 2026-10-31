@@ -41,8 +41,8 @@ Mốc: `LipSync.align(cues, env, {words})` neo mép im↔mở vào lúc tiếng 
 ## Kết quả lab
 Xem artifact `lipsync-lab` của run CI mới nhất (report.md, metrics.json, video ≤ 20 s). Số đo gửi anh kèm video.
 
-## Đưa vào hệ thống (sau khi anh OK)
-1. Commit tài sản `web/lab/lipsync/<who>` → `web/teach/<who>/mouths.webp` + `sheet.json`, đi qua `Chars` (registry).
-2. `scripts/gen-audio.mjs` (audio.yml): mỗi câu Call sinh thêm `cues.json` bằng Rhubarb.
-3. `lesson/teacher.js` thêm lớp miệng sau cờ `lk.lipsync`. Không có cues thì dùng live, vẫn hạ cấp về poster như hiện nay. Play & Speak dùng chung API.
-4. Thu từ điển cho bản chạy thật (chỉ từ trong kịch bản + 2k từ phổ biến) để giữ trần shell.
+## Đưa vào hệ thống (anh OK 31/10: "gắn mặt vẽ khớp miệng vào luồng Call thật (sau cờ lk.lipsync), giữ mọi cổng")
+1. **Tài sản** `web/teach/<who>/head-bare(-2x).webp` = poster-2x xoá mắt/mày/miệng/ria (`scripts/lipsync/head_bare.py` → sha256 vào `characters.json`, cổng characters-gate), lấy qua `Chars.head(who, x2)`.
+2. **Mốc CI** `scripts/lipsync/call_cues.mjs` (audio.yml, chạy tay được với `only_call_cues`): mỗi câu giáo viên trong Call → Kokoro python sinh tiếng + âm vị cùng lần → `<khoá>-ls.mp3` (kho media; mp3 cũ đệm immutable nên không ghi đè) + `web/js/call/cues.js` (`LK_CUES`: mốc nén, độ lớn tiếng 100 Hz 8 bit, từ điển nhỏ cho live). Mỗi câu qua cổng như lab (lệch ≤ 45 ms, đúng hình ≥ 80 %, 0 nháy); trượt → không ghi mốc → app dùng live.
+3. **Luồng Call** `lesson/teacher.js` `mount(el, who, { lip: true })` (chỉ `call.js` truyền): cờ `lk.lipsync` (localStorage 1/0 hoặc config `lipsync`) → nạp lười `call/{lipsync,mouths,face,cues}.js` (khung app không đổi) → `<svg>` đầu trơn + lớp vector, vẽ lại mỗi khung theo `audio.currentTime`, nghiêng/gật quanh cổ trong SVG. Có mốc → pre (độ dài mp3 lệch mốc > 120 ms → live); không có → `LipSync.live()` + năng lượng tiếng (AnalyserNode, cần CORS – audio.lexkite.com trả ACAO *); giọng máy → live theo thời lượng ước tính; nghỉ → chớp/liếc. Hạ cấp: lỗi nạp/thiếu đầu trơn → vòng clip WebGL → poster (saveData / giảm chuyển động).
+4. **Cổng**: lipsync-lab (lab) · call-e2e mục 4b (cờ bật: mặt vẽ thay clip, fps ≥ 50 ở CPU 4×, không lỗi JS) · characters-gate · size-budget (shell không đổi).

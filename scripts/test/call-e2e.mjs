@@ -224,6 +224,24 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   await ctx.close();
 }
 
+// ===== 4b) Mặt VẼ khớp miệng (cờ lk.lipsync, docs/specs/call-lipsync.md): đầu trơn + lớp vector thay clip, nói (giọng máy → live) & nghỉ (chớp/liếc), fps ≥ 50 ở CPU 4×, không lỗi JS =====
+{
+  const { ctx, page, errs } = await open({ vp: { width: 375, height: 812 } });
+  await page.evaluate(() => localStorage.setItem('lk.lipsync', '1'));
+  await go(page, '#/call/coffee'); await page.waitForSelector('#callGo'); await page.click('#callGo');
+  const on = await until(page, () => document.querySelector('.tch-rig.drawn .tch-face g.lk-face'), null, 15000).then(() => true, () => false);
+  ok(on, 'mặt vẽ: đầu trơn + mắt/mày/miệng vector thay clip');
+  ok(!(await page.$('.tch-cv')) && !(await page.$('.tch-rig video')), 'mặt vẽ: không tải clip WebGL');
+  const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  const a = (await state(page)).lip; await page.waitForTimeout(3000); const b = (await state(page)).lip;
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
+  const fps = a && b ? Math.round(1000 * (b.frames - a.frames) / (b.now - a.now)) : 0;
+  ok(fps >= 50, `mặt vẽ: ${fps} fps ở CPU chậm 4× (≥ 50), khung > 50 ms: ${a && b ? b.long - a.long : '?'}`);
+  await shot(page, 'lip-m');
+  ok(!errs.length, 'mặt vẽ: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ').slice(0, 300) : ''));
+  await ctx.close();
+}
+
 // ===== 5) Tùy chọn: Whisper THẬT trên máy với mẫu âm thanh thu sẵn =====
 if (WAV) {
   const { ctx, page, errs } = await open({ realSR: true });

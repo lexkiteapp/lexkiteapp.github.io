@@ -200,8 +200,8 @@ body.call-on{overflow:hidden}
     }, 500);
 
     // Giáo viên động: clip 2D registry (teacher.js, qua Chars) – lỗi/thiếu clip → giữ poster 2D tĩnh, cuộc gọi vẫn chạy
-    if (V2) tch = LessonTeacher.mount($('#cTch', ov), c.who); // Ama/Carlos đứng sau thẻ phụ đề: clip talk/listen (poster khi tiết kiệm dữ liệu / giảm chuyển động)
-    else if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); }
+    if (V2) tch = LessonTeacher.mount($('#cTch', ov), c.who, { lip: true }); // Ama/Carlos đứng sau thẻ phụ đề: mặt vẽ khớp miệng (cờ lk.lipsync) hoặc clip talk/listen (poster khi tiết kiệm dữ liệu / giảm chuyển động)
+    else if (window.LessonTeacher) { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who, { lip: true }); }
 
     // Phụ đề dịch (dòng 2): dịch sẵn mọi câu của giáo viên 1 lần – không chặn cuộc gọi; lỗi mạng thì chỉ hiện tiếng Anh
     const pieces = [...new Set(Object.values(c.nodes).flatMap(x => [x.m, x.re, ...(x.br || []).map(b => b[1])]).concat(c.end).filter(Boolean))];
@@ -354,7 +354,7 @@ body.call-on{overflow:hidden}
     const first = c.nodes[c.start];
     say([first.m], () => enter(first));
     $('#cMic', ov).focus({ preventScroll: true });
-    window.__callState = () => ({ id, phase, turn, log: log.slice(), mode: mode() }); // để kiểm thử e2e
+    window.__callState = () => ({ id, phase, turn, log: log.slice(), mode: mode(), lip: tch && tch.lip ? Object.assign({ now: performance.now() }, tch.lip()) : null }); // để kiểm thử e2e
   }
 
   const NOTE = {
