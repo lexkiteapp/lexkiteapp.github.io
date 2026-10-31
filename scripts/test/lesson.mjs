@@ -363,4 +363,6 @@ ok(!consoleErr.length, '0 lỗi console' + (consoleErr.length ? ': ' + consoleEr
 w.localStorage.removeItem('lk.lsn.off');
 
 console.log(`\n${total - fails}/${total} lesson`);
+// Nội dung mọi từ × dạng × ngôn ngữ (docs/LESSON-UX-V2.md §4) – chạy kèm tại đây để package.json không đổi
+try { execFileSync(process.execPath, ['scripts/test/lesson-content.mjs'], { stdio: 'inherit' }); } catch (e) { fails++; console.error('✗ lesson-content'); }
 w.close(); process.exit(fails ? 1 : 0); // jsdom còn vòng rAF của giáo viên → thoát dứt khoát
