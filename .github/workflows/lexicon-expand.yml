@@ -23,7 +23,8 @@ permissions:
   contents: write
   actions: write    # tự nối lượt (workflow_dispatch) khi còn việc + còn neuron
   id-token: write   # JWT OIDC cho /api/lexai
-concurrency: { group: lexicon-expand, cancel-in-progress: false }
+# mẫu cố định (words) KHÔNG ghi repo → nhóm riêng theo nhánh + mẫu: lượt cron/chuỗi không huỷ được lượt pilot đang chờ (31/10: 2 pilot bị thay thế khi chờ)
+concurrency: { group: "lexicon-expand${{ github.event.inputs.words && format('-pilot-{0}-{1}', github.ref_name, github.event.inputs.words) || '' }}", cancel-in-progress: false }
 jobs:
   expand:
     runs-on: ubuntu-latest
