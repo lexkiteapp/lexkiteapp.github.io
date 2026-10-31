@@ -12184,6 +12184,294 @@
       "angle": "Kalimat kompleks IELTS Writing Task 2: Panduan klausa subordinatif, frasa partisipial, dan inversi untuk meraih skor Band 7.0+",
       "intent": "informational",
       "lang": "id"
+    },
+    {
+      "slug": "ipa-fonetik-alfabe-ingilizce-telaffuz-tablosu",
+      "keyword": "ingilizce ipa fonetik alfabe",
+      "category": "phat-am",
+      "tags": [
+        "ipa",
+        "telaffuz",
+        "speaking",
+        "fonetik"
+      ],
+      "shots": [
+        "pron",
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "İngilizce IPA fonetik alfabe tablosu: 44 ses sembolünün okunuşu, uzun ve kısa ünlüler, Türkler için telaffuz püf noktaları",
+      "intent": "informational",
+      "lang": "tr"
+    },
+    {
+      "slug": "ingilizce-soru-cumlesi-kurma-kurallari-5w1h",
+      "keyword": "ingilizce soru cumlesi kurma",
+      "category": "ngu-phap",
+      "tags": [
+        "dilbilgisi",
+        "soru-cumleleri",
+        "5w1h",
+        "yardimci-fiiller"
+      ],
+      "shots": [
+        "grammar",
+        "practice",
+        "dict"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice",
+        "/#/dict/resilient"
+      ],
+      "angle": "İngilizce soru cümlesi kurma kuralları: ASI ve QUASI formülü, 5W1H soru kalıpları, do/does/did kullanımı ve subject questions",
+      "intent": "informational",
+      "lang": "tr"
+    },
+    {
+      "slug": "ingilizce-ingilizce-tek-dilli-sozluk-nasil-kullanilir",
+      "keyword": "ingilizce ingilizce sozluk kullanimi",
+      "category": "tu-vung",
+      "tags": [
+        "sozluk",
+        "kelime-ogrenme",
+        "calisma-yontemi",
+        "collocations"
+      ],
+      "shots": [
+        "dict",
+        "read-article",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/reading",
+        "/#/review"
+      ],
+      "angle": "İngilizce İngilizce tek dilli sözlük kullanımı: İngilizce düşünme alışkanlığı, collocations ve kelime haznesini geliştirme rehberi",
+      "intent": "informational",
+      "lang": "tr"
+    },
+    {
+      "slug": "ingilizce-dictation-dikte-listening-gelistirme",
+      "keyword": "ingilizce dictation listening",
+      "category": "phuong-phap",
+      "tags": [
+        "dictation",
+        "listening",
+        "connected-speech",
+        "dinleme"
+      ],
+      "shots": [
+        "listening",
+        "dict",
+        "practice-test"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "İngilizce dictation listening geliştirme yöntemi: 4 adımda dikte çalışması, connected speech ve hızlı konuşmaları anlama teknikleri",
+      "intent": "informational",
+      "lang": "tr"
+    },
+    {
+      "slug": "ielts-kelimeleri-teknoloji-ve-yapay-zeka",
+      "keyword": "ielts teknoloji kelimeleri",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "kelimeler",
+        "teknoloji",
+        "yapay-zeka"
+      ],
+      "shots": [
+        "read-article",
+        "dict",
+        "practice"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "IELTS teknoloji kelimeleri ve yapay zeka: Writing Task 2 ve Speaking için 35 akademik collocation, kompozisyon fikirleri ve örnekler",
+      "intent": "informational",
+      "lang": "tr"
+    },
+    {
+      "slug": "ielts-writing-icin-karmasik-cumleler-complex-sentences",
+      "keyword": "ielts writing karmaşık cümleler",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "karmasik-cumleler",
+        "dilbilgisi"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTS Writing için karmaşık cümleler (Complex Sentences): Yan cümleler, ortaçlar (participles), devrik yapılar ve Band 7+ teknikleri",
+      "intent": "informational",
+      "lang": "tr"
+    },
+    {
+      "slug": "taran-thot-siang-ipa-phasa-angkrit",
+      "keyword": "ตาราง ipa ภาษาอังกฤษ",
+      "category": "phat-am",
+      "tags": [
+        "ipa",
+        "kan-ok-siang",
+        "speaking",
+        "phonetics"
+      ],
+      "shots": [
+        "pron",
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "ตาราง ipa ภาษาอังกฤษ ฉบับสมบูรณ์: วิธีอ่าน 44 สัญลักษณ์สัทศาสตร์ สระสั้น-ยาว พยัญชนะ และเทคนิคแก้จุดผิดของคนไทย",
+      "intent": "informational",
+      "lang": "th"
+    },
+    {
+      "slug": "withi-tang-khamtham-phasa-angkrit-5w1h",
+      "keyword": "วิธีตั้งคำถามภาษาอังกฤษ",
+      "category": "ngu-phap",
+      "tags": [
+        "wayakon",
+        "khamtham",
+        "5w1h",
+        "auxiliary-verbs"
+      ],
+      "shots": [
+        "grammar",
+        "practice",
+        "dict"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice",
+        "/#/dict/resilient"
+      ],
+      "angle": "วิธีตั้งคำถามภาษาอังกฤษ: โครงสร้างประโยคคำถาม Yes/No, 5W1H, การใช้กริยาช่วย do/does/did และข้อยกเว้นที่พบบ่อย",
+      "intent": "informational",
+      "lang": "th"
+    },
+    {
+      "slug": "withi-chai-photchananukrom-angkrit-angkrit",
+      "keyword": "วิธีใช้พจนานุกรมอังกฤษอังกฤษ",
+      "category": "tu-vung",
+      "tags": [
+        "photchananukrom",
+        "kham-sap",
+        "withi-rian",
+        "collocations"
+      ],
+      "shots": [
+        "dict",
+        "read-article",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/reading",
+        "/#/review"
+      ],
+      "angle": "วิธีใช้พจนานุกรมอังกฤษอังกฤษ (Monolingual Dictionary): ฝึกคิดเป็นภาษาอังกฤษ เรียนรู้ collocations และเลิกแปลตรงตัว",
+      "intent": "informational",
+      "lang": "th"
+    },
+    {
+      "slug": "thikhnik-dictation-luyen-fang-phasa-angkrit",
+      "keyword": "dictation ฝึกฟังภาษาอังกฤษ",
+      "category": "phuong-phap",
+      "tags": [
+        "dictation",
+        "listening",
+        "connected-speech",
+        "kan-fang"
+      ],
+      "shots": [
+        "listening",
+        "dict",
+        "practice-test"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "เทคนิค dictation ฝึกฟังภาษาอังกฤษ: 4 ขั้นตอนฝึกเขียนตามคำบอก แกะเสียงเชื่อม connected speech และเข้าใจฝรั่งพูดเร็ว",
+      "intent": "informational",
+      "lang": "th"
+    },
+    {
+      "slug": "kham-sap-ielts-theknoloyi-lae-ai",
+      "keyword": "คำศัพท์ ielts เทคโนโลยี",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "kham-sap",
+        "theknoloyi",
+        "ai"
+      ],
+      "shots": [
+        "read-article",
+        "dict",
+        "practice"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/dict/resilient",
+        "/#/practice"
+      ],
+      "angle": "คำศัพท์ ielts เทคโนโลยี และปัญญาประดิษฐ์ AI: 35 collocations เชิงวิชาการ สำหรับ Writing Task 2 และ Speaking แบนด์ 7+",
+      "intent": "informational",
+      "lang": "th"
+    },
+    {
+      "slug": "khrongsang-prayok-complex-sentences-ielts-writing",
+      "keyword": "complex sentences ielts writing",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "complex-sentences",
+        "wayakon"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "โครงสร้าง complex sentences ielts writing: การเขียนประโยคความซ้อน อนุประโยค participial clauses และ inversion คว้าแบนด์ 7.5+",
+      "intent": "informational",
+      "lang": "th"
     }
   ]
 }
