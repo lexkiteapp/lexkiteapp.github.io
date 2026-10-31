@@ -2,6 +2,7 @@
 """Teach2D text-fit maths (docs/VIDEO-TEACH2D.md), shared by build.py (sizes every chip / pill from it + hard assert) and qc.py (layout gate).
 Measures with the fonts TeachShort.jsx renders (Plus Jakarta Sans 800 / Noto Sans 500, copied by build.py) and the CSS it uses:
 letter-spacing (em, after every character), the pill's own furniture (flag, letter chip, check mark), borders and a minimum side padding.
+Stitch v3: a chip with a dot (DOT) and the ✓ CORRECT badge pill (BADGE_PAD) are part of the furniture.
 A glyph the Jakarta font lacks (emoji, ✓, ✗) falls back in Chrome to Noto Color Emoji, about 1.25 em wide: it is measured as that.
 need(node) -> list of (what, text, needed_px, available_px) for every one-line text of a pill / chip node that does not fit; [] = fits."""
 import os
@@ -39,9 +40,11 @@ def width(s, sz, ipa=False, ls=0.0):
 
 
 MINPAD = 14   # minimum free space each side of a text inside its pill (on top of the border)
+DOT = 16 + 14   # Stitch chip dot (16 px) + its gap before the text (series chip, eyebrow chips: node field dot)
+BADGE_PAD = 14   # Stitch ✓ CORRECT badge pill: its own side padding inside the answer tile
 
 
-def chip_w(text, sz): return width(text, sz, ls=0.06) + 2 * (MINPAD + 2) + 24   # chip / series chip: border 2 + pad 14 + breathing room
+def chip_w(text, sz, dot=False): return width(text, sz, ls=0.06) + 2 * (MINPAD + 2) + 24 + (DOT if dot else 0)   # chip / series chip: border 2 + pad 14 + breathing room (+ dot)
 def tag_w(text, sz): return 12 + 48 + 12 + width(text, sz, ls=0.06) + 18 + 4 + 2 * MINPAD   # flag tag: pad 12 · flag 48 · gap 12 · text · pad 18 · borders
 
 
@@ -52,7 +55,7 @@ def need(n):
         if not s: return
         nd = width(s, sz, ipa, ls) + extra
         if nd > avail + 0.5: out.append((what, s, round(nd, 1), round(avail, 1)))
-    if t == 'chip': chk('chip', n['text'], n['size'], w - 4 - 2 * MINPAD, ls=0.06)
+    if t == 'chip': chk('chip', n['text'], n['size'], w - 4 - 2 * MINPAD - (DOT if n.get('dot') else 0), ls=0.06)
     elif t == 'tag': chk('tag', n['text'], n['size'], w - (12 + 48 + 12 + 18 + 4), ls=0.06)
     elif t == 'pill': chk('pill', n['label'], n['size'], w - 104 - 100)   # letter chip column 104 px, the ✓ mark + its margin on the right 100 px
     elif t == 'cta': chk('cta', ' '.join(n['lines']) + ' →', n['size'], w - 2 * MINPAD)
@@ -60,7 +63,7 @@ def need(n):
     elif t in ('rhythm', 'score', 'grade'): chk(t, n['text'] if t != 'score' else f"🏆 {n.get('tot', 3)} / {n.get('tot', 3)}", n['size'], w - 6 - 2 * MINPAD)
     elif t == 'stamp': chk('stamp', n['text'], n['size'], w - 8 - 2 * MINPAD, ls=0.04)
     elif t == 'opt':
-        chk('opt', n['text'], n['size'], w - 6 - 2 * MINPAD); chk('opt label', '✓ CORRECT', 40, w - 6 - 2 * MINPAD, ls=0.06); chk('opt label', n.get('label', ''), 40, w - 6 - 2 * MINPAD, ls=0.06)
+        chk('opt', n['text'], n['size'], w - 6 - 2 * MINPAD); chk('opt label', '✓ CORRECT', 40, w - 6 - 2 * MINPAD - 2 * BADGE_PAD, ls=0.06); chk('opt label', n.get('label', ''), 40, w - 6 - 2 * MINPAD, ls=0.06)
     elif t == 'brick':
         chk('brick', n['word'], n['size'], w - 6 - 2 * MINPAD); chk('brick label', n.get('label', ''), 40, w - 6 - 2 * MINPAD, ls=0.06)
     elif t == 'candy':
