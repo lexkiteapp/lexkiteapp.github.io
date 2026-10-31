@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Achievement &amp; Streak Icon Board</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            teal: {
+              brand: '#136b66',
+              dark: '#0c4643',
+              light: '#e6f3f2',
+            },
+            amber: {
+              brand: '#f59e0b',
+              deep: '#d97706',
+              brownink: '#1c1003',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #fff8f3;
+      color: #1a2729;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tile-candy {
+      background: #ffffff;
+      border: 2px solid #ecdcd1;
+      border-radius: 1.5rem;
+      box-shadow: 0 5px 0 #dfcdbf;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .tile-candy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 #d4c0b0;
+    }
+    .candy-btn-orange {
+      background: #f59e0b;
+      color: #1c1003;
+      border: 2px solid #d97706;
+      box-shadow: 0 4px 0 #b45309;
+    }
+    .candy-btn-orange:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #b45309;
+    }
+    .candy-btn-teal {
+      background: #136b66;
+      color: #ffffff;
+      border: 2px solid #0d504c;
+      box-shadow: 0 4px 0 #093734;
+    }
+    .badge-gloss {
+      filter: drop-shadow(0 4px 6px rgba(19, 107, 102, 0.12));
+    }
+    .ribbon-pill {
+      background: #fef08a;
+      border: 1.5px solid #eab308;
+      box-shadow: 0 2px 0 #ca8a04;
+      color: #1c1003;
+    }
+  </style>
+</head>
+<body class="p-6 md:p-12 min-h-screen bg-[#091518] text-[#e0f0f2]">
+<div class="max-w-6xl mx-auto space-y-12">
+<!-- Header Panel -->
+<header class="bg-[#102126] backdrop-blur-sm rounded-3xl p-6 md:p-8 border-2 border-[#23434c] shadow-[0_6px_0_#0a1518] flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#132c32] border border-[#2b5660] text-[#6bd8ce] text-xs font-bold tracking-wide uppercase">
+<span class="w-2 h-2 rounded-full bg-[#6bd8ce] animate-pulse"></span>
+          Lexkite Kit • Tactile Night
+        </div>
+<h1 class="text-3xl md:text-4xl font-extrabold text-[#f0f7f8] tracking-tight">
+          Tactile Achievement &amp; Badge Library
+        </h1>
+<p class="text-sm md:text-base font-semibold text-[#a2c2c8]">
+          Chunky, candy-shaded vector badges for IELTS &amp; TOEIC gamified mastery.
+        </p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-extrabold text-[#d1e7ea] bg-[#183037] px-3.5 py-2 rounded-xl border border-[#274f5a]">
+          32 Glossy Badges
+        </span>
+<button class="candy-btn-orange font-bold text-sm px-5 py-2.5 rounded-2xl flex items-center gap-2 cursor-pointer transition-all active:translate-y-0.5">
+<svg class="w-4 h-4 text-[#1c1003]" fill="currentColor" viewbox="0 0 20 20">
+<path d="M10 2a1 1 0 011 1v7h7a1 1 0 110 2h-7v7a1 1 0 11-2 0v-7H2a1 1 0 110-2h7V3a1 1 0 011-1z"></path>
+</svg>
+          Export Assets
+        </button>
+</div>
+</header>
+<!-- SECTION 1: 19 Achievement Badges -->
+<section class="space-y-6">
+<div class="flex items-baseline justify-between border-b-2 border-[#203a42] pb-3">
+<div>
+<h2 class="text-2xl font-black text-[#f0f7f8] flex items-center gap-2">
+<span>Achievement Badges</span>
+<span class="text-xs font-bold bg-[#14726d] text-[#e6fbf9] px-2.5 py-0.5 rounded-full border border-[#2ba39a]">19 Total</span>
+</h2>
+<p class="text-xs font-bold text-[#8fb5bb] mt-0.5">Rows 1–3: Core milestones, study habits &amp; academic prowess</p>
+</div>
+<span class="text-xs font-extrabold text-[#f4bf40] tracking-wide uppercase">Tactile 3D Round Tiles</span>
+</div>
+<!-- 19 Badges Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 md:gap-5">
+<!-- 1. Hatching chick (egg hatching with chick crown) -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="36" cy="40" fill="#FDE68A" rx="22" ry="24" stroke="#D97706" stroke-width="2.5"></ellipse>
+<path d="M16 40 L22 34 L28 42 L36 33 L44 42 L50 35 L56 40 L53 58 C50 63 22 63 19 58 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"></path>
+<!-- chick tuft & wing -->
+<circle cx="36" cy="27" fill="#FBBF24" r="13"></circle>
+<polygon fill="#EA580C" points="36,25 32,29 40,29"></polygon>
+<circle cx="36" cy="12" fill="#F59E0B" r="3"></circle>
+<path d="M26 44 Q36 50 46 44" stroke="#D97706" stroke-linecap="round" stroke-width="2.5"></path>
+<ellipse cx="26" cy="22" fill="#FEF3C7" opacity="0.6" rx="4" ry="2"></ellipse>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Hatching chick</span>
+</div>
+<!-- 2. Green notebook -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#0D9488" height="46" rx="6" stroke="#115E59" stroke-width="2.5" width="36" x="18" y="14"></rect>
+<rect fill="#14B8A6" height="46" width="7" x="22" y="14"></rect>
+<rect fill="#CCFBF1" height="4" rx="2" width="16" x="33" y="24"></rect>
+<rect fill="#CCFBF1" height="3" rx="1.5" width="13" x="33" y="32"></rect>
+<circle cx="41" cy="46" fill="#F59E0B" r="4" stroke="#B45309" stroke-width="1.5"></circle>
+<!-- spine rings -->
+<rect fill="#E2E8F0" height="3" rx="1.5" width="6" x="15" y="20"></rect>
+<rect fill="#E2E8F0" height="3" rx="1.5" width="6" x="15" y="30"></rect>
+<rect fill="#E2E8F0" height="3" rx="1.5" width="6" x="15" y="40"></rect>
+<rect fill="#E2E8F0" height="3" rx="1.5" width="6" x="15" y="50"></rect>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Green notebook</span>
+</div>
+<!-- 3. Stack of books -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- bottom book coral -->
+<rect fill="#F43F5E" height="13" rx="3.5" stroke="#BE123C" stroke-width="2.5" width="44" x="14" y="47"></rect>
+<path d="M19 47 V60 M53 47 V60" stroke="#FFF1F2" stroke-width="2"></path>
+<!-- middle book teal -->
+<rect fill="#0D9488" height="12" rx="3.5" stroke="#115E59" stroke-width="2.5" width="38" x="18" y="33"></rect>
+<path d="M23 33 V45 M51 33 V45" stroke="#CCFBF1" stroke-width="2"></path>
+<!-- top book gold -->
+<rect fill="#F59E0B" height="11" rx="3.5" stroke="#B45309" stroke-width="2.5" width="32" x="21" y="20"></rect>
+<path d="M26 20 V31" stroke="#FEF3C7" stroke-width="2"></path>
+<!-- bookmarker -->
+<path d="M44 20 V27 L47 25 L50 27 V20 Z" fill="#FFFFFF"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Stack of books</span>
+</div>
+<!-- 4. Grand library -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- pediment -->
+<polygon fill="#0F766E" points="36,12 14,24 58,24" stroke="#134E4A" stroke-width="2.5"></polygon>
+<circle cx="36" cy="20" fill="#FCD34D" r="2.5"></circle>
+<!-- architrave -->
+<rect fill="#F59E0B" height="5" stroke="#B45309" stroke-width="1.5" width="40" x="16" y="24"></rect>
+<!-- columns -->
+<rect fill="#E2E8F0" height="24" rx="2" stroke="#64748B" stroke-width="2" width="5" x="19" y="29"></rect>
+<rect fill="#E2E8F0" height="24" rx="2" stroke="#64748B" stroke-width="2" width="5" x="29" y="29"></rect>
+<rect fill="#E2E8F0" height="24" rx="2" stroke="#64748B" stroke-width="2" width="5" x="39" y="29"></rect>
+<rect fill="#E2E8F0" height="24" rx="2" stroke="#64748B" stroke-width="2" width="5" x="49" y="29"></rect>
+<!-- podium steps -->
+<rect fill="#0F766E" height="5" rx="2" stroke="#134E4A" stroke-width="2" width="48" x="12" y="53"></rect>
+<rect fill="#134E4A" height="4" rx="2" width="56" x="8" y="58"></rect>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Grand library</span>
+</div>
+<!-- 5. Brain -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<path d="M34 18 C28 17 22 22 22 28 C18 30 16 36 18 41 C16 46 19 52 24 53 C26 57 32 58 34 54 Z" fill="#FB7185" stroke="#BE123C" stroke-width="2.5"></path>
+<path d="M38 18 C44 17 50 22 50 28 C54 30 56 36 54 41 C56 46 53 52 48 53 C46 57 40 58 38 54 Z" fill="#FDA4AF" stroke="#BE123C" stroke-width="2.5"></path>
+<!-- sulci folds -->
+<path d="M26 32 Q32 30 33 38" stroke="#E11D48" stroke-linecap="round" stroke-width="2"></path>
+<path d="M24 44 Q31 43 32 49" stroke="#E11D48" stroke-linecap="round" stroke-width="2"></path>
+<path d="M46 32 Q40 30 39 38" stroke="#E11D48" stroke-linecap="round" stroke-width="2"></path>
+<path d="M48 44 Q41 43 40 49" stroke="#E11D48" stroke-linecap="round" stroke-width="2"></path>
+<!-- spark -->
+<path d="M36 13 L37 17 L41 18 L37 19 L36 23 L35 19 L31 18 L35 17 Z" fill="#F59E0B"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Brain</span>
+</div>
+<!-- 6. Trophy -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<path d="M23 18 H49 V34 C49 42 43 47 36 47 C29 47 23 42 23 34 Z" fill="#FBBF24" stroke="#B45309" stroke-width="2.5"></path>
+<!-- handles -->
+<path d="M23 22 H16 C14 22 13 25 14 29 C15 35 20 37 23 37" fill="none" stroke="#B45309" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M49 22 H56 C58 22 59 25 58 29 C57 35 52 37 49 37" fill="none" stroke="#B45309" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- stem and base -->
+<path d="M36 47 V54" stroke="#B45309" stroke-linecap="round" stroke-width="3"></path>
+<rect fill="#D97706" height="8" rx="3" stroke="#92400E" stroke-width="2" width="24" x="24" y="54"></rect>
+<!-- star on cup -->
+<polygon fill="#FFFFFF" points="36,25 38,30 43,30 39,33 41,38 36,35 31,38 33,33 29,30 34,30"></polygon>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Trophy</span>
+</div>
+<!-- 7. Small flame -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<path d="M36 12 C36 12 48 24 48 38 C48 48 42 56 34 57 C25 56 20 48 20 38 C20 30 27 24 29 18 C30 25 34 26 36 21 Z" fill="#F97316" stroke="#C2410C" stroke-width="2.5"></path>
+<path d="M36 28 C36 28 42 34 42 42 C42 48 38 52 34 52 C30 52 26 48 26 42 C26 36 31 33 33 30 Z" fill="#FBBF24"></path>
+<ellipse cx="34" cy="46" fill="#FEF08A" rx="4" ry="5"></ellipse>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Small flame</span>
+</div>
+<!-- 8. Volcano -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- mountain -->
+<polygon fill="#475569" points="36,28 14,60 58,60" stroke="#1E293B" stroke-width="2.5"></polygon>
+<!-- crater lava -->
+<path d="M31 28 Q36 33 41 28" fill="#EA580C" stroke="#EA580C" stroke-width="3"></path>
+<path d="M36 28 V39 Q38 43 36 48" stroke="#EA580C" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M29 32 Q27 38 29 44" stroke="#F97316" stroke-linecap="round" stroke-width="2"></path>
+<!-- eruption plume -->
+<circle cx="36" cy="18" fill="#EF4444" r="4.5"></circle>
+<circle cx="43" cy="15" fill="#F97316" r="3.5"></circle>
+<circle cx="29" cy="15" fill="#F59E0B" r="3"></circle>
+<circle cx="36" cy="10" fill="#FCD34D" r="2.5"></circle>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Volcano</span>
+</div>
+<!-- 9. Diamond -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<polygon fill="#38BDF8" points="36,60 14,32 23,16 49,16 58,32" stroke="#0284C7" stroke-width="2.5"></polygon>
+<polygon fill="#7DD3FC" points="36,60 27,32 36,16 45,32"></polygon>
+<polyline points="14,32 58,32" stroke="#0284C7" stroke-width="2"></polyline>
+<line stroke="#BAE6FD" stroke-width="1.5" x1="23" x2="27" y1="16" y2="32"></line>
+<line stroke="#BAE6FD" stroke-width="1.5" x1="49" x2="45" y1="16" y2="32"></line>
+<!-- glint -->
+<polygon fill="#FFFFFF" points="50,14 52,18 56,20 52,22 50,26 48,22 44,20 48,18"></polygon>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Diamond</span>
+</div>
+<!-- 10. Rocket -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- fins -->
+<path d="M22 45 L15 54 L25 51 Z" fill="#EF4444" stroke="#B91C1C" stroke-width="2"></path>
+<path d="M50 45 L57 54 L47 51 Z" fill="#EF4444" stroke="#B91C1C" stroke-width="2"></path>
+<!-- exhaust fire -->
+<polygon fill="#F59E0B" points="36,54 31,64 36,60 41,64" stroke="#D97706" stroke-width="1.5"></polygon>
+<!-- hull -->
+<path d="M36 12 C28 22 26 38 27 50 H45 C46 38 44 22 36 12 Z" fill="#F8FAFC" stroke="#64748B" stroke-width="2.5"></path>
+<!-- nose tip -->
+<path d="M36 12 C32 17 31 22 30 26 H42 C41 22 40 17 36 12 Z" fill="#EF4444"></path>
+<!-- porthole window -->
+<circle cx="36" cy="34" fill="#38BDF8" r="5" stroke="#0284C7" stroke-width="2"></circle>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Rocket</span>
+</div>
+<!-- 11. Perfect-score medal -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- ribbons -->
+<path d="M30 14 L20 34 L28 32 L34 22 Z" fill="#0D9488" stroke="#115E59" stroke-width="2"></path>
+<path d="M42 14 L52 34 L44 32 L38 22 Z" fill="#0F766E" stroke="#115E59" stroke-width="2"></path>
+<!-- big golden medal -->
+<circle cx="36" cy="40" fill="#FBBF24" r="18" stroke="#B45309" stroke-width="2.5"></circle>
+<circle cx="36" cy="40" fill="#F59E0B" r="14" stroke="#D97706" stroke-width="1.5"></circle>
+<!-- laurel sprig motif (no face/no text) -->
+<circle cx="36" cy="40" fill="#FEF08A" r="8"></circle>
+<path d="M36 34 L38 38 L42 39 L39 42 L40 46 L36 44 L32 46 L33 42 L30 39 L34 38 Z" fill="#B45309"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Perfect-score medal</span>
+</div>
+<!-- 12. Microphone -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- mic capsule -->
+<rect fill="#0D9488" height="26" rx="8" stroke="#115E59" stroke-width="2.5" width="16" x="28" y="16"></rect>
+<line stroke="#99F6E4" stroke-width="2" x1="28" x2="44" y1="28" y2="28"></line>
+<circle cx="36" cy="22" fill="#CCFBF1" r="2"></circle>
+<!-- cradle -->
+<path d="M22 32 C22 42 30 46 36 46 C42 46 50 42 50 32" stroke="#64748B" stroke-linecap="round" stroke-width="3"></path>
+<path d="M36 46 V56" stroke="#64748B" stroke-linecap="round" stroke-width="3"></path>
+<rect fill="#475569" height="5" rx="2.5" stroke="#334155" stroke-width="1.5" width="20" x="26" y="56"></rect>
+<!-- soundwaves -->
+<path d="M16 26 C14 30 14 34 16 38" stroke="#F59E0B" stroke-linecap="round" stroke-width="2"></path>
+<path d="M56 26 C58 30 58 34 56 38" stroke="#F59E0B" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Microphone</span>
+</div>
+<!-- 13. Open book -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<path d="M36 48 C30 44 20 44 14 47 V22 C20 19 30 19 36 23 C42 19 52 19 58 22 V47 C52 44 42 44 36 48 Z" fill="#F8FAFC" stroke="#64748B" stroke-width="2.5"></path>
+<path d="M36 23 V48" stroke="#64748B" stroke-width="2"></path>
+<!-- cover bottom edge -->
+<path d="M12 48 C20 45 30 45 36 49 C42 45 52 45 60 48" stroke="#0D9488" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- text lines -->
+<line stroke="#0D9488" stroke-linecap="round" stroke-width="2" x1="18" x2="30" y1="28" y2="30"></line>
+<line stroke="#0D9488" stroke-linecap="round" stroke-width="2" x1="18" x2="28" y1="34" y2="36"></line>
+<line stroke="#0D9488" stroke-linecap="round" stroke-width="2" x1="42" x2="54" y1="30" y2="28"></line>
+<line stroke="#0D9488" stroke-linecap="round" stroke-width="2" x1="44" x2="54" y1="36" y2="34"></line>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Open book</span>
+</div>
+<!-- 14. Lightning bolt -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<polygon fill="#FBBF24" points="38,12 20,36 34,36 28,60 52,32 38,32" stroke="#D97706" stroke-linejoin="round" stroke-width="2.5"></polygon>
+<polygon fill="#FEF08A" points="36,18 24,34 35,34 32,50 46,34 36,34"></polygon>
+<circle cx="48" cy="20" fill="#F59E0B" r="2.5"></circle>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Lightning bolt</span>
+</div>
+<!-- 15. Owl (pure mascot object: wise horn-feather crest & spectacles, no human face) -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- body egg shape -->
+<ellipse cx="36" cy="38" fill="#78350F" rx="20" ry="22" stroke="#451A03" stroke-width="2.5"></ellipse>
+<!-- tuft crest ears -->
+<polygon fill="#92400E" points="18,22 25,32 16,32"></polygon>
+<polygon fill="#92400E" points="54,22 47,32 56,32"></polygon>
+<!-- wise scholar cap or spectacles -->
+<circle cx="28" cy="34" fill="#FEF3C7" r="8" stroke="#F59E0B" stroke-width="2"></circle>
+<circle cx="44" cy="34" fill="#FEF3C7" r="8" stroke="#F59E0B" stroke-width="2"></circle>
+<line stroke="#F59E0B" stroke-width="3" x1="36" x2="36" y1="34" y2="35"></line>
+<!-- golden lenses -->
+<circle cx="28" cy="34" fill="#0D9488" r="4"></circle>
+<circle cx="44" cy="34" fill="#0D9488" r="4"></circle>
+<polygon fill="#F97316" points="36,39 33,44 39,44"></polygon>
+<!-- breast feathers -->
+<path d="M30 48 Q36 52 42 48" stroke="#FDE68A" stroke-linecap="round" stroke-width="2"></path>
+<path d="M32 53 Q36 56 40 53" stroke="#FDE68A" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Owl</span>
+</div>
+<!-- 16. Early bird (stylized avian silhouette rising with sun) -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- rising sun -->
+<circle cx="46" cy="24" fill="#FDE047" r="12" stroke="#EAB308" stroke-width="2"></circle>
+<!-- bird swooping upwards silhouette -->
+<path d="M16 48 Q28 40 38 28 Q44 24 50 20 Q44 32 38 40 Q32 46 20 54 Z" fill="#0284C7" stroke="#0369A1" stroke-width="2.5"></path>
+<path d="M28 38 Q36 34 46 26 Q42 38 34 44 Z" fill="#38BDF8"></path>
+<!-- sun rays -->
+<line stroke="#EAB308" stroke-linecap="round" stroke-width="2" x1="46" x2="46" y1="8" y2="11"></line>
+<line stroke="#EAB308" stroke-linecap="round" stroke-width="2" x1="60" x2="57" y1="18" y2="20"></line>
+<line stroke="#EAB308" stroke-linecap="round" stroke-width="2" x1="62" x2="59" y1="30" y2="29"></line>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Early bird</span>
+</div>
+<!-- 17. Archer's bow -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- bow wood curved -->
+<path d="M26 14 C14 26 14 46 26 58" stroke="#92400E" stroke-linecap="round" stroke-width="4.5"></path>
+<path d="M26 14 C16 26 16 46 26 58" stroke="#D97706" stroke-linecap="round" stroke-width="2"></path>
+<!-- bowstring -->
+<line stroke="#94A3B8" stroke-width="2" x1="26" x2="26" y1="14" y2="58"></line>
+<!-- loaded arrow -->
+<line stroke="#0F766E" stroke-width="2.5" x1="16" x2="54" y1="36" y2="36"></line>
+<polygon fill="#F59E0B" points="58,36 48,31 50,36 48,41" stroke="#D97706" stroke-width="1.5"></polygon>
+<!-- fletching -->
+<path d="M20 32 L15 36 L20 40" fill="none" stroke="#EF4444" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Archer's bow</span>
+</div>
+<!-- 18. Military medal -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- striped ribbon draped -->
+<polygon fill="#DC2626" points="26,14 46,14 42,32 30,32" stroke="#991B1B" stroke-width="2"></polygon>
+<rect fill="#F59E0B" height="18" width="4" x="34" y="14"></rect>
+<!-- medal cross/star suspension -->
+<polygon fill="#FBBF24" points="36,32 39,37 45,35 44,41 49,44 44,48 45,54 39,52 36,58 33,52 27,54 28,48 23,44 28,41 27,35 33,37" stroke="#B45309" stroke-width="2"></polygon>
+<circle cx="36" cy="44" fill="#0D9488" r="6" stroke="#115E59" stroke-width="1.5"></circle>
+<circle cx="36" cy="44" fill="#FEF08A" r="2.5"></circle>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Military medal</span>
+</div>
+<!-- 19. Golden crown -->
+<div class="tile-candy p-4 flex flex-col items-center justify-between text-center min-h-[164px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<polygon fill="#FBBF24" points="16,48 20,24 29,36 36,18 43,36 52,24 56,48" stroke="#B45309" stroke-width="2.5"></polygon>
+<!-- bottom band with jewels -->
+<rect fill="#D97706" height="9" rx="3" stroke="#92400E" stroke-width="2" width="40" x="16" y="48"></rect>
+<circle cx="23" cy="52.5" fill="#EF4444" r="2"></circle>
+<circle cx="36" cy="52.5" fill="#0D9488" r="2.5"></circle>
+<circle cx="49" cy="52.5" fill="#3B82F6" r="2"></circle>
+<!-- pearls on peaks -->
+<circle cx="20" cy="23" fill="#FEF08A" r="2.5"></circle>
+<circle cx="36" cy="17" fill="#FEF08A" r="3"></circle>
+<circle cx="52" cy="23" fill="#FEF08A" r="2.5"></circle>
+</svg>
+</div>
+<span class="text-xs font-black text-[#f0f7f8] tracking-tight mt-2">Golden crown</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: ROW 4 - 8 Streak Milestone Flame Medallions -->
+<section class="space-y-6">
+<div class="flex items-baseline justify-between border-b-2 border-[#203a42] pb-3">
+<div>
+<h2 class="text-2xl font-black text-[#f0f7f8] flex items-center gap-2">
+<span>Streak Flame Medallions</span>
+<span class="text-xs font-bold bg-[#f59e0b] text-[#1c1003] px-2.5 py-0.5 rounded-full border border-[#d97706]">8 Milestones</span>
+</h2>
+<p class="text-xs font-bold text-[#8fb5bb] mt-0.5">Row 4: Medallions that evolve richer in radiance, tiers &amp; ember halos as streak numbers climb</p>
+</div>
+<span class="text-xs font-extrabold text-[#f4bf40] tracking-wide uppercase">Number In Ribbon Below Only</span>
+</div>
+<!-- 8 Streak Medallions Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
+<!-- 3 Days: Baby Spark Flame -->
+<div class="tile-candy p-3.5 flex flex-col items-center justify-between text-center min-h-[178px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<circle cx="36" cy="38" fill="#FEF3C7" r="22" stroke="#FDE68A" stroke-width="2"></circle>
+<path d="M36 20 C36 20 44 28 44 38 C44 44 40 48 35 48 C30 48 27 44 27 38 C27 32 32 26 36 20 Z" fill="#F97316" stroke="#EA580C" stroke-width="2"></path>
+<ellipse cx="35" cy="41" fill="#FBBF24" rx="4" ry="5"></ellipse>
+</svg>
+</div>
+<div class="ribbon-pill px-3 py-0.5 rounded-full font-black text-xs">
+            3 days
+          </div>
+</div>
+<!-- 7 Days: Bright Amber Torch -->
+<div class="tile-candy p-3.5 flex flex-col items-center justify-between text-center min-h-[178px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<circle cx="36" cy="36" fill="#FED7AA" r="23" stroke="#FB923C" stroke-width="2"></circle>
+<path d="M36 16 C36 16 46 25 46 37 C46 44 41 50 36 50 C30 50 25 44 25 37 C25 29 32 23 36 16 Z" fill="#EA580C" stroke="#C2410C" stroke-width="2"></path>
+<path d="M36 26 C36 26 42 32 42 39 C42 43 39 46 36 46 C33 46 30 43 30 39 C30 34 33 30 36 26 Z" fill="#FBBF24"></path>
+<circle cx="36" cy="41" fill="#FEF08A" r="3"></circle>
+</svg>
+</div>
+<div class="ribbon-pill px-3 py-0.5 rounded-full font-black text-xs">
+            7 days
+          </div>
+</div>
+<!-- 14 Days: Dual Crested Fire -->
+<div class="tile-candy p-3.5 flex flex-col items-center justify-between text-center min-h-[178px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#FFEDD5" height="46" rx="14" stroke="#F97316" stroke-width="2" width="46" x="13" y="13"></rect>
+<path d="M36 14 C36 14 47 24 47 38 C47 48 41 52 36 52 C30 52 24 48 24 38 C24 28 32 22 36 14 Z" fill="#DC2626" stroke="#991B1B" stroke-width="2"></path>
+<path d="M36 24 C36 24 43 30 43 39 C43 45 39 48 36 48 C32 48 29 45 29 39 C29 33 33 28 36 24 Z" fill="#F97316"></path>
+<path d="M36 33 C36 33 40 37 40 42 C40 45 38 46 36 46 C34 46 32 45 32 42 C32 38 34 35 36 33 Z" fill="#FEF08A"></path>
+</svg>
+</div>
+<div class="ribbon-pill px-3 py-0.5 rounded-full font-black text-xs">
+            14 days
+          </div>
+</div>
+<!-- 30 Days: Golden Bronze Shield Fire -->
+<div class="tile-candy p-3.5 flex flex-col items-center justify-between text-center min-h-[178px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- bronze ring -->
+<circle cx="36" cy="36" fill="#FEF3C7" r="24" stroke="#D97706" stroke-width="3"></circle>
+<!-- wing sparks -->
+<path d="M20 36 Q22 28 26 24" stroke="#F59E0B" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M52 36 Q50 28 46 24" stroke="#F59E0B" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- flame -->
+<path d="M36 13 C36 13 47 22 47 37 C47 46 42 50 36 50 C30 50 25 46 25 37 C25 27 33 20 36 13 Z" fill="#EA580C" stroke="#B45309" stroke-width="2"></path>
+<path d="M36 23 C36 23 43 30 43 39 C43 45 39 47 36 47 C33 47 29 45 29 39 C29 33 33 28 36 23 Z" fill="#FBBF24"></path>
+<circle cx="36" cy="40" fill="#FFFFFF" r="3.5"></circle>
+</svg>
+</div>
+<div class="ribbon-pill px-3 py-0.5 rounded-full font-black text-xs">
+            30 days
+          </div>
+</div>
+<!-- 50 Days: Radiating Ruby Ember -->
+<div class="tile-candy p-3.5 flex flex-col items-center justify-between text-center min-h-[178px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- 8-point sun medallion back -->
+<polygon fill="#FDE68A" points="36,10 42,20 53,15 50,27 61,31 52,39 58,49 46,48 44,60 36,52 28,60 26,48 14,49 20,39 11,31 22,27 19,15 30,20" stroke="#B45309" stroke-width="1.5"></polygon>
+<circle cx="36" cy="35" fill="#FFF1F2" r="19" stroke="#E11D48" stroke-width="2"></circle>
+<!-- fiery heart -->
+<path d="M36 17 C36 17 45 24 45 36 C45 44 41 47 36 47 C31 47 27 44 27 36 C27 28 33 23 36 17 Z" fill="#E11D48" stroke="#9F1239" stroke-width="2"></path>
+<path d="M36 25 C36 25 41 30 41 37 C41 42 38 44 36 44 C34 44 31 42 31 37 C31 32 34 29 36 25 Z" fill="#F59E0B"></path>
+<ellipse cx="36" cy="38" fill="#FEF08A" rx="2.5" ry="3.5"></ellipse>
+</svg>
+</div>
+<div class="ribbon-pill px-3 py-0.5 rounded-full font-black text-xs">
+            50 days
+          </div>
+</div>
+<!-- 100 Days: Century Solar Crown Flame -->
+<div class="tile-candy p-3.5 flex flex-col items-center justify-between text-center min-h-[178px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- laurel ring -->
+<circle cx="36" cy="36" fill="#FEF9C3" r="25" stroke="#CA8A04" stroke-width="3"></circle>
+<!-- mini crown base on flame -->
+<path d="M26 48 L46 48 L48 43 L24 43 Z" fill="#CA8A04"></path>
+<circle cx="28" cy="45" fill="#FFFFFF" r="1.5"></circle>
+<circle cx="36" cy="45" fill="#FFFFFF" r="1.5"></circle>
+<circle cx="44" cy="45" fill="#FFFFFF" r="1.5"></circle>
+<!-- triple flame -->
+<path d="M36 12 C36 12 46 21 46 36 C46 43 41 45 36 45 C31 45 26 43 26 36 C26 25 33 18 36 12 Z" fill="#EA580C" stroke="#9A3412" stroke-width="2"></path>
+<path d="M36 21 C36 21 42 27 42 36 C42 41 39 42 36 42 C33 42 30 41 30 36 C30 29 33 25 36 21 Z" fill="#FBBF24"></path>
+<circle cx="36" cy="34" fill="#FFFFFF" r="3"></circle>
+</svg>
+</div>
+<div class="ribbon-pill px-3 py-0.5 rounded-full font-black text-xs">
+            100 days
+          </div>
+</div>
+<!-- 180 Days: Winged Diamond Flame -->
+<div class="tile-candy p-3.5 flex flex-col items-center justify-between text-center min-h-[178px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- stylized wings -->
+<path d="M12 36 C16 26 24 24 30 30" stroke="#0D9488" stroke-linecap="round" stroke-width="3"></path>
+<path d="M60 36 C56 26 48 24 42 30" stroke="#0D9488" stroke-linecap="round" stroke-width="3"></path>
+<!-- faceted gold border -->
+<circle cx="36" cy="36" fill="#E6FFFA" r="20" stroke="#0F766E" stroke-width="2.5"></circle>
+<circle cx="36" cy="36" fill="#FEF3C7" r="16" stroke="#F59E0B" stroke-width="1.5"></circle>
+<!-- super flame -->
+<path d="M36 14 C36 14 44 22 44 34 C44 42 40 45 36 45 C32 45 28 42 28 34 C28 26 33 20 36 14 Z" fill="#F97316" stroke="#C2410C" stroke-width="2"></path>
+<path d="M36 23 C36 23 40 28 40 35 C40 39 38 41 36 41 C34 41 32 39 32 35 C32 29 34 26 36 23 Z" fill="#FDE047"></path>
+<circle cx="36" cy="35" fill="#38BDF8" r="2.5"></circle>
+</svg>
+</div>
+<div class="ribbon-pill px-3 py-0.5 rounded-full font-black text-xs">
+            180 days
+          </div>
+</div>
+<!-- 365 Days: Legendary Phoenix Aura Medallion -->
+<div class="tile-candy p-3.5 flex flex-col items-center justify-between text-center min-h-[178px]">
+<div class="w-16 h-16 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-14 h-14" fill="none" viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<!-- grand outer star burst -->
+<circle cx="36" cy="36" fill="#FEF3C7" r="26" stroke="#B45309" stroke-width="2.5"></circle>
+<circle cx="36" cy="36" fill="#7C3AED" r="21" stroke="#5B21B6" stroke-width="2"></circle>
+<!-- legendary radiant flame with crown -->
+<path d="M36 13 C36 13 46 22 46 36 C46 44 41 48 36 48 C31 48 26 44 26 36 C26 26 33 19 36 13 Z" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"></path>
+<path d="M36 21 C36 21 42 27 42 36 C42 41 39 44 36 44 C33 44 30 41 30 36 C30 29 33 25 36 21 Z" fill="#F43F5E"></path>
+<circle cx="36" cy="36" fill="#FFFFFF" r="3.5"></circle>
+<!-- top crown crest -->
+<polygon fill="#FBBF24" points="32,15 36,9 40,15 36,13" stroke="#B45309" stroke-width="1.5"></polygon>
+</svg>
+</div>
+<div class="ribbon-pill px-3 py-0.5 rounded-full font-black text-xs border-[#b45309]">
+            365 days
+          </div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: ROW 5 - Lesson Crown Levels (5 Tiers) -->
+<section class="space-y-6">
+<div class="flex items-baseline justify-between border-b-2 border-[#203a42] pb-3">
+<div>
+<h2 class="text-2xl font-black text-[#f0f7f8] flex items-center gap-2">
+<span>Lesson Crown Levels</span>
+<span class="text-xs font-bold bg-[#14726d] text-[#e6fbf9] px-2.5 py-0.5 rounded-full border border-[#2ba39a]">5 Mastery Tiers</span>
+</h2>
+<p class="text-xs font-bold text-[#8fb5bb] mt-0.5">Row 5: Tactile crowns progressing through Bronze, Silver, Gold, Emerald, and Legendary Purple</p>
+</div>
+<span class="text-xs font-extrabold text-[#f4bf40] tracking-wide uppercase">Progression Badges</span>
+</div>
+<!-- 5 Tiers Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
+<!-- Tier 1: Bronze -->
+<div class="tile-candy p-5 flex flex-col items-center justify-between text-center min-h-[190px]">
+<div class="w-20 h-20 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-16 h-16" fill="none" viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<!-- bronze crown -->
+<polygon fill="#B45309" points="18,52 22,26 31,38 40,20 49,38 58,26 62,52" stroke="#78350F" stroke-width="3"></polygon>
+<!-- base band -->
+<rect fill="#92400E" height="10" rx="3" stroke="#78350F" stroke-width="2.5" width="44" x="18" y="52"></rect>
+<!-- rivets -->
+<circle cx="26" cy="57" fill="#D97706" r="2.5"></circle>
+<circle cx="40" cy="57" fill="#D97706" r="2.5"></circle>
+<circle cx="54" cy="57" fill="#D97706" r="2.5"></circle>
+<!-- pearl tips -->
+<circle cx="22" cy="25" fill="#FCD34D" r="3"></circle>
+<circle cx="40" cy="19" fill="#FCD34D" r="3.5"></circle>
+<circle cx="58" cy="25" fill="#FCD34D" r="3"></circle>
+<path d="M33 34 L40 25 L47 34" stroke="#D97706" stroke-width="2"></path>
+</svg>
+</div>
+<div class="w-full">
+<span class="block text-sm font-black text-[#f6d2b5]">Bronze</span>
+<span class="text-[11px] font-bold text-[#a9c9ce]">Level 1</span>
+</div>
+</div>
+<!-- Tier 2: Silver -->
+<div class="tile-candy p-5 flex flex-col items-center justify-between text-center min-h-[190px]">
+<div class="w-20 h-20 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-16 h-16" fill="none" viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<!-- silver crown -->
+<polygon fill="#CBD5E1" points="18,52 22,26 31,38 40,20 49,38 58,26 62,52" stroke="#64748B" stroke-width="3"></polygon>
+<polygon fill="#F1F5F9" points="26,48 29,32 35,40 40,25 45,40 51,32 54,48"></polygon>
+<!-- base band -->
+<rect fill="#94A3B8" height="10" rx="3" stroke="#475569" stroke-width="2.5" width="44" x="18" y="52"></rect>
+<!-- blue sapphire jewels -->
+<circle cx="26" cy="57" fill="#38BDF8" r="2.5"></circle>
+<circle cx="40" cy="57" fill="#0284C7" r="3"></circle>
+<circle cx="54" cy="57" fill="#38BDF8" r="2.5"></circle>
+<!-- pearl tips -->
+<circle cx="22" cy="25" fill="#FFFFFF" r="3" stroke="#94A3B8" stroke-width="1.5"></circle>
+<circle cx="40" cy="19" fill="#FFFFFF" r="3.5" stroke="#94A3B8" stroke-width="1.5"></circle>
+<circle cx="58" cy="25" fill="#FFFFFF" r="3" stroke="#94A3B8" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="w-full">
+<span class="block text-sm font-black text-[#e2e8f0]">Silver</span>
+<span class="text-[11px] font-bold text-[#a9c9ce]">Level 2</span>
+</div>
+</div>
+<!-- Tier 3: Gold -->
+<div class="tile-candy p-5 flex flex-col items-center justify-between text-center min-h-[190px]">
+<div class="w-20 h-20 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-16 h-16" fill="none" viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<!-- gold crown -->
+<polygon fill="#FBBF24" points="18,52 22,26 31,38 40,20 49,38 58,26 62,52" stroke="#B45309" stroke-width="3"></polygon>
+<polygon fill="#FEF08A" points="26,48 29,32 35,40 40,25 45,40 51,32 54,48"></polygon>
+<!-- base band -->
+<rect fill="#D97706" height="10" rx="3" stroke="#92400E" stroke-width="2.5" width="44" x="18" y="52"></rect>
+<!-- ruby jewels -->
+<circle cx="26" cy="57" fill="#EF4444" r="2.5"></circle>
+<circle cx="40" cy="57" fill="#DC2626" r="3"></circle>
+<circle cx="54" cy="57" fill="#EF4444" r="2.5"></circle>
+<!-- gold pearl tips -->
+<circle cx="22" cy="25" fill="#FEF3C7" r="3" stroke="#D97706" stroke-width="1.5"></circle>
+<circle cx="40" cy="19" fill="#FEF3C7" r="3.5" stroke="#D97706" stroke-width="1.5"></circle>
+<circle cx="58" cy="25" fill="#FEF3C7" r="3" stroke="#D97706" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="w-full">
+<span class="block text-sm font-black text-[#fde047]">Gold</span>
+<span class="text-[11px] font-bold text-[#a9c9ce]">Level 3</span>
+</div>
+</div>
+<!-- Tier 4: Emerald -->
+<div class="tile-candy p-5 flex flex-col items-center justify-between text-center min-h-[190px]">
+<div class="w-20 h-20 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-16 h-16" fill="none" viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<!-- emerald crown body -->
+<polygon fill="#0D9488" points="18,52 22,26 31,38 40,20 49,38 58,26 62,52" stroke="#115E59" stroke-width="3"></polygon>
+<polygon fill="#2DD4BF" points="26,48 29,32 35,40 40,25 45,40 51,32 54,48"></polygon>
+<!-- base band -->
+<rect fill="#0F766E" height="10" rx="3" stroke="#134E4A" stroke-width="2.5" width="44" x="18" y="52"></rect>
+<!-- glowing jade diamonds -->
+<polygon fill="#A7F3D0" points="26,54 28,57 26,60 24,57"></polygon>
+<polygon fill="#CCFBF1" points="40,54 43,57 40,60 37,57"></polygon>
+<polygon fill="#A7F3D0" points="54,54 56,57 54,60 52,57"></polygon>
+<!-- crystal peak tips -->
+<circle cx="22" cy="25" fill="#6EE7B7" r="3" stroke="#047857" stroke-width="1.5"></circle>
+<circle cx="40" cy="19" fill="#A7F3D0" r="3.5" stroke="#047857" stroke-width="1.5"></circle>
+<circle cx="58" cy="25" fill="#6EE7B7" r="3" stroke="#047857" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="w-full">
+<span class="block text-sm font-black text-[#5eead4]">Emerald</span>
+<span class="text-[11px] font-bold text-[#a9c9ce]">Level 4</span>
+</div>
+</div>
+<!-- Tier 5: Legendary Purple -->
+<div class="tile-candy p-5 flex flex-col items-center justify-between text-center min-h-[190px]">
+<div class="w-20 h-20 flex items-center justify-center my-auto badge-gloss">
+<svg class="w-16 h-16" fill="none" viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<!-- radiant aura -->
+<circle cx="40" cy="40" fill="#201633" r="34" stroke="#7c3aed" stroke-dasharray="3 3" stroke-width="1.5"></circle>
+<!-- legendary purple crown -->
+<polygon fill="#7C3AED" points="18,52 22,26 31,38 40,20 49,38 58,26 62,52" stroke="#4C1D95" stroke-width="3"></polygon>
+<polygon fill="#A78BFA" points="26,48 29,32 35,40 40,25 45,40 51,32 54,48"></polygon>
+<!-- base band with gold trim -->
+<rect fill="#5B21B6" height="10" rx="3" stroke="#31104B" stroke-width="2.5" width="44" x="18" y="52"></rect>
+<!-- gold stars & amethyst jewels -->
+<circle cx="26" cy="57" fill="#FBBF24" r="2.5"></circle>
+<circle cx="40" cy="57" fill="#FCD34D" r="3"></circle>
+<circle cx="54" cy="57" fill="#FBBF24" r="2.5"></circle>
+<!-- diamond spikes -->
+<polygon fill="#F5D0FE" points="22,21 24,25 22,29 20,25"></polygon>
+<polygon fill="#FFFFFF" points="40,15 42,19 40,23 38,19"></polygon>
+<polygon fill="#F5D0FE" points="58,21 60,25 58,29 56,25"></polygon>
+</svg>
+</div>
+<div class="w-full">
+<span class="block text-sm font-black text-[#d8b4fe]">Legendary purple</span>
+<span class="text-[11px] font-bold text-[#c084fc]">Master Tier 5</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Specification & Contrast Verification -->
+<footer class="bg-[#102126] rounded-2xl p-5 border-2 border-[#23434c] shadow-[0_4px_0_#0a1518] flex flex-col md:flex-row items-center justify-between text-xs text-[#a2c2c8] font-bold gap-4">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-[#6bd8ce]"></span>
+<span class="text-[#d8e5e9]">Lexkite Tactile Asset Specification • 0 Characters / No Faces / Candy 3D Ledges</span>
+</div>
+<div class="flex items-center gap-6">
+<span>Contrast Rating: <strong class="text-[#6bd8ce] font-extrabold">≥ 6.5:1 Compliant</strong></span>
+<span>Dark Ink on Amber: <code class="text-[#1c1003] font-black bg-[#f59e0b] px-2 py-0.5 rounded">#1c1003</code></span>
+</div>
+</footer>
+</div>
+</body>
+</html>
+
