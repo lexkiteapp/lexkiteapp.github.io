@@ -90,7 +90,7 @@
       const next = why => { if (ok || el._lkDone) return; el._lkDone = 1; clearTimeout(timer); el.onerror = el.onended = null; try { el.pause(); el.removeAttribute('src'); el.load(); } catch (e) { /* bỏ qua */ } if (why === 'timeout') note('timeout', urls[i]); if (o.onBase) o.onBase(i, why); if (i + 1 < urls.length) note('cdn', why + ' ' + urls[i]); tryAt(i + 1); };
       el.preload = 'auto'; el.preservesPitch = true; el.src = urls[i]; el.playbackRate = o.rate || 1;
       el.onerror = () => next('error');
-      el.addEventListener('playing', () => { if (ok || my !== seq) return; ok = true; clearTimeout(timer); if (o.onStart) o.onStart(urls[i], i); }, { once: true });
+      el.onplaying = () => { el.onplaying = null; if (ok || my !== seq) return; ok = true; clearTimeout(timer); if (o.onStart) o.onStart(urls[i], i); };
       el.onended = () => { el.onended = null; if (my === seq && o.onEnd) o.onEnd(); };
       timer = setTimeout(() => next('timeout'), o.timeout || TIMEOUT);
       try {
