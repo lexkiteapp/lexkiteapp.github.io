@@ -131,6 +131,31 @@ Mẫu thẻ:
     * \`publishAt: ""\` để trống theo đúng runbook để Claude xếp lịch tự động.
 - Cần sửa / Nhận xét:
 
+### [B5-L2] Lô 2 Blog 12 bài chuẩn SEO (6 JA + 6 KO) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Mở rộng 12 bài viết chuyên sâu cho 2 thị trường Đông Á trọng điểm: Tiếng Nhật (JA) và Tiếng Hàn (KO). Chuẩn hóa 100% văn phong bản địa, giải quyết chính xác nỗi đau ngữ âm/ngữ pháp của người Nhật & Hàn (IPA, câu điều kiện, cấu trúc câu hỏi, tra từ điển Anh-Anh, luyện nghe Dictation, từ vựng IELTS AI/Technology và 복합문 문법 다양성).
+- **Báo cáo (Antigravity 31/10):**
+  - **Commit:** `7e569960` → `57ab0a5c` (12 commit riêng biệt từng bài + briefs).
+  - **Danh sách 6 bài JA (Tiếng Nhật):**
+    1. `ipa-hatsuon-kigou-hyou-eigo.md` (`7e569960`)
+    2. `eigo-kateihou-if-koubun-tsukaikata.md` (`f4058e2c`)
+    3. `eigo-gimonbun-tsukurikata-kouzou.md` (`502cb2e4`)
+    4. `eiei-jisho-tsukaikata-osusume.md` (`74abfce6`)
+    5. `eigo-dictation-yarikata-listening.md` (`4d415eeb`)
+    6. `ielts-technology-ai-eitango.md` (`3281b55a`)
+  - **Danh sách 6 bài KO (Tiếng Hàn):**
+    1. `ipa-baleum-giho-yeongeo-pyo.md` (`f0a1e314`)
+    2. `yeongeo-uimunmun-mandeulgi-gongsig.md` (`02c82c3e`)
+    3. `yeong-yeong-sajeon-hwalyongbeop.md` (`c4d44bd1`)
+    4. `yeongeo-dictation-cheuksa-gongbubeop.md` (`1754e850`)
+    5. `ielts-technology-ai-daneo-collocation.md` (`57ab0a5c`)
+    6. `ielts-writing-bokhabmun-complex-sentences.md` (`5db4397c`)
+  - **Cổng chất lượng kiểm tra toàn diện:**
+    * `node scripts/blog-check.mjs`: 490 bài, 0 lỗi.
+    * `node scripts/blog-captions.mjs --check-all`: 490 bài, 1.176 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * `node scripts/blog-dupes.mjs`: 490 bài, 0 lỗi (độ chồng lấn cao nhất 8.8% < 12%).
+    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
+- Cần sửa / Nhận xét:
+
 ### [B5] Viết lại 6 bài Hindi (hi) bằng chữ Devanagari bản địa · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Viết lại toàn bộ 6 bài hi bằng chữ Devanagari bản địa (हिन्दी) như 28 bài hi hiện có, chỉ giữ tiếng Anh ở ví dụ/từ khóa, tự kiểm tỉ lệ Devanagari ≥ 70%, để trống \`publishAt\`.
 - **Báo cáo (Antigravity 23/10):**
