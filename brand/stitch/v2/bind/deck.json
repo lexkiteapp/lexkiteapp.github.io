@@ -1,0 +1,365 @@
+{
+ "_doc": "Sổ từ (#/deck, cờ ux1) – d do web/js/ux1-deck.js dựng từ state.cards thật; trang cũ (routes.deck) giữ nguyên khi tắt cờ và cho link chia sẻ ?share=. Giữ đủ ý trang cũ: tiêu đề n từ · k đã thuộc (+ chip kỳ thi/mục tiêu như màn Tôi), thanh % đã thuộc, Học / Kiểm tra (?src=deck, Học kèm số thẻ đến hạn), hàng công cụ = #shareBtn Chia sẻ bộ thẻ · #exportBtn Xuất · Nhập (#importBtn → #importFile .json) · #ankiOut · #ankiIn; ô tìm #filterQ (từ hoặc nghĩa; nút kính lúp đầu trang đưa con trỏ tới ô; micro = UI.recognize đọc từ vào ô); 3 viên lọc Stitch = 3 <select> thật phủ trong suốt: #filterTopic (bộ từ, Từ tự thêm, bộ Anki), #filterFrom (nguồn ORIGINS + Sắp quên, ?from=), #filterM (mức độ) – viên đang lọc dùng khuôn viên tô (Source). Nhãn 'SORT' = cách sắp xếp thật (mới thêm / dễ quên trước). 'Select All' ẩn (không có chọn hàng loạt – A/B chủ). Thẻ từ: ảnh/emoji, từ → #/dict/…, IPA, từ loại, nghĩa (ngôn ngữ người học), ngữ cảnh đã lưu tô từ (không có → định nghĩa), chấm mức thuộc 5 nấc (0..3 + sắp quên), nguồn + bộ từ, % nhớ (FSRS, title = ngày đến hạn), [data-speak][data-url], [data-edit] → hộp Sửa cũ (sửa/học lại/xóa). Khuôn có nhãn 'Review today' = thẻ đến hạn hôm nay. ≤400 thẻ + ghi chú, trống → thông điệp cũ. 'Add new word' → #/dict (tra & lưu). pageCss: class <style> riêng của mẫu (btn-teal, word-card…) → class tuỳ ý. Thanh tab dưới = shell (tab Luyện).",
+ "pageCss": true,
+ "remove": [
+  ":scope > div > nav"
+ ],
+ "i18n": {
+  "Deck Mastery Level": "Mức thuộc của sổ",
+  "Flashcards": "Thẻ ghi nhớ",
+  "Study": "Học bộ này",
+  "Quiz Sprint": "Kiểm tra cấp tốc",
+  "Test": "Bài kiểm tra",
+  "Share": "Chia sẻ",
+  "Export": "Xuất",
+  "Import": "Nhập",
+  "Anki out": "Xuất Anki",
+  "Anki in": "Nhập Anki",
+  "Review today": "Ôn hôm nay",
+  "Select All": "Chọn tất cả",
+  "Add new word to this deck": "Thêm từ mới vào sổ"
+ },
+ "attr": {
+  ":scope > div > header > div:nth-child(1) > div:nth-child(1) > button": {
+   "data-href": "'#/train'",
+   "aria-label": "d.backL",
+   "title": "d.backL",
+   "type": "'button'"
+  },
+  ":scope > div > header > div:nth-child(1) > button": {
+   "id": "'dkFind'",
+   "aria-label": "d.findL",
+   "title": "d.findL",
+   "type": "'button'"
+  },
+  ":scope > div > header > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-valuemin": "'0'",
+   "aria-valuemax": "'100'",
+   "aria-valuenow": "d.pct",
+   "aria-label": "d.mastL"
+  },
+  ":scope > div > header > div:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > div > main > div:nth-child(1) > button:nth-child(1)": {
+   "id": "'dkLearn'",
+   "data-href": "'#/practice/learn?src=deck'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div:nth-child(1) > button:nth-child(2)": {
+   "id": "'dkTest'",
+   "data-href": "'#/practice/test?src=deck'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div:nth-child(2) > div > button:nth-child(1)": {
+   "id": "'shareBtn'",
+   "type": "'button'",
+   "title": "d.shareL"
+  },
+  ":scope > div > main > div:nth-child(2) > div > button:nth-child(2)": {
+   "id": "'exportBtn'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div:nth-child(2) > div > button:nth-child(3)": {
+   "id": "'importBtn'",
+   "type": "'button'",
+   "title": "d.importL"
+  },
+  ":scope > div > main > div:nth-child(2) > div > button:nth-child(4)": {
+   "id": "'ankiOut'",
+   "type": "'button'",
+   "title": "d.ankiOutL"
+  },
+  ":scope > div > main > div:nth-child(2) > div > button:nth-child(5)": {
+   "id": "'ankiIn'",
+   "type": "'button'",
+   "title": "d.ankiInL"
+  },
+  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > input": {
+   "id": "'filterQ'",
+   "type": "'search'",
+   "placeholder": "d.qPh",
+   "aria-label": "d.qPh",
+   "value": "d.q"
+  },
+  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > button": {
+   "id": "'dkMic'",
+   "type": "'button'",
+   "aria-label": "d.micL",
+   "title": "d.micL"
+  },
+  ":scope > div > main > div:nth-child(3) > div:nth-child(2)": {
+   "role": "'group'",
+   "aria-label": "d.filtL"
+  },
+  ":scope > div > main > div:nth-child(4) > div > span:nth-child(1)": {
+   "id": "'dkShown'"
+  },
+  ":scope > div > main > div:nth-child(4) > button": {
+   "style": "'display:none'"
+  },
+  ":scope > div > main > div:nth-child(5)": {
+   "id": "'deckList'"
+  }
+ },
+ "tag": {
+  ":scope > div > main > div:nth-child(6) > button": {
+   "to": "a"
+  }
+ },
+ "cls": {
+  ":scope > div > main > div:nth-child(1) > button:nth-child(1)": {
+   "lt:[background:linear-gradient(180deg,_#188680_0%,_#0D6964_100%)]": "'lt:[background:linear-gradient(180deg,_#0F766E_0%,_#0D6964_100%)]'",
+   "dk:[background:linear-gradient(180deg,_#2BA39A_0%,_#1F7A75_100%)]": "'dk:[background:linear-gradient(180deg,_#1F7A75_0%,_#12514D_100%)]'"
+  },
+  ":scope > div > main > div:nth-child(1) > button:nth-child(2)": {
+   "[background:linear-gradient(180deg,_#F56B54_0%,_#F2553B_100%)]": "'[background:linear-gradient(180deg,_#C2412A_0%,_#B53A22_100%)]'",
+   "lt:[box-shadow:0_5px_0_#B53A22]": "'lt:[box-shadow:0_5px_0_#8A2A17]'",
+   "lt:active:![box-shadow:0_2px_0_#B53A22]": "'lt:active:![box-shadow:0_2px_0_#8A2A17]'"
+  },
+  ":scope > div > main > div:nth-child(1) > button > div:nth-child(1) > span:nth-child(1)": {
+   "lt:opacity-85": "''",
+   "dk:opacity-90": "''"
+  },
+  ":scope > div > main > div:nth-child(1) > button > div:nth-child(1) > span:nth-child(3)": {
+   "opacity-90": "''"
+  },
+  ":scope > div > main > div:nth-child(1) > button:nth-child(2) > div:nth-child(1) > span:not(:nth-child(2))": {
+   "dk:text-red-100": "''"
+  },
+  ":scope > div > main > div:nth-child(2) > div > button:nth-child(3) > div > span": {
+   "text-[#FFB054]": "'lt:text-[#B45309] dk:text-[#FFB054]'"
+  },
+  ":scope > div > main > div:nth-child(4) > div > span:nth-child(2)": {
+   "lt:text-[#5F7376]": "'lt:text-[#4E5F62]'"
+  }
+ },
+ "addClass": {
+  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > button": "before:absolute before:-inset-3 before:content-['']"
+ },
+ "html": {
+  ":scope > div > header > div:nth-child(1) > div:nth-child(1) > div > div > h1": "e(d.title)",
+  ":scope > div > header > div:nth-child(1) > div:nth-child(1) > div > div > span": "e(d.exam)",
+  ":scope > div > header > div:nth-child(1) > div:nth-child(1) > div > p > span": "e(d.mastN)",
+  ":scope > div > header > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(d.pct + '%')",
+  ":scope > div > main > div:nth-child(1) > button:nth-child(1) > div:nth-child(1) > span:nth-child(3)": "e(d.dueT)",
+  ":scope > div > main > div:nth-child(1) > button:nth-child(2) > div:nth-child(1) > span:nth-child(3)": "e(d.testT)",
+  ":scope > div > main > div:nth-child(4) > div > span:nth-child(1)": "e(d.listT)",
+  ":scope > div > main > div:nth-child(4) > div > span:nth-child(2)": "e(d.sortT)"
+ },
+ "text": {
+  "248 words saved ·": "d.savedN + ' ·'"
+ },
+ "after": {
+  ":scope > div > main > div:nth-child(2) > div > button:nth-child(3)": "'<input type=\"file\" id=\"importFile\" accept=\"application/json\" hidden>'",
+  ":scope > div > main > div:nth-child(5)": "d.noteH"
+ },
+ "repeat": [
+  {
+   "list": "d.chips",
+   "as": "r",
+   "samples": ":scope > div > main > div:nth-child(3) > div:nth-child(2) > button",
+   "pick": "r.on ? 'on' : 'off'",
+   "variants": {
+    "on": ":scope > div > main > div:nth-child(3) > div:nth-child(2) > button:nth-child(2)",
+    "off": ":scope > div > main > div:nth-child(3) > div:nth-child(2) > button:nth-child(1)"
+   },
+   "bind": {
+    "on": {
+     "cls": {
+      ":scope": {
+       "lt:text-[#F2553B]": "'lt:text-[#B53A22]'"
+      },
+      ":scope > span:nth-child(3)": {
+       "lt:text-[#F2553B]": "'lt:text-[#B53A22]'"
+      }
+     },
+     "tag": {
+      ":scope": {
+       "to": "label",
+       "addClass": "relative focus-within:ring-2 focus-within:ring-[#2BA39A]"
+      }
+     },
+     "after": {
+      ":scope > span:nth-child(3)": "r.sel"
+     },
+     "attr": {
+      ":scope > span:nth-child(1)": {
+       "aria-hidden": "'true'"
+      }
+     },
+     "html": {
+      ":scope > span:nth-child(2)": "e(r.label + ': ' + r.val)"
+     }
+    },
+    "off": {
+     "tag": {
+      ":scope": {
+       "to": "label",
+       "addClass": "relative focus-within:ring-2 focus-within:ring-[#2BA39A]"
+      }
+     },
+     "after": {
+      ":scope > span:nth-child(3)": "r.sel"
+     },
+     "html": {
+      ":scope > span:nth-child(1)": "e(r.icon)",
+      ":scope > span:nth-child(2)": "e(r.label + ': ') + '<span class=\"lt:text-[#0D6964] dk:text-[#2BA39A]\">' + e(r.val) + '</span>'"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.rows",
+   "as": "w",
+   "samples": ":scope > div > main > div:nth-child(5) > div",
+   "pick": "w.due ? 'due' : 'plain'",
+   "variants": {
+    "plain": ":scope > div > main > div:nth-child(5) > div:nth-child(1)",
+    "due": ":scope > div > main > div:nth-child(5) > div:nth-child(4)"
+   },
+   "bind": {
+    "plain": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1)": "w.emH",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": "w.wordH",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(w.ipa)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)": "e(w.pos)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > p:nth-child(2)": "e(w.mean)",
+      ":scope > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)": "w.ctxH",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div": "w.dotsH",
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > span": "e(w.src)",
+      ":scope > div:nth-child(1) > div:nth-child(3) > span": "w.retH"
+     },
+     "attr": {
+      ":scope > div:nth-child(1) > div:nth-child(1)": {
+       "aria-hidden": "'true'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": {
+       "style": "w.ipa ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)": {
+       "style": "w.pos ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)": {
+       "style": "w.ctxH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div": {
+       "title": "w.mL",
+       "role": "'img'",
+       "aria-label": "w.mL"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(3) > span": {
+       "title": "w.dueL",
+       "style": "w.retH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(3) > div > button:nth-child(1)": {
+       "data-speak": "w.word",
+       "data-url": "w.url",
+       "title": "d.speakL",
+       "aria-label": "d.speakL + ': ' + w.word",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(3) > div > button:nth-child(2)": {
+       "data-edit": "w.word",
+       "title": "d.editL",
+       "aria-label": "d.editL + ': ' + w.word",
+       "type": "'button'"
+      }
+     },
+     "cls": {
+      ":scope > div:nth-child(1) > div:nth-child(3) > span": {
+       "lt:bg-[#E7F7ED]": "w.chipC",
+       "lt:border-[#279655]/30": "''",
+       "lt:text-[#279655]": "''",
+       "dk:bg-[rgba(52,_211,_153,_0.15)]": "''",
+       "dk:border-[#34D399]/40": "''",
+       "dk:text-[#34D399]": "''"
+      },
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > span": {
+       "lt:text-[#5F7376]/80": "'lt:text-[#5F7376]'",
+       "dk:text-[#8EACB0]/80": "'dk:text-[#8EACB0]'"
+      }
+     },
+     "addClass": {
+      ":scope > div:nth-child(1) > div:nth-child(3) > div > button": "relative before:absolute before:-inset-2 before:content-['']"
+     }
+    },
+    "due": {
+     "html": {
+      ":scope > div:nth-child(2) > div:nth-child(1)": "w.emH",
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": "w.wordH",
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(w.ipa)",
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)": "e(w.pos)",
+      ":scope > div:nth-child(2) > div:nth-child(2) > p:nth-child(2)": "e(w.mean)",
+      ":scope > div:nth-child(2) > div:nth-child(2) > p:nth-child(3)": "w.ctxH",
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div": "w.dotsH",
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > span": "e(w.src)",
+      ":scope > div:nth-child(2) > div:nth-child(3) > span": "w.retH"
+     },
+     "attr": {
+      ":scope > div:nth-child(2) > div:nth-child(1)": {
+       "aria-hidden": "'true'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": {
+       "style": "w.ipa ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)": {
+       "style": "w.pos ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(2) > p:nth-child(3)": {
+       "style": "w.ctxH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div": {
+       "title": "w.mL",
+       "role": "'img'",
+       "aria-label": "w.mL"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(3) > span": {
+       "title": "w.dueL",
+       "style": "w.retH ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(3) > div > button:nth-child(1)": {
+       "data-speak": "w.word",
+       "data-url": "w.url",
+       "title": "d.speakL",
+       "aria-label": "d.speakL + ': ' + w.word",
+       "type": "'button'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(3) > div > button:nth-child(2)": {
+       "data-edit": "w.word",
+       "title": "d.editL",
+       "aria-label": "d.editL + ': ' + w.word",
+       "type": "'button'"
+      }
+     },
+     "cls": {
+      ":scope > div:nth-child(2) > div:nth-child(3) > span": {
+       "lt:bg-[#FDECEC]": "w.chipC",
+       "lt:border-[#E03131]/30": "''",
+       "lt:text-[#E03131]": "''",
+       "dk:bg-[rgba(248,_113,_113,_0.15)]": "''",
+       "dk:border-[#F87171]/40": "''",
+       "dk:text-[#F87171]": "''"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > span": {
+       "lt:text-[#5F7376]/80": "'lt:text-[#5F7376]'",
+       "dk:text-[#8EACB0]/80": "'dk:text-[#8EACB0]'"
+      },
+      ":scope > div:nth-child(1)": {
+       "bg-[#F2553B]": "'bg-[#B53A22]'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)": {
+       "text-[#F2553B]": "'lt:text-[#B53A22] dk:text-[#FFA493]'"
+      }
+     },
+     "addClass": {
+      ":scope > div:nth-child(2) > div:nth-child(3) > div > button": "relative before:absolute before:-inset-2 before:content-['']",
+      ":scope > div:nth-child(1)": "dk-due"
+     }
+    }
+   }
+  }
+ ]
+}
