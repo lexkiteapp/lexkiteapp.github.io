@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — B1 Intermediate Level Guide (Tactile Night)</title>
+  <!-- Google Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            night: {
+              bg: '#091518',
+              card: '#121D20',
+              raised: '#18272B',
+              border: '#263E47',
+              ledge: '#060E10',
+              text: '#EEF6F7',
+              muted: '#A9BFC1',
+            },
+            teal: {
+              brand: '#2BA39A',
+              deep: '#1F7A75',
+              glow: '#36DCD0',
+              ledge: '#12514D',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              ledge: '#B53A22',
+            },
+            amber: {
+              DEFAULT: '#FFB054',
+              ledge: '#C67A26',
+            },
+            gold: '#FFC94A',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #091518;
+      color: #EEF6F7;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tactile-card {
+      background-color: #121D20;
+      border: 2px solid #263E47;
+      border-radius: 20px;
+      box-shadow: 0 5px 0 0 #071012;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .tactile-card-subtle {
+      background-color: #162428;
+      border: 1.5px solid #2A434D;
+      border-radius: 16px;
+      box-shadow: 0 4px 0 0 #071012;
+    }
+
+    .primary-candy-cta {
+      background: linear-gradient(180deg, #FF6F4E 0%, #F2553B 55%, #E44328 100%);
+      border: 2px solid #FFA18F;
+      border-bottom: 2px solid #C43B20;
+      box-shadow: 0 5px 0 0 #B53A22, 0 10px 20px -4px rgba(242, 85, 59, 0.4);
+      color: #FFFFFF;
+      font-weight: 800;
+      border-radius: 14px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .primary-candy-cta:hover {
+      background: linear-gradient(180deg, #FF7B5C 0%, #FA5F45 55%, #E94C31 100%);
+      box-shadow: 0 6px 0 0 #B53A22, 0 12px 24px -4px rgba(242, 85, 59, 0.5);
+    }
+    .primary-candy-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22, 0 4px 10px -2px rgba(242, 85, 59, 0.3);
+    }
+
+    .secondary-candy-cta {
+      background: #18272B;
+      border: 2px solid #33535F;
+      box-shadow: 0 4px 0 0 #071012;
+      color: #EEF6F7;
+      font-weight: 700;
+      border-radius: 14px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.15s;
+    }
+    .secondary-candy-cta:hover {
+      background: #1E3137;
+      border-color: #2BA39A;
+      box-shadow: 0 5px 0 0 #071012;
+    }
+    .secondary-candy-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #071012;
+    }
+
+    .level-step-card {
+      background: #121D20;
+      border: 2px solid #233942;
+      border-radius: 16px;
+      box-shadow: 0 4px 0 0 #071012;
+      transition: all 0.15s ease;
+    }
+    .level-step-card.active {
+      background: #152A2E;
+      border: 2.5px solid #2BA39A;
+      box-shadow: 0 5px 0 0 #12514D, 0 0 20px rgba(43, 163, 154, 0.25);
+    }
+
+    .vocab-pill {
+      background: #152427;
+      border: 1.5px solid #29444E;
+      border-radius: 12px;
+      box-shadow: 0 3px 0 0 #071012;
+      transition: all 0.12s ease;
+    }
+    .vocab-pill:hover {
+      border-color: #2BA39A;
+      background: #1A2E33;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 0 #071012;
+    }
+
+    .badge-3d {
+      background: linear-gradient(145deg, #0284C7 0%, #0369A1 50%, #075985 100%);
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -4px 6px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(2, 132, 199, 0.35), 0 6px 0 0 #0C4A6E;
+      border: 2px solid #38BDF8;
+      border-radius: 24px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-teal-brand selection:text-night-bg">
+
+  <!-- Desktop Top Header -->
+  <header class="w-full sticky top-0 z-50 bg-[#091518]/95 backdrop-blur-md border-b-2 border-night-border/70 shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Left Logo & Nav -->
+      <div class="flex items-center gap-10">
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-brand to-teal-deep flex items-center justify-center shadow-[0_3px_0_0_#12514D] border border-teal-glow/30 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 19 9 12 22 5 9 12 2" fill="white" fill-opacity="0.15"></polygon>
+              <line x1="12" y1="2" x2="12" y2="22"></line>
+              <line x1="5" y1="9" x2="19" y2="9"></line>
+            </svg>
+          </div>
+          <span class="text-2xl font-extrabold tracking-tight text-white">Lexkite</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-7 text-sm font-bold">
+          <a href="#" class="text-teal-brand border-b-2 border-teal-brand pb-1">CEFR Levels</a>
+          <a href="#" class="text-night-muted hover:text-white transition-colors pb-1">Dictionary</a>
+          <a href="#" class="text-night-muted hover:text-white transition-colors pb-1">IELTS Band</a>
+          <a href="#" class="text-night-muted hover:text-white transition-colors pb-1">For Schools</a>
+        </nav>
+      </div>
+
+      <!-- Right Auth CTAs -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm font-bold text-night-muted hover:text-white px-3 py-2 transition-colors">Sign in</a>
+        <a href="#" class="px-5 py-2.5 primary-candy-cta text-sm flex items-center gap-2">
+          <span>Start free</span>
+          <span class="material-symbols-rounded text-lg">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-6 py-10 flex flex-col gap-12">
+
+    <!-- Hero Section: Level Title & Badge Card -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Left Hero Description -->
+      <div class="lg:col-span-8 flex flex-col items-start gap-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#142C30] border border-teal-brand/40 text-teal-glow text-xs font-extrabold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-teal-brand animate-pulse"></span>
+          <span>Official CEFR Benchmark</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          B1 · Intermediate
+        </h1>
+
+        <p class="text-lg text-night-muted font-medium max-w-2xl leading-relaxed">
+          You can understand the main points of everyday conversations, travel with ease, and express opinions on familiar topics.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-4 mt-2">
+          <button class="px-6 py-3.5 primary-candy-cta text-base flex items-center gap-2.5">
+            <span class="material-symbols-rounded text-xl">timer</span>
+            <span>Take the free level test</span>
+          </button>
+
+          <button class="px-5 py-3.5 secondary-candy-cta text-base flex items-center gap-2">
+            <span>Explore words</span>
+            <span class="material-symbols-rounded text-lg text-teal-brand">expand_more</span>
+          </button>
+        </div>
+
+        <!-- Metrics Chips -->
+        <div class="flex flex-wrap items-center gap-6 mt-3 text-xs font-bold text-night-muted">
+          <div class="flex items-center gap-2 bg-[#122023] px-3 py-1.5 rounded-lg border border-night-border/50">
+            <span class="material-symbols-rounded text-base text-teal-brand">check_circle</span>
+            <span>IELTS ~4.0 – 5.0</span>
+          </div>
+          <div class="flex items-center gap-2 bg-[#122023] px-3 py-1.5 rounded-lg border border-night-border/50">
+            <span class="material-symbols-rounded text-base text-teal-brand">verified</span>
+            <span>TOEIC 550 – 780</span>
+          </div>
+          <div class="flex items-center gap-2 bg-[#122023] px-3 py-1.5 rounded-lg border border-night-border/50">
+            <span class="material-symbols-rounded text-base text-amber">bolt</span>
+            <span>5-minute adaptive test</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Hero Badge Card -->
+      <div class="lg:col-span-4 flex justify-center lg:justify-end">
+        <div class="w-full max-w-[280px] p-6 tactile-card flex flex-col items-center justify-center text-center gap-5">
+          <!-- 3D Glossy B1 Emblem Badge -->
+          <div class="w-36 h-36 badge-3d flex flex-col items-center justify-center relative overflow-hidden group">
+            <div class="absolute -top-10 -left-10 w-28 h-28 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+            <span class="text-[11px] font-black uppercase tracking-widest text-sky-200">Level</span>
+            <span class="text-5xl font-extrabold text-white tracking-tighter drop-shadow-[0_3px_2px_rgba(0,0,0,0.4)]">B1</span>
+            <span class="text-xs font-bold text-sky-100 tracking-wide mt-0.5">Independent</span>
+          </div>
+
+          <!-- Status indicator -->
+          <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#122C27] border border-teal-brand/40 text-teal-glow text-xs font-extrabold">
+            <span class="material-symbols-rounded text-sm text-teal-brand">check_circle</span>
+            <span>Threshold proficiency</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Framework: The 6 CEFR Steps -->
+    <section class="flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-teal-brand">Framework</span>
+          <h2 class="text-2xl font-extrabold text-white tracking-tight">The 6 CEFR Steps</h2>
+        </div>
+        <span class="text-xs font-medium text-night-muted hidden sm:inline">Tap any level to compare competencies</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+        <!-- A1 -->
+        <div class="level-step-card p-4 flex flex-col items-center text-center gap-2 hover:border-night-muted/50 cursor-pointer">
+          <div class="w-11 h-11 rounded-xl bg-[#142B28] border-2 border-teal-brand/40 flex items-center justify-center text-teal-glow font-extrabold text-base">
+            A1
+          </div>
+          <span class="text-sm font-bold text-white">Beginner</span>
+          <span class="text-xs font-semibold text-night-muted">500 words</span>
+        </div>
+
+        <!-- A2 -->
+        <div class="level-step-card p-4 flex flex-col items-center text-center gap-2 hover:border-night-muted/50 cursor-pointer">
+          <div class="w-11 h-11 rounded-xl bg-[#132B2B] border-2 border-[#38BDF8]/40 flex items-center justify-center text-[#38BDF8] font-extrabold text-base">
+            A2
+          </div>
+          <span class="text-sm font-bold text-white">Elementary</span>
+          <span class="text-xs font-semibold text-night-muted">1,000 words</span>
+        </div>
+
+        <!-- B1 (CURRENT ACTIVE) -->
+        <div class="level-step-card active p-4 flex flex-col items-center text-center gap-2 relative">
+          <div class="absolute -top-3 px-2 py-0.5 rounded-full bg-teal-brand text-night-bg text-[10px] font-black uppercase tracking-wider shadow-sm">
+            Current
+          </div>
+          <div class="w-11 h-11 rounded-xl bg-teal-brand text-night-bg font-extrabold text-base flex items-center justify-center shadow-[0_2px_0_0_#12514D]">
+            B1
+          </div>
+          <span class="text-sm font-extrabold text-white">Intermediate</span>
+          <span class="text-xs font-bold text-teal-glow">2,000 words</span>
+        </div>
+
+        <!-- B2 -->
+        <div class="level-step-card p-4 flex flex-col items-center text-center gap-2 hover:border-night-muted/50 cursor-pointer">
+          <div class="w-11 h-11 rounded-xl bg-[#2D2416] border-2 border-amber/40 flex items-center justify-center text-amber font-extrabold text-base">
+            B2
+          </div>
+          <span class="text-sm font-bold text-white">Upper-Int.</span>
+          <span class="text-xs font-semibold text-night-muted">4,000 words</span>
+        </div>
+
+        <!-- C1 -->
+        <div class="level-step-card p-4 flex flex-col items-center text-center gap-2 hover:border-night-muted/50 cursor-pointer">
+          <div class="w-11 h-11 rounded-xl bg-[#2B1B18] border-2 border-coral/40 flex items-center justify-center text-coral font-extrabold text-base">
+            C1
+          </div>
+          <span class="text-sm font-bold text-white">Advanced</span>
+          <span class="text-xs font-semibold text-night-muted">8,000 words</span>
+        </div>
+
+        <!-- C2 -->
+        <div class="level-step-card p-4 flex flex-col items-center text-center gap-2 hover:border-night-muted/50 cursor-pointer">
+          <div class="w-11 h-11 rounded-xl bg-[#27182E] border-2 border-[#C084FC]/40 flex items-center justify-center text-[#C084FC] font-extrabold text-base">
+            C2
+          </div>
+          <span class="text-sm font-bold text-white">Mastery</span>
+          <span class="text-xs font-semibold text-night-muted">16k+ words</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practical Skills: At B1 Level, you can... -->
+    <section class="flex flex-col gap-4">
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-teal-brand">Practical Skills</span>
+        <h2 class="text-2xl font-extrabold text-white tracking-tight">At B1 level, you can...</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1: Talk about plans -->
+        <div class="tactile-card p-6 flex flex-col justify-between gap-5">
+          <div class="flex flex-col gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-[#2D1F17] border-2 border-amber/40 flex items-center justify-center text-amber shadow-[0_3px_0_0_#071012]">
+              <span class="material-symbols-rounded text-2xl">chat_bubble</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-white">Talk about plans</h3>
+            <p class="text-sm text-night-muted font-medium leading-relaxed">
+              Describe dreams, future intentions, and travel ambitions using connected phrases and simple reasons.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-bold text-teal-glow pt-2 border-t border-night-border/40">
+            <span class="material-symbols-rounded text-base text-teal-brand">record_voice_over</span>
+            <span>Speaking · Part 1 & 2</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Write a short email -->
+        <div class="tactile-card p-6 flex flex-col justify-between gap-5">
+          <div class="flex flex-col gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-[#122A30] border-2 border-teal-brand/40 flex items-center justify-center text-teal-glow shadow-[0_3px_0_0_#071012]">
+              <span class="material-symbols-rounded text-2xl">mail</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-white">Write a short email</h3>
+            <p class="text-sm text-night-muted font-medium leading-relaxed">
+              Draft clear personal letters, make hotel inquiries, or describe real-life events to friends and colleagues.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-bold text-teal-glow pt-2 border-t border-night-border/40">
+            <span class="material-symbols-rounded text-base text-teal-brand">edit_note</span>
+            <span>Writing · Letters & notes</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Understand main points -->
+        <div class="tactile-card p-6 flex flex-col justify-between gap-5">
+          <div class="flex flex-col gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-[#182C22] border-2 border-[#4ADE80]/40 flex items-center justify-center text-[#4ADE80] shadow-[0_3px_0_0_#071012]">
+              <span class="material-symbols-rounded text-2xl">lightbulb</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-white">Understand main points</h3>
+            <p class="text-sm text-night-muted font-medium leading-relaxed">
+              Catch the central takeaway from podcasts, public announcements, news headlines, and routine work notes.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-bold text-teal-glow pt-2 border-t border-night-border/40">
+            <span class="material-symbols-rounded text-base text-teal-brand">headphones</span>
+            <span>Listening · Clear standard audio</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary Bank: Sample B1 Word List -->
+    <section class="flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-teal-brand">Vocabulary Bank</span>
+          <h2 class="text-2xl font-extrabold text-white tracking-tight">Sample B1 Word List</h2>
+        </div>
+        <div class="flex items-center gap-1.5 text-xs font-bold text-teal-glow bg-[#132A2C] px-3 py-1.5 rounded-full border border-teal-brand/40">
+          <span class="material-symbols-rounded text-sm text-teal-brand">verified</span>
+          <span>Curated from Cambridge B1 Lexicon</span>
+        </div>
+      </div>
+
+      <div class="tactile-card p-6 md:p-8 flex flex-col gap-6">
+        <!-- 15 Pills Grid -->
+        <div class="flex flex-wrap gap-3">
+          <!-- convenient -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">convenient</span>
+            <span class="text-[11px] font-mono font-bold text-night-muted uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">adj</span>
+          </div>
+
+          <!-- opportunity -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">opportunity</span>
+            <span class="text-[11px] font-mono font-bold text-teal-glow uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">noun</span>
+          </div>
+
+          <!-- recommend -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">recommend</span>
+            <span class="text-[11px] font-mono font-bold text-amber uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">verb</span>
+          </div>
+
+          <!-- environment -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">environment</span>
+            <span class="text-[11px] font-mono font-bold text-teal-glow uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">noun</span>
+          </div>
+
+          <!-- experience -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">experience</span>
+            <span class="text-[11px] font-mono font-bold text-night-muted uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">noun/v</span>
+          </div>
+
+          <!-- encourage -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">encourage</span>
+            <span class="text-[11px] font-mono font-bold text-amber uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">verb</span>
+          </div>
+
+          <!-- frequently -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">frequently</span>
+            <span class="text-[11px] font-mono font-bold text-[#C084FC] uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">adv</span>
+          </div>
+
+          <!-- necessary -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">necessary</span>
+            <span class="text-[11px] font-mono font-bold text-night-muted uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">adj</span>
+          </div>
+
+          <!-- participate -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">participate</span>
+            <span class="text-[11px] font-mono font-bold text-amber uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">verb</span>
+          </div>
+
+          <!-- hesitate -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">hesitate</span>
+            <span class="text-[11px] font-mono font-bold text-amber uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">verb</span>
+          </div>
+
+          <!-- persuade -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">persuade</span>
+            <span class="text-[11px] font-mono font-bold text-amber uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">verb</span>
+          </div>
+
+          <!-- essential -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">essential</span>
+            <span class="text-[11px] font-mono font-bold text-night-muted uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">adj</span>
+          </div>
+
+          <!-- solution -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">solution</span>
+            <span class="text-[11px] font-mono font-bold text-teal-glow uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">noun</span>
+          </div>
+
+          <!-- confident -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">confident</span>
+            <span class="text-[11px] font-mono font-bold text-night-muted uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">adj</span>
+          </div>
+
+          <!-- challenge -->
+          <div class="vocab-pill px-4 py-2.5 flex items-center gap-2 cursor-pointer">
+            <span class="text-sm font-bold text-white">challenge</span>
+            <span class="text-[11px] font-mono font-bold text-teal-glow uppercase px-1.5 py-0.5 rounded bg-[#091518]/60">noun</span>
+          </div>
+        </div>
+
+        <!-- Footer strip inside card -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-night-border/40">
+          <span class="text-xs font-semibold text-night-muted">
+            Showing 15 of 2,140 verified B1 exam words in Lexkite
+          </span>
+          <button class="px-4 py-2 secondary-candy-cta text-xs flex items-center gap-2">
+            <span class="material-symbols-rounded text-base text-teal-brand">menu_book</span>
+            <span>Practice B1 Flashcard Deck</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions Accordion -->
+    <section class="flex flex-col gap-4">
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-teal-brand">Questions</span>
+        <h2 class="text-2xl font-extrabold text-white tracking-tight">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <!-- FAQ 1 (Open State) -->
+        <div class="tactile-card p-5 flex flex-col gap-3 border-teal-brand/40">
+          <div class="flex items-center justify-between cursor-pointer">
+            <span class="text-base font-extrabold text-white">How long does it take to reach B1 from A2?</span>
+            <div class="w-8 h-8 rounded-full bg-[#182C2E] border border-teal-brand/40 flex items-center justify-center text-teal-glow">
+              <span class="material-symbols-rounded text-lg">keyboard_arrow_up</span>
+            </div>
+          </div>
+          <p class="text-sm text-night-muted font-medium leading-relaxed pr-6">
+            Most learners require roughly 150 to 200 guided study hours. With Lexkite’s 5-minute daily micro-drills and spaced repetition, consistent practice helps learners bridge the A2–B1 gap in 8 to 12 weeks.
+          </p>
+        </div>
+
+        <!-- FAQ 2 (Closed) -->
+        <div class="tactile-card p-5 flex items-center justify-between cursor-pointer hover:border-night-muted/50 transition-colors">
+          <span class="text-base font-bold text-white">What IELTS score corresponds to B1?</span>
+          <div class="w-8 h-8 rounded-full bg-[#162529] border border-night-border flex items-center justify-center text-night-muted">
+            <span class="material-symbols-rounded text-lg">keyboard_arrow_down</span>
+          </div>
+        </div>
+
+        <!-- FAQ 3 (Closed) -->
+        <div class="tactile-card p-5 flex items-center justify-between cursor-pointer hover:border-night-muted/50 transition-colors">
+          <span class="text-base font-bold text-white">Is B1 enough for university admission?</span>
+          <div class="w-8 h-8 rounded-full bg-[#162529] border border-night-border flex items-center justify-center text-night-muted">
+            <span class="material-symbols-rounded text-lg">keyboard_arrow_down</span>
+          </div>
+        </div>
+
+        <!-- FAQ 4 (Closed) -->
+        <div class="tactile-card p-5 flex items-center justify-between cursor-pointer hover:border-night-muted/50 transition-colors">
+          <span class="text-base font-bold text-white">Is the level test on Lexkite really 100% free?</span>
+          <div class="w-8 h-8 rounded-full bg-[#162529] border border-night-border flex items-center justify-center text-night-muted">
+            <span class="material-symbols-rounded text-lg">keyboard_arrow_down</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Banner CTA -->
+    <section class="tactile-card p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden bg-gradient-to-r from-[#121D20] via-[#15272B] to-[#121D20]">
+      <div class="flex flex-col gap-2 text-center md:text-left">
+        <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+          Ready to check your English level?
+        </h3>
+        <p class="text-sm font-medium text-night-muted">
+          Take our 5-minute adaptive quiz and get instant CEFR & IELTS scoring.
+        </p>
+      </div>
+
+      <button class="px-7 py-4 primary-candy-cta text-base whitespace-nowrap flex items-center gap-3">
+        <span>Start 5-min test free</span>
+        <span class="material-symbols-rounded text-xl">arrow_forward</span>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- Desktop Footer -->
+  <footer class="w-full bg-[#051013] border-t-2 border-night-border/70 py-10 mt-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <!-- Left Branding & Copyright -->
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-teal-brand flex items-center justify-center text-white shadow-sm">
+          <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 19 9 12 22 5 9 12 2" fill="white" fill-opacity="0.2"></polygon>
+            <line x1="12" y1="2" x2="12" y2="22"></line>
+            <line x1="5" y1="9" x2="19" y2="9"></line>
+          </svg>
+        </div>
+        <span class="text-sm font-extrabold text-white">Lexkite</span>
+        <span class="text-xs text-night-muted font-medium ml-2">
+          © 2025 Lexkite Prep Inc. Free tactile learning for IELTS & TOEIC.
+        </span>
+      </div>
+
+      <!-- Right Footer Links -->
+      <div class="flex flex-wrap items-center gap-6 text-xs font-semibold text-night-muted">
+        <a href="#" class="hover:text-teal-brand transition-colors">CEFR Matrix</a>
+        <a href="#" class="hover:text-teal-brand transition-colors">IELTS Guide</a>
+        <a href="#" class="hover:text-teal-brand transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-teal-brand transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

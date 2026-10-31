@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Choose Your Blog Language (Bright Day)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+Arabic:wght@700&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+JP:wght@700&family=Noto+Sans+KR:wght@700&family=Noto+Sans+SC:wght@700&family=Noto+Sans+Thai:wght@700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              DEFAULT: '#FFF7EA',
+              light: '#FFFCF6',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+            },
+            ink: {
+              DEFAULT: '#0F3D3E',
+              muted: '#4E6668',
+              faint: '#859E9E',
+            },
+            teal: {
+              DEFAULT: '#2BA39A',
+              deep: '#1F7A75',
+              dark: '#12514D',
+              light: '#E6F7F5',
+              border: '#2BA39A',
+              ledge: '#1A7A72',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              amber: '#FFB054',
+              ledge: '#B53A22',
+            },
+            amber: {
+              DEFAULT: '#FFB054',
+              light: '#FFF5E6',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile 3D Button and Card Physics */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF6F4E 0%, #F2553B 100%);
+      box-shadow: 0 4px 0 #B53A22, 0 6px 12px rgba(242, 85, 59, 0.25);
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn-primary:hover {
+      transform: translateY(1px);
+      box-shadow: 0 3px 0 #B53A22, 0 4px 8px rgba(242, 85, 59, 0.25);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #B53A22, 0 2px 4px rgba(242, 85, 59, 0.2);
+    }
+
+    /* Default Language Card */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC, 0 8px 16px rgba(15, 61, 62, 0.04);
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+      border-color: #D3C5AB;
+      box-shadow: 0 7px 0 #D8CFBC, 0 12px 20px rgba(15, 61, 62, 0.06);
+    }
+    .tactile-card:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+
+    /* Selected Active Language Card (English) */
+    .tactile-card-selected {
+      background: #F4FAF9;
+      border: 2.5px solid #2BA39A;
+      box-shadow: 0 5px 0 #1A7A72, 0 8px 20px rgba(43, 163, 154, 0.18);
+    }
+    .tactile-card-selected:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 #1A7A72, 0 10px 22px rgba(43, 163, 154, 0.2);
+    }
+    .tactile-card-selected:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #1A7A72;
+    }
+
+    /* Secondary tactile button */
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:hover {
+      border-color: #D3C5AB;
+      transform: translateY(1px);
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #D8CFBC;
+    }
+
+    /* Pill Badges */
+    .badge-chip {
+      box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-cream text-ink">
+
+  <!-- ========================================== -->
+  <!-- 1. LEXKITE HEADER (Standard Lexkite Web Bar) -->
+  <!-- ========================================== -->
+  <header class="w-full bg-cream-light border-b-2 border-cream-border sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo: Stylized Kite + "Lexkite" -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-2xl bg-teal flex items-center justify-center shadow-[0_3px_0_#1A7A72] transition-transform duration-100 group-hover:scale-105">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <!-- Distinctive faceted Lexkite origami kite symbol -->
+            <path d="M12 2L3 11L12 22L21 11L12 2Z" fill="#2BA39A"/>
+            <path d="M12 2L21 11L12 22V2Z" fill="#228981" opacity="0.85"/>
+            <path d="M12 2L3 11L12 12V2Z" fill="#38C2B8" opacity="0.6"/>
+            <circle cx="12" cy="11.5" r="1.75" fill="#FFC94A"/>
+          </svg>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-2xl font-extrabold tracking-tight text-ink font-sans">Lexkite</span>
+          <span class="w-2 h-2 rounded-full bg-coral"></span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-base font-bold">
+        <a href="#" class="text-ink hover:text-teal transition-colors">Courses</a>
+        <a href="#" class="text-ink hover:text-teal transition-colors">Vocabulary</a>
+        <a href="#" class="text-teal border-b-2 border-teal pb-1 font-extrabold">Blog</a>
+        <a href="#" class="text-ink hover:text-teal transition-colors">Free Tests</a>
+      </nav>
+
+      <!-- Right Actions: Log In & Tactile CTA -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="hidden sm:inline-block text-sm font-bold text-ink hover:text-teal px-3 py-2 transition-colors">
+          Log in
+        </a>
+        <button class="tactile-btn-primary px-5 py-2.5 rounded-2xl text-white font-extrabold text-sm flex items-center gap-2 cursor-pointer select-none">
+          <span>Start free</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. MAIN CONTENT: CHOOSE YOUR BLOG LANGUAGE -->
+  <!-- ========================================== -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-6 py-12 md:py-16">
+    
+    <!-- Top Pill & Heading Area -->
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <!-- Section Label Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream-card border border-cream-border text-teal-deep text-xs font-extrabold tracking-wide uppercase mb-4 badge-chip">
+        <span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+        <span>Lexkite Open Library</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink tracking-tight mb-4">
+        Choose your blog language
+      </h1>
+      
+      <!-- Short Subtitle -->
+      <p class="text-base md:text-lg font-medium text-ink-muted leading-relaxed">
+        Select a language to browse curated IELTS and TOEIC breakdowns in your native script.
+      </p>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 3. THE 15 TACTILE CHUNKY LANGUAGE CARDS GRID -->
+    <!-- ========================================== -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 mb-12">
+
+      <!-- 1. English (SELECTED ACTIVE CARD) -->
+      <button class="tactile-card-selected rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <!-- Selected Check Badge in top right corner -->
+        <div class="absolute top-4 right-4 w-7 h-7 rounded-full bg-teal text-white flex items-center justify-center shadow-sm">
+          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+
+        <div>
+          <!-- Short language script name -->
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight">English</div>
+          <div class="text-xs font-bold text-teal uppercase tracking-wider mt-0.5">Selected</div>
+        </div>
+
+        <div class="flex items-center justify-between pt-2 border-t border-teal/20">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-1 rounded-full bg-teal/15 text-teal-dark text-xs font-extrabold">184</span>
+        </div>
+      </button>
+
+      <!-- 2. Tiếng Việt -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight">Tiếng Việt</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Vietnamese</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">96</span>
+        </div>
+      </button>
+
+      <!-- 3. Español -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight">Español</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Spanish</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">112</span>
+        </div>
+      </button>
+
+      <!-- 4. Português -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight">Português</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Portuguese</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">78</span>
+        </div>
+      </button>
+
+      <!-- 5. Français -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight">Français</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">French</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">64</span>
+        </div>
+      </button>
+
+      <!-- 6. Deutsch -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight">Deutsch</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">German</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">58</span>
+        </div>
+      </button>
+
+      <!-- 7. Bahasa Indonesia -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight truncate">Bahasa Indonesia</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Indonesian</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">82</span>
+        </div>
+      </button>
+
+      <!-- 8. ไทย (Thai script) -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-2xl font-bold text-ink" style="font-family: 'Noto Sans Thai', sans-serif;">ไทย</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Thai</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">49</span>
+        </div>
+      </button>
+
+      <!-- 9. 中文 (Simplified Chinese) -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-2xl font-bold text-ink" style="font-family: 'Noto Sans SC', sans-serif;">中文</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Chinese</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">124</span>
+        </div>
+      </button>
+
+      <!-- 10. 日本語 (Japanese Kanji) -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-2xl font-bold text-ink" style="font-family: 'Noto Sans JP', sans-serif;">日本語</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Japanese</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">88</span>
+        </div>
+      </button>
+
+      <!-- 11. 한국어 (Korean Hangul) -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-2xl font-bold text-ink" style="font-family: 'Noto Sans KR', sans-serif;">한국어</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Korean</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">76</span>
+        </div>
+      </button>
+
+      <!-- 12. हिन्दी (Hindi Devanagari) -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-2xl font-bold text-ink" style="font-family: 'Noto Sans Devanagari', sans-serif;">हिन्दी</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Hindi</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">54</span>
+        </div>
+      </button>
+
+      <!-- 13. العربية (Arabic script) -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-2xl font-bold text-ink text-right" dir="rtl" style="font-family: 'Noto Sans Arabic', sans-serif;">العربية</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5 text-right">Arabic</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">62</span>
+        </div>
+      </button>
+
+      <!-- 14. Русский (Cyrillic script) -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight">Русский</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Russian</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">71</span>
+        </div>
+      </button>
+
+      <!-- 15. Türkçe -->
+      <button class="tactile-card rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal">
+        <div>
+          <div class="text-xl font-extrabold text-ink font-sans tracking-tight">Türkçe</div>
+          <div class="text-xs font-semibold text-ink-faint mt-0.5">Turkish</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-cream-border/60">
+          <span class="text-xs font-bold text-ink-muted">Articles</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-cream-border/40 text-ink text-xs font-extrabold">45</span>
+        </div>
+      </button>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 4. BOTTOM ACTION & PREFERENCE PROMPT -->
+    <!-- ========================================== -->
+    <div class="flex flex-col sm:flex-row items-center justify-between p-6 bg-cream-card rounded-3xl border-2 border-cream-border shadow-[0_5px_0_#D8CFBC] gap-5">
+      <div class="flex items-center gap-4">
+        <!-- Friendly glossy kite mini icon -->
+        <div class="w-12 h-12 rounded-2xl bg-amber/20 border border-amber/40 flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-base font-extrabold text-ink">Reading in English (Global)</h3>
+          <p class="text-xs text-ink-muted font-semibold">You can change your study language anytime in your account settings.</p>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <a href="#" class="tactile-btn-secondary px-5 py-3 rounded-2xl text-xs font-bold text-ink flex-1 sm:flex-none text-center">
+          Cancel
+        </a>
+        <a href="#" class="tactile-btn-primary px-7 py-3 rounded-2xl text-xs font-extrabold text-white flex-1 sm:flex-none text-center flex items-center justify-center gap-2">
+          <span>Continue to Blog</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- 5. FRIENDLY LEXKITE WEB FOOTER -->
+  <!-- ========================================== -->
+  <footer class="w-full bg-cream-card border-t-2 border-cream-border mt-16">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-cream-border">
+        
+        <!-- Logo and brand summary -->
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl bg-teal flex items-center justify-center shadow-sm">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L3 11L12 22L21 11L12 2Z" fill="#2BA39A"/>
+              <path d="M12 2L21 11L12 22V2Z" fill="#228981" opacity="0.85"/>
+              <circle cx="12" cy="11.5" r="1.5" fill="#FFC94A"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-lg font-extrabold text-ink font-sans">Lexkite</span>
+            <span class="text-xs font-medium text-ink-muted ml-2">Free, tactile IELTS & TOEIC exam prep</span>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-wrap items-center gap-6 text-xs font-bold text-ink-muted">
+          <a href="#" class="hover:text-teal transition-colors">Curriculum</a>
+          <a href="#" class="hover:text-teal transition-colors">Vocabulary Lab</a>
+          <a href="#" class="hover:text-teal transition-colors">Placement Test</a>
+          <a href="#" class="hover:text-teal transition-colors">Editorial Standards</a>
+          <a href="#" class="hover:text-teal transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-teal transition-colors">Terms</a>
+        </div>
+      </div>
+
+      <!-- Copyright and zero-paywall badge -->
+      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-semibold text-ink-faint">
+        <div>© 2026 Lexkite Prep Inc. Master words with tactile precision. All rights reserved.</div>
+        <div class="flex items-center gap-2 text-teal-deep font-bold">
+          <span class="w-2 h-2 rounded-full bg-teal"></span>
+          <span>100% Free Core Drills • Cambridge & CEFR Aligned</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

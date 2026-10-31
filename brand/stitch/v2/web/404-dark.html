@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — 404 (Tactile Night)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              bg: '#0B171A',
+              card: '#121D20',
+              raised: '#18272C',
+              border: '#233942',
+              ledge: '#071012',
+              text: '#EEF6F7',
+              muted: '#A9BFC1',
+              subtle: '#6A878B'
+            },
+            lex: {
+              teal: '#2BA39A',
+              tealLight: '#4DD4C8',
+              tealDeep: '#1F7A75',
+              tealLedge: '#12514D',
+              coral: '#F2553B',
+              coralLedge: '#B53A22',
+              amber: '#FFB054',
+              gold: '#FFC94A',
+              errorBg: 'rgba(242, 85, 59, 0.12)',
+              errorBorder: '#F2553B'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B171A;
+      color: #EEF6F7;
+    }
+
+    /* Tactile button ledge utilities */
+    .btn-tactile-coral {
+      background: linear-gradient(180deg, #FF6F52 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 0 #B53A22, 0 10px 20px -5px rgba(242, 85, 59, 0.35);
+      transition: all 0.1s ease-out;
+    }
+    .btn-tactile-coral:hover {
+      filter: brightness(1.05);
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22, 0 4px 10px -2px rgba(242, 85, 59, 0.25);
+    }
+
+    .btn-tactile-secondary {
+      background-color: #18272C;
+      box-shadow: 0 5px 0 0 #071012;
+      border: 2px solid #28424D;
+      transition: all 0.1s ease-out;
+    }
+    .btn-tactile-secondary:hover {
+      background-color: #1F3238;
+      border-color: #365563;
+    }
+    .btn-tactile-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #071012;
+    }
+
+    .card-tactile {
+      background-color: #121D20;
+      border: 2px solid #233942;
+      box-shadow: 0 6px 0 0 #071012;
+      transition: all 0.15s ease-out;
+    }
+    .card-tactile:hover {
+      transform: translateY(-2px);
+      border-color: #2BA39A;
+      box-shadow: 0 8px 0 0 #071012, 0 12px 24px -8px rgba(43, 163, 154, 0.2);
+    }
+
+    .search-tactile {
+      background-color: #121D20;
+      border: 2px solid #233942;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 0 0 #071012;
+      transition: all 0.15s ease-out;
+    }
+    .search-tactile:focus-within {
+      border-color: #2BA39A;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 0 0 #071012, 0 0 0 3px rgba(43, 163, 154, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-lex-teal selection:text-white">
+
+  <!-- Desktop Header (Tactile Night) -->
+  <header class="w-full bg-[#0B171A]/95 backdrop-blur border-b-2 border-night-border/70 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-lex-teal to-lex-tealDeep p-2 flex items-center justify-center shadow-[0_3px_0_0_#12514D] group-hover:scale-105 transition-transform">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4 12L12 22L20 12L12 2Z"/>
+            <circle cx="12" cy="12" r="2.5" fill="#FFC94A"/>
+          </svg>
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight text-white group-hover:text-lex-tealLight transition-colors">Lexkite</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-night-muted font-semibold text-sm">
+        <a href="#" class="hover:text-white transition-colors">Courses</a>
+        <a href="#" class="hover:text-white transition-colors">Dictionary</a>
+        <a href="#" class="hover:text-white transition-colors">Blog</a>
+        <a href="#" class="hover:text-white transition-colors">Extension</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-night-muted hover:text-white font-semibold text-sm px-4 py-2 transition-colors">Sign in</a>
+        <a href="#" class="btn-tactile-coral text-white font-bold text-sm px-5 py-2.5 rounded-xl flex items-center gap-2">
+          <span>Start free</span>
+          <span class="material-symbols-rounded text-lg">bolt</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main 404 Content Area -->
+  <main class="flex-1 flex flex-col items-center justify-center px-4 py-12 md:py-16 max-w-4xl mx-auto w-full text-center">
+
+    <!-- Error Pill Badge -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-lex-coral/15 border border-lex-coral/40 text-lex-coral text-xs font-extrabold tracking-wider uppercase mb-8 shadow-sm">
+      <span class="w-2 h-2 rounded-full bg-lex-coral animate-pulse"></span>
+      <span>ERROR 404 • LOST IN THE SKY</span>
+    </div>
+
+    <!-- Hero Illustration (Tactile Kite in Tree) -->
+    <div class="relative mb-8 max-w-md w-full mx-auto">
+      <div class="relative rounded-3xl p-3 bg-night-card border-2 border-night-border shadow-[0_12px_32px_rgba(0,0,0,0.5),0_6px_0_0_#071012] overflow-hidden group">
+        <!-- Ambient Radial Glow -->
+        <div class="absolute inset-0 bg-gradient-to-b from-lex-teal/10 via-transparent to-transparent pointer-events-none"></div>
+        <img 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtHr6O7nEy-W4BrVZ53wYvZxZKjUXy-qkFiKn3MdiLNIt1mZCfVCmtC33x0wnYvMYxLHvHqPuciGVjTViWEgNLFbF3MdSSjH22MuH77moI85mktBlrMDRTJNV1reb_56L8hED0vTJlj767zzhlwbBGj_MJQjABEi4U-vOTmjxjEQp1ZADzWRGrORNBFsweYnw-sx7g4CAZLofE92VXTT6TGSNtK7wTYvy5iOmzNqOfMYx8B1vhQXgKXLXGO0XBwdLQFF13OHD_65Q" 
+          alt="Playful tactile kite caught in a stylized tree" 
+          class="w-full h-auto rounded-2xl object-cover block select-none transform group-hover:scale-[1.02] transition-transform duration-300"
+        />
+      </div>
+    </div>
+
+    <!-- Main Title & Copy -->
+    <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-3">
+      Oops, this page flew away
+    </h1>
+    <p class="text-base md:text-lg text-night-muted font-medium max-w-lg mx-auto mb-8">
+      The word or lesson you're looking for got caught up in the breeze.
+    </p>
+
+    <!-- Search Input Card -->
+    <div class="w-full max-w-xl mx-auto mb-7">
+      <form onsubmit="event.preventDefault();" class="search-tactile rounded-2xl px-4 py-3 flex items-center gap-3">
+        <span class="material-symbols-rounded text-lex-teal text-2xl">search</span>
+        <input 
+          type="text" 
+          placeholder="Search words, topics, or grammar rules..." 
+          class="bg-transparent border-none outline-none text-white placeholder-night-subtle text-sm md:text-base flex-1 font-medium"
+        />
+        <kbd class="hidden sm:inline-flex items-center justify-center w-7 h-7 rounded-lg bg-night-raised border border-night-border text-night-muted font-mono text-xs font-semibold shadow-inner">
+          /
+        </kbd>
+      </form>
+    </div>
+
+    <!-- Primary Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto mb-14">
+      <a href="#" class="btn-tactile-coral w-full sm:w-1/2 py-3.5 px-6 rounded-2xl text-white font-extrabold text-sm md:text-base flex items-center justify-center gap-2">
+        <span class="material-symbols-rounded text-xl">home</span>
+        <span>Go home</span>
+      </a>
+      <a href="#" class="btn-tactile-secondary w-full sm:w-1/2 py-3.5 px-6 rounded-2xl text-night-text font-extrabold text-sm md:text-base flex items-center justify-center gap-2">
+        <span class="material-symbols-rounded text-xl text-lex-teal">rocket_launch</span>
+        <span>Open the app</span>
+      </a>
+    </div>
+
+    <!-- Divider & Secondary Navigation Hub -->
+    <div class="w-full max-w-xl mx-auto mb-8">
+      <div class="relative flex items-center justify-center">
+        <div class="w-full border-t border-night-border/80"></div>
+        <span class="absolute bg-night-bg px-4 text-xs font-extrabold uppercase tracking-widest text-night-subtle">
+          Or jump right back in
+        </span>
+      </div>
+    </div>
+
+    <!-- 3 Quick Path Cards (Dictionary, Blog, Level Test) -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-xl mx-auto">
+      <!-- Dictionary Card -->
+      <a href="#" class="card-tactile rounded-2xl p-5 flex flex-col items-center text-center group cursor-pointer">
+        <div class="w-12 h-12 rounded-xl bg-lex-teal/15 border border-lex-teal/30 flex items-center justify-center mb-3 group-hover:bg-lex-teal/25 transition-colors">
+          <span class="material-symbols-rounded text-lex-tealLight text-2xl">menu_book</span>
+        </div>
+        <h3 class="text-base font-bold text-white mb-1 group-hover:text-lex-tealLight transition-colors">Dictionary</h3>
+        <p class="text-xs text-night-muted font-medium">Explore 40k+ words</p>
+      </a>
+
+      <!-- Blog Card -->
+      <a href="#" class="card-tactile rounded-2xl p-5 flex flex-col items-center text-center group cursor-pointer">
+        <div class="w-12 h-12 rounded-xl bg-lex-amber/15 border border-lex-amber/30 flex items-center justify-center mb-3 group-hover:bg-lex-amber/25 transition-colors">
+          <span class="material-symbols-rounded text-lex-amber text-2xl">auto_stories</span>
+        </div>
+        <h3 class="text-base font-bold text-white mb-1 group-hover:text-lex-amber transition-colors">Blog</h3>
+        <p class="text-xs text-night-muted font-medium">Exam tips & guides</p>
+      </a>
+
+      <!-- Level Test Card -->
+      <a href="#" class="card-tactile rounded-2xl p-5 flex flex-col items-center text-center group cursor-pointer">
+        <div class="w-12 h-12 rounded-xl bg-lex-coral/15 border border-lex-coral/30 flex items-center justify-center mb-3 group-hover:bg-lex-coral/25 transition-colors">
+          <span class="material-symbols-rounded text-lex-coral text-2xl">speed</span>
+        </div>
+        <h3 class="text-base font-bold text-white mb-1 group-hover:text-lex-coral transition-colors">Level test</h3>
+        <p class="text-xs text-night-muted font-medium">Free 5-min check</p>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Desktop Footer (Tactile Night) -->
+  <footer class="w-full bg-[#071012] border-t-2 border-night-border/70 py-8 px-6 mt-12">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Tagline -->
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-lex-teal p-1.5 flex items-center justify-center shadow-sm">
+          <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4 12L12 22L20 12L12 2Z"/>
+          </svg>
+        </div>
+        <p class="text-xs text-night-muted font-medium">
+          © 2025 Lexkite Prep Inc. Free, tactile vocabulary mastery for IELTS, TOEIC & TOEFL.
+        </p>
+      </div>
+
+      <!-- Legal Links -->
+      <div class="flex flex-wrap items-center gap-6 text-xs text-night-muted font-medium">
+        <a href="#" class="hover:text-white transition-colors">Privacy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms</a>
+        <a href="#" class="hover:text-white transition-colors">Editorial Standards</a>
+        <a href="#" class="hover:text-white transition-colors">Help Center</a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordering Coffee — Speak with Confidence | Lexkite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+              dark: '#0F3D3E',
+              darkMuted: '#4E6668',
+              teal: '#0D6964',
+              tealLight: '#E8F6F5',
+              tealLedge: '#094B48',
+              orange: '#F2553B',
+              orangeLedge: '#B53A22',
+              amber: '#FFB054',
+              yellow: '#FFC94A',
+              yellowLedge: '#D9981E',
+              speakerA: '#0D6964',
+              speakerB: '#F2553B'
+            }
+          },
+          boxShadow: {
+            'tactile-btn': '0 5px 0 #B53A22',
+            'tactile-btn-active': '0 2px 0 #B53A22',
+            'tactile-card': '0 5px 0 #D8CFBC',
+            'tactile-bubble': '0 4px 0 #E3D7C1',
+            'tactile-chip': '0 3px 0 #D8CFBC',
+            'tactile-teal-btn': '0 4px 0 #094B48'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .tactile-button {
+      box-shadow: 0 6px 0 #B53A22;
+      transition: all 0.1s ease;
+    }
+    .tactile-button:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #B53A22;
+    }
+    .tactile-card {
+      box-shadow: 0 5px 0 #D8CFBC;
+    }
+    .tactile-chip {
+      box-shadow: 0 3px 0 #D8CFBC;
+      transition: all 0.1s ease;
+    }
+    .tactile-chip:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 #D8CFBC;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+    .tactile-icon-btn {
+      box-shadow: 0 3px 0 rgba(0,0,0,0.12);
+      transition: all 0.1s ease;
+    }
+    .tactile-icon-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#FFF7EA]">
+
+  <!-- SITE HEADER (identical to Lexkite Web v2.1 Bright Day) -->
+  <header class="sticky top-0 z-50 bg-[#FFF7EA]/95 backdrop-blur-md border-b-2 border-[#EADEC8] px-6 h-18 py-3">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <!-- Tactile Origami Kite Emblem -->
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0D6964] to-[#2BA39A] p-1.5 flex items-center justify-center shadow-[0_3px_0_#094B48] group-hover:translate-y-[-1px] transition-transform">
+          <svg viewBox="0 0 24 24" class="w-full h-full text-white fill-current">
+            <path d="M12 2L3 11L12 22L21 11L12 2Z" fill="#FFF7EA" opacity="0.95"/>
+            <path d="M12 2L3 11H21L12 2Z" fill="#FFC94A"/>
+            <path d="M12 22V2" stroke="#0D6964" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#" class="text-sm font-bold text-[#4E6668] hover:text-[#0F3D3E] transition-colors">Courses</a>
+        <a href="#" class="text-sm font-bold text-[#0D6964] border-b-2 border-[#0D6964] pb-0.5">Speak</a>
+        <a href="#" class="text-sm font-bold text-[#4E6668] hover:text-[#0F3D3E] transition-colors">Vocabulary</a>
+        <a href="#" class="text-sm font-bold text-[#4E6668] hover:text-[#0F3D3E] transition-colors">Free Tests</a>
+      </nav>
+
+      <!-- Trailing Action -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="hidden sm:inline-block text-sm font-bold text-[#4E6668] hover:text-[#0F3D3E]">Log in</a>
+        <a href="#" class="tactile-button inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#F2553B] to-[#FF814A] text-white font-extrabold text-sm tracking-wide">
+          Start free
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="flex-1 max-w-3xl w-full mx-auto px-5 py-10 sm:py-14 flex flex-col gap-9">
+
+    <!-- PAGE HERO & SCENE HEADER -->
+    <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pb-2 border-b-2 border-[#EADEC8]/70">
+      <div class="flex items-start gap-4">
+        <!-- Small Illustrated Scene Icon (Coffee Cup badge with 3D tactile ledge) -->
+        <div class="w-14 h-14 shrink-0 rounded-2xl bg-gradient-to-b from-[#FFF2DE] to-[#FFE2BC] border-2 border-[#E2CEAB] shadow-[0_4px_0_#D1B890] flex items-center justify-center text-[#B2641B]">
+          <span class="material-symbols-rounded text-3xl">local_cafe</span>
+        </div>
+        
+        <div>
+          <!-- Breadcrumb / Section Label -->
+          <div class="text-[11px] font-extrabold uppercase tracking-wider text-[#0D6964] mb-1">
+            Speak with Confidence • Everyday Dialogue
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#0F3D3E] tracking-tight">
+            Ordering Coffee
+          </h1>
+        </div>
+      </div>
+
+      <!-- Level & Duration Chips -->
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <!-- Level Chip -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border-2 border-[#EADEC8] shadow-[0_2px_0_#D8CFBC] text-xs font-extrabold text-[#0D6964]">
+          <span class="w-2 h-2 rounded-full bg-[#0D6964]"></span>
+          Level A2–B1
+        </div>
+        <!-- Duration Chip -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border-2 border-[#EADEC8] shadow-[0_2px_0_#D8CFBC] text-xs font-extrabold text-[#4E6668]">
+          <span class="material-symbols-rounded text-sm text-[#FFB054]">timer</span>
+          2 mins
+        </div>
+      </div>
+    </section>
+
+    <!-- DIALOGUE SECTION (Alternating Bubbles) -->
+    <section class="flex flex-col gap-5">
+      
+      <!-- Speaker Legend / Quick Indicator -->
+      <div class="flex items-center justify-between text-xs font-bold text-[#4E6668] px-2">
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-full bg-[#0D6964] text-white flex items-center justify-center font-extrabold text-[10px] shadow-[0_1.5px_0_#094B48]">A</span>
+            Barista
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-full bg-[#F2553B] text-white flex items-center justify-center font-extrabold text-[10px] shadow-[0_1.5px_0_#B53A22]">B</span>
+            Customer
+          </span>
+        </div>
+        <span class="text-[11px] font-semibold text-[#809597] flex items-center gap-1">
+          <span class="material-symbols-rounded text-sm">volume_up</span> Tap play for audio
+        </span>
+      </div>
+
+      <!-- Turn 1: Speaker A (Barista) -->
+      <div class="flex items-start gap-3 sm:gap-4 group">
+        <!-- Initial Circle A -->
+        <div class="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-[#0D6964] text-white flex items-center justify-center font-extrabold text-base shadow-[0_3px_0_#094B48] mt-1">
+          A
+        </div>
+
+        <!-- Chat Bubble A -->
+        <div class="flex-1 bg-white rounded-2xl rounded-tl-sm p-4 sm:p-5 border-2 border-[#EADEC8] shadow-tactile-card">
+          <div class="flex items-start justify-between gap-3">
+            <p class="text-base sm:text-lg font-bold text-[#0F3D3E] leading-snug">
+              "Hi there! What can I get started for you today?"
+            </p>
+            <!-- Round Play Button -->
+            <button class="tactile-icon-btn shrink-0 w-9 h-9 rounded-full bg-[#E8F6F5] hover:bg-[#d6f0ee] border-2 border-[#BDE3E1] text-[#0D6964] flex items-center justify-center" aria-label="Play audio">
+              <span class="material-symbols-rounded text-xl leading-none">play_arrow</span>
+            </button>
+          </div>
+          <!-- Translation Line in muted text -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2ECE0] text-xs sm:text-sm font-medium text-[#7C9092]">
+            Xin chào! Bạn muốn dùng đồ uống gì hôm nay ạ?
+          </div>
+        </div>
+      </div>
+
+      <!-- Turn 2: Speaker B (Customer) -->
+      <div class="flex items-start gap-3 sm:gap-4 flex-row-reverse group">
+        <!-- Initial Circle B -->
+        <div class="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-[#F2553B] text-white flex items-center justify-center font-extrabold text-base shadow-[0_3px_0_#B53A22] mt-1">
+          B
+        </div>
+
+        <!-- Chat Bubble B -->
+        <div class="flex-1 bg-white rounded-2xl rounded-tr-sm p-4 sm:p-5 border-2 border-[#EADEC8] shadow-tactile-card">
+          <div class="flex items-start justify-between gap-3">
+            <p class="text-base sm:text-lg font-bold text-[#0F3D3E] leading-snug">
+              "Can I get a medium oat latte to go, please?"
+            </p>
+            <!-- Round Play Button -->
+            <button class="tactile-icon-btn shrink-0 w-9 h-9 rounded-full bg-[#FFF0ED] hover:bg-[#ffe3dc] border-2 border-[#FCD5CC] text-[#F2553B] flex items-center justify-center" aria-label="Play audio">
+              <span class="material-symbols-rounded text-xl leading-none">play_arrow</span>
+            </button>
+          </div>
+          <!-- Translation Line in muted text -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2ECE0] text-xs sm:text-sm font-medium text-[#7C9092]">
+            Cho mình một ly latte sữa yến mạch cỡ vừa mang đi nhé!
+          </div>
+        </div>
+      </div>
+
+      <!-- Turn 3: Speaker A (Barista) -->
+      <div class="flex items-start gap-3 sm:gap-4 group">
+        <!-- Initial Circle A -->
+        <div class="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-[#0D6964] text-white flex items-center justify-center font-extrabold text-base shadow-[0_3px_0_#094B48] mt-1">
+          A
+        </div>
+
+        <!-- Chat Bubble A -->
+        <div class="flex-1 bg-white rounded-2xl rounded-tl-sm p-4 sm:p-5 border-2 border-[#EADEC8] shadow-tactile-card">
+          <div class="flex items-start justify-between gap-3">
+            <p class="text-base sm:text-lg font-bold text-[#0F3D3E] leading-snug">
+              "Sure thing! Would you like that hot or iced?"
+            </p>
+            <!-- Round Play Button -->
+            <button class="tactile-icon-btn shrink-0 w-9 h-9 rounded-full bg-[#E8F6F5] hover:bg-[#d6f0ee] border-2 border-[#BDE3E1] text-[#0D6964] flex items-center justify-center" aria-label="Play audio">
+              <span class="material-symbols-rounded text-xl leading-none">play_arrow</span>
+            </button>
+          </div>
+          <!-- Translation Line in muted text -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2ECE0] text-xs sm:text-sm font-medium text-[#7C9092]">
+            Dạ được ạ! Bạn muốn uống nóng hay đá?
+          </div>
+        </div>
+      </div>
+
+      <!-- Turn 4: Speaker B (Customer) -->
+      <div class="flex items-start gap-3 sm:gap-4 flex-row-reverse group">
+        <!-- Initial Circle B -->
+        <div class="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-[#F2553B] text-white flex items-center justify-center font-extrabold text-base shadow-[0_3px_0_#B53A22] mt-1">
+          B
+        </div>
+
+        <!-- Chat Bubble B -->
+        <div class="flex-1 bg-white rounded-2xl rounded-tr-sm p-4 sm:p-5 border-2 border-[#EADEC8] shadow-tactile-card">
+          <div class="flex items-start justify-between gap-3">
+            <p class="text-base sm:text-lg font-bold text-[#0F3D3E] leading-snug">
+              "Iced, please. And could I have an extra shot of espresso?"
+            </p>
+            <!-- Round Play Button -->
+            <button class="tactile-icon-btn shrink-0 w-9 h-9 rounded-full bg-[#FFF0ED] hover:bg-[#ffe3dc] border-2 border-[#FCD5CC] text-[#F2553B] flex items-center justify-center" aria-label="Play audio">
+              <span class="material-symbols-rounded text-xl leading-none">play_arrow</span>
+            </button>
+          </div>
+          <!-- Translation Line in muted text -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2ECE0] text-xs sm:text-sm font-medium text-[#7C9092]">
+            Cho mình uống đá nhé. Và thêm một shot espresso được không?
+          </div>
+        </div>
+      </div>
+
+      <!-- Turn 5: Speaker A (Barista) -->
+      <div class="flex items-start gap-3 sm:gap-4 group">
+        <!-- Initial Circle A -->
+        <div class="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-[#0D6964] text-white flex items-center justify-center font-extrabold text-base shadow-[0_3px_0_#094B48] mt-1">
+          A
+        </div>
+
+        <!-- Chat Bubble A -->
+        <div class="flex-1 bg-white rounded-2xl rounded-tl-sm p-4 sm:p-5 border-2 border-[#EADEC8] shadow-tactile-card">
+          <div class="flex items-start justify-between gap-3">
+            <p class="text-base sm:text-lg font-bold text-[#0F3D3E] leading-snug">
+              "You got it. That'll be $4.80 at the register."
+            </p>
+            <!-- Round Play Button -->
+            <button class="tactile-icon-btn shrink-0 w-9 h-9 rounded-full bg-[#E8F6F5] hover:bg-[#d6f0ee] border-2 border-[#BDE3E1] text-[#0D6964] flex items-center justify-center" aria-label="Play audio">
+              <span class="material-symbols-rounded text-xl leading-none">play_arrow</span>
+            </button>
+          </div>
+          <!-- Translation Line in muted text -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2ECE0] text-xs sm:text-sm font-medium text-[#7C9092]">
+            Dạ có ngay. Của bạn hết 4.80 đô tại quầy nhé.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- USEFUL PHRASES CARD WITH CHIPS -->
+    <section class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-[#EADEC8] shadow-tactile-card flex flex-col gap-4 mt-2">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-xl bg-[#FFF2DE] border border-[#E2CEAB] text-[#FFB054] flex items-center justify-center">
+            <span class="material-symbols-rounded text-lg">hotel_class</span>
+          </span>
+          <h2 class="text-lg font-extrabold text-[#0F3D3E] tracking-tight">Useful Phrases in this Dialogue</h2>
+        </div>
+        <span class="text-xs font-bold text-[#0D6964] bg-[#E8F6F5] px-2.5 py-1 rounded-full border border-[#BDE3E1]">
+          4 key patterns
+        </span>
+      </div>
+
+      <!-- Phrase Chips Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+        
+        <!-- Chip 1 -->
+        <div class="tactile-chip p-3.5 rounded-2xl bg-[#FFFBF4] border-2 border-[#EADEC8] flex flex-col gap-1 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-extrabold text-[#0F3D3E]">"Can I get a...?"</span>
+            <span class="material-symbols-rounded text-[#0D6964] text-base">volume_up</span>
+          </div>
+          <span class="text-xs font-medium text-[#6B8385]">Natural everyday way to order food/drinks</span>
+        </div>
+
+        <!-- Chip 2 -->
+        <div class="tactile-chip p-3.5 rounded-2xl bg-[#FFFBF4] border-2 border-[#EADEC8] flex flex-col gap-1 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-extrabold text-[#0F3D3E]">"...to go, please."</span>
+            <span class="material-symbols-rounded text-[#0D6964] text-base">volume_up</span>
+          </div>
+          <span class="text-xs font-medium text-[#6B8385]">Takeaway (US English vs UK "take away")</span>
+        </div>
+
+        <!-- Chip 3 -->
+        <div class="tactile-chip p-3.5 rounded-2xl bg-[#FFFBF4] border-2 border-[#EADEC8] flex flex-col gap-1 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-extrabold text-[#0F3D3E]">"Could I have an extra...?"</span>
+            <span class="material-symbols-rounded text-[#0D6964] text-base">volume_up</span>
+          </div>
+          <span class="text-xs font-medium text-[#6B8385]">Polite modification of an order</span>
+        </div>
+
+        <!-- Chip 4 -->
+        <div class="tactile-chip p-3.5 rounded-2xl bg-[#FFFBF4] border-2 border-[#EADEC8] flex flex-col gap-1 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-extrabold text-[#0F3D3E]">"Sure thing! / You got it."</span>
+            <span class="material-symbols-rounded text-[#0D6964] text-base">volume_up</span>
+          </div>
+          <span class="text-xs font-medium text-[#6B8385]">Friendly native affirmative responses</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BIG TACTILE CTA SECTION -->
+    <section class="pt-2 pb-6">
+      <div class="bg-gradient-to-br from-[#0D6964] to-[#12514D] rounded-3xl p-7 sm:p-9 text-white shadow-[0_6px_0_#073533] flex flex-col items-center text-center gap-5">
+        
+        <div class="flex flex-col items-center gap-1.5 max-w-md">
+          <span class="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#FFC94A] tracking-wider uppercase bg-white/10 px-3 py-1 rounded-full border border-white/15">
+            <span class="material-symbols-rounded text-sm">mic</span> Speech Recognition & AI Scoring
+          </span>
+          <h3 class="text-xl sm:text-2xl font-extrabold tracking-tight">
+            Ready to speak it out loud?
+          </h3>
+          <p class="text-sm text-[#D3EBEA] font-medium leading-relaxed">
+            Roleplay Carlos and Ama in real-time. Practice intonation, instant feedback on pronunciation, 100% free.
+          </p>
+        </div>
+
+        <!-- Big Candy CTA Button with 6px bottom ledge -->
+        <a href="#" class="tactile-button w-full sm:w-auto min-w-[320px] px-8 py-4 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FF814A] text-white font-extrabold text-base sm:text-lg tracking-wide flex items-center justify-center gap-2.5">
+          <span>Practice this conversation in the app</span>
+          <span class="material-symbols-rounded text-xl">arrow_forward</span>
+        </a>
+
+        <div class="flex items-center gap-5 text-xs text-[#A1CCC9] font-bold">
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-rounded text-sm text-[#FFC94A]">check_circle</span> No account needed
+          </span>
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-rounded text-sm text-[#FFC94A]">check_circle</span> 100% free forever
+          </span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FRIENDLY FOOTER (Bright Day) -->
+  <footer class="mt-auto border-t-2 border-[#EADEC8] bg-[#FFFBF4] px-6 py-10">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Mission statement -->
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-[#0D6964] p-1.5 flex items-center justify-center shadow-[0_2px_0_#094B48]">
+          <svg viewBox="0 0 24 24" class="w-full h-full text-white fill-current">
+            <path d="M12 2L3 11L12 22L21 11L12 2Z" fill="#FFF7EA"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-base font-extrabold text-[#0F3D3E]">Lexkite</div>
+          <div class="text-xs text-[#6B8385] font-medium">Free, game-like English prep for IELTS & TOEIC</div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="flex items-center gap-6 text-xs font-bold text-[#4E6668]">
+        <a href="#" class="hover:text-[#0D6964] transition-colors">Speaking Library</a>
+        <a href="#" class="hover:text-[#0D6964] transition-colors">Academic Vocabulary</a>
+        <a href="#" class="hover:text-[#0D6964] transition-colors">Privacy</a>
+        <a href="#" class="hover:text-[#0D6964] transition-colors">Terms</a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-xs font-semibold text-[#809597]">
+        © 2026 Lexkite Prep Inc.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

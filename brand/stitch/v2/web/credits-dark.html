@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Image &amp; Asset Credits</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'cream-surface': '#FFFBF5',
+            'card-bg': '#FFFFFF',
+            'border-warm': '#EADEC8',
+            'border-ledge': '#D8CFBC',
+            'text-ink': '#0F3D3E',
+            'text-ink-muted': '#4E6668',
+            'teal-main': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'teal-ledge': '#12514D',
+            'coral-cta': '#F2553B',
+            'coral-ledge': '#B53A22',
+            'amber-sun': '#FFB054',
+            'amber-ledge': '#D48628',
+            'gold-badge': '#FFC94A',
+            'chip-bg': '#F4EADA',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 3D Tactile Buttons & Cards */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-bottom-width: 6px;
+      border-bottom-color: #D8CFBC;
+      border-radius: 20px;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF6F4E 0%, #F2553B 100%);
+      border: 2px solid #D63E24;
+      border-bottom: 5px solid #B53A22;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      color: #FFFFFF;
+      font-weight: 800;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      border-bottom-width: 2px;
+    }
+
+    .tactile-btn-ghost {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-bottom: 4px solid #D8CFBC;
+      color: #0F3D3E;
+      font-weight: 700;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-ghost:active {
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+
+    .license-chip {
+      background: #F4EADA;
+      border: 1px solid #E2D3BD;
+      border-bottom: 2px solid #D1BFAB;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .license-chip-green {
+      background: #E6F7F0;
+      border: 1px solid #BFEAD8;
+      border-bottom: 2px solid #9FD4BF;
+      color: #127954;
+    }
+    .license-chip-blue {
+      background: #E8F5FB;
+      border: 1px solid #C4E4F5;
+      border-bottom: 2px solid #A2D0EA;
+      color: #1B6F9E;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between bg-[#091518] text-[#d8e5e9] selection:bg-[#2ba39a] selection:text-white">
+<!-- Top Sticky Navigation (Exact Lexkite Web Pattern) -->
+<header class="sticky top-0 z-50 bg-[#091518]/95 backdrop-blur-md border-b-2 border-[#1e2f34] shadow-[0_4px_0_0_#050e10]">
+<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group focus:outline-none" href="#">
+<div class="w-10 h-10 rounded-xl bg-[#2BA39A] flex items-center justify-center border-2 border-[#12514D] shadow-[0_3px_0_0_#062321] group-hover:translate-y-[-1px] transition-transform">
+<svg fill="none" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L20.5 10.5L12 22L3.5 10.5L12 2Z" fill="white" stroke="#12514D" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M12 2V22M3.5 10.5H20.5" stroke="#12514D" stroke-width="1.5"></path>
+<path d="M12 22C12 22 14.5 23.5 16 23" stroke="#FFB054" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-white group-hover:text-[#6bd8ce] transition-colors">
+          Lexkite
+        </span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 text-[15px] font-bold text-[#95abb0]">
+<a class="hover:text-white transition-colors" href="#">Vocabulary</a>
+<a class="hover:text-white transition-colors" href="#">Speaking Drills</a>
+<a class="hover:text-white transition-colors" href="#">Level Test</a>
+<a class="hover:text-white transition-colors" href="#">For Schools</a>
+<a class="text-[#6bd8ce] border-b-2 border-[#6bd8ce] pb-0.5" href="#">Credits</a>
+</nav>
+<!-- Right Header Actions -->
+<div class="flex items-center gap-3">
+<a class="hidden sm:inline-block px-4 py-2 text-sm font-bold text-[#95abb0] hover:text-white transition-colors" href="#">
+          Log in
+        </a>
+<a class="tactile-btn-primary px-5 py-2.5 rounded-xl text-sm tracking-wide uppercase inline-flex items-center gap-2" href="#">
+<span>Start free</span>
+<svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14">
+<path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="max-w-6xl mx-auto px-6 py-12 w-full flex-1"><!-- Hero Header with Illustrated Camera Icon -->
+<section class="max-w-3xl mb-12">
+<!-- Tag chip -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#12252a] border border-[#23424a] text-xs font-extrabold text-[#6bd8ce] uppercase tracking-wider mb-4 shadow-[0_2px_0_0_#061316]">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span>Open Culture &amp; Attribution</span>
+</div>
+<!-- Title with Illustrated Glossy Camera -->
+<div class="flex items-center gap-4 mb-3">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#2c2011] to-[#422e15] border-2 border-[#82541c] shadow-[0_4px_0_0_#2b1803] flex items-center justify-center shrink-0">
+<svg fill="none" height="28" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#FFB054" height="15" rx="4" stroke="#874706" stroke-width="1.8" width="20" x="2" y="6"></rect>
+<path d="M8 6L9.5 3H14.5L16 6" fill="#FFA238" stroke="#874706" stroke-width="1.8"></path>
+<circle cx="12" cy="13.5" fill="#FFFFFF" r="4.5" stroke="#874706" stroke-width="1.8"></circle>
+<circle cx="12" cy="13.5" fill="#2BA39A" r="2.2"></circle>
+<circle cx="17.5" cy="9.5" fill="#FFFFFF" r="1"></circle>
+</svg>
+</div>
+<h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Image &amp; Asset Credits
+        </h1>
+</div>
+<!-- Short line describing open source philosophy -->
+<p class="text-lg font-medium text-[#A9BFC1]">
+        Lexkite uses open-license community assets to keep high-stakes IELTS &amp; TOEIC exam preparation 100% free.
+      </p>
+</section>
+<!-- 3 Chunky Category Cards Grid in Tactile Night -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- ================= SECTION 1: ICONS ================= -->
+<div class="bg-[#142328] border-2 border-[#243c44] border-b-[6px] border-b-[#071316] rounded-[20px] p-6 flex flex-col justify-between shadow-sm">
+<div>
+<!-- Section Card Header -->
+<div class="flex items-center justify-between pb-5 border-b-2 border-[#1f333a] mb-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#0e302e] border-2 border-[#1b625b] flex items-center justify-center text-[#6bd8ce] shadow-[0_3px_0_0_#061a19]">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="20">
+<rect height="7" width="7" x="3" y="3"></rect>
+<rect height="7" width="7" x="14" y="3"></rect>
+<rect height="7" width="7" x="14" y="14"></rect>
+<rect height="7" width="7" x="3" y="14"></rect>
+</svg>
+</div>
+<div>
+<h2 class="text-xl font-extrabold text-white">Icons</h2>
+<span class="text-xs font-bold text-[#8fa7ad]">Vector system</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-[#0d2e2b] text-[#6bd8ce] border border-[#1b5e58]">
+              4 collections
+            </span>
+</div>
+<!-- List of Items -->
+<div class="space-y-4">
+<!-- Item 1: Lucide Icons -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm">
+<svg fill="none" height="24" stroke="#6bd8ce" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+<path d="M21.18 8.02A10 10 0 0 0 12 2v10l9.18-3.98z"></path>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Lucide Icons</h3>
+<span class="bg-[#0d2f2b] text-[#54e4d6] border border-[#195c55] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">ISC</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Lucide Community Project</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://lucide.dev" rel="noopener" target="_blank">
+                  lucide.dev ↗
+                </a>
+</div>
+</div>
+<!-- Item 2: Tabler Icons -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm">
+<svg fill="none" height="24" stroke="#ff8c79" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M10 10l4 4m0 -4l-4 4"></path>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Tabler Icons</h3>
+<span class="bg-[#0d2f2b] text-[#54e4d6] border border-[#195c55] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">MIT</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Paweł Kuna</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://tabler-icons.io" rel="noopener" target="_blank">
+                  tabler-icons.io ↗
+                </a>
+</div>
+</div>
+<!-- Item 3: Phosphor Icons -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm">
+<svg fill="none" height="24" stroke="#f4bf40" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Phosphor Icons</h3>
+<span class="bg-[#0d2f2b] text-[#54e4d6] border border-[#195c55] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">MIT</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Helena Zhang &amp; Toby Fried</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://phosphoricons.com" rel="noopener" target="_blank">
+                  phosphoricons.com ↗
+                </a>
+</div>
+</div>
+<!-- Item 4: Google Material -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm">
+<svg fill="none" height="24" stroke="#d8e5e9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M12 3v18M3 12h18"></path>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Google Material</h3>
+<span class="bg-[#102a3a] text-[#71c3f2] border border-[#1f4a64] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">Apache 2.0</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Google Design Team</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://fonts.google.com/icons" rel="noopener" target="_blank">
+                  fonts.google.com/icons ↗
+                </a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-[#1f333a]">
+<span class="text-xs text-[#8fa7ad] font-medium flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2BA39A]"></span>
+            Integrated directly as scalable SVGs
+          </span>
+</div>
+</div>
+<!-- ================= SECTION 2: ILLUSTRATIONS ================= -->
+<div class="bg-[#142328] border-2 border-[#243c44] border-b-[6px] border-b-[#071316] rounded-[20px] p-6 flex flex-col justify-between shadow-sm">
+<div>
+<!-- Section Card Header -->
+<div class="flex items-center justify-between pb-5 border-b-2 border-[#1f333a] mb-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#361f18] border-2 border-[#6f3325] flex items-center justify-center text-[#ff8c79] shadow-[0_3px_0_0_#200e09]">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="20">
+<path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+<path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+<path d="M2 2l7.586 7.586"></path>
+<circle cx="11" cy="11" r="2"></circle>
+</svg>
+</div>
+<div>
+<h2 class="text-xl font-extrabold text-white">Illustrations</h2>
+<span class="text-xs font-bold text-[#8fa7ad]">Vector &amp; Paper Art</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-[#2f2210] text-[#f4bf40] border border-[#6b4c19]">
+              3 creators
+            </span>
+</div>
+<!-- List of Items -->
+<div class="space-y-4">
+<!-- Item 1: OpenPeeps Kit -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1">
+<svg fill="none" height="34" viewbox="0 0 32 32" width="34">
+<path d="M16 3L26 13L16 27L6 13L16 3Z" fill="#FFB054"></path>
+<path d="M16 3L26 13L16 20L6 13L16 3Z" fill="#F2553B"></path>
+<path d="M16 27C17 29 20 29.5 21 28" stroke="#2BA39A" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">OpenPeeps Kit</h3>
+<span class="bg-[#0d2f2b] text-[#54e4d6] border border-[#195c55] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">CC0</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Pablo Stanley</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://openpeeps.com" rel="noopener" target="_blank">
+                  openpeeps.com ↗
+                </a>
+</div>
+</div>
+<!-- Item 2: unDraw Series -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1">
+<svg fill="none" height="34" viewbox="0 0 32 32" width="34">
+<circle cx="16" cy="16" fill="#0d2f2b" r="12"></circle>
+<path d="M11 20V15C11 12.2 13.2 10 16 10C18.8 10 21 12.2 21 15V20" stroke="#2BA39A" stroke-width="2"></path>
+<path d="M8 20H24" stroke="#6bd8ce" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">unDraw Series</h3>
+<span class="bg-[#102a3a] text-[#71c3f2] border border-[#1f4a64] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">Open License</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Katerina Limpitsouni</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://undraw.co" rel="noopener" target="_blank">
+                  undraw.co ↗
+                </a>
+</div>
+</div>
+<!-- Item 3: Humaaans Mix -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1">
+<svg fill="none" height="34" viewbox="0 0 32 32" width="34">
+<circle cx="16" cy="8" fill="#FFB054" r="5"></circle>
+<path d="M7 26C7 19.5 11 16 16 16C21 16 25 19.5 25 26" fill="#F2553B"></path>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Humaaans Mix</h3>
+<span class="bg-[#0d2f2b] text-[#54e4d6] border border-[#195c55] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">CC0</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Pablo Stanley</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://humaaans.com" rel="noopener" target="_blank">
+                  humaaans.com ↗
+                </a>
+</div>
+</div>
+<!-- Item 4: Lexkite Papercraft -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1">
+<svg fill="none" height="34" viewbox="0 0 32 32" width="34">
+<circle cx="16" cy="12" fill="#2BA39A" r="8"></circle>
+<rect fill="#B53A22" height="10" rx="2" width="4" x="14" y="18"></rect>
+<circle cx="12" cy="10" fill="#A7DFC7" r="2"></circle>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Lexkite Papercraft</h3>
+<span class="bg-[#102a3a] text-[#71c3f2] border border-[#1f4a64] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">CC BY 4.0</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Lexkite Studio</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://github.com/lexkite" rel="noopener" target="_blank">
+                  lexkite.com/brand ↗
+                </a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-[#1f333a]">
+<span class="text-xs text-[#8fa7ad] font-medium flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#f4bf40]"></span>
+            Modified &amp; tinted with Lexkite Bright Day palette
+          </span>
+</div>
+</div>
+<!-- ================= SECTION 3: WIKIMEDIA COMMONS PHOTOS ================= -->
+<div class="bg-[#142328] border-2 border-[#243c44] border-b-[6px] border-b-[#071316] rounded-[20px] p-6 flex flex-col justify-between shadow-sm">
+<div>
+<!-- Section Card Header -->
+<div class="flex items-center justify-between pb-5 border-b-2 border-[#1f333a] mb-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#0f2c3d] border-2 border-[#205777] flex items-center justify-center text-[#73c5f5] shadow-[0_3px_0_0_#071720]">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="20">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect>
+<circle cx="8.5" cy="8.5" r="1.5"></circle>
+<polyline points="21 15 16 10 5 21"></polyline>
+</svg>
+</div>
+<div>
+<h2 class="text-xl font-extrabold text-white">Wikimedia</h2>
+<span class="text-xs font-bold text-[#8fa7ad]">Educational photos</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-[#0e2736] text-[#78c7f5] border border-[#1d4c67]">
+              Public corpus
+            </span>
+</div>
+<!-- List of Items -->
+<div class="space-y-4">
+<!-- Item 1: London Double Decker Bus -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
+<div class="w-full h-full bg-gradient-to-br from-red-600 to-rose-900 flex items-center justify-center text-white">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22">
+<path d="M4 16c0 .88.39 1.67 1 2.22V20a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h8v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"></path>
+</svg>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Routemaster Bus</h3>
+<span class="bg-[#102a3a] text-[#71c3f2] border border-[#1f4a64] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">CC BY-SA 3.0</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">User: Oxyman / Wikimedia</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://commons.wikimedia.org" rel="noopener" target="_blank">
+                  File:Routemaster.jpg ↗
+                </a>
+</div>
+</div>
+<!-- Item 2: British Library Reading Room -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
+<div class="w-full h-full bg-gradient-to-br from-amber-600 to-amber-950 flex items-center justify-center text-white">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22">
+<path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"></path>
+</svg>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">British Library Room</h3>
+<span class="bg-[#102a3a] text-[#71c3f2] border border-[#1f4a64] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">CC BY 2.0</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Diliff / Wikimedia Commons</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://commons.wikimedia.org" rel="noopener" target="_blank">
+                  File:British_Library.jpg ↗
+                </a>
+</div>
+</div>
+<!-- Item 3: Exam Desk Study -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
+<div class="w-full h-full bg-gradient-to-br from-teal-700 to-teal-950 flex items-center justify-center text-white">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22">
+<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path>
+</svg>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Exam Desk Study</h3>
+<span class="bg-[#0d2f2b] text-[#54e4d6] border border-[#195c55] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">CC0 / PD</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">National Archives Collection</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://commons.wikimedia.org" rel="noopener" target="_blank">
+                  File:Exam_Hall_1984.jpg ↗
+                </a>
+</div>
+</div>
+<!-- Item 4: Biodiversity Plate -->
+<div class="p-3.5 rounded-2xl bg-[#1b2d34] border-2 border-[#263e47] border-b-4 border-b-[#0e1c21] flex items-center gap-3.5 hover:border-[#2ba39a]/60 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-[#122127] border border-[#2a4550] flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
+<div class="w-full h-full bg-gradient-to-br from-emerald-700 to-green-950 flex items-center justify-center text-white">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22">
+<path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3 4.5 0 9-3 9-12zm-5 5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path>
+</svg>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h3 class="font-extrabold text-sm text-white truncate">Biodiversity Plate</h3>
+<span class="bg-[#102a3a] text-[#71c3f2] border border-[#1f4a64] border-b-2 font-mono text-[11px] font-bold px-2 py-0.5 rounded-md">CC BY-SA 4.0</span>
+</div>
+<p class="text-xs text-[#A9BFC1] truncate">Biodiversity Heritage Library</p>
+<a class="text-[11px] font-bold text-[#6bd8ce] hover:underline inline-flex items-center gap-1 mt-0.5" href="https://commons.wikimedia.org" rel="noopener" target="_blank">
+                  File:Flora_Plate_08.jpg ↗
+                </a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-[#1f333a]">
+<span class="text-xs text-[#8fa7ad] font-medium flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+            Hosted under Wikimedia Foundation guidelines
+          </span>
+</div>
+</div>
+</div>
+<!-- Bottom Clarification Card with Tactile Night Ledge -->
+<section class="mt-12 p-6 rounded-2xl bg-[#142328] border-2 border-[#243c44] border-b-[5px] border-b-[#071316] flex flex-col sm:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-[#0c2826] border-2 border-[#1e5852] flex items-center justify-center shrink-0">
+<svg fill="none" height="24" stroke="#6bd8ce" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="12" x2="12" y1="16" y2="12"></line>
+<line x1="12" x2="12.01" y1="8" y2="8"></line>
+</svg>
+</div>
+<div>
+<h3 class="text-base font-extrabold text-white">Notice a missing attribution or broken link?</h3>
+<p class="text-sm text-[#A9BFC1]">Our editorial team updates licensing notes weekly to maintain 100% fair-use compliance.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="bg-[#1b2d34] border-2 border-[#2e4a55] border-b-4 border-b-[#0c181c] text-[#d8e5e9] hover:text-white font-bold px-5 py-2.5 rounded-xl text-sm inline-flex items-center gap-2 transition-all active:translate-y-[2px] active:border-b-2" href="mailto:credits@lexkite.com">
+<span>Report correction</span>
+</a>
+</div>
+</section></main>
+<!-- Friendly Lexkite Footer (Exact Lexkite Standard) -->
+<footer class="mt-16 bg-[#071114] border-t-2 border-[#192a2f]">
+<div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Brand & Mission -->
+<div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+<div class="w-8 h-8 rounded-lg bg-[#2BA39A] flex items-center justify-center border border-[#12514D] shadow-[0_2px_0_0_#051816]">
+<svg fill="none" height="16" viewbox="0 0 24 24" width="16">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="white"></path>
+</svg>
+</div>
+<div>
+<span class="text-sm font-extrabold text-white">Lexkite Prep</span>
+<p class="text-xs text-[#8fa7ad] mt-0.5">Tactile exam preparation for IELTS &amp; TOEIC learners. Zero lockouts, zero paywalls.</p>
+</div>
+</div>
+<!-- Footer Policy Links -->
+<div class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-[#8fa7ad]">
+<a class="hover:text-[#6bd8ce] transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-[#6bd8ce] transition-colors" href="#">Editorial Standards</a>
+<a class="text-[#6bd8ce]" href="#">Image Credits</a>
+<a class="hover:text-[#6bd8ce] transition-colors" href="#">Terms of Service</a>
+</div>
+<!-- Copyright Stamp -->
+<div class="text-xs font-semibold text-[#6d8489]">
+        © 2026 Lexkite Inc. Free forever.
+      </div>
+</div>
+</footer>
+</body>
+</html>
+

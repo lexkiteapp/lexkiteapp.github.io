@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us — Lexkite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            bgNight: '#091518',
+            surfaceNight: '#142328',
+            surfaceNightHigh: '#1A2C33',
+            borderNight: '#243B42',
+            borderNightLight: '#36505A',
+            ledgeNight: '#071012',
+            textWhite: '#FFFFFF',
+            textOffWhite: '#EEF6F7',
+            textMutedNight: '#A9BFC1',
+            tealBrand: '#2BA39A',
+            tealBright: '#6bd8ce',
+            tealDeep: '#1F7A75',
+            coralOrange: '#F2553B',
+            amberSun: '#FFB054',
+            ctaLedge: '#B53A22',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #091518;
+      color: #EEF6F7;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tactile-cta {
+      background: linear-gradient(180deg, #FF7E54 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 #B53A22;
+      transition: all 0.1s ease;
+    }
+    .tactile-cta:hover {
+      transform: translateY(1px);
+      box-shadow: 0 4px 0 #B53A22;
+    }
+    .tactile-cta:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+    .tactile-card-night {
+      background: #142328;
+      border: 2px solid #243B42;
+      box-shadow: 0 5px 0 #071012, inset 0 1px 0 rgba(255,255,255,0.06);
+      border-radius: 24px;
+      transition: all 0.15s ease;
+    }
+    .tactile-card-interactive:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 #071012, inset 0 1px 0 rgba(255,255,255,0.1);
+      border-color: #36505A;
+    }
+    .tactile-card-interactive:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #071012;
+    }
+    .icon-glossy-gold {
+      background: linear-gradient(145deg, #FFE58F 0%, #FFB054 100%);
+      box-shadow: 0 4px 0 #B27018, inset 0 2px 2px rgba(255,255,255,0.7);
+    }
+    .icon-glossy-teal {
+      background: linear-gradient(145deg, #64DFDF 0%, #2BA39A 100%);
+      box-shadow: 0 4px 0 #18716A, inset 0 2px 2px rgba(255,255,255,0.7);
+    }
+    .icon-glossy-coral {
+      background: linear-gradient(145deg, #FF8E7E 0%, #F2553B 100%);
+      box-shadow: 0 4px 0 #B53A22, inset 0 2px 2px rgba(255,255,255,0.7);
+    }
+    .teacher-slot-night {
+      border: 2px dashed #2BA39A;
+      background: rgba(43, 163, 154, 0.08);
+      width: 140px;
+      height: 170px;
+      border-radius: 24px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-tealBrand selection:text-white">
+<!-- ================= TOP SITE HEADER ================= -->
+<header class="w-full bg-[#091518]/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#243B42]">
+<div class="max-w-[1140px] mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo + Name -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-amberSun via-coralOrange to-[#E03B20] p-1.5 shadow-[0_3px_0_#B53A22] flex items-center justify-center transition-transform group-hover:scale-105 active:scale-95">
+<!-- Tactile Kite SVG -->
+<svg class="w-6 h-6 text-white fill-current drop-shadow-sm" viewbox="0 0 24 24">
+<path d="M12 2L4 12L12 22L20 12L12 2Z" fill="white"></path>
+<path d="M12 2L12 22" stroke="#F2553B" stroke-linecap="round" stroke-width="1.5"></path>
+<path d="M4 12L20 12" stroke="#F2553B" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-white">Lexkite</span>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8 text-[15px] font-bold text-[#A9BFC1]">
+<a class="hover:text-white transition-colors" href="#">Blog</a>
+<a class="hover:text-white transition-colors" href="#">Vocabulary</a>
+<a class="hover:text-white transition-colors" href="#">Samples</a>
+<a class="text-tealBright border-b-2 border-tealBright pb-0.5" href="#">About us</a>
+</nav>
+<!-- Action Button -->
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-block text-[15px] font-bold text-[#EEF6F7] hover:text-tealBright transition-colors px-3 py-2" href="#">
+          Log in
+        </a>
+<button class="tactile-cta text-white font-extrabold text-[15px] px-6 py-2.5 rounded-2xl tracking-wide flex items-center gap-2">
+<span>Start free</span>
+<span class="material-symbols-rounded text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT ================= -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="max-w-[1140px] mx-auto px-6 pt-16 pb-12 text-center">
+<!-- Mission Pill Badge -->
+<div class="inline-flex items-center gap-2 bg-[#122B2F] border border-[#1E4A50] text-[#6bd8ce] font-bold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-6 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A] shadow-[0_0_8px_#2BA39A] animate-pulse"></span>
+        Lexkite Mission
+      </div>
+<!-- One-line Warm Hero Mission -->
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-[1.2] mb-5">
+        Learn English like a game,<br class="hidden sm:inline"/> free for everyone.
+      </h1>
+<p class="text-[#A9BFC1] text-base md:text-lg font-medium max-w-xl mx-auto mb-12">
+        Tactile exam preparation for IELTS &amp; TOEIC learners — zero lockouts, zero paywalls.
+      </p>
+<!-- Two Teacher Slots Side by Side (Ama & Carlos) -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 max-w-xl mx-auto mb-8">
+<!-- Slot 1: Ama -->
+<div class="flex flex-col items-center">
+<div class="teacher-slot-night flex flex-col items-center justify-center p-3 relative group">
+<span class="material-symbols-rounded text-[#6bd8ce] text-3xl mb-1">person</span>
+<span class="text-xs font-bold text-white uppercase tracking-wider">Teacher Ama</span>
+<span class="text-[10px] text-[#A9BFC1] font-semibold mt-0.5">140 × 170 art slot</span>
+</div>
+<span class="mt-3 text-sm font-extrabold text-white">Ama Osei</span>
+<span class="text-xs font-semibold text-[#A9BFC1]">Head of IELTS Prep</span>
+</div>
+<!-- Slot 2: Carlos -->
+<div class="flex flex-col items-center">
+<div class="teacher-slot-night flex flex-col items-center justify-center p-3 relative group">
+<span class="material-symbols-rounded text-[#6bd8ce] text-3xl mb-1">person</span>
+<span class="text-xs font-bold text-white uppercase tracking-wider">Teacher Carlos</span>
+<span class="text-[10px] text-[#A9BFC1] font-semibold mt-0.5">140 × 170 art slot</span>
+</div>
+<span class="mt-3 text-sm font-extrabold text-white">Carlos Mendez</span>
+<span class="text-xs font-semibold text-[#A9BFC1]">Lead Lexicographer</span>
+</div>
+</div>
+</section>
+<!-- 3 Value Cards Row -->
+<section class="max-w-[1140px] mx-auto px-6 py-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+<!-- Card 1: Free Forever -->
+<div class="tactile-card-night p-8 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl icon-glossy-gold flex items-center justify-center mb-6">
+<span class="material-symbols-rounded text-[#392900] text-3xl drop-shadow-sm font-bold">lock_open</span>
+</div>
+<h3 class="text-xl font-extrabold text-white mb-2">Free forever</h3>
+<p class="text-[#A9BFC1] font-medium text-sm leading-relaxed">
+            100% open practice. No hearts, no lives, no subscription walls on exam drills.
+          </p>
+</div>
+<!-- Card 2: Made by Teachers -->
+<div class="tactile-card-night p-8 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl icon-glossy-teal flex items-center justify-center mb-6">
+<span class="material-symbols-rounded text-[#003733] text-3xl drop-shadow-sm font-bold">school</span>
+</div>
+<h3 class="text-xl font-extrabold text-white mb-2">Made by teachers</h3>
+<p class="text-[#A9BFC1] font-medium text-sm leading-relaxed">
+            Crafted by certified IELTS examiners &amp; Cambridge linguists for real exam scores.
+          </p>
+</div>
+<!-- Card 3: 15 Languages -->
+<div class="tactile-card-night p-8 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-2xl icon-glossy-coral flex items-center justify-center mb-6">
+<span class="material-symbols-rounded text-white text-3xl drop-shadow-sm font-bold">translate</span>
+</div>
+<h3 class="text-xl font-extrabold text-white mb-2">15 languages</h3>
+<p class="text-[#A9BFC1] font-medium text-sm leading-relaxed">
+            Localized false-friend alerts &amp; native language hints tailored for your mother tongue.
+          </p>
+</div>
+</div>
+</section>
+<!-- 'How we write our lessons' Strip -->
+<section class="max-w-[1140px] mx-auto px-6 py-10">
+<div class="text-center mb-8">
+<h2 class="text-xs font-extrabold text-tealBright uppercase tracking-widest mb-1">
+          Trust &amp; Transparency
+        </h2>
+<p class="text-2xl font-extrabold text-white">
+          How we write our lessons
+        </p>
+</div>
+<!-- 4 Chunky Tactile Link Tiles -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+<!-- Tile 1: Editorial team -->
+<a class="tactile-card-night tactile-card-interactive p-5 flex flex-col items-center text-center group cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-xl bg-[#122B2F] border border-[#1E4A50] text-[#6bd8ce] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-2xl">groups</span>
+</div>
+<span class="font-extrabold text-[15px] text-white group-hover:text-tealBright transition-colors">Editorial team</span>
+<span class="text-xs font-semibold text-[#A9BFC1] mt-1">Examiners &amp; linguists</span>
+</a>
+<!-- Tile 2: Editorial policy -->
+<a class="tactile-card-night tactile-card-interactive p-5 flex flex-col items-center text-center group cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-xl bg-[#2D1614] border border-[#4E211E] text-coralOrange flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-2xl">verified_user</span>
+</div>
+<span class="font-extrabold text-[15px] text-white group-hover:text-coralOrange transition-colors">Editorial policy</span>
+<span class="text-xs font-semibold text-[#A9BFC1] mt-1">Rubric standards</span>
+</a>
+<!-- Tile 3: Sources -->
+<a class="tactile-card-night tactile-card-interactive p-5 flex flex-col items-center text-center group cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-xl bg-[#2C210C] border border-[#4C3615] text-amberSun flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-2xl">menu_book</span>
+</div>
+<span class="font-extrabold text-[15px] text-white group-hover:text-amberSun transition-colors">Sources</span>
+<span class="text-xs font-semibold text-[#A9BFC1] mt-1">Cambridge &amp; ETS corpora</span>
+</a>
+<!-- Tile 4: Corrections -->
+<a class="tactile-card-night tactile-card-interactive p-5 flex flex-col items-center text-center group cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-xl bg-[#112431] border border-[#1B3E54] text-[#55ACEE] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+<span class="material-symbols-rounded text-2xl">rate_review</span>
+</div>
+<span class="font-extrabold text-[15px] text-white group-hover:text-[#55ACEE] transition-colors">Corrections</span>
+<span class="text-xs font-semibold text-[#A9BFC1] mt-1">Report a typo or slip</span>
+</a>
+</div>
+</section>
+<!-- Closing CTA Band -->
+<section class="max-w-[1140px] mx-auto px-6 py-12">
+<div class="bg-gradient-to-b from-[#142328] to-[#0A1619] border-2 border-[#243B42] text-white rounded-[32px] p-8 sm:p-12 text-center shadow-[0_8px_0_#071012] relative overflow-hidden">
+<!-- Subtle background accent circles -->
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-tealBrand/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-12 -right-12 w-48 h-48 bg-coralOrange/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-xl mx-auto">
+<h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3 text-white">
+            Start mastering words today
+          </h2>
+<p class="text-[#A9BFC1] text-sm sm:text-base font-medium mb-8">
+            Join thousands of test-takers climbing IELTS &amp; TOEIC bands with tactile bite-sized drills.
+          </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="tactile-cta text-white font-extrabold text-base px-8 py-3.5 rounded-2xl w-full sm:w-auto tracking-wide flex items-center justify-center gap-2">
+<span>Start learning — 100% free</span>
+<span class="material-symbols-rounded text-lg">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= FRIENDLY FOOTER ================= -->
+<footer class="w-full bg-[#071012] border-t-2 border-[#243B42] mt-12">
+<div class="max-w-[1140px] mx-auto px-6 py-12">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#1A2C33]">
+<!-- Brand -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-gradient-to-br from-amberSun via-coralOrange to-[#E03B20] p-1 shadow-[0_2px_0_#B53A22] flex items-center justify-center">
+<svg class="w-4 h-4 text-white fill-current" viewbox="0 0 24 24">
+<path d="M12 2L4 12L12 22L20 12L12 2Z" fill="white"></path>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-white">Lexkite</span>
+</div>
+<!-- Footer Links -->
+<div class="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold text-[#A9BFC1]">
+<a class="hover:text-white transition-colors" href="#">Learning Path</a>
+<a class="hover:text-white transition-colors" href="#">Vocabulary Bank</a>
+<a class="hover:text-white transition-colors" href="#">Editorial Ethics</a>
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<!-- Copyright & Info -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs font-medium text-[#A9BFC1]/80 gap-3 text-center sm:text-left">
+<p>© 2025 Lexkite Prep Inc. Master words with tactile precision. All rights reserved.</p>
+<p class="flex items-center gap-1 justify-center sm:justify-start">
+<span>Crafted with care for exam test takers worldwide</span>
+<span class="text-coralOrange">♥</span>
+</p>
+</div>
+</div>
+</footer>
+</body></html>

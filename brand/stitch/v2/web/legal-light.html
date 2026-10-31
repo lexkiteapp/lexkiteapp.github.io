@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy Policy - Lexkite</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#343028",
+            "secondary-container": "#fe5d42",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#00201e",
+            "teal-ledge": "#12514D",
+            "surface-tint": "#0e6a65",
+            "border-light": "#EADEC8",
+            "primary-fixed": "#a3f0e9",
+            "on-secondary-fixed": "#3f0300",
+            "on-error": "#ffffff",
+            "background": "#fff8f0",
+            "cta-amber": "#FFB054",
+            "state-success": "#2FBF71",
+            "on-surface-variant": "#3f4947",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary": "#ffffff",
+            "outline-variant": "#bec9c7",
+            "primary": "#004f4b",
+            "card-surface": "#FFFFFF",
+            "surface-variant": "#e9e2d5",
+            "surface": "#fff8f0",
+            "on-tertiary-fixed-variant": "#683d00",
+            "surface-bright": "#fff8f0",
+            "primary-container": "#0d6964",
+            "on-background": "#1e1b14",
+            "cta-ledge": "#B53A22",
+            "text-muted": "#4E6668",
+            "on-tertiary-container": "#ffcf9e",
+            "accent-gold": "#FFC94A",
+            "surface-dim": "#e1d9cd",
+            "ledge-light": "#D8CFBC",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#5e0700",
+            "tertiary-fixed": "#ffdcbb",
+            "cta-coral": "#F2553B",
+            "primary-fixed-dim": "#87d4cd",
+            "teal-deep": "#1F7A75",
+            "on-primary-container": "#98e5df",
+            "surface-container-highest": "#e9e2d5",
+            "outline": "#6f7978",
+            "on-primary-fixed-variant": "#00504c",
+            "canvas-base": "#FFF7EA",
+            "teal-bright": "#2BA39A",
+            "on-surface": "#1e1b14",
+            "secondary-fixed": "#ffdad3",
+            "on-error-container": "#93000a",
+            "tertiary": "#673c00",
+            "surface-container": "#f5ede0",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#ffb4a6",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#fbf3e6",
+            "text-primary": "#0F3D3E",
+            "secondary": "#b42814",
+            "tertiary-fixed-dim": "#ffb869",
+            "tertiary-container": "#885100",
+            "inverse-on-surface": "#f8f0e3",
+            "inverse-primary": "#87d4cd",
+            "surface-container-high": "#efe7db",
+            "on-tertiary-fixed": "#2c1700"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-canvas-base text-text-primary min-h-screen selection:bg-accent-gold selection:text-text-primary antialiased font-body-md text-body-md">
+<!-- ================= 1. TopNavBar (Shared Component) ================= -->
+<header class="bg-card-surface border-b-2 border-border-light border-b-4 border-b-ledge-light sticky top-0 z-50 h-14">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-gutter h-full w-full">
+<!-- Brand Logo Anchor -->
+<a class="text-headline-md font-headline-md text-text-primary tracking-tight flex items-center gap-space-sm group" href="#">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-white flex items-center justify-center border-b-2 border-teal-ledge group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="kitesurfing" style="font-variation-settings: 'FILL' 1;">kitesurfing</span>
+</div>
+<span>Lexkite</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-text-muted font-label-lg text-label-lg hover:text-text-primary transition-colors" href="#">Blog</a>
+<a class="text-text-muted font-label-lg text-label-lg hover:text-text-primary transition-colors" href="#">Vocabulary</a>
+<a class="text-text-muted font-label-lg text-label-lg hover:text-text-primary transition-colors" href="#">Samples</a>
+<!-- Active Nav: Privacy Policy matches page intent -->
+<a class="text-text-primary font-label-lg text-label-lg border-b-2 border-primary-container pb-1" href="#">Privacy</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-3">
+<!-- Language selector pill -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-border-light bg-surface-container-low hover:bg-card-surface text-text-primary font-label-md text-label-md transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[16px] text-teal-bright" data-icon="translate">translate</span>
+<span>English</span>
+</button>
+<!-- CTA Primary: 3D Tactile Key -->
+<button class="hidden sm:inline-flex items-center justify-center px-4 py-1.5 rounded-xl bg-gradient-to-r from-cta-coral to-cta-amber text-white font-label-lg text-label-lg border-b-4 border-cta-ledge active:translate-y-0.5 active:border-b-2 transition-all">
+          Start free
+        </button>
+</div>
+</div>
+</header>
+<!-- ================= Main Content Container ================= -->
+<main class="max-w-[1080px] mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+<!-- 2. Hero Section -->
+<section class="space-y-4">
+<!-- Friendly Breadcrumb -->
+<div class="flex items-center gap-2 font-label-md text-label-md text-text-muted">
+<a class="hover:text-text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-text-primary font-bold">Privacy Policy</span>
+</div>
+<!-- Title Badge & Headline -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pt-2">
+<div class="space-y-3 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary-container/10 border border-teal-bright/30 text-primary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>Honest &amp; Plain Terms</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-container to-teal-bright text-white flex items-center justify-center border-b-4 border-teal-ledge shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[32px]" data-icon="shield_with_heart" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<h1 class="font-display-hero text-headline-lg md:text-display-hero text-text-primary tracking-tight">
+              Privacy Policy: Honest, Simple &amp; Safe
+            </h1>
+</div>
+<p class="font-body-lg text-body-lg text-text-muted leading-relaxed">
+            We built Lexkite so you can learn English without wondering what happens to your personal data. Here is the whole story in plain human terms.
+          </p>
+</div>
+<!-- Last Updated Tactile Pill -->
+<div class="self-start md:self-center shrink-0">
+<div class="bg-card-surface border-2 border-border-light rounded-2xl px-4 py-3 border-b-4 border-ledge-light flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-accent-gold/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_today">calendar_today</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Version stamp</p>
+<p class="font-label-lg text-label-lg text-text-primary">Last updated: October 2025</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Row of 4 Chunky 'In Short' Highlight Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Never Sell Data -->
+<div class="bg-card-surface border-2 border-border-light rounded-2xl p-5 border-b-[5px] border-ledge-light transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-state-success/15 border border-state-success/30 flex items-center justify-center mb-4 text-state-success">
+<span class="material-symbols-outlined text-[26px]" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-1.5">We never sell data</h3>
+<p class="font-body-sm text-body-sm text-text-muted leading-snug">
+          Your progress, recordings and vocabulary are yours alone. Never traded to brokers.
+        </p>
+</div>
+<!-- Card 2: Delete anytime -->
+<div class="bg-card-surface border-2 border-border-light rounded-2xl p-5 border-b-[5px] border-ledge-light transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-cta-coral/15 border border-cta-coral/30 flex items-center justify-center mb-4 text-cta-coral">
+<span class="material-symbols-outlined text-[26px]" data-icon="delete_forever" style="font-variation-settings: 'FILL' 1;">delete_forever</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-1.5">Delete anytime</h3>
+<p class="font-body-sm text-body-sm text-text-muted leading-snug">
+          One click in your profile to wipe your account and all sync telemetry permanently.
+        </p>
+</div>
+<!-- Card 3: Zero sneaky ads -->
+<div class="bg-card-surface border-2 border-border-light rounded-2xl p-5 border-b-[5px] border-ledge-light transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-accent-gold/20 border border-accent-gold/40 flex items-center justify-center mb-4 text-tertiary">
+<span class="material-symbols-outlined text-[26px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-1.5">Zero sneaky ads</h3>
+<p class="font-body-sm text-body-sm text-text-muted leading-snug">
+          No invasive third-party trackers or popups. The core practice engine is 100% clean.
+        </p>
+</div>
+<!-- Card 4: Stays on your device -->
+<div class="bg-card-surface border-2 border-border-light rounded-2xl p-5 border-b-[5px] border-ledge-light transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-teal-bright/15 border border-teal-bright/30 flex items-center justify-center mb-4 text-primary-container">
+<span class="material-symbols-outlined text-[26px]" data-icon="devices" style="font-variation-settings: 'FILL' 1;">devices</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-1.5">Stays on your device</h3>
+<p class="font-body-sm text-body-sm text-text-muted leading-snug">
+          Your flashcard decks and audio drills stay local unless you choose cloud sync.
+        </p>
+</div>
+</section>
+<!-- 4. Two-Column Article Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Sticky Sidebar (~280px / 4 cols) -->
+<aside class="lg:col-span-4 sticky top-20 space-y-5">
+<!-- Table of Contents Card -->
+<div class="bg-card-surface border-2 border-border-light rounded-2xl p-5 border-b-[5px] border-ledge-light">
+<div class="flex items-center gap-2 mb-4 pb-3 border-b border-border-light">
+<span class="material-symbols-outlined text-primary-container text-[20px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-lg text-label-lg text-text-primary font-bold">On this page</span>
+</div>
+<nav class="space-y-1.5">
+<!-- Active item -->
+<a class="flex items-center justify-between p-2.5 rounded-xl bg-primary-container/10 border-2 border-primary-container text-primary-container font-label-md text-label-md border-b-[3px] border-b-teal-ledge transition-all" href="#what-we-collect">
+<span class="truncate">1. What we collect</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-container text-text-muted hover:text-text-primary font-label-md text-label-md transition-colors" href="#audio-speech">
+<span class="truncate">2. Audio &amp; speech practice</span>
+</a>
+<a class="flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-container text-text-muted hover:text-text-primary font-label-md text-label-md transition-colors" href="#cloud-sync">
+<span class="truncate">3. Cloud sync &amp; storage</span>
+</a>
+<a class="flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-container text-text-muted hover:text-text-primary font-label-md text-label-md transition-colors" href="#rights-export">
+<span class="truncate">4. Your rights &amp; choices</span>
+</a>
+<a class="flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-container text-text-muted hover:text-text-primary font-label-md text-label-md transition-colors" href="#learner-safety">
+<span class="truncate">5. Children &amp; learner safety</span>
+</a>
+<a class="flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-container text-text-muted hover:text-text-primary font-label-md text-label-md transition-colors" href="#contact">
+<span class="truncate">6. Contact Teacher Carlos &amp; Ama</span>
+</a>
+</nav>
+</div>
+<!-- Quick Help Card -->
+<div class="bg-surface-container-low border-2 border-border-light rounded-2xl p-5 border-b-[5px] border-ledge-light space-y-3">
+<div class="w-10 h-10 rounded-xl bg-accent-gold/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary">Have a privacy question?</h4>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+              Ask our founders directly. We answer every student email personally within 24 hours.
+            </p>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-card-surface border-2 border-border-light border-b-4 border-ledge-light text-text-primary font-label-lg text-label-lg hover:bg-white active:translate-y-0.5 active:border-b-2 transition-all" href="mailto:privacy@lexkite.com">
+<span class="material-symbols-outlined text-[18px] text-teal-bright" data-icon="mail">mail</span>
+<span>Email our team</span>
+</a>
+</div>
+</aside>
+<!-- Right Column: Structured Educational Article Content (8 cols) -->
+<div class="lg:col-span-8 space-y-10">
+<!-- ================= Section 1 ================= -->
+<section class="bg-card-surface border-2 border-border-light rounded-2xl p-6 sm:p-8 border-b-[5px] border-ledge-light space-y-6" id="what-we-collect">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-white flex items-center justify-center font-bold text-label-lg border-b-2 border-teal-ledge">
+              01
+            </div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">What we collect (and what we don't)</h2>
+<p class="font-body-sm text-body-sm text-text-muted">A clear checklist of data boundaries</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+            Lexkite is engineered around the principle of minimal footprint. We only store the data strictly required to calculate your spaced-repetition memory intervals and reward your daily consistency streak.
+          </p>
+<!-- Side-by-side Checklist -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+<!-- What we need -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-border-light space-y-3">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md uppercase tracking-wider">
+<span class="material-symbols-outlined text-state-success text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>What we collect</span>
+</div>
+<ul class="space-y-2 font-body-sm text-body-sm text-text-primary">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-teal-bright text-[16px] shrink-0 mt-0.5" data-icon="done">done</span>
+<span><strong>Account Email &amp; Handle:</strong> To keep your study streak synchronized.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-teal-bright text-[16px] shrink-0 mt-0.5" data-icon="done">done</span>
+<span><strong>Study telemetry:</strong> Cards mastered, test scores, and streak days.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-teal-bright text-[16px] shrink-0 mt-0.5" data-icon="done">done</span>
+<span><strong>Target Exam Date:</strong> Used only to calibrate your flashcard pacing algorithm.</span>
+</li>
+</ul>
+</div>
+<!-- What we never touch -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-border-light space-y-3">
+<div class="flex items-center gap-2 text-error font-label-md text-label-md uppercase tracking-wider">
+<span class="material-symbols-outlined text-error text-[18px]" data-icon="cancel" style="font-variation-settings: 'FILL' 1;">cancel</span>
+<span>What we never touch</span>
+</div>
+<ul class="space-y-2 font-body-sm text-body-sm text-text-primary">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-[16px] shrink-0 mt-0.5" data-icon="close">close</span>
+<span><strong>Phone contacts &amp; address books:</strong> Never requested or accessed.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-[16px] shrink-0 mt-0.5" data-icon="close">close</span>
+<span><strong>Precise GPS coordinates:</strong> We never log physical location traces.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-[16px] shrink-0 mt-0.5" data-icon="close">close</span>
+<span><strong>Credit card details:</strong> Processed via Stripe directly; we never store card numbers.</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- ================= Section 2 ================= -->
+<section class="bg-card-surface border-2 border-border-light rounded-2xl p-6 sm:p-8 border-b-[5px] border-ledge-light space-y-6" id="audio-speech">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-white flex items-center justify-center font-bold text-label-lg border-b-2 border-teal-ledge">
+              02
+            </div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Audio &amp; speech practice</h2>
+<p class="font-body-sm text-body-sm text-text-muted">How your voice recordings are handled</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+            Lexkite includes tactile audio drills and IELTS pronunciation testing. We treat human speech as sensitive personal biometrics.
+          </p>
+<!-- Tactile callout banner -->
+<div class="bg-canvas-base border-2 border-border-light rounded-xl p-5 border-b-4 border-ledge-light flex flex-col sm:flex-row items-start sm:items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-teal-bright text-white flex items-center justify-center shrink-0 border-b-2 border-teal-ledge">
+<span class="material-symbols-outlined text-[24px]" data-icon="mic_off" style="font-variation-settings: 'FILL' 1;">mic_off</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline-sm text-headline-sm text-text-primary">Ephemeral Speech Processing</h4>
+<p class="font-body-sm text-body-sm text-text-muted">
+                Your microphone input is converted directly into phoneme vectors in transient memory. Raw audio files are discarded within 10 seconds of pronunciation scoring unless you hit 'Save to Local Notebook'.
+              </p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+            We never use learner voice samples to train general public generative models without explicit opt-in consent.
+          </p>
+</section>
+<!-- ================= Section 3 ================= -->
+<section class="bg-card-surface border-2 border-border-light rounded-2xl p-6 sm:p-8 border-b-[5px] border-ledge-light space-y-6" id="cloud-sync">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-white flex items-center justify-center font-bold text-label-lg border-b-2 border-teal-ledge">
+              03
+            </div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Cloud sync &amp; storage</h2>
+<p class="font-body-sm text-body-sm text-text-muted">Local-first architecture that puts you in control</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+            Every Lexkite vocabulary card, custom tag, and review timestamp is stored locally in your browser (IndexedDB) first. You can train offline completely uninterrupted.
+          </p>
+<!-- 3-Step Flow Diagram -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+<div class="bg-surface-container-low p-4 rounded-xl border border-border-light text-center space-y-2">
+<div class="w-8 h-8 mx-auto rounded-full bg-card-surface flex items-center justify-center font-bold text-label-md border-b-2 border-ledge-light text-primary">
+                1
+              </div>
+<p class="font-label-lg text-label-lg text-text-primary">Local on browser</p>
+<p class="font-body-sm text-body-sm text-text-muted">Stored inside encrypted IndexedDB storage cache.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-border-light text-center space-y-2">
+<div class="w-8 h-8 mx-auto rounded-full bg-card-surface flex items-center justify-center font-bold text-label-md border-b-2 border-ledge-light text-primary">
+                2
+              </div>
+<p class="font-label-lg text-label-lg text-text-primary">TLS 1.3 in transit</p>
+<p class="font-body-sm text-body-sm text-text-muted">End-to-end encrypted transfer during streak synchronization.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-border-light text-center space-y-2">
+<div class="w-8 h-8 mx-auto rounded-full bg-card-surface flex items-center justify-center font-bold text-label-md border-b-2 border-ledge-light text-primary">
+                3
+              </div>
+<p class="font-label-lg text-label-lg text-text-primary">AES-256 at rest</p>
+<p class="font-body-sm text-body-sm text-text-muted">Hosted on ISO-27001 verified servers in Dublin &amp; Frankfurt.</p>
+</div>
+</div>
+</section>
+<!-- ================= Section 4 ================= -->
+<section class="bg-card-surface border-2 border-border-light rounded-2xl p-6 sm:p-8 border-b-[5px] border-ledge-light space-y-6" id="rights-export">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-white flex items-center justify-center font-bold text-label-lg border-b-2 border-teal-ledge">
+              04
+            </div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Your rights &amp; choices</h2>
+<p class="font-body-sm text-body-sm text-text-muted">Full portable ownership of your learning assets</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+            You put hours into building vocabulary decks. You own that intellectual effort. At any moment in your account settings:
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-canvas-base border border-border-light space-y-2">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+<span class="font-label-lg text-label-lg">Universal Deck Export</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">
+                Download all your saved cards, phonetic notations, and personal example sentences as clean JSON, CSV, or formatted Anki package (.apkg).
+              </p>
+</div>
+<div class="p-4 rounded-xl bg-canvas-base border border-border-light space-y-2">
+<div class="flex items-center gap-2 text-cta-coral font-bold">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+<span class="font-label-lg text-label-lg">Permanent Purge</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">
+                Trigger our automatic scrubbing worker. All database entries, study scores, and backups are purged irrevocably within 48 hours.
+              </p>
+</div>
+</div>
+</section>
+<!-- ================= Section 5 ================= -->
+<section class="bg-card-surface border-2 border-border-light rounded-2xl p-6 sm:p-8 border-b-[5px] border-ledge-light space-y-6" id="learner-safety">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-white flex items-center justify-center font-bold text-label-lg border-b-2 border-teal-ledge">
+              05
+            </div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Children &amp; learner safety</h2>
+<p class="font-body-sm text-body-sm text-text-muted">Strict compliance for schools and students under 16</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+            Lexkite is compliant with GDPR-K and COPPA regulations. We do not permit public user profiles for minor accounts, nor do we run behavioural tracking or social discovery mechanisms that expose younger students to strangers.
+          </p>
+<div class="p-4 bg-surface-container-low rounded-xl border border-border-light flex items-start gap-3">
+<span class="material-symbols-outlined text-teal-bright text-[22px] shrink-0 mt-0.5" data-icon="school">school</span>
+<p class="font-body-sm text-body-sm text-text-primary">
+              Are you an ESL educator or school administrator? We provide custom FERPA-compliant Data Protection Agreements (DPAs) upon request.
+            </p>
+</div>
+</section>
+<!-- ================= Section 6 ================= -->
+<section class="bg-card-surface border-2 border-border-light rounded-2xl p-6 sm:p-8 border-b-[5px] border-ledge-light space-y-6" id="contact">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-white flex items-center justify-center font-bold text-label-lg border-b-2 border-teal-ledge">
+              06
+            </div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Contact Teacher Carlos &amp; Ama</h2>
+<p class="font-body-sm text-body-sm text-text-muted">Direct escalation channel</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+            We review our data practices every school quarter. If you have any inquiries regarding data processing, privacy disclosures, or want to audit your account data, write to us directly:
+          </p>
+<div class="p-5 rounded-2xl bg-canvas-base border-2 border-border-light flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<p class="font-label-lg text-label-lg text-text-primary font-bold">Lexkite Education Inc. — Data Officer Desk</p>
+<p class="font-body-sm text-body-sm text-text-muted">Email: hello@lexkite.com / privacy@lexkite.com</p>
+<p class="font-body-sm text-body-sm text-text-muted">Physical: 450 Lexington Ave, Suite 1200, New York, NY</p>
+</div>
+<a class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-primary-container text-white font-label-lg text-label-lg border-b-4 border-teal-ledge active:translate-y-0.5 active:border-b-2 transition-all shrink-0" href="mailto:hello@lexkite.com">
+              Send an inquiry
+            </a>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- ================= 5. Footer (Shared Component) ================= -->
+<footer class="bg-surface-container-low border-t-2 border-border-light flat no shadows with border ledge grounding mt-16">
+<div class="max-w-7xl mx-auto px-gutter py-space-xl flex flex-col gap-space-lg w-full">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-border-light">
+<div class="space-y-1">
+<div class="text-headline-md font-headline-md text-text-primary font-extrabold flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary-container text-white flex items-center justify-center text-[14px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="kitesurfing" style="font-variation-settings: 'FILL' 1;">kitesurfing</span>
+</div>
+<span>Lexkite</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">Master words with tactile precision. Tactile learning for ambitious minds.</p>
+</div>
+<!-- Language toggle button -->
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-xl border border-border-light bg-card-surface font-label-md text-label-md text-text-primary hover:border-primary-container transition-colors">
+            🌐 English (US)
+          </button>
+</div>
+</div>
+<!-- Links Grid from JSON -->
+<div class="flex flex-wrap gap-x-8 gap-y-3 font-label-md text-label-md">
+<a class="text-text-muted hover:text-primary hover:underline transition-colors" href="#">Blog</a>
+<a class="text-text-muted hover:text-primary hover:underline transition-colors" href="#">Vocabulary Decks</a>
+<a class="text-text-muted hover:text-primary hover:underline transition-colors" href="#">Practice Tests</a>
+<a class="text-text-muted hover:text-primary hover:underline transition-colors" href="#">Flashcard Samples</a>
+<a class="text-text-muted hover:text-primary hover:underline transition-colors" href="#">Study Guides</a>
+<a class="text-text-primary font-bold hover:underline transition-colors" href="#">Privacy Policy</a>
+<a class="text-text-muted hover:text-primary hover:underline transition-colors" href="#">Terms of Service</a>
+<a class="text-text-muted hover:text-primary hover:underline transition-colors" href="#">Language Options</a>
+</div>
+<!-- Copyright string verbatim from JSON -->
+<div class="pt-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-text-muted font-body-sm text-body-sm">
+<p>© 2025 Lexkite Education Inc. All rights reserved. Tactile learning for ambitious minds.</p>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified">verified</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">COPPA &amp; GDPR Ready</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Interactive Active TOC Pill Navigation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tocLinks = document.querySelectorAll('aside nav a');
+      const sections = document.querySelectorAll('main section[id]');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 120;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        tocLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === '#' + current) {
+            link.className = 'flex items-center justify-between p-2.5 rounded-xl bg-primary-container/10 border-2 border-primary-container text-primary-container font-label-md text-label-md border-b-[3px] border-b-teal-ledge transition-all';
+          } else {
+            link.className = 'flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-container text-text-muted hover:text-text-primary font-label-md text-label-md transition-colors';
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

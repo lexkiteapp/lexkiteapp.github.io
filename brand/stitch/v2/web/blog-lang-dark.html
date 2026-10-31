@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Choose Your Blog Language (Bright Day)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Noto+Sans+Arabic:wght@700&amp;family=Noto+Sans+Devanagari:wght@700&amp;family=Noto+Sans+JP:wght@700&amp;family=Noto+Sans+KR:wght@700&amp;family=Noto+Sans+SC:wght@700&amp;family=Noto+Sans+Thai:wght@700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              DEFAULT: '#FFF7EA',
+              light: '#FFFCF6',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+            },
+            ink: {
+              DEFAULT: '#0F3D3E',
+              muted: '#4E6668',
+              faint: '#859E9E',
+            },
+            teal: {
+              DEFAULT: '#2BA39A',
+              deep: '#1F7A75',
+              dark: '#12514D',
+              light: '#E6F7F5',
+              border: '#2BA39A',
+              ledge: '#1A7A72',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              amber: '#FFB054',
+              ledge: '#B53A22',
+            },
+            amber: {
+              DEFAULT: '#FFB054',
+              light: '#FFF5E6',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile 3D Button and Card Physics */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF6F4E 0%, #F2553B 100%);
+      box-shadow: 0 4px 0 #B53A22, 0 6px 12px rgba(242, 85, 59, 0.25);
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn-primary:hover {
+      transform: translateY(1px);
+      box-shadow: 0 3px 0 #B53A22, 0 4px 8px rgba(242, 85, 59, 0.25);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #B53A22, 0 2px 4px rgba(242, 85, 59, 0.2);
+    }
+
+    /* Default Language Card */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC, 0 8px 16px rgba(15, 61, 62, 0.04);
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+      border-color: #D3C5AB;
+      box-shadow: 0 7px 0 #D8CFBC, 0 12px 20px rgba(15, 61, 62, 0.06);
+    }
+    .tactile-card:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+
+    /* Selected Active Language Card (English) */
+    .tactile-card-selected {
+      background: #F4FAF9;
+      border: 2.5px solid #2BA39A;
+      box-shadow: 0 5px 0 #1A7A72, 0 8px 20px rgba(43, 163, 154, 0.18);
+    }
+    .tactile-card-selected:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 #1A7A72, 0 10px 22px rgba(43, 163, 154, 0.2);
+    }
+    .tactile-card-selected:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #1A7A72;
+    }
+
+    /* Secondary tactile button */
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:hover {
+      border-color: #D3C5AB;
+      transform: translateY(1px);
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #D8CFBC;
+    }
+
+    /* Pill Badges */
+    .badge-chip {
+      box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#091518] text-[#EEF6F7]">
+<!-- ========================================== -->
+<!-- 1. LEXKITE HEADER (Standard Lexkite Web Bar) -->
+<!-- ========================================== -->
+<header class="w-full bg-[#091518] border-b-2 border-[#1A2C33] sticky top-0 z-50"><div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"><a class="flex items-center gap-3 group focus:outline-none" href="#"><div class="w-10 h-10 rounded-2xl bg-teal flex items-center justify-center shadow-[0_3px_0_#12514D] transition-transform duration-100 group-hover:scale-105"><svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L3 11L12 22L21 11L12 2Z" fill="#2BA39A"></path><path d="M12 2L21 11L12 22V2Z" fill="#228981" opacity="0.85"></path><path d="M12 2L3 11L12 12V2Z" fill="#38C2B8" opacity="0.6"></path><circle cx="12" cy="11.5" fill="#FFC94A" r="1.75"></circle></svg></div><div class="flex items-center gap-1.5"><span class="text-2xl font-extrabold tracking-tight text-white font-sans">Lexkite</span><span class="w-2 h-2 rounded-full bg-coral"></span></div></a><nav class="hidden md:flex items-center gap-8 text-base font-bold"><a class="text-[#A9BFC1] hover:text-white transition-colors" href="#">Courses</a><a class="text-[#A9BFC1] hover:text-white transition-colors" href="#">Vocabulary</a><a class="text-white border-b-2 border-[#2BA39A] pb-1 font-extrabold" href="#">Blog</a><a class="text-[#A9BFC1] hover:text-white transition-colors" href="#">Free Tests</a></nav><div class="flex items-center gap-4"><a class="hidden sm:inline-block text-sm font-bold text-[#A9BFC1] hover:text-white px-3 py-2 transition-colors" href="#">Log in</a><button class="tactile-btn-primary px-5 py-2.5 rounded-2xl text-white font-extrabold text-sm flex items-center gap-2 cursor-pointer select-none"><span>Start free</span><svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></button></div></div></header>
+<!-- ========================================== -->
+<!-- 2. MAIN CONTENT: CHOOSE YOUR BLOG LANGUAGE -->
+<!-- ========================================== -->
+<main class="flex-grow max-w-6xl w-full mx-auto px-6 py-12 md:py-16">
+<!-- Top Pill & Heading Area -->
+<div class="text-center max-w-2xl mx-auto mb-12"><div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#142B30] border border-[#244E57] text-[#5EEAD4] text-xs font-extrabold tracking-wide uppercase mb-4 shadow-sm"><span class="w-2 h-2 rounded-full bg-[#2BA39A] animate-pulse"></span><span>Lexkite Open Library</span></div><h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">Choose your blog language</h1><p class="text-base md:text-lg font-medium text-[#A9BFC1] leading-relaxed">Select a language to browse curated IELTS and TOEIC breakdowns in your native script.</p></div>
+<!-- ========================================== -->
+<!-- 3. THE 15 TACTILE CHUNKY LANGUAGE CARDS GRID -->
+<!-- ========================================== -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 mb-12"><button class="bg-[#102B2E] border-2 border-[#2BA39A] shadow-[0_5px_0_#12514D] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-[#2BA39A] transition-all hover:-translate-y-0.5"><div class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#2BA39A] text-white flex items-center justify-center shadow-md"><svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div><div class="text-xl font-extrabold text-white font-sans tracking-tight">English</div><div class="text-xs font-bold text-[#5EEAD4] uppercase tracking-wider mt-0.5">Selected</div></div><div class="flex items-center justify-between pt-2 border-t border-[#2BA39A]/30"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-1 rounded-full bg-[#2BA39A]/20 text-[#5EEAD4] text-xs font-extrabold border border-[#2BA39A]/30">184</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-xl font-extrabold text-white font-sans tracking-tight">Tiếng Việt</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Vietnamese</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">96</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-xl font-extrabold text-white font-sans tracking-tight">Español</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Spanish</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">112</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-xl font-extrabold text-white font-sans tracking-tight">Português</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Portuguese</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">78</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-xl font-extrabold text-white font-sans tracking-tight">Français</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">French</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">64</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-xl font-extrabold text-white font-sans tracking-tight">Deutsch</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">German</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">58</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-xl font-extrabold text-white font-sans tracking-tight truncate">Bahasa Indonesia</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Indonesian</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">82</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-2xl font-bold text-white" style="font-family: 'Noto Sans Thai', sans-serif;">ไทย</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Thai</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">49</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-2xl font-bold text-white" style="font-family: 'Noto Sans SC', sans-serif;">中文</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Chinese</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">124</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-2xl font-bold text-white" style="font-family: 'Noto Sans JP', sans-serif;">日本語</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Japanese</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">88</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-2xl font-bold text-white" style="font-family: 'Noto Sans KR', sans-serif;">한국어</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Korean</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">76</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-2xl font-bold text-white" style="font-family: 'Noto Sans Devanagari', sans-serif;">हिन्दी</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Hindi</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">54</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-2xl font-bold text-white text-right" dir="rtl" style="font-family: 'Noto Sans Arabic', sans-serif;">العربية</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5 text-right">Arabic</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">62</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-xl font-extrabold text-white font-sans tracking-tight">Русский</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Russian</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">71</span></div></button><button class="bg-[#142328] border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] rounded-2xl p-5 text-left relative flex flex-col justify-between h-36 group cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-teal hover:-translate-y-0.5 hover:border-[#3B5A66] transition-all"><div><div class="text-xl font-extrabold text-white font-sans tracking-tight">Türkçe</div><div class="text-xs font-semibold text-[#A9BFC1] mt-0.5">Turkish</div></div><div class="flex items-center justify-between pt-2 border-t border-[#263E47]/70"><span class="text-xs font-bold text-[#A9BFC1]">Articles</span><span class="px-2.5 py-0.5 rounded-full bg-[#0E1B1F] text-white text-xs font-extrabold border border-[#263E47]/50">45</span></div></button></div>
+<!-- ========================================== -->
+<!-- 4. BOTTOM ACTION & PREFERENCE PROMPT -->
+<!-- ========================================== -->
+<div class="flex flex-col sm:flex-row items-center justify-between p-6 bg-[#142328] rounded-3xl border-2 border-[#263E47] shadow-[0_5px_0_#0C1619] gap-5"><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-2xl bg-[#0E1B1F] border border-[#263E47] flex items-center justify-center shrink-0"><svg class="w-6 h-6 text-coral" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div><h3 class="text-base font-extrabold text-white">Reading in English (Global)</h3><p class="text-xs text-[#A9BFC1] font-semibold">You can change your study language anytime in your account settings.</p></div></div><div class="flex items-center gap-3 w-full sm:w-auto"><a class="bg-[#1A2C33] border-2 border-[#36505A] shadow-[0_4px_0_#0F1D22] hover:border-[#4B6B78] px-5 py-3 rounded-2xl text-xs font-bold text-[#EEF6F7] flex-1 sm:flex-none text-center transition-all cursor-pointer" href="#">Cancel</a><a class="tactile-btn-primary px-7 py-3 rounded-2xl text-xs font-extrabold text-white flex-1 sm:flex-none text-center flex items-center justify-center gap-2 cursor-pointer" href="#"><span>Continue to Blog</span><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></div>
+</main>
+<!-- ========================================== -->
+<!-- 5. FRIENDLY LEXKITE WEB FOOTER -->
+<!-- ========================================== -->
+<footer class="w-full bg-[#051013] border-t-2 border-[#1A2C33] mt-16"><div class="max-w-6xl mx-auto px-6 py-12"><div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-[#1A2C33]"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-xl bg-teal flex items-center justify-center shadow-sm"><svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L3 11L12 22L21 11L12 2Z" fill="#2BA39A"></path><path d="M12 2L21 11L12 22V2Z" fill="#228981" opacity="0.85"></path><circle cx="12" cy="11.5" fill="#FFC94A" r="1.5"></circle></svg></div><div><span class="text-lg font-extrabold text-white font-sans">Lexkite</span><span class="text-xs font-medium text-[#A9BFC1] ml-2">Free, tactile IELTS &amp; TOEIC exam prep</span></div></div><div class="flex flex-wrap items-center gap-6 text-xs font-bold text-[#A9BFC1]"><a class="hover:text-white transition-colors" href="#">Curriculum</a><a class="hover:text-white transition-colors" href="#">Vocabulary Lab</a><a class="hover:text-white transition-colors" href="#">Placement Test</a><a class="hover:text-white transition-colors" href="#">Editorial Standards</a><a class="hover:text-white transition-colors" href="#">Privacy Policy</a><a class="hover:text-white transition-colors" href="#">Terms</a></div></div><div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-semibold text-[#6E888B]"><div>© 2026 Lexkite Prep Inc. Master words with tactile precision. All rights reserved.</div><div class="flex items-center gap-2 text-[#5EEAD4] font-bold"><span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span><span>100% Free Core Drills • Cambridge &amp; CEFR Aligned</span></div></div></div></footer>
+</body>
+</html>
+

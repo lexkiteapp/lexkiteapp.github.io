@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Embed our widget — Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#98e5df",
+            "tertiary-fixed-dim": "#ffb869",
+            "primary-container": "#0d6964",
+            "surface": "#e2ffff",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#87d4cd",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#053637",
+            "surface-dim": "#b6e2e3",
+            "background": "#e2ffff",
+            "cta-ledge": "#B53A22",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#beebeb",
+            "tertiary": "#673c00",
+            "secondary-container": "#fe5d42",
+            "border-warm": "#EADEC8",
+            "surface-variant": "#beebeb",
+            "on-error": "#ffffff",
+            "text-muted": "#4E6668",
+            "tertiary-fixed": "#ffdcbb",
+            "on-primary-fixed": "#00201e",
+            "on-surface-variant": "#3f4947",
+            "surface-container": "#caf6f7",
+            "surface-tint": "#0e6a65",
+            "on-surface": "#002020",
+            "on-primary-fixed-variant": "#00504c",
+            "secondary-fixed-dim": "#ffb4a6",
+            "outline-variant": "#bec9c7",
+            "inverse-primary": "#87d4cd",
+            "surface-container-low": "#cffcfd",
+            "on-error-container": "#93000a",
+            "primary-teal-light": "#2BA39A",
+            "inverse-on-surface": "#ccf9fa",
+            "secondary": "#b42814",
+            "ledge-neutral": "#D8CFBC",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#a3f0e9",
+            "on-tertiary-container": "#ffcf9e",
+            "secondary-fixed": "#ffdad3",
+            "on-tertiary-fixed-variant": "#683d00",
+            "outline": "#6f7978",
+            "error-container": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#885100",
+            "on-secondary-container": "#5e0700",
+            "canvas-cream": "#FFF7EA",
+            "surface-bright": "#e2ffff",
+            "card-surface": "#FFFFFF",
+            "on-background": "#002020",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-container-high": "#c4f1f1",
+            "on-tertiary-fixed": "#2c1700",
+            "primary": "#004f4b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "display-hero": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    .ledge-candy {
+      box-shadow: 0 4px 0 0 #B53A22;
+    }
+    .ledge-candy:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #B53A22;
+    }
+    .ledge-teal {
+      box-shadow: 0 4px 0 0 #003734;
+    }
+    .ledge-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #003734;
+    }
+    .ledge-neutral-btn {
+      box-shadow: 0 3px 0 0 #D8CFBC;
+    }
+    .ledge-neutral-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+    .ledge-card-deep {
+      box-shadow: 0 5px 0 0 #D8CFBC, 0 8px 16px rgba(15, 61, 62, 0.05);
+    }
+    .code-glow {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-canvas-cream text-on-surface antialiased font-body-md min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation (Shared Component from JSON) -->
+<header class="w-full sticky top-0 z-50 bg-card-surface border-b border-border-warm shadow-sm">
+<div class="max-w-7xl mx-auto h-20 px-margin flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-space-xs text-headline-sm font-headline-sm font-extrabold text-primary" href="#">
+<span class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-sm" style="box-shadow: 0 3px 0 0 #002826;">
+<span class="material-symbols-outlined text-[20px]" data-icon="change_history">change_history</span>
+</span>
+<span class="tracking-tight text-primary">Lexkite</span>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary" href="#">Blog</a>
+<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary" href="#">Vocabulary</a>
+<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary" href="#">Samples</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-body-md text-body-md" href="#">Embeds</a>
+</nav>
+<!-- Right Trailing Actions -->
+<div class="flex items-center gap-space-md">
+<button class="flex items-center gap-1 text-text-muted hover:text-primary font-label-md text-label-md px-2.5 py-1.5 rounded-lg border border-border-warm bg-card-surface hover:border-outline transition-colors" title="Change Language">
+<span class="material-symbols-outlined text-[18px]" data-icon="language">language</span>
+<span>EN</span>
+</button>
+<a class="hidden sm:inline-block text-primary hover:text-primary-container font-label-lg text-label-lg transition-colors px-2 py-1" href="#">Log in</a>
+<a class="bg-secondary-container text-on-secondary px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all ledge-candy active:translate-y-0.5 inline-flex items-center justify-center" href="#">
+          Start free
+        </a>
+</div>
+</div>
+</header>
+<!-- Page Content Container -->
+<main class="max-w-7xl mx-auto px-margin py-space-xl">
+<!-- Hero Section -->
+<div class="max-w-3xl mb-12 text-left">
+<!-- Educator Pill -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-card-surface border border-border-warm text-primary font-label-sm text-label-sm uppercase tracking-wider mb-4 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+        FREE FOR EDUCATORS &amp; BLOGGERS
+      </div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight mb-4">
+        Embed our widget
+      </h1>
+<p class="text-body-lg font-body-lg text-text-muted mb-6 leading-relaxed">
+        Free, zero-cookie interactive widgets for your English blog or study portal. Keep students engaged with tactile micro-quizzes and instant phonetics.
+      </p>
+<!-- Trust Badges Pill Row -->
+<div class="flex flex-wrap items-center gap-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-text-muted font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="verified_user">verified_user</span>
+<span>Zero cookies</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-text-muted font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="visibility_off">visibility_off</span>
+<span>No tracking</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-text-muted font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="bolt">bolt</span>
+<span>Instant load (&lt;12ms)</span>
+</div>
+</div>
+</div>
+<!-- Main Two-Column Interactive Tool Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-20">
+<!-- Left Column: Interactive Live Preview (7 cols) -->
+<div class="lg:col-span-7 flex flex-col">
+<!-- Frame header label -->
+<div class="flex items-center justify-between pb-3 px-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-teal-light"></span>
+<span class="font-label-md text-label-md text-text-muted uppercase tracking-wider font-bold">LIVE PREVIEW</span>
+</div>
+<span class="text-text-muted font-label-sm text-label-sm bg-card-surface px-2.5 py-0.5 rounded-md border border-border-warm">
+            Width: 420px · Responsive
+          </span>
+</div>
+<!-- Preview Canvas Well -->
+<div class="w-full bg-[#F5ECE0] p-6 sm:p-10 rounded-2xl border border-border-warm flex items-center justify-center relative overflow-hidden" style="box-shadow: inset 0 2px 4px rgba(15, 61, 62, 0.05);">
+<!-- Tactile Widget Component (The Simulated Embed) -->
+<div class="w-full max-w-[420px] bg-card-surface rounded-2xl border-2 border-border-warm p-6 ledge-card-deep transition-all" id="widget-preview-card">
+<!-- Top bar with brand kite + test level -->
+<div class="flex items-center justify-between pb-4 border-b border-border-warm">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-primary flex items-center justify-center text-on-primary text-xs shadow-sm">
+<span class="material-symbols-outlined text-[15px]" data-icon="change_history">change_history</span>
+</span>
+<span class="font-label-md text-label-md text-primary font-bold">Word pair of the day</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#FFF7EA] border border-tertiary-fixed-dim text-[#0F3D3E] font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[14px]" data-icon="star">star</span>
+                IELTS 7.5
+              </span>
+</div>
+<!-- Confusing Word Pair Display -->
+<div class="py-5">
+<div class="grid grid-cols-2 gap-3 mb-4">
+<!-- Word 1 -->
+<div class="bg-[#FFF7EA] p-3 rounded-xl border border-border-warm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">affect</span>
+<button class="w-7 h-7 rounded-lg bg-card-surface border border-border-warm flex items-center justify-center text-primary hover:bg-[#F5ECE0] ledge-neutral-btn" title="Listen pronunciation">
+<span class="material-symbols-outlined text-[16px]" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<span class="inline-block px-2 py-0.5 rounded bg-primary-container text-on-primary-container text-[11px] font-bold uppercase tracking-wider">
+                    Verb
+                  </span>
+<p class="text-body-sm text-body-sm text-text-muted mt-2 leading-tight">To influence or produce a change in.</p>
+</div>
+<!-- Word 2 -->
+<div class="bg-[#FFF7EA] p-3 rounded-xl border border-border-warm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">effect</span>
+<button class="w-7 h-7 rounded-lg bg-card-surface border border-border-warm flex items-center justify-center text-primary hover:bg-[#F5ECE0] ledge-neutral-btn" title="Listen pronunciation">
+<span class="material-symbols-outlined text-[16px]" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<span class="inline-block px-2 py-0.5 rounded bg-[#EADEC8] text-[#0F3D3E] text-[11px] font-bold uppercase tracking-wider">
+                    Noun
+                  </span>
+<p class="text-body-sm text-body-sm text-text-muted mt-2 leading-tight">The result or consequence of a cause.</p>
+</div>
+</div>
+<!-- Mini interactive drill -->
+<div class="mt-4 pt-4 border-t border-border-warm">
+<p class="font-label-md text-label-md text-on-surface mb-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="quiz">quiz</span>
+<span>Complete the sentence:</span>
+</p>
+<div class="p-3 bg-canvas-cream rounded-xl border border-border-warm mb-3 text-body-md font-body-md text-on-surface">
+                  "The stormy weather will <span class="border-b-2 border-primary font-bold px-1 text-primary">______</span> our morning flight."
+                </div>
+<!-- Multiple choice tiles -->
+<div class="grid grid-cols-2 gap-3 mb-4">
+<!-- Option A (Active / Correct) -->
+<button class="flex items-center justify-between p-3 rounded-xl border-2 border-primary bg-[#E2FFFF] transition-all" style="box-shadow: 0 4px 0 0 #004f4b;">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-primary text-on-primary font-bold text-xs flex items-center justify-center">A</span>
+<span class="font-label-lg text-label-lg text-primary">affect</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+</button>
+<!-- Option B -->
+<button class="flex items-center justify-between p-3 rounded-xl border border-border-warm bg-card-surface hover:bg-[#FFF7EA] transition-all ledge-neutral-btn">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-[#FFF7EA] border border-border-warm text-text-muted font-bold text-xs flex items-center justify-center">B</span>
+<span class="font-label-lg text-label-lg text-on-surface">effect</span>
+</div>
+</button>
+</div>
+<!-- RAVEN Rule Micro-tip -->
+<div class="p-3 rounded-xl bg-[#FFF7EA] border border-tertiary-fixed-dim flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px] shrink-0" data-icon="lightbulb">lightbulb</span>
+<div class="text-body-sm font-body-sm text-[#0F3D3E]">
+<span class="font-bold">RAVEN Rule:</span> <strong>R</strong>emember <strong>A</strong>ffect is <strong>V</strong>erb, <strong>E</strong>ffect is <strong>N</strong>oun.
+                  </div>
+</div>
+</div>
+</div>
+<!-- Footer of widget -->
+<div class="pt-3 border-t border-border-warm flex items-center justify-between text-label-sm font-label-sm text-text-muted">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]" data-icon="school">school</span>
+                Daily Vocabulary Series
+              </span>
+<a class="flex items-center gap-1 font-bold text-primary hover:underline" href="#">
+<span>Powered by Lexkite</span>
+<span class="material-symbols-outlined text-[13px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Customizer Controls & Embed Snippet (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-card-surface p-6 sm:p-7 rounded-2xl border border-border-warm shadow-sm">
+<h2 class="text-headline-sm font-headline-sm text-primary mb-5 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="tune">tune</span>
+            Widget Customizer
+          </h2>
+<!-- Width Segmented Controls -->
+<div class="mb-5">
+<label class="block text-label-md font-label-md text-text-muted mb-2">Width Preset</label>
+<div class="grid grid-cols-3 gap-2 p-1.5 bg-canvas-cream rounded-xl border border-border-warm">
+<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-text-muted bg-transparent hover:bg-card-surface transition-all">
+                Small (320px)
+              </button>
+<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-on-primary bg-primary shadow-sm" style="box-shadow: 0 2px 0 0 #002826;">
+                Medium (420px)
+              </button>
+<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-text-muted bg-transparent hover:bg-card-surface transition-all">
+                Wide (100%)
+              </button>
+</div>
+</div>
+<!-- Theme Selectors -->
+<div class="mb-5">
+<label class="block text-label-md font-label-md text-text-muted mb-2">Color Atmosphere</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border-2 border-primary bg-[#E2FFFF] text-primary font-label-md" style="box-shadow: 0 3px 0 0 #004f4b;">
+<span class="material-symbols-outlined text-[18px]" data-icon="light_mode">light_mode</span>
+<span>Light (Bright Day)</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-border-warm bg-card-surface text-text-muted font-label-md hover:bg-[#FFF7EA] ledge-neutral-btn">
+<span class="material-symbols-outlined text-[18px]" data-icon="dark_mode">dark_mode</span>
+<span>Dark (Tactile Night)</span>
+</button>
+</div>
+</div>
+<!-- Exam Focus Chips -->
+<div class="mb-6">
+<label class="block text-label-md font-label-md text-text-muted mb-2">Curriculum / Exam Focus</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-primary text-on-primary shadow-sm" style="box-shadow: 0 2px 0 0 #002826;">
+                IELTS Academic
+              </button>
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-card-surface border border-border-warm text-text-muted hover:border-outline ledge-neutral-btn">
+                TOEIC Business
+              </button>
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-card-surface border border-border-warm text-text-muted hover:border-outline ledge-neutral-btn">
+                General English
+              </button>
+</div>
+</div>
+<!-- Code Snippet Container -->
+<div class="mt-4 pt-5 border-t border-border-warm">
+<div class="flex items-center justify-between mb-2">
+<label class="text-label-md font-label-md text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="code">code</span>
+<span>Copy Embed Snippet</span>
+</label>
+<span class="text-label-sm font-label-sm text-text-muted">HTML iFrame</span>
+</div>
+<div class="bg-[#053637] text-[#98E5DF] p-4 rounded-xl font-mono text-xs overflow-x-auto code-glow border border-[#0A4B4D] mb-4 selection:bg-secondary-container">
+<code>&lt;<span class="text-[#FE5D42]">iframe</span> <span class="text-[#FFDCBB]">src</span>=<span class="text-[#CFFCFD]">"https://lexkite.com/embed/word-pair?theme=light&amp;focus=ielts"</span> <span class="text-[#FFDCBB]">width</span>=<span class="text-[#CFFCFD]">"420"</span> <span class="text-[#FFDCBB]">height</span>=<span class="text-[#CFFCFD]">"340"</span> <span class="text-[#FFDCBB]">frameborder</span>=<span class="text-[#CFFCFD]">"0"</span> <span class="text-[#FFDCBB]">loading</span>=<span class="text-[#CFFCFD]">"lazy"</span>&gt;&lt;/<span class="text-[#FE5D42]">iframe</span>&gt;</code>
+</div>
+<!-- Big Candy Primary Action Button with 5px bottom ledge -->
+<button class="w-full bg-secondary-container text-on-secondary py-3.5 px-6 rounded-xl font-label-lg text-label-lg transition-all flex items-center justify-center gap-2 cursor-pointer ledge-candy active:translate-y-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="content_copy">content_copy</span>
+<span>Copy code to clipboard</span>
+</button>
+<p class="text-center text-label-sm font-label-sm text-text-muted mt-2.5">
+              Works seamlessly on WordPress, Webflow, Notion, Ghost &amp; Canvas LMS
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Embeddable CEFR Level Badges (A1 - C2) -->
+<section class="mt-12 pt-10 border-t border-border-warm">
+<div class="max-w-2xl mb-8">
+<div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-card-surface border border-border-warm text-primary font-label-sm text-label-sm font-bold uppercase mb-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="military_tech">military_tech</span>
+          Vector Assets
+        </div>
+<h2 class="text-headline-md font-headline-md text-primary tracking-tight mb-2">
+          CEFR Level Badges
+        </h2>
+<p class="text-body-md font-body-md text-text-muted">
+          Lightweight vector badges for student blogs, course syllabi, and score profiles. Fully responsive, zero external stylesheets.
+        </p>
+</div>
+<!-- Grid of 6 Badges -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+<!-- A1 Beginner -->
+<div class="bg-card-surface rounded-2xl border border-border-warm p-4 flex flex-col items-center text-center ledge-card-deep hover:border-primary-teal-light transition-all">
+<div class="w-16 h-16 rounded-2xl bg-[#E2FFFF] border-2 border-[#87D4CD] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #2BA39A;">
+<span class="text-2xl font-extrabold text-primary">A1</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary mb-1">Beginner</span>
+<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">Basic Vocab · 500w</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+            Copy SVG
+          </button>
+</div>
+<!-- A2 Elementary -->
+<div class="bg-card-surface rounded-2xl border border-border-warm p-4 flex flex-col items-center text-center ledge-card-deep hover:border-primary-teal-light transition-all">
+<div class="w-16 h-16 rounded-2xl bg-[#D6F8F5] border-2 border-[#55C5BC] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #0D6964;">
+<span class="text-2xl font-extrabold text-primary">A2</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary mb-1">Elementary</span>
+<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">Everyday Routine</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+            Copy SVG
+          </button>
+</div>
+<!-- B1 Intermediate -->
+<div class="bg-card-surface rounded-2xl border border-border-warm p-4 flex flex-col items-center text-center ledge-card-deep hover:border-primary transition-all">
+<div class="w-16 h-16 rounded-2xl bg-[#E8F3FF] border-2 border-[#8AC2FF] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #3A83D9;">
+<span class="text-2xl font-extrabold text-[#114D8B]">B1</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary mb-1">Intermediate</span>
+<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">IELTS 4.0–5.0</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+            Copy SVG
+          </button>
+</div>
+<!-- B2 Upper-Intermediate (Most Popular) -->
+<div class="bg-card-surface rounded-2xl border-2 border-tertiary-fixed-dim p-4 flex flex-col items-center text-center relative ledge-card-deep transition-all">
+<span class="absolute -top-3 px-2 py-0.5 rounded-full bg-[#FFB054] text-[#0F3D3E] font-extrabold text-[10px] uppercase tracking-wider shadow-sm">
+            Most Popular
+          </span>
+<div class="w-16 h-16 rounded-2xl bg-[#FFF2DE] border-2 border-[#FFB054] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #D47E11;">
+<span class="text-2xl font-extrabold text-[#753D00]">B2</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary mb-1">Upper-Inter.</span>
+<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">IELTS 5.5–6.5</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+            Copy SVG
+          </button>
+</div>
+<!-- C1 Advanced -->
+<div class="bg-card-surface rounded-2xl border border-border-warm p-4 flex flex-col items-center text-center ledge-card-deep hover:border-secondary-container transition-all">
+<div class="w-16 h-16 rounded-2xl bg-[#FFEAE5] border-2 border-secondary-container flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #B53A22;">
+<span class="text-2xl font-extrabold text-secondary">C1</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary mb-1">Advanced</span>
+<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">IELTS 7.0–8.0</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+            Copy SVG
+          </button>
+</div>
+<!-- C2 Mastery -->
+<div class="bg-card-surface rounded-2xl border border-border-warm p-4 flex flex-col items-center text-center ledge-card-deep hover:border-secondary transition-all">
+<div class="w-16 h-16 rounded-2xl bg-[#F6E8F3] border-2 border-[#BC6EA7] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #7A2865;">
+<span class="text-2xl font-extrabold text-[#5B1047]">C2</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary mb-1">Mastery</span>
+<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">Native Fluency</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+            Copy SVG
+          </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component (Shared Component from JSON) -->
+<footer class="w-full py-space-xl px-margin border-t border-border-warm bg-card-surface mt-20">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div>
+<a class="text-headline-sm font-headline-sm font-bold text-primary flex items-center gap-2 mb-2" href="#">
+<span class="w-6 h-6 rounded-md bg-primary flex items-center justify-center text-on-primary text-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="change_history">change_history</span>
+</span>
+<span>Lexkite</span>
+</a>
+<p class="text-body-sm font-body-sm text-text-muted max-w-md">
+          © 2024 Lexkite Education Inc. Tactile learning tools for modern educators and bloggers.
+        </p>
+</div>
+<nav class="flex flex-wrap gap-x-6 gap-y-2 text-label-md font-label-md">
+<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Product</a>
+<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Embed Docs</a>
+<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Widget API</a>
+<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Blog</a>
+<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Vocabulary Packs</a>
+<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Terms of Service</a>
+<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">System Status</a>
+</nav>
+</div>
+</footer>
+</body></html>

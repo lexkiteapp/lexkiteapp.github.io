@@ -1,0 +1,32 @@
+# 🏭 QC kho mẫu Stitch v2.1 vẽ trước (web nhóm 2+, email, add-on, admin, trạng thái app, khung ảnh cửa hàng): tương phản pixel 4.5/3 sáng+tối,
+# bản tối không thẻ trắng, 0 lỗi JS, sáng↔tối cùng nội dung, còn ô giáo viên. Artifact: tờ duyệt mỗi bề mặt. Ngưỡng chỉ được nâng.
+# Khi port, màn vẫn qua stitch-diff/final-qc như cũ (SSIM, tương phản, giáo viên).
+name: Stitch refs QC
+on:
+  pull_request:
+    paths: ['brand/stitch/v2/web/**', 'brand/stitch/v2/email/**', 'brand/stitch/v2/addon/**', 'brand/stitch/v2/admin/**', 'brand/stitch/v2/app/**', 'brand/stitch/v2/store/**', 'scripts/test/stitch-refs-qc.mjs', 'scripts/lib/pixel-contrast.mjs', '.github/workflows/stitch-refs-qc.yml']
+  push:
+    branches: [stitch-refs-factory]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stitch-refs-qc-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 pngjs@7.0.0
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji >/dev/null || true
+      - name: Vẽ + chấm từng mẫu (sáng/tối)
+        run: node scripts/test/stitch-refs-qc.mjs brand/stitch/v2 out/stitch-refs-qc
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: stitch-refs-qc, path: out/stitch-refs-qc, retention-days: 14 }

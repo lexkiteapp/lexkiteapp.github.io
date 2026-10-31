@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sorry to see you go — Lexkite</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              bg: '#081518',
+              card: '#142328',
+              cardBorder: '#243B44',
+              cardLedge: '#081215',
+              chip: '#1D313A',
+              chipBorder: '#2E4A56',
+              chipLedge: '#101E23',
+              input: '#0E1B20',
+              inputBorder: '#243D47',
+              badge: '#1A2E36',
+              badgeBorder: '#29434E',
+              headerBorder: '#16272E',
+            },
+            teal: {
+              brand: '#2BA39A',
+              glow: '#4DE3D4',
+              dim: '#1F7A75',
+              deep: '#0F3D3E',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              amber: '#FF8A3D',
+              ledge: '#B53A22',
+            },
+            txt: {
+              primary: '#EEF6F7',
+              muted: '#A9BFC1',
+              subtle: '#6B898D',
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    /* Tactile 3D Ledge & Button Effects (Tactile Night) */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF8A3D 0%, #F2553B 100%);
+      color: #FFFFFF;
+      box-shadow: 0 5px 0 0 #B53A22, 0 8px 20px rgba(242, 85, 59, 0.35);
+      transition: all 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .tactile-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 0 #B53A22, 0 12px 24px rgba(242, 85, 59, 0.45);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 #B53A22, 0 4px 8px rgba(242, 85, 59, 0.25);
+    }
+
+    .tactile-card {
+      background: #142328;
+      border: 2px solid #243B44;
+      box-shadow: 0 6px 0 0 #081215, 0 20px 40px rgba(0, 0, 0, 0.6);
+      border-radius: 28px;
+    }
+
+    .tactile-chip {
+      background: #1D313A;
+      border: 2px solid #2E4A56;
+      box-shadow: 0 4px 0 0 #101E23;
+      color: #EEF6F7;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.12s ease;
+    }
+    .tactile-chip:hover {
+      transform: translateY(-1px);
+      border-color: #2BA39A;
+      box-shadow: 0 5px 0 0 #101E23, 0 0 14px rgba(43, 163, 154, 0.3);
+      color: #FFFFFF;
+    }
+    .tactile-chip.selected {
+      background: #19383E;
+      border-color: #4DE3D4;
+      color: #FFFFFF;
+      box-shadow: 0 4px 0 0 #0C2328, 0 0 18px rgba(77, 227, 212, 0.35);
+      font-weight: 700;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #101E23;
+    }
+
+    .tactile-input {
+      background: #0E1B20;
+      border: 2px solid #243D47;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+      border-radius: 16px;
+      color: #FFFFFF;
+      transition: all 0.15s ease;
+    }
+    .tactile-input:focus {
+      outline: none;
+      border-color: #2BA39A;
+      box-shadow: 0 0 0 3px rgba(43, 163, 154, 0.25), inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#EEF6F7] font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-teal-brand selection:text-white">
+<!-- ================= SITE HEADER (Tactile Night) ================= -->
+<header class="w-full bg-[#081518]/95 backdrop-blur-md border-b-2 border-night-headerBorder sticky top-0 z-40">
+<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo + Brand -->
+<a class="flex items-center gap-3 group" href="#">
+<!-- Tactile Origami Kite SVG -->
+<div class="w-10 h-10 rounded-xl bg-teal-brand p-1.5 flex items-center justify-center shadow-[0_3px_0_0_#0F3D3E] group-hover:translate-y-[-1px] transition-transform">
+<svg class="w-full h-full drop-shadow-sm" fill="none" viewbox="0 0 40 40">
+<path d="M20 4L34 20L20 36L6 20L20 4Z" fill="#2BA39A"></path>
+<path d="M20 4L34 20L20 22L6 20L20 4Z" fill="#4DE3D4"></path>
+<path d="M20 4L20 36" stroke="#081518" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M6 20L34 20" stroke="#081518" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Kite mini tail ribbons -->
+<path d="M20 36C22 38 23 40 25 39" stroke="#FFB054" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="20" cy="20" fill="#EEF6F7" r="3"></circle>
+</svg>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-txt-primary">Lexkite</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 font-semibold text-txt-muted text-base">
+<a class="hover:text-teal-glow transition-colors" href="#">Courses</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Vocabulary</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Speaking Drills</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Free Tests</a>
+</nav>
+<!-- Right Actions -->
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-block font-bold text-txt-muted hover:text-white px-3 py-2 text-sm transition-colors" href="#">Log in</a>
+<a class="tactile-btn-primary font-extrabold text-sm md:text-base px-5 py-2.5 rounded-xl flex items-center gap-2" href="#">
+<span>Start free</span>
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT ================= -->
+<main class="flex-grow flex items-center justify-center px-4 py-12 md:py-16">
+<div class="w-full max-w-xl mx-auto">
+<!-- FEEDBACK FORM CARD (Tactile Night) -->
+<div class="tactile-card p-6 sm:p-10 relative" id="feedback-card">
+<!-- Top Friendly Mascot / Kite Icon -->
+<div class="flex justify-center mb-6">
+<div class="relative">
+<div class="w-20 h-20 rounded-3xl bg-night-badge border-2 border-night-badgeBorder shadow-[0_5px_0_0_#0C171B] flex items-center justify-center p-3">
+<svg class="w-full h-full" fill="none" viewbox="0 0 64 64">
+<!-- Kite Shape with Gentle Waves -->
+<path d="M32 6L54 32L32 58L10 32L32 6Z" fill="#1D7C75"></path>
+<path d="M32 6L54 32L32 35L10 32L32 6Z" fill="#2BA39A"></path>
+<path d="M32 6V58" stroke="#081518" stroke-linecap="round" stroke-width="3"></path>
+<path d="M10 32H54" stroke="#081518" stroke-linecap="round" stroke-width="3"></path>
+<!-- Gentle sleepy/sweet face -->
+<path d="M24 25C26 27 28 27 30 25" stroke="#EEF6F7" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M34 25C36 27 38 27 40 25" stroke="#EEF6F7" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="22" cy="28" fill="#FF8A3D" opacity="0.9" r="2.5"></circle>
+<circle cx="42" cy="28" fill="#FF8A3D" opacity="0.9" r="2.5"></circle>
+<!-- Tail with soft bows -->
+<path d="M32 58C35 62 38 61 41 64" stroke="#FFB054" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<!-- Floating farewell badge -->
+<span class="absolute -bottom-2 -right-2 bg-[#20363F] text-txt-primary border-2 border-night-badgeBorder text-[11px] font-extrabold px-2 py-0.5 rounded-full shadow-[0_2px_0_0_#0C171B]">
+              Farewell
+            </span>
+</div>
+</div>
+<!-- Gentle Headline & Subtitle -->
+<div class="text-center mb-8">
+<h1 class="text-2xl sm:text-3xl font-extrabold text-txt-primary tracking-tight mb-2">
+            Sorry to see you go
+          </h1>
+<p class="text-txt-muted text-base sm:text-lg font-medium leading-relaxed">
+            Could you tell us why? It takes 5 seconds and helps us improve.
+          </p>
+</div>
+<!-- REASON CHIPS (Selectable Tactile Dark Chips) -->
+<div class="mb-6">
+<label class="block text-xs font-extrabold uppercase tracking-wider text-txt-subtle mb-3">
+            Select a reason
+          </label>
+<div class="flex flex-wrap gap-2.5 sm:gap-3" id="reasons-container">
+<button class="tactile-chip px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2" data-reason="popups" type="button">
+<span>Too many popups</span>
+</button>
+<button class="tactile-chip px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2" data-reason="not_useful" type="button">
+<span>Not useful for my study</span>
+</button>
+<button class="tactile-chip px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2" data-reason="slow" type="button">
+<span>Slowed down pages</span>
+</button>
+<button class="tactile-chip px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2" data-reason="privacy" type="button">
+<span>Privacy concerns</span>
+</button>
+<button class="tactile-chip px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2" data-reason="another_app" type="button">
+<span>Found another app</span>
+</button>
+<button class="tactile-chip px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2" data-reason="other" type="button">
+<span>Other</span>
+</button>
+</div>
+</div>
+<!-- OPTIONAL COMMENT BOX -->
+<div class="mb-8">
+<div class="flex items-center justify-between mb-2">
+<label class="text-xs font-extrabold uppercase tracking-wider text-txt-subtle" for="feedback-notes">
+              Anything else? <span class="lowercase font-normal text-txt-subtle">(optional)</span>
+</label>
+<span class="text-xs text-txt-subtle font-medium">1-2 sentences</span>
+</div>
+<textarea class="tactile-input w-full p-3.5 text-sm placeholder-[#617D83] resize-none" id="feedback-notes" placeholder="Tell Carlos &amp; Ama what felt off..." rows="2"></textarea>
+</div>
+<!-- PRIMARY ACTION: SEND BUTTON -->
+<div class="space-y-4">
+<button class="tactile-btn-primary w-full py-4 rounded-2xl font-extrabold text-base tracking-wide flex items-center justify-center gap-2" id="submit-btn" type="button">
+<span>Send feedback</span>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</button>
+<!-- QUIET REINSTALL LINK -->
+<div class="text-center pt-2">
+<a class="inline-flex items-center gap-2 text-sm font-bold text-teal-glow hover:text-white transition-colors py-1 group" href="#">
+<svg class="w-4 h-4 text-teal-brand group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+<span>Changed your mind? Reinstall extension</span>
+</a>
+</div>
+</div>
+</div>
+<!-- THANK YOU STATE (Hidden initially, shown after click) -->
+<div class="tactile-card p-8 sm:p-12 text-center hidden" id="thank-you-card">
+<!-- Success Check Icon Badge -->
+<div class="w-16 h-16 rounded-3xl bg-night-chip border-2 border-teal-brand shadow-[0_4px_0_0_#101E23] mx-auto mb-6 flex items-center justify-center">
+<svg class="w-8 h-8 text-teal-glow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-extrabold text-txt-primary tracking-tight mb-2">
+          Thank you for the honesty!
+        </h2>
+<p class="text-txt-muted text-base max-w-sm mx-auto mb-8 font-medium">
+          Your feedback goes directly to our teaching team. We wish you the best on your IELTS / TOEIC exams!
+        </p>
+<!-- Keep learning on web CTA -->
+<div class="space-y-3">
+<a class="tactile-btn-primary inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-extrabold text-sm md:text-base" href="#">
+<span>Continue free on Web</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+<div>
+<a class="inline-block text-xs font-bold text-txt-subtle hover:text-teal-glow hover:underline mt-2" href="#">
+              Back to Lexkite Home
+            </a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= FRIENDLY FOOTER (Tactile Night) ================= -->
+<footer class="w-full bg-[#081518] border-t-2 border-night-headerBorder py-8">
+<div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-txt-subtle">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-md bg-teal-brand flex items-center justify-center text-white text-[10px] font-extrabold shadow-[0_2px_0_0_#0F3D3E]">
+          LK
+        </div>
+<span>© 2026 Lexkite Prep Inc. Free tactile IELTS &amp; TOEIC mastery.</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-teal-glow transition-colors" href="#">Web App</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Editorial Ethics</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+<!-- Interactivity Script for Chips & State Swap -->
+<script>
+    // Chip selection logic
+    const chips = document.querySelectorAll('.tactile-chip');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('selected');
+      });
+    });
+
+    // Submit feedback swap logic
+    const submitBtn = document.getElementById('submit-btn');
+    const feedbackCard = document.getElementById('feedback-card');
+    const thankYouCard = document.getElementById('thank-you-card');
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        feedbackCard.classList.add('hidden');
+        thankYouCard.classList.remove('hidden');
+      });
+    }
+  </script>
+</body></html>

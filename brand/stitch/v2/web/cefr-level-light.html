@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B1 Intermediate Level Guide — Lexkite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg-cream: #FFF7EA;
+      --card-white: #FFFFFF;
+      --border-warm: #EADEC8;
+      --ledge-warm: #D8CFBC;
+      --text-main: #0F3D3E;
+      --text-muted: #536B6D;
+      --teal-primary: #2BA39A;
+      --teal-dark: #1F7A75;
+      --coral-primary: #F2553B;
+      --amber-accent: #FFB054;
+      --cta-ledge: #B53A22;
+      --gold-accent: #FFC94A;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile physics: 3D ledges & pressable sink */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid var(--border-warm);
+      border-radius: 20px;
+      box-shadow: 0 5px 0 var(--ledge-warm);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .tactile-btn-primary {
+      background: linear-gradient(135deg, #F2553B 0%, #FFB054 100%);
+      color: #FFFFFF;
+      font-weight: 800;
+      border: 2px solid rgba(181, 58, 34, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 6px 0 var(--cta-ledge), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 var(--cta-ledge), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      color: var(--text-main);
+      font-weight: 700;
+      border: 2px solid var(--border-warm);
+      border-radius: 16px;
+      box-shadow: 0 5px 0 var(--ledge-warm);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 var(--ledge-warm);
+    }
+
+    .tactile-step {
+      border: 2px solid var(--border-warm);
+      border-radius: 18px;
+      box-shadow: 0 5px 0 var(--ledge-warm);
+      transition: all 0.2s ease;
+    }
+    .tactile-step:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 var(--ledge-warm);
+    }
+
+    .tactile-step-active {
+      background: #FFFFFF;
+      border: 2.5px solid #2BA39A;
+      box-shadow: 0 6px 0 #1F7A75, 0 0 0 3px rgba(43, 163, 154, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .tactile-chip {
+      background: #FFFFFF;
+      border: 2px solid var(--border-warm);
+      border-radius: 9999px;
+      box-shadow: 0 3px 0 var(--ledge-warm);
+      transition: all 0.15s ease;
+    }
+    .tactile-chip:hover {
+      transform: translateY(-1px);
+      border-color: #2BA39A;
+      box-shadow: 0 4px 0 #2BA39A;
+    }
+
+    /* Glossy 3D CEFR Badge */
+    .glossy-badge-b1 {
+      position: relative;
+      background: linear-gradient(145deg, #38BDF8 0%, #0284C7 50%, #0369A1 100%);
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 0 #075985, 0 20px 25px -5px rgba(2, 132, 199, 0.35);
+      border-radius: 28px;
+    }
+    .glossy-badge-b1::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 12px;
+      right: 12px;
+      height: 40%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+      border-radius: 20px 20px 100px 100px;
+      pointer-events: none;
+    }
+
+    /* FAQ Details disclosure */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary .faq-icon {
+      transform: rotate(180deg);
+      background-color: #2BA39A;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="w-full bg-[#FFFFFF]/90 backdrop-blur-md sticky top-0 z-50 border-b-2 border-[#EADEC8] shadow-[0_4px_0_#D8CFBC]">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <!-- SVG Origami Kite Mark -->
+        <div class="w-11 h-11 rounded-2xl bg-[#FFF7EA] border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC] flex items-center justify-center group-hover:translate-y-[-1px] transition-transform">
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+            <!-- Diamond kite pieces -->
+            <path d="M16 3L27 15L16 19L16 3Z" fill="#F2553B" />
+            <path d="M16 3L5 15L16 19L16 3Z" fill="#FFB054" />
+            <path d="M16 19L27 15L16 29L16 19Z" fill="#2BA39A" />
+            <path d="M16 19L5 15L16 29L16 19Z" fill="#1F7A75" />
+            <!-- Tail ribbon -->
+            <path d="M16 29C17 31 19 31.5 20 30" stroke="#F2553B" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#" class="font-bold text-sm text-[#0F3D3E] border-b-2 border-[#2BA39A] pb-0.5">CEFR Levels</a>
+        <a href="#" class="font-bold text-sm text-[#536B6D] hover:text-[#0F3D3E] transition-colors">Dictionary</a>
+        <a href="#" class="font-bold text-sm text-[#536B6D] hover:text-[#0F3D3E] transition-colors">IELTS Band</a>
+        <a href="#" class="font-bold text-sm text-[#536B6D] hover:text-[#0F3D3E] transition-colors">For Schools</a>
+      </nav>
+
+      <!-- Trailing Action -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="hidden sm:inline-block font-bold text-sm text-[#0F3D3E] px-4 py-2 hover:opacity-80 transition-opacity">Sign in</a>
+        <a href="#" class="tactile-btn-primary px-6 py-2.5 text-sm flex items-center gap-2">
+          <span>Start free</span>
+          <span class="material-symbols-rounded text-lg">arrow_forward</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-6 py-12 md:py-16 flex flex-col gap-16 md:gap-20">
+
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-14 pt-4">
+      
+      <!-- Left: Big Badge & Title -->
+      <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6">
+        
+        <!-- Category Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E0F2FE] border-2 border-[#BAE6FD] text-[#0369A1] font-extrabold text-xs tracking-wider uppercase shadow-[0_2px_0_#BAE6FD]">
+          <span class="w-2 h-2 rounded-full bg-[#0284C7] animate-pulse"></span>
+          <span>Official CEFR Benchmark</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0F3D3E] leading-[1.15]">
+          B1 &middot; Intermediate
+        </h1>
+
+        <p class="text-lg sm:text-xl font-semibold text-[#536B6D] max-w-xl leading-relaxed">
+          You can understand the main points of everyday conversations, travel with ease, and express opinions on familiar topics.
+        </p>
+
+        <!-- CTA Row -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+          <a href="#" class="tactile-btn-primary px-8 py-4 text-base flex items-center gap-3">
+            <span class="material-symbols-rounded text-2xl">timer</span>
+            <span>Take the free level test</span>
+          </a>
+          <a href="#wordlist" class="tactile-btn-secondary px-6 py-4 text-base flex items-center gap-2">
+            <span>Explore words</span>
+            <span class="material-symbols-rounded text-xl text-[#2BA39A]">expand_more</span>
+          </a>
+        </div>
+
+        <!-- Quick Meta stats -->
+        <div class="flex items-center gap-6 pt-3 text-xs font-bold text-[#536B6D]">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-[#2BA39A] text-lg">check_circle</span>
+            <span>IELTS ~4.0 – 5.0</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-[#2BA39A] text-lg">check_circle</span>
+            <span>TOEIC 550 – 780</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-[#2BA39A] text-lg">bolt</span>
+            <span>5-minute test</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Glossy 3D Hero Badge Card -->
+      <div class="w-full sm:w-auto flex justify-center">
+        <div class="tactile-card p-8 sm:p-10 flex flex-col items-center gap-5 relative bg-gradient-to-b from-[#FFFFFF] to-[#FFFBF5]">
+          
+          <!-- Badge -->
+          <div class="glossy-badge-b1 w-44 h-44 sm:w-48 sm:h-48 flex flex-col items-center justify-center text-white select-none">
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#E0F2FE] drop-shadow-sm">Level</span>
+            <span class="text-6xl sm:text-7xl font-extrabold tracking-tighter drop-shadow-md">B1</span>
+            <span class="text-xs sm:text-sm font-bold text-[#BAE6FD] mt-0.5">Independent</span>
+          </div>
+
+          <!-- Bottom micro-tag inside card -->
+          <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] text-[#15803D] font-bold text-xs shadow-sm">
+            <span class="material-symbols-rounded text-base text-[#16A34A]">verified</span>
+            <span>Threshold proficiency</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 6-Level Chunky Ladder Section -->
+    <section class="flex flex-col gap-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-[#2BA39A]">Framework</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0F3D3E]">The 6 CEFR Steps</h2>
+        </div>
+        <p class="text-sm font-semibold text-[#536B6D]">Tap any level to compare competencies</p>
+      </div>
+
+      <!-- Ladder Grid: 6 Steps -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
+        
+        <!-- A1 -->
+        <a href="#" class="tactile-step bg-[#FFFFFF] p-4 flex flex-col items-center text-center gap-2 group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ECFDF5] border-2 border-[#A7F3D0] shadow-[0_3px_0_#6EE7B7] flex items-center justify-center text-[#059669] font-extrabold text-lg">
+            A1
+          </div>
+          <span class="font-extrabold text-sm text-[#0F3D3E]">Beginner</span>
+          <span class="text-xs font-semibold text-[#536B6D]">500 words</span>
+        </a>
+
+        <!-- A2 -->
+        <a href="#" class="tactile-step bg-[#FFFFFF] p-4 flex flex-col items-center text-center gap-2 group">
+          <div class="w-12 h-12 rounded-2xl bg-[#F0FDFA] border-2 border-[#99F6E4] shadow-[0_3px_0_#5EEAD4] flex items-center justify-center text-[#0D9488] font-extrabold text-lg">
+            A2
+          </div>
+          <span class="font-extrabold text-sm text-[#0F3D3E]">Elementary</span>
+          <span class="text-xs font-semibold text-[#536B6D]">1,000 words</span>
+        </a>
+
+        <!-- B1 (Active Highlighted Step) -->
+        <div class="tactile-step tactile-step-active p-4 flex flex-col items-center text-center gap-2 relative">
+          <!-- Active Badge Pill -->
+          <span class="absolute -top-3 px-2.5 py-0.5 bg-[#2BA39A] text-white text-[10px] font-extrabold uppercase tracking-wider rounded-full shadow-sm">
+            Current
+          </span>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#38BDF8] to-[#0284C7] border-2 border-white shadow-[0_3px_0_#075985] flex items-center justify-center text-white font-extrabold text-lg">
+            B1
+          </div>
+          <span class="font-extrabold text-sm text-[#0284C7]">Intermediate</span>
+          <span class="text-xs font-bold text-[#0F3D3E]">2,000 words</span>
+        </div>
+
+        <!-- B2 -->
+        <a href="#" class="tactile-step bg-[#FFFFFF] p-4 flex flex-col items-center text-center gap-2 group">
+          <div class="w-12 h-12 rounded-2xl bg-[#FFFBEB] border-2 border-[#FDE68A] shadow-[0_3px_0_#FCD34D] flex items-center justify-center text-[#D97706] font-extrabold text-lg">
+            B2
+          </div>
+          <span class="font-extrabold text-sm text-[#0F3D3E]">Upper-Int.</span>
+          <span class="text-xs font-semibold text-[#536B6D]">4,000 words</span>
+        </a>
+
+        <!-- C1 -->
+        <a href="#" class="tactile-step bg-[#FFFFFF] p-4 flex flex-col items-center text-center gap-2 group">
+          <div class="w-12 h-12 rounded-2xl bg-[#FFF1F2] border-2 border-[#FECDD3] shadow-[0_3px_0_#FDA4AF] flex items-center justify-center text-[#E11D48] font-extrabold text-lg">
+            C1
+          </div>
+          <span class="font-extrabold text-sm text-[#0F3D3E]">Advanced</span>
+          <span class="text-xs font-semibold text-[#536B6D]">8,000 words</span>
+        </a>
+
+        <!-- C2 -->
+        <a href="#" class="tactile-step bg-[#FFFFFF] p-4 flex flex-col items-center text-center gap-2 group">
+          <div class="w-12 h-12 rounded-2xl bg-[#FAF5FF] border-2 border-[#E9D5FF] shadow-[0_3px_0_#D8B4FE] flex items-center justify-center text-[#9333EA] font-extrabold text-lg">
+            C2
+          </div>
+          <span class="font-extrabold text-sm text-[#0F3D3E]">Mastery</span>
+          <span class="text-xs font-semibold text-[#536B6D]">16k+ words</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- 'You Can...' Illustrated Cards -->
+    <section class="flex flex-col gap-6">
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-[#2BA39A]">Practical Skills</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0F3D3E]">At B1 level, you can&hellip;</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Talk about plans -->
+        <div class="tactile-card p-6 flex flex-col gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#FFF7EA] border-2 border-[#FFB054] shadow-[0_4px_0_#E59E44] flex items-center justify-center text-[#F2553B]">
+            <span class="material-symbols-rounded text-3xl">chat_bubble</span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <h3 class="text-lg font-extrabold text-[#0F3D3E]">Talk about plans</h3>
+            <p class="text-sm font-semibold text-[#536B6D] leading-relaxed">
+              Describe dreams, future intentions, and travel ambitions using connected phrases and simple reasons.
+            </p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-[#EADEC8]/60 flex items-center gap-2 text-xs font-bold text-[#2BA39A]">
+            <span class="material-symbols-rounded text-base">record_voice_over</span>
+            <span>Speaking &middot; Part 1 & 2</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Write a short email -->
+        <div class="tactile-card p-6 flex flex-col gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#E0F2FE] border-2 border-[#38BDF8] shadow-[0_4px_0_#0284C7] flex items-center justify-center text-[#0284C7]">
+            <span class="material-symbols-rounded text-3xl">mail</span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <h3 class="text-lg font-extrabold text-[#0F3D3E]">Write a short email</h3>
+            <p class="text-sm font-semibold text-[#536B6D] leading-relaxed">
+              Draft clear personal letters, make hotel inquiries, or describe real-life events to friends and colleagues.
+            </p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-[#EADEC8]/60 flex items-center gap-2 text-xs font-bold text-[#0284C7]">
+            <span class="material-symbols-rounded text-base">edit_note</span>
+            <span>Writing &middot; Letters & notes</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Understand the main point -->
+        <div class="tactile-card p-6 flex flex-col gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#ECFDF5] border-2 border-[#34D399] shadow-[0_4px_0_#059669] flex items-center justify-center text-[#059669]">
+            <span class="material-symbols-rounded text-3xl">lightbulb</span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <h3 class="text-lg font-extrabold text-[#0F3D3E]">Understand main points</h3>
+            <p class="text-sm font-semibold text-[#536B6D] leading-relaxed">
+              Catch the central takeaway from podcasts, public announcements, news headlines, and routine work notes.
+            </p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-[#EADEC8]/60 flex items-center gap-2 text-xs font-bold text-[#059669]">
+            <span class="material-symbols-rounded text-base">hearing</span>
+            <span>Listening &middot; Clear standard audio</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sample B1 Word List as Chips -->
+    <section id="wordlist" class="flex flex-col gap-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+        <div class="flex flex-col gap-1">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-[#2BA39A]">Vocabulary Bank</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0F3D3E]">Sample B1 Word List</h2>
+        </div>
+        <div class="inline-flex items-center gap-2 text-xs font-bold text-[#536B6D] bg-[#FFFFFF] px-3.5 py-1.5 rounded-full border border-[#EADEC8]">
+          <span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+          <span>Curated from Cambridge B1 Lexicon</span>
+        </div>
+      </div>
+
+      <div class="tactile-card p-6 sm:p-8 flex flex-col gap-6 bg-[#FFFFFF]">
+        <div class="flex flex-wrap gap-2.5 sm:gap-3">
+          
+          <!-- Word Chips with Part of Speech -->
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">convenient</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">adj</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">opportunity</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">noun</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">recommend</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">verb</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">environment</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">noun</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">experience</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">noun/v</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">encourage</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">verb</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">frequently</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">adv</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">necessary</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">adj</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">participate</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">verb</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">hesitate</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">verb</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">persuade</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">verb</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">essential</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">adj</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">solution</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">noun</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">confident</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">adj</span>
+          </div>
+
+          <div class="tactile-chip px-4 py-2 flex items-center gap-2 cursor-pointer group">
+            <span class="font-extrabold text-sm text-[#0F3D3E] group-hover:text-[#2BA39A]">challenge</span>
+            <span class="text-[10px] font-extrabold text-[#536B6D] bg-[#FFF7EA] px-2 py-0.5 rounded-md border border-[#EADEC8]">noun</span>
+          </div>
+
+        </div>
+
+        <!-- Word List Footnote / Action -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t-2 border-[#EADEC8]/60">
+          <span class="text-xs font-bold text-[#536B6D]">Showing 15 of 2,140 verified B1 exam words in Lexkite</span>
+          <a href="#" class="tactile-btn-secondary px-5 py-2.5 text-xs flex items-center gap-2">
+            <span class="material-symbols-rounded text-base text-[#2BA39A]">menu_book</span>
+            <span>Practice B1 Flashcard Deck</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="flex flex-col gap-6">
+      <div class="flex flex-col gap-1">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-[#2BA39A]">Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0F3D3E]">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="flex flex-col gap-3.5">
+        
+        <!-- FAQ 1 -->
+        <details class="tactile-card group overflow-hidden" open>
+          <summary class="p-6 cursor-pointer flex items-center justify-between gap-4 select-none">
+            <span class="text-base sm:text-lg font-extrabold text-[#0F3D3E]">How long does it take to reach B1 from A2?</span>
+            <div class="faq-icon w-8 h-8 rounded-full bg-[#FFF7EA] border border-[#EADEC8] flex items-center justify-center text-[#536B6D] transition-all">
+              <span class="material-symbols-rounded text-lg">expand_more</span>
+            </div>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-sm font-semibold text-[#536B6D] leading-relaxed border-t border-[#EADEC8]/50">
+            Most learners require roughly 150 to 200 guided study hours. With Lexkite’s 5-minute daily micro-drills and spaced repetition, consistent practice helps learners bridge the A2–B1 gap in 8 to 12 weeks.
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="tactile-card group overflow-hidden">
+          <summary class="p-6 cursor-pointer flex items-center justify-between gap-4 select-none">
+            <span class="text-base sm:text-lg font-extrabold text-[#0F3D3E]">What IELTS score corresponds to B1?</span>
+            <div class="faq-icon w-8 h-8 rounded-full bg-[#FFF7EA] border border-[#EADEC8] flex items-center justify-center text-[#536B6D] transition-all">
+              <span class="material-symbols-rounded text-lg">expand_more</span>
+            </div>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-sm font-semibold text-[#536B6D] leading-relaxed border-t border-[#EADEC8]/50">
+            A CEFR B1 level aligns with an IELTS Overall Band Score of 4.0 to 5.0. It qualifies learners for standard student visas, vocational training, and everyday workplace communication.
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="tactile-card group overflow-hidden">
+          <summary class="p-6 cursor-pointer flex items-center justify-between gap-4 select-none">
+            <span class="text-base sm:text-lg font-extrabold text-[#0F3D3E]">Is B1 enough for university admission?</span>
+            <div class="faq-icon w-8 h-8 rounded-full bg-[#FFF7EA] border border-[#EADEC8] flex items-center justify-center text-[#536B6D] transition-all">
+              <span class="material-symbols-rounded text-lg">expand_more</span>
+            </div>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-sm font-semibold text-[#536B6D] leading-relaxed border-t border-[#EADEC8]/50">
+            Undergraduate and postgraduate degrees typically mandate B2 (IELTS 5.5–6.5) or C1 (IELTS 7.0+). However, foundation pathway years and pre-sessional language programs accept B1.
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="tactile-card group overflow-hidden">
+          <summary class="p-6 cursor-pointer flex items-center justify-between gap-4 select-none">
+            <span class="text-base sm:text-lg font-extrabold text-[#0F3D3E]">Is the level test on Lexkite really 100% free?</span>
+            <div class="faq-icon w-8 h-8 rounded-full bg-[#FFF7EA] border border-[#EADEC8] flex items-center justify-center text-[#536B6D] transition-all">
+              <span class="material-symbols-rounded text-lg">expand_more</span>
+            </div>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-sm font-semibold text-[#536B6D] leading-relaxed border-t border-[#EADEC8]/50">
+            Yes! Lexkite has zero paywalls, zero heart limits, and zero credit card prompts. You receive your diagnostic band and customized study plan immediately after completing the 20 questions.
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- Bottom Banner CTA -->
+    <section class="tactile-card p-8 sm:p-12 bg-gradient-to-r from-[#FFFFFF] via-[#FFFBF2] to-[#FFF7EA] flex flex-col md:flex-row items-center justify-between gap-8 border-2 border-[#EADEC8]">
+      <div class="flex flex-col gap-2 text-center md:text-left">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-[#0F3D3E]">Ready to check your English level?</h3>
+        <p class="text-sm sm:text-base font-semibold text-[#536B6D]">Take our 5-minute adaptive quiz and get instant CEFR & IELTS scoring.</p>
+      </div>
+      <a href="#" class="tactile-btn-primary px-8 py-4 text-base flex items-center gap-3 whitespace-nowrap">
+        <span>Start 5-min test free</span>
+        <span class="material-symbols-rounded text-2xl">arrow_forward</span>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Friendly Footer -->
+  <footer class="w-full bg-[#FFFFFF] border-t-2 border-[#EADEC8] mt-16 py-12 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Copyright -->
+      <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-[#FFF7EA] border border-[#EADEC8] flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
+              <path d="M16 3L27 15L16 19L16 3Z" fill="#F2553B" />
+              <path d="M16 3L5 15L16 19L16 3Z" fill="#FFB054" />
+              <path d="M16 19L27 15L16 29L16 19Z" fill="#2BA39A" />
+              <path d="M16 19L5 15L16 29L16 19Z" fill="#1F7A75" />
+            </svg>
+          </div>
+          <span class="font-extrabold text-[#0F3D3E]">Lexkite</span>
+        </div>
+        <span class="text-xs font-semibold text-[#536B6D]">&copy; 2025 Lexkite Prep Inc. Free tactile learning for IELTS & TOEIC.</span>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-[#536B6D]">
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">CEFR Matrix</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">IELTS Guide</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Terms of Service</a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Editorial Standards &amp; Verification — Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#091518",
+            "surface": "#121d20",
+            "surface-container": "#162125",
+            "surface-container-high": "#202c2f",
+            "surface-container-highest": "#2b373a",
+            "surface-container-lowest": "#051013",
+            "surface-container-low": "#121d20",
+            "primary": "#6bd8ce",
+            "primary-container": "#2ba39a",
+            "primary-fixed": "#88f5ea",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary": "#003733",
+            "on-primary-container": "#00322e",
+            "secondary": "#ffb4a6",
+            "secondary-container": "#981201",
+            "on-secondary": "#660800",
+            "tertiary": "#f4bf40",
+            "tertiary-container": "#ba8b00",
+            "on-tertiary": "#402e00",
+            "outline": "#233942",
+            "outline-variant": "#36505a",
+            "on-background": "#EEF6F7",
+            "on-surface": "#EEF6F7",
+            "on-surface-variant": "#A9BFC1",
+            "text-primary": "#EEF6F7",
+            "text-muted": "#A9BFC1",
+            "text-subtle": "#7E9E9F",
+            "teal-deep": "#6bd8ce",
+            "coral-accent": "#F2553B",
+            "coral-gold": "#FFB054",
+            "ledge-dark": "#071012",
+            "ledge-teal": "#094B48"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            title: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Tactile Night 3D Surfaces & Buttons */
+    .tactile-btn {
+      position: relative;
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn:active {
+      transform: translateY(2px);
+    }
+    .tactile-card {
+      position: relative;
+      transition: all 0.15s ease-out;
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-background text-text-primary font-body antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
+<!-- ========================================================
+       SHARED COMPONENT: TopNavBar (Tactile Night)
+       ======================================================== -->
+<header class="docked full-width top sticky top-0 z-50 bg-[#091518]/95 backdrop-blur-md border-b-2 border-outline shadow-lg shadow-black/40">
+<div class="w-full h-14 max-w-[1080px] mx-auto px-4 md:px-6 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="text-headline-md font-headline-md tracking-tight flex items-center gap-2.5 group" href="#">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-coral-accent to-coral-gold flex items-center justify-center shadow-md border-b-[3px] border-[#8a2211] transform group-hover:scale-105 transition-transform">
+<!-- Origami Kite Emblem -->
+<svg class="text-white drop-shadow-sm" fill="none" height="22" viewbox="0 0 24 24" width="22">
+<path d="M12 2L4 10L12 22L20 10L12 2Z" fill="currentColor" fill-opacity="0.95"></path>
+<path d="M12 2V22M4 10H20" stroke="#FFF7EA" stroke-linecap="round" stroke-width="1.75"></path>
+<path d="M12 22C12 22 13 24 16 23C19 22 18 20 20 20" stroke="#FFE3A8" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="font-display text-[22px] font-black tracking-tight text-white">Lexkite</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-7">
+<a class="text-text-muted hover:text-white font-bold text-[14px] transition-colors" href="#">Blog</a>
+<a class="text-text-muted hover:text-white font-bold text-[14px] transition-colors" href="#">Vocabulary</a>
+<a class="text-text-muted hover:text-white font-bold text-[14px] transition-colors" href="#">Samples</a>
+<a class="text-primary border-b-[2.5px] border-primary pb-0.5 font-extrabold text-[14px]" href="#">Resources</a>
+</nav>
+<!-- Right Controls -->
+<div class="flex items-center gap-3">
+<!-- Language Selector -->
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#142328] border-2 border-outline text-text-primary text-[12px] font-bold border-b-[3px] border-ledge-dark hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary">language</span>
+<span class="text-white">EN</span>
+</button>
+<!-- Sign In -->
+<a class="hidden sm:inline-block text-[14px] font-bold text-text-muted hover:text-primary transition-colors px-2" href="#">
+          Sign in
+        </a>
+<!-- Tactile Coral Primary CTA -->
+<a class="tactile-btn inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-gradient-to-r from-coral-accent to-coral-gold text-white font-title text-[14px] font-extrabold tracking-tight shadow-md border-b-[3px] border-[#8a2211] hover:brightness-110 active:border-b-[1px]" href="#">
+<span>Start free</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ========================================================
+       MAIN EDITORIAL ARTICLE CANVAS (Tactile Night)
+       ======================================================== -->
+<main class="flex-1 w-full max-w-[1080px] mx-auto px-4 md:px-6 py-8 md:py-12">
+<!-- Editorial Hero & Breadcrumb -->
+<section class="mb-10">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-2 text-[12px] font-bold text-text-subtle mb-4 tracking-wide uppercase">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#">About</a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-extrabold">Editorial Policy &amp; Standards</span>
+</nav>
+<!-- Title & Tactile Badge Pill -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#103033] border border-primary/40 text-primary text-label font-label mb-3 border-b-2 border-primary/50 shadow-sm shadow-primary/10">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span class="tracking-wider uppercase font-extrabold">Official Quality Framework</span>
+</div>
+<h1 class="font-display text-[32px] md:text-[44px] leading-[1.15] font-extrabold text-white tracking-tight">
+            Editorial Standards &amp; Verification
+          </h1>
+</div>
+</div>
+<!-- Metadata Chip Row -->
+<div class="flex flex-wrap items-center gap-3 pt-1 border-t border-outline/80 pb-6 text-body font-medium text-text-muted text-[13px]">
+<div class="flex items-center gap-2 px-3 py-1 bg-[#142328] rounded-full border border-outline border-b-2 border-ledge-dark">
+<div class="w-5 h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[10px] font-black">BC</div>
+<span class="text-text-primary font-bold">Reviewed by former British Council Examiners</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">calendar_today</span>
+<span class="text-text-muted">Updated Oct 2024</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span class="text-text-muted">Reading time: 4 min</span>
+</div>
+</div>
+<!-- Highlighted Summary Card: Tactile Night Raised Card -->
+<div class="tactile-card rounded-2xl bg-[#142328] p-6 md:p-8 border-2 border-outline border-b-[5px] border-ledge-dark relative overflow-hidden shadow-lg shadow-black/40">
+<div class="absolute top-0 left-0 w-2.5 h-full bg-gradient-to-b from-primary to-primary-container"></div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-[#282512] border border-[#524410] border-b-[3px] border-[#362c0a] flex-shrink-0 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[26px]">workspace_premium</span>
+</div>
+<div class="flex-1">
+<h3 class="font-title text-[20px] font-extrabold text-white mb-3">Our Commitment in Brief</h3>
+<ul class="space-y-2.5 text-[15px] font-medium text-text-primary">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">check_circle</span>
+<span><strong class="text-white">Zero-Sponsor Influence:</strong> No sponsored vocabulary items, exam prep partners, or pay-to-feature pedagogical lists.</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">check_circle</span>
+<span><strong class="text-white">100% Corpus Verification:</strong> Lexical distributions calibrated against standard IELTS academic papers and ETS TOEIC question pools.</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">check_circle</span>
+<span><strong class="text-white">Examiner-Led Human Audits:</strong> Every interactive sample sentence undergoes secondary human peer-review for natural register and phonetics.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Visual Feature Grid (Asymmetric Bento) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-14 items-center">
+<div class="md:col-span-7 space-y-4">
+<h2 class="font-display text-[26px] font-black text-white tracking-tight">
+          How We Validate Vocabulary &amp; Exam Prompts
+        </h2>
+<p class="text-[16px] text-text-muted leading-relaxed font-normal">
+          At Lexkite, vocabulary acquisition is treated like tactile architecture. Language learners preparing for high-stakes assessments (IELTS Academic, General Training, and TOEIC Listening/Reading) cannot afford to memorize obscure archaic terms or uncalibrated idiomatic slips.
+        </p>
+<p class="text-[16px] text-text-muted leading-relaxed font-normal">
+          Our pedagogy bridges academic corpora with contemporary spoken discourse. Every unit item in Lexkite must clear a strict 4-stage empirical verification hurdle before reaching your interactive drill queue.
+        </p>
+</div>
+<div class="md:col-span-5">
+<div class="tactile-card rounded-2xl bg-[#142328] p-5 border-2 border-outline border-b-[5px] border-ledge-dark relative shadow-lg shadow-black/40">
+<div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#0c181b] border border-outline">
+<img class="w-full h-full object-cover" data-alt="A whimsical miniature tactile papercraft diorama displaying stacked colorful study books, an open notebook with a magnifying glass, and vibrant stairs reaching toward an origami kite under soft bright morning lighting with clean cream and teal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCoPrO_L10dQbae_FwmYXFq18kBzmhRXV4Dmq_RCsJe9yVcqms61MS1riFqfYP9b3K9jN9VzT7LsuRAybWyiU9Kj-CQfs6lH9hI7WSpG5lO0Dw2leYejcToQXOY3KAR9w5pQjXdj2gw7lbCsz-36yQEi2cHTSbiji7hc9Un963WOcVz6vU4N0zwDWzxGrAC2IUHR5d9VxlBBxgX7DpFt5k-r5iRftlCOuGSf0aqpZCytVv3ItBdqMCBYVgPF0_jQYLlTrkpbUK7U0"/>
+</div>
+<div class="pt-3 px-1 text-center">
+<span class="text-[12px] font-bold tracking-wider uppercase text-text-subtle">Rigorous Pedagogical Treehouse</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Numbered Checklist: 4 Chunky Tactile Cards -->
+<section class="mb-14">
+<div class="flex items-center justify-between mb-6">
+<div>
+<span class="text-label font-label text-primary uppercase tracking-wider font-extrabold">Verification Pipeline</span>
+<h2 class="font-display text-[24px] font-extrabold text-white">The Four Pillars of Lexkite Quality</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Card 1 -->
+<div class="tactile-card rounded-2xl bg-[#142328] p-6 border-2 border-outline border-b-[5px] border-ledge-dark flex gap-4 shadow-lg shadow-black/30">
+<div class="w-12 h-12 rounded-xl bg-[#0e2c2f] border-2 border-primary/50 border-b-[3px] border-primary/80 flex items-center justify-center text-primary font-black text-[20px] flex-shrink-0">
+            1
+          </div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>
+<h3 class="font-title text-[18px] font-extrabold text-white">Corpus-Backed Frequency (COCA &amp; BNC)</h3>
+</div>
+<p class="text-[14px] text-text-muted leading-relaxed font-normal">
+              We cross-reference terms against the Corpus of Contemporary American English (COCA) and British National Corpus. Only items ranking in Band 6.5–8.5 academic utility are highlighted in core drills.
+            </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="tactile-card rounded-2xl bg-[#142328] p-6 border-2 border-outline border-b-[5px] border-ledge-dark flex gap-4 shadow-lg shadow-black/30">
+<div class="w-12 h-12 rounded-xl bg-[#321d19] border-2 border-coral-accent/50 border-b-[3px] border-coral-accent/80 flex-shrink-0 flex items-center justify-center text-coral-accent font-black text-[20px]">
+            2
+          </div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-coral-accent">check_circle</span>
+<h3 class="font-title text-[18px] font-extrabold text-white">Double-Blind Examiner Review (Band 8.5+)</h3>
+</div>
+<p class="text-[14px] text-text-muted leading-relaxed font-normal">
+              Model answers and context dialogues are scrutinized by verified native-speaking certified IELTS trainers to eliminate artificial phrasing and grammatical over-complexity.
+            </p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="tactile-card rounded-2xl bg-[#142328] p-6 border-2 border-outline border-b-[5px] border-ledge-dark flex gap-4 shadow-lg shadow-black/30">
+<div class="w-12 h-12 rounded-xl bg-[#132334] border-2 border-[#3882d4]/50 border-b-[3px] border-[#3882d4]/80 flex-shrink-0 flex items-center justify-center text-[#5dade2] font-black text-[20px]">
+            3
+          </div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#5dade2]">check_circle</span>
+<h3 class="font-title text-[18px] font-extrabold text-white">Real Candidate Error Indexing</h3>
+</div>
+<p class="text-[14px] text-text-muted leading-relaxed font-normal">
+              Our distractors (multiple-choice answer variants) simulate genuine candidate collocations and false-friend pitfalls, training instant situational discrimination under real exam clock pressure.
+            </p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="tactile-card rounded-2xl bg-[#142328] p-6 border-2 border-outline border-b-[5px] border-ledge-dark flex gap-4 shadow-lg shadow-black/30">
+<div class="w-12 h-12 rounded-xl bg-[#2a220e] border-2 border-tertiary/50 border-b-[3px] border-tertiary/80 flex-shrink-0 flex items-center justify-center text-tertiary font-black text-[20px]">
+            4
+          </div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span>
+<h3 class="font-title text-[18px] font-extrabold text-white">Zero Algorithmic Hallucination Guarantee</h3>
+</div>
+<p class="text-[14px] text-text-muted leading-relaxed font-normal">
+              Generative AI tools are strictly limited to drafting aid. No automated text enters drill sets without verified human sign-off, preventing synthetic lexical inaccuracies and awkward syntax.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Feedback / Correction Note Banner -->
+<section class="mb-14">
+<div class="tactile-card rounded-2xl bg-[#241d18] p-6 border-2 border-[#543b2b] border-b-[5px] border-[#18110b] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg shadow-black/40">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-[#39281e] border border-[#6b4733] border-b-[3px] border-[#291a13] flex items-center justify-center text-coral-accent flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">contact_support</span>
+</div>
+<div>
+<h4 class="font-title text-[17px] font-bold text-white">Found a slip or question?</h4>
+<p class="text-[14px] text-text-muted font-normal">We reward community spotters with badge perks and review every single submission within 48 hours.</p>
+</div>
+</div>
+<button class="tactile-btn flex-shrink-0 px-4 py-2.5 rounded-xl bg-[#142328] border-2 border-outline border-b-[4px] border-ledge-dark font-title text-[14px] font-bold text-white hover:bg-surface-container-high active:border-b-[2px] transition-all">
+          Submit Correction
+        </button>
+</div>
+</section>
+<!-- Sibling Page Tiles: Editorial Suite -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-6">
+<div>
+<span class="text-label font-label text-primary uppercase tracking-wider font-extrabold">Editorial Ecosystem</span>
+<h2 class="font-display text-[24px] font-extrabold text-white">Explore the Editorial Suite</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Tile 1: Editorial Team -->
+<a class="tactile-card group rounded-2xl bg-[#142328] p-5 border-2 border-outline border-b-[5px] border-ledge-dark hover:border-primary/60 block shadow-md shadow-black/30" href="#">
+<div class="w-10 h-10 rounded-xl bg-[#0f2a2d] border border-primary/40 border-b-[3px] border-primary/70 flex items-center justify-center text-primary mb-3.5 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">badge</span>
+</div>
+<h4 class="font-title text-[16px] font-bold text-white group-hover:text-primary transition-colors mb-1">Editorial Team</h4>
+<p class="text-[13px] text-text-muted font-normal mb-3">Meet the exam writers, phoneticists, and curriculum designers.</p>
+<div class="flex items-center text-[12px] font-extrabold text-primary gap-1">
+<span>View profiles</span>
+<span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+<!-- Tile 2: Editorial Policy (ACTIVE) -->
+<div class="tactile-card rounded-2xl bg-[#132d30] p-5 border-2 border-primary border-b-[5px] border-[#072426] block relative shadow-lg shadow-primary/10">
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary text-[10px] font-black tracking-wide uppercase">Current</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-[#1d3f44] border border-primary/60 border-b-[3px] border-primary flex items-center justify-center text-primary mb-3.5">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+<h4 class="font-title text-[16px] font-black text-white mb-1">Editorial Policy</h4>
+<p class="text-[13px] text-text-muted font-normal mb-3">Standards on sourcing, neutrality, and candidate testing ethics.</p>
+<div class="flex items-center text-[12px] font-black text-primary gap-1">
+<span>You are here</span>
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+<!-- Tile 3: Sources & Corpora -->
+<a class="tactile-card group rounded-2xl bg-[#142328] p-5 border-2 border-outline border-b-[5px] border-ledge-dark hover:border-primary/60 block shadow-md shadow-black/30" href="#">
+<div class="w-10 h-10 rounded-xl bg-[#2a220e] border border-tertiary/40 border-b-[3px] border-tertiary/70 flex items-center justify-center text-tertiary mb-3.5 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+</div>
+<h4 class="font-title text-[16px] font-bold text-white group-hover:text-primary transition-colors mb-1">Sources &amp; Corpora</h4>
+<p class="text-[13px] text-text-muted font-normal mb-3">Database citations from Cambridge, Oxford, COCA, and CEFR.</p>
+<div class="flex items-center text-[12px] font-extrabold text-primary gap-1">
+<span>Explore data</span>
+<span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+<!-- Tile 4: Corrections Log -->
+<a class="tactile-card group rounded-2xl bg-[#142328] p-5 border-2 border-outline border-b-[5px] border-ledge-dark hover:border-primary/60 block shadow-md shadow-black/30" href="#">
+<div class="w-10 h-10 rounded-xl bg-[#321d19] border border-coral-accent/40 border-b-[3px] border-coral-accent/70 flex items-center justify-center text-coral-accent mb-3.5 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">history</span>
+</div>
+<h4 class="font-title text-[16px] font-bold text-white group-hover:text-primary transition-colors mb-1">Corrections Log</h4>
+<p class="text-[13px] text-text-muted font-normal mb-3">Public transparent changelog of revisions and drill updates.</p>
+<div class="flex items-center text-[12px] font-extrabold text-primary gap-1">
+<span>Read updates</span>
+<span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- ========================================================
+       SHARED COMPONENT: Footer (Tactile Night)
+       ======================================================== -->
+<footer class="docked full-width bottom bg-[#091518] border-t-2 border-outline shadow-inner mt-12">
+<div class="w-full max-w-[1080px] mx-auto px-4 md:px-6 py-12 md:py-16">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+<!-- Brand Summary Column -->
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-coral-accent to-coral-gold flex items-center justify-center border-b-2 border-[#8a2211]">
+<svg class="text-white" fill="none" height="16" viewbox="0 0 24 24" width="16">
+<path d="M12 2L4 10L12 22L20 10L12 2Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="font-display text-[20px] font-black tracking-tight text-white">Lexkite</span>
+</div>
+<p class="text-body text-[14px] text-text-muted leading-relaxed max-w-sm mb-4">
+            Master words with tactile precision. Built for serious IELTS Band 7.5+ and TOEIC 900+ aspirers who learn faster by doing.
+          </p>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#142328] border border-outline text-[12px] font-bold text-primary">
+<span class="material-symbols-outlined text-[14px]">school</span>
+              Academic Edition
+            </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#142328] border border-outline text-[12px] font-bold text-tertiary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+              CEFR B2–C2
+            </span>
+</div>
+</div>
+<!-- Links: Product -->
+<div>
+<h4 class="text-label font-label text-white uppercase tracking-wider mb-3.5">Product</h4>
+<ul class="space-y-2 text-[14px] font-medium text-text-muted">
+<li><a class="hover:text-primary transition-colors" href="#">Methodology</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Vocabulary Lists</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Interactive Drills</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">GRE &amp; SAT Prep</a></li>
+</ul>
+</div>
+<!-- Links: Company -->
+<div>
+<h4 class="text-label font-label text-white uppercase tracking-wider mb-3.5">Company</h4>
+<ul class="space-y-2 text-[14px] font-medium text-text-muted">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="text-primary font-bold transition-colors" href="#">Editorial Ethics</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Research Blog</a></li>
+</ul>
+</div>
+<!-- Links: Resources & Legal -->
+<div>
+<h4 class="text-label font-label text-white uppercase tracking-wider mb-3.5">Resources</h4>
+<ul class="space-y-2 text-[14px] font-medium text-text-muted">
+<li><a class="hover:text-primary transition-colors" href="#">Study Planner</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Flashcard Deck Tool</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pronunciation Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="pt-8 border-t border-outline flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] font-medium text-text-subtle">
+<p>© 2024 Lexkite Inc. Master words with tactile precision. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="hover:text-primary transition-colors" href="#">Cookie Preferences</a>
+<a class="hover:text-primary transition-colors" href="#">Security</a>
+<a class="hover:text-primary transition-colors" href="#">System Status</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

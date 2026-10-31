@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite for Schools - Game-like IELTS &amp; TOEIC Prep</title>
+<!-- Plus Jakarta Sans Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "canvas-base": "#FFF7EA",
+            "on-primary-container": "#98e5df",
+            "on-error-container": "#93000a",
+            "cta-gradient-end": "#FFB054",
+            "accent-amber": "#B37800",
+            "inverse-surface": "#2e3131",
+            "card-border": "#EADEC8",
+            "cta-gradient-start": "#F2553B",
+            "surface-bright": "#f8faf9",
+            "outline-variant": "#bec9c7",
+            "on-tertiary-container": "#ffd08e",
+            "on-primary-fixed": "#00201e",
+            "on-background": "#191c1c",
+            "on-secondary-container": "#5e0700",
+            "interactive-tile": "#F0F4F3",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#ffdad3",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-surface": "#191c1c",
+            "surface-tint": "#0e6a65",
+            "secondary-container": "#fe5d42",
+            "primary-fixed-dim": "#87d4cd",
+            "surface": "#FFF7EA",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#805500",
+            "tertiary": "#613f00",
+            "background": "#FFF7EA",
+            "tile-ledge": "#D8CFBC",
+            "on-secondary-fixed": "#3f0300",
+            "secondary": "#b42814",
+            "tertiary-fixed-dim": "#ffb94c",
+            "on-secondary-fixed-variant": "#900f00",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#a3f0e9",
+            "on-surface-variant": "#3f4947",
+            "surface-container-lowest": "#ffffff",
+            "accent-teal": "#2BA39A",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#291800",
+            "text-muted": "#4E6668",
+            "on-primary-fixed-variant": "#00504c",
+            "card-surface": "#FFFFFF",
+            "error": "#ba1a1a",
+            "surface-container": "#eceeed",
+            "surface-container-high": "#e6e9e8",
+            "primary": "#0F3D3E",
+            "inverse-primary": "#87d4cd",
+            "surface-container-low": "#f2f4f3",
+            "inverse-on-surface": "#eff1f0",
+            "cta-ledge": "#B53A22",
+            "on-tertiary-fixed-variant": "#624000",
+            "outline": "#6f7978",
+            "surface-variant": "#e1e3e2",
+            "primary-container": "#0d6964",
+            "surface-container-highest": "#e1e3e2",
+            "tertiary-fixed": "#ffddb2",
+            "text-primary": "#0F3D3E",
+            "surface-dim": "#d8dada"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-md": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "headline-sm": ["22px", { lineHeight: "30px", letterSpacing: "0em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }],
+            "headline-lg-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-hero-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "body-sm": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "label-lg": ["15px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "700" }],
+            "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-canvas-base text-text-primary min-h-screen flex flex-col font-body-md antialiased selection:bg-accent-teal/20 selection:text-primary">
+<!-- TopNavBar (Shared Component JSON Source of Truth) -->
+<header class="bg-card-surface border-b border-card-border shadow-[0_4px_12px_rgba(16,25,27,0.04)] docked full-width top-0 sticky z-50">
+<div class="max-w-[1080px] mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="font-headline-sm text-headline-sm font-extrabold text-primary flex items-center gap-2.5 active:translate-y-[2px] transition-transform duration-100" href="#">
+<!-- Isometric Origami Kite Icon -->
+<span class="w-9 h-9 rounded-xl bg-card-surface border-2 border-card-border shadow-[0_3px_0_#D8CFBC] flex items-center justify-center p-1 relative overflow-hidden">
+<svg class="w-7 h-7" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 3L27 14L16 22L5 14L16 3Z" fill="#2BA39A"></path>
+<path d="M16 3L27 14L16 22V3Z" fill="#F2553B"></path>
+<path d="M16 22L19 28L16 26L13 28L16 22Z" fill="#FFB054"></path>
+</svg>
+</span>
+<span class="tracking-tight text-primary">Lexkite</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-lg text-label-lg text-text-muted pb-1 hover:text-primary transition-colors duration-150" href="#">Product</a>
+<!-- Active Link: For Schools -->
+<a class="font-label-lg text-label-lg text-primary border-b-2 border-primary pb-1 font-bold" href="#">For Schools</a>
+<a class="font-label-lg text-label-lg text-text-muted pb-1 hover:text-primary transition-colors duration-150" href="#">Curriculum</a>
+<a class="font-label-lg text-label-lg text-text-muted pb-1 hover:text-primary transition-colors duration-150" href="#">Resources</a>
+</nav>
+<!-- Action Cluster -->
+<div class="flex items-center gap-5">
+<a class="font-label-lg text-label-lg text-text-muted hover:text-primary transition-colors duration-150 active:translate-y-[1px]" href="#">Sign in</a>
+<!-- Primary Tactile Button (Start Free) -->
+<a class="bg-gradient-to-r from-cta-gradient-start to-cta-gradient-end text-white font-label-lg text-label-lg px-5 py-2.5 rounded-xl border-b-[5px] border-cta-ledge hover:brightness-105 active:translate-y-[3px] active:border-b-[1px] transition-all flex items-center gap-1.5 shadow-sm" href="#">
+<span>Start free</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Hero & Content Canvas -->
+<main class="flex-1 w-full max-w-[1080px] mx-auto px-6 py-12 md:py-16 space-y-20">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-14 pt-4">
+<div class="flex-1 max-w-xl space-y-6 text-left">
+<!-- Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF1DB] border border-[#FFB054]/40 text-[#B37800] font-label-md text-label-md shadow-xs">
+<span class="material-symbols-outlined text-[16px] text-[#F2553B] material-symbols-fill" data-icon="local_fire_department">local_fire_department</span>
+<span>District-ready IELTS &amp; TOEIC modules</span>
+</div>
+<h1 class="font-display-hero text-[44px] md:text-display-hero font-extrabold text-primary tracking-tight leading-[1.1]">
+          Lexkite for schools
+        </h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-lg leading-relaxed">
+          Game-like IELTS and TOEIC prep your students will actually practice.
+        </p>
+<!-- Primary Tactile Hero CTA Button -->
+<div class="pt-2 flex items-center gap-4">
+<button class="bg-gradient-to-r from-cta-gradient-start to-cta-gradient-end text-[#10191B] font-label-lg text-[17px] px-8 py-4 rounded-xl border-b-[6px] border-cta-ledge hover:brightness-105 active:translate-y-[4px] active:border-b-[2px] transition-all flex items-center gap-2.5 shadow-md font-extrabold tracking-tight">
+<span>Contact us</span>
+<span class="material-symbols-outlined text-[20px] font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Exactly ONE empty dashed teacher slot (STRICTLY NO PERSON OR CHARACTER) -->
+<div class="flex-shrink-0 flex flex-col items-center justify-center">
+<div class="w-[140px] h-[170px] rounded-2xl border-2 border-dashed border-[#2BA39A]/60 bg-[#E6F5F4]/40 flex flex-col items-center justify-center text-center p-3 transition-colors hover:bg-[#E6F5F4]/70 select-none shadow-inner">
+<div class="w-10 h-10 rounded-full bg-[#2BA39A]/15 border border-[#2BA39A]/30 flex items-center justify-center text-[#2BA39A] mb-2.5">
+<span class="material-symbols-outlined text-[22px]" data-icon="badge">badge</span>
+</div>
+<span class="font-label-md text-label-md font-extrabold text-[#0F3D3E] tracking-wider">TEACHER</span>
+<span class="font-label-sm text-[10px] text-text-muted mt-1 uppercase tracking-tight">140×170 slot</span>
+</div>
+</div>
+</section>
+<!-- Section: 5 Big Numbered Step Cards -->
+<section class="space-y-10">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-accent-teal font-label-md text-label-md uppercase tracking-wider font-extrabold">
+<span class="w-2 h-2 rounded-full bg-accent-teal"></span>
+<span>Simple Campus Deployment</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">
+          How to roll out Lexkite in your school
+        </h2>
+</div>
+<!-- 5 Chunky Bento / Step Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Step 01 -->
+<article class="bg-card-surface rounded-2xl border-2 border-card-border shadow-[0_4px_12px_rgba(16,25,27,0.04)] border-b-[5px] border-b-tile-ledge p-7 flex flex-col justify-between hover:-translate-y-0.5 transition-all">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<!-- Glossy Badge: Star/School Board in gold & teal -->
+<div class="w-13 h-13 p-2.5 rounded-2xl bg-[#FFF9E6] border-2 border-[#FFD57E] shadow-[0_3px_0_#E8BA52] flex items-center justify-center text-[#B37800]">
+<span class="material-symbols-outlined text-[28px] material-symbols-fill text-[#B37800]" data-icon="star">star</span>
+</div>
+<span class="font-headline-md text-headline-md text-[#D8CFBC] font-extrabold">01</span>
+</div>
+<div class="space-y-2">
+<span class="inline-block text-[11px] font-label-sm font-bold uppercase tracking-wider text-accent-teal">Step 01</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Classroom mode for teachers</h3>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+                Assign homework modules and generate instant student join codes.
+              </p>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full bg-card-surface text-primary font-label-md text-label-md py-3 px-4 rounded-xl border-2 border-card-border border-b-[4px] border-b-tile-ledge hover:bg-canvas-base active:translate-y-[2px] active:border-b-[2px] transition-all flex items-center justify-center gap-2 font-bold shadow-xs">
+<span class="material-symbols-outlined text-[18px] text-accent-teal" data-icon="dashboard_customize">dashboard_customize</span>
+<span>Setup classes</span>
+</button>
+</div>
+</article>
+<!-- Step 02 -->
+<article class="bg-card-surface rounded-2xl border-2 border-card-border shadow-[0_4px_12px_rgba(16,25,27,0.04)] border-b-[5px] border-b-tile-ledge p-7 flex flex-col justify-between hover:-translate-y-0.5 transition-all">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<!-- Glossy Badge: Puzzle/Browser in sky blue & teal -->
+<div class="w-13 h-13 p-2.5 rounded-2xl bg-[#E6F8F7] border-2 border-[#8FE0D8] shadow-[0_3px_0_#58BDB3] flex items-center justify-center text-[#0D6964]">
+<span class="material-symbols-outlined text-[28px] material-symbols-fill text-[#2BA39A]" data-icon="extension">extension</span>
+</div>
+<span class="font-headline-md text-headline-md text-[#D8CFBC] font-extrabold">02</span>
+</div>
+<div class="space-y-2">
+<span class="inline-block text-[11px] font-label-sm font-bold uppercase tracking-wider text-accent-teal">Step 02</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Domain Chrome extension</h3>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+                Force-install across your Google Workspace domain in one click.
+              </p>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full bg-card-surface text-primary font-label-md text-label-md py-3 px-4 rounded-xl border-2 border-card-border border-b-[4px] border-b-tile-ledge hover:bg-canvas-base active:translate-y-[2px] active:border-b-[2px] transition-all flex items-center justify-center gap-2 font-bold shadow-xs">
+<span class="material-symbols-outlined text-[18px] text-accent-teal" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span>Admin guide</span>
+</button>
+</div>
+</article>
+<!-- Step 03 -->
+<article class="bg-card-surface rounded-2xl border-2 border-card-border shadow-[0_4px_12px_rgba(16,25,27,0.04)] border-b-[5px] border-b-tile-ledge p-7 flex flex-col justify-between hover:-translate-y-0.5 transition-all">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<!-- Glossy Badge: Screen/Devices in amber & teal -->
+<div class="w-13 h-13 p-2.5 rounded-2xl bg-[#FFF5EA] border-2 border-[#FFC887] shadow-[0_3px_0_#EAA149] flex items-center justify-center text-[#B37800]">
+<span class="material-symbols-outlined text-[28px] text-[#FFB054]" data-icon="devices">devices</span>
+</div>
+<span class="font-headline-md text-headline-md text-[#D8CFBC] font-extrabold">03</span>
+</div>
+<div class="space-y-2">
+<span class="inline-block text-[11px] font-label-sm font-bold uppercase tracking-wider text-accent-teal">Step 03</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Deploy the web app</h3>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+                Zero installation on student Chromebooks, iPads, and MacBooks.
+              </p>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full bg-card-surface text-primary font-label-md text-label-md py-3 px-4 rounded-xl border-2 border-card-border border-b-[4px] border-b-tile-ledge hover:bg-canvas-base active:translate-y-[2px] active:border-b-[2px] transition-all flex items-center justify-center gap-2 font-bold shadow-xs">
+<span class="material-symbols-outlined text-[18px] text-accent-teal" data-icon="open_in_browser">open_in_browser</span>
+<span>Launch web</span>
+</button>
+</div>
+</article>
+<!-- Step 04 -->
+<article class="bg-card-surface rounded-2xl border-2 border-card-border shadow-[0_4px_12px_rgba(16,25,27,0.04)] border-b-[5px] border-b-tile-ledge p-7 flex flex-col justify-between hover:-translate-y-0.5 transition-all md:col-span-1 lg:col-span-1">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<!-- Glossy Badge: Key/Identity in mint & coral -->
+<div class="w-13 h-13 p-2.5 rounded-2xl bg-[#FDF1EE] border-2 border-[#FFC2B5] shadow-[0_3px_0_#EB8F7D] flex items-center justify-center text-[#F2553B]">
+<span class="material-symbols-outlined text-[28px] material-symbols-fill text-[#F2553B]" data-icon="vpn_key">vpn_key</span>
+</div>
+<span class="font-headline-md text-headline-md text-[#D8CFBC] font-extrabold">04</span>
+</div>
+<div class="space-y-2">
+<span class="inline-block text-[11px] font-label-sm font-bold uppercase tracking-wider text-accent-teal">Step 04</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Google sign-in for under 18</h3>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+                Single Sign-On through existing Google Workspace for Education accounts.
+              </p>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full bg-card-surface text-primary font-label-md text-label-md py-3 px-4 rounded-xl border-2 border-card-border border-b-[4px] border-b-tile-ledge hover:bg-canvas-base active:translate-y-[2px] active:border-b-[2px] transition-all flex items-center justify-center gap-2 font-bold shadow-xs">
+<span class="material-symbols-outlined text-[18px] text-accent-teal" data-icon="lock_person">lock_person</span>
+<span>Configure SSO</span>
+</button>
+</div>
+</article>
+<!-- Step 05 (Wider span on desktop bento) -->
+<article class="bg-card-surface rounded-2xl border-2 border-card-border shadow-[0_4px_12px_rgba(16,25,27,0.04)] border-b-[5px] border-b-tile-ledge p-7 flex flex-col justify-between hover:-translate-y-0.5 transition-all md:col-span-2 lg:col-span-2">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<!-- Glossy Badge: Shield/Lock in emerald green & teal -->
+<div class="w-13 h-13 p-2.5 rounded-2xl bg-[#E8F8F3] border-2 border-[#91E3C7] shadow-[0_3px_0_#5AC3A0] flex items-center justify-center text-[#0D6964]">
+<span class="material-symbols-outlined text-[28px] material-symbols-fill text-[#2BA39A]" data-icon="verified_user">verified_user</span>
+</div>
+<span class="font-headline-md text-headline-md text-[#D8CFBC] font-extrabold">05</span>
+</div>
+<div class="space-y-2">
+<span class="inline-block text-[11px] font-label-sm font-bold uppercase tracking-wider text-accent-teal">Step 05</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Student data privacy</h3>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed max-w-xl">
+                FERPA &amp; COPPA compliant with zero advertising, zero behavioral profiling, and strict educator-managed tenant privacy controls.
+              </p>
+</div>
+</div>
+<div class="pt-6 max-w-xs">
+<button class="w-full bg-card-surface text-primary font-label-md text-label-md py-3 px-4 rounded-xl border-2 border-card-border border-b-[4px] border-b-tile-ledge hover:bg-canvas-base active:translate-y-[2px] active:border-b-[2px] transition-all flex items-center justify-center gap-2 font-bold shadow-xs">
+<span class="material-symbols-outlined text-[18px] text-accent-teal" data-icon="policy">policy</span>
+<span>View policy</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Bottom CTA Section -->
+<section class="py-6">
+<div class="bg-card-surface rounded-3xl border-2 border-card-border shadow-[0_4px_16px_rgba(16,25,27,0.05)] border-b-[6px] border-b-tile-ledge p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+<!-- Subtle tactile corner accent -->
+<div class="absolute -top-12 -right-12 w-36 h-36 bg-[#FFF2DB]/60 rounded-full border border-card-border pointer-events-none"></div>
+<div class="space-y-3 text-center md:text-left z-10 max-w-lg">
+<div class="inline-flex items-center gap-2 text-accent-teal font-label-md text-label-md font-extrabold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]" data-icon="school">school</span>
+<span>Zero Friction Onboarding</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">
+            Bring Lexkite to your classrooms
+          </h2>
+<p class="font-body-md text-body-md text-text-muted">
+            Empower your language department with structured test routines and real-time student mastery scorecards.
+          </p>
+</div>
+<div class="z-10 flex-shrink-0">
+<button class="bg-gradient-to-r from-cta-gradient-start to-cta-gradient-end text-white font-label-lg text-label-lg px-8 py-4 rounded-xl border-b-[5px] border-cta-ledge hover:brightness-105 active:translate-y-[3px] active:border-b-[1px] transition-all flex items-center gap-3 font-bold shadow-md">
+<span>Get school trial</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component JSON Source of Truth) -->
+<footer class="bg-canvas-base border-t border-card-border flat no shadows docked full-width bottom mt-auto">
+<div class="max-w-[1080px] mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Brand & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+<span class="font-headline-sm text-headline-sm font-extrabold text-primary flex items-center gap-2">
+<span class="w-6 h-6 rounded-lg bg-card-surface border border-card-border flex items-center justify-center p-0.5">
+<svg class="w-4 h-4" fill="none" viewbox="0 0 32 32">
+<path d="M16 3L27 14L16 22L5 14L16 3Z" fill="#2BA39A"></path>
+<path d="M16 3L27 14L16 22V3Z" fill="#F2553B"></path>
+</svg>
+</span>
+<span>Lexkite</span>
+</span>
+<p class="font-body-sm text-body-sm text-text-muted">
+          © 2025 Lexkite Education Inc. All rights reserved. Built for classroom focus and student data privacy.
+        </p>
+</div>
+<!-- Links defined in JSON -->
+<nav class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+<a class="font-label-md text-label-md text-text-muted hover:text-primary transition-colors duration-150 active:translate-y-[1px]" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-primary transition-colors duration-150 active:translate-y-[1px]" href="#">FERPA &amp; COPPA Compliance</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-primary transition-colors duration-150 active:translate-y-[1px]" href="#">Security Whitepaper</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-primary transition-colors duration-150 active:translate-y-[1px]" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-primary transition-colors duration-150 active:translate-y-[1px]" href="#">Help Center</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-primary transition-colors duration-150 active:translate-y-[1px]" href="#">Contact Sales</a>
+</nav>
+</div>
+</footer>
+</body></html>

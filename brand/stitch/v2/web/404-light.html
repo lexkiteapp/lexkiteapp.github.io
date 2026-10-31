@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Oops, this page flew away | Lexkite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..700,0..1,-50..200" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFAF2',
+              100: '#FFF7EA',
+              200: '#FBF0DD',
+              300: '#F2E4CD',
+            },
+            ink: {
+              DEFAULT: '#0F3D3E',
+              deep: '#0B2C2D',
+              muted: '#4E6668',
+              soft: '#7A9193',
+            },
+            teal: {
+              primary: '#2BA39A',
+              deep: '#1F7A75',
+              dark: '#12514D',
+              surface: '#EBF7F6',
+              border: '#BFE7E3',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              hover: '#E0472F',
+              ledge: '#B53A22',
+            },
+            amber: {
+              DEFAULT: '#FFB054',
+              soft: '#FFECCC',
+              ledge: '#D98930',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile 3D Button Physics */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF6F4E 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 #B53A22, 0 10px 18px rgba(181, 58, 34, 0.25);
+      transition: all 0.1s ease-out;
+    }
+    .tactile-btn-primary:hover {
+      filter: brightness(1.03);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 #B53A22, 0 12px 20px rgba(181, 58, 34, 0.28);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #B53A22, 0 4px 8px rgba(181, 58, 34, 0.2);
+    }
+
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      box-shadow: 0 5px 0 #D8CFBC, 0 8px 16px rgba(15, 61, 62, 0.06);
+      transition: all 0.1s ease-out;
+    }
+    .tactile-btn-secondary:hover {
+      background: #FFFCF7;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 #D8CFBC, 0 10px 18px rgba(15, 61, 62, 0.08);
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #D8CFBC, 0 3px 6px rgba(15, 61, 62, 0.05);
+    }
+
+    /* Tactile Nav Cards */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+      border-color: #2BA39A;
+      box-shadow: 0 7px 0 #1F7A75, 0 12px 24px rgba(43, 163, 154, 0.12);
+    }
+    .tactile-card:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #1F7A75;
+    }
+
+    /* Search input tactile shell */
+    .tactile-input {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: inset 0 2px 4px rgba(15, 61, 62, 0.04), 0 3px 0 #D8CFBC;
+    }
+    .tactile-input:focus-within {
+      border-color: #2BA39A;
+      box-shadow: inset 0 2px 4px rgba(43, 163, 154, 0.05), 0 3px 0 #1F7A75, 0 0 0 3px rgba(43, 163, 154, 0.15);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-teal-primary selection:text-white">
+
+  <!-- ================= TOP HEADER (LEXKITE HOME SPEC) ================= -->
+  <header class="w-full bg-[#FFF7EA]/95 backdrop-blur-md sticky top-0 z-50 border-b-2 border-[#EADEC8]">
+    <div class="max-w-[1120px] mx-auto px-6 h-18 py-3.5 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#2BA39A] to-[#36C4B9] flex items-center justify-center shadow-[0_3px_0_#12514D] group-hover:translate-y-[-1px] transition-transform">
+          <!-- Origami Kite Vector -->
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4 12L12 22L20 12L12 2Z" fill="#FFF7EA" opacity="0.3"/>
+            <path d="M12 2L4 12L12 15L20 12L12 2Z" fill="#FFFFFF"/>
+            <path d="M12 15L10 21L12 22L14 21L12 15Z" fill="#FFB054"/>
+          </svg>
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-[15px] font-bold text-[#4E6668]">
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Courses</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Dictionary</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Blog</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Extension</a>
+      </nav>
+
+      <!-- Trailing Action -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="hidden sm:inline-flex px-4 py-2 text-[14px] font-bold text-[#4E6668] hover:text-[#0F3D3E] transition-colors">
+          Sign in
+        </a>
+        <a href="#" class="tactile-btn-primary px-5 py-2.5 rounded-2xl text-[14px] font-extrabold text-white tracking-wide uppercase flex items-center gap-1.5 cursor-pointer">
+          <span>Start free</span>
+          <span class="material-symbols-rounded text-lg">arrow_forward</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= 404 MAIN HERO BODY ================= -->
+  <main class="flex-1 flex flex-col items-center justify-center px-6 py-12 md:py-16">
+    <div class="max-w-[760px] w-full mx-auto text-center flex flex-col items-center">
+
+      <!-- Badge Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFECE7] border border-[#FAD6CD] text-[#F2553B] text-xs font-extrabold uppercase tracking-wider mb-6 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-[#F2553B] animate-pulse"></span>
+        <span>Error 404 • Lost in the sky</span>
+      </div>
+
+      <!-- Playful Big Illustration of Tangled Kite -->
+      <div class="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[4/3] rounded-3xl overflow-hidden mb-8 shadow-[0_12px_32px_rgba(15,61,62,0.08)] border-2 border-[#EADEC8] bg-[#FFFBF4]">
+        <img 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO5LO2CnkewpAOqwvEBjHVcbnRAi4qm5-O2OXSqnY6nSsW2vffxZeaHAq5eHXbgBeMhTRNcfBXK5Di4ZdppGNyY3DfoF4X901WgmCX0xdIG7I5D3A4ubAvNXsEbHHTmCCepaGB7dyZPnE3rmWYhE_11PcV6mEENMEHiAui-o1NVLYQ8Of4QJkMHr5vkC8B_jcf5EkO5G28aeA_WjOe8Bbom9VU9Julxc4C1pWno_ENIcSmgc2GX_tYYUHE2YNj_1aa503P6RDgwos" 
+          alt="Playful 3D illustration of a colorful kite tangled gently in a lush stylized tree" 
+          class="w-full h-full object-cover select-none pointer-events-none"
+        />
+      </div>
+
+      <!-- Friendly Big Headline & One Short Line -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F3D3E] tracking-tight leading-[1.15] mb-3">
+        Oops, this page flew away
+      </h1>
+      <p class="text-base sm:text-lg font-semibold text-[#4E6668] max-w-[480px] mb-8 leading-relaxed">
+        The word or lesson you're looking for got caught up in the breeze.
+      </p>
+
+      <!-- Tactile Search Field -->
+      <div class="w-full max-w-[440px] mb-8">
+        <div class="tactile-input rounded-2xl flex items-center px-4 py-2.5 bg-white transition-all">
+          <span class="material-symbols-rounded text-[#2BA39A] text-2xl mr-2.5">search</span>
+          <input 
+            type="text" 
+            placeholder="Search words, topics, or grammar rules..." 
+            class="w-full bg-transparent text-[15px] font-semibold text-[#0F3D3E] placeholder-[#7A9193] focus:outline-none"
+          />
+          <kbd class="hidden sm:inline-block px-2 py-0.5 text-[11px] font-bold text-[#7A9193] bg-[#FFF7EA] border border-[#EADEC8] rounded-md shadow-xs">
+            /
+          </kbd>
+        </div>
+      </div>
+
+      <!-- Two Chunky Tactile Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-[440px] mb-14">
+        
+        <!-- Primary Button: Go Home -->
+        <a href="#" class="tactile-btn-primary w-full sm:w-1/2 py-3.5 px-6 rounded-2xl text-[16px] font-extrabold text-white text-center flex items-center justify-center gap-2 cursor-pointer">
+          <span class="material-symbols-rounded text-xl">home</span>
+          <span>Go home</span>
+        </a>
+
+        <!-- Secondary Button: Open the App -->
+        <a href="#" class="tactile-btn-secondary w-full sm:w-1/2 py-3.5 px-6 rounded-2xl border-2 border-[#EADEC8] text-[16px] font-extrabold text-[#0F3D3E] text-center flex items-center justify-center gap-2 cursor-pointer">
+          <span class="material-symbols-rounded text-xl text-[#2BA39A]">rocket_launch</span>
+          <span>Open the app</span>
+        </a>
+
+      </div>
+
+      <!-- Quick Divider Label -->
+      <div class="w-full flex items-center justify-center gap-4 max-w-[540px] mb-6">
+        <div class="h-[2px] flex-1 bg-[#EADEC8]"></div>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-[#7A9193]">Or jump right back in</span>
+        <div class="h-[2px] flex-1 bg-[#EADEC8]"></div>
+      </div>
+
+      <!-- Three Small Popular Tiles with Illustrated Icons -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-[580px]">
+        
+        <!-- Tile 1: Dictionary -->
+        <a href="#" class="tactile-card rounded-2xl p-4 flex sm:flex-col items-center sm:text-center gap-3.5 group cursor-pointer">
+          <div class="w-12 h-12 rounded-xl bg-[#EBF7F6] border-2 border-[#BFE7E3] text-[#2BA39A] flex items-center justify-center shadow-[0_3px_0_#A8DCD7] group-hover:scale-105 transition-transform">
+            <span class="material-symbols-rounded text-2xl">menu_book</span>
+          </div>
+          <div>
+            <h3 class="text-[15px] font-extrabold text-[#0F3D3E] group-hover:text-[#2BA39A] transition-colors leading-tight">Dictionary</h3>
+            <p class="text-xs font-semibold text-[#7A9193] mt-0.5">Explore 40k+ words</p>
+          </div>
+        </a>
+
+        <!-- Tile 2: Blog -->
+        <a href="#" class="tactile-card rounded-2xl p-4 flex sm:flex-col items-center sm:text-center gap-3.5 group cursor-pointer">
+          <div class="w-12 h-12 rounded-xl bg-[#FFF2DE] border-2 border-[#FFE0B2] text-[#FFB054] flex items-center justify-center shadow-[0_3px_0_#F0CE99] group-hover:scale-105 transition-transform">
+            <span class="material-symbols-rounded text-2xl">auto_stories</span>
+          </div>
+          <div>
+            <h3 class="text-[15px] font-extrabold text-[#0F3D3E] group-hover:text-[#FFB054] transition-colors leading-tight">Blog</h3>
+            <p class="text-xs font-semibold text-[#7A9193] mt-0.5">Exam tips & guides</p>
+          </div>
+        </a>
+
+        <!-- Tile 3: Level Test -->
+        <a href="#" class="tactile-card rounded-2xl p-4 flex sm:flex-col items-center sm:text-center gap-3.5 group cursor-pointer">
+          <div class="w-12 h-12 rounded-xl bg-[#FFECE7] border-2 border-[#FCD3C9] text-[#F2553B] flex items-center justify-center shadow-[0_3px_0_#EBB8AC] group-hover:scale-105 transition-transform">
+            <span class="material-symbols-rounded text-2xl">speed</span>
+          </div>
+          <div>
+            <h3 class="text-[15px] font-extrabold text-[#0F3D3E] group-hover:text-[#F2553B] transition-colors leading-tight">Level test</h3>
+            <p class="text-xs font-semibold text-[#7A9193] mt-0.5">Free 5-min check</p>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= FRIENDLY FOOTER (BRIGHT DAY SPEC) ================= -->
+  <footer class="w-full bg-[#FFF0DB] border-t-2 border-[#EADEC8] py-8 px-6 mt-12">
+    <div class="max-w-[1120px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      
+      <!-- Footer Logo & Tagline -->
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-[#2BA39A] flex items-center justify-center text-white shadow-xs">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4 12L12 22L20 12L12 2Z" fill="#FFF7EA" opacity="0.4"/>
+            <path d="M12 2L4 12L12 15L20 12L12 2Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <p class="text-xs font-bold text-[#4E6668]">
+          © 2025 Lexkite Prep Inc. Free, tactile vocabulary mastery for IELTS, TOEIC & TOEFL.
+        </p>
+      </div>
+
+      <!-- Footer Quick Links -->
+      <div class="flex items-center gap-6 text-xs font-bold text-[#4E6668]">
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Privacy</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Terms</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Editorial Standards</a>
+        <a href="#" class="hover:text-[#0F3D3E] transition-colors">Help Center</a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

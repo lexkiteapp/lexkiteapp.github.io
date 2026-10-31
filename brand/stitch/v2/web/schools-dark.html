@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite for Schools — Tactile Night</title>
+<!-- Google Font: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              canvas: '#081518',
+              card: '#142328',
+              cardLight: '#1A2C33',
+              border: '#2B424B',
+              borderHover: '#3D5E6B',
+              btn: '#1D333B',
+              btnBorder: '#33525D',
+              btnLedge: '#0A1417',
+              ledge: '#071012'
+            },
+            tealAccent: {
+              DEFAULT: '#2BA39A',
+              light: '#36C8BD',
+              glow: 'rgba(43, 163, 154, 0.25)',
+              faint: 'rgba(43, 163, 154, 0.12)'
+            },
+            candy: {
+              coral: '#F2553B',
+              coralLedge: '#B53A22',
+              amber: '#FFB054',
+              amberLedge: '#C4721D'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Tactile Styles -->
+<style data-purpose="tactile-elevation">
+    /* Tactile 3D bottom ledges */
+    .tactile-card {
+      box-shadow: 0 6px 0 #071012;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #071012;
+    }
+
+    .btn-candy {
+      background: linear-gradient(135deg, #F2553B 0%, #FF7A3D 50%, #FF9E42 100%);
+      box-shadow: 0 5px 0 #B53A22, 0 10px 18px rgba(242, 85, 59, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .btn-candy:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 #B53A22, 0 12px 20px rgba(242, 85, 59, 0.42);
+    }
+    .btn-candy:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+
+    .btn-tactile-secondary {
+      box-shadow: 0 4px 0 #0A1417;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+    }
+    .btn-tactile-secondary:hover {
+      background-color: #233C45;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #0A1417;
+    }
+    .btn-tactile-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #0A1417;
+    }
+  </style>
+<!-- END: Custom Tactile Styles -->
+</head>
+<body class="bg-night-canvas text-[#EEF6F7] font-sans antialiased min-h-screen selection:bg-tealAccent selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-[#081518]/90 backdrop-blur-md border-b border-[#1A2D33]" data-purpose="site-navigation">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a aria-label="Lexkite Home" class="flex items-center gap-3 group focus:outline-none" href="#">
+<div class="w-10 h-10 rounded-xl bg-[#142328] border border-[#2B424B] p-2 flex items-center justify-center shadow-inner group-hover:border-tealAccent transition-colors">
+<svg class="w-full h-full fill-none stroke-current" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<!-- Kite geometric emblem -->
+<polygon class="stroke-[#2BA39A] fill-[#2BA39A]/20" points="12 2 20 10 12 22 4 10"></polygon>
+<line class="stroke-[#FFB054]" x1="12" x2="12" y1="2" y2="22"></line>
+<line class="stroke-[#F2553B]" x1="4" x2="20" y1="10" y2="10"></line>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight text-white font-sans">Lexkite</span>
+</a>
+<!-- Navigation Links -->
+<nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold text-[#9FB4B7] hover:text-white transition-colors" href="#">Product</a>
+<a class="text-sm font-semibold text-white relative py-1" href="#">
+          For Schools
+          <span class="absolute bottom-0 left-0 right-0 h-0.5 bg-tealAccent rounded-full"></span>
+</a>
+<a class="text-sm font-semibold text-[#9FB4B7] hover:text-white transition-colors" href="#">Curriculum</a>
+<a class="text-sm font-semibold text-[#9FB4B7] hover:text-white transition-colors" href="#">Resources</a>
+</nav>
+<!-- Header Actions -->
+<div class="flex items-center gap-6">
+<a class="text-sm font-semibold text-[#D4E2E4] hover:text-white transition-colors" href="#">Sign in</a>
+<a class="btn-candy text-white text-sm font-bold px-5 py-2.5 rounded-xl inline-flex items-center gap-2 tracking-wide border-t border-white/20" href="#">
+<span>Start free</span>
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="pt-14 pb-20 relative overflow-hidden" data-purpose="hero">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Content -->
+<div class="lg:col-span-8 flex flex-col items-start">
+<!-- Badge: District-ready IELTS & TOEIC modules -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#142328] border border-[#2B424B] text-[#FFB054] text-xs font-semibold tracking-wide mb-6">
+<svg class="w-4 h-4 text-[#FFB054]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12.8 2.2c-.3-.3-.8-.3-1 0-1.8 2-3.8 5-3.8 8.1 0 2.2 1.3 4 3 4.9-.3-.9-.4-1.9-.3-2.9.2-1.4 1-2.6 1.9-3.7.8-1 1.7-2 2.1-3.2.4-1.2.2-2.3-.9-3.2zm-2.1 11.2c-1.3-.8-2.2-2.3-2.2-4 0-1.7.9-3.4 1.8-4.8-2.8 2.2-4.3 5.7-4.3 9.4 0 5 4 9 9 9s9-4 9-9c0-2.3-.8-4.5-2.2-6.2-.2 1.7-.9 3.3-2 4.6-.9 1.1-2 2-2.4 3.4-.4 1.3-.2 2.6.5 3.7-1.9-.3-3.6-1.5-4.2-3.4z"></path>
+</svg>
+<span>District-ready IELTS &amp; TOEIC modules</span>
+</div>
+<!-- Hero Headline -->
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12] mb-5">
+            Lexkite for schools
+          </h1>
+<!-- Hero Subtitle -->
+<p class="text-lg sm:text-xl text-[#D4E2E4] font-medium max-w-xl mb-9 leading-relaxed">
+            Game-like IELTS and TOEIC prep your students will actually practice.
+          </p>
+<!-- Primary CTA Button -->
+<a class="btn-candy px-8 py-3.5 rounded-xl text-white font-bold text-base inline-flex items-center gap-2.5 border-t border-white/25" href="#">
+<span>Contact us</span>
+<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+<!-- Right Side: Teacher Placeholder Slot (140x170 empty slot as defined in design system) -->
+<div class="lg:col-span-4 flex justify-start lg:justify-end">
+<div class="w-[140px] h-[170px] rounded-2xl border-2 border-dashed border-[#2BA39A]/60 bg-[#142328]/70 flex flex-col items-center justify-center p-3 text-center shadow-lg" data-purpose="teacher-slot">
+<div class="w-10 h-10 rounded-xl bg-tealAccent-faint border border-[#2BA39A]/40 flex items-center justify-center mb-3 text-tealAccent">
+<!-- Teacher badge icon -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="text-xs font-bold tracking-wider text-white">TEACHER</span>
+<span class="text-[10px] font-mono text-[#9FB4B7] mt-1 tracking-tight">140x170 SLOT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: DeploymentStepsSection -->
+<section class="py-12 relative" data-purpose="rollout-steps">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Section Header -->
+<div class="mb-10">
+<div class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-tealAccent-light mb-3">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-tealAccent shadow-[0_0_8px_#2BA39A]"></span>
+<span>Simple Campus Deployment</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            How to roll out Lexkite in your school
+          </h2>
+</div>
+<!-- Step Cards Layout: Top 3 items, Bottom 2 items -->
+<div class="space-y-6">
+<!-- Top Row (3 Columns) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 01: Classroom mode for teachers -->
+<div class="tactile-card bg-night-card border-2 border-night-border rounded-2xl p-7 flex flex-col justify-between" data-purpose="step-card-01">
+<div>
+<!-- Top Row: Icon + Step Number -->
+<div class="flex items-center justify-between mb-6">
+<div class="w-12 h-12 rounded-xl bg-[#282622] border-2 border-[#544122] flex items-center justify-center text-[#FFB054]">
+<!-- Star Icon -->
+<svg class="w-6 h-6 stroke-current fill-none stroke-[2]" viewbox="0 0 24 24">
+<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>
+</div>
+<span class="text-2xl font-black text-[#5C757E] font-mono tracking-tight">01</span>
+</div>
+<p class="text-xs font-extrabold text-tealAccent tracking-wider uppercase mb-1.5">Step 01</p>
+<h3 class="text-xl font-bold text-white mb-2.5">Classroom mode for teachers</h3>
+<p class="text-sm font-medium text-[#D4E2E4] leading-relaxed mb-6">
+                  Assign homework modules and generate instant student join codes.
+                </p>
+</div>
+<!-- Button CTA -->
+<a class="btn-tactile-secondary w-full py-3 px-4 rounded-xl bg-night-btn border-2 border-night-btnBorder text-white text-xs font-bold inline-flex items-center justify-center gap-2 tracking-wide" href="#">
+<svg class="w-4 h-4 text-tealAccent stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="7" rx="1.5" width="7" x="3" y="3"></rect>
+<rect height="7" rx="1.5" width="7" x="14" y="3"></rect>
+<rect height="7" rx="1.5" width="7" x="14" y="14"></rect>
+<rect height="7" rx="1.5" width="7" x="3" y="14"></rect>
+</svg>
+<span>Setup classes</span>
+</a>
+</div>
+<!-- Card 02: Domain Chrome extension -->
+<div class="tactile-card bg-night-card border-2 border-night-border rounded-2xl p-7 flex flex-col justify-between" data-purpose="step-card-02">
+<div>
+<!-- Top Row: Icon + Step Number -->
+<div class="flex items-center justify-between mb-6">
+<div class="w-12 h-12 rounded-xl bg-[#172D2B] border-2 border-[#20534E] flex items-center justify-center text-tealAccent">
+<!-- Extension Puzzle Icon -->
+<svg class="w-6 h-6 stroke-current fill-none stroke-[2]" viewbox="0 0 24 24">
+<path d="M19.439 7.85c0-1.571-1.28-2.85-2.85-2.85h-1.59a2.5 2.5 0 0 0-4.998 0H8.41c-1.57 0-2.85 1.279-2.85 2.85v1.59a2.5 2.5 0 0 0 0 4.998v1.59c0 1.571 1.28 2.85 2.85 2.85h1.59a2.5 2.5 0 0 0 4.998 0h1.59c1.57 0 2.85-1.279 2.85-2.85v-1.59a2.5 2.5 0 0 0 0-4.998v-1.59z"></path>
+</svg>
+</div>
+<span class="text-2xl font-black text-[#5C757E] font-mono tracking-tight">02</span>
+</div>
+<p class="text-xs font-extrabold text-tealAccent tracking-wider uppercase mb-1.5">Step 02</p>
+<h3 class="text-xl font-bold text-white mb-2.5">Domain Chrome extension</h3>
+<p class="text-sm font-medium text-[#D4E2E4] leading-relaxed mb-6">
+                  Force-install across your Google Workspace domain in one click.
+                </p>
+</div>
+<!-- Button CTA -->
+<a class="btn-tactile-secondary w-full py-3 px-4 rounded-xl bg-night-btn border-2 border-night-btnBorder text-white text-xs font-bold inline-flex items-center justify-center gap-2 tracking-wide" href="#">
+<svg class="w-4 h-4 text-tealAccent stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Admin guide</span>
+</a>
+</div>
+<!-- Card 03: Deploy the web app -->
+<div class="tactile-card bg-night-card border-2 border-night-border rounded-2xl p-7 flex flex-col justify-between" data-purpose="step-card-03">
+<div>
+<!-- Top Row: Icon + Step Number -->
+<div class="flex items-center justify-between mb-6">
+<div class="w-12 h-12 rounded-xl bg-[#2A231C] border-2 border-[#573F26] flex items-center justify-center text-[#FF9E42]">
+<!-- Devices / Web Screen Icon -->
+<svg class="w-6 h-6 stroke-current fill-none stroke-[2]" viewbox="0 0 24 24">
+<rect height="11" rx="2" width="14" x="2" y="3"></rect>
+<path d="M6 18h6"></path>
+<path d="M9 14v4"></path>
+<rect height="13" rx="2" width="8" x="14" y="8"></rect>
+</svg>
+</div>
+<span class="text-2xl font-black text-[#5C757E] font-mono tracking-tight">03</span>
+</div>
+<p class="text-xs font-extrabold text-tealAccent tracking-wider uppercase mb-1.5">Step 03</p>
+<h3 class="text-xl font-bold text-white mb-2.5">Deploy the web app</h3>
+<p class="text-sm font-medium text-[#D4E2E4] leading-relaxed mb-6">
+                  Zero installation on student Chromebooks, iPads, and MacBooks.
+                </p>
+</div>
+<!-- Button CTA -->
+<a class="btn-tactile-secondary w-full py-3 px-4 rounded-xl bg-night-btn border-2 border-night-btnBorder text-white text-xs font-bold inline-flex items-center justify-center gap-2 tracking-wide" href="#">
+<svg class="w-4 h-4 text-tealAccent stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Launch web</span>
+</a>
+</div>
+</div>
+<!-- Bottom Row (2 Columns matching original balance) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:max-w-[78%]">
+<!-- Card 04: Google sign-in for under 18 -->
+<div class="tactile-card bg-night-card border-2 border-night-border rounded-2xl p-7 flex flex-col justify-between" data-purpose="step-card-04">
+<div>
+<!-- Top Row: Icon + Step Number -->
+<div class="flex items-center justify-between mb-6">
+<div class="w-12 h-12 rounded-xl bg-[#2D1E1E] border-2 border-[#542B28] flex items-center justify-center text-[#F2553B]">
+<!-- Key / SSO Icon -->
+<svg class="w-6 h-6 stroke-current fill-none stroke-[2]" viewbox="0 0 24 24">
+<circle cx="8" cy="15" r="4"></circle>
+<line x1="10.85" x2="19" y1="12.15" y2="4"></line>
+<line x1="18" x2="20" y1="5" y2="7"></line>
+<line x1="15" x2="17" y1="8" y2="10"></line>
+</svg>
+</div>
+<span class="text-2xl font-black text-[#5C757E] font-mono tracking-tight">04</span>
+</div>
+<p class="text-xs font-extrabold text-tealAccent tracking-wider uppercase mb-1.5">Step 04</p>
+<h3 class="text-xl font-bold text-white mb-2.5">Google sign-in for under 18</h3>
+<p class="text-sm font-medium text-[#D4E2E4] leading-relaxed mb-6">
+                  Single Sign-On through existing Google Workspace for Education accounts.
+                </p>
+</div>
+<!-- Button CTA -->
+<a class="btn-tactile-secondary w-full py-3 px-4 rounded-xl bg-night-btn border-2 border-night-btnBorder text-white text-xs font-bold inline-flex items-center justify-center gap-2 tracking-wide" href="#">
+<svg class="w-4 h-4 text-tealAccent stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="10" rx="2" width="14" x="5" y="11"></rect>
+<path d="M8 11V7a4 4 0 018 0v4"></path>
+</svg>
+<span>Configure SSO</span>
+</a>
+</div>
+<!-- Card 05: Student data privacy -->
+<div class="tactile-card bg-night-card border-2 border-night-border rounded-2xl p-7 flex flex-col justify-between" data-purpose="step-card-05">
+<div>
+<!-- Top Row: Icon + Step Number -->
+<div class="flex items-center justify-between mb-6">
+<div class="w-12 h-12 rounded-xl bg-[#182F2C] border-2 border-[#265952] flex items-center justify-center text-tealAccent">
+<!-- Shield / Protection Icon -->
+<svg class="w-6 h-6 stroke-current fill-none stroke-[2]" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+<path d="M9 12l2 2 4-4"></path>
+</svg>
+</div>
+<span class="text-2xl font-black text-[#5C757E] font-mono tracking-tight">05</span>
+</div>
+<p class="text-xs font-extrabold text-tealAccent tracking-wider uppercase mb-1.5">Step 05</p>
+<h3 class="text-xl font-bold text-white mb-2.5">Student data privacy</h3>
+<p class="text-sm font-medium text-[#D4E2E4] leading-relaxed mb-6">
+                  FERPA &amp; COPPA compliant with zero advertising, zero behavioral profiling, and strict educator-managed tenant privacy controls.
+                </p>
+</div>
+<!-- Button CTA -->
+<a class="btn-tactile-secondary w-full py-3 px-4 rounded-xl bg-night-btn border-2 border-night-btnBorder text-white text-xs font-bold inline-flex items-center justify-center gap-2 tracking-wide" href="#">
+<svg class="w-4 h-4 text-tealAccent stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>View policy</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: DeploymentStepsSection -->
+<!-- BEGIN: ClassroomTrialBanner -->
+<section class="py-14" data-purpose="bottom-cta-banner">
+<div class="max-w-7xl mx-auto px-6">
+<div class="tactile-card relative overflow-hidden bg-night-card border-2 border-night-border rounded-3xl p-8 sm:p-12">
+<!-- Decorative subtle tactile corner glow -->
+<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-tealAccent/10 pointer-events-none blur-3xl"></div>
+<div class="absolute right-0 top-0 w-36 h-36 bg-[#1A333A]/40 rounded-bl-[100px] border-b border-l border-[#2B424B]/60 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+<div class="max-w-2xl">
+<!-- Pill badge -->
+<div class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-tealAccent-light mb-3">
+<svg class="w-4 h-4 text-tealAccent" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Zero Friction Onboarding</span>
+</div>
+<!-- Title -->
+<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                Bring Lexkite to your classrooms
+              </h2>
+<!-- Description -->
+<p class="text-base sm:text-lg text-[#D4E2E4] font-medium leading-relaxed">
+                Empower your language department with structured test routines and real-time student mastery scorecards.
+              </p>
+</div>
+<!-- CTA Button -->
+<div class="flex-shrink-0">
+<a class="btn-candy px-8 py-4 rounded-xl text-white font-bold text-base inline-flex items-center gap-2.5 border-t border-white/25" href="#">
+<span>Get school trial</span>
+<svg class="w-5 h-5 text-white stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ClassroomTrialBanner -->
+</main>
+<!-- BEGIN: MainFooter -->
+<footer class="mt-12 border-t border-[#16272D] bg-[#061113] py-12" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+<!-- Footer Brand & Copyright -->
+<div class="flex items-center gap-4">
+<!-- Logo Emblem -->
+<div class="w-8 h-8 rounded-lg bg-[#142328] border border-[#2B424B] p-1.5 flex items-center justify-center flex-shrink-0">
+<svg class="w-full h-full fill-none stroke-current" stroke-width="2.2" viewbox="0 0 24 24">
+<polygon class="stroke-[#2BA39A] fill-[#2BA39A]/20" points="12 2 20 10 12 22 4 10"></polygon>
+<line class="stroke-[#FFB054]" x1="12" x2="12" y1="2" y2="22"></line>
+<line class="stroke-[#F2553B]" x1="4" x2="20" y1="10" y2="10"></line>
+</svg>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+<span class="text-sm font-bold text-white">Lexkite</span>
+<span class="text-xs text-[#9FB4B7]">
+            © 2025 Lexkite Education Inc. All rights reserved. Built for classroom focus and student data privacy.
+          </span>
+</div>
+</div>
+<!-- Compliance and Policy Links -->
+<nav aria-label="Footer Legal Links" class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-[#9FB4B7]">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">FERPA &amp; COPPA Compliance</a>
+<a class="hover:text-white transition-colors" href="#">Security Whitepaper</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Help Center</a>
+<a class="hover:text-white transition-colors" href="#">Contact Sales</a>
+</nav>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
