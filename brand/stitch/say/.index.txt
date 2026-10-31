@@ -1,3 +1,6 @@
-card-front-light  key3 project 18075333702575270507 screen eba65977720e4215b266255d17c5e767  #/say/<series>/<n> front (Bright Day)
-card-back-dark    key3 project 18075333702575270507 screen c1950bd955774592964b228870af9b8d  #/say/<series>/<n> back (Tactile Night)
-video-frame       key3 project 18075333702575270507 screen 607afcf38f06478ea6189d2d39ed0693  teach2d template react (9:16, dusk)
+card-front-light  key3 project 18075333702575270507 screen bf8455322eae44aa99d581337a491489  #/say/<series>/<n> front (Bright Day) – v2, owner OK 31/10
+card-back-dark    key3 project 18075333702575270507 screen 282bdd1d46b94109a706bb4f766ca836  #/say/<series>/<n> back (Tactile Night) – v2 look, phone-width redraw
+video-frame       key3 project 18075333702575270507 screen 280bdc95625945b09e55a64044221bdf  teach2d template react (9:16) – v2, owner OK 31/10
+card-front-dark   key3 project 18075333702575270507 screen fa7c2328bb734310b56be4c0b3ba744b  front, Tactile Night colour pair of cardA (edit, same layout)
+card-back-light   key3 project 18075333702575270507 screen 9f0d8842538c4973900e1fefb0068ee4  back, Bright Day colour pair of cardB (edit, same layout)
+v2 port sources: brand/stitch/v2/say-{front,back}-{light,dark}.html (bind maps brand/stitch/v2/bind/say-{front,back}.json still TODO)
