@@ -265,7 +265,7 @@ async function perf(w) {
 
 // ---------- 4) Dung lượng sau N bài ----------
 async function storage() {
-  const { ctx, page, take } = await context(390, 'light');
+  const { ctx, page, take } = await context(390, 'light', { ux1: 1 }); // #/lesson/go cần ux1 (như live)
   const rec = { lessons: LESSONS, points: [], fails: [] };
   try {
     await boot(page, '/home'); await sleep(1200);

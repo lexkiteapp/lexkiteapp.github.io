@@ -129,7 +129,7 @@
       const kids = [...box.children].filter(c => { const q = vis(c); if (!q) return false; const p = getComputedStyle(c).position; return p !== 'absolute' && p !== 'fixed'; });
       if (kids.length < 3) continue;
       const cs = getComputedStyle(box), flexWrap = /flex/.test(cs.display) && cs.flexWrap !== 'nowrap' && cs.flexDirection.startsWith('row');
-      const inl = kids.every(c => /inline/.test(getComputedStyle(c).display));
+      const inl = kids.filter(c => /inline/.test(getComputedStyle(c).display)).length >= kids.length * 0.6 && /^(block|inline|inline-block|flow-root|list-item)$/.test(cs.display); // dòng chữ trộn nút (phiên âm US 🔊 · UK 🔊)
       if (!flexWrap && !inl) continue;
       const rows = []; for (const c of kids) { const q = c.getBoundingClientRect(); const r = rows.find(r => Math.abs(r.top - q.top) < q.height / 2); if (r) r.items.push([c, q]); else rows.push({ top: q.top, items: [[c, q]] }); }
       if (rows.length < 2) continue;
@@ -142,7 +142,9 @@
       const t = (e.textContent || '').trim(); if (!t || t.length > 3 || /^\d+%?$/.test(t)) continue;
       const q = vis(e); if (!q || q.width > 60) continue;
       const par = e.parentElement, sib = [...par.children].filter(c => c !== e && vis(c)), P = par.getBoundingClientRect();
-      const alone = !sib.length && (par.textContent || '').trim() === t && P.width > q.width * 5;
+      const ecs = getComputedStyle(e), chip = (ecs.backgroundColor && !/rgba\(0, 0, 0, 0\)|transparent/.test(ecs.backgroundColor)) || parseFloat(ecs.borderTopWidth) > 0;
+      const rowMates = sib.filter(c => { const r = c.getBoundingClientRect(); return r.bottom > q.top + 2 && r.top < q.bottom - 2; });
+      const alone = P.width > q.width * 5 && ((!sib.length && (par.textContent || '').trim() === t) || (chip && sib.length && !rowMates.length));
       if (alone) add('lone', 'fail', e, `nhãn "${t}" đứng trơ một mình cả hàng (khung ${Math.round(P.width)}px)`);
     }
     // 6c) ô chọn / ô nhập không có nhãn NHÌN THẤY (aria-label không đủ cho người nhìn): <label>, placeholder (ô nhập) hoặc chữ ngay trước trong cùng hàng
