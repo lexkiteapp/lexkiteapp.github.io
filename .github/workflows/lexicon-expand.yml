@@ -1,7 +1,7 @@
 # Mở rộng kho từ tới 20k (docs/LEXICON.md §Mở rộng 20k) – việc nền `lexicon-expand` (infra/jobs.json, thuê gemini).
 # SOURCE-FIRST (24/10): nghĩa/def WordNet (AI chỉ viết lại gloss) · ví dụ Tatoeba + Wiktionary · dịch bảng Wiktionary theo nghĩa · CEFR-J/Octanove · AI chỉ chấm + lấp chỗ trống → 2 giám khảo khác họ + dịch ngược → cổng.
 # Thông lượng (10/2026): 2.400 từ/ngày ≈ 6.700 lượt GrabCast (≤ 270/phút của ai-pool, trần AI_POOL_GC_MAX 20.000) ≈ 60 phút (concurrency 8 – 16 làm GrabCast 500).
-# Đạt → content/lexicon/expand/pending (CHƯA xuất, chờ soát mẫu ≥ 5 % rồi promote.mjs); trượt → content/qa/review-queue.json. Tự đỏ khi 0 mục đạt.
+# Đạt → content/lexicon/expand/pending (CHƯA xuất; lô ngày trước được soát mẫu tự động – audit.mjs – rồi promote.mjs); trượt → content/qa/review-queue.json. Tự đỏ khi 0 mục đạt.
 name: Mở rộng kho từ (lexicon-expand)
 on:
   schedule:
@@ -12,6 +12,7 @@ on:
     - cron: '17 */3 * * *'   # lịch theo biến repo: LX_PILOT=1 (pilot rải đều, chờ soát 50 mẫu) → 0 khi pilot đạt ≤ 1/50; LX_N số từ mới/lượt; LX_RETRY
   workflow_dispatch:
     inputs:
+      audit: { description: 'Chỉ soát THỬ lô chờ <lô> bằng audit.mjs (pilot, không xuất, không ghi)', default: '' }
       n: { description: 'Số từ MỚI lượt này (+ từ làm lại ở content/lexicon/expand/retry)', default: '' } # trống = biến repo LX_N (30/10: mặc định '2400' đè LX_N=600 → lượt 2.400 mục)
       pilot: { description: 'Pilot: rải đều dải tần suất (1 = có)', default: '0' }
       calls: { description: 'Trần số lần gọi /api/lexai (Gemini kho Lexkite – 26/10 rỗng; > 0 chỉ khi kho có khóa VÀ thêm gemini vào resources ở infra/jobs.json)', default: '0' }
@@ -30,6 +31,7 @@ jobs:
     timeout-minutes: 200   # 30/10 đo pilot 9: ~14 s/từ (Gemini 3.x chậm) → LX_N 600 ≈ 140 phút
     steps:
       - uses: actions/checkout@v4
+        with: { ref: '${{ github.ref }}' }   # 31/10: lượt chờ hàng đợi (concurrency) phải lấy main MỚI lúc chạy, không phải SHA lúc xếp hàng (run 41178484346 làm lại retry cũ + xung đột khi lưu)
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
@@ -57,7 +59,7 @@ jobs:
           node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
           python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
       - name: Sinh + 2 giám khảo + cổng
-        if: ${{ steps.lease.outputs.skip != '1' }}
+        if: ${{ steps.lease.outputs.skip != '1' && github.event.inputs.audit == '' }}
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite (nếu còn khóa) → cf2 = kho CF_POOL xoay vòng (gpt-oss-120b soạn/giám khảo A, llama-3.3-70b giám khảo B) 
           # 26/10: GrabCast hỏng (500) → bỏ GRABCAST_AI_KEY. Chủ cho dùng MỌI tài khoản kho (VIMG_POOL_SKIP 0); không bao giờ tài khoản chính (CF_ACCOUNT_1 để loại).
           CF_POOL: ${{ secrets.CF_POOL }}
@@ -83,22 +85,46 @@ jobs:
       - name: Chấm tự động mẫu cố định (nhãn xấu không được lọt · LÕI / DỊCH / IPA – docs/QUALITY-PIPELINE.md bước 3)
         if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words != '' }}
         run: node scripts/lexicon/expand/grade.mjs --labels content/lexicon/expand/pilot/labels.json --sheet 50
-      - name: Lưu kết quả (chờ soát – chưa xuất)
+      - name: Soát mẫu + xuất lô chờ của NGÀY TRƯỚC (tự động 31/10 – audit.mjs 3 giám khảo khác họ, sai ≥ 2/3; promote.mjs cổng IPA + spot ≤ 2 %)
         if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words == '' }}
+        env:
+          CF_POOL: ${{ secrets.CF_POOL }}
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
+          VIMG_POOL_SKIP: '0'
+          VIMG_CF_USE_CF2: '0'
+        run: |
+          AU="${{ github.event.inputs.audit }}"; [ -n "$AU" ] && { LEASE_AI_B_NEURONS=60000 node scripts/lexicon/expand/audit.mjs "$AU" --dry --out "$RUNNER_TEMP/checked.json"; cat "$RUNNER_TEMP/checked.json" | head -c 20000; exit 0; }
+          T=$(date -u +%Y%m%d)
+          for f in content/lexicon/expand/pending/*.json; do
+            [ -f "$f" ] || continue; B=$(basename "$f" .json); case "$B" in *pilot*) continue;; esac
+            [[ "$B" < "$T" ]] || continue   # lô hôm nay còn nhận mục – soát khi đã khép ngày
+            LEASE_AI_B_NEURONS=60000 node scripts/lexicon/expand/audit.mjs "$B" --out "$RUNNER_TEMP/checked-$B.json" || continue   # exit 3 = thiếu giám khảo → lượt sau
+            node scripts/lexicon/expand/promote.mjs "$B" --checked "$RUNNER_TEMP/checked-$B.json" --fix-ipa --britfone "$RUNNER_TEMP/britfone.csv" --cmu "$RUNNER_TEMP/cmu.dict" || echo "::warning::xuất lô $B bị từ chối (xem log bước này)"
+          done
+      - name: Lưu kết quả (chờ soát – chưa xuất)
+        if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words == '' && github.event.inputs.audit == '' }}
         run: |
           cat reports/lexicon-expand.json 2>/dev/null >> "$GITHUB_STEP_SUMMARY" || true
           node scripts/ai-capacity.mjs || true   # thẻ Sức chứa AI (Quản trị › Khóa API)
           node scripts/lexicon/expand/requeue.mjs --gaps || true   # mục trượt vì lỗ IPA nguồn → retry, không để kẹt hàng duyệt (npm test chặn)
-          test -n "$(git status --porcelain content/lexicon/expand content/qa/review-queue.json web/data/ai-capacity.json)" || { echo 'không có thay đổi'; exit 0; }
+          # 31/10 (run 41178484346 mất 161 mục đạt vì rebase xung đột): chép bản lượt ra ngoài → origin/main mới → gộp 3 chiều JSON (save-merge.mjs) → push; không bao giờ mất lô
+          CH=$(git ls-files -m -o -d --exclude-standard -- content/lexicon/expand content/qa/review-queue.json content/qa/batches web/data/ai-capacity.json | sort -u)
+          test -n "$CH" || { echo 'không có thay đổi'; exit 0; }
+          BASE=$(git rev-parse HEAD); O="$RUNNER_TEMP/ours"
+          for f in $CH; do mkdir -p "$O/$(dirname "$f")"; [ -f "$f" ] && cp "$f" "$O/$f"; done
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add content/lexicon/expand content/qa/review-queue.json web/data/ai-capacity.json
-          git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main && node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
+            git diff --cached --quiet && { echo 'đã có trên main'; exit 0; }
+            git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip]" && git push -q origin HEAD:main && exit 0
+            sleep $((i * 7)); done; exit 1
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: lexicon-expand, path: reports/, retention-days: 14 }
       - name: Tự nối lượt (chạy liên tục trong ngày thay vì chờ cron – như vocab-img-scene)
-        if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words == '' }}
+        if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words == '' && github.event.inputs.audit == '' }}
         env: { GH_TOKEN: '${{ github.token }}', CHAIN: '${{ vars.LX_CHAIN }}' }
         run: |
           [ "$CHAIN" = 0 ] && { echo "chuỗi tắt (LX_CHAIN=0)"; exit 0; }
