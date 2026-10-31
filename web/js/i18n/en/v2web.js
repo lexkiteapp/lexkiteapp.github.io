@@ -1,0 +1,22 @@
+/* English UI – v2web (trang web Stitch: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+  "Bài luyện tương tác miễn phí": "FREE INTERACTIVE DRILL",
+  "Bài viết mới nhất": "Latest posts",
+  "Có thắc mắc?": "Got Questions?",
+  "Dùng trên web & Chrome": "Available on Web & Chrome",
+  "Giáo viên Ama": "Teacher Ama",
+  "Học liệu mở": "Open Syllabus",
+  "Lặp lại ngắt quãng & luyện ngắn mỗi ngày": "Spaced Repetition & Daily Micro-Drills",
+  "Lọc bài viết trên trang này…": "Filter posts on this page…",
+  "Lộ trình học tập": "Learning Path",
+  "Miễn phí 100% • Không tường phí": "100% Free • No Paywall",
+  "Mở menu": "Open menu",
+  "Sẵn sàng bứt phá?": "Ready to climb?",
+  "Tiện ích trình duyệt": "Browser Extension",
+  "Tính năng học tập": "Curriculum Features",
+  "Xem tất cả bài viết": "View all articles",
+  "Đang hiện": "Showing",
+  "Đường dẫn trang": "Breadcrumb",
+  "Đọc bài hướng dẫn": "Read guide",
+  "Đọc toàn bài": "Read Full Lesson",
+}); })(typeof self !== 'undefined' ? self : this);

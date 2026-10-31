@@ -5,7 +5,7 @@ import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox,
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
 import crypto from 'node:crypto';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
+import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail, stPage, writingD, writingCard, speakingD, speakingCard, pagerRel } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.en, U = SU.en;
 // URL công khai không đuôi .html (Cloudflare Pages chuyển 308 /x.html → /x); file trên đĩa vẫn là *.html
 const today = new Date().toISOString().slice(0, 10);
@@ -19,11 +19,13 @@ const crumbs = (path, name) => { const p = path.split('/'), it = [['Home', SITE 
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: it.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) }; };
 // <!--HL--> được out() thay bằng hreflang vi/en/x-default nếu bản tiếng Việt tồn tại. <head> giữ nguyên từng thẻ như bản cũ.
 // o: { lr: thuộc tính thêm cho LearningResource, ld: JSON-LD thêm } – trang bài mẫu/speaking tự gắn CSS samples-ui (.smp)
-const head = (title, desc0, path, o = {}) => { const desc = clip(desc0); return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${SITE}${path}"><!--HL--><meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="en_US"><meta property="og:url" content="${SITE}${path}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${OG}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${ld({ '@context': 'https://schema.org', '@type': 'LearningResource', name: title, description: desc, url: SITE + path, inLanguage: 'en', isAccessibleForFree: true, educationalLevel: 'IELTS / TOEIC', provider: { '@type': 'Organization', name: 'Lexkite', url: SITE }, ...(o.lr || {}) })}${ld(crumbs(path, title.replace(/\s*[–|]\s*Lexkite$/, '')))}${(o.ld || []).map(ld).join('')}${/^en\/(samples|speaking|ielts-writing)\//.test(path) ? smpHead() : ''}`; };
+const head = (title, desc0, path, o = {}) => { const desc = clip(desc0); return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${SITE}${path}"><!--HL--><meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="en_US"><meta property="og:url" content="${SITE}${path}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${OG}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${ld({ '@context': 'https://schema.org', '@type': 'LearningResource', name: title, description: desc, url: SITE + path, inLanguage: 'en', isAccessibleForFree: true, educationalLevel: 'IELTS / TOEIC', provider: { '@type': 'Organization', name: 'Lexkite', url: SITE }, ...(o.lr || {}) })}${ld(crumbs(path, title.replace(/\s*[–|]\s*Lexkite$/, '')))}${(o.ld || []).map(ld).join('')}${/^en\/(samples|speaking|ielts-writing)\//.test(path) && !o.st ? smpHead() : ''}`; };
 const page = (title, desc, path, viPath, body, name, o = {}) => {
   const p = path.split('/'), sec = p[1], id = p[2];
   const vis = [['Home', '/en/'], [SEC[sec] || sec, `/en/${sec}/`], ...(SUB[id] && p[3] ? [[SUB[id], `/en/${sec}/${id}/`]] : []), ...(id ? [[name || title, `/${path}`]] : [])];
-  return seoPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis, body, alt: fs.existsSync(file(viPath)) ? `/${viPath}` : '', section: `/en/${sec}/` });
+  const alt = fs.existsSync(file(viPath)) ? `/${viPath}` : '';
+  if (o.st) return stPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis, alt, k: o.st, d: body, ext: o.ext }); // khung Stitch v2.1: body = dữ liệu d (samples-ui writingD/speakingD)
+  return seoPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis, body, alt, section: `/en/${sec}/` });
 };
 const file = p => 'dist/' + (p.endsWith('/') ? p + 'index.html' : p + '.html');
 // Cặp vi ↔ en: hreflang hai chiều giống hệt nhau (vi, en, x-default → bản tiếng Anh cho người dùng ngôn ngữ khác)
@@ -44,25 +46,20 @@ const SEEN = new Set(), uniqT = (a, b) => { const v = SEEN.has(a) ? b : a; SEEN.
 // ---- Writing Task 2 ---- (giao diện bài mẫu: scripts/lib/samples-ui.mjs – nhãn vai trò đoạn/câu bằng tiếng Anh, không có nghĩa tiếng Việt)
 {
   lm = gitDate('web/js/write.js', 'web/js/models.js', 'web/js/write');
-  const { PROMPTS: P, MODELS } = loadWriting();
+  const { PROMPTS: P, MODELS } = loadWriting(), { audioKey } = loadVocab();
   const done = []; for (const p of P) { const m = MODELS.find(x => x.id === 't2-' + p.id); if (m) done.push([p, m]); }
   const t2Card = ([p, m]) => smpCard({ href: `/en/samples/${p.id}`, cls: typeCls(p.type), tag: p.type, title: p.text, band: m.band, meta: [`${m.words} ${U.words}`, `${docStats(m.text).phrases} ${U.phrases}`, U.min(mins(m.words))], key: `${p.type} ${p.topic}` });
   done.forEach(([p, m], di) => {
     const gl = [...m.text.matchAll(/\[\[([^|\]]*)\|/g)].map(x => x[1]);
     const paras = parseDoc(m.text, 'en'), st = docStats(m.text), prev = done[di - 1], next = done[di + 1];
-    out(`en/samples/${p.id}`, `samples/${p.id}`, page(`IELTS Writing Task 2 Band ${m.band} Sample: ${short(p.text, 70)}`, uniqT(`Band ${m.band} IELTS Writing Task 2 model answer (${p.type}, ${m.words} words) with ${gl.length} highlighted high-scoring phrases and linking words.`, `Band ${m.band} IELTS Writing Task 2 model answer (${p.type}, ${m.words} words): ${short(p.text, 90)}`), `en/samples/${p.id}`, `samples/${p.id}`,
-      `<article class="page smp smp-doc ${typeCls(p.type)}">${hero2({ kicker: ['IELTS Writing Task 2', `Question type: ${p.type}`], h1: `IELTS Writing Task 2 – Band ${esc(m.band)} Sample`,
-        statsHtml: stats([[m.band, 'Band', 'band'], [m.words, U.words], [paras.length, U.paras], [st.phrases, U.phrases], [st.links, U.links], [mins(m.words), U.minL]]) })}
-${promptBox(U.prompt, `<p>${esc(p.text)}</p>`)}
-${ctaBox(`${APP}/model/t2-${p.id}`, '✍️ Practise this question free on Lexkite', 'Open in the app', 'Interactive model answer, outline and linking words.')}
-<div class="ess-grid">${sideHtml(paras, 'en')}<div class="ess-main"><h2>Model answer</h2>${embedWatermark(docHtml(paras, 'en'), `LK:en/samples/${p.id}:${lm.replace(/-/g, '')}`)}
-<h2>Useful phrases (${gl.length})</h2>${phraseCards(gl.map(e => [e]))}${saveBox(`${APP}/model/t2-${p.id}`, 'en')}</div></div>
-${ctaKit(`${APP}/write/${p.id}`, 'Write your own answer and get instant feedback', 'Start writing', 'Word count, idea prompts and scoring on the 4 IELTS criteria.')}
-${pager2(prev && [`/en/samples/${prev[0].id}`, short(prev[0].text, 90)], next && [`/en/samples/${next[0].id}`, short(next[0].text, 90)], 'en')}
-${related(relatedOf(done, done[di], d => d[0].type === p.type, 4), t2Card)}
-${extBox('en', 'samples')}
-${pwaBox('en', 'samples')}</article>${smpTail('en')}`, `Band ${m.band}: ${short(p.text, 50)}`,
-      { lr: { learningResourceType: 'Sample essay', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS Writing Task 2 – ${p.type}`, assesses: `IELTS Band ${m.band}` } }));
+    const title = `IELTS Writing Task 2 Band ${m.band} Sample: ${short(p.text, 70)}`, desc = uniqT(`Band ${m.band} IELTS Writing Task 2 model answer (${p.type}, ${m.words} words) with ${gl.length} highlighted high-scoring phrases and linking words.`, `Band ${m.band} IELTS Writing Task 2 model answer (${p.type}, ${m.words} words): ${short(p.text, 90)}`);
+    // Khung Stitch v2.1 (brand/stitch/web/sample-*.html): đề, dàn bài, chú thích màu, bài mẫu (thủy ấn), cụm từ (+ nút nghe nếu có audio), CTA app, Ama, bài trước/sau + liên quan, add-on/PWA
+    const ess = embedWatermark(paras.map(x => `<p>${x.html}</p>`).join('\u0000'), `LK:en/samples/${p.id}:${lm.replace(/-/g, '')}`).split('\u0000').map(x => x.slice(3, -4));
+    const card = ([d, rel]) => writingCard('en', `/en/samples/${d[0].id}`, d, rel);
+    const d = writingD('en', { p, m, paras, st, gl: gl.map(e => [e]), ess, h1: `IELTS Writing Task 2 – Band ${m.band} Sample`, lead: desc, modelHref: `${APP}/model/t2-${p.id}`, writeHref: `${APP}/write/${p.id}`,
+      secHref: '/en/samples/', secName: SEC.samples, ak: audioKey, rel: pagerRel(prev, relatedOf(done, done[di], d => d[0].type === p.type, 4), next, (a, b) => !!b && a[0].id === b[0].id).map(card) });
+    out(`en/samples/${p.id}`, `samples/${p.id}`, page(title, desc, `en/samples/${p.id}`, `samples/${p.id}`, d, `Band ${m.band}: ${short(p.text, 50)}`,
+      { st: 'sample', ext: extBox('en', 'samples') + pwaBox('en', 'samples'), lr: { learningResourceType: 'Sample essay', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS Writing Task 2 – ${p.type}`, assesses: `IELTS Band ${m.band}` } }));
   });
   const by = {}; for (const d of done) (by[d[0].type] = by[d[0].type] || []).push(d);
   const types = Object.entries(by), gls = done.reduce((a, [, m]) => a + docStats(m.text).phrases, 0);
@@ -93,20 +90,13 @@ ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.m
   for (const [id, b, i] of made) {
     const topic = (b.topic || '').replace(/-/g, ' '), prev = made[i - 1], next = made[i + 1];
     const nV = qs(b).reduce((a, q) => a + ((S[q] && S[q].vocab) || []).length, 0), nW = qs(b).reduce((a, q) => a + ((S[q] && S[q].a) || '').split(/\s+/).length, 0);
-    out(`en/speaking/${id}`, `speaking/${viSlug(b.title)}`, page(uniqT(`IELTS Speaking: ${b.p2.q.replace(/\.$/, '')} – Part 1, 2, 3 Sample Answers`, `IELTS Speaking (${topic}): ${b.p2.q.replace(/\.$/, '')} – Sample Answers`), uniqT(`IELTS Speaking questions on ${topic} (Parts 1–3) with band 8 sample answers. Cue card: ${b.p2.q}`, `Band 8 IELTS Speaking sample answers (${topic}, Parts 1–3). Part 1: ${(b.p1 && b.p1[0] && (b.p1[0].q || b.p1[0])) || ''} Cue card: ${b.p2.q}`), `en/speaking/${id}`, `speaking/${viSlug(b.title)}`,
-      `<article class="page smp smp-doc narrow ${topicCls(b.topic)}">${hero2({ kicker: ['IELTS Speaking', ...(topic ? [topic] : [])], h1: `IELTS Speaking – ${esc(name(b))}`,
-        statsHtml: stats([[qs(b).length, U.questions], [nV, U.phrases], [mins(nW), U.minL]]) })}
-<nav class="jump" aria-label="${U.partsL}"><a href="#part-1">Part 1</a><a href="#part-2">Part 2 – Cue card</a><a href="#part-3">Part 3</a></nav>
-${ctaBox(`${APP}/speaking/p1/${i}`, '🎙️ Practise speaking this topic (record & get feedback)', 'Practise speaking', 'Record your answer and get feedback on pronunciation and fluency.')}
-${part(1, '💬', 'Part 1', b.p1.map((q, k) => qa(q, k + 1)).join(''))}
-${part(2, '🃏', 'Part 2 – Cue card', `<div class="q cue"><p class="ck">Cue card</p><p>${esc(b.p2.q)}</p><p class="ys">${U.youShould}</p><ul>${b.p2.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div><div class="qa">${ans(b.p2.q)}</div>`)}
-${part(3, '🧠', 'Part 3', b.p3.map((q, k) => qa(q, k + 1)).join(''))}
-${ctaKit(`${APP}/speaking/p2/${i}`, 'Try Part 2 with a timer', 'Start', '1 minute to prepare, 2 minutes to speak – just like the real test.')}
-${pager2(prev && [`/en/speaking/${prev[0]}`, name(prev[1])], next && [`/en/speaking/${next[0]}`, name(next[1])], 'en', true)}
-${related(relatedOf(made, made[i], () => true, 4), spCard)}
-${extBox('en', 'speaking')}
-${pwaBox('en', 'speaking')}</article>${smpTail('en')}`, name(b),
-      { lr: { learningResourceType: 'Sample answers', teaches: `IELTS Speaking – ${topic || name(b)}`, timeRequired: `PT${mins(nW)}M` } }));
+    const title = uniqT(`IELTS Speaking: ${b.p2.q.replace(/\.$/, '')} – Part 1, 2, 3 Sample Answers`, `IELTS Speaking (${topic}): ${b.p2.q.replace(/\.$/, '')} – Sample Answers`), desc = uniqT(`IELTS Speaking questions on ${topic} (Parts 1–3) with band 8 sample answers. Cue card: ${b.p2.q}`, `Band 8 IELTS Speaking sample answers (${topic}, Parts 1–3). Part 1: ${(b.p1 && b.p1[0] && (b.p1[0].q || b.p1[0])) || ''} Cue card: ${b.p2.q}`);
+    // Khung Stitch v2.1 (brand/stitch/web/speaking-*.html): Part 1/2/3 + cue card + câu trả lời mẫu (tô từ vựng thật), Carlos (listen), CTA luyện nói, chủ đề trước/sau + liên quan, add-on/PWA
+    const card = ([[cid, cb], rel]) => speakingCard('en', `/en/speaking/${cid}`, cb, name(cb), rel);
+    const d = speakingD('en', { b, i, N: made.length, S, topic, h1: `IELTS Speaking – ${name(b)}`, lead: desc, p1Href: `${APP}/speaking/p1/${i}`, p2Href: `${APP}/speaking/p2/${i}`, secHref: '/en/speaking/',
+      rel: pagerRel(prev, relatedOf(made, made[i], () => true, 4), next, (a, x) => !!x && a[0] === x[0]).map(card) });
+    out(`en/speaking/${id}`, `speaking/${viSlug(b.title)}`, page(title, desc, `en/speaking/${id}`, `speaking/${viSlug(b.title)}`, d, name(b),
+      { st: 'speaking', ext: extBox('en', 'speaking') + pwaBox('en', 'speaking'), lr: { learningResourceType: 'Sample answers', teaches: `IELTS Speaking – ${topic || name(b)}`, timeRequired: `PT${mins(nW)}M` } }));
   }
   const nQ = made.reduce((a, [, b]) => a + qs(b).length, 0);
   out('en/speaking/', 'speaking/', page(`${made.length} IELTS Speaking Topics with Sample Answers – Lexkite`, `${made.length} IELTS Speaking topics: Part 1–3 questions, Part 2 cue cards and band 8 sample answers. Practise free.`, 'en/speaking/', 'speaking/',

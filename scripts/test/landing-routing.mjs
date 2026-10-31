@@ -74,8 +74,8 @@ for (const l of LANGS) {
   const head = html.slice(0, html.indexOf('</head>'));
   ok(/^<!doctype html>\n<html lang="[a-z]{2}"/.test(html) && html.includes(`<html lang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}>`), `${f}: html lang/dir`);
   ok(head.indexOf('id="lk-route"') > 0 && head.indexOf('id="lk-route"') < head.indexOf('<style>') && head.indexOf('id="lk-route"') < head.indexOf('<title>'), `${f}: script định tuyến phải nằm đầu <head> (trước khi vẽ)`);
-  ok(!/<script[^>]+src=/.test(html), `${f}: không được tải script ngoài (LCP)`);
-  ok(!/<link[^>]+rel="stylesheet"/.test(html), `${f}: CSS phải nội tuyến (không chặn hiển thị)`);
+  ok([...html.matchAll(/<script\b([^>]*\bsrc=[^>]*)>/g)].every(([, a]) => /(^|\s)defer(\s|$)/.test(a) && /\ssrc="\/js\/[\w./-]+\?v=[0-9a-f]{8}"/.test(a)), `${f}: script ngoài phải defer, cùng gốc dưới /js/ và có ?v=<hash> (LCP)`);
+  ok([...html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '').matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/g)].every(([t]) => /\smedia="print"/.test(t) && /\sdata-swap[\s>]/.test(t)), `${f}: không có stylesheet chặn hiển thị (chỉ media="print" data-swap + bản <noscript>)`);
   ok(head.includes(`<link rel="canonical" href="${expectHref(l)}">`), `${f}: canonical tự trỏ`);
   const alts = [...head.matchAll(/<link rel="alternate" hreflang="([a-z-]+)" href="([^"]+)">/g)];
   ok(alts.length === 16 && LANGS.every(x => alts.some(a => a[1] === x && a[2] === expectHref(x))) && alts.some(a => a[1] === 'x-default' && a[2] === expectHref('en')), `${f}: cần 15 hreflang + x-default (/en/)`);
@@ -106,8 +106,11 @@ for (const l of LANGS.filter(x => x !== 'vi')) {
 }
 
 // ---------- 3) Gợi ý ngôn ngữ (chỉ người dùng thật, sau khi vẽ) ----------
+// jsdom không tải file: <script defer src="/js/…?v="> → chạy đúng file web/js/… ở cuối <body> (như defer: sau khi parse xong DOM)
+const deferInline = html => { const js = []; html = html.replace(/<script defer src="(\/js\/[^"?]+)\?v=[0-9a-f]+"><\/script>/g, (_, p) => { js.push(rd('web' + p)); return ''; });
+  return html.replace('</body>', () => js.map(c => `<script>${c}</script>`).join('') + '</body>'); };
 async function hint(file, langs, local = {}) {
-  const html = rd(file).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const html = deferInline(rd(file)).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
   const dom = new JSDOM(html, { url: 'https://lexkite.com/', runScripts: 'dangerously', beforeParse(w) { Object.defineProperty(w.navigator, 'languages', { get: () => langs }); for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v); } });
   await new Promise(r => setTimeout(r, 10));
   return dom.window;
@@ -137,7 +140,7 @@ async function hint(file, langs, local = {}) {
     ok(items.length === LANGS.length && items.every(a => a.getAttribute('href') === landingHref(a.lang) && a.getAttribute('hreflang') === a.lang && a.textContent === LANG_NAMES[a.lang]) && items.filter(a => a.hasAttribute('aria-current')).map(a => a.lang).join() === l && items.find(a => a.lang === 'ar').getAttribute('dir') === 'rtl', `${fileOf(l)}: 15 ngôn ngữ tên bản địa, lang/hreflang, trỏ trang chủ từng ngôn ngữ, đánh dấu ngôn ngữ hiện tại, ar RTL`);
   }
   // Hành vi bàn phím/chuột chạy thật trong jsdom (trang ar để thử RTL); KHÔNG tự chuyển trang theo lựa chọn đã nhớ
-  const html = rd('web/ar/index.html').replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const html = deferInline(rd('web/ar/index.html')).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
   const dom = new JSDOM(html, { url: 'https://lexkite.com/ar/', runScripts: 'dangerously', beforeParse(w) { w.localStorage.setItem('vb.uiLang', 'ja'); w.localStorage.setItem('lk.lhint', '1'); } });
   await new Promise(r => setTimeout(r, 10));
   const w = dom.window, d = w.document, b = d.querySelector('[data-lsw] button'), m = d.getElementById(b.getAttribute('aria-controls')), key = (el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));

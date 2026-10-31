@@ -28,10 +28,15 @@ export const orgNode = () => ({ '@type': 'Organization', '@id': `${SITE}/#org`, 
 export const editorialNode = lang => ({ '@type': 'Organization', '@id': `${SITE}/#editorial`, name: 'Lexkite Editorial Team', url: SITE + authPath(has(lang) ? lang : 'en', 'team'), parentOrganization: { '@id': `${SITE}/#org` } });
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // Dòng tác giả hiển thị trong bài blog (+ ngày kiểm chứng nếu có). Ngôn ngữ chưa có bản dịch → không hiện (không lẫn tiếng).
+// Dữ liệu dòng tác giả (khung Stitch của bài blog): { team: [href, chữ], fc: [href, chữ] | null } | null (ngôn ngữ chưa có hồ sơ đội)
+export const blogBylineData = (lang, factChecked, fmt) => {
+  if (!has(lang)) return null;
+  const s = authStrings(lang);
+  return { team: [authPath(lang, 'team'), s.byline], fc: factChecked && !isNaN(Date.parse(factChecked)) ? [authPath(lang, 'policy'), s.factChecked.replace('{date}', fmt(Date.parse(factChecked)))] : null };
+};
 export const blogByline = (lang, factChecked, fmt) => {
-  if (!has(lang)) return '';
-  const s = authStrings(lang), fc = factChecked && !isNaN(Date.parse(factChecked)) ? ` · <a href="${authPath(lang, 'policy')}">${esc(s.factChecked.replace('{date}', fmt(Date.parse(factChecked))))}</a>` : '';
-  return `<span class="by"><a href="${authPath(lang, 'team')}" rel="author">${esc(s.byline)}</a>${fc}</span>`;
+  const b = blogBylineData(lang, factChecked, fmt); if (!b) return '';
+  return `<span class="by"><a href="${b.team[0]}" rel="author">${esc(b.team[1])}</a>${b.fc ? ` · <a href="${b.fc[0]}">${esc(b.fc[1])}</a>` : ''}</span>`;
 };
 // Cột "Thông tin" của chân trang: trang Giới thiệu + chính sách biên tập + nghiên cứu (ngôn ngữ chưa có bản dịch → [] và giữ link cũ)
 export const authFoot = lang => (has(lang) ? [[authPath(lang, 'policy'), authStrings(lang).nav.policy], [authPath(lang, 'research'), authStrings(lang).nav.research]] : []);

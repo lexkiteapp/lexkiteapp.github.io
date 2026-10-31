@@ -6,7 +6,7 @@ cd "$(dirname "$0")/../web/js/i18n" || exit 1
 # verbs exams skills: chuỗi trang Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm → gói i18nl (App.need); khóa khung app/add-on cần ngay ở en/xcore.js.
 # lazyui: chuỗi CHỈ module tải lười dùng, chuyển khỏi en.js 28/10 (khung app có chỗ trống) → gói i18nl. Báo khóa nên chuyển: node scripts/test/shell-size.mjs.
 # i18n-missing.mjs / i18n-qa.mjs đọc danh sách này để kiểm cả các nhóm đó.
-LAZY="ux1 v2 goal lesson ret adoffer report anki usage explain account extpanel share export criteria notices pathx rpbasic resources qtips quick lfx wfeed classroom lvideo confidence rmodes nextstep ads remind structs toefl league call handoff pron ota speakt ideast verbs exams skills lazyui"
+LAZY="ux1 v2 goal lesson ret adoffer report anki usage explain account extpanel share export criteria notices pathx rpbasic resources qtips quick lfx wfeed classroom lvideo confidence rmodes nextstep ads remind structs toefl league call handoff pron ota speakt ideast verbs exams skills lazyui v2web"
 {
   echo '/* English UI – FILE SINH TỰ ĐỘNG từ js/i18n/en/*.js bằng scripts/build-i18n.sh. Đừng sửa tay. */'
   for f in core topics writing xcore study shell ext hubs writecheck roleplay streak; do cat "en/$f.js"; echo; done

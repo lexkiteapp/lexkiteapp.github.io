@@ -137,6 +137,7 @@ on:
       - 'hair-try'
       - 'video-motion'
       - 'teach-video'
+      - 'Stitch web'
       - 'Kiểm tra sau deploy (post-deploy-check)'
       - 'Preview site'
   schedule:

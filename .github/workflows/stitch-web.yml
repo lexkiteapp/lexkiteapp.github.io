@@ -1,0 +1,51 @@
+# 🎯 Trang web tĩnh theo Stitch v2.1: build dist/ thật → so với mẫu brand/stitch/web (SSIM + nhịp hàng, 1280/390, sáng/tối), axe AA (tương phản 4.5/3),
+# chạm ≥ 44 px, không cuộn ngang, CLS, Lighthouse mobile KHÔNG thấp hơn bản đang chạy (lexkite.com)
+# (best-practices chỉ báo cáo: máy chủ tĩnh cục bộ không có header bảo mật của Cloudflare _headers → luôn thấp hơn bản chạy, không phản ánh trang) – tờ duyệt cho chủ. Ngưỡng chỉ nâng (scripts/test/stitch-web-diff.json).
+name: Stitch web
+on:
+  pull_request:
+    paths: ['brand/stitch/web/**', 'web/js/st/web/**', 'web/css/st-w-*', 'web/js/i18n/*/v2web.js', 'scripts/lib/st-web.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/samples-ui.mjs', 'scripts/build-landing.mjs', 'scripts/build-blog.mjs', 'scripts/build-samples*.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', 'scripts/test/stitch-web-diff.*', '.github/workflows/stitch-web.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stitch-web-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Khung + CSS Stitch web khớp nguồn (Tailwind biên dịch sẵn, không CDN)
+        run: |
+          npm ci --no-audit --no-fund
+          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 playwright@1.48.2 pngjs@7.0.0 axe-core@4.10.2 jsdom@25.0.1
+          node scripts/stitch-v2-convert.mjs --web --check
+          node scripts/build-stitch-css.mjs --check
+      - name: Build dist (như Cloudflare Pages)
+        run: bash scripts/build-web.sh >/dev/null
+      - name: So với mẫu Stitch + axe + chạm + CLS
+        run: |
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji fonts-liberation >/dev/null || true  # Liberation = font dự phòng khớp số đo (như Arial trên máy người dùng) → CLS đo đúng
+          node scripts/test/stitch-web-diff.mjs dist out/stitch-web
+      - name: Lighthouse mobile – không thấp hơn bản đang chạy
+        if: ${{ !cancelled() }}
+        run: |
+          (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1; mkdir -p out/stitch-web/lh; fail=0
+          for p in "en/" "en/samples/p27.html" "en/speaking/thoi-tiet-cac-mua.html" "en/blog/academic-word-list/" "en/blog/"; do
+            k=$(echo "$p" | tr -c 'a-z0-9' '_'); live=$(echo "$p" | sed 's/\.html$//')
+            for s in loc live; do u="http://localhost:8080/$p"; [ $s = live ] && u="https://lexkite.com/$live"
+              for i in 1 2 3; do npx -y lighthouse@12.2.1 "$u" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/$s$i.json --quiet || true; done; done
+            node -e "
+              const fs=require('fs'),sc=s=>[1,2,3].map(i=>'/tmp/'+s+i+'.json').filter(f=>fs.existsSync(f)).map(f=>JSON.parse(fs.readFileSync(f))).map(d=>Object.fromEntries(Object.entries(d.categories).map(([k,v])=>[k,Math.round(v.score*100)]))).sort((a,b)=>a.performance-b.performance)[1]||null;
+              const L=sc('loc'),R=sc('live');fs.writeFileSync('out/stitch-web/lh/$k.json',JSON.stringify({loc:L,live:R}));console.log('$p',JSON.stringify({loc:L,live:R}));
+              if(L&&R){const bad=['accessibility','seo'].filter(c=>L[c]<R[c]).concat(L.performance<R.performance-5?['performance']:[]);if(bad.length){console.log('::error::Lighthouse $p thấp hơn bản đang chạy: '+bad.join(','));process.exit(1)}}" || fail=1
+            rm -f /tmp/loc?.json /tmp/live?.json
+          done; exit $fail
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: stitch-web, path: out/stitch-web, retention-days: 14 }
