@@ -18,7 +18,7 @@
 
 ## 5 nâng cấp ưu tiên (đều $0, chạy trên GitHub Actions)
 
-1. **Độ to −16 LUFS ở mọi nơi.** Gộp #281, sau đó áp cổng cho audio câu và đổi hậu tố khoá CDN. Sửa tài liệu VIDEO-SCALE-PLAN về −16. Độ khó: thấp. Xung đột: thuộc phạm vi #281, phải chờ PR đó gộp xong.
+1. **Độ to −16 LUFS ở mọi nơi.** Gộp #281, sau đó áp cổng cho audio câu và đổi hậu tố khoá CDN. VIDEO-SCALE-PLAN đã sửa về −16 (PR này). Độ khó: thấp. Xung đột: thuộc phạm vi #281, phải chờ PR đó gộp xong.
 2. **Chấm phát âm theo âm vị (GOP) chạy trên máy.** Đưa wav2vec2 lượng tử hoá vào app. Đo PER và PCC trên speechocean762, cổng CI PER ≤ 12 %. Độ khó: cao. Xung đột: #294 (chấm Play & Speak) và #286 (dữ liệu 44 âm) nên làm sau 2 PR này.
 3. **Cổng ASR cho 25 479 câu**, như đang làm với từ. Render lại câu trượt với mp3 64 kbps (hậu tố mới). Với 185 từ trượt, thêm bộ kiểm bằng forced-alignment theo IPA. Bộ kiểm này dùng thêm, chặt bằng hoặc chặt hơn Whisper, không nới ngưỡng. Độ khó: vừa. Không xung đột.
 4. **Phát ổn định mọi máy.** Mở khoá âm thanh ở lần chạm đầu (iOS Safari), giọng máy dự phòng chọn đúng nam/nữ, tải trước mục kế tiếp, gói offline khoảng 3 000 từ và bài học. Thêm test Playwright WebKit. Độ khó: vừa. Kiểm `web/js/ui.js` có nằm trong #294 không trước khi sửa.
