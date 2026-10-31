@@ -40,13 +40,14 @@
   function face(rig, who, onFail) {
     const LS = g.LipSync, LF = g.LipFace, R = LF.RIG[who], id = 'tf' + (++uid), pic = new Image(), hi = (g.devicePixelRatio || 1) * (rig.clientWidth || 200) > 320;
     const seed = s => { let h = 7; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) | 0; return h; };
-    const idle = LF.machine(who, { dur: 120, seed: seed(who) }), stats = { frames: 0, long: 0, t0: 0 };
+    const idle = LF.machine(who, { dur: 120, seed: seed(who) }), stats = { frames: 0, long: 0, t0: 0, mode: 'idle' };
     let W = null, G = null, S = null, raf = 0, dead = false, last = '', lastTf = '', prev = 0, ac = null;
     try { const A = g.AudioContext || g.webkitAudioContext; if (A) ac = new A(); } catch (e) { ac = null; }
     const frame = now => {
       if (dead) return;
       const dt = prev ? (now - prev) / 1000 : 1 / 60; prev = now; stats.frames++; if (dt > 0.05) stats.long++;
       let s;
+      stats.mode = S ? (S.L ? 'live' : 'pre') : 'idle';
       if (S) { const t = S.clk(); if (S.L) { S.L.tick(t, S.voiced(), Math.min(dt, 0.1)); s = S.M.at(Math.max(0, t - LS.LEAD)); } else s = S.M.at(t); }
       else s = idle.at((now / 1000) % 120);
       const h = LF.svg(who, s, id); if (h !== last) { G.innerHTML = h; last = h; }
