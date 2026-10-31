@@ -17,12 +17,13 @@ const N = Math.min(keys.length, Math.max(+arg('--sample', 50), Math.ceil(keys.le
 const S = sampleKeys(id, keys, N);
 
 const SYS = 'You are a strict senior lexicographer auditing FINISHED entries of an English learner dictionary for Vietnamese and international learners. ' +
-  'Each item gives the headword, part of speech (pos) and the locked WordNet sense (sense). Check every field against THAT sense and pos: ' +
+  'Each item gives the headword, part of speech (pos) and the locked WordNet sense (sense: synset id such as pine.n.01, optionally with a gloss). Check every field against THAT sense and pos: ' +
   '(1) def states this sense, correct pos; (2) each example uses the headword in this sense, naturally; (3) vi is a correct Vietnamese equivalent for this sense (not another sense, not a non-word); ' +
   '(4) each translation in m (ISO codes) is a real word/phrase in that language meaning this sense with matching pos; (5) level (CEFR) is plausible. ' +
-  'Flag ONLY real errors a teacher would correct (wrong sense, wrong pos, wrong or nonexistent word, unnatural/misleading example). Do not flag style, acceptable synonyms or missing languages. ' +
+  'Flag ONLY real errors a teacher would correct (wrong sense, wrong pos, wrong or nonexistent word, unnatural/misleading example). Do not flag style, acceptable synonyms, missing languages or the sense field itself. ' +
   'Return JSON {"<k>": {"ok": true|false, "bad": ["field: short reason"]}} with one key per item.';
-const forAudit = k => { const e = P.items[k]; return { k, w: e.w, pos: e.pos, sense: (e.src && e.src.trSense) || e.gloss || '', def: e.def, ex: e.ex, vi: e.vi, m: e.m, level: e.level }; };
+// sense = số synset WordNet + nghĩa (pilot 41191760433: trSense trống ở nhiều mục → giám khảo nêu oan "sense missing")
+const forAudit = k => { const e = P.items[k]; return { k, w: e.w, pos: e.pos, sense: [String((e.src && e.src.sense) || '').replace(/^wordnet-3\.0:/, ''), (e.src && e.src.trSense) || e.gloss || ''].filter(Boolean).join(' – '), def: e.def, ex: e.ex, vi: e.vi, m: e.m, level: e.level }; };
 const AI = createPool({ prompt: req => ({ sys: SYS, user: JSON.stringify(req.items), temp: 0.1 }) });
 const V = {}, chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, i * n + n));
 const verdict = (o, k) => { const v = o && o[k]; if (!v || typeof v !== 'object') return null; return v.ok === false || v.ok === 'false' ? { bad: [].concat(v.bad || 'lỗi') } : v.ok === true || v.ok === 'true' ? { bad: [] } : null; };
