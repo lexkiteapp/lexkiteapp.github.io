@@ -38,6 +38,9 @@ jobs:
         if: steps.count.outputs.left != '0'
         run: |
           AUDIO_MIN=240 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '1500' }}"
+      - name: Chuẩn hoá độ to (−16 LUFS, đỉnh ≤ −1 dBTP – scripts/audio/norm.mjs; lệch chuẩn → không đẩy)
+        if: steps.count.outputs.left != '0'
+        run: '[ -d .media-out/audio/l ] && node scripts/audio/loudness.mjs normalize .media-out/audio/l || [ ! -d .media-out/audio/l ]'
       - name: Khoá deploy kho media
         if: steps.count.outputs.left != '0'
         env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }

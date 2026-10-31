@@ -2,13 +2,15 @@
 // Độ to giọng nói (EBU R128) – MỘT chuẩn cho mọi clip app phát: −16 LUFS tích hợp, đỉnh thật ≤ −1 dBTP, lệch tối đa ±1 LU.
 //   node scripts/audio/loudness.mjs measure <thư mục|tệp>… [--out report.json] [--md summary.md]   → đo từng mp3 (ffmpeg ebur128 peak=true)
 //   node scripts/audio/loudness.mjs gate <report.json>                                              → thoát 1 nếu có clip lệch chuẩn
+//   node scripts/audio/loudness.mjs normalize <thư mục> [--out <thư mục đích>] [--only-off]           → chuẩn hoá (tại chỗ hoặc sang thư mục đích, giữ đường dẫn tương đối)
 // Việc nặng (ffmpeg hàng chục nghìn tệp) CHỈ chạy trên CI: ngoài $CI script tự từ chối (docs/METHODS.md).
 // Chuẩn và hàm chuẩn hoá dùng chung cho các đường ống sinh âm thanh: scripts/audio/norm.mjs.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
-import { TARGET_LUFS, MAX_TP, TOL_LU, MEASURE_AF, parseSummary } from './norm.mjs';
+import { fileURLToPath } from 'node:url';
+import { TARGET_LUFS, MAX_TP, TOL_LU, MEASURE_AF, parseSummary, normalizeFile, measureFile, inSpec } from './norm.mjs';
 
 const A = process.argv.slice(2), cmd = A[0], opt = (k, d) => { const i = A.indexOf('--' + k); return i >= 0 ? A[i + 1] : d; };
 const rest = A.slice(1).filter((a, i, all) => !a.startsWith('--') && !(i > 0 && all[i - 1].startsWith('--')));
@@ -86,8 +88,28 @@ function gate() {
   console.log(`✓ loudness: ${rep.rows.length} clip đúng chuẩn`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Chuẩn hoá mọi mp3 trong thư mục (đường ống sinh âm thanh gọi trước khi đẩy lên kho media). Lỗi bất kỳ clip → thoát 1 (không đẩy clip lệch chuẩn).
+async function normalize() {
+  if (!process.env.CI) { console.error('loudness: chỉ chạy trên CI'); process.exit(2); }
+  const root = rest[0], dst = opt('out', root), onlyOff = A.includes('--only-off');
+  const files = walk(root).filter(f => /\.mp3$/i.test(f)), N = Math.max(2, os.cpus().length);
+  let i = 0, done = 0, skipped = 0; const fails = [];
+  const work = async f => {
+    const out = path.join(dst, path.relative(root, f));
+    try {
+      if (onlyOff && inSpec(await measureFile(f))) { skipped++; return; }
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      await normalizeFile(f, out);
+    } catch (e) { fails.push(`${f}: ${e.message}`); }
+  };
+  await Promise.all(Array.from({ length: N }, async () => { while (i < files.length) { await work(files[i++]); if (++done % 1000 === 0) console.log(`normalize: ${done}/${files.length}`); } }));
+  console.log(`normalize: ${files.length - fails.length - skipped} chuẩn hoá, ${skipped} đã đạt chuẩn (giữ nguyên), ${fails.length} lỗi → ${TARGET_LUFS} LUFS ±${TOL_LU}, TP ≤ ${MAX_TP}`);
+  if (fails.length) { console.error(fails.slice(0, 20).join('\n')); process.exit(1); }
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   if (cmd === 'measure') await measure();
   else if (cmd === 'gate') gate();
-  else { console.error('dùng: loudness.mjs measure|gate …'); process.exit(2); }
+  else if (cmd === 'normalize') await normalize();
+  else { console.error('dùng: loudness.mjs measure|gate|normalize …'); process.exit(2); }
 }

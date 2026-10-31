@@ -33,5 +33,15 @@ jobs:
           dirs=$(ls -d /tmp/media/*/audio/l /tmp/media/*/audio/w 2>/dev/null)
           CI=1 node scripts/audio/loudness.mjs measure $dirs --limit "${{ github.event.inputs.limit || '0' }}" --out out/loudness.json --md out/loudness.md
           cat out/loudness.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Thử chuẩn hoá 400 clip lệch xa nhất (câu + từ) rồi đo lại – cổng ±1 LU
+        run: |
+          node -e "const r=require('./out/loudness.json').rows.filter(x=>x.v!=='ok').sort((a,b)=>Math.abs(b.I+16)-Math.abs(a.I+16));const g=k=>r.filter(x=>x.f.includes('/audio/'+k+'/')).slice(0,200);console.log([...g('l'),...g('w'),...r.filter(x=>x.TP>0).slice(0,40)].map(x=>x.f).join('
+'))" | sort -u > out/trial.txt
+          mkdir -p /tmp/trial && while read f; do d=/tmp/trial/$(basename $(dirname $f)); mkdir -p $d; cp "$f" $d/; done < out/trial.txt
+          CI=1 node scripts/audio/loudness.mjs normalize /tmp/trial
+          CI=1 node scripts/audio/loudness.mjs measure /tmp/trial --out out/trial.json --md out/trial.md
+          echo '### Sau chuẩn hoá (mẫu khó nhất)' >> "$GITHUB_STEP_SUMMARY"; cat out/trial.md >> "$GITHUB_STEP_SUMMARY"
+          node scripts/audio/loudness.mjs gate out/trial.json
       - uses: actions/upload-artifact@v4
+        if: always()
         with: { name: loudness-report, path: out/, retention-days: 30 }
