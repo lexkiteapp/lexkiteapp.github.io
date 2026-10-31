@@ -8,7 +8,7 @@ on:
     inputs:
       langs: { description: 'mã ngôn ngữ cách nhau dấu cách (trống = tất cả)', required: false, default: '' }
   push:
-    branches: [main, lesson-ux-v2]  # lesson-ux-v2: sinh lần đầu trên nhánh PR (bỏ khi gộp)
+    branches: [main]
     paths: [scripts/gen-sent-packs.mjs, .github/workflows/sent-packs.yml]
 permissions:
   contents: write
