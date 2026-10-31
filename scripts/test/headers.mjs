@@ -34,5 +34,7 @@ for (const [p, hs] of rules) { const seen = new Set(); for (const [k] of hs) { i
 const adm = rules.get('/admin*') || [];
 for (const k of ['referrer-policy', 'permissions-policy', 'x-frame-options']) if (adm.some(([n]) => n === k) && !adm.some(([n, v]) => n === '!' && v === k)) errs.push(`/admin* đặt ${k} nhưng chưa gỡ bản chung (! ${k})`);
 if (!adm.some(([k, v]) => k === 'x-robots-tag' && /noindex/.test(v))) errs.push('/admin* thiếu X-Robots-Tag noindex');
+// Tốc độ: ảnh/clip/font/âm thanh tĩnh phải được trình duyệt giữ lại (mặc định Pages max-age=0 → hỏi lại máy chủ từng file mỗi lượt xem; lỗi live tới 31/10)
+for (const p of ['/audio/*', '/icons/*', '/teach/*', '/fonts/*', '/img/*', '/sfx/*']) { const cc = ((rules.get(p) || []).find(([k]) => k === 'cache-control') || [])[1] || ''; const m = cc.match(/max-age=(\d+)/); if (!m || +m[1] < 3600 || /no-(cache|store)/.test(cc)) errs.push(`${p}: Cache-Control cần max-age ≥ 3600 (đang: ${cc || 'không khai'})`); }
 if (errs.length) { console.error('✗ headers:\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log(`✓ headers: ${rules.size} khối, /* đủ ${Object.keys(need).length + 1} header bảo mật`);
