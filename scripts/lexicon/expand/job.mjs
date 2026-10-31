@@ -118,6 +118,11 @@ if (DRY) for (const e of pool) e._lock = 'dry'; else { const req = [];
     if (!got) { e._lock = false; e._lockVotes = v; stat.lock.fail++; continue; }
     const t = L[got.idx - 1]; if (t.syn !== e.syn) { Object.assign(e, { syn: t.syn, gloss: t.gloss, lemmas: t.lemmas, wnex: t.wnex, syns: t.syns, lex: t.lex }); stat.resense++; }
     e._lock = got.by; stat.lock[got.by]++; e._wk = (KK[r.k].g1 || [])[got.by === 'wiktionary-2+semcor' ? 1 : 0] || ''; } } // e._wk: định nghĩa Wiktionary CỦA ĐÚNG nghĩa khoá (3 giám khảo đã xác nhận)
+// cầu dao giữa lượt (31/10 run 41172371298: thăm dò đầu lượt qua – Gemini chưa cạn hẳn trước giờ đặt lại 07:00 UTC – rồi 2 giờ ra 600/600 "hạ tầng", 0 đạt):
+// ≥ ½ mục thiếu phiếu khoá nghĩa = kho AI cạn → dừng NGAY, không ghi gì (retry giữ nguyên, lượt cron sau làm lại); --words (pilot) vẫn chạy để thấy lỗi.
+if (!WORDS && pool.length >= 20 && stat.lock.infra >= pool.length / 2) { const r = { batch: BATCH, n: 0, pass: 0, yield: 0, why: { infra: 0 }, pool: 'low', lock: stat.lock, keys: AI.stats().keys || {} };
+  fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); fs.writeFileSync(new URL('reports/lexicon-expand.json', ROOT), JSON.stringify(r));
+  console.log(`⏹ khoá nghĩa thiếu giám khảo ${stat.lock.infra}/${pool.length} – kho AI cạn giữa lượt, dừng, không ghi lô (lượt cron sau làm tiếp)`); process.exit(0); }
 const items = pool.map((e, i) => ({ k: e.w + '#' + e.pos, w: e.w, pos: e.pos, gloss: e.gloss, ...(e._wk ? { wk: e._wk } : {}), lemmas: e.lemmas || [], wnex: e.wnex || [], cefr: e.cefr, lex: e.lex, topics: TOPIC_CHOICES, _c: e, _ipa: ipa[i] }));
 const locked = x => !!x._c._lock;
 // ---- SOURCE-FIRST (24/10, pilot 8 soát 50 → ~10 sai): mỗi trường lấy từ NGUỒN NGƯỜI VIẾT, AI chỉ viết lại gloss + chấm + lấp chỗ trống.

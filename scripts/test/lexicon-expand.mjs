@@ -326,4 +326,14 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(JSON.stringify(wsdUnwrap({ wk1: 2, wk2: '0' }, I)) === '{"wk1":2,"wk2":0}', 'wsdUnwrap phẳng');
   ok(wsdUnwrap({ probes: { wk1: 1, wk2: 3 } }, I).wk2 === 3 && wsdUnwrap({ answers: { wk1: { sense: 4 } } }, I).wk1 === 4, 'wsdUnwrap bọc probes/answers/{sense}');
   ok(wsdUnwrap([{ id: 'wk1', sense: 1 }], I).wk1 === 1 && wsdUnwrap({ foo: 1 }, I) === null && wsdUnwrap(null, I) === null, 'wsdUnwrap mảng / khuôn lạ → null'); }
+// 31/10 run 41178484346: lượt chờ hàng đợi checkout SHA cũ → rebase xung đột → mất 161 mục đạt. save-merge gộp 3 chiều, không mất phía nào.
+{ const { merge3, fmt } = await import('../lexicon/expand/save-merge.mjs');
+  const base = { items: ['a#n', 'b#n', 'c#n'] }, ours = { items: ['c#n', 'g#v'] }, theirs = { items: ['a#n', 'b#n', 'c#n', 'x#n'] };
+  ok(JSON.stringify(merge3(base, ours, theirs).items) === '["c#n","x#n","g#v"]', 'save-merge: retry – lượt xoá/thêm áp lên bản mới, giữ mục người khác thêm');
+  const q0 = { items: [{ src: 'lexicon-expand', id: 'a#n', batch: '1', why: ['x'] }] }, qo = { items: [{ src: 'lexicon-expand', id: 'b#n', batch: '2', why: ['y'] }] }, qt = { items: [...q0.items, { src: 'imgqa', id: 'z', why: [] }] };
+  ok(JSON.stringify(merge3(q0, qo, qt).items.map(x => x.id)) === '["z","b#n"]', 'save-merge: hàng duyệt theo src|id|batch');
+  const NONE_P = merge3(undefined, { id: 'p', n: 1, items: { 'a#n': 1 } }, { id: 'p', n: 1, items: { 'b#n': 2 } });
+  ok(Object.keys(NONE_P.items).join() === 'b#n,a#n' && NONE_P.n === 1, 'save-merge: lô chờ cùng ngày do 2 lượt tạo → hợp mục');
+  ok(merge3({ v: 1 }, { v: 2 }, { v: 3 }).v === 2 && merge3({ v: 1 }, { v: 1 }, { v: 3 }).v === 3, 'save-merge: cùng sửa → lượt thắng; lượt không sửa → bản mới');
+  ok(fmt({ a: 1 }, '{\n "a": 0\n}\n') === '{\n "a": 1\n}\n', 'save-merge: giữ thụt lề'); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
