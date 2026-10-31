@@ -103,6 +103,11 @@ export function viContested(c, ai) {
   const dis = Object.keys(ai).filter(s => !c.src.includes(s) && viNorm(ai[s]).length && !viNorm(ai[s]).some(v => { const q = viKey(v); return q && (q === k || q.includes(k) || k.includes(q)); })).length;
   return sup <= dis;
 }
+/** từ nội dung (5 chữ đầu) để so nhãn bảng dịch Wiktionary với gloss/def */
+export const CW = t => new Set((String(t).toLowerCase().match(/[a-z]{3,}/g) || []).filter(x => !['the', 'and', 'for', 'with', 'that', 'which', 'from', 'into', 'something', 'someone', 'used', 'especially', 'usually', 'often', 'having', 'being', 'etc', 'one', 'other', 'any', 'such', 'are', 'not', 'its', 'has'].includes(x)).map(x => x.slice(0, 5)));
+export const ov = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n; };
+/** bảng dịch đã chọn (chỉ số ti) MƠ HỒ khi một bảng khác khớp NGUỒN NGƯỜI VIẾT (gloss + lemma WordNet – không def AI) ngang hoặc hơn (lớp D1: razor "shaving knife" ↔ "shaving instrument" → pt navalha = dao cạo thẳng) */
+export function trTableAmbiguous(labels, ti, text) { const T = CW(text), m = ov(CW(labels[ti] || ''), T); return labels.some((g, j) => j !== ti && ov(CW(g), T) >= m); }
 /** bản dịch 12 ngôn ngữ cũng cần ≥ 2 nguồn độc lập (pilot 29/10: detriment ko 상해 – chỉ bảng Wiktionary + trắc nghiệm nghĩa vẫn lọt) */
 // soát 50 mẫu pilot 29/10: 9/11 bản dịch sai chỉ 1 nguồn; 2 còn lại khớp Wiktionary ∩ OMW nhưng không tự nhiên (pt surpresa, zh 蚤) → AI họ A xác nhận + nguồn người viết;
 export const TR2 = /^wiktionary\+omw\+ai$/; // soát pilot 2: 5/7 lỗi dịch chỉ 2 nguồn (omw+ai, wiktionary+ai) → cần ĐỦ 3 nguồn

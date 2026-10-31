@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -89,8 +89,7 @@ const H0 = await AI.health({ probeGem: !WORDS });
   if (!WORDS && g.size && (g.live < g.size / 4 || (pr && pr.n >= 4 && pr.day / pr.n >= 0.75))) { const r = { batch: BATCH, n: 0, pass: 0, yield: 0, why: { infra: 0 }, pool: 'low', keys: K };
     fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); fs.writeFileSync(new URL('reports/lexicon-expand.json', ROOT), JSON.stringify(r));
     console.log(`⏹ kho khoá Gemini cạn (${g.live}/${g.size} sống, thăm dò ${pr ? pr.day + '/' + pr.n + ' cạn ngày' : '–'}) – dừng lượt, không ghi lô (lượt cron sau làm tiếp)`); process.exit(0); } }
-const CW = t => new Set((String(t).toLowerCase().match(/[a-z]{3,}/g) || []).filter(x => !['the', 'and', 'for', 'with', 'that', 'which', 'from', 'into', 'something', 'someone', 'used', 'especially', 'usually', 'often', 'having', 'being', 'etc', 'one', 'other', 'any', 'such', 'are', 'not', 'its', 'has'].includes(x)).map(x => x.slice(0, 5)));
-const ov = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n; };
+// CW / ov: lib.mjs (chung với trTableAmbiguous)
 const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, i * n + n));
 const strip = x => { const { _c, _ipa, ...r } = x; return r; };
 // ---- TRẮC NGHIỆM NGHĨA 3 GIÁM KHẢO (lxwsd, "ra là ok" 29/10): mỗi probe (nghĩa Wiktionary, câu, vi, bản dịch) → số nghĩa WordNet; nhận khi cả 3 cùng chọn nghĩa khoá.
@@ -175,7 +174,9 @@ for (const x of list) { const s = S[x.k]; if (!s) continue;
   // (soát pilot 2: idol "representation of anything revered" → vi "thần tượng" cho nghĩa TƯỢNG thờ). Không chắc → không dùng bảng, ngôn ngữ đó do lxtr + 3 giám khảo.
   const ti = Number(s.a.ts), same3 = Number.isInteger(ti) && ti >= 0 && ti === Number(s.b.ts) && ti === Number(s.c.ts);
   const lab = same3 && x._trg[ti] ? x._trg[ti].g : '', labOk = lab && ov(CW(lab), CW(x.gloss + ' ' + D[x.k].def + ' ' + x.lemmas.join(' '))) >= 1;
-  const grp = same3 && labOk ? x._trg[ti] : null; if (same3 && !labOk) stat.tsLabelReject = (stat.tsLabelReject || 0) + 1;
+  // bảng MƠ HỒ (lớp D1, pilot 31/10 razor pt "navalha": chọn bảng "shaving knife" trong khi gloss WordNet "edge tool used in shaving" khớp ngang "shaving instrument") → không dùng bảng
+  const amb = labOk && trTableAmbiguous(x._trg.map(g => g.g), ti, x.gloss + ' ' + x.lemmas.join(' ')); if (amb) stat.tsAmbiguous = (stat.tsAmbiguous || 0) + 1;
+  const grp = same3 && labOk && !amb ? x._trg[ti] : null; if (same3 && !labOk) stat.tsLabelReject = (stat.tsLabelReject || 0) + 1;
   X[x.k] = { defOk: s.a.def === 'same' && s.b.def === 'same' && s.c.def === 'same', defWhy: [s.a, s.b, s.c].filter(j => j.def !== 'same').map(j => j.f || 'changed').join(' / '), exAll, ex: [], col, tr: grp ? grp.tr : {}, tg: grp ? grp.g : '' }; }
 }
 const idx = v => (Array.isArray(v) ? v : []).map(Number).filter(Number.isInteger);
