@@ -87,6 +87,14 @@
      "html": {
       ":scope > span:nth-child(1)": "e(r.label)",
       ":scope > span:nth-child(2)": "e(r.n)"
+     },
+     "cls": {
+      ":scope": {
+       "text-white": "'lt:text-white dk:text-[#0B171A]'"
+      },
+      ":scope > span:nth-child(2)": {
+       "lt:bg-white/20": "'lt:bg-white/10'"
+      }
      }
     },
     "off": {
@@ -431,6 +439,15 @@
  "cls": {
   ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": {
    "-left-2": "'-start-2'"
+  },
+  ":scope > div > main > section:nth-child(2) > button": {
+   "text-white": "'text-[#2A0700]'"
   }
- }
+ },
+ "recolor": {
+  "lt:text-[#B37800]": "lt:text-[#8A5A00]",
+  "dk:[color:#2BA39A]": "dk:[color:#4FD1C5]",
+  "dk:[background-color:#2FBF71]": "dk:[background-color:#2FBF71] dk:text-[#0B171A]"
+ },
+ "_contrast": "AA (stitch-diff 31/10): CTA Retry chữ #2A0700 trên san hô (5.4); tab đang chọn bản tối chữ #0B171A trên #2BA39A (5.9), huy hiệu đếm bản sáng white/10 (5.2); chữ teal tối #2BA39A→#4FD1C5 (5.4 trên chip); vàng sáng #B37800→#8A5A00 (5.6); vòng ✓ tối chữ #0B171A trên #2FBF71 (7.6)."
 }

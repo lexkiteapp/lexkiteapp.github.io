@@ -1,6 +1,6 @@
 {
  "_doc": "Tiến độ & huy hiệu (#/stats, cờ ux1) – d do web/js/ux1-stats.js dựng từ dữ liệu thật (state.game / state.stats / state.cards, Game.levelOf/questsFor/BADGES, SRS, Golden). Giữ đủ ý 2 lớp routes.stats cũ (app.js): tiêu đề, [data-share] Khoe thành tích (nút 'Show off'), ảnh/chữ đầu avatar, Cấp n · danh hiệu, thanh XP (into/need XP tới cấp n+1), Tổng XP (chỗ 'Estimated'), 🔥 chuỗi ngày + 🧊×n đóng băng [data-streak-freeze] (chip 'Lexicon Elite'), mô tả cũ 'Theo dõi hành trình…' = lời thầy Carlos ở vùng giáo viên (Carlos encourage qua Chars thay chỗ giữ người Stitch), #quests Nhiệm vụ hôm nay (3 nhiệm vụ thật, tiến độ, +XP, ?s=quests cuộn tới), #goldenCard Thời điểm vàng (3 trạng thái cũ: đang vàng → Ôn n từ / sắp tới → còn h giờ m phút / chưa có lịch → Học n từ mới hoặc Chọn bộ từ + Thời điểm vàng là gì?; vẽ lại 30 giây/lần), Cấp độ nhớ 5 cấp (SRS.level5, mỗi cấp → #/practice/learn?src=level:n, Vì sao? → #/method, số từ chưa học) vào khuôn 'Memory Levels', #weekCard Tuần này so với cả tuần trước (Từ mới/Lượt ôn/Bài luyện/Ngày học ▲▼; ẩn khi 2 tuần đều 0 XP như cũ) vào khuôn 'Your Week vs Last Week', 4 ô tổng (Lượt ôn/Bài luyện tập/Từ phát âm đúng/Bài đọc), Lịch học 6 tháng (26 tuần × 7 ngày, ô theo mức hoạt động + ngày đóng băng 🧊, nhãn tháng thật, chú thích Ít/Nhiều/Đóng băng – ô co giãn auto-cols-fr để đủ 26 cột), Lượt ôn 14 ngày qua + Dự báo thẻ đến hạn 14 ngày (cột thật, title/aria ngày: số), Mức độ ghi nhớ (vòng 4 phần SRS.mastery + chú thích, giữa = tổng số từ), Huy hiệu thật Game.BADGES (đã mở/tổng, %, đã mở trước, 9 đầu + 'Xem cả n huy hiệu'). Ẩn (không có tính năng thật – A/B chủ): chip 'TOP 5%', 4 dòng phụ dưới ô tổng ('Cards flipped', 'Sprints finished', '88% Native cadence', 'Editorial passages'). Màu chữ nhỏ đạt AA: xem _contrast. Đầu trang: dùng đầu trang riêng của mẫu (quay lại #/me, tiêu đề, Khoe) – ux1-stats.js gỡ đầu trang shell cố định đang che nó. Thanh tab dưới = shell (tab Tôi).",
- "_contrast": "Chữ nhỏ san hô #F2553B (bản sáng) → #B53A22, bản tối → #FF7B54; teal #2BA39A chữ nhỏ bản sáng → #1F7A75; vàng #CFA130 → #8A5A00; xanh lá #2FBF71 chữ nhỏ bản sáng → #1E7F4B (màu có sẵn trong Stitch/bind me.json). Thẻ huy hiệu khóa: bỏ opacity-70, chữ #7E9698/#A9BFC1 → #4E6668 (bản sáng).",
+ "_contrast": "Chữ nhỏ san hô #F2553B (bản sáng) → #B53A22, bản tối → #FF7B54; teal #2BA39A chữ nhỏ bản sáng → #1F7A75; vàng #CFA130 → #8A5A00; xanh lá #2FBF71 chữ nhỏ bản sáng → #1E7F4B (màu có sẵn trong Stitch/bind me.json). Thẻ huy hiệu khóa: bỏ opacity-70, chữ #7E9698/#A9BFC1 → #4E6668 (bản sáng). | AA (31/10): +XP bản sáng #1D9250→#14753F (5.2); icon nhiệm vụ/ô số liệu bản sáng teal #2BA39A→#1F7A75 (4.6), vàng #FFB054→#8A5A00 (5.4); icon thẻ vàng bản sáng chữ #0B171A (11.9).",
  "pageCss": true,
  "remove": [
   ":scope > div > nav"
@@ -293,6 +293,11 @@
       ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": "e(q.text)",
       ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(q.prog)",
       ":scope > div:nth-child(2) > span:nth-child(2)": "e(q.xpL)"
+     },
+     "cls": {
+      ":scope > div:nth-child(1) > div:nth-child(1)": {
+       "text-[#2BA39A]": "'lt:text-[#1F7A75] dk:text-[#2BA39A]'"
+      }
      }
     },
     "v2": {
@@ -320,6 +325,11 @@
       ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": "e(q.text)",
       ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(q.prog)",
       ":scope > div:nth-child(2) > span:nth-child(2)": "e(q.xpL)"
+     },
+     "cls": {
+      ":scope > div:nth-child(1) > div:nth-child(1)": {
+       "text-[#FFB054]": "'lt:text-[#8A5A00] dk:text-[#FFB054]'"
+      }
      }
     },
     "v3": {
@@ -867,10 +877,20 @@
    "dk:rounded-full": "''",
    "dk:transition-all": "''",
    "dk:active:translate-y-[2px]": "''"
+  },
+  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)": {
+   "lt:text-white": "'lt:text-[#0B171A]'"
+  },
+  ":scope > div > main > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)": {
+   "text-[#2BA39A]": "'lt:text-[#1F7A75] dk:text-[#2BA39A]'"
+  },
+  ":scope > div > main > div:nth-child(6) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)": {
+   "text-[#FFB054]": "'lt:text-[#8A5A00] dk:text-[#FFB054]'"
   }
  },
  "recolor": {
   "lt:text-[#7E9698]": "lt:text-[#5A7175]",
-  "dk:text-[#728D91]": "dk:text-[#A9BFC1]"
+  "dk:text-[#728D91]": "dk:text-[#A9BFC1]",
+  "lt:text-[#1D9250]": "lt:text-[#14753F]"
  }
 }

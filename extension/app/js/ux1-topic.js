@@ -8,7 +8,7 @@
   const { state, routes } = App, old = routes.topic, { GROUPS } = IELTS_DATA, esc = UI.esc;
   const on = () => !!(self.ST2 && ST2.topic && App.ux1On && App.ux1On());
   const PAGE = 20;
-  const HL = 'font-extrabold underline decoration-2 lt:text-[#0D6964] lt:decoration-[#0D6964]/40 dk:text-[#6BD8CE] dk:decoration-[#6BD8CE]/40', QT = 'font-bold lt:text-[#0D6964] dk:text-[#6BD8CE]';
+  const HL = 'font-extrabold underline decoration-2 lt:text-[#0D6964] dk:text-[#6BD8CE]', QT = 'font-bold lt:text-[#0D6964] dk:text-[#6BD8CE]';
   const exH = w => w.ex ? `<span class="${QT}">“</span>${UI.highlight(w.ex, w.word).replace(/<mark>/g, `<span class="${HL}">`).replace(/<\/mark>/g, '</span>')}<span class="${QT}">”</span>` : '';
   const posT = p => p ? String(UI.posChip(p)).replace(/<[^>]+>/g, '').trim() : '';
 

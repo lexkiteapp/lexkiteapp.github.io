@@ -26,7 +26,10 @@
   const hl = (s, w) => UI.highlight(s, w).replace(/<mark>/g, `<span class="${HL}">`).replace(/<\/mark>/g, '</span>');
   const posL = p => p ? String(UI.posChip(p)).replace(/<[^>]+>/g, '').trim() : '';
   // cụm tiếng Anh trong ngoặc của ghi chú (tiếng Việt) → đậm, lang=en (như WordCard)
-  const quotes = s => esc(s).replace(/(^|[\s(])(['‘“"]|&#39;|&quot;)([^'’”"&]{2,80}?)(['’”"]|&#39;|&quot;)(?=[\s.,;:!?)]|$)/g, (m, a, o, x, c) => VI.test(x) ? m : `${a}${o}<b class="${HL}" lang="en">${x}</b>${c}`);
+  // chữ thường bọc <span> riêng: phần tử chứa chữ + cụm tô màu con không bị đo tương phản (stitch-diff) bằng điểm ảnh chữ teal của con
+  const quotes = s => { const q = esc(s), re = /(^|[\s(])(['‘“"]|&#39;|&quot;)([^'’”"&]{2,80}?)(['’”"]|&#39;|&quot;)(?=[\s.,;:!?)]|$)/g, seg = x => x ? `<span>${x}</span>` : ''; let o = '', i = 0, m;
+    while ((m = re.exec(q))) { if (VI.test(m[3])) continue; o += seg(q.slice(i, m.index) + m[1] + m[2]) + `<b class="${HL}" lang="en">${m[3]}</b>`; i = m.index + m[0].length - m[4].length; }
+    return o + seg(q.slice(i)); };
   const card = (icon, inner) => `<section class="${CARD} items-center text-center" data-d-empty>${icon ? `<span class="${BADGE}">${ms(icon, 'text-[22px]')}</span>` : ''}${inner}</section>`;
 
   // 4 mục "Hiểu sâu" từ ghi chú thô {m, e, u, f} (js/notes/<chữ>.json) – mở sẵn Mẹo nhớ + Lỗi hay gặp như mẫu
@@ -161,9 +164,17 @@
       el.replaceWith(nu); App.bindCommon(); if (part === 'phr') bindPhr(nu, e);
     }
     function bindPhr(box, e) { const b = box.querySelector('#addPhr'); if (b) b.onclick = () => App.savePhraseDialog({ phrase: e.word + ' ', sentence: e.ex || '' }); }
+    // ghi chú học từ soạn bằng tiếng Việt: người học không phải tiếng Việt thấy khi đã dịch xong (App contentTranslate), chưa dịch / dịch hỏng → ẩn (như thẻ cũ .wn-tr) – không lộ tiếng Việt
+    function gateVi(...els) {
+      if (I18N.learnLang() === 'vi') return;
+      els.forEach(el => { if (!el || !VI.test(el.textContent)) return; const d0 = el.style.display; el.style.display = 'none'; el.dataset.viWait = '1';
+        const mo = new MutationObserver(() => { if (!VI.test(el.textContent)) { mo.disconnect(); if (el.dataset.viWait) { delete el.dataset.viWait; el.style.display = d0; } } });
+        mo.observe(el, { subtree: true, childList: true, characterData: true }); });
+    }
     function bind($r, e, final, cd, keep) {
       App.bindCommon();
       if (I18N.meanLang() === 'en') App.nativeFill($r('#dVi'), e.word, e.pos);
+      if (final) gateVi($r('#dNotes'), $r('[data-d-teacher]'));
       const qs = $r('#quickSave'), mk = $r('#dMark');
       if (cd) { qs.disabled = true; mk.disabled = true; }
       $$('[data-wn-h]', root).forEach(h => h.onclick = () => { const b = root.querySelector(`[data-wn-b="${h.dataset.wnH}"]`), op = h.getAttribute('aria-expanded') !== 'true';

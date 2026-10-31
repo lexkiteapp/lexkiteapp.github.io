@@ -133,10 +133,13 @@
   },
   ":scope > div > main > div:nth-child(4) > div > span:nth-child(2)": {
    "lt:text-[#5F7376]": "'lt:text-[#4E5F62]'"
+  },
+  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > button": {
+   "right-3": "'-right-px'"
   }
  },
  "addClass": {
-  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > button": "before:absolute before:-inset-3 before:content-['']"
+  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > button": "w-11 h-11 flex items-center justify-center"
  },
  "html": {
   ":scope > div > header > div:nth-child(1) > div:nth-child(1) > div > div > h1": "e(d.title)",
@@ -361,5 +364,6 @@
     }
    }
   }
- ]
+ ],
+ "_contrast": "axe target-size (31/10): #dkMic hộp thật 44×44 (w-11 h-11, tâm icon giữ nguyên: right-3 → -right-px) thay cho vùng chạm ::before (axe không tính)."
 }

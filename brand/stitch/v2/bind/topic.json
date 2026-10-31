@@ -249,7 +249,14 @@
   }
  ],
  "recolor": {
-  "lt:text-[#2FBF71]": "lt:text-[#14753F]"
+  "lt:text-[#2FBF71]": "lt:text-[#14753F]",
+  "text-[#FFB054]": "lt:text-[#8A5A00] dk:text-[#FFB054]",
+  "lt:text-[#E08A24]": "lt:text-[#8A5A00]"
  },
- "_contrast": "recolor: #tCount/nút xanh lá sáng #2FBF71→#14753F đạt AA trên #EAF8F1 (axe CI 31/10)."
+ "_contrast": "recolor: #tCount/nút xanh lá sáng #2FBF71→#14753F đạt AA trên #EAF8F1 (axe CI 31/10). | AA (31/10): nút 'Thêm n từ' chữ #2A0700 trên san hô (5.4–7.5); tia chớp/icon vàng sáng → #8A5A00 (5.4–5.9); từ tô trong câu ví dụ: bỏ màu gạch chân /40 (ux1-topic.js HL) để điểm gạch chân không bị đo như nền.",
+ "cls": {
+  ":scope > div > main > div:nth-child(1) > button": {
+   "text-white": "'text-[#2A0700]'"
+  }
+ }
 }
