@@ -1,0 +1,48 @@
+name: Say it like a native – meanings
+# docs/SAY-NATIVE.md: 14-language meanings for the reaction cards via the AI pool (Gemini/Groq pools → CF_POOL → CF account 2, 2 judges of different families),
+# then build web/data/say.json and commit both to the dispatching branch. 0 Claude tokens.
+on:
+  push:   # feature branches: a series edit re-runs only the missing meanings (main has no new series without a PR)
+    branches-ignore: [main]
+    paths: ['content/say-native/series.json', 'scripts/say-native/translate.mjs', '.github/workflows/say-native.yml']
+  workflow_dispatch:
+    inputs:
+      langs: { description: 'comma list (empty = all 14)', default: '' }
+      redo: { description: 'redo existing meanings (true/false)', default: 'false' }
+permissions:
+  contents: write
+  id-token: write   # OIDC for /api/lexai
+concurrency:
+  group: say-native-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  meanings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Translate + judge
+        env:
+          # 01/11: same pool order as lexicon-expand (run 41214894745 failed with only GrabCast + CF account 2): Gemini/Groq free-key pools → cf2 = CF_POOL rotation
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          CF_POOL: ${{ secrets.CF_POOL }}
+          CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}   # excluded: never the main account
+          VIMG_POOL_SKIP: '0'
+          AI_POOL_CF2_NEURONS: '100000'   # per-run cap on the CF_POOL route (~377 meanings × gen + 2 judges is far below)
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+          CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+          AI_POOL_GC_MAX: '2000'
+        run: node scripts/say-native/translate.mjs ${{ inputs.langs && format('--langs {0}', inputs.langs) || '' }} ${{ inputs.redo == 'true' && '--redo' || '' }}
+      - name: Build + commit
+        run: |
+          node scripts/say-native/build.mjs || echo "::warning::build gates still open (see log) – meanings committed for the next run"
+          git config user.name lexkite-bot; git config user.email bot@lexkite.com
+          git add content/say-native/meanings.json web/data/say.json reports/ai-pool-say-native.json 2>/dev/null || true
+          git diff --cached --quiet || { git commit -qm "say-native: nghĩa 14 ngôn ngữ (ai-pool, 2 giám khảo) [CF-Pages-Skip]"; git push origin HEAD:${{ github.ref_name }}; }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: say-native-meanings, path: 'content/say-native/meanings.json', retention-days: 7 }

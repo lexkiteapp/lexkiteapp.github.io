@@ -1,0 +1,102 @@
+{
+ "id": "t2_react_overthemoon",
+ "template": "react",
+ "series": "Say it like a native",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Passed your driving test?",
+   "pause": 1.2,
+   "pose": true
+  },
+  {
+   "id": "p",
+   "text": "I'm over the moon!",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Repeat after me: I'm over the moon!",
+   "pause": 1.6,
+   "repeat": true
+  },
+  {
+   "id": "m",
+   "text": "I'm extremely happy.",
+   "pause": 0.42
+  },
+  {
+   "id": "s",
+   "text": "Or say: I'm really happy.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You got the job! You are…",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "You are over the moon.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "over the moon",
+  "say": "I'm over the moon!",
+  "ipa": "/ˈoʊvər ðə muːn/",
+  "define": "extremely happy and pleased",
+  "reg": "casual",
+  "mean": "I'm extremely happy.",
+  "when": "You just passed your driving test.",
+  "swap": {
+   "text": "I'm really happy.",
+   "reg": "neutral"
+  },
+  "dont": null,
+  "quiz": {
+   "stem": "You got the job! You are…",
+   "options": [
+    "over the moon.",
+    "under the moon."
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real phrases"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Passed your driving test?"
+ },
+ "src": {
+  "say": "not-fine",
+  "key": "over the moon",
+  "item": 0
+ },
+ "est": {
+  "words": 42,
+  "seconds": 28.1,
+  "wpm": 90
+ }
+}

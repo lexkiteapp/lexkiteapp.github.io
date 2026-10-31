@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Say it like a native</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#ffdcbc",
+            "background": "#fff8f3",
+            "surface-container-high": "#f0e7de",
+            "tertiary": "#8e190f",
+            "surface-container": "#f6ece4",
+            "primary-fixed": "#a4f0e9",
+            "outline": "#6f7978",
+            "surface": "#fff8f3",
+            "inverse-primary": "#88d4cd",
+            "surface-container-low": "#fcf2e9",
+            "on-surface-variant": "#3f4947",
+            "on-secondary-fixed-variant": "#683c00",
+            "on-secondary": "#ffffff",
+            "primary": "#00514d",
+            "on-secondary-container": "#663b00",
+            "surface-tint": "#106a65",
+            "on-secondary-fixed": "#2c1600",
+            "surface-bright": "#fff8f3",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#9ce9e2",
+            "on-tertiary-fixed": "#410000",
+            "on-primary-fixed-variant": "#00504c",
+            "primary-container": "#136b66",
+            "inverse-surface": "#34302a",
+            "inverse-on-surface": "#f9efe6",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#ffdad4",
+            "outline-variant": "#bec9c7",
+            "on-primary": "#ffffff",
+            "on-background": "#1f1b16",
+            "surface-variant": "#eae1d8",
+            "surface-container-highest": "#eae1d8",
+            "primary-fixed-dim": "#88d4cd",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "on-primary-fixed": "#00201e",
+            "on-tertiary-container": "#ffd0c9",
+            "on-surface": "#1f1b16",
+            "tertiary-container": "#b03224",
+            "secondary": "#895100",
+            "surface-dim": "#e2d8d0",
+            "on-error": "#ffffff",
+            "secondary-fixed-dim": "#ffb86c",
+            "secondary-container": "#fe9d19"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-tablet": "1.5rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom, 12px);
+    }
+    .pt-safe {
+      padding-top: env(safe-area-inset-top, 8px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Viewport Container (390px locked) -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-background relative pb-28">
+<!-- Top App Bar Component -->
+<header class="flex justify-between items-center w-full px-margin h-16 max-w-[390px] mx-auto pt-safe z-30">
+<!-- Tactile Back Button -->
+<button aria-label="Go back" class="w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-container-highest shadow-[0_3px_0_#e2d7c7] active:shadow-[0_1px_0_#e2d7c7] active:translate-y-[2px] transition-transform duration-75 flex items-center justify-center text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Headline -->
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight text-center">
+        Say it like a native
+      </h1>
+<!-- Trailing Flag Icon Button -->
+<button aria-label="Report or Bookmark" class="w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-container-highest shadow-[0_3px_0_#e2d7c7] active:shadow-[0_1px_0_#e2d7c7] active:translate-y-[2px] transition-transform duration-75 flex items-center justify-center text-on-surface-variant hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="flag">flag</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col px-margin pt-2 space-y-4">
+<!-- Context Pill Chip & Progress Section -->
+<div class="flex flex-col space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-surface-container-lowest border-2 border-surface-container-highest shadow-[0_2px_0_#e2d7c7]">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-label-sm font-label-sm text-on-surface">Disagree without a fight · 3/7</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Step 3 of 7</span>
+</div>
+<!-- Tactile Progress Bar -->
+<div class="w-full h-2.5 bg-surface-variant rounded-full overflow-hidden p-0.5 shadow-inner">
+<div class="h-full bg-primary-container rounded-full relative" style="width: 42.85%;">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-primary-fixed opacity-70 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Central Big Tactile Card -->
+<section class="flex-1 min-h-[410px] bg-surface-container-lowest rounded-xl border-2 border-surface-variant shadow-[0_5px_0_#e2d5c7] relative flex flex-col justify-between overflow-hidden">
+<!-- Subtle Coral/Warm header accent banner -->
+<div class="w-full h-2.5 bg-gradient-to-r from-tertiary-container/30 via-tertiary-fixed to-secondary-fixed"></div>
+<div class="p-5 flex flex-col flex-1">
+<!-- Card Header Badges & Big Speaker Action -->
+<div class="flex items-center justify-between mb-4">
+<!-- Green Badge: POLITE -->
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container text-on-primary text-label-sm font-label-sm tracking-wider shadow-[0_2px_0_#00514d]">
+              POLITE
+            </span>
+<!-- Prominent Big Round Speaker Button -->
+<button aria-label="Listen to pronunciation" class="w-13 h-13 p-3 rounded-full bg-primary-container text-on-primary shadow-[0_4px_0_#00514d] active:shadow-[0_1px_0_#00514d] active:translate-y-[3px] transition-transform duration-75 flex items-center justify-center hover:opacity-95">
+<span class="material-symbols-outlined" data-icon="volume_up" data-weight="fill" style="font-variation-settings: 'FILL' 1; font-size: 26px;">volume_up</span>
+</button>
+</div>
+<!-- HERO PHRASE: Viral Meme-style Punchy Coral Headline -->
+<div class="my-auto py-2">
+<h2 class="text-headline-xl-mobile font-headline-xl-mobile font-extrabold text-tertiary-container tracking-tight leading-[1.18] drop-shadow-sm">
+              “I see where you're coming from”
+            </h2>
+</div>
+<!-- IPA Pronunciation Pill -->
+<div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-surface-container-low border-2 border-surface-container-highest shadow-[0_2px_0_#e2d7c7] mt-2 mb-4">
+<span class="material-symbols-outlined text-primary text-body-md" data-icon="graphic_eq">graphic_eq</span>
+<span class="text-label-md font-label-md text-on-surface tracking-normal font-semibold font-mono">
+              /aɪ ˌsiː wer jʊr ˈkʌmɪŋ frəm/
+            </span>
+</div>
+<!-- Card Footer Floor -->
+<div class="mt-auto pt-2 flex items-end justify-between min-h-[90px] relative">
+<!-- Bottom-Left Interactive Flip Hint -->
+<div class="flex items-center gap-1.5 text-on-surface-variant pb-2">
+<span class="material-symbols-outlined text-body-lg text-primary rotate-45" data-icon="sync">sync</span>
+<span class="text-label-sm font-label-sm font-bold">Tap to flip</span>
+</div>
+<!-- Bottom-Right Blank Stage (Clean Empty Floor for Teacher Asset - Strictly no drawings, no mascots, clean canvas) -->
+<div aria-hidden="true" class="w-[140px] h-[110px] pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Bottom Interactive Action Buttons (Chunky 3D Ledge Row) -->
+<section class="grid grid-cols-6 gap-2.5 pt-1">
+<!-- Listen Button -->
+<button class="col-span-2 py-3 px-2 rounded bg-surface-container-lowest border-2 border-surface-container-highest shadow-[0_4px_0_#e2d7c7] active:shadow-[0_1px_0_#e2d7c7] active:translate-y-[3px] transition-transform duration-75 flex items-center justify-center gap-1.5 text-on-surface font-label-lg">
+<span class="material-symbols-outlined text-primary" data-icon="headphones">headphones</span>
+<span>Listen</span>
+</button>
+<!-- Primary Hero CTA: Say it (Vibrant Orange Candy Tactile Button) -->
+<button class="col-span-2 py-3 px-2 rounded bg-secondary-container text-on-secondary-fixed border-2 border-secondary shadow-[0_4px_0_#895100] active:shadow-[0_1px_0_#895100] active:translate-y-[3px] transition-transform duration-75 flex items-center justify-center gap-1.5 font-label-lg font-extrabold hover:brightness-105">
+<span class="material-symbols-outlined text-on-secondary-fixed" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span>Say it</span>
+</button>
+<!-- Share Button -->
+<button class="col-span-2 py-3 px-2 rounded bg-surface-container-lowest border-2 border-surface-container-highest shadow-[0_4px_0_#e2d7c7] active:shadow-[0_1px_0_#e2d7c7] active:translate-y-[3px] transition-transform duration-75 flex items-center justify-center gap-1.5 text-on-surface font-label-lg">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="share">share</span>
+<span>Share</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar Component (Docked 5-tab Nav) -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-space-xs py-space-xs max-w-[390px] mx-auto pb-safe bg-surface border-t-2 border-surface-container-highest">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-y-[2px] transition-transform duration-75 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-y-[2px] transition-transform duration-75 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (ACTIVE STATE as defined in blueprint) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-3 py-1.5 shadow-[0_3px_0_theme(colors.secondary)] active:translate-y-[2px] transition-transform duration-75">
+<span class="material-symbols-outlined" data-icon="record_voice_over" data-weight="fill" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+<span class="text-label-sm font-label-sm mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-y-[2px] transition-transform duration-75 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 active:translate-y-[2px] transition-transform duration-75 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Me</span>
+</button>
+</nav>
+</div>
+</body></html>

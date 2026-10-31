@@ -189,7 +189,7 @@
     if (!text) return;
     stopHq();
     if (g.KVoice && g.LISTEN_AUDIO && prefs().hqVoice !== false && !opts.noHq) {
-      const v = accent === 'en-US' ? 'af_heart' : 'bf_emma', whole = g.KVoice.lineKey(v, text);
+      const v = opts.voice || (accent === 'en-US' ? 'af_heart' : 'bf_emma'), whole = g.KVoice.lineKey(v, text); // opts.voice: giọng của giáo viên đang hiện (Chars.voice)
       const segs = g.LISTEN_AUDIO.has(whole) ? [[whole, text]] : splitSentences(text).map(p => [g.KVoice.lineKey(v, p), p]);
       if (segs.length && segs.every(([k]) => g.LISTEN_AUDIO.has(k))) {
         const my = ++speakSeq; if ('speechSynthesis' in g) speechSynthesis.cancel();

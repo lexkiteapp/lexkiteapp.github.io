@@ -1,0 +1,106 @@
+{
+ "id": "t2_react_lookintoit",
+ "template": "react",
+ "series": "Say it like a native",
+ "part": 5,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "A customer reports a bug?",
+   "pause": 1.2,
+   "pose": true
+  },
+  {
+   "id": "p",
+   "text": "I'll look into it.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Repeat after me: I'll look into it.",
+   "pause": 1.6,
+   "repeat": true
+  },
+  {
+   "id": "m",
+   "text": "I will check this problem.",
+   "pause": 0.42
+  },
+  {
+   "id": "s",
+   "text": "Not this! Try: Let me check.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! A customer has a problem. You say…",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "I'll look into it.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "pose": {
+  "clip": "point",
+  "after": "h"
+ },
+ "data": {
+  "key": "I'll look into it",
+  "say": "I'll look into it.",
+  "ipa": "/aɪl ˌlʊk ˈɪntuː ɪt/",
+  "define": "a promise to investigate a problem",
+  "reg": "polite",
+  "mean": "I will check this problem.",
+  "when": "A customer reports a bug.",
+  "swap": {
+   "text": "Let me check.",
+   "reg": "neutral"
+  },
+  "dont": {
+   "text": "Not my job.",
+   "reg": "blunt",
+   "masked": false
+  },
+  "quiz": {
+   "stem": "A customer has a problem. You say…",
+   "options": [
+    "Not my job.",
+    "I'll look into it."
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real phrases"
+ },
+ "hook": {
+  "line": "h",
+  "text": "A customer reports a bug?"
+ },
+ "src": {
+  "say": "office",
+  "key": "I'll look into it",
+  "item": 4
+ },
+ "est": {
+  "words": 46,
+  "seconds": 30.0,
+  "wpm": 92
+ }
+}

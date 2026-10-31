@@ -274,6 +274,57 @@
     "c": "Save this. Free on lexkite.com."
    },
    "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app TOEIC reading bank Part 5 (answer key + cue), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_react_calmdown": {
+   "template": "react",
+   "hook": "A meeting gets loud?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "A meeting gets loud?",
+    "p": "Let's all calm down.",
+    "r": "Repeat after me: Let's all calm down.",
+    "m": "Let's be less angry.",
+    "s": "Not this! Try: Let's take a short break.",
+    "q": "Quick quiz! A meeting gets loud. You say…",
+    "a": "Let's all calm down.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_react_lookintoit": {
+   "template": "react",
+   "hook": "A customer reports a bug?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "A customer reports a bug?",
+    "p": "I'll look into it.",
+    "r": "Repeat after me: I'll look into it.",
+    "m": "I will check this problem.",
+    "s": "Not this! Try: Let me check.",
+    "q": "Quick quiz! A customer has a problem. You say…",
+    "a": "I'll look into it.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_react_overthemoon": {
+   "template": "react",
+   "hook": "Passed your driving test?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "Passed your driving test?",
+    "p": "I'm over the moon!",
+    "r": "Repeat after me: I'm over the moon!",
+    "m": "I'm extremely happy.",
+    "s": "Or say: I'm really happy.",
+    "q": "Quick quiz! You got the job! You are…",
+    "a": "You are over the moon.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
   }
  }
 }
