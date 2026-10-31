@@ -1,7 +1,7 @@
 // Kiểm NỘI DUNG bài học trên MỌI từ chủ đề × mọi dạng × 15 ngôn ngữ (docs/LESSON-UX-V2.md §4) – thuần Node, không mạng.
 // Luật: lời dặn khớp dạng · đề xếp câu = bản dịch CÂU (không bao giờ là định nghĩa/nghĩa của TỪ) · đáp án có trong ô · có gợi ý · câu chứa đúng từ ·
 //       gõ từ có nghĩa/định nghĩa + độ dài + chữ đầu + ô chữ cái đủ chữ · nhiễu không trùng đáp án · gói bản dịch câu phủ 100 % câu dùng được.
-// Chạy: node scripts/test/lesson-content.mjs   (npm test)
+// Chạy: node scripts/test/lesson-content.mjs   (npm test qua scripts/test/lesson.mjs)
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { sentences, shardOf } from '../gen-sent-packs.mjs';
