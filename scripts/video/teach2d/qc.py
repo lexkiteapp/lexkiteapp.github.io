@@ -2,7 +2,7 @@
 """Teach2D QC (docs/VIDEO-TEACH2D.md): every gate must pass and the weighted score must be >= 90, else exit 1 (nothing ships).
   python3 scripts/video/teach2d/qc.py --timeline PROPS.json.timeline.json [--video OUT.mp4] [--sheet OUT.sheet.jpg] [--out qc.json]
 Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (talk only while speaking, listen in pauses)
-· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear,
+· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · clearance (clear.py: gaps, children inside their card, no half-over-a-card) · layout (text in SAFE, no overlap, head clear,
 every chip / pill text on one line inside its pill)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
 · scene_clear (known scene; counter + props never over captions / text / QR / CTA, nor over the teacher's head / body; calm card region; text + captions readable on the scene)
@@ -106,6 +106,8 @@ for n in T['nodes']:   # nothing may stay on screen after the card it belongs to
         if ends and (not n.get('out') or n['out']['t'] > max(ends) + 0.05): prob.append(dict(id=n['id'], why='outlives its card', type=n['type']))
 seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True) in seen or seen.add(json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True)))]
 gate('layout', not prob, 3, problems=prob[:8])
+import clear as CL  # noqa: E402  (owner 31/10 overlap review: >= 6 px between leaves, children inside their growing card, free leaves never half over a card)
+cl_ = CL.audit(T); gate('clearance', not cl_, 2, problems=cl_[:8])
 # contrast on the real fill (card tone / chip / pill / caption plate), both themes are separate renders
 def rgb(c, over=None):
     if c.startswith('#'): return c

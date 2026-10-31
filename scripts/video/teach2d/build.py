@@ -133,7 +133,7 @@ class Card:
         # sized to content (owner 31/10: no empty card half): a card whose rows arrive on later words grows with them (ease 0.24 s, same box for QC)
         steps = sorted({round(n['in']['t'], 4) for n in s.rows if n['in']['t'] > c['in']['t'] + 0.05})
         hs_ = [min(h, max([n['box'][3] for n in s.rows if n['in']['t'] <= tt + 1e-6] or [0]) + PAD + LEDGE) for tt in [c['in']['t']] + steps]
-        if hs_[0] < h - 40: c['grow'] = [dict(t=round(tt, 4), h=round(hv, 1)) for tt, hv in zip([c['in']['t']] + steps, hs_)]
+        if hs_[0] < h - 40: c['grow'] = [dict(t=round(tt if k == 0 else max(c['in']['t'], tt - 0.24), 4), h=round(hv, 1)) for k, (tt, hv) in enumerate(zip([c['in']['t']] + steps, hs_))]   # grown BEFORE the row fades in (clear.py inside)
         SLOTS.append(dict(slot=slot, card=s.id, t_in=c['in']['t'], t_out=t_out))
         return s.box
 
@@ -373,18 +373,22 @@ def T_usuk():
     D = EP['data']; series_chip(); t_split = start('sh') - 0.2
     title([['US', 'primary'], [' or ', 'ink'], ['UK', 'coral'], ['?', 'ink']], 112, RY0 + 120, None, at('us', D['us']) - 0.2, hook=True, lines=1)
     top('flags', [RX0 + (RW - 300) / 2, RY0 + 290, RX0 + (RW + 300) / 2, RY0 + 390], None, out=at('us', D['us']) - 0.2)
-    H2 = 330; half = RW / 2
+    H2 = 330; half = RW / 2; VS_HALF = 50
     top('split', [RX0, RY0, RX1, RY0 + H2], at('us', D['us']), out=t_split)
     for i, (cc, wd, ipa, col, lid, lab) in enumerate([('us', D['us'], D['ipa_us'], 'primary', 'us', 'US ENGLISH'), ('uk', D['uk'], D['ipa_uk'], 'coral', 'uk', 'UK ENGLISH')]):
-        x0 = RX0 + i * half; t_w = at(lid, wd); inner = half - 90
+        x0 = RX0 + i * half; t_w = at(lid, wd); inner = half - 2 * VS_HALF - 20   # word + IPA centred in the half, >= 10 px clear of the VS medallion on the seam
         top('tag', [x0 + 30, RY0 + 30, x0 + 30 + FT.tag_w(lab, 40), RY0 + 98], t_w, out=t_split, cc=cc, text=lab, size=40)   # flag + ONE-line label inside the pill
         sz = min(104, int(104 * inner / max(1, tw(wd, 104)))); ww = tw(wd, sz)
-        nw = top('text', [x0 + (half - ww) / 2, RY0 + 130, x0 + (half + ww) / 2, RY0 + 130 + round(sz * 1.2)], t_w, out=t_split, runs=[[wd, col]], size=sz, ipa=False, parent=None)
-        CUES.append(dict(node=nw['id'], t=t_w, tag=wd)); iw = tw(ipa, 48, True)
-        ni = top('text', [x0 + (half - iw) / 2, RY0 + 260, x0 + (half + iw) / 2, RY0 + 318], t_w, out=t_split, runs=[[ipa, 'muted']], size=48, ipa=True)
+        nw = top('text', [x0 + (half - ww) / 2, RY0 + 112, x0 + (half + ww) / 2, RY0 + 112 + round(sz * 1.2)], t_w, out=t_split, runs=[[wd, col]], size=sz, ipa=False, parent=None)
+        isz = 48
+        while isz > 36 and tw(ipa, isz, True) > inner: isz -= 2
+        CUES.append(dict(node=nw['id'], t=t_w, tag=wd)); iw = tw(ipa, isz, True)
+        ni = top('text', [x0 + (half - iw) / 2, RY0 + 240, x0 + (half + iw) / 2, RY0 + 240 + round(isz * 1.2)], t_w, out=t_split, runs=[[ipa, 'muted']], size=isz, ipa=True)
         IPA.append(dict(token=wd, ipa=ipa, node=ni['id']))
-    top('vs', [RX0 + half - 60, RY0 + H2 - 66, RX0 + half + 60, RY0 + H2 + 54]   # medallion on the bottom seam (never on a word)
-       , at('uk', 'Britain'), k='pop', out=t_split, size=60, pairs=[['vs_ink', 'vs_bg', 60]])   # Stitch b6303607 VS badge: coral, dark ink, gold ring
+        assert ni['box'][3] <= RY0 + H2 - 24, ('IPA leaves its half panel', ni['box'], RY0 + H2)
+    # Stitch b6303607: VS medallion centred on the seam between the halves, level with the words (the old bottom-seam spot sat on the IPA / next card)
+    top('vs', [RX0 + half - VS_HALF, RY0 + 125, RX0 + half + VS_HALF, RY0 + 125 + 2 * VS_HALF]
+       , at('uk', 'Britain'), k='pop', out=t_split, size=56, pairs=[['vs_ink', 'vs_bg', 56]])   # Stitch b6303607 VS badge: coral, dark ink, gold ring
     c = Card(RY0 + H2 + 76); c.text([[D['same'], 'accent']], S['body'], at('uk', 'same'), align='c', gap=GAP)
     if 'tw' in LINES:   # the surprise line (cookie ep: in America a biscuit is soft bread) on its spoken word, same card
         c.text([['US ', 'muted'], [D['uk'], 'primary'], [' = ' + D['twist']['card'], 'ink']], S['sub'], start('tw'), align='c', gap=GAP)
