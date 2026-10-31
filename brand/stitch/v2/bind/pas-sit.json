@@ -1,5 +1,5 @@
 {
- "_doc": "Play & Speak F1 màn tình huống (#/speak/<id>, cờ speak_pack) – d do web/js/speak/app.js situation() dựng từ content/situations/<id>.json + tiến độ lk.spk. Ẩn phần Stitch tự bịa: '+25 XP upon completion', '67% Café readiness', 'Level B1 standard', chip 'Smart review', huy hiệu '8' ở tab Từ vựng; 'Level B1' ở phụ đề = CEFR thật (d.sub). Nút chặng 'Review'/'Boss tip' là mẫu: chỉ vẽ từ d.nodes (chặng thật). LƯU Ý: DOM sáng/tối của mẫu lệch nhau (sáng: main>div+4 section; tối: 6 section) → LCS ghép lệch 1 khối: section 2–5 là phần tử LAI (sáng = lộ trình/danh sách/cụm câu/add-on; tối = giáo viên+bong bóng/lộ trình/danh sách/cụm câu). Chỗ lai dùng class lt:/dk:hidden thay 1 class có sẵn, hoặc bọc chữ trong <span class=lt:hidden|dk:hidden> để mỗi giao diện chỉ hiện đúng dữ liệu của nó. Thanh tab: gắn tĩnh theo d.tabsNav[i] (giữ icon riêng từng tab của mẫu).",
+ "_doc": "Play & Speak F1 màn tình huống (#/speak/<id>, cờ speak_pack) – d do web/js/speak/app.js situation() dựng từ content/situations/<id>.json + tiến độ lk.spk. Mẫu Stitch sáng/tối CÙNG cấu trúc DOM → mỗi thứ một bộ chọn, không còn chỗ lai. Ẩn phần Stitch tự bịa: '+25 XP upon completion', '67% Café readiness', chip 'Smart review', huy hiệu '8' ở tab Từ vựng; 'Level B1' ở phụ đề = CEFR thật (d.sub). Nút chặng 'Review'/'Boss tip' là mẫu: chỉ vẽ từ d.nodes (chặng thật, 3 khuôn done/cur/todo, số cột theo số chặng). Danh sách nhiệm vụ vẽ từ d.tasks (3 khuôn done/cur/todo, trạng thái từ dữ liệu). Chip 'Weekly goal' = d.week (mục tiêu tuần thật). Mũi tên nút Bắt đầu: bản tối Stitch dùng ký tự '→' trong chữ, bản sáng dùng svg → giữ svg ở cả hai (cùng nét #1C1003 với chữ). Thanh tab: gắn theo d.tabsNav[i] (giữ icon riêng từng tab của mẫu).",
  "i18n": {
   "Go back": "Quay lại màn trước",
   "Adventure Path": "Lộ trình phiêu lưu",
@@ -7,65 +7,31 @@
   "DONE": "Đã xong",
   "Target": "Mục tiêu nói",
   "From your add-on": "Từ tiện ích của bạn",
-  "FROM YOUR ADD-ON": "Từ tiện ích của bạn",
   "Say them in a sentence today": "Hôm nay hãy nói các từ này trong một câu",
   "Start speaking drill": "Bắt đầu luyện nói",
   "Role-play with Carlos": "Nhập vai với Carlos"
  },
  "text": {
+  "Café & restaurant": "d.title",
+  "Speaking Drill • Level B1": "d.sub",
+  "Mission Cue": "d.coach",
+  "Step 3 of 5": "d.stage",
+  "Café Sprint": "d.group",
   "1 / 3 done": "d.taskDone",
-  "Weekly goal 32 / 50 sentences": "''"
+  "8 / 12 phrases": "d.mastered",
+  "mastered": "d.masteredSub",
+  "Weekly goal 32 / 50 sentences": "d.week",
+  "4 phrases remaining": "d.remain"
  },
  "html": {
-  ":scope > div > header h1": "e(d.title)",
-  ":scope > div > header > div > div > p": "e(d.sub)",
-  ":scope > div > header > div > div > span": "e(d.sub)",
   ":scope > div > main > div:nth-child(1) > div:nth-child(1)": "d.teacher",
-  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)": "e(d.coach)",
   ":scope > div > main > div:nth-child(1) > div:nth-child(2) > p": "e(d.mission)",
-  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div:nth-child(5)": "''",
-  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)": "e(d.stage)",
-  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(d.group)",
-  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > span:nth-child(3)": "d.teacher",
-  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)": "e(d.coach)",
-  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > p": "e(d.mission)",
-  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:nth-of-type(2)": "''",
-  ":scope > div > main > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)": "'<span class=\"lt:hidden\">route</span>'",
-  ":scope > div > main > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > span:nth-child(3)": "e(d.group)",
-  ":scope > div > main > section:nth-child(3) > div:nth-child(1) > span:nth-child(2)": "'<span class=\"dk:hidden\">' + e(d.taskDone) + '</span><span class=\"lt:hidden\">' + e(d.stage) + '</span>'",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)": "e(d.mastered)",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)": "e(d.masteredSub)",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e((d.tasks[0] || {}).title || '')",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e((d.tasks[0] || {}).ex || '')",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(2) > span:nth-child(2)": "e((d.tasks[0] || {}).done ? t('Đã xong') : t('Mục tiêu nói'))",
   ":scope > div > main > section:nth-child(4) > div:nth-child(3) > span:nth-child(1)": "''",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)": "e((d.tasks[1] || {}).title || '')",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)": "e((d.tasks[1] || {}).ex || '')",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(3) > span:nth-child(3)": "'<span class=\"dk:hidden\">' + e(d.remain) + '</span><span class=\"lt:hidden\">' + e(d.tasks[1] ? (d.tasks[1].done ? t('Đã xong') : t('Mục tiêu nói')) : '') + '</span>'",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e((d.tasks[2] || {}).title || '')",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e((d.tasks[2] || {}).ex || '')",
-  ":scope > div > main > section:nth-child(4) > div:nth-child(4) > span:nth-child(2)": "e((d.tasks[2] || {}).done ? t('Đã xong') : t('Mục tiêu nói'))",
-  ":scope > div > main > section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div": "e(d.mastered + ' ' + d.masteredSub)",
-  ":scope > div > main > section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > span:nth-child(3)": "'<span class=\"lt:hidden\">' + e(d.remain) + '</span>'",
-  ":scope > div > main > section:nth-child(5) > div:nth-child(1) > span:nth-child(2)": "e(d.week)",
-  ":scope > div > main > section:nth-child(5) > div:nth-child(4)": "''",
-  ":scope > div > main > section:nth-child(7) > div:nth-child(1) > span:nth-child(2)": "''",
-  ":scope > div > nav > a:nth-of-type(1) > span": "e(d.tabsNav[0].label)",
-  ":scope > div > nav > a:nth-of-type(2) > span": "e(d.tabsNav[1].label)",
-  ":scope > div > nav > a:nth-of-type(3) > span": "e(d.tabsNav[2].label)",
-  ":scope > div > nav > a:nth-of-type(4) > span": "e(d.tabsNav[3].label)",
-  ":scope > div > nav > a:nth-of-type(5) > span": "e(d.tabsNav[4].label)",
-  ":scope > div > nav > a:nth-of-type(2) > div > span": "''",
-  ":scope > div > nav > button:nth-of-type(1) > span:last-child": "e(d.tabsNav[0].label)",
-  ":scope > div > nav > button:nth-of-type(2) > span:last-child": "e(d.tabsNav[1].label)",
-  ":scope > div > nav > button:nth-of-type(3) > span:last-child": "e(d.tabsNav[2].label)",
-  ":scope > div > nav > button:nth-of-type(4) > span:last-child": "e(d.tabsNav[3].label)",
-  ":scope > div > nav > button:nth-of-type(5) > span:last-child": "e(d.tabsNav[4].label)",
-  ":scope > div > nav > button:nth-of-type(2) > div > span:nth-child(2)": "''",
-  ":scope > div > main > section:nth-child(5) > div:nth-child(3) > div:nth-child(1)": "''"
- },
- "after": {
-  ":scope > div > main > section:nth-child(4) > div:nth-child(1) > span:nth-child(2) > span": "'<span class=\"lt:hidden\">' + e(t('Danh sách nhiệm vụ nói')) + '</span><span class=\"dk:hidden\">' + e(d.week) + '</span>'"
+  ":scope > div > nav > a:nth-of-type(1) > span:last-child": "e(d.tabsNav[0].label)",
+  ":scope > div > nav > a:nth-of-type(2) > span:last-child": "e(d.tabsNav[1].label)",
+  ":scope > div > nav > a:nth-of-type(3) > span:last-child": "e(d.tabsNav[2].label)",
+  ":scope > div > nav > a:nth-of-type(4) > span:last-child": "e(d.tabsNav[3].label)",
+  ":scope > div > nav > a:nth-of-type(5) > span:last-child": "e(d.tabsNav[4].label)"
  },
  "attr": {
   ":scope > div > header > div > button": {
@@ -79,9 +45,6 @@
    "title": "d.info"
   },
   ":scope > div > main > div:nth-child(1) > div:nth-child(1)": {
-   "aria-hidden": "'true'"
-  },
-  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > span:nth-child(3)": {
    "aria-hidden": "'true'"
   },
   ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(2)": {
@@ -99,22 +62,11 @@
   ":scope > div > main > section:nth-child(4) > div:nth-child(2) > div:nth-child(1)": {
    "style": "'--p:' + d.pct + '%'"
   },
-  ":scope > div > main > section:nth-child(5) > div:nth-child(3) > div:nth-child(1)": {
-   "style": "'--p:' + d.pct + '%'"
-  },
   ":scope > div > main > div:nth-child(6) > button:nth-child(1)": {
    "type": "'button'",
    "data-href": "d.start"
   },
   ":scope > div > main > div:nth-child(6) > button:nth-child(2)": {
-   "type": "'button'",
-   "data-href": "d.rp"
-  },
-  ":scope > div > main > section:nth-child(8) > button:nth-child(1)": {
-   "type": "'button'",
-   "data-href": "d.start"
-  },
-  ":scope > div > main > section:nth-child(8) > button:nth-child(2)": {
    "type": "'button'",
    "data-href": "d.rp"
   },
@@ -133,78 +85,27 @@
   },
   ":scope > div > nav > a:nth-of-type(5)": {
    "href": "d.tabsNav[4].href"
-  },
-  ":scope > div > nav > button:nth-of-type(1)": {
-   "type": "'button'",
-   "data-href": "d.tabsNav[0].href"
-  },
-  ":scope > div > nav > button:nth-of-type(2)": {
-   "type": "'button'",
-   "data-href": "d.tabsNav[1].href"
-  },
-  ":scope > div > nav > button:nth-of-type(3)": {
-   "type": "'button'",
-   "data-href": "d.tabsNav[2].href",
-   "aria-current": "d.tabsNav[2].on ? 'page' : 'false'"
-  },
-  ":scope > div > nav > button:nth-of-type(4)": {
-   "type": "'button'",
-   "data-href": "d.tabsNav[3].href"
-  },
-  ":scope > div > nav > button:nth-of-type(5)": {
-   "type": "'button'",
-   "data-href": "d.tabsNav[4].href"
   }
  },
  "cls": {
-  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div:nth-child(5)": {
-   "mt-2": "'hidden'"
-  },
-  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > div:nth-child(1)": {
-   "dk:w-9": "'dk:hidden'"
-  },
-  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > span:nth-child(2)": {
-   "dk:font-extrabold": "'dk:hidden'"
-  },
   ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(2)": {
-   "dk:flex": "'dk:hidden'",
-   "lt:grid-cols-5": "d.nodes.length >= 5 ? 'lt:grid-cols-5' : d.nodes.length === 4 ? 'lt:grid-cols-4' : 'lt:grid-cols-3'"
+   "grid-cols-5": "d.nodes.length >= 5 ? 'grid-cols-5' : d.nodes.length === 4 ? 'grid-cols-4' : 'grid-cols-3'"
   },
   ":scope > div > main > section:nth-child(4) > div:nth-child(2) > div:nth-child(1)": {
-   "lt:[width:66.6%]": "'lt:[width:var(--p)]'"
-  },
-  ":scope > div > main > section:nth-child(4) > div:nth-child(3) > span:nth-child(1)": {
-   "dk:hidden": "'hidden'"
-  },
-  ":scope > div > main > section:nth-child(4) > div:nth-child(4)": {
-   "lt:hidden": "d.tasks[2] ? 'lt:hidden' : 'hidden'"
+   "[width:66.6%]": "'[width:var(--p)]'"
   },
   ":scope > div > main > section:nth-child(5)": {
-   "lt:bg-white": "d.addonOn ? 'lt:bg-white' : 'lt:hidden'"
+   "rounded-[16px]": "d.addonOn ? 'rounded-[16px]' : 'hidden'"
   },
-  ":scope > div > main > section:nth-child(5) > div:nth-child(1) > span:nth-child(2)": {
-   "lt:text-[11px]": "'lt:hidden'"
-  },
-  ":scope > div > main > section:nth-child(5) > div:nth-child(3) > div:nth-child(1)": {
-   "lt:flex-1": "'lt:hidden'",
-   "dk:[width:67%]": "'dk:[width:var(--p)]'"
-  },
-  ":scope > div > main > section:nth-child(5) > div:nth-child(4)": {
-   "flex": "'hidden'"
-  },
-  ":scope > div > main > section:nth-child(7)": {
-   "lt:hidden": "d.addonOn ? 'lt:hidden' : 'hidden'"
-  },
-  ":scope > div > main > section:nth-child(7) > div:nth-child(1) > span:nth-child(2)": {
-   "bg-[#163038]": "'hidden'"
-  },
-  ":scope > div > nav > a:nth-of-type(2) > div > span": {
-   "absolute": "'hidden'"
-  },
-  ":scope > div > nav > button:nth-of-type(2) > div > span:nth-child(2)": {
-   "absolute": "'hidden'"
+  ":scope > div > main > div:nth-child(6) > button:nth-child(1) > svg": {
+   "dk:hidden": "''"
   }
  },
+ "remove": [
+  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div:nth-child(5)",
+  ":scope > div > main > section:nth-child(5) > div:nth-child(1) > span:nth-child(2)",
+  ":scope > div > nav > a:nth-of-type(2) > div > span"
+ ],
  "repeat": [
   {
    "list": "d.nodes",
@@ -234,13 +135,16 @@
      },
      "cls": {
       ":scope > div:nth-child(3) > span:nth-child(1)": {
-       "text-[#F59E0B]": "r.stars[0].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
+       "lt:text-[#F59E0B]": "r.stars[0].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#f59e0b]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(2)": {
-       "text-[#F59E0B]": "r.stars[1].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
+       "lt:text-[#F59E0B]": "r.stars[1].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#f59e0b]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(3)": {
-       "text-[#F59E0B]": "r.stars[2].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
+       "lt:text-[#F59E0B]": "r.stars[2].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#f59e0b]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       }
      },
      "tag": {
@@ -267,13 +171,16 @@
      },
      "cls": {
       ":scope > div:nth-child(3) > span:nth-child(1)": {
-       "text-[#F59E0B]": "r.stars[0].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
+       "lt:text-[#F59E0B]": "r.stars[0].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#f59e0b]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(2)": {
-       "text-[#D1C3B4]": "r.stars[1].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
+       "lt:text-[#D1C3B4]": "r.stars[1].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#475569]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(3)": {
-       "text-[#D1C3B4]": "r.stars[2].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
+       "lt:text-[#D1C3B4]": "r.stars[2].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#475569]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       }
      },
      "tag": {
@@ -299,93 +206,16 @@
      },
      "cls": {
       ":scope > div:nth-child(3) > span:nth-child(1)": {
-       "text-[#D1C3B4]": "r.stars[0].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
+       "lt:text-[#D1C3B4]": "r.stars[0].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#475569]": "r.stars[0].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(2)": {
-       "text-[#D1C3B4]": "r.stars[1].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
+       "lt:text-[#D1C3B4]": "r.stars[1].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#475569]": "r.stars[1].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       },
       ":scope > div:nth-child(3) > span:nth-child(3)": {
-       "text-[#D1C3B4]": "r.stars[2].on ? 'text-[#F59E0B]' : 'text-[#D1C3B4]'"
-      }
-     },
-     "tag": {
-      ":scope": {
-       "to": "button"
-      }
-     }
-    }
-   }
-  },
-  {
-   "list": "d.nodes",
-   "as": "r",
-   "samples": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > div:nth-child(n+4)",
-   "pick": "r.st === 'cur' ? 'cur' : 'todo'",
-   "variants": {
-    "cur": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > div:nth-child(4)",
-    "todo": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > div:nth-child(5)"
-   },
-   "bind": {
-    "cur": {
-     "html": {
-      ":scope > span": "e(r.label)"
-     },
-     "attr": {
-      ":scope": {
-       "type": "'button'",
-       "data-href": "r.href",
-       "aria-current": "'step'"
-      },
-      ":scope > div:nth-child(3)": {
-       "role": "'img'",
-       "aria-label": "r.starsAria"
-      }
-     },
-     "cls": {
-      ":scope > div:nth-child(3) > span:nth-child(1)": {
-       "text-[#f4bf40]": "r.stars[0].on ? 'text-[#f4bf40]' : 'text-[#3d4947]'",
-       "material-symbols-fill": "r.stars[0].on ? 'material-symbols-fill' : 'material-symbols-outlined'"
-      },
-      ":scope > div:nth-child(3) > span:nth-child(2)": {
-       "text-[#3d4947]": "r.stars[1].on ? 'text-[#f4bf40] material-symbols-fill' : 'text-[#3d4947]'"
-      },
-      ":scope > div:nth-child(3) > span:nth-child(3)": {
-       "text-[#3d4947]": "r.stars[2].on ? 'text-[#f4bf40] material-symbols-fill' : 'text-[#3d4947]'"
-      }
-     },
-     "tag": {
-      ":scope": {
-       "to": "button"
-      }
-     }
-    },
-    "todo": {
-     "html": {
-      ":scope > span": "e(r.label)",
-      ":scope > div:nth-child(1) > span": "r.st === 'done' ? 'check' : 'lock'"
-     },
-     "attr": {
-      ":scope": {
-       "type": "'button'",
-       "data-href": "r.href"
-      },
-      ":scope > div:nth-child(3)": {
-       "role": "'img'",
-       "aria-label": "r.starsAria"
-      }
-     },
-     "cls": {
-      ":scope": {
-       "opacity-70": "r.st === 'done' ? 'opacity-100' : 'opacity-70'"
-      },
-      ":scope > div:nth-child(3) > span:nth-child(1)": {
-       "text-[11px]": "r.stars[0].on ? 'text-[11px] text-[#f4bf40] material-symbols-fill' : 'text-[11px]'"
-      },
-      ":scope > div:nth-child(3) > span:nth-child(2)": {
-       "text-[11px]": "r.stars[1].on ? 'text-[11px] text-[#f4bf40] material-symbols-fill' : 'text-[11px]'"
-      },
-      ":scope > div:nth-child(3) > span:nth-child(3)": {
-       "text-[11px]": "r.stars[2].on ? 'text-[11px] text-[#f4bf40] material-symbols-fill' : 'text-[11px]'"
+       "lt:text-[#D1C3B4]": "r.stars[2].on ? 'lt:text-[#F59E0B]' : 'lt:text-[#D1C3B4]'",
+       "dk:text-[#475569]": "r.stars[2].on ? 'dk:text-[#f59e0b]' : 'dk:text-[#475569]'"
       }
      },
      "tag": {
@@ -399,7 +229,7 @@
   {
    "list": "d.tasks",
    "as": "r",
-   "samples": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > div:nth-child(-n+3)",
+   "samples": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > div",
    "pick": "r.st",
    "variants": {
     "done": ":scope > div > main > section:nth-child(3) > div:nth-child(2) > div:nth-child(1)",
@@ -411,11 +241,6 @@
      "html": {
       ":scope > div:nth-child(2) > p:nth-child(1)": "e(r.title)",
       ":scope > div:nth-child(2) > p:nth-child(2)": "e(r.ex)"
-     },
-     "cls": {
-      ":scope": {
-       "dk:absolute": "'dk:hidden'"
-      }
      }
     },
     "cur": {
@@ -427,22 +252,12 @@
       ":scope": {
        "aria-current": "'step'"
       }
-     },
-     "cls": {
-      ":scope": {
-       "dk:relative": "'dk:hidden'"
-      }
      }
     },
     "todo": {
      "html": {
       ":scope > div:nth-child(2) > p:nth-child(1)": "e(r.title)",
       ":scope > div:nth-child(2) > p:nth-child(2)": "e(r.ex)"
-     },
-     "cls": {
-      ":scope": {
-       "dk:relative": "'dk:hidden'"
-      }
      }
     }
    }
@@ -450,9 +265,9 @@
   {
    "list": "d.addon",
    "as": "r",
-   "samples": ":scope > div > main > section:nth-child(5) > div:nth-child(3) > div:nth-child(2)",
+   "samples": ":scope > div > main > section:nth-child(5) > div:nth-child(3) > div",
    "variants": {
-    "one": ":scope > div > main > section:nth-child(5) > div:nth-child(3) > div:nth-child(2)"
+    "one": ":scope > div > main > section:nth-child(5) > div:nth-child(3) > div:nth-child(1)"
    },
    "bind": {
     "one": {
@@ -468,32 +283,6 @@
      "cls": {
       ":scope > span": {
        "px-1.5": "r.ipa ? 'px-1.5' : 'hidden'"
-      }
-     }
-    }
-   }
-  },
-  {
-   "list": "d.addon",
-   "as": "r",
-   "samples": ":scope > div > main > section:nth-child(7) > div:nth-child(3) > div",
-   "variants": {
-    "one": ":scope > div > main > section:nth-child(7) > div:nth-child(3) > div:nth-child(1)"
-   },
-   "bind": {
-    "one": {
-     "html": {
-      ":scope > div > span:nth-child(2)": "e(r.w)",
-      ":scope > span": "e(r.ipa)"
-     },
-     "attr": {
-      ":scope": {
-       "lang": "'en'"
-      }
-     },
-     "cls": {
-      ":scope > span": {
-       "mt-0.5": "r.ipa ? 'mt-0.5' : 'hidden'"
       }
      }
     }
