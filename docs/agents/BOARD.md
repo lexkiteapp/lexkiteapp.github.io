@@ -226,6 +226,31 @@ Mẫu thẻ:
     * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
 - Cần sửa / Nhận xét:
 
+### [B5-L6] Lô 6 Blog 12 bài chuẩn SEO (6 TR + 6 TH) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường trọng điểm: Tiếng Thổ Nhĩ Kỳ (TR) và Tiếng Thái Lan (TH). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh tek dilli/อังกฤษอังกฤษ, luyện nghe Dictation/dikte, từ vựng IELTS AI/Technology và Karmaşık cümleler/Complex sentences).
+- **Báo cáo (Antigravity 31/10):**
+  - **Commit:** `b052386d8` → `d348c1943` (12 commit riêng biệt từng bài + briefs).
+  - **Danh sách 6 bài TR (Tiếng Thổ Nhĩ Kỳ):**
+    1. `ipa-fonetik-alfabe-ingilizce-telaffuz-tablosu.md` (`b052386d8`)
+    2. `ingilizce-soru-cumlesi-kurma-kurallari-5w1h.md` (`77c8039b4`)
+    3. `ingilizce-ingilizce-tek-dilli-sozluk-nasil-kullanilir.md` (`09b38dfbb`)
+    4. `ingilizce-dictation-dikte-listening-gelistirme.md` (`58380c86d`)
+    5. `ielts-kelimeleri-teknoloji-ve-yapay-zeka.md` (`9f7dfb9f2`)
+    6. `ielts-writing-icin-karmasik-cumleler-complex-sentences.md` (`1985100d9`)
+  - **Danh sách 6 bài TH (Tiếng Thái Lan):**
+    1. `taran-thot-siang-ipa-phasa-angkrit.md` (`a4e3af706`)
+    2. `withi-tang-khamtham-phasa-angkrit-5w1h.md` (`13ed9f125`)
+    3. `withi-chai-photchananukrom-angkrit-angkrit.md` (`9c17c13d5`)
+    4. `thikhnik-dictation-luyen-fang-phasa-angkrit.md` (`9bba72f77`)
+    5. `kham-sap-ielts-theknoloyi-lae-ai.md` (`0a018bd83`)
+    6. `khrongsang-prayok-complex-sentences-ielts-writing.md` (`d348c1943`)
+  - **Cổng chất lượng kiểm tra toàn diện:**
+    * `node scripts/blog-check.mjs`: 538 bài, 0 lỗi.
+    * `node scripts/blog-captions.mjs --check-all`: 538 bài, 1.319 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * `node scripts/blog-dupes.mjs`: 538 bài, 0 lỗi (độ chồng lấn cao nhất 10.0% < 12%).
+    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
+- Cần sửa / Nhận xét:
+
 ### [B5] Viết lại 6 bài Hindi (hi) bằng chữ Devanagari bản địa · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Viết lại toàn bộ 6 bài hi bằng chữ Devanagari bản địa (हिन्दी) như 28 bài hi hiện có, chỉ giữ tiếng Anh ở ví dụ/từ khóa, tự kiểm tỉ lệ Devanagari ≥ 70%, để trống \`publishAt\`.
 - **Báo cáo (Antigravity 23/10):**
