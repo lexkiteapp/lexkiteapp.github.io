@@ -134,7 +134,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-surface text-on-surface min-h-screen flex flex-col justify-between items-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
 <!-- Full-bleed Mobile Canvas (max-w-md, standard mobile viewport feeling) -->
 <main class="w-full max-w-md min-h-screen px-margin py-space-md flex flex-col justify-between relative overflow-hidden">
@@ -164,7 +164,7 @@
 <section aria-label="Unlocked Badge Visual" class="relative z-10 flex flex-col items-center my-3">
 <div class="relative w-48 h-48 flex items-center justify-center">
 <!-- Ambient outer decorative tactile ring -->
-<div class="absolute inset-0 rounded-full border-4 border-dashed border-outline-variant opacity-70 badge-ring-pulse"></div>
+<div class="absolute inset-0 rounded-full border-4 border-dashed border-outline-variant opacity-70 badge-ring-pulse"><div class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-primary flex items-center justify-center mb-1 text-primary shadow-sm"><span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">school</span></div><span class="font-label-sm text-label-sm text-primary font-extrabold tracking-wide">Teacher</span></div>
 <!-- Secondary gold halo depth tier -->
 <div class="absolute inset-2 rounded-full bg-secondary-container/20 border-2 border-secondary-fixed"></div>
 <!-- Chunky 3D Base Medallion Disk with Physical Extruded Ledge -->
@@ -205,41 +205,23 @@
         Review machine
       </h2>
 <!-- Subtitle Description -->
-<p class="font-body-md text-body-md text-on-surface-variant font-medium">
-        Reviewed 50 spaced flashcards today!
-      </p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Reviewed 50 spaced flashcards today!</p>
 </article>
 <!-- Coach / Teacher Row: 2-Column Bento Integration -->
 <section aria-label="Feedback and Teacher Status" class="relative z-10 w-full grid grid-cols-12 gap-2.5 mb-3">
 <!-- Left Column: TEACHER SLOT (Clean 2D pedagogical indicator, no human face) -->
-<div class="col-span-4 bg-surface-container-low border-2 border-dashed border-primary-container rounded-DEFAULT p-2.5 flex flex-col items-center justify-center text-center shadow-[0_4px_0_0_#E5DACB]">
-<div class="w-10 h-10 rounded-full bg-surface-container-lowest border border-primary flex items-center justify-center mb-1 text-primary-container">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">
-            school
-          </span>
-</div>
-<span class="font-label-sm text-label-sm text-primary-container font-extrabold tracking-wider leading-none mb-0.5">
-          TEACHER SLOT
-        </span>
-<span class="font-label-sm text-[10px] text-outline font-semibold leading-tight">
-          2D teacher loads here
-        </span>
-</div>
+<div class="col-span-4 bg-surface-container-low border-2 border-dashed border-primary-container rounded-DEFAULT p-2.5 flex flex-col items-center justify-center text-center shadow-[0_4px_0_0_#E5DACB]"><div class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-primary flex items-center justify-center mb-1 text-primary shadow-sm"><span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">school</span></div><span class="font-label-sm text-label-sm text-primary font-extrabold tracking-wide">Teacher</span></div>
 <!-- Right Column: Coach Speech Bubble Card -->
 <div class="col-span-8 bg-surface-container-lowest border-2 border-[#EFE7DA] rounded-DEFAULT p-3 shadow-[0_5px_0_0_#E2D7C7] relative flex flex-col justify-center">
 <!-- Speech Bubble Left Tip Pointer -->
 <div class="absolute -left-2 top-1/2 -translate-y-1/2 w-0 h-0 border-y-8 border-y-transparent border-r-8 border-r-[#EFE7DA] hidden sm:block"></div>
 <div class="flex items-center gap-1.5 mb-1">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-extrabold">
-            🎉 GREAT PACE!
-          </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-extrabold">🎉 GREAT PACE!</span>
 </div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-snug">
           Super memory streak!
         </h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant font-medium mt-0.5">
-          Keep it up.
-        </p>
+<p class="font-body-sm text-body-sm text-on-surface font-semibold mt-0.5">Keep it up.</p>
 </div>
 </section>
 <!-- Interactive Bottom Actions & Gamified XP Stats -->
@@ -263,14 +245,7 @@
 </button>
 </div>
 <!-- XP Target Footnote -->
-<div class="flex items-center gap-1.5 text-on-surface-variant">
-<span class="material-symbols-outlined text-secondary-container text-base" style="font-variation-settings: 'FILL' 1;">
-          add_circle
-        </span>
-<p class="font-body-sm text-body-sm font-semibold text-outline text-center">
-          +30 XP earned towards Band 7.5 target
-        </p>
-</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">add_circle</span><p class="font-body-sm text-body-sm font-bold text-on-surface text-center">+30 XP earned towards Band 7.5 target</p></div>
 </footer>
 </main>
 </body></html>
