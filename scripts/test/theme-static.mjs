@@ -22,19 +22,22 @@ const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 
 const BASE = 'http://lexkite.test', fileOf = u => { let p = decodeURIComponent(new URL(u).pathname); if (p.endsWith('/')) p += 'index.html'; let f = path.join(ROOT, p); if (!fs.existsSync(f) && fs.existsSync(f + '.html')) f += '.html'; return f.startsWith(ROOT) && fs.existsSync(f) && !fs.statSync(f).isDirectory() ? f : null; };
 const serve = ctx => ctx.route('**/*', r => { const u = r.request().url(); if (!u.startsWith(BASE)) return r.abort(); const f = fileOf(u); return f ? r.fulfill({ status: 200, contentType: TYPES[path.extname(f)] || 'application/octet-stream', body: fs.readFileSync(f) }) : r.fulfill({ status: 404, body: '' }); });
 const browser = await chromium.launch(args.includes('--chrome') ? { channel: 'chrome' } : {});
+// Tràn ngang: số px + phần tử sâu nhất thò ra ngoài (để sửa đúng chỗ)
+const OVER = () => { const W = document.documentElement.clientWidth, d = document.documentElement.scrollWidth - W; if (d <= 0) return ''; const o = [...document.body.querySelectorAll('*')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.right > W + 1 && ![...e.children].some(c => c.getBoundingClientRect().right > W + 1); }).slice(0, 3).map(e => `${e.tagName.toLowerCase()}${e.className && typeof e.className === 'string' ? '.' + e.className.trim().split(/\s+/).join('.') : ''}→${Math.round(e.getBoundingClientRect().right)}`); return `tràn ngang ${d}px (${o.join(', ')})`; };
 const bad = [], lum = c => { const m = (c.match(/[\d.]+/g) || []).map(Number); const [r, g, b] = m.slice(0, 3).map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; }); return .2126 * r + .7152 * g + .0722 * b; };
 if (SHOTS) fs.mkdirSync(SHOTS, { recursive: true });
 let checks = 0;
 for (const [mode, scheme, stored] of MODES) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce' });
   await serve(ctx);
-  await ctx.addInitScript(([s]) => { try { if (s) localStorage.setItem('lk.theme', s); else localStorage.removeItem('lk.theme'); } catch (e) { /* */ }
+  await ctx.addInitScript(([s]) => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); if (s) localStorage.setItem('lk.theme', s); else localStorage.removeItem('lk.theme'); } } catch (e) { /* */ } // chỉ gieo lần đầu mỗi tab → tải lại giữ lựa chọn người dùng
     new MutationObserver((_, o) => { if (document.body) { window.__bg0 = getComputedStyle(document.body).backgroundColor; window.__th0 = document.documentElement.getAttribute('data-theme'); o.disconnect(); } }).observe(document, { childList: true, subtree: true }); }, [stored]);
   const darkWanted = (stored || scheme) === 'dark';
   for (const [p, name] of PAGES) {
     const page = await ctx.newPage(); const errs = []; page.on('pageerror', e => errs.push(e.message));
     await page.goto(BASE + p, { waitUntil: 'load' }).catch(e => errs.push(e.message));
     if (p === '/bye.html' || p.startsWith('/blog-lang')) await page.waitForTimeout(500); // thẻ hiện sau 0,4 s
+    const ov = await page.evaluate(OVER); if (ov) bad.push(`${name} [${mode}] @390: ${ov}`);
     const st = await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), th0: window.__th0, bg0: window.__bg0, bg: getComputedStyle(document.body).backgroundColor, btn: !!document.querySelector('[data-tsw]') }));
     const tag = `${name} [${mode}]`; checks++;
     if (st.th !== (stored || null) || st.th0 !== (stored || null)) bad.push(`${tag}: data-theme=${st.th} (lúc vẽ đầu ${st.th0}), muốn ${stored || 'không có'}`);
@@ -52,7 +55,6 @@ for (const [mode, scheme, stored] of MODES) {
       await page.click('[data-tsw] >> visible=true'); await page.reload({ waitUntil: 'load' });
       if (await page.evaluate(() => document.documentElement.getAttribute('data-theme')) !== 'light') bad.push('landing-en: tải lại không giữ lựa chọn sáng');
       const box = await page.locator('[data-tsw] >> visible=true').boundingBox(); if (!box || box.width < 44 || box.height < 44) bad.push(`landing-en: nút giao diện ${box && Math.round(box.width)}×${box && Math.round(box.height)} < 44 px trên điện thoại`);
-      const ov = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth); if (ov > 0) bad.push(`landing-en: tràn ngang ${ov}px @390`);
     }
     await page.close();
   }
@@ -61,8 +63,8 @@ for (const [mode, scheme, stored] of MODES) {
 // Tràn ngang đầu trang ở 360 px (điện thoại nhỏ): logo + nút + giao diện + ngôn ngữ phải vừa
 { const ctx = await browser.newContext({ viewport: { width: 360, height: 740 }, colorScheme: 'light' }); await serve(ctx);
   for (const [p, name] of PAGES) { const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }).catch(() => {});
-    const r = await page.evaluate(() => { const b = document.querySelector('[data-tsw]'); if (!b) return null; const q = b.getBoundingClientRect(); return { ov: document.documentElement.scrollWidth - innerWidth, right: q.right, vis: q.width > 0 && q.right <= innerWidth + .5 && q.left >= -.5 }; });
-    if (r && (r.ov > 0 || !r.vis)) bad.push(`${name} @360: ${r.ov > 0 ? `tràn ngang ${r.ov}px` : 'nút giao diện ra ngoài màn hình'}`); await page.close(); }
+    const ov = await page.evaluate(OVER), vis = await page.evaluate(() => { const b = document.querySelector('[data-tsw]'); if (!b) return true; const q = b.getBoundingClientRect(); return q.width > 0 && q.right <= innerWidth + .5 && q.left >= -.5; });
+    if (ov) bad.push(`${name} @360: ${ov}`); if (!vis) bad.push(`${name} @360: nút giao diện ra ngoài màn hình`); await page.close(); }
   await ctx.close(); }
 await browser.close();
 if (bad.length) { console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }
