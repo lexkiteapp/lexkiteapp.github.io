@@ -45,7 +45,9 @@ jobs:
           pip install -q 'wordfreq[cjk]==3.1.1' nltk==3.9.1 espeakng-loader==0.2.4   # cjk: trcheck --exist cho zh/ja/ko (lớp D2)   # espeak-ng en-gb: IPA Anh khi Wiktionary thiếu (hiệu chuẩn espeak-calib.mjs)
           python -c "import nltk; nltk.download('wordnet', quiet=True); nltk.download('averaged_perceptron_tagger_eng', quiet=True); nltk.download('omw-1.4', quiet=True)"   # OMW 1.4: lemma theo synset 8 ngôn ngữ (synset.py, lớp D1)
           # câu ví dụ NGƯỜI VIẾT: Tatoeba (CC BY 2.0 FR) – examples.py lọc lemma + từ loại + câu dễ (source-first 24/10)
-          curl -sfL https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2 | bunzip2 > "$RUNNER_TEMP/tatoeba.tsv" || true
+          # lớp L2 (31/10 snail "We were late going to look for snails." – chủ không bản ngữ): CHỈ câu của người tự khai eng cấp 5 (tatoeba-native.mjs); tải lỗi = không có Tatoeba (không dùng câu chưa lọc)
+          curl -sfL https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_detailed.tsv.bz2 | bunzip2 > "$RUNNER_TEMP/tatoeba-all.tsv" && curl -sfL https://downloads.tatoeba.org/exports/user_languages.tar.bz2 | tar xj -C "$RUNNER_TEMP" \
+            && node scripts/lexicon/expand/tatoeba-native.mjs --sentences "$RUNNER_TEMP/tatoeba-all.tsv" --langs "$RUNNER_TEMP/user_languages.csv" --out "$RUNNER_TEMP/tatoeba.tsv" || rm -f "$RUNNER_TEMP/tatoeba.tsv"
           # vi do AI lấp chỉ nhận phương án có trong Viet74K (duyet/vietnamese-wordlist, GPL-2.0 – CHỈ để kiểm trong CI, không phân phối)
           curl -sfL -o "$RUNNER_TEMP/viet74k.txt" https://raw.githubusercontent.com/duyet/vietnamese-wordlist/master/Viet74K.txt || true
           curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict

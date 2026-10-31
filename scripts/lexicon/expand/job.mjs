@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { inflRe, gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -228,10 +228,12 @@ for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (
   X1.viOkSet = new Set([...viOk.map(c => c.v), ...X1.viW.filter((w, i) => ok('vw' + i))]);
   // vi chỉ AI (2 họ trùng, không Wiktionary): phải có trong từ điển tiếng Việt (Viet74K ∪ vi kho) – như cũ
   // vi PHẢI có nguồn người viết (Wiktionary) + ≥ 1 AI (soát pilot 2 29/10: vi chỉ AI đồng thuận – expel "trục xuất", congregate "tập trung" – sai nghĩa)
-  const viKeep = viOk.filter(c => c.src.includes('wk')).sort((p, q) => q.src.length - p.src.length); // nhiều nguồn trùng nhất đứng đầu (soát pilot 3: cassette "hộp băng" trước "băng cát-sét")
+  const viAI = { a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '' }; X1.dbg.viAI = viAI;
+  // AI họ khác phản bác (peel#v "gọt" 31/10 – wk + lxtr đồng ý, llama/mistral "bóc vỏ") → không nhận: ủng hộ phải NHIỀU HƠN phản bác (lib.mjs viContested)
+  const viKeep = viOk.filter(c => c.src.includes('wk') && !viContested(c, viAI)).sort((p, q) => q.src.length - p.src.length); // nhiều nguồn trùng nhất đứng đầu (soát pilot 3: cassette "hộp băng" trước "băng cát-sét")
   X1.m = {}; X1.trSrc = {}; X1.wsdTr = {};
   if (viKeep.length) { X1.m.vi = viKeep.map(c => c.v).join('; '); X1.trSrc.vi = viKeep.some(c => c.src.includes('wk')) ? 'wiktionary' : 'ai'; X1.viSrc = viKeep[0].src; }
-  else X1.viFail = X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
+  else X1.viFail = viOk.some(c => c.src.includes('wk')) ? 'dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)' : X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
   for (const l of LANGS) if (X1.trC[l] && ok('tr_' + l)) { X1.m[l] = X1.trC[l].t; X1.trSrc[l] = X1.trC[l].src; X1.wsdTr[l] = true; stat.tr[X1.trC[l].src]++; } }
 // ví dụ CHỈ từ nguồn người viết (Tatoeba / Wiktionary / WordNet) – soát pilot 4 (29/10): ví dụ AI chiếm 12/69 mục đạt nhưng gây 3/5 lỗi LÕI
 // (coffin "onto the church altar", demography "demography reports", succulent dùng tính từ) dù đã qua trắc nghiệm nghĩa 3 giám khảo → thiếu 2 câu = hàng duyệt
@@ -307,7 +309,7 @@ for (const x of items) {
     if (c.fix.length) { ent.ipa = c.ipa; ent.ipaUS = c.ipaUS; ent.src.ipaFix = c.fix; if (c.fix.some(f => /ukToUs/.test(f))) ent.src.ipaUS = 'ukToUs'; stat.ipaFix = (stat.ipaFix || 0) + 1; }
     if (c.bad.length) { ent.ipaBad = c.bad; stat.ipaBad = (stat.ipaBad || 0) + 1; } }
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
-  OUT[x.k] = { pass: !!r.ok, why: r.why || [], ...(ent ? { ent } : {}), ...(!r.ok && X[x.k] && X[x.k].dbg ? { dbg: X[x.k].dbg } : {}) };
+  OUT[x.k] = { pass: !!r.ok, why: r.why || [], ...(ent ? { ent } : {}), ...(X[x.k] && X[x.k].dbg ? { dbg: X[x.k].dbg } : {}) }; // dbg cả mục ĐẠT (tờ soát: nguồn vi từng AI)
   if (hasGap(r)) { why.gap = (why.gap || 0) + 1; gaps.add(x.k); continue; } // có lỗ dữ liệu nguồn (thiếu IPA…, kể cả kèm lỗi nội dung – vd. 20261027-pilot) → không vào hàng duyệt, lượt sau sinh lại
   if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; delete ent.qa.viLem; if (r.drop) { for (const l of Object.keys(r.drop)) delete ent.m[l]; ent.qa.trDrop = r.drop; ent.qa.trKeep = r.keep.filter(l => ent.m[l]); delete ent.perLang; } pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }

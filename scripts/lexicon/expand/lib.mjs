@@ -95,6 +95,14 @@ export function viAgreeSources(srcs) {
   for (const s of Object.keys(srcs)) for (const v of [].concat(srcs[s] || []).flatMap(viNorm)) { const k = viKey(v); if (!k) continue; const o = m.get(k) || m.set(k, { v, src: [] }).get(k); if (!o.src.includes(s)) o.src.push(s); }
   return [...m.values()].filter(o => o.src.length >= 2);
 }
+/** vi BỊ PHẢN BÁC (lớp L1, pilot 31/10 peel#v "gọt": Wiktionary + lxtr trùng, qua trắc nghiệm 3/3 nhưng sai – lxtr nhận câu ví dụ "peel apples" nên neo vào từ hẹp).
+ *  ai = { a, b, c }: câu trả lời vi của từng AI. Phương án c (từ viAgreeSources) chỉ nhận khi số AI ỦNG HỘ > số AI PHẢN BÁC
+ *  (AI có trả lời mà không phương án nào trùng khoá / bao nhau với c: "múa ba lê" ⊃ "ba lê" = không phản bác). */
+export function viContested(c, ai) {
+  const k = viKey(c.v), sup = c.src.filter(s => s !== 'wk' && ai[s]).length;
+  const dis = Object.keys(ai).filter(s => !c.src.includes(s) && viNorm(ai[s]).length && !viNorm(ai[s]).some(v => { const q = viKey(v); return q && (q === k || q.includes(k) || k.includes(q)); })).length;
+  return sup <= dis;
+}
 /** bản dịch 12 ngôn ngữ cũng cần ≥ 2 nguồn độc lập (pilot 29/10: detriment ko 상해 – chỉ bảng Wiktionary + trắc nghiệm nghĩa vẫn lọt) */
 // soát 50 mẫu pilot 29/10: 9/11 bản dịch sai chỉ 1 nguồn; 2 còn lại khớp Wiktionary ∩ OMW nhưng không tự nhiên (pt surpresa, zh 蚤) → AI họ A xác nhận + nguồn người viết;
 export const TR2 = /^wiktionary\+omw\+ai$/; // soát pilot 2: 5/7 lỗi dịch chỉ 2 nguồn (omw+ai, wiktionary+ai) → cần ĐỦ 3 nguồn

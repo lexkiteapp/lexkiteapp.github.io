@@ -2,8 +2,9 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
+import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
+import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
 import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
 import { parseCmu, pickPron, ipaAgrees } from '../lexicon/expand/cmu.mjs';
@@ -133,6 +134,14 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
   ok(gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['a'] } }).why.some(x => /2 nguồn/.test(x)) && gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['b', 'c'] } }).why.some(x => /cần Wiktionary/.test(x)), 'L1: vi 1 nguồn / chỉ AI đồng thuận (expel "trục xuất") → trượt');
   ok(gateEntry({ ...base(), qa: { ...base().qa, wsd: { ...base().qa.wsd, vi: false } } }).why.some(x => /dịch vi: chưa qua trắc nghiệm/.test(x)), 'L1: vi không qua trắc nghiệm nghĩa → trượt');
   ok(viAgreeSources({ wk: ['thần tượng'], a: 'tượng thần', b: 'tượng thờ' }).length === 0 && viAgreeSources({ wk: ['thần tượng; tượng thần'], a: 'tượng thần' }).map(o => o.v).join() === 'tượng thần', 'L1: vi chỉ nhận phương án ≥ 2 nguồn trùng');
+  // L1 (31/10 peel#v "gọt"): Wiktionary + lxtr trùng, trắc nghiệm 3/3 vẫn sai – AI họ khác trả "bóc vỏ" → phản bác; ủng hộ phải NHIỀU HƠN phản bác
+  { const peel = viAgreeSources({ wk: ['gọt'], a: 'gọt', b: '', c: 'bóc vỏ' })[0];
+    ok(peel && viContested(peel, { a: 'gọt', b: '', c: 'bóc vỏ' }) && !viContested(peel, { a: 'gọt', b: '', c: '' }) && !viContested(peel, { a: 'gọt', b: 'gọt vỏ', c: '' }) && viContested(peel, { a: 'gọt', b: 'lột vỏ', c: 'bóc vỏ' })
+      && !viContested(viAgreeSources({ wk: ['ba lê'], a: 'ba lê', c: 'múa ba lê' })[0], { a: 'ba lê', b: '', c: 'múa ba lê' }) && !viContested(viAgreeSources({ wk: ['ốc sên'], a: 'ốc sên', c: 'ốc sên' })[0], { a: 'ốc sên', b: 'con ốc', c: 'ốc sên' }), 'L1: vi Wiktionary + 1 AI bị AI họ khác phản bác → không nhận (peel "gọt")'); }
+  // L2 (31/10 snail#n "We were late going to look for snails." – LeeSooHa eng cấp 4): câu đúng nghĩa nên qua trắc nghiệm; chặn theo nguồn – chỉ chủ câu bản ngữ (eng cấp 5)
+  { const nat = nativeOwners('eng\t5\tCK\tAmerican English Native Speaker.\neng\t4\tLeeSooHa\tMalaysian English\nfra\t5\tsacredceltic\t\neng\t5\t\\N\t\n');
+    ok(nat.has('CK') && !nat.has('LeeSooHa') && !nat.has('sacredceltic') && !nat.has('\\N') && nativeLine('10109473\teng\tWould you like me to peel an apple for you?\tCK\t\\N\t\\N', nat)
+      && !nativeLine('13814351\teng\tWe were late going to look for snails.\tLeeSooHa\t\\N\t\\N', nat) && !nativeLine('1\teng\tRhinoceros is not a dinosaur.\t\\N', nat) && !nativeLine('1\teng\tNo owner.', nat), 'L2: câu Tatoeba chỉ của người bản ngữ (snail "We were late going to look for snails.")'); }
   // L2 ví dụ nghĩa lân cận (railroad, palate, muscular, swimmer) / câu gượng: 3 giám khảo phải cùng chọn số nghĩa khoá – 2/3 hoặc thiếu phiếu = không
   ok(wsdOk([2, 2, 2], 2) && !wsdOk([2, 2, 1], 2) && !wsdOk([2, 2], 2) && !wsdOk([2, 2, NaN], 2) && !wsdOk([0, 0, 0], 0 + 1), 'L2: trắc nghiệm nghĩa cần 3/3 đúng số');
   ok(gateEntry({ ...base(), qa: { ...base().qa, wsd: { ...base().qa.wsd, ex: [true, false] } } }).why.some(x => /ví dụ chưa qua trắc nghiệm/.test(x)), 'L2: ví dụ không qua trắc nghiệm nghĩa → trượt');
