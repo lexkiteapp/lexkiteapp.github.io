@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS Reading Practice</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#ffdf9b",
+            "on-secondary-container": "#633700",
+            "surface-container-high": "#f4e5db",
+            "surface-dim": "#e6d7cd",
+            "inverse-primary": "#88d4cb",
+            "on-primary-fixed-variant": "#00504a",
+            "secondary": "#8c5000",
+            "on-tertiary-fixed": "#251a00",
+            "on-error-container": "#93000a",
+            "outline": "#6f7977",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-error": "#ffffff",
+            "surface-container-low": "#fff1e8",
+            "error": "#ba1a1a",
+            "tertiary-container": "#785a00",
+            "on-surface-variant": "#3f4947",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#efe0d6",
+            "primary-container": "#136a63",
+            "primary-fixed": "#a4f1e7",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#2d1600",
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-primary": "#ffffff",
+            "secondary-container": "#fd9500",
+            "inverse-on-surface": "#fdeee3",
+            "on-primary-fixed": "#00201d",
+            "surface": "#fff8f5",
+            "inverse-surface": "#372f28",
+            "outline-variant": "#bec9c6",
+            "primary-fixed-dim": "#88d4cb",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-tertiary-container": "#ffd370",
+            "tertiary": "#5b4300",
+            "surface-container": "#faebe1",
+            "primary": "#00504b",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#211a14",
+            "background": "#fff8f5",
+            "on-primary-container": "#9be7de",
+            "secondary-fixed-dim": "#ffb872",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fff8f5",
+            "surface-variant": "#efe0d6",
+            "secondary-fixed": "#ffdcbf",
+            "surface-tint": "#126a63",
+            "on-surface": "#211a14"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "margin": "1rem",
+            "margin-md": "2rem",
+            "gutter": "1rem",
+            "gutter-md": "1.5rem",
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-lg": "2rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .tactile-depress {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-depress:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 currentColor !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md min-h-screen pb-24 select-none">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-surface shadow-[0_4px_0_#efe0d6]">
+<div class="flex justify-between items-center w-full px-space-md py-space-sm max-w-md mx-auto">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Go back" class="tactile-depress w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_#efe0d6] hover:bg-surface-container transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div>
+<span class="inline-block bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-label-sm font-extrabold uppercase px-2 py-0.5 rounded-full">Passage 1</span>
+<h1 class="text-headline-sm font-headline-sm text-primary tracking-tight leading-none mt-0.5">IELTS Section 2</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center gap-1 bg-surface-container-lowest border-2 border-surface-variant px-space-sm py-1 rounded-full shadow-[0_2px_0_#efe0d6]">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="timer">timer</span>
+<span class="font-label-md text-label-md text-secondary font-extrabold">11:42</span>
+</div>
+<button aria-label="Subtitles & Transcripts" class="tactile-depress w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_3px_0_#efe0d6]">
+<span class="material-symbols-outlined" data-icon="subtitles">subtitles</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CONTAINER -->
+<main class="max-w-md mx-auto px-space-md pt-space-md space-y-space-lg">
+<!-- PASSAGE HERO CARD -->
+<section class="bg-surface-container-lowest rounded-xl border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] p-space-md">
+<!-- Header Row with Audio Play Action -->
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container inline-block shadow-[0_1px_0_#d97300]"></span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Academic Reading Module</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface leading-tight">Urban Rewilding in Modern Megacities</h2>
+</div>
+<button class="tactile-depress flex-shrink-0 w-11 h-11 rounded-full bg-secondary-container text-on-secondary-container border-2 border-[#d97300] shadow-[0_3px_0_#b35a00] flex items-center justify-center" id="readAloudBtn" title="Read aloud passage">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<!-- Tactile Highlight Toggle Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1.5 pt-0.5 no-scrollbar">
+<button class="tactile-depress flex items-center gap-1 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed border-2 border-[#d49b10] shadow-[0_2px_0_#b3810a] text-label-sm font-label-sm flex-shrink-0">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+          Keywords
+        </button>
+<button class="tactile-depress flex items-center gap-1 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant border-2 border-primary-container shadow-[0_2px_0_#00504a] text-label-sm font-label-sm flex-shrink-0">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+          Academic words
+        </button>
+<button class="tactile-depress flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container border-2 border-surface-variant text-on-surface-variant shadow-[0_2px_0_#efe0d6] text-label-sm font-label-sm flex-shrink-0">
+          Linking words
+        </button>
+<button class="tactile-depress flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container border-2 border-surface-variant text-on-surface-variant shadow-[0_2px_0_#efe0d6] text-label-sm font-label-sm flex-shrink-0">
+          My words
+        </button>
+</div>
+<!-- Text Passage Body with Interactive Highlighting -->
+<div class="mt-space-sm space-y-space-sm font-body-md text-body-md text-on-surface leading-relaxed border-t-2 border-surface-container pt-space-sm">
+<p>
+          Recent microclimate analyses suggest that establishing dense, interconnected 
+          <span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-bold border-b border-[#d49b10]">biodiversity corridors</span> 
+          significantly offsets intense solar absorption across metropolitan zones. Instead of relying purely on decorative landscaping, researchers observed that uncurated 
+          <span class="px-1.5 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed-variant font-bold border-b border-primary-container">spontaneous vegetation</span> 
+          regulates localized 
+          <span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-bold border-b border-[#d49b10]">microclimates</span> 
+          by lowering pavement heat retention up to 3.8 degrees Celsius during peak afternoon cycles.
+        </p>
+<p>
+<span class="px-1.5 py-0.5 rounded-md bg-surface-container-high text-on-surface font-semibold">Consequently</span>, urban planning councils are testing regenerative biological envelopes. While environmentalists praise the measurable thermal reductions, municipal budget reports reveal that current fiscal expenditures assign less than 7% of botanical resources to untamed naturalization initiatives.
+        </p>
+</div>
+</section>
+<!-- QUESTION MATRIX SECTION -->
+<section class="space-y-space-md">
+<!-- Section Title Badge -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="quiz">quiz</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Questions 1–3: True / False / Not Given</h3>
+</div>
+<span class="bg-surface-container border border-surface-variant px-2 py-0.5 rounded-md text-label-sm font-label-sm text-on-surface-variant">2 of 3</span>
+</div>
+<!-- Question 1 Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] space-y-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="flex-shrink-0 w-7 h-7 rounded-full bg-primary-container text-white flex items-center justify-center font-label-sm text-label-sm shadow-[0_2px_0_#00504a]">1</span>
+<p class="font-body-md text-body-md font-bold text-on-surface leading-snug">
+            Rewilding projects decrease surface temperatures in central business districts.
+          </p>
+</div>
+<!-- 3-Option Button Row (Q1: TRUE is selected) -->
+<div class="grid grid-cols-3 gap-space-xs pt-1">
+<!-- Option: TRUE (Selected State with Deep Teal Glow) -->
+<button class="tactile-depress py-2.5 px-1 rounded-DEFAULT bg-primary text-white border-2 border-[#003834] shadow-[0_4px_0_#003834] font-label-md text-label-md flex flex-col items-center justify-center gap-0.5">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              TRUE
+            </span>
+</button>
+<!-- Option: FALSE -->
+<button class="tactile-depress py-2.5 px-1 rounded-DEFAULT bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] font-label-md text-label-md hover:bg-surface-container">
+            FALSE
+          </button>
+<!-- Option: NOT GIVEN -->
+<button class="tactile-depress py-2.5 px-1 rounded-DEFAULT bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] font-label-md text-label-md hover:bg-surface-container">
+            NOT GIVEN
+          </button>
+</div>
+</div>
+<!-- Question 2 Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] space-y-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="flex-shrink-0 w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm border border-surface-variant">2</span>
+<p class="font-body-md text-body-md font-bold text-on-surface leading-snug">
+            City municipal budgets allocate more than 15% to spontaneous vegetation.
+          </p>
+</div>
+<!-- 3-Option Button Row (Q2: Resting State) -->
+<div class="grid grid-cols-3 gap-space-xs pt-1">
+<!-- Option: TRUE -->
+<button class="tactile-depress py-2.5 px-1 rounded-DEFAULT bg-surface-container-lowest text-on-surface border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] font-label-md text-label-md hover:bg-surface-container">
+            TRUE
+          </button>
+<!-- Option: FALSE (Interactive selection candidate) -->
+<button class="tactile-depress py-2.5 px-1 rounded-DEFAULT bg-surface-container-lowest text-on-surface border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] font-label-md text-label-md hover:bg-surface-container">
+            FALSE
+          </button>
+<!-- Option: NOT GIVEN -->
+<button class="tactile-depress py-2.5 px-1 rounded-DEFAULT bg-surface-container-lowest text-on-surface border-2 border-surface-variant shadow-[0_4px_0_#efe0d6] font-label-md text-label-md hover:bg-surface-container">
+            NOT GIVEN
+          </button>
+</div>
+</div>
+</section>
+<!-- PRIMARY ACTION BUTTON (Candy Tactile Orange with Crisp Deep Brown Ink) -->
+<div class="pt-space-xs pb-space-sm">
+<button class="tactile-depress w-full py-4 px-6 rounded-DEFAULT bg-secondary-container text-on-secondary-container border-2 border-[#d97300] shadow-[0_5px_0_#b35a00] font-headline-sm text-headline-sm flex items-center justify-center gap-2 hover:brightness-105 active:translate-y-1">
+<span class="material-symbols-outlined text-[24px]" data-icon="task_alt">task_alt</span>
+        Grade answers
+      </button>
+<div class="flex justify-center items-center gap-2 mt-2 text-center text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="bolt">bolt</span>
+        Earn +45 XP for complete section accuracy
+      </div>
+</div>
+</main>
+<!-- SHARED COMPONENT: BottomNavBar (Active: "Tests") -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-sm bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_#efe0d6]">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm tactile-depress hover:text-primary transition-transform">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span>Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm tactile-depress hover:text-primary transition-transform">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm tactile-depress hover:text-primary transition-transform">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>Skills</span>
+</button>
+<!-- Tab 4: Tests (MANDATORY ACTIVE TAB FOR #/read IELTS PRACTICE) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-space-md py-space-xs shadow-[0_2px_0_#d97300] font-label-sm text-label-sm tactile-depress">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span>Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs font-label-sm text-label-sm tactile-depress hover:text-primary transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Me</span>
+</button>
+</nav>
+<!-- MICRO-INTERACTION SCRIPT FOR TACTILE AUDIO TOGGLE & SELECTION -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const readBtn = document.getElementById('readAloudBtn');
+      let isPlaying = false;
+
+      readBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        const icon = readBtn.querySelector('.material-symbols-outlined');
+        if (isPlaying) {
+          icon.textContent = 'pause';
+          readBtn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'border-[#d97300]', 'shadow-[0_3px_0_#b35a00]');
+          readBtn.classList.add('bg-primary', 'text-white', 'border-[#003834]', 'shadow-[0_3px_0_#003834]');
+        } else {
+          icon.textContent = 'volume_up';
+          readBtn.classList.remove('bg-primary', 'text-white', 'border-[#003834]', 'shadow-[0_3px_0_#003834]');
+          readBtn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'border-[#d97300]', 'shadow-[0_3px_0_#b35a00]');
+        }
+      });
+    });
+  </script>
+</body></html>
