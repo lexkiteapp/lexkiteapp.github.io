@@ -12,6 +12,9 @@ Cues (one window per cue, times from the voice clock):
   cheer     the silence after the answer line when it is long enough for the clap (>= CHEER_MIN s); shorter -> no cheer (never squeezed)
   explain   the rule line of the template (RULE below, or the row's `rule_line`) while it is spoken
   encourage the share line (sh, level's s) while it is spoken
+  happy     also the hook line (HOOK, first line) while it is spoken = the teacher's reaction on the hook (phase 2 viral hook; talk class, so never in the
+            0.1 s lead-in silence; a quiet 'surprise' face would only be allowed in a silence and the bank has no such clip)
+  explain   also the open-loop tease line (TEASE, gen.py row `tease`: "Most people get this wrong... stay to the end") while it is spoken
 Everything else: talk while speaking, listen in pauses (unchanged)."""
 import re
 
@@ -20,6 +23,7 @@ POSES = tuple(MOUTH)                      # every pose host.py exports (HD only)
 GESTURES = tuple(p for p in POSES if p not in ('talk', 'listen'))
 RULE = dict(grammar=['r'], mistake=['y'], native=['y'], pattern=['y'], prep=['y'], stress=['m'], phrasal=['m'], pair=['k'], call=['y'], usuk=['tw'], verbs=['w'], toeic=['k'])
 SHARE = ('sh', 's')
+HOOK, TEASE = 'h', 'tz'
 CHEER_MIN = 1.2                           # s of silence after the answer that the clap needs
 MIN_TALK, MIN_QUIET = 0.4, 0.6            # shorter speech / silence runs inside a cue window keep talk / listen (no 1-word gesture flicker)
 XF_POSE = 8                               # crossfade frames (30 fps) into / out of a gesture clip; talk <-> listen keeps the 4-frame cut-fade
@@ -35,6 +39,8 @@ def windows(order, lines, template, rule_line=None):
         if i + 1 < len(order):
             a = lines[order[i + 1]]; W.append(('happy', a['t0'], a['t1']))
             if nxt(i + 1) - a['t1'] >= CHEER_MIN: W.append(('cheer', a['t1'], nxt(i + 1)))
+    if order and order[0] == HOOK and 0 not in quiz: W.append(('happy', lines[HOOK]['t0'], lines[HOOK]['t1']))
+    if TEASE in lines and order.index(TEASE) not in quiz and order.index(TEASE) - 1 not in quiz: W.append(('explain', lines[TEASE]['t0'], lines[TEASE]['t1']))
     rl = rule_line if rule_line is not None else RULE.get(template, [])
     for k in ([rl] if isinstance(rl, str) else rl):
         if k in lines and order.index(k) not in quiz and order.index(k) - 1 not in quiz: W.append(('explain', lines[k]['t0'], lines[k]['t1']))

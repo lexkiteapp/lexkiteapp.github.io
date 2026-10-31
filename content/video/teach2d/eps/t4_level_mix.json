@@ -6,14 +6,19 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 0.8,
+ "speed": 1.0,
  "area": "placement",
  "lines": [
   {
    "id": "h",
    "text": "Most learners miss one!",
-   "pause": 0.42,
+   "pause": 0.2,
    "speed": 1.25
+  },
+  {
+   "id": "tz",
+   "text": "Can you get all three?",
+   "pause": 0.2
   },
   {
    "id": "q1",
@@ -24,7 +29,7 @@
   {
    "id": "a1",
    "text": "How much is it? It depends.",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "q2",
@@ -35,7 +40,7 @@
   {
    "id": "a2",
    "text": "The movie was so exciting!",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "q3",
@@ -45,18 +50,18 @@
   },
   {
    "id": "a3",
-   "text": "Someone stole my wallet!",
-   "pause": 0.42
+   "text": "Someone stole my wallet! Tricky, right?",
+   "pause": 0.2
   },
   {
    "id": "s",
    "text": "Three out of three? Comment below!",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "c",
    "text": "Save this. Free on lexkite.com.",
-   "pause": 0.42
+   "pause": 0.2
   }
  ],
  "data": {
@@ -109,10 +114,15 @@
  "scene": "classroom",
  "hook_by": 1.5,
  "layout": "side",
+ "tease": {
+  "line": "tz",
+  "chip": "🏆 ALL THREE?",
+  "payoff": "a3"
+ },
  "est": {
-  "words": 37,
-  "seconds": 27.2,
-  "wpm": 82,
+  "words": 44,
+  "seconds": 25.5,
+  "wpm": 103,
   "hook_s": 1.35
  }
 }

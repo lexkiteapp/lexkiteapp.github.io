@@ -6,34 +6,39 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 0.8,
+ "speed": 0.95,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
    "text": "Soccer or football?",
-   "pause": 0.42,
+   "pause": 0.2,
    "speed": 1.2
+  },
+  {
+   "id": "tz",
+   "text": "Lots of learners mix these up!",
+   "pause": 0.2
   },
   {
    "id": "us",
    "text": "In America, it's soccer.",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "uk",
    "text": "In Britain, it's football. Same game!",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "tw",
    "text": "Careful! American football is different.",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "x",
    "text": "Want to watch soccer tonight?",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "q",
@@ -43,18 +48,18 @@
   },
   {
    "id": "a",
-   "text": "Football! Same game.",
-   "pause": 0.42
+   "text": "Football! Same game. Told you!",
+   "pause": 0.2
   },
   {
    "id": "sh",
    "text": "Send this to a friend!",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "c",
    "text": "Save this. Free on lexkite.com.",
-   "pause": 0.42
+   "pause": 0.2
   }
  ],
  "data": {
@@ -90,10 +95,15 @@
  "scene": "field",
  "hook_by": 1.5,
  "layout": "side",
+ "tease": {
+  "line": "tz",
+  "chip": "👀 ANSWER AT THE END",
+  "payoff": "a"
+ },
  "est": {
-  "words": 45,
-  "seconds": 27.5,
-  "wpm": 98,
+  "words": 53,
+  "seconds": 26.0,
+  "wpm": 122,
   "hook_s": 1.08
  }
 }

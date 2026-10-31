@@ -41,8 +41,14 @@
 - Audio: voice −16 LUFS dominates; social music bed −40 dBFS RMS (ducked 12 dB under the voice). Optional row fields `hook_by` (hook deadline, default 2.2 s; t3 samples 1.5) and `hook_speed` (Kokoro speed of the hook line only; gen.py asserts 0.10 + words / (2.55 × speed) ≤ hook_by − 0.1).
 - Planner rule: no two consecutive videos share template, teacher, look, layout or hook style; a point (content hash) is never reused; ≥ 1 new template per month (`VIDEO-SERIES.md`).
 
+## Viral hook + open loop (phase 2, 31/10, branch teach2d-viral, owner OK pending – owner rated the shorts' viral/native feel 6/10)
+- Frame 0 is never static: social hooks enter with `slam` (motion core: 0.6× → one overshoot ≈ 1.04× → 1.0 at 0.36 s, alpha 1 from frame 0, ≥ 0.95× by frame 3); embeds stay calm.
+- Pattern interrupt per template (`build.py` INTERRUPT, node type `interrupt`): ✗ stamp (mistake · pattern · prep · native · verbs), VS slam (usuk · pair · phrasal), spinning ? (quiz-led: the rest), on the hook's last word, in free card-region space, gone before the first content line; `pop` sfx. A whoosh joins the bass drop at 0.
+- Teacher: `happy` on the hook line, `explain` on the tease line (pose.py; talk-class poses only on speech frames).
+- Open loop (row `tease` {say, chip, payoff}): a spoken tease line `tz` right after the hook + a chip on screen, paid off on a line after the quiz before the CTA. Natural lines: row `say` {line: text} (contractions / short reactions; gen.py asserts the template line's fact words stay), row `speed` / `pause` (default line gap, 0.2–0.42 s) keep the short within 18–28 s.
+
 ## QC gates (`qc.py`, all must pass, weighted score ≥ 90)
-voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · mouth (talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook (by `hook_by`) · cue_timing ±80 ms ·
+voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · mouth (talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook (by `hook_by`) · hook_motion (hook opaque by frame 3; shorts: slam punch-in, whoosh + bass drop at 0, camera push, ONE pattern interrupt ≤ 1.5 s, happy reaction pose on the hook line, open loop paid off after the quiz; `--video`: mean frame-to-frame |ΔY| over frames 0–45 ≥ 0.60 – static hooks of run 41163590873 measured 0.375–0.531, value recorded in qc.json) · cue_timing ±80 ms ·
 scene_clear (known key; counter + props off captions / text / QR / CTA and off the teacher's head / body; card region calm ≤ 1.35:1; text + captions readable on the composited scene) · bed (−40 ± 3 dBFS RMS, none in embeds) ·
 layout (text in SAFE, no overlap, nothing on the head, caption off the face, nothing under the ring, chip / pill text on one line in its pill) · contrast (≥ 4.5:1, ≥ 56 px ≥ 3:1, real fill) · min_text (40 / 34 px) ·
 ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link) · duration 18–42 s · file (30 fps, AAC, −16 LUFS ±1.5) · frames (teacher visible every second against the expected scene background, no blank frame).

@@ -222,7 +222,9 @@ def hook_card(text_runs, t_out, extra=None):
     c.text(text_runs, S['hook'], None, align='c', tag='hook')
     b = c.place(-0.13, t_out, 'a', k='fade')
     for n in NODES:
-        if n['id'] == c.id: n['hook'] = True
+        if n['id'] == c.id:
+            n['hook'] = True
+            if SOCIAL: n['in'] = dict(t=0.0, k='slam')   # the card (its rows ride in its transform) punches in on frame 0, as the hook titles
         if n.get('parent') == c.id: n['in'] = dict(t=-0.13, k='fade')
     return b
 
@@ -279,7 +281,7 @@ def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1, lines
         n = top('text', [xx, yy, xx + lw, yy + h], t_in, out=out, runs=ln, size=size, ipa=False)
         if hook:
             n['hook'] = True
-            if SOCIAL: n['in'] = dict(t=0.0, k='punch')   # hook slams in on frame 0 (fully readable at once)
+            if SOCIAL: n['in'] = dict(t=0.0, k='slam')   # hook punches in on frame 0: alpha 1 at once, 0.6x -> one overshoot -> 1.0 by 0.36 s (qc hook_motion)
         CUES.append(dict(node=n['id'], t=t_in, tag=''.join(r[0] for r in ln))); ns.append(n); yy += h + 4
     return yy
 
@@ -712,13 +714,15 @@ if not FMT['cap']: CAPS = []
 FPS = o.fps; NF = int(round(TOTAL * FPS)); LEN = {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in HG['clips']}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
 spk = np.zeros(NF, bool)
 for a, b in SPEECH: spk[max(0, int((a - 0.05) * FPS)):min(NF, int(math.ceil((b + 0.05) * FPS)))] = True
-# close short silences (< 0.3 s) so the mouth does not flicker shut between words of one sentence
+# close short silences (< 0.3 s) so the mouth does not flicker shut between words of one sentence - but never a silence the qc mouth gate
+# requires listen in (word-clock silence > 0.35 s; with the +-0.05 s margins a 0.36-0.40 s line gap is < 0.3 s in frames)
+SIL = [(a_[1], b_[0]) for a_, b_ in zip(sorted(SPEECH), sorted(SPEECH)[1:]) if b_[0] - a_[1] > 0.35]
 i = 0
 while i < NF:
     if not spk[i]:
         j = i
         while j < NF and not spk[j]: j += 1
-        if 0 < i and j < NF and (j - i) / FPS < 0.3: spk[i:j] = True
+        if 0 < i and j < NF and (j - i) / FPS < 0.3 and not any(a_ * FPS < j and i < b_ * FPS for a_, b_ in SIL): spk[i:j] = True
         i = j
     else: i += 1
 # gesture poses on their cues (pose.py): point on the quiz question, thinking in the 3-2-1, happy (+ cheer when the silence allows) on the answer,
@@ -776,6 +780,39 @@ else:
             return [min(p_[0] for p_ in hs + [B_[:2]]), min(p_[1] for p_ in hs + [B_[:2]]), max(p_[0] for p_ in hs + [B_[2:]]), max(p_[1] for p_ in hs + [B_[2:]])]
         HEAD = _cam(HEAD); BODYC = _cam(BODY)
 
+# ---------------- viral hook (phase 2, social shorts): pattern interrupt on the hook's last word + open-loop tease chip ----------------
+# One interrupt per template (✗ stamp: the template is about a mistake; VS slam: two forms face off; spinning ?: quiz-led), in the first 1.5 s, on the
+# hook's last spoken word; the tease chip (gen.py row `tease`) arrives on the spoken tease line. Both leave before the first content line, and both sit in
+# free space of the card region (nothing visible in that window, off the head, the caption band and SAFE) - qc layout + hook_motion re-check.
+INTERRUPT = dict(mistake='x', pattern='x', prep='x', native='x', verbs='x', usuk='vs', pair='vs', phrasal='vs')
+def _busy(t0, t1):
+    return [n['box'] for n in NODES if n['type'] != 'confetti' and n['in']['t'] < t1 and (not n.get('out') or n['out']['t'] + C.OUT > t0)]
+def free_box(w, h, t0, t1, ax, ay, m=16):
+    busy = _busy(t0, t1) + [HEAD] + ([FMT['cap']] if FMT['cap'] else []); sx0, sy0, sx1, sy1 = FMT['safe']
+    best = None
+    for y in range(int(max(RY0, sy0)), int(min(RY1, sy1) - h) + 1, 8):
+        for x in range(int(max(RX0, sx0)), int(min(RX1, sx1) - w) + 1, 8):
+            b = [x, y, x + w, y + h]
+            if any(inter_(b, q, -m) for q in busy): continue
+            d = (x + w / 2 - ax) ** 2 + (y + h / 2 - ay) ** 2
+            if best is None or d < best[0]: best = (d, b)
+    return best and [float(v) for v in best[1]]
+def inter_(a, b, m=0): return a[0] < b[2] - m and b[0] < a[2] - m and a[1] < b[3] - m and b[1] < a[3] - m
+HOOKN = [n for n in NODES if n.get('hook')]
+if SOCIAL and HOOKN:
+    ids_ = [l['id'] for l in EP['lines']]; nxt_ = next(k_ for k_ in ids_ if k_ not in ('h', 'tz'))
+    t_x = cue(LINES['h']['words'][-1]['s'], 'pop'); t_gone = round(start(nxt_) - 0.2, 3); hb_ = max(n['box'][3] for n in HOOKN); hx_ = (min(n['box'][0] for n in HOOKN) + max(n['box'][2] for n in HOOKN)) / 2
+    assert t_x['t'] + C.HALF['pop'] <= 1.5, ('pattern interrupt must land in the first 1.5 s', t_x)
+    if 'tz' in LINES:
+        txt = EP['tease']['chip']; cw_ = cw(txt); ch_ = S['chip'] + 28; t_c = cue(start('tz'))
+        bx_ = free_box(cw_, ch_, t_c['t'], t_gone, hx_, hb_ + 24 + ch_ / 2); assert bx_, ('no free room for the tease chip', txt)
+        NODES.append(dict(id='tease', type='chip', text=txt, tone='chip', size=S['chip'], box=bx_, **{'in': t_c}, out=dict(t=t_gone), tease=True))
+        CUES.append(dict(node='tease', t=start('tz'), tag=txt)); hb_ = max(hb_, bx_[3])
+    v_ = INTERRUPT.get(EP['template'], 'q'); d_ = 168
+    bx_ = free_box(d_, d_, t_x['t'], t_gone, (RX0 + RX1) / 2 + 220, hb_ + 30 + d_ / 2); assert bx_, ('no free room for the pattern interrupt', v_)
+    NODES.append(dict(id='interrupt', type='interrupt', v=v_, size=96 if v_ != 'vs' else 60, box=bx_, **{'in': t_x}, out=dict(t=t_gone), rot=-8 if v_ == 'x' else 0,
+                      pairs=[['#FFFFFF', '#C92A2A', 96]] if v_ == 'x' else [['#FFFFFF', '#E0482F', 60]] if v_ == 'vs' else [[TH['chip_ink'], TH['chip_bg'], 96]]))
+
 # ---------------- matching 2D scene (scenes.json via scene.py): backdrop behind the teacher + foreground counter above her (grounding) ----------------
 import scene as SC   # noqa: E402  (scripts/video/teach2d/scene.py, same items qc.py re-checks)
 SCENE = SC.resolve(EP.get('scene'), o.format, LAYOUT, W, H, FMT['host_cx'], hw, FMT['host_h'], NODES, FMT['region'], ct=FMT.get('ct'), clear=[HEAD, BODYC])
@@ -822,6 +859,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
         x = sample(name) * 10 ** ((MAN[name]['gainDb'] + extra_db) / 20); i0 = max(0, int(t0 * SR)); m_ = min(len(x), len(mix) - i0)
         if m_ > 0: mix[i0:i0 + m_] += x[:m_]; SFX.append(dict(t=round(t0, 3), sfx=name, db=MAN[name]['gainDb'] + extra_db))
     put('bass-drop', 0.0, -4)                                     # the hook slam
+    put('whoosh', 0.0, -6)                                        # + a whoosh on frame 0 with the hook punch-in (qc hook_motion)
     seen = []
     for n in sorted(NODES, key=lambda n: n['in']['t']):
         t_ = n['in']['t']
@@ -830,7 +868,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
         if n['type'] in ('candy', 'brick'): put('pop', t_ + 0.1, -2)
     for n in NODES:
         if n['type'] in ('check',) and n['in']['k'] == 'pop': put('riser', max(0, n['in']['t'] - 1.45), -8); put('ding', n['in']['t'], -4)
-        if n['type'] in ('stamp', 'vs'): put('pop', n['in']['t'], 0)
+        if n['type'] in ('stamp', 'vs', 'interrupt'): put('pop', n['in']['t'], 0)
     # music bed: preset by series, -40 dBFS RMS (rule: background bed ~ -40 dB, the voice dominates), ducked 12 dB under the voice (smooth 0.25 s), fades in/out
     PRE = dict(usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
