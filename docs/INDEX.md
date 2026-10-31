@@ -46,6 +46,7 @@
 - [INDEX.md](INDEX.md) — mục lục chuẩn này; đọc khi: tìm tài liệu hoặc thêm doc mới (phải thêm 1 dòng ở đây)
 - [JOBS.md](JOBS.md) — Sổ việc nền & điều phối, SINH TỰ ĐỘNG từ infra/jobs.json (không sửa tay): luật, tài nguyên, lịch UTC, đồ thị kho từ; đọc khi: thêm cron/CI nền
 - [LESSON-ENGINE.md](LESSON-ENGINE.md) — Bài học trộn bài tập nhỏ #/lesson (nghe chọn từ, xếp câu, nói theo, ảnh→nói, dịch ô chữ): cá nhân hóa từ FSRS + add-on, lỗi cũ, COMBO, Giải thích 0 AI, Ama/Carlos sprite, cờ lesson_mix; đọc khi: sửa/mở rộng màn bài học
+- [LESSON-UX-V2.md](LESSON-UX-V2.md) — Bài học v2 kiểu Duolingo: gốc lỗi, ma trận dạng bài (đề → ô trả lời → gợi ý → chấm), luật nội dung CI, bản dịch câu 15 ngôn ngữ; đọc khi: sửa đề/gợi ý/dạng bài
 - [CALL.md](CALL.md) — Cuộc gọi Ama/Carlos #/call (kịch bản IELTS/TOEIC rẽ nhánh, nhận dạng trên máy, tổng kết sửa lỗi, luyện lại câu yếu) + nhịp câu/shadowing phát âm; đọc khi: sửa call*.js, pron/coach.js, pron/rhythm.js
 - [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
 - [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
@@ -54,6 +55,7 @@
 - [METHODS.md](METHODS.md) — Luật lõi: điều phối, repo/remote/ship, ngân sách, việc nặng = CI, i18n, nội dung, video, lỗi đã mắc, tài khoản & hạ tầng; đọc khi: ĐẦU MỖI PHIÊN
 - [BACKLINKS.md](BACKLINKS.md) — Kế hoạch backlink miễn phí mới: 20 nơi đăng (kho dữ liệu, học liệu mở, chợ học liệu, kỹ thuật bản địa) chữ điền sẵn; đọc khi: làm backlink/PR
 - [PR-PLATFORMS.md](PR-PLATFORMS.md) — Nền tảng PR & backlink miễn phí: tiến độ đăng, thay đổi 2026, danh sách xếp hạng 32 mục, cảnh báo, lộ trình 4 tuần; đọc khi: làm PR/backlink
+- [QA-BOT.md](QA-BOT.md) — bot QA trên CI: hành trình học sandbox + đầu dò giao diện ẩn 390/768/1440 sáng/tối + hiệu năng + dung lượng, trước/sau trên PR, live sau deploy; đọc khi: sửa giao diện app, bot đỏ
 - [QUALITY-SWEEP.md](QUALITY-SWEEP.md) — quality-sweep: quét lỗi tiềm ẩn hằng đêm (22:40 UTC, 0 token LLM) và journey-e2e; mở 1 issue + 1 dòng bản tin; đọc khi: sửa/đọc kết quả quét đêm
 - [QUOTAS.md](QUOTAS.md) — Hạn mức & chống lạm dụng: rà endpoint, danh tính/bậc, hạn mức mặc định, cầu dao nhà cung cấp (≤80% gói miễn phí), phản hồi 429; đọc khi: thêm endpoint tốn tài nguyên
 - [TEACHER-IN-APP.md](TEACHER-IN-APP.md) — Giáo viên 3D Ama/Carlos trong app: Call with Ama/Carlos local-first, khớp môi viseme (pilot A 3D vs B sprite), free-tier 1M DAU, ngân sách tải; đọc khi: làm call/pron/clip giáo viên

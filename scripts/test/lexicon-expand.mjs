@@ -92,7 +92,7 @@ ok(btMatch('after', 'afterwards') && btMatch('to claim back', 'reclaim') && !btM
   ok(btOk(e, 'zh') && !btOk(e, 'de'), 'btOk: zh lỏng (từ của định nghĩa), de chặt'); e.qa.tr.zh = [5, 3]; ok(!btOk(e, 'zh'), 'btOk: lỏng cần cả 2 giám khảo ≥ 4'); }
 const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items || [];
 ok(!Q.some(q => q.src === 'lexicon-expand' && /^gen:/.test((q.why || [])[0] || '') && !q.data), 'hàng duyệt không chứa mục lexicon-expand "gen" rỗng (lỗi hạ tầng)');
-ok(!Q.some(q => q.src === 'lexicon-expand' && (q.why || []).some(y => /^ipa[ :]/.test(y))), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
+ok(!Q.some(q => q.src === 'lexicon-expand' && hasGap({ ok: false, why: q.why || [] })), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
 { const R = path.join(ROOT, 'content/lexicon/expand/retry/words.json'); if (fs.existsSync(R)) { const d = doneWords(), r = JSON.parse(fs.readFileSync(R, 'utf8')).items; ok(r.every(k => !d.has(k)), 'mục trong retry/words.json không bị doneWords() loại (khoá từ#loại)'); } }
 // chủ đề (content/lexicon/topics.json): cây đủ tên 15 ngôn ngữ + nối 104 bộ; bộ học 10–20, nút 10–60, ≤ 2 chủ đề/từ, không mồ côi
 { const T = await import('../lexicon/expand/topics.mjs'), { TOPIC_CHOICES } = await import('../lexicon/expand/lib.mjs'), tax = T.TAX(), exs = T.existingSets();
@@ -375,4 +375,14 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/not in FORCE/.test(py) && /w not in FORCE_W/.test(py), 'pick_words: mẫu cố định/retry (--want) luôn có ứng viên đúng từ#loại – mẫu pilot không âm thầm co (31/10: 204/378)');
   const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
   ok(/!done\.has\(kk\(e\)\)/.test(job) && !/done\.has\(e\.w\)/.test(job), 'job.mjs: chọn theo từ#loại'); }
+// 31/10 run 41178484346: lượt chờ hàng đợi checkout SHA cũ → rebase xung đột → mất 161 mục đạt. save-merge gộp 3 chiều, không mất phía nào.
+{ const { merge3, fmt } = await import('../lexicon/expand/save-merge.mjs');
+  const base = { items: ['a#n', 'b#n', 'c#n'] }, ours = { items: ['c#n', 'g#v'] }, theirs = { items: ['a#n', 'b#n', 'c#n', 'x#n'] };
+  ok(JSON.stringify(merge3(base, ours, theirs).items) === '["c#n","x#n","g#v"]', 'save-merge: retry – lượt xoá/thêm áp lên bản mới, giữ mục người khác thêm');
+  const q0 = { items: [{ src: 'lexicon-expand', id: 'a#n', batch: '1', why: ['x'] }] }, qo = { items: [{ src: 'lexicon-expand', id: 'b#n', batch: '2', why: ['y'] }] }, qt = { items: [...q0.items, { src: 'imgqa', id: 'z', why: [] }] };
+  ok(JSON.stringify(merge3(q0, qo, qt).items.map(x => x.id)) === '["z","b#n"]', 'save-merge: hàng duyệt theo src|id|batch');
+  const NONE_P = merge3(undefined, { id: 'p', n: 1, items: { 'a#n': 1 } }, { id: 'p', n: 1, items: { 'b#n': 2 } });
+  ok(Object.keys(NONE_P.items).join() === 'b#n,a#n' && NONE_P.n === 1, 'save-merge: lô chờ cùng ngày do 2 lượt tạo → hợp mục');
+  ok(merge3({ v: 1 }, { v: 2 }, { v: 3 }).v === 2 && merge3({ v: 1 }, { v: 1 }, { v: 3 }).v === 3, 'save-merge: cùng sửa → lượt thắng; lượt không sửa → bản mới');
+  ok(fmt({ a: 1 }, '{\n "a": 0\n}\n') === '{\n "a": 1\n}\n', 'save-merge: giữ thụt lề'); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }

@@ -78,6 +78,7 @@ export const TASKS = {
   vgen: { kind: 'gen', deny: [] },
   translate: { kind: 'gen', deny: ['llama'] },
   lxjudge: { kind: 'judge', deny: [] },
+  lxaudit: { kind: 'judge', deny: [] },  // soát mẫu lô chờ trước khi xuất (scripts/lexicon/expand/audit.mjs, 31/10) – prompt cục bộ
   xjudge: { kind: 'judge', deny: [] },
   vjudge: { kind: 'judge', deny: [] },
   judge: { kind: 'judge', deny: [] },

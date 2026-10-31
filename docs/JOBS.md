@@ -43,6 +43,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:41 | `ads-revenue-hourly` | `41 * * * *` | reports | gh_minutes, d1_main | 1 | d1_main_reads≈1100, d1_main_writes≈500 | — |
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |
 | 00:52 | `social-auto` | `52 */2 * * *` | publishing | grabcast_social, d1_main | 3 | grabcast_social_calls≈60, d1_main_reads≈600, d1_main_writes≈120 | — |
+| 00:53 | `preview-site` | `53 */3 * * *` | publishing | gh_minutes | 8 | — | — |
 | 01:00 | `lighthouse` | `0 1 * * 1` | reports | gh_minutes | 15 | — | — |
 | 01:00 | `mail-digest` | `0 1 * * *` | reports | d1_main_read | 2 | d1_main_reads≈3000 | — |
 | 01:15 | `youtube-upload` | `15 1,8,14,20 * * *` | publishing | youtube_api, drive_pool, d1_internal | 20 | d1_internal_reads≈200, d1_main_reads≈100, drive_calls≈60 | ✓ |
@@ -79,6 +80,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |
 | 21:00 | `wordlists` | `0 21 * * *` | render | gh_minutes | 20 | — | — |
 | 21:30 | `lexicon-i18n` | `30 21 * * *` | render | gemini, gh_minutes | 60 | — | — |
+| 21:50 | `sent-packs` | `50 21 * * *` | render | gh_minutes | 60 | — | — |
 | 22:00 | `i18n-leak` | `0 22 * * *` | reports | gh_minutes | 20 | — | — |
 | 22:40 | `quality-sweep` | `40 22 * * *` | reports | gh_minutes | 45 | — | ✓ |
 | 23:10 | `content-qa` | `10 23 * * *` | reports | gh_minutes | 5 | — | — |
