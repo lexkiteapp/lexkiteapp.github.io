@@ -11,7 +11,7 @@
 // Dùng: node scripts/test/stitch-refs-qc.mjs [brand/stitch/v2] [out/stitch-refs-qc]   (CI: .github/workflows/stitch-refs-qc.yml)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process'; import { chromium } from 'playwright';
 import { textBoxes, contrastMiss, brightShare } from '../lib/pixel-contrast.mjs';
-import { PNG } from 'pngjs'; import { frameScores, TABS } from '../lib/frame-check.mjs';
+import { PNG } from 'pngjs'; import { frameScores, btnScore, TABS } from '../lib/frame-check.mjs';
 const [SRC = 'brand/stitch/v2', OUT = 'out/stitch-refs-qc'] = process.argv.slice(2);
 const SURF = ['web', 'email', 'addon', 'admin', 'app', 'store'], MAX_BRIGHT_DARK = 0.12, MIN_BRIGHT_LIGHT = 0.35, WORD_DRIFT = 0.2;
 // khung: SSIM tối thiểu (đo 31/10 trên cặp khung mẫu dẫn xuất: tab 0.66–0.77; thanh tab sai kiểu Kit 0.50–0.53), lệch màu nền thanh tối đa (RGB)
@@ -24,6 +24,8 @@ const probeFrame = TABS => { const H = innerHeight, els = [...document.querySele
     && TABS.filter(t => new RegExp('\\b' + t + '\\b').test(e.innerText)).length >= 3; });
   const bar = bars.sort((a, b) => a.getBoundingClientRect().height - b.getBoundingClientRect().height)[0];
   return { topH: top ? Math.round(top.getBoundingClientRect().height) : 0, tabH: bar ? Math.round(bar.getBoundingClientRect().height) : 0,
+    btn: (() => { const c = els.map(e => [e, e.getBoundingClientRect()]).filter(([e, r]) => r.left < 72 && r.top < 56 && r.width >= 28 && r.width <= 60 && r.height >= 28 && r.height <= 60 && Math.abs(r.width - r.height) <= 8)
+      .sort((a, b) => a[1].left + a[1].top - b[1].left - b[1].top)[0]; return c ? { x: c[1].left, y: c[1].top, w: c[1].width, h: c[1].height } : null; })(),
     tabWords: bar ? (bar.innerText.match(/[A-Za-z]+/g) || []).filter(w => TABS.includes(w)) : [], scrollW: document.documentElement.scrollWidth }; };
 const STILL = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
 fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
@@ -49,7 +51,10 @@ async function frameCheck(r, m, p, res) { const F = msg => res.fails.push(`${m}:
   const T = TPL[r.frame + '-' + m]; if (!T) return F(`thiếu khung mẫu frame-${r.frame}-${m}.html`);
   const sc = frameScores(await shot(p), T.png, r.frame, cap(r.tab), T.tab); res.info[m].frameScores = sc;
   if (r.frame === 'hub' && sc.top < FRAME_MIN.hubTop) F(`thanh trên hub lệch khung mẫu (SSIM ${sc.top} < ${FRAME_MIN.hubTop})`);
-  if (r.frame !== 'hub' && sc.top < FRAME_MIN.btn) F(`nút ${r.frame === 'inner' ? 'quay lại' : 'đóng'} lệch khung mẫu (SSIM ${sc.top} < ${FRAME_MIN.btn})`);
+  if (r.frame !== 'hub') { const nm = r.frame === 'inner' ? 'quay lại' : 'đóng';
+    if (!d.btn || !T.probe.btn) F(`không thấy nút ${nm} tròn ở góc trái thanh trên`);
+    else { sc.btn = btnScore(await shot(p), d.btn, T.png, T.probe.btn); if (sc.btn < FRAME_MIN.btn) F(`nút ${nm} lệch khung mẫu (SSIM ${sc.btn} < ${FRAME_MIN.btn})`);
+      if (Math.abs(d.btn.w - T.probe.btn.w) > 8 || Math.abs(d.btn.y + d.btn.h / 2 - T.probe.btn.y - T.probe.btn.h / 2) > 8) F(`nút ${nm} sai cỡ/vị trí (${Math.round(d.btn.w)} px, mẫu ${Math.round(T.probe.btn.w)} px)`); } }
   if (sc.topBg > FRAME_BG) F(`màu nền thanh trên lệch token (ΔRGB ${sc.topBg} > ${FRAME_BG})`);
   if (withTabs && sc.tabs < FRAME_MIN.tabs) F(`thanh tab lệch khung mẫu (SSIM ${sc.tabs} < ${FRAME_MIN.tabs})`);
   if (withTabs && sc.tabBg > FRAME_BG) F(`màu nền thanh tab lệch token (ΔRGB ${sc.tabBg} > ${FRAME_BG})`); }
@@ -59,7 +64,7 @@ const cap = t => t && t[0].toUpperCase() + t.slice(1);
 const TPL = {}; for (const v of FRAME_VARIANTS) for (const m of ['light', 'dark']) { const f = path.join(SRC, 'app', `frame-${v}-${m}.html`); if (!fs.existsSync(f)) continue;
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: m }), p = await ctx.newPage();
   await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle', timeout: 60000 }).catch(() => {}); await p.addStyleTag({ content: STILL }); await p.evaluate(() => document.fonts && document.fonts.ready); await p.waitForTimeout(300);
-  TPL[v + '-' + m] = { png: await shot(p), tab: cap((fs.readFileSync(path.join(SRC, 'app', '.index.txt'), 'utf8').match(new RegExp('^frame-' + v + ' .*? tab-(\\w+)', 'm')) || [])[1]) || null }; await ctx.close(); }
+  TPL[v + '-' + m] = { probe: await p.evaluate(probeFrame, TABS), png: await shot(p), tab: cap((fs.readFileSync(path.join(SRC, 'app', '.index.txt'), 'utf8').match(new RegExp('^frame-' + v + ' .*? tab-(\\w+)', 'm')) || [])[1]) || null }; await ctx.close(); }
 
 for (const r of rows) { const res = { surface: r.s, page: r.page, fails: [], info: {} }, words = {};
   for (const m of ['light', 'dark']) { const f = path.join(SRC, r.s, `${r.page}-${m}.html`); if (!fs.existsSync(f)) { res.fails.push(`${m}: thiếu file`); continue; }

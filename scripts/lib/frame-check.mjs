@@ -32,8 +32,8 @@ const dist = (p, q) => Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]);
 // ref/tpl: PNG viewport 390×H. variant: hub|inner|modal|focus. refTab/tplTab: tên tab đang chọn (hoặc null).
 export function frameScores(ref, tpl, variant, refTab, tplTab) {
   const out = {};
-  // thanh trên: hub so cả thanh (logo + chip + streak + XP + avatar giống nhau); inner/modal/focus so ô nút trái 64 px (back / close)
-  out.top = +(variant === 'hub' ? region(ref, tpl, 0, 0, W, TOP_H) : region(ref, tpl, 0, 0, 64, TOP_H)).toFixed(3);
+  // thanh trên: hub so cả thanh (logo + chip + streak + XP + avatar giống nhau); inner/modal/focus so ô nút trái 52 px (chỉ nút back / close, chưa tới tiêu đề)
+  out.top = +(variant === 'hub' ? region(ref, tpl, 0, 0, W, TOP_H) : region(ref, tpl, 0, 0, 52, TOP_H)).toFixed(3);
   out.topBg = +dist(barBg(ref, 0, TOP_H), barBg(tpl, 0, TOP_H)).toFixed(1);
   if (variant === 'hub' || variant === 'inner') {
     const y = ref.height - TAB_H - 6, yt = tpl.height - TAB_H - 6, cw = Math.floor(W / 5), skip = new Set([TABS.indexOf(refTab), TABS.indexOf(tplTab)]);
@@ -46,3 +46,12 @@ export function frameScores(ref, tpl, variant, refTab, tplTab) {
   }
   return out;
 }
+
+// nút trái thanh trên (back / close) định vị bằng DOM (rect {x,y,w,h} ở 390 px): cắt đúng khung nút ở cả hai ảnh, lấy mẫu ref về cỡ nút mẫu → SSIM.
+// Đo đúng chiếc nút, không lẫn tiêu đề/thanh tiến độ đứng cạnh (vùng cố định 52 px bị lẫn khi Stitch xê dịch vài px).
+export function btnScore(ref, rb, tpl, tb) { const pad = 2, tw = Math.round(tb.w) + 2 * pad, th = Math.round(tb.h) + 2 * pad;
+  const T = gray(tpl, Math.max(0, Math.round(tb.x) - pad), Math.max(0, Math.round(tb.y) - pad), tw, th), R = new Float32Array(tw * th);
+  const sx = (rb.w + 2 * pad) / tw, sy = (rb.h + 2 * pad) / th, x0 = rb.x - pad, y0 = rb.y - pad;
+  for (let y = 0; y < th; y++) for (let x = 0; x < tw; x++) { const px = Math.min(ref.width - 1, Math.max(0, Math.round(x0 + x * sx))), py = Math.min(ref.height - 1, Math.max(0, Math.round(y0 + y * sy)));
+    R[y * tw + x] = gray(ref, px, py, 1, 1)[0]; }
+  return +ssim(R, T, tw, th).toFixed(3); }
