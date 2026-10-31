@@ -78,6 +78,13 @@ function Body({ n, t, w, h, T }) {
     case 'vs':
       return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: '50%', background: `radial-gradient(circle at 40% 30%, #FF8A65 0%, #E0482F 70%)`, border: '5px solid #FFC94A',
         boxShadow: '0 8px 0 #9E2B16, 0 0 30px rgba(242,85,59,.5)', color: '#FFFFFF', fontFamily: JAK, fontWeight: 800, fontStyle: n.text ? 'normal' : 'italic', fontSize: n.size, lineHeight: `${h - 10}px`, textAlign: 'center' }}>{n.text || 'VS'}</div>;
+    case 'interrupt': { const spin = n.v === 'q' ? 360 * (1 - easeOut(clamp01((t - n.in.t) / 0.6))) : 0;   // pattern interrupt on the hook (build.py): ✗ stamp · VS slam · spinning ? (one turn, then still)
+      if (n.v === 'x') return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 34, background: '#C92A2A', border: '5px dashed #FFA8A8', boxShadow: '0 12px 26px rgba(201,42,42,.45)',
+        transform: `rotate(${n.rot || -8}deg)` }}><svg width={w - 10} height={h - 10} viewBox="0 0 64 64"><path d="M18 18l28 28M46 18L18 46" stroke="#FFFFFF" strokeWidth="9" strokeLinecap="round" /></svg></div>;
+      if (n.v === 'vs') return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: '50%', background: 'radial-gradient(circle at 40% 30%, #FF8A65 0%, #E0482F 70%)', border: '6px solid #FFC94A',
+        boxShadow: '0 8px 0 #9E2B16, 0 0 34px rgba(242,85,59,.55)', color: '#FFFFFF', fontFamily: JAK, fontWeight: 800, fontStyle: 'italic', fontSize: n.size, lineHeight: `${h - 12}px`, textAlign: 'center', transform: 'rotate(-6deg)' }}>VS</div>;
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: '50%', background: T.chip_bg, border: `5px solid ${T.chip_edge}`, boxShadow: '0 8px 0 rgba(0,0,0,.18)', color: T.chip_ink,
+        fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 10}px`, textAlign: 'center', transform: `rotate(${spin}deg)` }}>?</div>; }
     case 'slot': { const [cur, , m] = state(n, t), k = cur === 'filled' ? easeOut(m) : 0;   // glowing empty slot -> the right word drops in
       return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 24, border: `4px ${k ? 'solid' : 'dashed'} ${mixc(T.primary, T.good, k)}`, background: mixc(T.tile, T.good_bg, k),
         boxShadow: `0 0 ${24 + 16 * k}px ${k ? T.good : T.primary}55`, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 8}px`, textAlign: 'center', color: T.good }}>

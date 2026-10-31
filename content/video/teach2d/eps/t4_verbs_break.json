@@ -6,34 +6,39 @@
  "theme": "dark",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 0.8,
+ "speed": 0.95,
  "area": "verbs",
  "lines": [
   {
    "id": "h",
    "text": "Breaked? Not a word!",
-   "pause": 0.42,
+   "pause": 0.2,
    "speed": 1.25
+  },
+  {
+   "id": "tz",
+   "text": "Lots of learners get this wrong!",
+   "pause": 0.2
   },
   {
    "id": "b",
    "text": "Base form: break.",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "p",
    "text": "Past: broke. Yesterday, I broke my phone.",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "pp",
    "text": "Past participle: broken.",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "w",
-   "text": "Not breaked! Break is irregular.",
-   "pause": 0.42
+   "text": "Never breaked, okay? Break is irregular.",
+   "pause": 0.2
   },
   {
    "id": "q",
@@ -43,18 +48,18 @@
   },
   {
    "id": "a",
-   "text": "Broken! The window is broken.",
-   "pause": 0.42
+   "text": "Broken! The window is broken. Told you!",
+   "pause": 0.2
   },
   {
    "id": "sh",
    "text": "Send this to a friend!",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "c",
    "text": "Save this. Free on lexkite.com.",
-   "pause": 0.42
+   "pause": 0.2
   }
  ],
  "data": {
@@ -86,10 +91,15 @@
  "scene": "classroom",
  "hook_by": 1.5,
  "layout": "bubble",
+ "tease": {
+  "line": "tz",
+  "chip": "👀 WAIT FOR THE QUIZ",
+  "payoff": "a"
+ },
  "est": {
-  "words": 46,
-  "seconds": 27.8,
-  "wpm": 99,
+  "words": 55,
+  "seconds": 26.7,
+  "wpm": 124,
   "hook_s": 1.35
  }
 }

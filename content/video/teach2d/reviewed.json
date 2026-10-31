@@ -351,15 +351,16 @@
    "hook": "Soccer or football?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (US soccer = UK football), same facts as t3_usuk_soccer (IPA soccer /ˈsɑːkər/, football /ˈfʊtbɔːl/ = audited bank; twist true: in the US 'football' is American football); QUESTION hook 'Soccer or football?' = on-screen hook, true, 3 words at hook speed 1.2 (est. 1.08 s); CTA #/dict/soccer; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (US soccer = UK football), same facts as t3_usuk_soccer (IPA soccer /ˈsɑːkər/, football /ˈfʊtbɔːl/ = audited bank; twist true: in the US 'football' is American football); QUESTION hook 'Soccer or football?' = on-screen hook, true, 3 words at hook speed 1.2 (est. 1.08 s); CTA #/dict/soccer; facts true, one point, English only, <= 150 wpm, no jargon; phase 2 re-review 31/10/2026 (viral pass): facts unchanged (soccer = US, football = UK, same game; twist line still says American football is a different game - 'Wait!' replaces 'Careful!' only); open-loop tease 'Lots of learners mix these up!' is true (US/UK sport names are a classic learner confusion), paid off after the quiz ('Told you!'); hook unchanged and true; quiz answer unchanged; speed 0.95, 0.2 s gaps, est. 122 wpm <= 150)",
    "script": {
     "h": "Soccer or football?",
+    "tz": "Lots of learners mix these up!",
     "us": "In America, it's soccer.",
     "uk": "In Britain, it's football. Same game!",
-    "tw": "Careful! American football is different.",
+    "tw": "Wait! American football is different.",
     "x": "Want to watch soccer tonight?",
     "q": "Quick quiz! You're in London. What's it called?",
-    "a": "Football! Same game.",
+    "a": "Football! Same game. Told you!",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -369,14 +370,15 @@
    "hook": "Most learners miss this",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (state verbs such as belong / want / know are not used in the -ing form) from the app grammar point stative-dynamic: listed mistake 'This book is belonging to the library.' -> 'This book belongs to the library.', listed quiz 'I ___ this graph.' -> don't understand (also a state verb, same point); rule line 'State verbs stay simple.' matches the bricks 'belong · want · know + simple form'; 'MOST LEARNERS' hook 'Most learners miss this!' - stative-in-progressive is one of the most frequent learner errors (the app's own note: learners translate 'đang muốn'), acceptable as a social hook; 3 words at hook speed 1.25; CTA #/grammar/stative-dynamic; natural American English; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (state verbs such as belong / want / know are not used in the -ing form) from the app grammar point stative-dynamic: listed mistake 'This book is belonging to the library.' -> 'This book belongs to the library.', listed quiz 'I ___ this graph.' -> don't understand (also a state verb, same point); rule line 'State verbs stay simple.' matches the bricks 'belong · want · know + simple form'; 'MOST LEARNERS' hook 'Most learners miss this!' - stative-in-progressive is one of the most frequent learner errors (the app's own note: learners translate 'đang muốn'), acceptable as a social hook; 3 words at hook speed 1.25; CTA #/grammar/stative-dynamic; natural American English; facts true, one point, English only, <= 150 wpm, no jargon; phase 2 re-review 31/10/2026 (viral pass): facts unchanged (same listed mistake / correction / quiz item of stative-dynamic; 'Don't say:' replaces 'Not:' only, the wrong sentence is still marked wrong); tease 'Stay for the tricky quiz!' + payoff 'Told you it's tricky!' after the answer - the quiz (don't understand vs not understanding) is a common trap, honest; hook unchanged and true; speed 0.95, 0.2 s gaps, est. 126 wpm <= 150)",
    "script": {
     "h": "Most learners miss this!",
+    "tz": "Stay for the tricky quiz!",
     "r": "State verbs stay simple.",
-    "w": "Not: This book is belonging to the library.",
+    "w": "Don't say: This book is belonging to the library.",
     "b": "Say: This book belongs to the library.",
     "q": "Quick quiz! Which one fits?",
-    "a": "Don't understand! I don't understand this graph. Can you explain it?",
+    "a": "Don't understand! I don't understand this graph. Can you explain it? Told you it's tricky!",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -437,15 +439,16 @@
    "hook": "Breaked? Not a word!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (break - broke - broken, not 'breaked') from the verb engine (same facts as t3); MYTH hook 'Breaked? Not a word!' - true for standard English; 3 words at hook speed 1.25; CTA #/verb/break; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (break - broke - broken, not 'breaked') from the verb engine (same facts as t3); MYTH hook 'Breaked? Not a word!' - true for standard English; 3 words at hook speed 1.25; CTA #/verb/break; facts true, one point, English only, <= 150 wpm, no jargon; phase 2 re-review 31/10/2026 (viral pass): facts unchanged (break - broke - broken, 'breaked' is not standard English; 'Never breaked, okay?' replaces 'Not breaked!' with the same meaning); tease 'Lots of learners get this wrong!' is true (over-regularised breaked / 'is broke' are common learner errors), paid off after the quiz ('Told you!'); hook unchanged and true; speed 0.95, 0.2 s gaps, est. 123 wpm <= 150)",
    "script": {
     "h": "Breaked? Not a word!",
+    "tz": "Lots of learners get this wrong!",
     "b": "Base form: break.",
     "p": "Past: broke. Yesterday, I broke my phone.",
     "pp": "Past participle: broken.",
-    "w": "Not breaked! Break is irregular.",
+    "w": "Never breaked, okay? Break is irregular.",
     "q": "Quick quiz! The window is broke, or broken?",
-    "a": "Broken! The window is broken.",
+    "a": "Broken! The window is broken. Told you!",
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
@@ -559,15 +562,16 @@
    "hook": "Most learners miss one",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (teacher review 31/10/2026, American English: three gold quiz items (sb_08f69142 It depends, sb_13a16c00 exciting vs excited, sb_47b3e9e9 stole vs robbed), each answer spoken as the full correct sentence; 'MOST LEARNERS' hook 'Most learners miss one!' - all three are among the most common learner errors, so missing at least one is the typical result; 3 words at hook speed 1.25; CTA #/placement; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "reviewer": "Claude (teacher review 31/10/2026, American English: three gold quiz items (sb_08f69142 It depends, sb_13a16c00 exciting vs excited, sb_47b3e9e9 stole vs robbed), each answer spoken as the full correct sentence; 'MOST LEARNERS' hook 'Most learners miss one!' - all three are among the most common learner errors, so missing at least one is the typical result; 3 words at hook speed 1.25; CTA #/placement; facts true, one point, English only, <= 150 wpm, no jargon; phase 2 re-review 31/10/2026 (viral pass): facts unchanged (same three gold items and full-sentence answers); tease 'Can you get all three?' is a question (no claim), paid off after question three ('Tricky, right?'); hook unchanged and true; speed 1.0, 0.2 s gaps, est. 103 wpm <= 150)",
    "script": {
     "h": "Most learners miss one!",
+    "tz": "Can you get all three?",
     "q1": "Question one.",
     "a1": "How much is it? It depends.",
     "q2": "Question two.",
     "a2": "The movie was so exciting!",
     "q3": "Question three.",
-    "a3": "Someone stole my wallet!",
+    "a3": "Someone stole my wallet! Tricky, right?",
     "s": "Three out of three? Comment below!",
     "c": "Save this. Free on lexkite.com."
    }

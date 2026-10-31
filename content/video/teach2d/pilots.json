@@ -1,5 +1,5 @@
 {
- "_note": "Teach2D pilots (docs/VIDEO-TEACH2D.md): ONE episode per template, owner review gate before any batch. Facts: gold bank rows (gold), verb engine (verbs-core.js), audited IPA bank (qc.py overlay_ipa). Curated rows below are re-checked by qc.py. Look: 'dusk' for all (owner 29/10: 'mức 2 có vẻ ok hơn'). t4_* = v2 sample set (31/10): optional row fields layout, hook_style (+ hook_hl), in.hook_say / in.hook_text, grammar brick_labels / brick_cues, call right_opt.",
+ "_note": "Teach2D pilots (docs/VIDEO-TEACH2D.md): ONE episode per template, owner review gate before any batch. Facts: gold bank rows (gold), verb engine (verbs-core.js), audited IPA bank (qc.py overlay_ipa). Curated rows below are re-checked by qc.py. Look: 'dusk' for all (owner 29/10: 'mức 2 có vẻ ok hơn'). t4_* = v2 sample set (31/10): optional row fields layout, hook_style (+ hook_hl), in.hook_say / in.hook_text, grammar brick_labels / brick_cues, call right_opt. Phase 2 viral (31/10): optional row fields speed, pause (default line gap), tease {say, chip, payoff}, say {line: natural text}.",
  "pilots": [
   {
    "id": "t2_usuk_elevator",
@@ -387,7 +387,7 @@
     "uk_say": "it's football.",
     "uk_tail": "Same game!",
     "twist": {
-     "say": "Careful! American football is different.",
+     "say": "Wait! American football is different.",
      "card": "another game"
     },
     "example": "Want to watch soccer tonight?",
@@ -396,6 +396,16 @@
     "answer_say": "Football! Same game.",
     "share": "Send this to a friend who loves soccer!",
     "hook_text": "Soccer or football?"
+   },
+   "speed": 0.95,
+   "pause": 0.2,
+   "tease": {
+    "say": "Lots of learners mix these up!",
+    "chip": "👀 ANSWER AT THE END",
+    "payoff": [
+     "a",
+     "Told you!"
+    ]
    }
   },
   {
@@ -436,6 +446,19 @@
     "hl": "belongs",
     "hook_say": "Most learners miss this!",
     "hook_text": "Most learners miss this"
+   },
+   "speed": 0.95,
+   "pause": 0.2,
+   "tease": {
+    "say": "Stay for the tricky quiz!",
+    "chip": "👀 TRICKY QUIZ AHEAD",
+    "payoff": [
+     "a",
+     "Told you it's tricky!"
+    ]
+   },
+   "say": {
+    "w": "Don't say: This book is belonging to the library."
    }
   },
   {
@@ -547,6 +570,19 @@
     "quiz_a": "Broken! The window is broken.",
     "hook_say": "Breaked? Not a word!",
     "hook_text": "Breaked? Not a word!"
+   },
+   "speed": 0.95,
+   "pause": 0.2,
+   "tease": {
+    "say": "Lots of learners get this wrong!",
+    "chip": "👀 WAIT FOR THE QUIZ",
+    "payoff": [
+     "a",
+     "Told you!"
+    ]
+   },
+   "say": {
+    "w": "Never breaked, okay? Break is irregular."
    }
   },
   {
@@ -692,6 +728,16 @@
     ],
     "hook_say": "Most learners miss one!",
     "hook_text": "Most learners miss one"
+   },
+   "speed": 1.0,
+   "pause": 0.2,
+   "tease": {
+    "say": "Can you get all three?",
+    "chip": "🏆 ALL THREE?",
+    "payoff": [
+     "a3",
+     "Tricky, right?"
+    ]
    }
   },
   {

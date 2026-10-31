@@ -11,15 +11,19 @@ def spring(tau, z, w):   # underdamped step response 0 -> 1
     return 1 - math.exp(-z * w * tau) * (math.cos(wd * tau) + z * w / wd * math.sin(wd * tau))
 def ease_out(x): x = clamp01(x); return 1 - (1 - x) ** 3
 
-FADE_IN = dict(rise=0.12, pop=0.06, fade=0.14, draw=0.0, soft=0.24, punch=0.0)   # alpha ramp per entrance kind
-HALF = dict(rise=0.06, pop=0.03, fade=0.07, draw=0.062, soft=0.12, punch=0.0)      # time from in.t to the "appears" instant (alpha 0.5 / half drawn: ease_out(x) = 0.5 at x = 1 - 0.5^(1/3) -> 0.30 s x 0.206): builders start in.t = word.s - HALF
-SETTLE = dict(rise=0.45, pop=0.40, fade=0.14, draw=0.30, soft=0.32, punch=0.25)    # after this the node is static (no motion while it is read)
+FADE_IN = dict(rise=0.12, pop=0.06, fade=0.14, draw=0.0, soft=0.24, punch=0.0, slam=0.0)   # alpha ramp per entrance kind
+HALF = dict(rise=0.06, pop=0.03, fade=0.07, draw=0.062, soft=0.12, punch=0.0, slam=0.0)      # time from in.t to the "appears" instant (alpha 0.5 / half drawn: ease_out(x) = 0.5 at x = 1 - 0.5^(1/3) -> 0.30 s x 0.206): builders start in.t = word.s - HALF
+SETTLE = dict(rise=0.45, pop=0.40, fade=0.14, draw=0.30, soft=0.32, punch=0.25, slam=0.36)    # after this the node is static (no motion while it is read)
+SLAM_S0 = 0.6; SLAM_T = 0.36; BACK = 1.70158   # slam: hook punch-in 0.6x -> ONE overshoot (~1.04x) -> exact 1.0 at 0.36 s, alpha 1 from frame 0 (Teach2D viral hook)
 DRAW = 0.30; TAPER = 0.12; OUT = 0.16; MIX = 0.18; RISE_DY = 36; OUT_DY = 14; SOFT_DY = 16; SOFT_T = 0.32
 
 def pose(n, t):
     """-> dict(a=alpha, s=scale, dy=px, p=draw progress) of node n at time t."""
     i = n.get('in') or dict(t=0, k='fade'); k = i['k']; tau = t - i['t']
     if k == 'draw': a = 1.0 if tau >= 0 else 0.0; s = 1.0; dy = 0.0; p = ease_out(tau / DRAW)
+    elif k == 'slam':
+        x = clamp01(tau / SLAM_T) - 1; a = 1.0 if tau >= 0 else 0.0; dy = 0.0; p = 1.0
+        s = SLAM_S0 + (1 - SLAM_S0) * (1 + (BACK + 1) * x ** 3 + BACK * x ** 2) if tau >= 0 else SLAM_S0   # ease-out-back: one overshoot, then exact rest
     elif k == 'punch': a = 1.0 if tau >= 0 else 0.0; s = 1.15 - 0.15 * ease_out(tau / 0.25) if tau >= 0 else 1.15; dy = 0.0; p = 1.0
     else:
         a = clamp01(tau / FADE_IN[k]) if tau >= 0 else 0.0; p = 1.0

@@ -6,29 +6,34 @@
  "theme": "light",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 0.8,
+ "speed": 0.95,
  "area": "grammar",
  "lines": [
   {
    "id": "h",
    "text": "Most learners miss this!",
-   "pause": 0.42,
+   "pause": 0.2,
    "speed": 1.25
+  },
+  {
+   "id": "tz",
+   "text": "Stay for the tricky quiz!",
+   "pause": 0.2
   },
   {
    "id": "r",
    "text": "State verbs stay simple.",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "w",
-   "text": "Not: This book is belonging to the library.",
-   "pause": 0.42
+   "text": "Don't say: This book is belonging to the library.",
+   "pause": 0.2
   },
   {
    "id": "b",
    "text": "Say: This book belongs to the library.",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "q",
@@ -38,18 +43,18 @@
   },
   {
    "id": "a",
-   "text": "Don't understand! I don't understand this graph. Can you explain it?",
-   "pause": 0.42
+   "text": "Don't understand! I don't understand this graph. Can you explain it? Told you it's tricky!",
+   "pause": 0.2
   },
   {
    "id": "sh",
    "text": "Send this to a friend!",
-   "pause": 0.42
+   "pause": 0.2
   },
   {
    "id": "c",
    "text": "Save this. Free on lexkite.com.",
-   "pause": 0.42
+   "pause": 0.2
   }
  ],
  "data": {
@@ -98,10 +103,15 @@
  "scene": "library",
  "hook_by": 1.5,
  "layout": "corner",
+ "tease": {
+  "line": "tz",
+  "chip": "👀 TRICKY QUIZ AHEAD",
+  "payoff": "a"
+ },
  "est": {
-  "words": 50,
-  "seconds": 29.3,
-  "wpm": 102,
+  "words": 60,
+  "seconds": 28.6,
+  "wpm": 126,
   "hook_s": 1.35
  }
 }

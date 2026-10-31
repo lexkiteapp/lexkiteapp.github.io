@@ -4,7 +4,8 @@
 Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (a lip-moving pose only while speaking, a closed-mouth pose in pauses)
 · pose (pose.py: point on the quiz, thinking in the 3-2-1, happy / cheer on the answer, explain on the rule line, encourage on the share line; no gesture off its cue;
 every pose clip = the talk-hd frame and never shown > 1.0x, camera push included)
-· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear,
+· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · hook_motion (opaque by frame 3; shorts: punch-in, whoosh, pattern
+interrupt <= 1.5 s, reaction pose, open loop paid off; --video: pixel motion 0-45 >= HOOK_MOTION_MIN) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear,
 every chip / pill text on one line inside its pill)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
 · scene_clear (known scene; counter + props never over captions / text / QR / CTA, nor over the teacher's head / body; calm card region; text + captions readable on the scene)
@@ -96,12 +97,37 @@ hk = [n for n in T['nodes'] if n.get('hook')]
 HB = T.get('hook_by', 2.2)   # per episode (new samples 1.5 s), default 2.2 s
 gate('hook', hk and alpha(hk[0], 0.0) >= 0.99 and len(L['h']['text'].split()) <= 6 and L['h']['words'][-1]['e'] <= HB, 3,
      hook_words=len(L['h']['text'].split()), spoken_by=L['h']['words'][-1]['e'], hook_by=HB)
+# hook_motion (phase 2 viral, owner 31/10 "viral/native 6/10"): frame 0 is never static text. Every hook node fully opaque by frame 3; social shorts also:
+# the hook punches in (scale moves in the first 0.4 s and is readable >= 0.9x by frame 3, one overshoot max), a whoosh at 0 (with the bass drop),
+# one pattern interrupt of the template's kind landing in the first 1.5 s, the teacher's reaction pose on the hook line, and an open-loop tease
+# (when the row has one) paid off after the quiz. --video: mean visible pixel change over frames 0-45 >= HOOK_MOTION_MIN (static hooks of run
+# 41163590873 measured 0.375-0.531, see docs/VIDEO-TEACH2D.md), the measured value is recorded.
+HOOK_MOTION_MIN = 0.60
+INTERRUPT = dict(mistake='x', pattern='x', prep='x', native='x', verbs='x', usuk='vs', pair='vs', phrasal='vs')
+f3 = 3 / T['fps']; hm = []
+if not hk: hm.append('no hook node')
+hm += [dict(id=n['id'], alpha_f3=round(alpha(n, f3), 3)) for n in hk if alpha(n, f3) < 0.99]
+if T['format'] == 'short':
+    ss = [[C.pose(n, f / T['fps'])['s'] for f in range(0, 13)] for n in hk]
+    if not any(max(x) - min(x) >= 0.1 for x in ss): hm.append(dict(static_hook=[round(min(x), 3) for x in ss]))
+    hm += [dict(id=n['id'], scale_f3=round(x[3], 3)) for n, x in zip(hk, ss) if x[3] < 0.9]
+    hm += [dict(id=n['id'], bounces=sum(1 for i in range(1, len(x) - 1) if (x[i] - x[i - 1]) * (x[i + 1] - x[i]) < 0)) for n, x in zip(hk, ss) if sum(1 for i in range(1, len(x) - 1) if (x[i] - x[i - 1]) * (x[i + 1] - x[i]) < 0) > 1]
+    if not any(x.get('sfx') == 'whoosh' and x['t'] <= 0.05 for x in T.get('sfx') or []): hm.append('no whoosh at 0')
+    if not any(x.get('sfx') == 'bass-drop' and x['t'] <= 0.05 for x in T.get('sfx') or []): hm.append('no bass drop at 0')
+    if not (T.get('cam') or {}).get('shots') and not (T.get('host_box') and T['layout'] == 'bubble'): hm.append('no camera push on the hook')
+    ix = [n for n in T['nodes'] if n['type'] == 'interrupt']
+    if len(ix) != 1 or ix[0]['v'] != INTERRUPT.get(T['template'], 'q') or ix[0]['in']['t'] + C.HALF[ix[0]['in']['k']] > 1.5: hm.append(dict(interrupt=[(n['v'], n['in']['t']) for n in ix], want=INTERRUPT.get(T['template'], 'q')))
+    if not any(p_ == 'happy' and abs(a_ - L['h']['t0']) < 1e-3 for p_, a_, _ in W): hm.append('no reaction pose on the hook line')
+    if 'tz' in L:
+        if not any(n.get('tease') for n in T['nodes']): hm.append('tease line without its chip')
+        if not any(re.match(r'(a\d*|ans|s)$', k) and list(L).index(k) > max(i for i, k2 in enumerate(L) if re.fullmatch(r'q\d*', k2)) and k != 'c' and re.search(r'told you|tricky|right\?', v['text'], re.I) for k, v in L.items()): hm.append('open loop not paid off after the quiz')
+gate('hook_motion', not hm, 3, bad=hm[:6], min_video=HOOK_MOTION_MIN)
 # cue timing: every element appears on its word
 off = [dict(node=c['node'], tag=c['tag'], d=round(N[c['node']]['in']['t'] + C.HALF[N[c['node']]['in']['k']] - c['t'], 3)) for c in T['cues'] if c['t'] is not None and c['node'] in N]
 offb = [x for x in off if abs(x['d']) > 0.08 and N[x['node']]['in']['t'] >= N[N[x['node']]['parent']]['in']['t'] + 1e-6 if N[x['node']].get('parent')]
 gate('cue_timing', not offb, 2, checked=len(off), bad=offb[:6])
 # layout: sampled every 0.1 s
-SAFE = T['safe']; head = T['head']; prob = []; leaf = {'text', 'chip', 'pill', 'ring', 'img', 'cta', 'tag', 'cross', 'check', 'qmark', 'eq', 'flags', 'candy', 'beat', 'ipapill', 'rhythm', 'vs', 'stamp', 'slot', 'opt', 'brick', 'plus', 'pic', 'letter', 'track', 'score', 'wave', 'flip', 'grade'}
+SAFE = T['safe']; head = T['head']; prob = []; leaf = {'text', 'chip', 'pill', 'ring', 'img', 'cta', 'tag', 'cross', 'check', 'qmark', 'eq', 'flags', 'candy', 'beat', 'ipapill', 'rhythm', 'vs', 'stamp', 'slot', 'opt', 'brick', 'plus', 'pic', 'letter', 'track', 'score', 'wave', 'flip', 'grade', 'interrupt'}
 for i in range(int(T['total'] * 10)):
     t = i / 10; vis = [n for n in T['nodes'] if alpha(n, t) > 0.3]
     for n in vis:
@@ -221,6 +247,10 @@ if o.video:
     for i, im in enumerate(fr):
         crop = im[hx[1]:hx[3], hx[0]:hx[2]].astype(int); diff = (np.abs(crop - ref).sum(2) > 60).mean(); hostvis.append(round(float(diff), 3))
         if im.std() < 4: blank.append(i)
+    nfm = 45; rawm = subprocess.check_output(['ffmpeg', '-nostdin', '-v', 'error', '-i', o.video, '-frames:v', str(nfm + 1), '-vf', 'scale=270:480', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'])
+    fm = np.frombuffer(rawm, np.uint8).reshape(-1, 480, 270).astype(np.float32); mv = round(float(np.abs(np.diff(fm, axis=0)).mean()), 3)   # mean |dY| (0-255) frame to frame, 0-45
+    R['hook_motion']['video_motion'] = mv
+    if T['format'] == 'short' and mv < HOOK_MOTION_MIN: R['hook_motion']['ok'] = False; R['hook_motion']['bad'] = (R['hook_motion']['bad'] + [dict(video_motion=mv, want=HOOK_MOTION_MIN)])[:6]
     gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet
         ts = [round((x['t0'] + x['t1']) / 2, 2) for x in L.values()]

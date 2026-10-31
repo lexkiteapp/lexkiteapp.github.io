@@ -334,6 +334,26 @@ def make(row):
         assert len(words(ep['hook']['text'])) <= 6, ('on-screen hook > 6 words', ep['hook']['text'])
         ep['hook'] = dict(ep['hook'], style=row['hook_style'], **({'hl': row['hook_hl']} if 'hook_hl' in row else {}))
         assert 'hl' not in ep['hook'] or ep['hook']['hl'] in ep['hook']['text'], ('hook_hl not in the hook text', ep['hook'])
+    # phase 2 viral (31/10, optional; absent = byte-identical): natural spoken lines and an open loop.
+    #   say   = {line id: text} – the reviewed natural version of a fixed template line (contractions, short reactions "Wait!", "Right?"); every
+    #           fact token of the template line must stay in it (same cues, same facts; reviewed.json re-checks the whole script)
+    #   tease = {say, chip, payoff: [line id, text]} – a spoken tease right after the hook (line 'tz', "Most people get this wrong. Stay to the end!"),
+    #           a chip on screen with it (build.py), paid off on a line after the quiz ("Told you it's tricky!") before the CTA
+    for k_, txt in row.get('say', {}).items():
+        ln = next(l for l in ep['lines'] if l['id'] == k_); old = set(map(str.lower, words(ln['text']))); new = set(map(str.lower, words(txt)))
+        keep = {w for w in old if len(w) > 3 and w not in ('quick', 'quiz', 'many', 'learners', 'better', 'that', 'this', 'with', 'your')}
+        assert keep <= new, ('say override drops fact words of the template line', k_, sorted(keep - new)); ln['text'] = txt
+    if 'pause' in row:   # snappier social pacing: the default 0.42 s gap after a line (quiz countdowns / repeat / guess pauses keep theirs)
+        assert 0.2 <= row['pause'] <= 0.42, ('row pause', row['pause'])
+        for l in ep['lines']:
+            if l['pause'] == 0.42: l['pause'] = row['pause']
+    if 'tease' in row:
+        tz = row['tease']; ids = [l['id'] for l in ep['lines']]; pl, pt = tz['payoff']; qi = max(i for i, k_ in enumerate(ids) if re.fullmatch(r'q\d*', k_))
+        assert ids.index(pl) > qi and pl != 'c', ('the payoff must come after the quiz and before the CTA', pl)
+        assert len(words(tz['say'])) <= 10, ('tease line too long', tz['say'])
+        ep['lines'].insert(1, L('tz', tz['say'], tz.get('pause', row.get('pause', 0.3))))
+        pln = next(l for l in ep['lines'] if l['id'] == pl); pln['text'] = f"{pln['text']} {pt}"
+        ep['tease'] = dict(line='tz', chip=tz['chip'], payoff=pl)
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
     est -= sum(len(words(l['text'])) / 2.55 * (1 / ep['speed'] - 1 / l['speed']) for l in ep['lines'] if 'speed' in l)   # lines with their own speed
