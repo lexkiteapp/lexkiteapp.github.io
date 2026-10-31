@@ -12,7 +12,7 @@ on:
     - cron: '17 */3 * * *'   # lịch theo biến repo: LX_PILOT=1 (pilot rải đều, chờ soát 50 mẫu) → 0 khi pilot đạt ≤ 1/50; LX_N số từ mới/lượt; LX_RETRY
   workflow_dispatch:
     inputs:
-      n: { description: 'Số từ MỚI lượt này (+ từ làm lại ở content/lexicon/expand/retry)', default: '2400' }
+      n: { description: 'Số từ MỚI lượt này (+ từ làm lại ở content/lexicon/expand/retry)', default: '' } # trống = biến repo LX_N (30/10: mặc định '2400' đè LX_N=600 → lượt 2.400 mục)
       pilot: { description: 'Pilot: rải đều dải tần suất (1 = có)', default: '0' }
       calls: { description: 'Trần số lần gọi /api/lexai (Gemini kho Lexkite – 26/10 rỗng; > 0 chỉ khi kho có khóa VÀ thêm gemini vào resources ở infra/jobs.json)', default: '0' }
       batch: { description: 'Mã lô (trống = ngày)', default: '' }

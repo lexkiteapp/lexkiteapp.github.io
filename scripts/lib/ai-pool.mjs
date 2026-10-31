@@ -372,6 +372,9 @@ export function createPool(opts = {}) {
       const P = pickModels(name, ids), M = name === 'gem' ? GEM_MODELS : GROQ_MODELS; if (P) for (const role of Object.keys(P)) if (P[role].length || role === 'C') M[role] = P[role]; // C rỗng = không đoán tên (tránh 404) → chuỗi rơi sang cf2
       log(`[ai-pool] mô hình ${name}: ${ids.length} có sẵn${name === 'groq' ? ' ' + JSON.stringify(ids.map(x => String(x).replace(/^models\//, ''))) : ''} → ${JSON.stringify(M)}`); return M; })());
   }
+  // tối đa GEM_PAR lượt Gemini cùng lúc (30/10: pmap 6–8 lô × nhiều bước dồn 429 theo phút lên cả 85 khoá) – xếp hàng thay vì đốt khoá
+  const GEM_PAR = 4; let gemIn = 0; const gemQ = [];
+  const gemSlot = async fn => { while (gemIn >= GEM_PAR) await new Promise(r => gemQ.push(r)); gemIn++; try { return await fn(); } finally { gemIn--; const n = gemQ.shift(); if (n) n(); } };
   R.gem = { ok: () => GEM.size > 0, models: role => GEM_MODELS[role === 'gen' ? 'gen' : 'judge'],
     async call(model, req) {
       await discover('gem'); if (!GEM_MODELS.gen.includes(model) && !GEM_MODELS.judge.includes(model)) throw new PoolErr('model', 'gem: không còn ' + model, 6 * 3600e3);
@@ -379,7 +382,7 @@ export function createPool(opts = {}) {
         const j = await keyed(GEM, 'gem', key => F(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' },
           body: JSON.stringify({ systemInstruction: { parts: [{ text: sysFor(p, r) }] }, contents: [{ role: 'user', parts: [{ text: p.user }] }], generationConfig: { temperature: p.temp ?? 0.2, responseMimeType: 'application/json', maxOutputTokens: 32768, thinkingConfig: /gemini-2\./.test(model) ? { thinkingBudget: 0 } : { thinkingLevel: 'low' } } }) }));
         const c = (j.candidates || [])[0] || {}; return parseJSON(((c.content || {}).parts || []).map(x => x.text || '').join('')); };
-      const out = await splitGo(one)(req, 0); if (!out) throw new PoolErr('bad', 'gem: không phải JSON'); return { out, model };
+      const out = await gemSlot(() => splitGo(one)(req, 0)); if (!out) throw new PoolErr('bad', 'gem: không phải JSON'); return { out, model };
     } };
   const GROQ_MODELS = { gen: ['openai/gpt-oss-120b'], judge: ['openai/gpt-oss-120b'], C: ['meta-llama/llama-4-maverick-17b-128e-instruct', 'moonshotai/kimi-k2-instruct'] }; // C: mặc định, discover() thay bằng danh sách thật
   R.groq = { ok: () => GROQ.size > 0, models: (role, slot) => (slot === 'C' ? GROQ_MODELS.C : GROQ_MODELS[role === 'gen' ? 'gen' : 'judge']),
@@ -446,7 +449,7 @@ export function createPool(opts = {}) {
   }
   async function runWait(chain, req, o = {}) {
     for (let w = 0; ; w++) {
-      const r = await run1(chain, req, o); if (r || w >= 3) return r;
+      const r = await run1(chain, req, o); if (r || w >= 8) return r; // 30/10: 3 lần chờ không đủ khi 85 khoá Gemini cùng nghỉ theo phút → bỏ qua hàng loạt
       // mọi tuyến/mô hình phù hợp đang nghỉ NGẮN (≤ 2 phút) → chờ rồi thử lại thay vì bỏ qua ngay
       const soon = [...cool.entries()].filter(([k, t]) => chain.some(id => k.startsWith(id + '|')) && t > now()).map(([, t]) => t - now()).sort((a, b) => a - b)[0];
       if (!soon || soon > 120e3 || r === undefined) return r ?? null;
@@ -513,7 +516,7 @@ export function createPool(opts = {}) {
     },
     vision: (req) => run(CHAINS.vision, { mode: 'vision', ...req }, { role: 'judge' }),
     /** kiểm sức khỏe rẻ: lexai ping (đếm khóa Gemini sống, không gọi mô hình) + 1 lời nhắn nhỏ mỗi tuyến GrabCast/tài khoản 2 */
-    async health({ grabcast = true } = {}) {
+    async health({ grabcast = true, probeGem = false } = {}) {
       const h = {};
       try { const r = await lexaiPost({ mode: 'ping' }); const j = r.ok ? await r.json() : {}; h.lexai = { ok: r.ok && j.gemini > 0, gemini: j.gemini ?? null }; if (r.ok && !j.gemini) rest('lexai', null, 30 * 60e3, 'kho Gemini rỗng (ping)'); } catch (e) { h.lexai = { ok: false, err: String(e.message).slice(0, 60) }; }
       if (grabcast && env.GRABCAST_AI_KEY) for (const p of [...(CF_TEXT ? ['cloudflare'] : []), 'groq', 'gemini']) {
@@ -525,6 +528,12 @@ export function createPool(opts = {}) {
       if (CF2.length) { try { await cf2Run('@cf/meta/llama-3.1-8b-instruct-fast', { messages: [{ role: 'user', content: 'ok' }], max_tokens: 2 }); h.cf2 = { ok: true, accounts: CF2.length }; } catch (e) { h.cf2 = { ok: false, err: e.message, sample: used.cf2Err }; if (e.kind === 'route') rest('cf2', null, e.ms, e.message); } }
       else h.cf2 = { ok: false, err: 'chưa có CF_POOL/CF_AI_TOKEN_2' };
       for (const n of ['gem', 'groq']) if ((n === 'gem' ? GEM : GROQ).size) { const M = await discover(n).catch(() => null); h[n] = { ok: !!M, models: M }; }
+      // thăm dò hạn mức NGÀY Gemini (trạng thái khoá nghỉ không sống qua lượt CI): 8 khoá rải đều × 1 lời nhắn rất nhỏ → tỉ lệ khoá đã cạn ngày
+      if (GEM.size && h.gem && h.gem.ok && probeGem) { const step = Math.max(1, Math.floor(GEM.size / 8)), m = GEM_MODELS.judge[0]; let n = 0, day = 0;
+        for (let i = 0; i < GEM.size && n < 8; i += step) { const k = GEM.peek(i); if (!k) continue; n++;
+          const r = await F(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, { method: 'POST', headers: { 'x-goog-api-key': k.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: 'Reply with {"ok":1}' }] }], generationConfig: { maxOutputTokens: 8, responseMimeType: 'application/json' } }) }).catch(() => null);
+          if (r && r.status === 429) { const b = await r.text().catch(() => ''); if (/per ?day|PerDay|daily|RPD/i.test(b) && !/per ?minute|PerMinute|RPM/i.test(b)) day++; } }
+        h.gem.probe = { n, day }; }
       log('[ai-pool] sức khỏe ' + JSON.stringify(h)); return h;
     },
     stats: () => ({ used: { ...used }, budget: { ...budget }, by: JSON.parse(JSON.stringify(stats)), keys: { gem: GEM.stats(), groq: GROQ.stats() } }),

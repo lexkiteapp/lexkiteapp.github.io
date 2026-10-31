@@ -169,6 +169,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "preview-site",
+   "workflow": "preview-site.yml",
+   "cron": [
+    "53 */3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "pages-deploy",
    "workflow": "pages-deploy.yml",
    "cron": [

@@ -90,7 +90,7 @@ ok(btMatch('after', 'afterwards') && btMatch('to claim back', 'reclaim') && !btM
   ok(btOk(e, 'zh') && !btOk(e, 'de'), 'btOk: zh lỏng (từ của định nghĩa), de chặt'); e.qa.tr.zh = [5, 3]; ok(!btOk(e, 'zh'), 'btOk: lỏng cần cả 2 giám khảo ≥ 4'); }
 const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items || [];
 ok(!Q.some(q => q.src === 'lexicon-expand' && /^gen:/.test((q.why || [])[0] || '') && !q.data), 'hàng duyệt không chứa mục lexicon-expand "gen" rỗng (lỗi hạ tầng)');
-ok(!Q.some(q => q.src === 'lexicon-expand' && (q.why || []).some(y => /^ipa[ :]/.test(y))), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
+ok(!Q.some(q => q.src === 'lexicon-expand' && hasGap({ ok: false, why: q.why || [] })), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
 { const R = path.join(ROOT, 'content/lexicon/expand/retry/words.json'); if (fs.existsSync(R)) { const d = doneWords(), r = JSON.parse(fs.readFileSync(R, 'utf8')).items; ok(r.every(k => !d.has(k.split('#')[0])), 'từ trong retry/words.json không bị doneWords() loại'); } }
 // chủ đề (content/lexicon/topics.json): cây đủ tên 15 ngôn ngữ + nối 104 bộ; bộ học 10–20, nút 10–60, ≤ 2 chủ đề/từ, không mồ côi
 { const T = await import('../lexicon/expand/topics.mjs'), { TOPIC_CHOICES } = await import('../lexicon/expand/lib.mjs'), tax = T.TAX(), exs = T.existingSets();
@@ -311,6 +311,16 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
 { const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), m = /timeout-minutes: (\d+)/.exec(Y), n = /N="\$\{N:-(\d+)\}"/.exec(Y);
   ok(/stat\.retry = pool\.length - Math\.min\(N, pool\.length\); pool = pool\.slice\(0, N\)/.test(J), 'job: retry + mới cắt về N');
   ok(m && n && +n[1] * 14 / 60 <= +m[1] * 0.8, `N mặc định ${n && n[1]} × 14 s/từ vừa 80 % timeout ${m && m[1]} phút`); }
+// hạ tầng (30/10 lượt 41065198770): kho Gemini cạn → dừng ngay (không đốt 166 phút ra 2.175 mục hạ tầng); dispatch không đè LX_N
+{ const J = fs.readFileSync('scripts/lexicon/expand/job.mjs', 'utf8'), Y = fs.readFileSync('.github/workflows/lexicon-expand.yml', 'utf8'), P = fs.readFileSync('scripts/lib/ai-pool.mjs', 'utf8');
+  ok(/g\.live < g\.size \/ 4/.test(J) && /pr\.day \/ pr\.n >= 0\.75/.test(J) && /probeGem: !WORDS/.test(J) && /pool: 'low'/.test(J), 'job: dừng sớm khi kho Gemini cạn (khoá sống / thăm dò hạn mức ngày)');
+  ok(/n: \{[^}]*default: '' \}/.test(Y), "workflow: input n mặc định '' (dùng LX_N)");
+  ok(/GEM_PAR = \d/.test(P) && /w >= 8/.test(P), 'ai-pool: xếp hàng Gemini + chờ khoá nghỉ theo phút'); }
+// mục đã lưu (qa.trKeep): xét lại theo ngôn ngữ còn giữ – vẫn chặn bản dịch hỏng / ngôn ngữ ngoài trKeep (lô xuất đầu tiên 30/10 lộ lỗi cổng không lũy đẳng)
+{ const pubE = loadExpand(); if (pubE.length) { const e0 = JSON.parse(JSON.stringify(pubE[0].e)), l = e0.qa.trKeep.find(x => e0.m[x]);
+  ok(gateEntry(e0).ok, 'mục đã lưu qua lại cổng');
+  if (l) { const e1 = JSON.parse(JSON.stringify(e0)); e1.m[l] = e1.w; ok(!gateEntry(e1).ok || ['es', 'pt', 'fr', 'de', 'id', 'tr'].includes(l), 'mục đã lưu: bản dịch chép nguyên tiếng Anh vẫn bị chặn'); }
+  const e2 = JSON.parse(JSON.stringify(e0)), extra = LANGS.find(x => !e2.qa.trKeep.includes(x)); if (extra) { e2.m[extra] = 'x'; ok(!gateEntry(e2).ok, 'mục đã lưu: ngôn ngữ ngoài trKeep bị chặn'); } } }
 // L3 (30/10): giám khảo trả khuôn bọc → phiếu khoá nghĩa rỗng hàng loạt; đọc mọi khuôn thường gặp, khuôn lạ → null (không đoán)
 { const I = ['wk1', 'wk2'];
   ok(JSON.stringify(wsdUnwrap({ wk1: 2, wk2: '0' }, I)) === '{"wk1":2,"wk2":0}', 'wsdUnwrap phẳng');

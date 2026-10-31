@@ -1121,7 +1121,7 @@
           <button class="btn primary" id="saveWord">${card ? t('Thêm ngữ cảnh') : t('Lưu vào flashcard')}</button>
           ${card ? `<span class="muted small">${t('{n} ngữ cảnh', { n: card.contexts.length })} · ${masteryDots(card.srs)}</span>` : ''}
         </div>
-      </div>` : UI.skel(t('Đang tra “{q}”…', { q: esc(e.word) }), 3)} <!-- ô lưu kèm ngữ cảnh chỉ có ở lần vẽ ĐỦ: lần vẽ nhanh có ô thì người đang gõ/bàn phím mở sẽ bị lần vẽ đủ đẩy xô (CLS 0,68 mobile-qa dict 360) -->
+      </div>` : UI.skel(t('Đang tra “{q}”…', { q: esc(e.word) }), 3).replace('skel-block', 'skel-block skel-save')} <!-- ô lưu kèm ngữ cảnh chỉ có ở lần vẽ ĐỦ: lần vẽ nhanh có ô thì người đang gõ/bàn phím mở sẽ bị lần vẽ đủ đẩy xô (CLS 0,68 mobile-qa dict 360) -->
       ${final ? `<div class="card" style="margin-top:1rem"><div id="phraseBox"></div><div id="related"></div></div>` : ''}`; /* 2 khối điền muộn (Lex.phrases, Datamuse) ở CUỐI trang: về muộn không đẩy ô lưu/ô ngữ cảnh (CLS 0,66 mobile-qa 360) */
     bindCommon();
     App.nativeFill($('#result [data-dnative]'), e.word, e.pos);

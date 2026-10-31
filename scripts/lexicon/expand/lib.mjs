@@ -113,6 +113,10 @@ export function posShapeOk(l, pos, t, w = '') {
 /** khớp OMW (lớp D1): bản dịch (từ đầu) có trong lemma OMW của CHÍNH synset (chuẩn hoá: thường, bỏ harakat, bỏ "する" đuôi tiếng Nhật) */
 export const omwHas = (l, t, list) => trIn(l, t, list);
 export function gateEntry(e, { keep } = {}) {
+  // mục ĐÃ QUA cổng và đã lưu (qa.trKeep, perLang bị xoá, ngôn ngữ trượt bị bỏ, qa.btw gộp vào qa.bt) – xét lại theo đúng dạng lưu:
+  // ngôn ngữ còn lại vẫn phải đủ mọi điều kiện, dịch ngược dùng kết quả đã chấm (qa.bt). Trước 30/10 chưa từng có lô xuất nên test chưa chạm tới.
+  const stored = !!(e && !e.perLang && e.qa && Array.isArray(e.qa.trKeep));
+  if (stored) e = { ...e, perLang: true, _stored: true };
   const why = [];
   if (!e) return { ok: false, why: ['gen: không sinh được'] };
   if (keep === false) return { ok: false, why: ['keep: không phải mục từ chuẩn'] };
@@ -160,6 +164,7 @@ export function gateEntry(e, { keep } = {}) {
   let bt = 0; const drop = {};
   for (const l of LANGS) {
     const t = (e.m || {})[l], sc = (e.qa.tr || {})[l] || [];
+    if (e._stored && !t && !e.qa.trKeep.includes(l)) continue; // dạng lưu: ngôn ngữ đã bỏ ở cổng (qa.trDrop) – không có bản dịch là đúng
     const is = trIssues(e.w, t, l); if (t && SCRIPT[l] && !SCRIPT[l].test(t)) is.push('không có chữ bản địa'); if (t && String(t).toLowerCase().trim() === e.w && !['es', 'pt', 'fr', 'de', 'id', 'tr'].includes(l)) is.push('chép nguyên từ tiếng Anh');
     if (e.qa.bad && e.qa.bad[l]) is.push(/translit/.test(e.qa.bad[l]) ? 'phiên âm tiếng Anh' : 'khác từ loại/khác từ');
     if (e.perLang) {
@@ -171,7 +176,8 @@ export function gateEntry(e, { keep } = {}) {
       if (t && !posShapeOk(l, e.pos, t, e.w)) is.push('sai hình từ loại ' + e.pos);
       if (t && e.trBad && e.trBad[l]) is.push('từ không có thật (wordfreq: ' + [].concat(e.trBad[l]).join(', ') + ')');
       if (t && !is.length && (sc.length < 3 || Math.min(...sc) < 4)) is.push('giám khảo < 4 (' + sc.join('/') + ')');
-      if (t && !is.length && !btOk(e, l)) is.push('dịch ngược không khớp');
+      if (t && !is.length && !e._stored && !btOk(e, l)) is.push('dịch ngược không khớp');
+      if (t && e._stored && !e.qa.trKeep.includes(l)) is.push('ngôn ngữ không nằm trong trKeep');
       if (is.length) drop[l] = is.join(', '); else bt++;
       continue;
     }
@@ -179,6 +185,7 @@ export function gateEntry(e, { keep } = {}) {
     if (sc.length < (e.qa.n || 2) || Math.min(...sc) < 4) why.push(`dịch ${l}: giám khảo < 4 (${sc.join('/')})`);
     if (btOk(e, l)) bt++;
   }
+  if (e._stored) for (const [l, d] of Object.entries(drop)) why.push(`dịch ${l}: ${d}`); // dạng lưu: không còn quyền bỏ ngôn ngữ – mọi bản dịch còn lại phải đạt
   if (e.perLang) return why.length ? { ok: false, why } : { ok: true, bt: +(bt / LANGS.length).toFixed(2), keep: LANGS.filter(l => !(l in drop)), drop };
   const btr = e.qa.btw ? bt / LANGS.length : e.qa.bt;
   if (!(btr >= 0.8)) why.push(`dịch ngược ${btr && btr.toFixed(2)} < 0.8`);
