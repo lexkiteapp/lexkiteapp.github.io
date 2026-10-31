@@ -434,7 +434,8 @@
   ":scope > div > header > div:nth-child(1) > button": "relative after:absolute after:-inset-2 after:content-['']",
   ":scope > div > main > section:nth-child(2) > div > button:nth-child(1)": "relative after:absolute after:-inset-2 after:content-['']",
   ":scope > div > main > section:nth-child(2) > div > button:nth-child(2)": "relative after:absolute after:-inset-2 after:content-['']",
-  ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "rtl:rotate-[225deg]"
+  ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "rtl:rotate-[225deg]",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(1)": "overflow-hidden rounded-2xl border lt:bg-[#EAF6F4] lt:border-[#E2E8E7] dk:bg-[#142328] dk:border-[#233942]"
  },
  "cls": {
   ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": {
@@ -442,6 +443,9 @@
   },
   ":scope > div > main > section:nth-child(2) > button": {
    "text-white": "'text-[#2A0700]'"
+  },
+  ":scope > div > header": {
+   "h-16": "'min-h-16 py-2'"
   }
  },
  "recolor": {

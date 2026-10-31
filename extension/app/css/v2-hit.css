@@ -1,0 +1,4 @@
+/* Vùng chạm ≥ 44×44 cho nút/liên kết nhỏ của 6 màn Stitch nhóm B (thư viện, bộ từ, sổ từ, sổ lỗi, từ điển, tiến độ): hộp ::after vô hình căn giữa, KHÔNG đổi cỡ nhìn thấy / bố cục.
+   Phần tử đã tự khai báo after:* trong mẫu giữ nguyên. Viết tay (không do build-stitch-css sinh). */
+:is(.v2s-library,.v2s-topic,.v2s-deck,.v2s-dictionary,.v2s-stats,.v2s-mistakes) :is(a,button,[role=button]):not(.relative,.absolute,.fixed,.sticky){position:relative}
+:is(.v2s-library,.v2s-topic,.v2s-deck,.v2s-dictionary,.v2s-stats,.v2s-mistakes) :is(a,button,[role=button]):not([class*="after:"])::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}

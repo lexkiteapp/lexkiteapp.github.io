@@ -267,10 +267,11 @@
   }
  },
  "addClass": {
-  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > button": "relative after:absolute after:-inset-2 after:content-['']",
-  ":scope > div > main > section:nth-child(2) > div:nth-child(4) > div > button": "relative after:absolute after:-inset-2 after:content-['']",
+  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > button": "relative after:absolute after:-inset-3 after:content-['']",
+  ":scope > div > main > section:nth-child(2) > div:nth-child(4) > div > button": "relative after:absolute after:-inset-3 after:content-['']",
   ":scope > div > main > section:nth-child(2) > div:nth-child(6) > div:nth-child(1)": "overflow-hidden",
-  ":scope > div > main > section:nth-child(9) > div:nth-child(1) > span:nth-child(2)": "relative after:absolute after:-inset-2 after:content-['']"
+  ":scope > div > main > section:nth-child(9) > div:nth-child(1) > span:nth-child(2)": "relative after:absolute after:-inset-3 after:content-['']",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(1) > input": "min-h-11 -my-1.5"
  },
  "cls": {
   ":scope > div > main > section:nth-child(2) > button": {
@@ -281,6 +282,9 @@
   },
   ":scope > div > header > div:nth-child(2) > div:nth-child(2)": {
    "text-[#2BA39A]": "'text-[#4FD1C5]'"
+  },
+  ":scope > div > header": {
+   "dk:h-14": "'dk:min-h-14 dk:py-2'"
   }
  },
  "repeat": [
@@ -334,7 +338,7 @@
       }
      },
      "addClass": {
-      ":scope > div > button": "relative after:absolute after:-inset-2 after:content-['']"
+      ":scope > div > button": "relative after:absolute after:-inset-3 after:content-['']"
      },
      "html": {
       ":scope > div > div > div > span:nth-child(1)": "e(r.lb)",
@@ -353,7 +357,7 @@
       }
      },
      "addClass": {
-      ":scope > div > button": "relative after:absolute after:-inset-2 after:content-['']"
+      ":scope > div > button": "relative after:absolute after:-inset-3 after:content-['']"
      },
      "html": {
       ":scope > div > div > div > span:nth-child(1)": "e(r.lb)",
@@ -706,7 +710,7 @@
       }
      },
      "addClass": {
-      ":scope > div > button": "relative after:absolute after:-inset-2 after:content-['']"
+      ":scope > div > button": "relative after:absolute after:-inset-3 after:content-['']"
      }
     }
    }

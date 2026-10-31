@@ -139,7 +139,8 @@
   }
  },
  "addClass": {
-  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > button": "w-11 h-11 flex items-center justify-center"
+  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > button": "w-11 h-11 flex items-center justify-center",
+  ":scope > div > main > div:nth-child(3) > div:nth-child(1) > input": "min-h-11"
  },
  "html": {
   ":scope > div > header > div:nth-child(1) > div:nth-child(1) > div > div > h1": "e(d.title)",

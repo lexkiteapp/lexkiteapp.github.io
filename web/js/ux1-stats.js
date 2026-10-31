@@ -87,7 +87,7 @@
       toL: t('XP tới cấp {n}', { n: L.level + 1 }), into: L.into, need: L.need, intoL: num(L.into), needL: num(L.need), lvPct: Math.min(100, Math.round(L.into / L.need * 100)),
       leftL: t('Còn {n} XP', { n: num(Math.max(0, L.need - L.into)) }), totalL: t('Tổng {xp} XP', { xp: num(g.xp) }),
       say: t('Theo dõi hành trình chinh phục IELTS của bạn'),
-      tch: Chars.img('carlos', { kind: 'still', pose: 'encourage', cls: 'absolute inset-x-0 bottom-1 mx-auto h-[72px] w-auto max-w-none object-contain object-bottom pointer-events-none select-none', alt: '', size: 83 }), // teacher-pose-map: Carlos "encourage" – cổ vũ tiến độ
+      tch: Chars.img('carlos', { kind: 'still', pose: 'encourage', cls: 'absolute inset-x-0 bottom-0 w-full h-[104px] object-cover object-bottom pointer-events-none select-none', alt: '', size: 104 }) + '<span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-7 rounded-t-xl lt:bg-[#F2E6CF] dk:bg-[#233942]"></span>', // teacher-pose-map: Carlos "encourage" – đứng TRONG dải chân thẻ XP: thân dưới khuất sau bệ đặc (không mờ dần, không nổi trên mặt thẻ)
       qT: t('Nhiệm vụ hôm nay'), qSub: t('Làm mới lúc 0 giờ · {a}/{b}', { a: doneQ.length, b: quests.length }), qXp: t('Tổng +{n} XP', { n: quests.reduce((a, q) => a + q.xp, 0) }), quests: qs,
       g: gold(),
       lvT: t('Cấp độ nhớ'), lvSubH, lvls,

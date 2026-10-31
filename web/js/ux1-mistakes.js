@@ -13,7 +13,7 @@
   // icon Material + tên loại + khuôn thẻ Stitch (g = thẻ 1 teal, v = thẻ 2 amber, o = thẻ 3)
   const KIND = () => ({ vocab: ['auto_stories', t('Từ vựng'), 'v'], grammar: ['spellcheck', t('Ngữ pháp'), 'g'], reading: ['menu_book', t('Đọc hiểu'), 'o'], listening: ['headphones', t('Nghe'), 'o'] });
   // class viết tay (biên dịch nhờ V2DATA trong scripts/build-stitch-css.mjs) – màu lấy đúng từ mẫu Stitch sáng/tối
-  const BLANK = 'inline-block px-3 py-0.5 mx-1 border-b-2 border-dashed rounded font-semibold lt:border-[#0D6964] lt:bg-white/70 lt:text-[#0D6964] dk:[background-color:rgba(43,163,154,0.15)] dk:[border-color:#2BA39A] dk:[color:#2BA39A]';
+  const BLANK = 'inline-block px-3 py-0.5 mx-1 border-b-2 border-dashed rounded font-semibold lt:border-[#0D6964] lt:bg-white/70 lt:text-[#0D6964] dk:[background-color:rgba(43,163,154,0.15)] dk:[border-color:#2BA39A] dk:text-[#4FD1C5]';
   const TIPB = 'font-bold lt:text-[#613f00] dk:[color:#FFDF9E]';
   const IPAW = 'ms-1 text-[11px] leading-[14px] tracking-[0.04em] font-[700] whitespace-nowrap lt:text-[#4E5F62] dk:[color:#A9BFC1] [&_.ipa]:[color:inherit]';
   const SMALL = "relative after:absolute after:-inset-3 after:content-[''] px-2.5 py-1 rounded-[0.5rem] text-[11px] leading-[14px] tracking-[0.04em] font-[700] inline-flex items-center gap-1 transition-colors lt:bg-[#f2f4f3] lt:border lt:border-[#E2E8E7] lt:text-[#4E5F62] lt:hover:text-[#0D6964] dk:[background-color:#1A2C33] dk:[border:1px_solid_#2A434D] dk:[color:#EEF6F7]";
@@ -49,7 +49,7 @@
       if (retry) rows.sort((a, b) => (b.n || 1) - (a.n || 1)); // làm lại: câu sai nhiều lần nhất lên trước
       return {
         backL: t('Trở về trang trước'), title: t('Sổ lỗi sai'), countL: t('{n} lỗi cần xem lại', { n: open.length }), open: open.length,
-        tch: Chars.img('ama', { kind: 'still', pose: 'thinking', cls: 'absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none', alt: '', size: 88 }), // teacher-pose-map: Ama "thinking" – cùng xem lại lỗi
+        tch: Chars.img('ama', { kind: 'still', pose: 'thinking', cls: 'absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none', alt: '', size: 88 }) + '<span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-7 lt:bg-[#D3ECE8] dk:bg-[#1B3A40]"></span>', // teacher-pose-map: Ama "thinking" – đứng TRONG ô Coach Ama của mẫu: thân dưới khuất sau bệ đặc
         desc: t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.'), who: t('Cô {name} • Lexkite', { name: Chars.name('ama') }),
         ctaHref: retry ? '#/mistakes' : '#/mistakes?retry=1', ctaIcon: retry ? 'list' : 'smart_toy', ctaL: retry ? t('Xem danh sách') : t('Làm lại lỗi sai'),
         forgetL: t('Ôn từ sắp quên'), clearL: t('Dọn lỗi đã sửa'), tabsL: t('Loại lỗi'), sayL: t('Phát âm'),

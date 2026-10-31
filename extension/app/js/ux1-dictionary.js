@@ -29,7 +29,7 @@
   // chữ thường bọc <span> riêng: phần tử chứa chữ + cụm tô màu con không bị đo tương phản (stitch-diff) bằng điểm ảnh chữ teal của con
   const quotes = s => { const q = esc(s), re = /(^|[\s(])(['‘“"]|&#39;|&quot;)([^'’”"&]{2,80}?)(['’”"]|&#39;|&quot;)(?=[\s.,;:!?)]|$)/g, seg = x => x ? `<span>${x}</span>` : ''; let o = '', i = 0, m;
     while ((m = re.exec(q))) { if (VI.test(m[3])) continue; o += seg(q.slice(i, m.index) + m[1] + m[2]) + `<b class="${HL}" lang="en">${m[3]}</b>`; i = m.index + m[0].length - m[4].length; }
-    return o + seg(q.slice(i)); };
+    return '<bdi>' + o + seg(q.slice(i)) + '</bdi>'; }; // <bdi>: ghi chú soạn tiếng Việt/Anh trong khối RTL (ar) tự xác định hướng → dấu câu (…, →, ngoặc) không lật
   const card = (icon, inner) => `<section class="${CARD} items-center text-center" data-d-empty>${icon ? `<span class="${BADGE}">${ms(icon, 'text-[22px]')}</span>` : ''}${inner}</section>`;
 
   // 4 mục "Hiểu sâu" từ ghi chú thô {m, e, u, f} (js/notes/<chữ>.json) – mở sẵn Mẹo nhớ + Lỗi hay gặp như mẫu
@@ -123,7 +123,7 @@
         saveL: cd ? t('Đã có trong flashcard') : t('Lưu flashcard'),
         accs: UI.accOrder().map((a, i) => ({ a, lb: a === 'en-US' ? 'US' : 'UK', name: t(a === 'en-US' ? 'Giọng Mỹ' : 'Giọng Anh'), aria: t(a === 'en-US' ? 'Nghe giọng Anh–Mỹ' : 'Nghe giọng Anh–Anh'), url: UI.audioFor(e, a), ipaH: UI.ipaHtml(e, a, { noEx: i > 0 }) })),
         slowL: t('Nghe chậm'), ml: L.toUpperCase(), mlLang: L, vi: ml === 'en' ? '' : e.vi, viRow: ml !== 'en' ? !!e.vi : L !== 'vi' && L !== 'en', def: e.def || '', /* nghĩa tiếng Anh thuần (người học en) → không có dòng nghĩa bản ngữ, như trang cũ */
-        tch: Chars.img('ama', { kind: 'still', pose: 'explain', cls: 'absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none', alt: '', size: 96 }), // teacher-pose-map: Ama "explain" – giải thích cách dùng từ
+        tch: Chars.img('ama', { kind: 'still', pose: 'explain', cls: 'absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none', alt: '', size: 96 }) + '<span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-7 lt:bg-[#D3ECE8] dk:bg-[#12514D]"></span>', // teacher-pose-map: Ama "explain" – đứng TRONG ô giáo viên: thân dưới khuất sau bệ đặc ở đáy ô (không mờ dần)
         noteH: u ? (u.tag ? `<b class="font-extrabold" lang="en">${esc(u.tag)}:</b> ` : '') + quotes(u.text) : '',
         speakHref: `#/practice/speak?w=${encodeURIComponent(e.word)}`, practL: t('Luyện phát âm'), verbHref: verb ? `#/verb/${encodeURIComponent(verb)}` : '', verbL: t('Chia động từ'), useHref: usage ? `#/usage/${encodeURIComponent(e.word.toLowerCase())}` : '', useL: t('Cách dùng'),
         ex: e.ex || '', exL: t('Ví dụ'), exH: e.ex ? `“${hl(e.ex, e.word)}”` : '', exVi: '', sayL: t('Nghe cả câu'),

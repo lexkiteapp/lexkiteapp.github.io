@@ -53,7 +53,7 @@
   },
   ":scope > div > main > div:nth-child(1) > div > div:nth-child(3) > div:nth-child(2)": {
    "data-st-teacher": "''",
-   "style": "'height:76px;align-items:flex-end'"
+   "style": "'height:104px;align-items:flex-end'"
   },
   ":scope > div > main > div:nth-child(2)": {
    "id": "'quests'"
@@ -171,7 +171,7 @@
   ":scope > div > main > div:nth-child(4) > div:nth-child(1) > a": "relative after:absolute after:-inset-3 after:content-['']",
   ":scope > div > main > div:nth-child(4) > div:nth-child(1) > a > span:nth-child(2)": "rtl:-scale-x-100",
   ":scope > div > main > div:nth-child(7) > div:nth-child(2) > div:nth-child(2)": "auto-cols-fr",
-  ":scope > div > header > div > button": "relative after:absolute after:-inset-1 after:content-['']",
+  ":scope > div > header > div > button": "relative after:absolute after:-inset-x-3 after:-inset-y-1 after:content-['']",
   ":scope > div > header > button": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']",
   ":scope > div > main > div:nth-child(10) > button": "relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']"
  },
@@ -886,6 +886,9 @@
   },
   ":scope > div > main > div:nth-child(6) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)": {
    "text-[#FFB054]": "'lt:text-[#8A5A00] dk:text-[#FFB054]'"
+  },
+  ":scope > div > main > div:nth-child(1) > div > div:nth-child(3)": {
+   "py-3": "'pt-3'"
   }
  },
  "recolor": {

@@ -4,6 +4,25 @@
   "feedback-wrong: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 3.10<4.5",
   "story-duo: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 2.78<4.5",
   "leagues: [dark] 3 chữ thiếu tương phản WCAG: \"AN\" 3.87<4.5; \"5\" 4.33<4.5; \"YO\" 4.33<4.5",
-  "streak: [dark] 1 chữ thiếu tương phản WCAG: \"ACTIVE\" 2.78<4.5"
+  "streak: [dark] 1 chữ thiếu tương phản WCAG: \"ACTIVE\" 2.78<4.5",
+  "library: [dark] 9 chữ thiếu tương phản WCAG: \"Featured\" 3.40<4.5; \"Smart Spaced Deck\" 4.29<4.5; \"32 sets\" 3.91<4.5; \"12 added\" 3.91<4.5; \"5 added\" 3.91<4.5; \"8 added\" 3.91<4.5",
+  "library: [light] 19 chữ thiếu tương phản WCAG: \"CEFR:\" 2.74<4.5; \"Featured\" 3.40<4.5; \"120 academic collocations prov\" 4.43<4.5; \"Study\" 3.40<4.5; \"60%\" 1.77<4.5; \"24 added\" 1.75<4.5",
+  "topic: [dark] 4 chữ thiếu tương phản WCAG: \"+ Add 28 words to flashcards\" 2.72<4.5; \"curriculum\" 3.91<4.5; \"holistic\" 3.91<4.5; \"tenure\" 3.91<4.5",
+  "topic: [light] 11 chữ thiếu tương phản WCAG: \"check_circle\n              12 \" 2.25<4.5; \"+ Add 28 words to flashcards\" 2.72<4.5; \"Added\" 2.25<4.5; \"•\" 1.51<4.5; \"curriculum\" 3.19<4.5; \"•\" 1.51<4.5",
+  "deck: [dark] 13 nút chỉ-icon không có tên (aria-label): w-9.h-9@15, w-9.h-9@15, absolute.right-3@345, w-7.h-7@772, w-7.h-7@772",
+  "deck: [dark] 8 chữ thiếu tương phản WCAG: \"Flashcards\" 2.69<4.5; \"Study\" 3.69<4.5; \"14 due today\" 3.53<4.5; \"Quiz Sprint\" 2.31<4.5; \"Test\" 3.10<4.5; \"3-min sprint\" 2.41<4.5",
+  "deck: [light] 13 nút chỉ-icon không có tên (aria-label): w-9.h-9@15, w-9.h-9@15, absolute.right-3@338, w-7.h-7@755, w-7.h-7@755",
+  "deck: [light] 24 chữ thiếu tương phản WCAG: \"Flashcards\" 3.74<4.5; \"Quiz Sprint\" 2.63<4.5; \"Test\" 3.10<4.5; \"3-min sprint\" 2.90<4.5; \"Source: About to forget\" 3.14<4.5; \"SORT: RETENTION\" 4.02<4.5",
+  "mistakes: [dark] 8 chữ thiếu tương phản WCAG: \"Retry my mistakes\" 2.47<4.5; \"All\" 3.04<4.5; \"14\" 2.47<4.5; \"spellcheck\nGrammar Slip • Geru\" 4.29<4.5; \"_____\" 3.83<4.5; \"_____\" 3.83<4.5",
+  "mistakes: [light] 5 chữ thiếu tương phản WCAG: \"14\" 3.43<4.5; \"Coach Ama\" 3.28<4.5; \"Retry my mistakes\" 2.47<4.5; \"14\" 4.35<4.5; \"auto_stories\n              Voc\" 3.43<4.5",
+  "dictionary: [dark] 7 nút chỉ-icon không có tên (aria-label): w-10.h-10@7, w-10.h-10@7, w-8.h-8@188, w-8.h-8@354, w-8.h-8@354",
+  "dictionary: [dark] 15 chữ thiếu tương phản WCAG: \"420 XP\" 4.29<4.5; \"resilient\" 4.29<4.5; \"adj.\" 4.29<4.5; \"UK\" 4.29<4.5; \"Teacher Slot\" 4.29<4.5; \"Live Tutor Spot\" 3.03<4.5",
+  "dictionary: [light] 7 nút chỉ-icon không có tên (aria-label): w-10.h-10@21, w-10.h-10@21, w-8.h-8@195, w-8.h-8@361, w-8.h-8@361",
+  "dictionary: [light] 9 chữ thiếu tương phản WCAG: \"14\" 3.11<4.5; \"history Recent:\" 3.19<4.5; \"Live Tutor Spot\" 1.89<4.5; \"strong\" 3.32<4.5; \"Save to flashcards\" 2.22<4.5; \"remove fragile\" 3.81<4.5",
+  "dictionary: đầu trang khác: tối [Dictionary, Cambridge & IELTS 7.5+ Lexicon, 14, 420 XP] · sáng [Dictionary, Cambridge & IELTS 7.5+ Lexicon, 14]",
+  "stats: [dark] 1 nút chỉ-icon không có tên (aria-label): w-10.h-10@12",
+  "stats: [dark] 13 chữ thiếu tương phản WCAG: \"Show off\" 2.71<4.5; \"Level 7\" 4.29<4.5; \"+60 XP total\" 4.29<4.5; \"Review 18 words now\" 2.33<4.5; \"Reviews\" 4.29<4.5; \"Due Q\" 3.98<4.5",
+  "stats: [light] 1 nút chỉ-icon không có tên (aria-label): w-10.h-10@12",
+  "stats: [light] 67 chữ thiếu tương phản WCAG: \"Show off\" 2.71<4.5; \"Level 7\" 2.76<4.5; \"TOP 5%\" 3.05<4.5; \"🔥\" 3.14<4.5; \"2,340\" 3.01<4.5; \"660 XP needed\" 3.05<4.5"
  ]
 }
