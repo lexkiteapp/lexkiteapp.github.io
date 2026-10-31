@@ -5,7 +5,7 @@
 name: Cổng ASR audio câu
 on:
   schedule:
-    - cron: '50 1-23/4 * * *'   # mỗi 4 giờ (lệch word-audio.yml) tới khi kiểm hết (bước "Đếm" bỏ qua khi xong)
+    - cron: '43 1-23/4 * * *'   # mỗi 4 giờ (lệch word-audio.yml) tới khi kiểm hết (bước "Đếm" bỏ qua khi xong)
   workflow_dispatch:
     inputs:
       limit: { description: 'Số câu mỗi shard', default: '1500' }

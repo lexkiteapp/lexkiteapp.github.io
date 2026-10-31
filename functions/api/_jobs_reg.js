@@ -638,6 +638,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "sentence-audio-asr",
+   "workflow": "sentence-audio-asr.yml",
+   "cron": [
+    "43 1-23/4 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 170,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "word-packs",
    "workflow": "word-packs.yml",
    "cron": [
