@@ -17,7 +17,7 @@ const DONE = doneWords(), moveOk = x => move(x) && !DONE.has(String(x.id));
 const out = q.items.filter(moveOk);
 const PEND = arg('--pending') && `content/lexicon/expand/pending/${arg('--pending')}.json`;
 if (PEND && fs.existsSync(new URL(PEND, ROOT))) { out.push(...Object.keys(JSON.parse(rd(PEND)).items).filter(id => !DONE.has(id)).map(id => ({ id }))); fs.unlinkSync(new URL(PEND, ROOT)); }
-q.items = q.items.filter(x => !moveOk(x));
+q.items = q.items.filter(x => !move(x)); // mục lỗ nguồn ĐÃ xuất/chờ soát ở lô khác (31/10: underwear#n, exceptionally#adv) = bản cũ thừa → bỏ khỏi hàng duyệt, không làm lại
 retry.items = [...new Set([...retry.items, ...out.map(x => x.id)])].sort();
 wr(QUEUE, JSON.stringify(q, null, 1) + '\n');
 fs.mkdirSync(new URL('content/lexicon/expand/retry/', ROOT), { recursive: true }); wr(RETRY, JSON.stringify(retry, null, 1) + '\n');
