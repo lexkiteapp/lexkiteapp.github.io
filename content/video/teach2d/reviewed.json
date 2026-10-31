@@ -274,6 +274,352 @@
     "c": "Save this. Free on lexkite.com."
    },
    "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app TOEIC reading bank Part 5 (answer key + cue), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t3_mistake_discuss": {
+   "template": "mistake",
+   "hook": "Stop saying “discuss about”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 30/10/2026: one point (discuss takes a direct object, no 'about') from gold row sb_786153bb; hook 'Just say discuss!' is the correct form, 3 words at hook speed 1.0 (est. 1.28 s) while the screen shows 'Stop saying discuss about'; quiz answer spoken; CTA #/fix; natural spoken English, no jargon)",
+   "script": {
+    "h": "Just say discuss!",
+    "w": "Many learners say: We will discuss about the budget.",
+    "r": "Better: We will discuss the budget.",
+    "y": "Discuss needs no about. Discuss the plan.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Discuss! We need to discuss the budget.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t3_stress_photographer": {
+   "template": "stress",
+   "hook": "Where's the stress?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 30/10/2026: one point (stress moves: PHOtograph -> phoTOgrapher), IPA from the audited bank, hook 'Where's the stress?' = on-screen hook, 3 words at hook speed 1.0 (est. 1.28 s); answer spoken with the word; CTA #/pron/photographer; natural spoken English, no jargon)",
+   "script": {
+    "h": "Where's the stress?",
+    "a": "Photograph. Stress on the first part.",
+    "b": "Now say photographer.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: photographer.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The second part. Photographer.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t3_verbs_break": {
+   "template": "verbs",
+   "hook": "break · broke · broken",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 30/10/2026: one point (break - broke - broken, not 'breaked') from the verb engine; hook 'Broke or broken?' is answered by the quiz ('The window is broken'), 3 words at hook speed 1.0 (est. 1.28 s); CTA #/verb/break; natural spoken English, no jargon)",
+   "script": {
+    "h": "Broke or broken?",
+    "b": "Base form: break.",
+    "p": "Past: broke. Yesterday, I broke my phone.",
+    "pp": "Past participle: broken.",
+    "w": "Not breaked! Break is irregular.",
+    "q": "Quick quiz! The window is broke, or broken?",
+    "a": "Broken! The window is broken.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t3_usuk_soccer": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 30/10/2026: one point (US soccer = UK football), IPA soccer /ˈsɑːkər/ + football /ˈfʊtbɔːl/ = audited bank; true twist: in America 'football' means American football, another game; natural spoken lines ('Do you want to watch soccer tonight?'); London quiz answered aloud ('Football! Same game, different word.'); hook 'Soccer or football?' = the point, 3 words at hook speed 1.2 (est. 1.08 s); CTA #/dict/soccer; no jargon)",
+   "script": {
+    "h": "Soccer or football?",
+    "us": "In America, it's soccer.",
+    "uk": "In Britain, it's football. Same game!",
+    "tw": "Careful! American football is different.",
+    "x": "Want to watch soccer tonight?",
+    "q": "Quick quiz! You're in London. What's it called?",
+    "a": "Football! Same game.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_usuk_soccer": {
+   "template": "usuk",
+   "hook": "Soccer or football?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (US soccer = UK football), same facts as t3_usuk_soccer (IPA soccer /ˈsɑːkər/, football /ˈfʊtbɔːl/ = audited bank; twist true: in the US 'football' is American football); QUESTION hook 'Soccer or football?' = on-screen hook, true, 3 words at hook speed 1.2 (est. 1.08 s); CTA #/dict/soccer; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Soccer or football?",
+    "us": "In America, it's soccer.",
+    "uk": "In Britain, it's football. Same game!",
+    "tw": "Careful! American football is different.",
+    "x": "Want to watch soccer tonight?",
+    "q": "Quick quiz! You're in London. What's it called?",
+    "a": "Football! Same game.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_grammar_stative": {
+   "template": "grammar",
+   "hook": "Most learners miss this",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (state verbs such as belong / want / know are not used in the -ing form) from the app grammar point stative-dynamic: listed mistake 'This book is belonging to the library.' -> 'This book belongs to the library.', listed quiz 'I ___ this graph.' -> don't understand (also a state verb, same point); rule line 'State verbs stay simple.' matches the bricks 'belong · want · know + simple form'; 'MOST LEARNERS' hook 'Most learners miss this!' - stative-in-progressive is one of the most frequent learner errors (the app's own note: learners translate 'đang muốn'), acceptable as a social hook; 3 words at hook speed 1.25; CTA #/grammar/stative-dynamic; natural American English; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Most learners miss this!",
+    "r": "State verbs stay simple.",
+    "w": "Not: This book is belonging to the library.",
+    "b": "Say: This book belongs to the library.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Don't understand! I don't understand this graph. Can you explain it?",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_mistake_discuss": {
+   "template": "mistake",
+   "hook": "Discuss about? Not a thing.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point ('discuss' takes a direct object - no 'about'), gold bank sb_786153bb (same facts as t3); MYTH hook spoken 'Discuss about? Nope!', on screen 'Discuss about? Not a thing.' (5 words) - true: 'discuss about' is not standard English (only the noun takes it: 'a discussion about'); 3 words at hook speed 1.0 (est. 1.28 s); CTA #/fix; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Discuss about? Nope!",
+    "w": "Many learners say: We will discuss about the budget.",
+    "r": "Better: We will discuss the budget.",
+    "y": "Discuss needs no about. Discuss the plan.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Discuss! We need to discuss the budget.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_stress_photographer": {
+   "template": "stress",
+   "hook": "Stress test: photographer",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (stress shift PHOtograph -> phoTOgrapher), IPA = audited bank, stress dot == IPA mark (same facts as t3); CHALLENGE hook 'Stress test: photographer!' / on screen 'Stress test: photographer' - names the payoff, true; 3 words at hook speed 1.0 (est. 1.28 s); CTA #/pron/photographer; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Stress test: photographer!",
+    "a": "Photograph. Stress on the first part.",
+    "b": "Now say photographer.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: photographer.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The second part. Photographer.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_call_grabcoffee": {
+   "template": "call",
+   "hook": "“Grab a coffee”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one phrase ('grab a coffee' = get a coffee quickly) from the app call script coffee, turn 0 (quote and meaning are the app's own data, reply 'Yes, please!' = the app's first reply option); quiz answer 'Let's grab a coffee!' is natural American English for inviting a tired friend, distractor 'No worries!' is an app phrase that does not fit; QUESTION hook 'What's grab a coffee?' (asking for the meaning, informal spoken style) = on-screen '“Grab a coffee”?'; 3 words at hook speed 1.25; CTA #/call/coffee (in-app caller is Mia: CTA says Practice a real call); facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "What's grab a coffee?",
+    "m": "Your teammate says: I'm going to grab a coffee for the team.",
+    "y": "Grab a coffee means: get a coffee quickly.",
+    "o": "Say: Yes, please!",
+    "q": "Quick quiz! Your friend looks tired. What do you say?",
+    "a": "Let's grab a coffee! Quick break, together.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_verbs_break": {
+   "template": "verbs",
+   "hook": "Breaked? Not a word!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (break - broke - broken, not 'breaked') from the verb engine (same facts as t3); MYTH hook 'Breaked? Not a word!' - true for standard English; 3 words at hook speed 1.25; CTA #/verb/break; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Breaked? Not a word!",
+    "b": "Base form: break.",
+    "p": "Past: broke. Yesterday, I broke my phone.",
+    "pp": "Past participle: broken.",
+    "w": "Not breaked! Break is irregular.",
+    "q": "Quick quiz! The window is broke, or broken?",
+    "a": "Broken! The window is broken.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_dictation_commuter": {
+   "template": "dictation",
+   "hook": "Catch every word!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one listening line, verbatim from the app script t4p1 line 7 (lost bag at a station): 'No, it was definitely one of yours. The commuter line.' said twice, gap 'commuter line' (2 words); 'commuter' = audited bank word (/kəˈmjuːtər/, 'a person who travels into a city to work each day'); spoken gloss 'someone who travels to work daily' is accurate; CHALLENGE hook 'Can you catch this?' / on screen 'Catch every word!'; 3 words at hook speed 1.25; CTA #/dictation/t4p1; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Can you catch this?",
+    "s1": "No, it was definitely one of yours. The commuter line.",
+    "g": "Once more. Fill the gap!",
+    "q": "No, it was definitely one of yours. The commuter line.",
+    "a": "Commuter line! Commuter means someone who travels to work daily.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_phrasal_splitbill": {
+   "template": "phrasal",
+   "hook": "Divide or split the bill?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (share a restaurant cost = split the bill, not divide the bill), gold sb_0a35f2ef (wrong / right / aha / quiz are the bank's); meaning line 'everyone pays a part' is accurate; QUESTION hook 'Divide or split?' / on screen 'Divide or split the bill?', answered by the quiz; 3 words at hook speed 1.0 (est. 1.28 s); CTA #/phrases; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Divide or split?",
+    "w": "Not: Let's divide the bill.",
+    "r": "Say: Let's split the bill.",
+    "m": "Split the bill means everyone pays a part.",
+    "k": "You can split a taxi too!",
+    "q": "Quick quiz! Which one sounds natural?",
+    "a": "Split! Let's split the bill.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_pair_beside": {
+   "template": "pair",
+   "hook": "Most learners mix these up",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (beside = next to, besides = also), gold sb_2ed92c40; IPA beside /bɪˈsaɪd/, besides /bɪˈsaɪdz/ = audited bank; card tags NEXT TO / ALSO match the two meaning lines; quiz 'Besides coffee, I also like tea.' answered aloud; 'MOST LEARNERS' hook 'Most learners mix these!' - beside / besides is a well-known confusion (even for native writers), acceptable; 3 words at hook speed 1.25; CTA #/usage/beside-besides; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Most learners mix these!",
+    "r": "Sit beside me.",
+    "w": "Not: sit besides me.",
+    "m1": "Beside means next to.",
+    "m2": "Besides means also.",
+    "k": "One extra S changes the meaning!",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Besides! Besides coffee, I also like tea.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_prep_fond": {
+   "template": "prep",
+   "hook": "“Fond with”? Wrong!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (fond OF, not fond with), gold sb_0c46f8a4: slot sentence = the bank's right line, options with / of, quiz 'He's fond of spicy food.'; MYTH hook 'Fond with? Wrong!' / on screen '“Fond with”? Wrong!' - true ('fond with' is not standard English); 3 words at hook speed 1.0 (est. 1.28 s); CTA #/fix; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Fond with? Wrong!",
+    "s": "I'm fond... my grandma. With, or of?",
+    "r": "Of! I'm fond of my grandma.",
+    "y": "Fond of means you like someone warmly.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Of! He's fond of spicy food.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_native_parking": {
+   "template": "native",
+   "hook": "Sound like a local!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (Americans say parking spot / parking space, not 'car place'), gold sb_a79c3048; chip 'TEXTBOOK · AT THE MALL', strike on 'car place', 'parking spot' highlighted; quiz 'It took ten minutes to find a parking spot.'; CHALLENGE hook 'Sound like a local!' - names the payoff (natural American wording); 3 words at hook speed 1.25; CTA #/phrases; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Sound like a local!",
+    "w": "Textbook: I can't find a car place.",
+    "r": "Natives say: I can't find a parking spot.",
+    "y": "Americans say parking spot or parking space.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Spot! It took ten minutes to find a parking spot.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_guess_balloon": {
+   "template": "guess",
+   "hook": "Can you guess it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one word (balloon) from the audited bank (/bəˈluːn/, 'a rubber bag filled with air', bank example sentence) + its licensed img.json picture balloon#n; clues true (7 letters, starts with B); QUESTION hook 'Can you guess it?' = on screen; 3 words at hook speed 1.25; CTA #/dict/balloon; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Can you guess it?",
+    "c1": "Clue one: a rubber bag filled with air.",
+    "c2": "Clue two: it has seven letters.",
+    "c3": "Clue three: it starts with B.",
+    "q": "Got it? Comment your guess!",
+    "a": "Balloon! The store was decorated with balloons for the opening.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_level_mix": {
+   "template": "level",
+   "hook": "Most learners miss one",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: three gold quiz items (sb_08f69142 It depends, sb_13a16c00 exciting vs excited, sb_47b3e9e9 stole vs robbed), each answer spoken as the full correct sentence; 'MOST LEARNERS' hook 'Most learners miss one!' - all three are among the most common learner errors, so missing at least one is the typical result; 3 words at hook speed 1.25; CTA #/placement; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Most learners miss one!",
+    "q1": "Question one.",
+    "a1": "How much is it? It depends.",
+    "q2": "Question two.",
+    "a2": "The movie was so exciting!",
+    "q3": "Question three.",
+    "a3": "Someone stole my wallet!",
+    "s": "Three out of three? Comment below!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_toeic_monthend": {
+   "template": "toeic",
+   "hook": "10 seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one TOEIC Part 5 item (app bank tr1 #106, answer key 'by', cue 'the end of each month'); explanation 'No later than month end.' = the meaning of 'by' with a deadline, correct; CHALLENGE hook 'Ten seconds. Ready? Go!' / on screen '10 seconds. Go!'; 3 words at hook speed 1.25; CTA #/toeic; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Ten seconds. Ready? Go!",
+    "s": "Expense reports should be submitted blank the end of each month.",
+    "k": "Find the clue: the end of each month.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "By! No later than month end.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_review_eventually": {
+   "template": "review",
+   "hook": "Eventually = maybe? No!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one word (eventually) from the audited bank (/ɪˈventʃəwəli/, 'in the end, after a long time or a lot of problems', bank example); MYTH hook 'Eventually? Not maybe!' (re-review 31/10: CI hook gate measured 1.64 s for the 4-word version > 1.5 s, so the spoken line is 3 words) / on screen 'Eventually = maybe? No!' - true: a classic false friend (eventuell / eventualmente = possibly), and the card's meaning shows 'in the end'; 3 words at hook speed 1.25; CTA #/review?w=eventually; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Eventually? Not maybe!",
+    "f": "Here's your card: eventually.",
+    "q": "Think! What does it mean?",
+    "b": "It means in the end, after a long time or a lot of problems.",
+    "x": "After many attempts, he eventually passed his driving test.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t4_pattern_hesitate": {
+   "template": "pattern",
+   "hook": "Contacting, or to contact?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (teacher review 31/10/2026, American English: one point (hesitate + to + verb, not -ing), gold sb_29c61515 (right line 'Don't hesitate to contact us.', quiz 'Please don't hesitate to call us.'); bricks hesitate + to + verb; QUESTION hook 'Contacting, or to contact?' = on screen, answered by the right line and the quiz; 3 words at hook speed 1.25; CTA #/verb/hesitate; facts true, one point, English only, <= 150 wpm, no jargon)",
+   "script": {
+    "h": "Contacting, or to contact?",
+    "w": "Many learners say: Don't hesitate contacting us.",
+    "r": "Better: Don't hesitate to contact us.",
+    "y": "Hesitate is followed by to plus verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To call! Please don't hesitate to call us.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }

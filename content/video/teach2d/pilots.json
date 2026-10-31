@@ -1,5 +1,5 @@
 {
- "_note": "Teach2D pilots (docs/VIDEO-TEACH2D.md): ONE episode per template, owner review gate before any batch. Facts: gold bank rows (gold), verb engine (verbs-core.js), audited IPA bank (qc.py overlay_ipa). Curated rows below are re-checked by qc.py. Look: 'dusk' for all (owner 29/10: 'mức 2 có vẻ ok hơn').",
+ "_note": "Teach2D pilots (docs/VIDEO-TEACH2D.md): ONE episode per template, owner review gate before any batch. Facts: gold bank rows (gold), verb engine (verbs-core.js), audited IPA bank (qc.py overlay_ipa). Curated rows below are re-checked by qc.py. Look: 'dusk' for all (owner 29/10: 'mức 2 có vẻ ok hơn'). t4_* = v2 sample set (31/10): optional row fields layout, hook_style (+ hook_hl), in.hook_say / in.hook_text, grammar brick_labels / brick_cues, call right_opt.",
  "pilots": [
   {
    "id": "t2_usuk_elevator",
@@ -256,6 +256,501 @@
     "quiz_say": "You pay for a friend. What do you say?",
     "ans_say": "I will pay for you.",
     "quote": "It's my treat today!"
+   }
+  },
+  {
+   "id": "t3_usuk_soccer",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "scene": "field",
+   "hook_by": 1.5,
+   "hook_speed": 1.2,
+   "in": {
+    "us": "soccer",
+    "uk": "football",
+    "ipa_us": "/ˈsɑːkər/",
+    "ipa_uk": "/ˈfʊtbɔːl/",
+    "same": "Same game!",
+    "situation": "You want to watch the big match tonight.",
+    "hook_say": "Soccer or football?",
+    "us_say": "it's soccer.",
+    "uk_say": "it's football.",
+    "uk_tail": "Same game!",
+    "twist": {
+     "say": "Careful! American football is different.",
+     "card": "another game"
+    },
+    "example": "Want to watch soccer tonight?",
+    "quiz_city": "London",
+    "quiz_ask": "What's it called?",
+    "answer_say": "Football! Same game.",
+    "share": "Send this to a friend who loves soccer!"
+   }
+  },
+  {
+   "id": "t3_mistake_discuss",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dusk",
+   "scene": "office",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "in": {
+    "gold": "sb_786153bb",
+    "hook_say": "Just say discuss!",
+    "hook_text": "Stop saying “discuss about”",
+    "wrong_say": "We will discuss about the budget.",
+    "right_say": "We will discuss the budget.",
+    "strike": "about",
+    "answer_say": "Discuss! We need to discuss the budget.",
+    "share": "Send this to a friend who says discuss about!"
+   }
+  },
+  {
+   "id": "t3_stress_photographer",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "studio",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "in": {
+    "a": {
+     "word": "photograph",
+     "syl": [
+      "pho",
+      "to",
+      "graph"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈfoʊtəɡræf/"
+    },
+    "b": {
+     "word": "photographer",
+     "syl": [
+      "pho",
+      "to",
+      "gra",
+      "pher"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/fəˈtɑːɡrəfər/"
+    },
+    "tip": "Photography moves it too.",
+    "share": "Tag a friend who loves taking photos!",
+    "hook_say": "Where's the stress?"
+   }
+  },
+  {
+   "id": "t3_verbs_break",
+   "template": "verbs",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "classroom",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "in": {
+    "base": "break",
+    "ex_base": "Don't break the glass!",
+    "ex_past": "Yesterday, I broke my phone.",
+    "ex_pp": "Now my phone is broken.",
+    "quiz_q": "The window is broke, or broken?",
+    "quiz_stem": "The window is ___.",
+    "quiz_right": "broken",
+    "quiz_a": "Broken! The window is broken.",
+    "hook_say": "Broke or broken?"
+   }
+  },
+  {
+   "id": "t4_usuk_soccer",
+   "template": "usuk",
+   "teacher": "ama",
+   "theme": "dusk",
+   "scene": "field",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.2,
+   "hook_style": "question",
+   "hook_hl": "football",
+   "in": {
+    "us": "soccer",
+    "uk": "football",
+    "ipa_us": "/ˈsɑːkər/",
+    "ipa_uk": "/ˈfʊtbɔːl/",
+    "same": "Same game!",
+    "situation": "You want to watch the big match tonight.",
+    "hook_say": "Soccer or football?",
+    "us_say": "it's soccer.",
+    "uk_say": "it's football.",
+    "uk_tail": "Same game!",
+    "twist": {
+     "say": "Careful! American football is different.",
+     "card": "another game"
+    },
+    "example": "Want to watch soccer tonight?",
+    "quiz_city": "London",
+    "quiz_ask": "What's it called?",
+    "answer_say": "Football! Same game.",
+    "share": "Send this to a friend who loves soccer!",
+    "hook_text": "Soccer or football?"
+   }
+  },
+  {
+   "id": "t4_grammar_stative",
+   "template": "grammar",
+   "teacher": "carlos",
+   "theme": "light",
+   "scene": "library",
+   "layout": "corner",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "most",
+   "hook_hl": "Most learners",
+   "in": {
+    "file": "tenses",
+    "gid": "stative-dynamic",
+    "mistake": 1,
+    "quiz": 0,
+    "pick": 0,
+    "rule_say": "State verbs stay simple.",
+    "bricks": [
+     "belong · want · know",
+     "simple form"
+    ],
+    "brick_labels": [
+     "STATE VERB",
+     "ALWAYS"
+    ],
+    "brick_cues": [
+     "state",
+     "simple"
+    ],
+    "brick_check": [
+     "động từ trạng thái",
+     "dạng đơn"
+    ],
+    "strike": "is belonging",
+    "hl": "belongs",
+    "hook_say": "Most learners miss this!",
+    "hook_text": "Most learners miss this"
+   }
+  },
+  {
+   "id": "t4_mistake_discuss",
+   "template": "mistake",
+   "teacher": "ama",
+   "theme": "dark",
+   "scene": "office",
+   "layout": "bubble",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "hook_style": "myth",
+   "hook_hl": "Not a thing.",
+   "in": {
+    "gold": "sb_786153bb",
+    "hook_say": "Discuss about? Nope!",
+    "hook_text": "Discuss about? Not a thing.",
+    "wrong_say": "We will discuss about the budget.",
+    "right_say": "We will discuss the budget.",
+    "strike": "about",
+    "answer_say": "Discuss! We need to discuss the budget.",
+    "share": "Send this to a friend who says discuss about!"
+   }
+  },
+  {
+   "id": "t4_stress_photographer",
+   "template": "stress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "studio",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "hook_style": "challenge",
+   "hook_hl": "photographer",
+   "in": {
+    "a": {
+     "word": "photograph",
+     "syl": [
+      "pho",
+      "to",
+      "graph"
+     ],
+     "stress": 0,
+     "say": "first",
+     "ipa": "/ˈfoʊtəɡræf/"
+    },
+    "b": {
+     "word": "photographer",
+     "syl": [
+      "pho",
+      "to",
+      "gra",
+      "pher"
+     ],
+     "stress": 1,
+     "say": "second",
+     "ipa": "/fəˈtɑːɡrəfər/"
+    },
+    "tip": "Photography moves it too.",
+    "share": "Tag a friend who loves taking photos!",
+    "hook_say": "Stress test: photographer!",
+    "hook_text": "Stress test: photographer"
+   }
+  },
+  {
+   "id": "t4_call_grabcoffee",
+   "template": "call",
+   "teacher": "ama",
+   "theme": "light",
+   "scene": "cafe",
+   "layout": "corner",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "question",
+   "hook_hl": "Grab a coffee",
+   "in": {
+    "cid": "coffee",
+    "turn": 0,
+    "phrase": "grab a coffee",
+    "reply": 0,
+    "alt": "no worries",
+    "quote": "I'm going to grab a coffee for the team.",
+    "quiz_say": "Your friend looks tired. What do you say?",
+    "right_opt": "Let's grab a coffee!",
+    "ans_say": "Quick break, together.",
+    "hook_say": "What's grab a coffee?"
+   }
+  },
+  {
+   "id": "t4_verbs_break",
+   "template": "verbs",
+   "teacher": "carlos",
+   "theme": "dark",
+   "scene": "classroom",
+   "layout": "bubble",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "myth",
+   "hook_hl": "Not a word!",
+   "in": {
+    "base": "break",
+    "ex_base": "Don't break the glass!",
+    "ex_past": "Yesterday, I broke my phone.",
+    "ex_pp": "Now my phone is broken.",
+    "quiz_q": "The window is broke, or broken?",
+    "quiz_stem": "The window is ___.",
+    "quiz_right": "broken",
+    "quiz_a": "Broken! The window is broken.",
+    "hook_say": "Breaked? Not a word!",
+    "hook_text": "Breaked? Not a word!"
+   }
+  },
+  {
+   "id": "t4_dictation_commuter",
+   "template": "dictation",
+   "teacher": "ama",
+   "theme": "dusk",
+   "scene": "station",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "challenge",
+   "hook_hl": "every word",
+   "in": {
+    "file": "test4",
+    "pid": "t4p1",
+    "line": 7,
+    "gap": "commuter line",
+    "word": "commuter",
+    "mean_say": "someone who travels to work daily",
+    "hook_say": "Can you catch this?",
+    "hook_text": "Catch every word!"
+   }
+  },
+  {
+   "id": "t4_phrasal_splitbill",
+   "template": "phrasal",
+   "teacher": "carlos",
+   "theme": "light",
+   "scene": "cafe",
+   "layout": "corner",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "hook_style": "question",
+   "hook_hl": "split",
+   "in": {
+    "gold": "sb_0a35f2ef",
+    "pv": "split the bill",
+    "hook_say": "Divide or split?",
+    "hook_text": "Divide or split the bill?",
+    "mean_say": "Split the bill means everyone pays a part.",
+    "mean_card": "= share the cost",
+    "strike": "divide",
+    "answer_say": "Split! Let's split the bill."
+   }
+  },
+  {
+   "id": "t4_pair_beside",
+   "template": "pair",
+   "teacher": "ama",
+   "theme": "dark",
+   "scene": "park",
+   "layout": "bubble",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "most",
+   "hook_hl": "Most learners",
+   "in": {
+    "gold": "sb_2ed92c40",
+    "a": "beside",
+    "b": "besides",
+    "hook_say": "Most learners mix these!",
+    "hook_text": "Most learners mix these up",
+    "tags": [
+     "NEXT TO",
+     "ALSO"
+    ]
+   }
+  },
+  {
+   "id": "t4_prep_fond",
+   "template": "prep",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "home",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.0,
+   "hook_style": "myth",
+   "hook_hl": "Wrong!",
+   "in": {
+    "gold": "sb_0c46f8a4",
+    "slot_say": "I'm fond... my grandma.",
+    "slot_text": "I'm fond ___ my grandma.",
+    "hook_say": "Fond with? Wrong!",
+    "hook_text": "“Fond with”? Wrong!"
+   }
+  },
+  {
+   "id": "t4_native_parking",
+   "template": "native",
+   "teacher": "ama",
+   "theme": "light",
+   "scene": "street",
+   "layout": "corner",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "challenge",
+   "hook_hl": "local",
+   "in": {
+    "gold": "sb_a79c3048",
+    "strike": "car place",
+    "hl": "parking spot",
+    "scene": "mall",
+    "hook_say": "Sound like a local!",
+    "hook_text": "Sound like a local!"
+   }
+  },
+  {
+   "id": "t4_guess_balloon",
+   "template": "guess",
+   "teacher": "carlos",
+   "theme": "dark",
+   "scene": "park",
+   "layout": "bubble",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "question",
+   "hook_hl": "guess",
+   "in": {
+    "word": "balloon",
+    "img": "balloon#n",
+    "hook_say": "Can you guess it?",
+    "hook_text": "Can you guess it?"
+   }
+  },
+  {
+   "id": "t4_level_mix",
+   "template": "level",
+   "teacher": "ama",
+   "theme": "dusk",
+   "scene": "classroom",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "most",
+   "hook_hl": "Most learners",
+   "in": {
+    "gold": [
+     "sb_08f69142",
+     "sb_13a16c00",
+     "sb_47b3e9e9"
+    ],
+    "hook_say": "Most learners miss one!",
+    "hook_text": "Most learners miss one"
+   }
+  },
+  {
+   "id": "t4_toeic_monthend",
+   "template": "toeic",
+   "teacher": "carlos",
+   "theme": "light",
+   "scene": "office",
+   "layout": "corner",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "challenge",
+   "hook_hl": "Go!",
+   "in": {
+    "file": "reading1",
+    "tid": "tr1",
+    "n": 106,
+    "cue": "the end of each month",
+    "why_say": "No later than month end.",
+    "hook_say": "Ten seconds. Ready? Go!",
+    "hook_text": "10 seconds. Go!"
+   }
+  },
+  {
+   "id": "t4_review_eventually",
+   "template": "review",
+   "teacher": "ama",
+   "theme": "dark",
+   "scene": "library",
+   "layout": "bubble",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "myth",
+   "hook_hl": "No!",
+   "in": {
+    "word": "eventually",
+    "hook_say": "Eventually? Not maybe!",
+    "hook_text": "Eventually = maybe? No!"
+   }
+  },
+  {
+   "id": "t4_pattern_hesitate",
+   "template": "pattern",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "scene": "office",
+   "layout": "side",
+   "hook_by": 1.5,
+   "hook_speed": 1.25,
+   "hook_style": "question",
+   "hook_hl": "to contact",
+   "in": {
+    "gold": "sb_29c61515",
+    "verb": "hesitate",
+    "pat": "to + verb",
+    "good": "hesitate to contact",
+    "bad": "hesitate contacting",
+    "hook_say": "Contacting, or to contact?",
+    "hook_text": "Contacting, or to contact?"
    }
   }
  ]

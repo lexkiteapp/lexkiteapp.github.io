@@ -1,0 +1,99 @@
+{
+ "id": "t4_usuk_soccer",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Soccer or football?",
+   "pause": 0.42,
+   "speed": 1.2
+  },
+  {
+   "id": "us",
+   "text": "In America, it's soccer.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, it's football. Same game!",
+   "pause": 0.42
+  },
+  {
+   "id": "tw",
+   "text": "Careful! American football is different.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Want to watch soccer tonight?",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in London. What's it called?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Football! Same game.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "soccer",
+  "uk": "football",
+  "ipa_us": "/ˈsɑːkər/",
+  "ipa_uk": "/ˈfʊtbɔːl/",
+  "same": "Same game!",
+  "quiz": {
+   "options": [
+    "soccer",
+    "football"
+   ],
+   "answer": 1
+  },
+  "twist": {
+   "say": "Careful! American football is different.",
+   "card": "another game"
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/soccer",
+  "link": "https://lexkite.com/app/#/dict/soccer",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Soccer or football?",
+  "style": "question",
+  "hl": "football"
+ },
+ "scene": "field",
+ "hook_by": 1.5,
+ "layout": "side",
+ "est": {
+  "words": 45,
+  "seconds": 27.5,
+  "wpm": 98,
+  "hook_s": 1.08
+ }
+}

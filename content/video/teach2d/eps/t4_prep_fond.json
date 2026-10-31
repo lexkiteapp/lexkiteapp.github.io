@@ -1,0 +1,100 @@
+{
+ "id": "t4_prep_fond",
+ "template": "prep",
+ "series": "Which Little Word?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Fond with? Wrong!",
+   "pause": 0.42,
+   "speed": 1.0
+  },
+  {
+   "id": "s",
+   "text": "I'm fond... my grandma. With, or of?",
+   "pause": 1.6,
+   "guess": true
+  },
+  {
+   "id": "r",
+   "text": "Of! I'm fond of my grandma.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Fond of means you like someone warmly.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! He's fond of spicy food.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "slot": "I'm fond ___ my grandma.",
+  "opts": [
+   "with",
+   "of"
+  ],
+  "right": "of",
+  "full": "I'm fond of my grandma.",
+  "why": "Fond of means you like someone warmly.",
+  "aha": "It's softer than love!",
+  "quiz": {
+   "stem": "He's fond ___ spicy food.",
+   "options": [
+    "of",
+    "with"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Fond with”? Wrong!",
+  "style": "myth",
+  "hl": "Wrong!"
+ },
+ "src": {
+  "gold": "sb_0c46f8a4",
+  "pid": "u:p:fond:of"
+ },
+ "scene": "home",
+ "hook_by": 1.5,
+ "layout": "side",
+ "est": {
+  "words": 45,
+  "seconds": 28.5,
+  "wpm": 95,
+  "hook_s": 1.28
+ }
+}

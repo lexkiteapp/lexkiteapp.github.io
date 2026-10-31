@@ -1,0 +1,90 @@
+{
+ "id": "t4_call_grabcoffee",
+ "template": "call",
+ "series": "Ask Ama",
+ "part": 1,
+ "theme": "light",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "call",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What's grab a coffee?",
+   "pause": 0.42,
+   "speed": 1.25
+  },
+  {
+   "id": "m",
+   "text": "Your teammate says: I'm going to grab a coffee for the team.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Grab a coffee means: get a coffee quickly.",
+   "pause": 0.42
+  },
+  {
+   "id": "o",
+   "text": "Say: Yes, please!",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Your friend looks tired. What do you say?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Let's grab a coffee! Quick break, together.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "title": "Coffee run for the team",
+  "em": "☕",
+  "line": "I'm going to grab a coffee for the team.",
+  "phrase": "grab a coffee",
+  "mean": "get a coffee quickly",
+  "reply": "Yes, please!",
+  "quiz": {
+   "options": [
+    "Let's grab a coffee!",
+    "No worries!"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "call",
+  "route": "#/call/coffee",
+  "link": "https://lexkite.com/app/#/call/coffee",
+  "say": "Practice a real call"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Grab a coffee”?",
+  "style": "question",
+  "hl": "Grab a coffee"
+ },
+ "src": {
+  "call": "coffee",
+  "turn": 0
+ },
+ "scene": "cafe",
+ "hook_by": 1.5,
+ "layout": "corner",
+ "est": {
+  "words": 50,
+  "seconds": 28.9,
+  "wpm": 104,
+  "hook_s": 1.35
+ }
+}

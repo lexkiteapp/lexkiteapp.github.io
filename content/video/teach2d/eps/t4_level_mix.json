@@ -1,0 +1,118 @@
+{
+ "id": "t4_level_mix",
+ "template": "level",
+ "series": "Level Check",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Most learners miss one!",
+   "pause": 0.42,
+   "speed": 1.25
+  },
+  {
+   "id": "q1",
+   "text": "Question one.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a1",
+   "text": "How much is it? It depends.",
+   "pause": 0.42
+  },
+  {
+   "id": "q2",
+   "text": "Question two.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a2",
+   "text": "The movie was so exciting!",
+   "pause": 0.42
+  },
+  {
+   "id": "q3",
+   "text": "Question three.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a3",
+   "text": "Someone stole my wallet!",
+   "pause": 0.42
+  },
+  {
+   "id": "s",
+   "text": "Three out of three? Comment below!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "qs": [
+   {
+    "stem": "How much is it? It ___.",
+    "options": [
+     "depends",
+     "depend"
+    ],
+    "answer": 0
+   },
+   {
+    "stem": "The movie was so ___!",
+    "options": [
+     "excited",
+     "exciting"
+    ],
+    "answer": 1
+   },
+   {
+    "stem": "Someone ___ my wallet!",
+    "options": [
+     "stole",
+     "robbed"
+    ],
+    "answer": 0
+   }
+  ]
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Most learners miss one",
+  "style": "most",
+  "hl": "Most learners"
+ },
+ "src": {
+  "gold": [
+   "sb_08f69142",
+   "sb_13a16c00",
+   "sb_47b3e9e9"
+  ]
+ },
+ "scene": "classroom",
+ "hook_by": 1.5,
+ "layout": "side",
+ "est": {
+  "words": 37,
+  "seconds": 27.2,
+  "wpm": 82,
+  "hook_s": 1.35
+ }
+}

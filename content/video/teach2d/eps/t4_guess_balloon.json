@@ -1,0 +1,84 @@
+{
+ "id": "t4_guess_balloon",
+ "template": "guess",
+ "series": "Guess the Word",
+ "part": 1,
+ "theme": "dark",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you guess it?",
+   "pause": 0.42,
+   "speed": 1.25
+  },
+  {
+   "id": "c1",
+   "text": "Clue one: a rubber bag filled with air.",
+   "pause": 0.42
+  },
+  {
+   "id": "c2",
+   "text": "Clue two: it has seven letters.",
+   "pause": 0.42
+  },
+  {
+   "id": "c3",
+   "text": "Clue three: it starts with B.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Got it? Comment your guess!",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Balloon! The store was decorated with balloons for the opening.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "balloon",
+  "ipa": "/bəˈluːn/",
+  "clue": "A rubber bag filled with air.",
+  "n": 7,
+  "img": "balloon#n",
+  "ex": "The store was decorated with balloons for the opening."
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/balloon",
+  "link": "https://lexkite.com/app/#/dict/balloon",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can you guess it?",
+  "style": "question",
+  "hl": "guess"
+ },
+ "scene": "park",
+ "hook_by": 1.5,
+ "layout": "bubble",
+ "est": {
+  "words": 50,
+  "seconds": 29.3,
+  "wpm": 102,
+  "hook_s": 1.35
+ }
+}

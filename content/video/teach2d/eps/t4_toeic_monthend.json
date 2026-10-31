@@ -1,0 +1,88 @@
+{
+ "id": "t4_toeic_monthend",
+ "template": "toeic",
+ "series": "TOEIC Word",
+ "part": 1,
+ "theme": "light",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "toeic",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ten seconds. Ready? Go!",
+   "pause": 0.42,
+   "speed": 1.25
+  },
+  {
+   "id": "s",
+   "text": "Expense reports should be submitted blank the end of each month.",
+   "pause": 0.6
+  },
+  {
+   "id": "k",
+   "text": "Find the clue: the end of each month.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "By! No later than month end.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "stem": "Expense reports should be submitted ___ the end of each month.",
+  "options": [
+   "until",
+   "along",
+   "by",
+   "among"
+  ],
+  "answer": 2,
+  "cue": "the end of each month",
+  "n": 106,
+  "right": "by"
+ },
+ "cta": {
+  "area": "toeic",
+  "route": "#/toeic",
+  "link": "https://lexkite.com/app/#/toeic",
+  "say": "Practice TOEIC free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "10 seconds. Go!",
+  "style": "challenge",
+  "hl": "Go!"
+ },
+ "src": {
+  "toeic": "tr1",
+  "n": 106
+ },
+ "scene": "office",
+ "hook_by": 1.5,
+ "layout": "corner",
+ "est": {
+  "words": 45,
+  "seconds": 26.7,
+  "wpm": 101,
+  "hook_s": 1.35
+ }
+}

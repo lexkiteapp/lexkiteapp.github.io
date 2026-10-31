@@ -1,0 +1,102 @@
+{
+ "id": "t4_phrasal_splitbill",
+ "template": "phrasal",
+ "series": "Phrasal Verb in 30s",
+ "part": 1,
+ "theme": "light",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Divide or split?",
+   "pause": 0.42,
+   "speed": 1.0
+  },
+  {
+   "id": "w",
+   "text": "Not: Let's divide the bill.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Say: Let's split the bill.",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "Split the bill means everyone pays a part.",
+   "pause": 0.42
+  },
+  {
+   "id": "k",
+   "text": "You can split a taxi too!",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one sounds natural?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Split! Let's split the bill.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "pv": "split the bill",
+  "wrong": "Let's divide the bill.",
+  "right": "Let's split the bill.",
+  "strike": "divide",
+  "mean": "= share the cost",
+  "aha": "You can split a taxi too!",
+  "ex": "We always split the bill with friends.",
+  "quiz": {
+   "stem": "Dinner was great. Let's ___ the bill.",
+   "options": [
+    "divide",
+    "split"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn phrasal verbs"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Divide or split the bill?",
+  "style": "question",
+  "hl": "split"
+ },
+ "src": {
+  "gold": "sb_0a35f2ef",
+  "pid": "w:split the bill#phrase"
+ },
+ "scene": "cafe",
+ "hook_by": 1.5,
+ "layout": "corner",
+ "est": {
+  "words": 49,
+  "seconds": 29.7,
+  "wpm": 99,
+  "hook_s": 1.28
+ }
+}
