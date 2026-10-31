@@ -182,4 +182,4 @@ fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md + '\n'); fs.writeFileSync(path
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
 console.log(md.split('\n').slice(0, FINAL.length + 4).join('\n'));
 if (pass.length < FINAL.length) { console.error(`✗ final-qc: ${FINAL.length - pass.length} màn chưa đạt (xem SUMMARY.md)`); process.exit(1); }
-console.log('✓ final-qc: 13/13 màn đạt QC cuối 1-1');
+console.log(`✓ final-qc: ${FINAL.length}/${FINAL.length} màn đạt QC cuối 1-1`);
