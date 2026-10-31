@@ -437,7 +437,8 @@ def T_pair():
     bx = side_cards([dict(tag=tg[0], word=A, ipa=ia, col='primary', t=at('r', A), mean=D['mean_a'], t_mean=start('m1')),
                      dict(tag=tg[1], word=B, ipa=ib, col='coral', t=at('w', B), mean=D['mean_b'], t_mean=start('m2'))], RY0, None, t_out)
     yb = max(b[3] for b in bx)
-    top('vs', [RX0 + RW / 2 - 56, bx[0][1] + 150, RX0 + RW / 2 + 56, bx[0][1] + 262], at('w', B), k='pop', out=t_out, size=64, text='≠', pairs=[['vs_ink', 'vs_bg', 64]])
+    top('vs', [RX0 + RW / 2 - 44, bx[0][1] + 162, RX0 + RW / 2 + 44, bx[0][1] + 250], at('w', B), k='pop', out=t_out, size=64, text='≠'   # 88 px: clear of both cards' words (clear.py gap)
+       , pairs=[['vs_ink', 'vs_bg', 64]])
     c = Card(yb + 30, tone='card'); c.text([['💡 ', 'accent'], [D['aha'], 'accent']], S['sub'], start('k')); c.place(start('k'), t_out, 'b')   # memory strip
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
     save_card([[[A, 'primary'], [' = ' + D['mean_a'].rstrip('.').lower(), 'ink']], [[B, 'coral'], [' = ' + D['mean_b'].rstrip('.').lower(), 'ink']]], start('sh'), start('c') - 0.2)
@@ -556,7 +557,7 @@ def T_level():
 
 def bricks_row(items, y, bh, t_out, size=52):
     """formula rail: snap-together bricks joined by + (Stitch 3fcef434… 'Grammar in 60s'); items = [(label, word, tone, t_in)], width fits the word."""
-    pg = 70
+    pg = 76   # the 60 px + medallion keeps >= 8 px to each brick (clear.py gap)
     while True:   # largest word size (>= 40 px) at which the rail fits the card width
         ws = [max(190, tw(wd, size) + 56) for _, wd, _, _ in items]; tot = sum(ws) + pg * (len(ws) - 1)
         if tot <= RW or size <= 40: break
