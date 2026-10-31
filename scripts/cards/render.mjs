@@ -41,7 +41,8 @@ try {
     for (const el of document.body.querySelectorAll('*')) {
       const own = [...el.childNodes].filter(n => n.nodeType === 3 && n.textContent.trim()); if (!own.length) continue;
       const cs = getComputedStyle(el); if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0) continue;
-      if (cs.display !== 'inline' && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)) out.push(`chữ tràn ô ${q(el)} (${el.scrollWidth}x${el.scrollHeight} > ${el.clientWidth}x${el.clientHeight})`);
+      const ink = Math.max(1, 0.3 * parseFloat(cs.fontSize)); // chân chữ (g, y) thò ra khi leading-none ≠ tràn; mất cả 1 dòng (≥ 1em) vẫn đỏ
+      if (cs.display !== 'inline' && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + ink)) out.push(`chữ tràn ô ${q(el)} (${el.scrollWidth}x${el.scrollHeight} > ${el.clientWidth}x${el.clientHeight})`);
       const r = document.createRange(); r.selectNodeContents(el); const b = r.getBoundingClientRect(); if (!b.width) continue;
       if (b.left < -0.5 || b.top < -0.5 || b.right > W + 0.5 || b.bottom > H + 0.5) out.push(`chữ ra ngoài khung ${q(el)}`);
       for (let a = el.parentElement; a && a !== document.documentElement; a = a.parentElement) { const o = getComputedStyle(a); if (/(hidden|clip)/.test(o.overflowX + o.overflowY)) { const ab = a.getBoundingClientRect(); if (b.left < ab.left - 1 || b.right > ab.right + 1 || b.top < ab.top - 1 || b.bottom > ab.bottom + 1) out.push(`chữ bị cắt bởi ${q(a)}: ${q(el)}`); } }
