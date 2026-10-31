@@ -391,6 +391,39 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   ok($('#result .entry-word') && !R() && $('#searchForm') && $('#saveCard'), 'dict: cờ tắt → trang cũ nguyên vẹn');
   w.fetch = F0; App.savePhraseDialog = SP0; delete App.state.cards.mitigate; w.localStorage.setItem('lk.ux1', '1');
 }
+// ---------- Tiến độ & huy hiệu #/stats (Stitch v2.1 stats): khung mới giữ đủ ý 2 lớp trang cũ, dữ liệu thật ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const st = App.state, g = st.game, D = 864e5, K = w.Core.todayKey, now = Date.now();
+  const tp = w.IELTS_DATA.TOPICS[1]; for (const x of tp.words.slice(0, 4)) await App.addWord(x, null, { silent: true });
+  const c0 = st.cards[tp.words[0].word.toLowerCase()]; c0.srs = Object.assign(c0.srs, { reps: 2, last: now - 3 * D, due: now - 3600e3, interval: 2 }); // 1 thẻ đang ở thời điểm vàng
+  g.days[K()] = Object.assign(g.days[K()] || {}, { xp: 40, reviews: 12, newWords: 3, quizzes: 1 }); g.frozen = Object.assign({}, g.frozen, { [K(new Date(now - 9 * D))]: 1 });
+  g.badges = Object.assign({}, g.badges, { first: now - D, streak3: now }); g.total = Object.assign(g.total, { reviews: 321, quizzes: 7, spoken: 11, readings: 2 });
+  await go('#/stats', '.v2-stats');
+  const R = $('.v2-stats'), L = w.Game.levelOf(g.xp), qs = w.Game.questsFor(K()), vis = el => !/display:\s*none/.test(el.getAttribute('style') || '');
+  ok(R && $('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page' && $('.v2-stats header button[data-href="#/me"]') && $('.v2-stats header [data-share]') && /Tiến độ & huy hiệu|Progress & badges/.test($('.v2-stats h1').textContent), 'stats (v2): khung Stitch, tab Tôi, quay lại #/me, tiêu đề, [data-share] Khoe thành tích');
+  const ti = $('.v2-stats [data-st-teacher] img');
+  ok(ti && /teach\/carlos\/still-encourage\.webp/.test(ti.getAttribute('src')) && /hành trình chinh phục IELTS|IELTS journey/i.test(R.textContent) && !/Teacher cheer zone|TOP 5%|Native cadence/.test(R.textContent), 'stats (v2): thầy Carlos encourage (Chars) ở chỗ giáo viên, lời = mô tả cũ, không chữ giả của mẫu');
+  const pb = $('.v2-stats [role="progressbar"][aria-valuemax="' + L.need + '"]');
+  ok(R.textContent.includes(L.title) && pb && pb.getAttribute('aria-valuenow') === String(L.into) && $('.v2-stats [data-streak-freeze]') && R.textContent.includes(String(App.streak())), 'stats (v2): cấp + danh hiệu, thanh XP into/need, chuỗi ngày + 🧊 [data-streak-freeze]');
+  ok($$('#quests [data-quest]').length === qs.length && qs.every(q => $(`#quests [data-quest="${q.id}"]`) && R.textContent.includes(q.text)), 'stats (v2): #quests đủ ' + qs.length + ' nhiệm vụ thật hôm nay');
+  ok($('#goldenCard').getAttribute('data-g') === 'now' && $('#goldenCard button[data-href="#/review"]') && vis($('#goldenCard button')), 'stats (v2): #goldenCard thời điểm vàng (thẻ đến hạn → Ôn ngay #/review)');
+  ok([1, 2, 3, 4, 5].every(n => $(`#stLevels a[href="#/practice/learn?src=level:${n}"]`)) && $('.v2-stats a[href="#/method"]'), 'stats (v2): 5 cấp độ nhớ → #/practice/learn?src=level:n, Vì sao? → #/method');
+  ok(vis($('#weekCard')) && $$('#weekCard [data-wk]').length === 4, 'stats (v2): #weekCard tuần này so với tuần trước (4 ô)');
+  ok(['321', '7', '11', '2'].every(n => $('#stTotals').textContent.includes(n)), 'stats (v2): 4 ô tổng Lượt ôn / Bài luyện tập / Từ phát âm đúng / Bài đọc = số thật');
+  const cells = $$('#stHeat [data-day]');
+  ok(cells.length >= 26 * 7 && cells.length <= 27 * 7 && $(`#stHeat [data-day="${K(new Date(now - 9 * D))}"][data-frozen]`) && cells[cells.length - 1].getAttribute('data-day') === K() && cells.every(c => c.getAttribute('aria-label')), 'stats (v2): lịch 26 tuần tới hôm nay, ngày đóng băng 🧊, mỗi ô có nhãn');
+  ok($$('#stPast [role="img"]').length === 14 && $$('#stFc [role="img"]').length === 14, 'stats (v2): lượt ôn 14 ngày qua + dự báo 14 ngày tới');
+  ok($('#stMastery').textContent.includes(String(Object.keys(st.cards).length)), 'stats (v2): mức ghi nhớ – tổng số từ');
+  const bs = $$('#stBadges [data-badge]'), BN = w.Game.BADGES.length;
+  ok(bs.length === BN && bs.filter(b => b.dataset.got === '1').length === Object.keys(g.badges).length && bs[0].dataset.got === '1' && bs.filter(vis).length === Math.min(9, BN), 'stats (v2): mọi huy hiệu Game.BADGES (đã mở trước, 9 đầu)');
+  $('#stBadgeMore').click(); await tick(30);
+  ok($$('#stBadges [data-badge]').filter(vis).length === BN && $('#stBadgeMore').getAttribute('aria-expanded') === 'true', 'stats (v2): Xem cả huy hiệu → hiện hết');
+  ok(Array.from(R.querySelectorAll('button')).every(b => b.getAttribute('aria-label') || b.textContent.trim()), 'stats (v2): mọi nút có nhãn');
+  await go('#/stats?s=quests', '.v2-stats'); ok($('#quests') && $('.v2-stats'), 'stats (v2): ?s=quests vẫn vào khung mới');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/stats?x=1', '.badge-grid');
+  ok($('.badge-grid') && $('#quests') && $('#goldenCard') && !$('.v2-stats'), 'stats: cờ tắt → trang cũ nguyên vẹn (huy hiệu, nhiệm vụ, thời điểm vàng)');
+  w.localStorage.setItem('lk.ux1', '1');
+}
 // ---------- Gọi giáo viên #/call (Stitch v2.1 teacher-call): khung mới giữ đủ ý trang Gọi cũ ----------
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document;

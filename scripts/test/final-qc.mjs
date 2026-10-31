@@ -7,7 +7,7 @@
 // Dùng: node scripts/test/final-qc.mjs [web] [out/stitch-diff] [out/final-qc]   (ảnh mẫu: STITCH_V2_PNG=out/stitch-v2/png)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
-import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_MISTAKES, FINAL, serve } from './stitch-screens.mjs';
+import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_MISTAKES, SEED_STATS, FINAL, serve } from './stitch-screens.mjs';
 const [ROOT = 'web', SD = 'out/stitch-diff', OUT = 'out/final-qc'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const REF = process.env.STITCH_V2_PNG || 'out/stitch-v2/png', LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const S = fs.existsSync(path.join(SD, 'scores.json')) ? JSON.parse(fs.readFileSync(path.join(SD, 'scores.json'), 'utf8')) : null;
@@ -109,7 +109,7 @@ async function visit(page, k, errs) {
   await page.goto(url(SCREENS[k], page.__hl), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1600);
   { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); }
   if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
-  if (k === 'mistakes') { await page.evaluate(SEED_MISTAKES); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
+  if (k === 'mistakes') { await page.evaluate(SEED_MISTAKES); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } if (k === 'stats') { await page.evaluate(SEED_STATS); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
   if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message));
   await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {}); // như stitch-diff: thông báo sandbox không che ảnh/đo
   await page.waitForTimeout(400);

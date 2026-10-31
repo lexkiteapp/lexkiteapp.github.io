@@ -1,5 +1,7 @@
 /* English UI – v2 (màn Stitch v2: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+  "14 ngày qua": "Last 14 days",
+  "14 ngày tới": "Next 14 days",
   "Bài ôn giữ trí nhớ hôm nay": "Today's Retention Drill",
   "Bấm giờ như thi thật": "Timed simulation",
   "Bậc thầy chuỗi": "STREAK MASTER",
@@ -29,6 +31,7 @@
   "Kết thúc": "Leave",
   "Luyện ngắt quãng": "Spaced drill",
   "Luyện từng kỹ năng nhỏ theo nhịp của bạn": "Master discrete sub-skills at your pace",
+  "Lúc ôn giúp nhớ lâu nhất": "Best brain consolidation window",
   "Mô-đun trọng tâm": "Focus Modules",
   "Mục tiêu nước rút": "Target Goal",
   "Mức thuộc của sổ": "Deck Mastery Level",
@@ -49,6 +52,7 @@
   "Thẻ sẵn sàng": "Cards ready",
   "Trở về trang trước": "Go back",
   "Tạo bộ từ của bạn": "Create your own set",
+  "Tối ưu": "Optimal",
   "Xuất Anki (.apkg)": "Anki export (.apkg)",
   "Xuất Anki": "Anki out",
   "Xuất bộ thẻ Anki (.apkg)": "Export Anki deck (.apkg)",
