@@ -62,6 +62,9 @@ const PRE = [
 ].join('\n');
 // Trang web tĩnh: chỉ biến màu + font + icon + reset .v2 + chuyển động (bỏ phần vỏ app: topbar/thanh tab/menu trái); CSS nhúng trong trang → đường dẫn font tuyệt đối
 const WPRE = PRE.split('\n').filter(l => !/^(body\.(ux1|st) |@media \((max|min)-width:\d+px\)\{body\.(ux1|v2on)|\.bottom-nav)/.test(l)).join('\n').replace(/\.\.\/fonts\//g, '/fonts/') +
+  // Mẫu web: bản sáng dùng icon Rounded, bản tối Outlined → bộ chuyển ghép thành lớp lt:/dk: (Tailwind không sinh biến thể cho lớp viết tay) → luật riêng, cùng thuộc tính icon, họ font theo giao diện
+  '\n' + ((b, R = '"Material Symbols Rounded"', O = '"Material Symbols Outlined"') => `.lt\\:material-symbols-rounded,.dk\\:material-symbols-outlined{${b};font-family:${O}}@media (prefers-color-scheme:light){:root:not([data-theme=dark]) .lt\\:material-symbols-rounded{font-family:${R}}}:root[data-theme=light] .lt\\:material-symbols-rounded{font-family:${R}}`)(
+    (PRE.match(/\.material-symbols-outlined\{font-family:[^;]+;([^}]+)\}/) || [, ''])[1]) +
   '\n.st{font-family:"Plus Jakarta Sans","Plus Jakarta Sans Fallback",system-ui,sans-serif;-webkit-tap-highlight-color:transparent}.st :focus-visible{outline:3px solid rgb(var(--st-secondary));outline-offset:2px}body.stw{margin:0;background:rgb(var(--st-surface))}';
 
 function configV2(content, g) { // Tailwind mặc định + biến thể lt:/dk:/rtl: (không token cũ của app → bo góc/khoảng cách y như Stitch)
