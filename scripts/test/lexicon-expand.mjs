@@ -375,6 +375,11 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   ok(/not in FORCE/.test(py) && /w not in FORCE_W/.test(py), 'pick_words: mẫu cố định/retry (--want) luôn có ứng viên đúng từ#loại – mẫu pilot không âm thầm co (31/10: 204/378)');
   const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
   ok(/!done\.has\(kk\(e\)\)/.test(job) && !/done\.has\(e\.w\)/.test(job), 'job.mjs: chọn theo từ#loại'); }
+// 31/10 phễu 600 (thiếu 2 câu người viết 230/600): câu Wiktionary của ĐÚNG nghĩa khoá luôn là ứng viên; không cắt 8 câu đầu (thuộc nghĩa khác) – gate trắc nghiệm nghĩa 3/3 giữ nguyên
+{ const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), wk = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/wikt.mjs'), 'utf8');
+  ok(/e\.g === WK/.test(job) && /\(q\.g === WK\) - \(p\.g === WK\)/.test(job), 'ví dụ: câu Wiktionary của nghĩa khoá (e._wk) được nhận và đứng đầu');
+  ok(/exs: exs\.slice\(0, 40\)/.test(wk) && /x\.ref \|\|/.test(wk), 'wikt: giữ 40 câu ví dụ (lọc nghĩa ở job), vẫn bỏ trích dẫn có ref');
+  ok(/pickEx\(X1, X1\.exAll\.slice\(0, 8\)\.map\(\(c, i\) => \(\{ \.\.\.c, ok: ok\('ex' \+ i\) \}\)\)\)/.test(job), 'ví dụ: mọi câu vẫn qua trắc nghiệm nghĩa 3 giám khảo (wsdOk)'); }
 // 31/10 run 41178484346: lượt chờ hàng đợi checkout SHA cũ → rebase xung đột → mất 161 mục đạt. save-merge gộp 3 chiều, không mất phía nào.
 { const { merge3, fmt } = await import('../lexicon/expand/save-merge.mjs');
   const base = { items: ['a#n', 'b#n', 'c#n'] }, ours = { items: ['c#n', 'g#v'] }, theirs = { items: ['a#n', 'b#n', 'c#n', 'x#n'] };

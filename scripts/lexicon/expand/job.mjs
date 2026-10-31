@@ -160,7 +160,8 @@ const D = {}, S = {}, X = {}, T = {}, JA = {}, JB = {}, JC = {}; let mGen = '', 
 await pmap(chunks(items.filter(locked), 10), 8, async ch => { const r = await call('lxdef', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { D[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
 // 2. ứng viên người viết + giám khảo nguồn (2 họ)
 for (const x of items) { const k = KK[x.k] || {}, re = formRe(x.w);
-  const GW = CW(x.gloss + ' ' + x.lemmas.join(' ')), wk = (k.exs || []).filter(e => re.test(e.t) && ov(CW(e.g), GW) >= 1).slice(0, 3).map(e => ({ t: e.t, src: 'wiktionary' })), tt = ((EXT[x.k] || {}).ex || []).map(e => ({ t: e.t, src: 'tatoeba:' + e.id }));
+  const GW = CW(x.gloss + ' ' + x.lemmas.join(' ')), WK = x.wk ? String(x.wk).slice(0, 140) : '', wk = (k.exs || []).filter(e => re.test(e.t) && ((WK && e.g === WK) || ov(CW(e.g), GW) >= 1)).sort((p, q) => (q.g === WK) - (p.g === WK)).slice(0, 4).map(e => ({ t: e.t, src: 'wiktionary' })), tt = ((EXT[x.k] || {}).ex || []).map(e => ({ t: e.t, src: 'tatoeba:' + e.id }));
+  // 31/10 (phễu 600: thiếu 2 câu người viết 230): câu Wiktionary của ĐÚNG nghĩa khoá (e._wk = gloss Wiktionary 3 giám khảo đã xác nhận) đứng đầu – trước chỉ nhận khi gloss trùng từ với WordNet
   const wx = ((SY[x.k] || {}).wx || []).filter(t => re.test(t)).map(t => ({ t, src: 'wordnet:' + x._c.syn })); // ví dụ của CHÍNH synset (lớp L2)
   // ví dụ WordNet xếp CUỐI (soát pilot 3: moonlight "…the smuggler's enemy", despair – câu châm ngôn/trích dẫn)
   x._cand = [...tt.slice(0, 10 - wk.length - wx.length), ...wk, ...wx]; x._cols = [...new Set([...(x._c.comp || []), ...((EXT[x.k] || {}).col || [])])].slice(0, 8); x._trg = k.trg || []; }
