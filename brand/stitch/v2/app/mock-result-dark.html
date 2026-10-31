@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Mock Test Results (Tactile Night)</title>
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#2ba39a',
+              tealLight: '#4ecdc4',
+              tealGlow: '#00f2d5',
+              darkBg: '#091518',
+              surface: '#0f1d21',
+              surfaceElevated: '#14252a',
+              surfaceLedge: '#1b3137',
+              border: '#1f383f',
+              borderGlow: '#29545c',
+              orange: '#f59e0b',
+              orangeDark: '#d97706',
+              coral: '#fb923c',
+              darkInk: '#1a1005',
+              textPrimary: '#f0fdfa',
+              textSecondary: '#a5c4c1',
+              textMuted: '#779996',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #091518;
+      color: #f0fdfa;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile button ledges */
+    .tactile-btn-orange {
+      background: linear-gradient(180deg, #ffb020 0%, #f59e0b 100%);
+      box-shadow: 0 4px 0 0 #b45309;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-orange:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #b45309;
+    }
+    .tactile-btn-secondary {
+      background: #14252a;
+      border: 1.5px solid #23444c;
+      box-shadow: 0 3px 0 0 #0d1a1d;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #0d1a1d;
+    }
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #050d0f;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#091518] text-[#f0fdfa] pb-28 antialiased selection:bg-teal-500 selection:text-black">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 z-50 bg-[#091518]/95 backdrop-blur-md border-b border-[#1f383f] px-4 py-3 flex items-center justify-between">
+    <button class="w-10 h-10 rounded-full bg-[#14252a] border border-[#23444c] flex items-center justify-center text-[#f0fdfa] hover:bg-[#1b3137] active:scale-95 transition-all" aria-label="Close">
+      <span class="material-symbols-outlined text-[22px]">close</span>
+    </button>
+    <div class="text-center">
+      <h1 class="text-base font-extrabold tracking-tight text-[#f0fdfa]">Academic Mock #14 Results</h1>
+      <p class="text-xs font-semibold text-[#2ba39a] flex items-center justify-center gap-1">
+        <span>Completed Today</span>
+        <span class="text-[8px] opacity-70">•</span>
+        <span>IELTS Academic</span>
+      </p>
+    </div>
+    <button class="w-10 h-10 rounded-full bg-[#14252a] border border-[#23444c] flex items-center justify-center text-[#f0fdfa] hover:bg-[#1b3137] active:scale-95 transition-all" aria-label="Share">
+      <span class="material-symbols-outlined text-[20px]">share</span>
+    </button>
+  </header>
+
+  <!-- MAIN SCROLL CONTENT -->
+  <main class="max-w-md mx-auto px-4 pt-4 space-y-4">
+
+    <!-- HERO RESULT CARD -->
+    <div class="bg-[#0f1d21] border border-[#1f383f] rounded-3xl p-5 tactile-card relative overflow-hidden">
+      <!-- Glow ambient backdrop -->
+      <div class="absolute -top-12 -right-12 w-48 h-48 bg-[#2ba39a]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Donut Score Display -->
+      <div class="flex flex-col items-center justify-center pt-2 pb-3">
+        <div class="relative w-36 h-36 flex items-center justify-center">
+          <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+            <!-- Background track -->
+            <circle cx="60" cy="60" r="50" stroke="#162c32" stroke-width="10" fill="none" />
+            <!-- Progress arc (approx 72%) -->
+            <circle cx="60" cy="60" r="50" stroke="#2ba39a" stroke-width="10" stroke-linecap="round" fill="none"
+              stroke-dasharray="314.159" stroke-dashoffset="88" />
+          </svg>
+          <!-- Score Inner Content -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <span class="text-4xl font-black tracking-tight text-[#f0fdfa] leading-none">6.5</span>
+            <span class="text-[10px] font-black uppercase tracking-wider text-[#a5c4c1] mt-1">Band Score</span>
+            <!-- Pill rating -->
+            <div class="mt-1.5 inline-flex items-center gap-1 bg-[#f59e0b] px-2.5 py-0.5 rounded-full shadow-sm">
+              <span class="material-symbols-outlined text-[13px] fill-1 text-[#1a1005]">star</span>
+              <span class="text-[11px] font-black text-[#1a1005]">Good</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Target badge -->
+        <div class="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1a2f34] border border-[#f59e0b]/40 text-[#f59e0b] text-xs font-bold shadow-sm">
+          <span class="material-symbols-outlined text-[16px] text-[#f59e0b]">flag</span>
+          <span>Target 7.0 in reach!</span>
+        </div>
+
+        <!-- Headline & summary -->
+        <h2 class="mt-3 text-xl font-extrabold text-[#f0fdfa] text-center tracking-tight">
+          You're just 0.5 away from C1
+        </h2>
+        <p class="mt-2 text-xs font-medium text-[#a5c4c1] text-center leading-relaxed max-w-xs">
+          Solid performance on Listening & Lexical Resource. Fixing 5 Reading questions will bridge the gap to Band 7.0.
+        </p>
+
+        <!-- Metrics split -->
+        <div class="grid grid-cols-2 gap-3 w-full mt-4 pt-1">
+          <div class="bg-[#14252a] border border-[#1f383f] rounded-2xl p-3 text-center">
+            <div class="text-[11px] font-bold text-[#779996] uppercase tracking-wider">Time Used</div>
+            <div class="text-lg font-black text-[#f0fdfa] mt-0.5">2h 44m</div>
+          </div>
+          <div class="bg-[#14252a] border border-[#1f383f] rounded-2xl p-3 text-center">
+            <div class="text-[11px] font-bold text-[#779996] uppercase tracking-wider">Accuracy</div>
+            <div class="text-lg font-black text-[#2ba39a] mt-0.5">74%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILL BREAKDOWN SECTION -->
+    <div class="space-y-2.5">
+      <div class="flex items-center justify-between px-1">
+        <h3 class="text-base font-extrabold text-[#f0fdfa] tracking-tight">Skill Breakdown</h3>
+        <span class="text-xs font-bold text-[#779996]">4 Modules</span>
+      </div>
+
+      <!-- Listening -->
+      <div class="bg-[#0f1d21] border border-[#1f383f] rounded-2xl p-3.5 flex items-center justify-between tactile-card">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-[#142e31] border border-[#23585b] flex items-center justify-center text-[#2ba39a]">
+            <span class="material-symbols-outlined text-[24px]">headphones</span>
+          </div>
+          <div>
+            <div class="text-sm font-extrabold text-[#f0fdfa]">Listening</div>
+            <div class="text-xs font-semibold text-[#a5c4c1]">31 / 40 correct</div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div class="text-xl font-black text-[#f0fdfa] leading-none">7.0</div>
+          <div class="text-[10px] font-bold tracking-wider uppercase text-[#779996] mt-0.5">Band</div>
+        </div>
+      </div>
+
+      <!-- Reading (Highlighted Error Module) -->
+      <div class="relative bg-[#14252a] border-2 border-[#f59e0b] rounded-2xl p-3.5 flex items-center justify-between tactile-card shadow-[0_0_15px_rgba(245,158,11,0.15)]">
+        <!-- Floating error badge -->
+        <div class="absolute -top-3 right-4 bg-[#f59e0b] text-[#1a1005] text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow-sm flex items-center gap-0.5">
+          <span>5 ERRORS</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-[#2a2215] border border-[#6b4712] flex items-center justify-center text-[#f59e0b]">
+            <span class="material-symbols-outlined text-[24px]">menu_book</span>
+          </div>
+          <div>
+            <div class="text-sm font-extrabold text-[#f0fdfa]">Reading</div>
+            <div class="text-xs font-bold text-[#f59e0b]">28 / 40 correct</div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div class="text-xl font-black text-[#f59e0b] leading-none">6.0</div>
+          <div class="text-[10px] font-bold tracking-wider uppercase text-[#f59e0b]/80 mt-0.5">Band</div>
+        </div>
+      </div>
+
+      <!-- Writing -->
+      <div class="bg-[#0f1d21] border border-[#1f383f] rounded-2xl p-3.5 flex items-center justify-between tactile-card">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-[#14252a] border border-[#23444c] flex items-center justify-center text-[#a5c4c1]">
+            <span class="material-symbols-outlined text-[22px]">edit_note</span>
+          </div>
+          <div>
+            <div class="text-sm font-extrabold text-[#f0fdfa]">Writing</div>
+            <div class="text-xs font-semibold text-[#a5c4c1]">Task 1 & Task 2</div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div class="text-xl font-black text-[#f0fdfa] leading-none">6.5</div>
+          <div class="text-[10px] font-bold tracking-wider uppercase text-[#779996] mt-0.5">Band</div>
+        </div>
+      </div>
+
+      <!-- Speaking -->
+      <div class="bg-[#0f1d21] border border-[#1f383f] rounded-2xl p-3.5 flex items-center justify-between tactile-card">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-[#14252a] border border-[#23444c] flex items-center justify-center text-[#a5c4c1]">
+            <span class="material-symbols-outlined text-[22px]">mic</span>
+          </div>
+          <div>
+            <div class="text-sm font-extrabold text-[#f0fdfa]">Speaking</div>
+            <div class="text-xs font-semibold text-[#a5c4c1]">Part 1, 2, 3</div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div class="text-xl font-black text-[#f0fdfa] leading-none">6.5</div>
+          <div class="text-[10px] font-bold tracking-wider uppercase text-[#779996] mt-0.5">Band</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WRITING CRITERIA CARD -->
+    <div class="bg-[#0f1d21] border border-[#1f383f] rounded-3xl p-4 tactile-card space-y-3.5">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#2ba39a] text-[20px]">tune</span>
+          <h3 class="text-base font-extrabold text-[#f0fdfa] tracking-tight">Writing Criteria</h3>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#14252a] border border-[#1f383f] text-[#779996]">Official Descriptors</span>
+      </div>
+
+      <!-- Criterion 1: TR -->
+      <div class="bg-[#14252a] border border-[#1f383f] rounded-2xl p-3 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold text-[#f0fdfa]">Task Response (TR)</span>
+          <span class="text-xs font-black text-[#2ba39a]">6.5</span>
+        </div>
+        <p class="text-[11px] font-medium text-[#a5c4c1] leading-snug">Clear central position with supported ideas.</p>
+        <div class="w-full bg-[#0d1a1d] h-2 rounded-full overflow-hidden">
+          <div class="bg-[#2ba39a] h-full rounded-full w-[72%]"></div>
+        </div>
+      </div>
+
+      <!-- Criterion 2: CC -->
+      <div class="bg-[#14252a] border border-[#1f383f] rounded-2xl p-3 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold text-[#f0fdfa]">Coherence & Cohesion (CC)</span>
+          <span class="text-xs font-black text-[#f59e0b]">6.0</span>
+        </div>
+        <p class="text-[11px] font-medium text-[#a5c4c1] leading-snug">Overuse of mechanical linkers in paragraph 2.</p>
+        <div class="w-full bg-[#0d1a1d] h-2 rounded-full overflow-hidden">
+          <div class="bg-[#f59e0b] h-full rounded-full w-[65%]"></div>
+        </div>
+      </div>
+
+      <!-- Criterion 3: LR -->
+      <div class="bg-[#14252a] border border-[#1f383f] rounded-2xl p-3 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold text-[#f0fdfa]">Lexical Resource (LR)</span>
+          <span class="text-xs font-black text-[#2ba39a]">7.0</span>
+        </div>
+        <p class="text-[11px] font-medium text-[#a5c4c1] leading-snug">Strong academic collocation and precise phrasing.</p>
+        <div class="w-full bg-[#0d1a1d] h-2 rounded-full overflow-hidden">
+          <div class="bg-[#2ba39a] h-full rounded-full w-[78%]"></div>
+        </div>
+      </div>
+
+      <!-- Criterion 4: GRA -->
+      <div class="bg-[#14252a] border border-[#1f383f] rounded-2xl p-3 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold text-[#f0fdfa]">Grammatical Range & Accuracy (GRA)</span>
+          <span class="text-xs font-black text-[#f59e0b]">6.0</span>
+        </div>
+        <p class="text-[11px] font-medium text-[#a5c4c1] leading-snug">Occasional complex sentence comma splices.</p>
+        <div class="w-full bg-[#0d1a1d] h-2 rounded-full overflow-hidden">
+          <div class="bg-[#f59e0b] h-full rounded-full w-[65%]"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECOMMENDED 3-DAY PLAN CARD -->
+    <div class="bg-[#0f1d21] border border-[#1f383f] rounded-3xl p-4 tactile-card space-y-3">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[#f59e0b] text-[20px]">lightbulb</span>
+        <h3 class="text-base font-extrabold text-[#f0fdfa] tracking-tight">Recommended 3-Day Plan</h3>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="bg-[#14252a] border border-[#1f383f] rounded-2xl p-3 flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-[#f59e0b] text-[#1a1005] font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+          1
+        </div>
+        <div>
+          <div class="text-xs font-extrabold text-[#f0fdfa]">Review 5 Reading mistakes</div>
+          <div class="text-[11px] font-medium text-[#a5c4c1] mt-0.5">True/False/Not Given passage traps • 15 min</div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-[#14252a] border border-[#1f383f] rounded-2xl p-3 flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-[#1b504b] text-[#2ba39a] border border-[#2ba39a]/40 font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+          2
+        </div>
+        <div>
+          <div class="text-xs font-extrabold text-[#f0fdfa]">Cohesion & Linking drills</div>
+          <div class="text-[11px] font-medium text-[#a5c4c1] mt-0.5">Practice paragraph cohesion transitions • 20 min</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIMARY ACTION BUTTON -->
+    <div class="pt-2">
+      <button class="w-full tactile-btn-orange text-[#1a1005] font-black text-base py-4 rounded-2xl flex items-center justify-center gap-2 tracking-wide">
+        <span class="material-symbols-outlined text-[20px] text-[#1a1005]">build</span>
+        <span>Fix 5 wrong Reading answers</span>
+      </button>
+    </div>
+
+    <!-- 3-COLUMN SECONDARY ACTIONS -->
+    <div class="grid grid-cols-3 gap-2.5 pt-1">
+      <button class="tactile-btn-secondary py-3 px-2 rounded-2xl flex flex-col items-center justify-center text-center gap-1 group">
+        <span class="material-symbols-outlined text-[20px] text-[#2ba39a]">key</span>
+        <span class="text-xs font-extrabold text-[#f0fdfa] leading-tight">Answer key</span>
+      </button>
+
+      <button class="tactile-btn-secondary py-3 px-2 rounded-2xl flex flex-col items-center justify-center text-center gap-1 group">
+        <span class="material-symbols-outlined text-[20px] text-[#f59e0b]">bookmark</span>
+        <span class="text-xs font-extrabold text-[#f0fdfa] leading-tight">Mistake book</span>
+      </button>
+
+      <button class="tactile-btn-secondary py-3 px-2 rounded-2xl flex flex-col items-center justify-center text-center gap-1 group">
+        <span class="material-symbols-outlined text-[20px] text-[#2ba39a]">replay</span>
+        <span class="text-xs font-extrabold text-[#f0fdfa] leading-tight">Another test</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- DOCKED BOTTOM NAVIGATION (Tests Active) -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#091518]/95 backdrop-blur-md border-t border-[#1f383f] px-4 py-2">
+    <div class="max-w-md mx-auto flex items-center justify-between">
+      <!-- Today -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 text-[#779996] hover:text-[#f0fdfa] transition-colors">
+        <span class="material-symbols-outlined text-[22px]">calendar_today</span>
+        <span class="text-[10px] font-bold mt-1">Today</span>
+      </a>
+
+      <!-- Vocab -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 text-[#779996] hover:text-[#f0fdfa] transition-colors">
+        <span class="material-symbols-outlined text-[22px]">menu_book</span>
+        <span class="text-[10px] font-bold mt-1">Vocab</span>
+      </a>
+
+      <!-- Skills -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 text-[#779996] hover:text-[#f0fdfa] transition-colors">
+        <span class="material-symbols-outlined text-[22px]">bolt</span>
+        <span class="text-[10px] font-bold mt-1">Skills</span>
+      </a>
+
+      <!-- Tests (ACTIVE DESTINATION: Amber Tactile Pill with Dark Ink) -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-4 bg-[#f59e0b] rounded-xl shadow-[0_2px_0_0_#b45309] text-[#1a1005]">
+        <span class="material-symbols-outlined text-[22px] fill-1 text-[#1a1005]">assignment</span>
+        <span class="text-[10px] font-black tracking-tight mt-0.5 text-[#1a1005]">Tests</span>
+      </a>
+
+      <!-- Me -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 text-[#779996] hover:text-[#f0fdfa] transition-colors">
+        <span class="material-symbols-outlined text-[22px]">person</span>
+        <span class="text-[10px] font-bold mt-1">Me</span>
+      </a>
+    </div>
+  </nav>
+
+</body>
+</html>
+

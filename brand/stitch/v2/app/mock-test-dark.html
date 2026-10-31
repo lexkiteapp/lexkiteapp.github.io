@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Mock Reading (Tactile Night)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary": "#003733",
+            "primary": "#6bd8ce",
+            "on-tertiary": "#402e00",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-tint": "#6bd8ce",
+            "on-secondary-fixed-variant": "#900f00",
+            "inverse-surface": "#d8e5e9",
+            "tertiary": "#f4bf40",
+            "primary-fixed-dim": "#6bd8ce",
+            "outline-variant": "#3d4947",
+            "on-primary-fixed": "#00201e",
+            "surface-container-low": "#121d20",
+            "surface-container": "#162125",
+            "error": "#ffb4ab",
+            "inverse-on-surface": "#263236",
+            "surface-dim": "#091518",
+            "on-primary-container": "#00322e",
+            "primary-fixed": "#88f5ea",
+            "error-container": "#93000a",
+            "surface": "#091518",
+            "secondary-fixed": "#ffdad3",
+            "surface-variant": "#2b373a",
+            "surface-container-lowest": "#051013",
+            "secondary": "#ffb4a6",
+            "on-tertiary-fixed": "#261a00",
+            "on-surface-variant": "#bcc9c7",
+            "inverse-primary": "#006a64",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-surface": "#d8e5e9",
+            "on-secondary": "#660800",
+            "surface-container-highest": "#2b373a",
+            "background": "#091518",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-primary-fixed-variant": "#00504b",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-high": "#202c2f",
+            "on-tertiary-container": "#392900",
+            "primary-container": "#2ba39a",
+            "on-secondary-container": "#ffa493",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-error-container": "#ffdad6",
+            "outline": "#879391",
+            "surface-bright": "#2f3b3e",
+            "on-background": "#d8e5e9",
+            "tertiary-container": "#ba8b00",
+            "secondary-container": "#981201"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col items-center justify-start pb-28 selection:bg-primary selection:text-on-primary">
+<!-- Mobile Layout Container: Max 420px, edge-to-edge content, tactile theme -->
+<div class="w-full max-w-[420px] flex flex-col min-h-screen relative bg-background">
+<!-- Top Sticky Header -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md px-4 pt-3 pb-3 border-b border-surface-container-highest shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+<div class="flex items-center justify-between gap-2">
+<!-- Back Button -->
+<button class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary border border-outline-variant shadow-[0_3px_0_0_#051013] active:translate-y-[2px] active:shadow-[0_1px_0_0_#051013] transition-all">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<!-- Center Title -->
+<div class="flex flex-col items-center justify-center flex-1">
+<div class="flex items-center gap-1.5">
+<span class="text-sm font-extrabold tracking-tight text-white font-headline">Academic Reading</span>
+<span class="text-[10px] font-extrabold tracking-wider bg-surface-container-highest text-primary px-1.5 py-0.5 rounded border border-primary/30 uppercase">Sec 2</span>
+</div>
+<p class="text-[11px] font-medium text-on-surface-variant">Passage 2 of 3 • Q 14–26</p>
+</div>
+<!-- Exit Test button -->
+<button class="px-2.5 py-1.5 rounded-xl bg-surface-container text-on-surface-variant hover:text-white border border-outline-variant shadow-[0_3px_0_0_#051013] active:translate-y-[1px] text-xs font-bold transition-all flex items-center gap-1">
+<span>Exit</span>
+</button>
+</div>
+<!-- Secondary Status Bar: Time & Progress -->
+<div class="flex items-center justify-between mt-3 pt-2.5 border-t border-outline-variant/40">
+<!-- Amber Pill Time Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-[#261a00] font-extrabold text-xs shadow-[0_2px_0_0_#ba8b00]">
+<span class="material-symbols-outlined text-[15px] fill" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span>42 min left</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-bold text-primary">Q 14–20 of 40</span>
+<div class="w-16 h-2 bg-surface-container rounded-full overflow-hidden border border-outline-variant/60">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[50%] rounded-full"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Stimulus Canvas -->
+<main class="flex-1 px-3.5 py-3 space-y-4">
+<!-- PASSAGE 2 CARD CONTAINER -->
+<section class="bg-surface-container-low rounded-2xl border-2 border-outline-variant p-4 shadow-[0_5px_0_0_#081013] relative overflow-hidden">
+<!-- Header Bar with Highlight Toolbar -->
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-surface-container-highest">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-extrabold tracking-widest uppercase bg-primary/15 text-primary border border-primary/30 px-2 py-0.5 rounded-md">Passage 2</span>
+<span class="text-xs text-on-surface-variant font-medium">Reading Stimulus</span>
+</div>
+<!-- Highlight Tools -->
+<div class="flex items-center gap-1 bg-surface-container-highest/80 px-1.5 py-1 rounded-lg border border-outline-variant">
+<button class="w-6 h-6 rounded flex items-center justify-center text-primary hover:bg-surface-bright active:scale-95 transition-all" title="Highlight">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+</button>
+<div class="flex items-center gap-1 px-1 border-x border-outline-variant/50">
+<span class="w-3 h-3 rounded-full bg-tertiary cursor-pointer ring-1 ring-tertiary/60 ring-offset-1 ring-offset-surface-container"></span>
+<span class="w-3 h-3 rounded-full bg-primary cursor-pointer hover:scale-110 transition-transform"></span>
+<span class="w-3 h-3 rounded-full bg-secondary cursor-pointer hover:scale-110 transition-transform"></span>
+</div>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:text-white text-xs font-bold font-headline" title="Text size">
+              TT
+            </button>
+</div>
+</div>
+<!-- Passage Title -->
+<h1 class="text-xl font-extrabold text-white font-headline leading-tight tracking-tight mb-3">
+          Biomimicry Architecture
+        </h1>
+<!-- Passage Text Body -->
+<article class="space-y-3.5 text-sm text-[#d6ece8] leading-relaxed font-body">
+<!-- Paragraph A -->
+<p class="relative pl-6">
+<span class="absolute left-0 top-0.5 text-[11px] font-extrabold text-primary bg-surface-container px-1 py-0.2 rounded border border-outline-variant">A</span>
+            Over the last two decades, structural engineers have increasingly abandoned traditional petroleum-derived insulation in favor of natural blueprints. In Harare, Zimbabwe, the Eastgate Centre mimics the intricate subterranean chimney designs of local termite mounds. By continuously venting warmed indoor air upward through regulated flues, the complex sustains 
+            <mark class="bg-tertiary/20 text-tertiary-fixed font-semibold border-b-2 border-tertiary px-1 rounded-sm">passive ventilation systems</mark> 
+            without conventional industrial air conditioning, consuming roughly thirty-five percent less total energy than neighboring office blocks.
+          </p>
+<!-- Paragraph B -->
+<p class="relative pl-6">
+<span class="absolute left-0 top-0.5 text-[11px] font-extrabold text-primary bg-surface-container px-1 py-0.2 rounded border border-outline-variant">B</span>
+            More radical modern laboratories are developing synthetic building envelopes inspired by deep-sea organisms. Rather than treating façades as inert barriers against weather fluctuations, scientists are synthesizing microscopic porous coatings derived from mollusk shell formations. These envelopes act as organic filters that bind ambient carbon dioxide directly into limestone-like structural matrices, manufacturing durable 
+            <mark class="bg-primary/20 text-primary-fixed font-semibold border-b-2 border-primary px-1 rounded-sm">carbon-negative composites</mark> 
+            during continuous urban exposure.
+          </p>
+<!-- Paragraph C -->
+<p class="relative pl-6">
+<span class="absolute left-0 top-0.5 text-[11px] font-extrabold text-primary bg-surface-container px-1 py-0.2 rounded border border-outline-variant">C</span>
+            Skeptics note that although biomimetic fabrication offers substantial lifecycle emissions advantages, upfront fabrication costs remain elevated. Specialized 3D printing of biological matrices currently requires customized multi-axis nozzles and proprietary bio-resins. Nonetheless, municipal regulators in Western Europe are considering preferential tax rebates for developments incorporating at least forty percent bio-inspired structural tonnage.
+          </p>
+</article>
+<!-- Passage Footer / Metadata -->
+<div class="mt-4 pt-3 border-t border-surface-container-highest flex items-center justify-between text-xs text-on-surface-variant font-medium">
+<span class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">menu_book</span>
+<span>Passage 2 of 3 • 680 words</span>
+</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-outline px-2 py-0.5 rounded bg-surface-container">End of Stimulus</span>
+</div>
+</section>
+<!-- QUESTIONS PANEL CONTAINER -->
+<section class="bg-surface-container-low rounded-2xl border-2 border-outline-variant p-4 shadow-[0_5px_0_0_#081013] space-y-4">
+<!-- Section Header -->
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-extrabold text-sm border-2 border-tertiary shadow-[0_3px_0_0_#5b4300] shrink-0">
+            14–20
+          </div>
+<div>
+<h2 class="text-base font-bold text-white font-headline leading-tight">Matching Headings &amp; True / False</h2>
+<p class="text-xs text-on-surface-variant mt-0.5 leading-snug">Select the most accurate response according to the passage.</p>
+</div>
+</div>
+<!-- Quick Jump Matrix Box -->
+<div class="bg-surface-container rounded-xl p-2.5 border border-outline-variant">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-on-surface-variant">Quick Jump Matrix</span>
+<span class="text-[11px] font-bold text-primary">3 / 7 Completed</span>
+</div>
+<div class="grid grid-cols-7 gap-1.5">
+<!-- 14: Selected & Answered -->
+<button class="h-9 rounded-lg bg-surface-container-highest border-2 border-primary text-primary font-extrabold text-xs flex flex-col items-center justify-center shadow-[0_2px_0_0_#00504b] active:translate-y-0.5">
+<span>14</span>
+<span class="w-1.5 h-1.5 bg-primary rounded-full mt-0.5"></span>
+</button>
+<!-- 15: Answered -->
+<button class="h-9 rounded-lg bg-primary-container text-on-primary-container font-extrabold text-xs flex flex-col items-center justify-center shadow-[0_2px_0_0_#00322e]">
+<span>15</span>
+<span class="material-symbols-outlined text-[10px] leading-none mt-0.5">check</span>
+</button>
+<!-- 16: Answered -->
+<button class="h-9 rounded-lg bg-primary-container text-on-primary-container font-extrabold text-xs flex flex-col items-center justify-center shadow-[0_2px_0_0_#00322e]">
+<span>16</span>
+<span class="material-symbols-outlined text-[10px] leading-none mt-0.5">check</span>
+</button>
+<!-- 17: Unanswered -->
+<button class="h-9 rounded-lg bg-surface-container-high border border-outline-variant text-[#f0f6f5] font-bold text-xs flex items-center justify-center hover:bg-surface-container-highest">
+              17
+            </button>
+<!-- 18: Unanswered -->
+<button class="h-9 rounded-lg bg-surface-container-high border border-outline-variant text-[#f0f6f5] font-bold text-xs flex items-center justify-center hover:bg-surface-container-highest">
+              18
+            </button>
+<!-- 19: Unanswered -->
+<button class="h-9 rounded-lg bg-surface-container-high border border-outline-variant text-[#f0f6f5] font-bold text-xs flex items-center justify-center hover:bg-surface-container-highest">
+              19
+            </button>
+<!-- 20: Unanswered -->
+<button class="h-9 rounded-lg bg-surface-container-high border border-outline-variant text-[#f0f6f5] font-bold text-xs flex items-center justify-center hover:bg-surface-container-highest">
+              20
+            </button>
+</div>
+</div>
+<!-- QUESTION 14 (Multiple Choice) -->
+<div class="pt-2 border-t border-surface-container-highest space-y-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-[0_2px_0_0_#00504b]">
+              14
+            </span>
+<p class="text-sm font-bold text-white leading-snug">
+              What natural structure inspired the ventilation engineering of Harare's Eastgate Centre?
+            </p>
+</div>
+<!-- Options List -->
+<div class="space-y-2 pl-1">
+<!-- Option A -->
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-outline cursor-pointer transition-all active:translate-y-0.5 shadow-[0_3px_0_0_#091518]">
+<span class="w-6 h-6 rounded-lg bg-surface-container-highest text-on-surface-variant font-extrabold text-xs flex items-center justify-center border border-outline-variant shrink-0">A</span>
+<span class="text-xs text-[#d6ece8] font-medium leading-tight">Subterranean mollusk shell layers</span>
+</label>
+<!-- Option B (SELECTED) -->
+<label class="flex items-center justify-between p-3 rounded-xl bg-primary/10 border-2 border-primary cursor-pointer transition-all shadow-[0_4px_0_0_#00504b] relative">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-lg bg-primary text-on-primary font-extrabold text-xs flex items-center justify-center shrink-0">B</span>
+<span class="text-xs text-white font-bold leading-tight">Termite mound chimney networks</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+</div>
+</label>
+<!-- Option C -->
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-outline cursor-pointer transition-all active:translate-y-0.5 shadow-[0_3px_0_0_#091518]">
+<span class="w-6 h-6 rounded-lg bg-surface-container-highest text-on-surface-variant font-extrabold text-xs flex items-center justify-center border border-outline-variant shrink-0">C</span>
+<span class="text-xs text-[#d6ece8] font-medium leading-tight">Honeycomb structural hives</span>
+</label>
+<!-- Option D -->
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-outline cursor-pointer transition-all active:translate-y-0.5 shadow-[0_3px_0_0_#091518]">
+<span class="w-6 h-6 rounded-lg bg-surface-container-highest text-on-surface-variant font-extrabold text-xs flex items-center justify-center border border-outline-variant shrink-0">D</span>
+<span class="text-xs text-[#d6ece8] font-medium leading-tight">Porous deep-sea sponge membranes</span>
+</label>
+</div>
+</div>
+<!-- QUESTION 15 (True / False / Not Given) -->
+<div class="pt-3 border-t border-surface-container-highest space-y-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-[0_2px_0_0_#00504b]">
+              15
+            </span>
+<p class="text-sm font-bold text-white leading-snug">
+              European municipal regulators currently enforce mandatory bio-inspired quotas on all new commercial properties.
+            </p>
+</div>
+<!-- Segmented Options Row -->
+<div class="grid grid-cols-3 gap-2 pl-1">
+<!-- TRUE -->
+<button class="py-2.5 px-2 rounded-xl bg-surface-container border border-outline-variant hover:border-outline text-xs font-bold text-[#d6ece8] shadow-[0_3px_0_0_#091518] active:translate-y-0.5 transition-all text-center">
+              TRUE
+            </button>
+<!-- FALSE (SELECTED) -->
+<button class="py-2.5 px-2 rounded-xl bg-primary/15 border-2 border-primary text-primary font-extrabold text-xs shadow-[0_3px_0_0_#00504b] flex items-center justify-center gap-1.5 transition-all">
+<span>FALSE</span>
+<span class="material-symbols-outlined text-[15px] font-bold">check</span>
+</button>
+<!-- NOT GIVEN -->
+<button class="py-2.5 px-1.5 rounded-xl bg-surface-container border border-outline-variant hover:border-outline text-xs font-bold text-[#d6ece8] shadow-[0_3px_0_0_#091518] active:translate-y-0.5 transition-all text-center">
+              NOT GIVEN
+            </button>
+</div>
+</div>
+<!-- SUBMIT & CTA SECTION -->
+<div class="pt-4 border-t border-surface-container-highest space-y-2">
+<!-- Tactile Primary CTA Button in Rich Amber/Orange with DARK BROWN-BLACK INK text -->
+<button class="w-full h-14 rounded-2xl bg-gradient-to-b from-[#ffb03a] to-[#ff9e1a] text-[#241400] font-extrabold text-base tracking-wide flex items-center justify-center gap-2 shadow-[0_5px_0_0_#9a5800] active:translate-y-[3px] active:shadow-[0_2px_0_0_#9a5800] transition-all">
+<span class="material-symbols-outlined text-[22px] font-bold text-[#241400]">check_circle</span>
+<span>Submit Reading</span>
+</button>
+<p class="text-center text-[11px] font-semibold text-[#8ee3d8]">
+            7 of 7 answered in this passage • Section locks on submit
+          </p>
+</div>
+</section>
+</main>
+<!-- Docked Bottom Navigation Bar (Design System Shared Component: BottomNavBar) -->
+<!-- Destination count 5: Today, Vocab, Skills, Tests, Me. Active: Tests -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-center bg-surface-container-lowest/95 backdrop-blur-lg border-t border-surface-container-highest shadow-[0_-4px_16px_rgba(0,0,0,0.6)]">
+<div class="w-full max-w-[420px] flex justify-around items-center px-2 py-2 h-20">
+<!-- Today Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white px-2 py-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="text-[10px] font-extrabold mt-1 font-headline">Today</span>
+</a>
+<!-- Vocab Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white px-2 py-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book">menu_book</span>
+<span class="text-[10px] font-extrabold mt-1 font-headline">Vocab</span>
+</a>
+<!-- Skills Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white px-2 py-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="bolt">bolt</span>
+<span class="text-[10px] font-extrabold mt-1 font-headline">Skills</span>
+</a>
+<!-- Tests Tab (ACTIVE - Sunny amber candy pill with deep dark ink) -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-b from-[#ffb03a] to-[#ff9e1a] text-[#241400] rounded-xl px-4 py-1.5 shadow-[0_3px_0_0_#9a5800] active:translate-y-[1px] transition-all" href="#">
+<span class="material-symbols-outlined text-[22px] font-bold fill" data-icon="assignment" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="text-[10px] font-extrabold mt-0.5 tracking-tight font-headline">Tests</span>
+</a>
+<!-- Me Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white px-2 py-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="text-[10px] font-extrabold mt-1 font-headline">Me</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>
