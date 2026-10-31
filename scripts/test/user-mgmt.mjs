@@ -61,9 +61,10 @@ const tok = async (sub, extra = {}) => { const h = b64u(JSON.stringify({ alg: 'R
 const env = { DB, ADMIN_EMAILS: 'admin@lexkite.com' };
 const ADM = await tok('adm_999', { email: 'admin@lexkite.com', email_verified: true });
 const ADM_OLD = await tok('adm_999', { email: 'admin@lexkite.com', email_verified: true, auth_time: sec - 3600 });
-const call = async (mod, path, tk, body) => { const r = await mod.onRequestPost({ request: new Request('https://lexkite.com' + path, { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://lexkite.com', ...(tk ? { Authorization: 'Bearer ' + tk } : {}) }, body: JSON.stringify(body) }), env }); return { s: r.status, j: await r.json() }; };
+// cf = request.cf giả lập của Cloudflare (quốc gia suy từ IP ở biên – Node không có, gắn tay)
+const call = async (mod, path, tk, body, cf) => { const request = new Request('https://lexkite.com' + path, { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://lexkite.com', ...(tk ? { Authorization: 'Bearer ' + tk } : {}) }, body: JSON.stringify(body) }); if (cf) Object.defineProperty(request, 'cf', { value: cf }); const r = await mod.onRequestPost({ request, env }); return { s: r.status, j: await r.json() }; };
 const adm = (op, b = {}, tk = ADM) => call(AdminApi, '/api/admin', tk, { op, ...b });
-const sync = async (uid, b) => call(SyncApi, '/api/sync', await tok(uid, { email: uid + '@lexkite.com' }), b);
+const sync = async (uid, b, cf) => call(SyncApi, '/api/sync', await tok(uid, { email: uid + '@lexkite.com' }), b, cf);
 
 const now = Date.now();
 sql.prepare('INSERT INTO users (uid, email, name, created, seen, plat) VALUES (?, ?, ?, ?, ?, ?)').run('u_learner1', 'learner1@lexkite.com', 'Alex Learner', now - 10 * 864e5, now, 'web');
@@ -98,6 +99,36 @@ assert.ok(sql.prepare("SELECT 1 FROM admin_log WHERE op = 'userBlock' AND ok = 1
 assert.equal((await adm('userBlock', { uid: 'u_learner1', blocked: 0, confirm: 'learner1@lexkite.com' })).j.blocked, 0);
 assert.equal((await sync('u_learner1', { op: 'pull', have: {} })).s, 200, 'mở khóa → đồng bộ lại');
 console.log('✓ khóa có hiệu lực ngay ở /api/sync (kéo & đẩy), có nhật ký');
+
+console.log('3b. Quốc gia & bộ lọc tab Người dùng:');
+{ const cc = uid => sql.prepare('SELECT cc FROM users WHERE uid = ?').get(uid).cc, back = uid => sql.prepare('UPDATE users SET seen = seen - 7200000 WHERE uid = ?').run(uid);
+  assert.equal((await sync('u_cc', { op: 'pull', have: {} }, { country: 'JP', clientIp: '203.0.113.9' })).s, 200);
+  assert.equal(cc('u_cc'), 'JP', 'đăng ký → lưu mã quốc gia 2 chữ từ request.cf.country');
+  const cols = sql.prepare('PRAGMA table_info(users)').all().map(c => c.name);
+  assert.ok(!cols.some(c => /ip/i.test(c)), 'không có cột IP trong bảng users');
+  assert.ok(!JSON.stringify(sql.prepare("SELECT * FROM users WHERE uid = 'u_cc'").get()).includes('203.0.113.9'), 'không lưu IP');
+  back('u_cc'); await sync('u_cc', { op: 'pull', have: {} }, { country: 'XX' }); assert.equal(cc('u_cc'), 'JP', 'không rõ quốc gia → giữ mã cũ');
+  back('u_cc'); await sync('u_cc', { op: 'pull', have: {} }, { country: '<script>' }); assert.equal(cc('u_cc'), 'JP', 'mã lạ bị bỏ');
+  back('u_cc'); await sync('u_cc', { op: 'pull', have: {} }, { country: 'VN' }); assert.equal(cc('u_cc'), 'VN', 'lần đăng nhập gần nhất → cập nhật quốc gia');
+  await sync('u_cc', { op: 'pull', have: {} }, { country: 'US' }); assert.equal(cc('u_cc'), 'VN', 'trong 1 giờ không ghi lại (tiết kiệm lượt ghi D1)');
+  const r = (await adm('users', {})).j;
+  assert.deepEqual(r.countries.find(x => x.k === 'VN'), { k: 'VN', n: 1 }, 'đếm người dùng theo quốc gia');
+  assert.equal(r.countries.find(x => x.k === '').n, 2, 'tài khoản cũ chưa có mã → nhóm "không rõ"');
+  assert.equal(r.rows.find(u => u.uid === 'u_cc').cc, 'VN', 'cột quốc gia trong danh sách');
+  assert.deepEqual((await adm('users', { cc: 'VN' })).j.rows.map(u => u.uid), ['u_cc'], 'lọc theo quốc gia');
+  assert.equal((await adm('users', { cc: '??' })).j.filtered, 2, 'lọc "chưa rõ"');
+  assert.equal((await adm('users', { cc: "VN' OR 1=1 --" })).j.filtered, 3, 'mã bẩn bị bỏ qua (không chèn SQL)');
+  const d = t => new Date(t + 7 * 3600e3).toISOString().slice(0, 10);
+  assert.deepEqual((await adm('users', { from: d(now - 6 * 864e5), to: d(now - 4 * 864e5) })).j.rows.map(u => u.uid), ['u_learner2'], 'lọc theo ngày tham gia (từ – đến, giờ VN)');
+  assert.equal((await adm('users', { from: 'hôm qua' })).j.filtered, 3, 'ngày sai định dạng bị bỏ qua');
+  assert.equal((await adm('users', { sort: 'old' })).j.rows[0].uid, 'u_learner1', 'sắp xếp tham gia sớm nhất');
+  assert.equal((await adm('users', { sort: 'n' })).j.rows[0].uid, 'u_cc', 'sắp xếp theo số lần vào');
+  assert.equal((await adm('usersExport', { cc: 'VN' })).j.rows[0].cc, 'VN', 'CSV có quốc gia');
+  const plan = sql.prepare("EXPLAIN QUERY PLAN SELECT COALESCE(cc, '') AS k, COUNT(*) AS n FROM users GROUP BY cc ORDER BY n DESC LIMIT 250").all().map(x => x.detail).join(' | ');
+  assert.match(plan, /COVERING INDEX idx_users_cc/, 'thống kê quốc gia chỉ đọc chỉ mục: ' + plan);
+  assert.match(sql.prepare("EXPLAIN QUERY PLAN SELECT uid FROM users WHERE cc = 'VN'").all().map(x => x.detail).join(' '), /idx_users_cc/, 'lọc quốc gia dùng chỉ mục');
+  sql.prepare("DELETE FROM users WHERE uid = 'u_cc'").run(); }
+console.log('✓ quốc gia từ Cloudflare (không IP), đếm/lọc/CSV, ngày tham gia, sắp xếp, đọc theo chỉ mục');
 
 console.log('4. Đặt lại & khôi phục:');
 { const r = await adm('userReset', { uid: 'u_learner1', confirm: 'learner1@lexkite.com' });
