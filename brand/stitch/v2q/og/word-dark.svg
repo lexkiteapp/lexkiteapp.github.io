@@ -1,0 +1,330 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" style="background:#091518; font-family:'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Background Radial Gradient (Tactile Night deep teal-black) -->
+    <radialGradient id="nightOgBg" cx="30%" cy="25%" r="85%">
+      <stop offset="0%" stop-color="#14282D" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#0E1D21" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#091518" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Card & Ledge Drop Shadows for Dark Surfaces -->
+    <filter id="nightCardShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#020708" flood-opacity="0.6" />
+    </filter>
+    <filter id="orbShadowNight" x="-25%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#010506" flood-opacity="0.7" />
+    </filter>
+    <filter id="candyGlowTealNight" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#2DD4BF" flood-opacity="0.3" />
+    </filter>
+    <filter id="candyGlowOrangeNight" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000000" flood-opacity="0.5" />
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#F59E0B" flood-opacity="0.3" />
+    </filter>
+
+    <!-- Kite Emblem Gradients (Glowing for Night) -->
+    <linearGradient id="kiteTealGradNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5EEAD4"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="kiteOrangeGradNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+
+    <!-- Glossy Specular Highlights -->
+    <linearGradient id="glassGlossNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#2DD4BF" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    
+    <linearGradient id="cardGlossHighlightNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="40%" stop-color="#2DD4BF" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Right Side Glossy Orb / Abstract Blob Gradients for Tactile Night -->
+    <radialGradient id="abstractBlobGradNight" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="40%" stop-color="#14B8A6"/>
+      <stop offset="75%" stop-color="#0D5E58"/>
+      <stop offset="100%" stop-color="#06312E"/>
+    </radialGradient>
+
+    <radialGradient id="warmOrbGlowNight" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="35%" stop-color="#FBBF24"/>
+      <stop offset="75%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#9A3412"/>
+    </radialGradient>
+
+    <linearGradient id="floatingKiteTailGradNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="40%" stop-color="#F97316"/>
+      <stop offset="75%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+
+    <!-- Card Faces in layered dark teal -->
+    <linearGradient id="definitionCardSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#152B31"/>
+      <stop offset="100%" stop-color="#0E1E22"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base Surface -->
+  <rect width="1200" height="630" fill="url(#nightOgBg)"/>
+
+  <!-- Playful Background Embers & Star Confetti -->
+  <g opacity="0.75">
+    <!-- Star sparkles -->
+    <path d="M 110 220 Q 110 236 94 236 Q 110 236 110 252 Q 110 236 126 236 Q 110 236 110 220 Z" fill="#F59E0B"/>
+    <path d="M 640 85 Q 640 98 627 98 Q 640 98 640 111 Q 640 98 653 98 Q 640 98 640 85 Z" fill="#2DD4BF"/>
+    <path d="M 1130 140 Q 1130 156 1114 156 Q 1130 156 1130 172 Q 1130 156 1146 156 Q 1130 156 1130 140 Z" fill="#F59E0B"/>
+    <path d="M 720 540 Q 720 552 708 552 Q 720 552 720 564 Q 720 552 732 552 Q 720 552 720 540 Z" fill="#14B8A6"/>
+
+    <!-- Floating circles & lozenges -->
+    <circle cx="590" cy="220" r="5" fill="#F59E0B" opacity="0.85"/>
+    <circle cx="85" cy="450" r="5.5" fill="#2DD4BF" opacity="0.7"/>
+    <circle cx="1140" cy="420" r="7" fill="#F97316" opacity="0.8"/>
+    <rect x="670" cy="380" width="10" height="10" rx="3" transform="rotate(25 675 385)" fill="#2DD4BF" opacity="0.6"/>
+    <rect x="1080" cy="90" width="12" height="12" rx="3" transform="rotate(18 1086 96)" fill="#F59E0B" opacity="0.8"/>
+    <rect x="85" cy="115" width="9" height="9" rx="2.5" transform="rotate(45 89 119)" fill="#14B8A6" opacity="0.5"/>
+  </g>
+
+  <!-- ==============================================
+       LEFT COLUMN: LEXKITE DICTIONARY ENTRY (DARK THEME)
+       ============================================== -->
+
+  <!-- 1. TOP-LEFT BRAND BADGE: Kite Logo + "Lexkite dictionary" on Dark Teal Pill -->
+  <g transform="translate(80, 68)">
+    <!-- Pill Ledge -->
+    <rect x="0" y="4" width="248" height="48" rx="24" fill="#061013"/>
+    <!-- Pill Body in layered dark teal -->
+    <rect x="0" y="0" width="248" height="48" rx="24" fill="#12252A" stroke="#25464F" stroke-width="1.8"/>
+
+    <!-- Kite Emblem -->
+    <g transform="translate(34, 24)">
+      <!-- Top Wing -->
+      <polygon points="0,-14 10,-3 0,0 -10,-3" fill="url(#kiteOrangeGradNight)"/>
+      <!-- Bottom Body -->
+      <polygon points="0,0 10,-3 0,14 -10,-3" fill="url(#kiteTealGradNight)"/>
+      <!-- Ribbon String & Beads -->
+      <path d="M 0,14 Q 4,19 1,23 Q -2,26 2,30" fill="none" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="2" cy="30" r="1.8" fill="#E11D48"/>
+    </g>
+
+    <!-- Wordmark & Section: Luminous crisp off-white & glowing teal -->
+    <text x="60" y="29" font-size="16" font-weight="900" fill="#F0F7F8" letter-spacing="0.4">Lexkite</text>
+    <text x="130" y="29" font-size="15" font-weight="700" fill="#2DD4BF" letter-spacing="0.2">dictionary</text>
+    <circle cx="220" cy="24" r="3.5" fill="#F59E0B"/>
+  </g>
+
+  <!-- 2. HEADWORD: HUGE AND BOLD "serendipity" (Crisp bright white) -->
+  <g transform="translate(80, 202)">
+    <text x="0" y="0" font-size="68" font-weight="900" fill="#FFFFFF" letter-spacing="-2">serendipity</text>
+  </g>
+
+  <!-- 3. METADATA ROW: Part of speech, IPA with Speaker button, and CEFR Level C1 -->
+  <g transform="translate(80, 238)">
+    <!-- Part-of-speech Chip: 'noun' (Tactile Glowing Teal Chip with Ledge) -->
+    <g transform="translate(0, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="3" width="94" height="38" rx="19" fill="#042C28"/>
+      <!-- Chip Body -->
+      <rect x="0" y="0" width="94" height="38" rx="19" fill="#0D5E58" stroke="#14B8A6" stroke-width="1.5"/>
+      <!-- Label: High-contrast white text -->
+      <text x="47" y="24" font-size="15" font-weight="800" fill="#FFFFFF" letter-spacing="0.5" text-anchor="middle">noun</text>
+    </g>
+
+    <!-- IPA Chip + Audio Speaker: '/ˌser.ənˈdɪp.ə.ti/' (Tactile Dark Teal Card with Ledge) -->
+    <g transform="translate(108, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="3" width="268" height="38" rx="19" fill="#061013"/>
+      <!-- Chip Body -->
+      <rect x="0" y="0" width="268" height="38" rx="19" fill="#12252A" stroke="#25464F" stroke-width="1.6"/>
+
+      <!-- Speaker Play Button Icon Badge -->
+      <g transform="translate(20, 19)">
+        <circle cx="0" cy="0" r="12" fill="#1C383F"/>
+        <!-- Speaker horn icon -->
+        <path d="M -4,-3 L -2,-3 L 2,-6 L 2,6 L -2,3 L -4,3 Z" fill="#2DD4BF"/>
+        <path d="M 4,-3 C 5,-1.5 5,1.5 4,3" fill="none" stroke="#2DD4BF" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M 6,-5 C 8,-2 8,2 6,5" fill="none" stroke="#2DD4BF" stroke-width="1.6" stroke-linecap="round"/>
+      </g>
+
+      <!-- IPA Text: Sharp, luminous light neutral -->
+      <text x="44" y="24" font-size="16" font-weight="700" fill="#F0F7F8" letter-spacing="0.2">/ˌser.ənˈdɪp.ə.ti/</text>
+    </g>
+
+    <!-- CEFR Level Chip: 'C1' (Warm Gold/Amber Pill with Ledge & Deep Brown-Black Ink) -->
+    <g transform="translate(390, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="3" width="76" height="38" rx="19" fill="#9A3412"/>
+      <!-- Chip Body (Sunny Amber-Orange) -->
+      <rect x="0" y="0" width="76" height="38" rx="19" fill="#F59E0B"/>
+      <!-- STRICT: Deep brown-black ink (#1C1003) on orange/amber -->
+      <text x="38" y="24" font-size="15" font-weight="900" fill="#1C1003" letter-spacing="0.8" text-anchor="middle">C1</text>
+    </g>
+  </g>
+
+  <!-- 4. MEANING SECTION: Tactile card with one short meaning line (Dark Teal Surface) -->
+  <g transform="translate(80, 318)" filter="url(#nightCardShadow)">
+    <!-- 3D Card Ledge -->
+    <rect x="0" y="6" width="580" height="114" rx="28" fill="#061013"/>
+    <!-- Card Face in layered dark teal -->
+    <rect x="0" y="0" width="580" height="114" rx="28" fill="url(#definitionCardSurface)" stroke="#25464F" stroke-width="2"/>
+    <!-- Subtle top gloss sheen -->
+    <path d="M 2,28 C 2,14 14,2 28,2 L 552,2 C 566,2 578,14 578,28 L 578,42 C 400,32 180,32 2,42 Z" fill="url(#cardGlossHighlightNight)"/>
+
+    <!-- Meaning Header Label with accent dot -->
+    <g transform="translate(28, 32)">
+      <circle cx="0" cy="-4" r="3.5" fill="#F59E0B"/>
+      <text x="12" y="0" font-size="12" font-weight="900" fill="#2DD4BF" letter-spacing="1.2">DEFINITION</text>
+    </g>
+
+    <!-- One short meaning line: Crisp white & mint teal, highly readable -->
+    <g transform="translate(28, 70)">
+      <text x="0" y="0" font-size="20" font-weight="800" fill="#F0F7F8" letter-spacing="-0.3">
+        The occurrence of finding valuable or pleasant
+      </text>
+      <text x="0" y="26" font-size="20" font-weight="800" fill="#2DD4BF" letter-spacing="-0.3">
+        things by good luck or happy chance.
+      </text>
+    </g>
+  </g>
+
+  <!-- 5. BOTTOM BAR / CALL TO ACTION: Candy tactile button & brand footer -->
+  <g transform="translate(80, 514)">
+    <!-- Candy Tactile Button: "Explore Word →" with STRICT deep brown-black ink -->
+    <g transform="translate(0, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="5" width="204" height="48" rx="24" fill="#9A3412"/>
+      <!-- Button Body: Sunny Orange -->
+      <rect x="0" y="0" width="204" height="48" rx="24" fill="#F59E0B"/>
+      <!-- STRICT: Deep brown-black ink (#1C1003) on orange button -->
+      <text x="32" y="30" font-size="16" font-weight="900" fill="#1C1003" letter-spacing="0.3">Explore Word</text>
+      <!-- Arrow Icon in deep brown-black ink -->
+      <path d="M 160,24 L 154,19 M 160,24 L 154,29 M 146,24 L 160,24" fill="none" stroke="#1C1003" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Web domain & Free App Tag in luminous light teal -->
+    <g transform="translate(236, 14)">
+      <text x="0" y="19" font-size="18" font-weight="900" fill="#2DD4BF" letter-spacing="-0.3">lexkite.com</text>
+      <circle cx="120" cy="13" r="3" fill="#3B5961"/>
+      <text x="134" y="19" font-size="14" font-weight="800" fill="#A5C6CB">Free English Prep</text>
+    </g>
+  </g>
+
+
+  <!-- ==============================================
+       RIGHT COLUMN: SOFT GLOSSY ILLUSTRATED ABSTRACT SHAPE
+       (Sparkles and a kite tail — NO words, NO persons, NO faces)
+       ============================================== -->
+  <g id="RightIllustratedScene" transform="translate(930, 315)">
+    <!-- Floor Shadow for 3D Dimension -->
+    <ellipse cx="0" cy="200" rx="210" ry="34" fill="#040B0D" opacity="0.8"/>
+    <ellipse cx="0" cy="200" rx="140" ry="20" fill="#061215" opacity="0.6"/>
+
+    <!-- Large Rounded Tactile Backing Card in Dark Teal -->
+    <g transform="translate(-195, -200)" filter="url(#nightCardShadow)">
+      <!-- Physical 3D bottom ledge -->
+      <rect x="0" y="10" width="390" height="390" rx="48" fill="#061013"/>
+      <!-- Card Face -->
+      <rect x="0" y="0" width="390" height="390" rx="48" fill="#102025" stroke="#25464F" stroke-width="2.5"/>
+      <!-- Soft inner radial glow -->
+      <circle cx="195" cy="195" r="160" fill="#152B31" opacity="0.7"/>
+    </g>
+
+    <!-- Soft Glossy Abstract Orb / Blob Composition -->
+    <!-- Primary Big Teal-Mint Glossy Orb -->
+    <g transform="translate(-20, 20)" filter="url(#orbShadowNight)">
+      <!-- Under-ledge shadow -->
+      <circle cx="0" cy="8" r="118" fill="#040B0D" opacity="0.5"/>
+      <!-- Main Orb Body -->
+      <circle cx="0" cy="0" r="118" fill="url(#abstractBlobGradNight)" stroke="#5EEAD4" stroke-width="3"/>
+      <!-- Specular Gloss Crescent Reflection on Top -->
+      <path d="M -80,-50 A 96 96 0 0 1 80,-50 A 90 70 0 0 0 -80,-50 Z" fill="url(#glassGlossNight)"/>
+      <ellipse cx="0" cy="-60" rx="55" ry="24" fill="#FFFFFF" opacity="0.55"/>
+      <circle cx="-42" cy="-45" r="8" fill="#FFFFFF" opacity="0.75"/>
+    </g>
+
+    <!-- Secondary Overlapping Warm Golden Sun Orb -->
+    <g transform="translate(75, -55)" filter="url(#candyGlowOrangeNight)">
+      <!-- Physical bottom ledge -->
+      <circle cx="0" cy="5" r="66" fill="#000000" opacity="0.5"/>
+      <!-- Orb Body -->
+      <circle cx="0" cy="0" r="66" fill="url(#warmOrbGlowNight)" stroke="#FEF08A" stroke-width="3"/>
+      <!-- Specular gloss highlight -->
+      <ellipse cx="-15" cy="-28" rx="30" ry="14" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="-25" cy="-25" r="5" fill="#FFFFFF" opacity="0.85"/>
+    </g>
+
+    <!-- Small Coral Candy Droplet Satellite -->
+    <g transform="translate(-105, 95)">
+      <circle cx="0" cy="3" r="26" fill="#040B0D" opacity="0.6"/>
+      <circle cx="0" cy="0" r="26" fill="#FB7185" stroke="#FFFFFF" stroke-width="2"/>
+      <ellipse cx="-5" cy="-10" rx="10" ry="5" fill="#FFFFFF" opacity="0.7"/>
+    </g>
+
+    <!-- Small Golden Bead Satellite -->
+    <g transform="translate(110, 80)">
+      <circle cx="0" cy="2" r="16" fill="#040B0D" opacity="0.6"/>
+      <circle cx="0" cy="0" r="16" fill="#FBBF24" stroke="#FFFFFF" stroke-width="1.8"/>
+      <circle cx="-4" cy="-4" r="4" fill="#FFFFFF" opacity="0.8"/>
+    </g>
+
+    <!-- Graceful Playful Kite Tail Trailing through the Composition -->
+    <g id="KiteTailAndRibbons" transform="translate(30, -115)">
+      <!-- Main Dynamic Tail String -->
+      <path d="M 0,0 Q -45,45 -20,95 Q 10,145 -35,195 Q -65,230 -25,265" fill="none" stroke="url(#floatingKiteTailGradNight)" stroke-width="4.5" stroke-linecap="round"/>
+      
+      <!-- Tactile Bow 1 (Sunny Orange) -->
+      <g transform="translate(-32, 55) rotate(-24)">
+        <polygon points="-12,-6 0,0 -12,6" fill="#F59E0B"/>
+        <polygon points="12,-6 0,0 12,6" fill="#F59E0B"/>
+        <circle cx="0" cy="0" r="3.5" fill="#1C1003"/>
+      </g>
+
+      <!-- Tactile Bow 2 (Glowing Cyan-Teal) -->
+      <g transform="translate(-6, 120) rotate(18)">
+        <polygon points="-13,-7 0,0 -13,7" fill="#2DD4BF"/>
+        <polygon points="13,-7 0,0 13,7" fill="#2DD4BF"/>
+        <circle cx="0" cy="0" r="3.5" fill="#0F766E"/>
+      </g>
+
+      <!-- Tactile Bow 3 (Coral Pink) -->
+      <g transform="translate(-34, 185) rotate(-16)">
+        <polygon points="-11,-6 0,0 -11,6" fill="#FB7185"/>
+        <polygon points="11,-6 0,0 11,6" fill="#FB7185"/>
+        <circle cx="0" cy="0" r="3" fill="#FFE4E6"/>
+      </g>
+
+      <!-- Tactile Bow 4 (Mint Teal) -->
+      <g transform="translate(-30, 255) rotate(28)">
+        <polygon points="-12,-6 0,0 -12,6" fill="#5EEAD4"/>
+        <polygon points="12,-6 0,0 12,6" fill="#5EEAD4"/>
+        <circle cx="0" cy="0" r="3" fill="#0E5E58"/>
+      </g>
+    </g>
+
+    <!-- Floating Crisp 4-Point Gold & Mint Sparkles -->
+    <g id="SparklesInScene">
+      <!-- Big Golden Sparkle Top-Left -->
+      <path d="M -90 -120 Q -90 -102 -108 -102 Q -90 -102 -90 -84 Q -90 -102 -72 -102 Q -90 -102 -90 -120 Z" fill="#F59E0B" filter="url(#candyGlowOrangeNight)"/>
+      <circle cx="-90" cy="-102" r="3" fill="#FFFBEB"/>
+
+      <!-- Mint Teal Sparkle Right -->
+      <path d="M 125 -10 Q 125 4 111 4 Q 125 4 125 18 Q 125 4 139 4 Q 125 4 125 -10 Z" fill="#2DD4BF" filter="url(#candyGlowTealNight)"/>
+      <circle cx="125" cy="4" r="2.5" fill="#FFFFFF"/>
+
+      <!-- Small Star Sparkle Bottom-Left -->
+      <path d="M -120 20 Q -120 30 -130 30 Q -120 30 -120 40 Q -120 30 -110 30 Q -120 30 -120 20 Z" fill="#F59E0B"/>
+
+      <!-- Micro Sparkle Bottom-Right -->
+      <path d="M 60 145 Q 60 153 52 153 Q 60 153 60 161 Q 60 153 68 153 Q 60 153 60 145 Z" fill="#5EEAD4"/>
+    </g>
+  </g>
+</svg>

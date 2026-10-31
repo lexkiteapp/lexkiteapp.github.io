@@ -1,0 +1,3 @@
+# Stitch quality refs – email (session 6f610bf6, key3 project 18075333702575270507, DS assets/16469239436252875897 = Lexkite Kit copy). page light-id dark-id device verdict | note (fake bits to hide on port)
+streak d91abd6539724f7188feb6eede2ff0e1 3a3a605190284f968e640a17bc2cf641 DESKTOP PASS teacher-slot | NEW user email; streak/freeze from retention.js; "Remind me less" = real frequency setting needed
+welcome 4c12cb476a974f8983e3d5fba186f1af b08edee598004e0487d49500757a507f DESKTOP PASS teacher-slot | NEW user email (needs provider + opt-in, owner); HIDE fake address line (use real LLC address), "Help Center"
