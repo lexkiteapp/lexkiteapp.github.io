@@ -33,7 +33,7 @@
     return pts;
   }
   const path = (pts, close) => 'M' + pts.map(p => f(p[0]) + ' ' + f(p[1])).join('L') + (close ? 'Z' : '');
-  // Trả về <g> (gốc toạ độ = tâm miệng). p: tên hình hoặc bộ số (đã trộn). id: tiền tố clipPath (duy nhất trong trang).
+  // Trả về <g> (gốc tọa độ = tâm miệng). p: tên hình hoặc bộ số (đã trộn). id: tiền tố clipPath (duy nhất trong trang).
   function svg(who, p, id = 'm') {
     const S = STYLE[who] || STYLE.ama; p = SHAPE[p] || p;
     const hw = S.hw * p.w, sm = p.s * .32, upK = S.up, open = p.u + p.d > .02;

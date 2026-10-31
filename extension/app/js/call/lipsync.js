@@ -58,7 +58,7 @@
     return out;
   }
   /** Tinh chỉnh mốc (CI, trước smooth): neo chỗ miệng mở sau im / khép trước im vào lúc tiếng thật bắt đầu / tắt.
-   * env = RMS 100 Hz của file tiếng; words = [{start,end}] thời điểm từ của Kokoro (tuỳ chọn) → mép từ đầu/cuối mỗi cụm.
+   * env = RMS 100 Hz của file tiếng; words = [{start,end}] thời điểm từ của Kokoro (tùy chọn) → mép từ đầu/cuối mỗi cụm.
    * Sửa lỗi Rhubarb mở miệng sớm ở âm hơi "H" (Hi/Hey) và mở trễ ở phụ âm tắc đầu câu. Chỉ dời mốc trong ±WIN, không đổi hình. */
   function align(cues, env, o = {}) {
     const WIN = o.win ?? 0.15, FAR = o.far ?? 0.5, hz = o.hz ?? 100, peak = Math.max(...env, 1e-6), thr = peak * (o.thr ?? 0.1), W = o.words || [];

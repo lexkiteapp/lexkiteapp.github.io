@@ -3,7 +3,7 @@
  * Video H.264 "xếp chồng" (nửa trên màu đã nhân alpha, nửa dưới alpha) → WebGL ghép thành nền trong suốt: mọi trình duyệt, giải mã phần cứng.
  * Hạ cấp: saveData / giảm chuyển động / không WebGL / thiếu tài sản → poster.webp (alpha) tĩnh. Tài sản: chỉ qua Chars (poster, clip talk/listen, đầu trơn).
  * 🙂 Mặt VẼ khớp miệng (cờ lk.lipsync, chỉ Call: mount(el, who, { lip: true }), docs/specs/call-lipsync.md): đầu trơn + mắt/mi/mày/ria/miệng vector (LipFace) vẽ lại mỗi khung theo
- * audio.currentTime. Có mốc CI (web/js/call/cues.js + <khoá>-ls.mp3) → "pre"; không có → LipSync.live() theo năng lượng tiếng. Thiếu gì → vòng clip như cũ → poster. */
+ * audio.currentTime. Có mốc CI (web/js/call/cues.js + <khóa>-ls.mp3) → "pre"; không có → LipSync.live() theo năng lượng tiếng. Thiếu gì → vòng clip như cũ → poster. */
 (function (g) {
   const D = g.document;
   const lite = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))) || g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
@@ -158,7 +158,7 @@
         if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; }
         const base = (g.AUDIO_BASES || [])[0];
         if (!o.voice || !g.KVoice || !base || !g.Audio) return tts();
-        // mặt vẽ: câu có mốc CI → bản <khoá>-ls.mp3 sinh CÙNG lần với mốc; lỗi tải bản đó → mp3 thường + live
+        // mặt vẽ: câu có mốc CI → bản <khóa>-ls.mp3 sinh CÙNG lần với mốc; lỗi tải bản đó → mp3 thường + live
         const key = g.KVoice.lineKey(o.voice, text), cue = fc && !o.plain ? fc.cue(key) : null, a = hq = new g.Audio();
         if (fc && !cue && fc.tap()) a.crossOrigin = 'anonymous'; // live đo năng lượng tiếng (Web Audio cần CORS – audio.lexkite.com trả ACAO *)
         a.src = base + key + (cue ? '-ls' : '') + '.mp3';

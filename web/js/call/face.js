@@ -1,12 +1,12 @@
 /* 🙂 LipFace – mặt VẼ nhiều lớp cho giáo viên 2D Ama/Carlos (kiểu state machine của Rive/Duolingo, docs/specs/call-lipsync.md).
- * Lớp: đầu (poster-2x đã xoá mắt/mày/miệng → "đầu trơn") · mắt (lòng trắng, tròng, đốm sáng) · mi (mí trên = chớp) · mày · ria (Carlos) · miệng (LipMouth).
+ * Lớp: đầu (poster-2x đã xóa mắt/mày/miệng → "đầu trơn") · mắt (lòng trắng, tròng, đốm sáng) · mi (mí trên = chớp) · mày · ria (Carlos) · miệng (LipMouth).
  * Input số giống Rive: viseme (a,b,k) + gain (độ lớn tiếng) · blink 0..1 · look {x,y} −1..1 · brow (nhướng) · knit (nhíu trong) · tilt (độ) · nod (px).
  * machine(who, o) = các lớp chạy song song theo thời gian (chớp, liếc, nhướng mày, nghiêng đầu khi nói) – hàm thuần của t + hạt giống → phát thật và dựng video giống hệt.
- * Toạ độ = pixel poster-2x (1108×960). Thuần (không DOM): chạy trình duyệt lẫn Node (scripts/lipsync/face_board.py, drawn_frames.mjs). */
+ * Tọa độ = pixel poster-2x (1108×960). Thuần (không DOM): chạy trình duyệt lẫn Node (scripts/lipsync/face_board.py, drawn_frames.mjs). */
 (function (g) {
   const LS = g.LipSync || (typeof require !== 'undefined' && require('./lipsync.js'));
   const LM = g.LipMouth || (typeof require !== 'undefined' && require('./mouths.js'));
-  // Nét đo trên poster-2x (scripts/lipsync/face_board.py in toạ độ khối tối/trắng): mắt (tâm, bán trục), tròng, mày (trong, đỉnh, ngoài, dày), miệng, ria.
+  // Nét đo trên poster-2x (scripts/lipsync/face_board.py in tọa độ khối tối/trắng): mắt (tâm, bán trục), tròng, mày (trong, đỉnh, ngoài, dày), miệng, ria.
   const RIG = {
     ama: {
       skin: '#742414', ink: '#0B0605', pivot: [554, 640], mouth: [550, 392], rest: 0, look: [0.12, -0.12], hl: true, lw: 6.5, flick: 1, iris: 0.66,
@@ -56,7 +56,7 @@
     return `<path d="M${x} ${f(y - h * .45)}C${f(x - w * .3)} ${f(y - h * 1.15)} ${f(x - w * .85)} ${f(y - h * .8)} ${f(x - w)} ${f(y + h * .55)}C${f(x - w * .7)} ${f(y + h * .35)} ${f(x - w * .35)} ${f(y + h * .85)} ${x} ${f(y + h * .35)}`
       + `C${f(x + w * .35)} ${f(y + h * .85)} ${f(x + w * .7)} ${f(y + h * .35)} ${f(x + w)} ${f(y + h * .55)}C${f(x + w * .85)} ${f(y - h * .8)} ${f(x + w * .3)} ${f(y - h * 1.15)} ${x} ${f(y - h * .45)}Z" fill="${R.ink}"/>`;
   }
-  /** Toàn bộ lớp mặt (không gồm đầu trơn): <g> theo toạ độ poster-2x. st: trạng thái từ machine().at(t) hoặc tự đặt. */
+  /** Toàn bộ lớp mặt (không gồm đầu trơn): <g> theo tọa độ poster-2x. st: trạng thái từ machine().at(t) hoặc tự đặt. */
   function svg(who, st, id = 'f') {
     const R = RIG[who] || RIG.ama; st = Object.assign({ mouth: 'X', blink: 0, look: { x: R.look[0], y: R.look[1] }, brow: 0, knit: 0, open: 0 }, st);
     const m = LM.svg(who, st.mouth, id + 'm');
@@ -67,7 +67,7 @@
   const rng = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
   const ease = x => x * x * (3 - 2 * x);
   const EMO = { happy: { brow: .25, tilt: 1.5 }, cheer: { brow: .45, tilt: 2 }, explain: { brow: .12, tilt: -1 }, encourage: { brow: .3, tilt: 1.8 }, thinking: { brow: .1, knit: .5, tilt: -2.5, look: [-.4, -.5] }, concern: { knit: .8, tilt: -1.5 }, listen: {} };
-  /** Bộ máy biểu cảm. o: { cues, env (RMS 100 Hz, tuỳ chọn), dur, emo, seed, text }.
+  /** Bộ máy biểu cảm. o: { cues, env (RMS 100 Hz, tùy chọn), dur, emo, seed, text }.
    *  Lớp miệng: viseme từ cues × độ mở theo độ lớn tiếng (LipSync.gain). Song song: chớp mắt (2.8–5.6 s, 15 % chớp đôi, 150 ms), liếc (đứng nhìn người học khi nói, liếc nhẹ khi ngắt),
    *  nhướng mày ở chỗ nhấn (tiếng bật lên sau im) và cuối câu hỏi, nghiêng/gật đầu nhẹ theo năng lượng nói. Trả { at(t) → trạng thái, blinks }. */
   function machine(who, o = {}) {

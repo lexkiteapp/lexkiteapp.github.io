@@ -1,7 +1,7 @@
 // Mốc khớp miệng cho câu giáo viên dựng sẵn – Call + Truyện bài học (docs/specs/call-lipsync.md §Đưa vào hệ thống; CI audio.yml): Kokoro python sinh tiếng VÀ mốc âm vị CÙNG một lần
-// (scripts/lipsync/kokoro_ts.py) → <khoá>-ls.mp3 (kho media, bản riêng – mp3 cũ đệm immutable 1 năm nên không ghi đè) + mốc đã align/smooth/lead như lab.mjs.
+// (scripts/lipsync/kokoro_ts.py) → <khóa>-ls.mp3 (kho media, bản riêng – mp3 cũ đệm immutable 1 năm nên không ghi đè) + mốc đã align/smooth/lead như lab.mjs.
 // Mỗi câu phải qua cổng mặt vẽ như lab (drawn_frames.mjs): lệch tiếng–miệng ≤ 45 ms · đúng hình theo âm vị ≥ 80 % · 0 nháy. Câu trượt → không ghi mốc (app tự chạy live), báo trong bảng.
-// Ra: .media-out/audio/l/<khoá>-ls.mp3 + web/js/call/cues.js (LK_CUES: mốc nén + độ lớn tiếng 100 Hz 8 bit + từ điển nhỏ cho live) – chỉ commit sau khi đẩy mp3 thành công.
+// Ra: .media-out/audio/l/<khóa>-ls.mp3 + web/js/call/cues.js (LK_CUES: mốc nén + độ lớn tiếng 100 Hz 8 bit + từ điển nhỏ cho live) – chỉ commit sau khi đẩy mp3 thành công.
 // Dùng: node scripts/lipsync/call_cues.mjs --count   (in "cần tạo N")  ·  --index-only (chỉ ghi chỉ mục)  ·  node scripts/lipsync/call_cues.mjs   (cần python kokoro==0.9.4 + espeak-ng, ffmpeg)
 import fs from 'node:fs'; import os from 'node:os'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
 const req = createRequire(import.meta.url), LS = req('../../web/js/call/lipsync.js'), LF = req('../../web/js/call/face.js');
@@ -10,7 +10,7 @@ const sh = (c, a) => execFileSync(c, a, { stdio: ['ignore', 'pipe', 'pipe'] }).t
 const c = { self: {} }; c.self = c; vm.createContext(c);
 for (const f of ['web/js/listen/kvoice.js', 'web/js/call/calls.js', 'web/js/call/calls-exam.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
 const V = JSON.parse(fs.readFileSync('web/teach/characters.json', 'utf8')).people;
-// cùng danh sách câu với scripts/gen-audio.mjs (§Cuộc gọi) – khoá = KVoice.lineKey(giọng, câu) như teacher.js phát
+// cùng danh sách câu với scripts/gen-audio.mjs (§Cuộc gọi) – khóa = KVoice.lineKey(giọng, câu) như teacher.js phát
 const lines = new Map();
 for (const k of c.CALLS || []) {
   const who = V[k.who] ? k.who : 'ama', voice = V[who].voice.app, nodes = k.nodes ? Object.values(k.nodes) : (k.turns || []);
@@ -57,14 +57,14 @@ if (todo.length) {
     const env = rms100(back), dur = env.length / 100, kp = JSON.parse(fs.readFileSync(`${QA}/${key}.ph.json`, 'utf8'));
     const cues = LS.lead(LS.smooth(LS.align(LS.fromPhones(kp.ph, dur), env, { words: kp.words }))), s = score(l, cues, env, kp.ph), pass = Math.abs(s.lagMs) <= 45 && s.visemePct >= 80 && s.flicker === 0;
     rows.push({ key, text: l.text, ...s, pass });
-    if (pass) K[key] = pack(cues, env); else { fs.rmSync(mp3); K[key] = 0; } // trượt cổng → không đẩy mp3, ghi 0 (app dùng live, đêm sau không thử lại – đổi câu = khoá mới)
+    if (pass) K[key] = pack(cues, env); else { fs.rmSync(mp3); K[key] = 0; } // trượt cổng → không đẩy mp3, ghi 0 (app dùng live, đêm sau không thử lại – đổi câu = khóa mới)
   }
 }
 const keys = Object.keys(K).filter(k => lines.has(k)).sort(), good = keys.filter(k => K[k]), body = Object.fromEntries(keys.map(k => [k, K[k]]));
-fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khoá] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64] cho <khoá>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
+fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khóa] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64] cho <khóa>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
   + `(function (g) { g.LK_CUES = ${JSON.stringify({ v: 1, k: body, dict })}; })(typeof self !== 'undefined' ? self : this);\n`);
 const bad = rows.filter(r => !r.pass), md = [`## Mốc khớp miệng – ${good.length}/${lines.size} câu có mốc (${keys.length - good.length} trượt cổng → live) · lượt này ${rows.length} câu, trượt cổng ${bad.length}`, '',
   rows.length ? `lệch max ${Math.max(0, ...rows.filter(r => r.lagMs != null).map(r => Math.abs(r.lagMs)))} ms · đúng hình min ${Math.min(100, ...rows.filter(r => r.visemePct != null).map(r => r.visemePct))} % · nháy ${rows.reduce((a, r) => a + (r.flicker || 0), 0)}` : '',
-  ...(bad.length ? ['', '| khoá | câu | lệch ms | đúng hình % | nháy |', '|---|---|---|---|---|', ...bad.map(r => `| ${r.key} | ${r.text.slice(0, 60)} | ${r.lagMs ?? r.err} | ${r.visemePct ?? ''} | ${r.flicker ?? ''} |`)] : [])].join('\n');
+  ...(bad.length ? ['', '| khóa | câu | lệch ms | đúng hình % | nháy |', '|---|---|---|---|---|', ...bad.map(r => `| ${r.key} | ${r.text.slice(0, 60)} | ${r.lagMs ?? r.err} | ${r.visemePct ?? ''} | ${r.flicker ?? ''} |`)] : [])].join('\n');
 console.log(md); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
 fs.rmSync(QA, { recursive: true, force: true });
