@@ -18,6 +18,7 @@
   "Cụm từ đi kèm:": "Collocations:",
   "Danh sách từ": "Word deck breakdown",
   "Flashcard": "Flashcard",
+  "Ghi chú của cô Ama": "Teacher Ama's Note",
   "Ghép nhanh 60 giây": "Fast 60s pair",
   "Ghép thẻ từ": "Match cards",
   "Hướng dẫn chặng": "Guide",
@@ -32,6 +33,7 @@
   "Mục tiêu nước rút": "Target Goal",
   "Mức thuộc của sổ": "Deck Mastery Level",
   "Nghe lặp liên tục": "Audio loop",
+  "Nghĩa theo từ loại": "Meanings by part of speech",
   "Nhập Anki": "Anki in",
   "Nhập bộ thẻ Anki": "Import Anki deck",
   "Nhớ lâu": "Permanent",
@@ -58,4 +60,5 @@
   "Đáp án đúng:": "Correct answer:",
   "Đã hiểu (+2 XP)": "Got it (+2 XP)",
   "Đóng màn chuỗi": "Close session",
+  "Đồng nghĩa & trái nghĩa": "Synonyms & Antonyms",
 }); })(typeof self !== 'undefined' ? self : this);

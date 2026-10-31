@@ -350,6 +350,47 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   ok($('#mList .card') && !R() && $('#mTabs') && $('#clearFixed'), 'mistakes: cờ tắt → trang cũ nguyên vẹn');
   w.localStorage.setItem('lk.ux1', '1'); await S.set('mistakes', []);
 }
+// ---------- Từ điển #/dict (Stitch v2.1 dictionary): khung mới giữ đủ ý trang cũ ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const S = w.Core.Store, F0 = w.fetch, SP0 = App.savePhraseDialog; let spd = null;
+  const NOTES = JSON.parse(fs.readFileSync(path.join(WEB, 'js/notes/m.json'), 'utf8'));
+  w.fetch = async u => { u = String(u); const j = v => ({ ok: true, status: 200, json: async () => v, text: async () => JSON.stringify(v) });
+    if (/js\/notes\/m\.json/.test(u)) return j(NOTES); if (/rel_jjb=mitigate/.test(u)) return j([{ word: 'severe', score: 900 }]); if (/rel_ant=mitigate/.test(u)) return j([{ word: 'aggravate', score: 500 }]);
+    if (/ml=mitigate/.test(u)) return j([{ word: 'alleviate', score: 900, tags: ['f:5'] }]); return F0(u); };
+  App.savePhraseDialog = o => { spd = o; };
+  await S.set('recent', []); delete App.state.cards.mitigate;
+  await go('#/dict', '.v2-dictionary [data-d-empty]');
+  const R = () => $('.v2-dictionary');
+  ok(R() && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page' && $('#searchForm #q') && $('#searchForm button[type=submit]') && $$('[data-d-samples] a[href^="#/dict/"]').length === 6 && /display:none/.test($('#dEntry').getAttribute('style')), 'dict (v2): khung Stitch, tab Luyện, ô tra #searchForm/#q, thẻ trống + 6 từ mẫu, ẩn mục từ');
+  ok($('.v2-dictionary h1') && $('.v2-dictionary h1').textContent.trim() === w.t('Từ điển Anh – Việt') && $('.v2-dictionary [data-ext-cta="app"]') && $('#dBack') && $('.v2-dictionary button[data-href="#/deck"]'), 'dict (v2): tiêu đề + mô tả cũ, nút quay lại, Sổ từ (#/deck), thẻ add-on [data-ext-cta]');
+  $('#q').value = 'mitigate'; $('#searchForm').dispatchEvent(new w.Event('submit', { cancelable: true })); await tick(20);
+  ok(w.location.hash === '#/dict/mitigate', 'dict (v2): Tra từ → #/dict/<từ>');
+  await go('#/dict/mitigate', '#saveCard[style=""]'); await tick(150);
+  const E = $('#dEntry');
+  ok(R() && $('#dWord').textContent.trim() === 'mitigate' && !/display:none/.test(E.getAttribute('style')) && !$('[data-d-empty]'), 'dict (v2): mục từ thật (mitigate) – thẻ trống biến mất');
+  ok(E.querySelector('[data-speak="mitigate"][data-accent="en-GB"]') && E.querySelector('[data-speak="mitigate"][data-accent="en-US"]') && E.textContent.includes('/ˈmɪtɪɡeɪt/') && E.querySelector('[data-slow="mitigate"]'), 'dict (v2): 2 giọng UK/US có IPA + loa [data-accent], [data-slow] nghe chậm');
+  ok((w.I18N.meanLang() === 'en' ? /display:none/.test($('#dVi').parentElement.getAttribute('style')) : $('#dVi').textContent.includes(App.meanOf(w.IELTS_DATA.INDEX.mitigate))) && E.textContent.includes('to make something less harmful') && /C1/.test(E.textContent), 'dict (v2): nghĩa (ngôn ngữ nghĩa; en thuần → ẩn dòng như trang cũ) + định nghĩa + CEFR');
+  const tch = $('[data-d-teacher="ama"]');
+  ok(tch && !/display:none/.test(tch.getAttribute('style')) && /teach\/ama\/still-explain/.test(tch.querySelector('img').getAttribute('src')) && !tch.textContent.includes('Live Tutor') && /Writing Task 2/.test($('#dNote').textContent), 'dict (v2): cô Ama (Chars still explain) thay chỗ giữ người + ghi chú "Dùng khi thi" thật');
+  ok($('#quickSave') && !$('#quickSave').disabled && $('.v2-dictionary [data-href="#/practice/speak?w=mitigate"]') && $('#dEx [data-speak-text]') && $('#dEx').textContent.includes('mitigate the effects of climate change'), 'dict (v2): #quickSave, Luyện phát âm, ví dụ + [data-speak-text]');
+  ok($('#dCol [data-wc-say="mitigate the effects"]') && $('#dCol [data-wc-say="reduce"]') && $('#dCol a[href="#/dict/aggravate"]') && $('#dCol a[href="#/dict/severe"]') && $('#related a[href="#/dict/alleviate"]'), 'dict (v2): Hay đi với / Đồng nghĩa [data-wc-say] + Datamuse (đi kèm, trái nghĩa, #related gần nghĩa) → #/dict');
+  const nk = $$('#dNotes [data-wn]').map(x => x.dataset.wn).join(',');
+  ok(nk === 'm,e,u,f' && $('#dNotes [data-wn="e"] [data-wn-b] .line-through') && $('#dNotes [data-wn="f"] [data-wc-say="mitigation"]') && $('#dNotes [data-wn-b]').getAttribute('translate') === 'yes', 'dict (v2): Hiểu sâu = Mẹo nhớ · Lỗi hay gặp (sai/đúng) · Dùng khi thi · Họ từ');
+  const hu = $('#dNotes [data-wn-h="u"]'), bu = $('#dNotes [data-wn-b="u"]'); const c0 = /display:\s*none/.test(bu.getAttribute('style')); hu.click();
+  ok(c0 && !/none/.test(bu.style.display) && hu.getAttribute('aria-expanded') === 'true', 'dict (v2): bấm mục Hiểu sâu → mở/đóng (aria-expanded)');
+  ok($('#dPos') && $('#dPos').textContent.includes('to make something less harmful') && $('#ctx') && $('#ctxVi') && $('#trCtx') && $('#saveWord') && $('#phraseBox') && $('#addPhr'), 'dict (v2): Nghĩa theo từ loại, #saveCard (#ctx #ctxVi #trCtx #saveWord), #phraseBox + #addPhr');
+  ok((await S.get('recent', [])).includes('mitigate'), 'dict (v2): lưu "Gần đây"');
+  $('#addPhr').click(); ok(spd && spd.phrase === 'mitigate ', 'dict (v2): #addPhr mở hộp lưu cụm của bạn');
+  $('#ctx').value = 'We must mitigate the risk.'; $('#saveWord').click();
+  for (let i = 0; i < 40 && !(App.state.cards.mitigate && $('#quickSave') && $('#quickSave').disabled); i++) await tick(50);
+  const cm = App.state.cards.mitigate;
+  ok(cm && cm.contexts.some(c => c.text === 'We must mitigate the risk.') && $('#quickSave').disabled && !/display:none/.test($('#saveCard > div > div').getAttribute('style')), 'dict (v2): #saveWord lưu thẻ + ngữ cảnh → Đã có trong flashcard, chấm mức thuộc');
+  await go('#/dict', '[data-d-empty]');
+  ok($('.v2-dictionary a[href="#/dict/mitigate"][lang="en"]') && !/display:none/.test($('#searchForm').nextElementSibling.getAttribute('style') || ''), 'dict (v2): hàng Gần đây có từ vừa tra');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/dict/mitigate', '#result .entry-word');
+  ok($('#result .entry-word') && !R() && $('#searchForm') && $('#saveCard'), 'dict: cờ tắt → trang cũ nguyên vẹn');
+  w.fetch = F0; App.savePhraseDialog = SP0; delete App.state.cards.mitigate; w.localStorage.setItem('lk.ux1', '1');
+}
 // ---------- Gọi giáo viên #/call (Stitch v2.1 teacher-call): khung mới giữ đủ ý trang Gọi cũ ----------
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document;
