@@ -10,10 +10,11 @@
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import crypto from 'node:crypto'; import { execFileSync } from 'node:child_process'; import { pathToFileURL } from 'node:url';
 import { loadBrowserIndex } from '../lexicon/shards.mjs';
 import { loadVocab } from '../lib/seo-data.mjs';
-import { CSS, SEO_CSS, UI_JS, siteHeader, siteFooter, appHref, landingHref } from '../lib/site-layout.mjs';
+import { CSS, SEO_CSS, UI_JS, LSW_CSS, siteHeader, siteFooter, siteChrome, appHref, landingHref } from '../lib/site-layout.mjs';
+import { render as stRender, compact, teacher } from '../lib/st-web.mjs'; // khung Stitch dict-hub (hub/A–Z) + đầu/chân trang chung chrome.js
 import { toolPath, toolStrings } from '../lib/tools-links.mjs';
 import { adsOn } from '../lib/ads-static.mjs'; // 💰 ô quảng cáo trang từ, chỉ khi config bật + có mã ô 'dict' (docs/ADS.md §1)
-import { DICT_PATH as T_ALL, ENABLED, T, SITE, hubPath, wordPath, letterPath, slugOf, renderWord, renderHub, renderSitemap, parseOpen, isIndexable } from '../../workers/dict/render.mjs';
+import { DICT_PATH as T_ALL, ENABLED, T, SITE, hubPath, wordPath, letterPath, slugOf, renderWord, renderHub, renderSitemap, parseOpen, isIndexable, DICT_HUB_JS } from '../../workers/dict/render.mjs';
 
 const VI_RE = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // nhãn soạn tiếng Việt trong "Cách dùng từ" → không lọt sang trang en
 export const QUALITY_MIN = 70, WORDS_MIN = 150; // ngưỡng ứng viên index (§5) – chỉ được TĂNG
@@ -204,10 +205,23 @@ export function purgeCss(css, used) {
 }
 export const usedClasses = (htmls, js) => { const u = new Set(); for (const h of htmls) for (const m of h.matchAll(/class="([^"]*)"/g)) m[1].split(/\s+/).forEach(c => c && u.add(c)); for (const m of js.matchAll(/['"`]([\w -]+)['"`]/g)) m[1].split(/\s+/).forEach(c => c && u.add(c)); return u; };
 
+// Đầu/chân trang chung của khung Stitch (chrome.js – từ mẫu trang chủ): cùng chữ/liên kết với trang chủ + blog (content/landing/<lang>.json → nav)
+const LAND_EN = J('content/landing/en.json');
+function chromeOf(l, langHref) {
+  const x = fs.existsSync(`content/landing/${l}.json`) ? J(`content/landing/${l}.json`) : {}, c = { ...LAND_EN, ...x, nav: { ...LAND_EN.nav, ...(x.nav || {}) } }, appQ = `/app/?hl=${l}`, hlEn = l === 'vi' ? 'vi' : 'en';
+  return siteChrome({ lang: l, nav: [[appHref(l), c.nav.app, l], [`/${l}/blog/`, c.nav.blog, l], [hubPath(l), T[l].hub, l], [l === 'vi' ? '/tu-vung/' : '/en/vocabulary/', c.nav.vocab, hlEn]],
+    open: [`${appQ}#/welcome/setup`, c.nav.start], signin: [`${appQ}#/welcome/login`, c.nav.login], home: landingHref(l), langHref, label: c.langL, text: T[l].foot });
+}
+// CSS ngoài mẫu (chức năng, không đổi hình): menu ngôn ngữ cũ (lsw), link bỏ qua, [hidden] thắng class flex của Tailwind (lọc từ loại/CEFR)
+const ST_EXTRA = () => LSW_CSS + '.lsw-m{z-index:60}' + topRules(CSS).filter(r => /^\.skip\b/.test(r)).join('') + '.v2s-web-dict-hub [hidden]{display:none!important}';
+// Hub/A–Z: st(d) cho renderHub – khung Stitch dict-hub, giáo viên 2D qua Chars (Ama talk – thẻ phát âm), CSS nhóm đầy đủ (compact() lọc theo từng trang ở build())
+const stHub = l => d => { const r = stRender('dict-hub', { ...d, teacher: teacher('ama', 'talk', { size: 160, cls: 'chr mx-auto' }) }, { lang: l, chrome: chromeOf(l, x => `__LH_${x}__`) }); return { css: r.css + ST_EXTRA(), body: r.body, js: DICT_HUB_JS }; };
+
 export function buildShell() {
   const CSS2 = `.wd .pron .au{margin:0}.wd .acts .btn{text-decoration:none}.wd .acts .btn:not(.primary){color:var(--text)!important;background:var(--surface)}.wd .entry-head{grid-template-columns:minmax(0,1fr)}.wd h1.entry-word{margin:0}.wd .def{margin-top:.4rem}.wd .acts{margin-top:.9rem}.wd .example-box{margin-top:1rem}.wd .example-box p{margin:.3rem 0}.wd .wc-chips{margin-top:.9rem}.wd .wn.wc{margin-top:1rem}.wd .blk{margin-top:1rem}.wd .card h2{font-size:1.1rem;margin:0 0 .6rem}.wd .card h3{font-size:1rem;margin:.9rem 0 .2rem}.wd .pair+.pair{border-top:1px dashed var(--line);margin-top:.6rem;padding-top:.4rem}.wd .tip{margin:.6rem 0 0;padding:.6rem .8rem;border-radius:12px;background:var(--gold-soft)}.wd .note{margin:.3rem 0}.wd .notes{margin-top:1rem}.quiz{padding-inline-start:1.2rem;margin:0}.quiz>li{margin:.8rem 0}.quiz .opts{list-style:none;padding:0;margin:.3rem 0;display:flex;flex-wrap:wrap;gap:.4rem}.quiz .opts .chip{font-size:.9rem;white-space:normal}.quiz details{margin:.3rem 0}.quiz summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--link)}.wd .ok{color:var(--good-text)}.wd .wc-chip{min-height:44px;box-sizing:border-box;text-decoration:none}.wd .cta{margin-top:1rem}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}`;
   const header = {}, footer = {};
   const APP_CSS = appCss() + '\n' + addonCss(); // thẻ tra từ giống hệt app/add-on: lấy CHÍNH CSS của app (web/css/style.css + wordcard.css), đóng khung trong .wd
+  // Trang từ (cả Worker): giữ đầu/chân trang cũ – đầu/chân trang Stitch (chrome.js) + CSS của nó đẩy trang từ lên ~18–19 KB gzip > ngân sách 16 KB (scripts/test/dict-pages.mjs) → chờ chủ chọn (docs/STITCH-V2-PORT.md)
   for (const l of ENABLED) {
     const lh = x => `__LH_${x}__`;
     header[l] = siteHeader({ nav: [[`/${l}/blog/`, 'Blog'], [hubPath(l), T[l].hub]], open: [appHref(l) + '#/dict', T[l].open], home: landingHref(l), lang: l, langHref: lh });
@@ -241,8 +255,8 @@ export function build({ out = 'dist-dict', n = 200, pool = n, staticN = Infinity
       const js = JSON.stringify(d); put(`data/v1/${l}/${d.slug}.json`, js); manifest.langs[l][d.slug] = hash(js).slice(0, 12);
       if (i < staticN) put(`assets${wordPath(l, d.slug)}index.html`, renderWord(d, shell, { open }));
     });
-    put(`assets${hubPath(l)}index.html`, renderHub(l, pages[l], shell, { open }));
-    for (const c of [...new Set(pages[l].map(d => d.word[0]))]) put(`assets${letterPath(l, c)}index.html`, renderHub(l, pages[l], shell, { open, letter: c })); // trang A–Z (noindex,follow – điều hướng cho người + bot)
+    put(`assets${hubPath(l)}index.html`, compact(renderHub(l, pages[l], shell, { open, st: stHub(l) })));
+    for (const c of [...new Set(pages[l].map(d => d.word[0]))]) put(`assets${letterPath(l, c)}index.html`, compact(renderHub(l, pages[l], shell, { open, letter: c, st: stHub(l) }))); // trang A–Z (noindex,follow – điều hướng cho người + bot)
     const rows = pages[l].filter(d => isIndexable(d, open)).map(d => ({ loc: SITE + wordPath(l, d.slug), lastmod, alts: [...ENABLED.filter(x => isIndexable({ lang: x, quality: d.alts[x].q }, open)).map(x => [x, SITE + wordPath(x, d.alts[x].slug)])] }));
     for (const r of rows) { if (r.alts.length > 1 && r.alts.some(([x]) => x === 'en')) r.alts.push(['x-default', r.alts.find(([x]) => x === 'en')[1]]); else r.alts = []; }
     for (let s = 0; s * 10000 < rows.length; s++) put(`assets/sitemap-dict-${l}-${s + 1}.xml`, renderSitemap(rows.slice(s * 10000, (s + 1) * 10000)));

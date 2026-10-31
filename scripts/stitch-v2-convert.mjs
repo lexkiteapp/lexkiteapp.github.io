@@ -115,7 +115,8 @@ function emit(root, bind, k) {
 // web: CSS thành phần trong <style> của Stitch (nút 3D, thẻ tactile, chấm FAQ…) → web/js/st/web/<trang>.css, giữ NGUYÊN giá trị Stitch.
 //   Bỏ phần nền (html/body/@layer/@import/font icon – đã có ở WPRE). Rule giống nhau ở 2 bản → chung; khác → bản sáng/tối theo cùng cơ chế lt:/dk:.
 //   Bộ chọn mang tiền tố `:W ` – scripts/build-stitch-css.mjs thay bằng .v2s-web-<trang> (khóa phạm vi như app).
-function webCss(hl, hd) {
+//   pref = lớp thành phần chỉ có ở 1 bản (khung ghép thành lt:x / dk:x, vd dict-hub: ô A–Z sáng = tactile-tile, tối = class Tailwind) → chép luật của bản đó sang .lt\:x / .dk\:x.
+function webCss(hl, hd, pref = new Set()) {
   const rules = h => { const out = new Map(), doc = new JSDOM(h, { virtualConsole: VC }).window.document;
     for (const sh of doc.styleSheets) { let rs; try { rs = sh.cssRules; } catch { continue; } for (const r of rs) { if (!r.selectorText || !r.style) continue;
       const sel = r.selectorText.split(',').map(x => x.trim()).filter(x => !/^(html|body|:root|\*)\b|material-symbols|::-webkit-scrollbar/.test(x)); if (!sel.length) continue;
@@ -126,6 +127,9 @@ function webCss(hl, hd) {
     if (l && l === d) { lines.push(`${pre(k, x => x)}{${l}}`); continue; }
     if (l) lines.push(`@media (prefers-color-scheme:light){${pre(k, LT)}{${l}}}${pre(k, x => `:root[data-theme=light] ${x}`)}{${l}}`);
     if (d) lines.push(`@media (prefers-color-scheme:dark){${pre(k, DK)}{${d}}}${pre(k, x => `:root[data-theme=dark] ${x}`)}{${d}}`); }
+  for (const [src, side, wrap] of [[L, 'lt', LT], [D, 'dk', DK]]) for (const n of [...pref].filter(c => c.startsWith(side + ':')).map(c => c.slice(3))) { const re = new RegExp(`\\.${n}(?![\\w-])`, 'g'), mq = side === 'lt' ? 'light' : 'dark';
+    for (const [k, body] of src) { const sel = k.split(',').filter(x => x.match(re)); if (!sel.length) continue; const k2 = sel.map(x => x.replace(re, `.${side}\\:${n}`)).join(',');
+      lines.push(`@media (prefers-color-scheme:${mq}){${pre(k2, wrap)}{${body}}}${pre(k2, x => `:root[data-theme=${mq}] ${x}`)}{${body}}`); } }
   return lines.join('\n') + (lines.length ? '\n' : ''); }
 
 // ---- chạy ----
@@ -141,7 +145,8 @@ for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
     walk(root, 0, '·'); continue; }
   const o = emit(root, bind, k);
-  if (WEB) { const cs = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của ${SRC}/${k}-light|dark.html – KHÔNG sửa tay. */\n` + webCss(hl, hd), cf = path.join(OUT, k + '.css');
+  if (WEB) { const used = new Set([o.main, o.header, o.footer, ...o.parts.map(x => x[1]), ...o.protos.map(x => x[1])].join(' ').match(/\b(?:lt|dk):[a-z][\w-]*/g) || []);
+    const cs = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của ${SRC}/${k}-light|dark.html – KHÔNG sửa tay. */\n` + webCss(hl, hd, used), cf = path.join(OUT, k + '.css');
     if (CHECK) { if (!fs.existsSync(cf) || fs.readFileSync(cf, 'utf8') !== cs) errs.push(`${cf} trôi`); } else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(cf, cs); } }
   if (bind.shell) { // đầu trang + thanh tab chuẩn chung cho mọi màn có tab (lấy từ màn này) → shell.js; màn này chỉ giữ main
     const sh = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs (đầu trang + thanh tab chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).shell = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${o.header},\n nav: ${o.nav} });\n`;

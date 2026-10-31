@@ -1,0 +1,20 @@
+/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của brand/stitch/web/dict-hub-light|dark.html – KHÔNG sửa tay. */
+:W .tactile-card{background-color: #ffffff; border: 2px solid rgba(28, 16, 3, 0.08); box-shadow: 0 4px 0 0 rgba(28, 16, 3, 0.06);}
+:W .tactile-card:hover{border-color: rgba(28, 16, 3, 0.16); transform: translateY(-1px); box-shadow: 0 5px 0 0 rgba(28, 16, 3, 0.08);}
+:W .tactile-btn-primary{background-color: #fea619; color: #261909; border: 2px solid #855300; box-shadow: 0 3px 0 0 #855300; transition: all 0.1s ease;}
+:W .tactile-btn-primary:active{transform: translateY(2px); box-shadow: 0 1px 0 0 #855300;}
+:W .tactile-btn-teal{background-color: #00514d; color: #ffffff; border: 2px solid #00201e; box-shadow: 0 3px 0 0 #00201e; transition: all 0.1s ease;}
+:W .tactile-btn-teal:active{transform: translateY(2px); box-shadow: 0 1px 0 0 #00201e;}
+:W .tactile-btn-ghost{background-color: #ffffff; color: #261909; border: 2px solid rgba(28, 16, 3, 0.12); box-shadow: 0 2px 0 0 rgba(28, 16, 3, 0.08); transition: all 0.1s ease;}
+:W .tactile-btn-ghost:active{transform: translateY(1px); box-shadow: 0 1px 0 0 rgba(28, 16, 3, 0.08);}
+:W .tactile-tile{background-color: #ffffff; border: 2px solid rgba(28, 16, 3, 0.12); box-shadow: 0 3px 0 0 rgba(28, 16, 3, 0.08); transition: all 0.1s ease;}
+:W .tactile-tile:hover{border-color: #00514d; transform: translateY(-1px);}
+:W .tactile-tile:active{transform: translateY(2px); box-shadow: 0 1px 0 0 rgba(28, 16, 3, 0.08);}
+:W .tactile-tile-active{background-color: #00514d; color: #ffffff; border: 2px solid #00201e; box-shadow: 0 3px 0 0 #00201e;}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]) :W .lt\:tactile-btn-teal{background-color: #00514d; color: #ffffff; border: 2px solid #00201e; box-shadow: 0 3px 0 0 #00201e; transition: all 0.1s ease;}}:root[data-theme=light] :W .lt\:tactile-btn-teal{background-color: #00514d; color: #ffffff; border: 2px solid #00201e; box-shadow: 0 3px 0 0 #00201e; transition: all 0.1s ease;}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]) :W .lt\:tactile-btn-teal:active{transform: translateY(2px); box-shadow: 0 1px 0 0 #00201e;}}:root[data-theme=light] :W .lt\:tactile-btn-teal:active{transform: translateY(2px); box-shadow: 0 1px 0 0 #00201e;}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]) :W .lt\:tactile-tile{background-color: #ffffff; border: 2px solid rgba(28, 16, 3, 0.12); box-shadow: 0 3px 0 0 rgba(28, 16, 3, 0.08); transition: all 0.1s ease;}}:root[data-theme=light] :W .lt\:tactile-tile{background-color: #ffffff; border: 2px solid rgba(28, 16, 3, 0.12); box-shadow: 0 3px 0 0 rgba(28, 16, 3, 0.08); transition: all 0.1s ease;}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]) :W .lt\:tactile-tile:hover{border-color: #00514d; transform: translateY(-1px);}}:root[data-theme=light] :W .lt\:tactile-tile:hover{border-color: #00514d; transform: translateY(-1px);}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]) :W .lt\:tactile-tile:active{transform: translateY(2px); box-shadow: 0 1px 0 0 rgba(28, 16, 3, 0.08);}}:root[data-theme=light] :W .lt\:tactile-tile:active{transform: translateY(2px); box-shadow: 0 1px 0 0 rgba(28, 16, 3, 0.08);}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) :W .dk\:tactile-btn-primary{background-color: #fea619; color: #261909; border: 2px solid #855300; box-shadow: 0 3px 0 0 #855300; transition: all 0.1s ease;}}:root[data-theme=dark] :W .dk\:tactile-btn-primary{background-color: #fea619; color: #261909; border: 2px solid #855300; box-shadow: 0 3px 0 0 #855300; transition: all 0.1s ease;}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) :W .dk\:tactile-btn-primary:active{transform: translateY(2px); box-shadow: 0 1px 0 0 #855300;}}:root[data-theme=dark] :W .dk\:tactile-btn-primary:active{transform: translateY(2px); box-shadow: 0 1px 0 0 #855300;}

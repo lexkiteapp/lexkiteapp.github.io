@@ -32,6 +32,10 @@ export const T = {
     foot: 'Lexkite – Từ điển Anh–Việt cho người học tiếng Anh',
     ant: 'Trái nghĩa', fam: 'Họ từ', wnH: 'Nghĩa khác của “{w}” (tiếng Anh)', wnSrc: 'Nguồn: Open English WordNet 2025 (CC BY 4.0)', toolsH: 'Luyện tiếp miễn phí',
     letter: 'Từ tiếng Anh bắt đầu bằng chữ {c} – Từ điển Anh–Việt', letterLead: '{n} từ bắt đầu bằng chữ {c}, mỗi từ có nghĩa tiếng Việt, phát âm và ví dụ.', top: 'Từ thông dụng nhất', azH: 'Tra theo chữ cái',
+    // khung Stitch (hub + trang A–Z – brand/stitch/web/bind/dict-hub.json): chữ thật của trang, 2 ngôn ngữ như phần trên (không thêm khóa v2web)
+    feat: 'Từ nổi bật', full: 'Xem đầy đủ', audioNote: 'Nghĩa tiếng Việt · phát âm Anh–Anh/Anh–Mỹ có audio', go: 'Tra từ', tryL: 'Gợi ý:', filters: 'Lọc:', enter: 'Nhấn Enter để tra',
+    all: 'Tất cả', allLv: 'Mọi cấp độ', lvL: 'Lọc theo cấp độ CEFR', view: 'Xem từ →', sorted: 'Xếp theo bảng chữ cái', azN: '{n} chữ cái', grpH: 'Chữ {c}', grpN: '({n} từ)', allC: 'Tất cả từ chữ {c} →',
+    topSub: 'Nghĩa, phát âm và ví dụ cho từng từ', search: 'Nhập từ tiếng Anh…', speakW: 'Luyện phát âm “{w}”', meanL: 'Nghĩa',
   },
   en: {
     hub: 'English dictionary', home: 'Home', open: 'Open app', skip: 'Skip to content',
@@ -52,6 +56,9 @@ export const T = {
     foot: 'Lexkite – English dictionary for learners',
     ant: 'Opposites', fam: 'Word family', wnH: 'Other meanings of “{w}”', wnSrc: 'Source: Open English WordNet 2025 (CC BY 4.0)', toolsH: 'Keep practising for free',
     letter: 'English words starting with {c} – English dictionary', letterLead: '{n} words starting with {c}, each with a definition, pronunciation and examples.', top: 'Most common words', azH: 'Browse A–Z',
+    feat: 'Featured word', full: 'Full entry', audioNote: 'UK & US pronunciation with audio', go: 'Search', tryL: 'Try:', filters: 'Filters:', enter: 'Press Enter to search',
+    all: 'All', allLv: 'All levels', lvL: 'Filter by CEFR level', view: 'View entry →', sorted: 'Sorted alphabetically', azN: '{n} letters', grpH: 'Letter {c}', grpN: '({n} words)', allC: 'All words starting with {c} →',
+    topSub: 'Meaning, pronunciation and examples for every word', search: 'Type an English word…', speakW: 'Practise saying “{w}”', meanL: 'Definition',
   },
 };
 
@@ -124,34 +131,68 @@ ${d.noteHtml || (d.note ? `<div class="notes">${[['m', t.nm], ['e', t.ne], ['u',
   return page({ l, title, desc, u, robots: idx ? '' : 'noindex,follow', hreflang, jl, crumbs, body, shell, lh, ad: !!shell.ad });
 }
 
-export function renderHub(l, all, shell, { open = {}, letter = '' } = {}) {
-  if (letter) return renderLetter(l, all, shell, { open, letter });
+// Hub + trang A–Z = khung Stitch dict-hub (brand/stitch/web/dict-hub-*.html + bind/dict-hub.json). render.mjs dựng DỮ LIỆU THẬT d + <head> SEO (giữ nguyên từng thẻ);
+//   st(d) → { css, body, js } do scripts/dict/build.mjs cấp (khung tự sinh chạy bằng vm – chỉ ở Node; Worker chỉ dựng trang từ). Không có st → khung cũ.
+export function renderHub(l, all, shell, { open = {}, letter = '', st } = {}) {
+  if (letter) return renderLetter(l, all, shell, { open, letter, st });
   const items = all.filter(d => !(d.quality && d.quality.pool)); // trang chính: N từ của bậc hiện tại; cả pool qua trang A–Z
   const t = T[l], p = hubPath(l), n = all.length;
   const title = fill(t.hubTitle, { n }), desc = clip(fill(t.hubDesc, { n }));
   const anyIdx = items.some(d => isIndexable(d, open));
   const crumbs = [[t.home, landing(l)], [t.hub, p]];
   const letters = [...new Set(items.map(d => d.word[0].toUpperCase()))].sort();
-  const body = `<article class="page wd"><header class="hero"><h1>${esc(title)}</h1><p>${esc(t.hubLead)}</p></header>
+  const body = st ? '' : `<article class="page wd"><header class="hero"><h1>${esc(title)}</h1><p>${esc(t.hubLead)}</p></header>
 <h2>${esc(t.azH)}</h2><nav class="letters" aria-label="A–Z">${[...new Set(all.map(d => d.word[0].toUpperCase()))].sort().map(c => `<a href="${letterPath(l, c)}">${c}</a>`).join('')}</nav>
 <h2>${esc(t.top)}</h2>${letters.map(c => `<section aria-labelledby="l-${c}"><h2 id="l-${c}">${c}</h2><ul class="az">${items.filter(d => d.word[0].toUpperCase() === c).map(d => `<li><a href="${wordPath(l, d.slug)}" lang="en" dir="ltr">${esc(d.word)}</a> <small>${esc(d.meaning.split(/[;,]/)[0])}</small></li>`).join('')}</ul></section>`).join('\n')}</article>`;
   const alts = anyIdx ? [...ENABLED.map(x => [x, hubPath(x)]), ['x-default', hubPath('en')]] : [];
   const hreflang = alts.map(([x, q]) => `<link rel="alternate" hreflang="${x}" href="${SITE + q}">`).join('');
   const jl = [{ '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: `Lexkite – ${t.hub}`, description: desc, inLanguage: l, url: SITE + p }, crumbsLd(crumbs)];
   const lh = x => (ENABLED.includes(x) ? hubPath(x) : landing(x));
-  return page({ l, title: title + ' | Lexkite', desc, u: SITE + p, robots: anyIdx ? '' : 'noindex,follow', hreflang, jl, crumbs, body, shell, lh });
+  const stw = st && st(hubData(l, all, items, { title, intro: t.hubLead, groups: letters.map(c => group(l, c, items.filter(d => d.word[0].toUpperCase() === c), true)) }));
+  return page({ l, title: title + ' | Lexkite', desc, u: SITE + p, robots: anyIdx ? '' : 'noindex,follow', hreflang, jl, crumbs, body, shell, lh, stw });
 }
 
 // Trang A–Z: mọi từ trong pool bắt đầu bằng 1 chữ (noindex,follow – chỉ để điều hướng, không cạnh tranh với trang từ)
-function renderLetter(l, all, shell, { letter }) {
+function renderLetter(l, all, shell, { letter, st }) {
   const t = T[l], C = letter.toUpperCase(), p = letterPath(l, letter), items = all.filter(d => d.word[0].toUpperCase() === C), title = fill(t.letter, { c: C });
   const crumbs = [[t.home, landing(l)], [t.hub, hubPath(l)], [C, p]];
-  const body = `<article class="page wd"><header class="hero"><h1>${esc(title)}</h1><p>${esc(fill(t.letterLead, { n: items.length, c: C }))}</p></header>
+  const body = st ? '' : `<article class="page wd"><header class="hero"><h1>${esc(title)}</h1><p>${esc(fill(t.letterLead, { n: items.length, c: C }))}</p></header>
 <nav class="letters" aria-label="A–Z">${[...new Set(all.map(d => d.word[0].toUpperCase()))].sort().map(c => (c === C ? `<span aria-current="page">${c}</span>` : `<a href="${letterPath(l, c)}">${c}</a>`)).join('')}</nav>
 <ul class="az">${items.map(d => `<li><a href="${wordPath(l, d.slug)}" lang="en" dir="ltr">${esc(d.word)}</a> <small>${esc(d.meaning.split(/[;,]/)[0])}</small></li>`).join('')}</ul></article>`;
   const lh = x => (ENABLED.includes(x) ? letterPath(x, letter) : landing(x));
-  return page({ l, title: title + ' | Lexkite', desc: clip(fill(t.letterLead, { n: items.length, c: C })), u: SITE + p, robots: 'noindex,follow', hreflang: '', jl: [crumbsLd(crumbs)], crumbs, body, shell, lh });
+  const stw = st && st(hubData(l, all, items, { title, intro: fill(t.letterLead, { n: items.length, c: C }), cur: C, groups: [group(l, C, items, false)] }));
+  return page({ l, title: title + ' | Lexkite', desc: clip(fill(t.letterLead, { n: items.length, c: C })), u: SITE + p, robots: 'noindex,follow', hreflang: '', jl: [crumbsLd(crumbs)], crumbs, body, shell, lh, stw });
 }
+
+// Dữ liệu khung Stitch (hợp đồng d của bind/dict-hub.json). Mọi chữ là dữ liệu thật: từ/CEFR/IPA/audio/nghĩa/collocation/ghi chú của kho từ, nhãn ở T.
+const metaOf = (l, d) => [d.level, d.pos].filter(Boolean).join(' • ');
+function group(l, c, list, more) {
+  const t = T[l];
+  return { c, h: fill(t.grpH, { c }), n: fill(t.grpN, { n: list.length }), more: more ? { href: letterPath(l, c), label: fill(t.allC, { c }) } : null,
+    items: list.map(d => ({ w: d.word, href: wordPath(l, d.slug), meta: metaOf(l, d), p: d.meaning.split(/[;,]/)[0], audio: d.audio || '', lv: d.level || '', pos: d.pos || '' })) };
+}
+function hubData(l, all, items, { title, intro, cur = '', groups }) {
+  const t = T[l], f = items.find(d => d.col.length && d.examples.length) || items[0], rest = items.filter(d => d !== f), posL = d => t.pos[d.pos] || d.pos || '';
+  const re = new RegExp(`\\b(${f.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:s|es|d|ed|ing)?)\\b`, 'gi');
+  const count = k => Object.entries(items.reduce((o, d) => (d[k] && (o[d[k]] = (o[d[k]] || 0) + 1), o), {}));
+  const tip = l === 'vi' ? f.note && (f.note.m || f.note.u) : ((f.confus || []).find(c => c.tip) || {}).tip;
+  return {
+    L: { feat: t.feat, save: t.save, full: t.full, audio: t.audioNote, go: t.go, try: t.tryL, speak: fill(t.speakW, { w: f.word }), filters: t.filters, enter: t.enter, lvL: t.lvL, uk: t.uk, us: t.us, ex: t.ex, goes: t.goes, pron: t.pron, ctaN: t.ctaN, view: t.view, play: t.play, sorted: t.sorted },
+    kicker: t.hub, title, intro, search: { action: f.app.replace(/\/[^/]*$/, ''), ph: t.search },
+    pos: [{ v: '', label: t.all, on: true }, ...count('pos').sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, 6).map(([v]) => ({ v, label: t.pos[v] || v, on: false }))],
+    lv: [{ v: '', label: t.allLv, on: true }, ...count('level').map(([v]) => v).sort().map(v => ({ v, label: v, on: false }))],
+    tries: rest.slice(6, 14).map(d => ({ w: d.word, href: wordPath(l, d.slug) })),
+    azH: t.azH, letters: [...new Set(all.map(d => d.word[0].toUpperCase()))].sort().map(c => ({ c, href: letterPath(l, c), on: c === cur })),
+    f: { w: f.word, lv: f.level || '', posL: posL(f), ipa: f.ipa, audio: f.audio || '', defL: `${l === 'vi' ? t.meanL : t.def}${f.level ? ` [CEFR ${f.level}]` : ''}`, def: l === 'vi' ? `${f.meaning} – ${f.def}` : f.def,
+      ex: `“${esc(f.examples[0]).replace(re, '<strong class="not-italic font-bold">$1</strong>')}”`, col: f.col.slice(0, 3), href: wordPath(l, f.slug), app: f.app },
+    note: tip ? { h: l === 'vi' ? t.note : fill(t.conf, { w: f.word }), tag: f.word, text: tip.replace(/\*+/g, ''), href: f.app } : null,
+    topH: t.top, topSub: t.topSub,
+    cards: rest.slice(0, 6).map(d => ({ w: d.word, href: wordPath(l, d.slug), meta: [d.level, posL(d)].filter(Boolean).join(' • '), ipa: d.ipa, p: clip(d.meaning, 120), tag: l === 'vi' ? clip(d.def, 48) : posL(d), audio: d.audio || '', lv: d.level || '', pos: d.pos || '' })),
+    groups,
+  };
+}
+// JS trang hub/A–Z (không handler nội tuyến): ô tra → trang từ có trên trang, không có → tra trong app (#/dict/<từ>); viên lọc từ loại/CEFR lọc thẻ + danh sách
+export const DICT_HUB_JS = `(function(d){var f=d.querySelector('[data-dict-form]');if(f)f.addEventListener('submit',function(e){e.preventDefault();var q=f.querySelector('input').value.trim().toLowerCase();if(!q)return;var s=q.normalize('NFKD').replace(/[\\u0300-\\u036f]/g,'').replace(/['\\u2019]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''),a=s&&d.querySelector('a[data-w][href$="/'+s+'/"]');location.href=a?a.getAttribute('href'):f.getAttribute('action')+'/'+encodeURIComponent(q)});var st={lv:'',pos:''};d.addEventListener('click',function(e){var b=e.target.closest('[data-flt]');if(!b)return;var o=b.parentNode.querySelector('[aria-pressed=true]');if(o&&o!==b){var c=o.className;o.className=b.className;b.className=c;o.setAttribute('aria-pressed','false');b.setAttribute('aria-pressed','true')}st[b.getAttribute('data-flt')]=b.getAttribute('data-v');d.querySelectorAll('[data-lv]').forEach(function(x){x.hidden=!!(st.lv&&x.getAttribute('data-lv')!==st.lv||st.pos&&x.getAttribute('data-pos')!==st.pos)});d.querySelectorAll('[data-grp]').forEach(function(g){g.hidden=!g.querySelector('[data-lv]:not([hidden])')})})})(document);`;
 
 // Sitemap shard (≤ 10.000 URL/file – nhỏ để GSC báo tỷ lệ index theo lô): chỉ trang index được, kèm hreflang như <head>.
 export function renderSitemap(rows) {
@@ -161,9 +202,13 @@ export function renderSitemap(rows) {
 const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + u })) });
 const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => (i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`)).join(' › ')}</nav>`;
 
-function page({ l, title, desc, u, robots, hreflang, jl, crumbs, body, shell, lh, ad = false }) {
+function page({ l, title, desc, u, robots, hreflang, jl, crumbs, body, shell, lh, ad = false, stw = null }) {
   const t = T[l], sh = (s = '') => s.replace(/__LH_([a-z]{2})__/g, (_, x) => lh(x));
   const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}">${robots ? `<meta name="robots" content="${robots}">` : ''}<meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${u}">${hreflang}<meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${u}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${jl.map(ld).join('')}`;
+  // Hub/A–Z: thân = khung Stitch dict-hub (đầu/chân trang chung chrome.js nằm trong stw.body)
+  if (stw) return `<!doctype html><html lang="${l}"><head>${head}<style>${stw.css}</style></head><body class="stw st"><a class="skip" href="#main">${esc(t.skip)}</a>
+${sh(stw.body)}
+<script>${shell.js}\n${stw.js || ''}</script></body></html>`;
   return `<!doctype html><html lang="${l}"><head>${head}<style>${shell.css}</style></head><body><a class="skip" href="#nd">${esc(t.skip)}</a>
 ${sh(shell.header[l])}
 <main id="nd">
