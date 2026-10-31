@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Store Listing — Bite-size lessons that stick</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400..800,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'light-bg': '#FFF7EA',
+            'light-card': '#FFFFFF',
+            'light-border': '#EADEC8',
+            'light-ledge': '#D8CFBC',
+            'ink-deep': '#0F3D3E',
+            'ink-body': '#184748',
+            'ink-muted': '#365A5B',
+            'ink-btn': '#220800',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'teal-ledge': '#12514D',
+            'coral-brand': '#F2553B',
+            'amber-brand': '#FFB054',
+            'cta-ledge': '#B53A22',
+            'gold-badge': '#FFC94A',
+            'success-green': '#24A860',
+            'success-ledge': '#177843',
+            'success-bg': '#E8F8EE',
+            'success-text': '#0F4E27',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Tactile physics */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 6px 0 0 #D8CFBC;
+      border-radius: 24px;
+    }
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 5px 0 0 #B53A22;
+      color: #220800;
+      border: 1px solid rgba(181, 58, 34, 0.4);
+    }
+    .tactile-chip {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 3px 0 0 #D8CFBC;
+    }
+    .tactile-answer {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+    }
+    .tactile-answer-selected {
+      background: #F0FAF9;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 4px 0 0 #1F7A75;
+    }
+    .tactile-feedback {
+      background: #E8F8EE;
+      border: 2px solid #24A860;
+      box-shadow: 0 5px 0 0 #177843;
+    }
+  </style>
+</head>
+<body class="bg-[#060F12] flex items-center justify-center min-h-screen p-4 sm:p-8 font-sans antialiased text-[#EEF6F7]">
+<!-- App Store Screenshot Frame (Portrait, No Device Hardware, 1080x1920 Proportions) -->
+<main class="w-full max-w-[540px] aspect-[9/16] bg-[#09161B] rounded-[40px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col relative border-4 border-[#1A333C]">
+<!-- Top Area: Rich Dark Teal Slate Poster Header with Sparkles -->
+<header class="relative px-8 pt-9 pb-7 bg-gradient-to-b from-[#0E262C] via-[#123139] to-[#163D47] text-white overflow-hidden rounded-b-[36px] shadow-[0_8px_24px_rgba(0,0,0,0.45)] border-b-2 border-[#24525E] flex-shrink-0">
+<!-- Subtle Tactile Micro-Dot Pattern -->
+<div class="absolute inset-0 pointer-events-none opacity-25 bg-[radial-gradient(#47C4BA_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<!-- Decorative Sparkle Accents -->
+<div class="absolute top-4 left-6 flex items-center gap-1 opacity-90">
+<span class="material-symbols-outlined text-amber-300 text-2xl drop-shadow-[0_2px_8px_rgba(255,201,74,0.4)]">sparkles</span>
+</div>
+<div class="absolute top-6 right-7 flex items-center gap-1 opacity-80">
+<span class="material-symbols-outlined text-amber-200 text-xl drop-shadow-[0_2px_8px_rgba(255,201,74,0.3)]">star</span>
+</div>
+<div class="absolute bottom-5 left-8 opacity-75">
+<span class="material-symbols-outlined text-[#6EE7DE] text-lg">auto_awesome</span>
+</div>
+<div class="absolute bottom-4 right-10 opacity-80">
+<span class="material-symbols-outlined text-amber-300 text-base">sparkles</span>
+</div>
+<!-- Brand Pill Bar -->
+<div class="relative z-10 flex items-center justify-between mb-3.5">
+<div class="inline-flex items-center gap-2 bg-[#0A1D22]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#285764] shadow-sm">
+<!-- Kite Logo Mark -->
+<svg class="w-4 h-4" fill="none" viewbox="0 0 24 24">
+<path d="M12 2L21 11L12 22L3 11L12 2Z" fill="#FFB054"></path>
+<path d="M12 2L3 11L12 14L12 2Z" fill="#F2553B"></path>
+<path d="M12 2L21 11L12 14L12 2Z" fill="#2BA39A"></path>
+<circle cx="12" cy="11" fill="#FFFFFF" r="2"></circle>
+</svg>
+<span class="text-xs font-extrabold uppercase tracking-wider text-[#EEF6F7]">Lexkite Prep</span>
+</div>
+<div class="inline-flex items-center gap-1 bg-[#091D22]/90 px-3 py-1 rounded-full text-xs font-bold text-[#A8D3D6] border border-[#22505C]">
+<span class="material-symbols-outlined text-sm text-amber-400">verified</span>
+          IELTS • TOEIC • TOEFL
+        </div>
+</div>
+<!-- Value Headline -->
+<div class="relative z-10 text-center px-2">
+<h1 class="text-3xl sm:text-[34px] font-extrabold tracking-tight leading-[1.15] text-[#EEF6F7] drop-shadow-sm">
+          Bite-size lessons<br/>
+<span class="text-[#FFC94A] drop-shadow-[0_2px_10px_rgba(255,201,74,0.35)]">that stick</span>
+</h1>
+<p class="mt-2 text-xs sm:text-sm font-bold text-[#B2CED0] tracking-wide">
+          Fast tactile drills calibrated for exam mastery
+        </p> </div>
+</header>
+<!-- Main Screen Canvas -->
+<section class="flex-1 px-5 sm:px-6 pt-5 pb-5 flex flex-col justify-between overflow-hidden bg-[#09161B]">
+<!-- Tactile Card: Dark Teal Frame with Ledge -->
+<div class="p-4 sm:p-5 flex flex-col justify-between flex-1 relative bg-[#102228] rounded-[24px] border-2 border-[#244652] shadow-[0_6px_0_0_#09151A]">
+<!-- Top Nav & Progress Bar -->
+<div class="flex items-center justify-between pb-3 border-b-2 border-[#1E3942]">
+<!-- Close Pill -->
+<div class="w-8 h-8 rounded-xl bg-[#162D35] border-2 border-[#2A4C58] flex items-center justify-center text-[#B2CED0] shadow-[0_2px_0_0_#0A161B] cursor-pointer">
+<span class="material-symbols-outlined text-lg leading-none">close</span>
+</div>
+<!-- Progress Bar & Stage Indicator -->
+<div class="flex-1 mx-3">
+<div class="flex items-center justify-between text-[11px] font-extrabold uppercase text-[#96B8BC] mb-1 px-0.5">
+<span>Academic Collocations</span>
+<span class="text-[#4ED3C7]">Step 4/6</span>
+</div>
+<div class="w-full h-2.5 bg-[#09171C] rounded-full border border-[#21434E] p-0.5 overflow-hidden shadow-inner">
+<div class="h-full bg-gradient-to-r from-[#2BA39A] to-[#6EE7DE] rounded-full w-[70%]"></div>
+</div>
+</div>
+<!-- Streak Badge -->
+<div class="flex items-center gap-1.5">
+<div class="px-2.5 py-1 bg-[#162D35] border-2 border-[#2A4C58] shadow-[0_2px_0_0_#0A161B] rounded-xl flex items-center gap-1">
+<span class="material-symbols-outlined text-[#F2553B] text-sm leading-none">local_fire_department</span>
+<span class="text-xs font-extrabold text-[#EEF6F7]">14</span>
+</div>
+</div>
+</div>
+<!-- Prompt Question Area -->
+<div class="py-2.5">
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-[#0E3533] border border-[#247E73] text-[11px] font-extrabold uppercase text-[#6EE7DE]">
+<span class="material-symbols-outlined text-xs leading-none">edit_note</span>
+              Fill in the blank
+            </span>
+<span class="text-[11px] font-extrabold text-[#96B8BC]">IELTS Band 7.5+</span>
+</div>
+<!-- Sentence Card with Inset Feel -->
+<div class="bg-[#0A1A20] border-2 border-[#1E3B46] rounded-2xl p-4 text-center shadow-[inset_0_2px_6px_rgba(0,0,0,0.4)]">
+<p class="text-lg sm:text-[20px] font-extrabold text-[#EEF6F7] leading-snug">
+              “The local economy proved remarkably 
+              <span class="inline-flex items-center px-3 py-0.5 mx-1 rounded-xl bg-[#0C3D39] text-[#6EE7DE] border-2 border-[#2BA39A] shadow-[0_0_12px_rgba(43,163,154,0.3)] font-extrabold">
+                resilient
+              </span>
+              against trade shocks.”
+            </p>
+<div class="mt-2.5 flex items-center justify-center gap-2 text-xs font-bold text-[#A9C5C7]">
+<span class="material-symbols-outlined text-[#4ED3C7] text-base leading-none">volume_up</span>
+<span>British RP • /rɪˈzɪl.jənt/</span>
+</div>
+</div>
+</div>
+<!-- 4 Tactile Answer Options -->
+<div class="grid grid-cols-2 gap-2.5 my-1">
+<!-- Option A -->
+<div class="bg-[#142930] border-2 border-[#264A56] shadow-[0_4px_0_0_#0A171C] p-3 rounded-2xl flex items-center gap-2.5 transition-transform active:translate-y-0.5">
+<div class="w-7 h-7 rounded-lg bg-[#0C1B20] border border-[#264A56] flex items-center justify-center text-xs font-extrabold text-[#8EAAB0]">
+              A
+            </div>
+<div class="flex-1">
+<span class="text-sm font-extrabold text-[#EEF6F7]">fragile</span>
+<p class="text-[10px] font-bold text-[#96B8BC] leading-tight">adj • weak</p>
+</div>
+</div>
+<!-- Option B (Selected & Glowing) -->
+<div class="bg-[#0D3035] border-2 border-[#33BAAF] shadow-[0_4px_0_0_#13534E,0_0_15px_rgba(51,186,175,0.2)] p-3 rounded-2xl flex items-center gap-2.5 relative transition-transform active:translate-y-0.5">
+<div class="w-7 h-7 rounded-lg bg-[#2BA39A] text-[#04201E] flex items-center justify-center text-xs font-extrabold shadow-sm">
+              B
+            </div>
+<div class="flex-1">
+<span class="text-sm font-extrabold text-[#6EE7DE]">resilient</span>
+<p class="text-[10px] font-extrabold text-[#A8E7E2] leading-tight">adj • adaptable</p>
+</div>
+<span class="material-symbols-outlined text-[#4ED3C7] text-lg absolute top-2.5 right-2.5 font-bold leading-none">check_circle</span>
+</div>
+<!-- Option C -->
+<div class="bg-[#142930] border-2 border-[#264A56] shadow-[0_4px_0_0_#0A171C] p-3 rounded-2xl flex items-center gap-2.5 transition-transform active:translate-y-0.5">
+<div class="w-7 h-7 rounded-lg bg-[#0C1B20] border border-[#264A56] flex items-center justify-center text-xs font-extrabold text-[#8EAAB0]">
+              C
+            </div>
+<div class="flex-1">
+<span class="text-sm font-extrabold text-[#EEF6F7]">reluctant</span>
+<p class="text-[10px] font-bold text-[#96B8BC] leading-tight">adj • hesitant</p>
+</div>
+</div>
+<!-- Option D -->
+<div class="bg-[#142930] border-2 border-[#264A56] shadow-[0_4px_0_0_#0A171C] p-3 rounded-2xl flex items-center gap-2.5 transition-transform active:translate-y-0.5">
+<div class="w-7 h-7 rounded-lg bg-[#0C1B20] border border-[#264A56] flex items-center justify-center text-xs font-extrabold text-[#8EAAB0]">
+              D
+            </div>
+<div class="flex-1">
+<span class="text-sm font-extrabold text-[#EEF6F7]">redundant</span>
+<p class="text-[10px] font-bold text-[#96B8BC] leading-tight">adj • surplus</p>
+</div>
+</div>
+</div>
+<!-- Tactile Feedback Banner (Dark Emerald-Teal) -->
+<div class="bg-[#0E3528] border-2 border-[#1E6B52] shadow-[0_5px_0_0_#072218] p-3.5 sm:p-4 rounded-2xl mt-2 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#1EA665] text-[#042817] flex items-center justify-center font-extrabold shadow-md">
+<span class="material-symbols-outlined text-xl leading-none">check</span>
+</div>
+<div>
+<h4 class="text-base sm:text-lg font-extrabold text-[#E5F9EF] leading-tight">Correct!</h4>
+<p class="text-[11px] font-bold text-[#96DFC0]">Able to bounce back quickly</p>
+</div>
+</div>
+<!-- Shiny XP Pill -->
+<div class="px-3 py-1 rounded-full bg-[#FFB054] border border-[#FFA133] text-[#220800] font-extrabold text-xs shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm leading-none">bolt</span>
+              +15 XP
+            </div>
+</div>
+<!-- Primary Tactile CTA Button: Warm Candy Orange Gradient with Deep Ledge -->
+<button class="w-full py-3 px-4 rounded-2xl text-center font-extrabold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 cursor-pointer transition-transform active:translate-y-1 bg-gradient-to-r from-[#F2553B] via-[#FA6F3E] to-[#FF8A3D] text-[#1C0702] border border-[#FF8A3D]/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_6px_0_0_#B53A22]">
+<span>Continue</span>
+<span class="material-symbols-outlined text-base leading-none font-bold">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Store Screenshot Footer Proof Elements -->
+<footer class="mt-3.5 flex items-center justify-between px-2 text-xs font-extrabold text-[#9CBABF]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2BA39A] shadow-[0_0_8px_rgba(43,163,154,0.6)]"></span>
+<span>100% Free Core Drills</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-amber-400 text-sm leading-none">workspace_premium</span>
+<span>Cambridge &amp; ETS Calibrated</span>
+</div>
+</footer>
+</section>
+</main>
+</body>
+</html>
+

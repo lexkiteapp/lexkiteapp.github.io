@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Ops — Video Studio Console</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#ffdcbb",
+            "outline": "#6f7978",
+            "on-background": "#1e1b14",
+            "secondary": "#b42814",
+            "on-tertiary-container": "#ffcf9e",
+            "inverse-primary": "#87d4cd",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#fbf3e6",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#f8f0e3",
+            "on-error-container": "#93000a",
+            "secondary-container": "#fe5d42",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-container-highest": "#e9e2d5",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#ffb869",
+            "on-secondary-fixed-variant": "#900f00",
+            "secondary-fixed": "#ffdad3",
+            "inverse-surface": "#343028",
+            "on-primary-fixed": "#00201e",
+            "surface-tint": "#0e6a65",
+            "primary-container": "#0d6964",
+            "on-surface": "#1e1b14",
+            "primary": "#004f4b",
+            "surface-container": "#f5ede0",
+            "outline-variant": "#bec9c7",
+            "on-secondary-container": "#5e0700",
+            "surface": "#fff8f0",
+            "primary-fixed-dim": "#87d4cd",
+            "on-primary-fixed-variant": "#00504c",
+            "on-surface-variant": "#3f4947",
+            "background": "#fff8f0",
+            "tertiary": "#673c00",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-high": "#efe7db",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#2c1700",
+            "surface-variant": "#e9e2d5",
+            "tertiary-container": "#885100",
+            "on-tertiary-fixed-variant": "#683d00",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#98e5df",
+            "primary-fixed": "#a3f0e9",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fff8f0",
+            "surface-dim": "#e1d9cd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.25rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.25rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "700" }],
+            "body-lg": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "800" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }],
+            "body-sm": ["12px", { lineHeight: "18px", fontWeight: "500" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile 3D physical card & button styles */
+    .tactile-card {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 0 #D8CFBC, 0 8px 12px -2px rgba(15, 61, 62, 0.08);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    
+    .tactile-card-selected {
+      border: 2.5px solid #004F4B;
+      box-shadow: 0 5px 0 0 #002A28, 0 10px 16px -2px rgba(0, 79, 75, 0.16);
+      background-color: #FFFFFF;
+    }
+
+    .tactile-btn-coral {
+      background: linear-gradient(180deg, #FE5D42 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 0 #B53A22, 0 6px 10px rgba(181, 58, 34, 0.25);
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 #B53A22;
+    }
+
+    .tactile-btn-teal {
+      background: #004F4B;
+      box-shadow: 0 5px 0 0 #002725;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 #002725;
+    }
+
+    .tactile-btn-white {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+    }
+    .tactile-btn-white:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+
+    .recessed-well {
+      background-color: #F3E9D5;
+      border: 1.5px solid #D8CFBC;
+      box-shadow: inset 0 3px 6px 0 rgba(15, 61, 62, 0.12), inset 0 1px 2px 0 rgba(15, 61, 62, 0.06);
+    }
+
+    /* Custom smooth scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5EDE0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D8CFBC;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#EEF6F7] antialiased min-h-screen flex selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- ========================================================================= -->
+<!-- 1. LEFT SIDEBAR NAVIGATION (Shared Component: SideNavBar)                 -->
+<!-- ========================================================================= -->
+<aside class="fixed left-0 top-0 h-screen w-64 border-r-2 border-[#284149] bg-[#0E1A1E] shadow-[2px_0_0_0_#071012] flex flex-col justify-between p-4 z-40">
+<div class="flex flex-col gap-6">
+<!-- Brand Header -->
+<div class="flex items-center gap-3 px-2 pt-2">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-[0_3px_0_0_#00201e] shrink-0">
+<span class="material-symbols-outlined text-2xl font-bold" data-icon="movie">movie</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-[#6bd8ce] tracking-tight leading-none font-bold">Lexkite Ops</div>
+<div class="font-label-sm text-label-sm text-[#A9BFC1] tracking-wide mt-1 font-semibold">Studio Console</div>
+</div>
+</div>
+<!-- Quick Action CTA inside Nav -->
+<button class="tactile-btn-coral w-full py-2.5 px-4 rounded-xl text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+<span>New video</span>
+</button>
+<!-- Nav Items List -->
+<nav aria-label="Studio Console Navigation" class="flex flex-col gap-1.5"><!-- Overview -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] transition-colors font-medium active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-xl text-[#6bd8ce]" data-icon="dashboard">dashboard</span>
+<span class="font-label-lg text-label-lg">Overview</span>
+</a>
+<!-- Quota -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] transition-colors font-medium active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-xl text-[#6bd8ce]" data-icon="pie_chart">pie_chart</span>
+<span class="font-label-lg text-label-lg">Quota</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] transition-colors font-medium active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-xl text-[#6bd8ce]" data-icon="bar_chart">bar_chart</span>
+<span class="font-label-lg text-label-lg">Reports</span>
+</a>
+<!-- Notices -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] transition-colors font-medium active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-xl text-[#6bd8ce]" data-icon="campaign">campaign</span>
+<span class="font-label-lg text-label-lg">Notices</span>
+<span class="ml-auto bg-[#FE5D42] text-[#150502] px-2 py-0.5 rounded-full font-label-sm text-label-sm font-extrabold">2</span>
+</a>
+<!-- Video Studio (ACTIVE TAB) -->
+<a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#2BA39A] text-[#00201e] font-black shadow-[0_3px_0_0_#003733] active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-xl text-[#00201e]" data-icon="movie" data-weight="fill" style="font-variation-settings: 'FILL' 1;">movie</span>
+<span class="font-label-lg text-label-lg tracking-wide">Video Studio</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-[#FE6A50] animate-pulse"></span>
+</a></nav>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-3 pt-3 border-t border-outline-variant"><!-- Secondary Tools -->
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] font-medium text-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] font-medium text-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+<span>Documentation</span>
+</a>
+</div>
+<!-- User Profile Badge -->
+<div class="tactile-card rounded-xl p-2.5 flex items-center justify-between border-2 border-[#284149] bg-[#111E22]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[#2BA39A] text-[#00201e] flex items-center justify-center font-extrabold text-label-md shadow-sm">
+            KL
+          </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#EEF6F7] leading-tight">Kai Liang</span>
+<span class="font-label-sm text-label-sm text-[#A9BFC1]">Solo Lead</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-md bg-[#16262B] border border-[#284149] flex items-center justify-center text-[#6bd8ce]">
+<span class="material-symbols-outlined text-sm" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</div></div>
+</aside>
+<!-- ========================================================================= -->
+<!-- 2. MAIN WORKSPACE CONTENT AREA                                            -->
+<!-- ========================================================================= -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<!-- Top Navigation Bar (Shared Component: TopNavBar) -->
+<header class="h-18 px-6 bg-[#0E1A1E] border-b-2 border-[#284149] shadow-[0_4px_0_0_#071012] flex items-center justify-between sticky top-0 z-30"><!-- Left: Title & Live Indicators -->
+<div class="flex items-center gap-6">
+<div>
+<h1 class="font-headline-md text-headline-md text-[#EEF6F7] font-extrabold tracking-tight leading-none">Video Studio</h1>
+<p class="font-body-sm text-body-sm text-[#A9BFC1] mt-0.5">Automated lesson video pipeline &amp; QC</p>
+</div>
+<div class="h-8 w-px bg-[#284149] hidden lg:block"></div>
+<!-- Metric status pills -->
+<div class="hidden lg:flex items-center gap-2">
+<div class="px-3 py-1 rounded-full bg-[#16262B] border border-[#284149] flex items-center gap-1.5 font-label-md text-label-md text-[#EEF6F7] font-bold shadow-[0_2px_0_0_#071012]">
+<span class="w-2 h-2 rounded-full bg-[#6bd8ce]"></span>
+<span>Queue: 14 Active</span>
+</div>
+<div class="px-3 py-1 rounded-full bg-[#FFB054] text-[#261a00] border border-[#d88924] flex items-center gap-1.5 font-label-md text-label-md font-extrabold shadow-[0_2px_0_0_#6b4104]">
+<span class="w-2 h-2 rounded-full bg-[#7a4900] animate-ping"></span>
+<span>4 Rendering</span>
+</div>
+<div class="px-3 py-1 rounded-full bg-[#FE6A50] text-[#150502] border border-[#B53A22] flex items-center gap-1.5 font-label-md text-label-md font-extrabold shadow-[0_2px_0_0_#6b1509]">
+<span class="material-symbols-outlined text-sm text-[#150502]" data-icon="flag">flag</span>
+<span>3 In Review</span>
+</div>
+</div>
+</div>
+<!-- Right: Search & Actions -->
+<div class="flex items-center gap-3">
+<!-- Search bar -->
+<div class="relative hidden xl:block">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#A9BFC1] text-lg" data-icon="search">search</span>
+<input class="pl-9 pr-4 py-2 bg-[#111E22] border-2 border-[#284149] rounded-xl text-body-sm text-[#EEF6F7] placeholder-[#6f7978] focus:outline-none focus:border-[#6bd8ce] focus:ring-2 focus:ring-[#2BA39A]/30 w-64 shadow-[0_2px_0_0_#071012]" placeholder="Search lessons, tags, IDs..." type="text"/>
+</div>
+<!-- Trailing Icon Actions -->
+<button class="tactile-btn-dark w-10 h-10 rounded-xl flex items-center justify-center text-[#EEF6F7] transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<button class="tactile-btn-dark w-10 h-10 rounded-xl flex items-center justify-center text-[#EEF6F7] transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="tune">tune</span>
+</button>
+<!-- Primary Header Action -->
+<button class="tactile-btn-coral py-2 px-4 rounded-xl font-label-lg text-label-lg flex items-center gap-2 transition-all font-extrabold">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+<span>New video</span>
+</button>
+</div></header>
+<!-- Content Workspace: Two-Column Responsive Workbench -->
+<div class="p-6 grid grid-cols-12 gap-6 items-start">
+<!-- ===================================================================== -->
+<!-- CENTER: VIDEO QUEUE (7 of 12 columns on large screens)                -->
+<!-- ===================================================================== -->
+<section class="col-span-12 lg:col-span-7 flex flex-col gap-4">
+<!-- Filter Tabs & Controls -->
+<div class="flex items-center justify-between flex-wrap gap-2"><div class="flex items-center gap-1.5 p-1 bg-[#111E22] rounded-xl border border-[#284149]">
+<button class="px-3 py-1.5 rounded-lg bg-[#2BA39A] text-[#00201e] font-label-md text-label-md font-extrabold shadow-sm">
+              All (14)
+            </button>
+<button class="px-3 py-1.5 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] font-label-md text-label-md font-semibold transition-colors">
+              Queued (4)
+            </button>
+<button class="px-3 py-1.5 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] font-label-md text-label-md font-semibold transition-colors">
+              Rendering (3)
+            </button>
+<button class="px-3 py-1.5 rounded-lg bg-[#FE6A50] text-[#150502] font-label-md text-label-md font-extrabold transition-colors shadow-sm">
+              Needs Review (4)
+            </button>
+<button class="px-3 py-1.5 rounded-lg text-[#A9BFC1] hover:text-[#EEF6F7] hover:bg-[#16262B] font-label-md text-label-md font-semibold transition-colors">
+              Published (3)
+            </button>
+</div>
+<div class="flex items-center gap-2">
+<button class="tactile-btn-dark px-3 py-1.5 rounded-lg text-body-sm font-body-sm text-[#EEF6F7] flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-base text-[#6bd8ce]" data-icon="swap_vert">swap_vert</span>
+<span>Recent</span>
+</button>
+</div></div>
+<!-- Video Cards Queue Stack -->
+<div class="flex flex-col gap-3">
+<!-- CARD 1: Selected Video (Needs Review) -->
+<article class="tactile-card-selected rounded-2xl p-4 transition-all relative cursor-pointer"><div class="absolute -left-1 top-4 w-2 h-8 rounded-r-md bg-[#FE5D42]"></div>
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<!-- Video Thumbnail Box -->
+<div class="w-20 h-24 rounded-xl overflow-hidden bg-[#16262B] relative shrink-0 border-2 border-[#284149] shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Close portrait of a confident male English teacher in a sharp navy blazer, addressing a high-tech studio camera against a sunlit classroom background. High-key warm daylight, optimistic professional production atmosphere, modern education aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xWRlp7aQTO81AVu2JqHE5168WdbzWYLIEdU2frCNLFdfygk-yOjLvtvDFrojy5BFQBCyc3B8iHd7O5aGrgl8gL9Kkw5lwZPFkIZzYgyDaurKDftlbPZR0tlhzgr7khM22iWgPLxtuNnyKd8EDuTwBibL-GhD-nTspuhp67hxMf_1Ox_woxkswiKFzsIG09Vf9OxoaJDhw7qt_nAWgu5JPUQ9wD7bzttgRwjrvIZZNX2lXB2eFjs6oVnuPMltGPufzh_Ty8YOFVs"/>
+<span class="absolute bottom-1 right-1 bg-[#051013]/90 text-[#EEF6F7] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#284149]">0:58</span>
+</div>
+<!-- Metadata & Info -->
+<div class="flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#16262B] font-label-sm text-label-sm text-[#6bd8ce] font-extrabold border border-[#284149]">Teacher Short 9:16</span>
+<span class="px-2 py-0.5 rounded-md bg-[#111E22] font-label-sm text-label-sm text-[#A9BFC1] font-semibold border border-[#284149]">English (UK)</span>
+<span class="text-body-sm font-body-sm text-[#879391] font-bold">#VID-284</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EEF6F7] mt-1.5 leading-snug font-bold">
+                      IELTS Speaking Part 2 — Idioms for High Band
+                    </h2>
+</div>
+<div class="flex items-center gap-3 mt-2 text-body-sm font-body-sm text-[#A9BFC1]">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-[#6bd8ce]" data-icon="schedule">schedule</span>
+<span>2m ago</span>
+</span>
+<span>•</span>
+<span class="font-bold text-[#6bd8ce]">Host: Liam T.</span>
+</div>
+</div>
+</div>
+<!-- Status Badge & Micro Action -->
+<div class="flex flex-col items-end gap-3 shrink-0">
+<span class="px-3 py-1 rounded-full bg-[#FE6A50] text-[#150502] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#B53A22] shadow-[0_2px_0_0_#7A1708]">
+<span class="material-symbols-outlined text-sm text-[#150502]" data-icon="error" data-weight="fill" style="font-variation-settings: 'FILL' 1;">error</span>
+<span>Needs Review</span>
+</span>
+<span class="font-label-sm text-label-sm font-extrabold text-[#6bd8ce] flex items-center gap-0.5">
+<span>Selected</span>
+<span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span>
+</span>
+</div>
+</div></article>
+<!-- CARD 2: Rendering with progress -->
+<article class="tactile-card rounded-2xl p-4 bg-surface-container-lowest transition-all hover:-translate-y-0.5 cursor-pointer"><div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="w-20 h-24 rounded-xl overflow-hidden bg-[#0B171A] relative shrink-0 border-2 border-[#284149]">
+<img class="w-full h-full object-cover opacity-70" data-alt="An educator smiling enthusiastically with a lesson whiteboard in an English language laboratory. Warm daylight pours into the studio creating soft golden reflections on wooden tables." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOeQKWgZQNTlVnzrERxgOjgwcHJNluVaxfhl3i3OJRx_xYYalF3Kb07sPTWEqQr5ZlM2NZ04dTc-fRU6QIonyIzj3VWsEGYhShmtxmLdDNyc9MuQdNCBARhw0hCac8FW0iGifCI-BJGmsuWXwn-GmjdZKGZEF_MTKLeeG0bRX06Y5QSh0rQKUBf4sMAcgsS9IebS77BtMpBsBR3NYo_tm-XK6rAyw0-E60Cit7v2NBSSBKe_VBG-13C0jXQz2VZD_j3y8dx6qdDxI"/>
+<div class="absolute inset-0 bg-[#004f4b]/50 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#6bd8ce] animate-spin" data-icon="sync">sync</span>
+</div>
+<span class="absolute bottom-1 right-1 bg-[#051013]/90 text-[#EEF6F7] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#284149]">1:15</span>
+</div>
+<div class="flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#16262B] font-label-sm text-label-sm text-[#A9BFC1] font-bold border border-[#284149]">Quiz Drill</span>
+<span class="px-2 py-0.5 rounded-md bg-[#111E22] font-label-sm text-label-sm text-[#A9BFC1] font-medium border border-[#284149]">Tiếng Việt</span>
+<span class="text-body-sm font-body-sm text-[#879391]">#VID-283</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EEF6F7] mt-1.5 leading-snug font-bold">
+                      TOEIC Part 5 — Future Tense Clues
+                    </h2>
+</div>
+<!-- Progress Bar Ledge -->
+<div class="mt-2">
+<div class="flex justify-between items-center text-body-sm font-body-sm mb-1">
+<span class="font-bold text-[#6bd8ce] flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#FFB054] animate-pulse"></span>
+                        Rendering 68% • ~1m left
+                      </span>
+<span class="text-[#A9BFC1] font-label-sm text-label-sm font-semibold">Frame 1,224 / 1,800</span>
+</div>
+<div class="recessed-well h-3 rounded-full overflow-hidden p-0.5">
+<div class="bg-[#2BA39A] h-full rounded-full transition-all duration-300 shadow-[0_0_8px_rgba(107,216,206,0.5)]" style="width: 68%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="px-3 py-1 rounded-full bg-[#FFB054] text-[#261a00] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#d88924] shadow-[0_2px_0_0_#6b4104]">
+<span class="material-symbols-outlined text-sm text-[#261a00]" data-icon="timelapse">timelapse</span>
+<span>Rendering</span>
+</span>
+</div>
+</div></article>
+<!-- CARD 3: Queued -->
+<article class="tactile-card rounded-2xl p-4 bg-surface-container-lowest transition-all hover:-translate-y-0.5 cursor-pointer"><div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="w-20 h-24 rounded-xl overflow-hidden bg-[#16262B] relative shrink-0 border-2 border-[#284149] flex items-center justify-center text-[#A9BFC1]">
+<span class="material-symbols-outlined text-3xl" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="absolute bottom-1 right-1 bg-[#051013]/90 text-[#EEF6F7] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#284149]">0:45</span>
+</div>
+<div class="flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#16262B] font-label-sm text-label-sm text-[#A9BFC1] font-bold border border-[#284149]">Mistake Fix</span>
+<span class="px-2 py-0.5 rounded-md bg-[#111E22] font-label-sm text-label-sm text-[#A9BFC1] font-medium border border-[#284149]">English (US)</span>
+<span class="text-body-sm font-body-sm text-[#879391]">#VID-282</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EEF6F7] mt-1.5 leading-snug font-bold">
+                      Stop Saying Discuss About
+                    </h2>
+</div>
+<div class="flex items-center gap-3 mt-2 text-body-sm font-body-sm text-[#A9BFC1]">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-[#6bd8ce]" data-icon="schedule">schedule</span>
+<span>Next in batch (Pos #2)</span>
+</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="px-3 py-1 rounded-full bg-[#1A2C33] text-[#A9BFC1] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#284149] shadow-[0_2px_0_0_#071012]">
+<span class="material-symbols-outlined text-sm text-[#6bd8ce]" data-icon="schedule">schedule</span>
+<span>Queued</span>
+</span>
+</div>
+</div></article>
+<!-- CARD 4: Published -->
+<article class="tactile-card rounded-2xl p-4 bg-surface-container-lowest transition-all hover:-translate-y-0.5 cursor-pointer"><div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="w-20 h-24 rounded-xl overflow-hidden bg-[#0B171A] relative shrink-0 border-2 border-[#284149]">
+<img class="w-full h-full object-cover" data-alt="Warm modern language studio desk with an interactive digital lesson tablet, colorful study cards, and an upbeat creative learning vibe under soft diffuse daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHdzlapF6JBE6nfP6_a-T6AJ5BGBVRPAgMfs-iVsgsNIotfqcP9CyZRysJpIde1ptHgItVZVJ-aqNFGVjzGzFzr-yIAm5iigMmLSarO-WGM3_T2oQ2jp-5sNl6ZHCnBwee26VWJEP7jfbXEIX4Q3vRxKxXv4WCJSoY-fPp3faE2OcF7tEYVkXgoX0uSSyK-oBNKqjT6JSUWGBBOKeHQcP76yETuyTMbT_njaSwZk1UqrONXiRR8iSQ_ACg72jz_L7vYlijZPZ-alI"/>
+<span class="absolute bottom-1 right-1 bg-[#051013]/90 text-[#EEF6F7] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#284149]">0:32</span>
+</div>
+<div class="flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#16262B] font-label-sm text-label-sm text-[#A9BFC1] font-bold border border-[#284149]">Verb Ladder</span>
+<span class="px-2 py-0.5 rounded-md bg-[#111E22] font-label-sm text-label-sm text-[#A9BFC1] font-medium border border-[#284149]">Global EN</span>
+<span class="text-body-sm font-body-sm text-[#879391]">#VID-281</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EEF6F7] mt-1.5 leading-snug font-bold">
+                      Three Forms of Break — Candy Tiles
+                    </h2>
+</div>
+<div class="flex items-center gap-3 mt-2 text-body-sm font-body-sm text-[#A9BFC1]">
+<span class="flex items-center gap-1 text-[#6bd8ce] font-bold">
+<span class="material-symbols-outlined text-base text-[#6bd8ce]" data-icon="cloud_done">cloud_done</span>
+<span>Published to TikTok &amp; IG</span>
+</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="px-3 py-1 rounded-full bg-[#2BA39A] text-[#00201e] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#1A7E76] shadow-[0_2px_0_0_#003733]">
+<span class="material-symbols-outlined text-sm text-[#00201e]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Published</span>
+</span>
+</div>
+</div></article>
+<!-- CARD 5: Rendering 34% -->
+<article class="tactile-card rounded-2xl p-4 bg-surface-container-lowest transition-all hover:-translate-y-0.5 cursor-pointer"><div class="flex items-start justify-between gap-4">
+<div class="flex gap-3.5">
+<div class="w-20 h-24 rounded-xl overflow-hidden bg-[#16262B] relative shrink-0 border-2 border-[#284149] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-[#6bd8ce] animate-spin" data-icon="autorenew">autorenew</span>
+<span class="absolute bottom-1 right-1 bg-[#051013]/90 text-[#EEF6F7] text-[10px] font-bold px-1.5 py-0.5 rounded border border-[#284149]">2:04</span>
+</div>
+<div class="flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-md bg-[#16262B] font-label-sm text-label-sm text-[#A9BFC1] font-bold border border-[#284149]">Model Answer</span>
+<span class="px-2 py-0.5 rounded-md bg-[#111E22] font-label-sm text-label-sm text-[#A9BFC1] font-medium border border-[#284149]">English (UK)</span>
+<span class="text-body-sm font-body-sm text-[#879391]">#VID-280</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-[#EEF6F7] mt-1.5 leading-snug font-bold">
+                      Weather Changed Plans — Sample Long Turn
+                    </h2>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-center text-body-sm font-body-sm mb-1">
+<span class="font-bold text-[#FFB054] flex items-center gap-1">
+                        Rendering 34% • ~3m left
+                      </span>
+</div>
+<div class="recessed-well h-3 rounded-full overflow-hidden p-0.5">
+<div class="bg-[#FFB054] h-full rounded-full shadow-[0_0_8px_rgba(255,176,84,0.4)]" style="width: 34%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="px-3 py-1 rounded-full bg-[#FFB054] text-[#261a00] font-label-md text-label-md font-extrabold flex items-center gap-1.5 border border-[#d88924] shadow-[0_2px_0_0_#6b4104]">
+<span class="material-symbols-outlined text-sm text-[#261a00]" data-icon="timelapse">timelapse</span>
+<span>Rendering</span>
+</span>
+</div>
+</div></article>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- RIGHT: SELECTED VIDEO SIDE PANEL (5 of 12 columns / 380px workbench) -->
+<!-- ===================================================================== -->
+<aside class="fixed left-0 top-0 h-screen w-64 border-r-2 border-[#284149] bg-[#0E1A1E] shadow-[2px_0_0_0_#071012] flex flex-col justify-between p-4 z-40">
+<div class="tactile-card rounded-2xl bg-[#111E22] border-2 border-[#284149] p-5 flex flex-col gap-4"><!-- Panel Header -->
+<div class="flex items-center justify-between pb-3 border-b-2 border-[#284149]">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#FE6A50] animate-pulse"></span>
+<h3 class="font-headline-sm text-headline-sm text-[#EEF6F7] font-bold">Selected Video</h3>
+<span class="font-label-sm text-label-sm bg-[#16262B] border border-[#284149] px-2 py-0.5 rounded text-[#6bd8ce] font-extrabold">#VID-284</span>
+</div>
+<div class="flex items-center gap-1 text-[#A9BFC1]">
+<button class="p-1 hover:text-[#EEF6F7] transition-colors" title="Expand">
+<span class="material-symbols-outlined text-lg" data-icon="open_in_full">open_in_full</span>
+</button>
+<button class="p-1 hover:text-[#EEF6F7] transition-colors" title="Close">
+<span class="material-symbols-outlined text-lg" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Video Preview Player (Framed dark tactile console) -->
+<div class="bg-[#0A1619] rounded-xl p-3 border-2 border-[#284149] shadow-[0_4px_0_0_#071012] flex flex-col gap-2.5">
+<!-- 9:16 Video Player Container -->
+<div class="relative w-full aspect-[9/12] max-h-[380px] bg-[#051013] rounded-lg overflow-hidden flex items-center justify-center mx-auto shadow-inner border border-[#20333A]">
+<!-- Actual Instructor preview image -->
+<img class="w-full h-full object-cover object-center" data-alt="An energetic male language teacher in a tailored navy blue blazer smiling and gesturing in front of a white educational lesson board with English pronunciation notes in a bright, modern studio. Warm lighting, tactile depth, crisp framing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2ruMd72UAa8ep4ki8nPDGEbVmS0f0_ajoQlYhAVvRp-hIsjhpBcXEjUZK1WvCjhHrRpXAme5WoLekszie9T0fOz0ttEZwZCoW-VXo8yeBXx_a0pP-EJbo2MILloSbt3kJKbeSrNF2e8MOYnKiweQk3xjaqokt8lkaPu-E-9hNyAwsslOz2OstbbakpPeLEUUbiSEGy45GGrvLe9yYVVV2nZcNgA8LQKCvjJKcMPpw2au8yDH6NHAsWELdFpiCWntVZbXqG4SADks"/>
+<!-- Overlay elements -->
+<div class="absolute inset-0 bg-gradient-to-t from-[#051013]/90 via-transparent to-transparent pointer-events-none"></div>
+<!-- Play Pause Overlay Knob -->
+<button class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-[#111E22]/90 text-[#6bd8ce] flex items-center justify-center shadow-[0_4px_0_0_#071012] active:translate-y-1 transition-transform border-2 border-[#284149] cursor-pointer hover:scale-105 hover:border-[#6bd8ce]">
+<span class="material-symbols-outlined text-3xl font-bold ml-1" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Top floating badges -->
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[#EEF6F7] font-label-sm text-label-sm font-extrabold flex items-center gap-1 border border-[#284149]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FE6A50]"></span>
+                  9:16 Short
+                </span>
+<span class="px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[#EEF6F7] font-label-sm text-label-sm font-extrabold border border-[#284149]">
+                  1080x1920
+                </span>
+</div>
+<!-- Lower overlay subtitle sample -->
+<div class="absolute bottom-3 inset-x-3 bg-[#0A1619]/95 text-[#EEF6F7] px-3 py-1.5 rounded-lg border border-[#284149] text-center font-label-md text-label-md font-bold shadow-lg">
+                "It cost an <span class="text-[#FFB054] font-black underline">arm and a leg</span>, to be honest."
+              </div>
+</div>
+<!-- Transport & Scrubber Bar (Recessed well) -->
+<div class="recessed-well rounded-lg p-2.5 flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-[11px] font-bold text-[#A9BFC1] font-label-sm">
+<span class="text-[#6bd8ce]">0:42</span>
+<span class="text-[#879391]">0:58 Total</span>
+</div>
+<!-- Scrubber Bar Track -->
+<div class="relative w-full h-3 bg-[#16262B] rounded-full overflow-visible flex items-center cursor-pointer border border-[#284149]">
+<!-- Buffered track -->
+<div class="absolute left-0 top-0 bottom-0 bg-[#284149] rounded-full" style="width: 85%;"></div>
+<!-- Played track -->
+<div class="absolute left-0 top-0 bottom-0 bg-[#FE5D42] rounded-full shadow-[0_0_8px_rgba(254,93,66,0.6)]" style="width: 72%;"></div>
+<!-- Tactile Scrubber Thumb Knob -->
+<div class="absolute w-4 h-4 rounded-full bg-[#FE6A50] text-white shadow-[0_2px_0_0_#7A1708] border-2 border-[#150502] -ml-2" style="left: 72%;"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="text-[#A9BFC1] hover:text-[#EEF6F7]">
+<span class="material-symbols-outlined text-lg" data-icon="replay_10">replay_10</span>
+</button>
+<button class="text-[#6bd8ce] hover:text-[#EEF6F7]">
+<span class="material-symbols-outlined text-lg" data-icon="play_arrow">play_arrow</span>
+</button>
+<button class="text-[#A9BFC1] hover:text-[#EEF6F7]">
+<span class="material-symbols-outlined text-lg" data-icon="forward_10">forward_10</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 text-[#A9BFC1] font-label-sm text-label-sm font-bold">
+<span class="text-[#EEF6F7]">1.0x</span>
+<span class="material-symbols-outlined text-base text-[#6bd8ce]" data-icon="volume_up">volume_up</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Video Metadata Attributes -->
+<div class="bg-[#16262B] rounded-xl p-3.5 flex flex-col gap-2 border-2 border-[#284149] shadow-[0_3px_0_0_#071012]">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-sm text-label-sm text-[#A9BFC1] font-extrabold">TITLE</span>
+<h4 class="font-label-lg text-label-lg font-extrabold text-[#EEF6F7]">IELTS Speaking Part 2 — Idioms</h4>
+</div>
+<span class="px-2 py-0.5 rounded bg-[#FFB054] text-[#261a00] font-label-sm text-label-sm font-black border border-[#d88924]">Band 8.0 Target</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-[#284149] font-body-sm text-body-sm">
+<div>
+<span class="text-[#A9BFC1] block text-[11px] font-bold">AVATAR / HOST</span>
+<span class="font-extrabold text-[#6bd8ce]">Teacher Liam</span>
+</div>
+<div>
+<span class="text-[#A9BFC1] block text-[11px] font-bold">VOICE MODEL</span>
+<span class="font-bold text-[#EEF6F7]">UK Received RP-3</span>
+</div>
+</div>
+</div>
+<!-- Quality Control (QC) Score Chips Bento -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-extrabold text-[#EEF6F7]">Quality Control (QC) Validation</span>
+<span class="font-label-sm text-label-sm text-[#6bd8ce] font-extrabold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#6bd8ce] animate-ping"></span>
+Ready for Signoff
+</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<!-- Audio Clarity -->
+<div class="tactile-card rounded-xl p-2.5 bg-[#16262B] flex items-center justify-between border-2 border-[#284149]">
+<div>
+<span class="text-[11px] font-bold text-[#A9BFC1] block leading-tight">Audio Clarity</span>
+<span class="font-headline-sm text-headline-sm font-black text-[#6bd8ce]">98%</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-[#2BA39A] text-[#00201e] flex items-center justify-center font-bold shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="graphic_eq">graphic_eq</span>
+</div>
+</div>
+<!-- Lip-sync Alignment -->
+<div class="tactile-card rounded-xl p-2.5 bg-[#16262B] flex items-center justify-between border-2 border-[#284149]">
+<div>
+<span class="text-[11px] font-bold text-[#A9BFC1] block leading-tight">Lip-sync</span>
+<span class="font-headline-sm text-headline-sm font-black text-[#6bd8ce]">94%</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-[#2BA39A] text-[#00201e] flex items-center justify-center font-bold shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="face">face</span>
+</div>
+</div>
+<!-- Subtitle Accuracy -->
+<div class="tactile-card rounded-xl p-2.5 bg-[#16262B] flex items-center justify-between border-2 border-[#284149]">
+<div>
+<span class="text-[11px] font-bold text-[#A9BFC1] block leading-tight">Subtitle Sync</span>
+<span class="font-headline-sm text-headline-sm font-black text-[#6bd8ce]">100%</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-[#2BA39A] text-[#00201e] flex items-center justify-center font-bold shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="subtitles">subtitles</span>
+</div>
+</div>
+<!-- Pacing / Cadence -->
+<div class="tactile-card rounded-xl p-2.5 bg-[#16262B] flex items-center justify-between border-2 border-[#284149]">
+<div>
+<span class="text-[11px] font-bold text-[#A9BFC1] block leading-tight">Pacing / Cadence</span>
+<span class="font-headline-sm text-headline-sm font-black text-[#6bd8ce]">88%</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-[#1A7E76] text-[#EEF6F7] flex items-center justify-center font-bold shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="speed">speed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decision Action Buttons (Chunky 3D tactile buttons) -->
+<div class="flex flex-col gap-2.5 pt-2">
+<!-- Primary CTA: Approve & Publish -->
+<button class="tactile-btn-teal w-full py-3.5 px-5 rounded-xl font-headline-sm text-headline-sm font-black flex items-center justify-center gap-2 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-xl" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Approve &amp; Publish</span>
+</button>
+<!-- Secondary Actions Row -->
+<div class="grid grid-cols-2 gap-2">
+<button class="tactile-btn-dark py-2.5 px-3 rounded-xl font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-lg text-[#6bd8ce]" data-icon="refresh">refresh</span>
+<span>Re-render</span>
+</button>
+<button class="tactile-btn-dark py-2.5 px-3 rounded-xl text-[#FE6A50] hover:text-[#FE8B75] font-label-lg text-label-lg font-extrabold flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-lg text-[#FE6A50]" data-icon="edit_note">edit_note</span>
+<span>Edit Script</span>
+</button>
+</div>
+</div></div>
+</aside>
+</div>
+</main>
+<!-- Interactive visual micro-scripts for button press feedback -->
+<script>
+    document.querySelectorAll('.tactile-card').forEach(card => {
+      card.addEventListener('click', function() {
+        if (!this.classList.contains('tactile-card-selected')) {
+          const current = document.querySelector('.tactile-card-selected');
+          if (current) {
+            current.classList.remove('tactile-card-selected');
+            current.classList.add('tactile-card', 'bg-surface-container-lowest');
+          }
+          this.classList.remove('tactile-card', 'bg-surface-container-lowest');
+          this.classList.add('tactile-card-selected');
+        }
+      });
+    });
+  </script>
+</body></html>

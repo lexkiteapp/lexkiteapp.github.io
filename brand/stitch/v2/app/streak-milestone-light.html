@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — 30-Day Streak Milestone (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'card-bg': '#FFFFFF',
+            'card-border': '#EADEC8',
+            'card-ledge': '#D8CFBC',
+            'ink-primary': '#0F3D3E',
+            'ink-muted': '#365355',
+            'ink-button': '#1A0702',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'coral-brand': '#F2553B',
+            'amber-brand': '#FFB054',
+            'gold-badge': '#FFC94A',
+            'cta-ledge': '#B53A22',
+            'teal-ledge': '#176662',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Tactile Press Physics */
+    .btn-tactile-coral {
+      background: linear-gradient(180deg, #FF7B54 0%, #F2553B 60%, #E04328 100%);
+      box-shadow: 0 6px 0 #B53A22, 0 10px 18px rgba(242, 85, 59, 0.25);
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-tactile-coral:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 7px 0 #B53A22, 0 12px 22px rgba(242, 85, 59, 0.3);
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #B53A22, 0 4px 8px rgba(242, 85, 59, 0.2);
+    }
+
+    .btn-tactile-secondary {
+      background: #FFFFFF;
+      box-shadow: 0 5px 0 #D8CFBC, 0 6px 14px rgba(15, 61, 62, 0.06);
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-tactile-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 #D8CFBC, 0 8px 16px rgba(15, 61, 62, 0.09);
+    }
+    .btn-tactile-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #D8CFBC, 0 3px 6px rgba(15, 61, 62, 0.05);
+    }
+
+    .card-tactile {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+    }
+
+    .badge-card {
+      transition: transform 0.15s ease;
+    }
+    .badge-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Ambient sparkle float */
+    @keyframes gentle-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    .hero-flame-wrapper {
+      animation: gentle-pulse 3.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-cream-bg text-ink-primary font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-teal-brand selection:text-white">
+
+  <!-- TOP HEADER (Standard Lexkite Bar) -->
+  <header class="w-full max-w-xl mx-auto pt-6 px-6 flex items-center justify-between">
+    <!-- Close / Dismiss Button -->
+    <button aria-label="Close" class="w-11 h-11 rounded-2xl bg-white border-2 border-card-border flex items-center justify-center text-ink-primary hover:bg-[#FDF9F0] active:translate-y-0.5 transition-all shadow-[0_3px_0_#D8CFBC]">
+      <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Header Stats Indicators -->
+    <div class="flex items-center gap-3">
+      <!-- Streak Pill -->
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border-2 border-card-border shadow-[0_3px_0_#D8CFBC]">
+        <svg class="w-4 h-4 text-coral-brand" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2c.4 2.8 2.2 4.4 3.7 6.1 1.7 1.9 3.3 4.2 3.3 7.4 0 4.1-3.1 7.5-7 7.5s-7-3.4-7-7.5c0-4 2.5-6.6 4.7-9 .5 1.5 1.4 2.9 2.3 3.5.5-2.5 0-5.5 0-8z"/>
+        </svg>
+        <span class="text-sm font-extrabold text-ink-primary tracking-tight">30</span>
+      </div>
+      <!-- XP Pill -->
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border-2 border-card-border shadow-[0_3px_0_#D8CFBC]">
+        <svg class="w-4 h-4 text-amber-brand" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/>
+        </svg>
+        <span class="text-sm font-extrabold text-ink-primary tracking-tight">1,480 XP</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN MILESTONE CELEBRATION CONTENT -->
+  <main class="w-full max-w-md mx-auto px-6 py-4 flex-1 flex flex-col items-center justify-center">
+
+    <!-- HERO SPARKLE & FLAME STACK -->
+    <div class="relative w-full flex flex-col items-center justify-center my-2">
+
+      <!-- SPARKLE & CONFETTI ACCENTS (Precise vector decorations) -->
+      <!-- Top Left Star Sparkle -->
+      <div class="absolute -top-3 left-12 text-amber-brand">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0L14.4 9.6L24 12L14.4 14.4L12 24L9.6 14.4L0 12L9.6 9.6L12 0Z"/>
+        </svg>
+      </div>
+      <!-- Top Right Teal Diamond -->
+      <div class="absolute top-2 right-14 text-teal-brand">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L22 12L12 22L2 12Z"/>
+        </svg>
+      </div>
+      <!-- Floating Confetti Pills & Discs -->
+      <div class="absolute top-24 left-6 w-3 h-6 rounded-full bg-coral-brand rotate-45 opacity-90 shadow-sm"></div>
+      <div class="absolute top-20 right-8 w-3 h-5 rounded-full bg-teal-brand -rotate-12 opacity-90 shadow-sm"></div>
+      <div class="absolute bottom-6 left-10 w-2.5 h-2.5 rounded-full bg-amber-brand opacity-90"></div>
+      <div class="absolute bottom-8 right-12 w-3.5 h-3.5 rounded-full bg-gold-badge opacity-95"></div>
+      <div class="absolute top-6 left-28 text-gold-badge">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0L13.8 8.2L22 10L13.8 11.8L12 20L10.2 11.8L2 10L10.2 8.2L12 0Z"/>
+        </svg>
+      </div>
+      <div class="absolute top-28 right-6 text-amber-brand">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0L14 7L21 9L14 11L12 18L10 11L3 9L10 7L12 0Z"/>
+        </svg>
+      </div>
+
+      <!-- GLOSSY HERO FLAME CONTAINER (Tactile 3D Emblem with "30") -->
+      <div class="hero-flame-wrapper relative z-10 w-44 h-48 flex items-center justify-center">
+        <!-- Ambient Base Glow Plate -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#FFE8B8] to-[#FFD59E] rounded-full blur-xl opacity-60 transform scale-90"></div>
+
+        <!-- 3D Vector Flame Illustration with Layered Depth -->
+        <svg class="w-44 h-48 drop-shadow-[0_12px_24px_rgba(242,85,59,0.3)]" viewBox="0 0 176 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Definitions for rich tactile gradients and glossy highlights -->
+          <defs>
+            <linearGradient id="flameBack" x1="88" y1="10" x2="88" y2="182" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FF9345"/>
+              <stop offset="45%" stop-color="#F2553B"/>
+              <stop offset="100%" stop-color="#C73016"/>
+            </linearGradient>
+            <linearGradient id="flameCore" x1="88" y1="40" x2="88" y2="175" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFE685"/>
+              <stop offset="35%" stop-color="#FFB338"/>
+              <stop offset="85%" stop-color="#FF6B35"/>
+              <stop offset="100%" stop-color="#EE4322"/>
+            </linearGradient>
+            <linearGradient id="innerTongue" x1="88" y1="75" x2="88" y2="165" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFDF0"/>
+              <stop offset="50%" stop-color="#FFE885"/>
+              <stop offset="100%" stop-color="#FFAE34"/>
+            </linearGradient>
+            <linearGradient id="glossArc" x1="50" y1="20" x2="120" y2="100" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="badgeEdge" x1="88" y1="90" x2="88" y2="165" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0F3D3E"/>
+              <stop offset="100%" stop-color="#072223"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Outer Flame Silhouette (Darker Bottom Ledge Shadow) -->
+          <path d="M88 6C92 28 108 42 120 58C136 78 152 102 152 134C152 165 125 186 88 186C51 186 24 165 24 134C24 98 48 76 68 54C72 68 80 80 88 84C84 56 86 30 88 6Z" 
+                fill="#B32C15"/>
+
+          <!-- Main Flame Body with Rich Coral-Amber Depth -->
+          <path d="M88 8C92 30 108 44 120 60C136 80 150 104 150 133C150 162 124 182 88 182C52 182 26 162 26 133C26 99 50 78 68 56C72 70 80 81 88 85C84 58 86 32 88 8Z" 
+                fill="url(#flameBack)"/>
+
+          <!-- Vibrant Middle Core Layer -->
+          <path d="M88 34C91 50 102 62 112 75C124 91 134 110 134 133C134 158 113 174 88 174C63 174 42 158 42 133C42 105 60 88 74 71C77 82 83 91 88 94C85 72 87 52 88 34Z" 
+                fill="url(#flameCore)"/>
+
+          <!-- Glowing Sun Inner Tongue -->
+          <path d="M88 68C90 80 98 89 104 98C113 110 120 122 120 138C120 156 106 167 88 167C70 167 56 156 56 138C56 118 69 106 79 94C81 101 85 108 88 110C86 94 87 81 88 68Z" 
+                fill="url(#innerTongue)"/>
+
+          <!-- High-Gloss Curved Glass Shine (Top-Left Specular highlight) -->
+          <path d="M50 82C43 98 38 116 38 132C38 142 41 151 46 158C43 148 42 137 43 128C45 110 52 95 62 80C56 81 52 81 50 82Z" 
+                fill="url(#glossArc)"/>
+          <ellipse cx="62" cy="74" rx="8" ry="14" transform="rotate(-30 62 74)" fill="#FFFFFF" fill-opacity="0.55"/>
+
+          <!-- EMBEDDED NUMBER SHIELD PLATE -->
+          <g filter="drop-shadow(0 6px 10px rgba(0,0,0,0.22))">
+            <!-- Shield Backing -->
+            <rect x="42" y="98" width="92" height="64" rx="20" fill="#0C2527" stroke="#2BA39A" stroke-width="2.5"/>
+            <rect x="44" y="100" width="88" height="28" rx="18" fill="white" fill-opacity="0.12"/>
+            
+            <!-- White 30 Number Typography inside SVG -->
+            <text x="88" y="145" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">30</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Small Milestone Flag Chip Under Flame -->
+      <div class="relative z-10 -mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border-2 border-card-border shadow-[0_2px_0_#D8CFBC]">
+        <span class="w-2 h-2 rounded-full bg-coral-brand animate-ping"></span>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-ink-primary">Month Unlocked</span>
+      </div>
+    </div>
+
+    <!-- HEADLINE & CELEBRATION COPY (Minimal, High Contrast) -->
+    <div class="text-center mt-3 mb-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-ink-primary tracking-tight">30-day streak!</h1>
+      <p class="text-base font-bold text-ink-muted mt-1 max-w-xs mx-auto">
+        Unstoppable habit! 30 days of high-yield exam vocabulary locked in.
+      </p>
+    </div>
+
+    <!-- MILESTONE BADGES ROW (7, 30, 100, 365) -->
+    <div class="w-full card-tactile rounded-2xl p-4 mb-6">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-ink-primary">Streak Milestones</span>
+        <span class="text-xs font-extrabold text-teal-deep">2 of 4 Reached</span>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2.5">
+        <!-- 7 Days (REACHED & SHINY) -->
+        <div class="badge-card flex flex-col items-center p-2 rounded-xl bg-[#FFF9ED] border-2 border-[#F5D89A] shadow-[0_3px_0_#E8C678]">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-b from-[#FFE894] to-[#FFAE34] border-2 border-white flex items-center justify-center shadow-sm relative overflow-hidden mb-1.5">
+            <!-- Gloss shine -->
+            <div class="absolute -top-1 -right-1 w-6 h-6 bg-white/40 rounded-full blur-[1px]"></div>
+            <svg class="w-5 h-5 text-ink-primary stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <span class="text-xs font-extrabold text-ink-primary">7 Days</span>
+          <span class="text-[10px] font-bold text-teal-deep">Unlocked</span>
+        </div>
+
+        <!-- 30 Days (CURRENT REACHED - SUPER SHINY & HIGHLIGHTED) -->
+        <div class="badge-card flex flex-col items-center p-2 rounded-xl bg-[#FFF2EB] border-2 border-coral-brand shadow-[0_3px_0_#B53A22] ring-2 ring-coral-brand/20">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-b from-[#FFA451] to-[#F2553B] border-2 border-white flex items-center justify-center shadow-md relative overflow-hidden mb-1.5">
+            <!-- Gloss shine -->
+            <div class="absolute -top-1 -right-1 w-6 h-6 bg-white/50 rounded-full blur-[1px]"></div>
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.6 6.8L22 9.4l-5.4 4.8 1.6 7.2L12 17.6 5.8 21.4l1.6-7.2L2 9.4l7.4-.6L12 2z"/>
+            </svg>
+          </div>
+          <span class="text-xs font-extrabold text-coral-brand">30 Days</span>
+          <span class="text-[10px] font-extrabold text-ink-primary bg-[#FFDDD2] px-1.5 py-0.2 rounded-full">New!</span>
+        </div>
+
+        <!-- 100 Days (LOCKED / UPCOMING) -->
+        <div class="badge-card flex flex-col items-center p-2 rounded-xl bg-[#F8F5EE] border-2 border-card-border opacity-70">
+          <div class="w-11 h-11 rounded-full bg-[#E8E2D5] border-2 border-white flex items-center justify-center mb-1.5">
+            <svg class="w-4 h-4 text-ink-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="5" y="11" width="14" height="10" rx="2"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+          </div>
+          <span class="text-xs font-bold text-ink-muted">100 Days</span>
+          <span class="text-[10px] font-bold text-ink-muted">70 left</span>
+        </div>
+
+        <!-- 365 Days (LOCKED / YEAR) -->
+        <div class="badge-card flex flex-col items-center p-2 rounded-xl bg-[#F8F5EE] border-2 border-card-border opacity-70">
+          <div class="w-11 h-11 rounded-full bg-[#E8E2D5] border-2 border-white flex items-center justify-center mb-1.5">
+            <svg class="w-4 h-4 text-ink-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="5" y="11" width="14" height="10" rx="2"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+          </div>
+          <span class="text-xs font-bold text-ink-muted">365 Days</span>
+          <span class="text-[10px] font-bold text-ink-muted">Year Club</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TACTILE ACTION BUTTONS (Stacked for Ergonomic Reach) -->
+    <div class="w-full flex flex-col gap-3.5">
+      <!-- Continue Button (Primary CTA: Coral/Amber Gradient, 6px Ledge, Dark Ink Typography) -->
+      <button class="btn-tactile-coral w-full h-14 rounded-2xl flex items-center justify-center gap-2 text-ink-button font-extrabold text-lg tracking-wide border-t border-white/30">
+        <span>Continue</span>
+        <svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </button>
+
+      <!-- Share Button (Secondary Tactile Button: White with 5px Ledge, Crisp Dark Teal Text) -->
+      <button class="btn-tactile-secondary w-full h-13 py-3 rounded-2xl flex items-center justify-center gap-2 border-2 border-card-border text-ink-primary font-extrabold text-base tracking-tight">
+        <svg class="w-5 h-5 text-teal-deep stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+        </svg>
+        <span>Share Milestone</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- MINIMAL FOOTER NOTE -->
+  <footer class="w-full text-center pb-6 pt-2">
+    <p class="text-xs font-bold text-ink-muted">
+      Practiced today • Next review ready tomorrow at 08:00
+    </p>
+  </footer>
+
+</body>
+</html>
+

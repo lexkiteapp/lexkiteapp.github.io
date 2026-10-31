@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin — Growth &amp; Analytics</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#2ba39a",
+            "tertiary-fixed": "#ffdf9e",
+            "error": "#ffb4ab",
+            "surface-container-high": "#202c2f",
+            "on-surface-variant": "#bcc9c7",
+            "tertiary-container": "#ba8b00",
+            "secondary-fixed": "#ffdad3",
+            "on-primary": "#003733",
+            "inverse-surface": "#d8e5e9",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary-container": "#981201",
+            "on-primary-container": "#00322e",
+            "surface-bright": "#2f3b3e",
+            "primary": "#6bd8ce",
+            "on-tertiary": "#402e00",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "tertiary": "#f4bf40",
+            "secondary": "#ffb4a6",
+            "outline": "#879391",
+            "on-tertiary-container": "#392900",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container": "#162125",
+            "surface": "#091518",
+            "secondary-fixed-dim": "#ffb4a6",
+            "inverse-on-surface": "#263236",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-container-highest": "#2b373a",
+            "background": "#091518",
+            "surface-dim": "#091518",
+            "surface-variant": "#2b373a",
+            "surface-tint": "#6bd8ce",
+            "surface-container-lowest": "#051013",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "inverse-primary": "#006a64",
+            "on-error": "#690005",
+            "on-tertiary-fixed": "#261a00",
+            "on-background": "#d8e5e9",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-surface": "#d8e5e9",
+            "primary-fixed": "#88f5ea",
+            "on-secondary": "#660800",
+            "on-secondary-container": "#ffa493",
+            "surface-container-low": "#121d20",
+            "outline-variant": "#3d4947",
+            "on-secondary-fixed": "#3f0300",
+            "on-primary-fixed": "#00201e"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "16px",
+            "space-sm": "8px",
+            "space-xs": "4px",
+            "space-xl": "32px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "margin": "16px"
+          },
+          fontFamily: {
+            "label": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #053637;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- Top Header Bar -->
+<header class="w-full bg-surface-container-lowest border-b-2 border-outline-variant shadow-[0_4px_0_0_#053637] sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+<!-- Brand & Left Meta -->
+<div class="flex items-center gap-4">
+<!-- Diamond Emblem -->
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-fixed to-primary-container flex items-center justify-center border-2 border-primary shadow-[0_3px_0_0_#00504b] rotate-45 transform">
+<div class="-rotate-45 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary font-bold text-xl" data-icon="token">token</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-headline-md font-extrabold text-primary-fixed tracking-tight text-xl">Lexkite</span>
+<span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-tertiary-container/30 border border-tertiary text-tertiary tracking-wider uppercase">OPS CONSOLE</span>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">Solo Admin Studio • Kai (Lead)</p>
+</div>
+</div>
+<!-- Center Tab Navigation (Tactile Pills) -->
+<nav class="flex items-center bg-surface-container-lowest p-1 rounded-xl border border-outline-variant shadow-inner">
+<a class="px-4 py-1.5 text-xs font-bold rounded-lg text-outline-variant hover:text-surface-bright transition-all" href="#">Overview</a>
+<!-- ACTIVE: Growth -->
+<a class="px-4 py-1.5 text-xs font-bold rounded-lg bg-primary-container text-on-surface shadow-[0_2px_0_0_#00504b] border border-primary transition-all" href="#">Growth</a>
+<a class="px-4 py-1.5 text-xs font-bold rounded-lg text-outline-variant hover:text-surface-bright transition-all" href="#">Quota</a>
+<a class="px-4 py-1.5 text-xs font-bold rounded-lg text-outline-variant hover:text-surface-bright transition-all flex items-center gap-1.5" href="#">
+          Reports
+          <span class="bg-secondary-container text-secondary text-[10px] font-extrabold px-1.5 py-0.2 rounded-full border border-secondary/40">3</span>
+</a>
+</nav>
+<!-- Right Controls & Tactile CTA -->
+<div class="flex items-center gap-4">
+<!-- Live Sync Pill -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant shadow-[0_2px_0_0_#051013]">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-ping"></span>
+<span class="text-xs font-bold text-primary tracking-wide">Live Sync • 38ms</span>
+</div>
+<!-- Export CSV CTA (Candy Coral-to-Amber with physical ledge) -->
+<button class="tactile-btn flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#F2553B] to-tertiary text-surface-container-lowest font-bold text-xs tracking-wide uppercase border border-[#F2553B] shadow-[0_4px_0_0_#B53A22] active:translate-y-1 active:shadow-[0_1px_0_0_#B53A22] transition-all">
+<span class="material-symbols-outlined text-base font-bold" data-icon="download">download</span>
+          Export CSV
+        </button>
+</div>
+</div>
+</header>
+<!-- Main Admin Content Canvas -->
+<main class="max-w-7xl mx-auto px-6 py-8 space-y-6">
+<!-- Page Header & Time Controls -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="text-display font-display text-white text-2xl md:text-3xl font-extrabold tracking-tight">Growth &amp; Acquisition</h1>
+<span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-primary/20 text-primary-fixed border border-primary/40">Organic First</span>
+</div>
+<p class="text-sm text-on-surface-variant font-medium mt-1">High-velocity exam prep flywheel across IELTS, TOEIC &amp; TOEFL tracks.</p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<!-- Segmented range selector -->
+<div class="flex items-center bg-surface-container-high p-1 rounded-xl border border-outline-variant shadow-[0_2px_0_0_#051013]">
+<button class="px-3 py-1 text-xs font-bold rounded-lg text-outline-variant hover:text-on-surface transition-all">Today</button>
+<button class="px-3 py-1 text-xs font-bold rounded-lg text-outline-variant hover:text-on-surface transition-all">7D</button>
+<button class="px-3 py-1 text-xs font-bold rounded-lg bg-primary-container text-white shadow-[0_2px_0_0_#00504b] border border-primary">30D</button>
+<button class="px-3 py-1 text-xs font-bold rounded-lg text-outline-variant hover:text-on-surface transition-all">90D</button>
+<button class="px-3 py-1 text-xs font-bold rounded-lg text-outline-variant hover:text-on-surface transition-all">All</button>
+</div>
+<!-- Tactile Refresh Icon Button -->
+<button class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-container border border-outline-variant text-on-surface-variant hover:text-primary shadow-[0_3px_0_0_#051013] active:translate-y-0.5 active:shadow-[0_1px_0_0_#051013] transition-all">
+<span class="material-symbols-outlined text-lg font-bold" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<!-- Row 1: Top 4 KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: TOTAL VISITS -->
+<div class="bg-surface-container p-5 rounded-2xl border-2 border-outline-variant shadow-[0_5px_0_0_#051013] relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-wider text-outline">TOTAL VISITS</span>
+<div class="w-9 h-9 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary-fixed shadow-[0_2px_0_0_#00504b]">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-extrabold text-white tracking-tight">142,800</div>
+<div class="flex items-center gap-1.5 mt-2">
+<span class="px-2 py-0.5 text-xs font-bold rounded bg-primary/10 text-primary border border-primary/30">↑ +18.4%</span>
+<span class="text-xs text-outline font-medium">vs prev 30d</span>
+</div>
+</div>
+</div>
+<!-- Card 2: SIGN-UPS -->
+<div class="bg-surface-container p-5 rounded-2xl border-2 border-outline-variant shadow-[0_5px_0_0_#051013] relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-wider text-outline">SIGN-UPS</span>
+<div class="w-9 h-9 rounded-xl bg-tertiary/20 border border-tertiary/40 flex items-center justify-center text-tertiary-fixed shadow-[0_2px_0_0_#5b4300]">
+<span class="material-symbols-outlined text-lg" data-icon="person_add">person_add</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-extrabold text-white tracking-tight">16,420</div>
+<div class="flex items-center gap-1.5 mt-2">
+<span class="px-2 py-0.5 text-xs font-bold rounded bg-primary/10 text-primary border border-primary/30">↑ +22.1%</span>
+<span class="text-xs text-outline font-medium">conv: 11.5%</span>
+</div>
+</div>
+</div>
+<!-- Card 3: 1ST LESSON FINISH -->
+<div class="bg-surface-container p-5 rounded-2xl border-2 border-outline-variant shadow-[0_5px_0_0_#051013] relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-wider text-outline">1ST LESSON FINISH</span>
+<div class="w-9 h-9 rounded-xl bg-secondary/20 border border-secondary/40 flex items-center justify-center text-secondary shadow-[0_2px_0_0_#981201]">
+<span class="material-symbols-outlined text-lg" data-icon="school">school</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-extrabold text-white tracking-tight">11,820</div>
+<div class="flex items-center gap-1.5 mt-2">
+<span class="px-2 py-0.5 text-xs font-bold rounded bg-primary/10 text-primary border border-primary/30">↑ +14.8%</span>
+<span class="text-xs text-outline font-medium">72% of signup</span>
+</div>
+</div>
+</div>
+<!-- Card 4: D7 RETENTION -->
+<div class="bg-surface-container p-5 rounded-2xl border-2 border-outline-variant shadow-[0_5px_0_0_#051013] relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-wider text-outline">D7 RETENTION</span>
+<div class="w-9 h-9 rounded-xl bg-primary-fixed/20 border border-primary-fixed/40 flex items-center justify-center text-primary-fixed shadow-[0_2px_0_0_#00504b]">
+<span class="material-symbols-outlined text-lg" data-icon="local_fire_department">local_fire_department</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-extrabold text-white tracking-tight">38.4%</div>
+<div class="flex items-center gap-1.5 mt-2">
+<span class="px-2 py-0.5 text-xs font-bold rounded bg-primary/10 text-primary border border-primary/30">↑ +3.2%</span>
+<span class="text-xs text-outline font-medium">benchmark 28%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 2: Funnel & Traffic Sources Bento -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Onboarding Funnel (approx 65% ~ 8 cols) -->
+<div class="lg:col-span-8 bg-surface-container p-6 rounded-2xl border-2 border-outline-variant shadow-[0_5px_0_0_#051013] flex flex-col justify-between space-y-6">
+<div>
+<!-- Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary-fixed shadow-[0_2px_0_0_#00504b]">
+<span class="material-symbols-outlined text-xl" data-icon="filter_alt">filter_alt</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-white tracking-tight">Onboarding Funnel</h2>
+<p class="text-xs text-outline font-medium">Visit -&gt; Sign-up -&gt; First Lesson -&gt; Day-7 Return</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-primary/10 border border-primary/30 text-primary-fixed">
+              Overall: 3.1% End-to-End
+            </span>
+</div>
+<!-- 4 Funnel Step Bars -->
+<div class="mt-6 space-y-4">
+<!-- Step 1 -->
+<div>
+<div class="flex justify-between text-xs font-bold text-on-surface mb-1.5">
+<span class="flex items-center gap-2">
+<span class="text-outline">01</span> Page Visit (Unique)
+                </span>
+<span class="text-white font-extrabold">142,800 (100%)</span>
+</div>
+<div class="w-full h-8 bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/60 p-1">
+<div class="h-full rounded-lg bg-gradient-to-r from-primary to-primary-container flex items-center justify-end px-3 text-xs font-extrabold text-on-primary shadow-sm" style="width: 100%;">
+                  100%
+                </div>
+</div>
+</div>
+<!-- Step 2 -->
+<div>
+<div class="flex justify-between text-xs font-bold text-on-surface mb-1.5">
+<span class="flex items-center gap-2">
+<span class="text-outline">02</span> Sign-up (Free Account)
+                  <span class="text-[10px] text-error font-medium bg-error-container/30 px-1.5 py-0.2 rounded border border-error/20">-88.5% drop</span>
+</span>
+<span class="text-white font-extrabold">16,420 (11.5%)</span>
+</div>
+<div class="w-full h-8 bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/60 p-1">
+<div class="h-full rounded-lg bg-gradient-to-r from-tertiary to-tertiary-container flex items-center justify-end px-3 text-xs font-extrabold text-surface-container-lowest shadow-sm" style="width: 28%;">
+                  11.5%
+                </div>
+</div>
+</div>
+<!-- Step 3 -->
+<div>
+<div class="flex justify-between text-xs font-bold text-on-surface mb-1.5">
+<span class="flex items-center gap-2">
+<span class="text-outline">03</span> First Lesson Completed
+                  <span class="text-[10px] text-primary font-medium bg-primary/10 px-1.5 py-0.2 rounded border border-primary/20">72.0% activation</span>
+</span>
+<span class="text-white font-extrabold">11,820 (8.3%)</span>
+</div>
+<div class="w-full h-8 bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/60 p-1">
+<div class="h-full rounded-lg bg-gradient-to-r from-tertiary-fixed-dim to-secondary-fixed-dim flex items-center justify-end px-3 text-xs font-extrabold text-on-secondary shadow-sm" style="width: 20%;">
+                  8.3%
+                </div>
+</div>
+</div>
+<!-- Step 4 -->
+<div>
+<div class="flex justify-between text-xs font-bold text-on-surface mb-1.5">
+<span class="flex items-center gap-2">
+<span class="text-outline">04</span> Day-7 Return &amp; Streak Keeper
+                  <span class="text-[10px] text-tertiary font-medium bg-tertiary/10 px-1.5 py-0.2 rounded border border-tertiary/20">38.4% streak lock</span>
+</span>
+<span class="text-white font-extrabold">4,540 (3.1%)</span>
+</div>
+<div class="w-full h-8 bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/60 p-1">
+<div class="h-full rounded-lg bg-gradient-to-r from-[#F2553B] to-tertiary flex items-center justify-end px-3 text-xs font-extrabold text-surface-container-lowest shadow-sm" style="width: 12%;">
+                  3.1%
+                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Insight Box -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/80 flex items-center justify-between text-xs shadow-inner">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-base" data-icon="lightbulb">lightbulb</span>
+<span><strong class="text-white">Insight:</strong> Extension install prompt on lesson 1 lifts D7 retention by <span class="text-primary font-bold">+19%</span>.</span>
+</div>
+<span class="text-outline text-[11px] font-medium hidden sm:inline">Calculated from 142.8k sessions</span>
+</div>
+</div>
+<!-- Right Column: Traffic Sources (approx 35% ~ 4 cols) -->
+<div class="lg:col-span-4 bg-surface-container p-6 rounded-2xl border-2 border-outline-variant shadow-[0_5px_0_0_#051013] flex flex-col justify-between">
+<div>
+<!-- Header -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary/20 border border-tertiary/40 flex items-center justify-center text-tertiary-fixed shadow-[0_2px_0_0_#5b4300]">
+<span class="material-symbols-outlined text-xl" data-icon="pie_chart">pie_chart</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-white tracking-tight">Traffic Sources</h2>
+<p class="text-xs text-outline font-medium">Top channels • 30 Days</p>
+</div>
+</div>
+<!-- Stylized Ring Donut Graphic -->
+<div class="relative w-44 h-44 mx-auto my-6 flex items-center justify-center">
+<!-- Simulated Segment Ring via SVG -->
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<!-- Background Circle -->
+<circle cx="50" cy="50" fill="transparent" r="38" stroke="#121d20" stroke-width="14"></circle>
+<!-- Organic Search: 48% (Teal) -->
+<circle cx="50" cy="50" fill="transparent" r="38" stroke="#2ba39a" stroke-dasharray="114.6 238.8" stroke-dashoffset="0" stroke-width="14"></circle>
+<!-- Chrome Web Store: 26% (Amber) -->
+<circle cx="50" cy="50" fill="transparent" r="38" stroke="#f4bf40" stroke-dasharray="62.1 238.8" stroke-dashoffset="-114.6" stroke-width="14"></circle>
+<!-- Direct & Word of Mouth: 16% (Coral) -->
+<circle cx="50" cy="50" fill="transparent" r="38" stroke="#F2553B" stroke-dasharray="38.2 238.8" stroke-dashoffset="-176.7" stroke-width="14"></circle>
+<!-- Free Blog Embeds & APIs: 10% (Mint) -->
+<circle cx="50" cy="50" fill="transparent" r="38" stroke="#88f5ea" stroke-dasharray="23.9 238.8" stroke-dashoffset="-214.9" stroke-width="14"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-black text-white tracking-tight">142.8k</span>
+<span class="text-[10px] font-bold text-outline tracking-wider uppercase">VISITORS</span>
+</div>
+</div>
+<!-- Channel Legend List -->
+<div class="space-y-2 text-xs">
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-medium text-white">Organic Search</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-white">48%</span>
+<span class="text-[11px] text-outline">68.5k</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="font-medium text-white">Chrome Web Store</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-white">26%</span>
+<span class="text-[11px] text-outline">37.1k</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F2553B]"></span>
+<span class="font-medium text-white">Direct &amp; Word of Mouth</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-white">16%</span>
+<span class="text-[11px] text-outline">22.8k</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-fixed"></span>
+<span class="font-medium text-white">Blog Embeds &amp; APIs</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-white">10%</span>
+<span class="text-[11px] text-outline">14.4k</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Pill Badge -->
+<div class="mt-4 pt-3 border-t border-outline-variant/50 flex items-center justify-center">
+<span class="px-3 py-1 rounded-full text-xs font-bold text-primary-fixed border border-primary/50 bg-primary/10 shadow-[0_2px_0_0_#00504b]">
+            Zero Paid Acquisition • $0 Ad Spend
+          </span>
+</div>
+</div>
+</div>
+<!-- Row 3: Retention Cohorts (Weekly) -->
+<div class="bg-surface-container p-6 rounded-2xl border-2 border-outline-variant shadow-[0_5px_0_0_#051013] space-y-4 overflow-hidden">
+<!-- Header & Cohort Legend -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary-fixed shadow-[0_2px_0_0_#00504b]">
+<span class="material-symbols-outlined text-xl" data-icon="bar_chart">bar_chart</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-white tracking-tight">Retention Cohorts (Weekly)</h2>
+<p class="text-xs text-outline font-medium">Percentage of learners who return and practice daily collocations</p>
+</div>
+</div>
+<!-- Legend Heatmap -->
+<div class="flex items-center gap-2 text-xs font-medium text-outline">
+<span>Low</span>
+<div class="flex items-center gap-1">
+<span class="w-4 h-4 rounded bg-[#092b2a] border border-outline-variant"></span>
+<span class="w-4 h-4 rounded bg-[#0e4844] border border-outline-variant"></span>
+<span class="w-4 h-4 rounded bg-[#176d66] border border-outline-variant"></span>
+<span class="w-4 h-4 rounded bg-[#2ba39a] border border-outline-variant"></span>
+<span class="w-4 h-4 rounded bg-[#6bd8ce] border border-outline-variant"></span>
+</div>
+<span class="text-primary-fixed font-bold">High (&gt;45%)</span>
+</div>
+</div>
+<!-- Cohort Heatmap Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/80 text-[11px] font-extrabold uppercase tracking-wider text-outline">
+<th class="py-3 px-3">COHORT WEEK</th>
+<th class="py-3 px-3">USERS</th>
+<th class="py-3 px-3 text-center">DAY 1</th>
+<th class="py-3 px-3 text-center">DAY 3</th>
+<th class="py-3 px-3 text-center">DAY 7</th>
+<th class="py-3 px-3 text-center">DAY 14</th>
+<th class="py-3 px-3 text-center">DAY 21</th>
+<th class="py-3 px-3 text-center">DAY 30</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/40 font-bold">
+<!-- Row 1 -->
+<tr>
+<td class="py-3 px-3 text-white font-extrabold">Oct 01 - Oct 07</td>
+<td class="py-3 px-3 text-on-surface-variant font-medium">3,410</td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#2ba39a] text-white text-center font-extrabold shadow-sm">68%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#176d66] text-white text-center font-extrabold shadow-sm">52%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#176d66] text-white text-center font-extrabold shadow-sm">41%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#0e4844] text-white text-center font-extrabold shadow-sm">34%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#0e4844] text-white text-center font-extrabold shadow-sm">29%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#092b2a] text-white text-center font-extrabold shadow-sm">24%</div></td>
+</tr>
+<!-- Row 2 -->
+<tr>
+<td class="py-3 px-3 text-white font-extrabold">Oct 08 - Oct 14</td>
+<td class="py-3 px-3 text-on-surface-variant font-medium">3,890</td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#6bd8ce] text-surface-container-lowest text-center font-extrabold shadow-sm">71%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#2ba39a] text-white text-center font-extrabold shadow-sm">54%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#176d66] text-white text-center font-extrabold shadow-sm">43%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#0e4844] text-white text-center font-extrabold shadow-sm">36%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#0e4844] text-white text-center font-extrabold shadow-sm">31%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-surface-container-lowest text-outline text-center font-medium">—</div></td>
+</tr>
+<!-- Row 3 -->
+<tr>
+<td class="py-3 px-3 text-white font-extrabold">Oct 15 - Oct 21</td>
+<td class="py-3 px-3 text-on-surface-variant font-medium">4,210</td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#6bd8ce] text-surface-container-lowest text-center font-extrabold shadow-sm">74%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#2ba39a] text-white text-center font-extrabold shadow-sm">58%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#2ba39a] text-white text-center font-extrabold shadow-sm">46%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#176d66] text-white text-center font-extrabold shadow-sm">38%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-surface-container-lowest text-outline text-center font-medium">—</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-surface-container-lowest text-outline text-center font-medium">—</div></td>
+</tr>
+<!-- Row 4 (v2.4 badge) -->
+<tr>
+<td class="py-3 px-3 text-white font-extrabold flex items-center gap-2">
+                Oct 22 - Oct 28
+                <span class="text-[10px] font-extrabold px-1.5 py-0.2 rounded bg-tertiary/20 text-tertiary border border-tertiary/40">v2.4</span>
+</td>
+<td class="py-3 px-3 text-on-surface-variant font-medium">4,910</td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#88f5ea] text-surface-container-lowest text-center font-black shadow-sm">79%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#6bd8ce] text-surface-container-lowest text-center font-extrabold shadow-sm">63%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-[#2ba39a] text-white text-center font-extrabold shadow-sm">49%</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-surface-container-lowest text-outline text-center font-medium">—</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-surface-container-lowest text-outline text-center font-medium">—</div></td>
+<td class="p-1.5"><div class="py-2 rounded-lg bg-surface-container-lowest text-outline text-center font-medium">—</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Row 4: Top High-Converting Pages -->
+<div class="bg-surface-container p-6 rounded-2xl border-2 border-outline-variant shadow-[0_5px_0_0_#051013] space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary/20 border border-secondary/40 flex items-center justify-center text-secondary shadow-[0_2px_0_0_#981201]">
+<span class="material-symbols-outlined text-xl" data-icon="star">star</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-white tracking-tight">Top High-Converting Pages</h2>
+<p class="text-xs text-outline font-medium">Entry points driving 82% of all learner sign-ups and extension installs</p>
+</div>
+</div>
+<button class="tactile-btn flex items-center gap-1 px-3 py-1.5 rounded-xl bg-surface-container-low border border-outline-variant text-xs font-bold text-on-surface hover:text-primary shadow-[0_2px_0_0_#051013] transition-all">
+          View All Pages -&gt;
+        </button>
+</div>
+<!-- Pages Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/80 text-[11px] font-extrabold uppercase tracking-wider text-outline">
+<th class="py-3 px-3">PAGE ROUTE &amp; NAME</th>
+<th class="py-3 px-3">CATEGORY</th>
+<th class="py-3 px-3">UNIQUE VISITS</th>
+<th class="py-3 px-3">SIGN-UPS</th>
+<th class="py-3 px-3">CONV. RATE</th>
+<th class="py-3 px-3">30 D TREND</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-medium">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-3">
+<div class="font-bold text-white">/blog/affect-vs-effect</div>
+<div class="text-[11px] text-outline font-normal">The 30-Sec Rule</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-primary/10 text-primary-fixed border border-primary/30">Blog • IELTS</span>
+</td>
+<td class="py-3.5 px-3 font-bold text-white">42,650</td>
+<td class="py-3.5 px-3 font-bold text-white">5,890</td>
+<td class="py-3.5 px-3 font-extrabold text-primary-fixed">13.8%</td>
+<td class="py-3.5 px-3 font-bold text-primary">↗ +34%</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-3">
+<div class="font-bold text-white">/tools/cefr-level-test</div>
+<div class="text-[11px] text-outline font-normal">Free Diagnostic</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-tertiary/10 text-tertiary-fixed border border-tertiary/30">Placement Quiz</span>
+</td>
+<td class="py-3.5 px-3 font-bold text-white">28,940</td>
+<td class="py-3.5 px-3 font-bold text-white">4,620</td>
+<td class="py-3.5 px-3 font-extrabold text-primary-fixed">16.0%</td>
+<td class="py-3.5 px-3 font-bold text-primary">↗ +19%</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-3">
+<div class="font-bold text-white">/dict/resilient</div>
+<div class="text-[11px] text-outline font-normal">IELTS Collocations</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-primary/10 text-primary-fixed border border-primary/30">Dictionary</span>
+</td>
+<td class="py-3.5 px-3 font-bold text-white">19,820</td>
+<td class="py-3.5 px-3 font-bold text-white">1,940</td>
+<td class="py-3.5 px-3 font-extrabold text-primary-fixed">9.8%</td>
+<td class="py-3.5 px-3 font-bold text-primary">↗ +8%</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-3">
+<div class="font-bold text-white">/research/100-confused-pairs</div>
+<div class="text-[11px] text-outline font-normal">Open Dataset</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-secondary/10 text-secondary border border-secondary/30">Open Research</span>
+</td>
+<td class="py-3.5 px-3 font-bold text-white">14,210</td>
+<td class="py-3.5 px-3 font-bold text-white">1,780</td>
+<td class="py-3.5 px-3 font-extrabold text-primary-fixed">12.5%</td>
+<td class="py-3.5 px-3 font-bold text-primary">↗ +42%</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-3">
+<div class="font-bold text-white">/embed/word-pair-widget</div>
+<div class="text-[11px] text-outline font-normal">External Embeds</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-surface-container-highest text-on-surface border border-outline-variant/60">Widget Hub</span>
+</td>
+<td class="py-3.5 px-3 font-bold text-white">11,430</td>
+<td class="py-3.5 px-3 font-bold text-white">1,210</td>
+<td class="py-3.5 px-3 font-extrabold text-primary-fixed">10.6%</td>
+<td class="py-3.5 px-3 font-bold text-tertiary">→ ±0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Bottom Status Bar / Footer -->
+<footer class="w-full bg-surface-container-lowest border-t-2 border-outline-variant py-4 px-6 text-xs text-outline mt-12">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="text-on-surface-variant font-medium">Lexkite Solo Ops Engine v2.4 • Growth telemetry cached at Edge</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-on-surface-variant font-medium">Zero Analytics Cookies • 100% Privacy Aligned</span>
+<span class="font-mono bg-surface-container px-2.5 py-1 rounded border border-outline-variant text-primary-fixed font-bold">UTC Clock: 21:04:12</span>
+</div>
+</div>
+</footer>
+</body></html>

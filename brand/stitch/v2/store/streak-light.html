@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Store Listing — Build a daily streak (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle Lexkite dot matrix pattern */
+    .dot-pattern {
+      background-image: radial-gradient(#D6C6AC 1.2px, transparent 1.2px);
+      background-size: 20px 20px;
+    }
+
+    /* Tactile button physics */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      box-shadow: 0 6px 0 #B53A22, 0 10px 18px rgba(181, 58, 34, 0.25);
+      transition: all 0.12s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #B53A22, 0 5px 10px rgba(181, 58, 34, 0.2);
+    }
+
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      box-shadow: 0 5px 0 #D8CFBC, 0 8px 16px rgba(15, 61, 62, 0.06);
+      transition: all 0.12s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+
+    /* Tactile card styles */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 6px 0 #D8CFBC, 0 14px 28px rgba(78, 102, 104, 0.08);
+      border-radius: 28px;
+    }
+
+    .tactile-inner-card {
+      background: #FFFDF9;
+      border: 2px solid #F1E5D1;
+      box-shadow: 0 4px 0 #E5D7BE;
+      border-radius: 20px;
+    }
+
+    /* Glossy flame bubble */
+    .flame-badge {
+      background: radial-gradient(circle at 35% 30%, #FFECC7 0%, #FFB054 45%, #F2553B 85%, #CF3D25 100%);
+      box-shadow: inset 0 3px 4px rgba(255, 255, 255, 0.7), 0 8px 0 #9E2612, 0 16px 24px rgba(242, 85, 59, 0.35);
+    }
+
+    /* Day circle indicators */
+    .day-circle-done {
+      background: radial-gradient(circle at 35% 30%, #FFE3BA 0%, #FF9E3B 70%, #E66620 100%);
+      box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.6), 0 4px 0 #B3480B;
+    }
+    .day-circle-today {
+      background: radial-gradient(circle at 35% 30%, #D8FFF8 0%, #2BA39A 75%, #186F69 100%);
+      box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.7), 0 4px 0 #104C48, 0 0 16px rgba(43, 163, 154, 0.45);
+    }
+    .day-circle-upcoming {
+      background: #F4EAD9;
+      border: 2px solid #E2D2BC;
+      box-shadow: 0 3px 0 #D6C3A9;
+    }
+
+    /* Glossy medals */
+    .medal-gold {
+      background: radial-gradient(circle at 35% 30%, #FFF4CC 0%, #FFC94A 55%, #E69D00 100%);
+      box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.8), 0 4px 0 #A86B00;
+    }
+    .medal-silver {
+      background: radial-gradient(circle at 35% 30%, #FFFFFF 0%, #DDE7EB 60%, #B2C4CB 100%);
+      box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.9), 0 4px 0 #859CA5;
+    }
+    .medal-bronze {
+      background: radial-gradient(circle at 35% 30%, #FFE2D4 0%, #E0855A 60%, #B8582B 100%);
+      box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.7), 0 4px 0 #8C3912;
+    }
+
+    .podium-pillar {
+      border-radius: 16px 16px 8px 8px;
+    }
+  </style>
+</head>
+<body class="min-h-screen dot-pattern flex flex-col items-center justify-between p-6 sm:p-10 select-none">
+
+  <!-- Main Store Frame Canvas Container -->
+  <div class="w-full max-w-[500px] flex flex-col items-center">
+
+    <!-- Top Badge Header: Branding & Category -->
+    <div class="w-full flex items-center justify-between mb-4">
+      <div class="inline-flex items-center gap-2 bg-[#FFFFFF] px-3.5 py-1.5 rounded-full border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC]">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#2BA39A"/>
+          <path d="M12 2L20 10L12 13L4 10L12 2Z" fill="#FFB054"/>
+          <circle cx="12" cy="10" r="1.5" fill="#FFFFFF"/>
+        </svg>
+        <span class="text-xs font-black tracking-wider uppercase text-[#0F3D3E]">LEXKITE PREP</span>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 bg-[#FFF2DE] px-3 py-1.5 rounded-full border-2 border-[#F1DCB9] shadow-[0_3px_0_#E2C79E]">
+        <span class="w-2 h-2 rounded-full bg-[#F2553B] animate-pulse"></span>
+        <span class="text-xs font-black tracking-wider uppercase text-[#8F3300]">IELTS • TOEIC • TOEFL</span>
+      </div>
+    </div>
+
+    <!-- Hero Promotional Headline Block over soft gradient glow -->
+    <div class="relative w-full text-center py-4 mb-3">
+      <!-- Ambient Radial Backlight -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#FFE7C8]/70 via-[#FFD8AC]/40 to-transparent blur-2xl -z-10 rounded-full"></div>
+      
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0F3D3E] leading-tight">
+        Build a daily <span class="relative inline-block text-[#E8461E]">streak<svg class="absolute left-0 -bottom-1 w-full h-2.5 text-[#FFB054]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 4" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span>
+      </h1>
+      <p class="mt-2 text-sm sm:text-base font-semibold text-[#4E6668]">
+        5 minutes of high-yield exam collocations a day
+      </p>
+    </div>
+
+    <!-- Main Screenshot Focal Card: Tactical Gamified Habit Engine -->
+    <div class="w-full tactile-card p-6 sm:p-7 relative overflow-hidden">
+      
+      <!-- Card Top Pill Bar: Status & Streak Header -->
+      <div class="flex items-center justify-between pb-5 border-b-2 border-[#F5EAD8]">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#E5F7F6] border-2 border-[#2BA39A]/40 text-[#1F7A75]">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </span>
+          <span class="text-xs font-black tracking-wider uppercase text-[#1F7A75]">STREAK MASTER</span>
+        </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FFF4DC] border-2 border-[#FFE099] rounded-full text-xs font-black text-[#8A5200]">
+          <svg class="w-3.5 h-3.5 fill-[#FFB054]" viewBox="0 0 24 24">
+            <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+          </svg>
+          <span>+25 XP TODAY</span>
+        </div>
+      </div>
+
+      <!-- FOCAL ELEMENT 1: Big Glossy Hero Flame & Number -->
+      <div class="flex flex-col items-center text-center my-6">
+        <div class="relative flex items-center justify-center">
+          <!-- Big Glossy 3D Flame Icon -->
+          <div class="w-28 h-28 sm:w-32 sm:h-32 flame-badge rounded-[36px] flex flex-col items-center justify-center relative transform -rotate-1 hover:rotate-0 transition-transform">
+            
+            <!-- Flame SVG with 3D Depth Layers -->
+            <svg class="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md" viewBox="0 0 64 64" fill="none">
+              <!-- Back Amber Ledge -->
+              <path d="M32 4C32 4 48 20 48 38C48 48 40.8 56 32 56C23.2 56 16 48 16 38C16 26 26 14 32 4Z" fill="#FFA53B"/>
+              <!-- Core Golden Glow -->
+              <path d="M32 12C32 12 44 24 44 38C44 45.7 38.6 52 32 52C25.4 52 20 45.7 20 38C20 28 28 18 32 12Z" fill="#FFDC69"/>
+              <!-- Inner White Hot Flame -->
+              <path d="M32 24C32 24 39 32 39 40C39 44.4 35.9 48 32 48C28.1 48 25 44.4 25 40C25 33 29 28 32 24Z" fill="#FFFFFF" fill-opacity="0.95"/>
+            </svg>
+
+            <!-- Streak Number Badge overlapping base of flame -->
+            <div class="absolute -bottom-3 bg-[#112328] text-[#FFFFFF] px-4 py-0.5 rounded-full border-2 border-[#FFD382] shadow-[0_3px_0_#071012] flex items-center gap-1">
+              <span class="text-lg font-black tracking-tight text-[#FFB054]">14</span>
+              <span class="text-[10px] font-black tracking-widest uppercase text-[#D2E7E9]">DAYS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Headline underneath hero flame -->
+        <h2 class="text-xl sm:text-2xl font-black text-[#0F3D3E] mt-6 tracking-tight">
+          14-Day Study Streak!
+        </h2>
+        <p class="text-xs sm:text-sm font-semibold text-[#4E6668] mt-1">
+          Memory recall locked for Cambridge IELTS 7.5+
+        </p>
+      </div>
+
+      <!-- FOCAL ELEMENT 2: 7-Day Row of Glowing Circles -->
+      <div class="tactile-inner-card p-4 sm:p-5 mb-5">
+        <div class="flex items-center justify-between mb-3 px-1">
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#637C7E]">THIS WEEK</span>
+          <span class="text-xs font-black text-[#1F7A75] bg-[#E2F7F5] px-2.5 py-0.5 rounded-full border border-[#2BA39A]/30">
+            ✓ 6 OF 7 COMPLETED
+          </span>
+        </div>
+
+        <div class="grid grid-cols-7 gap-1.5 sm:gap-2 text-center">
+          
+          <!-- Mon: Done -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[11px] font-extrabold text-[#748A8C]">M</span>
+            <div class="w-10 h-10 rounded-full day-circle-done flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#FFFFFF] drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.062-2.203-7.61-5.485-9.525C17.18 5.438 15 8.5 15 12c0 2.761-2.239 5-5 5-1.077 0-2.07-.34-2.885-.922C8.163 19.822 10 23 12 23z"/>
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-[#1F7A75]">✓</span>
+          </div>
+
+          <!-- Tue: Done -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[11px] font-extrabold text-[#748A8C]">T</span>
+            <div class="w-10 h-10 rounded-full day-circle-done flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#FFFFFF] drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.062-2.203-7.61-5.485-9.525C17.18 5.438 15 8.5 15 12c0 2.761-2.239 5-5 5-1.077 0-2.07-.34-2.885-.922C8.163 19.822 10 23 12 23z"/>
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-[#1F7A75]">✓</span>
+          </div>
+
+          <!-- Wed: Done -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[11px] font-extrabold text-[#748A8C]">W</span>
+            <div class="w-10 h-10 rounded-full day-circle-done flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#FFFFFF] drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.062-2.203-7.61-5.485-9.525C17.18 5.438 15 8.5 15 12c0 2.761-2.239 5-5 5-1.077 0-2.07-.34-2.885-.922C8.163 19.822 10 23 12 23z"/>
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-[#1F7A75]">✓</span>
+          </div>
+
+          <!-- Thu: Done -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[11px] font-extrabold text-[#748A8C]">T</span>
+            <div class="w-10 h-10 rounded-full day-circle-done flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#FFFFFF] drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.062-2.203-7.61-5.485-9.525C17.18 5.438 15 8.5 15 12c0 2.761-2.239 5-5 5-1.077 0-2.07-.34-2.885-.922C8.163 19.822 10 23 12 23z"/>
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-[#1F7A75]">✓</span>
+          </div>
+
+          <!-- Fri: Done -->
+          <div class="flex flex-col items-center gap-1.5">
+            <span class="text-[11px] font-extrabold text-[#748A8C]">F</span>
+            <div class="w-10 h-10 rounded-full day-circle-done flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#FFFFFF] drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.062-2.203-7.61-5.485-9.525C17.18 5.438 15 8.5 15 12c0 2.761-2.239 5-5 5-1.077 0-2.07-.34-2.885-.922C8.163 19.822 10 23 12 23z"/>
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-[#1F7A75]">✓</span>
+          </div>
+
+          <!-- Sat: TODAY (Glowing active circle) -->
+          <div class="flex flex-col items-center gap-1.5 scale-105">
+            <span class="text-[11px] font-black text-[#1F7A75]">S</span>
+            <div class="w-10 h-10 rounded-full day-circle-today flex items-center justify-center relative">
+              <svg class="w-5 h-5 text-[#FFFFFF] drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/>
+              </svg>
+              <!-- Small glowing notification dot -->
+              <span class="absolute -top-1 -right-1 w-3 h-3 bg-[#FFC94A] rounded-full border border-[#FFFFFF]"></span>
+            </div>
+            <span class="text-[10px] font-black text-[#E8461E]">ACTIVE</span>
+          </div>
+
+          <!-- Sun: Upcoming -->
+          <div class="flex flex-col items-center gap-1.5 opacity-60">
+            <span class="text-[11px] font-extrabold text-[#748A8C]">S</span>
+            <div class="w-10 h-10 rounded-full day-circle-upcoming flex items-center justify-center">
+              <span class="w-2 h-2 rounded-full bg-[#CBB89E]"></span>
+            </div>
+            <span class="text-[10px] font-medium text-[#748A8C]">—</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FOCAL ELEMENT 3: League Podium with Three Glossy Medals -->
+      <div class="tactile-inner-card p-4 sm:p-5 mb-5">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 rounded-lg bg-[#FFF2DE] border border-[#FFD8AC] flex items-center justify-center text-[#E8461E]">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V19H7v2h10v-2h-4v-3.1c1.8-.3 3.32-1.46 3.61-3.06C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
+              </svg>
+            </div>
+            <span class="text-xs font-black uppercase tracking-wider text-[#0F3D3E]">SAPPHIRE LEAGUE PODIUM</span>
+          </div>
+          <span class="text-[11px] font-black text-[#9C3800] bg-[#FFECCC] px-2 py-0.5 rounded-full border border-[#FFD699]">
+            PROMOTION ZONE
+          </span>
+        </div>
+
+        <!-- 3-Tier Isometric-Inspired 2D Flat Podium -->
+        <div class="flex items-end justify-center gap-3 pt-6 pb-1">
+
+          <!-- #2 Silver Rank -->
+          <div class="flex-1 flex flex-col items-center">
+            <!-- Glossy Silver Medal -->
+            <div class="w-9 h-9 rounded-full medal-silver flex items-center justify-center mb-2 z-10">
+              <span class="text-sm font-black text-[#3B4D53]">2</span>
+            </div>
+            <span class="text-[11px] font-bold text-[#0F3D3E] truncate max-w-[70px]">Linh K.</span>
+            <span class="text-[10px] font-extrabold text-[#748A8C]">1,280 XP</span>
+            <!-- Podium Column -->
+            <div class="w-full h-14 bg-[#EAEFF2] border-2 border-[#D1DCE1] shadow-[0_4px_0_#BDCBD1] podium-pillar mt-1.5 flex items-center justify-center">
+              <span class="text-xs font-black text-[#7E96A0]">2ND</span>
+            </div>
+          </div>
+
+          <!-- #1 Gold Rank (Center Champion) -->
+          <div class="flex-1 flex flex-col items-center scale-105">
+            <!-- Glossy Gold Medal with Crown -->
+            <div class="w-11 h-11 rounded-full medal-gold flex items-center justify-center mb-2 relative z-10">
+              <span class="text-base font-black text-[#4A2F00]">1</span>
+              <svg class="absolute -top-3 w-5 h-5 text-[#FFB054] drop-shadow" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z"/>
+              </svg>
+            </div>
+            <span class="text-xs font-black text-[#0F3D3E] truncate max-w-[80px]">You (Kai)</span>
+            <span class="text-[10px] font-black text-[#E8461E]">1,420 XP</span>
+            <!-- Podium Column -->
+            <div class="w-full h-20 bg-[#FFF2DE] border-2 border-[#FFE0B2] shadow-[0_5px_0_#F5C98A] podium-pillar mt-1.5 flex items-center justify-center">
+              <span class="text-xs font-black text-[#B87000]">1ST</span>
+            </div>
+          </div>
+
+          <!-- #3 Bronze Rank -->
+          <div class="flex-1 flex flex-col items-center">
+            <!-- Glossy Bronze Medal -->
+            <div class="w-9 h-9 rounded-full medal-bronze flex items-center justify-center mb-2 z-10">
+              <span class="text-sm font-black text-[#4A1E0A]">3</span>
+            </div>
+            <span class="text-[11px] font-bold text-[#0F3D3E] truncate max-w-[70px]">Marcus R.</span>
+            <span class="text-[10px] font-extrabold text-[#748A8C]">1,150 XP</span>
+            <!-- Podium Column -->
+            <div class="w-full h-11 bg-[#F9ECE4] border-2 border-[#EAD0C2] shadow-[0_4px_0_#D9BAA9] podium-pillar mt-1.5 flex items-center justify-center">
+              <span class="text-xs font-black text-[#966752]">3RD</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Action Area: Candy 3D Buttons with Bottom Ledges -->
+      <div class="flex flex-col gap-3 pt-1">
+        <!-- Primary CTA: Coral-to-Amber with Deep Brown-Black Ink -->
+        <button class="w-full py-4 rounded-2xl tactile-btn-primary flex items-center justify-center gap-2 cursor-pointer">
+          <span class="text-base font-black tracking-wide text-[#1A0700] uppercase">
+            KEEP STREAK BURNING
+          </span>
+          <svg class="w-5 h-5 text-[#1A0700]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <!-- Secondary Button: Share Achievement -->
+        <button class="w-full py-3 rounded-2xl border-2 border-[#EADEC8] tactile-btn-secondary flex items-center justify-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4 text-[#1F7A75]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          <span class="text-xs font-black uppercase tracking-wider text-[#0F3D3E]">
+            SHARE MILESTONE CARD
+          </span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Store Listing Value Strip / Micro Trust Badges -->
+    <div class="w-full flex items-center justify-around mt-5 px-3 py-3 rounded-2xl bg-[#FFF1DE]/70 border border-[#F5E2C5]">
+      <div class="flex items-center gap-1.5">
+        <span class="text-[#2BA39A] font-black text-sm">✓</span>
+        <span class="text-[11px] font-black text-[#0F3D3E] tracking-tight">Zero Paywalls</span>
+      </div>
+      <div class="w-1.5 h-1.5 rounded-full bg-[#D6C5AA]"></div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-[#FFB054] font-black text-sm">⚡</span>
+        <span class="text-[11px] font-black text-[#0F3D3E] tracking-tight">5-Min Micro Drills</span>
+      </div>
+      <div class="w-1.5 h-1.5 rounded-full bg-[#D6C5AA]"></div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-[#E8461E] font-black text-sm">🛡</span>
+        <span class="text-[11px] font-black text-[#0F3D3E] tracking-tight">Cambridge Verified</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin - Sign-in Gate</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container": "#00322e",
+            "on-error": "#690005",
+            "on-secondary-fixed": "#3f0300",
+            "on-tertiary": "#402e00",
+            "on-secondary-fixed-variant": "#900f00",
+            "inverse-on-surface": "#263236",
+            "surface-container": "#162125",
+            "primary": "#2ba39a",
+            "outline": "#879391",
+            "on-secondary": "#660800",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#ba8b00",
+            "on-tertiary-fixed": "#261a00",
+            "primary-container": "#2ba39a",
+            "error-container": "#93000a",
+            "inverse-surface": "#d8e5e9",
+            "on-surface": "#0f3d3e",
+            "surface-container-lowest": "#051013",
+            "on-primary-fixed": "#00201e",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-container-low": "#121d20",
+            "surface": "#fff7ea",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "background": "#fff7ea",
+            "inverse-primary": "#006a64",
+            "secondary-fixed": "#ffdad3",
+            "surface-dim": "#f7efe0",
+            "surface-container-highest": "#2b373a",
+            "secondary": "#f2553b",
+            "on-background": "#0f3d3e",
+            "on-primary-fixed-variant": "#00504b",
+            "primary-fixed": "#88f5ea",
+            "outline-variant": "#3d4947",
+            "tertiary": "#ffb054",
+            "surface-container-high": "#202c2f",
+            "surface-tint": "#2ba39a",
+            "on-secondary-container": "#ffa493",
+            "secondary-container": "#981201",
+            "surface-bright": "#ffffff",
+            "error": "#ffb4ab",
+            "on-tertiary-container": "#392900",
+            "surface-variant": "#2b373a",
+            "on-surface-variant": "#4e6668",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#ffb4a6"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.25rem",
+            "3xl": "1.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "32px",
+            "space-md": "16px",
+            "gutter": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-lg": "24px",
+            "margin": "16px"
+          },
+          fontFamily: {
+            "label": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile 3D Ledge System */
+    .tactile-card {
+      box-shadow: 0 6px 0 0 #D8CFBC, 0 16px 32px -8px rgba(15, 61, 62, 0.06);
+    }
+    
+    .tactile-btn {
+      box-shadow: 0 5px 0 0 #CCC2AE;
+      transition: all 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .tactile-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 0 #CCC2AE;
+    }
+    .tactile-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 #CCC2AE;
+    }
+
+    .tactile-badge {
+      box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .tactile-emblem {
+      box-shadow: 0 6px 0 0 #217e77, 0 10px 20px -4px rgba(43, 163, 154, 0.3);
+    }
+
+    /* Gloss Top Highlight */
+    .gloss-shine {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 60%);
+    }
+  </style>
+</head>
+<body class="bg-[#FAF3E7] text-[#0F3D3E] font-body text-body min-h-screen flex flex-col justify-between selection:bg-[#2BA39A]/20 selection:text-[#0F3D3E] relative overflow-hidden antialiased">
+<!-- Ambient Tactile Motifs (Playful geometric kites & diamonds in 5-8% opacity) -->
+<div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+<!-- Motif 1: Floating Diamond Coral -->
+<div class="absolute -top-12 left-1/4 w-44 h-44 rounded-3xl border-4 border-[#F2553B]/[0.08] bg-[#F2553B]/[0.04] rotate-12 transform"></div>
+<!-- Motif 2: Large Kite Teal -->
+<div class="absolute top-1/3 -left-16 w-64 h-64 rounded-[40px] border-4 border-[#2BA39A]/[0.07] bg-[#2BA39A]/[0.03] -rotate-45 transform"></div>
+<!-- Motif 3: Sunny Amber Lozenge -->
+<div class="absolute bottom-16 -right-12 w-56 h-56 rounded-[36px] border-4 border-[#FFB054]/[0.08] bg-[#FFB054]/[0.04] rotate-6 transform"></div>
+<!-- Motif 4: Small Accent Dots & Diamonds -->
+<div class="absolute top-1/4 right-1/4 w-8 h-8 rounded-lg bg-[#2BA39A]/[0.08] rotate-45"></div>
+<div class="absolute bottom-1/3 left-1/5 w-6 h-6 rounded-full bg-[#F2553B]/[0.06]"></div>
+<div class="absolute top-2/3 right-1/6 w-10 h-10 rounded-xl bg-[#FFB054]/[0.08] rotate-12"></div>
+</div>
+<!-- Top Minimal Utility Bar -->
+<header class="relative z-10 w-full px-8 py-6 max-w-7xl mx-auto flex items-center justify-between">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-xl bg-[#2BA39A] flex items-center justify-center shadow-[0_2px_0_0_#217e77]">
+<span class="material-symbols-outlined text-white text-base" data-icon="kitesurfing" style="font-variation-settings: 'FILL' 1;">kitesurfing</span>
+</div>
+<span class="font-display text-lg font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+</div>
+<!-- Security Status Chip -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 border border-[#E8DFCE] tactile-badge backdrop-blur-xs">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A] animate-pulse"></span>
+<span class="font-label text-label text-[#4E6668] tracking-wider uppercase">Edge Auth • Encrypted</span>
+</div>
+</header>
+<!-- Main Centered Sign-in Gate -->
+<main class="relative z-10 flex-1 flex items-center justify-center px-4 py-8">
+<div class="w-full max-w-[460px]">
+<!-- Tactile Gate Container Card -->
+<section class="bg-white rounded-[28px] border-2 border-[#E8DFCE] tactile-card p-10 sm:p-11 flex flex-col items-center text-center relative overflow-hidden">
+<!-- Gloss Top Specular Line -->
+<div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-b from-white/90 to-transparent"></div>
+<!-- Origami Kite Logo Emblem -->
+<div class="relative mb-6">
+<div class="w-20 h-20 rounded-3xl bg-[#2BA39A] tactile-emblem flex items-center justify-center relative overflow-hidden group">
+<!-- Gloss highlight overlay -->
+<div class="absolute inset-0 gloss-shine pointer-events-none"></div>
+<!-- Stylized Origami Kite Geometric Shapes inside -->
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg fill="none" height="42" viewbox="0 0 42 42" width="42" xmlns="http://www.w3.org/2000/svg">
+<!-- Top Wing (Coral) -->
+<path d="M21 3L37 19H21V3Z" fill="#F2553B"></path>
+<!-- Left Wing (Sunny Amber) -->
+<path d="M21 3L5 19H21V3Z" fill="#FFB054"></path>
+<!-- Bottom Spine (Bright Teal) -->
+<path d="M21 19L37 19L21 39V19Z" fill="#24877F"></path>
+<path d="M21 19L5 19L21 39V19Z" fill="#88F5EA"></path>
+<!-- Tactile Center Bead -->
+<circle cx="21" cy="19" fill="#FFFFFF" r="2.5"></circle>
+</svg>
+</div>
+</div>
+<!-- Tiny floating playful indicator badge -->
+<div class="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#FFB054] border-2 border-white flex items-center justify-center shadow-[0_2px_0_0_#D98F39]">
+<span class="material-symbols-outlined text-[#392900] text-xs font-bold" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</div>
+<!-- Admin Access Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF3E7] border border-[#E8DFCE] mb-4">
+<span class="material-symbols-outlined text-[#2BA39A] text-xs" data-icon="shield_person" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+<span class="font-label text-[11px] font-extrabold tracking-widest text-[#2BA39A] uppercase">Restricted Access</span>
+</div>
+<!-- Title -->
+<h1 class="font-display text-display text-[#0F3D3E] font-extrabold tracking-tight mb-2">
+          Lexkite Admin
+        </h1>
+<!-- High-Contrast Subtitle -->
+<p class="font-body text-[#4E6668] text-sm leading-relaxed mb-8 max-w-[340px]">
+          Single-operator console for IELTS & TOEIC exam engines.
+        </p>
+<!-- Primary Action: Big Tactile "Sign in with Google" Button -->
+<div class="w-full mb-6">
+<button class="tactile-btn w-full h-14 bg-white border-2 border-[#E0D7C4] rounded-2xl flex items-center justify-center gap-3.5 px-6 cursor-pointer select-none relative group" onclick="simulateAuth(this)" type="button">
+<!-- Google "G" Full-Color Vector Icon -->
+<svg class="w-5 h-5 flex-shrink-0" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<!-- Button Label -->
+<span class="font-title text-[15px] font-bold text-[#0F3D3E] tracking-tight">
+              Sign in with Google
+            </span>
+<!-- Subtle Arrow chevron on hover -->
+<span class="material-symbols-outlined text-[#879391] text-lg ml-auto opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Internal Security Notice -->
+<div class="flex items-center gap-1.5 text-xs font-medium text-[#71888A]">
+<span class="material-symbols-outlined text-sm text-[#71888A]" data-icon="verified_user">verified_user</span>
+<span>Access is limited to authorized operators only</span>
+</div>
+</section>
+<!-- Outside Security & Identity Footer -->
+<footer class="mt-6 text-center">
+<p class="font-label text-[11px] text-[#7E9698] font-semibold tracking-wide">
+          Lexkite Ops Engine • Zero Tracking • Cloudflare Zero Trust Aligned
+        </p>
+</footer>
+</div>
+</main>
+<!-- Empty bottom spacer to anchor centered vertical balance -->
+<div class="h-6"></div>
+<!-- Micro-interaction script for feedback -->
+<script>
+    function simulateAuth(button) {
+      const label = button.querySelector('span');
+      const originalText = label.textContent;
+      label.textContent = "Verifying Credentials...";
+      button.style.opacity = "0.85";
+      setTimeout(() => {
+        label.textContent = "Redirecting to SSO...";
+        setTimeout(() => {
+          label.textContent = originalText;
+          button.style.opacity = "1";
+        }, 1200);
+      }, 700);
+    }
+  </script>
+</body></html>

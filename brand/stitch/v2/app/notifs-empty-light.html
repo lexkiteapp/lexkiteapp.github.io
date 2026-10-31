@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Notifications</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary-fixed": "#ffdf9e",
+            "on-background": "#0F3D3E",
+            "on-secondary-fixed": "#3f0300",
+            "on-primary-fixed": "#00201e",
+            "surface-container-high": "#F5EFE3",
+            "outline": "#879391",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-primary-fixed-variant": "#00504b",
+            "error": "#ffb4ab",
+            "on-tertiary": "#402e00",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-container-low": "#FFFDF9",
+            "on-primary": "#003733",
+            "inverse-surface": "#0F3D3E",
+            "surface-container": "#FFFFFF",
+            "secondary-fixed": "#ffdad3",
+            "on-surface": "#0F3D3E",
+            "surface-variant": "#EADEC8",
+            "surface": "#FFF7EA",
+            "inverse-primary": "#006a64",
+            "primary-container": "#2ba39a",
+            "surface-container-highest": "#D8CFBC",
+            "surface-dim": "#FFF7EA",
+            "surface-tint": "#2ba39a",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-secondary": "#660800",
+            "primary-fixed": "#88f5ea",
+            "on-error-container": "#ffdad6",
+            "surface-container-lowest": "#FFFFFF",
+            "primary": "#2ba39a",
+            "on-primary-container": "#00322e",
+            "tertiary-fixed-dim": "#f4bf40",
+            "inverse-on-surface": "#FFF7EA",
+            "on-secondary-container": "#ffa493",
+            "on-surface-variant": "#4E6668",
+            "background": "#FFF7EA",
+            "tertiary": "#FFB054",
+            "surface-bright": "#FFFFFF",
+            "tertiary-container": "#ba8b00",
+            "on-error": "#690005",
+            "error-container": "#93000a",
+            "secondary-container": "#F2553B",
+            "on-tertiary-fixed": "#261a00",
+            "outline-variant": "#EADEC8",
+            "secondary": "#F2553B",
+            "on-tertiary-container": "#392900"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "4xl": "1.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "4px",
+            "margin": "16px",
+            "gutter": "16px",
+            "space-xl": "32px",
+            "space-md": "16px",
+            "space-sm": "8px",
+            "space-lg": "24px"
+          },
+          fontFamily: {
+            title: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Tactile button sinking effects */
+    .tactile-btn {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+    }
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #D8CFBC;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #D8CFBC;
+    }
+    .tactile-secondary-btn {
+      box-shadow: 0 3px 0 0 #D8CFBC;
+    }
+    .tactile-secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+    .tactile-primary-cta {
+      box-shadow: 0 6px 0 0 #B53A22;
+    }
+    .tactile-primary-cta:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 0 #B53A22;
+    }
+    .gloss-shine {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen relative flex flex-col justify-end select-none overflow-x-hidden">
+<!-- Ambient Backdrop with App Bar context peek -->
+<div class="fixed inset-0 bg-[#0F3D3E]/30 backdrop-blur-[2px] transition-opacity z-0 flex flex-col justify-between">
+<!-- Contextual Top Header Peek (Lexkite Shared Bar) -->
+<header class="flex justify-between items-center w-full px-4 h-14 bg-surface/95 border-b border-outline-variant shadow-sm z-10">
+<div class="flex items-center gap-3">
+<!-- Close/Dismiss Action -->
+<button class="w-9 h-9 rounded-xl bg-surface-container border-2 border-outline-variant flex items-center justify-center text-on-surface tactile-secondary-btn">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<span class="font-display text-title font-extrabold text-[#0F3D3E] tracking-tight">Lexkite</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Streak Indicator Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-full border-2 border-outline-variant font-label text-[13px] font-extrabold text-on-surface shadow-[0_2px_0_0_#D8CFBC]">
+<span class="material-symbols-outlined text-[#FFB054]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>14</span>
+</div>
+<!-- XP Indicator Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-full border-2 border-outline-variant font-label text-[13px] font-extrabold text-on-surface shadow-[0_2px_0_0_#D8CFBC]">
+<span class="material-symbols-outlined text-[#2BA39A]" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>820 XP</span>
+</div>
+</div>
+</header>
+<!-- Tap backdrop to dismiss area -->
+<div aria-hidden="true" class="flex-1 w-full"></div>
+</div>
+<!-- Mobile Bottom Sheet Panel -->
+<main class="relative z-10 w-full max-w-lg mx-auto bg-surface-container rounded-t-[28px] border-t-2 border-x-2 border-outline-variant shadow-2xl flex flex-col pt-3 pb-6 max-h-[813px] overflow-y-auto">
+<!-- Grab Handle bar -->
+<div class="w-full flex justify-center py-1">
+<div class="w-9 h-1.5 rounded-full bg-surface-container-highest"></div>
+</div>
+<!-- Panel Header: Title + Tactile "Mark all read" Button -->
+<div class="px-5 pt-3 pb-4 flex items-center justify-between border-b border-outline-variant/60">
+<div class="flex items-center gap-2">
+<h1 class="font-title text-[24px] font-extrabold text-[#0F3D3E] tracking-tight">Notifications</h1>
+<span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-[#2BA39A]/15 text-[#0F3D3E] border border-[#2BA39A]/30">3</span>
+</div>
+<button class="tactile-secondary-btn tactile-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-low border-2 border-outline-variant font-label text-[12px] font-extrabold text-[#0F3D3E] hover:bg-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-[#2BA39A]" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Mark all read</span>
+</button>
+</div>
+<!-- Scrollable Content Stack -->
+<div class="px-4 py-4 space-y-3">
+<!-- Notice Card 1: New Badge -->
+<article class="tactile-card tactile-btn bg-surface-container rounded-2xl p-3.5 border-2 border-outline-variant flex items-center justify-between gap-3 cursor-pointer">
+<div class="flex items-center gap-3 min-w-0">
+<!-- Glossy Icon Tile: Golden Amber -->
+<div class="relative w-12 h-12 rounded-xl bg-gradient-to-b from-[#FFC766] to-[#FF9B26] p-0.5 flex items-center justify-center flex-shrink-0 shadow-[0_3px_0_0_#C97208] overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 gloss-shine rounded-t-xl pointer-events-none"></div>
+<span class="material-symbols-outlined text-white text-[24px] drop-shadow-sm" data-icon="emoji_events" data-weight="fill" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<!-- Card Copy -->
+<div class="min-w-0">
+<h2 class="font-title text-[15px] font-bold text-[#0F3D3E] truncate leading-snug">New Badge Unlocked!</h2>
+<p class="font-body text-[13px] font-medium text-on-surface-variant truncate">Streak Star Tier 3 • +50 XP</p>
+</div>
+</div>
+<!-- Meta: Timestamp & Pulse Dot -->
+<div class="flex flex-col items-end flex-shrink-0 gap-1.5 pl-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2BA39A] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2BA39A]"></span>
+</span>
+<span class="font-label text-[11px] font-bold text-on-surface-variant">2m ago</span>
+</div>
+</article>
+<!-- Notice Card 2: Streak Reminder -->
+<article class="tactile-card tactile-btn bg-surface-container rounded-2xl p-3.5 border-2 border-outline-variant flex items-center justify-between gap-3 cursor-pointer">
+<div class="flex items-center gap-3 min-w-0">
+<!-- Glossy Icon Tile: Candy Coral / Amber Flame -->
+<div class="relative w-12 h-12 rounded-xl bg-gradient-to-b from-[#FF7A59] to-[#F2553B] p-0.5 flex items-center justify-center flex-shrink-0 shadow-[0_3px_0_0_#B53A22] overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 gloss-shine rounded-t-xl pointer-events-none"></div>
+<span class="material-symbols-outlined text-white text-[24px] drop-shadow-sm" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<!-- Card Copy -->
+<div class="min-w-0">
+<h2 class="font-title text-[15px] font-bold text-[#0F3D3E] truncate leading-snug">Keep your 14-day streak alive!</h2>
+<p class="font-body text-[13px] font-medium text-on-surface-variant truncate">Practice 5 min before midnight</p>
+</div>
+</div>
+<!-- Meta: Timestamp & Pulse Dot -->
+<div class="flex flex-col items-end flex-shrink-0 gap-1.5 pl-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F2553B]"></span>
+</span>
+<span class="font-label text-[11px] font-bold text-on-surface-variant">1h ago</span>
+</div>
+</article>
+<!-- Notice Card 3: New Drill Feature -->
+<article class="tactile-card tactile-btn bg-surface-container rounded-2xl p-3.5 border-2 border-outline-variant flex items-center justify-between gap-3 cursor-pointer">
+<div class="flex items-center gap-3 min-w-0">
+<!-- Glossy Icon Tile: Vibrant Teal -->
+<div class="relative w-12 h-12 rounded-xl bg-gradient-to-b from-[#3FD1C5] to-[#2BA39A] p-0.5 flex items-center justify-center flex-shrink-0 shadow-[0_3px_0_0_#1F7C75] overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 gloss-shine rounded-t-xl pointer-events-none"></div>
+<span class="material-symbols-outlined text-white text-[24px] drop-shadow-sm" data-icon="graphic_eq" data-weight="fill" style="font-variation-settings: 'FILL' 1;">graphic_eq</span>
+</div>
+<!-- Card Copy -->
+<div class="min-w-0">
+<h2 class="font-title text-[15px] font-bold text-[#0F3D3E] truncate leading-snug">New: IELTS Speaking Audio Drill</h2>
+<p class="font-body text-[13px] font-medium text-on-surface-variant truncate">Carlos &amp; Ama added 12 new collocations</p>
+</div>
+</div>
+<!-- Meta: Timestamp & Pulse Dot -->
+<div class="flex flex-col items-end flex-shrink-0 gap-1.5 pl-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2BA39A]"></span>
+</span>
+<span class="font-label text-[11px] font-bold text-on-surface-variant">Yesterday</span>
+</div>
+</article>
+<!-- Section Divider -->
+<div class="pt-3 pb-1 flex items-center gap-3">
+<div class="h-0.5 flex-1 bg-outline-variant/60"></div>
+<span class="font-label text-[11px] uppercase tracking-wider text-on-surface-variant/80 font-extrabold px-1">Caught up milestone</span>
+<div class="h-0.5 flex-1 bg-outline-variant/60"></div>
+</div>
+<!-- State 2: Tactile Empty/Caught-Up Container -->
+<div class="bg-surface rounded-2xl border-2 border-outline-variant p-5 text-center flex flex-col items-center shadow-[0_3px_0_0_#EADEC8]">
+<!-- Tactile Sleeping Bell Vector Illustration -->
+<div class="relative w-28 h-24 mb-2 flex items-center justify-center">
+<!-- Cloud Pedestal Base -->
+<div class="absolute bottom-1 w-24 h-7 bg-[#E2F5F3] rounded-full border-2 border-[#2BA39A]/30 shadow-inner flex items-center justify-center">
+<div class="w-16 h-2 bg-[#2BA39A]/20 rounded-full blur-[1px]"></div>
+</div>
+<!-- Cute 3D Sleeping Bell -->
+<div class="relative z-10 flex flex-col items-center">
+<!-- Nightcap fluff ball -->
+<div class="absolute -top-2 left-3 w-4 h-4 rounded-full bg-white border border-[#D8CFBC] shadow-xs"></div>
+<!-- Bell Crown & Body -->
+<div class="w-14 h-13 bg-gradient-to-b from-[#FFD270] via-[#FFB054] to-[#E59334] rounded-t-full rounded-b-lg border-2 border-[#8E5306] shadow-[0_4px_0_0_#A86105] flex flex-col items-center justify-end pb-2 relative overflow-hidden">
+<!-- Top Gloss Highlight -->
+<div class="absolute inset-x-1 top-0 h-4 rounded-t-full bg-white/40 pointer-events-none"></div>
+<!-- Sleeping closed eyes (cute curves) -->
+<div class="flex items-center gap-2 mb-1">
+<div class="w-2.5 h-1 border-b-2 border-[#4A2600] rounded-full"></div>
+<div class="w-2.5 h-1 border-b-2 border-[#4A2600] rounded-full"></div>
+</div>
+<!-- Rosy blush dots -->
+<div class="flex items-center justify-between w-8 px-0.5">
+<div class="w-2 h-1 rounded-full bg-[#FF7A59]/40"></div>
+<div class="w-2 h-1 rounded-full bg-[#FF7A59]/40"></div>
+</div>
+</div>
+<!-- Bell Clapper Rim -->
+<div class="w-16 h-2.5 bg-[#FFB054] rounded-full border-2 border-[#8E5306] -mt-1 shadow-sm"></div>
+<!-- Clapper ball tip -->
+<div class="w-3.5 h-3 bg-[#E59334] rounded-b-full border-b border-x border-[#8E5306] -mt-0.5"></div>
+</div>
+<!-- Floating Cozy 'Zzz' Glyphs -->
+<div class="absolute top-1 right-3 text-[#2BA39A] font-title font-extrabold text-sm animate-pulse tracking-widest select-none">
+            Z<span class="text-xs">z</span><span class="text-[9px]">z</span>
+</div>
+<!-- Sparkle star -->
+<div class="absolute top-3 left-3 text-[#FFB054]">
+<span class="material-symbols-outlined text-[14px]" data-icon="sparkles" data-weight="fill" style="font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+</div>
+</div>
+<!-- Headline & Caption -->
+<h3 class="font-title text-[18px] font-extrabold text-[#0F3D3E] mb-1">You're all caught up!</h3>
+<p class="font-body text-[13px] font-medium text-on-surface-variant max-w-[260px] leading-relaxed mb-4">
+          No new notifications right now. Keep crushing your daily drills!
+        </p>
+<!-- Primary Candy CTA Button: Deep Brown-Black Text #1A0702, Coral-to-Amber gradient, 6px bottom ledge -->
+<button class="tactile-primary-cta tactile-btn w-full h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFB054] border-2 border-[#B53A22] flex items-center justify-center gap-2 cursor-pointer transition-all">
+<span class="font-title text-[16px] font-extrabold text-[#1A0702] tracking-wide">Continue Learning</span>
+<span class="material-symbols-outlined text-[#1A0702] text-[20px] font-extrabold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Tactile bottom safety spacer -->
+<div class="h-2"></div>
+</main>
+</body></html>

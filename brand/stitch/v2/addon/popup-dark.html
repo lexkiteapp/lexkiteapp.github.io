@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Chrome Add-on Popup (Tactile Night)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "dark-bg": "#0B171A",
+            "dark-card": "#142328",
+            "dark-card-elevated": "#1A2C33",
+            "dark-raised": "#22363D",
+            "dark-border": "#283E46",
+            "dark-border-strong": "#36505A",
+            "dark-ledge": "#071012",
+            "dark-text": "#EEF6F7",
+            "dark-text-muted": "#A9BFC1",
+            "dark-text-subtle": "#6F8A8E",
+            "teal": "#2BA39A",
+            "teal-light": "#6BD8CE",
+            "teal-deep": "#1F7A75",
+            "teal-ledge": "#12514D",
+            "coral": "#F2553B",
+            "coral-glow": "#FF755B",
+            "amber": "#FFB054",
+            "cta-ledge": "#B53A22",
+            "gold": "#FFC94A",
+            "success": "#2FBF71"
+          },
+          borderRadius: {
+            "card": "16px",
+            "xl": "12px",
+            "2xl": "16px",
+            "3xl": "24px",
+            "full": "9999px"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical 3D Tactile sinks on click */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 var(--ledge-color, #071012);
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+    }
+    /* Custom switch toggle styling */
+    .switch-track {
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .switch-thumb {
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+  </style>
+</head>
+<body class="bg-dark-bg text-dark-text font-sans antialiased min-h-screen flex items-center justify-center p-4 sm:p-8 selection:bg-teal selection:text-dark-bg">
+
+  <!-- Desktop Presentation Environment (Centered Extension Popup Card, No Device Frame) -->
+  <main class="w-full max-w-[420px] mx-auto flex flex-col items-center">
+
+    <!-- Browser Extension Popup Container -->
+    <div class="w-full bg-dark-card rounded-3xl border-2 border-dark-border border-b-[6px] border-dark-ledge p-4 sm:p-5 shadow-2xl flex flex-col gap-3.5 relative overflow-hidden">
+
+      <!-- 1. Header Row (Brand + Add-on Pill + Flame Streak) -->
+      <header class="flex items-center justify-between pt-1 pb-1">
+        <!-- Left: Logo & Tag -->
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-teal-light to-teal flex items-center justify-center border border-teal-light/50 shadow-inner relative overflow-hidden">
+            <span class="material-symbols-outlined text-dark-bg text-[18px] font-bold fill-icon">navigation</span>
+            <div class="absolute -top-1 -right-1 w-2 h-2 bg-coral rounded-full ring-2 ring-dark-card"></div>
+          </div>
+          <span class="text-xl font-extrabold text-white tracking-tight">Lexkite</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-dark-raised text-teal border border-teal/30">
+            ADD-ON
+          </span>
+        </div>
+
+        <!-- Right: Streak Pill -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-card-elevated border-2 border-dark-border border-b-[3px] border-dark-ledge shadow-sm">
+          <span class="material-symbols-outlined text-coral text-[16px] fill-icon">local_fire_department</span>
+          <span class="text-xs font-extrabold text-white">14d</span>
+        </div>
+      </header>
+
+      <!-- 2. Daily Goal & Due Reviews Card -->
+      <section class="bg-dark-card-elevated rounded-2xl border-2 border-dark-border border-b-[4px] border-dark-ledge p-3.5 sm:p-4 flex flex-col gap-3 shadow-md">
+        <!-- Top metrics in card -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-baseline gap-2">
+            <span class="text-3xl font-extrabold text-white leading-none tracking-tight">12</span>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-dark-text-muted">DUE TODAY</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#341618] border border-coral/40 text-coral">
+              <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
+              4 critical
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#292212] border border-amber/40 text-amber">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber"></span>
+              8 familiar
+            </span>
+          </div>
+        </div>
+
+        <!-- Tactile Review CTA (Coral to Amber Gradient) -->
+        <button class="tactile-btn w-full h-11 rounded-xl font-extrabold text-sm text-dark-bg flex items-center justify-center gap-2 bg-gradient-to-r from-coral to-amber border-t border-white/40 border-b-[4px] border-cta-ledge shadow-lg hover:brightness-105 transition-all">
+          <span class="material-symbols-outlined text-[18px] fill-icon">bolt</span>
+          <span>Review now (3 min)</span>
+          <span class="material-symbols-outlined text-[16px] font-bold ml-auto pr-1">arrow_forward</span>
+        </button>
+
+        <!-- Daily Sprint Progress Bar -->
+        <div class="pt-0.5 flex flex-col gap-1.5">
+          <div class="flex items-center justify-between text-[11px] font-bold text-dark-text-muted">
+            <span>Daily sprint</span>
+            <span class="text-dark-text"><span class="text-teal font-extrabold">6</span> / 10 words</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-dark-bg border border-dark-border/80 overflow-hidden p-[1px]">
+            <div class="h-full rounded-full bg-gradient-to-r from-teal to-teal-light shadow-[0_0_8px_rgba(107,216,206,0.5)]" style="width: 60%;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Word Lookup Box with Active Definition Result -->
+      <section class="bg-dark-card-elevated rounded-2xl border-2 border-dark-border border-b-[4px] border-dark-ledge p-3.5 sm:p-4 flex flex-col gap-3 shadow-md">
+        <!-- Search Input Bar -->
+        <div class="w-full h-10 px-3 rounded-xl bg-dark-bg border-2 border-dark-border flex items-center justify-between gap-2 focus-within:border-teal transition-colors">
+          <div class="flex items-center gap-2 flex-1">
+            <span class="material-symbols-outlined text-dark-text-subtle text-[18px]">search</span>
+            <span class="text-sm font-semibold text-white">meticulous</span>
+          </div>
+          <button class="w-5 h-5 rounded-full hover:bg-dark-raised flex items-center justify-center text-dark-text-muted hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-[15px]">close</span>
+          </button>
+        </div>
+
+        <!-- Dictionary Definition Card -->
+        <div class="p-3 rounded-xl bg-dark-card border-2 border-dark-border border-b-[3px] border-dark-ledge flex flex-col gap-2.5">
+          <!-- Top Row: Word, Part of Speech, Exam Tag, Save Button -->
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="text-lg font-extrabold text-white tracking-tight">meticulous</span>
+              <span class="px-1.5 py-0.5 rounded text-[11px] font-bold text-teal bg-teal/15 border border-teal/30">adj.</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold text-amber bg-amber/15 border border-amber/30">
+                C1 • IELTS 7.5+
+              </span>
+            </div>
+            <!-- Save Button -->
+            <button class="tactile-btn inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-extrabold text-dark-bg bg-teal hover:bg-teal-light border-b-[3px] border-teal-ledge transition-all">
+              <span class="material-symbols-outlined text-[14px] fill-icon">bookmark</span>
+              <span>Save</span>
+            </button>
+          </div>
+
+          <!-- Phonetics & Audio -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-dark-text-muted tracking-wide">/məˈtɪk.jə.ləs/</span>
+            <button class="w-6 h-6 rounded-md bg-dark-raised hover:bg-dark-border flex items-center justify-center text-teal hover:text-teal-light transition-colors">
+              <span class="material-symbols-outlined text-[15px] fill-icon">volume_up</span>
+            </button>
+          </div>
+
+          <!-- Definition Text -->
+          <p class="text-xs font-medium text-dark-text leading-relaxed">
+            Showing immense precision, care, and thoroughness with details.
+          </p>
+
+          <!-- Collocation Pill -->
+          <div class="px-2.5 py-1.5 rounded-lg bg-dark-bg/80 border border-dark-border flex items-center gap-1.5 text-xs text-dark-text-muted">
+            <span class="material-symbols-outlined text-teal text-[14px]">link</span>
+            <span>Collocation: <strong class="text-white font-bold">meticulous attention to detail</strong></span>
+          </div>
+        </div>
+
+        <!-- Recent Lookups Chips -->
+        <div class="flex flex-col gap-1.5 pt-0.5">
+          <div class="flex items-center justify-between text-[11px] font-extrabold uppercase tracking-wider text-dark-text-muted">
+            <span>Recent lookups</span>
+            <button class="text-teal hover:text-teal-light lowercase tracking-normal text-xs font-bold transition-colors">clear</button>
+          </div>
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-none">
+            <span class="tactile-chip px-2.5 py-1 rounded-full text-xs font-bold bg-dark-raised border-2 border-teal/50 text-white shadow-sm shrink-0 cursor-pointer">
+              meticulous
+            </span>
+            <span class="tactile-chip px-2.5 py-1 rounded-full text-xs font-bold bg-dark-bg border border-dark-border text-dark-text-muted hover:text-white shrink-0 cursor-pointer transition-colors">
+              resilient
+            </span>
+            <span class="tactile-chip px-2.5 py-1 rounded-full text-xs font-bold bg-dark-bg border border-dark-border text-dark-text-muted hover:text-white shrink-0 cursor-pointer transition-colors">
+              ubiquitous
+            </span>
+            <span class="tactile-chip px-2.5 py-1 rounded-full text-xs font-bold bg-dark-bg border border-dark-border text-dark-text-muted hover:text-white shrink-0 cursor-pointer transition-colors">
+              bottleneck
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Extension Preferences Switches Card -->
+      <section class="bg-dark-card-elevated rounded-2xl border-2 border-dark-border border-b-[4px] border-dark-ledge p-3.5 sm:p-4 flex flex-col gap-3 shadow-md">
+        <h3 class="text-[11px] font-extrabold uppercase tracking-wider text-dark-text-muted">
+          Extension Preferences
+        </h3>
+
+        <div class="flex flex-col gap-2.5">
+          <!-- Toggle 1: On this site -->
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-teal/15 border border-teal/30 flex items-center justify-center text-teal">
+                <span class="material-symbols-outlined text-[18px]">language</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white leading-tight">On this site</span>
+                <span class="text-[11px] font-medium text-dark-text-muted leading-tight">Instant definitions &amp; hints</span>
+              </div>
+            </div>
+            <!-- Switch (ON) -->
+            <button class="w-11 h-6 rounded-full bg-teal p-0.5 flex items-center shadow-inner focus:outline-none" aria-label="Toggle on this site">
+              <div class="w-5 h-5 rounded-full bg-white shadow-md transform translate-x-5 transition-transform"></div>
+            </button>
+          </div>
+
+          <!-- Toggle 2: Writing check -->
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-amber/15 border border-amber/30 flex items-center justify-center text-amber">
+                <span class="material-symbols-outlined text-[18px]">format_align_left</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white leading-tight">Writing check</span>
+                <span class="text-[11px] font-medium text-dark-text-muted leading-tight">IELTS tone &amp; collocation tips</span>
+              </div>
+            </div>
+            <!-- Switch (ON) -->
+            <button class="w-11 h-6 rounded-full bg-teal p-0.5 flex items-center shadow-inner focus:outline-none" aria-label="Toggle writing check">
+              <div class="w-5 h-5 rounded-full bg-white shadow-md transform translate-x-5 transition-transform"></div>
+            </button>
+          </div>
+
+          <!-- Option 3: Select trigger (2x Click vs Select) -->
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-[#2E355A]/40 border border-[#5263A8]/40 flex items-center justify-center text-[#8AA2FF]">
+                <span class="material-symbols-outlined text-[18px]">ads_click</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white leading-tight">Select trigger</span>
+                <span class="text-[11px] font-medium text-dark-text-muted leading-tight">Double-click / text select</span>
+              </div>
+            </div>
+            <!-- Segmented Control Button Pair -->
+            <div class="inline-flex rounded-lg bg-dark-bg p-0.5 border border-dark-border">
+              <button class="px-2.5 py-1 rounded-md text-[10px] font-extrabold bg-dark-raised text-teal border border-teal/30 shadow-sm">
+                2x Click
+              </button>
+              <button class="px-2.5 py-1 rounded-md text-[10px] font-bold text-dark-text-muted hover:text-white transition-colors">
+                Select
+              </button>
+            </div>
+          </div>
+
+          <!-- Toggle 4: Autocomplete -->
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-[#442247]/50 border border-[#8C4892]/40 flex items-center justify-center text-[#DE86E6]">
+                <span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white leading-tight">Autocomplete</span>
+                <span class="text-[11px] font-medium text-dark-text-muted leading-tight">High-scoring academic phrases</span>
+              </div>
+            </div>
+            <!-- Switch (ON) -->
+            <button class="w-11 h-6 rounded-full bg-teal p-0.5 flex items-center shadow-inner focus:outline-none" aria-label="Toggle autocomplete">
+              <div class="w-5 h-5 rounded-full bg-white shadow-md transform translate-x-5 transition-transform"></div>
+            </button>
+          </div>
+
+          <!-- Toggle 5: New tab word (OFF) -->
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-teal/15 border border-teal/30 flex items-center justify-center text-teal">
+                <span class="material-symbols-outlined text-[18px]">tab</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white leading-tight">New tab word</span>
+                <span class="text-[11px] font-medium text-dark-text-muted leading-tight">Word of the day screen</span>
+              </div>
+            </div>
+            <!-- Switch (OFF) -->
+            <button class="w-11 h-6 rounded-full bg-dark-raised border border-dark-border p-0.5 flex items-center shadow-inner focus:outline-none" aria-label="Toggle new tab word">
+              <div class="w-5 h-5 rounded-full bg-dark-text-subtle shadow transition-transform"></div>
+            </button>
+          </div>
+
+          <!-- Toggle 6: Right-click menu (ON) -->
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-coral/15 border border-coral/30 flex items-center justify-center text-coral">
+                <span class="material-symbols-outlined text-[18px]">mouse</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white leading-tight">Right-click menu</span>
+                <span class="text-[11px] font-medium text-dark-text-muted leading-tight">Add to deck shortcut</span>
+              </div>
+            </div>
+            <!-- Switch (ON) -->
+            <button class="w-11 h-6 rounded-full bg-teal p-0.5 flex items-center shadow-inner focus:outline-none" aria-label="Toggle right click menu">
+              <div class="w-5 h-5 rounded-full bg-white shadow-md transform translate-x-5 transition-transform"></div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Open Web App CTA (Secondary Tactile Button) -->
+      <a href="#" class="tactile-btn w-full h-11 rounded-xl font-extrabold text-sm text-teal hover:text-white flex items-center justify-center gap-2 bg-dark-card-elevated border-2 border-teal/40 border-b-[4px] border-dark-ledge shadow-md hover:bg-dark-raised hover:border-teal transition-all">
+        <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+        <span>Open Lexkite Web App</span>
+      </a>
+
+      <!-- 6. Footer Utility Actions Strip -->
+      <footer class="flex flex-col gap-2 pt-1 border-t border-dark-border/60">
+        <div class="flex items-center justify-between gap-2">
+          <button class="flex-1 py-1.5 px-2 rounded-lg bg-dark-card-elevated border border-dark-border hover:border-teal/40 text-dark-text-muted hover:text-white text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors">
+            <span class="material-symbols-outlined text-[14px] text-teal">qr_code_2</span>
+            <span>Phone QR</span>
+          </button>
+          <button class="flex-1 py-1.5 px-2 rounded-lg bg-dark-card-elevated border border-dark-border hover:border-teal/40 text-dark-text-muted hover:text-white text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors">
+            <span class="material-symbols-outlined text-[14px] text-teal">shield</span>
+            <span>Privacy</span>
+          </button>
+          <button class="flex-1 py-1.5 px-2 rounded-lg bg-dark-card-elevated border border-dark-border hover:border-teal/40 text-dark-text-muted hover:text-white text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors">
+            <span class="material-symbols-outlined text-[14px] text-teal">bug_report</span>
+            <span>Report</span>
+          </button>
+        </div>
+
+        <!-- Version & Policy Tagline -->
+        <div class="text-center text-[10px] font-semibold text-dark-text-subtle tracking-wide">
+          Lexkite v2.4 • 100% Free &amp; No Ads
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+</body>
+</html>
+

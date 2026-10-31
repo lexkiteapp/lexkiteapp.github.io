@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Microphone Blocked (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,700,0..1,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'cream-surface': '#FFFBF5',
+            'cream-card': '#FFFFFF',
+            'border-warm': '#EADEC8',
+            'ledge-warm': '#D8CFBC',
+            'ink-deep': '#0F3D3E',
+            'ink-muted': '#2E5052',
+            'ink-btn': '#1F0B02',
+            'teal-brand': '#0D6964',
+            'teal-bright': '#2BA39A',
+            'teal-soft': '#E6F6F5',
+            'teal-border': '#B7E3E0',
+            'coral-cta': '#F2553B',
+            'amber-cta': '#FF9F38',
+            'coral-ledge': '#B53A22',
+            'coral-soft': '#FDEAE6',
+            'coral-border': '#FAC7BE',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 3D Tactile Buttons & Cards */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF9F38 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 0 #B53A22, 0 10px 18px rgba(242, 85, 59, 0.22);
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22, 0 4px 8px rgba(242, 85, 59, 0.18);
+    }
+
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      box-shadow: 0 5px 0 0 #D8CFBC, 0 8px 16px rgba(15, 61, 62, 0.04);
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #D8CFBC, 0 3px 6px rgba(15, 61, 62, 0.04);
+    }
+
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 0 #D8CFBC;
+    }
+
+    .tactile-pill {
+      box-shadow: 0 3px 0 0 #D8CFBC;
+    }
+
+    .tactile-mic-base {
+      box-shadow: 0 8px 0 0 #D8CFBC, 0 16px 28px rgba(15, 61, 62, 0.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 bg-[#081518] text-[#EEF6F7] selection:bg-[#2BA39A] selection:text-[#081518]">
+<!-- Main Responsive Container (Max width 480px for focused mobile/tablet ergonomics, clean standalone web layout) -->
+<main class="w-full max-w-[440px] flex flex-col items-center justify-between min-h-[92vh] mx-auto py-2"><!-- Top Lesson App Bar (Progress & Navigation) -->
+<header class="w-full flex items-center justify-between gap-3 mb-4 select-none">
+<!-- Close / Back Button -->
+<button aria-label="Exit lesson" class="w-11 h-11 rounded-2xl bg-[#162930] border-2 border-[#28424C] flex items-center justify-center text-[#EEF6F7] hover:bg-[#1A2F37] active:translate-y-0.5 transition-all shadow-[0_4px_0_0_#0A1519]" type="button">
+<span class="material-symbols-rounded text-2xl font-bold text-[#EEF6F7]">close</span>
+</button>
+<!-- Chunky Progress Bar with Step Indicator -->
+<div class="flex-1 flex flex-col gap-1 px-1">
+<div class="flex items-center justify-between text-xs font-extrabold tracking-wider uppercase text-[#A9BFC1]">
+<span>Speaking Drill</span>
+<span class="text-[#2BA39A] font-black">Step 4 / 6</span>
+</div>
+<div class="w-full h-3.5 bg-[#102126] border-2 border-[#203A43] rounded-full overflow-hidden p-[2px] shadow-inner">
+<div class="h-full bg-gradient-to-r from-[#2BA39A] to-[#6ED5CE] rounded-full transition-all duration-300 w-2/3 shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)]"></div>
+</div>
+</div>
+<!-- Streak Indicator Chip -->
+<div class="h-11 px-3.5 rounded-2xl bg-[#162930] border-2 border-[#28424C] flex items-center gap-1.5 font-extrabold text-sm shadow-[0_4px_0_0_#0A1519]">
+<span class="text-base leading-none text-[#F2553B]">🔥</span>
+<span class="text-[#EEF6F7]">14</span>
+</div>
+</header>
+<!-- Center Stage: Teacher Slot & Illustrated Mic Hero -->
+<section class="w-full flex flex-col items-center gap-4 my-auto">
+<!-- Teacher Presence Zone -->
+<div class="w-full flex items-center justify-center gap-3">
+<!-- 140x170 Empty Teacher Slot (Dashed luminous teal outline) -->
+<div class="w-[124px] h-[154px] rounded-3xl border-2 border-dashed border-[#2BA39A]/70 bg-[#0C1A1E] flex flex-col items-center justify-center text-center p-2 relative shrink-0 shadow-[0_4px_0_0_#060F12]">
+<div class="w-10 h-10 rounded-full bg-[#162930] border border-[#2BA39A]/50 flex items-center justify-center mb-1 text-[#2BA39A] shadow-sm">
+<span class="material-symbols-rounded text-xl">school</span>
+</div>
+<span class="text-[11px] font-black uppercase tracking-wider text-[#6ED5CE]">Teacher</span>
+<span class="text-[9px] font-bold text-[#A9BFC1]">140 × 170 Slot</span>
+</div>
+<!-- Gentle Speech Bubble from Teacher -->
+<div class="flex-1 bg-[#162930] border-2 border-[#28424C] rounded-3xl p-3.5 relative shadow-[0_4px_0_0_#0C1A1E]">
+<!-- Speech triangle pointing to teacher slot -->
+<div class="absolute -left-2.5 top-8 w-0 h-0 border-t-[8px] border-t-transparent border-r-[10px] border-r-[#162930] border-b-[8px] border-b-transparent z-10"></div>
+<div class="absolute -left-[13px] top-[31px] w-0 h-0 border-t-[9px] border-t-transparent border-r-[12px] border-r-[#28424C] border-b-[9px] border-b-transparent z-0"></div>
+<div class="flex items-center gap-1.5 mb-1 text-[#2BA39A]">
+<span class="material-symbols-rounded text-sm font-bold">record_voice_over</span>
+<span class="text-[11px] font-extrabold uppercase tracking-wide">Coach Ama</span>
+</div>
+<p class="text-xs sm:text-[13px] font-bold text-[#EEF6F7] leading-snug">
+            “No worries! Just tap the lock icon in your browser to turn your mic back on.”
+          </p>
+</div>
+</div>
+<!-- Illustrated Microphone Hero Container -->
+<div class="relative flex items-center justify-center mt-2 mb-1">
+<!-- Ambient decorative pulse rings -->
+<div class="w-28 h-28 rounded-full bg-[#1A262A] border-2 border-[#F2553B]/30 flex items-center justify-center p-2 shadow-[0_0_24px_rgba(242,85,59,0.15)]">
+<!-- Tactile microphone circle badge -->
+<div class="w-20 h-20 rounded-full bg-[#14262D] border-2 border-[#28424C] flex items-center justify-center relative shadow-[0_6px_0_0_#0A1519]">
+<!-- Mic Icon -->
+<span class="material-symbols-rounded text-4xl text-[#EEF6F7] font-bold">mic_off</span>
+<!-- Red/Coral Lock Chip Badge -->
+<div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-[#F2553B] border-2 border-[#14262D] flex items-center justify-center shadow-md">
+<span class="material-symbols-rounded text-base text-white font-black">lock</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Prominent Title & Clear Headline -->
+<div class="text-center px-2">
+<h1 class="text-[32px] font-black tracking-tight text-[#EEF6F7] leading-tight">
+          We can't hear you
+        </h1>
+<p class="text-sm font-bold text-[#A9BFC1] mt-1">
+          Your browser blocked microphone access for this drill.
+        </p>
+</div>
+<!-- 3 Short Numbered Permission Steps Card -->
+<div class="w-full bg-[#112025] border-2 border-[#28424C] shadow-[0_5px_0_0_#0A1519] rounded-3xl p-4 sm:p-4.5 space-y-2.5">
+<!-- Step 1 -->
+<div class="flex items-center gap-3 bg-[#182B32] rounded-2xl p-2.5 border border-[#2C4854]">
+<div class="w-7 h-7 rounded-xl bg-[#112025] border-2 border-[#2BA39A] text-[#EEF6F7] flex items-center justify-center font-black text-xs shrink-0 shadow-sm">
+            1
+          </div>
+<div class="flex items-center gap-2 flex-1 min-w-0">
+<span class="material-symbols-rounded text-lg text-[#2BA39A] shrink-0">tune</span>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#EEF6F7] leading-tight truncate sm:whitespace-normal">
+              Tap the lock or tune icon in address bar
+            </span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-3 bg-[#182B32] rounded-2xl p-2.5 border border-[#2C4854]">
+<div class="w-7 h-7 rounded-xl bg-[#112025] border-2 border-[#2BA39A] text-[#EEF6F7] flex items-center justify-center font-black text-xs shrink-0 shadow-sm">
+            2
+          </div>
+<div class="flex items-center gap-2 flex-1 min-w-0">
+<span class="material-symbols-rounded text-lg text-[#2BA39A] shrink-0">toggle_on</span>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#EEF6F7] leading-tight truncate sm:whitespace-normal">
+              Toggle <span class="text-[#2BA39A] font-black underline decoration-2 underline-offset-2">Microphone</span> to Allow
+            </span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-3 bg-[#182B32] rounded-2xl p-2.5 border border-[#2C4854]">
+<div class="w-7 h-7 rounded-xl bg-[#112025] border-2 border-[#2BA39A] text-[#EEF6F7] flex items-center justify-center font-black text-xs shrink-0 shadow-sm">
+            3
+          </div>
+<div class="flex items-center gap-2 flex-1 min-w-0">
+<span class="material-symbols-rounded text-lg text-[#2BA39A] shrink-0">refresh</span>
+<span class="text-xs sm:text-[13px] font-extrabold text-[#EEF6F7] leading-tight truncate sm:whitespace-normal">
+              Hit "Try again" below to resume speaking
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Actions: Candy 3D Tactile Buttons -->
+<footer class="w-full flex flex-col gap-3 mt-4 pt-2">
+<!-- Primary CTA: Try Again (Vibrant candy coral-to-amber gradient with 6px ledge and deep brown-black ink text) -->
+<button class="w-full h-14 rounded-2xl flex items-center justify-center gap-2 text-[#1A0702] font-black text-base tracking-wide select-none cursor-pointer active:translate-y-1 transition-all" style="background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%); box-shadow: 0 6px 0 0 #B53A22, 0 10px 20px rgba(242, 85, 59, 0.28);" type="button">
+<span class="material-symbols-rounded text-xl font-black text-[#1A0702]">refresh</span>
+<span class="font-extrabold">Try again</span>
+</button>
+<!-- Secondary CTA: Skip Speaking for 15 min (Dark teal card button with dark ledge) -->
+<button class="w-full h-13 rounded-2xl bg-[#162930] border-2 border-[#2C4854] shadow-[0_5px_0_0_#0A1519] flex items-center justify-center gap-2 text-[#EEF6F7] font-extrabold text-sm tracking-wide select-none cursor-pointer hover:bg-[#1A2F37] active:translate-y-1 transition-all" type="button">
+<span class="material-symbols-rounded text-lg text-[#A9BFC1]">schedule</span>
+<span>Skip speaking for 15 min</span>
+</button>
+<!-- Reassurance Micro-Copy -->
+<div class="flex items-center justify-center gap-1.5 text-center text-[11px] font-bold text-[#A9BFC1] pt-1 select-none">
+<span class="material-symbols-rounded text-xs text-[#2BA39A]">lock</span>
+<span>Your audio is processed in real time and never stored</span>
+</div>
+</footer></main>
+</body>
+</html>

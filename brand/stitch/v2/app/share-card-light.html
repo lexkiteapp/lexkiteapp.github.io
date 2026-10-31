@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Share Card Preview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-primary": "#006a64",
+            "on-secondary-container": "#ffa493",
+            "on-tertiary-fixed": "#261a00",
+            "on-surface-variant": "#bcc9c7",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-container": "#2ba39a",
+            "on-primary-fixed": "#00201e",
+            "tertiary": "#f4bf40",
+            "secondary-fixed": "#ffdad3",
+            "surface-container-highest": "#2b373a",
+            "on-secondary-fixed": "#3f0300",
+            "error-container": "#93000a",
+            "primary-fixed-dim": "#6bd8ce",
+            "background": "#091518",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#88f5ea",
+            "on-secondary": "#660800",
+            "secondary-fixed-dim": "#ffb4a6",
+            "secondary-container": "#981201",
+            "on-tertiary": "#402e00",
+            "on-tertiary-container": "#392900",
+            "surface-tint": "#6bd8ce",
+            "surface-container-high": "#202c2f",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-fixed-variant": "#00504b",
+            "outline-variant": "#3d4947",
+            "on-primary-container": "#00322e",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-surface": "#d8e5e9",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container-lowest": "#051013",
+            "tertiary-container": "#ba8b00",
+            "surface-container": "#162125",
+            "primary": "#6bd8ce",
+            "inverse-surface": "#d8e5e9",
+            "surface-bright": "#2f3b3e",
+            "on-background": "#d8e5e9",
+            "inverse-on-surface": "#263236",
+            "secondary": "#ffb4a6",
+            "on-primary": "#003733",
+            "surface-variant": "#2b373a",
+            "surface-dim": "#091518",
+            "outline": "#879391",
+            "on-error": "#690005",
+            "surface-container-low": "#121d20",
+            "surface": "#091518",
+            "error": "#ffb4ab",
+            /* Lexkite Bright Day specific extensions */
+            "brand-cream": "#FFF7EA",
+            "brand-ink": "#0F3D3E",
+            "brand-sub": "#3C5355",
+            "brand-btn-ink": "#2B0F08",
+            "brand-border": "#EADEC8",
+            "brand-ledge": "#D8CFBC",
+            "brand-teal": "#2BA39A",
+            "brand-teal-dark": "#0F3D3E",
+            "brand-ledge-coral": "#B53A22"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "margin": "16px"
+          },
+          fontFamily: {
+            "title": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Tactile 3D press effect */
+    .tactile-btn {
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+    }
+    .btn-coral-tactile:active {
+      border-bottom-width: 2px !important;
+      transform: translateY(3px);
+    }
+    .btn-white-tactile:active {
+      border-bottom-width: 2px !important;
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="bg-brand-cream text-brand-ink font-body antialiased min-h-screen flex flex-col items-center selection:bg-brand-teal selection:text-white">
+<!-- Minimalist Top Navigation Chrome (Task Screen Header) -->
+<header class="w-full max-w-xl mx-auto px-gutter pt-4 pb-3 flex items-center justify-between z-20">
+<!-- Back/Close tactile circle -->
+<button aria-label="Close preview" class="w-11 h-11 rounded-full bg-white border-2 border-brand-border border-b-4 border-b-brand-ledge flex items-center justify-center text-brand-ink active:translate-y-0.5 active:border-b-2 transition-all">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+<!-- Center Breadcrumb Pill -->
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-xs">
+<span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+<span class="font-label text-label tracking-wider uppercase text-brand-ink">SHARE ACHIEVEMENT</span>
+</div>
+<!-- Streak & XP Badges -->
+<div class="flex items-center gap-2">
+<!-- Flame Streak -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1.5 bg-white border-2 border-brand-border border-b-[3px] border-b-brand-ledge rounded-xl font-title text-sm text-brand-ink">
+<span class="material-symbols-outlined text-orange-500 material-symbols-fill text-[19px]">local_fire_department</span>
+<span class="font-extrabold text-xs text-brand-ink">14</span>
+</div>
+<!-- XP Pill -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1.5 bg-[#FFF2D6] border-2 border-[#F0D59D] border-b-[3px] border-b-[#D8BC7D] rounded-xl font-title text-sm text-brand-ink">
+<span class="material-symbols-outlined text-amber-600 material-symbols-fill text-[18px]">bolt</span>
+<span class="font-extrabold text-xs text-brand-ink">820 XP</span>
+</div>
+</div>
+</header>
+<!-- Main Share Canvas Container -->
+<main class="w-full max-w-xl mx-auto px-gutter flex-1 flex flex-col items-center justify-center pb-8 pt-2">
+<!-- Page Header Intro -->
+<div class="text-center mb-5">
+<h1 class="font-display text-display text-brand-ink tracking-tight font-extrabold mb-1">
+        Share your milestone
+      </h1>
+<p class="font-body text-body text-brand-sub text-sm sm:text-base font-semibold">
+        Show your study crew how far you've come!
+      </p>
+</div>
+<!-- FORMAT TOGGLE PILLS -->
+<div class="flex items-center justify-center gap-2 mb-4 bg-white/70 p-1.5 rounded-2xl border border-brand-border">
+<button class="px-4 py-1.5 rounded-xl text-xs font-extrabold tracking-wide uppercase bg-brand-teal text-white border-2 border-[#1F827A] border-b-[3px] border-b-[#145C56] shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">crop_square</span>
+        Square Post (1:1)
+      </button>
+<button class="px-4 py-1.5 rounded-xl text-xs font-extrabold tracking-wide uppercase text-brand-sub hover:text-brand-ink transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">stay_current_portrait</span>
+        Story (9:16)
+      </button>
+</div>
+<!-- THE SHARE CARD ITSELF (Physical Extruded Candy Aesthetic) -->
+<div class="relative w-full max-w-[440px] aspect-square bg-white rounded-3xl border-2 border-brand-border border-b-[6px] border-b-brand-ledge p-6 flex flex-col justify-between overflow-hidden shadow-sm transition-transform">
+<!-- Subtle Celebratory Sparkles / Confetti Dots Background Layer -->
+<div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#2BA39A_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="absolute -top-16 -right-16 w-44 h-44 bg-gradient-to-br from-amber-200/40 via-coral-200/30 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-16 -left-16 w-44 h-44 bg-gradient-to-tr from-teal-200/40 via-emerald-100/30 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+<!-- CARD HEADER: Logo Emblem & Achievement Tag -->
+<div class="relative z-10 flex items-center justify-between border-b border-brand-border/60 pb-3">
+<!-- Lexkite Logo Brand Anchor -->
+<div class="flex items-center gap-2">
+<!-- Geometric 4-color origami kite emblem -->
+<div class="w-8 h-8 rounded-xl bg-[#0F3D3E] flex items-center justify-center p-1.5 shadow-xs border border-white/20">
+<svg class="w-full h-full" fill="none" viewbox="0 0 32 32">
+<!-- Origami Kite Facets -->
+<polygon fill="#2BA39A" points="16,2 29,14 16,14"></polygon>
+<polygon fill="#6BD8CE" points="16,2 3,14 16,14"></polygon>
+<polygon fill="#F2553B" points="16,14 29,14 16,30"></polygon>
+<polygon fill="#FFB054" points="16,14 3,14 16,30"></polygon>
+</svg>
+</div>
+<span class="font-display text-lg font-extrabold tracking-tight text-brand-ink">Lexkite</span>
+</div>
+<!-- Achievement Badge Pill -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FFF0D4] border border-[#F0CF96] rounded-full">
+<span class="material-symbols-outlined text-amber-700 material-symbols-fill text-[14px]">military_tech</span>
+<span class="font-label text-[10px] uppercase font-extrabold tracking-wider text-[#734300]">
+            30-DAY STREAK MILESTONE
+          </span>
+</div>
+</div>
+<!-- CARD CENTRAL VISUAL DISPLAY (Side A: 3D Glossy Badge / Side B: Empty Dashed Teacher Slot) -->
+<div class="relative z-10 my-auto py-2 flex items-center justify-between gap-4">
+<!-- SIDE A: Glossy tactile 3D achievement badge -->
+<div class="flex-1 flex flex-col items-center justify-center">
+<div class="relative group">
+<!-- Ambient Badge Glow -->
+<div class="absolute inset-0 bg-gradient-to-tr from-[#F2553B] to-[#FFC94A] rounded-full blur-md opacity-40 scale-105"></div>
+<!-- 3D Extruded Outer Disc -->
+<div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-b from-[#FFA73B] via-[#F2553B] to-[#D83C24] border-4 border-white border-b-[8px] border-b-[#9C240E] flex flex-col items-center justify-center shadow-md">
+<!-- Specular Gloss Top Edge Highlight -->
+<div class="absolute top-1.5 left-4 right-4 h-6 rounded-full bg-gradient-to-b from-white/60 to-transparent pointer-events-none"></div>
+<!-- Inner Embossed Plate -->
+<div class="w-18 h-18 sm:w-20 sm:h-20 rounded-full bg-[#FFF4DC] border-2 border-[#E9BF68] flex flex-col items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[#F2553B] material-symbols-fill text-2xl -mb-1">local_fire_department</span>
+<span class="font-display text-2xl sm:text-3xl font-extrabold text-brand-btn-ink tracking-tight leading-none">30</span>
+<span class="font-label text-[8px] font-extrabold tracking-widest text-[#B53A22] uppercase">DAYS</span>
+</div>
+<!-- Sparkle Star Accents -->
+<div class="absolute -top-2 -right-1 text-amber-300">
+<span class="material-symbols-outlined material-symbols-fill text-xl drop-shadow">star</span>
+</div>
+<div class="absolute bottom-2 -left-2 text-amber-200">
+<span class="material-symbols-outlined material-symbols-fill text-base drop-shadow">auto_awesome</span>
+</div>
+</div>
+</div>
+<div class="mt-2 text-center">
+<span class="inline-block px-2 py-0.5 rounded-md bg-teal-50 border border-brand-teal/40 text-[11px] font-extrabold text-brand-teal uppercase tracking-wider">
+              IELTS / TOEIC ELITE
+            </span>
+</div>
+</div>
+<!-- SIDE B: STRICTLY EMPTY Dashed Teacher Slot Container (140x170px) -->
+<div class="w-[140px] h-[170px] shrink-0 rounded-2xl border-2 border-dashed border-brand-teal bg-[#EAF7F6]/60 flex flex-col items-center justify-center p-3 text-center relative overflow-hidden">
+<!-- Subtle diagonal guide pattern -->
+<div class="w-10 h-10 rounded-xl bg-white border border-brand-teal/30 flex items-center justify-center mb-2 shadow-xs">
+<span class="material-symbols-outlined text-brand-teal text-[22px]">face</span>
+</div>
+<p class="font-label text-[10px] font-extrabold tracking-wider uppercase text-brand-ink leading-tight mb-1">
+            TEACHER
+          </p>
+<p class="font-label text-[9px] font-bold text-brand-sub/80 tracking-normal">
+            140 × 170 Slot
+          </p>
+<span class="mt-2 text-[8px] font-semibold text-brand-teal/90 bg-white/80 px-2 py-0.5 rounded-full border border-brand-teal/20">
+            Empty placeholder
+          </span>
+</div>
+</div>
+<!-- CARD CONTENT & SHORT HEADLINE -->
+<div class="relative z-10 pt-1 pb-2">
+<h2 class="font-display text-lg sm:text-xl font-extrabold text-brand-ink tracking-tight flex items-center gap-1.5">
+<span>30-Day Study Streak!</span>
+<span class="material-symbols-outlined text-amber-500 material-symbols-fill text-lg">verified</span>
+</h2>
+<p class="font-body text-xs sm:text-sm text-brand-sub font-semibold mt-0.5 leading-snug">
+          30 days of high-yield exam vocabulary locked in.
+        </p>
+</div>
+<!-- CARD FOOTER PILL: Verification Trust Bar -->
+<div class="relative z-10 pt-2 border-t border-brand-border/60 flex items-center justify-between text-[11px] font-bold text-brand-sub">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-brand-teal material-symbols-fill text-[15px]">verified_user</span>
+<span class="text-brand-ink font-semibold">Cambridge &amp; ETS Lexicon Verified</span>
+</div>
+<span class="text-brand-teal font-extrabold tracking-tight">Lexkite.com</span>
+</div>
+</div>
+<!-- SHARE ACTION CONTROLS (Row of Candy-like Tactile Buttons) -->
+<div class="w-full max-w-[440px] mt-6 flex flex-col gap-3">
+<!-- Main Action Buttons Row -->
+<div class="flex items-center gap-3">
+<!-- Primary Action: Save image (Coral to Amber gradient + Deep Brown-Black ink text #2B0F08) -->
+<button class="btn-coral-tactile flex-1 h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFB054] border-2 border-[#D9452C] border-b-[5px] border-b-brand-ledge-coral px-4 flex items-center justify-center gap-2 text-brand-btn-ink font-title font-extrabold text-base tracking-wide transition-all shadow-sm">
+<!-- Top highlight shine -->
+<span class="material-symbols-outlined text-brand-btn-ink material-symbols-fill text-[22px]">download</span>
+<span>Save image</span>
+</button>
+<!-- Secondary Action: Copy link (White card surface with 4px tactile ledge) -->
+<button class="btn-white-tactile h-14 px-5 rounded-2xl bg-white border-2 border-brand-border border-b-[4px] border-b-brand-ledge flex items-center justify-center gap-2 text-brand-ink font-title font-extrabold text-base transition-all hover:bg-neutral-50 shadow-xs">
+<span class="material-symbols-outlined text-brand-teal text-[20px]">link</span>
+<span class="hidden sm:inline">Copy link</span>
+</button>
+<!-- Tertiary Action: More options -->
+<button aria-label="More sharing options" class="btn-white-tactile w-14 h-14 rounded-2xl bg-white border-2 border-brand-border border-b-[4px] border-b-brand-ledge flex items-center justify-center text-brand-ink font-bold transition-all hover:bg-neutral-50 shadow-xs">
+<span class="material-symbols-outlined text-brand-ink text-[22px]">more_horiz</span>
+</button>
+</div>
+<!-- Quick Social Direct Send Strip -->
+<div class="flex items-center justify-between px-3 py-2 bg-white/60 rounded-2xl border border-brand-border/70 text-xs font-bold text-brand-sub">
+<span class="flex items-center gap-1.5 text-brand-ink">
+<span class="material-symbols-outlined text-[16px] text-brand-teal">send</span>
+          Quick send:
+        </span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded-lg bg-white border border-brand-border text-brand-ink hover:text-brand-teal font-extrabold text-[11px] transition-colors">
+            WhatsApp
+          </button>
+<button class="px-2.5 py-1 rounded-lg bg-white border border-brand-border text-brand-ink hover:text-brand-teal font-extrabold text-[11px] transition-colors">
+            Telegram
+          </button>
+<button class="px-2.5 py-1 rounded-lg bg-white border border-brand-border text-brand-ink hover:text-brand-teal font-extrabold text-[11px] transition-colors">
+            Stories
+          </button>
+</div>
+</div>
+</div>
+</main>
+<script>
+    // Lightweight tactile press micro-interaction feedback
+    document.querySelectorAll('.tactile-btn, .btn-coral-tactile, .btn-white-tactile').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Subtle haptic feel
+        if (navigator.vibrate) {
+          navigator.vibrate(20);
+        }
+      });
+    });
+  </script>
+</body></html>

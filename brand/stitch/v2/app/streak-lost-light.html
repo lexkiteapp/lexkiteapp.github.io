@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Streak Ended (Bright Day)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF7EA',
+              200: '#F6EBD7',
+              300: '#EADEC8',
+              400: '#D8CFBC',
+            },
+            teal: {
+              DEFAULT: '#2BA39A',
+              deep: '#0F3D3E',
+              darker: '#164E4D',
+              ledge: '#1F7A75',
+              soft: '#E3F6F4',
+              muted: '#4E6668',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              amber: '#FF9E3B',
+              ledge: '#B53A22',
+              soft: '#FFEFEA',
+            },
+            ink: {
+              DEFAULT: '#0F3D3E',
+              brown: '#1A0702',
+              muted: '#3D5355',
+            }
+          },
+          boxShadow: {
+            'tactile-btn': '0 6px 0 0 #B53A22, 0 10px 18px rgba(181, 58, 34, 0.22)',
+            'tactile-btn-pressed': '0 2px 0 0 #B53A22, 0 3px 6px rgba(181, 58, 34, 0.22)',
+            'tactile-card': '0 6px 0 0 #D8CFBC, 0 12px 24px rgba(15, 61, 62, 0.05)',
+            'tactile-bubble': '0 4px 0 0 #D8CFBC, 0 6px 12px rgba(15, 61, 62, 0.04)',
+            'tactile-sec': '0 4px 0 0 #D8CFBC, 0 6px 12px rgba(15, 61, 62, 0.04)',
+            'tactile-pill': '0 3px 0 0 #D8CFBC',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .pressable-primary {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .pressable-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 0 #B53A22, 0 3px 6px rgba(181, 58, 34, 0.22);
+    }
+    .pressable-sec {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .pressable-sec:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #D8CFBC;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFF7EA] flex flex-col justify-between items-center p-4 sm:p-6 select-none">
+
+  <!-- Top Simple Navigation / Status Bar -->
+  <header class="w-full max-w-md mx-auto flex items-center justify-between h-14 px-2">
+    <button aria-label="Close" class="w-10 h-10 rounded-2xl bg-white border-2 border-[#EADEC8] shadow-tactile-pill flex items-center justify-center text-teal-deep hover:bg-cream-50 pressable-sec">
+      <span class="material-symbols-rounded text-2xl">close</span>
+    </button>
+
+    <!-- Top Badge Info -->
+    <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border-2 border-[#EADEC8] shadow-tactile-pill">
+        <span class="material-symbols-rounded text-amber-500 text-lg">local_fire_department</span>
+        <span class="text-xs font-extrabold text-teal-deep tracking-wider">0 DAYS</span>
+      </div>
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border-2 border-[#EADEC8] shadow-tactile-pill">
+        <span class="material-symbols-rounded text-teal text-lg">bolt</span>
+        <span class="text-xs font-extrabold text-teal-deep tracking-wider">820 XP</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Modal Container -->
+  <main class="w-full max-w-md mx-auto my-auto flex flex-col items-center">
+    
+    <div class="w-full bg-white rounded-3xl border-2 border-[#EADEC8] shadow-tactile-card p-6 sm:p-7 flex flex-col items-center relative overflow-visible">
+      
+      <!-- Flame Graphic: Small Dim Sleeping Flame -->
+      <div class="relative w-28 h-28 -mt-2 mb-3 flex items-center justify-center">
+        <!-- Soft ambient warm ground -->
+        <div class="absolute inset-0 bg-amber-100/60 rounded-full blur-xl transform scale-90"></div>
+        
+        <!-- Tactile Dim Flame SVG -->
+        <svg class="w-24 h-24 relative drop-shadow-sm" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer Dim Warm Amber / Soft Orange Flame -->
+          <path d="M48 6C50 18 64 26 68 38C72 50 70 66 60 76C50 86 36 86 28 78C18 68 18 52 26 38C30 30 36 24 38 18C40 24 44 26 48 6Z" 
+                fill="#FFCA7B" stroke="#E39D36" stroke-width="2.5" stroke-linejoin="round"/>
+          
+          <!-- Inner Gentle Sleeping Ember -->
+          <path d="M48 34C51 42 58 48 58 56C58 64 53 72 46 72C39 72 36 65 37 58C38 52 42 46 45 42C46 45 47 46 48 34Z" 
+                fill="#FFE7B3" stroke="#F0B758" stroke-width="1.5"/>
+
+          <!-- Gentle cute sleepy closed eyes on flame -->
+          <path d="M40 56C41.5 58 43.5 58 45 56" stroke="#8A5A1B" stroke-width="2" stroke-linecap="round"/>
+          <path d="M51 56C52.5 58 54.5 58 56 56" stroke="#8A5A1B" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Small resting Zzz elements -->
+          <text x="68" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#2BA39A">z</text>
+          <text x="75" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#2BA39A">Z</text>
+        </svg>
+
+        <!-- Current Reset Zero Counter Badge -->
+        <div class="absolute -bottom-1 bg-white border-2 border-[#EADEC8] px-2.5 py-0.5 rounded-full shadow-tactile-pill flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span class="text-[11px] font-extrabold text-teal-deep uppercase tracking-wider">Day 0</span>
+        </div>
+      </div>
+
+      <!-- Title & Kind Copy -->
+      <h1 class="text-2xl sm:text-[26px] font-extrabold text-teal-deep text-center tracking-tight mb-2">
+        Your streak ended
+      </h1>
+
+      <!-- Best Streak Milestone Chip -->
+      <div class="inline-flex items-center gap-2 bg-[#FFF7EA] border-2 border-[#EADEC8] px-3.5 py-1.5 rounded-full shadow-tactile-pill mb-5">
+        <span class="material-symbols-rounded text-amber-600 text-base">emoji_events</span>
+        <span class="text-xs font-extrabold text-teal-deep uppercase tracking-wider">
+          Best: <span class="text-amber-700">23 days</span>
+        </span>
+      </div>
+
+      <!-- Teacher Slot & Encouraging Speech Bubble Section -->
+      <div class="w-full flex items-center justify-center gap-3 sm:gap-4 my-2">
+        
+        <!-- Empty Dashed Teacher Slot (Strict: 140x170 format, rounded, NO character drawn) -->
+        <div class="w-[124px] h-[154px] sm:w-[140px] sm:h-[170px] rounded-2xl border-2 border-dashed border-teal/70 bg-[#F1F9F8] flex flex-col items-center justify-center p-3 text-center shrink-0 relative group">
+          <div class="w-9 h-9 rounded-full bg-white border-2 border-teal/40 flex items-center justify-center mb-2 shadow-sm">
+            <span class="material-symbols-rounded text-teal text-xl">school</span>
+          </div>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-teal-deep">TEACHER</span>
+          <span class="text-[10px] font-bold text-teal-muted mt-0.5">140 × 170 Slot</span>
+          <div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-teal animate-pulse"></div>
+        </div>
+
+        <!-- Kind, Encouraging Speech Bubble (No Shaming) -->
+        <div class="flex-1 bg-cream-50 border-2 border-[#EADEC8] rounded-2xl p-4 shadow-tactile-bubble relative">
+          <!-- Speech Bubble Tail pointing left toward teacher slot -->
+          <div class="absolute top-1/2 -left-2 -translate-y-1/2 w-3.5 h-3.5 bg-cream-50 border-l-2 border-b-2 border-[#EADEC8] transform rotate-45"></div>
+          
+          <div class="flex items-center gap-1.5 mb-1.5">
+            <span class="text-[10px] font-extrabold uppercase tracking-widest text-teal bg-teal-soft px-2 py-0.5 rounded-md border border-teal/30">Coach Note</span>
+          </div>
+          <p class="text-xs sm:text-[13px] font-bold text-teal-deep leading-snug">
+            “No stress at all! Life happens. The 23 days of vocabulary you built are still locked in your brain.”
+          </p>
+          <p class="text-[11px] font-semibold text-teal-muted mt-1.5">
+            One 3-minute quiz gets your momentum right back.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Quick Context Stat Strip -->
+      <div class="w-full grid grid-cols-2 gap-2.5 my-4 pt-1">
+        <div class="bg-cream-50 border-2 border-[#EADEC8] rounded-2xl p-3 flex flex-col items-center text-center">
+          <span class="text-xs font-bold text-teal-muted">Saved Words</span>
+          <span class="text-lg font-extrabold text-teal-deep tracking-tight">142 words</span>
+          <span class="text-[10px] font-extrabold text-emerald-700 mt-0.5 uppercase tracking-wider">Safe in memory</span>
+        </div>
+        <div class="bg-cream-50 border-2 border-[#EADEC8] rounded-2xl p-3 flex flex-col items-center text-center">
+          <span class="text-xs font-bold text-teal-muted">Target Exam</span>
+          <span class="text-lg font-extrabold text-teal-deep tracking-tight">IELTS 7.5</span>
+          <span class="text-[10px] font-extrabold text-amber-700 mt-0.5 uppercase tracking-wider">On track</span>
+        </div>
+      </div>
+
+      <!-- Action Button Area -->
+      <div class="w-full flex flex-col gap-3 mt-2">
+        <!-- Primary CTA: Start a New Streak (Orange/Amber gradient with Deep Brown-Black ink text for perfect contrast) -->
+        <button class="w-full h-14 rounded-2xl bg-gradient-to-r from-coral to-coral-amber border-2 border-coral-amber/80 shadow-tactile-btn pressable-primary flex items-center justify-center gap-2 group">
+          <span class="material-symbols-rounded text-ink-brown text-xl">bolt</span>
+          <span class="text-base sm:text-[17px] font-extrabold text-ink-brown tracking-tight">
+            Start a new streak
+          </span>
+          <span class="material-symbols-rounded text-ink-brown text-lg group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+        </button>
+
+        <!-- Secondary Button: Review Vocabulary First -->
+        <button class="w-full h-12 rounded-2xl bg-white border-2 border-[#EADEC8] text-teal-deep shadow-tactile-sec pressable-sec flex items-center justify-center hover:bg-cream-50">
+          <span class="text-xs sm:text-sm font-extrabold tracking-tight">
+            Review saved deck first
+          </span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Soft helper reassurance footer -->
+    <p class="text-xs font-bold text-teal-muted text-center mt-4">
+      Consistency is a practice, not perfection.
+    </p>
+
+  </main>
+
+  <!-- Bottom Spacing Anchor -->
+  <footer class="w-full max-w-md mx-auto py-2 text-center">
+    <div class="flex items-center justify-center gap-4 text-xs font-bold text-teal-muted">
+      <span>Free forever</span>
+      <span>•</span>
+      <span>Zero lockouts</span>
+      <span>•</span>
+      <span>Cambridge &amp; ETS syllabus</span>
+    </div>
+  </footer>
+
+</body>
+</html>
+

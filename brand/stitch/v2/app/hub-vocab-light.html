@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Vocabulary Hub (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              DEFAULT: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+            },
+            ink: {
+              DEFAULT: '#0F3D3E',
+              muted: '#2A5556',
+              btn: '#190600',
+            },
+            teal: {
+              DEFAULT: '#2BA39A',
+              deep: '#1F7A75',
+              ledge: '#145A56',
+              soft: '#E6FAF8',
+              border: '#A7E6E0',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              amber: '#FFB054',
+              ledge: '#B53A22',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Tactile 3D Ledge Mechanics */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 #B53A22, 0 8px 16px rgba(181, 58, 34, 0.25);
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22, 0 4px 8px rgba(181, 58, 34, 0.2);
+    }
+
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+      border-radius: 20px;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-tile {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+      border-radius: 20px;
+      transition: all 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tactile-tile:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+
+    /* Glossy 3D Circle Badge Styles */
+    .glossy-circle {
+      position: relative;
+      border-radius: 9999px;
+      overflow: hidden;
+      box-shadow: 0 4px 0 rgba(0,0,0,0.12), inset 0 2px 3px rgba(255,255,255,0.7);
+    }
+    .glossy-circle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      right: 6px;
+      height: 40%;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.05) 100%);
+      pointer-events: none;
+    }
+
+    /* Tactile Status Pills */
+    .tactile-pill {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+  </style>
+</head>
+<body class="bg-cream font-sans min-h-screen text-ink antialiased flex justify-center selection:bg-teal selection:text-white">
+
+  <!-- Mobile Viewport Container (Rendered purely without external phone bezel) -->
+  <div class="w-full max-w-[430px] min-h-screen flex flex-col justify-between pb-24">
+
+    <!-- 1. Fixed Header (56px Lexkite Standard) -->
+    <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md px-5 h-14 flex items-center justify-between border-b-2 border-cream-border/60">
+      <!-- App Brand Logo: Tactile Kite Icon + Lexkite Wordmark -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-white border-2 border-cream-border shadow-[0_2px_0_#D8CFBC] flex items-center justify-center p-1">
+          <!-- Kite Emblem SVG -->
+          <svg viewBox="0 0 32 32" class="w-full h-full drop-shadow-sm" fill="none">
+            <path d="M16 3L27 15L16 27L5 15L16 3Z" fill="#2BA39A"/>
+            <path d="M16 3L27 15L16 16L5 15L16 3Z" fill="#38C6BC"/>
+            <path d="M16 16L27 15L16 27Z" fill="#F2553B"/>
+            <path d="M16 16L5 15L16 27Z" fill="#FFB054"/>
+            <circle cx="16" cy="15" r="2" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <span class="text-xl font-extrabold text-ink tracking-tight font-sans">Lexkite</span>
+      </div>
+
+      <!-- Header Metrics (Streak Flame + XP Pill) -->
+      <div class="flex items-center gap-2">
+        <!-- Streak Chip -->
+        <div class="tactile-pill flex items-center gap-1.5 px-2.5 py-1 rounded-full">
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none">
+            <path d="M12 2C9.5 6 14 9 12 14C11 12 9 11 9 9C6.5 12 6 15 7.5 18C8.5 20 10.5 21.5 13 21.5C16.5 21.5 19 18.5 19 14.5C19 8.5 14 6 12 2Z" fill="#F2553B"/>
+            <path d="M12 12C11 13.5 12 15 11.5 16.5C11 15.5 10 15 10 14C8.8 15.5 9 17.5 9.8 18.5C10.5 19.5 11.5 20 12.8 20C14.8 20 16 18.5 16 16.5C16 13.5 13.5 13 12 12Z" fill="#FFC94A"/>
+          </svg>
+          <span class="text-xs font-extrabold text-ink">14</span>
+        </div>
+
+        <!-- XP Pill -->
+        <div class="tactile-pill flex items-center gap-1.5 px-2.5 py-1 rounded-full">
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none">
+            <path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" fill="#FFB054" stroke="#D98A28" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+          <span class="text-xs font-extrabold text-ink">820 XP</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Flow -->
+    <main class="px-5 pt-4 pb-4 flex-1 flex flex-col gap-5">
+
+      <!-- Section Title with minimal copy -->
+      <div class="flex items-center justify-between px-1">
+        <div>
+          <h1 class="text-2xl font-extrabold text-ink tracking-tight">Vocabulary Hub</h1>
+          <p class="text-xs font-bold text-ink-muted mt-0.5 uppercase tracking-wider">IELTS • Band 7.5 Target</p>
+        </div>
+        <span class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-teal-soft text-teal-deep border border-teal-border">248 saved</span>
+      </div>
+
+      <!-- 2. Big "Due Today" Review Card -->
+      <div class="tactile-card p-5 relative overflow-hidden bg-gradient-to-b from-white to-[#FFFDF9]">
+        <!-- Subtle Top Accent Indicator -->
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-teal to-coral"></div>
+
+        <div class="flex items-center justify-between mb-4">
+          <!-- Circular Counter Hero -->
+          <div class="flex items-center gap-3.5">
+            <div class="w-14 h-14 rounded-2xl bg-teal-soft border-2 border-teal-border flex items-center justify-center relative shadow-[0_3px_0_#A7E6E0]">
+              <span class="text-2xl font-extrabold text-teal-deep">12</span>
+              <!-- Pulsing indicator -->
+              <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-coral rounded-full border-2 border-white"></span>
+            </div>
+            <div>
+              <div class="text-lg font-extrabold text-ink leading-tight">Due for Review</div>
+              <div class="text-xs font-bold text-ink-muted">Spaced recall ready now</div>
+            </div>
+          </div>
+
+          <!-- Status badge -->
+          <div class="px-2.5 py-1 rounded-lg bg-[#FFF2DE] border border-[#F2D7B0] text-[#9A5B00] text-[11px] font-extrabold uppercase tracking-wide">
+            ~4 mins
+          </div>
+        </div>
+
+        <!-- Mini Progress / Breakdown Chips -->
+        <div class="flex items-center gap-2 mb-4">
+          <div class="flex-1 py-1.5 px-2.5 rounded-xl bg-cream border border-cream-border flex items-center justify-between text-xs">
+            <span class="font-bold text-ink-muted text-[11px]">Critical</span>
+            <span class="font-extrabold text-coral">4 words</span>
+          </div>
+          <div class="flex-1 py-1.5 px-2.5 rounded-xl bg-cream border border-cream-border flex items-center justify-between text-xs">
+            <span class="font-bold text-ink-muted text-[11px]">Familiar</span>
+            <span class="font-extrabold text-teal-deep">8 words</span>
+          </div>
+        </div>
+
+        <!-- Tactile Orange Review Button (Labels strictly in deep brown-black ink) -->
+        <button class="tactile-btn-primary w-full h-13 py-3.5 rounded-2xl flex items-center justify-center gap-2 cursor-pointer group">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-ink-btn fill-current transition-transform group-hover:scale-110">
+            <path d="M8 5V19L19 12L8 5Z"/>
+          </svg>
+          <span class="text-base font-extrabold text-ink-btn tracking-tight font-sans">Start Review</span>
+        </button>
+      </div>
+
+      <!-- 3. Grid of Chunky Illustrated Tiles (7 Specific Sections) -->
+      <div>
+        <div class="text-xs font-extrabold text-ink-muted uppercase tracking-wider px-1 mb-2.5">Explore Library</div>
+        
+        <div class="grid grid-cols-2 gap-3.5">
+
+          <!-- Tile 1: Dictionary -->
+          <button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+            <div class="flex items-start justify-between">
+              <!-- Glossy Teal Icon -->
+              <div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#40C9BF] to-[#1E8A82] border-2 border-[#19756E] flex items-center justify-center shadow-[0_3px_0_#145A56]">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="7"/>
+                  <path d="M21 21L16.5 16.5"/>
+                  <path d="M11 8v6M8 11h6" stroke-width="2"/>
+                </svg>
+              </div>
+              <!-- Count Chip -->
+              <span class="px-2 py-0.5 rounded-full bg-cream border border-cream-border text-[11px] font-extrabold text-ink-muted">40k+</span>
+            </div>
+            <div>
+              <div class="text-base font-extrabold text-ink group-hover:text-teal-deep transition-colors leading-tight">Dictionary</div>
+              <div class="text-[11px] font-bold text-ink-muted mt-0.5">Quick search & IPA</div>
+            </div>
+          </button>
+
+          <!-- Tile 2: My deck -->
+          <button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+            <div class="flex items-start justify-between">
+              <!-- Glossy Coral/Gold Icon -->
+              <div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#FFA756] to-[#F2553B] border-2 border-[#C93B23] flex items-center justify-center shadow-[0_3px_0_#9E2814]">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="6" width="14" height="15" rx="2.5"/>
+                  <path d="M7 3h12a2 2 0 0 1 2 2v12"/>
+                  <path d="M7 11h6M7 15h4"/>
+                </svg>
+              </div>
+              <!-- Count Chip -->
+              <span class="px-2 py-0.5 rounded-full bg-cream border border-cream-border text-[11px] font-extrabold text-ink-muted">248</span>
+            </div>
+            <div>
+              <div class="text-base font-extrabold text-ink group-hover:text-teal-deep transition-colors leading-tight">My deck</div>
+              <div class="text-[11px] font-bold text-ink-muted mt-0.5">Personal collection</div>
+            </div>
+          </button>
+
+          <!-- Tile 3: Word sets -->
+          <button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+            <div class="flex items-start justify-between">
+              <!-- Glossy Emerald Icon -->
+              <div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#51DF92] to-[#24A65D] border-2 border-[#1E8A4C] flex items-center justify-center shadow-[0_3px_0_#176B3B]">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                </svg>
+              </div>
+              <!-- Count Chip -->
+              <span class="px-2 py-0.5 rounded-full bg-cream border border-cream-border text-[11px] font-extrabold text-ink-muted">32 sets</span>
+            </div>
+            <div>
+              <div class="text-base font-extrabold text-ink group-hover:text-teal-deep transition-colors leading-tight">Word sets</div>
+              <div class="text-[11px] font-bold text-ink-muted mt-0.5">Topic bundles</div>
+            </div>
+          </button>
+
+          <!-- Tile 4: Phrases -->
+          <button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+            <div class="flex items-start justify-between">
+              <!-- Glossy Sky/Cyan Icon -->
+              <div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#55D6F0] to-[#1FA0B9] border-2 border-[#1A8296] flex items-center justify-center shadow-[0_3px_0_#136272]">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  <path d="M8 9h8M8 13h5"/>
+                </svg>
+              </div>
+              <!-- Count Chip -->
+              <span class="px-2 py-0.5 rounded-full bg-cream border border-cream-border text-[11px] font-extrabold text-ink-muted">180</span>
+            </div>
+            <div>
+              <div class="text-base font-extrabold text-ink group-hover:text-teal-deep transition-colors leading-tight">Phrases</div>
+              <div class="text-[11px] font-bold text-ink-muted mt-0.5">Native idioms</div>
+            </div>
+          </button>
+
+          <!-- Tile 5: Verbs -->
+          <button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+            <div class="flex items-start justify-between">
+              <!-- Glossy Amber Icon -->
+              <div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#FFD15C] to-[#F59E0B] border-2 border-[#D97706] flex items-center justify-center shadow-[0_3px_0_#B45309]">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <!-- Count Chip -->
+              <span class="px-2 py-0.5 rounded-full bg-cream border border-cream-border text-[11px] font-extrabold text-ink-muted">120</span>
+            </div>
+            <div>
+              <div class="text-base font-extrabold text-ink group-hover:text-teal-deep transition-colors leading-tight">Verbs</div>
+              <div class="text-[11px] font-bold text-ink-muted mt-0.5">3 Forms & patterns</div>
+            </div>
+          </button>
+
+          <!-- Tile 6: Collocations -->
+          <button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+            <div class="flex items-start justify-between">
+              <!-- Glossy Purple/Violet Icon -->
+              <div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#B886F8] to-[#8042DF] border-2 border-[#692CC4] flex items-center justify-center shadow-[0_3px_0_#531F9E]">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+              </div>
+              <!-- Count Chip -->
+              <span class="px-2 py-0.5 rounded-full bg-cream border border-cream-border text-[11px] font-extrabold text-ink-muted">340</span>
+            </div>
+            <div>
+              <div class="text-base font-extrabold text-ink group-hover:text-teal-deep transition-colors leading-tight">Collocations</div>
+              <div class="text-[11px] font-bold text-ink-muted mt-0.5">Band 7.5+ pairings</div>
+            </div>
+          </button>
+
+          <!-- Tile 7: Word games (Span 2 columns for a playful horizontal banner finish) -->
+          <button class="tactile-tile col-span-2 p-4 text-left flex items-center justify-between group cursor-pointer bg-gradient-to-r from-white via-white to-[#F6FFFD]">
+            <div class="flex items-center gap-3.5">
+              <!-- Glossy Game Trophy/Dice Icon -->
+              <div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#FF7E62] to-[#E03A1E] border-2 border-[#B82B14] flex items-center justify-center shadow-[0_3px_0_#8A1B07] shrink-0">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="3"/>
+                  <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+                  <circle cx="15.5" cy="8.5" r="1.5" fill="currentColor"/>
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                  <circle cx="8.5" cy="15.5" r="1.5" fill="currentColor"/>
+                  <circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-base font-extrabold text-ink group-hover:text-teal-deep transition-colors leading-tight">Word games</div>
+                <div class="text-[11px] font-bold text-ink-muted mt-0.5">Speed Match • Fill Quiz</div>
+              </div>
+            </div>
+
+            <!-- Count Chip + Arrow -->
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-1 rounded-full bg-teal-soft border border-teal-border text-[11px] font-extrabold text-teal-deep">4 modes</span>
+              <svg viewBox="0 0 20 20" class="w-5 h-5 text-ink-muted group-hover:translate-x-1 transition-transform fill-current">
+                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+          </button>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- 4. Fixed Bottom Tab Bar (5 Tabs, Review/Vocab tab active with 2px teal border & tint) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-cream-border shadow-[0_-4px_12px_rgba(15,61,62,0.06)]">
+      <div class="max-w-[430px] mx-auto h-16 px-4 flex items-center justify-around">
+
+        <!-- Tab 1: Learn -->
+        <a href="#learn" class="flex flex-col items-center justify-center gap-1 text-ink-muted hover:text-ink transition-colors w-16 py-1">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          <span class="text-[10px] font-extrabold">Learn</span>
+        </a>
+
+        <!-- Tab 2: Review (Active Tab with Lexkite standard rounded card border and tint) -->
+        <a href="#review" class="flex flex-col items-center justify-center gap-1 w-16 py-1 rounded-xl bg-teal-soft border-2 border-teal text-teal-deep shadow-[0_2px_0_#A7E6E0]">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+          <span class="text-[10px] font-extrabold text-teal-deep">Review</span>
+        </a>
+
+        <!-- Tab 3: Practice -->
+        <a href="#practice" class="flex flex-col items-center justify-center gap-1 text-ink-muted hover:text-ink transition-colors w-16 py-1">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          <span class="text-[10px] font-extrabold">Practice</span>
+        </a>
+
+        <!-- Tab 4: Leagues -->
+        <a href="#leagues" class="flex flex-col items-center justify-center gap-1 text-ink-muted hover:text-ink transition-colors w-16 py-1">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/>
+            <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/>
+            <path d="M4 22h16"/>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
+          </svg>
+          <span class="text-[10px] font-extrabold">Leagues</span>
+        </a>
+
+        <!-- Tab 5: Me -->
+        <a href="#me" class="flex flex-col items-center justify-center gap-1 text-ink-muted hover:text-ink transition-colors w-16 py-1">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span class="text-[10px] font-extrabold">Me</span>
+        </a>
+
+      </div>
+    </nav>
+
+  </div>
+
+</body>
+</html>
+

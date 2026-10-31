@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Loading Learning Path (Bright Day)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Shimmer keyframe animation */
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .shimmer-box {
+      position: relative;
+      overflow: hidden;
+      background-color: #EFE4D1;
+    }
+
+    .shimmer-box::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 1.8s infinite;
+    }
+
+    .shimmer-teal {
+      position: relative;
+      overflow: hidden;
+      background-color: #D3EFEB;
+    }
+
+    .shimmer-teal::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 1.8s infinite;
+    }
+
+    /* Tactile bottom ledges */
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-radius: 20px;
+      box-shadow: 0 5px 0 0 #D8CFBC;
+    }
+
+    .tactile-unit-banner {
+      background-color: #E2FAF6;
+      border: 2px solid #A6E3D8;
+      border-radius: 20px;
+      box-shadow: 0 6px 0 0 #7ACBC0;
+    }
+
+    .tactile-node-shadow {
+      box-shadow: 0 7px 0 0 #D1C4AD;
+    }
+
+    .tactile-current-node-shadow {
+      box-shadow: 0 8px 0 0 #D8CFBC;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFF7EA] flex flex-col items-center justify-between pb-24 select-none">
+
+  <!-- ================= TOP APP BAR (56px) ================= -->
+  <header class="w-full max-w-md h-14 bg-[#FFF7EA] border-b-2 border-[#EADEC8] px-4 flex items-center justify-between sticky top-0 z-40">
+    <!-- Brand Logo: Kite emblem + Lexkite -->
+    <div class="flex items-center gap-2">
+      <!-- 2D origami diamond kite emblem -->
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 2L30 16L16 30L2 16L16 2Z" fill="#2BA39A"/>
+        <path d="M16 2L30 16L16 16L16 2Z" fill="#1F7A75"/>
+        <path d="M16 16L30 16L16 30L16 16Z" fill="#FFB054"/>
+        <path d="M2 16L16 16L16 30L2 16Z" fill="#F2553B"/>
+        <circle cx="16" cy="16" r="2.5" fill="#FFFFFF"/>
+      </svg>
+      <span class="text-[20px] font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+    </div>
+
+    <!-- Shimmering Placeholder Metric Chips (Streak & XP) -->
+    <div class="flex items-center gap-2">
+      <!-- Streak chip placeholder -->
+      <div class="h-8 w-16 rounded-full border-2 border-[#EADEC8] bg-white shadow-[0_2px_0_0_#D8CFBC] flex items-center px-2 gap-1.5 overflow-hidden">
+        <div class="w-4 h-4 rounded-full shimmer-box shrink-0"></div>
+        <div class="h-3 w-7 rounded shimmer-box"></div>
+      </div>
+      <!-- XP chip placeholder -->
+      <div class="h-8 w-20 rounded-full border-2 border-[#EADEC8] bg-white shadow-[0_2px_0_0_#D8CFBC] flex items-center px-2 gap-1.5 overflow-hidden">
+        <div class="w-4 h-4 rounded-full shimmer-box shrink-0"></div>
+        <div class="h-3 w-9 rounded shimmer-box"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT (Path & Skeletons) ================= -->
+  <main class="w-full max-w-md px-4 pt-5 pb-8 flex flex-col items-center">
+
+    <!-- UNIT BANNER PLACEHOLDER (Chunky tactile card with bottom ledge) -->
+    <div class="w-full tactile-unit-banner p-4 relative overflow-hidden mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <!-- Unit pill placeholder -->
+        <div class="h-5 w-24 rounded-full shimmer-teal"></div>
+        <!-- Guidebook icon placeholder -->
+        <div class="w-8 h-8 rounded-xl border-2 border-[#A6E3D8] bg-white/70 shadow-[0_2px_0_0_#7ACBC0] flex items-center justify-center">
+          <div class="w-4 h-4 rounded shimmer-teal"></div>
+        </div>
+      </div>
+      <!-- Headline placeholder -->
+      <div class="h-6 w-3/4 rounded-lg shimmer-teal mb-3"></div>
+      <!-- Progress Bar Track placeholder -->
+      <div class="w-full h-3.5 bg-white/60 border border-[#A6E3D8] rounded-full overflow-hidden p-0.5">
+        <div class="h-full w-2/5 rounded-full shimmer-teal"></div>
+      </div>
+    </div>
+
+    <!-- ================= WINDING PATH SKELETON ================= -->
+    <div class="relative w-full flex flex-col items-center gap-7 py-2">
+
+      <!-- Background Winding Connector SVG Line (dashed soft track) -->
+      <svg class="absolute top-8 left-0 w-full h-[520px] pointer-events-none -z-0" viewBox="0 0 360 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 180 30 C 230 70, 270 90, 250 140 C 230 190, 110 180, 105 245 C 100 310, 260 300, 240 370 C 220 430, 185 450, 180 500" 
+              stroke="#E8DEC9" 
+              stroke-width="10" 
+              stroke-linecap="round" 
+              stroke-dasharray="14 10" />
+      </svg>
+
+      <!-- NODE 1 (Center): Completed milestone style placeholder -->
+      <div class="relative z-10 flex flex-col items-center">
+        <div class="w-[72px] h-[72px] rounded-full bg-[#FFFFFF] border-[3px] border-[#EADEC8] tactile-node-shadow flex items-center justify-center p-3">
+          <div class="w-full h-full rounded-full shimmer-box"></div>
+        </div>
+        <!-- Small star/badge placeholder -->
+        <div class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-white border-2 border-[#EADEC8] shadow-[0_2px_0_0_#D8CFBC] flex items-center justify-center">
+          <div class="w-3 h-3 rounded-full shimmer-box"></div>
+        </div>
+      </div>
+
+      <!-- NODE 2 (Shifted Right): Listening/Vocab node placeholder -->
+      <div class="relative z-10 flex flex-col items-center translate-x-16">
+        <div class="w-[72px] h-[72px] rounded-full bg-[#FFFFFF] border-[3px] border-[#EADEC8] tactile-node-shadow flex items-center justify-center p-3">
+          <div class="w-full h-full rounded-full shimmer-box"></div>
+        </div>
+        <div class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-white border-2 border-[#EADEC8] shadow-[0_2px_0_0_#D8CFBC] flex items-center justify-center">
+          <div class="w-3 h-3 rounded-full shimmer-box"></div>
+        </div>
+      </div>
+
+      <!-- NODE 3 (Current / Active Target - Shifted Left): Has outer tactile ring & Start speech bubble placeholder -->
+      <div class="relative z-10 flex flex-col items-center -translate-x-16 my-2">
+        <!-- Floating speech badge placeholder (where 'START' pill would sit) -->
+        <div class="absolute -top-7 h-7 w-20 rounded-full border-2 border-[#EADEC8] bg-white shadow-[0_3px_0_0_#D8CFBC] flex items-center justify-center px-2 mb-1">
+          <div class="h-3 w-12 rounded-full shimmer-box"></div>
+        </div>
+
+        <!-- Chunky Active Node with double ring -->
+        <div class="w-[84px] h-[84px] rounded-full bg-[#FBF3E4] border-[3px] border-[#D8CFBC] tactile-current-node-shadow flex items-center justify-center p-2">
+          <div class="w-[66px] h-[66px] rounded-full bg-white border-2 border-[#EADEC8] flex items-center justify-center p-3">
+            <div class="w-full h-full rounded-full shimmer-box"></div>
+          </div>
+        </div>
+
+        <!-- Optional empty teacher pedestal floor mark beside active node -->
+        <div class="absolute -right-20 top-6 w-14 h-5 rounded-[100%] bg-[#EFE3CF]/60 border border-[#E3D4BC]/60"></div>
+      </div>
+
+      <!-- NODE 4 (Shifted Right): Locked node placeholder -->
+      <div class="relative z-10 flex flex-col items-center translate-x-14">
+        <div class="w-[72px] h-[72px] rounded-full bg-[#F7EFE1] border-[3px] border-[#E3D6C1] tactile-node-shadow flex items-center justify-center p-3">
+          <div class="w-full h-full rounded-full shimmer-box opacity-75"></div>
+        </div>
+        <!-- Lock badge placeholder -->
+        <div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#EADEC8] border-2 border-[#D8CFBC] flex items-center justify-center">
+          <div class="w-2.5 h-2.5 rounded-sm shimmer-box"></div>
+        </div>
+      </div>
+
+      <!-- NODE 5 (Center): Trophy / Assessment Chest placeholder -->
+      <div class="relative z-10 flex flex-col items-center pt-2">
+        <div class="w-[76px] h-[76px] rounded-2xl bg-[#F7EFE1] border-[3px] border-[#E3D6C1] tactile-node-shadow flex items-center justify-center p-3.5">
+          <div class="w-full h-full rounded-xl shimmer-box opacity-75"></div>
+        </div>
+        <!-- Lock badge placeholder -->
+        <div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#EADEC8] border-2 border-[#D8CFBC] flex items-center justify-center">
+          <div class="w-2.5 h-2.5 rounded-sm shimmer-box"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= FIXED BOTTOM TAB BAR (5 Tabs) ================= -->
+  <nav class="fixed bottom-0 left-0 right-0 w-full bg-white border-t-2 border-[#EADEC8] shadow-[0_-4px_12px_rgba(15,61,62,0.03)] z-50">
+    <div class="max-w-md mx-auto h-16 px-3 flex items-center justify-around">
+      
+      <!-- Tab 1: Learn (Active) -> Chunky rounded square with 2px teal border & teal tint -->
+      <div class="flex flex-col items-center justify-center w-14 h-13 py-1 px-2 rounded-xl border-2 border-[#2BA39A] bg-[#E6F7F5] shadow-[0_2px_0_0_#1F7A75]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2BA39A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="6" cy="19" r="3"/>
+          <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/>
+          <circle cx="18" cy="5" r="3"/>
+        </svg>
+        <span class="text-[11px] font-bold text-[#1F7A75] mt-0.5">Learn</span>
+      </div>
+
+      <!-- Tab 2: Review (Inactive) -->
+      <div class="flex flex-col items-center justify-center w-14 py-1 text-[#4E6668]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v4"/>
+          <path d="M12 18v4"/>
+          <path d="m4.93 4.93 2.83 2.83"/>
+          <path d="m16.24 16.24 2.83 2.83"/>
+          <path d="M2 12h4"/>
+          <path d="M18 12h4"/>
+          <path d="m4.93 19.07 2.83-2.83"/>
+          <path d="m16.24 7.76 2.83-2.83"/>
+        </svg>
+        <span class="text-[11px] font-bold text-[#4E6668] mt-0.5">Review</span>
+      </div>
+
+      <!-- Tab 3: Practice (Inactive) -->
+      <div class="flex flex-col items-center justify-center w-14 py-1 text-[#4E6668]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+        <span class="text-[11px] font-bold text-[#4E6668] mt-0.5">Practice</span>
+      </div>
+
+      <!-- Tab 4: Leagues (Inactive) -->
+      <div class="flex flex-col items-center justify-center w-14 py-1 text-[#4E6668]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+          <path d="M4 22h16"/>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"/>
+          <path d="M6 4h12a2 2 0 0 1 2 2v3a6 6 0 0 1-6 6h0a6 6 0 0 1-6-6V6a2 2 0 0 1 2-2Z"/>
+        </svg>
+        <span class="text-[11px] font-bold text-[#4E6668] mt-0.5">Leagues</span>
+      </div>
+
+      <!-- Tab 5: Me (Inactive) -->
+      <div class="flex flex-col items-center justify-center w-14 py-1 text-[#4E6668]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="5"/>
+          <path d="M20 21a8 8 0 0 0-16 0"/>
+        </svg>
+        <span class="text-[11px] font-bold text-[#4E6668] mt-0.5">Me</span>
+      </div>
+
+    </div>
+  </nav>
+
+</body>
+</html>
+

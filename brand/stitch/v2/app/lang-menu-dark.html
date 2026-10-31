@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — App Language Bottom Sheet (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Noto+Sans+Arabic:wght@700&amp;family=Noto+Sans+Devanagari:wght@700&amp;family=Noto+Sans+JP:wght@700&amp;family=Noto+Sans+KR:wght@700&amp;family=Noto+Sans+SC:wght@700&amp;family=Noto+Sans+Thai:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'cream-dim': '#F4E8D3',
+            'card-white': '#FFFFFF',
+            'ink-deep': '#0F3D3E',
+            'ink-muted': '#325859',
+            'ink-button': '#230E05',
+            'teal-primary': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'teal-ledge': '#12514D',
+            'teal-soft': '#E6F8F6',
+            'coral-accent': '#F2553B',
+            'amber-accent': '#FFB054',
+            'cta-ledge': '#B53A22',
+            'border-light': '#E8DEC9',
+            'card-ledge': '#D8CFBC',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Tactile physics */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF9E44 0%, #F2553B 100%);
+      box-shadow: 0 6px 0 0 #B53A22;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 0 #B53A22;
+    }
+
+    .tactile-btn-close {
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-close:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #D8CFBC;
+    }
+
+    .tactile-row {
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      transition: all 0.1s ease;
+    }
+    .tactile-row:hover {
+      background-color: #FDFAF3;
+    }
+    .tactile-row:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #D8CFBC;
+    }
+
+    .tactile-row-selected {
+      background-color: #E6F8F6;
+      border-color: #2BA39A;
+      box-shadow: 0 4px 0 0 #1F7A75;
+    }
+    .tactile-row-selected:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #1F7A75;
+    }
+
+    .sheet-card {
+      box-shadow: 0 10px 0 0 #D8CFBC, 0 24px 48px -12px rgba(15, 61, 62, 0.12);
+    }
+
+    /* Custom scrollbar for chunky feel */
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F8EFE1;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #D8CFBC;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #B4A992;
+    }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#EEF6F7] font-sans antialiased min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 selection:bg-[#2BA39A] selection:text-white">
+<!-- Ambient Backdrop with Settings Peek (contextual app background) -->
+<div class="fixed inset-0 pointer-events-none opacity-30 bg-[radial-gradient(#2BA39A_1px,transparent_1px)] [background-size:24px_24px]"></div>
+<!-- Bottom Sheet / Modal Card (Self-contained, full page frame without phone chrome) -->
+<main class="w-full max-w-xl bg-[#122025] rounded-[28px] border-2 border-[#233B44] relative flex flex-col overflow-hidden z-10 shadow-[0_10px_0_0_#091316,0_24px_48px_-12px_rgba(0,0,0,0.5)]">
+<!-- Top Grab Handle & Pill -->
+<div class="pt-3 pb-1 flex justify-center items-center">
+<div class="w-12 h-1.5 bg-[#233B44] rounded-full"></div>
+</div>
+<!-- Sheet Header -->
+<header class="px-6 pt-2 pb-4 flex items-center justify-between border-b-2 border-[#233B44]/80">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-2xl bg-[#173038] border-2 border-[#2B525B] flex items-center justify-center text-[#2BA39A] shadow-sm">
+<span class="material-symbols-rounded text-2xl">translate</span>
+</div>
+<div>
+<h1 class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight leading-none">App language</h1>
+<p class="text-xs font-extrabold text-[#A9BFC1] mt-1 uppercase tracking-wider">15 languages available</p>
+</div>
+</div>
+<button aria-label="Close" class="w-10 h-10 rounded-2xl bg-[#1A2D35] border-2 border-[#2B424D] text-[#EEF6F7] flex items-center justify-center shadow-[0_4px_0_0_#0D191D] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all hover:bg-[#233B44]" type="button">
+<span class="material-symbols-rounded text-xl">close</span>
+</button>
+</header>
+<!-- Search Input Area -->
+<section class="px-6 pt-4 pb-2">
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#2BA39A]">
+<span class="material-symbols-rounded text-xl">search</span>
+</div>
+<input class="w-full pl-10 pr-10 py-3 rounded-2xl bg-[#0E1B1F] border-2 border-[#233C45] text-[#EEF6F7] placeholder-[#7F9A9E] text-sm font-bold focus:outline-none focus:border-[#2BA39A] focus:bg-[#12242A] transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]" placeholder="Search language..." type="text" value=""/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center text-[#A9BFC1]">
+<span class="text-[11px] font-extrabold px-1.5 py-0.5 rounded-lg bg-[#1A2E35] border border-[#2B444E] shadow-2xs">ESC</span>
+</div>
+</div>
+</section>
+<!-- Language List Container (15 Rows) -->
+<section aria-label="Language selection" class="px-6 py-3 max-h-[460px] overflow-y-auto custom-scroll flex flex-col gap-2.5" role="radiogroup">
+<!-- 1. English (Selected) -->
+<div aria-checked="true" class="bg-[#133336] rounded-2xl border-2 border-[#2BA39A] p-3.5 flex items-center justify-between cursor-pointer group shadow-[0_4px_0_0_#0D2628] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D2628] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1E4B4C] border border-[#2BA39A]/40 text-[#38DEC3] flex items-center justify-center font-extrabold text-sm shadow-sm">
+            EN
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">English</div>
+<div class="text-xs font-bold text-[#88B7B9]">English (Global)</div>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full bg-[#2BA39A] text-[#081518] flex items-center justify-center shadow-xs">
+<span class="material-symbols-rounded text-lg font-black">check</span>
+</div>
+</div>
+<!-- 2. Tiếng Việt -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            VI
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">Tiếng Việt</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Vietnamese</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 3. Español -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            ES
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">Español</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Spanish</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 4. Português -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            PT
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">Português</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Portuguese</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 5. Français -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            FR
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">Français</div>
+<div class="text-xs font-bold text-[#8EA6A9]">French</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 6. Deutsch -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            DE
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">Deutsch</div>
+<div class="text-xs font-bold text-[#8EA6A9]">German</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 7. Bahasa Indonesia -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            ID
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">Bahasa Indonesia</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Indonesian</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 8. ไทย (Thai) -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            TH
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">ไทย</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Thai</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 9. 中文 (Chinese) -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            ZH
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">中文</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Chinese</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 10. 日本語 (Japanese) -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            JA
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">日本語</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Japanese</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 11. 한국어 (Korean) -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            KO
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">한국어</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Korean</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 12. हिन्दी (Hindi) -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            HI
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">हिन्दी</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Hindi</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 13. العربية (Arabic) -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            AR
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight" dir="rtl">العربية</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Arabic</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 14. Русский (Russian) -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            RU
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">Русский</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Russian</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+<!-- 15. Türkçe (Turkish) -->
+<div aria-checked="false" class="bg-[#16272D] rounded-2xl border-2 border-[#233C45] p-3.5 flex items-center justify-between cursor-pointer shadow-[0_4px_0_0_#0D191D] hover:bg-[#1A2E35] active:translate-y-0.5 active:shadow-[0_2px_0_0_#0D191D] transition-all" role="radio" tabindex="0">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-xl bg-[#1A2D35] border border-[#2B444E] text-[#A9BFC1] flex items-center justify-center font-extrabold text-sm">
+            TR
+          </div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] leading-tight">Türkçe</div>
+<div class="text-xs font-bold text-[#8EA6A9]">Turkish</div>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#2B4650] hover:border-[#3D606C]"></div>
+</div>
+</section>
+<!-- Bottom Actions / Confirm CTA -->
+<footer class="p-6 pt-3 bg-[#122025] border-t-2 border-[#233B44]/80 flex flex-col gap-2.5">
+<button class="w-full py-3.5 px-6 rounded-2xl text-[#200D06] font-extrabold text-base tracking-wide flex items-center justify-center gap-2 bg-[linear-gradient(180deg,#FF6E48_0%,#F2553B_100%)] shadow-[0_6px_0_0_#B53A22] active:translate-y-1 active:shadow-[0_2px_0_0_#B53A22] transition-all cursor-pointer" type="button">
+<span>Save Language</span>
+<span class="material-symbols-rounded text-xl font-black">arrow_forward</span>
+</button>
+<p class="text-center text-[11px] font-bold text-[#8EA6A9]">
+        Translations apply to explanations, grammar notes &amp; UI prompts.
+      </p>
+</footer>
+</main>
+</body>
+</html>
+

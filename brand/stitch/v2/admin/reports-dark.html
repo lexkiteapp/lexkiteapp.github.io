@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin — Reports &amp; Feedback Inbox</title>
+<!-- Tailwind CSS CDN with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            tactile: {
+              canvas: '#0B171A',
+              card: '#132227',
+              cardHover: '#16282E',
+              inset: '#0E1A1E',
+              insetBorder: '#1E323A',
+              border: '#243A42',
+              ledge: '#091215',
+              activeCard: '#152930',
+              accentTeal: '#2BA39A',
+              accentCoral: '#F2553B',
+              accentAmber: '#FFB054',
+              accentMint: '#2FBF71',
+              textPrimary: '#EEF6F7',
+              textSecondary: '#A9BFC1',
+              textMuted: '#678488',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Tactile Styles -->
+<style data-purpose="tactile-elevation">
+    /* Physical 3D Tactile Borders & Ledges matching Lexkite Kit */
+    .tactile-card {
+      background-color: #132227;
+      border: 2px solid #243A42;
+      box-shadow: 0 4px 0 0 #091215;
+      transition: all 0.15s ease-in-out;
+    }
+    
+    .tactile-card:hover {
+      background-color: #16282E;
+      border-color: #2E4B55;
+    }
+
+    .tactile-card-active {
+      background-color: #152930;
+      border: 2px solid #2BA39A !important;
+      box-shadow: 0 4px 0 0 #0f4541, 0 0 16px -4px rgba(43, 163, 154, 0.25) !important;
+    }
+
+    .tactile-btn {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 transparent !important;
+    }
+
+    .tactile-btn-teal {
+      background-color: #2BA39A;
+      color: #061917;
+      border: 2px solid #36beB4;
+      box-shadow: 0 4px 0 0 #185E59;
+    }
+    .tactile-btn-teal:hover {
+      background-color: #31b3a9;
+    }
+
+    .tactile-btn-secondary {
+      background-color: #15252B;
+      color: #EEF6F7;
+      border: 2px solid #243A42;
+      box-shadow: 0 4px 0 0 #091215;
+    }
+    .tactile-btn-secondary:hover {
+      background-color: #1A2F37;
+      border-color: #304C56;
+    }
+
+    .tactile-inset {
+      background-color: #0E1A1E;
+      border: 1.5px solid #1E323A;
+    }
+
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B171A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E323A;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2BA39A;
+    }
+  </style>
+<!-- END: Custom Tactile Styles -->
+</head>
+<body class="bg-tactile-canvas text-tactile-textPrimary font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-tactile-accentTeal selection:text-black">
+<!-- BEGIN: TopNavigationBar -->
+<header class="w-full border-b border-tactile-border bg-[#0C191D]/90 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
+<!-- Brand & Console Title -->
+<div class="flex items-center space-x-3">
+<!-- Geometric Diamond Kite Logo -->
+<div class="w-9 h-9 rounded-xl bg-tactile-inset border border-tactile-border flex items-center justify-center shadow-inner relative overflow-hidden group">
+<svg class="w-5 h-5 transform transition-transform group-hover:rotate-45" fill="none" viewbox="0 0 24 24">
+<path d="M12 2L21 12L12 22L3 12L12 2Z" stroke="#2BA39A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+<path d="M12 2L12 22" stroke="#FFB054" stroke-dasharray="2 2" stroke-width="1.8"></path>
+<path d="M3 12L21 12" stroke="#2BA39A" stroke-width="1.8"></path>
+<circle cx="12" cy="12" fill="#F2553B" r="2.5"></circle>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight text-tactile-textPrimary">Lexkite</span>
+<span class="text-xs font-mono font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-tactile-inset border border-tactile-border text-tactile-textSecondary uppercase">CONSOLE</span>
+</div>
+<!-- Live Environment Status Indicators -->
+<div class="flex items-center space-x-3 text-sm">
+<div class="flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-tactile-inset border border-tactile-border text-tactile-textPrimary shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tactile-accentMint animate-pulse"></span>
+<span class="font-medium text-xs sm:text-sm">Live app v2.4</span>
+</div>
+<div class="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-tactile-inset border border-tactile-border text-tactile-textPrimary shadow-sm">
+<span class="text-tactile-accentAmber text-sm">★</span>
+<span class="font-medium text-xs sm:text-sm">Solo team</span>
+</div>
+</div>
+</div>
+</header>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: MainContentArea -->
+<main class="max-w-[1440px] w-full mx-auto px-6 py-7 flex-1">
+<!-- Page Title & Quick Navigation Tabs -->
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-7 gap-4">
+<div>
+<h1 class="text-3xl font-extrabold text-tactile-textPrimary tracking-tight">Reports Inbox</h1>
+<p class="text-tactile-textSecondary text-sm mt-1">Learner feedback, lesson errors, and bug triage</p>
+</div>
+<!-- Segmented Status Tabs -->
+<nav aria-label="Status Filters" class="flex items-center space-x-2 bg-tactile-inset p-1.5 rounded-2xl border border-tactile-insetBorder">
+<button class="flex items-center space-x-2 bg-tactile-accentTeal text-[#081719] px-4 py-1.5 rounded-xl font-bold text-sm shadow-sm transition">
+<span>NEW</span>
+<span class="bg-[#0b2426] text-tactile-accentTeal text-xs px-2 py-0.5 rounded-md font-mono">7</span>
+</button>
+<button class="flex items-center space-x-2 px-4 py-1.5 rounded-xl font-medium text-sm text-tactile-textSecondary hover:text-tactile-textPrimary hover:bg-tactile-card transition">
+<span>IN PROGRESS</span>
+<span class="bg-tactile-card border border-tactile-border text-tactile-textSecondary text-xs px-2 py-0.5 rounded-md font-mono">3</span>
+</button>
+<button class="flex items-center space-x-2 px-4 py-1.5 rounded-xl font-medium text-sm text-tactile-textSecondary hover:text-tactile-textPrimary hover:bg-tactile-card transition">
+<span>FIXED</span>
+<span class="bg-tactile-card border border-tactile-border text-tactile-textSecondary text-xs px-2 py-0.5 rounded-md font-mono">48</span>
+</button>
+</nav>
+</div>
+<!-- Layout Split Grid: List Column (Left) + Detail Column (Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+<!-- BEGIN: LeftReportsList -->
+<section aria-label="Unresolved Reports List" class="lg:col-span-5 flex flex-col space-y-3.5">
+<!-- List Header Meta -->
+<div class="flex items-center justify-between text-xs font-semibold text-tactile-textMuted uppercase tracking-wider px-1">
+<span>7 UNRESOLVED ITEMS</span>
+<span>SORTED BY NEWEST</span>
+</div>
+<!-- Item 1: Active Selected Report -->
+<article class="tactile-card tactile-card-active rounded-2xl p-4.5 cursor-pointer relative" data-purpose="report-card-active">
+<div class="flex items-center justify-between text-xs mb-2">
+<div class="flex items-center space-x-2">
+<span class="font-bold tracking-wide uppercase px-2 py-0.5 rounded text-[11px] bg-[#F2553B]/15 text-tactile-accentAmber border border-tactile-accentAmber/30">CONTENT ERROR</span>
+<span class="inline-flex items-center text-tactile-textSecondary">
+<span class="w-2 h-2 rounded-full bg-tactile-accentCoral mr-1.5"></span>
+                Unread
+              </span>
+</div>
+<span class="font-mono text-tactile-textMuted text-xs">14m ago</span>
+</div>
+<p class="text-sm font-semibold text-tactile-textPrimary leading-snug line-clamp-2 mb-3.5">
+            “In IELTS Task 1 Model Letter, the word 'uncompromised' is listed as an adverb in the word bank instead of adjective.”
+          </p>
+<div class="flex items-center space-x-2 text-xs">
+<span class="tactile-inset px-2.5 py-1 rounded-lg text-tactile-textSecondary border border-tactile-insetBorder font-medium">Task 1 Letter</span>
+<span class="text-tactile-textMuted">•</span>
+<span class="text-tactile-textSecondary">iOS App</span>
+</div>
+</article>
+<!-- Item 2: BUG (New) -->
+<article class="tactile-card rounded-2xl p-4.5 cursor-pointer" data-purpose="report-card">
+<div class="flex items-center justify-between text-xs mb-2">
+<div class="flex items-center space-x-2">
+<span class="font-bold tracking-wide uppercase px-2 py-0.5 rounded text-[11px] bg-[#F2553B]/15 text-tactile-accentCoral border border-tactile-accentCoral/30">BUG</span>
+<span class="inline-flex items-center text-tactile-textSecondary">
+<span class="w-2 h-2 rounded-full bg-tactile-accentCoral mr-1.5"></span>
+                New
+              </span>
+</div>
+<span class="font-mono text-tactile-textMuted text-xs">1h ago</span>
+</div>
+<p class="text-sm font-semibold text-tactile-textPrimary leading-snug line-clamp-2 mb-3.5">
+            “Audio clip for British pronunciation of 'meticulous' cuts off the final syllable on Safari mobile.”
+          </p>
+<div class="flex items-center space-x-2 text-xs">
+<span class="tactile-inset px-2.5 py-1 rounded-lg text-tactile-textSecondary border border-tactile-insetBorder font-medium">Lesson Drill</span>
+<span class="text-tactile-textMuted">•</span>
+<span class="text-tactile-textSecondary">Mobile Web</span>
+</div>
+</article>
+<!-- Item 3: IDEA (New) -->
+<article class="tactile-card rounded-2xl p-4.5 cursor-pointer" data-purpose="report-card">
+<div class="flex items-center justify-between text-xs mb-2">
+<div class="flex items-center space-x-2">
+<span class="font-bold tracking-wide uppercase px-2 py-0.5 rounded text-[11px] bg-tactile-accentTeal/15 text-tactile-accentTeal border border-tactile-accentTeal/30">IDEA</span>
+<span class="inline-flex items-center text-tactile-textSecondary">
+<span class="w-2 h-2 rounded-full bg-tactile-accentTeal mr-1.5"></span>
+                New
+              </span>
+</div>
+<span class="font-mono text-tactile-textMuted text-xs">3h ago</span>
+</div>
+<p class="text-sm font-semibold text-tactile-textPrimary leading-snug line-clamp-2 mb-3.5">
+            “Add a quick toggle in the Chrome extension to auto-save double-clicked words directly into the Spaced Review deck.”
+          </p>
+<div class="flex items-center space-x-2 text-xs">
+<span class="tactile-inset px-2.5 py-1 rounded-lg text-tactile-textSecondary border border-tactile-insetBorder font-medium">Chrome Add-on</span>
+<span class="text-tactile-textMuted">•</span>
+<span class="text-tactile-textSecondary">macOS Chrome</span>
+</div>
+</article>
+<!-- Item 4: BUG (Queued) -->
+<article class="tactile-card rounded-2xl p-4.5 cursor-pointer" data-purpose="report-card">
+<div class="flex items-center justify-between text-xs mb-2">
+<div class="flex items-center space-x-2">
+<span class="font-bold tracking-wide uppercase px-2 py-0.5 rounded text-[11px] bg-[#F2553B]/15 text-tactile-accentCoral border border-tactile-accentCoral/30">BUG</span>
+<span class="inline-flex items-center text-tactile-textSecondary">
+<span class="w-2 h-2 rounded-full bg-tactile-textMuted mr-1.5"></span>
+                Queued
+              </span>
+</div>
+<span class="font-mono text-tactile-textMuted text-xs">5h ago</span>
+</div>
+<p class="text-sm font-semibold text-tactile-textPrimary leading-snug line-clamp-2 mb-3.5">
+            “Daily streak counter showed 13 days instead of 14 after finishing the morning 5-minute collocation sprint.”
+          </p>
+<div class="flex items-center space-x-2 text-xs">
+<span class="tactile-inset px-2.5 py-1 rounded-lg text-tactile-textSecondary border border-tactile-insetBorder font-medium">Streak Hub</span>
+<span class="text-tactile-textMuted">•</span>
+<span class="text-tactile-textSecondary">Android App</span>
+</div>
+</article>
+<!-- Item 5: CONTENT ERROR (Queued) -->
+<article class="tactile-card rounded-2xl p-4.5 cursor-pointer" data-purpose="report-card">
+<div class="flex items-center justify-between text-xs mb-2">
+<div class="flex items-center space-x-2">
+<span class="font-bold tracking-wide uppercase px-2 py-0.5 rounded text-[11px] bg-[#F2553B]/15 text-tactile-accentAmber border border-tactile-accentAmber/30">CONTENT ERROR</span>
+<span class="inline-flex items-center text-tactile-textSecondary">
+<span class="w-2 h-2 rounded-full bg-tactile-textMuted mr-1.5"></span>
+                Queued
+              </span>
+</div>
+<span class="font-mono text-tactile-textMuted text-xs">Yesterday</span>
+</div>
+<p class="text-sm font-semibold text-tactile-textPrimary leading-snug line-clamp-2 mb-3.5">
+            “Spanish translation for 'deteriorate' has a typo in the second subjunctive sentence.”
+          </p>
+<div class="flex items-center space-x-2 text-xs">
+<span class="tactile-inset px-2.5 py-1 rounded-lg text-tactile-textSecondary border border-tactile-insetBorder font-medium">Dictionary</span>
+<span class="text-tactile-textMuted">•</span>
+<span class="text-tactile-textSecondary">Web Desktop</span>
+</div>
+</article>
+</section>
+<!-- END: LeftReportsList -->
+<!-- BEGIN: RightDetailSection -->
+<section aria-label="Detailed Report Review" class="lg:col-span-7 flex flex-col space-y-4">
+<!-- Main Detailed Card -->
+<div class="tactile-card rounded-3xl p-6 sm:p-7 relative overflow-hidden" data-purpose="detail-pane">
+<!-- Detail Header: Icon + Title + Meta -->
+<div class="flex items-start justify-between pb-6 border-b border-tactile-insetBorder gap-4">
+<div class="flex items-start space-x-4">
+<!-- Edit/Pen Tile Icon -->
+<div class="w-12 h-12 rounded-2xl bg-[#F2553B]/10 border border-[#F2553B]/30 flex items-center justify-center flex-shrink-0 shadow-inner">
+<svg class="w-6 h-6 text-tactile-accentAmber" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Report Header Content -->
+<div>
+<div class="flex items-center space-x-2 text-xs font-semibold">
+<span class="text-tactile-accentAmber uppercase tracking-wider">CONTENT ERROR</span>
+<span class="text-tactile-textMuted">•</span>
+<span class="font-mono text-tactile-textSecondary">#REP-1084</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-tactile-textPrimary mt-1">Part of speech tag mismatch</h2>
+</div>
+</div>
+<!-- User & Timestamp Metadata -->
+<div class="text-right flex-shrink-0">
+<span class="text-xs font-mono text-tactile-textMuted block">Received 14m ago</span>
+<span class="text-xs font-medium text-tactile-accentTeal hover:underline block mt-0.5 cursor-pointer">User: learner_mai@live.com</span>
+</div>
+</div>
+<!-- Metadata Chips Row -->
+<div class="flex flex-wrap items-center gap-2.5 py-5 text-xs">
+<div class="tactile-inset px-3 py-1.5 rounded-xl border border-tactile-insetBorder flex items-center space-x-1.5">
+<span class="text-tactile-textMuted">Screen:</span>
+<span class="font-mono text-tactile-textPrimary font-semibold">IELTS General Task 1 Model Letter</span>
+</div>
+<div class="tactile-inset px-3 py-1.5 rounded-xl border border-tactile-insetBorder flex items-center space-x-1.5">
+<span class="text-tactile-textMuted">Device:</span>
+<span class="text-tactile-textPrimary font-medium">iPhone 15 Pro • iOS 18.2</span>
+</div>
+<div class="tactile-inset px-3 py-1.5 rounded-xl border border-tactile-insetBorder flex items-center space-x-1.5">
+<span class="text-tactile-textMuted">App build:</span>
+<span class="font-mono text-tactile-textPrimary font-semibold">v2.4.1 (240)</span>
+</div>
+</div>
+<!-- LEARNER'S SUBMISSION Box -->
+<div class="mb-6">
+<label class="block text-xs font-bold uppercase tracking-wider text-tactile-textMuted mb-2">
+              Learner's Submission
+            </label>
+<div class="tactile-inset rounded-2xl p-5 border border-tactile-insetBorder bg-[#0E1A1E]">
+<p class="text-[15px] sm:text-base leading-relaxed text-tactile-textPrimary">
+                “In IELTS Task 1 Model Letter, the word 
+                <span class="bg-[#123737] text-tactile-accentTeal px-2 py-0.5 rounded border border-tactile-accentTeal/40 font-mono font-medium">uncompromised</span> 
+                is listed as an adverb in the word bank instead of adjective. Could you check Carlos’s annotation note too?”
+              </p>
+</div>
+</div>
+<!-- ASSOCIATED LESSON TARGET Box -->
+<div class="mb-7">
+<label class="block text-xs font-bold uppercase tracking-wider text-tactile-textMuted mb-2">
+              Associated Lesson Target
+            </label>
+<div class="tactile-inset rounded-2xl p-4 sm:p-5 border border-tactile-insetBorder flex items-center justify-between flex-wrap gap-4">
+<div class="flex items-center space-x-3.5">
+<!-- C1 Badge -->
+<div class="w-10 h-10 rounded-xl bg-tactile-canvas border border-tactile-insetBorder flex items-center justify-center text-tactile-accentTeal font-bold font-mono text-sm">
+                  C1
+                </div>
+<div>
+<h3 class="text-base font-bold text-tactile-textPrimary">uncompromised</h3>
+<p class="text-xs text-tactile-textSecondary mt-0.5">
+                    Current tag: <del class="text-tactile-accentCoral font-mono font-medium decoration-tactile-accentCoral">adv.</del>
+<span class="mx-1 text-tactile-textMuted">→</span> 
+                    Expected: <span class="text-tactile-accentMint font-mono font-bold">adj.</span>
+</p>
+</div>
+</div>
+<!-- Inspect Screen Button -->
+<a class="inline-flex items-center space-x-1.5 text-xs font-bold tracking-wider text-tactile-accentTeal hover:text-white uppercase transition px-3 py-2 rounded-xl hover:bg-tactile-card border border-transparent hover:border-tactile-border" href="#">
+<span>INSPECT SCREEN</span>
+<span class="text-sm">↗</span>
+</a>
+</div>
+</div>
+<!-- Action Buttons Bar -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+<!-- Mark Fixed (Primary Green) -->
+<button class="tactile-btn tactile-btn-teal flex items-center justify-center space-x-2 py-3 px-4 rounded-xl font-bold text-sm tracking-wide">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+<span>Mark fixed</span>
+</button>
+<!-- Reply (Secondary) -->
+<button class="tactile-btn tactile-btn-secondary flex items-center justify-center space-x-2 py-3 px-4 rounded-xl font-bold text-sm tracking-wide">
+<svg class="w-4 h-4 text-tactile-textSecondary" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Reply</span>
+</button>
+<!-- Archive (Tertiary) -->
+<button class="tactile-btn tactile-btn-secondary flex items-center justify-center space-x-2 py-3 px-4 rounded-xl font-bold text-sm tracking-wide">
+<svg class="w-4 h-4 text-tactile-textSecondary" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Archive</span>
+</button>
+</div>
+</div>
+<!-- Keyboard Triage Helper Banner -->
+<div class="tactile-inset rounded-2xl px-5 py-3 border border-tactile-insetBorder flex items-center justify-between text-xs text-tactile-textSecondary shadow-sm">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-tactile-accentTeal"></span>
+<span class="font-medium text-tactile-textPrimary">Keyboard triage:</span>
+<span class="flex items-center space-x-1.5 ml-2 font-mono">
+<kbd class="px-1.5 py-0.5 rounded bg-tactile-card border border-tactile-border text-tactile-textPrimary text-[11px] font-bold">F</kbd>
+<span class="text-tactile-textMuted font-sans">Mark fixed</span>
+<kbd class="px-1.5 py-0.5 rounded bg-tactile-card border border-tactile-border text-tactile-textPrimary text-[11px] font-bold ml-2">R</kbd>
+<span class="text-tactile-textMuted font-sans">Reply</span>
+<kbd class="px-1.5 py-0.5 rounded bg-tactile-card border border-tactile-border text-tactile-textPrimary text-[11px] font-bold ml-2">E</kbd>
+<span class="text-tactile-textMuted font-sans">Archive</span>
+</span>
+</div>
+<div class="font-mono font-medium text-tactile-textMuted">
+            Report 1 of 7
+          </div>
+</div>
+</section>
+<!-- END: RightDetailSection -->
+</div>
+</main>
+<!-- END: MainContentArea -->
+<!-- BEGIN: BottomGlobalFooter -->
+<footer class="w-full border-t border-tactile-border/80 bg-[#091316] py-3.5 px-6 mt-10">
+<div class="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-tactile-textMuted gap-2">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-tactile-accentTeal"></span>
+<span class="font-medium text-tactile-textSecondary">Lexkite Admin • Single-operator exam engine</span>
+</div>
+<div>
+<span>Zero tracking • High contrast • Tactile Night Dark UI</span>
+</div>
+</div>
+</footer>
+<!-- END: BottomGlobalFooter -->
+</body></html>

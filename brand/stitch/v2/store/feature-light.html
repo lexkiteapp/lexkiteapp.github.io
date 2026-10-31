@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Store Feature Graphic (Bright Day)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Plus Jakarta Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'cream-card': '#FFFFFF',
+            'card-border': '#EADEC8',
+            'card-ledge': '#D8CFBC',
+            'teal-primary': '#0D6964',
+            'teal-accent': '#2BA39A',
+            'teal-deep': '#0F3D3E',
+            'teal-soft': '#E6F7F5',
+            'coral-primary': '#F2553B',
+            'coral-ledge': '#B53A22',
+            'amber-primary': '#FFB054',
+            'gold-badge': '#FFC94A',
+            'dark-ink': '#150602',
+            'text-primary': '#0B2627',
+            'text-muted': '#324E50',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #F4EAD4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Fixed Store Graphic Canvas 1024x500 */
+    .store-banner {
+      width: 1024px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 88% 50%, rgba(43, 163, 154, 0.16) 0%, rgba(43, 163, 154, 0.04) 45%, transparent 70%),
+                  linear-gradient(135deg, #FFFDF8 0%, #FFF7EA 42%, #F3FAF8 100%);
+      border: 1px solid #EADEC8;
+      box-shadow: 0 20px 48px -12px rgba(15, 61, 62, 0.12), 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    /* Tactile grid dots */
+    .dot-matrix {
+      background-image: radial-gradient(#D5C7AD 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      opacity: 0.55;
+    }
+
+    /* Tactile Button Ledge */
+    .tactile-btn {
+      position: relative;
+      transition: all 0.12s ease;
+      box-shadow: 0 6px 0 var(--btn-ledge, #B53A22), 0 10px 20px rgba(242, 85, 59, 0.28);
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 var(--btn-ledge, #B53A22), 0 6px 12px rgba(242, 85, 59, 0.2);
+    }
+
+    /* Glossy 3D Path Nodes */
+    .glossy-node {
+      position: relative;
+      border-radius: 9999px;
+      box-shadow: 0 7px 0 var(--node-ledge), 0 12px 24px -4px rgba(11, 38, 39, 0.18);
+    }
+    .glossy-node::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 12%;
+      right: 12%;
+      height: 40%;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.05) 100%);
+      pointer-events: none;
+    }
+
+    /* Playful floating animations */
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(1.5deg); }
+    }
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(6px) rotate(-2deg); }
+    }
+    .float-anim {
+      animation: floatGentle 5s ease-in-out infinite;
+    }
+    .float-anim-rev {
+      animation: floatReverse 6s ease-in-out infinite;
+    }
+
+    /* 3D Tactile Card */
+    .tactile-card {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 6px 0 #D8CFBC, 0 12px 24px -6px rgba(15, 61, 62, 0.08);
+      background: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Landscape Store Feature Graphic: exactly 1024x500 -->
+  <div class="store-banner relative flex items-center justify-between px-16 select-none">
+    
+    <!-- Background Dot Pattern overlay -->
+    <div class="dot-matrix absolute inset-0 pointer-events-none"></div>
+
+    <!-- Soft Ambient Warm/Teal background glows -->
+    <div class="absolute -top-24 -left-20 w-96 h-96 bg-amber-200/25 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-16 -translate-y-1/2 w-[460px] h-[460px] bg-teal-200/30 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-[-100px] left-1/3 w-80 h-80 bg-orange-100/40 rounded-full blur-2xl pointer-events-none"></div>
+
+    <!-- Curving Path Connecting Nodes across middle ground -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 440,390 C 510,380 540,250 630,220 S 740,300 810,230" 
+            fill="none" 
+            stroke="#D8CFBC" 
+            stroke-width="6" 
+            stroke-linecap="round" 
+            stroke-dasharray="10 12" />
+    </svg>
+
+    <!-- LEFT COLUMN: Brand Identity, Main Tagline, Value Pillars, CTA -->
+    <div class="relative z-10 max-w-[510px] flex flex-col items-start">
+      
+      <!-- Top Badge: Category & Exam Focus -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-soft border-2 border-teal-accent/30 text-teal-deep text-[13px] font-extrabold tracking-wide uppercase mb-4 shadow-[0_2px_0_#C5E8E4]">
+        <span class="w-2.5 h-2.5 rounded-full bg-teal-accent animate-pulse"></span>
+        IELTS • TOEIC • TOEFL PREP
+      </div>
+
+      <!-- Main Logo Row: Kite Emblem + Lexkite Brand Wordmark -->
+      <div class="flex items-center gap-3.5 mb-2.5">
+        <!-- Lexkite Geometric Kite Emblem (3D Tactile SVG) -->
+        <div class="w-14 h-14 relative flex-shrink-0 drop-shadow-[0_4px_6px_rgba(15,61,62,0.18)]">
+          <svg viewBox="0 0 72 72" fill="none" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <!-- Kite Bottom Shadow -->
+            <path d="M36 68L8 36L36 4L64 36L36 68Z" fill="#0D4B49" opacity="0.15" transform="translate(0, 3)"/>
+            <!-- 4 Distinct Color Facets: Teal, Emerald, Coral, Sunny Amber -->
+            <!-- Top Left Facet: Deep Teal -->
+            <path d="M36 4L8 36H36V4Z" fill="#1F7A75"/>
+            <!-- Top Right Facet: Bright Teal -->
+            <path d="M36 4L64 36H36V4Z" fill="#2BA39A"/>
+            <!-- Bottom Left Facet: Vibrant Coral -->
+            <path d="M8 36L36 68V36H8Z" fill="#F2553B"/>
+            <!-- Bottom Right Facet: Golden Amber -->
+            <path d="M64 36L36 68V36H64Z" fill="#FFB054"/>
+            <!-- Center diamond highlight -->
+            <circle cx="36" cy="36" r="4" fill="#FFFFFF" opacity="0.95"/>
+            <!-- Crisp outer subtle edge -->
+            <path d="M36 4L8 36L36 68L64 36L36 4Z" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <h1 class="text-[52px] leading-[1.02] font-[900] text-teal-deep tracking-[-0.03em] flex items-center">
+          Lexkite
+        </h1>
+      </div>
+
+      <!-- Tagline with Highlight Accent -->
+      <p class="text-[28px] leading-[36px] font-[800] text-text-primary tracking-[-0.02em] mb-3">
+        Free English, <span class="relative inline-block text-coral-primary">like a game<span class="absolute left-0 bottom-1 w-full h-[4px] bg-amber-primary/80 rounded-full"></span></span>.
+      </p>
+
+      <!-- Subtitle description (short, clear, contrast >= 4.5:1) -->
+      <p class="text-[16px] leading-[23px] font-[600] text-text-muted mb-7 max-w-[440px]">
+        Master high-yield exam collocations and band-boosting vocabulary in 5-minute tactile daily drills.
+      </p>
+
+      <!-- Action Row: 3D Candy CTA + Key Highlights -->
+      <div class="flex items-center gap-5">
+        <!-- Primary 3D CTA Button: Coral/Amber gradient, 6px bottom ledge, deep brown-black ink -->
+        <div class="tactile-btn inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-coral-primary to-amber-primary text-dark-ink font-[900] text-[16px] tracking-wide cursor-pointer select-none border border-amber-300/60" style="--btn-ledge: #B53A22;">
+          <span>Start Learning Free</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 stroke-[3]"></i>
+        </div>
+
+        <!-- Trust Mini Badges (High contrast, clean typography) -->
+        <div class="flex flex-col gap-1 text-[13px] font-[800] text-text-muted">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-accent stroke-[2.5]"></i>
+            <span>100% Free Forever</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="w-4 h-4 text-teal-accent stroke-[2.5]"></i>
+            <span>No Hearts • Zero Paywalls</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Floating 3D Path Nodes, Sparkles, and Dedicated Empty Teacher Slot -->
+    <div class="relative z-10 w-[420px] h-[440px] flex items-center justify-center">
+
+      <!-- FLOATING ACCENTS & PATH NODES -->
+      
+      <!-- Node 1 (Vocabulary Star): Glossy Gold Node (Top Left of right area) -->
+      <div class="absolute top-6 left-4 float-anim flex flex-col items-center">
+        <div class="glossy-node w-[66px] h-[66px] bg-gradient-to-b from-[#FFD363] to-[#FFB054] flex items-center justify-center border-2 border-[#FFE89E]" style="--node-ledge: #D48924;">
+          <i data-lucide="star" class="w-8 h-8 text-white fill-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.2)]"></i>
+        </div>
+        <!-- Completed mini badge -->
+        <div class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center shadow-md">
+          <i data-lucide="check" class="w-3.5 h-3.5 text-white stroke-[3]"></i>
+        </div>
+      </div>
+
+      <!-- Node 2 (Listening Headphones): Glossy Teal Node (Bottom Left) -->
+      <div class="absolute bottom-10 left-10 float-anim-rev flex flex-col items-center">
+        <div class="glossy-node w-[62px] h-[62px] bg-gradient-to-b from-[#48C7BD] to-[#2BA39A] flex items-center justify-center border-2 border-[#96E5DF]" style="--node-ledge: #186E68;">
+          <i data-lucide="headphones" class="w-7 h-7 text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.2)]"></i>
+        </div>
+        <!-- Mini 3-star rating pill underneath -->
+        <div class="mt-2.5 px-2 py-0.5 rounded-full bg-white/95 border border-card-border shadow-sm flex items-center gap-0.5">
+          <i data-lucide="star" class="w-2.5 h-2.5 text-amber-primary fill-amber-primary"></i>
+          <i data-lucide="star" class="w-2.5 h-2.5 text-amber-primary fill-amber-primary"></i>
+          <i data-lucide="star" class="w-2.5 h-2.5 text-amber-primary fill-amber-primary"></i>
+        </div>
+      </div>
+
+      <!-- Node 3 (Active Writing Node): Glossy Coral Node with Pulsing START tag -->
+      <div class="absolute top-28 left-28 float-anim flex flex-col items-center z-20">
+        <!-- START Pill above active node -->
+        <div class="mb-1.5 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-coral-primary to-amber-primary text-dark-ink text-[11px] font-[900] tracking-wider uppercase shadow-[0_2px_4px_rgba(242,85,59,0.3)] border border-amber-200">
+          START ▶
+        </div>
+        <!-- 72px Glossy Coral Node with outer active pulse ring -->
+        <div class="relative">
+          <div class="absolute -inset-2 rounded-full border-2 border-dashed border-coral-primary/60 animate-spin" style="animation-duration: 18s;"></div>
+          <div class="glossy-node w-[72px] h-[72px] bg-gradient-to-b from-[#FF7A63] to-[#F2553B] flex items-center justify-center border-2 border-[#FFADA0]" style="--node-ledge: #B53A22;">
+            <i data-lucide="pen-tool" class="w-8 h-8 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Exam Band Milestone Chip (Tactile 3D Card) -->
+      <div class="absolute top-4 right-10 float-anim-rev z-10">
+        <div class="tactile-card px-4 py-2 rounded-2xl flex items-center gap-2.5 shadow-md">
+          <div class="w-7 h-7 rounded-xl bg-teal-soft flex items-center justify-center text-teal-accent border border-teal-accent/30 font-[900] text-[12px]">
+            7.5+
+          </div>
+          <div>
+            <div class="text-[10px] font-[800] uppercase text-text-muted tracking-wider leading-none">Target</div>
+            <div class="text-[13px] font-[800] text-teal-deep leading-tight">Band 7.5 IELTS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating 14-Day Streak Chip -->
+      <div class="absolute bottom-4 right-6 float-anim z-10">
+        <div class="tactile-card px-3.5 py-2 rounded-2xl flex items-center gap-2 shadow-md">
+          <div class="w-6 h-6 rounded-lg bg-orange-100 flex items-center justify-center text-coral-primary font-black text-xs">
+            🔥
+          </div>
+          <span class="text-[13px] font-[800] text-teal-deep">14-Day Streak</span>
+        </div>
+      </div>
+
+      <!-- Playful Decorative Sparkles & Stars -->
+      <div class="absolute top-20 right-32 text-amber-primary float-anim">
+        <svg class="w-5 h-5 fill-amber-primary" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="absolute bottom-28 left-6 text-teal-accent float-anim-rev">
+        <svg class="w-4 h-4 fill-teal-accent" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="absolute top-44 left-2 text-coral-primary/80 float-anim">
+        <svg class="w-3.5 h-3.5 fill-coral-primary" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+
+      <!-- EMPTY TEACHER SLOT (STRICTLY REQUIRED: Rounded ~140x170 with dashed border, no drawn person) -->
+      <div class="relative z-10 flex flex-col items-center ml-16 mt-2">
+        <!-- Speech Bubble Hint pointing to the Teacher slot -->
+        <div class="mb-2 px-3 py-1 rounded-xl bg-white border-2 border-card-border shadow-[0_3px_0_#D8CFBC] text-[12px] font-[800] text-teal-deep flex items-center gap-1.5 relative">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>Live Coach Slot</span>
+          <!-- Speech triangle pointer downwards -->
+          <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-r-2 border-b-2 border-card-border rotate-45"></div>
+        </div>
+
+        <!-- Exact 140x170 Teacher Placement Slot Container -->
+        <div class="w-[140px] h-[170px] rounded-[24px] border-2 border-dashed border-teal-accent/70 bg-white/70 backdrop-blur-sm flex flex-col items-center justify-center p-3 text-center shadow-[0_6px_0_rgba(216,207,188,0.7)] hover:border-teal-accent transition-colors">
+          
+          <!-- Teacher Slot Icon Badge -->
+          <div class="w-12 h-12 rounded-2xl bg-teal-soft border border-teal-accent/30 flex items-center justify-center mb-2.5 text-teal-accent shadow-sm">
+            <i data-lucide="graduation-cap" class="w-6 h-6 stroke-[2.5]"></i>
+          </div>
+
+          <!-- Strict Slot Labels -->
+          <div class="text-[13px] font-[900] tracking-wider text-teal-deep uppercase">
+            TEACHER
+          </div>
+          <div class="text-[11px] font-[700] text-text-muted mt-0.5">
+            140 × 170 Slot
+          </div>
+          <div class="text-[9.5px] font-[600] text-teal-accent mt-1.5 bg-teal-soft/80 px-2 py-0.5 rounded-full border border-teal-accent/20">
+            Carlos / Ama 2D Live
+          </div>
+        </div>
+
+        <!-- Soft ground shadow under the teacher placeholder -->
+        <div class="w-28 h-3.5 bg-card-ledge/40 rounded-full blur-[2px] mt-1.5"></div>
+      </div>
+
+    </div>
+
+    <!-- Subtle bottom metadata strip inside the 500px boundary -->
+    <div class="absolute bottom-2.5 left-16 right-16 flex items-center justify-between text-[11px] font-[700] text-text-muted border-t border-card-border/60 pt-1.5 z-10">
+      <div class="flex items-center gap-4">
+        <span>• Cambridge & ETS Rubric Aligned</span>
+        <span>• Spaced Repetition (FSRS Engine)</span>
+      </div>
+      <div class="flex items-center gap-1.5 text-teal-deep font-[800]">
+        <span>Lexkite Mobile App</span>
+        <span class="text-amber-primary">★ 4.9</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+

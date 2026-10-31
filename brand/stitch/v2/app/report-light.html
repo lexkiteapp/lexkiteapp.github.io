@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Report a Problem (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF7EA',
+              200: '#F7EDDC',
+              300: '#EADEC8',
+              400: '#D8CFBC',
+            },
+            teal: {
+              main: '#2BA39A',
+              deep: '#0F3D3E',
+              darker: '#164E50',
+              ledge: '#12514D',
+              light: '#E6F7F5',
+            },
+            coral: {
+              main: '#F2553B',
+              amber: '#FF9E3B',
+              ledge: '#B53A22',
+              darkInk: '#260B05',
+            },
+            ink: {
+              primary: '#0F2C2E',
+              secondary: '#254B4E',
+              muted: '#43686B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Physical 3D Tactile Affordances */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 0 #D8CFBC, 0 10px 20px -8px rgba(15, 61, 62, 0.07);
+      border-radius: 24px;
+    }
+    .tactile-card-flat {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      border-radius: 20px;
+    }
+    .tactile-button-primary {
+      background: linear-gradient(180deg, #FF9E3B 0%, #F2553B 100%);
+      border: 2px solid #E04328;
+      box-shadow: 0 6px 0 0 #B53A22, 0 8px 16px -4px rgba(242, 85, 59, 0.3);
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-button-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 0 #B53A22;
+    }
+    .tactile-chip {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-chip.active {
+      background: #E8F7F6;
+      border-color: #2BA39A;
+      box-shadow: 0 4px 0 0 #12514D;
+      color: #0F3D3E;
+    }
+    .tactile-chip:hover:not(.active) {
+      background: #FFFDF9;
+      transform: translateY(-1px);
+    }
+    .tactile-tile {
+      background: #FAFAF7;
+      border: 2px dashed #C8BFAD;
+      border-radius: 16px;
+      transition: all 0.15s ease;
+    }
+    .tactile-tile:hover {
+      background: #F4FBFB;
+      border-color: #2BA39A;
+      border-style: solid;
+    }
+    .tactile-input {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-radius: 16px;
+      box-shadow: inset 0 2px 4px rgba(15, 61, 62, 0.04);
+      outline: none;
+    }
+    .tactile-input:focus {
+      border-color: #2BA39A;
+      box-shadow: inset 0 2px 4px rgba(43, 163, 154, 0.08), 0 0 0 3px rgba(43, 163, 154, 0.15);
+    }
+    .badge-check {
+      background: linear-gradient(135deg, #3DD598 0%, #20A76C 100%);
+      box-shadow: 0 4px 0 0 #13774B;
+    }
+  </style>
+</head>
+<body class="bg-cream-100 text-ink-primary font-sans antialiased min-h-screen py-10 px-4 sm:px-6 flex flex-col justify-between items-center selection:bg-teal-main selection:text-white">
+
+  <!-- Main Container -->
+  <main class="w-full max-w-xl mx-auto flex flex-col gap-6">
+
+    <!-- Top App Bar Navigation / Header -->
+    <header class="flex items-center justify-between w-full py-2">
+      <button type="button" aria-label="Go back" class="tactile-chip w-11 h-11 rounded-2xl flex items-center justify-center text-ink-primary hover:text-teal-deep">
+        <span class="material-symbols-Rounded text-2xl">arrow_back</span>
+      </button>
+      
+      <!-- Brand Pill -->
+      <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream-50 border border-cream-300 shadow-sm">
+        <div class="w-2.5 h-2.5 rounded-full bg-coral-main animate-pulse"></div>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-ink-secondary">IELTS Drill Feedback</span>
+      </div>
+
+      <button type="button" aria-label="Close" class="tactile-chip w-11 h-11 rounded-2xl flex items-center justify-center text-ink-primary hover:text-teal-deep">
+        <span class="material-symbols-Rounded text-2xl">close</span>
+      </button>
+    </header>
+
+    <!-- Header Intro -->
+    <div class="flex flex-col items-center text-center pt-1 pb-1">
+      <div class="w-14 h-14 mb-3 rounded-2xl bg-amber-100/80 border-2 border-amber-300 flex items-center justify-center shadow-[0_4px_0_0_#D9B26A]">
+        <span class="material-symbols-Rounded text-amber-700 text-3xl">build_circle</span>
+      </div>
+      <h1 class="text-3xl font-extrabold tracking-tight text-ink-primary">Report a problem</h1>
+      <p class="text-sm font-semibold text-ink-muted mt-1">Help Carlos & Ama improve this exam drill</p>
+    </div>
+
+    <!-- Main Card: Report Form -->
+    <section class="tactile-card p-6 sm:p-7 flex flex-col gap-5">
+
+      <!-- Section: Problem Type Chips -->
+      <div class="flex flex-col gap-2.5">
+        <label class="text-xs font-extrabold uppercase tracking-wider text-ink-secondary flex items-center gap-1.5">
+          <span>Problem Type</span>
+          <span class="text-coral-main font-bold">*</span>
+        </label>
+        
+        <!-- Tactile Chips Row -->
+        <div class="flex flex-wrap gap-2.5">
+          <!-- Active Chip: Wrong Answer -->
+          <button type="button" class="tactile-chip active px-4 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold">
+            <span class="material-symbols-Rounded text-teal-deep text-lg">cancel</span>
+            <span>Wrong answer</span>
+          </button>
+
+          <!-- Chip: Typo -->
+          <button type="button" class="tactile-chip px-4 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold text-ink-primary hover:border-teal-main">
+            <span class="material-symbols-Rounded text-amber-600 text-lg">spellcheck</span>
+            <span>Typo</span>
+          </button>
+
+          <!-- Chip: Audio -->
+          <button type="button" class="tactile-chip px-4 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold text-ink-primary hover:border-teal-main">
+            <span class="material-symbols-Rounded text-indigo-600 text-lg">volume_off</span>
+            <span>Audio</span>
+          </button>
+
+          <!-- Chip: Bug -->
+          <button type="button" class="tactile-chip px-4 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold text-ink-primary hover:border-teal-main">
+            <span class="material-symbols-Rounded text-coral-main text-lg">bug_report</span>
+            <span>Bug</span>
+          </button>
+
+          <!-- Chip: Idea -->
+          <button type="button" class="tactile-chip px-4 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold text-ink-primary hover:border-teal-main">
+            <span class="material-symbols-Rounded text-teal-600 text-lg">lightbulb</span>
+            <span>Idea</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Section: Description Text Area -->
+      <div class="flex flex-col gap-2">
+        <div class="flex justify-between items-center">
+          <label for="details" class="text-xs font-extrabold uppercase tracking-wider text-ink-secondary">
+            Details
+          </label>
+          <span class="text-xs font-bold text-ink-muted">Optional</span>
+        </div>
+        <textarea id="details" rows="3" placeholder="What felt off? (e.g. Cambridge says option B is also acceptable)" class="tactile-input w-full p-4 text-sm font-semibold text-ink-primary placeholder:text-ink-muted/60 resize-none"></textarea>
+      </div>
+
+      <!-- Section: Attach Screenshot Tile -->
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-extrabold uppercase tracking-wider text-ink-secondary flex items-center justify-between">
+          <span>Screenshot</span>
+          <span class="text-xs font-bold text-teal-darker bg-teal-50 px-2 py-0.5 rounded-md border border-teal-200">Auto-captured</span>
+        </label>
+        
+        <div class="tactile-tile p-4 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-white border border-cream-300 flex items-center justify-center text-teal-deep shadow-sm group-hover:scale-105 transition-transform">
+              <span class="material-symbols-Rounded text-2xl text-teal-main">add_photo_alternate</span>
+            </div>
+            <div class="flex flex-col text-left">
+              <span class="text-sm font-extrabold text-ink-primary group-hover:text-teal-darker">Attach current screen</span>
+              <span class="text-xs font-semibold text-ink-muted">Question #04 • Gerund vs Infinitive</span>
+            </div>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cream-200/80 flex items-center justify-center text-ink-muted group-hover:bg-teal-main group-hover:text-white transition-colors">
+            <span class="material-symbols-Rounded text-lg">attach_file</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Primary Send Action Button -->
+      <div class="pt-1">
+        <button type="button" class="tactile-button-primary w-full py-4 px-6 rounded-2xl flex items-center justify-center gap-2 cursor-pointer">
+          <span class="material-symbols-Rounded text-2xl text-coral-darkInk font-extrabold">send</span>
+          <!-- Contrast compliant deep brown-black ink for labels on warm gradient buttons -->
+          <span class="text-base font-extrabold text-coral-darkInk tracking-wide">Send report</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Sent State Preview Card (Under Form) -->
+    <section class="tactile-card-flat p-5 bg-gradient-to-r from-cream-50 via-white to-cream-50 border-2 border-cream-300 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <!-- Checkmark Badge -->
+        <div class="badge-check w-12 h-12 rounded-2xl flex items-center justify-center text-white shrink-0">
+          <span class="material-symbols-Rounded text-2xl font-black">check</span>
+        </div>
+        <div class="flex flex-col text-left">
+          <div class="flex items-center gap-2">
+            <h3 class="text-base font-extrabold text-ink-primary">Thank you!</h3>
+            <span class="text-[11px] font-extrabold bg-emerald-100 text-emerald-900 border border-emerald-300 px-2 py-0.5 rounded-full uppercase tracking-wider">Sent state</span>
+          </div>
+          <p class="text-xs font-semibold text-ink-muted mt-0.5">Carlos & Ama review every slip within 24 hours.</p>
+        </div>
+      </div>
+
+      <!-- Quick Dismiss Pill -->
+      <button type="button" class="tactile-chip px-3.5 py-2 rounded-xl text-xs font-extrabold text-ink-secondary shrink-0 hover:text-teal-deep">
+        Resume drill
+      </button>
+    </section>
+
+    <!-- Bottom Metadata note -->
+    <footer class="text-center pb-2">
+      <div class="inline-flex items-center gap-2 text-xs font-bold text-ink-muted">
+        <span class="material-symbols-Rounded text-sm text-teal-main">verified_user</span>
+        <span>Lexkite 100% Free Open Education • Zero Tracking</span>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>

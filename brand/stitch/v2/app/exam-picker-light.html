@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Choose Your Exam (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FFF8F0',
+              creamDeep: '#F7EEDF',
+              card: '#FFFFFF',
+              border: '#E8DCB8',
+              ledge: '#D4C69E',
+              teal: '#0D6964',
+              tealLight: '#E6F4F3',
+              tealLedge: '#094B47',
+              tealGlow: '#2BA39A',
+              coral: '#F2553B',
+              coralLedge: '#B53A22',
+              amber: '#FF9E2C',
+              darkInk: '#1C0D02',
+              textPrimary: '#0C2D2F',
+              textSecondary: '#3C585A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Tactile physics */
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22 !important;
+    }
+    .tactile-card {
+      transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="bg-[#FFF8F0] min-h-screen text-brand-textPrimary font-sans antialiased flex flex-col justify-end p-0 md:p-6 select-none relative overflow-x-hidden">
+
+  <!-- Subtle ambient background decor giving depth behind bottom sheet -->
+  <div class="fixed inset-0 pointer-events-none flex items-center justify-center opacity-40">
+    <div class="w-[500px] h-[500px] rounded-full bg-brand-creamDeep blur-3xl"></div>
+  </div>
+
+  <!-- Dimmed app backdrop representing the parent screen -->
+  <div class="w-full max-w-lg mx-auto flex-1 flex flex-col justify-start pt-8 pb-4 px-4 opacity-30 pointer-events-none">
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-brand-teal flex items-center justify-center text-white font-black text-sm">LK</div>
+        <span class="font-extrabold tracking-tight text-lg text-brand-textPrimary">Lexkite</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="px-3 py-1 rounded-full bg-white border border-brand-border text-xs font-bold text-brand-textSecondary">🔥 14</span>
+        <span class="px-3 py-1 rounded-full bg-white border border-brand-border text-xs font-bold text-brand-textSecondary">⚡ 820 XP</span>
+      </div>
+    </div>
+    <div class="h-24 rounded-2xl bg-white border-2 border-brand-border mb-3"></div>
+    <div class="h-24 rounded-2xl bg-white border-2 border-brand-border mb-3"></div>
+  </div>
+
+  <!-- Bottom Sheet Overlay / Container -->
+  <div class="w-full max-w-lg mx-auto bg-brand-card rounded-t-[32px] md:rounded-b-[32px] border-2 border-brand-border shadow-[0_12px_0_0_#D4C69E] relative z-10 flex flex-col pt-3 pb-8 px-5 md:px-7">
+    
+    <!-- Grab Handle -->
+    <div class="w-12 h-1.5 bg-[#D8CFBC] rounded-full mx-auto mb-4 hover:bg-[#C2B7A0] transition-colors cursor-pointer"></div>
+
+    <!-- Header Section -->
+    <div class="flex items-center justify-between mb-5">
+      <div>
+        <h1 class="text-2xl md:text-[26px] font-extrabold text-brand-textPrimary tracking-tight">
+          Choose your exam
+        </h1>
+        <p class="text-xs font-bold text-brand-textSecondary mt-0.5">
+          Curriculum & vocabulary drills calibrate automatically
+        </p>
+      </div>
+
+      <!-- Close icon button -->
+      <button class="w-9 h-9 rounded-full bg-brand-cream border-2 border-brand-border shadow-[0_2px_0_0_#D4C69E] flex items-center justify-center text-brand-textSecondary hover:text-brand-textPrimary active:translate-y-0.5 transition-transform" aria-label="Close">
+        <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- 2x3 Grid of Big Tactile Exam Cards -->
+    <div class="grid grid-cols-2 gap-3.5 mb-6">
+
+      <!-- 1. IELTS Academic (SELECTED) -->
+      <button class="tactile-card group relative flex flex-col items-center justify-center p-4 rounded-2xl text-center cursor-pointer bg-[#F0FAF9] border-2 border-brand-teal shadow-[0_5px_0_0_#0D6964] active:translate-y-1">
+        <!-- Selected Check Badge -->
+        <div class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-brand-teal text-white flex items-center justify-center shadow-sm">
+          <svg class="w-3.5 h-3.5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+
+        <!-- Illustrated Glossy Badge -->
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#2BA39A] to-[#0D6964] p-0.5 shadow-[0_4px_8px_rgba(13,105,100,0.25)] flex items-center justify-center mb-2.5 relative overflow-hidden">
+          <div class="absolute top-0 inset-x-0 h-1/2 bg-white/20 rounded-t-xl"></div>
+          <!-- Graduation Cap Icon -->
+          <svg class="w-8 h-8 text-white relative z-10 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+          </svg>
+        </div>
+
+        <span class="font-extrabold text-[15px] text-brand-teal tracking-tight leading-snug">
+          IELTS Academic
+        </span>
+        <span class="text-[11px] font-bold text-brand-textSecondary mt-0.5">
+          Band 6.5 – 8.5+
+        </span>
+      </button>
+
+      <!-- 2. IELTS General -->
+      <button class="tactile-card group relative flex flex-col items-center justify-center p-4 rounded-2xl text-center cursor-pointer bg-brand-card border-2 border-brand-border shadow-[0_5px_0_0_#D4C69E] hover:border-[#C8BA90] active:translate-y-1">
+        <!-- Illustrated Glossy Badge -->
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#38B2AC] to-[#0F766E] p-0.5 shadow-[0_4px_8px_rgba(15,118,110,0.18)] flex items-center justify-center mb-2.5 relative overflow-hidden">
+          <div class="absolute top-0 inset-x-0 h-1/2 bg-white/20 rounded-t-xl"></div>
+          <!-- Globe / Passport Icon -->
+          <svg class="w-8 h-8 text-white relative z-10 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+
+        <span class="font-extrabold text-[15px] text-brand-textPrimary tracking-tight leading-snug">
+          IELTS General
+        </span>
+        <span class="text-[11px] font-bold text-brand-textSecondary mt-0.5">
+          Migration & Work
+        </span>
+      </button>
+
+      <!-- 3. TOEIC -->
+      <button class="tactile-card group relative flex flex-col items-center justify-center p-4 rounded-2xl text-center cursor-pointer bg-brand-card border-2 border-brand-border shadow-[0_5px_0_0_#D4C69E] hover:border-[#C8BA90] active:translate-y-1">
+        <!-- Illustrated Glossy Badge -->
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] p-0.5 shadow-[0_4px_8px_rgba(29,78,216,0.2)] flex items-center justify-center mb-2.5 relative overflow-hidden">
+          <div class="absolute top-0 inset-x-0 h-1/2 bg-white/20 rounded-t-xl"></div>
+          <!-- Briefcase Icon -->
+          <svg class="w-7 h-7 text-white relative z-10 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+
+        <span class="font-extrabold text-[15px] text-brand-textPrimary tracking-tight leading-snug">
+          TOEIC
+        </span>
+        <span class="text-[11px] font-bold text-brand-textSecondary mt-0.5">
+          Target 550 – 990
+        </span>
+      </button>
+
+      <!-- 4. TOEFL iBT -->
+      <button class="tactile-card group relative flex flex-col items-center justify-center p-4 rounded-2xl text-center cursor-pointer bg-brand-card border-2 border-brand-border shadow-[0_5px_0_0_#D4C69E] hover:border-[#C8BA90] active:translate-y-1">
+        <!-- Illustrated Glossy Badge -->
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#F59E0B] to-[#D97706] p-0.5 shadow-[0_4px_8px_rgba(217,119,6,0.2)] flex items-center justify-center mb-2.5 relative overflow-hidden">
+          <div class="absolute top-0 inset-x-0 h-1/2 bg-white/20 rounded-t-xl"></div>
+          <!-- Computer / Exam Screen Icon -->
+          <svg class="w-7 h-7 text-white relative z-10 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+
+        <span class="font-extrabold text-[15px] text-brand-textPrimary tracking-tight leading-snug">
+          TOEFL iBT
+        </span>
+        <span class="text-[11px] font-bold text-brand-textSecondary mt-0.5">
+          Target 80 – 115+
+        </span>
+      </button>
+
+      <!-- 5. General English -->
+      <button class="tactile-card group relative flex flex-col items-center justify-center p-4 rounded-2xl text-center cursor-pointer bg-brand-card border-2 border-brand-border shadow-[0_5px_0_0_#D4C69E] hover:border-[#C8BA90] active:translate-y-1">
+        <!-- Illustrated Glossy Badge -->
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#8B5CF6] to-[#6D28D9] p-0.5 shadow-[0_4px_8px_rgba(109,40,217,0.2)] flex items-center justify-center mb-2.5 relative overflow-hidden">
+          <div class="absolute top-0 inset-x-0 h-1/2 bg-white/20 rounded-t-xl"></div>
+          <!-- Chat Bubbles Icon -->
+          <svg class="w-7 h-7 text-white relative z-10 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+          </svg>
+        </div>
+
+        <span class="font-extrabold text-[15px] text-brand-textPrimary tracking-tight leading-snug">
+          General English
+        </span>
+        <span class="text-[11px] font-bold text-brand-textSecondary mt-0.5">
+          Everyday Fluency
+        </span>
+      </button>
+
+      <!-- 6. Kids / School -->
+      <button class="tactile-card group relative flex flex-col items-center justify-center p-4 rounded-2xl text-center cursor-pointer bg-brand-card border-2 border-brand-border shadow-[0_5px_0_0_#D4C69E] hover:border-[#C8BA90] active:translate-y-1">
+        <!-- Illustrated Glossy Badge -->
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#EC4899] to-[#BE185D] p-0.5 shadow-[0_4px_8px_rgba(190,24,93,0.2)] flex items-center justify-center mb-2.5 relative overflow-hidden">
+          <div class="absolute top-0 inset-x-0 h-1/2 bg-white/20 rounded-t-xl"></div>
+          <!-- Sparkle / Backpack / Star Icon -->
+          <svg class="w-7 h-7 text-white relative z-10 drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+          </svg>
+        </div>
+
+        <span class="font-extrabold text-[15px] text-brand-textPrimary tracking-tight leading-snug">
+          Kids / School
+        </span>
+        <span class="text-[11px] font-bold text-brand-textSecondary mt-0.5">
+          CEFR A1 – B1
+        </span>
+      </button>
+
+    </div>
+
+    <!-- Switch Any Time Subtext -->
+    <div class="flex items-center justify-center gap-1.5 mb-5 text-brand-textSecondary text-xs font-semibold">
+      <svg class="w-3.5 h-3.5 text-brand-teal stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+      </svg>
+      <span>Switch syllabus anytime in Settings with zero progress loss</span>
+    </div>
+
+    <!-- Primary Candy CTA: Save Button -->
+    <button class="tactile-btn w-full h-14 rounded-2xl bg-gradient-to-r from-brand-coral via-[#FA6B3A] to-brand-amber text-brand-darkInk font-extrabold text-lg flex items-center justify-center gap-2 shadow-[0_6px_0_0_#B53A22] relative overflow-hidden">
+      <!-- Top gloss highlight -->
+      <div class="absolute top-0 inset-x-0 h-1/2 bg-white/25 rounded-t-xl pointer-events-none"></div>
+      <span class="relative z-10 tracking-wide">Save</span>
+      <svg class="w-5 h-5 relative z-10 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+    </button>
+
+  </div>
+
+</body>
+</html>
+

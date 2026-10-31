@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Home — Learn while you browse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'card-bg': '#FFFFFF',
+            'ink-deep': '#0F3D3E',
+            'ink-body': '#1A3F40',
+            'ink-muted': '#3D595B',
+            'btn-ink': '#200D06',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'teal-dark-ledge': '#12514D',
+            'teal-tint': '#E8F7F6',
+            'amber-sun': '#FFB054',
+            'coral-pop': '#F2553B',
+            'border-warm': '#EADEC8',
+            'ledge-warm': '#D8CFBC',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile 3D physical ledges */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-radius: 20px;
+      box-shadow: 0 5px 0 0 #D8CFBC;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      color: #200D06;
+      border: 2px solid #B53A22;
+      border-radius: 16px;
+      box-shadow: 0 5px 0 0 #B53A22;
+      font-weight: 800;
+      transition: all 0.08s ease;
+      position: relative;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22;
+    }
+
+    .tactile-btn-teal {
+      background: linear-gradient(180deg, #37BCB3 0%, #2BA39A 100%);
+      color: #052422;
+      border: 2px solid #16605B;
+      border-radius: 16px;
+      box-shadow: 0 5px 0 0 #16605B;
+      font-weight: 800;
+      transition: all 0.08s ease;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #16605B;
+    }
+
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      color: #0F3D3E;
+      border: 2px solid #EADEC8;
+      border-radius: 16px;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      font-weight: 700;
+      transition: all 0.08s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+
+    .tactile-close-btn {
+      background: #FFF4E5;
+      border: 2px solid #EADEC8;
+      color: #0F3D3E;
+      box-shadow: 0 3px 0 0 #D8CFBC;
+      transition: all 0.08s ease;
+    }
+    .tactile-close-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+
+    .tab-active {
+      background: #E8F7F6;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 3px 0 0 #1F7A75;
+      color: #0F3D3E;
+    }
+
+    /* Glossy icon container */
+    .glossy-icon-bubble {
+      background: linear-gradient(145deg, #FFF0DC 0%, #FFE2C2 100%);
+      border: 2px solid #F8D5AC;
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 4px 0 0 #E3BF92;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between pb-24 select-none">
+
+  <!-- TOP HEADER (Fixed 56px style in Lexkite Bright Day) -->
+  <header class="w-full max-w-md px-5 pt-3 pb-2 flex items-center justify-between sticky top-0 bg-[#FFF7EA]/95 backdrop-blur-md z-40">
+    <!-- Brand Emblem & Exam Tag -->
+    <div class="flex items-center gap-2">
+      <!-- Lexkite Origami Diamond Kite -->
+      <div class="w-9 h-9 rounded-xl bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_0_#D8CFBC] flex items-center justify-center p-1">
+        <svg viewBox="0 0 40 40" class="w-6 h-6" fill="none">
+          <path d="M20 3L35 20L20 37L5 20L20 3Z" fill="#2BA39A"/>
+          <path d="M20 3L35 20L20 20L20 3Z" fill="#36C4B9"/>
+          <path d="M5 20L20 20L20 37L5 20Z" fill="#F2553B"/>
+          <path d="M20 20L35 20L20 37L20 20Z" fill="#FFB054"/>
+          <circle cx="20" cy="20" r="2.5" fill="#FFF7EA"/>
+        </svg>
+      </div>
+      <!-- Target Exam Pill -->
+      <button class="px-2.5 py-1 rounded-xl bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_0_#D8CFBC] flex items-center gap-1.5 active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] transition-transform">
+        <span class="text-[12px] font-extrabold text-[#0F3D3E] tracking-tight">IELTS 7.5</span>
+        <span class="material-symbols-rounded text-[#2BA39A] text-[16px] leading-none">expand_more</span>
+      </button>
+    </div>
+
+    <!-- Streak & XP Pills -->
+    <div class="flex items-center gap-2">
+      <!-- Streak Pill -->
+      <div class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_0_#D8CFBC]">
+        <span class="material-symbols-rounded text-[#F2553B] text-[18px]">local_fire_department</span>
+        <span class="text-[13px] font-extrabold text-[#0F3D3E]">14</span>
+      </div>
+      <!-- XP Pill -->
+      <div class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_0_#D8CFBC]">
+        <span class="material-symbols-rounded text-[#FFB054] text-[18px]">bolt</span>
+        <span class="text-[13px] font-extrabold text-[#0F3D3E]">820</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SCROLLABLE CONTAINER -->
+  <main class="w-full max-w-md px-4 pt-3 flex flex-col gap-4">
+
+    <!-- 1. UNIT BANNER (Unit 3: Writing Task 1 & Cohesion) -->
+    <section class="w-full bg-[#2BA39A] text-white border-2 border-[#1F7A75] rounded-[22px] p-4 shadow-[0_6px_0_0_#12514D] relative overflow-hidden">
+      <!-- Glossy top reflection curve -->
+      <div class="absolute -top-10 -right-10 w-36 h-36 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+      
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded-md bg-[#12514D]/40 text-white font-extrabold text-[10px] tracking-wider uppercase">UNIT 3</span>
+          <span class="text-[11px] font-bold text-white/90">Academic Writing</span>
+        </div>
+        <!-- Guidebook action -->
+        <button class="w-7 h-7 rounded-lg bg-white/15 hover:bg-white/25 active:translate-y-0.5 border border-white/20 flex items-center justify-center transition-all">
+          <span class="material-symbols-rounded text-[17px] text-white">menu_book</span>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-[18px] font-extrabold text-white leading-tight">Cohesion & Linking Devices</h2>
+      </div>
+
+      <!-- Unit Progress bar with tactile fill -->
+      <div class="w-full">
+        <div class="flex items-center justify-between text-[11px] font-extrabold text-white/95 mb-1.5">
+          <span>Stage 2 of 4</span>
+          <span class="text-[#FFDE99]">65% Done</span>
+        </div>
+        <div class="w-full h-3.5 bg-[#12514D] rounded-full p-0.5 border border-white/15">
+          <div class="h-full bg-gradient-to-r from-[#FFB054] to-[#FFD56B] rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.25)] relative" style="width: 65%;">
+            <div class="absolute top-0.5 right-1 w-1.5 h-1.5 bg-white/70 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PROMO CARD: EXTENSION INSTALL BANNER (The Hero focal component) -->
+    <section class="tactile-card p-4 relative overflow-hidden border-2 border-[#EADEC8] bg-white">
+      <!-- Soft decorative ambient glow in corner -->
+      <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-[#E8F7F6] rounded-full -z-0"></div>
+
+      <!-- Top Row: Icon + Badge + Dismiss X -->
+      <div class="flex items-start justify-between relative z-10 mb-3">
+        <div class="flex items-center gap-3">
+          <!-- Illustrated Browser-and-Kite Icon Bubble -->
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#FFFDF9] to-[#FFF1DE] border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] flex items-center justify-center flex-shrink-0 p-1 relative">
+            <!-- Mini SVG: Chrome Browser Tab with Lexkite Diamond Kite flying through -->
+            <svg viewBox="0 0 56 56" class="w-11 h-11" fill="none">
+              <!-- Window base -->
+              <rect x="6" y="10" width="44" height="36" rx="8" fill="#F1FBFA" stroke="#2BA39A" stroke-width="2.5"/>
+              <!-- Browser top bar -->
+              <path d="M6 18C6 14.6863 8.68629 12 12 12H44C47.3137 12 50 14.6863 50 18V20H6V18Z" fill="#D3F2EF"/>
+              <!-- Window control dots -->
+              <circle cx="12" cy="16" r="1.75" fill="#F2553B"/>
+              <circle cx="17" cy="16" r="1.75" fill="#FFB054"/>
+              <circle cx="22" cy="16" r="1.75" fill="#2BA39A"/>
+              <!-- Small URL address bar -->
+              <rect x="27" y="14" width="18" height="4" rx="2" fill="#FFFFFF"/>
+              <!-- Mini Kite Soaring out of browser -->
+              <g transform="translate(19, 23)">
+                <path d="M11 2L20 11L11 20L2 11L11 2Z" fill="#F2553B" stroke="#B53A22" stroke-width="1.2"/>
+                <path d="M11 2L20 11L11 11L11 2Z" fill="#FFB054"/>
+                <path d="M2 11L11 11L11 20L2 11Z" fill="#2BA39A"/>
+                <!-- Tail ribbon -->
+                <path d="M11 20C11 24 16 25 15 28" stroke="#FFB054" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="15" cy="28" r="1" fill="#F2553B"/>
+              </g>
+              <!-- Sparkles -->
+              <path d="M43 27L44 29L46 30L44 31L43 33L42 31L40 30L42 29L43 27Z" fill="#FFB054"/>
+            </svg>
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#E8F7F6] border border-[#2BA39A]/30 mb-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#2BA39A]"></span>
+              <span class="text-[10px] font-extrabold text-[#0F3D3E] uppercase tracking-wide">Free Extension</span>
+            </div>
+            <h3 class="text-[17px] font-extrabold text-[#0F3D3E] tracking-tight leading-snug">Learn while you browse</h3>
+          </div>
+        </div>
+
+        <!-- Small tactile X button to dismiss -->
+        <button aria-label="Dismiss banner" class="tactile-close-btn w-8 h-8 rounded-full flex items-center justify-center -mr-1 -mt-1 active:translate-y-0.5 transition-transform">
+          <span class="material-symbols-rounded text-[18px] text-[#0F3D3E]">close</span>
+        </button>
+      </div>
+
+      <!-- Single Line description -->
+      <p class="text-[13px] font-medium text-[#1A3F40] leading-relaxed mb-3.5 relative z-10">
+        Double-click any unfamiliar web word for instant IELTS collocations & phonetics.
+      </p>
+
+      <!-- CTA Button: Tactile 'Add to Chrome' -->
+      <div class="relative z-10 flex items-center gap-3">
+        <button class="tactile-btn-primary flex-1 py-3 px-4 flex items-center justify-center gap-2 text-[14px]">
+          <!-- Chrome / Extension symbol -->
+          <span class="material-symbols-rounded text-[20px] text-[#200D06]">extension</span>
+          <span class="tracking-wide">Add to Chrome</span>
+          <span class="material-symbols-rounded text-[18px] text-[#200D06]">arrow_forward</span>
+        </button>
+      </div>
+
+      <!-- Quick Trust Badges in Footer -->
+      <div class="mt-3 pt-2.5 border-t border-[#EADEC8]/60 flex items-center justify-between text-[11px] font-bold text-[#3D595B]">
+        <div class="flex items-center gap-1">
+          <span class="material-symbols-rounded text-[14px] text-[#2BA39A]">verified_user</span>
+          <span>Zero tracking</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="material-symbols-rounded text-[14px] text-[#2BA39A]">sync</span>
+          <span>Syncs to daily deck</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DAILY QUESTS CARD (Positioned below per specification) -->
+    <section class="tactile-card p-4 bg-white border-2 border-[#EADEC8]">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-[#FFF0DC] border-2 border-[#EADEC8] flex items-center justify-center">
+            <span class="material-symbols-rounded text-[#FFB054] text-[19px]">flag</span>
+          </div>
+          <div>
+            <h4 class="text-[15px] font-extrabold text-[#0F3D3E]">Daily Quests</h4>
+            <span class="text-[11px] font-bold text-[#3D595B]">Resets in 4h 20m</span>
+          </div>
+        </div>
+        <span class="px-2.5 py-1 rounded-full bg-[#E8F7F6] text-[#0F3D3E] font-extrabold text-[11px] border border-[#2BA39A]/30">
+          2 / 3 Complete
+        </span>
+      </div>
+
+      <!-- Quest Items -->
+      <div class="space-y-2.5">
+        <!-- Quest 1 (Completed) -->
+        <div class="p-2.5 rounded-xl bg-[#FFFBF4] border border-[#EADEC8] flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-6 h-6 rounded-full bg-[#2BA39A] text-white flex items-center justify-center">
+              <span class="material-symbols-rounded text-[15px]">check</span>
+            </div>
+            <div>
+              <p class="text-[12px] font-bold text-[#0F3D3E]">Lock 5 Academic Collocations</p>
+              <div class="w-32 h-1.5 bg-[#EADEC8] rounded-full mt-1 overflow-hidden">
+                <div class="w-full h-full bg-[#2BA39A]"></div>
+              </div>
+            </div>
+          </div>
+          <span class="text-[11px] font-extrabold text-[#2BA39A]">+20 XP</span>
+        </div>
+
+        <!-- Quest 2 (In Progress) -->
+        <div class="p-2.5 rounded-xl bg-white border border-[#EADEC8] flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-6 h-6 rounded-full bg-[#FFF0DC] border border-[#FFB054] text-[#FFB054] flex items-center justify-center">
+              <span class="material-symbols-rounded text-[15px]">headphones</span>
+            </div>
+            <div>
+              <p class="text-[12px] font-bold text-[#0F3D3E]">Complete 1 Listening Drill</p>
+              <div class="w-32 h-1.5 bg-[#EADEC8] rounded-full mt-1 overflow-hidden">
+                <div class="w-2/3 h-full bg-[#FFB054]"></div>
+              </div>
+            </div>
+          </div>
+          <span class="text-[11px] font-extrabold text-[#FFB054]">+15 XP</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. NEXT LESSON QUICK START NODE -->
+    <section class="flex items-center justify-between p-3.5 rounded-2xl bg-white border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC]">
+      <div class="flex items-center gap-3">
+        <!-- Path Node preview -->
+        <div class="w-12 h-12 rounded-full bg-gradient-to-b from-[#FFB054] to-[#F2553B] border-2 border-[#B53A22] shadow-[0_4px_0_0_#B53A22] flex items-center justify-center text-white">
+          <span class="material-symbols-rounded text-[24px]">edit_note</span>
+        </div>
+        <div>
+          <span class="text-[10px] font-extrabold text-[#3D595B] uppercase tracking-wider">NEXT LESSON</span>
+          <p class="text-[14px] font-extrabold text-[#0F3D3E] leading-tight">Complex Sentence Connectors</p>
+        </div>
+      </div>
+      <button class="tactile-btn-teal px-4 py-2 text-[13px] tracking-wide flex items-center gap-1">
+        <span>START</span>
+        <span class="material-symbols-rounded text-[16px]">play_arrow</span>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- FIXED 5-TAB BOTTOM NAVIGATION BAR (Exact Lexkite Kit standard: Learn, Review, Practice, Leagues, Me) -->
+  <nav class="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto bg-white border-t-2 border-[#EADEC8] px-4 py-2 flex items-center justify-around z-50 shadow-[0_-4px_12px_rgba(15,61,62,0.04)]">
+    <!-- Tab 1: Learn (Active) -->
+    <a href="#" class="tab-active flex flex-col items-center justify-center py-1.5 px-3 rounded-xl min-w-[58px]">
+      <span class="material-symbols-rounded text-[21px] text-[#2BA39A]">route</span>
+      <span class="text-[11px] font-extrabold text-[#0F3D3E] mt-0.5">Learn</span>
+    </a>
+
+    <!-- Tab 2: Review -->
+    <a href="#" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl min-w-[58px] text-[#3D595B] hover:text-[#0F3D3E] transition-colors">
+      <span class="material-symbols-rounded text-[21px]">layers</span>
+      <span class="text-[11px] font-bold mt-0.5">Review</span>
+    </a>
+
+    <!-- Tab 3: Practice -->
+    <a href="#" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl min-w-[58px] text-[#3D595B] hover:text-[#0F3D3E] transition-colors">
+      <span class="material-symbols-rounded text-[21px]">bolt</span>
+      <span class="text-[11px] font-bold mt-0.5">Practice</span>
+    </a>
+
+    <!-- Tab 4: Leagues -->
+    <a href="#" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl min-w-[58px] text-[#3D595B] hover:text-[#0F3D3E] transition-colors">
+      <span class="material-symbols-rounded text-[21px]">emoji_events</span>
+      <span class="text-[11px] font-bold mt-0.5">Leagues</span>
+    </a>
+
+    <!-- Tab 5: Me -->
+    <a href="#" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl min-w-[58px] text-[#3D595B] hover:text-[#0F3D3E] transition-colors">
+      <span class="material-symbols-rounded text-[21px]">person</span>
+      <span class="text-[11px] font-bold mt-0.5">Me</span>
+    </a>
+  </nav>
+
+</body>
+</html>
+

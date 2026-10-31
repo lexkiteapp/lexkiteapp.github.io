@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Something broke (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              base: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+            },
+            ink: {
+              primary: '#0F3D3E',
+              muted: '#3A5758',
+              deep: '#1A0702',
+            },
+            teal: {
+              brand: '#2BA39A',
+              deep: '#1F7A75',
+              soft: '#E6F7F5',
+              border: '#BDE3DF',
+            },
+            coral: {
+              base: '#F2553B',
+              amber: '#FF9E3B',
+              ledge: '#B53A22',
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 6px 0 0 #D8CFBC, 0 12px 24px -4px rgba(15, 61, 62, 0.06)',
+            'tactile-primary': '0 6px 0 0 #B53A22, 0 10px 20px -2px rgba(242, 85, 59, 0.35)',
+            'tactile-secondary': '0 5px 0 0 #D8CFBC, 0 8px 16px -2px rgba(15, 61, 62, 0.05)',
+            'tactile-pill': '0 3px 0 0 #D8CFBC',
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    /* Physical candy button press mechanics */
+    .btn-tactile-primary {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .btn-tactile-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 0 #B53A22, 0 4px 10px -1px rgba(242, 85, 59, 0.3);
+    }
+
+    .btn-tactile-secondary {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .btn-tactile-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #D8CFBC, 0 4px 8px -1px rgba(15, 61, 62, 0.04);
+    }
+
+    /* Subtle float animation for snapped kite on cloud */
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(0.8deg); }
+    }
+    .animate-gentle-float {
+      animation: gentleFloat 5s ease-in-out infinite;
+    }
+
+    /* Floating snapped string ribbon flutter */
+    @keyframes ribbonWave {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(4deg) translateY(2px); }
+    }
+    .animate-ribbon {
+      transform-origin: top left;
+      animation: ribbonWave 3.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#EEF6F7] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-teal-brand selection:text-white">
+<!-- TOP HEADER (Standard Lexkite Bright Day Chrome) -->
+<header class="w-full h-16 border-b-2 border-[#16272D] bg-[#081518]/90 backdrop-blur-sm sticky top-0 z-30">
+<div class="max-w-5xl mx-auto h-full px-6 flex items-center justify-between">
+<!-- Left: Logo & Wordmark -->
+<a aria-label="Lexkite Home" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand rounded-xl p-1" href="#">
+<!-- Glossy Tactile Kite Emblem in dark container -->
+<div class="w-9 h-9 rounded-xl bg-[#101E22] border-2 border-[#27404A] shadow-[0_3px_0_0_#071013] flex items-center justify-center p-1.5 transition-transform group-hover:scale-105 group-active:translate-y-0.5 group-active:shadow-[0_1px_0_0_#071013]">
+<svg class="w-full h-full drop-shadow-sm" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4L42 22L24 44L6 22L24 4Z" fill="#2BA39A"></path>
+<path d="M24 4L42 22H24V4Z" fill="#38BFB5"></path>
+<path d="M24 22L42 22L24 44V22Z" fill="#F2553B"></path>
+<path d="M6 22L24 22L24 44L6 22Z" fill="#FFB054"></path>
+<!-- Center diamond sparkle -->
+<circle cx="24" cy="22" fill="#FFFFFF" r="3"></circle>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-[#EEF6F7]">Lexkite</span>
+</a>
+<!-- Right: Streak and XP Counter Chips -->
+<div class="flex items-center gap-3">
+<!-- Streak Chip -->
+<div class="h-9 px-3.5 rounded-full bg-[#101E22] border-2 border-[#27404A] shadow-[0_2px_0_0_#071013] flex items-center gap-1.5 font-bold text-xs text-[#EEF6F7]">
+<!-- Flame icon -->
+<svg class="w-4 h-4 text-coral-base" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C10.5 5.5 8 7.5 8 11.5C8 14.5 10 17 12 17C12.4 17 12.8 16.9 13.2 16.8C12.5 15.6 12 14.2 12 12.7C12 9.7 13.5 7.8 15 6C16.8 9.5 18 12.3 18 14.8C18 18.7 15.3 22 12 22C7.6 22 4 18.4 4 14C4 9.5 7.5 5.5 12 2Z"></path>
+</svg>
+<span class="tracking-wide text-[#EEF6F7] font-extrabold">14</span>
+</div>
+<!-- XP Chip -->
+<div class="h-9 px-3.5 rounded-full bg-[#101E22] border-2 border-[#27404A] shadow-[0_2px_0_0_#071013] flex items-center gap-1.5 font-bold text-xs text-[#EEF6F7]">
+<!-- Lightning bolt icon -->
+<svg class="w-4 h-4 text-amber-500" fill="currentColor" viewbox="0 0 24 24">
+<path d="M13 2L4 13.5H11L9.5 22L19.5 10H12.5L13 2Z"></path>
+</svg>
+<span class="tracking-wide text-[#EEF6F7] font-extrabold">820 XP</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN VIEWPORT: Centered Error State Arena -->
+<main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-8 md:py-14 w-full">
+<div class="w-full max-w-[480px] flex flex-col items-center">
+<!-- MAIN TACTILE CONTAINER CARD -->
+<div class="w-full bg-[#112025] rounded-[28px] border-2 border-[#2A4550] card-night-tactile p-6 sm:p-10 flex flex-col items-center text-center relative overflow-hidden">
+<!-- Decorative subtle top highlight bar inside card -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-teal-brand/30 via-coral-base/30 to-amber-400/30"></div>
+<!-- HERO ILLUSTRATION: Dark theme adapted playful kite caught on sleeping cloud -->
+<div aria-hidden="true" class="relative w-56 h-48 sm:w-64 sm:h-52 mb-6 flex items-center justify-center animate-gentle-float select-none">
+<svg class="w-full h-full" fill="none" viewbox="0 0 280 230" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Cloud Gradients (Deep slate-teal nocturnal cloud) -->
+<lineargradient gradientunits="userSpaceOnUse" id="cloudGradNight" x1="140" x2="140" y1="70" y2="195">
+<stop offset="0%" stop-color="#1D3740"></stop>
+<stop offset="100%" stop-color="#13242A"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="cloudUnderShadowNight" x1="140" x2="140" y1="170" y2="200">
+<stop offset="0%" stop-color="#0C181C"></stop>
+<stop offset="100%" stop-color="#071013"></stop>
+</lineargradient>
+<!-- Kite Gradients (Bright glowing Candy Lexkite Palette on dark) -->
+<lineargradient id="kiteTealNight" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#6BD8CE"></stop>
+<stop offset="100%" stop-color="#20857D"></stop>
+</lineargradient>
+<lineargradient id="kiteCoralNight" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#FF765C"></stop>
+<stop offset="100%" stop-color="#D83B20"></stop>
+</lineargradient>
+<lineargradient id="kiteAmberNight" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#FFD074"></stop>
+<stop offset="100%" stop-color="#E89628"></stop>
+</lineargradient>
+<lineargradient id="kiteCyanNight" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#88F5EA"></stop>
+<stop offset="100%" stop-color="#2BA39A"></stop>
+</lineargradient>
+<!-- Drop shadow filters -->
+<filter height="140%" id="softShadowNight" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="6" flood-color="#000000" flood-opacity="0.4" stddeviation="6"></fedropshadow>
+</filter>
+<filter height="140%" id="kitePuffShadowNight" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="4" flood-color="#000000" flood-opacity="0.5" stddeviation="5"></fedropshadow>
+</filter>
+</defs>
+<!-- Floating Little Luminous Sparkles / Stars -->
+<g class="opacity-90">
+<!-- Coral cross star -->
+<path d="M42 90L44 95L49 97L44 99L42 104L40 99L35 97L40 95L42 90Z" fill="#F2553B"></path>
+<!-- Amber 4-point sparkle -->
+<path d="M236 72L238.5 78L244 80.5L238.5 83L236 89L233.5 83L228 80.5L233.5 78L236 72Z" fill="#F4BF40"></path>
+<!-- Teal mini dots with glow -->
+<circle cx="58" cy="145" fill="#6BD8CE" opacity="0.8" r="3"></circle>
+<circle cx="230" cy="148" fill="#6BD8CE" opacity="0.7" r="3.5"></circle>
+<!-- Tiny dizzy ring -->
+<ellipse cx="218" cy="46" fill="none" rx="7" ry="3" stroke="#FFB054" stroke-dasharray="3 2" stroke-width="1.8" transform="rotate(-15 218 46)"></ellipse>
+</g>
+<!-- Grounding Cloud Floor Pill Shadow -->
+<ellipse cx="140" cy="202" fill="#071114" opacity="0.8" rx="76" ry="9"></ellipse>
+<!-- THE NOCTURNAL PUFFY CLOUD -->
+<g filter="url(#softShadowNight)">
+<!-- Base Cloud Outline & Under-ledge -->
+<path d="M78 178C62 178 50 165 50 149C50 135 60 123 74 121C76 102 92 87 112 87C118 87 124 89 129 92C137 77 153 68 171 68C194 68 214 84 218 107C228 111 236 121 236 133C236 148 224 160 210 160C210 160 210 178 188 178C178 178 168 173 162 166C154 174 142 178 130 178H78Z" fill="#0D191E"></path>
+<!-- Cloud Main Surface -->
+<path d="M78 173C64 173 53 161 53 147C53 134 62 123 75 120C77 103 92 89 110 89C116 89 121 91 126 94C134 80 150 71 167 71C189 71 207 86 211 108C221 111 228 120 228 131C228 145 217 156 204 156H185C175 171 154 173 142 173H78Z" fill="url(#cloudGradNight)" stroke="#2A4A54" stroke-width="2.5"></path>
+<!-- Cloud Rim Highlights in soft teal -->
+<path d="M112 94C96 94 83 105 81 120" stroke="#406D7A" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M165 77C181 77 195 89 199 105" stroke="#406D7A" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Cute sleepy / embarrassed face on cloud -->
+<path d="M126 140C129 144 135 144 138 140" stroke="#87B1B6" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M152 140C155 144 161 144 164 140" stroke="#87B1B6" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Embarrassed cheek blushes -->
+<ellipse cx="120" cy="144" fill="#F2553B" opacity="0.4" rx="4.5" ry="3"></ellipse>
+<ellipse cx="170" cy="144" fill="#F2553B" opacity="0.4" rx="4.5" ry="3"></ellipse>
+<!-- Sheepish little wavy mouth -->
+<path d="M141 148C143 149 146 148 148 149" stroke="#87B1B6" stroke-linecap="round" stroke-width="2"></path>
+</g>
+<!-- THE TANGLED KITE (Glossy & Candy contrast against night cloud) -->
+<g filter="url(#kitePuffShadowNight)" transform="translate(138, 70) rotate(-22)">
+<!-- Kite Dark 3D Ledge Underbody -->
+<path d="M0 -54L42 -10L0 54L-42 -10Z" fill="#082024" transform="translate(0, 4)"></path>
+<!-- 4 Glossy Facets of the Kite -->
+<!-- Top-Left Facet (Cyan/Teal) -->
+<path d="M0 -54L0 0L-42 -10Z" fill="url(#kiteCyanNight)" stroke="#D8E5E9" stroke-width="1.2"></path>
+<!-- Top-Right Facet (Vibrant Deep Teal) -->
+<path d="M0 -54L42 -10L0 0Z" fill="url(#kiteTealNight)" stroke="#D8E5E9" stroke-width="1.2"></path>
+<!-- Bottom-Left Facet (Sunny Amber) -->
+<path d="M0 0L0 54L-42 -10Z" fill="url(#kiteAmberNight)" stroke="#D8E5E9" stroke-width="1.2"></path>
+<!-- Bottom-Right Facet (Candy Coral) -->
+<path d="M0 0L42 -10L0 54Z" fill="url(#kiteCoralNight)" stroke="#D8E5E9" stroke-width="1.2"></path>
+<!-- Inner Wooden Spar Cross -->
+<line opacity="0.9" stroke="#FFFFFF" stroke-width="2.5" x1="0" x2="0" y1="-53" y2="53"></line>
+<line opacity="0.9" stroke="#FFFFFF" stroke-width="2.5" x1="-41" x2="41" y1="-10" y2="-10"></line>
+<!-- Center Gold Grommet -->
+<circle cx="0" cy="0" fill="#FFEAA7" r="4.5" stroke="#FFB054" stroke-width="1.5"></circle>
+<!-- Dazed / Confused Cute Kite Expression -->
+<g transform="translate(-16, -14)">
+<path d="M-4 -4L4 4M-4 4L4 -4" stroke="#0F3D3E" stroke-linecap="round" stroke-width="2"></path>
+</g>
+<g transform="translate(16, -14)">
+<path d="M-4 -4L4 4M-4 4L4 -4" stroke="#0F3D3E" stroke-linecap="round" stroke-width="2"></path>
+</g>
+<!-- Little open "O" mouth -->
+<ellipse cx="0" cy="-6" fill="#1A0702" rx="3.5" ry="4.5" stroke="#FFFFFF" stroke-width="1"></ellipse>
+<!-- Cute bandage on kite facet -->
+<g transform="translate(-14, 18) rotate(35)">
+<rect fill="#FFE1C4" height="8" rx="2" stroke="#D8CFBC" stroke-width="1" width="16" x="-8" y="-4"></rect>
+<circle cx="-3" cy="0" fill="#D8CFBC" r="0.8"></circle>
+<circle cx="3" cy="0" fill="#D8CFBC" r="0.8"></circle>
+</g>
+<!-- Kite Tail Ribbon with colorful bowties & snapped jagged end -->
+<g class="animate-ribbon">
+<!-- Ribbon string looping through cloud -->
+<path d="M0 54 C-10 72, -30 78, -24 98 C-18 116, 8 118, -4 138" fill="none" stroke="#FFB054" stroke-dasharray="160" stroke-dashoffset="0" stroke-linecap="round" stroke-width="2.8"></path>
+<!-- Little Bow tie 1 (Coral) -->
+<g transform="translate(-20, 78) rotate(20)">
+<polygon fill="#F2553B" points="0,0 -7,-5 -7,5"></polygon>
+<polygon fill="#F2553B" points="0,0 7,-5 7,5"></polygon>
+<circle cx="0" cy="0" fill="#FFEAA7" r="2"></circle>
+</g>
+<!-- Little Bow tie 2 (Teal) -->
+<g transform="translate(-16, 108) rotate(-15)">
+<polygon fill="#2BA39A" points="0,0 -6,-4 -6,4"></polygon>
+<polygon fill="#2BA39A" points="0,0 6,-4 6,4"></polygon>
+<circle cx="0" cy="0" fill="#FFFFFF" r="1.8"></circle>
+</g>
+<!-- Snapped String End Marker -->
+<g transform="translate(-4, 138)">
+<path d="M0 0 L-4 5 M0 0 L1 6 M0 0 L-2 8" stroke="#F2553B" stroke-linecap="round" stroke-width="2"></path>
+<path d="M-8 -2 L-12 -4 M8 2 L12 4 M-6 8 L-9 12" opacity="0.85" stroke="#FFB054" stroke-linecap="round" stroke-width="1.8"></path>
+</g>
+</g>
+</g>
+<!-- Dangling broken spool -->
+<g transform="translate(198, 142) rotate(18)">
+<rect fill="#2A424B" height="24" rx="3" stroke="#4B6B76" stroke-width="1.5" width="14" x="-7" y="-12"></rect>
+<rect fill="#2BA39A" height="14" width="10" x="-5" y="-7"></rect>
+<path d="M0 8 C6 18, 14 22, 10 32" fill="none" stroke="#FFB054" stroke-dasharray="2 3" stroke-linecap="round" stroke-width="2"></path>
+</g>
+</svg>
+</div>
+<!-- HEADLINE: Crisp ice-white 800 -->
+<h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#EEF6F7] mb-2">
+          Something broke
+        </h1>
+<!-- SUBTEXT: Crisp slate-mint A9BFC1 -->
+<p class="text-sm sm:text-base font-medium text-[#A9BFC1] mb-7 max-w-[340px] leading-relaxed">
+          The wind gust caught us by surprise. Your exam progress is safely saved.
+        </p>
+<!-- ACTION BUTTONS -->
+<div class="w-full flex flex-col gap-3.5">
+<!-- PRIMARY CTA: Tactile 'Reload' with DEEP BROWN-BLACK INK text (#1A0702) -->
+<button class="btn-tactile-primary w-full h-14 rounded-2xl bg-gradient-to-b from-[#F2553B] to-[#FF9040] border-2 border-[#D94228] flex items-center justify-center gap-2.5 font-extrabold text-base tracking-wide text-[#1A0702] hover:brightness-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-coral-base/40 active:outline-none" onclick="window.location.reload();" type="button">
+<svg class="w-5 h-5 text-[#1A0702] stroke-[2.5]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<path d="M21 12a9 9 0 1 1-2.6-6.4L21 8"></path>
+<path d="M21 3v5h-5"></path>
+</svg>
+<span>Reload</span>
+</button>
+<!-- SECONDARY BUTTON: Tactile 'Report the problem' dark raised surface #182C33, 2px border #2E4D58, 5px ledge #0D191D -->
+<button class="btn-tactile-secondary w-full h-13 py-3.5 rounded-2xl bg-[#182C33] border-2 border-[#2E4D58] flex items-center justify-center gap-2 font-bold text-sm tracking-normal text-[#EEF6F7] hover:bg-[#1E373F] focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-brand/30 active:outline-none" type="button">
+<svg class="w-4 h-4 text-[#2BA39A]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<rect height="11" rx="4" width="10" x="7" y="9"></rect>
+<path d="M12 9V5"></path>
+<path d="M9 4l6 0"></path>
+<path d="M4 13h3"></path>
+<path d="M17 13h3"></path>
+<path d="M5 18l3-2"></path>
+<path d="M16 16l3 2"></path>
+</svg>
+<span>Report the problem</span>
+</button>
+</div>
+<!-- TINY ERROR CODE CHIP: Dark well #0C171A, 1px border #213840 -->
+<div class="mt-6 flex items-center justify-center">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0C171A] border border-[#213840] text-[#A9BFC1] text-[11px] font-bold tracking-wider uppercase select-all shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-coral-base"></span>
+<span>ERR_KITE_STRING_DISCONNECTED</span>
+<span class="text-[#2A4550]">•</span>
+<span class="font-extrabold text-[#EEF6F7]">#503</span>
+</div>
+</div>
+</div>
+<!-- REASSURANCE FOOTER NOTE -->
+<div class="mt-5 flex items-center gap-2 text-xs font-semibold text-[#A9BFC1] text-center">
+<svg class="w-4 h-4 text-[#2BA39A] shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span>100% Free Core Drills • Auto-synced to Cambridge IELTS Engine</span>
+</div>
+</div>
+</main>
+<!-- BOTTOM STATUS / ATTRIBUTION BAR (Consistent with Lexkite Bright Day Web App) -->
+<footer class="w-full border-t border-[#16272D] py-4 px-6 bg-[#081518] text-center text-xs text-[#A9BFC1]">
+<div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span class="font-medium">All core systems nominal • Local offline cache ready</span>
+</div>
+<div class="flex items-center gap-4 text-xs font-semibold text-[#A9BFC1]">
+<a class="hover:text-white transition-colors" href="#">Study Decks</a>
+<span>•</span>
+<a class="hover:text-white transition-colors" href="#">Help Center</a>
+<span>•</span>
+<a class="hover:text-white transition-colors" href="#">System Status</a>
+</div>
+</div>
+</footer>
+</body>
+</html>
+

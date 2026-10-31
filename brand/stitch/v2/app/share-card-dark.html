@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Share Card Preview (Tactile Night)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              bg: '#081518',
+              card: '#112227',
+              raised: '#172C33',
+              border: '#28454D',
+              ledge: '#0B171A',
+              text: '#EEF6F7',
+              muted: '#A9BFC1',
+              dim: '#6D8E94',
+            },
+            teal: {
+              brand: '#2BA39A',
+              deep: '#1F7A75',
+              glow: '#32D2C6',
+              ledge: '#134D49'
+            },
+            coral: {
+              brand: '#F2553B',
+              amber: '#FFB054',
+              ledge: '#B53A22',
+              ink: '#210B05'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Background grid dots */
+    .bg-grid-dots {
+      background-color: #081518;
+      background-image: radial-gradient(rgba(43, 163, 154, 0.14) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+    
+    .share-card-dots {
+      background-color: #112227;
+      background-image: radial-gradient(rgba(43, 163, 154, 0.18) 1.5px, transparent 1.5px);
+      background-size: 18px 18px;
+    }
+
+    /* Tactile button physics */
+    .btn-tactile-coral {
+      background: linear-gradient(180deg, #FF7B54 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 #9E2F1A, 0 10px 20px -4px rgba(242, 85, 59, 0.35);
+      transition: all 0.1s ease;
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #9E2F1A, 0 4px 10px -2px rgba(242, 85, 59, 0.25);
+    }
+
+    .btn-tactile-secondary {
+      background: #172C33;
+      box-shadow: 0 4px 0 #0B171A;
+      transition: all 0.1s ease;
+    }
+    .btn-tactile-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #0B171A;
+    }
+
+    /* 3D badge layered styling */
+    .streak-sphere {
+      background: radial-gradient(circle at 35% 30%, #FFA86B 0%, #F2553B 65%, #C2331B 100%);
+      box-shadow: 0 12px 24px -6px rgba(242, 85, 59, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.6), inset 0 -4px 8px rgba(110, 20, 8, 0.5);
+    }
+    .streak-halo {
+      background: rgba(242, 85, 59, 0.12);
+      box-shadow: 0 0 0 10px rgba(242, 85, 59, 0.06), 0 0 0 20px rgba(242, 85, 59, 0.03);
+    }
+  </style>
+</head>
+<body class="bg-grid-dots min-h-screen text-night-text font-sans antialiased flex flex-col justify-between selection:bg-teal-brand selection:text-white">
+
+  <!-- Top Floating Controls / Header -->
+  <header class="w-full max-w-4xl mx-auto pt-6 px-6 flex items-center justify-between">
+    <!-- Close / Back Button -->
+    <button type="button" aria-label="Close" class="w-11 h-11 rounded-full bg-night-card border border-night-border flex items-center justify-center text-night-muted hover:text-white hover:bg-night-raised shadow-[0_3px_0_#071012] active:translate-y-0.5 transition-all">
+      <span class="material-symbols-rounded text-xl leading-none">close</span>
+    </button>
+
+    <!-- Center Top Capsule Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-night-card border border-night-border shadow-[0_2px_0_#071012]">
+      <span class="w-2.5 h-2.5 rounded-full bg-teal-brand animate-pulse"></span>
+      <span class="text-xs font-extrabold uppercase tracking-wider text-teal-brand">Share Achievement</span>
+    </div>
+
+    <!-- Header Stats (Flame & XP) -->
+    <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-night-card border border-night-border shadow-[0_2px_0_#071012]">
+        <span class="material-symbols-rounded text-base text-coral-brand leading-none">local_fire_department</span>
+        <span class="text-xs font-extrabold text-night-text">14</span>
+      </div>
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-night-card border border-night-border shadow-[0_2px_0_#071012]">
+        <span class="material-symbols-rounded text-base text-coral-amber leading-none">bolt</span>
+        <span class="text-xs font-extrabold text-coral-amber">820 XP</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Showcase Container -->
+  <main class="w-full max-w-3xl mx-auto px-4 py-8 flex flex-col items-center">
+    
+    <!-- Title & Subtitle -->
+    <div class="text-center mb-6">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-night-text tracking-tight mb-2">Share your milestone</h1>
+      <p class="text-sm md:text-base text-night-muted font-medium">Show your study crew how far you've come!</p>
+    </div>
+
+    <!-- Aspect Ratio Toggle Pills -->
+    <div class="inline-flex p-1 rounded-full bg-night-card border border-night-border shadow-[0_3px_0_#060F11] mb-8">
+      <button type="button" class="flex items-center gap-2 px-5 py-2 rounded-full bg-teal-deep text-white text-xs font-bold shadow-[0_2px_0_#0F4441] border border-teal-brand/40">
+        <span class="material-symbols-rounded text-sm">crop_square</span>
+        <span>Square Post (1:1)</span>
+      </button>
+      <button type="button" class="flex items-center gap-2 px-5 py-2 rounded-full text-night-muted hover:text-night-text text-xs font-bold transition-colors">
+        <span class="material-symbols-rounded text-sm">stay_current_portrait</span>
+        <span>Story (9:16)</span>
+      </button>
+    </div>
+
+    <!-- The 1:1 Share Card Preview (Tactile Night) -->
+    <div class="w-full max-w-[420px] aspect-square rounded-3xl share-card-dots border-2 border-night-border shadow-[0_16px_40px_rgba(0,0,0,0.5),0_6px_0_#0B171A] p-6 flex flex-col justify-between relative overflow-hidden">
+      
+      <!-- Card Top Brand & Badge -->
+      <div class="flex items-center justify-between relative z-10">
+        <div class="flex items-center gap-2.5">
+          <!-- Lexkite Kite Emblem (Dark container with bright kite) -->
+          <div class="w-8 h-8 rounded-xl bg-night-raised border border-teal-brand/40 flex items-center justify-center shadow-inner">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+              <!-- Geometric faceted kite in Lexkite brand colors -->
+              <polygon points="12,2 20,11 12,14 4,11" fill="#2BA39A"/>
+              <polygon points="12,14 20,11 12,22" fill="#F2553B"/>
+              <polygon points="12,14 4,11 12,22" fill="#FFB054"/>
+              <circle cx="12" cy="11" r="1.5" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <span class="font-extrabold text-base tracking-tight text-night-text">Lexkite</span>
+        </div>
+
+        <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-night-raised border border-coral-amber/30 text-[11px] font-extrabold text-coral-amber uppercase tracking-wider">
+          <span class="material-symbols-rounded text-xs">military_tech</span>
+          <span>30-Day Streak Milestone</span>
+        </div>
+      </div>
+
+      <!-- Card Central Graphic Row -->
+      <div class="my-auto py-2 flex items-center justify-center gap-6 relative z-10">
+        
+        <!-- Left: Glowing 3D Streak Dial -->
+        <div class="flex flex-col items-center">
+          <div class="relative flex items-center justify-center p-3">
+            <!-- Ambient Halo -->
+            <div class="absolute w-32 h-32 rounded-full streak-halo"></div>
+            
+            <!-- Sphere Badge with Golden Ring -->
+            <div class="w-24 h-24 rounded-full p-1.5 bg-gradient-to-b from-amber-400/80 via-coral-brand to-rose-700 shadow-xl flex items-center justify-center relative">
+              <div class="w-full h-full rounded-full streak-sphere flex flex-col items-center justify-center text-white">
+                <span class="material-symbols-rounded text-sm text-yellow-200 -mb-0.5 drop-shadow">local_fire_department</span>
+                <span class="text-3xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">30</span>
+                <span class="text-[9px] font-extrabold uppercase tracking-widest text-amber-100">Days</span>
+              </div>
+              <!-- Small sparkling star ornament -->
+              <span class="material-symbols-rounded text-amber-300 text-sm absolute -top-1 -right-1 drop-shadow">hotel_class</span>
+            </div>
+          </div>
+
+          <div class="mt-2 px-3 py-1 rounded-full bg-teal-deep/30 border border-teal-brand/40 text-[11px] font-extrabold text-teal-glow uppercase tracking-wider">
+            IELTS / TOEIC Elite
+          </div>
+        </div>
+
+        <!-- Right: Teacher Slot (140x170 standard dashed container) -->
+        <div class="w-[124px] h-[148px] rounded-2xl border-2 border-dashed border-teal-brand/50 bg-night-raised/50 flex flex-col items-center justify-center p-3 text-center relative group">
+          <div class="w-10 h-10 rounded-full bg-night-card border border-teal-brand/40 flex items-center justify-center text-teal-glow mb-2 shadow-sm">
+            <span class="material-symbols-rounded text-xl">face</span>
+          </div>
+          <span class="text-xs font-extrabold uppercase tracking-wide text-night-text">Teacher</span>
+          <span class="text-[10px] text-teal-glow font-bold mt-0.5">140 × 170 Slot</span>
+          <span class="text-[9px] text-night-dim font-medium mt-1">Empty placeholder</span>
+        </div>
+
+      </div>
+
+      <!-- Card Bottom Text & Verification -->
+      <div class="relative z-10 pt-2 border-t border-night-border/40">
+        <div class="flex items-center gap-1.5 mb-1">
+          <h2 class="text-lg font-extrabold text-night-text tracking-tight">30-Day Study Streak!</h2>
+          <span class="material-symbols-rounded text-base text-coral-amber">verified</span>
+        </div>
+        <p class="text-xs text-night-muted leading-relaxed mb-3">30 days of high-yield exam vocabulary locked in.</p>
+        
+        <div class="flex items-center justify-between text-[11px]">
+          <div class="flex items-center gap-1.5 text-teal-glow font-bold">
+            <span class="material-symbols-rounded text-xs">verified_user</span>
+            <span>Cambridge & ETS Lexicon Verified</span>
+          </div>
+          <span class="font-extrabold text-night-muted">Lexkite.com</span>
+        </div>
+      </div>
+
+      <!-- Subtle background ambient blur -->
+      <div class="absolute -top-12 -right-12 w-44 h-44 bg-teal-brand/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -left-12 w-44 h-44 bg-coral-brand/10 rounded-full blur-3xl pointer-events-none"></div>
+    </div>
+
+    <!-- Action Buttons Row -->
+    <div class="w-full max-w-[420px] flex items-center gap-3 mt-6">
+      <!-- Primary Save Image CTA (Deep ink on warm coral/orange gradient) -->
+      <button type="button" class="flex-1 h-13 py-3.5 px-6 rounded-2xl btn-tactile-coral flex items-center justify-center gap-2 text-coral-ink font-extrabold text-sm tracking-wide">
+        <span class="material-symbols-rounded text-lg font-bold">download</span>
+        <span>Save image</span>
+      </button>
+
+      <!-- Copy Link Secondary -->
+      <button type="button" class="h-13 py-3.5 px-5 rounded-2xl btn-tactile-secondary border border-night-border flex items-center justify-center gap-2 text-night-text font-bold text-sm hover:border-night-muted transition-colors">
+        <span class="material-symbols-rounded text-lg text-teal-glow">link</span>
+        <span>Copy link</span>
+      </button>
+
+      <!-- More Options Button -->
+      <button type="button" aria-label="More options" class="w-13 h-13 py-3.5 px-4 rounded-2xl btn-tactile-secondary border border-night-border flex items-center justify-center text-night-muted hover:text-night-text transition-colors">
+        <span class="material-symbols-rounded text-xl">more_horiz</span>
+      </button>
+    </div>
+
+    <!-- Quick Send Social Chips -->
+    <div class="w-full max-w-[420px] flex items-center gap-2.5 mt-5 px-1">
+      <div class="flex items-center gap-1.5 text-xs font-bold text-night-muted mr-1">
+        <span class="material-symbols-rounded text-sm text-teal-brand">near_me</span>
+        <span>Quick send:</span>
+      </div>
+      <button type="button" class="px-3.5 py-1.5 rounded-full bg-night-card border border-night-border text-xs font-semibold text-night-text hover:bg-night-raised hover:border-teal-brand/40 shadow-[0_2px_0_#060F11] active:translate-y-0.5 transition-all">
+        WhatsApp
+      </button>
+      <button type="button" class="px-3.5 py-1.5 rounded-full bg-night-card border border-night-border text-xs font-semibold text-night-text hover:bg-night-raised hover:border-teal-brand/40 shadow-[0_2px_0_#060F11] active:translate-y-0.5 transition-all">
+        Telegram
+      </button>
+      <button type="button" class="px-3.5 py-1.5 rounded-full bg-night-card border border-night-border text-xs font-semibold text-night-text hover:bg-night-raised hover:border-teal-brand/40 shadow-[0_2px_0_#060F11] active:translate-y-0.5 transition-all">
+        Stories
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footnote Brand Microtext -->
+  <footer class="w-full py-6 text-center text-xs text-night-dim font-medium">
+    Lexkite Exam Suite • Verified IELTS & TOEIC Milestone Exporter
+  </footer>
+
+</body>
+</html>

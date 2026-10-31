@@ -1,7 +1,7 @@
 # Stitch v2.1 refs – web (factory, project 7268539912208977707, DS assets/1b7a8a3d3d52404bb332d9ba3f783547 Lexkite Kit). page light-id dark-id device verdict | note | prompt = scratchpad prompts.tsv line (copied in prompts.txt)
 legal e7204fc215604249934836a277ef2d85 d0ed3d29ebe84825aa822a621af1e164 DESKTOP PASS | Stitch filler copy (dates, contact names) → real legal text from content/legal on port
 schools ec5820564cda4102882fb3de0fffd858 a5d75c8121a64cac8a3a50d4aa2b2013 DESKTOP PASS teacher-slot | 5 real steps from web/schools.html; teacher slot in hero
-about 5113a6a093f042f6940548b239e61831 71f584c81b944669a697bde5a8996abf DESKTOP PASS teacher-slot | Ama+Carlos slots; Stitch surnames/titles ('Ama Osei', 'certified examiners', 'thousands') are filler → real copy
+about 5113a6a093f042f6940548b239e61831 224d0def97c04d738ad20adc3eb84a87 DESKTOP PASS teacher-slot | Ama+Carlos slots; Stitch surnames/titles ('Ama Osei', 'certified examiners', 'thousands') are filler → real copy
 editorial d712c42b04f64f3f9aca7e8413e1a423 9098574e306349c0b7be4028ff8fcdee DESKTOP PASS | dark recovered via REST after MCP 'service unavailable'; photo panel = Stitch art, keep or swap to illustration (owner call)
 research 7050c674154c4161b82c99334ab9aaa5 9c24259b845c4e86bafd752471cdc9e6 DESKTOP PASS | stats/DOI/'1.42M essays' are filler → real dataset numbers (build-authority) on port
 embed af6b1560558c481b9468b88878a94cab ce591d1519784f1fbda5bbebbf813616 DESKTOP PASS | widget preview + CEFR badges = real /embed features
@@ -14,7 +14,7 @@ toeic-quiz d1a81b41e7114165a9eec0a3c5211a6c 284abe50fbba4821abd4466c280209cd DES
 vocab-topic d9e29868978b4e15825b35b9818d9d13 c4ab47cd39604d06a699d3f0bbc8bf64 DESKTOP PASS | 
 grammar 43eb70123e964be4966e9e8a0f2b0525 c3b0b7d6d547410399ab89be62fc8b84 DESKTOP PASS teacher-slot | teacher slot in tip card
 letter f838cc64c22e4db1bcdf4822ceee41cf 72ab567e4ab648b0a0fde46c134cf79b DESKTOP PASS | 
-video 5931547c938a4924892b8a24f4cbed64 9a0bb5a18a7b43bebb7fe4facee6b7e9 DESKTOP PASS teacher-slot | dark transcript faded lines – CI contrast decides
+video 5931547c938a4924892b8a24f4cbed64 816e90108f164c8e9a9b3430b8270598 DESKTOP PASS teacher-slot | dark transcript faded lines – CI contrast decides
 404 35927b0c73a7404f9130d4b7e66474c7 c03dd03b888f44f1bd1d060193137f48 DESKTOP PASS | kite-in-tree art = Stitch illustration
 bye 232ff69fcf4e456898616ac2e4076110 35d9c8cb3c80406e8e4cf9c6e4fe3c26 DESKTOP PASS | dark r1 rejected (white card in dark) → dark2 edit
 blog-lang e3fcd7321e5b42d8be901759c61ff496 24cb37be15d34e0d81d129bdd8cc6831 DESKTOP PASS | 

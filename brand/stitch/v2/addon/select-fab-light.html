@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Chrome Add-on In-Page Selection Helpers (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFAF3',
+              100: '#FFF7EA',
+              200: '#F7EEDC',
+              300: '#EADEC8',
+              400: '#D8CFBC',
+            },
+            teal: {
+              primary: '#2BA39A',
+              deep: '#0F3D3E',
+              ledge: '#12514D',
+              light: '#E2F7F4',
+              soft: '#ECFBF9',
+            },
+            coral: {
+              primary: '#F2553B',
+              amber: '#FFB054',
+              ledge: '#B53A22',
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Tactile physics */
+    .tactile-btn {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+    }
+    
+    .tactile-fab {
+      box-shadow: 0 4px 0 #12514D, 0 10px 18px rgba(18, 81, 77, 0.25);
+    }
+    .tactile-fab:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #12514D, 0 4px 8px rgba(18, 81, 77, 0.2);
+    }
+
+    .tactile-card {
+      box-shadow: 0 5px 0 #D8CFBC, 0 14px 28px rgba(35, 25, 15, 0.08);
+    }
+
+    .tactile-toast {
+      box-shadow: 0 5px 0 #12514D, 0 16px 32px rgba(15, 61, 62, 0.2);
+    }
+
+    .tactile-icon-btn {
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-icon-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+
+    .tactile-coral-btn {
+      box-shadow: 0 4px 0 #B53A22;
+    }
+    .tactile-coral-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-[#0F3D3E] font-sans min-h-screen relative overflow-x-hidden selection:bg-[#2BA39A]/20 selection:text-[#0F3D3E]">
+
+  <!-- BACKGROUND: Simple blurred article reading page on a website -->
+  <main class="max-w-4xl mx-auto px-6 py-14 md:py-20 filter blur-[1.5px] select-none pointer-events-none opacity-85 transition-all">
+    <!-- Article Meta Header -->
+    <header class="mb-10 max-w-2xl">
+      <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-[#4E6668] mb-4">
+        <span class="px-2.5 py-1 rounded-full bg-[#EADEC8]/60 text-[#0F3D3E]">Global Economics</span>
+        <span>•</span>
+        <span>5 min read</span>
+        <span>•</span>
+        <span>The Morning Journal</span>
+      </div>
+      <h1 class="font-serif text-3xl md:text-5xl text-[#0F3D3E] leading-[1.2] font-normal tracking-tight mb-4">
+        How modern logistics networks adapted to sudden market friction
+      </h1>
+      <p class="font-sans text-sm text-[#4E6668] font-medium">By Sarah Jenkins • Published 08:30 GMT</p>
+    </header>
+
+    <!-- Article Content -->
+    <article class="font-serif text-lg md:text-xl leading-[1.8] text-[#1E3033] space-y-7 max-w-2xl">
+      <p>
+        Following several quarters of volatile international cargo flow, national shipping hubs have begun restructuring their inland storage facilities. Rather than operating near full capacity, logistics hubs are transitioning toward buffered nodes to mitigate localized congestion.
+      </p>
+
+      <!-- Sentence that is selected (highlighted) on the page -->
+      <p class="relative">
+        According to industry researchers, 
+        <mark class="bg-[#2BA39A]/25 text-[#0F3D3E] px-1 py-0.5 rounded font-medium border-b-2 border-[#2BA39A]">the domestic economy proved remarkably resilient against global trade shocks.</mark>
+        This operational flexibility allowed domestic exporters to stabilize critical output despite unprecedented maritime delays.
+      </p>
+
+      <p>
+        Furthermore, real-time analytics have reduced turnaround delays from hours to minutes, ensuring cold-chain items retain temperature integrity throughout transit.
+      </p>
+    </article>
+  </main>
+
+  <!-- OVERLAY / EXTENSION SURFACE LAYER (Crisp, Interactive, Unblurred) -->
+  <div class="fixed inset-0 pointer-events-none z-30">
+    <div class="relative w-full h-full max-w-4xl mx-auto px-6">
+
+      <!-- 1) TINY ROUND TACTILE KITE BUTTON (The Look up FAB) -->
+      <!-- Positioned right at the start of the highlighted text -->
+      <div class="absolute top-[375px] md:top-[432px] left-[32px] md:left-[38px] pointer-events-auto flex items-center gap-2 animate-bounce" style="animation-duration: 2.5s;">
+        <button class="tactile-btn tactile-fab w-11 h-11 rounded-full bg-[#2BA39A] border-2 border-white flex items-center justify-center text-white cursor-pointer group" title="Look up with Lexkite">
+          <!-- Playful Kite SVG Mark -->
+          <svg class="w-6 h-6 transform group-hover:rotate-12 transition-transform duration-200" viewBox="0 0 24 24" fill="none">
+            <!-- Diamond kite with 4 color facets -->
+            <polygon points="12,2 20,12 12,14" fill="#FFC94A" />
+            <polygon points="12,2 4,12 12,14" fill="#F2553B" />
+            <polygon points="12,14 4,12 12,22" fill="#2BA39A" />
+            <polygon points="12,14 20,12 12,22" fill="#E2F7F4" />
+            <!-- Kite ribbon tail -->
+            <path d="M12,22 C13,24 11,25 13,27" stroke="#FFC94A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <circle cx="12" cy="12" r="1.5" fill="#FFFFFF" />
+          </svg>
+        </button>
+        <!-- Pulsing Micro Tag -->
+        <span class="bg-[#0F3D3E] text-white text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full tracking-wider shadow-sm">
+          Look up
+        </span>
+      </div>
+
+      <!-- 2) COMPACT TOOLTIP BUBBLE (Short translation of selected sentence & speaker button) -->
+      <!-- Floating directly above the sentence selection -->
+      <div class="absolute top-[260px] md:top-[305px] left-[60px] md:left-[110px] pointer-events-auto">
+        <div class="tactile-card bg-white border-2 border-[#EADEC8] rounded-2xl p-4 w-[340px] md:w-[380px] relative">
+          
+          <!-- Tooltip Triangle Nib (Pointing down toward sentence) -->
+          <div class="absolute -bottom-3 left-10 w-5 h-5 bg-white border-b-2 border-r-2 border-[#EADEC8] transform rotate-45"></div>
+
+          <!-- Header Row: Lexkite Badge + Speaker + Quick Action -->
+          <div class="flex items-center justify-between mb-2.5">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#2BA39A]">
+                Lexkite • Tiếng Việt
+              </span>
+            </div>
+            
+            <div class="flex items-center gap-1.5">
+              <!-- Audio Pronunciation Button -->
+              <button class="tactile-btn tactile-icon-btn w-8 h-8 rounded-xl bg-[#FFF7EA] border border-[#EADEC8] flex items-center justify-center text-[#0F3D3E] hover:text-[#2BA39A] transition-colors" title="Listen to sentence">
+                <span class="material-symbols-rounded text-lg">volume_up</span>
+              </button>
+              <!-- Bookmark / Add to deck icon -->
+              <button class="tactile-btn tactile-icon-btn w-8 h-8 rounded-xl bg-[#2BA39A]/10 border border-[#2BA39A]/30 flex items-center justify-center text-[#2BA39A]" title="Added to deck">
+                <span class="material-symbols-rounded text-lg">bookmark_added</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Short Translation Body -->
+          <div class="bg-[#FFF7EA] rounded-xl p-3 border border-[#EADEC8]/80 mb-3">
+            <p class="text-sm font-semibold text-[#0F3D3E] leading-snug">
+              “Nền kinh tế trong nước đã chứng tỏ khả năng phục hồi ấn tượng trước các cú sốc thương mại.”
+            </p>
+          </div>
+
+          <!-- Focal Word Highlight Pill & Collocation Note -->
+          <div class="flex items-center justify-between text-xs">
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-[#0F3D3E]">resilient</span>
+              <span class="text-[10px] uppercase font-extrabold px-1.5 py-0.5 rounded bg-[#2BA39A]/15 text-[#2BA39A]">
+                B2 • kiên cường
+              </span>
+            </div>
+
+            <!-- Mini CTA to inspect breakdown -->
+            <button class="text-xs font-bold text-[#F2553B] hover:text-[#B53A22] flex items-center gap-0.5 transition-colors">
+              <span>Full notes</span>
+              <span class="material-symbols-rounded text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3) SMALL TOAST AT BOTTOM RIGHT ("Saved to your deck ✓" with Undo link) -->
+  <aside class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 pointer-events-auto">
+    <div class="tactile-toast bg-[#0F3D3E] text-white rounded-2xl px-4 py-3.5 flex items-center gap-3.5 border-2 border-[#1F7A75] min-w-[270px] max-w-sm">
+      <!-- Glossy Checkmark Badge -->
+      <div class="w-8 h-8 rounded-xl bg-[#2BA39A] flex items-center justify-center text-white shrink-0 shadow-sm">
+        <span class="material-symbols-rounded text-xl">check</span>
+      </div>
+
+      <!-- Toast Text Content -->
+      <div class="flex-1 leading-tight">
+        <p class="text-sm font-extrabold text-[#EEF6F7] flex items-center gap-1">
+          Saved to your deck
+        </p>
+        <p class="text-[11px] text-[#A9BFC1] font-medium mt-0.5">
+          +5 XP • Daily review updated
+        </p>
+      </div>
+
+      <!-- Undo Link Action -->
+      <button class="tactile-btn text-xs font-extrabold text-[#FFB054] hover:text-white px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 transition-all">
+        Undo
+      </button>
+    </div>
+  </aside>
+
+  <!-- Subdued Bottom Info Strip: Indicates Lexkite Add-on active state (clean, unobtrusive) -->
+  <footer class="fixed bottom-4 left-6 z-20 hidden md:flex items-center gap-3 text-xs font-bold text-[#4E6668]/80 pointer-events-none">
+    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 border border-[#EADEC8] shadow-sm backdrop-blur-sm">
+      <span class="w-2 h-2 rounded-full bg-[#2BA39A] animate-pulse"></span>
+      <span>Lexkite Add-on v2.4</span>
+      <span class="text-[#D8CFBC]">•</span>
+      <span class="text-[#0F3D3E]">Double-click or drag to translate</span>
+    </div>
+  </footer>
+
+</body>
+</html>
+

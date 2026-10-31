@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin — Overview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFAF3',
+              100: '#FFF7EA',
+              200: '#F9EED9',
+              300: '#EFE0C2',
+            },
+            teal: {
+              brand: '#2BA39A',
+              deep: '#0F3D3E',
+              dark: '#144F50',
+              soft: '#E6F6F4',
+              border: '#BFE7E2',
+              ledge: '#1B6F68',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              dark: '#B53A22',
+              soft: '#FDEEEB',
+            },
+            amber: {
+              DEFAULT: '#FFB054',
+              dark: '#C87820',
+              soft: '#FFF5E7',
+            },
+            slate: {
+              border: '#E8DCC8',
+              ledge: '#D5C7B0',
+              card: '#FFFFFF',
+              subtle: '#8C7E6A',
+              dark: '#2A241A',
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 #D8CFBC',
+            'tactile-card-hover': '0 6px 0 #D8CFBC',
+            'tactile-btn': '0 4px 0 #B53A22',
+            'tactile-btn-pressed': '0 1px 0 #B53A22',
+            'tactile-btn-sec': '0 4px 0 #D8CFBC',
+            'tactile-icon': '0 3px 0 rgba(0,0,0,0.08)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical candy buttons with realistic tactile underside ledge */
+    .btn-candy {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      box-shadow: 0 4px 0 #B53A22;
+      transition: all 0.1s ease-in-out;
+    }
+    .btn-candy:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #B53A22;
+    }
+    .btn-candy:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+    .btn-secondary {
+      background: #FFFFFF;
+      box-shadow: 0 4px 0 #D8CFBC;
+      border: 2px solid #EADEC8;
+      transition: all 0.1s ease-in-out;
+    }
+    .btn-secondary:hover {
+      background: #FFFAF3;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #D8CFBC;
+    }
+    .btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+    .card-tactile {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+      border-radius: 20px;
+    }
+    .card-tactile-sm {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      border-radius: 16px;
+    }
+    .sidebar-link {
+      transition: all 0.12s ease;
+    }
+    .sidebar-link:hover {
+      background-color: #F8EFE0;
+      transform: translateX(2px);
+    }
+    .sidebar-link.active {
+      background-color: #E7F6F4;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 3px 0 #1B6F68;
+    }
+    /* Custom scrollbar for dense sidebar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF7EA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E5D6BD;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4C1A2;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex bg-[#081518] text-[#EEF6F7] antialiased selection:bg-teal-brand selection:text-[#081518]">
+<!-- LEFT SIDEBAR -->
+<aside class="w-64 flex-shrink-0 bg-[#0B171A] border-r-2 border-[#2E4854] flex flex-col h-screen sticky top-0 z-30 select-none">
+<!-- Brand / Admin Workspace Header -->
+<div class="h-20 px-6 flex items-center justify-between border-b-2 border-[#2E4854] bg-[#122227]">
+<div class="flex items-center gap-3">
+<!-- Lexkite Logo Emblem -->
+<div class="w-10 h-10 rounded-xl bg-teal-brand border-2 border-[#1B6F68] shadow-[0_3px_0_#0B171A] flex items-center justify-center p-1.5 flex-shrink-0 relative">
+<svg class="w-full h-full text-white" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#081518"></path>
+<path d="M12 2L20 10L12 12V2Z" fill="#FFB054"></path>
+<path d="M12 12L20 10L12 22V12Z" fill="#F2553B"></path>
+<path d="M12 2L4 10L12 12V2Z" fill="#2BA39A"></path>
+<path d="M12 12L4 10L12 22V12Z" fill="#1F7A75"></path>
+</svg>
+<div class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-coral border-2 border-[#0B171A]"></div>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-extrabold text-lg text-[#EEF6F7] tracking-tight">Lexkite</span>
+<span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#382B14] text-[#FFB054] border border-[#FFB054]/30">Ops</span>
+</div>
+<p class="text-[11px] font-bold text-[#A9BFC1]">Solo Admin Studio</p>
+</div>
+</div>
+<div class="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" title="System Live"></div>
+</div>
+<!-- Navigation List (15 Sections with Illustrated 3D Pill Icons) -->
+<nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+<div class="px-3 pb-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#7E999E]">Core Engine</div>
+<!-- 1. Overview (Active) -->
+<a class="sidebar-link active flex items-center gap-3 px-3 py-2 rounded-xl text-[#EEF6F7] font-bold text-sm" href="#overview">
+<div class="w-7 h-7 rounded-lg bg-teal-brand text-white flex items-center justify-center shadow-[0_2px_0_#134D48] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">dashboard</span>
+</div>
+<span class="flex-1 truncate">Overview</span>
+<span class="w-2 h-2 rounded-full bg-[#4AE3D6] shadow-[0_0_8px_#4AE3D6]"></span>
+</a>
+<!-- 2. Growth -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#growth">
+<div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shadow-[0_2px_0_#065F46] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">trending_up</span>
+</div>
+<span class="flex-1 truncate">Growth</span>
+<span class="text-[10px] font-extrabold px-1.5 py-0.2 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30">+18%</span>
+</a>
+<!-- 3. Quota -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#quota">
+<div class="w-7 h-7 rounded-lg bg-amber text-[#1F1300] flex items-center justify-center shadow-[0_2px_0_#C87820] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">pie_chart</span>
+</div>
+<span class="flex-1 truncate">Quota</span>
+<span class="text-[10px] font-bold text-[#A9BFC1]">72%</span>
+</a>
+<!-- 4. Reports -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#reports">
+<div class="w-7 h-7 rounded-lg bg-coral text-white flex items-center justify-center shadow-[0_2px_0_#B53A22] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">flag</span>
+</div>
+<span class="flex-1 truncate">Reports</span>
+<span class="px-1.5 py-0.2 text-[10px] font-extrabold bg-coral text-white rounded-full">3</span>
+</a>
+<!-- 5. Notices -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#notices">
+<div class="w-7 h-7 rounded-lg bg-indigo-500 text-white flex items-center justify-center shadow-[0_2px_0_#3730A3] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">campaign</span>
+</div>
+<span class="flex-1 truncate">Notices</span>
+</a>
+<!-- 6. Push -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#push">
+<div class="w-7 h-7 rounded-lg bg-rose-500 text-white flex items-center justify-center shadow-[0_2px_0_#9F1239] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">notifications_active</span>
+</div>
+<span class="flex-1 truncate">Push</span>
+</a>
+<!-- 7. Ads -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#ads">
+<div class="w-7 h-7 rounded-lg bg-teal-700 text-white flex items-center justify-center shadow-[0_2px_0_#0F3D3E] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">monetization_on</span>
+</div>
+<span class="flex-1 truncate">Ads</span>
+<span class="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-[#162930] text-[#A9BFC1] border border-[#2E4854]">0 ads</span>
+</a>
+<div class="pt-3 px-3 pb-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#7E999E]">Studio &amp; Content</div>
+<!-- 8. Video studio -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#studio">
+<div class="w-7 h-7 rounded-lg bg-purple-600 text-white flex items-center justify-center shadow-[0_2px_0_#581C87] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">videocam</span>
+</div>
+<span class="flex-1 truncate">Video studio</span>
+</a>
+<!-- 9. Clips -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#clips">
+<div class="w-7 h-7 rounded-lg bg-sky-500 text-white flex items-center justify-center shadow-[0_2px_0_#0369A1] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">movie</span>
+</div>
+<span class="flex-1 truncate">Clips</span>
+</a>
+<!-- 10. Social -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#social">
+<div class="w-7 h-7 rounded-lg bg-cyan-600 text-white flex items-center justify-center shadow-[0_2px_0_#0E7490] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">share</span>
+</div>
+<span class="flex-1 truncate">Social</span>
+</a>
+<!-- 11. Distribution -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#distribution">
+<div class="w-7 h-7 rounded-lg bg-amber-600 text-white flex items-center justify-center shadow-[0_2px_0_#92400E] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">hub</span>
+</div>
+<span class="flex-1 truncate">Distribution</span>
+</a>
+<div class="pt-3 px-3 pb-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#7E999E]">Infrastructure</div>
+<!-- 12. Drive -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#drive">
+<div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shadow-[0_2px_0_#065F46] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">add_to_drive</span>
+</div>
+<span class="flex-1 truncate">Drive</span>
+</a>
+<!-- 13. Storage -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#storage">
+<div class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-[0_2px_0_#1E40AF] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">database</span>
+</div>
+<span class="flex-1 truncate">Storage</span>
+</a>
+<!-- 14. Keys -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#keys">
+<div class="w-7 h-7 rounded-lg bg-amber-500 text-[#1F1300] flex items-center justify-center shadow-[0_2px_0_#92400E] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">key</span>
+</div>
+<span class="flex-1 truncate">Keys</span>
+</a>
+<!-- 15. Settings -->
+<a class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl font-bold text-sm" href="#settings">
+<div class="w-7 h-7 rounded-lg bg-stone-500 text-white flex items-center justify-center shadow-[0_2px_0_#292524] flex-shrink-0">
+<span class="material-symbols-rounded text-lg">settings</span>
+</div>
+<span class="flex-1 truncate">Settings</span>
+</a>
+</nav>
+<!-- Bottom Operator Pill -->
+<div class="p-3 border-t-2 border-[#2E4854] bg-[#0E1B1F]">
+<div class="card-tactile-sm p-2.5 flex items-center gap-2.5 bg-[#162930]">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-brand to-[#0F3D3E] text-white font-extrabold flex items-center justify-center text-xs shadow-[0_2px_0_#0B171A]">
+          K
+        </div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-extrabold text-[#EEF6F7] truncate">Kai (Lead)</p>
+<p class="text-[10px] font-bold text-[#A9BFC1] truncate">Superuser Role</p>
+</div>
+<button class="w-6 h-6 rounded-md hover:bg-[#22363D] text-[#A9BFC1] flex items-center justify-center transition-colors" title="Lock Console">
+<span class="material-symbols-rounded text-base">lock</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- MAIN DASHBOARD CONTENT -->
+<main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- TOP BAR -->
+<header class="h-20 px-8 flex items-center justify-between border-b-2 border-[#2E4854] bg-[#0E1E22]/90 backdrop-blur sticky top-0 z-20">
+<!-- Greeting line -->
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xl">👋</span>
+<h1 class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">Good morning, Kai</h1>
+<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-[#123537] text-[#4AE3D6] border border-[#2E6363]">All systems normal</span>
+</div>
+<p class="text-xs font-bold text-[#A9BFC1] mt-0.5">Here is the 24-hour pulse across IELTS and TOEIC learners.</p>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-3">
+<!-- Live Sync Pill -->
+<div class="card-tactile-sm px-3.5 py-1.5 bg-[#162930] flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#4AE3D6] animate-ping"></span>
+<span class="text-xs font-extrabold text-[#EEF6F7] tracking-wide uppercase">Live Sync: Edge 41ms</span>
+</div>
+<!-- Secondary CTA: Refresh Data -->
+<button class="btn-secondary px-3.5 py-2 rounded-xl text-xs font-extrabold flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base">refresh</span>
+<span>Refresh</span>
+</button>
+<!-- Primary Candy CTA: Deploy Batch with dark-brown text -->
+<button class="btn-candy px-4 py-2 rounded-xl text-xs font-extrabold !text-[#1F1300] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-base">rocket_launch</span>
+<span>Publish Day Pack</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE DASHBOARD VIEW -->
+<div class="p-8 space-y-6 max-w-7xl">
+<!-- 1. ROW OF 4 CHUNKY STAT TILES -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Tile 1: Active users today -->
+<div class="card-tactile p-5 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[11px] font-extrabold uppercase tracking-wider text-[#A9BFC1]">Active Today</p>
+<h2 class="text-3xl font-extrabold text-[#EEF6F7] mt-1">18,420</h2>
+</div>
+<div class="w-10 h-10 rounded-2xl bg-[#123537] border-2 border-[#2E6363] text-[#4AE3D6] flex items-center justify-center shadow-[0_3px_0_#0B171A]">
+<span class="material-symbols-rounded text-xl">group</span>
+</div>
+</div>
+<!-- Sparkline 1 -->
+<div class="mt-4 pt-3 border-t-2 border-[#223B44] flex items-end justify-between">
+<div class="flex items-center gap-1 text-[11px] font-extrabold text-emerald-400">
+<span class="material-symbols-rounded text-sm">arrow_upward</span>
+<span>+14.2%</span>
+<span class="text-[#A9BFC1] font-medium ml-1">vs yesterday</span>
+</div>
+<!-- Tiny SVG sparkline -->
+<svg class="w-20 h-6 overflow-visible" fill="none" viewbox="0 0 80 24">
+<path d="M2 18 L16 16 L30 19 L44 11 L58 13 L78 3" stroke="#2BA39A" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle cx="78" cy="3" fill="#4AE3D6" r="3"></circle>
+</svg>
+</div>
+</div>
+<!-- Tile 2: New users -->
+<div class="card-tactile p-5 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[11px] font-extrabold uppercase tracking-wider text-[#A9BFC1]">New Signups</p>
+<h2 class="text-3xl font-extrabold text-[#EEF6F7] mt-1">1,248</h2>
+</div>
+<div class="w-10 h-10 rounded-2xl bg-[#382B14] border-2 border-[#C87820]/40 text-[#FFB054] flex items-center justify-center shadow-[0_3px_0_#0B171A]">
+<span class="material-symbols-rounded text-xl">person_add</span>
+</div>
+</div>
+<!-- Sparkline 2 -->
+<div class="mt-4 pt-3 border-t-2 border-[#223B44] flex items-end justify-between">
+<div class="flex items-center gap-1 text-[11px] font-extrabold text-emerald-400">
+<span class="material-symbols-rounded text-sm">arrow_upward</span>
+<span>+8.6%</span>
+<span class="text-[#A9BFC1] font-medium ml-1">daily run</span>
+</div>
+<!-- Tiny SVG sparkline -->
+<svg class="w-20 h-6 overflow-visible" fill="none" viewbox="0 0 80 24">
+<path d="M2 20 L18 17 L34 15 L50 9 L64 12 L78 4" stroke="#FFB054" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle cx="78" cy="4" fill="#FFB054" r="3"></circle>
+</svg>
+</div>
+</div>
+<!-- Tile 3: Lessons finished -->
+<div class="card-tactile p-5 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[11px] font-extrabold uppercase tracking-wider text-[#A9BFC1]">Lessons Finished</p>
+<h2 class="text-3xl font-extrabold text-[#EEF6F7] mt-1">94,310</h2>
+</div>
+<div class="w-10 h-10 rounded-2xl bg-[#113129] border-2 border-emerald-500/40 text-emerald-400 flex items-center justify-center shadow-[0_3px_0_#0B171A]">
+<span class="material-symbols-rounded text-xl">check_circle</span>
+</div>
+</div>
+<!-- Sparkline 3 -->
+<div class="mt-4 pt-3 border-t-2 border-[#223B44] flex items-end justify-between">
+<div class="flex items-center gap-1 text-[11px] font-extrabold text-emerald-400">
+<span class="material-symbols-rounded text-sm">arrow_upward</span>
+<span>+22.5%</span>
+<span class="text-[#A9BFC1] font-medium ml-1">completion</span>
+</div>
+<!-- Tiny SVG sparkline -->
+<svg class="w-20 h-6 overflow-visible" fill="none" viewbox="0 0 80 24">
+<path d="M2 22 L15 18 L32 14 L46 16 L62 8 L78 2" stroke="#10B981" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle cx="78" cy="2" fill="#10B981" r="3"></circle>
+</svg>
+</div>
+</div>
+<!-- Tile 4: Streak keepers -->
+<div class="card-tactile p-5 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[11px] font-extrabold uppercase tracking-wider text-[#A9BFC1]">Streak Keepers</p>
+<h2 class="text-3xl font-extrabold text-[#EEF6F7] mt-1">11,790</h2>
+</div>
+<div class="w-10 h-10 rounded-2xl bg-[#3A1E1C] border-2 border-coral/40 text-[#F2553B] flex items-center justify-center shadow-[0_3px_0_#0B171A]">
+<span class="material-symbols-rounded text-xl">local_fire_department</span>
+</div>
+</div>
+<!-- Sparkline 4 -->
+<div class="mt-4 pt-3 border-t-2 border-[#223B44] flex items-end justify-between">
+<div class="flex items-center gap-1 text-[11px] font-extrabold text-emerald-400">
+<span class="material-symbols-rounded text-sm">arrow_upward</span>
+<span>64%</span>
+<span class="text-[#A9BFC1] font-medium ml-1">retention rate</span>
+</div>
+<!-- Tiny SVG sparkline -->
+<svg class="w-20 h-6 overflow-visible" fill="none" viewbox="0 0 80 24">
+<path d="M2 19 L20 18 L36 12 L50 14 L65 7 L78 4" stroke="#F2553B" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle cx="78" cy="4" fill="#F2553B" r="3"></circle>
+</svg>
+</div>
+</div>
+</section>
+<!-- 2. BIG LINE CHART CARD: DAILY ACTIVE USERS (30 DAYS) -->
+<section class="card-tactile p-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b-2 border-[#223B44] gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-md bg-[#2BA39A] border border-[#134D48] shadow-[0_1px_0_#0B171A]"></span>
+<h2 class="text-lg font-extrabold text-[#EEF6F7] tracking-tight">Daily Active Users — 30 Days Trend</h2>
+</div>
+<p class="text-xs font-bold text-[#A9BFC1] mt-0.5">High-retention exam season growth across IELTS Academic and TOEIC tracks.</p>
+</div>
+<!-- Time & Filter Tabs -->
+<div class="flex items-center gap-2">
+<div class="card-tactile-sm p-1 flex items-center gap-1 bg-[#102025]">
+<button class="px-2.5 py-1 text-xs font-extrabold rounded-lg bg-teal-brand text-white shadow-[0_2px_0_#134D48]">30D</button>
+<button class="px-2.5 py-1 text-xs font-bold rounded-lg text-[#A9BFC1] hover:bg-[#1A2C33] hover:text-[#EEF6F7]">14D</button>
+<button class="px-2.5 py-1 text-xs font-bold rounded-lg text-[#A9BFC1] hover:bg-[#1A2C33] hover:text-[#EEF6F7]">7D</button>
+</div>
+<div class="card-tactile-sm px-3 py-1.5 flex items-center gap-2 text-xs font-extrabold text-[#EEF6F7]">
+<span class="w-2 h-2 rounded-full bg-coral"></span>
+<span>Avg: 16.4k/day</span>
+</div>
+</div>
+</div>
+<!-- SVG Line Chart Canvas -->
+<div class="relative pt-6">
+<!-- Metric Callout Floating Badge -->
+<div class="absolute top-12 left-[62%] transform -translate-x-1/2 card-tactile-sm p-2 text-center bg-[#1A2C33] shadow-[0_4px_0_#0B171A] pointer-events-none z-10 border-teal-brand">
+<p class="text-[10px] font-bold text-[#A9BFC1]">Day 21 (Peak)</p>
+<p class="text-sm font-extrabold text-[#4AE3D6]">19,850 DAU</p>
+</div>
+<!-- Chart Visual Area -->
+<div class="w-full h-64 relative">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 900 240">
+<defs>
+<!-- Subtle Gradient Fill Under Line -->
+<lineargradient id="dauGradientNight" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2BA39A" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#2BA39A" stop-opacity="0.0"></stop>
+</lineargradient>
+<!-- Dotted grid pattern for Tactile Night -->
+<pattern height="30" id="gridDotsNight" patternunits="userSpaceOnUse" width="30">
+<circle cx="2" cy="2" fill="#2A444F" r="1"></circle>
+</pattern>
+</defs>
+<!-- Grid Horizontal Guide Lines -->
+<rect fill="url(#gridDotsNight)" height="200" opacity="0.7" width="900" x="0" y="0"></rect>
+<line stroke="#1F3741" stroke-dasharray="4 4" stroke-width="1.5" x1="0" x2="900" y1="40" y2="40"></line>
+<line stroke="#1F3741" stroke-dasharray="4 4" stroke-width="1.5" x1="0" x2="900" y1="90" y2="90"></line>
+<line stroke="#1F3741" stroke-dasharray="4 4" stroke-width="1.5" x1="0" x2="900" y1="140" y2="140"></line>
+<line stroke="#2A444F" stroke-width="2" x1="0" x2="900" y1="190" y2="190"></line>
+<!-- Baseline 7-day Moving Average (Dashed Warm Amber) -->
+<path d="M 0 160 Q 150 150, 300 135 T 600 85 T 900 45" fill="none" opacity="0.85" stroke="#FFB054" stroke-dasharray="6 6" stroke-width="2.5"></path>
+<!-- Gradient Area fill under DAU curve -->
+<path d="M 0 180 
+                       L 30 172 L 60 168 L 90 175 L 120 160 L 150 155 L 180 148 L 210 152 
+                       L 240 142 L 270 138 L 300 130 L 330 128 L 360 134 L 390 122 L 420 115 
+                       L 450 118 L 480 105 L 510 98 L 540 102 L 570 70 L 600 78 L 630 65 
+                       L 660 55 L 690 62 L 720 50 L 750 48 L 780 42 L 810 46 L 840 32 L 870 30 L 900 24 
+                       L 900 190 L 0 190 Z" fill="url(#dauGradientNight)"></path>
+<!-- Main Solid Tactile DAU Curve -->
+<path d="M 0 180 
+                       L 30 172 L 60 168 L 90 175 L 120 160 L 150 155 L 180 148 L 210 152 
+                       L 240 142 L 270 138 L 300 130 L 330 128 L 360 134 L 390 122 L 420 115 
+                       L 450 118 L 480 105 L 510 98 L 540 102 L 570 70 L 600 78 L 630 65 
+                       L 660 55 L 690 62 L 720 50 L 750 48 L 780 42 L 810 46 L 840 32 L 870 30 L 900 24" fill="none" stroke="#2BA39A" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5"></path>
+<!-- Peak Indicator Node with Coral Highlight -->
+<circle cx="570" cy="70" fill="#162930" r="7" stroke="#F2553B" stroke-width="3"></circle>
+<circle cx="570" cy="70" fill="#F2553B" r="3"></circle>
+<!-- Today Indicator Node -->
+<circle cx="900" cy="24" fill="#4AE3D6" r="8" stroke="#162930" stroke-width="3"></circle>
+</svg>
+</div>
+<!-- Bottom Axis Days Labels (30 days sampling) -->
+<div class="flex justify-between text-[11px] font-extrabold text-[#A9BFC1] mt-2 pt-2 border-t-2 border-[#223B44]">
+<span>Oct 01</span>
+<span>Oct 06</span>
+<span>Oct 11</span>
+<span>Oct 16</span>
+<span>Oct 21 (Peak)</span>
+<span>Oct 26</span>
+<span class="text-[#4AE3D6] font-black">Today (18.4k)</span>
+</div>
+</div>
+<!-- Quick Summary Bar beneath Chart -->
+<div class="mt-4 pt-4 border-t-2 border-[#223B44] grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="p-3 bg-[#102025] rounded-xl border border-[#2E4854]">
+<span class="text-[10px] font-extrabold text-[#A9BFC1] uppercase">30D Total Sessions</span>
+<p class="text-base font-extrabold text-[#EEF6F7] mt-0.5">512,490</p>
+</div>
+<div class="p-3 bg-[#102025] rounded-xl border border-[#2E4854]">
+<span class="text-[10px] font-extrabold text-[#A9BFC1] uppercase">Median Session Time</span>
+<p class="text-base font-extrabold text-[#EEF6F7] mt-0.5">6m 40s</p>
+</div>
+<div class="p-3 bg-[#102025] rounded-xl border border-[#2E4854]">
+<span class="text-[10px] font-extrabold text-[#A9BFC1] uppercase">Drill Accuracy Avg</span>
+<p class="text-base font-extrabold text-[#EEF6F7] mt-0.5">84.2%</p>
+</div>
+<div class="p-3 bg-[#102025] rounded-xl border border-[#2E4854]">
+<span class="text-[10px] font-extrabold text-[#A9BFC1] uppercase">Zero-Cost Server Bill</span>
+<p class="text-base font-extrabold text-emerald-400 mt-0.5">$0.00 <span class="text-[10px] font-bold text-[#A9BFC1]">(Cloudflare + GH)</span></p>
+</div>
+</div>
+</section>
+<!-- 3. LOWER SPLIT: 'NEEDS ATTENTION' CARD & 'RECENT REPORTS' LIST -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- 'NEEDS ATTENTION' CARD (5 cols) -->
+<div class="lg:col-span-5 card-tactile p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-4 border-b-2 border-[#223B44]">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-coral text-white flex items-center justify-center shadow-[0_2px_0_#B53A22]">
+<span class="material-symbols-rounded text-base">priority_high</span>
+</div>
+<h2 class="text-lg font-extrabold text-[#EEF6F7] tracking-tight">Needs Attention</h2>
+</div>
+<span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#3A1E1C] text-[#F2553B] border border-coral/30">4 Items Pending</span>
+</div>
+<!-- Stack of Urgent / Action Items with colored pills -->
+<div class="mt-4 space-y-3">
+<!-- Item 1: Audio Edge CDN Quota -->
+<div class="p-3.5 rounded-2xl bg-[#102025] border-2 border-[#2E4854] hover:border-amber transition-colors flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-xl bg-[#382B14] text-[#FFB054] flex items-center justify-center flex-shrink-0 border border-[#C87820]/30">
+<span class="material-symbols-rounded text-lg">hard_drive</span>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-extrabold text-[#EEF6F7] truncate">Cambridge Audio CDN</p>
+<p class="text-[11px] font-bold text-[#A9BFC1] truncate">Bandwidth hit 88% tier</p>
+</div>
+</div>
+<span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-amber text-[#1F1300] shadow-[0_2px_0_#C87820] flex-shrink-0 uppercase">88% Quota</span>
+</div>
+<!-- Item 2: Misreported Collocation -->
+<div class="p-3.5 rounded-2xl bg-[#102025] border-2 border-[#2E4854] hover:border-coral transition-colors flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-xl bg-[#3A1E1C] text-[#F2553B] flex items-center justify-center flex-shrink-0 border border-coral/30">
+<span class="material-symbols-rounded text-lg">spellcheck</span>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-extrabold text-[#EEF6F7] truncate">"Demurrage" Phonetics</p>
+<p class="text-[11px] font-bold text-[#A9BFC1] truncate">IPA typo reported x12</p>
+</div>
+</div>
+<span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-coral text-white shadow-[0_2px_0_#B53A22] flex-shrink-0 uppercase">Urgent Fix</span>
+</div>
+<!-- Item 3: Extension Manifest V3 Review -->
+<div class="p-3.5 rounded-2xl bg-[#102025] border-2 border-[#2E4854] hover:border-indigo-400 transition-colors flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-xl bg-[#1C273C] text-indigo-400 flex items-center justify-center flex-shrink-0 border border-indigo-400/30">
+<span class="material-symbols-rounded text-lg">extension</span>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-extrabold text-[#EEF6F7] truncate">Chrome Store V3 Release</p>
+<p class="text-[11px] font-bold text-[#A9BFC1] truncate">Version 2.4.1 pending</p>
+</div>
+</div>
+<span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-indigo-600 text-white shadow-[0_2px_0_#3730A3] flex-shrink-0 uppercase">Review</span>
+</div>
+<!-- Item 4: Cloudflare Backup Sync -->
+<div class="p-3.5 rounded-2xl bg-[#102025] border-2 border-[#2E4854] hover:border-teal-brand transition-colors flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-xl bg-[#123537] text-[#4AE3D6] flex items-center justify-center flex-shrink-0 border border-[#2E6363]">
+<span class="material-symbols-rounded text-lg">sync_problem</span>
+</div>
+<div class="min-w-0">
+<p class="text-xs font-extrabold text-[#EEF6F7] truncate">FSRS Offline Cache</p>
+<p class="text-[11px] font-bold text-[#A9BFC1] truncate">Re-seed 120 IELTS cards</p>
+</div>
+</div>
+<span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-teal-brand text-white shadow-[0_2px_0_#134D48] flex-shrink-0 uppercase">Maintenance</span>
+</div>
+</div>
+</div>
+<!-- Bottom Action within Card -->
+<div class="mt-5 pt-4 border-t-2 border-[#223B44] flex items-center justify-between">
+<span class="text-xs font-bold text-[#A9BFC1]">Fast Resolution Engine</span>
+<button class="btn-secondary px-3.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1">
+<span>Resolve All</span>
+<span class="material-symbols-rounded text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- 'RECENT REPORTS' LIST (7 cols) -->
+<div class="lg:col-span-7 card-tactile p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-4 border-b-2 border-[#223B44]">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-teal-brand text-white flex items-center justify-center shadow-[0_2px_0_#134D48]">
+<span class="material-symbols-rounded text-base">forum</span>
+</div>
+<h2 class="text-lg font-extrabold text-[#EEF6F7] tracking-tight">Recent Reports &amp; Feedback</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-bold text-[#A9BFC1]">Filtered: All open</span>
+<button class="w-7 h-7 rounded-lg bg-[#1A2C33] border border-[#2E4854] text-[#EEF6F7] flex items-center justify-center hover:bg-[#22363D]">
+<span class="material-symbols-rounded text-base">tune</span>
+</button>
+</div>
+</div>
+<!-- List of reports -->
+<div class="mt-4 space-y-2.5">
+<!-- Report Row 1 -->
+<div class="p-3 rounded-2xl bg-[#122227] border-2 border-[#2E4854] hover:border-teal-brand hover:shadow-sm transition-all flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-[#3A1E1C] text-[#F2553B] flex items-center justify-center font-extrabold text-xs border border-coral/30 flex-shrink-0">
+                    ERR
+                  </div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-xs font-extrabold text-[#EEF6F7]">Question #104 (TOEIC Part 5)</span>
+<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#1A2C33] text-[#A9BFC1] border border-[#2E4854]">Grammar Trap</span>
+</div>
+<p class="text-[11px] font-medium text-[#A9BFC1] truncate">"Distractor option B claims past simple is valid after since."</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0 flex items-center gap-2">
+<span class="text-[10px] font-bold text-[#A9BFC1]">3m ago</span>
+<button class="btn-secondary px-2.5 py-1 rounded-lg text-[11px] font-extrabold">Inspect</button>
+</div>
+</div>
+<!-- Report Row 2 -->
+<div class="p-3 rounded-2xl bg-[#122227] border-2 border-[#2E4854] hover:border-teal-brand hover:shadow-sm transition-all flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-[#123537] text-[#4AE3D6] flex items-center justify-center font-extrabold text-xs border border-[#2E6363] flex-shrink-0">
+                    SUG
+                  </div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-xs font-extrabold text-[#EEF6F7]">Speaking Topic: Job Interview</span>
+<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#123537] text-[#4AE3D6] border border-[#2E6363]">Content Request</span>
+</div>
+<p class="text-[11px] font-medium text-[#A9BFC1] truncate">"Learner requested more collocations around financial risk."</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0 flex items-center gap-2">
+<span class="text-[10px] font-bold text-[#A9BFC1]">24m ago</span>
+<button class="btn-secondary px-2.5 py-1 rounded-lg text-[11px] font-extrabold">Inspect</button>
+</div>
+</div>
+<!-- Report Row 3 -->
+<div class="p-3 rounded-2xl bg-[#122227] border-2 border-[#2E4854] hover:border-teal-brand hover:shadow-sm transition-all flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-[#382B14] text-[#FFB054] flex items-center justify-center font-extrabold text-xs border border-[#C87820]/30 flex-shrink-0">
+                    AUD
+                  </div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-xs font-extrabold text-[#EEF6F7]">Audio Pronunciation: "Resilient"</span>
+<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#382B14] text-[#FFB054] border border-[#C87820]/30">Playback delay</span>
+</div>
+<p class="text-[11px] font-medium text-[#A9BFC1] truncate">"Slight latency on mobile Safari when tapping speaker icon."</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0 flex items-center gap-2">
+<span class="text-[10px] font-bold text-[#A9BFC1]">1h ago</span>
+<button class="btn-secondary px-2.5 py-1 rounded-lg text-[11px] font-extrabold">Inspect</button>
+</div>
+</div>
+<!-- Report Row 4 -->
+<div class="p-3 rounded-2xl bg-[#122227] border-2 border-[#2E4854] hover:border-teal-brand hover:shadow-sm transition-all flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-[#2C1D38] text-purple-300 flex items-center justify-center font-extrabold text-xs border border-purple-400/30 flex-shrink-0">
+                    EXT
+                  </div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-xs font-extrabold text-[#EEF6F7]">Extension Uninstall Survey</span>
+<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#2C1D38] text-purple-300 border border-purple-400/30">Exit note</span>
+</div>
+<p class="text-[11px] font-medium text-[#A9BFC1] truncate">"Exam finished yesterday! Scored Band 7.5 thanks to Lexkite."</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0 flex items-center gap-2">
+<span class="text-[10px] font-bold text-[#A9BFC1]">3h ago</span>
+<button class="btn-secondary px-2.5 py-1 rounded-lg text-[11px] font-extrabold">Inspect</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Footer Bar within Reports -->
+<div class="mt-5 pt-4 border-t-2 border-[#223B44] flex items-center justify-between text-xs">
+<span class="font-extrabold text-[#A9BFC1]">Showing 4 of 18 reports</span>
+<div class="flex items-center gap-2">
+<button class="btn-secondary px-3 py-1 rounded-lg font-extrabold">Previous</button>
+<button class="btn-secondary px-3 py-1 rounded-lg font-extrabold">Next</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. BOTTOM OPERATIONAL DOCK / SYSTEM HEALTH -->
+<footer class="card-tactile-sm p-4 bg-[#122227] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[#A9BFC1] border-[#2E4854]">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5 font-extrabold text-[#EEF6F7]">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_6px_#10B981]"></span>
+            Cloudflare Workers: 100% OK
+          </span>
+<span class="hidden sm:inline text-[#42616B]">•</span>
+<span class="font-bold text-[#A9BFC1]">Postgres Supabase Pool: 14/100 connections</span>
+<span class="hidden sm:inline text-[#42616B]">•</span>
+<span class="font-bold text-[#A9BFC1]">Storage: 42.1 GB / 250 GB</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-extrabold text-[#EEF6F7]">Lexkite Ops v2.4 (Solo)</span>
+<a class="text-[#4AE3D6] font-extrabold hover:underline" href="#logs">Full Audit Log ↗</a>
+</div>
+</footer>
+</div>
+</main>
+</body>
+</html>
+

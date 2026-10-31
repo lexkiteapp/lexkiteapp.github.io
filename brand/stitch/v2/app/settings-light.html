@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Settings - Bright Day</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#6bd8ce",
+            "surface-dim": "#091518",
+            "secondary": "#ffb4a6",
+            "surface-container-high": "#202c2f",
+            "surface-container": "#162125",
+            "on-primary-container": "#00322e",
+            "tertiary-container": "#ba8b00",
+            "on-surface": "#d8e5e9",
+            "secondary-fixed": "#ffdad3",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed": "#261a00",
+            "surface-variant": "#2b373a",
+            "outline": "#879391",
+            "primary-fixed-dim": "#6bd8ce",
+            "outline-variant": "#3d4947",
+            "surface-container-lowest": "#051013",
+            "primary-container": "#2ba39a",
+            "tertiary": "#f4bf40",
+            "surface-container-low": "#121d20",
+            "on-primary": "#003733",
+            "on-secondary": "#660800",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-container-highest": "#2b373a",
+            "surface-bright": "#2f3b3e",
+            "on-secondary-fixed-variant": "#900f00",
+            "inverse-on-surface": "#263236",
+            "secondary-fixed-dim": "#ffb4a6",
+            "inverse-surface": "#d8e5e9",
+            "on-tertiary-container": "#392900",
+            "primary-fixed": "#88f5ea",
+            "on-primary-fixed-variant": "#00504b",
+            "on-secondary-container": "#ffa493",
+            "on-error": "#690005",
+            "on-background": "#d8e5e9",
+            "primary": "#6bd8ce",
+            "on-tertiary": "#402e00",
+            "on-primary-fixed": "#00201e",
+            "inverse-primary": "#006a64",
+            "secondary-container": "#981201",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-secondary-fixed": "#3f0300",
+            "surface": "#091518",
+            "on-surface-variant": "#bcc9c7",
+            "background": "#091518",
+            "on-tertiary-fixed-variant": "#5b4300"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "4px",
+            "margin": "16px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "gutter": "16px",
+            "space-xl": "32px",
+            "space-sm": "8px"
+          },
+          fontFamily: {
+            "label": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .icon-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Tactile 3D Ledge Components */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+      border-radius: 18px;
+    }
+
+    .tactile-btn {
+      transition: all 0.08s ease-in-out;
+    }
+
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 var(--ledge-color, #D8CFBC) !important;
+    }
+
+    .btn-header-back {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+    }
+
+    .btn-header-back:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+
+    /* Chunky Toggle Switch ON */
+    .tactile-toggle-on {
+      width: 58px;
+      height: 34px;
+      background-color: #2BA39A;
+      border: 2px solid #1F7A75;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 3px 0 #185E5A;
+      border-radius: 9999px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .tactile-toggle-on .knob {
+      width: 26px;
+      height: 26px;
+      background: #FFFFFF;
+      border-radius: 9999px;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      box-shadow: 0 3px 0 #D8CFBC, 0 2px 4px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Chunky Toggle Switch OFF */
+    .tactile-toggle-off {
+      width: 58px;
+      height: 34px;
+      background-color: #EADEC8;
+      border: 2px solid #D8CFBC;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 3px 0 #C4BAA7;
+      border-radius: 9999px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .tactile-toggle-off .knob {
+      width: 26px;
+      height: 26px;
+      background: #FFFFFF;
+      border-radius: 9999px;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      box-shadow: 0 3px 0 #C4BAA7, 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Segmented Control Tactile Pill */
+    .segment-active {
+      background: #FFFDF9;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 3px 0 #1F7A75;
+      color: #0F3D3E;
+      font-weight: 800;
+    }
+
+    .segment-inactive {
+      background: transparent;
+      border: 2px solid transparent;
+      color: #4E6668;
+      font-weight: 700;
+    }
+    
+    .segment-inactive:active {
+      background: #EFE6D5;
+      border-radius: 12px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen bg-[#FFF7EA] text-[#0F3D3E] antialiased selection:bg-[#2BA39A]/20">
+<!-- Mobile Viewport Container (~390px content area, edge-to-edge clean canvas) -->
+<div class="max-w-[412px] mx-auto min-h-screen flex flex-col pb-12">
+<!-- 1. Header (56px) -->
+<header class="sticky top-0 z-40 bg-[#FFF7EA]/95 backdrop-blur-md px-4 h-14 flex items-center justify-between">
+<button aria-label="Back" class="tactile-btn btn-header-back w-10 h-10 rounded-xl flex items-center justify-center text-[#0F3D3E]" style="--ledge-color: #D8CFBC;" type="button">
+<span class="material-symbols-outlined text-[22px]">chevron_left</span>
+</button>
+<h1 class="text-[20px] font-extrabold tracking-tight text-[#0F3D3E]">
+        Settings
+      </h1>
+<button aria-label="Help and Info" class="tactile-btn btn-header-back w-10 h-10 rounded-xl flex items-center justify-center text-[#4E6668]" style="--ledge-color: #D8CFBC;" type="button">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+</header>
+<!-- Main Content Flow -->
+<main class="flex-1 px-4 pt-3 space-y-4">
+<!-- Section 1: Learning & Goals -->
+<section aria-labelledby="section-learning">
+<h2 class="text-[12px] font-extrabold uppercase tracking-wider text-[#4E6668] px-2 mb-1.5" id="section-learning">
+          Learning &amp; Goals
+        </h2>
+<div class="tactile-card divide-y-2 divide-[#F4ECE0] overflow-hidden">
+<!-- App Language -->
+<div class="p-3.5 flex items-center justify-between active:bg-[#FFFBF5] transition-colors cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#E8F6F5] border border-[#2BA39A]/30 flex items-center justify-center text-[#1F7A75]">
+<span class="material-symbols-outlined text-[20px]">language</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">App language</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="px-2.5 py-1 text-[13px] font-extrabold bg-[#FFF9ED] border border-[#EADEC8] text-[#0F3D3E] rounded-lg">
+                English
+              </span>
+<span class="material-symbols-outlined text-[#4E6668] text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Target Exam -->
+<div class="p-3.5 flex items-center justify-between active:bg-[#FFFBF5] transition-colors cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#FFF4E5] border border-[#FFB054]/40 flex items-center justify-center text-[#B53A22]">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">Target exam</span>
+</div>
+<div class="flex items-center space-x-1">
+<span class="px-2.5 py-1 text-[13px] font-extrabold bg-[#FFF9ED] border border-[#EADEC8] text-[#0F3D3E] rounded-lg">
+                IELTS 7.5 • 10m/day
+              </span>
+<span class="material-symbols-outlined text-[#4E6668] text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Appearance -->
+<section aria-labelledby="section-appearance">
+<h2 class="text-[12px] font-extrabold uppercase tracking-wider text-[#4E6668] px-2 mb-1.5" id="section-appearance">
+          Appearance
+        </h2>
+<div class="tactile-card p-3.5 space-y-3">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#F0EBF9] border border-[#B3A0DE]/40 flex items-center justify-center text-[#5E3F99]">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+</div>
+<div>
+<span class="text-[15px] font-bold text-[#0F3D3E] block">Color Theme</span>
+<span class="text-[12px] font-bold text-[#4E6668]">Tactile day brightness</span>
+</div>
+</div>
+<!-- 3-option Segmented Control -->
+<div class="bg-[#F3EAD9] p-1.5 rounded-2xl flex items-center gap-1 border border-[#E5DAC4]">
+<!-- Light (Active) -->
+<button class="flex-1 py-2 px-2 rounded-xl text-center text-[13px] segment-active tactile-btn flex items-center justify-center space-x-1.5" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#2BA39A]">light_mode</span>
+<span>Light</span>
+</button>
+<!-- Dark -->
+<button class="flex-1 py-2 px-2 rounded-xl text-center text-[13px] segment-inactive tactile-btn flex items-center justify-center space-x-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">dark_mode</span>
+<span>Dark</span>
+</button>
+<!-- System -->
+<button class="flex-1 py-2 px-2 rounded-xl text-center text-[13px] segment-inactive tactile-btn flex items-center justify-center space-x-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">settings_brightness</span>
+<span>System</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 3: Notifications -->
+<section aria-labelledby="section-notifications">
+<h2 class="text-[12px] font-extrabold uppercase tracking-wider text-[#4E6668] px-2 mb-1.5" id="section-notifications">
+          Notifications
+        </h2>
+<div class="tactile-card divide-y-2 divide-[#F4ECE0] overflow-hidden">
+<!-- Daily Reminder (Toggle ON) -->
+<div class="p-3.5 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#E8F6F5] border border-[#2BA39A]/30 flex items-center justify-center text-[#1F7A75]">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</div>
+<div>
+<span class="text-[15px] font-bold text-[#0F3D3E] block">Daily reminder</span>
+<span class="text-[12px] font-bold text-[#4E6668]">Streak protection alert</span>
+</div>
+</div>
+<!-- Tactile ON Toggle -->
+<div aria-checked="true" class="tactile-toggle-on" role="switch" tabindex="0">
+<div class="knob"></div>
+</div>
+</div>
+<!-- Reminder Time -->
+<div class="p-3.5 flex items-center justify-between active:bg-[#FFFBF5] transition-colors cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#FFF9ED] border border-[#EADEC8] flex items-center justify-center text-[#0F3D3E]">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">Reminder time</span>
+</div>
+<div class="flex items-center space-x-1">
+<span class="px-2.5 py-1 text-[13px] font-extrabold bg-[#FFF9ED] border border-[#EADEC8] text-[#0F3D3E] rounded-lg">
+                08:30 AM
+              </span>
+<span class="material-symbols-outlined text-[#4E6668] text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Sound & Motion -->
+<section aria-labelledby="section-sound">
+<h2 class="text-[12px] font-extrabold uppercase tracking-wider text-[#4E6668] px-2 mb-1.5" id="section-sound">
+          Sound &amp; Motion
+        </h2>
+<div class="tactile-card divide-y-2 divide-[#F4ECE0] overflow-hidden">
+<!-- Sound Effects (ON) -->
+<div class="p-3.5 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#FFF3E8] border border-[#FFB054]/30 flex items-center justify-center text-[#B53A22]">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">Sound effects</span>
+</div>
+<!-- Tactile ON Toggle -->
+<div aria-checked="true" class="tactile-toggle-on" role="switch" tabindex="0">
+<div class="knob"></div>
+</div>
+</div>
+<!-- Reduce Motion (OFF) -->
+<div class="p-3.5 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#F0F4F4] border border-[#D8CFBC] flex items-center justify-center text-[#4E6668]">
+<span class="material-symbols-outlined text-[20px]">motion_photos_off</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">Reduce motion</span>
+</div>
+<!-- Tactile OFF Toggle -->
+<div aria-checked="false" class="tactile-toggle-off" role="switch" tabindex="0">
+<div class="knob"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Data & Sync -->
+<section aria-labelledby="section-data">
+<h2 class="text-[12px] font-extrabold uppercase tracking-wider text-[#4E6668] px-2 mb-1.5" id="section-data">
+          Data &amp; Sync
+        </h2>
+<div class="tactile-card divide-y-2 divide-[#F4ECE0] overflow-hidden">
+<!-- Export Flashcards -->
+<div class="p-3.5 flex items-center justify-between active:bg-[#FFFBF5] transition-colors cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#E8F6F5] border border-[#2BA39A]/30 flex items-center justify-center text-[#1F7A75]">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">Export flashcards</span>
+</div>
+<button class="tactile-btn px-3 py-1 bg-[#FFFFFF] border-2 border-[#EADEC8] rounded-xl text-[12px] font-extrabold text-[#0F3D3E] shadow-[0_3px_0_#D8CFBC]" style="--ledge-color: #D8CFBC;" type="button">
+              JSON / CSV
+            </button>
+</div>
+<!-- Import Anki -->
+<div class="p-3.5 flex items-center justify-between active:bg-[#FFFBF5] transition-colors cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#FFF9ED] border border-[#EADEC8] flex items-center justify-center text-[#0F3D3E]">
+<span class="material-symbols-outlined text-[20px]">sync_alt</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">Import Anki (.apkg)</span>
+</div>
+<span class="material-symbols-outlined text-[#4E6668] text-[20px]">chevron_right</span>
+</div>
+<!-- Cloud Backup -->
+<div class="p-3.5 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#E8F6F5] border border-[#2BA39A]/30 flex items-center justify-center text-[#1F7A75]">
+<span class="material-symbols-outlined text-[20px]">cloud_done</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">Cloud backup</span>
+</div>
+<div class="flex items-center space-x-1.5 px-2.5 py-1 bg-[#E8F6F5] border border-[#2BA39A]/30 rounded-lg">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span class="text-[12px] font-extrabold text-[#1F7A75]">Synced</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Browser & Add-ons -->
+<section aria-labelledby="section-addons">
+<h2 class="text-[12px] font-extrabold uppercase tracking-wider text-[#4E6668] px-2 mb-1.5" id="section-addons">
+          Browser &amp; Add-ons
+        </h2>
+<div class="tactile-card overflow-hidden">
+<div class="p-3.5 flex items-center justify-between active:bg-[#FFFBF5] transition-colors cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#F0EBF9] border border-[#B3A0DE]/40 flex items-center justify-center text-[#5E3F99]">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+</div>
+<span class="text-[15px] font-bold text-[#0F3D3E]">Chrome extension</span>
+</div>
+<div class="flex items-center space-x-1">
+<span class="px-2.5 py-1 text-[12px] font-extrabold bg-[#E8F6F5] border border-[#2BA39A]/30 text-[#1F7A75] rounded-lg">
+                Connected v2.4
+              </span>
+<span class="material-symbols-outlined text-[#4E6668] text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7: Danger Zone -->
+<section aria-labelledby="section-danger" class="pt-2">
+<div class="bg-[#FFF5F3] border-2 border-[#FBD2CB] shadow-[0_5px_0_#F0BCB3] rounded-[18px] overflow-hidden">
+<div class="p-3.5 flex items-center justify-between active:bg-[#FEEFEA] transition-colors cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-xl bg-[#FEEBE7] border border-[#F8B7AC] flex items-center justify-center text-[#D9381E]">
+<span class="material-symbols-outlined text-[20px]">delete_forever</span>
+</div>
+<div>
+<span class="text-[15px] font-extrabold text-[#D9381E] block">Delete account</span>
+<span class="text-[12px] font-bold text-[#9A301D]">Permanently purge streak and decks</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#D9381E] text-[20px]">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- App Version & Footnote -->
+<div class="text-center pt-4 pb-6 space-y-1">
+<p class="text-[13px] font-extrabold text-[#0F3D3E] tracking-tight">Lexkite v3.12.0 (Build 482)</p>
+<p class="text-[11px] font-bold text-[#4E6668]">Designed for tactile momentum</p>
+</div>
+</main>
+</div>
+<script>
+    // Lightweight tactile toggle interactivity for fidelity demo
+    document.querySelectorAll('[role="switch"]').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const isChecked = toggle.getAttribute('aria-checked') === 'true';
+        if (isChecked) {
+          toggle.setAttribute('aria-checked', 'false');
+          toggle.className = 'tactile-toggle-off';
+        } else {
+          toggle.setAttribute('aria-checked', 'true');
+          toggle.className = 'tactile-toggle-on';
+        }
+      });
+    });
+  </script>
+</body></html>

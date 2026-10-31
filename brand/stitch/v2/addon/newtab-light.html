@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — New Tab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+    }
+
+    /* Tactile 3D Button & Card physics */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 6px 0 0 #D8CFBC;
+      border-radius: 20px;
+    }
+
+    .tactile-input {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: inset 0 3px 0 0 #EFE5D3;
+      border-radius: 16px;
+    }
+
+    .tactile-cta {
+      background: linear-gradient(180deg, #FF6E4A 0%, #F2553B 100%);
+      border: 2px solid #D64229;
+      box-shadow: 0 5px 0 0 #B53A22;
+      transition: all 0.1s ease-out;
+    }
+    .tactile-cta:hover {
+      transform: translateY(1px);
+      box-shadow: 0 4px 0 0 #B53A22;
+    }
+    .tactile-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22;
+    }
+
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      transition: all 0.1s ease-out;
+    }
+    .tactile-btn-secondary:hover {
+      transform: translateY(1px);
+      box-shadow: 0 3px 0 0 #D8CFBC;
+      background: #FDF9F2;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+
+    .tactile-btn-teal {
+      background: #2BA39A;
+      border: 2px solid #1F7A75;
+      box-shadow: 0 4px 0 0 #12514D;
+      transition: all 0.1s ease-out;
+    }
+    .tactile-btn-teal:hover {
+      transform: translateY(1px);
+      box-shadow: 0 3px 0 0 #12514D;
+      background: #25968E;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #12514D;
+    }
+
+    .quiz-option {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 0 #D8CFBC;
+      border-radius: 16px;
+      transition: all 0.12s ease-out;
+    }
+    .quiz-option:hover {
+      border-color: #2BA39A;
+      background: #F4FAF9;
+      transform: translateY(1px);
+      box-shadow: 0 4px 0 0 #D8CFBC;
+    }
+    .quiz-option:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #D8CFBC;
+    }
+
+    .quiz-option.active-pick {
+      background: #EBF8F6;
+      border-color: #2BA39A;
+      box-shadow: 0 4px 0 0 #1F7A75;
+    }
+
+    .kbd-chip {
+      background: #F7EFE1;
+      border: 1px solid #DFD2BC;
+      box-shadow: 0 2px 0 0 #CFC2AC;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#2BA39A] selection:text-white antialiased">
+
+  <!-- Top Simple Status Bar -->
+  <header class="w-full max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <!-- Brand mark -->
+    <a href="#" class="flex items-center gap-2.5 group">
+      <div class="w-10 h-10 rounded-xl bg-[#2BA39A] flex items-center justify-center border-2 border-[#1F7A75] shadow-[0_3px_0_0_#12514D] group-hover:translate-y-0.5 group-hover:shadow-[0_2px_0_0_#12514D] transition-all">
+        <!-- Glossy Kite Icon -->
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L19 12L12 22L5 12Z" fill="#FFF7EA" fill-opacity="0.3"/>
+          <path d="M12 2L19 12L12 22L5 12Z"/>
+          <path d="M12 2V22"/>
+          <path d="M5 12H19"/>
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-[#2BA39A]">New Tab</span>
+      </div>
+    </a>
+
+    <!-- Right Controls: Progress pill + Open Lexkite App CTA -->
+    <div class="flex items-center gap-4">
+      <!-- Streak & Progress Micro Capsule -->
+      <div class="hidden sm:flex items-center gap-3 bg-white px-3.5 py-1.5 rounded-full border-2 border-[#EADEC8] shadow-[0_2px_0_0_#D8CFBC]">
+        <div class="flex items-center gap-1.5 text-xs font-bold text-[#F2553B]">
+          <span>🔥</span>
+          <span>14 days</span>
+        </div>
+        <div class="h-3.5 w-[1.5px] bg-[#EADEC8]"></div>
+        <div class="flex items-center gap-1 text-xs font-bold text-[#2BA39A]">
+          <span>⚡</span>
+          <span>820 XP</span>
+        </div>
+      </div>
+
+      <!-- Small "Open Lexkite" button -->
+      <a href="#" class="tactile-btn-secondary px-4 py-2 rounded-xl text-xs font-bold text-[#0F3D3E] flex items-center gap-2">
+        <span>Open Lexkite</span>
+        <svg class="w-3.5 h-3.5 text-[#2BA39A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Central Calm Stage -->
+  <main class="w-full max-w-2xl mx-auto px-6 py-4 flex flex-col items-center flex-grow justify-center">
+
+    <!-- Search / Quick Lookup Box -->
+    <div class="w-full mb-8">
+      <div class="tactile-input flex items-center px-4 py-2.5 bg-white transition-all focus-within:border-[#2BA39A] focus-within:ring-2 focus-within:ring-[#2BA39A]/20">
+        <svg class="w-5 h-5 text-[#8FA5A6] mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input 
+          type="text" 
+          placeholder="Look up any word..." 
+          class="w-full bg-transparent text-[#0F3D3E] placeholder-[#8FA5A6] font-semibold text-base focus:outline-none"
+        />
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="hidden sm:inline-block kbd-chip text-[11px] font-bold text-[#648083] px-2 py-0.5">/</span>
+          <button class="tactile-btn-teal px-4 py-1.5 rounded-xl text-white text-xs font-extrabold flex items-center gap-1.5">
+            <span>Go</span>
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Word of the Moment Main Card -->
+    <div class="tactile-card w-full p-7 md:p-8 relative overflow-hidden mb-6">
+      <!-- Top header line inside card: Topic tag & Daily Ring status -->
+      <div class="flex items-center justify-between gap-4 mb-6">
+        <!-- Topic tag -->
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF7F6] text-[#1F7A75] border border-[#BCE2DF] text-xs font-extrabold tracking-wide uppercase">
+            <span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+            IELTS Academic • C1
+          </span>
+          <span class="text-xs font-semibold text-[#648083]">Word of the moment</span>
+        </div>
+
+        <!-- Circular Daily Progress Ring with Count -->
+        <div class="flex items-center gap-2.5">
+          <div class="relative w-10 h-10 flex items-center justify-center">
+            <svg class="w-10 h-10 transform -rotate-90" viewBox="0 0 36 36">
+              <!-- Background Ring -->
+              <path
+                class="text-[#F2E7D3]"
+                stroke-width="3.5"
+                stroke="currentColor"
+                fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <!-- Progress Ring (6 of 10 completed = 60%) -->
+              <path
+                class="text-[#2BA39A]"
+                stroke-dasharray="60, 100"
+                stroke-width="3.5"
+                stroke-linecap="round"
+                stroke="currentColor"
+                fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-[11px] font-extrabold text-[#0F3D3E]">6<span class="text-[9px] text-[#7B9496]">/10</span></span>
+            </div>
+          </div>
+          <div class="hidden sm:flex flex-col text-left">
+            <span class="text-[11px] font-extrabold text-[#0F3D3E] leading-tight">Daily Goal</span>
+            <span class="text-[10px] font-semibold text-[#2BA39A]">4 words to go</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Word & Phonetics -->
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-[#0F3D3E] tracking-tight leading-none mb-2">
+            resilient
+          </h1>
+          <div class="flex items-center gap-2.5 text-sm font-semibold text-[#5B7779]">
+            <span class="text-[#2BA39A] font-bold">adj.</span>
+            <span>•</span>
+            <span class="font-mono text-xs bg-[#F7EFE1] px-2 py-0.5 rounded-md border border-[#E8DDCA]">/rɪˈzɪl.jənt/</span>
+          </div>
+        </div>
+
+        <!-- Speaker button (Tactile candy round icon) -->
+        <button 
+          title="Listen to pronunciation"
+          class="w-12 h-12 rounded-2xl bg-[#EAF7F6] border-2 border-[#A8DDD9] shadow-[0_4px_0_0_#8CC8C3] hover:translate-y-0.5 hover:shadow-[0_2px_0_0_#8CC8C3] active:translate-y-1 active:shadow-none flex items-center justify-center text-[#1F7A75] transition-all shrink-0"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Meaning -->
+      <p class="text-base md:text-lg font-bold text-[#0F3D3E] mb-4 leading-relaxed">
+        Able to quickly recover from shock, illness, hardship, or difficulty.
+      </p>
+
+      <!-- One Example -->
+      <div class="p-4 rounded-xl bg-[#FFF9F0] border-2 border-[#F0E4D0] mb-6">
+        <p class="text-sm font-medium text-[#425E60] leading-normal italic">
+          “The local supply network proved remarkably <span class="font-bold text-[#0F3D3E] not-italic underline decoration-[#2BA39A] decoration-2 underline-offset-2">resilient</span> despite severe trade disruptions.”
+        </p>
+      </div>
+
+      <!-- Quick 2-Option Mini Quiz -->
+      <div class="border-t-2 border-[#F3E8D7] pt-5">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#FFB054]"></span>
+            <span class="text-xs font-extrabold uppercase tracking-wide text-[#7C6339]">Quick Check • Pick the closest match</span>
+          </div>
+          <span class="text-[11px] font-bold text-[#2BA39A]">+10 XP</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Option A (Correct pick state) -->
+          <button class="quiz-option p-3.5 text-left flex items-center justify-between group active-pick">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-lg bg-[#2BA39A] text-white text-xs font-extrabold flex items-center justify-center shrink-0">A</span>
+              <span class="text-sm font-extrabold text-[#0F3D3E]">Adaptable & strong</span>
+            </div>
+            <div class="w-5 h-5 rounded-full bg-[#2BA39A] text-white flex items-center justify-center shrink-0">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+          </button>
+
+          <!-- Option B -->
+          <button class="quiz-option p-3.5 text-left flex items-center justify-between group">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-lg bg-[#F0E6D5] text-[#556F71] text-xs font-extrabold flex items-center justify-center shrink-0 group-hover:bg-[#D5EFEB] group-hover:text-[#1F7A75]">B</span>
+              <span class="text-sm font-extrabold text-[#0F3D3E]">Easily damaged</span>
+            </div>
+            <div class="w-5 h-5 rounded-full border-2 border-[#D8CFBC] shrink-0"></div>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Calm Footer Actions / Primary Next word CTA -->
+    <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-4 px-2">
+      <!-- Subtle keyboard hints -->
+      <div class="flex items-center gap-3 text-xs font-semibold text-[#7E9698]">
+        <div class="flex items-center gap-1.5">
+          <span class="kbd-chip px-1.5 py-0.5 text-[10px] font-bold text-[#556F71]">Space</span>
+          <span>Listen</span>
+        </div>
+        <span>•</span>
+        <div class="flex items-center gap-1.5">
+          <span class="kbd-chip px-1.5 py-0.5 text-[10px] font-bold text-[#556F71]">1</span>
+          <span class="kbd-chip px-1.5 py-0.5 text-[10px] font-bold text-[#556F71]">2</span>
+          <span>Answer</span>
+        </div>
+        <span>•</span>
+        <div class="flex items-center gap-1.5">
+          <span class="kbd-chip px-1.5 py-0.5 text-[10px] font-bold text-[#556F71]">N</span>
+          <span>Next</span>
+        </div>
+      </div>
+
+      <!-- Next word tactile CTA -->
+      <button class="tactile-cta px-6 py-2.5 rounded-xl text-white text-xs font-extrabold flex items-center gap-2 shadow-[0_4px_0_0_#B53A22] w-full sm:w-auto justify-center">
+        <span>Got it, next word</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Calm Minimal Bottom Ambient Bar -->
+  <footer class="w-full max-w-5xl mx-auto px-6 py-5 flex items-center justify-between text-xs font-semibold text-[#8FA5A6]">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-[#2FBF71]"></span>
+      <span>Spaced repetition active (FSRS)</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-[#0F3D3E] transition-colors">Dictionary</a>
+      <a href="#" class="hover:text-[#0F3D3E] transition-colors">Study Decks</a>
+      <a href="#" class="hover:text-[#0F3D3E] transition-colors">Shortcut Settings</a>
+    </div>
+  </footer>
+
+</body>
+</html>
+

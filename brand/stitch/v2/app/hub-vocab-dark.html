@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Vocabulary Hub (Tactile Night)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              DEFAULT: '#081518',
+              surface: '#0B171A',
+              card: '#14252B',
+              cardLight: '#1A2C33',
+              border: '#284149',
+              borderLight: '#36505A',
+              ledge: '#0B171A',
+              pill: '#102025',
+            },
+            teal: {
+              DEFAULT: '#2BA39A',
+              bright: '#6BD8CE',
+              deep: '#186A63',
+              soft: 'rgba(43, 163, 154, 0.15)',
+              border: '#2BA39A',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              amber: '#FFB054',
+              ledge: '#B53A22',
+            },
+            ink: {
+              btn: '#150502',
+            },
+            mint: '#C2D7D9',
+            slatemint: '#A9BFC1',
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    /* Dot Grid Ambient Background */
+    body {
+      background-color: #081518;
+      background-image: radial-gradient(#1a2e33 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    /* Tactile 3D Ledge Mechanics */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      box-shadow: 0 6px 0 #B53A22, 0 10px 20px rgba(181, 58, 34, 0.35);
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #B53A22, 0 5px 10px rgba(181, 58, 34, 0.25);
+    }
+
+    .tactile-card {
+      background: #14252B;
+      border: 2px solid #284149;
+      box-shadow: 0 5px 0 #0B171A;
+      border-radius: 20px;
+      transition: all 0.1s ease-in-out;
+    }
+
+    .tactile-tile {
+      background: #14252B;
+      border: 2px solid #284149;
+      box-shadow: 0 5px 0 #0B171A;
+      border-radius: 20px;
+      transition: all 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tactile-tile:hover {
+      border-color: #36505A;
+      background: #182C34;
+    }
+    .tactile-tile:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #0B171A;
+    }
+
+    /* Glossy 3D Circle Badge Styles */
+    .glossy-circle {
+      position: relative;
+      border-radius: 9999px;
+      overflow: hidden;
+      box-shadow: 0 4px 0 rgba(0,0,0,0.35), inset 0 2px 3px rgba(255,255,255,0.4);
+    }
+    .glossy-circle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      right: 6px;
+      height: 40%;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.02) 100%);
+      pointer-events: none;
+    }
+
+    /* Tactile Status Pills */
+    .tactile-pill {
+      background: #102025;
+      border: 2px solid #284149;
+      box-shadow: 0 2px 0 #081518;
+    }
+  </style>
+</head>
+<body class="font-sans min-h-screen text-[#EEF6F7] antialiased flex justify-center selection:bg-teal selection:text-white">
+<!-- Mobile Viewport Container (Matching SCREEN_17 clean structure without external phone bezel) -->
+<div class="w-full max-w-[430px] min-h-screen flex flex-col justify-between pb-24">
+<!-- 1. Fixed Header (56px Lexkite Standard) -->
+<header class="sticky top-0 z-40 bg-[#081518]/90 backdrop-blur-md px-5 h-14 flex items-center justify-between border-b-2 border-night-border/70">
+<!-- App Brand Logo: Tactile Kite Icon + Lexkite Wordmark -->
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-xl bg-night-card border-2 border-night-border shadow-[0_2px_0_#0B171A] flex items-center justify-center p-1">
+<!-- Kite Emblem SVG -->
+<svg class="w-full h-full drop-shadow-sm" fill="none" viewbox="0 0 32 32">
+<path d="M16 3L27 15L16 27L5 15L16 3Z" fill="#2BA39A"></path>
+<path d="M16 3L27 15L16 16L5 15L16 3Z" fill="#6BD8CE"></path>
+<path d="M16 16L27 15L16 27Z" fill="#F2553B"></path>
+<path d="M16 16L5 15L16 27Z" fill="#FFB054"></path>
+<circle cx="16" cy="15" fill="#FFFFFF" r="2"></circle>
+</svg>
+</div>
+<span class="text-xl font-extrabold text-[#EEF6F7] tracking-tight font-sans">Lexkite</span>
+</div>
+<!-- Header Metrics (Streak Flame + XP Pill) -->
+<div class="flex items-center gap-2">
+<!-- Streak Chip -->
+<div class="tactile-pill flex items-center gap-1.5 px-2.5 py-1 rounded-full">
+<svg class="w-4 h-4" fill="none" viewbox="0 0 24 24">
+<path d="M12 2C9.5 6 14 9 12 14C11 12 9 11 9 9C6.5 12 6 15 7.5 18C8.5 20 10.5 21.5 13 21.5C16.5 21.5 19 18.5 19 14.5C19 8.5 14 6 12 2Z" fill="#F2553B"></path>
+<path d="M12 12C11 13.5 12 15 11.5 16.5C11 15.5 10 15 10 14C8.8 15.5 9 17.5 9.8 18.5C10.5 19.5 11.5 20 12.8 20C14.8 20 16 18.5 16 16.5C16 13.5 13.5 13 12 12Z" fill="#FFC94A"></path>
+</svg>
+<span class="text-xs font-extrabold text-[#EEF6F7]">14</span>
+</div>
+<!-- XP Pill -->
+<div class="tactile-pill flex items-center gap-1.5 px-2.5 py-1 rounded-full">
+<svg class="w-4 h-4" fill="none" viewbox="0 0 24 24">
+<path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" fill="#FFB054" stroke="#D98A28" stroke-linejoin="round" stroke-width="1.2"></path>
+</svg>
+<span class="text-xs font-extrabold text-[#EEF6F7]">820 XP</span>
+</div>
+</div>
+</header>
+<!-- Main Content Flow -->
+<main class="px-5 pt-4 pb-4 flex-1 flex flex-col gap-5">
+<!-- Section Title with minimal copy -->
+<div class="flex items-center justify-between px-1">
+<div>
+<h1 class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">Vocabulary Hub</h1>
+<p class="text-xs font-bold text-slatemint mt-0.5 uppercase tracking-wider">IELTS • BAND 7.5 TARGET</p>
+</div>
+<span class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-teal-soft text-teal-bright border border-teal-border/40">248 saved</span>
+</div>
+<!-- 2. Big "Due Today" Review Card -->
+<div class="tactile-card p-5 relative overflow-hidden bg-gradient-to-b from-[#16272E] to-[#122126]">
+<!-- Subtle Top Accent Indicator -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-teal to-coral"></div>
+<div class="flex items-center justify-between mb-4">
+<!-- Circular Counter Hero -->
+<div class="flex items-center gap-3.5">
+<div class="w-14 h-14 rounded-2xl bg-[#133036] border-2 border-teal-bright/60 flex items-center justify-center relative shadow-[0_3px_0_#091D21]">
+<span class="text-2xl font-extrabold text-teal-bright">12</span>
+<!-- Pulsing indicator -->
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-coral rounded-full border-2 border-[#14252B]"></span>
+</div>
+<div>
+<div class="text-lg font-extrabold text-[#EEF6F7] leading-tight">Due for Review</div>
+<div class="text-xs font-bold text-slatemint">Spaced recall ready now</div>
+</div>
+</div>
+<!-- Status badge -->
+<div class="px-2.5 py-1 rounded-lg bg-[#2E2412] border border-[#6B4B17] text-[#FFC94A] text-[11px] font-extrabold uppercase tracking-wide">
+            ~4 MINS
+          </div>
+</div>
+<!-- Mini Progress / Breakdown Chips -->
+<div class="flex items-center gap-2 mb-4">
+<div class="flex-1 py-1.5 px-2.5 rounded-xl bg-night-surface border border-night-border flex items-center justify-between text-xs">
+<span class="font-bold text-slatemint text-[11px]">Critical</span>
+<span class="font-extrabold text-coral">4 words</span>
+</div>
+<div class="flex-1 py-1.5 px-2.5 rounded-xl bg-night-surface border border-night-border flex items-center justify-between text-xs">
+<span class="font-bold text-slatemint text-[11px]">Familiar</span>
+<span class="font-extrabold text-teal-bright">8 words</span>
+</div>
+</div>
+<!-- Tactile Orange Review Button (Labels strictly in deep brown-black ink) -->
+<button class="tactile-btn-primary w-full h-13 py-3.5 rounded-2xl flex items-center justify-center gap-2 cursor-pointer group">
+<svg class="w-5 h-5 text-ink-btn fill-current transition-transform group-hover:scale-110" viewbox="0 0 24 24">
+<path d="M8 5V19L19 12L8 5Z"></path>
+</svg>
+<span class="text-base font-extrabold text-ink-btn tracking-tight font-sans">Start Review</span>
+</button>
+</div>
+<!-- 3. Grid of Chunky Illustrated Tiles (7 Specific Sections) -->
+<div>
+<div class="text-xs font-extrabold text-slatemint uppercase tracking-wider px-1 mb-2.5">EXPLORE LIBRARY</div>
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Tile 1: Dictionary -->
+<button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+<div class="flex items-start justify-between">
+<!-- Glossy Teal Icon -->
+<div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#40C9BF] to-[#1E8A82] border-2 border-[#19756E] flex items-center justify-center shadow-[0_3px_0_#0D3B38]">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="7"></circle>
+<path d="M21 21L16.5 16.5"></path>
+<path d="M11 8v6M8 11h6" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Count Chip -->
+<span class="px-2 py-0.5 rounded-full bg-night-surface border border-night-border text-[11px] font-extrabold text-mint">40k+</span>
+</div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] group-hover:text-teal-bright transition-colors leading-tight">Dictionary</div>
+<div class="text-[11px] font-bold text-slatemint mt-0.5">Quick search &amp; IPA</div>
+</div>
+</button>
+<!-- Tile 2: My deck -->
+<button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+<div class="flex items-start justify-between">
+<!-- Glossy Coral/Gold Icon -->
+<div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#FFA756] to-[#F2553B] border-2 border-[#C93B23] flex items-center justify-center shadow-[0_3px_0_#69180B]">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<rect height="15" rx="2.5" width="14" x="3" y="6"></rect>
+<path d="M7 3h12a2 2 0 0 1 2 2v12"></path>
+<path d="M7 11h6M7 15h4"></path>
+</svg>
+</div>
+<!-- Count Chip -->
+<span class="px-2 py-0.5 rounded-full bg-night-surface border border-night-border text-[11px] font-extrabold text-mint">248</span>
+</div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] group-hover:text-teal-bright transition-colors leading-tight">My deck</div>
+<div class="text-[11px] font-bold text-slatemint mt-0.5">Personal collection</div>
+</div>
+</button>
+<!-- Tile 3: Word sets -->
+<button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+<div class="flex items-start justify-between">
+<!-- Glossy Emerald Icon -->
+<div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#51DF92] to-[#24A65D] border-2 border-[#1E8A4C] flex items-center justify-center shadow-[0_3px_0_#104727]">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<rect height="7" rx="1.5" width="7" x="3" y="3"></rect>
+<rect height="7" rx="1.5" width="7" x="14" y="3"></rect>
+<rect height="7" rx="1.5" width="7" x="3" y="14"></rect>
+<rect height="7" rx="1.5" width="7" x="14" y="14"></rect>
+</svg>
+</div>
+<!-- Count Chip -->
+<span class="px-2 py-0.5 rounded-full bg-night-surface border border-night-border text-[11px] font-extrabold text-mint">32 sets</span>
+</div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] group-hover:text-teal-bright transition-colors leading-tight">Word sets</div>
+<div class="text-[11px] font-bold text-slatemint mt-0.5">Topic bundles</div>
+</div>
+</button>
+<!-- Tile 4: Phrases -->
+<button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+<div class="flex items-start justify-between">
+<!-- Glossy Sky/Cyan Icon -->
+<div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#55D6F0] to-[#1FA0B9] border-2 border-[#1A8296] flex items-center justify-center shadow-[0_3px_0_#0D444F]">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+<path d="M8 9h8M8 13h5"></path>
+</svg>
+</div>
+<!-- Count Chip -->
+<span class="px-2 py-0.5 rounded-full bg-night-surface border border-night-border text-[11px] font-extrabold text-mint">180</span>
+</div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] group-hover:text-teal-bright transition-colors leading-tight">Phrases</div>
+<div class="text-[11px] font-bold text-slatemint mt-0.5">Native idioms</div>
+</div>
+</button>
+<!-- Tile 5: Verbs -->
+<button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+<div class="flex items-start justify-between">
+<!-- Glossy Amber Icon -->
+<div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#FFD15C] to-[#F59E0B] border-2 border-[#D97706] flex items-center justify-center shadow-[0_3px_0_#753B04]">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+</div>
+<!-- Count Chip -->
+<span class="px-2 py-0.5 rounded-full bg-night-surface border border-night-border text-[11px] font-extrabold text-mint">120</span>
+</div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] group-hover:text-teal-bright transition-colors leading-tight">Verbs</div>
+<div class="text-[11px] font-bold text-slatemint mt-0.5">3 Forms &amp; patterns</div>
+</div>
+</button>
+<!-- Tile 6: Collocations -->
+<button class="tactile-tile p-4 text-left flex flex-col justify-between h-[132px] group cursor-pointer">
+<div class="flex items-start justify-between">
+<!-- Glossy Purple/Violet Icon -->
+<div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#B886F8] to-[#8042DF] border-2 border-[#692CC4] flex items-center justify-center shadow-[0_3px_0_#3B1473]">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+</div>
+<!-- Count Chip -->
+<span class="px-2 py-0.5 rounded-full bg-night-surface border border-night-border text-[11px] font-extrabold text-mint">340</span>
+</div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] group-hover:text-teal-bright transition-colors leading-tight">Collocations</div>
+<div class="text-[11px] font-bold text-slatemint mt-0.5">Band 7.5+ pairings</div>
+</div>
+</button>
+<!-- Tile 7: Word games (Span 2 columns for a playful horizontal banner finish) -->
+<button class="tactile-tile col-span-2 p-4 text-left flex items-center justify-between group cursor-pointer bg-gradient-to-r from-[#14252B] via-[#14252B] to-[#173038]">
+<div class="flex items-center gap-3.5">
+<!-- Glossy Game Trophy/Dice Icon -->
+<div class="w-12 h-12 glossy-circle bg-gradient-to-b from-[#FF7E62] to-[#E03A1E] border-2 border-[#B82B14] flex items-center justify-center shadow-[0_3px_0_#611204] shrink-0">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" viewbox="0 0 24 24">
+<rect height="16" rx="3" width="16" x="4" y="4"></rect>
+<circle cx="8.5" cy="8.5" fill="currentColor" r="1.5"></circle>
+<circle cx="15.5" cy="8.5" fill="currentColor" r="1.5"></circle>
+<circle cx="12" cy="12" fill="currentColor" r="1.5"></circle>
+<circle cx="8.5" cy="15.5" fill="currentColor" r="1.5"></circle>
+<circle cx="15.5" cy="15.5" fill="currentColor" r="1.5"></circle>
+</svg>
+</div>
+<div>
+<div class="text-base font-extrabold text-[#EEF6F7] group-hover:text-teal-bright transition-colors leading-tight">Word games</div>
+<div class="text-[11px] font-bold text-slatemint mt-0.5">Speed Match • Fill Quiz</div>
+</div>
+</div>
+<!-- Count Chip + Arrow -->
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-teal-soft border border-teal-border/40 text-[11px] font-extrabold text-teal-bright">4 modes</span>
+<svg class="w-5 h-5 text-slatemint group-hover:translate-x-1 transition-transform fill-current" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</button>
+</div>
+</div>
+</main>
+<!-- 4. Fixed Bottom Tab Bar (5 Tabs, Review active with 2px teal border & glowing tint) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#0B171A] border-t-2 border-[#1F353D] shadow-[0_-4px_16px_rgba(0,0,0,0.5)]">
+<div class="max-w-[430px] mx-auto h-16 px-4 flex items-center justify-around">
+<!-- Tab 1: Learn -->
+<a class="flex flex-col items-center justify-center gap-1 text-slatemint hover:text-[#EEF6F7] transition-colors w-16 py-1" href="#learn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+</svg>
+<span class="text-[10px] font-extrabold">Learn</span>
+</a>
+<!-- Tab 2: Review (Active Tab with 2px teal border and glowing teal tint) -->
+<a class="flex flex-col items-center justify-center gap-1 w-16 py-1 rounded-xl bg-teal-soft border-2 border-teal text-teal-bright shadow-[0_0_12px_rgba(43,163,154,0.25)]" href="#review">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24">
+<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+</svg>
+<span class="text-[10px] font-extrabold text-teal-bright">Review</span>
+</a>
+<!-- Tab 3: Practice -->
+<a class="flex flex-col items-center justify-center gap-1 text-slatemint hover:text-[#EEF6F7] transition-colors w-16 py-1" href="#practice">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+<span class="text-[10px] font-extrabold">Practice</span>
+</a>
+<!-- Tab 4: Leagues -->
+<a class="flex flex-col items-center justify-center gap-1 text-slatemint hover:text-[#EEF6F7] transition-colors w-16 py-1" href="#leagues">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"></path>
+<path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"></path>
+<path d="M4 22h16"></path>
+<path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+<path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+</svg>
+<span class="text-[10px] font-extrabold">Leagues</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center gap-1 text-slatemint hover:text-[#EEF6F7] transition-colors w-16 py-1" href="#me">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+<span class="text-[10px] font-extrabold">Me</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

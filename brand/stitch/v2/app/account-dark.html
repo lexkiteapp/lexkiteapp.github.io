@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Save your progress (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'ink-primary': '#0F3D3E',
+            'ink-secondary': '#335557',
+            'ink-muted': '#4E6668',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'teal-ledge': '#175E5B',
+            'coral-brand': '#F2553B',
+            'amber-brand': '#FFB054',
+            'amber-dark': '#B53A22',
+            'card-border': '#E8DEC8',
+            'card-ledge': '#D8CFBC',
+            'button-ink': '#1E0B05',
+          },
+          boxShadow: {
+            'tactile-card': '0 6px 0 0 #D8CFBC, 0 12px 24px -8px rgba(15, 61, 62, 0.08)',
+            'tactile-btn': '0 5px 0 0 #D8CFBC',
+            'tactile-coral': '0 6px 0 0 #B53A22, 0 10px 16px -4px rgba(242, 85, 59, 0.25)',
+            'tactile-teal': '0 5px 0 0 #175E5B',
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .pressable-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #D8CFBC !important;
+    }
+    .pressable-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22 !important;
+    }
+    .pressable-dark:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #142223 !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 sm:p-6 md:p-8" style="background-color: #081518; color: #EEF6F7;">
+<!-- Minimal Dimmed Backdrop Simulating Context Behind Sheet -->
+<main class="w-full max-w-md mx-auto flex-1 flex flex-col justify-center gap-6 py-4">
+<!-- Top Handle / Context Pill -->
+<div class="flex items-center justify-between px-2"><div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#112025] border-2 border-[#2D4750] text-[#EEF6F7] font-bold text-xs shadow-sm"><span class="w-2.5 h-2.5 rounded-full bg-teal-brand animate-pulse"></span><span>Account &amp; Cloud Sync</span></div><div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#112025] border border-[#2D4750] text-[#EEF6F7] text-xs font-bold"><span class="material-symbols-rounded text-base text-[#FFB054]">local_fire_department</span><span class="text-[#FFB054]">14-day streak safe</span></div></div>
+<!-- PRIMARY BOTTOM SHEET: SIGNED-OUT STATE -->
+<section class="bg-[#111F24] rounded-[28px] border-2 border-[#2D4750] shadow-[0_6px_0_0_#0A1317,0_12px_28px_rgba(0,0,0,0.4)] p-6 sm:p-7 flex flex-col items-center text-center relative overflow-hidden"><div class="w-12 h-1.5 bg-[#2D4750] rounded-full mb-6 mx-auto opacity-80"></div><div class="relative w-28 h-28 mb-5 flex items-center justify-center"><div class="absolute inset-0 bg-[#2BA39A]/15 rounded-full blur-xl"></div><svg class="w-28 h-28 drop-shadow-md relative z-10" fill="none" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="100" fill="#0A1519" fill-opacity="0.8" rx="38" ry="8"></ellipse><path d="M38 88C22.5 88 10 75.5 10 60C10 45.2 21.5 33.1 36 32.1C41.2 19.8 53.5 11 68 11C86.8 11 102 26.2 102 45C106.6 45 110 48.4 110 53C110 57.6 106.6 61 102 61" stroke="#1E353D" stroke-linecap="round" stroke-width="8"></path><g filter="url(#cloud-ledge-dark)"><path d="M36 84H88C99.0457 84 108 75.0457 108 64C108 53.5415 99.9723 44.9602 89.6015 44.0886C86.9734 27.2755 72.4831 14 55 14C36.7588 14 21.7371 28.2198 20.1478 46.1668C13.2505 48.3308 8 54.8021 8 62.5C8 74.3741 17.6259 84 29.5 84H36Z" fill="#16282F"></path><path d="M36 80H88C96.8366 80 104 72.8366 104 64C104 55.4533 97.2882 48.4729 88.8252 48.0384C86.2057 32.1476 72.4344 20 56 20C38.9329 20 25.0116 33.3768 24.0415 50.2185C17.7663 51.9868 13 57.7719 13 64.5C13 73.0604 19.9396 80 28.5 80H36Z" fill="#1B333B"></path></g><g transform="translate(44, 40)"><path d="M16 2L30 18L16 34L2 18L16 2Z" fill="#B53A22"></path><path d="M16 0L30 16L16 30L2 16L16 0Z" fill="url(#coral-gradient-dark)"></path><path d="M16 0L30 16L16 16L16 0Z" fill="#FFA947"></path><path d="M16 0L2 16L16 16L16 0Z" fill="#FF7B59"></path><path d="M16 16L30 16L16 30L16 16Z" fill="#2BA39A"></path><path d="M16 16L2 16L16 30L16 16Z" fill="#1F7A75"></path><circle cx="16" cy="16" fill="#EEF6F7" r="3"></circle></g><circle cx="84" cy="32" fill="#0D1D22" opacity="0.6" r="11"></circle><circle cx="84" cy="30" fill="#2BA39A" r="11"></circle><path d="M81 27L84 24L87 27M87 33L84 36L81 33" stroke="#091518" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path><defs><lineargradient gradientunits="userSpaceOnUse" id="coral-gradient-dark" x1="2" x2="30" y1="0" y2="30"><stop stop-color="#FF9E4A"></stop><stop offset="1" stop-color="#F2553B"></stop></lineargradient><filter color-interpolation-filters="sRGB" filterunits="userSpaceOnUse" height="76" id="cloud-ledge-dark" width="108" x="4" y="14"><fedropshadow dx="0" dy="5" flood-color="#0D1C21" stddeviation="0"></fedropshadow></filter></defs></svg><span class="absolute -top-1 left-4 text-[#FFB054] font-extrabold text-lg select-none">✦</span><span class="absolute top-2 right-2 text-teal-brand font-extrabold text-sm select-none">✦</span></div><h1 class="text-2xl sm:text-[32px] font-extrabold text-[#EEF6F7] tracking-tight mb-2 leading-tight">Save your progress</h1><p class="text-[#A9BFC1] text-sm sm:text-[15px] font-medium max-w-xs mb-6">Sync your 14–day streak, saved exam decks, and band score across every device.</p><div class="w-full flex flex-col gap-3.5 mb-5"><button class="pressable-primary w-full h-14 rounded-2xl bg-gradient-to-r from-amber-brand to-coral-brand border-2 border-[#D94229] shadow-tactile-coral flex items-center justify-center gap-3 transition-all duration-100 cursor-pointer" type="button"><div class="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-sm"><svg class="w-4 h-4" viewbox="0 0 24 24"><path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z" fill="#4285F4"></path><path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24Z" fill="#34A853"></path><path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15Z" fill="#FBBC05"></path><path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98Z" fill="#EA4335"></path></svg></div><span class="text-[#1A0702] font-extrabold text-base tracking-tight">Continue with Google</span></button><button class="pressable-btn w-full h-14 rounded-2xl bg-[#182C34] border-2 border-[#2E4B56] shadow-[0_5px_0_0_#0C181D] hover:bg-[#1E3741] flex items-center justify-center gap-3 transition-all duration-100 cursor-pointer" type="button"><svg class="w-5 h-5 text-[#EEF6F7] fill-current" viewbox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.96-14.31-7.85-11.89-13.62-25.07-17.3-39.54-3.69-14.47-5.53-27.91-5.53-40.33 0-16.14 4.04-29.62 12.11-40.45 8.08-10.83 18.25-16.38 30.54-16.65 4.93 0 10.37 1.25 16.33 3.76 5.96 2.5 9.77 3.82 11.44 3.94 1.86-.12 5.9-1.5 12.11-4.12 6.22-2.63 11.77-3.87 16.66-3.74 12.74.63 22.95 5.22 30.63 13.78-11.03 6.72-16.42 16.03-16.17 27.92.25 9.77 4.1 17.89 11.56 24.37 7.46 6.47 16.29 10.15 26.5 11.04-2.31 7.15-5.32 14.54-9.05 22.17zM119.22 33.02c0-7.73 2.76-15.01 8.28-21.84 5.53-6.83 12.28-10.89 20.26-12.18.24 1.13.36 2.14.36 3.01 0 7.73-2.92 15.17-8.77 22.3-5.85 7.14-12.69 11.09-20.53 11.85-.36-1.12-.5-2.12-.5-3.14z"></path></svg><span class="text-[#EEF6F7] font-bold text-base tracking-tight">Continue with Apple</span></button></div><div class="flex items-center justify-center gap-1.5 text-[#A9BFC1] text-xs font-semibold"><span class="material-symbols-rounded text-sm text-teal-brand">lock</span><span>Zero tracking • 100% free forever • No passwords</span></div></section>
+<!-- SECOND COMPACT CARD: SIGNED-IN STATE PREVIEW -->
+<section class="bg-[#13242A] rounded-2xl border-2 border-[#2B454E] shadow-[0_5px_0_0_#0A1317] p-4 sm:p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><span class="text-[11px] font-extrabold uppercase tracking-wider text-[#8EA6A9]">Signed-in Account</span><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#183935] border border-[#2BA39A]/40 text-[#2BA39A] text-xs font-extrabold"><span class="material-symbols-rounded text-sm text-[#2BA39A]">check_circle</span><span>Synced just now</span></span></div><div class="flex items-center justify-between gap-3 pt-1"><div class="flex items-center gap-3 min-w-0"><div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-brand to-teal-deep border-2 border-[#196B66] shadow-[0_3px_0_0_#0C181D] flex items-center justify-center shrink-0 text-white font-extrabold text-lg">K</div><div class="min-w-0"><div class="flex items-center gap-1.5"><span class="font-extrabold text-[#EEF6F7] text-sm sm:text-base truncate">Kai Liang</span><span class="px-1.5 py-0.5 rounded bg-[#3A2912] border border-[#6E4E20] text-[#FFB054] font-extrabold text-[10px] uppercase">Band 7.5</span></div><p class="text-xs text-[#A9BFC1] font-semibold truncate">kai.liang@lexkite.org</p></div></div><button class="pressable-btn shrink-0 h-10 px-4 rounded-xl bg-[#1A2E36] border-2 border-[#32525E] shadow-[0_4px_0_0_#0E1A1F] hover:bg-red-950/40 hover:border-red-500/50 hover:text-coral-brand text-[#EEF6F7] text-xs font-extrabold tracking-tight transition-all duration-100 cursor-pointer flex items-center gap-1.5" type="button"><span class="material-symbols-rounded text-base text-[#8EA6A9]">logout</span><span>Sign out</span></button></div></section>
+<!-- Bottom Reassurance Strip -->
+<div class="text-center text-xs text-[#8EA6A9] font-semibold flex items-center justify-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-brand"></span><span>Cambridge &amp; ETS syllabus auto-saved locally in offline cache</span></div>
+</main>
+</body>
+</html>
+

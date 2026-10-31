@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin • System Quotas - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* 3D Tactile Extruded Elements */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+      border-radius: 20px;
+    }
+    .tactile-card-warning {
+      background: #FFFFFF;
+      border: 2px solid #FCD9BD;
+      box-shadow: 0 5px 0 #EBC2A0;
+      border-radius: 20px;
+    }
+    .tactile-card-danger {
+      background: #FFFFFF;
+      border: 2px solid #FBC7C0;
+      box-shadow: 0 5px 0 #E8A8A0;
+      border-radius: 20px;
+    }
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF6F59 0%, #F2553B 100%);
+      color: #FFFFFF;
+      box-shadow: 0 5px 0 #B53A22;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      color: #0F3D3E;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+    .tactile-pill-btn {
+      background: #FFFFFF;
+      border: 1.5px solid #EADEC8;
+      box-shadow: 0 3px 0 #D8CFBC;
+      transition: all 0.08s ease;
+    }
+    .tactile-pill-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+    .track-shadow {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.07);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFF7EA] text-[#0F3D3E] selection:bg-[#2BA39A]/20">
+<!-- Desktop Admin Container (1200px Max) -->
+<div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col min-h-screen">
+<!-- Top Admin Header -->
+<header class="tactile-card px-5 py-3.5 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<!-- Origami Kite Icon Shield -->
+<div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#2BA39A] to-[#1E7F78] flex items-center justify-center text-white shadow-[0_3px_0_#145C57]">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">kitesurfing</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xl font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-[#FAF3E6] border border-[#EADEC8] text-[#4E6668]">Ops Kit</span>
+</div>
+<p class="text-xs font-bold text-[#4E6668] tracking-tight">Admin • System Quotas &amp; Limits</p>
+</div>
+</div>
+<!-- Sync Status & Action Bar -->
+<div class="flex items-center flex-wrap gap-3">
+<!-- Live Status Pill -->
+<div class="flex items-center gap-2 bg-[#E8F8F0] border-2 border-[#BDEBD5] text-[#136C44] px-3.5 py-1.5 rounded-full text-xs font-bold shadow-[0_2px_0_#A1D8BE]">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2FBF71] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#2FBF71]"></span>
+</span>
+<span>Healthy • Resets in 4h 18m</span>
+</div>
+<!-- Quick Refresh -->
+<button class="tactile-btn-secondary px-3.5 py-2 rounded-xl text-xs font-extrabold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">refresh</span>
+<span>Sync Now</span>
+</button>
+<!-- Primary Switch to App -->
+<button class="tactile-btn-primary px-4 py-2 rounded-xl text-xs font-extrabold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">launch</span>
+<span>Open App</span>
+</button>
+</div>
+</header>
+<!-- Quota Metrics Grid (5 Chunky Cards) -->
+<main class="flex-1 space-y-8">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2BA39A] text-xl">speed</span>
+<h2 class="text-lg font-extrabold tracking-tight text-[#0F3D3E]">Daily Free Tier Quotas</h2>
+</div>
+<span class="text-xs font-bold text-[#4E6668]">Hard-capped at midnight UTC</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- 1. AI Tokens Card (Warning State) -->
+<div class="tactile-card-warning p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-[#FFF1E0] border border-[#FFD9B3] text-[#F28C38] flex items-center justify-center shadow-[0_2px_0_#F0C496]">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+</div>
+<div>
+<h3 class="font-extrabold text-sm text-[#0F3D3E]">AI Pool (LLM Tokens)</h3>
+<p class="text-[11px] font-bold text-[#4E6668]">Grammar &amp; Vocabulary Drills</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg text-xs font-black bg-[#FFF1E0] text-[#D46B18] border border-[#FFCE9E]">84%</span>
+</div>
+<!-- Metrics -->
+<div class="my-4">
+<div class="flex items-baseline gap-1.5">
+<span class="text-2xl font-black text-[#0F3D3E]">842k</span>
+<span class="text-sm font-bold text-[#4E6668]">/ 1.0M tokens</span>
+</div>
+<div class="mt-2.5 w-full bg-[#F3EAD9] rounded-full h-3.5 track-shadow p-0.5">
+<div class="bg-gradient-to-r from-[#FFB054] to-[#F28C38] h-full rounded-full transition-all duration-500 shadow-[0_1px_2px_rgba(0,0,0,0.12)]" style="width: 84%"></div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-[#F7EAD7] flex items-center justify-between text-[11px] font-bold text-[#4E6668]">
+<span class="flex items-center gap-1 text-[#C46112]">
+<span class="material-symbols-outlined text-sm">schedule</span> Resets 00:00 UTC
+              </span>
+<span>158k headroom</span>
+</div>
+</div>
+<!-- 2. Database Operations (Safe State) -->
+<div class="tactile-card p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-[#E8F8F6] border border-[#BAEAE4] text-[#2BA39A] flex items-center justify-center shadow-[0_2px_0_#97DBD1]">
+<span class="material-symbols-outlined text-xl">database</span>
+</div>
+<div>
+<h3 class="font-extrabold text-sm text-[#0F3D3E]">Database Operations</h3>
+<p class="text-[11px] font-bold text-[#4E6668]">Spaced Repetition State</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg text-xs font-black bg-[#E8F8F6] text-[#1E7F78] border border-[#B1E7E0]">59%</span>
+</div>
+<div class="my-4">
+<div class="flex items-baseline gap-1.5">
+<span class="text-2xl font-black text-[#0F3D3E]">1.18M</span>
+<span class="text-sm font-bold text-[#4E6668]">/ 2.0M reads &amp; writes</span>
+</div>
+<div class="mt-2.5 w-full bg-[#EFE7D8] rounded-full h-3.5 track-shadow p-0.5">
+<div class="bg-[#2BA39A] h-full rounded-full transition-all duration-500 shadow-[0_1px_2px_rgba(0,0,0,0.1)]" style="width: 59%"></div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-[#EFE5D4] flex items-center justify-between text-[11px] font-bold text-[#4E6668]">
+<span class="flex items-center gap-1 text-[#1E7F78]">
+<span class="material-symbols-outlined text-sm">check_circle</span> Healthy Buffer
+              </span>
+<span>820k ops remaining</span>
+</div>
+</div>
+<!-- 3. Image Generations (Warning alert state) -->
+<div class="tactile-card-warning p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-[#FFF0E6] border border-[#FFD0B3] text-[#F2553B] flex items-center justify-center shadow-[0_2px_0_#F7BBA0]">
+<span class="material-symbols-outlined text-xl">photo_library</span>
+</div>
+<div>
+<h3 class="font-extrabold text-sm text-[#0F3D3E]">Image Generations</h3>
+<p class="text-[11px] font-bold text-[#4E6668]">Tactile Word Visuals</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg text-xs font-black bg-[#FFE5DF] text-[#D8381E] border border-[#FFBCB0]">96%</span>
+</div>
+<div class="my-4">
+<div class="flex items-baseline gap-1.5">
+<span class="text-2xl font-black text-[#0F3D3E]">48</span>
+<span class="text-sm font-bold text-[#4E6668]">/ 50 images</span>
+</div>
+<div class="mt-2.5 w-full bg-[#F3EAD9] rounded-full h-3.5 track-shadow p-0.5">
+<div class="bg-[#F28C38] h-full rounded-full transition-all duration-500" style="width: 96%"></div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-[#F7EAD7] flex items-center justify-between text-[11px] font-bold">
+<span class="flex items-center gap-1 text-[#C44310]">
+<span class="material-symbols-outlined text-sm">warning</span> 2 left before throttle
+              </span>
+<span class="text-[#4E6668]">Resets 00:00 UTC</span>
+</div>
+</div>
+<!-- 4. Video Renders (Danger Limit Reached) -->
+<div class="tactile-card-danger p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-[#FFEBE7] border border-[#FFBEB2] text-[#F2553B] flex items-center justify-center shadow-[0_2px_0_#EAA599]">
+<span class="material-symbols-outlined text-xl">video_settings</span>
+</div>
+<div>
+<h3 class="font-extrabold text-sm text-[#0F3D3E]">Video Renders</h3>
+<p class="text-[11px] font-bold text-[#4E6668]">Pronunciation Clips</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg text-xs font-black bg-[#F2553B] text-white shadow-[0_2px_0_#B53A22]">100%</span>
+</div>
+<div class="my-4">
+<div class="flex items-baseline gap-1.5">
+<span class="text-2xl font-black text-[#F2553B]">12</span>
+<span class="text-sm font-bold text-[#4E6668]">/ 12 renders</span>
+</div>
+<div class="mt-2.5 w-full bg-[#F3EAD9] rounded-full h-3.5 track-shadow p-0.5">
+<div class="bg-[#F2553B] h-full rounded-full transition-all duration-500" style="width: 100%"></div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-[#FCE1DC] flex items-center justify-between text-[11px] font-bold">
+<span class="flex items-center gap-1 text-[#D8381E]">
+<span class="material-symbols-outlined text-sm">block</span> Quota Reached
+              </span>
+<span class="text-[#4E6668]">Cached player active</span>
+</div>
+</div>
+<!-- 5. Email Dispatches (Healthy Low State) -->
+<div class="tactile-card p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-[#E8F8F6] border border-[#BAEAE4] text-[#2BA39A] flex items-center justify-center shadow-[0_2px_0_#97DBD1]">
+<span class="material-symbols-outlined text-xl">outgoing_mail</span>
+</div>
+<div>
+<h3 class="font-extrabold text-sm text-[#0F3D3E]">Email Dispatches</h3>
+<p class="text-[11px] font-bold text-[#4E6668]">Daily Streak Reminders</p>
+</div>
+</div>
+<span class="px-2 py-1 rounded-lg text-xs font-black bg-[#E8F8F6] text-[#1E7F78] border border-[#B1E7E0]">28%</span>
+</div>
+<div class="my-4">
+<div class="flex items-baseline gap-1.5">
+<span class="text-2xl font-black text-[#0F3D3E]">1,420</span>
+<span class="text-sm font-bold text-[#4E6668]">/ 5,000 sent</span>
+</div>
+<div class="mt-2.5 w-full bg-[#EFE7D8] rounded-full h-3.5 track-shadow p-0.5">
+<div class="bg-[#2BA39A] h-full rounded-full transition-all duration-500" style="width: 28%"></div>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-[#EFE5D4] flex items-center justify-between text-[11px] font-bold text-[#4E6668]">
+<span class="flex items-center gap-1 text-[#1E7F78]">
+<span class="material-symbols-outlined text-sm">done_all</span> Optimal Rate
+              </span>
+<span>3,580 available</span>
+</div>
+</div>
+<!-- Extra Quick Founder Note Card -->
+<div class="tactile-card p-5 bg-gradient-to-br from-[#FFFDF9] to-[#FAF3E6] border-dashed border-[#DECFB6] flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-[#0F3D3E] font-extrabold text-sm mb-2">
+<span class="material-symbols-outlined text-[#F28C38]">bolt</span>
+<span>Founder Quota Guard</span>
+</div>
+<p class="text-xs font-bold text-[#4E6668] leading-relaxed">
+                Zero surprise cloud bills. All APIs are hard capped with graceful fallback caching for learners on web &amp; mobile.
+              </p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-[11px] font-black uppercase text-[#2BA39A]">Monthly Cost: $0.00</span>
+<button class="tactile-pill-btn px-2.5 py-1 rounded-lg text-[11px] font-extrabold text-[#0F3D3E]">Tier Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Bento Grid: Circuit Breaker & 7-Day Usage History -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Circuit Breaker & Safety Control (5 Columns) -->
+<section class="lg:col-span-5 tactile-card p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-[#EFE5D4]">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#E8F8F6] border border-[#BDEBD5] text-[#2BA39A] flex items-center justify-center shadow-[0_2px_0_#9CE0CA]">
+<span class="material-symbols-outlined text-lg">shield</span>
+</div>
+<div>
+<h3 class="font-extrabold text-sm text-[#0F3D3E]">Circuit Breaker</h3>
+<p class="text-[11px] font-bold text-[#4E6668]">Free-tier hard protection</p>
+</div>
+</div>
+<span class="px-2 py-0.5 text-[10px] font-extrabold bg-[#E8F8F0] text-[#136C44] rounded border border-[#BDEBD5]">ARMED</span>
+</div>
+<!-- Tactile 3D Physical Toggle Row -->
+<div class="my-5 p-4 rounded-2xl bg-[#FAF3E6] border border-[#E8DEC9] flex items-center justify-between">
+<div>
+<p class="text-sm font-extrabold text-[#0F3D3E]">Auto-Throttle Guard</p>
+<p class="text-xs font-bold text-[#4E6668] mt-0.5">Pauses background jobs at 98%</p>
+</div>
+<!-- Physical 3D Toggle -->
+<button class="w-14 h-8 rounded-full bg-[#2BA39A] border border-[#1E7F78] shadow-[0_3px_0_#145C57] relative p-1 flex items-center transition-all cursor-pointer">
+<span class="w-6 h-6 rounded-full bg-white shadow-[0_2px_0_#D8CFBC] ml-auto block"></span>
+</button>
+</div>
+<div class="space-y-2.5 text-xs font-bold text-[#4E6668]">
+<div class="flex items-center justify-between">
+<span>Current Throttle Status</span>
+<span class="text-[#2FBF71] font-extrabold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#2FBF71]"></span> Unthrottled
+                </span>
+</div>
+<div class="flex items-center justify-between">
+<span>Fallback Cache Hits</span>
+<span class="text-[#0F3D3E] font-extrabold">99.4% served</span>
+</div>
+<div class="flex items-center justify-between">
+<span>Worker Pool State</span>
+<span class="text-[#0F3D3E] font-extrabold">Idle (Ready)</span>
+</div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="pt-5 border-t border-[#EFE5D4] mt-4 flex items-center gap-3">
+<button class="tactile-btn-secondary flex-1 py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 text-[#F2553B] border-[#FCD9BD]">
+<span class="material-symbols-outlined text-sm">cleaning_services</span>
+<span>Flush Worker Cache</span>
+</button>
+<button class="tactile-btn-secondary py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">tune</span>
+</button>
+</div>
+</section>
+<!-- 7-Day Usage History Bar Chart (7 Columns) -->
+<section class="lg:col-span-7 tactile-card p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2BA39A] text-xl">bar_chart</span>
+<h3 class="font-extrabold text-sm text-[#0F3D3E]">7-Day Quota Consumption Peak</h3>
+</div>
+<div class="flex items-center gap-2 text-xs font-bold text-[#4E6668]">
+<span class="inline-block w-2.5 h-2.5 rounded bg-[#2BA39A]"></span> Safe (&lt;80%)
+                <span class="inline-block w-2.5 h-2.5 rounded bg-[#FFB054] ml-2"></span> Heavy Spike
+              </div>
+</div>
+<!-- Tactile 3D Bar Chart Visual -->
+<div class="h-44 pt-4 pb-2 px-2 flex items-end justify-between gap-3 bg-[#FAF3E6] rounded-2xl border border-[#E8DEC9]">
+<!-- Mon -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<span class="text-[10px] font-black text-[#4E6668] group-hover:text-[#0F3D3E]">42%</span>
+<div class="w-full max-w-[40px] bg-[#E5D7C2] rounded-t-xl h-24 p-1 flex flex-col justify-end">
+<div class="w-full bg-[#2BA39A] rounded-t-lg shadow-[0_2px_0_#1E7F78] transition-all hover:brightness-110" style="height: 42%;"></div>
+</div>
+<span class="text-[11px] font-extrabold text-[#4E6668]">Mon</span>
+</div>
+<!-- Tue -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<span class="text-[10px] font-black text-[#4E6668] group-hover:text-[#0F3D3E]">58%</span>
+<div class="w-full max-w-[40px] bg-[#E5D7C2] rounded-t-xl h-24 p-1 flex flex-col justify-end">
+<div class="w-full bg-[#2BA39A] rounded-t-lg shadow-[0_2px_0_#1E7F78] transition-all hover:brightness-110" style="height: 58%;"></div>
+</div>
+<span class="text-[11px] font-extrabold text-[#4E6668]">Tue</span>
+</div>
+<!-- Wed -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<span class="text-[10px] font-black text-[#4E6668] group-hover:text-[#0F3D3E]">51%</span>
+<div class="w-full max-w-[40px] bg-[#E5D7C2] rounded-t-xl h-24 p-1 flex flex-col justify-end">
+<div class="w-full bg-[#2BA39A] rounded-t-lg shadow-[0_2px_0_#1E7F78] transition-all hover:brightness-110" style="height: 51%;"></div>
+</div>
+<span class="text-[11px] font-extrabold text-[#4E6668]">Wed</span>
+</div>
+<!-- Thu (Spike) -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<span class="text-[10px] font-black text-[#D46B18]">89%</span>
+<div class="w-full max-w-[40px] bg-[#E5D7C2] rounded-t-xl h-24 p-1 flex flex-col justify-end">
+<div class="w-full bg-[#FFB054] rounded-t-lg shadow-[0_2px_0_#D48530] transition-all hover:brightness-110" style="height: 89%;"></div>
+</div>
+<span class="text-[11px] font-extrabold text-[#D46B18]">Thu</span>
+</div>
+<!-- Fri -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<span class="text-[10px] font-black text-[#4E6668] group-hover:text-[#0F3D3E]">64%</span>
+<div class="w-full max-w-[40px] bg-[#E5D7C2] rounded-t-xl h-24 p-1 flex flex-col justify-end">
+<div class="w-full bg-[#2BA39A] rounded-t-lg shadow-[0_2px_0_#1E7F78] transition-all hover:brightness-110" style="height: 64%;"></div>
+</div>
+<span class="text-[11px] font-extrabold text-[#4E6668]">Fri</span>
+</div>
+<!-- Sat -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<span class="text-[10px] font-black text-[#4E6668] group-hover:text-[#0F3D3E]">72%</span>
+<div class="w-full max-w-[40px] bg-[#E5D7C2] rounded-t-xl h-24 p-1 flex flex-col justify-end">
+<div class="w-full bg-[#2BA39A] rounded-t-lg shadow-[0_2px_0_#1E7F78] transition-all hover:brightness-110" style="height: 72%;"></div>
+</div>
+<span class="text-[11px] font-extrabold text-[#4E6668]">Sat</span>
+</div>
+<!-- Today (Highest / Current) -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<span class="text-[10px] font-black text-[#F28C38]">84%</span>
+<div class="w-full max-w-[40px] bg-[#FFEEDB] border border-[#FFD3A8] rounded-t-xl h-24 p-1 flex flex-col justify-end">
+<div class="w-full bg-gradient-to-t from-[#FFB054] to-[#F28C38] rounded-t-lg shadow-[0_2px_0_#C5681E] transition-all hover:brightness-110" style="height: 84%;"></div>
+</div>
+<span class="text-[11px] font-black text-[#0F3D3E] underline decoration-2 decoration-[#2BA39A]">Today</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#EFE5D4] flex items-center justify-between text-xs font-bold text-[#4E6668]">
+<span>Peak hour: 19:00 UTC (Vocabulary Review rush)</span>
+<button class="tactile-pill-btn px-2.5 py-1 rounded-lg text-[11px] font-extrabold text-[#0F3D3E] flex items-center gap-1">
+<span>View Raw Logs</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- Minimal Solo Admin Footer -->
+<footer class="mt-8 pt-5 pb-2 border-t-2 border-[#EADEC8] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-[#4E6668]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span>Lexkite Ops Engine v2.4 • Solo Admin Instance</span>
+</div>
+<div class="flex items-center gap-4">
+<span>UTC Clock: 19:42:14</span>
+<span class="text-[#D8CFBC]">•</span>
+<span class="text-[#0F3D3E] font-extrabold">All Services Nominal</span>
+</div>
+</footer>
+</div>
+</body></html>

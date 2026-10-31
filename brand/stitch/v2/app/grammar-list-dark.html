@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Grammar Chapters</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#690005",
+            "tertiary-fixed": "#ffdf9e",
+            "outline-variant": "#3d4947",
+            "primary-fixed": "#88f5ea",
+            "on-tertiary-container": "#392900",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary": "#f4bf40",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-container-low": "#121d20",
+            "secondary-container": "#981201",
+            "outline": "#879391",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-bright": "#2f3b3e",
+            "surface": "#091518",
+            "inverse-on-surface": "#263236",
+            "surface-tint": "#6bd8ce",
+            "background": "#091518",
+            "on-secondary": "#660800",
+            "primary": "#6bd8ce",
+            "inverse-surface": "#d8e5e9",
+            "inverse-primary": "#006a64",
+            "error-container": "#93000a",
+            "primary-container": "#2ba39a",
+            "on-primary-fixed-variant": "#00504b",
+            "on-surface-variant": "#bcc9c7",
+            "on-tertiary-fixed": "#261a00",
+            "on-primary-container": "#00322e",
+            "on-tertiary": "#402e00",
+            "tertiary-container": "#ba8b00",
+            "on-surface": "#d8e5e9",
+            "secondary": "#ffb4a6",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-container-high": "#202c2f",
+            "on-primary": "#003733",
+            "on-secondary-container": "#ffa493",
+            "surface-variant": "#2b373a",
+            "surface-container-lowest": "#051013",
+            "on-secondary-fixed": "#3f0300",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#091518",
+            "surface-container-highest": "#2b373a",
+            "secondary-fixed": "#ffdad3",
+            "error": "#ffb4ab",
+            "on-primary-fixed": "#00201e",
+            "on-background": "#d8e5e9",
+            "surface-container": "#162125",
+            "tertiary-fixed-dim": "#f4bf40"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "space-xs": "4px",
+            "gutter": "16px",
+            "space-sm": "8px",
+            "space-md": "16px",
+            "margin": "16px"
+          },
+          "fontFamily": {
+            "title": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbars for chips carousel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen selection:bg-primary selection:text-on-primary pb-24">
+<!-- Fixed Top Bar Anchor Component -->
+<header class="bg-surface-container border-b-2 border-outline-variant flex justify-between items-center w-full px-margin h-14 fixed top-0 left-0 z-50 transition-transform duration-100">
+<!-- Brand / Leading -->
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-xl" data-icon="kitesurfing">kitesurfing</span>
+</div>
+<span class="text-title font-title text-primary tracking-tight font-extrabold text-lg leading-none">Lexkite</span>
+<span class="bg-surface-container-highest text-primary font-label text-[10px] px-2 py-0.5 rounded-full border border-outline-variant font-extrabold tracking-wider">
+        GRAMMAR
+      </span>
+</div>
+<!-- Trailing Badges -->
+<div class="flex items-center gap-space-xs font-label text-xs">
+<div class="flex items-center gap-1 bg-surface-container-highest px-2.5 py-1 rounded-full border border-outline-variant text-tertiary font-bold shadow-inner">
+<span class="material-symbols-outlined text-sm text-secondary fill-1" data-icon="local_fire_department">local_fire_department</span>
+<span>14</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-highest px-2.5 py-1 rounded-full border border-outline-variant text-tertiary-fixed font-bold shadow-inner">
+<span class="material-symbols-outlined text-sm text-tertiary fill-1" data-icon="bolt">bolt</span>
+<span>820</span>
+</div>
+</div>
+</header>
+<!-- Mobile Canvas Body -->
+<main class="w-full max-w-[390px] mx-auto px-margin pt-20 flex flex-col gap-space-md">
+<!-- Top Meta Badges & Hero Headlines -->
+<section class="flex flex-col gap-space-xs mt-1">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="inline-flex items-center gap-1.5 bg-surface-container-high border border-outline-variant px-2.5 py-1 rounded-md text-on-surface-variant font-label text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+<span>12 CHAPTERS • CEFR A2–C1</span>
+</div>
+<div class="inline-flex items-center bg-surface-container-highest border border-primary-container px-2.5 py-1 rounded-md text-primary font-label text-[11px] font-bold">
+<span>IELTS BAND 7.5+</span>
+</div>
+</div>
+<h1 class="text-display font-display text-on-surface tracking-tight mt-1 text-[26px] leading-[32px]">
+        Master English Syntax
+      </h1>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">
+        Target high-yield structures tested in speaking &amp; writing tasks.
+      </p>
+</section>
+<!-- Search Input -->
+<section class="relative flex items-center">
+<div class="absolute left-3.5 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface-container border-2 border-outline-variant focus:border-primary rounded-xl py-2.5 pl-10 pr-12 text-sm text-on-surface placeholder:text-outline font-body focus:outline-none transition-all shadow-inner" placeholder="Search rules, e.g. conditionals..." readonly="" type="text"/>
+<div class="absolute right-2.5 px-2 py-0.5 rounded-md bg-surface-container-high border border-outline-variant text-[11px] font-label text-on-surface-variant tracking-widest pointer-events-none">
+        ⌘K
+      </div>
+</section>
+<!-- Filter Chips Row (Horizontal Scroll) -->
+<section class="flex items-center gap-space-sm overflow-x-auto no-scrollbar py-0.5">
+<!-- Active Chip -->
+<button class="flex-shrink-0 bg-primary-container text-on-primary-container font-label text-xs px-3.5 py-1.5 rounded-full border-b-2 border-on-primary-fixed-variant active:translate-y-0.5 transition-transform flex items-center gap-1 font-bold">
+<span>All 12</span>
+</button>
+<!-- Inactive Chip 1 -->
+<button class="flex-shrink-0 bg-surface-container text-on-surface-variant hover:text-on-surface font-label text-xs px-3.5 py-1.5 rounded-full border-2 border-outline-variant active:translate-y-0.5 transition-transform">
+<span>Foundation (A2)</span>
+</button>
+<!-- Inactive Chip 2 -->
+<button class="flex-shrink-0 bg-surface-container text-on-surface-variant hover:text-on-surface font-label text-xs px-3.5 py-1.5 rounded-full border-2 border-outline-variant active:translate-y-0.5 transition-transform">
+<span>Intermediate (B1–B2)</span>
+</button>
+</section>
+<!-- Chapters Stack Bento/List -->
+<div class="flex flex-col gap-space-md mt-1">
+<!-- CHAPTER 1: Verb Tenses & Aspects -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 border-b-[5px] border-b-surface-container-lowest transition-transform active:translate-y-0.5">
+<div class="flex items-start gap-3">
+<!-- Icon Tile with glossy shine -->
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest border-2 border-tertiary-container flex items-center justify-center text-tertiary flex-shrink-0 border-b-4 border-b-on-tertiary shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-white/20"></div>
+<span class="material-symbols-outlined text-2xl fill-1" data-icon="hourglass_top">hourglass_top</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[10px] tracking-wider text-outline uppercase font-extrabold">B1 • INTERMEDIATE</span>
+<span class="font-label text-[10px] text-primary-fixed flex items-center gap-0.5 font-extrabold bg-surface-container-high px-2 py-0.5 rounded-md border border-outline-variant">
+                ✓ 8/8 Done
+              </span>
+</div>
+<h2 class="text-body font-title font-bold text-on-surface text-[15px] leading-tight truncate">
+              1. Verb Tenses &amp; Aspects
+            </h2>
+<p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-1">
+              Master present perfect vs past simple...
+            </p>
+</div>
+</div>
+<!-- Progress Bar & Link -->
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between gap-3">
+<div class="flex-1 h-2 bg-surface-container-lowest rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-primary-container w-full rounded-full"></div>
+</div>
+<button class="font-label text-xs text-primary font-extrabold flex items-center gap-0.5 hover:underline flex-shrink-0">
+            Review →
+          </button>
+</div>
+</article>
+<!-- CHAPTER 2: Current Focus Highlight Card -->
+<article class="bg-surface-container-high border-2 border-primary rounded-xl p-4 border-b-[5px] border-b-on-primary-fixed-variant transition-transform active:translate-y-0.5 shadow-lg relative overflow-hidden">
+<!-- Subdued decorative glow banner -->
+<div class="absolute top-0 right-0 w-28 h-28 bg-primary/10 rounded-full blur-2xl pointer-events-none -mr-8 -mt-8"></div>
+<div class="flex items-start gap-3 relative z-10">
+<!-- Icon Tile with glossy shine -->
+<div class="w-12 h-12 rounded-xl bg-surface-container border-2 border-secondary-container flex items-center justify-center text-secondary flex-shrink-0 border-b-4 border-b-on-secondary shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-white/20"></div>
+<span class="font-label text-[10px] font-extrabold leading-none text-center">A/THE<br/>ZERO</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[10px] tracking-wider text-tertiary font-extrabold flex items-center gap-1">
+                ⚑ B2 • TARGET BAND 7.0
+              </span>
+<span class="font-label text-[10px] text-primary flex items-center gap-1 font-extrabold bg-primary/10 border border-primary/30 px-2 py-0.5 rounded-md">
+                • CURRENT FOCUS
+              </span>
+</div>
+<h2 class="text-title font-title font-extrabold text-on-surface text-[17px] leading-snug">
+              2. Articles: A, An, The &amp; Zero
+            </h2>
+<p class="text-on-surface-variant font-body text-xs mt-1 leading-normal">
+              Stop losing 0.5 band on article slips in Writing Task 2.
+            </p>
+</div>
+</div>
+<!-- Progress detail sub-box -->
+<div class="mt-3.5 bg-surface-container rounded-lg p-2.5 border border-outline-variant relative z-10">
+<div class="flex items-center justify-between text-xs font-label mb-1.5">
+<span class="text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="play_arrow">play_arrow</span>
+              Unit 4 of 6: Specific vs Generic Reference
+            </span>
+<span class="text-primary font-bold">67%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest rounded-full overflow-hidden border border-outline-variant flex">
+<div class="h-full bg-primary w-2/3 rounded-l-full"></div>
+<div class="h-full bg-surface-variant flex-1"></div>
+</div>
+</div>
+<!-- Tactile Primary CTA Button -->
+<button class="mt-3.5 w-full h-12 bg-gradient-to-r from-secondary-container to-tertiary-container rounded-xl flex items-center justify-center font-display text-[13px] tracking-wide text-on-surface font-extrabold border-b-[5px] border-b-on-secondary active:translate-y-1 active:border-b-2 transition-all relative overflow-hidden shadow-md">
+<div class="absolute top-0 left-0 right-0 h-1 bg-white/20"></div>
+<span class="flex items-center gap-1.5 text-on-secondary-fixed">
+            ▶ RESUME 4/6 • DEFINITE ARTICLES →
+          </span>
+</button>
+</article>
+<!-- CHAPTER 3: Conditionals & Wish -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 border-b-[5px] border-b-surface-container-lowest transition-transform active:translate-y-0.5">
+<div class="flex items-start gap-3">
+<!-- Icon Tile -->
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center text-primary-fixed flex-shrink-0 border-b-4 border-b-surface-container-lowest shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-white/20"></div>
+<span class="material-symbols-outlined text-2xl" data-icon="account_tree">account_tree</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[10px] tracking-wider text-outline uppercase font-extrabold">B2 • IELTS FOCUS</span>
+<span class="font-label text-[10px] text-on-surface-variant flex items-center gap-0.5 font-bold">
+                2/5 Done
+              </span>
+</div>
+<h2 class="text-body font-title font-bold text-on-surface text-[15px] leading-tight truncate">
+              3. Conditionals &amp; Wish
+            </h2>
+<p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-1">
+              Real, unreal, and mixed conditionals fo...
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between gap-3">
+<div class="flex-1 h-2 bg-surface-container-lowest rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-primary-fixed w-2/5 rounded-full"></div>
+</div>
+<button class="font-label text-xs text-primary font-extrabold flex items-center gap-0.5 hover:underline flex-shrink-0">
+            Continue →
+          </button>
+</div>
+</article>
+<!-- CHAPTER 4: Passive Voice & Ergative -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 border-b-[5px] border-b-surface-container-lowest opacity-90 transition-transform active:translate-y-0.5">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center text-primary flex-shrink-0 border-b-4 border-b-surface-container-lowest shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-white/20"></div>
+<span class="material-symbols-outlined text-2xl" data-icon="shield">shield</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[10px] tracking-wider text-outline uppercase font-extrabold">B2–C1 • ACADEMIC</span>
+<span class="font-label text-[10px] text-outline flex items-center gap-1 font-bold bg-surface-container-highest px-2 py-0.5 rounded border border-outline-variant">
+<span class="material-symbols-outlined text-[10px]" data-icon="lock">lock</span> Next Up
+              </span>
+</div>
+<h2 class="text-body font-title font-bold text-on-surface text-[15px] leading-tight truncate">
+              4. Passive Voice &amp; Ergative
+            </h2>
+<p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-1">
+              Academic reporting verbs and...
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/60 flex items-center justify-between text-xs text-outline font-label">
+<span>0 of 6 units finished</span>
+<span class="text-on-surface-variant">Complete Ch. 2 to unlock</span>
+</div>
+</article>
+<!-- CHAPTER 5: Relative Clauses & Contact -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 border-b-[5px] border-b-surface-container-lowest opacity-90 transition-transform active:translate-y-0.5">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center text-secondary flex-shrink-0 border-b-4 border-b-surface-container-lowest shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-white/20"></div>
+<span class="material-symbols-outlined text-2xl" data-icon="link">link</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[10px] tracking-wider text-outline uppercase font-extrabold">B1–B2 • CLAUSES</span>
+<span class="font-label text-[10px] text-outline font-bold">
+                0/5 Done
+              </span>
+</div>
+<h2 class="text-body font-title font-bold text-on-surface text-[15px] leading-tight truncate">
+              5. Relative Clauses &amp; Contact
+            </h2>
+<p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-1">
+              Defining vs non-defining clauses with...
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between gap-3">
+<div class="flex-1 h-2 bg-surface-container-lowest rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-outline-variant w-0 rounded-full"></div>
+</div>
+<button class="font-label text-xs text-on-surface-variant font-extrabold flex items-center gap-0.5 hover:underline flex-shrink-0">
+            Preview →
+          </button>
+</div>
+</article>
+<!-- CHAPTER 6: Inversion & Emphasis -->
+<article class="bg-surface-container border-2 border-outline-variant rounded-xl p-3.5 border-b-[5px] border-b-surface-container-lowest opacity-90 transition-transform active:translate-y-0.5">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center text-error flex-shrink-0 border-b-4 border-b-surface-container-lowest shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-white/20"></div>
+<span class="material-symbols-outlined text-2xl fill-1" data-icon="star">star</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[10px] tracking-wider text-outline uppercase font-extrabold">C1 • ADVANCED</span>
+<span class="font-label text-[10px] text-outline font-bold">
+                0/4 Done
+              </span>
+</div>
+<h2 class="text-body font-title font-bold text-on-surface text-[15px] leading-tight truncate">
+              6. Inversion &amp; Emphasis
+            </h2>
+<p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-1">
+              Advanced structures: "Seldom had we...
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between gap-3">
+<div class="flex-1 h-2 bg-surface-container-lowest rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-outline-variant w-0 rounded-full"></div>
+</div>
+<button class="font-label text-xs text-on-surface-variant font-extrabold flex items-center gap-0.5 hover:underline flex-shrink-0">
+            Explore →
+          </button>
+</div>
+</article>
+</div>
+<!-- Placement Test Banner Card -->
+<section class="mt-2 bg-surface-container-low border-2 border-tertiary-container/50 rounded-xl p-3.5 border-b-[5px] border-b-surface-container-lowest flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-tertiary-container/30 border border-tertiary flex items-center justify-center text-tertiary flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="school">school</span>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-body font-title font-bold text-on-surface text-sm">Grammar Placement Test</h3>
+<p class="text-on-surface-variant font-body text-xs line-clamp-2 leading-tight mt-0.5">
+          Verify your current CEFR tier with 15 quick questions.
+        </p>
+</div>
+<button class="bg-tertiary hover:bg-tertiary-fixed text-on-tertiary font-label text-xs font-extrabold px-3 py-2 rounded-lg border-b-4 border-on-tertiary-fixed-variant active:translate-y-1 active:border-b-0 transition-all flex-shrink-0">
+        START
+      </button>
+</section>
+</main>
+<!-- Fixed Bottom Navigation Bar Anchor Component -->
+<!-- Context Match: Screen is Grammar Chapters practice screen -> 'Practice' destination is active -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin py-space-xs h-16 bg-surface-container border-t-2 border-outline-variant shadow-2xl">
+<!-- Tab 1: Learn -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="school">school</span>
+<span class="text-label font-label text-[10px] mt-0.5">Learn</span>
+</a>
+<!-- Tab 2: Review -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="auto_stories">auto_stories</span>
+<span class="text-label font-label text-[10px] mt-0.5">Review</span>
+</a>
+<!-- Tab 3: Practice (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-space-sm py-space-xs border-b-4 border-on-primary-fixed-variant translate-y-0 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined text-2xl fill-1" data-icon="fitness_center">fitness_center</span>
+<span class="text-label font-label text-[10px] mt-0.5 font-extrabold">Practice</span>
+</a>
+<!-- Tab 4: Leagues -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="military_tech">military_tech</span>
+<span class="text-label font-label text-[10px] mt-0.5">Leagues</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="text-label font-label text-[10px] mt-0.5">Me</span>
+</a>
+</nav>
+</body></html>

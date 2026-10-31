@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Grammar Chapters</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "canvas-day": "#FFF7EA",
+            "ink-primary": "#0F3D3E",
+            "ink-secondary": "#284D4F",
+            "ink-tertiary": "#3C585A",
+            "ink-btn-dark": "#150502",
+            "brand-teal": "#2BA39A",
+            "brand-teal-deep": "#19766E",
+            "brand-teal-soft": "#E6F7F5",
+            "brand-amber": "#FFB054",
+            "brand-coral": "#F2553B",
+            "brand-coral-ledge": "#B53A22",
+            "brand-emerald": "#2FBF71",
+            "brand-blue": "#3B82F6",
+            "brand-purple": "#8B5CF6",
+            "border-neutral": "#EADEC8",
+            "ledge-neutral": "#D8CFBC",
+            "border-active": "#2BA39A",
+            "on-surface-variant": "#bcc9c7",
+            "secondary": "#ffb4a6",
+            "on-secondary-fixed": "#3f0300",
+            "on-secondary-container": "#ffa493",
+            "surface-container-highest": "#2b373a",
+            "on-primary-fixed-variant": "#00504b",
+            "outline-variant": "#3d4947",
+            "tertiary-container": "#ba8b00",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-container-lowest": "#051013",
+            "surface-tint": "#6bd8ce",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "background": "#091518",
+            "on-primary": "#003733",
+            "surface": "#091518",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-error": "#690005",
+            "outline": "#879391",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-variant": "#2b373a",
+            "surface-container": "#162125",
+            "on-tertiary-fixed": "#261a00",
+            "error": "#ffb4ab",
+            "tertiary-fixed": "#ffdf9e",
+            "secondary-fixed": "#ffdad3",
+            "on-primary-fixed": "#00201e",
+            "inverse-surface": "#d8e5e9",
+            "on-secondary": "#660800",
+            "surface-dim": "#091518",
+            "on-error-container": "#ffdad6",
+            "on-tertiary": "#402e00",
+            "inverse-on-surface": "#263236",
+            "surface-bright": "#2f3b3e",
+            "primary-container": "#2ba39a",
+            "tertiary": "#f4bf40",
+            "surface-container-low": "#121d20",
+            "on-background": "#d8e5e9",
+            "on-tertiary-container": "#392900",
+            "secondary-container": "#981201",
+            "primary-fixed": "#88f5ea",
+            "primary": "#6bd8ce",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary-container": "#00322e",
+            "inverse-primary": "#006a64",
+            "on-surface": "#d8e5e9",
+            "surface-container-high": "#202c2f"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.25rem",
+            "3xl": "1.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "32px",
+            "margin": "16px",
+            "space-lg": "24px",
+            "gutter": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-md": "16px"
+          },
+          fontFamily: {
+            title: ["Plus Jakarta Sans"],
+            display: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical tactile button interactions */
+    .tactile-cta {
+      box-shadow: 0 5px 0 #B53A22;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+    .tactile-card {
+      box-shadow: 0 5px 0 #D8CFBC;
+      transition: all 0.15s ease-out;
+    }
+    .tactile-card-active {
+      box-shadow: 0 6px 0 #1D7C75, 0 10px 24px -4px rgba(43, 163, 154, 0.25);
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-chip {
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+    .shine-highlight {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 65%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas-day font-body text-ink-primary min-h-screen pb-24 antialiased selection:bg-brand-teal selection:text-white">
+<!-- ================= TOP APP BAR (56px Fixed) ================= -->
+<header class="fixed top-0 left-0 right-0 h-14 bg-white/95 backdrop-blur-md z-50 px-4 flex items-center justify-between border-b-2 border-border-neutral">
+<div class="flex items-center gap-2.5">
+<!-- 4-quadrant tactile kite emblem -->
+<div class="w-8 h-8 rounded-lg bg-white border-2 border-border-neutral flex items-center justify-center p-1 shadow-[0_2px_0_#D8CFBC] -rotate-6 transition-transform hover:rotate-0">
+<div class="grid grid-cols-2 gap-0.5 w-full h-full rounded overflow-hidden">
+<div class="bg-brand-coral"></div>
+<div class="bg-brand-amber"></div>
+<div class="bg-brand-teal"></div>
+<div class="bg-brand-blue"></div>
+</div>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-title text-title text-ink-primary tracking-tight font-extrabold">Lexkite</span>
+<span class="text-[11px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-brand-teal-soft text-brand-teal-deep border border-brand-teal/20 tracking-wider">Grammar</span>
+</div>
+</div>
+<!-- Right status chips -->
+<div class="flex items-center gap-2">
+<!-- Streak Pill -->
+<div class="flex items-center gap-1 bg-[#FFF2E6] border-2 border-[#FFC299] px-2.5 py-1 rounded-full text-[12px] font-extrabold text-[#9A3412] shadow-[0_2px_0_#FDBA74]">
+<span class="material-symbols-outlined material-symbols-filled text-[16px] text-brand-coral" data-icon="local_fire_department">local_fire_department</span>
+<span>14</span>
+</div>
+<!-- XP Pill -->
+<div class="flex items-center gap-1 bg-[#FEF9C3] border-2 border-[#FDE047] px-2.5 py-1 rounded-full text-[12px] font-extrabold text-[#854D0E] shadow-[0_2px_0_#FACC15]">
+<span class="material-symbols-outlined material-symbols-filled text-[16px] text-tertiary-container" data-icon="bolt">bolt</span>
+<span>820</span>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="pt-16 max-w-md mx-auto px-4">
+<!-- Hero / Chapter Meta Block -->
+<section class="mt-3 mb-4">
+<div class="flex items-center justify-between mb-1.5">
+<div class="inline-flex items-center gap-1.5 bg-white border-2 border-border-neutral px-2.5 py-1 rounded-full shadow-[0_2px_0_#D8CFBC]">
+<span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+<span class="font-label text-[11px] uppercase tracking-wider text-ink-secondary">12 Chapters • CEFR A2–C1</span>
+</div>
+<span class="font-label text-[12px] text-brand-teal font-extrabold">IELTS BAND 7.5+</span>
+</div>
+<h1 class="font-display text-[26px] leading-tight text-ink-primary font-extrabold tracking-tight">
+        Master English Syntax
+      </h1>
+<p class="text-ink-secondary text-sm font-medium mt-0.5">
+        Target high-yield structures tested in speaking &amp; writing tasks.
+      </p>
+</section>
+<!-- Tactile Search Bar -->
+<section class="mb-4">
+<div class="relative bg-white rounded-2xl border-2 border-border-neutral shadow-[0_3px_0_#D8CFBC] focus-within:border-brand-teal focus-within:shadow-[0_3px_0_#19766E] transition-all">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-ink-tertiary">
+<span class="material-symbols-outlined text-xl" data-icon="search">search</span>
+</div>
+<input class="w-full pl-10 pr-10 py-3 bg-transparent text-sm font-semibold text-ink-primary placeholder:text-ink-tertiary/70 border-0 focus:ring-0 focus:outline-none" placeholder="Search rules, e.g. conditionals..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<kbd class="px-1.5 py-0.5 text-[10px] font-bold text-ink-tertiary bg-canvas-day rounded border border-border-neutral">⌘K</kbd>
+</div>
+</div>
+</section>
+<!-- Filter Pills Horizontal Bar -->
+<section class="mb-5 overflow-x-auto pb-1 scrollbar-none flex gap-2">
+<button class="tactile-chip whitespace-nowrap bg-brand-teal text-white font-extrabold text-[12px] px-3.5 py-1.5 rounded-full border-2 border-brand-teal-deep flex items-center gap-1 shadow-[0_3px_0_#19766E]">
+<span>All</span>
+<span class="bg-white/20 text-white rounded-full px-1.5 py-0.2 text-[10px]">12</span>
+</button>
+<button class="tactile-chip whitespace-nowrap bg-white text-ink-secondary font-bold text-[12px] px-3.5 py-1.5 rounded-full border-2 border-border-neutral hover:bg-canvas-day">
+        Foundation (A2)
+      </button>
+<button class="tactile-chip whitespace-nowrap bg-white text-ink-secondary font-bold text-[12px] px-3.5 py-1.5 rounded-full border-2 border-border-neutral hover:bg-canvas-day">
+        Intermediate (B1–B2)
+      </button>
+<button class="tactile-chip whitespace-nowrap bg-white text-ink-secondary font-bold text-[12px] px-3.5 py-1.5 rounded-full border-2 border-border-neutral hover:bg-canvas-day">
+        Advanced (C1)
+      </button>
+</section>
+<!-- ================= CHAPTER CARDS LIST ================= -->
+<div class="space-y-4">
+<!-- CHAPTER 1: Verb Tenses (Completed) -->
+<article class="tactile-card bg-white rounded-2xl p-4 border-2 border-border-neutral transition-transform active:translate-y-1">
+<div class="flex items-start gap-3.5">
+<!-- Glossy Icon Block (Amber) -->
+<div class="relative w-14 h-14 rounded-2xl bg-gradient-to-b from-[#FFC043] to-[#E59800] border-2 border-[#B87A00] shadow-[0_4px_0_#996500] flex items-center justify-center flex-shrink-0 overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 shine-highlight"></div>
+<span class="material-symbols-outlined text-white text-[28px] drop-shadow-sm" data-icon="hourglass_top">hourglass_top</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-brand-teal-soft text-brand-teal-deep border border-brand-teal/20">
+                B1 • Intermediate
+              </span>
+<span class="inline-flex items-center gap-1 font-label text-[11px] text-brand-emerald font-extrabold bg-[#EBFBF2] px-2 py-0.5 rounded-md border border-brand-emerald/30">
+<span class="material-symbols-outlined material-symbols-filled text-[14px]" data-icon="check_circle">check_circle</span>
+                8/8 Done
+              </span>
+</div>
+<h2 class="font-title text-[17px] font-bold text-ink-primary leading-snug truncate">
+              1. Verb Tenses &amp; Aspects
+            </h2>
+<p class="text-ink-secondary text-[13px] font-medium leading-relaxed mt-0.5 line-clamp-1">
+              Master present perfect vs past simple nuance.
+            </p>
+</div>
+</div>
+<!-- Progress bar (100% Complete) -->
+<div class="mt-3.5 pt-3 border-t border-border-neutral/60 flex items-center justify-between text-[12px] font-bold text-ink-secondary">
+<div class="flex items-center gap-2 flex-1 mr-4">
+<div class="w-full bg-[#E8E2D5] h-2.5 rounded-full overflow-hidden p-0.5">
+<div class="bg-brand-emerald h-full rounded-full w-full"></div>
+</div>
+</div>
+<button class="text-brand-teal font-extrabold text-[12px] hover:underline flex items-center gap-0.5">
+            Review
+            <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- CHAPTER 2: Current & Glowing Focal Element -->
+<article class="tactile-card-active relative bg-gradient-to-b from-[#FDFFFE] to-[#F2FCF9] rounded-2xl p-4 border-[2.5px] border-brand-teal overflow-hidden">
+<!-- Top Banner Label -->
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 font-label text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-[#FFF7E8] text-[#9A3412] border border-[#FFD8A8]">
+<span class="material-symbols-outlined text-[13px]" data-icon="flag">flag</span>
+              B2 • Target Band 7.0
+            </span>
+</div>
+<span class="inline-flex items-center gap-1 font-label text-[11px] font-extrabold uppercase text-brand-teal-deep bg-brand-teal-soft px-2 py-0.5 rounded-md">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-teal animate-ping"></span>
+            Current Focus
+          </span>
+</div>
+<div class="flex items-start gap-3.5">
+<!-- Glossy Icon Block (Coral/Orange Articles Tile) -->
+<div class="relative w-16 h-16 rounded-2xl bg-gradient-to-b from-[#FF6B4A] to-[#E64223] border-2 border-[#B5321B] shadow-[0_5px_0_#8F2613] flex items-center justify-center flex-shrink-0 overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 shine-highlight"></div>
+<div class="flex flex-col items-center justify-center text-white drop-shadow font-extrabold">
+<span class="text-[17px] leading-tight tracking-tighter">A / THE</span>
+<span class="text-[9px] uppercase tracking-widest bg-black/20 px-1 rounded">Zero</span>
+</div>
+</div>
+<!-- Main Details -->
+<div class="flex-1 min-w-0">
+<h2 class="font-title text-[18px] font-extrabold text-ink-primary leading-tight">
+              2. Articles: A, An, The &amp; Zero
+            </h2>
+<p class="text-ink-secondary text-[13px] font-semibold leading-snug mt-1">
+              Stop losing 0.5 band on article slips in Writing Task 2.
+            </p>
+</div>
+</div>
+<!-- Dynamic Progress Visual -->
+<div class="mt-4 bg-white/80 p-3 rounded-xl border border-brand-teal/20">
+<div class="flex justify-between items-center text-[12px] font-extrabold text-ink-primary mb-1.5">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-brand-teal text-[16px]" data-icon="play_circle">play_circle</span>
+              Unit 4 of 6: Specific vs Generic Reference
+            </span>
+<span class="text-brand-teal-deep font-bold">67%</span>
+</div>
+<div class="w-full bg-[#E0ECE8] h-3 rounded-full overflow-hidden p-0.5">
+<div class="bg-gradient-to-r from-brand-amber via-brand-teal to-brand-teal h-full rounded-full w-[67%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Tactile Primary CTA Button (Sinking press behavior + dark brown-black text) -->
+<div class="mt-3.5">
+<button class="tactile-cta w-full h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFC94A] text-ink-btn-dark font-extrabold text-[16px] tracking-wide flex items-center justify-center gap-2 border-2 border-[#B53A22] relative overflow-hidden group">
+<div class="absolute inset-x-0 top-0 h-2/5 shine-highlight pointer-events-none"></div>
+<span class="material-symbols-outlined text-[20px] font-extrabold" data-icon="play_arrow">play_arrow</span>
+<span>RESUME 4/6 • DEFINITE ARTICLES</span>
+<span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- CHAPTER 3: Conditionals & Wish -->
+<article class="tactile-card bg-white rounded-2xl p-4 border-2 border-border-neutral">
+<div class="flex items-start gap-3.5">
+<!-- Sky Blue Decision Icon Tile -->
+<div class="relative w-14 h-14 rounded-2xl bg-gradient-to-b from-[#60A5FA] to-[#2563EB] border-2 border-[#1D4ED8] shadow-[0_4px_0_#1E40AF] flex items-center justify-center flex-shrink-0 overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 shine-highlight"></div>
+<span class="material-symbols-outlined text-white text-[28px] drop-shadow-sm" data-icon="alt_route">alt_route</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-[#EFF6FF] text-[#1E40AF] border border-[#BFDBFE]">
+                B2 • IELTS Focus
+              </span>
+<span class="font-label text-[11px] text-ink-secondary font-bold">2/5 Done</span>
+</div>
+<h2 class="font-title text-[17px] font-bold text-ink-primary leading-snug">
+              3. Conditionals &amp; Wish
+            </h2>
+<p class="text-ink-secondary text-[13px] font-medium leading-relaxed mt-0.5 line-clamp-1">
+              Real, unreal, and mixed conditionals for hypothetical arguments.
+            </p>
+</div>
+</div>
+<div class="mt-3.5 pt-3 border-t border-border-neutral/60 flex items-center justify-between text-[12px] font-bold text-ink-secondary">
+<div class="flex items-center gap-2 flex-1 mr-4">
+<div class="w-full bg-[#E8E2D5] h-2.5 rounded-full overflow-hidden p-0.5">
+<div class="bg-brand-blue h-full rounded-full w-[40%]"></div>
+</div>
+</div>
+<button class="text-ink-primary font-extrabold text-[12px] flex items-center gap-1 hover:text-brand-teal">
+            Continue
+            <span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</article>
+<!-- CHAPTER 4: Passive Voice (Locked Next Up) -->
+<article class="tactile-card bg-white rounded-2xl p-4 border-2 border-border-neutral opacity-95">
+<div class="flex items-start gap-3.5">
+<!-- Emerald Green Shield Icon Tile -->
+<div class="relative w-14 h-14 rounded-2xl bg-gradient-to-b from-[#34D399] to-[#059669] border-2 border-[#047857] shadow-[0_4px_0_#065F46] flex items-center justify-center flex-shrink-0 overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 shine-highlight"></div>
+<span class="material-symbols-outlined text-white text-[28px] drop-shadow-sm" data-icon="shield">shield</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-[#ECFDF5] text-[#047857] border border-[#A7F3D0]">
+                B2–C1 • Academic
+              </span>
+<span class="inline-flex items-center gap-1 font-label text-[11px] text-ink-tertiary font-bold bg-canvas-day px-2 py-0.5 rounded border border-border-neutral">
+<span class="material-symbols-outlined text-[12px]" data-icon="lock">lock</span>
+                Next Up
+              </span>
+</div>
+<h2 class="font-title text-[17px] font-bold text-ink-primary leading-snug">
+              4. Passive Voice &amp; Ergative
+            </h2>
+<p class="text-ink-secondary text-[13px] font-medium leading-relaxed mt-0.5 line-clamp-1">
+              Academic reporting verbs and objective scientific tone.
+            </p>
+</div>
+</div>
+<div class="mt-3.5 pt-3 border-t border-border-neutral/60 flex items-center justify-between text-[12px] font-bold text-ink-tertiary">
+<span>0 of 6 units finished</span>
+<span class="font-extrabold text-[12px] text-ink-secondary flex items-center gap-0.5">
+            Complete Ch. 2 to unlock
+          </span>
+</div>
+</article>
+<!-- CHAPTER 5: Relative Clauses (Purple) -->
+<article class="tactile-card bg-white rounded-2xl p-4 border-2 border-border-neutral">
+<div class="flex items-start gap-3.5">
+<!-- Violet Chain Icon Tile -->
+<div class="relative w-14 h-14 rounded-2xl bg-gradient-to-b from-[#A78BFA] to-[#7C3AED] border-2 border-[#6D28D9] shadow-[0_4px_0_#5B21B6] flex items-center justify-center flex-shrink-0 overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 shine-highlight"></div>
+<span class="material-symbols-outlined text-white text-[28px] drop-shadow-sm" data-icon="link">link</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-[#F5F3FF] text-[#6D28D9] border border-[#DDD6FE]">
+                B1–B2 • Clauses
+              </span>
+<span class="font-label text-[11px] text-ink-tertiary font-bold">0/5 Done</span>
+</div>
+<h2 class="font-title text-[17px] font-bold text-ink-primary leading-snug">
+              5. Relative Clauses &amp; Contact
+            </h2>
+<p class="text-ink-secondary text-[13px] font-medium leading-relaxed mt-0.5 line-clamp-1">
+              Defining vs non-defining clauses with which, who, and whose.
+            </p>
+</div>
+</div>
+<div class="mt-3.5 pt-3 border-t border-border-neutral/60 flex items-center justify-between text-[12px] font-bold text-ink-secondary">
+<div class="flex items-center gap-2 flex-1 mr-4">
+<div class="w-full bg-[#E8E2D5] h-2.5 rounded-full overflow-hidden p-0.5">
+<div class="bg-brand-purple h-full rounded-full w-0"></div>
+</div>
+</div>
+<button class="text-ink-primary font-extrabold text-[12px] flex items-center gap-1 hover:text-brand-purple">
+            Preview
+            <span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</article>
+<!-- CHAPTER 6: Inversion & Emphasis (Advanced C1) -->
+<article class="tactile-card bg-white rounded-2xl p-4 border-2 border-border-neutral">
+<div class="flex items-start gap-3.5">
+<!-- Crimson Star Trophy Icon Tile -->
+<div class="relative w-14 h-14 rounded-2xl bg-gradient-to-b from-[#F87171] to-[#DC2626] border-2 border-[#B91C1C] shadow-[0_4px_0_#991B1B] flex items-center justify-center flex-shrink-0 overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-1/2 shine-highlight"></div>
+<span class="material-symbols-outlined text-white text-[28px] drop-shadow-sm" data-icon="stars">stars</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-label text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA]">
+                C1 • Advanced
+              </span>
+<span class="font-label text-[11px] text-ink-tertiary font-bold">0/4 Done</span>
+</div>
+<h2 class="font-title text-[17px] font-bold text-ink-primary leading-snug">
+              6. Inversion &amp; Emphasis
+            </h2>
+<p class="text-ink-secondary text-[13px] font-medium leading-relaxed mt-0.5 line-clamp-1">
+              Advanced structures: "Seldom had we seen" for Band 8.0+ writing.
+            </p>
+</div>
+</div>
+<div class="mt-3.5 pt-3 border-t border-border-neutral/60 flex items-center justify-between text-[12px] font-bold text-ink-secondary">
+<div class="flex items-center gap-2 flex-1 mr-4">
+<div class="w-full bg-[#E8E2D5] h-2.5 rounded-full overflow-hidden p-0.5">
+<div class="bg-brand-coral h-full rounded-full w-0"></div>
+</div>
+</div>
+<button class="text-ink-primary font-extrabold text-[12px] flex items-center gap-1 hover:text-brand-coral">
+            Explore
+            <span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Extra Motivational Micro-Banner -->
+<div class="mt-6 mb-8 p-4 rounded-2xl bg-gradient-to-r from-[#FFF0DB] to-[#FFE2BF] border-2 border-[#FBD38D] shadow-[0_4px_0_#ECC94B] flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand-amber shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="school">school</span>
+</div>
+<div class="flex-1">
+<h4 class="font-title text-[14px] font-bold text-[#744210]">Grammar Placement Test</h4>
+<p class="text-[12px] text-[#975A16] font-medium">Verify your current CEFR tier with 15 quick questions.</p>
+</div>
+<button class="px-3 py-1.5 bg-white text-ink-btn-dark font-extrabold text-[11px] rounded-lg border border-[#ECC94B] shadow-[0_2px_0_#D69E2E] active:translate-y-0.5">
+        START
+      </button>
+</div>
+</main>
+<!-- ================= BOTTOM NAVIGATION BAR (Fixed Bottom) ================= -->
+<!-- Conforms to Shared Components JSON: Learn, Review, Practice, Leagues, Me -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md border-t-2 border-border-neutral shadow-[0_-4px_12px_rgba(0,0,0,0.03)] px-3 py-1.5 h-16">
+<div class="max-w-md mx-auto h-full flex justify-around items-center">
+<!-- Destination 1: Learn -->
+<a class="flex flex-col items-center justify-center text-ink-secondary hover:text-ink-primary px-2 py-1 active:scale-95 transition-transform" href="#learn">
+<span class="material-symbols-outlined text-[24px]" data-icon="school">school</span>
+<span class="text-[11px] font-extrabold mt-0.5">Learn</span>
+</a>
+<!-- Destination 2: Review -->
+<a class="flex flex-col items-center justify-center text-ink-secondary hover:text-ink-primary px-2 py-1 active:scale-95 transition-transform" href="#review">
+<span class="material-symbols-outlined text-[24px]" data-icon="auto_stories">auto_stories</span>
+<span class="text-[11px] font-extrabold mt-0.5">Review</span>
+</a>
+<!-- Destination 3: Practice (ACTIVE DESTINATION: Style Guidance / JSON) -->
+<a class="flex flex-col items-center justify-center bg-brand-teal-soft text-brand-teal-deep rounded-xl px-3 py-1 border-b-4 border-brand-teal translate-y-0 active:translate-y-1 transition-all shadow-sm" href="#practice">
+<span class="material-symbols-outlined material-symbols-filled text-[24px] text-brand-teal-deep" data-icon="fitness_center">fitness_center</span>
+<span class="text-[11px] font-extrabold mt-0.5 tracking-tight">Practice</span>
+</a>
+<!-- Destination 4: Leagues -->
+<a class="flex flex-col items-center justify-center text-ink-secondary hover:text-ink-primary px-2 py-1 active:scale-95 transition-transform" href="#leagues">
+<span class="material-symbols-outlined text-[24px]" data-icon="military_tech">military_tech</span>
+<span class="text-[11px] font-extrabold mt-0.5">Leagues</span>
+</a>
+<!-- Destination 5: Me -->
+<a class="flex flex-col items-center justify-center text-ink-secondary hover:text-ink-primary px-2 py-1 active:scale-95 transition-transform" href="#me">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="text-[11px] font-extrabold mt-0.5">Me</span>
+</a>
+</div>
+</nav>
+<!-- Interactive filter click micro-handler -->
+<script>
+    document.querySelectorAll('.tactile-chip').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tactile-chip').forEach(b => {
+          b.className = "tactile-chip whitespace-nowrap bg-white text-ink-secondary font-bold text-[12px] px-3.5 py-1.5 rounded-full border-2 border-border-neutral hover:bg-canvas-day";
+        });
+        this.className = "tactile-chip whitespace-nowrap bg-brand-teal text-white font-extrabold text-[12px] px-3.5 py-1.5 rounded-full border-2 border-brand-teal-deep flex items-center gap-1 shadow-[0_3px_0_#19766E]";
+      });
+    });
+  </script>
+</body></html>

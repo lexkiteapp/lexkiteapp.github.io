@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Save your progress (Bright Day)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            'cream-bg': '#FFF7EA',
+            'ink-primary': '#0F3D3E',
+            'ink-secondary': '#335557',
+            'ink-muted': '#4E6668',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'teal-ledge': '#175E5B',
+            'coral-brand': '#F2553B',
+            'amber-brand': '#FFB054',
+            'amber-dark': '#B53A22',
+            'card-border': '#E8DEC8',
+            'card-ledge': '#D8CFBC',
+            'button-ink': '#1E0B05',
+          },
+          boxShadow: {
+            'tactile-card': '0 6px 0 0 #D8CFBC, 0 12px 24px -8px rgba(15, 61, 62, 0.08)',
+            'tactile-btn': '0 5px 0 0 #D8CFBC',
+            'tactile-coral': '0 6px 0 0 #B53A22, 0 10px 16px -4px rgba(242, 85, 59, 0.25)',
+            'tactile-teal': '0 5px 0 0 #175E5B',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .pressable-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #D8CFBC !important;
+    }
+    .pressable-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22 !important;
+    }
+    .pressable-dark:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #142223 !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-cream-bg flex flex-col justify-between p-4 sm:p-6 md:p-8">
+
+  <!-- Minimal Dimmed Backdrop Simulating Context Behind Sheet -->
+  <main class="w-full max-w-md mx-auto flex-1 flex flex-col justify-center gap-6 py-4">
+
+    <!-- Top Handle / Context Pill -->
+    <div class="flex items-center justify-between px-2">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 border-2 border-card-border text-ink-primary font-bold text-xs">
+        <span class="w-2.5 h-2.5 rounded-full bg-teal-brand animate-pulse"></span>
+        <span>Account &amp; Cloud Sync</span>
+      </div>
+      <div class="flex items-center gap-1 text-ink-muted text-xs font-bold">
+        <span class="material-symbols-rounded text-base text-amber-500">local_fire_department</span>
+        <span>14-day streak safe</span>
+      </div>
+    </div>
+
+    <!-- PRIMARY BOTTOM SHEET: SIGNED-OUT STATE -->
+    <section class="bg-white rounded-[28px] border-2 border-card-border shadow-tactile-card p-6 sm:p-7 flex flex-col items-center text-center relative overflow-hidden">
+      
+      <!-- Sheet Drag Indicator -->
+      <div class="w-12 h-1.5 bg-card-ledge rounded-full mb-6 mx-auto opacity-70"></div>
+
+      <!-- Cloud Sync 3D Tactile Vector Illustration -->
+      <div class="relative w-28 h-28 mb-5 flex items-center justify-center">
+        <!-- Ambient Glow -->
+        <div class="absolute inset-0 bg-teal-brand/10 rounded-full blur-xl"></div>
+        
+        <!-- Cloud Body SVG -->
+        <svg class="w-28 h-28 drop-shadow-md relative z-10" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Soft Base Shadow -->
+          <ellipse cx="60" cy="100" rx="38" ry="8" fill="#D8CFBC" fill-opacity="0.6"/>
+          
+          <!-- Cloud Pill / Ledge -->
+          <path d="M38 88C22.5 88 10 75.5 10 60C10 45.2 21.5 33.1 36 32.1C41.2 19.8 53.5 11 68 11C86.8 11 102 26.2 102 45C106.6 45 110 48.4 110 53C110 57.6 106.6 61 102 61" stroke="#D8CFBC" stroke-width="8" stroke-linecap="round"/>
+          
+          <!-- Main Tactile Cloud -->
+          <g filter="url(#cloud-ledge)">
+            <path d="M36 84H88C99.0457 84 108 75.0457 108 64C108 53.5415 99.9723 44.9602 89.6015 44.0886C86.9734 27.2755 72.4831 14 55 14C36.7588 14 21.7371 28.2198 20.1478 46.1668C13.2505 48.3308 8 54.8021 8 62.5C8 74.3741 17.6259 84 29.5 84H36Z" fill="#F4FBFA"/>
+            <path d="M36 80H88C96.8366 80 104 72.8366 104 64C104 55.4533 97.2882 48.4729 88.8252 48.0384C86.2057 32.1476 72.4344 20 56 20C38.9329 20 25.0116 33.3768 24.0415 50.2185C17.7663 51.9868 13 57.7719 13 64.5C13 73.0604 19.9396 80 28.5 80H36Z" fill="#FFFFFF"/>
+          </g>
+
+          <!-- Tactile Synced Kite Badge in Center -->
+          <g transform="translate(44, 40)">
+            <!-- Diamond Kite Base with 3D Ledge -->
+            <path d="M16 2L30 18L16 34L2 18L16 2Z" fill="#B53A22"/>
+            <path d="M16 0L30 16L16 30L2 16L16 0Z" fill="url(#coral-gradient)"/>
+            <!-- Facets -->
+            <path d="M16 0L30 16L16 16L16 0Z" fill="#FFA947"/>
+            <path d="M16 0L2 16L16 16L16 0Z" fill="#FF7B59"/>
+            <path d="M16 16L30 16L16 30L16 16Z" fill="#2BA39A"/>
+            <path d="M16 16L2 16L16 30L16 16Z" fill="#1F7A75"/>
+            <!-- Glossy Sparkle Dot -->
+            <circle cx="16" cy="16" r="3" fill="#FFF7EA"/>
+          </g>
+
+          <!-- Orbiting Tactile Sync Arrows -->
+          <circle cx="84" cy="30" r="11" fill="#2BA39A"/>
+          <circle cx="84" cy="32" r="11" fill="#175E5B" opacity="0.3"/>
+          <circle cx="84" cy="30" r="11" fill="#2BA39A"/>
+          <path d="M81 27L84 24L87 27M87 33L84 36L81 33" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <defs>
+            <linearGradient id="coral-gradient" x1="2" y1="0" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF9E4A"/>
+              <stop offset="1" stop-color="#F2553B"/>
+            </linearGradient>
+            <filter id="cloud-ledge" x="4" y="14" width="108" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feDropShadow dx="0" dy="5" stdDeviation="0" flood-color="#DCEEEB"/>
+            </filter>
+          </defs>
+        </svg>
+
+        <!-- Floating Micro Reward Sparkles -->
+        <span class="absolute -top-1 left-4 text-amber-brand font-extrabold text-lg select-none">✦</span>
+        <span class="absolute top-2 right-2 text-teal-brand font-extrabold text-sm select-none">✦</span>
+      </div>
+
+      <!-- Title & Crisp 1-Line Description -->
+      <h1 class="text-2xl sm:text-[26px] font-extrabold text-ink-primary tracking-tight mb-2 leading-tight">
+        Save your progress
+      </h1>
+      <p class="text-ink-secondary text-sm sm:text-[15px] font-medium max-w-xs mb-6">
+        Sync your 14-day streak, saved exam decks, and band score across every device.
+      </p>
+
+      <!-- Tactile Buttons Group -->
+      <div class="w-full flex flex-col gap-3.5 mb-5">
+        
+        <!-- Continue with Google (Primary 3D Candy Button) -->
+        <button type="button" class="pressable-primary w-full h-14 rounded-2xl bg-gradient-to-r from-amber-brand to-coral-brand border-2 border-[#D94229] shadow-tactile-coral flex items-center justify-center gap-3 transition-all duration-100 cursor-pointer">
+          <!-- Google 'G' Mark Container -->
+          <div class="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24Z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15Z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98Z"/>
+            </svg>
+          </div>
+          <!-- Explicit Deep Brown-Black Ink Label on Coral/Amber -->
+          <span class="text-button-ink font-extrabold text-base tracking-tight">
+            Continue with Google
+          </span>
+        </button>
+
+        <!-- Continue with Apple (3D Tactile Slate Card Button) -->
+        <button type="button" class="pressable-btn w-full h-14 rounded-2xl bg-white border-2 border-card-border shadow-tactile-btn flex items-center justify-center gap-3 transition-all duration-100 hover:bg-[#FAF5EC] cursor-pointer">
+          <!-- Apple Glyph -->
+          <svg class="w-5 h-5 text-ink-primary fill-current" viewBox="0 0 170 170">
+            <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.96-14.31-7.85-11.89-13.62-25.07-17.3-39.54-3.69-14.47-5.53-27.91-5.53-40.33 0-16.14 4.04-29.62 12.11-40.45 8.08-10.83 18.25-16.38 30.54-16.65 4.93 0 10.37 1.25 16.33 3.76 5.96 2.5 9.77 3.82 11.44 3.94 1.86-.12 5.9-1.5 12.11-4.12 6.22-2.63 11.77-3.87 16.66-3.74 12.74.63 22.95 5.22 30.63 13.78-11.03 6.72-16.42 16.03-16.17 27.92.25 9.77 4.1 17.89 11.56 24.37 7.46 6.47 16.29 10.15 26.5 11.04-2.31 7.15-5.32 14.54-9.05 22.17zM119.22 33.02c0-7.73 2.76-15.01 8.28-21.84 5.53-6.83 12.28-10.89 20.26-12.18.24 1.13.36 2.14.36 3.01 0 7.73-2.92 15.17-8.77 22.3-5.85 7.14-12.69 11.09-20.53 11.85-.36-1.12-.5-2.12-.5-3.14z"/>
+          </svg>
+          <span class="text-ink-primary font-extrabold text-base tracking-tight">
+            Continue with Apple
+          </span>
+        </button>
+
+      </div>
+
+      <!-- Small Privacy Note (Guaranteed > 4.5:1 contrast against white: #335557 is ~7.4:1) -->
+      <div class="flex items-center justify-center gap-1.5 text-ink-secondary text-xs font-semibold">
+        <span class="material-symbols-rounded text-sm text-teal-deep">lock</span>
+        <span>Zero tracking &bull; 100% free forever &bull; No passwords</span>
+      </div>
+
+    </section>
+
+    <!-- SECOND COMPACT CARD: SIGNED-IN STATE PREVIEW -->
+    <section class="bg-white rounded-2xl border-2 border-card-border shadow-tactile-card p-4 sm:p-5 flex flex-col gap-3">
+      
+      <!-- Card Section Header Tag -->
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-extrabold uppercase tracking-wider text-ink-muted">
+          Signed-in Account
+        </span>
+        <!-- Synced just now Green Chip (Rich green text on soft mint, > 5:1 contrast) -->
+        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#E5F8EE] border border-[#A7E6C0] text-[#136C38] text-xs font-extrabold">
+          <span class="material-symbols-rounded text-sm text-[#1A904D]">check_circle</span>
+          <span>Synced just now</span>
+        </span>
+      </div>
+
+      <!-- User Profile Row -->
+      <div class="flex items-center justify-between gap-3 pt-1">
+        
+        <!-- Left: Avatar Circle + Email info -->
+        <div class="flex items-center gap-3 min-w-0">
+          <!-- Tactile Avatar with Initial -->
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-brand to-teal-deep border-2 border-[#196B66] shadow-[0_3px_0_0_#12514D] flex items-center justify-center shrink-0 text-white font-extrabold text-lg">
+            K
+          </div>
+          
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5">
+              <span class="font-extrabold text-ink-primary text-sm sm:text-base truncate">
+                Kai Liang
+              </span>
+              <span class="px-1.5 py-0.2 rounded bg-amber-100 text-[#8C3A00] font-extrabold text-[10px] uppercase">
+                Band 7.5
+              </span>
+            </div>
+            <!-- Email text in #335557 for high legibility -->
+            <p class="text-xs text-ink-secondary font-semibold truncate">
+              kai.liang@lexkite.org
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Tactile 'Sign out' Secondary Button -->
+        <button type="button" class="pressable-btn shrink-0 h-10 px-4 rounded-xl bg-white border-2 border-card-border shadow-[0_3px_0_0_#D8CFBC] hover:bg-red-50 hover:border-red-200 hover:text-coral-brand text-ink-primary text-xs font-extrabold tracking-tight transition-all duration-100 cursor-pointer flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-base text-ink-muted group-hover:text-coral-brand">logout</span>
+          <span>Sign out</span>
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- Bottom Reassurance Strip -->
+    <div class="text-center text-xs text-ink-muted font-semibold flex items-center justify-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-teal-brand"></span>
+      <span>Cambridge &amp; ETS syllabus auto-saved locally in offline cache</span>
+    </div>
+
+  </main>
+
+</body>
+</html>
+

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Admin — Reports & Feedback Inbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            canvas: '#FFF7EA',
+            card: '#FFFFFF',
+            'card-warm': '#FCF6EC',
+            'card-hover': '#FBF2E3',
+            'border-base': '#EADEC8',
+            'border-dark': '#D8CFBC',
+            'ink-primary': '#0F3D3E',
+            'ink-muted': '#5C7476',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'teal-ledge': '#155753',
+            'coral-brand': '#F2553B',
+            'amber-brand': '#FFB054',
+            'gold-brand': '#FFC94A',
+            'cta-ledge': '#B53A22',
+            'success-green': '#2FBF71',
+            'success-ledge': '#1E874D',
+            'bug-coral': '#F2553B',
+            'idea-amber': '#E69500',
+            'content-blue': '#2D81C5',
+          },
+          boxShadow: {
+            'tactile-card': '0 5px 0 0 #D8CFBC',
+            'tactile-card-active': '0 5px 0 0 #1F7A75',
+            'tactile-btn': '0 4px 0 0 #D8CFBC',
+            'tactile-primary': '0 5px 0 0 #B53A22',
+            'tactile-teal': '0 5px 0 0 #155753',
+            'tactile-chip': '0 3px 0 0 #D8CFBC',
+            'tactile-chip-active': '0 3px 0 0 #155753',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .btn-press:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 transparent !important;
+    }
+    .card-press:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-canvas text-ink-primary flex flex-col antialiased selection:bg-teal-brand/20">
+
+  <!-- Top App / Admin Bar -->
+  <header class="w-full bg-card border-b-2 border-border-base shadow-[0_4px_0_0_#D8CFBC] sticky top-0 z-30">
+    <div class="max-w-[1360px] mx-auto px-6 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Admin Tag -->
+      <div class="flex items-center gap-3">
+        <!-- Kite Emblem -->
+        <div class="w-10 h-10 rounded-2xl bg-canvas border-2 border-border-base shadow-[0_3px_0_0_#D8CFBC] flex items-center justify-center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <!-- 4-facet origami kite -->
+            <path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#2BA39A"/>
+            <path d="M12 2L20 10L12 12L12 2Z" fill="#1F7A75"/>
+            <path d="M12 12L20 10L12 22L12 12Z" fill="#F2553B"/>
+            <path d="M4 10L12 12L12 22L4 10Z" fill="#FFB054"/>
+            <circle cx="12" cy="12" r="1.5" fill="#FFF7EA"/>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-2.5">
+          <span class="text-xl font-extrabold tracking-tight text-ink-primary">Lexkite</span>
+          <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-teal-brand/15 text-teal-deep border border-teal-brand/30">Console</span>
+        </div>
+      </div>
+
+      <!-- Quick Context Nav -->
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-canvas border-2 border-border-base text-xs font-bold text-ink-primary">
+          <span class="w-2.5 h-2.5 rounded-full bg-success-green animate-pulse"></span>
+          <span>Live app v2.4</span>
+        </div>
+
+        <div class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-card border-2 border-border-base shadow-tactile-btn text-xs font-bold text-ink-primary">
+          <svg class="w-4 h-4 text-amber-brand" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+          <span>Solo team</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="flex-1 max-w-[1360px] w-full mx-auto px-6 py-7 flex flex-col gap-6">
+
+    <!-- Header & Top Filter Section -->
+    <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-ink-primary tracking-tight">Reports Inbox</h1>
+        <p class="text-sm font-semibold text-ink-muted mt-0.5">Learner feedback, lesson errors, and bug triage</p>
+      </div>
+
+      <!-- Filter Chips on Top -->
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <!-- New (Active) -->
+        <button class="btn-press flex items-center gap-2 px-4 py-2 rounded-2xl bg-teal-deep text-white font-extrabold text-xs tracking-wider uppercase border-2 border-teal-ledge shadow-tactile-chip-active">
+          <span>New</span>
+          <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px] font-black">7</span>
+        </button>
+
+        <!-- In progress -->
+        <button class="btn-press flex items-center gap-2 px-4 py-2 rounded-2xl bg-card hover:bg-card-warm text-ink-muted hover:text-ink-primary font-extrabold text-xs tracking-wider uppercase border-2 border-border-base shadow-tactile-chip transition-colors">
+          <span>In progress</span>
+          <span class="w-5 h-5 rounded-full bg-border-base/50 flex items-center justify-center text-[11px] font-bold text-ink-primary">3</span>
+        </button>
+
+        <!-- Fixed -->
+        <button class="btn-press flex items-center gap-2 px-4 py-2 rounded-2xl bg-card hover:bg-card-warm text-ink-muted hover:text-ink-primary font-extrabold text-xs tracking-wider uppercase border-2 border-border-base shadow-tactile-chip transition-colors">
+          <span>Fixed</span>
+          <span class="w-5 h-5 rounded-full bg-border-base/50 flex items-center justify-center text-[11px] font-bold text-ink-primary">48</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Two-Column Workbench (Left: List, Right: Detail) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- LEFT: Reports List (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col gap-3">
+        
+        <!-- List Header Bar -->
+        <div class="flex items-center justify-between px-1 text-xs font-extrabold uppercase tracking-wider text-ink-muted">
+          <span>7 Unresolved items</span>
+          <span>Sorted by newest</span>
+        </div>
+
+        <!-- Report Row 1 (SELECTED) -->
+        <div class="relative bg-card rounded-2xl border-2 border-teal-brand shadow-tactile-card-active p-4 transition-all cursor-pointer">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Type Chip: Content Error -->
+              <span class="px-2.5 py-1 rounded-xl bg-amber-500/15 text-idea-amber border-2 border-amber-500/30 text-[11px] font-extrabold tracking-wide uppercase">
+                Content error
+              </span>
+              <!-- Unread status dot -->
+              <span class="flex items-center gap-1.5 text-[11px] font-bold text-teal-deep">
+                <span class="w-2.5 h-2.5 rounded-full bg-coral-brand shadow-sm"></span>
+                <span>Unread</span>
+              </span>
+            </div>
+            <!-- Time -->
+            <span class="text-xs font-bold text-ink-muted">14m ago</span>
+          </div>
+
+          <!-- Preview Text -->
+          <p class="text-sm font-bold text-ink-primary mt-2.5 leading-snug line-clamp-2">
+            "In IELTS Task 1 Model Letter, the word 'uncompromised' is listed as an adverb in the word bank instead of adjective."
+          </p>
+
+          <!-- Context pills row -->
+          <div class="flex items-center gap-2 mt-3 text-xs font-semibold text-ink-muted">
+            <span class="px-2 py-0.5 rounded-lg bg-canvas border border-border-base font-mono text-[11px]">Task 1 Letter</span>
+            <span>•</span>
+            <span>iOS App</span>
+          </div>
+        </div>
+
+        <!-- Report Row 2 -->
+        <div class="btn-press bg-card hover:bg-card-warm rounded-2xl border-2 border-border-base shadow-tactile-card p-4 transition-all cursor-pointer">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Type Chip: Bug -->
+              <span class="px-2.5 py-1 rounded-xl bg-coral-brand/15 text-coral-brand border-2 border-coral-brand/30 text-[11px] font-extrabold tracking-wide uppercase">
+                Bug
+              </span>
+              <span class="flex items-center gap-1.5 text-[11px] font-bold text-ink-muted">
+                <span class="w-2 h-2 rounded-full bg-amber-brand"></span>
+                <span>New</span>
+              </span>
+            </div>
+            <span class="text-xs font-bold text-ink-muted">1h ago</span>
+          </div>
+
+          <p class="text-sm font-bold text-ink-primary mt-2.5 leading-snug line-clamp-2">
+            "Audio clip for British pronunciation of 'meticulous' cuts off the final syllable on Safari mobile."
+          </p>
+
+          <div class="flex items-center gap-2 mt-3 text-xs font-semibold text-ink-muted">
+            <span class="px-2 py-0.5 rounded-lg bg-canvas border border-border-base font-mono text-[11px]">Lesson Drill</span>
+            <span>•</span>
+            <span>Mobile Web</span>
+          </div>
+        </div>
+
+        <!-- Report Row 3 -->
+        <div class="btn-press bg-card hover:bg-card-warm rounded-2xl border-2 border-border-base shadow-tactile-card p-4 transition-all cursor-pointer">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Type Chip: Idea -->
+              <span class="px-2.5 py-1 rounded-xl bg-teal-brand/15 text-teal-deep border-2 border-teal-brand/30 text-[11px] font-extrabold tracking-wide uppercase">
+                Idea
+              </span>
+              <span class="flex items-center gap-1.5 text-[11px] font-bold text-ink-muted">
+                <span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+                <span>New</span>
+              </span>
+            </div>
+            <span class="text-xs font-bold text-ink-muted">3h ago</span>
+          </div>
+
+          <p class="text-sm font-bold text-ink-primary mt-2.5 leading-snug line-clamp-2">
+            "Add a quick toggle in the Chrome extension to auto-save double-clicked words directly into the Spaced Review deck."
+          </p>
+
+          <div class="flex items-center gap-2 mt-3 text-xs font-semibold text-ink-muted">
+            <span class="px-2 py-0.5 rounded-lg bg-canvas border border-border-base font-mono text-[11px]">Chrome Add-on</span>
+            <span>•</span>
+            <span>macOS Chrome</span>
+          </div>
+        </div>
+
+        <!-- Report Row 4 -->
+        <div class="btn-press bg-card hover:bg-card-warm rounded-2xl border-2 border-border-base shadow-tactile-card p-4 transition-all cursor-pointer">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Type Chip: Bug -->
+              <span class="px-2.5 py-1 rounded-xl bg-coral-brand/15 text-coral-brand border-2 border-coral-brand/30 text-[11px] font-extrabold tracking-wide uppercase">
+                Bug
+              </span>
+              <span class="flex items-center gap-1.5 text-[11px] font-bold text-ink-muted">
+                <span class="w-2 h-2 rounded-full bg-ink-muted/50"></span>
+                <span>Queued</span>
+              </span>
+            </div>
+            <span class="text-xs font-bold text-ink-muted">5h ago</span>
+          </div>
+
+          <p class="text-sm font-bold text-ink-primary mt-2.5 leading-snug line-clamp-2">
+            "Daily streak counter showed 13 days instead of 14 after finishing the morning 5-minute collocation sprint."
+          </p>
+
+          <div class="flex items-center gap-2 mt-3 text-xs font-semibold text-ink-muted">
+            <span class="px-2 py-0.5 rounded-lg bg-canvas border border-border-base font-mono text-[11px]">Streak Hub</span>
+            <span>•</span>
+            <span>Android App</span>
+          </div>
+        </div>
+
+        <!-- Report Row 5 -->
+        <div class="btn-press bg-card hover:bg-card-warm rounded-2xl border-2 border-border-base shadow-tactile-card p-4 transition-all cursor-pointer">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Type Chip: Content Error -->
+              <span class="px-2.5 py-1 rounded-xl bg-amber-500/15 text-idea-amber border-2 border-amber-500/30 text-[11px] font-extrabold tracking-wide uppercase">
+                Content error
+              </span>
+              <span class="flex items-center gap-1.5 text-[11px] font-bold text-ink-muted">
+                <span class="w-2 h-2 rounded-full bg-ink-muted/50"></span>
+                <span>Queued</span>
+              </span>
+            </div>
+            <span class="text-xs font-bold text-ink-muted">Yesterday</span>
+          </div>
+
+          <p class="text-sm font-bold text-ink-primary mt-2.5 leading-snug line-clamp-2">
+            "Spanish translation for 'deteriorate' has a typo in the second subjunctive sentence."
+          </p>
+
+          <div class="flex items-center gap-2 mt-3 text-xs font-semibold text-ink-muted">
+            <span class="px-2 py-0.5 rounded-lg bg-canvas border border-border-base font-mono text-[11px]">Dictionary</span>
+            <span>•</span>
+            <span>Web Desktop</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Selected Report Detail (7 cols) -->
+      <div class="lg:col-span-7 flex flex-col gap-5">
+
+        <!-- Detail Card Container -->
+        <div class="bg-card rounded-3xl border-2 border-border-base shadow-tactile-card p-6 sm:p-7 flex flex-col gap-6">
+
+          <!-- Top Metadata Strip -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b-2 border-border-base gap-3">
+            <div class="flex items-center gap-3">
+              <!-- Illustrated Type Icon Badge -->
+              <div class="w-12 h-12 rounded-2xl bg-amber-brand/15 border-2 border-amber-brand/40 shadow-[0_3px_0_0_#D8CFBC] flex items-center justify-center text-amber-600">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-idea-amber">Content Error</span>
+                  <span class="text-xs font-bold text-ink-muted">• #REP-1084</span>
+                </div>
+                <h2 class="text-xl font-extrabold text-ink-primary">Part of speech tag mismatch</h2>
+              </div>
+            </div>
+
+            <div class="text-xs font-bold text-ink-muted sm:text-right">
+              <div>Received 14m ago</div>
+              <div class="text-teal-deep font-semibold">User: learner_mai@live.com</div>
+            </div>
+          </div>
+
+          <!-- Origin & Device Badges Row -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-canvas border-2 border-border-base shadow-[0_2px_0_0_#D8CFBC]">
+              <span class="text-xs font-bold text-ink-muted">Screen:</span>
+              <span class="text-xs font-extrabold text-teal-deep font-mono">IELTS General Task 1 Model Letter</span>
+            </div>
+
+            <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-canvas border-2 border-border-base shadow-[0_2px_0_0_#D8CFBC]">
+              <span class="text-xs font-bold text-ink-muted">Device:</span>
+              <span class="text-xs font-extrabold text-ink-primary">iPhone 15 Pro • iOS 18.2</span>
+            </div>
+
+            <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-canvas border-2 border-border-base shadow-[0_2px_0_0_#D8CFBC]">
+              <span class="text-xs font-bold text-ink-muted">App build:</span>
+              <span class="text-xs font-extrabold text-ink-primary font-mono">v2.4.1 (240)</span>
+            </div>
+          </div>
+
+          <!-- User's Raw Report Card -->
+          <div class="flex flex-col gap-2">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-ink-muted">Learner's submission</span>
+            <div class="bg-card-warm rounded-2xl border-2 border-border-base p-5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+              <p class="text-base font-bold text-ink-primary leading-relaxed">
+                "In IELTS Task 1 Model Letter, the word <span class="px-2 py-0.5 rounded-lg bg-teal-brand/20 text-teal-deep font-mono font-extrabold">'uncompromised'</span> is listed as an adverb in the word bank instead of adjective. Could you check Carlos’s annotation note too?"
+              </p>
+            </div>
+          </div>
+
+          <!-- In-Context Screen Excerpt Preview (Chunky Card) -->
+          <div class="flex flex-col gap-2">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-ink-muted">Associated Lesson Target</span>
+            <div class="rounded-2xl border-2 border-border-base bg-card p-4 flex items-center justify-between gap-4 shadow-tactile-btn">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-brand/15 border border-teal-brand/30 flex items-center justify-center text-teal-deep font-extrabold text-xs">
+                  C1
+                </div>
+                <div>
+                  <div class="text-sm font-extrabold text-ink-primary">uncompromised</div>
+                  <div class="text-xs font-semibold text-coral-brand">Current tag: <span class="line-through font-mono">adv.</span> → Expected: <span class="font-bold text-success-green font-mono">adj.</span></div>
+                </div>
+              </div>
+
+              <!-- Quick preview link -->
+              <span class="text-xs font-extrabold text-teal-deep uppercase tracking-wider hover:underline flex items-center gap-1 cursor-pointer">
+                Inspect screen
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Tactile Action Buttons Row -->
+          <div class="pt-3 border-t-2 border-border-base flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            
+            <!-- Left: Primary Triage Action (Mark fixed) -->
+            <button class="btn-press flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-teal-deep to-teal-brand text-white font-extrabold text-sm tracking-wide border-2 border-teal-ledge shadow-tactile-teal">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Mark fixed</span>
+            </button>
+
+            <!-- Middle: Secondary Action (Reply) -->
+            <button class="btn-press flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-card hover:bg-card-warm text-ink-primary font-extrabold text-sm tracking-wide border-2 border-border-base shadow-tactile-btn">
+              <svg class="w-4 h-4 text-ink-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              <span>Reply</span>
+            </button>
+
+            <!-- Right: Tertiary Action (Archive) -->
+            <button class="btn-press flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-card hover:bg-card-warm text-ink-muted hover:text-coral-brand font-extrabold text-sm tracking-wide border-2 border-border-base shadow-tactile-btn">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="21 8 21 21 3 21 3 8"/>
+                <rect x="1" y="3" width="22" height="5"/>
+                <line x1="10" y1="12" x2="14" y2="12"/>
+              </svg>
+              <span>Archive</span>
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Quick Keyboard & Shortcuts Helper Card -->
+        <div class="px-4 py-3 rounded-2xl bg-card border-2 border-border-base flex items-center justify-between text-xs font-bold text-ink-muted shadow-[0_2px_0_0_#D8CFBC]">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+            <span>Keyboard triage:</span>
+            <span class="px-1.5 py-0.5 rounded bg-canvas border border-border-base font-mono text-[10px]">F</span> Mark fixed
+            <span class="px-1.5 py-0.5 rounded bg-canvas border border-border-base font-mono text-[10px]">R</span> Reply
+            <span class="px-1.5 py-0.5 rounded bg-canvas border border-border-base font-mono text-[10px]">E</span> Archive
+          </div>
+          <span>Report 1 of 7</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Clean Bottom System Footer (Admin Context) -->
+  <footer class="w-full mt-auto border-t-2 border-border-base py-5 px-6 bg-card text-center text-xs font-bold text-ink-muted">
+    <div class="max-w-[1360px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+        <span>Lexkite Admin • Single-operator exam engine</span>
+      </div>
+      <div>
+        <span>Zero tracking • High contrast • Bright Day Light UI</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Admin — Overview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFAF3',
+              100: '#FFF7EA',
+              200: '#F9EED9',
+              300: '#EFE0C2',
+            },
+            teal: {
+              brand: '#2BA39A',
+              deep: '#0F3D3E',
+              dark: '#144F50',
+              soft: '#E6F6F4',
+              border: '#BFE7E2',
+              ledge: '#1B6F68',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              dark: '#B53A22',
+              soft: '#FDEEEB',
+            },
+            amber: {
+              DEFAULT: '#FFB054',
+              dark: '#C87820',
+              soft: '#FFF5E7',
+            },
+            slate: {
+              border: '#E8DCC8',
+              ledge: '#D5C7B0',
+              card: '#FFFFFF',
+              subtle: '#8C7E6A',
+              dark: '#2A241A',
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 #D8CFBC',
+            'tactile-card-hover': '0 6px 0 #D8CFBC',
+            'tactile-btn': '0 4px 0 #B53A22',
+            'tactile-btn-pressed': '0 1px 0 #B53A22',
+            'tactile-btn-sec': '0 4px 0 #D8CFBC',
+            'tactile-icon': '0 3px 0 rgba(0,0,0,0.08)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical candy buttons with realistic tactile underside ledge */
+    .btn-candy {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      box-shadow: 0 4px 0 #B53A22;
+      transition: all 0.1s ease-in-out;
+    }
+    .btn-candy:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #B53A22;
+    }
+    .btn-candy:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+    .btn-secondary {
+      background: #FFFFFF;
+      box-shadow: 0 4px 0 #D8CFBC;
+      border: 2px solid #EADEC8;
+      transition: all 0.1s ease-in-out;
+    }
+    .btn-secondary:hover {
+      background: #FFFAF3;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #D8CFBC;
+    }
+    .btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+    .card-tactile {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+      border-radius: 20px;
+    }
+    .card-tactile-sm {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      border-radius: 16px;
+    }
+    .sidebar-link {
+      transition: all 0.12s ease;
+    }
+    .sidebar-link:hover {
+      background-color: #F8EFE0;
+      transform: translateX(2px);
+    }
+    .sidebar-link.active {
+      background-color: #E7F6F4;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 3px 0 #1B6F68;
+    }
+    /* Custom scrollbar for dense sidebar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF7EA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E5D6BD;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4C1A2;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex bg-cream-100 antialiased selection:bg-teal-brand selection:text-white">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="w-64 flex-shrink-0 bg-cream-50 border-r-2 border-slate-border flex flex-col h-screen sticky top-0 z-30 select-none">
+    <!-- Brand / Admin Workspace Header -->
+    <div class="h-20 px-6 flex items-center justify-between border-b-2 border-slate-border bg-white/70">
+      <div class="flex items-center gap-3">
+        <!-- Lexkite Logo Emblem -->
+        <div class="w-10 h-10 rounded-xl bg-teal-brand border-2 border-teal-ledge shadow-[0_3px_0_#12514D] flex items-center justify-center p-1.5 flex-shrink-0 relative">
+          <svg class="w-full h-full text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#FFF7EA"/>
+            <path d="M12 2L20 10L12 12V2Z" fill="#FFB054"/>
+            <path d="M12 12L20 10L12 22V12Z" fill="#F2553B"/>
+            <path d="M12 2L4 10L12 12V2Z" fill="#2BA39A"/>
+            <path d="M12 12L4 10L12 22V12Z" fill="#1F7A75"/>
+          </svg>
+          <div class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-coral border-2 border-white"></div>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-lg text-teal-deep tracking-tight">Lexkite</span>
+            <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-amber-soft text-amber-dark border border-amber-dark/20">Ops</span>
+          </div>
+          <p class="text-[11px] font-bold text-slate-subtle">Solo Admin Studio</p>
+        </div>
+      </div>
+      <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-100" title="System Live"></div>
+    </div>
+
+    <!-- Navigation List (15 Sections with Illustrated 3D Pill Icons) -->
+    <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+      <div class="px-3 pb-1.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-subtle">Core Engine</div>
+      
+      <!-- 1. Overview (Active) -->
+      <a href="#overview" class="sidebar-link active flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-teal-brand text-white flex items-center justify-center shadow-[0_2px_0_#1B6F68] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">dashboard</span>
+        </div>
+        <span class="flex-1 truncate">Overview</span>
+        <span class="w-2 h-2 rounded-full bg-teal-brand"></span>
+      </a>
+
+      <!-- 2. Growth -->
+      <a href="#growth" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/90 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center shadow-[0_2px_0_#047857] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">trending_up</span>
+        </div>
+        <span class="flex-1 truncate">Growth</span>
+        <span class="text-[10px] font-extrabold px-1.5 py-0.2 rounded-full bg-emerald-100 text-emerald-800">+18%</span>
+      </a>
+
+      <!-- 3. Quota -->
+      <a href="#quota" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-amber text-white flex items-center justify-center shadow-[0_2px_0_#C87820] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">pie_chart</span>
+        </div>
+        <span class="flex-1 truncate">Quota</span>
+        <span class="text-[10px] font-bold text-slate-subtle">72%</span>
+      </a>
+
+      <!-- 4. Reports -->
+      <a href="#reports" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-coral text-white flex items-center justify-center shadow-[0_2px_0_#B53A22] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">flag</span>
+        </div>
+        <span class="flex-1 truncate">Reports</span>
+        <span class="px-1.5 py-0.2 text-[10px] font-extrabold bg-coral text-white rounded-full">3</span>
+      </a>
+
+      <!-- 5. Notices -->
+      <a href="#notices" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-indigo-500 text-white flex items-center justify-center shadow-[0_2px_0_#3730A3] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">campaign</span>
+        </div>
+        <span class="flex-1 truncate">Notices</span>
+      </a>
+
+      <!-- 6. Push -->
+      <a href="#push" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-rose-500 text-white flex items-center justify-center shadow-[0_2px_0_#9F1239] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">notifications_active</span>
+        </div>
+        <span class="flex-1 truncate">Push</span>
+      </a>
+
+      <!-- 7. Ads -->
+      <a href="#ads" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-teal-700 text-white flex items-center justify-center shadow-[0_2px_0_#0F3D3E] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">monetization_on</span>
+        </div>
+        <span class="flex-1 truncate">Ads</span>
+        <span class="text-[9px] font-extrabold px-1 rounded bg-cream-200 text-slate-subtle">0 ads</span>
+      </a>
+
+      <div class="pt-3 px-3 pb-1.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-subtle">Studio & Content</div>
+
+      <!-- 8. Video studio -->
+      <a href="#studio" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-purple-600 text-white flex items-center justify-center shadow-[0_2px_0_#581C87] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">videocam</span>
+        </div>
+        <span class="flex-1 truncate">Video studio</span>
+      </a>
+
+      <!-- 9. Clips -->
+      <a href="#clips" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-sky-500 text-white flex items-center justify-center shadow-[0_2px_0_#0369A1] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">movie</span>
+        </div>
+        <span class="flex-1 truncate">Clips</span>
+      </a>
+
+      <!-- 10. Social -->
+      <a href="#social" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-cyan-600 text-white flex items-center justify-center shadow-[0_2px_0_#0E7490] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">share</span>
+        </div>
+        <span class="flex-1 truncate">Social</span>
+      </a>
+
+      <!-- 11. Distribution -->
+      <a href="#distribution" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-amber-600 text-white flex items-center justify-center shadow-[0_2px_0_#92400E] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">hub</span>
+        </div>
+        <span class="flex-1 truncate">Distribution</span>
+      </a>
+
+      <div class="pt-3 px-3 pb-1.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-subtle">Infrastructure</div>
+
+      <!-- 12. Drive -->
+      <a href="#drive" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shadow-[0_2px_0_#065F46] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">add_to_drive</span>
+        </div>
+        <span class="flex-1 truncate">Drive</span>
+      </a>
+
+      <!-- 13. Storage -->
+      <a href="#storage" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-[0_2px_0_#1E40AF] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">database</span>
+        </div>
+        <span class="flex-1 truncate">Storage</span>
+      </a>
+
+      <!-- 14. Keys -->
+      <a href="#keys" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-white flex items-center justify-center shadow-[0_2px_0_#92400E] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">key</span>
+        </div>
+        <span class="flex-1 truncate">Keys</span>
+      </a>
+
+      <!-- 15. Settings -->
+      <a href="#settings" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-xl text-teal-deep/80 font-bold text-sm">
+        <div class="w-7 h-7 rounded-lg bg-stone-500 text-white flex items-center justify-center shadow-[0_2px_0_#292524] flex-shrink-0">
+          <span class="material-symbols-rounded text-lg">settings</span>
+        </div>
+        <span class="flex-1 truncate">Settings</span>
+      </a>
+    </nav>
+
+    <!-- Bottom Operator Pill -->
+    <div class="p-3 border-t-2 border-slate-border bg-white/50">
+      <div class="card-tactile-sm p-2.5 flex items-center gap-2.5 bg-white">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-brand to-teal-deep text-white font-extrabold flex items-center justify-center text-xs shadow-[0_2px_0_#0F3D3E]">
+          K
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-extrabold text-teal-deep truncate">Kai (Lead)</p>
+          <p class="text-[10px] font-bold text-slate-subtle truncate">Superuser Role</p>
+        </div>
+        <button class="w-6 h-6 rounded-md hover:bg-cream-200 text-slate-subtle flex items-center justify-center transition-colors" title="Lock Console">
+          <span class="material-symbols-rounded text-base">lock</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+    
+    <!-- TOP BAR -->
+    <header class="h-20 px-8 flex items-center justify-between border-b-2 border-slate-border bg-cream-100/90 backdrop-blur sticky top-0 z-20">
+      <!-- Greeting line -->
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-xl">👋</span>
+          <h1 class="text-2xl font-extrabold text-teal-deep tracking-tight">Good morning, Kai</h1>
+          <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-teal-soft text-teal-deep border border-teal-border">All systems normal</span>
+        </div>
+        <p class="text-xs font-bold text-slate-subtle mt-0.5">Here is the 24-hour pulse across IELTS and TOEIC learners.</p>
+      </div>
+
+      <!-- Action Cluster -->
+      <div class="flex items-center gap-3">
+        <!-- Live Sync Pill -->
+        <div class="card-tactile-sm px-3.5 py-1.5 bg-white flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-teal-brand animate-ping"></span>
+          <span class="text-xs font-extrabold text-teal-deep tracking-wide uppercase">Live Sync: Edge 41ms</span>
+        </div>
+
+        <!-- Secondary CTA: Refresh Data -->
+        <button class="btn-secondary px-3.5 py-2 rounded-xl text-xs font-extrabold text-teal-deep flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-base">refresh</span>
+          <span>Refresh</span>
+        </button>
+
+        <!-- Primary Candy CTA: Deploy Batch -->
+        <button class="btn-candy px-4 py-2 rounded-xl text-xs font-extrabold text-white flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-base">rocket_launch</span>
+          <span>Publish Day Pack</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN SCROLLABLE DASHBOARD VIEW -->
+    <div class="p-8 space-y-6 max-w-7xl">
+
+      <!-- 1. ROW OF 4 CHUNKY STAT TILES -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Tile 1: Active users today -->
+        <div class="card-tactile p-5 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-[11px] font-extrabold uppercase tracking-wider text-slate-subtle">Active Today</p>
+              <h2 class="text-3xl font-extrabold text-teal-deep mt-1">18,420</h2>
+            </div>
+            <div class="w-10 h-10 rounded-2xl bg-teal-soft border-2 border-teal-border text-teal-brand flex items-center justify-center shadow-tactile-icon">
+              <span class="material-symbols-rounded text-xl">group</span>
+            </div>
+          </div>
+          <!-- Sparkline 1 -->
+          <div class="mt-4 pt-3 border-t-2 border-cream-200 flex items-end justify-between">
+            <div class="flex items-center gap-1 text-[11px] font-extrabold text-emerald-600">
+              <span class="material-symbols-rounded text-sm">arrow_upward</span>
+              <span>+14.2%</span>
+              <span class="text-slate-subtle font-medium ml-1">vs yesterday</span>
+            </div>
+            <!-- Tiny SVG sparkline -->
+            <svg class="w-20 h-6 overflow-visible" viewBox="0 0 80 24" fill="none">
+              <path d="M2 18 L16 16 L30 19 L44 11 L58 13 L78 3" stroke="#2BA39A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="78" cy="3" r="3" fill="#2BA39A"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Tile 2: New users -->
+        <div class="card-tactile p-5 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-[11px] font-extrabold uppercase tracking-wider text-slate-subtle">New Signups</p>
+              <h2 class="text-3xl font-extrabold text-teal-deep mt-1">1,248</h2>
+            </div>
+            <div class="w-10 h-10 rounded-2xl bg-amber-soft border-2 border-amber/30 text-amber-dark flex items-center justify-center shadow-tactile-icon">
+              <span class="material-symbols-rounded text-xl">person_add</span>
+            </div>
+          </div>
+          <!-- Sparkline 2 -->
+          <div class="mt-4 pt-3 border-t-2 border-cream-200 flex items-end justify-between">
+            <div class="flex items-center gap-1 text-[11px] font-extrabold text-emerald-600">
+              <span class="material-symbols-rounded text-sm">arrow_upward</span>
+              <span>+8.6%</span>
+              <span class="text-slate-subtle font-medium ml-1">daily run</span>
+            </div>
+            <!-- Tiny SVG sparkline -->
+            <svg class="w-20 h-6 overflow-visible" viewBox="0 0 80 24" fill="none">
+              <path d="M2 20 L18 17 L34 15 L50 9 L64 12 L78 4" stroke="#FFB054" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="78" cy="4" r="3" fill="#FFB054"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Tile 3: Lessons finished -->
+        <div class="card-tactile p-5 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-[11px] font-extrabold uppercase tracking-wider text-slate-subtle">Lessons Finished</p>
+              <h2 class="text-3xl font-extrabold text-teal-deep mt-1">94,310</h2>
+            </div>
+            <div class="w-10 h-10 rounded-2xl bg-emerald-50 border-2 border-emerald-200 text-emerald-600 flex items-center justify-center shadow-tactile-icon">
+              <span class="material-symbols-rounded text-xl">check_circle</span>
+            </div>
+          </div>
+          <!-- Sparkline 3 -->
+          <div class="mt-4 pt-3 border-t-2 border-cream-200 flex items-end justify-between">
+            <div class="flex items-center gap-1 text-[11px] font-extrabold text-emerald-600">
+              <span class="material-symbols-rounded text-sm">arrow_upward</span>
+              <span>+22.5%</span>
+              <span class="text-slate-subtle font-medium ml-1">completion</span>
+            </div>
+            <!-- Tiny SVG sparkline -->
+            <svg class="w-20 h-6 overflow-visible" viewBox="0 0 80 24" fill="none">
+              <path d="M2 22 L15 18 L32 14 L46 16 L62 8 L78 2" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="78" cy="2" r="3" fill="#10B981"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Tile 4: Streak keepers -->
+        <div class="card-tactile p-5 flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-[11px] font-extrabold uppercase tracking-wider text-slate-subtle">Streak Keepers</p>
+              <h2 class="text-3xl font-extrabold text-teal-deep mt-1">11,790</h2>
+            </div>
+            <div class="w-10 h-10 rounded-2xl bg-coral-soft border-2 border-coral/30 text-coral flex items-center justify-center shadow-tactile-icon">
+              <span class="material-symbols-rounded text-xl">local_fire_department</span>
+            </div>
+          </div>
+          <!-- Sparkline 4 -->
+          <div class="mt-4 pt-3 border-t-2 border-cream-200 flex items-end justify-between">
+            <div class="flex items-center gap-1 text-[11px] font-extrabold text-emerald-600">
+              <span class="material-symbols-rounded text-sm">arrow_upward</span>
+              <span>64%</span>
+              <span class="text-slate-subtle font-medium ml-1">retention rate</span>
+            </div>
+            <!-- Tiny SVG sparkline -->
+            <svg class="w-20 h-6 overflow-visible" viewBox="0 0 80 24" fill="none">
+              <path d="M2 19 L20 18 L36 12 L50 14 L65 7 L78 4" stroke="#F2553B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="78" cy="4" r="3" fill="#F2553B"/>
+            </svg>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 2. BIG LINE CHART CARD: DAILY ACTIVE USERS (30 DAYS) -->
+      <section class="card-tactile p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b-2 border-cream-200 gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-md bg-teal-brand border border-teal-deep shadow-[0_1px_0_#0F3D3E]"></span>
+              <h2 class="text-lg font-extrabold text-teal-deep tracking-tight">Daily Active Users — 30 Days Trend</h2>
+            </div>
+            <p class="text-xs font-bold text-slate-subtle mt-0.5">High-retention exam season growth across IELTS Academic and TOEIC tracks.</p>
+          </div>
+
+          <!-- Time & Filter Tabs -->
+          <div class="flex items-center gap-2">
+            <div class="card-tactile-sm p-1 flex items-center gap-1 bg-cream-50">
+              <button class="px-2.5 py-1 text-xs font-extrabold rounded-lg bg-teal-brand text-white shadow-[0_2px_0_#1B6F68]">30D</button>
+              <button class="px-2.5 py-1 text-xs font-bold rounded-lg text-teal-deep hover:bg-cream-200">14D</button>
+              <button class="px-2.5 py-1 text-xs font-bold rounded-lg text-teal-deep hover:bg-cream-200">7D</button>
+            </div>
+            <div class="card-tactile-sm px-3 py-1.5 flex items-center gap-2 text-xs font-extrabold text-teal-deep">
+              <span class="w-2 h-2 rounded-full bg-coral"></span>
+              <span>Avg: 16.4k/day</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SVG Line Chart Canvas -->
+        <div class="relative pt-6">
+          <!-- Metric Callout Floating Badge -->
+          <div class="absolute top-12 left-[62%] transform -translate-x-1/2 card-tactile-sm p-2 text-center bg-white shadow-tactile-card pointer-events-none z-10 border-teal-brand">
+            <p class="text-[10px] font-bold text-slate-subtle">Day 21 (Peak)</p>
+            <p class="text-sm font-extrabold text-teal-deep">19,850 DAU</p>
+          </div>
+
+          <!-- Chart Visual Area -->
+          <div class="w-full h-64 relative">
+            <svg class="w-full h-full overflow-visible" viewBox="0 0 900 240" preserveAspectRatio="none">
+              <defs>
+                <!-- Subtle Gradient Fill Under Line -->
+                <linearGradient id="dauGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2BA39A" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#2BA39A" stop-opacity="0.0"/>
+                </linearGradient>
+                <!-- Dotted grid pattern -->
+                <pattern id="gridDots" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1" fill="#E8DCC8" />
+                </pattern>
+              </defs>
+
+              <!-- Grid Horizontal Guide Lines -->
+              <rect x="0" y="0" width="900" height="200" fill="url(#gridDots)" opacity="0.6"/>
+              <line x1="0" y1="40" x2="900" y2="40" stroke="#F0E4D0" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <line x1="0" y1="90" x2="900" y2="90" stroke="#F0E4D0" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <line x1="0" y1="140" x2="900" y2="140" stroke="#F0E4D0" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <line x1="0" y1="190" x2="900" y2="190" stroke="#E5D6BD" stroke-width="2"/>
+
+              <!-- Baseline 7-day Moving Average (Dashed Warm Amber) -->
+              <path d="M 0 160 Q 150 150, 300 135 T 600 85 T 900 45" 
+                    fill="none" stroke="#FFB054" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.8"/>
+
+              <!-- Gradient Area fill under DAU curve -->
+              <path d="M 0 180 
+                       L 30 172 L 60 168 L 90 175 L 120 160 L 150 155 L 180 148 L 210 152 
+                       L 240 142 L 270 138 L 300 130 L 330 128 L 360 134 L 390 122 L 420 115 
+                       L 450 118 L 480 105 L 510 98 L 540 102 L 570 70 L 600 78 L 630 65 
+                       L 660 55 L 690 62 L 720 50 L 750 48 L 780 42 L 810 46 L 840 32 L 870 30 L 900 24 
+                       L 900 190 L 0 190 Z" 
+                    fill="url(#dauGradient)"/>
+
+              <!-- Main Solid Tactile DAU Curve -->
+              <path d="M 0 180 
+                       L 30 172 L 60 168 L 90 175 L 120 160 L 150 155 L 180 148 L 210 152 
+                       L 240 142 L 270 138 L 300 130 L 330 128 L 360 134 L 390 122 L 420 115 
+                       L 450 118 L 480 105 L 510 98 L 540 102 L 570 70 L 600 78 L 630 65 
+                       L 660 55 L 690 62 L 720 50 L 750 48 L 780 42 L 810 46 L 840 32 L 870 30 L 900 24" 
+                    fill="none" stroke="#2BA39A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <!-- Peak Indicator Node with Coral Highlight -->
+              <circle cx="570" cy="70" r="7" fill="#FFFFFF" stroke="#F2553B" stroke-width="3"/>
+              <circle cx="570" cy="70" r="3" fill="#F2553B"/>
+
+              <!-- Today Indicator Node -->
+              <circle cx="900" cy="24" r="8" fill="#2BA39A" stroke="#FFFFFF" stroke-width="3"/>
+            </svg>
+          </div>
+
+          <!-- Bottom Axis Days Labels (30 days sampling) -->
+          <div class="flex justify-between text-[11px] font-extrabold text-slate-subtle mt-2 pt-2 border-t-2 border-cream-200">
+            <span>Oct 01</span>
+            <span>Oct 06</span>
+            <span>Oct 11</span>
+            <span>Oct 16</span>
+            <span>Oct 21 (Peak)</span>
+            <span>Oct 26</span>
+            <span class="text-teal-brand font-black">Today (18.4k)</span>
+          </div>
+        </div>
+
+        <!-- Quick Summary Bar beneath Chart -->
+        <div class="mt-4 pt-4 border-t-2 border-cream-200 grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="p-3 bg-cream-50 rounded-xl border border-slate-border">
+            <span class="text-[10px] font-extrabold text-slate-subtle uppercase">30D Total Sessions</span>
+            <p class="text-base font-extrabold text-teal-deep mt-0.5">512,490</p>
+          </div>
+          <div class="p-3 bg-cream-50 rounded-xl border border-slate-border">
+            <span class="text-[10px] font-extrabold text-slate-subtle uppercase">Median Session Time</span>
+            <p class="text-base font-extrabold text-teal-deep mt-0.5">6m 40s</p>
+          </div>
+          <div class="p-3 bg-cream-50 rounded-xl border border-slate-border">
+            <span class="text-[10px] font-extrabold text-slate-subtle uppercase">Drill Accuracy Avg</span>
+            <p class="text-base font-extrabold text-teal-deep mt-0.5">84.2%</p>
+          </div>
+          <div class="p-3 bg-cream-50 rounded-xl border border-slate-border">
+            <span class="text-[10px] font-extrabold text-slate-subtle uppercase">Zero-Cost Server Bill</span>
+            <p class="text-base font-extrabold text-emerald-700 mt-0.5">$0.00 <span class="text-[10px] font-bold text-slate-subtle">(Cloudflare + GH)</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. LOWER SPLIT: 'NEEDS ATTENTION' CARD & 'RECENT REPORTS' LIST -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- 'NEEDS ATTENTION' CARD (5 cols) -->
+        <div class="lg:col-span-5 card-tactile p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b-2 border-cream-200">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-coral text-white flex items-center justify-center shadow-[0_2px_0_#B53A22]">
+                  <span class="material-symbols-rounded text-base">priority_high</span>
+                </div>
+                <h2 class="text-lg font-extrabold text-teal-deep tracking-tight">Needs Attention</h2>
+              </div>
+              <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-coral-soft text-coral border border-coral/30">4 Items Pending</span>
+            </div>
+
+            <!-- Stack of Urgent / Action Items with colored pills -->
+            <div class="mt-4 space-y-3">
+              
+              <!-- Item 1: Audio Edge CDN Quota -->
+              <div class="p-3.5 rounded-2xl bg-cream-50 border-2 border-slate-border hover:border-amber transition-colors flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-8 h-8 rounded-xl bg-amber-soft text-amber-dark flex items-center justify-center flex-shrink-0 border border-amber/30">
+                    <span class="material-symbols-rounded text-lg">hard_drive</span>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-xs font-extrabold text-teal-deep truncate">Cambridge Audio CDN</p>
+                    <p class="text-[11px] font-bold text-slate-subtle truncate">Bandwidth hit 88% tier</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-amber text-white shadow-[0_2px_0_#C87820] flex-shrink-0 uppercase">88% Quota</span>
+              </div>
+
+              <!-- Item 2: Misreported Collocation -->
+              <div class="p-3.5 rounded-2xl bg-cream-50 border-2 border-slate-border hover:border-coral transition-colors flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-8 h-8 rounded-xl bg-coral-soft text-coral flex items-center justify-center flex-shrink-0 border border-coral/30">
+                    <span class="material-symbols-rounded text-lg">spellcheck</span>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-xs font-extrabold text-teal-deep truncate">"Demurrage" Phonetics</p>
+                    <p class="text-[11px] font-bold text-slate-subtle truncate">IPA typo reported x12</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-coral text-white shadow-[0_2px_0_#B53A22] flex-shrink-0 uppercase">Urgent Fix</span>
+              </div>
+
+              <!-- Item 3: Extension Manifest V3 Review -->
+              <div class="p-3.5 rounded-2xl bg-cream-50 border-2 border-slate-border hover:border-indigo-400 transition-colors flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 border border-indigo-200">
+                    <span class="material-symbols-rounded text-lg">extension</span>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-xs font-extrabold text-teal-deep truncate">Chrome Store V3 Release</p>
+                    <p class="text-[11px] font-bold text-slate-subtle truncate">Version 2.4.1 pending</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-indigo-600 text-white shadow-[0_2px_0_#3730A3] flex-shrink-0 uppercase">Review</span>
+              </div>
+
+              <!-- Item 4: Cloudflare Backup Sync -->
+              <div class="p-3.5 rounded-2xl bg-cream-50 border-2 border-slate-border hover:border-teal-brand transition-colors flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-8 h-8 rounded-xl bg-teal-soft text-teal-brand flex items-center justify-center flex-shrink-0 border border-teal-border">
+                    <span class="material-symbols-rounded text-lg">sync_problem</span>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-xs font-extrabold text-teal-deep truncate">FSRS Offline Cache</p>
+                    <p class="text-[11px] font-bold text-slate-subtle truncate">Re-seed 120 IELTS cards</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-teal-brand text-white shadow-[0_2px_0_#1B6F68] flex-shrink-0 uppercase">Maintenance</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Action within Card -->
+          <div class="mt-5 pt-4 border-t-2 border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-subtle">Fast Resolution Engine</span>
+            <button class="btn-secondary px-3.5 py-1.5 rounded-xl text-xs font-extrabold text-teal-deep flex items-center gap-1">
+              <span>Resolve All</span>
+              <span class="material-symbols-rounded text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 'RECENT REPORTS' LIST (7 cols) -->
+        <div class="lg:col-span-7 card-tactile p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b-2 border-cream-200">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-teal-brand text-white flex items-center justify-center shadow-[0_2px_0_#1B6F68]">
+                  <span class="material-symbols-rounded text-base">forum</span>
+                </div>
+                <h2 class="text-lg font-extrabold text-teal-deep tracking-tight">Recent Reports & Feedback</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold text-slate-subtle">Filtered: All open</span>
+                <button class="w-7 h-7 rounded-lg bg-cream-200 text-teal-deep flex items-center justify-center hover:bg-cream-300">
+                  <span class="material-symbols-rounded text-base">tune</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- List of reports -->
+            <div class="mt-4 space-y-2.5">
+              
+              <!-- Report Row 1 -->
+              <div class="p-3 rounded-2xl bg-white border-2 border-slate-border hover:border-teal-brand hover:shadow-sm transition-all flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-9 h-9 rounded-xl bg-coral-soft text-coral flex items-center justify-center font-extrabold text-xs border border-coral/20 flex-shrink-0">
+                    ERR
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs font-extrabold text-teal-deep">Question #104 (TOEIC Part 5)</span>
+                      <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-cream-200 text-slate-subtle">Grammar Trap</span>
+                    </div>
+                    <p class="text-[11px] font-medium text-slate-subtle truncate">"Distractor option B claims past simple is valid after since."</p>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 flex items-center gap-2">
+                  <span class="text-[10px] font-bold text-slate-subtle">3m ago</span>
+                  <button class="btn-secondary px-2.5 py-1 rounded-lg text-[11px] font-extrabold text-teal-deep">Inspect</button>
+                </div>
+              </div>
+
+              <!-- Report Row 2 -->
+              <div class="p-3 rounded-2xl bg-white border-2 border-slate-border hover:border-teal-brand hover:shadow-sm transition-all flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-9 h-9 rounded-xl bg-teal-soft text-teal-brand flex items-center justify-center font-extrabold text-xs border border-teal-border flex-shrink-0">
+                    SUG
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs font-extrabold text-teal-deep">Speaking Topic: Job Interview</span>
+                      <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-teal-soft text-teal-deep">Content Request</span>
+                    </div>
+                    <p class="text-[11px] font-medium text-slate-subtle truncate">"Learner requested more collocations around financial risk."</p>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 flex items-center gap-2">
+                  <span class="text-[10px] font-bold text-slate-subtle">24m ago</span>
+                  <button class="btn-secondary px-2.5 py-1 rounded-lg text-[11px] font-extrabold text-teal-deep">Inspect</button>
+                </div>
+              </div>
+
+              <!-- Report Row 3 -->
+              <div class="p-3 rounded-2xl bg-white border-2 border-slate-border hover:border-teal-brand hover:shadow-sm transition-all flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-9 h-9 rounded-xl bg-amber-soft text-amber-dark flex items-center justify-center font-extrabold text-xs border border-amber/20 flex-shrink-0">
+                    AUD
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs font-extrabold text-teal-deep">Audio Pronunciation: "Resilient"</span>
+                      <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-amber-soft text-amber-dark">Playback delay</span>
+                    </div>
+                    <p class="text-[11px] font-medium text-slate-subtle truncate">"Slight latency on mobile Safari when tapping speaker icon."</p>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 flex items-center gap-2">
+                  <span class="text-[10px] font-bold text-slate-subtle">1h ago</span>
+                  <button class="btn-secondary px-2.5 py-1 rounded-lg text-[11px] font-extrabold text-teal-deep">Inspect</button>
+                </div>
+              </div>
+
+              <!-- Report Row 4 -->
+              <div class="p-3 rounded-2xl bg-white border-2 border-slate-border hover:border-teal-brand hover:shadow-sm transition-all flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center font-extrabold text-xs border border-purple-200 flex-shrink-0">
+                    EXT
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs font-extrabold text-teal-deep">Extension Uninstall Survey</span>
+                      <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-purple-50 text-purple-700">Exit note</span>
+                    </div>
+                    <p class="text-[11px] font-medium text-slate-subtle truncate">"Exam finished yesterday! Scored Band 7.5 thanks to Lexkite."</p>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0 flex items-center gap-2">
+                  <span class="text-[10px] font-bold text-slate-subtle">3h ago</span>
+                  <button class="btn-secondary px-2.5 py-1 rounded-lg text-[11px] font-extrabold text-teal-deep">Inspect</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Footer Bar within Reports -->
+          <div class="mt-5 pt-4 border-t-2 border-cream-200 flex items-center justify-between text-xs">
+            <span class="font-extrabold text-slate-subtle">Showing 4 of 18 reports</span>
+            <div class="flex items-center gap-2">
+              <button class="btn-secondary px-3 py-1 rounded-lg font-extrabold text-teal-deep">Previous</button>
+              <button class="btn-secondary px-3 py-1 rounded-lg font-extrabold text-teal-deep">Next</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 4. BOTTOM OPERATIONAL DOCK / SYSTEM HEALTH -->
+      <footer class="card-tactile-sm p-4 bg-white/80 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-subtle border-slate-border">
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5 font-extrabold text-teal-deep">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            Cloudflare Workers: 100% OK
+          </span>
+          <span class="hidden sm:inline text-slate-subtle">•</span>
+          <span class="font-bold text-slate-subtle">Postgres Supabase Pool: 14/100 connections</span>
+          <span class="hidden sm:inline text-slate-subtle">•</span>
+          <span class="font-bold text-slate-subtle">Storage: 42.1 GB / 250 GB</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="font-extrabold text-teal-deep">Lexkite Ops v2.4 (Solo)</span>
+          <a href="#logs" class="text-teal-brand font-extrabold hover:underline">Full Audit Log ↗</a>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+</body>
+</html>
+

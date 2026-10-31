@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Chrome Add-on New Tab (Tactile Night)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            night: {
+              base: '#0B171A',
+              surface: '#091518',
+              card: '#142328',
+              cardRaised: '#1A2C33',
+              border: '#243840',
+              borderStrong: '#304B56',
+              ledge: '#071012',
+              text: '#EEF6F7',
+              textMuted: '#9BB4B7',
+              textFaint: '#628186'
+            },
+            teal: {
+              glow: '#2BA39A',
+              deep: '#1F7A75',
+              soft: '#123D3E',
+              ledge: '#0D3E3C'
+            },
+            coral: {
+              main: '#F2553B',
+              amber: '#FFB054',
+              ledge: '#B53A22'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B171A;
+      color: #EEF6F7;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(43, 163, 154, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(242, 85, 59, 0.05) 0%, transparent 50%);
+    }
+
+    /* Tactile physics & ledges */
+    .tactile-card {
+      background: #142328;
+      border: 2px solid #243840;
+      border-radius: 24px;
+      box-shadow: 0 6px 0 0 #071012, 0 16px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    .tactile-card-inner {
+      background: #1A2C33;
+      border: 2px solid #28424C;
+      border-radius: 16px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .tactile-btn-primary {
+      background: linear-gradient(135deg, #F2553B 0%, #FF8A3D 50%, #FFB054 100%);
+      border: 2px solid #FFA17A;
+      box-shadow: 0 5px 0 0 #B53A22, 0 8px 18px rgba(242, 85, 59, 0.35);
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22, 0 4px 10px rgba(242, 85, 59, 0.25);
+    }
+
+    .tactile-btn-teal {
+      background: linear-gradient(135deg, #2BA39A 0%, #20877F 100%);
+      border: 2px solid #45D1C6;
+      box-shadow: 0 4px 0 0 #104C47, 0 6px 14px rgba(43, 163, 154, 0.3);
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #104C47, 0 3px 8px rgba(43, 163, 154, 0.2);
+    }
+
+    .tactile-sound-btn {
+      background: #172F35;
+      border: 2px solid #2C505A;
+      border-radius: 16px;
+      box-shadow: 0 4px 0 0 #0C1E23, 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.12s ease;
+    }
+    .tactile-sound-btn:hover {
+      background: #1D3A42;
+      border-color: #2BA39A;
+      color: #45D1C6;
+    }
+    .tactile-sound-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #0C1E23;
+    }
+
+    .tactile-choice-selected {
+      background: rgba(43, 163, 154, 0.12);
+      border: 2px solid #2BA39A;
+      border-radius: 16px;
+      box-shadow: 0 4px 0 0 #12514D, 0 4px 14px rgba(43, 163, 154, 0.2);
+    }
+
+    .tactile-choice-unselected {
+      background: #1A2C33;
+      border: 2px solid #28424C;
+      border-radius: 16px;
+      box-shadow: 0 4px 0 0 #0C1A1E;
+      transition: all 0.12s ease;
+    }
+    .tactile-choice-unselected:hover {
+      border-color: #385B69;
+      background: #20353E;
+    }
+
+    .search-input-shell {
+      background: #142328;
+      border: 2px solid #243840;
+      border-radius: 20px;
+      box-shadow: 0 5px 0 0 #071012, 0 10px 25px rgba(0, 0, 0, 0.35);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search-input-shell:focus-within {
+      border-color: #2BA39A;
+      box-shadow: 0 5px 0 0 #12514D, 0 0 0 3px rgba(43, 163, 154, 0.25);
+    }
+
+    .tactile-pill {
+      background: #142328;
+      border: 2px solid #243840;
+      box-shadow: 0 3px 0 0 #071012;
+    }
+
+    /* Subtle dot grid pattern */
+    .bg-dot-pattern {
+      background-image: radial-gradient(rgba(43, 163, 154, 0.12) 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-dot-pattern selection:bg-teal-glow selection:text-white">
+
+  <!-- TOP HEADER BAR -->
+  <header class="w-full max-w-6xl mx-auto px-6 pt-6 pb-2 flex items-center justify-between">
+    <!-- Brand / Mode -->
+    <div class="flex items-center gap-3">
+      <!-- Tactile Kite Logo Emblem -->
+      <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#1A3836] to-[#12282B] border-2 border-teal-glow/50 flex items-center justify-center shadow-[0_3px_0_0_#071012]">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+          <polygon points="12,2 20,12 12,16 4,12" fill="#2BA39A" />
+          <polygon points="12,16 20,12 12,22 4,12" fill="#F2553B" opacity="0.9" />
+          <polygon points="12,2 12,16 4,12" fill="#45D1C6" />
+          <polygon points="12,16 12,22 4,12" fill="#FFB054" />
+          <circle cx="12" cy="12" r="1.5" fill="#FFFFFF" />
+        </svg>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-xl font-extrabold tracking-tight text-white">Lexkite</span>
+          <span class="px-2 py-0.5 text-[10px] font-extrabold tracking-wider uppercase rounded-md bg-teal-soft border border-teal-glow/40 text-teal-glow">NEW TAB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Header Controls: Streak Pill, XP Pill, Open Lexkite CTA -->
+    <div class="flex items-center gap-3">
+      <!-- Streak & XP Combined Pill -->
+      <div class="tactile-pill flex items-center gap-3 px-3.5 py-1.5 rounded-full text-xs font-bold text-night-text">
+        <div class="flex items-center gap-1.5 text-amber-400">
+          <svg class="w-4 h-4 text-[#FF8A3D]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.03 2.65-7.46 6.36-8.58.4-.12.78.18.78.6v.56c0 1.25.56 2.44 1.54 3.23.41.33.99.11 1.1-.4.43-1.99 1.83-3.66 3.69-4.5.39-.18.84.08.88.51.3 3.19 2.05 5.92 4.65 7.37.38.21.5.69.27 1.05C21.43 15.65 21 17.27 21 19c0 2.21-.89 4.21-2.34 5.66C17.21 26.11 15.21 27 13 27"/>
+            <path d="M11.71 3.29c.14-.38.64-.47.88-.17C14.4 5.3 16.5 8.4 16.5 12c0 2.48-1.52 4.63-3.67 5.51-.43.18-.9-.12-.9-.58v-1.1c0-.98-.44-1.9-1.22-2.52-.39-.31-.5-.87-.25-1.29.69-1.15 1.04-2.5 1.04-3.9 0-1.74-.75-3.32-1.79-4.83z" fill="#FFA17A"/>
+          </svg>
+          <span class="text-white font-extrabold tracking-wide">14 days</span>
+        </div>
+        <div class="w-px h-3.5 bg-night-border"></div>
+        <div class="flex items-center gap-1 text-[#45D1C6]">
+          <svg class="w-3.5 h-3.5 text-[#FFB054]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13 2L3 14h7v8l10-12h-7l0-8z"/>
+          </svg>
+          <span class="text-white font-extrabold tracking-wide">820 XP</span>
+        </div>
+      </div>
+
+      <!-- Open Lexkite Link Button -->
+      <a href="#" class="tactile-pill flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-white hover:border-teal-glow transition-colors">
+        <span>Open Lexkite</span>
+        <svg class="w-3.5 h-3.5 text-teal-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="flex-1 w-full max-w-2xl mx-auto px-4 flex flex-col justify-center py-6">
+
+    <!-- SEARCH / LOOKUP BAR -->
+    <div class="search-input-shell mb-8 p-1.5 flex items-center gap-3">
+      <!-- Search Icon -->
+      <div class="pl-4 text-night-textFaint">
+        <svg class="w-5 h-5 text-night-textMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </div>
+
+      <!-- Text Input -->
+      <input 
+        type="text" 
+        placeholder="Look up any word..." 
+        value=""
+        class="w-full bg-transparent text-white placeholder-night-textFaint font-medium text-base focus:outline-none"
+      />
+
+      <!-- Keyboard Shortcut Indicator -->
+      <div class="px-2.5 py-1 rounded-lg bg-night-cardRaised border border-night-border text-[11px] font-mono font-semibold text-night-textMuted">
+        /
+      </div>
+
+      <!-- Go Button -->
+      <button class="tactile-btn-teal flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white tracking-wide mr-0.5">
+        <span>Go</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- MAIN VOCABULARY DRILL CARD -->
+    <div class="tactile-card p-6 md:p-8">
+      
+      <!-- Card Top Metadata: Exam Tag & Daily Goal Meter -->
+      <div class="flex items-center justify-between mb-6">
+        <!-- Topic Tag -->
+        <div class="flex items-center gap-2.5">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-soft border border-teal-glow/40 text-[11px] font-extrabold tracking-wider uppercase text-[#45D1C6]">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-glow animate-pulse"></span>
+            IELTS ACADEMIC • C1
+          </span>
+          <span class="text-xs font-medium text-night-textMuted hidden sm:inline">Word of the moment</span>
+        </div>
+
+        <!-- Daily Goal Circular Metric -->
+        <div class="flex items-center gap-3">
+          <!-- Circular Ring Simulation -->
+          <div class="relative w-9 h-9 flex items-center justify-center">
+            <svg class="w-9 h-9 transform -rotate-90" viewBox="0 0 36 36">
+              <path class="text-night-border" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="text-amber-400" stroke-dasharray="60, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <span class="absolute text-[10px] font-mono font-extrabold text-white">6/10</span>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-extrabold text-white leading-tight">Daily Goal</div>
+            <div class="text-[11px] font-medium text-night-textMuted leading-tight">4 words to go</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headword + Audio Speaker Icon -->
+      <div class="flex items-start justify-between mb-2">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-2">resilient</h1>
+          <div class="flex items-center gap-2.5">
+            <span class="text-xs font-bold text-teal-glow">adj.</span>
+            <span class="text-night-textFaint">•</span>
+            <span class="px-2.5 py-0.5 rounded-md bg-night-cardRaised border border-night-border text-xs font-mono text-night-textMuted font-medium">
+              /rɪˈzɪl.jənt/
+            </span>
+          </div>
+        </div>
+
+        <!-- Speaker Button (Tactile Audio) -->
+        <button class="tactile-sound-btn w-12 h-12 flex items-center justify-center text-teal-glow" title="Listen to pronunciation">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Definition -->
+      <div class="my-5">
+        <p class="text-lg md:text-xl font-bold text-night-text leading-snug">
+          Able to quickly recover from shock, illness, hardship, or difficulty.
+        </p>
+      </div>
+
+      <!-- Context Example Sentence -->
+      <div class="tactile-card-inner p-4 mb-6">
+        <p class="text-sm font-medium text-night-text leading-relaxed italic">
+          “The local supply network proved remarkably <span class="font-bold underline decoration-teal-glow decoration-2 underline-offset-2 not-italic text-white">resilient</span> despite severe trade disruptions.”
+        </p>
+      </div>
+
+      <!-- Divider line with heading -->
+      <div class="flex items-center justify-between mb-3 pt-2 border-t border-night-border/80">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#FF8A3D]"></span>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-night-text">QUICK CHECK • PICK THE CLOSEST MATCH</span>
+        </div>
+        <span class="px-2 py-0.5 rounded-full bg-[#FFB054]/15 border border-[#FFB054]/40 text-[10px] font-mono font-extrabold text-[#FFB054]">
+          +10 XP
+        </span>
+      </div>
+
+      <!-- 2 Interactive Choices (Option A selected, Option B unselected) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        <!-- Option A (Correct / Selected) -->
+        <button class="tactile-choice-selected p-3.5 flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-lg bg-teal-glow text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+              A
+            </span>
+            <span class="text-sm font-bold text-white">Adaptable &amp; strong</span>
+          </div>
+          <!-- Checkmark Icon -->
+          <div class="w-5 h-5 rounded-full bg-teal-glow text-white flex items-center justify-center">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+        </button>
+
+        <!-- Option B (Unselected) -->
+        <button class="tactile-choice-unselected p-3.5 flex items-center justify-between text-left group">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-lg bg-night-border text-night-textMuted font-bold text-xs flex items-center justify-center">
+              B
+            </span>
+            <span class="text-sm font-semibold text-night-textMuted group-hover:text-white transition-colors">Easily damaged</span>
+          </div>
+          <!-- Empty Radio Circle -->
+          <div class="w-5 h-5 rounded-full border-2 border-night-border"></div>
+        </button>
+      </div>
+
+      <!-- Bottom Actions & Shortcuts Row -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-night-border/80">
+        
+        <!-- Keyboard Shortcuts Hint -->
+        <div class="flex items-center gap-2 text-[11px] font-medium text-night-textFaint">
+          <span class="px-2 py-0.5 rounded bg-night-cardRaised border border-night-border font-mono text-[10px] text-night-textMuted">Space</span>
+          <span>Listen</span>
+          <span class="text-night-border">•</span>
+          <span class="px-1.5 py-0.5 rounded bg-night-cardRaised border border-night-border font-mono text-[10px] text-night-textMuted">1</span>
+          <span class="px-1.5 py-0.5 rounded bg-night-cardRaised border border-night-border font-mono text-[10px] text-night-textMuted">2</span>
+          <span>Answer</span>
+          <span class="text-night-border">•</span>
+          <span class="px-1.5 py-0.5 rounded bg-night-cardRaised border border-night-border font-mono text-[10px] text-night-textMuted">N</span>
+          <span>Next</span>
+        </div>
+
+        <!-- Primary Next Button -->
+        <button class="tactile-btn-primary w-full sm:w-auto px-6 py-3 rounded-2xl flex items-center justify-center gap-2 text-white font-extrabold text-sm tracking-wide">
+          <span>Got it, next word</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-night-textFaint gap-3">
+    <!-- Active Algorithm Indicator -->
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-teal-glow"></span>
+      <span class="font-medium text-night-textMuted">Spaced repetition active (FSRS)</span>
+    </div>
+
+    <!-- Quick Footer Links -->
+    <div class="flex items-center gap-6 font-medium">
+      <a href="#" class="hover:text-teal-glow transition-colors">Dictionary</a>
+      <a href="#" class="hover:text-teal-glow transition-colors">Study Decks</a>
+      <a href="#" class="hover:text-teal-glow transition-colors">Shortcut Settings</a>
+    </div>
+  </footer>
+
+</body>
+</html>
+

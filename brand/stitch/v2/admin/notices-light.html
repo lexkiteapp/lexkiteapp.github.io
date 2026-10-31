@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin — Notices Composer</title>
+<!-- Material Symbols Outlined font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#ffdf9e",
+            "surface": "#091518",
+            "on-tertiary-container": "#392900",
+            "on-primary": "#003733",
+            "inverse-primary": "#006a64",
+            "on-primary-container": "#00322e",
+            "on-tertiary": "#402e00",
+            "secondary-container": "#981201",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary": "#660800",
+            "secondary": "#ffb4a6",
+            "primary-container": "#2ba39a",
+            "primary-fixed": "#88f5ea",
+            "on-primary-fixed-variant": "#00504b",
+            "inverse-on-surface": "#263236",
+            "surface-container-highest": "#2b373a",
+            "primary": "#6bd8ce",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-dim": "#091518",
+            "tertiary": "#f4bf40",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-tertiary-fixed": "#261a00",
+            "on-error": "#690005",
+            "on-surface": "#d8e5e9",
+            "surface-container-low": "#121d20",
+            "on-surface-variant": "#bcc9c7",
+            "surface-tint": "#6bd8ce",
+            "outline": "#879391",
+            "background": "#091518",
+            "on-secondary-fixed": "#3f0300",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-container": "#162125",
+            "on-background": "#d8e5e9",
+            "inverse-surface": "#d8e5e9",
+            "outline-variant": "#3d4947",
+            "on-secondary-container": "#ffa493",
+            "surface-container-high": "#202c2f",
+            "error": "#ffb4ab",
+            "on-primary-fixed": "#00201e",
+            "primary-fixed-dim": "#6bd8ce",
+            "error-container": "#93000a",
+            "surface-bright": "#2f3b3e",
+            "tertiary-container": "#ba8b00",
+            "surface-container-lowest": "#051013",
+            "surface-variant": "#2b373a",
+            "secondary-fixed": "#ffdad3",
+            "on-error-container": "#ffdad6",
+            /* Warm Cream Day Canvas Tokens */
+            "cream": {
+              "50": "#FFFDF8",
+              "100": "#FFF7EA",
+              "200": "#FBF1DD",
+              "300": "#F1E5CC",
+              "border": "#D8CFBC",
+              "ledge": "#C5BBA4",
+              "dark": "#0F3D3E",
+              "dark-sub": "#265B5B"
+            }
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.25rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "margin": "16px",
+            "gutter": "16px"
+          },
+          "fontFamily": {
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Tactile 3D press physics */
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(4px);
+    }
+    .tactile-btn-sm:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-[#0F3D3E] font-body text-body min-h-screen selection:bg-primary-container selection:text-white">
+<!-- ================= TOP ADMIN HEADER (SHARED COMPONENT DERIVED) ================= -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b-2 border-outline-variant dark:border-outline shadow-[0_4px_0_0_#bcc9c7] dark:shadow-[0_4px_0_0_#053637] sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-7xl mx-auto">
+<!-- Brand & Page Anchor -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-container to-[#12514D] border-2 border-[#12514D] shadow-[0_3px_0_0_#072826] flex items-center justify-center text-white">
+<span class="material-symbols-outlined font-black text-2xl" data-icon="kites">navigation</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-headline-md font-extrabold text-primary dark:text-primary-fixed tracking-tight text-xl leading-none">Lexkite</span>
+<span class="bg-[#E4DBC5] text-[#0F3D3E] font-label text-label px-2 py-0.5 rounded-full border border-cream-border font-bold text-[10px] tracking-wider uppercase">OPS CONSOLE</span>
+</div>
+<p class="text-xs text-[#4F6C6B] font-semibold mt-0.5">Notices &amp; Banners Engine</p>
+</div>
+</div>
+<div class="h-6 w-[2px] bg-[#E3DAC4] hidden md:block"></div>
+<!-- Navigation Links from Shared Components -->
+<nav class="hidden md:flex items-center gap-5 ml-1">
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-on-surface dark:hover:text-surface-bright pb-1 text-sm flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="smart_toy">smart_toy</span>
+            Assistant
+          </a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 text-sm flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="campaign">campaign</span>
+            Notices
+          </a>
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-on-surface dark:hover:text-surface-bright pb-1 text-sm flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="data_object">data_object</span>
+            Snippets
+          </a>
+<a class="text-on-surface-variant dark:text-outline-variant font-medium hover:text-on-surface dark:hover:text-surface-bright pb-1 text-sm flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+            Settings
+          </a>
+</nav>
+</div>
+<!-- Trailing Status & Action Items -->
+<div class="flex items-center gap-4">
+<!-- Live System Status Badge -->
+<div class="hidden sm:flex items-center gap-2 bg-[#F1E7CF] border-2 border-cream-border px-3 py-1.5 rounded-xl shadow-[0_2px_0_0_#C5BBA4]">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+</span>
+<span class="text-xs font-bold text-[#0F3D3E]">Banners Active: <strong class="text-emerald-800">1</strong></span>
+</div>
+<!-- UTC Clock -->
+<div class="hidden lg:flex items-center gap-1.5 bg-[#FAF3E3] border border-cream-border px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-[#2A5E5E]">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span id="utc-clock">02:14:09 UTC</span>
+</div>
+<!-- Trailing Secondary / Primary Actions -->
+<div class="flex items-center gap-2">
+<button class="tactile-btn px-3 py-1.5 bg-[#FAF3E3] hover:bg-white text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border shadow-[0_3px_0_0_#C5BBA4] active:shadow-[0_1px_0_0_#C5BBA4] flex items-center gap-1">
+<span>Open App</span>
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</button>
+<button class="tactile-btn px-3 py-1.5 bg-primary-container text-white font-bold text-xs rounded-xl border-2 border-[#12514D] shadow-[0_3px_0_0_#12514D] active:shadow-[0_1px_0_0_#12514D] flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="rocket_launch">rocket_launch</span>
+<span class="hidden sm:inline">Enable on Site</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= SUB-HEADER BREADCRUMB & METRICS ================= -->
+<section class="max-w-7xl mx-auto px-6 pt-6 pb-2">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-2 border-cream-border/60 pb-4">
+<div>
+<div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#5B7575] mb-1">
+<span>Solo Founder Cockpit</span>
+<span>•</span>
+<span class="text-emerald-700 font-extrabold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span> CDN Connected
+          </span>
+</div>
+<h1 class="text-display font-display text-2xl md:text-3xl text-[#0F3D3E] tracking-tight">Notices Composer &amp; Broadcaster</h1>
+</div>
+<!-- Quick Metrics Pill Cluster -->
+<div class="flex items-center gap-3">
+<div class="bg-white px-3.5 py-2 rounded-xl border-2 border-cream-border shadow-[0_3px_0_0_#D8CFBC] flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700">
+<span class="material-symbols-outlined text-base" data-icon="visibility">visibility</span>
+</div>
+<div>
+<div class="text-[10px] uppercase font-extrabold tracking-wider text-slate-500">24H Delivered</div>
+<div class="text-sm font-black text-[#0F3D3E]">142.8k users</div>
+</div>
+</div>
+<div class="bg-white px-3.5 py-2 rounded-xl border-2 border-cream-border shadow-[0_3px_0_0_#D8CFBC] flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+<span class="material-symbols-outlined text-base" data-icon="touch_app">touch_app</span>
+</div>
+<div>
+<div class="text-[10px] uppercase font-extrabold tracking-wider text-slate-500">CTA Tap Rate</div>
+<div class="text-sm font-black text-[#0F3D3E]">9.4% avg</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= MAIN TWO-COLUMN WORKSPACE ================= -->
+<main class="max-w-7xl mx-auto px-6 py-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- ================= LEFT COLUMN: COMPOSER FORM (7 COLS) ================= -->
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-[#FFFDF8] rounded-2xl border-2 border-cream-border shadow-[0_5px_0_0_#D8CFBC] p-6">
+<div class="flex items-center justify-between border-b-2 border-cream-border/50 pb-4 mb-6">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary-container/20 text-[#0F3D3E] border border-primary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</div>
+<h2 class="text-title font-title text-xl text-[#0F3D3E]">Compose Notice</h2>
+</div>
+<span class="text-xs font-bold bg-[#F5EED9] text-[#4F6C6B] px-3 py-1 rounded-full border border-cream-border">
+              Draft ID: #NT-908
+            </span>
+</div>
+<form class="space-y-5" id="notice-form" onsubmit="event.preventDefault();">
+<!-- Notice Message Field -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="text-xs font-extrabold uppercase tracking-wider text-[#12514D] flex items-center gap-1" for="notice-text">
+<span>Banner Message Content</span>
+<span class="text-rose-600">*</span>
+</label>
+<span class="text-[11px] font-bold text-slate-500" id="char-count">88 / 140 chars</span>
+</div>
+<div class="relative">
+<textarea class="w-full bg-[#FFFDF8] focus:bg-white text-[#0F3D3E] font-medium text-sm rounded-xl border-2 border-cream-border focus:border-[#2BA39A] focus:ring-0 shadow-[inset_0_2px_4px_rgba(0,0,0,0.04)] p-3.5 transition-all outline-none resize-none leading-relaxed" id="notice-text" placeholder="Type notice copy here..." rows="3">⚡ Scheduled maintenance tonight at 02:00 UTC. Audio drills will cache offline.</textarea>
+</div>
+<p class="text-[11px] text-[#5A7474] font-medium mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="lightbulb">lightbulb</span>
+                Keep under 100 characters for optimal 1-line display on mobile viewports.
+              </p>
+</div>
+<!-- Notice Type Selector (Tactile 3D Segmented) -->
+<div>
+<label class="block text-xs font-extrabold uppercase tracking-wider text-[#12514D] mb-2">
+                Notice Visual Style (Severity)
+              </label>
+<div class="grid grid-cols-3 gap-3" id="notice-type-selector">
+<!-- Info Type Pill -->
+<button class="notice-type-btn tactile-btn flex items-center justify-center gap-2 py-3 px-3 rounded-xl border-2 border-[#12514D] bg-[#2BA39A] text-white shadow-[0_4px_0_0_#12514D] font-bold text-xs cursor-pointer select-none" data-type="info" type="button">
+<span class="material-symbols-outlined text-base" data-icon="info">info</span>
+<span>Info Teal</span>
+</button>
+<!-- Warning Type Pill -->
+<button class="notice-type-btn tactile-btn flex items-center justify-center gap-2 py-3 px-3 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#694406] shadow-[0_4px_0_0_#D8CFBC] font-bold text-xs hover:bg-white cursor-pointer select-none" data-type="warning" type="button">
+<span class="material-symbols-outlined text-base text-amber-600" data-icon="warning">warning</span>
+<span>Warning</span>
+</button>
+<!-- Success Type Pill -->
+<button class="notice-type-btn tactile-btn flex items-center justify-center gap-2 py-3 px-3 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_4px_0_0_#D8CFBC] font-bold text-xs hover:bg-white cursor-pointer select-none" data-type="success" type="button">
+<span class="material-symbols-outlined text-base text-emerald-600" data-icon="check_circle">check_circle</span>
+<span>Success</span>
+</button>
+</div>
+</div>
+<!-- Optional Action Link & CTA Label -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-1">
+<div class="sm:col-span-8">
+<label class="block text-xs font-extrabold uppercase tracking-wider text-[#12514D] mb-1.5" for="notice-link">
+                  Action Link URL <span class="text-slate-400 font-normal">(Optional)</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-slate-400 text-sm" data-icon="link">link</span>
+<input class="w-full bg-[#FFFDF8] focus:bg-white text-[#0F3D3E] font-medium text-xs rounded-xl border-2 border-cream-border focus:border-[#2BA39A] focus:ring-0 pl-9 pr-3 py-2.5 shadow-[inset_0_2px_2px_rgba(0,0,0,0.03)] outline-none" id="notice-link" placeholder="https://..." type="text" value="https://status.lexkite.com"/>
+</div>
+</div>
+<div class="sm:col-span-4">
+<label class="block text-xs font-extrabold uppercase tracking-wider text-[#12514D] mb-1.5" for="notice-cta">
+                  CTA Label
+                </label>
+<input class="w-full bg-[#FFFDF8] focus:bg-white text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border focus:border-[#2BA39A] focus:ring-0 px-3 py-2.5 shadow-[inset_0_2px_2px_rgba(0,0,0,0.03)] outline-none" id="notice-cta" placeholder="Button text" type="text" value="Learn more"/>
+</div>
+</div>
+<!-- Target Languages Filter (Tactile Chips) -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="text-xs font-extrabold uppercase tracking-wider text-[#12514D]">
+                  Target Language Cohort
+                </label>
+<span class="text-[11px] font-bold text-[#2A5E5E]">100% Learner Rollout</span>
+</div>
+<div class="flex flex-wrap gap-2" id="lang-chips">
+<button class="lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-[#12514D] bg-[#2BA39A] text-white shadow-[0_3px_0_0_#12514D] font-bold text-xs flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-xs" data-icon="done_all">done_all</span>
+<span>All languages</span>
+</button>
+<button class="lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] font-semibold text-xs hover:bg-white" type="button">
+                  English
+                </button>
+<button class="lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] font-semibold text-xs hover:bg-white" type="button">
+                  Tiếng Việt
+                </button>
+<button class="lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] font-semibold text-xs hover:bg-white" type="button">
+                  Español
+                </button>
+<button class="lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] font-semibold text-xs hover:bg-white" type="button">
+                  日本語
+                </button>
+<button class="lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] font-semibold text-xs hover:bg-white" type="button">
+                  한국어
+                </button>
+</div>
+</div>
+<!-- Schedule Window (Chunky Rounded Inputs) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+<div>
+<label class="block text-xs font-extrabold uppercase tracking-wider text-[#12514D] mb-1.5" for="sched-start">
+                  Broadcast Start (UTC)
+                </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-sm" data-icon="calendar_today">calendar_today</span>
+<input class="w-full bg-[#FAF3E3] focus:bg-white text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border focus:border-[#2BA39A] focus:ring-0 pl-9 pr-3 py-2.5 shadow-[0_2px_0_0_#D8CFBC] outline-none" id="sched-start" type="text" value="Today, 22:00 UTC"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-extrabold uppercase tracking-wider text-[#12514D] mb-1.5" for="sched-end">
+                  Broadcast Auto-Expire (UTC)
+                </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-sm" data-icon="event_busy">event_busy</span>
+<input class="w-full bg-[#FAF3E3] focus:bg-white text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border focus:border-[#2BA39A] focus:ring-0 pl-9 pr-3 py-2.5 shadow-[0_2px_0_0_#D8CFBC] outline-none" id="sched-end" type="text" value="Tomorrow, 06:00 UTC"/>
+</div>
+</div>
+</div>
+<!-- Bottom Actions Bar: Primary Candy CTA & Secondary Draft -->
+<div class="pt-4 border-t-2 border-cream-border/50 flex flex-col sm:flex-row items-center gap-3">
+<!-- Primary CTA: 56px height, gradient coral (#F2553B) to gold (#FFC94A), dark ink text, 6px bottom ledge (#B53A22) -->
+<button class="tactile-btn w-full sm:flex-1 h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] via-[#FA7C39] to-[#FFC94A] text-[#3F0300] font-extrabold text-base border-2 border-[#B53A22] shadow-[0_6px_0_0_#B53A22] active:shadow-[0_2px_0_0_#B53A22] active:translate-y-1 flex items-center justify-center gap-2 cursor-pointer transition-transform duration-75 relative overflow-hidden group" id="btn-publish">
+<!-- Glossy specular top shine -->
+<div class="absolute inset-x-0 top-0 h-1.5 bg-white/40 rounded-t-xl pointer-events-none"></div>
+<span class="material-symbols-outlined font-black text-xl" data-icon="send">send</span>
+<span>Publish Notice →</span>
+</button>
+<!-- Secondary Button: 4-5px bottom ledge -->
+<button class="tactile-btn w-full sm:w-auto px-6 h-14 rounded-2xl bg-[#FFFDF8] hover:bg-white text-[#0F3D3E] font-bold text-sm border-2 border-cream-border shadow-[0_4px_0_0_#D8CFBC] active:shadow-[0_1px_0_0_#D8CFBC] active:translate-y-1 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="save">save</span>
+<span>Save Draft</span>
+</button>
+<button class="tactile-btn p-3 h-14 w-14 rounded-2xl bg-[#FAF3E3] hover:bg-white text-slate-500 hover:text-slate-800 border-2 border-cream-border shadow-[0_4px_0_0_#D8CFBC] active:shadow-[0_1px_0_0_#D8CFBC] active:translate-y-1 flex items-center justify-center" title="Reset Form">
+<span class="material-symbols-outlined text-lg" data-icon="refresh">refresh</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN: LIVE REAL-TIME PREVIEWS (5 COLS) ================= -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Preview Container Card -->
+<div class="bg-[#FFFDF8] rounded-2xl border-2 border-cream-border shadow-[0_5px_0_0_#D8CFBC] p-6 space-y-5">
+<div class="flex items-center justify-between border-b-2 border-cream-border/50 pb-3">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-teal-600"></span>
+</span>
+<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#0F3D3E]">Live App Preview</h3>
+</div>
+<span class="text-[11px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-200">
+              Updates in real-time
+            </span>
+</div>
+<!-- Audience Breakdown Pill -->
+<div class="bg-[#F5EED9] border border-cream-border rounded-xl p-3 flex items-center justify-between text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-[#2A5E5E]" data-icon="public">public</span>
+<span class="font-bold text-[#0F3D3E]">Audience:</span>
+<span class="text-[#265B5B]">Global learners • 100% rollout</span>
+</div>
+<span class="bg-white text-[10px] font-black px-2 py-0.5 rounded border border-cream-border text-emerald-800">ACTIVE TARGET</span>
+</div>
+<!-- ================= PREVIEW 1: BRIGHT DAY (LIGHT) ================= -->
+<div class="space-y-2">
+<div class="flex items-center justify-between text-xs font-bold text-[#4B6767]">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-amber-500 text-sm" data-icon="wb_sunny">wb_sunny</span>
+                Bright Day (Light Mode)
+              </span>
+<span class="text-[10px] text-slate-400 font-mono">mobile-web • 390px</span>
+</div>
+<!-- Light Mode Mock Header Container -->
+<div class="rounded-xl border-2 border-cream-border bg-[#FFF7EA] p-3 shadow-[0_3px_0_0_#D8CFBC] overflow-hidden">
+<!-- Mini Lexkite Chrome Light -->
+<div class="flex items-center justify-between pb-2 border-b border-cream-border/60 mb-2.5">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-md bg-[#2BA39A] text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-xs" data-icon="kites">navigation</span>
+</div>
+<span class="text-xs font-black tracking-tight text-[#0F3D3E]">Lexkite</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-extrabold text-[#0F3D3E]">
+<span class="flex items-center text-amber-700 bg-amber-100/80 px-1.5 py-0.5 rounded text-[10px]">🔥 7</span>
+<span class="flex items-center text-teal-800 bg-teal-100/80 px-1.5 py-0.5 rounded text-[10px]">💎 420</span>
+</div>
+</div>
+<!-- Banner Preview Light Target -->
+<div class="rounded-xl border-2 border-[#12514D] bg-[#2BA39A] text-white p-3 shadow-[0_3px_0_0_#12514D] transition-all" id="preview-light-banner">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-base mt-0.5 shrink-0" data-icon="bolt" id="preview-light-icon">bolt</span>
+<div>
+<p class="text-xs font-bold leading-snug" id="preview-light-text">
+                        ⚡ Scheduled maintenance tonight at 02:00 UTC. Audio drills will cache offline.
+                      </p>
+<a class="inline-flex items-center gap-1 text-[11px] font-extrabold underline underline-offset-2 mt-1.5 text-white/95 hover:text-white" href="#" id="preview-light-cta-wrap">
+<span id="preview-light-cta">Learn more</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<button class="text-white/80 hover:text-white shrink-0 p-0.5" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Mock lesson path hint below banner -->
+<div class="mt-3 flex items-center justify-center gap-4 py-2 opacity-50">
+<div class="w-8 h-8 rounded-full bg-[#E5DCB8] border-2 border-cream-border"></div>
+<div class="w-10 h-10 rounded-full bg-[#2BA39A]/40 border-2 border-[#2BA39A]"></div>
+<div class="w-8 h-8 rounded-full bg-[#E5DCB8] border-2 border-cream-border"></div>
+</div>
+</div>
+</div>
+<!-- ================= PREVIEW 2: TACTILE NIGHT (DARK) ================= -->
+<div class="space-y-2 pt-2">
+<div class="flex items-center justify-between text-xs font-bold text-[#4B6767]">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-teal-400 text-sm" data-icon="bedtime">bedtime</span>
+                Tactile Night (Dark Mode)
+              </span>
+<span class="text-[10px] text-slate-400 font-mono">mobile-web • 390px</span>
+</div>
+<!-- Dark Mode Mock Header Container -->
+<div class="rounded-xl border-2 border-[#1B292C] bg-[#091518] p-3 shadow-[0_3px_0_0_#051013] overflow-hidden">
+<!-- Mini Lexkite Chrome Dark -->
+<div class="flex items-center justify-between pb-2 border-b border-[#1B292C] mb-2.5">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-md bg-[#2BA39A] text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-xs" data-icon="kites">navigation</span>
+</div>
+<span class="text-xs font-black tracking-tight text-[#d8e5e9]">Lexkite</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-extrabold text-[#d8e5e9]">
+<span class="flex items-center text-amber-300 bg-[#252010] px-1.5 py-0.5 rounded text-[10px]">🔥 7</span>
+<span class="flex items-center text-teal-300 bg-[#0C2A29] px-1.5 py-0.5 rounded text-[10px]">💎 420</span>
+</div>
+</div>
+<!-- Banner Preview Dark Target -->
+<div class="rounded-xl border-2 border-[#2ba39a] bg-[#162125] text-[#d8e5e9] p-3 shadow-[0_3px_0_0_#072826] transition-all" id="preview-dark-banner">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-base mt-0.5 shrink-0" data-icon="bolt" id="preview-dark-icon">bolt</span>
+<div>
+<p class="text-xs font-bold leading-snug text-[#d8e5e9]" id="preview-dark-text">
+                        ⚡ Scheduled maintenance tonight at 02:00 UTC. Audio drills will cache offline.
+                      </p>
+<a class="inline-flex items-center gap-1 text-[11px] font-extrabold text-primary hover:text-primary-fixed underline underline-offset-2 mt-1.5" href="#" id="preview-dark-cta-wrap">
+<span id="preview-dark-cta">Learn more</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<button class="text-slate-400 hover:text-white shrink-0 p-0.5" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Mock lesson path hint below dark banner -->
+<div class="mt-3 flex items-center justify-center gap-4 py-2 opacity-30">
+<div class="w-8 h-8 rounded-full bg-[#162125] border border-slate-700"></div>
+<div class="w-10 h-10 rounded-full bg-[#2BA39A]/20 border border-primary"></div>
+<div class="w-8 h-8 rounded-full bg-[#162125] border border-slate-700"></div>
+</div>
+</div>
+</div>
+<!-- CDN Instant Sync Badge -->
+<div class="pt-2 text-center">
+<span class="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#4B6767]">
+<span class="material-symbols-outlined text-xs text-emerald-600" data-icon="sync">sync</span>
+              Zero-downtime Cloudflare KV synchronization upon publish
+            </span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= BOTTOM SECTION: RECENT & SCHEDULED NOTICES ================= -->
+<section class="max-w-7xl mx-auto px-6 py-6 pb-16">
+<div class="bg-[#FFFDF8] rounded-2xl border-2 border-cream-border shadow-[0_5px_0_0_#D8CFBC] p-6">
+<!-- Section Title & Meta Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-cream-border/50 pb-4 mb-5">
+<div>
+<h2 class="text-title font-title text-xl text-[#0F3D3E] flex items-center gap-2">
+<span class="material-symbols-outlined text-teal-700" data-icon="history">history</span>
+            Recent &amp; Scheduled Notices
+          </h2>
+<p class="text-xs text-[#527070] font-medium mt-0.5">History, active rollout status, and performance telemetry</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="tactile-btn px-3 py-1.5 bg-[#FAF3E3] hover:bg-white text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border shadow-[0_3px_0_0_#D8CFBC] active:shadow-[0_1px_0_0_#D8CFBC] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="filter_list">filter_list</span>
+<span>All Types</span>
+</button>
+<button class="tactile-btn px-3 py-1.5 bg-[#FAF3E3] hover:bg-white text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border shadow-[0_3px_0_0_#D8CFBC] active:shadow-[0_1px_0_0_#D8CFBC] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="download">download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Chunky Tactile Card List / Table -->
+<div class="space-y-3.5">
+<!-- NOTICE CARD 1: Live Now (Success / Marathon) -->
+<div class="rounded-xl border-2 border-emerald-600/60 bg-emerald-50/40 p-4 shadow-[0_4px_0_0_#A7D7C5] flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:bg-emerald-50/80">
+<div class="flex items-start gap-3.5">
+<!-- Type Icon Badge -->
+<div class="w-10 h-10 rounded-xl bg-emerald-500 text-white border-2 border-emerald-700 shadow-[0_2px_0_0_#064e3b] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="inline-flex items-center gap-1 bg-emerald-700 text-white text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full border border-emerald-900 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse"></span>
+                  Live now
+                </span>
+<span class="text-xs font-bold text-emerald-900 bg-emerald-200/70 px-2 py-0.5 rounded-md">Type: Success</span>
+<span class="text-xs font-semibold text-slate-500">• Started 14h ago</span>
+</div>
+<h3 class="text-sm font-extrabold text-[#0F3D3E]">
+                Exam season collocation marathon begins Monday! +50 bonus XP
+              </h3>
+<p class="text-xs text-[#3E5C5C] font-medium mt-0.5">
+                Target: All learners • CTA: “View Leaderboard” → /marathon
+              </p>
+</div>
+</div>
+<!-- Impressions & Actions -->
+<div class="flex items-center justify-between md:justify-end gap-5 pt-2 md:pt-0 border-t md:border-t-0 border-emerald-200">
+<div class="text-left md:text-right">
+<div class="text-[10px] uppercase font-extrabold text-slate-500">Impressions</div>
+<div class="text-sm font-black text-[#0F3D3E] flex items-center md:justify-end gap-1">
+<span class="material-symbols-outlined text-xs text-emerald-700" data-icon="visibility">visibility</span>
+                18.4k
+              </div>
+</div>
+<div class="flex items-center gap-2">
+<button class="tactile-btn px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-800 font-bold text-xs rounded-xl border-2 border-rose-300 shadow-[0_3px_0_0_#F43F5E] active:shadow-[0_1px_0_0_#F43F5E] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="stop_circle">stop_circle</span>
+<span>Stop</span>
+</button>
+<button class="tactile-btn px-3 py-2 bg-white hover:bg-slate-50 text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border shadow-[0_3px_0_0_#D8CFBC] active:shadow-[0_1px_0_0_#D8CFBC] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="edit">edit</span>
+<span>Edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- NOTICE CARD 2: Scheduled (Warning / Audio CDN) -->
+<div class="rounded-xl border-2 border-amber-600/40 bg-amber-50/40 p-4 shadow-[0_4px_0_0_#E8D4B0] flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:bg-amber-50/70">
+<div class="flex items-start gap-3.5">
+<!-- Type Icon Badge -->
+<div class="w-10 h-10 rounded-xl bg-amber-500 text-white border-2 border-amber-700 shadow-[0_2px_0_0_#78350f] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="inline-flex items-center gap-1 bg-[#854D0E] text-white text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full border border-amber-950 shadow-sm">
+<span class="material-symbols-outlined text-[10px]" data-icon="schedule">schedule</span>
+                  Scheduled (Tomorrow 02:00 UTC)
+                </span>
+<span class="text-xs font-bold text-amber-900 bg-amber-200/60 px-2 py-0.5 rounded-md">Type: Warning</span>
+</div>
+<h3 class="text-sm font-extrabold text-[#0F3D3E]">
+                Scheduled maintenance for Cambridge audio CDN
+              </h3>
+<p class="text-xs text-[#3E5C5C] font-medium mt-0.5">
+                Target: All learners • CTA: “System Status” → https://status.lexkite.com
+              </p>
+</div>
+</div>
+<!-- Impressions & Actions -->
+<div class="flex items-center justify-between md:justify-end gap-5 pt-2 md:pt-0 border-t md:border-t-0 border-amber-200">
+<div class="text-left md:text-right">
+<div class="text-[10px] uppercase font-extrabold text-slate-500">Impressions</div>
+<div class="text-sm font-black text-slate-500 flex items-center md:justify-end gap-1">
+                --
+              </div>
+</div>
+<div class="flex items-center gap-2">
+<button class="tactile-btn px-3 py-2 bg-white hover:bg-slate-50 text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border shadow-[0_3px_0_0_#D8CFBC] active:shadow-[0_1px_0_0_#D8CFBC] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="edit">edit</span>
+<span>Edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- NOTICE CARD 3: Ended (Info / Word List) -->
+<div class="rounded-xl border-2 border-cream-border bg-[#FAF3E3]/60 p-4 shadow-[0_4px_0_0_#D8CFBC] flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:bg-[#FAF3E3]">
+<div class="flex items-start gap-3.5">
+<!-- Type Icon Badge -->
+<div class="w-10 h-10 rounded-xl bg-slate-400 text-white border-2 border-slate-600 shadow-[0_2px_0_0_#334155] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="inline-flex items-center gap-1 bg-slate-600 text-white text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full border border-slate-700">
+                  Ended Oct 24
+                </span>
+<span class="text-xs font-bold text-slate-700 bg-slate-200 px-2 py-0.5 rounded-md">Type: Info</span>
+<span class="text-xs font-semibold text-slate-500">• Ran for 4 days</span>
+</div>
+<h3 class="text-sm font-bold text-slate-700">
+                New B2-C1 Academic Word List topics unlocked
+              </h3>
+<p class="text-xs text-slate-500 font-medium mt-0.5">
+                Target: EN, VI cohorts • CTA: “Explore Units”
+              </p>
+</div>
+</div>
+<!-- Impressions & Actions -->
+<div class="flex items-center justify-between md:justify-end gap-5 pt-2 md:pt-0 border-t md:border-t-0 border-cream-border">
+<div class="text-left md:text-right">
+<div class="text-[10px] uppercase font-extrabold text-slate-500">Impressions</div>
+<div class="text-sm font-black text-[#0F3D3E] flex items-center md:justify-end gap-1">
+<span class="material-symbols-outlined text-xs text-slate-500" data-icon="visibility">visibility</span>
+                49.2k
+              </div>
+</div>
+<div class="flex items-center gap-2">
+<button class="tactile-btn px-3 py-2 bg-white hover:bg-slate-50 text-[#0F3D3E] font-bold text-xs rounded-xl border-2 border-cream-border shadow-[0_3px_0_0_#D8CFBC] active:shadow-[0_1px_0_0_#D8CFBC] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="content_copy">content_copy</span>
+<span>Duplicate</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Historical Pagination and Status Footnote -->
+<div class="mt-5 pt-4 border-t-2 border-cream-border/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#5B7575] font-semibold">
+<div>Showing 3 of 28 historical broadcasts</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded-lg border border-cream-border bg-white text-slate-400 cursor-not-allowed">← Newer</button>
+<span class="px-2 py-1 font-bold text-[#0F3D3E]">Page 1</span>
+<button class="px-2.5 py-1 rounded-lg border border-cream-border bg-white text-[#0F3D3E] hover:bg-[#FAF3E3]">Older →</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= INLINE LIVE INTERACTION LOGIC ================= -->
+<script>
+    // Live update notice copy to both Light & Dark previews
+    const textarea = document.getElementById('notice-text');
+    const ctaInput = document.getElementById('notice-cta');
+    const previewLightText = document.getElementById('preview-light-text');
+    const previewDarkText = document.getElementById('preview-dark-text');
+    const previewLightCta = document.getElementById('preview-light-cta');
+    const previewDarkCta = document.getElementById('preview-dark-cta');
+    const charCount = document.getElementById('char-count');
+
+    function syncPreviewText() {
+      const val = textarea.value.trim() || '⚡ Scheduled maintenance tonight at 02:00 UTC. Audio drills will cache offline.';
+      previewLightText.textContent = val;
+      previewDarkText.textContent = val;
+      charCount.textContent = `${textarea.value.length} / 140 chars`;
+    }
+
+    function syncCtaText() {
+      const ctaVal = ctaInput.value.trim() || 'Learn more';
+      previewLightCta.textContent = ctaVal;
+      previewDarkCta.textContent = ctaVal;
+    }
+
+    textarea.addEventListener('input', syncPreviewText);
+    ctaInput.addEventListener('input', syncCtaText);
+
+    // Live Type / Severity Switcher styling
+    const typeButtons = document.querySelectorAll('.notice-type-btn');
+    const previewLightBanner = document.getElementById('preview-light-banner');
+    const previewDarkBanner = document.getElementById('preview-dark-banner');
+    const previewLightIcon = document.getElementById('preview-light-icon');
+    const previewDarkIcon = document.getElementById('preview-dark-icon');
+
+    typeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset all buttons to inactive tactile style
+        typeButtons.forEach(b => {
+          b.className = 'notice-type-btn tactile-btn flex items-center justify-center gap-2 py-3 px-3 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_4px_0_0_#D8CFBC] font-bold text-xs hover:bg-white cursor-pointer select-none';
+        });
+
+        const selectedType = btn.dataset.type;
+
+        if (selectedType === 'info') {
+          btn.className = 'notice-type-btn tactile-btn flex items-center justify-center gap-2 py-3 px-3 rounded-xl border-2 border-[#12514D] bg-[#2BA39A] text-white shadow-[0_4px_0_0_#12514D] font-bold text-xs cursor-pointer select-none';
+          
+          // Apply Info style to previews
+          previewLightBanner.className = 'rounded-xl border-2 border-[#12514D] bg-[#2BA39A] text-white p-3 shadow-[0_3px_0_0_#12514D] transition-all';
+          previewLightIcon.textContent = 'bolt';
+          
+          previewDarkBanner.className = 'rounded-xl border-2 border-[#2ba39a] bg-[#162125] text-[#d8e5e9] p-3 shadow-[0_3px_0_0_#072826] transition-all';
+          previewDarkIcon.textContent = 'bolt';
+          previewDarkIcon.className = 'material-symbols-outlined text-primary text-base mt-0.5 shrink-0';
+
+        } else if (selectedType === 'warning') {
+          btn.className = 'notice-type-btn tactile-btn flex items-center justify-center gap-2 py-3 px-3 rounded-xl border-2 border-[#B53A22] bg-gradient-to-r from-[#F2553B] to-[#FFC94A] text-[#3F0300] shadow-[0_4px_0_0_#B53A22] font-bold text-xs cursor-pointer select-none';
+
+          // Apply Warning style to previews
+          previewLightBanner.className = 'rounded-xl border-2 border-[#B53A22] bg-[#F2553B] text-white p-3 shadow-[0_3px_0_0_#B53A22] transition-all';
+          previewLightIcon.textContent = 'warning';
+
+          previewDarkBanner.className = 'rounded-xl border-2 border-[#F2553B] bg-[#2B1B17] text-[#ffdad3] p-3 shadow-[0_3px_0_0_#3f0300] transition-all';
+          previewDarkIcon.textContent = 'warning';
+          previewDarkIcon.className = 'material-symbols-outlined text-[#ffb4a6] text-base mt-0.5 shrink-0';
+
+        } else if (selectedType === 'success') {
+          btn.className = 'notice-type-btn tactile-btn flex items-center justify-center gap-2 py-3 px-3 rounded-xl border-2 border-emerald-800 bg-emerald-600 text-white shadow-[0_4px_0_0_#064e3b] font-bold text-xs cursor-pointer select-none';
+
+          // Apply Success style to previews
+          previewLightBanner.className = 'rounded-xl border-2 border-emerald-800 bg-emerald-600 text-white p-3 shadow-[0_3px_0_0_#064e3b] transition-all';
+          previewLightIcon.textContent = 'check_circle';
+
+          previewDarkBanner.className = 'rounded-xl border-2 border-emerald-500 bg-[#0F261E] text-emerald-100 p-3 shadow-[0_3px_0_0_#063327] transition-all';
+          previewDarkIcon.textContent = 'check_circle';
+          previewDarkIcon.className = 'material-symbols-outlined text-emerald-400 text-base mt-0.5 shrink-0';
+        }
+      });
+    });
+
+    // Language Chips Multi-select toggle
+    const langChips = document.querySelectorAll('.lang-chip');
+    langChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const isAll = chip.textContent.includes('All');
+        if (isAll) {
+          langChips.forEach(c => {
+            c.className = 'lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] font-semibold text-xs hover:bg-white';
+          });
+          chip.className = 'lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-[#12514D] bg-[#2BA39A] text-white shadow-[0_3px_0_0_#12514D] font-bold text-xs flex items-center gap-1.5';
+        } else {
+          // Deselect 'All'
+          langChips[0].className = 'lang-chip tactile-btn-sm px-3.5 py-1.5 rounded-xl border-2 border-cream-border bg-[#FAF3E3] text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] font-semibold text-xs hover:bg-white';
+          chip.classList.toggle('bg-[#2BA39A]');
+          chip.classList.toggle('text-white');
+          chip.classList.toggle('border-[#12514D]');
+          chip.classList.toggle('shadow-[0_3px_0_0_#12514D]');
+        }
+      });
+    });
+
+    // Real-time UTC clock tick
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getUTCHours()).padStart(2, '0');
+      const m = String(now.getUTCMinutes()).padStart(2, '0');
+      const s = String(now.getUTCSeconds()).padStart(2, '0');
+      const clockEl = document.getElementById('utc-clock');
+      if (clockEl) {
+        clockEl.textContent = `${h}:${m}:${s} UTC`;
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Publish button toast feedback
+    const publishBtn = document.getElementById('btn-publish');
+    publishBtn.addEventListener('click', () => {
+      const originalText = publishBtn.innerHTML;
+      publishBtn.innerHTML = `
+        <span class="material-symbols-outlined font-black text-xl animate-spin" data-icon="progress_activity">progress_activity</span>
+        <span>Broadcasting to Edge CDN...</span>
+      `;
+      setTimeout(() => {
+        publishBtn.innerHTML = `
+          <span class="material-symbols-outlined font-black text-xl text-emerald-950" data-icon="check">check</span>
+          <span>Notice Live Globally!</span>
+        `;
+        setTimeout(() => {
+          publishBtn.innerHTML = originalText;
+        }, 2200);
+      }, 700);
+    });
+  </script>
+</body></html>

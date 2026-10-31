@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Home (Extension Banner)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-fixed": "#3f0300",
+            "on-background": "#d8e5e9",
+            "surface": "#091518",
+            "primary-fixed": "#88f5ea",
+            "tertiary-container": "#ba8b00",
+            "tertiary": "#f4bf40",
+            "on-secondary-container": "#ffa493",
+            "on-primary": "#003733",
+            "surface-variant": "#2b373a",
+            "background": "#091518",
+            "primary": "#6bd8ce",
+            "outline": "#879391",
+            "secondary-container": "#981201",
+            "on-surface": "#d8e5e9",
+            "on-primary-container": "#00322e",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-container": "#162125",
+            "surface-dim": "#091518",
+            "on-tertiary": "#402e00",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface-container-low": "#121d20",
+            "surface-container-lowest": "#051013",
+            "on-secondary": "#660800",
+            "on-primary-fixed": "#00201e",
+            "outline-variant": "#3d4947",
+            "inverse-primary": "#006a64",
+            "error": "#ffb4ab",
+            "inverse-on-surface": "#263236",
+            "tertiary-fixed": "#ffdf9e",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-surface-variant": "#bcc9c7",
+            "surface-tint": "#6bd8ce",
+            "secondary-fixed": "#ffdad3",
+            "secondary": "#ffb4a6",
+            "on-primary-fixed-variant": "#00504b",
+            "error-container": "#93000a",
+            "surface-container-highest": "#2b373a",
+            "surface-bright": "#2f3b3e",
+            "primary-container": "#2ba39a",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-tertiary-container": "#392900",
+            "surface-container-high": "#202c2f",
+            "on-tertiary-fixed": "#261a00",
+            "secondary-fixed-dim": "#ffb4a6",
+            "inverse-surface": "#d8e5e9"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "24px",
+            "space-sm": "8px",
+            "gutter": "16px",
+            "space-xs": "4px",
+            "space-xl": "32px",
+            "space-md": "16px",
+            "margin": "16px"
+          },
+          fontFamily: {
+            "title": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .bg-dot-grid {
+      background-color: #081518;
+      background-image: radial-gradient(rgba(107, 216, 206, 0.12) 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface bg-dot-grid min-h-screen flex flex-col items-center selection:bg-primary-container selection:text-on-primary-container pb-28 pt-2 antialiased">
+<!-- Desktop Centered Stack Container (No frame bezel, pure tactile dark cards) -->
+<main class="w-full max-w-xl px-4 flex flex-col gap-4">
+<!-- Top App Bar / Header -->
+<header class="flex items-center justify-between py-2 px-1">
+<!-- Left: Kite Brand + Dropdown Course Pill -->
+<div class="flex items-center gap-2.5">
+<!-- Tactile Kite Logo Glyph -->
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-container to-primary flex items-center justify-center border-2 border-[#24434C] shadow-[0_4px_0_#0B171A] active:translate-y-0.5 transition-transform cursor-pointer">
+<svg class="w-6 h-6 text-on-primary-container drop-shadow-sm" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#00322e"></path>
+<path d="M12 2L12 22M4 10L20 10" stroke="#88f5ea" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Target Course Selector Pill -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border-2 border-[#24434C] shadow-[0_3px_0_#0B171A] active:translate-y-0.5 active:shadow-[0_1px_0_#0B171A] transition-all hover:border-primary/50 text-left">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-title text-sm font-bold text-on-surface tracking-tight">IELTS 7.5</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant font-bold">arrow_drop_down</span>
+</button>
+</div>
+<!-- Right: Streak and XP Tactile Badges -->
+<div class="flex items-center gap-2">
+<!-- Streak Flame Pill -->
+<div class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container border-2 border-[#24434C] shadow-[0_3px_0_#0B171A] text-tertiary">
+<span class="material-symbols-outlined text-[19px] fill-1 text-[#FF8A3D]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label text-xs font-black text-on-surface tracking-wide">14</span>
+</div>
+<!-- XP Lightning Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border-2 border-[#24434C] shadow-[0_3px_0_#0B171A] text-primary">
+<span class="material-symbols-outlined text-[18px] text-tertiary fill-1" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label text-xs font-black text-on-surface tracking-wide">820 XP</span>
+</div>
+</div>
+</header>
+<!-- Top Unit Card (Unit 3 Academic Writing) -->
+<section class="relative rounded-2xl bg-gradient-to-br from-[#144b46] via-[#103e3a] to-[#0d312e] border-2 border-[#2ba39a]/60 shadow-[0_6px_0_#08201e] p-5 overflow-hidden transition-transform duration-100">
+<!-- Specular Gloss Sheen -->
+<div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#88f5ea]/50 to-transparent"></div>
+<!-- Background thematic glyph watermark -->
+<div class="absolute -right-4 -bottom-4 text-[#2ba39a]/10 pointer-events-none">
+<span class="material-symbols-outlined text-[130px] leading-none">menu_book</span>
+</div>
+<div class="relative z-10 flex flex-col gap-3">
+<!-- Row: Unit Tag & Progress percentage -->
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#092623] border border-[#2ba39a]/40 shadow-inner">
+<span class="material-symbols-outlined text-sm text-primary">auto_stories</span>
+<span class="font-label text-[11px] font-black uppercase text-primary tracking-wider">UNIT 3 • ACADEMIC WRITING</span>
+</div>
+<span class="font-label text-xs font-black text-primary-fixed tracking-wide">65% Done</span>
+</div>
+<!-- Unit Main Title -->
+<div>
+<h2 class="font-title text-xl font-extrabold text-[#EEF6F7] tracking-tight">Cohesion &amp; Linking Devices</h2>
+<p class="font-label text-xs font-bold text-on-surface-variant mt-0.5">Stage 2 of 4</p>
+</div>
+<!-- Progress Bar (Tactile Grooved with Glowing Fill) -->
+<div class="w-full h-3 rounded-full bg-[#081e1c] p-0.5 border border-[#1b5e57] shadow-inner relative overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-[#2BA39A] via-[#6BD8CE] to-[#F4BF40] w-[65%] shadow-[0_0_8px_rgba(107,216,206,0.6)]"></div>
+</div>
+</div>
+</section>
+<!-- Extension Banner Card (Hero Tactile Callout) -->
+<section class="relative rounded-2xl bg-[#13262D] border-2 border-[#24434C] shadow-[0_6px_0_#0A1519] p-5 flex flex-col gap-4 overflow-hidden">
+<!-- Glossy top highlight -->
+<div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#6bd8ce]/40 to-transparent"></div>
+<!-- Close X Button -->
+<button aria-label="Dismiss banner" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-surface-container-high border border-[#24434C] flex items-center justify-center text-on-surface-variant hover:text-on-surface active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[16px] font-bold">close</span>
+</button>
+<!-- Content Row: Icon + Copy -->
+<div class="flex items-start gap-4 pr-6">
+<!-- Left Stylized Chrome Vector Window -->
+<div class="shrink-0 w-14 h-14 rounded-xl bg-surface-container-high border-2 border-[#2E5560] shadow-[0_4px_0_#0B171A] flex flex-col items-center justify-center p-1.5 relative group">
+<!-- Window Header Dots -->
+<div class="w-full flex items-center gap-1 mb-1 px-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F2553B]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#FFC94A]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#6BD8CE]"></span>
+</div>
+<!-- Kite emblem inside window -->
+<div class="w-7 h-7 rounded-md bg-[#081518] flex items-center justify-center border border-[#24434C]">
+<svg class="w-4 h-4 text-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#6BD8CE"></path>
+<path d="M12 2L12 22M4 10L20 10" stroke="#003733" stroke-width="2.5"></path>
+</svg>
+</div>
+</div>
+<!-- Headline & Description -->
+<div class="flex flex-col gap-1.5">
+<!-- Badge -->
+<div class="inline-flex items-center gap-1.5 self-start px-2 py-0.5 rounded-md bg-[#00322e] border border-[#2ba39a]/60 text-primary">
+<span class="material-symbols-outlined text-[13px] fill-1" style="font-variation-settings: 'FILL' 1;">extension</span>
+<span class="font-label text-[10px] font-black tracking-widest uppercase">FREE EXTENSION</span>
+</div>
+<h3 class="font-title text-lg font-extrabold text-[#EEF6F7] leading-snug">
+            Learn while you browse
+          </h3>
+<p class="font-body text-xs text-[#A9BFC1] leading-relaxed">
+            Double-click any unfamiliar web word for instant IELTS collocations &amp; phonetics.
+          </p>
+</div>
+</div>
+<!-- Action Area: Tactile Candy Button -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-[#1C363F]">
+<!-- Primary CTA: Coral to Amber Gradient Button with 6px tactile ledge -->
+<button class="w-full sm:w-auto px-6 h-12 rounded-xl bg-gradient-to-r from-[#F2553B] to-[#FF8A3D] border border-[#FF9F68] shadow-[0_6px_0_#B53A22] active:translate-y-1 active:shadow-[0_2px_0_#B53A22] flex items-center justify-center gap-2.5 transition-all group">
+<!-- Chrome Icon SVG -->
+<svg class="w-5 h-5 text-[#1C0702]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-1.85.63-3.55 1.69-4.9L9.3 13.9 12 18.57V20zm0-10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6.31 6.9c-.83 1.25-2.01 2.24-3.41 2.82L12 14.5h6.31zM18.8 8.16C19.56 9.29 20 10.6 20 12c0 1.21-.34 2.34-.93 3.32L14.7 6.5h3.6c.2.53.37 1.08.5 1.66z"></path>
+</svg>
+<!-- CRITICAL: Label text must be deep brown-black ink (#1C0702), NOT white -->
+<span class="font-title text-sm font-black text-[#1C0702] tracking-tight uppercase">Add to Chrome →</span>
+</button>
+<!-- Trust Badges -->
+<div class="flex items-center gap-3.5 text-xs font-label">
+<div class="flex items-center gap-1 text-[#32D2C6]">
+<span class="font-black text-sm">✓</span>
+<span class="font-bold text-[11px] tracking-wide">Zero tracking</span>
+</div>
+<div class="flex items-center gap-1 text-[#32D2C6]">
+<span class="font-black text-sm">⟲</span>
+<span class="font-bold text-[11px] tracking-wide">Sync</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Daily Quests Card -->
+<section class="rounded-2xl bg-[#13262D] border-2 border-[#24434C] shadow-[0_5px_0_#0A1519] p-5 flex flex-col gap-4">
+<!-- Header row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#F4BF40] text-xl">flag</span>
+<h3 class="font-title text-base font-extrabold text-[#EEF6F7]">Daily Quests</h3>
+<span class="px-2 py-0.5 rounded-full bg-[#1A343C] border border-[#24434C] font-label text-[10px] font-black text-primary">2 / 3 Complete</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label text-xs">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Resets in 4h 20m</span>
+</div>
+</div>
+<!-- Quests List (Tactile Items) -->
+<div class="flex flex-col gap-2.5">
+<!-- Quest 1: Done State -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-high border-2 border-[#24434C] shadow-[0_3px_0_#0A1519]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-[#00322e] border border-[#2ba39a] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-base font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title text-xs font-bold text-[#EEF6F7] line-through opacity-85">Lock 5 Academic Collocations</span>
+<!-- Mini full progress bar -->
+<div class="w-28 h-1.5 rounded-full bg-[#081518] mt-1 overflow-hidden">
+<div class="w-full h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<span class="font-label text-xs font-black text-[#F4BF40] bg-[#392900] px-2 py-1 rounded-md border border-[#ba8b00]/40">+20 XP</span>
+</div>
+<!-- Quest 2: Partial State -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-high border-2 border-[#24434C] shadow-[0_3px_0_#0A1519]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-[#183038] border border-[#2E5560] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-base">headphones</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title text-xs font-bold text-[#EEF6F7]">Complete 1 Listening Drill</span>
+<!-- Mini partial progress bar -->
+<div class="w-28 h-1.5 rounded-full bg-[#081518] mt-1 overflow-hidden">
+<div class="w-1/2 h-full bg-gradient-to-r from-primary-container to-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<span class="font-label text-xs font-black text-[#F4BF40] bg-[#392900] px-2 py-1 rounded-md border border-[#ba8b00]/40">+15 XP</span>
+</div>
+</div>
+</section>
+<!-- Next Lesson Action Bar -->
+<section class="rounded-2xl bg-[#13262D] border-2 border-[#24434C] shadow-[0_5px_0_#0A1519] p-4 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<!-- Orange Book / Pill Icon -->
+<div class="w-11 h-11 rounded-xl bg-[#2A1D0E] border-2 border-[#804E15] shadow-[0_3px_0_#140D06] flex items-center justify-center text-[#FFC94A]">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label text-[10px] font-black uppercase text-primary tracking-widest">NEXT LESSON</span>
+<h4 class="font-title text-sm font-extrabold text-[#EEF6F7]">Complex Sentence Connectors</h4>
+</div>
+</div>
+<!-- Tactile START Button (Vibrant Teal with deep ink text) -->
+<button class="px-5 h-11 rounded-xl bg-[#2BA39A] hover:bg-[#38b5ab] border border-[#6BD8CE] shadow-[0_4px_0_#00322E] active:translate-y-1 active:shadow-[0_1px_0_#00322E] flex items-center justify-center gap-1.5 transition-all">
+<span class="font-title text-xs font-black text-[#00201E] tracking-wider uppercase">START</span>
+<span class="material-symbols-outlined text-xs font-black text-[#00201E]">play_arrow</span>
+</button>
+</section>
+</main>
+<!-- Bottom Floating / Docked Navigation Bar -->
+<nav aria-label="Main Navigation" class="fixed bottom-3 inset-x-0 mx-auto w-[94%] max-w-md bg-[#0E1D22] border-2 border-[#24434C] shadow-[0_6px_0_#081216] rounded-2xl py-2 px-3 flex items-center justify-around z-50 backdrop-blur-md">
+<!-- Tab 1: Learn (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl py-1.5 px-3 border-b-4 border-on-primary-fixed-variant transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label text-[10px] font-extrabold tracking-wide uppercase mt-0.5">Learn</span>
+</a>
+<!-- Tab 2: Review -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface py-1.5 px-3 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">replay</span>
+<span class="font-label text-[10px] font-bold tracking-wide uppercase mt-0.5">Review</span>
+</a>
+<!-- Tab 3: Practice -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface py-1.5 px-3 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="font-label text-[10px] font-bold tracking-wide uppercase mt-0.5">Practice</span>
+</a>
+<!-- Tab 4: Leagues -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface py-1.5 px-3 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">leaderboard</span>
+<span class="font-label text-[10px] font-bold tracking-wide uppercase mt-0.5">Leagues</span>
+</a>
+<!-- Tab 5: Me / Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface py-1.5 px-3 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="font-label text-[10px] font-bold tracking-wide uppercase mt-0.5">Me</span>
+</a>
+</nav>
+</body></html>

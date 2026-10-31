@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Chrome Extension In-Page Dictionary (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Newsreader"', 'Georgia', 'serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF7EA',
+              200: '#F5EBD7',
+              300: '#EADEC8',
+              400: '#D8CFBC',
+            },
+            teal: {
+              ink: '#0F3D3E',
+              deep: '#1F7A75',
+              brand: '#2BA39A',
+              light: '#E2F7F4',
+              soft: '#E8FAF7',
+              ledge: '#18625E',
+            },
+            coral: {
+              brand: '#F2553B',
+              hover: '#E04830',
+              ledge: '#B53A22',
+            },
+            amber: {
+              brand: '#FFB054',
+              soft: '#FFF3E0',
+              ledge: '#D98933',
+            },
+            slateText: {
+              muted: '#627D80',
+              sub: '#4E6668',
+            }
+          },
+          boxShadow: {
+            tactile: '0 8px 0 0 #D8CFBC, 0 16px 28px rgba(15, 61, 62, 0.08)',
+            'tactile-subtle': '0 4px 0 0 #D8CFBC, 0 8px 18px rgba(15, 61, 62, 0.06)',
+            'tactile-coral': '0 4px 0 0 #B53A22',
+            'tactile-teal': '0 4px 0 0 #18625E',
+            'tactile-neutral': '0 4px 0 0 #D8CFBC',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Button press physics as specified in Lexkite Kit */
+    .btn-tactile-coral {
+      background: linear-gradient(135deg, #F2553B 0%, #FF8554 100%);
+      box-shadow: 0 5px 0 0 #B53A22, 0 8px 16px rgba(242, 85, 59, 0.25);
+      transition: all 0.08s ease-in-out;
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22, 0 4px 8px rgba(242, 85, 59, 0.2);
+    }
+
+    .btn-tactile-neutral {
+      background: #FFFFFF;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+      transition: all 0.08s ease-in-out;
+    }
+    .btn-tactile-neutral:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #D8CFBC;
+    }
+
+    .btn-speaker {
+      background: #FFFFFF;
+      box-shadow: 0 3px 0 0 #D8CFBC;
+      transition: all 0.08s ease-in-out;
+    }
+    .btn-speaker:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D8CFBC;
+    }
+
+    /* Tactile card borders & ledges */
+    .lexkite-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 6px 0 0 #D8CFBC, 0 20px 35px -10px rgba(15, 61, 62, 0.12);
+      border-radius: 20px;
+    }
+
+    .shimmer {
+      background: linear-gradient(90deg, #F5EBD7 0%, #FFFDF9 50%, #F5EBD7 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.6s infinite ease-in-out;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#EEF6F7] font-sans min-h-screen antialiased selection:bg-[#2BA39A] selection:text-white p-0 m-0 relative overflow-x-hidden">
+<!-- Top bar demo indicator -->
+<header class="w-full bg-[#0D1C20]/95 border-b border-[#1E373F] px-6 py-3.5 flex items-center justify-between z-10 sticky top-0 backdrop-blur-md shadow-md"><div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#2BA39A] to-[#14605C] flex items-center justify-center shadow-[0_3px_0_0_#0D3B39]">
+<svg class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L20 12L12 22L4 12L12 2Z" opacity="0.9"></path>
+<circle cx="12" cy="12" fill="#88F5EA" r="2.5"></circle>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-extrabold text-[#EEF6F7] text-base tracking-tight">Lexkite</span>
+<span class="text-[11px] font-extrabold tracking-wide uppercase px-2 py-0.5 rounded-full bg-[#16363B] text-[#6BD8CE] border border-[#2BA39A]/40">In-Page Extension</span>
+</div>
+<p class="text-xs text-[#9EB5BA]">Double-click any word on the web for instant tactile micro-definitions</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#102329] border border-[#25424B] text-xs font-bold text-[#A7C2C7]">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A] shadow-[0_0_8px_#2BA39A] animate-pulse"></span>
+        Double-click mode active
+      </div>
+<div class="flex items-center gap-1 text-xs font-extrabold text-[#6BD8CE] bg-[#143338] px-3 py-1 rounded-full border border-[#2BA39A]/40 shadow-sm">
+<span>🌐 Learner: Tiếng Việt</span>
+</div>
+</div></header>
+<!-- Main Canvas Area: Article in the background with floating extension overlays -->
+<main class="max-w-7xl mx-auto px-6 py-10 relative"><!-- The Underlying Web Article in dark reader mode -->
+<div class="relative bg-[#102026] rounded-3xl border-2 border-[#1E373F] p-10 md:p-14 shadow-[0_8px_0_0_#0A1417] select-none">
+<!-- Article Header -->
+<div class="max-w-3xl mb-8 space-y-3">
+<div class="flex items-center gap-3 text-xs uppercase tracking-wider text-[#6F8E94] font-bold">
+<span>Global Economy</span>
+<span>•</span>
+<span>5 min read</span>
+<span>•</span>
+<span>The Morning Gazette</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-serif font-normal text-[#EEF6F7] leading-snug tracking-tight">
+          How modern ports adapted to sudden disruption and stabilized global cargo flow
+        </h1>
+<p class="text-sm font-sans text-[#7E9EA4]">By Sarah Jenkins • Published 08:30 GMT</p>
+</div>
+<!-- Article Paragraphs with resilient highlighted -->
+<div class="max-w-3xl space-y-6 font-serif text-lg leading-relaxed text-[#9EB5BA]">
+<p>
+          Following several months of severe international delays, global shipping hubs have begun restructuring their container allocation mechanisms. Terminals that previously operated near capacity are transitioning toward flexible algorithmic queues, minimizing localized congestions before they cascade into trade corridors.
+        </p>
+<!-- Highlighted sentence with the target word -->
+<p class="relative">
+          Maritime freight operators discovered that a 
+          <!-- The highlighted double-clicked word with pointer anchor in dark mode -->
+<span class="relative inline-block font-sans font-bold text-[#EEF6F7] bg-[#D97706]/30 px-2 py-0.5 rounded-md border-b-2 border-[#F59E0B] shadow-[0_0_12px_rgba(245,158,11,0.25)]" id="target-word">
+            resilient
+            <!-- Little pulse indicator on the word -->
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#F59E0B] rounded-full ring-4 ring-[#F59E0B]/30 animate-ping"></span>
+</span>
+          supply framework relies on distributed storage buffers rather than strictly linear delivery commitments.
+        </p>
+<p class="text-[#49656B] blur-[1px]">
+          According to port authorities across Rotterdam and Singapore, intermodal rail transfers managed to absorb up to forty percent of warehouse overflow during peak holiday cycles. This operational flexibility allowed distribution managers to maintain throughput despite unprecedented sea freight fluctuations.
+        </p>
+<p class="text-[#334B50] blur-[2px]">
+          Furthermore, recent customs digitization has streamlined documentation turnaround times from hours to instantaneous cryptographic confirmations, ensuring that temperature-sensitive cargo experiences negligible demurrage penalties.
+        </p>
+</div>
+<!-- Soft dark scrim overlay across article parts to focus on tactile overlays -->
+<div class="absolute inset-0 bg-[#081518]/50 backdrop-blur-[1.5px] rounded-3xl pointer-events-none"></div>
+<!-- ========================================================================= -->
+<!-- OVERLAY 1: PRIMARY ACTIVE WORD POPUP (Tactile Night)                      -->
+<!-- ========================================================================= -->
+<div class="absolute top-[215px] left-[70px] md:left-[160px] z-30 w-[350px] bg-[#1A2C33] rounded-2xl border-2 border-[#36505A] p-5 shadow-[0_6px_0_0_#0D191D,0_20px_35px_-10px_rgba(0,0,0,0.5)] animate-in fade-in zoom-in-95 duration-200">
+<!-- Upward Pointer arrow pointing directly at the highlighted word -->
+<div class="absolute -top-2.5 left-20 -translate-x-1/2 w-4 h-4 bg-[#1A2C33] border-t-2 border-l-2 border-[#36505A] rotate-45 rounded-tl-[3px]"></div>
+<!-- Card Header: Word, POS Chip, Quick Close -->
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-baseline gap-2">
+<h2 class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">resilient</h2>
+<span class="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#122228] text-[#6BD8CE] border border-[#284852]">
+              ADJ.
+            </span>
+</div>
+<button class="w-6 h-6 rounded-full bg-[#122228] hover:bg-[#243B44] text-[#8EAAB0] hover:text-[#EEF6F7] flex items-center justify-center transition-colors text-xs border border-[#284852]" title="Dismiss popup">
+            ✕
+          </button>
+</div>
+<!-- Pronunciation / Audio Bar (UK & US with rounded tactile speaker buttons) -->
+<div class="flex items-center gap-2 mb-3.5 pt-0.5">
+<!-- UK Audio pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#122228] border border-[#284852] shadow-[0_2px_0_0_#0A1518]">
+<span class="text-[10px] font-extrabold text-[#6F8E94]">UK</span>
+<span class="text-xs font-mono text-[#6BD8CE]">/rɪˈzɪl.i.ənt/</span>
+<button class="w-5 h-5 rounded-full bg-[#1E373F] border border-[#3A5C66] flex items-center justify-center text-[#2BA39A] ml-0.5 hover:text-[#88F5EA] shadow-[0_1px_0_0_#0D1B1F] active:translate-y-0.5" title="Listen UK audio">
+<svg class="w-3 h-3 fill-current" viewbox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"></path></svg>
+</button>
+</div>
+<!-- US Audio pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#122228] border border-[#284852] shadow-[0_2px_0_0_#0A1518]">
+<span class="text-[10px] font-extrabold text-[#6F8E94]">US</span>
+<span class="text-xs font-mono text-[#6BD8CE]">/rəˈzɪl.jənt/</span>
+<button class="w-5 h-5 rounded-full bg-[#1E373F] border border-[#3A5C66] flex items-center justify-center text-[#2BA39A] ml-0.5 hover:text-[#88F5EA] shadow-[0_1px_0_0_#0D1B1F] active:translate-y-0.5" title="Listen US audio">
+<svg class="w-3 h-3 fill-current" viewbox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"></path></svg>
+</button>
+</div>
+</div>
+<!-- Meaning in Learner's Language (Inset dark teal surface, high contrast) -->
+<div class="mb-3 p-3 rounded-2xl bg-[#14272E] border border-[#254A54] shadow-inner">
+<div class="flex items-center gap-1.5 text-[11px] font-extrabold text-[#6BD8CE] uppercase tracking-wider mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2BA39A] shadow-[0_0_6px_#2BA39A]"></span>
+            Tiếng Việt (Ý nghĩa)
+          </div>
+<p class="text-sm font-bold text-[#EEF6F7] leading-snug">
+            Kiên cường; có khả năng phục hồi nhanh chóng sau khó khăn hoặc áp lực.
+          </p>
+</div>
+<!-- Concise Example Sentence with target word highlighted -->
+<div class="mb-3.5 px-3 py-2.5 rounded-xl bg-[#122228] border border-[#284852] text-xs text-[#9EB5BA] leading-relaxed">
+<span class="font-bold text-[#6F8E94] uppercase text-[10px] block mb-0.5">Example</span>
+          "The domestic economy proved remarkably <span class="font-bold text-[#EEF6F7] bg-[#F59E0B]/25 text-[#FBBF24] px-1 rounded border-b border-[#F59E0B]/50">resilient</span> against global trade shocks."
+        </div>
+<!-- High-Scoring Collocation Chips -->
+<div class="mb-4">
+<span class="text-[10px] font-extrabold text-[#7E9EA4] uppercase tracking-wider block mb-1.5">Common collocations</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[11px] font-bold px-2 py-0.5 rounded-lg bg-[#22363D] text-[#EEF6F7] border border-[#35525D] shadow-[0_2px_0_0_#0D191D] hover:bg-[#2A444D] cursor-pointer">
+              remarkably resilient
+            </span>
+<span class="text-[11px] font-bold px-2 py-0.5 rounded-lg bg-[#22363D] text-[#EEF6F7] border border-[#35525D] shadow-[0_2px_0_0_#0D191D] hover:bg-[#2A444D] cursor-pointer">
+              resilient workforce
+            </span>
+<span class="text-[11px] font-bold px-2 py-0.5 rounded-lg bg-[#22363D] text-[#EEF6F7] border border-[#35525D] shadow-[0_2px_0_0_#0D191D] hover:bg-[#2A444D] cursor-pointer">
+              resilient system
+            </span>
+</div>
+</div>
+<!-- Tactile Action Row: Save (Candy coral CTA with ledge), Explain, App -->
+<div class="grid grid-cols-12 gap-2 pt-1 border-t border-[#25424B]">
+<!-- Primary Save Button (Tactile candy coral) -->
+<button class="col-span-5 bg-gradient-to-b from-[#F2553B] to-[#D93D24] shadow-[0_4px_0_0_#8F2412,0_8px_16px_rgba(242,85,59,0.3)] hover:brightness-110 active:translate-y-1 active:shadow-[0_1px_0_0_#8F2412] py-2.5 px-3 rounded-xl text-white font-extrabold text-xs flex items-center justify-center gap-1.5 tracking-tight transition-all">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"></path></svg>
+            Save +5XP
+          </button>
+<!-- Explain More Button (Tactile dark teal surface) -->
+<button class="col-span-4 bg-[#22363D] hover:bg-[#2A444D] border-2 border-[#36505A] shadow-[0_4px_0_0_#0D191D] active:translate-y-1 active:shadow-[0_1px_0_0_#0D191D] py-2 px-2 rounded-xl text-[#6BD8CE] font-bold text-xs flex items-center justify-center gap-1 transition-all">
+            Explain
+          </button>
+<!-- Open in app Icon CTA -->
+<button class="col-span-3 bg-[#22363D] hover:bg-[#2A444D] border-2 border-[#36505A] shadow-[0_4px_0_0_#0D191D] active:translate-y-1 active:shadow-[0_1px_0_0_#0D191D] py-2 px-2 rounded-xl text-[#EEF6F7] font-bold text-xs flex items-center justify-center gap-1 transition-all" title="Open in Lexkite full dictionary">
+<span>App</span>
+<svg class="w-3 h-3 text-[#2BA39A]" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<!-- Subtle footer status line -->
+<div class="mt-3 flex items-center justify-between text-[10px] text-[#7E9EA4] font-bold pt-1.5 border-t border-[#25424B]">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2BA39A] shadow-[0_0_4px_#2BA39A]"></span>
+            Syncs to your mobile deck
+          </span>
+<span class="text-[#6BD8CE]">IELTS C1 • Band 7.5+</span>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- OVERLAY 2: LOADING STATE CARD (Tactile Night)                             -->
+<!-- ========================================================================= -->
+<div class="absolute top-[180px] right-[40px] md:right-[90px] z-20 w-[280px] bg-[#1A2C33] rounded-2xl border-2 border-[#36505A] p-4.5 shadow-[0_6px_0_0_#0D191D,0_20px_35px_-10px_rgba(0,0,0,0.5)]">
+<!-- State Label Tag -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-[#F59E0B] animate-ping"></div>
+<span class="text-[10px] font-extrabold tracking-wider uppercase text-[#FBBF24]">Lookup State</span>
+</div>
+<span class="text-[10px] font-bold text-[#7E9EA4]">Instant &lt;50ms</span>
+</div>
+<!-- Word placeholder & spinner -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="h-6 w-24 rounded-lg bg-[#253D46] animate-pulse"></div>
+<div class="h-4 w-9 rounded-full bg-[#253D46] animate-pulse"></div>
+</div>
+<!-- Tactile spinning disk in teal -->
+<div class="w-5 h-5 rounded-full border-2 border-[#1E373F] border-t-[#2BA39A] animate-spin"></div>
+</div>
+<!-- Skeleton content bars with tactile styling -->
+<div class="space-y-2 mb-4">
+<div class="h-3.5 w-36 rounded-md bg-[#253D46] animate-pulse"></div>
+<div class="h-10 w-full rounded-xl bg-[#122228] border border-[#284852] p-2 flex items-center gap-2">
+<div class="w-4 h-4 rounded-full bg-[#253D46] animate-pulse shrink-0"></div>
+<div class="h-3 w-4/5 rounded bg-[#253D46] animate-pulse"></div>
+</div>
+<div class="h-3 w-48 rounded bg-[#253D46] animate-pulse"></div>
+</div>
+<!-- Skeleton Button Row -->
+<div class="flex gap-2">
+<div class="h-8 flex-1 rounded-xl bg-[#253D46] animate-pulse"></div>
+<div class="h-8 w-16 rounded-xl bg-[#253D46] animate-pulse"></div>
+</div>
+<p class="text-center text-[10px] font-bold text-[#7E9EA4] mt-2.5">
+          Retrieving IELTS collocations &amp; phonetics...
+        </p>
+</div>
+<!-- ========================================================================= -->
+<!-- OVERLAY 3: "NOT FOUND" / UNKNOWN PHRASE STATE CARD (Tactile Night)        -->
+<!-- ========================================================================= -->
+<div class="absolute top-[430px] right-[40px] md:right-[90px] z-20 w-[290px] bg-[#1A2C33] rounded-2xl border-2 border-[#36505A] p-4.5 shadow-[0_6px_0_0_#0D191D,0_20px_35px_-10px_rgba(0,0,0,0.5)]">
+<!-- State Label Tag -->
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#F2553B]"></span>
+<span class="text-[10px] font-extrabold tracking-wider uppercase text-[#F2553B]">Not In Core Deck</span>
+</div>
+<span class="text-xs text-[#7E9EA4]">"demurrage"</span>
+</div>
+<!-- Friendly illustration icon and headline -->
+<div class="p-3 rounded-2xl bg-[#2B231B] border border-[#6B4726] mb-3 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-xl bg-[#593517] flex items-center justify-center shrink-0 text-[#F59E0B] mt-0.5 shadow-sm">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+</div>
+<div>
+<h4 class="text-xs font-bold text-[#EEF6F7] leading-tight">Word not in offline core</h4>
+<p class="text-[11px] text-[#A7C2C7] mt-0.5 leading-snug">
+              Specialized shipping jargon. Ask Teacher Ama or look up in Cambridge cloud?
+            </p>
+</div>
+</div>
+<!-- Action options for not-found state -->
+<div class="space-y-2">
+<!-- Button 1: Ask Ama (AI Teacher candy button) -->
+<button class="w-full bg-gradient-to-r from-[#F2553B] to-[#F59E0B] shadow-[0_4px_0_0_#9E2D1A] hover:brightness-110 active:translate-y-1 active:shadow-[0_1px_0_0_#9E2D1A] py-2 px-3 rounded-xl text-white font-extrabold text-xs flex items-center justify-center gap-2 transition-all">
+<span class="text-sm">✨</span>
+<span>Ask Teacher Ama to explain</span>
+</button>
+<!-- Button 2: Add custom card to My Deck -->
+<button class="w-full bg-[#22363D] hover:bg-[#2A444D] border-2 border-[#36505A] shadow-[0_4px_0_0_#0D191D] active:translate-y-1 active:shadow-[0_1px_0_0_#0D191D] py-1.5 px-3 rounded-xl text-[#6BD8CE] font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>Create custom flashcard</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Feature Description Footnote (Tactile Night) -->
+<div class="mt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#7E9EA4] font-medium gap-4 px-2">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-[#2BA39A]" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+<strong class="text-[#EEF6F7]">Zero cookie tracking</strong> &amp; zero site layout shifting
+        </span>
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-[#F59E0B]" fill="currentColor" viewbox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.49-1.46C15.93 17.77 14.07 19 12 19z"></path></svg>
+          Keyboard shortcut: <kbd class="px-1.5 py-0.5 rounded bg-[#102329] border border-[#25424B] text-[#6BD8CE] font-mono text-[10px]">Alt + Click</kbd>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A] shadow-[0_0_6px_#2BA39A]"></span>
+<span class="text-[#9EB5BA]">Lexkite Kit Tactile Night UI (Release v2.4)</span>
+</div>
+</div></main>
+</body>
+</html>

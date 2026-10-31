@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Skills Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF7EA',
+              200: '#FBF0DE',
+              300: '#F4E5CC',
+            },
+            ink: {
+              950: '#061C1D',
+              900: '#0A2628',
+              800: '#0F3436',
+              700: '#154345',
+              600: '#23595B',
+            },
+            teal: {
+              400: '#34B8AE',
+              500: '#2BA39A',
+              600: '#1F7A75',
+              700: '#12514D',
+              800: '#0B3835',
+            },
+            coral: {
+              400: '#FF6F59',
+              500: '#F2553B',
+              600: '#D9442B',
+              700: '#B53A22',
+            },
+            amber: {
+              300: '#FFC875',
+              400: '#FFB854',
+              500: '#FF9E2C',
+              600: '#E68214',
+            },
+            gold: {
+              400: '#FFD45A',
+              500: '#FFC42B',
+              600: '#DFA312',
+            },
+            blue: {
+              400: '#53A8F5',
+              500: '#348FE6',
+              600: '#2074C4',
+              700: '#155694',
+            },
+            purple: {
+              400: '#B075F0',
+              500: '#9454DE',
+              600: '#7938C2',
+              700: '#5C2299',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      color: #0A2628;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 3D Tactile Ledging & Press Physics */
+    .tactile-btn {
+      position: relative;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      box-shadow: 0 5px 0 var(--ledge-color, #B53A22);
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 var(--ledge-color, #B53A22);
+    }
+
+    .tactile-card {
+      position: relative;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      box-shadow: 0 6px 0 var(--card-ledge, #E0D3BC);
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 var(--card-ledge, #E0D3BC);
+    }
+    .tactile-card:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 var(--card-ledge, #E0D3BC);
+    }
+
+    .tactile-mini-card {
+      position: relative;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      box-shadow: 0 4px 0 var(--card-ledge, #E2D6C0);
+    }
+    .tactile-mini-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--card-ledge, #E2D6C0);
+    }
+    .tactile-mini-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--card-ledge, #E2D6C0);
+    }
+
+    /* Glossy 3D badge lighting effects */
+    .gloss-shine {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 65%);
+    }
+
+    .candy-sphere {
+      box-shadow: inset 0 3px 4px rgba(255, 255, 255, 0.75), inset 0 -4px 6px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(10, 38, 40, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+
+  <!-- ================= APP HEADER ================= -->
+  <header class="w-full bg-[#FFF7EA] border-b-2 border-[#EADEC8] sticky top-0 z-30">
+    <div class="max-w-2xl mx-auto px-5 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-2.5 cursor-pointer">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-[0_3px_0_#12514D] border-2 border-teal-600 relative overflow-hidden">
+          <div class="absolute inset-0 gloss-shine"></div>
+          <!-- Tactile Kite Emblem -->
+          <svg class="w-5 h-5 drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L20 12L12 22L4 12L12 2Z" fill="#FFF7EA" stroke="#FFF7EA" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M12 2L20 12H12V2Z" fill="#FFB854"/>
+            <path d="M12 12L20 12L12 22V12Z" fill="#F2553B"/>
+            <circle cx="12" cy="12" r="1.5" fill="#0A2628"/>
+          </svg>
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-[#0A2628]">Lexkite</span>
+        <span class="ml-1 text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E8F6F4] text-[#12514D] border border-[#BCE1DD]">
+          IELTS • TOEIC
+        </span>
+      </div>
+
+      <!-- Header Pills (Streak + XP) -->
+      <div class="flex items-center gap-2.5">
+        <!-- Daily Streak Pill -->
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFFFF] border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC] cursor-pointer hover:bg-cream-50 transition-colors">
+          <span class="material-symbols-rounded text-coral-500 text-lg leading-none">local_fire_department</span>
+          <span class="text-sm font-extrabold text-[#0A2628]">14</span>
+        </div>
+
+        <!-- XP Pill -->
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFFFF] border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC] cursor-pointer hover:bg-cream-50 transition-colors">
+          <span class="material-symbols-rounded text-amber-500 text-lg leading-none">bolt</span>
+          <span class="text-sm font-extrabold text-[#0A2628]">820</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="w-full max-w-2xl mx-auto px-5 py-6 flex-1 flex flex-col gap-6">
+
+    <!-- Section Title & Motivation Strip -->
+    <div class="flex items-end justify-between">
+      <div>
+        <span class="text-[12px] font-extrabold tracking-widest uppercase text-[#12514D] block mb-1">
+          Target Band 7.5+
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-[#0A2628] tracking-tight">
+          Skills Hub
+        </h1>
+      </div>
+
+      <div class="flex items-center gap-1.5 bg-[#FFFFFF] px-3 py-1.5 rounded-xl border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC]">
+        <span class="material-symbols-rounded text-[#2BA39A] text-base">verified</span>
+        <span class="text-xs font-bold text-[#0F3436]">Exam Calibrated</span>
+      </div>
+    </div>
+
+    <!-- ================= 2x2 CORE SKILLS GRID ================= -->
+    <section>
+      <div class="grid grid-cols-2 gap-4">
+
+        <!-- 1. LISTENING CARD -->
+        <div class="tactile-card bg-[#FFFFFF] rounded-2xl p-4 sm:p-5 border-2 border-[#E2D8C3] cursor-pointer flex flex-col justify-between"
+             style="--card-ledge: #D3C5AB;">
+          <!-- Top Row: Icon + Progress Ring -->
+          <div class="flex items-start justify-between mb-4">
+            <!-- Glossy Illustrated Icon -->
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#38C6BA] to-[#177A73] candy-sphere flex items-center justify-center border-2 border-[#52D4C9] relative overflow-hidden">
+              <div class="absolute inset-0 gloss-shine"></div>
+              <span class="material-symbols-rounded text-[#FFFFFF] text-3xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]">
+                headphones
+              </span>
+            </div>
+
+            <!-- Small Progress Ring (78%) -->
+            <div class="relative w-11 h-11 flex items-center justify-center">
+              <svg class="w-11 h-11 -rotate-90" viewBox="0 0 36 36">
+                <path class="text-[#F1E8D8]" stroke-width="3.5" stroke="currentColor" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="text-teal-500" stroke-dasharray="78, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <span class="absolute text-[11px] font-extrabold text-[#0A2628]">78%</span>
+            </div>
+          </div>
+
+          <!-- Title & Meta -->
+          <div>
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-extrabold text-[#0A2628] tracking-tight">Listening</h2>
+              <span class="material-symbols-rounded text-[#12514D] text-lg">arrow_forward</span>
+            </div>
+            <p class="text-xs font-bold text-[#154345] mt-0.5">Section 1–4 Audio</p>
+          </div>
+
+          <!-- Bottom Micro Chip -->
+          <div class="mt-3.5 pt-3 border-t border-[#F2EAE0] flex items-center justify-between">
+            <span class="text-[11px] font-bold text-[#0F3436]">Band 7.5</span>
+            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#E5F6F4] text-[#12514D] border border-[#BDE3DF]">
+              On Track
+            </span>
+          </div>
+        </div>
+
+        <!-- 2. READING CARD -->
+        <div class="tactile-card bg-[#FFFFFF] rounded-2xl p-4 sm:p-5 border-2 border-[#E2D8C3] cursor-pointer flex flex-col justify-between"
+             style="--card-ledge: #D3C5AB;">
+          <!-- Top Row: Icon + Progress Ring -->
+          <div class="flex items-start justify-between mb-4">
+            <!-- Glossy Illustrated Icon -->
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#53A8F5] to-[#1C68B4] candy-sphere flex items-center justify-center border-2 border-[#7CBDF8] relative overflow-hidden">
+              <div class="absolute inset-0 gloss-shine"></div>
+              <span class="material-symbols-rounded text-[#FFFFFF] text-3xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]">
+                auto_stories
+              </span>
+            </div>
+
+            <!-- Small Progress Ring (85%) -->
+            <div class="relative w-11 h-11 flex items-center justify-center">
+              <svg class="w-11 h-11 -rotate-90" viewBox="0 0 36 36">
+                <path class="text-[#F1E8D8]" stroke-width="3.5" stroke="currentColor" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="text-[#348FE6]" stroke-dasharray="85, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <span class="absolute text-[11px] font-extrabold text-[#0A2628]">85%</span>
+            </div>
+          </div>
+
+          <!-- Title & Meta -->
+          <div>
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-extrabold text-[#0A2628] tracking-tight">Reading</h2>
+              <span class="material-symbols-rounded text-[#12514D] text-lg">arrow_forward</span>
+            </div>
+            <p class="text-xs font-bold text-[#154345] mt-0.5">3 Academic Texts</p>
+          </div>
+
+          <!-- Bottom Micro Chip -->
+          <div class="mt-3.5 pt-3 border-t border-[#F2EAE0] flex items-center justify-between">
+            <span class="text-[11px] font-bold text-[#0F3436]">Band 8.0</span>
+            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#E7F1FB] text-[#155694] border border-[#BCD7F5]">
+              Mastered
+            </span>
+          </div>
+        </div>
+
+        <!-- 3. WRITING CARD -->
+        <div class="tactile-card bg-[#FFFFFF] rounded-2xl p-4 sm:p-5 border-2 border-[#E2D8C3] cursor-pointer flex flex-col justify-between"
+             style="--card-ledge: #D3C5AB;">
+          <!-- Top Row: Icon + Progress Ring -->
+          <div class="flex items-start justify-between mb-4">
+            <!-- Glossy Illustrated Icon -->
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FFC24D] to-[#E68214] candy-sphere flex items-center justify-center border-2 border-[#FFD982] relative overflow-hidden">
+              <div class="absolute inset-0 gloss-shine"></div>
+              <span class="material-symbols-rounded text-[#FFFFFF] text-3xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]">
+                edit_note
+              </span>
+            </div>
+
+            <!-- Small Progress Ring (60%) -->
+            <div class="relative w-11 h-11 flex items-center justify-center">
+              <svg class="w-11 h-11 -rotate-90" viewBox="0 0 36 36">
+                <path class="text-[#F1E8D8]" stroke-width="3.5" stroke="currentColor" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="text-amber-500" stroke-dasharray="60, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <span class="absolute text-[11px] font-extrabold text-[#0A2628]">60%</span>
+            </div>
+          </div>
+
+          <!-- Title & Meta -->
+          <div>
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-extrabold text-[#0A2628] tracking-tight">Writing</h2>
+              <span class="material-symbols-rounded text-[#12514D] text-lg">arrow_forward</span>
+            </div>
+            <p class="text-xs font-bold text-[#154345] mt-0.5">Task 1 & Task 2</p>
+          </div>
+
+          <!-- Bottom Micro Chip -->
+          <div class="mt-3.5 pt-3 border-t border-[#F2EAE0] flex items-center justify-between">
+            <span class="text-[11px] font-bold text-[#0F3436]">Band 6.5</span>
+            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#FFF5E6] text-[#B85E00] border border-[#FAD7A0]">
+              Focus Area
+            </span>
+          </div>
+        </div>
+
+        <!-- 4. SPEAKING CARD -->
+        <div class="tactile-card bg-[#FFFFFF] rounded-2xl p-4 sm:p-5 border-2 border-[#E2D8C3] cursor-pointer flex flex-col justify-between"
+             style="--card-ledge: #D3C5AB;">
+          <!-- Top Row: Icon + Progress Ring -->
+          <div class="flex items-start justify-between mb-4">
+            <!-- Glossy Illustrated Icon -->
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF735C] to-[#CE3820] candy-sphere flex items-center justify-center border-2 border-[#FFA191] relative overflow-hidden">
+              <div class="absolute inset-0 gloss-shine"></div>
+              <span class="material-symbols-rounded text-[#FFFFFF] text-3xl drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]">
+                mic
+              </span>
+            </div>
+
+            <!-- Small Progress Ring (52%) -->
+            <div class="relative w-11 h-11 flex items-center justify-center">
+              <svg class="w-11 h-11 -rotate-90" viewBox="0 0 36 36">
+                <path class="text-[#F1E8D8]" stroke-width="3.5" stroke="currentColor" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="text-coral-500" stroke-dasharray="52, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <span class="absolute text-[11px] font-extrabold text-[#0A2628]">52%</span>
+            </div>
+          </div>
+
+          <!-- Title & Meta -->
+          <div>
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-extrabold text-[#0A2628] tracking-tight">Speaking</h2>
+              <span class="material-symbols-rounded text-[#12514D] text-lg">arrow_forward</span>
+            </div>
+            <p class="text-xs font-bold text-[#154345] mt-0.5">Part 1, 2, 3 Drills</p>
+          </div>
+
+          <!-- Bottom Micro Chip -->
+          <div class="mt-3.5 pt-3 border-t border-[#F2EAE0] flex items-center justify-between">
+            <span class="text-[11px] font-bold text-[#0F3436]">Band 6.5</span>
+            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#FFEAE5] text-[#B53A22] border border-[#F7BCB1]">
+              Daily Sprint
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECONDARY TILES ROW ================= -->
+    <section class="mt-1">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-extrabold uppercase tracking-wider text-[#12514D]">
+          Targeted Practice
+        </h3>
+        <span class="text-xs font-bold text-[#154345]">4 Modules</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+
+        <!-- Tile 1: Grammar -->
+        <div class="tactile-mini-card bg-[#FFFFFF] rounded-2xl p-3.5 border-2 border-[#EADEC8] cursor-pointer flex flex-col items-center text-center"
+             style="--card-ledge: #D8CFBC;">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#38C6BA] to-[#177A73] candy-sphere flex items-center justify-center border-2 border-[#52D4C9] mb-2.5 relative overflow-hidden">
+            <div class="absolute inset-0 gloss-shine"></div>
+            <span class="material-symbols-rounded text-[#FFFFFF] text-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+              draw
+            </span>
+          </div>
+          <span class="text-sm font-extrabold text-[#0A2628] leading-tight block">Grammar</span>
+          <span class="text-[11px] font-bold text-[#154345] mt-0.5">Rules & Syntax</span>
+        </div>
+
+        <!-- Tile 2: Pronunciation -->
+        <div class="tactile-mini-card bg-[#FFFFFF] rounded-2xl p-3.5 border-2 border-[#EADEC8] cursor-pointer flex flex-col items-center text-center"
+             style="--card-ledge: #D8CFBC;">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#B075F0] to-[#6A25BC] candy-sphere flex items-center justify-center border-2 border-[#CCA5FA] mb-2.5 relative overflow-hidden">
+            <div class="absolute inset-0 gloss-shine"></div>
+            <span class="material-symbols-rounded text-[#FFFFFF] text-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+              graphic_eq
+            </span>
+          </div>
+          <span class="text-sm font-extrabold text-[#0A2628] leading-tight block">Pronunciation</span>
+          <span class="text-[11px] font-bold text-[#154345] mt-0.5">Phonetics & IPA</span>
+        </div>
+
+        <!-- Tile 3: Roleplay -->
+        <div class="tactile-mini-card bg-[#FFFFFF] rounded-2xl p-3.5 border-2 border-[#EADEC8] cursor-pointer flex flex-col items-center text-center"
+             style="--card-ledge: #D8CFBC;">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#53A8F5] to-[#1C68B4] candy-sphere flex items-center justify-center border-2 border-[#7CBDF8] mb-2.5 relative overflow-hidden">
+            <div class="absolute inset-0 gloss-shine"></div>
+            <span class="material-symbols-rounded text-[#FFFFFF] text-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+              phone_in_talk
+            </span>
+          </div>
+          <span class="text-sm font-extrabold text-[#0A2628] leading-tight block">Roleplay</span>
+          <span class="text-[11px] font-bold text-[#154345] mt-0.5">Teacher Live Call</span>
+        </div>
+
+        <!-- Tile 4: Text fixer -->
+        <div class="tactile-mini-card bg-[#FFFFFF] rounded-2xl p-3.5 border-2 border-[#EADEC8] cursor-pointer flex flex-col items-center text-center"
+             style="--card-ledge: #D8CFBC;">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF735C] to-[#CE3820] candy-sphere flex items-center justify-center border-2 border-[#FFA191] mb-2.5 relative overflow-hidden">
+            <div class="absolute inset-0 gloss-shine"></div>
+            <span class="material-symbols-rounded text-[#FFFFFF] text-2xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+              spellcheck
+            </span>
+          </div>
+          <span class="text-sm font-extrabold text-[#0A2628] leading-tight block">Text fixer</span>
+          <span class="text-[11px] font-bold text-[#154345] mt-0.5">Essay Scan AI</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Quick Action Banner (Candy CTA) -->
+    <div class="mt-1 bg-[#FFFFFF] rounded-2xl p-4 sm:p-5 border-2 border-[#E2D8C3] shadow-[0_5px_0_#D3C5AB] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#E8F6F4] text-[#12514D] border border-[#BCE1DD] flex items-center justify-center shrink-0">
+          <span class="material-symbols-rounded text-2xl">trophy</span>
+        </div>
+        <div>
+          <span class="text-sm font-extrabold text-[#0A2628] block">Today's Exam Goal</span>
+          <span class="text-xs font-bold text-[#154345]">Complete 1 Speaking & 1 Writing drill</span>
+        </div>
+      </div>
+
+      <!-- Saturated Coral/Amber Tactile Button -->
+      <!-- CRITICAL REQUIREMENT: Label on orange/coral button uses deep brown-black ink (#1A0802) NEVER white -->
+      <button class="tactile-btn w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-coral-500 via-amber-400 to-amber-500 text-[#1A0802] font-extrabold text-sm tracking-wide flex items-center justify-center gap-2 border-t border-white/40"
+              style="--ledge-color: #B53A22;">
+        <span>Start Daily Sprint</span>
+        <span class="material-symbols-rounded text-base font-extrabold text-[#1A0802]">arrow_forward</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ================= BOTTOM TAB NAVIGATION ================= -->
+  <!-- 5 tabs: Learn, Review, Practice, Leagues, Me (with Practice active) -->
+  <nav class="w-full bg-[#FFFFFF] border-t-2 border-[#EADEC8] sticky bottom-0 z-30 shadow-[0_-4px_16px_rgba(10,38,40,0.03)]">
+    <div class="max-w-2xl mx-auto px-4 h-16 flex items-center justify-around">
+
+      <!-- 1. Learn -->
+      <a href="#learn" class="flex flex-col items-center justify-center text-[#154345] hover:text-[#0A2628] transition-colors py-1 px-3">
+        <span class="material-symbols-rounded text-2xl leading-none">route</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-1">Learn</span>
+      </a>
+
+      <!-- 2. Review -->
+      <a href="#review" class="flex flex-col items-center justify-center text-[#154345] hover:text-[#0A2628] transition-colors py-1 px-3">
+        <span class="material-symbols-rounded text-2xl leading-none">layers</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-1">Review</span>
+      </a>
+
+      <!-- 3. Practice (ACTIVE TAB: rounded square with 2px teal border + teal tint) -->
+      <a href="#practice" class="flex flex-col items-center justify-center py-1.5 px-3.5 rounded-xl bg-[#E8F6F4] text-[#12514D] border-2 border-teal-500 shadow-[0_2px_0_#12514D] transition-transform">
+        <span class="material-symbols-rounded text-2xl leading-none text-teal-600">bolt</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-0.5 text-teal-800">Practice</span>
+      </a>
+
+      <!-- 4. Leagues -->
+      <a href="#leagues" class="flex flex-col items-center justify-center text-[#154345] hover:text-[#0A2628] transition-colors py-1 px-3">
+        <span class="material-symbols-rounded text-2xl leading-none">trophy</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-1">Leagues</span>
+      </a>
+
+      <!-- 5. Me -->
+      <a href="#me" class="flex flex-col items-center justify-center text-[#154345] hover:text-[#0A2628] transition-colors py-1 px-3">
+        <span class="material-symbols-rounded text-2xl leading-none">person</span>
+        <span class="text-[11px] font-extrabold tracking-tight mt-1">Me</span>
+      </a>
+
+    </div>
+  </nav>
+
+</body>
+</html>
+

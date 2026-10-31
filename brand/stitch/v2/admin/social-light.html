@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite OPS CONSOLE - Social Manager</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-on-surface": "#fdefde",
+            "on-primary-container": "#5c0e00",
+            "surface-bright": "#fff8f3",
+            "on-primary-fixed": "#3d0600",
+            "on-primary-fixed-variant": "#8b1a00",
+            "surface-dim": "#e6d8c8",
+            "outline": "#8e7069",
+            "primary-fixed-dim": "#ffb4a3",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#efe0d0",
+            "inverse-primary": "#ffb4a3",
+            "error": "#ba1a1a",
+            "surface-variant": "#efe0d0",
+            "on-error-container": "#93000a",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#fff2e3",
+            "secondary-fixed": "#beebeb",
+            "outline-variant": "#e3beb6",
+            "on-tertiary-container": "#00332f",
+            "on-secondary-fixed": "#002020",
+            "surface-tint": "#b42907",
+            "secondary-container": "#beebeb",
+            "on-secondary-container": "#426b6c",
+            "on-secondary-fixed-variant": "#224d4e",
+            "on-surface": "#211a11",
+            "on-tertiary-fixed": "#00201e",
+            "surface-container-high": "#f4e6d5",
+            "inverse-surface": "#372f24",
+            "primary-container": "#ff5e3a",
+            "tertiary-fixed": "#88f5ea",
+            "on-surface-variant": "#5a413b",
+            "on-background": "#211a11",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#6bd8ce",
+            "surface": "#fff8f3",
+            "surface-container": "#faecdb",
+            "primary-fixed": "#ffdad2",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#a3cfcf",
+            "tertiary-container": "#2da49b",
+            "on-tertiary-fixed-variant": "#00504b",
+            "tertiary": "#006a64",
+            "secondary": "#3b6566",
+            "primary": "#b42907",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "background": "#fff8f3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-xs": "0.375rem",
+            "space-sm": "0.75rem",
+            "space-lg": "2rem",
+            "margin-mobile": "1rem",
+            "space-md": "1.25rem",
+            "space-xl": "3rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "36px", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile Physical Custom Shadows & Insets */
+    .tactile-plate {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+    }
+    .tactile-plate-sm {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-plate-selected {
+      border: 2px solid #2BA39A;
+      box-shadow: 0 4px 0 #1D7B74;
+    }
+    .tactile-sunken {
+      background-color: #FBF3E6;
+      border: 2px solid #EADEC8;
+      box-shadow: inset 0 2px 0 #E3D7C1;
+    }
+    .tactile-button-primary {
+      background: linear-gradient(135deg, #FF5E3A 0%, #FF993A 100%);
+      border: 2px solid #B53A22;
+      box-shadow: 0 5px 0 #B53A22;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-button-primary:hover {
+      filter: brightness(1.05);
+    }
+    .tactile-button-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+    .tactile-button-secondary {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-button-secondary:hover {
+      background-color: #FFFDF9;
+      border-color: #D8CFBC;
+    }
+    .tactile-button-secondary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #D8CFBC;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md select-none">
+<!-- TOP HEADER (Edge-to-Edge Direct Desktop Interface) -->
+<header class="bg-surface-container-lowest border-b-2 border-outline-variant px-margin py-3.5 shadow-[0_4px_0_#D8CFBC] z-30 sticky top-0">
+<div class="max-w-[1720px] mx-auto flex items-center justify-between">
+<!-- Brand & Section Clusters -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-[0_3px_0_#8b1a00] border-2 border-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">send</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-extrabold text-primary tracking-tight">Lexkite</span>
+<span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant uppercase tracking-wider border border-outline-variant">OPS CONSOLE</span>
+</div>
+</div>
+</div>
+<div class="h-6 w-[2px] bg-surface-container-highest"></div>
+<!-- Section Pill & Admin Badge -->
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-fixed border border-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[16px]">campaign</span>
+<span class="font-label-md text-label-md">Social Manager</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm hidden lg:inline">Solo Admin Studio • <strong>Kai (Lead)</strong></span>
+</div>
+<!-- System Sync State -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wide">Queue Active • Edge Sync</span>
+</div>
+</div>
+<!-- Right Action Cluster -->
+<div class="flex items-center gap-space-sm">
+<button class="tactile-button-secondary font-label-lg text-label-lg text-on-surface px-4 py-2 rounded-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export CSV</span>
+</button>
+<button class="tactile-button-primary font-label-lg text-label-lg text-on-primary px-5 py-2 rounded-xl flex items-center gap-2 shadow-[0_4px_0_#B53A22]">
+<span class="material-symbols-outlined text-[20px] font-bold">add</span>
+<span>New Post +</span>
+</button>
+<div class="w-9 h-9 rounded-xl overflow-hidden border-2 border-outline-variant ml-2 shadow-[0_2px_0_#D8CFBC]">
+<img class="w-full h-full object-cover" data-alt="A clean portrait avatar of Kai the solo founder, captured in bright high-key studio lighting with warm terracotta tones, wearing a minimal neutral crewneck against a crisp creamy background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw-_btlqU3aWOF8ZUp_mqb91XJ8Za6qbvE83CU0n2tiB7_vZKN7RHXU6HS36WF11P2GLHQhurhXAwj1vAs4f4N85OhyP59DXMn1KXfh8iZsw6pteRO2sU_89jeX1j21EK9K7wRvhwCzoZijkfoN2yjuQGtpmCCl8YGR_2F6P4IH6M5S3nciBnZwkbpG9eFmKJTyXoyTkS6piN-a23ZYA8sQIKhp6zfhu9OzjQ43DtTHd-BXrdQWE0FokEtqjfie7fE04-z6miEqqE"/>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN CONTAINER CANVAS -->
+<main class="flex-1 max-w-[1720px] w-full mx-auto px-margin py-6 flex flex-col gap-space-lg">
+<!-- 1. TOP ROW OF 3 STAT TILES -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 tactile-plate flex items-start justify-between">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">POSTS THIS WEEK</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight">18</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm border border-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+4 vs last week</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-tertiary border-2 border-secondary-fixed-dim shadow-[0_3px_0_#a3cfcf]">
+<span class="material-symbols-outlined text-[26px]">calendar_today</span>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 tactile-plate flex items-start justify-between">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">TOTAL VIEWS</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight">342.8k</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#FFF2D6] text-[#8C4A00] text-label-sm font-label-sm border border-[#F6D090]">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>+28.4% viral reach</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-[#FFF2D6] flex items-center justify-center text-[#C06000] border-2 border-[#F6D090] shadow-[0_3px_0_#E8BA68]">
+<span class="material-symbols-outlined text-[28px]">visibility</span>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 tactile-plate flex items-start justify-between">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">FOLLOWERS GAINED</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight">+4,290</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed-variant text-label-sm font-label-sm border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>88% exam candidate track</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary border-2 border-outline-variant shadow-[0_3px_0_#e3beb6]">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">person_add</span>
+</div>
+</div>
+</section>
+<!-- 2. MAIN WORKSPACE (2-Column Grid) -->
+<div class="grid grid-cols-12 gap-gutter items-start">
+<!-- LEFT / CENTER COLUMN: WEEKLY SCHEDULE CALENDAR (8 Cols) -->
+<div class="col-span-12 xl:col-span-8 flex flex-col gap-space-sm">
+<!-- Calendar Toolbar Header -->
+<div class="bg-surface-container-lowest rounded-xl p-4 tactile-plate flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Weekly Schedule</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Synchronized Multi-Platform Broadcast Queue</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<!-- Week Selector Navigation -->
+<div class="flex items-center bg-surface-container-low rounded-xl border-2 border-outline-variant p-1 shadow-[0_2px_0_#D8CFBC]">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-lowest text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<div class="px-3 font-label-md text-label-md text-on-surface font-extrabold flex items-center gap-1.5">
+<span>Oct 27 – Nov 02, 2025</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-lowest text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<!-- Timezone Chip -->
+<div class="px-3 py-1.5 rounded-xl bg-surface-container border border-outline-variant text-label-sm font-label-sm text-on-surface font-bold">
+              UTC+0
+            </div>
+</div>
+</div>
+<!-- 7-Day Matrix Grid -->
+<div class="grid grid-cols-7 gap-3">
+<!-- MON Oct 27 -->
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]">
+<div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Mon</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">27</div>
+</div>
+<div class="space-y-3 flex-1">
+<!-- Post Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#111111] text-white border border-black flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00f2fe]"></span> TikTok
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">09:30 UTC</span>
+</div>
+<div class="h-20 w-full rounded-lg overflow-hidden relative border border-outline-variant bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A clean, bold educational studio graphic card demonstrating the linguistic difference between Affect and Effect with modern typography, orange and teal editorial layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv1Ztkp0nYlPjEs9rVWW7AyRjlEp3Dkgpp4V_ZI3muBcBZIbnIIqfSwQJq9uVtdxSqU0A-3CWW2JMPXvFUISO96osubhurUIMueoVLDMKqU-BWX6wv5GfENTb206L8-cmPBtpyNN525HCZ4JmZsJj59GqtgkA_f7FmgYVCPv4ChtyBercOl00_lSkLPGC9PEjkVDQLf5E5Zh9W7U3x-N6y_Amfd0QE9z7gqc_DeJmH60EysL-ITo-5Xr2ZlG-YSlfM7nz0t7T6hag"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 rounded bg-black/80 text-white text-[9px] font-bold">0:32</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">Affect vs Effect 30s</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled
+                </div>
+</div>
+<!-- Post Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#FFF0F0] text-[#FF0000] border border-[#FFD0D0] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF0000]"></span> Shorts
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">17:00 UTC</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">Grammar Bite #12</div>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Queued
+                </div>
+</div>
+<!-- Empty Schedule Slot -->
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant hover:border-tertiary-container hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-[10px] font-extrabold">Slot +</span>
+</button>
+</div>
+</div>
+<!-- TUE Oct 28 -->
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]">
+<div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Tue</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">28</div>
+</div>
+<div class="space-y-3 flex-1">
+<!-- Post Card -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#FDF0F5] text-[#E1306C] border border-[#F8D0DF] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#E1306C]"></span> Reels
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">14:15 UTC</span>
+</div>
+<div class="h-20 w-full rounded-lg overflow-hidden relative border border-outline-variant bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A vertical visual studio clip preview illustrating American versus British English terms, featuring high-contrast text cards over a warm cream clay studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClMOud7nAb-stKYEnLjaCUrIG5SyWrDe3knwbRSjNDGBycgowbexJ0Er2J-7AmXUacvli2zgyxZ-Ookr8LX3stUkW-a-wpJVL8fP6vE2HX8MKHkfv8jwhux-45rN6EUAiUpGhLUiXD9SOrUp3I3_i_q6sul_EfQHGJKgWuHzR0cveyunfMa6WK_O52yp381bUH0In3_WfZ0bmBQdNOpZvwPw9MCxBrmnGL9U6eRJUFZEJo9zC-3SygBsyL_opJVxgZdjQc8xpSVJQ"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 rounded bg-black/80 text-white text-[9px] font-bold">0:45</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">Elevator vs Lift Drill</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled
+                </div>
+</div>
+<!-- Empty Schedule Slot -->
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant hover:border-tertiary-container hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-[10px] font-extrabold">Slot +</span>
+</button>
+</div>
+</div>
+<!-- WED Oct 29 -->
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]">
+<div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Wed</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">29</div>
+</div>
+<div class="space-y-3 flex-1">
+<!-- Post Card -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#14171A] text-white border border-black flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> X / Post
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">10:00 UTC</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">AWL Sublist 1 Trap</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled
+                </div>
+</div>
+<!-- Post Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#FFF0F0] text-[#FF0000] border border-[#FFD0D0] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF0000]"></span> Shorts
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">19:00 UTC</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">Resilient Word of Day</div>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Draft
+                </div>
+</div>
+<!-- Empty Schedule Slot -->
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant hover:border-tertiary-container hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-[10px] font-extrabold">Slot +</span>
+</button>
+</div>
+</div>
+<!-- THU Oct 30 (CONTAINS ACTIVE SELECTED CARD) -->
+<div class="flex flex-col gap-3 min-h-[620px] bg-secondary-fixed/20 p-1.5 rounded-2xl border-2 border-dashed border-secondary-fixed-dim">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-secondary-container shadow-[0_2px_0_#beebeb]">
+<div class="text-[11px] font-extrabold text-tertiary uppercase">Thu</div>
+<div class="font-headline-sm text-headline-sm text-tertiary">30</div>
+</div>
+<div class="space-y-3 flex-1">
+<!-- HIGHLIGHTED ACTIVE SELECTED POST CARD -->
+<div class="bg-surface-container-lowest rounded-xl p-3 tactile-plate-selected ring-4 ring-tertiary-fixed/40 transition-all cursor-pointer space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#FFF0F0] text-[#FF0000] border border-[#FFD0D0] flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF0000]"></span> Multi-Sync
+                  </span>
+<span class="text-[10px] font-extrabold text-tertiary bg-secondary-fixed px-1.5 py-0.5 rounded">14:15 UTC</span>
+</div>
+<div class="h-24 w-full rounded-lg overflow-hidden relative border-2 border-secondary-fixed-dim bg-surface-container group">
+<img class="w-full h-full object-cover" data-alt="Vertical 9:16 instructional video preview for IELTS vocabulary study showing a confident presenter with crisp kinetic typography in coral and deep teal highlights, high resolution light studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeUuh5-BEY4mk5e5TJt4syjNgqmm2hPGoJ3wzJfdcZJxnu9ZGo1JpQHi9WqFFLxT6fpcruIxddLekZiWWfuveU8I7u7kyJHc4qkclphC7tfaBiezb2ufav-Yhjh8FbC-omlmnzKYGDxJCH5Bjrvl9Ll996J-TutWn8f1e2_9me4P98J2ryKN4PBA8OemDuolpXUiBya35z5XITabq6yPoS_NjLRbtoVQORKaAaZdwz6l1Uze1GcpbtAXl8ISC8_oCM6fQdQe7GnQ0"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<div class="w-7 h-7 rounded-full bg-white/90 text-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/80 text-white text-[9px] font-extrabold">0:38</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-extrabold leading-tight">Stop saying 'discuss about'! 🚫</div>
+<div class="text-[11px] text-on-surface-variant font-medium mt-0.5">IELTS &amp; TOEIC Collocations</div>
+</div>
+<div class="pt-1 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1 text-[11px] text-tertiary font-extrabold">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span> Selected Post
+                  </div>
+<span class="material-symbols-outlined text-[16px] text-tertiary font-bold">check_circle</span>
+</div>
+</div>
+<!-- Post Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2 opacity-85">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#111111] text-white border border-black flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff0050]"></span> TikTok
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">20:30 UTC</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">3 Silent Letters in English</div>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Queued
+                </div>
+</div>
+<!-- Empty Schedule Slot -->
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant hover:border-tertiary-container hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-[10px] font-extrabold">Slot +</span>
+</button>
+</div>
+</div>
+<!-- FRI Oct 31 -->
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]">
+<div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Fri</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">31</div>
+</div>
+<div class="space-y-3 flex-1">
+<!-- Post Card -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#FFF0F0] text-[#FF0000] border border-[#FFD0D0] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF0000]"></span> Shorts
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">11:00 UTC</span>
+</div>
+<div class="h-20 w-full rounded-lg overflow-hidden relative border border-outline-variant bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A vivid bright instructional infographic card showing preposition errors for language learners, set against warm cream physical paper card background with bold typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRawPq-7kCyJgroXLiI3ZEUa0DjlYoPmrrSz7GH-_Za8qJa_y9UT-kjFlhsZ2FEmPPcnvn0eyuBoUAKdGThoST6vIw54ZmYNodnJITHocmU4SxHYs_qS_70EOkW1L3GBNRx0MGufkFwbNUnLVrBmz4URhflnqgM_vAj3JfWxWRFgzdD3u90lWRCdozkfbvsH2oiHPEyQawpmZSVxgQRm1cTva5aWhZZs_0TlzYO-XbJNyMELmbboItMHD4UgZyoO5kma6pvyP2S14"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 rounded bg-black/80 text-white text-[9px] font-bold">0:29</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">Preposition Quiz 60s</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled
+                </div>
+</div>
+<!-- Empty Schedule Slot -->
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant hover:border-tertiary-container hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-[10px] font-extrabold">Slot +</span>
+</button>
+</div>
+</div>
+<!-- SAT Nov 01 -->
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]">
+<div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Sat</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">01</div>
+</div>
+<div class="space-y-3 flex-1">
+<!-- Post Card -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#FDF0F5] text-[#E1306C] border border-[#F8D0DF] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#E1306C]"></span> Reels
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">15:45 UTC</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">Saturday Idiom Spotlight</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled
+                </div>
+</div>
+<!-- Empty Schedule Slot -->
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant hover:border-tertiary-container hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-[10px] font-extrabold">Slot +</span>
+</button>
+</div>
+</div>
+<!-- SUN Nov 02 -->
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]">
+<div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Sun</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">02</div>
+</div>
+<div class="space-y-3 flex-1">
+<!-- Post Card -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm hover:translate-y-[-2px] transition-transform cursor-pointer space-y-2">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#111111] text-white border border-black flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00f2fe]"></span> TikTok
+                  </span>
+<span class="text-[10px] font-bold text-on-surface-variant">18:00 UTC</span>
+</div>
+<div class="font-label-md text-label-md text-on-surface leading-tight line-clamp-2">Weekly Review Breakdown</div>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Draft
+                </div>
+</div>
+<!-- Empty Schedule Slot -->
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant hover:border-tertiary-container hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-tertiary">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-[10px] font-extrabold">Slot +</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: POST INSPECTOR & QUICK COMPOSER (4 Cols) -->
+<aside class="col-span-12 xl:col-span-4 bg-surface-container-lowest rounded-2xl p-6 tactile-plate space-y-5">
+<!-- Header -->
+<div class="flex items-center justify-between pb-4 border-b-2 border-outline-variant">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Selected Post Inspector</h3>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">ID: <strong class="text-on-surface font-extrabold">#SOC-842</strong></span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-tertiary font-extrabold bg-secondary-fixed px-2 py-0.5 rounded">Thu 14:15 UTC</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Thumbnail & Vertical Video Preview Card -->
+<div class="rounded-xl overflow-hidden border-2 border-outline-variant tactile-plate-sm bg-[#1A1A1A] relative h-64 group">
+<img class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-300" data-alt="A bold vertical format 9:16 video frame showcasing English test prep advice. The visual features crisp typography stating Stop saying discuss about over a sunny minimalist education set with terracotta and teal props." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOQvZLuUi7tcyc9QfDU6Oyg2N47TlxP2NR_ZHI_Ghkad5gvTpN371AKmeKRukLToT2FKnQxZFrNakuokR0Q6iSbF1hp9E6KtvOvBp5QupBqSNx2vzeJrC3oH5WMDdndNAn1MIB-FEMTFnR25GM_nbokh00adA_qTRJ6r8L1IzSY4HRAQTo2B-Pd6bghBgpEHtJARS_54CjfggNGjE9K3zTA3zfbbaLUTokNXcpIGqZoe51E-NtMTOvBiTaqyvae48uCk2GIEAU3FU"/>
+<!-- Play Badge Overlay -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-14 h-14 rounded-full bg-white/95 text-primary flex items-center justify-center shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-[32px] ml-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<!-- Video Metadata Badges -->
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2 py-1 rounded bg-black/80 text-white font-label-sm text-label-sm font-extrabold backdrop-blur-sm border border-white/20">
+              9:16 VERTICAL
+            </span>
+<span class="px-2 py-1 rounded bg-tertiary/90 text-white font-label-sm text-label-sm font-extrabold backdrop-blur-sm border border-white/20">
+              HD READY
+            </span>
+</div>
+<div class="absolute bottom-3 right-3">
+<span class="px-2 py-1 rounded bg-black/85 text-white font-label-sm text-label-sm font-bold backdrop-blur-sm">
+              0:38
+            </span>
+</div>
+</div>
+<!-- Post Caption Textarea -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Post Caption &amp; Keywords</label>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold">148 / 2,200 chars</span>
+</div>
+<div class="tactile-sunken rounded-xl p-3">
+<textarea class="w-full bg-transparent border-0 p-0 text-on-surface font-body-md text-body-md focus:ring-0 resize-none font-medium leading-relaxed" readonly="" rows="4">Stop saying 'discuss about'! 🚫 In English exams like IELTS and TOEIC, discuss already means 'talk about'. Save this for your morning drill! 💡✨ #IELTS #EnglishTips #Lexkite</textarea>
+</div>
+</div>
+<!-- Chunky Platform Toggles -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Syndication Targets</label>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- YouTube Shorts (Checked) -->
+<button class="flex items-center justify-between p-2.5 rounded-xl bg-[#FFF0F0] border-2 border-[#FFD0D0] text-[#FF0000] shadow-[0_3px_0_#FFB8B8] active:translate-y-0.5 active:shadow-none transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-label-md text-label-md">YouTube Shorts</span>
+</div>
+<span class="w-5 h-5 rounded-md bg-[#FF0000] text-white flex items-center justify-center text-[12px] font-bold">✓</span>
+</button>
+<!-- TikTok (Checked) -->
+<button class="flex items-center justify-between p-2.5 rounded-xl bg-[#111111] border-2 border-black text-white shadow-[0_3px_0_#000000] active:translate-y-0.5 active:shadow-none transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">music_note</span>
+<span class="font-label-md text-label-md">TikTok</span>
+</div>
+<span class="w-5 h-5 rounded-md bg-white text-black flex items-center justify-center text-[12px] font-bold">✓</span>
+</button>
+<!-- Instagram Reels (Checked) -->
+<button class="flex items-center justify-between p-2.5 rounded-xl bg-[#FDF0F5] border-2 border-[#F8D0DF] text-[#E1306C] shadow-[0_3px_0_#F0BACD] active:translate-y-0.5 active:shadow-none transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">video_camera_back</span>
+<span class="font-label-md text-label-md">Instagram Reels</span>
+</div>
+<span class="w-5 h-5 rounded-md bg-[#E1306C] text-white flex items-center justify-center text-[12px] font-bold">✓</span>
+</button>
+<!-- X / Twitter (Unchecked) -->
+<button class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-low border-2 border-outline-variant text-on-surface-variant shadow-[0_3px_0_#D8CFBC] opacity-60 active:translate-y-0.5 active:shadow-none transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">tag</span>
+<span class="font-label-md text-label-md">X / Twitter</span>
+</div>
+<span class="w-5 h-5 rounded-md border-2 border-outline-variant bg-white"></span>
+</button>
+</div>
+</div>
+<!-- Target Exam Track Chip -->
+<div class="space-y-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Exam Curriculum Alignment</label>
+<div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container border-2 border-outline-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary">school</span>
+<span class="font-label-md text-label-md text-on-surface">IELTS Band 7.5+ | Daily Collocations</span>
+</div>
+</div>
+<!-- Candy 3D Tactile Action Buttons -->
+<div class="pt-3 space-y-3">
+<!-- Primary CTA -->
+<button class="w-full py-3.5 px-6 rounded-xl tactile-button-primary flex items-center justify-center gap-2 text-white font-headline-sm text-headline-sm font-extrabold tracking-tight">
+<span>Post Now</span>
+<span class="text-xl">🚀</span>
+</button>
+<!-- Secondary CTA -->
+<button class="w-full py-3 px-6 rounded-xl tactile-button-secondary border-2 border-tertiary-container flex items-center justify-center gap-2 text-on-surface font-headline-sm text-headline-sm font-bold shadow-[0_4px_0_#D8CFBC]">
+<span>Schedule</span>
+<span class="text-lg">⏱️</span>
+</button>
+</div>
+</aside>
+</div>
+</main>
+<!-- FOOTER: SOLO ADMIN ENGINE BAR -->
+<footer class="bg-surface-container-lowest border-t-2 border-outline-variant py-3 px-margin mt-auto shadow-[0_-2px_0_#D8CFBC]">
+<div class="max-w-[1720px] mx-auto flex flex-wrap items-center justify-between gap-4 font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></span>
+<span class="font-bold text-on-surface">Lexkite Ops Engine v2.4</span>
+<span>•</span>
+<span>Social Distribution Worker Active</span>
+<span>•</span>
+<span class="text-tertiary font-bold">Zero Third-Party Tracker</span>
+</div>
+<div class="flex items-center gap-4">
+<span>Latency: <strong class="text-on-surface font-extrabold">18ms</strong></span>
+<span>Worker Cluster: <strong class="text-on-surface font-extrabold">fra-edge-01</strong></span>
+<span>Mode: <strong class="text-primary font-extrabold">Solo Founder</strong></span>
+</div>
+</div>
+</footer>
+</body></html>

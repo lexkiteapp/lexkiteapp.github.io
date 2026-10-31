@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Store Listing — Bite-size lessons that stick</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400..800,0..1,-50..200&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'light-bg': '#FFF7EA',
+            'light-card': '#FFFFFF',
+            'light-border': '#EADEC8',
+            'light-ledge': '#D8CFBC',
+            'ink-deep': '#0F3D3E',
+            'ink-body': '#184748',
+            'ink-muted': '#365A5B',
+            'ink-btn': '#220800',
+            'teal-brand': '#2BA39A',
+            'teal-deep': '#1F7A75',
+            'teal-ledge': '#12514D',
+            'coral-brand': '#F2553B',
+            'amber-brand': '#FFB054',
+            'cta-ledge': '#B53A22',
+            'gold-badge': '#FFC94A',
+            'success-green': '#24A860',
+            'success-ledge': '#177843',
+            'success-bg': '#E8F8EE',
+            'success-text': '#0F4E27',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Tactile physics */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 6px 0 0 #D8CFBC;
+      border-radius: 24px;
+    }
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 5px 0 0 #B53A22;
+      color: #220800;
+      border: 1px solid rgba(181, 58, 34, 0.4);
+    }
+    .tactile-chip {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 3px 0 0 #D8CFBC;
+    }
+    .tactile-answer {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 0 #D8CFBC;
+    }
+    .tactile-answer-selected {
+      background: #F0FAF9;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 4px 0 0 #1F7A75;
+    }
+    .tactile-feedback {
+      background: #E8F8EE;
+      border: 2px solid #24A860;
+      box-shadow: 0 5px 0 0 #177843;
+    }
+  </style>
+</head>
+<body class="bg-[#F8EFE2] flex items-center justify-center min-h-screen p-4 sm:p-8 font-sans antialiased text-ink-deep">
+
+  <!-- App Store Screenshot Frame (Portrait, No Device Hardware, 1080x1920 Proportions) -->
+  <main class="w-full max-w-[540px] aspect-[9/16] bg-light-bg rounded-[40px] shadow-2xl overflow-hidden flex flex-col relative border-4 border-[#EADEC8]/60">
+    
+    <!-- Top Area: Rich Teal Gradient Poster Header with Sparkles -->
+    <header class="relative px-8 pt-10 pb-8 bg-gradient-to-b from-[#186F6B] via-[#218983] to-[#2BA39A] text-white overflow-hidden rounded-b-[36px] shadow-[0_8px_20px_rgba(31,122,117,0.25)] flex-shrink-0">
+      
+      <!-- Subtle Decorative Background Sparkles / Dots -->
+      <div class="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:18px_18px]"></div>
+      
+      <!-- Glossy Star Sparkles -->
+      <div class="absolute top-5 left-7 flex items-center gap-1 opacity-90">
+        <span class="material-symbols-outlined text-amber-300 text-2xl drop-shadow">sparkles</span>
+      </div>
+      <div class="absolute top-8 right-8 flex items-center gap-1 opacity-80">
+        <span class="material-symbols-outlined text-amber-200 text-xl drop-shadow">star</span>
+      </div>
+      <div class="absolute bottom-6 left-10 opacity-70">
+        <span class="material-symbols-outlined text-teal-100 text-lg">auto_awesome</span>
+      </div>
+      <div class="absolute bottom-4 right-12 opacity-80">
+        <span class="material-symbols-outlined text-amber-300 text-base">sparkles</span>
+      </div>
+
+      <!-- App Brand Pill -->
+      <div class="relative z-10 flex items-center justify-between mb-4">
+        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/30 shadow-sm">
+          <!-- Kite Logo Mark -->
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L21 11L12 22L3 11L12 2Z" fill="#FFB054"/>
+            <path d="M12 2L3 11L12 14L12 2Z" fill="#F2553B"/>
+            <path d="M12 2L21 11L12 14L12 2Z" fill="#2BA39A"/>
+            <circle cx="12" cy="11" r="2" fill="#FFFFFF"/>
+          </svg>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-white">Lexkite Prep</span>
+        </div>
+        <div class="inline-flex items-center gap-1 bg-[#124B47]/40 px-3 py-1 rounded-full text-xs font-bold text-teal-100 border border-teal-300/30">
+          <span class="material-symbols-outlined text-sm text-amber-300">verified</span>
+          IELTS &bull; TOEIC &bull; TOEFL
+        </div>
+      </div>
+
+      <!-- Main Catchy Value Headline -->
+      <div class="relative z-10 text-center px-2">
+        <h1 class="text-3xl sm:text-[34px] font-extrabold tracking-tight leading-[1.15] text-white drop-shadow-sm">
+          Bite-size lessons<br>
+          <span class="text-amber-300 drop-shadow">that stick</span>
+        </h1>
+        <p class="mt-2 text-xs sm:text-sm font-bold text-teal-50/90 tracking-wide">
+          Fast tactile drills calibrated for exam mastery
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content Area: Spacious Canvas showing the Big Rounded Screenshot Card -->
+    <section class="flex-1 px-5 sm:px-6 pt-5 pb-6 flex flex-col justify-between overflow-hidden">
+      
+      <!-- Big Rounded Screenshot Card (Tactile Component Spec) -->
+      <div class="tactile-card p-5 sm:p-6 flex flex-col justify-between flex-1 relative bg-white">
+        
+        <!-- Inside Screen Top Bar -->
+        <div class="flex items-center justify-between pb-3.5 border-b-2 border-light-border/70">
+          <!-- Close Pill -->
+          <div class="w-9 h-9 rounded-xl bg-light-bg border-2 border-light-border flex items-center justify-center text-ink-deep shadow-[0_2px_0_0_#D8CFBC]">
+            <span class="material-symbols-outlined text-lg">close</span>
+          </div>
+
+          <!-- Progress Bar & Stage Indicator -->
+          <div class="flex-1 mx-3">
+            <div class="flex items-center justify-between text-[11px] font-extrabold uppercase text-ink-muted mb-1 px-0.5">
+              <span>Academic Collocations</span>
+              <span class="text-teal-deep">Step 4/6</span>
+            </div>
+            <div class="w-full h-3 bg-light-bg rounded-full border border-light-border p-0.5 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-teal-brand to-teal-deep rounded-full w-[70%] shadow-inner"></div>
+            </div>
+          </div>
+
+          <!-- Streak & XP Badges -->
+          <div class="flex items-center gap-1.5">
+            <div class="tactile-chip px-2.5 py-1 bg-light-bg rounded-xl flex items-center gap-1">
+              <span class="material-symbols-outlined text-coral-brand text-sm">local_fire_department</span>
+              <span class="text-xs font-extrabold text-ink-deep">14</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question Prompt Area -->
+        <div class="py-3">
+          <!-- Question Type Tag -->
+          <div class="flex items-center justify-between mb-2">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-teal-brand/10 border border-teal-brand/30 text-[11px] font-extrabold uppercase text-teal-deep">
+              <span class="material-symbols-outlined text-xs">edit_note</span>
+              Fill in the blank
+            </span>
+            <span class="text-[11px] font-extrabold text-ink-muted">IELTS Band 7.5+</span>
+          </div>
+
+          <!-- Sentence Prompt with Interactive Gap -->
+          <div class="bg-light-bg/80 border-2 border-light-border rounded-2xl p-4 text-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+            <p class="text-lg sm:text-[20px] font-extrabold text-ink-deep leading-snug">
+              "The local economy proved remarkably 
+              <span class="inline-flex items-center px-3 py-0.5 mx-1 rounded-xl bg-teal-brand/15 text-teal-deep border-2 border-teal-brand font-extrabold">
+                resilient
+              </span>
+              against trade shocks."
+            </p>
+            <div class="mt-2.5 flex items-center justify-center gap-2 text-xs font-bold text-ink-muted">
+              <span class="material-symbols-outlined text-teal-deep text-base">volume_up</span>
+              <span>British RP &bull; /rɪˈzɪl.jənt/</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Tactile Answer Cards (2x2 Grid) -->
+        <div class="grid grid-cols-2 gap-2.5 my-1">
+          
+          <!-- Option A -->
+          <div class="tactile-answer p-3 rounded-2xl flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-light-bg border border-light-border flex items-center justify-center text-xs font-extrabold text-ink-muted">
+              A
+            </div>
+            <div class="flex-1">
+              <span class="text-sm font-extrabold text-ink-deep">fragile</span>
+              <p class="text-[10px] font-bold text-ink-muted leading-tight">adj &bull; weak</p>
+            </div>
+          </div>
+
+          <!-- Option B: Correct & Selected State -->
+          <div class="tactile-answer-selected p-3 rounded-2xl flex items-center gap-2.5 relative">
+            <div class="w-7 h-7 rounded-lg bg-teal-brand text-white flex items-center justify-center text-xs font-extrabold shadow-sm">
+              B
+            </div>
+            <div class="flex-1">
+              <span class="text-sm font-extrabold text-teal-deep">resilient</span>
+              <p class="text-[10px] font-extrabold text-teal-deep/80 leading-tight">adj &bull; adaptable</p>
+            </div>
+            <span class="material-symbols-outlined text-teal-deep text-lg absolute top-2 right-2 font-bold">check_circle</span>
+          </div>
+
+          <!-- Option C -->
+          <div class="tactile-answer p-3 rounded-2xl flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-light-bg border border-light-border flex items-center justify-center text-xs font-extrabold text-ink-muted">
+              C
+            </div>
+            <div class="flex-1">
+              <span class="text-sm font-extrabold text-ink-deep">reluctant</span>
+              <p class="text-[10px] font-bold text-ink-muted leading-tight">adj &bull; hesitant</p>
+            </div>
+          </div>
+
+          <!-- Option D -->
+          <div class="tactile-answer p-3 rounded-2xl flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-light-bg border border-light-border flex items-center justify-center text-xs font-extrabold text-ink-muted">
+              D
+            </div>
+            <div class="flex-1">
+              <span class="text-sm font-extrabold text-ink-deep">redundant</span>
+              <p class="text-[10px] font-bold text-ink-muted leading-tight">adj &bull; surplus</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Green 'Correct! +15 XP' Banner (Tactile Feedback Sheet Spec) -->
+        <div class="tactile-feedback p-3.5 sm:p-4 rounded-2xl mt-2 flex flex-col gap-2.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-success-green text-white flex items-center justify-center shadow-md">
+                <span class="material-symbols-outlined text-xl">check</span>
+              </div>
+              <div>
+                <h4 class="text-base sm:text-lg font-extrabold text-success-text leading-tight">Correct!</h4>
+                <p class="text-[11px] font-bold text-success-text/80">Able to bounce back quickly</p>
+              </div>
+            </div>
+            <!-- Shiny XP Pill -->
+            <div class="px-3 py-1 rounded-full bg-amber-400 border border-amber-500 text-ink-btn font-extrabold text-xs shadow-sm flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">bolt</span>
+              +15 XP
+            </div>
+          </div>
+
+          <!-- Primary CTA Button (Physical Candy Press Effect, Dark Ink on Orange) -->
+          <button class="tactile-btn-primary w-full py-3 px-4 rounded-2xl text-center font-extrabold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 cursor-pointer transition-transform active:translate-y-1">
+            <span>Continue</span>
+            <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Store Screenshot Footer Proof Elements -->
+      <footer class="mt-4 flex items-center justify-between px-2 text-xs font-extrabold text-ink-body">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-teal-brand"></span>
+          <span>100% Free Core Drills</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-amber-500 text-sm">workspace_premium</span>
+          <span>Cambridge &amp; ETS Calibrated</span>
+        </div>
+      </footer>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
+

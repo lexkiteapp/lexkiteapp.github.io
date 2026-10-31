@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Notifications Panel</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed-variant": "#00504b",
+            "on-primary-fixed": "#00201e",
+            "primary": "#6bd8ce",
+            "outline": "#879391",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-highest": "#2b373a",
+            "surface-variant": "#2b373a",
+            "secondary-fixed": "#ffdad3",
+            "secondary": "#ffb4a6",
+            "secondary-container": "#981201",
+            "on-error-container": "#ffdad6",
+            "background": "#081518",
+            "inverse-primary": "#006a64",
+            "surface-container-low": "#121d20",
+            "outline-variant": "#3d4947",
+            "error": "#ffb4ab",
+            "surface-bright": "#2f3b3e",
+            "on-surface-variant": "#bcc9c7",
+            "surface-dim": "#081518",
+            "on-primary-container": "#00322e",
+            "surface-container-lowest": "#051013",
+            "on-error": "#690005",
+            "secondary-fixed-dim": "#ffb4a6",
+            "inverse-surface": "#d8e5e9",
+            "tertiary-container": "#ba8b00",
+            "surface-tint": "#6bd8ce",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary": "#003733",
+            "surface-container-high": "#202c2f",
+            "primary-fixed": "#88f5ea",
+            "on-surface": "#d8e5e9",
+            "primary-container": "#2ba39a",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#f4bf40",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-tertiary-container": "#392900",
+            "on-secondary": "#660800",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-tertiary": "#402e00",
+            "tertiary": "#f4bf40",
+            "on-background": "#d8e5e9",
+            "inverse-on-surface": "#263236",
+            "tertiary-fixed": "#ffdf9e",
+            "on-secondary-container": "#ffa493",
+            "surface-container": "#162125",
+            "surface": "#081518"
+          },
+          fontFamily: {
+            "label": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "body": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            "title": ["22px", { lineHeight: "28px", fontWeight: "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* 3D Physical press effects */
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+    }
+    /* Sleek scrollbar for mobile panel */
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#081518] text-[#EEF6F7] font-body min-h-screen flex justify-center selection:bg-primary selection:text-on-primary-fixed">
+<!-- Mobile Viewport Container (~390px width layout, clean full mobile screen) -->
+<main class="w-full max-w-[420px] min-h-screen bg-[#081518] flex flex-col relative pb-10">
+<!-- Top App Bar / Header -->
+<header class="w-full px-4 pt-3 pb-3 flex items-center justify-between z-20 sticky top-0 bg-[#081518]/95 backdrop-blur-md">
+<!-- Close "✕" Circular Tactile Button -->
+<button aria-label="Close notifications" class="tactile-btn w-10 h-10 rounded-full bg-[#16272D] border-2 border-[#263D45] shadow-[0_3px_0_#0F1E23] flex items-center justify-center text-[#A9BFC1] hover:text-[#EEF6F7] hover:border-[#33535E] active:shadow-[0_0px_0_#0F1E23] transition-colors">
+<span class="material-symbols-outlined text-[19px]" data-icon="close">close</span>
+</button>
+<!-- Brand Logo / Title -->
+<div class="flex items-center gap-2">
+<!-- Lexkite Origami Kite Custom SVG Mark -->
+<div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#2BA39A] to-[#124B46] border border-[#3BE0D4]/40 shadow-[0_2px_0_#0B2B28] flex items-center justify-center">
+<svg class="w-4 h-4 fill-none" viewbox="0 0 24 24">
+<path d="M12 2L20 9L12 22L4 9L12 2Z" fill="#EEF6F7" fill-opacity="0.95"></path>
+<path d="M12 2L4 9L12 13L20 9L12 2Z" fill="#6BD8CE"></path>
+<path d="M12 13L20 9L12 22L12 13Z" fill="#1C6A64"></path>
+</svg>
+</div>
+<span class="font-display font-extrabold text-[20px] tracking-tight text-[#EEF6F7]">Lexkite</span>
+</div>
+<!-- Right Metrics Cluster -->
+<div class="flex items-center gap-2">
+<!-- Streak Pill -->
+<div class="h-8 px-2.5 rounded-full bg-[#13242A] border-2 border-[#223B44] flex items-center gap-1.5 shadow-[0_2px_0_#0C181D]">
+<span class="material-symbols-outlined text-[16px] text-[#FF9538]" data-icon="local_fire_department" data-weight="fill">local_fire_department</span>
+<span class="font-label text-label text-[#EEF6F7] font-extrabold tracking-wide">14</span>
+</div>
+<!-- XP Pill -->
+<div class="h-8 px-2.5 rounded-full bg-[#13242A] border-2 border-[#223B44] flex items-center gap-1 shadow-[0_2px_0_#0C181D]">
+<span class="material-symbols-outlined text-[15px] text-[#2BA39A]" data-icon="bolt" data-weight="fill">bolt</span>
+<span class="font-label text-label text-[#EEF6F7] font-extrabold tracking-wide">820 XP</span>
+</div>
+</div>
+</header>
+<!-- Bottom Sheet / Panel Container Surface -->
+<section class="flex-1 bg-[#0B1A1E] rounded-t-[28px] border-t-2 border-x-2 border-[#1E353D] mt-1 pt-2.5 px-4 flex flex-col shadow-[0_-8px_30px_rgba(0,0,0,0.5)]">
+<!-- Drag handle pill indicator -->
+<div class="w-full flex justify-center py-1.5">
+<div class="w-9 h-1 rounded-full bg-[#263E47]"></div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between pt-3 pb-4">
+<div class="flex items-center gap-2.5">
+<h1 class="font-display font-extrabold text-[26px] leading-tight text-[#EEF6F7] tracking-tight">
+            Notifications
+          </h1>
+<!-- Counter badge pill -->
+<span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-[#123838] border border-[#2BA39A] text-[#2BA39A] font-extrabold text-[12px] shadow-[0_0_8px_rgba(43,163,154,0.3)]">
+            3
+          </span>
+</div>
+<!-- Mark all read action button -->
+<button class="tactile-btn flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#162B32] border-2 border-[#2B454E] shadow-[0_3px_0_#0F1D22] text-[#2BA39A] font-bold text-[13px] hover:border-[#3D626E] active:shadow-[0_0_0_#0F1D22]">
+<span class="material-symbols-outlined text-[15px]" data-icon="check">check</span>
+<span>Mark all read</span>
+</button>
+</div>
+<!-- Notifications List (3 tactile notification cards) -->
+<div class="flex flex-col gap-3">
+<!-- Card 1 (Trophy / Badge) -->
+<article class="tactile-btn relative bg-[#122228] border-2 border-[#243D46] shadow-[0_5px_0_#0B161B] rounded-2xl p-4 flex gap-3.5 items-start cursor-pointer hover:border-[#2F525E] active:shadow-[0_2px_0_#0B161B]">
+<!-- Icon tile (Amber/Gold with 3D bottom ledge) -->
+<div class="w-12 h-12 rounded-xl bg-[#FFB054] shadow-[0_3px_0_#C7781E] flex items-center justify-center shrink-0 relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-[30%] bg-white/25 rounded-t-lg"></div>
+<span class="material-symbols-outlined text-[24px] text-[#2E1A00]" data-icon="emoji_events" data-weight="fill">emoji_events</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0 pr-2">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<h2 class="font-title font-bold text-[15px] leading-tight text-[#EEF6F7] truncate">
+                New Badge Unlocked!
+              </h2>
+<span class="text-[12px] font-semibold text-[#7E999C] shrink-0">2m ago</span>
+</div>
+<p class="font-body text-[13px] leading-snug text-[#A9BFC1] truncate mb-1">
+              Streak Star Tier 3 • +50 XP
+            </p>
+</div>
+<!-- Unread Teal Dot -->
+<span class="w-2.5 h-2.5 rounded-full bg-[#2BA39A] ring-4 ring-[#122228] shrink-0 mt-1 shadow-[0_0_6px_#2BA39A]"></span>
+</article>
+<!-- Card 2 (Streak / Fire) -->
+<article class="tactile-btn relative bg-[#122228] border-2 border-[#243D46] shadow-[0_5px_0_#0B161B] rounded-2xl p-4 flex gap-3.5 items-start cursor-pointer hover:border-[#2F525E] active:shadow-[0_2px_0_#0B161B]">
+<!-- Icon tile (Coral/Fire with 3D bottom ledge) -->
+<div class="w-12 h-12 rounded-xl bg-[#F2553B] shadow-[0_3px_0_#B53A22] flex items-center justify-center shrink-0 relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-[30%] bg-white/25 rounded-t-lg"></div>
+<span class="material-symbols-outlined text-[24px] text-[#FFFFFF]" data-icon="local_fire_department" data-weight="fill">local_fire_department</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0 pr-2">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<h2 class="font-title font-bold text-[15px] leading-tight text-[#EEF6F7] truncate">
+                Keep your 14–day streak a...
+              </h2>
+<span class="text-[12px] font-semibold text-[#7E999C] shrink-0">1h ago</span>
+</div>
+<p class="font-body text-[13px] leading-snug text-[#A9BFC1] truncate mb-1">
+              Practice 5 min before midnight
+            </p>
+</div>
+<!-- Urgent Coral Unread Dot -->
+<span class="w-2.5 h-2.5 rounded-full bg-[#F2553B] ring-4 ring-[#122228] shrink-0 mt-1 shadow-[0_0_6px_#F2553B]"></span>
+</article>
+<!-- Card 3 (Audio / Speaking) -->
+<article class="tactile-btn relative bg-[#122228] border-2 border-[#243D46] shadow-[0_5px_0_#0B161B] rounded-2xl p-4 flex gap-3.5 items-start cursor-pointer hover:border-[#2F525E] active:shadow-[0_2px_0_#0B161B]">
+<!-- Icon tile (Teal with 3D bottom ledge) -->
+<div class="w-12 h-12 rounded-xl bg-[#2BA39A] shadow-[0_3px_0_#1B6E67] flex items-center justify-center shrink-0 relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-[30%] bg-white/25 rounded-t-lg"></div>
+<span class="material-symbols-outlined text-[24px] text-[#FFFFFF]" data-icon="graphic_eq" data-weight="fill">graphic_eq</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0 pr-2">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<h2 class="font-title font-bold text-[15px] leading-tight text-[#EEF6F7] truncate">
+                New: IELTS Speaking Au...
+              </h2>
+<span class="text-[12px] font-semibold text-[#7E999C] shrink-0">Yesterday</span>
+</div>
+<p class="font-body text-[13px] leading-snug text-[#A9BFC1] truncate mb-1">
+              Carlos & Ama added 12 new ...
+            </p>
+</div>
+<!-- Unread Teal Dot -->
+<span class="w-2.5 h-2.5 rounded-full bg-[#2BA39A] ring-4 ring-[#122228] shrink-0 mt-1 shadow-[0_0_6px_#2BA39A]"></span>
+</article>
+</div>
+<!-- Divider Section -->
+<div class="relative my-6 flex items-center justify-center">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-[#1C333A]"></div>
+</div>
+<div class="relative bg-[#0B1A1E] px-3">
+<span class="font-label text-[11px] font-extrabold uppercase tracking-widest text-[#7E999C]">
+            Caught up milestone
+          </span>
+</div>
+</div>
+<!-- Milestone Box ("You're all caught up!") -->
+<div class="bg-[#102127] border-2 border-[#223B44] shadow-[0_5px_0_#0A161B] rounded-2xl p-5 text-center flex flex-col items-center">
+<!-- Vector mascot: Sleeping Bell on cushion -->
+<div class="relative w-24 h-24 mb-3 flex items-center justify-center">
+<!-- Floating Zzz badges -->
+<div class="absolute -top-1 right-2 text-tertiary font-extrabold text-[15px] animate-pulse">Z</div>
+<div class="absolute top-2 right-0 text-tertiary-fixed-dim font-bold text-[11px] opacity-80">z</div>
+<div class="absolute top-5 right-2 text-[#7E999C] font-semibold text-[9px] opacity-60">z</div>
+<!-- Cushion base -->
+<div class="absolute bottom-2 w-16 h-5 rounded-full bg-[#18484B] border border-[#2BA39A]/40 shadow-[0_2px_8px_rgba(43,163,154,0.3)]"></div>
+<!-- Tactile Bell Dome Mascot -->
+<div class="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-b from-[#FFA73F] to-[#E58318] border-2 border-[#FFE2A4]/50 shadow-[0_4px_0_#A85B09] flex flex-col items-center justify-center">
+<!-- Specular shine on bell -->
+<div class="absolute top-1 inset-x-2 h-2.5 rounded-full bg-white/30"></div>
+<!-- Sleeping Face -->
+<div class="flex items-center gap-2 mt-2">
+<!-- Closed eye curves -->
+<svg class="w-2.5 h-1.5 stroke-[#3D1E00] stroke-[2] fill-none" viewbox="0 0 10 6">
+<path d="M1 1C3 4 7 4 9 1" stroke-linecap="round"></path>
+</svg>
+<svg class="w-2.5 h-1.5 stroke-[#3D1E00] stroke-[2] fill-none" viewbox="0 0 10 6">
+<path d="M1 1C3 4 7 4 9 1" stroke-linecap="round"></path>
+</svg>
+</div>
+<!-- Small smiling beak / mouth -->
+<div class="w-1.5 h-1 rounded-full bg-[#5C2E00] mt-1 opacity-70"></div>
+</div>
+</div>
+<h3 class="font-display font-extrabold text-[21px] text-[#EEF6F7] tracking-tight mb-1.5">
+          You're all caught up!
+        </h3>
+<p class="font-body text-[14px] leading-relaxed text-[#A9BFC1] max-w-[270px] mb-5">
+          No new notifications right now. Keep crushing your daily drills!
+        </p>
+<!-- Primary Candy CTA Button -->
+<button class="tactile-btn w-full h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] via-[#FA7B38] to-[#FF9F43] border-t border-white/30 shadow-[0_6px_0_#B53A22] text-[#1A0702] font-display font-extrabold text-[17px] tracking-wide flex items-center justify-center gap-2 active:shadow-[0_2px_0_#B53A22] transition-transform">
+<span>Continue Learning</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+</body></html>

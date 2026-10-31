@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Streak Frozen! (Bright Day)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+              ink: '#0F3D3E',
+              'ink-muted': '#325658',
+              teal: '#2BA39A',
+              'teal-deep': '#1F7A75',
+              'teal-ledge': '#155B57',
+              coral: '#F2553B',
+              amber: '#FFB054',
+              'cta-ledge': '#B53A22',
+              ice: '#E2F7F9',
+              'ice-border': '#70D7E4',
+              'ice-deep': '#0097A7',
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    /* Physical candy-tactile buttons and cards */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 6px 0 0 #D8CFBC;
+      border-radius: 28px;
+    }
+    .tactile-cta {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      box-shadow: 0 6px 0 0 #B53A22, 0 10px 20px -4px rgba(242, 85, 59, 0.35);
+      border-radius: 18px;
+      transition: all 0.1s ease;
+    }
+    .tactile-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 0 #B53A22, 0 5px 10px -2px rgba(242, 85, 59, 0.3);
+    }
+    .day-circle {
+      transition: transform 0.15s ease;
+    }
+    .day-circle:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#d8e5e9] font-sans min-h-screen flex flex-col justify-between selection:bg-primary/20 antialiased p-4 sm:p-6 md:p-8">
+<!-- Top App Bar / Header -->
+<header class="w-full max-w-md mx-auto flex items-center justify-between py-2 px-1"><!-- Close / Dismiss button -->
+<button aria-label="Close" class="w-11 h-11 rounded-2xl bg-[#111F24] border-2 border-[#243B42] flex items-center justify-center text-[#EEF6F7] hover:bg-[#162B32] active:translate-y-0.5 transition-all shadow-[0_3px_0_0_#0A1518]">
+<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Header Stats (Flame Streak + XP) -->
+<div class="flex items-center gap-2">
+<!-- Streak chip -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#111F24] border-2 border-[#243B42] rounded-xl shadow-[0_3px_0_0_#0A1518]">
+<svg class="w-4 h-4 text-[#FF7A3D] fill-[#FF7A3D]" viewbox="0 0 24 24">
+<path d="M12 2c.5 3-1.5 5-2.5 7-1 2-1 4.5.5 6.5 1.5 2 4 2.5 5 1 .5 3-2 5.5-5 5.5-4 0-7-3-7-7 0-3.5 2-6.5 4.5-9.5C8 7 8 8.5 8.5 9c1-2.5 3-5 3.5-7z"></path>
+</svg>
+<span class="text-xs font-extrabold text-[#EEF6F7]">14</span>
+</div>
+<!-- XP chip -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#111F24] border-2 border-[#243B42] rounded-xl shadow-[0_3px_0_0_#0A1518]">
+<svg class="w-4 h-4 text-[#F4BF40] fill-[#F4BF40]" viewbox="0 0 24 24">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+<span class="text-xs font-extrabold text-[#EEF6F7]">820 XP</span>
+</div>
+</div></header>
+<!-- Main Modal Container -->
+<main class="w-full max-w-md mx-auto my-auto py-4">
+<!-- Centered Tactile Card -->
+<div class="p-6 sm:p-8 flex flex-col items-center text-center relative overflow-hidden rounded-[28px] bg-[#111F24] border-2 border-[#243B42] shadow-[0_8px_0_0_#0A1518]">
+<!-- Ambient Cool Icy Sparkle Accents -->
+<div class="absolute -top-12 -left-12 w-36 h-36 bg-cyan-400/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute top-8 -right-8 w-32 h-32 bg-teal-400/15 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Hero Glossy Dark Ice-Cube Flame Illustration -->
+<div class="relative w-36 h-36 sm:w-40 sm:h-40 flex items-center justify-center mb-5">
+<!-- Animated floating sparkles -->
+<svg class="absolute top-1 left-2 w-5 h-5 text-[#5CE1E6] fill-[#5CE1E6] drop-shadow-sm" viewbox="0 0 24 24">
+<path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"></path>
+</svg>
+<svg class="absolute bottom-6 right-1 w-6 h-6 text-[#2BA39A] fill-[#2BA39A] drop-shadow-sm" viewbox="0 0 24 24">
+<path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"></path>
+</svg>
+<svg class="absolute top-5 right-4 w-4 h-4 text-amber-300 fill-amber-300 drop-shadow-sm" viewbox="0 0 24 24">
+<path d="M12 0l2.5 7.5L22 10l-7.5 2.5L12 20l-2.5-7.5L2 10l7.5-2.5z"></path>
+</svg>
+<!-- Outer Ice Cube Container in Dark Glossy Teal Glass -->
+<div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-[26px] bg-gradient-to-b from-[#1E434E] to-[#122A32] border-[3px] border-[#2BA39A] shadow-[0_8px_0_0_#0D2026,0_16px_28px_-6px_rgba(43,163,154,0.35)] flex items-center justify-center p-3">
+<!-- Glossy top shine highlight -->
+<div class="absolute top-1.5 inset-x-3 h-5 bg-white/20 rounded-full blur-[1px]"></div>
+<!-- Inner Frosted Bevel -->
+<div class="w-full h-full rounded-[18px] bg-gradient-to-br from-[#244C57]/80 via-[#16333D]/90 to-[#0F2228] flex items-center justify-center border border-white/20 shadow-inner relative overflow-hidden">
+<!-- Ice crystal refraction facets -->
+<div class="absolute top-0 right-0 w-12 h-12 bg-white/10 rotate-45 transform translate-x-3 -translate-y-3 pointer-events-none"></div>
+<div class="absolute bottom-1 left-1 w-8 h-8 bg-[#2BA39A]/20 -rotate-12 pointer-events-none"></div>
+<!-- Frozen Flame Character Vector inside Ice Cube -->
+<svg class="w-16 h-20 sm:w-18 sm:h-22 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" fill="none" viewbox="0 0 72 90">
+<!-- Flame Outer Core -->
+<path d="M36 4C38 18 31 25 26 34C21 43 20 54 28 64C36 74 48 76 54 69C57 82 45 88 36 88C18 88 8 74 8 54C8 38 18 24 30 10C29 17 31 23 33 25C37 14 36 7 36 4Z" fill="url(#flameOuterDark)"></path>
+<!-- Flame Inner Warm Core -->
+<path d="M37 28C41 38 38 46 34 52C30 58 31 66 36 72C41 77 47 77 49 72C50 80 43 83 37 83C25 83 18 73 18 60C18 49 25 39 33 30C33 35 34 39 35 41C37 34 37 29 37 28Z" fill="url(#flameInnerDark)"></path>
+<!-- Icy Frost Coating on Flame -->
+<path d="M14 62C18 69 25 76 34 76C43 76 48 71 52 66C50 71 45 74 38 74C28 74 20 68 16 60L14 62Z" fill="#6BD8CE" opacity="0.9"></path>
+<path d="M33 18C34 22 34 26 31 31C33 26 34 21 33 18Z" fill="#FFFFFF"></path>
+<!-- Cute sleepy frozen eyes -->
+<path d="M26 53C28 55 31 55 33 53" stroke="#091518" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M41 53C43 55 46 55 48 53" stroke="#091518" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Defs -->
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="flameOuterDark" x1="36" x2="36" y1="4" y2="88">
+<stop offset="0%" stop-color="#FFB054"></stop>
+<stop offset="45%" stop-color="#FF7A3D"></stop>
+<stop offset="100%" stop-color="#F2553B"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="flameInnerDark" x1="36" x2="36" y1="28" y2="83">
+<stop offset="0%" stop-color="#FFE885"></stop>
+<stop offset="60%" stop-color="#FFB054"></stop>
+<stop offset="100%" stop-color="#FF8A3D"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<!-- Little Frost Stars in corners -->
+<span class="absolute -bottom-2 -left-2 text-[#5CE1E6] font-bold text-sm select-none">❄</span>
+<span class="absolute -top-2 -right-2 text-[#5CE1E6] font-bold text-base select-none">❄</span>
+</div>
+</div>
+<!-- Pill Badge: Protective Shield Status -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#132A32] border-2 border-[#2BA39A] mb-3">
+<span class="text-xs">🛡️</span>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#5CE1E6]">Streak Freeze Active</span>
+</div>
+<!-- Title -->
+<h1 class="text-3xl font-extrabold tracking-tight text-[#EEF6F7] mb-2">
+        Streak frozen!
+      </h1>
+<!-- Short 1-Line Supporting Copy -->
+<p class="text-base font-semibold text-[#B8CDD0] max-w-[280px] leading-snug mb-7">
+        Your 14–day streak is safe. Practice tomorrow to keep it burning!
+      </p>
+<!-- 7-Day Row of Circles in Dark Nested Container -->
+<div class="w-full bg-[#0D1B20] border-2 border-[#1E333A] rounded-2xl p-4 mb-7 shadow-[0_4px_0_0_#071013]">
+<!-- Day labels and status circles -->
+<div class="flex items-center justify-between gap-1 sm:gap-1.5">
+<!-- Monday: Completed Flame -->
+<div class="flex flex-col items-center gap-1.5 flex-1 day-circle">
+<span class="text-[11px] font-extrabold text-[#A9BFC1] uppercase">M</span>
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1E2E33] border-2 border-[#F2553B] flex items-center justify-center shadow-[0_3px_0_0_#0A1518]">
+<svg class="w-4 h-4 text-[#F2553B] fill-[#F2553B]" viewbox="0 0 24 24">
+<path d="M12 2c.5 3-1.5 5-2.5 7-1 2-1 4.5.5 6.5 1.5 2 4 2.5 5 1 .5 3-2 5.5-5 5.5-4 0-7-3-7-7 0-3.5 2-6.5 4.5-9.5C8 7 8 8.5 8.5 9c1-2.5 3-5 3.5-7z"></path>
+</svg>
+</div>
+</div>
+<!-- Tuesday: Completed Flame -->
+<div class="flex flex-col items-center gap-1.5 flex-1 day-circle">
+<span class="text-[11px] font-extrabold text-[#A9BFC1] uppercase">T</span>
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1E2E33] border-2 border-[#F2553B] flex items-center justify-center shadow-[0_3px_0_0_#0A1518]">
+<svg class="w-4 h-4 text-[#F2553B] fill-[#F2553B]" viewbox="0 0 24 24">
+<path d="M12 2c.5 3-1.5 5-2.5 7-1 2-1 4.5.5 6.5 1.5 2 4 2.5 5 1 .5 3-2 5.5-5 5.5-4 0-7-3-7-7 0-3.5 2-6.5 4.5-9.5C8 7 8 8.5 8.5 9c1-2.5 3-5 3.5-7z"></path>
+</svg>
+</div>
+</div>
+<!-- Wednesday: Completed Flame -->
+<div class="flex flex-col items-center gap-1.5 flex-1 day-circle">
+<span class="text-[11px] font-extrabold text-[#A9BFC1] uppercase">W</span>
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1E2E33] border-2 border-[#F2553B] flex items-center justify-center shadow-[0_3px_0_0_#0A1518]">
+<svg class="w-4 h-4 text-[#F2553B] fill-[#F2553B]" viewbox="0 0 24 24">
+<path d="M12 2c.5 3-1.5 5-2.5 7-1 2-1 4.5.5 6.5 1.5 2 4 2.5 5 1 .5 3-2 5.5-5 5.5-4 0-7-3-7-7 0-3.5 2-6.5 4.5-9.5C8 7 8 8.5 8.5 9c1-2.5 3-5 3.5-7z"></path>
+</svg>
+</div>
+</div>
+<!-- Thursday: Completed Flame -->
+<div class="flex flex-col items-center gap-1.5 flex-1 day-circle">
+<span class="text-[11px] font-extrabold text-[#A9BFC1] uppercase">T</span>
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1E2E33] border-2 border-[#F2553B] flex items-center justify-center shadow-[0_3px_0_0_#0A1518]">
+<svg class="w-4 h-4 text-[#F2553B] fill-[#F2553B]" viewbox="0 0 24 24">
+<path d="M12 2c.5 3-1.5 5-2.5 7-1 2-1 4.5.5 6.5 1.5 2 4 2.5 5 1 .5 3-2 5.5-5 5.5-4 0-7-3-7-7 0-3.5 2-6.5 4.5-9.5C8 7 8 8.5 8.5 9c1-2.5 3-5 3.5-7z"></path>
+</svg>
+</div>
+</div>
+<!-- Friday: FROZEN ICY DAY (Highlighted) -->
+<div class="flex flex-col items-center gap-1.5 flex-1 relative day-circle scale-105">
+<span class="text-[11px] font-extrabold text-[#5CE1E6] uppercase flex items-center gap-0.5">
+              F
+            </span>
+<!-- Icy highlighted circle -->
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#163640] border-2 border-[#5CE1E6] flex items-center justify-center shadow-[0_3px_0_0_#0A262E] relative">
+<span class="text-sm select-none">❄️</span>
+<!-- Icy ring pulse effect -->
+<div class="absolute -inset-1 rounded-full border border-[#5CE1E6]/60 pointer-events-none"></div>
+</div>
+</div>
+<!-- Saturday: Upcoming empty day -->
+<div class="flex flex-col items-center gap-1.5 flex-1 day-circle opacity-50">
+<span class="text-[11px] font-extrabold text-[#7D989C] uppercase">S</span>
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#162529] border-2 border-[#243B42] flex items-center justify-center shadow-[0_2px_0_0_#0A1518]">
+<div class="w-2 h-2 rounded-full bg-[#344E55]"></div>
+</div>
+</div>
+<!-- Sunday: Upcoming empty day -->
+<div class="flex flex-col items-center gap-1.5 flex-1 day-circle opacity-50">
+<span class="text-[11px] font-extrabold text-[#7D989C] uppercase">S</span>
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#162529] border-2 border-[#243B42] flex items-center justify-center shadow-[0_2px_0_0_#0A1518]">
+<div class="w-2 h-2 rounded-full bg-[#344E55]"></div>
+</div>
+</div>
+</div>
+<!-- Remaining Freezes Footer Note inside card -->
+<div class="mt-3.5 pt-3 border-t border-[#1E333A] flex items-center justify-center gap-1.5 text-xs font-bold text-[#A4F1EE]">
+<span class="text-[#5CE1E6] font-extrabold">1 freeze remaining</span>
+<span class="text-[#7D989C]">•</span>
+<span>Equipped for exams</span>
+</div>
+</div>
+<!-- Tactile 'Got it' Button (Coral→Amber with Deep Brown-Black Ink) -->
+<button class="w-full py-4 text-center text-lg font-extrabold tracking-wide text-[#1A0702] cursor-pointer rounded-[18px] bg-gradient-to-b from-[#FF9F43] to-[#F2553B] shadow-[0_6px_0_0_#9E2E19,0_10px_20px_-4px_rgba(242,85,59,0.35)] active:translate-y-1 active:shadow-[0_2px_0_0_#9E2E19] transition-all">
+        Got it
+      </button>
+</div>
+</main>
+<!-- Clean footer space / branding attribution -->
+<footer class="w-full max-w-md mx-auto py-2 text-center text-xs font-bold text-[#7D989C] flex items-center justify-center gap-2">
+<span>Lexkite Exam Suite</span>
+<span>•</span>
+<span>Cambridge &amp; ETS Prep</span>
+</footer>
+</body>
+</html>
+
