@@ -9,7 +9,7 @@
 
 ## Kiểm gì
 1. **Hành trình** (390 sáng + 1440 tối, người dùng sandbox mới): thiết lập → bài học (đúng + sai, bỏ qua, nghe, làm lại, back) → ôn thẻ đến hạn → luyện → kỹ năng → thi thử/kiểm tra trình độ → tôi/tiến độ → đổi Tối/Sáng (lưu) → back 2 bước + tải lại. Mỗi bước: 0 lỗi console/exception/unhandledrejection, 0 request cùng nguồn ≥ 400 / hỏng, không màn trống/kẹt; XP tăng, XP hôm nay > 0, thẻ đến hạn giảm.
-2. **Đầu dò** (`qa-bot/detect.js`, 13 trạng thái gồm cờ ux1): `hscroll` · `clip` (khung cắt chữ/link) · `spill` (lòi khỏi aside/nav/thẻ) · `offscreen` · `covered` (bị đè) · `align` (cột trái máy tính: mục menu / chân thanh bên cùng mép nội dung ± 4 px) · `indicator` (vạch đang chọn rời viên thuốc > 2 px) · `tap` < 44 px (trừ link trong đoạn văn) · `contrast` (axe color-contrast, như `contrast.mjs`) · `cls` > 0,1.
+2. **Đầu dò** (`qa-bot/detect.js`, 13 trạng thái gồm cờ ux1): `hscroll` · `clip` (khung cắt chữ/link) · `spill` (lòi khỏi aside/nav/thẻ) · `offscreen` · `covered` (bị đè) · `align` (cột trái máy tính: mục menu / chân thanh bên cùng mép nội dung ± 4 px) · `indicator` (vạch đang chọn rời viên thuốc > 2 px) · `wrap` (nút/biểu tượng rớt dòng đứng một mình) · `lone` (nhãn ≤ 3 ký tự đứng trơ) · `nolabel` (ô chọn/nhập không nhãn nhìn thấy) · `tap` < 44 px (trừ link trong đoạn văn) · `contrast` (axe color-contrast, như `contrast.mjs`) · `cls` > 0,1.
 3. **Hiệu năng** (390, 1440, bấm tab 2 vòng): FPS chuyển tab, INP, long task. 4. **Dung lượng** sau N bài (mặc định 3).
 
 ## Ngân sách (chỉ được siết)

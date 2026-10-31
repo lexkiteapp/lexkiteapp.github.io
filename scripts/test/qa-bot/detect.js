@@ -8,6 +8,7 @@
  *   align     các hàng cùng cột (o.align) lệch mép trái nội dung > 4 px
  *   indicator vạch/chấm "đang chọn" (::before/::after hoặc .indicator) tách rời khỏi viên thuốc của mục đang chọn > 2 px
  *   tap       vùng chạm < o.tap px (mặc định 44) – trừ link nằm trong đoạn văn
+ *   wrap      nút/biểu tượng rớt xuống đứng một mình ở dòng cuối · lone  nhãn ≤ 3 ký tự đứng trơ cả hàng · nolabel  ô chọn/nhập không có nhãn nhìn thấy
  * window.QAB.perf.*  CLS / long task / INP (Event Timing) / FPS – đo từ lúc nạp trang (gắn bằng addInitScript). */
 (function (W) {
   'use strict';
@@ -122,6 +123,35 @@
       const inline = e.tagName === 'A' && getComputedStyle(e).display === 'inline' && e.parentElement && /^(p|li|span|small|label|td|figcaption|blockquote)$/i.test(e.parentElement.tagName) && e.parentElement.textContent.trim().length > txt(e).length + 8;
       const small = /^input$/i.test(e.tagName) ? !/checkbox|radio|range/.test(e.type) && r.height < TAP - 0.5 : r.width < TAP - 0.5 || r.height < TAP - 0.5;
       if (!inline && small && !e.closest('[aria-hidden="true"]')) add('tap', 'fail', e, `"${txt(e)}" vùng chạm ${Math.round(r.width)}×${Math.round(r.height)} < ${TAP}px`);
+    }
+    // 6a) "rớt dòng mồ côi": hàng nút/biểu tượng/chip xuống dòng mà dòng cuối chỉ còn 1 phần tử nhỏ (vd. nút loa UK rớt khỏi hàng phiên âm)
+    for (const box of D.querySelectorAll('#view *, .sidebar *, .bottom-nav *')) {
+      const kids = [...box.children].filter(c => { const q = vis(c); if (!q) return false; const p = getComputedStyle(c).position; return p !== 'absolute' && p !== 'fixed'; });
+      if (kids.length < 3) continue;
+      const cs = getComputedStyle(box), flexWrap = /flex/.test(cs.display) && cs.flexWrap !== 'nowrap' && cs.flexDirection.startsWith('row');
+      const inl = kids.every(c => /inline/.test(getComputedStyle(c).display));
+      if (!flexWrap && !inl) continue;
+      const rows = []; for (const c of kids) { const q = c.getBoundingClientRect(); const r = rows.find(r => Math.abs(r.top - q.top) < q.height / 2); if (r) r.items.push([c, q]); else rows.push({ top: q.top, items: [[c, q]] }); }
+      if (rows.length < 2) continue;
+      const last = rows[rows.length - 1], B = box.getBoundingClientRect();
+      if (last.items.length === 1 && rows[rows.length - 2].items.length >= 2 && last.items[0][1].width < B.width * 0.3 && last.items[0][0].matches(INTER + ',.chip,.badge,.ic,svg,img')) add('wrap', 'fail', last.items[0][0], `"${txt(last.items[0][0]) || lab(last.items[0][0])}" rớt xuống đứng một mình ở dòng cuối của ${lab(box)}`);
+    }
+    // 6b) chip/nhãn rất ngắn đứng trơ một mình cả hàng (vd. "n" dưới phiên âm): ≤ 3 ký tự, không anh em nhìn thấy, khung cha rộng gấp ≥ 5 lần
+    for (const e of D.querySelectorAll('#view span, #view i, #view b, #view small, #view em, #view div')) {
+      if (e.children.length || e.closest('button, a, label, [role=button], .badge, svg')) continue;
+      const t = (e.textContent || '').trim(); if (!t || t.length > 3 || /^\d+%?$/.test(t)) continue;
+      const q = vis(e); if (!q || q.width > 60) continue;
+      const par = e.parentElement, sib = [...par.children].filter(c => c !== e && vis(c)), P = par.getBoundingClientRect();
+      const alone = !sib.length && (par.textContent || '').trim() === t && P.width > q.width * 5;
+      if (alone) add('lone', 'fail', e, `nhãn "${t}" đứng trơ một mình cả hàng (khung ${Math.round(P.width)}px)`);
+    }
+    // 6c) ô chọn / ô nhập không có nhãn NHÌN THẤY (aria-label không đủ cho người nhìn): <label>, placeholder (ô nhập) hoặc chữ ngay trước trong cùng hàng
+    for (const e of D.querySelectorAll('#view select, #view input:not([type=hidden]):not([type=checkbox]):not([type=radio]):not([type=range]), #view textarea')) {
+      const r = vis(e); if (!r) continue;
+      const lbl = (e.labels && [...e.labels].some(l => vis(l) && l.textContent.trim())) || (e.placeholder && e.tagName !== 'SELECT');
+      const prev = e.previousElementSibling, near = prev && vis(prev) && prev.textContent.trim().length > 1 && Math.abs(prev.getBoundingClientRect().top - r.top) < 40;
+      const parTxt = e.parentElement && e.parentElement !== D.querySelector('#view') && (e.parentElement.textContent || '').replace(e.tagName === 'SELECT' ? e.textContent : '', '').trim().length > 1;
+      if (!lbl && !near && !parTxt) add('nolabel', 'fail', e, `${e.tagName.toLowerCase()} "${e.tagName === 'SELECT' ? (e.selectedOptions[0] || {}).textContent || '' : e.value}" không có nhãn nhìn thấy – người học không biết ô này để làm gì`);
     }
     // 6) thẳng hàng theo cột: o.align = [{name, items:[selector…]}] – mép trái nội dung của các hàng phải trùng nhau ± 4px
     for (const g of o.align || []) {

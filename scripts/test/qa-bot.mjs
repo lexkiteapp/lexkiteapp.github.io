@@ -42,7 +42,7 @@ const settings = theme => JSON.stringify({ onboarded: true, theme });
 const STATES = [
   ['home', '/home'], ['vocab', '/vocab'], ['review', '/review'], ['practice', '/practice'], ['skills', '/skills'], ['tests', '/tests'],
   ['me', '/me'], ['settings', '/settings'], ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
-  ['ux1-home', '/home', { ux1: 1 }], ['ux1-train', '/train', { ux1: 1 }], ['ux1-me', '/me', { ux1: 1 }],
+  ['review-card', '/review', { ux1: 1 }], ['ux1-home', '/home', { ux1: 1 }], ['ux1-train', '/train', { ux1: 1 }], ['ux1-me', '/me', { ux1: 1 }],
 ];
 // Cột trái máy tính: mép trái nội dung của mục menu, khối tiến độ và chân thanh bên phải thẳng một hàng
 const ALIGN = [{ name: 'sidebar', items: ['.sidebar #nav > a', '.sidebar #nav > details > summary', '.sidebar .side-foot > :first-child'] }];
@@ -304,7 +304,7 @@ const stale = ONLY.includes('ui') && WIDTHS.length === 3 && THEMES.length === 2 
 if (WRITE_BL) fs.writeFileSync(WRITE_BL, JSON.stringify({ note: 'Lỗi giao diện đã biết (qa-bot). Chỉ được XOÁ dòng khi đã sửa – không thêm dòng để làm xanh. docs/QA-BOT.md', known: Object.fromEntries(Object.entries(seen).sort().map(([k, v]) => [k, [...new Set(v)].slice(0, 6)])) }, null, 1) + '\n');
 const jsErr = R.ui.flatMap(u => u.errors.map(e => `${u.key}: ${e}`));
 const fails = [...R.journeys.flatMap(j => j.fails.map(f => `${j.tag}: ${f}`)), ...jsErr, ...fresh.map(i => `${i.key}: [${i.k}] ${i.msg}`), ...R.perf.flatMap(p => p.fails.map(f => `perf@${p.w}: ${f}`)), ...(R.storage ? R.storage.fails.map(f => 'storage: ' + f) : []), ...R.errors, ...stale.map(s => `baseline cũ: "${s}" không còn tái hiện → xoá dòng này khỏi ${BASELINE} (ratchet)`)];
-R.fresh = fresh; R.stale = stale; R.fails = fails; R.counts = Object.fromEntries(['hscroll', 'clip', 'spill', 'offscreen', 'covered', 'align', 'indicator', 'tap', 'contrast', 'cls'].map(k => [k, R.ui.reduce((s, u) => s + u.issues.filter(i => i.k === k && i.sev === 'fail').length, 0)]));
+R.fresh = fresh; R.stale = stale; R.fails = fails; R.counts = Object.fromEntries(['hscroll', 'clip', 'spill', 'offscreen', 'covered', 'align', 'indicator', 'wrap', 'lone', 'nolabel', 'tap', 'contrast', 'cls'].map(k => [k, R.ui.reduce((s, u) => s + u.issues.filter(i => i.k === k && i.sev === 'fail').length, 0)]));
 fs.writeFileSync(OUT + '/report.json', JSON.stringify(R, null, 1));
 const md = [`## 🤖 qa-bot – ${O}`, '', fails.length ? `❌ **${fails.length} lỗi**` : '✅ **xanh**', '',
   '| Hành trình | Kết quả |', '|---|---|', ...R.journeys.map(j => `| ${j.tag} | ${j.ok ? '✅' : '❌ ' + j.fails.length} |`), '',
