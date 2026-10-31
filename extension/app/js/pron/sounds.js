@@ -5,7 +5,7 @@
   /* ================= 12 NGUYÊN ÂM ĐƠN ================= */
   P.push({
     id: 'iː', group: 'vowels', ipa: '/iː/', title: 'Nguyên âm dài /iː/', emoji: '😁', level: 'A1',
-    mouth: { lips: 'spread', jaw: 'close', tongue: 'front', voiced: true, long: true },
+    mouth: { height: 'close', back: 'front', lips: 'spread', jaw: 'close', long: true, voiced: true },
     how: 'Lưỡi nâng cao ở phía trước, đầu lưỡi chạm nhẹ răng dưới. Môi kéo sang hai bên như đang cười, hàm gần khép. Giữ âm dài và căng.',
     vn: 'Người Việt hay đọc ngắn như "i" nên "sheep" nghe thành "ship". Hãy kéo dài gấp đôi và giữ môi căng đến hết âm.',
     tip: 'Giống "i" trong "đi" nhưng kéo dài như khi nói "iii" lúc chụp ảnh.',
@@ -18,8 +18,8 @@
   });
   P.push({
     id: 'ɪ', group: 'vowels', ipa: '/ɪ/', title: 'Nguyên âm ngắn /ɪ/', emoji: '🙂', level: 'A1',
-    mouth: { lips: 'spread', jaw: 'close', tongue: 'front', voiced: true, long: false },
-    how: 'Lưỡi cao và ở phía trước nhưng thấp và lùi hơn /iː/ một chút. Môi thả lỏng, hơi mở. Âm ngắn, dứt khoát.',
+    mouth: { height: 'near-close', back: 'near-front', lips: 'neutral', jaw: 'near-close', long: false, voiced: true },
+    how: 'Lưỡi cao ở phía trước nhưng thấp hơn và lùi vào hơn /iː/ một chút. Hàm hé hơn /iː/ một chút, môi thả lỏng (không kéo như khi cười). Âm ngắn, lỏng và dứt khoát.',
     vn: 'Dễ bị đọc thành "i" căng của tiếng Việt hoặc kéo dài. Thả lỏng cơ miệng, âm hơi ngả về "ê" và cắt ngắn.',
     tip: 'Nằm giữa "i" và "ê" của tiếng Việt, nói nhanh và lỏng miệng.',
     words: [
@@ -31,7 +31,7 @@
   });
   P.push({
     id: 'e', group: 'vowels', ipa: '/e/', title: 'Nguyên âm ngắn /e/', emoji: '😬', level: 'A1',
-    mouth: { lips: 'spread', jaw: 'mid', tongue: 'front', voiced: true, long: false },
+    mouth: { height: 'mid', back: 'front', lips: 'spread', jaw: 'mid', long: false, voiced: true },
     how: 'Lưỡi ở phía trước, độ cao trung bình. Môi hơi kéo ngang, hàm mở vừa phải. Âm ngắn.',
     vn: 'Thường bị lẫn với /æ/ (pen – pan). Với /e/ hàm chỉ mở vừa, không hạ sâu như /æ/.',
     tip: 'Gần với "e" trong "xe" nhưng ngắn và hơi khép hơn.',
@@ -44,7 +44,7 @@
   });
   P.push({
     id: 'æ', group: 'vowels', ipa: '/æ/', title: 'Nguyên âm ngắn /æ/', emoji: '😮', level: 'A2',
-    mouth: { lips: 'spread', jaw: 'open', tongue: 'front', voiced: true, long: false },
+    mouth: { height: 'near-open', back: 'front', lips: 'spread', jaw: 'open', long: false, voiced: true },
     how: 'Hạ hàm xuống rõ rệt, lưỡi thấp và nằm phía trước, môi kéo ngang. Âm ngắn, nghe như lai giữa "e" và "a".',
     vn: 'Hay đọc thành "e" hoặc "a" thuần Việt. Hãy mở miệng như định nói "a" nhưng giữ khẩu hình "e".',
     tip: 'Nói "e" rồi hạ cằm xuống thật thấp mà không đổi lưỡi.',
@@ -57,7 +57,7 @@
   });
   P.push({
     id: 'ɑː', group: 'vowels', ipa: '/ɑː/', title: 'Nguyên âm dài /ɑː/', emoji: '😲', level: 'A1',
-    mouth: { lips: 'neutral', jaw: 'open', tongue: 'back', voiced: true, long: true },
+    mouth: { height: 'open', back: 'back', lips: 'neutral', jaw: 'open', long: true, voiced: true },
     how: 'Mở miệng rộng, lưỡi thấp và lùi về sau. Môi thả lỏng, không tròn. Kéo dài âm. Trong giọng Anh, chữ r sau nó không đọc.',
     vn: 'Hay đọc ngắn như "a" hoặc cố uốn chữ r (car → "ca-rờ"). Giữ âm dài và bỏ r ở cuối.',
     tip: 'Như "a" khi bác sĩ bảo "há miệng ra", kéo dài và sâu trong họng.',
@@ -70,7 +70,7 @@
   });
   P.push({
     id: 'ɒ', group: 'vowels', ipa: '/ɒ/', title: 'Nguyên âm ngắn /ɒ/', emoji: '😯', level: 'A1',
-    mouth: { lips: 'round', jaw: 'open', tongue: 'back', voiced: true, long: false },
+    mouth: { height: 'open', back: 'back', lips: 'round', jaw: 'open', long: false, voiced: true },
     how: 'Lưỡi thấp và lùi sau, hàm mở khá rộng, môi hơi tròn nhẹ. Âm ngắn. Đây là âm đặc trưng của giọng Anh (giọng Mỹ thường đọc thành "a").',
     vn: 'Hay đọc thành "o" căng của tiếng Việt hoặc kéo dài thành /ɔː/. Giữ ngắn và mở hàm nhiều hơn.',
     tip: 'Giữa "o" và "a": nói "o" ngắn nhưng há miệng to hơn.',
@@ -83,10 +83,10 @@
   });
   P.push({
     id: 'ɔː', group: 'vowels', ipa: '/ɔː/', title: 'Nguyên âm dài /ɔː/', emoji: '😗', level: 'A2',
-    mouth: { lips: 'round', jaw: 'mid', tongue: 'back', voiced: true, long: true },
+    mouth: { height: 'mid', back: 'back', lips: 'round', jaw: 'mid', long: true, voiced: true },
     how: 'Lưỡi lùi sau, độ cao trung bình. Môi tròn và hơi chu ra, hàm mở vừa. Kéo dài âm, không uốn r.',
     vn: 'Hay đọc ngắn như "o" nên "short" nghe thành "shot". Chu môi tròn hơn và giữ âm dài.',
-    tip: 'Như "o" trong "to" nhưng tròn môi hơn và kéo dài.',
+    tip: 'Nằm giữa "o" và "ô" của tiếng Việt: chu môi tròn rồi kéo dài, như "o" trong "to" nhưng khép hàm hơn một chút.',
     words: [
       { w: 'sport', ipa: '/spɔːt/' }, { w: 'water', ipa: '/ˈwɔːtə/' }, { w: 'law', ipa: '/lɔː/' }, { w: 'thought', ipa: '/θɔːt/' },
       { w: 'important', ipa: '/ɪmˈpɔːtnt/' }, { w: 'daughter', ipa: '/ˈdɔːtə/' }, { w: 'record', ipa: '/ˈrekɔːd/' }, { w: 'course', ipa: '/kɔːs/' }
@@ -96,7 +96,7 @@
   });
   P.push({
     id: 'ʊ', group: 'vowels', ipa: '/ʊ/', title: 'Nguyên âm ngắn /ʊ/', emoji: '😙', level: 'A1',
-    mouth: { lips: 'round', jaw: 'close', tongue: 'back', voiced: true, long: false },
+    mouth: { height: 'near-close', back: 'near-back', lips: 'round', jaw: 'near-close', long: false, voiced: true },
     how: 'Lưỡi cao ở phía sau nhưng thả lỏng hơn /uː/. Môi tròn nhẹ, không chu mạnh. Âm ngắn.',
     vn: 'Dễ đọc thành "u" căng và dài, làm "full" nghe như "fool". Thả lỏng môi, cắt ngắn âm.',
     tip: 'Giữa "u" và "ư" của tiếng Việt, nói ngắn và lỏng.',
@@ -109,7 +109,7 @@
   });
   P.push({
     id: 'uː', group: 'vowels', ipa: '/uː/', title: 'Nguyên âm dài /uː/', emoji: '😚', level: 'A1',
-    mouth: { lips: 'round', jaw: 'close', tongue: 'back', voiced: true, long: true },
+    mouth: { height: 'close', back: 'back', lips: 'round', jaw: 'close', long: true, voiced: true },
     how: 'Lưỡi nâng cao, lùi sau. Môi chu tròn và căng. Kéo dài âm.',
     vn: 'Thường đọc quá ngắn. Hãy giữ môi tròn đến hết âm, đặc biệt trước phụ âm cuối (food, choose).',
     tip: 'Như "u" trong "đu", nhưng kéo dài như tiếng gió "uuu".',
@@ -122,8 +122,8 @@
   });
   P.push({
     id: 'ʌ', group: 'vowels', ipa: '/ʌ/', title: 'Nguyên âm ngắn /ʌ/', emoji: '😐', level: 'A2',
-    mouth: { lips: 'neutral', jaw: 'mid', tongue: 'central', voiced: true, long: false },
-    how: 'Lưỡi ở giữa, hơi thấp. Hàm mở vừa, môi thả lỏng tự nhiên. Âm ngắn và gọn.',
+    mouth: { height: 'open-mid', back: 'central', lips: 'neutral', jaw: 'open-mid', long: false, voiced: true },
+    how: 'Lưỡi nằm ở giữa miệng, khá thấp. Hàm mở khá rộng (rộng hơn khi nói "ơ"), môi thả lỏng tự nhiên. Âm ngắn và gọn.',
     vn: 'Hay đọc thành "a" (cup → "cáp") hoặc "ơ". Âm này gần "â" trong "cân" nhưng hàm mở hơn một chút.',
     tip: 'Gần "â" của tiếng Việt: "cup" gần như "cấp" nhưng không có thanh điệu.',
     words: [
@@ -135,8 +135,8 @@
   });
   P.push({
     id: 'ɜː', group: 'vowels', ipa: '/ɜː/', title: 'Nguyên âm dài /ɜː/', emoji: '🤔', level: 'B1',
-    mouth: { lips: 'neutral', jaw: 'mid', tongue: 'central', voiced: true, long: true },
-    how: 'Lưỡi nằm ở giữa miệng, độ cao trung bình. Môi hơi kéo nhẹ, không tròn. Kéo dài, không uốn lưỡi r.',
+    mouth: { height: 'mid', back: 'central', lips: 'neutral', jaw: 'mid', long: true, voiced: true },
+    how: 'Lưỡi nằm ở giữa miệng, độ cao trung bình. Môi thả lỏng, không tròn. Kéo dài, không uốn lưỡi r.',
     vn: 'Hay đọc thành "ơ" ngắn hoặc cố thêm r (work → "uớc-r"). Giữ "ơ" dài và phẳng, không cong lưỡi.',
     tip: 'Như "ơ" khi đang suy nghĩ "ơơơ…", kéo dài và không có thanh.',
     words: [
@@ -148,7 +148,7 @@
   });
   P.push({
     id: 'ə', group: 'vowels', ipa: '/ə/', title: 'Âm schwa /ə/', emoji: '😶', level: 'B1',
-    mouth: { lips: 'neutral', jaw: 'mid', tongue: 'central', voiced: true, long: false },
+    mouth: { height: 'mid', back: 'central', lips: 'neutral', jaw: 'mid', long: false, voiced: true },
     how: 'Âm yếu nhất, xuất hiện ở âm tiết không nhấn. Lưỡi, môi, hàm đều thả lỏng ở vị trí nghỉ; phát ra rất ngắn và nhẹ.',
     vn: 'Người Việt hay đọc rõ từng âm tiết theo mặt chữ (banana → "ba-na-na"). Hãy nhấn âm chính và "nuốt" các âm còn lại thành /ə/.',
     tip: 'Một tiếng "ơ" thật nhẹ và nhanh, gần như không mở miệng.',
@@ -163,7 +163,7 @@
   /* ================= 8 NGUYÊN ÂM ĐÔI ================= */
   P.push({
     id: 'eɪ', group: 'diphthongs', ipa: '/eɪ/', title: 'Nguyên âm đôi /eɪ/', emoji: '👋', level: 'A1',
-    mouth: { lips: 'spread', jaw: 'mid', tongue: 'front', voiced: true, long: true },
+    mouth: { height: 'mid', back: 'front', lips: 'spread', jaw: 'mid', long: true, voiced: true, to: { height: 'near-close', back: 'near-front', lips: 'neutral', jaw: 'near-close' } },
     how: 'Bắt đầu ở /e/ rồi trượt lưỡi lên về phía /ɪ/. Phần đầu mạnh và dài hơn, phần cuối nhẹ.',
     vn: 'Hay bỏ phần trượt, đọc thành "e" hoặc "ê" đơn nên "late" nghe như "let". Nhớ trượt đến "i" ở cuối.',
     tip: 'Giống "ây" trong "đây" nhưng mở đầu bằng "e".',
@@ -176,7 +176,7 @@
   });
   P.push({
     id: 'aɪ', group: 'diphthongs', ipa: '/aɪ/', title: 'Nguyên âm đôi /aɪ/', emoji: '👁️', level: 'A1',
-    mouth: { lips: 'spread', jaw: 'open', tongue: 'front', voiced: true, long: true },
+    mouth: { height: 'open', back: 'central', lips: 'neutral', jaw: 'open', long: true, voiced: true, to: { height: 'near-close', back: 'near-front', lips: 'neutral', jaw: 'near-close' } },
     how: 'Bắt đầu với miệng mở rộng ở "a", sau đó nâng hàm và lưỡi trượt về /ɪ/.',
     vn: 'Khá dễ với người Việt ("ai"), nhưng hay quên phụ âm cuối: "like" thành "lai", "time" thành "tai".',
     tip: 'Giống "ai" trong tiếng Việt, nhớ đọc rõ phụ âm theo sau.',
@@ -189,8 +189,8 @@
   });
   P.push({
     id: 'ɔɪ', group: 'diphthongs', ipa: '/ɔɪ/', title: 'Nguyên âm đôi /ɔɪ/', emoji: '🧒', level: 'A2',
-    mouth: { lips: 'round', jaw: 'mid', tongue: 'back', voiced: true, long: true },
-    how: 'Bắt đầu với môi tròn ở /ɔː/, sau đó kéo môi ngang và đưa lưỡi lên trước về /ɪ/.',
+    mouth: { height: 'open-mid', back: 'back', lips: 'round', jaw: 'open-mid', long: true, voiced: true, to: { height: 'near-close', back: 'near-front', lips: 'neutral', jaw: 'near-close' } },
+    how: 'Bắt đầu với môi tròn, lưỡi lùi sau và hàm mở khá (mở hơn /ɔː/ một chút), sau đó thả lỏng môi, khép hàm và đưa lưỡi lên trước về /ɪ/.',
     vn: 'Gần "oi" tiếng Việt nên khá dễ; lỗi chính là mất phụ âm cuối (voice → "voi", point → "poi").',
     tip: 'Như "oi" trong "đói", rồi thêm phụ âm cuối thật rõ.',
     words: [
@@ -202,7 +202,7 @@
   });
   P.push({
     id: 'əʊ', group: 'diphthongs', ipa: '/əʊ/', title: 'Nguyên âm đôi /əʊ/', emoji: '🙆', level: 'A1',
-    mouth: { lips: 'round', jaw: 'mid', tongue: 'central', voiced: true, long: true },
+    mouth: { height: 'mid', back: 'central', lips: 'neutral', jaw: 'mid', long: true, voiced: true, to: { height: 'near-close', back: 'near-back', lips: 'round', jaw: 'near-close' } },
     how: 'Bắt đầu ở /ə/ (miệng thả lỏng) rồi tròn môi dần về /ʊ/. Giọng Anh bắt đầu từ "ơ", không phải "o".',
     vn: 'Hay đọc thành "ô" đơn (go → "gô"). Cần có chuyển động: "ơ" → "u".',
     tip: 'Nói "ơu" thật liền: "go" nghe như "gơu".',
@@ -215,8 +215,8 @@
   });
   P.push({
     id: 'aʊ', group: 'diphthongs', ipa: '/aʊ/', title: 'Nguyên âm đôi /aʊ/', emoji: '😩', level: 'A1',
-    mouth: { lips: 'round', jaw: 'open', tongue: 'back', voiced: true, long: true },
-    how: 'Mở miệng rộng ở "a", sau đó khép hàm và tròn môi về /ʊ/.',
+    mouth: { height: 'open', back: 'central', lips: 'neutral', jaw: 'open', long: true, voiced: true, to: { height: 'near-close', back: 'near-back', lips: 'round', jaw: 'near-close' } },
+    how: 'Bắt đầu với miệng mở rộng ở "a", môi thả lỏng, chưa tròn; sau đó khép hàm, lưỡi nâng về phía sau và tròn môi dần về /ʊ/.',
     vn: 'Gần "ao" tiếng Việt; lỗi hay gặp là bỏ phụ âm cuối (house → "hao", mouth → "mao").',
     tip: 'Như "ao" trong "cao", nhưng cuối âm tròn môi về "u" và giữ phụ âm cuối.',
     words: [
@@ -228,7 +228,7 @@
   });
   P.push({
     id: 'ɪə', group: 'diphthongs', ipa: '/ɪə/', title: 'Nguyên âm đôi /ɪə/', emoji: '👂', level: 'A2',
-    mouth: { lips: 'spread', jaw: 'close', tongue: 'front', voiced: true, long: true },
+    mouth: { height: 'near-close', back: 'near-front', lips: 'neutral', jaw: 'near-close', long: true, voiced: true, to: { height: 'mid', back: 'central', lips: 'neutral', jaw: 'mid' } },
     how: 'Bắt đầu ở /ɪ/ rồi lướt về /ə/ ở giữa miệng. Không uốn r ở cuối.',
     vn: 'Hay đọc thành "ia" rõ quá hoặc thêm r cuối. Chỉ cần "i" ngắn rồi thả lỏng về "ơ".',
     tip: 'Giống "ia" trong "mía" nhưng phần sau là "ơ" nhẹ: "here" ≈ "hiơ".',
@@ -241,7 +241,7 @@
   });
   P.push({
     id: 'eə', group: 'diphthongs', ipa: '/eə/', title: 'Nguyên âm đôi /eə/', emoji: '💇', level: 'A2',
-    mouth: { lips: 'spread', jaw: 'mid', tongue: 'front', voiced: true, long: true },
+    mouth: { height: 'open-mid', back: 'front', lips: 'neutral', jaw: 'open-mid', long: true, voiced: true, to: { height: 'mid', back: 'central', lips: 'neutral', jaw: 'mid' } },
     how: 'Bắt đầu ở /e/ rồi lướt về /ə/. Trong RP hiện đại phần cuối rất nhẹ, gần như một "e" dài. Không uốn r.',
     vn: 'Dễ lẫn với /ɪə/ (hair – here). Với /eə/ hàm mở hơn, bắt đầu bằng "e" chứ không phải "i".',
     tip: 'Nói "e" kéo dài rồi thả về "ơ": "care" ≈ "kheơ".',
@@ -254,7 +254,7 @@
   });
   P.push({
     id: 'ʊə', group: 'diphthongs', ipa: '/ʊə/', title: 'Nguyên âm đôi /ʊə/', emoji: '🧳', level: 'B2',
-    mouth: { lips: 'round', jaw: 'close', tongue: 'back', voiced: true, long: true },
+    mouth: { height: 'near-close', back: 'near-back', lips: 'round', jaw: 'near-close', long: true, voiced: true, to: { height: 'mid', back: 'central', lips: 'neutral', jaw: 'mid' } },
     how: 'Bắt đầu ở /ʊ/ với môi tròn nhẹ rồi thả về /ə/. Nhiều người Anh trẻ nay đọc các từ này bằng /ɔː/ (sure = /ʃɔː/), cả hai đều được chấp nhận.',
     vn: 'Hay đọc thành "ua" rõ hoặc thêm r. Chỉ cần "u" ngắn và lướt nhẹ về "ơ".',
     tip: 'Gần "ua" trong "mua" nhưng phần sau là "ơ" nhẹ: "tour" ≈ "tuơ".',
@@ -269,7 +269,7 @@
   /* ================= 24 PHỤ ÂM ================= */
   P.push({
     id: 'p', group: 'consonants', ipa: '/p/', title: 'Phụ âm /p/', emoji: '💨', level: 'A1',
-    mouth: { place: 'lips', manner: 'stop', voiced: false },
+    mouth: { place: 'lips', manner: 'stop', voiced: false, aspirated: true },
     how: 'Hai môi khép lại, giữ hơi rồi bật mạnh ra. Không rung dây thanh. Đầu từ có luồng hơi bật rõ (đặt tờ giấy trước miệng sẽ thấy giấy rung).',
     vn: 'Chữ "p" tiếng Việt gần như không bật hơi, nên "pen" nghe như "ben". Khi ở cuối từ (stop, help) cần khép môi rõ, đừng bỏ.',
     tip: 'Thổi nhẹ như thổi nến khi bật môi.',
@@ -295,10 +295,10 @@
   });
   P.push({
     id: 't', group: 'consonants', ipa: '/t/', title: 'Phụ âm /t/', emoji: '⏱️', level: 'A1',
-    mouth: { place: 'ridge', manner: 'stop', voiced: false },
+    mouth: { place: 'ridge', manner: 'stop', voiced: false, aspirated: true },
     how: 'Đầu lưỡi chạm lợi trên (phần gồ sau răng cửa), chặn hơi rồi bật ra. Không rung. Đầu từ bật hơi mạnh.',
     vn: '"t" tiếng Việt chạm răng và không bật hơi; "t" tiếng Anh ở lợi và bật hơi, gần "th" Việt hơn. Ở cuối từ (light, test) đừng bỏ âm.',
-    tip: '"ten" nghe gần "then" (kiểu "th" Việt) hơn là "ten" Việt.',
+    tip: '"ten" nghe gần "thèn" (chữ "th" tiếng Việt, có luồng hơi) hơn là "ten" tiếng Việt.',
     words: [
       { w: 'time', ipa: '/taɪm/' }, { w: 'ten', ipa: '/ten/' }, { w: 'water', ipa: '/ˈwɔːtə/' }, { w: 'student', ipa: '/ˈstjuːdnt/' },
       { w: 'important', ipa: '/ɪmˈpɔːtnt/' }, { w: 'light', ipa: '/laɪt/' }, { w: 'test', ipa: '/test/' }, { w: 'little', ipa: '/ˈlɪtl/' }
@@ -310,8 +310,8 @@
     id: 'd', group: 'consonants', ipa: '/d/', title: 'Phụ âm /d/', emoji: '🥁', level: 'A1',
     mouth: { place: 'ridge', manner: 'stop', voiced: true },
     how: 'Đầu lưỡi chạm lợi trên như /t/ nhưng rung dây thanh và bật hơi nhẹ.',
-    vn: '"đ" tiếng Việt chạm răng và hơi "nuốt" vào; /d/ tiếng Anh ở lợi. Đừng đọc chữ "d" thành "z" kiểu tiếng Việt, và đừng bỏ /d/ cuối (food, good).',
-    tip: 'Giống "đ" nhưng đặt lưỡi lùi lên lợi, cuối từ vẫn phải nghe được.',
+    vn: '"đ" tiếng Việt là âm hút hơi vào trong (nghe hơi "nuốt"); /d/ tiếng Anh đẩy hơi ra bình thường, đầu lưỡi chạm lợi trên. Đừng đọc chữ "d" thành "z" kiểu tiếng Việt, và đừng bỏ /d/ cuối (food, good).',
+    tip: 'Gần "đ" nhưng không hút hơi vào; đầu lưỡi đặt ở lợi trên và cuối từ vẫn phải nghe được.',
     words: [
       { w: 'day', ipa: '/deɪ/' }, { w: 'door', ipa: '/dɔː/' }, { w: 'idea', ipa: '/aɪˈdɪə/' }, { w: 'study', ipa: '/ˈstʌdi/' },
       { w: 'good', ipa: '/ɡʊd/' }, { w: 'food', ipa: '/fuːd/' }, { w: 'decide', ipa: '/dɪˈsaɪd/' }, { w: 'develop', ipa: '/dɪˈveləp/' }
@@ -321,10 +321,10 @@
   });
   P.push({
     id: 'k', group: 'consonants', ipa: '/k/', title: 'Phụ âm /k/', emoji: '🔑', level: 'A1',
-    mouth: { place: 'back', manner: 'stop', voiced: false },
+    mouth: { place: 'back', manner: 'stop', voiced: false, aspirated: true },
     how: 'Cuống lưỡi nâng chạm ngạc mềm, chặn hơi rồi bật ra. Không rung, đầu từ bật hơi mạnh.',
-    vn: '"c/k" tiếng Việt không bật hơi, gần /ɡ/ với tai người Anh. Đầu từ cần bật hơi như "kh" nhẹ; cuối từ (book, back) phải bật rõ.',
-    tip: '"key" nên nghe gần "khi" hơn là "ki".',
+    vn: '"c/k" tiếng Việt không bật hơi, gần /ɡ/ với tai người Anh. Đầu từ cần một luồng hơi bật ra ngay sau âm (nhưng không cọ xát như chữ kh của tiếng Việt); cuối từ (book, back) phải chặn cuống lưỡi rõ để âm không mất.',
+    tip: 'Cầm tờ giấy trước miệng: nói "key" thì giấy rung vì có luồng hơi bật ra, còn "ki" tiếng Việt thì không.',
     words: [
       { w: 'cat', ipa: '/kæt/' }, { w: 'key', ipa: '/kiː/' }, { w: 'school', ipa: '/skuːl/' }, { w: 'quick', ipa: '/kwɪk/' },
       { w: 'book', ipa: '/bʊk/' }, { w: 'back', ipa: '/bæk/' }, { w: 'economy', ipa: '/ɪˈkɒnəmi/' }, { w: 'technique', ipa: '/tekˈniːk/' }
@@ -362,7 +362,7 @@
     id: 'v', group: 'consonants', ipa: '/v/', title: 'Phụ âm /v/', emoji: '✌️', level: 'A1',
     mouth: { place: 'teeth', manner: 'fricative', voiced: true },
     how: 'Răng trên chạm môi dưới như /f/ nhưng rung dây thanh.',
-    vn: 'Cuối từ hay bị bỏ hoặc đọc thành /f/: "five" thành "phai", "have" thành "he". Giữ rung đến hết âm.',
+    vn: 'Cuối từ hay bị bỏ hoặc đọc thành /f/: "five" thành "phai", "have" thành "ha" hoặc "háp". Giữ rung đến hết âm.',
     tip: 'Như "v" tiếng Việt; ở cuối từ hãy kéo dài tiếng "vvv" như tiếng ong.',
     words: [
       { w: 'very', ipa: '/ˈveri/' }, { w: 'voice', ipa: '/vɔɪs/' }, { w: 'five', ipa: '/faɪv/' }, { w: 'love', ipa: '/lʌv/' },
@@ -400,9 +400,9 @@
   P.push({
     id: 's', group: 'consonants', ipa: '/s/', title: 'Phụ âm /s/', emoji: '🐍', level: 'A1',
     mouth: { place: 'ridge', manner: 'fricative', voiced: false },
-    how: 'Đầu lưỡi gần lợi trên, hai hàm răng gần khép, đẩy hơi qua khe hẹp tạo tiếng xì. Môi kéo nhẹ.',
+    how: 'Đầu lưỡi gần lợi trên, hai hàm răng gần khép, đẩy hơi qua khe hẹp tạo tiếng xì. Môi kéo nhẹ, không rung dây thanh.',
     vn: 'Người Việt hay bỏ /s/ ở cuối từ, nhất là số nhiều (books → "búc") và cụm phụ âm (best → "bét"). Luôn đọc rõ tiếng xì ở cuối.',
-    tip: 'Tiếng rắn "sss"; khác "s" (sờ) miền Bắc ở chỗ lưỡi ở trước, không cong.',
+    tip: 'Tiếng rắn "sss", gần chữ "x" tiếng Việt: đầu lưỡi ở trước, không uốn cong như khi đọc "s" uốn lưỡi.',
     words: [
       { w: 'see', ipa: '/siː/' }, { w: 'sun', ipa: '/sʌn/' }, { w: 'city', ipa: '/ˈsɪti/' }, { w: 'class', ipa: '/klɑːs/' },
       { w: 'increase', ipa: '/ɪnˈkriːs/' }, { w: 'science', ipa: '/ˈsaɪəns/' }, { w: 'best', ipa: '/best/' }, { w: 'books', ipa: '/bʊks/' }
@@ -413,7 +413,7 @@
   P.push({
     id: 'z', group: 'consonants', ipa: '/z/', title: 'Phụ âm /z/', emoji: '🐝', level: 'A1',
     mouth: { place: 'ridge', manner: 'fricative', voiced: true },
-    how: 'Vị trí như /s/ nhưng rung dây thanh, tạo tiếng như ong vo ve.',
+    how: 'Vị trí như /s/ (đầu lưỡi gần lợi trên) nhưng rung dây thanh, tạo tiếng như ong vo ve.',
     vn: 'Cuối từ hay bị đọc thành /s/ hoặc bỏ hẳn (dogs, because, choose). Đuôi -s sau âm hữu thanh đọc là /z/.',
     tip: 'Như tiếng ong "zzz"; "d/gi" miền Bắc khá gần, nhưng phải giữ cả ở cuối từ.',
     words: [
@@ -425,8 +425,8 @@
   });
   P.push({
     id: 'ʃ', group: 'consonants', ipa: '/ʃ/', title: 'Phụ âm /ʃ/', emoji: '🤫', level: 'A2',
-    mouth: { place: 'palate', manner: 'fricative', voiced: false },
-    how: 'Thân lưỡi nâng gần ngạc cứng (lùi sau /s/), môi chu tròn ra trước, thổi hơi tạo tiếng "suỵt". Không rung.',
+    mouth: { place: 'post-ridge', manner: 'fricative', voiced: false, lips: 'round' },
+    how: 'Đầu và mặt lưỡi đặt gần vùng ngay sau lợi trên (lùi sau /s/), thân lưỡi hơi nâng, môi chu tròn ra trước, thổi hơi tạo tiếng "suỵt". Không rung.',
     vn: 'Hay lẫn với /s/ (she – see). Với /ʃ/ môi phải chu ra và lưỡi lùi sau; "s" miền Bắc thường quá giống /s/.',
     tip: 'Như khi ra hiệu im lặng "suỵt!", môi chu tròn.',
     words: [
@@ -438,10 +438,10 @@
   });
   P.push({
     id: 'ʒ', group: 'consonants', ipa: '/ʒ/', title: 'Phụ âm /ʒ/', emoji: '📺', level: 'B1',
-    mouth: { place: 'palate', manner: 'fricative', voiced: true },
-    how: 'Khẩu hình giống /ʃ/ (môi chu, lưỡi lùi) nhưng rung dây thanh. Hiếm khi đứng đầu từ; thường gặp trong -sion, -sure.',
+    mouth: { place: 'post-ridge', manner: 'fricative', voiced: true, lips: 'round' },
+    how: 'Khẩu hình giống /ʃ/ (môi chu, đầu lưỡi ở vùng sau lợi) nhưng rung dây thanh. Hiếm khi đứng đầu từ; thường gặp trong -sion, -sure.',
     vn: 'Hay bị đọc thành "d/z" Việt hoặc /ʃ/ không rung (television → "te-lê-vi-sần"). Chu môi và ngân rung.',
-    tip: 'Nói "suỵt" /ʃ/ rồi thêm rung ở cổ là ra /ʒ/; gần "r" kiểu nhiều người miền Nam đọc "gi".',
+    tip: 'Nói "suỵt" /ʃ/ rồi thêm rung ở cổ là ra /ʒ/; gần chữ "r" khi đọc uốn lưỡi (phân biệt r với d/gi).',
     words: [
       { w: 'television', ipa: '/ˈtelɪvɪʒn/' }, { w: 'usually', ipa: '/ˈjuːʒuəli/' }, { w: 'measure', ipa: '/ˈmeʒə/' }, { w: 'decision', ipa: '/dɪˈsɪʒn/' },
       { w: 'pleasure', ipa: '/ˈpleʒə/' }, { w: 'vision', ipa: '/ˈvɪʒn/' }, { w: 'leisure', ipa: '/ˈleʒə/' }, { w: 'garage', ipa: '/ˈɡærɑːʒ/' }
@@ -451,8 +451,8 @@
   });
   P.push({
     id: 'tʃ', group: 'consonants', ipa: '/tʃ/', title: 'Phụ âm /tʃ/', emoji: '🚂', level: 'A2',
-    mouth: { place: 'palate', manner: 'affricate', voiced: false },
-    how: 'Bắt đầu như /t/ (lưỡi chặn ở lợi) rồi nhả ra thành /ʃ/. Môi chu nhẹ, không rung, bật hơi mạnh.',
+    mouth: { place: 'post-ridge', manner: 'affricate', voiced: false, lips: 'round', aspirated: true },
+    how: 'Đầu lưỡi chặn hơi ở vùng ngay sau lợi trên (lùi hơn /t/ một chút) rồi nhả ra thành /ʃ/. Môi chu nhẹ, không rung, có luồng hơi bật ra.',
     vn: '"ch" tiếng Việt mềm, không chu môi và không bật hơi. Cuối từ (watch, much) hay bị mất hẳn. Chu môi và bật một tiếng "tch" ngắn.',
     tip: 'Như tiếng tàu hỏa "choo-choo", môi chu ra.',
     words: [
@@ -464,9 +464,9 @@
   });
   P.push({
     id: 'dʒ', group: 'consonants', ipa: '/dʒ/', title: 'Phụ âm /dʒ/', emoji: '🤹', level: 'A2',
-    mouth: { place: 'palate', manner: 'affricate', voiced: true },
-    how: 'Bắt đầu như /d/ rồi nhả thành /ʒ/, có rung dây thanh. Môi chu nhẹ.',
-    vn: 'Hay đọc thành "gi/d" Việt (z) hoặc "ch": "job" → "dóp", "change" → "chen". Lưỡi phải chạm lợi trước rồi mới nhả.',
+    mouth: { place: 'post-ridge', manner: 'affricate', voiced: true, lips: 'round' },
+    how: 'Đầu lưỡi chặn hơi ở vùng ngay sau lợi trên như /tʃ/ rồi nhả thành /ʒ/, có rung dây thanh. Môi chu nhẹ.',
+    vn: 'Hay đọc thành "gi/d" Việt (z) hoặc "ch": "job" → "dóp", "change" → "chen". Lưỡi phải chặn ở vùng sau lợi trước rồi mới nhả.',
     tip: 'Như /tʃ/ nhưng có rung: "jeep" khác "cheap" ở chỗ cổ họng rung.',
     words: [
       { w: 'job', ipa: '/dʒɒb/' }, { w: 'just', ipa: '/dʒʌst/' }, { w: 'change', ipa: '/tʃeɪndʒ/' }, { w: 'age', ipa: '/eɪdʒ/' },
@@ -478,7 +478,7 @@
   P.push({
     id: 'h', group: 'consonants', ipa: '/h/', title: 'Phụ âm /h/', emoji: '😮‍💨', level: 'A1',
     mouth: { place: 'throat', manner: 'fricative', voiced: false },
-    how: 'Miệng đặt sẵn cho nguyên âm theo sau, đẩy luồng hơi nhẹ từ họng ra. Không ma sát ở lưỡi hay môi.',
+    how: 'Miệng đặt sẵn cho nguyên âm theo sau, đẩy luồng hơi nhẹ qua thanh hầu (họng) ra. Không rung dây thanh, không cọ xát ở lưỡi hay môi.',
     vn: 'Gần "h" tiếng Việt; tránh đọc nặng thành "kh". Chú ý từ có h câm (hour, honest) và đừng bỏ h ở từ cần đọc (hair ≠ air).',
     tip: 'Như hà hơi lên kính để lau.',
     words: [
@@ -529,8 +529,8 @@
   });
   P.push({
     id: 'l', group: 'consonants', ipa: '/l/', title: 'Phụ âm /l/', emoji: '👅', level: 'A1',
-    mouth: { place: 'ridge', manner: 'approximant', voiced: true },
-    how: 'Đầu lưỡi chạm lợi trên, hơi đi ra hai bên lưỡi. Ở cuối từ (feel, school) là "l tối": cuống lưỡi nâng lên, nghe hơi giống "âu/ồ".',
+    mouth: { place: 'ridge', manner: 'approximant', voiced: true, lateral: true },
+    how: 'Đầu lưỡi chạm lợi trên, hơi đi ra hai bên lưỡi, dây thanh rung. Ở cuối từ (feel, school) là "l tối": cuống lưỡi nâng lên, nghe hơi giống "âu/ồ".',
     vn: 'Hay bỏ /l/ cuối từ ("school" → "sku") hoặc lẫn n/l. Ở cuối từ, giữ đầu lưỡi chạm lợi một chút.',
     tip: 'Đầu từ như "l" Việt; cuối từ kết thúc bằng lưỡi chạm lợi, đừng ngắt miệng sớm.',
     words: [
@@ -542,8 +542,8 @@
   });
   P.push({
     id: 'r', group: 'consonants', ipa: '/r/', title: 'Phụ âm /r/', emoji: '🦁', level: 'A2',
-    mouth: { place: 'ridge', manner: 'approximant', voiced: true },
-    how: 'Đầu lưỡi cong nhẹ về phía sau lợi nhưng không chạm, môi hơi tròn. Không rung lưỡi. Giọng Anh chỉ đọc r khi sau nó là nguyên âm (red, very), còn "car", "water" thì không đọc r.',
+    mouth: { place: 'post-ridge', manner: 'approximant', voiced: true, lips: 'round' },
+    how: 'Đầu lưỡi cong nhẹ lên vùng sau lợi nhưng không chạm, môi hơi tròn, dây thanh rung. Không rung đầu lưỡi như "r" rung. Giọng Anh chỉ đọc r khi sau nó là nguyên âm (red, very), còn "car", "water" thì không đọc r.',
     vn: 'Hay đọc thành "r" rung lưỡi, "z" (kiểu miền Bắc) hoặc lẫn với /l/. Không để lưỡi chạm đâu cả, môi hơi chu.',
     tip: 'Bắt đầu như "u" chu môi rồi cong lưỡi: "red" ≈ "(u)ret".',
     words: [
@@ -555,8 +555,8 @@
   });
   P.push({
     id: 'w', group: 'consonants', ipa: '/w/', title: 'Phụ âm /w/', emoji: '😗', level: 'A1',
-    mouth: { place: 'lips', manner: 'approximant', voiced: true },
-    how: 'Môi chu tròn và hẹp như /uː/, cuống lưỡi nâng, rồi nhanh chóng mở sang nguyên âm sau. Răng không chạm môi.',
+    mouth: { place: 'lips-back', manner: 'approximant', voiced: true, lips: 'round' },
+    how: 'Môi chu tròn và hẹp như /uː/, cuống lưỡi nâng về phía ngạc mềm, dây thanh rung, rồi nhanh chóng mở sang nguyên âm sau. Răng không chạm môi.',
     vn: 'Hay lẫn với /v/ (west → "vest") vì răng chạm môi. Giữ môi tròn, không để răng chạm.',
     tip: 'Giống "qu/oa" trong "quà", "oa": "we" ≈ "uy".',
     words: [
@@ -569,7 +569,7 @@
   P.push({
     id: 'j', group: 'consonants', ipa: '/j/', title: 'Phụ âm /j/', emoji: '🙋', level: 'A1',
     mouth: { place: 'palate', manner: 'approximant', voiced: true },
-    how: 'Thân lưỡi nâng gần ngạc cứng như /iː/, rồi lướt nhanh sang nguyên âm sau. Không ma sát.',
+    how: 'Thân lưỡi nâng gần ngạc cứng như /iː/, dây thanh rung, rồi lướt nhanh sang nguyên âm sau. Không cọ xát.',
     vn: 'Hay bỏ /j/ (year → "ia", giống "ear") hoặc đọc thành "z/gi" Việt. Bắt đầu bằng một "i" rất ngắn.',
     tip: 'Như "y" trong "yêu": "yes" ≈ "i-ét" nói liền.',
     words: [
