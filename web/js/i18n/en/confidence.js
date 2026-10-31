@@ -352,7 +352,7 @@
    "Nêu rõ bạn đã báo nhiều lần mà chưa được giải quyết": "Say you asked before and it is still not fixed",
    "Kể lại sự việc rõ ràng, bình tĩnh, có số lần cụ thể.": "Give the history clearly and calmly, with real numbers.",
    "Từ chối một đề nghị một cách lịch sự": "Say no to an offer politely",
-   "\"I'm afraid…\" làm lời từ chối dứt khóat nghe mềm hơn.": "\"I'm afraid…\" makes a firm \"no\" sound softer.",
+   "\"I'm afraid…\" làm lời từ chối dứt khoát nghe mềm hơn.": "\"I'm afraid…\" makes a firm \"no\" sound softer.",
    "Hỏi họ có thể giúp gì": "Ask what they can do for you",
    "Câu hỏi mở mời họ tự đưa ra giải pháp.": "An open question invites them to offer a solution.",
    "Xin gặp người có quyền quyết định": "Ask for a person who can decide",
