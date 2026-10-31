@@ -3,8 +3,9 @@
   python3 scripts/video/teach2d/build.py --ep EP.json --vo VO/vis3 --host HOST_DIR --format short|wide --public PUB --out PROPS.json
 - Timeline: every line's Kokoro wav placed one after another (pause after each line from the spec; quiz = 3 s countdown, repeat = 1.8 s),
   word times = faster-whisper clock aligned to the exact caption tokens (news_voice.py), so captions, cards and mouth share one clock.
-- Host: the 2D registry teacher (web/teach/<who>/talk|listen, host.py -> VP9 alpha) speech-gated: talk while the voice speaks, closed-mouth
-  listen in every pause > 0.3 s (owner 26/10). One fixed transform for the whole video (no zoom, no pan).
+- Host: the 2D registry teacher (web/teach/<who>/<pose>-hd, host.py -> VP9 alpha) speech-gated: talk while the voice speaks, closed-mouth
+  listen in every pause > 0.3 s (owner 26/10); gesture poses on their cues (pose.py: point / thinking / happy / cheer / explain / encourage), each
+  only on frames of its own mouth class, 8-frame crossfades. One fixed transform for the whole video, never > 1.0x.
 - Cards: Lexkite Kit (Stitch) components in ONE card region above the teacher's head; every element appears on its spoken word
   (in.t = word.s - HALF, gate +-80 ms), static while read, cards in a slot hand over without overlap. Calm 'soft' entrances only (owner
   rejected the bouncy #191 effects), one light celebration (check + confetti <= 0.9 s) on the quiz answer.
@@ -16,6 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HER
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); import core as C   # noqa: E402  (same maths as Remotion core.mjs)
 sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import bank_ipa   # noqa: E402  (audited IPA bank, same lookup as qc.py)
 sys.path.insert(0, HERE); import fit as FT   # noqa: E402  (chip / pill text fit, same maths as qc.py)
+import pose as PZ   # noqa: E402  (gesture pose cues + mouth class, same plan qc.py re-checks)
 
 ap = argparse.ArgumentParser()
 for a in ('ep', 'vo', 'host', 'public', 'out'): ap.add_argument('--' + a, required=True)
@@ -707,7 +709,7 @@ for l in EP['lines']:
 if not FMT['cap']: CAPS = []
 
 # ---------------- host: speech-gated talk / listen segments (frames), one fixed transform ----------------
-FPS = o.fps; NF = int(round(TOTAL * FPS)); LEN = {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in ('talk', 'listen')}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
+FPS = o.fps; NF = int(round(TOTAL * FPS)); LEN = {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in HG['clips']}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
 spk = np.zeros(NF, bool)
 for a, b in SPEECH: spk[max(0, int((a - 0.05) * FPS)):min(NF, int(math.ceil((b + 0.05) * FPS)))] = True
 # close short silences (< 0.3 s) so the mouth does not flicker shut between words of one sentence
@@ -719,14 +721,22 @@ while i < NF:
         if 0 < i and j < NF and (j - i) / FPS < 0.3: spk[i:j] = True
         i = j
     else: i += 1
-SEG = []; pos = dict(talk=0, listen=0); f = 0
+# gesture poses on their cues (pose.py): point on the quiz question, thinking in the 3-2-1, happy (+ cheer when the silence allows) on the answer,
+# explain on the rule line, encourage on the share line. A pose only takes frames of its own mouth class, so talk/listen gating is unchanged.
+POSE_W = PZ.windows([l['id'] for l in EP['lines']], LINES, EP['template'], EP.get('rule_line'))
+LAB = PZ.plan(list(spk), FPS, POSE_W)
+assert all(p_ in HG['clips'] for p_ in set(LAB)), ('host.py did not export every pose the plan uses', sorted(set(LAB) - set(HG['clips'])))
+SEG = []; pos = {k_: 0 for k_ in HG['clips']}; f = 0
 while f < NF:
-    k = 'talk' if spk[f] else 'listen'; g = f
-    while g < NF and spk[g] == spk[f]: g += 1
+    k = LAB[f]; g = f
+    while g < NF and LAB[g] == k: g += 1
     n = g - f
+    if k in PZ.GESTURES: pos[k] = 0   # every gesture cue plays its clip from the relaxed first frame (the registry clips start and end relaxed)
     while n > 0:
         take = min(n, LEN[k] - pos[k]); SEG.append(dict(clip=k, from_=f, dur=take, start=pos[k])); pos[k] = (pos[k] + take) % LEN[k]; f += take; n -= take
-for s_ in SEG: s_['from'] = s_.pop('from_')
+for i_, s_ in enumerate(SEG):
+    s_['from'] = s_.pop('from_')
+    if i_ and (s_['clip'] in PZ.GESTURES or SEG[i_ - 1]['clip'] in PZ.GESTURES): s_['xf'] = PZ.XF_POSE   # softer crossfade into / out of a gesture
 k = FMT['host_h'] / HG['h']; hw = HG['w'] * k; hb = HG['head']; BB = FMT.get('bubble')
 assert k <= 1.0, ('teacher would be enlarged > 1.0x', k)
 if BB:   # round call window: head + shoulders centred, head ~55 % of the window height (pure framing of the raw clip, no processing)
@@ -737,7 +747,11 @@ elif FMT.get('head_y'):   # v2 short layouts: the head top sits right under the 
     assert y0 + HG['bbox'][3] * k >= H, ('the bust cut of the clip would show above the frame bottom', round(y0 + HG['bbox'][3] * k), H)
     assert FMT['cap'][3] < FMT['head_y'] <= FMT['cap'][3] + 40, ('caption must sit directly above the head', FMT['cap'], FMT['head_y'])
 else: box = [round(FMT['host_cx'] - hw / 2, 1), H - FMT['host_h'], round(FMT['host_cx'] + hw / 2, 1), H]
-HOST = dict(who=EP['teacher'], talk='host_talk.webm', listen='host_listen.webm', box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
+USED = sorted({s_['clip'] for s_ in SEG})
+HOST = dict(who=EP['teacher'], files={k_: f'host_{k_}.webm' for k_ in USED}, box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
+for k_ in USED:   # every pose clip shares the talk-hd frame and is never shown above 1.0x (camera push included, below)
+    assert (HG['clips'][k_]['w'], HG['clips'][k_]['h']) == (HG['w'], HG['h']), (k_, 'pose clip frame differs from talk-hd')
+    assert (box[3] - box[1]) / HG['clips'][k_]['h'] <= 1.0 + 1e-6, (k_, 'pose clip would be enlarged > 1.0x')
 # ---- camera (social shorts): push-in on the hook, then a hard cut to a new framing at every sentence start, slow push inside each shot.
 # Scale is anchored at the top of the teacher's head, so the head never rises into the captions; source pixels never exceed 1.0x.
 SHOTS = []
@@ -841,7 +855,7 @@ qr = qrcode.QRCode(border=2, box_size=12, error_correction=qrcode.constants.ERRO
 qr.make_image(fill_color=TH['qr_ink'], back_color='white').save(f'{o.public}/qr.png')
 shutil.copy(f'{ROOT}/brand/social/logo/lexkite-app-icon.png', f'{o.public}/icon.png')
 os.makedirs(f'{o.public}/fonts', exist_ok=True); shutil.copy(FJ, f'{o.public}/fonts/jakarta.ttf'); shutil.copy(FN, f'{o.public}/fonts/noto.ttf')
-for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
+for k_ in USED: shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
 if EP['template'] == 'guess':   # picture from content/lexicon/img.json (licensed bank image, the same one the app shows) -> pic.png
     it = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items'][EP['data']['img']]; raw_ = f'{o.public}/_pic.webp'
     subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', raw_, it['url']], check=True)
@@ -852,7 +866,8 @@ props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, lay
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause']) for k, v in LINES.items()},
-               speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
+               speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, host_box=box, host_geom=dict(w=HG['w'], h=HG['h'], clips={k_: dict(w=v_['w'], h=v_['h'], mouth=v_['mouth']) for k_, v_ in HG['clips'].items()}),
+               host_k=round((box[3] - box[1]) / HG['h'], 5), cam=HOST.get('cam'), pose_windows=[[p_, round(a_, 3), round(b_, 3)] for p_, a_, b_ in POSE_W], rule_line=EP.get('rule_line'), head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
                voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], body_clear=[round(v, 1) for v in BODYC], hook_by=EP.get('hook_by', 2.2), cta=EP['cta'], nodes=NODES, caps=CAPS, scene=SCENE),
           open(o.out + '.timeline.json', 'w'), indent=0)
 if EMBED:   # captions + chapters as WebVTT (translatable, one cue per line)

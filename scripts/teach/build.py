@@ -31,17 +31,18 @@ def bbox(mask, crop):   # bao alpha (ngưỡng 24) gộp mọi khung, toạ đ�
     return [min(b[0] for b in bs), min(b[1] for b in bs), max(b[2] for b in bs), max(b[3] for b in bs)] if bs else None
 
 
-def vid_rgba(o, fr=12):   # khung fr của clip xếp chồng (màu trên / alpha dưới) → RGBA đã bỏ premultiply
+def vid_rgba(o, fr=12, x=1):   # khung fr của clip xếp chồng (màu trên / alpha dưới) → RGBA đã bỏ premultiply; x=2: bản -hd (2× điểm ảnh)
     import numpy as np
-    grab = lambda vf, fmt, ch: np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', o, '-vf', f'select=eq(n\\,{fr}),{vf}', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', fmt, '-'], capture_output=True).stdout, np.uint8).reshape(H, F['w'], ch).astype(float)
-    a = grab(f"crop={F['w']}:{H}:0:{H}", 'gray', 1); c = grab(f"crop={F['w']}:{H}:0:0", 'rgb24', 3)   # alpha đọc thẳng luma (không lem chroma từ nửa màu)
+    w, h = F['w'] * x, H * x
+    grab = lambda vf, fmt, ch: np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', o, '-vf', f'select=eq(n\\,{fr}),{vf}', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', fmt, '-'], capture_output=True).stdout, np.uint8).reshape(h, w, ch).astype(float)
+    a = grab(f"crop={w}:{h}:0:{h}", 'gray', 1); c = grab(f"crop={w}:{h}:0:0", 'rgb24', 3)   # alpha đọc thẳng luma (không lem chroma từ nửa màu)
     c = np.where(a > 0, np.clip(c * 255 / np.maximum(a, 1), 0, 255), 0)
     return np.concatenate([c, a], 2).astype(np.uint8)
 
 
-def vid_spill(o):   # cùng phép đo ánh xanh như edge_qc (video)
+def vid_spill(o, x=1):   # cùng phép đo ánh xanh như edge_qc (video)
     import numpy as np
-    r = vid_rgba(o).astype(float); A, C = r[..., 3], r[..., :3]; e = (A > 16) & (A < 240); col = C[e]
+    r = vid_rgba(o, x=x).astype(float); A, C = r[..., 3], r[..., :3]; e = (A > 16) & (A < 240); col = C[e]
     return float(((col[:, 1] > np.maximum(col[:, 0], col[:, 2]) + 22) & (col[:, 1] > 50)).mean()) if e.sum() else 0.0
 
 
@@ -115,12 +116,20 @@ for who, P in R['people'].items():
         print(f'  {pose:9s} {src}[{a}:{z}] {os.path.getsize(o) // 1024} KB crf {q}')
         # ảnh tĩnh từng tư thế @2× (khung tiêu biểu: 'still' trong registry, mặc định 40 % clip) – Chars.still / Chars.img({pose})
         still(cf, cm, c.get('still', a + N * 2 // 5), SC2, FA2, f'{OUT}/{who}/still-{pose}.webp')
-        if pose in ('talk', 'listen'):   # clip HD cho chỗ lớn sống (Call): 2× điểm ảnh, ≤ 900 KB
-            oh = f'{OUT}/{who}/{pose}-hd.mp4'
-            run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g.replace(f',{SC},{FA}[a]', f',{SC2},{FA2}[a]').replace(f',{SC},format=rgba[c]', f',{SC2},format=rgba[c]'),
-                '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(F['crf']), '-tune', 'animation', '-movflags', '+faststart', oh)
-            if probe(oh, 'width,height,nb_read_frames') != f'{W * 2},{H * 4},{2 * N - 2}': errs.append(f'{oh}: sai cỡ/khung')
-            if os.path.getsize(oh) > 900 * 1024: errs.append(f'{oh}: {os.path.getsize(oh) // 1024} KB > 900 KB')
+        # clip HD MỌI tư thế (chỗ lớn sống: Call, video Teach2D – docs/VIDEO-TEACH2D.md): 2× điểm ảnh từ nguồn PRO 1080 (px nguồn / px HD = s/2 ≥ 1 → chỉ thu nhỏ,
+        # không phóng), ≤ 900 KB; lộ viền xanh do nén → dồn bit cho chroma như bản thường, không hạ ngưỡng
+        if s / 2 < 1: errs.append(f'{who}: nguồn {s / 2:.2f} px / px HD < 1 → bản -hd sẽ bị phóng to')
+        oh = f'{OUT}/{who}/{pose}-hd.mp4'; gh = g.replace(f',{SC},{FA}[a]', f',{SC2},{FA2}[a]').replace(f',{SC},format=rgba[c]', f',{SC2},format=rgba[c]')
+        for cq in (0, -2, -4):
+            run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', gh, '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(F['crf']),
+                '-tune', 'animation', *(['-x264-params', f'chroma-qp-offset={cq}'] if cq else []), '-movflags', '+faststart', oh)
+            if vid_spill(oh, x=2) <= 0.004: break
+        if probe(oh, 'width,height,nb_read_frames') != f'{W * 2},{H * 4},{2 * N - 2}': errs.append(f'{oh}: sai cỡ/khung')
+        if os.path.getsize(oh) > 900 * 1024: errs.append(f'{oh}: {os.path.getsize(oh) // 1024} KB > 900 KB')
+        # cổng matte PRO của kho footage (matte_qa.py, lượt matte-pro #225): clip nguồn phải PASS mới được dựng
+        qa = f'{G}/kmask_pro/{src}.qa.json'
+        if not os.path.exists(qa): errs.append(f'{who}/{pose}: thiếu {qa} (matte_qa PRO)')
+        elif not json.load(open(qa)).get('ok'): errs.append(f'{who}/{pose}: matte PRO {src} không đạt matte_qa ({json.load(open(qa)).get("fails")})')
     cf, cm = f'{G}/kfull_pro/{t0}.mp4', f'{G}/kmask_pro/{t0}.mkv'
     run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]format=gray,crop={crop},{SC},{FA}[a];[0:v]crop={crop},{SC}[c];[c][a]alphamerge',
         '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', f'{OUT}/{who}/poster.webp')
@@ -138,6 +147,7 @@ for who, P in R['people'].items():
         o = f'{OUT}/{who}/{pose}.mp4'
         if not os.path.exists(o): continue
         edge_qc(f'{who}/{pose}.mp4', vid_rgba(o), tol=8)
+        if os.path.exists(o.replace('.mp4', '-hd.mp4')): edge_qc(f'{who}/{pose}-hd.mp4', vid_rgba(o.replace('.mp4', '-hd.mp4'), x=2), tol=8)
     kb = sum(os.path.getsize(f'{OUT}/{who}/{k}') for k in ('talk.mp4', 'listen.mp4', 'poster.webp')) // 1024
     if kb > 420: errs.append(f'{who}: talk+listen+poster {kb} KB > 420 KB')
 

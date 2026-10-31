@@ -24,7 +24,7 @@ for (const who of IDS) {
     const c = R.people[who].clips[p]; if (!c) { errs.push(`${who}: thiếu tư thế ${p}`); continue; }
     const pend = C.clip(who, p) !== `teach/${who}/${p}.mp4`;
     if (!!c.pending !== pend) errs.push(`${who}/${p}: pending trong JSON (${!!c.pending}) ≠ Chars (${pend})`);
-    if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); if (p === 'talk' || p === 'listen') want.add(`${who}/${p}-hd.mp4`); }
+    if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); want.add(`${who}/${p}-hd.mp4`); }
   }
 }
 for (const f of want) {
