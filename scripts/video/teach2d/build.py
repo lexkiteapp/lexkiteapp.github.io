@@ -864,6 +864,27 @@ if EP['template'] == 'guess':   # picture from content/lexicon/img.json (license
     from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------
+def _hand_off():
+    """clean hand-offs (owner 31/10 overlap review): a top-level element that leaves where a later one enters is fully faded (core OUT) BEFORE the
+    newcomer starts, so two cards' texts never show through each other for a few frames. Only out times move (the newcomer keeps its spoken cue)."""
+    top_ = [n for n in NODES if not n.get('parent') and n.get('box')]
+    hit = lambda a, b: a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
+    for _ in range(3):   # a moved out may line up with another one: settle
+        for A in top_:
+            if not A.get('out'): continue
+            for B in top_:
+                if B is A or not hit(A['box'], B['box']) or B['in']['t'] <= A['in']['t']: continue
+                if A['out']['t'] - 0.05 <= B['in']['t'] < A['out']['t'] + C.OUT:   # B enters while A is still fading out
+                    old, new = A['out']['t'], round(max(A['in']['t'] + 0.5, B['in']['t'] - C.OUT - 0.01), 4)
+                    for K in top_:   # its own top-level riders (✓ / confetti / ring / strike placed on it) leave with it
+                        if K is not A and K.get('out') and abs(K['out']['t'] - old) <= 0.45 and K['out']['t'] > new and A['box'][0] <= (K['box'][0] + K['box'][2]) / 2 <= A['box'][2] and A['box'][1] <= (K['box'][1] + K['box'][3]) / 2 <= A['box'][3]:
+                            K['out'] = dict(K['out'], t=new)
+                    A['out'] = dict(A['out'], t=new)
+                    for sl in SLOTS:
+                        if sl['card'] == A['id']: sl['t_out'] = new
+
+
+_hand_off()
 props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav', scene=SCENE)
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],

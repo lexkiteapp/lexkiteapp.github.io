@@ -4,6 +4,7 @@ Sampled every 0.1 s on the timeline (absolute canvas px), elements with alpha > 
   gap      two visible leaves (text, chips, pills, badges, tags …) closer than GAP px (touching counts; two text rows: any overlap) – same allowed pairs as the layout gate
   inside   a card's child sticks out of its card: < INSET px from the left / right / top edge, or below the card's CURRENT height (cards grow
            with their rows, build.py 'grow') minus the ledge
+  cross    an element still fading out (alpha > 0.02) over one that is already coming in – the hand-off must be clean
   edge     free (card-less) leaf partly over a top-level card / split (fully inside one = on purpose, e.g. a title on a split card; a VS / ≠ medallion
            whose centre sits in the gutter between cards bridges them on purpose)
 qc.py imports audit() as the 'clearance' gate; `python3 clear.py TIMELINE.json …` prints the problems of saved timelines."""
@@ -54,6 +55,14 @@ def audit(T):
     for i in range(int(T['total'] * 10)):
         t = i / 10; vis = [n for n in T['nodes'] if n.get('box') and alpha(n, t) > 0.3]
         lv = [n for n in vis if n['type'] in LEAF]
+        fade = [n for n in T['nodes'] if n.get('box') and not n.get('parent') and n['type'] != 'confetti' and alpha(n, t) > 0.02]
+        for a in range(len(fade)):   # cross: an element still fading out where another one is fading in (texts show through each other)
+            for b in range(a + 1, len(fade)):
+                A, B = fade[a], fade[b]
+                go = lambda x: x.get('out') and t > x['out']['t']   # leaving; leaving together (a card + its ✓) is one exit, not a cross
+                newer = (go(A) and not go(B) and B['in']['t'] > A['in']['t']) or (go(B) and not go(A) and A['in']['t'] > B['in']['t'])
+                if newer and near(A['box'], B['box'], 0) and not allowed(A, B):
+                    add(t=t, why='cross', ids=[A['id'], B['id']], types=[A['type'], B['type']])
         for a in range(len(lv)):
             for b in range(a + 1, len(lv)):
                 A, B = lv[a], lv[b]
