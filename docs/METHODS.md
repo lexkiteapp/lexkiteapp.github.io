@@ -4,6 +4,7 @@
 > Đọc khi: ĐẦU MỖI PHIÊN.
 
 Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `docs/archive/METHODS-HISTORY.md`.
+**Bắt đầu phiên: đọc `docs/CODEMAP.md` (bản đồ mã, ≤ 25 KB) TRƯỚC khi tìm code; tra `docs/codemap.json`; chỉ mở file bản đồ trỏ tới (TOKEN-RULES §1).**
 **Luật tài liệu: một chủ đề = một file sở hữu, link thay vì chép lại (bảng chủ đề → file: `docs/README.md`).**
 **Tiêu credit (Kling/mọi dịch vụ trả phí) → BẮT BUỘC `docs/CREDIT-RULES.md` trước.**
 
