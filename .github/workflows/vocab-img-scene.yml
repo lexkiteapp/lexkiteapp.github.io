@@ -122,7 +122,9 @@ jobs:
           echo "khoá: $(node -p "require('./keys.json').items.length") · model: ${VIMG_MODEL:-flux-1-schnell (mặc định)}"
       - name: Thẻ cảnh (câu ví dụ → mô tả hình; GrabCast văn bản)
         if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
-        run: node scripts/vocab-img/scene.mjs --cards --keys keys.json --write
+        run: |   # --prune như fill: pilot đo đúng thứ fill sẽ vẽ (30/10: contingency vẽ bằng thẻ e4 hỏng)
+          node scripts/vocab-img/scene.mjs --cards --keys keys.json --write
+          node scripts/vocab-img/scene.mjs --prune --keys keys.json
       - name: Hiệu chỉnh ngưỡng (tập gán nhãn ~180 ảnh)
         if: steps.lease.outputs.skip != '1' && (env.MODE == 'calibrate' || github.event.inputs.recal == '1')
         env: { GH_TOKEN: '${{ github.token }}' }

@@ -16,7 +16,8 @@ import { STYLE, PEOPLE, fnv, scrub, negHit, classOf } from './style.mjs';
 import { ruleCheck } from './strict.mjs';
 import { isFunction } from './concept.mjs';
 
-export const SCENE_V = 'e4';   // e4 (29/10): thẻ = câu cảnh ngắn vẽ được (ps ≤ 20 từ) + câu hỏi kiểm (check) + điểm vẽ được (draw) – prompt ngắn, giám khảo chấm đúng câu cảnh
+export const SCENE_V = 'e5';   // e5 (30/10): như e4 nhưng check hỏi NGHĨA def (không lặp ps, không chứa từ, không 'indicating/represents') + ps không có vật mang chữ – mọi thẻ e4 viết lại
+// e4 (29/10): thẻ = câu cảnh ngắn vẽ được (ps ≤ 20 từ) + câu hỏi kiểm (check) + điểm vẽ được (draw) – prompt ngắn, giám khảo chấm đúng câu cảnh
 // MỘT bộ token phong cách cho cả 20k (cùng STYLE.base s1 đã duyệt) + phần riêng cho cảnh: tối đa 2 người, bố cục rõ, không chữ.
 // e2 (nhãn 24/10, 245 ảnh): FLUX schnell không có negative prompt – nhắc 'signs/speech bubbles' lại làm HIỆN biển/bong bóng chữ (HOSPITAL, BANK, HOTEL,
 // bong bóng thoại chữ vô nghĩa ở 30/74 ảnh bài học) → mô tả TÍCH CỰC: tường/mặt phẳng trơn, người giao tiếp bằng nét mặt + cử chỉ.
@@ -28,7 +29,7 @@ export const SCENE_STYLE = 'Wordless flat vector illustration of one everyday mo
   'high contrast, plain walls and plain surfaces, people communicate only with faces and hand gestures, purely pictorial. Friendly, culturally neutral, suitable for young children.';
 // e4 (29/10): prompt cũ ~1.000 ký tự (thẻ 320 + phong cách 600) → mô hình bỏ ý sau, giám khảo hỏi câu ví dụ còn ảnh vẽ thẻ → 2–7 % đạt.
 // Phong cách e4 NGẮN (cùng bảng màu/nét s1), đặt SAU câu cảnh; không nhắc chữ/biểu tượng (nhắc → hiện ra).
-export const SCENE_STYLE_E4 = 'Flat vector illustration, simple rounded shapes, clean dark teal outlines, big expressive faces, deep teal, warm orange, golden yellow and soft pink, ' +
+export const SCENE_STYLE_E4 = 'Flat vector illustration, simple rounded shapes, clean dark teal outlines, big expressive faces, solid plain-colored clothes, deep teal, warm orange, golden yellow and soft pink, ' +
   'plain light cream background, the people and key objects large and centered, purely pictorial, friendly, suitable for young children.';
 // khuôn theo lớp từ (nghĩa CẢNH = trừu tượng): câu nhấn thêm sau mô tả thẻ – đặt TRƯỚC SCENE_STYLE (FLUX ưu tiên đầu prompt)
 export const SCENE_CLASS = {
@@ -86,15 +87,44 @@ export function soften(prompt, level = 1) {
 // ---- thẻ cảnh: lời nhắn MỘT nguồn (người viết thẻ phải dùng câu ví dụ của kho; được trả skip) ----
 export const SCENE_SYS = `You design ONE wordless picture that teaches an English word through its example sentence. A simple flat-vector image model must be able to draw it right in ONE try, and a learner who sees the picture with the sentence under it must understand the word.
 For each input item {k, w, pos, def, ex:[sentences]} reply with one JSON object keyed by k:
-{"ex": "the ONE input sentence (copied exactly) whose meaning is most VISIBLE", "ps": "the picture as ONE plain sentence of 8-20 words: at most two people named as 'a woman', 'a man', 'a girl' or 'a boy', ONE clear visible action, at most two key objects, optionally one simple place shown by an object in it", "check": "a yes/no question a viewer answers from the picture alone, YES only when the picture shows the meaning of w in this sentence", "cap": "a neutral 6-14 word caption of the picture that does NOT contain the word w", "who": number of people 0-2, "draw": 1-5 how surely a learner understands w from this picture plus the sentence (5 = obvious)}
-Hard rules for ps: everything must be visible in a small thumbnail; no text, letters, numbers, prices, money amounts, times, clocks, calendars, schedules, screens, phones showing content, signs, logos, flags, arrows, lightbulbs, hearts, question marks, speech or thought bubbles; no metaphors.
+{"ex": "the ONE input sentence (copied exactly) whose meaning is most VISIBLE", "ps": "the picture as ONE plain sentence of 8-20 words: at most two people named as 'a woman', 'a man', 'a girl' or 'a boy', ONE clear visible action, at most two key objects, optionally one simple place shown by an object in it", "check": "a yes/no question about the MEANING of w (def), answered from the picture alone: ask for the visible sign of that meaning in words different from ps, so the same people and objects WITHOUT that meaning get NO", "cap": "a neutral 6-14 word caption of the picture that does NOT contain the word w", "who": number of people 0-2, "draw": 1-5 how surely a learner understands w from this picture plus the sentence (5 = obvious)}
+Hard rules for ps: everything must be visible in a small thumbnail; no text, letters, numbers, prices, money amounts, times, clocks, calendars, schedules, screens, phones showing content, signs, logos, flags, arrows, lightbulbs, hearts, question marks, speech or thought bubbles; no paper that carries writing (documents, invoices, contracts, reports, tests, forms, menus, tickets, maps, flashcards); laptops and phones only seen from behind; clothes are plain (no team shirts, jerseys, uniforms with badges); no metaphors.
+ps shows the SAME kind of person, job, place and thing as the chosen ex (ex 'software engineer' -> a person coding at a laptop seen from behind, never a hard hat).
 Choose the sentence about actions, emotions, physical states or concrete objects over sentences about prices, times, schedules, numbers, rules, plans, the internet or opinions. Abstract noun = one everyday moment where the idea shows on faces and actions; verb = the clearest moment of the action, whole body visible; adjective = exaggerate the quality or show a contrast pair side by side; groups or comparisons = show both sides.
+check must test the meaning, never restate the scene, never contain w, never ask whether something "indicates", "represents" or "illustrates" an idea: bad checks for cheap = "Is a woman handing a coin to a vendor for noodles?" (only repeats ps), "Is the vendor indicating cheap food?".
 If no sentence reaches draw >= 4 without breaking the hard rules, reply {"skip": "short reason"} for that k (no picture is better than a wrong one).
-Example: cheap (adj) ["The food at the night market is cheap and tasty."] -> {"ex":"The food at the night market is cheap and tasty.","ps":"a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles","check":"Is a big bowl of food being bought for one small coin?","cap":"a woman buying a big bowl of noodles from a vendor","who":2,"draw":4}
-Example: consider (v) ["We are considering moving to the countryside."] -> {"ex":"We are considering moving to the countryside.","ps":"a woman and a man at a kitchen table look thoughtfully at two photos, a city flat and a cottage","check":"Are two people thinking hard while comparing a city home and a country home?","cap":"a couple comparing photos of a city flat and a cottage","who":2,"draw":4}
+Example: cheap (adj) ["The food at the night market is cheap and tasty."] -> {"ex":"The food at the night market is cheap and tasty.","ps":"a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles","check":"Does the big meal clearly cost very little money?","cap":"a woman buying a big bowl of noodles from a vendor","who":2,"draw":4}
+Example: consider (v) ["We are considering moving to the countryside."] -> {"ex":"We are considering moving to the countryside.","ps":"a woman and a man at a kitchen table look thoughtfully at two photos, a city flat and a cottage","check":"Are the two people carefully deciding between two choices before acting?","cap":"a couple comparing photos of a city flat and a cottage","who":2,"draw":4}
+If an item has "fix", your previous card for it was rejected for that reason: write a NEW card that avoids it (another sentence or scene is fine).
 Reply JSON only.`;
-export const sceneUser = items => JSON.stringify(items.map(({ k, e }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: [].concat(e.ex || []).filter(Boolean).slice(0, 3).map(s => String(s).slice(0, 220)) })));
-/** kiểm thẻ cảnh: ex phải là câu của kho, không chữ trong sc, cap không chứa từ */
+export const sceneUser = items => JSON.stringify(items.map(({ k, e, fix }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: [].concat(e.ex || []).filter(Boolean).slice(0, 3).map(s => String(s).slice(0, 220)), ...(fix ? { fix: String(fix).slice(0, 240) } : {}) })));
+// soát văn bản thẻ trước khi vẽ (31/10, pilot 41018500365 engineer: ex 'software engineer' → ps mũ bảo hộ; 41079076743 background: ex 'xuất thân' → check hỏi tranh tường phía sau)
+export const VERIFY_SYS = `You strictly review picture cards for an English-learning app. For each input item {k, w, pos, def, ex, ps, check} reply with one JSON object keyed by k:
+{"sense": true only if ps shows w in the SAME sense as def and as used in ex (same kind of person, job, place and thing; a different sense of the word = false), "test": true only if a YES answer to check needs a picture that shows def (false if check can be answered YES from the people, objects or place of ps alone, or asks about another sense), "why": short reason when sense or test is false}
+Reply JSON only.`;
+export const verifyUser = items => JSON.stringify(items.map(({ k, e, c }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: c.ex, ps: c.ps, check: c.check })));
+/** kết quả soát → '' nếu đạt, lý do nếu trượt (thiếu/không rõ = trượt: không ảnh còn hơn ảnh sai) */
+export function verifyOk(v) {
+  if (!v || typeof v !== 'object') return 'verify: no answer';
+  if (v.sense !== true) return 'verify: wrong sense – ' + String(v.why || '').slice(0, 100);
+  if (v.test !== true) return 'verify: check does not test def – ' + String(v.why || '').slice(0, 100);
+  return '';
+}
+export const CARD_TRIES = 3;   // viết lại NGAY trong lượt (kèm lý do trượt) tối đa 3 lần/nghĩa
+// check lặp lại ps (30/10, pilot 40865517506 general#adj: "Are both people smiling and giving thumbs up near a park bench?") → giám khảo nghĩa trả YES cho ảnh sai nghĩa.
+// echo = tỉ lệ từ nội dung của check (bỏ hư từ/người, gốc thô 5 ký tự) đã có trong ps; ≥ CHECK_ECHO → loại thẻ, viết lại.
+const ECHO_STOP = new Set('a an the is are was were be been being am do does did has have had can could will would should may might must this that these those there here it its they them their he she his her him we you i of to in on at by for with from into onto over under near next and or but so as than then both each either one two three some any all another other very really clearly picture image shown show shows showing visible see seen someone somebody people person woman man women men girl boy girls boys while who what which where when how why not no yes'.split(' '));
+const echoWords = s => [...new Set((String(s).toLowerCase().match(/[a-z]+/g) || []).filter(w => w.length > 1 && !ECHO_STOP.has(w)).map(w => w.replace(/(ing|ed|es|s|ly|e)$/, '').slice(0, 5)))];
+// vật mang chữ trong ps → mô hình vẽ chữ → giám khảo loại (pilot 41015594601: 9/36 ảnh cảnh trượt 'text': invoice, test sheet, report, contract, map, flashcard, laptop)
+export const TEXT_OBJ = /\b(jerseys?|team shirts?|t-shirts? with \w+|uniforms? with \w+|name badges?|invoices?|receipts?|contracts?|documents?|reports?|resumes?|paper forms?|flashcards?|worksheets?|exam papers?|test (sheet|paper)s?|menus?|tickets?|badges?|name tags?|whiteboards?|blackboards?|chalkboards?|maps?|certificates?|envelopes?)\b/i;
+// pilot 41018500365: laptop nhìn thẳng → chữ trên màn hình (email); áo đấu có số (member) → luật trên; engineer: ex 'software engineer' mà ps vẽ mũ bảo hộ → SCENE_SYS bắt ps cùng loại người/nơi/vật với ex
+export const SCREEN = /\b(laptops?|computers?|monitors?|screens?|phones?|smartphones?|tablets?|tvs?|televisions?)\b/i;
+export const CHECK_ECHO = 0.75;
+// pilot 41015594601 (30/10): car rental#n 'Is a woman at a desk with a car model, indicating a car rental service?' → YES cho xe đồ chơi; check có từ đích / 'indicating' = giám khảo đoán theo nhãn, không nhìn nghĩa
+export const CHECK_VAGUE = /\b(indicat\w*|represent\w*|symboli[sz]\w*|illustrat\w*|suggest\w*|the (idea|concept|notion) of)\b/i;
+const wordRe = w => new RegExp('\\b' + String(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+export function checkEcho(ps, check) { const q = echoWords(check), p = new Set(echoWords(ps)); return q.length ? q.filter(w => p.has(w)).length / q.length : 1; }
+/** kiểm thẻ cảnh: ex phải là câu của kho, không chữ trong sc, cap không chứa từ, check hỏi nghĩa (không lặp ps) */
 export function sceneOk(e, c) {
   if (!c || typeof c !== 'object') return 'no card';
   if (c.skip) return 'skip: ' + String(c.skip).slice(0, 60);
@@ -105,8 +135,13 @@ export function sceneOk(e, c) {
     if (n < 6 || n > 24) return 'ps not 6-24 words';
     if (!(+c.draw >= 4)) return 'skip: draw ' + c.draw;
     if (!/\?\s*$/.test(String(c.check || ''))) return 'no check question';
+    if (checkEcho(c.ps, c.check) >= CHECK_ECHO) return 'check repeats ps';
+    if (wordRe(e.w).test(c.check)) return 'check names the word';
+    if (CHECK_VAGUE.test(c.check)) return 'check asks for a label';
     if (/\b(text|letters?|words?|sign|label|caption|written|writing|numbers?|price|clock|calendar|screen)\b/i.test(c.ps)) return 'ps asks for text/symbol';
     { const h = negHit(c.ps, e.w); if (h) return 'ps uses a symbol: ' + h; }
+    if (SCREEN.test(c.ps) && !/\b(from behind|from the back|back of|seen from behind)\b/i.test(c.ps)) return 'ps shows a screen';
+    { const m = String(c.ps).match(TEXT_OBJ); if (m && !wordRe(e.w).test(m[0]) && !wordRe(m[0]).test(e.w)) return 'ps has a text object: ' + m[0].toLowerCase(); }
     if (!c.cap || new RegExp('\\b' + e.w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(c.cap)) return 'cap names the word';
     return '';
   }
@@ -150,9 +185,9 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
   } else if (process.argv.includes('--pilot')) { const fr = +(arg('from') || 0), pl = pilot(lex, sel, +(arg('n') || 60) + fr, +(arg('fn') || 20)); if (fr) { pl.scene = pl.scene.slice(fr); pl.items = [...pl.scene, ...pl.concept]; } process.stdout.write(JSON.stringify(pl, null, 1)); }
   else if (process.argv.includes('--prune')) {
     // fill: chỉ vẽ nghĩa cảnh đã có thẻ e4 (thẻ cũ e3 đạt 2–7 % – đốt neuron); vật/hư từ giữ nguyên
-    const f = arg('keys'), kj = JSON.parse(fs.readFileSync(f, 'utf8')), keep = k => { const c = cards.items[k]; return !lex[k] || kind(k, lex[k], (sel[k] || [])[1], c) !== 'scene' || !!(c && !c.skip && c.v === SCENE_V && c.ps); };
+    const f = arg('keys'), kj = JSON.parse(fs.readFileSync(f, 'utf8')), keep = k => { const c = cards.items[k]; return !lex[k] || kind(k, lex[k], (sel[k] || [])[1], c) !== 'scene' || !!(c && !c.skip && c.v === SCENE_V && c.ps && !sceneOk(lex[k], c)); };   // thẻ check lặp ps không vẽ
     const n0 = kj.items.length; kj.items = kj.items.filter(keep); if (kj.scene) kj.scene = kj.scene.filter(keep);
-    fs.writeFileSync(f, JSON.stringify(kj)); console.log(`nghĩa có thẻ e4 để vẽ: ${kj.items.length}/${n0}`);
+    fs.writeFileSync(f, JSON.stringify(kj)); console.log(`nghĩa có thẻ ${SCENE_V} để vẽ: ${kj.items.length}/${n0}`);
   }
   else if (process.argv.includes('--dry')) { for (const k of keysOf()) console.log(k, '→', cards.items[k] ? promptScene(k, cards.items[k]).slice(0, 220) : '(chưa có thẻ)'); }
   else if (process.argv.includes('--cards')) {
@@ -160,21 +195,34 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
     const SKIP = new Set(Object.keys((fs.existsSync(P(QF)) ? rd(QF) : { items: {} }).items));
     // mục = {k, w} (không phải chuỗi k): ai-pool normOut khớp lại câu trả lời lệch khoá (bọc 1 lớp, theo từ w, 1 mục trần) – 24/10 lượt fill đầu: 194/200 'no card' vì mục là chuỗi
     const AI = createPool({ prompt: req => ({ sys: SCENE_SYS, user: sceneUser(req.items.map(x => ({ k: x.k || x, e: lex[x.k || x] }))), temp: 0.3 }) });
-    const todo = keysOf().filter(k => lex[k] && (!cards.items[k] || (!cards.items[k].skip && cards.items[k].v !== SCENE_V && (cards.items[k].e4bad || 0) < 3))); let add = 0, bad = 0;   // e4: viết lại thẻ cũ (kể cả nghĩa trong hàng chờ – prompt cũ là lý do trượt)
+    const todo = keysOf().filter(k => lex[k] && (!cards.items[k] || (!cards.items[k].skip && (cards.items[k].v !== SCENE_V || sceneOk(lex[k], cards.items[k])) && (cards.items[k].e4bad || 0) < 3))); let add = 0, bad = 0;   // e4: viết lại thẻ cũ (kể cả nghĩa trong hàng chờ – prompt cũ là lý do trượt) + thẻ e4 nay trượt sceneOk (vd. check lặp ps)
     // 29/10 lượt fill 40875877636: 2.000 thẻ e4 tuần tự (8/lần, 20–220 s) chạy 2 giờ 10 phút → job quá giờ, mất hết thẻ, 0 ảnh.
     // Nay: VIMG_CARD_CONC lô song song + hạn VIMG_CARD_MIN phút (còn lại để lượt sau) → luôn kịp ghi thẻ và vẽ.
     const CONC = Math.max(1, +(process.env.VIMG_CARD_CONC || 4)), MIN = +(process.env.VIMG_CARD_MIN || 35), END = Date.now() + MIN * 60e3;
-    let next = 0, stop = false;
-    await Promise.all(Array.from({ length: CONC }, async () => { while (!stop && next < todo.length && Date.now() < END) {
-      const part = todo.slice(next, next += 8);
-      // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút); 25/10: CF văn bản cuối chuỗi + TẮT (AI_POOL_CF_TEXT) – neuron CF dành cho ảnh
-      const r = await AI.gen({ mode: 'vscene', items: part.map(k => ({ k, w: lex[k].w })) }, { chain: ['gc-groq', 'gc-gemini', 'cf2', 'gc-cf'] });
-      if (!r) { if (!stop) console.log('⏭ không tuyến nào trả lời – dừng (lượt sau viết tiếp)'); stop = true; break; }
-      const out = normOut(r.out, part.map(k => ({ k, w: lex[k].w }))) || {};
-      for (const k of part) { const c = out[k]; const why = sceneOk(lex[k], c); if (c && c.skip) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } else if (/^skip: draw/.test(why)) { cards.items[k] = { skip: 'draw ' + c.draw + ': ' + String(c.ps || '').slice(0, 60), v: SCENE_V, by: r.model }; add++; } else if (!why) { cards.items[k] = { ex: c.ex, ps: String(c.ps).replace(/["“”]/g, '').slice(0, 200), sc: String(c.ps).replace(/["“”]/g, '').slice(0, 200), check: String(c.check).slice(0, 160), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), draw: +c.draw, v: SCENE_V, by: r.model }; add++; } else { bad++; if (cards.items[k]) cards.items[k].e4bad = (cards.items[k].e4bad || 0) + 1; console.log('✗ thẻ', k, why); } }
+    // 31/10: thẻ trượt cổng/soát → viết lại NGAY trong lượt kèm lý do (fix), tối đa CARD_TRIES lần; qua sceneOk còn phải qua soát văn bản VERIFY_SYS (nghĩa def, đúng câu ex)
+    const AIV = createPool({ prompt: req => ({ sys: VERIFY_SYS, user: verifyUser(req.items.map(x => ({ k: x.k, e: lex[x.k], c: x.c }))), temp: 0 }) });
+    const CHAIN = { chain: ['gc-groq', 'gc-gemini', 'cf2', 'gc-cf'] }, tries = {}, fix = {}, queue = [...todo];
+    let stop = false, busy = 0;
+    const fail = (k, why) => { tries[k] = (tries[k] || 0) + 1; if (tries[k] < CARD_TRIES) { fix[k] = why; queue.push(k); return; } bad++; if (cards.items[k]) cards.items[k].e4bad = (cards.items[k].e4bad || 0) + 1; console.log('✗ thẻ', k, why); };
+    await Promise.all(Array.from({ length: CONC }, async () => { while (!stop && Date.now() < END && (queue.length || busy)) {
+      if (!queue.length) { await new Promise(r => setTimeout(r, 300)); continue; }
+      const part = queue.splice(0, 8); busy++;
+      try {
+        // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút); 25/10: CF văn bản cuối chuỗi + TẮT (AI_POOL_CF_TEXT) – neuron CF dành cho ảnh
+        const r = await AI.gen({ mode: 'vscene', items: part.map(k => ({ k, w: lex[k].w, ...(fix[k] ? { fix: fix[k] } : {}) })) }, CHAIN);
+        if (!r) { if (!stop) console.log('⏭ không tuyến nào trả lời – dừng (lượt sau viết tiếp)'); stop = true; break; }
+        const out = normOut(r.out, part.map(k => ({ k, w: lex[k].w }))) || {}, cand = [];
+        for (const k of part) { const c = out[k]; const why = sceneOk(lex[k], c); if (c && c.skip) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } else if (/^skip: draw/.test(why)) { cards.items[k] = { skip: 'draw ' + c.draw + ': ' + String(c.ps || '').slice(0, 60), v: SCENE_V, by: r.model }; add++; } else if (!why) cand.push({ k, c: { ...c, ps: String(c.ps).replace(/["“”]/g, '').slice(0, 200) }, model: r.model }); else fail(k, why + (c && c.ps ? ' (ps: ' + String(c.ps).slice(0, 80) + ' | check: ' + String(c.check || '').slice(0, 80) + ')' : '')); }
+        if (!cand.length) continue;
+        const rv = await AIV.gen({ mode: 'vverify', items: cand.map(x => ({ k: x.k, w: lex[x.k].w, c: x.c })) }, CHAIN);
+        const vo = rv ? normOut(rv.out, cand.map(x => ({ k: x.k, w: lex[x.k].w }))) || {} : {};
+        for (const { k, c, model } of cand) { const why = rv ? verifyOk(vo[k]) : 'verify: unavailable'; if (why) { fail(k, why + ' (ps: ' + c.ps.slice(0, 80) + ' | check: ' + String(c.check).slice(0, 80) + ')'); continue; }
+          cards.items[k] = { ex: c.ex, ps: c.ps, sc: c.ps, check: String(c.check).slice(0, 160), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), draw: +c.draw, v: SCENE_V, by: model, vby: rv.model }; add++; }
+      } finally { busy--; }
     } }));
-    if (next < todo.length && Date.now() >= END) console.log(`⏱ hết ${MIN} phút viết thẻ – còn ${todo.length - next} nghĩa, lượt sau viết tiếp`);
+    const left = queue.length;
+    if (left) console.log(`⏱ hết ${MIN} phút viết thẻ – còn ${left} nghĩa, lượt sau viết tiếp`);
     if (process.argv.includes('--write')) { cards.items = Object.fromEntries(Object.entries(cards.items).sort(([a], [b]) => (a < b ? -1 : 1))); fs.writeFileSync(P(SC), JSON.stringify(cards, null, 1) + '\n'); }
-    console.log(`✓ thẻ cảnh +${add} · hỏng ${bad}`); AI.report('vocab-img-scene');
+    console.log(`✓ thẻ cảnh +${add} · hỏng ${bad} · viết lại trong lượt ${Object.keys(fix).length}`); AI.report('vocab-img-scene'); AIV.report('vocab-img-scene-verify');
   }
 }

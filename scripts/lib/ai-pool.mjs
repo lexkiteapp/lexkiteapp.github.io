@@ -83,6 +83,7 @@ export const TASKS = {
   vjudge: { kind: 'judge', deny: [] },
   judge: { kind: 'judge', deny: [] },
   vision: { kind: 'judge', deny: [] },
+  vverify: { kind: 'gen', deny: [] }, // soát văn bản thẻ cảnh (nghĩa def, đúng câu ex) trước khi vẽ – scene.mjs VERIFY_SYS
   vscene: { kind: 'gen', deny: [] }, // thẻ cảnh ảnh minh hoạ (scripts/vocab-img/scene.mjs – prompt cục bộ, không qua /api/lexai)
 };
 export function allowed(mode, model) {
@@ -249,7 +250,7 @@ export function createPool(opts = {}) {
   const retryAfter = r => { const v = +(r.headers && r.headers.get && r.headers.get('Retry-After')); return Number.isFinite(v) && v > 0 ? Math.min(600, v) * 1e3 : 65e3; };
   const GC_MAX_CHARS = 7900;
   // GrabCast cắt câu trả lời ≈ 1–2 nghìn ký tự với gpt-oss (đo 24/10: lxtr 10 mục bị cụt) → số mục tối đa mỗi lượt theo cỡ đầu ra; cụt nữa → chia đôi
-  const GC_ITEMS = { lxgen: 3, lxtr: 3, lxjudge: 1, lxdef: 5, lxsrc: 2, lxex: 3, xgen: 2, xtr: 2, xjudge: 10, vgen: 1, vjudge: 6, translate: 10, judge: 15, vscene: 2 }; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
+  const GC_ITEMS = { lxgen: 3, lxtr: 3, lxjudge: 1, lxdef: 5, lxsrc: 2, lxex: 3, xgen: 2, xtr: 2, xjudge: 10, vgen: 1, vjudge: 6, translate: 10, judge: 15, vscene: 2, vverify: 8 }; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
   const gcRoute = provider => {
     async function one(req, model, depth = 0) {
       const cap = GC_ITEMS[req.mode];
