@@ -1,0 +1,43 @@
+# Cổng "lỗi ẩn" mọi loại trang công khai (docs/WEB-PAGES.md §Cổng): dựng dist (+ tầng tĩnh từ điển), rồi
+#  web-sweep.mjs (1 trang mẫu/loại × 390/1280 × sáng/tối: console, 4xx, tràn ngang, cắt/chồng chữ, vùng chạm, tương phản + axe AA,
+#  CLS/LCP, nền đúng giao diện, meta/OG, lang/dir) – ngưỡng web-sweep.known.json chỉ được giảm;
+#  seo-pages.mjs (canonical, hreflang hai chiều, title/description trùng, mồ côi) + links-js.mjs (link nội bộ kể cả do JS sinh).
+name: Web sweep
+on:
+  pull_request:
+    paths: ['web/**', '!web/app/**', 'scripts/build-*.mjs', 'scripts/build-web.sh', 'scripts/lib/**', 'scripts/dict/**', 'workers/dict/**', 'content/legal/**', 'content/authority/**', 'scripts/test/web-sweep.*', 'scripts/test/seo-pages.mjs', 'scripts/test/links-js.mjs', '.github/workflows/web-sweep.yml']
+  workflow_dispatch:
+    inputs:
+      write_known: { description: '1 = ghi ngưỡng mới vào artifact (không commit)', required: false, default: '0' }
+permissions:
+  contents: read
+concurrency: { group: 'web-sweep-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Build dist (+ dictionary static layer)
+        run: |
+          npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh | tail -5
+          DICT_N=40 node scripts/dict/build.mjs >/dev/null 2>&1 && cp -Rn dist-dict/. dist/ 2>/dev/null; echo "dist: $(find dist -name '*.html' | wc -l) html"
+      - name: SEO (canonical, hreflang, duplicates, orphans)
+        run: node scripts/test/seo-pages.mjs dist
+      - name: Internal links (incl. JS-generated)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/links-js.mjs dist
+      - name: Latent UI sweep (every page type)
+        if: ${{ !cancelled() }}
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+          (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          W=""; [ "${{ github.event.inputs.write_known }}" = 1 ] && W=--write-known
+          node scripts/test/web-sweep.mjs http://localhost:8080 dist web-sweep-out $W
+          [ -n "$W" ] && cp scripts/test/web-sweep.known.json web-sweep-out/ || true
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: web-sweep, path: web-sweep-out, retention-days: 7 }
