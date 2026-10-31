@@ -7,6 +7,7 @@ node scripts/build-tokens.mjs           # brand/tokens.json → :root CSS, add-o
 node scripts/ci/sync-triage.mjs          # workflow mới → ci-triage.yml
 node scripts/path/build-mix.mjs          # sửa ngữ pháp/phát âm → web/js/path-mix.js
 node scripts/confidence/build.mjs        # sửa content/confidence → web/js/confidence/data.js
+node scripts/speak/build.mjs --write    # sửa content/situations → web/js/speak/data.js (Play & Speak)
 node scripts/lesson/build-gold.mjs       # sửa gold bank → web/js/lesson/gold.js (Giải thích của #/lesson)
 node scripts/lesson/build-stories.mjs    # sửa content/lesson/stories.json → web/js/lesson/stories.js (Truyện + Radio)
 bash scripts/build-extension.sh >/dev/null && git checkout -q -- extension/academic.json 2>/dev/null || true   # web/ → extension/app (bỏ thay đổi phụ academic.json)
