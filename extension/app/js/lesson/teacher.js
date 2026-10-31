@@ -100,7 +100,7 @@
     el.classList.add('tch'); el.innerHTML = `<div class="tch-rig">${Chars.img(who, { cls: 'tch-poster', kind: 'poster', size: 384 })}</div>`;
     const rig = el.firstChild;
     rig.firstChild.onerror = () => { el.style.display = 'none'; }; // thiếu tài sản (vd. bản add-on không kèm teach/) → ẩn giáo viên, bài vẫn chạy
-    let run = 0, dead = false, want = 0, mix = 0, draw = null, raf = 0, last = 0, lastK = '', fc = null, pend = null;
+    let run = 0, dead = false, want = 0, mix = 0, draw = null, raf = 0, last = 0, lastK = '', fc = null, gate = null;
     const V = [];
     const clips = () => {
       if (dead) return;
@@ -118,7 +118,8 @@
       }
     };
     if (!lite()) {
-      if (mo.lip && lipOn()) lipLoad().then(() => { if (dead) return; fc = face(rig, who, () => { fc = null; clips(); }); if (pend && hq && !hq.ended) fc.speak(pend); }, clips); // mặt vẽ; lỗi nạp/thiếu tài sản → vòng clip
+      // mặt vẽ; lỗi nạp/thiếu tài sản → vòng clip. Câu nói trong lúc đang nạp chờ tối đa 2 s (để câu đầu cũng có mốc CI, đúng bản -ls.mp3)
+      if (mo.lip && lipOn()) gate = Promise.race([lipLoad().then(() => { if (!dead) fc = face(rig, who, () => { fc = null; clips(); }); }, clips), new Promise(z => setTimeout(z, 2000))]).then(() => { gate = null; });
       else clips();
     }
     // 1 vòng vẽ: chỉ chạy khi đang hiện (IntersectionObserver không cần – rAF tự dừng ở tab ẩn); trộn nói/nghe 160 ms
@@ -144,8 +145,9 @@
         rig.classList.add('posed'); },
       // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – vòng nói chạy đúng độ dài file; thiếu file → giọng máy
       say(text, o = {}) {
+        if (gate) { const my0 = ++run; talking(true); gate.then(() => { if (my0 === run && !dead) api.say(text, o); }); return; }
         const my = ++run, rate = o.rate || 0.95;
-        let ended = false; const end = () => { if (ended) return; ended = true; if (my === run) { run++; talking(false); if (fc) fc.quiet(); pend = null; } if (o.onEnd) o.onEnd(); };
+        let ended = false; const end = () => { if (ended) return; ended = true; if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
         talking(true);
         const tts = () => {
           if (my !== run) return;
@@ -164,10 +166,10 @@
         a.onended = end;
         const fail = () => { if (hq !== a) return; hq = null; if (cue) api.say(text, Object.assign({}, o, { plain: 1 })); else tts(); };
         a.onerror = fail;
-        pend = { audio: a, cue, text }; if (fc) fc.speak(pend);
+        if (fc) fc.speak({ audio: a, cue, text });
         const p = a.play(); if (p && p.catch) p.catch(fail);
       },
-      stop() { run++; talking(false); if (fc) fc.quiet(); pend = null; if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
+      stop() { run++; talking(false); if (fc) fc.quiet(); if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
       destroy() { dead = true; run++; if (fc) fc.destroy(); if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; } cancelAnimationFrame(raf); for (const v of V) { if (v) try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { /* bỏ qua */ } } el.innerHTML = ''; },
     };
     return api;
