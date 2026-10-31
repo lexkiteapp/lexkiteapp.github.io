@@ -264,6 +264,45 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   ok($('#wordList') && !$('.v2-topic') && $('#addAll'), 'topic: cờ tắt → trang cũ nguyên vẹn');
   w.localStorage.setItem('lk.ux1', '1'); App.anki = A0;
 }
+// ---------- Sổ từ #/deck (Stitch v2.1 deck): khung mới giữ đủ ý trang cũ (tìm, 3 bộ lọc, ?from=, Học/Kiểm tra, chia sẻ, xuất/nhập, Anki, sửa thẻ, phát âm, 400 thẻ, trống) ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const P = w.document, A0 = App.anki, X0 = App.xport, S0 = App.shareDeck, E0 = App.editCard, calls = [];
+  App.anki = (m, o) => { calls.push('anki:' + m + ':' + (o && o.shown ? o.shown.length : '-')); }; App.xport = o => { calls.push('xport:' + o.shown.length + ':' + o.name); }; App.shareDeck = (n, l) => { calls.push('share:' + l.length); }; App.editCard = (wd, after) => { calls.push('edit:' + wd); after && after(); };
+  const now = Date.now(), mk = (wd, vi, o) => Object.assign({ word: wd, vi, ipa: '/x/', emoji: '🧪', topic: 'mine', contexts: [], col: [], syn: [], ant: [], examples: [], added: now, srs: { ef: 2.5, interval: 0, reps: 0, lapses: 0, due: now + 864e5 } }, o);
+  const keep = { ...App.state.cards };
+  Object.assign(App.state.cards, { zzalpha: mk('zzalpha', 'thử một', { contexts: [{ text: 'the zzalpha test sentence', source: 'https://www.youtube.com/watch?v=1' }], added: now - 10 }),
+    zzbeta: mk('zzbeta', 'thử hai', { def: 'beta definition', srs: { ef: 2.5, interval: 30, reps: 5, lapses: 0, due: now - 1000, last: now - 40 * 864e5, S: 30, D: 5 } }) });
+  const N = Object.keys(App.state.cards).length;
+  await go('#/deck', '.v2-deck');
+  const R = $('.v2-deck'), row = wd => $$('#deckList [data-edit]').find(b => b.dataset.edit === wd);
+  ok(R && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page' && R.textContent.includes(String(N)) && $('.v2-deck [data-href="#/train"]'), 'deck (v2): khung Stitch, tab Luyện, đầu trang n từ đã lưu + quay lại');
+  ok($('#dkLearn').getAttribute('data-href') === '#/practice/learn?src=deck' && $('#dkTest').getAttribute('data-href') === '#/practice/test?src=deck', 'deck (v2): Học / Kiểm tra ?src=deck');
+  ok(['#shareBtn', '#exportBtn', '#importBtn', '#importFile', '#ankiOut', '#ankiIn', '#filterQ', '#filterTopic', '#filterFrom', '#filterM', '#deckList', '#dkFind', '#dkMic'].every(s => $(s)), 'deck (v2): đủ móc cũ (chia sẻ, xuất, nhập, Anki ×2, tìm, 3 bộ lọc, danh sách) + kính lúp + micro');
+  ok($$('#deckList [data-edit]').length === N && $$('#deckList [data-speak]').length === N && $(`#deckList a[href="#/dict/zzalpha"]`) && R.textContent.includes(App.meanOf(App.state.cards.zzalpha)) && $('#deckList').innerHTML.includes('zzalpha</span> test sentence'), 'deck (v2): mỗi thẻ: từ → #/dict/…, nghĩa, ngữ cảnh tô từ, [data-speak], [data-edit]');
+  ok(row('zzbeta').closest('#deckList > div').querySelector('.dk-due') && !row('zzalpha').closest('#deckList > div').querySelector('.dk-due') && /\d+%/.test(row('zzbeta').closest('#deckList > div').textContent), 'deck (v2): thẻ đến hạn = khuôn "Ôn hôm nay", có % nhớ FSRS');
+  ok($$('#filterTopic option').some(o => o.value === 'mine') && $$('#filterFrom option').some(o => o.value === 'forget') && $$('#filterM option').length === 5, 'deck (v2): bộ lọc bộ từ (Từ tự thêm), nguồn (+ Sắp quên), mức độ (5 lựa chọn)');
+  const q = $('#filterQ'); q.value = 'thử hai'; q.dispatchEvent(new w.Event('input')); await tick(20);
+  ok($$('#deckList [data-edit]').length === 1 && row('zzbeta') && P.activeElement === $('#filterQ') && $('#filterQ').value === 'thử hai', 'deck (v2): tìm theo nghĩa → chỉ còn thẻ khớp, ô tìm giữ chữ + con trỏ');
+  $('#exportBtn').click(); $('#shareBtn').click(); $('#ankiOut').click(); $('#ankiIn').click();
+  ok(calls.join() === 'xport:1:Sổ từ,share:1,anki:export:1,anki:import:-', 'deck (v2): xuất / chia sẻ / Anki xuất theo phần đang hiện + Anki nhập');
+  q.value = 'zzqqnone'; q.dispatchEvent(new w.Event('input')); await tick(20);
+  ok($('[data-deck-empty]') && !$$('#deckList [data-edit]').length, 'deck (v2): lọc không khớp → thông điệp trống');
+  $('#filterQ').value = ''; $('#filterQ').dispatchEvent(new w.Event('input')); await tick(20);
+  const fm = $('#filterM'); fm.value = '0'; fm.dispatchEvent(new w.Event('change')); await tick(20);
+  ok(row('zzalpha') && !row('zzbeta') && $('#filterM').value === '0' && P.activeElement === $('#filterM') && $('#filterM').closest('label').textContent.includes(w.t('Chưa học')) && $('#filterM').closest('label').querySelector('.animate-pulse'), 'deck (v2): lọc mức độ Chưa học → viên lọc tô (khuôn đang lọc) + hiện giá trị, giữ focus');
+  fm.value = ''; fm.dispatchEvent(new w.Event('change')); await tick(20);
+  const ft = $('#filterTopic'); ft.value = 'mine'; ft.dispatchEvent(new w.Event('change')); await tick(20);
+  ok(row('zzalpha') && row('zzbeta') && $$('#deckList [data-edit]').every(b => App.state.cards[b.dataset.edit].topic === 'mine'), 'deck (v2): lọc bộ từ "Từ tự thêm"');
+  ft.value = ''; ft.dispatchEvent(new w.Event('change')); await tick(20);
+  row('zzalpha').click(); await tick(20);
+  ok(calls.includes('edit:zzalpha') && $('.v2-deck'), 'deck (v2): [data-edit] mở hộp Sửa cũ (App.editCard), xong dựng lại khung');
+  let clicked = 0; $('#importFile').click = () => { clicked++; }; $('#importBtn').click(); ok(clicked === 1 && $('#importFile').getAttribute('accept') === 'application/json', 'deck (v2): Nhập → chọn file .json (#importFile)');
+  await go('#/deck?from=youtube', '.v2-deck');
+  ok($('#filterFrom').value === 'youtube' && row('zzalpha') && !row('zzbeta'), 'deck (v2): ?from=youtube lọc sẵn theo nguồn (link từ Thư viện của tôi / Ôn)');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/deck', '#deckList');
+  ok($('#deckList') && !$('.v2-deck') && $('#filterQ') && $('#ankiOut'), 'deck: cờ tắt → trang cũ nguyên vẹn');
+  App.state.cards = keep; App.anki = A0; App.xport = X0; App.shareDeck = S0; App.editCard = E0; w.localStorage.setItem('lk.ux1', '1');
+}
 // ---------- Gọi giáo viên #/call (Stitch v2.1 teacher-call): khung mới giữ đủ ý trang Gọi cũ ----------
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document;

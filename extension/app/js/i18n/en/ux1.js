@@ -71,4 +71,14 @@
   'Gợi ý cho bạn': 'Recommended for you',
   'Nhập bộ thẻ Anki (.apkg) của bạn thành bộ từ để học và ôn.': 'Import your Anki deck (.apkg) as a set to learn and review.',
   'Xem cả {n} từ': 'View all {n} words',
+  // Sổ từ (Stitch v2.1 deck, web/js/ux1-deck.js)
+  '{n} từ đã lưu': '{n} words saved',
+  '{n} đã thuộc': '{n} mastered',
+  'Tìm trong sổ từ': 'Search your words',
+  'Tìm bằng giọng nói': 'Search by voice',
+  'Bộ lọc': 'Filters',
+  'Bộ từ': 'Set',
+  'Từ đã lưu ({n} đang hiện)': 'Saved words ({n} shown)',
+  'Sắp xếp: mới thêm': 'Sort: newest',
+  'Sắp xếp: dễ quên trước': 'Sort: retention',
 }); })(typeof self !== 'undefined' ? self : this);
