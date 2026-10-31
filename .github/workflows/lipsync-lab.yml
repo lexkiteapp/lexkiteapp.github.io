@@ -1,0 +1,49 @@
+# Lip-sync lab (docs/specs/call-lipsync.md): cắt 9 hình miệng 2D từ clip registry, giọng Kokoro + Rhubarb, đo trong Chromium (CPU 4×), dựng video ≤ 20 s. 0 credit, không chạy trên Mac.
+name: lipsync-lab
+on:
+  workflow_dispatch:
+  push:
+    paths: ['scripts/lipsync/**', 'web/js/call/lipsync.js', 'web/lab/lipsync.html', '.github/workflows/lipsync-lab.yml']
+concurrency: { group: lipsync-lab-${{ github.ref }}, cancel-in-progress: true }
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/cache@v4
+        with:
+          path: /tmp/kk/node_modules/@huggingface/transformers/.cache
+          key: video-models-kokoro82m-q8-lipsync-v1
+      - name: Cài công cụ (bản chính chủ, license rõ)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          python3 -m pip install -q opencv-python-headless==4.10.0.84 numpy
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null && npx playwright install --with-deps chromium >/dev/null
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Cắt hình miệng
+        run: |
+          mkdir -p qa/lipsync
+          for w in ama carlos; do python3 scripts/lipsync/harvest.py $w web/lab/lipsync/$w; cp web/lab/lipsync/$w/harvest.jpg qa/lipsync/harvest-$w.jpg; done
+      - name: Đo + dựng video
+        run: node scripts/lipsync/lab.mjs
+      - name: Tóm tắt
+        if: always()
+        run: cat qa/lipsync/report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lipsync-lab
+          path: |
+            qa/lipsync/report.md
+            qa/lipsync/metrics.json
+            qa/lipsync/lipsync.mp4
+            qa/lipsync/lipsync.gif
+            qa/lipsync/harvest-*.jpg
+            web/lab/lipsync/
+          retention-days: 14
