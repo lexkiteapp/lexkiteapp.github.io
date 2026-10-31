@@ -714,13 +714,15 @@ if not FMT['cap']: CAPS = []
 FPS = o.fps; NF = int(round(TOTAL * FPS)); LEN = {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in HG['clips']}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
 spk = np.zeros(NF, bool)
 for a, b in SPEECH: spk[max(0, int((a - 0.05) * FPS)):min(NF, int(math.ceil((b + 0.05) * FPS)))] = True
-# close short silences (< 0.3 s) so the mouth does not flicker shut between words of one sentence
+# close short silences (< 0.3 s) so the mouth does not flicker shut between words of one sentence - but never a silence the qc mouth gate
+# requires listen in (word-clock silence > 0.35 s; with the +-0.05 s margins a 0.36-0.40 s line gap is < 0.3 s in frames)
+SIL = [(a_[1], b_[0]) for a_, b_ in zip(sorted(SPEECH), sorted(SPEECH)[1:]) if b_[0] - a_[1] > 0.35]
 i = 0
 while i < NF:
     if not spk[i]:
         j = i
         while j < NF and not spk[j]: j += 1
-        if 0 < i and j < NF and (j - i) / FPS < 0.3: spk[i:j] = True
+        if 0 < i and j < NF and (j - i) / FPS < 0.3 and not any(a_ * FPS < j and i < b_ * FPS for a_, b_ in SIL): spk[i:j] = True
         i = j
     else: i += 1
 # gesture poses on their cues (pose.py): point on the quiz question, thinking in the 3-2-1, happy (+ cheer when the silence allows) on the answer,

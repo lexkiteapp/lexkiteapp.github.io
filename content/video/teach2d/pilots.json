@@ -387,7 +387,7 @@
     "uk_say": "it's football.",
     "uk_tail": "Same game!",
     "twist": {
-     "say": "Wait! American football is different.",
+     "say": "Careful! American football is different.",
      "card": "another game"
     },
     "example": "Want to watch soccer tonight?",
@@ -454,11 +454,8 @@
     "chip": "👀 TRICKY QUIZ AHEAD",
     "payoff": [
      "a",
-     "Told you it's tricky!"
+     "Told you!"
     ]
-   },
-   "say": {
-    "w": "Don't say: This book is belonging to the library."
    }
   },
   {

@@ -27,7 +27,7 @@
   },
   {
    "id": "w",
-   "text": "Don't say: This book is belonging to the library.",
+   "text": "Not: This book is belonging to the library.",
    "pause": 0.2
   },
   {
@@ -43,7 +43,7 @@
   },
   {
    "id": "a",
-   "text": "Don't understand! I don't understand this graph. Can you explain it? Told you it's tricky!",
+   "text": "Don't understand! I don't understand this graph. Can you explain it? Told you!",
    "pause": 0.2
   },
   {
@@ -109,9 +109,9 @@
   "payoff": "a"
  },
  "est": {
-  "words": 60,
-  "seconds": 28.6,
-  "wpm": 126,
+  "words": 57,
+  "seconds": 27.3,
+  "wpm": 125,
   "hook_s": 1.35
  }
 }

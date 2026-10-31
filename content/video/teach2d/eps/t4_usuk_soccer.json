@@ -32,7 +32,7 @@
   },
   {
    "id": "tw",
-   "text": "Wait! American football is different.",
+   "text": "Careful! American football is different.",
    "pause": 0.2
   },
   {
@@ -76,7 +76,7 @@
    "answer": 1
   },
   "twist": {
-   "say": "Wait! American football is different.",
+   "say": "Careful! American football is different.",
    "card": "another game"
   }
  },
