@@ -31964,5 +31964,50 @@
     "ar": "رجوع",
     "ru": "Назад",
     "tr": "Geri dön"
+  },
+  "Ghi chú của cô Ama": {
+    "es": "Nota de la profesora Ama",
+    "pt": "Nota da professora Ama",
+    "fr": "Note de la prof Ama",
+    "de": "Notiz von Lehrerin Ama",
+    "id": "Catatan Guru Ama",
+    "th": "บันทึกของครูอามา",
+    "zh": "Ama 老师的笔记",
+    "ja": "Ama先生のメモ",
+    "ko": "Ama 선생님의 노트",
+    "hi": "टीचर Ama का नोट",
+    "ar": "ملاحظة المعلمة Ama",
+    "ru": "Заметка учителя Ama",
+    "tr": "Öğretmen Ama'nın notu"
+  },
+  "Đồng nghĩa & trái nghĩa": {
+    "es": "Sinónimos y antónimos",
+    "pt": "Sinônimos e antônimos",
+    "fr": "Synonymes et antonymes",
+    "de": "Synonyme & Antonyme",
+    "id": "Sinonim & antonim",
+    "th": "คำพ้องและคำตรงข้าม",
+    "zh": "同义词与反义词",
+    "ja": "類義語・対義語",
+    "ko": "동의어 및 반의어",
+    "hi": "समानार्थी व विलोम शब्द",
+    "ar": "المرادفات والأضداد",
+    "ru": "Синонимы и антонимы",
+    "tr": "Eş ve zıt anlamlılar"
+  },
+  "Nghĩa theo từ loại": {
+    "es": "Significados por categoría gramatical",
+    "pt": "Significados por classe gramatical",
+    "fr": "Sens par catégorie grammaticale",
+    "de": "Bedeutungen nach Wortart",
+    "id": "Arti menurut kelas kata",
+    "th": "ความหมายตามชนิดของคำ",
+    "zh": "按词性分类的释义",
+    "ja": "品詞別の意味",
+    "ko": "품사별 의미",
+    "hi": "शब्द-भेद के अनुसार अर्थ",
+    "ar": "المعاني حسب نوع الكلمة",
+    "ru": "Значения по частям речи",
+    "tr": "Sözcük türüne göre anlamlar"
   }
 }
