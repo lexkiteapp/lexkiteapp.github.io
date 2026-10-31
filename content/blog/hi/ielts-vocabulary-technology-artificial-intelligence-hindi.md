@@ -106,10 +106,10 @@ quiz: [
 
 > **निबंध का प्रश्न:** *Some believe that artificial intelligence will create massive unemployment, while others argue it will enhance human productivity. Discuss both views and give your opinion.*
 >
-> **मॉडल बॉडी पैराग्राफ (Band 8):**  
-> On the one hand, skeptics legitimately argue that unchecked technological disruption could inflict severe socioeconomic destabilization. As industrial conglomerates deploy autonomous delivery networks and automated robotic lines, they will inevitably **displace the vulnerable workforce**, culminating in widespread **technological unemployment**. Furthermore, when corporate algorithms determine financial creditworthiness or hiring outcomes without human oversight, they risk perpetuating deeply entrenched **algorithmic bias**. Consequently, marginalized communities may confront institutional discrimination masked under the guise of objective computing.
+> **मॉडल बॉडी पैराग्राफ (Band 8.5):**  
+> From a pessimistic standpoint, critics emphasize that unbridled automation presents severe threats to societal stability. When multinational corporations integrate cognitive computing and robotic machinery, these tools inevitably **displace the workforce**, generating widespread **technological unemployment** across manufacturing and clerical industries. Moreover, flawed predictive algorithms in judicial sentencing or loan approvals tend to institutionalize **algorithmic bias**, penalizing vulnerable citizens.
 >
-> On the other hand, proponents persuasively maintain that artificial intelligence serves as an indispensable catalyst for innovation. By delegating mundane administrative duties to **labor-saving automation**, cognitive systems foster a productive **human-machine synergy**, liberating professionals to focus on creative synthesis and **heuristic problem-solving**. Rather than rendering humans obsolete, digital evolution historically stimulates new economic sectors, prompting the workforce to **reskill and upskill** in specialized fields such as software engineering, data governance, and algorithmic ethics.
+> Conversely, advocates contend that automated systems serve as an engine of unprecedented efficiency. By delegating repetitive administrative duties to **labor-saving automation**, enterprise leaders achieve meaningful **human-machine synergy**, allowing personnel to channel their energy into complex negotiations and creative problem-solving. Furthermore, history indicates that digital innovation consistently opens frontier industries, incentivizing laborers to **reskill and upskill** in cybersecurity, software development, and ethical data governance.
 
 ## भाषा कौशल को आगे बढ़ाने के लिए उपयोगी सामग्री
 
