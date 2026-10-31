@@ -97,11 +97,11 @@
   }
 
   routes.speak = async (arg, q) => {
-    if (!App.speakOn()) { location.replace('#/skills'); return; }
+    if (!App.speakOn()) { location.replace(location.pathname + location.search + '#/skills'); return; }
     await I18N.whenReady();
     const [id, sub] = String(arg || '').split('/'), s = sit(id || 'cafe');
-    if (!s) { location.replace('#/speak/cafe'); return; }
-    if (!id) { location.replace('#/speak/' + s.id); return; }
+    if (!s) { location.replace(location.pathname + location.search + '#/speak/cafe'); return; }
+    if (!id) { location.replace(location.pathname + location.search + '#/speak/' + s.id); return; }
     if (sub === 'drill') drill(s, q); else situation(s);
   };
 })();
