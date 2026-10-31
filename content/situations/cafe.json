@@ -51,7 +51,7 @@
    "pitfalls": []},
   {"id": "p4", "who": "barista", "en": "Of course. Would you like a receipt?",
    "variants": {"polite": "Certainly. Would you like a receipt?", "casual": "Sure. Need a receipt?"},
-   "gloss": {"en": "Yes, and asking if you want a receipt.", "vi": "Tất nhiên. Anh/chị có lấy hoá đơn không?", "es": "Por supuesto. ¿Quiere el recibo?", "pt": "Claro. Quer o recibo?", "fr": "Bien sûr. Vous voulez le ticket ?", "de": "Natürlich. Möchten Sie einen Beleg?", "id": "Tentu. Mau struknya?", "th": "ได้เลยค่ะ รับใบเสร็จไหมคะ", "zh": "当然可以。需要小票吗？", "ja": "もちろんです。レシートはご入用ですか？", "ko": "물론이죠. 영수증 드릴까요?", "hi": "ज़रूर। क्या आपको रसीद चाहिए?", "ar": "طبعًا. هل تريد إيصالًا؟", "ru": "Конечно. Чек нужен?", "tr": "Elbette. Fiş ister misiniz?"},
+   "gloss": {"en": "Yes, and asking if you want a receipt.", "vi": "Tất nhiên. Anh/chị có lấy hóa đơn không?", "es": "Por supuesto. ¿Quiere el recibo?", "pt": "Claro. Quer o recibo?", "fr": "Bien sûr. Vous voulez le ticket ?", "de": "Natürlich. Möchten Sie einen Beleg?", "id": "Tentu. Mau struknya?", "th": "ได้เลยค่ะ รับใบเสร็จไหมคะ", "zh": "当然可以。需要小票吗？", "ja": "もちろんです。レシートはご入用ですか？", "ko": "물론이죠. 영수증 드릴까요?", "hi": "ज़रूर। क्या आपको रसीद चाहिए?", "ar": "طبعًا. هل تريد إيصالًا؟", "ru": "Конечно. Чек нужен?", "tr": "Elbette. Fiş ister misiniz?"},
    "audio": {"voice": "carlos", "slow": true},
    "pitfalls": []},
   {"id": "t1", "who": "customer", "en": "I'd like to book a table for two.",

@@ -15,7 +15,7 @@
     const ok = new Array(n).fill(false); for (let i = 0, j = 0; i < n && j < m;) { if (a[i] && a[i] === b[j]) { ok[i] = true; i++; j++; } else if (L[i + 1][j] >= L[i][j + 1]) i++; else j++; }
     return shown.map((w, i) => ({ w, ok: ok[i] || !a[i] }));
   }
-  // Ý định trên máy (không gọi LLM): intents = [{id, keywords:[…]}] → id đầu tiên có từ khoá trong câu nghe được
+  // Ý định trên máy (không gọi LLM): intents = [{id, keywords:[…]}] → id đầu tiên có từ khóa trong câu nghe được
   const intentOf = (heard, intents) => { const h = ' ' + toks(heard).join(' ') + ' '; for (const it of intents || []) if ((it.keywords || []).some(k => h.includes(' ' + toks(k).join(' ') + ' '))) return it.id; return null; };
   const pass = r => !!r && !r.unclear && 1 / (1 + Math.exp(-(CAL.a * r.text + CAL.b))) >= 0.5;
   let cur = null;

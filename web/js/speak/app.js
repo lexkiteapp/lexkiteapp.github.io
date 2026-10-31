@@ -31,7 +31,7 @@
       stage: t('Bước {n}/{m}', { n: cur + 1, m: s.stages.length }), group: L(s.title), nodes, tasks, taskDone: t('{n}/{m} xong', { n: tasks.filter(k => k.done).length, m: tasks.length }),
       mastered: `${mastered} / ${all.length}`, masteredSub: t('mẫu câu đã thuộc'), remain: t('Còn {n} mẫu câu', { n: all.length - mastered }), pct: Math.round(mastered / all.length * 100),
       week: t('Mục tiêu tuần {n}/{m} câu', { n: wkN, m: WEEK_GOAL }), addon, addonOn: addon.length > 0,
-      start: '#/speak/' + s.id + '/drill', rp: '#/roleplay', info: t('Văn hoá'), culture: L(s.culture), tabsNav: [['#/home', 'Hôm nay'], ['#/vocab', 'Từ vựng'], ['#/skills', 'Kỹ năng'], ['#/tests', 'Thi thử'], ['#/me', 'Tôi']].map(([href, l]) => ({ href, label: t(l), on: href === '#/skills' })) };
+      start: '#/speak/' + s.id + '/drill', rp: '#/roleplay', info: t('Văn hóa'), culture: L(s.culture), tabsNav: [['#/home', 'Hôm nay'], ['#/vocab', 'Từ vựng'], ['#/skills', 'Kỹ năng'], ['#/tests', 'Thi thử'], ['#/me', 'Tôi']].map(([href, l]) => ({ href, label: t(l), on: href === '#/skills' })) };
     ST2.mount(view, 'pas-sit', d, null); document.title = d.title + ' – Lexkite';
     const info = view.querySelector('#spkInfo'); if (info) info.addEventListener('click', () => UI.toast(d.culture, 8000));
   }

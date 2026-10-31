@@ -5,7 +5,7 @@
   "mẫu câu đã thuộc": "phrases mastered",
   "Còn {n} mẫu câu": "{n} phrases remaining",
   "Mục tiêu tuần {n}/{m} câu": "Weekly goal {n} / {m} sentences",
-  "Văn hoá": "Culture note",
+  "Văn hóa": "Culture note",
   "Chạm các từ theo đúng thứ tự.": "Tap the words in the right order.",
   "Nghe rồi nói theo nhé.": "Listen, then say it after me.",
   "Nói cùng nhịp với cô nhé.": "Say it along with me.",
