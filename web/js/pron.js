@@ -37,22 +37,27 @@
       <p class="tiny muted" style="margin-top:1rem">${t('Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.')}</p>`;
   };
 
-  // Hình khẩu hình đơn giản (SVG) cho nguyên âm
+  // Hình khẩu hình đơn giản (SVG) cho nguyên âm – số liệu từ mouth (scripts/pron/features.mjs là bảng chuẩn); nguyên âm đôi: điểm đầu → điểm cuối
+  const lipsVi = k => ({ spread: t('môi hơi kéo sang hai bên'), neutral: t('môi tự nhiên'), round: t('môi tròn') })[k] || '';
+  const jawVi = k => ({ close: t('hàm gần khép'), 'near-close': t('hàm hé'), mid: t('hàm mở vừa'), 'open-mid': t('hàm mở khá rộng'), open: t('hàm mở rộng') })[k] || '';
   function mouthSvg(m) {
-    if (!m || !m.lips) return '';
-    const open = { close: 6, mid: 16, open: 28 }[m.jaw] || 14;
+    if (!m || !m.lips || !m.jaw) return '';
+    const open = { close: 4, 'near-close': 8, mid: 14, 'open-mid': 20, open: 28 }[m.jaw] || 14;
     const wide = { spread: 70, neutral: 56, round: 34 }[m.lips] || 56;
-    const tx = { front: 92, central: 100, back: 112 }[m.tongue] || 100;
-    const ty = 108 - ({ close: 14, mid: 8, open: 2 }[m.jaw] || 8);
-    return `<svg viewBox="0 0 200 160" class="mouth" role="img" aria-label="${t('Khẩu hình')}">
+    const tx = { front: 90, 'near-front': 94, central: 100, 'near-back': 106, back: 110 }[m.back] || 100;
+    const ty = 108 - ({ close: 14, 'near-close': 12, mid: 8, 'open-mid': 5, open: 2 }[m.jaw] || 8);
+    const cap = x => `${lipsVi(x.lips)} · ${jawVi(x.jaw)}`;
+    // Chú thích nằm DƯỚI hình tròn (đáy tròn y = 154), không đè lên mép
+    const lines = m.to ? [cap(m), '→ ' + cap(m.to)] : [cap(m)];
+    return `<svg viewBox="0 0 200 ${162 + lines.length * 14}" class="mouth" role="img" aria-label="${t('Khẩu hình')}">
       <circle cx="100" cy="80" r="74" fill="var(--surface-2)"/>
       <ellipse cx="100" cy="98" rx="${wide / 2 + 10}" ry="${open / 2 + 12}" fill="#f9a8b8"/>
       <ellipse cx="100" cy="98" rx="${wide / 2}" ry="${open / 2 + 2}" fill="#7f1d1d"/>
       <ellipse cx="${tx}" cy="${ty + open / 3}" rx="18" ry="6" fill="#fb7185" opacity=".9"/>
-      <text x="100" y="152" text-anchor="middle" class="tl-ax">${{ spread: t('môi dàn rộng'), neutral: t('môi tự nhiên'), round: t('môi tròn') }[m.lips] || ''} · ${{ close: t('hàm khép'), mid: t('hàm hé'), open: t('hàm mở rộng') }[m.jaw] || ''}</text></svg>`;
+      ${lines.map((l, i) => `<text x="100" y="${170 + i * 14}" text-anchor="middle" class="tl-ax">${esc(l)}</text>`).join('')}</svg>`;
   }
-  const placeVi = k => ({ lips: t('hai môi'), teeth: t('môi – răng'), 'tongue-teeth': t('lưỡi – răng'), ridge: t('lợi trên'), palate: t('vòm miệng'), back: t('cuống lưỡi'), throat: t('thanh hầu') })[k];
-  const mannerVi = k => ({ stop: t('âm tắc (bật hơi)'), fricative: t('âm xát'), affricate: t('âm tắc – xát'), nasal: t('âm mũi'), approximant: t('âm tiếp cận') })[k];
+  const placeVi = k => ({ lips: t('hai môi'), teeth: t('môi – răng'), 'tongue-teeth': t('lưỡi – răng'), ridge: t('lợi trên'), 'post-ridge': t('sau lợi'), palate: t('vòm miệng'), back: t('cuống lưỡi'), throat: t('thanh hầu'), 'lips-back': t('môi + ngạc mềm') })[k];
+  const mannerVi = (k, lat) => lat ? t('âm tiếp cận bên') : ({ stop: t('âm tắc'), fricative: t('âm xát'), affricate: t('âm tắc – xát'), nasal: t('âm mũi'), approximant: t('âm tiếp cận') })[k];
 
   function lesson(id) {
     const all = P(), i = all.findIndex(x => x.id === id), x = all[i];
@@ -66,7 +71,7 @@
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 220px;align-items:center;margin:.7rem 0 1rem" id="pHead">
         <div class="card hero-main" style="min-height:100%">
           <div class="row nowrap"><div class="ipa-big">${esc(x.ipa)}</div><div><h1 style="margin:0;color:#fff">${esc(x.title)}</h1>
-            <div class="row" style="margin-top:.4rem">${m.voiced != null ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${m.voiced ? t('hữu thanh (rung cổ)') : t('vô thanh (không rung)')}</span>` : ''}${m.long ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('âm dài ː')}</span>` : ''}${m.place ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${placeVi(m.place) || m.place}</span><span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${mannerVi(m.manner) || m.manner || ''}</span>` : ''}</div></div></div>
+            <div class="row" style="margin-top:.4rem">${m.voiced != null ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${m.voiced ? t('hữu thanh (rung cổ)') : t('vô thanh (không rung)')}</span>` : ''}${m.long && !m.to ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('âm dài ː')}</span>` : ''}${m.to ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('nguyên âm đôi')}</span>` : ''}${m.place ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${placeVi(m.place) || m.place}</span><span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${mannerVi(m.manner, m.lateral) || m.manner || ''}</span>${m.aspirated ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('bật hơi đầu từ')}</span>` : ''}` : ''}</div></div></div>
           <p style="margin:.8rem 0 0;opacity:.95">${esc(x.how)}</p>
         </div>
         <div class="card" style="text-align:center">${mouthSvg(m) || `<div style="font-size:3.5rem">${x.emoji}</div>`}</div>
