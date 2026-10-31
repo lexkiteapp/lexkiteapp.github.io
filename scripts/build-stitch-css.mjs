@@ -20,7 +20,7 @@ for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v
 // Trang web tĩnh Stitch (lexkite.com – khung TỰ SINH web/js/st/web/<trang>.js, `stitch-v2-convert.mjs --web`): mỗi trang 1 nhóm w-<trang>, CSS được generator NHÚNG vào <style> (scripts/lib/st-web.mjs).
 //   Nhóm w-* nạp cả file dựng dữ liệu (generator) vì nó có thể chèn class Tailwind viết tay; vỏ chung (đầu trang + chân trang) nằm trong web/js/st/web/chrome.js.
 const WEB = fs.existsSync('web/js/st/web') ? fs.readdirSync('web/js/st/web').filter(f => f.endsWith('.js') && f !== 'chrome.js').map(f => f.slice(0, -3)) : [];
-const WEBDATA = { home: ['scripts/build-landing.mjs'], sample: ['scripts/lib/samples-ui.mjs'], speaking: ['scripts/lib/samples-ui.mjs'], post: ['scripts/build-blog.mjs', 'scripts/lib/st-web.mjs'], hub: ['scripts/build-blog.mjs', 'scripts/lib/samples-ui.mjs'] };
+const WEBDATA = { home: ['scripts/build-landing.mjs'], sample: ['scripts/lib/samples-ui.mjs'], speaking: ['scripts/lib/samples-ui.mjs'], post: ['scripts/lib/blog-st.mjs'], hub: ['scripts/lib/blog-st.mjs', 'scripts/lib/samples-ui.mjs'] }; // blog: class viết tay của generator nằm ở blog-st.mjs (build-blog.mjs chỉ dựng dữ liệu, có URL ngoài thật – YouTube/PubSubHubbub)
 for (const k of WEB) GROUPS['w-' + k] = ['web/js/st/web/chrome.js', `web/js/st/web/${k}.js`, 'scripts/lib/st-web.mjs', ...(WEBDATA[k] || [])].filter(f => fs.existsSync(f));
 const OUT = g => `web/css/st-${g}.css`;
 

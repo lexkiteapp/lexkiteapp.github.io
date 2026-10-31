@@ -33,17 +33,18 @@ function rows(A, B, h) { const prof = G => { const o = []; for (let y = 0; y < h
   for (let i = 0; i < h; i++) { n += (a[i] - ma) * (b[i] - mb); da += (a[i] - ma) ** 2; db += (b[i] - mb) ** 2; } return da && db ? n / Math.sqrt(da * db) : 0; }
 
 // ---- kiểm trên trang thật ----
-const AUDIT = () => { const vis = e => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+const AUDIT = () => { const OWN = /^https?:\/\/(([a-z0-9-]+\.)?lexkite\.com|127\.0\.0\.1|i\.ytimg\.com)\//; // ảnh của mình (lexkite.com + CDN media.lexkite.com) + ảnh bìa YouTube của khung video có sẵn (video-web.mjs)
+  const vis = e => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 1 && r.height > 1 && cs.visibility !== 'hidden' && cs.display !== 'none' && !/rect\(0(px)?,? 0(px)?,? 0(px)?,? 0(px)?\)|inset\(50%\)/.test(cs.clip + ' ' + cs.clipPath); }; // bỏ link 'bỏ qua tới nội dung' ẩn (sr-only, hiện khi focus)
   const small = [...document.querySelectorAll('a[href],button,input,select,summary,[role=button]')].filter(e => vis(e) && !e.closest('p,li>p,.prose,article p,[data-inline]')).filter(e => { const r = e.getBoundingClientRect(); return r.width < 44 || r.height < 44; })
     .filter(e => !(e.tagName === 'A' && getComputedStyle(e).display === 'inline')).map(e => (e.textContent || e.getAttribute('aria-label') || e.tagName).trim().slice(0, 24));
-  const imgs = [...document.images].filter(i => i.complete && !i.naturalWidth && i.loading !== 'lazy').map(i => i.getAttribute('src')), ext = [...document.querySelectorAll('img[src^="http"]')].filter(i => !/^https?:\/\/(lexkite\.com|127\.0\.0\.1)/.test(i.src)).map(i => i.src);
+  const imgs = [...document.images].filter(i => i.complete && !i.naturalWidth && i.loading !== 'lazy').map(i => i.getAttribute('src')), ext = [...document.querySelectorAll('img[src^="http"]')].filter(i => !OWN.test(i.src)).map(i => i.src);
   return { small: small.slice(0, 12), nSmall: small.length, broken: imgs, ext, hscroll: document.documentElement.scrollWidth > innerWidth + 1, ph: /TEACHER SLOT|\[teacher\]|placeholder/i.test(document.body.innerText), v2: !!document.querySelector('[class^="v2s-web-"]') }; };
 
 const browser = await chromium.launch(), res = {}, bad = [], sheets = [];
 async function shot(url, vp, scheme, file) {
   const ctx = await browser.newContext({ viewport: vp, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: scheme }), page = await ctx.newPage();
   await page.addInitScript(() => { window.__cls = 0; new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); });
-  await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, r => /fonts\.(googleapis|gstatic)\.com|cdn\.tailwindcss\.com/.test(r.request().url()) && url.startsWith('file:') ? r.continue() : r.abort()); // mẫu Stitch cần CDN của nó; trang thật: 0 request ra ngoài
+  await page.route(/^https?:\/\/(?!127\.0\.0\.1|([a-z0-9-]+\.)?lexkite\.com\/|i\.ytimg\.com\/)/, r => /fonts\.(googleapis|gstatic)\.com|cdn\.tailwindcss\.com/.test(r.request().url()) && url.startsWith('file:') ? r.continue() : r.abort()); // mẫu Stitch cần CDN của nó; trang thật: 0 request ra ngoài
   await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 }).catch(() => {}); await page.addStyleTag({ content: STILL }).catch(() => {}); await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {}); await page.waitForTimeout(400);
   const h = Math.min(CAP, await page.evaluate(() => document.documentElement.scrollHeight)); await page.setViewportSize({ width: vp.width, height: h }); await page.waitForTimeout(200);
   const buf = await page.screenshot({ fullPage: false }); fs.writeFileSync(file, buf);

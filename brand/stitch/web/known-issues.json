@@ -1,0 +1,12 @@
+{
+ "_note": "Lỗi tương phản còn TRONG MẪU Stitch web (brand/stitch/web/*-light|dark.html). Trang thật vẫn phải đạt WCAG AA (cổng axe của scripts/test/stitch-web-diff.mjs) – đã sửa trong bind bằng `cls`, chỉ đổi sang màu CÓ SẴN trong mẫu/token. Chỉ XÓA dòng khi mẫu đã sạch.",
+ "issues": [
+  "home: [light] thẻ đơn vị trong điện thoại – chữ trắng 10–14px trên #2BA39A 3.08<4.5 (opacity-90 còn 2.79) → nền #1F7A75, bỏ opacity-90 (5.12)",
+  "home: [light] chip \"Band 7.5+\" – #FFB054 trên #FFB054/15 1.66<4.5 → chữ #B53A22 (5.35); tối giữ #FFB054",
+  "home: [light] chữ tô \"resilient\" + ô đáp án đúng – #1F7A75 trên #2BA39A/10–15 4.36–4.39<4.5 → #12514D",
+  "home: [light] dải phản hồi xanh – chữ trắng trên #2FBF71 2.38<4.5, ✓ #2FBF71 trên trắng 2.38 → chữ #0F3D3E (5.01), bỏ opacity-90",
+  "home: [dark] dải phản hồi xanh – chữ trắng 11px trên #1B8A4E 4.38<4.5, \"+10 XP\" teal-100 opacity-90 3.47 → nền #2FBF71 + chữ #091518 (7.78)",
+  "home: [light] dấu ✓ 3 ý add-on + chip \"Ready to climb?\" – #1F7A75 trên #2BA39A/15–20 3.95–4.39<4.5 → #12514D",
+  "home: [light] chân trang bản quyền/nhãn hiệu – #4E6668/70 trên trắng 3.17<4.5 → #4E6668 (5.9)"
+ ]
+}

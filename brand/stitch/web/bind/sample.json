@@ -1,0 +1,376 @@
+{
+ "remove": [
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(3)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2)",
+  ":scope > :nth-child(3)",
+  ":scope > :nth-child(1)"
+ ],
+ "html": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.crumbs[0][0])",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.crumbs[1][0])",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": "e(d.crumbs[2][0])",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.bandL)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.type)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": "e(d.h1)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(3)": "e(d.lead)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.promptL)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.kick)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.q)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.ask)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.outlineL)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.parasL)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(1) > :nth-child(2)": "e(d.legHint)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.leg[0][0])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.leg[0][1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(2)": "e(d.leg[1][0])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(3)": "e(d.leg[1][1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(2)": "e(d.leg[2][0])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(3)": "e(d.leg[2][1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(d.modelK)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.modelH)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(d.phrH)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.bandL)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.save[1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.save[2])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(2) > :last-child > :nth-child(1)": "e(d.save[0])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(2) > :last-child > :nth-child(2) > :nth-child(1)": "e(d.save[2])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(d.appL)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.cta[0])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.cta[1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(1)": "d.ama",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(2) > :nth-child(1)": "e(d.kit[0])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(2) > :nth-child(2)": "e(d.kit[1])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(2)": "e(d.cta[2])",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(6) > :nth-child(1)": "'edit_note'",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(6) > :nth-child(2)": "e(d.kit[2])",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(d.relK)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.relH)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.secName)"
+ },
+ "attr": {
+  ":scope > :nth-child(2) > :nth-child(1)": {
+   "aria-label": "d.crumbL"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+   "href": "d.crumbs[0][1]"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(3)": {
+   "href": "d.crumbs[1][1]"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": {
+   "aria-current": "'page'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(4)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1)": {
+   "aria-labelledby": "'pr-h'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "id": "'pr-h'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "lang": "'en'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "lang": "'en'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2)": {
+   "aria-labelledby": "'ol-h'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "id": "'ol-h'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(2) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(3) > :nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(2)": {
+   "href": "d.modelHref"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(2) > :last-child > :nth-child(2)": {
+   "href": "d.modelHref"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(5)": {
+   "href": "d.modelHref"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(6)": {
+   "href": "d.writeHref"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "id": "'rel'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4)": {
+   "aria-labelledby": "'rel'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2)": {
+   "href": "d.secHref"
+  }
+ },
+ "cls": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "mt-3": "d.ask ? 'mt-3' : 'hidden'"
+  }
+ },
+ "addClass": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(1)": "flex-wrap gap-3",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(2)": "ess2"
+ },
+ "tag": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2)": {
+   "to": "nav"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(1) > :nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(1) > :nth-child(6)": {
+   "to": "a"
+  }
+ },
+ "text": {
+  "Interactive Linguistic Colour Key": "d.legendL"
+ },
+ "repeat": [
+  {
+   "list": "d.meta",
+   "as": "m",
+   "variants": {
+    "it": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(3) > :nth-child(1)",
+    "sep": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(3) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(3) > span",
+   "pick": "m ? 'it' : 'sep'",
+   "bind": {
+    "it": {
+     "html": {
+      ":scope > span": "m[0]"
+     },
+     "text": {
+      "40 mins recommended": "m[1]"
+     }
+    },
+    "sep": {
+     "attr": {
+      ":scope": {
+       "aria-hidden": "'true'"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.paras",
+   "as": "p",
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(2) > :nth-child(2) > div",
+   "tag": {
+    ":scope": {
+     "to": "a"
+    }
+   },
+   "attr": {
+    ":scope": {
+     "href": "'#d' + (i + 1)"
+    },
+    ":scope > :nth-child(1) > :nth-child(1)": {
+     "aria-hidden": "'true'"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(1)": "i + 1",
+    ":scope > :nth-child(1) > :nth-child(2)": "e(p.name)",
+    ":scope > :nth-child(2)": "e(p.snip)"
+   }
+  },
+  {
+   "list": "d.tools",
+   "as": "t",
+   "variants": {
+    "hl": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)",
+    "gl": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)",
+    "pr": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(2)"
+   },
+   "pick": "t.k",
+   "bind": {
+    "hl": {
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "data-cls": "'plain'",
+       "data-inv": "'1'",
+       "aria-pressed": "'true'"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1)": "t.icon",
+      ":scope > :nth-child(2)": "e(t.t)"
+     }
+    },
+    "gl": {
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "data-cls": "'gl-on'",
+       "aria-pressed": "'false'"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1)": "t.icon",
+      ":scope > :nth-child(2)": "e(t.t)"
+     }
+    },
+    "pr": {
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "data-print": "''"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1)": "t.icon",
+      ":scope > :nth-child(2)": "e(t.t)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.ess",
+   "as": "p",
+   "sel": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(4) > :nth-child(2) > p",
+   "attr": {
+    ":scope": {
+     "id": "'d' + (i + 1)",
+     "lang": "'en'"
+    }
+   },
+   "html": {
+    ":scope": "p"
+   }
+  },
+  {
+   "list": "d.phr",
+   "as": "x",
+   "variants": {
+    "au": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(2) > :nth-child(1)",
+    "pl": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(2) > :nth-child(1)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(5) > :nth-child(2) > .phrase-card",
+   "pick": "x.k ? 'au' : 'pl'",
+   "bind": {
+    "au": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1)": "e(x.e)",
+      ":scope > :nth-child(1) > :nth-child(2)": "e(x.m)"
+     },
+     "attr": {
+      ":scope > :nth-child(1) > :nth-child(1)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(2)": {
+       "type": "'button'",
+       "data-a": "x.k",
+       "aria-label": "x.play",
+       "title": "x.play",
+       "aria-pressed": "'false'"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(2)": {
+       "text-[12px]": "x.m ? 'text-[12px]' : 'hidden'"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2)": "au"
+     }
+    },
+    "pl": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1)": "e(x.e)",
+      ":scope > :nth-child(1) > :nth-child(2)": "e(x.m)"
+     },
+     "attr": {
+      ":scope > :nth-child(1) > :nth-child(1)": {
+       "lang": "'en'"
+      }
+     },
+     "cls": {
+      ":scope > :nth-child(1) > :nth-child(2)": {
+       "text-[12px]": "x.m ? 'text-[12px]' : 'hidden'"
+      }
+     },
+     "remove": [
+      ":scope > :nth-child(2)"
+     ]
+    }
+   }
+  },
+  {
+   "list": "d.rel",
+   "as": "c",
+   "variants": {
+    "pg": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1)",
+    "one": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > a",
+   "pick": "c.rel ? 'pg' : 'one'",
+   "bind": {
+    "pg": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(c.band)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(c.tag)",
+      ":scope > :nth-child(1) > :nth-child(2)": "e(c.title)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(c.desc)",
+      ":scope > :nth-child(2) > :nth-child(1)": "e(c.meta)",
+      ":scope > :nth-child(2) > :nth-child(2)": "e(c.more)"
+     },
+     "attr": {
+      ":scope": {
+       "href": "c.href",
+       "rel": "c.rel"
+      },
+      ":scope > :nth-child(1) > :nth-child(2)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(3)": {
+       "lang": "'en'"
+      }
+     }
+    },
+    "one": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": "e(c.band)",
+      ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(c.tag)",
+      ":scope > :nth-child(1) > :nth-child(2)": "e(c.title)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(c.desc)",
+      ":scope > :nth-child(2) > :nth-child(1)": "e(c.meta)",
+      ":scope > :nth-child(2) > :nth-child(2)": "e(c.more)"
+     },
+     "attr": {
+      ":scope": {
+       "href": "c.href"
+      },
+      ":scope > :nth-child(1) > :nth-child(2)": {
+       "lang": "'en'"
+      },
+      ":scope > :nth-child(1) > :nth-child(3)": {
+       "lang": "'en'"
+      }
+     }
+    }
+   }
+  }
+ ]
+}

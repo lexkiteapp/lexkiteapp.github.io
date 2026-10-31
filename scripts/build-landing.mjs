@@ -13,7 +13,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { minify } from 'terser';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { esc, ld, siteChrome, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { esc, ld, siteChrome, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 import { render as stRender, teacher, compact } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → web/js/st/web/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
@@ -54,7 +54,7 @@ const gaText = l => ({ iph: ['Cài Lexkite lên iPhone', 'Bấm nút <b>Chia s�
 export const gaFile = l => `/js/get-app/${l}.json`;
 export const gaJson = l => JSON.stringify(gaText(l)) + '\n';
 // Nút mang lớp thành phần Stitch (btn-3d-secondary của mẫu home) – đầu trang máy tính/điện thoại (chỉ icon, 44 px) + chân trang
-const GA_CLS = { head: 'btn-3d-secondary inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-extrabold', icon: 'btn-3d-secondary inline-flex items-center justify-center w-11 h-11 rounded-xl', foot: 'btn-3d-secondary inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-extrabold' };
+const GA_CLS = { head: 'btn-3d-secondary inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-xl text-sm font-extrabold', icon: 'btn-3d-secondary inline-flex items-center justify-center w-11 h-11 rounded-xl', foot: 'btn-3d-secondary inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-xl text-sm font-extrabold' };
 const gaBtn = (l, place, appQ, web, look = place) => `<a class="${GA_CLS[look]}" href="${appQ}" data-get-app="${place}"${web ? ` data-web="${appQ}"` : ` aria-label="${esc(ui(l, 'Tải app'))}"`} hidden>${PHONE}${look === 'icon' ? '' : `<span>${esc(ui(l, 'Tải app'))}</span>`}</a>`;
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
@@ -68,7 +68,7 @@ var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclic
 // ----- CSS riêng của landing (chỉ phần mẫu Stitch không vẽ: giữ chỗ nút add-on/Tải app chống CLS, link bỏ qua, dải gợi ý ngôn ngữ, menu đổi ngôn ngữ) -----
 // Màu = token Stitch (--st-*, cùng nguồn brand/stitch/tokens.dtcg.json, tự đổi sáng/tối) → biến dùng chung của khối lsw/lhint.
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-flex!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
-body.stw{--surface:rgb(var(--st-surface-container-lowest));--line:rgb(var(--st-outline-variant));--text:rgb(var(--st-on-surface));--muted:rgb(var(--st-on-surface-variant));--primary:rgb(var(--st-secondary));--accent-soft:rgb(var(--st-secondary-container)/.25);--tap:44px;color:var(--text)}
+${STW_VARS}
 [data-get-app] svg{flex:none}.skip{position:absolute;left:8px;top:-60px;background:var(--surface);color:var(--text);padding:8px 12px;z-index:60}.skip:focus{top:8px}[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .skip:focus{left:auto;right:8px}
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(15,61,62,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--primary);color:rgb(var(--st-on-secondary));font-weight:800;font-size:14px;white-space:nowrap;text-decoration:none}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px;min-width:44px;min-height:44px}
 ${LSW_CSS}.lsw-m{z-index:60}`;
@@ -118,7 +118,9 @@ function renderFull(lang) {
   const d = { ...c, start, store: EXT_STORE, h1nw: wide(c.hero.h1b) <= 330,
     trust: [...c.trust.map(x => [x]), [c.hero.note], [c.hero.placement, `${appQ}#/placement`]],
     grades: ['Quên', 'Khó', 'Nhớ', 'Dễ'].map((k, i) => [ui(lang, k), i === 2]), cont: `${ui(lang, 'Tiếp tục')} ${rtl ? '←' : '→'}`, rescards,
-    ama: teacher('ama', 'point', { size: 145 }), carlos: teacher('carlos', 'cheer', { size: 155 }),
+    // giáo viên đứng cạnh điện thoại / trong dải kêu gọi = đúng ô hình người của mẫu Stitch (≈ cao bằng hình vẽ 261–270 px ở máy tính); ảnh tĩnh rộng 1108×960 (nửa người, lề trong suốt 2 bên)
+    //   → width/height giữ tỉ lệ (CLS), cỡ hiển thị theo màn qua class; vị trí ô Ama (-left-*) chỉnh trong bind/home.json để thân người nằm đúng chỗ hình vẽ.
+    ama: teacher('ama', 'point', { size: 340, cls: 'chr max-w-none w-[200px] sm:w-[270px] lg:w-[340px] h-auto' }), carlos: teacher('carlos', 'cheer', { size: 300, cls: 'chr max-w-full w-[220px] sm:w-[300px] h-auto' }),
     extImg: `<img class="w-full h-auto rounded-xl" src="/img/ext-lookup.webp" srcset="/img/ext-lookup-480.webp 480w, /img/ext-lookup.webp 752w" sizes="(max-width: 800px) 92vw, 752px" width="752" height="602" loading="lazy" decoding="async" alt="${esc(c.ext.alt)}">` };
   const page = stRender('home', d, { lang, chrome });
   const faqLd = { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };

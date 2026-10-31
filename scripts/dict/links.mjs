@@ -15,7 +15,12 @@ export function dictWords(p, max = 8) {
   for (const t of [p.keyword, ...(p.tags || [])]) if (/^[a-z]{3,}$/i.test(String(t || '').trim())) add(t);
   return seen.map(w => m.get(w));
 }
+// Dữ liệu (khung Stitch của bài blog – thẻ "Study Toolkit"): { h, items: [{ href, word, def }] } | null
+export const blogDict = p => {
+  const ws = dictWords(p); if (!ws.length) return null;
+  return { h: L[p.lang].h, items: ws.map(e => ({ href: wordPath(p.lang, slugOf(e.word)), word: e.word, def: String(p.lang === 'vi' ? e.vi : e.def).split(/[;,]/)[0] })) };
+};
 export const blogDictBox = p => {
-  const ws = dictWords(p); if (!ws.length) return '';
-  return `<aside class="tool-links dict-links" aria-label="${esc(L[p.lang].h)}"><p class="tl-h">📖 ${esc(L[p.lang].h)}</p><ul>${ws.map(e => `<li><a href="${wordPath(p.lang, slugOf(e.word))}" lang="en">${esc(e.word)}</a> <small>${esc(String(p.lang === 'vi' ? e.vi : e.def).split(/[;,]/)[0])}</small></li>`).join('')}</ul></aside>`;
+  const b = blogDict(p); if (!b) return '';
+  return `<aside class="tool-links dict-links" aria-label="${esc(b.h)}"><p class="tl-h">📖 ${esc(b.h)}</p><ul>${b.items.map(e => `<li><a href="${e.href}" lang="en">${esc(e.word)}</a> <small>${esc(e.def)}</small></li>`).join('')}</ul></aside>`;
 };

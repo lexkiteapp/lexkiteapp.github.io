@@ -22,13 +22,17 @@ const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').re
 // Bài blog cùng chủ đề → hộp liên kết công cụ (không sửa nội dung bài: chèn lúc dựng). TOEIC → quiz Part 5 (+ test); trình độ/CEFR/thi → test.
 const RE_TOEIC = /toeic/i;
 const RE_LEVEL = /cefr|\b[abc][12]\b|level|trình độ|band|placement|niveau|nivel|seviye|уровень|レベル|레벨|水平|ระดับ|स्तर|مستوى|ielts|toefl|grammar|ngữ pháp|vocabular|từ vựng/i;
-export const blogToolBox = p => {
-  const l = p.lang; if (!hasTools(l)) return '';
+// Dữ liệu (khung Stitch của bài blog – thẻ "Study Toolkit"): { h, items: [[href, tên, mô tả]] } | null
+export const blogTools = p => {
+  const l = p.lang; if (!hasTools(l)) return null;
   const s = toolStrings(l), hay = [p.slug, p.title, p.keyword, p.category, ...(p.tags || [])].join(' ');
   const out = [];
   if (RE_TOEIC.test(hay)) out.push([toolPath(l, 'toeic'), s.nav.toeic, s.toeic.desc.replace('{n}', '210')]);
   if (RE_TOEIC.test(hay) || RE_LEVEL.test(hay)) out.push([toolPath(l, 'test'), s.nav.levelTest, s.test.desc]);
-  if (!out.length) return '';
-  return `<aside class="tool-links" aria-label="${esc(s.nav.tools)}"><p class="tl-h">${esc(s.nav.tools)}</p><ul>${out.map(([u, n, d]) => `<li><a href="${u}">${esc(n)}</a><br><small>${esc(d)}</small></li>`).join('')}</ul></aside>`;
+  return out.length ? { h: s.nav.tools, items: out } : null;
+};
+export const blogToolBox = p => {
+  const b = blogTools(p); if (!b) return '';
+  return `<aside class="tool-links" aria-label="${esc(b.h)}"><p class="tl-h">${esc(b.h)}</p><ul>${b.items.map(([u, n, d]) => `<li><a href="${u}">${esc(n)}</a><br><small>${esc(d)}</small></li>`).join('')}</ul></aside>`;
 };
 export const TOOL_BOX_CSS = '.tool-links{margin:1.5rem 0;padding:.9rem 1.1rem;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.tool-links .tl-h{margin:0 0 .4rem;font-weight:700}.tool-links ul{margin:0;padding-inline-start:1.1rem}.tool-links li{margin:.35rem 0}.tool-links a{display:inline-block;min-height:24px;font-weight:600}.tool-links small{color:var(--muted)}';

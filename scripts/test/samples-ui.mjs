@@ -46,7 +46,8 @@ if (Object.values(P).every(fresh)) {
   const h = Object.fromEntries(Object.entries(P).map(([k, f]) => [k, fs.readFileSync(f, 'utf8')]));
   // Mọi <script> nội tuyến của trang tĩnh phải chạy được (lỗi cú pháp = ô lọc, nút nghe, chip nhóm chết cả trang – lỗi 24/10)
   for (const f of [...Object.values(P), 'dist/en/vocabulary/index.html', 'dist/tu-vung/index.html', 'dist/en/speaking/index.html']) if (fs.existsSync(f)) for (const m of fs.readFileSync(f, 'utf8').matchAll(/<script>([\s\S]*?)<\/script>/g)) { let e = ''; try { new Function(m[1]); } catch (x) { e = x.message; } ok(!e, `${f}: script nội tuyến hợp lệ${e ? ' – ' + e : ''}`); }
-  for (const k of ['vi', 'en', 'lt']) {
+  // Thư mẫu (lt): giao diện bài mẫu cũ (.smp) – giữ nguyên
+  for (const k of ['lt']) {
     ok(/<article class="page smp smp-doc/.test(h[k]) && /class="ess-side"/.test(h[k]) && /class="side-box outline"/.test(h[k]) && /class="side-box legend"/.test(h[k]), `${k}: cột dàn bài + chú thích màu`);
     ok((h[k].match(/<section class="para r-/g) || []).length >= 4, `${k}: thẻ đoạn có vai trò`);
     ok(/<ul class="stats">/.test(h[k]) && /class="band"/.test(h[k]) && /class="prompt/.test(h[k]) && /<ol class="phr">/.test(h[k]) && /class="save"/.test(h[k]) && /class="cta2"/.test(h[k]), `${k}: số liệu, đề bài, thẻ cụm từ, lưu cụm, CTA`);
@@ -54,13 +55,27 @@ if (Object.values(P).every(fresh)) {
     ok(/<link rel="canonical"/.test(h[k]) && /"@type":"LearningResource"[^<]*"learningResourceType"/.test(h[k]) && /"@type":"BreadcrumbList"/.test(h[k]), `${k}: canonical + JSON-LD (LearningResource mở rộng + Breadcrumb)`);
     ok(/<svg[^>]*aria-hidden="true"/.test(h[k]), `${k}: Kit từ kit.js, trang trí (aria-hidden; màu cũ do brand-check chặn)`);
   }
+  // Bài mẫu Task 2 (vi/en): khung Stitch v2.1 (.v2s-web-sample) – đủ ý cũ: dàn bài nhảy tới đoạn, chú thích màu, thẻ đoạn (id), số liệu, đề, cụm từ, lưu cụm, CTA, trước/sau, popover, giáo viên
+  for (const k of ['vi', 'en']) {
+    const x = h[k], n = (x.match(/ id="d\d+"/g) || []).length;
+    ok(/<div class="v2s-web-sample">/.test(x) && /<body class="[^"]*\bst">/.test(x) && (x.match(/<style>/g) || []).length === 1, `${k}: khung Stitch .v2s-web-sample (1 khối CSS nội tuyến)`);
+    ok(n >= 4 && (x.match(/href="#d\d+"/g) || []).length === n && /aria-labelledby="ol-h"/.test(x), `${k}: dàn bài (${n} đoạn) nhảy tới thẻ đoạn có id`);
+    ok(/aria-current="page"/.test(x) && /aria-label="Breadcrumb"/.test(x), `${k}: breadcrumb hiển thị trong khung Stitch`);
+    ok(/>Band \d/.test(x) && new RegExp(S[k].words).test(x) && /id="pr-h"/.test(x) && /data-cls="plain"/.test(x) && /data-print/.test(x) && (k === 'vi') === /data-cls="gl-on"/.test(x), `${k}: số liệu (band, số từ), đề bài, nút tô màu/in (nút nghĩa chỉ ở vi)`);
+    ok(/<mark class="[^"]*"[^>]*>/.test(x) && (x.match(/<mark /g) || []).length >= 10 && /#\/model\/t2-/.test(x) && /#\/write\//.test(x), `${k}: cụm từ tô màu trong bài, lưu trong app, CTA viết bài`);
+    ok(/rel="prev"|rel="next"/.test(x) && /id="glp"/.test(x) && /#glp\.sheet/.test(x) && /id="ext"/.test(x) && /id="pwa"/.test(x), `${k}: bài trước/sau + popover + gợi ý add-on/PWA`);
+    ok(/<link rel="canonical"/.test(x) && /"@type":"LearningResource"[^<]*"learningResourceType"/.test(x) && /"@type":"BreadcrumbList"/.test(x), `${k}: canonical + JSON-LD (LearningResource mở rộng + Breadcrumb)`);
+    ok(/<img[^>]*src="\/teach\/ama\/[^"]*point[^"]*"/.test(x) && !/TEACHER SLOT|placeholder/i.test(x), `${k}: giáo viên Ama (point) qua Chars, không ô giữ chỗ`);
+  }
   ok(/data-g="/.test(h.vi) && !/data-g="[^"]/.test(h.en.split('<main')[1]), 'nghĩa tiếng Việt chỉ ở bản vi');
   for (const k of ['vi', 'en']) ok(/hreflang="vi"/.test(h[k]) && /hreflang="en"/.test(h[k]) && /hreflang="x-default"/.test(h[k]), `${k}: hreflang vi/en/x-default`);
   ok(/Kết bài/.test(h.vi) && /Conclusion/.test(h.en) && !/Kết bài|Mở bài|Thân bài/.test(h.en), 'nhãn đoạn đúng ngôn ngữ (en không lộ tiếng Việt)');
   for (const k of ['viIdx', 'enIdx']) {
     ok(/<nav class="tf"/.test(h[k]) && (h[k].match(/class="card set sc t-/g) || []).length >= 80 && /"@type":"ItemList"/.test(h[k]) && /id="q"/.test(h[k]), `${k}: chip lọc dạng đề, ≥ 80 thẻ có màu, ItemList, ô lọc`);
   }
-  ok(/id="part-2"/.test(h.sp) && /class="q cue"/.test(h.sp) && /class="qa"/.test(h.sp) && /<ul class="vch">/.test(h.sp) && /<nav class="pg2"/.test(h.sp), 'speaking: phần thi, cue card, Q&A, từ vựng, chủ đề trước/sau');
+  ok(/<div class="v2s-web-speaking">/.test(h.sp) && ['part-1', 'part-2', 'part-3'].every(i => h.sp.includes(`id="${i}"`) && h.sp.includes(`href="#${i}"`)), 'speaking: khung Stitch + 3 phần thi có mốc nhảy');
+  ok(/You should say:/.test(h.sp) && />Cue card</.test(h.sp) && (h.sp.match(/>Q\d</g) || []).length >= 6 && />Từ vựng</.test(h.sp) && /<b lang="en">/.test(h.sp) && /rel="prev"|rel="next"/.test(h.sp), 'speaking: phần thi, cue card, Q&A, từ vựng, chủ đề trước/sau');
+  ok(/<img[^>]*src="\/teach\/carlos\/[^"]*listen[^"]*"/.test(h.sp) && /#\/speaking\/p1\//.test(h.sp) && /#\/speaking\/p2\//.test(h.sp), 'speaking: Carlos (listen) + CTA luyện nói / Part 2 có giờ');
   ok(/class="ess2 letter"/.test(h.lt), 'thư mẫu: giao diện giấy viết thư');
   console.log(`✓ samples-ui: HTML đã dựng (${Object.keys(P).length} trang mẫu) đạt`);
 } else console.log('• samples-ui: dist/ cũ hơn bộ dựng – bỏ qua kiểm HTML (chạy build-samples*.mjs trước)');

@@ -30,6 +30,23 @@ export function render(k, d, { lang = 'en', chrome } = {}) {
   return { css: css(k), body };
 }
 
+// Khuôn Stitch cho nội dung dựng lúc build (bind map `protos` – vd thân bài markdown: h2/p/bảng/FAQ đúng class của mẫu bài viết) →
+//   { tên: d => HTML } (web/js/st/web/<trang>.js, ST2.P.<trang>). Chữ tĩnh trong khuôn dịch theo lang như khung chính.
+export function protos(k, lang = 'en') { const g = { self: { ST2: {} } }; vm.runInNewContext(load(`web/js/st/web/${k}.js`), g); const P = (g.self.ST2.P || {})[k]; return P ? P(tr(lang), esc) : {}; }
+
+// ---- render('hub', d, …): KHUNG DANH SÁCH dùng chung (brand/stitch/web/hub-*.html + bind/hub.json) – chỉ mục blog (/<lang>/blog/, /page/N/, chuyên mục, thẻ);
+//   sau này chỉ mục Speaking topics + Writing samples dùng lại y nguyên. Hợp đồng dữ liệu d (CHỮ THÔ – khung tự escape; trường *html / cover / date / crumbs / teacher là HTML dựng sẵn):
+//   title, intro                      – h1 + đoạn giới thiệu của thẻ hero
+//   crumbs, crumbsL                   – HTML đường dẫn (liên kết inline) trong viên đầu hero + aria-label của nav
+//   chips [{ v: 'ok'|'free', text }]   – viên dưới đoạn giới thiệu (icon verified | lock_open)
+//   teacher                           – teacher('carlos', 'wave') (cột phải hero; không khung/hào quang)
+//   search, countL, count             – placeholder ô lọc (lọc thẻ trên trang, data-hub-q) + "Showing <strong>count</strong>" (data-hub-n, JS cập nhật)
+//   filtersL, filters [{ label, href, on }] – viên lọc = liên kết (on → aria-current="page")
+//   featured { href, title, excerpt, cat, date, read, cover, more } – thẻ nổi bật (bài đầu trang); {} → ẩn
+//   listH, items [{ href, title, excerpt, cat, date, read, cover }] – lưới thẻ (cover: <picture> lấp khung, absolute inset-0); empty – HTML khi danh sách rỗng
+//   pager { label, links [{ href, label, rel }] } – vào chỗ nút "Load more" (không có link → ẩn)
+//   cta { kicker, h, p, chips [chữ], btn [href, chữ], ext [href, chữ] } – thẻ kêu gọi cuối; ext = nút add-on (data-ext-cta="hub" hidden, ext-cta.js mở trên Chromium máy tính)
+
 // Giáo viên 2D: CHỈ qua Chars.* (web/js/characters.js – nguồn duy nhất, như app) → ảnh tĩnh tư thế, nền trong suốt, không khung/hào quang.
 let CH = null;
 export function teacher(who, pose, { size = 240, cls = 'chr', alt } = {}) {

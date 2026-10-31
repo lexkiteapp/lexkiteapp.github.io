@@ -1,5 +1,6 @@
 # 🎯 Trang web tĩnh theo Stitch v2.1: build dist/ thật → so với mẫu brand/stitch/web (SSIM + nhịp hàng, 1280/390, sáng/tối), axe AA (tương phản 4.5/3),
-# chạm ≥ 44 px, không cuộn ngang, CLS, Lighthouse mobile KHÔNG thấp hơn bản đang chạy (lexkite.com) – tờ duyệt cho chủ. Ngưỡng chỉ nâng (scripts/test/stitch-web-diff.json).
+# chạm ≥ 44 px, không cuộn ngang, CLS, Lighthouse mobile KHÔNG thấp hơn bản đang chạy (lexkite.com)
+# (best-practices chỉ báo cáo: máy chủ tĩnh cục bộ không có header bảo mật của Cloudflare _headers → luôn thấp hơn bản chạy, không phản ánh trang) – tờ duyệt cho chủ. Ngưỡng chỉ nâng (scripts/test/stitch-web-diff.json).
 name: Stitch web
 on:
   pull_request:
@@ -42,7 +43,7 @@ jobs:
             node -e "
               const fs=require('fs'),sc=s=>[1,2,3].map(i=>'/tmp/'+s+i+'.json').filter(f=>fs.existsSync(f)).map(f=>JSON.parse(fs.readFileSync(f))).map(d=>Object.fromEntries(Object.entries(d.categories).map(([k,v])=>[k,Math.round(v.score*100)]))).sort((a,b)=>a.performance-b.performance)[1]||null;
               const L=sc('loc'),R=sc('live');fs.writeFileSync('out/stitch-web/lh/$k.json',JSON.stringify({loc:L,live:R}));console.log('$p',JSON.stringify({loc:L,live:R}));
-              if(L&&R){const bad=['accessibility','best-practices','seo'].filter(c=>L[c]<R[c]).concat(L.performance<R.performance-5?['performance']:[]);if(bad.length){console.log('::error::Lighthouse $p thấp hơn bản đang chạy: '+bad.join(','));process.exit(1)}}" || fail=1
+              if(L&&R){const bad=['accessibility','seo'].filter(c=>L[c]<R[c]).concat(L.performance<R.performance-5?['performance']:[]);if(bad.length){console.log('::error::Lighthouse $p thấp hơn bản đang chạy: '+bad.join(','));process.exit(1)}}" || fail=1
             rm -f /tmp/loc?.json /tmp/live?.json
           done; exit $fail
       - if: always()

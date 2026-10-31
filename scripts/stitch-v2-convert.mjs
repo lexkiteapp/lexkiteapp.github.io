@@ -101,12 +101,16 @@ function emit(root, bind, k) {
     for (const n of texts) { const s = n.textContent; if (/\u0001/.test(s) || !needT(s) || (n.parentElement && isIcon(n.parentElement))) continue; n.textContent = s.replace(s.trim(), tr(s, 'chữ')); }
     for (const e of [el, ...el.querySelectorAll('*')]) for (const a of ['aria-label', 'title', 'alt', 'placeholder']) { const v = e.getAttribute(a); if (v && !/\u0001/.test(v) && needT(v)) e.setAttribute(a, tr(v, a)); }
     return el.outerHTML.replace(/\s+/g, ' ').replace(/[`\\]|\$\{/g, m => '\\' + m).replace(/\u0001(\d+)\u0002/g, (_, i) => '${' + M[+i] + '}'); };
+  // protos {tên: bộ chọn | {sel, …phép}}: phần tử Stitch làm KHUÔN cho nội dung dựng lúc build (vd thân bài markdown → h2/p/bảng/FAQ đúng class mẫu, không tự đặt
+  //   màu/cỡ) – lấy TRƯỚC các phép của khung (khung có thể thay chỗ đó bằng html), gắn phép riêng → ST2.P.<màn>(t, e).<tên>(d) trả HTML (st-web.mjs protos()).
+  const protos = Object.entries(bind.protos || {}).map(([n, o]) => { const sel = typeof o === 'string' ? o : o.sel, el = QA(root, sel)[0]; if (!el) return [n, '``'];
+    const box = root.ownerDocument.createElement('div'); box.append(el.cloneNode(true)); apply(box.firstElementChild, typeof o === 'string' ? {} : o); return [n, '`' + textify(box.firstElementChild) + '`']; });
   apply(root, bind);
   const parts = Object.entries(bind.parts || {}).map(([n, sel]) => { const el = QA(root, sel)[0]; return [n, el ? '`' + textify(el) + '`' : '``']; }); // parts {tên: bộ chọn}: thêm phần khung có tên (vd thẻ câu của tấm phản hồi chèn vào khung câu hỏi) → ST2.<màn>(d).<tên>
   if (bind.keep) { const kp = QA(root, bind.keep)[0]; if (kp) { root.textContent = ''; root.append(kp); } } // keep: màn chỉ lấy MỘT phần khung (vd tấm phản hồi gắn vào khung câu hỏi có sẵn) – bộ chọn của các phép khác vẫn theo khung đầy đủ
   const part = sel => { const el = root.querySelector(sel); if (!el) return '``'; const s = textify(el); el.remove(); return '`' + s + '`'; };
   const header = part(':scope > header'), nav = part(':scope > nav'), footer = WEB ? part(':scope > footer') : '``', main = '`' + textify(root).replace(/^<div[^>]*>|<\/div>$/g, '') + '`';
-  return { header, nav, footer, main, parts, root: root.getAttribute('class') || '' }; }
+  return { header, nav, footer, main, parts, protos, root: root.getAttribute('class') || '' }; }
 
 // web: CSS thành phần trong <style> của Stitch (nút 3D, thẻ tactile, chấm FAQ…) → web/js/st/web/<trang>.css, giữ NGUYÊN giá trị Stitch.
 //   Bỏ phần nền (html/body/@layer/@import/font icon – đã có ở WPRE). Rule giống nhau ở 2 bản → chung; khác → bản sáng/tối theo cùng cơ chế lt:/dk:.
@@ -127,6 +131,8 @@ function webCss(hl, hd) {
 // ---- chạy ----
 for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
   const hl = fs.readFileSync(f('light'), 'utf8'), hd = fs.readFileSync(f('dark'), 'utf8'), bind = JSON.parse(fs.readFileSync(path.join(SRC, 'bind', k + '.json'), 'utf8'));
+  // keys {khóa Việt: chữ EN}: chữ do generator dựng lúc build (tr(lang)(khóa) trong scripts/lib/st-web.mjs) – không nằm trong mẫu nhưng đi cùng pipeline v2web 15 ngôn ngữ
+  for (const [kk, v] of Object.entries(bind.keys || {})) { const have = EN_HAVE[kk]; if (have && have[0] !== v) errs.push(`${k}: khóa ${JSON.stringify(kk)} đã có nghĩa ${JSON.stringify(have[0])} (${have[1]}) ≠ ${JSON.stringify(v)}`); else if (!have) enMap[kk] = v; }
   const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light')), RD = resolver(cfgOf(hd, k + '-dark'));
   const doc = new JSDOM('<div></div>').window.document, body = merge(L.body, D.body, RL, RD, doc), root = doc.createElement('div');
   root.setAttribute('class', `st v2 v2-${k} ` + (body.getAttribute('class') || '')); root.append(...body.childNodes);
@@ -146,7 +152,8 @@ for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (
     const co = path.join(OUT, 'chrome.js'); if (CHECK) { if (!fs.existsSync(co) || fs.readFileSync(co, 'utf8') !== ch) errs.push(`${co} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(co, ch); }
     o.header = '``'; o.footer = '``'; }
   const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` +
-    `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n`;
+    `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n` +
+    (o.protos.length ? `(self.ST2.P || (self.ST2.P = {}))[${JSON.stringify(k)}] = (t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({\n${o.protos.map(([n, h]) => ` ${JSON.stringify(n)}: d => ${h}`).join(',\n')} });\n` : '');
   const out = path.join(OUT, k + '.js');
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
   else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }

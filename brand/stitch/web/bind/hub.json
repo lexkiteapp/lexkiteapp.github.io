@@ -1,0 +1,242 @@
+{
+ "i18n": {
+  "Read guide": "Đọc bài hướng dẫn"
+ },
+ "keys": {
+  "Đang hiện": "Showing",
+  "Đọc toàn bài": "Read Full Lesson",
+  "Lọc bài viết trên trang này…": "Filter posts on this page…",
+  "Bài viết mới nhất": "Latest posts",
+  "Miễn phí 100% • Không tường phí": "100% Free • No Paywall",
+  "Lặp lại ngắt quãng & luyện ngắn mỗi ngày": "Spaced Repetition & Daily Micro-Drills",
+  "Dùng trên web & Chrome": "Available on Web & Chrome"
+ },
+ "repeat": [
+  {
+   "list": "d.chips",
+   "as": "c",
+   "variants": {
+    "ok": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(1)",
+    "free": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(4) > span",
+   "pick": "c.v",
+   "bind": {
+    "ok": {
+     "text": {
+      "Cambridge & CEFR Aligned": "c.text"
+     }
+    },
+    "free": {
+     "text": {
+      "100% Free • No Paywall": "c.text"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.filters",
+   "as": "f",
+   "variants": {
+    "on": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(1)",
+    "off": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(2)"
+   },
+   "samples": ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2) > button",
+   "pick": "f.on ? 'on' : 'off'",
+   "bind": {
+    "on": {
+     "tag": {
+      ":scope": {
+       "to": "a",
+       "addClass": "min-h-[44px] inline-flex items-center"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "f.href",
+       "aria-current": "'page'"
+      }
+     },
+     "html": {
+      ":scope": "e(f.label)"
+     }
+    },
+    "off": {
+     "tag": {
+      ":scope": {
+       "to": "a",
+       "addClass": "min-h-[44px]"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "f.href"
+      }
+     },
+     "html": {
+      ":scope": "'<span class=\"w-2 h-2 rounded-full lt:bg-[#0D6964] dk:bg-[#2BA39A]\"></span>' + e(f.label)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.items",
+   "as": "it",
+   "sel": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2) > article",
+   "attr": {
+    ":scope": {
+     "data-hub-item": "''"
+    },
+    ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+     "href": "it.href"
+    }
+   },
+   "after": {
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": "it.cover"
+   },
+   "html": {
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(it.cat)",
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(3)": "e(it.read)",
+    ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(it.title)",
+    ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(it.excerpt)",
+    ":scope > :nth-child(2) > :nth-child(1)": "it.date"
+   },
+   "addClass": {
+    ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1)": "ms-flip"
+   },
+   "remove": [
+    ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)"
+   ]
+  },
+  {
+   "list": "d.pager.links",
+   "as": "l",
+   "sel": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3) > button",
+   "tag": {
+    ":scope": {
+     "to": "a"
+    }
+   },
+   "attr": {
+    ":scope": {
+     "href": "l.href",
+     "rel": "l.rel"
+    }
+   },
+   "html": {
+    ":scope > :nth-child(1)": "e(l.label)"
+   }
+  },
+  {
+   "list": "d.cta.chips",
+   "as": "c",
+   "sel": ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(4) > :nth-child(2)",
+   "samples": ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(4) > span",
+   "text": {
+    "Available on Web & Chrome": "c"
+   }
+  }
+ ],
+ "html": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.title)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.intro)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "d.teacher",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "e(d.count)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "d.featured.cover",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(d.featured.cat)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "d.featured.date",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "e(d.featured.title)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(3)": "e(d.featured.excerpt)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(1)": "e(d.featured.more)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(1)": "e(d.listH)",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.cta.h)",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(1) > :nth-child(3)": "e(d.cta.p)",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(d.cta.btn[1])",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "e(d.cta.ext[1])"
+ },
+ "after": {
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "d.crumbs",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(2)": "d.empty || ''"
+ },
+ "text": {
+  "Showing": "d.countL",
+  "Free Open Library • 180+ Lessons & Topics": "''",
+  "Spaced Repetition & Daily Micro-Drills": "d.cta.kicker"
+ },
+ "attr": {
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "placeholder": "d.search",
+   "aria-label": "d.search",
+   "type": "'search'",
+   "data-hub-q": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": {
+   "data-hub-n": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1)": {
+   "data-hub-item": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": {
+   "href": "d.featured.href"
+  },
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(1)": {
+   "href": "d.featured.href"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3)": {
+   "aria-label": "d.pager.label"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+   "aria-label": "d.filtersL"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+   "aria-label": "d.crumbsL"
+  },
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "href": "d.cta.btn[0]"
+  },
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "href": "d.cta.ext[0]",
+   "data-ext-cta": "'hub'",
+   "hidden": "''",
+   "target": "'_blank'",
+   "rel": "'noopener'"
+  }
+ },
+ "cls": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1)": {
+   "tactile-featured": "d.featured.href ? 'tactile-featured' : 'hidden'"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3)": {
+   "flex": "d.pager.links.length ? 'flex' : 'hidden'"
+  }
+ },
+ "addClass": {
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2)": "ms-flip",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "ms-flip",
+  ":scope > :nth-child(2) > :nth-child(5) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "min-h-[44px]",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3)": "gap-4 flex-wrap"
+ },
+ "tag": {
+  ":scope > :nth-child(2)": {
+   "to": "div"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1)": {
+   "to": "nav"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+   "to": "nav"
+  },
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(3)": {
+   "to": "nav"
+  }
+ },
+ "remove": [
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3)",
+  ":scope > :nth-child(2) > :nth-child(3) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(2)",
+  ":scope > :nth-child(2) > :nth-child(4) > :nth-child(1) > :nth-child(2)",
+  ":scope > footer",
+  ":scope > header"
+ ]
+}
