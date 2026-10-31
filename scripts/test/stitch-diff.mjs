@@ -98,7 +98,7 @@ for (const scheme of ['dark', 'light']) {
     await page.addScriptTag({ path: AXE }).catch(() => {});
     a11y[`${k}-${scheme}`] = await page.evaluate(async () => { if (!window.axe || !document.querySelector('.st')) return { skipped: true };
       const r = await axe.run({ include: [...document.querySelectorAll('.st')] }, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } });
-      return { violations: r.violations.map(v => ({ id: v.id, impact: v.impact, n: v.nodes.length, sample: v.nodes.slice(0, 2).map(x => x.target.join(' ') + ' ' + (x.failureSummary || '').split('\n')[1]) })), passes: r.passes.length }; }).catch(e => ({ error: e.message }));
+      return { violations: r.violations.map(v => ({ id: v.id, impact: v.impact, n: v.nodes.length, sample: v.nodes.slice(0, 2).map(x => x.target.join(' ') + ' ' + (x.failureSummary || '').split('\n')[1]), all: v.nodes.map(x => x.target.join(' ') + ' ' + (x.failureSummary || '').split('\n')[1]) })), passes: r.passes.length }; }).catch(e => ({ error: e.message }));
     const ref = refOf(k, scheme);
     if (fs.existsSync(ref)) res[`${k}-${scheme}`] = score(ref, buf);
   }
