@@ -1,5 +1,5 @@
 {
- "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: THÊM ngưỡng SSIM THEO VÙNG 'reg' (header/top/mid/low/cta, tính trên khung Stitch) = điểm CI 40921224454 − 0,01 cho 13 màn × sáng/tối; chỉ nâng. 30/10 (chủ duyệt 4 thay đổi thiết kế: lửa mới ở đầu trang, ô 3 cột, Ama ở màn đúng/sai – mẫu ghép từ thành phần Stitch, Ama ở màn gọi): đặt lại = điểm CI 41042494107 − 0,01 CHỈ các chỉ số đỏ của: đầu trang (home/review/practice/me/readiness/streak/leagues), ô 3 cột (complete/me/streak/review mid-low-cta, complete rows), feedback ×2, call top/low/ssim. Không màn/chỉ số nào khác hạ.",
+ "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: THÊM ngưỡng SSIM THEO VÙNG 'reg' (header/top/mid/low/cta, tính trên khung Stitch) = điểm CI 40921224454 − 0,01 cho 13 màn × sáng/tối; chỉ nâng. 30/10 (chủ duyệt 4 thay đổi thiết kế: lửa mới ở đầu trang, ô 3 cột, Ama ở màn đúng/sai – mẫu ghép từ thành phần Stitch, Ama ở màn gọi): đặt lại = điểm CI 41042494107 − 0,01 CHỈ các chỉ số đỏ của: đầu trang (home/review/practice/me/readiness/streak/leagues), ô 3 cột (complete/me/streak/review mid-low-cta, complete rows), feedback ×2, call top/low/ssim. Không màn/chỉ số nào khác hạ. 31/10 (PR #267, 4 màn mới báo cáo tuần + huy hiệu, mẫu chủ duyệt): ngưỡng ban đầu = điểm thấp nhất 2 lượt CI (bdc7354f, 9b0d39a7) − 0,01; chỉ nâng.",
  "call-dark": {
   "ssim": 0.477,
   "rows": -0.049,
@@ -284,6 +284,94 @@
    "mid": 0.245,
    "low": 0.225,
    "cta": -0.045
+  }
+ },
+ "week-report-dark": {
+  "ssim": 0.293,
+  "rows": 0.074,
+  "reg": {
+   "header": 0.805,
+   "top": 0.406,
+   "mid": 0.329,
+   "low": 0.207,
+   "cta": -0.064
+  }
+ },
+ "badges-dark": {
+  "ssim": 0.65,
+  "rows": 0.889,
+  "reg": {
+   "header": 0.788,
+   "top": 0.725,
+   "mid": 0.664,
+   "low": 0.638,
+   "cta": 0.074
+  }
+ },
+ "badge-detail-dark": {
+  "ssim": 0.803,
+  "rows": 0.883,
+  "reg": {
+   "header": 0.955,
+   "top": 0.91,
+   "mid": 0.779,
+   "low": 0.659,
+   "cta": 0.988
+  }
+ },
+ "badge-unlocked-dark": {
+  "ssim": 0.366,
+  "rows": 0.163,
+  "reg": {
+   "header": 0.296,
+   "top": 0.548,
+   "mid": 0.488,
+   "low": 0.246,
+   "cta": -0.045
+  }
+ },
+ "week-report-light": {
+  "ssim": 0.261,
+  "rows": 0.381,
+  "reg": {
+   "header": 0.811,
+   "top": 0.388,
+   "mid": 0.337,
+   "low": 0.082,
+   "cta": -0.129
+  }
+ },
+ "badges-light": {
+  "ssim": 0.652,
+  "rows": 0.709,
+  "reg": {
+   "header": 0.777,
+   "top": 0.771,
+   "mid": 0.722,
+   "low": 0.534,
+   "cta": 0.065
+  }
+ },
+ "badge-detail-light": {
+  "ssim": 0.71,
+  "rows": 0.87,
+  "reg": {
+   "header": 0.74,
+   "top": 0.722,
+   "mid": 0.804,
+   "low": 0.668,
+   "cta": 0.983
+  }
+ },
+ "badge-unlocked-light": {
+  "ssim": 0.411,
+  "rows": 0.435,
+  "reg": {
+   "header": 0.822,
+   "top": 0.677,
+   "mid": 0.358,
+   "low": 0.128,
+   "cta": 0.144
   }
  }
 }
