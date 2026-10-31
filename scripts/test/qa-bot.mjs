@@ -35,8 +35,9 @@ const R = { base: O, at: new Date().toISOString(), journeys: [], ui: [], perf: [
 
 // ---------- dữ liệu mẫu (sandbox: khoá sbx.*) ----------
 const DAY = 864e5, NOW = Date.now();
-const card = (word, vi, pos = 'noun') => ({ word, vi, pos, ex: '', contexts: [], added: NOW - 9 * DAY, mod: NOW - 2 * DAY, srs: { ef: 2.5, interval: 3, reps: 3, lapses: 0, due: NOW - DAY, last: NOW - 4 * DAY, step: 0, S: 3, D: 4 } });
-const CARDS = Object.fromEntries([['sustainable', 'bền vững'], ['negotiate', 'đàm phán', 'verb'], ['budget', 'ngân sách'], ['deadline', 'hạn chót'], ['resilience', 'khả năng phục hồi']].map(([w, v, p]) => [w, card(w, v, p)]));
+let dueK = 0; // thẻ đầu (từ dài, 2 phiên âm) đến hạn sớm nhất → hiện đầu phiên ôn (bắt lỗi rớt dòng phiên âm US/UK)
+const card = (word, vi, pos = 'noun') => ({ word, vi, pos, ex: '', contexts: [], added: NOW - 9 * DAY, mod: NOW - 2 * DAY, srs: { ef: 2.5, interval: 3, reps: 3, lapses: 0, due: NOW - 5 * DAY + (dueK++) * 3600e3, last: NOW - 4 * DAY, step: 0, S: 3, D: 4 } });
+const CARDS = Object.fromEntries([['rote learning', 'học vẹt'], ['sustainable', 'bền vững'], ['negotiate', 'đàm phán', 'verb'], ['budget', 'ngân sách'], ['deadline', 'hạn chót'], ['resilience', 'khả năng phục hồi']].map(([w, v, p]) => [w, card(w, v, p)]));
 const settings = theme => JSON.stringify({ onboarded: true, theme });
 // Trạng thái chụp + quét (dùng chung cho trước/sau). ux1: bật cờ "Một app" (Học/Ôn/Luyện/Giải đấu/Tôi) như bản live đang chạy.
 const STATES = [

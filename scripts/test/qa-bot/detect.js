@@ -152,7 +152,8 @@
       const r = vis(e); if (!r) continue;
       const lbl = (e.labels && [...e.labels].some(l => vis(l) && l.textContent.trim())) || (e.placeholder && e.tagName !== 'SELECT');
       const prev = e.previousElementSibling, near = prev && vis(prev) && prev.textContent.trim().length > 1 && Math.abs(prev.getBoundingClientRect().top - r.top) < 40;
-      const parTxt = e.parentElement && e.parentElement !== D.querySelector('#view') && (e.parentElement.textContent || '').replace(e.tagName === 'SELECT' ? e.textContent : '', '').trim().length > 1;
+      let pt = e.previousSibling; while (pt && pt.nodeType === 3 && !pt.textContent.trim()) pt = pt.previousSibling; // chữ ĐỨNG NGAY TRƯỚC ô trong cùng khung ("Giọng: [ô]")
+      const parTxt = !!(pt && pt.nodeType === 3 && pt.textContent.trim().length > 1);
       if (!lbl && !near && !parTxt) add('nolabel', 'fail', e, `${e.tagName.toLowerCase()} "${e.tagName === 'SELECT' ? (e.selectedOptions[0] || {}).textContent || '' : e.value}" không có nhãn nhìn thấy – người học không biết ô này để làm gì`);
     }
     // 6) thẳng hàng theo cột: o.align = [{name, items:[selector…]}] – mép trái nội dung của các hàng phải trùng nhau ± 4px
