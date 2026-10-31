@@ -36,10 +36,11 @@ print(who, 'talk frames', len(A), 'aligned', len(ok))
 assert len(ok) >= 20, 'quá ít khung talk căn khớp nền'
 
 # vùng miệng = nơi thay đổi nhiều nhất giữa các khung (quanh vị trí miệng chuẩn)
-sx0, sy0, sx1, sy1 = int(ex - 1.6 * mo), int(ey + 0.3 * mo), int(ex + 1.6 * mo), int(ey + 2.0 * mo)
+sx0, sy0, sx1, sy1 = int(ex - 1.3 * mo), int(ey + 0.8 * mo), int(ex + 1.3 * mo), int(ey + 2.0 * mo)  # dưới mí mắt: không kéo mắt/má của khung talk vào mảnh
 st = np.std(np.stack([gray(f)[sy0:sy1, sx0:sx1] for _, f in ok]), 0)
-ys, xs = np.where(st > max(12, np.percentile(st, 90)))
-pad = int(0.18 * mo); x0, y0 = sx0 + xs.min() - pad, sy0 + ys.min() - pad; x1, y1 = sx0 + xs.max() + pad, sy0 + ys.max() + pad
+ys, xs = np.where(st > max(12, np.percentile(st, 95)))
+cy, cx = np.median(ys), np.median(xs); keep = (abs(ys - cy) < 0.55 * mo) & (abs(xs - cx) < 0.95 * mo); ys, xs = ys[keep], xs[keep]  # bỏ điểm lẻ xa miệng
+pad = int(0.14 * mo); x0, y0 = sx0 + xs.min() - pad, sy0 + ys.min() - pad; x1, y1 = sx0 + xs.max() + pad, sy0 + ys.max() + pad
 rw, rh = x1 - x0, y1 - y0
 crop = lambda im: im[y0:y1, x0:x1]
 B0 = crop(base)
