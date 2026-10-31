@@ -124,14 +124,16 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
     notifications: { create: (id, o) => notes.push({ id, ...o }), clear: noop, onClicked: ev, onButtonClicked: ev }, contextMenus: { removeAll: async () => {}, create: noop, onClicked: ev },
     action: { setBadgeText: noop, setBadgeBackgroundColor: noop }, commands: { onCommand: ev }, omnibox: { onInputEntered: ev, onInputChanged: ev },
   };
-  const g = { chrome, self: null, console, URL, Date, JSON, Promise, setTimeout, clearTimeout, navigator: { language: 'en' }, fetch: async () => ({ ok: false, text: async () => '', json: async () => ({}) }), TextEncoder, crypto: {}, location: { href: '' }, addEventListener: noop, indexedDB: undefined, localStorage: undefined };
+  // Đồng hồ cố định thứ Tư 10:00 (giờ máy): lời nhắc hẹn rơi vào thứ Tư → không trùng tổng kết tuần (Chủ nhật) → kiểm xác định, không phụ thuộc ngày chạy CI
+  const T0 = new Date(2026, 9, 28, 10, 0, 0, 0).getTime(), FD = class extends Date { constructor(...a) { a.length ? super(...a) : super(T0 + (Date.now() - RT0)); } static now() { return T0 + (Date.now() - RT0); } }, RT0 = Date.now();
+  const g = { chrome, self: null, console, URL, Date: FD, JSON, Promise, setTimeout, clearTimeout, navigator: { language: 'en' }, fetch: async () => ({ ok: false, text: async () => '', json: async () => ({}) }), TextEncoder, crypto: {}, location: { href: '' }, addEventListener: noop, indexedDB: undefined, localStorage: undefined };
   g.self = g; g.globalThis = g; vm.createContext(g);
   for (const f of ['data.js', 'core.js', 'remind.js']) vm.runInContext(fs.readFileSync('extension/app/js/' + f, 'utf8'), g, { filename: f });
   let bgErr = null; try { vm.runInContext(fs.readFileSync('extension/background.js', 'utf8'), g, { filename: 'background.js' }); } catch (e) { bgErr = e; }
   ok(!bgErr, 'add-on: background.js nạp được cùng Remind (không lỗi: ' + (bgErr && bgErr.message) + ')');
   if (!bgErr) {
     const rte = vm.runInContext('routeOf', g);
-    const now = Date.now(), d0 = new Date(now); d0.setDate(d0.getDate() + 1); d0.setHours(20, 0, 0, 0); // ngày mai 20:00 – chắc chắn tương lai
+    const now = FD.now(), d0 = new Date(now); d0.setDate(d0.getDate() + 1); d0.setHours(20, 0, 0, 0); // ngày mai 20:00 – chắc chắn tương lai
     const sk = d => key(d), cardsMap = { a: { word: 'alpha', srs: { reps: 2, last: 1, due: now - 1000 } }, b: { word: 'beta', srs: { reps: 2, last: 1, due: now - 2000 } }, c: { word: 'gamma', srs: { reps: 2, last: 1, due: now - 3000 } } };
     mem.cards = cardsMap; mem.settings = { reminderOn: true, reminderAuto: false, reminderTime: '20:00', quietStart: '22:00', quietEnd: '08:00', dailyGoal: 20 };
     mem.stats = { days: {}, hours: Array(24).fill(0) };
