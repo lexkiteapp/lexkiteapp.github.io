@@ -129,3 +129,4 @@
 - [VIDEO-SYSTEM-PLAN.md](archive/VIDEO-SYSTEM-PLAN.md) — Toàn văn cũ kế hoạch hệ video; bản hiện hành VIDEO.md; đọc khi: tra kế hoạch hệ video cũ
 - [i18n-review-2026-10-16.md](archive/i18n-review-2026-10-16.md) — Nhật ký rà soát bản dịch 16/10 (chuyển từ docs/, nguyên văn); đọc khi: tra quyết định dịch
 - [LEXICON-expand-pilots-24-10.md](archive/LEXICON-expand-pilots-24-10.md) — Nhật ký pilot 5–10 kho từ 20k (24/10, nguyên văn từ LEXICON.md); đọc khi: tra vì sao có espeak/retry/dịch ngược theo ngôn ngữ
+- [LEXICON-img-pilot-23-10.md](archive/LEXICON-img-pilot-23-10.md) — Pilot ảnh minh hoạ s1 ngày 23/10 (nguyên văn từ LEXICON.md); đọc khi: tra số đo pilot ảnh đầu tiên.

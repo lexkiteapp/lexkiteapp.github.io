@@ -1,0 +1,3 @@
+# Pilot ảnh minh hoạ 23/10 (s1) – chuyển nguyên văn từ docs/LEXICON.md ngày 31/10 (ngân sách tài liệu)
+
+- **Pilot 23/10 (s1)**: 60 nghĩa → 37 ảnh đạt (62 %: 29 lần 1 + 8 lần 2), ~4,6 KB/ảnh; trượt: CLIP nghĩa 15, chữ 6, phong cách 2. Thị giác repo không chạy được (tài khoản chính hết neuron, Gemini không trả lời) → CLIP-only. Tờ ảnh: artifact `vocab-img-pilot` run 39958350417 (bản chép `out/vocab-img/pilot.jpg` trên máy chủ dự án). Bài học: tên file `pick_words.py` che module chuẩn `select` → PIL mất plugin JPEG trên CI; QC không bao giờ xoá ảnh đã vẽ; artifact giữ raw để `resume_run` chấm lại 0 neuron.

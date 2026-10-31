@@ -189,6 +189,8 @@
   "topic",
   "ex2",
   "note",
-  "x"
- ]
+  "x",
+  "more"
+ ],
+ "_more": "Trường `more` của INDEX (31/10 đa từ loại): từ loại PHỤ của từ đã có mục ([{pos, ipa, ipaUS, vi, def, ex, ex2, col, syn, level, topic, x}]) – shards.mjs mergeExpand; nghĩa 13 ngôn ngữ ở mảnh ngôn ngữ khoá từ#loại; dictionary.js hiện ở khối đúng từ loại. Việc hạ nguồn theo TỪ (âm thanh, tab mới, /words/) không cần; theo NGHĨA đọc dist/lexicon.json (khoá từ#loại, đã có) hoặc loadAllPlus (khoá từ#loại)."
 }
