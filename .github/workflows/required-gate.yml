@@ -33,6 +33,7 @@ on:
       - 'npm test'
       - 'Perf profile'
       - 'QA bot'
+      - 'Màn Ôn – chạm được'
       - 'size-guard'
       - 'Stitch diff'
       - 'Teach build'
