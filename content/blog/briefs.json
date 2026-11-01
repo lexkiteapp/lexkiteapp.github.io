@@ -16257,6 +16257,54 @@
       ],
       "angle": "零报班高效雅思自学备考规划：听说读写四阶段时间拆解、上班族与学生党每日90分钟时间分配、FSRS间隔重复学术词汇速记法。",
       "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "phaen-kan-rian-ielts-duay-tua-eng-chak-sun-thueng-6-5",
+      "keyword": "แผนการเรียน ielts ด้วยตัวเอง",
+      "topic": "แผนการเรียน IELTS ด้วยตัวเอง: จากศูนย์สู่ Band 6.5+ ใน 4 ขั้นตอน",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "phaen-kan-rian",
+        "rian-duay-tua-eng"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "คู่มือวางแผนการเรียน IELTS ด้วยตัวเองโดยไม่ต้องพึ่งสถาบันกวดวิชา: แบ่ง 4 ระยะชัดเจน การจัดเวลาวันละ 90 นาที และวิธีท่องคำศัพท์วิชาการด้วย FSRS.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "khittat-dirasat-ielts-dhatiyyan-min-al-sifr-ila-6-5",
+      "keyword": "خطة دراسة ielts ذاتيا",
+      "topic": "خطة دراسة IELTS ذاتياً: من الصفر إلى Band 6.5 خطوة بخطوة",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "khitta-dirasiyya",
+        "dirasa-dhatiyya"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "دليل إعداد خطة دراسة ielts ذاتيا بدون معاهد: 4 مراحل متتالية، تقسيم الوقت اليومي على المهارات الأربع وحفظ المفردات الأكاديمية بنظام FSRS.",
+      "intent": "informational"
     }
   ]
 }
