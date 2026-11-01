@@ -31724,5 +31724,20 @@
     "ar": "كوّن الجملة بالإنجليزية",
     "ru": "Составьте предложение на английском",
     "tr": "Cümleyi İngilizce kur"
+  },
+  "Nghĩa từng từ (tạm):": {
+    "es": "Palabra por palabra (aprox.):",
+    "pt": "Palavra por palavra (aprox.):",
+    "fr": "Mot à mot (approx.) :",
+    "de": "Wort für Wort (grob):",
+    "id": "Kata per kata (perkiraan):",
+    "th": "แปลทีละคำ (คร่าวๆ):",
+    "zh": "逐词释义（草稿）：",
+    "ja": "単語ごとの意味（仮）：",
+    "ko": "단어별 뜻 (임시):",
+    "hi": "शब्द-दर-शब्द अर्थ (अस्थायी):",
+    "ar": "معنى كل كلمة (مؤقت):",
+    "ru": "Пословно (черновик):",
+    "tr": "Kelime kelime (taslak):"
   }
 }

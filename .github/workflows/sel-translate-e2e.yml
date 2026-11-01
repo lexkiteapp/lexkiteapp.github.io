@@ -1,0 +1,39 @@
+# E2E bảng bôi đen → "Dịch" (Playwright): mạng chậm/chặn từng nguồn, thời gian tới chữ dịch (câu có sẵn p95 ≤ 300 ms, câu tự do ≤ 2,5 s),
+# bảng không che định nghĩa, 390/1280 × sáng/tối, đóng bằng Esc/bấm ngoài. Kèm ảnh TRƯỚC (nhánh gốc) / SAU để chủ duyệt – scripts/test/sel-translate-e2e.mjs.
+name: E2E dịch vùng chọn
+on:
+  pull_request:
+    paths: [web/js/phrases.js, web/js/tr-fast.js, web/js/dictionary.js, web/packs/tr/**, scripts/test/sel-translate-e2e.mjs, .github/workflows/sel-translate-e2e.yml]
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit "trước" (trống = origin/main)', required: false, default: '' }
+permissions: { contents: read }
+concurrency: { group: 'sel-translate-e2e-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Ảnh TRƯỚC (nhánh gốc, chỉ chụp)
+        continue-on-error: true
+        env: { BEFORE: '${{ github.event.inputs.before || github.event.pull_request.base.sha }}' }
+        run: |
+          B="${BEFORE:-origin/main}"
+          git worktree add -q ../before "$B"
+          (cd ../before/web && python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/sel-translate-e2e.mjs http://localhost:8081 out/sel-translate before
+      - name: SAU + cổng
+        run: |
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/sel-translate-e2e.mjs http://localhost:8080 out/sel-translate after --gate
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: sel-translate, path: out/sel-translate, retention-days: 14 }
