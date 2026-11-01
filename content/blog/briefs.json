@@ -17147,6 +17147,98 @@
       ],
       "angle": "Panduan lengkap presentasi bahasa inggris: cara membuka presentasi dengan percaya diri, transisi antar slide, menjelaskan data grafik, dan menangani sesi tanya jawab.",
       "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "enlace-de-palabras-en-ingles-connected-speech",
+      "keyword": "connected speech en inglés",
+      "topic": "Connected Speech en Inglés: Reglas de Enlace, Elisión y Formas Débiles",
+      "category": "phat-am",
+      "tags": [
+        "connected-speech",
+        "pronunciacion",
+        "listening",
+        "fonetica"
+      ],
+      "shots": [
+        "pron",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Guía completa de connected speech en inglés: cómo funcionan los enlaces consonante-vocal, la elisión de sonidos, las formas débiles y ejercicios para entender a hablantes nativos.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "connected-speech-em-ingles-como-ligar-palavras",
+      "keyword": "connected speech em inglês",
+      "topic": "Connected Speech em Inglês: Regras de Conexão de Sons, Elusão e Ritmo",
+      "category": "phat-am",
+      "tags": [
+        "connected-speech",
+        "pronuncia",
+        "listening",
+        "ritmo"
+      ],
+      "shots": [
+        "pron",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Domine o connected speech em inglês: entenda como ligar sons, formas fracas de palavras e elisões para entender o inglês falado rápido e soar mais natural.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "connected-speech-bahasa-inggris-aturan-menyambung-kata",
+      "keyword": "connected speech bahasa inggris",
+      "topic": "Connected Speech Bahasa Inggris: Aturan Menyambung Kata dan Bentuk Lemah",
+      "category": "phat-am",
+      "tags": [
+        "connected-speech",
+        "pronunciation",
+        "listening",
+        "pelafalan"
+      ],
+      "shots": [
+        "pron",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Panduan lengkap connected speech bahasa inggris: teknik menyambung kata, penghilangan bunyi (elision), dan bentuk lemah (weak forms) agar paham bahasa Inggris cepat.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "eigo-onsei-henka-connected-speech-ren-on",
+      "keyword": "英語 音声変化 connected speech",
+      "topic": "英語の音声変化（Connected Speech）：リエゾン・脱落・弱形のルールと聞き取りのコツ",
+      "category": "phat-am",
+      "tags": [
+        "connected-speech",
+        "onsei-henka",
+        "listening",
+        "hatsuon"
+      ],
+      "shots": [
+        "pron",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "英語音声変化（connected speech）の完全ガイド。連結（リエゾン）、脱落（リダクション）、同化、弱形（weak forms）の規則を理解して速い英語を聞き取る。",
+      "intent": "informational"
     }
   ]
 }
