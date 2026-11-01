@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       specs: { description: 'glob spec (cách nhau bởi dấu cách)', default: 'content/video/rig/l1/*/*.json' }
-      max_parallel: { description: 'số job render song song = min(10, 40 − đang bận − 8)', default: '10' }
+      max_parallel: { description: 'trần song song (job plan tự giảm theo min(10, 40 − đang bận − 8))', default: '10' }
       store: { description: 'lưu kho + release (true/false)', default: 'true' }
   push:   # nhánh PR (workflow_dispatch chỉ gọi được khi file đã ở main): đổi spec/engine → dựng lại cả lô thử
     branches-ignore: [main]
@@ -20,8 +20,10 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions: { actions: read, contents: read }
     outputs:
       specs: ${{ steps.p.outputs.specs }}
+      par: ${{ steps.r.outputs.par }}
     steps:
       - uses: actions/checkout@v4
       - id: p
@@ -32,13 +34,24 @@ jobs:
           files=(); for g in $GLOBS; do files+=($g); done
           echo "specs=$(printf '%s\n' "${files[@]}" | jq -R . | jq -sc 'map(select(length>0))')" >> "$GITHUB_OUTPUT"
           printf '%s\n' "${files[@]}"
+      - id: r   # luật runner (memory ci-full-use): song song = min(10, yêu cầu, 40 − job đang chạy − 8), tối thiểu 1 (xếp hàng)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WANT: ${{ inputs.max_parallel || '10' }}
+        run: |
+          busy=0
+          for id in $(gh api "repos/$GITHUB_REPOSITORY/actions/runs?status=in_progress&per_page=100" --jq '.workflow_runs[].id'); do
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$id/jobs?filter=latest&per_page=100" --jq '[.jobs[]|select(.status=="in_progress")]|length'); busy=$((busy+n))
+          done
+          par=$(( 40 - busy - 8 )); [ "$par" -gt "$WANT" ] && par=$WANT; [ "$par" -gt 10 ] && par=10; [ "$par" -lt 1 ] && par=1
+          echo "par=$par" >> "$GITHUB_OUTPUT"; echo "runner đang bận: $busy/40 → song song $par" | tee -a "$GITHUB_STEP_SUMMARY"
   render:
     needs: plan
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      max-parallel: ${{ fromJSON(inputs.max_parallel || '10') }}
+      max-parallel: ${{ fromJSON(needs.plan.outputs.par) }}
       matrix:
         spec: ${{ fromJSON(needs.plan.outputs.specs) }}
     steps:
