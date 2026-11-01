@@ -14519,6 +14519,106 @@
       ],
       "angle": "IELTSライティングTask 2でGrammatical Range 7.0+を獲得する複文（Complex Sentences）の書き方：関係詞節、副詞節、分詞構文、倒置構文の自然な使い分けを徹底解説。",
       "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "conectores-en-ingles-linking-words-guia",
+      "keyword": "conectores en ingles linking words",
+      "topic": "Conectores en inglés (Linking Words): Guía completa de conectores para writing y speaking",
+      "category": "ngu-phap",
+      "tags": [
+        "linking-words",
+        "conectores",
+        "gramatica",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Tabla exhaustiva de conectores en inglés clasificados por función: contraste, causa, adición y conclusión, con ejemplos para ensayos formales y exámenes oficiales.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "conectivos-em-ingles-linking-words-guia",
+      "keyword": "conectivos em ingles linking words",
+      "topic": "Conectivos em inglês (Linking Words): Guia completo para redação e conversação",
+      "category": "ngu-phap",
+      "tags": [
+        "linking-words",
+        "conectivos",
+        "gramatica",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Guia definitivo de conectivos em inglês (linking words) separados por propósito: adição, contraste, causa e conclusão com exemplos acadêmicos para IELTS e TOEFL.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "kata-penghubung-bahasa-inggris-linking-words",
+      "keyword": "kata penghubung bahasa inggris linking words",
+      "topic": "Kata Penghubung Bahasa Inggris (Linking Words): Panduan Lengkap dan Contoh Penggunaan",
+      "category": "ngu-phap",
+      "tags": [
+        "linking-words",
+        "konjungsi",
+        "tata-bahasa",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Daftar lengkap kata penghubung bahasa Inggris (linking words) berdasarkan fungsi: kontras, sebab-akibat, penambahan, dan kesimpulan untuk esai akademik.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "eigo-tsunagikotoba-linking-words-ichiran",
+      "keyword": "英語 つなぎ言葉 linking words",
+      "topic": "英語のつなぎ言葉（Linking Words）完全一覧：エッセイと会話で使える接続表現",
+      "category": "ngu-phap",
+      "tags": [
+        "linking-words",
+        "grammar",
+        "writing",
+        "connectors"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "英語論文・エッセイやビジネス会話で必須のつなぎ言葉（linking words）を機能別に完全網羅。逆接、理由、添加、結論の自然な使い分けを例文付きで解説。",
+      "intent": "informational"
     }
   ]
 }
