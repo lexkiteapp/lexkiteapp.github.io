@@ -354,6 +354,21 @@
    ]
   },
   {
+   "id": "situations",
+   "paths": [
+    "content/situations"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "test/situations.mjs"
+   ]
+  },
+  {
    "id": "tutor",
    "paths": [
     "web/js/tutor"

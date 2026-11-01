@@ -1,0 +1,230 @@
+{
+ "_doc": "Play & Speak F2 'Nói theo 3 nhịp' (#/speak/<id>/drill, cờ speak_pack) – d do web/js/speak/drill.js dựng từ content/situations/<id>.json + Speak.score. Ẩn phần Stitch tự bịa: chip 'Accent: UK'. Giáo viên (Ama) qua Chars vào ô nét đứt. Từ chưa chấm (r.p) dùng màu chip 'Sentence Model' có sẵn trong mẫu; nhịp chưa tới dùng khuôn 'đã xong' bỏ dấu tích. Không mic: chạm chip theo thứ tự (chip là nút, vùng chạm ≥ 44 px).",
+ "i18n": {
+  "Close lesson": "Đóng bài nói",
+  "Speaking drill": "Luyện nói theo câu",
+  "Say it in 3 beats": "Nói theo 3 nhịp",
+  "Sentence Model": "Câu mẫu để nói",
+  "Stress tip": "Mẹo nhấn âm",
+  "SCORE": "Điểm",
+  "Continue": "Tiếp tục"
+ },
+ "text": {
+  "Café": "d.chip",
+  "• Practice 7/12": "d.prog",
+  "Coach Ama": "d.coach",
+  "86": "d.score",
+  "/ˈmiː.di.əm/": "d.tipIpa"
+ },
+ "html": {
+  ":scope > main > div > section:nth-child(3) > div:nth-child(1)": "d.teacher",
+  ":scope > main > div > section:nth-child(3) > div:nth-child(2) > p:nth-child(4)": "e(d.say)",
+  ":scope > main > div > section:nth-child(3) > div:nth-child(2) > p:nth-child(5)": "e(d.hint)",
+  ":scope > main > div > section:nth-child(5) > div:nth-child(3) > div:nth-child(2) > p": "d.tipHtml",
+  ":scope > main > div > section:nth-child(6) > span": "e(d.micLabel)",
+  ":scope > main > div > section:nth-child(7) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "e(d.verdict)",
+  ":scope > main > div > section:nth-child(7) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "e(d.sub)",
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)": "''",
+  ":scope > main > footer > button:nth-child(2)": "e(d.alt)"
+ },
+ "attr": {
+  ":scope > main > div > header > button": {
+   "type": "'button'",
+   "data-href": "d.back",
+   "id": "'spkClose'"
+  },
+  ":scope > main > div > header > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-valuemin": "0",
+   "aria-valuemax": "d.total",
+   "aria-valuenow": "d.done",
+   "aria-label": "d.prog"
+  },
+  ":scope > main > div > header > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > main > div > section:nth-child(3) > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div > section:nth-child(3) > div:nth-child(2)": {
+   "aria-live": "'polite'",
+   "id": "'spkSay'"
+  },
+  ":scope > main > div > nav": {
+   "aria-label": "d.beatsAria"
+  },
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)": {
+   "type": "'button'",
+   "id": "'spkPlay'",
+   "aria-label": "d.playAria",
+   "title": "d.playAria"
+  },
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)": {
+   "type": "'button'",
+   "id": "'spkSlow'",
+   "aria-label": "d.slowAria",
+   "title": "d.slowAria"
+  },
+  ":scope > main > div > section:nth-child(5) > div:nth-child(2)": {
+   "id": "'spkWords'",
+   "lang": "'en'",
+   "aria-label": "d.wordsAria"
+  },
+  ":scope > main > div > section:nth-child(6) > div > button": {
+   "type": "'button'",
+   "id": "'spkMic'",
+   "aria-label": "d.micAria",
+   "aria-pressed": "d.rec ? 'true' : 'false'"
+  },
+  ":scope > main > div > section:nth-child(6) > span": {
+   "aria-live": "'polite'",
+   "id": "'spkMicL'"
+  },
+  ":scope > main > div > section:nth-child(7)": {
+   "aria-live": "'polite'",
+   "id": "'spkRes'"
+  },
+  ":scope > main > div > section:nth-child(7) > div:nth-child(2)": {
+   "role": "'img'",
+   "aria-label": "d.starsAria"
+  },
+  ":scope > main > div > section:nth-child(7) > div:nth-child(1) > div:nth-child(1) > svg > circle:nth-child(2)": {
+   "stroke-dashoffset": "d.off"
+  },
+  ":scope > main > footer > button:nth-child(1)": {
+   "type": "'button'",
+   "id": "'spkNext'",
+   "aria-disabled": "d.canNext ? 'false' : 'true'"
+  },
+  ":scope > main > footer > button:nth-child(2)": {
+   "type": "'button'",
+   "id": "'spkRetry'"
+  }
+ },
+ "cls": {
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)": {
+   "py-0.5": "'hidden'"
+  },
+  ":scope > main > div > section:nth-child(5) > div:nth-child(3)": {
+   "mt-3": "d.tipHtml ? 'mt-3' : 'hidden'"
+  },
+  ":scope > main > div > section:nth-child(6)": {
+   "w-full": "d.noMic ? 'hidden' : 'w-full'"
+  },
+  ":scope > main > div > section:nth-child(7)": {
+   "px-4": "d.res ? 'px-4' : 'hidden'"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.beats",
+   "as": "r",
+   "samples": ":scope > main > div > nav > div",
+   "pick": "r.cur ? 'cur' : 'done'",
+   "variants": {
+    "done": ":scope > main > div > nav > div:nth-child(1)",
+    "cur": ":scope > main > div > nav > div:nth-child(3)"
+   },
+   "bind": {
+    "done": {
+     "html": {
+      ":scope > span": "e(r.label)"
+     },
+     "cls": {
+      ":scope > svg": {
+       "w-3.5": "r.done ? 'w-3.5' : 'hidden'"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "data-beat": "r.k"
+      }
+     }
+    },
+    "cur": {
+     "html": {
+      ":scope > span:nth-child(2)": "e(r.label)"
+     },
+     "attr": {
+      ":scope": {
+       "data-beat": "r.k",
+       "aria-current": "'step'"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.words",
+   "as": "r",
+   "samples": ":scope > main > div > section:nth-child(5) > div:nth-child(2) > span",
+   "pick": "r.bad ? 'bad' : 'ok'",
+   "variants": {
+    "ok": ":scope > main > div > section:nth-child(5) > div:nth-child(2) > span:nth-child(1)",
+    "bad": ":scope > main > div > section:nth-child(5) > div:nth-child(2) > span:nth-child(5)"
+   },
+   "bind": {
+    "ok": {
+     "html": {
+      ":scope": "e(r.w)"
+     },
+     "attr": {
+      ":scope": {
+       "data-wi": "r.tap ? r.i : ''",
+       "role": "r.tap ? 'button' : ''",
+       "tabindex": "r.tap ? '0' : '-1'"
+      }
+     },
+     "addClass": {
+      ":scope": "relative after:absolute after:-inset-1.5 after:content-['']"
+     },
+     "cls": {
+      ":scope": {
+       "lt:text-[#15803D]": "r.p ? 'lt:text-[#1A1816]' : 'lt:text-[#15803D]'",
+       "lt:bg-[#ECFDF5]": "r.p ? 'lt:bg-[#F7EEE3]' : 'lt:bg-[#ECFDF5]'",
+       "dk:text-[#34d399]": "r.p ? 'dk:text-[#ffffff]' : 'dk:text-[#34d399]'",
+       "dk:bg-[#102a28]": "r.p ? 'dk:bg-[#102227]' : 'dk:bg-[#102a28]'",
+       "dk:border-[#184c47]": "r.p ? 'dk:border-[#1e3e46]' : 'dk:border-[#184c47]'"
+      }
+     }
+    },
+    "bad": {
+     "html": {
+      ":scope": "e(r.w)"
+     },
+     "attr": {
+      ":scope": {
+       "data-bad": "''"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.stars",
+   "as": "r",
+   "samples": ":scope > main > div > section:nth-child(7) > div:nth-child(2) > svg",
+   "pick": "r.on ? 'on' : 'off'",
+   "variants": {
+    "on": ":scope > main > div > section:nth-child(7) > div:nth-child(2) > svg:nth-child(1)",
+    "off": ":scope > main > div > section:nth-child(7) > div:nth-child(2) > svg:nth-child(3)"
+   },
+   "bind": {
+    "on": {
+     "attr": {
+      ":scope": {
+       "aria-hidden": "'true'"
+      }
+     }
+    },
+    "off": {
+     "attr": {
+      ":scope": {
+       "aria-hidden": "'true'"
+      }
+     }
+    }
+   }
+  }
+ ]
+}
