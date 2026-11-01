@@ -116,11 +116,12 @@ if (SHOTS && has('app/index.html')) {
   await ctx.addInitScript(() => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); localStorage.setItem('ielts.settings', JSON.stringify({ theme: 'dark' })); localStorage.setItem('ielts.settingsAt', String(Date.now())); localStorage.setItem('vb.uiLang', 'vi'); } } catch (e) { /* */ } });
   const page = await ctx.newPage(); let n = 0; const shot = async () => page.screenshot({ path: path.join(SHOTS, `app-blog-${String(++n).padStart(2, '0')}.png`) });
   await page.goto(BASE + '/app/', { waitUntil: 'load' }); await page.waitForTimeout(2500); await shot();
-  const link = page.locator('a[data-blog]:visible, a[href$="/blog/"]:visible').first();
-  if (await link.count()) { await link.hover().catch(() => {}); await shot(); await Promise.all([page.waitForLoadState('load'), link.click()]); }
+  // link Blog app tự trỏ theo ngôn ngữ đã chọn (App.blogUrl → /vi/blog/); ưu tiên link đó, rồi mới tới link blog bất kỳ đang hiện
+  const link = page.locator('a[href$="/vi/blog/"]:visible').or(page.locator('a[data-blog]:visible')).first(), href = await link.getAttribute('href').catch(() => null);
+  if (href) { await link.hover().catch(() => {}); await shot(); await Promise.all([page.waitForURL(/\/blog\//, { timeout: 10000 }).catch(() => {}), link.click()]); await page.waitForLoadState('load'); }
   else { bad.push('gif app→blog: app không có link Blog hiện'); await page.goto(BASE + '/vi/blog/', { waitUntil: 'load' }); }
   await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {}); await page.waitForTimeout(400); await shot();
-  const r = await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), lang: document.documentElement.lang, path: location.pathname }));
+  const r = { href, ...(await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), lang: document.documentElement.lang, path: location.pathname }))) };
   if (r.th !== 'dark') bad.push(`gif app→blog: blog mở từ app nhưng data-theme=${r.th}`);
   if (!/^vi/.test(r.lang)) bad.push(`gif app→blog: app chọn Tiếng Việt nhưng blog mở bản ${r.lang} (${r.path})`);
   await page.evaluate(() => scrollTo(0, innerHeight * .9)); await page.waitForTimeout(200); await shot();

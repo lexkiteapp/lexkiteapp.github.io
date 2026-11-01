@@ -90,7 +90,7 @@ for (const [p, , alts] of urls) {
   if (/toeic/.test(p)) { const q = lds.find(x => x['@type'] === 'Quiz'); ok(q && q.hasPart && q.hasPart.length === 3 && q.hasPart.every(x => x.acceptedAnswer && x.acceptedAnswer.text), `${p}: Quiz TOEIC thiếu câu mẫu`); }
   const og = (h.match(/<meta property="og:image" content="https:\/\/lexkite\.com([^"]+)"/) || [])[1]; ok(og && fs.existsSync('web' + og), `${p}: og:image không tồn tại ${og}`);
   if (/[abc][12]\/$/.test(p)) ok(og === `/img/tools/og-cefr-${p.slice(-3, -1)}.png`, `${p}: og:image phải theo cấp`);
-  for (const m of h.matchAll(/<script src="([^"]+)"/g)) ok(fs.existsSync('web' + m[1]), `${p}: script ${m[1]} không tồn tại`);
+  for (const m of h.matchAll(/<script src="([^"]+)"/g)) ok(fs.existsSync('web' + m[1].split('?')[0]), `${p}: script ${m[1]} không tồn tại`);
   for (const m of h.matchAll(/href="\/app\/[^"#]*#\/([a-z]+)/g)) ok(routes.has(m[1]), `${p}: deep-link #/${m[1]} không có route`);
   for (const [k] of [['test'], ['toeic']]) ok(h.includes(`href="${toolPath(lang, k)}"`), `${p}: thiếu liên kết nội bộ tới ${toolPath(lang, k)}`);
   if (lang !== 'vi') ok(!VI.test(h.replace(/<script>[\s\S]*?<\/script>/g, '').replace(/<a [^>]*lang="vi"[^>]*>[^<]*<\/a>/g, '').replace(/hreflang="vi"[^>]*>[^<]*/g, '')), `${p}: lẫn chữ Việt`);
