@@ -14469,6 +14469,56 @@
       ],
       "angle": "Aprenda a aplicar as técnicas de skimming e scanning no IELTS Reading para encontrar respostas em segundos sem precisar ler o texto palavra por palavra.",
       "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "oraciones-complejas-ielts-writing-task-2",
+      "keyword": "oraciones complejas ielts writing",
+      "topic": "Oraciones complejas en IELTS Writing Task 2: Domina la gramática para Band 7+",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "oraciones-complejas",
+        "gramatica"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "Cómo construir oraciones complejas en IELTS Writing Task 2 sin perder claridad: cláusulas relativas, adverbiales, participios e inversión para alcanzar Band 7.0+ en Grammatical Range.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "ielts-writing-fukubun-complex-sentences-koutsu",
+      "keyword": "ielts ライティング 複文 complex sentences",
+      "topic": "IELTS Writing複文（Complex Sentences）完全攻略：Band 7.0+を掴む構文規則",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "complex-sentences",
+        "grammar"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTSライティングTask 2でGrammatical Range 7.0+を獲得する複文（Complex Sentences）の書き方：関係詞節、副詞節、分詞構文、倒置構文の自然な使い分けを徹底解説。",
+      "intent": "informational"
     }
   ]
 }
