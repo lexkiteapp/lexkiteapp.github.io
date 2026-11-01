@@ -1,0 +1,34 @@
+{
+ "_doc": "Sinh tự động bởi scripts/rig/store.mjs – đừng sửa tay (trạng thái sửa trong meta.json từng clip).",
+ "updated": "2026-11-01",
+ "count": 1,
+ "by_lang": {
+  "es": [
+   "es-age-be"
+  ]
+ },
+ "by_status": {
+  "draft": 1
+ },
+ "clips": [
+  {
+   "id": "es-age-be",
+   "lang": "es",
+   "date": "2026-11-01",
+   "title": "¿Dices “I have 20 years”?",
+   "topic": "Do you say “I have 20 years”?",
+   "mistake": "Using have for age (I have 20 years)",
+   "teachers": [
+    "carlos"
+   ],
+   "duration_s": 15.525,
+   "score": 95,
+   "pass": false,
+   "status": "draft",
+   "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-age-be#/grammar",
+   "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-age-be-video.mp4",
+   "cover": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-age-be-cover.jpg",
+   "caption": "content/social/videos/es/2026-11-01-age-be/caption.txt"
+  }
+ ]
+}
