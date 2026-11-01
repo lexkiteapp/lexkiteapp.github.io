@@ -58,11 +58,17 @@
   // Nay: MỘT phần tử dùng chung cho mọi câu/mọi bài, mở khóa ở cú chạm đầu tiên trên trang (WAV im lặng + câu nói rỗng); vẫn bị chặn → opts.onBlocked(resume).
   const SILENT = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=';
   const shared = typeof Audio !== 'undefined' ? new Audio() : null;
-  let unlocked = false;
-  const unlock = () => {
-    if (unlocked || !shared) return; unlocked = true;
-    try { if (shared.paused && !shared.getAttribute('src')) { shared.src = SILENT; const pr = shared.play(); if (pr && pr.catch) pr.catch(() => { unlocked = false; }); } } catch (e) { unlocked = false; }
-    try { if ('speechSynthesis' in window && !speechSynthesis.speaking) { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); } } catch (e) { /* bỏ qua */ }
+  // Mở khóa CHỈ bằng cú chạm thật (isTrusted) và chỉ đánh dấu khi đã thật sự thử trong cú chạm đó. Trước đây cờ chung 'unlocked' bị chốt = true bởi
+  // click giả (script) / lần thử bị từ chối thứ hai (phần tử đã có src → bỏ qua mà vẫn chốt) → cú chạm thật "Bấm để nghe" không mồi được giọng máy,
+  // câu kế tiếp đọc bằng giọng máy bị chặn lại → im lặng (e2e ios-audio đỏ 01/11). Âm thanh và giọng máy mở khóa riêng, thử lại ở cú chạm sau nếu hỏng.
+  let audioOk = false, ttsOk = false;
+  const unlock = e => {
+    if (e && e.isTrusted === false) return;
+    // chỉ mồi khi phần tử chưa từng phát bài nào (src trống/WAV im lặng): mồi giữa 2 câu sẽ bắn 'ended' vào trình phát đang giữ phần tử → nhảy câu
+    if (shared && !audioOk && shared.paused && [null, '', SILENT].includes(shared.getAttribute('src'))) {
+      try { shared.src = SILENT; audioOk = true; const pr = shared.play(); if (pr && pr.catch) pr.catch(() => { audioOk = false; }); } catch (err) { audioOk = false; }
+    }
+    if (!ttsOk && 'speechSynthesis' in window && !speechSynthesis.speaking) { try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; speechSynthesis.speak(u); ttsOk = true; } catch (err) { /* thử lại ở cú chạm sau */ } }
   };
   ['touchend', 'click', 'keydown'].forEach(ev => document.addEventListener(ev, unlock, { capture: true, passive: true }));
   const blockedErr = e => !!e && (e.name === 'NotAllowedError' || /not allowed|user gesture|denied permission/i.test(String(e.message || e)));

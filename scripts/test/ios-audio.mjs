@@ -79,7 +79,7 @@ async function run(name, bt) {
     await page.tap('#lkTapPlay');
     await page.waitForFunction(() => window.__aud.ok.length >= 2, null, { timeout: 15000 }).catch(() => {});
     const a = await aud(page);
-    if (a.ok.length < 2) bad(k, `chạm "Bấm để nghe" vẫn không có tiếng (${a.ok.length} câu)`);
+    if (a.ok.length < 2) { bad(k, `chạm "Bấm để nghe" vẫn không có tiếng (${a.ok.length} câu; bị chặn ${a.blocked}, giọng máy chặn ${a.ttsBlocked}/nói ${a.tts}, mp3 sẵn ${a.hq}, nút lại hiện ${!!(await page.$('#lkTapPlay'))}, đang: "${a.now}"; nhật ký: ${a.log})`); await page.screenshot({ path: `${OUT}/${name}-after-tap.png` }); }
     else console.log(`  ✓ chạm → phát ${a.ok.length} câu`);
     if (a.ok.filter(x => x === a.ok[0]).length > 1) bad(k, 'câu đầu bị phát lại (vi phạm luật nghe 1 lần)');
     if (errs.length) bad(k, 'lỗi JS: ' + errs.join(' | '));
