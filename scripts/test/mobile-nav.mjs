@@ -1,0 +1,107 @@
+// 📱 Điện thoại 375×812 (sáng + tối, giao diện Stitch ux1 bật + tắt): CHẠM THẬT vào tab "Tôi" (Cá nhân) ở thanh dưới từ mọi tab chính,
+// kiểm không có lớp nào che tab (elementFromPoint), trang Tôi vẽ ra, các hàng trong trang bấm được (Chế độ màu, Ngôn ngữ, Mục tiêu),
+// không tràn ngang. Thêm: IndexedDB treo (WebKit/iOS hay gặp: indexedDB.open không bao giờ trả lời) → app vẫn khởi động, vẫn bấm được.
+// Chủ báo 01/11: "mobile vẫn còn lỗi giao diện, Cá nhân không bấm chọn được". Chạy trong mobile-qa.yml.
+// Chạy: node scripts/test/mobile-nav.mjs http://localhost:8080 out/mobile-nav   → thoát 1 nếu có lỗi; ảnh chụp từng bước trong thư mục ra.
+import fs from 'node:fs';
+import { chromium } from 'playwright';
+
+const BASE = (process.argv[2] || 'http://localhost:8080').replace(/\/$/, ''), OUT = process.argv[3] || 'out/mobile-nav';
+fs.mkdirSync(OUT, { recursive: true });
+const UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
+const fails = [], log = m => console.log(m), bad = (k, m) => { fails.push(`[${k}] ${m}`); console.log('  ✗ ' + m); };
+
+async function open(scheme, ux1, { hangIdb = false, fresh = false } = {}) {
+  const browser = await chromium.launch();
+  const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA, colorScheme: scheme, locale: 'vi', reducedMotion: 'reduce' });
+  const page = await ctx.newPage(), errs = [];
+  page.on('pageerror', e => errs.push(String(e).slice(0, 300)));
+  await page.addInitScript(({ ux1, hangIdb, fresh }) => {
+    try {
+      localStorage.setItem('lk.ux1', ux1 ? '1' : '0'); localStorage.setItem('vb.nudgeAt', String(Date.now()));
+      if (!fresh && !localStorage.getItem('sbx.settings')) localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, goalPick: 1 }));
+    } catch (e) { /* */ }
+    if (hangIdb) { // yêu cầu mở CSDL "lexkite" không bao giờ trả lời (không success/error/blocked) – như lỗi IndexedDB của Safari iOS
+      const o = indexedDB.open.bind(indexedDB);
+      indexedDB.open = function (name, v) { return name === 'lexkite' ? { set onsuccess(f) {}, set onerror(f) {}, set onblocked(f) {}, set onupgradeneeded(f) {} } : o(name, v); };
+    }
+  }, { ux1, hangIdb, fresh });
+  return { browser, page, errs };
+}
+const ready = page => page.waitForFunction(() => { const v = document.getElementById('view'); return v && v.children.length && !v.querySelector('.skel-page,.skel-study') && !document.body.classList.contains('bare'); }, null, { timeout: 15000 }).then(() => true, () => false);
+const overflow = page => page.evaluate(() => { const W = innerWidth; if (document.documentElement.scrollWidth <= W + 1) return []; return [...document.querySelectorAll('#view *')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.right > W + 1 && !e.closest('[class*="overflow-x"],.tabs,.steps,.set-nav,.hscroll,[style*="overflow"]'); }).slice(0, 5).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 3).join('.') + ' →' + Math.round(e.getBoundingClientRect().right)); });
+// Tab "Tôi" đang HIỆN ở đáy màn hình (thanh Stitch trong #view hoặc #bnav cũ)
+const meTab = page => page.evaluate(() => {
+  const vis = a => { const r = a.getBoundingClientRect(), s = getComputedStyle(a); return r.width > 0 && r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2 && s.visibility !== 'hidden'; };
+  const a = [...document.querySelectorAll('a[data-tab="me"], #bnav a[href="#/me"]')].find(vis); if (!a) return null;
+  const r = a.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2, top = document.elementFromPoint(x, y);
+  const d = e => e ? e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + '.' + [...e.classList].slice(0, 4).join('.') : '∅';
+  return { x, y, hit: !!top && a.contains(top), top: d(top), pe: getComputedStyle(a).pointerEvents };
+});
+const onMe = page => page.waitForFunction(() => location.hash.startsWith('#/me') && !!document.querySelector('#view .v2-me, #view [data-act], #view h1'), null, { timeout: 8000 }).then(() => true, () => false);
+
+async function run(scheme, ux1) {
+  const k = `${scheme}·ux1=${ux1 ? 1 : 0}`; log(`▶ ${k}`);
+  const { browser, page, errs } = await open(scheme, ux1);
+  await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/home`, { waitUntil: 'load' });
+  if (!(await ready(page))) { bad(k, 'app không vẽ trang Học trong 15 s'); await page.screenshot({ path: `${OUT}/${scheme}-ux1${+ux1}-boot.png` }); await browser.close(); return; }
+  for (const from of ['home', 'review', 'train', 'league', 'settings']) {
+    await page.evaluate(h => { location.hash = h; }, '#/' + from); await page.waitForTimeout(900); await ready(page);
+    const ov = await overflow(page); if (ov.length) bad(k, `#/${from} tràn ngang: ${ov.join(', ')}`);
+    const tab = await meTab(page);
+    if (!tab) { bad(k, `#/${from}: không thấy tab "Tôi" ở thanh dưới`); continue; }
+    if (!tab.hit || tab.pe === 'none') bad(k, `#/${from}: tab "Tôi" bị che bởi ${tab.top} (pointer-events ${tab.pe})`);
+    await page.touchscreen.tap(tab.x, tab.y);
+    if (!(await onMe(page))) { bad(k, `#/${from}: chạm tab "Tôi" không mở trang Tôi (hash ${await page.evaluate(() => location.hash)})`); await page.screenshot({ path: `${OUT}/${scheme}-ux1${+ux1}-from-${from}.png` }); }
+  }
+  await page.evaluate(() => { location.hash = '#/me'; }); await onMe(page); await page.waitForTimeout(600);
+  await page.screenshot({ path: `${OUT}/${scheme}-ux1${+ux1}-me.png`, fullPage: true });
+  const ov = await overflow(page); if (ov.length) bad(k, `#/me tràn ngang: ${ov.join(', ')}`);
+  // Các hàng trong trang Tôi phải chạm được (không bị lớp nào che) và phản hồi
+  const tapSel = async (sel, what) => {
+    const p = await page.evaluate(sel => { const e = [...document.querySelectorAll(sel)].find(x => x.getBoundingClientRect().width); if (!e) return null; e.scrollIntoView({ block: 'center' }); const r = e.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2, top = document.elementFromPoint(x, y); return { x, y, hit: !!top && e.contains(top), top: top ? top.tagName.toLowerCase() + '.' + [...top.classList].slice(0, 3).join('.') : '∅' }; }, sel);
+    if (!p) { bad(k, `#/me: không thấy ${what}`); return false; }
+    if (!p.hit) bad(k, `#/me: ${what} bị che bởi ${p.top}`);
+    await page.touchscreen.tap(p.x, p.y); await page.waitForTimeout(700); return true;
+  };
+  if (ux1) {
+    const theme = () => page.evaluate(() => (document.querySelector('#view [data-act="theme"]') || {}).textContent || '');
+    const t0 = await theme();
+    if (await tapSel('#view [data-act="theme"]', 'hàng "Chế độ màu"') && (await theme()) === t0) bad(k, '#/me: chạm "Chế độ màu" không đổi giá trị');
+    if (await tapSel('#view [data-act="lang"]', 'hàng "Ngôn ngữ"')) {
+      if (!(await page.evaluate(() => !!document.querySelector('#modal [data-lang]')))) bad(k, '#/me: chạm "Ngôn ngữ" không mở hộp chọn');
+      await page.keyboard.press('Escape'); await page.evaluate(() => window.UI && UI.closeModal && UI.closeModal()); await page.waitForTimeout(300);
+    }
+    if (await tapSel('#view [href="#/goal"], #view [data-href="#/goal"]', 'hàng "Mục tiêu & kế hoạch"') && !(await page.waitForFunction(() => location.hash.startsWith('#/goal'), null, { timeout: 5000 }).then(() => true, () => false))) bad(k, '#/me: chạm "Mục tiêu & kế hoạch" không chuyển trang');
+  } else if (await tapSel('#view a[href="#/settings"], #view a[href="#/stats"]', 'liên kết trong trang Tôi') && !(await page.waitForFunction(() => /^#\/(settings|stats)/.test(location.hash), null, { timeout: 5000 }).then(() => true, () => false))) bad(k, '#/me: chạm liên kết không chuyển trang');
+  if (errs.length) bad(k, 'lỗi JS: ' + errs.slice(0, 3).join(' | '));
+  await browser.close();
+}
+
+// Người mới (trang chào): không tràn ngang, nút "Bắt đầu" chạm được và vào bước thiết lập
+async function welcome(scheme) {
+  const k = `${scheme}·chào`; log(`▶ ${k}`);
+  const { browser, page } = await open(scheme, true, { fresh: true });
+  await page.goto(`${BASE}/app/?sandbox=1&hl=vi`, { waitUntil: 'load' }); await page.waitForTimeout(2500);
+  await page.screenshot({ path: `${OUT}/${scheme}-welcome.png` });
+  const ov = await page.evaluate(() => { const W = innerWidth; return [...document.querySelectorAll('#view *')].filter(e => { const r = e.getBoundingClientRect(); if (!r.width || r.right <= W + 1) return false; for (let p = e.parentElement; p; p = p.parentElement) { const s = getComputedStyle(p); if (/auto|scroll/.test(s.overflowX)) return false; } return true; }).slice(0, 5).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 3).join('.') + ' →' + Math.round(e.getBoundingClientRect().right)); });
+  if (ov.length) bad(k, `trang chào tràn/cắt chữ ngang: ${ov.join(', ')}`);
+  await browser.close();
+}
+
+// IndexedDB treo → app phải tự chuyển sang lưu cục bộ và vẫn vẽ trang + bấm được tab Tôi (trước đây: kẹt ở màn chào, không gì bấm được)
+async function hungIdb() {
+  const k = 'IndexedDB treo'; log(`▶ ${k}`);
+  const { browser, page } = await open('light', true, { hangIdb: true });
+  await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/home`, { waitUntil: 'load' });
+  if (!(await ready(page))) { bad(k, 'app kẹt khi IndexedDB không trả lời (không vẽ trang Học trong 15 s)'); await page.screenshot({ path: `${OUT}/idb-hang.png` }); await browser.close(); return; }
+  const tab = await meTab(page);
+  if (!tab) bad(k, 'không thấy tab "Tôi"'); else { await page.touchscreen.tap(tab.x, tab.y); if (!(await onMe(page))) bad(k, 'chạm tab "Tôi" không mở trang Tôi'); }
+  await browser.close();
+}
+
+for (const scheme of ['light', 'dark']) { for (const ux1 of [true, false]) await run(scheme, ux1); await welcome(scheme); }
+await hungIdb();
+fs.writeFileSync(`${OUT}/report.json`, JSON.stringify({ fails }, null, 1));
+console.log(fails.length ? `\n❌ ${fails.length} lỗi:\n` + fails.join('\n') : '\n✅ mobile-nav: tab "Tôi" chạm được ở mọi tab, sáng/tối, ux1 bật/tắt; không tràn ngang; IndexedDB treo vẫn chạy');
+process.exit(fails.length ? 1 : 0);
