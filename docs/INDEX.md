@@ -37,6 +37,7 @@
 - [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) — Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên; đọc khi: mọi thay đổi giao diện
 - [WEB-PAGES](WEB-PAGES.md) — kiểm kê mọi trang không phải app + admin: trạng thái Stitch Kit, screen, PR chủ, cổng web-sweep; đọc khi đổi giao diện trang tĩnh/blog/SEO/pháp lý/admin
 - [STITCH-V2-PORT](STITCH-V2-PORT.md) — port màn Stitch v2 vào app bằng bộ chuyển tự động; đọc khi port/sửa màn v2
+- [STITCH-COVERAGE](STITCH-COVERAGE.md) — bảng màn đã/chưa port Stitch + lô kế tiếp (sinh từ stitch-coverage.json); đọc khi chọn lô port hoặc thêm màn/route mới
 - [GAME-FEEL.md](GAME-FEEL.md) — Lớp game feel: gói âm CC0, rung, chuyển động phản hồi (XP, thanh, combo), nhân vật phản ứng, cờ ?feel=1; đọc khi: sửa âm/hiệu ứng phản hồi
 - [DISTRIBUTION.md](DISTRIBUTION.md) — Kênh & phân phối (nhúng + social): vai trò kênh, định tuyến, hợp đồng cho tác tử social (GrabCast), hệ thống web/app; đọc khi: sửa phân phối/social
 - [EDGE-SUBMIT.md](EDGE-SUBMIT.md) — Gói hồ sơ đăng Lexkite lên Microsoft Edge Add-ons: dùng chung zip Chrome, các bước trên Partner Center, lưu ý chính sách; đọc khi: đăng/cập nhật add-on trên Edge
