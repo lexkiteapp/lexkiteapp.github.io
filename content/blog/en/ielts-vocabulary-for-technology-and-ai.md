@@ -3,7 +3,7 @@ title: "IELTS Vocabulary for Technology and AI: Band 7+ Guide"
 description: "Master ielts vocabulary for technology and ai: advanced academic collocations on automation, digital privacy, and sample answers to boost writing scores."
 slug: ielts-vocabulary-for-technology-and-ai
 lang: en
-translationKey: tu-vung-ielts-chu-de-technology
+translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: tu-vung
 tags: [ielts, technology, vocabulary, writing, speaking]
 keyword: "ielts vocabulary for technology and ai"

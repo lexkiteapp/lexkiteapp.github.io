@@ -4,7 +4,7 @@ title: "IELTS teknoloji kelimeleri ve yapay zeka: Band 7+ Collocations"
 description: "IELTS teknoloji kelimeleri, yapay zeka collocation kalıpları, Writing Task 2 ve Speaking için 35 akademik kelime, örnek cümleler ve kompozisyon fikirleri."
 keyword: "ielts teknoloji kelimeleri"
 lang: tr
-translationKey: tu-vung-ielts-chu-de-technology-ai
+translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: tu-vung
 tags: [ielts, kelimeler, teknoloji, yapay-zeka]
 cover: read-article

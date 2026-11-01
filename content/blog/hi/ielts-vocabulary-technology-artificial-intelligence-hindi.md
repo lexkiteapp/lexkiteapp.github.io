@@ -4,7 +4,7 @@ title: "IELTS टेक्नोलॉजी वोकैबुलरी और 
 description: "IELTS टेक्नोलॉजी वोकैबुलरी और आर्टिफिशियल इंटेलिजेंस AI: 35 एकेडमिक कोलोकेशन्स, उदाहरण वाक्य, राइटिंग टास्क 2 के विचार और स्पीकिंग बैंड 7.5+ टिप्स।"
 keyword: "ielts टेक्नोलॉजी वोकैबुलरी"
 lang: hi
-translationKey: tu-vung-ielts-chu-de-technology-ai
+translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: ielts
 tags: [ielts, vocabulary, technology, ai]
 cover: read-article

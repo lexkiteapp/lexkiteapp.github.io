@@ -3,7 +3,7 @@ title: "Vocabulario IELTS tecnología e IA: guía para Band 7+"
 description: "Domina el vocabulario ielts tecnología: colocaciones académicas sobre inteligencia artificial, automatización, privacidad de datos y argumentos modelo."
 slug: vocabulario-ielts-tecnologia-e-innovacion
 lang: es
-translationKey: tu-vung-ielts-chu-de-technology
+translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: tu-vung
 tags: [ielts, tecnologia, vocabulario, writing, speaking]
 keyword: "vocabulario ielts tecnología"

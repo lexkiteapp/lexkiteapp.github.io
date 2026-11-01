@@ -4,7 +4,7 @@ title: "คำศัพท์ IELTS เทคโนโลยี และ AI: 35
 description: "รวมคำศัพท์ ielts เทคโนโลยี และปัญญาประดิษฐ์ AI: 35 collocations เชิงวิชาการ ตัวอย่างประโยค ไอเดียเขียน Writing Task 2 และเทคนิคตอบ Speaking."
 keyword: "คำศัพท์ ielts เทคโนโลยี"
 lang: th
-translationKey: tu-vung-ielts-chu-de-technology-ai
+translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: tu-vung
 tags: [ielts, kham-sap, theknoloyi, ai]
 cover: read-article

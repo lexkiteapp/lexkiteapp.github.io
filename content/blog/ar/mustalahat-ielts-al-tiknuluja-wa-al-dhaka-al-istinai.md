@@ -4,7 +4,7 @@ title: "كلمات ايلتس عن التكنولوجيا والذكاء الا�
 description: "أهم كلمات ايلتس عن التكنولوجيا والذكاء الاصطناعي: 35 متلازمة لفظية أكاديمية، أمثلة توضيحية، أفكار مقالات Writing Task 2 ونماذج إجابات Speaking."
 keyword: "كلمات ايلتس عن التكنولوجيا"
 lang: ar
-translationKey: tu-vung-ielts-chu-de-technology-ai
+translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: ielts
 tags: [ielts, mufradat, tiknuluja, ai]
 cover: read-article
