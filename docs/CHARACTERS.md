@@ -18,3 +18,9 @@
 - Kiểm ở bước ẢNH trước khi tạo clip; mỗi clip QC (5 ngón, miệng, khung ±5 % cỡ đầu, nền sạch); hỏng 2 lần thì bỏ mục.
 - Chuẩn bị/tách nền/dựng CHỈ trên CI (`green-prep.yml` → `matte-pro.yml` → `teach-build.yml`); không chạy nặng trên máy.
 - Đổi bất kỳ mục nào ở đây = hỏi chủ trước, kèm chi phí.
+
+## Chỗ giáo viên (teacher slot, 1/11 – chủ: "giáo viên trông như nhân vật app top")
+- Ảnh tĩnh là **nửa người** (đầu → hông, đáy mờ + quần xám) → KHÔNG đặt trần. Mọi chỗ hiện giáo viên dùng `Chars.slot(who, {pose, size, flip, cls, ground})` (`web/js/teacher-slot.js`): giáo viên đứng **sau một bệ** cùng màu mặt thẻ (`--surface-2`, gờ đáy `--ledge`) che đường cắt hông; không vệt cắt, không khối xám, không lơ lửng.
+- Cỡ chuẩn (chiều cao khung, đầu → mặt bệ): `s` 72 · `m` 112 · `l` 152 · `xl` 208 px. Cạnh nút CTA tròn 72 px dùng `l`. Đặt về phía còn chỗ trên màn 390 px; `flip` khi đứng bên phải để tay chỉ vào nút.
+- Tư thế theo ngữ cảnh: bảng tư thế ở side-notes `teacher-pose-map.md` (point = nút đang học, cheer = đúng, concern = sai, thinking = trống…). Thở nhẹ + hiện mờ 180 ms chỉ khi `prefers-reduced-motion: no-preference`. Tối: hạ sáng 5 % cho cùng ánh sáng UI.
+- Cổng: `scripts/test/teacher-native.mjs` (npm test) – chỗ đặt trần mới = đỏ; `teacher-native.known.json` chỉ được giảm khi chuyển từng màn.

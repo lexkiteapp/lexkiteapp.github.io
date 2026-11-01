@@ -1,0 +1,10 @@
+{
+  "_": "Chỗ giáo viên còn đặt trần, chờ chuyển sang Chars.slot (chỉ được GIẢM). Màn nào thuộc PR khác đang mở thì chuyển sau khi PR đó gộp.",
+  "raw": {
+    "web/js/call.js": 1,
+    "web/js/lesson/teacher.js": 3,
+    "web/js/retention.js": 2,
+    "web/js/st/common.js": 2,
+    "web/js/ux1.js": 1
+  }
+}
