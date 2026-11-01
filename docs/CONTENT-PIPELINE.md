@@ -33,3 +33,4 @@ Loại · số lượng · cấp CEFR/Part · file đích · mẫu định dạn
 
 ## 6. Sau mỗi lô
 `npm run content:queue` cập nhật hàng đợi. Đạt chỉ tiêu một loại → nâng chỉ tiêu trong `targets.json` (có lý do trong commit).
+Điểm 6 mảng: `npm run content:score` → [SCORE.md](../content/pipeline/SCORE.md) (cách tính: [CONTENT-WORLD-PLAN §3.5](CONTENT-WORLD-PLAN.md), sàn chỉ tăng: [score.budget.json](../content/pipeline/score.budget.json)); điểm tăng → `--bump` trong cùng PR.

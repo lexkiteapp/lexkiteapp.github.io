@@ -4,6 +4,27 @@
  "kinds": {
   "android-aab": [
    {
+    "run": 41302319321,
+    "run_number": 723,
+    "version": "1.0.1",
+    "build": 1723,
+    "name": "lexkite-1.0.1-1723.aab",
+    "sha256": "24618c55457a85438e083101093972d2eea43aeeb5c33344aa9a6a7707b0c2e9",
+    "size": 194752936,
+    "commit": "4f19a68d48603f8b27efe71f2c20a1e6bcaa55fc",
+    "at": "2026-11-01T11:49:16Z",
+    "copies": [
+     {
+      "driveId": 2,
+      "fileId": "1N2UZ14-PQVSxO2PI7jWopfVqtj-ERoW2"
+     },
+     {
+      "driveId": 1,
+      "fileId": "1UQHLp8cvr8psX8WW8DIelJNNY3TIu9K_"
+     }
+    ]
+   },
+   {
     "run": 41296620617,
     "run_number": 722,
     "version": "1.0.1",
@@ -44,31 +65,31 @@
       "fileId": "1_hezn8XpFvLulppnb9YdVFXd6Cc1Otzq"
      }
     ]
-   },
-   {
-    "run": 41273406479,
-    "run_number": 716,
-    "version": "1.0.1",
-    "build": 1716,
-    "name": "lexkite-1.0.1-1716.aab",
-    "sha256": "97c500679eaa5e5fbdd853c6caee85327a49b5eff26ac2c1d1041e88187d050e",
-    "size": 193781792,
-    "commit": "1d1e5515a473733dcbde9ce24ef0cd4e82ac6aab",
-    "at": "2026-11-01T05:10:21Z",
-    "copies": [
-     {
-      "driveId": 4,
-      "fileId": "1LVaZ16YKIH0dMjEVgpuVS8UX6_8pzpbn"
-     },
-     {
-      "driveId": 3,
-      "fileId": "1e8wcuKYgkDYVj5WKdTL88d4_6quklDEb"
-     }
-    ]
    }
   ],
   "ios-ipa": [],
   "addon-zip": [
+   {
+    "run": 41311307584,
+    "run_number": 11,
+    "version": "2.6.444",
+    "build": 11,
+    "name": "lexkite-addon-2.6.444-run11.zip",
+    "sha256": "7a1db07e2eef210d32add799b9d570c8bbe5c8f7153edb724658b04012dd3dd0",
+    "size": 14127941,
+    "commit": "b9d8c37ec595af109d3d8aa4eb832fb890692a94",
+    "at": "2026-11-01T13:29:38Z",
+    "copies": [
+     {
+      "driveId": 9,
+      "fileId": "1bQslM5UE_JxUoUZSUpmtkE7_TH71cDAd"
+     },
+     {
+      "driveId": 3,
+      "fileId": "163qQIi-kSTBtUKRcJ22PVklk6fbKBGB3"
+     }
+    ]
+   },
    {
     "run": 40450920272,
     "run_number": 9,
@@ -113,5 +134,5 @@
    }
   ]
  },
- "updated": "2026-11-01T11:29:31.075Z"
+ "updated": "2026-11-01T13:31:04.326Z"
 }
