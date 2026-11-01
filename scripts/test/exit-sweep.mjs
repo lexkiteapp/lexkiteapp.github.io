@@ -23,7 +23,7 @@ const fail = (where, msg) => { fails.push(`${where}: ${msg}`); console.log('✗'
 
 // Bài cụ thể cho route cần tham số: link đầu tiên tới #/<route>/… tìm ở các trang trung tâm này
 const HUBS = { listen: ['listening'], dictation: ['listening'], 'listen-test': ['listening', 'tests'], read: ['reading'], 'toeic-r': ['toeic'], 'toeic-test': ['toeic', 'tests'], 'toeic-sw': ['toeic'], 'toefl-p': ['toefl'], practice: ['practice', 'train', 'home'], grammar: ['grammar'], task1: ['task1', 'skills'], write: ['write', 'skills'], speaking: ['speaking', 'skills'], roleplay: ['roleplay', 'skills'], mock: ['mock', 'tests'], letters: ['letters', 'skills'], pron: ['pron', 'skills'] };
-const FIXED = { lesson: '/lesson/go?demo=1' };
+const FIXED = { lesson: '/lesson/go?demo=1', mock: '/mock/run?s=reading&r=1&l=1' }; // mock: nút Bắt đầu dựng link bằng JS
 
 const ctxOf = async (theme, flag = true) => {
   const ctx = await browser.newContext({ ...devices['Pixel 7'], viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 }, colorScheme: theme, locale: 'en-US', serviceWorkers: 'block' });

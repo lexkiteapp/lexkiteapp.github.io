@@ -11,8 +11,8 @@
   'use strict';
   const t = (s, v) => (g.t ? g.t(s, v) : s);
   // Màn học: luôn là màn học / chỉ khi có tham số (bài cụ thể). Trang trung tâm có crumb + tab dưới.
-  const ALWAYS = ['quick', 'reflex', 'paraphrase', 'placement', 'handsfree', 'review', 'rtype', 'cbt', 'call'];
-  const WITH_ARG = ['lesson', 'practice', 'listen', 'listen-test', 'dictation', 'grammar', 'read', 'toefl-p', 'toeic-r', 'toeic-test', 'toeic-sw', 'task1', 'pron', 'write', 'speaking', 'roleplay', 'mock', 'letters'];
+  const ALWAYS = ['quick', 'reflex', 'paraphrase', 'placement', 'handsfree', 'review', 'rtype', 'cbt', 'call', 'task1', 'write', 'speaking']; // task1/write/speaking: không tham số = bài đầu / phòng viết / Part 1
+  const WITH_ARG = ['lesson', 'practice', 'listen', 'listen-test', 'dictation', 'grammar', 'read', 'toefl-p', 'toeic-r', 'toeic-test', 'toeic-sw', 'pron', 'roleplay', 'mock', 'letters'];
   const NOT_LEARN = ['home', 'welcome', 'contact', 'deck', 'dict', 'library', 'stats', 'topic', 'class', 'confidence', 'course', 'courses', 'criteria', 'fix', 'goal', 'handoff', 'me', 'skill', 'skills', 'tests', 'vocab', 'ideas', 'league', 'listening', 'method', 'day', 'path', 'tracks', 'model', 'models', 'phrases', 'mistakes', 'qstats', 'style', 'reading', 'report', 'resources', 'streak', 'settings', 'toefl', 'toeic', 'usage', 'train', 'verb'];
   const extra = new Set(); // màn đăng ký lúc chạy (gói lười: truyện, video, Play & Speak…): ExitGuard.learn('story')
   const isLearn = (name, arg) => {
@@ -119,10 +119,11 @@
     const back = type ? type === 'traverse' : (h === prev && Date.now() - tapAt > 800);
     if (h === prev) hist.pop(); else { hist.push(h); if (hist.length > 50) hist.shift(); }
     if (bypass) { bypass = false; return; }
-    if (!cur || !back || !needAsk() || !e.oldURL || e.oldURL.indexOf(cur) < 0) return;
+    const oldH = e.oldURL && e.oldURL.indexOf('#') >= 0 ? e.oldURL.slice(e.oldURL.indexOf('#')) : '';
+    if (!cur || !back || !needAsk() || !oldH || parse(oldH)[0] !== parse(cur)[0]) return; // màn tự đổi query (replaceState) → so theo route
     if (parse(h)[0] === parse(cur)[0] && learnHash(h)) return; // vẫn trong cùng bài
     e.stopImmediatePropagation();
-    history.pushState(null, '', cur); hist.push(cur);
+    history.pushState(null, '', oldH); hist.push(oldH); cur = oldH;
     exit(true);
   });
   hist.push(location.hash);
