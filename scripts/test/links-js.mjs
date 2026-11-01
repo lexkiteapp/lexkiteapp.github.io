@@ -31,6 +31,22 @@ const redirect = async (pathname, langs = ['en']) => new Promise(res => {
 });
 for (const [p, want] of [['/blog', '/en/blog/'], ['/blog/', '/en/blog/'], ['/blog-lang', '/en/blog/'], ['/blog-lang.html', '/en/blog/'], ['/blog/fsrs-la-gi/', '/en/blog/fsrs-la-gi/'], ['/blog/-lang', '/en/blog/']]) ok(await redirect(p) === want, `blog-lang.html: ${p} → ${want} (được ${await redirect(p)})`);
 ok(await redirect('/blog-lang', ['vi']) === '/vi/blog/', 'blog-lang.html: /blog-lang (vi) → /vi/blog/');
+// 2b) Trang chuyển là trang thương hiệu, chuyển NGAY (sự cố 28/10: trang trắng chỉ có link "Lexkite Blog →" khi bấm Blog trong app)
+{
+  const raw = fs.readFileSync('web/blog-lang.html', 'utf8'), built = fs.readFileSync(path.join(DIST, 'blog-lang.html'), 'utf8');
+  const live = JSON.parse(fs.readFileSync(path.join(DIST, 'blog-langs.json'), 'utf8'));
+  ok(raw.includes('var LIVE = null;') && built.includes(`var LIVE = ${JSON.stringify(live)};`), 'blog-lang.html: build-blog ghi sẵn danh sách ngôn ngữ (blog-langs.json) vào trang');
+  const now = (pathname, langs) => { let to = '(không chuyển)'; vm.runInNewContext(inline, { location: { pathname, replace: u => { to = u; } }, navigator: { languages: langs, language: langs[0] }, localStorage: { getItem: () => null }, fetch: () => { throw new Error('không được gọi mạng'); } }); return to; };
+  for (const l of live) ok(now('/blog/', [l]) === `/${l}/blog/`, `blog-lang.html: ${l} → /${l}/blog/ đồng bộ, không chờ mạng`);
+  ok(now('/blog-lang', ['xx', 'de-DE']) === (live.includes('de') ? '/de/blog/' : '/en/blog/'), 'blog-lang.html: bỏ ngôn ngữ lạ, lấy ngôn ngữ trình duyệt kế tiếp');
+  for (const [re, m] of [[/name="robots" content="noindex/, 'noindex'], [/rel="canonical" href="https:\/\/lexkite\.com\/en\/blog\/"/, 'canonical'], [/<noscript><meta http-equiv="refresh" content="0; url=\/en\/blog\/"><\/noscript>/, 'noscript refresh 0'], [/prefers-color-scheme: dark/, 'giao diện tối'], [/class="logo" src="\/icons\/icon\.svg/, 'logo'], [/class="spin" role="status"/, 'vòng chờ'], [/class="go" href="\/en\/blog\/"/, 'nút dự phòng có kiểu']]) ok(re.test(raw), `blog-lang.html: thiếu ${m}`);
+  ok(!/<body>\s*<p[^>]*><a /.test(raw), 'blog-lang.html: không được quay lại trang trắng chỉ có link trơn');
+  const rd = fs.readFileSync('web/_redirects', 'utf8');
+  ok(/^\/blog \/blog-lang 200$/m.test(rd) && /^\/blog\/ \/blog-lang 200$/m.test(rd) && !/blog-lang\.html 200/.test(rd), '_redirects: /blog(/) viết lại sang /blog-lang (không đuôi .html – Pages 308 làm URL đổi thành /blog-lang)');
+  for (const f of ['web/app/index.html', 'extension/app/index.html']) ok(!/href="\/blog\/"/.test(fs.readFileSync(f, 'utf8')), `${f}: link Blog không được trỏ /blog/ (trang chuyển) – dùng /<lang>/blog/`);
+  const hubs = fs.readFileSync('web/js/hubs.js', 'utf8');
+  ok(/querySelectorAll\('#nav a\[data-blog\], \.side-foot a\[data-blog\]'\)/.test(hubs) && /blogLinks\(!!\(c && c\.on\)\)/.test(hubs), 'hubs.js: link Blog menu + chân thanh bên trỏ thẳng /<lang>/blog/ ngay khi vẽ');
+}
 
 // 3) Quét liên kết tĩnh của mọi trang blog + liên kết do JS sinh trên các trang chính (jsdom chạy script thật)
 const exists = p => { const f = path.join(DIST, decodeURIComponent(p)); return (fs.existsSync(f) && fs.statSync(f).isFile()) || fs.existsSync(path.join(f, 'index.html')) || fs.existsSync(f + '.html'); };

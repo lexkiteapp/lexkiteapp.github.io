@@ -1,0 +1,28 @@
+# ⏱ Hồ sơ CPU lần tải lạnh (CPU 4×) cho 1 route: liệt kê task dài > 40 ms và hàm ngốn thời gian – để sửa TBT (Lighthouse mobile) có căn cứ.
+# Bản web/ chưa rút gọn (giữ tên hàm), có app-loader như bản phát hành. Kết quả in thẳng trong log bước "Hồ sơ".
+name: Perf profile
+on:
+  workflow_dispatch:
+    inputs: { route: { description: 'route (vd. path, home)', default: 'path' } }
+  push:
+    branches: ['perf-**']
+    paths: ['web/js/**', 'web/app/**', 'scripts/test/profile-route.mjs', '.github/workflows/perf-profile.yml']
+permissions:
+  contents: read
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Hồ sơ
+        run: |
+          rm -rf out/site && mkdir -p out && cp -R web out/site && rm -rf out/site/audio
+          node scripts/app-loader.mjs out/site/app/index.html
+          (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/profile-route.mjs http://localhost:8080 "${{ inputs.route || 'path' }}" 1

@@ -91,7 +91,7 @@
         const next = () => { i++; render(); };
         const finish = (res, heard, audio) => {
           mic.classList.remove('rec'); mic.disabled = false;
-          const play = audio ? ` <button class="btn sm" id="sayMine">${ic('headphones')} ${t('Nghe lại giọng bạn')}</button>` : '';
+          const play = audio ? ` <button class="btn sm" id="sayMine">${ic('headphones')} ${t('Nghe lại giọng bạn')}</button><button class="btn sm" id="sayMineS">${ic('turtle')} ${t('Giọng bạn chậm')}</button>` : '';
           if (res === 'neither') {
             retry++;
             if (retry > MAX_RETRY) {
@@ -122,7 +122,7 @@
           bindMine(audio);
           $('#sayNext').onclick = next; $('#sayNext').focus();
         };
-        const bindMine = audio => { const b = $('#sayMine'); if (b && audio) { const a = new Audio(audio); b.onclick = () => a.play(); } };
+        const bindMine = audio => { const b = $('#sayMine'), s = $('#sayMineS'); if (audio) { const a = new Audio(audio); const p = r => { a.playbackRate = r; a.currentTime = 0; a.play().catch(() => {}); }; if (b) b.onclick = () => p(1); if (s) s.onclick = () => p(0.75); } };
         const fail = code => {
           mic.classList.remove('rec'); mic.disabled = false;
           if ((code === 'phrases-not-supported' || code === 'language-not-supported') && (bias.local || bias.phrases)) { bias.local = bias.phrases = false; return listen(); } // máy chưa hỗ trợ → nhận dạng thường

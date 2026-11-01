@@ -22,6 +22,20 @@ const noCode = body => body.replace(/```[\s\S]*?```/g, m => m.replace(/[^\n]/g, 
 // Cấu hình ảnh riêng từng bài (content/blog/config.json → images): enforce bật = bài mới (factChecked ≥ enforceFrom) BẮT BUỘC có ảnh riêng
 export const imagesConfig = (root = ROOT) => { const f = [path.join(root, 'config.json'), path.join(ROOT, 'config.json')].find(x => fs.existsSync(x)); return { enforce: false, enforceFrom: '9999-12-31', leadHours: 36, budgetKB: 60, covers: true, ...((f && JSON.parse(fs.readFileSync(f, 'utf8')).images) || {}) }; };
 
+// Tiêu đề ru/ar/zh/ja/ko/th phải viết bằng chữ bản ngữ: phiên âm Latin ("Kak Dumat…", "Muhadathat…") hại SEO ở thị trường đó.
+// Bỏ tên thương hiệu/kỳ thi (giữ Latin hợp lệ) rồi so số chữ Latin với chữ bản ngữ. hi cố ý dùng Hinglish → không xét.
+export const NATIVE_TITLE = { ru: /\p{Script=Cyrillic}/u, ar: /\p{Script=Arabic}/u, zh: /\p{Script=Han}/u, ja: /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u, ko: /\p{Script=Hangul}/u, th: /\p{Script=Thai}/u };
+// Được giữ Latin: thương hiệu/kỳ thi + thuật ngữ tiếng Anh người học tìm nguyên văn (tên phần thi, dạng câu hỏi, điểm ngữ pháp). Từ phiên âm (shablon, dalil, kak…) KHÔNG được thêm vào đây.
+const TITLE_LATIN_OK = new RegExp(`(?<![\\p{L}\\p{N}])(${['lexkite', 'ielts', 'toefl', 'ibt', 'toeic', 'pte', 'sat', 'gre', 'gmat', 'cambridge', 'duolingo', 'cefr', 'fsrs', 'sm-2', 'anki', 'ats', 'cv', 'band', '[a-c][12]',
+  'speaking', 'writing', 'reading', 'listening', 'part', 'task', 'academic', 'general', 'training', 'discussion', 'letter', 'essay', 'template', 'cue', 'card', 'complete', 'the', 'words', 'matching', 'headings', 'skimming', 'scanning', 'true', 'false', 'not', 'given',
+  'modal', 'verbs?', 'phrasal', 'relative', 'clauses?', 'who', 'which', 'that', 'can', 'could', 'should', 'must', 'in', 'on', 'at', 'present', 'past', 'future', 'perfect', 'simple', 'continuous', 'conditionals?', 'passive', 'voice', 'articles?', 'a', 'an', 'shadowing', 'collocations?', 'linking'].join('|')})(?![\\p{L}\\p{N}])`, 'giu');
+export function latinTitle(lang, title) {
+  const re = NATIVE_TITLE[lang]; if (!re) return null;
+  const rest = String(title ?? '').replace(TITLE_LATIN_OK, ' ');
+  const latin = (rest.match(/\p{Script=Latin}/gu) || []).length, native = [...rest].filter(c => re.test(c)).length * (/^(zh|ja|ko)$/.test(lang) ? 3 : 1); // 1 chữ Hán/kana/Hangul ≈ 3 chữ cái Latin
+  return latin && latin >= native ? { latin, native } : null;
+}
+
 export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() } = {}) {
   const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes(), FACTS = loadFacts(root);
   const media = mediaIds(root), briefs = new Set((JSON.parse(fs.readFileSync(path.join(root, 'briefs.json'), 'utf8')).briefs || []).map(b => `${b.lang || 'vi'}/${b.slug}`));
@@ -38,6 +52,7 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
     const kw = typeof p.keyword === 'string' ? p.keyword : '';
     // Front matter
     if (len(p.title) < 30 || len(p.title) > 65) E('title', `tiêu đề ${len(p.title)} ký tự (cần 30–65)`);
+    { const lt = latinTitle(p.lang, p.title); if (lt) E('title-script', `tiêu đề phần lớn là chữ Latin (${lt.latin} Latin > ${lt.native} bản ngữ) – viết lại bằng chữ ${p.lang}, chỉ giữ Latin cho tên kỳ thi/thương hiệu`); }
     if (len(p.description) < 110 || len(p.description) > 160) E('description', `mô tả ${len(p.description)} ký tự (cần 110–160)`);
     if (!SLUG.test(p.slug || '') || p.slug.length > 75) E('slug', `slug "${p.slug}" phải khớp a-z0-9-, ≤ 75 ký tự`);
     if (p.slug !== fileSlug) E('slug', `slug "${p.slug}" khác tên file "${fileSlug}"`);

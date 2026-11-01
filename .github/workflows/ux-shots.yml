@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chụp
-        env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
+        env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}", UX1: "${{ contains(github.ref_name, 'ux1') && '1' || '' }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium >/dev/null

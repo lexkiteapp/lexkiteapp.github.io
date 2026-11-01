@@ -12,21 +12,21 @@
   "template": "phrasal-verb",
   "lines": [
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "hook",
     "text": "Let's push it back.",
     "expr": "calm",
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "situation",
     "text": "Back? Like, push the table?",
     "expr": "confused",
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "explain",
     "text": "Oh! Push back means move it to a later time.",
     "expr": "confident",
@@ -34,7 +34,7 @@
     "punch": true
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "example",
     "text": "Can we push the call back to Friday?",
     "expr": "curious",
@@ -48,7 +48,7 @@
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "cta",
     "text": "Learn more phrasal verbs on lexkite.com",
     "expr": "happy smile",

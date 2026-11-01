@@ -13,17 +13,6 @@
    "est_s": 31.9,
    "ipa": "/biːt/",
    "content_hash": "40adafa2cee70cd0"
-  },
-  {
-   "ep": 3,
-   "id": "sod_47b3e9e9",
-   "point": "rob (v) vs steal (v)",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 57,
-   "est_s": 29.8,
-   "ipa": null,
-   "content_hash": "3bc746c83b8fb10d"
   }
  ],
  "skipped": [
@@ -118,6 +107,11 @@
    "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
   },
   {
+   "bank": "sb_47b3e9e9",
+   "point": "rob (v) vs steal (v)",
+   "reason": "self-check: note fix line 696 px > 695"
+  },
+  {
    "bank": "sb_52a6bffb",
    "point": "whose (det/pron) vs who's (contraction)",
    "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
@@ -150,7 +144,7 @@
   {
    "bank": "sb_6e178745",
    "point": "hope (v) vs wish (v)",
-   "reason": "self-check: note fix line > 26 chars: [['@emoji:❌'], [' I '], ['wish ', 'red'], ['you '], ['will ', 'red'], ['pass the test.']]; note qs line > 26 chars: [['I '], ['___ ', 'green'], ['you have a great trip!']]"
+   "reason": "self-check: note fix line > 26 chars: [['@emoji:❌'], [' I '], ['wish ', 'red'], ['you '], ['will ', 'red'], ['pass the test.']]; note fix line 698 px > 695; note qs line > 26 chars: [['I '], ['___ ', 'green'], ['you have a great trip!']]"
   }
  ]
 }

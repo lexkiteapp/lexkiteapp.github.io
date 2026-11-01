@@ -3,7 +3,7 @@ title: "IELTS Writing Task 1 กราฟ: เทคนิคบรรยาย�
 description: "ielts writing task 1 กราฟ เจาะลึกวิธีเขียนรายงานวิเคราะห์กราฟเส้น แผนภูมิแท่ง ตาราง และโครงสร้าง 4 ย่อหน้ามาตรฐานเพื่อคว้าคะแนน Band 7+"
 slug: ielts-writing-task-1-banyai-graph
 lang: th
-translationKey: ielts-writing-task-1-huong-dan-mo-ta-bieu-do
+translationKey: ielts-writing-task-1-line-graph
 category: ielts
 tags: [ielts, ielts-writing, task-1]
 keyword: "ielts writing task 1 กราฟ"

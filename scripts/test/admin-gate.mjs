@@ -18,7 +18,7 @@ async function boot(admin) {
   const AUTH = { currentUser: USER, onAuthStateChanged: cb => setTimeout(() => cb(USER), 0), signOut: async () => { st.out++; }, signInWithPopup: async p => { st.popup.push(p); } };
   w.FIREBASE_CONFIG = {};
   w.firebase = { initializeApp() {}, auth: Object.assign(() => AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = x => { st.params = x; }; } }) };
-  w.eval(rd('web/js/admin.js')); await tick();
+  w.eval(rd('web/js/admin-chart.js')); w.eval(rd('web/js/admin.js')); await tick();
   return { w, d, ops, st };
 }
 { // không phải quản trị

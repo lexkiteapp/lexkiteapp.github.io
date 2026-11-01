@@ -222,7 +222,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
   const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
-  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js'), listen: src(...dir('listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
+  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
     rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
   const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];
@@ -306,8 +306,8 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // Trang chủ gọn: 1 thẻ "Học tiếp" duy nhất có nút chính; khối phụ gom dưới "Thêm cho hôm nay" – không mất khối nào
   ok($$('#view .btn.primary.lg').length === 1 && $('#todayPlan.home-hero .home-hero-k') && $('#todayPlan details.plan-more .plan-item'), 'trang chủ: 1 thẻ Học tiếp, 1 nút chính, kế hoạch thu gọn trong thẻ');
   const more = $('.home-more');
-  ok(more && ['.rings-card', '.quest-line', '#leagueHomeCard', 'a[href="#/quick"]', 'a[href="#/confidence"]', '.wotd'].every(s => more.querySelector(s)) && $('.home-more-h'), 'trang chủ: khối phụ đủ (3 vòng, nhiệm vụ, giải đấu, chơi nhanh, giao tiếp, từ của ngày) dưới "Thêm cho hôm nay"');
-  ok(!w.document.querySelector('.topbar [data-lsw]') && /lang-select|data-lang-pick/.test(w.App.langPicker()), 'thanh trên không còn nút ngôn ngữ (đổi ở Cài đặt)');
+  ok(more && ['.rings-card', '.quest-card .qc-it', '#leagueHomeCard', 'a[href="#/quick"]', 'a[href="#/confidence"]', '.wotd'].every(s => more.querySelector(s)) && $('.home-more-h'), 'trang chủ: khối phụ đủ (3 vòng, nhiệm vụ, giải đấu, chơi nhanh, giao tiếp, từ của ngày) dưới "Thêm cho hôm nay"');
+  ok(w.document.querySelector('.topbar [data-lsw] #langBtn') && w.document.querySelector('.topbar #langMenu[data-lang-pick]') && /lang-select|data-lang-pick/.test(w.App.langPicker()), 'thanh trên CÓ nút ngôn ngữ 🌐 (chủ 28/10) + vẫn đổi được ở Cài đặt');
   ok(/\.bottom-nav \.badge \{[^}]*width: 9px[^}]*(font-size: 0|font-size: \d+px;[^}]*color: transparent)/.test(css), 'tab Từ vựng: chấm nhỏ thay số đỏ'); // số ẩn bằng font-size 0 hoặc chữ trong suốt (font audit #98)
   // chuyển dữ liệu người dùng cũ: kỳ thi → gói; giữ XP/chuỗi/bản ghi ngày cũ
   const xp0 = S.game.xp, rec0 = await w.Core.Store.get('pathDays', {});

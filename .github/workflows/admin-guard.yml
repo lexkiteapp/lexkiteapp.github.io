@@ -1,0 +1,39 @@
+# 🛡️ Gác bố cục mọi trang quản trị (scripts/test/admin-guard.mjs): khung thật + dữ liệu mẫu, không tài khoản thật. 6 bề rộng × sáng/tối × VI/EN.
+# Fail: chồng lấn, bị cắt, tràn ngang, chữ biểu đồ phóng to, cột trống cạnh thanh bên. Artifact admin-guard: sheet-*.jpg (TRƯỚC | SAU) + fail-*.jpg.
+name: Admin – gác bố cục
+on:
+  pull_request:
+    paths: ['web/admin.html', 'web/js/admin*.js', 'web/css/admin.css', 'web/css/style.css', 'scripts/test/admin-guard.mjs', 'scripts/lib/layout-scan.mjs', 'scripts/test/fixtures/admin-fx.mjs', '.github/workflows/admin-guard.yml']
+  push:
+    branches: [main]
+    paths: ['web/admin.html', 'web/js/admin*.js', 'web/css/admin.css', 'web/css/style.css', 'scripts/test/admin-guard.mjs', 'scripts/lib/layout-scan.mjs', 'scripts/test/fixtures/admin-fx.mjs', '.github/workflows/admin-guard.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+      - name: Ảnh TRƯỚC (main, chỉ chụp)
+        run: |
+          B=$(git merge-base HEAD origin/main); [ "$B" = "$(git rev-parse HEAD)" ] && B=HEAD~1
+          mkdir -p /tmp/before && git archive "$B" web | tar -x -C /tmp/before
+          node scripts/test/admin-guard.mjs /tmp/before/web out/admin-guard before || true
+      - name: Gác bố cục (SAU)
+        run: node scripts/test/admin-guard.mjs web out/admin-guard after
+      - name: Ghép TRƯỚC | SAU
+        if: ${{ !cancelled() }}
+        run: node scripts/test/admin-guard.mjs --compare out/admin-guard
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: admin-guard, path: out/admin-guard, retention-days: 14 }

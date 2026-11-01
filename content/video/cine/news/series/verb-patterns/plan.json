@@ -1,0 +1,139 @@
+{
+ "series": "Verb Patterns",
+ "template": "mistake",
+ "generator": "scripts/video/tpl/gold2v9.py",
+ "order": [
+  {
+   "ep": 1,
+   "id": "vbp_116f3374",
+   "point": "hate + ing: dislike very much",
+   "cefr": "A1",
+   "diff": "easy",
+   "words": 60,
+   "est_s": 31.3,
+   "ipa": "/weɪt/",
+   "content_hash": "620c246cd8a70d59"
+  },
+  {
+   "ep": 2,
+   "id": "vbp_24ac31f5",
+   "point": "teach + oto: show how to do",
+   "cefr": "A1",
+   "diff": "easy",
+   "words": 73,
+   "est_s": 35.9,
+   "ipa": null,
+   "content_hash": "eb5a6b192640fa23"
+  },
+  {
+   "ep": 3,
+   "id": "vbp_097145e5",
+   "point": "admit + ing: confess",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 68,
+   "est_s": 34.1,
+   "ipa": "/breɪk/",
+   "content_hash": "53c6c1e8583c76a7"
+  },
+  {
+   "ep": 4,
+   "id": "vbp_07346006",
+   "point": "propose + to: intend",
+   "cefr": "B2",
+   "diff": "medium",
+   "words": 74,
+   "est_s": 36.2,
+   "ipa": "/prəˈpoʊz/",
+   "content_hash": "2b0f0f7ffecb3b4d"
+  },
+  {
+   "ep": 5,
+   "id": "vbp_112e385b",
+   "point": "make + pass: be forced",
+   "cefr": "C1",
+   "diff": "hard",
+   "words": 74,
+   "est_s": 36.2,
+   "ipa": "/weɪt/",
+   "content_hash": "0ae182e43d06c527"
+  }
+ ],
+ "skipped": [
+  {
+   "bank": "sb_05b65d49",
+   "point": "decide + to: make a choice to",
+   "reason": "self-check: note ex line > 26 chars: [['She '], ['decided to ', 'green'], ['study abroad.']]; note qs line > 26 chars: [['They decided '], ['___ ', 'green'], ['a new car.']]"
+  },
+  {
+   "bank": "sb_1dff6fb4",
+   "point": "help + bare: contribute to",
+   "reason": "self-check: note fix line > 26 chars: [['Can you help me '], ['carry ', 'green'], ['this?']]; note ex line > 26 chars: [['She '], ['helped ', 'green'], ['me find my keys.']]; note qs line > 26 chars: [['Can you help me '], ['___ ', 'green'], ['the box?']]"
+  },
+  {
+   "bank": "sb_00a2ea33",
+   "point": "state + that: say formally",
+   "reason": "self-check: 81 words (need 50-75); est pace 136 wpm; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_0a4a65be",
+   "point": "suppose + pass: be expected",
+   "reason": "self-check: note qs line > 26 chars: [['We '], ['___ ', 'green'], ['to finish by Friday.']]; hook 8 words on screen"
+  },
+  {
+   "bank": "sb_237d4691",
+   "point": "arrange + to: make plans to",
+   "reason": "self-check: note fix line > 26 chars: [['We arranged '], ['to meet ', 'green'], ['at six.']]; note ex line > 26 chars: [['I '], ['arranged to ', 'green'], ['see the doctor.']]"
+  },
+  {
+   "bank": "sb_01002079",
+   "point": "put off + ing: postpone",
+   "reason": "self-check: note fix line > 26 chars: [['I keep putting off '], ['calling ', 'green'], ['him.']]; note qs line > 26 chars: [[\"Don't put off \"], ['___ ', 'green'], ['the doctor.']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_23d1d6e3",
+   "point": "think + pass: be considered",
+   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['The house is '], ['thought to be ', 'green'], ['old.']]"
+  },
+  {
+   "bank": "sb_2dbe96b7",
+   "point": "risk + ing: do something that may cause harm",
+   "reason": "self-check: note fix line > 26 chars: [[\"Don't risk \"], ['losing ', 'green'], ['your money.']]; note ex line > 26 chars: [[\"I won't \"], ['risk ', 'green'], ['missing the bus.']]"
+  },
+  {
+   "bank": "sb_3181a77b",
+   "point": "wonder + wh: ask yourself",
+   "reason": "quiz option longer than 12 characters"
+  },
+  {
+   "bank": "sb_00119c6f",
+   "point": "urge + oto: strongly encourage",
+   "reason": "self-check: note fix line > 26 chars: [['Doctors '], ['urge people ', 'green'], ['to rest.']]; note trick line > 26 chars: [['@emoji:💡'], [' urge + someone + '], ['TO ', 'hl'], ['+ verb']]; note trick line 708 px > 695"
+  },
+  {
+   "bank": "sb_01c4ef56",
+   "point": "deny + ing: say you did not do",
+   "reason": "self-check: note fix line > 26 chars: [['He denied '], ['taking ', 'green'], ['the money.']]; note ex line > 26 chars: [['She denied breaking the glass.']]; note qs line > 26 chars: [['The boy denied '], ['___ ', 'green'], ['the cake.']]"
+  },
+  {
+   "bank": "sb_03e3ffac",
+   "point": "forbid + ing: not allow an activity",
+   "reason": "self-check: note ex line > 26 chars: [['The law '], ['forbids ', 'green'], ['smoking here.']]"
+  },
+  {
+   "bank": "sb_16c56ea4",
+   "point": "dare + bare: be brave enough",
+   "reason": "self-check: note qs line > 26 chars: [[\"He didn't dare \"], ['___ ', 'green'], ['his boss.']]"
+  },
+  {
+   "bank": "sb_29c61515",
+   "point": "hesitate + to: be slow to act",
+   "reason": "self-check: note fix line > 26 chars: [[\"Don't hesitate \"], ['to contact ', 'green'], ['us.']]; note qs line > 26 chars: [[\"Please don't hesitate \"], ['___ ', 'green'], ['us.']]"
+  },
+  {
+   "bank": "sb_17b6d916",
+   "point": "have + obare: arrange for someone to do",
+   "reason": "self-check: note ex line > 26 chars: [[\"I'll \"], ['have ', 'green'], ['my assistant call you.']]; hook 7 words on screen; error phrase in ['v_w', 'v_t']"
+  }
+ ]
+}

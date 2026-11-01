@@ -179,6 +179,20 @@
       ]
     },
     {
+      "key": "ads-reporting",
+      "name": "AdSense Management API v2 + AdMob API v1 (báo cáo doanh thu thật)",
+      "kind": "ads",
+      "purpose": "Action ads-revenue.yml (06:03 UTC) → scripts/ads/report.mjs lấy 7 ngày ∪ tháng này (ngày × ô/nền tảng/quốc gia top 10) của pub-2290668854727752 → POST /api/ads-report (X-Studio-Secret) → D1 lexkite-sync bảng ads_rev (PK day,src,dim,key; ghi theo diff) → Quản trị › Quảng cáo › Tổng quan. OAuth NGƯỜI DÙNG (2 API không nhận service account): client 'Desktop app' ở GCP lexkite-app, scope adsense.readonly + admob.readonly, consent screen In production; secret GitHub ADS_OAUTH_CLIENT_ID / ADS_OAUTH_CLIENT_SECRET / ADS_OAUTH_REFRESH (lấy bằng scripts/ads-oauth.mjs)",
+      "console": "https://console.cloud.google.com/apis/credentials?project=lexkite-app",
+      "free": "Miễn phí · AdSense 10.000 lượt/ngày · AdMob 10.000/ngày (dùng 5/ngày)",
+      "upgrade": "Không cần",
+      "status": "Chờ chủ: OAuth client + refresh token (memory owner-pending)",
+      "match": [
+        "adsense.googleapis.com",
+        "admob.googleapis.com"
+      ]
+    },
+    {
       "key": "gemini",
       "name": "Gemini API",
       "kind": "ai",
@@ -699,6 +713,19 @@
       ]
     },
     {
+      "key": "gam",
+      "name": "Google Ad Manager – Google Publisher Tag (video có thưởng web)",
+      "kind": "ads",
+      "purpose": "Video có thưởng trên web: GPT defineOutOfPageSlot(REWARDED), tải lười sau CMP – web/js/ads/run.js (webRewarded). Ô ở web.rewarded trong web/js/ads/config.js (rỗng = TẮT); test dùng ô demo công khai /22639388115/rewarded_web_example (ads-demo.yml)",
+      "console": "https://admanager.google.com/",
+      "free": "Miễn phí (Ad Manager cho nhà xuất bản nhỏ, Google chia doanh thu)",
+      "upgrade": "—",
+      "status": "Chưa dùng – chờ chủ tạo ô có thưởng trong Ad Manager",
+      "match": [
+        "securepubads.g.doubleclick.net"
+      ]
+    },
+    {
       "key": "apple",
       "name": "Apple Developer",
       "kind": "store",
@@ -1098,6 +1125,21 @@
       "status": "Miễn phí (chờ secret)",
       "match": [
         "modal.com"
+      ]
+    },
+    {
+      "key": "teach-cdn",
+      "name": "Cloudflare Pages lexkite-teach (teach.lexkite.com) – ảnh/clip giáo viên",
+      "kind": "cdn",
+      "purpose": "Kho riêng ảnh + clip Ama/Carlos (web/teach/** → tên có băm sha256[:12], cache immutable 1 năm, CORS * cho WebGL). Deploy bởi .github/workflows/teach-cdn.yml (wrangler pages deploy, secret CLOUDFLARE_API_TOKEN), verify sha256 với web/teach/characters.json. Dự phòng: SW + Chars về /teach/ cùng gốc (giữ nguyên). Add-on dùng bản đóng gói. Spec docs/specs/teach-assets-cdn.md",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/pages/view/lexkite-teach",
+      "free": "Tài sản tĩnh Pages: băng thông + lượt tải không giới hạn · 20.000 tệp/bản · 25 MB/tệp",
+      "upgrade": "Không cần; chuyển R2 (mục blog-media-r2) nếu > 20.000 tệp hoặc tệp > 25 MB",
+      "status": "Miễn phí",
+      "match": [
+        "teach.lexkite.com",
+        "lexkite-teach.pages.dev",
+        "lexkite-teach"
       ]
     }
   ],

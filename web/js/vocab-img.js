@@ -1,5 +1,5 @@
 /* Ảnh minh họa từ vựng theo NGHĨA (dual coding) – tải lười, KHÔNG nằm trong khung app (shell +0 byte).
- * Nguồn: kho từ vựng một nguồn → content/lexicon/img.json → build-lexicon → js/lexicon-img.json v2 {v:2, base, sv, m:{từ#loại: h}, x:[khóa có @2x]}
+ * Nguồn: kho từ vựng một nguồn → content/lexicon/img.json → build-lexicon → js/lexicon-img.json v3 (đầu) + js/vimg/NN.json (mảnh theo từ, tải theo nhu cầu – VImg.need/ready(list))
  * (bản chép add-on: extension/app/js/). Mọi bề mặt (thẻ từ, SRS, câu đố, tra từ, thẻ tab mới add-on, trang tĩnh /words/) gọi VImg.* – không tự giữ bản sao.
  * Cờ: config công khai `vocab_img` (Quản trị › Cài đặt, mặc định TẮT) hoặc localStorage 'lk.vimg' = '1' (thử). Tắt → mọi hàm trả rỗng, không tải gì.
  * Ảnh: media.lexkite.com/vimg/<h>.avif + <h>.webp (384 px, ≤ 6 KB, immutable); <h>@2x.* (768 px) chỉ khi mục img.json có x2 = true
@@ -37,17 +37,45 @@
   }
   function enabled() { const m = mode(); return m === 1 || (m === -1 && !!(idx && idx.on)); }
   const src = (typeof document !== 'undefined' && document.currentScript && document.currentScript.src) || '';
+  // v3 (28/10): chỉ mục = ĐẦU nhỏ {v:3, base, sv, on, n} + n mảnh js/vimg/NN.json theo SH(từ) – chỉ tải mảnh của từ đang học (một tệp đủ 20k ảnh ~290 KB br).
+  // v2 (một tệp có m) vẫn đọc được (fixture test/bản cũ) → coi như mọi mảnh đã có. SH PHẢI trùng scripts/build-lexicon.mjs imgSh().
+  const SH = (w, n) => { let h = 0x811c9dc5; for (const ch of String(w).toLowerCase()) { h ^= ch.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h % n; };
+  let ixUrl = '';
+  function merge(j) {
+    if (!j) return; Object.assign(idx.m, j.m || {}); Object.assign(idx.p, j.p || {});
+    for (const f of ['x', 'w', 'a', 's', 'pw']) for (const k of j[f] || []) idx[f].add(k);
+  }
   function load() {
     if (idx) return Promise.resolve(idx);
     if (!loading) {
       const base = src || (g.location && g.location.href) || '';
-      const u = new URL('lexicon-img.json', /\/js\//.test(base) ? base : new URL('js/', base)).href;
-      loading = fetch(u).then(r => (r.ok ? r.json() : null)).catch(() => null).then(j => (idx = { on: !!(j && j.on), base: (j && j.base) || '', m: (j && j.m) || {}, x: new Set((j && j.x) || []), w: new Set((j && j.w) || []), a: new Set((j && j.a) || []), s: new Set((j && j.s) || []), p: (j && j.p) || {}, pw: new Set((j && j.pw) || []) }));
+      const u = ixUrl = new URL('lexicon-img.json', /\/js\//.test(base) ? base : new URL('js/', base)).href;
+      loading = fetch(u).then(r => (r.ok ? r.json() : null)).catch(() => null).then(j => {
+        idx = { on: !!(j && j.on), base: (j && j.base) || '', n: (j && j.v >= 3 && +j.n) || 0, got: new Map(), m: {}, x: new Set(), w: new Set(), a: new Set(), s: new Set(), p: {}, pw: new Set() };
+        if (!idx.n) merge(j);   // v2: tệp đủ
+        return idx;
+      });
     }
     return loading;
   }
+  const word0 = x => String(Array.isArray(x) ? x[0] : x || '').trim();
+  /** đã có mảnh chứa từ này (hoặc không cần: tắt / v2 / chưa có đầu) */
+  const loaded = x => !idx || !idx.n || !enabled() || idx.got.get(SH(word0(x), idx.n)) === true;
+  /** tải mảnh của các từ (list = từ | [từ, loại]) → Promise; lỗi mạng = mảnh rỗng (không thử lại vô hạn, không chặn vẽ) */
+  function need(list) {
+    if (mode() === 0) return Promise.resolve();
+    return load().then(() => {
+      if (!idx.n) return;
+      const ids = [...new Set([].concat(list || []).map(x => SH(word0(x), idx.n)))];
+      return Promise.all(ids.map(i => {
+        if (!idx.got.has(i)) idx.got.set(i, fetch(new URL(`vimg/${String(i).padStart(2, '0')}.json`, ixUrl).href).then(r => (r.ok ? r.json() : null)).catch(() => null).then(j => { merge(j); idx.got.set(i, true); }));
+        const v = idx.got.get(i); return v === true ? null : v;
+      }));
+    });
+  }
   /** Tải trước chỉ mục (cờ bật) → Promise<VImg | null>. Bề mặt chờ ready() rồi mới vẽ để slot() có hộp ngay từ lần vẽ đầu. */
-  const ready = () => (mode() === 0 ? Promise.resolve(null) : load().then(() => (enabled() ? api : null)));
+  /** list (tùy chọn) = từ sắp hiện → tải luôn mảnh của chúng trước khi bề mặt vẽ */
+  const ready = list => (mode() === 0 ? Promise.resolve(null) : need(list || []).then(() => (enabled() ? api : null)));
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   /** Markup thuần (dùng chung app/add-on/trang tĩnh build-seo-pages): hộp vuông rộng w px CSS cố định (số hoặc vai SIZE), 2x chỉ khi x2 và w > 192 (máy yếu: không);
    *  noAvif → chỉ WebP (AVIF 404 sẽ không tự lùi về <img>); o.a = nền trong suốt/ảnh chụp (hiện cả ở chế độ tối); o.ex = câu ví dụ hiện NGAY DƯỚI ảnh cảnh. */
@@ -65,6 +93,7 @@
    *  ex = câu ví dụ của NGHĨA đang dạy: ảnh CẢNH (khóa trong s) chỉ hiện khi có câu (luôn hiện câu dưới ảnh), không có câu → không hộp. */
   function slot(word, pos, gloss, w, ex) {
     if (!idx || !enabled()) return '';
+    if (!loaded(word)) { need([word]); return ''; }   // mảnh chưa về: không chèn hộp rỗng (CLS 0); lần vẽ sau có ảnh
     const o = typeof w === 'object' && w ? w : { w }, k = KEY(word, pos), ph = o.photo ? idx.p[k] : '';
     if (ph) return pic(idx.base, ph, false, altOf(word, gloss), o.w, idx.pw.has(k), { a: true });
     const h = idx.m[k]; if (!h) return '';
@@ -75,7 +104,7 @@
   function prefetch(list) {
     if (!idx || !enabled() || typeof Image === 'undefined') return;
     const run = () => (list || []).slice(0, 3).forEach(([wd, ps]) => { const h = idx.m[KEY(wd, ps)]; if (h) { const im = new Image(); im.decoding = 'async'; im.crossOrigin = 'anonymous'; im.src = idx.base + h + '.webp'; } });
-    (g.requestIdleCallback ? g.requestIdleCallback(run, { timeout: 2000 }) : setTimeout(run, 300));
+    need(list || []).then(() => (g.requestIdleCallback ? g.requestIdleCallback(run, { timeout: 2000 }) : setTimeout(run, 300)));   // mảnh của các thẻ kế tiếp về trước khi thẻ hiện
   }
   // hiện sau decode() + mờ 150 ms; lỗi tải (CDN thiếu tệp / mạng) → ẨN hộp, GIỮ chỗ (không icon vỡ, CLS 0 – gỡ hộp sẽ làm xê dịch bố cục).
   // Chế độ tối: ảnh nền kem (không data-a) không hiện (display:none áp từ đầu → không xê dịch; !important vì hộp mang display:block nội tuyến).
@@ -98,8 +127,8 @@
   function get(word, pos, gloss) {
     if (mode() === 0) return Promise.resolve(null);
     const k = KEY(word, pos);
-    return load().then(j => { if (!enabled()) return null; const h = j.m[k]; if (!h) return null; const u = j.base + h, x2 = j.x.has(k); return { url: u + '.webp', avif: j.w.has(k) ? '' : u + '.avif', url2x: x2 ? u + '@2x.webp' : '', alt: altOf(word, gloss), key: k, x2 }; });
+    return need([word]).then(() => idx).then(j => { if (!enabled()) return null; const h = j.m[k]; if (!h) return null; const u = j.base + h, x2 = j.x.has(k); return { url: u + '.webp', avif: j.w.has(k) ? '' : u + '.avif', url2x: x2 ? u + '@2x.webp' : '', alt: altOf(word, gloss), key: k, x2 }; });
   }
-  const api = { enabled, mode, ready, get, slot, has, pic, prefetch, SIZE, key: KEY, pos: POS, _reset: () => { idx = null; loading = null; } };
+  const api = { enabled, mode, ready, need, loaded, get, slot, has, pic, prefetch, SIZE, key: KEY, pos: POS, _reset: () => { idx = null; loading = null; } };
   g.VImg = api;
 })(typeof self !== 'undefined' ? self : this);

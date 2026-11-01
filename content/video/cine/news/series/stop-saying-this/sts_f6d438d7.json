@@ -1,16 +1,18 @@
 {
  "id": "sts_f6d438d7",
  "template": "mistake",
- "title": "Stop Saying This #12 – Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
- "teacher": "daniel",
+ "title": "Stop Saying This #7 – Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
+ "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk",
-  "d03t2_daniel_talk2",
-  "d03t3_daniel_talk3"
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
  ],
  "listen": [
-  "d03l_daniel_listen"
+  "a05l2_ama2_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -21,7 +23,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.72,
+ "speed": 0.75,
  "display": {
   "blank": "___"
  },
@@ -192,14 +194,9 @@
        "It depends "
       ],
       [
-       "on",
+       "on ",
        "green"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
+      ],
       [
        "the weather."
       ]
@@ -217,6 +214,21 @@
       ],
       [
        "@ipa:/dɪˈpend/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "of",
+       "red"
+      ],
+      [
+       "”"
       ]
      ]
     }
@@ -347,14 +359,9 @@
        "@emoji:💡"
       ],
       [
-       " DEPEND ON.",
+       " DEPEND ON. ",
        "hl"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
+      ],
       [
        "Never "
       ],
@@ -527,7 +534,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 12
+  "ep": 7
  },
  "source": {
   "bank": "sb_f6d438d7",

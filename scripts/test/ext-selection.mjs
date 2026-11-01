@@ -47,6 +47,7 @@ async function page(uiLang, opts = {}) {
     storage: { local: { get: async k => (typeof k === 'string' ? { [k]: store[k] } : Object.fromEntries([].concat(k).map(x => [x, store[x]]))), set: async o => Object.assign(store, o) }, onChanged: { addListener() {} } },
     i18n: { getUILanguage: () => uiLang },
   };
+  w.__lkTrBackoff = 5; w.__lkTrMs = opts.trMs || 15000; // thử lại giãn cách nhanh trong test
   w.eval(rd('extension/content.js'));
   await sleep(30);
   const root = () => w.document.querySelector('ielts-lexi-popup').shadowRoot;
@@ -97,15 +98,30 @@ const chips = r => [...r.querySelectorAll('.lw.chipw')].map(x => x.textContent);
   ok(/already in English/.test(p.root().querySelector('#tr').textContent) && p.root().querySelector('#lang').textContent === 'EN', 'đoạn tiếng Anh + đích tiếng Anh → ghi chú "already in English", chip "EN"');
   p.w.close();
 }
-// Dịch lỗi → thông báo + Thử lại (không bao giờ để trống)
+// Dịch lỗi → tự thử lại 3 lượt (giãn cách) → thông báo + Thử lại (không bao giờ để trống)
 {
   let calls = 0;
-  const p = await page('en', { navLang: 'vi-VN', on: { translate: () => (++calls === 1 ? { vi: '' } : { vi: 'Testing add-on', src: 'vi', tl: 'en' }) } });
+  const p = await page('en', { navLang: 'vi-VN', on: { translate: () => (++calls <= 3 ? { vi: '' } : { vi: 'Testing add-on', src: 'vi', tl: 'en' }) } });
   await p.select(MIXED);
   const r = p.root();
+  ok(calls === 3, `bản dịch rỗng → tự thử lại đủ 3 lượt (được ${calls})`);
   ok(r.querySelector('#tr .err') && /Could not translate/.test(r.querySelector('#tr').textContent) && r.querySelector('#retry'), 'bản dịch rỗng → báo lỗi rõ ràng + nút Thử lại');
   r.querySelector('#retry').click(); await sleep(120);
-  ok(calls === 2 && p.root().querySelector('#tr').textContent.includes('Testing add-on'), 'bấm Thử lại → dịch lại và hiện kết quả');
+  ok(calls === 4 && p.root().querySelector('#tr').textContent.includes('Testing add-on'), 'bấm Thử lại → dịch lại và hiện kết quả');
+  p.w.close();
+}
+// Lỗi thật 28/10: service worker/mạng không bao giờ trả lời → hết giờ, KHÔNG quay "Đang dịch…" mãi
+{
+  let calls = 0;
+  const p = await page('en', { navLang: 'vi-VN', trMs: 40, on: { translate: () => { calls++; return new Promise(() => {}); } } });
+  await p.select('Hi, Lina. I’m Sam. Nice to meet you.'); await sleep(250);
+  const r = p.root(), tr = r.querySelector('#tr');
+  ok(calls === 3 && !tr.hasAttribute('aria-busy') && !tr.querySelector('.sk'), `yêu cầu treo → hết giờ sau 3 lượt, bỏ khung chờ (lượt ${calls})`);
+  ok(tr.querySelector('.err[role=alert]') && r.querySelector('#retry'), 'yêu cầu treo → báo lỗi rõ ràng + nút Thử lại');
+  ok(!r.querySelector('#copy').disabled, 'các nút dưới bảng mở lại sau khi hết giờ');
+  // Bảng dịch đoạn nằm PHÍA TRÊN vùng chọn khi đủ chỗ → không che các dòng đọc tiếp theo
+  const box = r.querySelector('.box'), vh = p.w.innerHeight;
+  ok(parseFloat(box.style.top) + box.offsetHeight <= vh / 3, `bảng dịch đặt phía trên vùng chọn (top ${box.style.top})`);
   p.w.close();
 }
 // Đoạn đã ở ngôn ngữ người học (tiếng Việt, giao diện vi) → dịch sang tiếng Anh, có ghi chú

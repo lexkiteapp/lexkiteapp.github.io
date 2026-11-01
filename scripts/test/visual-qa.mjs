@@ -1,5 +1,5 @@
 // 👁 Soát giao diện tự động (máy dò lỗi hiển thị, không cần nhìn ảnh): tràn ngang, nút đè chữ, chữ bị ép cột 1–2 từ,
-// chữ cắt "…" không có title, trang cuộn ngang, vùng chạm < 40px (điện thoại), tương phản màu (axe), lỗi RTL (ar), icon tàng hình (icon trùng màu nền nút).
+// chữ cắt "…" không có title, trang cuộn ngang, vùng chạm < 40px (điện thoại), tương phản màu (axe), lỗi RTL (ar), link danh sách lệch hàng, icon tàng hình (icon trùng màu nền nút).
 // Ma trận: màn hình chính × 375/820/1440 × sáng/tối × en/vi/es/ar (+ de/ru chỉ 375). Chạy trên GitHub Actions (visual-qa.yml).
 // Dùng: node scripts/test/visual-qa.mjs <base> <thư-mục-ra>  → report.md + report.json + shots/ (ảnh cắt cho nhóm lỗi đầu bảng)
 // Ngưỡng chống lùi: scripts/test/visual-qa.budget.json (số nhóm lỗi tối đa theo loại; vượt → exit 1).
@@ -26,6 +26,12 @@ function detect(opt) {
   const own = e => [...e.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join(' ').replace(/\s+/g, ' ').trim();
   const add = (t, e, r) => { const k = t + '|' + sel(e); if (seen.has(k)) return; seen.add(k); out.push({ t, k: sel(e), x: (e.innerText || e.value || '').replace(/\s+/g, ' ').trim().slice(0, 50), r: [r.left + scrollX, r.top + scrollY, r.width, r.height].map(Math.round) }); };
   const root = document.body;
+  for (const ul of root.querySelectorAll('ul,ol,[role=menu]')) { // link/mục menu trong cùng 1 cột phải thẳng mép chữ (vd. chữ ngắn bị căn giữa trong vùng chạm 44px)
+    const xs = []; for (const li of ul.children) { const a = li.tagName === 'LI' ? li.firstElementChild : li.getAttribute('role') === 'menuitem' ? li : null; if (!a || !/^(A|BUTTON)$/.test(a.tagName) || !vis(a) || !(a.textContent || '').trim()) continue; const rg = document.createRange(); rg.selectNodeContents(a); const rs = [...rg.getClientRects()].filter(q => q.width > 0); if (!rs.length) continue; const l1 = rs.filter(q => Math.abs(q.top - rs[0].top) < 2); xs.push([getComputedStyle(a).direction === 'rtl' ? Math.max(...l1.map(q => q.right)) : Math.min(...l1.map(q => q.left)), a]); } // dòng đầu, gộp mọi đoạn (chữ Ả Rập + Latin xen kẽ)
+    const cols = new Map(); for (const it of xs) { const bx = Math.round(it[1].getBoundingClientRect()[getComputedStyle(it[1]).direction === 'rtl' ? 'right' : 'left'] / 8); (cols.get(bx) || cols.set(bx, []).get(bx)).push(it); } // chỉ so mục cùng cột (lưới 2 cột không phải lệch)
+    for (const col of cols.values()) { if (col.length < 3) continue; const m = col.map(x => x[0]).sort((a, b) => a - b)[col.length >> 1]; const bad = col.find(([x]) => Math.abs(x - m) > 3); if (bad) { add('list-misaligned', bad[1], bad[1].getBoundingClientRect()); break; } }
+  }
+  if (opt.only === 'align') return out;
   if (document.scrollingElement.scrollWidth > W + 1) { // trang cuộn ngang: tìm phần tử thò ra ngoài màn hình
     let worst = null; for (const e of root.querySelectorAll('*')) { const r = vis(e); if (!r || e.closest('[style*="overflow"],.hscroll,.scroller')) continue; if (r.right > W + 1 || r.left < -1) { const cs = getComputedStyle(e); if (cs.position === 'fixed' && +cs.opacity < 1) continue; worst = e; } }
     add('hscroll', worst || root, (worst || root).getBoundingClientRect());
@@ -49,6 +55,13 @@ function detect(opt) {
     }
   }
   const clickables = [...root.querySelectorAll('button,a[href],.btn,[role=button],input[type=checkbox],input[type=radio],select')].filter(e => vis(e) && !e.closest('[aria-hidden="true"]'));
+  for (const b of clickables) { // nút/link bị cắt ngang ở mép khung cuộn/ẩn (không có mờ dần báo còn nội dung)
+    if (b.checkVisibility && !b.checkVisibility({ opacityProperty: true, visibilityProperty: true })) continue; // menu đang ẩn
+    let p = b.parentElement; while (p && p !== root && getComputedStyle(p).overflowX === 'visible') p = p.parentElement; if (!p || p === root) continue;
+    const ps = getComputedStyle(p); if ((ps.maskImage || 'none') !== 'none' || (ps.webkitMaskImage || 'none') !== 'none') continue;
+    const pr = p.getBoundingClientRect(), br = b.getBoundingClientRect();
+    if ((br.right > pr.right + 4 && br.left < pr.right - 4) || (br.left < pr.left - 4 && br.right > pr.left + 4)) add('clipped', b, br);
+  }
   for (const b of clickables) { // nút/link đè lên chữ của phần tử anh em
     const br = b.getBoundingClientRect(), gp = (b.parentElement && b.parentElement.parentElement) || root;
     let fx = false; for (let p = b; p && p !== root; p = p.parentElement) { const ps = getComputedStyle(p).position; if (ps === 'fixed' || ps === 'sticky') { fx = true; break; } } if (!fx && gp !== root) for (const t of gp.querySelectorAll('*')) {
@@ -86,7 +99,7 @@ function icons() {
 
 // ---- Trạng thái tương tác (sheet đáp án, modal, toast, xp, nhắc cài đặt, tra từ khi bôi đen) × chế độ thường / body.focus / RTL
 const STATES = [
-  ['practice/learn', 'answer'], ['review', 'answer'], ['practice/test?src=topic:education', 'answer'], ['practice/test?src=topic:education', 'answer-wrong'], ['practice/mcq?src=topic:education', 'answer'], ['practice/mcq?src=topic:education', 'answer-wrong'], ['home', 'modal'], ['home', 'toast'], ['home', 'xp'], ['home', 'nudge'], ['dict/hello', 'select'],
+  ['practice/learn', 'answer'], ['review', 'answer'], ['practice/test?src=topic:education', 'answer'], ['practice/test?src=topic:education', 'answer-wrong'], ['practice/mcq?src=topic:education', 'answer'], ['practice/mcq?src=topic:education', 'answer-wrong'], ['home', 'modal'], ['home', 'acct'], ['settings', 'signed'], ['me', 'signed'], ['home', 'toast'], ['home', 'xp'], ['home', 'nudge'], ['dict/hello', 'select'],
   ['home', 'focus-modal'], ['home', 'focus-toast'],
 ];
 async function act(page, kind) {
@@ -95,6 +108,8 @@ async function act(page, kind) {
     if (kind.startsWith('focus-')) { document.body.classList.add('focus'); kind = kind.slice(6); }
     if (kind === 'answer-wrong') { const inp = [...document.querySelectorAll('#view input[type=text], #view input:not([type])')].find(vis); if (inp) { inp.value = 'zzqx'; inp.dispatchEvent(new Event('input', { bubbles: true })); const ck = [...document.querySelectorAll('#view .btn.primary, #view button[type=submit]')].find(vis); if (ck) ck.click(); } else { const o = [...document.querySelectorAll('#view .option, #view .choice, #view [data-opt]')].filter(vis); if (o.length) o[o.length - 1].click(); } await wait(600); kind = 'answer'; }
     if (kind === 'answer') for (let i = 0; i < 3 && !document.querySelector('.sheet'); i++) { const b = [...document.querySelectorAll('#view .option, #view .choice, #view [data-opt], #view .btn.primary')].find(vis); if (!b) break; b.click(); await wait(500); }
+    if (kind === 'signed' && W.Sync) { W.Sync.user = W.Sync.user || { uid: 'vqa', displayName: 'Visual QA Learner', email: 'visual.qa.learner@example.com' }; W.Sync.driveOffer = true; const h = location.hash; location.hash = '#/home'; await wait(400); location.hash = h; await wait(1200); } // trạng thái đã đăng nhập (nút Drive, Đăng xuất…)
+    if (kind === 'acct' && W.Sync && W.Account) { W.Sync.user = W.Sync.user || { uid: 'vqa', displayName: 'Visual QA', email: 'vqa@example.com' }; const b = document.getElementById('avatarBtn') || document.querySelector('.top-stats .avatar, .top-stats .gsi'); try { W.Account.toggle(b); } catch (e) {} await wait(400); }
     if (kind === 'modal' && U.modal) U.modal('<h3>Ngày bị khoá · Locked day</h3><p>Hoàn thành ngày trước để mở khoá ngày này. Complete the previous day first to unlock.</p><button class="btn primary">OK</button>');
     if (kind === 'toast' && U.toast) U.toast('Đã lưu vào bộ thẻ của bạn · Saved to your deck — a longer notification text to check wrapping', 15000);
     if (kind === 'xp' && U.xpFloat) U.xpFloat(10, [...document.querySelectorAll('#view .btn')].find(vis));
@@ -127,7 +142,7 @@ function overlays() {
 async function runStates(browser, c) {
   const { ctx, page } = await openCombo(browser, c);
   for (const [route, kind] of STATES) {
-    try { await visit(page, c, route); await act(page, kind); pages++; rec(c, route + ' [' + kind + ']', [...await page.evaluate(overlays), ...await page.evaluate(icons)]); }
+    try { await visit(page, c, route); await act(page, kind); pages++; rec(c, route + ' [' + kind + ']', [...await page.evaluate(overlays), ...await page.evaluate(icons), ...await page.evaluate(detect, kind === 'signed' ? { mobile: c.v === 'm', rtl: c.l === 'ar' } : { only: 'align' })]); }
     catch (e) { errs.push(`${tagOf(c)} ${route}[${kind}]: ${String(e.message).split('\n')[0].slice(0, 100)}`); }
   }
   await ctx.close();
@@ -175,7 +190,7 @@ const stateCombos = []; for (const v of QUICK ? ['m', 'd'] : ['m', 't', 'd']) fo
 const queue = [...combos, ...stateCombos.map(c => ({ ...c, states: 1 }))]; await Promise.all([0, 1, 2].map(async () => { while (queue.length) { const c = queue.shift(); await (c.states ? runStates : runCombo)(browser, c); } }));
 
 // ---- Báo cáo + ảnh cắt cho nhóm lỗi đầu bảng
-const order = ['icon-invisible', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
+const order = ['icon-invisible', 'clipped', 'list-misaligned', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
 const list = [...groups.values()].sort((a, b) => order.indexOf(a.t) - order.indexOf(b.t) || b.where.size - a.where.size);
 const byType = {}; for (const g of list) byType[g.t] = (byType[g.t] || 0) + 1;
 const SHOTS = +(process.env.VQA_SHOTS || 12); let si = 0;

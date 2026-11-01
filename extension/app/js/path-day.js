@@ -128,9 +128,16 @@
   }
 
   // ---------- Bản đồ: chặng (gập/mở) → bài (tiến độ x/y ngày) → nút Ngày ----------
+  // Nhường luồng chính giữa các bước dựng bản đồ (tính ngày ↔ vẽ; vẽ khung + điền chặng đang mở giữ CÙNG tác vụ để không CLS) → không có tác vụ dài (TBT mobile #/path 197–220 ms)
+  // Chờ qua 1 khung hình (rAF → setTimeout): mỗi khung chỉ phải tính style/bố cục cho 1 lô ngày mới. scheduler.yield ưu tiên chạy tiếp
+  // nên nhiều lô dồn vào cùng 1 khung → 1 lần Style+Layout 200–270 ms (trace CI #/path). Tab nền không có rAF → dự phòng 100 ms.
+  const nextFrame = () => new Promise(r => { let ok = 0; const go = () => { if (!ok) { ok = 1; setTimeout(r, 0); } }; if (g.requestAnimationFrame) requestAnimationFrame(go); setTimeout(go, 100); });
+  const yieldMain = () => new Promise(r => (g.scheduler && g.scheduler.yield ? g.scheduler.yield().then(r) : setTimeout(r, 0)));
   async function map() {
+    const h0 = location.hash;
     await load(); const tr = curTr(); await TK().ready(tr); settleExt(); css();
     const view = App.view, ds = days();
+    await yieldMain(); if (location.hash !== h0) return;
     if (!ds.length) { view.innerHTML = `<div class="card empty"><div class="em" aria-hidden="true">🗺️</div><h2>${t('Không tải được – thử lại sau')}</h2><button class="btn primary" id="pathRetry">${t('Thử lại')}</button></div>`; $('#pathRetry').onclick = () => App.need('words').then(map).catch(() => {}); return; }
     const ielts = tr.id === 'ielts', cur = ds.find(d => d.status === 'current'), nDone = ds.filter(d => d.done).length;
     const curSt = cur ? cur.unit.stage.id : 's0';
@@ -143,26 +150,52 @@
           <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div></div>
           <div class="stage-count">${k}/${sd.length}</div></summary>${st.id === 's0' || st.id === 'comm1' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}<div class="dp-body"></div></details>`;
       }).join('')}</div>`;
-    const fill = el => {
-      const body = el.querySelector('.dp-body'); if (body.childElementCount) return;
+    const fill = async el => {
+      const body = el.querySelector('.dp-body'); if (body.childElementCount || body._busy) return; body._busy = 1;
       const st = stagesOf(tr).find(s => s.id === el.dataset.st), sd = ds.filter(d => d.unit.stage.id === st.id);
       const units = [...new Set(sd.map(d => d.unit))];
       let idx = 0;
-      body.innerHTML = units.map(u => {
-        const ud = sd.filter(d => d.unit === u), k = ud.filter(d => d.done).length;
+      const head = (u, ud) => {
+        const k = ud.filter(d => d.done).length;
         const testOut = u.status !== 'done' && ud.some(d => d.status === 'locked');
         return `<div class="dp-unit"><span aria-hidden="true">${u.topic.emoji}</span><h3>${esc(u.topic.name)} <span class="small muted">· ${t('{a}/{b} ngày', { a: k, b: ud.length })}</span></h3>
-          <div class="progress thin" aria-hidden="true"><i style="width:${k / ud.length * 100}%"></i></div>${testOut ? `<a class="btn sm ghost" href="${P().stepHref(u.topic.id, 'test')}" title="${esc(t('Đã biết các từ này? Đạt ≥ 80% ở bài kiểm tra cuối bài là qua cả bài.'))}">⏩ ${t('Kiểm tra vượt')}</a>` : ''}</div>
-          <div class="nodes">${ud.map(d => {
-            const off = Math.round(Math.sin(idx++ * 0.9) * 80);
-            const s = { done: t('Đã hoàn thành'), current: t('Hôm nay'), skip: t('Đã nhảy qua'), locked: t('Đang khóa') }[d.status];
-            return `<div class="node-wrap${d.status === 'current' ? ' cur' : ''}" style="transform:translateX(${off}px)">${d.status === 'current' ? `<div class="node-tip" aria-hidden="true">${t('Hôm nay')}</div>` : ''}
+          <div class="progress thin" aria-hidden="true"><i style="width:${k / ud.length * 100}%"></i></div>${testOut ? `<a class="btn sm ghost" href="${P().stepHref(u.topic.id, 'test')}" title="${esc(t('Đã biết các từ này? Đạt ≥ 80% ở bài kiểm tra cuối bài là qua cả bài.'))}">⏩ ${t('Kiểm tra vượt')}</a>` : ''}</div>`;
+      };
+      const node = (u, d) => {
+        const off = Math.round(Math.sin(idx++ * 0.9) * 80);
+        const s = { done: t('Đã hoàn thành'), current: t('Hôm nay'), skip: t('Đã nhảy qua'), locked: t('Đang khóa') }[d.status];
+        return `<div class="node-wrap${d.status === 'current' ? ' cur' : ''}" style="transform:translateX(${off}px)">${d.status === 'current' ? `<div class="node-tip" aria-hidden="true">${t('Hôm nay')}</div>` : ''}
               <button class="node ${d.status === 'skip' ? 'open skip' : d.status}" data-day="${d.n}" style="--sc:${st.color};--p:${d.done ? 100 : Math.round(d.topic.words.filter(learned).length / d.topic.words.length * 100)}" aria-label="${esc(t('Ngày {n}', { n: d.n }) + ' · ' + u.topic.name + ' – ' + s)}"${d.status === 'current' ? ' aria-current="step"' : ''}>
               <span aria-hidden="true">${d.status === 'locked' ? '🔒' : d.done ? '⭐' : `<b class="dn">${d.n}</b>`}</span></button>
               <div class="node-label" aria-hidden="true">${t('Ngày {n}', { n: d.n })}</div></div>`;
-          }).join('')}</div>`;
-      }).join('');
-      $$('[data-day]', body).forEach(b => b.onclick = () => open(+b.dataset.day));
+      };
+      const bind = root => $$('[data-day]', root).forEach(b => b.onclick = () => open(+b.dataset.day));
+      // Vẽ theo NGÀY (không theo bài – 1 bài IELTS có thể hơn 10 ngày): lô đầu tới ngày hiện tại + 4 ngày (≥ 10 ngày, cao hơn màn hình) vẽ ngay
+      // cùng khung trang (không CLS); phần còn lại nối từng lô 8 ngày ở tác vụ sau, nằm dưới màn → mỗi tác vụ < 50 ms (TBT mobile #/path)
+      const seq = units.map(u => ({ u, ud: sd.filter(d => d.unit === u) }));
+      const flat = []; seq.forEach((x, ui) => x.ud.forEach((d, j) => flat.push({ ui, j, d })));
+      const ciDay = flat.findIndex(f => f.d.status === 'current');
+      let pos = 0;
+      // Dựng lô ngày [pos, end): ngày đầu của bài → mở thẻ bài + .nodes mới; ngày tiếp của bài đã vẽ ở lô trước → nối vào .nodes cuối (tail)
+      const chunk = end => {
+        let html = '', tail = '', open = false;
+        for (; pos < end; pos++) {
+          const { ui, j, d } = flat[pos], { u, ud } = seq[ui];
+          if (j === 0) { if (open) html += '</div>'; html += head(u, ud) + '<div class="nodes">'; open = true; }
+          if (open) html += node(u, d); else tail += node(u, d);
+        }
+        if (open) html += '</div>';
+        return { html, tail };
+      };
+      const put = ({ html, tail }) => {
+        if (tail) { const last = body.lastElementChild; const tmp = document.createElement('div'); tmp.innerHTML = tail; bind(tmp); last.append(...tmp.childNodes); }
+        if (html) { const tmp = document.createElement('div'); tmp.innerHTML = html; bind(tmp); body.append(...tmp.childNodes); }
+      };
+      put(chunk(Math.min(flat.length, Math.max(10, ciDay + 5))));
+      while (pos < flat.length) {
+        await nextFrame(); if (!body.isConnected) return;
+        put(chunk(Math.min(flat.length, pos + 8)));
+      }
     };
     $$('.dp-stage').forEach(el => { if (el.open) fill(el); el.addEventListener('toggle', () => el.open && fill(el)); });
     $$('.stage-rp').forEach(a => a.addEventListener('click', e => e.stopPropagation()));

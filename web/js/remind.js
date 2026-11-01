@@ -104,7 +104,7 @@
       }
       // Mẫu: chưa dùng trong 7 ngày (theo lịch sử + kế hoạch này); hết thì lấy mẫu dùng lâu nhất
       const lim = keyOf(new Date(addDays(at, -NOREP))), list = TPL[type];
-      const pick = list.find(([id]) => !used.has(id) || used.get(id) <= lim) || list.slice().sort((a, b) => (used.get(a[0]) || '').localeCompare(used.get(b[0]) || ''))[0];
+      const pick = list.find(([id]) => !used.has(id) || used.get(id) <= lim) || list.slice().sort((a, b) => { const x = used.get(a[0]) || '', y = used.get(b[0]) || ''; return x < y ? -1 : x > y ? 1 : 0; })[0]; // khóa ngày YYYY-MM-DD (ASCII) → so chuỗi thường cho cùng thứ tự localeCompare mà không khởi tạo ICU Collator (~50 ms CPU mobile)
       used.set(pick[0], day);
       const v = { n: 0, s: st, d: 0, w: '', c: '', g: goal, r: Math.max(0, goal - done) };
       let url = ROUTE[type];

@@ -1,4 +1,4 @@
-/* Quảng cáo trên trang tĩnh (blog / trang SEO) – chỉ được build-blog.mjs chèn khi ADS_CONFIG bật + có ô 'blog' (docs/ADS.md).
+/* Quảng cáo trên trang tĩnh (blog / trang từ điển) – chỉ được build-blog.mjs / scripts/dict/build.mjs chèn khi ADS_CONFIG bật + có mã ô 'blog' / 'blog_mid' / 'dict' (docs/ADS.md §1).
  * Ô kích thước cố định đã có sẵn trong HTML (0 CLS). Script này: đọc cờ từ xa (/api/config, đệm 1 giờ chung với app) → tải policy + run
  * lúc rảnh; cờ tắt / công tắc khẩn cấp / lớp học → ô giữ nguyên chỗ nhưng trống (không xê dịch bố cục). */
 (function (g) {
@@ -9,5 +9,6 @@
     if (!v || v.ads_kill === '1' || v.ads_web !== '1' || ls('lk.edu') === '1' || ls('lk.u13') === '1') return;
     return one('/js/ads/config.js').then(() => one('/js/ads/policy.js')).then(() => one('/js/ads/run.js')).then(() => g.AdsRun && g.AdsRun.start());
   }).catch(() => {});
-  g.addEventListener('load', () => (g.requestIdleCallback || setTimeout)(go, 3000));
+  // 3 s sau load rồi chờ lúc rảnh (requestIdleCallback nhận { timeout }, KHÔNG nhận số – truyền số = TypeError, quảng cáo không bao giờ chạy)
+  g.addEventListener('load', () => setTimeout(() => (g.requestIdleCallback ? g.requestIdleCallback(go, { timeout: 2000 }) : go()), 3000));
 })(self);

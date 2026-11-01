@@ -138,11 +138,11 @@
       if (!d || !d.found) { pop.innerHTML = `<div class="muted">${t('Không tìm thấy “{w}”.', { w: esc(word) })}</div>`; return; }
       const mText = App.meanOf ? App.meanOf(d) : d.vi;
       pop.innerHTML = `<div class="row between nowrap"><b style="font-size:1.15rem">${esc(d.word)}</b><button class="icon-btn sm" data-x>✕</button></div>
-        <div class="row"><span class="ipa">${esc(d.ipa || '')}</span><button class="icon-btn sm" data-s>🔊</button></div>${mText ? `<div class="vi">${esc(mText)}</div>` : ''}
+        <div class="row">${UI.ipaHtml(d)}<button class="icon-btn sm" data-s>🔊</button></div>${mText ? `<div class="vi">${esc(mText)}</div>` : ''}
         ${UI.ctxBox(sentence, d.word)}
         <div class="row" style="margin-top:.6rem"><button class="btn sm primary" data-save>${App.inDeck(d.word) ? '+ ' + t('Thêm ngữ cảnh') : '+ ' + t('Lưu flashcard')}</button></div>`;
       $('[data-x]', pop).onclick = close;
-      $('[data-s]', pop).onclick = () => UI.speak(d.word, state.settings.accent, d.audio);
+      $('[data-s]', pop).onclick = () => UI.speak(d.word, state.settings.accent, UI.audioFor(d, state.settings.accent));
       $('[data-save]', pop).onclick = async ev => {
         const b = ev.currentTarget; b.disabled = true;
         const L = I18N.learnLang();

@@ -5,12 +5,15 @@
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board",
-  "c01t2_carlos_talk2",
-  "c01t3_carlos_talk3"
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
  ],
  "listen": [
-  "c01l_carlos_listen"
+  "c05l_carlos2_listen"
  ],
  "accent": "green",
  "active": "green",

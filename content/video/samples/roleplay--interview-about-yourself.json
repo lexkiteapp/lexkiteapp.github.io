@@ -12,28 +12,28 @@
   "template": "roleplay",
   "lines": [
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "hook",
     "text": "Talk about… myself?",
     "expr": "confused",
     "gesture": ""
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "situation",
     "text": "Let's start easy. Tell me about yourself.",
     "expr": "friendly",
     "gesture": "open hands"
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "example",
     "text": "I'm a designer. I've worked on shopping apps for three years, and now I'd love to grow here.",
     "expr": "friendly",
     "gesture": ""
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "explain",
     "text": "Nice and clear. So why do you want to join us?",
     "expr": "curious",
@@ -48,7 +48,7 @@
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "cta",
     "text": "Roleplay this free on lexkite.com",
     "expr": "happy smile",

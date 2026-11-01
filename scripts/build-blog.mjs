@@ -9,15 +9,16 @@ import { embedWatermark } from '../content/protection/watermark.mjs';
 import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
-import vm from 'node:vm';
+import { loadAds, adsOn } from './lib/ads-static.mjs';
+import { adEnd, adHold, withMid, AD_JS as AD_STATIC_JS } from '../workers/lib/ad-slot.mjs';
 import { blogToolBox, TOOL_BOX_CSS } from './lib/tools-links.mjs';
 import { blogDictBox } from './dict/links.mjs'; // blog → trang từ điển (docs/SEO-DICT-PAGES.md §3b)
 import { editorialNode, blogByline } from './lib/authority-links.mjs'; // tác giả = Lexkite Editorial Team + trang hồ sơ đội (docs/SEO-AUTHORITY.md) // hộp liên kết công cụ miễn phí cùng chủ đề (docs/SEO-TOOLS.md)
-// 💰 Ô quảng cáo cuối bài (docs/ADS.md) – CHỈ khi web/js/ads/config.js bật + có mã ô 'blog'; mặc định tắt → 0 byte thêm vào trang
-const ADS = (() => { try { const c = { self: {} }; c.self = c; vm.runInNewContext(fs.readFileSync(new URL('../web/js/ads/config.js', import.meta.url), 'utf8'), c); const a = c.ADS_CONFIG || {}; return a.enabled && a.web && a.web.client && a.web.slots && a.web.slots.blog ? a : null; } catch (e) { return null; } })();
-const ADV = { en: 'Advertisement', vi: 'Quảng cáo', es: 'Publicidad', pt: 'Publicidade', fr: 'Publicité', de: 'Anzeige', id: 'Iklan', th: 'โฆษณา', zh: '广告', ja: '広告', ko: '광고', hi: 'विज्ञापन', ar: 'إعلان', ru: 'Реклама', tr: 'Reklam' };
-const adSlot = lang => (ADS ? `<aside class="ad-slot" data-ad="blog" aria-label="${ADV[lang] || ADV.en}" style="box-sizing:border-box;height:290px;max-width:340px;margin:1.5rem auto;padding:.4rem;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:center;contain:strict"><div class="ad-label" aria-hidden="true" style="height:1rem;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7;text-align:start">${ADV[lang] || ADV.en}</div></aside>` : '');
-const AD_JS = ADS ? '<script defer src="/js/ads/static.js"></script>' : '';
+// 💰 Ô quảng cáo (docs/ADS.md §1) – CHỈ khi web/js/ads/config.js bật + có mã ô; mặc định tắt → 0 byte thêm vào trang.
+// 'blog' = cuối bài · 'blog_mid' = 1 ô giữa bài (bài ≥ 1200 từ, sau đoạn văn ở 40–50 %) → tối đa 2 ô / bài
+const ADS_CFG = loadAds(), AD_END = adsOn('blog', ADS_CFG), AD_MID = adsOn('blog_mid', ADS_CFG);
+const adSlot = lang => (AD_END ? adEnd(lang) : '');
+const AD_JS = AD_END || AD_MID ? AD_STATIC_JS : '';
 const VIDEOS = (readVid(VID_MANIFEST, { items: [] }).items || []).filter(x => !x.test); // 🎬 video bài học khớp chủ đề bài (docs/VIDEO-SCALE-PLAN.md §10) – chỉ clip đã duyệt
 // Lời mời cài add-on cuối bài: chữ dùng chung với landing (content/landing/<lang>.json → ext), hiện/ẩn bởi EXT_JS (web/js/ext-cta.js)
 const EXT_EN = JSON.parse(fs.readFileSync('content/landing/en.json', 'utf8')).ext;
@@ -259,7 +260,7 @@ function render(md, lang, cover) {
     para.push(ln.trim()); i++;
   }
   flush();
-  return { html: out.join('\n'), toc, faq: faq.filter(f => f.a), videos };
+  return { html: out.join('\n'), blocks: out, toc, faq: faq.filter(f => f.a), videos };
 }
 
 // ---------- Khung trang ----------
@@ -336,7 +337,8 @@ const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (
 // Bài viết
 for (const p of posts) {
   CURP = p; const cv = coverOf(p);
-  const t = T(p.lang), { html: rawHtml, toc, faq, videos } = render(p.body, p.lang, cv.id), words = wordCount(p.body), mins = Math.max(1, Math.round(words / 220));
+  const t = T(p.lang), { blocks, toc, faq, videos } = render(p.body, p.lang, cv.id), words = wordCount(p.body), mins = Math.max(1, Math.round(words / 220));
+  const rawHtml = withMid(blocks, words, AD_MID ? adHold('blog_mid', p.lang) : ''); // ô giữa bài: chỉ bài ≥ 1200 từ, sau 1 đoạn văn cấp cao nhất
   const pub = when(p), upd = p.updated ? Date.parse(p.updated) : pub;
   const html = embedWatermark(rawHtml, `LK:${p.lang}/${p.slug}:${iso(pub).slice(0, 10).replace(/-/g, '')}`);
   const same = posts.filter(x => x !== p && x.lang === p.lang);
@@ -393,7 +395,7 @@ for (const lang of langs) {
 <section class="hero"><h1>${esc(g.kind === 'all' ? (C.blogName[lang] || 'Blog') : g.h1)}${n > 1 ? ` – ${t.page} ${n}` : ''}</h1><p>${esc(g.desc)}</p></section>
 <nav class="cats" aria-label="${t.cat}"><a href="${b}"${g.kind === 'all' ? ' aria-current="page"' : ''}>${t.all}</a>${Object.keys(CATEGORIES).filter(k => list.some(p => p.category === k)).map(k => [k, catName(k, lang)]).map(([k, v]) => `<a href="${b}${sg.cat}/${k}/"${g.cat === k ? ' aria-current="page"' : ''}>${esc(v)}</a>`).join('')}</nav>
 ${items.length ? `<div class="grid">${(u => items.map((p, i) => card(p, 'h2', n === 1 && i < 2, u)))(new Set()).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
-${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}trang/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
+${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}${sg.page}/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
       const jsonld = [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': g.kind === 'all' ? 'Blog' : 'CollectionPage', name: title, description: g.desc, url: SITE + u, inLanguage: lang, ...(g.kind === 'all' ? { publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } } : {}), hasPart: items.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: SITE + postUrl(p), datePublished: iso(when(p)) })) }];
       write(u, layout({ lang, title: `${title} | Lexkite`, desc: n > 1 ? `${g.desc} (${t.page} ${n})` : g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
       if (!g.noindex && items.length) sm.push({ loc: u, lastmod: iso(Math.max(...items.map(p => p.updated ? Date.parse(p.updated) : when(p)))) });
@@ -420,6 +422,10 @@ ${list[0] ? `<lastBuildDate>${new Date(when(list[0])).toUTCString()}</lastBuildD
 }
 // Danh sách ngôn ngữ đã có bài đăng → app ẩn/hiện lối vào blog mà không phải dò rss từng ngôn ngữ (tránh lỗi 404 khi chưa có blog)
 fs.writeFileSync(path.join(OUT, 'blog-langs.json'), JSON.stringify(liveLangs));
+{ // /blog → trang chuyển blog-lang.html: ghi sẵn danh sách ngôn ngữ đã có bài → chuyển ngay, không chờ dò rss qua mạng
+  const f = path.join(OUT, 'blog-lang.html');
+  if (fs.existsSync(f)) { const h = fs.readFileSync(f, 'utf8'), n = h.replace('var LIVE = null;', `var LIVE = ${JSON.stringify(liveLangs)};`); if (n === h) throw new Error('blog-lang.html: không tìm thấy "var LIVE = null;" để ghi danh sách ngôn ngữ'); fs.writeFileSync(f, n); }
+}
 
 // Trang tĩnh của blog (giới thiệu, quy trình biên tập…): content/blog/pages/<lang>/<slug>.md → /blog/<slug>/
 // Bản các ngôn ngữ của cùng một trang: khóa translationKey (mặc định 'about' – mỗi ngôn ngữ hiện có đúng 1 trang giới thiệu) → nút đổi ngôn ngữ

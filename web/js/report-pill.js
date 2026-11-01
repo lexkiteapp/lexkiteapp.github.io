@@ -20,16 +20,16 @@
     + '.lk-rep.off{transform:translateY(140%);opacity:0;pointer-events:none}'
     + '[dir=rtl] .lk-rep:not(.in-side){left:auto;right:calc(12px + env(safe-area-inset-right))}'
     + 'html.has-banner .lk-rep{bottom:calc(132px + env(safe-area-inset-bottom))}'
-    + '.lk-rep.in-side{position:static;width:auto;height:auto;min-height:24px;padding:0;border:0;border-radius:4px;background:none;box-shadow:none;font:inherit;gap:.25rem;color:var(--muted,#555);transform:none;opacity:1;pointer-events:auto}'
-    + '.lk-rep.in-side{width:28px;height:28px;min-height:28px;justify-content:center;border-radius:50%;margin-inline-start:auto}.lk-rep.in-side:hover{background:var(--accent-soft,#eee)}'
-    // Chân thanh bên gọn (docs/UX-PUBLIC.md): 1 dòng chữ nhỏ Blog · Giới thiệu · ⋯ Xem thêm (popover) · ⚑ (nút biểu tượng + chú thích)
-    + '.side-foot{flex-wrap:nowrap;align-items:center;gap:.25rem .8rem;font-size:13px;line-height:1.3;position:relative}.side-foot>a{white-space:nowrap}'
-    + '.sf-more>summary{list-style:none;cursor:pointer;color:var(--muted);white-space:nowrap;border-radius:6px;padding:2px 4px}.sf-more>summary::-webkit-details-marker{display:none}.sf-more>summary:hover,.sf-more[open]>summary{color:var(--text)}.sf-more>summary:focus-visible{outline:2px solid var(--primary,#0F3D3E);outline-offset:2px}'
+    + '.lk-rep.in-side{position:static;display:flex;width:auto;height:44px;min-height:44px;margin-top:.4rem;padding:0 var(--nav-pad,.75rem);justify-content:flex-start;gap:.5rem;border:1px solid var(--line,#ddd);border-radius:12px;background:var(--surface-2,#f4f4f4);box-shadow:none;font:inherit;font-size:14px;color:var(--muted,#555);transform:none;opacity:1;pointer-events:auto}'
+    + '.lk-rep.in-side:hover{color:var(--text,#111)}.lk-rep.in-side .lk-rep-l{position:static;width:auto;height:auto;clip:auto;clip-path:none}' // máy tính: chip "⚑ Báo lỗi" có chữ, cuối chân thanh bên (Stitch sidebar 31/10)
+    // Chân thanh bên gọn (docs/UX-PUBLIC.md): danh sách dọc ghim đáy Blog · Giới thiệu · ⋯ Xem thêm (popover) · chip ⚑ Báo lỗi – hàng 44 px, cùng mép trái với menu
+    + '.side-foot{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:0;font-size:14px;line-height:1.3;position:relative}.side-foot>a{white-space:nowrap}'
+    + '.sf-more>summary{list-style:none;cursor:pointer;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:.35rem;min-height:44px;padding:0 var(--nav-pad,.75rem);border-radius:10px}.sf-more>summary::-webkit-details-marker{display:none}.sf-more>summary:hover,.sf-more[open]>summary{color:var(--text)}.sf-more>summary:focus-visible{outline:2px solid var(--primary,#0F3D3E);outline-offset:2px}'
     + '.sf-m{position:absolute;left:0;bottom:calc(100% + 8px);z-index:40;display:flex;flex-direction:column;min-width:210px;padding:6px;background:var(--surface,#fff);border:1px solid var(--line,#ddd);border-radius:12px;box-shadow:0 12px 30px rgba(20,20,60,.18)}[dir=rtl] .sf-m{left:auto;right:0}'
     + '.sf-m a{display:flex;align-items:center;min-height: var(--tap, 36px);padding:0 10px;border-radius:8px;color:var(--text);font-size:14px;text-decoration:none}.sf-m a:hover,.sf-m a:focus-visible{background:var(--accent-soft,#eee);outline:none}'
-    // Token vai trò dùng chung toàn app (docs/UX-PUBLIC.md § Tokens) – nằm ngoài khung app (0 byte SHELL): chữ phụ 14 px, hàng link/nút phụ 1 dòng cuộn ngang, đệm thẻ vừa phải
+    // Token vai trò dùng chung toàn app (docs/UX-PUBLIC.md § Tokens) – nằm ngoài khung app (0 byte SHELL): chữ phụ 14 px, hàng link/nút phụ xuống dòng (cuộn ngang ẩn làm nút cuối bị cắt ở mép), đệm thẻ vừa phải
     + '.view p.muted,.view div.muted,.view span.muted{font-size:14px}.pron{gap:.4rem}'
-    + '.set-btns:has(>a.btn){flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:.4rem}.set-btns>a.btn.sm{flex:none;min-height: var(--tap, 36px);padding:0 .8rem;font-size:13px;font-weight:600;background:none;color:var(--muted);border-color:var(--line)}'
+    + '.set-btns:has(>a.btn){flex-wrap:wrap;gap:.4rem}.set-btns>a.btn.sm{flex:none;min-height: var(--tap, 36px);padding:0 .8rem;font-size:13px;font-weight:600;background:none;color:var(--muted);border-color:var(--line)}'
     + '.card.empty{padding:28px 24px}@media(max-width:600px){.qk-card{padding:18px}}'
     + 'html.lk-fab{--fab-space:52px}@media(max-width:900px){html.lk-fab body:not(.cbt-mode):not(.bare) .view{padding-bottom:calc(68px + var(--fab-space) + env(safe-area-inset-bottom))}}'
     + 'body.bare .lk-rep,body.focus .lk-rep:not(.in-side),body.cbt-mode .lk-rep:not(.in-side),.lk-rep[hidden],.lk-rep.kb:not(.in-side){display:none}@media print{.lk-rep{display:none}}'
@@ -61,7 +61,7 @@
     compactFoot();
     b.onclick = function () { b.disabled = true; load().then(function (R) { R.open(); }, function () {}).then(function () { b.disabled = false; }); };
     var html = d.documentElement, wide = w.matchMedia ? w.matchMedia('(min-width: 901px)') : null;
-    var off = false, lastY = w.scrollY || 0;
+    var off = false, lastY = 0; // sync() bên dưới đặt lại sau khung hình (đọc scrollY ngay sau khi chèn CSS = ép tính bố cục cả trang trong tác vụ khởi động)
     var setOff = function (v) { if (v !== off) { off = v; b.classList.toggle('off', v); } };
     var place = function () { // máy tính có thanh bên → vào chân thanh bên; còn lại → nút nổi
       var foot = d.querySelector('.side-foot'), side = !!(wide && wide.matches && foot);
@@ -70,7 +70,7 @@
       else if (b.parentNode !== d.body) d.body.appendChild(b);
       html.classList.toggle('lk-fab', !side && !b.hidden);
     };
-    var sync = function () { b.hidden = HIDE.test(location.hash); setOff(false); lastY = w.scrollY || 0; place(); };
+    var sync = function () { b.hidden = HIDE.test(location.hash); setOff(false); (w.requestAnimationFrame || setTimeout)(function () { lastY = w.scrollY || 0; }); place(); };
     w.addEventListener('hashchange', sync);
     if (wide && wide.addEventListener) wide.addEventListener('change', place);
     // Cuộn xuống → ẩn (nhường chỗ đọc), cuộn lên/về đầu trang → hiện lại

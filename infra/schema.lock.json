@@ -23,6 +23,12 @@
   },
   "ddl": "38c6a9344509fed8"
  },
+ "ads-report.js": {
+  "vers": {
+   "ads_rev": 1
+  },
+  "ddl": "2049662e4f27eecf"
+ },
  "ai.js": {
   "vers": {
    "ai": 1

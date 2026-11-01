@@ -1,0 +1,65 @@
+{
+ "_note": "Common Mix-ups: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
+ "verdicts": {
+  "cmu_0d6dc593": {
+   "template": "mistake",
+   "hook": "✗ / “Let's buy medicine at the spa.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "Let's buy medicine at the spa.",
+    "u_k": "Natives say: Let's relax at the spa.",
+    "u_y": "A spa is a place for massages and relaxing.",
+    "u_x": "The hotel has a spa.",
+    "u_t": "A hot tub is sometimes called a spa too!",
+    "u_q": "Quick quiz! The hotel blank offers massages.",
+    "u_q2": "Spa, or pool?",
+    "u_a": "Spa! The hotel spa offers massages.",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Let's relax at the spa.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "Let's buy medicine at the spa."
+   },
+   "source": "sb_0d6dc593"
+  },
+  "cmu_28a25c23": {
+   "template": "mistake",
+   "hook": "✗ Not / “Cashback means I pay more.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "Cashback means I pay more.",
+    "u_k": "Natives say: Cashback means I get some money back.",
+    "u_y": "Cashback returns money after you buy.",
+    "u_x": "This card gives two percent cashback.",
+    "u_t": "In some stores, cashback also means taking cash at the till!",
+    "u_q": "Quick quiz! With blank, you get money back.",
+    "u_q2": "Cashback, or cash out?",
+    "u_a": "Cashback! With cashback, you get money back.",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Cashback means I get some money back.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "Cashback means I pay more."
+   },
+   "source": "sb_28a25c23"
+  }
+ }
+}

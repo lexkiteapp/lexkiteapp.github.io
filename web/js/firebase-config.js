@@ -11,4 +11,4 @@ self.LK_AUTH = { apple: false }; // Sign in with Apple: chỉ bật khi đã c�
 // Đồng bộ local-first qua Google Drive appDataFolder của chính người học (docs/SYNC-DRIVE.md). drive: bật cho web; native: thêm app gốc.
 // mode: 'auto' | 'd1' (công tắc từ xa: chỉ D1) | 'off' (chỉ lưu trên máy). every = gom lượt ghi Drive (ms), cap = trần đơn vị Drive API/máy/ngày,
 // d1Every = gom lượt ghi D1 (ms; trước 180000 → nay 600000: lượt đẩy D1 typical 9 → 5/ngày, đẩy ngay khi rời trang vẫn giữ). drive:false → mọi máy dùng D1.
-self.LK_SYNC = { mode: 'auto', drive: false, native: false, every: 600000, cap: 1200, d1Every: 600000 };
+self.LK_SYNC = { mode: 'auto', drive: true, native: false, every: 600000, cap: 1200, d1Every: 600000 };

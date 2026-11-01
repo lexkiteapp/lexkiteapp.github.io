@@ -33,6 +33,8 @@ Một khóa chỉ có **một** bản tiếng Anh: không khai báo trùng khóa
 - không mắc lỗi dịch máy đã biết (danh sách `BAD` trong script – thêm mẫu mới khi phát hiện)
 - `--short`: liệt kê nhãn ngắn chưa có bản dịch tay (mục tiêu: 0; đã đạt 0 ngày 15/10/2026 – tên riêng & thuật ngữ thi như "Writing Task 2" được giữ nguyên)
 
+Khóa chỉ module tải lười dùng nằm ở `en/lazyui.js` (gói `i18nl`, App.need luôn nạp trước), không ở `en.js` (khung app); khóa khung cần ngay → `en/xcore.js`. `node scripts/test/shell-size.mjs --keys` liệt kê khóa nên chuyển.
+
 `node scripts/test/i18n-switch.mjs --scan` (t() lúc nạp module, báo file:dòng) và `i18n-switch.mjs` (dùng app bằng tiếng Việt → đổi sang es/ja/ar, từ điển về muộn → quét chữ tiếng Việt) chạy trong `npm test`.
 
 Khóa thiếu → giao diện tự hiện tiếng Anh (en.js nạp trước), không bao giờ hiện tiếng Việt.

@@ -3,7 +3,7 @@
 > TL;DR: Việc tồn đọng theo thứ tự ưu tiên: đang làm, chờ anh chủ; việc xong chuyển xuống mục đã xong. Số liệu mốc 15-16/10 có thể cũ; mục đã xong lưu ở archive/BACKLOG-DONE.md.
 > Đọc khi: chọn việc mới cần làm.
 
-Thứ tự = ưu tiên. Quy trình làm theo [PLAYBOOK.md](PLAYBOOK.md), chuẩn công nghệ theo [TECH-RADAR.md](TECH-RADAR.md).
+Thứ tự = ưu tiên. Quy trình làm theo [PLAYBOOK.md](archive/PLAYBOOK.md), chuẩn công nghệ theo [TECH-RADAR.md](TECH-RADAR.md).
 
 ## Đang làm / làm tiếp
 Đã xong thêm 15/10 tối: gói bảo mật (rate-limit biên, headers A+), gia cố kiến trúc (32 nhóm đồng bộ, persist, đệm từ điển IndexedDB, pull 2 bước, onCleanup), SEO blog (liên kết nội bộ + bản quyền), tinh chỉnh add-on (loa + chấm FSRS, ô tra, bóng đổ, cuộn), ảnh minh họa qua proxy /api/img, nghĩa theo từ loại.

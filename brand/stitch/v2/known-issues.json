@@ -1,0 +1,9 @@
+{
+ "_note": "Lỗi tương phản còn lại TRONG MẪU Stitch v2.1 (Stitch sửa 2 lượt không được → dừng theo luật). App phải đạt tương phản ở các chỗ này (cổng stitch-diff chặn). Chỉ được XÓA dòng khi mẫu đã sạch, không thêm tay.",
+ "issues": [
+  "feedback-wrong: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 3.10<4.5",
+  "story-duo: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 2.78<4.5",
+  "leagues: [dark] 3 chữ thiếu tương phản WCAG: \"AN\" 3.87<4.5; \"5\" 4.33<4.5; \"YO\" 4.33<4.5",
+  "streak: [dark] 1 chữ thiếu tương phản WCAG: \"ACTIVE\" 2.78<4.5"
+ ]
+}

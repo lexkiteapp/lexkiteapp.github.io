@@ -126,6 +126,7 @@
   // ---------- Trung tâm #/class ----------
   async function hub(code, task) {
     const w = App.W;
+    if (window.Sync && Sync.authed && !Sync.user) { view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học')) + '<div class="skel skel-l"></div>'; await w(Sync.authed()); } // phiên đã nhớ: chờ Firebase
     if (!window.Sync || !Sync.user) return signedOut(code ? `<p><b>${t('Bạn được mời vào lớp {code}.', { code: `<span translate="no">${esc(code)}</span>` })}</b> ${t('Đăng nhập để tham gia.')}</p>` : '');
     view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + '<div class="skel skel-l"></div><div class="skel skel-l"></div>';
     let d; try { d = await w(mine(true, w.signal)); } catch (e) { view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học')) + `<div class="card">${esc(ERR()[e.code] || t('Có lỗi kết nối – thử lại sau.'))}</div>`; return; }
@@ -245,6 +246,7 @@
     const w = App.W, a = String(arg || '');
     if (a.startsWith('join/')) return hub(a.slice(5).toUpperCase(), query && query.get('task'));
     if (!a) return hub();
+    if (window.Sync && Sync.authed && !Sync.user) { view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học')) + '<div class="skel skel-l"></div>'; await w(Sync.authed()); }
     if (!window.Sync || !Sync.user) return signedOut();
     view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học'), '', true) + '<div class="skel skel-l"></div><div class="skel skel-l"></div>';
     let d; try { d = await w(mine(false, w.signal)); } catch (e) { return fail(e); }

@@ -239,13 +239,18 @@
       return r && !r.unavailable && r.text ? String(r.text).trim() : '';
     } catch (e) { return ''; }
   }
+  // Translator API của Chrome có lúc treo mãi (create/translate không bao giờ xong, vd. trang mất tiêu điểm, mô hình kẹt) → luôn có hạn giờ;
+  // treo 1 lần = tắt đường này trong phiên để không chặn Google/MyMemory phía sau (bảng "Đang dịch…" từng kẹt mãi, 28/10)
+  const DEVICE_MS = 4000;
+  let deviceHung = false;
+  const devTimed = p => Promise.race([p, new Promise((res, rej) => setTimeout(() => { deviceHung = true; rej(new Error('device-timeout')); }, DEVICE_MS))]);
   async function onDeviceVi(text) {
     try {
       const nv = await nativeTr(text, 'en', 'vi'); if (nv) return fixVi(nv);
-      const TR = g.Translator; if (!TR || !localOk()) return '';
-      if (!localTr) { if ((await TR.availability({ sourceLanguage: 'en', targetLanguage: 'vi' })) !== 'available') return ''; localTr = await TR.create({ sourceLanguage: 'en', targetLanguage: 'vi' }); }
-      return fixVi(await localTr.translate(text));
-    } catch (e) { return ''; }
+      const TR = g.Translator; if (!TR || !localOk() || deviceHung) return '';
+      if (!localTr) { if ((await devTimed(TR.availability({ sourceLanguage: 'en', targetLanguage: 'vi' }))) !== 'available') return ''; localTr = await devTimed(TR.create({ sourceLanguage: 'en', targetLanguage: 'vi' })); }
+      return fixVi(await devTimed(localTr.translate(text)));
+    } catch (e) { if (deviceHung) localTr = null; return ''; }
   }
   async function translateVi(text) {
     const dv = await onDeviceVi(text); if (dv && dv.trim()) return dv.trim(); // Translator trên máy (gói đã có sẵn) trước – nhanh, offline, không tốn lượt
@@ -262,12 +267,12 @@
   async function deviceTranslate(text, tl, sl = 'en') {
     try {
       const nv = await nativeTr(text, sl, tl); if (nv) return nv;
-      const T = g.Translator; if (!T || !T.availability || !localOk()) return null;
+      const T = g.Translator; if (!T || !T.availability || !localOk() || deviceHung) return null;
       const key = sl + '>' + tl;
-      if (!onDevice.has(key)) onDevice.set(key, T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null)).catch(() => null));
+      if (!onDevice.has(key)) onDevice.set(key, devTimed(T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null))).catch(() => null));
       const tr = await onDevice.get(key); if (!tr) return null;
-      const out = await tr.translate(text); return out && out.trim() ? out.trim() : null;
-    } catch (e) { return null; }
+      const out = await devTimed(tr.translate(text)); return out && out.trim() ? out.trim() : null;
+    } catch (e) { if (deviceHung) onDevice.clear(); return null; }
   }
   async function translateTo(text, tl, sl = 'en') {
     if (!text || !tl || tl === sl) return '';
@@ -382,8 +387,12 @@
     hit.terms = hit.terms.length <= 1 && !agree ? mine : [...new Set([...mine, ...hit.terms])].slice(0, 6);
     return out;
   }
+  // Từ loại PHỤ của kho (mục mở rộng đa từ loại, local.more – docs/LEXICON.md §Mở rộng 20k): nghĩa biên soạn vào ĐÚNG khối từ loại, sau từ loại chính
+  const moreOf = local => (local && Array.isArray(local.more) ? local.more.filter(m => m && m.pos && (m.vi || m.def)) : []);
   function build(word, local, gg, fd, wk, img, sents) {
     if (gg && local) gg = { ...gg, senses: fixSenses(gg.senses, local) };
+    if (gg) for (const m of moreOf(local)) { const lp = POS_SENSE[m.pos], had = gg.senses.some(x => (POS_SENSE[String(x.pos).toLowerCase()] || String(x.pos).toLowerCase()) === lp), s2 = fixSenses(gg.senses, m);
+      gg = { ...gg, senses: had || s2[0].pos !== lp ? s2 : [...s2.slice(1), s2[0]] }; }
     const gFirst = gg && gg.defs[0] && gg.defs[0].defs[0];
     const fFirst = fd && fd.meanings[0];
     const anyEx = (gg && gg.defs.flatMap(m => m.defs).find(d => d.ex)) || (fd && fd.meanings.flatMap(m => m.defs).find(d => d.ex));
@@ -406,6 +415,9 @@
         oxford = [{ pos: lp, defs: [curDef] }, ...oxford];
       }
     }
+    for (const m of moreOf(local)) { if (!m.def) continue;
+      const lp = POS_FULL[m.pos] || m.pos, curDef = { def: m.def, ex: m.ex || '' }, hit = oxford.find(x => (POS_FULL[String(x.pos).toLowerCase()] || x.pos) === lp);
+      if (hit) hit.defs = [curDef, ...hit.defs.filter(d => d.def !== m.def && !m.def.includes(d.def))].slice(0, 3); else oxford.push({ pos: lp, defs: [curDef] }); }
     return {
       word,
       found: true,
@@ -532,5 +544,5 @@
     return null;
   }
   const quickL = async (...a) => forLang(await quick(...a)), lookupL = async (...a) => forLang(await lookup(...a));
-  g.Dict = { translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  g.Dict = { buildEntry: build, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

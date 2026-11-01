@@ -16,5 +16,6 @@ for i, k in enumerate(ks):
     if os.path.exists(p): t = Image.open(p).convert('RGB'); t.thumbnail((TH, TH)); im.paste(t, (x, y))
     d.text((x, y + TH + 4), k, font=FB, fill='#0F3D3E')
     for j, ln in enumerate(textwrap.wrap((T.get(k) or {}).get('ex') or '', 34)[:3]): d.text((x, y + TH + 22 + j * 15), ln, font=F, fill='#333')
-    d.text((x, y + TH + 70), J[k]['f'].get('cons', '')[:40], font=F, fill='#17595A')
+    c = re.sub(r'([a-z]+)[^:]*:', lambda m: {'llama': 'L', 'mistral': 'M', 'gemma': 'G', 'qwq': 'Q'}.get(m.group(1), m.group(1)[:1].upper()) + ':', J[k]['f'].get('cons', ''))
+    d.text((x, y + TH + 70), ('giám khảo ' + c)[:30], font=F, fill='#17595A')   # tên mô hình rút gọn – không tràn sang ô bên (28/10)
 im.save(a.out, quality=85); print(f'✓ tờ giám khảo kép: {len(ks)} ảnh → {a.out}')

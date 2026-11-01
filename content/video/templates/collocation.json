@@ -10,9 +10,9 @@
  "roles": { "learner": "người nói cụm sai + thắc mắc + CTA", "explainer": "người nói cụm đúng + quy tắc", "modeler": "người dùng cụm đúng trong câu thật", "kit": "Kit – mẹo nhóm từ (do = việc, make = tạo ra…)" },
  "scenes": {
   "library": { "roles": { "learner": ["ama"], "explainer": ["ama"], "modeler": ["ama"] } },
-  "classroom": { "roles": { "learner": ["ama"], "explainer": ["diane"], "modeler": ["diane"] } },
+  "classroom": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } },
   "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } },
-  "office": { "roles": { "learner": ["mia"], "explainer": ["diane"], "modeler": ["diane"] } }
+  "office": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } }
  },
  "vars": {
   "wrongColl": { "desc": "cụm sai người học hay nói (make homework) – thẻ ❌ ≤ 32 ký tự", "required": true, "maxWords": 4 },

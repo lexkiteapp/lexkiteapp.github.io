@@ -1,0 +1,34 @@
+# 💰 Doanh thu THẬT – lượt HẰNG GIỜ (docs/ADS.md §5): chỉ lấy HÔM NAY (ngày theo giờ Thái Bình Dương của tài khoản Google), ghi đè cụm dòng hôm nay.
+# Lượt đêm (7 ngày ∪ tháng này + thanh toán) ở ads-revenue.yml. Không dày hơn 1 lần/giờ; 429/RESOURCE_EXHAUSTED → bỏ lượt (không thử lại).
+# Chưa có secret ADS_OAUTH_* → thoát 0 ngay. Riêng tư: log chỉ in số dòng, không số tiền; không upload artifact.
+name: Ads revenue hourly
+on:
+  schedule:
+    - cron: '41 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ads-revenue
+  cancel-in-progress: false
+jobs:
+  today:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/ads
+            web/js/ads
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Hôm nay → D1
+        env:
+          ADS_OAUTH_CLIENT_ID: ${{ secrets.ADS_OAUTH_CLIENT_ID }}
+          ADS_OAUTH_CLIENT_SECRET: ${{ secrets.ADS_OAUTH_CLIENT_SECRET }}
+          ADS_OAUTH_REFRESH: ${{ secrets.ADS_OAUTH_REFRESH }}
+          STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+          LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+        run: node scripts/ads/report.mjs --mode today

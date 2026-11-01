@@ -106,13 +106,13 @@
       const mText = App.meanOf ? App.meanOf(e) : e.vi;
       pop.innerHTML = `
         <div class="row between nowrap"><div><span style="font-size:1.3rem;font-weight:800">${esc(e.word)}</span> ${posChip(e.pos)}${levelChip(e.level)}</div><button class="icon-btn sm" data-x>✕</button></div>
-        <div class="row"><span class="ipa">${esc(e.ipa)}</span><button class="icon-btn sm" data-s>🔊</button></div>
+        <div class="row">${UI.ipaHtml(e)}<button class="icon-btn sm" data-s>🔊</button></div>
         ${mText ? `<div class="vi" style="font-size:1.05rem">${esc(mText)}</div>` : ''}
         ${e.def && e.def !== mText ? `<div class="small" style="margin-top:.3rem">${esc(e.def)}</div>` : ''}
         ${UI.ctxBox(sentence, e.word === word ? word : e.word)}
         <div class="row" style="margin-top:.7rem"><button class="btn sm primary" data-save>+ ${saved ? t('Thêm ngữ cảnh') : t('Lưu flashcard')}</button><a class="btn sm" href="#/dict/${encodeURIComponent(e.word)}">${t('Chi tiết')}</a></div>`;
       $('[data-x]', pop).onclick = closePop;
-      $('[data-s]', pop).onclick = () => speak(e.word, state.settings.accent, e.audio);
+      $('[data-s]', pop).onclick = () => speak(e.word, state.settings.accent, UI.audioFor(e, state.settings.accent));
       $('[data-save]', pop).onclick = async ev => {
         const b = ev.currentTarget; b.disabled = true;
         const L = I18N.learnLang();
@@ -122,7 +122,7 @@
         $$(`.tw[data-w="${CSS.escape(word)}"]`).forEach(x => x.classList.add('mine'));
         paintCounts();
       };
-      if (state.settings.autoSpeak) speak(e.word, state.settings.accent, e.audio);
+      if (state.settings.autoSpeak) speak(e.word, state.settings.accent, UI.audioFor(e, state.settings.accent));
     }
     $('#passage').addEventListener('click', e => { const t = e.target.closest('.tw'); if (t) openPop(t); });
     document.addEventListener('mousedown', function off(e) {

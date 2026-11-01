@@ -2,7 +2,7 @@
   "_note": "Ngân sách dung lượng (byte). Chỉ nâng khi có lý do rõ trong commit; contentWarn tự hạ khi nội dung tốt lên. Xem docs/CONTENT-RULES.md",
   "shellGz": 386048,
   "fileGz": 163840,
-  "_shellNote": "23/10 (P2-1.2): 386560→386048 (377 KB) – trả lại trần cũ: chế độ Gõ/Nghe ôn tập + thẻ \"Câu của bạn\" (render ctx P2-1.1) chuyển sang study-modes.js tải lười (App.need('rmodes')); study.js gọn hơn (~550 B gz). Trước: 386048→386560 (+512 B) – P2-1.1 móc ctx/src trong core.js + ctxOf.",
+  "_shellNote": "28/10: trần giữ 386048 (377 KB); khung 375→355 KB (Node 26) – 529 khóa i18n chỉ module tải lười dùng chuyển en.js → en/lazyui.js (gói i18nl). Báo cáo từng module: scripts/test/shell-size.mjs. 23/10 (P2-1.2): 386560→386048 (377 KB) – trả lại trần cũ: chế độ Gõ/Nghe ôn tập + thẻ \"Câu của bạn\" (render ctx P2-1.1) chuyển sang study-modes.js tải lười (App.need('rmodes')); study.js gọn hơn (~550 B gz). Trước: 386048→386560 (+512 B) – P2-1.1 móc ctx/src trong core.js + ctxOf.",
   "allowBig": [],
   "totalJs": 19970000,
   "contentWarn": 15,

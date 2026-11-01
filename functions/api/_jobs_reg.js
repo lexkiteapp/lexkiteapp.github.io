@@ -169,6 +169,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "preview-site",
+   "workflow": "preview-site.yml",
+   "cron": [
+    "53 */3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "pages-deploy",
    "workflow": "pages-deploy.yml",
    "cron": [
@@ -422,6 +436,56 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "ads-demo",
+   "workflow": "ads-demo.yml",
+   "cron": [
+    "17 4 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "ads-revenue",
+   "workflow": "ads-revenue.yml",
+   "cron": [
+    "3 6 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes",
+    "d1_main"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 1500,
+    "d1_main_writes": 300
+   },
+   "lease": false
+  },
+  {
+   "id": "ads-revenue-hourly",
+   "workflow": "ads-revenue-hourly.yml",
+   "cron": [
+    "41 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes",
+    "d1_main"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 1100,
+    "d1_main_writes": 500
+   },
+   "lease": false
+  },
+  {
    "id": "nav-render",
    "workflow": "nav-render.yml",
    "cron": [
@@ -546,6 +610,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "mobile-qa",
+   "workflow": "mobile-qa.yml",
+   "cron": [
+    "40 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "word-audio",
    "workflow": "word-audio.yml",
    "cron": [
@@ -556,6 +634,20 @@ export const REG = {
     "gh_minutes"
    ],
    "minutes": 150,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "sentence-audio-asr",
+   "workflow": "sentence-audio-asr.yml",
+   "cron": [
+    "43 1-23/4 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 170,
    "est": {},
    "lease": false
   },
@@ -571,6 +663,20 @@ export const REG = {
     "gemini"
    ],
    "minutes": 45,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "sent-packs",
+   "workflow": "sent-packs.yml",
+   "cron": [
+    "50 21 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 60,
    "est": {},
    "lease": false
   },

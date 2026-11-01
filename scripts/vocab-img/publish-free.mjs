@@ -38,7 +38,7 @@ if (PUSH && (n.icon || n.wiki)) {
   const g = (...a) => execFileSync('git', ['-C', media, ...a], { stdio: 'inherit' });
   g(...bot, 'add', 'vimg'); g(...bot, 'commit', '-qm', `vimg: +${n.icon} icon, +${n.wiki} wiki`); g('push', '-q', 'origin', 'HEAD');
   const m = (...a) => execFileSync('git', ['-C', P('.'), ...a], { stdio: 'inherit' });
-  m(...bot, 'add', IMGF, 'web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json');
+  m(...bot, 'add', IMGF, 'web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json', 'web/js/vimg', 'extension/app/js/vimg');
   m(...bot, 'commit', '-qm', `Ảnh từ vựng tầng miễn phí: +${n.icon} icon, +${n.wiki} Wikimedia [CF-Pages-Skip]`);
   for (let i = 0; i < 5; i++) { try { m('pull', '-q', '--rebase', 'origin', 'main'); m('push', '-q', 'origin', 'HEAD:main'); break; } catch (e) { if (i === 4) throw e; } }
 }

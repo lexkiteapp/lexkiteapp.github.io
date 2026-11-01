@@ -34,12 +34,13 @@ else for (const p of want) {
 const T1 = Date.now();
 console.log(`footage/Drive: ${want.length} mục manifest khớp · ${got} tải (${(bytes / 1e6).toFixed(0)} MB) · ${had} có sẵn trong cache · ${fail} lỗi`);
 // git: mọi file khớp mẫu mà chưa lấy từ Drive
-const tree = execFileSync('git', ['-C', REPO, 'ls-tree', '-r', '-l', '--full-tree', REF], { maxBuffer: 1 << 28 }).toString().split('\n').filter(Boolean);
+// KHÔNG dùng -l (cỡ blob): trên bản clone thưa (--filter=blob:none) git phải tải TỪNG blob để biết cỡ → treo hàng giờ (matte-pro 28/10). Nhận diện file nặng theo đuôi.
+const tree = execFileSync('git', ['-C', REPO, 'ls-tree', '-r', '--name-only', '--full-tree', REF], { maxBuffer: 1 << 28 }).toString().split('\n').filter(Boolean);
 const fill = [], bin = []; 
 for (const ln of tree) {
-  const t = ln.indexOf('\t'), p = ln.slice(t + 1), size = +ln.slice(0, t).trim().split(/\s+/)[3];
+  const p = ln;
   if (!match(p) || ok.has(p)) continue;
-  fill.push(p); if (size >= 1 << 20) bin.push(p);
+  fill.push(p); if (/\.(mp4|mkv|mov|webm|png|jpe?g|webp|wav|mp3)$/i.test(p)) bin.push(p);
 }
 if (fill.length) {
   execFileSync('git', ['--literal-pathspecs', '-C', REPO, 'checkout', REF, '--pathspec-from-file=-', '--pathspec-file-nul'], { input: fill.join('\0'), stdio: ['pipe', 'inherit', 'inherit'] });
