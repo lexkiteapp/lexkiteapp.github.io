@@ -133,17 +133,18 @@ class Card:
         # sized to content (owner 31/10: no empty card half): a card whose rows arrive on later words grows with them (ease 0.24 s, same box for QC)
         steps = sorted({round(n['in']['t'], 4) for n in s.rows if n['in']['t'] > c['in']['t'] + 0.05})
         hs_ = [min(h, max([n['box'][3] for n in s.rows if n['in']['t'] <= tt + 1e-6] or [0]) + PAD + LEDGE) for tt in [c['in']['t']] + steps]
-        if hs_[0] < h - 40: c['grow'] = [dict(t=round(tt, 4), h=round(hv, 1)) for tt, hv in zip([c['in']['t']] + steps, hs_)]
+        if hs_[0] < h - 40: c['grow'] = [dict(t=round(tt if k == 0 else max(c['in']['t'], tt - 0.24), 4), h=round(hv, 1)) for k, (tt, hv) in enumerate(zip([c['in']['t']] + steps, hs_))]   # grown BEFORE the row fades in (clear.py inside)
         SLOTS.append(dict(slot=slot, card=s.id, t_in=c['in']['t'], t_out=t_out))
         return s.box
 
 
-def cw(text, sz=None): return FT.chip_w(text, sz or S['chip'])   # pill width that holds the text on ONE line (fit.py, rendered font + letter-spacing)
+def cw(text, sz=None, dot=False): return FT.chip_w(text, sz or S['chip'], dot)   # pill width that holds the text on ONE line (fit.py, rendered font + letter-spacing + Stitch dot)
 
 
-def chip(c, text, t_in, tone='chip'):
-    w = cw(text)
-    return c.add(dict(type='chip', text=text, tone=tone, size=S['chip'], box=[PAD, 0, PAD + w, 0], **{'in': cue(t_in)}), S['chip'] + 28)
+def chip(c, text, t_in, tone='chip', dot=False):
+    """in-card chip (Stitch v3: tone chip = solid gold pill, good / bad = badge pills, eyebrow = dark micro-pill with a gold dot)."""
+    w = cw(text, dot=dot)
+    return c.add(dict(type='chip', text=text, tone=tone, size=S['chip'], box=[PAD, 0, PAD + w, 0], **({'dot': True} if dot else {}), **{'in': cue(t_in)}), S['chip'] + 28)
 
 
 def flag(cc, x, sz, t_in): return dict(type='flag', cc=cc, box=[x, 0, x + sz * 1.5, 0], **{'in': cue(t_in)})
@@ -209,8 +210,9 @@ def row2(c, label, wd, col, t_label, t_word, sz=S['big']):
 
 
 def series_chip():   # fixed series chip (whole video, inside the platform top band rule: y >= SAFE top)
-    txt = f"{EP['series'].upper()} · PART {EP['part']}"; x0, y0 = FMT['chip']; w = cw(txt)
-    NODES.append(dict(id='series', type='chip', text=txt, tone='chip', size=S['chip'], box=[x0, y0, x0 + w, y0 + S['chip'] + 28], **{'in': dict(t=-0.2, k='fade')}, out=dict(t=round(start('c') - 0.2, 3))))
+    txt = f"{EP['series'].upper()} · PART {EP['part']}"; x0, y0 = FMT['chip']; w = cw(txt, dot=True)   # Stitch v3: solid gold pill, dark ink + dot
+    assert x0 + w <= W - x0, ('series chip wider than the frame', txt, x0 + w)
+    NODES.append(dict(id='series', type='chip', text=txt, tone='chip', dot=True, size=S['chip'], box=[x0, y0, x0 + w, y0 + S['chip'] + 28], **{'in': dict(t=-0.2, k='fade')}, out=dict(t=round(start('c') - 0.2, 3))))
 
 
 def hook_card(text_runs, t_out, extra=None):
@@ -229,15 +231,17 @@ def end_card():
     """end card: app icon + Lexkite + 100% FREE, then the deep-link CTA button + QR + lexkite.com (embed: 'Next step', no QR / follow)."""
     cta = EP['cta']; t_in = start('c'); t_url = at('c', 'lexkite.com'); c = Card(RY0, tone='card')
     lw = tw('Lexkite', 84); x = PAD + (c.inner - (110 + 24 + lw)) / 2; y = c.y
-    c.rows.append(dict(id=nid('i'), type='img', src='icon.png', radius=28, box=[x, y, x + 110, y + 110], **{'in': cue(t_in)}))
+    c.rows.append(dict(id=nid('i'), type='img', src='icon.png', radius=28, tile='icon', box=[x, y, x + 110, y + 110], **{'in': cue(t_in)}))
     c.rows.append(dict(id=nid('t'), type='text', runs=[['Lexkite', 'ink']], size=84, ipa=False, box=[x + 134, y + 4, x + 134 + lw, y + 106], **{'in': cue(t_in)}))
     CUES.append(dict(node=c.rows[-1]['id'], t=t_in, tag='Lexkite')); c.y += 110 + 16
-    c.text([['100% FREE', 'accent']], S['body'], t_in, align='c')
+    fw = cw('100% FREE', S['sub'])   # Stitch d7ba2153 '100% FREE' badge pill (gold tint, gold rim), centred
+    c.add(dict(type='chip', text='100% FREE', tone='free', size=S['sub'], box=[PAD + (c.inner - fw) / 2, 0, PAD + (c.inner + fw) / 2, 0], **{'in': cue(t_in)},
+               pairs=[['accent', 'free_bg', S['sub']]]), S['sub'] + 28)
     if EMBED:
         c.text([['Next step →', 'primary']], S['body'], t_url, align='c')
     else:
         c.add(dict(type='cta', lines=[cta['say']], size=S['body'], box=[PAD, 0, PAD + c.inner, 0], **{'in': cue(t_url)}), 118)
-        q = 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_url)}), q, gap=14)
+        q = 220; c.add(dict(type='img', src='qr.png', radius=24, tile='qr', box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_url)}), q, gap=14)
         c.text([['lexkite.com', 'muted']], S['sub'], t_url, align='c')
     c.place(t_in, None, 'a')
 
@@ -271,6 +275,11 @@ def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1, lines
         OWN_HOOK[0] = False; runs = runs_hl(EP['hook']['text'], EP['hook'].get('hl'), 'accent'); fit = True
     while fit and size > 64 and len(Card(y, x0=x0, w=x1 - x0).wrap(runs, size, width=x1 - x0)) > lines: size -= 4   # fits the template's hook space
     c = Card(y, x0=x0, w=x1 - x0); lines = c.wrap(runs, size, width=x1 - x0); ns = []; yy = y
+    if len(lines) == 2:   # balanced 2-line title (no orphan '· B1' / single word on line 2): narrowest width that still gives 2 lines
+        full = tw(''.join(r[0] for r in runs).strip(), size)
+        for wd_ in range(int(full / 2), int(x1 - x0) + 1, 8):
+            l2 = c.wrap(runs, size, width=wd_)
+            if len(l2) == 2: lines = l2; break
     for ln in lines:
         ln[-1][0] = ln[-1][0].rstrip(); lw = sum(tw(r[0], size) for r in ln); h = round(size * 1.18)
         xx = x0 + ((x1 - x0) - lw) / 2 if align == 'c' else x0
@@ -369,18 +378,22 @@ def T_usuk():
     D = EP['data']; series_chip(); t_split = start('sh') - 0.2
     title([['US', 'primary'], [' or ', 'ink'], ['UK', 'coral'], ['?', 'ink']], 112, RY0 + 120, None, at('us', D['us']) - 0.2, hook=True, lines=1)
     top('flags', [RX0 + (RW - 300) / 2, RY0 + 290, RX0 + (RW + 300) / 2, RY0 + 390], None, out=at('us', D['us']) - 0.2)
-    H2 = 330; half = RW / 2
+    H2 = 330; half = RW / 2; VS_HALF = 50
     top('split', [RX0, RY0, RX1, RY0 + H2], at('us', D['us']), out=t_split)
     for i, (cc, wd, ipa, col, lid, lab) in enumerate([('us', D['us'], D['ipa_us'], 'primary', 'us', 'US ENGLISH'), ('uk', D['uk'], D['ipa_uk'], 'coral', 'uk', 'UK ENGLISH')]):
-        x0 = RX0 + i * half; t_w = at(lid, wd); inner = half - 90
+        x0 = RX0 + i * half; t_w = at(lid, wd); inner = half - 2 * VS_HALF - 48   # word + IPA centred in the half, >= 24 px clear of the VS medallion on the seam
         top('tag', [x0 + 30, RY0 + 30, x0 + 30 + FT.tag_w(lab, 40), RY0 + 98], t_w, out=t_split, cc=cc, text=lab, size=40)   # flag + ONE-line label inside the pill
         sz = min(104, int(104 * inner / max(1, tw(wd, 104)))); ww = tw(wd, sz)
-        nw = top('text', [x0 + (half - ww) / 2, RY0 + 130, x0 + (half + ww) / 2, RY0 + 130 + round(sz * 1.2)], t_w, out=t_split, runs=[[wd, col]], size=sz, ipa=False, parent=None)
-        CUES.append(dict(node=nw['id'], t=t_w, tag=wd)); iw = tw(ipa, 48, True)
-        ni = top('text', [x0 + (half - iw) / 2, RY0 + 260, x0 + (half + iw) / 2, RY0 + 318], t_w, out=t_split, runs=[[ipa, 'muted']], size=48, ipa=True)
+        nw = top('text', [x0 + (half - ww) / 2, RY0 + 112, x0 + (half + ww) / 2, RY0 + 112 + round(sz * 1.2)], t_w, out=t_split, runs=[[wd, col]], size=sz, ipa=False, parent=None)
+        isz = 48
+        while isz > 36 and tw(ipa, isz, True) > inner: isz -= 2
+        CUES.append(dict(node=nw['id'], t=t_w, tag=wd)); iw = tw(ipa, isz, True)
+        ni = top('text', [x0 + (half - iw) / 2, RY0 + 240, x0 + (half + iw) / 2, RY0 + 240 + round(isz * 1.2)], t_w, out=t_split, runs=[[ipa, 'muted']], size=isz, ipa=True)
         IPA.append(dict(token=wd, ipa=ipa, node=ni['id']))
-    top('vs', [RX0 + half - 60, RY0 + H2 - 66, RX0 + half + 60, RY0 + H2 + 54]   # medallion on the bottom seam (never on a word)
-       , at('uk', 'Britain'), k='pop', out=t_split, size=60, pairs=[['#FFFFFF', '#E0482F', 60]])
+        assert ni['box'][3] <= RY0 + H2 - 24, ('IPA leaves its half panel', ni['box'], RY0 + H2)
+    # Stitch b6303607: VS medallion centred on the seam between the halves, level with the words (the old bottom-seam spot sat on the IPA / next card)
+    top('vs', [RX0 + half - VS_HALF, RY0 + 125, RX0 + half + VS_HALF, RY0 + 125 + 2 * VS_HALF]
+       , at('uk', 'Britain'), k='pop', out=t_split, size=56, pairs=[['vs_ink', 'vs_bg', 56]])   # Stitch b6303607 VS badge: coral, dark ink, gold ring
     c = Card(RY0 + H2 + 76); c.text([[D['same'], 'accent']], S['body'], at('uk', 'same'), align='c', gap=GAP)
     if 'tw' in LINES:   # the surprise line (cookie ep: in America a biscuit is soft bread) on its spoken word, same card
         c.text([['US ', 'muted'], [D['uk'], 'primary'], [' = ' + D['twist']['card'], 'ink']], S['sub'], start('tw'), align='c', gap=GAP)
@@ -399,7 +412,7 @@ def _fix(D, t_hook_out, wrong_l, right_l, strike_tok_line):
 
 def T_phrasal():
     D = EP['data']; series_chip()
-    hook_card([[EP['hook']['text'], 'ink']], start('w') - 0.2)
+    hook_card([[EP['hook']['text'], 'ink']], start('w') - 0.2, extra=lambda c: chip(c, 'PHRASAL VERB', 0, tone='eyebrow', dot=True))   # Stitch a769b8be hook card eyebrow
     b1 = _fix(D, None, 'w', 'r', None)
     c = Card(b1[3] + 28, tone='good', badge='check', t_badge=at('r', 'say')); c.text(runs_hl(D['right'], D['pv'], 'good'), S['body'], at('r', 'say'))
     c.text([[D['pv'], 'primary'], [' ' + D['mean'], 'ink']], S['sub'], start('m'))
@@ -429,7 +442,8 @@ def T_pair():
     bx = side_cards([dict(tag=tg[0], word=A, ipa=ia, col='primary', t=at('r', A), mean=D['mean_a'], t_mean=start('m1')),
                      dict(tag=tg[1], word=B, ipa=ib, col='coral', t=at('w', B), mean=D['mean_b'], t_mean=start('m2'))], RY0, None, t_out)
     yb = max(b[3] for b in bx)
-    top('vs', [RX0 + RW / 2 - 56, bx[0][1] + 150, RX0 + RW / 2 + 56, bx[0][1] + 262], at('w', B), k='pop', out=t_out, size=64, text='≠', pairs=[['#FFFFFF', '#E0482F', 64]])
+    top('vs', [RX0 + RW / 2 - 44, bx[0][1] + 162, RX0 + RW / 2 + 44, bx[0][1] + 250], at('w', B), k='pop', out=t_out, size=64, text='≠'   # 88 px: clear of both cards' words (clear.py gap)
+       , pairs=[['vs_ink', 'vs_bg', 64]])
     c = Card(yb + 30, tone='card'); c.text([['💡 ', 'accent'], [D['aha'], 'accent']], S['sub'], start('k')); c.place(start('k'), t_out, 'b')   # memory strip
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
     save_card([[[A, 'primary'], [' = ' + D['mean_a'].rstrip('.').lower(), 'ink']], [[B, 'coral'], [' = ' + D['mean_b'].rstrip('.').lower(), 'ink']]], start('sh'), start('c') - 0.2)
@@ -451,7 +465,7 @@ def T_prep():
     top('slot', [x, yy - 6, x + sw, yy + h + 6], start('s'), out=t_out, word=right, size=sz, st=[dict(t=round(t_rev, 4), s='filled')], pairs=[[TH['good'], TH['card'], sz]]); x += sw + 22
     top('text', [x, yy, x + tw(post, sz), yy + h], start('s'), out=t_out, runs=[[post, 'ink']], size=sz, ipa=False)
     CUES.append(dict(node=n1['id'], t=start('s'), tag=D['slot']))
-    ob = y + h + 160; ow = max(300, FT.width('✓ CORRECT', 40, ls=0.06) + 6 + 2 * FT.MINPAD + 4); gap = 60; ox = RX0 + (RW - (2 * ow + gap)) / 2
+    ob = y + h + 160; ow = max(300, FT.width('✓ CORRECT', 40, ls=0.06) + 6 + 2 * FT.MINPAD + 2 * FT.BADGE_PAD + 4); gap = 60; ox = RX0 + (RW - (2 * ow + gap)) / 2   # room for the Stitch ✓ CORRECT badge pill
     for i, o in enumerate(D['opts']):
         top('opt', [ox + i * (ow + gap), ob, ox + i * (ow + gap) + ow, ob + 170], at('s', o.capitalize() if i == 0 else o), out=t_out, text=o, size=88,
             label=f'OPTION {"AB"[i]}', st=[dict(t=round(t_rev - C.MIX / 2, 4), s='right' if o == right else 'dim')], pairs=[[TH['ink'], TH['pill'], 88], [TH['ink'], TH['good_bg'], 88]])
@@ -532,7 +546,7 @@ def T_level():
     ys = RY0; ans_t = [at(f'a{i}', 0) for i in (1, 2, 3)]
     sw_ = max(190, FT.width('🏆 3 / 3', 44) + 6 + 2 * FT.MINPAD + 4)
     top('track', [RX0 + 20, ys, RX1 - sw_ - 30, ys + 70], start('q1'), out=t_end, steps=3, st=[dict(t=round(start(f'q{i}'), 4), s=f'cur{i}') for i in (1, 2, 3)] + [dict(t=round(ans_t[2] + 0.2, 4), s='done')])
-    top('score', [RX1 - sw_, ys, RX1, ys + 70], start('q1'), out=t_end, size=44, val=[dict(t=round(t, 4), d=0.3, a=i, b=i + 1) for i, t in enumerate(ans_t)], tot=3, pairs=[[TH['accent'], TH['chip_bg'], 44]])
+    top('score', [RX1 - sw_, ys, RX1, ys + 70], start('q1'), out=t_end, size=44, val=[dict(t=round(t, 4), d=0.3, a=i, b=i + 1) for i, t in enumerate(ans_t)], tot=3, pairs=[['gold_ink', 'gold', 44], ['gold_ink', 'gold2', 44]])   # Stitch gold pill
     for i, q in enumerate(Q, 1):
         t_in = start(f'q{i}'); t_o = (start(f'q{i + 1}') if i < 3 else start('s')) - 0.2
         c = Card(ys + 100, tone='card'); chip(c, f'QUESTION {i} / 3', t_in); c.text([[q['stem'], 'ink']], S['body'], t_in); b = c.place(t_in, t_o, f'q{i}')
@@ -548,7 +562,7 @@ def T_level():
 
 def bricks_row(items, y, bh, t_out, size=52):
     """formula rail: snap-together bricks joined by + (Stitch 3fcef434… 'Grammar in 60s'); items = [(label, word, tone, t_in)], width fits the word."""
-    pg = 70
+    pg = 76   # the 60 px + medallion keeps >= 8 px to each brick (clear.py gap)
     while True:   # largest word size (>= 40 px) at which the rail fits the card width
         ws = [max(190, tw(wd, size) + 56) for _, wd, _, _ in items]; tot = sum(ws) + pg * (len(ws) - 1)
         if tot <= RW or size <= 40: break
@@ -767,6 +781,13 @@ import scene as SC   # noqa: E402  (scripts/video/teach2d/scene.py, same items q
 SCENE = SC.resolve(EP.get('scene'), o.format, LAYOUT, W, H, FMT['host_cx'], hw, FMT['host_h'], NODES, FMT['region'], ct=FMT.get('ct'), clear=[HEAD, BODYC])
 if SCENE:
     SCENE['tint'] = TINT
+    if SCENE['counter']:   # Stitch scenes 604743e4 / 75f04b18 / 72407e25: the counter is warm wood (lighter top lip, wood front panel shading darker downwards); same boxes
+        ct_, it_ = SCENE['counter'][1], SCENE['items']; nw_ = 0
+        for i_, x_ in enumerate(it_):
+            if x_.get('l') == 'front' and x_['k'] == 'r' and x_['b'][3] == H + 40 and (x_['b'][1], x_['c']) in ((ct_, 'tile_edge'), (ct_ + 22, 'tile')):
+                x_['c'] = 'wood_top' if x_['c'] == 'tile_edge' else 'wood'; nw_ += 1
+                if x_['c'] == 'wood': it_.insert(i_ + 1, dict(k='lg', b=list(x_['b']), c='wood_dark', a=0.15, a2=0.75, l='front')); break
+        assert nw_ == 2, ('counter lip + panel not found for the wood counter', ct_)
     hit = SC.on_teacher(SCENE, HEAD, BODYC)   # no front-layer item (counter props) over the teacher's head or her body above the counter
     assert not hit, ('scene prop drawn over the teacher', hit[:4], HEAD, BODYC)
     fg = [SCENE['counter']] + [SC.bbox(x) for x in SCENE['items'] if x.get('l') == 'front' and SC.bbox(x)[1] < SCENE['counter'][1]] if SCENE['counter'] else []
@@ -848,6 +869,27 @@ if EP['template'] == 'guess':   # picture from content/lexicon/img.json (license
     from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------
+def _hand_off():
+    """clean hand-offs (owner 31/10 overlap review): a top-level element that leaves where a later one enters is fully faded (core OUT) BEFORE the
+    newcomer starts, so two cards' texts never show through each other for a few frames. Only out times move (the newcomer keeps its spoken cue)."""
+    top_ = [n for n in NODES if not n.get('parent') and n.get('box')]
+    hit = lambda a, b: a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
+    for _ in range(3):   # a moved out may line up with another one: settle
+        for A in top_:
+            if not A.get('out'): continue
+            for B in top_:
+                if B is A or not hit(A['box'], B['box']) or B['in']['t'] <= A['in']['t']: continue
+                if A['out']['t'] - 0.05 <= B['in']['t'] < A['out']['t'] + C.OUT:   # B enters while A is still fading out
+                    old, new = A['out']['t'], round(max(A['in']['t'] + 0.5, B['in']['t'] - C.OUT - 0.01), 4)
+                    for K in top_:   # its own top-level riders (✓ / confetti / ring / strike placed on it) leave with it
+                        if K is not A and K.get('out') and abs(K['out']['t'] - old) <= 0.45 and K['out']['t'] > new and A['box'][0] <= (K['box'][0] + K['box'][2]) / 2 <= A['box'][2] and A['box'][1] <= (K['box'][1] + K['box'][3]) / 2 <= A['box'][3]:
+                            K['out'] = dict(K['out'], t=new)
+                    A['out'] = dict(A['out'], t=new)
+                    for sl in SLOTS:
+                        if sl['card'] == A['id']: sl['t_out'] = new
+
+
+_hand_off()
 props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav', scene=SCENE)
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],

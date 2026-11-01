@@ -28,24 +28,38 @@ const growH = (g, t, h) => {   // card height sized to the rows on screen (build
   if (!g || !g.length) return h; let i = 0; while (i + 1 < g.length && t >= g[i + 1].t) i++;
   return i === 0 ? g[0].h : g[i - 1].h + (g[i].h - g[i - 1].h) * easeOut(clamp01((t - g[i].t) / 0.24)); };
 
-const TONES = T => ({ card: [T.card, T.edge, T.ledge], tile: [T.tile, T.tile_edge, T.tile_ledge], good: [T.good_bg, T.good_edge, T.ledge], bad: [T.bad_bg, T.bad_edge, T.ledge],
+// Stitch v3 (project 16045682500097294965): [fill, edge, ledge, fill bottom (vertical gradient, compare cards b6303607)]
+const TONES = T => ({ card: [T.card, T.edge, T.ledge], tile: [T.tile, T.tile_edge, T.tile_ledge], good: [T.goodc_a, T.goodc_edge, T.goodc_ledge, T.goodc_b], bad: [T.badc_a, T.badc_edge, T.badc_ledge, T.badc_b],
   bubble_bad: [T.bubble_bad, T.bubble_bad_edge, '#7A1E10'], bubble_good: [T.bubble_good, T.bubble_good_edge, '#0B4540'] });
+// Kit card top specular lip (Stitch hook a769b8be: 2 px, inset, fades out at both ends) – graphic only, no text
+const Shine = ({ T, inset = 64, top = 2 }) => <div style={{ position: 'absolute', left: inset, right: inset, top, height: 3, borderRadius: 2, background: `linear-gradient(90deg, transparent, ${T.shine}, transparent)` }} />;
+// Stitch chip looks: gold = solid gold series / in-card pill (dark ink + dot), good / bad = badge pills, eyebrow = dark micro-pill (gold dot), free = 100% FREE badge
+const CHIP = T => ({ chip: [`linear-gradient(180deg, ${T.gold} 0%, ${T.gold2} 100%)`, T.gold_edge, T.gold_ink, `0 5px 0 ${T.gold_ledge}, inset 0 2px 0 rgba(255,255,255,.45)`, T.gold_ink],
+  good: [T.good_bg, T.good, T.good, `0 5px 0 ${T.badge_good_ledge}, inset 0 2px 4px ${T.good}40`, T.good], bad: [T.bad_bg, T.bad, T.bad, `0 5px 0 ${T.badge_bad_ledge}, inset 0 2px 4px ${T.bad}33`, T.bad],
+  eyebrow: [T.eyebrow_bg, T.eyebrow_edge, T.eyebrow_ink, `0 4px 0 ${T.eyebrow_ledge}`, T.eyebrow_dot], free: [T.free_bg, T.free_edge, T.accent, `0 4px 0 ${T.ledge}`, T.accent] });
+// ✓ / ✗ badge (Stitch compare b6303607: tinted disc, bright ring + glyph, ledge below) and the quiz answer ✓ (Stitch quiz cf476e5b: solid green badge)
+const Badge = ({ w, h, glyph, bg, ring, ink, ledge }) => <svg width={w} height={h} viewBox="0 0 64 64" style={{ overflow: 'visible' }}>
+  <circle cx="32" cy="35" r="29" fill={ledge} /><circle cx="32" cy="31" r="29" fill={bg} stroke={ring} strokeWidth={ring === bg ? 0 : 3} />
+  {glyph === 'check' ? <path d="M19 32l8.5 8.5L45 23" stroke={ink} strokeWidth="6.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    : <path d="M22 21l20 20M42 21L22 41" stroke={ink} strokeWidth="6.5" strokeLinecap="round" />}</svg>;
 
 function Body({ n, t, w, h, T }) {
   const c = k => T[k] || k;
   switch (n.type) {
-    case 'card': { const [f, e, l] = TONES(T)[n.tone] || TONES(T).card, gh = growH(n.grow, t, h);   // grows with rows that arrive on later words
+    case 'card': { const [f, e, l, f2] = TONES(T)[n.tone] || TONES(T).card, gh = growH(n.grow, t, h);   // grows with rows that arrive on later words
       return <div style={{ position: 'absolute', left: 0, top: 0, right: 0, height: gh }}>
-        <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', background: f, borderRadius: n.tail ? 40 : 44, border: `2px solid ${e}`, borderBottom: `10px solid ${l}`,
-          boxShadow: n.hook ? `0 18px 40px -18px ${T.ledge}` : 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', background: f2 ? `linear-gradient(180deg, ${f} 0%, ${f2} 100%)` : f, borderRadius: n.tail ? 40 : 44, border: `2px solid ${e}`, borderBottom: `10px solid ${l}`,
+          boxShadow: `${n.hook ? `0 18px 40px -18px ${T.ledge}, ` : ''}0 26px 36px -18px ${T.drop}` }} />
+        <Shine T={T} />
         {n.tail ? <svg width="44" height="40" style={{ position: 'absolute', bottom: -26, [n.tail === 'l' ? 'left' : 'right']: 40 }} viewBox="0 0 44 40">
           <path d={n.tail === 'l' ? 'M0 0 L44 0 L4 40 Z' : 'M0 0 L44 0 L40 40 Z'} fill={l} /><path d={n.tail === 'l' ? 'M2 0 L42 0 L6 30 Z' : 'M2 0 L42 0 L38 30 Z'} fill={f} /></svg> : null}</div>; }
     case 'text': { const [cur, , m] = state(n, t), hit = n.hit_col && cur === 'hit' ? m : 0;
       return <div style={{ width: w + 4, height: h, fontFamily: n.ipa ? NOTO : JAK, fontWeight: n.ipa ? 500 : 800, fontSize: n.size, lineHeight: `${h}px`, whiteSpace: 'pre' }}>
         {n.runs.map(([s, k], i) => <span key={i} style={{ color: hit ? mixc(c(k), c(n.hit_col), hit) : c(k) }}>{s}</span>)}</div>; }
-    case 'chip': { const [cb, ce, ci] = n.tone === 'bad' ? [T.bad_bg, T.bad_edge, T.bad] : n.tone === 'good' ? [T.good_bg, T.good_edge, T.good] : [T.chip_bg, T.chip_edge, T.chip_ink];
-      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: cb, border: `2px solid ${ce}`, color: ci, fontFamily: JAK, fontWeight: 800,
-        fontSize: n.size, lineHeight: `${h - 4}px`, letterSpacing: '0.06em', textAlign: 'center', whiteSpace: 'pre' }}>{n.text}</div>; }
+    case 'chip': { const [cb, ce, ci, sh, dc] = CHIP(T)[n.tone] || CHIP(T).chip;   // n.dot: Stitch dot before the text (fit.py DOT = 16 px + 14 px gap)
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: cb, border: `2px solid ${ce}`, boxShadow: sh, color: ci, fontFamily: JAK, fontWeight: 800,
+        fontSize: n.size, lineHeight: `${h - 4}px`, letterSpacing: '0.06em', whiteSpace: 'pre', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: n.dot ? 14 : 0 }}>
+        {n.dot ? <span style={{ width: 16, height: 16, borderRadius: 8, background: dc, flexShrink: 0 }} /> : null}<span style={{ flexShrink: 0 }}>{n.text}</span></div>; }
     // ---- Stitch video frames (project 7268539912208977707): candy staircase 8a2f4328, stress beat 1af83ea9, chat 3036b5ac, US vs UK battle a5a31136 ----
     case 'candy': { const P = n.pal;
       return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 34, background: `linear-gradient(180deg, ${P.a} 0%, ${P.b} 100%)`, border: `3px solid ${P.edge}`,
@@ -72,21 +86,26 @@ function Body({ n, t, w, h, T }) {
     case 'rhythm':
       return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: T.card, border: `2px solid ${T.edge}`, fontFamily: JAK, fontWeight: 800, fontSize: n.size,
         lineHeight: `${h - 4}px`, textAlign: 'center', whiteSpace: 'pre' }}>{n.text.split(' · ').map((x, i) => <span key={i} style={{ color: x === 'DUM' ? T.accent : T.muted }}>{(i ? ' · ' : '') + x}</span>)}</div>;
-    case 'split':
-      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 44, background: T.card, border: `2px solid ${T.edge}`, borderBottom: `10px solid ${T.ledge}` }}>
-        <div style={{ position: 'absolute', left: '50%', top: 24, bottom: 24, width: 2, background: T.edge }} /></div>;
-    case 'vs':
-      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: '50%', background: `radial-gradient(circle at 40% 30%, #FF8A65 0%, #E0482F 70%)`, border: '5px solid #FFC94A',
-        boxShadow: '0 8px 0 #9E2B16, 0 0 30px rgba(242,85,59,.5)', color: '#FFFFFF', fontFamily: JAK, fontWeight: 800, fontStyle: n.text ? 'normal' : 'italic', fontSize: n.size, lineHeight: `${h - 10}px`, textAlign: 'center' }}>{n.text || 'VS'}</div>;
+    case 'split':   // Stitch compare b6303607: Kit card holding two inset half panels (US | UK) with a gap on the seam (the VS badge sits there)
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 44, background: T.card, border: `2px solid ${T.edge}`, borderBottom: `10px solid ${T.ledge}`, boxShadow: `0 26px 36px -18px ${T.drop}` }}>
+        {[0, 1].map(i => <div key={i} style={{ position: 'absolute', top: 10, bottom: 6, [i ? 'right' : 'left']: 10, width: 'calc(50% - 18px)', boxSizing: 'border-box', borderRadius: 34, background: T.half_bg, border: `2px solid ${T.half_edge}` }} />)}
+        <Shine T={T} /></div>;
+    case 'vs':   // Stitch b6303607 VS badge: coral disc, dark ink, gold ring, ledge (text pair vs_ink / vs_bg in qc.py)
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: '50%', background: T.vs_bg, border: `5px solid ${T.vs_ring}`,
+        boxShadow: `0 8px 0 ${T.vs_ledge}, 0 12px 24px rgba(0,0,0,.35), inset 0 3px 6px rgba(255,255,255,.35)`, color: T.vs_ink, fontFamily: JAK, fontWeight: 800, fontStyle: n.text ? 'normal' : 'italic', fontSize: n.size, lineHeight: `${h - 10}px`, textAlign: 'center', letterSpacing: n.text ? 0 : '-0.03em' }}>{n.text || 'VS'}</div>;
     case 'slot': { const [cur, , m] = state(n, t), k = cur === 'filled' ? easeOut(m) : 0;   // glowing empty slot -> the right word drops in
       return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 24, border: `4px ${k ? 'solid' : 'dashed'} ${mixc(T.primary, T.good, k)}`, background: mixc(T.tile, T.good_bg, k),
         boxShadow: `0 0 ${24 + 16 * k}px ${k ? T.good : T.primary}55`, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 8}px`, textAlign: 'center', color: T.good }}>
         <span style={{ opacity: k, display: 'inline-block', transform: `translateY(${(1 - k) * -24}px)` }}>{n.word}</span></div>; }
-    case 'opt': { const [cur, prev, m] = state(n, t), P = s => s === 'right' ? [T.good_bg, T.good, T.good_edge] : [T.pill, T.pill_edge, T.pill_ledge], A = P(prev), B = P(cur), x = k => mixc(A[k], B[k], m);
+    case 'opt': { const [cur, prev, m] = state(n, t), P = s => s === 'right' ? [T.good_bg, T.good, T.good_ledge] : [T.pill, T.pill_edge, T.pill_ledge], A = P(prev), B = P(cur), x = k => mixc(A[k], B[k], m);
+      // Stitch quiz cf476e5b answer pill: right = green border + glow + light streak + solid ✓ CORRECT badge pill (fit.py BADGE_PAD), dim = faded
       return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 34, background: x(0), border: `3px solid ${x(1)}`, borderBottom: `9px solid ${x(2)}`, opacity: cur === 'dim' ? 1 - 0.4 * m : 1,
-        boxShadow: cur === 'right' ? `0 0 ${30 * m}px ${T.good}66` : 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${n.size + 6}px`, color: T.ink }}>{n.text}</div>
-        <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: 40, lineHeight: '46px', letterSpacing: '0.06em', color: cur === 'right' ? T.good : T.muted }}>{cur === 'right' ? '✓ CORRECT' : n.label}</div></div>; }
+        boxShadow: cur === 'right' ? `0 0 ${30 * m}px ${T.good}47` : 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        {cur === 'right' ? <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '45%', opacity: m, background: `linear-gradient(270deg, ${T.good}1A, transparent)` }} /> : null}
+        <div style={{ position: 'relative', fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${n.size + 6}px`, color: T.ink }}>{n.text}</div>
+        {cur === 'right'
+          ? <div style={{ position: 'relative', marginTop: 2, padding: '0 14px', borderRadius: 999, background: T.badge_bg, boxShadow: `0 3px 0 ${T.badge_ledge}`, fontFamily: JAK, fontWeight: 800, fontSize: 40, lineHeight: '44px', letterSpacing: '0.06em', color: T.badge_ink, whiteSpace: 'pre' }}>✓ CORRECT</div>
+          : <div style={{ position: 'relative', fontFamily: JAK, fontWeight: 800, fontSize: 40, lineHeight: '46px', letterSpacing: '0.06em', color: T.muted }}>{n.label}</div>}</div>; }
     case 'brick': { const glow = n.tone === 'glow';   // snap-together toy brick: studs on top, ledge below
       return <div style={{ position: 'absolute', inset: 0 }}>
         {[0.25, 0.75].map(f => <div key={f} style={{ position: 'absolute', top: -14, left: `calc(${f * 100}% - 30px)`, width: 60, height: 20, borderRadius: '10px 10px 0 0', background: glow ? '#8BE9DE' : T.tile_edge }} />)}
@@ -125,27 +144,33 @@ function Body({ n, t, w, h, T }) {
         {[1, 2, 3].map(i => { const done = i < at_, now = i === at_; return <div key={i} style={{ position: 'absolute', top: 0, left: `calc(${(i - 1) / 2 * 100}% - ${(i - 1) / 2 * 70}px)`, width: 70, height: 70, borderRadius: 35, boxSizing: 'border-box',
           background: done ? T.good : now ? '#FFC524' : T.tile, border: `4px solid ${done ? T.good_edge : now ? '#FFF1A8' : T.tile_edge}`, color: done || now ? '#10191B' : T.muted, fontFamily: JAK, fontWeight: 800, fontSize: 34, lineHeight: '62px', textAlign: 'center' }}>{done ? '✓' : i}</div>; })}</div>; }
     case 'score':
-      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: T.chip_bg, border: `2px solid ${T.chip_edge}`, color: T.accent, fontFamily: JAK, fontWeight: 800, fontSize: n.size,
-        lineHeight: `${h - 4}px`, textAlign: 'center', fontVariantNumeric: 'tabular-nums' }}>🏆 {Math.round(value(n, t) || 0)} / {n.tot}</div>;
-    case 'tag':
-      return <div style={{ width: w, height: h, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, boxSizing: 'border-box', padding: '0 18px 0 12px', borderRadius: 999, background: T.card, border: `2px solid ${T.edge}` }}>
-        <Flag cc={n.cc} w={48} h={32} /><span style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, color: T.ink, letterSpacing: '0.06em', whiteSpace: 'pre', flexShrink: 0 }}>{n.text}</span></div>;   // ONE line, flag inside (fit.py sizes the pill)
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: `linear-gradient(180deg, ${T.gold} 0%, ${T.gold2} 100%)`, border: `2px solid ${T.gold_edge}`, boxShadow: `0 5px 0 ${T.gold_ledge}`,
+        color: T.gold_ink, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 4}px`, textAlign: 'center', fontVariantNumeric: 'tabular-nums' }}>🏆 {Math.round(value(n, t) || 0)} / {n.tot}</div>;
+    case 'tag':   // Stitch b6303607 US / UK term tag: deep pill, US label teal, UK label gold
+      return <div style={{ width: w, height: h, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, boxSizing: 'border-box', padding: '0 18px 0 12px', borderRadius: 999, background: T.tag_bg, border: `2px solid ${T.tag_edge}` }}>
+        <Flag cc={n.cc} w={48} h={32} /><span style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, color: n.cc === 'us' ? T.primary : T.accent, letterSpacing: '0.06em', whiteSpace: 'pre', flexShrink: 0 }}>{n.text}</span></div>;   // ONE line, flag inside (fit.py sizes the pill)
     case 'flags':
       return <div style={{ width: w, height: h, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><Flag cc="us" w={135} h={90} /><Flag cc="uk" w={135} h={90} /></div>;
     case 'bar': return <div style={{ width: w, height: h, borderRadius: h / 2, background: c(n.tone) }} />;
     case 'eq':
       return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: '50%', background: `linear-gradient(180deg,${T.cta_b},${T.cta_a})`, borderBottom: `6px solid ${T.cta_ledge}`,
         color: T.cta_ink, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 8}px`, textAlign: 'center' }}>=</div>;
-    case 'pill': { const [cur, prev, m] = state(n, t), P = s => s === 'right' ? [T.good_bg, T.good, T.good_edge, T.ink] : s === 'dim' ? [T.pill, T.pill_edge, T.pill_ledge, T.muted] : [T.pill, T.pill_edge, T.pill_ledge, T.ink];
-      const A = P(prev), B = P(cur), x = k => mixc(A[k], B[k], m), op = cur === 'dim' ? 1 - 0.35 * m : 1;
-      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 28, background: x(0), border: `2px solid ${x(1)}`, borderBottom: `6px solid ${x(2)}`, opacity: op }}>
-        <div style={{ position: 'absolute', left: 18, top: 21, width: 62, height: 62, borderRadius: 16, background: T.tile, border: `2px solid ${T.tile_edge}`, color: T.ink,
+    case 'pill': { const [cur, prev, m] = state(n, t), P = s => s === 'right' ? [T.good_bg, T.good, T.good_ledge, T.good] : s === 'dim' ? [T.pill, T.pill_edge, T.pill_ledge, T.muted] : [T.pill, T.pill_edge, T.pill_ledge, T.ink];
+      // Stitch quiz cf476e5b: right = green border + glow + streak, letter tile + label turn green; dim = faded, label struck through
+      const A = P(prev), B = P(cur), x = k => mixc(A[k], B[k], m), op = cur === 'dim' ? 1 - 0.35 * m : 1, r = cur === 'right' ? m : 0;
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 28, background: x(0), border: `2px solid ${x(1)}`, borderBottom: `6px solid ${x(2)}`, opacity: op, overflow: 'hidden',
+        boxShadow: r ? `0 0 ${26 * r}px ${T.good}47` : 'none' }}>
+        {r ? <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '40%', opacity: r, background: `linear-gradient(270deg, ${T.good}1A, transparent)` }} /> : null}
+        <div style={{ position: 'absolute', left: 18, top: 21, width: 62, height: 62, boxSizing: 'border-box', borderRadius: 16, background: r ? mixc(T.tile, T.good_tile, r) : T.tile, border: `2px solid ${r ? mixc(T.tile_edge, T.good, r) : T.tile_edge}`,
+          boxShadow: cur === 'dim' ? 'inset 0 3px 6px rgba(0,0,0,.25)' : r ? `0 3px 0 ${T.good_ledge}` : 'none', color: r ? mixc(T.ink, T.good, r) : T.ink,
           fontFamily: JAK, fontWeight: 800, fontSize: 34, lineHeight: '58px', textAlign: 'center' }}>{n.idx}</div>
-        <div style={{ position: 'absolute', left: 104, top: 0, height: h - 8, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 8}px`, color: x(3), whiteSpace: 'pre' }}>{n.label}</div></div>; }
-    case 'check':
-      return <svg width={w} height={h} viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#2FBF71" /><path d="M18 33l9 9 19-20" stroke="#0E2919" strokeWidth="7" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+        <div style={{ position: 'absolute', left: 104, top: 0, height: h - 8, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 8}px`, color: x(3), whiteSpace: 'pre',
+          textDecoration: cur === 'dim' && m > 0.5 ? 'line-through' : 'none', textDecorationColor: `${T.muted}80`, textDecorationThickness: 4 }}>{n.label}</div></div>; }
+    case 'check':   // card row = Stitch compare ✓ badge (tinted, ring); quiz answer (no parent) = Stitch solid green ✓ badge
+      return n.parent ? <Badge w={w} h={h} glyph="check" bg={T.good_bg} ring={T.good} ink={T.good} ledge={T.badge_good_ledge} />
+        : <Badge w={w} h={h} glyph="check" bg={T.badge_bg} ring={T.badge_bg} ink={T.badge_ink} ledge={T.badge_ledge} />;
     case 'cross':
-      return <svg width={w} height={h} viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#F2553B" /><path d="M21 21l22 22M43 21L21 43" stroke="#3A0D06" strokeWidth="7" strokeLinecap="round" /></svg>;
+      return <Badge w={w} h={h} glyph="cross" bg={T.bad_bg} ring={T.bad} ink={T.bad} ledge={T.badge_bad_ledge} />;
     case 'qmark':
       return <div style={{ width: w, height: h, borderRadius: '50%', background: T.chip_bg, border: `3px solid ${T.chip_edge}`, color: T.chip_ink, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 6}px`, textAlign: 'center' }}>?</div>;
     case 'confetti': { const tau = t - n.in.t; if (tau < 0 || tau > 0.9) return null; const cols = [T.cta_a, '#FFC94A', '#2FBF71', '#6BD8CE'];
@@ -153,17 +178,20 @@ function Body({ n, t, w, h, T }) {
         const x = w * (0.55 + 0.35 * ((i % 7) / 6 - 0.5)) + Math.cos(a) * v * tau, y = h * 0.6 + Math.sin(a) * v * tau + 420 * tau * tau;
         return <rect key={i} x={x} y={y} width="16" height="9" rx="3" fill={cols[i % 4]} opacity={1 - clamp01((tau - 0.5) / 0.4)} transform={`rotate(${(i * 47 + tau * 360) % 360} ${x + 8} ${y + 4})`} />; })}</svg>; }
     case 'ring': { const { t0, t1 } = n.ring, rem = clamp01((t1 - t) / (t1 - t0)), d = Math.min(3, Math.max(1, Math.ceil(3 * (t1 - t) / (t1 - t0) - 1e-9))), r = w / 2 - 7, C = 2 * Math.PI * r;
-      return <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}><circle cx={w / 2} cy={h / 2} r={r} stroke={T.ring_track} strokeWidth="9" fill={T.ring_bg} />
-        <circle cx={w / 2} cy={h / 2} r={r} stroke={T.ring_fg} strokeWidth="9" fill="none" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - rem)} transform={`rotate(-90 ${w / 2} ${h / 2})`} />
+      return <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{ overflow: 'visible' }}><circle cx={w / 2} cy={h / 2} r={r} stroke={T.ring_track} strokeWidth="9" fill={T.ring_bg} />
+        <circle cx={w / 2} cy={h / 2} r={r} stroke={T.ring_fg} strokeWidth="9" fill="none" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - rem)} transform={`rotate(-90 ${w / 2} ${h / 2})`}
+          style={{ filter: `drop-shadow(0 0 8px ${T.ring_glow})` }} />
         <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle" fontFamily={JAK} fontWeight="800" fontSize={n.size} fill={T.ring_ink}>{t >= t1 ? '✓' : d}</text></svg>; }
     case 'strike': { const p = pose(n, t).p;
       return <div style={{ position: 'absolute', left: 0, top: 0, height: h, width: w * p, background: '#F2553B', borderRadius: h / 2 }} />; }
     case 'dot': { const [cur, , m] = state(n, t), on = cur === 'hit' ? m : 0;
       return <div style={{ width: w, height: h, borderRadius: '50%', background: n.big ? mixc(T.dot_off, T.dot_on, on) : T.dot_off, boxShadow: n.big && on ? `0 0 ${16 * on}px ${T.dot_on}` : 'none' }} />; }
-    case 'img': return <Img src={staticFile(n.src)} style={{ width: w, height: h, borderRadius: n.radius, display: 'block' }} />;
-    case 'cta':
-      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 28, background: `linear-gradient(90deg,${T.cta_a},${T.cta_b})`, borderBottom: `6px solid ${T.cta_ledge}`,
-        color: T.cta_ink, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 6}px`, textAlign: 'center' }}>{n.lines.join(' ')} →</div>;
+    case 'img':   // Stitch CTA d7ba2153: app icon tile (rim + ledge) and the white QR tile (ledge) – same box, graphic only
+      return <Img src={staticFile(n.src)} style={{ width: w, height: h, borderRadius: n.radius, display: 'block', boxSizing: 'border-box',
+        ...(n.tile === 'icon' ? { border: `3px solid ${T.icon_edge}`, boxShadow: `0 8px 0 ${T.icon_ledge}` } : n.tile === 'qr' ? { background: '#FFFFFF', boxShadow: `0 8px 0 ${T.qr_ledge}` } : {}) }} />;
+    case 'cta':   // Stitch CTA d7ba2153: 135° coral -> orange, ledge, coral glow, top highlight
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 28, background: `linear-gradient(135deg,${T.cta_a} 0%,${T.cta_b} 100%)`, borderBottom: `6px solid ${T.cta_ledge}`,
+        boxShadow: `0 18px 30px -6px ${T.cta_glow}, inset 0 3px 0 ${T.cta_hi}`, color: T.cta_ink, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 6}px`, textAlign: 'center' }}>{n.lines.join(' ')} →</div>;
     default: return null;
   }
 }
@@ -245,8 +273,13 @@ function Captions({ caps, box, t, T }) {
   const now = p.words.filter(w => t >= w.s - 0.02).length - 1, a = clamp01((t - p.t0) / 0.08);
   return (
     <div style={{ position: 'absolute', left: box[0], top: box[1], width: box[2] - box[0], height: box[3] - box[1], display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: a }}>
-      <div style={{ padding: '10px 26px', borderRadius: 24, background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre' }}>
-        {p.words.map((w, i) => <span key={i} style={{ color: i === now ? T.cap_now : T.cap_ink }}>{(i ? ' ' : '') + w.w}</span>)}</div>
+      {/* Stitch caption 1e21e728 lower-third: plate rim + inner top highlight + soft shadow; spoken word gold with a glow and an underline nub */}
+      <div style={{ padding: '10px 26px', borderRadius: 24, background: T.cap_plate, border: `2px solid ${T.cap_edge}`, boxShadow: `inset 0 2px 0 ${T.cap_hi}, 0 10px 26px ${T.drop}`,
+        fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre' }}>
+        {p.words.map((w, i) => <React.Fragment key={i}>{i ? <span style={{ color: T.cap_ink }}> </span> : null}{i === now
+          ? <span style={{ color: T.cap_now, textShadow: `0 2px 18px ${T.cap_glow}`, position: 'relative', display: 'inline-block' }}>{w.w}
+              <span style={{ position: 'absolute', left: 0, right: 0, bottom: -2, height: 7, borderRadius: 999, background: T.cap_now, boxShadow: `0 0 12px ${T.cap_glow}` }} /></span>
+          : <span style={{ color: T.cap_ink }}>{w.w}</span>}</React.Fragment>)}</div>
     </div>);
 }
 

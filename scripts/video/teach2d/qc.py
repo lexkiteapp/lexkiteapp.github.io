@@ -2,7 +2,7 @@
 """Teach2D QC (docs/VIDEO-TEACH2D.md): every gate must pass and the weighted score must be >= 90, else exit 1 (nothing ships).
   python3 scripts/video/teach2d/qc.py --timeline PROPS.json.timeline.json [--video OUT.mp4] [--sheet OUT.sheet.jpg] [--out qc.json]
 Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (talk only while speaking, listen in pauses)
-· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear,
+· hook (on screen at frame 0, <= 6 words, spoken by the episode's hook_by, default 2.2 s) · cue_timing (+-80 ms on the word) · clearance (clear.py: gaps, children inside their card, no half-over-a-card) · layout (text in SAFE, no overlap, head clear,
 every chip / pill text on one line inside its pill)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
 · scene_clear (known scene; counter + props never over captions / text / QR / CTA, nor over the teacher's head / body; calm card region; text + captions readable on the scene)
@@ -106,27 +106,44 @@ for n in T['nodes']:   # nothing may stay on screen after the card it belongs to
         if ends and (not n.get('out') or n['out']['t'] > max(ends) + 0.05): prob.append(dict(id=n['id'], why='outlives its card', type=n['type']))
 seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True) in seen or seen.add(json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True)))]
 gate('layout', not prob, 3, problems=prob[:8])
+import clear as CL  # noqa: E402  (owner 31/10 overlap review: >= 6 px between leaves, children inside their growing card, free leaves never half over a card)
+cl_ = CL.audit(T); gate('clearance', not cl_, 2, problems=cl_[:8])
 # contrast on the real fill (card tone / chip / pill / caption plate), both themes are separate renders
 def rgb(c, over=None):
     if c.startswith('#'): return c
     m = re.match(r'rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)', c); r, g, b, a = int(m[1]), int(m[2]), int(m[3]), float(m[4]); ov = [int(over[i:i + 2], 16) for i in (1, 3, 5)]
     return '#' + ''.join(f'{round(x * a + y * (1 - a)):02x}' for x, y in zip((r, g, b), ov))
-FILL = dict(card=TH['card'], tile=TH['tile'], good=TH['good_bg'], bad=TH['bad_bg'], bubble_bad=TH['bubble_bad'], bubble_good=TH['bubble_good'])
+# every stop of a card fill (Stitch v3 compare cards b6303607: ✓ / ✗ cards are vertical gradients goodc_a -> goodc_b, badc_a -> badc_b)
+FILL = dict(card=[TH['card']], tile=[TH['tile']], good=[TH['goodc_a'], TH['goodc_b']], bad=[TH['badc_a'], TH['badc_b']], bubble_bad=[TH['bubble_bad']], bubble_good=[TH['bubble_good']])
 low = []
 def need(sz): return 3.0 if sz >= 56 else 4.5
+def span(n): return n['in']['t'], (n['out']['t'] if n.get('out') else T['total'])
+def under(n):   # free text: the canvas + every top-level card / split it sits inside while both are on screen (split = card + its Stitch half panels)
+    a0, a1 = span(n); b = n['box']; out = [TH['bg']]
+    for c in T['nodes']:
+        if c['type'] in ('card', 'split') and not c.get('parent') and c['box'][0] <= b[0] + 2 and b[2] <= c['box'][2] + 2 and c['box'][1] <= b[1] + 2 and b[3] <= c['box'][3] + 2:
+            c0, c1 = span(c)
+            if c0 < a1 and a0 < c1: out += [TH['card'], TH['half_bg']] if c['type'] == 'split' else FILL.get(c.get('tone'), [TH['card']])
+    return out
 for n in T['nodes']:
     if n['type'] == 'text':
-        bg = FILL.get(N[n['parent']]['tone'], TH['card']) if n.get('parent') else TH['bg']
+        bgs = FILL.get(N[n['parent']].get('tone'), [TH['card']]) if n.get('parent') else under(n)
         for s, k in n['runs']:
             if s.strip():
-                cr = contrast(TH.get(k, k), bg)
+                cr = min(contrast(TH.get(k, k), bg) for bg in bgs)
                 if cr < need(n['size']): low.append(dict(id=n['id'], text=s.strip()[:20], cr=cr, need=need(n['size'])))
 for n in T['nodes']:   # Stitch components with their own fills (candy tiles, beat tiles, stamp, VS…) declare their text/fill pairs
     for fg, bg, sz in n.get('pairs') or []:
         cr = contrast(TH.get(fg, fg), TH.get(bg, bg))
         if cr < need(sz): low.append(dict(id=n['id'], type=n['type'], fg=fg, bg=bg, cr=cr, need=need(sz)))
 pairs = [('chip', TH['chip_ink'], TH['chip_bg'], 40), ('pill', TH['ink'], TH['pill'], 56), ('pill-right', TH['ink'], TH['good_bg'], 56), ('pill-dim', TH['muted'], TH['pill'], 56),
-         ('caption', TH['cap_ink'], rgb(TH['cap_plate'], TH['bg2']), 58), ('caption-now', TH['cap_now'], rgb(TH['cap_plate'], TH['bg2']), 58), ('cta', TH['cta_ink'], TH['cta_a'], 60), ('ring', TH['ring_ink'], TH['ring_bg'], 54)]
+         ('caption', TH['cap_ink'], rgb(TH['cap_plate'], TH['bg2']), 58), ('caption-now', TH['cap_now'], rgb(TH['cap_plate'], TH['bg2']), 58), ('cta', TH['cta_ink'], TH['cta_a'], 60), ('ring', TH['ring_ink'], TH['ring_bg'], 54),
+         # Stitch v3 components (project 16045682500097294965): gold series / in-card chip (both gradient stops), badge chips, eyebrow, 100% FREE badge, answer pill right label +
+         # letter tiles, answer tile labels + ✓ CORRECT badge, CTA gradient end, US / UK tags, VS badge
+         ('chip-gold', TH['gold_ink'], TH['gold'], 40), ('chip-gold2', TH['gold_ink'], TH['gold2'], 40), ('chip-good', TH['good'], TH['good_bg'], 40), ('chip-bad', TH['bad'], TH['bad_bg'], 40),
+         ('eyebrow', TH['eyebrow_ink'], TH['eyebrow_bg'], 40), ('free', TH['accent'], TH['free_bg'], 40), ('pill-right-label', TH['good'], TH['good_bg'], 40),
+         ('pill-letter', TH['ink'], TH['tile'], 34), ('pill-letter-right', TH['good'], TH['good_tile'], 34), ('opt-label', TH['muted'], TH['pill'], 40), ('opt-badge', TH['badge_ink'], TH['badge_bg'], 40),
+         ('cta-b', TH['cta_ink'], TH['cta_b'], 60), ('tag-us', TH['primary'], TH['tag_bg'], 40), ('tag-uk', TH['accent'], TH['tag_bg'], 40), ('vs', TH['vs_ink'], TH['vs_bg'], 56)]
 for name, fg, bg, sz in pairs:
     cr = contrast(fg, bg)
     if cr < need(sz): low.append(dict(id=name, cr=cr, need=need(sz)))
