@@ -18,7 +18,10 @@ const segs = TL.segments.map((s, i) => {
   const M = LF.machine(s.who, { cues, env, dur: s.dur, emo: s.emo, seed: 21 + i, text: s.text }), n = env.length, peak = Math.max(...env);
   const S = Array.from({ length: n }, (_, k) => M.at(k / 100)), sp = LS.phoneSpans(s.ph);
   const truth = t => { const x = sp.find(q => q.s <= t && t < q.e && q.v !== ' '); return x ? x.v : null; };
-  let ok = 0, tot = 0; for (let k = 0; k < n; k++) { if (env[k] < peak * .1) continue; const want = new Set(); for (let d = -4; d <= 4; d++) { const v = truth((k + d) / 100); if (v) want.add(v); } if (!want.size) continue; tot++; if (want.has(S[k].shape)) ok++; }
+  // đúng hình: hình đang hiện khớp âm vị thật trong ±40 ms; hình được engine CHỦ Ý cho đi trước (LS.LEADS: môi khép A 65 ms, F/V 45 ms, chu môi 40 ms)
+  // được tính thêm đúng phần đi trước đó về phía sau – hình tới sớm theo thiết kế không bị trừ, hình tới TRỄ vẫn bị bắt (lô thử 01/11: pt_BR-people-are 79 % vì 3 âm P)
+  let ok = 0, tot = 0; for (let k = 0; k < n; k++) { if (env[k] < peak * .1) continue; const sh = S[k].shape, ext = Math.round(((LS.LEADS[sh] || LS.LEAD) - LS.LEAD) * 100);
+    const want = new Set(), mine = new Set(); for (let d = -4; d <= 4 + ext; d++) { const v = truth((k + d) / 100); if (v && d <= 4) want.add(v); if (v) mine.add(v); } if (!want.size) continue; tot++; if (mine.has(sh)) ok++; }
   let flick = 0, run = 1; for (let k = 1; k < n; k++) { if (S[k].shape === S[k - 1].shape) { run++; continue; } if (k - run > 0 && run < Math.round(LS.MIN_HOLD * 100) - 1) flick++; run = 1; }
   const firstVoiced = env.findIndex(v => v > peak * .1) / 100;
   // độ lệch miệng–tiếng: đo TỪNG CỤM có tiếng (cắt ở chỗ lặng ≥ 120 ms, cụm ≥ 0,6 s), cổng lấy cụm lệch nhiều nhất. Đo cả câu một lần (lagGlobalMs, giữ để
