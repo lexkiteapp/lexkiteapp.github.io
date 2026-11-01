@@ -1,12 +1,12 @@
-# Lộ trình Play & Speak v3: phần lớn luôn mở, bài nhỏ khoá tuần tự (spec-lite, chờ chủ duyệt)
+# Lộ trình Play & Speak v3: phần lớn luôn mở, bài nhỏ khóa tuần tự (spec-lite, chờ chủ duyệt)
 
-> TL;DR: Bản đồ học đổi từ "chuỗi 6 nút khoá nối tiếp" sang **7 phần lớn luôn mở** (Từ mới, Nghe, Nói, Truyện, Ngữ pháp, Luyện thi, Ôn lỗi). Mỗi phần là một thang bài nhỏ A1→C1, **khoá tuần tự**, có **bài nhảy cóc** theo từng bậc. Tiến độ = hàm thuần `PathV3` (web/js/lesson/path3.js) có test. Thứ tự gợi ý dựa trên trí nhớ người học trên máy. 5 mốc M1–M5, cờ `path3`. Nguồn gốc: [play-and-speak.md](play-and-speak.md) (#291, v2.2), [LEARNING-PATH.md](../LEARNING-PATH.md).
-> Đọc khi: sửa bản đồ học, khoá/mở bài, xếp lớp, thứ tự bài, luyện nói lưu loát, ngữ pháp theo kỳ thi.
+> TL;DR: Bản đồ học đổi từ "chuỗi 6 nút khóa nối tiếp" sang **7 phần lớn luôn mở** (Từ mới, Nghe, Nói, Truyện, Ngữ pháp, Luyện thi, Ôn lỗi). Mỗi phần là một thang bài nhỏ A1→C1, **khóa tuần tự**, có **bài nhảy cóc** theo từng bậc. Tiến độ = hàm thuần `PathV3` (web/js/lesson/path3.js) có test. Thứ tự gợi ý dựa trên trí nhớ người học trên máy. 5 mốc M1–M5, cờ `path3`. Nguồn gốc: [play-and-speak.md](play-and-speak.md) (#291, v2.2), [LEARNING-PATH.md](../LEARNING-PATH.md).
+> Đọc khi: sửa bản đồ học, khóa/mở bài, xếp lớp, thứ tự bài, luyện nói lưu loát, ngữ pháp theo kỳ thi.
 
 ## 1. Mục tiêu và tiêu chí xong
 | # | Chủ yêu cầu (01/11) | Xong khi |
 |---|---|---|
-| G1 | Phần lớn không khoá; bài nhỏ khoá tuần tự | Mọi phần bấm được ngay ngày đầu; trong phần, bài *i* mở khi bài *i−1* xong hoặc được nhảy cóc. Test bất biến xanh. |
+| G1 | Phần lớn không khóa; bài nhỏ khóa tuần tự | Mọi phần bấm được ngay ngày đầu; trong phần, bài *i* mở khi bài *i−1* xong hoặc được nhảy cóc. Test bất biến xanh. |
 | G2 | Lộ trình thông minh theo trí nhớ người học | Thẻ "Gợi ý tiếp" chọn phần + bài theo điểm yếu (lỗi, âm khó, thẻ đến hạn). Hồ sơ ở IndexedDB, xem/xoá được ([AI-LOCAL.md](../AI-LOCAL.md)). |
 | G3 | Thư viện A1→C1, vừa học vừa chơi | Mỗi phần có bài ở đủ 5 bậc; không cùng dạng trò chơi 3 lần liền; ≥ 8 dạng chơi. |
 | G4 | Nói tới lưu loát theo phương pháp có nghiên cứu | Phần Nói có 6 kỹ thuật ở §4, đo tốc độ nói + độ ngắt + GOP theo thời gian. |
@@ -16,7 +16,7 @@ Không cắt gì (luật no-cuts): mọi bài, nút, module thi, test và ngư�
 
 ## 2. Mô hình (M1)
 - **Phần (track)**: `{ id, name, icon, ladder: [bài] }`. Bài: `{ id, cefr: 'A1'…'C1', kind, ref, min }`. `ref` trỏ tới nội dung sẵn có (từ chủ đề, Listening, Speak/Pron, truyện/radio, chương ngữ pháp, module thi, FSRS).
-- **Thứ tự phần** theo mục tiêu (IELTS/TOEIC/TOEFL/Giao tiếp) giữ luật `ORDER` của LEARNING-PATH §2. Thứ tự này chỉ để sắp, không dùng để khoá.
+- **Thứ tự phần** theo mục tiêu (IELTS/TOEIC/TOEFL/Giao tiếp) giữ luật `ORDER` của LEARNING-PATH §2. Thứ tự này chỉ để sắp, không dùng để khóa.
 - **Trạng thái bài** `PathV3.status(track, i, prog)` → `done | next | open-skip | lock`:
   - bài 0 luôn mở;
   - bài *i* mở khi bài *i−1* `done` hoặc `i ≤ prog.skip[track]`.
@@ -51,8 +51,8 @@ Chỉ số lưu loát lưu trong hồ sơ: số từ/phút, tỉ lệ ngắt dà
 
 | Kỳ thi | Phạm vi |
 |---|---|
-| **TOEIC** | Part 5: 30 câu hoàn thành câu. Part 6: 16 câu, 4 đoạn văn. Gồm từ loại, thì, giới từ, liên từ, mệnh đề quan hệ, bị động, so sánh, đại từ. |
-| **IELTS** | Writing/Speaking chấm theo tiêu chí Grammatical Range & Accuracy của band descriptors: câu phức, mệnh đề, điều kiện, bị động, mạo từ, hoà hợp, theo dải band 5–8. |
+| **TOEIC** | Part 5: 30 câu hòan thành câu. Part 6: 16 câu, 4 đoạn văn. Gồm từ loại, thì, giới từ, liên từ, mệnh đề quan hệ, bị động, so sánh, đại từ. |
+| **IELTS** | Writing/Speaking chấm theo tiêu chí Grammatical Range & Accuracy của band descriptors: câu phức, mệnh đề, điều kiện, bị động, mạo từ, hòa hợp, theo dải band 5–8. |
 | **TOEFL iBT (từ 01/2026)** | Build a Sentence, Write an Email, Academic Discussion, Listen and Repeat; thang 1–6. |
 
 - Khối lượng: thang mỗi kỳ thi có đủ số dạng câu theo tỉ lệ của đề thật. Bảng đối chiếu nguồn lưu ở `content/qa/sources.json`.
@@ -81,7 +81,7 @@ Chỉ số lưu loát lưu trong hồ sơ: số từ/phút, tỉ lệ ngắt dà
 | M5 | thư viện ≥ 8 dạng chơi | `lesson/engine.js` + màn Stitch mới |
 
 - **Cổng**:
-  - `npm test` xanh, có thêm `path3.mjs` (bất biến khoá, di trú, không mất nội dung);
+  - `npm test` xanh, có thêm `path3.mjs` (bất biến khóa, di trú, không mất nội dung);
   - khung app ≤ 377 KB gz (`path3` tải lười cùng gói ux1);
   - i18n 15 ngôn ngữ;
   - tương phản ≥ 4,5:1;
