@@ -27391,19 +27391,19 @@
     "tr": "Suç"
   },
   "Văn hóa": {
-    "es": "Cultura",
-    "pt": "Cultura",
-    "fr": "Culture",
-    "de": "Kultur",
-    "id": "Budaya",
-    "th": "วัฒนธรรม",
-    "zh": "文化",
-    "ja": "文化",
-    "ko": "문화",
-    "hi": "संस्कृति",
-    "ar": "الثقافة",
-    "ru": "Культура",
-    "tr": "Kültür"
+    "es": "Dato cultural",
+    "pt": "Nota cultural",
+    "fr": "Note culturelle",
+    "de": "Kulturtipp",
+    "id": "Catatan budaya",
+    "th": "เกร็ดวัฒนธรรม",
+    "zh": "文化小贴士",
+    "ja": "文化メモ",
+    "ko": "문화 노트",
+    "hi": "संस्कृति नोट",
+    "ar": "ملاحظة ثقافية",
+    "ru": "О культуре",
+    "tr": "Kültür notu"
   },
   "Kinh tế": {
     "es": "Economía",
@@ -31724,21 +31724,6 @@
     "ar": "عبارات تم إتقانها",
     "ru": "фраз освоено",
     "tr": "ustalaşılan kalıp"
-  },
-  "Văn hóa": {
-    "es": "Dato cultural",
-    "pt": "Nota cultural",
-    "fr": "Note culturelle",
-    "de": "Kulturtipp",
-    "id": "Catatan budaya",
-    "th": "เกร็ดวัฒนธรรม",
-    "zh": "文化小贴士",
-    "ja": "文化メモ",
-    "ko": "문화 노트",
-    "hi": "संस्कृति नोट",
-    "ar": "ملاحظة ثقافية",
-    "ru": "О культуре",
-    "tr": "Kültür notu"
   },
   "Dùng mic": {
     "es": "Usar el micro",

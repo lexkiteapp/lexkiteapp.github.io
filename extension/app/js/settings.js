@@ -14,6 +14,7 @@
     const perm = 'Notification' in window ? Notification.permission : 'unsupported';
     const nc = x => x.replace(/[:：]\s*$/, ''); // nhãn đứng riêng – bỏ dấu hai chấm ở cuối
     const row = (label, ctl, hint = '') => (ctl = ctl.replace(/<(select|input)(?![^>]*aria-label)(?![^>]*type="file")/g, `<$1 aria-label="${esc(String(label).replace(/<[^>]+>/g, ''))}"`), `<div class="set-row"><div class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`);
+    const OFFP = !!(window.LKAudio && LKAudio.offline.supported() && LKAudio.offline.flag()); // 📥 gói nghe offline (cờ offline_pack)
     const tog = (id, on, label, hint = '') => `<label class="set-row switch"><span class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><input type="checkbox" id="${id}" ${on ? 'checked' : ''}></label>`;
     const slide = (label, vid, val, input, hint = '') => `<label class="set-row col"><span class="set-top"><span>${label}</span><b id="${vid}">${val}</b></span>${input}${hint ? `<small>${hint}</small>` : ''}</label>`;
     const seg = (id, items, cur) => `<div class="tabs seg" id="${id}">${items.map(([v, l, attr]) => `<button type="button" data-v="${v}" class="${cur === v ? 'on' : ''}"${attr || ''}>${l}</button>`).join('')}</div>`;
@@ -44,6 +45,7 @@
         + tog('sAuto', s.autoSpeak, t('Tự phát âm khi hiện thẻ'))
         + tog('sWhisper', s.whisperMode, '🤫 ' + t('Chế độ thì thầm khi luyện nói'))
         + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
+        + (OFFP ? tog('sOff', LKAudio.offline.on(), '📥 ' + t('Nghe offline: tải sẵn khoảng {n} từ thông dụng và bài đang học', { n: LKAudio.offline.N.toLocaleString(I18N.lang ? I18N.lang() : undefined) }), t('Khoảng {mb} MB, tối đa {max} MB. Tắt để xóa khỏi máy.', { mb: LKAudio.offline.EST_MB, max: LKAudio.offline.MAX_MB })) + '<div id="offStat" class="tip small set-tip" aria-live="polite" hidden></div>' : '')
         + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh'))
         + tog('sFeel', !!(window.Sfx && Sfx.feel && Sfx.feel()), t('Âm thanh & hiệu ứng kiểu trò chơi')))}
       ${sec('remind', UI.icon('alarm-clock') + t('Nhắc học hằng ngày'),
@@ -118,10 +120,19 @@
     $('#sVoice').onchange = e => { s.voice = { ...(s.voice || {}), [s.accent]: e.target.value }; save(); UI.tts('This is how I will read words and sentences to you.', s.accent); };
     $('#sRate').oninput = e => { s.ttsRate = +e.target.value; $('#vRate').textContent = s.ttsRate.toFixed(2) + '×'; save(); };
     $('#sTry').onclick = () => UI.tts('Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.', s.accent);
-    $('#sAccent').onchange = e => { s.accent = e.target.value; s.accentPicked = true; save(); fillVoices(); speak('pronunciation', s.accent); };
+    $('#sAccent').onchange = e => { s.accent = e.target.value; s.accentPicked = true; save(); fillVoices(); if (OFFP && LKAudio.offline.on()) LKAudio.offline.enable(s.accent); /* gói offline theo giọng mới */ speak('pronunciation', s.accent); };
     $('#sAuto').onchange = e => { s.autoSpeak = e.target.checked; save(); };
     $('#sWhisper').onchange = e => { s.whisperMode = e.target.checked; save(); if (s.whisperMode) toast(t('Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.'), 4500); };
     $('#sHq').onchange = e => { s.hqVoice = e.target.checked; save(); };
+    if (OFFP) { // 📥 gói nghe offline (web/js/audio.js + web/sw.js): mặc định tắt; bật → service worker tải dần, hiện tiến độ + dung lượng
+      const st = $('#offStat'); let tm = 0;
+      const show = x => { if (!st.isConnected) return clearInterval(tm); if (!x || x.off) { st.hidden = true; return; } st.hidden = false; const mb = (x.bytes / 1048576).toFixed(1);
+        st.textContent = x.full ? t('Đã đạt giới hạn {max} MB', { max: x.maxMb }) : t('Đã tải {done}/{total} · {mb} MB', { done: Math.min(x.done, x.total), total: x.total, mb }); if (x.complete || x.full) clearInterval(tm); };
+      const poll = () => { clearInterval(tm); tm = setInterval(() => LKAudio.offline.status().then(show), 2000); LKAudio.offline.status().then(show); };
+      if (LKAudio.offline.on()) poll();
+      $('#sOff').onchange = e => { if (e.target.checked) LKAudio.offline.enable(s.accent).then(poll); else { clearInterval(tm); LKAudio.offline.disable().then(() => show(null)); } };
+      App.onCleanup && App.onCleanup(() => clearInterval(tm));
+    }
     if ($('#sFeel')) $('#sFeel').onchange = e => { if (window.Sfx && Sfx.feel) Sfx.feel(e.target.checked); }; // 🎮 docs/GAME-FEEL.md – lưu vb.feel, bật/tắt ngay
     $('#sSfx').onchange = e => { s.sfx = e.target.checked; save(); if (s.sfx) { Core.sfxOff = false; Sfx.correct(); } };
     $$('#sTheme button').forEach(b => b.onclick = () => { s.theme = b.dataset.v; applyTheme(); save(); $$('#sTheme button').forEach(x => x.classList.toggle('on', x === b)); });
