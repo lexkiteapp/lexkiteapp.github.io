@@ -146,6 +146,44 @@ T2.destroy();
 const known = []; await w.LookupCard.open(w.document.getElementById('anchor'), { text: 'to go', info: { def: 'take away', tr: { vi: 'mang đi' } }, lang: 'vi', onKnown: x => known.push(x) });
 w.document.querySelector('.lkc-known').click(); ok(known[0] === 'to go' && !w.document.querySelector('.lkc'), 'thẻ tra: Đã biết → callback + đóng');
 
+// ---- 6. Khung Stitch v2 (M2): thẻ câu theo khuôn mẫu Stitch (đã qua/đang phát/sắp tới) + bottom sheet thẻ tra ----
+w.App = { routes: {}, guard: f => f, addWord: async (e, c) => { saved.push([e, c]); return {}; }, inDeck: () => false };
+for (const f of ['web/js/st/v2/watch.js', 'web/js/st/v2/watch-mini.js', 'web/js/st/v2/watch-lookup.js', 'web/js/media/player.js']) w.eval(fs.readFileSync(f, 'utf8'));
+ok(w.ST2 && w.ST2.watch && w.ST2['watch-mini'] && w.ST2['watch-lookup'] && w.MediaPlayer && w.App.routes.watch, 'v2: nạp được 3 khung + route');
+const D2 = { title: 'Coffee to go', scene: 'Daily', nameA: 'Ama', nameB: 'Carlos', two: true, tchA: '<div class="mp-tch" data-who="ama"></div>', tchB: '<div class="mp-tch" data-who="carlos"></div>', tchMini: '<div id="wTchM"></div>', speaking: 'Ama', time: '0:00 / 0:20', dur: '0:20', durS: 20, rate: '1.0x', loop: false, tr: true, live: false, langName: 'Tiếng Việt', langSel: '<select id="wLang"></select>', tabsNav: [1, 2, 3, 4, 5].map(i => ({ href: '#/t' + i, label: 'Tab' + i })) };
+for (const k of ['watch', 'watch-mini']) {
+  const host = w.document.createElement('div'); host.innerHTML = w.ST2[k](D2).main; w.document.body.appendChild(host);
+  const need = k === 'watch' ? ['#wBack', '#wAa', '#wPlay', '#wPlayI', '#wSeek', '#wBar', '#wModes', '#wPanel', '#wTr', '#wChipA', '#wChipB', '#wTools', '#wLang'] : ['#wBack', '#wAa', '#wPlay', '#wPlayI', '#wSeek', '#wBar', '#wModes', '#wPanel', '#wTr', '#wTchM', '#wSpk', '#wTime'];
+  ok(need.every(s => host.querySelector(s)), `v2 ${k}: đủ móc (${need.filter(s => !host.querySelector(s)).join(' ')})`);
+  ok(host.querySelectorAll('[data-m]').length === 4 && host.querySelector('[data-a=fold]') && !/dashed/.test(host.innerHTML.match(/w-\[82px\][^"]*/) || ''), `v2 ${k}: 4 chế độ, nút sân khấu, ô nét đứt đã thay bằng giáo viên`);
+  ok(!/\b(Hi! What can I get you today\?|ACTIVE|SLOT)\b/.test(host.innerHTML), `v2 ${k}: không lọt chữ mẫu Stitch`);
+  const box = host.querySelector('#wTr'), S = w.MediaPlayer.skinOf(box, k, x => ({ A: 'Ama', B: 'Carlos' })[x]), ev2 = [];
+  const T3 = w.MediaTranscript.mount(box, { cues: tc, phrases: { 'to go': {} }, lang: 'vi', skin: S, onPlay: i => ev2.push(i), onSeek: () => {} });
+  const r = box.querySelectorAll('.mt-row');
+  ok(r.length === 2 && box.classList.contains('mt-st') && r[0].querySelector('.mt-who').textContent === 'Ama' && r[1].querySelector('.mt-tr').textContent === 'Không sao đâu.', `v2 ${k}: câu thật vẽ bằng khuôn Stitch`);
+  const nextCls = r[1].getAttribute('class'); T3.setTime(1.0);
+  ok(r[0].classList.contains('on') && r[0].getAttribute('class') !== nextCls && r[0].querySelector('.mt-badge, .mt-side span') && /\S/.test(r[0].querySelector('[data-w="4"]').getAttribute('class') || ''), `v2 ${k}: câu đang phát = khuôn thẻ đang phát + nhãn + tô từ karaoke`);
+  ok(!/\S/.test(r[0].querySelector('[data-w="0"]').getAttribute('class') || '') || r[0].querySelector('[data-w="0"]').className === 'w-on', `v2 ${k}: karaoke chỉ tô từ đang nói`);
+  ok(/border-dotted/.test(r[0].querySelector('.mt-ph').className), `v2 ${k}: cụm từ gạch chấm theo mẫu`);
+  T3.setTime(3); ok(r[1].classList.contains('on') && r[0].dataset.st === 'done' && !r[0].classList.contains('on'), `v2 ${k}: câu đã qua → khuôn đã qua`);
+  r[0].querySelector('[data-play]').click(); ok(ev2[0] === 0, `v2 ${k}: nút nghe lại trong câu → onPlay`);
+  T3.destroy(); host.remove();
+}
+await w.LookupCard.open(w.document.getElementById('anchor'), { text: 'to go', info: { def: 'take away', tr: { vi: 'mang đi' } }, sentence: 'Can I get a latte to go?', sentenceTr: '…', title: 'Coffee', lang: 'vi' });
+const sh = w.document.querySelector('.v2s-watch-lookup');
+ok(sh && !w.document.querySelector('.lkc') && sh.querySelector('#lkT').textContent === 'to go' && sh.querySelector('#lkMean').textContent === 'mang đi' && sh.querySelector('#lkEx strong').textContent === 'to go', 'v2 thẻ tra: bottom sheet Stitch (cụm, nghĩa, câu ngữ cảnh tô cụm)');
+ok(sh.querySelector('[role=dialog]') && /hidden/.test(sh.querySelector('#lkKnown').className) && sh.querySelectorAll('button[aria-label]').length >= 2, 'v2 thẻ tra: hộp thoại, không có onKnown → ẩn Đã biết, có Nghe + Đóng');
+const n0 = saved.length; sh.querySelector('#lkSave').click(); await new Promise(r => setTimeout(r, 0));
+ok(saved.length === n0 + 1 && w.document.querySelector('#lkSaveL').textContent === 'Đã lưu ✓' && w.document.querySelector('#lkSave').disabled, 'v2 thẻ tra: Lưu vào ôn tập → SRS + nhãn đã lưu');
+w.document.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape' })); ok(!w.document.querySelector('.v2s-watch-lookup'), 'v2 thẻ tra: Esc đóng');
+const kn2 = []; await w.LookupCard.open(w.document.getElementById('anchor'), { text: 'to go', info: { def: 'take away', tr: {} }, lang: 'vi', onKnown: x => kn2.push(x) });
+ok(!/hidden/.test(w.document.querySelector('#lkKnown').className), 'v2 thẻ tra: có onKnown → hiện Đã biết');
+w.document.querySelector('#lkKnown').click(); ok(kn2[0] === 'to go' && !w.document.querySelector('.v2s-watch-lookup'), 'v2 thẻ tra: Đã biết → callback + đóng');
+await w.LookupCard.open(w.document.getElementById('anchor'), { text: 'to go', info: { def: 'x', tr: {} }, lang: 'vi' });
+w.document.querySelector('.v2s-watch-lookup .v2 > div').click(); ok(!w.document.querySelector('.v2s-watch-lookup'), 'v2 thẻ tra: chạm lớp mờ → đóng');
+await w.LookupCard.open(w.document.getElementById('anchor'), { text: 'to go', info: { def: 'x', tr: {} }, lang: 'vi', sheet: false });
+ok(w.document.querySelector('.lkc') && !w.document.querySelector('.v2s-watch-lookup'), 'thẻ tra: sheet:false → thẻ nổi M1 (Truyện)'); w.LookupCard.close();
+
 // i18n: mọi chuỗi t() của media/* có trong en/media.js hoặc từ điển chung (khóa động t(biến) không bị i18n-missing bắt)
 const ctx = { self: {} }; ctx.self = ctx; const vm = await import('node:vm'); vm.createContext(ctx);
 vm.runInContext(fs.readFileSync('web/js/i18n/en.js', 'utf8'), ctx); for (const f of fs.readdirSync('web/js/i18n/en')) vm.runInContext(fs.readFileSync('web/js/i18n/en/' + f, 'utf8'), ctx);

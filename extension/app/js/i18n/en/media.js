@@ -28,5 +28,14 @@
   "Đã có trong bộ thẻ": "Already in your deck",
   "Lưu vào ôn tập": "Save to review",
   "Đã lưu ✓": "Saved ✓",
-  "Đã biết": "I know it"
+  "Đã biết": "I know it",
+  "Cỡ chữ": "Text size",
+  "Tốc độ phát": "Playback speed",
+  "Chế độ luyện": "Practice mode",
+  "Đang phát": "Playing",
+  "{name} đang nói": "{name} is speaking",
+  "Cụm từ": "Phrase",
+  "Từ đơn": "Word",
+  "Điều hướng chính của ứng dụng": "Main navigation",
+  "Đời sống hằng ngày": "Everyday life"
 }); })(self);
