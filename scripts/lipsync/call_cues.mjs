@@ -40,10 +40,12 @@ function score(l, cues, env, ph) {
   let flick = 0, run = 1; for (let k = 1; k < S.length; k++) { if (S[k].shape === S[k - 1].shape) { run++; continue; } if (k - run > 0 && run < Math.round(LS.MIN_HOLD * 100) - 1) flick++; run = 1; }
   return { lagMs: xlag(S.map(s => s.mouth.u + s.mouth.d), env), visemePct: tot ? Math.round(100 * ok / tot) : 100, flicker: flick };
 }
-// nén: mốc "X0 B120 C250 …" (ms, kết thúc = mốc sau / độ dài) · độ lớn tiếng 8 bit theo đỉnh, base64
+// nén: mốc "X0 B120 C250 …" (ms, kết thúc = mốc sau / độ dài) · độ lớn tiếng 8 bit theo đỉnh, base64; đoạn im (≥ 2 nhóm "AAAA" = 6 byte 0) → "~n." (không mất gì, giải: teacher.js)
+// – bớt ~25 % chỉ mục (cổng size-budget web/js); idempotent nên mốc cũ đọc lại cũng được nén
+const zrun = b64 => b64.replace(/(?:AAAA){2,}/g, m => '~' + m.length / 4 + '.');
 const pack = (cues, env) => { const pk = Math.max(...env, 1e-6); return [Math.round(cues[cues.length - 1].end * 1000), cues.map(q => q.value + Math.round(q.start * 1000)).join(' '), Buffer.from(env.map(x => Math.round(255 * Math.min(1, x / pk)))).toString('base64')]; };
 
-const K = { ...old }, rows = [];
+const K = Object.fromEntries(Object.entries(old).map(([k, v]) => [k, v ? [v[0], v[1], zrun(v[2])] : v])), rows = [];
 if (todo.length) {
   fs.mkdirSync(OUT, { recursive: true });
   fs.writeFileSync(`${QA}/in.json`, JSON.stringify(todo.map(([key, l]) => ({ id: key, text: l.text.replace(/["“”]/g, ''), voice: l.voice }))));
@@ -57,12 +59,12 @@ if (todo.length) {
     const env = rms100(back), dur = env.length / 100, kp = JSON.parse(fs.readFileSync(`${QA}/${key}.ph.json`, 'utf8'));
     const cues = LS.lead(LS.smooth(LS.align(LS.fromPhones(kp.ph, dur), env, { words: kp.words }))), s = score(l, cues, env, kp.ph), pass = Math.abs(s.lagMs) <= 45 && s.visemePct >= 80 && s.flicker === 0;
     rows.push({ key, text: l.text, ...s, pass });
-    if (pass) K[key] = pack(cues, env); else { fs.rmSync(mp3); K[key] = 0; } // trượt cổng → không đẩy mp3, ghi 0 (app dùng live, đêm sau không thử lại – đổi câu = khóa mới)
+    if (pass) { const pk = pack(cues, env); K[key] = [pk[0], pk[1], zrun(pk[2])]; } else { fs.rmSync(mp3); K[key] = 0; } // trượt cổng → không đẩy mp3, ghi 0 (app dùng live, đêm sau không thử lại – đổi câu = khóa mới)
   }
 }
 const keys = Object.keys(K).filter(k => lines.has(k)).sort(), good = keys.filter(k => K[k]), body = Object.fromEntries(keys.map(k => [k, K[k]]));
-fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khóa] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64] cho <khóa>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
-  + `(function (g) { g.LK_CUES = ${JSON.stringify({ v: 1, k: body, dict })}; })(typeof self !== 'undefined' ? self : this);\n`);
+fs.writeFileSync(IDX, `/* Mốc khớp miệng câu giáo viên dựng sẵn – Call + Truyện (tự sinh: scripts/lipsync/call_cues.mjs, CI audio.yml) – nạp lười sau cờ lk.lipsync (web/js/lesson/teacher.js).\n * k[khóa] = [độ dài ms, "Hình+ms …", độ lớn tiếng 100 Hz 8 bit base64, "~n." = n nhóm "AAAA"] cho <khóa>-ls.mp3 (0 = trượt cổng → live) · dict = từ điển nhỏ cho live. */\n`
+  + `(function (g) { g.LK_CUES = ${JSON.stringify({ v: 2, k: body, dict })}; })(typeof self !== 'undefined' ? self : this);\n`);
 const bad = rows.filter(r => !r.pass), md = [`## Mốc khớp miệng – ${good.length}/${lines.size} câu có mốc (${keys.length - good.length} trượt cổng → live) · lượt này ${rows.length} câu, trượt cổng ${bad.length}`, '',
   rows.length ? `lệch max ${Math.max(0, ...rows.filter(r => r.lagMs != null).map(r => Math.abs(r.lagMs)))} ms · đúng hình min ${Math.min(100, ...rows.filter(r => r.visemePct != null).map(r => r.visemePct))} % · nháy ${rows.reduce((a, r) => a + (r.flicker || 0), 0)}` : '',
   ...(bad.length ? ['', '| khóa | câu | lệch ms | đúng hình % | nháy |', '|---|---|---|---|---|', ...bad.map(r => `| ${r.key} | ${r.text.slice(0, 60)} | ${r.lagMs ?? r.err} | ${r.visemePct ?? ''} | ${r.flicker ?? ''} |`)] : [])].join('\n');

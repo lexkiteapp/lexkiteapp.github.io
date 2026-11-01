@@ -42,35 +42,34 @@
     // môi: viền ngoài nở theo cung mở + dày môi, góc khép lại ở 2 mép
     const ow = hw + 3 * p.lip;
     const outTop = curve(ow, p.u * S.hw * upK + lipU, Math.min(p.a, .8), sm, -1), outBot = curve(ow, p.d * S.hw + lipD, Math.min(p.a, .8), sm, 1);
-    const out = [];
-    if (!open) {
-      // khép: nét miệng + môi dưới (Ama) / chỉ nét (Carlos); A = mím → thêm dải môi trên
-      const ln = curve(hw, 0, 1, sm, 1);
-      const lower = path(ln.concat(curve(hw * .86, lipD, .6, sm, 1).reverse()), true);
-      if (S.lipD) out.push(`<path d="${lower}" fill="${S.lip}"/>`);
-      if (lipU && p.lip > 1.2) out.push(`<path d="${path(ln.concat(curve(hw * .86, lipU, .6, sm, -1).reverse()), true)}" fill="${S.lipHi}"/>`);
-      out.push(`<path d="${path(ln)}" fill="none" stroke="${S.line}" stroke-width="${S.lw * (p.lip > 1.2 ? 1.25 : 1)}" stroke-linecap="round" stroke-linejoin="round"/>`);
-      if (S.outline && S.lipD) out.push(`<path d="${path(curve(hw * .86, lipD, .6, sm, 1))}" fill="none" stroke="${S.line}" stroke-width="${S.lw}" stroke-linecap="round"/>`);
-      return `<g class="lk-mouth">${out.join('')}</g>`;
-    }
-    const hole = path(top.concat(bot.slice().reverse()), true);
-    const ytop = Math.min(...top.map(q => q[1])), ybot = Math.max(...bot.map(q => q[1])), H = ybot - ytop;
-    if ((lipU || lipD) && !S.outline) out.push(`<path d="${path(outTop.concat(outBot.slice().reverse()), true)}" fill="${S.lip}"/>`);
-    out.push(`<clipPath id="${id}-c"><path d="${hole}"/></clipPath><path d="${hole}" fill="${S.inner}"/><g clip-path="url(#${id}-c)">`);
-    if (p.tg > .01) { // lưỡi: bầu dục từ đáy, tu → cong lên chạm răng trên (âm L)
+    // Khung CỐ ĐỊNH theo nhân vật: mọi lớp luôn có mặt, lớp không dùng ở khung này = display="none" (không vẽ → ảnh y hệt) → app chỉ cập nhật thuộc tính, không thêm/bớt nút mỗi khung
+    const out = [], no = t => `<${t} display="none"/>`;
+    const ln = open ? null : curve(hw, 0, 1, sm, 1);
+    const hole = open ? path(top.concat(bot.slice().reverse()), true) : '';
+    const ytop = open ? Math.min(...top.map(q => q[1])) : 0, ybot = open ? Math.max(...bot.map(q => q[1])) : 0, H = ybot - ytop;
+    // — mở: môi ngoài · lòng miệng (cắt theo lỗ) · lưỡi · răng · F/V răng đè môi dưới · nét
+    if ((lipU || lipD) && !S.outline) out.push(open ? `<path d="${path(outTop.concat(outBot.slice().reverse()), true)}" fill="${S.lip}"/>` : no('path'));
+    out.push(`<clipPath id="${id}-c"><path d="${hole}"/></clipPath>`, open ? `<path d="${hole}" fill="${S.inner}"/>` : no('path'), `<g clip-path="url(#${id}-c)"${open ? '' : ' display="none"'}>`);
+    if (open && p.tg > .01) { // lưỡi: bầu dục từ đáy, tu → cong lên chạm răng trên (âm L)
       const tw = hw * .62, th = H * p.tg, cy = ybot - th / 2 + 2 - p.tu * H * .18;
       out.push(`<ellipse cx="0" cy="${f(cy + th * .25)}" rx="${f(tw)}" ry="${f(th * .8 + p.tu * H * .2)}" fill="${S.tongueSh}"/>`,
         `<ellipse cx="0" cy="${f(cy + th * .35)}" rx="${f(tw * .88)}" ry="${f(th * .7 + p.tu * H * .16)}" fill="${S.tongue}"/>`);
-    }
-    if (p.tt > .01) out.push(`<rect x="${f(-hw)}" y="${f(ytop - 2)}" width="${f(2 * hw)}" height="${f(2 + Math.max(2.5, H * (p.bite ? 1.1 : p.tt * .55)))}" fill="${S.teeth}"/>`);
-    if (p.tb > .01) out.push(`<rect x="${f(-hw)}" y="${f(ybot - Math.max(2.5, H * p.tb * .55))}" width="${f(2 * hw)}" height="${f(H)}" fill="${S.teeth}"/>`);
+    } else out.push(no('ellipse'), no('ellipse'));
+    out.push(open && p.tt > .01 ? `<rect x="${f(-hw)}" y="${f(ytop - 2)}" width="${f(2 * hw)}" height="${f(2 + Math.max(2.5, H * (p.bite ? 1.1 : p.tt * .55)))}" fill="${S.teeth}"/>` : no('rect'));
+    out.push(open && p.tb > .01 ? `<rect x="${f(-hw)}" y="${f(ybot - Math.max(2.5, H * p.tb * .55))}" width="${f(2 * hw)}" height="${f(H)}" fill="${S.teeth}"/>` : no('rect'));
     out.push('</g>');
-    if (p.bite > .01) { // F/V: mép răng trên đè lên môi dưới
+    if (open && p.bite > .01) { // F/V: mép răng trên đè lên môi dưới
       const bw = hw * .66, by = ybot + 3 * p.bite;
       out.push(`<path d="M${f(-bw)} ${f(ytop + 1)}L${f(bw)} ${f(ytop + 1)}L${f(bw * .94)} ${f(by - 2)}Q0 ${f(by + 2.5)} ${f(-bw * .94)} ${f(by - 2)}Z" fill="${S.teeth}"/>`);
-    }
-    if (S.outline) out.push(`<path d="${hole}" fill="none" stroke="${S.line}" stroke-width="${S.lw}" stroke-linejoin="round"/>`);
+    } else out.push(no('path'));
+    if (!open) out.push(no('path'));
+    else if (S.outline) out.push(`<path d="${hole}" fill="none" stroke="${S.line}" stroke-width="${S.lw}" stroke-linejoin="round"/>`);
     else out.push(`<path d="${path(top)}" fill="none" stroke="${S.line}" stroke-width="${S.lw * .7}" stroke-linecap="round" opacity=".55"/>`);
+    // — khép: nét miệng + môi dưới (Ama) / chỉ nét (Carlos); A = mím → thêm dải môi trên
+    if (S.lipD) out.push(open ? no('path') : `<path d="${path(ln.concat(curve(hw * .86, lipD, .6, sm, 1).reverse()), true)}" fill="${S.lip}"/>`);
+    if (lipU) out.push(!open && p.lip > 1.2 ? `<path d="${path(ln.concat(curve(hw * .86, lipU, .6, sm, -1).reverse()), true)}" fill="${S.lipHi}"/>` : no('path'));
+    out.push(open ? no('path') : `<path d="${path(ln)}" fill="none" stroke="${S.line}" stroke-width="${S.lw * (p.lip > 1.2 ? 1.25 : 1)}" stroke-linecap="round" stroke-linejoin="round"/>`);
+    if (S.outline && S.lipD) out.push(open ? no('path') : `<path d="${path(curve(hw * .86, lipD, .6, sm, 1))}" fill="none" stroke="${S.line}" stroke-width="${S.lw}" stroke-linecap="round"/>`);
     return `<g class="lk-mouth">${out.join('')}</g>`;
   }
   const api = { SHAPE, STYLE, mix, svg, SHAPES: Object.keys(SHAPE) };

@@ -37,7 +37,7 @@
       `<circle cx="${f(ix)}" cy="${f(iy)}" r="${f(ir)}" fill="${R.ink}"/>`];
     if (R.hl) o.push(`<circle cx="${f(ix - ir * .34)}" cy="${f(iy - ir * .38)}" r="${f(ir * .3)}" fill="#FFFFFF"/>`, `<circle cx="${f(ix + ir * .36)}" cy="${f(iy + ir * .3)}" r="${f(ir * .12)}" fill="#FFFFFF"/>`);
     o.push('</g>', `<path d="${P(top.concat(lid.slice().reverse()), true)}" fill="${R.skin}"/>`); // mí trên (màu da, rộng hơn lòng trắng 2 px → không viền sáng) phủ phần trên mép mí
-    if (b > .02) o.push(`<path d="${P(arc(e2, 1, 1).concat(arc(e2, 1, 1.12).reverse()), true)}" fill="${R.skin}"/>`); // mép dưới khi chớp
+    o.push(b > .02 ? `<path d="${P(arc(e2, 1, 1).concat(arc(e2, 1, 1.12).reverse()), true)}" fill="${R.skin}"/>` : '<path display="none"/>'); // mép dưới khi chớp (luôn có nút → khung cố định)
     o.push(`<path d="${P(lid)}" fill="none" stroke="${R.ink}" stroke-width="${R.lw}" stroke-linecap="round" stroke-linejoin="round"/>`);
     if (R.flick) { const q = lid[e.side > 0 ? lid.length - 1 : 0], s = e.side; // đuôi mi cong ra ngoài (nét Ama)
       o.push(`<path d="M${f(q[0] - s * 4)} ${f(q[1] - 2)}Q${f(q[0] + s * 6)} ${f(q[1] - 3)} ${f(q[0] + s * 10)} ${f(q[1] - 11 + 6 * b)}" fill="none" stroke="${R.ink}" stroke-width="${R.lw * .7}" stroke-linecap="round"/>`); }
@@ -56,13 +56,14 @@
     return `<path d="M${x} ${f(y - h * .45)}C${f(x - w * .3)} ${f(y - h * 1.15)} ${f(x - w * .85)} ${f(y - h * .8)} ${f(x - w)} ${f(y + h * .55)}C${f(x - w * .7)} ${f(y + h * .35)} ${f(x - w * .35)} ${f(y + h * .85)} ${x} ${f(y + h * .35)}`
       + `C${f(x + w * .35)} ${f(y + h * .85)} ${f(x + w * .7)} ${f(y + h * .35)} ${f(x + w)} ${f(y + h * .55)}C${f(x + w * .85)} ${f(y - h * .8)} ${f(x + w * .3)} ${f(y - h * 1.15)} ${x} ${f(y - h * .45)}Z" fill="${R.ink}"/>`;
   }
-  /** Toàn bộ lớp mặt (không gồm đầu trơn): <g> theo tọa độ poster-2x. st: trạng thái từ machine().at(t) hoặc tự đặt. */
-  function svg(who, st, id = 'f') {
+  /** Các lớp mặt riêng (mắt trái, mắt phải, mày, miệng, ria) – mỗi lớp 1 chuỗi; app chỉ vá lớp có chuỗi đổi (web/js/lesson/teacher.js). */
+  function parts(who, st, id = 'f') {
     const R = RIG[who] || RIG.ama; st = Object.assign({ mouth: 'X', blink: 0, look: { x: R.look[0], y: R.look[1] }, brow: 0, knit: 0, open: 0 }, st);
-    const m = LM.svg(who, st.mouth, id + 'm');
-    return `<g class="lk-face">${R.eyes.map((e, i) => eye(R, e, st, `${id}e${i}`)).join('')}${R.brows.map((w, i) => brow(R, w, st, i)).join('')}`
-      + `<g transform="translate(${R.mouth[0]} ${R.mouth[1]})">${m}</g>${R.stache ? stache(R, st) : ''}</g>`;
+    return [...R.eyes.map((e, i) => eye(R, e, st, `${id}e${i}`)), R.brows.map((w, i) => brow(R, w, st, i)).join(''),
+      `<g transform="translate(${R.mouth[0]} ${R.mouth[1]})">${LM.svg(who, st.mouth, id + 'm')}</g>`, R.stache ? stache(R, st) : ''];
   }
+  /** Toàn bộ lớp mặt (không gồm đầu trơn): <g> theo tọa độ poster-2x, mỗi lớp bọc 1 <g> trơn (không đổi hình). st: trạng thái từ machine().at(t) hoặc tự đặt. */
+  const svg = (who, st, id = 'f') => `<g class="lk-face">${parts(who, st, id).map(x => `<g>${x}</g>`).join('')}</g>`;
   // PRNG có hạt giống (mulberry32) → cùng câu, cùng chuyển động
   const rng = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
   const ease = x => x * x * (3 - 2 * x);
@@ -73,7 +74,8 @@
   function machine(who, o = {}) {
     const R = RIG[who] || RIG.ama, r = rng(o.seed ?? 7), E = EMO[o.emo] || {}, dur = o.dur ?? 3, env = o.env || null, hz = 100;
     const G = env ? LS.gain(env) : () => 1, cues = o.cues || [{ start: 0, end: dur, value: 'X' }];
-    const peak = env ? Math.max(...env, 1e-6) : 1, voiced = t => env ? (env[clamp(Math.round(t * hz), 0, env.length - 1)] > peak * .1) : LS.stateAt(cues, t).b !== 'X';
+    const peak = env ? Math.max(...env, 1e-6) : 1, von = env ? Uint8Array.from(env, v => v > peak * .1 ? 1 : 0) : null; // có tiếng theo từng mẫu env (tính 1 lần, talk() đọc 11 mẫu/khung)
+    const voiced = t => von ? von[clamp(Math.round(t * hz), 0, von.length - 1)] === 1 : LS.stateAt(cues, t).b !== 'X';
     // lịch chớp mắt
     const blinks = []; for (let t = 1 + r() * 1.6; t < dur + 6; t += 2.8 + r() * 2.8) { blinks.push(t); if (r() < .15) blinks.push(t += .26); }
     const blinkAt = t => { let v = 0; for (const b of blinks) { const d = t - b; if (d >= 0 && d < .15) v = Math.max(v, d < .06 ? ease(d / .06) : d < .08 ? 1 : 1 - ease((d - .08) / .07)); } return v; };
@@ -100,6 +102,6 @@
       }
     };
   }
-  const api = { RIG, EMO, svg, machine };
+  const api = { RIG, EMO, svg, parts, machine };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipFace = api;
 })(typeof window !== 'undefined' ? window : globalThis);

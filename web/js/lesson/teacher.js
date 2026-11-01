@@ -36,12 +36,24 @@
   const lipLoad = () => lipP || (lipP = ['lipsync', 'mouths', 'face', 'cues'].reduce((p, f) => p.then(() => new Promise((ok, no) => { const s = D.createElement('script'); s.src = 'js/call/' + f + '.js'; s.onload = ok; s.onerror = no; D.head.appendChild(s); })), Promise.resolve())
     .then(() => { if (g.LK_CUES && g.LK_CUES.dict) g.LipSync.setDict(g.LK_CUES.dict); }, e => { lipP = null; throw e; }));
   let uid = 0;
+  // Vá lớp vector tại chỗ: mỗi lớp mặt (LipFace.parts) có chuỗi đổi mới phân tích vào <svg> TÁCH khỏi trang rồi chỉ chép thuộc tính đổi vào nút đang hiện.
+  // Khung lớp cố định (mouths.js/face.js: lớp không dùng = display="none") → không thêm/bớt nút. innerHTML mỗi khung = hàng chục nút mới trong #view → mọi MutationObserver
+  // childList của app (toast né nút đo getBoundingClientRect, edgeFade, nhãn loa, sprite…) chạy mỗi khung → máy yếu tụt < 50 fps (call-e2e 4b, CPU 4×).
+  const scratch = D.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  function sync(a, b) { // a: nút đang hiện, b: nút mới cùng thẻ
+    for (const x of b.attributes) if (a.getAttribute(x.name) !== x.value) a.setAttribute(x.name, x.value);
+    if (a.attributes.length !== b.attributes.length) for (const x of [...a.attributes]) if (!b.hasAttribute(x.name)) a.removeAttribute(x.name);
+    const ac = a.children, bc = [...b.children];
+    for (let i = 0; i < bc.length; i++) { const o = ac[i]; if (o && o.tagName === bc[i].tagName) sync(o, bc[i]); else if (o) a.replaceChild(bc[i], o); else a.appendChild(bc[i]); }
+    while (ac.length > bc.length) a.removeChild(a.lastElementChild);
+  }
+  const patch = (el, html) => { scratch.innerHTML = '<g>' + html + '</g>'; sync(el, scratch.firstElementChild); };
   // Lớp mặt vẽ trong rig: <svg> (đầu trơn + lớp vector, nghiêng/gật quanh cổ) phủ đúng khung poster (contain, căn đáy). onFail → vòng clip.
   function face(rig, who, onFail) {
     const LS = g.LipSync, LF = g.LipFace, R = LF.RIG[who], id = 'tf' + (++uid), pic = new Image(), hi = (g.devicePixelRatio || 1) * (rig.clientWidth || 200) > 320;
     const seed = s => { let h = 7; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) | 0; return h; };
     const idle = LF.machine(who, { dur: 120, seed: seed(who) }), stats = { frames: 0, long: 0, t0: 0, mode: 'idle' };
-    let W = null, G = null, S = null, raf = 0, dead = false, last = '', lastTf = '', prev = 0, ac = null;
+    let W = null, G = null, S = null, raf = 0, dead = false, last = '', lastTf = '', prev = 0, ac = null, lastP = [];
     try { const A = g.AudioContext || g.webkitAudioContext; if (A) ac = new A(); } catch (e) { ac = null; }
     const frame = now => {
       if (dead) return;
@@ -52,7 +64,12 @@
       else s = idle.at((now / 1000) % 120);
       // chỉ dựng lại lớp vector khi trạng thái đổi thấy được (bước 1/100) – khung nghỉ/giữ hình không tốn gì (máy yếu giữ ≥ 50 fps)
       const m = s.mouth, k = [m.w, m.u, m.d, m.a, m.s, m.tt, m.tb, m.tg, m.tu, m.bite, m.lip, s.blink, s.look.x, s.look.y, s.brow, s.knit, s.open].map(v => Math.round((v || 0) * 100)).join();
-      if (k !== last) { G.innerHTML = LF.svg(who, s, id); last = k; }
+      if (k !== last) {
+        const P = LF.parts(who, s, id), L = G.firstElementChild;
+        if (!L || L.children.length !== P.length) { G.innerHTML = LF.svg(who, s, id); lastP = P; }
+        else for (let i = 0; i < P.length; i++) if (P[i] !== lastP[i]) { patch(L.children[i], P[i]); lastP[i] = P[i]; }
+        last = k;
+      }
       const tf = `rotate(${(-s.tilt).toFixed(2)} ${R.pivot[0]} ${R.pivot[1]}) translate(0 ${s.nod.toFixed(1)})`; if (tf !== lastTf) { W.setAttribute('transform', tf); lastTf = tf; }
       raf = requestAnimationFrame(frame);
     };
@@ -83,7 +100,7 @@
           if (a && !isFinite(a.duration)) a.addEventListener('loadedmetadata', () => { if (S && S.L === L && a.currentTime < 0.05) live(); }, { once: true });
         };
         if (a && src.cue) {
-          const [ms, cs, eb] = src.cue, dur = ms / 1000, env = Array.from(atob(eb), ch => ch.charCodeAt(0) / 255);
+          const [ms, cs, eb] = src.cue, dur = ms / 1000, env = Array.from(atob(eb.replace(/~(\d+)\./g, (_, n) => 'AAAA'.repeat(+n))), ch => ch.charCodeAt(0) / 255); // "~n." = đoạn im nén (call_cues.mjs)
           const q = cs.split(' ').map(x => ({ value: x[0], start: +x.slice(1) / 1000 })); q.forEach((x, i) => { x.end = i < q.length - 1 ? q[i + 1].start : dur; });
           S = { clk, M: LF.machine(who, { cues: q, env, dur, seed: seed(src.text), text: src.text }) };
           // mp3 đệm cũ / sai bản → độ dài lệch mốc > 120 ms thì chuyển live (không bao giờ khớp sai)
