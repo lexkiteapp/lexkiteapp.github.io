@@ -84,7 +84,7 @@
     'Khách hôm nay': 'Visitors today', 'Trang/khách': 'Pages/visitor', 'Thời gian TB': 'Avg. time', 'mỗi phiên hôm nay': 'per session today', 'Tổng lượt xem': 'Total views', '{n} khách từ trước đến nay': '{n} visitors all-time', '14 ngày qua': 'Last 14 days',
     '🌍 Quốc gia hôm nay': '🌍 Countries today', '👀 Đang xem': '👀 Viewing now', 'Không ai online trong 5 phút qua': 'Nobody online in the last 5 minutes', '📄 Trang xem nhiều hôm nay': '📄 Top pages today',
     'Theo trang vào đầu tiên (chưa có số lượt xem từng trang).': 'Based on landing pages (per-page views not available yet).', '🔗 Nguồn giới thiệu hôm nay': '🔗 Referrers today', 'Chủ yếu truy cập trực tiếp': 'Mostly direct traffic',
-    '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Web (trình duyệt)': 'Web (browser)', 'App iOS': 'iOS app', 'App Android': 'Android app', 'Tỉ lệ': 'Share', 'Tổng thiết bị': 'All devices',
+    '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Web (trình duyệt)': 'Web (browser)', 'App iOS': 'iOS app', 'App Android': 'Android app', 'Tỉ lệ': 'Share', 'Tổng thiết bị': 'All devices', 'Tổng': 'Total',
     'Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày': 'Devices by platform: today, 30 days and % of all devices in 30 days',
     'PWA = web đã cài lên máy · Add-on = tiện ích Chrome': 'PWA = installed web app · Add-on = Chrome extension',
     'Đếm thiết bị khác nhau (mã ẩn danh của trình duyệt/app) có ít nhất 1 phiên người thật; đã loại bot và tài khoản quản trị. Hôm nay = từ 00:00 giờ Việt Nam (UTC+7). 30 ngày = 30 ngày gần nhất tính cả hôm nay, cập nhật 10 phút/lần. % = phần trong tổng thiết bị 30 ngày.': 'Counts distinct devices (anonymous browser/app ID) with at least one human session; bots and admin accounts are excluded. Today = since 00:00 Vietnam time (UTC+7). 30 days = the last 30 days including today, refreshed every 10 min. % = share of all devices in 30 days.',
@@ -667,10 +667,10 @@
     const share = r => `<td class="ps"><span class="pbar" aria-hidden="true"><i class="${r.w ? '' : 'z'}" style="width:${r.w.toFixed(2)}%"></i></span><span class="pp num">${r.pct}</span></td>`;
     const tr = r => `<tr class="${r.d30 ? '' : 'zero'}">${lab(r.k)}<td class="num">${num(r.today)}</td><td class="num">${num(r.d30)}</td>${share(r)}</tr>`;
     return `<div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3>
-      <table class="plat-tbl"><caption class="sr-only">${L('Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày')}</caption>
+      <table class="plat-tbl" aria-label="${esc(L('Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày'))}"><colgroup><col><col class="c-n"><col class="c-n"><col class="c-s"></colgroup>
         <thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th><th scope="col" class="num">${L('Tỉ lệ')}</th></tr></thead>
         <tbody>${rows.map(tr).join('')}</tbody>
-        <tfoot><tr><th scope="row"><span class="pi" aria-hidden="true">Σ</span><span class="pn">${L('Tổng thiết bị')}</span></th><td class="num">${num(total.today)}</td><td class="num">${num(total.d30)}</td><td class="ps"><span class="pp num">${total.d30 ? '100%' : '0%'}</span></td></tr></tfoot>
+        <tfoot><tr><th scope="row" title="${esc(L('Tổng thiết bị'))}"><span class="pi" aria-hidden="true">Σ</span><span class="pn" aria-hidden="true">${L('Tổng')}</span><span class="sr-only">${L('Tổng thiết bị')}</span></th><td class="num">${num(total.today)}</td><td class="num">${num(total.d30)}</td><td class="ps"><span class="pp num">${total.d30 ? '100%' : '0%'}</span></td></tr></tfoot>
       </table>
       <p class="plat-note">${L('Đếm thiết bị khác nhau (mã ẩn danh của trình duyệt/app) có ít nhất 1 phiên người thật; đã loại bot và tài khoản quản trị. Hôm nay = từ 00:00 giờ Việt Nam (UTC+7). 30 ngày = 30 ngày gần nhất tính cả hôm nay, cập nhật 10 phút/lần. % = phần trong tổng thiết bị 30 ngày.')}</p>
       ${multi ? `<p class="plat-note">${L('{n} thiết bị dùng từ 2 nền tảng trở lên: có mặt ở mỗi dòng đó nhưng chỉ tính 1 lần ở Tổng, nên cộng các dòng sẽ lớn hơn Tổng.', { n: num(multi) })}</p>` : ''}

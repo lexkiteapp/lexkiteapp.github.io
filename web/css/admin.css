@@ -362,16 +362,18 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .jvm-tooltip { background: var(--text) !important; color: var(--bg) !important; font: 600 .78rem/1.3 system-ui, sans-serif !important; padding: .35rem .6rem !important; border-radius: 8px !important; z-index: 60; box-shadow: var(--shadow-lg) !important; }
 .live-grid { margin-top: 0; margin-bottom: .4rem; }
 /* Thẻ Nền tảng (js/admin-plat.js): 1 dòng/nền tảng, cột thẳng, số tabular, 1 thanh = % thiết bị 30 ngày trên thang chung, dòng Tổng */
-.plat-tbl { width: 100%; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; color: var(--text); }
+.plat-card { min-width: 0; grid-column: span 2; } /* lưới Phân tích (css/adm.css) là 2 cột 1fr ở ≤ 480 px → thẻ này chiếm cả hàng, không bị ép nửa màn */
+.plat-tbl { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; color: var(--text); }
 .plat-tbl th, .plat-tbl td { height: 44px; padding: 0 .35rem; border-bottom: 1px solid color-mix(in srgb, var(--line-2) 70%, transparent); white-space: nowrap; vertical-align: middle; }
 .plat-tbl th:first-child { padding-left: 0; } .plat-tbl tr > :last-child { padding-right: 0; }
-.plat-tbl thead th { height: 36px; font-size: .78rem; font-weight: 700; color: var(--muted); text-transform: none; letter-spacing: 0; border-bottom: 1px solid var(--line-2); }
+.plat-tbl .c-n { width: 3.9em; } .plat-tbl .c-s { width: 32%; }
+.plat-tbl thead th { height: 36px; font-size: .75rem; line-height: 1.2; font-weight: 700; color: var(--muted); text-transform: none; letter-spacing: 0; white-space: normal; border-bottom: 1px solid var(--line-2); }
+.plat-tbl tbody th, .plat-tbl tfoot th { overflow: hidden; text-overflow: ellipsis; }
 .plat-tbl .num { text-align: right; }
 .plat-tbl tbody th, .plat-tbl tfoot th { text-align: left; font-weight: 650; }
 .plat-tbl tbody td.num { font-weight: 700; }
 .plat-tbl .pi { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: .45rem; border-radius: 7px; background: var(--surface-2); font-size: 14px; line-height: 1; vertical-align: middle; font-weight: 800; color: var(--muted); }
 .plat-tbl .pn { vertical-align: middle; }
-.plat-tbl .ps { width: 38%; }
 .plat-tbl .ps { text-align: right; } .plat-tbl .ps > * { vertical-align: middle; }
 .plat-tbl .pbar { display: inline-block; width: calc(100% - 3.1em); height: 8px; margin-right: .4em; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
 .plat-tbl .pbar i { display: block; height: 100%; min-width: 4px; border-radius: 99px; background: var(--primary); }

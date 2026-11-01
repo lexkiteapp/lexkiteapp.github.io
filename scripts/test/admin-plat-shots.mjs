@@ -46,14 +46,18 @@ for (const [width, scheme, lang] of CONFIGS) {
   const page = await ctx.newPage(), tag = `${width}-${scheme}-${lang}`;
   page.on('pageerror', e => fails.push(`${tag}: lỗi JS ${e.message}`));
   await page.goto('https://lk.test/admin.html#analytics', { waitUntil: 'load' });
-  const card = await page.waitForSelector('.plat-tbl', { timeout: 15000 }).then(t => t.evaluateHandle(e => e.closest('.card'))).catch(() => null);
-  if (!card) { fails.push(`${tag}: không thấy thẻ Nền tảng`); await ctx.close(); continue; }
-  await page.waitForTimeout(400); await card.evaluate(e => e.scrollIntoView({ block: 'center' })); await page.waitForTimeout(150);
-  await card.screenshot({ path: path.join(OUT, `${TAG}-${name(width, scheme, lang)}`) });
+  const ok = await page.waitForSelector('.plat-tbl', { timeout: 15000 }).then(() => true).catch(() => false);
+  if (!ok) { fails.push(`${tag}: không thấy thẻ Nền tảng`); await ctx.close(); continue; }
+  const loc = page.locator('.card', { has: page.locator('.plat-tbl') }).first();
+  await page.waitForTimeout(400); await loc.scrollIntoViewIfNeeded(); await page.waitForTimeout(150);
+  await loc.screenshot({ path: path.join(OUT, `${TAG}-${name(width, scheme, lang)}`) });
+  const card = await loc.elementHandle();
   if (TAG === 'after') {
-    const res = await card.evaluate(c => {
+    const res = await card.evaluate((c, W) => {
       const o = [], rows = [...c.querySelectorAll('tbody tr')], over = document.scrollingElement.scrollWidth - innerWidth;
       if (over > 1) o.push(`trang tràn ngang ${over} px`);
+      if (innerWidth > W + 1) o.push(`trang bị thu nhỏ để vừa nội dung: rộng bố cục ${innerWidth}/${W} px`);
+      const cw = c.getBoundingClientRect().width; if (cw < W * 0.8) o.push(`thẻ chỉ rộng ${Math.round(cw)}/${W} px (bị ép vào nửa lưới)`);
       if (c.scrollWidth > c.clientWidth + 1) o.push(`thẻ tràn ngang ${c.scrollWidth - c.clientWidth} px`);
       if (rows.length !== 5) o.push(`cần 5 dòng nền tảng, có ${rows.length}`);
       const hs = rows.map(r => Math.round(r.getBoundingClientRect().height));
@@ -77,7 +81,7 @@ for (const [width, scheme, lang] of CONFIGS) {
       if (ws.length && ws[0][1] >= ws[0][2] - 0.5) o.push('Web (209/230) vẫn là thanh đầy');
       const ft = c.querySelector('tfoot tr'); if (!ft || !/230/.test(ft.textContent)) o.push('thiếu dòng Tổng = 230 thiết bị khác nhau');
       return o;
-    });
+    }, width);
     for (const x of res) fails.push(`${tag}: ${x}`);
     if (!AXE) fails.push(`${tag}: thiếu axe-core`);
     else {
