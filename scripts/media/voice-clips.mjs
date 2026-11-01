@@ -4,7 +4,7 @@
 // (đệm đầu 0,3 s, nghỉ 0,7 s giữa câu) → web/media/clips/<id>.mp3. Mốc CÂU = vị trí thật của từng file trong bản ghép (đúng tuyệt đối);
 // mốc TỪ = faster-whisper (scripts/video/align.py) trên từng câu, khớp ngược về từ kịch bản → content/media/timing/<id>.json.
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
-import { createRequire } from 'node:module';
+import { createRequire } from 'node:module'; import crypto from 'node:crypto';
 const M = createRequire(import.meta.url)('../../web/js/media/cues.js');
 const VOICE = { ama: 'af_heart', carlos: 'am_michael' }; // = web/js/characters.js VOICE (cổng characters-gate)
 const LEAD = 0.3, GAP = 0.7, TMP = process.env.RUNNER_TEMP || '/tmp';
@@ -29,6 +29,10 @@ function matchWords(text, heard, d) {
 
 for (const id of ids) {
   const clip = JSON.parse(fs.readFileSync(`content/media/clips/${id}.json`, 'utf8')), dir = path.join(TMP, 'mc-' + id);
+  // Idempotent: kịch bản/giọng/tốc độ không đổi + đã có mp3 → giữ nguyên (TTS/whisper không tất định → dựng lại sẽ sinh commit bot mới mỗi lượt PR)
+  const src = crypto.createHash('sha256').update(JSON.stringify([clip.speakers, clip.speed, clip.lines.map(l => [l.who, l.text]), LEAD, GAP])).digest('hex').slice(0, 16);
+  const tp = `content/media/timing/${id}.json`;
+  if (!want.includes(id) && fs.existsSync(tp) && fs.existsSync(`web/media/clips/${id}.mp3`)) { const old = JSON.parse(fs.readFileSync(tp, 'utf8')); if (old.src === src) { console.log(id, 'không đổi – bỏ qua'); continue; } }
   fs.mkdirSync(dir, { recursive: true });
   const lines = clip.lines.map((l, i) => ({ id: `l${String(i).padStart(2, '0')}`, who: l.who, text: l.text, voice: VOICE[clip.speakers[l.who]], speed: clip.speed || 0.75 }));
   fs.writeFileSync(path.join(dir, 'lines.json'), JSON.stringify({ voices: {}, lines }));
@@ -48,7 +52,7 @@ for (const id of ids) {
   const py = process.env.PYTHON || 'python3';
   const al = JSON.parse(execFileSync(py, ['scripts/video/align.py', path.join(dir, 'jobs.json'), '--model', process.env.WHISPER_MODEL || 'base.en'], { maxBuffer: 1 << 26 }).toString());
   const tl = marks.map(([s, e], i) => { const m = matchWords(lines[i].text, al[i].words, ds[i]); return { start: s, end: e, match: +m.ratio.toFixed(3), words: m.words.map(x => ({ w: x.w, s: +(s + x.s).toFixed(3), e: +(s + x.e).toFixed(3) })) }; });
-  const out = { id, audio: `media/clips/${id}.mp3`, dur: +total.toFixed(3), aligner: `faster-whisper ${process.env.WHISPER_MODEL || 'base.en'} (per sentence) + Kokoro file offsets`, lines: tl };
+  const out = { id, src, audio: `media/clips/${id}.mp3`, dur: +total.toFixed(3), aligner: `faster-whisper ${process.env.WHISPER_MODEL || 'base.en'} (per sentence) + Kokoro file offsets`, lines: tl };
   fs.writeFileSync(`content/media/timing/${id}.json`, JSON.stringify(out, null, 1) + '\n');
   console.log(id, 'dur', out.dur, 'wpm', M.wpm(tl.map((x, i) => ({ ...x, text: lines[i].text }))), 'match', tl.map(x => x.match).join(' '));
 }

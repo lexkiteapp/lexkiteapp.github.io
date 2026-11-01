@@ -1,5 +1,6 @@
 {
  "id": "coffee-to-go",
+ "src": "7643878994ae2307",
  "audio": "media/clips/coffee-to-go.mp3",
  "dur": 20.402,
  "aligner": "faster-whisper base.en (per sentence) + Kokoro file offsets",

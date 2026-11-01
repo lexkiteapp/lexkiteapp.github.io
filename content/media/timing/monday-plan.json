@@ -1,5 +1,6 @@
 {
  "id": "monday-plan",
+ "src": "4a7b0a9c9dffc1cb",
  "audio": "media/clips/monday-plan.mp3",
  "dur": 23.589,
  "aligner": "faster-whisper base.en (per sentence) + Kokoro file offsets",
