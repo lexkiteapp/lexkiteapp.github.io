@@ -7,18 +7,18 @@
 import fs from 'node:fs';
 import { VI, BAD } from '../lib/i18n-rules.mjs';
 import { has } from '../i18n-english.mjs';
-import { loadAll } from '../lexicon/lib.mjs';
+import { loadAllPlus } from '../lexicon/lib.mjs';
 
 const spec = JSON.parse(fs.readFileSync(process.argv[2], 'utf8')), OUT = `${process.argv[3]}/${spec.id}`, OFFLINE = process.argv.includes('--offline');
 fs.mkdirSync(OUT, { recursive: true });
 const L = spec.lang, PACK = { pt_BR: 'pt', zh_CN: 'zh' }[L] || L, GTX = { pt_BR: 'pt', zh_CN: 'zh-CN' }[L] || L;
 const SCRIPT = { ja: /[\u3040-\u30ff\u4e00-\u9fff]/g, zh_CN: /[\u4e00-\u9fff]/g, ko: /[\uac00-\ud7af]/g, hi: /[\u0900-\u097f]/g, th: /[\u0e00-\u0e7f]/g, ar: /[\u0600-\u06ff]/g, ru: /[\u0400-\u04ff]/g };
 const WN = JSON.parse(fs.readFileSync('content/dict/wordnet.json', 'utf8')).words;
-let lex = null;
+const lex = L === 'vi' ? await loadAllPlus() : null;   // kho từ (kể cả mục mở rộng 20k)
 const senses = s => String(s).split(/[;；]/).map(x => x.split(/[,、，]/)[0].trim()).filter(Boolean);
 function gloss(w, n) {
   if (L === 'en') return w;
-  if (L === 'vi') { lex = lex || loadAll(); const e = lex.find(x => x.row[0].toLowerCase() === w); return e ? senses(e.row[3])[n - 1] || null : null; }
+  if (L === 'vi') { const e = lex.find(x => x.row[0].toLowerCase() === w); return e ? senses(e.row[3])[n - 1] || null : null; }
   const p = JSON.parse(fs.readFileSync(`web/packs/${PACK}.json`, 'utf8')), e = p[w];
   return e ? senses(e[0])[n - 1] || null : null;
 }
