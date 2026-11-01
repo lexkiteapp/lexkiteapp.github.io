@@ -16987,6 +16987,52 @@
       ],
       "angle": "Guía completa de frases en inglés para reuniones de trabajo: cómo abrir la sesión, interrumpir con cortesía, debatir desacuerdos y resumir planes de acción sin rodeos.",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "cau-hoi-phong-van-tieng-anh-va-tra-loi",
+      "keyword": "câu hỏi phỏng vấn tiếng anh",
+      "topic": "Câu Hỏi Phỏng Vấn Tiếng Anh Thường Gặp: Hướng Dẫn Trả Lời Chuẩn Phương Pháp STAR",
+      "category": "ky-nang",
+      "tags": [
+        "phong-van",
+        "job-interview",
+        "speaking",
+        "su-nghiep"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Tuyển tập 10 câu hỏi phỏng vấn tiếng Anh phổ biến nhất cùng chiến lược trả lời theo mô hình STAR, từ vựng hành động và cách đặt câu hỏi ngược lại cho nhà tuyển dụng.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "job-interview-questions-and-answers-in-english",
+      "keyword": "job interview questions in english",
+      "topic": "Job Interview Questions in English: Proven STAR Method Answers and Key Vocabulary",
+      "category": "ky-nang",
+      "tags": [
+        "job-interview",
+        "interview-questions",
+        "career-skills",
+        "speaking"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Comprehensive guide to common job interview questions in english with high-impact STAR answers, action verbs, and strategic questions to ask the interviewer.",
+      "intent": "informational"
     }
   ]
 }
