@@ -88,5 +88,7 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
 - `scripts/audio/coverage.mjs`: mọi nhóm nội dung tĩnh app đọc to (kho `scripts/sentence-audio/corpus.mjs` gắn `groups`; từ = `s3.tsv` hoặc khóa câu cùng giọng). Thiếu = giọng máy (mỗi máy một giọng) → mục tiêu 0.
 - Sàn `web/audio/coverage.json` chỉ lên: `audio.yml` chạy `--ratchet` sau mỗi lượt; `scripts/test/audio-coverage.mjs` (npm test) đỏ khi nhóm tụt dưới sàn quá `GRACE` = 25 câu mới chưa render. Mở rộng nhóm = nhóm mới, không nhét vào nhóm cũ.
 - Nhóm theo accent người học có cả `bf_emma` lẫn `af_heart` (trước 1/11 câu ví dụ, bài đọc, câu trả lời mẫu chỉ có giọng Anh). Lời giáo viên #/lesson: khóa cả câu theo giọng nhân vật; thiếu → `UI.tts` thử từng câu rồi mới giọng máy.
-- `audio.yml`: ma trận shard động `scripts/ci/shards.mjs` = min(24, 40 − job đang chạy − 8, ⌈câu/500⌉).
+- `web/js/listen/audio-index.js` dạng nén Rice (`scripts/sentence-audio/keyset.mjs`, ≈ 18 bit/khóa; 2/11 dạng chuỗi 48,5k khóa = 207 KB gzip vượt ngân sách 160 KB/tệp). Đọc bằng `readIndex` (chạy tệp), không regex.
+- CI nghe tệp thẳng từ gốc Pages kho media (`asr_lib.ORIGINS`, khớp `workers/audio/index.js`), không qua Worker audio.lexkite.com: gói Free 100k lượt/ngày, 2/11 các lượt nghe làm hết hạn mức (lỗi 1027) cho cả người dùng.
+- `audio.yml`: ma trận shard động `scripts/ci/shards.mjs` = min(24, 40 − job đang chạy − 8, ⌈câu/500⌉) (chỉ job đang chạy, không đếm xếp hàng). Commit chỉ mục: `scripts/ci/commit-regen.sh` sinh lại trên main mới nhất thay vì rebase tệp 1 dòng (audio.yml + sentence-audio-asr.yml).
 - Ngoài phạm vi: nghĩa tiếng mẹ đẻ ở Học rảnh tay (15 ngôn ngữ, Kokoro không có tiếng Việt) và câu động (AI, tra trang) – xem [TTS-AB](TTS-AB.md).

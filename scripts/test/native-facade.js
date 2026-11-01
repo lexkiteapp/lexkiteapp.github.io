@@ -15,7 +15,12 @@
       const LV = W.LessonVideo; if (!LV) throw new Error('lesson-video.js not loaded');
       const box = document.createElement('div'); box.style.cssText = 'position:fixed;left:-9999px;top:0;width:360px'; document.body.appendChild(box);
       const poster = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="9" height="16"><rect width="9" height="16" fill="#123"/></svg>');
-      const items = await LV.manifest().catch(() => []), self = (items.find(x => x.src) || {}).src || 'https://media.lexkite.com/video/missing.mp4';
+      // Clip tự lưu trữ THẬT từ manifest gốc (kể cả clip mẫu test:true – LV.manifest() ẩn chúng khi chưa bật ?vtest=1).
+      // Trước đây rơi về '…/video/missing.mp4' (không tồn tại) → chính đầu dò gây lỗi tải "resource: SOURCE …missing.mp4" ở bước launch.
+      const web = /^https?:$/.test(location.protocol) && /(^|\.)lexkite\.com$|^localhost$|^127\.0\.0\.1$|\.pages\.dev$/.test(location.hostname);
+      const raw = await fetch((web ? '' : 'https://lexkite.com') + '/data/videos.json', { cache: 'no-cache' }).then(r => (r.ok ? r.json() : {})).catch(() => ({}));
+      const items = [...await LV.manifest().catch(() => []), ...(Array.isArray(raw.items) ? raw.items : [])], self = (items.find(x => x.src) || {}).src;
+      if (!self) throw new Error('videos.json không có clip tự lưu trữ (src) nào để kiểm');
       const it = { id: 'e2e-vf', title: 'E2E facade', youtube_id: 'M7lc1UVf-VE', poster, src: self, duration: 20, quiz: { q: 'Q?', options: ['A', 'B'], answer: 0 } };
       const base = yt(), slot = document.createElement('div'); slot.className = 'lv-slot'; box.appendChild(slot);
       LV.play(slot, Object.assign({}, it, { youtube_id: '' }), {}); // self-hosted path renders
