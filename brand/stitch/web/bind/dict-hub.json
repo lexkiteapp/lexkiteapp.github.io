@@ -284,6 +284,9 @@
      "cls": {
       ":scope > :nth-child(2) > :nth-child(2)": {
        "pt-8": "g.more ? 'pt-8' : 'hidden'"
+      },
+      "span[class~=\"lt:text-[#6f7978]\"]": {
+       "lt:text-[#6f7978]": "'lt:text-[#3f4947]'"
       }
      }
     }
@@ -392,6 +395,9 @@
   },
   ":scope > :nth-child(2) > :nth-child(3) > :nth-child(2) > :nth-child(2)": {
    "space-y-3": "d.note ? 'space-y-3' : 'hidden'"
+  },
+  "[class~=\"lt:text-[#6f7978]\"]": {
+   "lt:text-[#6f7978]": "'lt:text-[#3f4947]'"
   }
  },
  "addClass": {

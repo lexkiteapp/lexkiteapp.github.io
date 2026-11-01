@@ -213,7 +213,7 @@ function chromeOf(l, langHref) {
     open: [`${appQ}#/welcome/setup`, c.nav.start], signin: [`${appQ}#/welcome/login`, c.nav.login], home: landingHref(l), langHref, label: c.langL, text: T[l].foot });
 }
 // CSS ngoài mẫu (chức năng, không đổi hình): menu ngôn ngữ cũ (lsw), link bỏ qua, [hidden] thắng class flex của Tailwind (lọc từ loại/CEFR)
-const ST_EXTRA = () => LSW_CSS + '.lsw-m{z-index:60}' + topRules(CSS).filter(r => /^\.skip\b/.test(r)).join('') + '.v2s-web-dict-hub [hidden]{display:none!important}';
+const ST_EXTRA = () => LSW_CSS + '.lsw-m{z-index:60}' + topRules(CSS).filter(r => /^\.skip\b/.test(r)).join('') + '.skip{background:rgb(var(--st-surface));color:rgb(var(--st-on-surface));border:2px solid rgb(var(--st-primary));border-radius:12px;font-weight:700}' + '.v2s-web-dict-hub [hidden]{display:none!important}';
 // Hub/A–Z: st(d) cho renderHub – khung Stitch dict-hub, giáo viên 2D qua Chars (Ama talk – thẻ phát âm), CSS nhóm đầy đủ (compact() lọc theo từng trang ở build())
 const stHub = l => d => { const r = stRender('dict-hub', { ...d, teacher: teacher('ama', 'talk', { size: 160, cls: 'chr mx-auto' }) }, { lang: l, chrome: chromeOf(l, x => `__LH_${x}__`) }); return { css: r.css + ST_EXTRA(), body: r.body, js: DICT_HUB_JS }; };
 
