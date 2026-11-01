@@ -1,6 +1,6 @@
 # docs/ – đọc trước
 
-> TL;DR: Đầu phiên đọc `README` + `TOKEN-RULES` + `METHODS` + `agents/BOARD`; còn lại mở theo bảng chủ đề → file sở hữu dưới đây. Mô tả từng file: [INDEX.md](INDEX.md).
+> TL;DR: Đầu phiên đọc `CODEMAP` (bản đồ mã) + `README` + `TOKEN-RULES` + `METHODS` + `agents/BOARD`; còn lại mở theo bảng chủ đề → file sở hữu dưới đây. Mô tả từng file: [INDEX.md](INDEX.md).
 > Đọc khi: đầu phiên.
 
 **Luật:** một chủ đề = một file sở hữu; nơi khác chỉ link `docs/X.md §n`, không chép lại. Cũ/lịch sử → `archive/`. Thêm doc mới = 1 dòng ở INDEX + khối `> TL;DR:` (test `docs-budget`: ≤ 45 KB/file, METHODS ≤ 20 KB).
