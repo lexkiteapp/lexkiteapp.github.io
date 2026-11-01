@@ -1,0 +1,102 @@
+# required-gate: MỘT commit status tổng hợp cho mỗi PR (để sau này ruleset main chỉ cần yêu cầu đúng check này).
+# Xanh khi mọi check/status/workflow run trên head PR đều đạt (success/skipped/neutral) và không còn gì chạy; đỏ khi có cái hỏng.
+# Hướng sự kiện, không giữ runner chờ: pull_request → đánh giá ngay; mỗi workflow chạy trên PR xong (workflow_run) hoặc check
+# của app ngoài xong (check_suite) → đánh giá lại; lịch 30 phút + workflow_dispatch = lưới an toàn khi sự kiện bị lỡ.
+# An toàn với PR fork: chỉ gọi API đọc + ghi 1 status, KHÔNG checkout/chạy mã PR (job pull_request chỉ chạy cho PR cùng repo).
+# Danh sách workflows: phải khớp workflow chạy được trên head PR – sửa tự động: node scripts/ci/required-gate.mjs --sync
+# Tài liệu: docs/CI-RUNNERS.md § required-gate. Logic + test: scripts/ci/required-gate.mjs, scripts/test/required-gate.mjs.
+name: required-gate
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_run:
+    types: [completed]
+    workflows:
+      - 'Admin – gác bố cục'
+      - 'Video quản trị – giao diện + hiệu năng'
+      - 'Ads demo (real Google test ads)'
+      - 'App LCP'
+      - 'Phát audio (Chromium + WebKit)'
+      - 'Uy tín (authority pages)'
+      - 'Brand build'
+      - 'call-qa'
+      - 'capacity-sim'
+      - 'Characters shots'
+      - 'Content QA gate'
+      - 'Trang từ điển (dict pages)'
+      - 'Hiệu năng từ điển'
+      - 'Font audit'
+      - 'hair-try'
+      - 'iOS → ảnh App Store'
+      - 'Journey E2E'
+      - 'Mobile QA'
+      - 'npm test'
+      - 'Perf profile'
+      - 'QA bot'
+      - 'size-guard'
+      - 'Stitch diff'
+      - 'Teach build'
+      - 'teach-video'
+      - 'Công cụ miễn phí (tools pages)'
+      - 'UX cards'
+      - 'UX shots'
+      - 'video-e2e'
+      - 'video-motion'
+      - 'video-shard-equiv'
+      - 'Web sweep'
+  check_suite:
+    types: [completed]
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: 'Số PR cần đánh giá lại (để trống = quét mọi PR mở có gate pending/thiếu)'
+        required: false
+        default: ''
+permissions:
+  contents: read
+  statuses: write
+  checks: read
+  actions: read
+  pull-requests: read
+concurrency:
+  group: required-gate-${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.event.check_suite.head_sha || format('{0}-{1}', github.event_name, inputs.pr) }}
+  cancel-in-progress: true
+jobs:
+  gate:
+    name: required-gate-eval
+    # pull_request: chỉ PR cùng repo (PR fork có token chỉ đọc – workflow_run/lịch lo phần đó).
+    # workflow_run / check_suite: bỏ lượt chạy trên main (không phải head PR) → job bị bỏ qua, không tốn runner.
+    if: >-
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'workflow_run' && (github.event.workflow_run.event == 'pull_request' || github.event.workflow_run.head_branch != github.event.repository.default_branch)) ||
+      (github.event_name == 'check_suite' && github.event.check_suite.app.slug != 'github-actions' && github.event.check_suite.head_branch != github.event.repository.default_branch) ||
+      github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      # luôn lấy script từ nhánh mặc định (hoặc nhánh được dispatch) – không bao giờ checkout mã PR fork
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}
+          sparse-checkout: scripts/ci
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Đánh giá + đăng status required-gate
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          EV: ${{ github.event_name }}
+          PR_SHA: ${{ github.event.pull_request.head.sha }}
+          WR_SHA: ${{ github.event.workflow_run.head_sha }}
+          CS_SHA: ${{ github.event.check_suite.head_sha }}
+          IN_PR: ${{ inputs.pr }}
+        run: |
+          case "$EV" in
+            pull_request) node scripts/ci/required-gate.mjs --sha "$PR_SHA" ;;
+            workflow_run) node scripts/ci/required-gate.mjs --sha "$WR_SHA" ;;
+            check_suite)  node scripts/ci/required-gate.mjs --sha "$CS_SHA" ;;
+            workflow_dispatch) if [ -n "$IN_PR" ]; then node scripts/ci/required-gate.mjs --pr "$IN_PR"; else node scripts/ci/required-gate.mjs --sweep; fi ;;
+            *) node scripts/ci/required-gate.mjs --sweep ;;
+          esac

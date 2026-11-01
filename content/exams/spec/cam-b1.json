@@ -1,0 +1,207 @@
+{
+ "_doc": "Machine-readable exam format (structure only, no exam content). Counts/times checked against the official pages in verified.sources on verified.date; criteria descriptions are LexKite's own wording. Read by scripts/content-qa/exam-format-check.mjs (docs/CONTENT-QA.md §6).",
+ "id": "cam-b1",
+ "name": "B1 Preliminary",
+ "provider": "Cambridge University Press & Assessment",
+ "cefr": ["B1"],
+ "verified": {
+  "date": "2026-11-01",
+  "sources": ["https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/format/", "https://www.cambridgeenglish.org/exams-and-tests/qualifications/results/"]
+ },
+ "total_minutes": 132,
+ "sections": [
+  {
+   "id": "reading",
+   "name": "Reading",
+   "minutes": 45,
+   "questions": 32,
+   "parts": [
+    {
+     "n": 1,
+     "name": "Multiple choice (short texts)",
+     "questions": 5,
+     "types": ["mcq"]
+    },
+    {
+     "n": 2,
+     "name": "Matching",
+     "questions": 5,
+     "types": ["matching"]
+    },
+    {
+     "n": 3,
+     "name": "Multiple choice (long text)",
+     "questions": 5,
+     "types": ["mcq"]
+    },
+    {
+     "n": 4,
+     "name": "Gapped text",
+     "questions": 5,
+     "types": ["gapped-text"]
+    },
+    {
+     "n": 5,
+     "name": "Multiple-choice cloze",
+     "questions": 6,
+     "types": ["mcq-gap"]
+    },
+    {
+     "n": 6,
+     "name": "Open cloze",
+     "questions": 6,
+     "types": ["open-gap"]
+    }
+   ]
+  },
+  {
+   "id": "writing",
+   "name": "Writing",
+   "minutes": 45,
+   "parts": [
+    {
+     "n": 1,
+     "name": "Email",
+     "questions": 1,
+     "types": ["email"],
+     "words": 100
+    },
+    {
+     "n": 2,
+     "name": "Article or story (choice of two)",
+     "questions": 1,
+     "types": ["article", "story"],
+     "words": 100
+    }
+   ]
+  },
+  {
+   "id": "listening",
+   "name": "Listening",
+   "minutes": 30,
+   "minutes_note": "includes 6 minutes transfer time; each recording heard twice",
+   "questions": 25,
+   "parts": [
+    {
+     "n": 1,
+     "name": "Multiple choice",
+     "questions": 7,
+     "types": ["mcq-picture"]
+    },
+    {
+     "n": 2,
+     "name": "Multiple choice",
+     "questions": 6,
+     "types": ["mcq"]
+    },
+    {
+     "n": 3,
+     "name": "Gap fill",
+     "questions": 6,
+     "types": ["gap"]
+    },
+    {
+     "n": 4,
+     "name": "Multiple choice",
+     "questions": 6,
+     "types": ["mcq"]
+    }
+   ]
+  },
+  {
+   "id": "speaking",
+   "name": "Speaking",
+   "minutes": [10, 12],
+   "format": "pairs, two examiners",
+   "parts": [
+    {
+     "n": 1,
+     "name": "Interview",
+     "questions": null,
+     "types": ["interview"],
+     "minutes": 2
+    },
+    {
+     "n": 2,
+     "name": "Extended turn (photo)",
+     "questions": null,
+     "types": ["long-turn"],
+     "minutes": 3
+    },
+    {
+     "n": 3,
+     "name": "Collaborative task",
+     "questions": null,
+     "types": ["collaborative"],
+     "minutes": 4
+    },
+    {
+     "n": 4,
+     "name": "Discussion",
+     "questions": null,
+     "types": ["discussion"],
+     "minutes": 3
+    }
+   ],
+   "criteria": [
+    {
+     "id": "grammar-vocabulary",
+     "focus": "Range and accuracy of grammar and vocabulary for the level."
+    },
+    {
+     "id": "discourse",
+     "focus": "Extended, relevant and well-linked contributions."
+    },
+    {
+     "id": "pronunciation",
+     "focus": "Intelligibility: sounds, stress and intonation."
+    },
+    {
+     "id": "interaction",
+     "focus": "Starts, responds to and develops the conversation with the partner."
+    },
+    {
+     "id": "global",
+     "focus": "Overall effectiveness across the whole test."
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "scale": "Cambridge English Scale",
+  "reported": [102, 170],
+  "grades": {
+   "A": [160, 170],
+   "B": [153, 159],
+   "C": [140, 152],
+   "A2": [120, 139]
+  },
+  "weights": {
+   "reading": 0.25,
+   "writing": 0.25,
+   "listening": 0.25,
+   "speaking": 0.25
+  },
+  "method": "each paper/skill reported on the scale; overall = average of skills"
+ },
+ "criteria": {
+  "writing": [
+   {
+    "id": "content",
+    "focus": "Has the writer done what the task asked and is the reader fully informed?"
+   },
+   {
+    "id": "communicative",
+    "focus": "Does the text follow the conventions of its type (email, essay, article…) and hold the reader's attention with a suitable register?"
+   },
+   {
+    "id": "organisation",
+    "focus": "Is the text linked and structured so that it reads as one coherent piece?"
+   },
+   {
+    "id": "language",
+    "focus": "Range and control of vocabulary and grammar for the level."
+   }
+  ]
+ }
+}
