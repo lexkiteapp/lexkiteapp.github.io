@@ -16,7 +16,7 @@
     const t = setTimeout(() => ctrl.abort(), ms);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
-      if (!r.ok) { ctrl.abort(); return null; } // phản hồi lỗi: hủy luôn thân chưa đọc – thân trả chậm/treo (404 HTML từ máy CI) từng giữ request > 30 s
+      if (!r.ok) { ctrl.abort(); return null; } // hủy thân chưa đọc (thân treo giữ request)
       return await r.json();
     } catch (e) { return null; } finally { clearTimeout(t); }
   };
@@ -36,10 +36,7 @@
   // Ngôn ngữ NGHĨA: chuỗi dự phòng giao diện → en, KHÔNG BAO GIỜ vi cho người dùng không-vi (trừ khi họ tự chọn nghĩa tiếng Việt trong Cài đặt).
   // Ngữ cảnh không có I18N (service worker, content script) giữ hành vi cũ (vi).
   const wantVi = () => !(g.I18N && g.I18N.meanLang && g.I18N.meanLang() !== 'vi');
-  // Từ điển mở & dịch máy Google (gtx): web/app di động đi qua proxy cùng nguồn /api/dictlookup (functions/api/dictlookup.js) – đệm ở biên
-  // Cloudflare, nguồn lỗi/429 → 200 + null (không lỗi CORS trên console, rơi xuống nhánh dự phòng); app di động gọi bản trên lexkite.com.
-  // Add-on (trang/service worker chrome-extension:) có host_permissions → gọi thẳng nguồn: không vướng CORS, không tốn trần Functions 100k/ngày
-  // (docs/FREE-TIER.md). Chỉ các dòng `EXT ?` bên dưới được chứa tên miền nguồn (scripts/test/dictlookup.mjs kiểm).
+  // Web/app: proxy /api/dictlookup (lý do: functions/api/dictlookup.js); add-on: gọi thẳng (host_permissions)
   const EXT = !!(g.location && /^(chrome|moz)-extension:$/.test(location.protocol));
   const DL = ((g.location && /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname)) ? '' : 'https://lexkite.com') + '/api/dictlookup';
   const gtxURL = (sl, tl, extra = '') => (EXT ? 'https://translate.googleapis.com/translate_a/single?client=gtx' : `${DL}?src=gtx`) + `&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}${extra}`;
@@ -566,5 +563,5 @@
     return null;
   }
   const quickL = async (...a) => forLang(await quick(...a)), lookupL = async (...a) => forLang(await lookup(...a));
-  g.Dict = { buildEntry: build, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  g.Dict = { buildEntry: build, gtxURL, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

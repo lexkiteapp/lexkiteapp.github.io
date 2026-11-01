@@ -570,9 +570,6 @@
     const KEY = 'vb.cx.' + to; let mem = {}; try { mem = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { mem = {}; }
     const save = () => { try { const ks = Object.keys(mem); if (ks.length > 4000) ks.slice(0, ks.length - 4000).forEach(k => delete mem[k]); localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) { /* đầy bộ nhớ */ } };
     let timer = 0, busy = false, again = false;
-    // Dịch máy qua proxy cùng nguồn (functions/api/dictlookup.js: đệm biên, Google 429/lỗi → 200 null, không lỗi CORS trên console); tối đa 8 s/lô –
-    // mạng treo không được giữ trang mãi (lượt sau dịch lại)
-    const DL = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/dictlookup';
     // Bản dịch SẴN do CI tạo (scripts/gen-content-i18n.mjs, CDN) → hiện ngay đúng ngôn ngữ; chỉ câu chưa có mới dịch máy lúc chạy
     let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (window.VBNative && VBNative.is) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json') // app gốc: file nằm sẵn trong gói (www/i18n/content) → dùng được khi offline
       .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => { pre = j || {}; setTimeout(pass, 0); }); // về muộn (> 1,5 s, mạng chậm) → dịch lại trang đang mở
@@ -606,7 +603,7 @@
         nodes.forEach(x => { if (!put(x)) { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!need.includes(s)) need.push(s); } });
         for (let i = 0; i < need.length;) { // lô ≤ 1800 ký tự
           const batch = []; let len = 0; while (i < need.length && len + need[i].length < 1800) { batch.push(need[i]); len += need[i].length + 1; i++; } if (!batch.length) batch.push(need[i++]);
-          const r = await fetch(`${DL}?src=gtx&sl=vi&tl=${encodeURIComponent(to)}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`, { signal: AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined }).then(x => (x.ok ? x.json() : (x.body && x.body.cancel().catch(() => {}), null))).catch(() => null);
+          const r = await fetch(`${Dict.gtxURL('vi', to)}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`, { signal: AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined }).then(x => (x.ok ? x.json() : (x.body && x.body.cancel().catch(() => {}), null))).catch(() => null);
           if (!r || !r[0]) { failed = true; break; }
           const out = r[0].map(x => x[0]).join('').split('\n');
           batch.forEach((s, k) => { if (out[k] && out[k].trim()) mem[s] = out[k].trim(); });
