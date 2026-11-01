@@ -52,6 +52,15 @@ let list = [...strings].filter(s => VI.test(s)).sort();
 // (27/10/2026: 3669 → 536 câu). Ít hơn 60% danh sách cũ → giữ cả câu cũ.
 let prev = []; try { prev = JSON.parse(fs.readFileSync('content/i18n/strings.json', 'utf8')); } catch (e) { /* chưa có */ }
 if (!truncated && prev.length && list.length < prev.length * 0.6) { process.stderr.write(`⚠ chỉ thu ${list.length}/${prev.length} câu – nghi quét lỗi, giữ cả danh sách cũ\n`); list = [...new Set([...list, ...prev])].sort(); }
+// Chặn rơi câu lẻ (01/11/2026: runner bận, #/pron chưa vẽ kịp trong 140 ms → mất 777 câu, en lộ tiếng Việt khi dịch máy lỗi):
+// câu cũ không thấy lượt này nhưng VẪN còn trong mã nguồn (nguyên câu hoặc 40 ký tự đầu, bỏ thẻ HTML) → giữ lại; chỉ bỏ câu đã thật sự xoá khỏi app.
+if (!truncated && prev.length) {
+  const files = [];
+  for (const d of ['web/js', 'web/content', 'content']) { try { for (const f of fs.readdirSync(d, { recursive: true })) if (/\.(js|json)$/.test(f) && !/(^|\/)i18n(\/|$)/.test(d + '/' + f)) files.push(path.join(d, f)); } catch (e) { /* thiếu thư mục */ } }
+  const src = files.map(f => { try { return fs.readFileSync(f, 'utf8'); } catch (e) { return ''; } }).join('\n').replace(/\\(["'])/g, '$1').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ');
+  const have = new Set(list), back = prev.filter(x => !have.has(x) && src.includes(x.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').slice(0, 40)));
+  if (back.length) { process.stderr.write(`⚠ ${back.length} câu không thấy lượt này nhưng còn trong mã nguồn – giữ lại\n`); list = [...new Set([...list, ...back])].sort(); }
+}
 fs.mkdirSync('content/i18n', { recursive: true });
 fs.writeFileSync('content/i18n/strings.json', JSON.stringify(list, null, 0).replace(/","/g, '",\n"') + '\n');
 console.log(`✓ harvest: ${n} trang, ${list.length} câu cần dịch sẵn (${(list.join('').length / 1024).toFixed(0)} KB)${errors.length ? ` · ${errors.length} lỗi nạp` : ''}`);
