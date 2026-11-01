@@ -12,6 +12,7 @@
  "tail": 0.7,
  "mistake": {
   "en": "Dropping -s on he/she/it verbs",
+  "vi": "Quên thêm -s cho động từ sau he/she/it (tiếng Việt không chia động từ)",
   "l1": "Vietnamese verbs never change form, so the -s ending feels optional."
  },
  "hook": {

@@ -36,14 +36,14 @@ const clips = fs.existsSync(ROOT) ? fs.readdirSync(ROOT).filter(l => fs.statSync
 const by = {}; for (const c of clips) (by[c.lang] = by[c.lang] || []).push(c.id);
 fs.writeFileSync(path.join(ROOT, 'manifest.json'), JSON.stringify({ _doc: 'Sinh tự động bởi scripts/rig/store.mjs – đừng sửa tay (trạng thái sửa trong meta.json từng clip).', updated: DAY,
   count: clips.length, by_lang: by, by_status: clips.reduce((a, c) => (a[c.status] = (a[c.status] || 0) + 1, a), {}),
-  clips: clips.map(({ id, lang, date, title, topic, mistake, teachers, duration_s, qc, status, deeplink, files, path: p }) => ({ id, lang, date, title, topic, mistake: mistake.en, teachers, duration_s, score: qc.score, pass: qc.pass, status, deeplink, video: files.video, cover: files.cover, caption: `${p}/caption.txt` })) }, null, 1) + '\n');
+  clips: clips.map(({ id, lang, date, title, topic, mistake, teachers, duration_s, qc, status, deeplink, files, path: p }) => ({ id, lang, date, title, topic, mistake: mistake.en, mistake_vi: mistake.vi, teachers, duration_s, score: qc.score, pass: qc.pass, status, deeplink, video: files.video, cover: files.cover, caption: `${p}/caption.txt` })) }, null, 1) + '\n');
 // README.md = mục lục đọc được ngay trên GitHub (theo ngôn ngữ → trạng thái, link tải video/bìa, chú thích)
 const NAME = { ar: 'العربية', de: 'Deutsch', en: 'English', es: 'Español', fr: 'Français', hi: 'हिन्दी', id: 'Bahasa Indonesia', ja: '日本語', ko: '한국어', pt_BR: 'Português (BR)', ru: 'Русский', th: 'ไทย', tr: 'Türkçe', vi: 'Tiếng Việt', zh_CN: '中文' };
 const md = ['# Kho clip mạng xã hội theo ngôn ngữ người học', '', '> Sinh tự động (scripts/rig/store.mjs). Mỗi clip một thư mục `<lang>/<ngày>-<slug>/`: `caption.txt` (bài đăng + hashtag), `meta.json` (lỗi nhắm tới, giáo viên, điểm QC, deep-link, trạng thái draft/approved/posted), `qc.json`. Video + ảnh bìa ở Release `social-<lang>`. Quy trình: docs/specs/social-l1-clips.md.', ''];
 for (const l of Object.keys(by).sort()) {
   md.push(`## ${NAME[l] || l} (\`${l}\`) – ${by[l].length} clip`, '', '| ngày | tiêu đề | lỗi nhắm tới | QC | trạng thái | tải |', '|---|---|---|---|---|---|');
   for (const c of clips.filter(c => c.lang === l).sort((a, b) => b.date.localeCompare(a.date)))
-    md.push(`| ${c.date} | [${c.title.replace(/\|/g, '/')}](${l}/${path.basename(c.path)}/caption.txt) | ${c.mistake.en.replace(/\|/g, '/')} | ${c.qc.score}${c.qc.pass ? ' ✅' : ' ❌'} | ${c.status} | [video](${c.files.video}) · [bìa](${c.files.cover}) |`);
+    md.push(`| ${c.date} | [${c.title.replace(/\|/g, '/')}](${l}/${path.basename(c.path)}/caption.txt) | ${(c.mistake.vi || c.mistake.en).replace(/\|/g, '/')} | ${c.qc.score}${c.qc.pass ? ' ✅' : ' ❌'} | ${c.status} | [video](${c.files.video}) · [bìa](${c.files.cover}) |`);
   md.push('');
 }
 fs.writeFileSync(path.join(ROOT, 'README.md'), md.join('\n'));

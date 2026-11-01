@@ -15,6 +15,7 @@
  "tail": 0.7,
  "mistake": {
   "en": "Using have for age (I have 20 years)",
+  "vi": "Nói tuổi bằng have: \"I have 20 years\" (tiếng Tây Ban Nha: tengo 20 años)",
   "l1": "Spanish says “tengo 20 años” (have + years)."
  },
  "hook": {

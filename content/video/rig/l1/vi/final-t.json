@@ -15,6 +15,7 @@
  "tail": 0.7,
  "mistake": {
   "en": "Dropping final consonants (white → why)",
+  "vi": "Nuốt âm cuối: \"white\" nghe thành \"why\" (tiếng Việt không bật âm cuối)",
   "l1": "Vietnamese final stops are unreleased, so English final /t/ disappears."
  },
  "hook": {

@@ -12,6 +12,7 @@
  "tail": 0.7,
  "mistake": {
   "en": "False friend: library ≠ librería",
+  "vi": "Từ bẫy: library = thư viện, không phải librería (hiệu sách)",
   "l1": "Spanish “librería” means bookstore, so learners say library for a bookshop."
  },
  "hook": {
