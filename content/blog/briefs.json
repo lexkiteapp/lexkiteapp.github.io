@@ -16113,6 +16113,78 @@
       ],
       "angle": "Guide complet pour préparer l examen IELTS en autodidacte : feuille de route en 4 étapes, répartition quotidienne du travail pour les 4 épreuves et mémorisation FSRS.",
       "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "ielts-selbststudium-lernplan-von-null-auf-6-5",
+      "keyword": "ielts selbststudium lernplan",
+      "topic": "IELTS Selbststudium Lernplan: Schritt für Schritt zu Band 6.5+",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "selbststudium",
+        "lernplan"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "Vollständiger IELTS Lernplan für das Selbststudium: 4-Phasen-Modell, tägliche Zeiteinteilung für alle 4 Prüfungsteile und Vokabeltraining mit FSRS.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "ielts-calisma-plani-sifirdan-6-5-seviyesine",
+      "keyword": "ielts çalışma planı",
+      "topic": "IELTS Çalışma Planı: Sıfırdan Band 6.5 Seviyesine Adım Adım Rehber",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "calisma-plani",
+        "kendi-kendine"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "Evde kendi kendine IELTS hazırlık rehberi: 4 aşamalı çalışma planı, dinleme, okuma, yazma ve konuşma için günlük zaman dağılımı ve FSRS kelime tekrarı.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "plan-podgotovki-k-ielts-samostoyatelno-s-nulya-do-6-5",
+      "keyword": "план подготовки к ielts самостоятельно",
+      "topic": "План подготовки к IELTS самостоятельно: от нуля до 6.5+ по шагам",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "samostoyatelnaya-podgotovka",
+        "plan"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "Пошаговый план самостоятельной подготовки к IELTS: 4 ключевых этапа, ежедневное расписание на 4 навыка и интервальное повторение по алгоритму FSRS.",
+      "intent": "informational"
     }
   ]
 }
