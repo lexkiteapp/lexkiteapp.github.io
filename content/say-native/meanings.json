@@ -109,6 +109,7 @@
   "de": "ich schulde dir was; ich bin dir etwas schuldig",
   "es": "te debo una; te lo debo",
   "fr": "je te dois une; je te revaudrai",
+  "hi": "मैं आपका एहसानमंद हूँ; आपका एक एहसान रहा",
   "id": "saya berhutang budi padamu; nanti saya balas",
   "ja": "借りができた; 恩に着る; 次は私が返す",
   "ko": "신세 졌어요; 다음에 보답할게",
@@ -116,8 +117,7 @@
   "ru": "в долгу; отплачу",
   "th": "ขอบคุณ ฉันจะตอบแทน; ขอบคุณ ฉันจะช่วยคุณต่อไป",
   "tr": "borçluyum; sana bir borcum var",
-  "zh": "欠你一次; 我欠你个人情; 下次我请客",
-  "hi": "मैं आपका एहसानमंद हूँ; आपका एक एहसान रहा"
+  "zh": "欠你一次; 我欠你个人情; 下次我请客"
  },
  "i partly agree": {
   "ar": "أوافق جزئياً; أقبل جزئياً",
@@ -385,9 +385,9 @@
   "ko": "하룻밤 자고 생각하다; 숙고해 보다",
   "pt": "dormir sobre isso; pensar antes de decidir",
   "ru": "подумать до утра; отложить решение; вздремнуть над этим",
+  "th": "ขอไปคิดดูก่อน; ขอเวลาคิดอีกหน่อย",
   "tr": "bir gece uyuyup karar ver; bir gece düşün",
-  "zh": "再想想; 再睡一觉再说",
-  "th": "ขอไปคิดดูก่อน; ขอเวลาคิดอีกหน่อย"
+  "zh": "再想想; 再睡一觉再说"
  },
  "take it easy": {
   "ar": "اهدأ; خذ الأمور بسهولة; استرخي",
