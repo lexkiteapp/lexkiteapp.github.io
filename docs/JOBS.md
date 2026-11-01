@@ -51,6 +51,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 01:30 | `pr-check` | `30 1 * * *` | publishing | gh_minutes | 10 | — | — |
 | 01:30 | `screens` | `30 1 * * *` | render | gh_minutes | 25 | — | — |
 | 01:35 | `free-tier-guard` | `35 1 * * *` | reports | gh_minutes | 2 | — | — |
+| 01:43 | `sentence-audio-asr` | `43 1-23/4 * * *` | render | gh_minutes | 170 | — | — |
 | 01:45 | `footage-archive` | `45 1,2,6,14,15,16,17,18,20,21,22 * * *` | archive | drive_pool, d1_internal, gh_minutes | 50 | d1_internal_reads≈3000, drive_calls≈700 | ✓ |
 | 01:50 | `contrast` | `50 1 * * *` | reports | gh_minutes | 15 | — | — |
 | 02:00 | `dict-stage` | `0 2 * * 2` | reports | gh_minutes | 5 | — | — |
@@ -94,6 +95,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 
 | Việc hạ nguồn | Đọc qua | Việc/lịch |
 |---|---|---|
+| `scripts/content-score.mjs` – content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh) | `loadAllPlus` | content-qa.yml (score) |
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |

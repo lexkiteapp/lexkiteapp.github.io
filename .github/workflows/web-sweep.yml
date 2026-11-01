@@ -1,0 +1,48 @@
+# Cổng "lỗi ẩn" mọi loại trang công khai (docs/WEB-PAGES.md §Cổng): dựng dist (+ tầng tĩnh từ điển), rồi
+#  web-sweep.mjs (1 trang mẫu/loại × 390/1280 × sáng/tối: console, 4xx, tràn ngang, cắt/chồng chữ, vùng chạm, tương phản + axe AA,
+#  CLS/LCP, nền đúng giao diện, meta/OG, lang/dir) – ngưỡng web-sweep.known.json chỉ được giảm;
+#  seo-pages.mjs (canonical, hreflang hai chiều, title/description trùng, mồ côi) + links-js.mjs (link nội bộ kể cả do JS sinh).
+name: Web sweep
+on:
+  pull_request:
+    paths: ['web/**', '!web/app/**', 'scripts/build-*.mjs', 'scripts/build-web.sh', 'scripts/lib/**', 'scripts/dict/**', 'workers/dict/**', 'content/legal/**', 'content/authority/**', 'scripts/test/web-sweep.*', 'scripts/test/seo-pages.known.txt', 'scripts/test/seo-pages.mjs', 'scripts/test/links-js.mjs', '.github/workflows/web-sweep.yml']
+  workflow_dispatch:
+    inputs:
+      write_known: { description: '1 = ghi ngưỡng mới vào artifact (không commit)', required: false, default: '0' }
+permissions:
+  contents: read
+concurrency: { group: 'web-sweep-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Build dist
+        run: npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh | tail -3
+      - name: SEO (canonical, hreflang, duplicates, orphans) – only errors not in seo-pages.known.txt fail
+        run: |
+          N=500 node scripts/test/seo-pages.mjs dist > seo.txt || true; cat seo.txt | head -30
+          grep -E '^  ' seo.txt | sed 's/^  //' | sort -u > seo-now.txt
+          new=$(comm -23 seo-now.txt <(sort -u scripts/test/seo-pages.known.txt)); fixed=$(comm -13 seo-now.txt <(sort -u scripts/test/seo-pages.known.txt))
+          [ -n "$fixed" ] && echo "↓ đã hết – xoá khỏi seo-pages.known.txt:" && echo "$fixed"
+          [ -z "$new" ] || { echo "✗ lỗi SEO mới:"; echo "$new"; exit 1; }
+      - name: Internal links (incl. JS-generated)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/links-js.mjs dist
+      - name: Latent UI sweep (every page type)
+        if: ${{ !cancelled() }}
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+          # tầng tĩnh từ điển (deploy riêng qua Worker) – chép 1 mẫu/loại vào dist sau cổng SEO để quét giao diện
+          node scripts/dict/build.mjs >/dev/null 2>&1 && for d in $(cd dist-dict && find . -name index.html | sort | awk -F/ '{k=$3"/"NF; if(!s[k]++) print}' | head -12); do mkdir -p "dist/$(dirname "$d")"; cp -n "dist-dict/$d" "dist/$d"; done; echo "dict mẫu: $(find dist/assets -name index.html 2>/dev/null | wc -l)"
+          (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          W=""; [ "${{ github.event.inputs.write_known }}" = 1 ] && W=--write-known
+          node scripts/test/web-sweep.mjs http://localhost:8080 dist web-sweep-out $W
+          [ -n "$W" ] && cp scripts/test/web-sweep.known.json web-sweep-out/ || true
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: web-sweep, path: web-sweep-out, retention-days: 7 }

@@ -3,7 +3,7 @@ title: "雅思小作文 task 1 图表分析技巧：线图、柱状图与高分�
 description: "雅思小作文 task 1 图表高分突破全景指南：深度拆解线图、柱状图、饼图与数据表格的4段式标准架构，掌握Overview宏观总述提炼核心原则，汇总丰富的学术趋势动副词替换表达与完整8分范文，助你轻松攻克学术图表分析关卡并取得理想成绩。"
 slug: ya-si-xiao-zuo-wen-task-1-tu-biao-fen-xi-ji-qiao
 lang: zh
-translationKey: ielts-writing-task-1-huong-dan-mo-ta-bieu-do
+translationKey: ielts-writing-task-1-line-graph
 category: ielts
 tags: [ielts, ielts-writing, task-1]
 keyword: "雅思小作文 task 1 图表"
