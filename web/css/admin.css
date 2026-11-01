@@ -370,13 +370,13 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .plat-tbl { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; color: var(--text); }
 .plat-tbl th, .plat-tbl td { height: 44px; padding: 0 .35rem; border-bottom: 1px solid color-mix(in srgb, var(--line-2) 70%, transparent); white-space: nowrap; vertical-align: middle; }
 .plat-tbl th:first-child { padding-left: 0; } .plat-tbl tr > :last-child { padding-right: 0; }
-.plat-tbl .c-n { width: 3.9em; } .plat-tbl .c-s { width: 32%; }
+.plat-tbl .c-n { width: 3.4em; } .plat-tbl .c-s { width: 28%; }
 .plat-tbl thead th { height: 36px; font-size: .75rem; line-height: 1.2; font-weight: 700; color: var(--muted); text-transform: none; letter-spacing: 0; white-space: normal; border-bottom: 1px solid var(--line-2); }
 .plat-tbl tbody th, .plat-tbl tfoot th { overflow: hidden; text-overflow: ellipsis; }
 .plat-tbl .num { text-align: right; }
 .plat-tbl tbody th, .plat-tbl tfoot th { text-align: left; font-weight: 650; }
 .plat-tbl tbody td.num { font-weight: 700; }
-.plat-tbl .pi { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: .45rem; border-radius: 7px; background: var(--surface-2); font-size: 14px; line-height: 1; vertical-align: middle; font-weight: 800; color: var(--muted); }
+.plat-tbl .pi { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: .35rem; border-radius: 7px; background: var(--surface-2); font-size: 14px; line-height: 1; vertical-align: middle; font-weight: 800; color: var(--muted); }
 .plat-tbl .pn { vertical-align: middle; }
 .plat-tbl .ps { text-align: right; } .plat-tbl .ps > * { vertical-align: middle; }
 .plat-tbl .pbar { display: inline-block; width: calc(100% - 3.1em); height: 8px; margin-right: .4em; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
