@@ -382,6 +382,14 @@
    "delegate": [
     "test/reminders.mjs"
    ]
+  },
+  {
+   "id": "media-clips",
+   "paths": ["content/media", "web/js/media"],
+   "owner": "claude",
+   "gen": false,
+   "checks": ["schema", "translation"],
+   "delegate": ["test/media.mjs"]
   }
  ],
  "skip": {

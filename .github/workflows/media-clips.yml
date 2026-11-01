@@ -1,0 +1,54 @@
+# media-clips: giọng Kokoro + mốc giờ (faster-whisper) cho clip "Học qua video/audio" (docs/MEDIA.md §5). 0 credit, 0 token.
+# Sửa content/media/clips/*.json trong PR → tự dựng web/media/clips/<id>.mp3 + content/media/timing/<id>.json + web/data/media/* rồi commit vào nhánh PR.
+# Commit bằng GITHUB_TOKEN không chạy lại CI khác → sau khi bot đẩy xong, đẩy thêm 1 commit thường để npm-test chạy với dữ liệu mới.
+name: media-clips
+on:
+  workflow_dispatch:
+    inputs:
+      clips: { description: 'id,id | all', required: true, default: 'all' }
+  pull_request:
+    paths: ['content/media/clips/**', 'scripts/media/voice-clips.mjs']
+permissions: { contents: write }
+concurrency:
+  group: media-clips-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  voice:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ github.head_ref || github.ref_name }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: ffmpeg + faster-whisper
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q faster-whisper==1.0.3 requests==2.32.3 numpy
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/huggingface, key: whisper-base-en-v1 }
+      - name: kokoro-js
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice + align + build
+        env: { CLIPS: '${{ github.event.inputs.clips || ''all'' }}' }
+        run: |
+          node scripts/media/voice-clips.mjs "$CLIPS"
+          node scripts/media/build-clips.mjs
+          n=$(node -e "console.log(require('./web/data/media/index.json').length)")
+          [ "$n" -ge 1 ] || { echo "::error::0 clip dựng được"; exit 1; }
+          node scripts/test/media.mjs --strict
+      - name: Commit
+        run: |
+          git config user.name "lexkite-bot"; git config user.email "bot@lexkite.com"
+          git add web/media/clips content/media/timing web/data/media
+          git diff --cached --quiet && { echo "không đổi"; exit 0; }
+          git commit -m "media: giọng + mốc giờ clip học qua video (media-clips.yml) [CF-Pages-Skip]"
+          git push origin HEAD:${{ github.head_ref || github.ref_name }}
