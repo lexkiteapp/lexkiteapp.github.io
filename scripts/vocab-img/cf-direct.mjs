@@ -6,7 +6,7 @@
 
 /** neuron ƯỚC TÍNH mỗi ảnh (bảng giá Workers AI 10/2026; schnell ra cố định 1024² × 4 bước, các mô hình khác 512²). Đo lại bằng analytics rồi sửa; ghi đè VIMG_NPI_<tên>. */
 export const NPI = {
-  'flux-1-schnell': 57.6, 'flux-2-klein-4b': 110,   /* đo 27/10: 61 tài khoản (~610k) → 5.215 ảnh 512² */ 'flux-2-klein-9b': 1400, 'flux-2-dev': 400,
+  'flux-1-schnell': 57.6, 'flux-2-klein-4b': 31.4,   /* bảng giá 11/2026: 512² = 1 ô ra 26,05 + 1 ô vào 5,37. Số 110 đo 27/10 (61 tài khoản ~610k / 5.215 ảnh) gộp cả ~2,8 lượt giám khảo thị giác/ảnh trên cùng tài khoản */ 'flux-2-klein-9b': 1400, 'flux-2-dev': 400,
   'lucid-origin': 700, 'phoenix-1.0': 600, 'stable-diffusion-xl-lightning': 0, 'stable-diffusion-xl-base-1.0': 0,   // SDXL: bảng giá ghi 0 (beta) – nếu tính phí, sửa ở đây
 };
 export const DAILY_NEURONS = 10000;
