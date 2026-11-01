@@ -28,11 +28,11 @@ Eine Kollokation (Collocation) ist das wiederkehrende gemeinsame Auftreten besti
 
 Im akademischen und formellen Kontext dominieren fünf fundamentale Strukturmuster:
 
-1. **Verb + Nomen (Verb + Noun):** *address an issue*, *pose a threat*, *spark debate*
-2. **Adjektiv + Nomen (Adjective + Noun):** *pressing concern*, *compelling evidence*, *rapid urbanization*
-3. **Nomen + Nomen (Noun + Noun):** *carbon footprint*, *traffic congestion*, *energy consumption*
-4. **Verb + Adverb (Verb + Adverb):** *strongly disagree*, *drastically increase*, *fluctuate wildly*
-5. **Adverb + Adjektiv (Adverb + Adjective):** *strictly prohibited*, *vitally important*, *deeply rooted*
+1. **Verb + Nomen:** *overcome obstacles*, *stimulate innovation*, *yield results*
+2. **Adjektiv + Nomen:** *paramount importance*, *tangible benefits*, *alarming trend*
+3. **Nomen + Nomen:** *job market*, *healthcare system*, *carbon emissions*
+4. **Verb + Adverb:** *unequivocally state*, *plummet dramatically*, *differ vastly*
+5. **Adverb + Adjektiv:** *financially viable*, *critically acclaimed*, *diametrically opposed*
 
 Indem Sie sich diese fertigen Phrasenbausteine aneignen, vermeiden Sie ausschweifende Umschreibungen und verleihen Ihren Essays eine hohe gedankliche Prägnanz.
 
@@ -96,14 +96,13 @@ Nachfolgend finden Sie eine Zusammenstellung akademischer Kollokationen für die
 
 Unter dem zeitlichen Druck der 40-minütigen Schreibaufgabe übersetzen viele Lernende deutsche Wendungen wortwörtlich:
 
-| Falsche deutsche Direktübersetzung | Natürliche englische Kollokation | Hintergrund und Erklärung |
+| Typische deutsche Fehlübertragung | Natürliche englische Partnerschaft | Erklärung |
 | :--- | :--- | :--- |
-| *Do a mistake* | **Make a mistake** | Fehler werden im Englischen mit *make* gebildet, nicht mit *do*. |
-| *Pass an exam* (eine Prüfung ablegen) | **Take / Sit an exam** | *Pass* bedeutet bestehen; das bloße Antreten heißt *take*. |
-| *Strong rain* | **Heavy rain** | Starker Regen verbindet sich im Englischen fest mit *heavy*. |
-| *Gain a decision* | **Reach a decision** | Eine Entscheidung treffen oder herbeiführen heißt *reach*. |
-| *Make damage* | **Cause / Do damage** | Schäden werden verursacht (*cause*) oder zugefügt (*do*). |
-| *Give an opinion* (im Essay) | **Express an opinion** | In formalen Texten verlangen Prüfer Verben wie *express* oder *voice*. |
+| *Drive a bicycle* | **Ride a bicycle** | Zweiräder werden mit *ride* bewegt, nicht mit *drive*. |
+| *Control an exam* | **Invigilate / Proctor an exam** | Die Prüfungsaufsicht heißt im britischen Englisch *invigilate*. |
+| *Deep sleep* | **Sound sleep / Fast asleep** | Tiefschlaf wird idiomatischer als *sound sleep* bezeichnet. |
+| *Make photos* | **Take photos** | Fotografieren verbindet sich fest mit dem Verb *take*. |
+| *Win experience* | **Gain / Acquire experience** | Erfahrung wird durch *gain* oder *acquire* erworben. |
 
 Das bewusste Vermeiden dieser typischen Stolperfallen sichert Ihnen wertvolle Punkte im Bereich Vokabular.
 
