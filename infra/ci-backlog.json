@@ -12,6 +12,12 @@
   { "id": "mobile-qa", "workflow": "mobile-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 6 }, "note": "QA mobile (Playwright) trên main" },
   { "id": "visual-qa", "workflow": "visual-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 6 }, "note": "QA giao diện 15 ngôn ngữ" },
   { "id": "web-sweep", "workflow": "web-sweep.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 12 }, "note": "Quét trang web công khai" },
+  { "id": "qa-bot", "workflow": "qa-bot.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 4 }, "note": "QA bot: hành trình, giao diện, hiệu năng, lưu trữ trên bản dựng main" },
+  { "id": "journey-e2e", "workflow": "journey-e2e.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 6 }, "note": "Journey E2E: hành trình người học trên main" },
+  { "id": "ux-cards", "workflow": "ux-cards.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 8 }, "note": "Thẻ UX: ảnh chụp + cổng ux-guard" },
+  { "id": "content-qa", "workflow": "content-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 12 }, "note": "Cổng QA nội dung (0 token AI)" },
+  { "id": "lighthouse", "workflow": "lighthouse.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 24 }, "note": "Lighthouse/CWV 14 trang (ghi reports/lighthouse.json)" },
+  { "id": "ext-e2e", "workflow": "ext-e2e.yml", "cpu_bound": true, "quota_bound": false, "jobs": 6, "probe": { "stale_hours": 12 }, "note": "E2E add-on 6 ngôn ngữ" },
   { "id": "vocab-img-scene", "workflow": "vocab-img-scene.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "CF_POOL ảnh – hạn mức neuron, thêm runner không giúp" },
   { "id": "lexicon-expand", "workflow": "lexicon-expand.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "Gemini/CF_POOL lexicon – hạn mức" },
   { "id": "lexicon-i18n", "workflow": "lexicon-i18n.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "Dịch AI – hạn mức" }
