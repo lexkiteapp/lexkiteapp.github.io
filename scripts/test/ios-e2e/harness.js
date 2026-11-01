@@ -270,6 +270,8 @@
       case 'onboard': {
         await visit('welcome', 'welcome');
         await visit('welcome/setup', 'welcome-setup');
+        // Thiết lập TỪNG BƯỚC (web/js/onboard.js: mục tiêu → trình độ → điểm → cường độ → sẵn sàng): #go chỉ có ở màn cuối → bấm "Tiếp tục" (#obNext) tới đó
+        for (let i = 0; i < 8 && !document.getElementById('go'); i++) { const nx = document.getElementById('obNext'); if (!nx) break; nx.click(); await sleep(500); }
         const go = document.getElementById('go');
         if (go && go.disabled) { const chip = document.querySelector('#view [data-topic], #view .chip'); chip && chip.click(); await sleep(300); }
         if (go && !go.disabled) { go.click(); await sleep(4500); } else add('flow', 'Không tìm thấy/bấm được nút "Bắt đầu học" (#go) ở màn thiết lập');
