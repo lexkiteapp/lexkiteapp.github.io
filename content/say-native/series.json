@@ -179,7 +179,7 @@
      },
      "pose": "cheer",
      "quiz": {
-      "ask": "You got the job! You are…",
+      "ask": "You got the job! You're…",
       "options": [
        "over the moon.",
        "under the moon."
@@ -576,7 +576,7 @@
      "say": "I'll look into it.",
      "reg": "polite",
      "mean": "I will check this problem.",
-     "when": "A customer reports a bug.",
+     "when": "A client reports a bug.",
      "swap": {
       "text": "Let me check.",
       "reg": "neutral"

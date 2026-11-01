@@ -38,13 +38,13 @@
   },
   {
    "id": "q",
-   "text": "Quick quiz! You got the job! You are…",
+   "text": "Quick quiz! You got the job! You're…",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "You are over the moon.",
+   "text": "You're over the moon.",
    "pause": 0.42
   },
   {
@@ -71,7 +71,7 @@
   },
   "dont": null,
   "quiz": {
-   "stem": "You got the job! You are…",
+   "stem": "You got the job! You're…",
    "options": [
     "over the moon.",
     "under the moon."
@@ -95,8 +95,8 @@
   "item": 0
  },
  "est": {
-  "words": 42,
-  "seconds": 28.1,
-  "wpm": 90
+  "words": 40,
+  "seconds": 27.1,
+  "wpm": 89
  }
 }

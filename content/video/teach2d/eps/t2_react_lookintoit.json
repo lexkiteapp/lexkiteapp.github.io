@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "A customer reports a bug?",
+   "text": "A client reports a bug?",
    "pause": 1.2,
    "pose": true
   },
@@ -64,7 +64,7 @@
   "define": "a promise to investigate a problem",
   "reg": "polite",
   "mean": "I will check this problem.",
-  "when": "A customer reports a bug.",
+  "when": "A client reports a bug.",
   "swap": {
    "text": "Let me check.",
    "reg": "neutral"
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "A customer reports a bug?"
+  "text": "A client reports a bug?"
  },
  "src": {
   "say": "office",
