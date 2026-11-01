@@ -729,7 +729,8 @@
         "/#/reading"
       ],
       "angle": "Phân biệt False và Not Given, quy trình 4 bước, ví dụ tự viết",
-      "intent": "informational"
+      "intent": "informational",
+      "lang": "vi"
     },
     {
       "slug": "ielts-reading-skimming-scanning",
@@ -14071,6 +14072,270 @@
         "/#/practice/learn"
       ],
       "angle": "Erfahren Sie, wie Sie englische Kollokationen gezielt im IELTS Writing und Speaking einsetzen, um typische Übersetzungsfehler zu vermeiden.",
+      "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "true-false-not-given-ielts-reading-estrategias",
+      "keyword": "true false not given ielts reading",
+      "topic": "True False Not Given en IELTS Reading: Cómo Distinguir False de Not Given",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "Guía definitiva para dominar las preguntas True False Not Given en IELTS Reading: cómo evitar suposiciones externas y la regla de oro para no confundir False con Not Given.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "true-false-not-given-ielts-reading-dicas",
+      "keyword": "true false not given ielts reading",
+      "topic": "True False Not Given no IELTS Reading: Estratégias para Não Errar",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "Passo a passo definitivo para acertar questões de True False Not Given no IELTS Reading: método em 4 etapas, armadilhas comuns e análise de evidências no texto.",
+      "intent": "informational"
+    },
+    {
+      "lang": "fr",
+      "slug": "true-false-not-given-ielts-reading-methode",
+      "keyword": "true false not given ielts reading",
+      "topic": "True False Not Given à l IELTS Reading : Guide et Méthode Infaillible",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "Comment différencier False de Not Given sans hésiter à l IELTS Reading : analyse logique des contradictions textuelles et méthode de repérage rapide.",
+      "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "ielts-reading-true-false-not-given-tipps",
+      "keyword": "ielts reading true false not given",
+      "topic": "IELTS Reading True False Not Given: Strategien für den Unterschied",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "So meistern Sie True False Not Given im IELTS Reading: Der goldene Test zur Unterscheidung von False und Not Given, Schritt-für-Schritt-Methode und Fehleranalyse.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "ielts-reading-true-false-not-given-sovety",
+      "keyword": "ielts reading true false not given",
+      "topic": "IELTS Reading True False Not Given: Как отличить False от Not Given",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "Полное практическое руководство по вопросам True False Not Given в IELTS Reading: ключевое правило поиска противоречий и алгоритм работы с текстом.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "ielts-reading-true-false-not-given-taktikleri",
+      "keyword": "ielts reading true false not given",
+      "topic": "IELTS Reading True False Not Given: False ile Not Given Arasındaki Fark",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "IELTS Reading True False Not Given sorularını çözme rehberi: False ve Not Given ayrımı, tuzak kelimeler ve 4 adımlı çözüm yöntemi.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "thikhnik-true-false-not-given-ielts-reading",
+      "keyword": "true false not given ielts reading",
+      "topic": "เทคนิคทำข้อสอบ True False Not Given ใน IELTS Reading ให้ได้คะแนนเต็ม",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "เผยวิธีแยก False ออกจาก Not Given อย่างแม่นยำในข้อสอบ IELTS Reading พร้อมขั้นตอนการสแกนหาหลักฐานในบทความทีละบรรทัด",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "asila-true-false-not-given-ielts-reading",
+      "keyword": "true false not given ielts reading",
+      "topic": "حل أسئلة True False Not Given في IELTS Reading: الفارق بين الخطأ وغير المذكور",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "الدليل الشامل للتعامل مع أسئلة True False Not Given في اختبار القراءة بالآيلتس: كيفية التفريق الحاسم بين المعلومة الخاطئة وتلك غير المذكورة إطلاقاً.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "ielts-reading-true-false-not-given-in-hindi",
+      "keyword": "ielts reading true false not given",
+      "topic": "IELTS Reading True False Not Given: False और Not Given में अंतर समझें",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "हिन्दी में समझें IELTS Reading के True False Not Given प्रश्नों को हल करने का अचूक तरीका, सामान्य भ्रम और 4-चरणीय वैज्ञानिक प्रक्रिया।",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "ielts-reading-true-false-not-given-koutsu",
+      "keyword": "ielts reading true false not given コツ",
+      "topic": "IELTS Reading True False Not Given完全攻略：見分け方のコツと解法手順",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "IELTSリーディングで多くの受験生が悩むTrue/False/Not Givenの識別法。FalseとNot Givenを混同しないための論理的判断基準と実践演習。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "ielts-reading-true-false-not-given-haebeop",
+      "keyword": "ielts reading true false not given 해법",
+      "topic": "IELTS 리딩 True False Not Given 완벽 공략: 명확한 구분 기준과 실전 해법",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "IELTS Reading 영역의 가장 까다로운 True/False/Not Given 문제 완벽 해결 가이드. False와 Not Given의 명확한 차이점 분석 및 4단계 문제 풀이 공식.",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "ya-si-yue-du-true-false-not-given-jie-ti-ji-qiao",
+      "keyword": "雅思阅读 true false not given 技巧",
+      "topic": "雅思阅读 True False Not Given 解题技巧：彻底分清 False 与 Not Given",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "true-false-not-given"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "手把手教你攻破雅思阅读中最易失分的判断题，掌握逻辑矛盾判定法，杜绝主观臆断与过度推导。",
       "intent": "informational"
     }
   ]
