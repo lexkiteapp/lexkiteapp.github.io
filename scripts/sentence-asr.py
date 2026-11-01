@@ -6,7 +6,7 @@
 #     không bản nào đạt → res = lý do (câu giữ bản cũ, vào web/audio/l/asr-fail.tsv).
 import argparse, json, os, re, shutil, subprocess, sys, tempfile, time
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'word-audio'))
-from asr_lib import fetch, hear, heard_ok, prepare
+from asr_lib import fetch, hear, heard_ok, prepare, ORIGINS_L
 WER_MAX = 0.10  # ≤ 10 % – scripts/test/sentence-asr.mjs giữ hằng này khớp tài liệu; chỉ được siết, không nới
 _N = None
 def norm(s):
@@ -43,7 +43,7 @@ if '--selftest' in sys.argv:
     print('✓ sentence-asr selftest'); sys.exit(0)
 ap = argparse.ArgumentParser()
 ap.add_argument('--todo', default=''); ap.add_argument('--cands', default=''); ap.add_argument('--res', default='.sa/res.json')
-ap.add_argument('--minutes', type=float, default=1e6); ap.add_argument('--base', default='https://audio.lexkite.com/audio/l/')
+ap.add_argument('--minutes', type=float, default=1e6); ap.add_argument('--base', default=ORIGINS_L)
 ap.add_argument('--out', default='.media-out/audio/l')
 a = ap.parse_args(); t0 = time.time(); tmp = tempfile.mkdtemp(); out = []
 res = json.load(open(a.res)) if os.path.exists(a.res) else {}
