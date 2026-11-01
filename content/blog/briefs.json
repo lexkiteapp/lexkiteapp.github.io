@@ -17467,6 +17467,75 @@
       ],
       "angle": "Panduan lengkap negosiasi bahasa inggris: teknik mengajukan penawaran balik, konsesi bersyarat, mengatasi kebuntuan harga, dan menutup kontrak bisnis.",
       "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "business-eigo-koshou-phrases-keiyaku",
+      "keyword": "英語 交渉 フレーズ",
+      "topic": "英語交渉フレーズ集：価格交渉・条件提示・契約締結までの実戦表現",
+      "category": "ky-nang",
+      "tags": [
+        "koshou",
+        "business-eigo",
+        "speaking",
+        "keiyaku"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "ビジネス英語交渉フレーズ集：条件付き譲歩、価格交渉の切り返し、デッドロック打開から契約締結まで、外資系やグローバル取引で役立つ実践表現を網羅。",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "shang-wu-ying-yu-tan-pan-ju-xing-he-tong",
+      "keyword": "商务英语 谈判 句型",
+      "topic": "商务英语谈判实用句型：价格博弈、让步条件与合同敲定全流程指南",
+      "category": "ky-nang",
+      "tags": [
+        "tan-pan",
+        "shang-wu-ying-yu",
+        "speaking",
+        "he-tong"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "外企跨国商务英语谈判必备句型：从开场破冰、提出还盘对案、化解价格僵局到正式敲定商业合同，全流程专业表达深度解析。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "business-yeongeo-hyeobsang-pyohyeon-gyeyak",
+      "keyword": "영어 협상 표현",
+      "topic": "비즈니스 영어 협상 표현：가격 협상, 조건 조율 및 계약 체결 핵심 패턴",
+      "category": "ky-nang",
+      "tags": [
+        "hyeobsang",
+        "business-yeongeo",
+        "speaking",
+        "gyeyak"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "실전 비즈니스 영어 협상 표현 가이드: 조건부 양보 제안, 가격 대치 국면 타개, 정중한 거절과 계약서 조항 최종 확정까지 핵심 패턴 완벽 정리.",
+      "intent": "informational"
     }
   ]
 }
