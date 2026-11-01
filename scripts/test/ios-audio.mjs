@@ -17,13 +17,14 @@ function iosPolicy() {
   let act = -Infinity; const tr = e => { if (e.isTrusted) act = performance.now(); };
   ['touchend', 'click', 'keydown', 'pointerup'].forEach(ev => addEventListener(ev, tr, true));
   const active = () => performance.now() - act < 1000;
-  window.__aud = { ok: [], blocked: 0, ttsBlocked: 0, tts: 0, log: [] }; const lg = m => { const L = window.__aud.log; L.push(Math.round(performance.now() / 100) / 10 + 's ' + m); if (L.length > 40) L.shift(); };
+  window.__aud = { ok: [], blocked: 0, ttsBlocked: 0, tts: 0, log: [] }; let lastNow = ''; setInterval(() => { const n = (document.getElementById('lNow') || {}).textContent || ''; if (n !== lastNow) { lastNow = n; lg('lNow "' + n.slice(0, 20) + '"'); } }, 100); const lg = m => { const L = window.__aud.log; L.push(Math.round(performance.now() / 100) / 10 + 's ' + m); if (L.length > 40) L.shift(); };
   ['playing', 'ended', 'error', 'stalled'].forEach(ev => addEventListener(ev, e => { const t = e.target; if (t instanceof HTMLMediaElement) lg(ev + ' ' + String(t.getAttribute('src') || '').split('/').pop().slice(0, 24)); }, true));
   const P = HTMLMediaElement.prototype, play = P.play;
   P.play = function () {
     const src = String(this.getAttribute('src') || this.src || ''), nm = src.split('/').pop().slice(0, 24); // src thuộc tính (đồng bộ) – currentSrc của phần tử dùng chung còn là bài TRƯỚC
     if (!active() && !this.__unlocked) { window.__aud.blocked++; lg('blocked ' + nm); return Promise.reject(new DOMException('The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.', 'NotAllowedError')); }
     this.__unlocked = true; lg('play ' + nm);
+    if (!this.__lg) { this.__lg = true; ['playing', 'ended', 'error', 'pause', 'abort', 'emptied'].forEach(ev => this.addEventListener(ev, () => { if (!this.isConnected) lg(ev + '* ' + String(this.getAttribute('src') || '').split('/').pop().slice(0, 24)); })); } // phần tử <audio> rời (new Audio()) không nổi sự kiện lên window → gắn thẳng
     if (!/^data:/.test(src)) window.__aud.ok.push(src.split('/').pop());
     return play.call(this);
   };
