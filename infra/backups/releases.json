@@ -70,6 +70,27 @@
   "ios-ipa": [],
   "addon-zip": [
    {
+    "run": 41311307584,
+    "run_number": 11,
+    "version": "2.6.444",
+    "build": 11,
+    "name": "lexkite-addon-2.6.444-run11.zip",
+    "sha256": "7a1db07e2eef210d32add799b9d570c8bbe5c8f7153edb724658b04012dd3dd0",
+    "size": 14127941,
+    "commit": "b9d8c37ec595af109d3d8aa4eb832fb890692a94",
+    "at": "2026-11-01T13:29:38Z",
+    "copies": [
+     {
+      "driveId": 9,
+      "fileId": "1bQslM5UE_JxUoUZSUpmtkE7_TH71cDAd"
+     },
+     {
+      "driveId": 3,
+      "fileId": "163qQIi-kSTBtUKRcJ22PVklk6fbKBGB3"
+     }
+    ]
+   },
+   {
     "run": 40450920272,
     "run_number": 9,
     "version": "2.6.443",
@@ -113,5 +134,5 @@
    }
   ]
  },
- "updated": "2026-11-01T11:54:13.871Z"
+ "updated": "2026-11-01T13:31:04.326Z"
 }
