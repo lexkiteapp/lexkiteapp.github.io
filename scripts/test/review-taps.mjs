@@ -45,10 +45,14 @@ async function run(type, name, opts, scheme) {
   const tag = `${name}/${scheme}`;
   // Chờ bằng tín hiệu thật của app, không đoán thời gian: lượt điều hướng CUỐI đã vẽ xong (App.drawn: token mới nhất + đúng hash),
   // rồi mọi hiệu ứng hữu hạn trong #view (mờ-trồi khi đổi trang) chạy xong → toạ độ chạm ổn định.
-  const settle = (want, timeout = 15000) => page.waitForFunction(async w => { const d = App.drawn(), v = document.getElementById('view');
-    if (d.tok !== App.routeToken() || d.hash !== location.hash || (w && location.hash !== w) || (w && !document.querySelector('.v2-review'))) return false;
-    await Promise.all((v ? v.getAnimations({ subtree: true }) : []).filter(a => (a.effect && a.effect.getTiming().iterations) !== Infinity).map(a => a.finished.catch(() => {})));
-    return d.tok === App.routeToken(); }, want, { timeout }).then(() => true, () => false);
+  // (waitForFunction KHÔNG chờ lời hứa: hàm async luôn trả Promise = "đúng" ngay → điều kiện đồng bộ chờ riêng, hiệu ứng chờ bằng evaluate, rồi kiểm lại)
+  const drawnOk = w => { const d = App.drawn(); return d.tok === App.routeToken() && d.hash === location.hash && (!w || (location.hash === w && !!document.querySelector('#view .v2-review'))); };
+  const settle = async (want, timeout = 15000) => { const end = Date.now() + timeout;
+    while (Date.now() < end) {
+      if (!(await page.waitForFunction(drawnOk, want, { timeout: Math.max(1, end - Date.now()) }).then(() => true, () => false))) return false;
+      await page.evaluate(() => { const v = document.getElementById('view'); return Promise.all((v ? v.getAnimations({ subtree: true }) : []).filter(a => (a.effect && a.effect.getTiming().iterations) !== Infinity).map(a => a.finished.catch(() => {}))).then(() => 0); });
+      if (await page.evaluate(drawnOk, want)) return true; } // trong lúc chờ hiệu ứng lại có lượt điều hướng mới → chờ tiếp
+    return false; };
   const diag = () => page.evaluate(() => { const d = App.drawn(), v = document.getElementById('view'), f = v && v.firstElementChild;
     return `hash ${location.hash}, vẽ xong ${d.hash} (lượt ${d.tok}/${App.routeToken()}), #view: ${f ? f.tagName + '.' + String(f.className).slice(0, 60) : 'trống'}`; });
   let shot = 0; const hub = async () => { await page.evaluate(h => { location.hash = h; }, HUB); if (await settle(HUB)) return true;
