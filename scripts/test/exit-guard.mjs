@@ -106,5 +106,16 @@ const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.hi
   await popOnly(E, '#/home');
   ok(modalOpen(E.d) && E.w.location.hash === '#/quick?i=2', 'back sau replaceState của màn → hỏi, URL khôi phục = #/quick?i=2 (đang ' + E.w.location.hash + ')');
 }
+{ // 8) nút thoát 36×36 (desktop, .icon-btn) → hộp thật 44×44 mà hình giữ nguyên: viền trong suốt 4 px, nền padding-box, lề −4 px, bo góc bù
+  const E = await boot(), b = E.d.createElement('a');
+  b.className = 'icon-btn'; b.style.cssText = 'display:inline-grid;width:36px;height:36px;border-radius:50%;background:#eee'; E.d.body.appendChild(b);
+  b.getBoundingClientRect = () => ({ top: 0, left: 0, width: 36, height: 36, right: 36, bottom: 36 });
+  E.w.ExitGuard._grow(b); const S = b.style;
+  ok(S.borderTopWidth === '4px' && S.borderLeftWidth === '4px' && /transparent/.test(S.borderColor || S.borderTopColor) && S.backgroundClip === 'padding-box', 'nới: viền trong suốt 4 px + nền cắt padding-box (' + S.cssText + ')');
+  ok(S.width === '36px' && S.height === '36px' && S.boxSizing === 'content-box', 'nới: vùng nền giữ 36×36');
+  ok(S.marginTop === '-4px' && S.marginLeft === '-4px', 'nới: lề −4 px → bố cục không đổi');
+  ok(/^22px/.test(S.borderTopLeftRadius), 'nới: bo góc 50% của 36 (18) + 4 = 22 px → mép trong vẫn tròn 18 px (' + S.borderTopLeftRadius + ')');
+  E.w.ExitGuard._ungrow(b); ok(!b.dataset.lkGrow && S.width === '36px' && !S.borderTopWidth, 'gỡ nới → về đúng style cũ');
+}
 console.log(fails ? `✗ exit-guard: ${fails}/${n} lỗi` : `✓ exit-guard: ${n} kiểm tra`);
 process.exit(fails ? 1 : 0);

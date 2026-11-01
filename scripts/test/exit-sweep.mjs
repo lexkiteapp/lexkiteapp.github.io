@@ -1,6 +1,7 @@
 // 🚪 exit-sweep – mọi màn học phải có lối thoát hoạt động (docs/specs/exit-button.md, web/js/exit-guard.js). Chỉ chạy trên CI (qa-bot.yml).
 // 1) Mọi route của app (App.routes + gói lười ROUTE_BUNDLE) phải được phân loại: màn học (ALWAYS/WITH_ARG/ExitGuard.learn) hoặc trang trung tâm (NOT_LEARN).
-// 2) Mỗi màn học (390 px × sáng/tối, cờ lk.exitbar): có nút thoát [data-exit] nhìn thấy, aria-label, vùng chạm ≥ 44×44, tương phản ≥ 3:1.
+// 2) Mỗi màn học (390 px × sáng/tối, cờ lk.exitbar): có nút thoát [data-exit] nhìn thấy, aria-label, hộp THẬT ≥ 44×44 (getBoundingClientRect), tương phản ≥ 3:1.
+//    768 / 1440 px (chuột): hộp thật ≥ 44×44; nút được nới (ExitGuard grow) phải KHÔNG đổi pixel nào (so ảnh có/không nới).
 // 3) Thoát thật: bấm nút / Esc / back hệ thống (vuốt iOS = history.back) → rời màn về trang trước, không kẹt (#view có nội dung).
 //    Đang làm dở → hộp hỏi "Tiếp tục học" (ở lại, màn còn nguyên) / "Thoát" (rời màn).
 // Dùng: node scripts/test/exit-sweep.mjs [--root dist | --base URL] [--out out/exit-sweep] [--themes light,dark]
@@ -75,10 +76,10 @@ for (const theme of THEMES) {
         const v = document.querySelector('#view'), x = v && v.querySelector('[data-exit]');
         if (!document.body.classList.contains('lk-learn')) return { err: 'ExitGuard không nhận là màn học' };
         if (!x) return { err: 'không có nút thoát [data-exit]' };
-        const rc = x.getBoundingClientRect(), big = x.classList.contains('lk-hit44') ? 44 : 0, cs = getComputedStyle(x);
+        const rc = x.getBoundingClientRect(), cs = getComputedStyle(x); // hộp THẬT – ::after (lk-hit44) không tính: qa-bot và chạm WebKit không theo nó
         const ic = x.querySelector('svg') ? getComputedStyle(x.querySelector('svg')).color : cs.color;
         let bg = 'rgb(255,255,255)', e = x; while (e) { const b = getComputedStyle(e).backgroundColor; if (b && !/rgba\(.*,\s*0\)|transparent/.test(b)) { bg = b; break; } e = e.parentElement; }
-        return { label: x.getAttribute('aria-label') || x.textContent.trim(), w: Math.max(rc.width, big), h: Math.max(rc.height, big), top: rc.top, ic, bg, vis: rc.width > 0 && rc.height > 0 && cs.visibility !== 'hidden' };
+        return { label: x.getAttribute('aria-label') || x.textContent.trim(), w: rc.width, h: rc.height, top: rc.top, ic, bg, vis: rc.width > 0 && rc.height > 0 && cs.visibility !== 'hidden' };
       });
       if (btn.err) { fail(where, btn.err); await page.screenshot({ path: `${OUT}/shots/${r}-${theme}.png`, scale: 'css' }); continue; }
       const L1 = lum(btn.ic), L2 = lum(btn.bg), ratio = (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
@@ -117,6 +118,36 @@ for (const theme of THEMES) {
   }
   await ctx.close();
 }
+// ---------- 4) 768 / 1440 (chuột, pointer: fine – nút .icon-btn 36 px): hộp thật ≥ 44×44 + nới không đổi pixel nào ----------
+const notes = [];
+for (const W of [768, 1440]) {
+  const ctx = await browser.newContext({ viewport: { width: W, height: 900 }, colorScheme: THEMES[0], locale: 'en-US', serviceWorkers: 'block' });
+  await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th })); localStorage.setItem('lk.exitbar', '1'); } catch { /* */ } }, THEMES[0]);
+  for (const [r, hash] of samples) {
+    const where = `${r} @${W} (${hash})`, page = await ctx.newPage();
+    page.on('dialog', d => d.accept());
+    try {
+      await boot(page, '/home'); await go(page, hash); await page.mouse.move(W - 2, 898);
+      const b = await page.evaluate(() => { const x = document.querySelector('#view [data-exit]'); if (!x) return null; const rc = x.getBoundingClientRect(); return { w: rc.width, h: rc.height, x: rc.left, y: rc.top, grown: x.dataset.lkGrow != null, sel: x.tagName.toLowerCase() + '.' + [...x.classList].join('.') }; });
+      if (!b) { fail(where, 'không có nút thoát [data-exit]'); continue; }
+      if (b.w < 44 || b.h < 44) fail(where, `vùng chạm thật ${Math.round(b.w)}×${Math.round(b.h)} < 44×44 (${b.sel})`);
+      let px = '–';
+      if (b.grown) { // ảnh vùng nút: có nới (A) / gỡ nới (B) / nới lại (C) – A ≠ C = nền động (ghi chú), A ≠ B = nới làm đổi hình (lỗi)
+        const clip = { x: Math.max(0, b.x - 8), y: Math.max(0, b.y - 8), width: b.w + 16, height: b.h + 16 };
+        const shot = () => page.screenshot({ clip, animations: 'disabled', caret: 'hide' });
+        const flip = on => page.evaluate(o => { const x = document.querySelector('#view [data-exit]'); if (o) ExitGuard._grow(x); else ExitGuard._ungrow(x); }, on);
+        const A = await shot(); await flip(false); const B = await shot(); await flip(true); const C = await shot();
+        if (!A.equals(C)) { px = 'nền động'; notes.push(`${where}: vùng nút có chuyển động – bỏ qua so ảnh`); }
+        else if (!A.equals(B)) { px = 'KHÁC'; fail(where, `nới vùng chạm làm đổi pixel nút thoát (${b.sel})`); await page.screenshot({ path: `${OUT}/shots/${r}-${W}-grow.png`, clip }); }
+        else px = '0';
+      }
+      rows.push(`| ${r} | ${W} px | \`${hash}\` | ${Math.round(b.w)}×${Math.round(b.h)} | diff ${px} |`);
+    } catch (e) { fail(where, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
+    finally { await page.close(); }
+  }
+  await ctx.close();
+}
+for (const n of notes) console.log('·', n);
 await ctxBefore.close(); await browser.close(); if (srv) srv.close();
 const md = `# exit-sweep\n\n${samples.length} màn học × ${THEMES.join('/')} · ${fails.length} lỗi\n\n| route | theme | hash | chạm | tương phản |\n|---|---|---|---|---|\n${rows.join('\n')}\n\n${fails.length ? '## Lỗi\n' + fails.map(f => '- ' + f).join('\n') : '✓ mọi màn học có lối thoát hoạt động'}\n`;
 fs.writeFileSync(OUT + '/report.md', md);

@@ -1,11 +1,5 @@
 /* 🚪 ExitGuard – mọi màn học có lối thoát rõ ràng, nhất quán (docs/specs/exit-button.md, khung §5d biến thể FOCUS).
- * Một chỗ chung thay vì vá từng màn:
- *  - Màn học (ExitGuard.isLearn) → tìm nút X/Quay lại sẵn có ở đầu màn, gắn [data-exit], nhãn aria, vùng chạm ≥ 44 px.
- *    Thiếu nút → chèn thanh FOCUS chung (nút X tròn + thanh tiến độ + chip) – sau cờ lk.exitbar cho tới khi chủ duyệt ảnh.
- *  - Esc, nút back hệ thống/trình duyệt, vuốt quay lại trên iOS = bấm nút thoát.
- *  - Đang làm dở → hỏi nhẹ (Tiếp tục học / Thoát); lưu được thì lưu (ExitGuard.onSave). Chưa làm gì / đã xong → thoát ngay.
- *  - Thoát về đúng màn trước (Hôm nay hoặc tab gốc), không bao giờ kẹt.
- * Màn tự có hộp hỏi riêng (gán el.onclick, vd. study.js guardExit, placement, mock) → giữ nguyên, Esc/back chỉ "bấm" nút đó.
+ * Cách làm (tìm/gắn nút thoát, Esc, back/vuốt iOS, hỏi khi làm dở, vùng chạm 44 px): xem docs/specs/exit-button.md.
  * Màn mới: thêm tên route vào ALWAYS/WITH_ARG (màn học) hoặc NOT_LEARN (trang trung tâm) – test exit-sweep đỏ nếu route chưa phân loại. */
 (function (g) {
   'use strict';
@@ -67,19 +61,31 @@
     if (!x) return;
     x.setAttribute('data-exit', '');
     if (!x.getAttribute('aria-label')) x.setAttribute('aria-label', t('Thoát bài học'));
-    const r = x.getBoundingClientRect(); if (r.width < 44 || r.height < 44) x.classList.add('lk-hit44');
+    const r = x.getBoundingClientRect(); if (r.width < 44 || r.height < 44) { x.classList.add('lk-hit44'); grow(x, r); }
   }
+  // Hộp thật ≥ 44, pixel không đổi (docs/specs/exit-button.md)
+  function grow(x, r) {
+    const cs = getComputedStyle(x), px = v => parseFloat(v) || 0, S = x.style;
+    if (!r.width || x.dataset.lkGrow != null || cs.display === 'inline' || (cs.boxShadow || 'none') !== 'none' || ['Top', 'Right', 'Bottom', 'Left'].some(k => px(cs['border' + k + 'Width']))) return;
+    const dx = Math.max(0, (44 - r.width) / 2), dy = Math.max(0, (44 - r.height) / 2), P = ['Top', 'Right', 'Bottom', 'Left'].map(k => px(cs['padding' + k])), M = ['Top', 'Right', 'Bottom', 'Left'].map(k => px(cs['margin' + k]));
+    const rad = c => { const [h, v = h] = (cs['border' + c + 'Radius'] || cs.borderRadius || '0').split(' '), f = (s, L) => (/%/.test(s) ? px(s) / 100 * L : px(s)); return `${f(h, r.width) + dx}px ${f(v, r.height) + dy}px`; };
+    const C = ['TopLeft', 'TopRight', 'BottomRight', 'BottomLeft'], R = C.map(rad);
+    x.dataset.lkGrow = S.cssText;
+    Object.assign(S, { boxSizing: 'content-box', width: r.width - P[1] - P[3] + 'px', height: r.height - P[0] - P[2] + 'px', minWidth: 0, minHeight: 0, border: `solid transparent`, borderWidth: `${dy}px ${dx}px`, backgroundClip: 'padding-box', margin: `${M[0] - dy}px ${M[1] - dx}px ${M[2] - dy}px ${M[3] - dx}px`, outlineOffset: px(cs.outlineOffset) - Math.max(dx, dy) + 'px' });
+    C.forEach((c, i) => { S['border' + c + 'Radius'] = R[i]; });
+  }
+  const ungrow = x => { if (x && x.dataset.lkGrow != null) { x.style.cssText = x.dataset.lkGrow; delete x.dataset.lkGrow; } };
   const exitEl = () => { const v = view(); return v && (v.querySelector('[data-exit]') || findExit(v)); };
-  // Màn kết: KHÔNG dùng [data-done] chung – thuộc tính đó là cờ "đã nạp" của ô ghi chú từ (.wn-slot), ô quảng cáo, câu hỏi usage → màn đang dở bị coi là xong, không hỏi. Màn kết khác gọi ExitGuard.done().
+  // Không dùng [data-done] chung (cờ "đã nạp" của .wn-slot/quảng cáo/usage) – docs/specs/exit-button.md
   const finished = () => done || !!(view() && view().querySelector('.lsn-done, [data-lesson-done], .lesson-complete, #wDone:not([hidden])'));
   const needAsk = () => dirty && !finished();
 
-  // Rời màn: đích của lượt điều hướng bị giữ (back / hash do app đặt) → đi đúng đích đó; không thì link thoát của màn → theo href; còn lại về màn trước (Hôm nay/tab gốc)
+  // Rời màn: đích lượt bị giữ → href nút thoát → màn trước (Hôm nay/tab gốc)
   function leave(el, dest) {
     const href = el && el.getAttribute && el.getAttribute('href');
     const to = dest || (href && href !== '#' && !learnHash(href) ? href : backTo || '#/home');
     saves.forEach(f => { try { f(); } catch (e) { /* lưu lỗi không chặn thoát */ } });
-    bypass = true; dirty = false; popFor = ''; // lượt điều hướng mới: popstate/hashchange cũ không còn "trùng"
+    bypass = true; dirty = false; popFor = '';
     if (location.hash === to) { bypass = false; seen = to; routeNow(); } else location.hash = to;
   }
   function ask(el, dest) {
@@ -89,12 +95,11 @@
     box.querySelector('[data-exit-go]').onclick = () => { if (UI.closeModal) UI.closeModal(); else document.getElementById('modal').hidden = true; leave(el, dest); };
   }
   // Kích hoạt lối thoát (nút, Esc, back hệ thống)
-  // dest: đích của lượt điều hướng bị giữ (back hệ thống / hash do app đặt) – "Thoát" đi đúng đích đó
   function exit(viaHistory, dest) {
     const el = exitEl();
     if (needAsk()) ask(el, dest); // hộp chung; "Thoát" đi thẳng (không qua hộp riêng của màn → không hỏi hai lần)
     else if (viaHistory || !el) leave(el, dest);
-    else el.click(); // chưa làm gì: như bấm nút thoát (màn có hộp riêng → hộp đó; không → rời ngay)
+    else el.click();
   }
 
   // Nút thoát: màn không tự hỏi → hỏi chung khi đang làm dở
@@ -113,19 +118,17 @@
     const a = document.activeElement; if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && a.value) return; // Esc trong ô đang gõ = xóa/thoát ô, không rời bài
     e.preventDefault(); exit(false);
   });
-  // Back hệ thống / vuốt iOS: rời màn học đang dở bằng lịch sử → giữ lại màn (pushState không vẽ lại) rồi hỏi.
+  // Back/vuốt iOS khi làm dở → giữ màn (pushState) rồi hỏi.
   // Nhận biết "quay lại": Navigation API (traverse) nếu có; không thì hash mới = mục trước trong lịch sử phiên và không có chạm điều hướng trong màn ngay trước.
-  // Nghe CẢ popstate lẫn hashchange: back/vuốt từ mục do pushState tạo (sau một lần giữ màn) chỉ có popstate, KHÔNG có hashchange
-  // → chỉ nghe hashchange thì lần back thứ hai không hỏi, app không vẽ lại (URL đổi, màn đứng yên = kẹt). Cùng một lượt có cả hai → xử lý một lần:
-  // popstate quyết định; hashchange theo sau (cùng newURL) bị chặn nếu đã giữ màn / đã vẽ dự phòng, còn lại để app.js vẽ như thường.
+  // Nghe cả popstate + hashchange (back từ mục pushState chỉ có popstate), mỗi lượt xử lý 1 lần – docs/specs/exit-button.md
   let navType = '', tapAt = 0, seen = location.hash, popFor = '', popRes = '', popT = 0, popClr = 0; const hist = [];
   if (g.navigation && g.navigation.addEventListener) g.navigation.addEventListener('navigate', e => { navType = e.navigationType; });
   document.addEventListener('click', () => { tapAt = Date.now(); }, true); // chạm (trong màn, hộp hỏi, tab) rồi đổi hash = điều hướng chủ động, không phải back
-  // Màn tự đổi query bằng replaceState (không bắn sự kiện) → seen theo URL thật, để giữ màn khôi phục đúng URL và không bỏ sót lượt back
+  // replaceState của màn → seen = URL thật
   try { const RS = history.replaceState; history.replaceState = function () { const r = RS.apply(this, arguments); seen = location.hash; return r; }; } catch (e) { /* bỏ qua */ }
   const hashOf = u => { const i = String(u || '').indexOf('#'); return i >= 0 ? String(u).slice(i) : ''; };
   const routeNow = () => { if (g.App && App.route) App.route(); };
-  // Một lượt đổi URL sang h: true = giữ màn (đã khôi phục URL, đang hỏi), false = cho đi
+  // true = giữ màn (khôi phục URL, hỏi)
   function decide(h) {
     const oldH = seen, prev = hist[hist.length - 2], type = navType; navType = ''; seen = h;
     const back = type ? type === 'traverse' : (h === prev && Date.now() - tapAt > 800);
@@ -140,17 +143,17 @@
   g.addEventListener('popstate', () => {
     const h = location.hash;
     clearTimeout(popT); clearTimeout(popClr); popT = 0;
-    if (h === seen) { popFor = ''; return; } // cùng hash (không có hashchange theo sau)
+    if (h === seen) { popFor = ''; return; }
     popFor = h; popRes = decide(h) ? 'held' : 'wait';
     popClr = setTimeout(() => { popFor = ''; }, 1000);
-    // Không có hashchange theo sau (back từ mục pushState) → tự vẽ, không thì app đứng yên ở URL mới
+    // không có hashchange theo sau → tự vẽ
     if (popRes === 'wait') popT = setTimeout(() => { popT = 0; if (popFor === h && location.hash === h) { popRes = 'routed'; routeNow(); } }, 150);
   });
   g.addEventListener('hashchange', e => {
     const nh = hashOf(e.newURL) || location.hash;
-    if (popFor && nh === popFor) { // hashchange của lượt popstate vừa xử lý
+    if (popFor && nh === popFor) {
       popFor = ''; clearTimeout(popClr); clearTimeout(popT); popT = 0;
-      if (popRes !== 'wait') e.stopImmediatePropagation(); // đã giữ màn / đã vẽ dự phòng → app.js không vẽ lại
+      if (popRes !== 'wait') e.stopImmediatePropagation();
       return;
     }
     if (decide(location.hash)) e.stopImmediatePropagation();
@@ -165,7 +168,7 @@
   function after(name) {
     const [n, a] = parse(location.hash);
     if (bar && !bar.isConnected) bar = null;
-    seen = location.hash; // URL đã vẽ (kể cả sau replaceState của màn)
+    seen = location.hash;
     if (!isLearn(n, a)) { cur = ''; if (n !== 'welcome') backTo = location.hash || '#/home'; document.body.classList.remove('lk-learn'); return; }
     if (location.hash !== cur) { dirty = false; done = false; saves = []; }
     cur = location.hash; document.body.classList.add('lk-learn');
@@ -185,7 +188,8 @@
     dirty: v => { dirty = v !== false; },
     backTo: () => backTo,
     exit: () => exit(false),
-    _nav: () => ({ seen, popFor, popRes }), // chẩn đoán
+    _nav: () => ({ seen, popFor, popRes }),
+    _grow: x => grow(x, x.getBoundingClientRect()), _ungrow: ungrow, // exit-sweep: so ảnh có/không nới (diff phải = 0)
     _s: () => ({ cur, dirty, done, bypass, backTo, hist: hist.slice(-4), ex: !!exitEl(), exHref: exitEl() && exitEl().getAttribute('href'), exOn: !!(exitEl() && exitEl().onclick), act: document.activeElement && document.activeElement.tagName }), // chẩn đoán cho exit-sweep
   };
 })(typeof self !== 'undefined' ? self : this);

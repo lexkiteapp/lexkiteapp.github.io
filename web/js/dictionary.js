@@ -20,16 +20,14 @@
       return await r.json();
     } catch (e) { return null; } finally { clearTimeout(t); }
   };
-  // Cụm nhiều chữ (made up, rose slightly, the most striking change): dictionaryapi.dev chỉ có mục MỘT từ → không gọi (404 chắc chắn);
-  // Wiktionary chỉ gọi khi trang của đúng cụm đó tồn tại (MediaWiki query luôn trả 200, kèm cờ missing) – thành ngữ/cụm động từ có trang
-  // (account for, made up…) vẫn có định nghĩa + phiên âm; cụm tự do không bắn 404 vào REST/parse.
+  // Cụm nhiều chữ: không gọi dictionaryapi.dev (chỉ mục một từ); Wiktionary chỉ khi trang của cụm tồn tại (query 200 + missing)
   const isPhrase = w => /\s/.test(String(w || '').trim());
   const wikiPages = new Map();
   const wikiHas = word => {
     if (!isPhrase(word)) return Promise.resolve(true);
     if (!wikiPages.has(word)) wikiPages.set(word, fetchJSON(`https://en.wiktionary.org/w/api.php?action=query&titles=${encodeURIComponent(word)}&format=json&formatversion=2&origin=*`, 4000).then(d => {
       const p = d && d.query && Array.isArray(d.query.pages) ? d.query.pages[0] : null;
-      if (!p) { wikiPages.delete(word); return false; } // lỗi mạng → lần sau hỏi lại
+      if (!p) { wikiPages.delete(word); return false; }
       return !p.missing && !p.invalid;
     }));
     return wikiPages.get(word);
@@ -115,7 +113,7 @@
   }
 
   async function fromFreeDict(word) {
-    if (isPhrase(word)) return null; // chỉ có mục một từ
+    if (isPhrase(word)) return null;
     const data = await fetchJSON(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, 3000);
     if (!Array.isArray(data) || !data.length) return null;
     const out = { ipa: '', ipaUS: '', audio: '', audioUS: '', meanings: [], syn: [] };
