@@ -146,11 +146,8 @@ on:
       - 'Web sweep'
       - 'Cổng ASR audio câu'
       - 'Phát audio (Chromium + WebKit)'
-<<<<<<< HEAD
       - 'Mobile WebKit E2E'
-=======
       - 'codemap'
->>>>>>> real/main
       - 'TTS A/B (Kokoro vs ElevenLabs)'
       - 'required-gate'
   schedule:
