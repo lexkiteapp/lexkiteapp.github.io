@@ -1,59 +1,89 @@
 # Tạo giọng đọc Kokoro (AI giọng tự nhiên, mã nguồn mở Apache-2.0) cho câu còn thiếu – chạy trên máy chủ GitHub (miễn phí),
 # không tốn máy cá nhân. mp3 → kho media ngoài (infra/media-repos.json, scripts/media/push.mjs – KHÔNG vào repo chính), rồi mới commit chỉ mục
 # web/js/listen/audio-index.js (đẩy lỗi → không cập nhật chỉ mục → app không trỏ tới tệp chưa có). audio.lexkite.com dò các kho. Hết việc thì tự dừng sớm.
+# Ma trận shard động (scripts/ci/shards.mjs: ≤ 24, chừa 8 runner cho check PR) · sau khi gộp: đo độ phủ từng nhóm nội dung tĩnh và nâng sàn (scripts/audio/coverage.mjs --ratchet).
+# Câu mới tạo ở đây được cổng ASR (sentence-audio-asr.yml) nghe ở lượt sau.
 name: Tạo giọng đọc Kokoro
 on:
   schedule:
     - cron: '0 19 * * *'   # 02:00 giờ Việt Nam
   workflow_dispatch:
     inputs:
-      limit: { description: 'Số câu mỗi lần', default: '1500' }
+      limit: { description: 'Số câu mỗi shard', default: '1500' }
+      shards: { description: 'Trần số shard (thực tế = min(trần, runner rảnh − 8, ⌈câu/500⌉))', default: '24' }
 permissions:
   contents: write
+  actions: read   # plan đếm job đang chạy để chia shard
 concurrency:
   group: audio
   cancel-in-progress: false
 jobs:
-  gen:
+  plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 10
+    outputs:
+      left: ${{ steps.c.outputs.left }}
+      shards: ${{ steps.c.outputs.shards }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Đếm câu còn thiếu
-        id: count
-        run: echo "left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+        with: { node-version: 22 }
+      - id: c
+        run: |
+          left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*'); echo "left=$left" >> "$GITHUB_OUTPUT"
+          # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
+          echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "${{ github.event.inputs.shards || '24' }}")" >> "$GITHUB_OUTPUT"
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+  gen:
+    needs: plan
+    if: needs.plan.outputs.left != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    strategy: { max-parallel: 24, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }   # ngân sách runner nền: số shard đã tính động ở plan (chừa 8 cho PR – docs/CI-RUNNERS.md)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
       - name: Cài kokoro-js + ffmpeg (nén mp3 – ảnh máy chủ GitHub mới không còn sẵn ffmpeg)
-        if: steps.count.outputs.left != '0'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
       - name: Đệm mô hình Kokoro giữa các lượt (đỡ tải lại ~90 MB, tránh lỗi mạng)
-        if: steps.count.outputs.left != '0'
         uses: actions/cache@v4
         with:
           path: /tmp/kk/node_modules/@huggingface/transformers/.cache
           key: kokoro-82m-v1-q8
       - name: Tạo âm thanh
-        if: steps.count.outputs.left != '0'
-        run: |
-          AUDIO_MIN=240 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '1500' }}"
+        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: au-${{ matrix.shard }}
+          path: .media-out/
+          retention-days: 3
+          include-hidden-files: true
+  publish:
+    needs: [plan, gen]
+    if: always() && needs.plan.outputs.left != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'au-*', merge-multiple: true, path: .media-out }
       - name: Khoá deploy kho media
-        if: steps.count.outputs.left != '0'
         env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
       - name: Đẩy mp3 lên kho media
-        if: steps.count.outputs.left != '0'
         run: |
+          [ -d .media-out/audio/l ] && ls .media-out/audio/l | head -1 | grep -q . || { echo "không có file mới"; exit 0; }
           node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/l: thêm giọng Kokoro (run ${{ github.run_id }})"
-      - name: Lưu chỉ mục vào repo
-        if: steps.count.outputs.left != '0'
+      - name: Gộp chỉ mục + đo độ phủ, nâng sàn → main (sinh lại trên main mới nhất nếu workflow khác vừa đẩy – scripts/ci/commit-regen.sh)
         run: |
           rm -f ~/.ssh/m2
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/js/listen/audio-index.js
-          git diff --cached --quiet && exit 0
-          git commit -qm "Âm thanh: thêm giọng Kokoro (còn ${{ steps.count.outputs.left }} câu trước lượt này) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+          bash scripts/ci/commit-regen.sh "Âm thanh: thêm giọng Kokoro (còn ${{ needs.plan.outputs.left }} câu trước lượt này) [CF-Pages-Skip] [skip ci]" \
+            'node scripts/gen-audio.mjs --index-only && node scripts/audio/coverage.mjs --ratchet' \
+            web/js/listen/audio-index.js extension/app/js/listen/audio-index.js web/audio/coverage.json

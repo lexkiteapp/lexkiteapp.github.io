@@ -1,0 +1,112 @@
+{
+ "_doc": "Machine-readable exam format (structure only, no exam content). Counts/times checked against the official pages in verified.sources on verified.date; criteria descriptions are LexKite's own wording. Read by scripts/content-qa/exam-format-check.mjs (docs/CONTENT-QA.md §6).",
+ "id": "toeic-lr",
+ "name": "TOEIC Listening and Reading",
+ "provider": "ETS",
+ "audience": "work",
+ "cefr": ["A1", "C1"],
+ "verified": {
+  "date": "2026-11-01",
+  "sources": ["https://www.ets.org/toeic/about/listening-reading.html", "ETS TOEIC L&R examinee handbook (part sizes)"]
+ },
+ "total_minutes": 120,
+ "sections": [
+  {
+   "id": "listening",
+   "name": "Listening",
+   "minutes": 45,
+   "questions": 100,
+   "numbering": [1, 100],
+   "parts": [
+    {
+     "n": 1,
+     "name": "Photographs",
+     "questions": 6,
+     "types": ["mcq-photo"],
+     "options": 4,
+     "note": "four spoken statements about a photo"
+    },
+    {
+     "n": 2,
+     "name": "Question-Response",
+     "questions": 25,
+     "types": ["mcq-response"],
+     "options": 3,
+     "note": "spoken question or statement, three spoken responses"
+    },
+    {
+     "n": 3,
+     "name": "Conversations",
+     "questions": 39,
+     "types": ["mcq"],
+     "options": 4,
+     "sets": 13,
+     "per_set": 3,
+     "note": "some sets use a graphic"
+    },
+    {
+     "n": 4,
+     "name": "Talks",
+     "questions": 30,
+     "types": ["mcq"],
+     "options": 4,
+     "sets": 10,
+     "per_set": 3,
+     "note": "some sets use a graphic"
+    }
+   ]
+  },
+  {
+   "id": "reading",
+   "name": "Reading",
+   "minutes": 75,
+   "questions": 100,
+   "numbering": [101, 200],
+   "parts": [
+    {
+     "n": 5,
+     "name": "Incomplete Sentences",
+     "questions": 30,
+     "types": ["mcq-gap"],
+     "options": 4
+    },
+    {
+     "n": 6,
+     "name": "Text Completion",
+     "questions": 16,
+     "types": ["mcq-gap", "sentence-insert"],
+     "options": 4,
+     "sets": 4,
+     "per_set": 4
+    },
+    {
+     "n": 7,
+     "name": "Reading Comprehension",
+     "questions": 54,
+     "types": ["mcq", "sentence-insert"],
+     "options": 4,
+     "single": {
+      "questions": 29,
+      "texts": 10,
+      "per_text": [2, 4]
+     },
+     "multiple": {
+      "questions": 25,
+      "sets": 5,
+      "per_set": 5,
+      "texts_per_set": [2, 3]
+     }
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "scale": "10–990",
+  "sections": {
+   "listening": "5–495",
+   "reading": "5–495"
+  },
+  "step": 5,
+  "method": "number correct per section converted to a scaled score; no penalty for wrong answers"
+ }
+}

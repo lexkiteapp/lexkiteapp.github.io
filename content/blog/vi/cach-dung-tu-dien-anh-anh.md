@@ -3,7 +3,7 @@ title: "Từ điển Anh–Anh: vì sao nên dùng và cách đọc một mục 
 description: "Khi nào nên chuyển sang từ điển Anh–Anh, chọn từ điển learner's nào, đọc nhãn ngữ pháp, collocation, register trong mục từ và lúc nào vẫn cần song ngữ."
 slug: cach-dung-tu-dien-anh-anh
 lang: vi
-translationKey: cach-dung-tu-dien-anh-anh
+translationKey: cach-su-dung-tu-dien-anh-anh-hieu-qua
 category: phuong-phap
 tags: [tu-dien, tu-vung]
 keyword: "từ điển anh anh"

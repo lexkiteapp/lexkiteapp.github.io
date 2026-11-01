@@ -37,7 +37,7 @@
     if (noTrack) return;
     const body = { t: 'ad', plat, c: coh, ev: { ...ev }, m: sent ? { dur: Math.round(dur) } : { ...m, dur: Math.round(dur) }, k: sent ? undefined : consentK || undefined };
     sent = true; dur = 0; Object.keys(ev).forEach(k => delete ev[k]);
-    try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(body)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(body), keepalive: true }); } catch (e) { /* bỏ qua */ }
+    try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(body)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(body), keepalive: true, mode: 'no-cors' }); } catch (e) { /* bỏ qua */ }
   };
   d.addEventListener('visibilitychange', () => { if (d.visibilityState === 'hidden') flush(); else vis = Date.now(); });
   g.addEventListener('pagehide', flush);

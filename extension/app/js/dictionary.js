@@ -20,6 +20,18 @@
       return await r.json();
     } catch (e) { return null; } finally { clearTimeout(t); }
   };
+  // Cụm nhiều chữ: không gọi dictionaryapi.dev (chỉ mục một từ); Wiktionary chỉ khi trang của cụm tồn tại (query 200 + missing)
+  const isPhrase = w => /\s/.test(String(w || '').trim());
+  const wikiPages = new Map();
+  const wikiHas = word => {
+    if (!isPhrase(word)) return Promise.resolve(true);
+    if (!wikiPages.has(word)) wikiPages.set(word, fetchJSON(`https://en.wiktionary.org/w/api.php?action=query&titles=${encodeURIComponent(word)}&format=json&formatversion=2&origin=*`, 4000).then(d => {
+      const p = d && d.query && Array.isArray(d.query.pages) ? d.query.pages[0] : null;
+      if (!p) { wikiPages.delete(word); return false; }
+      return !p.missing && !p.invalid;
+    }));
+    return wikiPages.get(word);
+  };
 
   // Ngôn ngữ NGHĨA: chuỗi dự phòng giao diện → en, KHÔNG BAO GIỜ vi cho người dùng không-vi (trừ khi họ tự chọn nghĩa tiếng Việt trong Cài đặt).
   // Ngữ cảnh không có I18N (service worker, content script) giữ hành vi cũ (vi).
@@ -85,7 +97,7 @@
   const POS_EN = { Noun: 'noun', Verb: 'verb', Adjective: 'adjective', Adverb: 'adverb', 'Proper noun': 'noun', Preposition: 'preposition', Conjunction: 'conjunction', Pronoun: 'pronoun', Interjection: 'interjection', n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb' };
   async function rareDefs(word) {
     const strip = h => String(h || '').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
-    const wk = await fetchJSON(`https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(word)}`, 3500);
+    const wk = (await wikiHas(word)) ? await fetchJSON(`https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(word)}`, 3500) : null;
     const en = wk && (wk.en || wk[Object.keys(wk).find(k => k === 'en')]);
     if (Array.isArray(en) && en.length) {
       const meanings = en.slice(0, 4).map(m => ({ pos: POS_EN[m.partOfSpeech] || String(m.partOfSpeech || '').toLowerCase(), defs: (m.definitions || []).map(d => ({ def: strip(d.definition), ex: strip((d.examples || [])[0] || '') })).filter(d => d.def).slice(0, 3) })).filter(m => m.defs.length);
@@ -101,6 +113,7 @@
   }
 
   async function fromFreeDict(word) {
+    if (isPhrase(word)) return null;
     const data = await fetchJSON(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, 3000);
     if (!Array.isArray(data) || !data.length) return null;
     const out = { ipa: '', ipaUS: '', audio: '', audioUS: '', meanings: [], syn: [] };
@@ -173,6 +186,7 @@
   };
   const commonsURL = f => { const n = f.trim().replace(/ /g, '_'), name = n[0].toUpperCase() + n.slice(1), h = md5(name); return `https://upload.wikimedia.org/wikipedia/commons/${h[0]}/${h.slice(0, 2)}/${encodeURIComponent(name)}`; };
   async function wiktIPA(word) {
+    if (!(await wikiHas(word))) return null;
     const d = await fetchJSON(`https://en.wiktionary.org/w/api.php?action=parse&page=${encodeURIComponent(word)}&prop=wikitext&format=json&formatversion=2&origin=*`, 6000);
     const text = d && d.parse && d.parse.wikitext;
     if (!text) return null;
