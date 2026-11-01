@@ -649166,6 +649166,59 @@
      "sport.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "duplicate#v",
+   "batch": "20261101",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-01",
+   "data": {
+    "w": "duplicate",
+    "pos": "v",
+    "ipa": "/ˈd(j)uːplɪˌkeɪt/",
+    "ipaUS": "/ˈduːpləkeɪt/",
+    "def": "to make an exact copy of something",
+    "ex": [
+     "Can you duplicate this kind of key?",
+     "You can duplicate the keys at the hardware store."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.39,
+    "emoji": "",
+    "topic": "xw-actions",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:duplicate.v.03",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.8-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wiktionary",
+      "tatoeba:11887935"
+     ],
+     "tr": {},
+     "trSense": "to make a copy of",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
