@@ -16371,6 +16371,72 @@
       ],
       "angle": "Praktische Anleitung, wie Sie Ihr englisches Hörverstehen verbessern: Warum geschriebenes Englisch leichter fällt, Bottom-up vs. Top-down und aktives Hören mit Diktat.",
       "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "cara-meningkatkan-listening-bahasa-inggris-metode-5-tahap",
+      "keyword": "cara meningkatkan listening bahasa inggris",
+      "topic": "Cara Meningkatkan Listening Bahasa Inggris: Metode Praktis 5 Tahap",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "bahasa-inggris",
+        "pendengaran"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "Panduan lengkap cara meningkatkan listening bahasa inggris: pahami mengapa bisa membaca tapi sulit mendengar, beda bottom-up dan top-down, serta latihan dikte 5 tahap.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "ingilizce-listening-gelistirme-yollari-5-adimli-yontem",
+      "keyword": "ingilizce listening geliştirme yolları",
+      "topic": "İngilizce Listening Geliştirme Yolları: 5 Adımlı Pratik Yöntem",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "ingilizce",
+        "dinleme-becerisi"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "Etkili İngilizce listening geliştirme yolları: Neden okuduğunuzu anlıyor ama duyamıyorsunuz, bottom-up ve top-down süreçleri ve dikte ile 5 aşamalı aktif dinleme.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "kak-uluchshit-audirovanie-po-angliyskomu-metod-5-shagov",
+      "keyword": "как улучшить аудирование по английскому",
+      "topic": "Как улучшить аудирование по английскому: метод 5 шагов",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "audirovanie",
+        "angliyskiy"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "Практическое руководство, как улучшить аудирование по английскому языку: почему текст понятен глазами, но не на слух, методы bottom-up и top-down, диктанты и разбор беглой речи.",
+      "intent": "informational"
     }
   ]
 }
