@@ -3,7 +3,7 @@ title: "雅思口语Part 2模板与答题结构：1分钟快速备考与两分�
 description: "雅思口语part 2模板提分备考全指南：深入拆解考官四大评分维度，教你如何高效利用1分钟准备时间精准列出思维逻辑关键词，套用经典四步故事叙述结构从容说满两分钟，告别考场卡壳与尴尬沉默，熟练运用高分地道词汇与语法句型，助你轻松斩获口语7分以上理想佳绩。"
 slug: ya-si-kou-yu-part-2-hua-ti-ku
 lang: zh
-translationKey: ya-si-kou-yu-part-2-hua-ti-ku
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, kou-yu, part-2]
 keyword: "雅思口语part 2模板"

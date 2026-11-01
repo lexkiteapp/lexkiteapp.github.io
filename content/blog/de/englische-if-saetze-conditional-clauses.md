@@ -4,7 +4,7 @@ title: "If-Sätze Englisch Übersicht: Die 4 Typen der Conditionals"
 description: "If-Sätze Englisch Übersicht: Komplette Erklärung aller Conditional Clauses Typ 0, 1, 2, 3 und Mixed Conditionals mit Formeln, Regeln und Übungen."
 keyword: "if-sätze englisch übersicht"
 lang: de
-translationKey: conditional-sentences-in-english
+translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [if-saetze, grammatik, conditionals]
 cover: placement
