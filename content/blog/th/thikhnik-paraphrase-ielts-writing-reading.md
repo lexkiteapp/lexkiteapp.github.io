@@ -49,8 +49,8 @@ quiz: [
 
 การแทนที่ด้วยคำที่มีความหมายใกล้เคียงกันเป็นวิธีที่ตรงไปตรงมาที่สุด แต่ต้องระวังเรื่องระดับภาษา (Register) อย่างยิ่ง:
 
-- **ประโยคโจทย์ดั้งเดิม:** *A large number of young personnel prefer working remotely rather than commuting daily to conventional offices.*
-- **การถอดความเชิงวิชาการ (Band 8.5):** *A significant proportion of junior staff members prioritize telecommuting over travelling on a daily basis to traditional corporate premises.*
+- **ประโยคโจทย์ดั้งเดิม:** *Many rural communities suffer economically because public healthcare clinics are severely underfunded.*
+- **การถอดความเชิงวิชาการ (Band 8.5):** *A significant number of provincial settlements face financial hardship primarily as medical facilities experience acute fiscal deficits.*
 
 > **คำเตือนจากสนามสอบ:** อย่าพยายามใช้คำศัพท์โบราณหรือคำยากเกินจริงเพียงเพื่ออวดคลังคำ เช่น การเปลี่ยน *poor students* เป็น *destitute wretches* ถือว่าผิดระดับภาษาทางวิชาการ ควรใช้รูปประโยคที่ยอมรับกันทั่วไป เช่น *economically disadvantaged learners*
 
@@ -63,11 +63,11 @@ quiz: [
 การเปลี่ยนรูปคำ เช่น จากคำกริยาเป็นคำนาม (**Nominalization**) หรือจากคำคุณศัพท์เป็นคำกริยาวิเศษณ์ จะช่วยเปลี่ยนโครงสร้างประโยคอย่างสิ้นเชิงและเสริมความน่าเชื่อถือทางวิชาการ:
 
 - **จากกริยาเป็นคำนาม:**
-  - *โจทย์ดั้งเดิม:* The government should invest heavily in clean public transportation to curb urban smog.
-  - *การถอดความ (Band 8):* Substantial public investment in clean transit networks is imperative to mitigate metropolitan atmospheric pollution.
+  - *โจทย์ดั้งเดิม:* National ministries must fund renewable offshore wind farms to stabilize rural electrical grids.
+  - *การถอดความ (Band 8):* Substantial fiscal funding of marine wind energy infrastructure is crucial for stabilizing regional power distribution.
 - **จากคุณศัพท์เป็นกริยาวิเศษณ์:**
-  - *โจทย์ดั้งเดิม:* The rapid escalation in rental fees triggered immense stress among suburban university students.
-  - *การถอดความ (Band 8.5):* Rental rates escalated rapidly across suburban districts, inducing substantial anxiety among undergraduate scholars.
+  - *โจทย์ดั้งเดิม:* The sharp reduction in civic museum grants triggered severe outrage among local preservationists.
+  - *การถอดความ (Band 8.5):* Civic museum subsidies declined precipitously, creating profound dissatisfaction among regional heritage advocates.
 
 ฝึกฝนโครงสร้างประโยคซับซ้อนเพิ่มเติมได้ที่ [หมวดไวยากรณ์ Lexkite](/#/grammar)
 
@@ -78,52 +78,52 @@ quiz: [
 การสลับตำแหน่งระหว่างอนุประโยคหลักและอนุประโยครอง หรือการเปลี่ยนจาก Active เป็น Passive Voice ทางวิชาการ ช่วยเปลี่ยนลีลาการเขียนโดยคงเนื้อหาเดิมไว้ครบถ้วน:
 
 - **การสลับตำแหน่งประโยคแย้ง (Concession):**
-  - *โจทย์ดั้งเดิม:* Although professional trade apprenticeships supply practical workplace abilities, numerous school-leavers favor university degrees.
-  - *การถอดความ:* Conventional academic credentials continue to be favoured by most school-leavers, notwithstanding the pragmatic vocational competencies delivered by trade apprenticeships.
+  - *โจทย์ดั้งเดิม:* Although virtual classrooms offer exceptional schedule flexibility, many learners yearn for spontaneous social interaction.
+  - *การถอดความ:* Organic peer camaraderie is frequently missed by modern scholars, notwithstanding the undeniable convenience provided by virtual study platforms.
 - **การใช้ Passive Voice เชิงวิชาการ:**
-  - *โจทย์ดั้งเดิม:* Local municipalities should regulate personal automobile emissions in historic pedestrian centres.
-  - *การถอดความ:* The emission levels of private motor vehicles in historic urban districts ought to be strictly monitored by municipal authorities.
+  - *โจทย์ดั้งเดิม:* Metropolitan authorities ought to tax heavy freight haulers that damage historical roadways.
+  - *การถอดความ:* Commercial freight lorries that inflict pavement degradation should be formally taxed by urban transportation departments.
 
 ## 5. สูตรที่ 4: การปรับเปลี่ยนคำเชื่อมบอกเหตุและผล (Cause & Effect)
 
-หลีกเลี่ยงการใช้คำเชื่อมพื้นฐานอย่าง *because* ซ้ำๆ โดยนำวลีเชื่อมระดับสูงมาใช้แทน เช่น *owing to*, *stemming from*, หรือ *in consequence of*:
+หลีกเลี่ยงการใช้คำเชื่อมพื้นฐานอย่าง *because* ซ้ำๆ โดยนำวลีเชื่อมระดับสูงมาใช้แทน เช่น *attributable to*, *stemming from*, หรือ *in light of*:
 
-- *โจทย์ดั้งเดิม:* Many graduates encounter severe obstacles during job searches because hiring managers insist on extensive work experience.
-- *การถอดความ (Band 8.5):* Owing to corporate employers demanding verifiable industry track records, recent graduates encounter severe impediments when pursuing entry-level appointments.
+- *โจทย์ดั้งเดิม:* Many novice teachers leave the profession prematurely because school administrators impose exhausting bureaucratic paperwork.
+- *การถอดความ (Band 8.5):* Premature departures among novice educators are primarily attributable to excessive administrative burdens mandated by school authorities.
 
 ## 6. สูตรที่ 5: การใช้คำตรงข้ามและการปฏิเสธซ้อน (Antonymy)
 
 การสื่อความหมายเดิมผ่านการปฏิเสธแนวคิดฝั่งตรงข้าม ถือเป็นศิลปะการเขียนที่แสดงถึงวุฒิภาวะทางภาษาขั้นสูง:
 
-- *โจทย์ดั้งเดิม:* Establishing consistent reading routines in early childhood is crucial for intellectual development.
-- *การถอดความ:* Neglecting structured literacy habits during early development is seldom conducive to cultivating sharp intellectual faculties.
+- *โจทย์ดั้งเดิม:* Fostering outdoor recreation among children is indispensable for sound emotional resilience.
+- *การถอดความ:* Depriving youth of structured outdoor exploration is rarely advantageous for building solid psychological fortitude.
 
 ## 7. ตัวอย่างวิเคราะห์: การ Paraphrase บทนำ Writing Task 2
 
 ดูตัวอย่างการผสมผสานทั้ง 5 สูตรเข้าด้วยกันในข้อสอบจริง:
 
 > **โจทย์ข้อสอบจริง:**  
-> *Some educators believe that practical computer coding should be made mandatory for all secondary school students. To what extent do you agree or disagree?*
+> *Some economists argue that state governments should impose heavy excise tariffs on sugar-sweetened beverages to combat childhood obesity. To what extent do you agree or disagree?*
 >
 > **บทนำฉบับสมบูรณ์ (Band 8.5):**  
-> A growing contingent of pedagogical experts maintains that foundational software programming ought to constitute a compulsory module within secondary curricula. From my standpoint, while acquiring technical literacy indisputably equips adolescents with indispensable modern workplace capabilities, mandating coding classes across all disciplines indiscriminately risks overburdening pupils whose aptitudes lie within the creative humanities.
+> A contingent of financial policy analysts advocates that national authorities ought to introduce punitive taxes on high-sugar soft drinks to curb adolescent weight issues. From my viewpoint, while fiscal penalties on unhealthy refreshments can certainly raise consumer awareness and motivate healthier purchasing patterns, relying solely on taxation without modernizing physical education initiatives is unlikely to eradicate chronic pediatric lifestyle diseases.
 
 ## 8. 3 แบบฝึกหัดถอดความพร้อมเฉลยละเอียด
 
-### แบบฝึกหัดที่ 1: การจำกัดรถยนต์ส่วนบุคคลในเขตเมืองเก่า
-- **ประโยคโจทย์:** *City councils should ban private cars from municipal centers to eliminate traffic gridlock.*
-- **กลยุทธ์ที่ใช้:** การสร้างคำนามควบคู่รูปประโยคถูกกระทำ (*ban cars* → *vehicular restrictions should be enforced*).
-- **ฉบับปรับปรุง (Band 8.5):** *The complete prohibition of personal passenger cars in central urban corridors ought to be implemented to alleviate chronic vehicular congestion.*
+### แบบฝึกหัดที่ 1: การอนุรักษ์อาคารสถาปัตยกรรมโบราณ
+- **ประโยคโจทย์:** *City councils should provide fiscal incentives to private owners who restore historic residences.*
+- **กลยุทธ์ที่ใช้:** การสร้างคำนามควบคู่รูปประโยคถูกกระทำ (*provide incentives to owners* → *the restoration should be subsidized*).
+- **ฉบับปรับปรุง (Band 8.5):** *The architectural rehabilitation of ancient residential landmarks ought to be systematically encouraged through civic financial rebates.*
 
-### แบบฝึกหัดที่ 2: บรรจุภัณฑ์พลาสติกและมลพิษทางดิน
-- **ประโยคโจทย์:** *The rampant usage of non-biodegradable packaging causes catastrophic soil degradation.*
-- **กลยุทธ์ที่ใช้:** สลับเหตุผลเป็นผลลัพธ์และเปลี่ยนหน้าที่คำ (*usage causes degradation* → *soil suffers due to reliance*).
-- **ฉบับปรับปรุง (Band 8.5):** *Agricultural and suburban soil systems suffer severe environmental degradation primarily as a result of pervasive reliance on disposable plastic wrapping.*
+### แบบฝึกหัดที่ 2: ผลกระทบจากการขยายตัวของสายการบินต้นทุนต่ำ
+- **ประโยคโจทย์:** *The rapid proliferation of budget flights generates severe carbon emissions across continental airspace.*
+- **กลยุทธ์ที่ใช้:** สลับเหตุผลเป็นผลลัพธ์และเปลี่ยนหน้าที่คำ (*proliferation generates emissions* → *airspace is polluted due to growth*).
+- **ฉบับปรับปรุง (Band 8.5):** *Continental atmospheric basins suffer catastrophic aviation pollution largely stemming from the unrestrained expansion of low-fare passenger airliners.*
 
-### แบบฝึกหัดที่ 3: ระบบอัตโนมัติกับพนักงานออฟฟิศ
-- **ประโยคโจทย์:** *Sophisticated automated algorithms will replace millions of administrative workers within a decade.*
-- **กลยุทธ์ที่ใช้:** คำไวพจน์เฉพาะทางและการปรับเปลี่ยนกริยา (*algorithms replace workers* → *staff face redundancy*).
-- **ฉบับปรับปรุง (Band 8.5):** *Due to the rapid proliferation of algorithmic automation, extensive tiers of clerical and corporate personnel face imminent structural redundancy.*
+### แบบฝึกหัดที่ 3: ระบบปัญญาประดิษฐ์ในการตรวจวินิจฉัยโรค
+- **ประโยคโจทย์:** *Autonomous medical algorithms will supplant conventional laboratory pathologists within decades.*
+- **กลยุทธ์ที่ใช้:** คำไวพจน์เฉพาะทางและการปรับเปลี่ยนกริยา (*algorithms supplant pathologists* → *specialists confront replacement*).
+- **ฉบับปรับปรุง (Band 8.5):** *Diagnostic laboratory pathologists confront profound professional obsolescence as machine learning platforms exhibit superior clinical analytical capabilities.*
 
 ## 9. 4 ข้อผิดพลาดสำคัญที่ทำให้เสียคะแนน
 
@@ -136,7 +136,7 @@ quiz: [
 
 เพื่อให้เขียน Paraphrase ได้อย่างแม่นยำภายในเวลาไม่เกิน 2 นาทีในห้องสอบ:
 
-- **ขั้นตอนที่ 1 (ระบุแกนคำคงที่):** ขีดเส้นใต้คำศัพท์เฉพาะทาง (เช่น *renewable energy*, *tertiary education*) ซึ่งไม่จำเป็นต้องฝืนหาคำมาแทนที่
+- **ขั้นตอนที่ 1 (ระบุแกนคำคงที่):** ขีดเส้นใต้คำศัพท์เฉพาะทาง (เช่น *sugar-sweetened beverages*, *excise tariffs*) ซึ่งไม่จำเป็นต้องฝืนหาคำมาแทนที่
 - **ขั้นตอนที่ 2 (เลือกโครงสร้างไวยากรณ์):** ตัดสินใจทันทีว่าจะใช้การสร้างคำนาม (Nominalization) หรือการสลับอนุประโยคแย้ง/สาเหตุ
 - **ขั้นตอนที่ 3 (ตรวจทานความหมาย):** สแกนดูใน 15 วินาทีว่าข้อความยังคงความหมายเดิมไว้ครบถ้วนหรือไม่
 
@@ -162,4 +162,4 @@ quiz: [
 ผู้ตรวจจะตัดข้อความที่ลอกโจทย์ออกจากการนับจำนวนคำ หากคำที่เหลือไม่ถึงเกณฑ์ขั้นต่ำ 250 คำ คุณจะถูกหักคะแนนในเกณฑ์ *Task Achievement* อย่างหนัก
 
 ### สามารถนำ Paraphrase ไปใช้ใน Speaking Part 3 ได้อย่างไร?
-เมื่อผู้สอบได้รับคำถามเชิงลึก ให้เริ่มต้นคำตอบด้วยการทวนคำถามด้วยสำนวนของตนเอง (เช่น *"That is an intriguing dilemma concerning whether civic leaders should allocate more resources to public transit..."*) ซึ่งช่วยให้มีเวลาคิดและแสดงทักษะคำศัพท์ได้อย่างเป็นธรรมชาติ
+เมื่อผู้สอบได้รับคำถามเชิงลึก ให้เริ่มต้นคำตอบด้วยการทวนคำถามด้วยสำนวนของตนเอง (เช่น *"That is an intriguing inquiry regarding whether municipal authorities should allocate public funds to green initiatives..."*) ซึ่งช่วยให้มีเวลาคิดและแสดงทักษะคำศัพท์ได้อย่างเป็นธรรมชาติ
