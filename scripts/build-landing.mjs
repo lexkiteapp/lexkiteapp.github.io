@@ -68,7 +68,7 @@ var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclic
 
 // ----- CSS riêng của landing (chỉ token màu của site-layout / BRAND-RULES) -----
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-block!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
-.gapp{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;white-space:nowrap}.gapp svg{flex:none}.site-foot .gapp{margin-top:14px;min-width:0}main{padding-top:8px}.lh{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:28px 0 12px}
+.gapp{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;white-space:nowrap}.gapp svg{flex:none}.site-foot .gapp{min-width:0}.site-foot .fbtns [data-get-app][hidden]:not([data-off]){display:none!important}main{padding-top:8px}.lh{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:28px 0 12px}
 .eyebrow{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:14px;padding:4px 12px;border-radius:999px}
 .lh h1{font-size:clamp(34px,5.4vw,56px);line-height:1.08;letter-spacing:-.03em;margin:16px 0 14px}.grad{background:linear-gradient(90deg,#E5502F,#FFB054);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:19px;color:var(--muted);max-width:56ch;margin:0}.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 10px;align-items:center}.btn.lg{font-size:17px;padding:13px 24px}

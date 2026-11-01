@@ -7,7 +7,7 @@
 // Trình duyệt thật (tương phản axe sáng + tối, không nháy): scripts/test/theme-static.mjs (CI theme-qa.yml).
 // Dùng: node scripts/test/theme-switch.mjs [dist]  (mặc định kiểm web/ + dist/ nếu đã dựng)
 import fs from 'node:fs'; import path from 'node:path'; import { JSDOM } from 'jsdom';
-import { THEME_HEAD, TSW_JS, LANG_JS, FOOT_JS, SITE_UI_JS, SITE_UI_V, themeCss, themeLabels, themeSwitch, siteFooter, LANG_NAMES } from '../lib/site-layout.mjs';
+import { THEME_HEAD, TSW_JS, LANG_JS, FOOT_JS, SITE_UI_JS, SITE_UI_V, themeCss, themeLabels, themeSwitch, themePill, siteFooter, LANG_NAMES } from '../lib/site-layout.mjs';
 
 const bad = []; let pages = 0;
 const ok = (c, m) => { if (!c) bad.push(m); };
@@ -32,6 +32,7 @@ for (const root of roots) for (const f of walk(root)) {
     ok(/<button type="button" class="tsw" data-tsw/.test(h), `${f}: có nút ngôn ngữ nhưng thiếu nút giao diện`);
     ok(h.includes("closest('[data-tsw]')") || h.includes('closest("[data-tsw]")') || h.includes(`/js/site-ui.js?v=${SITE_UI_V}`), `${f}: thiếu script nút giao diện`);
   }
+  if (/class="site-foot"/.test(h)) ok((h.match(/class="tsb" data-tsv="(auto|light|dark)" aria-pressed/g) || []).length === 3, `${f}: chân trang thiếu viên 3 nút Tự động/Sáng/Tối (bản vẽ Stitch)`);
   // Trang có nút giao diện/ngôn ngữ nạp JS dùng chung đúng phiên bản (?v= = băm nội dung hiện tại – trang dựng cũ → đỏ)
   if (/data-tsw|data-lsw|class="flang"/.test(h) && h.includes('/js/site-ui.js')) ok(h.includes(`/js/site-ui.js?v=${SITE_UI_V}`), `${f}: /js/site-ui.js sai phiên bản – dựng lại trang`);
 }
@@ -48,7 +49,7 @@ for (const l of Object.keys(LANG_NAMES)) {
 
 // Hành vi (jsdom)
 const run = (stored, mq = false) => {
-  const dom = new JSDOM(`<!doctype html><html><head><meta charset="utf-8">${THEME_HEAD}</head><body>${themeSwitch('ja')}${themeSwitch('ja')}</body></html>`, { url: 'https://lexkite.com/ja/', runScripts: 'outside-only' });
+  const dom = new JSDOM(`<!doctype html><html><head><meta charset="utf-8">${THEME_HEAD}</head><body>${themeSwitch('ja')}${themeSwitch('ja')}${themePill('ja')}</body></html>`, { url: 'https://lexkite.com/ja/', runScripts: 'outside-only' });
   const w = dom.window; if (stored) w.localStorage.setItem('lk.theme', stored);
   w.matchMedia = () => ({ matches: mq });
   w.eval((THEME_HEAD.match(/<script data-lkt>([\s\S]*)<\/script>/) || [])[1]); w.eval(TSW_JS); return w;
@@ -62,6 +63,15 @@ w.document.querySelector('[data-tsw]').click();
 ok(w.document.documentElement.getAttribute('data-theme') === 'dark' && w.localStorage.getItem('lk.theme') === 'dark' && lab(w) === `${L[3]}: ${L[2]}`, 'bấm 2 → tối');
 w.document.querySelector('[data-tsw]').click();
 ok(!w.document.documentElement.hasAttribute('data-theme') && w.localStorage.getItem('lk.theme') === null, 'bấm 3 → tự động (xoá lk.theme)');
+// Viên 3 nút chân trang (bản vẽ Stitch): bấm thẳng một trạng thái; aria-pressed đúng nút đang chọn, đồng bộ với nút vòng
+const pr = w => [...w.document.querySelectorAll('[data-tsv]')].map(b => b.getAttribute('aria-pressed')).join(',');
+ok(pr(w) === 'true,false,false', 'viên: tự động → nút "theo hệ thống" aria-pressed=true');
+w.document.querySelector('[data-tsv=dark]').click();
+ok(w.document.documentElement.getAttribute('data-theme') === 'dark' && w.localStorage.getItem('lk.theme') === 'dark' && pr(w) === 'false,false,true' && lab(w) === `${L[3]}: ${L[2]}`, 'viên: bấm Tối → tối ngay, lưu lk.theme, nút vòng cùng đổi nhãn');
+w.document.querySelector('[data-tsv=dark] svg').dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+ok(w.document.documentElement.getAttribute('data-theme') === 'dark', 'viên: bấm lại nút đang chọn (cả vào biểu tượng) → giữ nguyên, không xoay vòng');
+w.document.querySelector('[data-tsv=light]').click(); ok(w.document.documentElement.getAttribute('data-theme') === 'light' && pr(w) === 'false,true,false', 'viên: bấm Sáng → sáng');
+w.document.querySelector('[data-tsv=auto]').click(); ok(!w.document.documentElement.hasAttribute('data-theme') && w.localStorage.getItem('lk.theme') === null && pr(w) === 'true,false,false', 'viên: bấm Tự động → xoá lk.theme');
 w.dispatchEvent(Object.assign(new w.Event('storage'), { key: 'lk.theme', newValue: 'dark' }));
 ok(w.document.documentElement.getAttribute('data-theme') === 'dark', 'tab khác đổi giao diện → tab này đổi theo (sự kiện storage)');
 w = run('dark'); ok(w.document.documentElement.getAttribute('data-theme') === 'dark' && lab(w) === `${L[3]}: ${L[2]}`, 'đã lưu tối → <head> đặt data-theme=dark trước khi vẽ');
