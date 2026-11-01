@@ -15074,6 +15074,138 @@
       ],
       "angle": "日常英会話でそのまま役立つ厳選基本フレーズ100選。挨拶・注文・道案内・スモールトークまで、自然な会話のキャッチボールを可能にする実践ガイド。",
       "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "articulos-en-ingles-a-an-the-reglas-y-ejemplos",
+      "keyword": "articulos en ingles a an the",
+      "topic": "Artículos en Inglés: Reglas de A, An, The y Cuándo No Usar Artículo",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "articulos",
+        "gramatica"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Guía definitiva sobre los artículos en inglés: cuándo usar a, an, the y el artículo cero (Zero Article) con reglas claras, árbol de decisión y ejercicios.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "artigos-em-ingles-a-an-the-regras-e-exemplos",
+      "keyword": "artigos em ingles a an the",
+      "topic": "Artigos em Inglês: Regras Definitivas de A, An, The e Zero Article",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "artigos",
+        "gramatica"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Domine o uso dos artigos em inglês: diferenças entre a, an e the, quando omitir o artigo (Zero Article) e os erros mais comuns cometidos por falantes de português.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "penggunaan-artikel-bahasa-inggris-a-an-the",
+      "keyword": "penggunaan artikel a an the",
+      "topic": "Penggunaan Artikel Bahasa Inggris: Aturan Lengkap A, An, The, dan Zero Article",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "artikel",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Panduan tuntas penggunaan artikel dalam bahasa Inggris: aturan a, an, the, konsep zero article, serta pohon keputusan praktis agar tidak salah pilih artikel.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "eigo-kanshi-a-an-the-tsukaikata-ru-ru",
+      "keyword": "英語 冠詞 a an the 使い分け",
+      "topic": "英語の冠詞（a/an/the）使い分け完全マップ：無冠詞のルールとネイティブの感覚",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "kanshi",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "日本人学習者が最もつまずきやすい英語の冠詞（a / an / the / 無冠詞）を徹底解説。ネイティブの「輪郭」と「特定」の思考フレームワーク、決定樹チャート付き。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "yeongeo-gwan-sa-a-an-the-gu-bun-beop",
+      "keyword": "영어 관사 a an the 구분",
+      "topic": "영어 관사 완전 정복: a, an, the 완벽 구분법과 무관사 규칙",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "gwansa",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "한국인 학습자가 가장 혼란스러워하는 영어 관사 (a, an, the 및 무관사 Zero Article)의 핵심 원리. 특정성 판단 기준과 원어민적 사고법, 의사결정 차트 제공.",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "ying-yu-guan-ci-a-an-the-yong-fa-gui-ze",
+      "keyword": "英语冠词 a an the 用法",
+      "topic": "英语冠词完全指南：a, an, the 正确用法与零冠词规则全解析",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "guanci",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "全面解析中国学习者常犯的英语冠词错误：定冠词 the、不定冠词 a/an 与零冠词的核心逻辑与决策树，彻底摆脱漏用或乱用冠词的问题。",
+      "intent": "informational"
     }
   ]
 }
