@@ -1,6 +1,6 @@
 // Trang giới thiệu (landing) tĩnh cho 15 ngôn ngữ: / (vi) và /<lang>/ (14 ngôn ngữ còn lại) – giống duolingo.com → /learn.
 // App học (SPA, hash route) nằm ở /app/ (web/app/index.html). Trang này: HTML thuần + CSS nội tuyến. Thân trang = khung Stitch v2.1 TỰ SINH
-// (brand/stitch/web/home-light|dark.html + bind/home.json → web/js/st/web/home.js, đầu/chân trang chung chrome.js; CSS web/css/st-w-home.css) – ở đây chỉ dựng DỮ LIỆU thật.
+// (brand/stitch/web/home-light|dark.html + bind/home.json → brand/stitch/web/gen/home.js, đầu/chân trang chung chrome.js; CSS web/css/st-w-home.css) – ở đây chỉ dựng DỮ LIỆU thật.
 // không tải JS nặng → LCP nhanh, crawl được trọn nội dung. Chỉ 2 script nội tuyến nhỏ:
 //   1) #lk-route (đầu <head>, trước khi vẽ): /#/xxx (liên kết cũ) → /app/#/xxx; ?hl / ?sandbox / ?demo / ?source=pwa → app;
 //      PWA cài từ trước (display-mode standalone) & người học cũ (lk.onb / lk.acct trong localStorage) → /app/,
@@ -16,7 +16,7 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
 import { esc, ld, siteChrome, STW_VARS, LANG_NAMES, FOOT, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
-import { render as stRender, teacher, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → web/js/st/web/home.js + chrome.js) + CSS biên dịch sẵn
+import { render as stRender, teacher, compact, blocks, splitSel } from './lib/st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/home-*.html → brand/stitch/web/gen/home.js + chrome.js) + CSS biên dịch sẵn
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr

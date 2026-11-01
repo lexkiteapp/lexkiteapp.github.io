@@ -7,7 +7,7 @@ import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
 import { joinPath } from './lib/url-guard.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, siteChrome, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
-// Khung Stitch v2.1 (bài viết = brand/stitch/web/post-*.html, danh sách = hub-*.html → web/js/st/web/{post,hub}.js + chrome.js; CSS web/css/st-w-{post,hub}.css)
+// Khung Stitch v2.1 (bài viết = brand/stitch/web/post-*.html, danh sách = hub-*.html → brand/stitch/web/gen/{post,hub}.js + chrome.js; CSS web/css/st-w-{post,hub}.css)
 import { render as stRender, teacher, tr, compact } from './lib/st-web.mjs';
 import { kit, stitchBody, stitchQuiz, IMG_FILL, IMG_ABS, EMPTY_CLS, TAGS_CLS, CRUMB_A, LEGACY_CSS, HUB_JS } from './lib/blog-st.mjs';
 import { blogTools } from './lib/tools-links.mjs';

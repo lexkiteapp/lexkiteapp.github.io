@@ -5,7 +5,7 @@
 // Chữ giao diện: S.vi / S.en (các trang này chỉ có 2 bản ngôn ngữ vi + en; x-default = en).
 import fs from 'node:fs'; import vm from 'node:vm';
 import { esc, SEO_L, siteChrome, landingHref, UI_JS, copyJs, LSW_CSS } from './site-layout.mjs';
-import { render as stRender, teacher, compact } from './st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/sample|speaking-*.html → web/js/st/web/*.js)
+import { render as stRender, teacher, compact } from './st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/sample|speaking-*.html → brand/stitch/web/gen/*.js)
 
 // ---------- Chữ giao diện (vi / en) ----------
 export const S = {
@@ -241,7 +241,7 @@ export const smpTail = (lang = 'vi') => `<div id="glp" hidden><b class="gp" lang
 export const smpHead = () => `<style>${SMP_CSS}</style>`;
 
 // ================= Khung Stitch v2.1: trang bài mẫu Writing Task 2 + trang chủ đề Speaking (vi + en) =================
-// Bố cục/icon/nút = brand/stitch/web/{sample,speaking}-light|dark.html (bind/{sample,speaking}.json → web/js/st/web/*.js, KHÔNG sửa tay).
+// Bố cục/icon/nút = brand/stitch/web/{sample,speaking}-light|dark.html (bind/{sample,speaking}.json → brand/stitch/web/gen/*.js, KHÔNG sửa tay).
 // Ở đây CHỈ dựng dữ liệu thật d (chữ thô – khung tự escape; trường *html / ess / a là HTML đã escape). Đầu/chân trang = chrome.js chung (siteChrome).
 // Thứ mẫu không vẽ (không cắt): hộp nghĩa cụm từ #glp, gợi ý add-on/PWA (extBox/pwaBox, ẩn tới khi JS bật) → CSS nhỏ bằng token Stitch (STW_CSS).
 // @icons palette translate print schedule format_align_left account_tree menu_book edit_note quiz layers format_list_numbered mic forum

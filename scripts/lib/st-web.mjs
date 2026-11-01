@@ -1,5 +1,5 @@
 // 🎨 Trang web tĩnh theo Stitch v2.1 (Lexkite Kit) – dựng LÚC BUILD (Node, không DOM).
-//   Khung TỰ SINH: web/js/st/web/<trang>.js + chrome.js (node scripts/stitch-v2-convert.mjs --web, từ brand/stitch/web/<trang>-light|dark.html + bind/<trang>.json).
+//   Khung TỰ SINH: brand/stitch/web/gen/<trang>.js + chrome.js (node scripts/stitch-v2-convert.mjs --web, từ brand/stitch/web/<trang>-light|dark.html + bind/<trang>.json).
 //   CSS biên dịch sẵn: web/css/st-w-<trang>.css (node scripts/build-stitch-css.mjs) → nhúng vào <style> (không thêm request, không CDN).
 //   Chữ tĩnh: khóa Việt → web/js/i18n/<lang>/v2web.js (pipeline i18n chung: i18n-fixed.json + i18n-fix.mjs, 15 ngôn ngữ).
 //   1 DOM cho cả sáng/tối (class lt:/dk: = prefers-color-scheme, như app). Giáo viên chỉ qua chars() (web/teach/characters.json – Ama/Carlos 2D).
@@ -19,7 +19,7 @@ export function tr(lang) {
 }
 
 // Gọi khung TỰ SINH (cùng định dạng file với app: (self.ST2 ||= {})[k] = (d, t, e) => ({...}))
-function frame(k) { const g = { self: {} }; g.self.ST2 = {}; vm.runInNewContext(load(`web/js/st/web/${k}.js`), g); return g.self.ST2[k]; }
+function frame(k) { const g = { self: {} }; g.self.ST2 = {}; vm.runInNewContext(load(`brand/stitch/web/gen/${k}.js`), g); return g.self.ST2[k]; }
 const css = k => load(`web/css/st-w-${k}.css`).replace(/^\/\*[^*]*\*\/\n/, '');
 
 // Trả { css, body }: body = vỏ chung (đầu trang + chân trang từ chrome.js) quanh main của trang. Generator giữ nguyên <head> SEO của mình.
@@ -31,8 +31,8 @@ export function render(k, d, { lang = 'en', chrome } = {}) {
 }
 
 // Khuôn Stitch cho nội dung dựng lúc build (bind map `protos` – vd thân bài markdown: h2/p/bảng/FAQ đúng class của mẫu bài viết) →
-//   { tên: d => HTML } (web/js/st/web/<trang>.js, ST2.P.<trang>). Chữ tĩnh trong khuôn dịch theo lang như khung chính.
-export function protos(k, lang = 'en') { const g = { self: { ST2: {} } }; vm.runInNewContext(load(`web/js/st/web/${k}.js`), g); const P = (g.self.ST2.P || {})[k]; return P ? P(tr(lang), esc) : {}; }
+//   { tên: d => HTML } (brand/stitch/web/gen/<trang>.js, ST2.P.<trang>). Chữ tĩnh trong khuôn dịch theo lang như khung chính.
+export function protos(k, lang = 'en') { const g = { self: { ST2: {} } }; vm.runInNewContext(load(`brand/stitch/web/gen/${k}.js`), g); const P = (g.self.ST2.P || {})[k]; return P ? P(tr(lang), esc) : {}; }
 
 // ---- render('hub', d, …): KHUNG DANH SÁCH dùng chung (brand/stitch/web/hub-*.html + bind/hub.json) – chỉ mục blog (/<lang>/blog/, /page/N/, chuyên mục, thẻ);
 //   sau này chỉ mục Speaking topics + Writing samples dùng lại y nguyên. Hợp đồng dữ liệu d (CHỮ THÔ – khung tự escape; trường *html / cover / date / crumbs / teacher là HTML dựng sẵn):

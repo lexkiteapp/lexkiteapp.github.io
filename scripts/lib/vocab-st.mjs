@@ -1,5 +1,5 @@
 // 🎨 Dữ liệu THẬT cho khung Stitch web nhóm 2 – từ vựng: mục lục /tu-vung/ + /en/vocabulary/ (bind/vocab-hub.json) và trang bộ từ
-//   /tu-vung/<bộ> + /en/vocabulary/<bộ> (bind/vocab-set.json). Khung TỰ SINH web/js/st/web/vocab-*.js; trang = stPage() (scripts/lib/samples-ui.mjs).
+//   /tu-vung/<bộ> + /en/vocabulary/<bộ> (bind/vocab-set.json). Khung TỰ SINH brand/stitch/web/gen/vocab-*.js; trang = stPage() (scripts/lib/samples-ui.mjs).
 //   Gọi từ build-samples.mjs (vi) / build-samples-en.mjs (en). CHỮ THÔ (khung tự escape) – trường *H là HTML dựng sẵn đã escape.
 //   Chữ trang = V.vi/V.en (trang chỉ có 2 ngôn ngữ, như S trong samples-ui); nhãn tĩnh của mẫu đi pipeline v2web (bind i18n → 15 ngôn ngữ).
 //   Bỏ chữ mẫu bịa (docs/STITCH-V2-PORT.md › Từ vựng web): "42 Sets/580 Words/100% Audio", VERIFIED/BAND 8.5/EXAM CORE, "TEACHER SLOT", "+30 XP", "AI voice check"…

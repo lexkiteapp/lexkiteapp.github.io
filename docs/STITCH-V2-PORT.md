@@ -34,6 +34,7 @@ Code KHÔNG vẽ lại giao diện: bộ chuyển sinh khung, mình chỉ gắn 
 - Giáo viên: `Chars.img/still/clip`, tư thế theo teacher-pose-map (Ama point ở lộ trình, cheer khi đúng, concern khi sai; Carlos encourage ở chuỗi, talk/listen khi gọi). Giọng = giọng của đúng giáo viên (registry).
 - Game feel (cờ, mặc định tắt): `window.Feel && Feel.on` → Feel.count/fill/combo/swap (docs/GAME-FEEL.md).
 - WCAG 2.2 AA (stitch-diff kiểm pixel), chạm ≥ 44 px, giảm chuyển động, 15 ngôn ngữ + RTL, khung app ≤ 377 KB gz.
+- Web tĩnh (`--web`): khung TỰ SINH ra `brand/stitch/web/gen/<trang>.js|css` (chỉ Node đọc lúc build, không deploy, không tính web/js).
 - Lỗi tương phản còn trong MẪU: `brand/stitch/v2/known-issues.json` – app vẫn phải đạt.
 
 ## Chỗ mới của các mục không có trong mẫu (không cắt tính năng)
