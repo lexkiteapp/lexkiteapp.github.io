@@ -167,6 +167,8 @@ quiz: [
 
 अकादमिक विषयों के और अधिक सैंपल्स के लिए हमारे [स्पीकिंग विषय और मॉडल उत्तर](/speaking/) पेज को देखें।
 
+Part 2 के बाद आने वाली चर्चा के लिए [IELTS Speaking Part 3 tips in Hindi](/hi/blog/ielts-speaking-part-3-tips-hindi/) में PREP+ तरीका और मॉडल उत्तर देखें।
+
 {{cta: /speaking/ | आईईएलटीएस स्पीकिंग पार्ट 2 मॉडल उत्तरों का अभ्यास करें}}
 
 {{youtube: | IELTS Speaking Part 2 Master Template and Band 8 Sample in Hindi}}

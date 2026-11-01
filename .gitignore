@@ -6,6 +6,7 @@ firebase-debug.log
 .claude/
 store/.claude/
 qa/
+!content/qa/
 *.pdf
 
 dist/
@@ -49,6 +50,8 @@ brand/library/**/*.jpg
 brand/library/**/*.mp4
 brand/library/**/*.svg
 brand/library/**/*.src
+# crops.npz (89 MB, 26/10) đã lọt vào git – bản gốc ở Kho Drive theo brand/library/cine/archive-manifest.json (docs/STORAGE.md §6)
+brand/library/**/*.npz
 brand/library/_web/
 brand/library/_review/
 brand/library/_cache/
@@ -59,3 +62,10 @@ out/play/
 # Mảnh kho từ sinh lúc build/test (scripts/lexicon/shards.mjs --out web) – không commit
 web/data/lex/
 web/data/lex-index.json
+.seo-urls.txt
+.seo-urls-en.txt
+
+# Tệp media sinh trên CI – đẩy lên kho media (scripts/media/push.mjs), KHÔNG commit vào repo chính
+.media-out/
+dist-dict/
+.sa/

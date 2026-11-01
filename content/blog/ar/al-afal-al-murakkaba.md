@@ -2,6 +2,7 @@
 title: "الأفعال المركبة في اللغة الإنجليزية: أهم 50 فعلاً مع الأمثلة"
 description: "تعلم الأفعال المركبة في اللغة الإنجليزية: معاني حروف الجر، 50 فعلاً شائعاً للاستخدام اليومي، وقواعد الأفعال القابلة للفصل مع تمارين وتطبيقات."
 slug: al-afal-al-murakkaba
+translationKey: phrasal-verb-thong-dung
 lang: ar
 category: tu-vung
 tags: [phrasal-verbs, mufradat, vocabulary]

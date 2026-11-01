@@ -1,0 +1,155 @@
+{
+ "_note": "Which Little Word?: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
+ "verdicts": {
+  "wlw_022772ea": {
+   "template": "mistake",
+   "hook": "✗ / “What's the reason of the delay?”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "n_h": "Small word, big mistake.",
+    "n_w": "What's the reason of the delay?",
+    "n_k": "Say: What's the reason for the delay?",
+    "n_y": "We say reason for something.",
+    "n_x": "There's a good reason for this rule.",
+    "n_t": "But: the reason why it happened is also fine!",
+    "n_q": "Quick quiz! What's the reason blank the change?",
+    "n_q2": "For, or of?",
+    "n_a": "For! What's the reason for the change?",
+    "n_sh": "Send this to a friend who mixes these up!",
+    "n_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "What's the reason for the delay?",
+    "right_lines": [
+     "n_k"
+    ],
+    "wrong_line": "n_w",
+    "wrong": "What's the reason of the delay?"
+   },
+   "source": "sb_022772ea"
+  },
+  "wlw_03f6978d": {
+   "template": "mistake",
+   "hook": "✗ / “Stress can lead for health problems.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "n_h": "Small word, big mistake.",
+    "n_w": "Stress can lead for health problems.",
+    "n_k": "Say: Stress can lead to health problems.",
+    "n_y": "Lead to means cause.",
+    "n_x": "Too much sugar can lead to problems.",
+    "n_t": "Like a road, it leads to the result!",
+    "n_q": "Quick quiz! Bad sleep can lead blank stress.",
+    "n_q2": "For, or to?",
+    "n_a": "To! Bad sleep can lead to stress.",
+    "n_sh": "Send this to a friend who mixes these up!",
+    "n_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Stress can lead to health problems.",
+    "right_lines": [
+     "n_k"
+    ],
+    "wrong_line": "n_w",
+    "wrong": "Stress can lead for health problems."
+   },
+   "source": "sb_03f6978d"
+  },
+  "wlw_24aedfd4": {
+   "template": "mistake",
+   "hook": "✗ Not / “Sunscreen protects of the sun.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "n_h": "Small word, big mistake.",
+    "n_w": "Sunscreen protects of the sun.",
+    "n_k": "Say: Sunscreen protects you from the sun.",
+    "n_y": "Protect someone from danger.",
+    "n_x": "A helmet protects you from injury.",
+    "n_t": "Keep and save work the same way: keep from!",
+    "n_q": "Quick quiz! This coat protects me blank the rain.",
+    "n_q2": "Of, or from?",
+    "n_a": "From! This coat protects me from the rain.",
+    "n_sh": "Send this to a friend who mixes these up!",
+    "n_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Sunscreen protects you from the sun.",
+    "right_lines": [
+     "n_k"
+    ],
+    "wrong_line": "n_w",
+    "wrong": "Sunscreen protects of the sun."
+   },
+   "source": "sb_24aedfd4"
+  },
+  "wlw_03115b51": {
+   "template": "mistake",
+   "hook": "✗ Not / “She is skilled on design.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "n_h": "Small word, big mistake.",
+    "n_w": "She is skilled on design.",
+    "n_k": "Say: She is skilled in design.",
+    "n_y": "Skilled in or at a subject.",
+    "n_x": "He is skilled in cooking.",
+    "n_t": "Good at works the same way!",
+    "n_q": "Quick quiz! She's skilled blank language teaching.",
+    "n_q2": "On, or in?",
+    "n_a": "In! She's skilled in language teaching.",
+    "n_sh": "Send this to a friend who mixes these up!",
+    "n_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "She is skilled in design.",
+    "right_lines": [
+     "n_k"
+    ],
+    "wrong_line": "n_w",
+    "wrong": "She is skilled on design."
+   },
+   "source": "sb_03115b51"
+  },
+  "wlw_0c46f8a4": {
+   "template": "mistake",
+   "hook": "✗ Not / “I'm fond with my grandma.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "n_h": "Small word, big mistake.",
+    "n_w": "I'm fond with my grandma.",
+    "n_k": "Say: I'm fond of my grandma.",
+    "n_y": "Fond of means you like someone warmly.",
+    "n_x": "She's fond of old movies.",
+    "n_t": "It's softer than love!",
+    "n_q": "Quick quiz! He's fond blank spicy food.",
+    "n_q2": "Of, or with?",
+    "n_a": "Of! He's fond of spicy food.",
+    "n_sh": "Send this to a friend who mixes these up!",
+    "n_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I'm fond of my grandma.",
+    "right_lines": [
+     "n_k"
+    ],
+    "wrong_line": "n_w",
+    "wrong": "I'm fond with my grandma."
+   },
+   "source": "sb_0c46f8a4"
+  }
+ }
+}

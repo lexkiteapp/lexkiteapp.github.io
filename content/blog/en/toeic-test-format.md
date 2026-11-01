@@ -96,7 +96,7 @@ Running out of time in Part 7 is the single most common complaint about the TOEI
 
 Rules that protect your score:
 
-- **Don't get stuck.** If a Part 5 question takes more than 30 seconds, choose your best guess and move on.
+- **Don't get stuck.** If a Part 5 question takes more than 30 seconds, choose your best guess and move on. Our [TOEIC Part 5 guide](/en/blog/toeic-part-5-tips/) shows how to classify each item from its options.
 - **Never leave a blank.** Your score is based on the number of correct answers, so a guess can only help.
 - **Read the questions first in Part 7,** then scan the passage for the information each one needs.
 
@@ -130,7 +130,7 @@ The Part 7 trap deserves special attention. Correct answers usually restate the 
 
 1. **Vocabulary first.** Workplace words appear in every part. Spaced review is the most efficient way to keep them; see [active recall for vocabulary](/en/blog/active-recall-for-vocabulary/).
 2. **Parts 1 and 2** to train your ear for short, clear items and build confidence.
-3. **Part 5** to fix grammar weak spots: word forms, tenses and articles. Our guides to [a, an, the rules](/en/blog/articles-a-an-the-rules/) and [commonly confused words](/en/blog/commonly-confused-words-in-english/) cover frequent Part 5 traps.
+3. **Part 5** to fix grammar weak spots: word forms, tenses and articles. Our guides to [a, an, the rules](/en/blog/articles-a-an-the-rules/) and [commonly confused words](/en/blog/commonly-confused-words-in-english/) cover frequent Part 5 traps. Preposition items are covered in [prepositions in, on, at](/en/blog/prepositions-in-on-at/).
 4. **Parts 3, 4, 6 and 7** once the basics are steady, always with a timer.
 5. **Full mock tests** every week or two to practice endurance and timing.
 

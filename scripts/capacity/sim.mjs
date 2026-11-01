@@ -9,6 +9,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { meter, sqliteD1, miniflareD1, explainAll } from './meter.mjs';
 import { LIMITS, MIX, project } from './model.mjs';
+import { pathToFileURL } from 'node:url';
 
 const arg = (k, d) => { const a = process.argv.find(x => x.startsWith('--' + k + '=')); return a ? a.split('=').slice(1).join('=') : d; };
 export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('users', 3), seedUsers = +arg('seed', 400), quiet = false, legacy = process.argv.includes('--legacy') } = {}) {
@@ -109,7 +110,7 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
   per.clear();
 
   const results = {};
-  const PUSH_MS = +(process.env.SIM_PUSH_MS || 180e3); // web/js/sync.js Sync.schedule: đẩy ≤ 1 lần/3 phút + đẩy ngay khi rời trang
+  const PUSH_MS = +(process.env.SIM_PUSH_MS || 600e3); // web/js/sync.js Sync.schedule: D1 đẩy ≤ 1 lần/LK_SYNC.d1Every (10 phút, firebase-config.js) + đẩy ngay khi rời trang
   let ipN = 10;
   for (const [name, P] of Object.entries(PROFILES)) {
     const samples = [];
@@ -259,7 +260,7 @@ export function markdown(r) {
   return L.join('\n');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const r = await simulate();
   const md = markdown(r); console.log('\n' + md);
   const j = arg('json', ''), m = arg('md', '');

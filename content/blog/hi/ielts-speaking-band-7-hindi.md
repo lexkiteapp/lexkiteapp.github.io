@@ -33,7 +33,7 @@ qualityScore: 94
 ### 2. Lexical Resource (शब्दावली और विषयगत शब्द - 25%)
 - **बैंड 7 की आवश्यकता:** आपके पास विभिन्न विषयों पर बात करने के लिए शब्दों का पर्याप्त और विविध भंडार होना चाहिए।
 - कम प्रचलित शब्दों (less common vocabulary) और सही कोलोकेशन (collocations) का सटीक प्रयोग करें। उदाहरण के लिए, "big problem" के स्थान पर "pressing issue" या "acute challenge" कहना बेहतर है।
-- शब्दों को जबरदस्ती न थोपें; संदर्भ के अनुसार मुहावरेदार भाषा (idiomatic expressions) का सहज प्रयोग करें।
+- शब्दों को जबरदस्ती न थोपें; संदर्भ के अनुसार मुहावरेदार भाषा (idiomatic expressions) का सहज प्रयोग करें। बोलचाल में स्वाभाविक phrasal verbs (*grew up, look up to, sort out*) भी इसमें मदद करते हैं – सूची [phrasal verbs in Hindi](/hi/blog/phrasal-verbs-in-hindi/) में।
 
 ### 3. Grammatical Range and Accuracy (व्याकरणिक विविधता और सटीकता - 25%)
 - **बैंड 7 की आवश्यकता:** आप केवल सरल वाक्य (Simple Sentences) ही न बोलें, बल्कि मिश्रित और जटिल वाक्यों (Complex and Compound Sentences) का मिश्रण प्रस्तुत करें।
@@ -68,6 +68,8 @@ qualityScore: 94
 - **रणनीति:** यहाँ उत्तर को व्यक्तिगत अनुभव तक सीमित न रखें; समाज, सरकार, तकनीक या वैश्विक परिप्रेक्ष्य में विश्लेषण करें (PEEL तकनीक: Point, Explain, Example, Link)।
 - अपने उत्तरों में संतुलन दिखाएं (जैसे *On the one hand... but on the other hand...*)।
 - अधिक जानकारी और वास्तविक विषयों के लिए [IELTS Speaking सामग्री व प्रश्न](/speaking/) का अध्ययन करें।
+
+Band 7 के लिए सबसे निर्णायक हिस्सा अक्सर आखिरी चर्चा होती है; इसके लिए [IELTS Speaking Part 3 tips in Hindi](/hi/blog/ielts-speaking-part-3-tips-hindi/) पढ़ें।
 
 {{cta: /#/speaking | Lexkite पर IELTS Speaking Part 1, 2, 3 के मॉडल प्रश्नों और बैंड 7+ उत्तरों का अभ्यास करें}}
 

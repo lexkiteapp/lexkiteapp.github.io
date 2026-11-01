@@ -7,11 +7,15 @@ import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from '.
 import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.js';
 import { growthData } from './growth.js';
 import { purgeNotices } from './notices.js';
-import { purgeConfig } from './config.js';
+import { purgeConfig, ADS_PUBLIC } from './config.js';
+import { stats as adsStatsOf, guardOf, revPack as adsRevPack } from './_ads.js';
+import { SEL as ADS_REV_SEL } from './ads-report.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
-const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate'];
+// Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu)
+const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min'];
+const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', ...ADS_KEYS];
 const DAY = 86400e3;
 // Ngôn ngữ giao diện quản trị: máy khách gửi ui: 'vi' | 'en' (thiếu = 'vi', tương thích cũ) – chỉ áp cho vài câu hiển thị
 const tx = (b, vi, en) => (b && b.ui === 'en' ? en : vi);
@@ -21,6 +25,25 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 // Hạn mức gói miễn phí (cập nhật khi nhà cung cấp đổi) – dùng cho thẻ dung lượng & cảnh báo
 const FREE = { dbBytes: 500 * 1024 * 1024, writesDay: 100000, readsDay: 5000000, authMau: 50000, aiDay: 400 };
 let ready = false;
+
+// Đếm dòng: bảng nhật ký/lớn dùng MAX(rowid) (đọc 1 dòng, ước lượng) thay COUNT(*) quét cả bảng (23/10: admin_log 27 lượt × 14,5k dòng); cả bản đồ giữ ≥ 10 phút ở bộ nhớ isolate + Cache API biên.
+const BIG_TABLES = new Set(['admin_log', 'drive_files', 'drive_audit', 'key_audit', 'quota_audit', 'api_key_events', 'sessions', 'errors', 'pageviews', 'sync_log']);
+const COUNTS_TTL = 600e3;
+let COUNTS_MEM = null;
+async function tableCounts(db, names) {
+  const now = Date.now();
+  if (COUNTS_MEM && now - COUNTS_MEM.t < COUNTS_TTL) return COUNTS_MEM.v;
+  const ck = typeof caches !== 'undefined' && caches.default ? new Request('https://counts.lexkite.internal/admin-usage-counts') : null;
+  if (ck) { try { const hit = await caches.default.match(ck); if (hit) { const j = await hit.json(); if (now - j.t < COUNTS_TTL) { COUNTS_MEM = j; return j.v; } } } catch (e) { /* bộ nhớ đệm hỏng: tính lại */ } }
+  const v = {};
+  for (const n of names) {
+    if (BIG_TABLES.has(n)) { const r = await one(db, `SELECT MAX(rowid) AS n FROM "${n}"`).catch(() => null); v[n] = (r && r.n) || 0; }
+    else v[n] = (await one(db, `SELECT COUNT(*) AS n FROM "${n}"`)).n; // scan-ok: bảng nhỏ, cả bản đồ cache 10 phút
+  }
+  COUNTS_MEM = { t: now, v };
+  if (ck) { try { await caches.default.put(ck, new Response(JSON.stringify(COUNTS_MEM), { headers: { 'Cache-Control': 'public, max-age=600' } })); } catch (e) { /* bỏ qua */ } }
+  return v;
+}
 
 async function setup(db) {
   if (ready) return;
@@ -109,8 +132,7 @@ const OPS = {
     const now = Date.now(), d1 = dayStr(now), t0 = Date.parse(d1 + 'T00:00:00Z');
     const r = await db.prepare('SELECT 1').run(), size = (r.meta && (r.meta.size_after ?? r.meta.db_size)) || 0;
     const tables = await all(db, "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE '_cf_%'");
-    const counts = {};
-    for (const t of tables) counts[t.name] = (await one(db, `SELECT COUNT(*) AS n FROM "${t.name}"`)).n;
+    const counts = await tableCounts(db, tables.map(t => t.name));
     const w = await Promise.all([
       one(db, 'SELECT COUNT(*) AS n FROM sessions WHERE at >= ?', t0), one(db, 'SELECT COUNT(*) AS n FROM docs WHERE updated >= ?', t0),
       one(db, 'SELECT COUNT(*) AS n FROM users WHERE seen >= ?', t0), one(db, 'SELECT COALESCE(SUM(n), 0) AS n FROM errors WHERE last >= ?', t0),
@@ -393,6 +415,24 @@ const OPS = {
   async ping() { return { ok: true }; },
   async auditLog(db) { return { rows: await all(db, 'SELECT at, email, op, ok, ip, country FROM admin_log ORDER BY id DESC LIMIT 100') }; },
   // ---- Nhiều khóa Gemini xoay vòng (D1 config 'gemini_keys' = [{k, at, by}]) – không bao giờ trả nguyên khóa ----
+  // 💰 Quản trị › Quảng cáo (js/admin-ads.js): ext_events 'ad*' 35 ngày – PK (day, kind) → SEARCH theo khoảng ngày, đệm 10 phút;
+  // doanh thu THẬT: ads_rev (PK day,src,dim,key – SEARCH khoảng ngày, ≤ ~4.500 dòng/100 ngày) do Action ads-revenue.yml ghi qua /api/ads-report; chưa có bảng → real.connected = false
+  async adsStats(db, b, who, env) {
+    return cached('ads-v2', 600, async () => {
+      const now = Date.now(), today = vday(now);
+      const [rows, cfg, rev] = await Promise.all([
+        all(db, "SELECT day, kind, n FROM ext_events WHERE day >= ? AND kind >= 'ad' AND kind < 'ae'", vday(now - 35 * DAY)),
+        all(db, `SELECT k, v, at, by FROM config WHERE k IN (${[...ADS_KEYS, 'ads_report', 'ads_pay'].map(() => '?').join(',')})`, ...ADS_KEYS, 'ads_report', 'ads_pay'),
+        all(db, ADS_REV_SEL, vday(now - 100 * DAY), vday(now + DAY)).catch(() => []), // ~100 ngày: đủ "tháng trước" + kỳ so sánh 28 ngày
+      ]);
+      const c = Object.fromEntries(cfg.map(r => [r.k, r.v]));
+      const ecpm = { web: c.ads_ecpm_web ?? 1, android: c.ads_ecpm_android ?? 1, ios: c.ads_ecpm_ios ?? 1 };
+      const pj = v => { try { return v ? JSON.parse(v) : null; } catch (e) { return null; } };
+      const rt = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(now));
+      const real = adsRevPack(rev, pj(c.ads_report), pj(c.ads_pay), rows, ecpm, today, rt);
+      return { at: now, today, ...adsStatsOf(rows, today, ecpm, 30), guard: guardOf(rows, today, { pct: c.ads_guard_pct, min: c.ads_guard_min, prev: c.ads_guard || 1 }), ecpm, real, reporting: { connected: real.connected, at: real.at || null } };
+    });
+  },
   async geminiStatus(db, b, who, env) {
     const list = await gkList(db), keys = [];
     for (const x of list) keys.push({ last4: x.k.slice(-4), at: x.at, by: x.by, cooling: await isCooling(x.k) });

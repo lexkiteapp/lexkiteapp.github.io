@@ -35,7 +35,9 @@ export function grantsOf(j) {
   return g;
 }
 /** Việc nặng/dùng chung (tài nguyên độc quyền, D1, AI…) PHẢI có thuê mới chạy (fail-closed); việc chỉ dùng phút GitHub thì bỏ qua được khi điều phối hỏng. */
-export const failClosed = j => !!j && j.resources.some(r => r !== 'gh_minutes' && r !== 'grabcast_ai');
+// dùng chung, tự giới hạn ở nhà cung cấp (không cần thuê): phút GitHub, GrabCast, kho CF_POOL (4006 → tài khoản kế)
+export const SHARED_RES = ['gh_minutes', 'grabcast_ai', 'cf_pool'];
+export const failClosed = j => !!j && j.resources.some(r => !SHARED_RES.includes(r));
 export async function acquire(env, db, b, now = Date.now()) {
   const j = jobOf(String(b.job || '')); if (!j) return { status: 400, error: 'unknown-job' };
   if (j.paused && !b.force) return { ok: false, skip: true, reason: 'paused (infra/jobs.json) – chỉ chạy tay với --force' };

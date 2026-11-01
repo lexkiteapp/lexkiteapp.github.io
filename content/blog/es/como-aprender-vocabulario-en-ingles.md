@@ -109,6 +109,8 @@ Si un día solo tienes cinco minutos, haz únicamente el repaso: mantener la cad
 
 ![Sesión de repaso de flashcards en Lexkite con la palabra "pollution", su transcripción fonética y la barra de progreso](media:review "El repaso espaciado te muestra hoy solo las palabras que estás a punto de olvidar")
 
+Si quieres saber cuánto vocabulario se espera en cada etapa, mira nuestra guía de [niveles de inglés A1 a C2](/es/blog/niveles-de-ingles-a1-a2-b1-b2-c1/).
+
 {{cta: /#/library | Elige tu primera lista y aprende 10 palabras hoy}}
 
 {{youtube: | Idea de vídeo: rutina de 10 minutos para aprender 10 palabras en inglés con flashcards en Lexkite}}

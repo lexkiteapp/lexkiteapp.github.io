@@ -1,139 +1,175 @@
 {
-"voices": {
-"ama": "af_bella",
-"carlos": "am_fenrir"
-},
-"speed": 0.9,
-"lines": [
-{
-"id": "c_hi",
-"who": "carlos",
-"text": "Hi! What can I get you?"
-},
-{
-"id": "a_thanks",
-"who": "ama",
-"text": "Thanks!"
-},
-{
-"id": "a_giveme",
-"who": "ama",
-"text": "Hey! Give me a latte."
-},
-{
-"id": "c_order",
-"who": "carlos",
-"text": "Hmm, that sounds like an order."
-},
-{
-"id": "c_try",
-"who": "carlos",
-"text": "Try: Could I get a latte, please?"
-},
-{
-"id": "a_could",
-"who": "ama",
-"text": "Oh! Could I get a latte, please?"
-},
-{
-"id": "a_muffin",
-"who": "ama",
-"text": "Could I get a muffin, please?"
-},
-{
-"id": "a_bill",
-"who": "ama",
-"text": "Could I get the bill, please?"
-},
-{
-"id": "a_tea",
-"who": "ama",
-"text": "Could I get a tea, please?"
-},
-{
-"id": "a_latte",
-"who": "ama",
-"text": "A latte, please."
-},
-{
-"id": "c_forhere",
-"who": "carlos",
-"text": "For here or to go?"
-},
-{
-"id": "a_forhere",
-"who": "ama",
-"text": "For here, please."
-},
-{
-"id": "a_togo",
-"who": "ama",
-"text": "To go, please."
-},
-{
-"id": "c_sure",
-"who": "carlos",
-"text": "Sure!"
-},
-{
-"id": "c_four",
-"who": "carlos",
-"text": "That's four dollars, please."
-},
-{
-"id": "a_card",
-"who": "ama",
-"text": "Can I pay by card?"
-},
-{
-"id": "c_nopro",
-"who": "carlos",
-"text": "Sure, no problem."
-},
-{
-"id": "a_phone",
-"who": "ama",
-"text": "Can I pay by phone?"
-},
-{
-"id": "a_cash",
-"who": "ama",
-"text": "Can I pay in cash?"
-},
-{
-"id": "a_want",
-"who": "ama",
-"text": "I want a latte."
-},
-{
-"id": "c_direct",
-"who": "carlos",
-"text": "Hmm, “I want” sounds a bit direct."
-},
-{
-"id": "c_tryid",
-"who": "carlos",
-"text": "Try: I'd like a latte, please."
-},
-{
-"id": "a_idlike",
-"who": "ama",
-"text": "Oh! I'd like a latte, please."
-},
-{
-"id": "a_idtea",
-"who": "ama",
-"text": "I'd like a tea, please."
-},
-{
-"id": "a_idcookie",
-"who": "ama",
-"text": "I'd like a cookie, please."
-},
-{
-"id": "a_idchoc",
-"who": "ama",
-"text": "I'd like a hot chocolate, please."
-}
-]
+ "voices": {
+  "ama": "af_bella",
+  "carlos": "am_fenrir"
+ },
+ "speed": 0.9,
+ "lines": [
+  {
+   "id": "c_hi",
+   "who": "carlos",
+   "text": "Hi! What can I get you?"
+  },
+  {
+   "id": "a_thanks",
+   "who": "ama",
+   "text": "Thanks!"
+  },
+  {
+   "id": "a_giveme",
+   "who": "ama",
+   "text": "Hey! Give me a latte."
+  },
+  {
+   "id": "c_order",
+   "who": "carlos",
+   "text": "Hmm, that sounds like an order."
+  },
+  {
+   "id": "c_try",
+   "who": "carlos",
+   "text": "Try: Could I get a latte, please?"
+  },
+  {
+   "id": "a_could",
+   "who": "ama",
+   "text": "Oh! Could I get a latte, please?"
+  },
+  {
+   "id": "a_muffin",
+   "who": "ama",
+   "text": "Could I get a muffin, please?"
+  },
+  {
+   "id": "a_bill",
+   "who": "ama",
+   "text": "Could I get the bill, please?"
+  },
+  {
+   "id": "a_tea",
+   "who": "ama",
+   "text": "Could I get a tea, please?"
+  },
+  {
+   "id": "a_latte",
+   "who": "ama",
+   "text": "A latte, please."
+  },
+  {
+   "id": "c_forhere",
+   "who": "carlos",
+   "text": "For here or to go?"
+  },
+  {
+   "id": "a_forhere",
+   "who": "ama",
+   "text": "For here, please."
+  },
+  {
+   "id": "a_togo",
+   "who": "ama",
+   "text": "To go, please."
+  },
+  {
+   "id": "c_sure",
+   "who": "carlos",
+   "text": "Sure!"
+  },
+  {
+   "id": "c_four",
+   "who": "carlos",
+   "text": "That's four dollars, please."
+  },
+  {
+   "id": "a_card",
+   "who": "ama",
+   "text": "Can I pay by card?"
+  },
+  {
+   "id": "c_nopro",
+   "who": "carlos",
+   "text": "Sure, no problem."
+  },
+  {
+   "id": "a_phone",
+   "who": "ama",
+   "text": "Can I pay by phone?"
+  },
+  {
+   "id": "a_cash",
+   "who": "ama",
+   "text": "Can I pay in cash?"
+  },
+  {
+   "id": "a_want",
+   "who": "ama",
+   "text": "I want a latte."
+  },
+  {
+   "id": "c_direct",
+   "who": "carlos",
+   "text": "Hmm, “I want” sounds a bit direct."
+  },
+  {
+   "id": "c_tryid",
+   "who": "carlos",
+   "text": "Try: I'd like a latte, please."
+  },
+  {
+   "id": "a_idlike",
+   "who": "ama",
+   "text": "Oh! I'd like a latte, please."
+  },
+  {
+   "id": "a_idtea",
+   "who": "ama",
+   "text": "I'd like a tea, please."
+  },
+  {
+   "id": "a_idcookie",
+   "who": "ama",
+   "text": "I'd like a cookie, please."
+  },
+  {
+   "id": "a_idchoc",
+   "who": "ama",
+   "text": "I'd like a hot chocolate, please."
+  },
+  {
+   "id": "a_slow",
+   "who": "ama",
+   "text": "Could I get a latte, please?",
+   "speed": 0.8
+  },
+  {
+   "id": "a_nowyou",
+   "who": "ama",
+   "text": "Now you. Repeat after me!"
+  },
+  {
+   "id": "a_asktea",
+   "who": "ama",
+   "text": "Your turn. Ask for a tea!"
+  },
+  {
+   "id": "a_slow_id",
+   "who": "ama",
+   "text": "I'd like a latte, please."
+  },
+  {
+   "id": "a_askcookie",
+   "who": "ama",
+   "text": "Your turn. Ask for a cookie!"
+  },
+  {
+   "id": "a_slow_card",
+   "who": "ama",
+   "text": "Can I pay by card?"
+  },
+  {
+   "id": "a_askcash",
+   "who": "ama",
+   "text": "Your turn. Ask to pay in cash!"
+  }
+ ]
 }

@@ -1,5 +1,8 @@
 # ROLLBACK – sao lưu & khôi phục nhanh (bản xấu luôn quay lại được)
 
+> TL;DR: Sao lưu & khôi phục nhanh: mục 0 làm đúng thứ tự khi có sự cố; rollback Pages, git, D1 Time Travel, app/add-on, kho âm thanh. Mục 0 khi sự cố; còn lại tra cứu.
+> Đọc khi: CÓ SỰ CỐ hoặc cần khôi phục.
+
 Đọc mục **0** khi đang có sự cố. Còn lại là tra cứu. Cập nhật 23/10/2026. Mọi thứ miễn phí (GitHub Actions công khai + Kho Drive của chủ + D1 Time Travel).
 
 ## 0. Có sự cố? Làm đúng thứ tự này
@@ -115,6 +118,12 @@ sha256sum out/restore/<file>                               # tự đối chiếu
 - **Google Play**: nếu đang **phát hành theo giai đoạn** (staged rollout) → Play Console › Production › **Halt rollout** (người đã nhận bản xấu vẫn giữ nó). Để sửa: `gh workflow run android.yml --ref <tag-bản-tốt>` (versionCode mới = 1000 + run, luôn tăng) rồi tạo release mới từ AAB đó; hoặc *Add from library* nếu cần dùng lại đúng AAB đã tải trước đây (chỉ khi versionCode của nó chưa bị bản khác vượt). Dự phòng: Play Console › App bundle explorer lưu mọi bundle đã tải lên.
 - **App Store (iOS)**: không thể trả về binary cũ. (1) Đang **phased release** → App Store Connect › Pause phased release (tối đa 30 ngày). (2) Build bản tốt với build number mới: `gh workflow run ios-testflight.yml --ref <tag-bản-tốt>` → chọn build ở phiên bản mới và nộp review, kèm **Request an Expedited Review** (App Store Connect › Contact Us) ghi rõ lỗi nghiêm trọng. (3) Cực chẩn: Remove from Sale tạm thời. TestFlight giữ build cũ để thử nội bộ.
 - Phần *nội dung* của app (từ vựng, đề, giải thích) tải từ lexkite.com → rollback Pages (§1) cũng đưa app cũ về nội dung cũ ngay, không cần qua cửa hàng.
+
+## 4b. Âm thanh (kho media lexkite-media-2, 24/10/2026)
+- Worker `lexkite-audio` dò `ORIGINS` (m2 → gốc cũ `lexkiteapp.github.io/audio`, bản Pages cũ đóng băng). Âm thanh lỗi → `curl -sI https://audio.lexkite.com/audio/l/<khoá>.mp3` xem `X-Origin`.
+- Quay lại Worker cũ: `git show <commit-trước>:workers/audio/index.js > workers/audio/index.js` rồi `wrangler deploy` (thư mục workers/audio, token `~/.config/lexkite/cf-token`) – gốc cũ vẫn đủ mp3 tới khi gỡ dự phòng (docs/STORAGE.md §Gỡ dự phòng).
+- mp3 còn nguyên trong lịch sử git repo chính (commit trước 24/10) → khôi phục cây: `git checkout <commit-trước> -- web/audio` (không khuyến nghị: size-guard đỏ).
+- KHÔNG deploy Pages repo chính khi còn cần gốc cũ (pages.yml đã bỏ bước deploy) – deploy mới xoá bản Pages cũ.
 
 ## 5. Kiểm tra sau deploy (smoke) & vì sao không tự rollback
 

@@ -25,7 +25,7 @@ Passive reading occurs when your eyes register characters while your conscious a
 
 The human working memory can only retain roughly four distinct pieces of information simultaneously. When an IELTS passage introduces conflicting hypotheses, statistical counter-claims, and multi-clause sentences, passive readers attempt to hold all raw data in memory at once. By the third paragraph, cognitive exhaustion strikes.
 
-Active reading operates on a fundamentally different principle: **immediate cognitive externalization**. Instead of storing raw paragraphs in your head, you distill each block into a concise mental anchor or micro-note before proceeding. By offloading processing demands onto paper or screen highlights, your mental bandwidth remains fresh for solving difficult question types like matching headings and multiple choice.
+Active reading operates on a fundamentally different principle: **immediate cognitive externalization**. Instead of storing raw paragraphs in your head, you distill each block into a concise mental anchor or micro-note before proceeding. By offloading processing demands onto paper or screen highlights, your mental bandwidth remains fresh for solving difficult question types like matching headings and multiple choice. It is also the core skill behind [matching headings](/en/blog/ielts-reading-matching-headings/).
 
 ## The 4 Pillars of Active Reading for IELTS
 

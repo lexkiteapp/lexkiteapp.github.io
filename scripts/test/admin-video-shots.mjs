@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Visual check of Admin → Video (#video) on SANDBOX fixtures (no account, no API, no network): Playwright Chromium on CI
 // (.github/workflows/admin-video-ui.yml). light/dark × desktop(1280)/mobile(390) → <out>/<tag>-<section>-<theme>-<vp>.png + <tag>.json.
 // Works with the old module (tabs [data-t]) and the new one (sub-nav .vx-nav [data-sec]) so before/after can be compared.
@@ -23,7 +24,7 @@ if (process.argv[2] === '--compare') { // side-by-side sheets: before (left) | a
 }
 
 const OUT = process.argv[2] || 'out/admin-video', TAG = process.argv[3] || 'after', WEB = process.argv[4] || 'web'; fs.mkdirSync(OUT, { recursive: true });
-let axe = null; try { axe = fs.readFileSync(path.join(path.dirname(new URL(import.meta.resolve('axe-core')).pathname), 'axe.min.js'), 'utf8'); } catch (e) { /* optional */ }
+let axe = null; try { axe = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.resolve('axe-core'))), 'axe.min.js'), 'utf8'); } catch (e) { /* optional */ }
 
 // ---- sandbox fixtures (deterministic) ----
 const SCENES = ['cafe', 'airport', 'hotel', 'office', 'anchor'], TPL = ['choose', 'listen', 'news', 'fix-it'], CEFR = ['A2', 'B1', 'B2'], AREAS = ['listening', 'grammar', 'dictionary', 'speaking', 'exam'];
@@ -65,7 +66,7 @@ const VIDEOS = { items: items.slice(0, 8).map((it, i) => ({ id: it.id, slug: it.
 
 const page0 = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/admin.css"></head>
 <body class="adm adm-in"><header class="adm-top"><span class="wordmark">lex<b>kite</b></span><span class="adm-tag">Admin</span></header><div class="adm-shell"><aside class="adm-side" id="side"><nav class="side-nav" aria-label="Admin"><div class="side-g"><div class="side-h">Nội dung &amp; Video</div><a class="side-a" href="#dist">🛰️ Kênh &amp; phân phối</a><a class="side-a" href="#studio">🎞️ Video Studio</a><a class="side-a" href="#video" aria-current="page">🎬 Trung tâm video</a></div></nav></aside><div class="adm-content"><div class="pg-head" id="pgHead"><div class="pg-tx"><div class="pg-crumb">Nội dung &amp; Video</div><h1 class="pg-t">Video</h1></div><div class="pg-act" id="pgAct"></div></div><main class="adm-main" id="main" tabindex="-1"></main></div></div><div class="adm-toasts" id="toasts"></div>
-<script src="/js/admin-video.js"></script><script src="/js/admin-clips.js"></script></body></html>`;
+<script src="/js/admin-chart.js"></script><script src="/js/admin-video.js"></script><script src="/js/admin-clips.js"></script></body></html>`;
 const svg = i => `<svg xmlns="http://www.w3.org/2000/svg" width="270" height="480"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="hsl(${(i * 47) % 360},45%,62%)"/><stop offset="1" stop-color="hsl(${(i * 47 + 40) % 360},45%,30%)"/></linearGradient></defs><rect width="270" height="480" fill="url(#g)"/><circle cx="135" cy="210" r="62" fill="rgba(255,255,255,.35)"/><rect x="60" y="300" width="150" height="120" rx="30" fill="rgba(255,255,255,.3)"/></svg>`;
 
 const report = [], fails = [];

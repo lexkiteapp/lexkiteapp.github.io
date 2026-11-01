@@ -81,7 +81,7 @@ A escolha certa depende diretamente da sua afinidade com o formato de cada prova
 - **No TOEFL iBT:** Todos os textos são de nível acadêmico universitário de primeiro ano. As perguntas são majoritariamente de múltipla escolha tradicional com 4 alternativas, questões de vocabulário em contexto e inserção de frases no texto. É ideal para quem prefere a previsibilidade de clicar na alternativa correta.
 - **No IELTS:** A variedade de formatos é muito maior. Além de múltipla escolha, você enfrentará preenchimento de lacunas com palavras do próprio texto, correspondência de títulos a parágrafos (*Matching Headings*) e as temidas questões de *True / False / Not Given*. Erros de ortografia na cópia das palavras custam pontos preciosos.
 
-Se você está em dúvida sobre a versão de imigração do exame britânico, confira nosso guia sobre [como se preparar para o IELTS General Training](/pt/blog/como-se-preparar-para-o-ielts-general-training/).
+Se você está em dúvida sobre a versão de imigração do exame britânico, confira nosso guia sobre [como se preparar para o IELTS General Training](/pt/blog/como-se-preparar-para-o-ielts-general-training/). A parte que mais diferencia esse módulo é a carta da Writing Task 1, explicada no guia da [carta IELTS General Training](/pt/blog/carta-ielts-general-training/).
 
 ### 2. Listening (Compreensão Auditiva)
 - **No TOEFL iBT:** As palestras e diálogos são relativamente longos (3 a 5 minutos). O detalhe crucial é que você escuta todo o áudio tomando notas em um rascunho **sem ver as perguntas na tela**. As questões só aparecem após o término da gravação. Portanto, a habilidade de *note-taking* (anotações rápidas e sintéticas) é indispensável. O sotaque é majoritariamente americano padrão.
@@ -127,6 +127,8 @@ Faça este auto-diagnóstico em 5 perguntas rápidas:
 3. **Você se incomoda com sotaques britânicos e da Oceania?** Se você consome apenas filmes e séries dos EUA e tem dificuldade com pronúncias do Reino Unido ou Austrália, o TOEFL será muito mais amigável aos seus ouvidos.
 4. **Você prefere perguntas de múltipla escolha ou preenchimento de lacunas?** O TOEFL favorece quem é bom em eliminar alternativas incorretas; o IELTS favorece quem tem precisão ortográfica impecável.
 5. **Você já montou seu planejamento de estudo?** Independentemente da prova, construir vocabulário com consistência é mandatório. Veja [como aprender inglês sozinho](/pt/blog/como-aprender-ingles-sozinho/) e pratique nos [simulados oficiais](/app/#/mock) do Lexkite.
+
+Antes de escolher a prova, vale entender os [níveis de inglês CEFR](/pt/blog/niveis-de-ingles-cefr/) e a nota que cada instituição pede.
 
 {{cta: /app/#/placement | Fazer teste de nivelamento gratuito no Lexkite}}
 

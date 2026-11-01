@@ -75,7 +75,7 @@ Gündelik konuşmaların ve akademik metinlerin en yoğun kısmını Present ten
 
 ## 2. Geçmiş Zamanlar (Past Tenses)
 
-Geçmişte yaşanmış hikayeleri, raporları ve tamamlanmış süreçleri ifade ederken kullanılır.
+Geçmişte yaşanmış hikayeleri, raporları ve tamamlanmış süreçleri ifade ederken kullanılır. Birinin söylediğini aktarırken zamanların nasıl geriye kaydığını [İngilizce dolaylı anlatım](/tr/blog/ingilizce-dolayli-anlatim-reported-speech/) yazısında bulabilirsin.
 
 > Bunu da oku: [Ingilizce Edatlar In On At Kullanimi ve Ters Piramit](/tr/blog/ingilizce-edatlar-in-on-at-kullanimi/) · [Ingilizce Modal Verbs Can Could Should Must Kullanimi](/tr/blog/ingilizce-modal-verbs-can-could-should-must/)
 

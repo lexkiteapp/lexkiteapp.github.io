@@ -142,6 +142,8 @@ quiz: [
 
 발음과 리듬감을 정교하게 다듬기 위해 [영어 섀도잉 방법](/ko/blog/yeongeo-shadowing-bangbeop/)과 [영어 발음 교정 가이드](/ko/blog/yeongeo-balum-gyojeong/)를 함께 활용하시고, 어휘 기억력을 극대화하기 위해 [영단어 암기법](/ko/blog/yeongdaneo-amgibeop/)과 [간격 반복 영어 단어 암기법](/ko/blog/gangeok-banbok-daneo-amgi-fsrs/)을 병행해 보세요. 실전 표현이 가득한 [회화 및 리딩 자료실](/samples/)도 언제든 유용하게 살펴보실 수 있습니다.
 
+번역 없이 요지를 잡는 연습은 [아이엘츠 리딩 매칭 헤딩](/ko/blog/ielts-reading-matching-headings-gongryak/) 같은 시험 유형에서 바로 효과가 나타납니다.
+
 {{cta: /app/#/placement | Lexkite에서 영어 레벨 진단 및 맞춤 훈련 시작하기}}
 
 {{youtube: | 영어로 생각하기 훈련과 머릿속 번역 딜레이 탈출법}}

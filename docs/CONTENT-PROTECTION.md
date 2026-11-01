@@ -1,4 +1,7 @@
 # Bảo vệ nội dung Lexkite – chống cào, chứng minh đăng trước, xử lý DMCA
+
+> TL;DR: Bảo vệ nội dung chống cào: luật Cloudflare WAF, "được lập chỉ mục trước", sổ băm, OpenTimestamps, giám sát bản sao, xử lý DMCA. Phần build/giao diện do Antigravity (thẻ P1 trên BOARD).
+> Đọc khi: xử lý sao chép/DMCA hoặc sửa WAF.
 Cập nhật 17/10/2026. Phía máy chủ/Cloudflare (phiên chính). Phía build & giao diện (Wayback, gắn nguồn khi chép, canary) do Antigravity làm – thẻ P1 trong `docs/agents/BOARD.md`. Hồ sơ pháp lý: `docs/legal/DMCA-KIT.md`. Không chứa khóa/mật khẩu.
 
 ## 1. Mục tiêu & nguyên tắc

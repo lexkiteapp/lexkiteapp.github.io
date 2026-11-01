@@ -124,6 +124,10 @@ Em outras palavras: você **só pronuncia o "ed" como uma nova sílaba** se o ve
 
 Para fixar essas regras gramaticais e automatizar sua lembrança sem hesitação, use a [repetição espaçada para aprender inglês](/pt/blog/repeticao-espacada-para-aprender-ingles/) e enriqueça suas frases com os [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/). Se você estuda por conta própria, explore também nossos guias de [estudo de inglês autodidata](/pt/blog/como-aprender-ingles-sozinho/) e consulte [amostras de conversação](/speaking/) para calibrar sua entonação.
 
+A mesma vogal extra aparece no passado dos verbos; veja as três regras em [pronúncia do ed em inglês](/pt/blog/pronuncia-do-ed-em-ingles/).
+
+Para aplicar esses sons em respostas mais longas, treine com as [IELTS Speaking Part 3 dicas](/pt/blog/ielts-speaking-part-3-dicas/) e o método ARES.
+
 {{cta: /app/#/practice/speak | Praticar pronúncia com gravação no Lexkite}}
 
 {{youtube: | Os sons mais difíceis do inglês para brasileiros e como dominá-los}}

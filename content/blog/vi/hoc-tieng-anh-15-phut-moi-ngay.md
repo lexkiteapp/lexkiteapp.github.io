@@ -26,7 +26,7 @@ Có ba lý do khiến những buổi học ngắn mà đều thường cho kết
 
 **Rào cản bắt đầu rất thấp.** Ít ai có cớ để từ chối 15 phút. Nhưng rất nhiều người có cớ để hoãn một buổi học 2 tiếng. Khi việc bắt đầu dễ, bạn sẽ bắt đầu thường xuyên hơn.
 
-**Thói quen hình thành từ sự lặp lại, không từ độ dài.** Một hành động nhỏ lặp lại đúng thời điểm mỗi ngày sẽ dần trở nên tự động, giống đánh răng. Lúc đó bạn không cần dựa vào động lực nữa.
+**Thói quen hình thành từ sự lặp lại, không từ độ dài.** Một hành động nhỏ lặp lại đúng thời điểm mỗi ngày sẽ dần trở nên tự động, giống đánh răng. Lúc đó bạn không cần dựa vào động lực nữa. Nguyên lý này đúng cả với trẻ nhỏ – xem bài [dạy tiếng Anh cho trẻ tại nhà](/vi/blog/day-tieng-anh-cho-tre-tai-nha/).
 
 Tất nhiên, 15 phút có giới hạn. Nếu bạn có kỳ thi trong ba tháng tới, bạn sẽ cần nhiều hơn. Nhưng 15 phút là **mức sàn** tuyệt vời: ngày bận nhất vẫn giữ được, ngày rảnh thì học thêm.
 

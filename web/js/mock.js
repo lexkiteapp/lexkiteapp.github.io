@@ -71,7 +71,7 @@
     const hist = await w(Store.get('mocks', []));
     const lt = [...new Set((window.LISTENING || []).map(p => p.test))], rtA = RT().filter(x => !x.gt).map(x => x.test), rtG = RT().filter(x => x.gt).map(x => x.test), rt = [...rtA, ...rtG];
     view.innerHTML = `
-      <div class="page-head"><div><h1>🏁 ${t('Thi thử IELTS 4 kỹ năng')}</h1><p class="muted">${t('Mô phỏng một buổi thi IELTS Academic: Listening → Reading → Writing → Speaking, bấm giờ như thật, chấm tự động và quy đổi <b>band Overall</b>. Đề tự biên soạn – điểm mang tính tham khảo.')}</p></div></div>
+      <div class="page-head"><div><h1>${UI.icon('flag')} ${t('Thi thử IELTS 4 kỹ năng')}</h1><p class="muted">${t('Mô phỏng một buổi thi IELTS Academic: Listening → Reading → Writing → Speaking, bấm giờ như thật, chấm tự động và quy đổi <b>band Overall</b>. Đề tự biên soạn – điểm mang tính tham khảo.')}</p></div></div>
       <div class="grid g2">
         <div class="card">
           <h2 style="margin-top:0">⚙️ ${t('Chọn đề')}</h2>

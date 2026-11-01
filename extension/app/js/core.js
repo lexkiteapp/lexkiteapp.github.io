@@ -97,8 +97,8 @@
     autoSpeak: true,
     goldenOn: true,       // nhắc "thời điểm vàng" khi có đủ từ sắp quên
     goldenMin: 10,        // số từ tối thiểu để nhắc
-    quietStart: '22:30',  // giờ yên lặng
-    quietEnd: '07:00',
+    quietStart: '22:00',  // giờ yên lặng (cả nhắc học lẫn thời điểm vàng – docs/REMINDERS.md)
+    quietEnd: '08:00',
     sessionCap: 50,       // tối đa thẻ mỗi phiên ôn (0 = không giới hạn)
   };
 
@@ -257,6 +257,8 @@
   const Cards = {
     async all() { return normalize(await Store.get('cards', {})); },
     async save(map) { return serial(() => Store.set('cards', normalize(map))); },
+    // Đọc–sửa–ghi trong cùng khóa với add/ôn tập: gộp đồng bộ không đè câu trả lời ghi giữa lúc chờ mạng (docs/specs/account-flow.md)
+    async mutate(fn) { return serial(async () => Store.set('cards', normalize(fn(normalize(await Store.get('cards', {})))))); },
 
     make(entry, extra = {}) {
       return {
@@ -302,6 +304,8 @@
       if (context && context.text && !card.contexts.some(c => c.text === context.text)) {
         card.contexts.unshift({ ...context, at: Date.now() });
         card.contexts = card.contexts.slice(0, 5);
+        const X = g.Core.Ctx, cx = X && X.text(context.text), h = cx && X.host(context.source); // ctx.js: ctx/src nằm trong thẻ → xóa thẻ là mất theo
+        if (cx) { card.ctx = cx; if (h) card.src = h; else delete card.src; }
       }
       card.mod = Date.now();
       map[key] = card;
@@ -311,6 +315,9 @@
       if (del[key]) { delete del[key]; await Store.set('deleted', del); }
       return card;
     },
+
+    /** Câu trên thẻ: câu của người học (ctx/src) → rơi về ví dụ thư viện (own=false) → null */
+    ctxOf(c) { const x = c.ctx ? { text: c.ctx, src: c.src } : (c.contexts || [])[0]; return x && x.text ? { text: x.text, src: x.src || '', own: true } : c.ex ? { text: c.ex, src: '', own: false } : null; },
 
     remove(word) {
       return serial(async () => {
@@ -343,10 +350,14 @@
     },
 
 
+    // Định nghĩa duy nhất của thẻ đến hạn hôm nay (practicable: chỉ thẻ có nghĩa như nguồn luyện 'due')
+    dueList(map, opts) {
+      const end = endOfToday(), need = opts && opts.practicable;
+      return Object.values(map).filter(c => (c.srs.reps > 0 || c.srs.last) && c.srs.due <= end && (!need || c.vi));
+    },
     dueCount(map, settings, stats) {
       const list = Object.values(map);
-      const end = endOfToday();
-      const due = list.filter(c => c.srs.reps > 0 || c.srs.last ? c.srs.due <= end : false).length;
+      const due = Cards.dueList(map).length;
       const introduced = (stats && stats.newToday && stats.newToday.day === todayKey()) ? stats.newToday.n : 0;
       const newAvail = list.filter(c => c.srs.reps === 0 && !c.srs.last).length;
       const newCount = Math.min(newAvail, Math.max(0, (settings || DEFAULT_SETTINGS).dailyNew - introduced));

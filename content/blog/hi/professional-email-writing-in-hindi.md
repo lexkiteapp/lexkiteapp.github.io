@@ -55,7 +55,7 @@ qualityScore: 94
 ### 5. समापन और हस्ताक्षर (Sign-off & Signature)
 ईमेल का अंत एक पेशेवर विदाई वाक्यांश के साथ करें:
 - *Best regards,* / *Warm regards,* / *Sincerely,*
-- इसके नीचे अपना पूरा नाम, पद (Designation), कंपनी का नाम और संपर्क सूत्र जोड़ें।
+- इसके नीचे अपना पूरा नाम, पद (Designation), कंपनी का नाम और संपर्क सूत्र जोड़ें। (IELTS General के पत्र में पद और संपर्क नहीं लिखे जाते – वहाँ के नियम [IELTS general letter writing](/hi/blog/ielts-general-letter-writing-hindi/) में हैं।)
 
 ## 5 महत्वपूर्ण व्यावसायिक ईमेल टेम्पलेट्स
 

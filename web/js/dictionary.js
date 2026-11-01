@@ -34,7 +34,7 @@
   const cleanDefs = ms => (ms || []).map(m => ({ ...m, pos: posEn(m.pos), defs: (m.defs || []).filter(d => !VI_DIA.test(d.def || '')).map(d => (d.ex && VI_DIA.test(d.ex) ? { ...d, ex: '' } : d)) }));
   const forLang = e => {
     if (!e || wantVi() || e.found === false) return e;
-    return { ...e, pos: posEn(e.pos), oxford: cleanDefs(e.oxford), meanings: cleanDefs(e.meanings), senses: [], ex: noViStr(e.ex), def: noViStr(e.def), syn: (e.syn || []).filter(x => !VI_DIA.test(x)), col: (e.col || []).filter(x => !VI_DIA.test(String(x))) };
+    return { ...e, pos: posEn(e.pos), oxford: cleanDefs(e.oxford), meanings: cleanDefs(e.meanings), senses: [], ex: noViStr(e.ex), def: noViStr(e.def), syn: (e.syn || []).filter(x => !VI_DIA.test(x)), col: (e.col || []).filter(x => !VI_DIA.test(String(x))), sentences: sentsOk(e.sentences, sentLang()) };
   };
   // Sửa lỗi chính tả hỏi/ngã có sẵn trong dữ liệu từ điển Google (vd. "sản phẫm" → "sản phẩm").
   // Bảng sinh tự động từ kho tiếng Việt của Lexkite: chỉ gồm âm tiết sai chắc chắn (dạng đúng rất phổ biến, dạng sai không tồn tại),
@@ -124,15 +124,29 @@
     return out;
   }
 
-  // Câu ví dụ song ngữ từ Tatoeba (ưu tiên câu dài vừa phải, giống văn phong IELTS hơn)
-  async function sentences(word, limit = 4) {
-    const d = await fetchJSON(`https://api.tatoeba.org/unstable/sentences?lang=eng&q=${encodeURIComponent(word)}&trans:lang=vie&sort=relevance&limit=20&showtrans=matching`, 3500);
+  // Ngôn ngữ bản dịch câu ví dụ song ngữ: vi khi người dùng xem nghĩa tiếng Việt, ngược lại theo ngôn ngữ người học (ar, ja…) – không bao giờ lẫn tiếng Việt
+  const sentLang = () => (wantVi() ? 'vi' : (g.I18N.learnLang && g.I18N.learnLang()) || 'en');
+  const TATO = { vi: 'vie', es: 'spa', pt: 'por', fr: 'fra', de: 'deu', id: 'ind', th: 'tha', zh: 'cmn', ja: 'jpn', ko: 'kor', hi: 'hin', ar: 'ara', ru: 'rus', tr: 'tur' };
+  // Câu song ngữ đã lưu (cache/persist theo từ) có thể theo ngôn ngữ khác → chỉ giữ câu đúng ngôn ngữ hiện tại (bản cũ không có .l = tiếng Việt)
+  const sentsOk = (list, L) => (list || []).filter(s => s && (s.l || 'vi') === L && (L === 'vi' || !VI_DIA.test(s.vi || '')));
+  // Câu ví dụ song ngữ từ Tatoeba (ưu tiên câu dài vừa phải, giống văn phong IELTS hơn); trường .vi = bản dịch theo ngôn ngữ .l
+  async function sentences(word, limit = 4, L = sentLang()) {
+    const tl = TATO[L];
+    const d = await fetchJSON(`https://api.tatoeba.org/unstable/sentences?lang=eng&q=${encodeURIComponent(word)}${tl ? `&trans:lang=${tl}` : ''}&sort=relevance&limit=20&showtrans=${tl ? 'matching' : 'none'}`, 3500);
     if (!d || !Array.isArray(d.data)) return [];
     return d.data
-      .map(x => ({ en: x.text, vi: ((x.translations || []).flat().find(t => t && t.lang === 'vie') || (x.translations || []).flat()[0] || {}).text || '' }))
-      .filter(x => x.vi && x.en.split(' ').length >= 5)
+      .map(x => ({ en: x.text, vi: tl ? ((x.translations || []).flat().find(t => t && t.lang === tl) || {}).text || '' : '', l: L }))
+      .filter(x => (x.vi || !tl) && x.en.split(' ').length >= 5)
       .sort((a, b) => Math.abs(a.en.length - 70) - Math.abs(b.en.length - 70))
       .slice(0, limit);
+  }
+  // Bản lưu có câu song ngữ khác ngôn ngữ (đổi ngôn ngữ giao diện) → lấy lại câu theo ngôn ngữ hiện tại, không hiện câu tiếng Việt cho người học ar/ja…
+  async function relang(e, word, examples) {
+    if (!e || !e.found || !examples) return e;
+    const L = sentLang(), list = e.sentences || [], ok = sentsOk(list, L);
+    if (ok.length === list.length && (ok.length || e._sl === L)) return e;
+    const fresh = ok.length ? ok : await sentences(word, 4, L).catch(() => []);
+    return { ...e, sentences: fresh, _sl: L };
   }
 
   // Phiên âm UK/US từ Wiktionary (khi dictionaryapi.dev thiếu); đổi ɹ → r theo quy ước từ điển Oxford
@@ -214,14 +228,32 @@
   // Dịch cả câu (dùng cho câu ngữ cảnh)
   // Dự phòng: Translator API có sẵn trong Chrome (dịch trên máy, miễn phí, chạy được offline) – chỉ dùng khi mô hình đã sẵn sàng
   let localTr = null;
-  async function onDeviceVi(text) {
+  // Cài đặt "Dùng AI trên máy" (mặc định bật) – tắt thì chỉ dùng đường dịch cũ
+  const localOk = () => { try { const s = g.App && g.App.state && g.App.state.settings; return !s || s.aiLocal !== false; } catch (e) { return true; } };
+  // App gốc: plugin LexAI (ML Kit / Apple Translation) – chỉ gói ngôn ngữ đã có, không tự tải; không có/lỗi → '' (đường cũ)
+  async function nativeTr(text, sl, tl) {
     try {
-      const TR = g.Translator; if (!TR) return '';
-      if (!localTr) { if ((await TR.availability({ sourceLanguage: 'en', targetLanguage: 'vi' })) !== 'available') return ''; localTr = await TR.create({ sourceLanguage: 'en', targetLanguage: 'vi' }); }
-      return fixVi(await localTr.translate(text));
+      const C = g.Capacitor, P = C && C.isNativePlatform && C.isNativePlatform() && C.Plugins && C.Plugins.LexAI;
+      if (!P || !P.translate || !localOk()) return '';
+      const r = await Promise.race([P.translate({ text, from: sl, to: tl, allowDownload: false, timeout: 6000 }), new Promise(res => setTimeout(() => res(null), 7000))]);
+      return r && !r.unavailable && r.text ? String(r.text).trim() : '';
     } catch (e) { return ''; }
   }
+  // Translator API của Chrome có lúc treo mãi (create/translate không bao giờ xong, vd. trang mất tiêu điểm, mô hình kẹt) → luôn có hạn giờ;
+  // treo 1 lần = tắt đường này trong phiên để không chặn Google/MyMemory phía sau (bảng "Đang dịch…" từng kẹt mãi, 28/10)
+  const DEVICE_MS = 4000;
+  let deviceHung = false;
+  const devTimed = p => Promise.race([p, new Promise((res, rej) => setTimeout(() => { deviceHung = true; rej(new Error('device-timeout')); }, DEVICE_MS))]);
+  async function onDeviceVi(text) {
+    try {
+      const nv = await nativeTr(text, 'en', 'vi'); if (nv) return fixVi(nv);
+      const TR = g.Translator; if (!TR || !localOk() || deviceHung) return '';
+      if (!localTr) { if ((await devTimed(TR.availability({ sourceLanguage: 'en', targetLanguage: 'vi' }))) !== 'available') return ''; localTr = await devTimed(TR.create({ sourceLanguage: 'en', targetLanguage: 'vi' })); }
+      return fixVi(await devTimed(localTr.translate(text)));
+    } catch (e) { if (deviceHung) localTr = null; return ''; }
+  }
   async function translateVi(text) {
+    const dv = await onDeviceVi(text); if (dv && dv.trim()) return dv.trim(); // Translator trên máy (gói đã có sẵn) trước – nhanh, offline, không tốn lượt
     const d = await fetchJSON(`${GTX}&dt=t&q=${encodeURIComponent(text)}`);
     const t = d && fixVi((d.sentences || []).map(s => s.trans || '').join('').trim());
     return t || (await onDeviceVi(text)) || myMemory(text, 'vi', 'en');
@@ -234,12 +266,13 @@
   const onDevice = new Map();
   async function deviceTranslate(text, tl, sl = 'en') {
     try {
-      const T = g.Translator; if (!T || !T.availability) return null;
+      const nv = await nativeTr(text, sl, tl); if (nv) return nv;
+      const T = g.Translator; if (!T || !T.availability || !localOk() || deviceHung) return null;
       const key = sl + '>' + tl;
-      if (!onDevice.has(key)) onDevice.set(key, T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null)).catch(() => null));
+      if (!onDevice.has(key)) onDevice.set(key, devTimed(T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null))).catch(() => null));
       const tr = await onDevice.get(key); if (!tr) return null;
-      const out = await tr.translate(text); return out && out.trim() ? out.trim() : null;
-    } catch (e) { return null; }
+      const out = await devTimed(tr.translate(text)); return out && out.trim() ? out.trim() : null;
+    } catch (e) { if (deviceHung) onDevice.clear(); return null; }
   }
   async function translateTo(text, tl, sl = 'en') {
     if (!text || !tl || tl === sl) return '';
@@ -354,8 +387,12 @@
     hit.terms = hit.terms.length <= 1 && !agree ? mine : [...new Set([...mine, ...hit.terms])].slice(0, 6);
     return out;
   }
+  // Từ loại PHỤ của kho (mục mở rộng đa từ loại, local.more – docs/LEXICON.md §Mở rộng 20k): nghĩa biên soạn vào ĐÚNG khối từ loại, sau từ loại chính
+  const moreOf = local => (local && Array.isArray(local.more) ? local.more.filter(m => m && m.pos && (m.vi || m.def)) : []);
   function build(word, local, gg, fd, wk, img, sents) {
     if (gg && local) gg = { ...gg, senses: fixSenses(gg.senses, local) };
+    if (gg) for (const m of moreOf(local)) { const lp = POS_SENSE[m.pos], had = gg.senses.some(x => (POS_SENSE[String(x.pos).toLowerCase()] || String(x.pos).toLowerCase()) === lp), s2 = fixSenses(gg.senses, m);
+      gg = { ...gg, senses: had || s2[0].pos !== lp ? s2 : [...s2.slice(1), s2[0]] }; }
     const gFirst = gg && gg.defs[0] && gg.defs[0].defs[0];
     const fFirst = fd && fd.meanings[0];
     const anyEx = (gg && gg.defs.flatMap(m => m.defs).find(d => d.ex)) || (fd && fd.meanings.flatMap(m => m.defs).find(d => d.ex));
@@ -378,6 +415,9 @@
         oxford = [{ pos: lp, defs: [curDef] }, ...oxford];
       }
     }
+    for (const m of moreOf(local)) { if (!m.def) continue;
+      const lp = POS_FULL[m.pos] || m.pos, curDef = { def: m.def, ex: m.ex || '' }, hit = oxford.find(x => (POS_FULL[String(x.pos).toLowerCase()] || x.pos) === lp);
+      if (hit) hit.defs = [curDef, ...hit.defs.filter(d => d.def !== m.def && !m.def.includes(d.def))].slice(0, 3); else oxford.push({ pos: lp, defs: [curDef] }); }
     return {
       word,
       found: true,
@@ -427,7 +467,7 @@
   async function lookup(raw, { image = true, examples = true } = {}) {
     const word = normWord(raw);
     if (!word) return null;
-    { const hit = cache.get(word); if (hit && !hit.partial && (hit.image || !image || hit._imgTry)) return hit; } // bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
+    { const hit = cache.get(word); if (hit && !hit.partial && (hit.image || !image || hit._imgTry)) { const h2 = await relang(hit, word, examples); if (h2 !== hit) cache.set(word, h2); return h2; } } // bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
     const { local, from } = await localOf(word);
     const saved = overlay(await persist.get(word), local);
     if (saved && Date.now() - saved._t < FRESH) {
@@ -438,7 +478,7 @@
         if (im && im.src) { saved.image = im.src; saved.imageCredit = { text: im.credit, link: im.link }; }
         persist.set(word, saved);
       }
-      cache.set(word, saved); return saved;
+      const s2 = await relang(saved, word, examples); cache.set(word, s2); return s2;
     }
 
     let [gg, fd, wk, img, sents] = await Promise.all([
@@ -463,16 +503,18 @@
       if (!fd) return { word, found: false, vi: (gg && gg.vi !== word && gg.vi) || await myMemory(word) };
       if (wk) { fd.ipa = wk.ipa || ''; fd.ipaUS = wk.ipaUS || ''; }
     }
-    // Thiếu câu song ngữ → dịch các câu ví dụ Oxford sang tiếng Việt
-    if (examples && sents.length < 2 && gg) {
-      const exs = gg.defs.flatMap(m => m.defs).map(d => d.ex).filter(Boolean).filter(x => !sents.some(s => s.en === x)).slice(0, 3 - sents.length);
+    // Thiếu câu song ngữ → dịch các câu ví dụ Oxford sang ngôn ngữ bản dịch (vi hoặc ngôn ngữ người học; người học tiếng Anh thuần: chỉ câu Anh)
+    const SL = sentLang();
+    if (examples && sents.length < 2 && gg && SL !== 'en') {
+      const exs = gg.defs.flatMap(m => m.defs).map(d => d.ex).filter(Boolean).filter(x => !VI_DIA.test(x) && !sents.some(s => s.en === x)).slice(0, 3 - sents.length);
       if (exs.length) {
-        const vi = (await translateVi(exs.join('\n'))).split('\n');
-        exs.forEach((en, i) => { if (vi[i]) sents.push({ en: en[0].toUpperCase() + en.slice(1), vi: vi[i].trim().replace(/^./, c => c.toUpperCase()), auto: true }); });
+        const tr = (await (SL === 'vi' ? translateVi(exs.join('\n')) : translateTo(exs.join('\n'), SL)).catch(() => '') || '').split('\n');
+        exs.forEach((en, i) => { const v = (tr[i] || '').trim(); if (v && (SL === 'vi' || !VI_DIA.test(v))) sents.push({ en: en[0].toUpperCase() + en.slice(1), vi: v.replace(/^./, c => c.toUpperCase()), auto: true, l: SL }); });
       }
     }
     const entry = build(from ? local.word : word, local, gg, fd, wk, img, sents);
     if (from) entry.from = from; // went → go
+    if (examples) entry._sl = SL; // câu song ngữ đã lấy theo ngôn ngữ này (rỗng = Tatoeba không có)
     if (entry.image && !/^n|danh/.test(entry.pos || '')) { entry.image = ''; entry.imageCredit = null; }
     if (image && !entry.image) entry._imgTry = img === null ? 0 : Date.now(); // ảnh lỗi/chậm → bản lưu sẽ thử lại ở lần tra sau
     cache.set(word, entry);
@@ -502,5 +544,5 @@
     return null;
   }
   const quickL = async (...a) => forLang(await quick(...a)), lookupL = async (...a) => forLang(await lookup(...a));
-  g.Dict = { translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  g.Dict = { buildEntry: build, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

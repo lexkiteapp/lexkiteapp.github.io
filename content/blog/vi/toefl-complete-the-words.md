@@ -115,6 +115,8 @@ Quy trình gợi ý cho một buổi 20 phút:
 
 Muốn nắm chắc vốn từ nền cho cả bài thi, bạn có thể đọc thêm [từ vựng TOEFL iBT](/vi/blog/tu-vung-toefl-ibt/) để biết nên ưu tiên nhóm từ nào trước.
 
+Độ chính xác ngữ pháp luyện ở dạng này cũng giúp bạn ở phần viết; xem [hướng dẫn TOEFL Academic Discussion](/vi/blog/toefl-academic-discussion/).
+
 {{cta: /#/toefl | Làm thử một bài Complete the Words ngay}}
 
 {{youtube: | Gợi ý video: giải từng ô trống trong một đoạn Complete the Words, nói to suy luận về từ loại và ngữ cảnh}}

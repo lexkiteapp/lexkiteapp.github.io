@@ -97,6 +97,8 @@ Part 3最大的忌讳是继续使用 *"For me, my mother told me that..."* 这�
 
 {{youtube: | 视频建议：雅思口语考场常见扣分细节与Part 2一分钟高分笔记法}}
 
+Part 3 讨论题的四步答题法和六类题型，详见 [雅思口语 Part 3 技巧](/zh/blog/ya-si-kou-yu-part-3-ji-qiao/)。
+
 {{cta: /#/practice/speak | 开启雅思口语模拟训练}}
 
 ## 常见问题解答

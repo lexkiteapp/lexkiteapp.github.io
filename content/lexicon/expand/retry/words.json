@@ -1,0 +1,27 @@
+{
+ "_doc": "Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.",
+ "items": [
+  "ace#n",
+  "aluminium#n",
+  "amp#n",
+  "arthritis#n",
+  "awesome#adj",
+  "buck#v",
+  "chestnut#n",
+  "dude#n",
+  "duplicate#v",
+  "mac#n",
+  "math#n",
+  "medal#n",
+  "pin#n",
+  "piranha#n",
+  "pseudonym#n",
+  "schizophrenia#n",
+  "sec#n",
+  "sponsor#v",
+  "supernatural#adj",
+  "trump#v",
+  "vet#v",
+  "veterinarian#n"
+ ]
+}

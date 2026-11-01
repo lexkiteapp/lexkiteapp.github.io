@@ -230,7 +230,7 @@ const C = { line: 'currentColor', fill: '#17595A', hot: '#E5502F', sun: '#FFB054
 export function diagramHtml(o, lang = 'en', caption = '') {
   const dir = RTL.has(lang) ? ' dir="rtl"' : '', cap = caption ? `<figcaption>${caption}</figcaption>` : '', title = o.title ? esc(o.title) : '';
   if (o.type === 'compare') {
-    return `<figure class="diagram dg-compare"${dir}><div class="tbl"><table>${title ? `<caption>${title}</caption>` : ''}<thead><tr>${o.cols.map(c => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead><tbody>${o.rows.map(r => `<tr>${r.map((c, i) => i ? `<td>${esc(c)}</td>` : `<th scope="row">${esc(c)}</th>`).join('')}</tr>`).join('')}</tbody></table></div>${cap}</figure>`;
+    return `<figure class="diagram dg-compare"${dir}><div class="tbl" tabindex="0"><table>${title ? `<caption>${title}</caption>` : ''}<thead><tr>${o.cols.map(c => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead><tbody>${o.rows.map(r => `<tr>${r.map((c, i) => i ? `<td>${esc(c)}</td>` : `<th scope="row">${esc(c)}</th>`).join('')}</tr>`).join('')}</tbody></table></div>${cap}</figure>`;
   }
   const fs_ = 15, uid = `dg-${o.id}`;
   if (o.type === 'boxes') {

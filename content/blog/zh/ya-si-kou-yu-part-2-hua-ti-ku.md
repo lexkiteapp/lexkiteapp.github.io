@@ -148,6 +148,8 @@ quiz: [
 
 如需系统复习口语中地道连词与高频核心句式，可以移步阅读我们的专题[雅思口语技巧](/zh/blog/ya-si-kou-yu-ji-qiao/)，同时可参考[英语发音练习](/zh/blog/ying-yu-fa-yin-lian-xi/)打磨元音辅音，并结合[雅思阅读定位技巧](/zh/blog/ya-si-yue-du-skimming-scanning/)和[雅思写作Task 2模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)实现四项均衡提分。如果你想深入探究更专业的口语表达库，也可以浏览我们的[雅思口语专项训练](/speaking/)专栏。
 
+话题卡之后紧接着就是讨论题，答题框架请看 [雅思口语 Part 3 技巧](/zh/blog/ya-si-kou-yu-part-3-ji-qiao/)。
+
 {{cta: /app/#/speaking | 在 Lexkite 开启雅思口语模考练习}}
 
 {{youtube: | 雅思口语Part 2两分钟满分框架与答题思路拆解}}

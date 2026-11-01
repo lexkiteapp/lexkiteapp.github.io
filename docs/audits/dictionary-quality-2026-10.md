@@ -1,4 +1,7 @@
 # Kiểm định từ điển Lexkite — 10/2026 (chỉ đọc)
+
+> TL;DR: Audit chất lượng từ điển 10/2026. Báo cáo tại thời điểm đó.
+> Đọc khi: tra chất lượng từ điển.
 Kho: 8.177 từ duy nhất (9.588 dòng/104 bộ) ở `web/js/lib/*.js`+`data.js`. Mẫu tay 293 từ đơn, phân tầng A1–C2 (50/cấp; NGSL 100, AWL 30, TOEIC/BSL 45, chuyên ngành 48, đề thi 52, chủ đề 25). Nghĩa/ví dụ do Claude phán đoán (±3%); "kho" = quét máy 100%. Sandbox chặn dictionaryapi/Commons → chưa đo phủ giọng người; CMUdict đã đối chiếu.
 
 ## 1. Nguồn từng trường

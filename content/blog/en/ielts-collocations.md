@@ -47,7 +47,7 @@ The good news: collocations are learnable in chunks, and because IELTS topics re
 | Verb + preposition | *depend on, contribute to, result in, cope with* |
 | Noun + preposition | *an increase in, the impact of X on Y, a solution to* |
 
-Verb + noun combinations cause the most errors because the verbs are short, common words (*make, do, take, have, give*) whose choice in English often feels arbitrary to learners.
+Verb + noun combinations cause the most errors because the verbs are short, common words (*make, do, take, have, give*) whose choice in English often feels arbitrary to learners. Phrasal verbs are a related but separate area; see [common phrasal verbs](/en/blog/common-phrasal-verbs/).
 
 ## 45 useful IELTS collocations by topic
 
@@ -140,6 +140,8 @@ Questions 4 and 6 also overlap with word-choice problems covered in [commonly co
 3. Try them in the [Writing room](/#/write), which suggests ideas and vocabulary for each Task 2 topic.
 
 ![Lexkite IELTS Task 2 Writing room with prompts grouped by topic, idea hints, vocabulary suggestions and an essay outline](media:write "Choose a Task 2 topic and plan a paragraph around three new collocations")
+
+The verbs *make* and *do* cause more collocation errors than almost any others; our [make vs do guide](/en/blog/make-vs-do/) sorts them into clear groups.
 
 {{cta: /#/phrases | Start your own collocation notebook}}
 

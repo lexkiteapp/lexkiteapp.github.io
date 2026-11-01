@@ -1,0 +1,204 @@
+{
+  "id": "new-friends",
+  "level": "B1",
+  "order": 18,
+  "em": "🧑‍🤝‍🧑",
+  "title": {
+    "vi": "Kết thêm bạn mới",
+    "en": "Making new friends"
+  },
+  "goal": {
+    "vi": "Bắt chuyện, tìm điểm chung, rủ đi chơi và giữ liên lạc.",
+    "en": "Start a chat, find things in common, make a plan and keep in touch."
+  },
+  "dialogue": {
+    "a": "Leo",
+    "aRole": "a guest at a friend's birthday party",
+    "lines": [
+      [
+        "a",
+        "Hi, I'm Leo. So how do you know Emma?"
+      ],
+      [
+        "b",
+        "We work together. And you?"
+      ],
+      [
+        "a",
+        "We went to school together. What do you do for fun?"
+      ],
+      [
+        "b",
+        "I'm really into hiking these days."
+      ],
+      [
+        "a",
+        "No way, me too! Are you free this Saturday? A few of us are going to the lake."
+      ],
+      [
+        "b",
+        "I'd love to! I'll text you. What's your number?"
+      ],
+      [
+        "a",
+        "Here. It was great hanging out with you."
+      ],
+      [
+        "b",
+        "You too. Let's keep in touch!"
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "how-do-you-know",
+      "say": "So how do you know Emma?",
+      "not": "From where you know Emma?",
+      "gap": "know",
+      "mean": {
+        "vi": "Hỏi người kia quen chủ nhà thế nào",
+        "en": "Ask how someone knows the host"
+      },
+      "why": {
+        "vi": "Câu hỏi mở đầu rất dễ ở một bữa tiệc.",
+        "en": "An easy first question at a party."
+      }
+    },
+    {
+      "id": "really-into",
+      "say": "I'm really into hiking these days.",
+      "not": "I am very like hiking.",
+      "gap": "into",
+      "mean": {
+        "vi": "Nói về sở thích của bạn",
+        "en": "Talk about what you like doing"
+      },
+      "why": {
+        "vi": "\"Into\" là cách nói tự nhiên, thân mật cho \"rất thích\".",
+        "en": "\"Into\" is a natural, casual way to say you like something."
+      }
+    },
+    {
+      "id": "me-too",
+      "say": "No way, me too!",
+      "not": "Me also!",
+      "gap": "too",
+      "mean": {
+        "vi": "Hào hứng khi thấy điểm chung",
+        "en": "Show you are happy to share something"
+      },
+      "why": {
+        "vi": "Nói \"me too\"; \"me also\" nghe không tự nhiên.",
+        "en": "Say \"me too\"; \"me also\" sounds wrong."
+      }
+    },
+    {
+      "id": "are-you-free",
+      "say": "Are you free this Saturday? A few of us are going hiking.",
+      "not": "You want join us?",
+      "gap": "free",
+      "mean": {
+        "vi": "Rủ người mới quen đi chơi",
+        "en": "Invite a new friend to do something"
+      },
+      "why": {
+        "vi": "Đưa ra kế hoạch cụ thể để người kia dễ nhận lời.",
+        "en": "Give a real plan, so it's easy to say yes."
+      }
+    },
+    {
+      "id": "hanging-out",
+      "say": "It was great hanging out with you.",
+      "not": "It was nice to play with you.",
+      "gap": "hanging",
+      "mean": {
+        "vi": "Nói bạn đã vui khi gặp người kia",
+        "en": "Say you enjoyed your time together"
+      },
+      "why": {
+        "vi": "Người lớn \"hang out\"; \"play\" dùng cho trẻ em hoặc trò chơi.",
+        "en": "Adults \"hang out\"; \"play\" is for kids or games."
+      }
+    },
+    {
+      "id": "keep-in-touch",
+      "say": "Let's keep in touch!",
+      "not": "Let's keep contact!",
+      "gap": "touch",
+      "mean": {
+        "vi": "Hẹn giữ liên lạc",
+        "en": "Say you want to stay in contact"
+      },
+      "why": {
+        "vi": "Cụm cố định là \"keep in touch\".",
+        "en": "The fixed phrase is \"keep in touch\"."
+      }
+    },
+    {
+      "id": "text-you",
+      "say": "I'll text you the details.",
+      "not": "I will send you message the details.",
+      "gap": "text",
+      "mean": {
+        "vi": "Nói bạn sẽ nhắn tin cho người kia",
+        "en": "Say you will send a text"
+      },
+      "why": {
+        "vi": "Ở Mỹ, \"text\" thường được dùng như động từ.",
+        "en": "In American English, \"text\" is a common verb."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Leo",
+      "role": "a guest at a friend's birthday party",
+      "persona": "relaxed, friendly and likes the outdoors",
+      "goal": "get to know the learner and maybe make a plan"
+    },
+    "you": "Chat with a new person at a party: say how you know the host, talk about something you're into, make a plan and keep in touch.",
+    "turns": [
+      {
+        "a": "Hi, I'm Leo. So how do you know Emma?",
+        "h": "Hi Leo! We work together. How do you know her?",
+        "br": [
+          [
+            "work|school|know|neighbor|friend|together",
+            "We went to school together."
+          ]
+        ]
+      },
+      {
+        "a": "What do you like to do on weekends?",
+        "h": "I'm really into hiking these days.",
+        "br": [
+          [
+            "into|like|love|enjoy",
+            "Oh, nice!"
+          ]
+        ]
+      },
+      {
+        "a": "I love hiking too! A few of us are going to the lake on Saturday.",
+        "h": "No way, me too! Are you sure I can join?",
+        "br": [
+          [
+            "me too|join|free|love to|sure|great",
+            "Of course! The more the better."
+          ]
+        ]
+      },
+      {
+        "a": "Here's my number.",
+        "h": "Thanks! I'll text you. It was great hanging out with you.",
+        "br": [
+          [
+            "text|hanging out|keep in touch|great|thanks",
+            "You too!"
+          ]
+        ]
+      }
+    ],
+    "end": "See you on Saturday! Don't forget good shoes."
+  }
+}

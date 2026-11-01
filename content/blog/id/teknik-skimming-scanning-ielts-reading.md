@@ -142,6 +142,8 @@ Saat berlatih membaca artikel akademik, catatlah pasangan parafrasa yang Anda te
 
 ![Sesi review flashcard Lexkite dengan kartu kata 'pollution' dan tombol flip](media:review "Mengulang kosakata akademik secara berkala dengan algoritma FSRS")
 
+Skimming adalah fondasi untuk tipe soal yang paling menyita waktu; pelajari strateginya di [panduan matching headings IELTS Reading](/id/blog/matching-headings-ielts-reading/).
+
 {{cta: /samples/ | Coba Latihan Soal Reading}}
 
 Untuk menguji langsung penerapan skimming dan scanning di bawah tekanan waktu nyata, kerjakan simulasi teks lengkap melalui [contoh soal reading IELTS](/samples/) secara terjadwal.

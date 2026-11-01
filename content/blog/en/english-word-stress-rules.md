@@ -21,7 +21,7 @@ This guide explains each rule with examples and IPA, shows the traps that catch 
 
 ## What word stress is, and why it matters so much
 
-In every English word of two or more syllables, one syllable is **stressed**. It is longer, a little louder, often higher in pitch, and it keeps a full vowel. The other syllables get weaker, and many of their vowels shrink to the neutral sound /ə/ (schwa).
+In every English word of two or more syllables, one syllable is **stressed**. It is longer, a little louder, often higher in pitch, and it keeps a full vowel. The other syllables get weaker, and many of their vowels shrink to the neutral sound /ə/ (schwa). Endings matter too: [ed pronunciation rules](/en/blog/ed-pronunciation-rules/) explain why *walked* has one syllable.
 
 Take *banana* /bəˈnɑːnə/. Only the middle syllable is strong; the first and last are both schwa. The mark ˈ in IPA appears **before** the stressed syllable, and ˌ marks a weaker secondary stress, as in *education* /ˌedʒuˈkeɪʃn/.
 

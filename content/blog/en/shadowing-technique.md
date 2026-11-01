@@ -141,6 +141,8 @@ True or false?
 4. **True.** It builds rhythm and melody first.
 5. **False.** Recording is how you notice errors you cannot hear while speaking.
 
+To apply shadowing to real conversations, see [speak English with confidence in 12 everyday situations](/en/blog/speak-english-with-confidence/).
+
 ## Frequently asked questions
 
 ### Can beginners use the shadowing technique?

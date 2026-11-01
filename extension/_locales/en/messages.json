@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "Turn off new-tab card"
  },
+ "ntConf": {
+  "message": "Speak with confidence"
+ },
  "ntListen": {
   "message": "Listen"
  },

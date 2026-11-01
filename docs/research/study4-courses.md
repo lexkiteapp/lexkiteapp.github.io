@@ -1,5 +1,8 @@
 # Study4 course & exercise structure: research notes
 
+> TL;DR: Ghi chú nghiên cứu cấu trúc khóa học & bài tập của Study4 (15/10/2026, duyệt chỉ đọc). Chỉ học mẫu, không chép.
+> Đọc khi: thiết kế khóa học/bài tập.
+
 Date: 2026-10-15. Method: read-only browsing of study4.com in the user's signed-in Chrome (IELTS Intensive Speaking, Listening, Reading and Writing, TED Talks, the IELTS Fundamentals trial), the public landing pages of 9 courses, the test library, a past result page, and flashcards.
 Scope: **structure and UX patterns only**. These notes contain no lesson text, questions, essays, audio or word lists. Names of chapters and categories appear only as taxonomy.
 

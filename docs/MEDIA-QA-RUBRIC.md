@@ -1,5 +1,8 @@
 # Tiêu chuẩn chấm điểm tài nguyên nhân vật & video (thang 100 – chỉ dùng khi ≥ 90)
 
+> TL;DR: Thang chấm 100 cho tài nguyên nhân vật & video: ảnh nhân vật, bối cảnh, video, Call Mia, vòng lặp sau đăng; chỉ dùng khi ≥ 90. Ghi điểm vào content/video/qa-log.md.
+> Đọc khi: chấm lô ảnh/video.
+
 Áp dụng cho mọi ảnh Kling, mọi video tự dựng, mọi cuộc gọi "Call Mia". Chấm **trước** (bản nháp/lô thử) và **sau** (bản cuối) – ghi điểm vào `content/video/qa-log.md`. Lô < 90 → sửa mô tả/tham chiếu rồi làm lại; KHÔNG chạy lô tiếp theo cùng hướng.
 
 ## A. Ảnh nhân vật (mỗi lô)

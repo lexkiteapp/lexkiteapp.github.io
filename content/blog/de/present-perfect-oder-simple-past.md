@@ -23,9 +23,9 @@ Im Englischen hingegen trennt eine unerbittliche logische Grenze die beiden Zeit
 
 Um die Wahl zwischen den beiden Zeiten zu meistern, müssen Sie lediglich eine fundamentale Frage beantworten: Ist der Zeitraum, in dem die Handlung passierte, bereits vorbei oder reicht er bis in das Jetzt hinein?
 
-Das **Simple Past** (einfache Vergangenheit) beschreibt Handlungen, Ereignisse oder Zustände, die zu einem bestimmten, abgeschlossenen Zeitpunkt in der Vergangenheit stattfanden. Ob dies vor zwei Minuten oder vor dreitausend Jahren geschah, spielt keine Rolle. Sobald der Zeitpunkt vergangen ist (*yesterday, last year, two hours ago, when I was ten*), ist das Simple Past die einzig richtige Wahl.
+Das **Simple Past** (einfache Vergangenheit) beschreibt Handlungen, Ereignisse oder Zustände, die zu einem bestimmten, abgeschlossenen Zeitpunkt in der Vergangenheit stattfanden. Ob dies vor zwei Minuten oder vor dreitausend Jahren geschah, spielt keine Rolle. Sobald der Zeitpunkt vergangen ist (*yesterday, last year, two hours ago, when I was ten*), ist das Simple Past die einzig richtige Wahl. Wie man die regelmäßige Endung -ed richtig ausspricht, steht im Beitrag zur [ed Aussprache im Englischen](/de/blog/ed-aussprache-englisch/).
 
-Das **Present Perfect** (gebildet aus *have/has* + Past Participle des Verbs) ist formal und gedanklich eine Gegenwartsform. Es blickt vom aktuellen Moment zurück auf das Geschehene. Wichtig ist dabei nicht der genaue historische Zeitpunkt, sondern das Resultat für die Gegenwart oder die gesammelte Lebenserfahrung bis zum heutigen Tag.
+Das **Present Perfect** (gebildet aus *have/has* + Past Participle des Verbs) ist formal und gedanklich eine Gegenwartsform. Es blickt vom aktuellen Moment zurück auf das Geschehene. Wichtig ist dabei nicht der genaue historische Zeitpunkt, sondern das Resultat für die Gegenwart oder die gesammelte Lebenserfahrung bis zum heutigen Tag. In der [indirekten Rede](/de/blog/indirekte-rede-englisch-reported-speech/) wird aus dem Present Perfect übrigens meist das Past Perfect.
 
 Betrachten Sie dieses klassische Beispielpaar:
 - *I lost my key.* (Simple Past: „Ich habe meinen Schlüssel vorhin verloren. Das ist ein vergangener Fakt. Vielleicht habe ich ihn inzwischen längst wiedergefunden“).

@@ -9,10 +9,12 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { driveSign, driveCliKey } from '../video/library.mjs';
 
-/** Việc nặng/dùng chung (không chỉ phút GitHub) → fail-closed: điều phối hỏng/không phản hồi = KHÔNG chạy. Việc tầm thường (chỉ gh_minutes/grabcast_ai) → chạy tiếp. Khớp functions/api/_jobs.js failClosed. */
+/** tài nguyên dùng chung tự giới hạn (khớp functions/api/_jobs.js SHARED_RES) */
+const SHARED = ['gh_minutes', 'grabcast_ai', 'cf_pool'];
+/** Việc nặng/dùng chung (không chỉ phút GitHub) → fail-closed: điều phối hỏng/không phản hồi = KHÔNG chạy. Việc tầm thường (chỉ gh_minutes/grabcast_ai/cf_pool) → chạy tiếp. Khớp functions/api/_jobs.js failClosed. */
 export function failClosed(jobId, reg) {
   try { reg = reg || JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '../../infra/jobs.json'), 'utf8')); } catch { return true; }
-  const j = reg.jobs.find(x => x.id === jobId); return !j || j.resources.some(r => r !== 'gh_minutes' && r !== 'grabcast_ai');
+  const j = reg.jobs.find(x => x.id === jobId); return !j || j.resources.some(r => !SHARED.includes(r));
 }
 /** Quyết định khi gọi acquire: { skip, reason } từ (status, body). */
 export function decide(status, j, closed) {
@@ -25,7 +27,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
 async function main() {
   const [cmd, job, ...rest] = process.argv.slice(2), opt = n => { const i = rest.indexOf('--' + n); return i >= 0 ? rest[i + 1] : undefined; };
   const BASE = String(process.env.LEXKITE_API_BASE || 'https://lexkite.com').replace(/\/+$/, '');
-  const run = `${process.env.GITHUB_RUN_ID || 'local'}-${process.env.GITHUB_RUN_ATTEMPT || 1}-${job}`;
+  const run = `${process.env.GITHUB_RUN_ID || 'local'}-${process.env.GITHUB_RUN_ATTEMPT || 1}-${job}${process.env.LEASE_SHARD ? '-s' + process.env.LEASE_SHARD : ''}`;   // LEASE_SHARD: mỗi việc ma trận một lượt thuê riêng
   const out = (k, v) => { if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `${k}=${String(v).replace(/\n/g, ' ')}\n`); };
   async function call(body) {
     const key = driveCliKey(); if (!key) return { status: 0, j: { error: 'no-key' } };

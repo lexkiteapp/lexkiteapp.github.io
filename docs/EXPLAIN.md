@@ -1,5 +1,8 @@
 # Lời giải đáp án – một thẻ, một lược đồ (đọc khi sửa phản hồi bài luyện)
 
+> TL;DR: Lược đồ lời giải đáp án: một thẻ dùng chung explain-card.js, dữ liệu web/js/explain/<bộ>/<lang>.json, mặc định hiện Cấu trúc + Vì sao. Cổng explain-check trong npm test.
+> Đọc khi: sửa phản hồi bài luyện.
+
 - **Thẻ dùng chung**: `web/js/explain-card.js` (tải lười, chữ giao diện nhóm lười `i18n/en/explain.js`). Mặc định hiện **Cấu trúc** (đáp án tô sáng) + **Vì sao**; thu gọn sau "Xem giải thích chi tiết": vì sao lựa chọn của bạn sai (tự mở khi sai) · bằng chứng (đọc) · lời thoại + mốc giây (nghe) · sắc thái (từ vựng) · ví dụ thêm (🔊) · mẹo nhớ · cùng nhóm (chip mở thẻ). Nút: Thêm vào ôn tập (SRS), ⚑ Báo lỗi (`LexReport.open({cat:'content', cid:'explain:<id>'})`). RTL: chỉ thuộc tính logic.
 - **Lược đồ** (tệp web, theo bộ + ngôn ngữ): `web/js/explain/<bộ con>/<lang>.json` = `{ id: [mẫu, vì sao, mẹo, {phương án sai: ghi chú}, [ví dụ], cờ en?] }`. Trường riêng theo loại truyền thẳng vào `ExplainCard.html`: `ev` (đọc), `tr` (nghe), `nu`/`col` (từ vựng), `fam`.
 - **Nguồn duy nhất**: `content/explain/<bộ>.json` (`{ id: { sig, p, ex, en:{why,hook,wrong}, vi:{…}, ko:{…}, sc:{en:5, vi:4…} } }`). Phần tiếng Anh (mẫu, ví dụ) cố định; why/wrong/hook viết lại theo từng ngôn ngữ (không dịch từng chữ). Web + add-on (rsync web/js) + app dùng chung.

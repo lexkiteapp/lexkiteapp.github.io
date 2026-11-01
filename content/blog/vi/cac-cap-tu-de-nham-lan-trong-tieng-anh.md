@@ -42,7 +42,7 @@ Bài này gom hơn 30 cặp phổ biến nhất với người học Việt, m�
 
 Tiếng Anh vay mượn rất nhiều từ tiếng Latin và tiếng Pháp qua nhiều thời kỳ, nên có những "họ từ" mà các thành viên chỉ khác nhau một hậu tố nhưng đã tách nghĩa (*historic/historical*). Bên cạnh đó, nhiều cặp động từ cổ trong tiếng Anh vốn là một cặp "tự xảy ra" và "làm cho xảy ra" (*rise/raise*, *lie/lay*), và người học dễ trộn chúng vì nghĩa gần nhau.
 
-Với người Việt, còn một nguyên nhân nữa: ta thường học từ qua nghĩa tiếng Việt. "Mượn" dịch được cả *borrow* lẫn *lend*; "nói" dịch được *say, tell, speak, talk*. Khi hai từ tiếng Anh dùng chung một nghĩa tiếng Việt trong sổ tay, não không có lý do gì để phân biệt chúng. Giải pháp là học từ kèm **cấu trúc câu** và **ví dụ**, không chỉ kèm nghĩa. Với các từ chỉ cảm xúc, nhầm lẫn còn nằm ở mức độ mạnh yếu, xem [từ vựng tiếng Anh về cảm xúc](/vi/blog/tu-vung-tieng-anh-ve-cam-xuc/).
+Với người Việt, còn một nguyên nhân nữa: ta thường học từ qua nghĩa tiếng Việt. "Mượn" dịch được cả *borrow* lẫn *lend*; "nói" dịch được *say, tell, speak, talk*; "làm" dịch được cả *make* lẫn *do* ([phân biệt make và do](/vi/blog/phan-biet-make-va-do/)). Khi hai từ tiếng Anh dùng chung một nghĩa tiếng Việt trong sổ tay, não không có lý do gì để phân biệt chúng. Giải pháp là học từ kèm **cấu trúc câu** và **ví dụ**, không chỉ kèm nghĩa. Với các từ chỉ cảm xúc, nhầm lẫn còn nằm ở mức độ mạnh yếu, xem [từ vựng tiếng Anh về cảm xúc](/vi/blog/tu-vung-tieng-anh-ve-cam-xuc/).
 
 ![Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai](media:mistakes "Mỗi lần nhầm cặp từ, ghi vào “Mistake log” để ôn lại cho chắc")
 
@@ -78,7 +78,7 @@ Hậu tố *-ic* và *-ical* không có quy tắc chung; mỗi cặp cần học
 18. **rise / raise** – *rise* (rose, risen) là nội động từ, không có tân ngữ: giá **tự** tăng. *raise* (raised, raised) là ngoại động từ, cần tân ngữ: **ai đó** nâng cái gì. *Prices rose. The shop raised prices.* Lỗi *raised sharply* khi mô tả biểu đồ rất hay gặp trong Task 1.
 19. **lie / lay** – *lie* (lay, lain) là nằm; *lay* (laid, laid) là đặt, cần tân ngữ. Bẫy: quá khứ của *lie* lại là *lay*. *I lay on the sofa after I had laid the baby in her cot.* (*lie* nghĩa "nói dối" có dạng *lied, lied*.)
 20. **borrow / lend** – *borrow* là mượn **từ** ai (*borrow sth from sb*); *lend* là cho ai mượn (*lend sb sth*). *Can I borrow your pen? / Can you lend me your pen?*
-21. **say / tell** – *tell* cần người nghe ngay sau: *tell me, tell her*. *say* không cần: *say something*, *say to me*. *She told me the news. She said that the news was true.*
+21. **say / tell** – *tell* cần người nghe ngay sau: *tell me, tell her*. *say* không cần: *say something*, *say to me*. *She told me the news. She said that the news was true.* Khi kể lại lời người khác, xem thêm bài [câu tường thuật](/vi/blog/cau-tuong-thuat/).
 22. **bring / take** – *bring* là mang **về phía** người nói/người nghe; *take* là mang **đi xa** khỏi đó. *Bring your laptop to my office. Take an umbrella when you leave.*
 23. **remember / remind** – *remember* là bạn tự nhớ; *remind* là làm cho người khác nhớ: *remind sb to do sth / of sth*. *Remind me to call Mum. This song reminds me of my hometown.*
 24. **fewer / less** – *fewer* với danh từ đếm được số nhiều, *less* với không đếm được. *fewer cars, less traffic*. Văn nói hằng ngày đôi khi dùng *less* cho số nhiều, nhưng văn viết và bài thi nên giữ quy tắc.

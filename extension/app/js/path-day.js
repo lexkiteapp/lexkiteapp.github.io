@@ -32,6 +32,7 @@
       }
     }
     // Kiểm tra đầu vào / trình độ chọn → ngày bắt đầu = ngày đầu của chặng gợi ý; ngày trước đó "đã nhảy qua" (vẫn mở để học lại)
+    const si = {}; for (const d of out) { const k = d.unit.stage.id; d.si = si[k] = (si[k] ?? -1) + 1; } // thứ tự ngày trong chặng → xoay vòng bài ngữ pháp/phát âm
     const st = sid ? out.findIndex(d => d.unit.stage.id === sid) : 0, start = Math.max(0, st);
     const cur = out.find(d => !d.done && d.n - 1 >= start) || out.find(d => !d.done);
     for (const d of out) d.status = d.done ? 'done' : d === cur ? 'current' : cur && d.n < cur.n ? 'skip' : 'locked';
@@ -45,8 +46,8 @@
     const X = (k, em, name, sub, mins, href, c) => ({ k, em, name, sub, mins, href, ext: c, tap: !c }); // tap: trang không cộng điểm → xong khi mở
     const ST = P().STEPS(), sub = k => (ST.find(x => x[0] === k) || [])[3];
     const out = [];
-    const due = Core.Cards.dueCount(state.cards, state.settings, state.stats).total;
-    if (d.n > 1 && (due >= 3 || (d.rec.s || []).includes('review'))) out.push({ ...S('review', '🔁', t('Ôn nhanh từ cũ'), t('Lặp lại ngắt quãng – ưu tiên số 1'), 1), href: '#/practice/mcq?src=due', mode: 'mcq', src: 'due' });
+    const due = Core.Cards.dueList(state.cards, { practicable: true }).length;
+    if (d.n > 1 && due > 0 && (due >= 3 || (d.rec.s || []).includes('review'))) out.push({ ...S('review', '🔁', t('Ôn nhanh từ cũ'), t('Lặp lại ngắt quãng – ưu tiên số 1'), 1), href: '#/practice/mcq?src=due', mode: 'mcq', src: 'due' });
     out.push(S('learn', '🧠', t('Học từ mới'), sub('learn'), 3));
     out.push(S('match', '⚡', t('Ghép thẻ'), sub('match'), 1));
     const early = tier === 0 && d.n <= 3; // 3 ngày đầu cho người mới: chỉ nhận diện (thắng sớm), chưa bắt gõ/nghe chép
@@ -57,11 +58,33 @@
       if (lis && tier === 2) out.push(S('listen', '🎧', t('Nghe & chép'), sub('listen'), 2));
     }
     // Phần cuối buổi = kỹ năng riêng của gói (hội thoại, dạng câu đề thi, email…); ngày cuối bài: kiểm tra cuối bài thay thế → buổi vẫn ≤ 10 phút
-    const last = d.j === d.of && d.unit.status !== 'done';
-    if (!last) out.push(...TK().skill(tr, d, tier, X));
+    const last = d.j === d.of && d.unit.status !== 'done', sk = last ? [] : TK().skill(tr, d, tier, X);
+    out.push(...mix(d, sk, X)); // 1 bài ngữ pháp + 1 bài phát âm đúng trình độ chặng (nếu có bài khớp)
+    out.push(...sk);
     if (last) out.push({ ...S('test', '🏁', t('Kiểm tra bài'), sub('test'), 3), href: P().stepHref(d.unit.topic.id, 'test'), src: 'topic:' + d.unit.topic.id });
     for (const s of out) s.ok = s.k === 'test' ? d.unit.status === 'done' : d.done || (d.rec.s || []).includes(s.k);
     return out;
+  }
+  // CEFR của chặng ('A1 – B1', 'B2', 'C1 – C2') → danh sách mức; chọn bài theo thứ tự ngày trong chặng (dễ → khó, xoay vòng)
+  const CE = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const lvls = c => { const m = String(c || '').match(/[ABC][12]/g) || []; return m.length ? CE.slice(CE.indexOf(m[0]), CE.indexOf(m[m.length - 1]) + 1) : []; };
+  function mix(d, sk, X) {
+    const M = g.PATH_MIX; if (!M) return [];
+    const L = lvls(d.unit.stage.cefr), vi = I18N.lang() === 'vi', i = d.si || 0, out = [];
+    const pick = a => { const ls = a.filter(x => L.includes(x[1])); return ls.length ? ls[i % ls.length] : null; };
+    const gx = sk.some(s => s.ext === 'grammar') ? null : pick(M.g), px = pick(M.p); // bước kỹ năng của gói đã là ngữ pháp → không thêm bài thứ 2
+    if (gx) out.push(X('gl', gx[2], t('Bài ngữ pháp hôm nay'), vi ? gx[3] : gx[4], 2, '#/grammar/' + encodeURIComponent(gx[0]), 'grammar'));
+    if (px) out.push(X('pr', px[2], t('Bài phát âm hôm nay'), vi ? px[3] : px[4], 1, '#/pron/' + encodeURIComponent(px[0]), 'pron'));
+    return out;
+  }
+  // Hết lộ trình → không ngõ cụt: gói học khác, khóa học, nói tự tin, ôn tập
+  function nextBox(tr) {
+    const others = TK().IDS.filter(id => id !== tr.id).map(id => TK().TR[id]);
+    const a = (h, em, tx) => `<a class="btn" href="${h}"><span aria-hidden="true">${em}</span> ${esc(tx)}</a>`;
+    return `<section class="card center path-next" role="status" aria-labelledby="pnH"><div style="font-size:2rem" aria-hidden="true">${UI.icon('trophy')}</div><h2 id="pnH" style="margin:.3rem 0">${t('Bạn đã hoàn thành toàn bộ lộ trình!')}</h2>
+      <p class="muted">${t('Tiếp theo học gì? Chọn một hướng:')}</p>
+      <div class="row center" style="flex-wrap:wrap;gap:.5rem">${others.map(x => a('#/tracks?use=' + x.id, x.em, x.name)).join('')}</div>
+      <div class="row center" style="flex-wrap:wrap;gap:.5rem;margin-top:.6rem">${a('#/courses', '🎓', t('Khóa học'))}${a('#/confidence', '🗣️', t('Luyện nói tự tin'))}${a('#/review', '🔁', t('Ôn tập'))}</div></section>`;
   }
   const minsOf = st => st.filter(s => !s.ok).reduce((a, s) => a + s.mins, 0) || st.reduce((a, s) => a + s.mins, 0);
 
@@ -105,41 +128,74 @@
   }
 
   // ---------- Bản đồ: chặng (gập/mở) → bài (tiến độ x/y ngày) → nút Ngày ----------
+  // Nhường luồng chính giữa các bước dựng bản đồ (tính ngày ↔ vẽ; vẽ khung + điền chặng đang mở giữ CÙNG tác vụ để không CLS) → không có tác vụ dài (TBT mobile #/path 197–220 ms)
+  // Chờ qua 1 khung hình (rAF → setTimeout): mỗi khung chỉ phải tính style/bố cục cho 1 lô ngày mới. scheduler.yield ưu tiên chạy tiếp
+  // nên nhiều lô dồn vào cùng 1 khung → 1 lần Style+Layout 200–270 ms (trace CI #/path). Tab nền không có rAF → dự phòng 100 ms.
+  const nextFrame = () => new Promise(r => { let ok = 0; const go = () => { if (!ok) { ok = 1; setTimeout(r, 0); } }; if (g.requestAnimationFrame) requestAnimationFrame(go); setTimeout(go, 100); });
+  const yieldMain = () => new Promise(r => (g.scheduler && g.scheduler.yield ? g.scheduler.yield().then(r) : setTimeout(r, 0)));
   async function map() {
+    const h0 = location.hash;
     await load(); const tr = curTr(); await TK().ready(tr); settleExt(); css();
     const view = App.view, ds = days();
+    await yieldMain(); if (location.hash !== h0) return;
     if (!ds.length) { view.innerHTML = `<div class="card empty"><div class="em" aria-hidden="true">🗺️</div><h2>${t('Không tải được – thử lại sau')}</h2><button class="btn primary" id="pathRetry">${t('Thử lại')}</button></div>`; $('#pathRetry').onclick = () => App.need('words').then(map).catch(() => {}); return; }
     const ielts = tr.id === 'ielts', cur = ds.find(d => d.status === 'current'), nDone = ds.filter(d => d.done).length;
     const curSt = cur ? cur.unit.stage.id : 's0';
     view.innerHTML = `<div class="page-head"><div><h1>${ielts ? t('Lộ trình chinh phục IELTS') : tr.em + ' ' + esc(tr.name)}</h1><p class="muted">${t('Đã xong {a}/{b} ngày · mỗi ngày 5–10 phút, dễ trước khó sau.', { a: nDone, b: ds.length })}</p></div>
       <div class="row">${ring(nDone / ds.length * 100, `${Math.round(nDone / ds.length * 100)}%`, 'var(--good)')}</div></div>${TK().switcher('path')}
-      ${cur ? `<a class="btn primary lg block path-cta" href="#/day/${cur.n}">${(cur.rec.s || []).length ? t('Tiếp tục Ngày {n}', { n: cur.n }) : t('Bắt đầu Ngày {n}', { n: cur.n })} · ${esc(cur.unit.topic.name)} →</a>` : `<p class="center">🏆 ${t('Bạn đã hoàn thành toàn bộ lộ trình!')}</p>`}
+      ${cur ? `<a class="btn primary lg block path-cta" href="#/day/${cur.n}">${(cur.rec.s || []).length ? t('Tiếp tục Ngày {n}', { n: cur.n }) : t('Bắt đầu Ngày {n}', { n: cur.n })} · ${esc(cur.unit.topic.name)} →</a>` : `${nextBox(tr)}`}
       <div class="path">${stagesOf(tr).map(st => {
         const sd = ds.filter(d => d.unit.stage.id === st.id), k = sd.filter(d => d.done).length;
         return `<details class="dp-stage" data-st="${st.id}"${st.id === curSt ? ' open' : ''}><summary class="stage-banner" style="--sc:${st.color};cursor:pointer">
-          <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div>${st.id === 's0' || st.id === 'comm1' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}</div>
-          <div class="stage-count">${k}/${sd.length}</div></summary><div class="dp-body"></div></details>`;
+          <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div></div>
+          <div class="stage-count">${k}/${sd.length}</div></summary>${st.id === 's0' || st.id === 'comm1' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}<div class="dp-body"></div></details>`;
       }).join('')}</div>`;
-    const fill = el => {
-      const body = el.querySelector('.dp-body'); if (body.childElementCount) return;
+    const fill = async el => {
+      const body = el.querySelector('.dp-body'); if (body.childElementCount || body._busy) return; body._busy = 1;
       const st = stagesOf(tr).find(s => s.id === el.dataset.st), sd = ds.filter(d => d.unit.stage.id === st.id);
       const units = [...new Set(sd.map(d => d.unit))];
       let idx = 0;
-      body.innerHTML = units.map(u => {
-        const ud = sd.filter(d => d.unit === u), k = ud.filter(d => d.done).length;
+      const head = (u, ud) => {
+        const k = ud.filter(d => d.done).length;
         const testOut = u.status !== 'done' && ud.some(d => d.status === 'locked');
         return `<div class="dp-unit"><span aria-hidden="true">${u.topic.emoji}</span><h3>${esc(u.topic.name)} <span class="small muted">· ${t('{a}/{b} ngày', { a: k, b: ud.length })}</span></h3>
-          <div class="progress thin" aria-hidden="true"><i style="width:${k / ud.length * 100}%"></i></div>${testOut ? `<a class="btn sm ghost" href="${P().stepHref(u.topic.id, 'test')}" title="${esc(t('Đã biết các từ này? Đạt ≥ 80% ở bài kiểm tra cuối bài là qua cả bài.'))}">⏩ ${t('Kiểm tra vượt')}</a>` : ''}</div>
-          <div class="nodes">${ud.map(d => {
-            const off = Math.round(Math.sin(idx++ * 0.9) * 80);
-            const s = { done: t('Đã hoàn thành'), current: t('Hôm nay'), skip: t('Đã nhảy qua'), locked: t('Đang khóa') }[d.status];
-            return `<div class="node-wrap${d.status === 'current' ? ' cur' : ''}" style="transform:translateX(${off}px)">${d.status === 'current' ? `<div class="node-tip" aria-hidden="true">${t('Hôm nay')}</div>` : ''}
+          <div class="progress thin" aria-hidden="true"><i style="width:${k / ud.length * 100}%"></i></div>${testOut ? `<a class="btn sm ghost" href="${P().stepHref(u.topic.id, 'test')}" title="${esc(t('Đã biết các từ này? Đạt ≥ 80% ở bài kiểm tra cuối bài là qua cả bài.'))}">⏩ ${t('Kiểm tra vượt')}</a>` : ''}</div>`;
+      };
+      const node = (u, d) => {
+        const off = Math.round(Math.sin(idx++ * 0.9) * 80);
+        const s = { done: t('Đã hoàn thành'), current: t('Hôm nay'), skip: t('Đã nhảy qua'), locked: t('Đang khóa') }[d.status];
+        return `<div class="node-wrap${d.status === 'current' ? ' cur' : ''}" style="transform:translateX(${off}px)">${d.status === 'current' ? `<div class="node-tip" aria-hidden="true">${t('Hôm nay')}</div>` : ''}
               <button class="node ${d.status === 'skip' ? 'open skip' : d.status}" data-day="${d.n}" style="--sc:${st.color};--p:${d.done ? 100 : Math.round(d.topic.words.filter(learned).length / d.topic.words.length * 100)}" aria-label="${esc(t('Ngày {n}', { n: d.n }) + ' · ' + u.topic.name + ' – ' + s)}"${d.status === 'current' ? ' aria-current="step"' : ''}>
               <span aria-hidden="true">${d.status === 'locked' ? '🔒' : d.done ? '⭐' : `<b class="dn">${d.n}</b>`}</span></button>
               <div class="node-label" aria-hidden="true">${t('Ngày {n}', { n: d.n })}</div></div>`;
-          }).join('')}</div>`;
-      }).join('');
-      $$('[data-day]', body).forEach(b => b.onclick = () => open(+b.dataset.day));
+      };
+      const bind = root => $$('[data-day]', root).forEach(b => b.onclick = () => open(+b.dataset.day));
+      // Vẽ theo NGÀY (không theo bài – 1 bài IELTS có thể hơn 10 ngày): lô đầu tới ngày hiện tại + 4 ngày (≥ 10 ngày, cao hơn màn hình) vẽ ngay
+      // cùng khung trang (không CLS); phần còn lại nối từng lô 8 ngày ở tác vụ sau, nằm dưới màn → mỗi tác vụ < 50 ms (TBT mobile #/path)
+      const seq = units.map(u => ({ u, ud: sd.filter(d => d.unit === u) }));
+      const flat = []; seq.forEach((x, ui) => x.ud.forEach((d, j) => flat.push({ ui, j, d })));
+      const ciDay = flat.findIndex(f => f.d.status === 'current');
+      let pos = 0;
+      // Dựng lô ngày [pos, end): ngày đầu của bài → mở thẻ bài + .nodes mới; ngày tiếp của bài đã vẽ ở lô trước → nối vào .nodes cuối (tail)
+      const chunk = end => {
+        let html = '', tail = '', open = false;
+        for (; pos < end; pos++) {
+          const { ui, j, d } = flat[pos], { u, ud } = seq[ui];
+          if (j === 0) { if (open) html += '</div>'; html += head(u, ud) + '<div class="nodes">'; open = true; }
+          if (open) html += node(u, d); else tail += node(u, d);
+        }
+        if (open) html += '</div>';
+        return { html, tail };
+      };
+      const put = ({ html, tail }) => {
+        if (tail) { const last = body.lastElementChild; const tmp = document.createElement('div'); tmp.innerHTML = tail; bind(tmp); last.append(...tmp.childNodes); }
+        if (html) { const tmp = document.createElement('div'); tmp.innerHTML = html; bind(tmp); body.append(...tmp.childNodes); }
+      };
+      put(chunk(Math.min(flat.length, Math.max(10, ciDay + 5))));
+      while (pos < flat.length) {
+        await nextFrame(); if (!body.isConnected) return;
+        put(chunk(Math.min(flat.length, pos + 8)));
+      }
     };
     $$('.dp-stage').forEach(el => { if (el.open) fill(el); el.addEventListener('toggle', () => el.open && fill(el)); });
     $$('.stage-rp').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
@@ -169,7 +225,7 @@
       <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${st.length}" aria-valuenow="${okN}" aria-label="${esc(t('{a}/{b} hoạt động', { a: okN, b: st.length }))}"><i style="width:${okN / st.length * 100}%"></i></div>
       <p class="small muted" style="margin:.4rem 0 0">${t('{a}/{b} hoạt động', { a: okN, b: st.length })} · ${t('Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.')}</p>
       ${nx ? `<a class="btn primary lg block" style="margin-top:1rem" href="${nx.href}" data-step="${nx.k}">${okN ? t('Tiếp tục Ngày {n}', { n: d.n }) : t('Bắt đầu Ngày {n}', { n: d.n })}: ${esc(nx.name)} →</a>`
-        : `<div class="card center" role="status" style="margin-top:1rem"><div style="font-size:2rem" aria-hidden="true">🎉</div><h2 style="margin:.3rem 0">${t('Hoàn thành Ngày {n}!', { n: d.n })}</h2>${ds[d.n] && ds[d.n].status !== 'locked' ? `<a class="btn primary" href="#/day/${d.n + 1}">${t('Học tiếp Ngày {n}', { n: d.n + 1 })} →</a>` : ''}</div>`}
+        : `<div class="card center" role="status" style="margin-top:1rem"><div style="font-size:2rem" aria-hidden="true">${UI.icon('party-popper')}</div><h2 style="margin:.3rem 0">${t('Hoàn thành Ngày {n}!', { n: d.n })}</h2>${ds[d.n] && ds[d.n].status !== 'locked' ? `<a class="btn primary" href="#/day/${d.n + 1}">${t('Học tiếp Ngày {n}', { n: d.n + 1 })} →</a>` : ''}</div>${ds[d.n] ? '' : nextBox(d.tr)}`}
       <ol class="day-steps">${st.map((s, i) => `<li><a class="${s.ok ? 'ok' : ''}${s === nx ? ' next' : ''}" href="${s.href}" data-step="${s.k}"${s === nx ? ' aria-current="step"' : ''}>
         <span class="ds-em" aria-hidden="true">${s.ok ? '✅' : s.em}</span><span class="grow"><b>${i + 1}. ${esc(s.name)}</b><span class="small muted" style="display:block">${esc(s.sub || '')}</span></span>
         ${s.ok ? `<span class="sr-only">${t('Đã hoàn thành')}</span>` : `<span class="ds-min">${t('{m} phút', { m: s.mins })}</span>`}</a></li>`).join('')}</ol>
@@ -219,7 +275,7 @@
     const st2 = plan(d), nx = st2.find(x => !x.ok), ds = days(), next = ds[d.n];
     PathReward.show({ unit: { topic: { name: t('Ngày {n}', { n: d.n }) + ': ' + d.unit.topic.name, emoji: '📅' } },
       steps: st2.map(x => ({ m: x.k, em: x.em, name: x.name, ok: x.ok, href: x.href })),
-      next: nx ? { name: nx.name, href: nx.href, same: 1 } : fin || d.rec.done ? next && { name: t('Ngày {n}', { n: next.n }) + ' · ' + next.unit.topic.name, emoji: '📅', href: '#/day/' + next.n } : null,
+      next: nx ? { name: nx.name, href: nx.href, same: 1 } : fin || d.rec.done ? (next ? { name: t('Ngày {n}', { n: next.n }) + ' · ' + next.unit.topic.name, emoji: '📅', href: '#/day/' + next.n } : { name: t('Tiếp theo học gì?'), emoji: '🧭', href: '#/path' }) : null,
       title: fin ? '🎉 ' + t('Hoàn thành Ngày {n}!', { n: d.n }) : '' });
     // Nút bước kế tiếp trong buổi: giữ phiên + bộ đếm cho bước ngoài bộ luyện
     const cta = App.view.querySelector('.path-reward .btn.primary');

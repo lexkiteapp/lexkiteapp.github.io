@@ -1,0 +1,10 @@
+{
+ "_note": "Tự sinh mỗi thứ Hai bởi scripts/seo/gsc.mjs (workflow seo-gsc.yml) từ Google Search Console 28 ngày. Lượt viết hằng tuần đọc file này TRƯỚC 2026-11-seo-program.json/briefs.json. type: write-brief = brief có sẵn chưa viết · new-brief = soạn brief mới (1 từ khoá chính/bài) · enrich = làm giàu bài đã có (không viết bài thứ 2) · refresh-title = sửa title/description theo truy vấn (không đổi slug) · cannibal = gộp/phân vai 2 URL · decline = điều tra trang tụt. gain = ước tính thêm lượt bấm/28 ngày. Không tự sửa lịch đăng.",
+ "generated": "2026-10-26",
+ "source": "reports/seo/gsc-2026-10-26.json",
+ "range": {
+  "startDate": "2026-09-26",
+  "endDate": "2026-10-23"
+ },
+ "items": []
+}

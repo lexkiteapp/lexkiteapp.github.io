@@ -11,7 +11,7 @@
 import fs from 'fs';
 import { loadAll, saveAll, key, rd, wr, ROOT, SOURCES } from './lexicon/lib.mjs';
 import { checkImg } from './lexicon/img.mjs';
-import { fixBroken, fixUKr, stripMonoStress, arpaToIpa, stressIndex, arpaStressIndex, usSpellings, badChars } from './lexicon/ipa.mjs';
+import { ukToUs, fixBroken, fixUKr, stripMonoStress, arpaToIpa, stressIndex, arpaStressIndex, arpaHasStressAt, usSpellings, badChars, normUK } from './lexicon/ipa.mjs';
 
 const WRITE = process.argv.includes('--write');
 const ci = process.argv.indexOf('--cmu');
@@ -30,21 +30,32 @@ if (ci > 0) {
 const CMU = new Map();
 if (fs.existsSync(new URL(SUB, ROOT))) for (const l of rd(SUB).split('\n')) { if (!l || l[0] === '#') continue; const i = l.indexOf(' '); const w = l.slice(0, i).replace(/\(\d+\)$/, ''); (CMU.get(w) || CMU.set(w, []).get(w)).push(l.slice(i + 1)); }
 function cmuWord(w, ukIpa) {
+  if (w.includes('-') && String(ukIpa || '').split(/[\s-]+/).filter(Boolean).length === w.split('-').length) { const h = hyphenUS(w, ukIpa); if (h) return h; }
   for (const v of usSpellings(w)) {
     const vs = CMU.get(v); if (!vs) continue;
     const si = ukIpa ? stressIndex(ukIpa) : 0;
-    return arpaToIpa(vs.find(p => arpaStressIndex(p) === si) || vs[0]);
+    return arpaToIpa(vs.find(p => arpaStressIndex(p) === si) || vs.find(p => arpaHasStressAt(p, si)) || vs[0], ukIpa ? si : undefined);
   }
-  if (w.includes('-')) { const ps = w.split('-').map(p => cmuWord(p)); if (ps.every(Boolean)) return ps.join(''); }
+  // từ có gạch nối: phần cuối có ˈ thì chỉ phần CUỐI giữ ˈ, các phần trước hạ thành ˌ (e-commerce /ˌiːˈkɑːmərs/, không phải /ˈiːˈkɑːmərs/)
+  if (w.includes('-')) return hyphenUS(w, ukIpa);
+  return '';
+}
+function hyphenUS(w, ukIpa) {
+  { const ps = w.split('-').map(p => cmuWord(p)); if (!ps.every(Boolean)) return '';
+    // trọng âm theo ô giọng Anh khi số khúc khớp (/ˌkʌtɪŋ ˈedʒ/ → /ˌkʌtɪŋˈedʒ/; /ˈθɔːt prəvəʊkɪŋ/ → /ˈθɔːtprəvoʊkɪŋ/)
+    const uk = String(ukIpa || '').split(/[\s-]+/).filter(Boolean);
+    if (uk.length === ps.length) return ps.map((p, i) => { const c = uk[i], b = p.replace(/[ˈˌ]/g, ''); if (/^[ˈˌ]/.test(c)) return c[0] + b; if (/[ˈˌ]/.test(c)) return /[ˈˌ]/.test(p) ? p.replace(/[ˈˌ]/, c.match(/[ˈˌ]/)[0]) : b; return b; }).join('');
+    return ps.map((p, i) => (i < ps.length - 1 && /ˈ/.test(ps[ps.length - 1]) ? p.replace(/ˈ/g, 'ˌ') : p)).join(''); }
   return '';
 }
 const WEAK = { a: 'ə', an: 'ən', the: 'ðə', of: 'əv', to: 'tə', and: 'ənd', for: 'fər', at: 'ət', as: 'əz', than: 'ðən', from: 'frəm', or: 'ər', but: 'bət', some: 'səm', your: 'jər', can: 'kən', be: 'bi', been: 'bɪn', was: 'wəz', were: 'wər' };
 function usIpa(word, ukIpa) {
   const ts = tokens(word); if (!ts.length || ts.some(t => !/^[a-z'-]+$/.test(t))) return '';
-  if (ts.length === 1) { const s = cmuWord(ts[0], ukIpa.replace(/^\/|\/$/g, '')); return s ? '/' + s + '/' : ''; }
+  const rule = (t, u) => { const s = u ? ukToUs(u, t) : ''; if (s) stats.usRule++; return s; }; // CMU không có → suy từ IPA Anh (ipa.mjs ukToUs)
+  if (ts.length === 1) { const s = cmuWord(ts[0], ukIpa.replace(/^\/|\/$/g, '')) || rule(ts[0], ukIpa); return s ? '/' + s + '/' : ''; }
   // cụm: dạng yếu cho hư từ; trọng âm theo ô giọng Anh của cùng cụm (từ 1 âm tiết được đánh dấu như bản Anh)
-  const ps = ts.map(t => WEAK[t] || cmuWord(t)); if (!ps.every(Boolean)) return '';
   const uk = ukIpa.replace(/^\/|\/$/g, '').split(/\s+/);
+  const ps = ts.map((t, i) => WEAK[t] || cmuWord(t) || (uk.length === ts.length ? rule(t, uk[i]) : '')); if (!ps.every(Boolean)) return '';
   const out = ps.map((p, i) => (uk.length === ps.length && /^[ˈˌ]/.test(uk[i]) && !/[ˈˌ]/.test(p) ? uk[i][0] + p : p));
   return '/' + out.join(' ') + '/';
 }
@@ -54,13 +65,13 @@ const OV = JSON.parse(rd('content/lexicon/overrides.json'));
 const MUS = 'content/lexicon/ipaus-manual.json';
 if (!fs.existsSync(new URL(MUS, ROOT))) wr(MUS, JSON.stringify(Object.fromEntries(all.filter(e => e.row[10]).map(e => [key(e.row), e.row[10]])), null, 1) + '\n');
 const MANUAL_US = JSON.parse(rd(MUS));
-const stats = { broken: 0, ukR: 0, mono: 0, usAdded: 0, viMerged: 0, override: 0 };
-const ipaUK = s => { if (!s) return s; let o = fixBroken(s); if (o !== s) stats.broken++; const r = fixUKr(o.replace(/oʊ/g, 'əʊ')); if (r !== o) stats.ukR++; const m = stripMonoStress(r); if (m !== r) stats.mono++; return m; };
+const stats = { normUK: 0, broken: 0, ukR: 0, mono: 0, usAdded: 0, usRule: 0, viMerged: 0, override: 0 };
+const ipaUK = (s, w) => { if (!s) return s; let o = fixBroken(s); if (o !== s) stats.broken++; { const n = normUK(o, w); if (n !== o) { stats.normUK++; o = n; } } const r = fixUKr(o.replace(/oʊ/g, 'əʊ')); if (r !== o) stats.ukR++; const m = stripMonoStress(r); if (m !== r) stats.mono++; return m; };
 
 for (const e of all) {
   const r = e.row; while (r.length < 11) r.push('');
-  for (const o of [OV[key(r)], OV[key(r) + '@' + e.set]]) if (o) { for (const [f, i] of Object.entries({ ipa: 1, vi: 3, def: 4, ex: 5, col: 6, syn: 7, level: 8, ipaUS: 10 })) if (o[f] != null && r[i] !== o[f]) { r[i] = o[f]; stats.override++; } }
-  r[1] = ipaUK(r[1]);
+  for (const o of [OV[key(r)], OV[key(r) + '@' + e.set]]) if (o) { for (const [f, i] of Object.entries({ ipa: 1, vi: 3, def: 4, ex: 5, col: 6, syn: 7, level: 8, emoji: 9, ipaUS: 10 })) if (o[f] != null && r[i] !== o[f]) { r[i] = o[f]; stats.override++; } }
+  r[1] = ipaUK(r[1], r[0]);
   const man = MANUAL_US[key(r)];
   if (man) r[10] = stripMonoStress(fixBroken(man));
   else { const u = usIpa(r[0], r[1]); if (u) { e.us = 1; const v = u === r[1] ? '' : u; if (v !== r[10]) { if (!r[10]) stats.usAdded++; r[10] = v; } } } // trùng IPA Anh → bỏ trống (giao diện tự dùng IPA Anh)
@@ -99,12 +110,30 @@ if (usCov < 0.97) errs.push(`ipaUS phủ ${(usCov * 100).toFixed(1)}% từ đơn
 // ---- ảnh minh hoạ theo nghĩa (content/lexicon/img.json → web/js/lexicon-img.json, mọi bề mặt đọc từ đây – docs/LEXICON.md § Ảnh minh hoạ)
 const IMGF = 'content/lexicon/img.json';
 const IMG = fs.existsSync(new URL(IMGF, ROOT)) ? JSON.parse(rd(IMGF)) : { v: 1, style: { v: 's1' }, base: 'https://media.lexkite.com/vimg/', items: {}, rejected: {} };
-errs.push(...checkImg(IMG, new Set(groups.keys())));
-const imgIndex = JSON.stringify({ v: IMG.v, base: IMG.base, sv: IMG.style.v, m: Object.fromEntries(Object.entries(IMG.items).map(([k, e]) => [k, e.h])) });
-for (const f of ['web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json']) {
-  const ex = fs.existsSync(new URL(f, ROOT));
-  if (WRITE) { if (!ex || rd(f) !== imgIndex + '\n') wr(f, imgIndex + '\n'); } else if (!ex || rd(f) !== imgIndex + '\n') errs.push(`${f} lệch content/lexicon/img.json → chạy: node scripts/build-lexicon.mjs --write`);
+{ const { loadExpand } = await import('./lexicon/expand/lib.mjs'); errs.push(...checkImg(IMG, new Set([...groups.keys(), ...loadExpand().map(x => x.k)]))); }
+// chỉ mục v2 gọn: m = {từ#loại: h}, x = khoá có bản @2x (768 px), w = khoá CHỈ có WebP (không AVIF – thường rỗng) – web/js/vocab-img.js
+const imgKeys = Object.keys(IMG.items).filter(k => IMG.items[k].h), phKeys = Object.keys(IMG.items).filter(k => IMG.items[k].photo && IMG.items[k].photo.h);
+// p = {từ#loại: h ảnh Wikimedia/ảnh chụp} CHỈ cho trang từ điển (VImg.slot {photo:true}); pw = khoá p chỉ có WebP. on chỉ đếm icon/minh hoạ đã kiểm (h), không đếm p
+// on: bật TỰ ĐỘNG mọi bề mặt khi đủ ảnh đã chấm (≥ on_min, mặc định 150) – cờ config vocab_img true/false (Quản trị) vẫn ghi đè
+// chỉ mục v3 (28/10): ĐẦU nhỏ js/lexicon-img.json {v:3, base, sv, on, n} + n mảnh js/vimg/NN.json theo fnv(từ) % n – app chỉ tải mảnh của từ đang học
+// (một tệp v2 sẽ ~290 KB br khi đủ 20k ảnh; mảnh ~5 KB). Mảnh: m = {từ#loại: h}, x = có @2x, w = chỉ WebP, a = nền trong suốt, s = ảnh CẢNH,
+// p/pw = ảnh chụp Wikimedia (chỉ trang từ điển). Hàm mảnh PHẢI trùng web/js/vocab-img.js SH().
+const IMG_N = 64, imgSh = w => { let h = 0x811c9dc5; for (const ch of String(w).toLowerCase()) { h ^= ch.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h % IMG_N; };
+const imgHead = JSON.stringify({ v: 3, base: IMG.base, sv: IMG.style.v, on: imgKeys.length >= (IMG.on_min || 150), n: IMG_N });
+const imgShards = Array.from({ length: IMG_N }, () => ({ m: {}, x: [], w: [], a: [], s: [], p: {}, pw: [] }));
+for (const k of imgKeys) { const it = IMG.items[k], o = imgShards[imgSh(k.split('#')[0])]; o.m[k] = it.h; if (it.x2 === true) o.x.push(k); if (!(it.fmt || []).includes('avif')) o.w.push(k); if (it.bg === 'alpha') o.a.push(k); if (it.kind === 'scene') o.s.push(k); }
+for (const k of phKeys) { const it = IMG.items[k], o = imgShards[imgSh(k.split('#')[0])]; o.p[k] = it.photo.h; if (!(it.photo.fmt || []).includes('avif')) o.pw.push(k); }
+const imgFiles = [['js/lexicon-img.json', imgHead], ...imgShards.map((o, i) => [`js/vimg/${String(i).padStart(2, '0')}.json`, JSON.stringify(o)])];
+for (const root of ['web/', 'extension/app/']) {
+  if (WRITE) fs.mkdirSync(new URL(root + 'js/vimg/', ROOT), { recursive: true });
+  for (const [rel, body] of imgFiles) {
+    const f = root + rel, ex = fs.existsSync(new URL(f, ROOT));
+    if (WRITE) { if (!ex || rd(f) !== body + '\n') wr(f, body + '\n'); } else if (!ex || rd(f) !== body + '\n') errs.push(`${f} lệch content/lexicon/img.json → chạy: node scripts/build-lexicon.mjs --write`);
+  }
 }
+
+// CDN: mỗi mục img phải có file trên media.lexkite.com (HEAD mẫu 5 % tất định theo ngày) – chỉ khi CI (máy dev/offline bỏ qua; LEX_CDN_CHECK=0 tắt)
+if (process.env.CI && process.env.LEX_CDN_CHECK !== '0' && Object.keys(IMG.items).length) { const { cdnCheck } = await import('./vocab-img/cdn-check.mjs'); const r = await cdnCheck(IMG, 0.05); errs.push(...r.bad); console.log(`img CDN: HEAD ${r.n}/${r.of} file · thiếu ${r.bad.length}${r.warn.length ? ` · cảnh báo mạng ${r.warn.length}` : ''}`); }
 
 // ---- ghi / so sánh
 const changed = WRITE ? saveAll(all) : (() => { let n = 0; const byLine = new Map(loadAll().map(x => [x.file + ':' + x.line, x.row])); for (const e of all) { const r = e.row.slice(); while (r.length > 10 && !r[r.length - 1]) r.pop(); if (JSON.stringify(byLine.get(e.file + ':' + e.line)) !== JSON.stringify(r)) n++; } return n; })();
@@ -121,6 +150,8 @@ for (const [src, dst] of copies) {
 if (WRITE) {
   const lex = {};
   for (const [k, list] of groups) { const r = list[0].row; lex[k] = { w: r[0], pos: r[2], ipa: r[1], ipaUS: r[10] || '', vi: r[3], def: r[4], ex: r[5], level: r[8], sets: list.map(e => e.set) }; if (IMG.items[k]) lex[k].img = IMG.items[k]; }
+  // mục mở rộng đã xuất (x: 1 – nghĩa 13 ngôn ngữ đã có trong nguồn, i18n-job bỏ qua; vimg/âm thanh/kịch bản tự nhận)
+  { const { loadExpand } = await import('./lexicon/expand/lib.mjs'); for (const { k, e } of loadExpand()) if (!lex[k]) { lex[k] = { w: e.w, pos: e.pos, ipa: e.ipa, ipaUS: e.ipaUS === e.ipa ? '' : e.ipaUS, vi: e.vi, def: e.def, ex: e.ex[0], level: e.level, sets: [e.topic || 'xw-everyday'], x: 1 }; if (IMG.items[k]) lex[k].img = IMG.items[k]; } }
   fs.mkdirSync(new URL('dist/', ROOT), { recursive: true });
   wr('dist/lexicon.json', JSON.stringify(lex));
 }

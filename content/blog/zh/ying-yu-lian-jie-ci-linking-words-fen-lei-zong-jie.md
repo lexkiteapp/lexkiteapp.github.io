@@ -78,7 +78,7 @@ quiz: [
 | **Despite / In spite of** | 介词 (+ 名词短语 / 动名词) | *Despite rigorous logistical challenges, delivery quotas were successfully fulfilled.* |
 | **Whereas / While** | 从属连词 (+ 对比从句) | *Urban demographics expanded, whereas agrarian settlements saw a steady contraction.* |
 
-**学术书面语关键避坑：** 绝不可将 *Although* 与 *but* 同用在一个句子里（中文思维常犯错误），两者只能任选其一。
+**学术书面语关键避坑：** 绝不可将 *Although* 与 *but* 同用在一个句子里（中文思维常犯错误），两者只能任选其一。连词和介词的区分在[托业 Part 5 技巧](/zh/blog/tuo-ye-part-5-ji-qiao/)里有专门的做题方法。
 
 这类对比表达在 [雅思小作文 Task 1 图表分析技巧](/zh/blog/ya-si-xiao-zuo-wen-task-1-tu-biao-fen-xi-ji-qiao/) 中用于呈现两条走向相反的数据曲线时堪称提分神器。
 
@@ -150,6 +150,8 @@ quiz: [
 2. **连接词位置单一僵化：** 不要把所有连接词都死板地放在每句话的第一位。试着将其置于句中（插入语形式），例如：*The preliminary results, however, failed to corroborate the primary hypothesis.* 这样句式更加多变灵活；
 3. **因果颠倒错误：** 混淆 *due to*（后接原因）与 *resulting in*（后接结果），导致整段论证逻辑彻底翻车；
 4. **Besides 的滥用：** 许多中国考生将 Besides 当作 Furthermore 使用。实际上 Besides 常常带有微弱的辩解或轻佻口吻（意为“更何况、反正是这样”），在严肃论文中应当使用 *Furthermore* 或 *Moreover*。
+
+在口语讨论题中灵活使用连接词的方法，可参考 [雅思口语 Part 3 技巧](/zh/blog/ya-si-kou-yu-part-3-ji-qiao/)。
 
 {{cta: /samples/ | 查阅学术论文与高分范文连接词库}}
 

@@ -2,6 +2,44 @@
  * chia đôi màn hình, đồng hồ đếm ngược, bút dạ quang 3 màu, ghi chú, gạch loại trừ,
  * cờ xem lại & bộ lọc, thanh điều hướng số câu, Pacing Engine ước tính nhịp độ, chỉnh cỡ chữ. */
 (function () {
+  // CSS giao diện thi trên máy (chuyển từ style.css 25/10 – giữ khung app ≤377 KB gz); nạp 1 lần khi tải gói
+  try { if (!document.getElementById('cbtCss')) { const st = document.createElement('style'); st.id = 'cbtCss'; st.textContent = `
+.cbt { display: flex; flex-direction: column; height: 100vh; background: var(--bg); }
+.cbt-top { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .55rem 1rem; background: var(--surface); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.cbt-clock { font-weight: 800; font-variant-numeric: tabular-nums; padding: .3rem .7rem; border-radius: 10px; background: var(--surface-2); }
+.cbt-clock.warn { background: var(--again-soft); color: var(--again-text); }
+.cbt-body { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 0; }
+.cbt-pass, .cbt-qs { overflow-y: auto; padding: 1.2rem 1.5rem; line-height: 1.8; }
+.cbt-pass { border-right: 4px solid var(--line); background: var(--surface); }
+.cbt-q { padding: .8rem; border-radius: 12px; margin-bottom: .6rem; border: 2px solid transparent; }
+.cbt-q.cur { border-color: var(--primary-soft); background: var(--surface); }
+.cbt-opts { display: grid; gap: .5rem; margin-top: .5rem; }
+.cbt-opt { display: flex; gap: .7rem; align-items: center; padding: .65rem .9rem; border-radius: 12px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); cursor: pointer; font-weight: 500; box-shadow: 0 3px 0 color-mix(in srgb, var(--line) 75%, #000); transition: border-color .12s cubic-bezier(.2,.8,.4,1), background .12s cubic-bezier(.2,.8,.4,1), transform .12s cubic-bezier(.2,.8,.4,1), box-shadow .12s cubic-bezier(.2,.8,.4,1); user-select: none; }
+@media (hover: hover) and (pointer: fine) { .cbt-opt:hover { border-color: var(--primary); background: var(--surface); box-shadow: 0 4px 12px rgba(0,0,0,.04); } }
+.cbt-opt:active { transform: translateY(2px); border-bottom-width: 2.5px; box-shadow: 0 1px 0 color-mix(in srgb, var(--line) 75%, #000); }
+.cbt-opt.sel, .cbt-opt:has(:checked) { border-color: var(--primary); background: var(--primary-soft); font-weight: 700; border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); box-shadow: 0 3px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.cbt-opt.sel:active, .cbt-opt:has(:checked):active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.cbt-opt .cbt-key { display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 .25rem; border-radius: 7px; font-size: .82rem; font-weight: 800; border: 1.5px solid var(--line); border-bottom-width: 2.5px; background: var(--surface-2); color: var(--text); flex-shrink: 0; transition: all .12s ease; }
+@media (hover: hover) and (pointer: fine) { .cbt-opt:hover .cbt-key { border-color: var(--primary); color: var(--primary); } }
+.cbt-opt.sel .cbt-key, .cbt-opt:has(:checked) .cbt-key { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
+.cbt-opt.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
+.cbt-nav { display: flex; align-items: center; gap: .8rem; padding: .6rem 1rem; background: var(--surface); border-top: 1px solid var(--line); overflow-x: auto; scrollbar-width: thin; }
+.cbt-part { display: flex; align-items: center; gap: .3rem; padding: .25rem .45rem; border-radius: 10px; background: var(--surface-2); }
+.cbt-part.on { background: color-mix(in srgb, var(--primary) 14%, var(--surface-2)); }
+.cbt-pbtn { border: 0; background: transparent; font-weight: 800; cursor: pointer; color: var(--text); margin-right: .2rem; }
+.cbt-num { width: 34px; height: 34px; border-radius: 9px; cursor: pointer; font-weight: 700; font-size: .88rem; position: relative; display: inline-grid; place-items: center; transition: all .12s cubic-bezier(.2,.8,.4,1); touch-action: manipulation; }
+.cbt-num:not(.done):not(.cur) { border: 1.5px dashed var(--muted); background: var(--surface); color: var(--muted); }
+@media (hover: hover) and (pointer: fine) { .cbt-num:hover { transform: translateY(-2px); box-shadow: 0 3px 6px rgba(0,0,0,.08); } .cbt-num:not(.done):not(.cur):hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); } }
+.cbt-num:active { transform: translateY(0); }
+.cbt-num.done { border: 1.5px solid var(--accent); background: var(--accent); color: #fff; box-shadow: 0 2px 4px color-mix(in srgb, var(--accent) 30%, transparent); }
+.cbt-num.flag { border-color: var(--hard); background: var(--gold-soft); color: var(--text); }
+.cbt-num.flag.done { background: var(--accent); color: #fff; border-color: var(--hard); }
+.cbt-num.flag::after { content: "${UI.icon('flag')}"; position: absolute; top: -8px; right: -6px; font-size: .75rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
+.cbt-num.cur { outline: 2px solid var(--primary); outline-offset: 2px; font-weight: 800; }
+mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 3px; padding: 0 2px; }
+.cbt-hlbtn { position: absolute; z-index: 60; }
+@media (max-width: 900px) { .cbt-body { grid-template-columns: minmax(0, 1fr); } .cbt-pass { border-right: 0; border-bottom: 4px solid var(--line); max-height: 45vh; } }
+`; document.head.appendChild(st); } } catch (e) { /* không có DOM (kiểm thử) */ }
   const { $, $$, esc, toast, shuffle } = UI;
   const App = window.App;
   const { state, routes } = App;
@@ -72,7 +110,7 @@
     view.innerHTML = `
       <div class="page-head"><div><h1>🖥️ ${t('Thi thử Reading trên máy tính')}</h1><p class="muted">${t('Làm quen giao diện thi IELTS trên máy: đồng hồ đếm ngược, tô sáng văn bản, đánh dấu câu cần xem lại và thanh điều hướng câu hỏi.')}</p></div></div>
       <div class="grid g2">
-        <a class="card hover" href="#/cbt/${full.join(',')}" style="color:var(--text)"><div style="font-size:2.4rem">🏁</div><h2>${t('Bài thi đầy đủ · 3 passage')}</h2><p class="muted">${t('60 phút · {n} câu · độ khó tăng dần B1 → B2 → C1', { n: full.length * 5 })}</p><span class="btn primary">${t('Bắt đầu thi')} →</span></a>
+        <a class="card hover" href="#/cbt/${full.join(',')}" style="color:var(--text)"><div style="font-size:2.4rem">${UI.icon('flag')}</div><h2>${t('Bài thi đầy đủ · 3 passage')}</h2><p class="muted">${t('60 phút · {n} câu · độ khó tăng dần B1 → B2 → C1', { n: full.length * 5 })}</p><span class="btn primary">${t('Bắt đầu thi')} →</span></a>
         <div class="card"><h3>📌 ${t('Mẹo thi trên máy')}</h3><ul class="small" style="padding-left:1.1rem;line-height:1.8"><li>${t('<b>Bôi đen</b> từ khóa trong bài rồi bấm “Tô sáng” – giống bút highlight trên giấy.')}</li><li>${t('Tích <b>“Xem lại”</b> cho câu chưa chắc, cuối giờ bấm vào số câu có cờ 🚩 để quay lại.')}</li><li>${t('Không bị trừ điểm khi sai – <b>đừng bỏ trống</b> câu nào.')}</li><li>${t('Phân bổ ~20 phút cho mỗi passage; passage 3 thường khó nhất.')}</li></ul></div>
       </div>
       <div class="section-title"><h2>${t('Luyện từng passage (20 phút)')}</h2></div>
@@ -122,7 +160,7 @@
         <header class="cbt-top" style="position:relative">
           <div class="row nowrap"><img src="icons/icon.svg" alt="" style="width:28px;height:28px;border-radius:8px"><b>Lexkite</b><span class="tiny muted">IELTS Reading · ${t('Mô phỏng thi trên máy')}</span></div>
           <div class="row nowrap">
-            <button class="cbt-pacing-chip on-track" id="pacingChip" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="pacingPop" title="${t('Ước tính nhịp độ làm bài (bấm để xem chi tiết)')}">⚡ <span>${t('Đúng tiến độ (ước tính)')}</span></button>
+            <button class="cbt-pacing-chip on-track" id="pacingChip" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="pacingPop" title="${t('Ước tính nhịp độ làm bài (bấm để xem chi tiết)')}">${UI.icon('zap')} <span>${t('Đúng tiến độ (ước tính)')}</span></button>
             <span class="cbt-clock" id="clock"></span>
             <button class="btn sm" id="hideC" type="button">${t('Ẩn giờ')}</button>
             <button class="btn sm" id="fsDown" type="button" title="${t('Giảm cỡ chữ')}">A−</button>
@@ -140,7 +178,7 @@
           <button type="button" class="cbt-hl-dot y" data-c="y" title="${t('Tô sáng vàng (Từ khóa)')}" aria-label="${t('Tô sáng vàng')}"></button>
           <button type="button" class="cbt-hl-dot g" data-c="g" title="${t('Tô sáng xanh (Bằng chứng)')}" aria-label="${t('Tô sáng xanh')}"></button>
           <button type="button" class="cbt-hl-dot p" data-c="p" title="${t('Tô sáng hồng (Bẫy/Mâu thuẫn)')}" aria-label="${t('Tô sáng hồng')}"></button>
-          <button type="button" class="cbt-hl-btn" data-act="note">📝 ${t('Ghi chú')}</button>
+          <button type="button" class="cbt-hl-btn" data-act="note">${UI.icon('file-pen')} ${t('Ghi chú')}</button>
           <button type="button" class="cbt-hl-btn" data-act="clear">🗑️ ${t('Xóa')}</button>
         </div>
       </div>`;
@@ -168,7 +206,7 @@
         ${list.map(({ q, i }) => `<div class="cbt-q ${i === cur ? 'cur' : ''}" id="q${i}">
           <div class="row between">
             <b>${i + 1}. ${esc(q.q)}</b>
-            <button type="button" class="cbt-flag-btn ${flag[i] ? 'on' : ''}" data-flag="${i}" aria-pressed="${!!flag[i]}" title="${t('Đánh dấu để xem lại sau (Phím F)')}">🚩 <span>${t('Xem lại')}</span></button>
+            <button type="button" class="cbt-flag-btn ${flag[i] ? 'on' : ''}" data-flag="${i}" aria-pressed="${!!flag[i]}" title="${t('Đánh dấu để xem lại sau (Phím F)')}">${UI.icon('flag')} <span>${t('Xem lại')}</span></button>
           </div>
           <div class="cbt-opts">${(q.type === 'tfng' ? ['TRUE', 'FALSE', 'NOT GIVEN'] : q.options).map((o, k) => {
             const v = q.type === 'tfng' ? o : String(k);
@@ -215,7 +253,7 @@
         + `<div class="cbt-filter-bar">
           <button type="button" class="cbt-filter-chip ${navFilter === 'all' ? 'on' : ''}" data-filter="all" aria-pressed="${navFilter === 'all'}">${t('Tất cả')}</button>
           <button type="button" class="cbt-filter-chip ${navFilter === 'todo' ? 'on' : ''}" data-filter="todo" aria-pressed="${navFilter === 'todo'}">${t('Chưa làm ({n})', { n: missingCount })}</button>
-          <button type="button" class="cbt-filter-chip cbt-filter-flag ${navFilter === 'flag' ? 'on' : ''}" data-filter="flag" aria-pressed="${navFilter === 'flag'}">🚩 ${t('Xem lại ({n})', { n: flagCount })}</button>
+          <button type="button" class="cbt-filter-chip cbt-filter-flag ${navFilter === 'flag' ? 'on' : ''}" data-filter="flag" aria-pressed="${navFilter === 'flag'}">${UI.icon('flag')} ${t('Xem lại ({n})', { n: flagCount })}</button>
         </div>`;
 
       $$('[data-part]').forEach(b => b.onclick = () => {
@@ -265,7 +303,7 @@
       if (chip.dataset.l !== p.status + p.label) {
         chip.dataset.l = p.status + p.label;
         chip.className = `cbt-pacing-chip ${p.status}`;
-        chip.innerHTML = `⚡ <span>${esc(p.label)}</span>`;
+        chip.innerHTML = `${UI.icon('zap')} <span>${esc(p.label)}</span>`;
       }
 
       const pop = $('#pacingPop');
@@ -277,7 +315,7 @@
       if (!pop) return;
       pop.innerHTML = `
         <div class="row between" style="margin-bottom:.5rem">
-          <b>⚡ ${t('Ước tính nhịp độ làm bài')}</b>
+          <b>${UI.icon('zap')} ${t('Ước tính nhịp độ làm bài')}</b>
           <button type="button" class="btn sm" id="closePacingPop" style="padding:2px 8px;font-size:.78rem">${t('Đóng')}</button>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.6rem">
@@ -285,8 +323,8 @@
           <div class="card" style="padding:.5rem;margin:0"><div class="tiny muted">${t('Tốc độ thực tế')}</div><b>${p.actualSec} ${t('s / câu')}</b></div>
         </div>
         <div class="small" style="line-height:1.7">
-          <div>📊 ${t('Tiến độ')}: <b>${p.answered}/${p.totalQs}</b></div>
-          <div>⏳ ${t('Dự kiến hoàn thành')}: <b>${p.delta >= 0 ? t('Dư khoảng {m} phút (ước tính)', { m: Math.max(0, Math.round(p.delta / 60)) }) : t('Thiếu khoảng {m} phút (ước tính)', { m: Math.ceil(Math.abs(p.delta) / 60) })}</b></div>
+          <div>${UI.icon('chart-column')} ${t('Tiến độ')}: <b>${p.answered}/${p.totalQs}</b></div>
+          <div>${UI.icon('hourglass')} ${t('Dự kiến hoàn thành')}: <b>${p.delta >= 0 ? t('Dư khoảng {m} phút (ước tính)', { m: Math.max(0, Math.round(p.delta / 60)) }) : t('Thiếu khoảng {m} phút (ước tính)', { m: Math.ceil(Math.abs(p.delta) / 60) })}</b></div>
         </div>
         <div class="tiny muted" style="margin-top:.5rem;border-top:1px dashed var(--line);padding-top:.4rem">*${t('Các chỉ số mang tính ước tính nhằm hỗ trợ phân bổ thời gian thi.')}</div>`;
       $('#closePacingPop').onclick = () => { pop.hidden = true; showPacingPop = false; $('#pacingChip').setAttribute('aria-expanded', 'false'); };
@@ -476,13 +514,13 @@
       document.body.classList.remove('cbt-mode');
       if (pct >= 80) { Sfx.win(); confetti(); }
       view.innerHTML = `<div class="study-wrap" style="max-width:820px">
-        <div class="card celebrate"><div class="em">${window.Kit ? Kit.svg(pct >= 80 ? 'win' : pct >= 50 ? 'happy' : 'think', 80, true) : (timeUp ? '⏰' : '🏁')}</div><h2>${timeUp ? t('Hết giờ!') : t('Đã nộp bài')} · ${t('{a}/{b} câu đúng', { a: score, b: qs.length })}</h2>
+        <div class="card celebrate"><div class="em">${window.Kit ? Kit.svg(pct >= 80 ? 'win' : pct >= 50 ? 'happy' : 'think', 80, true) : (timeUp ? UI.icon('alarm-clock') : UI.icon('flag'))}</div><h2>${timeUp ? t('Hết giờ!') : t('Đã nộp bài')} · ${t('{a}/{b} câu đúng', { a: score, b: qs.length })}</h2>
           <div class="score-ring" style="--p:${pct};--c:${pct >= 70 ? 'var(--good)' : pct >= 50 ? 'var(--hard)' : 'var(--again)'}"><b>${pct}%</b></div>
           <p class="muted">${t('Thời gian làm: {m} phút {s} giây · +{xp} XP · câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>', { m: Math.floor(used / 60), s: used % 60, xp: 15 + score * 4 })}</p></div>
-        <div class="card" style="margin-top:1rem"><h3>${t('Đáp án & giải thích')}</h3>${rows.map(({ q, i, ok }) => `<div class="q-item"><b>${ok ? '✅' : '❌'} ${i + 1}. ${esc(q.q)}</b>
+        <div class="card" style="margin-top:1rem"><h3>${t('Đáp án & giải thích')}</h3>${rows.map(({ q, i, ok }) => `<div class="q-item"><b>${ok ? UI.icon('circle-check') : '❌'} ${i + 1}. ${esc(q.q)}</b>
           <div class="small">${t('Đáp án:')} <b style="color:var(--good-text)">${esc(q.type === 'tfng' ? q.answer : q.options[q.answer])}</b>${!ok ? ` · ${t('Bạn chọn:')} <span style="color:var(--again-text)">${esc(ans[i] == null ? t('(bỏ trống)') : q.type === 'tfng' ? ans[i] : q.options[+ans[i]])}</span>` : ''}</div>
-          <div class="small muted">💡 ${esc(q.explain)}</div></div>`).join('')}</div>
-        <div class="row center" style="margin-top:1rem"><a class="btn primary" href="#/cbt">${t('Làm đề khác')}</a>${rs.map(r => `<a class="btn" href="#/read/${r.id}">📖 ${t('Học từ vựng bài “{title}”', { title: esc(r.title) })}</a>`).join('')}</div></div>`;
+          <div class="small muted">${UI.icon('lightbulb')} ${esc(q.explain)}</div></div>`).join('')}</div>
+        <div class="row center" style="margin-top:1rem"><a class="btn primary" href="#/cbt">${t('Làm đề khác')}</a>${rs.map(r => `<a class="btn" href="#/read/${r.id}">${UI.icon('book-open')} ${t('Học từ vựng bài “{title}”', { title: esc(r.title) })}</a>`).join('')}</div></div>`;
       document.body.classList.remove('bare');
     }
   }

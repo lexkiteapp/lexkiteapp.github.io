@@ -405,7 +405,7 @@ for x in tl['shots']:
             while l_ > 0 and row_[l_ - 1]: l_ -= 1
             while rr_ < 269 and row_[rr_ + 1]: rr_ += 1
             best_ = max(best_, rr_ - l_)
-        if best_: vals_.append(best_ * 4)
+        if best_ >= 0.7 * x['faceh'][x['who']] / 4: vals_.append(best_ * 4)   # a run < 70 % of the face = the cheek sample missed (blink, brow, dark skin vs hair) - not a size, skip the frame
     if vals_: _fw.setdefault(('all', x['who']), []).append(float(np.median(vals_)) / max(1.0, x['faceh'][x['who']])); print(f"    face {x['id']} {x['who']} {x['frame']} {float(np.median(vals_)):.0f}px / {x['faceh'][x['who']]}")
 _fr = {'all sizes (measured / expected)': round(np.median(_fw[('all', 'ama')]) / np.median(_fw[('all', 'carlos')]), 3)} if ('all', 'ama') in _fw and ('all', 'carlos') in _fw else {}
 print(f'  measured face width Ama / Carlos per shot size (rendered frames, +-5 %): {_fr}', 'OK' if _fr and all(abs(v - 1) <= 0.05 for v in _fr.values()) else 'FAIL')

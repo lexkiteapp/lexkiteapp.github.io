@@ -1,5 +1,8 @@
 # Lưu trữ short theo công thức (recipe-first) – $0, mở rộng tới 100k clip
 
+> TL;DR: Lưu trữ short theo công thức (recipe-first) $0, mở rộng tới 100k clip: nơi lưu, luồng, dựng lại từ công thức, di trú repo cũ. Duyệt 22/10/2026.
+> Đọc khi: lưu/dựng lại short.
+
 Duyệt 22/10/2026. Liên quan: `docs/SHORTS-ACCESS.md` (thư viện quản trị), `docs/YOUTUBE-SETUP.md`, `docs/VIDEO-SCALE-PLAN.md`.
 
 ## 1. Ở đâu

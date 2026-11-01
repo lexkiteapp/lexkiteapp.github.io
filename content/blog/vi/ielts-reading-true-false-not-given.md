@@ -135,6 +135,8 @@ Cách luyện gợi ý:
 
 Sau khoảng 10–15 bài, bạn sẽ nhận ra mình hay sai kiểu nào: nhầm False với Not Given, hay bỏ sót từ mức độ. Ghi nhận đó quan trọng hơn số câu đúng của từng bài.
 
+Nếu bạn hay nhầm chiều ý của câu, dạng ghép tiêu đề cũng có bẫy tương tự; xem [bài matching headings IELTS](/vi/blog/ielts-reading-matching-headings/).
+
 {{cta: /#/reading | Mở một bài đọc và thử ngay 5 câu True/False/Not Given}}
 
 {{youtube: | Gợi ý video: Phân tích 5 câu True/False/Not Given, giải thích vì sao False chứ không phải Not Given}}

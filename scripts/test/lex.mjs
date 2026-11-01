@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Kho từ một nguồn (web/js/lex.js + scripts/lexicon/shards.mjs): mảnh = INDEX của trình duyệt, chuẩn hóa, tách gốc, cụm động từ,
 // nghĩa theo ngôn ngữ + dự phòng, phiên bản/hết hạn bộ đệm, gõ nhanh (1 lần tải/mảnh), âm thanh, IPA Anh/Mỹ cùng nguồn.
 // Chạy: node scripts/test/lex.mjs   (npm test, mergecheck)
@@ -8,7 +9,7 @@ import vm from 'vm';
 import { createRequire } from 'module';
 import { writeShards, loadBrowserIndex } from '../lexicon/shards.mjs';
 
-const ROOT = new URL('../../', import.meta.url).pathname, require = createRequire(import.meta.url);
+const ROOT = fileURLToPath(new URL('../../', import.meta.url)), require = createRequire(import.meta.url);
 let fail = 0, pass = 0;
 const ok = (c, m) => { if (c) pass++; else { fail++; console.error('✗ ' + m); } };
 const eq = (a, b, m) => ok(JSON.stringify(a) === JSON.stringify(b), `${m}: ${JSON.stringify(a)?.slice(0, 160)} ≠ ${JSON.stringify(b)?.slice(0, 160)}`);

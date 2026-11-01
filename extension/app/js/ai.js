@@ -8,11 +8,10 @@
   const API = (m, k) => `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(m)}:generateContent`;
   const hash = s => { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); };
 
-  // Khóa AI dùng chung giữa web app và add-on trên cùng máy (qua cầu nối cục bộ, không lên cloud)
+  // Khóa AI: web → add-on (một chiều, qua cầu nối cục bộ, không lên cloud). Add-on không trả khóa ra trang (bỏ aiKeyGet).
   const bridge = () => window.VBBridge && VBBridge.ready() ? VBBridge : null;
   async function getKey() {
     let k = await Store.get('aiKey', '');
-    if (!k && bridge()) { try { const r = await bridge().call('aiKeyGet'); const rk = r && r.data && r.data.aiKey; if (rk) { k = rk; await Store.set('aiKey', k); } } catch (e) { /* add-on cũ */ } }
     return k;
   }
   const setKey = async k => { await Store.set('aiKey', k); if (bridge()) try { await bridge().call('aiKeySet', { aiKey: k }); } catch (e) { /* bỏ qua */ } };
@@ -67,9 +66,9 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
   }
   // Dịch các trường nhận xét sang ngôn ngữ người học (một lần gọi dịch cho cả bài)
   const VI_KEYS = new Set(['summary', 'strengths', 'improvements', 'comment', 'why', 'note', 'meaning', 'explain', 'grammar', 'tip']);
-  async function toLocalized(obj) {
-    const slots = [];
-    const walk = (o, inVi) => { if (Array.isArray(o)) o.forEach((x, i) => typeof x === 'string' ? inVi && slots.push([o, i]) : walk(x, inVi)); else if (o && typeof o === 'object') Object.keys(o).forEach(k => typeof o[k] === 'string' ? VI_KEYS.has(k) && slots.push([o, k]) : walk(o[k], VI_KEYS.has(k))); };
+  async function toLocalized(obj, extra) {
+    const slots = [], has = k => VI_KEYS.has(k) || (extra && extra.includes(k));
+    const walk = (o, inVi) => { if (Array.isArray(o)) o.forEach((x, i) => typeof x === 'string' ? inVi && slots.push([o, i]) : walk(x, inVi)); else if (o && typeof o === 'object') Object.keys(o).forEach(k => typeof o[k] === 'string' ? has(k) && slots.push([o, k]) : walk(o[k], has(k))); };
     walk(obj, false);
     (obj.examples || []).forEach(e => { if (e && e.en) slots.push([e, 'vi', e.en]); });
     if (!slots.length || !window.Dict) return obj;
@@ -80,6 +79,46 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     slots.forEach(([o, k], i) => { if (trans[i]) o[k] = trans[i].trim(); });
     return obj;
   }
+
+  // ---------- AI trên máy dùng chung (web/js/ai-local.js, tải lười): thử trước, sai/không có → đường cũ ----------
+  // Chỉ nạp module khi trình duyệt có ít nhất một API AI và người dùng không tắt – trình duyệt khác không tốn gì
+  const hasLocal = () => !!(self.LanguageModel || self.Translator || self.Proofreader || self.LanguageDetector || (self.Capacitor && self.Capacitor.isNativePlatform && self.Capacitor.isNativePlatform() && self.Capacitor.Plugins && self.Capacitor.Plugins.LexAI)); // app gốc: plugin LexAI
+  const localOn = () => (state.settings.aiLocal === false || !hasLocal() || !App.need ? Promise.resolve(null) : App.need('ailocal').then(() => window.AILocal || null).catch(() => null));
+  const toEn = p => p.replace(/\(Vietnamese[^)]*\)/g, '(English)').replace(/in Vietnamese/g, 'in English').replace(/Vietnamese meaning/g, 'English meaning').replace(/Vietnamese IELTS learner/g, 'IELTS learner');
+  const LSYS = 'You are a helpful, accurate English teacher. Write in clear, simple English. Return ONLY valid JSON matching the requested schema.';
+  const strs = o => (Array.isArray(o) ? o.flatMap(strs) : o && typeof o === 'object' ? Object.values(o).flatMap(strs) : typeof o === 'string' ? [o] : []);
+  const markLocal = j => Object.assign(j, { _local: true, _model: 'Gemini Nano (' + t('AI trên máy') + ')' });
+  // askLocal(prompt, { schema, localPrompt, ok, keys, timeout }) → JSON như AI.ask; kết quả trên máy được kiểm schema + tiếng Anh rồi dịch sang ngôn ngữ người học
+  async function askLocal(prompt, o = {}) {
+    const L = self.LanguageModel ? await localOn() : null;
+    if (L) {
+      const j = await L.prompt((o.localPrompt || toEn(prompt)) + '\nReturn only JSON.', { system: LSYS, schema: o.schema, timeout: o.timeout || 8000 });
+      if (j && (!o.ok || o.ok(j)) && (await L.check(strs(j).join(' '), { min: 3, max: 6000, lang: 'en' }))) return toLocalized(markLocal(j), o.keys);
+    }
+    return call(prompt);
+  }
+  const NUM = { type: 'number', minimum: 0, maximum: 9 }, STR = { type: 'string' };
+  const GRADE_SCHEMA = { type: 'object', required: ['overall', 'criteria', 'summary'], properties: {
+    overall: NUM, summary: { type: 'string', minLength: 20 },
+    criteria: { type: 'array', minItems: 3, items: { type: 'object', required: ['name', 'band', 'comment'], properties: { name: STR, band: NUM, comment: STR } } },
+    strengths: { type: 'array', items: STR }, improvements: { type: 'array', items: STR },
+    errors: { type: 'array', items: { type: 'object', required: ['quote', 'fix'], properties: { quote: STR, fix: STR, why: STR } } },
+    vocab: { type: 'array', items: { type: 'object', required: ['from', 'to'], properties: { from: STR, to: STR, note: STR } } }, rewrite: STR, sample: STR } };
+  // Chấm Writing trên máy (Prompt API + Proofreader) – cùng định dạng kết quả với máy chủ; Speaking vẫn qua máy chủ
+  async function localAI(kind, body, text) {
+    if (kind === 'speaking' || !self.LanguageModel) return null;
+    const L = await localOn(); if (!L) return null;
+    const j = await L.prompt(toEn(body) + '\nReturn only JSON.', { system: SYS.replace(/Write all comments[^.]*\./, 'Write all comments in clear, simple English.'), schema: GRADE_SCHEMA, timeout: 15000 });
+    if (!j || !(await L.check([j.summary, ...j.criteria.map(c => c.comment)].join(' '), { min: 20, lang: 'en' }))) return null;
+    const half = x => Math.max(1, Math.min(9, Math.round(x * 2) / 2));
+    j.overall = half(j.overall); j.criteria.forEach(c => { c.band = half(c.band); });
+    if (!(j.errors || []).length && self.Proofreader) { // lỗi chính xác theo vị trí từ Proofreader
+      const p = await L.proofread(text, { timeout: 8000 });
+      if (p) j.errors = p.corrections.filter(c => c.end > c.start).slice(0, 8).map(c => ({ quote: text.slice(c.start, c.end), fix: c.fix, why: c.type || '' }));
+    }
+    return toLocalized(markLocal(j));
+  }
+  const badge = r => (r && r._local ? ` <span class="chip" title="${t('Chạy trên máy của bạn – miễn phí, không gửi đi đâu')}">${UI.icon('lock')} ${t('Trên máy')}</span>` : '');
 
   // AI miễn phí của Lexkite (máy chủ /api/ai): ai cũng chấm được, không cần tự lấy khóa – có hạn mức lượt/ngày
   const PROXY = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/ai' : 'https://lexkite.com/api/ai';
@@ -138,7 +177,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const body = kind === 'speaking'
       ? `Assess this IELTS Speaking performance (machine transcript, punctuation may be missing). Questions and answers:\n${text}\n\n${SCHEMA(kind)}`
       : `IELTS Writing ${kind === 'task1' ? 'Task 1 (Academic)' : 'Task 2'} question:\n"""${task}"""\n${extra ? `Data for Task 1:\n${extra}\n` : ''}\nCandidate's response (${(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length} words):\n"""${text}"""\n\n${SCHEMA(kind)}`;
-    const res = await call(body);
+    const res = (await localAI(kind, body, text)) || await call(body);
     const keys = Object.keys(cache); if (keys.length >= 20) delete cache[keys[0]];
     cache[id] = { ...res, at: Date.now() };
     await Store.set('aiCache', cache);
@@ -206,10 +245,10 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
   // ---------- Hướng dẫn lấy khóa ----------
   function keyDialog(onSaved) {
     modal(`<h2 style="margin-top:0">🔑 ${t('Khóa Gemini riêng (không bắt buộc)')}</h2>
-      <p class="small" style="background:var(--primary-soft);padding:.5rem .7rem;border-radius:10px">💡 ${t('Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.')}</p>
+      <p class="small" style="background:var(--primary-soft);padding:.5rem .7rem;border-radius:10px">${UI.icon('lightbulb')} ${t('Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.')}</p>
       <ol class="small" style="padding-left:1.1rem;line-height:1.8"><li>${t('Mở {link} và đăng nhập Google.', { link: '<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>' })}</li><li>${t('Bấm <b>Create API key</b> → sao chép khóa (bắt đầu bằng “AIza…”).')}</li><li>${t('Dán vào ô dưới đây.')}</li></ol>
       <input class="input" id="aiK" placeholder="AIza… / AQ.…" autocomplete="off" spellcheck="false">
-      <p class="tiny muted">🔒 ${t('Khóa chỉ lưu trên trình duyệt này, không đồng bộ lên tài khoản và chỉ gửi tới Google khi bạn bấm chấm bài. Bài làm của bạn được gửi tới Google Gemini để chấm.')}</p>
+      <p class="tiny muted">${UI.icon('lock')} ${t('Khóa chỉ lưu trên trình duyệt này, không đồng bộ lên tài khoản và chỉ gửi tới Google khi bạn bấm chấm bài. Bài làm của bạn được gửi tới Google Gemini để chấm.')}</p>
       <div class="row" style="margin-top:.6rem"><button class="btn primary" id="aiSave">${t('Lưu & kiểm tra')}</button><button class="btn ghost" data-close>${t('Để sau')}</button></div><div id="aiMsg" class="small" style="margin-top:.5rem"></div>`);
     $('#aiSave').onclick = async () => {
       const k = $('#aiK').value.trim();
@@ -229,11 +268,11 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     return `<div class="ai-res">
       <div class="row nowrap" style="gap:1rem"><div class="ai-score">${esc(r.overall)}</div><div><b>${t('Band ước tính bởi AI')}</b><div class="small">${esc(r.summary || '')}</div></div></div>
       <div class="ai-grid">${crit}</div>
-      <div class="grid g2">${list('✅ ' + t('Điểm mạnh'), r.strengths)}${list('🎯 ' + t('Cần cải thiện'), r.improvements)}</div>
-      ${r.errors && r.errors.length ? `<div><b class="small">✏️ ${t('Lỗi cần sửa')}</b>${r.errors.map(e => `<div class="ai-err"><span class="bad">${esc(e.quote)}</span> → <span class="good">${esc(e.fix)}</span><div class="tiny muted">${esc(e.why || '')}</div></div>`).join('')}</div>` : ''}
+      <div class="grid g2">${list(UI.icon('circle-check') + ' ' + t('Điểm mạnh'), r.strengths)}${list(UI.icon('target') + ' ' + t('Cần cải thiện'), r.improvements)}</div>
+      ${r.errors && r.errors.length ? `<div><b class="small">${UI.icon('pencil')} ${t('Lỗi cần sửa')}</b>${r.errors.map(e => `<div class="ai-err"><span class="bad">${esc(e.quote)}</span> → <span class="good">${esc(e.fix)}</span><div class="tiny muted">${esc(e.why || '')}</div></div>`).join('')}</div>` : ''}
       ${r.vocab && r.vocab.length ? `<div style="margin-top:.6rem"><b class="small">💎 ${t('Nâng cấp từ vựng')}</b><div class="ai-vocab">${r.vocab.map(v => `<div><span class="muted">${esc(v.from)}</span> → <b>${esc(v.to)}</b><div class="tiny muted">${esc(v.note || '')}</div></div>`).join('')}</div></div>` : ''}
-      ${r.rewrite || r.sample ? `<details style="margin-top:.6rem"><summary class="small"><b>${kind === 'speaking' ? '🗣️ ' + t('Câu trả lời mẫu band 8') : '📝 ' + t('Viết lại đoạn yếu nhất ở band 8')}</b></summary><div class="example-box small" style="margin-top:.4rem;white-space:pre-wrap">${esc(r.rewrite || r.sample)}</div>${r.sample || r.rewrite ? `<button class="ctx-say sm" data-saysent="${esc(r.rewrite || r.sample)}" title="${t('Nghe')}">🔊</button>` : ''}</details>` : ''}
-      <div class="tiny muted" style="margin-top:.5rem">${t('Chấm bởi {model} – AI có thể sai sót, hãy dùng như một ý kiến tham khảo của giám khảo.', { model: esc(r._model || 'Gemini') })}</div></div>`;
+      ${r.rewrite || r.sample ? `<details style="margin-top:.6rem"><summary class="small"><b>${kind === 'speaking' ? UI.icon('message-circle') + ' ' + t('Câu trả lời mẫu band 8') : UI.icon('file-pen') + ' ' + t('Viết lại đoạn yếu nhất ở band 8')}</b></summary><div class="example-box small" style="margin-top:.4rem;white-space:pre-wrap">${esc(r.rewrite || r.sample)}</div>${r.sample || r.rewrite ? `<button class="ctx-say sm" data-saysent="${esc(r.rewrite || r.sample)}" title="${t('Nghe')}">🔊</button>` : ''}</details>` : ''}
+      <div class="tiny muted" style="margin-top:.5rem">${t('Chấm bởi {model} – AI có thể sai sót, hãy dùng như một ý kiến tham khảo của giám khảo.', { model: esc(r._model || 'Gemini') })}${badge(r)}</div></div>`;
   }
 
   // Gắn nút "Chấm chi tiết bằng AI" vào một vùng; getInput() trả về { kind, task, text, extra }
@@ -247,12 +286,12 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       // Chưa có AI (khóa / AI Chrome đã tải) → chấm nhanh theo quy tắc ngay, kèm nút bật AI để chấm sâu – không bao giờ để người học chờ hay kẹt
       const aiReady = navigator.onLine !== false || (await nanoStatus()) === 'available'; // có mạng → luôn chấm được bằng AI miễn phí của Lexkite
       const out = $('[data-ai-out]', wrap), b = $('[data-ai]', wrap);
-      b.disabled = true; out.innerHTML = '<div class="small muted" style="margin-top:.6rem">⏳ ' + t('AI đang chấm bài (10–30 giây)…') + '</div>';
+      b.disabled = true; out.innerHTML = '<div class="small muted" style="margin-top:.6rem">' + UI.icon('hourglass') + ' ' + t('AI đang chấm bài (10–30 giây)…') + '</div>';
       nanoProgress = p => { out.innerHTML = `<div class="small muted" style="margin-top:.6rem">⬇️ ${t('Chrome đang tải AI trên máy lần đầu ({pct}%) – chỉ tải một lần…', { pct: Math.round(p * 100) })}</div>`; };
       const showLocal = async (note, quota) => { const r = await localGrade(inp); out.innerHTML = (note ? `<div class="tip small" style="margin:.6rem 0">${note}</div>` : '') + render(r, inp.kind) + `<div class="row" style="margin-top:.6rem">${quota ? `<button class="btn sm ghost" data-k>🔑 ${t('Thêm khóa Gemini riêng (không bắt buộc)')}</button>` : `<button class="btn sm primary" data-retry>🤖 ${t('Chấm sâu như giám khảo bằng AI (miễn phí)')}</button>`}</div>`; const k = $('[data-k]', out); if (k) k.onclick = () => keyDialog(go); const rt = $('[data-retry]', out); if (rt) rt.onclick = go; };
       if (!aiReady) { await showLocal(''); b.disabled = false; b.textContent = '↻ ' + t('Chấm lại'); return; }
       try { try { const r = await grade(inp); out.innerHTML = render(r, inp.kind) + (r._left != null ? `<div class="tiny muted" style="margin-top:.5rem">🎁 ${t('Còn {n} lượt chấm AI miễn phí hôm nay', { n: r._left })}</div>` : ''); b.textContent = '↻ ' + t('Chấm lại'); }
-      catch (e) { if (e.message === 'PROXY_QUOTA') { await showLocal('⏳ ' + esc(UI.quotaText(e.q)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:'), true); b.disabled = false; return; }
+      catch (e) { if (e.message === 'PROXY_QUOTA') { await showLocal(UI.icon('hourglass') + ' ' + esc(UI.quotaText(e.q)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:'), true); b.disabled = false; return; }
         if (['QUOTA', 'FAILED', 'TIMEOUT', 'OFFLINE', 'NO_KEY'].includes(e.message)) { await showLocal('⚠️ ' + esc(errText(e)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:')); b.disabled = false; return; } throw e; } }
       catch (e) { out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(errText(e))} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`; const k = $('[data-k]', out); if (k) k.onclick = () => keyDialog(go); }
       b.disabled = false;
@@ -264,21 +303,24 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
   async function settingsHtml() {
     const k = await getKey();
     const ns = await nanoStatus();
-    const nano = ns === 'available' ? '✅ ' + t('Sẵn sàng') : ns === 'downloadable' || ns === 'downloading' ? `<button class="btn sm" id="aiNanoDl">⬇️ ${t('Tải về (~2 GB, 1 lần)')}</button>` : '— ' + t('Trình duyệt chưa hỗ trợ');
+    const nano = ns === 'available' ? UI.icon('circle-check') + ' ' + t('Sẵn sàng') : ns === 'downloadable' || ns === 'downloading' ? `<button class="btn sm" id="aiNanoDl">⬇️ ${t('Tải về (~2 GB, 1 lần)')}</button>` : '— ' + t('Trình duyệt chưa hỗ trợ');
     // Các mức AI miễn phí người học đang có (luôn có ít nhất mức chấm nhanh) – cùng kiểu danh sách với trang Cài đặt
     const r = (l, c, h = '') => `<div class="set-row"><div class="set-l"><span>${l}</span>${h ? `<small>${h}</small>` : ''}</div><div class="set-c">${c}</div></div>`;
     return `<h3 class="set-h">🤖 ${t('Chấm bài bằng AI')}</h3><div class="set-list">
-      ${r('🎁 ' + t('AI chấm Writing & Speaking miễn phí của Lexkite'), `<b class="good small">✅ ${t('Luôn có')}</b>`, t('3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa'))}
-      ${r('⚡ ' + t('Chấm nhanh & ghi chú từ soạn sẵn'), `<b class="good small">✅ ${t('Luôn có')}</b>`)}
-      ${r('💻 ' + t('AI có sẵn trong Chrome (trên máy, riêng tư)'), `<span class="small">${nano}</span>`)}
-      ${r('✨ ' + t('Gemini – chấm chi tiết như giám khảo'), `<span class="set-btns">${k ? `<span class="chip ok">✓ ${t('Đã có khóa {key}…', { key: esc(k.slice(0, 6)) })}</span>` : ''}<button type="button" class="btn sm" id="aiSet">${k ? t('Đổi khóa') : t('Thêm khóa')}</button>${k ? `<button type="button" class="btn sm ghost" id="aiDel">${t('Xóa khóa')}</button>` : ''}</span>`, t('Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.'))}
+      ${r('🎁 ' + t('AI chấm Writing & Speaking miễn phí của Lexkite'), `<b class="good small">${UI.icon('circle-check')} ${t('Luôn có')}</b>`, t('3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa'))}
+      ${r(UI.icon('zap') + ' ' + t('Chấm nhanh & ghi chú từ soạn sẵn'), `<b class="good small">${UI.icon('circle-check')} ${t('Luôn có')}</b>`)}
+      ${hasLocal() ? r(UI.icon('lock') + ' ' + t('Dùng AI trên máy (miễn phí, riêng tư)'), `<input type="checkbox" id="aiLocalT" aria-label="${t('Dùng AI trên máy (miễn phí, riêng tư)')}" ${state.settings.aiLocal !== false ? 'checked' : ''}>`, t('Chạy trên máy của bạn – miễn phí, không gửi đi đâu')) : ''}
+      ${r('💻 ' + t('AI có sẵn trong Chrome (trên máy, riêng tư)'), `<span class="small">${nano}</span>`, ns === 'downloadable' ? t('Nên dùng Wi-Fi – tải tiếp được nếu bị ngắt') : '')}
+      ${r(UI.icon('sparkles') + ' ' + t('Gemini – chấm chi tiết như giám khảo'), `<span class="set-btns">${k ? `<span class="chip ok">✓ ${t('Đã có khóa {key}…', { key: esc(k.slice(0, 6)) })}</span>` : ''}<button type="button" class="btn sm" id="aiSet">${k ? t('Đổi khóa') : t('Thêm khóa')}</button>${k ? `<button type="button" class="btn sm ghost" id="aiDel">${t('Xóa khóa')}</button>` : ''}</span>`, t('Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.'))}
       ${r(t('Mô hình'), `<select class="input" id="aiModel" aria-label="${t('Mô hình')}">${['', ...MODELS].map(m => `<option value="${m}" ${(state.settings.aiModel || '') === m ? 'selected' : ''}>${m || t('Tự động (khuyên dùng)')}</option>`).join('')}</select>`)}</div>`;
   }
   function bindSettings(rerender) {
     const s = $('#aiSet'); if (s) s.onclick = () => keyDialog(rerender);
     const d = $('#aiDel'); if (d) d.onclick = async () => { await setKey(''); toast(t('Đã xóa khóa AI')); rerender(); };
     const m = $('#aiModel'); if (m) m.onchange = () => { state.settings.aiModel = m.value; App.saveSettings(); };
+    const lt = $('#aiLocalT'); if (lt) lt.onchange = () => { state.settings.aiLocal = lt.checked; App.saveSettings(); if (window.AILocal) AILocal.setEnabled(null); };
     const dl = $('#aiNanoDl'); if (dl) dl.onclick = async () => { // người dùng chủ động tải AI của Chrome, có tiến độ
+      const c = navigator.connection; if (c && (c.saveData || c.type === 'cellular')) return toast(t('Đang dùng dữ liệu di động – hãy bật Wi-Fi để tải'));
       dl.disabled = true; nanoOptIn = true;
       try { const sess = await LMapi().create({ ...LMopts, monitor(m) { m.addEventListener('downloadprogress', e => { dl.textContent = `⬇️ ${Math.round(e.loaded * 100)}%`; }); } }); sess.destroy(); toast('✅ ' + t('AI của Chrome đã sẵn sàng')); rerender(); }
       catch (e) { dl.disabled = false; dl.textContent = '⚠️ ' + t('Không tải được – thử lại sau'); }
@@ -290,21 +332,22 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const id = 'ex:' + hash(text + '|' + (sentence || ''));
     const cache = await Store.get('aiCache', {});
     if (cache[id]) return cache[id];
-    const r = await call(`Explain the English expression for a Vietnamese IELTS learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
-Return ONLY JSON: {"meaning": string (Vietnamese meaning in THIS context), "structure": [{"pattern": string, "explain": string (Vietnamese)}] (1-3), "grammar": string (Vietnamese), "collocations": [string] (3-5), "examples": [{"en": string, "vi": string}] (2, IELTS style), "tip": string (Vietnamese: how to use it in IELTS Writing/Speaking)}`);
+    const r = await askLocal(`Explain the English expression for a Vietnamese IELTS learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
+Return ONLY JSON: {"meaning": string (Vietnamese meaning in THIS context), "structure": [{"pattern": string, "explain": string (Vietnamese)}] (1-3), "grammar": string (Vietnamese), "collocations": [string] (3-5), "examples": [{"en": string, "vi": string}] (2, IELTS style), "tip": string (Vietnamese: how to use it in IELTS Writing/Speaking)}`, { schema: EX_SCHEMA, ok: x => x.meaning.trim().length >= 2 && x.examples.length >= 1 });
     const keys = Object.keys(cache); if (keys.length >= 20) delete cache[keys[0]];
     cache[id] = r; await Store.set('aiCache', cache);
     return r;
   }
+  const EX_SCHEMA = { type: 'object', required: ['meaning', 'examples'], properties: { meaning: { type: 'string', minLength: 2 }, structure: { type: 'array', items: { type: 'object', required: ['pattern'], properties: { pattern: STR, explain: STR } } }, grammar: STR, collocations: { type: 'array', items: STR }, examples: { type: 'array', minItems: 1, items: { type: 'object', required: ['en'], properties: { en: STR, vi: STR } } }, tip: STR } };
   function renderExplain(x) {
-    return `<div class="ai-ex"><b>🤖 ${t('Giải thích sâu')}</b>
+    return `<div class="ai-ex"><b>🤖 ${t('Giải thích sâu')}</b>${badge(x)}
       ${x.meaning ? `<div class="small"><b>${t('Nghĩa trong ngữ cảnh:')}</b> ${esc(x.meaning)}</div>` : ''}
       ${(x.structure || []).map(y => `<div class="small" style="margin-top:.3rem"><b style="color:var(--primary)">${esc(y.pattern)}</b> – ${esc(y.explain)}</div>`).join('')}
       ${x.grammar ? `<div class="small" style="margin-top:.3rem"><b>${t('Ngữ pháp:')}</b> ${esc(x.grammar)}</div>` : ''}
       ${(x.collocations || []).length ? `<div class="row" style="margin-top:.3rem;gap:.25rem">${x.collocations.map(c => `<span class="chip">${esc(c)}</span>`).join('')}</div>` : ''}
       ${(x.examples || []).map(e => `<div class="small" style="margin-top:.35rem">“${esc(e.en)}” <button class="ctx-say sm" data-saysent="${esc(e.en)}">🔊</button><div class="muted">${esc(e.vi)}</div></div>`).join('')}
-      ${x.tip ? `<div class="small" style="margin-top:.35rem">💡 ${esc(x.tip)}</div>` : ''}</div>`;
+      ${x.tip ? `<div class="small" style="margin-top:.35rem">${UI.icon('lightbulb')} ${esc(x.tip)}</div>` : ''}</div>`;
   }
 
-  window.AI = { localGrade, ask: p => call(p), nanoStatus, onNanoProgress: f => { nanoProgress = f; nanoOptIn = true; }, explain, renderExplain, errText: e => errText(e), getKey, grade, attach, keyDialog, settingsHtml, bindSettings };
+  window.AI = { localGrade, ask: p => call(p), askLocal, localOn, badge, nanoStatus, onNanoProgress: f => { nanoProgress = f; nanoOptIn = true; }, explain, renderExplain, errText: e => errText(e), getKey, grade, attach, keyDialog, settingsHtml, bindSettings };
 })();

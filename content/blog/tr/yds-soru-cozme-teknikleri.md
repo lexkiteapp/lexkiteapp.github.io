@@ -18,7 +18,7 @@ qualityScore: 95
 
 Yabancı Dil Bilgisi Seviye Tespit Sınavı (YDS), Türkiye'de akademik kariyer hedefleyen araştırmacılar, yüksek lisans ve doktora öğrencileri ile kamu personelinin yabancı dil tazminatı almak için girdiği en kritik sınavlardan biridir. Toplam 80 sorudan oluşan ve 180 dakika süren bu sınavda başarı, sadece geniş bir kelime bilgisine değil, aynı zamanda doğru **yds soru çözme teknikleri** ve stratejik zaman yönetimine dayanır.
 
-Birçok aday sınavda süreyi yetiştirememekten, uzun paragraflarda boğulmaktan veya çeldirici şıklar arasında kalarak net kaybetmekten şikayet eder. Oysa YDS, kuralları ve şablonları son derece belirgin bir sınavdır. Soruların büyük bir kısmı belirli dilbilgisi kalıplarını, zıtlık bağlaçlarını ve bağlam ipuçlarını okuma becerinizi ölçer. Bu kapsamlı rehberde, YDS'de en çok puan kazandıran soru tiplerini ve netlerinizi doğrudan yukarı taşıyacak pratik çözüm tekniklerini detaylarıyla inceleyeceğiz.
+Birçok aday sınavda süreyi yetiştirememekten, uzun paragraflarda boğulmaktan veya çeldirici şıklar arasında kalarak net kaybetmekten şikayet eder. Oysa YDS, kuralları ve şablonları son derece belirgin bir sınavdır. Soruların büyük bir kısmı belirli dilbilgisi kalıplarını, zıtlık bağlaçlarını ve bağlam ipuçlarını okuma becerinizi ölçer. Bu kapsamlı rehberde, YDS'de en çok puan kazandıran soru tiplerini ve netlerinizi doğrudan yukarı taşıyacak pratik çözüm tekniklerini detaylarıyla inceleyeceğiz. Cümle tamamlamada sık çıkan aktarma yapıları için [İngilizce dolaylı anlatım](/tr/blog/ingilizce-dolayli-anlatim-reported-speech/) rehberine de göz atabilirsin.
 
 ## YDS Sınavının Yapısı ve Soru Dağılımı
 

@@ -6,6 +6,7 @@
 import { gate } from './_quota.js';
 import { once } from './_schema.js';
 import { docsDb, pickShard } from './_shard.js';
+import { cleanDocBody } from './_ctx.js';
 
 const PROJECT = 'lexkite-app';
 const JWKS_URL = 'https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com';
@@ -159,6 +160,8 @@ export async function onRequestPost({ request, env }) {
         if (!KEY_RE.test(k) || !d || typeof d.h !== 'string' || typeof d.body !== 'string' || d.h.length > 64) return json(request, 400, { error: 'bad-doc', k });
         if (d.body.length > MAX_BODY) return json(request, 413, { error: 'doc-too-large', k });
       }
+      // Câu ngữ cảnh (P2-1.1): chỉ nhóm thẻ có cờ x:1 (máy khách có ctx) mới giải nén để làm sạch ctx/src; còn lại đi thẳng (CPU ≈ 0, máy khách cũ không bị ảnh hưởng)
+      for (const [k, d] of entries) if (d.x === 1 && k !== 'meta') { try { d.body = await cleanDocBody(d.body); } catch (e) { return json(request, 400, { error: 'bad-doc', k }); } }
       const legacy = async now => { const stmt = ddb.prepare('INSERT INTO docs (uid, k, h, body, updated) VALUES (?1, ?2, ?3, ?4, ?5) ON CONFLICT (uid, k) DO UPDATE SET h = ?3, body = ?4, updated = ?5 WHERE docs.h IS NOT ?3 OR docs.body IS NOT ?4'); await ddb.batch(entries.map(([k, d]) => stmt.bind(uid, k, d.h, d.body, now))); };
       if (!packOn(env)) { await legacy(Date.now()); return json(request, 200, { ok: true, n: entries.length }); }
       for (let attempt = 0; attempt < 3; attempt++) {

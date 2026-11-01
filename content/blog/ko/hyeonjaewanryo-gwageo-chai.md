@@ -145,6 +145,8 @@ qualityScore: 94
 
 {{youtube: | 영상 아이디어: 현재완료 vs 과거시제 원어민 시각으로 5분 만에 끝내는 완벽 구별법}}
 
+규칙 동사의 과거형을 정확하게 발음하려면 [영어 ed 발음 규칙](/ko/blog/yeongeo-ed-bareum-gyuchik/)도 함께 보세요.
+
 {{cta: /#/grammar | 영문법 시제 실전 연습 시작}}
 
 ## 자주 묻는 질문

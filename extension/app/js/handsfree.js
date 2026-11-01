@@ -70,7 +70,7 @@
     const hidden = () => document.visibilityState === 'hidden';
     const draw = () => {
       const w = words[i];
-      $('#hfCard').innerHTML = `<div class="hf-word">${esc(w.word)}</div><div class="ipa">${esc(w.ipa || '')}</div><div class="vi hf-mean">${esc(App.meanOf(w))}</div>${w.ex ? `<div class="ex small" style="margin-top:.6rem">“${esc(w.ex)}”</div>` : ''}`;
+      $('#hfCard').innerHTML = `<div class="hf-word">${esc(w.word)}</div><div>${UI.ipaHtml(w, state.settings.accent, { noEx: true })}</div><div class="vi hf-mean">${esc(App.meanOf(w))}</div>${w.ex ? `<div class="ex small" style="margin-top:.6rem">“${esc(w.ex)}”</div>` : ''}`;
       $('#hfPos').textContent = `${i + 1}/${words.length}`;
       if ('mediaSession' in navigator && window.MediaMetadata) {
         navigator.mediaSession.metadata = new MediaMetadata({

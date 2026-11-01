@@ -105,6 +105,8 @@ Bài tập 15 phút mỗi ngày:
 
 Một mẹo nhỏ: danh sách từ khóa ở bên phải bài đọc là "bài tập scanning" có sẵn. Chọn một từ trong danh sách, rồi thử tìm nó trong bài nhanh nhất có thể. Làm 5 từ liên tiếp, bạn sẽ thấy mắt quen dần việc nhảy cụm.
 
+Kỹ năng đọc lướt để nắm ý chính đoạn là nền tảng của dạng ghép tiêu đề; xem quy trình 5 bước trong [bài matching headings IELTS](/vi/blog/ielts-reading-matching-headings/).
+
 {{cta: /#/reading | Chọn một bài đọc và thử skimming trong 2 phút}}
 
 {{youtube: | Gợi ý video: Demo skimming một bài đọc học thuật trong 2 phút, ghi chú bên lề từng đoạn}}

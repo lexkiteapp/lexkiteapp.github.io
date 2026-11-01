@@ -149,6 +149,8 @@ Mỗi khi bắt gặp một liên từ hoặc cấu trúc mới trong lúc đọ
 
 Bạn cũng có thể xem thêm kho bài học tại chuyên trang [ngữ pháp tiếng Anh](/ngu-phap/) để hệ thống hóa kiến thức bài bản mỗi ngày.
 
+Câu điều kiện thường đi cùng động từ khuyết thiếu và câu bị động; xem [bài động từ khuyết thiếu](/vi/blog/dong-tu-khuyet-thieu-can-could-should-must/) và [bài câu bị động](/vi/blog/cau-bi-dong-tieng-anh-passive-voice/).
+
 {{cta: /#/grammar | Luyện tập câu điều kiện trên Lexkite}}
 
 {{youtube: | Gợi ý video: Phân biệt câu điều kiện loại 2 và loại 3 qua các ví dụ thực tế}}

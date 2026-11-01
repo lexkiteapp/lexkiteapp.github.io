@@ -8,9 +8,10 @@ const require = createRequire(import.meta.url);
 const AXE = fs.readFileSync(require.resolve('axe-core'), 'utf8');
 let BASE = process.argv[2];
 if (!BASE) BASE = (await fetch('https://lexkite.com/app/').then(r => r.ok).catch(() => false)) ? 'https://lexkite.com/app/' : 'https://lexkite.com/';
-const ROUTES = ['home', 'vocab', 'library', 'review', 'practice', 'skills', 'tests', 'grammar', 'phrases', 'models', 'me', 'stats', 'settings', 'contact',
+const ROUTES_ALL = ['home', 'vocab', 'library', 'review', 'practice', 'skills', 'tests', 'grammar', 'phrases', 'models', 'me', 'stats', 'settings', 'contact',
   'verb/take', 'fix', 'courses', 'roleplay', 'reflex', 'paraphrase', 'toeic', 'letters', 'goal', 'placement', 'usage', 'usage/interested', 'usage/stop', 'usage?c=adv', 'usage/affect-effect',
   'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1'];
+const ROUTES = process.env.CONTRAST_ROUTES ? process.env.CONTRAST_ROUTES.split(',').map(x => x.trim()).filter(Boolean) : ROUTES_ALL; // mặc định = đủ danh sách; post-deploy-check.yml chỉ chọn tập con màn chính để chạy nhanh
 const found = new Map();
 const add = (scheme, lang, where, n) => {
   const k = n.target.join(' ') + '|' + where.split('#')[0];
@@ -38,7 +39,7 @@ for (const scheme of ['light', 'dark']) for (const lang of ['vi', 'en']) {
   const page = await ctx.newPage();
   const url = r => `${BASE}?sandbox=1&hl=${lang}#/${r}`;
   await page.goto(url('welcome/setup'), { waitUntil: 'networkidle' }).catch(() => {});
-  const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); }
+  await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   for (const r of ROUTES) {
     await page.goto(url(r), { waitUntil: 'networkidle' }).catch(() => {}); await page.waitForTimeout(900);
     await scan(page, scheme, lang, '#/' + r);

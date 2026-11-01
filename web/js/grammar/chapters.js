@@ -31,7 +31,7 @@
       { type: 'signals', words: ['when', 'as soon as', 'once', 'until / till', 'before', 'after', 'while', 'by the time', 'the moment'] },
       { type: 'tip', text: 'Mẹo nhớ: trong mệnh đề thời gian, "will" bị cấm cửa. Nói tương lai thì vế chính mang will, vế thời gian mang hiện tại.' },
       { type: 'mistake', wrong: 'I will call you when I will arrive in London.', right: 'I will call you when I arrive in London.', why: 'Mệnh đề thời gian (when…) chỉ tương lai dùng hiện tại đơn, không dùng will.' },
-      { type: 'mistake', wrong: 'By the time we got to the cinema, the film already started.', right: 'By the time we got to the cinema, the film had already started.', why: 'Hành động xảy ra trước mốc "by the time + quá khứ" cần quá khứ hoàn thành.' },
+      { type: 'mistake', wrong: 'By the time we got to the movie theater, the movie already started.', right: 'By the time we got to the movie theater, the movie had already started.', why: 'Hành động xảy ra trước mốc "by the time + quá khứ" cần quá khứ hoàn thành.' },
       { type: 'mistake', wrong: 'We will wait here until the rain will stop.', right: 'We will wait here until the rain stops.', why: 'Until cũng là liên từ thời gian → hiện tại đơn cho tương lai.' },
       { type: 'ielts', text: 'Trong Writing Task 1 dạng quy trình (process), dùng once / after / as soon as + hiện tại hoàn thành để nối các bước. Trong Task 2 khi dự đoán tương lai, nhớ: when + hiện tại.', ex: '[[Once the beans have been dried]], they [[are roasted]] at a high temperature.' }
     ],
@@ -42,8 +42,8 @@
       { q: 'By the time she retires, she ___ at the hospital for forty years.', options: ['works', 'will have worked', 'had worked', 'has worked'], answer: 1, explain: 'By the time + hiện tại đơn → tương lai hoàn thành. works và has worked không hướng tới mốc tương lai; had worked là quá khứ.' },
       { q: 'Once the application ___, you will be contacted within ten days.', options: ['will be processed', 'was processed', 'has been processed', 'had been processed'], answer: 2, explain: 'Once + hiện tại hoàn thành để nhấn hành động hoàn tất trước tương lai. Không dùng will trong mệnh đề thời gian sau once; was processed và had been processed là quá khứ.' },
       { q: 'While I ___ through the report, I noticed several errors.', options: ['will read', 'was reading', 'have read', 'am reading'], answer: 1, explain: 'While + quá khứ tiếp diễn cho hành động đang diễn ra thì hành động khác xen vào. will read là tương lai; have read và am reading sai thì.' },
-      { q: 'Câu nào đúng?', options: ['I will phone you after I will finish work.', 'When the government will raise taxes, prices will rise.', 'Before you start the test, read the instructions carefully.', 'She will wait until he will apologise.'], answer: 2, explain: 'Before + hiện tại đơn là đúng. Các câu khác dùng will trong mệnh đề thời gian.' },
-      { q: 'Câu nào đúng?', options: ['By the time I woke up, my flatmate had gone to work.', 'By the time I woke up, my flatmate has gone to work.', 'By the time I wake up, my flatmate had gone to work.', 'By the time I woke up, my flatmate goes to work.'], answer: 0, explain: 'By the time + quá khứ đơn, mệnh đề chính quá khứ hoàn thành. has gone và goes sai thì; "wake up… had gone" trộn hiện tại với quá khứ hoàn thành.' },
+      { q: 'Câu nào đúng?', options: ['I will phone you after I will finish work.', 'When the government will raise taxes, prices will rise.', 'Before you start the test, read the instructions carefully.', 'She will wait until he will apologize.'], answer: 2, explain: 'Before + hiện tại đơn là đúng. Các câu khác dùng will trong mệnh đề thời gian.' },
+      { q: 'Câu nào đúng?', options: ['By the time I woke up, my roommate had gone to work.', 'By the time I woke up, my roommate has gone to work.', 'By the time I wake up, my roommate had gone to work.', 'By the time I woke up, my roommate goes to work.'], answer: 0, explain: 'By the time + quá khứ đơn, mệnh đề chính quá khứ hoàn thành. has gone và goes sai thì; "wake up… had gone" trộn hiện tại với quá khứ hoàn thành.' },
       { q: 'Câu nào đúng?', options: ['After he has graduated last year, he moved to Manchester.', 'After he had graduated, he moved to Manchester.', 'After he will graduate, he moved to Manchester.', 'After he graduates, he moved to Manchester.'], answer: 1, explain: 'Chuỗi quá khứ: after + quá khứ hoàn thành (hoặc quá khứ đơn), mệnh đề chính quá khứ đơn. "has graduated last year" sai thì; "will graduate" và "graduates" không hợp với moved (quá khứ).' },
       { q: 'Câu nào cùng nghĩa? "The guests arrived. Then we finished cooking."', options: ['By the time the guests arrived, we had finished cooking.', 'When the guests arrived, we had finished cooking.', 'We had finished cooking after the guests arrived.', 'By the time the guests arrived, we hadn\'t finished cooking yet.'], answer: 3, explain: 'Khách đến trước, nấu xong sau → lúc khách đến thì chưa nấu xong (hadn\'t finished yet). When… had finished và "after the guests arrived" đổi trình tự sự việc; chỉ đáp án phủ định giữ đúng nghĩa câu gốc.' },
       { q: 'Câu nào cùng nghĩa? "You must finish the essay. Then you can go out."', options: ['You can go out until you finish the essay.', 'You can go out before you finish the essay.', 'You can\'t go out until you have finished the essay.', 'You can go out while you are finishing the essay.'], answer: 2, explain: 'not… until = chỉ khi… xong thì mới → You can\'t go out until you have finished the essay. Các câu khác nói bạn có thể ra ngoài trước/trong khi làm bài, trái nghĩa.' },
@@ -121,12 +121,12 @@
       { type: 'formula', rows: [
         { label: 'Although → Despite', parts: [ { t: 'Despite / In spite of', c: 'adv' }, { t: 'N / V-ing / the fact that', c: 'obj' }, { t: 'S', c: 'subj' }, { t: 'V', c: 'verb' } ], ex: '[[Despite earning]] a high salary, he struggled to save money.' },
         { label: 'It takes ↔ spend', parts: [ { t: 'It takes', c: 'verb' }, { t: 'sb', c: 'obj' }, { t: 'thời gian', c: 'time' }, { t: 'to V', c: 'verb' } ], ex: '[[It took me three hours to finish]] the assignment. = I [[spent three hours finishing]] the assignment.' },
-        { label: 'Không còn nữa', parts: [ { t: 'S', c: 'subj' }, { t: 'no longer', c: 'neg' }, { t: 'V', c: 'verb' } ], ex: 'She [[used to smoke]]. → She [[no longer smokes]]. / She [[doesn\'t smoke any more]].' },
+        { label: 'Không còn nữa', parts: [ { t: 'S', c: 'subj' }, { t: 'no longer', c: 'neg' }, { t: 'V', c: 'verb' } ], ex: 'She [[used to smoke]]. → She [[no longer smokes]]. / She [[doesn\'t smoke anymore]].' },
         { label: 'Mãi đến khi', parts: [ { t: 'It was not until', c: 'neg' }, { t: 'mốc thời gian', c: 'time' }, { t: 'that', c: 'aux' }, { t: 'S + V2', c: 'verb' } ], ex: '[[It was not until 2015 that]] the bridge was completed.' },
         { label: 'Lần đầu ↔ chưa từng', parts: [ { t: 'This is the first time', c: 'time' }, { t: 'S', c: 'subj' }, { t: 'have/has', c: 'aux' }, { t: 'V3', c: 'verb' } ], ex: 'This is [[the first time I have visited]] Scotland. = I [[have never visited]] Scotland before.' }
       ] },
       { type: 'uses', items: [
-        { title: 'Because + mệnh đề ↔ because of / due to + cụm danh từ', ex: 'The flight was cancelled [[because of]] the storm.', vi: 'Chuyến bay bị hủy vì bão.' },
+        { title: 'Because + mệnh đề ↔ because of / due to + cụm danh từ', ex: 'The flight was canceled [[because of]] the storm.', vi: 'Chuyến bay bị hủy vì bão.' },
         { title: 'Prefer A to B ↔ would rather A than B', ex: 'I [[would rather cook at home than eat out]].', vi: 'Tôi thích nấu ăn ở nhà hơn là ăn ngoài.' },
         { title: 'Chủ động ↔ bị động', ex: 'The new library [[was opened by]] the mayor.', vi: 'Thư viện mới được thị trưởng khai trương.' },
         { title: 'So sánh hơn ↔ so sánh nhất', ex: '[[No other city]] in the country is [[as expensive as]] London.', vi: 'Không thành phố nào trong nước đắt đỏ bằng London.' },
@@ -138,7 +138,7 @@
         ['I prefer tea to coffee.', 'I\'d rather drink tea than coffee.'],
         ['He used to live in Hue.', 'He no longer lives in Hue.'],
         ['This is the best film I have ever seen.', 'I have never seen a better film than this.'],
-        ['He didn\'t learn to drive until he was 30.', 'It was not until he was 30 that he learnt to drive.']
+        ['He didn\'t learn to drive until he was 30.', 'It was not until he was 30 that he learned to drive.']
       ] },
       { type: 'tip', text: 'Khi viết lại, kiểm tra 3 điều: (1) nghĩa giữ nguyên, (2) thì giữ nguyên, (3) loại từ đi sau cấu trúc mới (despite + N/V-ing, because + mệnh đề, would rather + V nguyên mẫu).' },
       { type: 'mistake', wrong: 'Despite it was expensive, she bought the dress.', right: 'Despite the fact that it was expensive / Although it was expensive, she bought the dress.', why: 'Despite không đi trực tiếp với mệnh đề; cần N, V-ing hoặc the fact that.' },
@@ -150,12 +150,12 @@
       { q: 'The box was ___ heavy for the child to carry.', options: ['so', 'too', 'such', 'enough'], answer: 1, explain: 'too + tính từ + for sb + to V (quá… đến nỗi ai đó không thể…) → too heavy for the child to carry.' },
       { q: '___ the traffic, we arrived on time.', options: ['Although', 'Because', 'Despite', 'Even'], answer: 2, explain: 'Sau chỗ trống là cụm danh từ (the traffic) và ý tương phản → Despite. Although cần mệnh đề; Because sai nghĩa; Even phải là Even though + mệnh đề.' },
       { q: 'It ___ me two weeks to get used to the new job.', options: ['took', 'spent', 'cost', 'needed'], answer: 0, explain: 'It takes/took + sb + thời gian + to V → It took me two weeks. spend phải dùng người làm chủ ngữ (I spent…); cost dùng cho tiền; needed không đi với cấu trúc này.' },
-      { q: 'I\'d rather ___ by train than by coach.', options: ['to travel', 'travelling', 'travelled', 'travel'], answer: 3, explain: 'would rather + V nguyên mẫu (… than + V) → I\'d rather travel. Sau would rather không dùng to V, V-ing hay V2.' },
+      { q: 'I\'d rather ___ by train than by coach.', options: ['to travel', 'traveling', 'traveled', 'travel'], answer: 3, explain: 'would rather + V nguyên mẫu (… than + V) → I\'d rather travel. Sau would rather không dùng to V, V-ing hay V2.' },
       { q: 'It was not until midnight ___ the results were announced.', options: ['when', 'that', 'which', 'then'], answer: 1, explain: 'Cấu trúc cố định: It was not until… that… → that. when, which, then không dùng trong cấu trúc này.' },
       { q: 'This is the first time I ___ a presentation in English.', options: ['give', 'gave', 'have given', 'am giving'], answer: 2, explain: 'This is the first time + hiện tại hoàn thành → I have given. give và am giving sai thì; gave là quá khứ đơn, không dùng sau "This is the first time".' },
       { q: 'Câu nào đúng?', options: ['He isn\'t enough tall to join the team.', 'He isn\'t tall enough to join the team.', 'He is too short enough to join the team.', 'He isn\'t so tall to join the team.'], answer: 1, explain: 'enough đứng SAU tính từ: tall enough to V. "enough tall" sai vị trí; "too short enough" trộn hai cấu trúc; "so tall to" phải là so tall that…' },
-      { q: 'Câu nào đúng?', options: ['In spite of feeling ill, she sat the exam.', 'In spite feeling ill, she sat the exam.', 'In spite of she felt ill, she sat the exam.', 'Despite of feeling ill, she sat the exam.'], answer: 0, explain: 'In spite of / Despite (không có of) + V-ing → In spite of feeling ill. "In spite feeling" thiếu of; "In spite of she felt" đặt mệnh đề sau giới từ; "Despite of" thừa of.' },
-      { q: 'Câu nào đúng?', options: ['She no longer works at the bank any more.', 'She doesn\'t work at the bank no longer.', 'She used to working at the bank.', 'She doesn\'t work at the bank any more.'], answer: 3, explain: 'Not … any more HOẶC no longer – không dùng cả hai cùng lúc. Câu 1 dùng cả no longer và any more; câu 2 là phủ định kép; "used to working" sai dạng.' },
+      { q: 'Câu nào đúng?', options: ['In spite of feeling ill, she took the exam.', 'In spite feeling ill, she took the exam.', 'In spite of she felt ill, she took the exam.', 'Despite of feeling ill, she took the exam.'], answer: 0, explain: 'In spite of / Despite (không có of) + V-ing → In spite of feeling ill. "In spite feeling" thiếu of; "In spite of she felt" đặt mệnh đề sau giới từ; "Despite of" thừa of.' },
+      { q: 'Câu nào đúng?', options: ['She no longer works at the bank anymore.', 'She doesn\'t work at the bank no longer.', 'She used to working at the bank.', 'She doesn\'t work at the bank anymore.'], answer: 3, explain: 'Not … anymore (Anh – Anh hay viết any more) HOẶC no longer – không dùng cả hai cùng lúc. Câu 1 dùng cả no longer và anymore; câu 2 là phủ định kép; "used to working" sai dạng.' },
       { q: 'Câu nào cùng nghĩa? "I have never eaten durian before."', options: ['This is the last time I eat durian.', 'I ate durian for the first time a long time ago.', 'This is the first time I have eaten durian.', 'I have eaten durian many times.'], answer: 2, explain: 'Never … before = this is the first time + hiện tại hoàn thành. the last time và ate… a long time ago đổi nghĩa; have eaten many times trái nghĩa.' },
       { q: 'Câu nào cùng nghĩa? "Mount Everest is the highest mountain in the world."', options: ['No mountain in the world is higher than Mount Everest.', 'Mount Everest is higher than some mountains.', 'Mount Everest is as high as other mountains.', 'Some mountains are higher than Mount Everest.'], answer: 0, explain: 'So sánh nhất ↔ No… + so sánh hơn + than → No mountain in the world is higher than Mount Everest. Các câu khác làm sai nghĩa (Everest chỉ cao hơn vài núi, bằng núi khác, hoặc thấp hơn).' },
       { q: 'Câu nào cùng nghĩa? "Because the instructions were unclear, many candidates made mistakes."', options: ['Although the instructions were unclear, few candidates made mistakes.', 'Many candidates made mistakes in spite of the unclear instructions.', 'The instructions were unclear because many candidates made mistakes.', 'Because of the unclear instructions, many candidates made mistakes.'], answer: 3, explain: 'Because + mệnh đề → because of + cụm danh từ, giữ nguyên quan hệ nhân quả. Although/in spite of đổi quan hệ thành tương phản; các phương án còn lại sai nghĩa hoặc sai cấu trúc.' }
@@ -223,12 +223,12 @@
   G.push({
     id: 'nouns', unit: 'words', order: 5,
     title: 'Danh từ: số nhiều đặc biệt, ghép, sở hữu, tập hợp', en: 'Nouns: Irregular Plurals, Compounds, Possessives, Collectives', level: 'B1', emoji: '📦',
-    summary: 'Dùng đúng số nhiều gốc Latin/Hy Lạp (phenomenon → phenomena, criterion → criteria), danh từ ghép (the city centre, a ten-year plan), sở hữu \'s và of, và danh từ tập hợp như government, staff, police.',
+    summary: 'Dùng đúng số nhiều gốc Latin/Hy Lạp (phenomenon → phenomena, criterion → criteria), danh từ ghép (the city center, a ten-year plan), sở hữu \'s và of, và danh từ tập hợp như government, staff, police.',
     blocks: [
       { type: 'sort', caption: 'Bốn nhóm danh từ dễ sai trong bài viết học thuật', groups: [
         { title: 'Số nhiều đặc biệt', emoji: '🔤', items: ['phenomenon → phenomena', 'criterion → criteria', 'analysis → analyses', 'crisis → crises', 'datum → data'] },
-        { title: 'Danh từ ghép', emoji: '🧷', items: ['traffic jam', 'city centre', 'air pollution', 'a five-year plan', 'mother-in-law'] },
-        { title: 'Sở hữu cách', emoji: '🔑', items: ['the students\' union', 'children\'s health', 'the role of the media', 'a week\'s holiday'] },
+        { title: 'Danh từ ghép', emoji: '🧷', items: ['traffic jam', 'city center', 'air pollution', 'a five-year plan', 'mother-in-law'] },
+        { title: 'Sở hữu cách', emoji: '🔑', items: ['the students\' union', 'children\'s health', 'the role of the media', 'a week\'s vacation'] },
         { title: 'Danh từ tập hợp', emoji: '👥', items: ['government', 'staff', 'police', 'audience', 'family'] }
       ] },
       { type: 'formula', rows: [
@@ -239,9 +239,9 @@
       ] },
       { type: 'uses', items: [
         { title: 'Phenomena / criteria / crises là SỐ NHIỀU → động từ số nhiều', ex: '[[These criteria are]] used to assess applications.', vi: 'Các tiêu chí này được dùng để đánh giá hồ sơ.' },
-        { title: 'Data: văn học thuật Anh có thể dùng số nhiều hoặc không đếm được', ex: '[[The data suggest]] that obesity is rising. / [[The data suggests]]…', vi: 'Dữ liệu cho thấy béo phì đang gia tăng.' },
+        { title: 'Data: văn học thuật có thể dùng số nhiều hoặc không đếm được; Anh – Mỹ thông thường dùng số ít (the data shows)', ex: '[[The data suggest]] that obesity is rising. / [[The data suggests]]…', vi: 'Dữ liệu cho thấy béo phì đang gia tăng.' },
         { title: 'Police, people, cattle luôn số nhiều', ex: '[[The police are]] investigating the incident.', vi: 'Cảnh sát đang điều tra vụ việc.' },
-        { title: 'Government, staff, team: số ít (một khối) hoặc số nhiều (từng thành viên) – tiếng Anh Anh', ex: '[[The staff are]] unhappy about the new rota.', vi: 'Nhân viên không hài lòng với lịch trực mới.' },
+        { title: 'Government, staff, team: số ít (một khối) hoặc số nhiều (từng thành viên) – tiếng Anh Anh. Anh – Mỹ gần như luôn dùng số ít: The staff is unhappy, The government has decided', ex: '[[The staff are]] unhappy about the new rota.', vi: 'Nhân viên không hài lòng với lịch trực mới.' },
         { title: 'Sở hữu cách với thời gian, khoảng cách', ex: 'The museum is only [[ten minutes\' walk]] from the station.', vi: 'Bảo tàng chỉ cách nhà ga mười phút đi bộ.' }
       ] },
       { type: 'table', head: ['Số ít', 'Số nhiều', 'Ghi chú'], rows: [
@@ -255,7 +255,7 @@
       ] },
       { type: 'tip', text: 'Trong danh từ ghép, danh từ đứng trước thường ở dạng SỐ ÍT, kể cả khi nghĩa là số nhiều: a shoe shop, a car park, a three-hour exam (không phải three-hours).' },
       { type: 'mistake', wrong: 'This phenomena is common in big cities.', right: 'This phenomenon is common in big cities. / These phenomena are common…', why: 'Phenomena là số nhiều; số ít là phenomenon.' },
-      { type: 'mistake', wrong: 'He took a two-weeks holiday.', right: 'He took a two-week holiday. / He took two weeks\' holiday.', why: 'Cụm số + danh từ có gạch nối dùng danh từ số ít.' },
+      { type: 'mistake', wrong: 'He took a two-weeks vacation.', right: 'He took a two-week vacation. / He took two weeks\' vacation.', why: 'Cụm số + danh từ có gạch nối dùng danh từ số ít.' },
       { type: 'mistake', wrong: 'The police is looking for the suspect.', right: 'The police are looking for the suspect.', why: 'Police luôn đi với động từ số nhiều.' },
       { type: 'ielts', text: 'Danh từ ghép giúp viết gọn và học thuật hơn: "problems about traffic in cities" → "urban traffic problems". Dùng đúng criteria / phenomena / analyses thể hiện Grammatical Accuracy và Lexical Resource.', ex: '[[Several criteria]] should be considered when allocating the healthcare budget.' }
     ],
@@ -264,7 +264,7 @@
       { q: 'The selection ___ for the scholarship are very strict.', options: ['criteria', 'criterion', 'criterias', 'criterions'], answer: 0, explain: 'Động từ are → danh từ số nhiều criteria. criterion là số ít; "criterias", "criterions" sai dạng.' },
       { q: 'The police ___ arrested three men.', options: ['has', 'is', 'was', 'have'], answer: 3, explain: 'police luôn được coi là số nhiều → have arrested. has, is, was đều chia số ít.' },
       { q: 'We stayed in a ___ hotel near the beach.', options: ['five-stars', 'five-star', 'five stars', 'five-star\'s'], answer: 1, explain: 'Số + danh từ ghép làm tính từ → số ít có gạch nối. "five-stars" sai số; "five stars" thiếu gạch nối; "five-star\'s" thừa sở hữu.' },
-      { q: 'The ___ union organised a protest against the fee increase.', options: ['students\'', 'student\'s', 'students', 'studentses\''], answer: 0, explain: 'Hội của nhiều sinh viên → students\' (sở hữu số nhiều). Student union cũng chấp nhận nhưng không có trong lựa chọn.' },
+      { q: 'The ___ union organized a protest against the fee increase.', options: ['students\'', 'student\'s', 'students', 'studentses\''], answer: 0, explain: 'Hội của nhiều sinh viên → students\' (sở hữu số nhiều). Student union cũng chấp nhận nhưng không có trong lựa chọn.' },
       { q: 'Several ___ were proposed to explain the results.', options: ['hypothesis', 'hypothesises', 'hypothesis\'', 'hypotheses'], answer: 3, explain: 'Danh từ tận cùng -is đổi thành -es ở số nhiều: hypothesis → hypotheses; Several đòi hỏi danh từ số nhiều.' },
       { q: 'Câu nào đúng?', options: ['The roof of the house was damaged.', 'The house\'s of roof was damaged.', 'The roof\'s house was damaged.', 'The roof of house\'s was damaged.'], answer: 0, explain: 'Vật sở hữu vật thường dùng of → the roof of the house. Các phương án khác dùng sở hữu cách \'s sai vị trí hoặc sai nghĩa.' },
       { q: 'Câu nào đúng?', options: ['The childrens\' playground is closed.', 'The children\'s playground is closed.', 'The childs\' playground is closed.', 'The childrens playground is closed.'], answer: 1, explain: 'Children đã là số nhiều bất quy tắc → thêm \'s: children\'s. "childrens\'" sai; "childs\'" sai vì child có số nhiều bất quy tắc; "childrens" thiếu dấu sở hữu.' },
@@ -283,7 +283,7 @@
     blocks: [
       { type: 'sort', caption: 'Bốn nhóm động từ theo cách đi với tân ngữ', groups: [
         { title: 'Nội động từ (không tân ngữ)', emoji: '🚶', items: ['rise', 'fall', 'happen', 'occur', 'arrive', 'decline'] },
-        { title: 'Ngoại động từ (cần tân ngữ)', emoji: '🎯', items: ['raise prices', 'reduce costs', 'discuss a topic', 'affect health', 'lay the table'] },
+        { title: 'Ngoại động từ (cần tân ngữ)', emoji: '🎯', items: ['raise prices', 'reduce costs', 'discuss a topic', 'affect health', 'lay the groundwork'] },
         { title: 'Động từ nối (+ tính từ)', emoji: '🔗', items: ['become', 'seem', 'remain', 'appear', 'grow', 'look'] },
         { title: 'Hai tân ngữ', emoji: '🎁', items: ['give', 'offer', 'lend', 'send', 'show', 'teach'] }
       ] },
@@ -316,7 +316,7 @@
       { type: 'mistake', wrong: 'The number of visitors raised in 2019.', right: 'The number of visitors rose in 2019.', why: 'Không có tân ngữ → dùng nội động từ rise (rose). Raise cần tân ngữ.' },
       { type: 'mistake', wrong: 'The accident was happened at night.', right: 'The accident happened at night.', why: 'Happen là nội động từ, không có dạng bị động.' },
       { type: 'mistake', wrong: 'Prices remained steadily.', right: 'Prices remained steady.', why: 'Remain là động từ nối → theo sau là tính từ steady.' },
-      { type: 'ielts', text: 'Task 1 bản đồ và biểu đồ dùng nhiều nội động từ (rise, decline, fluctuate) và động từ nối (remain, become). Task 2 cần ngoại động từ mạnh (reduce, tackle, raise awareness). Nhầm rise/raise là lỗi phổ biến làm mất điểm Grammatical Accuracy.', ex: 'The village [[underwent dramatic changes]], and the old school [[became a community centre]].' }
+      { type: 'ielts', text: 'Task 1 bản đồ và biểu đồ dùng nhiều nội động từ (rise, decline, fluctuate) và động từ nối (remain, become). Task 2 cần ngoại động từ mạnh (reduce, tackle, raise awareness). Nhầm rise/raise là lỗi phổ biến làm mất điểm Grammatical Accuracy.', ex: 'The village [[underwent dramatic changes]], and the old school [[became a community center]].' }
     ],
     quiz: [
       { q: 'Oil prices ___ significantly in the first quarter.', options: ['raised', 'rose', 'were risen', 'rised'], answer: 1, explain: 'Không có tân ngữ → nội động từ rise, quá khứ rose. raised cần tân ngữ; "were risen" sai vì rise không có bị động; "rised" sai dạng.' },
@@ -393,7 +393,7 @@
   G.push({
     id: 'reported-advanced', unit: 'verbs', order: 8,
     title: 'Câu tường thuật nâng cao', en: 'Advanced Reported Speech', level: 'B2', emoji: '🗣️',
-    summary: 'Tường thuật câu hỏi Yes/No (if/whether) và Wh- (trật tự câu khẳng định), mệnh lệnh – yêu cầu (tell/ask sb to V), và các động từ tường thuật đi kèm cấu trúc riêng: suggest, advise, deny, accuse, apologise, promise.',
+    summary: 'Tường thuật câu hỏi Yes/No (if/whether) và Wh- (trật tự câu khẳng định), mệnh lệnh – yêu cầu (tell/ask sb to V), và các động từ tường thuật đi kèm cấu trúc riêng: suggest, advise, deny, accuse, apologize, promise.',
     blocks: [
       { type: 'diagram', caption: 'Tường thuật câu hỏi: bỏ trợ động từ đảo, đưa về trật tự S + V', steps: [
         { t: '"Where do you live?" she asked me.', c: 'note' },
@@ -413,7 +413,7 @@
       { type: 'uses', items: [
         { title: 'Suggest + V-ing / suggest that + S + (should) V', ex: 'My tutor [[suggested that I (should) read]] more editorials.', vi: 'Gia sư gợi ý tôi nên đọc nhiều bài xã luận hơn.' },
         { title: 'Advise / warn / remind / encourage + sb + to V', ex: 'The doctor [[advised him to cut down]] on sugar.', vi: 'Bác sĩ khuyên anh ấy giảm đường.' },
-        { title: 'Apologise (to sb) for + V-ing', ex: 'The airline [[apologised for cancelling]] the flight.', vi: 'Hãng bay xin lỗi vì đã hủy chuyến bay.' },
+        { title: 'Apologize (to sb) for + V-ing', ex: 'The airline [[apologized for canceling]] the flight.', vi: 'Hãng bay xin lỗi vì đã hủy chuyến bay.' },
         { title: 'Promise / agree / refuse / offer + to V', ex: 'The council [[promised to repair]] the road by June.', vi: 'Hội đồng hứa sửa đường trước tháng Sáu.' },
         { title: 'Thank / blame / congratulate + sb + for / on + V-ing', ex: 'They [[congratulated her on winning]] the award.', vi: 'Họ chúc mừng cô ấy đã giành giải thưởng.' }
       ] },
@@ -421,7 +421,7 @@
         ['+ to V', 'promise, agree, refuse, offer, threaten'],
         ['+ sb + to V', 'tell, ask, advise, warn, remind, encourage, persuade'],
         ['+ V-ing', 'deny, admit, suggest, recommend'],
-        ['+ (sb) + giới từ + V-ing', 'apologise for, accuse sb of, blame sb for, insist on, congratulate sb on'],
+        ['+ (sb) + giới từ + V-ing', 'apologize for, accuse sb of, blame sb for, insist on, congratulate sb on'],
         ['+ that + mệnh đề', 'explain, suggest, admit, insist, complain']
       ] },
       { type: 'tip', text: 'Câu hỏi tường thuật KHÔNG còn dấu hỏi và KHÔNG đảo trợ động từ: He asked where the station WAS (không phải "where was the station?").' },
@@ -434,13 +434,13 @@
       { q: 'The interviewer asked me ___ I had any experience.', options: ['that', 'whether', 'what', 'do'], answer: 1, explain: 'Câu hỏi Yes/No khi tường thuật → whether/if. that dùng cho câu trần thuật; what dùng cho câu hỏi Wh-; do không đứng trong câu gián tiếp.' },
       { q: 'She asked me what time the train ___.', options: ['did leave', 'does leave', 'left', 'leaves it'], answer: 2, explain: 'Câu hỏi gián tiếp: S + V, lùi thì → the train left. "did leave", "does leave" giữ trợ động từ; "leaves it" sai thì và thừa it.' },
       { q: 'The teacher told us ___ our phones during the test.', options: ['not to use', 'don\'t use', 'not using', 'to not using'], answer: 0, explain: 'Câu mệnh lệnh phủ định khi tường thuật: tell sb (not) to V → told us not to use. "don\'t use" giữ nguyên câu trực tiếp; "not using" và "to not using" sai dạng.' },
-      { q: 'The company apologised ___ the delay.', options: ['about causing', 'to cause', 'for cause', 'for causing'], answer: 3, explain: 'apologise FOR + V-ing (xin lỗi vì đã…) → apologised for causing. "about causing", "to cause", "for cause" đều sai giới từ hoặc dạng.' },
+      { q: 'The company apologized ___ the delay.', options: ['about causing', 'to cause', 'for cause', 'for causing'], answer: 3, explain: 'apologize FOR + V-ing (xin lỗi vì đã…) → apologized for causing. "about causing", "to cause", "for cause" đều sai giới từ hoặc dạng.' },
       { q: 'The police accused him ___ the documents.', options: ['for forging', 'of forging', 'to forge', 'about forging'], answer: 1, explain: 'accuse sb OF + V-ing (buộc tội ai đã…) → accused him of forging. for, to, about không đi với accuse.' },
       { q: 'My friend promised ___ me with the move.', options: ['helping', 'to help', 'me to help', 'help'], answer: 1, explain: 'promise + to V (hứa sẽ làm gì) → promised to help. helping sai dạng; "me to help" thừa tân ngữ; help thiếu to.' },
       { q: 'Câu nào đúng?', options: ['He asked me why was I late.', 'He asked me why I was late.', 'He asked me why I was late?', 'He asked to me why I was late.'], answer: 1, explain: 'Wh- + S + V (không đảo), không có dấu hỏi, ask sb (không dùng to) → He asked me why I was late. Câu 1 đảo ngữ; câu 3 thừa dấu hỏi; câu 4 thừa to.' },
       { q: 'Câu nào đúng?', options: ['She advised me to see a specialist.', 'She advised me seeing a specialist.', 'She advised to me to see a specialist.', 'She advised me that see a specialist.'], answer: 0, explain: 'advise sb + to V (khuyên ai làm gì) → advised me to see a specialist. "me seeing" sai dạng; "advised to me" thừa to; "that see" thiếu chủ ngữ.' },
       { q: 'Câu nào đúng?', options: ['They suggested to take a taxi.', 'They suggested us to take a taxi.', 'They suggested taking a taxi.', 'They suggested take a taxi.'], answer: 2, explain: 'suggest + V-ing (hoặc suggest that we take…) → suggested taking. "suggested to take", "suggested us to take", "suggested take" đều sai cấu trúc.' },
-      { q: 'Câu nào cùng nghĩa? "I didn\'t break the window," said Tom.', options: ['Tom admitted breaking the window.', 'Tom refused to break the window.', 'Tom apologised for breaking the window.', 'Tom denied breaking the window.'], answer: 3, explain: 'Phủ nhận việc đã làm → deny + V-ing → Tom denied breaking the window. admitted là thừa nhận (trái nghĩa); refused là từ chối làm; apologised là xin lỗi vì đã làm.' },
+      { q: 'Câu nào cùng nghĩa? "I didn\'t break the window," said Tom.', options: ['Tom admitted breaking the window.', 'Tom refused to break the window.', 'Tom apologized for breaking the window.', 'Tom denied breaking the window.'], answer: 3, explain: 'Phủ nhận việc đã làm → deny + V-ing → Tom denied breaking the window. admitted là thừa nhận (trái nghĩa); refused là từ chối làm; apologized là xin lỗi vì đã làm.' },
       { q: 'Câu nào cùng nghĩa? "Why don\'t we visit the museum?" said Lan.', options: ['Lan suggested visiting the museum.', 'Lan asked why we didn\'t visit the museum.', 'Lan refused to visit the museum.', 'Lan told us visit the museum.'], answer: 0, explain: '"Why don\'t we…?" là lời gợi ý → suggest + V-ing → Lan suggested visiting the museum. Câu 2 hiểu sai thành câu hỏi lý do; refused trái nghĩa; "told us visit" sai cấu trúc.' },
       { q: 'Câu nào cùng nghĩa? "Do you live near the campus?" he asked me.', options: ['He asked me do I live near the campus.', 'He asked me that I lived near the campus.', 'He asked me if I lived near the campus.', 'He asked me whether did I live near the campus.'], answer: 2, explain: 'Câu hỏi Yes/No → if + S + V lùi thì → asked me if I lived near the campus. Câu 1 và 4 giữ trật tự câu hỏi; câu 2 dùng that sai.' }
     ]

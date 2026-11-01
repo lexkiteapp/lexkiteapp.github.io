@@ -222,7 +222,7 @@ const APPJS = rd('web/js/app.js'), MAN = JSON.parse(rd('web/manifest.webmanifest
 ok(/navigator\.serviceWorker\.register\('\/sw\.js', \{ scope: '\/app\/' \}\)/.test(APPJS), 'app.js: đăng ký /sw.js với scope /app/');
 ok(MAN.start_url === '/app/#/home' && MAN.scope === '/app/' && MAN.id === '/' && (MAN.shortcuts || []).every(s => s.url.startsWith('/app/#/')), 'manifest: start_url/scope /app/, id giữ "/" (bản cài cũ nhận cập nhật), shortcut /app/#/…');
 ok(/<!--base--><base href="\/">[\s\S]*?<!--\/base-->/.test(APPHTML) && APPHTML.indexOf('<!--base-->') < APPHTML.indexOf('<link'), 'app/index.html: <base href="/"> đứng trước mọi tài nguyên (khối <!--base--> để add-on/mobile bỏ)');
-ok(/name="robots" content="noindex/.test(APPHTML) && APPHTML.includes('href="https://lexkite.com/app/"'), 'app/index.html: noindex + canonical /app/ (không trùng trang giới thiệu)');
+ok(!/name="robots"[^>]*noindex/.test(APPHTML) && APPHTML.includes('rel="canonical" href="https://lexkite.com/"'), 'app/index.html: canonical về trang giới thiệu, không noindex (Lighthouse SEO; canonical gộp trùng, robots.txt vẫn chặn ?sandbox=/?demo=)');
 ok(APPHTML.includes('href="/?home=1" data-l="about"'), 'app/index.html: có liên kết "Trang giới thiệu" (?home=1)');
 // Chặn liên kết "#…" (do <base href="/">): bấm → đổi hash tại chỗ, không rời /app/
 {

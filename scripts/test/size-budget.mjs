@@ -18,7 +18,7 @@ if (!shell.includes('/app/index.html')) errs.push('SHELL trong web/sw.js thiếu
 // 1b) Trang giới thiệu tĩnh (/ + /<lang>/): tách khỏi khung app, phải rất nhẹ (HTML+CSS nội tuyến, không JS nặng)
 const LAND_GZ = budget.landingGz || 16384; let landMax = 0;
 for (const f of ['web/index.html', ...fs.readdirSync('web').filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(`web/${d}/index.html`)).map(d => `web/${d}/index.html`)]) { const g = gz(f); landMax = Math.max(landMax, g); if (g > LAND_GZ) errs.push(`Trang giới thiệu ${f} ${kb(g)} gzip > ${kb(LAND_GZ)}`); }
-if (shellGz > budget.shellGz) errs.push(`Khung app ${kb(shellGz)} gzip > ngân sách ${kb(budget.shellGz)} – chuyển dữ liệu sang tải lười (App lazy) thay vì nạp lúc mở app`);
+if (shellGz > budget.shellGz) errs.push(`Khung app ${kb(shellGz)} gzip > ngân sách ${kb(budget.shellGz)} – chuyển dữ liệu sang tải lười (App lazy) thay vì nạp lúc mở app; xem từng module: node scripts/test/shell-size.mjs`);
 // 2) + 3) File JS
 let total = 0; const big = [];
 const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith('.js')) { if (!/(^|\/)admin-[^/]*\.js$/.test(p)) total += fs.statSync(p).size; // admin-*.js: chỉ trang quản trị, không tải cho người học/add-on

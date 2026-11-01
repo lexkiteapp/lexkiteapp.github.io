@@ -1,0 +1,2 @@
+# Lexkite – Authorized Digital Sellers (IAB ads.txt). Mã nhà xuất bản = web/js/ads/config.js (docs/ADS.md).
+google.com, pub-2290668854727752, DIRECT, f08c47fec0942fa0

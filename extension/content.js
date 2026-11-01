@@ -21,7 +21,7 @@
   const sget = k => { if (!alive()) { stop(); return Promise.resolve({}); } try { return Promise.resolve(chrome.storage.local.get(k)).then(r => r || {}, () => { if (!alive()) stop(); return {}; }); } catch (e) { if (!alive()) stop(); return Promise.resolve({}); } };
   const sset = o => { if (!alive()) { stop(); return Promise.resolve(); } try { return Promise.resolve(chrome.storage.local.set(o)).catch(() => { if (!alive()) stop(); }); } catch (e) { if (!alive()) stop(); return Promise.resolve(); } };
   const chromeOn = (ev, fn) => { const h = guard(fn); try { ev.addListener(h); cleanups.push(() => { try { ev.removeListener(h); } catch (e) { /* bỏ qua */ } }); } catch (e) { /* bỏ qua */ } };
-  const uiLangOf = () => { try { return uiLangOf(); } catch (e) { return navigator.language; } };
+  const uiLangOf = () => { try { return chrome.i18n.getUILanguage(); } catch (e) { return navigator.language; } };
 
   // Cầu nối đồng bộ: trên trang Lexkite (đã đăng nhập Google) web app đọc/ghi dữ liệu add-on để gộp chung theo tài khoản
   if (window.top === window && /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$/.test(location.hostname)) { // chỉ tên miền đang sở hữu – tên miền cũ *.web.app có thể rơi vào tay người khác
@@ -34,7 +34,7 @@
         else if (e.data.op === 'diag') { const { errLog } = await sget('errLog'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { v: chrome.runtime.getManifest().version, errLog: errLog || [], ui: UI_LANG, ml: ML(), nav: navigator.language } }, location.origin); }
         else if (e.data.op === 'lang') { const l = (e.data.data || {}).lang; if (pickLang(l)) await sset({ uiLang: pickLang(l) }); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
         else if (e.data.op === 'linked') { const d = e.data.data || {}; await sset({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
-        else if (e.data.op === 'aiKeyGet') { const { aiKey } = await sget('aiKey'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
+        // aiKeyGet đã bỏ: khóa AI nhập trong add-on không bao giờ trả ra trang (script lạ/quảng cáo/XSS trên lexkite.com sẽ đọc được). Chỉ chiều web → add-on.
         else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(k)) await sset({ aiKey: k }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
         else if (e.data.op === 'set') {
           // Gộp (không ghi đè): service worker/popup/tab mới có thể vừa lưu thẻ sau lúc web đọc → giữ cả hai, bản hoạt động mới hơn thắng (như mergeCards ở web/js/sync.js)
@@ -102,9 +102,16 @@
   bind(document, 'ielts-lexi-takeover', ev => { if (ev.detail !== chrome.runtime.id) return; // trang web không tắt được add-on
     stop(); });
 
-  let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, prefs = {};
+  let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, ctxOn = true, prefs = {};
   cleanups.push(() => { try { document.querySelectorAll('vb-mark').forEach(el => el.replaceWith(document.createTextNode(el.textContent))); } catch (e) {} for (const id of ['vb-mark-css']) { const x = document.getElementById(id); if (x) x.remove(); } if (host) host.remove(); window.speechSynthesis && 0; });
-  const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
+  const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; ctxOn = st.saveCtx !== false; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
+  // Câu ngữ cảnh (P2-1.1): chỉ khi bật "Lưu câu ngữ cảnh"; ≤200 ký tự; nguồn = tên miền (không đường dẫn/truy vấn) – riêng video (YouTube…) giữ liên kết video công khai để xem lại đoạn gốc
+  const ctxOut = (text, vi, meta) => {
+    if (!ctxOn || !text) return null;
+    let src = '';
+    try { const u = new URL(meta.source); src = /(^|\.)(youtube\.com|youtu\.be|vimeo\.com|ted\.com)$/.test(u.hostname) ? meta.source : u.origin + '/'; } catch (e) { src = ''; }
+    return { text: text.slice(0, 200), vi, source: src, title: meta.title };
+  };
   sget('settings').then(r => applySettings(r.settings));
   // Ảnh người dùng đã báo "ảnh không đúng": khóa = từ + URL ảnh (trước đây chỉ theo từ → ẩn vĩnh viễn cả ảnh mới, đúng nghĩa sau khi đổi nguồn ảnh)
   const badImg = new Set(), imgKey = e => e.word + ' ' + e.image;
@@ -172,21 +179,23 @@
       background: linear-gradient(135deg, #CC3F1C, #0ea5a4); color: #fff; font-size: 16px; display: grid; place-items: center;
       box-shadow: 0 6px 18px rgba(79,70,229,.45); animation: pop .12s ease-out; }
     .fab:hover { transform: scale(1.08); }
-    .fab[hidden], .box[hidden], .vbtoast[hidden] { display: none; }
+    .fab[hidden], .box[hidden], .vbtoast[hidden], .vbtip[hidden] { display: none; }
+    .vbtip { position: fixed; z-index: 2147483647; max-width: 300px; background: #1c1d2b; color: #fff; padding: 5px 9px; border-radius: 8px; font: 500 12.5px/1.4 -apple-system, "Segoe UI", sans-serif; box-shadow: 0 6px 18px rgba(0,0,0,.22); pointer-events: none; }
     .vbtoast { position: fixed; right: 18px; bottom: 18px; z-index: 2147483647; background: #1c1d2b; color: #fff; padding: 10px 14px; border-radius: 12px; font: 600 13px/1.4 -apple-system, "Segoe UI", sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,.25); animation: pop .2s ease-out; }
     .tr-head { display: flex; gap: 8px; align-items: center; padding: 12px 14px 8px; }
     .src { color: #6b6f85; font-size: 13px; margin-bottom: 10px; max-height: 120px; overflow: auto; border-left: 3px solid #e3e5ef; padding-left: 8px; }
     .tr { font-size: 15.5px; line-height: 1.55; color: inherit; font-weight: 500; }
     /* Giao diện tối: chỉ khi TRANG tối (lớp .dark gắn lúc hiện bảng) – bảng sáng trên trang sáng dù máy để chế độ tối */
-    .box.dark { background: #1b1c26; color: #ecedf5; border-color: #2e3040; }
-    .dark .pg { border-color: #2e3040; } .dark .wn-x { background: #24233a; color: #ecedf5; } .dark .pic, .dark .spk, .dark .chip { background: #2a2b3a; }
-    .dark .chip { color: #c3c6d6; } .dark .ipa, .dark .ex, .dark .src, .dark .pex, .dark .st-m, .dark .muted, .dark .x { color: #b4b8cc; }
-    .dark .foot { background: #171821; border-color: #2e3040; }
-    .dark .btn { background: #2a2b3a; border-color: #3a3c50; color: #ecedf5; } .dark .btn.p { background: #CC3F1C; border-color: #CC3F1C; color: #fff; }
-    .dark .ctx { background: #2b2618; color: #f3ecd9; } .dark .st { background: #2a1f1b; border-color: #5a3a2e; color: #ecedf5; } .dark .st-v { color: #d6d8e4; } .dark .st-n, .dark .st-l { color: #ff9b7a; }
+    /*@tokens*/.box.dark{--d-bg:#10191B;--d-sf:#172427;--d-sf2:#1E2F33;--d-sf3:#26393E;--d-line:#1F3337;--d-line2:#23373B;--d-text:#F3F8F8;--d-muted:#A3B9B7}/*@end*/
+    .box.dark { background: var(--d-sf); color: var(--d-text); border-color: var(--d-line); }
+    .dark .pg { border-color: var(--d-line); } .dark .wn-x { background: var(--d-sf2); color: var(--d-text); } .dark .pic, .dark .spk, .dark .chip { background: var(--d-sf3); }
+    .dark .chip { color: var(--d-muted); } .dark .ipa, .dark .ex, .dark .src, .dark .pex, .dark .st-m, .dark .muted, .dark .x { color: var(--d-muted); }
+    .dark .foot { background: var(--d-bg); border-color: var(--d-line); }
+    .dark .btn { background: var(--d-sf3); border-color: var(--d-line2); color: var(--d-text); } .dark .btn.p { background: #CC3F1C; border-color: #CC3F1C; color: #fff; }
+    .dark .ctx { background: #2b2618; color: #f3ecd9; } .dark .st { background: #2a1f1b; border-color: #5a3a2e; color: var(--d-text); } .dark .st-v { color: #d6d8e4; } .dark .st-n, .dark .st-l { color: #ff9b7a; }
     .dark .st.ai { background: #13261b; border-color: #285c3a; }
     .dark .vi { color: #2dd4bf; } .dark .lv { background: #3a2620; color: #ff9b7a; } .dark .spk { color: #ffb199; } .dark .spk:hover { background: #CC3F1C; color: #fff; }
-    .dark .lw.chipw, .dark .chipw, .dark .back { background: #2a2b3a; color: #ecedf5; } .dark .lw:hover { background: #3a2620; color: #ffb199; }
+    .dark .lw.chipw, .dark .chipw, .dark .back { background: var(--d-sf3); color: var(--d-text); } .dark .lw:hover { background: #3a2620; color: #ffb199; }
     .dark .inDeck { background: #13261b; color: #6ee7a0; }
     /* ảnh minh họa: nút "Ảnh không đúng" khi rê chuột */
     .pic { position: relative; } .pic .noimg { position: absolute; right: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; font-size: 11px; line-height: 20px; cursor: pointer; opacity: 0; transition: opacity .15s; padding: 0; }
@@ -207,7 +216,7 @@
     .err { color: #A5300F; font-weight: 600; font-size: 14px; }
     .tiny { font-size: 11.5px; color: #6b6f85; margin-top: 6px; }
     .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-    .dark .note { background: #16302f; color: #d3efeb; } .dark .err { color: #ff9b7a; } .dark .tiny { color: #b4b8cc; }
+    .dark .note { background: #16302f; color: #d3efeb; } .dark .err { color: #ff9b7a; } .dark .tiny { color: var(--d-muted); }
     .dark .btn:hover:not([disabled]) { border-color: #565a70; } .dark .btn.p:hover:not([disabled]) { background: #B23412; }
     .dark .btn:focus-visible, .dark .x:focus-visible, .dark .lw:focus-visible, .dark .st-l:focus-visible { outline-color: #2dd4bf; }
     .f1 { flex: 1; } .mw0 { min-width: 0; } .mt4 { margin-top: 4px; } .mt8 { margin-top: 8px; }
@@ -274,7 +283,9 @@
       b.style.maxHeight = '';
       const h = b.offsetHeight, below = vh - r.bottom - G - M, above = r.top - G - M;
       let top;
-      if (h <= below || below >= above) { top = r.bottom + G; if (h > below) b.style.maxHeight = Math.max(160, below) + 'px'; }
+      // Bảng DỊCH ĐOẠN (câu dài): ưu tiên phía TRÊN để không che các dòng sắp đọc; bảng tra từ giữ phía dưới như cũ
+      if (b.dataset.kind === 'tr' && h <= above) top = r.top - G - h;
+      else if (h <= below || below >= above) { top = r.bottom + G; if (h > below) b.style.maxHeight = Math.max(160, below) + 'px'; }
       else { const hh0 = h > above ? Math.max(160, above) : h; if (h > above) b.style.maxHeight = hh0 + 'px'; top = r.top - G - hh0; }
       const hh = Math.min(b.offsetHeight || h, vh - 2 * M);
       b.style.top = Math.max(M, Math.min(top, vh - hh - M)) + 'px';
@@ -469,7 +480,7 @@
     ensureHost();
     hideFab();
     const b = box();
-    b.hidden = false; b.classList.toggle('dark', pageDark(rect)); b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', word);
+    b.hidden = false; b.classList.toggle('dark', pageDark(rect)); b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', word); b.dataset.kind = '';
     b.innerHTML = H(`<div class="head"><div class="pic">📘</div><div class="f1"><div class="w">${esc(word)}</div><div class="sk w60"></div><div class="sk w40"></div></div></div><div class="body"><div class="sk"></div><div class="sk w80"></div></div>`);
     position(rect);
     current = word; trSeq++; // bảng dịch đoạn đang chờ kết quả không được ghi đè bảng tra từ mới
@@ -574,7 +585,7 @@
         const { meanings, oxford, senses, found, audioUS, partial, _imgTry, _t, _v, ...entry } = src;
         const okImg = !!(entry.image && !badImg.has(imgKey(src))); // ảnh người dùng đã báo sai không vào thẻ
         try {
-          const r = await send({ type: 'save', entry: { ...entry, image: okImg ? entry.image : '', imageCredit: okImg ? entry.imageCredit || null : null, audio: audioFor(accent) }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
+          const r = await send({ type: 'save', entry: { ...entry, image: okImg ? entry.image : '', imageCredit: okImg ? entry.imageCredit || null : null, audio: audioFor(accent) }, context: ctxOut(context, ctxVi, meta) });
           if (!r || r.error) throw new Error(r && r.error);
           didSave = true;
           btn.textContent = tx('✓ Đã lưu vào flashcard');
@@ -612,7 +623,7 @@
       b.querySelector('#save').onclick = async ev => {
         const btn = ev.currentTarget; btn.disabled = true;
         try {
-          const r = await send({ type: 'save', entry: { word, vi, pos: multi ? 'phrase' : '', emoji: '💬' }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
+          const r = await send({ type: 'save', entry: { word, vi, pos: multi ? 'phrase' : '', emoji: '💬' }, context: ctxOut(context, ctxVi, meta) });
           if (!r || r.error) throw new Error();
           btn.textContent = tx('✓ Đã lưu vào flashcard');
         } catch (x) { btn.disabled = false; btn.textContent = tx('⚠️ Thử lưu lại'); }
@@ -769,12 +780,13 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
   const AI_ERR = { QUOTA_DAY: 'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.', BUSY: 'AI đang bận – thử lại sau ít phút.', QUOTA: 'AI đang bận – thử lại sau ít phút.', OFFLINE: 'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.' };
 
   let trSeq = 0;
+  const TR_MS = () => globalThis.__lkTrMs || 15000; // test đặt nhỏ để thử đường hết giờ
   async function translateSelection(info, opts = {}) {
     ensureHost();
     hideFab();
     const b = box(), seq = ++trSeq, text = nfc(info.text).replace(/\s+/g, ' ').trim();
     const live = () => seq === trSeq && !b.hidden;
-    b.hidden = false; b.classList.toggle('dark', pageDark(info && info.rect));
+    b.hidden = false; b.classList.toggle('dark', pageDark(info && info.rect)); b.dataset.kind = 'tr';
     b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', tx('🌐 Dịch đoạn đã chọn').replace(/^\S+\s+/, '')); b.tabIndex = -1;
     current = info.text;
     const sl = srcLang(text), hint = sl === 'auto' && VI_ONLY.test(text) ? 'vi' : '', tl = ML();
@@ -806,8 +818,13 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     position(info.rect);
     if (opts.focus) try { b.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ }
 
+    // Hạn giờ 15 giây/lượt + thử lại giãn cách (0,8 s → 1,6 s): service worker ngủ/mạng treo không bao giờ để bảng quay mãi
     let r;
-    try { r = await send({ type: 'translate', text, tl, sl, hint }); } catch (e) { r = { dead: true }; }
+    for (let i = 0; i < 3; i++) {
+      if (i) { await new Promise(res => later(res, (globalThis.__lkTrBackoff || 800) * 2 ** (i - 1))); if (!live()) return; }
+      try { r = await Promise.race([send({ type: 'translate', text, tl, sl, hint }), new Promise(res => later(() => res({ timeout: true }), TR_MS()))]); } catch (e) { r = { dead: true }; }
+      if (!r || r.dead || r.same || String(r.vi || '').trim()) break;
+    }
     if (!live()) return;
     r = r || {};
     const trEl = $('#tr'); trEl.removeAttribute('aria-busy');
@@ -966,22 +983,67 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       vb-mark[data-l="1"]{--vbc:rgba(239,68,68,.38)}vb-mark[data-l="2"]{--vbc:rgba(245,158,11,.4)}vb-mark[data-l="3"]{--vbc:rgba(234,179,8,.4)}
       vb-mark[data-l="4"],vb-mark[data-l="5"]{--vbc:rgba(34,197,94,.35)}vb-mark[data-l="0"]{--vbc:rgba(204,63,28,.22)}
       vb-mark[data-a]{background:none;border-bottom:1.5px solid rgba(31,122,114,.55);border-radius:0;text-decoration:none} /* gạch xanh mảnh – không giống gạch đỏ lỗi chính tả */
-      .ytp-caption-segment .vbw.known{box-shadow:inset 0 -.18em 0 rgba(34,197,94,.9)}`;
+      .ytp-caption-segment .vbw.known{box-shadow:inset 0 -.18em 0 rgba(34,197,94,.9)}
+      ::highlight(lexkite-acad){text-decoration:underline 1.5px rgba(31,122,114,.55);text-underline-offset:3px;text-decoration-skip-ink:none}
+      ::highlight(lexkite-l0){background-color:rgba(204,63,28,.16)}::highlight(lexkite-l1){background-color:rgba(239,68,68,.24)}::highlight(lexkite-l2){background-color:rgba(245,158,11,.26)}
+      ::highlight(lexkite-l3){background-color:rgba(234,179,8,.26)}::highlight(lexkite-l4),::highlight(lexkite-l5){background-color:rgba(34,197,94,.22)}`;
     (document.head || document.documentElement).appendChild(st);
+    // CSP style-src chặn <style> chèn vào → ::highlight() vẫn cần kiểu: bảng kiểu dựng sẵn (adoptedStyleSheets) không bị CSP chặn
+    if (HLR) later(() => { try { if (st.sheet && st.sheet.cssRules.length) return; const sh = new CSSStyleSheet(); sh.replaceSync(st.textContent.split('\n').filter(l => l.includes('::highlight')).join('\n')); document.adoptedStyleSheets = [...document.adoptedStyleSheets, sh]; } catch (e) { /* bỏ qua */ } }, 50);
   }
-  function markIn(rootEl, budget = 400) {
-    if (!markOn || !knownRe || !rootEl || marked > 800) return;
-    const tw = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, {
-      acceptNode: n => {
-        const p = n.parentElement;
-        if (!p || !n.nodeValue || n.nodeValue.length < 3 || !/[A-Za-z]{3}/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
-        if (p.closest(SKIP.split(',').map(x => x.toLowerCase()).join(',') + ',[contenteditable],[contenteditable=""],.ytp-caption-window-container')) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      },
-    });
+  const UI_SKIP = 'button,label,form,nav,header,footer,a,[role=dialog],[aria-modal],[role=listbox],[role=option],[role=combobox],[role=menu],[role=menuitem],[role=button],[role=tab],[role=tablist],[role=tooltip],[role=alert],[aria-live],[popover]';
+  // content script ở 'isolated world' không thấy khoá __reactFiber của trang → nhận khung SPA qua DOM: đảo Astro, gốc React/Next/Vue/Angular/Svelte
+  const FW_ROOT = 'astro-island,#__next,#root,#app,#__nuxt,[data-reactroot],[data-v-app],[ng-version],[data-svelte-h],[data-rh]';
+  const fwOwned = el => !!el.closest(FW_ROOT);
+  const TXT_SKIP = SKIP.split(',').map(x => x.toLowerCase()).join(',') + ',[contenteditable],[contenteditable=""],.ytp-caption-window-container,ielts-lexi-popup';
+  const MAX_MARK = 800;
+  // 24/10 (2.6.439): CSS Custom Highlight API – gạch chân bằng Range + ::highlight(), KHÔNG sửa DOM của trang →
+  // React/Vue/Astro vẽ lại thoải mái (không còn removeChild lỗi) → gạch chân lại được cả trong hộp thoại và khung SPA.
+  // Trình duyệt chưa có Highlight API → dùng <vb-mark> như cũ, giữ luật bỏ qua UI tương tác + khung SPA.
+  // (window.CSS: hằng CSS ở trên là chuỗi CSS của bảng tra, che mất đối tượng CSS toàn cục)
+  const HLR = (() => { try { const c = window.CSS; return c && c.highlights && typeof c.highlights.set === 'function' && typeof Highlight === 'function' ? c.highlights : null; } catch (e) { return null; } })();
+  const HL_NAMES = ['lexkite-acad', 'lexkite-l0', 'lexkite-l1', 'lexkite-l2', 'lexkite-l3', 'lexkite-l4', 'lexkite-l5'];
+  const hlSets = {}, hlNodes = new Map(); let hlCount = 0;
+  const hlName = k => k.acad ? 'lexkite-acad' : 'lexkite-l' + Math.max(0, Math.min(5, k.lv | 0));
+  const hlTitle = k => k.acad ? `${k.acad} · ${tx('Từ học thuật – bấm để tra')}` : `${k.vi}${k.ipa ? '  ' + k.ipa : ''} · ${tx('Lexkite cấp {lv}', { lv: k.lv || tx('mới') })}`;
+  function hlEnsure() { for (const n of HL_NAMES) { if (!hlSets[n]) hlSets[n] = new Highlight(); if (HLR.get(n) !== hlSets[n]) HLR.set(n, hlSets[n]); } }
+  function hlDrop(node) { const e = hlNodes.get(node); if (!e) return; for (const h of e.hits) hlSets[h.n].delete(h.r); hlCount -= e.hits.length; hlNodes.delete(node); }
+  function hlClear() { if (!HLR) return; for (const n of HL_NAMES) { if (hlSets[n]) hlSets[n].clear(); } hlNodes.clear(); hlCount = 0; hideTip(); }
+  cleanups.push(() => { try { if (HLR) for (const n of HL_NAMES) if (HLR.get(n) === hlSets[n]) HLR.delete(n); } catch (e) {} });
+  function hlScanText(node) {
+    const text = node.nodeValue, hits = []; knownRe.lastIndex = 0; let m;
+    while ((m = knownRe.exec(text)) && hlCount + hits.length < MAX_MARK) {
+      const w = m[1].toLowerCase(), k = known.get(w); if (!k) continue;
+      const r = document.createRange(); r.setStart(node, m.index); r.setEnd(node, m.index + m[0].length); // Range sống: tự theo nút chữ khi trang đổi DOM
+      const n = hlName(k); hlSets[n].add(r); hits.push({ r, w, k, n });
+    }
+    if (hits.length) { hlNodes.set(node, { v: text, hits }); hlCount += hits.length; }
+  }
+  const acceptText = (n, strict) => {
+    const p = n.parentElement;
+    if (!p || !n.nodeValue || n.nodeValue.length < 3 || !/[A-Za-z]{3}/.test(n.nodeValue)) return false;
+    if (p.closest(TXT_SKIP)) return false;
+    // chỉ cho <vb-mark> (sửa DOM): gắn vào chữ React/Vue quản lý làm hỏng trang (form Cloudflare tự đóng 24/10) → bỏ UI tương tác + khung SPA
+    if (strict && (p.closest(UI_SKIP) || fwOwned(p))) return false;
+    return true;
+  };
+  function textNodesIn(rootEl, budget, strict) {
+    if (rootEl.nodeType === 3) return acceptText(rootEl, strict) ? [rootEl] : [];
+    const tw = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, { acceptNode: n => acceptText(n, strict) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
     const nodes = []; let n;
     while ((n = tw.nextNode()) && nodes.length < budget) nodes.push(n);
-    for (const node of nodes) {
+    return nodes;
+  }
+  function markIn(rootEl, budget = 400) {
+    if (!markOn || !knownRe || !rootEl) return;
+    if (HLR) {
+      if (hlCount >= MAX_MARK) return;
+      hlEnsure();
+      for (const node of textNodesIn(rootEl, budget, false)) { if (hlNodes.has(node)) continue; hlScanText(node); if (hlCount >= MAX_MARK) break; }
+      maybeToast(); return;
+    }
+    if (marked > MAX_MARK) return;
+    for (const node of textNodesIn(rootEl, budget, true)) {
       const text = node.nodeValue; knownRe.lastIndex = 0;
       if (!knownRe.test(text)) continue;
       knownRe.lastIndex = 0;
@@ -991,17 +1053,22 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
         frag.appendChild(document.createTextNode(text.slice(last, m.index)));
         const el = document.createElement('vb-mark');
         el.textContent = m[0]; el.dataset.w = m[1].toLowerCase();
-        if (k.acad) { el.dataset.a = k.acad; el.title = `${k.acad} · ${tx('Từ học thuật – bấm để tra')}`; }
-        else { el.dataset.l = k.lv; el.title = `${k.vi}${k.ipa ? '  ' + k.ipa : ''} · ${tx('Lexkite cấp {lv}', { lv: k.lv || tx('mới') })}`; }
+        if (k.acad) el.dataset.a = k.acad; else el.dataset.l = k.lv;
+        el.title = hlTitle(k);
         frag.appendChild(el); last = m.index + m[0].length; marked++;
       }
       frag.appendChild(document.createTextNode(text.slice(last)));
       node.parentNode.replaceChild(frag, node);
-      if (marked > 800) break;
+      if (marked > MAX_MARK) break;
     }
-    if (document.querySelectorAll('vb-mark[data-l]').length >= 3 && !toastShown) { toastShown = true; showToast(tx('📒 {n} từ bạn đã học xuất hiện trên trang này', { n: new Set([...document.querySelectorAll('vb-mark[data-l]')].map(x => x.dataset.w)).size })); }
+    maybeToast();
   }
-  function unmarkAll() { document.querySelectorAll('vb-mark').forEach(el => el.replaceWith(document.createTextNode(el.textContent))); marked = 0; }
+  function maybeToast() {
+    if (toastShown) return;
+    const ws = HLR ? [...hlNodes.values()].flatMap(e => e.hits.filter(h => !h.k.acad).map(h => h.w)) : [...document.querySelectorAll('vb-mark[data-l]')].map(x => x.dataset.w);
+    if (ws.length >= 3) { toastShown = true; showToast(tx('📒 {n} từ bạn đã học xuất hiện trên trang này', { n: new Set(ws).size })); }
+  }
+  function unmarkAll() { hlClear(); document.querySelectorAll('vb-mark').forEach(el => el.replaceWith(document.createTextNode(el.textContent))); marked = 0; }
   function showToast(msg) {
     ensureHost();
     let t = root.querySelector('.vbtoast');
@@ -1009,33 +1076,105 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     t.textContent = msg; t.hidden = false;
     clearTimeout(showToast._t); showToast._t = later(() => { t.hidden = true; }, 4500);
   }
+  // Dò từ được gạch chân dưới con trỏ: caretPositionFromPoint/caretRangeFromPoint → nút chữ + vị trí → so với Range đã lưu (+ hộp chữ thật)
+  function hlAt(x, y) {
+    if (!HLR || !hlCount) return null;
+    let node, off;
+    try {
+      if (document.caretPositionFromPoint) { const p = document.caretPositionFromPoint(x, y); if (p) { node = p.offsetNode; off = p.offset; } }
+      else if (document.caretRangeFromPoint) { const r = document.caretRangeFromPoint(x, y); if (r) { node = r.startContainer; off = r.startOffset; } }
+    } catch (e) { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    const e = hlNodes.get(node); if (!e || node.nodeValue !== e.v) return null;
+    for (const h of e.hits) {
+      const r = h.r; if (r.collapsed || r.startContainer !== node || off < r.startOffset || off > r.endOffset) continue;
+      for (const rc of r.getClientRects()) if (x >= rc.left - 1 && x <= rc.right + 1 && y >= rc.top - 1 && y <= rc.bottom + 1) return h;
+    }
+    return null;
+  }
+  // Ô gợi ý khi rê chuột (thay title="" của <vb-mark>): nằm trong shadow root của add-on, không đụng DOM trang
+  let tipH = null, tipT = null, mvRaf = 0, mvX = 0, mvY = 0;
+  function hideTip() { clearTimeout(tipT); tipH = null; const t = root && root.querySelector('.vbtip'); if (t) t.hidden = true; }
+  function showTip(h) {
+    ensureHost(); if (!root) return;
+    let t = root.querySelector('.vbtip');
+    if (!t) { t = document.createElement('div'); t.className = 'vbtip'; t.setAttribute('role', 'tooltip'); root.appendChild(t); }
+    t.textContent = hlTitle(h.k); t.hidden = false;
+    const rc = h.r.getBoundingClientRect(), vw = window.innerWidth;
+    t.style.left = Math.max(6, Math.min(rc.left, vw - t.offsetWidth - 6)) + 'px';
+    t.style.top = (rc.bottom + 6 + t.offsetHeight > window.innerHeight ? rc.top - t.offsetHeight - 6 : rc.bottom + 6) + 'px';
+  }
+  if (HLR) {
+    bind(document, 'mousemove', e => {
+      if (!hlCount || !alive()) return;
+      mvX = e.clientX; mvY = e.clientY;
+      if (mvRaf) return;
+      mvRaf = requestAnimationFrame(() => {
+        mvRaf = 0; const h = hlAt(mvX, mvY);
+        if (h === tipH) return;
+        hideTip(); if (!h) return;
+        tipH = h; tipT = later(() => { if (tipH === h && !h.r.collapsed) showTip(h); }, 350);
+      });
+    }, { passive: true });
+    bind(window, 'scroll', hideTip, { passive: true });
+    bind(document, 'mousedown', hideTip, true);
+  }
+  const NO_HIJACK = 'a, button, label, summary, select, input, textarea, [role=button], [role=link], [role=tab], [role=option], [role=menuitem], [onclick], [tabindex], [contenteditable]';
   bind(document, 'click', e => {
+    if (!alive() || e.button) return;
     const el = e.target.closest && e.target.closest('vb-mark');
-    if (!el || !alive() || el.closest('a, button, label, summary, [role=button], [role=link], [role=tab], [onclick], [tabindex], [contenteditable]')) return;
-    e.preventDefault(); e.stopPropagation();
-    const r = document.createRange(); r.selectNodeContents(el);
-    show(el.dataset.w, el.getBoundingClientRect(), sentenceAround(r));
+    if (el) {
+      if (el.closest(NO_HIJACK)) return;
+      e.preventDefault(); e.stopPropagation();
+      const r = document.createRange(); r.selectNodeContents(el);
+      show(el.dataset.w, el.getBoundingClientRect(), sentenceAround(r));
+      return;
+    }
+    if (!HLR || !hlCount || fromHost(e)) return;
+    const h = hlAt(e.clientX, e.clientY); if (!h) return;
+    const sel = document.getSelection(); if (sel && !sel.isCollapsed) return; // đang bôi đen → để luồng chọn chữ xử lý
+    // Chữ trong phần tử bấm được (nút, liên kết, thẻ có cursor:pointer của SPA) → nhường trang; không chặn sự kiện của trang
+    const t = e.target.nodeType === 1 ? e.target : e.target.parentElement;
+    if (!t || t.closest(NO_HIJACK)) return;
+    try { if (getComputedStyle(t).cursor === 'pointer') return; } catch (x) { /* bỏ qua */ }
+    hideTip();
+    show(h.w, h.r.getBoundingClientRect(), sentenceAround(h.r));
   }, true);
   let moT = null; const pendingMark = [];
-  // Trang dựng bằng React/Vue/Angular/Svelte tự quản lý DOM – chèn <vb-mark> có thể làm app lỗi (removeChild) → không đánh dấu ở đó
+  // <vb-mark> (dự phòng): trang dựng bằng React/Vue/Angular/Svelte tự quản lý DOM – chèn thẻ làm app lỗi (removeChild) → không đánh dấu ở đó
   const frameworkPage = () => !!document.querySelector('[data-reactroot], #__next, #root > *, #app > *, [data-v-app], [ng-version], [data-svelte-h], [data-sveltekit-hydrate]');
+  function flushMarks() {
+    moT = null;
+    if (!alive()) return stop();
+    if (!markOn || !knownRe) { pendingMark.length = 0; return; }
+    if (HLR) {
+      // Range sống co lại khi trang thay chữ → bỏ nút đã rời trang / đổi nội dung, quét lại nút còn đó
+      for (const [node, e] of [...hlNodes]) if (!node.isConnected || node.nodeValue !== e.v) { hlDrop(node); if (node.isConnected) pendingMark.push(node); }
+    }
+    const ns = pendingMark.splice(0, 60); pendingMark.length = Math.min(pendingMark.length, 600);
+    ns.forEach(n => n.isConnected && markIn(n, 80));
+    if (pendingMark.length && !moT) moT = later(flushMarks, 1500);
+  }
   const mo = new MutationObserver(muts => {
     if (!alive()) return stop();
     if (!markOn || !knownRe) return;
-    if (muts.every(m => [...m.addedNodes].every(x => x.nodeName === 'VB-MARK' || x.nodeType === 3 && x.parentElement && x.parentElement.nodeName === 'VB-MARK'))) return;
-    const added = muts.flatMap(m => [...m.addedNodes]).filter(n => n.nodeType === 1 && n.nodeName !== 'VB-MARK' && n.isConnected);
-    pendingMark.push(...added); clearTimeout(moT); moT = later(() => { const ns = pendingMark.splice(0, 60); ns.forEach(n => n.isConnected && markIn(n, 80)); }, 1500);
+    if (!HLR && muts.every(m => [...m.addedNodes].every(x => x.nodeName === 'VB-MARK' || x.nodeType === 3 && x.parentElement && x.parentElement.nodeName === 'VB-MARK'))) return;
+    for (const m of muts) {
+      if (m.type === 'characterData') { if (HLR) pendingMark.push(m.target); continue; }
+      for (const n of m.addedNodes) if ((n.nodeType === 1 && n.nodeName !== 'VB-MARK' && n !== host) || (HLR && n.nodeType === 3)) pendingMark.push(n);
+    }
+    if (!moT) moT = later(flushMarks, HLR ? 700 : 1500); // gom đợt: trang SPA vẽ lại liên tục cũng chỉ quét ≤ 1 lần / 0,7 s
   });
   cleanups.push(() => mo.disconnect());
   (async () => {
     if (window.top !== window || /^(docs|mail)\.google\.com$|(^|\.)lexkite\.com$|^lexkite\.pages\.dev$|(^|\.)(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname)) return;
     await loadKnown(); injectMarkCss();
-    const go = () => { if (frameworkPage()) return; markIn(document.body); if (document.body) mo.observe(document.body, { childList: true, subtree: true }); };
+    const go = () => { if (!HLR && frameworkPage()) return; markIn(document.body); if (document.body) mo.observe(document.body, HLR ? { childList: true, subtree: true, characterData: true } : { childList: true, subtree: true }); };
     'requestIdleCallback' in window ? requestIdleCallback(() => { if (alive()) go(); else stop(); }, { timeout: 2500 }) : later(go, 1200);
   })();
   chromeOn(chrome.storage.onChanged, async ch => {
     if (!alive()) return;
-    if (ch.cards) { await loadKnown(); }
+    if (ch.cards) { await loadKnown(); if (HLR && markOn && knownRe && document.body) { hlClear(); markIn(document.body); } }
     if (ch.settings) { const nv = ch.settings.newValue || {}, on = nv.markKnown !== false; acadOn = nv.markAcademic !== false; unmarkAll(); await loadKnown(); if (on) markIn(document.body); }
   });
 

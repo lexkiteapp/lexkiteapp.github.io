@@ -382,7 +382,18 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
     q1 = await cli({ op: 'list', sha256: [SHA_F] }); ok(q1.j.have[SHA_F].copies === 2 && q1.j.forecast === undefined, 'list theo sha (CLI): đủ bản, không tính dự báo/quét');
     q1 = await cli({ op: 'list' }); ok(q1.s === 200 && q1.j.drives.length >= 1 && q1.j.drives.every(d => d.files === undefined || d.files === 0), 'list CLI không gộp theo drive_files');
     q1 = await cli({ op: 'render_link', file_id: fids[0] }); ok(q1.s === 200 && /^\/api\/drive\/dl/.test(q1.j.url), 'render_link đọc được file footage/ (cls original)');
+    { // diễn tập khôi phục (code-bundle · d1-restore · fetch-backup): CLI tải LẠI bản sao lưu backups/ qua render_link; thư mục lạ vẫn 404
+      const SHA_B = createHash('sha256').update('bundle-one').digest('hex');
+      const qb = await cli({ op: 'upload_session', name: 'code.bundle', mime: 'application/octet-stream', size: 10, sha256: SHA_B, folder: 'backups/code', cls: 'original', replicas: 2, asset_id: 'backup:code:test' });
+      ok(qb.s === 200 && qb.j.sessions.length === 2, 'backups/code: 2 phiên / 2 Drive');
+      const bf = []; for (const ss of qb.j.sessions) { const pu = await fetch(ss.upload_url, { method: 'PUT', body: Buffer.from('bundle-one') }); const fid = (await pu.json()).id; bf.push(fid); await cli({ op: 'complete', drive_id: ss.drive_id, file_id: fid, sha256: SHA_B }); }
+      for (const fid of bf) { const rl = await cli({ op: 'render_link', file_id: fid }); ok(rl.s === 200 && /^\/api\/drive\/dl/.test(rl.j.url), 'render_link đọc được bản sao lưu backups/code (cả 2 bản)'); }
+      const rn = await cli({ op: 'render_link', file_id: 'không-có' }); ok(rn.s === 404, 'render_link file lạ → 404');
+    }
     q1 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q1.j.ok && q1.j.count === 1, 'refs_sync nguồn footage');
+    { const q2 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q2.j.ok && q2.j.added === 0 && q2.j.removed === 0, 'refs_sync lặp lại không đổi → 0 dòng ghi (chỉ ghi phần khác)');
+      const q3 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }, { s: 'f7'.repeat(32), st: 'approved' }] }); ok(q3.j.added === 1 && q3.j.removed === 0, 'refs_sync thêm 1 → chỉ chèn 1');
+      const q4 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q4.j.added === 0 && q4.j.removed === 1, 'refs_sync bớt 1 → chỉ xoá 1'); }
     q1 = await cli({ op: 'ext_alert', kind: 'gitsize', ok: false, n: 1, repo: 'x', gb: 3 }); ok(q1.j.ok, 'ext_alert gitsize');
     { // bản tin CI hằng ngày (ci-triage.yml): cảnh báo 'ci' mức warn + ≤ 1 thư / 20 h; ok → gỡ cảnh báo
       const m0 = mails.length;
@@ -397,8 +408,10 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
     for (const [q, a] of SEEN) {
       if (!/^\s*(SELECT|UPDATE|DELETE)/i.test(q)) continue;
       let plan; try { plan = sql.prepare('EXPLAIN QUERY PLAN ' + q).all(...a); } catch (e) { continue; }
-      for (const p of plan) if (/^SCAN /.test(p.detail) && !/^SCAN (drives|d|drive_alerts|drive_meta|drive_folders|CONSTANT)\b/.test(p.detail)) bad.push(p.detail + ' ← ' + q.slice(0, 90));
+      for (const p of plan) if (/^SCAN /.test(p.detail) && !/^SCAN (drives|d|t|drive_alerts|drive_meta|drive_folders|CONSTANT)\b/.test(p.detail)) bad.push(p.detail + ' ← ' + q.slice(0, 90));
     }
+    // quét không giới hạn trên bảng lớn (động, mọi truy vấn thật): COUNT(*)/SELECT thiếu WHERE+LIMIT trên drive_files · admin_log · drive_audit; SCAN lớp ngoài 't' (bảng con có LIMIT) hợp lệ
+    for (const [q] of SEEN) { const m = q.match(/\bFROM\s+(drive_files|admin_log|drive_audit)\b(?!\s+\w+\s+JOIN)/i); if (!m || !/^\s*SELECT/i.test(q)) continue; const top = q.replace(/\([^()]*(\([^()]*\)[^()]*)*\)/g, '()'); if (!/\bFROM\s+(drive_files|admin_log|drive_audit)\b/i.test(top)) continue; if (!/\bWHERE\b/i.test(top) && !/\bLIMIT\b/i.test(top) && !/SELECT\s+(MAX|MIN)\(/i.test(top)) bad.push('không giới hạn ← ' + q.slice(0, 90)); }
     ok(bad.length === 0, 'EXPLAIN QUERY PLAN: đường footage không quét drive_files/drive_refs: ' + bad.join(' | '));
     ok(SEEN.size > 8, 'kiểm EXPLAIN đã duyệt các truy vấn thật (' + SEEN.size + ')');
     // đếm dòng đọc + trần CLI 1,5 M + cầu dao (ext_alert luôn qua)
@@ -548,6 +561,9 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
   let r = await cliE(E0, { op: 'd1b_counts' }); ok(r.s === 200 && r.j.match === false, 'trước khi sao: số dòng D1 chính ≠ nội bộ');
   for (const t of TABLES) { let after = 0, pages = 0; if (['drive_alerts', 'drive_meta', 'drive_nonce'].includes(t)) after = ''; for (;;) { r = await cliE(E0, { op: 'd1b_copy', table: t, after, limit: 7 }); ok(r.s === 200 && r.j.ok, 'd1b_copy ' + t); pages++; if (r.j.done || pages > 400) break; after = r.j.last; } }
   r = await cliE(E0, { op: 'd1b_counts' }); ok(r.j.match === true && r.j.counts.drive_files.main === cnt(sql, 'drive_files') && r.j.counts.drive_files.main > 5, 'sau khi sao: số dòng khớp mọi bảng (drive_files ' + r.j.counts.drive_files.main + ')');
+  // 26/10: chạy lại toàn bộ lần 2 không được nhân đôi drive_refs (trước: chèn thêm → không bao giờ khớp → sao lại mỗi ngày)
+  for (const t of TABLES) { let after = 0, pages = 0; if (['drive_alerts', 'drive_meta', 'drive_nonce'].includes(t)) after = ''; for (;;) { r = await cliE(E0, { op: 'd1b_copy', table: t, after, limit: 7 }); pages++; if (r.j.done || pages > 400) break; after = r.j.last; } }
+  r = await cliE(E0, { op: 'd1b_counts' }); ok(r.j.match === true && r.j.counts.drive_refs.internal === cnt(sql, 'drive_refs') && cnt(sql, 'drive_refs') > 0, 'sao lại lần 2: vẫn khớp, drive_refs không nhân đôi (' + r.j.counts.drive_refs.internal + ')');
   ok(!r.text.includes('tok-secret-b'), 'không lộ token D1B'); ok((await cliE(E0, { op: 'd1b_copy', table: 'users' })).s === 400, 'd1b_copy chỉ cho bảng nội bộ trong danh sách');
   // 2) ghi đôi: upload mới xuất hiện ở CẢ HAI, id khớp
   const SHA_D = createHash('sha256').update('dual-one').digest('hex');
@@ -568,6 +584,40 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
   // 5) REST lỗi 403 (token sai) khi dual → yêu cầu vẫn thành công (ghi nội bộ best-effort), có đếm lỗi
   const EBAD = { ...ENV, D1B_ACCOUNT_ID: 'ACCT2', D1B_TOKEN: 'wrong', D1B: 'dual' }; r = await cliE(EBAD, { op: 'list' }); ok(r.s === 200, 'dual + token sai: đọc từ D1 chính vẫn chạy');
   globalThis.fetch = baseFetch;
+}
+
+// ---------- 27/10: Kho Drive chậm 7–15 s / treo "Đang tải…" – D1 'dual' chép nền, REST + GraphQL có hạn chờ ----------
+{
+  const { dualDb, restDb, DUAL } = await import('../../functions/api/_d1b.js');
+  const { d1Usage, resetD1Cache } = await import('../../functions/api/_d1guard.js');
+  const log = [], mainDb = { prepare: q => ({ bind: (...a) => ({ run: async () => { log.push('main:' + a[0]); return {}; }, all: async () => ({ results: [] }), first: async () => null }) }), batch: async x => x.map(() => ({})) };
+  let release; const gate = new Promise(r => { release = r; });
+  const slowB = { prepare: q => ({ bind: (...a) => ({ run: async () => { await gate; log.push('b:' + a[0]); return {}; } }) }), batch: async () => [] };
+  const deferred = [], db = dualDb(mainDb, slowB).withDefer(p => deferred.push(p));
+  const t0 = Date.now();
+  await db.prepare('INSERT INTO x VALUES (?)').bind(1).run(); await db.prepare('UPDATE x SET v = ?').bind(2).run();
+  await db.prepare('SELECT * FROM x').bind(0).all();
+  ok(Date.now() - t0 < 50 && log.join() === 'main:1,main:2', 'dual + waitUntil: trả lời KHÔNG chờ bản chép D1 nội bộ (đọc/ghi D1 chính xong là xong)');
+  ok(deferred.length === 2, 'dual: mỗi lệnh ghi giao cho waitUntil của yêu cầu (đọc không chép)');
+  release(); await Promise.all(deferred);
+  ok(log.join() === 'main:1,main:2,b:1,b:2', 'dual: bản chép chạy nền vẫn ĐÚNG THỨ TỰ ghi');
+  const f0 = DUAL.fail, badB = { prepare: () => ({ bind: () => ({ run: async () => { throw new Error('x'); } }) }) }, d2 = [];
+  await dualDb(mainDb, badB).withDefer(p => d2.push(p)).prepare('INSERT INTO y VALUES (?)').bind(9).run(); await Promise.all(d2);
+  ok(DUAL.fail === f0 + 1, 'dual: chép lỗi → đếm DUAL.fail, không làm hỏng yêu cầu');
+  const log2 = []; const plain = dualDb(mainDb, { prepare: q => ({ bind: (...a) => ({ run: async () => { log2.push(a[0]); return {}; } }) }) });
+  await plain.prepare('INSERT INTO z VALUES (?)').bind(7).run();
+  ok(log2.join() === '7', 'dual không có waitUntil (CLI/test cũ) → vẫn chờ chép như trước');
+  // REST tài khoản 2 treo → mỗi lượt bị cắt theo hạn chờ rồi thử lại, cuối cùng ném lỗi thay vì treo mãi
+  const keep = setInterval(() => {}, 20); // AbortSignal.timeout dùng timer unref trong Node – giữ tiến trình sống cho tới khi hết hạn chờ
+  const hang = (u, o) => new Promise((_, rej) => { o.signal && o.signal.addEventListener('abort', () => rej(new Error('aborted'))); });
+  const r = restDb({ D1B_ACCOUNT_ID: 'a', D1B_TOKEN: 't', D1B_TIMEOUT_MS: 30 }, hang); const t1 = Date.now(); let err = '';
+  try { await r.prepare('SELECT 1').all(); } catch (e) { err = e.message; }
+  ok(err === 'd1b-network' && Date.now() - t1 < 3000, 'REST D1 nội bộ treo → hết hạn chờ, thử lại 3 lần rồi báo d1b-network (không treo): ' + err + ' ' + (Date.now() - t1) + 'ms');
+  // GraphQL Analytics treo → quá hạn → dùng số tự đếm (đường dự phòng), cầu dao không treo cả yêu cầu
+  resetD1Cache(); const t2 = Date.now();
+  const u = await d1Usage({ CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'abc', GQL_TIMEOUT_MS: 30 }, { prepare: () => ({ bind: () => ({ first: async () => ({ v: 12 }) }) }) }, Date.now(), hang);
+  ok(u.source === 'own' && u.reads === 12 && Date.now() - t2 < 2000, 'GraphQL treo → số tự đếm sau hạn chờ (' + u.source + ', ' + (Date.now() - t2) + 'ms)');
+  resetD1Cache(); clearInterval(keep);
 }
 
 if (fails) { console.log(`✗ drive: ${fails}/${n} kiểm thất bại`); process.exit(1); }

@@ -111,7 +111,6 @@ jobs:
           gh workflow run blog-images.yml --ref main -f mode=backfill -f limit="${{ inputs.limit }}" -f lang="${{ inputs.lang }}" -f chain=true
       - name: Build lại site khi bài ĐÃ đăng có ảnh mới (hoặc backfill xong)
         if: steps.push.outputs.pushed == '1' && (steps.plan.outputs.live != '0' && env.MODE != 'backfill' || env.MODE == 'backfill' && steps.plan.outputs.remaining == '0')
-        env: { CF_PAGES_DEPLOY_HOOK: '${{ secrets.CF_PAGES_DEPLOY_HOOK }}' }
-        run: |
-          if [ -z "$CF_PAGES_DEPLOY_HOOK" ]; then echo "::warning::Thiếu CF_PAGES_DEPLOY_HOOK – ảnh mới hiện ở lần build kế tiếp"; exit 0; fi
-          curl -fsS -X POST "$CF_PAGES_DEPLOY_HOOK" > /dev/null && echo "✓ đã gọi deploy hook"
+        env: { GH_TOKEN: '${{ github.token }}' }
+        # không gấp: gom với yêu cầu khác (pages-deploy.yml chờ yên + giãn cách, cron 3 giờ bù) – docs/FREE-TIER.md §7
+        run: gh workflow run pages-deploy.yml --ref main -f quiet=15 -f reason="blog-images ${{ env.MODE }}" && echo "✓ đã yêu cầu deploy"

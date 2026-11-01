@@ -1,5 +1,8 @@
 # Rà soát từ vựng – 10/2026
 
+> TL;DR: Audit từ vựng 10/2026. Báo cáo tại thời điểm đó.
+> Đọc khi: tra chất lượng từ vựng.
+
 Phạm vi: 9.588 mục từ trong `web/js/data.js` + `web/js/lib/{ngsl,ngsl2,tsl-a,tsl-b,bsl,nawl,awl,exam-vocab*,domain-*,office,topics-more,skills}.js` và gói nghĩa 13 ngôn ngữ `web/packs/*.json`.
 Cách làm: script kiểm tự động (từ loại ↔ định nghĩa/nghĩa Việt, IPA giọng Anh có dạng Mỹ, ví dụ thiếu từ, trùng/lệch cấp độ & IPA giữa các bộ, định nghĩa vòng tròn) + đọc tay mục bị gắn cờ + soát mẫu gói nghĩa es/fr/de/ja/zh/ru/ko… cho từ A1–A2.
 

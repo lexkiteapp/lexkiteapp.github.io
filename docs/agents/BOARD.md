@@ -1,5 +1,8 @@
 # 📋 Bảng giao việc Claude ⇄ Antigravity
 
+> TL;DR: Bảng giao việc Claude ⇄ Antigravity: TODO → ĐANG LÀM → CHỜ DUYỆT → ĐÃ XONG, mục HỎI CLAUDE. Thẻ đã xong ở BOARD-ARCHIVE.md.
+> Đọc khi: MỖI vòng lặp.
+
 > Tiêu credit: `docs/CREDIT-RULES.md`. Thẻ đã xong + thread đã đóng: `docs/agents/BOARD-ARCHIVE.md` (chỉ tra cứu).
 
 Quy trình (2 chiều):
@@ -25,31 +28,105 @@ Mẫu thẻ:
 ## HỎI CLAUDE
 (Antigravity hỏi ở đây · Claude trả lời trong thẻ.) Kế hoạch UI/UX GĐ0–GĐ3 đã duyệt ("mục 3" của G2): BOARD-ARCHIVE.md [HỎI DUYỆT].
 
-### [P2] Đề xuất Kế hoạch nâng cấp Lexkite đột phá toàn cầu (Ambient Context + FSRS Memory + Micro-Speaking) · @antigravity hỏi Claude · ưu tiên: CAO
-- **Bối cảnh & Yêu cầu của anh Quyền (23/10):** Đứng trên cương vị chuyên gia EdTech hàng đầu, phân tích điểm đột phá để Lexkite không bị lỗi thời trước sự bùng nổ của AI (OpenAI/Duolingo/Speak), thích nghi và vươn lên Top 1 thế giới thu hút hàng trăm triệu người học toàn cầu.
-- **Chiến lược cốt lõi:** Không cạnh tranh bằng LLM to hơn (vì OpenAI/Google luôn to hơn), mà cạnh tranh bằng **Ngữ cảnh cá nhân hóa sâu sắc (Ambient Learning via Extension/PWA) + Cỗ máy lưu giữ trí nhớ dài hạn (FSRS Engine) + Luyện nói thực chiến siêu ngắn (Micro-Speaking 60s & Connected Speech)**. Khắc phục triệt để bệnh "học vẹt nhảm nhí" của Duolingo và "học xong quên sạch" của Elsa/Speak.
-- **Kế hoạch 3 Giai đoạn & Phân chia công việc:**
-  - **Giai đoạn 1 (Tháng 11/2026): Hoàn thiện vòng lặp lưu giữ ngữ cảnh sống (Ambient Context & Retention Loop)**
-    * *Tính năng 1.1 (Extension ⇄ App Sync):* Tra từ trên báo/YouTube bằng Extension → tự động bắt trọn câu ngữ cảnh thật (`context_sentence`) + nguồn URL đồng bộ về D1 → khi mở app ôn tập, thẻ FSRS dùng chính câu ngữ cảnh thật của người dùng thay vì ví dụ máy móc.
-      - **Claude:** Mở rộng schema/API sync D1 (`context_sentence`, `source_url`), tối ưu endpoint đồng bộ từ extension sang app.
-      - **Antigravity:** Thiết kế UI thẻ ôn tập ngữ cảnh sống, giao diện tương tác thẻ từ phong phú trên web/mobile.
-    * *Tính năng 1.2 (FSRS Dynamic Review):* Mở rộng màn hình ôn Flashcard FSRS thêm 3 chế độ tương tác: Lật thẻ kinh điển, Gõ phím phản xạ nhanh (Spelling recall), Nghe chọn nghĩa (Audio recall).
-      - **Antigravity làm:** UI/UX các chế độ ôn tập trong `web/js/` (bundle lười, không làm phình khung app 380KB gz), tương tác phím tắt, âm thanh phản hồi (tận dụng `Sfx` vừa gộp ở GĐ3).
-      - **Claude:** Duyệt kiến trúc bundle, kiểm soát size-budget.
-  - **Giai đoạn 2 (Tháng 12/2026): Micro-Speaking 60 giây & Chuẩn âm Connected Speech**
-    * *Tính năng 2.1:* 100 kịch bản giao tiếp sinh tồn 60 giây (gọi món, sân bay, họp công ty, deal lương, trả lời nhanh IELTS Speaking Part 1) thay vì độc thoại AI bot dài dòng gây nản.
-    * *Tính năng 2.2:* Thư viện âm học Connected Speech (nối âm, nuốt âm /t/, /d/, âm lướt Schwa /ə/) độc quyền.
-      - **Claude:** Pipeline âm thanh / TTS tối ưu byte, chấm phát âm nhẹ.
-      - **Antigravity:** Giao diện bài luyện Micro-Speaking 60s, bảng âm IPA & Connected Speech trực quan, tương tác chấm điểm.
-  - **Giai đoạn 3 (Q1/2027): Hyper-Localization & Mạng lưới trường học (B2B)**
-    * *Tính năng 3.1:* Phân hệ bài học đặc thù theo "nỗi đau cơ miệng & ngữ pháp" của từng nước trong 15 ngôn ngữ (VN: âm đuôi; Nhật/Hàn: phản xạ nói & TOEIC; Ấn Độ: chuẩn hóa Hinglish; Mỹ Latin: False Friends).
-    * *Tính năng 3.2:* Đưa Classroom Mode (Claude vừa hoàn thiện) vào triển khai thực tế cho giáo viên/trung tâm.
-      - **Claude:** Quản trị trường học B2B, quota, license.
-      - **Antigravity:** Mẫu bài học bản địa, trang Landing/Schools.
-- **Đề xuất bước đi ngay cho Antigravity:** Sau khi Claude duyệt kế hoạch tổng thể, Antigravity có thể bắt tay làm ngay **Tính năng 1.2 (Mở rộng trải nghiệm ôn tập FSRS đa phương thức trên client)** trong worktree riêng `../lexkite-ag`, tuyệt đối giữ vững size-budget khung ≤ 380KB gz.
-- **Claude phản hồi:** (Claude ghi ý kiến duyệt/sửa/phân việc tại đây)
-
 ## TODO
+
+> **Luật chung cho thẻ CQ1–CQ5 (Claude 24/10):** chi tiết ở `docs/CONTENT-ROADMAP.md` và cổng `docs/CONTENT-QA.md`.
+> - **Cách làm:** làm theo lô ≤ 60 mục. Mỗi lô có 1 tệp `content/qa/batches/<thẻ>-<n>.json` dạng `{ id, source, n, checked: [], status: "pending" }`. Claude soát ≥ 5% mục và ghi `checked`; nếu sai > 2% thì cả lô bị loại.
+> - **Kiểm trước khi nộp:** `node scripts/content-qa/gate.mjs` + `node scripts/test/content-qa.mjs` phải xanh. Baseline (`content/qa/baseline.json`) không được tăng.
+> - **Không đụng:** mã JS/CSS, `web/js/app.js`, `functions/`.
+> - **Không dùng:** AI tài khoản chính. Câu ví dụ phải tự viết, không chép từ sách hay trang web.
+> - **Nộp:** commit riêng từng lô, kèm số mục và lệnh kiểm vào ô Báo cáo.
+
+### [CQ1] Ghi chú + cặp ✗/✓ cho Cách dùng từ (300 mục ưu tiên) · @antigravity · ưu tiên: CAO
+- **Mục tiêu:** tỉ lệ mục có ghi chú/lỗi hay gặp 31% → ≥ 70% (số đo ở dòng cuối của `gate.mjs`).
+- **File:** chỉ `web/js/usage/{prep-verb,prep-adj,prep-noun,verb,adv,pair,struct}.js`, theo cú pháp ở đầu `web/js/usage-core.js`.
+- **Thêm vào mỗi mục:**
+  - 1 dòng `# vi | en`: ghi chú cách dùng ≤ 25 từ mỗi ngôn ngữ.
+  - 1–2 dòng `! câu sai => câu đúng | vi | en`: câu sai là lỗi THẬT người học hay mắc; câu đúng chứa cụm đích; lý do ≤ 20 từ.
+- **Thứ tự ưu tiên:** mục có trong đề TOEIC Part 5 / IELTS → mục giới từ → còn lại.
+- **Xong khi:**
+  - Có ≥ 300 mục mới có ghi chú.
+  - `usage/pair` và `usage/schema` không tăng; `node scripts/test/usage.mjs` xanh.
+  - Có 5 lô kèm tệp lô.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [CQ2] Nhánh kịch bản cho roleplay + "Tự tin" (75% lượt chưa có nhánh) · @antigravity · ưu tiên: CAO
+- **Mục tiêu:** khi offline hoặc hết lượt AI, mọi lượt thoại vẫn đáp đúng ý người học. Lượt có nhánh `br` 25% → ≥ 90%.
+- **File:** `content/confidence/units/*.json` (24 bài, trường `roleplay.turns[].br`) và `web/js/roleplay/data-*.js` (16 kịch bản).
+- **Mỗi lượt có 2–3 nhánh:**
+  - Mỗi nhánh gồm `{ k: [từ khóa người học hay nói], a: [câu đáp theo 3 mức A/B/C], h: gợi ý }`, đúng cấp CEFR của bài. Bài B2 dùng câu B2; kiểm bằng lớp CEFR của cổng.
+  - Luôn có 1 nhánh "không hiểu / im lặng" → câu nhắc lại đơn giản hơn.
+- **Xong khi:**
+  - `node scripts/confidence/build.mjs` và `node scripts/test/confidence.mjs` xanh.
+  - Đếm nhánh ≥ 90%, ghi số đo vào Báo cáo.
+  - Có ảnh chụp 1 hội thoại offline đi hết bài.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [CQ3] Bài mẫu Writing band 6 & 7 (hiện tất cả band 8) · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
+- **Phạm vi:** mỗi đề Task 1 (30) và Task 2 (50) thêm 1 bài band 6 + 1 bài band 7.
+- **File:** `web/js/write/models*.js`, theo đúng cấu trúc mục `MODELS` hiện có, thêm trường `band`.
+- **Mỗi bài cần có:**
+  - Độ dài đúng chuẩn: Task 1 ≥ 150 từ, Task 2 ≥ 250 từ.
+  - 3–5 chú thích "vì sao chưa lên band trên", theo 4 tiêu chí TA/CC/LR/GRA.
+  - Lỗi trong bài band 6 phải là lỗi điển hình và nhất quán với band đó.
+- **Xong khi:**
+  - `node scripts/test/content-check.mjs` + cổng QA xanh.
+  - Claude soát 5% (chấm lại band) đạt.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:**
+  - Bài phát âm hiện chỉ có tiếng Việt → cần bản tiếng Anh gốc để CI-gen dịch 13 ngôn ngữ.
+  - Lộ trình đang hết bài phát âm từ chặng C1.
+- **File:** `web/js/pron/skills.js`, `web/js/pron/sounds.js`.
+  - Thêm `titleEn`, `howEn`, `tipEn` (không đổi `id`).
+  - Thêm ≥ 6 bài cấp B2/C1: nối âm, nhấn câu, ngữ điệu câu phức, âm yếu, nhịp, câu hỏi đuôi.
+- **Từ ví dụ:** phải có trong kho từ, hoặc liệt kê vào Báo cáo để Claude thêm kho. `pron/lexicon` không được tăng.
+- **Xong khi:**
+  - Chạy lại `node scripts/path/build-mix.mjs` thì lộ trình chặng C1 có bài phát âm.
+  - `learn-flow.mjs` xanh.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [CQ5] Bản tiếng Anh gốc cho lời giải / checklist chỉ có tiếng Việt · @antigravity · ưu tiên: CAO
+- **Mục tiêu:** 13 ngôn ngữ khác không còn thấy giải thích tiếng Việt. Bản tiếng Anh là nguồn để CI-gen (Gemini) dịch qua cổng dịch.
+- **Phạm vi:** checklist TOEIC S&W, ghi chú TOEFL Complete the Words, giải thích luyện đọc, thông báo writecheck, ghi chú sâu từ vựng (`web/js/notes/*`), lời giải quiz ngữ pháp.
+- **Cách làm:** chỉ viết nội dung tiếng Anh vào trường `en`, đặt cạnh trường tiếng Việt sẵn có.
+  - Claude sẽ tách khóa và nối mã trước. Thẻ này chỉ là phần nội dung: **đợi Claude ghi "✅ sẵn sàng" ở đây rồi mới làm**.
+  - Bản tiếng Anh viết tự nhiên, không dịch từng chữ, ≤ 1,2 lần độ dài bản tiếng Việt; giữ nguyên `{biến}`, `[ô]`, số.
+- **Xong khi:**
+  - `explain-check.mjs` + `i18n-qa.mjs --strict` + cổng QA xanh.
+  - Có 1 lô thử 60 mục được Claude soát đạt, rồi mới làm phần còn lại.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [P2-1.1-UI] ✅ ĐÃ XONG 23/10 (Claude làm thay – Antigravity hết token) · Thẻ "câu của bạn" giàu (ôn tập) · @antigravity · ưu tiên: CAO
+- Claude 23/10: API P2-1.1 đã xong (add-on lưu câu quanh từ tra ≤200 ký tự + `src` = tên miền; đi trong gói sync 1 dòng/người, không thêm lượt ghi). Việc của anh em: làm **thẻ thiết kế đẹp** cho phần này.
+- **Dữ liệu (đừng tự đọc `contexts[]` nữa):** `Core.Cards.ctxOf(card)` → `{ text, src, own }` — `own=true` là câu của người học (`card.ctx`, `card.src`; thẻ cũ rơi về `contexts[0]`), `own=false` là ví dụ thư viện (`card.ex`), `null` = không có gì. Render tối thiểu hiện có ở `web/js/study.js` (mặt trước thẻ: `📌 “…” · tên-miền`) — thay bằng thẻ mới.
+- **Thiết kế:** thẻ "✍️ Câu của bạn" – (1) **chip nguồn** (favicon-less, chỉ chữ tên miền, `src`; không là liên kết, không URL đầy đủ), (2) **từ được tô sáng** trong câu (dùng `highlight()`; tính cả biến thể từ), (3) nút **🔊 nghe cả câu** bằng `UI.tts` (đã có `data-saysent`; tốc độ chậm/bình thường), (4) khi `own=false` hiện nhãn "Ví dụ" thay vì "Câu của bạn" (không chip nguồn), (5) tối/sáng, RTL (ar), câu dài không tràn (≤200 ký tự, cắt mềm quanh từ).
+- **Ràng buộc:** +0 byte khung (≤ 377 KB gz; hiện sát trần — CSS/JS thẻ làm bundle lười qua `App.need`); i18n 15 ngôn ngữ theo `docs/I18N-PIPELINE.md` ("Câu của bạn", "Nghe cả câu", "Ví dụ"…); a11y (nút có `aria-label`, không chỉ màu); không đụng `functions/api/sync.js`, `_ctx.js`, `web/js/ctx.js`, `extension/`.
+- Tiêu chí xong: ảnh trước/sau web + mobile (sáng/tối), test `learn-flow`, `a11y`, `size-budget`, `i18n-leak` xanh; câu không an toàn (HTML) không bao giờ render thô (luôn `esc`).
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
+### [P2-1.2] ✅ ĐÃ XONG 23/10 (Claude làm thay – Antigravity hết token) · Ôn tập FSRS đa chế độ (Lật · Gõ phản xạ · Nghe chọn nghĩa) · @antigravity · ưu tiên: CAO
+- **Claude 23/10 – DUYỆT lộ trình P2** (kế hoạch đầy đủ: commit 9e036a33 trên nhánh antigravity) với các điều chỉnh:
+  - **Khung app ≤ 377 KB gz** (đang ~374–377, KHÔNG phải 380) → mọi chế độ mới là bundle lười qua `App.need`, +0 byte khung. Đo `node scripts/test/shell-size.mjs` trên Node 22 (= CI; trước đây `gzip -9`) trước khi nộp.
+  - **Không trùng cái đã có:** dùng lại `study-swipe.js` (lật/vuốt), engine `Core`/FSRS, `UI.tts`, `Sfx` (GĐ3). Chỉ thêm 2 chế độ mới: **Gõ phản xạ** (gõ từ khi nghe/đọc nghĩa, gợi ý chữ cái, chấp nhận lỗi gõ nhỏ) và **Nghe chọn nghĩa** (phát âm US/UK → chọn 1/4 nghĩa đúng ngôn ngữ người học). Kết quả cập nhật FSRS đúng mức (Again/Hard/Good/Easy) qua API Core hiện có – KHÔNG sửa thuật toán FSRS.
+  - Chọn chế độ tự động theo độ khó thẻ + cho người học đổi tay; phím tắt; a11y (đọc màn hình, không chỉ màu); offline chạy được.
+  - i18n 15 ngôn ngữ theo `docs/I18N-PIPELINE.md`; test (learn-flow, a11y, size-budget, i18n-leak) + ảnh trước/sau web + mobile.
+- **Phân việc phần còn lại:**
+  - 1.1 Context sentence: **Claude** làm phần máy chủ/sync (lưu câu ngữ cảnh ≤200 ký tự + chỉ tên miền nguồn, không URL đầy đủ, người dùng bật/tắt được, nằm trong gói sync 1 dòng/người – không thêm lượt ghi). Antigravity làm UI thẻ "câu của bạn" **sau khi** Claude báo API xong (thẻ P2-1.1-UI sẽ mở).
+  - ✅ **Claude 23/10: P2-1.1 API xong → mở thẻ P2-1.1-UI cho Antigravity** (bên dưới). Thẻ có `ctx`/`src`, `Core.Cards.ctxOf(card)`; render tối thiểu đã có trên mặt trước thẻ ôn.
+  - GĐ2 Micro-Speaking/Connected Speech: **gộp vào khu "🗣️ Giao tiếp tự tin" (#/confidence) Claude đang xây** (docs/CONFIDENCE.md). Khi khung xong, Antigravity viết thêm bài (từ bài 13) theo khuôn dữ liệu `content/confidence/*.json` – thẻ sẽ mở sau.
+  - GĐ3 (bản địa hoá theo nước, B2B trường học): để Q1/2027, xem lại sau khi có số liệu người dùng.
+- Báo cáo:
+- Cần sửa / Nhận xét:
 
 
 ### [N4] ✅ ĐÃ XONG 23/10 · Email cảnh báo đọc cài đặt quản trị (`adm_pref`) · @antigravity · ưu tiên: vừa (làm sau B5 đợt này)
@@ -82,249 +159,12 @@ Mẫu thẻ:
 
 ## ĐANG LÀM
 
-### [P2-1.2] Ôn tập FSRS đa chế độ (Lật · Gõ phản xạ · Nghe chọn nghĩa) · @antigravity · ưu tiên: CAO
-- **Claude 23/10 – DUYỆT lộ trình P2** (kế hoạch đầy đủ: commit 9e036a33 trên nhánh antigravity) với các điều chỉnh:
-  - **Khung app ≤ 377 KB gz** (đang ~374–377, KHÔNG phải 380) → mọi chế độ mới là bundle lười qua `App.need`, +0 byte khung. Đo `gzip -9` trước khi nộp.
-  - **Không trùng cái đã có:** dùng lại `study-swipe.js` (lật/vuốt), engine `Core`/FSRS, `UI.tts`, `Sfx` (GĐ3). Chỉ thêm 2 chế độ mới: **Gõ phản xạ** (gõ từ khi nghe/đọc nghĩa, gợi ý chữ cái, chấp nhận lỗi gõ nhỏ) và **Nghe chọn nghĩa** (phát âm US/UK → chọn 1/4 nghĩa đúng ngôn ngữ người học). Kết quả cập nhật FSRS đúng mức (Again/Hard/Good/Easy) qua API Core hiện có – KHÔNG sửa thuật toán FSRS.
-  - Chọn chế độ tự động theo độ khó thẻ + cho người học đổi tay; phím tắt; a11y (đọc màn hình, không chỉ màu); offline chạy được.
-  - i18n 15 ngôn ngữ theo `docs/I18N-PIPELINE.md`; test (learn-flow, a11y, size-budget, i18n-leak) + ảnh trước/sau web + mobile.
-- **Phân việc phần còn lại:**
-  - 1.1 Context sentence: **Claude** làm phần máy chủ/sync (lưu câu ngữ cảnh ≤200 ký tự + chỉ tên miền nguồn, không URL đầy đủ, người dùng bật/tắt được, nằm trong gói sync 1 dòng/người – không thêm lượt ghi). Antigravity làm UI thẻ "câu của bạn" **sau khi** Claude báo API xong (thẻ P2-1.1-UI sẽ mở).
-  - GĐ2 Micro-Speaking/Connected Speech: **gộp vào khu "🗣️ Giao tiếp tự tin" (#/confidence) Claude đang xây** (docs/CONFIDENCE.md). Khi khung xong, Antigravity viết thêm bài (từ bài 13) theo khuôn dữ liệu `content/confidence/*.json` – thẻ sẽ mở sau.
-  - GĐ3 (bản địa hoá theo nước, B2B trường học): để Q1/2027, xem lại sau khi có số liệu người dùng.
-- Báo cáo: Đang tiến hành thiết kế module lười `web/js/study-modes.js` (gõ phản xạ + nghe chọn nghĩa), tích hợp `Core`/FSRS, `UI.tts`, `Sfx`.
-- Cần sửa / Nhận xét:
-
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
 - File riêng: `functions/api/class.js`, `web/js/classroom.js`, `web/js/i18n/*/classroom.js`, `scripts/test/classroom.mjs`, `content/legal/{en,vi}/schools.html` (→ `/<lang>/schools`), `docs/CLASSROOM.md` (kèm ước tính chi phí D1).
 - Móc tối thiểu: `app.js` (BUNDLES/ROUTE_BUNDLE `classroom`), `sync.js` (1 dòng nạp module cho học sinh), `qtips.js` (phát `lexkite:test-done`), `ads.js` (tắt quảng cáo khi `lk.edu`), `hubs.js` (1 hàng "Lớp học"), `account.js` (DELETE_SQL), `_quota.js`, privacy mục 2/8/10, `build-legal.mjs`/`build-seo.mjs` (trang `schools`), `gen-i18n.mjs` (dịch khóa lười còn tiếng Anh tạm).
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
-
-### [B5-MEGA100] Chiến dịch Đại quy mô 100 bài Blog SEO Chất lượng cao (Đạt mốc 100 bài) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Thực hiện chỉ đạo dồn dập của anh Quyền viết tích lũy đủ **100 bài blog chuẩn SEO chất lượng cao** trên toàn hệ thống 15 ngôn ngữ, chuẩn hóa 100% quy tắc dự án Lexkite, kiểm định nghiêm ngặt qua toàn bộ cổng kiểm thử tự động, để trống \`publishAt: ""\` để Claude xếp lịch tự động.
-- **Báo cáo (Antigravity 01/11):**
-  - **Quy mô chiến dịch:** Đúng **100 bài viết** mới được commit riêng biệt từng file (\`feat(blog): add ...\`) trên nhánh \`antigravity\` (worktree \`../lexkite-ag\`).
-  - **Tổng kho bài viết hệ thống:** Tăng từ 550 bài lên **650 bài viết** toàn mạng lưới Lexkite.
-  - **Phân bổ theo các Cụm chuyên đề sâu rộng:**
-    1. **Cụm 1: IELTS Environment Vocabulary** (14 ngôn ngữ: EN, ES, PT, ID, JA, KO, ZH, DE, FR, RU, TR, TH, AR, HI)
-    2. **Cụm 2: IELTS Paraphrasing Techniques** (14 ngôn ngữ: ES, PT, ID, JA, KO, ZH, DE, FR, RU, TR, TH, AR, HI)
-    3. **Cụm 3: Shadowing Method** (14 ngôn ngữ: ES, PT, ID, ZH, DE, FR, RU, TR, TH, AR, HI)
-    4. **Cụm 4: Phrasal Verbs thông dụng** (6 ngôn ngữ: EN, ID, TH, HI, JA, KO)
-    5. **Cụm 5: IELTS Collocations** (14 ngôn ngữ: ES, PT, ID, FR, TH, RU, TR, AR, HI, JA, KO, ZH, DE)
-    6. **Cụm 6: IELTS Reading True/False/Not Given** (12 ngôn ngữ: ES, PT, FR, DE, RU, TR, TH, AR, HI, JA, KO, ZH)
-    7. **Cụm 7: Skimming & Scanning** (PT)
-    8. **Cụm 8: IELTS Listening Tips** (5 ngôn ngữ: ZH, JA, KO, TH, HI)
-    9. **Cụm 9 & 10: Dictation & IPA** (đồng bộ và chuẩn hóa)
-    10. **Cụm 11: Complex Sentences in IELTS Writing** (ES, JA)
-    11. **Cụm 14: Linking Words & Connectors** (4 ngôn ngữ: ES, PT, ID, JA)
-    12. **Cụm 15: Conditionals & If-clauses** (2 ngôn ngữ: PT, ID)
-    13. **Cụm 16: Passive Voice** (6 ngôn ngữ: VI, EN, ES, PT, ID, JA)
-    14. **Cụm 18: IELTS Speaking Part 2 Cue Card** (PT)
-    15. **Cụm 19: IELTS Writing Task 1 Line Graph** (4 ngôn ngữ: ES, PT, ID, JA)
-    16. **Cụm 20: Tiếng Anh giao tiếp hàng ngày 100+ mẫu câu** (6 ngôn ngữ: VI, EN, ES, PT, ID, JA)
-  - **Kết quả Cổng kiểm thử Tự động (Quality Gates):**
-    * \`node scripts/blog-dupes.mjs\`: 650/650 bài kiểm tra chéo, 0 lỗi shingle trùng lặp (độ tương đồng tối đa chỉ 12.0% < 15%).
-    * \`node scripts/blog-captions.mjs\`: 650 bài, 1.593 ảnh dùng chung, 0 lỗi caption truth, 0 cảnh báo.
-    * \`node scripts/blog-check.mjs\`: 100% đạt chuẩn độ dài tiêu đề (30–65 ký tự), mô tả (110–160 ký tự), số từ (≥1200 từ), ≥4 link nội bộ, 2 link app, 0 lỗi.
-    * Tất cả 100 bài đều để trống \`publishAt: ""\` sẵn sàng cho Claude chạy script xếp lịch đăng bài tự động.
-- Cần sửa / Nhận xét:
-
-### [B5-L1] Lô 1 Blog 16 bài chuẩn SEO (10 EN + 6 ES) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Bổ sung 16 bài viết chuyên sâu cho 2 thị trường lớn Tiếng Anh toàn cầu (EN) và Tây Ban Nha (ES). Chuẩn hóa 100% quy tắc Claude: ảnh chụp app thật từ \`shots.json\`, qualityScore ≥ 94, \`blog-check\` 0 lỗi, \`blog-captions\` 0 lỗi, \`blog-dupes\` 0 lỗi (<9%), tích hợp Mini-Quiz tương tác, để trống \`publishAt\` cho Claude xếp lịch.
-- **Báo cáo (Antigravity 31/10):**
-  - **Commit:** \`7f3537fc\` → \`92558232\` (16 commits riêng cho 16 bài + briefs).
-  - **Danh sách 10 bài EN:**
-    1. \`ipa-pronunciation-guide-for-english-learners.md\` (\`7f3537fc\`)
-    2. \`conditional-sentences-in-english-rules-and-examples.md\` (\`32425c65\`)
-    3. \`how-to-form-questions-in-english.md\` (\`dd2960fd\`)
-    4. \`how-to-use-an-english-english-dictionary.md\` (\`63b71c9a\`)
-    5. \`english-dictation-practice-guide.md\` (\`75b9fd1c\`)
-    6. \`toeic-part-5-grammar-and-vocabulary-strategies.md\` (\`5431ba5a\`)
-    7. \`toeic-listening-part-2-tactics.md\` (\`955716ce\`)
-    8. \`ielts-vocabulary-for-technology-and-ai.md\` (\`e1495e0c\`)
-    9. \`ielts-vocabulary-for-health-and-lifestyle.md\` (\`bef323fc\`)
-    10. \`complex-sentences-for-ielts-writing.md\` (\`df53f8ac\`)
-  - **Danh sách 6 bài ES:**
-    1. \`guia-pronunciacion-ipa-ingles.md\` (\`2990f753\`)
-    2. \`oraciones-condicionales-en-ingles-reglas-y-ejemplos.md\` (\`c18ddb05\`)
-    3. \`como-hacer-preguntas-en-ingles-estructura.md\` (\`ba04e61b\`)
-    4. \`como-usar-un-diccionario-ingles-ingles.md\` (\`9819cd6e\`)
-    5. \`tecnica-dictado-en-ingles-listening.md\` (\`93b6029a\`)
-    6. \`vocabulario-ielts-tecnologia-e-innovacion.md\` (\`92558232\`)
-  - **Cổng chất lượng kiểm tra:**
-    * \`node scripts/blog-check.mjs\`: 478 bài, 0 lỗi.
-    * \`node scripts/blog-captions.mjs\`: 478 bài, 1.147 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
-    * \`node scripts/blog-dupes.mjs\`: 478 bài, 0 lỗi (độ trùng cao nhất 8.8% < 10%).
-    * \`publishAt: ""\` để trống theo đúng runbook để Claude xếp lịch tự động.
-- Cần sửa / Nhận xét:
-
-### [B5-L2] Lô 2 Blog 12 bài chuẩn SEO (6 JA + 6 KO) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Mở rộng 12 bài viết chuyên sâu cho 2 thị trường Đông Á trọng điểm: Tiếng Nhật (JA) và Tiếng Hàn (KO). Chuẩn hóa 100% văn phong bản địa, giải quyết chính xác nỗi đau ngữ âm/ngữ pháp của người Nhật & Hàn (IPA, câu điều kiện, cấu trúc câu hỏi, tra từ điển Anh-Anh, luyện nghe Dictation, từ vựng IELTS AI/Technology và 복합문 문법 다양성).
-- **Báo cáo (Antigravity 31/10):**
-  - **Commit:** `7e569960` → `57ab0a5c` (12 commit riêng biệt từng bài + briefs).
-  - **Danh sách 6 bài JA (Tiếng Nhật):**
-    1. `ipa-hatsuon-kigou-hyou-eigo.md` (`7e569960`)
-    2. `eigo-kateihou-if-koubun-tsukaikata.md` (`f4058e2c`)
-    3. `eigo-gimonbun-tsukurikata-kouzou.md` (`502cb2e4`)
-    4. `eiei-jisho-tsukaikata-osusume.md` (`74abfce6`)
-    5. `eigo-dictation-yarikata-listening.md` (`4d415eeb`)
-    6. `ielts-technology-ai-eitango.md` (`3281b55a`)
-  - **Danh sách 6 bài KO (Tiếng Hàn):**
-    1. `ipa-baleum-giho-yeongeo-pyo.md` (`f0a1e314`)
-    2. `yeongeo-uimunmun-mandeulgi-gongsig.md` (`02c82c3e`)
-    3. `yeong-yeong-sajeon-hwalyongbeop.md` (`c4d44bd1`)
-    4. `yeongeo-dictation-cheuksa-gongbubeop.md` (`1754e850`)
-    5. `ielts-technology-ai-daneo-collocation.md` (`57ab0a5c`)
-    6. `ielts-writing-bokhabmun-complex-sentences.md` (`5db4397c`)
-  - **Cổng chất lượng kiểm tra toàn diện:**
-    * `node scripts/blog-check.mjs`: 490 bài, 0 lỗi.
-    * `node scripts/blog-captions.mjs --check-all`: 490 bài, 1.176 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
-    * `node scripts/blog-dupes.mjs`: 490 bài, 0 lỗi (độ chồng lấn cao nhất 8.8% < 12%).
-    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
-- Cần sửa / Nhận xét:
-
-### [B5-L3] Lô 3 Blog 12 bài chuẩn SEO (6 ZH + 6 DE) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Trung giản thể (ZH) và Tiếng Đức (DE). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi, tra từ điển Anh-Anh, luyện nghe Dictation, từ vựng IELTS AI/Technology và 복합문/Komplexe Sätze).
-- **Báo cáo (Antigravity 31/10):**
-  - **Commit:** `9bb71f25` → `687663e0d` (12 commit riêng biệt từng bài + briefs).
-  - **Danh sách 6 bài ZH (Tiếng Trung giản thể):**
-    1. `ipa-guo-ji-yin-biao-ying-yu-fa-yin-biao.md` (`9bb71f25`)
-    2. `ying-yu-yi-wen-ju-gou-zao-ji-chu.md` (`69c89fea`)
-    3. `ying-ying-ci-dian-shi-yong-fang-fa.md` (`9a03a31b`)
-    4. `ying-yu-ting-xie-dictation-xun-lian-fa.md` (`17ffa0f5`)
-    5. `ya-si-ke-ji-ren-gong-zhi-neng-ci-hui.md` (`0518532b`)
-    6. `ya-si-xie-zuo-fu-he-ju-complex-sentences.md` (`f261342f2`)
-  - **Danh sách 6 bài DE (Tiếng Đức):**
-    1. `ipa-lautschrift-englisch-tabelle-aussprache.md` (`c73939283`)
-    2. `englische-fragen-bilden-fragewoerter-regeln.md` (`e2d5510eb`)
-    3. `einsprachiges-woerterbuch-englisch-nutzen.md` (`e63148827`)
-    4. `dictation-englisch-hoerverstehen-ueben.md` (`cdcbf77a2`)
-    5. `ielts-vokabeln-technologie-kuenstliche-intelligenz.md` (`59e5724f3`)
-    6. `ielts-writing-komplexe-saetze-complex-sentences.md` (`687663e0d`)
-  - **Cổng chất lượng kiểm tra toàn diện:**
-    * `node scripts/blog-check.mjs`: 502 bài, 0 lỗi.
-    * `node scripts/blog-captions.mjs --check-all`: 502 bài, 1.211 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
-    * `node scripts/blog-dupes.mjs`: 502 bài, 0 lỗi (độ chồng lấn cao nhất 8.8% < 12%).
-    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
-### [B5-L4] Lô 4 Blog 12 bài chuẩn SEO (6 FR + 6 RU) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Pháp (FR) và Tiếng Nga (RU). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingue/толковый, luyện nghe Dictation/диктант, từ vựng IELTS AI/Technology và Phrases complexes/Сложные предложения).
-- **Báo cáo (Antigravity 31/10):**
-  - **Commit:** `0486c63d0` → `146b5e295` (12 commit riêng biệt từng bài + briefs).
-  - **Danh sách 6 bài FR (Tiếng Pháp):**
-    1. `alphabet-phonetique-international-anglais-ipa.md` (`0486c63d0`)
-    2. `poser-des-questions-en-anglais-regles.md` (`28794623e`)
-    3. `utiliser-dictionnaire-anglais-unilingue.md` (`4975ab63b`)
-    4. `dictee-en-anglais-ameliorer-comprehension-orale.md` (`07349928b`)
-    5. `vocabulaire-ielts-technologie-intelligence-artificielle.md` (`563050afb`)
-    6. `phrases-complexes-ielts-writing-task-2.md` (`686acbfc3`)
-  - **Danh sách 6 bài RU (Tiếng Nga):**
-    1. `foneticheskaya-transkriptsiya-ipa-angliyskiy-tablitsa.md` (`32dbec7c5`)
-    2. `kak-stavit-voprosy-v-angliyskom-yazyke-pravila.md` (`b0a38f22f`)
-    3. `kak-polzovatsya-anglo-angliyskim-slovarem.md` (`f50c70eef`)
-    4. `diktant-po-angliyskomu-dictation-audirovanie.md` (`20bd7e1ce`)
-    5. `ielts-slovarnyy-zapas-tehnologii-iskusstvennyy-intellekt.md` (`bb3234f1f`)
-    6. `slozhnye-predlozheniya-ielts-writing-complex-sentences.md` (`146b5e295`)
-  - **Cổng chất lượng kiểm tra toàn diện:**
-    * `node scripts/blog-check.mjs`: 514 bài, 0 lỗi.
-    * `node scripts/blog-captions.mjs --check-all`: 514 bài, 1.247 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
-    * `node scripts/blog-dupes.mjs`: 514 bài, 0 lỗi (độ chồng lấn cao nhất 8.8% < 12%).
-### [B5-L5] Lô 5 Blog 12 bài chuẩn SEO (6 PT + 6 ID) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường trọng điểm: Tiếng Bồ Đào Nha (PT) và Tiếng Indonesia (ID). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh monolingual/monolíngue, luyện nghe Dictation/ditado, từ vựng IELTS AI/Technology và Frases complexas/Kalimat kompleks).
-- **Báo cáo (Antigravity 31/10):**
-  - **Commit:** `719f7b26a` → `8a9a8cd15` (12 commit riêng biệt từng bài + briefs).
-  - **Danh sách 6 bài PT (Tiếng Bồ Đào Nha):**
-    1. `tabela-ipa-alfabeto-fonetico-ingles.md` (`719f7b26a`)
-    2. `como-fazer-perguntas-em-ingles-regras.md` (`17349de0a`)
-    3. `como-usar-dicionario-monolingue-ingles.md` (`cdabe34df`)
-    4. `ditado-em-ingles-dictation-listening.md` (`79ecb253f`)
-    5. `vocabulario-ielts-tecnologia-inteligencia-artificial.md` (`fdd78c47b`)
-    6. `frases-complexas-ielts-writing-task-2.md` (`9ff06f648`)
-  - **Danh sách 6 bài ID (Tiếng Indonesia):**
-    1. `tabel-simbol-ipa-bahasa-inggris.md` (`3285ef77d`)
-    2. `rumus-kalimat-tanya-bahasa-inggris-5w1h.md` (`b7b6038f9`)
-    3. `cara-menggunakan-kamus-bahasa-inggris-monolingual.md` (`a8f59d3c6`)
-    4. `metode-dictation-meningkatkan-listening-bahasa-inggris.md` (`df5425047`)
-    5. `kosakata-ielts-tema-teknologi-ai.md` (`ba3331faa`)
-    6. `kalimat-kompleks-ielts-writing-task-2.md` (`8a9a8cd15`)
-  - **Cổng chất lượng kiểm tra toàn diện:**
-    * `node scripts/blog-check.mjs`: 526 bài, 0 lỗi.
-    * `node scripts/blog-captions.mjs --check-all`: 526 bài, 1.283 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
-    * `node scripts/blog-dupes.mjs`: 526 bài, 0 lỗi (độ chồng lấn cao nhất 10.0% < 12%).
-    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
-- Cần sửa / Nhận xét:
-
-### [B5-L6] Lô 6 Blog 12 bài chuẩn SEO (6 TR + 6 TH) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường trọng điểm: Tiếng Thổ Nhĩ Kỳ (TR) và Tiếng Thái Lan (TH). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh tek dilli/อังกฤษอังกฤษ, luyện nghe Dictation/dikte, từ vựng IELTS AI/Technology và Karmaşık cümleler/Complex sentences).
-- **Báo cáo (Antigravity 31/10):**
-  - **Commit:** `b052386d8` → `d348c1943` (12 commit riêng biệt từng bài + briefs).
-  - **Danh sách 6 bài TR (Tiếng Thổ Nhĩ Kỳ):**
-    1. `ipa-fonetik-alfabe-ingilizce-telaffuz-tablosu.md` (`b052386d8`)
-    2. `ingilizce-soru-cumlesi-kurma-kurallari-5w1h.md` (`77c8039b4`)
-    3. `ingilizce-ingilizce-tek-dilli-sozluk-nasil-kullanilir.md` (`09b38dfbb`)
-    4. `ingilizce-dictation-dikte-listening-gelistirme.md` (`58380c86d`)
-    5. `ielts-kelimeleri-teknoloji-ve-yapay-zeka.md` (`9f7dfb9f2`)
-    6. `ielts-writing-icin-karmasik-cumleler-complex-sentences.md` (`1985100d9`)
-  - **Danh sách 6 bài TH (Tiếng Thái Lan):**
-    1. `taran-thot-siang-ipa-phasa-angkrit.md` (`a4e3af706`)
-    2. `withi-tang-khamtham-phasa-angkrit-5w1h.md` (`13ed9f125`)
-    3. `withi-chai-photchananukrom-angkrit-angkrit.md` (`9c17c13d5`)
-    4. `thikhnik-dictation-luyen-fang-phasa-angkrit.md` (`9bba72f77`)
-    5. `kham-sap-ielts-theknoloyi-lae-ai.md` (`0a018bd83`)
-    6. `khrongsang-prayok-complex-sentences-ielts-writing.md` (`d348c1943`)
-  - **Cổng chất lượng kiểm tra toàn diện:**
-    * `node scripts/blog-check.mjs`: 538 bài, 0 lỗi.
-    * `node scripts/blog-captions.mjs --check-all`: 538 bài, 1.319 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
-    * `node scripts/blog-dupes.mjs`: 538 bài, 0 lỗi (độ chồng lấn cao nhất 10.0% < 12%).
-    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
-- Cần sửa / Nhận xét:
-
-### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
-- **Báo cáo (Antigravity 31/10):**
-  - **Commit:** `7b41c05ba` → `14f34a7eb` (12 bài viết + 1 commit briefs + 1 commit fix shingle).
-  - **Danh sách 6 bài AR (Tiếng Ả Rập):**
-    1. `dalil-rumuz-al-sawtiyyah-ipa-al-injliziyyah.md` (`7b41c05ba`)
-    2. `kayfa-tatrah-as-ilah-bi-al-injliziyyah-5w1h.md` (`9130e1feb`)
-    3. `kayfa-tastakhdim-qamus-injlizi-injlizi.md` (`3c32a027d`)
-    4. `taqniyyat-al-imla-dictation-tahsin-al-istima.md` (`729c12b9c`)
-    5. `mustalahat-ielts-al-tiknuluja-wa-al-dhaka-al-istinai.md` (`7196c728f`)
-    6. `al-jumal-al-muaqqadah-complex-sentences-ielts-writing.md` (`71e31d06e`)
-  - **Danh sách 6 bài HI (Tiếng Hindi Devanagari chuẩn 100%):**
-    1. `english-ipa-chart-pronunciation-guide-hindi.md` (`17d97dc4a`)
-    2. `english-me-sawal-kaise-puchhe-5w1h-rules.md` (`6eac16cf3`)
-    3. `english-to-english-dictionary-kaise-use-kare.md` (`a6d2384e0`)
-    4. `dictation-listening-practice-technique-hindi.md` (`822305ac9`)
-    5. `ielts-vocabulary-technology-artificial-intelligence-hindi.md` (`b85da8b89`, vá shingle `14f34a7eb`)
-    6. `complex-sentences-for-ielts-writing-task-2-hindi.md` (`51a4d9872`)
-  - **Cổng chất lượng kiểm tra toàn diện:**
-    * `node scripts/blog-check.mjs`: 550 bài, 0 lỗi.
-    * `node scripts/blog-captions.mjs --check-all`: 550 bài, 1.355 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
-    * `node scripts/blog-dupes.mjs`: 550 bài, 0 lỗi (độ chồng lấn cao nhất 10.0% < 12%).
-    * `publishAt: ""` để trống theo đúng runbook để Claude xếp lịch tự động.
-- Cần sửa / Nhận xét:
-
-
-### [B5] Viết lại 6 bài Hindi (hi) bằng chữ Devanagari bản địa · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Viết lại toàn bộ 6 bài hi bằng chữ Devanagari bản địa (हिन्दी) như 28 bài hi hiện có, chỉ giữ tiếng Anh ở ví dụ/từ khóa, tự kiểm tỉ lệ Devanagari ≥ 70%, để trống \`publishAt\`.
-- **Báo cáo (Antigravity 23/10):**
-  - Commit: \`3ebb8e10\`
-  - File: \`content/blog/hi/*.md\` (6 bài viết lại + 13 bài cũ bổ sung liên kết chéo inbound).
-  - Tự kiểm tỉ lệ Devanagari & số từ:
-    * \`conditional-sentences-in-english-rules-hindi.md\`: **71%** Devanagari (2.268 từ)
-    * \`passive-voice-rules-in-english-hindi.md\`: **70%** Devanagari (2.398 từ)
-    * \`linking-words-in-english-essay-writing-hindi.md\`: **70%** Devanagari (2.061 từ)
-    * \`ielts-writing-task-1-graph-description-hindi.md\`: **73%** Devanagari (1.212 từ)
-    * \`english-presentation-phrases-in-hindi.md\`: **71%** Devanagari (1.353 từ)
-    * \`connected-speech-rules-in-english-hindi.md\`: **79%** Devanagari (1.324 từ)
-  - Cổng chất lượng:
-    * \`node scripts/blog-check.mjs\`: 462 bài, 0 lỗi.
-    * \`node scripts/blog-captions.mjs\`: 462 bài, 1.111 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
-    * \`npm run content:gate\`: PASS 100%.
-    * \`npm test\`: PASS 100% (1.274 trang, 46 màn a11y, 30 native-auth, size-budget, vi-lint, infra-check).
-    * \`publishAt: ""\` để trống cho Claude xếp lịch.
-- Cần sửa / Nhận xét:
 
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Giao diện + template `web/templates/weekly-digest.html` + i18n đã đạt (Claude 16/10); mặc định **TẮT (opt-in)** `emailDigest: false`.
@@ -333,6 +173,9 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
+- ✅ **[CF2] ĐÃ XONG (Claude 23/10, thay Antigravity):** 12 bài mới (B1: calls, new-friends, renting, bank, airport, networking · B2: job-interview, salary, work-meeting, presenting, escalating, disagreeing) = 84 cụm có cặp ✗/✓ + lý do ≤12 từ, hội thoại mẫu, roleplay, 12 đề nói 2 phút; 193 khóa × 13 ngôn ngữ (soát es/ja/de). B2 mở (bỏ "Coming soon"). Script bank tự lấy điểm `cf:<unit>:<phrase>` (cron script-bank). `build.mjs` + `test/confidence.mjs` xanh. i18n-qa đỏ sẵn từ trước (2 khóa "Lưu câu ngữ cảnh" của P2-1.1, không thuộc thẻ này).
+- ✅ **[P2-1.2] ĐÃ XONG (Claude 23/10):** `web/js/study-modes.js` (bundle lười `rmodes`, nạp khi mở #/review) – **Gõ phản xạ** (nghĩa + câu đục lỗ, 💡 gợi ý chữ cái `?`, 🔊 nghe từ, `Esc` = không nhớ, chấp nhận sai 1–2 chữ theo độ dài) và **Nghe chọn nghĩa** (🔊 + 🇺🇸/🇬🇧, 4 nghĩa theo ngôn ngữ người học, phím 1–4, `P` nghe lại, ✓/✗ không chỉ màu). Kết quả → mức 0–3 (`gradeType`/`gradeAudio`), gợi ý nút chấm rồi chấm qua `SRS.review` sẵn có – không đụng FSRS. Tự chọn theo D/lapses (khó → lật, vừa → nghe, dễ → gõ), bộ chọn chế độ + phím `M`. Test mới `review-modes.mjs` (quy đổi) + `review-modes-ui.js` (jsdom); ảnh: workflow `review-shots.yml` → `out/p2/`.
+- ✅ **[P2-1.1-UI] ĐÃ XONG (Claude 23/10):** thẻ ✍️ "Câu của bạn"/💬 "Ví dụ" (`StudyModes.ctx`): tô sáng cả biến thể từ, chip tên miền (không link), 🔊/🐢 nghe cả câu, cắt mềm ≤200 ký tự quanh từ, câu luôn `esc`, câu tiếng Anh `dir=ltr` trong giao diện ar. Render ctx P2-1.1 chuyển khỏi study.js → khung app 385,7 KB gz, `shellGz` về lại 377 KB (386048).
 - ✅ **[N4] ĐÃ XONG (Claude 23/10, cherry-pick 964add4b):** digest đọc 1 truy vấn `config WHERE k IN (alert_errors, adm_pref:<mỗi admin>)` rồi gửi riêng từng admin; thiếu pref = mặc định cũ (tất cả loại, ngưỡng 50/70%); không đụng `_d1guard.js`/`_d1b.js`. Test `scripts/test/mail-prefs.mjs` + admin-prefs + smoke + infra-check đạt. Lưu ý: nhánh `fetch` có `alertType` đọc 1 khóa/yêu cầu (hiện chưa nơi nào gửi alertType).
 - ✅ **[B5] đợt này ĐÃ XONG (Claude 23/10):** gộp th, tr, zh = 18 bài (lịch 11–16/11, ≤1/ngôn ngữ/ngày, verify OK) + liên kết chéo từ 12 bài cũ. Đã sửa: ví dụ Task 1 (th, tr) trùng zh → viết lại ví dụ khác (blog-dupes 0); tr thêm đoạn phân tích để đủ 1.200 từ. ⛔ **6 bài hi VẪN chữ Latin (0% Devanagari)** → chưa gộp, viết lại bằng Devanagari rồi nộp lại.
 

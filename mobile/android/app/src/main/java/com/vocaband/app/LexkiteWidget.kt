@@ -69,6 +69,21 @@ class LexkiteWidget : AppWidgetProvider() {
             val countText = if (due > 0) label(s, "n", "{n} to review").replace("{n}", due.toString()) else label(s, "none", "No cards due")
             v.setTextViewText(R.id.widget_streak, "🔥 $streak")
             v.setContentDescription(R.id.widget_streak, "${label(s, "streak", "Day streak")} $streak")
+            // Lớp giữ thói quen (cờ ret): giáo viên phản ứng – ✓ đã học hôm nay, ⏳ từ 18 giờ mà chưa học (tự đổi khi qua ngày, không cần mở app)
+            val tch = s.optJSONObject("tch")
+            if (tch != null) {
+                val cal = java.util.Calendar.getInstance().apply { timeInMillis = now }
+                val today = String.format(java.util.Locale.US, "%04d-%02d-%02d", cal.get(java.util.Calendar.YEAR), cal.get(java.util.Calendar.MONTH) + 1, cal.get(java.util.Calendar.DAY_OF_MONTH))
+                val done = tch.optString("sd") == today
+                val risk = !done && streak > 0 && cal.get(java.util.Calendar.HOUR_OF_DAY) >= 18
+                v.setTextViewText(R.id.widget_streak, "🔥 $streak" + if (done) " ✓" else if (risk) " ⏳" else "")
+                val say = if (done) tch.optString("ok") else if (risk) tch.optString("risk") else ""
+                v.setContentDescription(R.id.widget_streak, "${label(s, "streak", "Day streak")} $streak" + if (say.isNotBlank()) ". $say" else "")
+                if (medium) {
+                    v.setImageViewResource(R.id.widget_teacher, if (tch.optString("who") == "carlos") R.drawable.teach_carlos else R.drawable.teach_ama)
+                    v.setViewVisibility(R.id.widget_teacher, View.VISIBLE)
+                }
+            } else if (medium) v.setViewVisibility(R.id.widget_teacher, View.GONE)
             val w = word?.optString("w").orEmpty()
             val lv = word?.optString("lv").orEmpty()
             val ipa = word?.optString("ipa").orEmpty()

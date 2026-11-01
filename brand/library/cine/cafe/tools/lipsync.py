@@ -14,6 +14,12 @@ def cues_at(cues, t):
 class Mouth:
     def __init__(self, d):
         self.m, self.MS, self.C, roi = load_meta(d); self.rx0, self.ry0, self.rw, self.rh = [int(v) for v in roi]
+        k24 = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dl24', os.path.basename(os.path.dirname(os.path.abspath(d))) + '.json')
+        if os.path.exists(k24):   # dl24 clip: held frames were replaced by flow midpoints -> move the track the same way
+            ks = json.load(open(k24))['keys']; MS = self.MS.copy()
+            for a, b in zip(ks, ks[1:]):
+                for i in range(a + 1, min(b, len(MS))): MS[i] = self.MS[a] + (self.MS[min(b, len(MS) - 1)] - self.MS[a]) * (i - a) / (b - a)
+            self.MS = MS
         mx0, my0, mx1, my1 = self.m['mouth_box']; cx, cy = (mx0 + mx1) / 2 - self.rx0, (my0 + my1) / 2 - self.ry0
         ax, ay = (mx1 - mx0) / 2 * 1.25, (my1 - my0) / 2 * 1.5; cy += (my1 - my0) * 0.12   # cover the full jaw-drop extent
         E = np.zeros((self.rh, self.rw), np.float32); cv2.ellipse(E, (int(cx), int(cy)), (int(ax), int(ay)), 0, 0, 360, 1, -1)

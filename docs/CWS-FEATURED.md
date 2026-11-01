@@ -1,5 +1,8 @@
 # Huy hiệu "Featured" trên Chrome Web Store – checklist cho Lexkite
 
+> TL;DR: Checklist huy hiệu Featured trên Chrome Web Store: kỹ thuật & tuân thủ, listing & trải nghiệm, cách gửi xét, cách giữ huy hiệu. Huy hiệu do CWS xét tay; anh chủ tự gửi.
+> Đọc khi: chuẩn bị listing add-on.
+
 Anh ơi, huy hiệu **Featured** do nhóm Chrome Web Store xét tay, dựa trên "Best practices" và trải nghiệm thật của add-on – không mua được, không có cam kết thời gian. Dưới đây là các tiêu chí, phần Lexkite đã đạt và việc còn lại. Bước gửi yêu cầu (mục 3) **anh tự gửi** bằng tài khoản nhà phát triển; em không đăng nhập hay gửi thay.
 
 Ký hiệu: ✅ đã đạt · 🟡 đạt một phần / cần kiểm lại · ⬜ chưa làm.

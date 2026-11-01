@@ -5,12 +5,21 @@
 // Không phụ thuộc gói ngoài; font hệ thống; CSS nội tuyến (< 14 KB/trang), không JS chặn hiển thị.
 
 import fs from 'node:fs';
+import { toolFoot } from './tools-links.mjs';
+import { authFoot, authAbout } from './authority-links.mjs'; // trang Giới thiệu / chính sách biên tập / nghiên cứu (docs/SEO-AUTHORITY.md)
+import { S as SP } from './seo-pages-i18n.mjs';
 // ---------- Nút đổi ngôn ngữ đầu trang (mọi trang tĩnh) – nguồn DUY NHẤT dùng chung với app: web/js/lang-menu.js + khối /* lsw */ trong web/css/style.css ----------
+// Màu tối trang tĩnh lấy thẳng từ nguồn duy nhất brand/tokens.json (scripts/build-tokens.mjs, docs/BRAND-RULES.md)
+const TKALL = JSON.parse(fs.readFileSync(new URL('../../brand/tokens.json', import.meta.url), 'utf8')), TK = TKALL.dark;
+const DK = ['--bg', '--surface', '--text', '--muted', '--line'].map(k => `${k}:${TK[k]}`).join(';');
+const LT = ['--bg', '--surface', '--text', '--muted', '--line'].map(k => `${k}:${TKALL.light[k]}`).join(';'); // sáng = B Bright Day (cùng nguồn)
 const rdWeb = p => fs.readFileSync(new URL(`../../web/${p}`, import.meta.url), 'utf8');
 // ---------- Nút "Thêm vào Chrome" (add-on) – nguồn DUY NHẤT: web/js/ext-config.js (URL cửa hàng) + web/js/ext-cta.js (hiện/ẩn, đếm bấm) ----------
 const jsLite = s => s.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('//')).join('\n');
 export const EXT_STORE = (rdWeb('js/ext-config.js').match(/store: '([^']+)'/) || [])[1];
 export const EXT_JS = jsLite(rdWeb('js/ext-config.js')) + '\n' + jsLite(rdWeb('js/ext-cta.js').replace(/\/\/ <nudge>[\s\S]*?\/\/ <\/nudge>\n/, ''));
+// Nút "Tải app" một chạm (CWS / Google Play / hướng dẫn cài PWA) – web/js/get-app.js; nội tuyến SAU EXT_JS (cần LK_EXT, LK_APPS, LKExt)
+export const GETAPP_JS = jsLite(rdWeb('js/get-app.js'));
 export const LSW_CSS = (rdWeb('css/style.css').match(/\/\* lsw [^*]*\*\/\n([\s\S]*?)\/\* \/lsw \*\//) || [, ''])[1].replace(/\n/g, '');
 export const LSW_JS = rdWeb('js/lang-menu.js').replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim().replace(/\s\/\/ [^'"]*$/, '')).filter(l => l && !l.startsWith('//')).join('\n');
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -19,20 +28,20 @@ export const clip = (s, n = 158) => { s = String(s ?? '').replace(/\s+/g, ' ').t
 export const ld = o => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`;
 
 // Sắc độ phái sinh dùng trong CSS dưới đây nhưng không nằm ở :root của style.css (link, chữ phụ chế độ tối, nền code, gradient CTA)
-export const EXTRA_TOKENS = ['#B93A1D', '#a3a6bd', '#9fd8cf', '#7fd6cc', '#12807A', '#11132a', '#e8eaf6', '#e3e5ef', '#6b6f85', '#000', '#fff'];
+export const EXTRA_TOKENS = ['#B93A1D', '#9fd8cf', '#7fd6cc', '#12807A', '#e3e5ef', '#6b6f85', '#000', '#fff'];
 
 // ---------- CSS gốc của blog (giữ nguyên từng byte – trang blog dựng ra không đổi) ----------
 // CSS footer chung (cũng dùng ở trang pháp lý scripts/build-legal.mjs – trang đó nạp /css/style.css của app nên dùng biến có sẵn ở cả 2 nơi)
-export const FOOT_CSS = `footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;background:var(--surface);margin-top:40px}footer .bar{display:block;max-width:1080px;margin:0 auto;padding:28px 16px 20px}.flogo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:var(--text);text-decoration:none}.flogo b{color:var(--primary)}.flogo img{border-radius:8px}footer p{margin:.3em 0}.fcols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:24px}.fbrand p{max-width:34ch}footer h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--text);margin:4px 0 8px}footer ul{list-style:none;margin:0;padding:0}footer li{margin:6px 0}footer a{color:var(--muted)}footer a:hover{color:var(--link,var(--primary))}.flangs{display:flex;flex-wrap:wrap;gap:4px 14px;border-top:1px solid var(--line);margin-top:20px;padding-top:14px}.flangs a[aria-current]{color:var(--text);font-weight:700}.ftm{font-size:13px}@media (max-width:720px){.fcols{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}`;
-export const CSS = `:root{--bg:#f5f6fb;--surface:#fff;--text:#171827;--muted:#4e526b;--line:#e2e4ef;--primary:#CC3F1C;--primary-ink:#fff;--primary-soft:#FFEBE4;--accent:#0D6964;--accent-soft:#DDF1EE;--brand:#0F3D3E;--link:#B93A1D;--r:16px;color-scheme:light dark}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1017;--surface:#181a24;--text:#eceef7;--muted:#a3a6bd;--line:#2b2e3e;--primary:#FF8466;--primary-ink:#1A0E0B;--primary-soft:#3A221C;--accent-soft:#10302f;--brand:#9fd8cf;--link:#FFA582}}
+export const FOOT_CSS = `footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;background:var(--surface);margin-top:40px}footer .bar{display:block;max-width:1080px;margin:0 auto;padding:28px 16px 20px}.flogo{display:inline-flex;align-items:center;min-height:44px;gap:8px;font-weight:800;font-size:18px;color:var(--text);text-decoration:none}.flogo b{color:var(--primary)}.flogo img{border-radius:8px}footer p{margin:.3em 0}.fcols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:24px}.fbrand p{max-width:34ch}footer h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--text);margin:4px 0 8px}footer ul{list-style:none;margin:0;padding:0}footer li{margin:6px 0}footer a{color:var(--muted)}footer a:hover{color:var(--link,var(--primary))}.flangs{display:flex;flex-wrap:wrap;gap:4px 14px;border-top:1px solid var(--line);margin-top:20px;padding-top:14px}.flangs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.flangs a[aria-current]{color:var(--text);font-weight:700}.ftm{font-size:13px}@media (max-width:720px){.fcols{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}`;
+export const CSS = `:root{${LT};--primary:#CC3F1C;--primary-ink:#fff;--primary-soft:#FFEBE4;--accent:#0D6964;--accent-soft:#DDF1EE;--brand:#0F3D3E;--link:#B93A1D;--r:16px;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{${DK};--primary:#FF8466;--primary-ink:#1A0E0B;--primary-soft:#3A221C;--accent-soft:#10302f;--brand:#9fd8cf;--link:#FFA582}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 a{color:var(--link);text-underline-offset:2px}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:0;background:var(--surface);padding:8px 12px;z-index:9}.skip:focus{left:8px}
+.skip{position:absolute;left:8px;top:-60px;background:var(--surface);padding:8px 12px;z-index:9}.skip:focus{top:8px}
 header.top{background:var(--surface);border-bottom:1px solid var(--line)}.bar{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;color:var(--text);text-decoration:none;letter-spacing:-.02em}.logo b{color:var(--primary)}.logo img{border-radius:8px}
+.logo{display:flex;align-items:center;min-height:44px;gap:8px;font-weight:800;font-size:20px;color:var(--text);text-decoration:none;letter-spacing:-.02em}.logo b{color:var(--primary)}.logo img{border-radius:8px}
 nav.main{display:flex;gap:4px 14px;flex-wrap:wrap;font-weight:600;font-size:15px;margin-left:auto;align-items:center}nav.main a{color:var(--text);text-decoration:none}nav.main a:hover{color:var(--primary)}
-.btn{display:inline-block;background:var(--primary);color:var(--primary-ink)!important;padding:9px 16px;border-radius:999px;font-weight:700;text-decoration:none;font-size:15px}
+@media(pointer:coarse){.btn,.lsw .lsw-b,a.chip,summary{min-height:45px}summary{align-content:center}}.btn{display:inline-block;background:var(--primary);color:var(--primary-ink)!important;padding:9px 16px;border-radius:999px;font-weight:700;text-decoration:none;font-size:15px}
 main{max-width:1080px;margin:0 auto;padding:20px 16px 40px}
 .crumbs{font-size:14px;color:var(--muted);margin:4px 0 12px}.crumbs a{color:var(--muted)}
 article.post{max-width:740px;margin:0 auto}.post h1{font-size:clamp(28px,4.4vw,40px);line-height:1.2;margin:.2em 0 .4em;letter-spacing:-.02em;color:var(--text)}
@@ -45,16 +54,16 @@ figure{margin:24px 0}figure picture{display:block;border:1px solid var(--line);b
 .toc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 18px;margin:18px 0}.toc summary{font-weight:700;cursor:pointer}.toc ol{margin:8px 0 0;padding-left:20px;font-size:15px;line-height:1.6}
 blockquote{margin:20px 0;padding:10px 18px;background:var(--primary-soft);border-left:4px solid var(--primary);border-radius:0 12px 12px 0}blockquote p{margin:.4em 0}
 .tbl{overflow-x:auto;margin:18px 0}table{border-collapse:collapse;width:100%;font-size:15px;background:var(--surface)}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--accent-soft)}
-code{background:var(--accent-soft);padding:1px 5px;border-radius:5px;font-size:.92em}pre{background:#11132a;color:#e8eaf6;padding:14px;border-radius:12px;overflow:auto}pre code{background:none;padding:0}
+code{background:var(--accent-soft);padding:1px 5px;border-radius:5px;font-size:.92em}pre{background:${TK['--bg']};color:${TK['--text']};padding:14px;border-radius:12px;overflow:auto}pre code{background:none;padding:0}
 a.app{font-weight:600}
 .copy{font-size:13px;color:var(--muted,#6b6f85);border-top:1px solid var(--line,#e3e5ef);padding-top:12px;margin-top:28px}.cta{background:linear-gradient(135deg,#0F3D3E,#12807A);color:#fff;border-radius:var(--r);padding:18px 20px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.cta p{margin:0;max-width:52ch}.cta-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.cta .btn-hide{background:none;border:0;color:#fff;opacity:.8;font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;padding:4px 6px}.cta .btn-hide:hover{opacity:1}.cta[data-dismissed="1"]{display:none!important}
 .yt{position:relative;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;margin:24px 0}.yt img,.yt iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}.yt button{position:absolute;inset:0;margin:auto;width:72px;height:50px;border:0;border-radius:14px;background:#E5502F;cursor:pointer}.yt button::after{content:"";position:absolute;left:29px;top:15px;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.tags a{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;text-decoration:none;color:var(--text);background:var(--surface)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin:18px 0}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}.card a.ti{color:var(--text);text-decoration:none}.card a.ti:hover h3,.card a.ti:hover h2{color:var(--primary)}
-.card .pic picture{display:block;aspect-ratio:16/10;overflow:hidden}.card .pic img{width:100%;height:100%;object-fit:cover;object-position:top}.card .bd{padding:12px 16px 16px}.card h2,.card h3{font-size:18px;line-height:1.35;margin:6px 0}.card p{font-size:15px;color:var(--muted);margin:0}
+.card .pic picture{display:block;aspect-ratio:16/10;overflow:hidden}.card .pic img{width:100%;height:100%;object-fit:cover;object-position:top}.card .pic.fit picture{background:#0F3D3E}.card .pic.fit img{object-fit:contain;object-position:center}.card .bd{padding:12px 16px 16px}.card h2,.card h3{font-size:18px;line-height:1.35;margin:6px 0}.card p{font-size:15px;color:var(--muted);margin:0}
 .hero{padding:10px 0 4px}.hero h1{font-size:clamp(28px,4vw,40px);margin:.1em 0;letter-spacing:-.02em}.hero p{color:var(--muted);max-width:70ch;margin:.3em 0 0}
 .cats{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.cats a{padding:5px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);text-decoration:none;color:var(--text);font-weight:600;font-size:15px}.cats a[aria-current]{background:var(--brand);border-color:var(--brand);color:#fff}
-@media (prefers-color-scheme:dark){.cats a[aria-current]{color:#0f1017}}
+@media (prefers-color-scheme:dark){.cats a[aria-current]{color:var(--bg)}}
 .pager{display:flex;justify-content:space-between;gap:12px;margin:24px 0;font-weight:700}
 .trybox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:32px 0}.trybox h2{margin:0 0 6px;font-size:20px}.trybox p{margin:0 0 12px;color:var(--muted)}
 [dir=rtl] blockquote{border-left:0;border-right:4px solid var(--primary);border-radius:12px 0 0 12px}[dir=rtl] .toc ol{padding-left:0;padding-right:20px}[dir=rtl] th,[dir=rtl] td{text-align:right}[dir=rtl] .skip:focus{left:auto;right:8px}
@@ -64,7 +73,15 @@ ${FOOT_CSS}
 
 // ---------- CSS bổ sung cho trang SEO dựng từ dữ liệu app (chỉ dùng biến màu ở trên + token style.css) ----------
 // Sáng: nút cam đậm #CC3F1C (= --primary của app, chữ trắng đạt AA 4.9:1); tối giữ #FF8466 với chữ tối.
+// Vùng chạm ≥ 44px + thanh đầu một hàng trên điện thoại – dùng chung cho MỌI trang tĩnh có siteHeader/crumbs/footer (trang SEO + blog; quality-sweep touch-target)
+export const TAP_CSS = `.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;line-height:1.2;transition:filter .15s,transform .15s}.btn:hover{filter:brightness(1.06)}.btn:active{transform:translateY(1px)}
+nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:0 4px}.lsw .lsw-b{min-height:44px;padding:0 14px}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 6px;margin:0 0 8px}.crumbs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.crumbs [aria-current]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.cats a,.tf a,.jump a{display:inline-flex;align-items:center;min-height:44px;padding-top:0;padding-bottom:0}
+.site-foot li a,.flangs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.site-foot li a{justify-content:flex-start}.pager a{display:inline-flex;align-items:center;min-height:44px}.site-foot li{margin:0}
+@media (max-width:640px){header.top .bar{flex-wrap:nowrap;gap:8px;padding:6px 16px}nav.main{flex-wrap:nowrap;gap:8px}nav.main>a:not(.btn){display:none}.logo span{font-size:19px}main{padding-top:4px}}`;
 export const SEO_CSS = `@media (prefers-color-scheme:light){:root{--primary:#CC3F1C}}
+:root{--srch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z'/%3E%3C/svg%3E")}
 :root{--spk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z'/%3E%3C/svg%3E")}
 [hidden]{display:none!important}nav.main a[aria-current]{color:var(--primary)}
 .lang{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:14px}
@@ -90,7 +107,61 @@ mark{background:var(--primary-soft);color:inherit;border-radius:4px;padding:0 2p
 .uses li{margin:.4em 0}.sig{display:flex;flex-wrap:wrap;gap:6px}.fx td:first-child{white-space:nowrap}
 .ext{border:1px dashed var(--line);border-radius:var(--r);padding:14px 18px;margin:28px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--surface)}.ext p{margin:0;flex:1 1 260px;font-size:15px;color:var(--muted)}.ext strong{color:var(--text)}.ext button{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-decoration:underline}.ext[data-dismissed="1"],.pwa-box[data-dismissed="1"]{display:none!important}
 .pager a{max-width:48%}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (prefers-color-scheme:dark){.wt th,.au,.lb{color:#7fd6cc}.au[aria-pressed=true]{color:#0f1017;background:#7fd6cc}}`;
+@media (prefers-color-scheme:dark){.wt th,.au,.lb{color:#7fd6cc}.au[aria-pressed=true]{color:var(--bg);background:#7fd6cc}}
+.smp{--ac2:var(--accent);--tc:var(--ac2)}
+@media (prefers-color-scheme:dark){.smp{--ac2:#7fd6cc}}
+.t-ad{--tc:#E5502F}.t-di{--tc:#12807A}.t-ps{--tc:#FFB054}.t-av{--tc:#2FBF71}.t-pn{--tc:#FF8FA3}.t-tp{--tc:#FFC94A}.t-fo{--tc:var(--brand)}
+.smp.page{max-width:1080px}.smp.narrow{max-width:820px}
+.smp .hero2{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:22px 22px 20px;margin:4px 0 18px;overflow:hidden}
+.smp .hero2::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#0F3D3E,#12807A 45%,#FFB054 78%,#E5502F)}
+.smp .kick span{white-space:nowrap}.smp .kick span:not(:last-child)::after{content:"·";margin-left:8px}
+.smp .kick{display:flex;flex-wrap:wrap;gap:4px 8px;margin:4px 0 0;font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ac2)}
+.smp .hero2 h1{font-size:clamp(26px,4vw,38px);line-height:1.2;margin:.25em 0 .15em;letter-spacing:-.02em;max-width:24em}
+.smp .hero2 .lead{color:var(--muted);margin:.2em 0 0;max-width:60ch}
+.smp .hero2.has-kit{padding-right:140px}.smp .hero2 .kit{position:absolute;right:22px;bottom:12px}
+@media (max-width:720px){.smp .hero2.has-kit{padding-right:22px}.smp .hero2 .kit{display:none}.smp .hero2{border-radius:18px;padding:18px 16px 16px}}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.stats li{display:flex;align-items:baseline;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:5px 12px;font-size:14px;color:var(--muted);line-height:1.5}
+.stats b{font-size:18px;color:var(--text);font-variant-numeric:tabular-nums}
+.stats .band{background:linear-gradient(135deg,#0F3D3E,#12807A);border-color:transparent;color:#fff;font-weight:700}.stats .band b{color:#FFC94A}
+.smp .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.sc{position:relative;transition:transform .15s,box-shadow .15s,border-color .15s}
+.sc::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--tc)}
+.sc:hover,.sc:focus-within{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,61,62,.12)}
+@media (prefers-reduced-motion:reduce){.sc,.pg2 a{transition:none}.sc:hover,.sc:focus-within{transform:none}}
+.smp .sc .bd{padding:16px 18px 14px}
+.sc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:24px}
+.tchip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.tchip::before,.tf a[class]::before,.smp .grp>h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--tc);flex:none}
+.sc-em{font-size:24px;line-height:1}
+.smp .sc h3{font-size:16.5px;line-height:1.45;margin:8px 0 2px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.smp .sc p{font-size:14.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sc-meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin-top:auto;padding-top:12px;font-size:13px;color:var(--muted)}
+.sc-meta .bnd{background:var(--brand);color:#fff;border-radius:8px;padding:0 8px;font-weight:800}
+@media (prefers-color-scheme:dark){.sc-meta .bnd{color:var(--bg)}}
+.smp .grp>h2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.grp.off{display:none}
+.tf,.jump{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;margin:4px 0 0;scrollbar-width:thin}
+.tf a,.jump a{flex:none;display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--surface);color:var(--text);text-decoration:none;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px;line-height:1.4}
+.tf a b{font-size:12px;color:var(--muted)}.tf a:hover,.jump a:hover{border-color:var(--tc)}
+.tf a[aria-pressed=true]{background:var(--text);border-color:var(--text);color:var(--surface)}.tf a[aria-pressed=true] b{color:inherit;opacity:.8}
+/* ux – shared list/search components for every static SEO page (docs/UX-PUBLIC.md): ≥44px targets, one-row phone header, sticky find bar, empty state */
+${TAP_CSS}
+.find{position:sticky;top:0;z-index:15;margin:12px -16px 4px;padding:8px 16px 2px;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+.find .filter{margin:0}.find .tf{padding-bottom:6px}
+.filter .fi{position:relative;display:block;max-width:560px}.filter .fi::before{content:"";position:absolute;left:16px;top:50%;width:18px;height:18px;margin-top:-9px;background:var(--muted);-webkit-mask:var(--srch) center/contain no-repeat;mask:var(--srch) center/contain no-repeat;pointer-events:none}
+.filter input{max-width:none;min-height:48px;padding:0 48px 0 46px;font-size:16px;transition:border-color .15s,box-shadow .15s}.filter input:hover{border-color:var(--muted)}.filter input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);outline:none}
+.filter input::-webkit-search-cancel-button{display:none}
+.filter .qc{position:absolute;right:2px;top:2px;width:44px;height:44px;border:0;border-radius:50%;background:none;color:var(--muted);font:inherit;font-size:22px;line-height:1;cursor:pointer}.filter .qc:hover{color:var(--text)}
+.filter kbd{position:absolute;right:14px;top:50%;transform:translateY(-50%);font:600 12px/1 inherit;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 7px;pointer-events:none}.filter .fi:focus-within kbd,.filter .has-q kbd{display:none}
+@media (hover:none){.filter kbd{display:none}}
+.filter output{padding:0 4px}.filter.none output{display:flex;align-items:center;gap:10px;margin:10px 0 6px;padding:14px 16px;background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);color:var(--text);font-size:15px}.filter.none output::before{content:"🔍";font-size:20px}
+.grp{scroll-margin-top:132px}.grp[hidden]{display:none}
+.card{transition:transform .15s,box-shadow .15s,border-color .15s}.card.set:hover,.card.set:focus-within{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,61,62,.12);border-color:var(--accent)}
+.au{width:44px;height:44px;margin:-6px 2px -6px -6px}
+[dir=rtl] .filter .fi::before{left:auto;right:16px}[dir=rtl] .filter input{padding:0 46px 0 48px}[dir=rtl] .filter .qc{right:auto;left:2px}[dir=rtl] .filter kbd{right:auto;left:14px}
+@media (prefers-reduced-motion:reduce){.btn,.card,.filter input{transition:none}.card.set:hover,.card.set:focus-within{transform:none}}
+/* /ux */`;
 
 // ---------- Khối khung trang (header, footer, breadcrumb) – blog và trang SEO dùng chung ----------
 // lang + langHref(l): thêm nút đổi ngôn ngữ (langSwitch) cuối thanh điều hướng
@@ -102,33 +173,34 @@ export const GLOBE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
 // danh sách ngôn ngữ ở chân trang vẫn dùng được. label: chữ "Ngôn ngữ" theo ngôn ngữ trang (mặc định FOOT[lang][16]).
 export const langSwitch = ({ lang, langHref = landingHref, label }) => {
   const L = esc(label || (FOOT[lang] || FOOT.en)[16]), cur = lang in LANG_NAMES ? lang : 'en';
-  return `<div class="lsw" data-lsw><button type="button" class="lsw-b" aria-haspopup="true" aria-expanded="false" aria-controls="lsw-m" aria-label="${L}: ${LANG_NAMES[cur]}">${GLOBE}<span class="lsw-c">${cur.toUpperCase()}</span></button><ul class="lsw-m" id="lsw-m" role="menu" aria-label="${L}" translate="no" hidden>${Object.entries(LANG_NAMES).map(([l, n]) => `<li role="none"><a role="menuitem" href="${langHref(l)}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}${l === cur ? ' aria-current="page"' : ''}>${n}</a></li>`).join('')}</ul></div>`;
+  return `<div class="lsw" data-lsw><button type="button" class="lsw-b" aria-haspopup="true" aria-expanded="false" aria-controls="lsw-m" aria-label="${cur.toUpperCase()} – ${L}: ${LANG_NAMES[cur]}">${GLOBE}<span class="lsw-c">${cur.toUpperCase()}</span></button><ul class="lsw-m" id="lsw-m" role="menu" aria-label="${L}" translate="no" hidden>${Object.entries(LANG_NAMES).map(([l, n]) => `<li role="none"><a role="menuitem" href="${langHref(l)}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}${l === cur ? ' aria-current="page"' : ''}>${n}</a></li>`).join('')}</ul></div>`;
 };
 // Footer chung cho MỌI trang tĩnh (blog 15 ngôn ngữ, trang SEO, 404, chọn ngôn ngữ blog): thương hiệu · Sản phẩm · Học miễn phí · Thông tin & pháp lý · đổi ngôn ngữ · ©.
 // Trang pháp lý /<lang>/privacy|terms có đủ 15 ngôn ngữ (scripts/build-legal.mjs); #cookies, #delete là mốc trong trang privacy.
 export const LANG_NAMES = { vi: 'Tiếng Việt', en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
-//            [Sản phẩm, Học miễn phí, Thông tin, Ứng dụng web, Add-on Chrome, Blog, Từ vựng, Bài mẫu Writing, IELTS Speaking, Ngữ pháp, Giới thiệu, Liên hệ, Quyền riêng tư, Điều khoản, Cookie, Xóa dữ liệu, Ngôn ngữ]
+//            [Sản phẩm, Học miễn phí, Thông tin, Ứng dụng web, Add-on Chrome, Blog, Từ vựng, Bài mẫu Writing, IELTS Speaking, Ngữ pháp, Giới thiệu, Liên hệ, Quyền riêng tư, Điều khoản, Cookie, Xóa dữ liệu, Ngôn ngữ, Nguồn hình ảnh]
 export const FOOT = {
-  vi: ['Sản phẩm', 'Học miễn phí', 'Thông tin', 'Ứng dụng web', 'Add-on Chrome', 'Blog', 'Từ vựng', 'Bài mẫu Writing', 'IELTS Speaking', 'Ngữ pháp', 'Giới thiệu', 'Liên hệ', 'Quyền riêng tư', 'Điều khoản', 'Cookie & lưu trữ', 'Xóa dữ liệu', 'Ngôn ngữ'],
-  en: ['Product', 'Resources', 'Company', 'Web app', 'Chrome add-on', 'Blog', 'Vocabulary', 'Writing samples', 'IELTS Speaking', 'Grammar', 'About', 'Contact', 'Privacy', 'Terms', 'Cookies & storage', 'Delete my data', 'Language'],
-  es: ['Producto', 'Recursos', 'Empresa', 'App web', 'Extensión de Chrome', 'Blog', 'Vocabulario', 'Ensayos modelo', 'IELTS Speaking', 'Gramática', 'Acerca de', 'Contacto', 'Privacidad', 'Términos', 'Cookies y almacenamiento', 'Eliminar mis datos', 'Idioma'],
-  pt: ['Produto', 'Recursos', 'Empresa', 'App web', 'Extensão do Chrome', 'Blog', 'Vocabulário', 'Redações modelo', 'IELTS Speaking', 'Gramática', 'Sobre', 'Contato', 'Privacidade', 'Termos', 'Cookies e armazenamento', 'Excluir meus dados', 'Idioma'],
-  fr: ['Produit', 'Ressources', 'Entreprise', 'Application web', 'Extension Chrome', 'Blog', 'Vocabulaire', 'Essais modèles', 'IELTS Speaking', 'Grammaire', 'À propos', 'Contact', 'Confidentialité', 'Conditions', 'Cookies et stockage', 'Supprimer mes données', 'Langue'],
-  de: ['Produkt', 'Ressourcen', 'Unternehmen', 'Web-App', 'Chrome-Erweiterung', 'Blog', 'Wortschatz', 'Musteressays', 'IELTS Speaking', 'Grammatik', 'Über uns', 'Kontakt', 'Datenschutz', 'Nutzungsbedingungen', 'Cookies & Speicher', 'Meine Daten löschen', 'Sprache'],
-  id: ['Produk', 'Sumber belajar', 'Perusahaan', 'Aplikasi web', 'Ekstensi Chrome', 'Blog', 'Kosakata', 'Contoh esai', 'IELTS Speaking', 'Tata bahasa', 'Tentang', 'Kontak', 'Privasi', 'Ketentuan', 'Cookie & penyimpanan', 'Hapus data saya', 'Bahasa'],
-  th: ['ผลิตภัณฑ์', 'แหล่งเรียนรู้', 'เกี่ยวกับเรา', 'เว็บแอป', 'ส่วนขยาย Chrome', 'บล็อก', 'คำศัพท์', 'เรียงความตัวอย่าง', 'IELTS Speaking', 'ไวยากรณ์', 'เกี่ยวกับ', 'ติดต่อ', 'ความเป็นส่วนตัว', 'ข้อกำหนด', 'คุกกี้และพื้นที่จัดเก็บ', 'ลบข้อมูลของฉัน', 'ภาษา'],
-  zh: ['产品', '学习资源', '公司', '网页版应用', 'Chrome 扩展', '博客', '词汇', '范文', '雅思口语', '语法', '关于', '联系我们', '隐私政策', '使用条款', 'Cookie 与本地存储', '删除我的数据', '语言'],
-  ja: ['製品', '学習リソース', '運営', 'Web アプリ', 'Chrome 拡張機能', 'ブログ', '語彙', '模範エッセイ', 'IELTS スピーキング', '文法', '概要', 'お問い合わせ', 'プライバシー', '利用規約', 'Cookie とストレージ', 'データの削除', '言語'],
-  ko: ['제품', '학습 자료', '회사', '웹 앱', 'Chrome 확장 프로그램', '블로그', '어휘', '모범 에세이', 'IELTS 스피킹', '문법', '소개', '문의하기', '개인정보처리방침', '이용약관', '쿠키 및 저장소', '내 데이터 삭제', '언어'],
-  hi: ['उत्पाद', 'संसाधन', 'कंपनी', 'वेब ऐप', 'Chrome एक्सटेंशन', 'ब्लॉग', 'शब्दावली', 'नमूना निबंध', 'IELTS स्पीकिंग', 'व्याकरण', 'हमारे बारे में', 'संपर्क करें', 'गोपनीयता', 'शर्तें', 'कुकीज़ और स्टोरेज', 'मेरा डेटा हटाएँ', 'भाषा'],
-  ar: ['المنتج', 'الموارد', 'الشركة', 'تطبيق الويب', 'إضافة Chrome', 'المدونة', 'المفردات', 'مقالات نموذجية', 'محادثة IELTS', 'القواعد', 'من نحن', 'اتصل بنا', 'الخصوصية', 'الشروط', 'ملفات تعريف الارتباط والتخزين', 'حذف بياناتي', 'اللغة'],
-  ru: ['Продукт', 'Материалы', 'Компания', 'Веб-приложение', 'Расширение Chrome', 'Блог', 'Слова', 'Примеры эссе', 'IELTS Speaking', 'Грамматика', 'О нас', 'Контакты', 'Конфиденциальность', 'Условия', 'Cookie и хранилище', 'Удалить мои данные', 'Язык'],
-  tr: ['Ürün', 'Kaynaklar', 'Şirket', 'Web uygulaması', 'Chrome eklentisi', 'Blog', 'Kelime', 'Örnek yazılar', 'IELTS Speaking', 'Dil bilgisi', 'Hakkında', 'İletişim', 'Gizlilik', 'Koşullar', 'Çerezler ve depolama', 'Verilerimi sil', 'Dil'],
+  vi: ['Sản phẩm', 'Học miễn phí', 'Thông tin', 'Ứng dụng web', 'Add-on Chrome', 'Blog', 'Từ vựng', 'Bài mẫu Writing', 'IELTS Speaking', 'Ngữ pháp', 'Giới thiệu', 'Liên hệ', 'Quyền riêng tư', 'Điều khoản', 'Cookie & lưu trữ', 'Xóa dữ liệu', 'Ngôn ngữ', 'Nguồn hình ảnh'],
+  en: ['Product', 'Resources', 'Company', 'Web app', 'Chrome add-on', 'Blog', 'Vocabulary', 'Writing samples', 'IELTS Speaking', 'Grammar', 'About', 'Contact', 'Privacy', 'Terms', 'Cookies & storage', 'Delete my data', 'Language', 'Image credits'],
+  es: ['Producto', 'Recursos', 'Empresa', 'App web', 'Extensión de Chrome', 'Blog', 'Vocabulario', 'Ensayos modelo', 'IELTS Speaking', 'Gramática', 'Acerca de', 'Contacto', 'Privacidad', 'Términos', 'Cookies y almacenamiento', 'Eliminar mis datos', 'Idioma', 'Créditos de imágenes'],
+  pt: ['Produto', 'Recursos', 'Empresa', 'App web', 'Extensão do Chrome', 'Blog', 'Vocabulário', 'Redações modelo', 'IELTS Speaking', 'Gramática', 'Sobre', 'Contato', 'Privacidade', 'Termos', 'Cookies e armazenamento', 'Excluir meus dados', 'Idioma', 'Créditos das imagens'],
+  fr: ['Produit', 'Ressources', 'Entreprise', 'Application web', 'Extension Chrome', 'Blog', 'Vocabulaire', 'Essais modèles', 'IELTS Speaking', 'Grammaire', 'À propos', 'Contact', 'Confidentialité', 'Conditions', 'Cookies et stockage', 'Supprimer mes données', 'Langue', 'Crédits des images'],
+  de: ['Produkt', 'Ressourcen', 'Unternehmen', 'Web-App', 'Chrome-Erweiterung', 'Blog', 'Wortschatz', 'Musteressays', 'IELTS Speaking', 'Grammatik', 'Über uns', 'Kontakt', 'Datenschutz', 'Nutzungsbedingungen', 'Cookies & Speicher', 'Meine Daten löschen', 'Sprache', 'Bildnachweise'],
+  id: ['Produk', 'Sumber belajar', 'Perusahaan', 'Aplikasi web', 'Ekstensi Chrome', 'Blog', 'Kosakata', 'Contoh esai', 'IELTS Speaking', 'Tata bahasa', 'Tentang', 'Kontak', 'Privasi', 'Ketentuan', 'Cookie & penyimpanan', 'Hapus data saya', 'Bahasa', 'Kredit gambar'],
+  th: ['ผลิตภัณฑ์', 'แหล่งเรียนรู้', 'เกี่ยวกับเรา', 'เว็บแอป', 'ส่วนขยาย Chrome', 'บล็อก', 'คำศัพท์', 'เรียงความตัวอย่าง', 'IELTS Speaking', 'ไวยากรณ์', 'เกี่ยวกับ', 'ติดต่อ', 'ความเป็นส่วนตัว', 'ข้อกำหนด', 'คุกกี้และพื้นที่จัดเก็บ', 'ลบข้อมูลของฉัน', 'ภาษา', 'เครดิตภาพ'],
+  zh: ['产品', '学习资源', '公司', '网页版应用', 'Chrome 扩展', '博客', '词汇', '范文', '雅思口语', '语法', '关于', '联系我们', '隐私政策', '使用条款', 'Cookie 与本地存储', '删除我的数据', '语言', '图片来源'],
+  ja: ['製品', '学習リソース', '運営', 'Web アプリ', 'Chrome 拡張機能', 'ブログ', '語彙', '模範エッセイ', 'IELTS スピーキング', '文法', '概要', 'お問い合わせ', 'プライバシー', '利用規約', 'Cookie とストレージ', 'データの削除', '言語', '画像クレジット'],
+  ko: ['제품', '학습 자료', '회사', '웹 앱', 'Chrome 확장 프로그램', '블로그', '어휘', '모범 에세이', 'IELTS 스피킹', '문법', '소개', '문의하기', '개인정보처리방침', '이용약관', '쿠키 및 저장소', '내 데이터 삭제', '언어', '이미지 출처'],
+  hi: ['उत्पाद', 'संसाधन', 'कंपनी', 'वेब ऐप', 'Chrome एक्सटेंशन', 'ब्लॉग', 'शब्दावली', 'नमूना निबंध', 'IELTS स्पीकिंग', 'व्याकरण', 'हमारे बारे में', 'संपर्क करें', 'गोपनीयता', 'शर्तें', 'कुकीज़ और स्टोरेज', 'मेरा डेटा हटाएँ', 'भाषा', 'चित्र श्रेय'],
+  ar: ['المنتج', 'الموارد', 'الشركة', 'تطبيق الويب', 'إضافة Chrome', 'المدونة', 'المفردات', 'مقالات نموذجية', 'محادثة IELTS', 'القواعد', 'من نحن', 'اتصل بنا', 'الخصوصية', 'الشروط', 'ملفات تعريف الارتباط والتخزين', 'حذف بياناتي', 'اللغة', 'مصادر الصور'],
+  ru: ['Продукт', 'Материалы', 'Компания', 'Веб-приложение', 'Расширение Chrome', 'Блог', 'Слова', 'Примеры эссе', 'IELTS Speaking', 'Грамматика', 'О нас', 'Контакты', 'Конфиденциальность', 'Условия', 'Cookie и хранилище', 'Удалить мои данные', 'Язык', 'Источники изображений'],
+  tr: ['Ürün', 'Kaynaklar', 'Şirket', 'Web uygulaması', 'Chrome eklentisi', 'Blog', 'Kelime', 'Örnek yazılar', 'IELTS Speaking', 'Dil bilgisi', 'Hakkında', 'İletişim', 'Gizlilik', 'Koşullar', 'Çerezler ve depolama', 'Verilerimi sil', 'Dil', 'Görsel kaynakları'],
 };
 const ABOUT = { vi: 'gioi-thieu', en: 'about', es: 'acerca-de', pt: 'sobre', fr: 'a-propos', de: 'ueber-uns', id: 'tentang', tr: 'hakkinda' };
 // App học nằm ở /app/ (SPA, hash route); / và /<lang>/ là trang giới thiệu tĩnh (scripts/build-landing.mjs)
 export const appHref = lang => lang === 'vi' ? '/app/' : `/app/?hl=${lang}`;
 export const landingHref = lang => lang === 'vi' ? '/' : `/${lang}/`;
+// getApp: HTML nút "Tải app" dưới đoạn giới thiệu (chỉ landing truyền)
 // lang: ngôn ngữ trang; text/tm: câu giới thiệu + ghi chú nhãn hiệu (theo ngôn ngữ); langHref(l): link bản ngôn ngữ l (mặc định trang chủ blog l)
 // Ghi chú nhãn hiệu (docs/BRAND-RULES.md § Nhãn hiệu): "Lexkite™" chỉ ở lần nhắc nổi bật đầu tiên + chân trang/pháp lý – không đổi logo/wordmark
 export const TM_OWNER = 'MODIAN LUXURY JEWELRY LLC';
@@ -151,14 +223,14 @@ export const TM_NOTE = {
 };
 // Lần nhắc đầu trong đoạn giới thiệu chân trang: "Lexkite – …" → "Lexkite™ – …" (không thêm nếu đã có)
 export const tmFirst = s => String(s || '').replace(/Lexkite(?!™)/, 'Lexkite™');
-export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref }) => {
+export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref, getApp = '' }) => {
   const f = FOOT[lang] || FOOT.en, app = appHref(lang), vi = lang === 'vi', lg = `/${lang in LANG_NAMES ? lang : 'en'}`;
   const col = (h, items) => `<div><h2>${h}</h2><ul>${items.map(([u, n]) => `<li><a href="${u}">${n}</a></li>`).join('')}</ul></div>`;
   const product = [[app, f[3]], [`${app}#/settings`, f[4]]];
-  const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...extra];
-  const co = [[`${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]]];
+  const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...(SP[lang] ? [[`/${lang}/words/`, SP[lang].words], [`/${lang}/conversations/`, SP[lang].conv]] : []), ...toolFoot(lang), ...extra]; // + công cụ miễn phí (scripts/lib/tools-links.mjs) // trang tĩnh Từ điển + Giao tiếp (docs/SEO-ARCH.md)
+  const co = [[authAbout(lang) || `${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], ...authFoot(lang), [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]], [`${lg}/credits`, f[17] || FOOT.en[17]]];
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
-  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p>${getApp}</div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
 <nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}</p></div></footer>
 <script>${LSW_JS}</script>`;
 };
@@ -170,7 +242,7 @@ export const SEO_L = {
   vi: {
     home: 'Trang chủ', skip: 'Bỏ qua đến nội dung', open: 'Mở app', app: '/app/',
     nav: [['/vi/blog/', 'Blog'], ['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu'], ['/speaking/', 'Speaking']],
-    sections: [['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu Writing'], ['/speaking/', 'IELTS Speaking'], ['/viet-thu/', 'Thư mẫu IELTS General']],
+    sections: [['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu Writing'], ['/speaking/', 'IELTS Speaking'], ['/viet-thu/', 'Thư mẫu IELTS General'], ['/phat-am/', 'Phát âm']],
     foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn, miễn phí cho người học.',
     tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.',
     links: [['/vi/blog/', 'Blog'], ['/app/', 'Ứng dụng'], ['/vi/privacy', 'Quyền riêng tư'], ['/vi/terms', 'Điều khoản']],
@@ -180,8 +252,8 @@ export const SEO_L = {
   },
   en: {
     home: 'Home', skip: 'Skip to content', open: 'Open app', app: '/app/?hl=en',
-    nav: [['/en/blog/', 'Blog'], ['/en/vocabulary/', 'Vocabulary'], ['/en/samples/', 'Samples'], ['/en/speaking/', 'Speaking']],
-    sections: [['/en/vocabulary/', 'Vocabulary'], ['/en/samples/', 'Writing samples'], ['/en/speaking/', 'IELTS Speaking']],
+    nav: [['/en/blog/', 'Blog'], ['/en/vocabulary/', 'Vocabulary'], ['/en/grammar/', 'Grammar'], ['/en/ielts-writing/', 'Writing'], ['/en/speaking/', 'Speaking']],
+    sections: [['/en/vocabulary/', 'Vocabulary'], ['/en/grammar/', 'Grammar'], ['/en/pronunciation/', 'Pronunciation'], ['/en/ielts-writing/', 'IELTS Writing'], ['/en/samples/', 'Writing Task 2'], ['/en/speaking/', 'IELTS Speaking']],
     foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original learning content, free for learners.',
     tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.',
     links: [['/en/blog/', 'Blog'], ['/app/?hl=en', 'App'], ['/en/privacy', 'Privacy'], ['/en/terms', 'Terms']],
@@ -189,6 +261,26 @@ export const SEO_L = {
     play: w => `Play pronunciation of “${w}”`, related: 'You may also like', ext: ['Look up words while you read.', 'Get the Lexkite add-on for Chrome: double-click any word for its meaning and IPA, then save it to your flashcards.', 'See the add-on', 'Hide'], extHref: '/app/?hl=en#/settings',
     col: { no: '#', word: 'Word', ipa: 'IPA', mean: 'Meaning', ex: 'Example' }, words: 'words', sets: 'sets', lessons: 'lessons', items: 'items',
   },
+};
+
+// Chữ mới của thanh tìm/lọc + số liệu trang danh sách (15 ngôn ngữ – trang tĩnh hiện có vi/en, các ngôn ngữ khác dùng khi mở thêm)
+// [Xóa, Lọc theo nhóm, bộ từ, từ, nhóm, có phát âm]
+export const FIND_I18N = {
+  vi: ['Xóa', 'Lọc theo nhóm', 'bộ từ', 'từ', 'nhóm', 'có phát âm'],
+  en: ['Clear', 'Filter by category', 'word lists', 'words', 'categories', 'with audio'],
+  es: ['Borrar', 'Filtrar por categoría', 'listas', 'palabras', 'categorías', 'con audio'],
+  pt: ['Limpar', 'Filtrar por categoria', 'listas', 'palavras', 'categorias', 'com áudio'],
+  fr: ['Effacer', 'Filtrer par catégorie', 'listes', 'mots', 'catégories', 'avec audio'],
+  de: ['Löschen', 'Nach Kategorie filtern', 'Listen', 'Wörter', 'Kategorien', 'mit Audio'],
+  id: ['Hapus', 'Saring menurut kategori', 'daftar', 'kata', 'kategori', 'dengan audio'],
+  th: ['ล้าง', 'กรองตามหมวดหมู่', 'ชุดคำศัพท์', 'คำ', 'หมวดหมู่', 'มีเสียงอ่าน'],
+  zh: ['清除', '按类别筛选', '个词表', '个单词', '个类别', '含发音'],
+  ja: ['クリア', 'カテゴリで絞り込む', 'リスト', '語', 'カテゴリ', '音声付き'],
+  ko: ['지우기', '카테고리별 필터', '개 목록', '개 단어', '개 카테고리', '발음 포함'],
+  hi: ['साफ़ करें', 'श्रेणी के अनुसार फ़िल्टर करें', 'सूचियाँ', 'शब्द', 'श्रेणियाँ', 'ऑडियो सहित'],
+  ar: ['مسح', 'التصفية حسب الفئة', 'قوائم', 'كلمة', 'فئات', 'مع النطق'],
+  ru: ['Очистить', 'Фильтр по категории', 'списков', 'слов', 'категорий', 'с озвучкой'],
+  tr: ['Temizle', 'Kategoriye göre filtrele', 'liste', 'kelime', 'kategori', 'sesli'],
 };
 
 export const SMART_CTA_I18N = {
@@ -225,12 +317,17 @@ export const TOPIC_IDS = new Set([
 
 const COPY_MSG = { vi: 'Nguồn: ', en: 'Source: ' };
 // Gắn nguồn khi sao chép > 200 ký tự (P1 chống cào – giống blog)
-const copyJs = lang => `document.addEventListener('copy',e=>{const s=window.getSelection();if(!s||s.rangeCount===0)return;const t=s.toString();if(t.length<=200)return;const m="\\n\\n${COPY_MSG[lang] || COPY_MSG.en}"+document.title.replace(/\\s*[–|]\\s*Lexkite$/i,'')+" – "+location.href.split('#')[0]+" (Lexkite)";e.clipboardData.setData('text/plain',t+m);e.preventDefault();});`;
+export const copyJs = lang => `document.addEventListener('copy',e=>{const s=window.getSelection();if(!s||s.rangeCount===0)return;const t=s.toString();if(t.length<=200)return;const m="\\n\\n${COPY_MSG[lang] || COPY_MSG.en}"+document.title.replace(/\\s*[–|]\\s*Lexkite$/i,'')+" – "+location.href.split('#')[0]+" (Lexkite)";e.clipboardData.setData('text/plain',t+m);e.preventDefault();});`;
 // JS nhỏ cuối trang (không chặn hiển thị): bật .js (hiện nút nghe/ô lọc – chỗ đã giữ sẵn, CLS 0), phát âm từ CDN audio, lọc thẻ, gợi ý add-on Chrome máy tính & PWA di động
-const UI_JS = `(function(d){var r=d.documentElement;r.classList.add('js');var A='https://audio.lexkite.com/audio/l/',B='https://lexkiteapp.github.io/audio/l/',cur;
-d.addEventListener('click',function(e){var b=e.target.closest('.au');if(!b)return;if(cur){cur.pause();if(cur.btn)cur.btn.setAttribute('aria-pressed','false')}var k=b.getAttribute('data-a'),a=new Audio(A+k+'.mp3');a.btn=b;cur=a;b.setAttribute('aria-pressed','true');a.onended=function(){b.setAttribute('aria-pressed','false')};a.onerror=function(){if(a.src.indexOf(B)<0){a.src=B+k+'.mp3';a.play()}else b.setAttribute('aria-pressed','false')};a.play().catch(function(){})});
-var q=d.getElementById('q');if(q){var o=d.getElementById('qn'),n=function(s){return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/đ/g,'d').toLowerCase()},cs=[].slice.call(d.querySelectorAll('[data-k]')),gs=[].slice.call(d.querySelectorAll('.grp'));cs.forEach(function(c){c._k=n(c.getAttribute('data-k')+' '+c.textContent)});
-q.addEventListener('input',function(){var v=n(q.value.trim()),c=0;cs.forEach(function(x){var h=v&&x._k.indexOf(v)<0;x.hidden=h;if(!h)c++});gs.forEach(function(g){g.hidden=!!v&&!g.querySelector('[data-k]:not([hidden])')});o.textContent=v?(c?o.getAttribute('data-f').replace('#',c):o.getAttribute('data-n')):''})}
+export const UI_JS = `(function(d){var r=d.documentElement;r.classList.add('js');var L=['https://audio.lexkite.com/audio/l/','https://lexkiteapp.github.io/lexkite-media-2/audio/l/','https://lexkiteapp.github.io/audio/l/'],cur;
+d.addEventListener('click',function(e){var b=e.target.closest('.au');if(!b)return;if(cur){cur.pause();if(cur.btn)cur.btn.setAttribute('aria-pressed','false')}var k=b.getAttribute('data-a'),i=0,a=new Audio(L[0]+k+'.mp3');a.btn=b;cur=a;b.setAttribute('aria-pressed','true');a.onended=function(){b.setAttribute('aria-pressed','false')};a.onerror=function(){if(++i<L.length){a.src=L[i]+k+'.mp3';a.play().catch(function(){})}else b.setAttribute('aria-pressed','false')};a.play().catch(function(){})});
+var q=d.getElementById('q');if(q){var o=d.getElementById('qn'),fb=q.closest('.filter'),qc=fb.querySelector('.qc'),n=function(s){return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/đ/g,'d').toLowerCase()},cs=[].slice.call(d.querySelectorAll('[data-k]')),gs=[].slice.call(d.querySelectorAll('.grp'));cs.forEach(function(c){c._k=n(c.getAttribute('data-k')+' '+c.textContent)});
+var run=function(){var v=n(q.value.trim()),c=0;cs.forEach(function(x){var h=v&&x._k.indexOf(v)<0;x.hidden=h;if(!h)c++});gs.forEach(function(g){g.hidden=!!v&&!g.querySelector('[data-k]:not([hidden])')});o.textContent=v?(c?o.getAttribute('data-f').replace('#',c):o.getAttribute('data-n')):'';fb.classList.toggle('none',!!v&&!c);fb.classList.toggle('has-q',!!q.value);if(qc)qc.hidden=!q.value};
+q.addEventListener('input',run);if(qc)qc.onclick=function(){q.value='';run();q.focus()};
+q.addEventListener('keydown',function(e){if(e.key==='Escape'&&q.value){q.value='';run()}});
+d.addEventListener('keydown',function(e){var t=e.target;if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&!t.isContentEditable){e.preventDefault();q.focus()}});if(q.value)run()}
+var tfs=[].slice.call(d.querySelectorAll('.tf a'));tfs.forEach(function(a,i){a.setAttribute('role','button');a.setAttribute('aria-pressed',i===0)});
+d.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.tf a');if(!f)return;e.preventDefault();var g=f.getAttribute('data-g');tfs.forEach(function(a){a.setAttribute('aria-pressed',a===f)});[].forEach.call(d.querySelectorAll('.grp[aria-labelledby^="g-"]'),function(s){s.classList.toggle('off',!!g&&s.getAttribute('aria-labelledby')!==g)})});
 var ls=function(k,v){try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}};
 var u=navigator.userAgent||'',now=Date.now(),lang=r.lang||'vi';
 var isMob=/Mobile|Android|iPhone|iPad|iPod|CriOS|FxiOS/i.test(u);
@@ -245,8 +342,8 @@ d.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.targe
 
 export const audioBtn = (key, word, lang) => `<button type="button" class="au" data-a="${esc(key)}" aria-label="${esc(SEO_L[lang].play(word))}"></button>`;
 
-// Ô lọc danh sách (giữ chỗ sẵn → không xô lệch bố cục khi JS bật)
-export const filterBox = lang => { const t = SEO_L[lang]; return `<div class="filter" role="search"><label for="q" class="sr">${t.searchL}</label><input id="q" type="search" placeholder="${esc(t.search)}" autocomplete="off"><output id="qn" for="q" aria-live="polite" data-f="${esc(t.found('#'))}" data-n="${esc(t.none)}"></output></div>`; };
+// Thanh tìm (dính đầu màn hình khi cuộn): ô lọc (giữ chỗ sẵn → không xô lệch bố cục khi JS bật) + chip nhóm (chips, tùy chọn)
+export const filterBox = (lang, chips = '') => { const t = SEO_L[lang] || SEO_L.en, f = FIND_I18N[lang] || FIND_I18N.en; return `<div class="find"><div class="filter" role="search"><label for="q" class="sr">${t.searchL}</label><span class="fi"><input id="q" type="search" placeholder="${esc(t.search)}" autocomplete="off" enterkeyhint="search"><kbd aria-hidden="true">/</kbd><button type="button" class="qc" aria-label="${esc(f[0])}" hidden>×</button></span><output id="qn" for="q" aria-live="polite" data-f="${esc(t.found('#'))}" data-n="${esc(t.none)}"></output></div>${chips}</div>`; };
 // Thẻ trong lưới danh sách: tên, mô tả ngắn, chip (số từ / trình độ / kỳ thi), emoji nếu có
 export const setCard = ({ href, title, desc = '', emoji = '', chips = [], key = '', h = 'h3' }) => `<article class="card set${emoji ? ' has-em' : ''}" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd">${emoji ? `<span class="em" aria-hidden="true">${esc(emoji)}</span>` : ''}<${h}>${esc(title)}</${h}>${desc ? `<p>${esc(desc)}</p>` : ''}${chips.length ? `<span class="chips">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</span>` : ''}</div></a></article>`;
 // Khối CTA chính (mở đúng bộ/bài trong app, gắn data-hit nếu là topic có thật)

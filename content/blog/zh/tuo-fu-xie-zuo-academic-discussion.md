@@ -129,7 +129,7 @@ quiz: [
 2. **高阶学术词汇（Academic Lexicon）：** 运用了 *positive reinforcement, corporate compliance, punitive measures, circumvention, jurisdiction, constructive catalyst* 等极具学术说服力的词块。
 3. **因果推演层层递进：** 考生通过举出新能源汽车产业的真实案例，对比了“提供补贴推动研发”与“单纯罚款导致产能外迁”的不同结局，论证无懈可击。
 
-如果你在构思论点时经常感觉思路受限，建议经常查阅我们的[雅思写作Task 2模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)学习多角度头脑风暴技巧，同时也可以参阅[英语语法基础规则](/zh/blog/ying-yu-yu-fa-ji-chu-gui-ze/)夯实句法准确度，结合[雅思阅读定位技巧](/zh/blog/ya-si-yue-du-skimming-scanning/)和[雅思口语Part 2模板](/zh/blog/ya-si-kou-yu-part-2-hua-ti-ku/)全面拔高学术英语素养。此外，欢迎随时访问我们精心整理的[英语语法资源库](/ngu-phap/)获取更多进阶短语搭配。
+如果你在构思论点时经常感觉思路受限，建议经常查阅我们的[雅思写作Task 2模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)学习多角度头脑风暴技巧，同时也可以参阅[英语语法基础规则](/zh/blog/ying-yu-yu-fa-ji-chu-gui-ze/)夯实句法准确度，结合[雅思阅读定位技巧](/zh/blog/ya-si-yue-du-skimming-scanning/)和[雅思口语Part 2模板](/zh/blog/ya-si-kou-yu-part-2-hua-ti-ku/)全面拔高学术英语素养。此外，欢迎随时访问我们精心整理的[英语语法资源库](/ngu-phap/)获取更多进阶短语搭配。新版托福阅读的第一个任务同样考拼写和语法，方法见[托福 Complete the Words 怎么做](/zh/blog/tuo-fu-complete-the-words/)。
 
 {{cta: /app/#/toefl | 在 Lexkite 开启托福模拟题库练习}}
 

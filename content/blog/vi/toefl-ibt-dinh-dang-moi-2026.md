@@ -104,6 +104,8 @@ Nếu bạn còn đang cân nhắc giữa các kỳ thi, bài [nên thi IELTS, T
 
 ![Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai](media:mistakes "Phân nhóm theo từ vựng, ngữ pháp, đọc và nghe để thấy điểm yếu")
 
+Với phần viết thảo luận trên diễn đàn lớp học, xem khung bài 4 phần và bài mẫu trong [hướng dẫn TOEFL Academic Discussion](/vi/blog/toefl-academic-discussion/).
+
 {{cta: /#/toefl | Luyện thử Complete the Words và Build a Sentence}}
 
 {{youtube: | Gợi ý video: đi qua 12 dạng bài TOEFL iBT định dạng mới, mỗi dạng một ví dụ tự soạn}}

@@ -1,0 +1,78 @@
+# video-pilot7: ONE "news + scene" pilot (docs/VIDEO-TEMPLATES.md §12) – lesson tpl1b_airport_gate_cc6fbe.
+# Anchor bank (Ama two-shot + MCU, studio monitor in the set) introduces -> CUT to the airport bank (traveller Ama + agent Mei, generated inside
+# their scene, no cut-out) for the wrong line (X) and the right line (check) -> back to the anchor for rule, examples, quiz 3-2-1, answer, end card.
+# 0 credits: Kokoro + Rhubarb + faster-whisper on the runner. NO GrabCast / Groq / Kling (hook verdict is teacher-reviewed in the lesson file).
+# No store, no Drive, no publish. Artifact only: v7.mp4 (8-9 Mbps 1080x1920) + phone/v7.mp4 (< 30 MB) + qc + timeline + sheet.jpg (8 frames) + zones/.
+name: video-pilot7
+on:
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency: { group: video-pilot7, cancel-in-progress: false }
+env:
+  LESSON: content/video/cine/news/tpl1b/tpl1b_airport_gate_cc6fbe.json
+  LINES: content/video/cine/news/pilot-v7/lines.json
+  O: out/pilot7
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reviewed hook verdict present
+        run: python3 -c "import json,sys;d=json.load(open('$LESSON'));j=d['hook'].get('judge');sys.exit(0 if j and not d.get('reject') else 1)" || { echo "::error::lesson has no reviewed hook verdict"; exit 1; }
+      - name: Libraries + ffmpeg
+        run: |
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Footage (anchor + airport banks, only the clips this pilot cuts, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          P="/anchor/bank.json /anchor/tools/amb_studio.wav /anchor/tools/foley/ /airport/bank.json /airport/tools/amb_airport.wav"
+          for c in t01_two_ama_talks w01_wide_listen a01_ama_talk a02_ama_talk_smile a03_ama_explain; do P="$P /anchor/tools/dl24/$c.mp4 /anchor/tools/dl24/$c.json /anchor/tools/meta/$c/"; done
+          for c in b01_master_talk a02_ots_ama_talk a03_ots_mei_talk_b a04_ots_ama_talk_b a01_ots_mei_talk a06_ama_react; do P="$P /airport/dl24/$c.mp4 /airport/dl24/$c.json /airport/meta/$c/"; done
+          git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage
+          [ "$(ls footage/anchor/tools/dl24 | grep -c mp4)" = 5 ] && [ "$(ls footage/airport/dl24 | grep -c mp4)" = 6 ] || { echo "::error::bank clips missing"; exit 1; }
+          du -sh footage/anchor footage/airport
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Kokoro model cache
+        uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb (required – lip-sync fails without it)
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
+          "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable"; exit 1; }
+          echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice → render → qc → phone copy → sheet
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p $O/phone
+          python3 scripts/video/tpl/pilot5_voice.py "$LINES" vo
+          python3 scripts/video/tpl/render_v7.py --lesson "$LESSON" --lines "$LINES" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts \
+            --out $O/v7.mp4 > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
+          grep -v '^frame ' $O/render.log | tail -6
+          rc=0; python3 scripts/video/tpl/qc_v7.py $O/v7.mp4 | tee $O/qc.log || rc=1
+          ffmpeg -nostdin -v error -y -i $O/v7.mp4 -c:v libx264 -preset slow -crf 19 -maxrate 6000k -bufsize 12000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/v7.mp4
+          S=$(stat -c %s $O/phone/v7.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
+          i=0; for t in 0 1.5 5 10 16 24 27 30; do ffmpeg -nostdin -v error -y -ss $t -i $O/v7.mp4 -frames:v 1 -vf "scale=360:640,drawtext=fontfile=brand/social/src/fonts/BeVietnamPro-Bold.ttf:text='${t}s':x=10:y=600:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.5" $O/s_$i.png; i=$((i+1)); done
+          ffmpeg -nostdin -v error -y $(for i in 0 1 2 3 4 5 6 7; do echo -i $O/s_$i.png; done) \
+            -filter_complex "[0][1][2][3]hstack=4[a];[4][5][6][7]hstack=4[b];[a][b]vstack" -q:v 3 $O/sheet.jpg && rm -f $O/s_*.png
+          mv $O/v7.mp4.zones $O/zones; rm -f $O/v7.mp4.mix.wav
+          ls -la $O $O/phone
+          { echo "## pilot v7 news + scene"; echo '```'; cat $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit $rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot7-${{ github.run_number }}
+          path: out/pilot7/
+          retention-days: 30

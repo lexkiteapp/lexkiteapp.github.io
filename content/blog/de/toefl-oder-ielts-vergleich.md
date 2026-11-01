@@ -122,7 +122,7 @@ Wenn Sie überwiegend mit **A** geantwortet haben, ist der **IELTS** mit hoher W
 ## Häufig gestellte Fragen (FAQ)
 
 ### Ist der TOEFL wirklich schwerer als der IELTS?
-Nein, inhaltlich bewegen sich beide Prüfungen auf exakt demselben Sprachniveau (meist B2 bis C1 des Gemeinsamen Europäischen Referenzrahmens). Welcher Test als „schwerer“ empfunden wird, hängt rein von Ihren persönlichen Stärken ab: Wer gut frei Notizen anfertigt und Multiple-Choice liebt, findet den TOEFL leichter. Wer lieber mit echten Menschen spricht und unterschiedliche Fragentypen schätzt, bevorzugt den IELTS.
+Nein, inhaltlich bewegen sich beide Prüfungen auf exakt demselben Sprachniveau (meist B2 bis C1 des Gemeinsamen Europäischen Referenzrahmens). Welcher Test als „schwerer“ empfunden wird, hängt rein von Ihren persönlichen Stärken ab: Wer gut frei Notizen anfertigt und Multiple-Choice liebt, findet den TOEFL leichter. Wer lieber mit echten Menschen spricht und unterschiedliche Fragentypen schätzt, bevorzugt den IELTS. Was B2 und C1 im Alltag genau bedeuten, zeigt der Artikel [Englisch Niveau A1 bis C2](/de/blog/englisch-niveau-a1-bis-c2-ger/).
 
 ### Werden TOEFL und IELTS an allen Universitäten gleichermaßen anerkannt?
 Nahezu alle renommierten Hochschulen weltweit (einschließlich der Ivy-League-Universitäten in den USA und der Russell-Group-Universitäten in Großbritannien) akzeptieren heute beide Tests ohne Vorbehalte. Dennoch sollten Sie stets die offiziellen Zulassungsvoraussetzungen Ihres konkreten Wunschstudiengangs prüfen, da einige Fakultäten Mindestpunktzahlen in bestimmten Teilbereichen vorschreiben.

@@ -1,0 +1,97 @@
+# 🤖 QA bot (scripts/test/qa-bot.mjs · docs/QA-BOT.md): hành trình học thật (sandbox) + đầu dò lỗi giao diện ẩn 390/768/1440 × sáng/tối
+# + hiệu năng (FPS/INP/long task/CLS) + dung lượng sau N bài. Chỉ chạy trên CI (không bao giờ trên máy anh chủ).
+# - PR đụng app/web: chạy trên dist của PR (hermetic, 0 lượt chạm prod) + trước/sau: chụp cùng trạng thái trên nhánh gốc vs PR → summary + artifact.
+# - Sau mỗi Pages deploy thành công: chạy trên lexkite.com live. Sau mỗi lượt Preview site: chạy trên site preview. Tay: base_url bất kỳ.
+# - Đỏ → ci-triage mở issue ci-failure như mọi workflow.
+name: QA bot
+on:
+  pull_request:
+    paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
+  workflow_run:
+    workflows: ['Pages deploy', 'Preview site']
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      base_url: { description: 'URL gốc cần soát (trống = build dist của nhánh)', required: false, default: '', type: string }
+      only: { description: 'journeys,ui,perf,storage', required: false, default: 'journeys,ui,perf,storage', type: string }
+  workflow_call:
+    inputs:
+      base_url: { description: 'URL gốc cần soát', required: false, default: 'https://lexkite.com', type: string }
+permissions:
+  contents: read
+concurrency:
+  group: qa-bot-${{ github.event_name }}-${{ github.event.workflow_run.name || '' }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  bot:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      BASE_URL: ${{ inputs.base_url || (github.event.workflow_run.name == 'Preview site' && 'https://preview.lexkite-preview.pages.dev') || (github.event.workflow_run.name == 'Pages deploy' && 'https://lexkite.com') || '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: "${{ github.event.workflow_run.head_sha || github.sha }}" }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Cài + build dist (khi không có base_url)
+        run: |
+          npm ci --no-audit --no-fund
+          if [ -z "$BASE_URL" ]; then bash scripts/build-web.sh >/dev/null; fi
+      - name: Cài Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - name: Chặn lexkite.com khi chạy dist cục bộ (0 lượt chạm prod)
+        if: env.BASE_URL == ''
+        run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: Chạy bot
+        env:
+          ONLY: ${{ inputs.only || 'journeys,ui,perf,storage' }}
+        run: |
+          set +e
+          if [ -n "$BASE_URL" ]; then T="--base $BASE_URL"; else T="--root dist"; fi
+          node scripts/test/qa-bot.mjs $T --out out/qa-bot --only "$ONLY" --write-baseline out/qa-bot/baseline-seen.json
+          echo "rc=$?" > out/qa-bot/rc
+          cat out/qa-bot/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: qa-bot, path: out/qa-bot, retention-days: 7, if-no-files-found: ignore }
+      - name: Kết luận
+        run: grep -q 'rc=0' out/qa-bot/rc
+
+  before-after:
+    if: always() && github.event_name == 'pull_request'
+    needs: bot
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { ref: "${{ github.event.pull_request.base.sha }}", path: base }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Build dist nhánh gốc
+        working-directory: base
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh >/dev/null
+      - name: Cài Playwright
+        run: |
+          npm ci --no-audit --no-fund
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+          echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: Chụp + quét nhánh gốc (cùng bot, cùng đầu dò của PR)
+        run: node scripts/test/qa-bot.mjs --root base/dist --out out/base --only ui || true
+      - uses: actions/download-artifact@v4
+        with: { name: qa-bot, path: out/head }
+      - name: So trước / sau
+        run: |
+          node scripts/test/qa-bot-diff.mjs out/base out/head out/qa-bot-diff
+          cat out/qa-bot-diff/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: qa-bot-diff, path: out/qa-bot-diff, retention-days: 7, if-no-files-found: ignore }

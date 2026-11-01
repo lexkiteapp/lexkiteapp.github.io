@@ -71,7 +71,7 @@
         <div class="stack">
           <div class="card">
             <div class="row between"><span class="chip lv">${esc(p.type)}</span>
-              <div class="row"><select class="input" id="pSel" style="width:auto;padding:.35rem .6rem">${Object.keys(OUTLINE).map(ty => `<optgroup label="${esc(ty)}">${PROMPTS.filter(x => x.type === ty).map(x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${t('Đề {n}', { n: x.id.slice(1) })} · ${esc((App.topicOf(x.topic) || { name: x.topic }).name)}</option>`).join('')}</optgroup>`).join('')}</select>
+              <div class="row"><select class="input" id="pSel" aria-label="${t('Chọn đề')}" style="width:auto;padding:.35rem .6rem">${Object.keys(OUTLINE).map(ty => `<optgroup label="${esc(ty)}">${PROMPTS.filter(x => x.type === ty).map(x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${t('Đề {n}', { n: x.id.slice(1) })} · ${esc((App.topicOf(x.topic) || { name: x.topic }).name)}</option>`).join('')}</optgroup>`).join('')}</select>
               <button class="btn sm" id="rndP" title="${t('Đề ngẫu nhiên')}">🎲</button></div></div>
             <p style="font-size:1.08rem;font-weight:600;margin:.8rem 0 0">${esc(p.text)}</p>
             <a class="btn sm ghost" href="#/ideas/${esc(p.topic)}" style="margin-top:.5rem">💡 ${t('Bí ý? Mở ngân hàng ý tưởng chủ đề này')}</a>
@@ -89,7 +89,7 @@
         </div>
         <div class="stack" style="position:sticky;top:80px">
           <div class="card"><h3>💡 ${t('Từ vựng gợi ý')} · ${topic ? esc(topic.name) : ''}</h3>
-            <div class="row" style="margin-top:.4rem">${(topic ? topic.words.slice(0, 14) : []).map(w => `<button class="chip" data-ins="${esc(w.word)}" title="${esc(w.vi)}" style="border:0;cursor:pointer">${esc(w.word)}</button>`).join('')}</div>
+            <div class="row" style="margin-top:.4rem">${(topic ? topic.words.slice(0, 14) : []).map(w => `<button class="chip" data-ins="${esc(w.word)}" title="${esc(App.meanOf(w))}" style="border:0;cursor:pointer">${esc(w.word)}</button>`).join('')}</div>
             <div class="tiny muted" style="margin-top:.5rem">${t('Bấm để chèn vào bài')}</div></div>
           <div class="card"><h3>📊 ${t('Xu hướng đề Task 2 (2026)')}</h3>
             ${TRENDS.types.map(([ty, v]) => `<div class="srow" style="grid-template-columns:120px minmax(0,1fr) 34px"><span class="tiny"><b>${esc(t(ty))}</b></span><div class="sbar"><i style="width:${v * 2}%;background:var(--primary)"></i></div><span class="tiny muted">${v}%</span></div>`).join('')}

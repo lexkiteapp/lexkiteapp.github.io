@@ -3,6 +3,10 @@
   const D = g.I18N_DICT = g.I18N_DICT || {};
   D.en = Object.assign(D.en || {}, {
     "Hội thoại đóng vai": "Role-play conversations",
+    "Giúp tôi nói": "Help me say it",
+    "Nghe rồi nói theo câu này:": "Listen, then say this:",
+    "Học các cụm câu tự nhiên cho đúng tình huống này": "Learn natural phrases for this exact situation",
+    "Lộ trình nói theo tình huống thật, từ A1 đến B2": "A speaking path through real situations, from A1 to B2",
     "Đóng vai hội thoại với AI – từ tình huống hằng ngày (A1–A2) đến công sở: nói bằng micro hoặc gõ phím, nhận điểm và câu viết lại hay hơn.": "Role-play conversations with AI – from everyday situations (A1–A2) to the workplace: speak into the mic or type, then get a score and better ways to say it.",
     "Tình huống hằng ngày": "Everyday situations",
     "Công sở": "At work",

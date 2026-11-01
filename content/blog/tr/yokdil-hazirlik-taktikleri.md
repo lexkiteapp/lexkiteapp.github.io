@@ -16,7 +16,7 @@ publishAt: 2026-10-25T12:49:00+03:00
 ---
 Türkiye'de lisansüstü eğitime başvurmak, doçentlik unvanı almak, tıpta ve diş hekimliğinde uzmanlık (TUS/DUS) süreçlerini tamamlamak isteyen akademisyen ve araştırmacıların önündeki en kritik aşamalardan biri YÖKDİL (Yükseköğretim Kurumları Yabancı Dil Sınavı) sınavıdır. ÖSYM tarafından yılda iki kez düzenlenen bu sınav, genel İngilizceyi ölçen YDS'den farklı olarak adayları uzmanlık alanlarına göre **Fen Bilimleri, Sağlık Bilimleri ve Sosyal Bilimler** olmak üzere üç ayrı kategoride değerlendirir. Sınavın kendine has terminolojisi ve soru formatı nedeniyle doğru **yökdil hazırlık taktikleri** uygulamak, aylar sürecek gereksiz çabaların önüne geçer ve hedeflediğiniz 70, 80 veya 90+ puan baremine çok daha kısa sürede ulaşmanızı sağlar.
 
-YÖKDİL sınavında başarılı olmanın sırrı, binlerce sayfayı ezberlemek değil; alanınıza özgü temel akademik kelimeleri hafızanıza kazımak, bağlaç mantığını kavramak ve 180 dakikalık süreyi 80 soruya en verimli şekilde paylaştırmaktır. Bu kapsamlı kılavuzda, sıfırdan başlayanlardan puanını 65-70 bandında takılıp artıramayanlara kadar herkes için test edilmiş ve kanıtlanmış yökdil hazırlık taktikleri ve çalışma stratejilerini tüm ayrıntılarıyla ele alıyoruz.
+YÖKDİL sınavında başarılı olmanın sırrı, binlerce sayfayı ezberlemek değil; alanınıza özgü temel akademik kelimeleri hafızanıza kazımak, bağlaç mantığını kavramak ve 180 dakikalık süreyi 80 soruya en verimli şekilde paylaştırmaktır. Bu kapsamlı kılavuzda, sıfırdan başlayanlardan puanını 65-70 bandında takılıp artıramayanlara kadar herkes için test edilmiş ve kanıtlanmış yökdil hazırlık taktikleri ve çalışma stratejilerini tüm ayrıntılarıyla ele alıyoruz. Kelime sorularında sık çıkan *make/do/take* eşdizimleri için [make ve do farkı](/tr/blog/make-ve-do-farki/) yazısına göz at.
 
 ## 1. YÖKDİL Sınav Formatı ve Soru Dağılımı Analizi
 
@@ -35,7 +35,7 @@ YÖKDİL, toplam 80 çoktan seçmeli sorudan oluşur ve adaylara 180 dakika (3 s
 | **Anlam Bütünlüğünü Bozan Cümle** | 60 – 65 (6 Soru) | Konu dışına çıkan veya tonu bozan cümleyi eleme |
 | **Okuma Paragrafları** | 66 – 80 (15 Soru) | 5 farklı okuma parçası, her biri 3 sorudan oluşur |
 
-Sınav sorularının önemli bir kısmı doğrudan veya dolaylı olarak bağlaç bilgisine dayanır. Zaman yapıları ve cümle kurma mantığını tazelemek için [İngilizce Zamanlar Tablosu](/tr/blog/ingilizce-zamanlar-tablosu/) ve [İngilizce Gramer Kuralları](/ngu-phap/) sayfalarımızı referans alabilirsiniz.
+Sınav sorularının önemli bir kısmı doğrudan veya dolaylı olarak bağlaç bilgisine dayanır. Zaman yapıları ve cümle kurma mantığını tazelemek için [İngilizce Zamanlar Tablosu](/tr/blog/ingilizce-zamanlar-tablosu/) ve [İngilizce Gramer Kuralları](/ngu-phap/) sayfalarımızı referans alabilirsiniz. Akademik paragraflarda sık geçen *which* ve kısaltılmış yan cümleler için [İngilizce relative clauses konu anlatımı](/tr/blog/ingilizce-relative-clauses-konu-anlatimi/) yazısına bakabilirsin.
 
 ## 2. YÖKDİL Hazırlık Taktikleri: Alan Bazlı Çalışma Stratejisi
 

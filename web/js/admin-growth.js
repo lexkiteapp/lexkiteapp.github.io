@@ -56,7 +56,7 @@
 .g-heat td.c{text-align:center;font-weight:600;font-feature-settings:"tnum";min-width:44px}.g-wrap{overflow-x:auto}
 .g-fun .st{margin:.55rem 0}.g-fun .hd{display:flex;justify-content:space-between;gap:.5rem;font-size:.88rem}.g-fun .tr{height:26px;border-radius:8px;background:var(--surface-2,rgba(127,127,127,.12));overflow:hidden;margin-top:.25rem}
 .g-fun .tr i{display:block;height:100%;background:var(--primary);border-radius:8px;min-width:2px}.g-fun small{color:var(--muted)}
-.g-mini{width:100%;height:auto;display:block}.g-mini text{font-size:10px;fill:var(--muted)}.g-leg{font-size:.78rem;color:var(--muted);display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}.g-leg b{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:.3rem;vertical-align:-1px}
+.g-leg{font-size:.78rem;color:var(--muted);display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}.g-leg b{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:.3rem;vertical-align:-1px}
 .g-chips{display:flex;gap:.35rem;flex-wrap:wrap;margin:.3rem 0 .6rem}`;
 
   let gen = 0; // chống ghi đè khi đổi kỳ / rời tab giữa chừng
@@ -82,12 +82,8 @@
     const hb = (rows, label) => !rows || !rows.length ? `<p class="small muted">${G('Chưa có dữ liệu')}</p>` : (() => { const max = Math.max(1, ...rows.map(r => +r.n || 0)), tot = rows.reduce((a, r) => a + (+r.n || 0), 0) || 1; return `<div class="hbars">${rows.map(r => `<div class="row2"><span class="k" title="${esc(label(r))}">${esc(label(r))}</span><span class="track"><i style="width:${(+r.n || 0) / max * 100}%"></i></span><span class="v">${num(r.n)}<small> · ${Math.round((+r.n || 0) / tot * 100)}%</small></span></div>`).join('')}</div>`; })();
     // Biểu đồ cột nhỏ nhiều chuỗi (cột cạnh nhau), di chuột xem số
     const mini = (rows, keys) => {
-      if (!rows || !rows.length) return `<p class="small muted">${G('Chưa có dữ liệu')}</p>`;
-      const W = 600, H = 120, B = 16, n = rows.length, gw = W / n, bw = Math.max(1, (gw - 2) / keys.length), max = Math.max(1, ...rows.flatMap(r => keys.map(k => +r[k.k] || 0)));
       const dd = d => (lang() === 'en' ? d.slice(5, 7) + '/' + d.slice(8) : d.slice(8) + '/' + d.slice(5, 7));
-      return `<svg class="g-mini" viewBox="0 0 ${W} ${H + B}" role="img">${rows.map((r, i) => `<g>${keys.map((k, j) => { const v = +r[k.k] || 0, bh = v / max * H; return `<rect x="${(i * gw + 1 + j * bw).toFixed(1)}" y="${(H - bh).toFixed(1)}" width="${Math.max(bw - 1, 1).toFixed(1)}" height="${bh.toFixed(1)}" rx="1.5" fill="${k.c}"/>`; }).join('')}<title>${esc(dd(r.day) + ' · ' + keys.map(k => G(k.l) + ': ' + num(r[k.k])).join(' · '))}</title><rect x="${(i * gw).toFixed(1)}" y="0" width="${gw.toFixed(1)}" height="${H}" fill="transparent"/></g>`).join('')}
-        <text x="0" y="${H + 12}">${esc(dd(rows[0].day))}</text><text x="${W}" y="${H + 12}" text-anchor="end">${esc(dd(rows[n - 1].day))}</text><text x="2" y="10">${num(max)}</text></svg>
-        <div class="g-leg">${keys.map(k => `<span><b style="background:${k.c}"></b>${G(k.l)}</span>`).join('')}</div>`;
+      return AdminChart.bars(rows, { keys: keys.map(k => ({ ...k, l: G(k.l) })), x: r => dd(r.day), fmt: num, h: 150, tip: r => dd(r.day) + ' · ' + keys.map(k => G(k.l) + ': ' + num(r[k.k])).join(' · '), aria: keys.map(k => G(k.l)).join(', '), empty: G('Chưa có dữ liệu') });
     };
     const C1 = 'var(--primary)', C2 = 'var(--again, #dc2626)', C3 = 'var(--gold, #d97706)', C4 = 'var(--muted)';
 

@@ -1,5 +1,8 @@
 # Tech radar Lexkite – chuẩn đầu vào khi nâng cấp
 
+> TL;DR: Tech radar: chuẩn chọn công nghệ (miễn phí, tiên tiến, chạy ở máy người dùng/biên); danh sách áp dụng, theo dõi, không dùng và lý do. Ghi kết quả mỗi lần nâng cấp.
+> Đọc khi: thêm thư viện/dịch vụ.
+
 > Nguyên tắc: ưu tiên công nghệ **miễn phí, tiên tiến, được các hãng lớn chia sẻ** (Google/Chrome, Cloudflare, Mozilla, Hugging Face, W3C), chạy **trên máy người dùng hoặc ở biên** để nhanh, rẻ, riêng tư và scale toàn cầu.
 > Mỗi lần nâng cấp: đối chiếu radar → chọn mục "Áp dụng ngay" có giá trị nhất → ghi kết quả vào đây. Thêm công nghệ mới: ghi tên, lợi ích, giới hạn miễn phí, trạng thái.
 

@@ -114,7 +114,7 @@ jobs:
         run: |
           cd ios-shots && git init -q && git checkout -q -b ios-shots
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add . && git commit -qm "Ảnh App Store $(date -u +%F) ($GITHUB_SHA)"
+          git add . && git commit -qm "Ảnh App Store $(date -u +%F) ($GITHUB_SHA) [CF-Pages-Skip]"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ios-shots
           echo "✓ Ảnh App Store: nhánh ios-shots + artifact lexkite-appstore-shots" >> "$GITHUB_STEP_SUMMARY"
 

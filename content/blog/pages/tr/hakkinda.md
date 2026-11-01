@@ -14,7 +14,7 @@ Kendi başına çalışıp net bir plan arayanlar, günde yalnızca 15–30 daki
 1. **Arama amacı:** Öğrencilerin gerçekte neyi sorduğuna ve hangi cevabın onları ilerlettiğine bakarız.
 2. **Taslak plan:** Önce soruyu doğrudan cevaplar, sonra ayrıntıya ineriz.
 3. **Yazım:** Metinler %100 özgündür; İngilizce örnek cümlelerin hepsini kendimiz yazarız. Cümle cümle çeviri yapmayız; her konuyu Türkçe konuşanların tipik hatalarına göre yeniden ele alırız.
-4. **Doğrulama:** Sınav biçimleri, puan ölçekleri ve süreler, sınav sahiplerinin resmî kaynaklarıyla karşılaştırılır ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Bir bilgiden emin değilsek yayımlamayız.
+4. **Doğrulama:** Sınav biçimleri, puan ölçekleri ve süreler, sınav sahiplerinin resmî kaynaklarıyla karşılaştırılır ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Bir bilgiden emin değilsek yayımlamayız.
 5. **Kopya kontrolü:** Başka sayfalardan, kendi sayfalarımız da dahil, hiçbir metin kopyalanmaz.
 6. **Kalite incelemesi:** Her yazı 100 puanlık bir editoryal ölçütle değerlendirilir ve yalnızca 90 ve üzeri puan alırsa yayımlanır.
 

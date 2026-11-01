@@ -52,7 +52,7 @@ In non-rhotic British accents, a word ending in *r* in spelling links with /r/ b
 
 ### 3. Elision: sounds that disappear
 
-Some sounds, especially /t/ and /d/ between two consonants, are often dropped.
+Some sounds, especially /t/ and /d/ between two consonants, are often dropped. Past tense endings are a common case; see [ed pronunciation rules](/en/blog/ed-pronunciation-rules/) for the three sounds of *-ed*.
 
 - *next day* /neks deɪ/
 - *last night* /lɑːs naɪt/
@@ -168,6 +168,8 @@ To work on individual sounds such as /ə/ before tackling whole phrases, open th
 {{cta: /#/listening | Train your ear with British, American and Australian voices}}
 
 {{youtube: | Video idea: one natural sentence broken down into linking, elision and weak forms}}
+
+For phrases to practise these sounds in real situations, see [speak English with confidence](/en/blog/speak-english-with-confidence/).
 
 ## Frequently asked questions
 

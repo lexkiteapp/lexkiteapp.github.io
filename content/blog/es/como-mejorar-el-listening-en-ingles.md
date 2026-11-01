@@ -173,6 +173,8 @@ Las palabras que conoces escritas pero no reconoces al oído merecen práctica p
 
 Para escuchar con más soltura sobre temas de examen, te servirán las [listas de vocabulario por temas y la AWL (página en inglés)](/en/vocabulary/).
 
+Para elegir audios de tu nivel, conviene saber dónde estás: repasa los [niveles de inglés A1 a C2](/es/blog/niveles-de-ingles-a1-a2-b1-b2-c1/).
+
 {{cta: /#/listening | Prueba el método de 5 escuchas con una parte de Listening}}
 
 {{youtube: | Idea de vídeo: analizar un fragmento de un minuto con el método de 5 escuchas}}

@@ -72,7 +72,7 @@ quiz: [
  30% ──── might / may（ひょっとしたら〜かもしれない）
 ```
 
-同時に、相手に依頼する際の「丁寧さ（Politeness）」は、現在形よりも**過去形（could / would）**を使うことで、相手との間に適度な「心理的クッション（距離感）」が生まれ、より控えめで丁寧な響きになります。前置詞の論理的イメージを整理した[英語 前置詞 in on at 使い分け](/ja/blog/eigo-zenchishi-in-on-at-tsukaikake/)と同様に、語感の核となるコア・イメージを掴むことが大切です。
+同時に、相手に依頼する際の「丁寧さ（Politeness）」は、現在形よりも**過去形（could / would）**を使うことで、相手との間に適度な「心理的クッション（距離感）」が生まれ、より控えめで丁寧な響きになります。なお、could / would は間接話法で can / will が時制の一致を受けた形としても使われます（詳しくは[英語の話法の転換](/ja/blog/eigo-wahou-kansetsu-wahou/)）。前置詞の論理的イメージを整理した[英語 前置詞 in on at 使い分け](/ja/blog/eigo-zenchishi-in-on-at-tsukaikake/)と同様に、語感の核となるコア・イメージを掴むことが大切です。
 
 ## 4大助動詞のコア・イメージと実戦ニュアンス
 
@@ -100,7 +100,7 @@ quiz: [
   - **極めて強い推量（95〜100%）**: `You have been working for 12 hours straight; you must be exhausted.`（12時間もぶっ続けで働いたなら、疲れているに違いない）
   - ※注意: 目上の人や同僚に対して `You must...` と言うと、「上から目線の命令」に聞こえてしまうため、ビジネスシーンでは `You might want to consider...` や `I recommend that...` のような表現に置き換えるのが賢明です。
 
-文法問題の解法スピードを高める手法は[TOEIC Part 5 コツ](/ja/blog/toeic-part5-kotsu/)でも詳しく触れています。
+文法問題の解法スピードを高める手法は[TOEIC Part 5 コツ](/ja/blog/toeic-part5-kotsu/)でも詳しく触れています。could / would を使った依頼文は、[TOEIC ライティングのEメール問題](/ja/blog/toeic-writing-email-kakikata/)でもそのまま得点につながります。
 
 ![Lexkiteの語彙ライブラリ画面：6,800語以上の重要単語とNGSLコア語彙を整理](media:library "ビジネスで役立つ助動詞の表現を6,800語のライブラリで確認")
 
@@ -122,6 +122,8 @@ quiz: [
 面接やプレゼンで臨機応変に助動詞を使いこなす技術は、[英語面接の質問対策](/ja/blog/eigo-mensetsu-shitsumon-taisaku/)で紹介している自己PRの組み立て方とも相乗効果があります。日々の学習の定着には、アプリの[スマート学習](/app/#/practice/learn)を組み合わせていきましょう。
 
 ![Lexkiteの復習画面：'pollution'などの単語カードをflipして重要表現を復習](media:review "FSRSによる間隔反復で助動詞を含む表現を長期記憶に定着")
+
+would や could を使う仮定の表現は、[英語の仮定法と条件文](/ja/blog/eigo-kateihou-joukenbun/)で4パターンに整理しています。
 
 {{cta: /ngu-phap/ | 英文法ルール一覧を見る}}
 

@@ -9,6 +9,10 @@ on:
     paths: ['.github/workflows/screens.yml', 'scripts/test/screens.mjs']
 permissions:
   contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   shots:
     runs-on: ubuntu-latest
@@ -26,5 +30,5 @@ jobs:
         run: |
           cd /tmp/screens && git init -q && git checkout -q -b screens
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add . && git commit -qm "Ảnh giao diện $(date -u +%F)"
+          git add . && git commit -qm "Ảnh giao diện $(date -u +%F) [CF-Pages-Skip]"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screens

@@ -46,7 +46,7 @@
       { type: 'uses', items: [
         { title: 'Số nhiều mang nghĩa khác: custom (phong tục) → customs (hải quan)', ex: 'It took us an hour to get through [[customs]] at the airport.', vi: 'Chúng tôi mất một tiếng để qua hải quan ở sân bay.' },
         { title: 'glass (thủy tinh, không đếm được) → glasses (kính đeo mắt / cốc)', ex: 'She cannot read the timetable without her [[glasses]].', vi: 'Cô ấy không đọc được bảng giờ nếu không đeo kính.' },
-        { title: 'Một danh từ – hai dạng số nhiều, hai nghĩa: cloth → cloths (mảnh vải lau) / clothes (quần áo); penny → pennies (đồng xu) / pence (giá tiền)', ex: 'Wipe the table with one of the clean [[cloths]].', vi: 'Hãy lau bàn bằng một trong những mảnh vải sạch.' },
+        { title: 'Một danh từ – hai dạng số nhiều, hai nghĩa: cloth → cloths (mảnh vải lau) / clothes (quần áo); penny → pennies (đồng xu) / pence (giá tiền, Anh – Anh; Anh – Mỹ chỉ dùng pennies / cents)', ex: 'Wipe the table with one of the clean [[cloths]].', vi: 'Hãy lau bàn bằng một trong những mảnh vải sạch.' },
         { title: 'species, series, means: số ít và số nhiều cùng một dạng – nhìn từ hạn định để chia động từ', ex: 'This [[species]] is found only on two small [[islands]].', vi: 'Loài này chỉ được tìm thấy trên hai hòn đảo nhỏ.' },
         { title: 'Danh từ luôn số nhiều → động từ số nhiều; muốn đếm đồ vật hai phần (trousers, scissors, glasses…) thì dùng a pair of', ex: 'The [[goods were]] damaged during shipping.', vi: 'Hàng hóa bị hư hỏng trong quá trình vận chuyển.' },
         { title: 'Phenomena, criteria là số nhiều – đi với these / are', ex: 'These [[phenomena]] are difficult to explain.', vi: 'Những hiện tượng này rất khó giải thích.' }
@@ -112,7 +112,7 @@
       { type: 'uses', items: [
         { title: 'Danh từ riêng số ít tận cùng -s: thêm \'s (phổ biến) hoặc chỉ \'', ex: 'We stayed at [[James\'s flat]] for the weekend.', vi: 'Chúng tôi ở căn hộ của James cuối tuần đó.' },
         { title: 'Tổ chức, quốc gia, thành phố cũng dùng \'s', ex: '[[The government\'s]] new policy has been widely criticised.', vi: 'Chính sách mới của chính phủ bị chỉ trích rộng rãi.' },
-        { title: 'Cửa hàng, phòng khám, nhà ai đó: bỏ danh từ sau \'s', ex: 'I have an appointment at [[the dentist\'s]] tomorrow morning.', vi: 'Sáng mai tôi có lịch hẹn ở phòng khám nha khoa.' },
+        { title: 'Cửa hàng, phòng khám, nhà ai đó: bỏ danh từ sau \'s', ex: 'I have an appointment at [[the dentist\'s]] tomorrow morning.', vi: 'Sáng mai tôi có lịch hẹn ở phòng khám nha khoa. (Anh – Mỹ thường bỏ \'s: at the dentist, at the doctor)' },
         { title: 'Sở hữu CHUNG: chỉ thêm \'s vào người cuối', ex: '[[Tom and Anna\'s house]] is near the river.', vi: 'Ngôi nhà (chung) của Tom và Anna ở gần sông.' },
         { title: 'Sở hữu RIÊNG: thêm \'s cho từng người', ex: '[[Tom\'s and Anna\'s phones]] are both broken.', vi: 'Điện thoại của Tom và điện thoại của Anna đều hỏng.' },
         { title: 'Mốc thời gian: today\'s, last year\'s, next week\'s', ex: '[[Today\'s lecture]] focuses on urban planning.', vi: 'Bài giảng hôm nay tập trung vào quy hoạch đô thị.' }
@@ -137,9 +137,9 @@
     quiz: [
       { q: 'The ___ changing room is on the left.', options: ['womens\'', 'women\'s', 'women\'', 'womans\''], answer: 1, explain: 'women là số nhiều bất quy tắc (không tận cùng -s) → thêm \'s: women\'s. "womens\'", "women\'", "womans\'" đều sai cách thêm dấu sở hữu.' },
       { q: 'All the ___ bags must be checked before boarding.', options: ['passengers\'', 'passenger\'s', 'passengers\'s', 'passenger\''], answer: 0, explain: 'passengers là số nhiều tận cùng -s → chỉ thêm dấu nháy: passengers\'. passenger\'s là một hành khách (không hợp với All); "passengers\'s" và "passenger\'" sai.' },
-      { q: 'I\'m going to the ___ to buy some medicine.', options: ['chemist', 'chemists\'', 'chemist of', 'chemist\'s'], answer: 3, explain: 'Chỉ cửa hàng dùng sở hữu cách: the chemist\'s (= the chemist\'s shop, hiệu thuốc). chemist là người dược sĩ; "chemists\'" là nhiều dược sĩ; "chemist of" sai cấu trúc.' },
+      { q: 'I\'m going to the ___ to buy some medicine.', options: ['chemists', 'chemists\'', 'chemist of', 'chemist\'s'], answer: 3, explain: 'Chỉ cửa hàng dùng sở hữu cách: the chemist\'s (= the chemist\'s shop, hiệu thuốc – Anh – Anh; Anh – Mỹ nói the drugstore / the pharmacy). "chemists" là số nhiều, không có dấu sở hữu; "chemists\'" là nhiều dược sĩ; "chemist of" sai cấu trúc.' },
       { q: 'Peter is an old friend of ___.', options: ['me', 'my', 'mine', 'I'], answer: 2, explain: 'Sở hữu kép: a friend of + đại từ sở hữu → a friend of mine. me, my, I không dùng sau of trong cấu trúc này.' },
-      { q: 'The town is only ten ___ drive from the coast.', options: ['minutes\'', 'minute\'s', 'minutes', 'minute'], answer: 0, explain: 'Khoảng thời gian số nhiều làm bổ ngữ → ten minutes\' drive. minute\'s là số ít; "minutes" và "minute" thiếu dấu sở hữu.' },
+      { q: 'The town is only ten ___ drive from the coast.', options: ['minutes\'', 'minute\'s', 'minutes', 'minute'], answer: 0, explain: 'Khoảng thời gian số nhiều làm bổ ngữ → ten minutes\' drive. minute\'s là số ít; "minutes" và "minute" thiếu dấu sở hữu. (Anh – Mỹ hay dùng tính từ ghép: a ten-minute drive.)' },
       { q: 'The company announced ___ annual profits yesterday.', options: ['it\'s', 'its\'', 'its', 'it is'], answer: 2, explain: 'Tính từ sở hữu của it: its (không dấu nháy) → its annual profits. it\'s = it is; "its\'" không tồn tại; "it is" sai nghĩa.' },
       { q: 'Câu nào đúng? (Nam và Lan cùng sở hữu MỘT căn hộ)', options: ['Nam\'s and Lan\'s flat is small.', 'Nam and Lan\'s flat is small.', 'Nam\' and Lan\' flat is small.', 'Nam and Lan flat\'s is small.'], answer: 1, explain: 'Hai người cùng sở hữu một vật → chỉ thêm \'s ở người cuối: Nam and Lan\'s flat. "Nam\'s and Lan\'s" là sở hữu riêng; hai phương án còn lại đặt dấu sai.' },
       { q: 'Câu nào đúng? (Mỗi người có một chiếc xe riêng)', options: ['Mark and Ben\'s cars are both red.', 'Mark and Ben cars\' are both red.', 'Marks\' and Bens\' cars are both red.', 'Mark\'s and Ben\'s cars are both red.'], answer: 3, explain: 'Mỗi người sở hữu riêng → thêm \'s cho từng người: Mark\'s and Ben\'s cars. "Mark and Ben\'s" là sở hữu chung; "Marks\'" sai dạng; "Ben cars\'" sai vị trí.' },
@@ -195,7 +195,7 @@
       { type: 'uses', items: [
         { title: 'Phân từ hiện tại (-ing): đang diễn ra, mang nghĩa chủ động', ex: '[[Rising sea levels]] threaten many coastal cities.', vi: 'Mực nước biển dâng đe dọa nhiều thành phố ven biển.' },
         { title: 'Phân từ quá khứ (-ed / V3): bị tác động hoặc đã hoàn tất', ex: 'Many of [[the stolen paintings]] were never recovered.', vi: 'Nhiều bức tranh bị đánh cắp không bao giờ được tìm lại.' },
-        { title: 'Danh từ đứng trước danh từ đóng vai trò tính từ', ex: 'The [[city council]] approved a new [[car park]].', vi: 'Hội đồng thành phố đã duyệt một bãi đỗ xe mới.' },
+        { title: 'Danh từ đứng trước danh từ đóng vai trò tính từ', ex: 'The [[city council]] approved a new [[parking garage]].', vi: 'Hội đồng thành phố đã duyệt một bãi đỗ xe mới.' },
         { title: 'Tính từ bắt đầu bằng a- chỉ đứng sau động từ; trước danh từ phải đổi từ (asleep → sleeping, alive → living)', ex: 'The baby is [[asleep]], so please keep quiet.', vi: 'Em bé đang ngủ, vì vậy hãy giữ yên lặng. (trước danh từ: a sleeping baby)' },
         { title: 'Một số tính từ đổi nghĩa theo vị trí: the people concerned (người liên quan) ≠ concerned people (người lo lắng)', ex: 'The manager spoke to [[the staff concerned]].', vi: 'Quản lý đã nói chuyện với những nhân viên có liên quan.' }
       ] },
@@ -204,7 +204,7 @@
         ['2', 'Kích thước (size)', 'a huge old building'],
         ['3', 'Tuổi (age)', 'a new round table'],
         ['4', 'Hình dạng (shape)', 'a square blue box'],
-        ['5', 'Màu sắc (colour)', 'a white Japanese car'],
+        ['5', 'Màu sắc (color)', 'a white Japanese car'],
         ['6', 'Nguồn gốc (origin)', 'a French silk scarf'],
         ['7', 'Chất liệu (material)', 'a plastic shopping bag'],
         ['8', 'Mục đích (purpose)', 'a pair of comfortable running shoes']
@@ -233,7 +233,7 @@
     ],
     drills: [
       { t: 'form', q: 'Many charities provide free meals for ___ in winter. (HOMELESS)', a: ['the homeless'], ex: 'The + tính từ = nhóm người: the homeless.' },
-      { t: 'form', q: 'The police found the ___ car abandoned in a car park. (STEAL)', a: ['stolen'], ex: 'Chiếc xe bị đánh cắp (bị động) → phân từ quá khứ stolen.' },
+      { t: 'form', q: 'The police found the ___ car abandoned in a parking lot. (STEAL)', a: ['stolen'], ex: 'Chiếc xe bị đánh cắp (bị động) → phân từ quá khứ stolen.' },
       { t: 'form', q: 'A ___ number of students are choosing online courses. (GROW)', a: ['growing'], ex: 'Số lượng đang tăng → phân từ hiện tại growing.' },
       { t: 'rewrite', q: 'The walk to the station takes five minutes.', start: 'It is a', a: ['It is a five-minute walk to the station.', 'It is a five minute walk to the station.'], ex: 'Tính từ ghép số + danh từ số ít: a five-minute walk.' },
       { t: 'rewrite', q: 'People who have no job need more support from the state.', start: 'The', a: ['The unemployed need more support from the state.', 'The jobless need more support from the state.'], ex: 'The + tính từ (unemployed) + động từ số nhiều need.' },
@@ -263,7 +263,7 @@
         { label: 'So sánh bằng', parts: [ { t: 'S + V', c: 'subj' }, { t: 'as + adj / adv + as', c: 'adv' }, { t: 'N / mệnh đề', c: 'obj' } ], ex: 'This year\'s exam was [[just as difficult as]] last year\'s.' },
         { label: 'So sánh không bằng', parts: [ { t: 'S + be', c: 'subj' }, { t: 'not as / not so + adj + as', c: 'neg' }, { t: 'N', c: 'obj' } ], ex: 'The second film was [[not as exciting as]] the first.' },
         { label: 'Gấp nhiều lần', parts: [ { t: 'S + V', c: 'subj' }, { t: 'twice / three times', c: 'adv' }, { t: 'as + adj + as', c: 'verb' }, { t: 'N', c: 'obj' } ], ex: 'Car sales in 2020 were [[twice as high as]] in 2010.' },
-        { label: 'Càng … càng …', parts: [ { t: 'The + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'subj' }, { t: 'the + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'verb' } ], ex: '[[The more you practise, the more confident]] you become.' },
+        { label: 'Càng … càng …', parts: [ { t: 'The + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'subj' }, { t: 'the + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'verb' } ], ex: '[[The more you practice, the more confident]] you become.' },
         { label: 'Ngày càng …', parts: [ { t: 'S + V', c: 'subj' }, { t: 'so sánh hơn + and + so sánh hơn', c: 'adv' } ], ex: 'Cities are becoming [[more and more crowded]].' },
         { label: 'Mức độ + so sánh hơn', parts: [ { t: 'much / far / slightly', c: 'adv' }, { t: 'so sánh hơn', c: 'verb' }, { t: 'than', c: 'aux' }, { t: 'N', c: 'obj' } ], ex: 'Online sales were [[slightly higher than]] in-store sales.' }
       ] },
@@ -311,7 +311,7 @@
       { t: 'fill', q: 'Her answer was exactly the same ___ mine.', a: ['as'], ex: 'the same as = giống như → as.' },
       { t: 'form', q: 'For ___ details, please visit our website. (FAR)', a: ['further'], ex: 'Nghĩa "thêm" → further.' },
       { t: 'rewrite', q: 'The red car is not as expensive as the blue car.', start: 'The blue car is', a: ['The blue car is more expensive than the red car.', 'The blue car is more expensive than the red one.'], ex: 'Not as…as ↔ so sánh hơn theo chiều ngược lại.' },
-      { t: 'rewrite', q: 'If you practise more, you will become more confident.', start: 'The more', a: ['The more you practise, the more confident you will become.', 'The more you practise, the more confident you become.', 'The more you practice, the more confident you will become.', 'The more you practice, the more confident you become.'], ex: 'So sánh kép (càng… càng…): The more + S + V, the more + adj + S + V → The more you practise, the more confident you will become.' },
+      { t: 'rewrite', q: 'If you practice more, you will become more confident.', start: 'The more', a: ['The more you practice, the more confident you will become.', 'The more you practice, the more confident you become.', 'The more you practise, the more confident you will become.', 'The more you practise, the more confident you become.'], ex: 'So sánh kép (càng… càng…): The more + S + V, the more + adj + S + V → The more you practice, the more confident you will become.' },
       { t: 'rewrite', q: 'The figure for 2020 was double the figure for 2010.', start: 'The figure for 2020 was twice', a: ['The figure for 2020 was twice as high as the figure for 2010.', 'The figure for 2020 was twice as high as that for 2010.', 'The figure for 2020 was twice as high as the one for 2010.', 'The figure for 2020 was twice as large as the figure for 2010.', 'The figure for 2020 was twice as large as that for 2010.'], ex: 'Gấp đôi: twice as + adj + as.' },
       { t: 'combine', q: 'Traffic is getting bad. It gets worse every year.', hint: 'so sánh hơn + and + so sánh hơn', start: 'Traffic is getting', a: ['Traffic is getting worse and worse every year.', 'Traffic is getting worse and worse.'], ex: 'Ngày càng tệ: worse and worse.' },
       { t: 'combine', q: 'Everest is very high. No other mountain in the world is as high.', hint: 'so sánh nhất + in', start: 'Everest is', a: ['Everest is the highest mountain in the world.'], ex: 'So sánh nhất + in + nơi chốn.' },
@@ -377,6 +377,7 @@
       ] },
       { type: 'tip', text: 'Mẹo phân biệt vô thanh / hữu thanh: đặt tay lên cổ họng rồi phát âm phụ âm cuối. Không rung → vô thanh → -ed đọc /t/, -s đọc /s/. Có rung → hữu thanh → /d/ và /z/.' },
       { type: 'tip', text: 'Không gấp đôi w, x, y: show → showed, fix → fixed, play → played. Tiếng Anh–Anh gấp đôi l dù trọng âm ở âm tiết đầu: travel → travelled, cancel → cancelled (Anh–Mỹ: traveled, canceled).' },
+      { type: 'tip', text: 'Phiên âm trong bài theo Anh – Anh. Anh – Mỹ: wanted /ˈwɑːntɪd/, stopped /stɑːpt/, laughed /læft/, washed /wɑːʃt/, dogs /dɑːɡz/; learned (động từ) chỉ đọc /lɝːnd/. Quy tắc /ɪd/ – /t/ – /d/ và /ɪz/ – /s/ – /z/ giống hệt nhau ở cả hai giọng.' },
       { type: 'mistake', wrong: 'He visitted his grandparents last week.', right: 'He visited his grandparents last week.', why: 'Visit có trọng âm ở âm tiết đầu → không gấp đôi t.' },
       { type: 'mistake', wrong: 'She is studing for her final exams.', right: 'She is studying for her final exams.', why: 'Thêm -ing thì giữ nguyên y: studying.' },
       { type: 'mistake', wrong: 'The workshop was planed for months.', right: 'The workshop was planned for months.', why: 'Plan là động từ 1 âm tiết (1 nguyên âm + 1 phụ âm) → gấp đôi n. "Planed" là bào (gỗ).' },
@@ -404,7 +405,7 @@
       { t: 'rewrite', q: 'They plan the trip carefully.', start: 'Last month, they', a: ['Last month, they planned the trip carefully.'], ex: 'Plan → planned (gấp đôi n).' },
       { t: 'rewrite', q: 'She tries to visit her grandparents every week.', start: 'Last year, she', a: ['Last year, she tried to visit her grandparents every week.'], ex: 'Phụ âm + y → ied: tried.' },
       { t: 'rewrite', q: 'The dog lies on the sofa every afternoon.', start: 'At the moment, the dog', a: ['At the moment, the dog is lying on the sofa.'], ex: 'At the moment → hiện tại tiếp diễn; lie → lying (đổi ie → y trước -ing).' },
-      { t: 'combine', q: 'He admitted his mistake. He apologised to the team.', hint: 'and', start: 'He admitted', a: ['He admitted his mistake and apologised to the team.', 'He admitted his mistake and apologized to the team.'], ex: 'Admit có trọng âm cuối → admitted.' },
+      { t: 'combine', q: 'He admitted his mistake. He apologized to the team.', hint: 'and', start: 'He admitted', a: ['He admitted his mistake and apologized to the team.', 'He admitted his mistake and apologised to the team.'], ex: 'Admit có trọng âm cuối → admitted.' },
       { t: 'combine', q: 'She was writing an email. The phone rang.', hint: 'while', start: 'While she was', a: ['While she was writing an email, the phone rang.', 'While she was writing an email the phone rang.'], ex: 'Write → writing (bỏ e câm).' },
       { t: 'error', parts: ['The company', 'offerred', 'me a job', 'last week.'], w: 1, fix: 'offered', ex: 'Offer có trọng âm ở âm tiết đầu → không gấp đôi r.' },
       { t: 'error', parts: ['They are', 'planing', 'a trip', 'to Hue.'], w: 1, fix: 'planning', ex: 'Plan → planning (gấp đôi n).' }
@@ -495,9 +496,9 @@
     summary: 'Nguyên nhân: because / as / since / now that + MỆNH ĐỀ ↔ because of / due to / owing to / on account of + DANH TỪ / V-ing. Tương phản: although / even though / though / while / whereas + MỆNH ĐỀ ↔ despite / in spite of + DANH TỪ / V-ing. Khi bí, dùng "the fact that + mệnh đề". Nối hai câu: however, nevertheless, on the other hand.',
     blocks: [
       { type: 'diagram', caption: 'Mệnh đề (S + V) ↔ cụm danh từ – dạng biến đổi rất hay gặp trong đề thi', steps: [
-        { t: 'The match was cancelled because it rained heavily.', c: 'note' },
+        { t: 'The match was canceled because it rained heavily.', c: 'note' },
         { t: '↓ because + mệnh đề → because of + cụm danh từ', c: 'arrow' },
-        { t: 'The match was cancelled because of the heavy rain.', c: 'result' },
+        { t: 'The match was canceled because of the heavy rain.', c: 'result' },
         { t: '↓ although + mệnh đề', c: 'arrow' },
         { t: 'Although it rained heavily, they kept playing.', c: 'active' },
         { t: '↓ despite + cụm danh từ', c: 'arrow' },
@@ -557,7 +558,7 @@
     drills: [
       { t: 'fill', q: '___ spite of the cold weather, they went swimming in the sea.', a: ['in'], ex: 'In spite of + danh từ/V-ing = mặc dù → In spite of the cold weather.' },
       { t: 'fill', q: 'Some people love city life, ___ others prefer the peace of the countryside.', a: ['whereas', 'while'], ex: 'Đối lập hai vế: whereas / while.' },
-      { t: 'fill', q: 'The concert was cancelled on account ___ the storm.', a: ['of'], ex: 'on account of + danh từ = because of (vì, do) → on account of the storm.' },
+      { t: 'fill', q: 'The concert was canceled on account ___ the storm.', a: ['of'], ex: 'on account of + danh từ = because of (vì, do) → on account of the storm.' },
       { t: 'rewrite', q: 'Although it was raining, the match continued.', start: 'Despite', a: ['Despite the rain, the match continued.', 'Despite the fact that it was raining, the match continued.', 'Despite it raining, the match continued.'], ex: 'Although + mệnh đề → despite + cụm danh từ / the fact that.' },
       { t: 'rewrite', q: 'Because he was ill, he missed the exam.', start: 'Because of', a: ['Because of his illness, he missed the exam.', 'Because of being ill, he missed the exam.'], ex: 'Because + mệnh đề → because of + cụm danh từ / V-ing.' },
       { t: 'rewrite', q: 'In spite of his lack of experience, he got the job.', start: 'Although', a: ['Although he lacked experience, he got the job.', 'Although he had no experience, he got the job.', 'Although he did not have experience, he got the job.', 'Although he did not have any experience, he got the job.', 'Although he was inexperienced, he got the job.', 'Although he had little experience, he got the job.'], ex: 'In spite of + N → although + mệnh đề.' },
@@ -607,6 +608,7 @@
       ] },
       { type: 'tip', text: 'Trong as if / if only / wish / would rather, "were" dùng được cho mọi ngôi trong văn trang trọng (as if he were…); văn nói thường dùng was.' },
       { type: 'tip', text: 'Liên hệ bài Câu điều kiện hỗn hợp & wish: I wish I knew = If only I knew – cùng nguyên tắc lùi thì. Would rather + V nguyên mẫu (cùng chủ ngữ) KHÔNG lùi thì: I\'d rather walk.' },
+      { type: 'tip', text: 'Anh – Mỹ văn nói rất hay dùng like thay cho as if: He acts like he owns the place. It looks like it\'s going to rain. Trong bài viết trang trọng và bài thi, dùng as if / as though.' },
       { type: 'mistake', wrong: 'I\'d rather you don\'t tell anyone.', right: 'I\'d rather you didn\'t tell anyone.', why: 'Would rather + người khác → động từ lùi về quá khứ dù nói về hiện tại/tương lai.' },
       { type: 'mistake', wrong: 'It\'s time we go home.', right: 'It\'s time we went home.', why: 'It\'s time + S + V2 (quá khứ giả định).' },
       { type: 'mistake', wrong: 'I would rather to walk than take a taxi.', right: 'I would rather walk than take a taxi.', why: 'Would rather + V nguyên mẫu không có to.' },
@@ -614,7 +616,7 @@
       { type: 'ielts', text: 'Speaking: "I\'d rather…" là cách tự nhiên để nói về sở thích (Part 1). Writing Task 2: "It is high time (that) governments + V2" nêu mạnh một đề xuất cấp thiết.', ex: '[[It is high time that governments invested]] more in renewable energy.' }
     ],
     quiz: [
-      { q: 'He spends money as if he ___ a millionaire. (thật ra anh ấy không giàu)', options: ['is', 'has been', 'were', 'will be'], answer: 2, explain: 'Điều không có thật ở hiện tại (thật ra không giàu) → as if + lùi thì: were. is và will be diễn tả điều có thật; has been sai thì.' },
+      { q: 'He spends money as if he ___ a millionaire. (thật ra anh ấy không giàu)', options: ['is', 'has been', 'were', 'will be'], answer: 2, explain: 'Điều không có thật ở hiện tại (thật ra không giàu) → as if + lùi thì: were. is và will be diễn tả điều có thật; has been sai thì. (Văn nói, nhất là Anh – Mỹ, đôi khi vẫn nghe "as if he is/was…", nhưng khi biết rõ là không thật, bài thi và văn viết dùng were/was.)' },
       { q: 'She described the city as if she ___ there, but she had never visited it.', options: ['had been', 'has been', 'was being', 'would be'], answer: 0, explain: 'Điều không có thật trong quá khứ (chưa từng đến) → as if + had + V3 → had been. has been, was being, would be không diễn tả quá khứ không có thật.' },
       { q: 'It\'s about time you ___ a job.', options: ['find', 'will find', 'finding', 'found'], answer: 3, explain: 'It\'s about time + S + V2 (đã đến lúc… – hàm ý lẽ ra phải làm rồi) → found. find và will find không lùi thì; finding sai dạng.' },
       { q: 'It\'s time ___ the meeting.', options: ['starting', 'to start', 'for start', 'started'], answer: 1, explain: 'It\'s time + to V (đến lúc làm gì, không có chủ ngữ riêng) → to start. Nếu có chủ ngữ thì dùng It\'s time + S + V2.' },
@@ -685,14 +687,14 @@
         { title: 'once in a blue moon – rất hiếm khi', ex: 'I eat fast food [[once in a blue moon]].', vi: 'Hiếm lắm tôi mới ăn đồ ăn nhanh.' },
         { title: 'hit the books – học hành chăm chỉ', ex: 'I need to [[hit the books]] before my exam next week.', vi: 'Tôi cần học chăm trước kỳ thi tuần sau.' },
         { title: 'under the weather – hơi mệt, không khỏe', ex: 'I was feeling a bit [[under the weather]] last weekend.', vi: 'Cuối tuần trước tôi thấy hơi mệt.' },
-        { title: 'over the moon – vô cùng vui sướng', ex: 'My mum was [[over the moon]] when I passed my driving test.', vi: 'Mẹ tôi vui mừng khôn xiết khi tôi thi đỗ bằng lái.' },
-        { title: 'cost an arm and a leg – rất đắt', ex: 'Renting a flat in the city centre [[costs an arm and a leg]].', vi: 'Thuê căn hộ ở trung tâm thành phố đắt cắt cổ.' },
+        { title: 'over the moon – vô cùng vui sướng', ex: 'My mom was [[over the moon]] when I passed my driving test.', vi: 'Mẹ tôi vui mừng khôn xiết khi tôi thi đỗ bằng lái.' },
+        { title: 'cost an arm and a leg – rất đắt', ex: 'Renting a flat in the city center [[costs an arm and a leg]].', vi: 'Thuê căn hộ ở trung tâm thành phố đắt cắt cổ.' },
         { title: 'on the same page – cùng quan điểm, hiểu ý nhau', ex: 'My friends and I are usually [[on the same page]] about music.', vi: 'Tôi và bạn bè thường hợp gu âm nhạc.' },
         { title: 'a breath of fresh air – điều mới mẻ, dễ chịu', ex: 'The new teacher was [[a breath of fresh air]] for our class.', vi: 'Thầy giáo mới như một làn gió mới với lớp tôi.' },
         { title: 'up to my ears (in work) – ngập đầu công việc', ex: 'I am [[up to my ears]] in work at the moment.', vi: 'Dạo này tôi ngập đầu trong công việc.' },
         { title: 'learn the ropes – học những điều cơ bản của một công việc', ex: 'It took me a few weeks to [[learn the ropes]] at my new job.', vi: 'Tôi mất vài tuần để làm quen với công việc mới.' },
         { title: 'go the extra mile – nỗ lực hơn mức cần thiết', ex: 'The staff at that hotel always [[go the extra mile]] for guests.', vi: 'Nhân viên khách sạn đó luôn tận tâm hơn mong đợi.' },
-        { title: 'take something with a pinch of salt – không tin hoàn toàn', ex: 'I take online reviews [[with a pinch of salt]].', vi: 'Tôi không tin hoàn toàn vào các đánh giá trên mạng.' }
+        { title: 'take something with a pinch of salt (Anh – Mỹ: with a grain of salt) – không tin hoàn toàn', ex: 'I take online reviews [[with a pinch of salt]].', vi: 'Tôi không tin hoàn toàn vào các đánh giá trên mạng.' }
       ] },
       { type: 'tip', text: 'Rút gọn (contractions): Writing Task 1 & 2 viết đầy đủ do not, it is, cannot, will not thay vì don\'t, it\'s, can\'t, won\'t. Trong Speaking, dạng rút gọn là tự nhiên và nên dùng.' },
       { type: 'tip', text: 'Phrasal verb không bị cấm trong Writing – carry out, set up, point out, rely on đều trang trọng. Nhưng khi có động từ một chữ tương đương, hãy ưu tiên: look into → investigate, put up with → tolerate, come up with → devise / propose.' },
@@ -713,7 +715,7 @@
       { q: 'Câu nào phù hợp nhất cho Writing Task 1?', options: ['The number of visitors rose significantly in 2015.', 'The number of visitors went up a lot in 2015.', 'Loads more visitors came in 2015.', 'Visitor numbers kind of jumped in 2015.'], answer: 0, explain: 'Rose significantly trang trọng và chính xác hơn went up a lot. went up a lot, loads more và kind of jumped là văn nói.' },
       { q: 'Câu nào dùng thành ngữ ĐÚNG ngữ cảnh (Speaking)?', options: ['I was over the moon when my phone broke.', 'I was over the moon when I got my exam results.', 'My hometown is a piece of cake.', 'I hit the books when I went to the beach.'], answer: 1, explain: 'Over the moon = rất vui → hợp với tin vui như có kết quả thi tốt. over the moon không hợp với tin xấu; "a piece of cake" và "hit the books" dùng sai ngữ cảnh.' },
       { q: 'Câu nào cùng nghĩa, văn phong trang trọng hơn? "Lots of people think the internet is bad for kids."', options: ['Tons of people think the net is bad for kids.', 'People reckon the internet is rubbish for kids.', 'A lot of folks say the internet is bad for kids.', 'Many people believe that the internet is harmful to children.'], answer: 3, explain: 'Many people believe / harmful / children là từ vựng trang trọng. tons of, reckon, folks đều là văn nói thân mật.' },
-      { q: 'Câu nào cùng nghĩa, trang trọng hơn? "The company put off the meeting."', options: ['The company cancelled the meeting.', 'The company called the meeting.', 'The company postponed the meeting.', 'The company held the meeting.'], answer: 2, explain: 'Put off = postpone (hoãn), không phải cancel (hủy). cancel là hủy (khác hoãn); call và hold là triệu tập/tổ chức.' },
+      { q: 'Câu nào cùng nghĩa, trang trọng hơn? "The company put off the meeting."', options: ['The company canceled the meeting.', 'The company called the meeting.', 'The company postponed the meeting.', 'The company held the meeting.'], answer: 2, explain: 'Put off = postpone (hoãn), không phải cancel (hủy). cancel là hủy (khác hoãn); call và hold là triệu tập/tổ chức.' },
       { q: 'Câu nào cùng nghĩa? "I only eat sweets once in a blue moon."', options: ['I very rarely eat sweets.', 'I eat sweets every day.', 'I eat sweets when I feel sad.', 'I eat sweets at night.'], answer: 0, explain: 'once in a blue moon = rất hiếm khi → I very rarely eat sweets. Các phương án còn lại nói về tần suất thường xuyên hoặc thời điểm, sai nghĩa.' }
     ],
     drills: [

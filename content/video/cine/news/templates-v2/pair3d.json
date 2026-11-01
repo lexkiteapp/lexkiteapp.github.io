@@ -1,0 +1,411 @@
+{
+ "id": "t4_pair_borrow_lend_3d",
+ "template": "pair",
+ "title": "Same or Different? #1 – borrow vs lend (situation, rule, trick, quiz, save) (3D)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.68,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Borrow or lend? You probably mix these up."
+  },
+  {
+   "id": "p_s",
+   "text": "Borrow: you take it, and give it back later.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_b2",
+   "text": "Can I borrow your pen?",
+   "key": {
+    "yellow": [
+     2
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_l",
+   "text": "Lend: you give it, and get it back later.",
+   "key": {
+    "green": [
+     0
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_l2",
+   "text": "Sure! I can lend you my pen.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_t",
+   "text": "Remember: you borrow from someone, and you lend to someone.",
+   "key": {
+    "yellow": [
+     2,
+     3
+    ],
+    "green": [
+     7,
+     8
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_q",
+   "text": "Quick quiz! My brother blank me ten dollars.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_q2",
+   "text": "Lent, or borrowed?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Lent! My brother lent me ten dollars.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "id": "p_sh",
+   "text": "Send this to a friend who mixes them up!",
+   "gap": 0.7
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "borrow",
+      "yellow"
+     ],
+     [
+      " or",
+      "white"
+     ]
+    ],
+    [
+     [
+      "lend",
+      "green"
+     ],
+     [
+      "?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "lesson",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "p_s",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.08
+   ],
+   "title": "BORROW vs LEND",
+   "items": [
+    {
+     "icon": "in",
+     "color": "green",
+     "word": "borrow",
+     "ipa": "/ˈbɑːroʊ/",
+     "mean": "= take it for a while",
+     "ex": [
+      "“Can I ",
+      "borrow",
+      " a pen?”"
+     ]
+    },
+    {
+     "icon": "out",
+     "color": "blue",
+     "word": "lend",
+     "ipa": "/lend/",
+     "mean": "= give it for a while",
+     "ex": [
+      "“I can ",
+      "lend",
+      " you a pen.”"
+     ],
+     "at": [
+      "p_l",
+      0,
+      "s",
+      -0.06
+     ]
+    }
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q",
+    2,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "MEMORY TRICK"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "borrow",
+       "green"
+      ],
+      [
+       " FROM"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "lend",
+       "blue"
+      ],
+      [
+       " TO"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "p_q",
+    2,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q2",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "My brother"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "___",
+       "green"
+      ],
+      [
+       " me $10."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "from": [
+    "p_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_a",
+    -1,
+    "e",
+    0.3
+   ],
+   "a": "lent",
+   "b": "borrowed",
+   "correct": "a",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "p_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "title": "SAVE THIS",
+   "save": true,
+   "items": [
+    {
+     "icon": "in",
+     "color": "green",
+     "word": "borrow",
+     "ipa": "/ˈbɑːroʊ/",
+     "mean": "= take  ·  FROM",
+     "ex": [
+      "“Can I ",
+      "borrow",
+      " it?”"
+     ]
+    },
+    {
+     "icon": "out",
+     "color": "blue",
+     "word": "lend",
+     "ipa": "/lend/",
+     "mean": "= give  ·  TO",
+     "ex": [
+      "“I can ",
+      "lend",
+      " it.”"
+     ]
+    }
+   ],
+   "footer": "lexkite.com"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 1
+ },
+ "caption_cap": 42,
+ "listen": [
+  "c05l_carlos2_listen"
+ ]
+}

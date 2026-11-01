@@ -46,7 +46,7 @@ qualityScore: 94
 إليك قائمة بأهم العبارات القياسية مقسمة بحسب المواقف اليومية المتكررة في الشركات:
 
 ### 1. عبارات البدء وتحديد الهدف
-- *I hope this email finds you well.* (أتمنى أن تصلك هذه الرسالة وأنت بأفضل حال - العبارة الأكثر شيوعاً).
+- *I hope this email finds you well.* (أتمنى أن تصلك هذه الرسالة وأنت بأفضل حال - العبارة الأكثر شيوعاً). وفي رسالة اختبار IELTS تكفي عبارة قصيرة مثل *I hope you are well*، كما نشرح في دليل [ielts general training letter](/ar/blog/risalat-ielts-general-training-letter/).
 - *I am writing to follow up on our telephone conversation earlier today.* (أكتب إليك متابعةً لمحادثتنا الهاتفية في وقت سابق اليوم).
 - *I am writing to inquire about the current status of the software update.* (أكتب للاستفسار عن الوضع الحالي لتحديث البرنامج).
 - *Thank you for getting back to me so promptly.* (شكراً جزيلاً لردك السريع والمهني).

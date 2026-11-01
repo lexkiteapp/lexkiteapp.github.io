@@ -1,0 +1,204 @@
+{
+ "series": "Real-Life English",
+ "template": "mistake",
+ "generator": "scripts/video/tpl/gold2v9.py",
+ "order": [
+  {
+   "ep": 1,
+   "id": "rle_1dc7abe0",
+   "point": "key card (n): a plastic card used to open a hotel room door",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 72,
+   "est_s": 44.3,
+   "ipa": "/kɑːrd/",
+   "content_hash": "b158a32eafd25646"
+  },
+  {
+   "ep": 2,
+   "id": "rle_0e2c3ad9",
+   "point": "contactless payment (n): paying by holding a card or phone near a reader",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 69,
+   "est_s": 42.8,
+   "ipa": null,
+   "content_hash": "ab76a1a1986cbca0"
+  },
+  {
+   "ep": 3,
+   "id": "rle_8401e4b0",
+   "point": "Small talk at events: \"Great talk this morning, wasn't it?\"",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 69,
+   "est_s": 42.8,
+   "ipa": null,
+   "content_hash": "c2aeba7bf577e36c"
+  },
+  {
+   "ep": 4,
+   "id": "rle_01d0269f",
+   "point": "peak times (n): the times of day when the most people use a service",
+   "cefr": "B2",
+   "diff": "medium",
+   "words": 70,
+   "est_s": 43.3,
+   "ipa": "/piːk/",
+   "content_hash": "0e8841359bd60e99"
+  },
+  {
+   "ep": 5,
+   "id": "rle_06bb70ea",
+   "point": "medical history (n): a record of a person’s past illnesses and treatments",
+   "cefr": "B2",
+   "diff": "medium",
+   "words": 69,
+   "est_s": 42.8,
+   "ipa": "/ˈmedəkl/",
+   "content_hash": "b9c0c7957a8a3055"
+  }
+ ],
+ "skipped": [
+  {
+   "bank": "sb_01092ae1",
+   "point": "sleeping bag (n): a warm padded bag that you sleep in when camping",
+   "reason": "self-check: 77 words (need 50-75)"
+  },
+  {
+   "bank": "sb_033d190d",
+   "point": "tracking number (n): a number used to follow the progress of a shipment",
+   "reason": "self-check: 77 words (need 50-75); note fix line > 26 chars: [['What is my '], ['tracking ', 'green'], ['number?']]; note qs line > 26 chars: [['Use the '], ['___ ', 'green'], ['number to check']]"
+  },
+  {
+   "bank": "sb_0ac5ff10",
+   "point": "contact number (n): a phone number where someone can be reached",
+   "reason": "self-check: note fix line > 26 chars: [[\"What's \", 'green'], ['your '], ['contact ', 'green'], ['number?']]; note ex height 346 > 335"
+  },
+  {
+   "bank": "sb_0edca2fc",
+   "point": "free sample (n): a small amount of a product given away to try",
+   "reason": "self-check: 79 words (need 50-75)"
+  },
+  {
+   "bank": "sb_1795a1f5",
+   "point": "recycling bin (n): a container for paper, glass, plastic, etc. that will be recycled",
+   "reason": "self-check: note qs line > 26 chars: [['Put the cans in the '], ['___ ', 'green'], ['bin.']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_17a8947e",
+   "point": "debit card (n): a card that takes money directly from your bank account",
+   "reason": "self-check: 77 words (need 50-75); note fix line > 26 chars: [['Can I pay with my '], ['debit ', 'green'], ['card?']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_18fd1239",
+   "point": "twin room (n): a hotel room with two separate single beds",
+   "reason": "self-check: 84 words (need 50-75); note fix line > 26 chars: [[\"I'd like \", 'green'], ['a '], ['twin ', 'green'], ['room, please.']]"
+  },
+  {
+   "bank": "sb_1fd99947",
+   "point": "savings account (n): a bank account that pays interest on money you keep",
+   "reason": "self-check: note fix line > 26 chars: [['I opened a '], ['savings ', 'green'], ['account.']]"
+  },
+  {
+   "bank": "sb_4e27315d",
+   "point": "smoke detector (n): a device that makes a loud noise when it senses smoke",
+   "reason": "quiz option longer than 12 characters"
+  },
+  {
+   "bank": "sb_612771f1",
+   "point": "flu shot (n): an injection that helps protect you from the flu",
+   "reason": "self-check: 79 words (need 50-75); hook 7 words on screen"
+  },
+  {
+   "bank": "sb_717fc08c",
+   "point": "insurance card (n): a card showing that you have health insurance",
+   "reason": "self-check: note ex line > 26 chars: [['Can I see your '], ['insurance card?', 'green']]"
+  },
+  {
+   "bank": "sb_a79c3048",
+   "point": "parking spot (n): a space where one car can be parked",
+   "reason": "self-check: 78 words (need 50-75); note fix line > 26 chars: [[\"I can't find a \"], ['parking spot.', 'green']]"
+  },
+  {
+   "bank": "sb_001209da",
+   "point": "sold out (adj): having no more tickets or goods available",
+   "reason": "self-check: note qs line > 26 chars: [[\"We can't go. The show is \"], ['___.', 'green']]"
+  },
+  {
+   "bank": "sb_07f39bdd",
+   "point": "stainless steel (n): steel that resists rust",
+   "reason": "self-check: note ex line > 26 chars: [['The sink is '], ['stainless steel.', 'green']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_0acfd154",
+   "point": "guest complaint (n): an expression of dissatisfaction from a guest",
+   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' We got complaint about noise', 'green']]; note why line 747 px > 695; note save line > 26 chars: [['@emoji:✅'], [' We got complaint about noise', 'green']]; note save line 747 px > 695"
+  },
+  {
+   "bank": "sb_10e854d6",
+   "point": "property manager (n): a person who runs a rental building for the owner",
+   "reason": "self-check: note fix line > 26 chars: [[\"I'll call the \"], ['property manager.', 'green']]"
+  },
+  {
+   "bank": "sb_847a8b03",
+   "point": "Making a complaint: \"I'd prefer a refund, if possible.\"",
+   "reason": "self-check: note fix line > 26 chars: [[\"I'd \", 'green'], ['prefer '], ['a ', 'green'], ['refund, if possible.']]"
+  },
+  {
+   "bank": "sb_dfe2abf2",
+   "point": "At the bank: \"Are there any fees for this?\"",
+   "reason": "self-check: note fix line > 26 chars: [['Are there any ', 'green'], ['fees for this?']]"
+  },
+  {
+   "bank": "sb_03ae3a7b",
+   "point": "greenhouse gas (n): a gas that traps heat in the atmosphere, such as carbon dioxide",
+   "reason": "self-check: note fix line > 26 chars: [['Cars make '], ['greenhouse gases.', 'green']]; note qs line > 26 chars: [['Carbon dioxide is a '], ['___ ', 'green'], ['gas.']]"
+  },
+  {
+   "bank": "sb_07a07564",
+   "point": "cultural identity (n): the sense of belonging to a group that shares a culture",
+   "reason": "self-check: hook 7 words on screen"
+  },
+  {
+   "bank": "sb_72620bd4",
+   "point": "impulse buying (n): buying things suddenly without planning or thinking carefully",
+   "reason": "self-check: note fix line > 26 chars: [['not “'], ['I did a sudden shopping', 'red'], ['”']]"
+  },
+  {
+   "bank": "sb_93e59268",
+   "point": "Salary negotiation: \"Is there any flexibility on the base salary?\"",
+   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' Is there any flexibility on the salary', 'green']]; note why line 856 px > 695; note save line > 26 chars: [['@emoji:✅'], [' Is there any flexibility on the salary', 'green']]; note save line 856 px > 695"
+  },
+  {
+   "bank": "sb_ec31bdce",
+   "point": "Disagreeing politely: \"Let's look at the numbers before we decide.\"",
+   "reason": "self-check: note qs line > 26 chars: [[\"Let's look \"], ['___ ', 'green'], ['the numbers.']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_fc42e435",
+   "point": "Complaints that get results: \"I'm afraid that doesn't work for me.\"",
+   "reason": "self-check: 76 words (need 50-75); hook 7 words on screen"
+  },
+  {
+   "bank": "sb_0031f98c",
+   "point": "statute of limitations (n): the legal time limit for bringing a case",
+   "reason": "self-check: 82 words (need 50-75); note why line > 26 chars: [['@emoji:❌'], [' law time is over, so no case', 'red']]; note why line > 26 chars: [['@emoji:✅'], [' statute of limitations has run out', 'green']]; note why line 802 px > 695; note save line > 26 chars: [['@emoji:❌'], [' law time is over, so no case', 'red']]; note save line > 26 chars: [['@emoji:✅'], [' statute of limitations has run out', 'green']]; note save line 802 px > 695; hook 8 words on screen"
+  },
+  {
+   "bank": "sb_003b399b",
+   "point": "familiarization trip (n): a free trip for agents to learn about a destination",
+   "reason": "self-check: 76 words (need 50-75); note why line > 26 chars: [['@emoji:❌'], [' The hotel paid our learning tour', 'red']]; note why line 778 px > 695; note why line > 26 chars: [['@emoji:✅'], [' Travel agents went on a familiarization trip', 'green']]; note why line 1038 px > 695; note save line > 26 chars: [['@emoji:❌'], [' The hotel paid our learning tour', 'red']]; note save line 778 px > 695; note save line > 26 chars: [['@emoji:✅'], [' Travel agents went on a familiarization trip', 'green']]; note save line 1038 px > 695"
+  },
+  {
+   "bank": "sb_01bb454e",
+   "point": "interlibrary loan (n): a service for borrowing books from another library",
+   "reason": "quiz option longer than 12 characters"
+  },
+  {
+   "bank": "sb_03afa19f",
+   "point": "magnetic resonance imaging (n): imaging that uses magnets and radio waves",
+   "reason": "self-check: note ex line > 26 chars: [['The doctor ordered '], ['magnetic', 'green']]; hook 8 words on screen"
+  }
+ ]
+}

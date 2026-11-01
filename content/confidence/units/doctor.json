@@ -1,0 +1,50 @@
+{
+  "id": "doctor", "level": "A2", "order": 6, "em": "🩺", "rp": "doctor",
+  "title": { "vi": "Đi khám bác sĩ", "en": "At the doctor's" },
+  "goal": { "vi": "Mô tả triệu chứng, báo dị ứng và hỏi cách dùng thuốc.", "en": "Describe how you feel, mention allergies and ask how to take medicine." },
+  "dialogue": { "a": "Dr. Lee", "aRole": "a doctor", "lines": [
+    ["a", "Hello, come in. What seems to be the problem?"],
+    ["b", "I've had a bad headache since yesterday."],
+    ["a", "I'm sorry to hear that. Do you have a fever?"],
+    ["b", "A little. I also feel really tired."],
+    ["a", "Are you taking any medicine?"],
+    ["b", "No, nothing. I'm allergic to penicillin, by the way."],
+    ["a", "Thanks for telling me. It looks like a virus. Rest and drink lots of water."],
+    ["b", "How often should I take this?"],
+    ["a", "Twice a day, after meals."]
+  ] },
+  "phrases": [
+    { "id": "ive-had-since", "say": "I've had a headache since yesterday.", "not": "I have headache from yesterday.", "gap": "had",
+      "mean": { "vi": "Nói một vấn đề sức khỏe bắt đầu từ khi nào", "en": "Say when a health problem started" },
+      "why": { "vi": "Dùng \"I've had… since…\" cho việc bắt đầu trong quá khứ và vẫn còn; nhớ thêm \"a\".", "en": "Use \"I've had… since…\" for something that started in the past and continues; add \"a\"." } },
+    { "id": "i-feel", "say": "I feel really tired.", "not": "I am feeling not good in my body.", "gap": "feel",
+      "mean": { "vi": "Nói bạn cảm thấy thế nào", "en": "Say how you feel" },
+      "why": { "vi": "Giữ đơn giản: \"I feel\" + tính từ (tired, sick, dizzy).", "en": "Keep it simple: \"I feel\" + an adjective (tired, sick, dizzy)." } },
+    { "id": "it-hurts-when", "say": "It hurts when I swallow.", "not": "It is pain when I swallow.", "gap": "hurts",
+      "mean": { "vi": "Nói chỗ nào đau và đau khi nào", "en": "Say what hurts and when" },
+      "why": { "vi": "\"Pain\" là danh từ; dùng động từ \"hurts\": \"It hurts when…\"", "en": "\"Pain\" is a noun; use the verb: \"It hurts when…\"" } },
+    { "id": "allergic-to", "say": "I'm allergic to penicillin.", "not": "I have allergy with penicillin.", "gap": "to",
+      "mean": { "vi": "Báo bạn bị dị ứng với thứ gì", "en": "Say what you are allergic to" },
+      "why": { "vi": "Nói \"allergic to\" + tên thứ đó. Luôn báo bác sĩ về dị ứng.", "en": "Say \"allergic to\" + the thing. Always tell the doctor about allergies." } },
+    { "id": "how-often", "say": "How often should I take this?", "not": "How many time I drink this medicine?", "gap": "often",
+      "mean": { "vi": "Hỏi uống thuốc bao nhiêu lần", "en": "Ask how many times to take medicine" },
+      "why": { "vi": "\"How often…?\" hỏi về tần suất; thuốc thì dùng \"take\", không phải \"drink\".", "en": "\"How often…?\" asks about frequency; we \"take\" medicine, not \"drink\" pills." } },
+    { "id": "make-an-appointment", "say": "I'd like to make an appointment, please.", "not": "I want to meet the doctor.", "gap": "make",
+      "mean": { "vi": "Đặt lịch khám", "en": "Book a time to see the doctor" },
+      "why": { "vi": "\"Make an appointment\" là cụm cố định để đặt lịch khám.", "en": "\"Make an appointment\" is the set phrase for booking a time with a doctor." } },
+    { "id": "simpler-words", "say": "Sorry, could you explain that in simpler words?", "not": "I don't understand anything.", "gap": "simpler", "tk": "repair",
+      "mean": { "vi": "Nhờ giải thích bằng từ dễ hơn", "en": "Ask for an easier explanation" },
+      "why": { "vi": "Từ y khoa khó với mọi người; xin giải thích dễ hơn là thông minh, không bất lịch sự.", "en": "Medical words are hard for everyone; asking for simpler words is smart, not rude." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Dr. Lee", "role": "a family doctor", "persona": "calm, kind and clear", "goal": "find out the learner's symptoms and give advice" },
+    "you": "Explain your headache, say how you feel, mention your allergy and ask how to take the medicine.",
+    "turns": [
+      { "a": "Hello, come in. What seems to be the problem?", "h": "I've had a bad headache since yesterday.", "br": [["headache|head", "A headache. I'm sorry to hear that."], ["stomach|throat|cough|fever|back", "I'm sorry to hear that."]] },
+      { "a": "Do you have a fever or any other symptoms?", "h": "A little fever. I also feel really tired.", "br": [["fever|tired|sick|dizzy|cough", "Okay, thanks."], ["no", "Okay, good."]] },
+      { "a": "Are you allergic to any medicine?", "h": "Yes, I'm allergic to penicillin.", "br": [["allergic|penicillin|yes", "Thanks, I'll write that down."], ["no|not", "Okay, no allergies."]] },
+      { "a": "It looks like a virus. I'll give you something for the pain. Any questions?", "h": "How often should I take it?", "br": [["how often|how many|when", "Twice a day, after meals."]] }
+    ],
+    "end": "Rest and drink lots of water. Come back if you don't feel better in three days."
+  }
+}

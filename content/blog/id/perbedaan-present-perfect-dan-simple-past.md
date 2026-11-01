@@ -134,7 +134,7 @@ Kalau masih bingung, jawab pertanyaan berikut secara berurutan:
 4. Apakah kamu membicarakan pengalaman "sampai sekarang", jumlah kali sampai saat ini, atau hasil yang masih terlihat? → **Present perfect.**
 5. Apakah kamu sedang bercerita secara berurutan (lalu… kemudian…)? → **Simple past** untuk rangkaian kejadiannya.
 
-Langkah 5 lebih penting dari yang dikira. Bercerita adalah wilayah simple past; rangkaian *I've woken up, I've had breakfast, I've gone to work* terdengar sangat aneh.
+Langkah 5 lebih penting dari yang dikira. Bercerita adalah wilayah simple past; rangkaian *I've woken up, I've had breakfast, I've gone to work* terdengar sangat aneh. Kalau kamu menceritakan ulang ucapan orang lain, kedua tense ini biasanya bergeser menjadi past perfect, seperti dijelaskan di [reported speech bahasa Inggris](/id/blog/reported-speech-bahasa-inggris/).
 
 ## Penerapan di IELTS dan TOEIC
 
@@ -183,6 +183,8 @@ Memahami aturan baru setengah jalan; sisanya adalah bertemu cukup banyak kalimat
 Soal yang salah sebaiknya masuk ke [Mistake log](/#/mistakes) supaya kamu mengulang titik lemahnya saja, bukan mengerjakan ulang seluruh latihan. Jadwalkan pengulangan kalimat-kalimat yang keliru itu dengan [metode spaced repetition](/id/blog/metode-spaced-repetition/) agar polanya benar-benar menempel.
 
 ![Halaman Mistake log Lexkite yang mengelompokkan kesalahan vocabulary, grammar, reading, dan listening](media:mistakes "Kumpulkan kalimat dengan tenses yang keliru di Mistake log untuk diulang")
+
+Kedua tense ini juga punya bentuk pasif (*has been done*, *was done*); pelajari polanya di [passive voice bahasa Inggris](/id/blog/passive-voice-bahasa-inggris/).
 
 {{cta: /#/grammar | Pelajari bab tenses di Lexkite}}
 

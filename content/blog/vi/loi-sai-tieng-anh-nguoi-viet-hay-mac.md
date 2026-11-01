@@ -92,7 +92,7 @@ Lỗi thứ hai: *very* với tính từ vốn đã mang nghĩa cực độ: *ve
 | Thảo luận về vấn đề | *discuss about the issue* | *discuss the issue* |
 | Cưới cô ấy | *marry with her* | *marry her* |
 
-Ba dòng cuối thuộc một nhóm riêng: **giới từ thừa** sau động từ vốn đã có tân ngữ trực tiếp (*discuss, marry, mention, contact, enter, approach*). Tiếng Việt cần "về", "với", nhưng tiếng Anh thì không. Nguyên tắc khắc phục chung là học **cụm**, không học từ lẻ – đây cũng là tinh thần của bài [collocation IELTS](/vi/blog/collocation-ielts/).
+Ba dòng cuối thuộc một nhóm riêng: **giới từ thừa** sau động từ vốn đã có tân ngữ trực tiếp (*discuss, marry, mention, contact, enter, approach*). Tiếng Việt cần "về", "với", nhưng tiếng Anh thì không. Nguyên tắc khắc phục chung là học **cụm**, không học từ lẻ – đây cũng là tinh thần của bài [collocation IELTS](/vi/blog/collocation-ielts/). Chữ "làm" là ví dụ điển hình: lúc là *make*, lúc là *do* ([phân biệt make và do](/vi/blog/phan-biet-make-va-do/)).
 
 ### 10. "Although… but", "Because… so"
 
@@ -159,6 +159,8 @@ Lý thuyết của từng nhóm lỗi nằm trong mục [Ngữ pháp IELTS](/#/g
 Khi luyện viết, dùng [Phòng viết IELTS Task 2](/#/write) để viết một bài hoàn chỉnh, rồi soát lại theo từng lỗi như hướng dẫn ở trên. Lỗi nào lặp lại, đưa vào [Sổ lỗi sai](/#/mistakes) để ôn.
 
 ![Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích](media:write "Viết lại câu bị lỗi trong phòng Writing rồi so với bài mẫu")
+
+Ba nhóm lỗi có bài phân tích riêng: [giới từ in on at](/vi/blog/gioi-tu-in-on-at-trong-tieng-anh/), [câu bị động](/vi/blog/cau-bi-dong-tieng-anh-passive-voice/) và [động từ khuyết thiếu](/vi/blog/dong-tu-khuyet-thieu-can-could-should-must/).
 
 {{cta: /#/mistakes | Mở Sổ lỗi sai và ôn lỗi của bạn}}
 

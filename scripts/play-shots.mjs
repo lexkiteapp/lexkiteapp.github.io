@@ -57,7 +57,7 @@ async function appContext(browser, lang, dark) {
   await page.goto(url('home'), { waitUntil: 'load' }).catch(() => {}); await sleep(5000); // demo=1 gieo thẻ, chuỗi ngày (chỉ khi máy chưa có dữ liệu)
   if (/#\/welcome/.test(page.url())) { // dự phòng: đi qua màn chào như contrast.mjs
     await page.goto(url('welcome/setup'), { waitUntil: 'load' }).catch(() => {}); await sleep(2500);
-    const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await sleep(2500); }
+    await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await sleep(2500); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   }
   return { ctx, page, url };
 }

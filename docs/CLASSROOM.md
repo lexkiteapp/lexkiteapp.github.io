@@ -1,5 +1,8 @@
 # Lớp học (Teacher / Classroom mode)
 
+> TL;DR: Chế độ lớp học (giáo viên/học sinh): tạo lớp, giao bài qua Google Classroom, dữ liệu tối thiểu, chi phí D1 và giới hạn. Bài giao chỉ tham chiếu nội dung có sẵn.
+> Đọc khi: sửa tính năng lớp học.
+
 Mô hình: như Kami (18 triệu người dùng nhờ trường học) – giáo viên tạo lớp, giao bài qua Google Classroom, nhà trường cài add-on cho cả tên miền.
 
 ## Thành phần

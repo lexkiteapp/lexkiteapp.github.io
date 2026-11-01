@@ -14,7 +14,7 @@ Für Selbstlernende, die einen klaren Plan suchen, für Berufstätige mit 15 bis
 1. **Suchabsicht:** Was fragen Lernende wirklich, und welche Antwort bringt sie weiter?
 2. **Gliederung:** Zuerst beantworten wir die Frage direkt, danach gehen wir in die Tiefe.
 3. **Text:** zu 100 % selbst geschrieben; alle englischen Beispielsätze stammen von uns. Wir übersetzen nicht Satz für Satz, sondern richten jedes Thema an den typischen Fehlern deutschsprachiger Lernender aus.
-4. **Faktencheck:** Prüfungsformate, Bewertungsskalen und Zeiten gleichen wir mit den offiziellen Anbietern ab ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Was wir nicht sicher belegen können, lassen wir weg.
+4. **Faktencheck:** Prüfungsformate, Bewertungsskalen und Zeiten gleichen wir mit den offiziellen Anbietern ab ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Was wir nicht sicher belegen können, lassen wir weg.
 5. **Dublettenprüfung:** Nichts wird von anderen Seiten übernommen – auch nicht von unseren eigenen.
 6. **Qualitätsprüfung:** Jeder Artikel wird nach einem redaktionellen Raster mit 100 Punkten bewertet und erst ab 90 Punkten veröffentlicht.
 

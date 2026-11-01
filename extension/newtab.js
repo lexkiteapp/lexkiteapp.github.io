@@ -23,6 +23,7 @@
   // Khung tĩnh
   $('#ntQ').placeholder = tx('ntSearch'); $('#ntGo').setAttribute('aria-label', tx('ntSearchBtn'));
   $('#ntOpen').textContent = tx('openApp'); $('#ntOpen').href = chrome.runtime.getURL('app/index.html');
+  $('#ntConf').textContent = '🗣️ ' + tx('ntConf'); $('#ntConf').href = chrome.runtime.getURL('app/index.html#/confidence'); // 🗣️ Giao tiếp tự tin (chỉ link)
   $('#ntOff').textContent = tx('ntOff'); $('#ntQuizL').textContent = tx('ntQuiz');
   $('#ntKeys').title = tx('ntShortcuts') + ': ' + tx('ntKeys'); $('#ntKeys').setAttribute('aria-label', $('#ntKeys').title);
   const h = new Date().getHours(), P = h < 11 ? ['#0F3D3E', '#1F7A72', '#F2A65A'] : h < 17 ? ['#164e63', '#1F7A72', '#E5502F'] : ['#0b1e2a', '#173d4a', '#8b3a2a']; // nền theo giờ
@@ -60,7 +61,8 @@
 
   // Âm thanh: giọng Anh = mp3 Kokoro (bf_emma) trong kho audio.lexkite.com nếu có (khóa giống web/js/listen/kvoice.js), không thì giọng máy; giọng Mỹ = giọng máy en-US.
   const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
-  const AU = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
+  const WAV = '|s3'; // hậu tố khóa giọng từ đơn audio/w (scripts/word-audio-strong.mjs WAV) – mọi từ; bản s3 đã qua Whisper
+  const AU = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/']; // CDN → Pages kho media m2 → gốc cũ (1 bản phát hành)
   let audioEl = null;
   const pickVoice = lang => speechSynthesis.getVoices().filter(x => x.lang.replace('_', '-') === lang).sort((a, b) => (/Natural|Online|Google/.test(b.name) ? 1 : 0) - (/Natural|Online|Google/.test(a.name) ? 1 : 0))[0];
   // Phát NGAY trong trình xử lý bấm (giữ "user gesture" của Chrome – không chờ voiceschanged/await trước khi speak/play).
@@ -79,7 +81,7 @@
     if ('speechSynthesis' in self) speechSynthesis.cancel();
     const word = cur.word, lang = acc === 'us' ? 'en-US' : 'en-GB', ttsRate = isSlow ? 0.6 : settings.ttsRate || 0.92;
     if (cur.mp3 && (acc === 'uk' || cur.mp3 === 2)) { // 2 = file từ đơn Anh + Mỹ (audio/w/, gen-word-audio.mjs); 1 = câu Kokoro giọng Anh (audio/l/)
-      const key = fnv((acc === 'us' ? 'af_heart|' : 'bf_emma|') + word.trim()), dir = cur.mp3 === 2 ? 'w/' : 'l/', tryAt = i => {
+      const s2 = cur.mp3 === 2 ? WAV : '', key = fnv((acc === 'us' ? 'af_heart|' : 'bf_emma|') + word.trim() + s2), dir = cur.mp3 === 2 ? 'w/' : 'l/', tryAt = i => {
         if (i >= AU.length || !navigator.onLine) return tts(word, lang, ttsRate);
         const el = audioEl = new Audio(); el.preservesPitch = true;
         el.defaultPlaybackRate = el.playbackRate = isSlow ? 0.7 : 1; // Chrome đặt lại playbackRate = defaultPlaybackRate khi nạp nguồn
@@ -140,7 +142,7 @@
     $('#ntCard').innerHTML = `
       <div class="nt-head"><h1 class="nt-word" dir="ltr" lang="en">${esc(c.word)}</h1><span class="nt-chips">${posChips}${c.level ? `<span class="chip cefr" title="CEFR">${esc(c.level)}</span>` : ''}${ex3}</span></div>
       ${ipaLine}<div class="spks">${pb('uk')}${pb('us')}<button class="spk" type="button" id="ntSlow" title="${esc(tx('ntSlow'))}" aria-label="${esc(tx('ntSlow'))}">🐢</button></div>
-      ${meanHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${meanHtml}<div class="veil"><button type="button" id="ntReveal" title="Space">${esc(tx('ntReveal'))}</button></div></div>` : ''}
+      ${meanHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${window.VImg && s1 ? VImg.slot(c.word, s1.p, meanMain(s1), 144) : ''}${meanHtml}<div class="veil"><button type="button" id="ntReveal" title="Space">${esc(tx('ntReveal'))}</button></div></div>` : ''}
       ${c.ex ? `<button class="ex" type="button" id="ntEx" title="${esc(L !== 'en' ? tx('ntTapTr') : tx('ntExample'))}" aria-label="${esc(tx('ntExample'))}"><span dir="ltr" lang="en">“${hl(c.ex, c.word)}”</span></button>` : ''}
       ${groups.length ? `<div class="more" role="group">${groups.map(([k, a], i) => `<button type="button" data-g="${i}" aria-expanded="false" aria-controls="ntPanel">${esc(tx(k))}<b>${a.length}</b></button>`).join('')}</div><div class="panel" id="ntPanel" dir="ltr" lang="en" hidden></div>` : ''}
       <div class="nt-act" id="ntAct">${c.saved ? `<button class="btn good" type="button" id="ntGood" title="1">${esc(tx('ntGot'))}</button><button class="btn" type="button" id="ntAgain" title="2">${esc(tx('ntAgain'))}</button>` : `<button class="btn add" type="button" id="ntAdd">${esc(tx('ntAdd'))}</button>`}<button class="btn next" type="button" id="ntNext" title="N">${esc(tx('ntNext'))}</button></div>`;
@@ -167,8 +169,13 @@
     if (mtOn) setTimeout(() => $('#ntCard').querySelectorAll('[data-mt]').forEach(async el => { const tr = await translate(el.dataset.mt); if (tr && cur === c) { el.textContent = tr; el.insertAdjacentHTML('beforeend', `<span class="mt-l">${esc(tx('ntMT'))}</span>`); el.hidden = false; } }), 150);
   };
   const reveal = () => { const b = $('#ntBody'); if (b && b.classList.contains('quiz-hidden')) { b.classList.remove('quiz-hidden'); $('#ntGood')?.focus(); return true; } return false; };
+  // 🖼️ Ảnh minh họa theo nghĩa (cờ thử localStorage lk.vimg=1, mặc định TẮT): module + chỉ mục chung app/js/ chỉ tải khi bật – web/js/vocab-img.js
+  const vimgP = (() => { try { if (localStorage.getItem('lk.vimg') === '0') return Promise.resolve(null); /* chưa đặt = tự động theo chỉ mục (on ≥ 150 ảnh) */ } catch (e) { return Promise.resolve(null); }
+    return new Promise(r => { const s = document.createElement('script'); s.src = 'app/js/vocab-img.js'; s.onload = () => r(window.VImg ? VImg.ready() : null); s.onerror = () => r(null); document.head.appendChild(s); }); })();
   const show = async () => {
+    await vimgP;
     const item = qi < queue.length ? queue[qi] : { w: await randomWord(), tag: 'lex' }; qi++;
+    if (window.VImg && VImg.need) await VImg.need([item.w]);   // mảnh chỉ mục ảnh của từ này (vocab-img v3)
     render(build(item.w, await info(item.w), cards[keyOf(item.w)]), item.tag);
   };
   const next = () => show();

@@ -6,6 +6,8 @@
  *   { t:'x', vid, day, ev:{lookup,save,popup,newtab}, prev:{day, ev}, ver, lang } → add-on Chrome: 1 lượt/ngày/máy → ext_daily (lấy MAX, gửi lại không cộng trùng)
  *   { t:'x', vid, ev:{install|update|uninstall:1}, reason }           → ext_events (đếm theo ngày; lý do gỡ = kind 'uninstall:<lý do>')
  *   { t:'q', ev:'ext_land'|'ext_feat'|'ext_blog'|'ext_app'|'ext_set'|'ext_nudge' }        → bấm nút cài add-on: ext_events kind 'cta:<ev>' (chỉ đếm)
+ *   { t:'q', ev:'app_<head|foot|menu|me|top>_<cws|play|ios|a2hs|dock|web>' }             → nút "Tải app" (web/js/get-app.js): ext_events kind 'cta:<ev>' (chỉ đếm)
+ *   { t:'q', ev:'ret_<on|off>_<seen|d7>' }                              → thử nghiệm cờ ret: ext_events kind 'ret:<ev>' (1 lượt/máy/sự kiện)
  *   { t:'q', ev:'quiz_view'|'quiz_done'|'quiz_cta' }                     → mini-quiz cuối bài blog: ext_events kind 'blog:<ev>' (chỉ đếm, không lưu bài/IP; 30 lượt/giờ/IP)
  * Quốc gia lấy từ Cloudflare (request.cf.country). vid = mã ngẫu nhiên trên máy người dùng, không gắn danh tính.
  * Định nghĩa (đồng bộ với Quản trị): khách = vid khác nhau · lượt xem = SUM(pages) · "ngày" = giờ Việt Nam (TZ, UTC+7) ·
@@ -13,9 +15,14 @@
 import { limit } from './sync.js';
 import { gate } from './_quota.js';
 import { once } from './_schema.js';
+import { adRows, guardOf } from './_ads.js';
+import { purgeConfig } from './config.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
+const RET_EV = ['ret_on_seen', 'ret_off_seen', 'ret_on_d7', 'ret_off_d7']; // thử nghiệm cờ ret (web/js/app.js retTrack): nhóm bật/đối chứng – đã thấy / chuỗi chạm 7 → kind 'ret:<ev>' (D7 = d7/seen)
+const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a}_${e}`)); // thử nghiệm cờ ux1 (web/js/app.js ux1Track) → kind 'ux1:<ev>' (D1 = d1/seen, D7 = d7/seen)
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
-const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge']; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
+const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge',
+  ...['head', 'foot', 'menu', 'me', 'top'].flatMap(p => ['cws', 'play', 'ios', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
 const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']; // 15 ngôn ngữ – chặn giá trị lạ làm phình bảng ext_events
 const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog'];
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
@@ -83,6 +90,14 @@ export function automation(request) {
   if (DC_ASN.has(+cf.asn)) return 'dc';
   return null;
 }
+// Lỗi JS từ bản dev/preview (không phải code đang chạy cho người học): máy dev http://localhost:<cổng> / 127.0.0.1, bản preview nhánh
+// <nhánh|hash>.lexkite.pages.dev (dùng chung Functions + D1). Ví dụ 31/10: nhánh say-native chưa gộp ghi lỗi '#/say' vào bảng admin.
+// Giữ: lexkite.com, lexkite.pages.dev (bản chính), add-on chrome-extension://, app native (https://localhost, capacitor://localhost – không cổng).
+export function devOrigin(request) {
+  const h = request.headers, hosts = [];
+  for (const v of [h.get('Origin'), h.get('Referer'), request.url]) { try { if (v && v !== 'null') hosts.push(new URL(v)); } catch (e) { /* bỏ qua */ } }
+  return hosts.some(u => /^[a-z0-9-]+\.lexkite\.pages\.dev$/.test(u.hostname) || (u.protocol === 'http:' && !!u.port && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)));
+}
 const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang của người dùng" – không ghi vào lượt xem/đang xem
 
 export async function setup(db) {
@@ -131,6 +146,24 @@ async function migrate(db) {
   ]);
 }
 
+/** Cổng giữ chân quảng cáo (functions/api/_ads.js guardOf): nhóm có quảng cáo tụt > X % D1/D7/thời lượng phiên so với đối chứng → giảm tần suất (config ads_guard) + ghi lịch sử 'adg:<%>'. */
+export async function adsGuard(db, now = Date.now()) {
+  const today = dayOf(now), from = dayOf(now - 30 * DAY);
+  const [rs, cs] = await db.batch([
+    db.prepare("SELECT day, kind, n FROM ext_events WHERE day >= ?1 AND kind >= 'adc:' AND kind < 'adc;'").bind(from),
+    db.prepare("SELECT k, v FROM config WHERE k IN ('ads_guard', 'ads_guard_pct', 'ads_guard_min')"),
+  ]);
+  const cfg = Object.fromEntries((cs.results || []).map(r => [r.k, r.v]));
+  const g = guardOf(rs.results || [], today, { pct: cfg.ads_guard_pct, min: cfg.ads_guard_min, prev: cfg.ads_guard || 1 });
+  if (String(g.factor) === String(+cfg.ads_guard || 1)) return g;
+  await db.batch([
+    db.prepare("INSERT INTO config (k, v, at, by) VALUES ('ads_guard', ?1, ?2, 'auto-guard') ON CONFLICT (k) DO UPDATE SET v = ?1, at = ?2, by = 'auto-guard'").bind(String(g.factor), now),
+    db.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, 'adg:' + Math.round(g.factor * 100)),
+  ]);
+  await purgeConfig();
+  return g;
+}
+
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return ok();
   if ((await gate(request, env, 'hit', { who: null })).res) return ok(); // 1 IP gửi dồn dập → bỏ qua im lặng (thống kê không bao giờ làm hỏng app)
@@ -162,7 +195,7 @@ export async function onRequestPost({ request, env }) {
       await env.DB.batch(batch);
       // Lưu giữ: ~1/500 lượt ghi phiên dọn số liệu quá 400 ngày (Quản trị xem tối đa 365 ngày) – chính sách riêng tư "chỉ giữ khi cần"
       if (Math.random() < 0.002) await env.DB.batch([env.DB.prepare('DELETE FROM sessions WHERE day < ?').bind(dayOf(now - 400 * DAY)), /* theo chỉ mục sessions_day – at không có chỉ mục → quét cả bảng (docs/CAPACITY.md) */ env.DB.prepare('DELETE FROM pageviews_day WHERE day < ?').bind(dayOf(now - 400 * DAY))]);
-    } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev))) {
+    } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev) || RET_EV.includes(b.ev) || UX1_EV.includes(b.ev))) {
       if (await limit('hq:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 60, 3600)) return ok();
       const today = dayOf(now);
       if (SMART_CTA_EV.includes(b.ev)) {
@@ -173,7 +206,7 @@ export async function onRequestPost({ request, env }) {
         if (page) batch.push(env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, `cta:${b.ev}:page:${page}`));
         await env.DB.batch(batch);
       } else {
-        await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, (CTA_EV.includes(b.ev) ? 'cta:' : 'blog:') + b.ev).run();
+        await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, (CTA_EV.includes(b.ev) ? 'cta:' : RET_EV.includes(b.ev) ? 'ret:' : UX1_EV.includes(b.ev) ? 'ux1:' : 'blog:') + b.ev).run();
       }
     } else if (b.t === 'v' && VID_EV.includes(b.ev) && /^[a-z0-9_]{6,80}$/.test(b.id || '')) {
       // 🎬 Video bài học trên web (web/js/lesson-video.js): lượt xem / xem hết / câu đố đúng-sai theo clip → kind 'vid:<ev>:<id>' (Quản trị → Thư viện video → Web)
@@ -194,7 +227,14 @@ export async function onRequestPost({ request, env }) {
       if (ev.uninstall) batch.push(event('uninstall'));
       if (REASONS.includes(b.reason)) batch.push(event('uninstall:' + b.reason));
       if (batch.length) await env.DB.batch(batch);
-    } else if (b.t === 'e' && b.msg) {
+    } else if (b.t === 'ad') {
+      // 💰 Quảng cáo (web/js/ads/run.js, docs/ADS.md): 1 beacon/phiên – số đếm theo vị trí, nhóm a/h, đồng ý theo vùng → ext_events (PK day,kind; ≤ 30 dòng/beacon)
+      if (await limit('had:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
+      const day = dayOf(now), rows = adRows(b, request.cf && request.cf.country);
+      if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(day, kind, n)));
+      // Cổng giữ chân: tối đa 1 lần/giờ/trung tâm dữ liệu, chỉ đọc khoảng ngày (SEARCH theo PK) – không quét bảng
+      if (!(await limit('ads-guard', 1, 3600))) await adsGuard(env.DB, now).catch(() => {});
+    } else if (b.t === 'e' && b.msg && !devOrigin(request)) {
       const msg = cut(b.msg, 300), src = cut(b.src, 200) + (b.line ? ':' + (+b.line || 0) : '');
       await env.DB.prepare('INSERT INTO errors (h, msg, src, path, ver, n, first, last) VALUES (?1, ?2, ?3, ?4, ?5, 1, ?6, ?6) ON CONFLICT (h) DO UPDATE SET n = n + 1, last = ?6, path = ?4, ver = ?5')
         .bind(await sha(msg + '|' + src), msg, src, cut(b.path, 60), cut(b.ver, 30), now).run();

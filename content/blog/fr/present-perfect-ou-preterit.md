@@ -17,7 +17,7 @@ qualityScore: 94
 ---
 Pour une grande majorité de francophones, choisir entre **present perfect ou prétérit** constitue l'une des hésitations grammaticales les plus tenaces au quotidien. La raison de cette difficulté est d'ordre linguistique : en français, nous utilisons le passé composé pour presque toutes les actions passées, qu'elles soient datées ou connectées au présent. Des phrases comme « J'ai mangé une pomme ce matin » et « J'ai déjà visité Londres » utilisent exactement la même structure verbale.
 
-En anglais, en revanche, une frontière conceptuelle stricte sépare les deux temps. Le prétérit renvoie le lecteur dans un passé clos et révolu, tandis que le present perfect jette un pont entre le passé et le moment présent. Pour savoir quel temps choisir entre le **present perfect ou prétérit**, il suffit d'adopter la grille de lecture des anglophones.
+En anglais, en revanche, une frontière conceptuelle stricte sépare les deux temps. Le prétérit renvoie le lecteur dans un passé clos et révolu, tandis que le present perfect jette un pont entre le passé et le moment présent. Pour savoir quel temps choisir entre le **present perfect ou prétérit**, il suffit d'adopter la grille de lecture des anglophones. Cette distinction compte aussi lorsqu'on rapporte des paroles, comme le montre notre guide du [discours indirect en anglais](/fr/blog/discours-indirect-anglais-reported-speech/).
 
 Dans ce guide clair et illustré, vous découvrirez la logique fondamentale qui régit ces deux temps, la liste des mots-indices (mots déclencheurs) infaillibles et les quatre pièges typiques dans lesquels tombent les francophones.
 
@@ -27,7 +27,7 @@ Pour choisir sans hésiter, posez-vous une seule question : **La période de tem
 
 ### 1. Le prétérit (Simple Past) : L'action dans une boîte fermée
 
-Le prétérit s'emploie dès lors que l'action s'est déroulée à un moment précis et **totalement révolu** dans le passé. Peu importe que l'événement ait eu lieu il y a deux minutes ou il y a cinq siècles : dès que le lien temporel avec le présent est rompu (*yesterday, last year, five minutes ago, in 2018*), le prétérit est obligatoire.
+Le prétérit s'emploie dès lors que l'action s'est déroulée à un moment précis et **totalement révolu** dans le passé. Peu importe que l'événement ait eu lieu il y a deux minutes ou il y a cinq siècles : dès que le lien temporel avec le présent est rompu (*yesterday, last year, five minutes ago, in 2018*), le prétérit est obligatoire. Pour bien faire entendre la terminaison des verbes réguliers, consultez notre guide de [prononciation de -ed en anglais](/fr/blog/prononciation-ed-anglais/).
 
 - *I lost my wallet yesterday.* (J'ai perdu mon portefeuille hier. C'est un événement passé daté).
 - *Did you see Thomas this morning?* (Dit à 16h : la matinée est révolue).

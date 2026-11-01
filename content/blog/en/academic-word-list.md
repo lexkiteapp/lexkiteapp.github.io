@@ -115,6 +115,8 @@ Lexkite includes ten ready-made sets, AWL Sublist 1 to AWL Sublist 10, with phon
 
 ![Lexkite IELTS Writing Task 2 room with topic-based prompts, idea suggestions, suggested vocabulary and an essay framework](media:write "Use new AWL words in a real Task 2 paragraph, not just on flashcards")
 
+Academic vocabulary is also tested letter by letter in the new TOEFL; see [TOEFL Complete the Words](/en/blog/toefl-complete-the-words/) for how spelling and word forms are assessed.
+
 {{cta: /#/library | Open AWL Sublist 1 and learn your first 10 words}}
 
 {{youtube: | Video idea: ten AWL Sublist 1 families shown in IELTS-style reading sentences, with their word forms}}

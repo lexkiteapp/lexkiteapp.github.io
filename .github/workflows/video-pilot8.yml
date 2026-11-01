@@ -1,0 +1,80 @@
+# video-pilot8: ONE "continuous talking head" pilot (docs/VIDEO-TEMPLATES.md §13) – lesson tpl1b_airport_gate_cc6fbe, the standard educational-Shorts format:
+# one native anchor MCU shot of Ama (a01, no cut-out, no stretch, no cuts), CapCut-style 2-3-word captions from the SCRIPT text, top hook 0-2 s, key pops, emoji pops,
+# minimal 3-2-1 quiz, CTA pill. 0 credits: Kokoro + Rhubarb + faster-whisper (word clock only) on the runner. NO GrabCast / Groq / Kling
+# (hook verdict = content/video/cine/news/tpl1b/reviewed-hooks.json). No store, no Drive, no publish. Artifact: v8.mp4 + phone/v8.mp4 (< 30 MB) + sheet.jpg + frames/ + qc.
+name: video-pilot8
+on:
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency: { group: video-pilot8, cancel-in-progress: false }
+env:
+  LESSON: content/video/cine/news/tpl1b/tpl1b_airport_gate_cc6fbe.json
+  HOOKS: content/video/cine/news/tpl1b/reviewed-hooks.json
+  LINES: content/video/cine/news/pilot-v8/lines.json
+  O: out/pilot8
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reviewed hook verdict present
+        run: python3 -c "import json,sys;l=json.load(open('$LESSON'));v=json.load(open('$HOOKS'))['verdicts'].get(l['id']) or {};sys.exit(0 if v.get('hook_true') and v.get('right_ok') and v.get('wrong')==l['wrong_line'] and v.get('right')==l['key_line'] else 1)" || { echo "::error::no reviewed hook verdict"; exit 1; }
+      - name: Libraries + ffmpeg + colour emoji font
+        run: |
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null
+          ls -la /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf
+      - name: Footage (anchor bank, Ama MCU a01 only, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          c=a01_ama_talk; P="/anchor/bank.json /anchor/tools/amb_studio.wav /anchor/tools/foley/ding.wav /anchor/tools/dl24/$c.mp4 /anchor/tools/dl24/$c.json /anchor/tools/meta/$c/"
+          git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage
+          [ -f footage/anchor/tools/dl24/$c.mp4 ] || { echo "::error::anchor clip missing"; exit 1; }
+          du -sh footage/anchor
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Kokoro model cache
+        uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb (required – lip-sync fails without it)
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
+          "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable"; exit 1; }
+          echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice → render → qc → phone copy → sheet + frames
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p $O/phone $O/frames
+          NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py "$LINES" vo
+          python3 scripts/video/tpl/render_v8.py --lesson "$LESSON" --lines "$LINES" --hooks "$HOOKS" --vo vo/vis3 --lib footage/anchor --fonts brand/social/src/fonts \
+            --out $O/v8.mp4 > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
+          grep -v '^frame ' $O/render.log | tail -6
+          rc=0; python3 scripts/video/tpl/qc_v8.py $O/v8.mp4 "$HOOKS" | tee $O/qc.log || rc=1
+          ffmpeg -nostdin -v error -y -i $O/v8.mp4 -c:v libx264 -preset slow -crf 19 -maxrate 6000k -bufsize 12000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/v8.mp4
+          S=$(stat -c %s $O/phone/v8.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
+          D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $O/v8.mp4); L=$(python3 -c "print(min(28, round($D - 0.6, 2)))")
+          i=0; for t in 0 1 3 8 15 22 25 $L; do
+            ffmpeg -nostdin -v error -y -ss $t -i $O/v8.mp4 -frames:v 1 -q:v 2 $O/frames/t$(printf %05.2f $t).jpg
+            ffmpeg -nostdin -v error -y -ss $t -i $O/v8.mp4 -frames:v 1 -vf "scale=360:640,drawtext=fontfile=brand/social/src/fonts/BeVietnamPro-Bold.ttf:text='${t}s':x=10:y=600:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.5" $O/s_$i.png; i=$((i+1)); done
+          ffmpeg -nostdin -v error -y $(for i in 0 1 2 3 4 5 6 7; do echo -i $O/s_$i.png; done) \
+            -filter_complex "[0][1][2][3]hstack=4[a];[4][5][6][7]hstack=4[b];[a][b]vstack" -q:v 3 $O/sheet.jpg && rm -f $O/s_*.png
+          rm -f $O/v8.mp4.mix.wav
+          ls -la $O $O/phone
+          { echo "## pilot v8 one-shot talking head"; echo '```'; cat $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit $rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot8-${{ github.run_number }}
+          path: out/pilot8/
+          retention-days: 30

@@ -1,0 +1,278 @@
+{
+ "id": "tv1_ama_board_pron",
+ "template": "pron",
+ "title": "Teachers v1 sample: Ama standing at the whiteboard (script = t6_pron_comfortable)",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a02_ama_board"
+ ],
+ "accent": "navy2",
+ "active": "mint",
+ "hook_style": "sound: teal plate, speaker icon, wrong stress wipes in left to right",
+ "motif": "syllable pills with stress dots, slow -> normal sweep",
+ "cta": {
+  "area": "pronunciation",
+  "link": "https://lexkite.com/app/#/pron",
+  "say": "Practice pronunciation"
+ },
+ "speed": 1.0,
+ "error_lines": [
+  "f_w"
+ ],
+ "error_re": "\\bcom, for, table\\b",
+ "lines": [
+  {
+   "id": "f_h",
+   "text": "Many learners say this word wrong."
+  },
+  {
+   "id": "f_w",
+   "text": "Not com, for, table.",
+   "key": {
+    "red": [
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "f_s",
+   "text": "Slowly:",
+   "gap": 0.35
+  },
+  {
+   "id": "f_s2",
+   "text": "comfortable.",
+   "speed": 0.7,
+   "key": {
+    "green": [
+     0
+    ]
+   },
+   "gap": 0.15
+  },
+  {
+   "id": "f_r",
+   "text": "Most Americans say three beats. Stress the first one.",
+   "key": {
+    "mint": [
+     3,
+     6
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "f_n",
+   "text": "Normal speed: comfortable.",
+   "key": {
+    "green": [
+     2
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "f_y",
+   "text": "Your turn. Repeat after me: comfortable.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ],
+    "green": [
+     5
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "_turn",
+   "beat": "turn",
+   "dur": 2.6
+  },
+  {
+   "id": "f_e",
+   "text": "This chair is so comfortable!",
+   "key": {
+    "green": [
+     4
+    ]
+   }
+  },
+  {
+   "id": "f_c",
+   "text": "Practice pronunciation free on lexkite.com.",
+   "gap": 0.3
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "wipe",
+   "size": 80,
+   "plate": "navy2",
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "f_w",
+    -1,
+    "e",
+    0.3
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🔊"
+     ],
+     [
+      " comfortable",
+      "white"
+     ]
+    ],
+    [
+     [
+      "com·for·",
+      "white"
+     ],
+     [
+      "TA",
+      "red"
+     ],
+     [
+      "·ble",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "stress1",
+   "kind": "stress",
+   "anim": "spring",
+   "syl": [
+    "COMF",
+    "ter",
+    "ble"
+   ],
+   "stress": 0,
+   "from": [
+    "f_s",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "f_n",
+    -1,
+    "e",
+    0.4
+   ],
+   "sweep": [
+    "f_s2",
+    0
+   ],
+   "sweep2": [
+    "f_n",
+    2
+   ]
+  },
+  {
+   "id": "turn",
+   "kind": "turn",
+   "anim": "spring",
+   "beat": "_turn",
+   "rows": [
+    [
+     [
+      "@emoji:🎤"
+     ],
+     [
+      " Your turn!",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "COMF",
+      "mint"
+     ],
+     [
+      "·ter·ble",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "f_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_turn",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 74,
+   "from": [
+    "f_e",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "f_e",
+    -1,
+    "e",
+    0.5
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🪑"
+     ],
+     [
+      " so ",
+      "white"
+     ],
+     [
+      "comfortable",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "f_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ]
+}

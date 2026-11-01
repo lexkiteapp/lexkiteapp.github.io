@@ -55,3 +55,13 @@ export function loadLetters() {
   const c = load(['write/gt-letters']);
   return { LT: c.GT_LETTERS || [], MD: c.MODELS || [] };
 }
+// IELTS Academic Task 1: đề (SETS trong task1.js + TASK1_MORE) + bài mẫu MODELS 't1-<id>'
+export function loadTask1() {
+  const c = load(['models', 'write/task1-more', 'write/task1-more2']);
+  const w = fs.readFileSync('web/js/task1.js', 'utf8'), i0 = w.indexOf('const SETS = [') + 13;
+  const SETS = vm.runInNewContext(w.slice(i0, w.indexOf('\n  ];', i0) + 4));
+  for (const d of c.TASK1_MORE || []) if (!SETS.some(x => x.id === d.id)) SETS.push(d);
+  return { SETS, MODELS: (c.MODELS || []).filter(m => m.task === 1) };
+}
+// Phát âm: 56 bài (44 âm IPA + kỹ năng) – web/js/pron/*.js
+export function loadPron() { const c = load(['pron/sounds', 'pron/skills']); return c.PRON || []; }

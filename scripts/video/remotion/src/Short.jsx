@@ -4,6 +4,8 @@
 import React, { useEffect, useState } from 'react';
 import { AbsoluteFill, Img, OffthreadVideo, Freeze, staticFile, useCurrentFrame, useVideoConfig, interpolate, spring, Easing, random, delayRender, continueRender } from 'remotion';
 import { Sticker, PAL } from './Stickers.jsx';
+import TOKENS from '../../../../brand/tokens.json'; // màu end card = nguồn duy nhất (docs/BRAND-RULES.md)
+const TB = TOKENS.brand;
 
 const FONT_H = 'LexDisplay', FONT_B = 'LexBody';
 const ease = Easing.bezier(0.65, 0, 0.35, 1);
@@ -338,7 +340,7 @@ const Watermark = ({ wm, t }) => {
 const EndCard = ({ t, start, theme, W, H, url, cta, kit }) => {
   const f = (t - start) * 30, s = spring({ frame: f, fps: 30, config: { damping: 10 } });
   return (
-    <AbsoluteFill style={{ background: 'radial-gradient(110% 70% at 50% 30%, #17595A 0%, #0F3D3E 60%, #0B2627 100%)', alignItems: 'center', justifyContent: 'center' }}>
+    <AbsoluteFill style={{ background: `radial-gradient(110% 70% at 50% 30%, ${TB.teal2} 0%, ${TB.teal} 60%, ${TB.tealDeep} 100%)`, alignItems: 'center', justifyContent: 'center' }}>
       <AbsoluteFill style={{ background: 'radial-gradient(45% 30% at 50% 38%, rgba(255,176,84,.35), transparent 70%)' }} />
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 40, transform: `scale(${0.7 + 0.3 * s})`, marginTop: -160 }}>
         {kit ? <Img src={src(kit)} style={{ width: 360, height: 360, transform: `translateY(${-Math.abs(Math.sin(t * 5)) * 26}px)` }} /> : null}

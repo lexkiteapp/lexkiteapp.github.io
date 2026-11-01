@@ -1,5 +1,8 @@
-/* Tài khoản & đồng bộ đám mây: đăng nhập Google bằng Firebase Auth, dữ liệu lưu ở Cloudflare D1 qua /api/sync
- * (functions/api/sync.js – hạn mức miễn phí lớn hơn Firestore nhiều lần). Tài liệu: meta + cards_0..n; gộp 2 chiều theo hoạt động gần nhất.
+/* Tài khoản & đồng bộ đám mây: đăng nhập Google bằng Firebase Auth.
+ * Local-first (docs/SYNC-DRIVE.md): IndexedDB là nguồn thật; khi LK_SYNC.drive bật và người học cho quyền drive.appdata lúc đăng nhập
+ * → đồng bộ thẳng với Google Drive appDataFolder của CHÍNH họ (js/sync-drive.js, tải lười, 0 USD ở mọi quy mô).
+ * Còn lại (Apple, từ chối Drive, phiên đăng nhập từ trước bản cập nhật) → đường cũ Cloudflare D1 qua /api/sync (functions/api/sync.js),
+ * tài liệu meta + cards_0..n. Gộp 2 chiều xác định (giao hoán, lũy đẳng) theo hoạt động gần nhất + dấu xóa.
  */
 (function () {
   const { Store, Cards } = Core;
@@ -13,7 +16,7 @@
   window.Sync = Sync;
   Sync.league = (op, extra, signal) => league(op, extra, signal); Sync.pushLeague = () => pushLeague();
   window.addEventListener('hashchange', () => pushLeague()); // XP mới → cập nhật bảng xếp hạng khi chuyển trang
-  let fb = null, db = null, timer = null, box = null;
+  let fb = null, db = null, timer = null, box = null, signing = false;
   // Cùng tên miền → gọi thẳng; app/add-on/bản xem trước → gọi về lexkite.com
   const API = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/sync' : 'https://lexkite.com/api/sync';
   // Bảng xếp hạng tuần (functions/api/league.js): chỉ khi đã đăng nhập & tự bật tham gia. UI: Sync.league('me'|'join'|'leave'|'xp')
@@ -66,15 +69,17 @@
       if (!window.firebase) { await loadScript(SDK + 'firebase-app-compat.js'); await loadScript(SDK + 'firebase-auth-compat.js'); } // chỉ cần đăng nhập – không tải Firestore SDK (nhẹ hơn ~100 KB)
       fb = firebase.initializeApp(FIREBASE_CONFIG);
       onAuth = cb => firebase.auth().onAuthStateChanged(cb);
+      // Đăng nhập kiểu chuyển hướng (popup bị chặn): token Drive nằm trong kết quả chuyển hướng
+      if (firebase.auth().getRedirectResult) firebase.auth().getRedirectResult().then(async r => { if (driveOn() && await takeTok(r)) start(); }).catch(() => {});
     }
     db = true;
     onAuth(async u => {
-      Sync.user = u; Sync.ready = true; App.state.user = u ? { uid: u.uid, displayName: u.displayName, email: u.email, photoURL: u.photoURL } : null;
+      Sync.user = u; Sync.ready = true; authDone(); App.state.user = u ? { uid: u.uid, displayName: u.displayName, email: u.email, photoURL: u.photoURL } : null;
       try { if (u) localStorage.setItem('lk.acct', JSON.stringify({ displayName: u.displayName || '', photoURL: u.photoURL || '' })); else localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ }
       App.updateChrome(); render();
       if (u && /[?&]delete=account\b/.test(location.hash)) Sync.deleteAccount();
       try { if (u && localStorage.getItem('lk.cls') === '1') App.need('classroom'); } catch (e) { /* học sinh lớp học: ghi tiến độ bài được giao */ }
-      if (u) { await pullMerge(); if (extReady) extCall('linked', { email: u.email, name: u.displayName || '' }); }
+      if (u) { if (!signing) await start(); if (extReady) extCall('linked', { email: u.email, name: u.displayName || '' }); }
       else nudgeLogin();
     });
   }
@@ -86,7 +91,8 @@
     for (const [k, c] of Object.entries(b)) {
       const mine = out[k];
       if (!mine) { out[k] = c; continue; }
-      const remoteWins = activity(c) > activity(mine);
+      // Hòa giờ hoạt động → so chuỗi ổn định: 2 máy gộp theo thứ tự nào cũng ra cùng 1 kết quả (xác định)
+      const remoteWins = activity(c) > activity(mine) || (activity(c) === activity(mine) && stable(c) > stable(mine));
       const win = { ...(remoteWins ? c : mine) };
       const lose = remoteWins ? mine : c;
       win.contexts = [...(win.contexts || []), ...(lose.contexts || []).filter(x => !(win.contexts || []).some(y => y.text === x.text))].slice(0, 5);
@@ -96,7 +102,10 @@
     for (const [k, t] of Object.entries(deleted)) if (out[k] && activity(out[k]) < t) delete out[k];
     return out;
   }
-  function mergeStats(a, b) {
+  // Gộp giao hoán: sắp 2 bản theo chuỗi ổn định trước khi gộp → merge(a, b) === merge(b, a) (đồng bộ Drive không có máy chủ phân xử)
+  const ord = f => (a, b) => a && b && stable(b) < stable(a) ? f(b, a) : f(a, b);
+  const mergeStats = ord(mergeStats0);
+  function mergeStats0(a, b) {
     const days = { ...a.days };
     for (const [k, v] of Object.entries(b.days || {})) days[k] = Math.max(days[k] || 0, v);
     const nt = (a.newToday && b.newToday && a.newToday.day === b.newToday.day) ? { day: a.newToday.day, n: Math.max(a.newToday.n, b.newToday.n) } : (a.newToday && a.newToday.day > (b.newToday || {}).day ? a.newToday : b.newToday || a.newToday);
@@ -106,7 +115,15 @@
   }
   // Gộp bảng điểm 2 thiết bị: giữ điểm cao nhất của mỗi bài
   const maxMerge = (x = {}, y = {}) => { const o = { ...(x || {}) }; for (const [k, v] of Object.entries(y || {})) o[k] = typeof v === 'number' && typeof o[k] === 'number' ? Math.max(o[k], v) : (o[k] != null ? o[k] : v); return o; };
-  function mergeGame(a, b) {
+  const mergeGame = ord(mergeGame0);
+  // Lớp giữ thói quen (retention.js, game.ret): hợp mốc/đồ/sự kiện, rương đã mở = max, khung = bản chọn sau cùng – cùng luật Ret.core.merge (kiểm thử retention.mjs)
+  function mergeRet(a, b) {
+    if (!b) return a; if (!a) return b;
+    const ev = {}; for (const src of [a.ev || {}, b.ev || {}]) for (const [id, arr] of Object.entries(src)) ev[id] = [...new Set([...(ev[id] || []), ...arr])].sort().slice(0, 7);
+    const lead = (+b.frameAt || 0) > (+a.frameAt || 0) ? b : a;
+    return { ms: { ...(b.ms || {}), ...(a.ms || {}) }, own: { ...(b.own || {}), ...(a.own || {}) }, evDone: { ...(b.evDone || {}), ...(a.evDone || {}) }, ev, opened: Math.max(+a.opened || 0, +b.opened || 0), frame: lead.frame || '', frameAt: +lead.frameAt || 0 };
+  }
+  function mergeGame0(a, b) {
     if (!b) return a; if (!a) return b;
     const days = { ...a.days };
     for (const [k, v] of Object.entries(b.days || {})) { days[k] = { ...(days[k] || {}) }; for (const [m, n] of Object.entries(v)) days[k][m] = Math.max(days[k][m] || 0, n); }
@@ -116,8 +133,8 @@
     for (const [k, v] of Object.entries(a.unitDone || {})) unitDone[k] = Math.max(unitDone[k] || 0, v);
     // Lượt đóng băng: lấy theo bản nhiều XP hơn (tiến độ mới hơn); ngày đã đóng băng: hợp 2 bên
     const lead = (b.xp || 0) > (a.xp || 0) ? b : a;
-    return { ...a, xp: Math.max(a.xp || 0, b.xp || 0), days, total, best, unitDone, freezes: lead.freezes || 0, freezeAt: Math.max(a.freezeAt || 0, b.freezeAt || 0), frozen: { ...(b.frozen || {}), ...(a.frozen || {}) },
-      listenDone: maxMerge(a.listenDone, b.listenDone), grammarDone: maxMerge(a.grammarDone, b.grammarDone), pronDone: maxMerge(a.pronDone, b.pronDone), listenBest: maxMerge(a.listenBest, b.listenBest), rtype: (() => { const o = { ...(b.rtype || {}) }; for (const [k, v] of Object.entries(a.rtype || {})) if (!o[k] || v.t > o[k].t) o[k] = v; return o; })(), toeicBest: (a.toeicBest || {}).total >= ((b.toeicBest || {}).total || 0) ? a.toeicBest : b.toeicBest, badges: { ...b.badges, ...a.badges }, readDone: { ...(b.readDone || {}), ...(a.readDone || {}) }, questsDone: { ...(b.questsDone || {}), ...(a.questsDone || {}) } };
+    return { ...b, ...a, xp: Math.max(a.xp || 0, b.xp || 0), days, total, best, unitDone, freezes: lead.freezes || 0, freezeAt: Math.max(a.freezeAt || 0, b.freezeAt || 0), frozen: { ...(b.frozen || {}), ...(a.frozen || {}) },
+      listenDone: maxMerge(a.listenDone, b.listenDone), grammarDone: maxMerge(a.grammarDone, b.grammarDone), pronDone: maxMerge(a.pronDone, b.pronDone), listenBest: maxMerge(a.listenBest, b.listenBest), rtype: (() => { const o = { ...(b.rtype || {}) }; for (const [k, v] of Object.entries(a.rtype || {})) if (!o[k] || v.t > o[k].t) o[k] = v; return o; })(), toeicBest: (a.toeicBest || {}).total >= ((b.toeicBest || {}).total || 0) ? a.toeicBest : b.toeicBest, badges: { ...b.badges, ...a.badges }, readDone: { ...(b.readDone || {}), ...(a.readDone || {}) }, questsDone: { ...(b.questsDone || {}), ...(a.questsDone || {}) }, ...((a.ret || b.ret) ? { ret: mergeRet(a.ret, b.ret) } : {}) };
   }
 
   // Dấu “đã xóa” chỉ cần giữ đủ lâu để mọi thiết bị kịp đồng bộ → bỏ mục quá 90 ngày, tránh phình dữ liệu
@@ -198,7 +215,19 @@
 
   // Chuỗi ổn định (khóa sắp xếp) để so dữ liệu trước/sau khi gộp – thứ tự khóa khác nhau không tính là "đổi"
   const stable = v => JSON.stringify(v, (k, x) => x && typeof x === 'object' && !Array.isArray(x) ? Object.keys(x).sort().reduce((o, key) => (o[key] = x[key], o), {}) : x);
-  async function pullMerge() {
+  // Một lượt kéo tại một thời điểm: đăng nhập chuyển hướng gọi start() 2 lần (getRedirectResult + onAuth) → dùng chung 1 lượt
+  const pulling = {};
+  const pullMerge = (opt = {}) => { const k = JSON.stringify(opt); return pulling[k] || (pulling[k] = pullMerge0(opt).finally(() => { delete pulling[k]; })); };
+  // Offline-first: lỗi mạng → thử lại lùi dần 30 s → 10 phút và ngay khi có mạng; dữ liệu luôn ở máy, không báo lỗi khi chỉ là mất mạng
+  let netN = 0, netT = null, needPull = false;
+  const offline = () => typeof navigator !== 'undefined' && navigator.onLine === false;
+  const syncOk = () => { netN = 0; clearTimeout(netT); netT = null; };
+  function retryLater() {
+    if (netT || !Sync.user || Sync.mode === 'off' || Sync.mode === 'drive') return;
+    netT = setTimeout(() => { netT = null; if (needPull) pullMerge({ quiet: true }); else push(); }, Math.min(600000, 30000 * 2 ** netN++));
+  }
+  const netFail = e => { retryLater(); if (offline()) return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); console.warn('sync', e); setStatus('error', e.message); };
+  async function pullMerge0(opt = {}) {
     if (Sync.deleting) return;
     setStatus('syncing');
     try {
@@ -214,12 +243,11 @@
       // Đăng nhập tài khoản khác với lần trước → hỏi trước khi gộp dữ liệu trên máy vào
       const lastUid = await Store.get('lastUid', '');
       if (lastUid && lastUid !== Sync.user.uid && Object.keys(await Cards.all()).length) {
-        const keep = confirm(t('Máy này đang có dữ liệu học của tài khoản khác.\n\nOK = gộp dữ liệu trên máy vào tài khoản này\nHủy = chỉ dùng dữ liệu của tài khoản này'));
-        if (!keep) { await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null); await Store.set('deleted', {}); }
+        const t0 = Date.now(), keep = confirm(t('Máy này đang có dữ liệu học của tài khoản khác.\n\nOK = gộp dữ liệu trên máy vào tài khoản này\nHủy = chỉ dùng dữ liệu của tài khoản này'));
+        // WebView (Facebook/Zalo…) chặn hộp thoại → trả về ngay: coi như gộp, không bao giờ xóa. Trước khi xóa luôn giữ 1 bản sao (Sync.restoreBackup)
+        if (!keep && Date.now() - t0 >= 40) { await Store.set('acctBackup', { uid: lastUid, at: Date.now(), cards: await Cards.all(), stats: await Core.Stats.get(), game: await Game.get(), deleted: await Store.get('deleted', {}) }); await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null); await Store.set('deleted', {}); }
       }
       await Store.set('lastUid', Sync.user.uid);
-      const local = { cards: await Cards.all(), stats: await Core.Stats.get(), game: await Game.get(), settings: await Store.get('settings', {}), deleted: await Store.get('deleted', {}) };
-      const before = stable([local.cards, local.stats, local.game, local.settings]);
       if (docs.meta) {
         let remoteCards = {};
         for (let i = 0; i < (docs.meta.chunks || 0); i++) {
@@ -230,34 +258,148 @@
           for (const [w, v] of Object.entries(part)) remoteCards[w] = fat(v);
           sentHashes[k] = hash(txt);
         }
-        const remote = JSON.parse((await docText(docs.meta)) || '{}');
-        const deleted = Object.assign(Object.create(null), remote.deleted || {});
-        for (const [k, t] of Object.entries(local.deleted)) deleted[k] = Math.max(deleted[k] || 0, t);
-        pruneDel(deleted);
-        await Store.set('deleted', deleted);
-        await Cards.save(mergeCards(local.cards, remoteCards, deleted));
-        await Store.set('stats', mergeStats(local.stats, remote.stats || { days: {} }));
-        await Store.set('game', mergeGame(local.game, remote.game));
-        // Cài đặt: ưu tiên bản mới sửa gần nhất
-        if (remote.settings && (remote.settingsAt || 0) > (await Store.get('settingsAt', 0))) { await Store.set('settings', remote.settings); await Store.set('settingsAt', remote.settingsAt); }
-        await syncExtension();
-        await App.load();
-        // Chỉ vẽ lại các trang tổng quan khi dữ liệu THẬT SỰ đổi (tránh chớp trắng/giật mỗi lần mở app đã đăng nhập); giữ vị trí cuộn
-        const after = stable([await Cards.all(), await Core.Stats.get(), await Game.get(), await Store.get('settings', {})]);
-        if (after !== before && /^#\/(home|deck|library|stats|settings|path)?(\?|$)/.test(location.hash || '#/')) { const y = scrollY; App.route(); requestAnimationFrame(() => scrollTo(0, y)); }
+        await mergeIn(JSON.parse((await docText(docs.meta)) || '{}'), remoteCards);
       }
       if (!docs.meta) { await syncExtension(); await App.load(); }
       if (docs.meta && docs.meta.hs) { const all = await Store.get('pulledHashes', {}); all[Sync.user.uid] = docs.meta.hs; await Store.set('pulledHashes', all); }
+      // Chuyển sang Drive: chỉ đẩy lên D1 khi tài khoản ĐÃ có dữ liệu ở D1 (để máy chưa cập nhật vẫn khớp) – người mới không tạo dòng D1 nào
+      if (opt.migrate) { if (docs.meta) await push(); else setStatus('ok'); return !!docs.meta; }
       await push();
-      toast(docs.meta ? '☁️ ' + (extReady ? t('Đã đồng bộ dữ liệu học (kể cả add-on)') : t('Đã đồng bộ dữ liệu học')) : '☁️ ' + t('Đã sao lưu dữ liệu lên tài khoản'));
+      needPull = false;
+      if (!opt.quiet) toast(docs.meta ? '☁️ ' + (extReady ? t('Đã đồng bộ dữ liệu học (kể cả add-on)') : t('Đã đồng bộ dữ liệu học')) : '☁️ ' + t('Đã sao lưu dữ liệu lên tài khoản'));
     } catch (e) {
       if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + 6 * 3600e3); setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); return; }
-      console.warn('sync', e); setStatus('error', e.message);
+      needPull = true; netFail(e);
     }
   }
+  // Gộp 1 bản từ xa (meta D1 hoặc ảnh chụp Drive) vào kho trên máy – dùng chung cho cả 2 đường
+  async function mergeIn(remote, remoteCards) {
+    const before = stable([await Cards.all(), await Core.Stats.get(), await Game.get(), await Store.get('settings', {})]);
+    const deleted = Object.assign(Object.create(null), remote.deleted || {});
+    for (const [k, t] of Object.entries(await Store.get('deleted', {}))) deleted[k] = Math.max(deleted[k] || 0, t);
+    pruneDel(deleted);
+    await Store.set('deleted', deleted);
+    // Đọc lại bản trên máy SÁT lúc ghi (thẻ: trong khóa Cards) → câu trả lời/XP ghi giữa lúc chờ mạng (đang làm bài) không bị đè
+    if (Cards.mutate) await Cards.mutate(m => mergeCards(m, remoteCards, deleted)); else await Cards.save(mergeCards(await Cards.all(), remoteCards, deleted));
+    await Store.set('stats', mergeStats(await Core.Stats.get(), remote.stats || { days: {} }));
+    await Store.set('game', mergeGame(await Game.get(), remote.game));
+    // Cài đặt: ưu tiên bản mới sửa gần nhất
+    if (remote.settings && (remote.settingsAt || 0) > (await Store.get('settingsAt', 0))) { await Store.set('settings', remote.settings); await Store.set('settingsAt', remote.settingsAt); }
+    await syncExtension();
+    await App.load();
+    // Chỉ vẽ lại các trang tổng quan khi dữ liệu THẬT SỰ đổi (tránh chớp trắng/giật mỗi lần mở app đã đăng nhập); giữ vị trí cuộn
+    const after = stable([await Cards.all(), await Core.Stats.get(), await Game.get(), await Store.get('settings', {})]);
+    if (after !== before && /^#\/(home|deck|library|stats|settings|path)?(\?|$)/.test(location.hash || '#/')) { const y = scrollY; App.route(); requestAnimationFrame(() => scrollTo(0, y)); }
+  }
 
-  async function push() {
-    if (!Sync.user || !db || Sync.deleting) return;
+  // ---------- Đồng bộ Drive (local-first, js/sync-drive.js) ----------
+  const DS = 'https://www.googleapis.com/auth/drive.appdata';
+  // Bật theo cấu hình tĩnh LK_SYNC.drive (firebase-config.js – 0 lượt gọi máy chủ); app gốc cần thêm LK_SYNC.native. lk.syncDrive = 1/0: ép bật/tắt trên máy này (thử nghiệm)
+  // Công tắc từ xa LK_SYNC.mode: 'auto' (mặc định) · 'd1' = chỉ đường D1 · 'off' = chỉ lưu trên máy (không gọi mạng nào)
+  const syncMode = () => (window.LK_SYNC && LK_SYNC.mode) || 'auto';
+  const driveOn = () => { if (syncMode() !== 'auto') return false; try { const f = localStorage.getItem('lk.syncDrive'); if (f === '0') return false; if (f === '1') return true; } catch (e) { /* bỏ qua */ } return !!(window.LK_SYNC && LK_SYNC.drive) && (!isNative || !!LK_SYNC.native); };
+  const isGoogle = u => ((u && u.providerData) || []).some(p => p.providerId === 'google.com');
+  const drv = () => window.SyncDrive ? Promise.resolve(window.SyncDrive) : loadScript('js/sync-drive.js').then(() => window.SyncDrive);
+  // Ảnh chụp v2 = toàn bộ dữ liệu học đã rút gọn (thẻ thư viện chỉ giữ phần riêng) – 500 thẻ ≈ 15 KB gzip, 5.000 thẻ ≈ 105 KB
+  async function snapLocal() {
+    const cards = await Cards.all(), slimmed = {};
+    for (const k of Object.keys(cards).sort()) slimmed[k] = slim(cards[k]);
+    const game = await Game.get();
+    return { v: 2, at: Date.now(), cards: slimmed, deleted: pruneDel(await Store.get('deleted', {})), stats: await Core.Stats.get(), game: game ? { ...game, questsDone: {} } : null, settings: await Store.get('settings', {}), settingsAt: await Store.get('settingsAt', 0) };
+  }
+  const snapHash = s => hash(stable({ ...s, at: 0 }));
+  // Token Drive mới: web = popup Firebase (prompt=none khi đã đồng ý → tự đóng); app gốc = SDK gốc, chỉ khi người dùng bấm
+  async function renewTok(interactive) {
+    const u = Sync.user; if (!u) return null;
+    if (nativeAuth) { if (!interactive) return null; const r = await Capacitor.Plugins.FirebaseAuthentication.signInWithGoogle({ scopes: [DS] }); return { token: r && r.credential && r.credential.accessToken }; }
+    const p = new firebase.auth.GoogleAuthProvider(); p.addScope(DS);
+    p.setCustomParameters(interactive ? { login_hint: u.email || '' } : { prompt: 'none', login_hint: u.email || '' });
+    const res = await firebase.auth().currentUser.reauthenticateWithPopup(p);
+    return { token: res && res.credential && res.credential.accessToken };
+  }
+  const dctx = () => ({
+    uid: Sync.user.uid, build: snapLocal, hash: snapHash, renew: renewTok,
+    apply: async remote => { const rc = {}; for (const [w, v] of Object.entries(remote.cards || {})) rc[w] = fat(v); await mergeIn(remote, rc); },
+    // Gia hạn token chỉ khi thật sự cần: còn thay đổi chưa gửi, hoặc lâu chưa kéo bản của máy khác
+    due: st => dirty || !st.okAt || Date.now() - st.okAt > window.SyncDrive.cfg().stale,
+  });
+  let retryT = 0;
+  async function driveRun(why) {
+    if (!Sync.user || Sync.deleting || Sync.mode !== 'drive') return;
+    if (App.need) await App.need('words', 'tsl').catch(() => {});
+    const D = await drv(); setStatus('syncing');
+    const r = await D.cycle(dctx(), why).catch(e => { console.warn('drive', e); return 'retry'; });
+    if (r === 'ok') {
+      dirty = false; Sync.lastSync = Date.now(); setStatus('ok');
+      if (extReady) { extCall('set', { cards: await Cards.all(), deleted: await Store.get('deleted', {}), stats: await Core.Stats.get() }); extCall('linked', { email: Sync.user.email, name: Sync.user.displayName || '' }); }
+      if (why === 'start' || why === 'manual') toast('☁️ ' + (extReady ? t('Đã đồng bộ dữ liệu học (kể cả add-on)') : t('Đã đồng bộ dữ liệu học')));
+      return r;
+    }
+    if (r === 'no-scope') { Sync.mode = 'd1'; Sync.driveOffer = true; return pullMerge(); } // bỏ ô Drive ở màn đồng ý → đường D1 cũ
+    if (r === 'newer') { Sync.mode = 'd1'; return pullMerge(); } // tệp do bản app MỚI hơn ghi → không ghi đè, dùng D1 tới khi app cập nhật
+    setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); // hết ngân sách ngày / mất mạng / chờ token: dữ liệu an toàn trên máy
+    if (r === 'retry') {
+      clearTimeout(retryT); const st = await D.load(Sync.user.uid); retryT = setTimeout(() => driveRun('retry'), Math.max(30e3, (st.nextAt || 0) - Date.now()));
+      // Drive lỗi kéo dài (≥ 5 lượt liên tiếp) → bản sao an toàn qua D1, tối đa 1 lần/6 giờ (vẫn im lặng, không chặn việc học)
+      if (st.fail >= 5 && Date.now() - (st.d1SafeAt || 0) > 6 * 3600e3) { st.d1SafeAt = Date.now(); await D.save(Sync.user.uid, st); Sync.mode = 'd1'; await pullMerge({ quiet: true }); Sync.mode = 'drive'; }
+    }
+    return r;
+  }
+  // Chọn đường đồng bộ khi đăng nhập/mở app; tự di chuyển từ D1 sang Drive ở lần đăng nhập đầu tiên có quyền Drive
+  async function start() {
+    const u = Sync.user; if (!u) return;
+    if (syncMode() === 'off') { Sync.mode = 'off'; return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); }
+    Sync.driveOffer = false;
+    if (!driveOn() || !isGoogle(u)) { Sync.mode = 'd1'; return pullMerge(); }
+    const D = await drv(), st = await D.load(u.uid);
+    if (st.scope === 'no' || (!st.on && !D.tok.get(u.uid))) { Sync.mode = 'd1'; Sync.driveOffer = true; render(); return pullMerge(); } // chưa cho quyền Drive: giữ D1, nút trong thẻ tài khoản (không hỏi khi đang học)
+    Sync.mode = 'drive';
+    const bridge = st.d1Had && Date.now() - (st.at || 0) < D.cfg().bridgeDays * 864e5 && Date.now() - (st.lastD1 || 0) > 20 * 3600e3;
+    if (!st.on || bridge) {
+      // Lần đầu: kéo D1 (nếu có) gộp vào máy; 30 ngày sau đó kéo/đẩy D1 tối đa 1 lần/ngày để máy chưa cập nhật vẫn thấy dữ liệu
+      // had: true/false = đã kiểm D1 xong; undefined = D1 tạm nghỉ/lỗi → chưa đánh dấu, lần mở sau kiểm lại (không bỏ sót dữ liệu cũ)
+      const had = await pullMerge({ migrate: true });
+      if (had === true || had === false) {
+        const cur = await D.load(u.uid);
+        Object.assign(cur, st.on ? { lastD1: Date.now() } : { on: 1, d1Had: had ? 1 : 0, at: Date.now(), lastD1: Date.now() });
+        await D.save(u.uid, cur);
+      }
+    }
+    return driveRun('start');
+  }
+  const takeTok = async res => {
+    const c = res && res.credential, tk = c && c.accessToken, u = res && res.user;
+    if (!tk || !u) return false;
+    const D = await drv(); D.tok.set(u.uid, tk, 3600);
+    const st = await D.load(u.uid); if (st.scope === 'no') { st.scope = ''; await D.save(u.uid, st); }
+    return true;
+  };
+  // Dry-run (Console/QA: await Sync.dryRun()): đọc D1 + Drive, tính kết quả gộp trong bộ nhớ – KHÔNG ghi máy, D1 hay Drive
+  Sync.dryRun = async () => {
+    const u = Sync.user; if (!u) return { ok: false, why: 'auth' };
+    if (App.need) await App.need('words', 'tsl').catch(() => {});
+    const local = await Cards.all(), del = await Store.get('deleted', {}), out = { local: Object.keys(local).length };
+    const count = (remote, rc) => { const d = { ...del, ...(remote.deleted || {}) }, m = mergeCards(local, rc, d); return { remote: Object.keys(rc).length, merged: Object.keys(m).length, added: Object.keys(m).filter(k => !local[k]).length, removed: Object.keys(local).filter(k => !m[k]).length }; };
+    if (window.SyncDrive) { const p = await SyncDrive.peek(u.uid).catch(e => ({ ok: false, why: e.message })); out.drive = p.ok && p.main && p.main.snap ? count(p.main.snap, Object.fromEntries(Object.entries(p.main.snap.cards).map(([k, v]) => [k, fat(v)]))) : p.main || p; out.backups = (p.backups || []).map(b => ({ slot: b.slot, ok: !!b.snap, error: b.error })); }
+    return out;
+  };
+  // Nút "Sao lưu vào Google Drive của bạn" (thẻ tài khoản): người đăng nhập từ trước bản cập nhật / đã bỏ ô Drive – chỉ khi họ bấm
+  Sync.driveConnect = async () => {
+    const u = Sync.user; if (!u) return;
+    const r = await renewTok(true).catch(e => { if (e && e.code !== 'auth/popup-closed-by-user') toast(t('Không đăng nhập được: {msg}', { msg: e.message || e })); return null; });
+    if (!r || !r.token) return;
+    await takeTok({ credential: { accessToken: r.token }, user: u });
+    await start();
+  };
+
+  // Một lượt đẩy tại một thời điểm; có thay đổi giữa lúc đẩy → đẩy thêm 1 lượt ngay sau
+  let pushing = null, pushAgain = false;
+  function push() {
+    if (pushing) { pushAgain = true; return pushing; }
+    return (pushing = push0().finally(() => { pushing = null; if (pushAgain) { pushAgain = false; push(); } }));
+  }
+  async function push0() {
+    if (!Sync.user || Sync.deleting || Sync.mode === 'off') return;
     if (Date.now() < await Store.get('syncPausedUntil', 0)) return;
     setStatus('syncing');
     try {
@@ -274,7 +416,7 @@
         const json = JSON.stringify(part), h = hash(json);
         if (sentHashes['cards_' + i] === h) continue;
         if (json.length > 900000) console.warn('chunk lớn', i, json.length);
-        out['cards_' + i] = { h, body: JSON.stringify(await docBody(json)) }; pending['cards_' + i] = h; writes++;
+        out['cards_' + i] = { h, body: JSON.stringify(await docBody(json)), ...(Object.values(part).some(c => c.ctx) ? { x: 1 } : {}) }; pending['cards_' + i] = h; writes++;
       }
       const hs = {}; for (let i = 0; i < chunks; i++) hs['cards_' + i] = pending['cards_' + i] || sentHashes['cards_' + i] || '';
       const game = await Game.get();
@@ -287,12 +429,12 @@
       if (extReady) { extCall('set', { cards: await Cards.all(), deleted: await Store.get('deleted', {}), stats: await Core.Stats.get() }); extCall('linked', { email: Sync.user.email, name: Sync.user.displayName || '' }); }
       Object.assign(sentHashes, pending); // chỉ ghi nhận "đã gửi" khi commit thành công
       dirty = false;
-      Sync.lastSync = Date.now();
+      Sync.lastSync = Date.now(); syncOk();
       setStatus('ok');
     } catch (e) {
       // Hết hạn mức miễn phí trong ngày → tạm dừng đồng bộ đến hôm sau; dữ liệu vẫn an toàn trên máy
       if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + 6 * 3600e3); setStatus('ok', t('Đồng bộ tạm nghỉ vài giờ (máy chủ miễn phí đã đủ lượt hôm nay) – dữ liệu vẫn lưu trên máy và sẽ tự đồng bộ sau.')); return; }
-      console.warn('push', e); setStatus('error', e.message);
+      netFail(e);
     }
   }
 
@@ -301,9 +443,12 @@
     if (!Sync.user) return;
     dirty = true;
     if (timer) return;
-    timer = setTimeout(() => { timer = null; if (dirty) push(); }, 180000); // tối đa 1 lần/3 phút + đẩy ngay khi rời trang
+    // D1: tối đa 1 lần/3 phút; Drive: gom theo LK_SYNC.every (mặc định 10 phút) – cả hai đẩy ngay khi rời trang
+    const drive = Sync.mode === 'drive' && window.SyncDrive;
+    timer = setTimeout(() => { timer = null; if (dirty) drive ? driveRun('push') : push(); }, drive ? SyncDrive.cfg().every : +((window.LK_SYNC && LK_SYNC.d1Every) || 180000));
   };
-  const flush = () => { if (Sync.user && dirty) { clearTimeout(timer); timer = null; push(); } };
+  const flush = () => { if (Sync.user && dirty) { clearTimeout(timer); timer = null; Sync.mode === 'drive' ? driveRun('hide') : push(); } };
+  window.addEventListener('online', () => { if (Sync.mode === 'drive') return driveRun('online'); if (!Sync.user || Sync.mode === 'off' || !(needPull || dirty || netT)) return; syncOk(); return needPull ? pullMerge({ quiet: true }) : push(); });
   document.addEventListener('visibilitychange', () => { if (document.hidden) flush(); });
   window.addEventListener('pagehide', flush);
   const authOut = () => nativeAuth ? NativeAuth.signOut() : firebase.auth().signOut();
@@ -313,17 +458,21 @@
     if (noAuth) return;
     if (!supported) { // add-on/bản xem trước: đăng nhập trên lexkite.com
       if (Store.isExtension) return void window.open('https://lexkite.com/app/#/settings', '_blank', 'noopener');
-      return UI.modal(`<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p>${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`);
+      return UI.modal(`<h2>${UI.icon('cloud')} ${t('Tài khoản & đồng bộ')}</h2><p>${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`);
     }
     try {
       await init();
       const apple = via === 'apple' && appleOn();
       const p = apple ? new firebase.auth.OAuthProvider('apple.com') : new firebase.auth.GoogleAuthProvider();
-      if (apple) { p.addScope('email'); p.addScope('name'); if (window.I18N) p.setCustomParameters({ locale: I18N.lang() }); } else p.setCustomParameters({ prompt: 'select_account' });
-      await firebase.auth().signInWithPopup(p);
+      if (apple) { p.addScope('email'); p.addScope('name'); if (window.I18N) p.setCustomParameters({ locale: I18N.lang() }); } else { p.setCustomParameters({ prompt: 'select_account' }); if (driveOn()) p.addScope(DS); } // quyền Drive hỏi 1 lần, ngay ở màn đăng nhập Google
+      signing = true;
+      const res = await firebase.auth().signInWithPopup(p);
+      if (driveOn()) await takeTok(res);
     } catch (e) {
-      if (e && e.code === 'auth/popup-blocked') { const rp = via === 'apple' && appleOn() ? new firebase.auth.OAuthProvider('apple.com') : new firebase.auth.GoogleAuthProvider(); if (!(via === 'apple' && appleOn())) rp.setCustomParameters({ prompt: 'select_account' }); return firebase.auth().signInWithRedirect(rp); }
+      if (e && e.code === 'auth/popup-blocked') { signing = false; const rp = via === 'apple' && appleOn() ? new firebase.auth.OAuthProvider('apple.com') : new firebase.auth.GoogleAuthProvider(); if (!(via === 'apple' && appleOn())) { rp.setCustomParameters({ prompt: 'select_account' }); if (driveOn()) rp.addScope(DS); } return firebase.auth().signInWithRedirect(rp); }
       if (e && e.code !== 'auth/popup-closed-by-user') toast(t('Không đăng nhập được: {msg}', { msg: e.message || e }));
+    } finally {
+      if (signing) { signing = false; if (Sync.user) start(); }
     }
   };
   // Mời đăng nhập khi đã có dữ liệu đáng giữ (≥ 10 thẻ) – tối đa 3 ngày nhắc 1 lần, không chặn việc học
@@ -333,18 +482,28 @@
     await Store.set('loginNudgeAt', Date.now());
     setTimeout(() => {
       if (Sync.user) return;
-      UI.modal(`<div style="text-align:center"><div style="font-size:2.6rem">☁️</div><h2 style="margin:.3rem 0">${t('Bảo vệ {n} thẻ bạn đã học', { n })}</h2>
+      UI.modal(`<div style="text-align:center"><div style="font-size:2.6rem">${UI.icon('cloud')}</div><h2 style="margin:.3rem 0">${t('Bảo vệ {n} thẻ bạn đã học', { n })}</h2>
         <p class="muted">${t('Dữ liệu đang chỉ nằm trên trình duyệt này. Đăng nhập Google để <b>sao lưu tự động</b> và <b>học tiếp trên máy khác, điện thoại, tiện ích Chrome</b> – cùng một tài khoản, không trùng lặp.')}</p>
         <div class="row center" style="margin-top:1rem">${authBtns('nudgeIn')}<button class="btn ghost" data-close>${t('Để sau')}</button></div>
         <p class="tiny muted" style="margin-top:.6rem">${t('Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào')}</p></div>`);
     }, 4000);
   }
-  Sync.signOut = async () => { await push(); sentHashes = {}; await authOut(); if (extReady) extCall('linked', { email: '', name: '' }); toast(t('Đã đăng xuất – dữ liệu vẫn còn trên máy này')); };
-  Sync.now = () => pullMerge();
+  Sync.signOut = async () => { if (Sync.mode === 'drive') await driveRun('hide'); else await push(); sentHashes = {}; if (window.SyncDrive) SyncDrive.tok.clear(); Sync.mode = ''; await authOut(); if (extReady) extCall('linked', { email: '', name: '' }); toast(t('Đã đăng xuất – dữ liệu vẫn còn trên máy này')); };
+  // "Đồng bộ ngay" là 1 cú bấm → được phép mở popup gia hạn token ngay trong sự kiện (trước mọi await)
+  Sync.now = () => {
+    if (Sync.mode === 'off') return Promise.resolve();
+    if (Sync.mode !== 'drive') return pullMerge();
+    const D = window.SyncDrive, u = Sync.user;
+    if (D && u && !D.tok.get(u.uid)) return renewTok(false).then(r => r && r.token && takeTok({ credential: { accessToken: r.token }, user: u })).catch(() => {}).then(() => driveRun('manual'));
+    return driveRun('manual');
+  };
   // Xóa tài khoản: web/js/account-delete.js (tải lười), máy chủ functions/api/account.js
   Sync.api = API;
+  // Bản sao trước khi xóa dữ liệu máy lúc đổi tài khoản → gộp lại vào tài khoản hiện tại (không mất gì)
+  Sync.restoreBackup = async () => { const b = await Store.get('acctBackup', null); if (!b) return false; await mergeIn({ stats: b.stats, game: b.game, deleted: b.deleted }, b.cards || {}); await Store.set('acctBackup', null); Sync.schedule(); return true; };
+  Sync._merge = { cards: mergeCards, stats: mergeStats, game: mergeGame }; // kiểm thử (scripts/test/account-flow.mjs) + QA Console
   Sync.deleteAccount = () => (window.AccountDelete ? Promise.resolve() : loadScript('js/account-delete.js')).then(() => AccountDelete.open());
-  Sync.afterDelete = async () => { sentHashes = {}; try { localStorage.removeItem('lk.league'); localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ } try { await authOut(); } catch (e) { /* tài khoản đã xóa */ } };
+  Sync.afterDelete = async () => { sentHashes = {}; if (window.SyncDrive) SyncDrive.tok.clear(); Sync.mode = ''; try { localStorage.removeItem('lk.league'); localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ } try { await authOut(); } catch (e) { /* tài khoản đã xóa */ } };
 
   function setStatus(s, msg) { Sync.status = s; Sync.msg = msg || ''; render(); if (window.Account) window.Account.refresh(); }
   // Thời gian tương đối theo ngôn ngữ giao diện ("vừa xong", "5 phút trước", "hôm qua") – Intl.RelativeTimeFormat
@@ -359,7 +518,7 @@
   Sync.nice = v => { const n = String(v || '').trim(); if (n.length < 4 || n !== n.toUpperCase() || n === n.toLowerCase()) return n; return n.toLowerCase().replace(/(^|[\s'’.-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()); };
   // Trạng thái hiển thị: mất mạng (đã đăng nhập) được ưu tiên báo rõ
   Sync.stKind = () => (Sync.user && navigator.onLine === false ? 'offline' : Sync.status);
-  Sync.stText = () => ({ idle: '', offline: '📴 ' + t('Ngoại tuyến – sẽ tự đồng bộ khi có mạng'), syncing: '⏳ ' + t('Đang đồng bộ…'), ok: Sync.msg ? esc(Sync.msg) : '✓ ' + t('Đã đồng bộ {time}', { time: Sync.ago(Sync.lastSync || Date.now()) }), error: '⚠️ ' + t('Lỗi đồng bộ: {msg}', { msg: esc(Sync.msg) }) }[Sync.stKind()] || '');
+  Sync.stText = () => ({ idle: '', offline: '📴 ' + t('Ngoại tuyến – sẽ tự đồng bộ khi có mạng'), syncing: UI.icon('hourglass') + ' ' + t('Đang đồng bộ…'), ok: Sync.msg ? esc(Sync.msg) : '✓ ' + t('Đã đồng bộ {time}', { time: Sync.ago(Sync.lastSync || Date.now()) }), error: '⚠️ ' + t('Lỗi đồng bộ: {msg}', { msg: esc(Sync.msg) }) }[Sync.stKind()] || '');
 
   // ---------- Nút tài khoản (đầu trang + thanh bên): chưa đăng nhập = nút Google; đã đăng nhập = avatar mở menu (js/account.js, tải lười) ----------
   const GSVG = '<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
@@ -376,6 +535,13 @@
   Sync.authBtns = authBtns;
   Sync.av = u => u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((u.displayName || u.email || '?')[0].toUpperCase());
   const remembered = () => { try { return JSON.parse(localStorage.getItem('lk.acct') || 'null'); } catch (e) { return null; } };
+  // Phiên đã nhớ (lk.acct) mà Firebase chưa báo trạng thái → chờ thay vì vội hiện “Đăng nhập” (trang giải đấu, lớp học…)
+  /** @type {(v?: any) => void} */ let authDone = () => {}; const authP = new Promise(r => { authDone = r; });
+  Sync.authed = (ms = 8000) => {
+    if (Sync.user || Sync.ready || !supported || !remembered()) return Promise.resolve(Sync.user || null);
+    init().catch(() => {});
+    return Promise.race([authP, new Promise(r => setTimeout(r, ms))]).then(() => Sync.user || null);
+  };
   Sync.chrome = () => {
     if (noAuth) return;
     // Firebase chưa sẵn sàng → dùng tài khoản nhớ lần trước (không nháy nút đăng nhập với người đã đăng nhập)
@@ -399,7 +565,7 @@
   document.addEventListener('click', e => {
     const tg = /** @type {HTMLElement} */ (e.target), el = tg.closest && /** @type {HTMLElement} */ (tg.closest('[data-acct]')); if (!el) return;
     e.preventDefault(); const k = el.dataset.acct;
-    if (/^(in|google|apple)$/.test(k)) { if (el.closest('#modal')) UI.closeModal(); Sync.signIn(k === 'in' ? undefined : k); } else if (k === 'sync') Sync.now(); else if (k === 'del') Sync.deleteAccount(); else Sync.ui(k, el);
+    if (/^(in|google|apple)$/.test(k)) { if (el.closest('#modal')) UI.closeModal(); Sync.signIn(k === 'in' ? undefined : k); } else if (k === 'sync') Sync.now(); else if (k === 'drive') Sync.driveConnect(); else if (k === 'del') Sync.deleteAccount(); else Sync.ui(k, el);
   });
   document.addEventListener('keydown', e => { const tg = /** @type {HTMLElement} */ (e.target); if (e.key === ' ' && tg.matches && tg.matches('a[data-acct]')) { e.preventDefault(); tg.click(); } });
 
@@ -413,8 +579,8 @@
     box.classList.add('acct-box'); if (App && App.meCss) App.meCss(); // CSS thẻ tài khoản nằm ở css/me.css (tải lười)
     if (noAuth) { box.innerHTML = ''; box.hidden = true; return; }
     if (!supported) {
-      box.innerHTML = Store.isExtension ? `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted small">${t('Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>lexkite.com</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.')}</p><a class="btn primary" href="https://lexkite.com/app/#/settings" target="_blank" rel="noopener">☁️ ${t('Mở web app để đăng nhập & đồng bộ')}</a>`
-        : `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`;
+      box.innerHTML = Store.isExtension ? `<h2>${UI.icon('cloud')} ${t('Tài khoản & đồng bộ')}</h2><p class="muted small">${t('Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>lexkite.com</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.')}</p><a class="btn primary" href="https://lexkite.com/app/#/settings" target="_blank" rel="noopener">${UI.icon('cloud')} ${t('Mở web app để đăng nhập & đồng bộ')}</a>`
+        : `<h2>${UI.icon('cloud')} ${t('Tài khoản & đồng bộ')}</h2><p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`;
       return;
     }
     const u = Sync.user, k = Sync.stKind(), st = Sync.stText();
@@ -425,13 +591,14 @@
         <span class="avatar acct-av" aria-hidden="true">${Sync.av(u)}</span>
         <div class="acct-id"><b class="acct-name" title="${esc(name)}">${esc(Sync.nice(name))}</b>${mail ? `<span class="acct-mail" dir="ltr" title="${esc(mail)}">${esc(mail)}</span>` : ''}</div>
         <p class="acct-st" role="status" aria-live="polite"${k === 'ok' && exact ? ` title="${esc(exact)}"` : ''}>${st || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</p>
-        <div class="acct-act"><button type="button" class="btn sm" data-acct="sync"${k === 'syncing' || k === 'offline' ? ' disabled' : ''}${k === 'syncing' ? ' aria-busy="true"' : ''}><span aria-hidden="true">🔄</span> ${k === 'error' ? t('Thử lại') : t('Đồng bộ ngay')}</button><button type="button" class="btn sm ghost danger" data-acct="out"><span aria-hidden="true">↪</span> ${t('Đăng xuất')}</button></div>
+        <div class="acct-act"><button type="button" class="btn sm" data-acct="sync"${k === 'syncing' || k === 'offline' ? ' disabled' : ''}${k === 'syncing' ? ' aria-busy="true"' : ''}><span aria-hidden="true">${UI.icon('refresh-cw')}</span> ${k === 'error' ? t('Thử lại') : t('Đồng bộ ngay')}</button>${Sync.driveOffer ? `<button type="button" class="btn sm" data-acct="drive"><span aria-hidden="true">${UI.icon('cloud')}</span> ${t('Sao lưu vào Google Drive của bạn')}</button>` : ''}<button type="button" class="btn sm ghost danger" data-acct="out"><span aria-hidden="true">${UI.icon('log-out')}</span> ${t('Đăng xuất')}</button></div>
+        ${Sync.mode === 'drive' ? `<p class="tiny muted">${t('Lưu trong thư mục ẩn của ứng dụng trên Google Drive của chính bạn – miễn phí, tự động.')}</p>` : ''}
         <p class="acct-del small"><button type="button" data-acct="del">${t('Xóa tài khoản')}</button></p>
       </div>`;
       if (k === 'ok' && !Sync.msg) agoT = setTimeout(render, 60e3); // "5 phút trước" tự cập nhật khi thẻ còn trên màn hình
     } else {
       box.innerHTML = `<div class="acct-card out" data-st="${k}">
-        <span class="acct-av acct-ic" aria-hidden="true">☁️</span>
+        <span class="acct-av acct-ic" aria-hidden="true">${UI.icon('cloud')}</span>
         <div class="acct-id"><h2 class="acct-t">${t('Đăng nhập để không mất dữ liệu')}</h2><span class="small muted">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</span></div>
         ${st ? `<p class="acct-st" role="status">${st}</p>` : ''}
         <div class="acct-act">${authBtns('signIn')}</div>
@@ -439,6 +606,7 @@
     }
   }
   Sync.render = render;
+  Sync._m = { mergeCards, mergeStats, mergeGame, mergeRet, stable, snapHash }; // kiểm thử gộp (scripts/test/sync-drive.mjs)
   window.addEventListener('online', render); window.addEventListener('offline', render);
 
   // Khởi động trễ để không chặn giao diện

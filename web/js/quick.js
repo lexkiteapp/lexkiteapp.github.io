@@ -10,6 +10,7 @@
 
   const UI = g.UI || {};
   const { $, $$, esc, modal } = UI;
+  /*icons*/UI.addIcons('<symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>');/*/icons*/
   const { state, routes } = App;
   const view = App.view;
 
@@ -93,17 +94,20 @@
 
     // 4 câu, mỗi câu 3 lựa chọn; phương án nhiễu khác nghĩa rõ ràng (không trùng/chứa nghĩa đúng)
     const D = g.Distract;
-    const questions = shuffle(pool).slice(0, N).map(w => {
+    // Phương án nhiễu (so với cả kho ~10k từ) tính từng câu khi cần: câu 1 ngay, các câu sau lúc rảnh → không có tác vụ dài khi vào trang
+    const picked = shuffle(pool).slice(0, N), questions = [];
+    const build = w => {
       const right = mean(w), rl = right.toLowerCase();
       const ok = x => x.word.toLowerCase() !== w.word.toLowerCase() && (() => { const m = mean(x).toLowerCase(); return m && m !== rl && !m.includes(rl) && !rl.includes(m); })();
       let ds = [];
       try { if (D && D.pick) ds = D.pick(w, others, { n: 2, key: 'vi', mean, seed: Math.floor(Math.random() * 1e9) }).filter(ok); } catch (e) { ds = []; }
       if (ds.length < 2) ds = ds.concat(shuffle(others.filter(x => ok(x) && !ds.includes(x))).slice(0, 2 - ds.length));
       const opts = shuffle([right, ...ds.slice(0, 2).map(mean)]);
-      return { word: w.word, ipa: w.ipa || '', options: opts, correctIdx: opts.indexOf(right) };
-    });
+      return { word: w.word, ipa: w.ipa || '', ipaUS: w.ipaUS || '', pos: w.pos || '', options: opts, correctIdx: opts.indexOf(right) };
+    };
+    const qAt = i => questions[i] || (questions[i] = build(picked[i]));
 
-    const total = questions.length;
+    const total = picked.length;
     let qIdx = 0, score = 0, busy = false, done = false, timer = null, secondsLeft = LIMIT, startTime = 0;
 
     const endPlay = timedOut => {
@@ -114,7 +118,6 @@
       const pct = Math.round((score / total) * 100);
       const isGood = pct >= 75;
       const xp = score * 2;
-      if (isGood && g.Sfx && g.Sfx.win) g.Sfx.win();
       if (xp && App.reward) App.reward({ xp });
       const praise = pct === 100 ? t('Phản xạ thần tốc! Trí nhớ như máy quét ⚡')
         : isGood ? t('Rất xuất sắc! Não bộ vừa được khởi động cực mượt 🚀')
@@ -122,17 +125,18 @@
       view.innerHTML = `
         <div class="qk-wrap">
           <div class="card qk-card qk-result-box" role="status">
-            <div class="qk-result-em" aria-hidden="true">${isGood ? '⚡' : '🌱'}</div>
+            <div class="qk-result-em" aria-hidden="true">${isGood ? UI.icon('zap') : UI.icon('sprout')}</div>
             <h1 class="qk-result-title">${timedOut ? t('Hết 15 giây!') : t('Hoàn thành trong {s} giây!', { s: elapsed })}</h1>
             <div class="muted">${t('Đúng {n}/{total} câu', { n: score, total })}${xp ? ` · +${xp} XP` : ''}</div>
             <p class="qk-result-sub">${praise}</p>
             <div class="qk-actions">
-              ${isGood ? `<button type="button" class="btn primary lg" data-share="${pct}">📸 ${t('Khoe thành tích')}</button>` : ''}
-              <button type="button" class="btn lg${isGood ? '' : ' primary'}" id="qkAgain">⚡ ${t('Làm thêm lượt nữa')}</button>
+              ${isGood ? `<button type="button" class="btn primary lg" data-share="${pct}">${UI.icon('camera')} ${t('Khoe thành tích')}</button>` : ''}
+              <button type="button" class="btn lg${isGood ? '' : ' primary'}" id="qkAgain">${UI.icon('zap')} ${t('Làm thêm lượt nữa')}</button>
               <a class="btn ghost" href="#/home">${t('Về trang chủ')}</a>
             </div>
           </div>
         </div>`;
+      if (g.Sfx && g.Sfx.finish) g.Sfx.finish({ pct, xp, ms: elapsed * 1000, good: 75, el: $('.qk-result-box', view) }); // âm thắng ≥ 75% + thẻ số liệu
       const againBtn = $('#qkAgain');
       if (againBtn) againBtn.onclick = () => routes.quick();
     };
@@ -141,7 +145,7 @@
       if (done) return;
       if (qIdx >= total) return endPlay(false);
       if (startTime && usedSec() >= LIMIT) return endPlay(true);
-      const q = questions[qIdx];
+      const q = qAt(qIdx);
       view.innerHTML = `
         <div class="qk-wrap">
           <div class="qk-top">
@@ -149,12 +153,12 @@
             <div class="qk-progress-wrap" role="progressbar" aria-label="${t('Câu {i}/{total}', { i: qIdx + 1, total })}" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${qIdx}">
               <div class="qk-progress-bar" style="width:${(qIdx / total) * 100}%"></div>
             </div>
-            <span class="qk-timer-pill" aria-hidden="true">⏱️ <span id="qkTimer">${secondsLeft}s</span></span>
+            <span class="qk-timer-pill" aria-hidden="true">${UI.icon('timer')} <span id="qkTimer">${secondsLeft}s</span></span>
           </div>
           <div class="card qk-card">
-            <div class="qk-badge">⚡ ${t('Câu {i}/{total}', { i: qIdx + 1, total })}</div>
+            <div class="qk-badge">${UI.icon('zap')} ${t('Câu {i}/{total}', { i: qIdx + 1, total })}</div>
             <div class="qk-word" lang="en">${esc(q.word)}</div>
-            ${q.ipa ? `<div class="small muted" style="margin-bottom:.4rem">${esc(q.ipa)}</div>` : ''}
+            <div class="small muted row center" style="margin-bottom:.4rem;gap:.3rem">${UI.ipaHtml(q, null, { noEx: true })}${UI.sayBtn(q.word)}</div>
             <div class="qk-prompt">${t('Chọn nghĩa đúng')}</div>
           </div>
           <div class="qk-opts" id="qkOpts">
@@ -166,8 +170,9 @@
           if (busy || done) return;
           busy = true;
           const isCorrect = +btn.dataset.idx === q.correctIdx;
-          if (isCorrect) { score++; btn.classList.add('qk-right'); if (g.Sfx && g.Sfx.correct) g.Sfx.correct(); }
+          if (isCorrect) { score++; btn.classList.add('qk-right'); }
           else { btn.classList.add('qk-wrong'); const rb = $$('#qkOpts .qk-btn')[q.correctIdx]; if (rb) rb.classList.add('qk-reveal'); }
+          if (g.Sfx && g.Sfx.answer) g.Sfx.answer(isCorrect, { el: btn, answer: isCorrect ? '' : ($$('#qkOpts .qk-btn')[q.correctIdx] || {}).textContent }); // âm + rung + aria + chuỗi đúng liền
           // Sai: giữ đáp án đúng lâu hơn một chút để kịp đọc (thời gian này không tính vào 15 giây)
           const hold = isCorrect ? 320 : 900;
           paused += hold;
@@ -201,6 +206,9 @@
     renderQuestion();
     startTime = Date.now();
     timer = setInterval(tick, 250);
+    const idle = g.requestIdleCallback ? f => g.requestIdleCallback(f, { timeout: 300 }) : f => setTimeout(f, 16);
+    const pre = i => { if (done || i >= total) return; qAt(i); idle(() => pre(i + 1)); };
+    idle(() => pre(1));
   };
 
   // ==========================================
@@ -216,7 +224,7 @@
         name: t('Hệ Tự Nhiên & Phản Xạ'),
         desc: t('Bạn học bằng trực giác, không sợ sai và thích tương tác thực tế. Bạn tiến bộ nhanh nhất khi biến tiếng Anh thành trò chơi và giao tiếp tự nhiên mỗi ngày.'),
         recs: [
-          ['#/call', '🎙️ ' + t('Luyện nói & đóng vai tình huống cùng Call Mia')],
+          ['#/call', '🎙️ ' + t('Luyện nói & đóng vai tình huống qua cuộc gọi với Ama và Carlos')],
           ['#/quick', '⚡ ' + t('Chơi nhanh 15 giây mỗi khi có thời gian rảnh')],
           ['#/reflex', '🎧 ' + t('Luyện phản xạ nghe – nói')]
         ]
@@ -329,9 +337,9 @@
       view.innerHTML = `
         <div class="qk-wrap">
           <div class="card sty-card sty-res-box">
-            <div style="margin-bottom:.5rem" aria-hidden="true">${g.Kit && typeof g.Kit.svg === 'function' ? g.Kit.svg('win', 68) : winnerStyle.icon}</div>
+            <div style="margin-bottom:.5rem" aria-hidden="true">${g.Kit && typeof g.Kit.svg === 'function' ? g.Kit.svg('win', 68) : UI.glyph(winnerStyle.icon)}</div>
             <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">${t('Kết quả phong cách tiếng Anh')}</div>
-            <h1 class="sty-badge">${winnerStyle.icon} ${esc(winnerStyle.name)}</h1>
+            <h1 class="sty-badge">${UI.glyph(winnerStyle.icon)} ${esc(winnerStyle.name)}</h1>
             <p class="sty-desc">${esc(winnerStyle.desc)}</p>
 
             <div class="sty-recs">
@@ -343,7 +351,7 @@
 
             <div class="qk-actions">
               <a class="btn primary lg" href="#/path">🚀 ${t('Bắt đầu lộ trình ngay')}</a>
-              <a class="btn" href="#/placement">🧭 ${t('Kiểm tra trình độ chi tiết (20 câu)')}</a>
+              <a class="btn" href="#/placement">${UI.icon('compass')} ${t('Kiểm tra trình độ chi tiết (20 câu)')}</a>
               <button type="button" class="btn ghost" id="styShare">📤 ${t('Chia sẻ phong cách')}</button>
             </div>
           </div>

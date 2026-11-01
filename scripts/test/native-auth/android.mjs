@@ -15,6 +15,17 @@ let nShot = 0;
 const shot = name => { const f = path.join(OUT, `${String(++nShot).padStart(2, '0')}-${name}.png`); try { fs.writeFileSync(f, execFileSync('adb', ['exec-out', 'screencap', '-p'], { maxBuffer: 64 << 20, timeout: 30000 })); } catch (e) { console.log('screencap lỗi', e.message); } return f; };
 // hoạt động đang ở trên cùng (topResumedActivity/mResumedActivity – mCurrentFocus có thể trỏ nhầm cửa sổ launcher)
 const focus = () => (/(?:topResumedActivity|mResumedActivity)=ActivityRecord\{\S+ \S+ ([^\s}]+)/.exec(adb('shell', 'dumpsys', 'activity', 'activities')) || [])[1] || '';
+// Giả lập vừa khởi động hay bị ANR của launcher ("Pixel Launcher isn't responding"): hộp hệ thống này nằm TRÊN bảng Google và nuốt phím BACK
+// → bảng không bị hủy, luồng cũ MinuteMaid mở tiếp, plugin treo (đỏ ngẫu nhiên 22–24/10). Bấm "Wait" trước khi thao tác – không đổi điều kiện kiểm.
+const clearAnr = async () => {
+  for (let k = 0; k < 3; k++) {
+    adb('shell', 'uiautomator', 'dump', '/sdcard/anr.xml'); const x = adb('shell', 'cat', '/sdcard/anr.xml');
+    if (!/isn.t responding|không phản hồi/i.test(x)) return k > 0;
+    const b = /text="(?:Wait|Đợi|Chờ)"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(x);
+    console.log('ANR hệ thống → bấm Wait'); if (b) adb('shell', 'input', 'tap', String((+b[1] + +b[3]) >> 1), String((+b[2] + +b[4]) >> 1)); await sleep(1500);
+  }
+  return true;
+};
 
 // ---- mở app, nối DevTools của WebView ----
 adb('logcat', '-c');
@@ -72,6 +83,7 @@ if (!info.ui || !info.ui.accts.some(a => /^(google|in):/.test(a))) fail('Không 
 if (info.ui && info.ui.coming) fail('Có chữ "sắp có / phát hành chính thức"'); else ok('Không có hộp thoại "sắp có"');
 
 // ---- 3. bấm Google → hoạt động đăng nhập gốc → BACK ----
+await clearAnr();
 const focus0 = focus();
 await ev(`__auth.length = 0; const b = document.querySelector('#syncBox [data-acct="google"]') || document.querySelector('#syncBox [data-acct="in"]'); b.click(); return 1`);
 let sheet = '', ui = '';
@@ -87,12 +99,12 @@ const log1 = await alog();
 if (!(log1 || []).some(x => x.dir === 'call' && /signInWithGoogle/.test(x.m))) fail('Bấm Google nhưng plugin signInWithGoogle không được gọi'); else ok('Đã gọi FirebaseAuthentication.signInWithGoogle');
 const native = /gms|credential|SignInHub/i.test(sheet) || pkgs.some(p => p !== PKG && /gms|credential/i.test(p));
 if (!native) fail('Không thấy giao diện đăng nhập Google gốc (focus ' + (sheet || focus()) + ', gói ' + pkgs.join(',') + ')'); else ok('Giao diện Google gốc hiện: ' + (sheet || pkgs.join(',')));
-if (native) adb('shell', 'input', 'keyevent', '4'); // BACK = hủy bảng đăng nhập
+if (native) { await clearAnr(); adb('shell', 'input', 'keyevent', '4'); } // BACK = hủy bảng đăng nhập (sau khi gỡ hộp ANR che phía trên)
 // kết quả = lần trả cuối khi mọi lệnh signInWithGoogle đã xong (Android có thể gọi 2 lần: Credential Manager → luồng cũ)
 const settled = async () => { const l = (await alog()).filter(x => /signInWithGoogle/.test(x.m)); const calls = l.filter(x => x.dir === 'call').length, rets = l.filter(x => x.dir === 'ret'); return calls && rets.length >= calls ? rets.at(-1) : null; };
 let ret = null; for (let k = 0; k < 40 && !ret; k++) { await sleep(500); ret = await settled(); }
 // luồng cũ (MinuteMaid/thêm tài khoản) có thể mở thêm màn sau lần BACK đầu → BACK lặp tới 4 lần cho tới khi plugin trả kết quả
-for (let r = 0; r < 4 && !ret && native; r++) { adb('shell', 'input', 'keyevent', '4'); for (let k = 0; k < 16 && !ret; k++) { await sleep(500); ret = await settled(); } }
+for (let r = 0; r < 4 && !ret && native; r++) { await clearAnr(); adb('shell', 'input', 'keyevent', '4'); for (let k = 0; k < 16 && !ret; k++) { await sleep(500); ret = await settled(); } }
 for (let r = 0; r < 3 && !focus().startsWith(PKG + '/'); r++) { adb('shell', 'input', 'keyevent', '4'); await sleep(1500); }
 info.ret = ret; console.log('ret', JSON.stringify(ret));
 await sleep(800);

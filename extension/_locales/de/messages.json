@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "Karte im neuen Tab ausschalten"
  },
+ "ntConf": {
+  "message": "Selbstbewusst sprechen"
+ },
  "ntListen": {
   "message": "Anhören"
  },

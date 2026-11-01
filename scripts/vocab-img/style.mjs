@@ -13,7 +13,7 @@ export const STYLE = {
     'purely pictorial without any lettering. Friendly, culturally neutral, suitable for young children.',
   retry: 'Simplest possible iconic view, the subject large and isolated on the plain cream background, nothing else in the picture.',
 };
-const PEOPLE = ['a woman with dark brown skin', 'a man with light skin', 'a man with medium brown skin', 'a woman with East Asian features',
+export const PEOPLE = ['a woman with dark brown skin', 'a man with light skin', 'a man with medium brown skin', 'a woman with East Asian features',
   'a man with South Asian features', 'a woman with light skin and red hair', 'a man with dark skin', 'a woman with olive skin'];
 export const fnv = s => { let h = 0x811c9dc5; for (const c of Buffer.from(String(s))) { h ^= c; h = Math.imul(h, 0x01000193) >>> 0; } return h; };
 const short = d => String(d || '').replace(/\s+/g, ' ').trim().slice(0, 160);
@@ -30,3 +30,24 @@ export function promptFor(key, e, lexname = '', attempt = 1) {
 }
 /** alt (khoá dịch được): từ tiếng Anh – giao diện ghép nghĩa theo ngôn ngữ UI lúc vẽ (web/js/vocab-img.js) */
 export const altFor = e => e.w.trim();
+
+// ---- docs/VOCAB-IMG-STYLE.md (25/10): danh sách PHỦ ĐỊNH – FLUX schnell không có negative prompt, và NHẮC tên vật cấm lại làm nó HIỆN ra (e2: biển/bong bóng)
+// → không bao giờ đưa các từ này vào prompt. Dùng để (1) chặn thẻ (cards.mjs cleanCard, scene.mjs sceneOk) và (2) GỌT mệnh đề có chúng khỏi thẻ cũ (scrub).
+export const NEG = ['text', 'letters', 'words', 'writing', 'caption', 'label', 'sign', 'signboard', 'logo', 'brand', 'flag', 'numbers', 'digits', 'clock face',
+  'speech bubble', 'thought bubble', 'lightbulb', 'light bulb', 'question mark', 'exclamation mark', 'arrow', 'heart symbol', 'emoji', 'icon', 'screen with', 'chart', 'graph',
+  'calendar', 'newspaper', 'book cover', 'banner', 'poster', 'watermark', 'frame border', 'collage', 'split panel', 'comic panel'];
+const negRe = list => new RegExp('\\b(' + list.map(x => x.replace(/ /g, '\\s+')).join('|') + ')s?\\b', 'i');
+export const NEG_RE = negRe(NEG);
+/** từ PHỦ ĐỊNH đầu tiên có trong s (bỏ qua chính từ đang học: arrow#n, flag#n, calendar#n được vẽ vật đó) → '' nếu sạch */
+export function negHit(s, w = '') {
+  const own = String(w).toLowerCase().trim(), list = own ? NEG.filter(x => !x.split(' ').includes(own)) : NEG;
+  const m = String(s || '').match(negRe(list)); return m ? m[1].toLowerCase() : '';
+}
+/** gọt mệnh đề (phẩy/chấm phẩy/“with …”) chứa từ PHỦ ĐỊNH; giữ mệnh đề đầu (chủ thể) nếu gọt hết */
+export function scrub(s, w = '') {
+  const t = String(s || '').split(/(\s*[;,]\s*|\s+(?=with\s))/i); let out = t[0];
+  for (let i = 1; i < t.length; i += 2) if (!negHit(t[i + 1], w)) out += t[i] + t[i + 1];
+  return out.replace(/\s+/g, ' ').replace(/[;,]\s*$/, '').trim();
+}
+/** lớp từ của một nghĩa (k = 'từ#loại') → khuôn prompt trong VOCAB-IMG-STYLE.md */
+export const classOf = k => { const p = String(k).split('#')[1] || ''; return p === 'v' ? 'verb' : p === 'adj' ? 'adj' : p === 'adv' ? 'adv' : 'noun'; };

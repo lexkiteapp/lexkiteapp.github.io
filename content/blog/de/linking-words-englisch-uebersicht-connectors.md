@@ -54,7 +54,7 @@ quiz: [
 
 Ein überzeugender englischer Text zeichnet sich nicht allein durch fehlerfreie Grammatik aus, sondern vor allem durch den logischen Fluss der Gedanken. Wer eine strukturierte **linking words englisch übersicht** nutzt, lernt, wie Sätze nahtlos ineinandergreifen, Argumente schlüssig aufeinander aufbauen und Gedanken präzise kontrastiert werden. In akademischen Prüfungen wie IELTS und TOEFL macht das Bewertungskriterium *Coherence and Cohesion* (Zusammenhalt und Verständlichkeit) volle 25 Prozent der Gesamtnote aus.
 
-Ohne verbindende Signalwörter wirken selbst hochkomplexe Argumente oft abgehackt, wie eine bloße Aufzählung von Stichpunkten. Umgekehrt führt das wahllose Aneinanderreihen von Signalwörtern zu einem künstlich überladenen Textstil. Das Ziel jedes versierten Autors besteht darin, Konnektoren gezielt, abwechslungsreich und organisch einzusetzen.
+Ohne verbindende Signalwörter wirken selbst hochkomplexe Argumente oft abgehackt, wie eine bloße Aufzählung von Stichpunkten. Umgekehrt führt das wahllose Aneinanderreihen von Signalwörtern zu einem künstlich überladenen Textstil. Das Ziel jedes versierten Autors besteht darin, Konnektoren gezielt, abwechslungsreich und organisch einzusetzen. Neben Signalwörtern verbinden auch [Relativsätze mit who, which und that](/de/blog/relativsaetze-englisch-who-which-that/) Gedanken elegant miteinander.
 
 In dieser systematischen Übersicht präsentieren wir Ihnen die wichtigsten englischen Bindewörter geordnet nach ihren rhetorischen Funktionen, erklären die strengen angelsächsischen Kommaregeln und zeigen Best-Practice-Beispiele auf Band-8-Niveau.
 

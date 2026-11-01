@@ -22,9 +22,10 @@
     const draw = () => {
       if (i >= round.length) {
         const pct = Math.round(right / round.length * 100);
-        App.reward({ quizzes: 1, readings: 0, xp: 5 + right * 2 }); if (pct >= 80) Sfx.win();
+        App.reward({ quizzes: 1, readings: 0, xp: 5 + right * 2 });
         view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">🔁</div><h2>${t('{right}/{total} đúng ({pct}%)', { right, total: round.length, pct })}</h2><p class="muted">${t('Nhận ra paraphrase nhanh là chìa khóa để làm Reading đúng và kịp giờ.')}</p><button class="btn primary" id="ppAgain">↻ ${t('Luyện tiếp')}</button> <a class="btn" href="#/skill/reading">${t('Về Reading')}</a></div></div>`;
         $('#ppAgain').onclick = () => routes.paraphrase();
+        Sfx.finish({ pct, xp: 5 + right * 2, el: $('.celebrate', view) });
         return;
       }
       const it = round[i], opts = UI.shuffle([it.p, ...UI.shuffle(all.filter(x => x.p !== it.p && x.q !== it.q && Math.abs(x.p.length - it.p.length) < 40)).slice(0, 3).map(x => x.p)]);
@@ -37,7 +38,7 @@
       $$('[data-o]').forEach(b => b.onclick = () => {
         const ok = b.dataset.o === it.p; if (ok) right++;
         $$('[data-o]').forEach(x => { x.disabled = true; if (x.dataset.o === it.p) x.classList.add('correct'); else if (x === b) x.classList.add('wrong'); });
-        ok ? Sfx.correct() : Sfx.wrong();
+        Sfx.answer(ok);
         $('#ppFb').innerHTML = `<div class="feedback ${ok ? 'ok' : 'no'}" style="position:static"><i translate="no">${esc(it.q)}</i> ≈ <b translate="no">${esc(it.p)}</b> <button class="btn sm primary" id="ppNext" style="margin-left:.6rem">${t('Tiếp')} →</button></div>`;
         $('#ppNext').onclick = () => { i++; draw(); };
       });

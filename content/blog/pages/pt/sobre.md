@@ -14,7 +14,7 @@ Para quem estuda sozinho e quer um plano claro, para quem tem pouco tempo e disp
 1. **Intenção de busca:** o que quem aprende inglês realmente pergunta e qual resposta ajuda a melhorar.
 2. **Estrutura:** primeiro respondemos à pergunta de forma direta, depois aprofundamos.
 3. **Redação:** textos 100% originais; todas as frases de exemplo em inglês são nossas. Não traduzimos frase por frase: adaptamos cada tema aos erros típicos de quem fala português.
-4. **Checagem:** formatos de prova, escalas de pontuação e tempos são conferidos nas fontes oficiais de cada exame ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Se não temos certeza de uma informação, ela não entra.
+4. **Checagem:** formatos de prova, escalas de pontuação e tempos são conferidos nas fontes oficiais de cada exame ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Se não temos certeza de uma informação, ela não entra.
 5. **Controle de duplicidade:** nada copiado de outras páginas, nem das nossas.
 6. **Revisão de qualidade:** cada artigo é avaliado com uma rubrica editorial de 100 pontos e só é publicado com nota 90 ou mais.
 

@@ -96,7 +96,7 @@ The famous trap is that *to* is sometimes a preposition, not part of an infiniti
 - *He objected **to paying** twice.*
 - *When it comes **to cooking**, I'm hopeless.*
 
-A quick test: if you can put a noun after *to* (*I look forward to the weekend*), then *to* is a preposition, and a verb there must be a gerund.
+A quick test: if you can put a noun after *to* (*I look forward to the weekend*), then *to* is a preposition, and a verb there must be a gerund. *Look forward to* is one of the [common phrasal verbs](/en/blog/common-phrasal-verbs/) where this matters most.
 
 ### After a few fixed expressions
 
@@ -198,6 +198,8 @@ After revising a group, run a quick [multiple-choice test](/#/practice/test) to 
 When you save new verbs, write the pattern in the example sentence. The [Smart Learn cards](/#/practice/learn) show a definition, example, memory tip and common mistakes for each item, which is a good format for noting *suggest doing*, not *suggest to do*.
 
 These patterns also matter in writing. A formal email often closes with *I look forward to hearing from you*; see [how to write a formal email](/en/blog/how-to-write-a-formal-email/) for more phrases like that. For other grammar areas that cause similar fossilised errors, read our guides to [articles a, an and the](/en/blog/articles-a-an-the-rules/) and [present perfect vs past simple](/en/blog/present-perfect-vs-past-simple/). You can also look at verb patterns used naturally in the [band 8 sample essays](/en/samples/).
+
+Many reporting verbs follow these same patterns (*deny doing*, *promise to do*), so the next step is our guide to [reported speech](/en/blog/reported-speech/).
 
 {{cta: /#/grammar | Revise verb patterns in the Grammar section}}
 

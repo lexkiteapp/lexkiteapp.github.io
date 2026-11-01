@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Bộ VÀNG (chủ 22/10): 1.500–2.000 kịch bản viết tay (Claude), phủ đều 8 nhóm loại bài × chủ đề × CEFR 40/40/20, điểm học chỉ từ lexicon /
 // Cách dùng từ / ngữ pháp, không trùng. Dùng làm kho chính + mẫu few-shot cho Gemini sau này. docs/VIDEO-SCALE-PLAN.md §16.
 //   node scripts/scriptbank/gold.mjs plan            → content/video/scripts/gold/plan.json (kế hoạch phủ, thứ tự xen kẽ)
@@ -9,7 +10,7 @@ import fs from 'fs';
 import { DIR, plan, h8, CAT, diffOf, qc, qcViral, hookOf, expandLines, Dedupe, readBank, readJsonl, summary, SHARD, TOPICS } from './lib.mjs';
 import { loadAll, key as lexKey } from '../lexicon/lib.mjs';
 
-const G = DIR + '/gold', OUT = new URL('../../out/script-bank/', import.meta.url).pathname;
+const G = DIR + '/gold', OUT = fileURLToPath(new URL('../../out/script-bank/', import.meta.url));
 const CATS = ['stop-saying', 'x-vs-y', 'situational', 'misunderstanding', 'pronunciation', 'collocation', 'grammar', 'idiom-phrasal'];
 const SET_TOPIC = [[/travel|hosp/, 'travel'], [/office|toeic|work|biz|mkt|log|law|bsl|economy/, 'work'], [/ielts|toefl|education|edu|awl|nawl|task|linking|opinion|describe|language|c2/, 'exam'],
   [/tech|it$|eng|science|space/, 'tech'], [/health|med|sport/, 'health'], [/food/, 'food'], [/consumer/, 'shopping'], [/money/, 'money'], [/housing|architecture|urban/, 'home'],

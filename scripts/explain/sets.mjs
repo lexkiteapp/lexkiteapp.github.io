@@ -1,8 +1,9 @@
+import { fileURLToPath } from 'node:url';
 // Bộ câu hỏi cần lời giải (docs/EXPLAIN.md). Mỗi bộ → items(): [{ id, sub, type, s, ans, alts, ctx }]
 //   id ổn định (không phụ thuộc thứ tự câu), sub = tệp con tải lười web/js/explain/<sub>/<lang>.json, alts = MỌI phương án nhiễu có thể hiện.
 import fs from 'fs';
 import { createRequire } from 'module';
-const ROOT = new URL('../../', import.meta.url), R = p => new URL(p, ROOT).pathname;
+const ROOT = new URL('../../', import.meta.url), R = p => fileURLToPath(new URL(p, ROOT));
 const require = createRequire(import.meta.url);
 export const LANGS = ['vi', 'ko', 'th', 'hi', 'zh', 'ja', 'ar', 'es', 'pt', 'fr', 'de', 'id', 'ru', 'tr']; // + en (nguồn)
 

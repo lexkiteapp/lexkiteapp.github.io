@@ -98,7 +98,7 @@ En Lexkite hemos implementado un módulo específico diseñado alrededor de las 
 
 ![Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6](media:toefl "El panel resume la estructura del nuevo examen y la escala de bandas de 1 a 6")
 
-Puedes acceder directamente al centro de [entrenamiento TOEFL iBT](/#/toefl) para poner a prueba tu nivel en las tareas interactivas de *Complete the Words* y *Build a Sentence* con explicaciones inmediatas. 
+Puedes acceder directamente al centro de [entrenamiento TOEFL iBT](/#/toefl) para poner a prueba tu nivel en las tareas interactivas de *Complete the Words* y *Build a Sentence* con explicaciones inmediatas. La estrategia paso a paso para la primera tarea está en la guía de [TOEFL Complete the Words](/es/blog/toefl-complete-the-words/).
 
 Para ejercitar la lectura ágil sin cansancio visual, dispones además de una selección de textos en la sección de [práctica de lectura](/#/reading) con función de consulta táctil de términos:
 
@@ -113,6 +113,8 @@ Si dudas sobre la definición precisa de una palabra o sus colocaciones típicas
 ![Diccionario de inglés de Lexkite buscando resilient con pronunciación UK y US, ejemplos y botón de guardar](media:dict "Consultar colocaciones y familias léxicas refuerza la precisión en las tareas de completar palabras")
 
 También puedes explorar ejemplos de respuestas y criterios de evaluación en nuestra sección de [muestras y modelos de examen](/samples/) para calibrar el tono esperado en tus escritos.
+
+Para la tarea final de Writing tienes una guía completa con ejemplo comentado: [TOEFL Academic Discussion paso a paso](/es/blog/toefl-academic-discussion-ejemplo/).
 
 {{cta: /#/toefl | Practica el nuevo formato TOEFL iBT en Lexkite}}
 

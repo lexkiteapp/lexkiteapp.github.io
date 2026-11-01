@@ -25,7 +25,7 @@
 .fx-hl mark.on{background:color-mix(in srgb,var(--c) 32%,transparent)}
 .fx-tools{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:space-between;margin-top:.6rem}
 .fx-legend{display:flex;flex-wrap:wrap;gap:.35rem}
-.fx-lg{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:.3rem .7rem;font-weight:700;font-size:.82rem;cursor:pointer;color:var(--text);min-height:36px;transition:opacity .15s,background .15s}
+.fx-lg{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:.3rem .7rem;font-weight:700;font-size:.82rem;cursor:pointer;color:var(--text);min-height:44px;transition:opacity .15s,background .15s}
 .fx-lg i,.fx-it i{width:.7rem;height:.7rem;border-radius:50%;background:var(--c);flex:none}
 .fx-lg[aria-pressed=false]{opacity:.5;text-decoration:line-through}.fx-lg b{color:var(--muted);font-weight:700}
 .fx-side{display:grid;gap:.8rem;position:sticky;top:1rem}

@@ -10,9 +10,17 @@ V = f'{ND}/vis3'; os.makedirs(V, exist_ok=True)
 base = json.load(open(f'{ND}/ci/lines.json')); need = set()
 for i in IDS:
     sp = json.load(open(f'{ND}/lessons/{i}.json')); need |= {sp['hook']['line'], sp['recap']['line'], sp['end_line'], sp['recap'].get('line_alt'), sp.get('end_alt'), sp.get('share_line')} - {None} | {b['line'] for b in sp['beats']} | {x for v in base.get('reactions', {}).values() for x in v}   # listener reaction lines (news_tpl picks them)
+need |= {l['id'] for l in base['lines'] if l.get('pilot')}   # edit-style pilot lines (cine-render edit_pilot: solo host re-voices the other host's lines, '<id>_a')
 todo = [l for l in base['lines'] if l['id'] in need and not os.path.exists(f'{V}/{l["id"]}.wav')]
 print(f'{len(need)} lines needed, synthesising {len(todo)}')
+RH_VER = None
+def rh_version():
+    RH = os.environ.get('RHUBARB') or ''
+    if not (RH and os.access(RH, os.X_OK)): sys.exit('RHUBARB is not set / not executable – lip-sync needs real Rhubarb (no estimated visemes)')
+    return 'rhubarb-' + (re.findall(r'\d+\.\d+\.\d+', subprocess.run([RH, '--version'], capture_output=True, text=True).stdout) or ['?'])[0]
 def synth(todo, tag):
+    global RH_VER
+    RH_VER = RH_VER or rh_version()
     tmp = f'{ND}/tts_in_{tag}.json'; W = f'{ND}/tts_wav_{tag}'; json.dump(dict(voices=base['voices'], speed=base.get('speed', 0.92), lines=todo), open(tmp, 'w'))
     subprocess.run(['node', f'{ROOT}/scripts/cine/tts.mjs', tmp, W], check=True)
     for l in todo:
@@ -20,13 +28,14 @@ def synth(todo, tag):
         for rec in ([], ['-r', 'phonetic']):
             if subprocess.run([os.environ['RHUBARB'], '-q', *rec, '--extendedShapes', 'GHX', '-f', 'json', '-d', f'{W}/{l["id"]}.txt', '-o', j, w]).returncode == 0: break
         else: sys.exit(f'rhubarb failed: {l["id"]}')
+        cj = json.load(open(j)); cj['generator'] = RH_VER; json.dump(cj, open(j, 'w'))   # provenance: render_tpl.py / qc_tpl lipsync gate accept only Rhubarb cues
         shutil.copy(w, V)
 def span(i): c = [x for x in json.load(open(f'{V}/{i}.json'))['mouthCues'] if x['value'] != 'X']; return c[-1]['end'] - c[0]['start']
 if todo:
     synth(todo, 'a')
     # caption reading speed: news.py may slow a line by atempo >= 0.84x only; lines spoken too fast for <= 15 cps are re-synthesised slower (natural TTS pace, not stretched audio)
     redo = []
-    for l in todo:
+    for l in (todo if not os.environ.get('NV_KEEP_SPEED') else []):   # NV_KEEP_SPEED=1: keep the requested TTS speed (pilot v8 paces by pauses, not slower speech)
         nd = len(l['text']) / 14.0 - 0.2; sp = span(l['id'])
         if sp < 0.9 * nd: redo.append(dict(l, speed=round(max(0.7, (l.get('speed') or base.get('speed', 0.92)) * sp / (0.97 * nd)), 3)))
     if redo:

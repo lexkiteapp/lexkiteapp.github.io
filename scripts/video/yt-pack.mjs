@@ -14,6 +14,7 @@ import { driveApi, driveUpload } from './library.mjs';
 import { fetchFromDrive } from './drive-fetch.mjs';
 import { ytApi, metaFor } from './yt-upload.mjs';
 import { readJSON } from '../lib/video-web.mjs';
+import { pathToFileURL } from 'node:url';
 
 export const SETTINGS = [
   'YouTube Studio – upload settings (Lexkite manual upload)',
@@ -93,7 +94,7 @@ export function webPending(web = {}, videos = { items: [] }) {
 /** Store-only zip (mp4 is already compressed) – `zip` ships with ubuntu-latest. */
 export function zipDir(dir, out) { fs.rmSync(out, { force: true }); execFileSync('zip', ['-q', '-0', '-j', '-r', out, '.'], { cwd: dir }); }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const a = process.argv.slice(2), opt = n => { const i = a.indexOf('--' + n); return i >= 0 ? a[i + 1] : undefined; };
   if (a.includes('--sync')) { // youtube-manual.yml: read-only channel sync → newly live clips → video-web rebuilds web/data/videos.json
     const r = await ytApi('sync').catch(e => ({ error: e.code || e.message }));

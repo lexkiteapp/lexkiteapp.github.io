@@ -34,6 +34,12 @@
     "LocalNotifications": {
       "iconColor": "#E5502F"
     },
+    "CapacitorUpdater": {
+      "autoUpdate": false,
+      "appReadyTimeout": 15000,
+      "resetWhenUpdate": true,
+      "directUpdate": false
+    },
     "FirebaseAuthentication": {
       "skipNativeAuth": false,
       "providers": ["google.com", "apple.com"]

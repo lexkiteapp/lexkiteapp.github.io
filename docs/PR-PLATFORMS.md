@@ -1,5 +1,8 @@
 # Lexkite – Nền tảng PR & backlink miễn phí (rà soát 17/10/2026)
 
+> TL;DR: Nền tảng PR & backlink miễn phí: tiến độ đăng, thay đổi 2026, danh sách xếp hạng 32 mục, cảnh báo, lộ trình 4 tuần. Chỉ gói miễn phí; anh chủ tự đăng ký/đăng bài.
+> Đọc khi: làm PR/backlink.
+
 Bổ sung cho `docs/SEO-GROWTH-PLAN.md` (nội dung on-site) và `docs/SEO-PLAN.md` (kỹ thuật). Tài liệu này chỉ lo **liên kết & uy tín ngoài site**. Bộ chữ dán sẵn: `content/pr/kit.md`.
 **Anh tự đăng ký / đăng bài** – em không tạo tài khoản, không đăng nhập, không gửi gì.
 
@@ -26,6 +29,13 @@ Quy ước cột:
 | 8 | Medium | ✅ Đang hiển thị | 17/10/2026 | https://medium.com/@vintagezulilyjewelry/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-fe8adf6601d9 | article · @vintagezulilyjewelry | Import từ dev.to, canonical về dev.to. Tên hiển thị Lexkite + logo; 5 chủ đề. Medium hay chặn bot – có thể phải kiểm tay. |
 | 9 | Peerlist | ✅ Đang hiển thị | 17/10/2026 | https://peerlist.io/lexkite | profile · @lexkite | Hồ sơ dự án 100% (logo, ảnh bìa, mô tả, danh mục). Launchpad cần hồ sơ cá nhân tên thật. Trang có chống bot – thường phải kiểm tay. |
 | 10 | Hashnode | ✅ Đang hiển thị | 17/10/2026 | https://lexkite.hashnode.dev/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-files-in-the-browser | article · @lexkite | Blog "Lexkite Engineering" (lexkite.hashnode.dev), canonical về dev.to; thẻ JavaScript/Web Development/PWA. |
+| 11 | Zenodo | ✅ Đang hiển thị | 26/10/2026 | https://zenodo.org/records/23662627 | listing · @lexkiteapp | Dataset CC BY 4.0, DOI 10.5281/zenodo.23662627 (concept 10.5281/zenodo.23662626), archived from GitHub release v1.0.0. |
+| 12 | GitHub | ✅ Đang hiển thị | 26/10/2026 | https://github.com/lexkiteapp/confused-words-dataset | listing · @lexkiteapp | Public dataset repo (README + CSV/JSON + .zenodo.json); homepage = research page. |
+| 13 | Hugging Face | ✅ Đang hiển thị | 26/10/2026 | https://huggingface.co/datasets/mrquyenbkpro/confused-english-words | listing · @mrquyenbkpro | Dataset card + CSV/JSON, CC BY 4.0, DOI 10.5281/zenodo.23662626. |
+| 14 | Kaggle | ✅ Đang hiển thị | 26/10/2026 | https://www.kaggle.com/datasets/zulilyjewelryvintage/commonly-confused-english-words-lexkite | listing · @zulilyjewelryvintage | Public dataset, CC BY 4.0, description cites DOI + source page. |
+| 15 | Figshare | ✅ Đang hiển thị | 26/10/2026 | https://figshare.com/articles/dataset/Commonly_Confused_English_Words_an_open_dataset_Lexkite_/34789332 | listing | Dataset CC BY 4.0, DOI 10.6084/m9.figshare.34789332.v1; description links research page + Zenodo DOI. |
+| 16 | OER Commons | ⛔ Đã gỡ | 26/10/2026 | https://oercommons.org/courses/commonly-confused-english-words-open-dataset-and-free-classroom-widget | listing | Submitted from web (librarian review). CC BY, English Language Arts, HS/CC/Adult, Data Set. REJECTED 26/10 by OER Commons review (generic reasons: duplicate/out of scope/quality/copyright). Retry later via Open Author as an instructional worksheet (CC BY), not a link to the dataset page. |
+| 17 | OER Commons (Open Author) | ✅ Đang hiển thị | 26/10/2026 | https://oercommons.org/courseware/lesson/148864/overview | listing | CC BY worksheet (10 pairs + answer key) adapted from the dataset; source line links the Zenodo DOI. Published by owner after the form bug; anonymous curl gets 403 (bot protection or under review). APPROVED by OER Commons 27/10 (catalogued, shared site-wide). |
 <!-- pr-table:end -->
 
 Tiếp theo (miễn phí, chưa làm – chỉ trang ỔN ĐỊNH, mình làm chủ hồ sơ/bài): Peerlist, Indie Hackers (trang Product), Hashnode (blog riêng, canonical về dev.to), Medium (import, canonical), LinkedIn Company Page, Viblo (bài thuần kỹ thuật), Microsoft Edge Add-ons, Firefox Add-ons, Educational App Store, TinyLaunch, HackerNoon, GitHub (repo/README giới thiệu), Wellfound (hồ sơ công ty).

@@ -1,5 +1,8 @@
 # AUTOMATION – quy trình tự động A→Z (video học + phân phối) – chủ 22/10/2026
 
+> TL;DR: Quy trình tự động A→Z cho video học + phân phối trên GitHub Actions và Cloudflare ($0), mỗi bước có cổng QC; người chỉ duyệt ở 2 điểm. Có phần triển khai tin ngắn (news) 23/10.
+> Đọc khi: sửa đường ống tự động video/phân phối.
+
 Một đường ống, chạy trên GitHub Actions + Cloudflare (0 đồng), mỗi bước có cổng QC (`docs/VIDEO-QC.md`). Người chỉ chạm ở **2 điểm duyệt** (đánh dấu 👤).
 
 | # | Bước | Kích hoạt | Đầu ra | Cổng / chặn |

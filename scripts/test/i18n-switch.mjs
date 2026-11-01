@@ -22,7 +22,7 @@ const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8').replac
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 const rel = f => path.relative(process.cwd(), path.join(WEB, f));
-const EN = (() => { const c = { self: {} }; c.self = c; vm.createContext(c); vm.runInContext(fs.readFileSync(path.join(WEB, 'js/i18n/en.js'), 'utf8'), c); return c.I18N_DICT.en; })();
+const EN = (() => { const c = { self: {} }; c.self = c; vm.createContext(c); for (const f of ['js/i18n/en.js', 'js/i18n/en/lazyui.js']) vm.runInContext(fs.readFileSync(path.join(WEB, f), 'utf8'), c); return c.I18N_DICT.en; })(); // lazyui: khóa ra khỏi en.js 28/10, vẫn là khóa giao diện
 const VIK = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i; // khóa tiếng Việt (rộng hơn VI: VI chỉ gồm dấu không có trong es/fr/pt)
 const UI_KEYS = new Set(Object.keys(EN).filter(k => VIK.test(k) && !/\{\w+\}/.test(k)));
 const UI_TPL = Object.keys(EN).filter(k => VIK.test(k.replace(/\{\w+\}/g, '')) && k.replace(/\{\w+\}/g, '').trim().length >= 6 && /\{\w+\}/.test(k) && !/[<>]/.test(k))
@@ -101,7 +101,7 @@ if (args.includes('--scan')) {
   // Phiên tiếng Việt: dùng app (onboarding, XP, lỗi sai, ngữ cảnh từ) rồi bấm đổi ngôn ngữ trong hộp 🌐
   const vi = await boot({ 'vb.uiLang': 'vi', 'vb.geo': '-' }, 'modules');
   { const { w } = vi;
-    w.location.hash = '#/welcome/setup'; await tick(120); const go = w.document.querySelector('#go'); if (go) go.click(); await tick(800);
+    w.location.hash = '#/welcome/setup'; await tick(120); const q = s => w.document.querySelector(s); for (let i = 0; i < 60 && !q('#go'); i++) { if (q('#obNext')) q('#obNext').click(); await tick(100); } const go = w.document.querySelector('#go'); if (go) go.click(); await tick(800);
     await w.Game.track({ xp: 30, reviews: 1 }, { cards: 1, mastered: 0, streak: 1 });
     const tk = w.I18N.tk || ((k, v) => w.t(k, v)); // mã cũ (trước I18N.tk) lưu chữ đã dịch
     await w.App.logMistake({ kind: 'reading', q: tk('{title} – câu {n}: {q}', { title: 'Passage 1', n: 3, q: 'What is the main idea?' }), answer: 'B', given: tk('(bỏ trống)') });
@@ -116,8 +116,11 @@ if (args.includes('--scan')) {
   for (const [lang, dictAt] of plan) {
     // Bấm chọn ngôn ngữ như người dùng → I18N.set lưu lựa chọn rồi tải lại trang (jsdom: không tải lại → mở trang mới với cùng localStorage)
     const { w: wv } = await boot(before, 'modules');
-    wv.document.querySelector('#langBtn').click(); await tick(60);
-    const pick = wv.document.querySelector(`[data-lang-pick] [data-v="${lang}"]`); if (pick) pick.click();
+    // Nút ngôn ngữ ở thanh trên đã chuyển vào Cài đặt (trang chủ gọn) → chọn trong #/settings như người dùng
+    wv.location.hash = '#/settings'; for (let i = 0; i < 60 && !wv.document.querySelector('#view [data-lang-select], #view [data-lang-pick]'); i++) await tick(50);
+    const sel = wv.document.querySelector('#view [data-lang-select]');
+    if (sel) { sel.value = lang; sel.dispatchEvent(new wv.Event('change', { bubbles: true })); }
+    else { const pick = wv.document.querySelector(`#view [data-lang-pick] [data-v="${lang}"]`); if (pick) pick.click(); }
     if (wv.localStorage.getItem('vb.uiLang') !== lang) { console.log(`✗ ${lang}: bấm chọn ngôn ngữ không lưu vb.uiLang`); total++; continue; }
     const { w, errors } = await boot(dump(wv), dictAt);
     const leaks = new Map(), VI = /fr|pt/.test(lang) ? VI0 : VIS;

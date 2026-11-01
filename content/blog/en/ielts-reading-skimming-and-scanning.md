@@ -126,7 +126,7 @@ You can also explore full-length practice tests and model essays in our [sample 
 
 ### Should I read the questions first or the whole passage first?
 
-The most effective technique is a brief hybrid approach. Spend 60 to 90 seconds skimming the title, subheadings, and first sentences of the passage to construct a structural overview. Then read the first cluster of questions (such as questions 1–5) and highlight unchangeable keywords. With those target words in mind, scan the passage to locate the answers. Reading the entire passage thoroughly before looking at questions wastes valuable minutes, while jumping straight to questions without knowing the passage topic leads to blind searching.
+The most effective technique is a brief hybrid approach. Spend 60 to 90 seconds skimming the title, subheadings, and first sentences of the passage to construct a structural overview. Then read the first cluster of questions (such as questions 1–5) and highlight unchangeable keywords. With those target words in mind, scan the passage to locate the answers. Reading the entire passage thoroughly before looking at questions wastes valuable minutes, while jumping straight to questions without knowing the passage topic leads to blind searching. For the one task that needs main ideas rather than keywords, see [matching headings](/en/blog/ielts-reading-matching-headings/).
 
 ### How do I stop sub-vocalizing (pronouncing words in my head) while skimming?
 

@@ -7,16 +7,19 @@ on:
     inputs:
       limit: { description: 'Tối đa số file mỗi lượt', default: '100000' }
       dry_run: { description: 'Chỉ đếm, không tải', type: boolean, default: false }
+      budget_min: { description: 'Ngân sách phút việc mỗi lượt (kể từ đầu job)', default: '40' }
       rehash: { description: 'Băm lại cả file đã có trong manifest', type: boolean, default: false }
   schedule:
-    - cron: '45 1 * * *'
+    - cron: '45 1,2,6,14,15,16,17,18,20,21,22 * * *'
 concurrency: { group: footage-archive, cancel-in-progress: false }
 permissions: { contents: write }
 jobs:
   archive:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 60
     steps:
+      - name: Mốc giờ bắt đầu
+        run: echo "T0=$(date +%s)" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
@@ -38,15 +41,16 @@ jobs:
       - name: Tải lên Kho Drive (2 bản / 2 Drive)
         if: ${{ steps.lease.outputs.skip != '1' }}
         id: up
+        timeout-minutes: 52
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
-        run: node scripts/footage/archive.mjs --root /tmp/footage --manifest "$GITHUB_WORKSPACE/brand/library/cine/archive-manifest.json" --limit "${{ github.event.inputs.limit || '100000' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} ${{ github.event.inputs.rehash == 'true' && '--rehash' || '' }}
+        run: node scripts/footage/archive.mjs --root /tmp/footage --manifest "$GITHUB_WORKSPACE/brand/library/cine/archive-manifest.json" --deadline-epoch "$((T0 + ${{ github.event.inputs.budget_min || '40' }} * 60))" --limit "${{ github.event.inputs.limit || '100000' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} ${{ github.event.inputs.rehash == 'true' && '--rehash' || '' }}
       - name: Ghi manifest vào main
         if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}
         run: |
           git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
           git add brand/library/cine/archive-manifest.json
           git diff --cached --quiet && { echo "manifest không đổi"; exit 0; }
-          git commit -qm "footage-archive #${{ github.run_number }}: manifest Kho Drive"
+          git commit -qm "footage-archive #${{ github.run_number }}: manifest Kho Drive [CF-Pages-Skip]"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
       - name: Giữ manifest làm artifact (dự phòng nếu đẩy main lỗi)
         if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}

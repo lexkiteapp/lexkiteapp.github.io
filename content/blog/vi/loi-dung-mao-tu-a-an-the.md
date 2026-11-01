@@ -28,9 +28,9 @@ quiz: [
   },
   {
     q: "Điền mạo từ vào chỗ trống: 'She is studying at _____ university, and she plays _____ piano very well.'",
-    options: ["an / the", "a / the", "a / Ø", "an / Ø"],
+    options: ["an / the", "a / the", "an / a", "a / a"],
     answer: 1,
-    explain: "'University' phát âm bắt đầu bằng bán phụ âm /j/ nên dùng 'a'. Với nhạc cụ khi nói về việc chơi đàn/kèn, tiếng Anh dùng 'the' (play the piano)."
+    explain: "'University' phát âm bắt đầu bằng bán phụ âm /j/ nên dùng 'a'. Với nhạc cụ khi nói về việc chơi đàn/kèn, tiếng Anh dùng 'the' (play the piano); 'a piano' là một cây đàn cụ thể (buy a piano). Tiếng Anh Mỹ thân mật đôi khi nói 'play piano', nhưng bài thi chấm theo 'play the piano'."
   }
 ]
 ---

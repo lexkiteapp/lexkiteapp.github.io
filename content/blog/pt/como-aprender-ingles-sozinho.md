@@ -175,6 +175,8 @@ Se a maior parte for verdade, você está por volta do A2 e pronto para a próxi
 
 {{youtube: | Ideia de vídeo: uma sessão de 45 minutos para quem estuda inglês sozinho, seguindo a rotina deste guia}}
 
+Para medir seu progresso estudando sozinho, use como referência os [níveis de inglês do CEFR](/pt/blog/niveis-de-ingles-cefr/).
+
 {{cta: /#/placement | Faça o teste de nivelamento grátis}}
 
 ## Teste rápido

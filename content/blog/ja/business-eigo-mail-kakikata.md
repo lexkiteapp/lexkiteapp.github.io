@@ -33,7 +33,7 @@ qualityScore: 94
 
 英語圏のビジネスコミュニケーションにおける最大の美徳は「簡潔さ（Conciseness）」と「明瞭さ（Clarity）」です。日本語のビジネスレターのように時候の挨拶や長い前置きを入れる必要はありません。相手の貴重な時間を尊重するためにも、書き出しの直後に「なぜこのメールを書いているのか（Purpose）」を端的に提示するのが国際標準です。
 
-また、文章の正確性を高めるには、正しい文法構造の理解が土台になります。特に時制の選択を誤ると、過去のことなのか現在進行中の案件なのかが曖昧になり、重大な業務上の行き違いを生みかねません。時制の明確な区別については[現在完了形と過去形の違いの解説](/ja/blog/genzai-kanryou-kakokei-chigai/)で詳しく復習しておくことを推奨します。
+メールの前後に電話で確認を入れる場面も多いので、[ビジネス英語の電話フレーズ](/ja/blog/business-eigo-denwa-phrases/)もあわせて押さえておくと安心です。また、文章の正確性を高めるには、正しい文法構造の理解が土台になります。特に時制の選択を誤ると、過去のことなのか現在進行中の案件なのかが曖昧になり、重大な業務上の行き違いを生みかねません。時制の明確な区別については[現在完了形と過去形の違いの解説](/ja/blog/genzai-kanryou-kakokei-chigai/)で詳しく復習しておくことを推奨します。
 
 ## ビジネス英語 メール 書き方：ステップ別の定番フレーズ
 
@@ -144,6 +144,8 @@ Kenji
 
 フォーマルな英文の論理構成は、[模範解答集](/samples/)のエッセイ例も参考になります。また、資格試験やアカデミックな場での長文対策については[英検準1級対策完全ガイド](/ja/blog/eiken-jun-1-kyu-taisaku/)や[TOEIC勉強法のコツ](/ja/blog/toeic-benkyouhou/)も合わせてご覧ください。
 
+The invoice has been sent. のような受動態を使うと、メールの表現がやわらかくなります。詳しくは[英語の受動態](/ja/blog/eigo-judoutai/)をご覧ください。試験でメールを書く場合の型は、[TOEIC ライティング Eメール問題の書き方](/ja/blog/toeic-writing-email-kakikata/)で解説しています。
+
 {{cta: /#/write | Lexkiteで英語ライティングの基礎と表現を練習する}}
 
 ## 日本人が陥りやすいメール表現のNGパターン
@@ -151,7 +153,7 @@ Kenji
 日本語の直訳や、日常会話の癖がそのままメールに出てしまうと、意図せず相手にぶっきらぼうな印象を与えたり、失礼になってしまうことがあります。以下の4つの典型的なミスには特に注意しましょう。
 
 1. **`Please` の乱用：** `Please do this immediately.` は丁寧な頼み方ではなく、「これらを直ちにやってください」という強い指示命令になります。業務を依頼する際は `Could you please...` や `Would you be able to...` を優先しましょう。
-2. **スラングや略語の多用：** 社内のチャットツール（SlackやTeams）と異なり、公式なメールでは `ASAP`（As Soon As Possible）や `FYI`（For Your Information）の使い所に配慮が必要です。特に社外や顧客向けには `at your earliest convenience` や `for your reference` とフルスペルで書くのが礼儀です。
+2. **スラングや略語の多用：** 社内のチャットツール（SlackやTeams）と異なり、公式なメールでは `ASAP`（As Soon As Possible）や `FYI`（For Your Information）の使い所に配慮が必要です。特に社外や顧客向けには `at your earliest convenience` や `for your reference` とフルスペルで書くのが礼儀です。チャットでの略語の使い分けは[英語チャットのビジネス表現](/ja/blog/eigo-chat-business-hyougen/)で詳しく紹介しています。
 3. **`I want...` で要望を述べる：** `I want you to send the file.` は子供っぽいワガママな響きを与えます。ビジネスでは `We would like to request...` または `It would be helpful if you could...` に置き換えます。
 4. **感情的な表現をそのまま書く：** 納期遅延などのトラブル時でも、相手を感情的に責める表現は避け、事実関係（*According to our agreement...*）と解決策（*Could you please provide an updated timeline?*）にフォーカスして客観的に記述します。
 

@@ -14,7 +14,7 @@ Untuk kamu yang belajar mandiri dan butuh rencana yang jelas, kamu yang sibuk da
 1. **Maksud pencarian:** apa yang benar-benar ditanyakan pelajar, dan jawaban seperti apa yang membuat mereka berkembang.
 2. **Kerangka:** pertanyaan dijawab langsung di awal, lalu dibahas lebih dalam.
 3. **Draf:** tulisan 100% orisinal; semua contoh kalimat bahasa Inggris kami buat sendiri.
-4. **Cek fakta:** format tes, skala skor, dan durasi dicocokkan dengan penyelenggara resmi ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Kalau kami tidak yakin, informasi itu tidak kami tulis.
+4. **Cek fakta:** format tes, skala skor, dan durasi dicocokkan dengan penyelenggara resmi ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Kalau kami tidak yakin, informasi itu tidak kami tulis.
 5. **Cek duplikasi:** tidak menyalin dari halaman lain, termasuk dari artikel kami sendiri.
 6. **Tinjauan kualitas:** setiap artikel dinilai dengan rubrik editorial 100 poin dan baru diterbitkan jika skornya minimal 90.
 

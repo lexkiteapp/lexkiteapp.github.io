@@ -1,4 +1,7 @@
 # Báo lỗi người dùng (⚑ Report a problem)
+
+> TL;DR: Báo lỗi người dùng (Report a problem): mã LX-xxxx, link #/report/<mã>, AI phân loại nền, ưu tiên và Claude Code xử lý. Chống lạm dụng; không sửa app.js.
+> Đọc khi: sửa luồng báo lỗi.
 Người dùng báo lỗi → mã LX-xxxx + link riêng `#/report/<mã>` → AI phân loại → quản trị/Claude Code xử lý → báo người dùng.
 
 ## Thành phần

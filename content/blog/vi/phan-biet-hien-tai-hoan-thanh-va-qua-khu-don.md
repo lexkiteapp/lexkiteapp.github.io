@@ -142,7 +142,7 @@ Khi không chắc, đi lần lượt qua các câu hỏi sau:
 4. Bạn đang nói về trải nghiệm "trong đời đến giờ", số lần tính tới hiện tại, hoặc kết quả đang thấy được? → **Hiện tại hoàn thành.**
 5. Bạn đang kể chuyện theo trình tự (rồi… sau đó…)? → **Quá khứ đơn** cho chuỗi hành động.
 
-Bước 5 quan trọng hơn người học nghĩ. Kể chuyện là địa hạt của quá khứ đơn; một chuỗi *I've woken up, I've had breakfast, I've gone to work* nghe rất lạ.
+Bước 5 quan trọng hơn người học nghĩ. Kể chuyện là địa hạt của quá khứ đơn; một chuỗi *I've woken up, I've had breakfast, I've gone to work* nghe rất lạ. Khi kể lại lời người khác bằng *said*, cả hai thì này thường lùi về quá khứ hoàn thành – xem bài [câu tường thuật](/vi/blog/cau-tuong-thuat/).
 
 ## Ứng dụng khi làm bài IELTS và TOEIC
 

@@ -25,7 +25,7 @@ Sebelum masuk ke langkah-langkahnya, lihat dulu tiga penyebab paling umum kenapa
 - **Menghafal kata tanpa pasangannya.** Kamu tahu *impact* artinya "dampak", tapi tidak tahu bentuk *have an impact on*, sehingga saat menulis muncul *give impact to* atau *make impact*.
 - **Tidak ada jadwal mengulang.** Otak kita melupakan informasi baru paling cepat dalam beberapa hari pertama. Kalau tidak diulang pada waktunya, usaha menghafal tadi banyak yang terbuang.
 
-Tiga masalah ini sekaligus menunjukkan solusinya: pilih kata yang sesuai level, pelajari dalam frasa dan konteks, lalu ulangi secara terjadwal. Tujuh langkah di bawah hanyalah cara mengubah tiga prinsip itu menjadi kebiasaan harian.
+Tiga masalah ini sekaligus menunjukkan solusinya: pilih kata yang sesuai level, pelajari dalam frasa dan konteks, lalu ulangi secara terjadwal. Tujuh langkah di bawah hanyalah cara mengubah tiga prinsip itu menjadi kebiasaan harian. Untuk Speaking, mulailah dari [phrasal verb yang sering digunakan](/id/blog/phrasal-verb-yang-sering-digunakan/) agar jawabanmu terdengar alami.
 
 ## Apa yang dinilai dari kosakata di IELTS
 
@@ -121,6 +121,8 @@ Tujuh langkah di atas bisa dikerjakan dengan kertas dan pulpen, tetapi memilih k
 3. **Ulangi sesuai jadwal otomatis.** Di bagian [review flashcard](/#/review), aplikasi memakai algoritma FSRS untuk menentukan kartu mana yang perlu diulang hari ini. Kamu tinggal mencoba mengingat dulu, membalik kartu, lalu menilai seberapa baik ingatanmu.
 
 ![Sesi review flashcard di Lexkite dengan kata “pollution”, transkripsi fonetik, dan tombol “Flip”](media:review "Mengulang kosakata IELTS dengan flashcard yang dijadwalkan otomatis oleh FSRS")
+
+Collocation dasar seperti *make a mistake* dan *do homework* sering salah dipakai; pelajari [perbedaan make dan do](/id/blog/perbedaan-make-dan-do/).
 
 {{cta: /#/library | Pilih set kata pertamamu dan pelajari 10 kata hari ini}}
 

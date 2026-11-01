@@ -19,30 +19,10 @@
     try { Object.defineProperty(navigator, 'vibrate', { configurable: true, value: p => { const ms = Array.isArray(p) ? p[0] : p; P.Haptics.vibrate({ duration: Math.max(10, ms || 15) }).catch(() => {}); return true; } }); } catch (e) { /* bỏ qua */ }
   }
 
-  // Nhắc học hằng ngày theo giờ người học chọn trong Cài đặt (mặc định 20:00)
-  // opts.ask: chỉ xin quyền thông báo khi người dùng chủ động (lưu cài đặt/thiết lập) – KHÔNG hỏi ngay lúc mở app (trải nghiệm & yêu cầu App Store)
-  async function scheduleReminder(opts = {}) {
-    const LN = P.LocalNotifications; if (!LN || !g.Core) return;
-    try {
-      const s = await g.Core.Store.get('settings', {});
-      await LN.cancel({ notifications: [{ id: 1 }] }).catch(() => {});
-      if (s.reminderOn === false) return;
-      const perm = await LN.checkPermissions();
-      if (perm.display !== 'granted') { if (!opts.ask) return; const r = await LN.requestPermissions(); if (r.display !== 'granted') return; }
-      const [hh, mm] = String(s.reminderTime || '20:00').split(':').map(Number);
-      const tt = (k, en) => (typeof g.t === 'function' ? g.t(k) : en); // đúng ngôn ngữ giao diện (15 ngôn ngữ)
-      await LN.schedule({ notifications: [{
-        id: 1,
-        ...(g.App && g.App.kitNudge ? g.App.kitNudge() : { title: tt('Lexkite – đến giờ học rồi!', 'Lexkite – time to study!') + ' 📚', body: tt('Học vài từ mới để giữ chuỗi ngày học nhé', 'Review a few cards to keep your streak') + ' 🔥' }),
-        schedule: { on: { hour: hh || 20, minute: mm || 0 }, repeats: true, allowWhileIdle: true },
-        // Android 12+: báo thức chính xác cần quyền đặc biệt → plugin mở màn Cài đặt mỗi lần lên lịch. Nhắc học không cần chính xác đến giây.
-        isExactNotification: false,
-        extra: { route: '#/review' },
-      }] });
-    } catch (e) { /* thiết bị không hỗ trợ */ }
-  }
+  // Nhắc học: lập lịch 7+ ngày cục bộ ở js/remind.js (tải lười, docs/REMINDERS.md). opts.ask: chỉ xin quyền khi người dùng chủ động
+  const scheduleReminder = (opts = {}) => P.LocalNotifications && g.App && g.App.need ? g.App.need('remind').then(() => g.Remind.native(P.LocalNotifications, opts)).catch(() => {}) : 0;
   // Bấm thông báo → mở thẳng trang ôn tập
-  if (P.LocalNotifications) P.LocalNotifications.addListener('localNotificationActionPerformed', a => { const r = a && a.notification && a.notification.extra && a.notification.extra.route; if (r) location.hash = r; });
+  if (P.LocalNotifications) P.LocalNotifications.addListener('localNotificationActionPerformed', a => { const x = (a && a.notification && a.notification.extra) || {}; if (x.tpl) try { localStorage.setItem('lk.remo', JSON.stringify(x.tpl)); } catch (e) { /* bỏ qua */ } if (x.route) location.hash = x.route; });
   // Nút Back của Android: đóng hộp thoại/ô tra từ trước, rồi lùi trang; ở trang chủ thì thu nhỏ app (không thoát mất trạng thái)
   if (P.App) P.App.addListener('backButton', ({ canGoBack }) => {
     const m = document.getElementById('modal');
@@ -84,7 +64,8 @@
     const soon = rev.filter(c => c.srs.due > end && c.srs.due <= end + 7 * C.DAY).sort((a, b) => a.srs.due - b.srs.due);
     const pick = [...due, ...fresh.slice(0, Math.max(total - due.length, 0)), ...soon].slice(0, 20); // từ đến hạn hôm nay trước, rồi từ sắp đến hạn
     const words = pick.map(c => ({ w: c.word, ipa: ((state.settings || {}).accent === 'en-US' ? c.ipaUS || c.ipa : c.ipa || c.ipaUS) || '', m: gloss(c), lv: String(c.level || '').toUpperCase().slice(0, 2), due: (c.srs.reps > 0 || c.srs.last) ? (c.srs.due || 0) : 0 }));
-    return { v: 2, at: Date.now(), due: total, days, newDay, streak: streakN || 0, lang: g.I18N ? g.I18N.lang() : 'vi', rtl: !!(g.I18N && g.I18N.rtl), words,
+    return { v: 2, at: Date.now(), due: total, days, newDay, streak: streakN || 0, ...(g.Ret && g.Ret.widget ? { tch: g.Ret.widget(state) } : {}), // tch: giáo viên phản ứng theo chuỗi (lớp giữ thói quen, cờ ret)
+      lang: g.I18N ? g.I18N.lang() : 'vi', rtl: !!(g.I18N && g.I18N.rtl), words,
       l: { title: tt('Thẻ đến hạn hôm nay'), streak: tt('Chuỗi ngày'), review: tt('Ôn ngay'), done: tt('Hôm nay bạn đã ôn hết!'), none: tt('Không còn thẻ đến hạn'), n: tt('{n} thẻ ôn lại') } };
   }
   function widgetFlush() {
@@ -126,5 +107,8 @@
   };
   g.VBNative.scheduleReminder = scheduleReminder;
   g.VBNative.openDeep = openDeep; // kiểm thử E2E (simctl openurl bị hộp "Mở bằng Lexkite?" của hệ thống chặn)
+  // OTA + nhắc cập nhật app (js/ota.js, docs/OTA.md): báo bản web chạy được NGAY (không báo → plugin tự quay về bản trước); phần còn lại nạp lười
+  if (P.CapacitorUpdater) P.CapacitorUpdater.notifyAppReady().catch(() => {});
+  if (P.CapacitorUpdater || P.AppUpdate) window.addEventListener('load', () => setTimeout(() => g.App && g.App.need('ota').then(() => g.VBOta.start()).catch(() => {}), 8000));
   window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));
 })(typeof self !== 'undefined' ? self : this);

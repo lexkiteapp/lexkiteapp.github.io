@@ -181,6 +181,28 @@ export function makeFetcher({ fetch: f = globalThis.fetch, sleep = ms => new Pro
 }
 
 /** Kiểm 1 mục (live/pending có URL). get = makeFetcher(); gh = header GitHub API (token tùy chọn). */
+/** URL bài Figshare → id (…/articles/<loại>/<tên>/<id>[/<phiên bản>]) */
+export const figshareId = url => { const m = String(url || '').match(/^https:\/\/(?:[\w-]+\.)?figshare\.com\/articles\/(?:[\w-]+\/)*?(\d{5,})(?:\/\d+)?\/?(?:[?#].*)?$/); return m ? +m[1] : null; };
+/** Figshare: trang HTML dựng bằng JS + chặn bot (curl nhận 202/rỗng; CI nhận 200 không có mô tả → báo nhầm link-gone 27/10) → đọc API công khai chính thức.
+ *  api = { status, body } của https://api.figshare.com/v2/articles/<id>; link lấy từ mô tả (HTML) + references. Bài private/bị gỡ → API 404. */
+export function evaluateFigshare(p, api) {
+  const out = { http: api ? api.status : 0, final: p.url, redirected: false };
+  if (!api || api.error) return { ...out, state: 'error', note: String((api && api.error) || 'api').slice(0, 160) };
+  if (api.status === 403 || api.status === 429) return { ...out, state: 'blocked', title: '' };
+  if (api.status === 404 || api.status === 410) return { ...out, state: 'removed' };
+  if (api.status !== 200) return { ...out, state: 'error', note: 'HTTP ' + api.status };
+  let j = null; try { j = JSON.parse(api.body || 'null'); } catch { j = null; }
+  if (!j || !j.id) return { ...out, state: 'error', note: 'api-json' };
+  const want = p.expectLink || 'lexkite.com', refs = (j.references || []).map(u => `<a href="${String(u).replace(/"/g, '&quot;')}">`).join('');
+  const links = targetLinks(String(j.description || '') + refs, want, j.url_public_html || p.url);
+  // URL dạng chữ trong mô tả (Figshare tự gắn link khi hiển thị): vẫn là link sống. rel không đọc được (HTML chặn máy) → null = chưa rõ.
+  // 01/11: mô tả chỉ có "Latest version: https://lexkite.com/en/research/confused-words/ ." → báo nhầm link-gone (regression) trên bảng admin.
+  const plain = [...strip(String(j.description || '')).replace(/<[^>]*>/g, ' ').matchAll(/https?:\/\/[^\s<>"'()]+/gi)].map(m => m[0].replace(/[.,;:!?]+$/, ''))
+    .filter(h => { try { return hostIs(new URL(h).hostname, want); } catch { return false; } }).filter(h => !links.some(l => l.href === new URL(h).href));
+  const all = links.map(l => l.href).concat(plain.map(h => new URL(h).href)), n = all.length;
+  return { ...out, title: String(j.title || '').slice(0, 200), state: n ? 'ok' : 'link-missing', link: n > 0, rel: links.length ? relSummary(links) : null, noindex: null, links: all.slice(0, 5), via: 'api' };
+}
+
 export async function checkPlacement(p, get, { ghHeaders = {} } = {}) {
   if (!p.url || !/^https:\/\//.test(p.url)) return { state: 'skipped', http: 0, final: '' };
   const pr = githubPr(p.url);
@@ -194,6 +216,8 @@ export async function checkPlacement(p, get, { ghHeaders = {} } = {}) {
     }
     return evaluatePr(p, { status: api.status, json }, readme);
   }
+  const fs = figshareId(p.url);
+  if (fs) return evaluateFigshare(p, await get(`https://api.figshare.com/v2/articles/${fs}`, { accept: 'application/json' }));
   return evaluatePage(p, await get(p.url));
 }
 

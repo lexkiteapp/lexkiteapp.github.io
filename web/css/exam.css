@@ -1,0 +1,22 @@
+/* CSS thi thử/bài đọc (.tx-*, .mk-qmap, thanh chia .cbt-split/.ck-split) – tải lười cùng gói mock/toeic/toefl (BUNDLES trong web/js/app.js), không nằm trong khung app ≤ 377 KB gz */
+.tx-table { width: 100%; border-collapse: collapse; margin: .8rem 0; font-size: .92rem; }
+.tx-table th, .tx-table td { text-align: start; padding: .45rem .5rem; border-bottom: 1px solid var(--line); } .tx-table th { font-size: .75rem; text-transform: uppercase; color: var(--muted); letter-spacing: .05em; }
+.tx-check { background: var(--surface-2, color-mix(in srgb, var(--primary) 6%, transparent)); border-radius: 14px; padding: .8rem 1rem; } .tx-check ul { margin: .4rem 0 .6rem 1.1rem; padding: 0; line-height: 1.7; }
+.tx-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 1rem; margin-top: 1rem; align-items: start; }
+.tx-nav { position: sticky; top: 70px; padding: .8rem; }
+.tx-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .3rem; margin-top: .5rem; }
+.tx-grid button { padding: .35rem 0; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: .8rem; cursor: pointer; }
+.tx-grid button.on { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); }
+.tx-flash { animation: txFlash 1.2s; } @keyframes txFlash { 0%, 60% { box-shadow: 0 0 0 3px var(--primary); border-radius: 10px; } }
+.tx-pbar { display: grid; grid-template-columns: 130px 1fr 52px; gap: .6rem; align-items: center; margin-top: .5rem; font-size: .88rem; } .tx-pbar b { text-align: right; }
+.tx-rev { padding: .6rem 0; border-bottom: 1px dashed var(--line); line-height: 1.55; }
+@media (max-width: 900px) { .tx-wrap { grid-template-columns: 1fr; } .tx-nav { position: static; order: -1; } .tx-grid { grid-template-columns: repeat(10, 1fr); } }
+.mk-qmap { display: flex; flex-wrap: wrap; gap: .2rem; flex: 1; justify-content: center; margin: 0 .6rem; }
+.mk-qmap button { width: 28px; height: 26px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: .72rem; cursor: pointer; padding: 0; }
+.mk-qmap button.on { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); }
+@media (max-width: 700px) { .mk-qmap { order: 3; flex-basis: 100%; margin: .4rem 0 0; } }
+.cbt-split, .ck-split { width: 10px; background: var(--line); cursor: col-resize; position: relative; user-select: none; transition: background .15s ease, box-shadow .15s ease; z-index: 10; flex-shrink: 0; }
+.cbt-split:hover, .cbt-split.drag, .ck-split:hover, .ck-split.drag { background: var(--primary); box-shadow: 0 0 10px rgba(204, 63, 28, .35); }
+.cbt-split::after, .ck-split::after { content: ""; position: absolute; top: 50%; left: calc(50% - 2px); transform: translate(-50%, -50%); width: 2px; height: 26px; border-radius: 1px; background: currentColor; color: rgba(0, 0, 0, .28); box-shadow: 4px 0 0 currentColor; }
+@media (prefers-color-scheme: dark) { .cbt-split::after, .ck-split::after { color: rgba(255, 255, 255, .38); } }
+

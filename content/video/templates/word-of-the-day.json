@@ -9,7 +9,7 @@
  "topicHint": "\"Word of the day for the office: …\" → office-english · \"Vocabulary: word of the day …\" → study-grammar (library/classroom)",
  "roles": { "opener": "người dùng từ tự nhiên ở câu đầu (Diane ở office) hoặc người học sốc (Ama)", "learner": "người hỏi + hiểu ra + CTA", "modeler": "người nói câu ví dụ thứ hai", "kit": "Kit – mẹo nhớ (gốc từ, hình ảnh)" },
  "scenes": {
-  "office": { "roles": { "opener": ["diane"], "learner": ["mia"], "modeler": ["diane"] } },
+  "office": { "roles": { "opener": ["carlos"], "learner": ["ama"], "modeler": ["carlos"] } },
   "library": { "roles": { "opener": ["ama"], "learner": ["ama"], "modeler": ["ama"] } },
   "classroom": { "roles": { "opener": ["ama"], "learner": ["ama"], "modeler": ["ama"] } }
  },

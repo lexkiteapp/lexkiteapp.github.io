@@ -62,7 +62,7 @@ In dieser systematischen phonetischen Übersicht lernen Sie die vier Kernregeln 
 
 ## 1. connected speech englisch regeln: Die Mechanismen gesprochener Sprache
 
-Im natürlichen Redefluss sprechen Muttersprachler Wörter niemals als isolierte Inseln aus. Der menschliche Sprechapparat wählt stets den Weg des geringsten muskulären Widerstands (*Principle of Least Effort*). 
+Im natürlichen Redefluss sprechen Muttersprachler Wörter niemals als isolierte Inseln aus. Der menschliche Sprechapparat wählt stets den Weg des geringsten muskulären Widerstands (*Principle of Least Effort*). Wie die Endung -ed dabei mit dem nächsten Wort verschmilzt, erklärt der Artikel zur [ed Aussprache im Englischen](/de/blog/ed-aussprache-englisch/).
 
 Daraus resultieren vier fundamentale phonetische Phänomene:
 1. **Lautverbindung (Linking)**: Wörter gleiten nahtlos ineinander über.

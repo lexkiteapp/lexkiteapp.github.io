@@ -1,0 +1,133 @@
+{
+ "at": "2026-10-26",
+ "words_now": 8177,
+ "target": 20000,
+ "add": 11823,
+ "pages_files": {
+  "lex_now": 1360,
+  "lex_at_target": 4301,
+  "dist_now": null,
+  "dist_at_target": null,
+  "gate": 18000
+ },
+ "lookup_br_bytes": {
+  "core_median": 2800,
+  "lang_median": 1300,
+  "warm_total": 4100,
+  "budget": 5120,
+  "note": "cùng kích thước mảnh (9 KB thô) – thêm mảnh, không phình mảnh"
+ },
+ "repo_mb": {
+  "source_expand": 12.4,
+  "source_expand_git": 4.1,
+  "main_repo_now": 916,
+  "soft": 1000
+ },
+ "web_js_bytes": 0,
+ "media_mb": {
+  "audio_new": 143,
+  "audio_files": 23646,
+  "images_new": 21,
+  "media_repo_now": 677,
+  "soft": 1000
+ },
+ "repos": [
+  {
+   "id": "main",
+   "repo": "lexkiteapp/lexkiteapp.github.io",
+   "state": "open",
+   "kinds": [
+    "code"
+   ],
+   "tree_mb": 234.3,
+   "files": 4948,
+   "api_mb": 916,
+   "soft_mb": 1000,
+   "soft_files": null,
+   "size_mb": 916,
+   "at_target_mb": 920,
+   "at_target_files": 4948,
+   "pct": 92,
+   "pct_target": 92
+  },
+  {
+   "id": "m1",
+   "repo": "lexkiteapp/lexkite-media",
+   "state": "full",
+   "kinds": [
+    "img",
+    "library",
+    "cine"
+   ],
+   "tree_mb": 677.2,
+   "files": 4080,
+   "api_mb": 677,
+   "soft_mb": 1000,
+   "soft_files": 60000,
+   "size_mb": 677.2,
+   "at_target_mb": 677,
+   "at_target_files": 4080,
+   "pct": 68,
+   "pct_target": 68
+  },
+  {
+   "id": "m2",
+   "repo": "lexkiteapp/lexkite-media-2",
+   "state": "open",
+   "kinds": [
+    "audio"
+   ],
+   "tree_mb": 557.9,
+   "files": 42557,
+   "api_mb": 513,
+   "soft_mb": 1000,
+   "soft_files": 60000,
+   "size_mb": 557.9,
+   "at_target_mb": 701,
+   "at_target_files": 66203,
+   "pct": 56,
+   "pct_target": 70
+  },
+  {
+   "id": "m3",
+   "repo": "lexkiteapp/lexkite-media-3",
+   "state": "planned",
+   "kinds": [
+    "audio"
+   ],
+   "tree_mb": null,
+   "files": null,
+   "api_mb": null,
+   "soft_mb": 1000,
+   "soft_files": 60000,
+   "size_mb": 0,
+   "at_target_mb": 0,
+   "at_target_files": null,
+   "pct": 0,
+   "pct_target": 0
+  },
+  {
+   "id": "m4",
+   "repo": "lexkiteapp/lexkite-media-4",
+   "state": "open",
+   "kinds": [
+    "img"
+   ],
+   "tree_mb": 13.9,
+   "files": 3830,
+   "api_mb": 13,
+   "soft_mb": 1000,
+   "soft_files": 60000,
+   "size_mb": 13.9,
+   "at_target_mb": 14,
+   "at_target_files": 3830,
+   "pct": 1,
+   "pct_target": 1
+  }
+ ],
+ "alerts": [
+  "repo chính 916 MB / 1000 MB (≥ 70 %) – phần lớn là lịch sử git (không viết lại, docs/STORAGE.md §3); cây đầu nhánh 234.3 MB",
+  "lexkite-media-2 701 MB / 1000 MB khi đủ 20000 từ (≥ 70 %) – chuyển state=full, mở kho kế (infra/media-repos.json)",
+  "lexkite-media-2: 66203 tệp khi đủ 20000 từ (≥ 70 % của 60000)"
+ ]
+}

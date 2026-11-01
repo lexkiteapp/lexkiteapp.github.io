@@ -1,49 +1,29 @@
-# GitHub Pages = CDN âm thanh miễn phí (lexkiteapp.github.io/audio/…): chỉ chứa file mp3 + trang chuyển về lexkite.com.
-# Không đưa bản sao app lên đây (tránh trùng nội dung với lexkite.com); robots chặn lập chỉ mục.
-name: Deploy audio CDN to GitHub Pages
+# Kiểm CDN âm thanh sau mỗi lượt tạo giọng đọc. Từ 24/10/2026 mp3 KHÔNG còn trong repo chính: nằm ở kho media ngoài
+# (infra/media-repos.json – lexkite-media-2, Pages của chính kho đó) và phục vụ qua audio.lexkite.com (Worker lexkite-audio dò các kho).
+# Workflow này KHÔNG còn deploy GitHub Pages của repo chính: bản Pages cuối (lexkiteapp.github.io/audio/…) được giữ nguyên làm
+# dự phòng 1 bản phát hành (docs/STORAGE.md §Gỡ dự phòng). Deploy lại ở đây sẽ xoá dự phòng đó → đã gỡ bước deploy.
+name: Kiểm CDN âm thanh (kho media)
 on:
-  push:
-    branches: [main]
-    paths: ['web/audio/**', '.github/workflows/pages.yml']
-  # Lượt audio.yml commit bằng GITHUB_TOKEN KHÔNG kích hoạt sự kiện push → phải nối bằng workflow_run,
-  # nếu không file mới nằm trong repo nhưng 404 trên CDN (lỗi 16–20/10: ~9.300 file thiếu).
   workflow_run:
     workflows: ['Tạo giọng đọc Kokoro', 'Giọng đọc từ vựng (Kokoro)']
     types: [completed]
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
-  deploy:
+  check:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - name: Gói chỉ âm thanh
-        run: |
-          mkdir -p ghp && cp -R web/audio ghp/audio
-          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=https://lexkite.com/"><link rel="canonical" href="https://lexkite.com/"><title>Lexkite</title>\n' > ghp/index.html
-          cp ghp/index.html ghp/404.html
-          printf 'User-agent: *\nDisallow: /\n' > ghp/robots.txt
-          touch ghp/.nojekyll
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ghp
-      - id: deployment
-        uses: actions/deploy-pages@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Kiểm mọi file giọng đọc app tham chiếu đã có trên Pages + mẫu qua audio.lexkite.com
+      - name: Mọi khóa trong chỉ mục có trong cây kho media + mẫu qua Pages kho và audio.lexkite.com
         run: |
-          node scripts/audio-cdn-check.mjs --local
-          node scripts/audio-cdn-check.mjs --base https://lexkiteapp.github.io/audio/l/ --concurrency 24 --retries 6
+          node scripts/audio-cdn-check.mjs --media
+          node scripts/audio-cdn-check.mjs --base https://lexkiteapp.github.io/lexkite-media-2/audio/l/ --sample 300 --concurrency 12 --retries 6
           node scripts/audio-cdn-check.mjs --sample 150 --concurrency 6 --retries 4

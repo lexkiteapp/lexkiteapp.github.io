@@ -1,0 +1,4 @@
+{
+ "_note": "Series dedupe registry (scripts/video/tpl/series_dedupe.py): content hash (series + key sentence) -> id, 8 frame pHashes. Entries are added only for owner-approved renders (approval gate).",
+ "entries": {}
+}

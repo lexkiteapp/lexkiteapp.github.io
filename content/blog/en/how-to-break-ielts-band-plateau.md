@@ -121,6 +121,8 @@ Begin with the comprehensive [placement diagnostic](/#/placement) to assess your
 
 Follow our modular [IELTS study roadmap](/#/path), which breaks down preparation into progressive milestones from core lexical foundations to high-band exam simulations. Monitor your error reduction trends, daily streak habits, and retention forecasts on the personalized [Stats dashboard](/#/stats). To benchmark your output against Band 8 and 9 standards, explore model answers in [IELTS sample essays and answers](/en/samples/).
 
+If you are unsure whether you are stuck at B1 or B2, [CEFR levels explained](/en/blog/cefr-levels-explained/) describes what each level can actually do.
+
 {{cta: /#/path | Follow your personalized Band 7+ IELTS roadmap in Lexkite}}
 
 {{youtube: | Suggested video: how to break through the Band 6.5 IELTS plateau}}

@@ -40,11 +40,49 @@
     return 1 - m[a.length][b.length] / Math.max(a.length, b.length);
   }
 
-  function toast(msg, ms = 2400) {
-    const t = $('#toast');
-    t.textContent = msg; t.classList.add('show');
-    clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), ms);
+  // Toast dùng chung mọi màn: (1) hộp thoại #modal đang mở → xếp hàng, hiện lần lượt sau khi đóng (không chồng lên modal, không che nút);
+  // (2) né vùng nút/thanh cố định ở đáy (thanh điều hướng, "Tiếp tục", nút chính sát đáy) → đặt ngay phía trên; vị trí CSS gốc đã tính safe-area.
+  const toastQ = [];
+  const modalOpen = () => { const m = document.getElementById('modal'); return !!(m && !m.hidden); };
+  const AVOID = '.bottom-nav, .learn-bar, .sheet, .install-nudge, [data-toast-avoid], header button, header a, .topbar button, .topbar a, #view button, #view a.btn, #view a.chip, #view [role="button"], #view .option';
+  // Chọn chỗ đặt toast không đè vật cản: vị trí CSS gốc → ngay trên từng vật cản ở nửa dưới màn (≤ 55 %) → mép trên (dưới tai thỏ); hết chỗ thì giữ gốc
+  function toastLift(t) {
+    t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
+    const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw; // không getComputedStyle (chậm)
+    const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
+    const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
+    const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
+    if (free(H - base - h, H - base)) return;
+    const cands = obs.filter(r => r.top > H * .45).map(r => H - r.top + 10).filter(b => b > base && b <= H * .55).sort((a, b) => a - b);
+    // Dời bằng transform (--ty, style.css .toast): đổi chỗ khi toast ĐANG HIỆN (màn vẽ lại) không tính là layout shift (CLS 0,26 @360)
+    const at = b => { t.dataset.at = b; t.style.setProperty('--ty', (base - b) + 'px'); };
+    for (const b of cands) if (free(H - b - h, H - b)) { at(b); return; }
+    const top = 12;
+    if (free(top, top + h)) { t.dataset.at = 'top'; t.style.setProperty('--ty', 'calc(' + top + 'px + env(safe-area-inset-top, 0px) - ' + (H - base - h) + 'px)'); return; }
+    if (cands.length) at(cands[cands.length - 1]);
   }
+  function toastShow(msg, ms) {
+    const t = $('#toast'); if (!t) return;
+    t.textContent = msg; toastLift(t); t.classList.add('show'); t._msg = [msg, ms];
+    // Màn vẽ lại khi toast đang hiện (vd. hết bài → màn "Bạn đã học xong") → đặt lại chỗ để không đè nút mới
+    const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
+    clearTimeout(toast._t); toast._t = setTimeout(() => { t.classList.remove('show'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift()); }, ms);
+  }
+  function toast(msg, ms = 2400) {
+    ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
+    if (modalOpen()) { if (!toastQ.some(q => q[0] === msg)) toastQ.push([msg, ms]); return; }
+    toastShow(msg, ms);
+  }
+  // Theo dõi #modal: mở ra khi toast đang hiện → cất toast vào hàng; đóng lại → hiện hàng chờ (mọi cách đóng: closeModal, gán hidden trực tiếp…)
+  function watchModal() {
+    const m = document.getElementById('modal'); if (!m || !g.MutationObserver) return;
+    new MutationObserver(() => {
+      const t = $('#toast'); if (!t) return;
+      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
+      else if (toastQ.length && !t._msg) setTimeout(() => { if (!modalOpen() && toastQ.length && !t._msg) toastShow(...toastQ.shift()); }, 250);
+    }).observe(m, { attributes: true, attributeFilter: ['hidden'] });
+  }
+  if (document.getElementById('modal')) watchModal(); else document.addEventListener('DOMContentLoaded', watchModal);
 
   let lastFocus = null;
   function modal(html) {
@@ -53,11 +91,33 @@
     box.innerHTML = html;
     box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.tabIndex = -1;
     $('#modal').hidden = false;
-    (box.querySelector('input, textarea, button.primary, button, a') || box).focus();
+    trapFocus(true); requestAnimationFrame(() => trapFocus()); setTimeout(trapFocus, 120); // WebView (iOS/Android) có thể bỏ qua focus() lần đầu
     return box;
   }
-  const closeModal = () => { if ($('#modal').hidden) return; $('#modal').hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); };
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#modal').hidden) closeModal(); });
+  // Bẫy focus dùng chung mọi nền tảng: focus phải ở trong hộp thoại khi #modal mở. focus() vào ô nhập có thể bị WKWebView từ chối (không có cử chỉ) → thử nút, rồi chính hộp (tabindex=-1)
+  function trapFocus(first) {
+    const m = $('#modal'), box = $('#modalBox'); if (!m || m.hidden || !box) return;
+    const a = document.activeElement; if (!first && a && a !== document.body && box.contains(a)) return;
+    const tryF = el => { if (!el) return false; try { el.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ } return box.contains(document.activeElement); };
+    if (tryF(box.querySelector('input:not([disabled]), textarea')) || tryF(box.querySelector('button.primary, button:not([disabled]), a[href]'))) return;
+    box.tabIndex = -1; tryF(box);
+  }
+  // Trang bên dưới (vd. ôn tập tự focus #typeIn, vẽ lại nút) giành focus khi hộp thoại đang mở → kéo về hộp thoại
+  document.addEventListener('focusin', e => { const m = $('#modal'); if (m && !m.hidden && !$('#modalBox').contains(e.target)) trapFocus(); });
+  document.addEventListener('focusout', () => setTimeout(() => { const a = document.activeElement; if (!a || a === document.body) trapFocus(); }, 0));
+  try { const mo = new MutationObserver(() => { const a = document.activeElement; if (!a || a === document.body || !a.isConnected) trapFocus(); }); const b = document.getElementById('modalBox'); if (b) mo.observe(b, { childList: true, subtree: true }); else document.addEventListener('DOMContentLoaded', () => { const x = document.getElementById('modalBox'); x && mo.observe(x, { childList: true, subtree: true }); }); } catch (e) { /* bỏ qua */ }
+  // Trả focus: phần tử cũ đã bị vẽ lại (vd. nút cuối bài học) → tiêu đề/nút chính của trang thay vì rơi về <body> (journey-e2e)
+  const closeModal = () => { if ($('#modal').hidden) return; $('#modal').hidden = true; const f = lastFocus && lastFocus.isConnected && lastFocus !== document.body ? lastFocus : $('#view .btn.primary, #view h1, #view h2'); const put = el => { if (!el || !el.focus) return false; if (!el.matches('a[href],button,input,select,textarea,[tabindex]')) el.tabIndex = -1; try { el.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ } return document.activeElement === el; };
+    if (!put(f)) put($('#view h1, #view h2') || $('#view')); };
+  document.addEventListener('keydown', e => {
+    if ($('#modal').hidden) return;
+    if (e.key === 'Escape') return closeModal();
+    if (e.key !== 'Tab') return; // bẫy focus trong hộp thoại (a11y – hộp mời xem quảng cáo có thưởng, xác nhận…)
+    const f = [...$('#modalBox').querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x => x.offsetParent !== null || x === document.activeElement);
+    if (!f.length) return;
+    const a = f[0], z = f[f.length - 1];
+    if (e.shiftKey ? document.activeElement === a || !$('#modalBox').contains(document.activeElement) : document.activeElement === z) { e.preventDefault(); (e.shiftKey ? z : a).focus(); }
+  });
   document.addEventListener('click', e => {
     if (e.target.id === 'modal' || (e.target.closest && e.target.closest('[data-close]'))) closeModal();
   });
@@ -117,10 +177,12 @@
   // Giọng Kokoro tạo sẵn cho câu đọc đơn (câu hỏi giám khảo, TOEFL…): có file thì phát mp3, không thì giọng máy
   let hqEl = null;
   const stopHq = () => { if (hqEl) { hqEl.onended = hqEl.onerror = null; hqEl.pause(); hqEl = null; } };
-  // CDN âm thanh: audio.lexkite.com (Cloudflare Worker workers/audio, cache 1 năm, máy chủ gần người dùng) → dự phòng GitHub Pages
-  // (nguồn gốc). Đăng ký trong infra/resources.json. Lỗi 2 lần liên tiếp với CDN chính → tự chuyển dự phòng cho cả phiên.
+  // CDN âm thanh: audio.lexkite.com (Cloudflare Worker workers/audio, cache 1 năm, máy chủ gần người dùng, dò các kho media) → dự phòng
+  // Pages của kho media m2 (infra/media-repos.json) → gốc cũ lexkiteapp.github.io/audio (dự phòng 1 bản phát hành, docs/STORAGE.md).
+  // Đăng ký trong infra/resources.json. Mỗi 2 lỗi liên tiếp → chuyển sang gốc kế tiếp cho cả phiên.
   let cdnFail = 0;
-  g.audioUrl = k => (cdnFail >= 2 ? 'https://lexkiteapp.github.io/audio/l/' : 'https://audio.lexkite.com/audio/l/') + k + '.mp3';
+  const AUDIO_BASES = g.AUDIO_BASES = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
+  g.audioUrl = k => AUDIO_BASES[Math.min(AUDIO_BASES.length - 1, cdnFail >> 1)] + k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : '') + '.mp3'; // -s2: câu đã render lại qua cổng ASR (docs/WORD-AUDIO.md, khóa mới, không ghi đè bản cũ)
   g.audioFail = () => { cdnFail++; };
   g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
   function tts(text, accent = 'en-GB', rate, opts = {}) {
@@ -204,6 +266,7 @@
   }
   // speak(text, accent, url, slow): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm
   const wordMiss = new Set(), fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
+  const WAV = '|s3'; // hậu tố khóa giọng từ đơn audio/w (scripts/word-audio-strong.mjs WAV) – mọi từ; bản s3 đã qua Whisper
   function speak(text, accent, url, slow) {
     accent = accent || prefs().accent || 'en-GB';
     const fb = () => tts(text, accent, slow ? 0.55 : undefined);
@@ -216,7 +279,7 @@
     if (we && !wordMiss.has(accent + wk)) {
       const v = accent === 'en-US' ? 'af_heart' : 'bf_emma', base = g.audioUrl('x').replace(/l\/x\.mp3$/, 'w/');
       stopSpeak();
-      const my = speakSeq, el = audioEl = new Audio(base + fnv36(v + '|' + we.word.trim()) + '.mp3'); el.preservesPitch = true; el.playbackRate = slow ? 0.7 : 1;
+      const my = speakSeq, el = audioEl = new Audio(base + fnv36(v + '|' + we.word.trim() + WAV) + '.mp3'); el.preservesPitch = true; el.playbackRate = slow ? 0.7 : 1;
       const miss = () => { if (el.onerror) { el.onerror = null; wordMiss.add(accent + wk); if (my === speakSeq) fb(); } };
       el.onerror = miss; try { const pr = el.play(); if (pr && pr.catch) pr.catch(miss); } catch (e) { miss(); }
       return;
@@ -268,7 +331,7 @@
   }
   function recognizeWhisper(target, cb) {
     const run = () => {
-      const words = String(target).split(/\s+/).length, ms = Math.min(12000, Math.max(2500, 1500 + words * 600));
+      const words = String(target).split(/\s+/).length, ms = cb.maxMs || Math.min(12000, Math.max(2500, 1500 + words * 600));
       let stream = null, media = null, chunks = [], stopped = false;
       const ctl = { _whisper: true, stop: () => finish(), abort: () => { stopped = true; if (media && media.state !== 'inactive') media.stop(); if (stream) stream.getTracks().forEach(t => t.stop()); } };
       const finish = () => { if (media && media.state !== 'inactive') media.stop(); };
@@ -297,6 +360,7 @@
   }
   function recognize(target, accent, cb = {}) {
     const SR = g.SpeechRecognition || g.webkitSpeechRecognition;
+    if (cb.whisper && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb); // gọi viên chọn "trên máy" (call.js)
     if (SR && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb);
     if (!SR) { if (g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb); }
     if (activeRec) { const old = activeRec; activeRec = null; old._stale = true; try { old.abort(); } catch (e) { /* đã dừng */ } }
@@ -304,6 +368,7 @@
     const r = new SR();
     activeRec = r;
     r.lang = accent || 'en-GB'; r.maxAlternatives = 5; r.interimResults = false; r.continuous = false;
+    if (cb.setup) try { cb.setup(r); } catch (e) { /* thuộc tính mới (processLocally, phrases) chưa có */ }
     // Ghi âm giọng người học song song để nghe lại so với giọng mẫu
     let media = null, chunks = [], stream = null, audioP = null;
     if (navigator.mediaDevices && g.MediaRecorder) {
@@ -377,5 +442,131 @@
   // Hạn mức máy chủ (functions/api/_quota.js): mã thiết bị ngẫu nhiên (X-Lexkite-Device) · 429 { error:'quota', msg, resetAt, signIn } → câu báo
   const dev = () => { try { let d = localStorage.getItem('lk.dev'); if (!d) localStorage.setItem('lk.dev', d = [...crypto.getRandomValues(new Uint8Array(20))].map(b => (b % 36).toString(36)).join('')); return d; } catch (e) { return ''; } };
   const quotaText = (j = {}) => { const r = j.resetAt, at = r && new Date(r).toLocaleString([], r - Date.now() > 864e5 ? { dateStyle: 'short', timeStyle: 'short' } : { timeStyle: 'short' }); return (j.msg === 'quota.daily' && at ? t('Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.', { time: at }) : t('Máy chủ đang bận – thử lại sau ít phút.')) + (j.signIn ? ' ' + t('Đăng nhập để có thêm lượt.') : ''); };
-  g.UI = { dev, quotaText, quota: j => toast(quotaText(j), 6000), ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  // Icon UI: 1 bộ Lucide, sprite #lk-sprite (docs/DESIGN-SYSTEM.md)
+  const icon = (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+  // Dữ liệu còn lưu emoji (nhiệm vụ, kế hoạch, thẻ chế độ…) → vẽ bằng icon Lucide; emoji lạ giữ nguyên. CHỈ dùng trong HTML (không dùng cho toast/title/thuộc tính).
+  const EMI = { '🎧': 'headphones', '📰': 'newspaper', '✍': 'pen-line', '🗣': 'message-circle', '💬': 'message-circle', '🎙': 'mic', '⚡': 'zap', '🧠': 'brain', '🧩': 'puzzle', '📝': 'file-pen', '🎯': 'target', '🔥': 'flame', '✨': 'sparkles', '🔁': 'repeat', '📅': 'calendar', '📚': 'library', '📖': 'book-open', '🏅': 'medal', '🏆': 'trophy', '⏰': 'alarm-clock', '⏳': 'hourglass', '⏱': 'timer', '🌱': 'sprout', '📶': 'signal', '✅': 'circle-check', '📈': 'trending-up', '✉': 'mail', '📐': 'ruler', '🏛': 'landmark', '💼': 'briefcase', '📄': 'file-text', '🔤': 'a-large-small', '🖥': 'monitor', '💡': 'lightbulb', '🃏': 'layers', '⭐': 'star', '🔊': 'volume-2', '🎓': 'graduation-cap', '🧳': 'luggage', '📢': 'megaphone', '📌': 'pin', '🔑': 'key-round', '🧬': 'dna', '🧷': 'paperclip', '📴': 'wifi-off', '⬇': 'download', '❌': 'circle-x', '🔒': 'lock', '🔔': 'bell', '⚙': 'settings', '🌍': 'globe', '📊': 'chart-column', '🗺': 'map', '🏁': 'flag', '🎮': 'puzzle', '🐣': 'egg', '📗': 'book-marked', '🌋': 'mountain', '💎': 'gem', '🚀': 'rocket', '💯': 'badge-check', '🦉': 'moon', '🐦': 'bird', '🏹': 'crosshair', '🎖': 'medal', '👑': 'crown', '🔎': 'search', '🧰': 'briefcase', '🧭': 'compass', '📕': 'book-x', '✏': 'pencil', '🎭': 'smile', '🚩': 'flag' };
+  const glyph = (e, cls) => { e = String(e == null ? '' : e); const n = /^[a-z][a-z0-9-]*$/.test(e) ? e : EMI[e.replace(/\uFE0F/g, '')]; return n ? icon(n, cls) : e; };
+  const addIcons = h => { const s = document.getElementById('lk-sprite'); if (s && h) s.insertAdjacentHTML('beforeend', h); };
+  const GLYPH = { '🔊': ['volume-2', 'Nghe'], '🔉': ['volume-2', 'Nghe'], '🐢': ['turtle', 'Nghe chậm'], '⚙️': ['settings', 'Cài đặt'], '⚙': ['settings', 'Cài đặt'], '🔎': ['search', 'Tra từ'], '🔍': ['search', 'Tra từ'], '🔔': ['bell', 'Thông báo'], '🎙️': ['mic'], '🎙': ['mic'], '✕': ['x', 'Đóng', 1], '×': ['x', 'Đóng', 1], '✖': ['x', 'Đóng', 1], '←': ['arrow-left', 0, 0, 1], '‹': ['chevron-left', 0, 1, 1], '›': ['chevron-right', 0, 1, 1] }; // [icon, nhãn, chỉ khi đứng 1 mình, lật RTL]
+  for (const k in EMI) { if (!GLYPH[k]) GLYPH[k] = [EMI[k]]; if (!GLYPH[k + '\uFE0F']) GLYPH[k + '\uFE0F'] = [EMI[k]]; } // emoji đầu nút/liên kết/tiêu đề → icon Lucide (tự vẽ lại khi DOM đổi)
+  const GRE = new RegExp('^(\\s*)(' + Object.keys(GLYPH).sort((a, b) => b.length - a.length).join('|') + ')(?=\\s|$)\\s*', 'u');
+  const PAINT = 'button, a, .ctx-say, .fi-btn, summary, h1, h2, h3, .set-h';
+  const ICON_NODE = Object.create(null);
+  const paintEl = el => {
+    if (el.closest('[data-noicon], #lk-sprite, svg')) return;
+    const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n, hit;
+    while ((n = w.nextNode())) { if (/\S/.test(n.nodeValue)) { hit = n; break; } }
+    if (!hit) return;
+    const m = hit.nodeValue.match(GRE); if (!m) return;
+    const [ic, lab, solo, dir] = GLYPH[m[2]], rest = hit.nodeValue.slice(m[0].length);
+    if (solo && (rest.trim() || el.textContent.trim() !== m[2])) return;
+    const only = !el.textContent.replace(m[2], '').trim();
+    const name = el.getAttribute('aria-label') || el.getAttribute('title') || el.getAttribute('aria-labelledby');
+    if (only && !name) { if (!lab) return; el.setAttribute('aria-label', g.t ? g.t(lab) : lab); }
+    const k = ic + (dir ? '|d' : ''); let proto = ICON_NODE[k];
+    if (!proto) { const t0 = document.createElement('template'); t0.innerHTML = icon(ic, dir ? 'i-dir' : ''); proto = ICON_NODE[k] = t0.content.firstChild; } // phân tích HTML 1 lần/icon rồi nhân bản (mỗi lần innerHTML = 1 lượt parser → tác vụ dài khi vẽ bản đồ #/path, TBT mobile)
+    hit.nodeValue = m[1] + (rest && !/^\s/.test(rest) ? ' ' : '') + rest;
+    if (!hit.nodeValue.trim()) hit.nodeValue = '';
+    hit.parentNode.insertBefore(proto.cloneNode(true), hit);
+    el.classList.add('has-i');
+  };
+  const paint = root => {
+    if (!root || root.nodeType !== 1 || !document.getElementById('lk-sprite')) return;
+    if (root.matches(PAINT)) paintEl(root);
+    root.querySelectorAll(PAINT).forEach(paintEl);
+  };
+  if (typeof document !== 'undefined' && g.MutationObserver) {
+    const start = () => {
+      if (!document.getElementById('lk-sprite')) return;
+      paint(document.body);
+      new MutationObserver(ms => { for (const m of ms) { if (m.type === 'characterData') { const p = m.target.parentElement, b = p && p.closest(PAINT); if (b) paintEl(b); continue; } for (const n of m.addedNodes) { if (n.nodeType === 1) { if (n.tagName !== 'svg') { paint(n); const b = n.parentElement && n.parentElement.closest(PAINT); if (b) paintEl(b); } } else if (n.nodeType === 3 && n.parentElement) { const b = n.parentElement.closest(PAINT); if (b) paintEl(b); } } } }).observe(document.body, { childList: true, subtree: true, characterData: true });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+  }
+  // Khung chờ dùng chung (thay chữ "Đang tải…" trơn): giữ bố cục → không nhảy trang khi nội dung về; trình đọc màn hình nghe nhãn
+  const skel = (label, n = 3) => `<div class="card skel-block" role="status" aria-busy="true"><span class="sr-only">${label}</span><div class="skel skel-h"></div>${'<div class="skel skel-l"></div>'.repeat(n)}</div>`;
+  const skelPage = (label, n = 4) => `<div class="skel-page" role="status" aria-busy="true"><span class="sr-only">${label}</span><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(n)}</div></div>`;
+  // Nút loa + IPA dùng chung cho mọi nội dung tiếng Anh (cùng mẫu nút với study/phrases/app: .icon-btn.sm 🔊).
+  // Từ/cụm ngắn → data-speak (giọng người thật/Kokoro theo từ nếu có, rồi giọng máy) · câu → data-speak-text. Nhãn đọc màn hình: app.js tự gắn.
+  const sayBtn = (text, o = {}) => { const s = String(text || '').trim(); if (!s) return ''; return `<button type="button" class="icon-btn sm${o.cls ? ' ' + o.cls : ''}" ${s.split(/\s+/).length > 3 || /[.!?]$/.test(s) ? 'data-speak-text' : 'data-speak'}="${esc(s)}">🔊</button>`; };
+  // Hư từ: dạng YẾU (cách nói thật trong câu) trước, dạng MẠNH (đọc riêng/nhấn mạnh – bản ghi từ đơn đọc dạng này) sau.
+  // [yếu UK, yếu US, câu mẫu nghe dạng yếu, từ loại KHÔNG dùng dạng yếu]. Nguồn: Cambridge Dictionary, Longman Pronunciation Dictionary (Wells),
+  // Wikipedia "Weak and strong forms in English" (CC BY-SA). Kiểm trên CI: scripts/lexicon/ipa-audit.mjs (đối chiếu biến thể CMUdict) – docs/LEXICON.md § Kiểm IPA.
+  /* LK_WEAK-START */
+  const WEAK = {
+    a: ['ə', 'ə', 'I have a cat.'], an: ['ən', 'ən', 'I ate an egg.'], the: ['ðə', 'ðə', 'Close the door.'], and: ['ənd', 'ənd', 'Fish and chips.'],
+    but: ['bət', 'bət', 'Small but nice.'], or: ['ə', 'ər', 'Tea or coffee?'], as: ['əz', 'əz', 'As soon as possible.'], than: ['ðən', 'ðən', 'Older than me.'],
+    that: ['ðət', 'ðət', 'I know that you are right.', 'det|pron|adv'], of: ['əv', 'əv', 'A cup of tea.'], to: ['tə', 'tə', 'I want to go.'], for: ['fə', 'fər', 'This is for you.'],
+    from: ['frəm', 'frəm', 'I am from Hanoi.'], at: ['ət', 'ət', 'Meet me at noon.'], can: ['kən', 'kən', 'I can swim.', 'n'], could: ['kəd', 'kəd', 'Could you help me?'],
+    would: ['wəd', 'wəd', 'I would like some tea.'], should: ['ʃəd', 'ʃəd', 'You should go.'], must: ['məst', 'məst', 'You must try it.', 'n'], shall: ['ʃəl', 'ʃəl', 'Shall we go?'],
+    will: ['wəl', 'wəl', 'It will rain.', 'n'], am: ['əm', 'əm', 'I am fine.'], are: ['ə', 'ər', 'They are here.'], was: ['wəz', 'wəz', 'It was late.'], were: ['wə', 'wər', 'They were tired.'],
+    been: ['bɪn', 'bɪn', 'Where have you been?'], have: ['həv', 'həv', 'What have you done?'], has: ['həz', 'həz', 'She has gone home.'], had: ['həd', 'həd', 'We had left.'],
+    do: ['də', 'də', 'Do you like it?'], does: ['dəz', 'dəz', 'Does he know?'], some: ['səm', 'səm', 'Have some tea.', 'pron'], them: ['ðəm', 'ðəm', 'Call them now.'],
+    us: ['əs', 'əs', 'Tell us more.'], him: ['ɪm', 'ɪm', 'Ask him later.'], her: ['hə', 'hər', 'Give her the key.'], his: ['ɪz', 'ɪz', 'I like his car.'],
+    you: ['jə', 'jə', 'See you later.'], your: ['jə', 'jər', 'Wash your hands.']
+  };
+  /* LK_WEAK-END */
+  const accOf = a => (a === 'en-US' || a === 'US' ? 'en-US' : a === 'en-GB' || a === 'UK' ? 'en-GB' : prefs().accent === 'en-US' ? 'en-US' : 'en-GB');
+  const bare = s => String(s || '').trim().replace(/^\/|\/$/g, '');
+  // IPA lấy từ dữ liệu sẵn trong máy (kho từ → thẻ của người học → Lex) THEO GIỌNG đang phát (en-US → ipaUS, trống = như Anh); thiếu → ''
+  function ipaOf(word, accent) {
+    const k = String(word || '').trim().toLowerCase(); if (!k) return '';
+    const pick = x => (x && x.ipa ? (accOf(accent) === 'en-US' && x.ipaUS ? x.ipaUS : x.ipa) : '');
+    const D = g.IELTS_DATA && g.IELTS_DATA.INDEX && g.IELTS_DATA.INDEX[k]; if (D && D.ipa) return pick(D);
+    const c = g.App && g.App.state && g.App.state.cards && g.App.state.cards[k]; if (c && c.ipa) return pick(c);
+    try { const lx = g.Lex && g.Lex.peek && g.Lex.peek(k); if (lx && lx.ipa && String(lx.word || k).toLowerCase() === k) return pick(lx); } catch (e) { /* Lex chưa tải */ }
+    return '';
+  }
+  // Dạng yếu của hư từ theo giọng: { weak, strong, ex } hoặc null (không phải hư từ / từ loại không có dạng yếu / yếu = mạnh)
+  function weakOf(word, strong, accent, pos) {
+    const w = String(word || '').trim(), x = Object.prototype.hasOwnProperty.call(WEAK, w) ? WEAK[w] : null; if (!x) return null; // phân biệt hoa/thường: "US" ≠ "us"
+    if (pos && x[3] && x[3].split('|').includes(String(pos).toLowerCase().replace(/^(noun)$/, 'n').replace(/^(pronoun)$/, 'pron').replace(/^(determiner)$/, 'det').replace(/^(adverb)$/, 'adv'))) return null;
+    const wk = x[accOf(accent) === 'en-US' ? 1 : 0], st = bare(strong);
+    return st && st.replace(/[ˈˌː]/g, '') === wk.replace(/ː/g, '') ? null : { weak: '/' + wk + '/', strong: st ? '/' + st + '/' : '', ex: x[2] };
+  }
+  // Markup IPA cho MỘT giọng (khớp giọng đọc của nút loa bên cạnh). e = mục {word, ipa, ipaUS, pos} hoặc chữ (tra ipaOf). Hư từ: "/əv/ dạng yếu 🔊 · dạng mạnh /ɒv/"
+  function ipaHtml(e, accent, o = {}) {
+    const ent = typeof e === 'string' ? { word: e } : (e || {}), w = String(ent.word || '').trim(); if (!w) return '';
+    const acc = accOf(accent), p = ent.ipa ? (acc === 'en-US' && ent.ipaUS ? ent.ipaUS : ent.ipa) : ipaOf(w, acc), cls = o.cls || 'ipa';
+    const wk = weakOf(w, p, acc, ent.pos);
+    if (!wk) return p ? `<span class="${cls}" translate="no">${esc(p)}</span>` : '';
+    const T = g.t || (s => s);
+    return `<span class="${cls}" translate="no">${esc(wk.weak)}</span> <span class="small muted ipa-wk">${T('dạng yếu')}</span>${o.noEx ? '' : ` <button type="button" class="icon-btn sm" data-speak-text="${esc(wk.ex)}" title="${esc(wk.ex)}" aria-label="${esc(T('Nghe dạng yếu trong câu: {s}', { s: wk.ex }))}">🔊</button>`}${wk.strong ? ` <span class="small muted ipa-st">· ${T('dạng mạnh')} <span class="ipa" translate="no">${esc(wk.strong)}</span></span>` : ''}`;
+  }
+  // Thứ tự 2 giọng: người học đã chọn giọng (Cài đặt) → giọng đó trước; chưa chọn → theo kỳ thi (IELTS → UK; TOEIC/TOEFL → US; giao tiếp/chưa có → US)
+  const accOrder = () => { const s = prefs(), ex = String(s.exam || (s.goal && s.goal.exam) || ''); const us = s.accentPicked ? s.accent === 'en-US' : /^ielts/.test(ex) ? false : true; return us ? ['en-US', 'en-GB'] : ['en-GB', 'en-US']; };
+  // Khối phát âm 2 giọng kiểu Cambridge/Oxford: "UK /ɒv/ 🔊 · US /ʌv/ 🔊" – mỗi loa phát ĐÚNG giọng của nhãn, IPA khớp bản ghi.
+  // Hai giọng cùng IPA → 1 IPA + 2 loa (không lặp IPA). Hư từ: dạng yếu trước trong từng giọng "UK /əv/ (dạng mạnh /ɒv/)" + 1 nút câu mẫu cuối khối.
+  function pronHtml(e, o = {}) {
+    const ent = typeof e === 'string' ? { word: e } : (e || {}), w = String(ent.word || '').trim(); if (!w) return '';
+    const T = g.t || (s => s), ord = o.order || accOrder(), LB = { 'en-GB': 'UK', 'en-US': 'US' }, AR = { 'en-GB': 'Nghe giọng Anh–Anh', 'en-US': 'Nghe giọng Anh–Mỹ' };
+    const ipa = a => (ent.ipa ? (a === 'en-US' && ent.ipaUS ? ent.ipaUS : ent.ipa) : ipaOf(w, a));
+    const one = a => { const p = ipa(a); if (!p) return ''; const wk = weakOf(w, p, a, ent.pos); return wk ? `<span class="ipa" translate="no">${esc(wk.weak)}</span>${wk.strong ? ` <span class="small muted ipa-st">(${T('dạng mạnh')} <span class="ipa" translate="no">${esc(wk.strong)}</span>)</span>` : ''}` : `<span class="ipa" translate="no">${esc(p)}</span>`; };
+    const btn = a => `<button type="button" class="icon-btn sm" data-speak="${esc(w)}" data-accent="${a}" data-url="${esc(audioFor(ent, a))}" aria-label="${esc(T(AR[a]))}">🔊</button>`;
+    const lab = a => `<b class="small pron-lb">${LB[a]}</b>`;
+    const [a1, a2] = ord, h1 = one(a1), h2 = one(a2); if (!h1 && !h2) return `<span class="pron2">${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}</span>`; // chưa có IPA (đang tra) → vẫn nghe được 2 giọng
+    const wk = weakOf(w, ipa(ord[0]), ord[0], ent.pos);
+    const ex = wk && !o.noEx ? ` <span class="small muted ipa-wk">· ${T('dạng yếu')}</span> <button type="button" class="icon-btn sm" data-speak-text="${esc(wk.ex)}" title="${esc(wk.ex)}" aria-label="${esc(T('Nghe dạng yếu trong câu: {s}', { s: wk.ex }))}">🔊</button>` : '';
+    const same = !h1 || !h2 || h1 === h2;
+    // o.pills: mỗi giọng là 1 span con (viên .pron của trang từ điển), không bọc ngoài
+    if (o.pills) return same ? `<span>${h1 || h2} ${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}</span>${ex ? `<span>${ex}</span>` : ''}` : `<span>${lab(a1)} ${h1} ${btn(a1)}</span><span>${lab(a2)} ${h2} ${btn(a2)}</span>${ex ? `<span>${ex}</span>` : ''}`;
+    const body = same ? `${h1 || h2} ${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}` : `<span class="pron-acc">${lab(a1)} ${h1} ${btn(a1)}</span> <span class="muted">·</span> <span class="pron-acc">${lab(a2)} ${h2} ${btn(a2)}</span>`;
+    return `<span class="pron2">${body}${ex}</span>`;
+  }
+  // Bản ghi người thật ĐÚNG giọng (Dict: audio có thể là bản -us khi thiếu bản Anh) – sai giọng → '' (speak tự dùng giọng đúng: Kokoro/máy)
+  const audioFor = (e, accent) => { const a = (e && e.audio) || '', us = /-us\.mp3$/i.test(a); return accOf(accent) === 'en-US' ? (e && e.audioUS) || (us ? a : '') : us ? '' : a; };
+  const ipaTag = (word, accent) => { const w = String(word || '').trim(); if (!w || w.split(/\s+/).length > 3) return ''; const p = ipaOf(w, accent); return p ? ipaHtml({ word: w, ipa: p }, accent, { cls: 'ipa small', noEx: true }) : `<span class="ipa small" translate="no" data-ipa-lazy="${esc(w)}"></span>`; };
+  // Điền IPA còn thiếu: chỉ khi trang đã có Dict (không tự tải gói từ điển), mỗi từ 1 lần (Dict.quick có bộ nhớ đệm)
+  function fillIpa(root = document) {
+    const els = [...root.querySelectorAll('[data-ipa-lazy]')]; if (!els.length || !(g.Dict && g.Dict.quick)) return;
+    for (const el of els) { const w = el.dataset.ipaLazy; el.removeAttribute('data-ipa-lazy'); g.Dict.quick(w).then(e => { if (e && e.ipa) el.textContent = accOf() === 'en-US' && e.ipaUS ? e.ipaUS : e.ipa; }).catch(() => {}); }
+  }
+  // Dự phòng: nút loa sinh sau (phản hồi bài tập, khung bật lên…) chưa được App.bindCommon gắn onclick → vẫn đọc được
+  if (typeof document !== 'undefined') document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('[data-speak],[data-speak-text]'); if (!b || b.onclick || e.defaultPrevented) return;
+    e.preventDefault(); const st = prefs();
+    if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
+  });
+  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

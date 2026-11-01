@@ -1,5 +1,8 @@
 # Study4 syllabi: knowledge modules by course
 
+> TL;DR: Ghi chú nghiên cứu giáo trình Study4. Chỉ học mẫu, không chép.
+> Đọc khi: thiết kế giáo trình.
+
 Source: public course landing pages ("Chương trình học" accordions), fetched 2026-10-15. Topic titles only (no lesson bodies, questions or transcripts). Repetitive series are collapsed to one line, and TED/Music show categories only. "N bài" = lesson count as shown on the page. Trial ("Học thử") lessons were not opened.
 
 ## Complete TOEIC (course 28)

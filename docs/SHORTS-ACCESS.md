@@ -1,5 +1,8 @@
 # Thư viện video quản trị – phát từ Kho Drive riêng (không cần token GitHub)
 
+> TL;DR: Thư viện video quản trị phát từ Kho Drive riêng (repo riêng tư lexkite-shorts), không cần token GitHub; luồng và dữ liệu. Việc của chủ: không còn.
+> Đọc khi: sửa thư viện video.
+
 Quản trị → **🎬 Thư viện video** (`web/js/admin-video.js`) gọi `functions/api/admin-shorts.js` (sau `adminGate`).
 Bản gốc nằm ở repo **riêng tư** `lexkiteapp/lexkite-shorts`; bản phát cho admin nằm ở **Kho Drive riêng** (`functions/api/drive.js`,
 3 Google Drive của chủ, ≈ 46 GB trống). Máy chủ đọc Drive bằng refresh token OAuth của kho (mã hoá AES-GCM trong D1) rồi phát lại qua

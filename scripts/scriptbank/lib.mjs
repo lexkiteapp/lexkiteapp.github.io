@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Kho kịch bản video ngắn (chỉ CHỮ – không dựng, không credit, không tự đăng). docs/VIDEO-SCALE-PLAN.md §16.
 // Nguồn sự thật DUY NHẤT của điểm học: lexicon (web/js/data.js + web/js/lib/*.js), Cách dùng từ (web/js/usage/*.js: cặp dễ nhầm, giới từ,
 // mẫu động từ, trạng từ, cấu trúc + lỗi hay gặp), ngữ pháp (web/js/grammar/*.js, câu đố cuối bài) và bảng tình huống nhỏ dưới đây.
@@ -8,9 +9,10 @@ import fs from 'fs';
 import crypto from 'crypto';
 import { createRequire } from 'module';
 import { loadAll, key as lexKey } from '../lexicon/lib.mjs';
+import { expandRows } from '../lexicon/expand/lib.mjs';
 import { syllables, stressIndex } from '../lexicon/ipa.mjs';
 
-const ROOT = new URL('../../', import.meta.url), R = p => new URL(p, ROOT).pathname;
+const ROOT = new URL('../../', import.meta.url), R = p => fileURLToPath(new URL(p, ROOT));
 const require = createRequire(import.meta.url);
 export const DIR = R('content/video/scripts');
 export const h8 = s => crypto.createHash('sha1').update(s).digest('hex').slice(0, 8);
@@ -37,6 +39,11 @@ const SITUATIONS = {
   exam: ['ask for more time in a speaking test', 'buy time before answering', 'give your opinion in a speaking test', 'paraphrase a question']
 };
 
+// ---------- Giao tiếp tự tin: đọc thẳng nguồn content/confidence (không đọc bản sinh) ----------
+const CONF_TOPIC = { greetings: 'social', cafe: 'food', shopping: 'shopping', directions: 'travel', travel: 'travel', doctor: 'health', phone: 'daily', friends: 'social', meetings: 'work', interview: 'work', complaints: 'shopping', opinions: 'social' };
+export function confidence() { const d = R('content/confidence/units'); return fs.existsSync(d) ? fs.readdirSync(d).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(d + '/' + f, 'utf8'))).sort((a, b) => a.order - b.order) : []; }
+export function confidenceToolkit() { const f = R('content/confidence/toolkit.json'); return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')).groups : []; }
+
 // ---------- NGSL (cổng từ vựng giải thích ≤ B1) ----------
 let NG = null;
 export function ngsl() {
@@ -62,7 +69,7 @@ export function sources() {
   globalThis.self = globalThis.self || globalThis;
   require(R('web/js/usage-core.js')); for (const f of fs.readdirSync(R('web/js/usage')).sort()) require(R('web/js/usage/' + f));
   for (const f of ['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check']) require(R(`web/js/grammar/${f}.js`));
-  const lex = new Map(); for (const e of loadAll()) { const k = lexKey(e.row); if (!lex.has(k)) lex.set(k, e.row); }
+  const lex = new Map(); for (const e of [...loadAll(), ...expandRows()]) { const k = lexKey(e.row); if (!lex.has(k)) lex.set(k, e.row); }
   const byWord = new Map(); for (const r of lex.values()) { const w = r[0].toLowerCase(); if (!byWord.has(w)) byWord.set(w, r); }
   return (SRC = { U: self.LK_USAGE, G: self.GRAMMAR, lex, byWord });
 }
@@ -87,6 +94,16 @@ export function plan() {
     add({ pid: `g:${x.id}:${h8(q.q)}`, src: 'grammar', type: 'grammar', cefr: CEFR.includes(x.level) ? x.level : 'B1', topic: 'study', point: `${x.en || x.title}: ${q.q.replace(/___/, '[' + q.options[q.answer] + ']')}`, facts: { lesson: x.en || x.title, q: q.q, answer: q.options[q.answer], wrong_options: q.options.filter((o, i) => i !== q.answer) } });
   }
   for (const [topic, list] of Object.entries(SITUATIONS)) for (const s of list) add({ pid: `s:${topic}:${s}`, src: 'situation', type: 'situational', cefr: 'A2', topic, point: `How to ${s} naturally`, facts: { situation: s } });
+  // 🗣️ Giao tiếp tự tin (content/confidence, docs/CONFIDENCE.md §6): mỗi cụm = 1 điểm "situational phrase" + 1 điểm "say this instead"; id VĨNH VIỄN, link sâu vào đúng cụm
+  for (const u of confidence()) {
+    const topic = CONF_TOPIC[u.id] || 'daily', link = `https://lexkite.com/app/#/confidence/${u.id}`;
+    for (const p of u.phrases) {
+      const facts = { unit: u.id, situation: u.title.en, phrase: p.say, instead: p.not, meaning: p.mean.en, why: p.why.en, link: `${link}#${p.id}`, href: `#/confidence/${u.id}#${p.id}`, area: 'confidence' };
+      add({ pid: `cf:${u.id}:${p.id}`, src: 'confidence', type: 'situational', cefr: u.level, topic, point: `${u.title.en}: "${p.say}"`, facts });
+      add({ pid: `cf:${u.id}:${p.id}:x`, src: 'confidence', type: 'stop-saying', cefr: u.level, topic, point: `Say "${p.say}" instead of "${p.not}"`, facts: { ...facts, mistake: p.not, correct: p.say, rule: p.why.en } });
+    }
+  }
+  for (const g of confidenceToolkit()) for (const p of g.phrases) add({ pid: `cf:tk:${g.id}:${p.id}`, src: 'confidence', type: 'situational', cefr: 'A2', topic: 'social', point: `${g.title.en}: "${p.say}"`, facts: { group: g.id, phrase: p.say, meaning: p.mean.en, link: `https://lexkite.com/app/#/confidence/toolkit#${g.id}-${p.id}`, href: `#/confidence/toolkit#${g.id}-${p.id}`, area: 'confidence' } });
   for (const r of lex.values()) {
     const [w, ipa, pos, , def, ex, col, syn, lv, , ipaUS] = r, cefr = CEFR.includes(lv) ? lv : 'B1', k = `${w.toLowerCase()}#${pos}`, base = { word: w, pos, def, ex };
     add({ pid: `w:${k}`, src: 'lexicon', type: /idiom|phr/.test(pos) ? 'idiom-phrasal' : / /.test(w) ? 'situational' : 'word-in-use', cefr, topic: '', point: `${w} (${pos}): ${def}`, facts: base });

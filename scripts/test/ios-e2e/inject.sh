@@ -6,11 +6,13 @@ cd "$(dirname "$0")/../../.."
 PUB=mobile/ios/App/App/public
 test -f "$PUB/index.html" || { echo "✗ thiếu $PUB/index.html – chạy scripts/build-mobile.sh trước"; exit 1; }
 cp scripts/test/ios-e2e/harness.js "$PUB/e2e-harness.js"
-cp scripts/test/native-facade.js "$PUB/e2e-facade.js"   # đầu dò mặt tiền video (log "E2E-VF", Documents/e2e/facade.json)
+cp scripts/test/native-facade.js "$PUB/e2e-facade.js"
+cp scripts/test/journey-e2e/checks.js "$PUB/e2e-checks.js"; cp scripts/test/journey-e2e/native.js "$PUB/e2e-journey.js"   # journey-e2e (E2E_MODE=journey)   # đầu dò mặt tiền video (log "E2E-VF", Documents/e2e/facade.json)
 # app gốc: build-mobile.sh chép app học (dist/app/index.html) thành www/index.html
 for f in "$PUB/index.html"; do
   MODE_TAG=""; if [ -n "${E2E_MODE:-}" ]; then echo "window.__E2E_MODE='${E2E_MODE}';" > "$PUB/e2e-mode.js"; MODE_TAG="<script src=\"/e2e-mode.js\"></script>"; fi
   perl -0pi -e "s#<head>#<head>${MODE_TAG}<script src=\"/e2e-harness.js\"></script>#i" "$f"
+  [ "${E2E_MODE:-}" = journey ] && perl -0pi -e "s#</body>#<script src=\"/e2e-checks.js\"></script><script src=\"/e2e-journey.js\"></script></body>#i" "$f"
   perl -0pi -e "s#</body>#<script src=\"/e2e-facade.js\"></script></body>#i" "$f"
   grep -q 'e2e-harness.js' "$f" && echo "✓ harness → $f" || { echo "✗ không chèn được harness vào $f"; exit 1; }
 done

@@ -27,10 +27,11 @@ async function channels(db) {
   return out.map(c => ({ ...c, platform: c.platform || platformOf(c.channel_id) }));
 }
 let DS = false;
-async function setupDist(db) {
+export async function setupDist(db) {
   if (DS) return; await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS dist_ext (channel_id TEXT PRIMARY KEY, platform TEXT, account_id TEXT, title TEXT, thumb TEXT, status TEXT, updated INTEGER)'),
     db.prepare('CREATE TABLE IF NOT EXISTS dist_social (clip TEXT NOT NULL, channel_id TEXT NOT NULL, platform TEXT, slot_ms INTEGER, source TEXT, rule INTEGER, state TEXT, post_id TEXT, err TEXT, updated INTEGER, PRIMARY KEY (clip, channel_id))'),
+    db.prepare('CREATE INDEX IF NOT EXISTS dist_social_slot ON dist_social (slot_ms)'), // social_due theo slot_ms (autopilot mỗi ≥ 30 phút) – không quét cả bảng
   ]); DS = true;
 }
 const isExt = id => /^gc-[a-z_]+-[A-Za-z0-9_-]{1,80}$/.test(String(id || ''));
@@ -185,6 +186,8 @@ const OPS = {
     return { channels: chs.filter(c => c.platform === 'youtube').map(c => ({ channel_id: c.channel_id, title: c.title, role: c.cfg.role, active: c.cfg.active, status: c.status, clips: cnt[c.channel_id] || 0, rotating: c.cfg.role === 'embed' && c.cfg.active && c.status === 'ok' })), ready: ready.slice(0, 300), lessons: lessons.slice(0, 500), broken, coverage: Object.entries(cov).map(([k, n]) => ({ topic: k.split('|')[0], cefr: k.split('|')[1], ...n })) };
   },
 };
+/** Hợp đồng §3 cho autopilot máy chủ (functions/api/_social_auto.js) – gọi thẳng, cùng hàm với op qua HTTP. */
+export const DIST = { ext_sync: (db, b) => OPS.ext_sync(db, b), social_due: (db, b, env) => OPS.social_due(db, b, null, env), social_ack: (db, b) => OPS.social_ack(db, b), plan_run: (db, b, env) => OPS.plan_run(db, b, null, env) };
 const WRITE = new Set(['cfg_set', 'rules_set', 'plan_run', 'plan_set', 'resume', 'alerts_clear', 'ext_sync', 'social_ack']);
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 export async function onRequestPost({ request, env }) {

@@ -157,6 +157,8 @@ Ao redigir comunicações de trabalho, um falso cognato pode mudar o tom da mens
 
 Pratique também combinações naturais com nosso artigo sobre [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/) e faça checagens de definição no [dicionário do Lexkite](/app/#/dict).
 
+Na prova oral, o falso cognato *actually* é um dos que mais aparecem; veja como evitá-lo nas [IELTS Speaking Part 3 dicas](/pt/blog/ielts-speaking-part-3-dicas/).
+
 {{cta: /app/#/library | Explorar biblioteca de vocabulário no Lexkite}}
 
 {{youtube: | Os falsos cognatos mais perigosos em inglês e como evitar gafes}}
@@ -170,7 +172,7 @@ Embora compartilhem a raiz latina *praeiudicium* (julgamento prévio), no portug
 Não. *College* nos Estados Unidos refere-se ao ensino superior universitário (graduação). O colégio de ensino médio é chamado de *high school*.
 
 ### O que significa a expressão 'to make a compromise'?
-Não significa fazer um compromisso na agenda (que é *to make an appointment*). *Compromise* significa entrar em um acordo mútuo em que ambas as partes cedem um pouco em uma negociação (*reach a compromise*).
+Não significa fazer um compromisso na agenda (que é *to make an appointment*). *Compromise* significa entrar em um acordo mútuo em que ambas as partes cedem um pouco em uma negociação (*reach a compromise*). Esse tipo de "fazer" traiçoeiro é o tema do guia sobre a [diferença entre make e do](/pt/blog/diferenca-entre-make-e-do/).
 
 ### Como memorizar falsos cognatos sem confundi-los novamente?
 A forma mais eficiente é aprender a palavra inserida em uma história ou frase de choque visual que desmonte a tradução errada. Registrar esses contrastes em flashcards com contexto real cria uma âncora mnemônica muito mais forte do que ler listas soltas.

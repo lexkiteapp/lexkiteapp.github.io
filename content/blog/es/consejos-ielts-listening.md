@@ -159,7 +159,7 @@ No. Cada grabación se reproduce una sola vez. Por eso son tan importantes leer 
 
 ### ¿Importa escribir en mayúsculas o minúsculas?
 
-En general, lo decisivo es que la palabra esté bien escrita y que respetes el límite de palabras. Con nombres propios, como personas o calles, escribir la inicial en mayúscula es un hábito seguro. Fíjate sobre todo en las letras dobles y en no traducir la ortografía al español.
+En general, lo decisivo es que la palabra esté bien escrita y que respetes el límite de palabras. Con nombres propios, como personas o calles, escribir la inicial en mayúscula es un hábito seguro. Fíjate sobre todo en las letras dobles y en no traducir la ortografía al español. Si tu objetivo es migrar con el módulo General, la otra pieza clave del Writing es la [carta IELTS General Training](/es/blog/carta-ielts-general-training/).
 
 ### ¿Qué acento debo practicar para IELTS Listening?
 

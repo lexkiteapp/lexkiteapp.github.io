@@ -134,7 +134,8 @@ export function contrast(a, b) {
 
 // ---------- Cổng tĩnh dùng chung (render.mjs bước qa + scripts/video/template.mjs lint trước khi dựng) ----------
 export const WPS = 2.6, LINE_GAP = 0.3, LEAD = 0.2, END_CARD = 2.2, HOOK_MAX = 2.05;
-export const CAST = ['mia', 'leo', 'ama', 'kit', 'diane', 'carlos'];
+// Dàn hợp lệ = registry web/teach/characters.json (2D Ama/Carlos, chủ 28/10) + Kit linh vật – Mia/Leo/Diane… bị chặn ngay ở kiểm kịch bản
+export const CAST = ['ama', 'carlos', 'kit']; // = registry ids + kit (scripts/test/characters-gate.mjs kiểm khớp)
 export const COMPETITORS = /\b(duolingo|babbel|busuu|memrise|rosetta\s*stone|cambly|preply|italki|elsa\s*speak|quizlet|cake\s*app|lingoda|mondly|praktika)\b/i;
 // Thời lượng ước tính 1 câu khi chưa có giọng (đúng công thức bước tts khi thiếu Kokoro)
 export const estLineSec = t => +(tokens(t).length / WPS + 0.3).toFixed(2);
@@ -262,7 +263,8 @@ export function pacingScore(shots) {
 // ---------- CỔNG NHẤT QUÁN bối cảnh – nhân vật – lời thoại ----------
 // Cảm xúc câu → nhóm clip hợp lệ (yêu cầu anh chủ: hỏi → ask/think, sai → shock/facepalm, đúng → thumbs/laugh, giải thích → talk/point)
 // Thẻ clip phông xanh 17/10: <who>_talk_gesture (nói + vung tay) · wave_clasp (vẫy + chắp tay) · think_aha · shock_laugh · listen_thumbs (nghe)
-export const EMOTION_TAGS = { ask: ['ask', 'think'], wrong: ['shock', 'facepalm', 'headgrab'], right: ['thumbs', 'laugh'], explain: ['talk', 'point', 'gesture'], cta: ['wave', 'thumbs', 'talk'], talk: ['talk', 'point', 'ask', 'gesture'] };
+// registry 2D (chủ 28/10) không có tư thế sốc/ôm đầu: câu "sai" → phản ứng "hmm" (thinking), câu "đúng" → cười/nói cười (laugh, happy=smile)
+export const EMOTION_TAGS = { ask: ['ask', 'think'], wrong: ['shock', 'facepalm', 'headgrab', 'hmm'], right: ['thumbs', 'laugh', 'smile'], explain: ['talk', 'point', 'gesture'], cta: ['wave', 'thumbs', 'talk'], talk: ['talk', 'point', 'ask', 'gesture'] };
 export const LISTENER_TAGS = ['idle', 'nod', 'listen'];
 // Clip người nói = có cử động miệng: cờ mouth (manifest dựng) hoặc vai "speaker" trong kho (library.json roles); người nghe = thẻ idle/nod/listen hoặc vai "listener"
 export const isSpeakerClip = c => !!c && (c.mouth === true || (c.mouth == null && (c.roles || []).includes('speaker')));
@@ -446,4 +448,19 @@ export function buildStage({ job, casting, manifest, exists = () => true, varian
 export function consistencyVerdict(fails) {
   const zero = [...new Set(fails.map(f => f.k))];
   return { ok: !fails.length, zero, reasons: fails.slice(0, 20).map(f => `[${f.k}] ${f.reason}`.slice(0, 200)) };
+}
+
+// Diễn viên registry (2D Ama/Carlos, chủ 28/10) quay nửa người → khung "medium": đáy clip = đáy khung hình 1080×1920, cao 56 %,
+// trải đều theo thứ tự đứng trái→phải của cảnh. Ghi lại x/y/h của diễn viên (chân ảo dưới mép) để Remotion, ffmpeg, camera và QA dùng chung.
+export function placeMedium(st, W0 = 1080, H0 = 1920, vis = 0.56) {
+  const V0 = vis * H0;
+  for (const g of st.segs || []) {
+    const ids = (g.cast || []).filter(w => w !== 'kit' && g.pos && g.pos[w]).sort((a, b) => g.pos[a].x - g.pos[b].x);
+    for (const sl of (st.lines || []).filter(l => l.i >= g.from && l.i <= g.to)) for (const a of sl.actors || []) {
+      if (!a.asset || !a.asset.medium || !a.asset.h) continue;
+      const k = V0 / a.asset.h, j = Math.max(0, ids.indexOf(a.who)), n = Math.max(1, ids.length);
+      Object.assign(a, { x: Math.round(W0 * (j + 0.5) / n), h: Math.round(a.asset.figH * k), y: Math.round(H0 - V0 + a.asset.foot[1] * k), medium: true });
+    }
+  }
+  return st;
 }

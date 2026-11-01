@@ -4,7 +4,8 @@
  *   node scripts/ci/triage.mjs sweep   ← cron mỗi giờ: đóng issue khi workflow xanh lại; giờ 00 UTC (sau 00:10): chạy lại lượt hoãn vì hạn mức + bản tin ngày
  * Phân loại theo log của các job lỗi:
  *   quota     – 429 quota-guard / d1-budget / D1 hết hạn mức ngày → không làm gì, lượt quét sau 00:10 UTC (hạn mức đặt lại) chạy lại lượt mới nhất 1 lần
- *   transient – 5xx/mạng/Google/AI tạm hỏng → chờ TRIAGE_DELAY giây rồi "Re-run failed jobs" 1 lần (chỉ khi run_attempt = 1 → không bao giờ lặp)
+ *   transient – 5xx/mạng/Google/AI tạm hỏng → chờ TRIAGE_DELAY giây rồi "Re-run failed jobs" 1 lần (chỉ khi run_attempt = 1 → không bao giờ lặp;
+ *               không bao giờ chạy lại lượt đã bị thay thế: có lượt mới hơn hoặc workflow/script của nó đã đổi – supersededWhy)
  *   real      – còn lại (hoặc tạm thời nhưng đã chạy lại vẫn đỏ) → mở/cập nhật 1 issue / workflow (nhãn ci-failure, trích log); sửa thân issue, không bình luận
  * Bản tin: tóm tắt job + cảnh báo Quản trị (op ext_alert kind 'ci' của /api/drive) + 1 thư/ngày (khi có đỏ). Không đụng _d1guard/coordinator/footage-archive. */
 import fs from 'node:fs';
@@ -78,8 +79,8 @@ async function videoSummary(now) { // latest news-auto run (24 h) -> artifact vi
 // ---------- GitHub API ----------
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io';
 const API = (process.env.GITHUB_API_URL || 'https://api.github.com') + '/repos/' + REPO;
-async function gh(path, { method = 'GET', body, raw = false, fetcher = fetch } = {}) {
-  const r = await fetcher(path.startsWith('http') ? path : API + path, { method, headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'lexkite-ci-triage', ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
+async function gh(path, { method = 'GET', body, raw = false, accept, fetcher = fetch } = {}) {
+  const r = await fetcher(path.startsWith('http') ? path : API + path, { method, headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN, Accept: accept === 'raw' ? 'application/vnd.github.raw' : 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'lexkite-ci-triage', ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
   if (!r.ok && r.status !== 404) throw new Error(`GitHub ${method} ${path.slice(0, 80)} → ${r.status}`);
   if (r.status === 404) return null;
   return raw ? r.text() : r.status === 204 ? {} : r.json().catch(() => ({}));
@@ -106,6 +107,28 @@ async function upsertIssue(run, cls, log) {
   return `mở #${i && i.number}`;
 }
 
+/** Lượt đã bị THAY THẾ thì không bao giờ chạy lại ("Re-run" dùng lại commit cũ → chạy code cũ; 25/10: 2 lượt word-audio cũ bị chạy lại).
+ *  Thay thế = có lượt mới hơn của cùng workflow trên cùng nhánh, HOẶC từ commit của lượt tới đầu nhánh đã sửa file workflow,
+ *  một script workflow gọi (scripts/… trong file workflow) hay module mà script đó import trực tiếp. Thuần, có test. → lý do hoặc ''. */
+export const scriptRefs = wfText => [...new Set(String(wfText).match(/scripts\/[\w./-]+\.(?:mjs|js|cjs|py|sh)/g) || [])];
+export const importRefs = (file, src) => [...String(src).matchAll(/(?:from\s+|import\s*\(\s*)['"](\.{1,2}\/[\w./-]+)['"]/g)].map(m => {
+  const parts = file.split('/').slice(0, -1); for (const x of m[1].split('/')) x === '..' ? parts.pop() : x !== '.' && parts.push(x); return parts.join('/'); });
+export function supersededWhy(run, { newer = [], changed = [], refs = [] } = {}) {
+  const n = newer.find(r => r.id !== run.id && new Date(r.created_at) > new Date(run.created_at));
+  if (n) return `có lượt mới hơn #${n.run_number || n.id}`;
+  const watch = new Set([run.path, ...refs]), hit = changed.find(f => watch.has(f));
+  return hit ? `code đã đổi sau lượt này (${hit})` : '';
+}
+async function superseded(run) {
+  const br = encodeURIComponent(run.head_branch || 'main'), raw = async f => (await gh(`/contents/${f}?ref=${br}`, { raw: true, accept: 'raw' }).catch(() => '')) || '';
+  const newer = (((await gh(`/actions/workflows/${run.workflow_id}/runs?branch=${br}&per_page=10`)) || {}).workflow_runs) || [];
+  const cmp = (await gh(`/compare/${run.head_sha}...${br}`)) || {}, changed = (cmp.files || []).map(f => f.filename);
+  if (changed.length >= 300) return 'quá nhiều thay đổi từ lượt này (≥ 300 file)';
+  const refs = scriptRefs(await raw(run.path));
+  for (const f of refs.slice(0, 15)) refs.push(...importRefs(f, await raw(f)));
+  return supersededWhy(run, { newer, changed, refs });
+}
+
 async function onRun() {
   const ev = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')), run = ev.workflow_run;
   if (!run || run.conclusion !== 'failure') return summary('Không phải lượt đỏ – bỏ qua.');
@@ -117,7 +140,9 @@ async function onRun() {
     const d = Math.max(0, Math.min(1800, +(process.env.TRIAGE_DELAY ?? 300)));
     console.log(`tạm thời (${cls.why}) → chờ ${d}s rồi chạy lại 1 lần`); await new Promise(r => setTimeout(r, d * 1000));
     const now = await gh(`/actions/runs/${run.id}`);
+    const sup = await superseded(run).catch(e => `không kiểm được (${e.message}) – an toàn: không chạy lại`);
     if (now && (now.run_attempt || 1) > 1) act = 'đã có người chạy lại – bỏ qua';
+    else if (sup) act = `không chạy lại: lượt đã bị thay thế – ${sup}`;
     else { await gh(`/actions/runs/${run.id}/rerun-failed-jobs`, { method: 'POST' }); act = 'đã chạy lại các job lỗi (lần duy nhất)'; }
   } else act = await upsertIssue(run, cls, log);
   summary(`### ci-triage: ${run.name} #${run.run_number} (attempt ${run.run_attempt})\n- Loại: **${cls.kind}** – ${cls.why}\n- Xử lý: ${act}\n- ${run.html_url}`);
@@ -147,6 +172,8 @@ async function sweep() {
     latest[r.name] = last ? (last.conclusion || last.status) : 'failure';
     if (!last || last.id !== r.id || (r.run_attempt || 1) > 1 || r.name === 'ci-triage') continue;
     const cls = classify(await failedLog(r.id), { attempt: 1 });
+    const sup = cls.kind === 'quota' && await superseded(r).catch(e => `không kiểm được (${e.message})`);
+    if (sup) { summary(`- Không chạy lại ${r.name} (đã bị thay thế – ${sup}) ${r.html_url}`); continue; }
     if (cls.kind === 'quota') { await gh(`/actions/runs/${r.id}/rerun-failed-jobs`, { method: 'POST' }).catch(e => console.log(e.message)); summary(`- Chạy lại (hạn mức đã đặt lại): ${r.name} ${r.html_url}`); }
   }
   // 3) bản tin ngày → tóm tắt job + cảnh báo Quản trị + 1 thư/ngày (chỉ khi có đỏ)

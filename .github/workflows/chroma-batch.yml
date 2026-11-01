@@ -32,7 +32,7 @@ jobs:
     timeout-minutes: 20
     strategy:
       fail-fast: false
-      max-parallel: 20
+      max-parallel: 4   # ngân sách runner nền (docs/METHODS.md §CI)
       matrix: { clip: '${{ fromJSON(needs.plan.outputs.list) }}' }
     steps:
       - uses: actions/checkout@v4

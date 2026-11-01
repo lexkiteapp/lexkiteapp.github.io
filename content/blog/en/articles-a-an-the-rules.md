@@ -75,7 +75,7 @@ The same principle explains why *the* is often pronounced /ði/ before a vowel s
 - **Some institutions when used for their main purpose:** *go to school* (as a student), *be in hospital* (BrE, as a patient), *go to bed*, *go to prison*. Compare *I went to the school to collect my son*, where you visit the building.
 - **Fixed phrases:** *by bus, at night, at home, on foot, in time.*
 
-Note: *in hospital* and *at university* without an article are standard British usage; American English often prefers *in the hospital* and *in college*.
+Note: *in hospital* and *at university* without an article are standard British usage; American English often prefers *in the hospital* and *in college*. The prepositions in these phrases follow their own logic, explained in [prepositions in, on, at](/en/blog/prepositions-in-on-at/).
 
 ## Three uses that grammar summaries often skip
 

@@ -14,6 +14,7 @@ const { JSDOM } = jsdom;
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const rd = f => fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const MIXED = 'Kiểm thử add-on (E2E): Some jobs were not successful';
 const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const loadDict = l => {
@@ -46,6 +47,7 @@ async function page(uiLang, opts = {}) {
     storage: { local: { get: async k => (typeof k === 'string' ? { [k]: store[k] } : Object.fromEntries([].concat(k).map(x => [x, store[x]]))), set: async o => Object.assign(store, o) }, onChanged: { addListener() {} } },
     i18n: { getUILanguage: () => uiLang },
   };
+  w.__lkTrBackoff = 5; w.__lkTrMs = opts.trMs || 15000; // thử lại giãn cách nhanh trong test
   w.eval(rd('extension/content.js'));
   await sleep(30);
   const root = () => w.document.querySelector('ielts-lexi-popup').shadowRoot;
@@ -96,15 +98,30 @@ const chips = r => [...r.querySelectorAll('.lw.chipw')].map(x => x.textContent);
   ok(/already in English/.test(p.root().querySelector('#tr').textContent) && p.root().querySelector('#lang').textContent === 'EN', 'đoạn tiếng Anh + đích tiếng Anh → ghi chú "already in English", chip "EN"');
   p.w.close();
 }
-// Dịch lỗi → thông báo + Thử lại (không bao giờ để trống)
+// Dịch lỗi → tự thử lại 3 lượt (giãn cách) → thông báo + Thử lại (không bao giờ để trống)
 {
   let calls = 0;
-  const p = await page('en', { navLang: 'vi-VN', on: { translate: () => (++calls === 1 ? { vi: '' } : { vi: 'Testing add-on', src: 'vi', tl: 'en' }) } });
+  const p = await page('en', { navLang: 'vi-VN', on: { translate: () => (++calls <= 3 ? { vi: '' } : { vi: 'Testing add-on', src: 'vi', tl: 'en' }) } });
   await p.select(MIXED);
   const r = p.root();
+  ok(calls === 3, `bản dịch rỗng → tự thử lại đủ 3 lượt (được ${calls})`);
   ok(r.querySelector('#tr .err') && /Could not translate/.test(r.querySelector('#tr').textContent) && r.querySelector('#retry'), 'bản dịch rỗng → báo lỗi rõ ràng + nút Thử lại');
   r.querySelector('#retry').click(); await sleep(120);
-  ok(calls === 2 && p.root().querySelector('#tr').textContent.includes('Testing add-on'), 'bấm Thử lại → dịch lại và hiện kết quả');
+  ok(calls === 4 && p.root().querySelector('#tr').textContent.includes('Testing add-on'), 'bấm Thử lại → dịch lại và hiện kết quả');
+  p.w.close();
+}
+// Lỗi thật 28/10: service worker/mạng không bao giờ trả lời → hết giờ, KHÔNG quay "Đang dịch…" mãi
+{
+  let calls = 0;
+  const p = await page('en', { navLang: 'vi-VN', trMs: 40, on: { translate: () => { calls++; return new Promise(() => {}); } } });
+  await p.select('Hi, Lina. I’m Sam. Nice to meet you.'); await sleep(250);
+  const r = p.root(), tr = r.querySelector('#tr');
+  ok(calls === 3 && !tr.hasAttribute('aria-busy') && !tr.querySelector('.sk'), `yêu cầu treo → hết giờ sau 3 lượt, bỏ khung chờ (lượt ${calls})`);
+  ok(tr.querySelector('.err[role=alert]') && r.querySelector('#retry'), 'yêu cầu treo → báo lỗi rõ ràng + nút Thử lại');
+  ok(!r.querySelector('#copy').disabled, 'các nút dưới bảng mở lại sau khi hết giờ');
+  // Bảng dịch đoạn nằm PHÍA TRÊN vùng chọn khi đủ chỗ → không che các dòng đọc tiếp theo
+  const box = r.querySelector('.box'), vh = p.w.innerHeight;
+  ok(parseFloat(box.style.top) + box.offsetHeight <= vh / 3, `bảng dịch đặt phía trên vùng chọn (top ${box.style.top})`);
   p.w.close();
 }
 // Đoạn đã ở ngôn ngữ người học (tiếng Việt, giao diện vi) → dịch sang tiếng Anh, có ghi chú
@@ -266,6 +283,32 @@ route = url => (/translate\.googleapis/.test(url) ? resp(500, null) : /mymemory/
 r = await send({ type: 'translate', text: MIXED + ' 2', tl: 'en', sl: 'auto', hint: 'vi' });
 ok(r.vi === 'Testing add-on' && r.src === 'vi', 'Google lỗi → dự phòng MyMemory theo gợi ý nguồn vi (không rỗng)');
 ok(fetches.some(f => /mymemory.*langpair=vi(\||%7C)en/.test(f.url)), 'MyMemory gọi đúng cặp vi|en');
+
+// ---------- 3) Tên cấu trúc câu (🧩) trong bảng Dịch theo ngôn ngữ giao diện – hồi quy run 40152310424 ----------
+// 22ca39d tách nhóm structs ra khỏi <lang>.js (gói i18nx) → uiDict của service worker chỉ đọc <lang>.js → tên cấu trúc hiện tiếng Việt.
+{
+  const appI18nx = (rd('web/js/app.js').match(/i18nx: \[([^\]]*)\]/) || [])[1] || '';
+  const bgI18nx = (rd('extension/background.js').match(/const I18NX = \[([^\]]*)\]/) || [])[1] || '';
+  ok(appI18nx && appI18nx.replace(/\s/g, '') === bgI18nx.replace(/\s/g, ''), `background.js I18NX = BUNDLES.i18nx của web/js/app.js (${bgI18nx} | ${appI18nx})`);
+  route = url => { const m = url.match(/^chrome-extension:\/\/abc\/(app\/js\/i18n\/[\w/-]+\.js)$/); if (!m) return null; const f = new URL('../../extension/' + m[1], import.meta.url); return fs.existsSync(f) ? { ok: true, status: 200, text: async () => fs.readFileSync(f, 'utf8') } : resp(404, null); };
+  const SENT = 'Although it rained, we went out and the number of people has increased.';
+  for (const l of ['es', 'ja', ...LANGS.filter(x => x !== 'es' && x !== 'ja')]) {
+    const dict = ((await send({ type: 'uiDict', lang: l })) || {}).dict || {};
+    ok(dict['Mệnh đề nhượng bộ / đối lập'] && !VI.test(dict['Mệnh đề nhượng bộ / đối lập']), `${l}: uiDict có tên cấu trúc "Mệnh đề nhượng bộ / đối lập" đã dịch`);
+    if (l !== 'es' && l !== 'ja') continue; // dựng bảng thật cho es/ja (đủ bắt lỗi, giữ test nhanh)
+    const p = await page(l, { dict, on: { translate: () => ({ vi: l === 'es' ? 'Aunque llovió, salimos.' : '雨が降ったが、出かけた。', src: 'en', tl: l }) } });
+    p.w.eval(rd('web/js/structures.js'));
+    await p.select(SENT); await sleep(120);
+    const names = [...p.root().querySelectorAll('.st-n')].map(x => x.textContent);
+    ok(names.length >= 2, `${l}: bảng Dịch có 🧩 cấu trúc (được ${names.length})`);
+    ok(names.every(x => !VI.test(x)), `${l}: tên cấu trúc không lẫn tiếng Việt (${JSON.stringify(names)})`);
+    ok(names.includes(dict['Mệnh đề nhượng bộ / đối lập']), `${l}: “Although” → ${dict['Mệnh đề nhượng bộ / đối lập']}`);
+  }
+  // Khóa thiếu ở ngôn ngữ giao diện → English, không bao giờ tiếng Việt
+  const enS = (() => { const t = rd('web/js/i18n/en/structs.js'); return JSON.parse(t.slice(t.indexOf('{"', t.indexOf('Object.assign(')), t.lastIndexOf('});') + 1)); })();
+  const es = ((await send({ type: 'uiDict', lang: 'es' })) || {}).dict || {};
+  const miss = Object.keys(enS).filter(k => !es[k] || VI.test(es[k])); ok(!miss.length, 'es: mọi khóa cấu trúc có bản dịch / English ' + JSON.stringify(miss.slice(0, 3)));
+}
 
 console.log(fails ? `✗ ext-selection: ${fails}/${n} lỗi` : `✓ ext-selection: ${n} kiểm tra đạt`);
 process.exit(fails ? 1 : 0);

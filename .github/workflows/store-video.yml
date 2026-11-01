@@ -10,11 +10,16 @@ on:
     paths: ['.github/workflows/store-video.yml', 'scripts/store-video.mjs', 'scripts/store-copy.mjs']
 permissions:
   contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   video:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
+      max-parallel: 3   # ngân sách runner nền (docs/METHODS.md §CI)
       fail-fast: false
       matrix:
         lang: ${{ fromJSON(inputs.langs || '["en","vi","es","pt","ja","ko","zh","id","de","fr","ar","hi","ru","th","tr"]') }}
@@ -44,5 +49,5 @@ jobs:
           mkdir -p /tmp/store-video && cp -n /tmp/old/*.mp4 /tmp/old/*.jpg /tmp/store-video/ 2>/dev/null || true
           cd /tmp/store-video && ls -la && rm -rf .git && git init -q && git checkout -q -b store-video
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add . && git commit -qm "Video giới thiệu $(date -u +%F)"
+          git add . && git commit -qm "Video giới thiệu $(date -u +%F) [CF-Pages-Skip]"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store-video

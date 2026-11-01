@@ -1,0 +1,644 @@
+{
+ "_doc": "Hàng duyệt IPA (scripts/lexicon/ipa-audit.mjs). Sửa đúng: content/lexicon/overrides.json (ipa/ipaUS) → build-lexicon --write → ipa-audit --fix. Giữ (đúng, nguồn sai): thêm \"note\".",
+ "stats": {
+  "checked": 6433,
+  "uk": {
+   "checked": 6433,
+   "ok": 4512,
+   "variant": 759,
+   "fixed": 0,
+   "review": 81,
+   "noSrc": 1081
+  },
+  "us": {
+   "checked": 6433,
+   "ok": 6176,
+   "variant": 74,
+   "fixed": 0,
+   "review": 16,
+   "noSrc": 167
+  },
+  "weak": {
+   "n": 39,
+   "cmuConfirmed": 21
+  },
+  "audio": {
+   "both": 5871,
+   "ukOnly": 72,
+   "usOnly": 272,
+   "machineOnly": 162,
+   "notYet": 7
+  }
+ },
+ "items": {
+  "accomplish#v|uk": {
+   "ours": "/əˈkʌmplɪʃ/",
+   "britfone": "ə k ˈɒ m p l ɪ ʃ",
+   "cmu": "/əˈkɑːmplɪʃ/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "algae#n|uk": {
+   "ours": "/ˈældʒiː/",
+   "britfone": "ˈæ l g i",
+   "cmu": "/ˈældʒi/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "allotment#n|uk": {
+   "ours": "/əˈlɔtment/",
+   "britfone": "ə l ˈɒ t m ə n t",
+   "cmu": "/əˈlɑːtmənt/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "alternate#adj|uk": {
+   "ours": "/ɔːlˈtɜːnət/",
+   "britfone": "ˈɔː l t ə n ˌeɪ t | ˈɔː l t ə n ɪ t",
+   "cmu": "/ˈɔːltərnət/ | /ˈɔːltərneɪt/",
+   "why": "lệch Britfone"
+  },
+  "alternatively#adv|uk": {
+   "ours": "/ɒlˈtɜːnətɪvli/",
+   "britfone": "ɔː l t ˈɜː n ə t ɪ v l i",
+   "cmu": "/ɔːlˈtɜːrnətɪvli/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "amenities#n|uk": {
+   "ours": "/əˈmiːnətiz/",
+   "britfone": "ə m ˈɛ n ɪ t i z",
+   "cmu": "/əˈmenətiz/ | /əˈmenɪtiz/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "amplitude#n|uk": {
+   "ours": "/ˈæmplɪtud/",
+   "britfone": "ˈæ m p l ɪ t j ˌuː d",
+   "cmu": "/ˈæmplətuːd/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "apparent#adj|uk": {
+   "ours": "/əˈpærənt/",
+   "britfone": "ə p ˈɛə ɹ ə n t",
+   "cmu": "/əˈperənt/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "apparently#adv|uk": {
+   "ours": "/əˈpærəntli/",
+   "britfone": "ə p ˈɛə ɹ ə n t l i",
+   "cmu": "/əˈperəntli/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "assurance#n|uk": {
+   "ours": "/əˈʃɔːrəns/",
+   "britfone": "ə ʃ ˈʊə ɹ ə n s",
+   "cmu": "/əˈʃʊrəns/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "asthma#n|uk": {
+   "ours": "/ˈæsmə/",
+   "britfone": "ˈæ z m ə",
+   "cmu": "/ˈæzmə/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "beyond#prep|us": {
+   "ours": "/bɪˈjɑːnd/",
+   "cmu": "/bɪˈɑːnd/ | /biˈɔːnd/ | /bɪˈɔːnd/",
+   "britfone": "b ɪ j ˈɒ n d",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "biopsy#n|uk": {
+   "ours": "/ˈbaɪɑpsi/",
+   "britfone": "b ˈaɪ ɒ p s i",
+   "cmu": "/ˈbaɪɑːpsi/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "booth#n|uk": {
+   "ours": "/buːð/",
+   "britfone": "b ˈuː θ",
+   "cmu": "/buːθ/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "casualty#n|uk": {
+   "ours": "/ˈkæʒʊəlti/",
+   "britfone": "k ˈæ ʒ j ʊə l t i",
+   "cmu": "/ˈkæʒəwəlti/ | /ˈkæʒwəlti/ | /ˈkæʒəlti/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "character#n|us": {
+   "ours": "/ˈkærəktər/",
+   "cmu": "/ˈkerɪktər/",
+   "britfone": "k ˈæ ɹ ɪ k t ə",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "circumstance#n|uk": {
+   "ours": "/ˈsɜːkəmstəns/",
+   "britfone": "s ˈɜː k ə m s t ˌɑː n s",
+   "cmu": "/ˈsɜːrkəmstæns/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "concrete#n|uk": {
+   "ours": "/ˈkɒnkriːt/",
+   "britfone": "k ə ŋ k ɹ ˈiː t | k ˈɒ ŋ k ɹ iː t",
+   "cmu": "/kənˈkriːt/ | /ˈkɑːnkrit/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "contour#n|uk": {
+   "ours": "/ˈkɒntɔː/",
+   "britfone": "k ˈɒ n t ʊə",
+   "cmu": "/ˈkɑːntʊr/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "contractor#n|uk": {
+   "ours": "/kənˈtræktə/",
+   "britfone": "k ˈɒ n t ɹ ˌæ k t ə",
+   "cmu": "/ˈkɑːntræktər/",
+   "why": "lệch Britfone"
+  },
+  "conversion#n|uk": {
+   "ours": "/kənˈvɜːʃn/",
+   "britfone": "k ə n v ˈɜː ʒ ə n",
+   "cmu": "/kənˈvɜːrʒn/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: sửa tay theo Oxford UK (bản tự sửa từ Britfone sai giọng/ký hiệu)"
+  },
+  "default#v|uk": {
+   "ours": "/dɪˈfɒlt/",
+   "britfone": "d ˈiː f ɔː l t | d ɪ f ˈɔː l t",
+   "cmu": "/dɪˈfɔːlt/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "deflection#n|uk": {
+   "ours": "/dɪˈflekʃən/",
+   "britfone": "ɹ ɪ f l ˈɛ k ʃ ə n",
+   "cmu": "/dɪˈflekʃn/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "designate#v|uk": {
+   "ours": "/ˈdezɪɡnət/",
+   "britfone": "d ˈɛ z ɪ g n ˌeɪ t",
+   "cmu": "/ˈdezəɡneɪt/ | /ˈdezɪɡneɪt/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "differentiate#v|uk": {
+   "ours": "/ˌdɪfəˈrenʃieɪt/",
+   "britfone": "d ˌɪ f ə ɹ ɛ n tʃ ɪ ˈeɪ t",
+   "cmu": "/ˌdɪfərˈenʃieɪt/ | /ˌdɪfərˈentʃieɪt/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "differentiation#n|uk": {
+   "ours": "/dɪfəˌrenʃiˈeɪʃən/",
+   "britfone": "d ˌɪ f ə ɹ ɛ n tʃ ɪ ˈeɪ ʃ ə n",
+   "cmu": "/dɪfərˌenʃiˈeɪʃn/ | /ˌdɪfərˌentʃiˈeɪʃn/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "dilemma#n|uk": {
+   "ours": "/daɪˈlemə/",
+   "britfone": "d ɪ l ˈɛ m ə",
+   "cmu": "/dɪˈlemə/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "dilute#v|uk": {
+   "ours": "/daɪˈljuːt/",
+   "britfone": "d aɪ l ˈuː t",
+   "cmu": "/daɪˈluːt/ | /dɪˈluːt/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "embed#v|uk": {
+   "ours": "/ɪmˈbed/",
+   "britfone": "ɛ m b ˈɛ d",
+   "cmu": "/ɪmˈbed/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "empirical#adj|uk": {
+   "ours": "/ɪmˈpɪrɪkl/",
+   "britfone": "ˌɛ m p ˈɪ ɹ ɪ k ə l",
+   "cmu": "/ɪmˈpɪrɪkl/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "employee#n|us": {
+   "ours": "/ˌemplɔɪˈiː/",
+   "cmu": "/ɪmˈplɔɪi/ | /ɪmˈplɔɪi/",
+   "britfone": "ɛ m p l ˈɔɪ i | ɪ m p l ˈɔɪ i",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "encourage#v|uk": {
+   "ours": "/ɪnˈkʊrɪdʒ/",
+   "britfone": "ɛ n k ˈɐ ɹ ɪ dʒ | ɪ n k ˈɐ ɹ ɪ dʒ",
+   "cmu": "/ɪnˈkɜːrɪdʒ/ | /ɪnˈkɜːrədʒ/",
+   "why": "lệch Britfone"
+  },
+  "encryption#n|uk": {
+   "ours": "/ɪnˈkrɪpʃən/",
+   "britfone": "ɛ n k ɹ ˈɪ p ʃ ə n",
+   "cmu": "/ɪnˈkrɪpʃn/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "endorse#v|uk": {
+   "ours": "/ɪnˈdɔːs/",
+   "britfone": "ɛ n d ˈɔː s",
+   "cmu": "/ɪnˈdɔːrs/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "endorsement#n|uk": {
+   "ours": "/ɪnˈdɔːsmənt/",
+   "britfone": "ɛ n d ˈɔː s m ə n t",
+   "cmu": "/ɪnˈdɔːrsmənt/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "endurance#n|us": {
+   "ours": "/ɪnˈdʊrəns/",
+   "cmu": "/ˈendərəns/",
+   "britfone": "ɪ n d j ˈʊə ɹ ə n s",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "enforce#v|uk": {
+   "ours": "/ɪnˈfɔːs/",
+   "britfone": "ɛ n f ˈɔː s",
+   "cmu": "/ɪnˈfɔːrs/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "enrol#v|uk": {
+   "ours": "/ɪnˈrəʊl/",
+   "britfone": "ɛ n ɹ ˈəʊ l",
+   "cmu": "",
+   "why": "lệch Britfone"
+  },
+  "enroll#v|uk": {
+   "ours": "/ɪnˈrəʊl/",
+   "britfone": "ɛ n ɹ ˈəʊ l",
+   "cmu": "/ɪnˈroʊl/ | /ɪnˈroʊl/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "ensure#v|uk": {
+   "ours": "/ɪnˈʃʊə/",
+   "britfone": "ɛ n ʃ ˈɔː | ɪ n ʃ ˈɔː",
+   "cmu": "/ɪnˈʃʊr/ | /ɪnˈʃʊr/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "enthusiasm#n|uk": {
+   "ours": "/ɪnˈθjuːziæzəm/",
+   "britfone": "ɪ n θ ˈuː z ɪ ˌæ z ə m",
+   "cmu": "/ɪnˈθuːziæzəm/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "entitle#v|uk": {
+   "ours": "/ɪnˈtaɪtəl/",
+   "britfone": "ɛ n t ˈaɪ t ə l",
+   "cmu": "/ɪnˈtaɪtl/ | /ɪnˈtaɪtl/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "export#v|us": {
+   "ours": "/ɪkˈspɔːrt/",
+   "cmu": "/ˈekspɔːrt/",
+   "britfone": "ˈɛ k s p ˌɔː t | ɪ k s p ˈɔː t",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "facet#n|uk": {
+   "ours": "/ˈfæsɪt/",
+   "britfone": "f ˈeɪ s ɪ t",
+   "cmu": "/ˈfæsət/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "firewall#n|uk": {
+   "ours": "/ˈfaɪəwɔːl/",
+   "britfone": "f ˈaɪ w ˌɔː l",
+   "cmu": "/ˈfaɪrwɑːl/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: sửa tay theo Oxford UK (bản tự sửa từ Britfone sai giọng/ký hiệu)"
+  },
+  "freelance#adj|uk": {
+   "ours": "/ˈfriːlɑːns/",
+   "britfone": "f ɹ ˈiː l ˌæ n s",
+   "cmu": "/ˈfriːlæns/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "fungi#n|uk": {
+   "ours": "/ˈfʌŋɡiː/",
+   "britfone": "f ˈɐ ŋ g aɪ",
+   "cmu": "/ˈfʌndʒaɪ/",
+   "why": "lệch Britfone"
+  },
+  "fyi#abbr|us": {
+   "ours": "/ˌef waɪ ˈaɪ/",
+   "cmu": "/ˌfɔːrˌjɔːˌrɪnfərˈmeɪʃn/",
+   "britfone": "",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "hands-on#adj|us": {
+   "ours": "/ˌhændzˈɑːn/",
+   "cmu": "/hænˈzɔːn/",
+   "britfone": "",
+   "why": "lệch CMU"
+  },
+  "hard-working#adj|us": {
+   "ours": "/ˌhɑːrdˈwɜːrkɪŋ/",
+   "cmu": "/hɑːrdhˈwɜːrkɪŋ/",
+   "britfone": "",
+   "why": "lệch CMU"
+  },
+  "inhibition#n|uk": {
+   "ours": "/ɪnhɪˈbɪʃən/",
+   "britfone": "ˌɪ n ɪ b ˈɪ ʃ ə n",
+   "cmu": "/ˌɪnhəˈbɪʃn/ | /ˌɪnəˈbɪʃn/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "interest#n|uk": {
+   "ours": "/ˈɪntrest/",
+   "britfone": "ˈɪ n t ɹ ɪ s t | ˈɪ n t ə ɹ ɪ s t",
+   "cmu": "/ˈɪntrəst/ | /ˈɪntrɪst/ | /ˈɪntərəst/ | /ˈɪntərɪst/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "junior#adj|uk": {
+   "ours": "/ˈdʒuːniə/",
+   "britfone": "dʒ ˈuː n j ə",
+   "cmu": "/ˈdʒuːnjər/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "legislature#n|uk": {
+   "ours": "/ˈledʒɪsləˌtʃʊə/",
+   "britfone": "l ˈɛ dʒ ɪ s l ˌeɪ tʃ ə",
+   "cmu": "/ˈledʒəsleɪtʃər/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "margin#n|us": {
+   "ours": "/ˈmɑːrdʒɪn/",
+   "cmu": "/ˈmɑːrdʒn/",
+   "britfone": "m ˈɑː dʒ ɪ n",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "massage#n|uk": {
+   "ours": "/ˈmæsɑːdʒ/",
+   "britfone": "m ə s ˈɑː ʒ",
+   "cmu": "/məˈsɑːʒ/",
+   "why": "lệch Britfone"
+  },
+  "merchandise#n|uk": {
+   "ours": "/ˈmɜːtʃənˌdaɪs/",
+   "britfone": "m ˈɜː tʃ ə n d ˌaɪ z",
+   "cmu": "/ˈmɜːrtʃəndaɪz/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "modest#adj|uk": {
+   "ours": "/ˈmɑdəst/",
+   "britfone": "m ˈɒ d ɪ s t",
+   "cmu": "/ˈmɑːdəst/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "mosaic#n|uk": {
+   "ours": "/məʊˈzeɪɪk/",
+   "britfone": "m ə z ˈeɪ k | m əʊ z ˈeɪ k",
+   "cmu": "/moʊˈzeɪɪk/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "necessarily#adv|uk": {
+   "ours": "/ˈnesəsərɪli/",
+   "britfone": "n ˌɛ s ə s ˈɛ ɹ ɪ l i",
+   "cmu": "/ˌnesəˈserəli/",
+   "why": "lệch Britfone"
+  },
+  "object#n|uk": {
+   "ours": "/ˈɒbdʒɪkt/",
+   "britfone": "ə b dʒ ˈɛ k t | ˈɒ b dʒ ɛ k t",
+   "cmu": "/ˈɑːbdʒekt/ | /əbˈdʒekt/",
+   "why": "lệch Britfone"
+  },
+  "one-on-one#n|us": {
+   "ours": "/ˌwʌnɑːnˈwʌn/",
+   "cmu": "/ˌwʌnəˈnɑːn/",
+   "britfone": "",
+   "why": "lệch CMU"
+  },
+  "optimization#n|uk": {
+   "ours": "/ˌɑptəmaɪˈzeɪʃən/",
+   "britfone": "ˌɒ p t ɪ m aɪ z ˈeɪ ʃ ə n",
+   "cmu": "/ɑːptəməˈzeɪʃn/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "organizational#adj|uk": {
+   "ours": "/ˌɔːɡənɪˈzeɪʃənəl/",
+   "britfone": "ˌɔː g ə n aɪ z ˈeɪ ʃ ə n ə l",
+   "cmu": "/ˌɔːrɡənəˈzeɪʃənl/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "origin#n|us": {
+   "ours": "/ˈɔːrədʒɪn/",
+   "cmu": "/ˈɔːrədʒn/",
+   "britfone": "ˈɒ ɹ ɪ dʒ ɪ n",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "otherwise#adv|uk": {
+   "ours": "/ˈʌðəwaɪz/",
+   "britfone": "ˈɐ ð ə w ˌaɪ z",
+   "cmu": "/ˈʌðərwaɪz/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "patent#n|uk": {
+   "ours": "/ˈpeɪtənt/",
+   "britfone": "p ˈæ t ə n t",
+   "cmu": "/ˈpætənt/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "picturesque#adj|us": {
+   "ours": "/ˌpɪktʃəˈresk/",
+   "cmu": "/ˈpɪktʃərəsk/",
+   "britfone": "",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "proposition#n|uk": {
+   "ours": "/ˌprɑpəˈzɪʃən/",
+   "britfone": "p ɹ ˌɒ p ə z ˈɪ ʃ ə n",
+   "cmu": "/ˌprɑːpəˈzɪʃn/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "psychologist#n|uk": {
+   "ours": "/ˌsaɪˈkɑlədʒɪst/",
+   "britfone": "s aɪ k ˈɒ l ə dʒ ɪ s t",
+   "cmu": "/saɪˈkɑːlədʒəst/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "ration#n|uk": {
+   "ours": "/ˈreɪʃən/",
+   "britfone": "ɹ ˈæ ʃ ə n",
+   "cmu": "/ˈræʃn/ | /ˈreɪʃn/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "referral#n|uk": {
+   "ours": "/rɪˈfɜːrəl/",
+   "britfone": "ɹ ɪ f ˈɛ ɹ ə l",
+   "cmu": "/rɪˈfɜːrl/",
+   "why": "lệch Britfone"
+  },
+  "resume#n|uk": {
+   "ours": "/ˈrezjʊˌmeɪ/",
+   "britfone": "ɹ ɪ z j ˈuː m | ɹ ˈɛ z ə m ˌeɪ",
+   "cmu": "/rɪˈzuːm/ | /rɪˈzuːm/ | /ˈrezəmeɪ/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "roommate#n|uk": {
+   "ours": "/ˈruːmmeɪt/",
+   "britfone": "ɹ ˈuː m ˌeɪ t",
+   "cmu": "/ˈruːmeɪt/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "salon#n|uk": {
+   "ours": "/ˈsælɒn/",
+   "britfone": "s ə l ˈɒ n",
+   "cmu": "/səˈlɑːn/",
+   "why": "lệch Britfone"
+  },
+  "sample#n|uk": {
+   "ours": "/ˈsɑːmpl/",
+   "britfone": "s ˈæ m p ə l",
+   "cmu": "/ˈsæmpl/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: sửa tay theo Oxford UK (bản tự sửa từ Britfone sai giọng/ký hiệu)"
+  },
+  "sampling#n|uk": {
+   "ours": "/ˈsɑːmplɪŋ/",
+   "britfone": "s ˈæ m p l ɪ ŋ",
+   "cmu": "/ˈsæmplɪŋ/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: sửa tay theo Oxford UK (bản tự sửa từ Britfone sai giọng/ký hiệu)"
+  },
+  "soft#adj|uk": {
+   "ours": "/sɔːft/",
+   "britfone": "s ˈɒ f t",
+   "cmu": "/sɑːft/ | /sɔːft/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "startup#n|uk": {
+   "ours": "/ˈstɑːtəp/",
+   "britfone": "s t ˈɑː t ˌɐ p",
+   "cmu": "/ˈstɑːrtʌp/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "storage#n|uk": {
+   "ours": "/ˈstɔːrɪdʒ/",
+   "britfone": "s t ˈɒ ɹ ɪ dʒ",
+   "cmu": "/ˈstɔːrədʒ/ | /ˈstɔːrɪdʒ/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "succinct#adj|uk": {
+   "ours": "/səkˈsɪŋkt/",
+   "britfone": "s ə k s ˈɪ n t",
+   "cmu": "/səkˈsɪŋkt/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "superfluous#adj|us": {
+   "ours": "/suːˈpɜːrfluəs/",
+   "cmu": "/ˈsuːpərflwʌs/",
+   "britfone": "",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "termination#n|uk": {
+   "ours": "/təmɪˈneɪʃən/",
+   "britfone": "t ˌɜː m ɪ n ˈeɪ ʃ ə n",
+   "cmu": "/tərməˈneɪʃn/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "threshold#n|uk": {
+   "ours": "/ˈθreʃhəʊld/",
+   "britfone": "θ ɹ ˈɛ ʃ ˌəʊ l d",
+   "cmu": "/ˈθreʃoʊld/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "translate#v|uk": {
+   "ours": "/trɑːnzˈleɪt/",
+   "britfone": "t ɹ ˌæ n s l ˈeɪ t",
+   "cmu": "/trænzˈleɪt/ | /trænˈsleɪt/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "transplant#n|uk": {
+   "ours": "/trɑːnzˈplɑːnt/",
+   "britfone": "t ɹ ˈæ n s p l ˌɑː n t | t ɹ æ n s p l ˈɑː n t",
+   "cmu": "/trænˈsplænt/",
+   "why": "lệch Britfone"
+  },
+  "triangle#n|uk": {
+   "ours": "/ˈtraɪəŋɡəl/",
+   "britfone": "t ɹ ˈaɪ ˌæ ŋ g ə l",
+   "cmu": "/ˈtraɪæŋɡl/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "unattended#adj|us": {
+   "ours": "/ˌʌnəˈtendɪd/",
+   "cmu": "/ənəˈtendɪd/",
+   "britfone": "",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "unemployed#adj|uk": {
+   "ours": "/ˌʌnɪmˈplɔɪd/",
+   "britfone": "ˌɐ n ɛ m p l ˈɔɪ d",
+   "cmu": "/ˌʌnemˈplɔɪd/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "unfamiliar#adj|uk": {
+   "ours": "/ˌʌnfəˈmɪliə/",
+   "britfone": "ˌɐ n f ə m ˈɪ l j ə",
+   "cmu": "/ˌʌnfəˈmɪljər/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "unsure#adj|uk": {
+   "ours": "/ˌʌnˈʃʊə/",
+   "britfone": "ɐ n ʃ ˈɔː",
+   "cmu": "/ənˈʃʊr/",
+   "why": "lệch Britfone"
+  },
+  "unsure#adj|us": {
+   "ours": "/ˌʌnˈʃʊr/",
+   "cmu": "/ənˈʃʊr/",
+   "britfone": "ɐ n ʃ ˈɔː",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "vase#n|uk": {
+   "ours": "/vɑːz/",
+   "britfone": "v ˈɑː s",
+   "cmu": "/veɪs/ | /vɑːz/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  },
+  "version#n|uk": {
+   "ours": "/ˈvɜːʃn/",
+   "britfone": "v ˈɜː ʒ ə n",
+   "cmu": "/ˈvɜːrʒn/",
+   "why": "lệch Britfone",
+   "note": "duyệt 28/10: giữ – đúng theo Oxford/Cambridge UK (Britfone/CMU nghiêng giọng Mỹ hoặc chỉ là biến thể)"
+  },
+  "vitamin#n|uk": {
+   "ours": "/ˈvɑetəmən/",
+   "britfone": "v ˈɪ t ə m ɪ n",
+   "cmu": "/ˈvaɪtəmən/",
+   "why": "lệch Britfone"
+  },
+  "webpage#n|us": {
+   "ours": "/ˈwebpeɪdʒ/",
+   "cmu": "/ˈwebpɪdʒ/",
+   "britfone": "w ˈɛ b p ˌeɪ dʒ",
+   "why": "IPA Mỹ viết tay lệch CMU"
+  },
+  "withhold#v|uk": {
+   "ours": "/wɪθˈhəʊld/",
+   "britfone": "w ɪ ð h ˈəʊ l d",
+   "cmu": "/wɪθˈhoʊld/",
+   "why": "nguồn trái nhau (CMU giống kho)"
+  }
+ }
+}

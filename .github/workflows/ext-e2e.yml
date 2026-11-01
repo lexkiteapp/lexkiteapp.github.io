@@ -48,5 +48,5 @@ jobs:
         run: |
           cd /tmp/ext-qa && git init -q && git checkout -q -b ext-qa
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add . && git commit -qm "Kiểm thử add-on $(date -u +%F\ %T)"
+          git add . && git commit -qm "Kiểm thử add-on $(date -u +%F\ %T) [CF-Pages-Skip]"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:${{ inputs.ext_ref != '' && 'ext-qa-before' || 'ext-qa' }}

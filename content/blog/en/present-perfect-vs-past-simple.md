@@ -149,7 +149,7 @@ In **IELTS Writing Task 1**, graphs with past years need the past simple: *Sales
 
 In **IELTS Writing Task 2** and **Speaking**, the present perfect is natural for trends that continue to now: *Remote work has become far more common in recent years.* In a **Speaking Part 2** story you will move between both: *I've always enjoyed cooking, but the first time I really cooked for guests was when I was sixteen.* See our [IELTS Speaking Part 2](/en/blog/ielts-speaking-part-2-tips/) guide for story structure.
 
-In **TOEIC Part 5**, look for the time clue first. *Since*, *for* and *so far* usually point to the present perfect; *last*, *ago* and a specific date point to the past simple. The [TOEIC test format](/en/blog/toeic-test-format/) guide explains where these grammar questions appear.
+In **TOEIC Part 5**, look for the time clue first. *Since*, *for* and *so far* usually point to the present perfect; *last*, *ago* and a specific date point to the past simple. The [TOEIC test format](/en/blog/toeic-test-format/) guide explains where these grammar questions appear. More Part 5 clues are collected in our [TOEIC Part 5 guide](/en/blog/toeic-part-5-tips/).
 
 ## Self-check
 
@@ -186,6 +186,8 @@ The [grammar section](/#/grammar) follows a chapter roadmap through the 12 tense
 ![Lexkite mistake log sorting errors into vocabulary, grammar, reading and listening](media:mistakes "Tense errors collect under Grammar, so you can revisit only the sentences you actually got wrong")
 
 Tenses interact with other grammar points. Next, read about [a, an, the rules](/en/blog/articles-a-an-the-rules/) and [gerunds and infinitives](/en/blog/gerunds-and-infinitives/), and check [commonly confused words](/en/blog/commonly-confused-words-in-english/) such as *lie* and *lay*, whose past forms trip up many learners. For model essays that use both tenses well, browse our [IELTS Task 2 samples](/en/samples/).
+
+When you retell what someone said, these tenses shift back one step; [reported speech](/en/blog/reported-speech/) shows how *I have finished* becomes *she said she had finished*.
 
 {{cta: /#/grammar | Practise present perfect and past simple side by side}}
 

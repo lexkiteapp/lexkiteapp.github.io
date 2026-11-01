@@ -146,6 +146,8 @@ export async function setupMgr(db) {
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS soc_board (id TEXT PRIMARY KEY, post_id TEXT, clip TEXT, title TEXT, caption TEXT, accounts TEXT, plats TEXT, template TEXT, hook TEXT, cefr TEXT, state TEXT NOT NULL, mode TEXT, want_at INTEGER, hash TEXT, approved_by TEXT, approved_at INTEGER, note TEXT, err TEXT, links TEXT, created INTEGER, updated INTEGER, by_who TEXT)'),
     db.prepare('CREATE INDEX IF NOT EXISTS soc_board_post ON soc_board (post_id)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS soc_board_clip ON soc_board (clip)'), // autopilot: chống trùng clip × kênh theo khóa
+    db.prepare('CREATE INDEX IF NOT EXISTS soc_board_state ON soc_board (state, want_at)'), // autopilot: bài chờ duyệt sắp tới giờ · đếm bài duyệt tay
     db.prepare('CREATE TABLE IF NOT EXISTS soc_sets (name TEXT PRIMARY KEY, ids TEXT NOT NULL, at INTEGER, by_who TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS soc_metrics (k TEXT PRIMARY KEY, post_id TEXT, platform TEXT, account_id TEXT, clip TEXT, template TEXT, hook TEXT, cefr TEXT, views INTEGER, likes INTEGER, comments INTEGER, saves INTEGER, shares INTEGER, watch_s INTEGER, src TEXT, at INTEGER) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS soc_meta (k TEXT PRIMARY KEY, v TEXT, at INTEGER) WITHOUT ROWID'),
@@ -180,11 +182,11 @@ async function approvedClips(env) {
   return m.items.filter(it => it && CLIP.test(String(it.id)) && q.has(it.id) && !(rv.get(it.id) || {}).deleted && !['rejected', 'paused'].includes((rv.get(it.id) || {}).state) && !it.rejected)
     .map(it => ({ id: it.id, title: it.title || it.lesson || it.id, description: it.description || '', hashtags: Array.isArray(it.hashtags) ? it.hashtags.slice(0, 10) : [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, created: it.created || '', video: it.video, cover: it.cover, _it: it }));
 }
-const bodyFor = (clip, mediaId, accs, per = {}) => ({
+export const bodyFor = (clip, mediaId, accs, per = {}) => ({
   title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: 'America/New_York',
   targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'SELF_ONLY', allow_comment: true, allow_duet: false, allow_stitch: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
 });
-async function pushClip(env, clip, gc, origin) {
+export async function pushClip(env, clip, gc, origin) {
   const cached = await getMeta(env.DB, 'media:' + clip.id, null); if (cached && cached.id) return cached.id;
   const url = await signed(env, clip._it, 'video', 2 * 3600); if (!url) throw fail(409, 'clip-not-on-drive');
   const src = await fetch(new URL(url, origin).toString()); if (!src.ok || !src.body) throw fail(502, 'clip-fetch');

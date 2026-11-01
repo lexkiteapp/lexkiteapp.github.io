@@ -136,6 +136,11 @@ export async function digest(env) {
       }
     }
   } catch (_) { /* GitHub tạm lỗi – bỏ qua */ }
+  // 6b. quality-sweep (quét lỗi hằng đêm): 1 dòng từ issue đang mở "quality-sweep" – 0 lượt đọc D1
+  try {
+    const is = await (await fetch('https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/issues?labels=quality-sweep&state=open&per_page=1', { headers: { 'User-Agent': 'lexkite-digest' } })).json();
+    if (Array.isArray(is) && is[0]) wfLines.push(`• ${String(is[0].body || 'quality-sweep').split('\n')[0].replace(/\*/g, '').slice(0, 200)} – ${is[0].html_url}`);
+  } catch (_) { /* GitHub tạm lỗi – bỏ qua */ }
 
   // 7. Tự xác nhận bản dịch hàng đêm
   let judgeLine = null;

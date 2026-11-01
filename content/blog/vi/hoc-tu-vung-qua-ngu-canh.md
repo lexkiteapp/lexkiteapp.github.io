@@ -124,6 +124,8 @@ Lexkite được thiết kế để bạn không phải chép tay từng câu:
 
 {{cta: /#/reading | Chọn một bài đọc và lưu 5 từ kèm ngữ cảnh}}
 
+Cách giữ lại đúng câu bạn gặp từ khi đọc được hướng dẫn chi tiết trong bài [học từ vựng từ câu bạn đọc](/vi/blog/hoc-tu-vung-tu-cau-ban-doc/).
+
 ## Câu hỏi thường gặp
 
 ### Học từ qua ngữ cảnh có chậm hơn học danh sách không?

@@ -53,7 +53,7 @@ Kỹ thuật này đặc biệt hữu ích cho Writing Task 1, khi bạn cần m
 
 ### Kỹ thuật 3: Đổi cấu trúc câu
 
-Giữ ý nhưng thay khung câu: đảo vị trí mệnh đề, dùng mệnh đề quan hệ, đổi từ nối. Muốn đổi khung câu linh hoạt, bạn cần vững [câu phức và ba loại mệnh đề](/vi/blog/ngu-phap-ielts-cau-phuc/).
+Giữ ý nhưng thay khung câu: đảo vị trí mệnh đề, dùng [mệnh đề quan hệ](/vi/blog/menh-de-quan-he/), đổi từ nối. Muốn đổi khung câu linh hoạt, bạn cần vững [câu phức và ba loại mệnh đề](/vi/blog/ngu-phap-ielts-cau-phuc/).
 
 - *Although online shopping is convenient, it has hurt small local stores.* → *Online shopping is convenient; however, it has harmed small local stores.*
 - *People who live in cities often feel lonely.* → *Loneliness is common among city dwellers.*

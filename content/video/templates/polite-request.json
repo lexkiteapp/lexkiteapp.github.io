@@ -11,7 +11,7 @@
  "scenes": {
   "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["ama"] } },
   "supermarket": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["ama"] } },
-  "office": { "roles": { "learner": ["mia"], "explainer": ["diane"], "modeler": ["diane"] } }
+  "office": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } }
  },
  "vars": {
   "phrase": { "desc": "cụm lịch sự (từ khóa) – Could I get, Could you, Would you mind, bit of a rush (≤ 4 từ – giới hạn từ khóa)", "required": true, "maxWords": 4 },

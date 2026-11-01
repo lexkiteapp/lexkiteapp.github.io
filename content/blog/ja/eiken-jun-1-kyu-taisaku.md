@@ -76,6 +76,12 @@ qualityScore: 94
 
 複雑な構文を無理に使ってスペルミスや文法ミスを犯すよりも、無駄のない論理構成と適切な接続詞（*In addition*, *On the other hand*, *Therefore*）を用いて、ミスゼロで書き切ることがCSEスコア最大化の秘訣です。論理的な英語表現の型を身につけるには、[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)で解説している論理構造も参考になります。
 
+文法問題で狙われる仮定法の倒置は、[英語の仮定法と条件文](/ja/blog/eigo-kateihou-joukenbun/)で確認できます。
+
+語彙問題で狙われる句動詞の基本は [よく使う句動詞50選](/ja/blog/yoku-tsukau-kudoushi/) で整理しておくと安心です。
+
+英検で鍛えた語彙力をTOEFLに生かしたい人は、つづりの正確さが問われる[TOEFL Complete the Words](/ja/blog/toefl-complete-the-words-taisaku/)の対策も確認しておきましょう。
+
 {{cta: /#/reading | Lexkiteで長文読解と重要単語を練習する}}
 
 ## リスニングと2次面接（スピーキング）の突破法

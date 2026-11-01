@@ -59,7 +59,7 @@ Dans ce guide pédagogique illustré, nous allons explorer les cinq phénomènes
 
 ## Connected speech anglais : les 5 grands phénomènes oraux décodés
 
-Le langage naturel obéit au principe universel du moindre effort musculaire. Lorsque nos cordes vocales et notre langue doivent enchaîner deux consonnes complexes ou faire suivre deux voyelles ouvertes sans pause, le cerveau privilégie la solution la plus fluide et économe en énergie.
+Le langage naturel obéit au principe universel du moindre effort musculaire. Lorsque nos cordes vocales et notre langue doivent enchaîner deux consonnes complexes ou faire suivre deux voyelles ouvertes sans pause, le cerveau privilégie la solution la plus fluide et économe en énergie. Le -ed final se lie ainsi souvent au mot suivant, comme l'explique notre article sur la [prononciation de -ed en anglais](/fr/blog/prononciation-ed-anglais/).
 
 Pour observer ces mouvements phonétiques et affiner votre oreille, découvrez notre [bibliothèque de prononciation](/app/#/pron) et immergez-vous dans notre [module d écoute immersive](/app/#/listening). De plus, une diction limpide valorise directement vos interventions professionnelles comme détaillé dans notre guide sur la [présentation en anglais phrases](/fr/blog/reussir-une-presentation-en-anglais-phrases/) à retenir.
 

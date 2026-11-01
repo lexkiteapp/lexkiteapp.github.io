@@ -1,5 +1,8 @@
 # API key manager (Admin → Khóa API / API keys)
 
+> TL;DR: Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe. Gồm thiết lập một lần, lưu trữ, API quản trị /api/keys, cảnh báo, checklist bảo mật.
+> Đọc khi: thêm/xoay khóa hoặc sửa _keys.js.
+
 Lexkite keeps every provider key (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) in one encrypted pool. Server code picks keys from that pool and rotates them automatically. Admins manage the pool at `https://lexkite.com/admin.html#keys`.
 
 | Piece | File |
@@ -158,3 +161,96 @@ As a safety net, any response body that matches a key-like pattern (`AIza…`, `
 - legacy import and removal
 - the 20 % alert threshold and the 24 h mail anti-spam
 - the rate limit on `test`
+
+## 8. AI pool for background jobs (`scripts/lib/ai-pool.mjs`)
+
+Every background AI job goes through one provider-agnostic client: `lexicon-expand`, `explain`, `script-bank`, the `vocab-img` naming judge, and (through `scripts/content-qa/lib.mjs` `agree`) the content-QA judge rule. Tests: `node scripts/test/ai-pool.mjs` (mocked providers, part of `npm test`).
+
+**Routes**
+
+GrabCast limits went to MAX on 24/10. Per key: 1,500/min and 115,000/day. Per account: 3,000/min and 230,000/day. Per-IP route buckets: generate 300/min, image 60/min, vision 120/min. The pool spaces its calls at 270/min for generate and 108/min for vision (about 10 % headroom; override with `AI_POOL_GC_RPM` / `AI_POOL_GC_VISION_RPM`). A 429 rests the route for exactly its `Retry-After`. `generate` takes `{prompt ≤ 8,000 chars, provider, model}`; the pool halves the item batch until the prompt fits. A `503 ai_exhausted` rests the route for 10 min. `ai_unavailable` rests only that model for 5 min.
+
+| Route | What | Credentials | Budget (per run) |
+|---|---|---|---|
+| `lexai` | Gemini / Gemma from the Lexkite key pool (this page), via `/api/lexai` (GitHub OIDC). The server rotates keys. A `ping` with 0 live keys rests this route right at the start. | OIDC only | `--calls` of the job |
+| `gc-groq` | GrabCast `provider: groq`, model `openai/gpt-oss-120b` (20b for judging only) | secret `GRABCAST_AI_KEY` | `AI_POOL_GC_MAX` (lexicon 20,000, explain 15,000, script-bank 8,000, vocab-img default 10,000; total ≤ 103k ≈ 90 % of 115k) |
+| `gc-cf` | GrabCast `provider: cloudflare`, models `@cf/openai/gpt-oss-120b` and `@cf/meta/llama-3.3-70b-instruct-fp8-fast` – **off unless `AI_POOL_CF_TEXT=1`** (neurons are for images) | `GRABCAST_AI_KEY` | shared |
+| `cf2` | Workers AI on **account 2** (REST), gpt-oss-120b, then Llama 3.3 70B | `CF_AI_TOKEN_2` + `CF_ACCOUNT_2` | neurons granted by the coordinator (`LEASE_AI_B_NEURONS` / `--neurons`; `reservations.workers_ai_b.grants`) |
+| `gc-gemini` | GrabCast `provider: gemini` (2.5-flash/pro; its 29 keys run out of free quota daily, so it is last) | `GRABCAST_AI_KEY` | shared |
+| `gc-vision` | GrabCast `/api/owner-ai/vision` `{prompt, image_b64, mime}`: CF Llama 4 Scout, then Gemini, then Groq | `GRABCAST_AI_KEY` | shared |
+
+The **main-account Workers AI is never reachable** from background jobs. `/api/lexai` strips `env.AI` (`stripBackgroundAI`) and no longer has any Workers AI fallback. `ai-pool.mjs` has no route to the main account, and the test fails if one appears.
+
+**One prompt source.** `functions/api/lexai.js` `build()` makes `{ sys, user, temp }` for every mode. The Gemini route calls `/api/lexai` normally. Other routes fetch the same prompt with `{ …, prompt: true }`, which never calls a model, and then call their provider. `{ mode: 'ping' }` returns the number of usable Gemini keys without calling a model.
+
+**Chains**
+
+- **25/10: Cloudflare text is OFF.** The GrabCast Cloudflare neuron pool (~70 accounts × 10k/day, reset 00:00 UTC) is reserved for vocab IMAGES; text calls drained it and blocked image runs. `gc-cf` is the last link of every chain and only lives when `AI_POOL_CF_TEXT=1`. If GrabCast answers a groq/gemini request with a Cloudflare model (seen 25/10: `provider=groq` → `@cf/meta/llama-3.3-70b`, empty `fallback_from`), the pool drops the answer, counts `used.cfLeak` and rests that route 30 min.
+- Generation: `lexai (Gemini, when live) → gc-groq gpt-oss-120b → cf2 → gc-gemini → (gc-cf, flag only)`.
+- Judge A: `gc-groq gpt-oss-120b → lexai → cf2 → gc-gemini → (gc-cf)`.
+- Judge B: `gc-groq gpt-oss-20b → lexai → gc-gemini → cf2 → (gc-cf)`. Judge B must be a **different model** than A and gets a different system prompt (`JUDGE_B_SYS`, adversarial second reviewer). It must also be a different family, except the declared pair gpt-oss-120b + gpt-oss-20b (`SAME_FAM_PAIR`; trade-off in docs/CONTENT-QA.md §2).
+- Vision: `gc-vision → studio (Gemini, wai:0) → cf2 Llama 4 Scout`.
+- The family is always checked on the model that **really** answered. If GrabCast swaps the provider or model, that route rests for 15 min.
+
+**Quality guard (`TASKS`, `TIERS`)**
+
+- Tier L (generate + judge): Gemini 3.x flash/pro, gpt-oss-120b, Llama 3.3 70B, Qwen3 235B, Kimi K2.
+- Tier M (judge only): flash-lite, Gemma 3 27B, gpt-oss-20b, Llama 4 Scout, Qwen3 32B.
+- Tier S (forbidden): anything smaller, or any unknown model.
+- Llama is additionally forbidden for generating `xgen` / `xtr` / `lxtr` / `translate`. It was measured on 22/10 writing 13/30 explanations wrong, and on 24/10 it left ja/th/hi/ar blank.
+- `content-qa` `agree()` does not count a tier-S judge.
+
+**Cooldowns** are per `(route, model)`:
+
+- `PerDay` → until midnight Pacific
+- 429 / `PerMinute` → 65 s
+- a 403 for one model → 20 min for that model only
+- 3 network/5xx errors → 15 min
+
+Only route-wide failures rest the whole route: `keys=0`, GrabCast 401/403, account-2 `10000 Authentication error` or `4006` neurons. `health()` runs once at the start of each job. It pings `lexai`, makes one tiny call per GrabCast provider, and runs one tiny account-2 call.
+
+**Neutral skip.** When no route (or no second family) answers, the pool returns `null`. Jobs then write nothing for those items. They do not go to the review queue, so they are not burned; the next run retries them. Content without two agreeing judges from different families never ships.
+
+**Logs.** Every answer is logged as `[ai-pool] ✓ <mode> ← <route> <model>`. Per-route/model counts and budgets go to `reports/lexicon-expand.json` → `ai`, and to `reports/ai-pool-<job>.json`.
+
+## 9. Capacity estimate (Admin → API keys → "🧮 Background AI capacity")
+
+`scripts/ai-capacity.mjs` computes the queued workload from the repo and the measured free limits (`MEASURED`). It writes `web/data/ai-capacity.json`, which is refreshed by every `lexicon-expand` run. The admin card combines that file with the **live** Gemini key count of the pool. It shows live keys per route, estimated calls/day, and days to finish the queue. When 0 Gemini keys are live it says "cannot finish", because explanations and 13-language translations need Gemini or account-2 gpt-oss.
+
+**Measured limits (24/10)**
+
+- Gemini 3.x flash: ~20 RPD per model per key. 4 flash models are rotated, so that is about 80 calls per key per day.
+- flash-lite: ≥ 135 RPD per key (judging only).
+- The Lexkite pool currently has **0 live Gemini keys**.
+- GrabCast: 115,000/day per key × 90 %, minus vocab-img, leaves about 102k text calls/day. The real cap is the per-IP generate bucket: 270/min ≈ 16k calls/hour. These are shared between Groq and Cloudflare gpt-oss/Llama.
+- Account 2: 10,000 neurons/day, still waiting for the Workers AI permission.
+
+**Queued workload, in calls (24/10)**
+
+| Work | Generation | of which Gemini/gpt-oss only | Judging |
+|---|---|---|---|
+| lexicon 12,000 words (10/call: lxgen + lxtr + 2 judges) | 2,400 | 1,200 (lxtr) | 2,400 |
+| explanations, usage + grammar (1,732 questions × 15 langs) | 3,342 | 3,342 | 5,220 |
+| script bank (21,323 scripts, 20/call) | 1,067 | 0 | 1,067 |
+| vocab-img naming judge | – | – | ≈ 400/day (ongoing, set by drawing pace) |
+| **Total** | **6,809** | **4,542** | **8,687** |
+
+The task estimate of "~2.9k explanation calls" counted generation only. With two judges per batch, explanations need about 8.5k calls.
+
+**Days to finish.** Formula: `daysFor`, which takes the larger of the API bound and the daily run-size bound.
+
+- **API bound:** under 1 day. The whole queue (about 15.5k calls) is below one day of GrabCast quota (about 102k/day), with any number of Gemini keys, including 0.
+- **Run-size bound (the real limit):**
+  - lexicon `--n 400` words/day: 12,000 / 400 = 30 days
+  - explain `--calls 400` × 2 sets/day: about 5,950 / 800 = 7.4 days
+  - script-bank `--max 400` scripts/day: 21,323 / 400 = 53 days
+
+  So the queue takes about **53 days** (30 days for the lexicon), the same with 0 or 30 Gemini keys.
+
+**How many Gemini keys would speed things up**
+
+With the upgraded GrabCast: **none for throughput.** Adding 10 Gemini keys adds about 2,150 calls/day on top of about 102k/day. To go faster, raise the daily run sizes in the workflows. For example, lexicon `--n 2000` (about 800 calls) finishes 12k words in 6 days, and script-bank `--max 2000` finishes in 11 days. Keep the jobs' 2–2.5 h timeouts in mind.
+
+Gemini keys are still worth adding (2–5 keys, each from its own Google Cloud project, because quota is per project) for **quality and diversity**: a third family for judging, and fallback if GrabCast goes down.
+
+Without GrabCast (the old setup, for reference): 1 key ≈ 57 days, 5 ≈ 11, 10 ≈ 5.7, 20 ≈ 2.8. In that case, about 8–10 keys was the sweet spot.

@@ -47,7 +47,7 @@
   "syn": [],
   "vi": "khoản phải thu",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "pre": {
   "ipa": "/ˈpɹi/",
@@ -173,7 +173,7 @@
   "syn": [],
   "vi": "thị trường chứng khoán",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "ex": {
   "ipa": "",
@@ -201,7 +201,7 @@
   "syn": [],
   "vi": "người phát hành",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "borrower": {
   "ipa": "/ˈbɔɹəʊə/",
@@ -329,7 +329,7 @@
   "syn": [],
   "vi": "sự đền đáp, sự cho nghĩ phép",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "publicly": {
   "ipa": "/ˈpʌb.lɪ.kli/",
@@ -359,7 +359,7 @@
   "syn": [],
   "vi": "nhà tiếp thị",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "rebel": {
   "ipa": "/ˈɹɛb.əl/",
@@ -467,7 +467,7 @@
   "syn": [],
   "vi": "đa quốc gia",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "shrink": {
   "ipa": "/ˈʃɹɪŋk/",
@@ -509,7 +509,7 @@
   ],
   "vi": "dòng chảy vào, cửa sông",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "pledge": {
   "ipa": "/plɛd͡ʒ/",
@@ -825,7 +825,7 @@
   "syn": [],
   "vi": "thanh toán",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "suppress": {
   "ipa": "/səˈpɹɛs/",
@@ -903,7 +903,7 @@
   "syn": [],
   "vi": "trả nợ, sự trả góp",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "offshore": {
   "ipa": "/ɒfˈʃɔː(ɹ)/",
@@ -923,7 +923,7 @@
   "syn": [],
   "vi": "thị trường",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "proxy": {
   "ipa": "/ˈpɹɒk.si/",
@@ -943,7 +943,7 @@
   "syn": [],
   "vi": "về mặt chính trị",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "municipal": {
   "ipa": "/mjuˈnɪsɪpəl/",
@@ -1171,7 +1171,7 @@
   "syn": [],
   "vi": "nhà xuất khẩu",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "lag": {
   "ipa": "/læɡ/",
@@ -1231,7 +1231,7 @@
   "syn": [],
   "vi": "phát hành",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "capitalist": {
   "ipa": "/ˈkæp.ɪ.tə.lɪst/",
@@ -1405,7 +1405,7 @@
   "syn": [],
   "vi": "mua lại",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "plunge": {
   "ipa": "/plʌnd͡ʒ/",
@@ -1583,7 +1583,7 @@
   ],
   "vi": "tăng dần",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "fighter": {
   "ipa": "/ˈfaɪ.tə(ɹ)/",
@@ -1707,7 +1707,7 @@
   ],
   "vi": "dòng chảy ra",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "spokesman": {
   "ipa": "",
@@ -1717,7 +1717,7 @@
   "syn": [],
   "vi": "người phát ngôn, người đại diện",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "contingency": {
   "ipa": "/kənˈtɪnd͡ʒənsi/",
@@ -2053,7 +2053,7 @@
   "syn": [],
   "vi": "người nắm giữ trái phiếu",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "unveil": {
   "ipa": "/ʌnˈveɪl/",
@@ -2284,7 +2284,7 @@
   ],
   "vi": "rõ ràng",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "payback": {
   "ipa": "/ˈpeɪbæk/",
@@ -2392,7 +2392,7 @@
   "syn": [],
   "vi": "về mặt vật chất, thành tựu",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "clash": {
   "ipa": "/ˈklæʃ/",
@@ -2482,7 +2482,7 @@
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "deflation": {
   "ipa": "/dɪˈfleɪʃən/",
@@ -2532,7 +2532,7 @@
   "syn": [],
   "vi": "tái đầu tư",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "provincial": {
   "ipa": "/pɹəˈvɪn(t)ʃəl/",
@@ -2582,7 +2582,7 @@
   "syn": [],
   "vi": "ngừng bắn, chấm dứt chiến tranh",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "handset": {
   "ipa": "/ˈhæn(d)sɛt/",
@@ -2936,7 +2936,7 @@
   "syn": [],
   "vi": "không được ưa chuộng",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "quantify": {
   "ipa": "/ˈkwɒn.tɪˌfaɪ/",
@@ -3328,9 +3328,9 @@
   "def": "A company that manufactures automobiles.",
   "ex": "",
   "syn": [],
-  "vi": "hãng sản xuất ô tô",
+  "vi": "nhà sản xuất ô tô",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "discretionary": {
   "ipa": "/dɪˈskɹɛʃən(ə)ɹi/",
@@ -3500,7 +3500,7 @@
   "syn": [],
   "vi": "đối tác",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "overwhelm": {
   "ipa": "/ˌəʊ.vəˈ(h)wɛlm/",
@@ -3778,7 +3778,7 @@
   "syn": [],
   "vi": "lạm phát",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "tort": {
   "ipa": "/tɔːt/",
@@ -3826,7 +3826,7 @@
   "syn": [],
   "vi": "sự tự do hóa",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "buyout": {
   "ipa": "",
@@ -3836,7 +3836,7 @@
   "syn": [],
   "vi": "mua lại",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "remarkably": {
   "ipa": "/ɹɪˈmɑːkəbli/",
@@ -4006,7 +4006,7 @@
   "syn": [],
   "vi": "tài chính",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "maximization": {
   "ipa": "",
@@ -4016,7 +4016,7 @@
   "syn": [],
   "vi": "tối đa hóa",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "bureaucrat": {
   "ipa": "/ˈbjʊəɹəkɹæt/",
@@ -4124,7 +4124,7 @@
   "syn": [],
   "vi": "tỷ lệ thuận",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "uncover": {
   "ipa": "/ʌnˈkʌvə(ɹ)/",
@@ -4168,7 +4168,7 @@
   ],
   "vi": "tổ chức lại",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "successive": {
   "ipa": "/səkˈsɛsɪv/",
@@ -4208,7 +4208,7 @@
   "syn": [],
   "vi": "bãi bỏ quy định",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "computerize": {
   "ipa": "",
@@ -4218,7 +4218,7 @@
   "syn": [],
   "vi": "vi tính hóa",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "succession": {
   "ipa": "/səkˈsɛʃ.ən/",
@@ -4318,7 +4318,7 @@
   "syn": [],
   "vi": "nhà hoạch định chính sách",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "technically": {
   "ipa": "/ˈtɛk.nɪˌkəl.i/",
@@ -4338,7 +4338,7 @@
   ],
   "vi": "sự tận dụng",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "tumble": {
   "ipa": "/ˈtʌmbl̩/",
@@ -4408,7 +4408,7 @@
   "syn": [],
   "vi": "sự thiếu hụt",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "originate": {
   "ipa": "/əˈɹɪd͡ʒɪneɪt/",
@@ -4498,7 +4498,7 @@
   "syn": [],
   "vi": "tái cấp vốn",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "tribal": {
   "ipa": "/ˈtɹaɪbəl/",
@@ -4576,7 +4576,7 @@
   "syn": [],
   "vi": "người bán buôn",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "bilateral": {
   "ipa": "/baɪˈlætəɹəl/",
@@ -4698,7 +4698,7 @@
   "syn": [],
   "vi": "hàng năm hóa",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "turmoil": {
   "ipa": "/ˈtɜːmɔɪl/",
@@ -4748,7 +4748,7 @@
   "syn": [],
   "vi": "đầu người",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "tolerate": {
   "ipa": "/ˈtɒl.ə.ɹeɪt/",
@@ -4828,7 +4828,7 @@
   "syn": [],
   "vi": "có thể bán được",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "conjunction": {
   "ipa": "/kənˈd͡ʒʌŋk.ʃn̩/",
@@ -5074,9 +5074,9 @@
   "def": "Lack of efficiency or effectiveness.",
   "ex": "Inefficiency is a form of waste.",
   "syn": [],
-  "vi": "sự kém hiệu quả, bất tài",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "downgrade": {
   "ipa": "/ˈdaʊnˌɡɹeɪd/",
@@ -5124,9 +5124,9 @@
   "def": "An entity assuming a financial risk.",
   "ex": "They were the underwriters of the company's shares, but only on a \"best efforts\" basis.",
   "syn": [],
-  "vi": "người bảo lãnh, người bảo đảm",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "newcomer": {
   "ipa": "/ˈnjuːkʌmə/",
@@ -5174,9 +5174,9 @@
   "def": "In an appropriate manner; properly; suitably.",
   "ex": "",
   "syn": [],
-  "vi": "một cách thích hợp",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "accusation": {
   "ipa": "/ˌæk.jʊˈzeɪ.ʃ(ə)n/",
@@ -5204,9 +5204,9 @@
   "def": "The removal or lessening of something's value.",
   "ex": "The Algerian dinar is devaluing year after year.",
   "syn": [],
-  "vi": "sự mất giá, giãm giá trị",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "outlay": {
   "ipa": "",
@@ -5214,9 +5214,9 @@
   "def": "A laying out or expending; that which is laid out or expended.",
   "ex": "Without too much outlay, you could buy a second-hand car.",
   "syn": [],
-  "vi": "chi tiêu, bỏ ra",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "precious": {
   "ipa": "/ˈpɹɛʃ.əs/",
@@ -5396,13 +5396,13 @@
  },
  "unpredictable": {
   "ipa": "",
-  "pos": "adjective",
+  "pos": "noun",
   "def": "An unpredictable thing.",
   "ex": "",
   "syn": [],
-  "vi": "không thể đoán trước",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "disastrous": {
   "ipa": "/dɪˈzɑː.stɹəs/",
@@ -5500,9 +5500,9 @@
   "def": "A male member of congress.",
   "ex": "When the scandal broke, the Congressman's constituents were seething.",
   "syn": [],
-  "vi": "nghị sĩ",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "ratify": {
   "ipa": "/ˈɹætɪfaɪ/",
@@ -5568,9 +5568,9 @@
   "def": "The property of not being in balance.",
   "ex": "The growing imbalances between the rich and poor first lead to more crime.",
   "syn": [],
-  "vi": "mất cân bằng",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "bolster": {
   "ipa": "/ˈbɒlstə/",
@@ -5648,9 +5648,9 @@
   "def": "One who reforms, or who works for reform.",
   "ex": "",
   "syn": [],
-  "vi": "người cải cách, người cải quá",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "unwilling": {
   "ipa": "/ʌnˈwɪlɪŋ/",
@@ -5700,7 +5700,7 @@
   "syn": [],
   "vi": "người gửi tiền",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "clout": {
   "ipa": "/klaʊt/",
@@ -5723,7 +5723,7 @@
   ],
   "vi": "tập thể",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "conspiracy": {
   "ipa": "/kənˈspɪɹəsi/",
@@ -5783,7 +5783,7 @@
   "syn": [],
   "vi": "trái phép",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "pin": {
   "ipa": "/pɪn/",
@@ -5843,7 +5843,7 @@
   "syn": [],
   "vi": "đầy đủ",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "prosper": {
   "ipa": "/ˈpɹɒspə(ɹ)/",
@@ -5873,7 +5873,7 @@
   "syn": [],
   "vi": "tiểu mục",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "formulation": {
   "ipa": "",
@@ -5883,7 +5883,7 @@
   "syn": [],
   "vi": "công thức",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "exert": {
   "ipa": "/ɪɡˈzɜːt/",
@@ -5918,12 +5918,16 @@
  "unfavorable": {
   "ipa": "",
   "pos": "adjective",
-  "def": "US standard spelling of unfavourable.",
+  "def": "Serving to hinder or oppose; adverse, disadvantageous, inconducive, unsuitable.",
   "ex": "The weather is unfavorable for our athletic meet today.",
-  "syn": [],
+  "syn": [
+   "favourable",
+   "inauspicious",
+   "unfortunate"
+  ],
   "vi": "không thuận lợi",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "proprietorship": {
   "ipa": "",
@@ -5931,9 +5935,9 @@
   "def": "The state of being a proprietor; ownership",
   "ex": "",
   "syn": [],
-  "vi": "quyền sở hữu",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "franc": {
   "ipa": "/ˈfɹæŋk/",
@@ -5951,9 +5955,9 @@
   "def": "A person who holds an insurance policy, especially the person whose life is insured",
   "ex": "The insurer will indemnify the policyholder against loss of or damage to the motor car.",
   "syn": [],
-  "vi": "người mua bảo hiểm",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "supervisory": {
   "ipa": "/ˌsuːpə(ɹ)ˈvaɪzəɹɪ/",
@@ -6001,9 +6005,9 @@
   "def": "The condition of being reinvested",
   "ex": "Chemical companies are waiting until everything dies down before reinvesting.",
   "syn": [],
-  "vi": "tái đầu tư",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "scratch": {
   "ipa": "/skɹæt͡ʃ/",
@@ -6247,9 +6251,9 @@
   "def": "A printed card allowing spectators of a game to identify players and record progress.",
   "ex": "",
   "syn": [],
-  "vi": "thẻ điểm",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "ounce": {
   "ipa": "/aʊns/",
@@ -6331,9 +6335,9 @@
    "reword",
    "reiterate"
   ],
-  "vi": "trình bày lại",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "rightly": {
   "ipa": "/ˈɹaɪtli/",
@@ -6401,9 +6405,9 @@
   "def": "One who advocates reform (of an institution).",
   "ex": "Reformist prison systems try and encourage learning the teachings of stoicism because it lowers reoffending rates a lot.",
   "syn": [],
-  "vi": "người theo chủ nghĩa cải cách",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "imminent": {
   "ipa": "/ˈɪmɪnənt/",
@@ -6451,9 +6455,9 @@
   "def": "Not connected or associated",
   "ex": "The holiday started with two unrelated mishaps.",
   "syn": [],
-  "vi": "không liên quan",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "clarity": {
   "ipa": "/ˈklæɹ.ɪ.ti/",
@@ -6563,9 +6567,9 @@
   "def": "The act of sending someone away.",
   "ex": "",
   "syn": [],
-  "vi": "sa thải, cho giải ngủ",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "empowerment": {
   "ipa": "/ɪmˈpaʊ.əɹ.mənt/",
@@ -6623,9 +6627,9 @@
   "def": "Capable of being enforced.",
   "ex": "",
   "syn": [],
-  "vi": "có thể thực thi được",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "dub": {
   "ipa": "/dʌb/",
@@ -6656,9 +6660,9 @@
    "free",
    "loose"
   ],
-  "vi": "không được bảo đảm",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "blast": {
   "ipa": "/blɑːst/",
@@ -6766,9 +6770,9 @@
   "def": "The process of altering the relative value of a currency or other standard of exchange.",
   "ex": "After the new party took power, the government declared a revaluation of the currency in an attempt to limit runaway inflation.",
   "syn": [],
-  "vi": "đánh giá lại",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "swell": {
   "ipa": "/swɛl/",
@@ -6914,9 +6918,9 @@
   "def": "In a severe manner.",
   "ex": "",
   "syn": [],
-  "vi": "nghiêm khắc",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "grim": {
   "ipa": "/ɡɹɪm/",
@@ -6934,9 +6938,9 @@
   "def": "Relating to relations.",
   "ex": "",
   "syn": [],
-  "vi": "quan hệ",
+  "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "brutal": {
   "ipa": "/ˈbɹuːtəl/",
@@ -6966,7 +6970,7 @@
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "disposition": {
   "ipa": "/ˌdɪs.pəˈzɪʃ.ən/",
@@ -7001,12 +7005,12 @@
  "worksheet": {
   "ipa": "",
   "pos": "noun",
-  "def": "A sheet of paper or computerized document on which problems are worked out or solved and answers recorded.",
+  "def": "A sheet of paper or computerized document on which problems are worked out or solved and the answers are recorded.",
   "ex": "The reward for finishing your worksheet early is another worksheet.",
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "intercept": {
   "ipa": "/ɪntəˈsɛpt/",

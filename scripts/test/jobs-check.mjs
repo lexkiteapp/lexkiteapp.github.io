@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Kiểm sổ việc nền (infra/jobs.json ↔ .github/workflows/*.yml ↔ workers/*/wrangler.toml): lịch khớp, không trùng, việc dùng chung tài nguyên ĐỘC QUYỀN không chồng giờ,
 // việc nặng không chung phút bắt đầu, việc có lease phải gọi scripts/jobs/lease.mjs. Sinh lịch/ docs: node scripts/jobs/gen.mjs [--write].
 import fs from 'fs';
@@ -75,7 +76,7 @@ export function check(reg, wfDir = '.github/workflows', root = '.') {
   }
   return bad;
 }
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) {
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(new URL(import.meta.url)))) {
   const bad = check(REG);
   if (bad.length) { console.error('✗ jobs-check:\n' + bad.map(x => '  - ' + x).join('\n')); process.exit(1); }
   console.log(`✓ jobs-check: ${REG.jobs.length} việc nền – lịch khớp workflow, không trùng, không chồng giờ trên tài nguyên độc quyền`);

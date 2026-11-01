@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody } from '../ci/triage.mjs';
+import { classify, excerpt, digest, issueBody, supersededWhy, scriptRefs, importRefs } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
@@ -66,7 +66,8 @@ ok(rc === 0 && !fs.existsSync(marker), 'QUOTA_SKIP=1 → bước sau không ch�
 const WF = path.join(ROOT, '.github/workflows'), files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f));
 const nameOf = f => ((fs.readFileSync(path.join(WF, f), 'utf8').match(/^name:\s*(.+)$/m) || [])[1] || f).trim().replace(/^['"]|['"]$/g, '');
 const tri = fs.readFileSync(path.join(WF, 'ci-triage.yml'), 'utf8');
-for (const f of files) if (f !== 'ci-triage.yml') ok(tri.includes(`- '${nameOf(f)}'`), `ci-triage.yml thiếu workflow "${nameOf(f)}" (${f})`);
+{ const { sync } = await import('../ci/sync-triage.mjs'), d = sync(false); // danh sách phải khớp 2 chiều; sửa bằng 1 lệnh
+  ok(!d.missing.length && !d.stale.length, `ci-triage.yml lệch .github/workflows (thiếu: ${d.missing.join(', ') || '-'}; thừa: ${d.stale.join(', ') || '-'}) → chạy: node scripts/ci/sync-triage.mjs`); }
 ok(/run_attempt|rerun-failed-jobs/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')) && /attempt > 1/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')), 'triage: chỉ chạy lại khi attempt = 1');
 for (const f of files) {
   const s = fs.readFileSync(path.join(WF, f), 'utf8');
@@ -90,6 +91,8 @@ git(tmp, 'clone', '-q', origin, work);
 for (const [p, c] of [['web/js/i18n/vi.js', 'core 1\n'], ['web/js/i18n/vi/tools.js', 'tools 1\n'], ['web/app/index.html', 'x\n'], ['README', 'r\n']]) { fs.mkdirSync(path.dirname(path.join(work, p)), { recursive: true }); fs.writeFileSync(path.join(work, p), c); }
 const addLine = script.find(l => /^git add /.test(l)) || ''; // mọi đường dẫn bước lưu tồn tại như trên runner thật
 for (const t of addLine.split(/\s+/).slice(2)) { const p = t.replace(/\*/g, 'xx'), f = path.join(work, /\.[a-z]+$/.test(p) ? p : p + '/keep.txt'); if (!fs.existsSync(f)) { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, 'seed\n'); } }
+// build-extension.sh giả (bản thật cần rsync/perl + cả web/): chép web/js/i18n → extension/app/js/i18n như bản thật
+fs.mkdirSync(path.join(work, 'scripts'), { recursive: true }); fs.writeFileSync(path.join(work, 'scripts/build-extension.sh'), 'mkdir -p extension/app/js && rm -rf extension/app/js/i18n && cp -R web/js/i18n extension/app/js/i18n\n');
 git(work, 'add', '-A'); git(work, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'init'); git(work, 'push', '-q', 'origin', 'HEAD:main');
 git(tmp, 'clone', '-q', origin, other); fs.writeFileSync(path.join(other, 'README'), 'r2\n'); git(other, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qam', 'race'); git(other, 'push', '-q', 'origin', 'HEAD:main'); // lượt đẩy khác chen vào
 fs.writeFileSync(path.join(work, 'web/js/i18n/vi.js'), 'core 2\n'); fs.writeFileSync(path.join(work, 'web/js/i18n/vi/tools.js'), 'tools 2\n'); fs.writeFileSync(path.join(work, 'web/app/index.html'), 'junk\n');
@@ -99,7 +102,20 @@ const sh = spawnSync('bash', ['-e', '-c', script.join('\n').replace(/sleep \$\(\
 ok(sh.status === 0, `i18n: bước lưu phải đẩy được (rc ${sh.status}) ${sh.stderr.slice(-300)}`);
 const pushed = (p) => execFileSync('git', ['--git-dir', origin, 'show', 'main:' + p]).toString();
 ok(sh.status === 0 && pushed('web/js/i18n/vi/tools.js') === 'tools 2\n' && pushed('web/js/i18n/vi.js') === 'core 2\n' && pushed('README') === 'r2\n', 'i18n: nhóm tải lười được commit + giữ lượt đẩy khác');
+ok(sh.status === 0 && pushed('extension/app/js/i18n/vi/tools.js') === 'tools 2\n', 'i18n: bản dịch mới được chép sang add-on trong cùng commit (ext-sync)');
 try { fs.rmSync(tmp, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }); } catch { /* dọn dẹp tạm: bỏ qua */ }
 
+// --- không chạy lại lượt đã bị thay thế (25/10: 2 lượt word-audio cũ bị "Re-run" với code cũ)
+{
+  const run = { id: 1, created_at: '2026-10-25T13:00:00Z', path: '.github/workflows/word-audio.yml' };
+  ok(/mới hơn/.test(supersededWhy(run, { newer: [{ id: 2, run_number: 9, created_at: '2026-10-25T13:30:00Z' }] })), 'có lượt mới hơn → thay thế');
+  ok(supersededWhy(run, { newer: [{ id: 1, created_at: run.created_at }, { id: 0, created_at: '2026-10-25T12:00:00Z' }] }) === '', 'chỉ lượt cũ hơn → không thay thế');
+  const refs = scriptRefs('run: node scripts/gen-word-audio.mjs && python3 scripts/word-audio-asr.py');
+  refs.push(...importRefs('scripts/gen-word-audio.mjs', "import { STRONG } from './word-audio-strong.mjs'; const k = await import('./word-audio/kokoro.mjs');"));
+  ok(refs.includes('scripts/word-audio/kokoro.mjs') && refs.includes('scripts/word-audio-strong.mjs'), 'theo import trực tiếp của script');
+  ok(/đã đổi/.test(supersededWhy(run, { changed: ['scripts/word-audio-strong.mjs'], refs })), 'module được import đã đổi → thay thế');
+  ok(/đã đổi/.test(supersededWhy(run, { changed: ['.github/workflows/word-audio.yml'], refs })), 'file workflow đã đổi → thay thế');
+  ok(supersededWhy(run, { changed: ['web/blog/x.html', 'scripts/other.mjs'], refs }) === '', 'đổi file không liên quan → vẫn được chạy lại');
+}
 if (fail) { console.error(`✗ ci-triage: ${fail} lỗi`); process.exit(1); }
 console.log('✓ ci-triage: phân loại, bỏ qua hạn mức D1, issue/bản tin, sửa youtube-*/i18n – tất cả đạt');

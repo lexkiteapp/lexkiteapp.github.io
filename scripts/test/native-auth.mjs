@@ -37,6 +37,7 @@ function setup({ platform = 'ios', configured = true } = {}) {
   w.UI = {
     $: s => d.querySelector(s), esc: s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]),
     toast: m => toasts.push(m),
+    icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`,
     modal: html => { const b = d.getElementById('modalBox'); b.innerHTML = html; d.getElementById('modal').hidden = false; return b; },
     closeModal: () => { d.getElementById('modal').hidden = true; },
   };

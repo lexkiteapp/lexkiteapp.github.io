@@ -10,7 +10,7 @@
   // CSS Ghép thẻ (chuyển từ style.css)
   if (!document.getElementById('mgCss')) { const st = document.createElement('style'); st.id = 'mgCss'; st.textContent = `.match-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; } .tile { min-height: 96px; padding: .7rem; border-radius: 14px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); cursor: pointer; font-weight: 700; display: grid; place-items: center; text-align: center; transition: transform .12s, opacity .3s, border-color .12s; font-size: .95rem; } .tile:hover { border-color: var(--primary); } .tile.sel { border-color: var(--primary); background: var(--primary-soft); } .tile.bad { border-color: var(--again); background: var(--again-soft); animation: shakeWrong .35s ease-in-out; } .tile.gone { opacity: 0; transform: scale(.85); pointer-events: none; } @media (max-width: 900px) { .match-grid { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 480px) { .match-grid { grid-template-columns: repeat(2, 1fr); } }`; document.head.appendChild(st); }
   window.StudyGames = H => {
-    const { accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName } = H;
+    const { accent, emptySource, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName } = H;
   function runMatch(src) {
     const list = pool(src).filter(w => w.vi);
     const items = shuffle(list).slice(0, 6);
@@ -32,10 +32,10 @@
       if (sel === b) { b.classList.remove('sel'); sel = null; return; }
       const a = tiles[+sel.dataset.i];
       if (a.id === t.id && a.kind !== t.kind) {
-        Sfx.correct(); haptic(true); sel.classList.add('gone'); b.classList.add('gone'); sel = null; left--;
+        Sfx.answer(true, { el: b }); sel.classList.add('gone'); b.classList.add('gone'); sel = null; left--;
         if (!left) done();
       } else {
-        Sfx.wrong(); haptic(false); misses++; const s = sel; s.classList.remove('sel'); s.classList.add('bad'); b.classList.add('bad');
+        Sfx.answer(false, { el: b }); misses++; const s = sel; s.classList.remove('sel'); s.classList.add('bad'); b.classList.add('bad');
         setTimeout(() => { s.classList.remove('bad'); b.classList.remove('bad'); }, 400); sel = null;
       }
     });
@@ -45,7 +45,6 @@
       const best = state.game.best.match;
       const xp = 10 + (time < 25 ? 10 : time < 40 ? 5 : 0);
       await App.reward({ matches: 1, quizzes: 1, perfect: misses === 0 ? 1 : 0, matchTime: time, xp });
-      Sfx.win(); confetti();
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
         <div class="em">⚡</div><h2>${time}s</h2>
         <p>${!best || time < best ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}s', { best })} · ${t('{n} lần sai', { n: misses })} · +${xp} XP</p>
@@ -53,6 +52,7 @@
         <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="again">${t('Chơi lại')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Chế độ khác')}</a></div>
       </div></div>`;
       $('#again').onclick = () => runMatch(src);
+      Sfx.finish({ pct: Math.round(items.length / (items.length + misses) * 100), xp, ms: time * 1000, good: 0, el: $('.celebrate', view) }); // âm thắng + pháo giấy + 4 thẻ số liệu (đúng ngay lần đầu)
       practiceDone({ mode: 'match', src, pct: 100 });
     }
   }
@@ -74,7 +74,7 @@
         <div class="card q-card">
           ${picOk(w) ? pic(w).replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto 1rem"') : ''}
           <div class="entry-word">${esc(w.word)}</div>
-          <div class="row center"><span class="ipa" id="ipaW" style="font-size:1.1rem">${esc(w.ipa) || (w.ipaUS ? '' : `<span class="muted small">${t('đang tra phiên âm…')}</span>`)}</span><button class="icon-btn" id="model" title="${t('Nghe mẫu')}">🔊</button><button class="icon-btn" id="modelSlow" title="${t('Nghe chậm')}">🐢</button></div>
+          <div class="row center"><span class="ipa" id="ipaW" style="font-size:1.1rem">${UI.ipaHtml(w, null, { cls: 'ipa', noEx: true }) || (w.ipaUS ? '' : `<span class="muted small">${t('đang tra phiên âm…')}</span>`)}</span><button class="icon-btn" id="model" title="${t('Nghe mẫu')}">🔊</button><button class="icon-btn" id="modelSlow" title="${t('Nghe chậm')}">🐢</button></div>
           <div class="vi" id="viW" style="font-size:1rem;margin-top:.3rem">${esc(mean(w))}</div>
           <div style="margin:1.6rem 0 .6rem"><button class="mic" id="mic" title="${t('Bấm và nói')}">🎙️</button></div>
           <div class="muted small" id="hint">${SR ? t('Bấm micro rồi đọc to từ trên') : '⚠️ ' + t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.')}</div>
@@ -130,11 +130,11 @@
     };
     const finish = () => {
       App.reward({ quizzes: 1, xp: 5 });
-      Sfx.win(); if (good >= items.length * 0.7) confetti();
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate"><div class="em">🎙️</div>
         <h2>${t('Phát âm tốt {good}/{total} từ', { good, total: items.length })}</h2><p class="muted">${t('Luyện đều mỗi ngày để Speaking tự nhiên hơn.')}</p>
         <div class="row center"><button class="btn primary" id="again">${t('Luyện tiếp')}</button><a class="btn" href="#/practice">${t('Chế độ khác')}</a></div></div></div>`;
       $('#again').onclick = () => runSpeak(src);
+      Sfx.finish({ pct: Math.round(good / Math.max(1, items.length) * 100), xp: 5, good: 70, el: $('.celebrate', view) });
       practiceDone({ mode: 'speak', src, pct: Math.round(good / Math.max(1, items.length) * 100) }); // buổi học theo Ngày (path-day.js)
     };
     show();

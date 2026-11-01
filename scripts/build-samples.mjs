@@ -3,8 +3,8 @@
 // Giao diện dùng chung với blog: scripts/lib/site-layout.mjs (header, footer, CSS token thương hiệu, chế độ tối). Dữ liệu: scripts/lib/seo-data.mjs.
 // Bản tiếng Anh: build-samples-en.mjs (chạy sau, tự gắn hreflang vi↔en).
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
-import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L } from './lib/site-layout.mjs';
-import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters } from './lib/seo-data.mjs';
+import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
+import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.vi, U = SU.vi, APP = L.app; // APP: gốc app (hash route) – theo site-layout
@@ -14,8 +14,8 @@ const gitDate = (...f) => { try { return execFileSync('git', ['log', '-1', '--fo
 const sm = 'dist/sitemap.xml';
 const addSm = (urls, ...src) => { const lm = gitDate(...src); fs.writeFileSync(sm, fs.readFileSync(sm, 'utf8').replace('</urlset>', urls.map(u => `  <url><loc>${u}</loc><lastmod>${lm}</lastmod><changefreq>monthly</changefreq></url>`).join('\n') + '\n</urlset>')); };
 const plain = s => s.replace(/<<[^>]*>>\s*/g, '').replace(/\[\[([^|\]]*)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1');
-const SEC = { samples: 'Bài mẫu Writing', speaking: 'IELTS Speaking', 'tu-vung': 'Từ vựng', 'ngu-phap': 'Ngữ pháp', 'viet-thu': 'Thư mẫu IELTS General' };
-const EN = { samples: 'en/samples', speaking: 'en/speaking', 'tu-vung': 'en/vocabulary' }; // mục có bản tiếng Anh (build-samples-en.mjs)
+const SEC = { samples: 'Bài mẫu Writing', speaking: 'IELTS Speaking', 'tu-vung': 'Từ vựng', 'ngu-phap': 'Ngữ pháp', 'viet-thu': 'Thư mẫu IELTS General', 'phat-am': 'Phát âm' };
+const EN = { samples: 'en/samples', speaking: 'en/speaking', 'tu-vung': 'en/vocabulary', 'ngu-phap': 'en/grammar', 'phat-am': 'en/pronunciation', 'viet-thu': 'en/ielts-writing/general-task-1' }; // mục có bản tiếng Anh (build-samples-en.mjs)
 // Breadcrumb JSON-LD tự suy từ canonical: Trang chủ → mục → trang (giữ nguyên như trước)
 const crumbs = (canon, name) => { const p = canon.slice(SITE.length).split('/'), sec = p[0], it = [['Trang chủ', SITE], [SEC[sec] || sec, `${SITE}${sec}/`]]; if (p[1]) it.push([name, canon]);
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: it.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) }; };
@@ -69,8 +69,7 @@ ${pwaBox('vi', 'samples')}</article>`;
     `<div class="page smp">${hero2({ h1: esc(`${done.length} bài mẫu IELTS Writing Task 2 (band 8)`), lead: 'Tự biên soạn, có chú giải từ vựng tiếng Việt. Bấm vào đề để xem bài mẫu.', mood: 'think', cls: 'has-kit',
       statsHtml: stats([[done.length, U.statEss], [types.length, U.statTypes], ['8.0', 'Band', 'band'], [gls.toLocaleString('vi'), U.statGl]]) })}
 ${sectionNav('vi', '/samples/')}
-${filterBox('vi')}
-${typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'vi')}
+${filterBox('vi', typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'vi'))}
 ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty))).join('\n')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList(`Bài mẫu IELTS Writing Task 2`, done.map(([p]) => `${SITE}samples/${p.id}`))] }));
   addSm([`${SITE}samples/`, ...done.map(([p]) => `${SITE}samples/${p.id}`)], 'web/js/write.js', 'web/js/models.js', 'web/js/write');
@@ -136,7 +135,7 @@ ${group2('all', 'Chủ đề', `${made.length} ${L.items}`, made.map(spCard))}</
     const rows = x.words.map((w, i) => { const k = audioKey(w.word); return `<tr><td class="no">${i + 1}</td><td><span class="w">${k ? audioBtn(k, w.word, 'vi') : ''}${esc(w.word)}</span>${w.pos ? `<span class="pos">${esc(w.pos)}</span>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td><td>${esc(w.vi || '')}</td><td class="ex">${esc(w.ex || '')}</td></tr>`; }).join('');
     const body = `${hero(esc(x.name), { emoji: x.emoji || '📘', lead: x.desc ? esc(x.desc) : '', chips: [g, ...chipsOf(x)] })}
 ${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, '🃏 Học bộ này bằng flashcard (miễn phí)', 'Mở bộ từ trong app', 'Ôn lặp lại ngắt quãng FSRS, nghe phát âm, tự kiểm tra – lưu tiến độ tự động.', 'vocab')}
-<div class="tbl"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
+<div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
 ${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, `Thuộc ${n} từ này trong vài ngày`, 'Học ngay', 'Mỗi ngày vài phút, app tự nhắc đúng lúc bạn sắp quên.', 'vocab')}
 ${related(relatedOf(TP, x, y => y.group === x.group), vCard)}
 ${extBox('vi', 'vocab')}
@@ -144,10 +143,13 @@ ${pwaBox('vi', 'vocab')}`;
     fs.writeFileSync(`dist/tu-vung/${x.id}.html`, page(title, desc, `${SITE}tu-vung/${x.id}`, body, x.name));
   }
   const byG = {}; for (const x of TP) (byG[x.group] = byG[x.group] || []).push(x);
-  const total = TP.reduce((a, x) => a + x.words.length, 0);
+  const total = TP.reduce((a, x) => a + x.words.length, 0), nAu = TP.reduce((a, x) => a + x.words.filter(w => audioKey(w.word)).length, 0), F = FIND_I18N.vi;
   fs.writeFileSync('dist/tu-vung/index.html', page(`Từ vựng IELTS, TOEIC, TOEFL theo chủ đề – ${TP.length} bộ, ${total.toLocaleString('vi')} từ – Lexkite`, `${TP.length} bộ từ vựng IELTS, TOEIC, TOEFL theo chủ đề và kỳ thi, có phiên âm, nghĩa tiếng Việt và ví dụ. Học flashcard miễn phí.`, `${SITE}tu-vung/`,
-    `${indexHero(`Từ vựng theo chủ đề (${TP.length} bộ)`, `${total.toLocaleString('vi')} từ có phiên âm, nghĩa tiếng Việt, ví dụ và phát âm. Chọn một bộ để xem danh sách, rồi học bằng flashcard miễn phí.`, 'tu-vung')}
-${Object.entries(byG).map(([k, xs]) => group(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}`));
+    `<div class="page smp">${hero2({ h1: esc(`Từ vựng theo chủ đề (${TP.length} bộ)`), lead: `${total.toLocaleString('vi')} từ có phiên âm, nghĩa tiếng Việt, ví dụ và phát âm. Chọn một bộ để xem danh sách, rồi học bằng flashcard miễn phí.`, mood: 'cheer', cls: 'has-kit',
+  statsHtml: stats([[TP.length, F[2]], [total.toLocaleString('vi'), F[3]], [Object.keys(byG).length, F[4]], [nAu.toLocaleString('vi'), F[5]]]) })}
+${sectionNav('vi', '/tu-vung/')}
+${filterBox('vi', typeFilter(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '']), TP.length, 'vi', F[1]))}
+${Object.entries(byG).map(([k, xs]) => group(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}</div>`));
   addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib');
   console.log(`✓ SEO: ${TP.length} trang bộ từ vựng + mục lục`);
 }
@@ -159,10 +161,10 @@ ${Object.entries(byG).map(([k, xs]) => group(k, GROUP[k] || k, `${xs.length} ${L
   fs.mkdirSync('dist/ngu-phap', { recursive: true });
   const hlEx = s => esc(s).replace(/\[\[(.+?)\]\]/g, "<b>$1</b>"); // [[…]] = cấu trúc mục tiêu
   const blk = b => {
-    if (b.type === 'formula') return `<h2>Công thức</h2><div class="tbl"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(r.label || '')}</th><td>${r.parts.map(p => esc(p.t)).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
+    if (b.type === 'formula') return `<h2>Công thức</h2><div class="tbl" tabindex="0"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(r.label || '')}</th><td>${r.parts.map(p => esc(p.t)).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
     if (b.type === 'uses') return `<h2>Cách dùng</h2><ol class="uses">${b.items.map(u => `<li><b>${esc(u.title)}</b>${u.ex ? `<br><i>${hlEx(u.ex)}</i>` : ''}${u.vi ? ` – ${esc(u.vi)}` : ''}</li>`).join('')}</ol>`;
     if (b.type === 'signals') return `<h2>Dấu hiệu nhận biết</h2><p class="sig">${b.words.map(w => `<span class="chip">${esc(w)}</span>`).join(' ')}</p>`;
-    if (b.type === 'table') return `<div class="tbl"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    if (b.type === 'table') return `<div class="tbl" tabindex="0"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
     if (b.type === 'tip') return `<div class="tip">💡 ${esc(b.text)}</div>`;
     if (b.type === 'mistake') return `<div class="err">❌ <s>${esc(b.wrong)}</s><br>✅ <b>${esc(b.right)}</b>${b.why ? `<br><span class="why">${esc(b.why)}</span>` : ''}</div>`;
     if (b.type === 'ielts') return `<h2>Ứng dụng trong IELTS</h2><p>${esc(b.text)}</p>`;
@@ -189,6 +191,43 @@ ${pwaBox('vi', 'grammar')}</article>`;
 ${order.map(k => { const u = unitOf(k); return group(k, `${u.emoji ? u.emoji + ' ' : ''}${u.name}`, `${units[k].length} ${L.lessons}`, units[k].map(gCard)).replace('</h2>', `</h2>${u.desc ? `<p>${esc(u.desc)}</p>` : ''}`); }).join('\n')}`));
   addSm([`${SITE}ngu-phap/`, ...G.map(l => `${SITE}ngu-phap/${l.id}`)], 'web/js/grammar');
   console.log(`✓ SEO: ${G.length} trang ngữ pháp + mục lục`);
+}
+
+// ===== Phát âm: 1 trang / âm (44 âm IPA + kỹ năng) – nội dung gốc tiếng Việt; slug chung với bản en (content/seo-en/pron.json › _meta) =====
+{
+  const P = loadPron(), META = (JSON.parse(fs.readFileSync('content/seo-en/pron.json', 'utf8'))._meta) || {}, { audioKey } = loadVocab();
+  const GN = { vowels: 'Nguyên âm đơn', diphthongs: 'Nguyên âm đôi', consonants: 'Phụ âm', vn: 'Lỗi hay gặp của người Việt', stress: 'Trọng âm, nhịp & ngữ điệu' };
+  const slugP = x => (META[x.id] || {}).slug || encodeURIComponent(x.id);
+  fs.mkdirSync('dist/phat-am', { recursive: true });
+  const au = w => { const k = audioKey(w); return k ? audioBtn(k, w, 'vi') : ''; };
+  const pCard = x => setCard({ href: `/phat-am/${slugP(x)}`, title: x.title, desc: short(x.how || '', 110), emoji: x.emoji, chips: [[x.ipa, 'ink'], [x.level || '', 'alt']].filter(c => c[0]), key: `${x.ipa} ${GN[x.group] || ''}` });
+  P.forEach((x, i) => {
+    const s = slugP(x), prev = P[i - 1], next = P[i + 1], href = `${APP}#/pron/${encodeURIComponent(x.id)}`, ws = (x.words || []).slice(0, 12), pairs = x.pairs || [];
+    const qs = (x.quiz || []).slice(0, 3);
+    const body = `<article class="page">${hero(esc(x.title), { emoji: x.emoji || '🗣️', lead: esc(x.how), chips: [[x.ipa, 'ink'], ...(x.level ? [[x.level, 'alt']] : []), GN[x.group] || x.group] })}
+${ctaBox(href, '🎙️ Luyện âm này bằng micro (miễn phí)', 'Mở trong app', 'Nghe mẫu, tự ghi âm và được nhận xét từng từ ngay.')}
+${(x.rules || []).length ? `<h2>Quy tắc</h2><div class="tbl" tabindex="0"><table><thead><tr><th scope="col">Quy tắc</th><th scope="col">Khi nào</th><th scope="col">Ví dụ</th></tr></thead><tbody>${x.rules.map(r => `<tr><td><b>${esc(r.label)}</b></td><td>${esc(r.when)}</td><td lang="en">${(r.ex || []).map(esc).join('<br>')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+${x.vn ? `<h2>Lỗi người Việt hay mắc</h2><div class="err">${esc(x.vn)}</div>` : ''}
+${x.tip ? `<div class="tip">💡 ${esc(x.tip)}</div>` : ''}
+${ws.length ? `<h2>Từ ví dụ</h2><div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th></tr></thead><tbody>${ws.map(w => `<tr><td><span class="w" lang="en">${au(w.w)}${esc(w.w)}</span>${w.note ? ` <small>${esc(w.note)}</small>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+${pairs.length ? `<h2>Cặp từ tối thiểu (minimal pairs)</h2><p>Mỗi cặp chỉ khác nhau một âm – đọc to để nghe rõ sự khác biệt.</p><div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col">Từ</th><th scope="col">–</th><th scope="col">Từ</th></tr></thead><tbody>${pairs.map(([a, b]) => `<tr><td><span class="w" lang="en">${au(a)}${esc(a)}</span></td><td>–</td><td><span class="w" lang="en">${au(b)}${esc(b)}</span></td></tr>`).join('')}</tbody></table></div>` : ''}
+${(x.sentences || []).length ? `<h2>Câu luyện tập</h2><ul class="uses">${x.sentences.map(z => `<li lang="en">${esc(z)}</li>`).join('')}</ul>` : ''}
+${qs.length ? `<h2>Kiểm tra nhanh</h2><ol class="uses">${qs.map(q => `<li><p><b>${esc(q.q)}</b></p><ol type="a">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol><details><summary>Xem đáp án</summary><p>✅ <b>${esc(q.options[q.answer])}</b>${q.explain ? ` – ${esc(q.explain)}` : ''}</p></details></li>`).join('')}</ol>` : ''}
+${ctaBox(href, `🗣️ Tự ghi âm các từ có ${esc(x.ipa)}`, 'Luyện trong app')}
+<nav class="pager" aria-label="Bài trước / bài sau">${prev ? `<a rel="prev" href="/phat-am/${slugP(prev)}">← ${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a rel="next" href="/phat-am/${slugP(next)}">${esc(next.title)} →</a>` : ''}</nav>
+${related(relatedOf(P, x, y => y.group === x.group, 4), pCard)}
+${extBox('vi', 'pron')}
+${pwaBox('vi', 'pron')}</article>`;
+    const ex3 = ws.slice(0, 3).map(w => w.w).join(', ');
+    fs.writeFileSync(`dist/phat-am/${s}.html`, page(x.mouth ? `Cách phát âm ${x.ipa} chuẩn (${ex3}) – ${x.title}, cặp từ tối thiểu | Lexkite` : `${x.title} – quy tắc, ví dụ, luyện tập | Lexkite`,
+      x.mouth ? `Cách phát âm ${x.ipa}: khẩu hình, ${ws.length} từ ví dụ có phiên âm và audio, ${pairs.length} cặp từ tối thiểu, lỗi người Việt hay mắc. ${short(x.how, 60)}` : `${x.title}: ${short(x.how, 110)} Quy tắc, ví dụ và bài luyện.`, `${SITE}phat-am/${s}`, body, x.title, s));
+  });
+  const by = {}; for (const x of P) (by[x.group] ||= []).push(x);
+  fs.writeFileSync('dist/phat-am/index.html', page(`Phát âm tiếng Anh chuẩn: 44 âm IPA, trọng âm, ngữ điệu – ${P.length} bài | Lexkite`, `${P.length} bài phát âm tiếng Anh: 44 âm IPA, đuôi -ed/-s, trọng âm, nối âm, ngữ điệu – khẩu hình, từ ví dụ có audio, cặp từ tối thiểu và lỗi người Việt hay mắc.`, `${SITE}phat-am/`,
+    `${indexHero(`Phát âm tiếng Anh (${P.length} bài)`, '44 âm IPA cùng trọng âm, đuôi -ed/-s và ngữ điệu – có từ ví dụ, audio, cặp từ tối thiểu và lỗi người Việt hay mắc.', 'phat-am')}
+${Object.entries(by).map(([k, xs]) => group(k, GN[k] || k, `${xs.length} ${L.lessons}`, xs.map(pCard))).join('\n')}`));
+  addSm([`${SITE}phat-am/`, ...P.map(x => `${SITE}phat-am/${slugP(x)}`)], 'web/js/pron', 'content/seo-en/pron.json');
+  console.log(`✓ SEO: ${P.length} trang phát âm + mục lục`);
 }
 
 // ===== IELTS General – thư mẫu: 1 trang / đề =====
@@ -219,8 +258,7 @@ ${pwaBox('vi', 'letters')}</article>`;
     `<div class="page smp">${hero2({ h1: esc(`${made.length} thư mẫu IELTS General Task 1`), lead: 'Thư trang trọng, bán trang trọng và thân mật – có chú thích cụm từ hay tiếng Việt.', mood: 'happy', cls: 'has-kit',
       statsHtml: stats([[made.length, U.statLt], [tones.length, U.statTone], ['8.0', 'Band', 'band']]) })}
 ${sectionNav('vi', '/viet-thu/')}
-${filterBox('vi')}
-${typeFilter(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k)]), made.length, 'vi', U.tones)}
+${filterBox('vi', typeFilter(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k)]), made.length, 'vi', U.tones))}
 ${tones.map(([k, xs]) => group2(k, TONE[k], `${xs.length} ${L.items}`, xs.map(lCard), toneCls(k))).join('\n')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList('IELTS General Training Writing Task 1', made.map(([x]) => `${SITE}viet-thu/${x.id}`))] }));
   addSm([`${SITE}viet-thu/`, ...made.map(([x]) => `${SITE}viet-thu/${x.id}`)], 'web/js/write/gt-letters.js');

@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "hub": "Giới thiệu Lexkite",
+    "team": "Đội ngũ biên tập",
+    "policy": "Chính sách biên tập",
+    "corrections": "Đính chính",
+    "sources": "Nguồn tham khảo",
+    "research": "Nghiên cứu",
+    "embed": "Tiện ích miễn phí"
+  },
+  "byline": "Đội ngũ biên tập Lexkite",
+  "factChecked": "Đã kiểm chứng ngày {date}",
+  "related": "Tìm hiểu thêm về cách chúng tôi làm việc",
+  "about": {
+    "title": "Giới thiệu Lexkite – học từ vựng tiếng Anh và luyện thi miễn phí",
+    "desc": "Ai tạo ra Lexkite, Lexkite dùng để làm gì, được tài trợ ra sao và cách chúng tôi giữ cho nội dung học tiếng Anh chính xác, độc lập và miễn phí.",
+    "h1": "Giới thiệu Lexkite",
+    "lead": "Lexkite là ứng dụng miễn phí giúp bạn học từ vựng tiếng Anh và luyện thi IELTS, TOEIC, TOEFL, có giao diện bằng 15 ngôn ngữ.",
+    "sections": [
+      [
+        "Lexkite làm được gì",
+        "Lexkite kết hợp thẻ ghi nhớ lặp lại ngắt quãng (FSRS), từ điển song ngữ, bài luyện đọc, nghe, viết, nói và đề thi thử có tính giờ. Bạn có thể dùng trên trình duyệt, tiện ích Chrome và điện thoại. Các tính năng cốt lõi hoàn toàn miễn phí và không cần thẻ tín dụng."
+      ],
+      [
+        "Ai vận hành Lexkite",
+        "Lexkite do MODIAN LUXURY JEWELRY LLC, một công ty trách nhiệm hữu hạn tại Wyoming, vận hành như nêu trong Điều khoản của chúng tôi. Nội dung trên website do Đội ngũ biên tập Lexkite thực hiện, được giới thiệu trên trang riêng cùng các tiêu chuẩn biên tập chúng tôi tuân thủ."
+      ],
+      [
+        "Lexkite được tài trợ như thế nào",
+        "Lexkite được nhà vận hành tài trợ và có thể hiển thị quảng cáo để giữ ứng dụng cốt lõi miễn phí. Nhà quảng cáo và đối tác không có ảnh hưởng gì đến nội dung chúng tôi viết, những từ chúng tôi dạy hay cách chúng tôi đánh giá các phương pháp học."
+      ],
+      [
+        "Tính độc lập",
+        "IELTS, TOEIC và TOEFL là nhãn hiệu của các chủ sở hữu tương ứng. Lexkite là sản phẩm độc lập, không liên kết hay được bảo trợ bởi British Council, IDP, Cambridge University Press & Assessment hoặc ETS. Chúng tôi không bao giờ hứa hẹn điểm số."
+      ],
+      [
+        "Liên hệ",
+        "Câu hỏi, đính chính và đề nghị hợp tác: support@lexkite.com."
+      ]
+    ]
+  },
+  "team": {
+    "title": "Đội ngũ biên tập Lexkite – ai viết và kiểm tra nội dung của chúng tôi",
+    "desc": "Đội ngũ biên tập Lexkite viết và rà soát bài học tiếng Anh, dữ liệu từ điển và câu hỏi luyện tập. Cách đội ngũ làm việc, được giải thích trung thực.",
+    "h1": "Đội ngũ biên tập Lexkite",
+    "lead": "Bài viết, mục từ điển và câu hỏi luyện tập trên Lexkite được đăng dưới một tên chung: Đội ngũ biên tập Lexkite.",
+    "sections": [
+      [
+        "Vì sao dùng tên đội ngũ",
+        "Chúng tôi đăng bài dưới tên đội ngũ thay vì tên cá nhân vì mọi bài đều đi qua cùng một quy trình nhiều bước, và không một cá nhân nào chịu trách nhiệm cho kết quả cuối cùng. Chúng tôi không bịa ra nhân vật tác giả, chức danh hay bằng cấp."
+      ],
+      [
+        "Cách chúng tôi dùng công cụ AI",
+        "Bản nháp, bản dịch và các bước kiểm tra chất lượng được thực hiện với sự hỗ trợ của công cụ viết bằng AI. Kết quả của AI không bao giờ được đăng nguyên trạng: nó phải qua quy trình biên tập sáu bước, bước kiểm chứng với nguồn chính thức và đợt đánh giá chất lượng trên thang 100 điểm trước khi lên trang. Nếu một bước kiểm tra không đạt, bài sẽ được viết lại hoặc bị loại."
+      ],
+      [
+        "Đội ngũ chịu trách nhiệm những gì",
+        "Chọn chủ đề mà người học thực sự tìm kiếm, viết lời giải thích và câu ví dụ gốc, đối chiếu thông tin kỳ thi với đơn vị sở hữu bài thi, bản địa hóa từng bài cho 15 ngôn ngữ (không dịch máy từng chữ) và cập nhật các trang đã đăng."
+      ],
+      [
+        "Trách nhiệm giải trình",
+        "Mỗi bài hiển thị ngày đăng, ngày cập nhật gần nhất và ngày thông tin được kiểm chứng gần nhất. Nếu bạn thấy lỗi, chính sách đính chính của chúng tôi giải thích cách báo lỗi và những gì chúng tôi sẽ làm tiếp theo."
+      ]
+    ]
+  },
+  "policy": {
+    "title": "Chính sách biên tập và quy trình kiểm chứng – Lexkite",
+    "desc": "Cách Lexkite nghiên cứu, viết, kiểm chứng, bản địa hóa và rà soát mọi bài viết: quy trình biên tập sáu bước, ngưỡng chất lượng và quy tắc cập nhật.",
+    "h1": "Chính sách biên tập và kiểm chứng",
+    "lead": "Mọi bài viết trên Lexkite đều theo cùng sáu bước. Bài chỉ được đăng khi đạt ít nhất 90/100 điểm ở vòng đánh giá cuối.",
+    "stepsH": "Quy trình sáu bước của chúng tôi",
+    "steps": [
+      [
+        "Đề bài",
+        "Chúng tôi tìm hiểu người học ở từng ngôn ngữ thực sự tìm kiếm gì và những câu trả lời tốt nhất hiện có còn thiếu điều gì, rồi xác định câu hỏi mà bài viết phải giải đáp."
+      ],
+      [
+        "Dàn ý",
+        "Bài viết trả lời thẳng câu hỏi chính ngay đầu bài, sau đó đi sâu hơn với cấu trúc dễ lướt đọc."
+      ],
+      [
+        "Viết nguyên bản",
+        "Lời giải thích và mọi câu ví dụ tiếng Anh đều được viết riêng cho Lexkite. Chúng tôi không sao chép văn bản, câu hỏi hay hình ảnh từ nhà xuất bản khác hoặc từ tài liệu thi chính thức."
+      ],
+      [
+        "Kiểm chứng",
+        "Định dạng bài thi, thời gian và thang điểm được đối chiếu với đơn vị sở hữu bài thi chính thức. Nếu không xác nhận được một thông tin, thông tin đó sẽ bị loại bỏ. Ngày kiểm chứng được ghi lại trên mọi bài viết."
+      ],
+      [
+        "Bản địa hóa",
+        "Mỗi phiên bản ngôn ngữ được điều chỉnh cho độc giả của ngôn ngữ đó – lỗi thường gặp, ví dụ và từ khóa tìm kiếm của họ – thay vì dịch máy."
+      ],
+      [
+        "Đánh giá chất lượng độc lập",
+        "Một người rà soát không phải tác giả chấm bài trên thang 100 điểm về mục đích tìm kiếm, độ chính xác và chiều sâu, giá trị nguyên bản, văn phong tự nhiên, khả năng đọc, liên kết hữu ích và độ đáng tin cậy. Dưới 90 điểm, bài sẽ được chỉnh sửa hoặc không đăng."
+      ]
+    ],
+    "rulesH": "Những quy tắc chúng tôi luôn tuân thủ",
+    "rules": [
+      "Không hứa hẹn điểm số hay kết quả đảm bảo.",
+      "Không đánh giá giả, lời chứng thực giả, tên tác giả hay bằng cấp giả.",
+      "Hình ảnh là ảnh chụp màn hình ứng dụng hoặc sơ đồ do chúng tôi tự làm; không dùng tài liệu thi có bản quyền.",
+      "Thông tin kỳ thi có liên kết đến nguồn chính thức.",
+      "Khi kỳ thi thay đổi, các bài bị ảnh hưởng sẽ được cập nhật và hiển thị ngày cập nhật mới."
+    ]
+  },
+  "corrections": {
+    "title": "Chính sách đính chính – cách Lexkite sửa lỗi",
+    "desc": "Phát hiện lỗi trên Lexkite? Cách báo lỗi, chúng tôi xem xét nhanh đến đâu và các đính chính được hiển thị trên trang như thế nào.",
+    "h1": "Chính sách đính chính",
+    "lead": "Chúng tôi muốn mọi thông tin trên Lexkite đều đúng. Khi có sai sót, chúng tôi sửa và nói rõ điều đó.",
+    "sections": [
+      [
+        "Cách báo lỗi",
+        "Gửi email đến support@lexkite.com kèm địa chỉ trang và nội dung bị sai. Nếu có nguồn cho thông tin đúng, chúng tôi sẽ kiểm tra nhanh hơn."
+      ],
+      [
+        "Điều gì xảy ra tiếp theo",
+        "Chúng tôi xem xét mọi báo cáo. Lỗi thông tin được sửa ngay khi được xác nhận, và ngày cập nhật của bài sẽ thay đổi để độc giả biết bài đã được chỉnh sửa."
+      ],
+      [
+        "Đính chính quan trọng",
+        "Nếu một đính chính làm thay đổi ý nghĩa của lời khuyên – chẳng hạn một quy định thi sai – chúng tôi thêm một ghi chú ngắn trong bài giải thích điều gì đã thay đổi."
+      ],
+      [
+        "Từ điển và câu hỏi luyện tập",
+        "Định nghĩa, đáp án hoặc lời giải thích sai trong ứng dụng hay từ điển được sửa tại nguồn, để bản sửa đến với mọi trang và ngôn ngữ sử dụng chúng."
+      ]
+    ]
+  },
+  "sources": {
+    "title": "Nguồn và tài liệu tham khảo của Lexkite",
+    "desc": "Các đơn vị sở hữu bài thi chính thức, khung tham chiếu, danh sách từ mở và công cụ mã nguồn mở đứng sau nội dung học tiếng Anh của Lexkite, kèm giấy phép.",
+    "h1": "Nguồn và tài liệu tham khảo",
+    "lead": "Lời giải thích và câu ví dụ của Lexkite là nội dung gốc. Dưới đây là các tài liệu chính thức và bộ dữ liệu mở chúng tôi dựa vào.",
+    "groups": [
+      [
+        "Thông tin thi chính thức",
+        "Định dạng bài thi, thời gian và thang điểm được đối chiếu với đơn vị sở hữu bài thi."
+      ],
+      [
+        "Khung ngôn ngữ",
+        "Các trình độ theo Khung tham chiếu ngôn ngữ chung của châu Âu (CEFR) do Hội đồng châu Âu ban hành."
+      ],
+      [
+        "Danh sách từ và dữ liệu mở",
+        "Danh sách từ và phát âm lấy từ các nguồn có giấy phép mở; định nghĩa và câu ví dụ do chúng tôi tự viết."
+      ],
+      [
+        "Khoa học học tập",
+        "Việc lên lịch ôn thẻ ghi nhớ dùng FSRS, một thuật toán lặp lại ngắt quãng mã nguồn mở."
+      ]
+    ],
+    "creditsNote": "Ghi công đầy đủ cho hình ảnh và dữ liệu có trên trang ghi công của chúng tôi."
+  },
+  "research": {
+    "title": "Các từ tiếng Anh dễ nhầm lẫn: bộ dữ liệu mở gồm {n} cặp",
+    "desc": "Bộ dữ liệu CC BY miễn phí gồm {n} nhóm từ tiếng Anh dễ nhầm lẫn, kèm từ loại, định nghĩa, lỗi thường gặp và mẹo ghi nhớ. Có biểu đồ và tải CSV.",
+    "h1": "Các từ tiếng Anh dễ nhầm lẫn: một bộ dữ liệu mở",
+    "lead": "{n} nhóm từ tiếng Anh mà người học hay nhầm lẫn – như affect/effect và borrow/lend – kèm định nghĩa, một lỗi thường gặp và một mẹo ghi nhớ cho mỗi nhóm. Được dùng lại miễn phí khi ghi nguồn.",
+    "keyH": "Phát hiện chính",
+    "keys": [
+      "{n} nhóm từ và {m} lỗi thường gặp đã được ghi lại.",
+      "{d}% số nhóm đối chiếu các từ khác từ loại (ví dụ một động từ và một danh từ), nên kiểm tra từ loại giúp tránh được nhiều lỗi.",
+      "{s}% số nhóm gồm các từ cùng từ loại, nơi chỉ có nghĩa và cách dùng mới phân biệt được chúng."
+    ],
+    "chart1": "Số nhóm từ theo kiểu kết hợp từ loại",
+    "chart2": "Số nhóm từ theo số lượng từ",
+    "other": "Các kiểu khác",
+    "tableH": "Toàn bộ bộ dữ liệu",
+    "cols": [
+      "Từ",
+      "Từ loại",
+      "Lỗi thường gặp → cách sửa",
+      "Mẹo ghi nhớ"
+    ],
+    "methodH": "Phương pháp",
+    "method": [
+      "Các nhóm từ do Đội ngũ biên tập Lexkite chọn và viết, dựa trên những lỗi lặp đi lặp lại trong bài viết của người học và trong luyện thi. Mỗi nhóm liệt kê từng từ kèm từ loại, định nghĩa tiếng Anh ngắn gọn, một câu ví dụ gốc và một lỗi thường gặp cùng cách sửa. Nếu một nhóm không có ghi chú lỗi riêng, lỗi thường gặp chính là câu ví dụ của nhóm đó với từ bị nhầm được thay vào.",
+      "Các số liệu thống kê trên trang này được tính tự động từ cùng dữ liệu tạo nên các bài học \"Từ dễ nhầm lẫn\" trong ứng dụng Lexkite, mỗi lần website được xây dựng lại."
+    ],
+    "privacyH": "Quyền riêng tư",
+    "privacy": "Bộ dữ liệu này không chứa bất kỳ dữ liệu người dùng nào. Nó chỉ được tạo từ nội dung biên tập của riêng Lexkite, không phải từ những gì người học gõ, lưu hay trả lời.",
+    "limitsH": "Hạn chế",
+    "limits": "Đây là danh sách được tuyển chọn, không phải thống kê tần suất từ kho ngữ liệu người học: nó cho thấy những nhầm lẫn mà biên tập viên của chúng tôi ghi nhận, không cho biết mỗi nhầm lẫn xảy ra thường xuyên đến đâu.",
+    "downloadH": "Tải về và giấy phép",
+    "download": "Bộ dữ liệu được dùng miễn phí theo giấy phép Creative Commons Attribution 4.0 (CC BY 4.0). Vui lòng ghi nguồn Lexkite và liên kết đến trang này.",
+    "csv": "Tải CSV",
+    "json": "Tải JSON",
+    "citeH": "Cách trích dẫn",
+    "embedLink": "Đặt \"cặp từ của ngày\" lên website của bạn"
+  },
+  "embed": {
+    "title": "Tiện ích học tiếng Anh miễn phí cho giáo viên và blogger – Lexkite",
+    "desc": "Thêm tiện ích \"cặp từ dễ nhầm của ngày\" hoặc huy hiệu trình độ CEFR miễn phí vào website hay blog lớp học của bạn. Nhẹ, không cookie, không theo dõi.",
+    "h1": "Tiện ích miễn phí cho website của bạn",
+    "lead": "Giáo viên, trường học và blogger có thể thêm các tiện ích miễn phí này chỉ bằng một lần sao chép và dán. Chúng không tải gì từ bên thứ ba, không đặt cookie và không theo dõi khách truy cập.",
+    "pairH": "Cặp từ của ngày",
+    "pair": "Hiển thị một cặp từ dễ nhầm lẫn khác nhau mỗi ngày, kèm một lỗi thường gặp và một mẹo ghi nhớ.",
+    "badgeH": "Huy hiệu trình độ CEFR",
+    "badge": "Học viên đã làm bài kiểm tra trình độ tiếng Anh miễn phí của chúng tôi có thể hiển thị trình độ của mình trên blog hoặc trang cá nhân.",
+    "copy": "Sao chép mã",
+    "copied": "Đã sao chép",
+    "previewH": "Xem trước",
+    "rulesH": "Điều khoản sử dụng",
+    "rules": "Miễn phí cho mọi website, kể cả website thương mại. Vui lòng giữ liên kết ghi nguồn luôn hiển thị. Không thay đổi nội dung theo hướng gây hiểu lầm.",
+    "widgetLabel": "Cặp từ của ngày",
+    "mistake": "Lỗi thường gặp",
+    "tip": "Mẹo",
+    "more": "Thêm các cặp từ trên Lexkite"
+  }
+}

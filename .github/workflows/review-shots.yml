@@ -1,0 +1,27 @@
+# 🔁 Ảnh trước/sau ôn tập đa chế độ + thẻ "Câu của bạn" (web/mobile, sáng/tối, vi/en/ar). Chỉ chạy tay; artifact 7 ngày.
+name: Review shots
+on:
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit TRƯỚC khi có tính năng', required: true }
+permissions:
+  contents: read
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        env: { BEFORE: "${{ github.event.inputs.before }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          git worktree add -q /tmp/before "$BEFORE"
+          node scripts/test/review-shots.mjs web /tmp/before/web out/p2
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: review-shots, path: out/p2, retention-days: 7 }

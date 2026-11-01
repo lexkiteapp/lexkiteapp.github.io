@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Test hạn mức & tối ưu chi phí D1 (docs/CAPACITY.md) – không mạng, D1 giả bằng node:sqlite.
 //  1) mô phỏng người dùng (scripts/capacity/sim.mjs): không truy vấn đường người dùng nào quét cả bảng; số đo > 0; ngoại suy có đủ 3 mốc
 //  2) _quota.js: trạng thái hạn mức dùng chung qua Cache API (isolate thứ 2 không đọc D1), quản trị đổi → đọc lại; chỉ mục quota_count không chứa n
@@ -18,7 +19,7 @@ let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log
 {
   // tiến trình riêng: biến module của functions (ready, trạng thái hạn mức) không lẫn với D1 của các test dưới
   const f = join(mkdtempSync(join(tmpdir(), 'cap-')), 'sim.json');
-  try { execFileSync(process.execPath, [new URL('../capacity/sim.mjs', import.meta.url).pathname, '--users=1', '--seed=60', '--json=' + f], { stdio: 'pipe' }); } catch (e) { /* có SCAN → mã thoát 1, vẫn đọc kết quả */ }
+  try { execFileSync(process.execPath, [fileURLToPath(new URL('../capacity/sim.mjs', import.meta.url)), '--users=1', '--seed=60', '--json=' + f], { stdio: 'pipe' }); } catch (e) { /* có SCAN → mã thoát 1, vẫn đọc kết quả */ }
   const r = JSON.parse(readFileSync(f, 'utf8'));
   ok(r.scans.length === 0, 'không truy vấn đường người dùng nào quét cả bảng: ' + r.scans.map(s => s.q.slice(0, 60)).join(' | '));
   const t = r.profiles.typical;

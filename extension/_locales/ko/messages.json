@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "새 탭 카드 끄기"
  },
+ "ntConf": {
+  "message": "자신 있게 말하기"
+ },
  "ntListen": {
   "message": "듣기"
  },

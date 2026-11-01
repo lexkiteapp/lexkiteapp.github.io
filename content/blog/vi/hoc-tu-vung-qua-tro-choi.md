@@ -18,7 +18,7 @@ Có hai kiểu người chơi game từ vựng. Người thứ nhất chơi mộ
 
 ## Vì sao trò chơi giúp nhớ từ (khi được thiết kế đúng)
 
-Cốt lõi của trí nhớ không phải là việc nhìn thông tin nhiều lần, mà là việc **tự lôi thông tin ra** từ đầu óc. Mỗi lần bạn cố nhớ nghĩa của một từ rồi kiểm tra lại, con đường dẫn đến từ đó trong trí nhớ được củng cố. Các nhà tâm lý học gọi đây là luyện truy xuất (retrieval practice) hay hiệu ứng kiểm tra. Bạn có thể tìm hiểu kỹ hơn ở bài [active recall – chủ động gợi nhớ](/vi/blog/active-recall-chu-dong-goi-nho/).
+Cốt lõi của trí nhớ không phải là việc nhìn thông tin nhiều lần, mà là việc **tự lôi thông tin ra** từ đầu óc. Mỗi lần bạn cố nhớ nghĩa của một từ rồi kiểm tra lại, con đường dẫn đến từ đó trong trí nhớ được củng cố. Các nhà tâm lý học gọi đây là luyện truy xuất (retrieval practice) hay hiệu ứng kiểm tra. Bạn có thể tìm hiểu kỹ hơn ở bài [active recall – chủ động gợi nhớ](/vi/blog/active-recall-chu-dong-goi-nho/). Nguyên lý này cũng giúp bố mẹ chọn trò chơi khi [dạy tiếng Anh cho trẻ tại nhà](/vi/blog/day-tieng-anh-cho-tre-tai-nha/).
 
 Một trò chơi từ vựng tốt chính là một chuỗi bài kiểm tra ngắn được gói trong hình thức hấp dẫn. Nó mang lại ba thứ mà học thuộc danh sách không có:
 

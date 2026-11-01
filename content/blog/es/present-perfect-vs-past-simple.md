@@ -107,6 +107,8 @@ Para entrenar tu agilidad y retener estas estructuras de forma permanente en tu 
 
 {{youtube: | Sugerencia de vídeo: Present perfect vs past simple explicado en español}}
 
+Si los tiempos del pasado te cuestan, el tercer condicional (*If I had known…*) también te interesa: lo explicamos en [oraciones condicionales en inglés](/es/blog/oraciones-condicionales-en-ingles/).
+
 {{cta: /#/grammar | Practicar la diferencia entre tiempos verbales}}
 
 ## Preguntas frecuentes

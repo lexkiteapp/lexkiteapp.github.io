@@ -11,7 +11,10 @@ let copied = 0, calls = 0;
 try {
   const c0 = await driveApi('d1b_counts', {});
   if (c0.match) stop(0, `✓ D1 nội bộ đã khớp D1 chính (${Object.entries(c0.counts).map(([t, v]) => t + '=' + v.main).join(', ')}) – không cần sao`);
+  // 26/10: chỉ sao bảng LỆCH số dòng (trước: lệch 1 bảng là sao lại cả 8 bảng ≈ 33k dòng × chỉ mục mỗi ngày → vượt 100k dòng ghi/ngày của D1 nội bộ).
   for (const [t, k] of TABLES) {
+    const c = c0.counts && c0.counts[t];
+    if (c && c.main === c.internal) { console.log(`· ${t}: khớp (${c.main}) – bỏ qua`); continue; }
     let after = ['kind', 'k', 'n'].includes(k) ? '' : 0;
     for (;;) {
       const r = await driveApi('d1b_copy', { table: t, after, limit: 100 }); calls++; copied += r.copied;

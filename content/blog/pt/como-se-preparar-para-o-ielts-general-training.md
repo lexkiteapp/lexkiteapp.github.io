@@ -91,7 +91,7 @@ O módulo de escrita dura exatamente uma hora e exige disciplina rigorosa no ger
 > Leia também: [Small Talk em Inglês: Guia para Conversas Casuais e Networking](/pt/blog/small-talk-em-ingles/) · [TOEFL ou IELTS Qual Fazer? Comparativo Completo para Decidir](/pt/blog/toefl-ou-ielts-qual-fazer/)
 
 ### Task 1: A arte de redigir a carta perfeita (20 minutos, mínimo de 150 palavras)
-O enunciado da Task 1 sempre descreve uma situação e traz três tópicos pontuais (*bullet points*) que você é obrigado a cobrir. O primeiro passo crucial é identificar o tom exigido:
+O enunciado da Task 1 sempre descreve uma situação e traz três tópicos pontuais (*bullet points*) que você é obrigado a cobrir. O primeiro passo crucial é identificar o tom exigido: O passo a passo completo, com carta modelo, está no guia da [carta IELTS General Training](/pt/blog/carta-ielts-general-training/).
 - **Carta Formal:** Para alguém que você não conhece pelo nome ou para uma instituição governamental (abertura: *Dear Sir or Madam,* / fechamento: *Yours faithfully,*). Veja modelos formais no guia de [como escrever e-mail formal em inglês](/pt/blog/como-escrever-email-em-ingles-formal/).
 - **Carta Semiformal:** Para um chefe, gerente de banco ou proprietário de imóvel conhecido pelo sobrenome (abertura: *Dear Mr. Smith,* / fechamento: *Yours sincerely,*).
 - **Carta Informal:** Para um amigo próximo ou colega de confiança (abertura: *Dear Lucas,* / fechamento: *Warm regards,* ou *Best wishes,*).
@@ -114,6 +114,8 @@ O módulo de Listening do General Training é exatamente idêntico ao do Academi
 Acostume seus ouvidos com uma variedade de sotaques além do britânico: o exame usa narradores da Austrália, Nova Zelândia, Estados Unidos e Canadá. O segredo de ouro é ler as perguntas com atenção nos 30 a 45 segundos de pausa que o locutor concede antes de cada trecho, sublinhando os substantivos centrais para antecipar a resposta. Não deixe de conferir nossas [dicas para IELTS Listening](/pt/blog/dicas-ielts-listening/) com estratégias de foco.
 
 No Speaking, fale em ritmo contínuo. Não use pausas longas procurando palavras difíceis; a clareza e a conectividade natural das frases valem muito mais pontos do que um vocabulário pomposo falado de forma travada. Você pode treinar pronúncia e ritmo de fala no módulo de [prática de pronúncia](/app/#/practice) do Lexkite.
+
+O Speaking é igual nas duas versões do IELTS; para a parte mais difícil, leia as [IELTS Speaking Part 3 dicas](/pt/blog/ielts-speaking-part-3-dicas/).
 
 {{cta: /app/#/mock | Treinar com simulados do IELTS no Lexkite}}
 

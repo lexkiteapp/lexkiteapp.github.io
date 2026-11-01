@@ -144,6 +144,8 @@ Metode belajar mandiri yang sistematis ini sejalan dengan panduan komprehensif d
 
 ![Statistik progres belajar Lexkite dengan grafik XP dan heatmap konsistensi](media:stats "Memantau jam terbang belajar bahasa Inggris profesional lewat heatmap harian")
 
+Kalau lowongan meminta skor TOEIC, mulai dari bagian yang paling cepat naik nilainya: [tips TOEIC Part 5](/id/blog/tips-toeic-part-5/).
+
 {{cta: /samples/ | Akses Template Dokumen Kerja}}
 
 Tinjau format dokumen profesional dan [contoh dokumen dan esai bahasa Inggris](/samples/) untuk mendapatkan referensi tata letak yang memenuhi standar internasional.

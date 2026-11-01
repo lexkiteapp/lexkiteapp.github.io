@@ -2,6 +2,7 @@
 title: "Фразовые глаголы английского языка: 50 самых частых с примерами"
 description: "Топ-50 фразовые глаголы английского языка с переводом, значением предлогов, примерами и методикой интервального запоминания в контексте."
 slug: frazeologicheskie-glagoly-v-angliyskom
+translationKey: phrasal-verb-thong-dung
 lang: ru
 category: tu-vung
 tags: [tu-vung, phrasal-verbs, angliyskie-glagoly, leksika]

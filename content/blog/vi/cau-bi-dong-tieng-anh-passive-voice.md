@@ -1,130 +1,187 @@
 ---
+title: "Câu bị động trong tiếng Anh: công thức, cách dùng, lỗi hay gặp"
+description: "Câu bị động trong tiếng Anh: công thức be + V3 ở mọi thì, khi nào nên dùng, vì sao 'bị/được' khiến người Việt dùng sai, bị động kép và bài tập."
 slug: cau-bi-dong-tieng-anh-passive-voice
-title: "câu bị động tiếng anh passive voice: Công thức 12 thì và ứng dụng"
-description: "Nắm vững câu bị động tiếng anh passive voice: bảng công thức 12 thì chi tiết, các cấu trúc bị động đặc biệt và cách ứng dụng khách quan trong IELTS Writing."
-keyword: "câu bị động tiếng anh passive voice"
 lang: vi
 translationKey: cau-bi-dong-tieng-anh-passive-voice
 category: ngu-phap
-tags: [passive-voice, ngu-phap, ielts, writing]
+tags: [ngu-phap, passive-voice, writing]
+keyword: "câu bị động"
 cover: grammar
-coverAlt: "Ngữ pháp IELTS với lộ trình chương 12 thì từ cấp A1 đến B2 và bài luyện tổng hợp"
-qualityScore: 95
-factChecked: 2026-11-01
+coverAlt: "Lộ trình ngữ pháp IELTS trong Lexkite: các chương, 12 thì như hiện tại đơn, tiếp diễn, hoàn thành, cấp A1–B2 và bài luyện tổng hợp"
+factChecked: 2026-10-25
 author: Lexkite
 status: ready
+qualityScore: 92
+coverArt: {mood: think, icon: blocks}
+shots: [
+  {id: s1, route: '#/grammar/passive-voice', crop: main},
+  {id: s2, route: '#/grammar/passive-reporting-causative', crop: main}
+]
+diagrams: [
+  {id: d1, type: boxes, title: 'Chủ động → bị động', parts: [{t: 'Workers', r: 'chủ ngữ chủ động → by + tân ngữ (có thể bỏ)'}, {t: 'built', r: 'động từ → be + V3'}, {t: 'the bridge', r: 'tân ngữ → chủ ngữ mới'}, {t: '= The bridge was built (by workers).', r: 'câu bị động'}]},
+  {id: d2, type: compare, title: 'Câu bị động ở các thì thường gặp', cols: ['Thì', 'Chủ động', 'Bị động'], rows: [['Hiện tại đơn', 'They grow rice here.', 'Rice is grown here.'], ['Hiện tại tiếp diễn', 'They are repairing the road.', 'The road is being repaired.'], ['Quá khứ đơn', 'They opened the shop in 2010.', 'The shop was opened in 2010.'], ['Hiện tại hoàn thành', 'They have sold the house.', 'The house has been sold.'], ['Tương lai / modal', 'They will / should check it.', 'It will / should be checked.']]}
+]
 quiz: [
   {
-    q: "Công thức tổng quát nhất của mọi câu bị động trong tiếng Anh là gì?",
-    options: ["S + be + V3/ed (+ by O)", "S + have + V3/ed (+ by O)", "S + do + V-ing (+ by O)", "S + will + V-bare (+ by O)"],
-    answer: 0,
-    explain: "Mọi thì trong câu bị động đều tuân theo nguyên tắc: trợ động từ 'be' chia theo thì của câu gốc kết hợp với quá khứ phân từ (V3/ed)."
+    q: "Câu nào đúng?",
+    options: ["The accident was happened last night.", "The accident happened last night.", "The accident was happen last night.", "The accident has happened last night."],
+    answer: 1,
+    explain: "Happen là nội động từ (không có tân ngữ) nên không có dạng bị động. Last night là thời điểm xác định nên dùng quá khứ đơn."
   },
   {
-    q: "Dạng bị động khách quan (Impersonal Passive) của câu 'People believe that exercise improves health' là gì?",
-    options: ["It is believed that exercise improves health.", "Exercise is believe to improve health.", "It was believed that exercise improves health.", "People are believed exercise improves health."],
-    answer: 0,
-    explain: "Cấu trúc bị động khách quan chuẩn mực: 'It + be (chia theo thì) + V3/ed (believed/said/thought) + that-clause'."
+    q: "Chọn câu bị động đúng của: 'They are building a new hospital.'",
+    options: ["A new hospital is built.", "A new hospital is being built.", "A new hospital is building.", "A new hospital has built."],
+    answer: 1,
+    explain: "Hiện tại tiếp diễn bị động = am/is/are + being + V3."
   },
   {
-    q: "Câu nào dưới đây sử dụng đúng thể bị động sai khiến (Causative Passive)?",
-    options: ["She had her laptop repaired by a technician yesterday.", "She had her laptop repair by a technician yesterday.", "She got her laptop repair yesterday.", "She had repaired her laptop by a technician yesterday."],
-    answer: 0,
-    explain: "Cấu trúc bị động nhờ bảo/sai khiến: 'have/get + something + V3/ed (+ by someone)'."
+    q: "'Tôi vừa đi cắt tóc' (thợ cắt cho tôi) nói thế nào cho đúng?",
+    options: ["I have just cut my hair.", "I have just had my hair cut.", "My hair has just cut.", "I have just been cut my hair."],
+    answer: 1,
+    explain: "Have something done (thể nhờ bảo) diễn tả việc người khác làm cho mình. I cut my hair nghĩa là tự cắt."
   }
 ]
+publishAt: 2027-01-06T07:23:00+07:00
 ---
+**Câu bị động** (passive voice) đưa đối tượng *chịu tác động* lên đầu câu: *The bridge was built in 1998* thay vì *Workers built the bridge in 1998*. Công thức chỉ có một: **be + V3 (quá khứ phân từ)**, thì của câu nằm ở động từ *be*. Khó khăn thật sự của người Việt không nằm ở công thức mà ở chỗ **khi nào dùng** và những lỗi do hai chữ "bị", "được" trong tiếng Việt gây ra. Bài này đi qua cả hai.
 
-Trong giao tiếp hàng ngày cũng như các bài thi chuẩn hóa quốc tế, câu bị động đóng vai trò thiết yếu để chuyển dịch trọng tâm thông tin từ người thực hiện sang đối tượng chịu tác động. Đặc biệt trong văn phong học thuật (Academic Writing) như bài thi IELTS hay TOEFL, việc vận dụng thuần thục **câu bị động tiếng anh passive voice** giúp bài viết đạt tính khách quan, trang trọng và mang đậm phong cách khoa học.
+## Công thức câu bị động
 
-Bài viết này hệ thống toàn bộ quy tắc chuyển đổi câu chủ động sang bị động trong 12 thì, tổng hợp các dạng bị động đặc biệt và hướng dẫn cách áp dụng tinh tế để nâng cao điểm tiêu chí *Grammatical Range and Accuracy*.
+Ba bước chuyển một câu chủ động sang bị động:
 
-![Tra cứu từ điển thông minh với phiên âm chuẩn câu ví dụ và từ đồng nghĩa](media:dict "Tra cứu nghĩa từ vựng và ví dụ câu bị động trong từ điển Lexkite")
+1. Đưa **tân ngữ** lên làm chủ ngữ mới.
+2. Chia **be** theo thì của động từ gốc.
+3. Thêm **V3** của động từ chính, rồi thêm *by + người làm* nếu thông tin đó cần thiết.
 
-## Bản chất và lý do sử dụng câu bị động tiếng anh passive voice
+{{diagram: d1 | Tân ngữ lên đầu câu, động từ thành be + V3, người làm chuyển xuống cụm by (thường lược bỏ)}}
 
-Khác với câu chủ động (Active Voice) tập trung làm nổi bật chủ thể gây ra hành động, câu bị động (Passive Voice) được ưu tiên sử dụng trong các ngữ cảnh sau:
+Vì thì nằm hết ở *be*, bạn chỉ cần thuộc cách chia *be* là làm được mọi thì:
 
-1. **Khi đối tượng chịu tác động hoặc kết quả hành động quan trọng hơn người thực hiện**:  
-   *Ví dụ*: "Penicillin **was discovered** in 1928." (Việc phát minh ra penicillin là trọng tâm, không nhất thiết phải nhấn mạnh người tìm ra ngay đầu câu).
-2. **Khi chủ thể thực hiện hành động là hiển nhiên, không xác định hoặc không muốn nhắc tới**:  
-   *Ví dụ*: "The street **is swept** every morning." (Hiển nhiên do công nhân vệ sinh thực hiện).
-3. **Trong báo cáo khoa học và văn bản học thuật để duy trì tính khách quan (Academic Objectivity)**:  
-   *Ví dụ*: "The mixture **was heated** to 100 degrees Celsius." (Thay vì dùng đại từ ngôi thứ nhất *"I heated the mixture"*).
+{{diagram: d2 | Động từ chính luôn ở dạng V3; chỉ có be thay đổi theo thì}}
 
-Để rèn luyện viết lại câu và ứng dụng vào bài luận thực tế, bạn có thể thực hành trong [phòng luyện viết IELTS Task 2](/#/write) và tra cứu các dạng động từ bất quy tắc tại [từ điển trực tuyến Lexkite](/#/dict/resilient).
+Với động từ khuyết thiếu, công thức là **modal + be + V3**: *The form must be signed. The results could be delayed.* Nếu bạn chưa chắc nghĩa của từng modal, xem [bài động từ khuyết thiếu can, could, should, must](/vi/blog/dong-tu-khuyet-thieu-can-could-should-must/).
 
-## Bảng công thức câu bị động trong 12 thì tiếng Anh
+![](media:@s1 "Bài học câu bị động trong app đi qua công thức be + V3 ở từng thì, giống bảng ở trên")
 
-Quy tắc bất biến khi chuyển sang bị động: **Tân ngữ của câu chủ động biến thành Chủ ngữ mới, động từ 'to be' được chia theo thì của câu gốc, và động từ chính chuyển về dạng Quá khứ phân từ (Past Participle - V3/ed).**
+## "Bị" và "được": vì sao người Việt dễ dùng sai câu bị động
 
-| Thì ngữ pháp | Cấu trúc chủ động | Cấu trúc bị động tương ứng | Ví dụ minh họa thực tế |
-| :--- | :--- | :--- | :--- |
-| **Hiện tại đơn** | S + V(s/es) + O | **S + am/is/are + V3/ed** | "Renewable energy **is generated** from solar farms." |
-| **Hiện tại tiếp diễn**| S + am/is/are + V-ing + O | **S + am/is/are + being + V3/ed**| "The laboratory **is being upgraded** with modern equipment."|
-| **Hiện tại hoàn thành**| S + have/has + V3/ed + O | **S + have/has + been + V3/ed** | "A breakthrough **has been achieved** by quantum physicists."|
-| **Quá khứ đơn** | S + V2/ed + O | **S + was/were + V3/ed** | "The contract **was signed** by both representatives." |
-| **Quá khứ tiếp diễn** | S + was/were + V-ing + O | **S + was/were + being + V3/ed**| "The patient **was being monitored** around the clock." |
-| **Quá khứ hoàn thành** | S + had + V3/ed + O | **S + had + been + V3/ed** | "The thesis **had been submitted** before the deadline." |
-| **Tương lai đơn** | S + will + V-bare + O | **S + will + be + V3/ed** | "The results **will be published** next Monday." |
-| **Tương lai gần (be going to)**| S + is/are going to + V + O | **S + is/are going to be + V3/ed**| "A new policy **is going to be introduced** soon." |
-| **Động từ khuyết thiếu (Modals)**| S + modal + V-bare + O | **S + modal + be + V3/ed** | "Safety protocols **must be followed** strictly." |
-| **Modal hoàn thành** | S + modal + have + V3/ed + O | **S + modal + have been + V3/ed**| "The package **should have been delivered** yesterday." |
+Tiếng Việt cũng có bị động, nhưng nó hoạt động khác tiếng Anh ở ba điểm.
 
-*(Lưu ý: Các thì tiếp diễn hoàn thành như Hiện tại hoàn thành tiếp diễn hay Quá khứ hoàn thành tiếp diễn trên lý thuyết có cấu trúc bị động nhưng hiếm khi được sử dụng vì gây nặng nề câu văn).*
+**1. Tiếng Việt chọn "bị" hay "được" theo cảm xúc; tiếng Anh thì không.** "Anh ấy bị phạt" (xấu), "anh ấy được thưởng" (tốt). Tiếng Anh chỉ có một dạng trung tính: *He was fined. He was rewarded.* Một số bạn vì thế chỉ nghĩ tới bị động khi câu mang nghĩa tiêu cực, và bỏ lỡ cấu trúc này trong các câu trung tính như *Rice is grown in the Mekong Delta*.
 
-![Giao diện phòng luyện viết IELTS Task 2 hỗ trợ phân tích ngữ pháp và gợi ý từ vựng](media:write "Phòng luyện viết IELTS Writing Task 2 với công cụ hỗ trợ cấu trúc ngữ pháp học thuật")
+**2. Tiếng Việt hay lược chữ "bị/được"; tiếng Anh không bao giờ lược "be".** Ta nói "Ngôi nhà xây năm 1990" hoàn toàn tự nhiên. Dịch thẳng thành *The house built in 1990* là sai: phải là *The house **was** built in 1990*. Đây là lỗi số một trong bài viết của người Việt.
 
-## 4 cấu trúc câu bị động đặc biệt thường gặp
+**3. "Được" không phải lúc nào cũng là bị động.** "Tôi được đi Đà Lạt" nghĩa là *I got to go to Da Lat* hoặc *I was allowed to go*, chứ không phải *I was gone to Da Lat*. Ngược lại, "Tôi được sinh ra năm 2000" lại đúng là bị động: *I **was born** in 2000*, không phải *I born* hay *I am born*.
 
-Để chinh phục band điểm 7.0+ trong phần thi Viết, thí sinh cần làm chủ các dạng bị động nâng cao sau:
+Những lỗi kiểu này cũng xuất hiện trong danh sách [lỗi sai tiếng Anh người Việt hay mắc](/vi/blog/loi-sai-tieng-anh-nguoi-viet-hay-mac/); câu bị động là một trong những nguồn lỗi lớn nhất.
 
-### 1. Bị động khách quan với các động từ chỉ quan điểm, nhận thức (Impersonal Passive)
-Thường áp dụng với các động từ như: *say, believe, think, report, claim, acknowledge, assume*.
+## Khi nào nên dùng câu bị động?
 
-- **Cách 1 (Dùng chủ ngữ giả 'It')**:  
-  `It + is/was + V3/ed (believed/said) + that + clause`  
-  *Ví dụ*: "It is widely acknowledged that climate change threatens biodiversity."
-- **Cách 2 (Đưa chủ ngữ của mệnh đề phụ lên đầu câu)**:  
-  `S + is/are/was/were + V3/ed + to V-bare / to have V3/ed`  
-  *Ví dụ (hành động đồng thời)*: "Early education **is believed to foster** cognitive resilience in children."  
-  *Ví dụ (hành động xảy ra trước)*: "The ancient city **is reported to have collapsed** after a prolonged drought."
+Bị động không "cao cấp" hơn chủ động. Nó là công cụ để chọn **câu đang nói về cái gì**. Dùng khi:
 
-### 2. Bị động sai khiến / nhờ bảo (Causative Passive)
-Áp dụng khi chủ ngữ không tự làm mà nhờ hoặc thuê người khác thực hiện:
-- `have + something + V3/ed (+ by someone)`
-- `get + something + V3/ed (+ by someone)`  
-*Ví dụ*: "The research center **had its equipment recalibrated** by certified technicians."
+**Không biết hoặc không cần biết ai làm.** *My bike was stolen.* (Không biết ai lấy.) *English is spoken in many countries.* (Ai nói thì quá hiển nhiên.)
 
-### 3. Bị động với động từ có hai tân ngữ (Direct & Indirect Objects)
-Các động từ như *give, send, offer, award, grant, provide* có thể tạo ra hai câu bị động khác nhau:
-- *Chủ động*: "The committee awarded Dr. Harrison a prestigious fellowship."
-- *Bị động 1 (Tân ngữ gián tiếp làm chủ ngữ - phổ biến hơn)*: "Dr. Harrison **was awarded** a prestigious fellowship by the committee."
-- *Bị động 2 (Tân ngữ trực tiếp làm chủ ngữ)*: "A prestigious fellowship **was awarded to** Dr. Harrison by the committee."
+**Muốn giữ chủ đề ở đầu câu.** Đoạn văn đang nói về chiếc cầu thì câu tiếp theo nên bắt đầu bằng chiếc cầu: *The bridge opened in 1998. It **was designed** by a local engineer and **has been repaired** twice since then.*
 
-### 4. Bị động với động từ chỉ tri giác (Verbs of Perception)
-Khi chuyển các động từ như *see, hear, notice, watch* sang bị động, động từ nguyên mẫu không 'to' (bare infinitive) sẽ chuyển thành động từ nguyên mẫu có 'to' (to-infinitive):
-- *Chủ động*: "The witness saw the suspect enter the warehouse."
-- *Bị động*: "The suspect **was seen to enter** the warehouse by the witness."
+**Văn bản khoa học, quy trình, báo cáo.** *The samples were heated to 80°C. The bottles are collected, washed and refilled.* Đây là lý do bị động là cấu trúc bắt buộc khi mô tả quy trình trong IELTS Writing Task 1. Với biểu đồ đường, bạn dùng nhiều ngôn ngữ xu hướng hơn; xem [cách viết Task 1 dạng line graph](/vi/blog/ielts-writing-task-1-line-graph/).
 
-## Ứng dụng câu bị động trong bài thi IELTS Writing
+**Khi nào KHÔNG nên dùng?** Khi người làm là thông tin quan trọng: *The government cut the budget* rõ ràng và mạnh hơn *The budget was cut by the government*. Trong Writing Task 2, lạm dụng bị động làm bài khó đọc; giám khảo chấm sự phù hợp, không đếm số câu bị động. Xem thêm [cấu trúc IELTS Writing Task 2](/vi/blog/cau-truc-ielts-writing-task-2/) để biết khi nào nên viết trực tiếp.
 
-Trong IELTS Writing Task 1 dạng bài miêu tả quy trình sản xuất (Process Diagram), câu bị động là cấu trúc thống trị bắt buộc vì đối tượng (nguyên liệu, sản phẩm) không thể tự thực hiện hành động:
-- *Ví dụ Task 1*: "After the tea leaves **are harvested**, they **are transported** to the processing plant where they **are steamed** and **dried**."
+## Động từ không có dạng bị động
 
-Trong Task 2, việc phối hợp hài hòa giữa câu chủ động và bị động giúp duy trì nhịp điệu bài viết, tránh lặp lại đại từ nhân xưng phi học thuật như *"I"*, *"we"*, *"you"*:
-- Thay vì viết: *"We must consider the ethical implications of artificial intelligence."*
-- Hãy viết: *"The ethical implications of artificial intelligence **must be scrutinized** thoroughly by legislative bodies."*
+Chỉ **ngoại động từ** (có tân ngữ) mới chuyển sang bị động được. Những nội động từ sau thường bị dùng sai:
 
-## Các lỗi ngữ pháp thường gặp khi dùng câu bị động
+| Sai | Đúng |
+|---|---|
+| *The accident was happened at 9 p.m.* | *The accident happened at 9 p.m.* |
+| *Prices are increased every year.* (ý: tự tăng) | *Prices increase every year.* |
+| *He was died in 2015.* | *He died in 2015.* |
+| *The meeting was taken place online.* | *The meeting took place online.* |
+| *My phone is disappeared.* | *My phone has disappeared.* |
 
-| Lỗi phổ biến | Câu sai điển hình | Cách sửa chuẩn xác |
-| :--- | :--- | :--- |
-| **Quên chia động từ to be** | "The museum renovated last summer." | "The museum **was renovated** last summer." |
-| **Chia bị động cho nội động từ**| "The accident was happened yesterday." | "The accident **happened** yesterday." *(happen là nội động từ, không có bị động)* |
-| **Dùng sai quá khứ phân từ** | "The data has been wrote down." | "The data has been **written** down." |
-| **Lạm dụng 'by' không cần thiết**| "The novel was published by someone." | "The novel was **published** in 1995." *(Bỏ 'by someone' không xác định)* |
+Lưu ý: *Prices are increased by the company* đúng nếu có người chủ động tăng giá. Câu hỏi luôn là: có tân ngữ không, có ai tác động không?
 
-Để hoàn thiện kỹ năng viết học thuật, bạn nên kết hợp tham khảo bài viết về [ngữ pháp câu phức trong IELTS Writing](/vi/blog/ngu-phap-ielts-cau-phuc/) và nắm vững [câu điều kiện trong tiếng Anh](/vi/blog/cau-dieu-kien-trong-tieng-anh/). Ngoài ra, hãy trau dồi thêm [từ nối trong IELTS Writing](/vi/blog/tu-noi-trong-ielts-writing/) và rèn luyện kỹ thuật [paraphrase trong IELTS](/vi/blog/cach-paraphrase-trong-ielts/) cùng danh mục từ vựng học thuật tại [/tu-vung/](/tu-vung/).
+## Câu bị động với động từ có hai tân ngữ
 
-Làm chủ các thể bị động cơ bản và nâng cao sẽ mang đến cho bài viết của bạn sự tự tin, mạch lạc và chuẩn mực học thuật cao nhất.
+*Give, send, show, offer, tell, teach* có hai tân ngữ (người và vật), nên có hai cách chuyển:
+
+- *They gave **me** a certificate.* → ***I** was given a certificate.* (tự nhiên hơn)
+- → ***A certificate** was given to me.* (đúng, dùng khi muốn nhấn mạnh vật)
+
+Tiếng Việt nói "Tôi được tặng một chứng chỉ" nên cách thứ nhất thực ra rất gần với người Việt. Hãy dùng nó.
+
+## Bị động kép và have something done
+
+Hai cấu trúc này giúp bài viết học thuật và bài nói tự nhiên hơn.
+
+**Bị động kép (dùng để tường thuật):**
+
+- *People say that coffee improves concentration.*
+- → *It **is said that** coffee improves concentration.*
+- → *Coffee **is said to** improve concentration.*
+
+Các động từ hay dùng: *believe, think, expect, report, consider, know*. Cấu trúc này giúp bạn nêu một ý mà không khẳng định chắc chắn, một kỹ thuật được phân tích trong [bài hedging trong academic writing](/vi/blog/hedging-trong-academic-writing/).
+
+**Thể nhờ bảo (have / get something done):** người khác làm cho mình.
+
+- *I **had my phone repaired** yesterday.* (Thợ sửa, không phải tôi.)
+- *She's **getting her eyes tested** next week.*
+
+Người Việt hay nói *I repaired my phone* khi thật ra là mang đi sửa. Người bản ngữ sẽ hiểu là bạn tự sửa.
+
+![](media:@s2 "Bài học tiếp theo trong app gom bị động kép và cấu trúc have something done sau phần bị động cơ bản")
+
+## Tự kiểm tra
+
+Chuyển sang bị động hoặc sửa lỗi (nếu có).
+
+1. *Someone has cleaned the classroom.*
+2. *The festival was taken place in March.*
+3. *They will announce the results tomorrow.*
+4. *My house built twenty years ago.*
+5. *People believe that the painting is 300 years old.* (bắt đầu bằng *The painting…*)
+6. *A mechanic is checking my car.* (dùng *have*)
+7. *They offered her a scholarship.* (bắt đầu bằng *She…*)
+
+### Đáp án
+
+1. *The classroom **has been cleaned**.* (Bỏ *by someone* vì không cho thông tin gì.)
+2. *The festival **took place** in March.* (*Take place* là nội động từ.)
+3. *The results **will be announced** tomorrow.*
+4. *My house **was built** twenty years ago.* (Không được lược *be*.)
+5. *The painting **is believed to be** 300 years old.*
+6. *I'm **having my car checked**.*
+7. *She **was offered** a scholarship.*
+
+Đúng 6–7 câu: bạn đã vững. Sai câu 2 hoặc 4: đó chính là hai lỗi điển hình từ tiếng Việt, hãy đọc lại phần "bị" và "được".
+
+## Luyện câu bị động trong Lexkite
+
+1. Làm [bài học câu bị động](/app/#/grammar/passive-voice), đọc to từng đáp án để quen nhịp *was built, has been sold, is being repaired*.
+2. Tiếp tục với [bị động kép và have something done](/app/#/grammar/passive-reporting-causative).
+3. Đọc một bài mẫu trong mục [bài mẫu Writing](/samples/) và gạch chân mọi câu bị động. Hỏi: vì sao người viết chọn bị động ở đây?
+
+Mục [ngữ pháp](/ngu-phap/) trên trang web có các bài liên quan. Câu bị động hay đi cùng câu điều kiện trong văn trang trọng (*If the tax were introduced…*), xem [câu điều kiện trong tiếng Anh](/vi/blog/cau-dieu-kien-trong-tieng-anh/); và đi với động từ nguyên mẫu (*is expected to rise*), xem [gerund và to-infinitive](/vi/blog/gerund-va-to-infinitive/).
+
+{{cta: /app/#/grammar/passive-voice | Luyện câu bị động ở mọi thì}}
+
+{{youtube: | Gợi ý video: một bản tin kể hai lần, chủ động và bị động, để thấy trọng tâm câu thay đổi}}
+
+## Câu hỏi thường gặp
+
+### Câu bị động có luôn cần "by" không?
+
+Không. Phần lớn câu bị động không có *by*, vì người làm không quan trọng, không rõ hoặc quá hiển nhiên. Chỉ thêm *by* khi đó là thông tin mới, ví dụ *The novel was written by a 17-year-old student.*
+
+### "Get" bị động khác gì "be" bị động?
+
+*Get* bị động (*He got fired, the window got broken*) thân mật hơn, hay dùng khi nói, thường cho sự việc bất ngờ hoặc không mong muốn. Trong bài viết học thuật, dùng *be*.
+
+### Câu bị động có dùng được trong IELTS Speaking không?
+
+Có, khi tự nhiên: *I was born in Hue*, *The park was built a few years ago*, *It's often said that…* Không cần cố nhồi bị động vào câu trả lời; dùng đúng chỗ mới được điểm ngữ pháp.
+
+### Làm sao nhớ V3 của động từ bất quy tắc?
+
+Học theo nhóm âm (*write – wrote – written, drive – drove – driven*) và ôn lặp lại ngắt quãng mỗi ngày vài phút. Ôn ngắn và đều hiệu quả hơn nhiều so với học thuộc một lần cả bảng.

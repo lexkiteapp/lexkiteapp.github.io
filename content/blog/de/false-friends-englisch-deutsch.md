@@ -23,7 +23,7 @@ In der Sprachwissenschaft werden diese Tücken als „falsche Freunde“ bezeich
 
 Das menschliche Gehirn arbeitet nach dem Prinzip der Mustererkennung. Treffen wir beim Sprechen oder Schreiben auf eine Lücke, greift unser Unterbewusstsein automatisch auf das vertraute Vokabular der Muttersprache zurück. Klingt ein deutsches Wort englisch, übertragen wir dessen Bedeutung unbewusst ins Englische.
 
-Besonders heimtückisch ist dies, wenn das Wort grammatikalisch perfekt in den Satz passt. Wer sagt: *„I become a beefsteak, please“*, bildet einen grammatikalisch korrekten Satz – sagt jedoch auf Englisch: „Ich verwandle mich bitte in ein Rindersteak“.
+Besonders heimtückisch ist dies, wenn das Wort grammatikalisch perfekt in den Satz passt. Wer sagt: *„I become a beefsteak, please“*, bildet einen grammatikalisch korrekten Satz – sagt jedoch auf Englisch: „Ich verwandle mich bitte in ein Rindersteak“. Ein verwandtes Problem ist das deutsche „machen“, das sich auf mehrere englische Verben verteilt – siehe [Make oder do: Unterschied](/de/blog/make-oder-do-unterschied/).
 
 Eine systematische Wortschatzarbeit schützt Sie vor solchen Patzern. Wie Sie Ihren aktiven Wortschatz nachhaltig aufbauen, erfahren Sie in unserem Leitfaden [Englisch Vokabeln lernen](/de/blog/englisch-vokabeln-lernen/). Einen ganzheitlichen Überblick über Lernmethoden bieten zudem unsere [Englisch lernen Tipps](/de/blog/englisch-lernen-tipps/).
 
@@ -154,7 +154,7 @@ Ein Lehnwort wurde mit seiner ursprünglichen Bedeutung aus einer Sprache übern
 Beide Sprachen teilen einen gemeinsamen germanischen Ursprung. Durch den Einfluss des Französischen und Lateinischen nach der normannischen Eroberung Englands 1066 entwickelten sich viele Wörter im Englischen semantisch in eine ganz andere Richtung als im Deutschen.
 
 ### Wie kann ich mir den Unterschied zwischen *become* und *bekommen* am besten merken?
-Nutzen Sie den bekannten Eselsbrücken-Satz: „Wer *become* mit *bekommen* verwechselt, wird zum Rindersteak (*I become a steak*).“ Merken Sie sich für bekommen immer das englische Verb *to get* oder *to receive*.
+Nutzen Sie den bekannten Eselsbrücken-Satz: „Wer *become* mit *bekommen* verwechselt, wird zum Rindersteak (*I become a steak*).“ Merken Sie sich für bekommen immer das englische Verb *to get* oder *to receive*. Eine ähnliche Falle steckt in *must not*, das „nicht dürfen“ bedeutet und nicht „nicht müssen“ – mehr dazu im Artikel über [Modalverben im Englischen](/de/blog/modalverben-englisch-can-could-should-must/).
 
 ### Gelten falsche Freunde auch für britisches und amerikanisches Englisch gleichermaßen?
 Die meisten deutsch-englischen falschen Freunde gelten für beide Hauptvarianten. Es gibt jedoch Ausnahmen: Das britische Wort *biscuit* entspricht dem deutschen Keks, während ein US-amerikanischer *biscuit* einer Art herzhaftem Scone ähnelt.

@@ -70,7 +70,7 @@ La elección del saludo depende de si conoces el nombre del destinatario y de su
 | Equipo o departamento general | *Dear Marketing Team, / Dear Hiring Committee,* | Mucho más cálido y moderno que fórmulas despersonalizadas. |
 | Destinatario desconocido | *Dear Sir or Madam,* | Úsalo solo como último recurso cuando no haya forma de saber el nombre. |
 
-*Nota:* La fórmula tradicional *"To Whom It May Concern"* se reserva hoy casi exclusivamente para cartas de recomendación formales dirigidas a instituciones; en correos electrónicos directos resulta distante y anticuada.
+*Nota:* La fórmula tradicional *"To Whom It May Concern"* se reserva hoy casi exclusivamente para cartas de recomendación formales dirigidas a instituciones; en correos electrónicos directos resulta distante y anticuada. En el examen de IELTS General se espera *Dear Sir or Madam*, como explica la guía de la [carta IELTS General Training](/es/blog/carta-ielts-general-training/).
 
 ### 3. La frase de apertura (*Opening Line*)
 
@@ -215,6 +215,8 @@ Verifica si identificas las fórmulas profesionales adecuadas con estas 3 pregun
 * B) *Sincerely,* o *Kind regards,*
 * C) *Take care,*
 *(Respuesta correcta: B. "Cheers" y "Take care" son coloquiales y deben reservarse para amigos).*
+
+¿Preparas el TOEFL iBT? Además del email, la sección de Writing incluye un mensaje de foro: mira el [ejemplo de TOEFL Academic Discussion](/es/blog/toefl-academic-discussion-ejemplo/).
 
 {{cta: /#/write | Redacta y practica textos formales en Lexkite}}
 

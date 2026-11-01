@@ -15,7 +15,7 @@ author: Lexkite
 status: ready
 qualityScore: 94
 ---
-Banyak peserta tes IELTS dari Indonesia yang merasa buntu di skor 6.0 atau 6.5 pada modul Speaking. Mereka sudah bisa menjawab pertanyaan penguji dengan tata bahasa yang cukup rapi, namun belum mampu menembus Band 7.0 yang menjadi syarat umum beasiswa luar negeri seperti LPDP, Chevening, atau AAS. Jika kamu sedang mencari **tips ielts speaking band 7** yang terbukti efektif, panduan ini akan membedah standar penilaian penguji dan strategi konkret untuk menguasai Part 1, Part 2, dan Part 3.
+Banyak peserta tes IELTS dari Indonesia yang merasa buntu di skor 6.0 atau 6.5 pada modul Speaking. Mereka sudah bisa menjawab pertanyaan penguji dengan tata bahasa yang cukup rapi, namun belum mampu menembus Band 7.0 yang menjadi syarat umum beasiswa luar negeri seperti LPDP, Chevening, atau AAS. Jika kamu sedang mencari **tips ielts speaking band 7** yang terbukti efektif, panduan ini akan membedah standar penilaian penguji dan strategi konkret untuk menguasai Part 1, Part 2, dan Part 3. Strategi khusus bagian diskusi dibahas di [tips IELTS Speaking Part 3](/id/blog/tips-ielts-speaking-part-3/).
 
 Meraih Band 7 bukan berarti kamu harus berbicara layaknya penutur asli (*native speaker*) dengan aksen British yang dipaksakan. Penguji IELTS dilatih untuk menilai empat kriteria objektif: Kelancaran dan Keterpaduan (*Fluency and Coherence*), Variasi Kosakata (*Lexical Resource*), Rentang dan Akurasi Tata Bahasa (*Grammatical Range and Accuracy*), serta Pengucapan (*Pronunciation*). Kuncinya terletak pada kemampuan mengembangkan gagasan secara runtut dan menggunakan ungkapan alami tanpa jeda berpikir yang berlebihan.
 

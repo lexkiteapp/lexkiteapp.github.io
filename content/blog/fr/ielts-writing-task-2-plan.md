@@ -94,6 +94,8 @@ Retrouvez des modèles types de dissertations dans notre section de [textes d'ex
 
 {{youtube: | Réussir son essai IELTS Writing Task 2 : structure et conseils pas à pas}}
 
+Le schéma avis, raison, exemple, nuance fonctionne aussi en format court pour la [TOEFL Academic Discussion](/fr/blog/toefl-academic-discussion-conseils/).
+
 {{cta: /#/write | Entraîne-toi à la rédaction IELTS sur Lexkite}}
 
 ## Exercice d'auto-évaluation (Self-Check)

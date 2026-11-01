@@ -24,7 +24,7 @@ Một vài ví dụ dễ thấy:
 
 - Ta nói *a strong argument* nhưng *a heavy smoker*, không phải *a strong smoker*.
 - Ta *pay attention*, không *give attention* trong đa số ngữ cảnh.
-- Ta *take a photo*, *make a decision*, *do homework*.
+- Ta *take a photo*, *make a decision*, *do homework* (cặp này được phân tích riêng trong bài [phân biệt make và do](/vi/blog/phan-biet-make-va-do/)).
 
 Người Việt dễ sai collocation vì hay dịch từng từ từ tiếng Việt sang. "Mưa to" thành *big rain*, "học kiến thức" thành *learn knowledge* (tự nhiên hơn là *gain knowledge* hoặc *acquire knowledge*).
 
@@ -165,6 +165,8 @@ Câu 5 là lỗi rất phổ biến trong Task 1. Hãy nhớ cặp *raise prices
 ![Sổ cụm từ và cấu trúc trong Lexkite, nơi lưu cụm/câu hay kèm nhãn theo bài thi](media:phrases "Lưu collocation hay vào mục cụm từ rồi đối chiếu với bài mẫu")
 
 3. Trong thư viện còn có bộ "Collocation band 7+" để bạn học thêm theo flashcard. Để thấy collocation được dùng trong cả bài hoàn chỉnh, đọc các [bài mẫu Task 2 band 8 có chú thích](/samples/).
+
+Giới từ đi kèm (interested in, depend on) cũng nên học theo cụm như collocation; xem [bài giới từ in on at](/vi/blog/gioi-tu-in-on-at-trong-tieng-anh/).
 
 {{cta: /#/phrases | Bắt đầu sổ collocation của riêng bạn}}
 

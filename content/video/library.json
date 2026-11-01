@@ -670,7 +670,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "approved",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": {
@@ -800,7 +800,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/chars_ama_dna_png.jpg"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/carlos/dna.png",
@@ -822,7 +824,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "approved",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": {
@@ -947,7 +949,9 @@
      "sha": "e1edae45bff8637acce019b379d8d713febf79784e12e079e4eaa39361c108ca"
     },
     "sheet": "brand/library/_review/chars_carlos_dna_png.jpg"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/carlos/green-travel.png",
@@ -968,7 +972,7 @@
     "prompt": null,
     "date": "2026-10-18"
    },
-   "status": "approved",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": {
@@ -1089,7 +1093,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/chars_carlos_green-travel_png.jpg"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/carlos/neutral.png",
@@ -1110,7 +1116,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -1218,7 +1224,9 @@
      "sha": "5cb353ea4ec916a74170089588c3a87d0e470d5528f1c0b1c17980b0013d07bb"
     },
     "sheet": "brand/library/_review/chars_carlos_neutral_png.jpg"
-   }
+   },
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/diane/dna.png",
@@ -1240,7 +1248,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "approved",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": {
@@ -1362,7 +1370,9 @@
      "reasons": [],
      "sha": "4a813292610c45313e4bf220cca1f2dd5a9a9f8614dbdbaeaeed5703a406bb90"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/diane/green-casual.png",
@@ -1383,7 +1393,7 @@
     "prompt": null,
     "date": "2026-10-18"
    },
-   "status": "approved",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": {
@@ -1509,7 +1519,9 @@
      "sha": "63af8eab6290e67fe4614d9da14973b514d111672455aa84b0e9c9615ab56328",
      "at": "2026-10-18"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/diane/neutral.png",
@@ -1530,7 +1542,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -1634,7 +1646,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/chars_diane_neutral_png.jpg"
-   }
+   },
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/leo/dna.png",
@@ -1656,7 +1670,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "approved",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": {
@@ -1781,7 +1795,9 @@
      "sha": "2467074840d4fe1468ab7bd7f02f40798048631a8bba73221cd4973d145d90a4"
     },
     "sheet": "brand/library/_review/chars_leo_dna_png.jpg"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/leo/neutral.png",
@@ -1803,7 +1819,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -1921,7 +1937,9 @@
     "sheet": "brand/library/_review/chars_leo_neutral_png.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [ảnh] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/mia/gesture-shock.png",
@@ -1942,7 +1960,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -2063,7 +2081,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/chars_mia_gesture-shock_png.jpg"
-   }
+   },
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/mia/green-casual.png",
@@ -2084,7 +2104,7 @@
     "prompt": null,
     "date": "2026-10-18"
    },
-   "status": "approved",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": {
@@ -2213,7 +2233,9 @@
      "at": "2026-10-18"
     },
     "sheet": "brand/library/_review/chars_mia_green-casual_png.jpg"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/mia/green-travel.png",
@@ -2234,7 +2256,7 @@
     "prompt": null,
     "date": "2026-10-18"
    },
-   "status": "approved",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": {
@@ -2363,7 +2385,9 @@
      "at": "2026-10-18"
     },
     "sheet": "brand/library/_review/chars_mia_green-travel_png.jpg"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "chars/mia/neutral.png",
@@ -2385,7 +2409,7 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "retired",
    "ref": true,
    "locations": {
     "primary": null,
@@ -2494,7 +2518,9 @@
      "sha": "bd38fce0c076af99f6c7a39a338aff63aafdcbdf9e32a89cd2ea8f93f57b1ebb"
     },
     "sheet": "brand/library/_review/chars_mia_neutral_png.jpg"
-   }
+   },
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_ask_point.mp4",
@@ -2521,7 +2547,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -2570,7 +2596,9 @@
     "sheet": "brand/library/_review/clips_ama_ask_point_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 3.3 % chiều cao khung | FAIL anat_palette_dna: [giữa] màu top lệch DNA ΔE 39",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_listen_thumbs.mp4",
@@ -2596,7 +2624,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/ama_listen_thumbs.mp4",
@@ -2697,7 +2725,9 @@
     "reason": "chân xê dịch 2,2 % khi gật – nhỏ, vai người nghe; bảng soi sạch",
     "from": "reject",
     "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 2.2 % chiều cao khung"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_nod_laugh.mp4",
@@ -2724,7 +2754,7 @@
    "roles": [
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -2773,7 +2803,9 @@
     "sheet": "brand/library/_review/clips_ama_nod_laugh_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 4.0 % chiều cao khung | FAIL anat_palette_dna: [giữa] màu top lệch DNA ΔE 39",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_q_talk_nod.mp4",
@@ -2801,7 +2833,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/ama_q_talk_nod.mp4",
@@ -2893,7 +2925,9 @@
     }
    },
    "facing": "right",
-   "mirrorOk": true
+   "mirrorOk": true,
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_shock_headgrab.mp4",
@@ -2920,7 +2954,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -2978,7 +3012,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shock_headgrab_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_shock_laugh.mp4",
@@ -3004,7 +3040,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/ama_shock_laugh.mp4",
@@ -3094,7 +3130,9 @@
      "url": "https://media.lexkite.com/library/clips/ama_shock_laugh.mp4",
      "gitSha": "a5d49739645347e1ec2166695fd5e2693d6da6da"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_shrug_eyeroll.mp4",
@@ -3122,7 +3160,7 @@
     "speaker",
     "listener"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -3181,7 +3219,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shrug_eyeroll_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_talk_gesture.mp4",
@@ -3207,7 +3247,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/ama_talk_gesture.mp4",
@@ -3297,7 +3337,9 @@
      "url": "https://media.lexkite.com/library/clips/ama_talk_gesture.mp4",
      "gitSha": "679d711d3594eed51aa9849dc5b45e119876b9f0"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_think_aha.mp4",
@@ -3323,7 +3365,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/ama_think_aha.mp4",
@@ -3416,7 +3458,9 @@
      "url": "https://media.lexkite.com/library/clips/ama_think_aha.mp4",
      "gitSha": "ccb80a7ddc99ca0d756d018ee2ca3713ac61d133"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_think_win.mp4",
@@ -3443,7 +3487,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -3492,7 +3536,9 @@
     "sheet": "brand/library/_review/clips_ama_think_win_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 6.1 % chiều cao khung | FAIL anat_palette_dna: [cuối] màu top lệch DNA ΔE 39",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_wave_clasp.mp4",
@@ -3518,7 +3564,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/ama_wave_clasp.mp4",
@@ -3606,7 +3652,9 @@
      "url": "https://media.lexkite.com/library/clips/ama_wave_clasp.mp4",
      "gitSha": "42bdb5ae8681060aedb9b239dc8142bbced3d06b"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/ama_wave_thumbs.mp4",
@@ -3633,7 +3681,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -3690,7 +3738,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_wave_thumbs_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_listen_thumbs_travel.mp4",
@@ -3718,7 +3768,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/carlos_listen_thumbs_travel.mp4",
@@ -3808,7 +3858,9 @@
      "url": "https://media.lexkite.com/library/clips/carlos_listen_thumbs_travel.mp4",
      "gitSha": "ee59f09d6add305dda813318c847deb8672210e0"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_listen_thumbs.mp4",
@@ -3834,7 +3886,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/carlos_listen_thumbs.mp4",
@@ -3927,7 +3979,9 @@
      "url": "https://media.lexkite.com/library/clips/carlos_listen_thumbs.mp4",
      "gitSha": "f4708b880bdfb9a0ccbded06dc85d1e9c972a76b"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_q_talk_nod_travel.mp4",
@@ -3956,7 +4010,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "facing": "left",
    "mirrorOk": true,
    "locations": {
@@ -4044,7 +4098,9 @@
      "gitSha": "ac5b09fb9a958a59747ac4b7da4b257ed5479bab"
     }
    },
-   "trimmed": true
+   "trimmed": true,
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_q_talk_thumbs.mp4",
@@ -4072,7 +4128,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/carlos_q_talk_thumbs.mp4",
@@ -4178,7 +4234,9 @@
      "to": 2.2,
      "facing": "right"
     }
-   ]
+   ],
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_shock_laugh.mp4",
@@ -4204,7 +4262,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -4281,7 +4339,9 @@
      ],
      "at": "2026-10-17"
     }
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_surprise_shrug.mp4",
@@ -4308,7 +4368,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -4364,7 +4424,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_surprise_shrug_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_talk_gesture_travel.mp4",
@@ -4392,7 +4454,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/carlos_talk_gesture_travel.mp4",
@@ -4479,7 +4541,9 @@
      "url": "https://media.lexkite.com/library/clips/carlos_talk_gesture_travel.mp4",
      "gitSha": "347cc78bef5174f2dd97a1aefae4ece4c1fba61b"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_talk_gesture.mp4",
@@ -4505,7 +4569,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/carlos_talk_gesture.mp4",
@@ -4597,7 +4661,9 @@
      "url": "https://media.lexkite.com/library/clips/carlos_talk_gesture.mp4",
      "gitSha": "1bf95e3929710fa841c6d2370ec8ba4f32b38a9c"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_talk_laugh.mp4",
@@ -4624,7 +4690,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -4680,7 +4746,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_talk_laugh_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_think_aha.mp4",
@@ -4706,7 +4774,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -4784,7 +4852,9 @@
      ],
      "at": "2026-10-17"
     }
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_wave_clasp.mp4",
@@ -4810,7 +4880,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -4890,7 +4960,9 @@
      ],
      "at": "2026-10-17"
     }
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/carlos_wave_thumbs.mp4",
@@ -4916,7 +4988,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -4972,7 +5044,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_wave_thumbs_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_idle_listen.mp4",
@@ -4999,7 +5073,7 @@
    "roles": [
     "listener"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -5055,7 +5129,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_idle_listen_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_listen_thumbs_casual.mp4",
@@ -5083,7 +5159,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/diane_listen_thumbs_casual.mp4",
@@ -5169,7 +5245,9 @@
      "gitSha": "c94fec4ef710ba07f60eecef28f123824144a4f6"
     }
    },
-   "trimmed": true
+   "trimmed": true,
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_listen_thumbs.mp4",
@@ -5196,7 +5274,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/diane_listen_thumbs.mp4",
@@ -5284,7 +5362,9 @@
      "url": "https://media.lexkite.com/library/clips/diane_listen_thumbs.mp4",
      "gitSha": "b1fde9e12787bd597f3dbd20f60cf03f4e3731cd"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_nod_handsonhips.mp4",
@@ -5311,7 +5391,7 @@
    "roles": [
     "listener"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -5367,7 +5447,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_nod_handsonhips_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_nod_thumbs_v1.mp4",
@@ -5395,7 +5477,7 @@
     "speaker",
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -5443,7 +5525,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_nod_thumbs_v1_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_q_talk_nod_casual.mp4",
@@ -5473,7 +5557,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "facing": "left",
    "mirrorOk": false,
    "locations": {
@@ -5562,7 +5646,9 @@
      "url": "https://media.lexkite.com/library/clips/diane_q_talk_nod_casual.mp4",
      "gitSha": "27018606e08cbfced9cd8d6bf113436cbd408559"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_shock_laugh.mp4",
@@ -5589,7 +5675,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -5669,7 +5755,9 @@
      ],
      "at": "2026-10-17"
     }
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_skeptic_facepalm.mp4",
@@ -5695,7 +5783,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -5744,7 +5832,9 @@
     "sheet": "brand/library/_review/clips_diane_skeptic_facepalm_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_talk_gesture_casual.mp4",
@@ -5773,7 +5863,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/diane_talk_gesture_casual.mp4",
@@ -5859,7 +5949,9 @@
      "url": "https://media.lexkite.com/library/clips/diane_talk_gesture_casual.mp4",
      "gitSha": "f8b0b313d1ba3c2cbbb695201ccb201485228391"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_talk_gesture.mp4",
@@ -5885,7 +5977,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/diane_talk_gesture.mp4",
@@ -5976,7 +6068,9 @@
      "url": "https://media.lexkite.com/library/clips/diane_talk_gesture.mp4",
      "gitSha": "22855264fa46a9e2f9ab4710c2a3cc80556be0ff"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_talk_point.mp4",
@@ -6003,7 +6097,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -6050,7 +6144,9 @@
     "sheet": "brand/library/_review/clips_diane_talk_point_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL vision: face lỗi; identity drift; character's signature red glasses are missing across all frames",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_think_aha.mp4",
@@ -6076,7 +6172,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/diane_think_aha.mp4",
@@ -6179,7 +6275,9 @@
     "reason": "chân xê dịch 1,7 % khi giơ tay – không lộ khi ghép; bảng soi sạch",
     "from": "reject",
     "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 1.7 % chiều cao khung"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_think_laugh_v1.mp4",
@@ -6207,7 +6305,7 @@
     "speaker",
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -6255,7 +6353,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_think_laugh_v1_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/diane_wave_clasp.mp4",
@@ -6281,7 +6381,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/diane_wave_clasp.mp4",
@@ -6382,7 +6482,9 @@
     "reason": "soi tay: kính đỏ có ở mọi khung trong bảng soi; heuristic gọng kính báo nhầm khi Diane cười híp mắt",
     "from": "reject",
     "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_glasses: [giữa] vùng mắt mất nét gọng kính so với DNA"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_listen_thumbs.mp4",
@@ -6408,7 +6510,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/leo_listen_thumbs.mp4",
@@ -6509,7 +6611,9 @@
     "reason": "tỉ lệ đầu/thân 15 % là ước lượng MediaPipe trên tranh 2D; soi tay đúng DNA (kính, râu, tóc)",
     "from": "reject",
     "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_nod_laugh_v2.mp4",
@@ -6537,7 +6641,7 @@
     "speaker",
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -6587,7 +6691,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_nod_laugh_v2_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_nod_laugh_v3.mp4",
@@ -6615,7 +6721,7 @@
     "speaker",
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -6665,7 +6771,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_nod_laugh_v3_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_nod_short.mp4",
@@ -6693,7 +6801,7 @@
    "roles": [
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -6743,7 +6851,9 @@
     "sheet": "brand/library/_review/clips_leo_nod_short_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [đầu] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %) | FAIL anat_palette_dna: [đầu] màu skin lệch DNA ΔE 38",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_nod_v1.mp4",
@@ -6769,7 +6879,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -6815,7 +6925,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_nod_v1_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_shock_headgrab.mp4",
@@ -6841,7 +6953,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -6897,7 +7009,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_shock_headgrab_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_shock_laugh.mp4",
@@ -6923,7 +7037,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7003,7 +7117,9 @@
      ],
      "at": "2026-10-17"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_shrug_cross.mp4",
@@ -7031,7 +7147,7 @@
     "speaker",
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7084,7 +7200,9 @@
     "sheet": "brand/library/_review/clips_leo_shrug_cross_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [đầu] tỉ lệ đầu/thân lệch DNA 14 % (> 12 %)",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_shrug_v1.mp4",
@@ -7111,7 +7229,7 @@
     "speaker",
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7160,7 +7278,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_shrug_v1_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_talk_gesture.mp4",
@@ -7186,7 +7306,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7265,7 +7385,9 @@
      ],
      "at": "2026-10-17"
     }
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_talk_point.mp4",
@@ -7292,7 +7414,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7348,7 +7470,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_talk_point_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_think_aha.mp4",
@@ -7374,7 +7498,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7449,7 +7573,9 @@
      ],
      "at": "2026-10-17"
     }
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_think_idea.mp4",
@@ -7475,7 +7601,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7523,7 +7649,9 @@
     "sheet": "brand/library/_review/clips_leo_think_idea_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [85, 86] | FAIL anat_palette_dna: [đầu] màu skin lệch DNA ΔE 38",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_wave_clasp.mp4",
@@ -7549,7 +7677,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/leo_wave_clasp.mp4",
@@ -7647,7 +7775,9 @@
     "reason": "tỉ lệ đầu/thân 14 % là ước lượng MediaPipe; soi tay đúng DNA",
     "from": "reject",
     "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 14 % (> 12 %)"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_wave_thumbs.mp4",
@@ -7674,7 +7804,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7725,7 +7855,9 @@
     "sheet": "brand/library/_review/clips_leo_wave_thumbs_mp4.jpg"
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [47] | FAIL anat_head_ratio: [đầu] tỉ lệ đầu/thân lệch DNA 16 % (> 12 %) | FAIL anat_palette_dna: [đầu] màu skin lệch DNA ΔE 38",
-   "quarantinedFrom": "approved"
+   "quarantinedFrom": "approved",
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/leo_wave_v1.mp4",
@@ -7752,7 +7884,7 @@
     "speaker",
     "listener"
    ],
-   "status": "reject",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7801,7 +7933,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_wave_v1_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reject",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_idle.mp4",
@@ -7826,7 +7960,7 @@
    "roles": [
     "listener"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -7882,7 +8016,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_idle_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_listen_thumbs_casual.mp4",
@@ -7910,7 +8046,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_listen_thumbs_casual.mp4",
@@ -7997,7 +8133,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_listen_thumbs_casual.mp4",
      "gitSha": "95a50714a912667ae170d3b3df37079bb20d7920"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_listen_thumbs_travel.mp4",
@@ -8025,7 +8163,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_listen_thumbs_travel.mp4",
@@ -8111,7 +8249,9 @@
      "gitSha": "26ba2f91963fdbba0fbca1fa3c6460321e747690"
     }
    },
-   "trimmed": true
+   "trimmed": true,
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_listen_thumbs.mp4",
@@ -8137,7 +8277,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_listen_thumbs.mp4",
@@ -8224,7 +8364,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_listen_thumbs.mp4",
      "gitSha": "a024e79f8c236e1fc8bb60f91155837e74b1166a"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_nod_laugh.mp4",
@@ -8251,7 +8393,7 @@
    "roles": [
     "listener"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -8308,7 +8450,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_nod_laugh_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_shock_headgrab.mp4",
@@ -8335,7 +8479,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -8383,7 +8527,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_shock_headgrab_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_shock_laugh.mp4",
@@ -8409,7 +8555,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -8488,7 +8634,9 @@
      ],
      "at": "2026-10-17"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_shrug_cross.mp4",
@@ -8514,7 +8662,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -8565,7 +8713,9 @@
     },
     "sheet": "brand/library/_review/clips_mia_shrug_cross_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_talk_gesture_casual.mp4",
@@ -8593,7 +8743,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_talk_gesture_casual.mp4",
@@ -8680,7 +8830,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_talk_gesture_casual.mp4",
      "gitSha": "73afc1b604fba4ad0299b9a3e145777b7f85d55c"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_talk_gesture_travel.mp4",
@@ -8709,7 +8861,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_talk_gesture_travel.mp4",
@@ -8794,7 +8946,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_talk_gesture_travel.mp4",
      "gitSha": "7e3a2aae27ce701a0cb5de9fc780546fbcb508ee"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_talk_gesture.mp4",
@@ -8820,7 +8974,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_talk_gesture.mp4",
@@ -8907,7 +9061,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_talk_gesture.mp4",
      "gitSha": "70bf8c0383de70e1100861c89950e3638202ffb7"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_talk_point.mp4",
@@ -8933,7 +9089,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -8989,7 +9145,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_talk_point_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_think_aha_casual.mp4",
@@ -9018,7 +9176,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_think_aha_casual.mp4",
@@ -9103,7 +9261,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_think_aha_casual.mp4",
      "gitSha": "ec68886943c3d42f1433603c676568a44b55c360"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_think_aha_travel.mp4",
@@ -9132,7 +9292,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_think_aha_travel.mp4",
@@ -9219,7 +9379,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_think_aha_travel.mp4",
      "gitSha": "bf268df3eacbd37535fcdddccdd64767768fdbdf"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_think_aha.mp4",
@@ -9245,7 +9407,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_think_aha.mp4",
@@ -9333,7 +9495,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_think_aha.mp4",
      "gitSha": "63dd7e15e3a5de8f6f9fd081677a65ac592922a2"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_think_idea.mp4",
@@ -9360,7 +9524,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -9408,7 +9572,9 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_think_idea_mp4.jpg"
-   }
+   },
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_wave_clasp_casual.mp4",
@@ -9436,7 +9602,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_wave_clasp_casual.mp4",
@@ -9522,7 +9688,9 @@
      "gitSha": "f6c816020e8f4e7fb614e94d73d9371ee664c613"
     }
    },
-   "trimmed": true
+   "trimmed": true,
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_wave_clasp_travel.mp4",
@@ -9551,7 +9719,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_wave_clasp_travel.mp4",
@@ -9639,7 +9807,9 @@
      "url": "https://media.lexkite.com/library/clips/mia_wave_clasp_travel.mp4",
      "gitSha": "c16e3ed5edbbadae0f4378e5ae691c90ce094f75"
     }
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_wave_clasp.mp4",
@@ -9665,7 +9835,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "retired",
    "locations": {
     "primary": {
      "path": "clips/mia_wave_clasp.mp4",
@@ -9767,7 +9937,9 @@
     "reason": "soi tay khung 43–47: chỉ là chớp mắt, không giật",
     "from": "reject",
     "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [45]"
-   }
+   },
+   "retiredFrom": "approved",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "clips/mia_wave_thumbs.mp4",
@@ -9793,7 +9965,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "reserve",
+   "status": "retired",
    "locations": {
     "primary": null,
     "backup": {
@@ -9849,7 +10021,9 @@
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_wave_thumbs_mp4.jpg"
    },
-   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng",
+   "retiredFrom": "reserve",
+   "retired": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)"
   },
   {
    "id": "props/office-a/office-01.png",

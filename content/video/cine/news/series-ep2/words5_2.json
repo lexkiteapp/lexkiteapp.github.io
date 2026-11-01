@@ -1,0 +1,437 @@
+{
+ "id": "t2_words5_verybad",
+ "template": "words5",
+ "title": "Say It Like a Native #2 – 5 words instead of “very bad”",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "accent": "yellow",
+ "active": "yellow",
+ "hook_style": "number: giant yellow numeral disc + title, drop-in",
+ "motif": "picture cards with a 1/5 counter chip",
+ "cta": {
+  "area": "vocab-review",
+  "link": "https://lexkite.com/app/#/review",
+  "say": "Review your words"
+ },
+ "speed": 0.75,
+ "lines": [
+  {
+   "id": "w_h",
+   "text": "Stop saying very bad all the time. Try these!"
+  },
+  {
+   "id": "w_s",
+   "text": "Your food arrives cold. Very bad? Too boring!",
+   "key": {
+    "red": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "w_1",
+   "text": "One: terrible. This is terrible!",
+   "key": {
+    "green": [
+     1,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "w_2",
+   "text": "Two: awful. What an awful day!",
+   "key": {
+    "green": [
+     1,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "w_3",
+   "text": "Three: horrible. What a horrible smell!",
+   "key": {
+    "green": [
+     1,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "w_4",
+   "text": "Four: dreadful. A dreadful movie!",
+   "key": {
+    "green": [
+     1,
+     3
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "w_5",
+   "text": "Five: disgusting. For taste or smell.",
+   "key": {
+    "green": [
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "w_r",
+   "text": "Which one will you use today? Tell me in the comments!",
+   "gap": 0.6
+  },
+  {
+   "id": "w_sh",
+   "text": "Send this to a friend who says very bad!",
+   "gap": 0.6
+  },
+  {
+   "id": "w_c",
+   "text": "Save this, and review your words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "anim": "stamp",
+   "size": 84,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "w_s",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "“very bad”",
+      "red"
+     ],
+     [
+      "@emoji:😖"
+     ]
+    ],
+    [
+     [
+      "Try these 5",
+      "white"
+     ]
+    ]
+   ],
+   "role": "hook"
+  },
+  {
+   "id": "sit",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "w_s",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_1",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "COLD FOOD"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:🍝"
+      ],
+      [
+       "very bad?",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:😴"
+      ],
+      [
+       "too boring!",
+       "navy"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t1",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "w_1",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_2",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "1️⃣",
+     "color": "green",
+     "word": "terrible",
+     "ipa": "/ˈterəbəl/",
+     "mean": "= very bad"
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "w_2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_3",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "2️⃣",
+     "color": "green",
+     "word": "awful",
+     "ipa": "/ˈɔːfəl/",
+     "mean": "= very unpleasant"
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "w_3",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_4",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "3️⃣",
+     "color": "green",
+     "word": "horrible",
+     "ipa": "/ˈhɔːrəbəl/",
+     "mean": "= very unpleasant"
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "w_4",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_5",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "4️⃣",
+     "color": "green",
+     "word": "dreadful",
+     "ipa": "/ˈdredfəl/",
+     "mean": "= very poor quality"
+    }
+   ]
+  },
+  {
+   "id": "t5",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "w_5",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_r",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "5️⃣",
+     "color": "green",
+     "word": "disgusting",
+     "ipa": "/dɪsˈɡʌstɪŋ/",
+     "mean": "= bad taste or smell"
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "w_r",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_r",
+    -1,
+    "e",
+    0.3
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "terrible · awful",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "horrible · dreadful",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "disgusting",
+       "green"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "share",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "w_r",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "w_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:📲"
+     ],
+     [
+      " Send to",
+      "white"
+     ]
+    ],
+    [
+     [
+      "a friend",
+      "yellow"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "w_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Say It Like a Native",
+  "ep": 2
+ },
+ "caption_cap": 42,
+ "listen": [
+  "a05l2_ama2_listen"
+ ]
+}

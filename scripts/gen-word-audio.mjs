@@ -1,38 +1,46 @@
 // Giọng đọc TỪ ĐƠN (Anh bf_emma + Mỹ af_heart) bằng Kokoro-82M (Apache-2.0) – chỉ chạy trên CI (word-audio.yml), tiếp tục được.
-//   NODE_PATH=<thư mục có kokoro-js> node scripts/gen-word-audio.mjs [--limit N từ] [--count]
-// Kết quả: web/audio/w/<fnv(giọng|từ)>.mp3 (mono 40 kbps) → audio.lexkite.com/audio/w/… (Worker lexkite-audio, gốc GitHub Pages).
-// Thứ tự: kho từ (NGSL trước = thông dụng trước), từ/cụm ≤ 3 chữ. App & add-on thử file này, lỗi/không mạng → giọng máy.
-// Không ghi chỉ mục vào web/js (giữ ngân sách dung lượng): web/audio/w/index.txt (danh sách từ đã có đủ 2 giọng) cho gen-newtab.
+//   NODE_PATH=<thư mục có kokoro-js> node scripts/gen-word-audio.mjs [--limit N từ] [--shard i/N] [--round 1|2] [--count]
+// Vì sao bản s3 (25/10): Kokoro đọc từ đứng một mình hay bịa âm ("away" → "The way", "just" → "Adjust") – faster-whisper nghe lại thấy 24/100 file cũ sai.
+// Cách làm (thí nghiệm word-audio-lab.yml, docs/WORD-AUDIO.md): tổng hợp từ trong câu mang rồi cắt lấy từ (scripts/word-audio/kokoro.mjs, METHODS[0]);
+// vòng 2 cho file trượt thử các cách còn lại. MỌI file đều qua scripts/word-audio-asr.py (Whisper + độ dài) – chỉ file đạt được đẩy lên kho media.
+// Kết quả: .s3-cand/ (bản thử + manifest.json) → word-audio-asr.py chép bản đạt sang .media-out/audio/w/<fnv(giọng|từ|s3)>.mp3
+//   → scripts/media/push.mjs → audio.lexkite.com/audio/w/… (khóa mới |s3: CDN đệm 1 năm không bao giờ phát file cũ).
+// Trạng thái: web/audio/w/s3.tsv (từ \t bf_emma \t af_heart: "ok" hoặc lý do – từ không đạt dùng giọng máy, xem danh sách này)
+//   → web/audio/w/index.txt (từ có ≥ 1 giọng đạt; Lex/newtab dùng làm cờ "có file") – scripts/word-audio/merge.mjs ghi.
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
-import { loadAll } from './lexicon/lib.mjs';
-const require = createRequire(process.env.NODE_PATH ? process.env.NODE_PATH.split(':')[0] + '/' : import.meta.url);
-const OUT = 'web/audio/w', TMP = (process.env.TMPDIR || '/tmp') + '/lk-word.wav', VOICES = ['bf_emma', 'af_heart'];
-const li = process.argv.indexOf('--limit'), limit = li > 0 ? +process.argv[li + 1] : 300;
-export const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
-fs.mkdirSync(OUT, { recursive: true });
-const words = [...new Set(loadAll().map(e => e.row[0].trim()).filter(w => /^[A-Za-z][A-Za-z' -]*$/.test(w) && w.split(/\s+/).length <= 3))];
-const has = w => VOICES.every(v => fs.existsSync(`${OUT}/${fnv(v + '|' + w)}.mp3`));
-const todo = words.filter(w => !has(w));
-const writeIndex = () => { const ok = words.filter(has); fs.writeFileSync(`${OUT}/index.txt`, ok.join('\n') + '\n'); return ok.length; };
+import { STRONG, wordKey } from './word-audio-strong.mjs'; import { corpus, readRes, IDX, VOICES } from './word-audio/lib.mjs';
+import { loadKokoro, METHODS } from './word-audio/kokoro.mjs';
+export { fnv } from './word-audio-strong.mjs';
+const A = process.argv, opt = (k, d) => { const i = A.indexOf('--' + k); return i > 0 ? A[i + 1] : d; };
+const OUT = process.env.WORD_AUDIO_OUT || '.media-out/audio/w', CAND = process.env.WORD_AUDIO_CAND || '.s3-cand';
+const limit = +opt('limit', 300), [si, sn] = opt('shard', '0/1').split('/').map(Number), round = +opt('round', 1);
+const words = await corpus(), done = readRes();
+// thứ tự: từ dạng mạnh → từ đã có file cũ (index.txt trước s3 – làm lại trước để app đổi khóa không mất file nào) → còn lại theo kho (NGSL trước)
+const oldIdx = new Set((fs.existsSync(IDX) ? fs.readFileSync(IDX, 'utf8') : '').split('\n').filter(Boolean));
+const todo = [...new Set([...words.filter(w => STRONG[w]), ...words.filter(w => oldIdx.has(w)), ...words])].filter(w => !done.has(w));
 console.log(`${words.length} từ · cần tạo ${todo.length} từ`);
-if (process.argv.includes('--count') || !todo.length || limit <= 0) { console.log(`✓ word-audio: ${writeIndex()} từ có đủ giọng Anh + Mỹ`); process.exit(0); }
-const { KokoroTTS } = require('kokoro-js');
-let tts = null;
-for (let k = 1; k <= 6 && !tts; k++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error(`Tải mô hình lỗi (lần ${k})`); await new Promise(r => setTimeout(r, 15000 * k)); } }
-if (!tts) { console.error('✗ Không tải được mô hình Kokoro'); process.exit(1); }
-let n = 0, clips = 0; const t0 = Date.now(), DEADLINE = t0 + (+process.env.AUDIO_MIN || 1e6) * 60000;
-for (const w of todo) {
-  if (n >= limit || Date.now() > DEADLINE) break;
-  for (const v of VOICES) {
-    const f = `${OUT}/${fnv(v + '|' + w)}.mp3`; if (fs.existsSync(f)) continue;
-    const a = await tts.generate(w, { voice: v, speed: 0.95 });
-    await a.save(TMP);
-    // cắt lặng đầu/cuối cho bấm là nghe ngay
-    execFileSync('ffmpeg', ['-nostdin', '-loglevel', 'error', '-y', '-i', TMP, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,areverse,silenceremove=start_periods=1:start_threshold=-50dB,areverse', '-ac', '1', '-ar', '24000', '-b:a', '40k', f]);
-    clips++;
+if (A.includes('--count')) process.exit(0);
+const require = createRequire(process.env.NODE_PATH ? process.env.NODE_PATH.split(':')[0] + '/' : import.meta.url);
+const k = await loadKokoro(require);
+const enc = (wav, f) => execFileSync('ffmpeg', ['-nostdin', '-loglevel', 'error', '-y', '-i', wav, '-ac', '1', '-ar', '24000', '-b:a', '40k', f]);
+fs.mkdirSync(CAND, { recursive: true });
+// vòng 1: METHODS[0] cho các từ của lượt này; vòng 2: các cách còn lại cho từng (từ, giọng) trượt vòng 1 (.s3-cand/fail.json do word-audio-asr.py ghi)
+const jobs = round === 1
+  ? todo.slice(0, limit * sn).filter((_, i) => i % sn === si).flatMap(w => VOICES.map(v => ({ word: w, voice: v, old: oldIdx.has(w) })))
+  : JSON.parse(fs.readFileSync(`${CAND}/fail.json`, 'utf8'));
+const names = round === 1 ? Object.keys(METHODS).slice(0, 1) : Object.keys(METHODS).slice(1);
+const manifest = [], t0 = Date.now(), DEADLINE = t0 + (+process.env.AUDIO_MIN || 1e6) * 60000; let clips = 0;
+for (const j of jobs) {
+  if (Date.now() > DEADLINE) break;
+  const ph = STRONG[j.word] && STRONG[j.word][VOICES.indexOf(j.voice)], key = wordKey(j.voice, j.word), cands = [];
+  for (const m of names) {
+    try {
+      const pcm = await METHODS[m](k, j.word, j.voice, ph); if (!pcm) continue;
+      const wav = `${CAND}/${key}.${m}.wav`, f = `${CAND}/${key}.r${round}.${m}.mp3`; k.wav(wav, pcm); enc(wav, f); fs.rmSync(wav); cands.push({ m, f }); clips++;
+    } catch (e) { console.error(`✗ ${j.word}/${j.voice}/${m}: ${e.message}`); }
   }
-  if (++n % 50 === 0) console.log(`${n}/${Math.min(limit, todo.length)} từ · ${Math.round((Date.now() - t0) / 1000)}s`);
+  manifest.push({ ...j, out: `${OUT}/${key}.mp3`, cands });
+  if (manifest.length % 200 === 0) console.log(`${manifest.length}/${jobs.length} · ${Math.round((Date.now() - t0) / 1000)}s`);
 }
-const total = writeIndex();
-console.log(`✓ word-audio: +${n} từ (${clips} file) · tổng ${total}/${words.length} từ có đủ giọng Anh + Mỹ`);
-if (n === 0) { console.error('✗ word-audio: không tạo được từ nào'); process.exit(1); }
+fs.writeFileSync(`${CAND}/manifest.json`, JSON.stringify(manifest, null, 1));
+console.log(`✓ word-audio vòng ${round} (shard ${si}/${sn}): ${manifest.length} (từ × giọng) · ${clips} bản thử · ${Math.round((Date.now() - t0) / 1000)}s`);

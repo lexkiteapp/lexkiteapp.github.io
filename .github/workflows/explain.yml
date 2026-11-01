@@ -22,15 +22,21 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Sinh + duyệt
+        env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast → Workers AI tài khoản 2 (neuron = phần cấp điều phối) → GrabCast Groq
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+          CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+          AI_POOL_GC_MAX: '15000'
         run: |
           for s in ${{ github.event.inputs.set || 'usage grammar' }}; do
             node scripts/explain/job.mjs --set "$s" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }} || true
           done
           node scripts/explain/build.mjs
+          node scripts/content-qa/gate.mjs   # cổng QA: mục chưa có 2 giám khảo đồng ý không được xuất (docs/CONTENT-QA.md)
           test -n "$(git status --porcelain content/explain web/js/explain)" || { echo '✗ explain: không có thay đổi'; exit 1; }
       - name: Lưu kết quả
         run: |
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add content/explain web/js/explain
-          git commit -qm "Lời giải đáp án: sinh + duyệt AI (lô tự động)"
-          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && node scripts/explain/build.mjs && git add web/js/explain && (git diff --cached --quiet || git commit -qm "Lời giải: dựng lại sau rebase") ; git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
+          git commit -qm "Lời giải đáp án: sinh + duyệt AI (lô tự động) [CF-Pages-Skip]"
+          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && node scripts/explain/build.mjs && git add web/js/explain && (git diff --cached --quiet || git commit -qm "Lời giải: dựng lại sau rebase [CF-Pages-Skip]") ; git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1

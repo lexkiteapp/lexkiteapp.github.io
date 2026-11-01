@@ -1,0 +1,528 @@
+{
+ "id": "t6_pron_competition_3d",
+ "template": "pron",
+ "title": "Where's the Stress? #2 – competition (4 beats, third stressed; slow, your turn, -tion rule, bonus) (Ama 3D)",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "accent": "navy2",
+ "active": "mint",
+ "hook_style": "sound: teal plate, speaker icon, wrong stress wipes in left to right",
+ "motif": "syllable pills with stress dots, slow -> normal sweep",
+ "cta": {
+  "area": "pronunciation",
+  "link": "https://lexkite.com/app/#/pron",
+  "say": "Practice pronunciation"
+ },
+ "speed": 0.75,
+ "error_lines": [
+  "f_w"
+ ],
+ "error_re": "\\bcom, pe, tish, un\\b",
+ "lines": [
+  {
+   "id": "f_h",
+   "text": "You're probably saying this word wrong."
+  },
+  {
+   "id": "f_w",
+   "text": "Not com, pe, tish, un."
+  },
+  {
+   "id": "f_m",
+   "text": "Many learners stress the first.",
+   "gap": 0.6
+  },
+  {
+   "id": "f_s",
+   "text": "Slowly:",
+   "gap": 0.6
+  },
+  {
+   "id": "f_s2",
+   "text": "competition.",
+   "speed": 0.7,
+   "gap": 0.3
+  },
+  {
+   "id": "f_r",
+   "text": "Say four beats. Stress the third one.",
+   "key": {
+    "yellow": [
+     1,
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "f_n",
+   "text": "Normal speed: competition."
+  },
+  {
+   "id": "f_y",
+   "text": "Your turn. Repeat after me: competition.",
+   "gap": 0.6
+  },
+  {
+   "id": "_turn",
+   "beat": "turn",
+   "dur": 2.6
+  },
+  {
+   "id": "f_e",
+   "text": "She won the dance competition.",
+   "key": {
+    "green": [
+     4
+    ]
+   }
+  },
+  {
+   "id": "f_why",
+   "text": "Rule: stress the beat right before the shun sound.",
+   "key": {
+    "yellow": [
+     5,
+     7
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "f_b",
+   "text": "Same with information and education!",
+   "key": {
+    "green": [
+     2,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "f_sh",
+   "text": "Send this to a friend who says it wrong!",
+   "gap": 0.6
+  },
+  {
+   "id": "f_c",
+   "text": "Save this, and practice pronunciation on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "wipe",
+   "size": 80,
+   "plate": "navy2",
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "f_w",
+    -1,
+    "e",
+    0.3
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🔊"
+     ],
+     [
+      " competition",
+      "white"
+     ]
+    ],
+    [
+     [
+      "COM",
+      "red"
+     ],
+     [
+      "·pe·ti·tion",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "joke",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "f_m",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "f_s",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "NOT THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "COM",
+       "red"
+      ],
+      [
+       "·pe·ti·tion",
+       "navy"
+      ],
+      [
+       "@emoji:❌"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "too early!",
+       "red"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stress1",
+   "kind": "stress",
+   "anim": "spring",
+   "syl": [
+    "com",
+    "pe",
+    "TI",
+    "tion"
+   ],
+   "stress": 2,
+   "from": [
+    "f_s",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "f_n",
+    -1,
+    "e",
+    0.4
+   ],
+   "sweep": [
+    "f_s2",
+    0
+   ],
+   "sweep2": [
+    "f_n",
+    2
+   ]
+  },
+  {
+   "id": "turn",
+   "kind": "turn",
+   "anim": "spring",
+   "beat": "_turn",
+   "rows": [
+    [
+     [
+      "@emoji:🎤"
+     ],
+     [
+      " Your turn!",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "com·pe·",
+      "white"
+     ],
+     [
+      "TI",
+      "mint"
+     ],
+     [
+      "·tion",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "f_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_turn",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "_turn",
+    null,
+    "e",
+    0.0
+   ],
+   "to": [
+    "f_why",
+    0,
+    "s",
+    -0.1
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "IN A SENTENCE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "She won the dance"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "competition",
+       "hl"
+      ],
+      [
+       "."
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "@ipa:/ˌkɑːmpəˈtɪʃən/"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rule",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "f_why",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "f_why",
+    -1,
+    "e",
+    0.3
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "THE RULE"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "-tion",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "stress the part before"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bonus",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "f_b",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "f_b",
+    -1,
+    "e",
+    0.3
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAME TRICK"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "in·for·"
+      ],
+      [
+       "MA",
+       "green"
+      ],
+      [
+       "·tion"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "ed·u·"
+      ],
+      [
+       "CA",
+       "green"
+      ],
+      [
+       "·tion"
+      ],
+      [
+       "@emoji:✅"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "share",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "f_b",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "f_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "com·pe·"
+      ],
+      [
+       "TI",
+       "green"
+      ],
+      [
+       "·tion  "
+      ],
+      [
+       "@ipa:/ˌkɑːmpəˈtɪʃən/"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "stress before "
+      ],
+      [
+       "-tion",
+       "green"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "f_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Where's the Stress?",
+  "ep": 2
+ },
+ "caption_cap": 42,
+ "listen": [
+  "a05l2_ama2_listen"
+ ]
+}

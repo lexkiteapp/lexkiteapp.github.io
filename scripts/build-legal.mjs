@@ -8,7 +8,7 @@ import fs from 'fs';
 import { siteFooter, FOOT_CSS, SEO_L, landingHref, langSwitch, FOOT } from './lib/site-layout.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const LANGS = { en: 'English', vi: 'Tiếng Việt', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
-const PAGES = ['privacy', 'terms', 'schools'], SITE = 'https://lexkite.com';
+const PAGES = ['privacy', 'terms', 'schools', 'credits'], SITE = 'https://lexkite.com';
 const NOTE = 'This translation is provided for your convenience. If there is any difference between versions, the English version prevails.';
 const TRANSLATE = process.argv.includes('--translate');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -22,25 +22,30 @@ async function gtx(line, tl) {
   }
   return null;
 }
-const keep = s => /^<\/?table>$/.test(s.trim()); // dòng chỉ có cấu trúc, không cần dịch
+const keep = s => /^<\/?table>$|^<!--VIMG-ROWS-->$/.test(s.trim()); // dòng chỉ có cấu trúc, không cần dịch
+// /credits/: bảng ghi công ảnh Wikimedia sinh từ content/lexicon/img.json (trường photo, tier wiki) – tên/tác giả/giấy phép giữ nguyên, không dịch
+const escA = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const VIMG_ROWS = (() => { try { const img = JSON.parse(rd('content/lexicon/img.json')); return Object.entries(img.items || {}).filter(([, e]) => e.photo && e.photo.src && e.photo.src.tier === 'wiki').map(([k, e]) => { const s = e.photo.src, f = decodeURIComponent(String(s.ref).split('/File:')[1] || 'file').replace(/_/g, ' '); return `<tr><td lang="en">${escA(k.split('#')[0])}</td><td><a href="${escA(s.ref)}" rel="nofollow noopener">${escA(f)}</a></td><td>${escA(s.by)}</td><td>${escA(s.lic)}</td></tr>`; }).join('\n') || '<tr><td colspan="4">–</td></tr>'; } catch { return '<tr><td colspan="4">–</td></tr>'; } })();
 
+const OK = {}; // name → ngôn ngữ đã dịch đủ (không nháp): hreflang chỉ liệt kê các bản này (docs/SEO-ARCH.md – không trỏ hreflang tới trang noindex)
 const page = (lang, name, body, translated, draft) => {
   body = body.replace(/href="\/#\//g, 'href="/app/#/'); // liên kết vào app (form liên hệ…) – app học ở /app/
   const h1 = (body.match(/<h1>(.*?)<\/h1>/) || [, 'Lexkite'])[1].replace(/<[^>]+>/g, '');
-  const alt = Object.keys(LANGS).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}/${l}/${name}">`).join('\n  ');
+  const alt = draft ? '' : Object.keys(LANGS).filter(l => !OK[name] || OK[name].has(l)).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}/${l}/${name}">`).join('\n  ');
   return `<!doctype html>
 <html lang="${draft ? 'en' : lang}"${lang === 'ar' && !draft ? ' dir="rtl"' : ''}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${h1} – Lexkite</title>${draft ? '\n  <meta name="robots" content="noindex">' : ''}
+  <title>${h1} – Lexkite</title>
+  <meta name="description" content="${((body.match(/<p[^>]*>([\s\S]*?)<\/p>/) || [, h1])[1]).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').replace(/"/g, '&quot;').trim().slice(0, 155)}">${draft ? '\n  <meta name="robots" content="noindex">' : ''}
   <link rel="canonical" href="${SITE}/${lang}/${name}">
   ${alt}
-  <link rel="alternate" hreflang="x-default" href="${SITE}/${name}">
+  ${draft ? '' : `<link rel="alternate" hreflang="x-default" href="${SITE}/en/${name}">`}
   <meta name="theme-color" content="#0F3D3E">
   <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
-  <style>${FOOT_CSS}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
+  <style>${FOOT_CSS}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc a,footer .bar>p a{text-decoration:underline;text-underline-offset:2px}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
 </head>
 <body>
   <main class="doc">
@@ -55,7 +60,7 @@ ${siteFooter({ lang: draft ? 'en' : lang, text: SEO_L[lang === 'vi' && !draft ? 
 };
 
 const cachePath = l => new URL(`content/legal/cache/${l}.json`, R);
-let missing = 0, fails = 0, blocked = false;
+let missing = 0, fails = 0, blocked = false; const PENDING = []; // ghi sau khi biết đủ bản nào là nháp
 for (const lang of Object.keys(LANGS)) {
   const cache = fs.existsSync(cachePath(lang)) ? JSON.parse(fs.readFileSync(cachePath(lang), 'utf8')) : {};
   const used = {};
@@ -74,14 +79,15 @@ for (const lang of Object.keys(LANGS)) {
       const out = []; for (const l of lines) out.push(l.trim() ? await tr(l) : l);
       body = out.join('\n'); note = await tr(NOTE);
     }
-    fs.writeFileSync(new URL(`web/${lang}/${name}.html`, R), page(lang, name, body, missing > before ? '' : note, missing > before)); // còn dòng chưa dịch → bản nháp tiếng Anh, chặn lập chỉ mục
+    PENDING.push([lang, name, body, missing > before ? '' : note, missing > before]); if (!(missing > before)) (OK[name] ||= new Set()).add(lang); // còn dòng chưa dịch → bản nháp tiếng Anh, chặn lập chỉ mục
   }
   if (!['en', 'vi'].includes(lang)) fs.writeFileSync(cachePath(lang), JSON.stringify(used, null, 1)); // chỉ giữ dòng còn dùng
 }
+for (const [lang, name, body, note, draft] of PENDING) fs.writeFileSync(new URL(`web/${lang}/${name}.html`, R), page(lang, name, body.replace('<!--VIMG-ROWS-->', VIMG_ROWS), note, draft)); // còn dòng chưa dịch → bản nháp tiếng Anh, chặn lập chỉ mục
 // Trang gốc /privacy, /terms: bản tiếng Anh + chuyển sang ngôn ngữ ưa thích (lựa chọn trong app → trình duyệt)
 for (const name of PAGES) {
   const pick = `<script>(function(){try{var S=${JSON.stringify(Object.keys(LANGS))},s=localStorage.getItem('vb.uiLang'),l=s&&S.indexOf(s)>=0?s:null;if(!l){var n=navigator.languages||[navigator.language];for(var i=0;i<n.length;i++){var b=String(n[i]||'').toLowerCase().split('-')[0];if(S.indexOf(b)>=0){l=b;break}}}if(l&&l!=='en')location.replace('/'+l+'/${name}')}catch(e){}})();</script>`;
-  const html = page('en', name, rd(`content/legal/en/${name}.html`), '').replace(`<link rel="canonical" href="${SITE}/en/${name}">`, `<link rel="canonical" href="${SITE}/en/${name}">\n  ${pick}`);
+  const html = page('en', name, rd(`content/legal/en/${name}.html`).replace('<!--VIMG-ROWS-->', VIMG_ROWS), '').replace(`<link rel="canonical" href="${SITE}/en/${name}">`, `<link rel="canonical" href="${SITE}/en/${name}">\n  ${pick}`);
   fs.writeFileSync(new URL(`web/${name}.html`, R), html);
 }
 console.log(`✓ build-legal: ${Object.keys(LANGS).length} ngôn ngữ × ${PAGES.length} trang${missing ? ` · ${missing} dòng chưa dịch (đang hiện tiếng Anh – chạy --translate)` : ''}`);

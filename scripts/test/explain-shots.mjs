@@ -13,7 +13,7 @@ for (const l of ['vi', 'en', 'ar']) {
   const page = await ctx.newPage();
   page.on('pageerror', e => console.log(`[${l}] pageerror ${String(e.message).slice(0, 120)}`));
   await page.goto(`${BASE}/app/?sandbox=1&hl=${l}#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
-  const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1500); }
+  await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1500); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   // câu mẫu của chủ: "Most students are engaged ___ part-time work. (with/in/for/of)" → đặt lên đầu bài luyện chuyên mục
   await page.evaluate(() => { location.hash = '#/home'; });
   await page.waitForTimeout(800);

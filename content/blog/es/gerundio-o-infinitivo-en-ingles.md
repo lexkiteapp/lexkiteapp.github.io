@@ -200,6 +200,12 @@ Leer reglas ayuda, pero lo que fija el patrón es usarlo muchas veces. Abre la [
 
 {{youtube: | Sugerencia de vídeo: gerundio o infinitivo en inglés explicado para hispanohablantes}}
 
+El infinitivo pasivo (*to be done*, *is expected to rise*) se trata en la guía de [voz pasiva en inglés](/es/blog/voz-pasiva-en-ingles/).
+
+Otra estructura que los hispanohablantes traducen palabra por palabra son las [oraciones condicionales en inglés](/es/blog/oraciones-condicionales-en-ingles/), sobre todo el *would* después de *if*.
+
+Verbos como *suggest*, *remind* o *advise* combinan gerundio e infinitivo cuando cuentas lo que dijo alguien: lo verás en [estilo indirecto en inglés](/es/blog/estilo-indirecto-en-ingles/).
+
 {{cta: /#/grammar | Practicar gramática inglesa en Lexkite}}
 
 ## Preguntas frecuentes

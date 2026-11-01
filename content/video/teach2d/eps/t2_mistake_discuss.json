@@ -1,0 +1,88 @@
+{
+ "id": "t2_mistake_discuss",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying discuss about!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We will discuss about the budget.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We will discuss the budget.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Discuss needs no about. Discuss the plan.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Discuss! We need to discuss the budget.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We will discuss about the budget.",
+  "right": "We will discuss the budget.",
+  "strike": "about",
+  "why": "Discuss needs no about. Discuss the plan.",
+  "memory": "DISCUSS + thing. TALK ABOUT + thing",
+  "quiz": {
+   "stem": "We need to ___ the budget.",
+   "options": [
+    "discuss",
+    "discuss about"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “discuss about”"
+ },
+ "src": {
+  "gold": "sb_786153bb",
+  "pid": "cf:work-meeting:well-discuss:x"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ }
+}

@@ -11,7 +11,7 @@
  "scenes": {
   "library": { "roles": { "learner": ["ama"], "explainer": ["ama"], "modeler": ["ama"] } },
   "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } },
-  "classroom": { "roles": { "learner": ["ama"], "explainer": ["diane"], "modeler": ["diane"] } }
+  "classroom": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } }
  },
  "vars": {
   "topicWord": { "desc": "chủ đề ngắn sau \"words for\" (rain, coffee, happy)", "required": true, "maxWords": 2 },

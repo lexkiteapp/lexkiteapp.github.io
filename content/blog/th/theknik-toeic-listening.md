@@ -82,6 +82,8 @@ publishAt: 2026-10-25T09:32:00+07:00
 
 {{youtube: | สรุปสุดยอดเทคนิค TOEIC Listening ดักทางข้อสอบพาร์ต 1-4 ให้ได้ 400+}}
 
+เมื่อฝึกส่วนฟังแล้ว อย่าลืมเก็บคะแนนส่วนอ่านด้วย[เทคนิค TOEIC Part 5](/th/blog/toeic-part-5-theknik/)
+
 {{cta: /#/toeic | ทดลองทำข้อสอบ TOEIC Listening ฟรี}}
 
 ## แบบฝึกหัดทบทวนความเข้าใจ (Self-Check)

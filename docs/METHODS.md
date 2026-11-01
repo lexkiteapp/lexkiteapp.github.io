@@ -1,10 +1,32 @@
 # METHODS – luật lõi (đọc đầu mỗi phiên)
 
+> TL;DR: Luật lõi: điều phối, repo/remote/ship, ngân sách, việc nặng = CI, i18n, nội dung, video, lỗi đã mắc, tài khoản & hạ tầng. Lịch sử và bài học dài đã chuyển sang archive/METHODS-HISTORY.md (không bỏ luật nào).
+> Đọc khi: ĐẦU MỖI PHIÊN.
+
 Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `docs/archive/METHODS-HISTORY.md`.
+**Luật tài liệu: một chủ đề = một file sở hữu, link thay vì chép lại (bảng chủ đề → file: `docs/README.md`).**
 **Tiêu credit (Kling/mọi dịch vụ trả phí) → BẮT BUỘC `docs/CREDIT-RULES.md` trước.**
 
+## 0. Hướng hiện tại (tự đồng bộ mỗi giờ – chỉ sửa giữa 2 dấu)
+<!-- auto:direction:start -->
+- Giao diện: MỌI bề mặt (app, web, add-on, admin, iOS/Android, video) theo **"Lexkite Kit"** trên Stitch (design system `1b7a8a3d3d52404bb332d9ba3f783547`, tờ mẫu `39b977682d554b5da4b26651797f2c3f`, project `7268539912208977707`). Tối = A "Tactile Night", sáng = B "Bright Day", mặc định theo hệ thống.
+- Stitch làm HẾT (bố cục, icon, nút, hình): code port HTML Stitch trung thành (Tailwind biên dịch trên CI, không CDN, CI so ảnh SSIM); chỉ thay logo (diều Lexkite) và giáo viên (`Chars.*`). Chỉnh đẹp TRONG Stitch, không style lại bằng code. Token chỉ MỘT nguồn: `docs/DESIGN-SYSTEM.md`.
+- Prompt Stitch: MỖI LẦN 1 MÀN, tả cảm giác/trải nghiệm, không liệt kê thông số. DÙNG HẾT 400 lượt/ngày: 1 phiên "xưởng ref Stitch" vẽ trước ref (sáng + tối, Kit) cho mọi bề mặt còn lại (xoay key 1/2/3 khi bị rate-limit); ref vẫn qua QC CI sau khi port và chủ OK ảnh trước khi gộp.
+- Nhân vật: CHỈ Ama + Carlos 2D (tóc đen, trang phục sáng), qua `Chars.*` từ `web/teach/characters.json`; không 3D, không trộn, không viền; đổi phong cách phải hỏi chủ. Engine = puppet 2D động; art phải từ nguồn thật (1 sheet AI Studio, chủ duyệt art trước) – SVG vẽ tay đã bị loại. Ama = giọng nữ, Carlos = giọng nam ở mọi nơi (CI kiểm).
+- Đặt giáo viên trên màn (HARD): trông như một phần thiết kế kiểu Duolingo – cùng ánh sáng/tỉ lệ/chạm nền, viền sạch; cấm quầng cắt, đường cắt, khung, thân mờ dần hay kiểu "dán lên" (trượt QC, chủ duyệt ảnh).
+- Tương phản: CI đo mọi chữ/icon trên nền thật (thân ≥ 4,5:1, lớn/icon ≥ 3:1) cả sáng lẫn tối; không thẻ tối trong chế độ sáng, không xám-trên-xám ở chế độ tối, không placeholder.
+- Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
+- Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
+- QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt; âm thanh chuẩn hoá −16 LUFS (cổng CI). Bài học: lời dẫn mỗi bài tập khớp dữ liệu, chú nghĩa bản ngữ đủ 15 ngôn ngữ.
+- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp (ngoại lệ: lớp game-feel tự duyệt khi ≥ 95); logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
+- Một khung app (HARD): mọi ref/màn theo MỘT khung – điện thoại 390 px, top-bar cố định (hub/inner/modal), 5 tab Today/Vocab/Skills/Tests/Me, khoảng cách, thẻ, vị trí CTA và chỗ giáo viên; spec ở `docs/DESIGN-SYSTEM.md` §5d, dán vào mọi prompt; CI frame-consistency trượt khi lệch hoặc ra bản rộng desktop.
+- Phiên: việc nặng (tách nền, render) CHỈ trên CI (script từ chối ngoài `$CI`); mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn (không /compact); đọc CODEMAP trước, tính năng lớn dùng spec-lite.
+<!-- auto:direction:end -->
+
 ## 1. Điều phối
-- Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình.
+- Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình (quy tắc vàng: `COORDINATION.md`).
+- Phiên/agent: ≤ 2 phiên làm việc, tự thu gọn phiên dài, xoay agent con, lưu trữ phiên xong – `TOKEN-RULES.md` §9.
+- Duyệt hình (chủ 28/10 tối: tự duyệt ủy quyền đã THU HỒI): mọi thay đổi hình cần chủ OK trên ảnh. Ngoại lệ duy nhất (chủ 29/10): lớp game-feel (`GAME-FEEL.md`) tự QC + gộp khi điểm trung thực ≥ 95/100.
 - Vùng file: `docs/COORDINATION.md` (cuối file). `web/js/app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE khi được duyệt.
 - Antigravity nhận/trả việc qua `docs/agents/BOARD.md`; phiên chính nghiệm thu (diff, test, chạy thật, soi alt) rồi cherry-pick/gộp TAY (không merge nhánh cũ – xem §8).
 - Báo cáo của agent khác chỉ là báo cáo → tự kiểm (diff, test, live). Dừng thật: `stop_session`. Hết hạn mức giữa chừng: nhắn agent làm tiếp, không chạy lại từ đầu.
@@ -16,15 +38,16 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Ship: `~/.config/lexkite/ship.sh "<mô tả>"` (smoke → tsc → YAML → vi-lint → i18n → bump SW + add-on → commit → push → chờ live).
 - Smoke: `node scripts/test/smoke.js "$PWD/web"` (phải ra `ERRORS none`).
 - tsc: `npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json`.
-- Mergecheck: `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp). Remote thật: github.com/lexkiteapp/lexkiteapp.github.io (origin cục bộ là repo CŨ).
+- Mergecheck (nguồn duy nhất, TOKEN-RULES §4 trỏ về đây): `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp).
 - Trước ship: `npm test` (hoặc các test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới phải ở `infra/resources.json`).
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
+- **Trước MỖI lần push: `npm run prepush`** (tự dựng lại ci-triage, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
 - `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
 
 ## 3. Ngân sách dung lượng
-- Khung app (shell) ≤ 380 KB gz → tính năng mới phải tải lười (module riêng). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).
+- Khung app (shell) ≤ 377 KB gz (đo Node 22 = CI; không nâng) → tính năng mới phải tải lười. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.
 - `scripts/test/size-budget.mjs`; ngưỡng `visual-qa.budget.json` chỉ được GIẢM.
 
@@ -35,10 +58,13 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Workflow "success" chưa đủ – đọc số liệu (từng báo xanh khi nhập 0 · lỗi 20). Workflow mới phải tự đỏ khi kết quả = 0.
 - Workflow nối nhau dùng `workflow_run`/dispatch (commit bằng `GITHUB_TOKEN` không kích hoạt `on: push`).
 - Thử 1 trước rồi mới chạy lô (áp dụng cả script/workflow).
+- **Runner GitHub (27/10):** việc nền ≤ ~10/20 runner (`max-parallel`), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.
+- **Kiểm hình (27/10):** mọi màn mới qua `LKJC.visual` (journey-e2e/checks.js) 360/390 px: FAIL lớp nổi đè nút · tràn ngang · số liệu toàn 0; cảnh báo chữ cắt · ảnh đơn sắc · nút chính < 44 px.
+- Màn mới chưa có trong journey-e2e → thêm `h.shot()` (chụp = tự kiểm hình); toast chỉ qua `UI.toast` (tự xếp hàng sau modal).
 
 ## 5. i18n (15 ngôn ngữ) – pipeline G0
 - `docs/I18N-PIPELINE.md`. Bố cục G0: chuỗi mới vào nguồn en (`web/js/i18n/en/*.js`, nhóm tải lười = danh sách LAZY trong `scripts/build-i18n.sh` → `web/js/i18n/<lang>/<nhóm>.js`) → `bash scripts/build-i18n.sh` → dịch thật 15 ngôn ngữ (`i18n-fix.mjs` / `scripts/i18n-fixed.json`) → `node scripts/i18n-missing.mjs --strict` + `node scripts/i18n-qa.mjs --strict`. Không để chữ en lọt ở 13 ngôn ngữ.
-- Không gọi `t()` lúc nạp module; dữ liệu lưu KHÓA, không lưu chữ đã dịch; chờ `I18N.whenReady()` trước khi vẽ (`i18n-switch.mjs --scan`).
+- Không gọi `t()` lúc nạp module, dữ liệu lưu KHÓA (`I18N-PIPELINE.md` §2.8); chờ `I18N.whenReady()` trước khi vẽ (`i18n-switch.mjs --scan`).
 - Chuỗi dữ liệu qua `t(biến)` không bị `i18n-missing` bắt → tự kiểm khóa tiếng Anh. Chữ quản trị soạn: luôn `esc()` + lọc URL.
 - Khoá cụm tiếng Anh mẫu (cấu trúc, câu ví dụ) trước khi dịch máy.
 - Xung đột `web/js/i18n/<lang>.js`: giữ cả 2 phía rồi `node scripts/i18n-dedupe.cjs` → size-budget + i18n-switch.
@@ -51,20 +77,15 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Gộp blog Antigravity: `git diff <mốc> HEAD -- content/blog | git apply -3`, gộp `briefs.json` theo lang+slug, kiểm `publishAt` bài cũ không đổi; không checkout cả `content/blog`.
 
 ## 7. Video (chi tiết `docs/VIDEO.md`)
-- Định dạng chính = NEWS-ANCHOR (Ama trái, Carlos phải, phông xanh), chỉ tiếng Anh, 1 ý/clip; diễn cảnh tạm dừng; nhà hàng/Priya loại.
+- Hiện hành (29/10): MỘT pipeline Remotion + Stitch, giáo viên 2D – `docs/VIDEO-TEACH2D.md`. Nhân vật CHỈ 2D (28/10 tối; mọi chỗ ghi "3D" là cũ). render_v9 / qc_v9 TẠM DỪNG.
+- Chỉ tiếng Anh, 1 ý/clip. NEWS-ANCHOR (Ama trái, Carlos phải, phông xanh) – ghi "định dạng chính" 22/10, chờ chủ xác nhận còn dùng sau 29/10; diễn cảnh tạm dừng; nhà hàng/Priya loại.
 - Kho footage (`brand/library/cine`, gitignore) → sao lưu `bash scripts/footage-backup.sh` (repo riêng `lexkite-footage`) sau mỗi lần thêm; không để footage chỉ ở scratchpad.
 - Short ĐẠT lưu bền ở repo riêng `lexkite-shorts` (artifact CI hết hạn 14 ngày) + Drive (`drive-shorts.yml`).
-- Mọi lớp chữ phải có hộp bố cục & bị QA kiểm; điểm tự chấm cao ≠ khung đúng → luôn soi khung/tờ ảnh ghép.
-- ffmpeg: luôn `-nostdin`; `alimiter level=0`; tone −60 dB ở 0 s.
 - **Cổng duyệt (chủ 22/10)**: mẫu mới/lô mới → tự QA → gửi anh mẫu + báo cáo số đo → CHỜ anh OK mới bật auto/dựng hàng loạt/xếp lịch.
-- Người dẫn = giáo viên Mỹ (KHÔNG lower-third tên – chủ bỏ 22/10; giữ "Teacher's tip", "Repeat after me", giọng giáo viên); chỉ cử chỉ trung tính, đứng; không cử chỉ ký hiệu (đếm ngón/lắc ngón Kling hỏng).
-- Hình: không làm mờ nền/hạt phim; không phóng người > 1.0×; push-in từ nền 1,25×; master CRF 17 ≥ 8 Mbps; QA độ nét (Laplacian), SSIM ≥ 0,97.
-- Tách nền: trimap + AI matting (ViTMatte) + khử màu viền (pymatting) + chống ám xanh vùng viền + ổn định theo thời gian; QA viền (`scripts/video/matte_qa.py`).
-- Liền mạch trong 1 video (chủ 22/10): mỗi người dẫn giữ 1 bộ trang phục suốt clip; 1 nền/1 địa điểm/1 ánh sáng cho cả clip; đổi cảnh bằng khung cắt khác của CÙNG nền (Ama nửa trái, Carlos nửa phải, giữ cố định khung mỗi người); đúng 180° (Ama trái nhìn phải, Carlos phải nhìn trái); QA 1 bg_id/clip.
-- Khớp bối cảnh: `bg/<id>.zones.json` (độ sâu + phân vùng) → chỉ đặt người ở vùng sàn, tầm mắt ≈ chân trời; cổng AI nhìn khung ghép (đứng trên bàn/ghế/nước = trượt).
-- Cách giảng (bắt buộc mọi kịch bản): 1 ý · sai→đúng + vì sao ngắn · ví dụ tình huống · mẹo nhớ hình ảnh · đoán trước đáp án · nói theo · nhắc lại giãn cách · lỗi theo tiếng mẹ đẻ (`VIDEO-SCALE-PLAN.md` §12).
-- QC bắt buộc mọi khâu: `docs/VIDEO-QC.md` (trước & sau cho nhân vật, nền, kịch bản, giọng, phụ đề, video); trượt 1 cổng = không dùng/không đăng.
-- Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
+- Luật dựng/QA/tách nền/Kling/cách giảng/ngữ pháp dựng: `docs/VIDEO.md` §9 (chuyển nguyên văn từ METHODS 27/10). QC mọi khâu: `VIDEO-QC.md`; chống trùng: `VIDEO-SCALE-PLAN.md`.
+
+
+- App: ưu tiên chạy trên máy; tải theo bài; YouTube nhúng ảnh xem trước; ảnh AVIF/WebP.
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
@@ -79,6 +100,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.
 - Credit: 20/10 phí ~1.100 cr do làm cả lô trước khi duyệt định dạng → chỉ chi khi anh ghi rõ số cho đúng việc; trần từng hạng mục.
 - Worktree agent có thể bắt đầu từ lịch sử CŨ (origin cũ) → brief luôn ghi "làm trên main mới nhất của lexkiteapp".
+- Bản clone tạm tên chung (`$TMPDIR/lk`) bị phiên khác `rm -rf` giữa chừng (24/10, mất 1 lượt sửa) → clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad để chạy lại.
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.
@@ -87,21 +109,28 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Giọng/âm thanh mới: kiểm giấy phép thương mại.
 
 ---
-Lịch sử đầy đủ (bài học 17–22/10, Kling, chroma key, kho, video): `docs/archive/METHODS-HISTORY.md`.
-- (22/10/2026) **Viền đen + răng cưa người dẫn (0 cr):** nguyên nhân = `chroma_key.py` ghi màu ĐEN dưới vùng alpha 0 → `expand.py` chép vào kfull → mọi lần co giãn straight-alpha (lipsync.finish, warpAffine trong news.py) trộn đen vào mép; matte gần nhị phân + `MORPH_OPEN/CLOSE` trên alpha → bậc thang; kmask h264 trắng = 250 → người trong suốt 2 %. Sửa: `chroma_key.py --refine` dùng `scripts/video/matte_refine.py` (guided matte theo khoảng cách CbCr, co 1 px, mềm 0,3 px; màu dưới vùng trong suốt = màu nhân vật kéo ra (push-pull), khử ám G ≤ max(R,B)+6), ghép bằng `place()` (premultiplied, INTER_AREA khi thu) + `over()` (light wrap 2,5 px), `mask_levels()` cho kmask, QA `edge_qa()` (soft/width/dark) + `zoom()` 400 %. Không ngưỡng alpha sau khi co giãn.
-- (22/10/2026) **CI giọng ad-hoc:** runner ubuntu mới KHÔNG có sẵn ffmpeg → `tts.mjs` (execFileSync ffmpeg) chết trong phonemizer với exit 7 không thông báo; luôn `apt-get install ffmpeg`. faster-whisper phải ghim 1.0.3 (bản mới lỗi PyAV `metadata_errors`) + `requests`.
-- (22/10/2026) **Người dẫn đứng, cử chỉ trung tính (chủ):** clip mới đều ĐỨNG (Carlos có `carlos_stand_ref.png`), cử chỉ trung tính dùng được cho mọi câu, đầu = cuối cùng tư thế để nối; KHÔNG dùng cử chỉ biểu tượng (chỉ, like, đếm, nhún vai, lắc ngón). Kling: "relaxed gestures at chest height" thường chỉ ra tay ở eo/để xuôi; câu "both hands rise to chest height … for most of the clip" (ga2_explain) mạnh hơn. Ảnh ¾: kiểm hướng bằng tai/khuyên tai so với mặt; ảnh i2i ¾ đứng ra người NHỎ hơn ảnh gốc (mặt ~200 px → phóng 2×, hơi mềm).
+Lịch sử đầy đủ (bài học 17–26/10, Kling, chroma key, kho, video, D1, điều phối): `docs/archive/METHODS-HISTORY.md`.
 
-## Footage bank 22/10 (Kling, footage agent) – bài học
-- Nền: OCR (RapidOCR, `anchor/tools/bgqc.py`) bắt chữ giả trên biển; poster nhỏ OCR có thể sót → vẫn phải nhìn. Ghi "clock" trong prompt làm Kling THÊM đồng hồ; sửa chữ/số 0 credit bằng `paintbox/signfix/clockfix.py`. Mỗi nền mới phải có sàn đứng được (§11) – lỗi: hàng ghế/đài phun nước ở 1/3 dưới.
-- Nhân vật MỚI từ image_to_image vẽ tay kiểu "mái chèo"/dính ngón; sửa đúng = i2i TỪ ref cũ (giữ thân + tay, đổi đầu/tóc/da/áo). Cổng tay `anchor/tools/ref_qc.py` + dấu kiểm tay người; `clip1.sh` không tiêu credit khi chưa qua.
-- Kling 2.5 không làm động tác theo chiều sâu (nghiêng về phía camera) và làm yếu cử động thân của Carlos; quay ¾ trái/phải hay bị ngược → lật ngang 0 credit khi nhân vật đối xứng.
-- Luôn chặn gửi khi dry-run không chứa đoạn prompt vừa sửa (`refsub.sh`): 1 lần gửi nhầm prompt cũ = 2 cr mất.
-- Biểu cảm 22/10 (500 cr, 20/20 clip, `anchor/tools/ledger.txt` == EXPRESSIONS): Kling 2.5 KHÔNG giữ thứ tự 2 nhịp mặt (ngạc nhiên→cười, cau mày→gật) trừ khi ghi rõ khe thời gian ("In the first second …, then for the rest of the clip …"); Carlos giơ tay ngang ngực được khi ghi "level with the middle of his chest"; người nghe dặn "lips closed" vẫn há miệng (O/cười) → khóa miệng khi im lặng. Chống trùng: `anchor/tools/expr_sig.py` (chữ ký chuyển động đầu/miệng/mày/thân) chỉ là CỜ – xác nhận bằng tờ ảnh `expr_sheet.py`.
-- (23/10/2026) **Kho nền rộng 2 người (BG LIBRARY 3, 950 cr → 517 nền):** 1 ảnh 16:9 2K (kling-image-v3_0, 1 cr; 4K chỉ có omni ≥ 2 cr) → Ama khung 9:16 tâm 32 %, Carlos tâm 68 % CÙNG ảnh (khung ở mép 3 % toàn đạo cụ – sai), Real-ESRGAN animevideov3 trên CI → 1350×2400. Cổng tự động `scripts/video/bg_gates.py` (CI `bg-gates.yml`): Kling đặt chân trời 0,55–0,69 dù prompt ghi 38 % → đo VP trên ẢNH RỘNG rồi chọn cao/độ dời khung cắt cho chân trời khung cuối 36–44 % (đừng loại); sàn/nước/mặt bàn dưới người đo trên phân vùng ảnh rộng (khung hẹp mất nhãn sàn); độ nét = acuity cạnh chuẩn hoá dải sáng (Laplacian phạt nhầm nền phẳng/đêm); pHash ≤ 6 (≤ 14 bắt nhầm phòng khác cùng bố cục); CLIP 0,92 cùng địa điểm ⇒ mỗi địa điểm chỉ 2–3 biến thể → chi cho ĐỊA ĐIỂM MỚI (đạt ~70 %) thay vì biến thể thứ 4–5; biến thể đêm/ngoài trời tự nhiên đạt kém nhất; cảnh sân bay/biển bảng hay ra chữ giả (OCR). Kling "too many requests" (400, 0 cr) → chờ rồi gửi lại, không tính là hỏng.
-- (22/10/2026) **Người dẫn mới Mia/Jake (629/650 cr):** 22/25 clip đạt. Ảnh gốc quyết định biên độ mặt: Jake vẽ cười nhe răng + mắt liếc phải → Kling giữ nụ cười/ánh mắt (hmm hỏng, glance phải xin hướng mắt sẵn có rồi lật ngang 0 cr); Mia mày mảnh → không cau mày được. i2i ¾ từ ảnh chính diện ra NGHIÊNG HẲN (2 lần) → ¾ người mới cần cách khác. Credit: KHÔNG cộng nhẩm — `clip1.sh` có chặn `CAP=… CAPRE=…` tính từ ledger (lần này nhẩm sai 2 clip, vượt trần phụ 600 → 629).
-- (23/10/2026) **Việc nền cạn D1 miễn phí 2 lần (5 triệu dòng đọc/ngày) làm sập tính năng người dùng:** `list`/`COUNT(*)` quét cả bảng + thăm dò `/api/drive` bằng vòng lặp. Luật: việc nền (Kho Drive, archive, verify, youtube.sync, báo cáo QC) qua `functions/api/_d1guard.js` (429 `quota-guard` khi ≥ 50 % hạn mức đọc, cảnh báo 60 %, CI dừng-mai-chạy, KHÔNG thử lại); truy vấn đường footage chỉ tra theo khoá (test `scripts/test/drive.mjs` chạy EXPLAIN QUERY PLAN, quét drive_files/drive_refs = đỏ); không thăm dò API bằng vòng lặp — đọc log workflow. Chi tiết `docs/VIDEO.md` §5b.
-- (23/10/2026) **Tách dữ liệu nội bộ khỏi D1 của người dùng + điều phối việc nền:** bảng nội bộ (drive*, sau này admin_log/báo cáo/nhật ký) chuyển sang D1 `lexkite-internal` ở tài khoản Cloudflare thứ 2 (hạn mức riêng) qua REST (`functions/api/_d1b.js`, cờ `D1B`: tắt → `dual` → `on`, sao bằng `scripts/d1b/migrate.mjs`); mọi việc nền khai báo trong `infra/jobs.json` (docs/JOBS.md): lịch so le, tài nguyên độc quyền thuê qua `scripts/jobs/lease.mjs`, ngân sách D1 từng tài khoản đo riêng; `npm test` (jobs-check) chặn lịch chồng/trùng. Thêm cron/CI nền mới = thêm 1 dòng vào `infra/jobs.json` rồi `node scripts/jobs/gen.mjs --write`.
-- (23/10/2026) **Thư "workflow failed" dồn dập → `ci-triage.yml` (`scripts/ci/triage.mjs`):** đỏ → đọc log job lỗi, xếp loại: hạn mức D1 (`quota-guard`/`d1-budget`/D1 hết hạn mức ngày) = hoãn, lượt 00:12 UTC chạy lại lượt mới nhất 1 lần; tạm thời (5xx, mạng, AI) = chờ 5 phút chạy lại 1 lần (chỉ khi run_attempt = 1 – không lặp); thật = 1 issue/workflow nhãn `ci-failure` (sửa thân, không bình luận; tự đóng khi xanh). Bản tin ngày → Quản trị (cảnh báo `ci`) + 1 thư. Job gọi API lexkite.com bọc `node scripts/ci/quota-skip.mjs <lệnh>` (429 quota-guard → thoát 0 + ghi chú, bước sau tự bỏ qua). API gặp lỗi D1 hết hạn mức trả 429 `quota-guard` (`functions/api/_d1limit.js`), không 500. Workflow mới phải thêm tên vào danh sách `workflow_run` của ci-triage (test `scripts/test/ci-triage.mjs`). Bài học: `GIT_SSH_COMMAND=… git clone --filter=blob:none` rồi `checkout` ở lệnh sau = thiếu khoá → `export` cho cả bước; bước `git add` của i18n phải phủ thư mục nhóm tải lười `web/js/i18n/<lang>/`.
-- (23/10/2026) **Điều phối hỏng = việc nặng KHÔNG chạy (fail-closed) + đặt chỗ AI người dùng:** `/api/jobs` từng trả 500 khi D1 chính hết hạn mức đọc và `lease.mjs` coi 5xx là "chạy tiếp" → pilot vocab-img tiêu hết neuron Workers AI chính, AI người dùng mất dự phòng tới 00:00 UTC. Nay: 503 `coordinator-unavailable` rõ ràng; việc dùng chung (tài nguyên độc quyền, D1, AI, Drive) không có thuê = không chạy, chỉ việc chỉ-phút-GitHub fail-open; neuron Workers AI TÀI KHOẢN CHÍNH dành cho người dùng — nền mặc định 0 (`infra/jobs.json › reservations`, `acquire` trả `grants.workers_ai` → `--neurons`/`VIMG_MAX_MAIN`), và máy chủ bỏ `env.AI` cho đường CI (studio X-Studio-Secret, lexai OIDC) nên cổng AI rơi sang Gemini/tài khoản 2/GrabCast; `jobs-check` đỏ nếu việc dùng `workers_ai` không có lease hoặc ước lượng vượt phần cấp.
-- (23/10/2026) **Điều phối + AI nền không phụ thuộc D1/AI chính:** bảng `job_leases`/`job_runs` luôn ở D1 nội bộ (tài khoản 2, `coordDb` trong `_d1b.js`, cần bí mật Pages `D1B_ACCOUNT_ID`/`D1B_TOKEN`) nên điều phối sống khi D1 chính hết hạn mức (test ném 7500); Workers AI cho việc nền (news-auto/script-bank/vocab-img, studio X-Studio-Secret, lexai OIDC) đi qua REST tài khoản 2 (`restAi`, token quyền Workers AI Read+Edit) với phần cấp trong `reservations.workers_ai_b` (news-auto 3000, script-bank 2000, vocab-img 4000, biên an toàn 1000/10.000); neuron tài khoản chính chỉ cho người dùng.
+## Bài học hạ tầng – luật cô đọng (video/footage: `docs/VIDEO.md` §9; toàn văn: `docs/archive/METHODS-HISTORY.md` § "Chuyển từ METHODS 26/10")
+- CI giọng: runner mới không có ffmpeg → `apt-get install ffmpeg`; ghim faster-whisper 1.0.3.
+- D1: việc nền qua `_d1guard.js` (429 `quota-guard` ≥ 50 %), truy vấn theo khoá (EXPLAIN chặn quét bảng), không thăm dò API bằng vòng lặp; dữ liệu nội bộ ở D1 `lexkite-internal` (tài khoản CF thứ 2).
+- Mọi việc nền khai báo `infra/jobs.json` + lease (fail-closed); neuron Workers AI tài khoản chính dành cho người dùng, nền dùng tài khoản 2.
+- CI đỏ: `ci-triage.yml` phân loại; workflow mới phải thêm vào danh sách `workflow_run`; job gọi API bọc `scripts/ci/quota-skip.mjs`.
+
+## Làm đúng 1 lần (anh chủ 24/10 – không sửa đi sửa lại)
+Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) đi qua 5 bước, ghi ngắn trong brief/PR:
+1. **Thiết kế trước 10 dòng** – mục tiêu đo được; tài nguyên dùng (D1 đọc/ghi, AI, Drive, GitHub phút, khung app KB); điểm hỏng có thể xảy ra + cách chặn; ai giữ file nào.
+2. **Checklist "Definition of Done" bắt buộc:** hạn mức (jobs.json + lease + ngân sách), không quét bảng, khung app ≤ 377 KB, i18n 15 ngôn ngữ, quyền riêng tư (không PII/URL đầy đủ), a11y, offline, có công tắc tắt + cách quay lại, test.
+3. **Thử nhỏ → đo → mới nhân rộng** (1 clip / 1 bài / 60 ảnh / 1 lô) – chỉ nhân khi số đo đạt chuẩn.
+4. **Sửa theo LOẠI lỗi, không theo lần:** mỗi lỗi tìm gốc (5 lần "vì sao"), thêm 1 test/cổng chặn cả loại đó (vd. EXPLAIN chặn quét bảng, overflow gate chặn tràn chữ, lease fail-closed).
+5. **Một chủ mỗi mảng + agent ngắn** (TOKEN-RULES §9) – không 2 bên cùng sửa 1 file, không agent chạy dài.
+
+
+- **Quảng cáo:** AdSense web / AdMob app / add-on KHÔNG BAO GIỜ; chỉ ở vị trí CHO PHÉP (deny-by-default), tải lười, cờ ở Quản trị – toàn văn `docs/ADS.md`. Bật nền tảng mới = làm `STORE-READINESS.md` §E cùng lúc.
+
+## Cổng QA nội dung – BẮT BUỘC (24/10, `docs/CONTENT-QA.md`)
+- MỌI nguồn nội dung qua `scripts/content-qa/gate.mjs` (npm test + ci.yml + trước commit job sinh); thư mục mới phải đăng ký `content/qa/sources.json` nếu không CI đỏ. 7 lớp, baseline `content/qa/baseline.json` **chỉ được giảm**, sửa theo LOẠI lỗi, 2 giám khảo khác họ lệch ≤ 1 – toàn văn `docs/CONTENT-QA.md`.
+- Sinh nội dung/dịch: chỉ kho Gemini hoặc Workers AI tài khoản 2, đăng ký `infra/jobs.json`; **không** AI tài khoản chính. Lộ trình: `docs/CONTENT-ROADMAP.md`.
+- Quét lỗi nền hằng đêm + liên kết nội bộ (joinPath/url-guard): `docs/QUALITY-SWEEP.md`.
+- LCP app (24/10): màn đầu chỉ HTML + style.css, JS khung nạp sau khung hình đầu; không thêm `<script>`/preload/fade – `docs/UX-PUBLIC.md` §LCP.
+- **Dung lượng repo (24/10):** `docs/STORAGE.md` (toàn văn luật: `archive/METHODS-HISTORY.md` § "Chuyển từ METHODS 27/10").

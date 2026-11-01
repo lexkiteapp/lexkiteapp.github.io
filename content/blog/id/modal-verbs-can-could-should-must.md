@@ -52,7 +52,7 @@ quiz: [
 ]
 ---
 
-Menguasai ragam kata kerja bantu khusus atau **modal verbs can could should must** merupakan tonggak penting untuk membawa kemampuan berbahasa Inggris Anda dari tingkat dasar ke tingkat mahir (*advanced*). Dalam percakapan sehari-hari maupun penulisan esai formal, kata kerja bantu ini berfungsi layaknya "bumbu rasa" emosional: merekalah yang menentukan apakah kalimat Anda terdengar sebagai anjuran ramah, permohonan santun, atau perintah otoriter yang kaku.
+Menguasai ragam kata kerja bantu khusus atau **modal verbs can could should must** merupakan tonggak penting untuk membawa kemampuan berbahasa Inggris Anda dari tingkat dasar ke tingkat mahir (*advanced*). Dalam percakapan sehari-hari maupun penulisan esai formal, kata kerja bantu ini berfungsi layaknya "bumbu rasa" emosional: merekalah yang menentukan apakah kalimat Anda terdengar sebagai anjuran ramah, permohonan santun, atau perintah otoriter yang kaku. Dalam kalimat tidak langsung, can berubah menjadi could dan must sering menjadi had to, lihat [reported speech bahasa Inggris](/id/blog/reported-speech-bahasa-inggris/).
 
 Banyak pelajar bahasa Inggris di Indonesia yang hanya menerjemahkan keempat kata ini secara harfiah ke dalam bahasa Indonesia: *can* (bisa), *could* (bisa/dulu bisa), *should* (seharusnya), dan *must* (harus). Akibat penerjemahan dangkal ini, sering kali terjadi kesalahan fatal di dunia kerja, seperti mengirim email ke atasan ekspatriat berbunyi *"You must approve this file"* yang terdengar sangat tidak sopan dan mendikte.
 
@@ -132,6 +132,10 @@ Dalam wawancara kerja multinasional atau diskusi proyek lintas negara, pemilihan
 - **Pertanyaan Wawancara**: Latihlah respons yang menggunakan modal hipotetis untuk memprediksi skenario kerja, seperti yang dijelaskan dalam [pertanyaan interview bahasa Inggris](/id/blog/pertanyaan-interview-bahasa-inggris/).
 
 ![Sesi review flashcard Lexkite dengan kartu kata 'pollution' dan tombol flip](media:review "Mengulang hafalan frasa modal verbs secara berkala dengan algoritma FSRS")
+
+Modal *would* dan *could* juga menjadi inti kalimat pengandaian; pelajari di [conditional sentence bahasa Inggris](/id/blog/conditional-sentence-bahasa-inggris/).
+
+Modal verbs juga bisa dipakai dalam kalimat pasif (*It must be signed*); lihat [passive voice bahasa Inggris](/id/blog/passive-voice-bahasa-inggris/).
 
 {{cta: /ngu-phap/ | Pelajari Aturan Tata Bahasa}}
 

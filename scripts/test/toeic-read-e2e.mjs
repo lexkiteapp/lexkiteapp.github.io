@@ -79,13 +79,16 @@ const fails = [], out = {}, ok = (cond, msg) => { console.log(`${cond ? '✓' : 
 async function run(name, cfg) {
   const ctx = await browser.newContext({ locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block' });
   await ctx.route(BASE + '**', serve);
+  // Khép kín: app trên lexkite.localhost gọi API thật https://lexkite.com/api/* (notices…) – CORS production không (và không nên) mở cho origin thử nghiệm này → giả lập
+  await ctx.route('https://lexkite.com/api/**', r => r.request().method() === 'OPTIONS' ? r.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' } })
+    : r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify(/\/api\/notices/.test(r.request().url()) && r.request().method() === 'GET' ? { ok: true, notices: [], unread_count: 0 } : { ok: true }) }));
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push('pageerror: ' + e.message));
   page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|favicon|googletagmanager|speechSynthesis/i.test(m.text())) errs.push('console: ' + m.text()); });
   await page.addInitScript(MOCK, cfg);
   await page.clock.install();
   await page.goto(`${BASE}app/?sandbox=1&hl=vi#/welcome/setup`, { waitUntil: 'load' });
-  await page.waitForTimeout(1500); const go0 = await page.$('#go'); if (go0) { await go0.click().catch(() => {}); await page.waitForTimeout(1000); }
+  await page.waitForTimeout(1500); await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go0 = await page.$('#go'); if (go0) { await go0.click().catch(() => {}); await page.waitForTimeout(1000); }
   await page.evaluate(() => { location.hash = '#/toeic-sw/read?i=0'; });
   await page.waitForSelector('#swGo', { timeout: 15000 });
   ok((await page.textContent('.toeic-pass')).includes('Greenfield Market'), `${name}: hiện đề "${UNIT.title}"`);

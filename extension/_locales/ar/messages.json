@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "إيقاف بطاقة علامة التبويب الجديدة"
  },
+ "ntConf": {
+  "message": "تحدث بثقة"
+ },
  "ntListen": {
   "message": "استمع"
  },

@@ -1,5 +1,8 @@
 # Học từ UX bài học kiểu Duolingo – bảng khoảng trống (21/10/2026, @claude)
 
+> TL;DR: Bảng khoảng trống UX bài học kiểu Duolingo (21/10): chỉ học mẫu tương tác, không chép tài sản/chữ. Của @claude.
+> Đọc khi: làm UX bài học.
+
 Nguồn: ảnh chụp anh chủ gửi (giao diện tiếng Việt, học tiếng Đức). Chỉ học **mẫu tương tác**; không chép tài sản, tên, câu chữ của Duolingo. Linh vật chỉ dùng Kit (`web/js/kit.js`).
 Phạm vi của thẻ này **không trùng** kế hoạch UI/UX GĐ1–GĐ3 của Antigravity (CBT highlighter, vuốt thẻ, Kit theo ngữ cảnh, UI đóng băng chuỗi, Sfx, flame, shimmer).
 

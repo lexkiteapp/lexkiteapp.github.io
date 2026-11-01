@@ -11,6 +11,7 @@
 		7A1F00000000000000000011 /* WordFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000001 /* WordFeed.swift */; };
 		7A1F00000000000000000012 /* WordFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000001 /* WordFeed.swift */; };
 		7A1F00000000000000000013 /* WordWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000002 /* WordWidget.swift */; };
+		7A1F000000000000000000A2 /* LexAIPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F000000000000000000A1 /* LexAIPlugin.swift */; };
 		7A1F00000000000000000014 /* WordWidgetPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000003 /* WordWidgetPlugin.swift */; };
 		0A88D2886B71276F56C5E649 /* LexkiteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58750283C23E50CF461BB66 /* LexkiteWidget.swift */; };
 		1CC5DD35450CEE99C9F7C8AF /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */; };
@@ -64,6 +65,7 @@
 		7A1F00000000000000000004 /* WordViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WordViews.swift; sourceTree = "<group>"; };
 		7A1F00000000000000000001 /* WordFeed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WordFeed.swift; sourceTree = "<group>"; };
 		7A1F00000000000000000002 /* WordWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WordWidget.swift; sourceTree = "<group>"; };
+		7A1F000000000000000000A1 /* LexAIPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LexAIPlugin.swift; sourceTree = "<group>"; };
 		7A1F00000000000000000003 /* WordWidgetPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WordWidgetPlugin.swift; sourceTree = "<group>"; };
 		04647CD86025B57FA019C25A /* App.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		08EEAD8C1C9626EBE7E37F12 /* pt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				50B271D01FEDC1A000F3C39B /* public */,
 				834C855EE7FCE1C83B1B7179 /* WidgetBridgePlugin.swift */,
 				7A1F00000000000000000003 /* WordWidgetPlugin.swift */,
+				7A1F000000000000000000A1 /* LexAIPlugin.swift */,
 				472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */,
 				04647CD86025B57FA019C25A /* App.entitlements */,
 				138FF258B30F7EE8340AA671 /* PrivacyInfo.xcprivacy */,
@@ -372,6 +375,7 @@
 				9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */,
 				2F8B629EA0EBA8972F5EC46A /* WidgetBridgePlugin.swift in Sources */,
 				7A1F00000000000000000014 /* WordWidgetPlugin.swift in Sources */,
+				7A1F000000000000000000A2 /* LexAIPlugin.swift in Sources */,
 				7A1F00000000000000000012 /* WordFeed.swift in Sources */,
 				C555A85B2237479742F91D52 /* LexkiteBridgeViewController.swift in Sources */,
 				1CC5DD35450CEE99C9F7C8AF /* WidgetSnapshot.swift in Sources */,
@@ -575,6 +579,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = App/Info.plist;
+				OTHER_LDFLAGS = ("$(inherited)", "-weak_framework", Translation, );
+				"OTHER_LDFLAGS[sdk=iphoneos26*]" = ("$(inherited)", "-weak_framework", Translation, "-weak_framework", FoundationModels, );
+				"OTHER_LDFLAGS[sdk=iphonesimulator26*]" = ("$(inherited)", "-weak_framework", Translation, "-weak_framework", FoundationModels, );
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -598,6 +605,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = App/Info.plist;
+				OTHER_LDFLAGS = ("$(inherited)", "-weak_framework", Translation, );
+				"OTHER_LDFLAGS[sdk=iphoneos26*]" = ("$(inherited)", "-weak_framework", Translation, "-weak_framework", FoundationModels, );
+				"OTHER_LDFLAGS[sdk=iphonesimulator26*]" = ("$(inherited)", "-weak_framework", Translation, "-weak_framework", FoundationModels, );
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

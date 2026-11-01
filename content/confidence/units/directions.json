@@ -1,0 +1,50 @@
+{
+  "id": "directions", "level": "A1", "order": 4, "em": "🧭", "rp": "directions",
+  "title": { "vi": "Hỏi đường", "en": "Asking for directions" },
+  "goal": { "vi": "Hỏi đường người lạ, nhờ nhắc lại và kiểm tra lại cho chắc.", "en": "Ask a stranger the way, ask them to repeat and check that you understood." },
+  "dialogue": { "a": "Omar", "aRole": "a person on the street", "lines": [
+    ["b", "Excuse me, sorry to bother you. Is there a pharmacy near here?"],
+    ["a", "Yes, there's one on Park Street."],
+    ["b", "How do I get there?"],
+    ["a", "Go straight for two blocks, then turn left."],
+    ["b", "Sorry, could you say that again, please?"],
+    ["a", "Sure. Go straight for two blocks, then turn left. It's next to the bank."],
+    ["b", "So I go straight and turn left? Is it far from here?"],
+    ["a", "No, it's about five minutes on foot."],
+    ["b", "Thanks, that's really helpful!"]
+  ] },
+  "phrases": [
+    { "id": "excuse-me", "say": "Excuse me, sorry to bother you.", "not": "Hey you!", "gap": "bother",
+      "mean": { "vi": "Bắt chuyện lịch sự với người lạ", "en": "Start talking to a stranger politely" },
+      "why": { "vi": "\"Hey you!\" nghe thô lỗ với người lạ; \"Excuse me\" là cách mở lời lịch sự.", "en": "\"Hey you!\" sounds rude to a stranger; \"Excuse me\" is the polite way to start." } },
+    { "id": "is-there-near-here", "say": "Is there a pharmacy near here?", "not": "Where is pharmacy?", "gap": "near",
+      "mean": { "vi": "Hỏi gần đây có một nơi nào đó không", "en": "Ask if a place is close to you" },
+      "why": { "vi": "Thêm \"a\" và dùng \"Is there a… near here?\" khi bạn chưa biết có hay không.", "en": "Add \"a\" and use \"Is there a… near here?\" when you don't know if one exists." } },
+    { "id": "how-do-i-get-there", "say": "How do I get there?", "not": "How to go there?", "gap": "get",
+      "mean": { "vi": "Hỏi cách đi đến một nơi", "en": "Ask the way to a place" },
+      "why": { "vi": "\"How to go there?\" chưa phải câu hỏi đầy đủ.", "en": "\"How to go there?\" is not a full question." } },
+    { "id": "say-that-again", "say": "Sorry, could you say that again, please?", "not": "What? Again!", "gap": "say", "tk": "repair",
+      "mean": { "vi": "Nhờ người khác nhắc lại", "en": "Ask someone to repeat" },
+      "why": { "vi": "Nhờ nhắc lại là chuyện bình thường; mở đầu bằng \"Sorry\" cho lịch sự.", "en": "Asking someone to repeat is normal; starting with \"Sorry\" makes it polite." } },
+    { "id": "is-it-far", "say": "Is it far from here?", "not": "It is far?", "gap": "far",
+      "mean": { "vi": "Hỏi chỗ đó có xa không", "en": "Ask if a place is a long way away" },
+      "why": { "vi": "Câu hỏi thường đưa \"Is\" lên đầu; như vậy rõ ràng hơn.", "en": "Questions usually start with \"Is\"; it is clearer this way." } },
+    { "id": "so-i-turn-left", "say": "So I go straight and turn left?", "not": "OK, OK.", "gap": "turn", "tk": "repair",
+      "mean": { "vi": "Nhắc lại các bước để kiểm tra mình hiểu đúng", "en": "Repeat the steps to check you understood" },
+      "why": { "vi": "Nói \"OK, OK\" khi chưa hiểu dễ làm bạn lạc đường; nhắc lại để chắc chắn.", "en": "Saying \"OK, OK\" when you did not understand can get you lost; repeat to check." } },
+    { "id": "really-helpful", "say": "Thanks, that's really helpful!", "not": "OK. Bye.", "gap": "helpful",
+      "mean": { "vi": "Cảm ơn ai đã giúp bạn", "en": "Thank someone for their help" },
+      "why": { "vi": "Cảm ơn người đã dành thời gian giúp mình giúp cuộc nói chuyện kết thúc vui vẻ.", "en": "Thanking people for their time ends the talk in a warm way." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Omar", "role": "a friendly local on the street", "persona": "kind, speaks clearly, happy to repeat", "goal": "give the learner directions to a pharmacy" },
+    "you": "Ask the way to a pharmacy, ask him to repeat, check the steps and say thank you.",
+    "turns": [
+      { "a": "Hi! You look a little lost. Can I help you?", "h": "Yes, please. Is there a pharmacy near here?", "br": [["pharmacy|drugstore|chemist", "A pharmacy? Yes, there's one on Park Street."], ["bank|station|supermarket|museum|bus|hospital", "Yes, there's one quite close."]] },
+      { "a": "It's not far from here.", "h": "Great. How do I get there?", "br": [["how do i get|how can i get|which way|where", "Okay, let me explain."]] },
+      { "a": "Go straight for two blocks, then turn left. It's next to the bank.", "h": "Sorry, could you say that again, please?", "br": [["again|repeat|slowly|sorry", "Sure: straight for two blocks, then left."], ["so i|turn left|straight", "Yes, exactly."]] },
+      { "a": "It takes about five minutes on foot.", "h": "Thanks, that's really helpful!", "br": [["thank", "You're welcome!"]] }
+    ],
+    "end": "Good luck! Have a nice day."
+  }
+}

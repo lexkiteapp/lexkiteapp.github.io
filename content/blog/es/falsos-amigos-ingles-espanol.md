@@ -27,7 +27,7 @@ Conviene distinguir tres casos:
 - **Falsos amigos totales:** se parecen, pero no comparten el significado principal. *Carpet* (alfombra) y "carpeta".
 - **Falsos amigos parciales:** coinciden solo en algunos usos. *Argument* puede ser un razonamiento, como "argumento", pero en el día a día casi siempre significa "discusión, pelea".
 
-La buena noticia: los falsos amigos son un grupo relativamente pequeño frente a la enorme cantidad de cognados útiles. No hace falta desconfiar de todo, solo conocer bien los que más se repiten.
+La buena noticia: los falsos amigos son un grupo relativamente pequeño frente a la enorme cantidad de cognados útiles. No hace falta desconfiar de todo, solo conocer bien los que más se repiten. Eso sí, incluso los cognados útiles cambian su ortografía, algo que se nota en la tarea [TOEFL Complete the Words](/es/blog/toefl-complete-the-words/).
 
 De hecho, muchas terminaciones funcionan como un puente fiable: *-tion* suele corresponder a "-ción" (*nation*, *solution*), *-ty* a "-dad" (*city*, *university*), *-ous* a "-oso" (*famous*, *curious*) y *-ly* a "-mente" (*rapidly*, *probably*). Aprovecha estos patrones para ampliar tu vocabulario pasivo muy rápido, pero comprueba cada palabra nueva antes de usarla en un examen o en un correo importante: el patrón te da una pista, no una garantía. Recuerda también que, aunque el significado coincida, la sílaba tónica suele cambiar (*hospital* se acentúa en la primera sílaba en inglés).
 
@@ -143,6 +143,8 @@ En Estados Unidos, *go to college* equivale a "ir a la universidad"; si hablas d
 5. **Escucha los cognados, no solo los leas.** Aunque una palabra signifique lo mismo, casi nunca se pronuncia igual: *comfortable*, *vegetable* o *chocolate* tienen menos sílabas de lo que esperas. Si además te cuesta el final de verbos como *realized* o *attended*, revisa la [pronunciación de -ed en inglés](/es/blog/pronunciacion-ed-en-ingles/).
 
 ![Juego de emparejar tarjetas de Lexkite con palabras como privacy y perspective y un cronómetro](media:practice-match "Emparejar contra el reloj entrena el reconocimiento rápido de pares parecidos")
+
+Varios de estos falsos amigos aparecen en el examen oral; mira cómo evitarlos en la [IELTS Speaking parte 3](/es/blog/ielts-speaking-parte-3-consejos/).
 
 {{cta: /#/practice/test | Ponte a prueba con un test de vocabulario gratis}}
 

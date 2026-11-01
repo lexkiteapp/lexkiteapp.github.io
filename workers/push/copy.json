@@ -1,0 +1,212 @@
+{
+ "vi": {
+  "back": [
+   "Đến giờ học với Kit rồi!",
+   "Mở Lexkite để ôn vài từ nhé."
+  ],
+  "miss": [
+   "Kit nhớ bạn lắm 🐦",
+   "Lâu rồi không gặp. Quay lại 2 phút thôi nhé? Đây là lời nhắc cuối cùng."
+  ],
+  "week": [
+   "Tiến bộ tuần",
+   "Xem tiến bộ của bạn trong tuần."
+  ]
+ },
+ "en": {
+  "back": [
+   "Time to study with Kit!",
+   "Open Lexkite and review a few words."
+  ],
+  "miss": [
+   "Kit misses you 🐦",
+   "It's been a while. Come back for just 2 minutes? This is our last reminder."
+  ],
+  "week": [
+   "Weekly progress",
+   "See how far you've come this week."
+  ]
+ },
+ "es": {
+  "back": [
+   "¡Hora de estudiar con Kit!",
+   "Abre Lexkite y repasa unas palabras."
+  ],
+  "miss": [
+   "Kit te echa de menos 🐦",
+   "Hace tiempo que no te vemos. ¿Vuelves solo 2 minutos? Este es nuestro último recordatorio."
+  ],
+  "week": [
+   "Progreso semanal",
+   "Mira cuánto has avanzado esta semana."
+  ]
+ },
+ "pt": {
+  "back": [
+   "Hora de estudar com o Kit!",
+   "Abra o Lexkite e revise algumas palavras."
+  ],
+  "miss": [
+   "O Kit está com saudade 🐦",
+   "Faz tempo que você não aparece. Volta só por 2 minutos? Este é o nosso último lembrete."
+  ],
+  "week": [
+   "Progresso semanal",
+   "Veja quanto você avançou esta semana."
+  ]
+ },
+ "fr": {
+  "back": [
+   "C'est l'heure d'étudier avec Kit !",
+   "Ouvre Lexkite et révise quelques mots."
+  ],
+  "miss": [
+   "Kit pense à toi 🐦",
+   "Ça fait un moment ! Tu reviens juste 2 minutes ? C'est notre dernier rappel."
+  ],
+  "week": [
+   "Progrès de la semaine",
+   "Regarde tes progrès de la semaine."
+  ]
+ },
+ "de": {
+  "back": [
+   "Zeit zum Lernen mit Kit!",
+   "Öffne Lexkite und wiederhole ein paar Wörter."
+  ],
+  "miss": [
+   "Kit vermisst dich 🐦",
+   "Lange nicht gesehen. Kommst du für 2 Minuten zurück? Das ist unsere letzte Erinnerung."
+  ],
+  "week": [
+   "Wochenfortschritt",
+   "Sieh dir deinen Fortschritt der Woche an."
+  ]
+ },
+ "id": {
+  "back": [
+   "Waktunya belajar bareng Kit!",
+   "Buka Lexkite dan ulang beberapa kata."
+  ],
+  "miss": [
+   "Kit kangen kamu 🐦",
+   "Sudah lama tidak ketemu. Kembali 2 menit saja, ya? Ini pengingat terakhir kami."
+  ],
+  "week": [
+   "Kemajuan mingguan",
+   "Lihat kemajuanmu minggu ini."
+  ]
+ },
+ "th": {
+  "back": [
+   "ถึงเวลาเรียนกับ Kit แล้ว!",
+   "เปิด Lexkite แล้วทบทวนคำศัพท์สักหน่อย"
+  ],
+  "miss": [
+   "Kit คิดถึงคุณนะ 🐦",
+   "ไม่ได้เจอกันนานแล้ว กลับมาแค่ 2 นาทีได้ไหม? นี่คือการแจ้งเตือนครั้งสุดท้ายของเรา"
+  ],
+  "week": [
+   "ความก้าวหน้ารายสัปดาห์",
+   "ดูความก้าวหน้าของคุณในสัปดาห์นี้"
+  ]
+ },
+ "zh": {
+  "back": [
+   "该和 Kit 一起学习啦！",
+   "打开 Lexkite 复习几个单词吧。"
+  ],
+  "miss": [
+   "Kit 想你了 🐦",
+   "好久不见。回来学 2 分钟好吗？这是我们最后一次提醒。"
+  ],
+  "week": [
+   "每周进度",
+   "看看你这周的进步。"
+  ]
+ },
+ "ja": {
+  "back": [
+   "Kitと勉強する時間だよ！",
+   "Lexkiteを開いて単語をいくつか復習しよう。"
+  ],
+  "miss": [
+   "Kitはさみしいよ 🐦",
+   "しばらく会えていないね。2分だけ戻ってこない？これが最後のお知らせです。"
+  ],
+  "week": [
+   "週間の進み具合",
+   "今週の成長をチェックしよう。"
+  ]
+ },
+ "ko": {
+  "back": [
+   "Kit과 공부할 시간이에요!",
+   "Lexkite를 열고 단어 몇 개 복습해요."
+  ],
+  "miss": [
+   "Kit이 보고 싶어 해요 🐦",
+   "오랜만이에요. 딱 2분만 돌아올래요? 이번이 마지막 알림이에요."
+  ],
+  "week": [
+   "주간 진도",
+   "이번 주 성장을 확인해 보세요."
+  ]
+ },
+ "hi": {
+  "back": [
+   "Kit के साथ पढ़ने का समय!",
+   "Lexkite खोलें और कुछ शब्द दोहराएँ।"
+  ],
+  "miss": [
+   "Kit आपको याद कर रहा है 🐦",
+   "काफ़ी समय हो गया। बस 2 मिनट के लिए लौट आएँ? यह हमारा आख़िरी रिमाइंडर है।"
+  ],
+  "week": [
+   "साप्ताहिक प्रगति",
+   "देखें इस हफ़्ते आपने कितनी प्रगति की।"
+  ]
+ },
+ "ar": {
+  "back": [
+   "حان وقت الدراسة مع Kit!",
+   "افتح Lexkite وراجع بضع كلمات."
+  ],
+  "miss": [
+   "Kit يفتقدك 🐦",
+   "مرّ وقت طويل. هل تعود لدقيقتين فقط؟ هذا آخر تذكير منا."
+  ],
+  "week": [
+   "التقدّم الأسبوعي",
+   "شاهد تقدّمك هذا الأسبوع."
+  ]
+ },
+ "ru": {
+  "back": [
+   "Пора заниматься с Kit!",
+   "Открой Lexkite и повтори пару слов."
+  ],
+  "miss": [
+   "Kit скучает по тебе 🐦",
+   "Давно не виделись. Вернёшься всего на 2 минуты? Это наше последнее напоминание."
+  ],
+  "week": [
+   "Прогресс за неделю",
+   "Посмотри, как ты продвинулся за неделю."
+  ]
+ },
+ "tr": {
+  "back": [
+   "Kit ile çalışma zamanı!",
+   "Lexkite'ı aç ve birkaç kelime tekrar et."
+  ],
+  "miss": [
+   "Kit seni özledi 🐦",
+   "Uzun zaman oldu. Sadece 2 dakikalığına döner misin? Bu son hatırlatmamız."
+  ],
+  "week": [
+   "Haftalık ilerleme",
+   "Bu haftaki ilerlemene göz at."
+  ]
+ }
+}

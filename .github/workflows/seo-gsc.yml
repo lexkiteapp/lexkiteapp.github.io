@@ -1,0 +1,48 @@
+# 🔎 Vòng dữ liệu Google Search Console – thứ Hai 07:00 VN, TRƯỚC lượt viết blog hằng tuần (9h).
+# scripts/seo/gsc.mjs kéo 28 ngày (query × page × country) của sc-domain:lexkite.com → reports/seo/gsc-<ngày>.{json,md}
+# + content/blog/plan/gsc-priority.json → commit [CF-Pages-Skip] (Cloudflare không build lại) → mở/cập nhật issue nhãn seo-weekly.
+# Secret: GSC_SA_JSON (khoá JSON service account, quyền Restricted trong GSC) – chỉ truyền qua env, không ghi ra đĩa.
+# Thiếu secret → cảnh báo + hướng dẫn, xanh, không commit. Token lỗi / 0 dòng → đỏ. Hướng dẫn 1 lần: docs/BLOG-RUNBOOK.md.
+# Hạn mức: < 10 lượt API/tuần (trần 1.200/phút/site, 30 triệu/ngày/dự án) · ~1 phút GitHub.
+name: SEO GSC weekly
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: seo-gsc
+  cancel-in-progress: false
+jobs:
+  gsc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Test (dữ liệu giả)
+        run: node scripts/test/gsc.mjs
+      - name: Kéo GSC + phân tích
+        id: gsc
+        env: { GSC_SA_JSON: '${{ secrets.GSC_SA_JSON }}' }
+        run: node scripts/seo/gsc.mjs
+      - name: Commit báo cáo [CF-Pages-Skip]
+        if: steps.gsc.outputs.report != ''
+        run: |
+          git add reports/seo content/blog/plan/gsc-priority.json
+          git add -u reports/seo
+          git diff --cached --quiet && { echo "· báo cáo không đổi"; exit 0; }
+          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git commit -qm "SEO: báo cáo GSC $(date -u +%F) [CF-Pages-Skip]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1
+      - name: Issue seo-weekly
+        if: steps.gsc.outputs.report != ''
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: node scripts/seo/gsc.mjs --issue "${{ steps.gsc.outputs.report }}"
+      - name: Tóm tắt
+        if: steps.gsc.outputs.report != ''
+        run: cat "${{ steps.gsc.outputs.report }}" >> "$GITHUB_STEP_SUMMARY"

@@ -19,7 +19,7 @@ In **IELTS Speaking Part 2** you get a cue card, one minute to prepare and then 
 
 ## How IELTS Speaking Part 2 works
 
-The whole Speaking test lasts 11–14 minutes and has three parts. In Part 2 the examiner hands you a card with a topic and several prompts, plus paper and a pencil for notes. You have **one minute to prepare** and should then speak for **one to two minutes**. The examiner will stop you when the time is up and may ask one or two short questions to round off before moving to Part 3.
+The whole Speaking test lasts 11–14 minutes and has three parts. In Part 2 the examiner hands you a card with a topic and several prompts, plus paper and a pencil for notes. You have **one minute to prepare** and should then speak for **one to two minutes**. The examiner will stop you when the time is up and may ask one or two short questions to round off before moving to Part 3. The discussion that follows has its own [IELTS Speaking Part 3 guide](/en/blog/ielts-speaking-part-3-tips/).
 
 Your performance is assessed on the same four criteria as the rest of the test: Fluency and Coherence, Lexical Resource, Grammatical Range and Accuracy, and Pronunciation. Part 2 is the only section where you speak at length without interruption, so it is your best chance to show fluency and the ability to organise a longer turn.
 

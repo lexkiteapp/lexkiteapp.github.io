@@ -149,6 +149,6 @@
       <p>${t('20 câu từ vựng và ngữ pháp từ A2 đến C1. Lexkite dùng kết quả để <b>ước tính band</b>, tìm <b>điểm yếu</b> và cá nhân hóa kế hoạch học mỗi ngày.')}</p>
       <p class="small muted">${t('Không biết thì chọn “Tôi không biết” – đừng đoán, kết quả sẽ chính xác hơn.')}</p>
       <div class="pl-cta"><button class="btn primary lg block" id="go">${t('Bắt đầu →')}</button></div></div></div>`;
-    $('#go').onclick = () => { document.addEventListener('keydown', keys); ask(); };
+    $('#go').onclick = () => { if (App.holdRoute) App.holdRoute(); document.addEventListener('keydown', keys); ask(); }; // đang làm bài → boot không vẽ lại xóa tiến độ
   };
 })();

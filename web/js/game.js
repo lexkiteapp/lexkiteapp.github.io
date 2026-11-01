@@ -126,28 +126,79 @@
     } catch (e) { /* trình duyệt chặn âm thanh */ }
   }
   // Rung nhẹ khi trả lời (điện thoại Android) – phản hồi xúc giác như app gốc; tắt cùng hiệu ứng âm thanh
-  const buzz = p => { try { if (navigator.vibrate && matchMedia('(pointer: coarse)').matches && !isMuted()) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
+  const rm = () => { try { return matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
+  const buzz = p => { try { if (navigator.vibrate && matchMedia('(pointer: coarse)').matches && !isMuted() && !rm()) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
   const Sfx = {
-    correct: () => { tone([660, 880], 0.1, 'triangle'); buzz(12); },
-    wrong: () => { tone([220, 165], 0.14, 'sawtooth', 0.05); buzz([30, 40, 30]); },
+    correct: () => { tone([660, 880], 0.1, 'triangle'); buzz(35); },
+    wrong: () => { tone([294, 247], 0.12, 'sine', 0.05); buzz([50, 40, 50]); }, // sai: âm trầm mềm (sine), không gắt
     flip: () => tone([520], 0.05, 'sine', 0.04),
     win: () => tone([523, 659, 784, 1047], 0.12, 'triangle'),
     pop: () => tone([900], 0.04, 'square', 0.03),
   };
   // Hiệu ứng thêm (tap/streak/shimmer/combo) nạp lười trong streak-ui.js qua Sfx.extend; trước khi nạp xong gọi là không làm gì
   for (const k of ['tap', 'streak', 'shimmer', 'combo']) Sfx[k] = () => {};
-  Sfx.extend = f => Object.assign(Sfx, f(tone, buzz));
+  Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); }; // khóa: lớp game feel đã giữ âm này
+  // 🎮 Lớp "game feel" (docs/GAME-FEEL.md): công tắc Cài đặt hoặc ?feel=1 / ?feel=0, nhớ trong vb.feel; chỉ khi bật mới nạp js/feel.js
+  // Sfx.feel() → đang bật? · Sfx.feel(true|false) → lưu + bật/tắt ngay (không cần tải lại)
+  const feelGet = () => { try { return g.localStorage.getItem('vb.feel') === '1'; } catch (e) { return false; } };
+  const feelLoad = () => { if (g.Feel || !g.document || g.document.getElementById('feelJs')) return; const s = g.document.createElement('script'), me = g.document.querySelector('script[src*="js/game.js"]'); s.id = 'feelJs'; s.src = (me ? me.getAttribute('src').replace(/game\.js.*$/, '') : 'js/') + 'feel.js'; s.defer = true; g.document.head.appendChild(s); };
+  Sfx.feel = on => {
+    if (on === undefined) return feelGet();
+    try { g.localStorage.setItem('vb.feel', on ? '1' : '0'); } catch (e) { /* bỏ qua */ }
+    if (g.Feel) g.Feel.set(!!on); else if (on) feelLoad();
+    return !!on;
+  };
+  try { const m = g.location && /[?&#]feel=([01])/.exec(g.location.search + g.location.hash); if (m) g.localStorage.setItem('vb.feel', m[1]); } catch (e) { /* bỏ qua */ }
+  if (feelGet()) feelLoad();
+
+  // ---------- Phản hồi trả lời dùng chung cho MỌI bề mặt luyện tập (một chỗ duy nhất, không chép lại) ----------
+  // Sfx.answer(ok, { el, answer, badge, exam }) → âm + rung (tắt cùng cài đặt âm thanh) + nảy/rung nhẹ el (tắt khi giảm chuyển động)
+  //   + đọc cho trình đọc màn hình (aria-live) + chuỗi đúng liền 3/5/10/15… (Sfx.combo + huy hiệu nhỏ, gói lười streak+lfx). exam: im lặng.
+  // Sfx.finish({ pct, xp, el, ms, good, exam }) → âm thắng + pháo giấy (≥ good, mặc định 80%) + 4 thẻ số liệu (độ chính xác, XP, thời gian, chuỗi ngày) vào el.
+  let run = 0, t0 = Date.now(), at = '';
+  const tt = (k, v) => (g.t ? g.t(k, v) : k);
+  const route = () => { const h = g.location ? String(g.location.hash).split('?')[0] : ''; if (h !== at) { at = h; run = 0; t0 = Date.now(); } };
+  const say = m => {
+    if (typeof document === 'undefined' || !document.body) return;
+    let r = document.getElementById('fxLive');
+    if (!r) { r = document.createElement('div'); r.id = 'fxLive'; r.className = 'sr-only'; r.setAttribute('aria-live', 'polite'); r.setAttribute('role', 'status'); document.body.appendChild(r); }
+    r.textContent = ''; setTimeout(() => { r.textContent = m; }, 40);
+  };
+  const lazy = (...b) => (g.App && g.App.need ? g.App.need(...b) : Promise.resolve());
+  Sfx.answer = (ok, o = {}) => {
+    if (o.exam) return 0;
+    route(); ok ? Sfx.correct() : Sfx.wrong();
+    const el = o.el, c = ok ? 'ans-bounce' : 'ans-shake';
+    if (el && el.classList && !rm()) { el.classList.remove(c); void el.offsetWidth; el.classList.add(c); setTimeout(() => el.classList.remove(c), 500); }
+    say(ok ? tt('Chính xác!') : o.answer ? `${tt('Chưa đúng')}. ${tt('Đáp án')}: ${o.answer}` : tt('Chưa đúng'));
+    run = ok ? run + 1 : 0;
+    const n = run;
+    if (ok && (n === 3 || n === 5 || (n >= 10 && n % 5 === 0))) lazy('streak', 'lfx').then(() => { Sfx.combo(n); if (o.badge !== false && g.LessonFx && g.LessonFx.comboBadge) g.LessonFx.comboBadge(n, el); }).catch(() => {});
+    return n;
+  };
+  Sfx.finish = (o = {}) => {
+    route(); const ms = Date.now() - t0; run = 0; t0 = Date.now();
+    if (o.exam) return;
+    if (o.pct >= (o.good || 80)) { Sfx.win(); confetti(o.pct >= 100 ? 140 : 90); }
+    if (o.el) lazy('lfx').then(() => g.LessonFx && g.LessonFx.stats && g.LessonFx.stats(o.el, { ms, ...o })).catch(() => {});
+  };
 
   // ---------- Pháo giấy ----------
   function confetti(n = 120) {
-    if (typeof document === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof document === 'undefined') return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { // giảm chuyển động: KHÔNG pháo giấy bay – chỉ Kit "win" đứng yên hiện/mờ (đổi độ mờ, không dịch chuyển) cho mốc lớn
+      if (n < 80 || !g.Kit) return;
+      const k = document.createElement('div'); k.className = 'cele-still'; k.setAttribute('aria-hidden', 'true'); k.innerHTML = g.Kit.svg('win', 88, false);
+      document.body.appendChild(k); requestAnimationFrame(() => k.classList.add('on')); setTimeout(() => k.classList.remove('on'), 1100); setTimeout(() => k.remove(), 1500);
+      return;
+    }
     const c = document.createElement('canvas');
     c.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999';
     document.body.appendChild(c);
     let ctx = null; try { ctx = c.getContext('2d'); } catch (e) { /* không có canvas */ }
     if (!ctx) { c.remove(); return; }
     const W = c.width = innerWidth * devicePixelRatio, H = c.height = innerHeight * devicePixelRatio;
-    const colors = ['#4f46e5', '#0ea5a4', '#f59e0b', '#e5484d', '#16a34a', '#8b5cf6'];
+    const colors = (g.Kit && g.Kit.palette) || ['#E5502F', '#FFB054', '#FFC94A', '#2FBF71', '#FF8FA3', '#17595A']; // màu thương hiệu từ kit.js (không còn tím/xanh dương lạ)
     const ps = Array.from({ length: n }, () => ({ x: W / 2 + (Math.random() - .5) * W * .3, y: H * .35, vx: (Math.random() - .5) * 26, vy: -Math.random() * 30 - 8, s: (Math.random() * 6 + 5) * devicePixelRatio, r: Math.random() * 6, vr: (Math.random() - .5) * .3, c: colors[Math.floor(Math.random() * colors.length)] }));
     let f = 0;
     (function step() {

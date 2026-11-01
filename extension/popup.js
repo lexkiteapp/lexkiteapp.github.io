@@ -9,7 +9,7 @@
     'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Xong {n} thẻ – tuyệt!': 'Done {n} cards – great!', '⚡ Ôn nhanh {i}/{n}': '⚡ Quick review {i}/{n}', 'Chạm để lật': 'Tap to flip', 'Quên': 'Forgot', 'Nhớ': 'Got it', 'Thẻ từ vựng ở tab mới': 'Vocabulary card on new tab', 'Gạch chân từ học thuật B2–C2': 'Underline B2–C2 academic words', 'Mới lưu': 'Just saved', 'Đã thuộc': 'Learned', 'Sắp đến hạn ôn': 'Due for review soon', 'Nghe': 'Listen', 'Tra nhanh một từ…': 'Quick word lookup…',
     '⚙️ Cài đặt tra từ': '⚙️ Lookup settings', 'Khi bôi đen chữ': 'When text is selected', 'Hiện nút 🌐 để dịch': 'Show 🌐 button to translate',
     'Tự dịch ngay': 'Translate instantly', 'Tắt': 'Off', 'Bấm đúp để tra từ': 'Double-click to look up words',
-    'Đánh dấu từ đã học trên trang': 'Highlight learned words on pages', 'Mở ứng dụng ↗': 'Open app ↗',
+    'Đánh dấu từ đã học trên trang': 'Highlight learned words on pages', 'Lưu câu ngữ cảnh': 'Save context sentence', 'Khi lưu từ, giữ câu chứa từ đó (tối đa 200 ký tự) và chỉ tên miền trang – không lưu địa chỉ đầy đủ. Tắt để không lưu gì từ trang.': 'When you save a word, keep the sentence it appears in (up to 200 characters) and only the site’s domain – never the full address. Turn off to save nothing from the page.', 'Mở ứng dụng ↗': 'Open app ↗',
     '💡 Bấm đúp vào từ để tra · bôi đen câu để dịch · trên YouTube: bật phụ đề rồi <b>chạm vào từ</b> trong phụ đề': '💡 Double-click a word to look it up · select a sentence to translate · on YouTube: turn on captions, then <b>tap a word</b> in the captions',
     '🔁 {n} ôn lại': '🔁 {n} to review', '✨ {n} từ mới': '✨ {n} new words', 'Thêm từ mới →': 'Add new words →', '🕘 Vừa lưu gần đây': '🕘 Recently saved',
     'vừa xong': 'just now', '{n} phút trước': '{n} min ago', '{n} giờ trước': '{n} h ago', '{n} ngày trước': '{n} days ago',
@@ -18,7 +18,7 @@
     '⏳ Đang đồng bộ…': '⏳ Syncing…', '✓ Đã đồng bộ': '✓ Synced', 'Thử lại': 'Retry', '⏳ Đang tra…': '⏳ Looking up…',
     '✓ Đã có': '✓ Saved', '+ Lưu flashcard': '+ Save flashcard', 'Chi tiết': 'Details', '✓ Đã lưu': '✓ Saved',
     '✍️ Soát lỗi viết': '✍️ Writing check', 'Gạch chân lỗi tiếng Anh khi bạn gõ trên mọi trang · bấm để sửa và xem vì sao sai': 'Underlines English mistakes as you type on any site · tap to fix and see why',
-    'Kiểm nâng cao (LanguageTool)': 'Advanced check (LanguageTool)', 'Bật trên {site}': 'On for {site}', 'Trang này không hỗ trợ soát lỗi viết': 'Writing check is not available on this page',
+    'Kiểm nâng cao (LanguageTool)': 'Advanced check (LanguageTool)', 'Bật trên {site}': 'On for {site}', 'Lexkite trên {site}': 'Lexkite on {site}', 'Tắt để Lexkite nghỉ hẳn trên trang này: không tra từ, không đánh dấu từ, không soát lỗi viết.': 'Turn off to pause Lexkite completely on this site: no word lookup, no word highlighting, no writing check.', 'Trang này không hỗ trợ soát lỗi viết': 'Writing check is not available on this page',
     'Mặc định chữ chỉ được soát ngay trên máy. Kiểm nâng cao gửi chữ trong ô bạn đang gõ tới LanguageTool. Không bao giờ soát ô mật khẩu, email, thẻ thanh toán và trang ngân hàng.': 'By default your text is checked on your device only. Advanced check sends the text of the box you are typing in to LanguageTool. Password, email and payment card fields and banking sites are never checked.',
     'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Báo cáo sự cố': 'Report a problem', 'Không tìm thấy “{q}”.': 'No results for “{q}”.', ' Dịch: <b>{vi}</b>': ' Translation: <b>{vi}</b>', 'Chính sách quyền riêng tư': 'Privacy policy', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
   };
@@ -71,9 +71,9 @@
       const c = dueList[qi];
       if (!c) { $('#quick').innerHTML = `<div class="pp-quick done">✓ ${tx('Xong {n} thẻ – tuyệt!', { n: dueList.length })}</div>`; return; }
       $('#quick').innerHTML = `<div class="pp-sec">${tx('⚡ Ôn nhanh {i}/{n}', { i: qi + 1, n: dueList.length })}</div>
-        <div class="pp-quick" id="qCard" role="button" tabindex="0"><b>${esc(c.word)}</b><span class="muted small">${esc(c.ipa || '')}</span><div class="q-back" hidden>${esc(qmean(c))}</div><div class="muted small q-hint">${tx('Chạm để lật')}</div></div>
+        <div class="pp-quick" id="qCard" role="button" tabindex="0"><b>${esc(c.word)}</b><span class="muted small">${esc(ipaAcc(c))}</span><div class="q-back" hidden>${esc(qmean(c))}</div><div class="muted small q-hint">${tx('Chạm để lật')}</div></div>
         <div class="pp-qbtn" hidden><button class="btn sm" data-q="0">${tx('Quên')}</button><button class="btn sm primary" data-q="2">${tx('Nhớ')}</button></div>`;
-      const flip = () => { $('#qCard .q-back').hidden = false; $('#qCard .q-hint').hidden = true; document.querySelector('.pp-qbtn').hidden = false; speak(c.word, settings.accent === 'en-US' ? c.audioUS : c.audio); };
+      const flip = () => { $('#qCard .q-back').hidden = false; $('#qCard .q-hint').hidden = true; document.querySelector('.pp-qbtn').hidden = false; speak(c.word, audAcc(c)); };
       $('#qCard').onclick = flip; $('#qCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } };
       document.querySelectorAll('[data-q]').forEach(b => b.onclick = async () => { await Cards.patch(c.word, card => { card.srs = Core.SRS.review(card.srs, +b.dataset.q); }); await Stats.logReview(false); try { chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {}); } catch (e) {} qi++; draw(); });
     };
@@ -87,7 +87,7 @@
     const mean = c => (UI_LANG === 'vi' ? String(c.vi || '') : String(c.def || '')).split(/[,;]/)[0];
     $('#recent').innerHTML = `<div class="pp-sec">${tx('🕘 Vừa lưu gần đây')}</div>${recent.map(c => { const [d, dl] = dot(c); return `<div class="pp-word" data-w="${esc(c.word)}"><span class="pp-dot ${d}" title="${esc(dl)}" aria-label="${esc(dl)}"></span><button type="button" class="pp-say" data-say="${esc(c.word)}" aria-label="${esc(tx('Nghe'))}: ${esc(c.word)}">🔊</button><a href="#" class="pp-w"><b>${esc(c.word)}</b></a><span>${esc(mean(c))}</span></div>`; }).join('')}`;
     document.querySelectorAll('.pp-word .pp-w').forEach(a => a.onclick = e => { e.preventDefault(); open('#/dict/' + encodeURIComponent(a.closest('.pp-word').dataset.w)); });
-    document.querySelectorAll('.pp-say').forEach(b => b.onclick = e => { e.preventDefault(); const c = recent.find(x => x.word === b.dataset.say); speak(b.dataset.say, c && (settings.accent === 'en-US' ? c.audioUS : c.audio)); });
+    document.querySelectorAll('.pp-say').forEach(b => b.onclick = e => { e.preventDefault(); const c = recent.find(x => x.word === b.dataset.say); speak(b.dataset.say, c && audAcc(c)); });
   }
   $('#open').onclick = e => { e.preventDefault(); open('#/home'); };
   // Báo lỗi: mở form trong trang ứng dụng; chỉ gửi kèm TÊN MIỀN của tab đang xem (không URL đầy đủ, không nội dung trang) – docs/REPORTS.md
@@ -117,7 +117,19 @@
   $('#markK').onchange = async e => { settings.markKnown = e.target.checked; await Store.set('settings', settings); };
   $('#dbl').onchange = async e => { settings.dblclickOn = e.target.checked; await Store.set('settings', settings); };
   if ($('#acOn')) { $('#acOn').checked = settings.markAcademic !== false; $('#acOn').onchange = async e => { settings.markAcademic = e.target.checked; await Store.set('settings', settings); }; }
+  if ($('#ctxOn')) { $('#ctxOn').checked = settings.saveCtx !== false; $('#ctxOn').onchange = async e => { settings.saveCtx = e.target.checked; await Store.set('settings', settings); }; }
   if ($('#ntOn')) { $('#ntOn').checked = settings.newtabOn !== false; $('#ntOn').onchange = async e => { settings.newtabOn = e.target.checked; await Store.set('settings', settings); }; }
+
+  // 🌐 Tắt Lexkite theo trang (lkOffSites, tên miền bỏ "www."): boot.js không chèn gì và gỡ ngay bản đang chạy. Trang Lexkite luôn bật (cầu nối dữ liệu).
+  {
+    let site = '';
+    try { const [tab] = await chrome.tabs.query({ active: true, currentWindow: true }); const u = new URL(tab && tab.url || ''); if (/^https?:$/.test(u.protocol)) site = u.hostname.replace(/^www\./, ''); } catch (e) { /* trang nội bộ của Chrome */ }
+    if (site && !/(^|\.)lexkite\.com$|^lexkite\.pages\.dev$/.test(site)) {
+      const { lkOffSites = [] } = await chrome.storage.local.get('lkOffSites');
+      $('#siteBox').hidden = false; $('#siteTxt').textContent = tx('Lexkite trên {site}', { site }); $('#siteOn').checked = !lkOffSites.includes(site);
+      $('#siteOn').onchange = async e => { const { lkOffSites: cur = [] } = await chrome.storage.local.get('lkOffSites'); const next = e.target.checked ? cur.filter(h => h !== site) : [...new Set([...cur, site])]; await chrome.storage.local.set({ lkOffSites: next.slice(-500) }); };
+    }
+  }
 
   // ✍️ Soát lỗi viết: bật chung (mặc định tắt) · bật/tắt riêng trang đang mở · kiểm nâng cao bằng LanguageTool
   {
@@ -140,9 +152,21 @@
     const sc = v => !v.lang.startsWith('en') ? -1 : (v.lang.replace('_', '-') === acc ? 100 : 10) + (/Natural|Neural|Online/i.test(v.name) ? 60 : 0) + (/^Google (UK|US) English/i.test(v.name) ? 50 : 0) + (/Premium|Enhanced|Siri/i.test(v.name) ? 45 : 0) + (/Daniel|Serena|Kate|Oliver|Samantha|Ava|Allison|Susan|Tom/i.test(v.name) ? 20 : 0);
     return speechSynthesis.getVoices().map(v => [v, sc(v)]).filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]).map(x => x[0])[0] || null;
   };
-  const speak = (w, url) => {
+  // IPA + bản ghi ĐÚNG giọng đang chọn (như web UI.ipaHtml/audioFor): Mỹ → ipaUS (trống = như Anh); bản ghi sai giọng → bỏ, dùng giọng máy đúng giọng
+  const isUS = () => settings.accent === 'en-US';
+  const ipaAcc = x => (x && (isUS() && x.ipaUS ? x.ipaUS : x.ipa)) || '';
+  const audAcc = (x, acc) => { const a = (x && x.audio) || '', us = /-us\.mp3$/i.test(a); return (acc ? acc === 'en-US' : isUS()) ? (x && x.audioUS) || (us ? a : '') : us ? '' : a; };
+  // 2 giọng như web UI.pronHtml: thứ tự theo giọng đã chọn / kỳ thi (IELTS → UK, còn lại → US); cùng IPA → 1 IPA + 2 loa
+  const popPron = e => {
+    const ex = String(settings.exam || (settings.goal && settings.goal.exam) || ''), usFirst = settings.accentPicked ? isUS() : !/^ielts/.test(ex);
+    const ord = usFirst ? ['en-US', 'en-GB'] : ['en-GB', 'en-US'], ip = a => (a === 'en-US' && e.ipaUS ? e.ipaUS : e.ipa) || '';
+    const b = a => `<b class="small">${a === 'en-US' ? 'US' : 'UK'}</b> <button class="icon-btn" data-acc="${a}" aria-label="${esc(tx(a === 'en-US' ? 'Nghe giọng Anh–Mỹ' : 'Nghe giọng Anh–Anh'))}">🔊</button>`;
+    const [p1, p2] = ord.map(ip); if (!p1 && !p2) return '';
+    return p1 === p2 || !p1 || !p2 ? `<span class="ipa">${esc(p1 || p2)}</span> ${b(ord[0])} ${b(ord[1])}` : `<span class="ipa">${esc(p1)}</span> ${b(ord[0])} <span class="muted">·</span> <span class="ipa">${esc(p2)}</span> ${b(ord[1])}`;
+  };
+  const speak = (w, url, acc) => {
     if (url && !window.speechSynthesis) return new Audio(url).play().catch(() => {});
-    const go = () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(w); u.lang = settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = bestVoice(u.lang); if (v) u.voice = v; speechSynthesis.speak(u); };
+    const go = () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(w); u.lang = acc || settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = bestVoice(u.lang); if (v) u.voice = v; speechSynthesis.speak(u); };
     if (speechSynthesis.getVoices().length) go(); else { let d = false; const f = () => { if (!d) { d = true; go(); } }; speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 600); }
   };
 
@@ -157,11 +181,11 @@
     $('#res').innerHTML = `<div class="card"><div class="row" style="align-items:flex-start;flex-wrap:nowrap">
       <div class="pic">${e.image ? `<img src="${esc(e.image)}" alt="">` : esc(e.emoji || '📘')}</div>
       <div><div class="row"><span class="entry-word">${esc(e.word)}</span>${e.pos ? `<span class="chip pos">${esc(e.pos)}</span>` : ''}${e.level ? `<span class="chip lv">${esc(e.level)}</span>` : ''}</div>
-        <div class="row"><span class="ipa">${esc(e.ipa)}</span><button class="icon-btn" id="spk">🔊</button></div>
+        <div class="row">${popPron(e)}</div>
         <div class="vi">${esc(e.vi)}</div>
         <div class="small">${esc(e.def)}</div></div></div>
       <div class="row" style="margin-top:10px"><button class="btn sm primary" id="save" ${saved ? 'disabled' : ''}>${saved ? tx('✓ Đã có') : tx('+ Lưu flashcard')}</button><button class="btn sm" id="more">${tx('Chi tiết')}</button></div></div>`;
-    $('#spk').onclick = () => speak(e.word, settings.accent === 'en-US' ? e.audioUS : e.audio);
+    document.querySelectorAll('#res [data-acc]').forEach(b => b.onclick = () => speak(e.word, audAcc(e, b.dataset.acc), b.dataset.acc));
     $('#more').onclick = () => open('#/dict/' + encodeURIComponent(e.word));
     $('#save').onclick = async () => { await Cards.add(e); $('#save').textContent = tx('✓ Đã lưu'); $('#save').disabled = true; try { chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {}); } catch (e) {} };
   };

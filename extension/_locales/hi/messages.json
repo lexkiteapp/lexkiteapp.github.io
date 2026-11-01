@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "नए टैब का कार्ड बंद करें"
  },
+ "ntConf": {
+  "message": "आत्मविश्वास से बोलें"
+ },
  "ntListen": {
   "message": "सुनें"
  },

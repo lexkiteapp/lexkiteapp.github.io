@@ -1,6 +1,7 @@
 /* English UI strings – web/js/lesson-fx.js (🔥 nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó). Nhóm tải lười. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
   "{n} đúng liền": "{n} in a row",
+  "Tỉ lệ đúng": "Accuracy",
   "{n} câu đúng liền!": "{n} right in a row!",
   "Câu khó · +{n} XP": "Tough item · +{n} XP",
   "Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?": "This looks too easy for you. Want tougher items (type instead of pick) for bonus XP?",

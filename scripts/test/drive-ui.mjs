@@ -150,5 +150,14 @@ ok(last('audit_list').b.act === 'trash' && /act=trash/.test(w.location.hash), 'l
 await go('#drive'); H.lang = () => 'en'; A.render(main, dapi, L, H); await tick(10);
 ok(/Private Drive storage/.test(main.textContent) && /Reconnect|Disconnected/.test(main.textContent), 'giao diện tiếng Anh');
 
+{ // 27/10: máy chủ chậm/treo → không kẹt "Loading…": báo rõ + nút Thử lại tải lại được
+  let k = 0; const slow = async (op, b) => { if (op === 'list' && k++ === 0) { const e = new Error('timeout'); e.code = 'timeout'; throw e; } return dapi(op, b); };
+  w.history.replaceState(null, '', '/admin.html#drive'); A.render(main, slow, L, H); await tick(10);
+  const rb = main.querySelector('[data-retry]');
+  ok(rb && /took too long/.test(main.textContent) && !/Loading/.test(main.textContent), 'list quá hạn → báo "server took too long" + nút Thử lại (không kẹt Loading): ' + main.textContent.trim().slice(0, 90));
+  rb && rb.click(); await tick(10);
+  ok(/Private Drive storage/.test(main.textContent) && !main.querySelector('[data-retry]'), 'bấm Thử lại → tải lại và vẽ Kho Drive');
+}
+
 if (fails) { console.log(`✗ drive-ui: ${fails}/${n} kiểm thất bại`); process.exit(1); }
 console.log(`✓ drive-ui: ${n} kiểm (lọc Drive, Kết nối lại, trình duyệt file, thùng rác, dọn dẹp + Hoàn tác, sổ kho, nhật ký)`);

@@ -178,6 +178,8 @@ Tham khảo thêm câu trả lời mẫu theo chủ đề ở mục [Speaking m�
 
 {{youtube: | Gợi ý video: Làm mẫu kỹ thuật 4/3/2 với một chủ đề IELTS Part 2}}
 
+Cần câu khung cho từng hoàn cảnh cụ thể? Xem [giao tiếp tiếng Anh tự tin: 12 tình huống hằng ngày](/vi/blog/giao-tiep-tieng-anh-tu-tin/).
+
 ## Câu hỏi thường gặp
 
 ### Không có môi trường thì có nói trôi chảy được không?

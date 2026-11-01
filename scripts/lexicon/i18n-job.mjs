@@ -15,7 +15,7 @@ const LEX = JSON.parse(rd('dist/lexicon.json'));
 const GLOSS = fs.readdirSync(new URL('content/wordlists/', ROOT)).filter(f => f.endsWith('.gloss.json')).map(f => JSON.parse(rd('content/wordlists/' + f)));
 
 // Mục theo thứ tự kho (NGSL trước) → từ thông dụng được làm trước; từ nhiều từ loại có khóa riêng
-const entries = Object.entries(LEX).map(([k, e]) => ({ k, w: e.w.toLowerCase().trim(), pos: e.pos, def: e.def, ex: e.ex }));
+const entries = Object.entries(LEX).filter(([, e]) => !e.x).map(([k, e]) => ({ k, w: e.w.toLowerCase().trim(), pos: e.pos, def: e.def, ex: e.ex }));
 const posCount = {}; for (const e of entries) posCount[e.w] = (posCount[e.w] || 0) + 1;
 const firstOf = {}; for (const e of entries) if (!firstOf[e.w]) firstOf[e.w] = e.k;
 const packKeys = e => [...(firstOf[e.w] === e.k ? [e.w] : []), ...(posCount[e.w] > 1 ? [e.k] : [])];

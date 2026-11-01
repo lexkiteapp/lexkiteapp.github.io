@@ -141,6 +141,8 @@ Confused pairs stick when you meet them repeatedly in context and test yourself 
 
 Spaced review is what makes the difference permanent; [active recall](/en/blog/active-recall-for-vocabulary/) explains why testing yourself beats rereading. You will also find related grammar traps in our [a, an, the rules](/en/blog/articles-a-an-the-rules/) guide, and thematic word sets on the [vocabulary page](/en/vocabulary/).
 
+Another pair that confuses learners at every level is covered in [make vs do](/en/blog/make-vs-do/), with the collocations you need to memorise.
+
 {{cta: /#/practice/test | Test yourself on confusing word pairs}}
 
 {{youtube: | Video idea: ten commonly confused pairs, each with a one-line memory trick and an original example sentence}}

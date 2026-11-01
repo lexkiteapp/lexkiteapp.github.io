@@ -10,7 +10,7 @@
   const EN = {
     // Khung, thanh bên, đăng nhập
     'Bỏ qua tới nội dung': 'Skip to content', 'Mở menu': 'Open menu', 'Đóng menu': 'Close menu', 'Đi tới…': 'Go to…', 'Điều hướng quản trị': 'Admin navigation',
-    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
+    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Quảng cáo': 'Ads', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.': 'Per-platform flags, kill switch, estimated revenue, frequency caps, retention guard and consent by region.', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
     'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.': 'System health, real people and automated jobs on one screen.',
     'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.': 'Live traffic, sources, usage habits and growth.',
@@ -27,6 +27,7 @@
     'Backlink, PR & Thương hiệu': 'Backlinks, PR & Brand', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.': 'PR posts and profiles linking to lexkite.com, lookalike domains, social accounts, content copies – checked daily.',
     'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.': 'Per-feature quotas, provider breakers, blocks and the unlimited list.',
     'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.': 'Private Google Drive pool: capacity, replicas, file browser, ledger.',
+    'Lưu trữ': 'Storage', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.': 'Main repo and media repo size (MB, files), 20k-word forecast, alerts at 70%.',
     'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.': 'AI & mail provider key vault – encrypted, rotated, health-checked.',
     'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.': 'Services in use, accounts, free tiers and capacity.',
     'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.': 'Site banner, AI limits, monitoring and analytics sampling.',
@@ -44,6 +45,8 @@
     'Không tải được dữ liệu': 'Could not load data', 'Thử lại': 'Retry', 'Tìm trong bảng': 'Search this table', '🔎 Lọc…': '🔎 Filter…', 'Sắp xếp theo {c}': 'Sort by {c}', '{a}–{b} / {n}': '{a}–{b} of {n}',
     'Bỏ thay đổi chưa lưu?': 'Discard unsaved changes?', 'Bạn có thay đổi chưa lưu. Rời trang sẽ mất các thay đổi này.': 'You have unsaved changes. Leaving this page will lose them.', 'Bỏ thay đổi': 'Discard changes', 'Ở lại': 'Stay',
     // Drive (banner toàn cục)
+    'Xem Cảnh báo': 'Open alerts', 'Xem Lưu trữ': 'Open storage',
+    'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
     'Drive {e} mất kết nối – bấm Kết nối lại': 'Drive {e} disconnected – click Reconnect', 'Drive {e}: Google không phản hồi {n} lần liên tiếp': 'Drive {e}: Google failed {n} times in a row', 'Drive {e}: tải lên lỗi {n} lần liên tiếp': 'Drive {e}: {n} uploads failed in a row',
     'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
     // Đơn vị & thời gian
@@ -201,11 +204,11 @@
 
   // ---------- Điều hướng: nhóm → mục [khóa, biểu tượng, nhãn, mô tả, id huy hiệu] ----------
   const NAV = [
-    ['Tổng quan', [['overview', '📊', 'Tổng quan', 'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.'], ['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.']]],
+    ['Tổng quan', [['overview', '📊', 'Tổng quan', 'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.'], ['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.'], ['ads', '💰', 'Quảng cáo', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.']]],
     ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
     ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
     ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
-    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.']]],
+    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
   const ITEM = {}; NAV.forEach(([g, items]) => items.forEach(([k, icon, label, desc, badge]) => { ITEM[k] = { k, icon, label, desc, badge, group: g }; }));
@@ -403,8 +406,12 @@
     return j;
   }
   // Kho Drive riêng qua /api/drive – tab Kho Drive. Lỗi → err.code + err.data
+  // 27/10: không hạn chờ → máy chủ chậm/treo = tab Kho Drive "Đang tải…" mãi. Đọc nhanh ≤ 45 s; op dài (kiểm sức khỏe, sửa bản sao, chép lại) ≤ 120 s → lỗi 'timeout' + nút Thử lại
+  const DAPI_LONG = new Set(['health', 'repair', 'rebalance', 'refresh_quota', 'verify_files', 'backup_export', 'refs_sync']);
   async function dapi(op, body = {}) {
-    const r = await fetch('/api/drive', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const ms = DAPI_LONG.has(op) ? 120e3 : 45e3, ctl = typeof AbortController === 'function' ? new AbortController() : null, tm = ctl && setTimeout(() => ctl.abort(), ms);
+    let r; try { r = await fetch('/api/drive', { method: 'POST', credentials: 'same-origin', signal: ctl ? ctl.signal : undefined, headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) }); }
+    catch (x) { const e = new Error(x && x.name === 'AbortError' ? 'timeout' : 'network'); e.code = e.message; throw e; } finally { clearTimeout(tm); }
     const j = await r.json().catch(() => ({}));
     if (r.status === 401 && j.error === 'reauth') return reauth();
     if (!r.ok) { const e = new Error(j.message || j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
@@ -557,21 +564,28 @@
     } catch (e) { /* huy hiệu không bắt buộc */ }
   }
   // Cảnh báo chủ động Kho Drive (functions/api/drive.js op alerts): banner đỏ/vàng trên mọi tab + huy hiệu Kho Drive
-  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao' };
+  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md' }; // giữ khớp alertTxt trong admin-drive.js
   let drvAl = null;
+  // Cảnh báo chung một nguồn (drive_alerts) nhưng không phải loại nào cũng thuộc Kho Drive → nhãn + trang đích theo loại; huy hiệu Kho Drive chỉ đếm cảnh báo Drive
+  // (27/10: cảnh báo CI hiện dưới nhãn "Kho Drive" + ⛔ ở mục Kho Drive → tưởng Drive hỏng).
+  const ALERT_DST = { capacity: ['Hạn mức', 'quota', 'Xem Hạn mức'], d1: ['Hạn mức', 'quota', 'Xem Hạn mức'], gitsize: ['Lưu trữ', 'storage', 'Xem Lưu trữ'],
+    ci: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], deploy: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_d1: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_code: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_rel: ['Hệ thống', 'alerts', 'Xem Cảnh báo'] };
+  const DRV_DST = ['Kho Drive', 'drive', 'Xem Kho Drive'], dstOf = a => ALERT_DST[a.t] || DRV_DST;
   const paintDrv = () => {
-    const al = drvAl || [], crit = al.filter(a => a.level === 'crit');
-    setBadge('drvN', al.length ? (crit.length ? '⛔' : '⚠') + al.length : '', crit.length ? 'drv-crit' : '');
+    const al = drvAl || [], crit = al.filter(a => a.level === 'crit'), dal = al.filter(a => dstOf(a) === DRV_DST), dcrit = dal.some(a => a.level === 'crit');
+    setBadge('drvN', dal.length ? (dcrit ? '⛔' : '⚠') + dal.length : '', dcrit ? 'drv-crit' : '');
     let el = $('#drvBanner');
     if (!al.length) { if (el) el.remove(); return; }
     if (!el) { el = document.createElement('div'); el.id = 'drvBanner'; el.setAttribute('role', 'alert'); $('#pgHead').parentNode.insertBefore(el, $('#pgHead')); }
-    const top = crit[0] || al[0], p = top.p || {};
+    const top = crit[0] || al[0], p = top.p || {}, dst = dstOf(top);
     el.className = 'drv-banner ' + (crit.length ? 'crit' : 'warn');
-    const cap = top.t === 'capacity'; // functions/api/capacity.js – nâng gói Cloudflare → tab Hạn mức
-    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${esc(L(cap ? 'Hạn mức' : 'Kho Drive'))}:</b> <span>${esc(L(DRV_T[top.t] || DRV_T.conn, { e: p.email || '', n: p.n || '', p: p.pct || '', g: p.gb ?? '', d: p.by || '' }))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''}</span> <a href="#${cap ? 'quota' : 'drive'}" data-go="${cap ? 'quota' : 'drive'}">${esc(L(cap ? 'Xem Hạn mức' : 'Xem Kho Drive'))} →</a>`;
-    el.querySelector('a').onclick = e => { e.preventDefault(); go(cap ? 'quota' : 'drive'); };
+    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${esc(L(dst[0]))}:</b> <span>${esc(DRV_T[top.t] ? L(DRV_T[top.t], { e: p.email || '', n: p.n ?? '', p: p.pct ?? '', g: p.gb ?? '', d: p.by || '', r: p.repo || '' }) : L('Cảnh báo hệ thống: {k}', { k: top.kind || top.t || '?' }))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''}</span> <a href="#${dst[1]}" data-go="${dst[1]}">${esc(L(dst[2]))} →</a>`;
+    el.querySelector('a').onclick = e => { e.preventDefault(); go(dst[1]); };
   };
   async function driveAlerts() { try { const r = await dapi('alerts'); drvAl = r.alerts || []; } catch (e) { return; } paintDrv(); }
+  // Tab quản trị để mở lâu (vd cả buổi sáng): quay lại tab → tải lại cảnh báo, không giữ cảnh báo cũ đã hết (≥ 60 s giữa 2 lần, tiết kiệm lượt đọc D1)
+  let drvAt = 0;
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && document.body.classList.contains('adm-in') && Date.now() - drvAt > 60e3) { drvAt = Date.now(); driveAlerts(); } });
 
   // ---------- Bảng lệnh Ctrl/⌘+K: nhảy tới mọi mục + vài lệnh nhanh ----------
   const fold = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
@@ -633,11 +647,7 @@
   };
   // Đủ mọi ngày trong khoảng chọn (ngày không có phiên = 0) – tránh vài cột khổng lồ khi dữ liệu thưa
   const padDays = (rows, days) => { const by = Object.fromEntries((rows || []).map(r => [r.day, r])), out = []; for (let i = Math.min(days, 90) - 1; i >= 0; i--) { const d = vday(Date.now() - i * 864e5); out.push(by[d] || { day: d, s: 0, v: 0 }); } return out; };
-  const chart = (rows, key, label) => {
-    if (!rows.length) return NODATA();
-    const W = 600, H = 170, max = Math.max(1, ...rows.map(r => +r[key] || 0)), bw = W / rows.length;
-    return `<svg class="chart" viewBox="0 0 ${W} ${H + 18}" preserveAspectRatio="none" role="img" aria-label="${esc(label)}">${rows.map((r, i) => { const h = (+r[key] || 0) / max * H; return `<rect x="${i * bw + 1}" y="${H - h}" width="${Math.max(bw - 2, 1)}" height="${h}" rx="2" fill="var(--primary)"><title>${esc(r.day)}: ${num(r[key])}</title></rect>`; }).join('')}<text x="0" y="${H + 14}">${esc(rows[0].day)}</text><text x="${W}" y="${H + 14}" text-anchor="end">${esc(rows[rows.length - 1].day)}</text><text x="2" y="10">${num(max)}</text></svg>`;
-  };
+  const chart = (rows, key, label) => AdminChart.bars(rows, { key, fmt: num, x: r => String(r.day).slice(5), aria: label, empty: L('Chưa có dữ liệu') }); // js/admin-chart.js – chữ cố định px, lưới, nhãn ngày tự giãn
 
   // ---------- Phân tích trực tiếp: thẻ KPI, biểu đồ vùng 14 ngày, bản đồ thế giới (jsvectormap tải lười) ----------
   let liveTimer = null, worldMap = null, mapKey = '', mapLib = null, mapRO = null;
@@ -1334,6 +1344,14 @@
       await lazy('AdminKeys', 'js/admin-keys.js'); main.innerHTML = '';
       AdminKeys.render(main, kapi, L, { esc, num, when, lang: () => LANG });
     },
+    async ads() { // 💰 Quảng cáo – js/admin-ads.js (tải lười) → op adsStats + config/configSet (docs/ADS.md)
+      await lazy('AdminAds', 'js/admin-ads.js'); main.innerHTML = '';
+      AdminAds.render(main, api, L, { esc, lang: () => LANG, toast, confirm: confirmDlg });
+    },
+    async storage() { // 💾 Lưu trữ – js/admin-storage.js (tải lười) đọc /data/storage-forecast.json (docs/STORAGE.md)
+      await lazy('AdminStorage', 'js/admin-storage.js'); main.innerHTML = '';
+      AdminStorage.render(main, L, { esc, num, lang: () => LANG });
+    },
     async quota() { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
       await lazy('AdminQuota', 'js/admin-quota.js'); main.innerHTML = '';
       AdminQuota.render(main, L, { esc, num, when, lang: () => LANG });
@@ -1342,10 +1360,11 @@
       main.innerHTML = '';
       if (!window.AdminNotices) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-notices.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); });
       AdminNotices.render(main, api, L, { esc, num, when, lang: () => LANG, user });
+      lazy('AdminPush', 'js/admin-push.js').then(() => AdminPush.render(main, L, { esc, num, lang: () => LANG })).catch(() => {}); // ⏰ thẻ Nhắc học (docs/REMINDERS.md)
     },
     async settings() {
       const [c, g] = await Promise.all([api('config'), api('geminiStatus').catch(() => null)]);
-      const keys = c.keys || [], vals = c.values || {}, known = new Set(SETTINGS.flatMap(s => s.fields.map(f => f.k)));
+      const keys = (c.keys || []).filter(k => !/^ads_/.test(k)), vals = c.values || {}, known = new Set(SETTINGS.flatMap(s => s.fields.map(f => f.k)));
       const groups = [...SETTINGS, ...(keys.some(k => !known.has(k)) ? [{ id: 'other', title: 'Khác@@set', desc: '', fields: keys.filter(k => !known.has(k)).map(k => ({ k, type: 'text', label: k, def: '' })) }] : [])]
         .map(s => ({ ...s, fields: s.fields.filter(f => keys.includes(f.k)) })).filter(s => s.fields.length);
       const F = {}; groups.forEach(s => s.fields.forEach(f => { const cur = String((vals[f.k] || {}).v ?? ''); F[f.k] = { f, cur, val: cur }; }));
