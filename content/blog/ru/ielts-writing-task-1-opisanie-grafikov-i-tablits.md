@@ -3,7 +3,7 @@ title: "IELTS writing task 1 графики : структура отчета и
 description: "Сдайте IELTS writing task 1 графики на балл 7+: 4-абзацная структура отчета, ключевой абзац Overview, словарь описания трендов и готовые шаблоны анализа."
 slug: ielts-writing-task-1-opisanie-grafikov-i-tablits
 lang: ru
-translationKey: ielts-writing-task-1-mo-ta-bieu-do
+translationKey: ielts-writing-task-1-line-graph
 category: ielts
 tags: [ielts, writing, task-1]
 keyword: "ielts writing task 1 графики"

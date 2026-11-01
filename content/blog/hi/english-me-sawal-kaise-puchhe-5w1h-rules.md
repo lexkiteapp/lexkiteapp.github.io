@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "प्रेजेंट सिंपल में ही/शी/इट के साथ प्रश्न बनाते समय सहायक क्रिया 'does' का प्रयोग होता है और मुख्य क्रिया अपने मूल रूप (bare infinitive) में वापस आ जाती है।"
+  },
+  {
+    q: "'The senior engineer is available for the meeting' को प्रश्न में बदलने पर सही रूप कौन सा है?",
+    options: [
+      "Does the senior engineer available for the meeting?",
+      "Is the senior engineer available for the meeting?",
+      "Do the senior engineer is available for the meeting?",
+      "The senior engineer is available for the meeting?"
+    ],
+    answer: 1,
+    explain: "To Be क्रिया (is, am, are, was, were) को सीधे कर्ता से पहले लाया जाता है, इसमें Do या Does की जरूरत नहीं पड़ती।"
+  },
+  {
+    q: "Present Simple में He/She/It के साथ प्रश्न में मुख्य क्रिया का कौन सा रूप आता है?",
+    options: [
+      "Does the application synchronizes data?",
+      "Does the application synchronize data?",
+      "Do the application synchronize data?",
+      "Is the application synchronize data?"
+    ],
+    answer: 1,
+    explain: "Does के साथ मुख्य क्रिया अपने मूल रूप में रहती है, इसलिए 'synchronize' लिखा जाता है, 'synchronizes' नहीं, जैसा लेख में बताया गया है।"
+  },
+  {
+    q: "मोडल क्रिया वाले वाक्य 'We can postpone the client briefing' का सही प्रश्न कौन सा है?",
+    options: [
+      "Do we can postpone the client briefing?",
+      "We can postpone the client briefing?",
+      "Can we postpone the client briefing?",
+      "Does we postpone the client briefing?"
+    ],
+    answer: 2,
+    explain: "मोडल क्रिया (can, should, will आदि) कर्ता से पहले आ जाती है और मुख्य क्रिया मूल रूप में रहती है, इसलिए Can we postpone सही है।"
   }
 ]
 publishAt: 2026-11-24T20:03:00+05:30
@@ -64,7 +97,7 @@ $$\text{सहायक क्रिया (Auxiliary)} + \text{कर्ता 
 
 सभी महत्वपूर्ण टेंस और वाक्यों के नियमों को [Lexkite ग्रामर कोर्स](/#/grammar) में गहराई से समझें।
 
-![Lexkite पर IELTS व्याकरण: अध्यायों का मार्ग, 12 काल (Simple, Continuous, Perfect…), स्तर A1–B2 और मिश्रित अभ्यास](media:grammar "प्रश्न बनाने की नींव, यानी 12 कालों का अभ्यास Lexkite पर करें")
+![Lexkite का व्याकरण पाठ्यक्रम: अध्याय, 12 काल (tenses), A1–B2 स्तर और मिश्रित अभ्यास](media:grammar "अंग्रेजी व्याकरण के 12 काल और प्रश्न निर्माण के विस्तृत नियमों का अभ्यास Lexkite पर करें")
 
 ## 2. जानकारी वाले प्रश्न: 5W1H (Wh-Questions)
 
@@ -89,7 +122,7 @@ $$\text{Wh-Word} + \text{सहायक क्रिया} + \text{कर्�
 
 प्रश्नों के सही क्रम का अभ्यास करने के लिए [Lexkite प्रैक्टिस हब](/#/practice) का उपयोग करें।
 
-![Lexkite की अभ्यास और खेल स्क्रीन: स्मार्ट लर्न, कार्ड मैचिंग, उच्चारण, बहुविकल्पीय, रिक्त स्थान, सुनकर लिखना, टेस्ट और राइटिंग रूम](media:practice "Lexkite की अभ्यास स्क्रीन पर शब्द और व्याकरण के खेलों से प्रश्नों का अभ्यास करें")
+![Lexkite अभ्यास केंद्र: स्मार्ट लर्न, मैच, उच्चारण, बहुविकल्पी, रिक्त स्थान, सुनकर लिखना, टेस्ट और राइटिंग रूम](media:practice "प्रश्नों के सही क्रम और इंटरएक्टिव ग्रामर क्विज़ का अभ्यास Lexkite पर करें")
 
 ## 3. सबसे महत्वपूर्ण अपवाद: सब्जेक्ट क्वेश्चन (Subject Questions)
 

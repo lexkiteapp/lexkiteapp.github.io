@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "في زمن المضارع البسيط، عند استخدام الفعل المساعد 'does' مع الضمائر المفردة (he/she/it)، يعود الفعل الأساسي وجوباً إلى صيغة المصدر المجرد (bare infinitive) بدون أي إضافات."
+  },
+  {
+    q: "أي سؤال صحيح لتحويل الجملة «The executives were satisfied with the quarterly results»؟",
+    options: [
+      "Did the executives satisfied with the quarterly results?",
+      "Were the executives satisfied with the quarterly results?",
+      "Do the executives were satisfied with the quarterly results?",
+      "The executives were satisfied with the quarterly results?"
+    ],
+    answer: 1,
+    explain: "مع أفعال الكينونة (is, am, are, was, were) نعكس الترتيب فقط بوضع الفعل في بداية الجملة دون استدعاء Do أو Did."
+  },
+  {
+    q: "أي صيغة تكوّن سؤالاً صحيحاً مع فاعل مفرد غائب في المضارع البسيط؟",
+    options: [
+      "Does the software supports real-time collaboration?",
+      "Do the software support real-time collaboration?",
+      "Does the software support real-time collaboration?",
+      "Is the software support real-time collaboration?"
+    ],
+    answer: 2,
+    explain: "نستخدم Does مع He/She/It ونجرد الفعل الأساسي من علامة -s، فيصبح Does the software support كما في مثال المقال."
+  },
+  {
+    q: "ما الذي يحدث للفعل الناقص (modal) عند تكوين سؤال نعم أو لا مثل «We can reschedule the deadline»؟",
+    options: [
+      "يبقى في مكانه ونضيف Do",
+      "يُنقل إلى بداية الجملة ويبقى الفعل الأساسي في المصدر: Can we reschedule",
+      "يتحول إلى الماضي مع Did",
+      "يُحذف ويُستبدل بـ Does"
+    ],
+    answer: 1,
+    explain: "يتقدم الفعل الناقص إلى الصدارة ويبقى الفعل الأساسي في صيغة المصدر، مثل Can we reschedule وShould applicants submit."
   }
 ]
 publishAt: 2026-11-23T08:24:00+03:00
@@ -64,7 +97,7 @@ $$\text{الفعل المساعد (Auxiliary)} + \text{الفاعل (Subject)} +
 
 استكشف قواعد الأزمنة وبناء الجمل في [منهج القواعد التفاعلي في Lexkite](/#/grammar).
 
-![قواعد IELTS في Lexkite: مسار الفصول والأزمنة الاثني عشر (المضارع البسيط والمستمر والتام…) والمستويات A1–B2 وتمارين شاملة](media:grammar "مسار القواعد في Lexkite: الأزمنة الاثنا عشر التي تقوم عليها صياغة الأسئلة")
+![مسار القواعد في Lexkite: فصول مرتبة والأزمنة الاثنا عشر ومستويات من A1 إلى B2 مع تمارين شاملة](media:grammar "منهج قواعد اللغة الإنجليزية المتكامل وشرح هياكل تكوين الجمل الاستفهامية في Lexkite")
 
 ## 2. أسئلة المعلومات المفتوحة (Wh-Questions / 5W1H)
 
@@ -89,7 +122,7 @@ $$\text{أداة الاستفهام (Wh-Word)} + \text{الفعل المساعد
 
 مارس حل التمارين التفاعلية لتثبيت قواعد ترتيب الأسئلة في [منصة التدريب العملي في Lexkite](/#/practice).
 
-![شاشة التمارين والألعاب في Lexkite: التعلم الذكي، مطابقة البطاقات، النطق، الاختيار من متعدد، ملء الفراغات، الاستماع والكتابة، الاختبار وغرفة الكتابة](media:practice "مركز التمارين والألعاب في Lexkite لتدريب المفردات والقواعد بعد قراءة الدرس")
+![مركز التدريب في Lexkite: التعلّم الذكي والمطابقة ونطق الكلمات والاختيار من متعدد وملء الفراغ والاستماع والكتابة والاختبار وغرفة الكتابة](media:practice "تدريبات تفاعلية على ترتيب الكلمات في الأسئلة واختبارات لغوية شاملة على Lexkite")
 
 ## 3. القاعدة الاستثنائية الحاسمة: أسئلة الفاعل (Subject Questions)
 

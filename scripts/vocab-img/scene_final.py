@@ -38,15 +38,24 @@ def enc(im, fmt, qs):
         if b.tell() <= MAXB: return b.getvalue(), q
     return None, q
 
+def flat(im, colors=48):
+    """tranh phẳng: lọc trung vị 3 px (bỏ hạt/dải màu klein) + gom ≤ 48 màu – gần như không đổi mắt nhìn ở ≤ 160 CSS px, nén nhỏ hơn nhiều.
+    Lượt fill 41205453283: 103/248 ảnh QUA giám khảo bị bỏ vì > 6 KB (ảnh đạt bị vứt ở khâu nén) → lùi bước này trước khi bỏ ảnh."""
+    from PIL import ImageFilter
+    a = im.getchannel('A') if im.mode == 'RGBA' else None
+    q = im.convert('RGB').filter(ImageFilter.MedianFilter(3)).quantize(colors, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).convert('RGB')
+    if a is not None: q = q.convert('RGBA'); q.putalpha(a)
+    return q
+
 def encode(im, dst):
-    for side in (384, 320, 288):   # hộp hiển thị ≤ 160 CSS px (/words/ 256 dùng @2x khi có) – thu nhỏ trước khi hạ chất lượng quá thấp
-        s = im.resize((side, side), Image.LANCZOS)
+    for side, f in [(s_, 0) for s_ in (384, 320, 288)] + [(s_, 1) for s_ in (384, 320, 288)] + [(288, 2)]:   # hộp hiển thị ≤ 160 CSS px (/words/ 256 dùng @2x khi có) – thu nhỏ trước khi hạ chất lượng quá thấp; f=1: tranh phẳng (flat) cùng cỡ
+        s = im.resize((side, side), Image.LANCZOS); s = flat(s, 48 if f == 1 else 24) if f else s
         w, qw = enc(s, 'WEBP', (70, 60, 50, 42, 35));
         try: av, qa = enc(s, 'AVIF', (60, 50, 40, 32, 25))
         except Exception: av = None
         if w and av:
             open(dst + '.webp', 'wb').write(w); open(dst + '.avif', 'wb').write(av)
-            return {'side': side, 'webp': len(w), 'avif': len(av), 'q': qw}
+            return {'side': side, 'webp': len(w), 'avif': len(av), 'q': qw, **({'flat': f} if f else {})}
     return None
 
 def h16(path):

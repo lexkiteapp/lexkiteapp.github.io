@@ -82,7 +82,7 @@ for (const scheme of ['dark', 'light']) {
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2500);
   await page.evaluate(async () => { // dữ liệu mẫu giống bối cảnh Stitch: IELTS mục tiêu 7.5, 1 lần thi thử có điểm 4 kỹ năng
-    localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+    localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
     for (const [w, ctxs] of [['collocation', 'a strong collocation'], ['coherence', 'clear coherence'], ['mitigate', 'mitigate risk'], ['phrasal verb', 'a phrasal verb']]) await Core.Cards.add({ word: w, vi: w, ipa: '', def: w }, { text: ctxs, source: 'https://example.com/a' }).catch(() => {}); App.state.cards = await Core.Cards.all(); // thẻ mẫu cho màn Ôn (có thẻ đến hạn)
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 }));
@@ -112,7 +112,7 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
   const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`${scheme}@${QW}: ${e.message}`)); await FIX_CLOCK(page); // đồng hồ cố định cho MỌI màn (chữ 'còn Xh', ngày) → điểm không trôi theo giờ chạy CI
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
-  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]); localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
@@ -156,7 +156,7 @@ for (const scheme of ['dark', 'light']) {
   const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`desk ${scheme}: ${e.message}`)); await FIX_CLOCK(page); // đồng hồ cố định cho MỌI màn (chữ 'còn Xh', ngày) → điểm không trôi theo giờ chạy CI
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
-  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
   for (const [k, h] of Object.entries(SCREENS)) {

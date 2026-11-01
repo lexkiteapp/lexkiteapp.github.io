@@ -4,7 +4,7 @@ title: "IELTS राइटिंग कॉम्प्लेक्स सें�
 description: "IELTS राइटिंग कॉम्प्लेक्स सेंटेंस कैसे बनाएं: 5 उन्नत जटिल वाक्य संरचनाएं, कंजंक्शन, मॉडल पैराग्राफ और ग्रामर रेंज में बैंड 7.5+ पाने की अचूक गाइड।"
 keyword: "ielts राइटिंग कॉम्प्लेक्स सेंटेंस"
 lang: hi
-translationKey: cau-phuc-ielts-writing-complex-sentences
+translationKey: ngu-phap-ielts-cau-phuc
 category: ielts
 tags: [ielts, writing, complex-sentences, grammar]
 cover: write
@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "IELTS आधिकारिक बैंड विवरण (Band Descriptors) के अनुसार बैंड 7.0+ के लिए विभिन्न प्रकार की जटिल वाक्य संरचनाओं (complex structures) का लचीला उपयोग और अधिकांश वाक्यों का त्रुटिहीन होना अनिवार्य है।"
+  },
+  {
+    q: "लेख के अनुसार 'Although' से शुरू होने वाले वाक्य में कौन सा वाक्य सही है?",
+    options: [
+      "Although AI creates new jobs, but many factory workers will suffer.",
+      "Although AI creates new jobs, many factory workers will suffer.",
+      "Although AI creates new jobs and many factory workers will suffer.",
+      "Although, AI creates new jobs but, many factory workers will suffer."
+    ],
+    answer: 1,
+    explain: "Although या While के साथ 'but' नहीं लगाया जाता। दोनों उपवाक्यों के बीच केवल कॉमा आता है, जैसा लेख के गलत और सही वाक्य के उदाहरण में दिखाया गया है।"
+  },
+  {
+    q: "लेख में दिए गए उदाहरण के अनुसार केवल 'so' से जुड़ा कंपाउंड वाक्य (Air pollution is worsening..., so governments must invest...) किस बैंड का दिखाया गया है?",
+    options: [
+      "Band 4",
+      "Band 5",
+      "Band 6",
+      "Band 9"
+    ],
+    answer: 2,
+    explain: "लेख सरल वाक्यों को Band 5, 'so' से जुड़े कंपाउंड वाक्य को Band 6 और Because वाले कॉम्प्लेक्स वाक्य को Band 8 का उदाहरण बताता है।"
+  },
+  {
+    q: "कॉम्प्लेक्स वाक्य (Complex sentence) की सही परिभाषा क्या है?",
+    options: [
+      "दो स्वतंत्र वाक्य जिन्हें and से जोड़ा गया हो",
+      "एक स्वतंत्र उपवाक्य और कम से कम एक आश्रित उपवाक्य का मेल",
+      "केवल एक कर्ता और एक क्रिया वाला वाक्य",
+      "40 शब्दों से लंबा कोई भी वाक्य"
+    ],
+    answer: 1,
+    explain: "लेख बताता है कि जटिल वाक्य में कम से कम एक स्वतंत्र उपवाक्य (Independent clause) और एक आश्रित उपवाक्य होता है, जो कारण, विरोध या समय दर्शाता है।"
   }
 ]
 publishAt: 2026-11-21T21:58:00+05:30
@@ -45,7 +78,7 @@ publishAt: 2026-11-21T21:58:00+05:30
 
 अपने व्याकरण और शब्दावली की गहराई जांचने के लिए [Lexkite राइटिंग टूल](/#/write) पर अभ्यास करें।
 
-![Lexkite का IELTS Task 2 राइटिंग रूम: विषय चुनना, आइडिया सुझाव, शब्द सुझाव, निबंध की रूपरेखा और टिप्पणियों सहित बैंड 8 का नमूना](media:write "IELTS निबंधों में जटिल वाक्यों और व्याकरण की सटीकता की जांच Lexkite राइटिंग मॉड्यूल में करें")
+![Lexkite का IELTS Writing Task 2 कक्ष: विषय चुनना, आइडिया सुझाव, उपयोगी शब्दावली, निबंध ढाँचा और बैंड 8 का व्याख्या सहित नमूना](media:write "IELTS निबंधों में जटिल वाक्यों और व्याकरण की सटीकता की जांच Lexkite राइटिंग मॉड्यूल में करें")
 
 ## 2. संरचना 1: विरोधाभास और रियायत वाले उपवाक्य (Concession & Contrast Clauses)
 
@@ -89,7 +122,7 @@ IELTS निबंधों में अपने मुख्य तर्क�
 
 व्याकरण के इन नियमों और सिंटैक्स को गहराई से समझने के लिए [Lexkite ग्रामर गाइड](/#/grammar) का अध्ययन करें।
 
-![Lexkite पर IELTS व्याकरण: अध्यायों का मार्ग, 12 काल (Simple, Continuous, Perfect…), स्तर A1–B2 और मिश्रित अभ्यास](media:grammar "जटिल वाक्यों से जुड़े काल और व्याकरण के आधार का अभ्यास Lexkite ग्रामर सेक्शन में करें")
+![Lexkite का व्याकरण पाठ्यक्रम: अध्याय, 12 काल (tenses), A1–B2 स्तर और मिश्रित अभ्यास](media:grammar "जटिल वाक्यों के नियमों और क्लॉज संयोजन का अभ्यास Lexkite ग्रामर सेक्शन में करें")
 
 ## 5. संरचना 4: सशर्त उपवाक्य (Conditional Clauses - Type 2 & 3)
 
