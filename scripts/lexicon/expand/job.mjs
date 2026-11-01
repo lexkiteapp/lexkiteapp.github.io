@@ -321,13 +321,17 @@ for (const x of items) {
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
   OUT[x.k] = { pass: !!r.ok, why: r.why || [], ...(ent ? { ent } : {}), ...(X[x.k] && X[x.k].dbg ? { dbg: X[x.k].dbg } : {}) }; // dbg cả mục ĐẠT (tờ soát: nguồn vi từng AI)
   if (hasGap(r)) { why.gap = (why.gap || 0) + 1; gaps.add(x.k); continue; } // có lỗ dữ liệu nguồn (thiếu IPA…, kể cả kèm lỗi nội dung – vd. 20261027-pilot) → không vào hàng duyệt, lượt sau sinh lại
-  if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; delete ent.qa.viLem; if (r.drop) { for (const l of Object.keys(r.drop)) delete ent.m[l]; ent.qa.trDrop = r.drop; ent.qa.trKeep = r.keep.filter(l => ent.m[l]); delete ent.perLang; } pend.items[x.k] = ent; }
+  if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; /* GIỮ qa.viLem: bằng chứng viBtOk – xoá thì mục đã đạt trượt khi cổng lại (descend#v 31/10: "go down" là lemma WordNet) */ if (r.drop) { for (const l of Object.keys(r.drop)) delete ent.m[l]; ent.qa.trDrop = r.drop; ent.qa.trKeep = r.keep.filter(l => ent.m[l]); delete ent.perLang; } pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }
   else if (WORDS) why[r.why[0].split(':')[0]] = (why[r.why[0].split(':')[0]] || 0) + 1;
   else { why[r.why[0].split(':')[0]] = (why[r.why[0].split(':')[0]] || 0) + 1; queue.items = queue.items.filter(q => !(q.src === 'lexicon-expand' && q.id === x.k)); queue.items.push({ src: 'lexicon-expand', id: x.k, batch: BATCH, why: r.why.slice(0, 4), at: new Date().toISOString().slice(0, 10), ...(ent ? { data: ent } : {}) }); }
 }
 // lưới cuối: KHÔNG bao giờ ghi IPA lệch vào lô chờ (kể cả mục cũ của cùng lô) – cùng kiểm với promote.mjs
 for (const [k, e] of Object.entries(pend.items)) { const c = checkEntry(e, REFS); if (c.bad.length || c.fix.length) { console.error(`✗ ${k}: IPA lệch nguồn – bỏ khỏi lô (${[...c.fix, ...c.bad].join(' · ')})`); delete pend.items[k]; if (OUT[k]) OUT[k] = { ...OUT[k], pass: false, why: ['ipa: lệch Britfone/CMU (lưới cuối)'] }; stat.ipaDrop = (stat.ipaDrop || 0) + 1; } }
+// lưới cuối 2: dạng LƯU phải qua lại cổng y như test/promote (descend#v 31/10: bỏ trường bằng chứng → mục đạt trượt khi cổng lại) – trượt → hàng duyệt
+for (const [k, e] of Object.entries(pend.items)) { const r2 = gateEntry(e); if (r2.ok) continue; console.error(`✗ ${k}: dạng lưu trượt cổng – bỏ khỏi lô (${r2.why.join(' · ')})`); delete pend.items[k];
+  if (OUT[k]) OUT[k] = { ...OUT[k], pass: false, why: r2.why }; stat.storeDrop = (stat.storeDrop || 0) + 1;
+  if (!WORDS) { queue.items = queue.items.filter(q => !(q.src === 'lexicon-expand' && q.id === k)); queue.items.push({ src: 'lexicon-expand', id: k, batch: BATCH, why: ['dạng lưu trượt cổng: ' + r2.why[0]].concat(r2.why.slice(1, 4)), at: new Date().toISOString().slice(0, 10), data: e }); } }
 pend.n = Object.keys(pend.items).length;
 if (WORDS) { fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/pilot-hard-out.json', JSON.stringify({ batch: BATCH, at: new Date().toISOString(), words: WORDS, items: OUT })); }
 else { fs.mkdirSync(new URL('content/lexicon/expand/pending/', ROOT), { recursive: true });

@@ -38,6 +38,7 @@ jobs:
       shards: ${{ steps.p.outputs.shards }}
       per: ${{ steps.p.outputs.per }}
       skip: ${{ steps.p.outputs.skip }}
+      par: ${{ steps.p.outputs.par }}
     steps:
       - uses: actions/checkout@v4
         if: github.event.inputs.mode != 'calibrate' && github.event.inputs.mode != 'rejudge' && github.event.inputs.from_run == ''
@@ -50,6 +51,8 @@ jobs:
         env: { PROBE_ALIVE: '${{ steps.probe.outputs.alive || 99 }}', PROBE_HEAD: '${{ steps.probe.outputs.alive_head || 99 }}', PROBE_TAIL: '${{ steps.probe.outputs.alive_tail || 99 }}' }
         run: |
           n=${{ github.event.inputs.shards || '1' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1
+          # 01/11: fill nhường máy cho giao diện ban ngày VN (01–15 UTC, >50 lượt chờ máy) – 3 máy; đêm 5. Vẫn 10 việc, mỗi việc cùng trần ảnh → tổng ảnh/ngày không đổi (kho vẫn vét hết trong cửa sổ 24 h)
+          h=${VIMG_HOUR:-$(date -u +%-H)}; par=5; [ "$h" -ge 1 ] && [ "$h" -lt 15 ] && par=3; echo "par=$par" >> $GITHUB_OUTPUT
           if [ -n "${{ github.event.inputs.from_run }}" ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 26/10: lịch fill CHỈ chạy khi chủ bật biến repo VIMG_SCHEDULE=1 (bật lại workflow để chạy thử tay không kéo theo fill 4 lượt/ngày)
           if [ "${{ github.event_name }}" = schedule ] && [ "${{ vars.VIMG_SCHEDULE }}" != 1 ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
@@ -242,7 +245,7 @@ jobs:
     timeout-minutes: 130
     strategy:
       fail-fast: false
-      max-parallel: 5   # 27/10 chủ: ảnh không giữ quá 5/20 máy GitHub – npm test/Prod release không phải xếp hàng
+      max-parallel: ${{ fromJSON(needs.plan.outputs.par || '5') }}   # 27/10 chủ: ảnh ≤ 5/20 máy GitHub; 01/11: ban ngày VN 3 (plan.par)
       matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' }
     env:
       LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
