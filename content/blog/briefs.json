@@ -258,7 +258,8 @@
         "/#/practice/speak"
       ],
       "angle": "Cách học phrasal verb theo tiểu từ (up, out, off…), 30 cụm thông dụng có ví dụ tự đặt, khi nào nên tránh trong Writing",
-      "intent": "informational"
+      "intent": "informational",
+      "lang": "vi"
     },
     {
       "slug": "idiom-ielts-speaking",
@@ -13633,6 +13634,138 @@
         "/#/pron"
       ],
       "angle": "Shadowing technique से फर्राटेदार English बोलना सीखें: सही ऑडियो का चयन, रिदम और कनेक्टेड स्पीच की नकल, खुद की रिकॉर्डिंग से सुधार और 5-चरणीय 15-मिनट दैनिक अभ्यास गाइड।",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "common-phrasal-verbs-in-english",
+      "keyword": "common phrasal verbs in english",
+      "topic": "Common Phrasal Verbs in English: Meanings, Particle Logic, and Natural Usage",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "speaking",
+        "phrasal-verbs"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/practice/speak"
+      ],
+      "angle": "Master essential English phrasal verbs by particle logic (up, down, off, out), clear contextual examples, and key register distinctions between informal speech and formal academic writing.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "phrasal-verbs-bahasa-inggris-populer",
+      "keyword": "phrasal verbs bahasa inggris populer",
+      "topic": "Phrasal Verbs Bahasa Inggris Populer: Arti, Pola Partikel, dan Cara Pakai",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "speaking",
+        "phrasal-verbs"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/practice/speak"
+      ],
+      "angle": "Panduan lengkap memahami phrasal verbs bahasa Inggris berdasarkan logika partikel, contoh kalimat percakapan sehari-hari, serta batasan penggunaannya dalam tulisan formal.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "phrasal-verbs-thi-chai-boi-phasa-angkrit",
+      "keyword": "phrasal verbs ที่ใช้บ่อย",
+      "topic": "รวม Phrasal Verbs ที่ใช้บ่อยในภาษาอังกฤษ: ความหมาย หลักการจำ และตัวอย่างประโยค",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "speaking",
+        "phrasal-verbs"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/practice/speak"
+      ],
+      "angle": "สรุป phrasal verbs ที่พบบ่อยที่สุดในบทสนทนาและข้อสอบ IELTS อธิบายด้วยตรรกะ particle พร้อมข้อควรระวังในการเขียนเชิงวิชาการ",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "english-phrasal-verbs-in-hindi",
+      "keyword": "english phrasal verbs in hindi",
+      "topic": "English Phrasal Verbs in Hindi: अर्थ, नियम और दैनिक बातचीत में सही उपयोग",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "speaking",
+        "phrasal-verbs"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/practice/speak"
+      ],
+      "angle": "हिन्दी माध्यम से इंग्लिश phrasal verbs सीखने की आसान विधि, मुख्य पार्टिकल्स (up, off, out) का तर्क, और स्पोकन बनाम फॉर्मल राइटिंग में इनका सही प्रयोग।",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "eigo-kuseigo-phrasal-verbs-tsukaikata",
+      "keyword": "英語 句動詞 phrasal verbs 使い方",
+      "topic": "英語の句動詞（Phrasal Verbs）完全解説：前置詞・副詞のイメージと頻出表現",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "speaking",
+        "phrasal-verbs"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/practice/speak"
+      ],
+      "angle": "句動詞（phrasal verbs）を丸暗記ではなく前置詞・副詞のコアイメージで理解する実践法。英会話とIELTSスピーキングで自然に使いこなすコツとライティングでの注意点。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "youngo-gudongsa-phrasal-verbs-jeongbok",
+      "keyword": "영어 구동사 phrasal verbs 정리",
+      "topic": "영어 구동사(Phrasal Verbs) 핵심 정리: 전치사 이미지 학습법과 실전 회화 예문",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "speaking",
+        "phrasal-verbs"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/practice/speak"
+      ],
+      "angle": "단순 암기에서 벗어나 전치사와 부사의 기본 이미지로 이해하는 영어 구동사 학습법. 일상 회화 필수 표현부터 학술 에세이 대체 어휘까지 완벽 정리.",
       "intent": "informational"
     }
   ]
