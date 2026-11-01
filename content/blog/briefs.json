@@ -13082,6 +13082,305 @@
       ],
       "angle": "Essential IELTS vocabulary for environment and climate change: collocations, Band 8 sample sentences, essay outlines and common pitfalls",
       "intent": "informational"
+    },
+    {
+      "slug": "como-parafrasear-en-ielts-tecnicas",
+      "keyword": "como parafrasear en ielts",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "5 técnicas infalibles para parafrasear en IELTS Writing y Speaking, sinónimos precisos, cambios de estructura y errores comunes",
+      "intent": "informational"
+    },
+    {
+      "slug": "como-parafrasear-no-ielts-tecnicas",
+      "keyword": "como parafrasear no ielts",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "Guia prático de paráfrase no IELTS: 5 métodos para transformar frases no Writing Task 2 e Speaking, vocabulário e exercícios",
+      "intent": "informational"
+    },
+    {
+      "slug": "cara-paraphrase-ielts-writing-reading",
+      "keyword": "cara paraphrase ielts",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "5 teknik paraphrase IELTS Writing Task 2 dan Speaking untuk meraih Band 7.5+, sinonim yang tepat, perubahan struktur kalimat dan contoh",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-paraphrase-iikae-koubun-kotsu",
+      "keyword": "ielts パラフレーズ 言い換え",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTSライティング・スピーキングで必須のパラフレーズ（言い換え）5つの実践的テクニック、語形変化、構文転換とBand 8模範例",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-paraphrasing-mandeulgi-bibeop",
+      "keyword": "ielts 패러프레이징 방법",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTS 라이팅 Task 2 서론 및 본문 고득점 패러프레이징 5가지 공식, 품사 전환, 구문 변형 및 Band 8.5 실전 예시",
+      "intent": "informational"
+    },
+    {
+      "slug": "ya-si-tong-yi-ti-huan-paraphrase-ji-qiao",
+      "keyword": "雅思 同义替换 技巧",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "雅思写作Task 2与阅读听力必备的5大同义替换（Paraphrase）技巧：词性转换、句式重塑、反义表述及Band 8实战范例",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-paraphrasieren-techniken-beispiele",
+      "keyword": "ielts paraphrasieren",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "5 effektive Techniken zum Paraphrasieren im IELTS Writing und Speaking: Synonyme, Wortartenwechsel, Satzumstellungen und Band 8 Beispiele",
+      "intent": "informational"
+    },
+    {
+      "slug": "comment-paraphraser-ielts-techniques",
+      "keyword": "comment paraphraser ielts",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "Comment paraphraser efficacement à l IELTS : 5 techniques clés pour le Writing Task 2 et le Speaking, exemples authentiques et pièges à éviter",
+      "intent": "informational"
+    },
+    {
+      "slug": "kak-perefrazirovat-v-ielts-paraphrase",
+      "keyword": "как перефразировать в ielts",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "5 техник перифраза (paraphrasing) в IELTS Writing Task 2 и Speaking: смена частей речи, трансформация грамматики и примеры на Band 8.5",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-paraphrase-yapma-teknikleri-ornekler",
+      "keyword": "ielts paraphrase yapma",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTS Writing ve Speaking için 5 güçlü paraphrase tekniği: eş anlamlılar, kelime türü değişimi, cümle yapısı dönüştürme ve Band 8 örnekleri",
+      "intent": "informational"
+    },
+    {
+      "slug": "thikhnik-paraphrase-ielts-writing-reading",
+      "keyword": "เทคนิค paraphrase ielts",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "5 เทคนิคการ Paraphrase ในข้อสอบ IELTS Writing และ Speaking ให้ได้ Band 7.5+: การเปลี่ยนรูปคำ การสลับโครงสร้างประโยค และตัวอย่างเรียงความ",
+      "intent": "informational"
+    },
+    {
+      "slug": "kayfa-tuiid-siyaghat-al-jumal-ielts-paraphrase",
+      "keyword": "إعادة الصياغة في الآيلتس",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "5 تقنيات احترافية لإعادة الصياغة Paraphrasing في اختبار الآيلتس Writing Task 2 و Speaking مع أمثلة عملية ونماذج لباند 8.5",
+      "intent": "informational"
+    },
+    {
+      "slug": "ielts-me-paraphrase-kaise-kare-hindi",
+      "keyword": "ielts में paraphrase कैसे करें",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "paraphrase",
+        "writing",
+        "reading"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTS में Paraphrase कैसे करें: 5 शक्तिशाली तकनीकें, Writing Task 2 और Speaking में वाक्यों को बदलने के नियम, पर्यायवाची शब्द और Band 8.5 मॉडल",
+      "intent": "informational"
     }
   ]
 }
