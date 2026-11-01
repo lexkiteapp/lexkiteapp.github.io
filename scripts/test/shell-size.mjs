@@ -1,17 +1,17 @@
-// 📦 Báo cáo khung app theo từng module (gzip) – PR thấy ngay file/nhóm i18n nào phình. Cổng chặn vẫn là size-budget.mjs (trần 377 KB, KHÔNG nâng).
+// 📦 Báo cáo khung app theo từng module (gzip) – PR thấy ngay file/nhóm i18n nào phình. Cổng chặn vẫn là size-budget.mjs (trần 374 KB gz chuẩn – scripts/lib/gz-canon.mjs, KHÔNG nâng).
 //   - Mỗi file trong SHELL (web/sw.js): gzip hiện tại, so với nhánh gốc (SHELL_BASE, mặc định origin/main nếu có trong git) cùng một bản Node → Δ chính xác
 //   - en.js tách theo nhóm nguồn (web/js/i18n/en/<nhóm>.js) + số khóa "chỉ module tải lười dùng" còn nằm trong khung (nên chuyển sang en/lazyui.js)
 //   - CI: ghi bảng vào GITHUB_STEP_SUMMARY. Không bao giờ thoát lỗi (chỉ báo cáo).
 // Dùng: node scripts/test/shell-size.mjs [--keys] [--move]   (--keys: liệt kê khóa nên chuyển · --move: chuyển luôn rồi chạy bash scripts/build-i18n.sh)
 import fs from 'fs';
 import path from 'path';
-import zlib from 'zlib';
+import { gzSize, firstLoadFiles } from '../lib/gz-canon.mjs';
 import vm from 'vm';
 import { execFileSync } from 'child_process';
 import { pathToFileURL } from 'url';
 
-const gzb = b => zlib.gzipSync(b, { level: 9 }).length, kb = n => (n / 1024).toFixed(1);
-export const shellFiles = () => { const sw = fs.readFileSync('web/sw.js', 'utf8'); return [...(sw.match(/const SHELL = \[([\s\S]*?)\];/) || [, ''])[1].matchAll(/'([^']+)'/g)].map(m => m[1]).filter(u => u !== './').map(u => u.endsWith('/') ? u + 'index.html' : u); };
+const gzb = b => gzSize(b), kb = n => (n / 1024).toFixed(1);
+export const shellFiles = () => firstLoadFiles(); // SHELL (sw.js) ∪ file nạp ngay trong web/app/index.html – cùng danh sách với size-budget.mjs
 const git = (...a) => { try { return execFileSync('git', a, { stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 << 20 }); } catch (e) { return null; } };
 
 // Nhóm i18n gộp vào en.js (khung) – đọc từ build-i18n.sh; topics/ext/writecheck không tự chuyển (tên bộ từ hiện ở khung trước khi nạp gói; add-on đọc thẳng)
@@ -67,7 +67,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const rows = shellFiles().map(u => { const f = path.join('web', u), now = fs.existsSync(f) ? gzb(fs.readFileSync(f)) : 0; const b = hasBase ? git('show', `${base}:${f}`) : null; return { u, now, d: b ? now - gzb(b) : hasBase ? now : null }; }).sort((a, b) => b.now - a.now);
   const total = rows.reduce((s, r) => s + r.now, 0), dT = hasBase ? rows.reduce((s, r) => s + r.d, 0) : null;
   const sg = d => (d == null ? '' : (d > 0 ? '+' : '') + d + ' B');
-  const lines = [`Khung app ${kb(total)} / ${kb(budget)} KB gz (còn trống ${kb(budget - total)} KB)` + (hasBase ? ` · so với ${base}: ${sg(dT)}` : ' · (không có nhánh gốc để so – đặt SHELL_BASE)'), ''];
+  const lines = [`Khung app ${kb(total)} / ${kb(budget)} KB gz (còn trống ${kb(budget - total)} KB)` + (hasBase ? ` · so với ${base}: ${sg(dT)}` : ' · (không có nhánh gốc để so – đặt SHELL_BASE)'), `gzip chuẩn pako (zlib gốc) – mọi máy cùng số; zlib của Node này ${process.versions.zlib} KHÔNG dùng để đo`, ''];
   for (const r of rows) lines.push(`${String(r.now).padStart(7)} B  ${(r.d ? sg(r.d) : '').padStart(9)}  ${r.u}`);
   const grp = CORE_GROUPS.filter(g => fs.existsSync(`${DIR}/${g}.js`)).map(g => [g, gzb(fs.readFileSync(`${DIR}/${g}.js`))]).sort((a, b) => b[1] - a[1]);
   lines.push('', 'en.js theo nhóm nguồn (gz riêng lẻ): ' + grp.map(([g, n]) => `${g} ${kb(n)}`).join(' · '));

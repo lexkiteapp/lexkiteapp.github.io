@@ -80,6 +80,6 @@ The 4 core screens (Learn path, Lesson drill, Feedback sheet, Exam readiness) us
 - Gate: `scripts/test/stitch-diff.mjs` (SSIM + row rhythm vs `brand/stitch/*.jpg`, thresholds only go up, axe WCAG 2.2 AA inside `.st`), owner sheets `side-*.jpg` / `desk-*.jpg`. Gallery: `web/design/gallery.html` (light/dark/RTL).
 
 ## 6. Checks before shipping UI
-`npm test` (size budget: shell ≤ 377 KB gz, a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
+`npm test` (size budget: shell ≤ 374 KB gz (canonical gzip, scripts/lib/gz-canon.mjs), a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
 Mirror into the add-on with `bash scripts/build-extension.sh`. Never edit `extension/content.js` for app UI.
 - Module-only CSS (e.g. `.cbt-*` in `js/cbt.js`, `.lq-*` in `js/qengine.js`) is injected by its lazy bundle, so it stays outside the shell.
