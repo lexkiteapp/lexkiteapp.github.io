@@ -250,7 +250,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `web/js`: account-delete account-flow account-ui admin-gate admin-ui ads-admin ads-cls ads analytics anki audio-play audio-voice call-engine choice-kit client-security clips-perf confidence criteria dict-sent-lang drive-ui exit-guard ext-popup ext-selection facade-perf feel focus-targets get-app ipa-accent league learn-flow lex mobile-guards mobile-qa native-auth next-step pron-coach pron-pairs quick-ui report-ui retention sel-translate shell-size social-ui speak-ipa speak static-routes streak-flame streak-ui sync-drive tutor unit usage verbs video-web
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe call-e2e clutter confidence-shots content-check contrast crawl d1-scan docs-budget e2e explain-shots final-qc i18n-switch lazyfix listing-check native-facade nav-render no-url-pathname profile-route pron-read qa-bot-diff review-done review-modes-ui review-modes review-shots route-race screens seo-sitemap serve-web smoke toeic-read-e2e tools-ui ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep
 - `functions/api`: admin-ads-shots admin-dist-shots admin-guard admin-prefs ads-revenue ai-pool api-security capacity classroom clip-bulk dist-roles distribution drive jobs keys live-check notices pr-check quota report schema-lock social-auto social-meta-oauth social-meta social-mgr social-proxy sync-ctx sync-pack user-mgmt ux1-rollout yt-manual
-- `scripts`: authority-pages axe blog-images bot-push-key brand-check ci-triage explain-check i18n-english i18n-single journey-e2e layout-guards lesson-content links-js mobile-polish pages-skip protection samples-ui tools-pages ux1 word-ipa
+- `scripts`: authority-pages axe blog-images bot-push-key brand-check ci-triage explain-check i18n-english i18n-single journey-e2e layout-guards lesson-content links-js mobile-polish pages-skip protection samples-ui sentence-asr tools-pages ux1 word-ipa
 - `content/video`: characters-gate library studio video-layout video-templates video
 - `scripts/video`: capsplit motion-core motion overlay-gates shorts-scale tpl1b-pipeline
 - `web`: headers landing-routing post-deploy-check seo-twin size-budget
@@ -278,7 +278,6 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/ota`: ota
 - `scripts/pron`: pron-gop
 - `scripts/scriptbank`: script-bank
-- `scripts/sentence-audio`: sentence-asr
 - `scripts/teach`: characters-shots
 - `scripts/vocab-img`: vocab-img
 - `web/app`: bundle-names
