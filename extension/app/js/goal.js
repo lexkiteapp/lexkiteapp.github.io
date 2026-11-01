@@ -26,7 +26,7 @@
   SCALE.general = [1, 1, 6, 4, 15]; HOURS.general = gap => gap * 200;
   SPLIT.general = { words: .28, listens: .2, readings: .2, writes: .07, spoken: .1, grammar: .15 };
   const cefrN = s => CEFR.indexOf(String(s || '').toUpperCase().slice(0, 2)) + 1;
-  App.goalLabel = g => (g.exam === 'general' ? CEFR[g.target - 1] || '' : String(g.target));
+  // App.goalLabel ở web/js/hubs.js (khung app)
   const targetField = (exam, v, cls = 'input') => exam === 'general'
     ? `<select class="${cls}" id="gTarget">${CEFR.map((c, i) => `<option value="${i + 1}" ${+v === i + 1 ? 'selected' : ''}>${c}</option>`).join('')}</select>`
     : `<input class="${cls}" id="gTarget" type="number" step="${SCALE[exam][0]}" min="${SCALE[exam][1]}" max="${SCALE[exam][2]}" value="${v}">`;
