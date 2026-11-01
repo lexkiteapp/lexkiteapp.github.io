@@ -9,7 +9,7 @@ tags: [listening, hoerverstehen, englisch-lernen]
 keyword: "englisches hörverstehen verbessern"
 cover: dict
 coverAlt: "Lexkite Wörterbuch mit britischer und amerikanischer Audio-Aussprache und Lautschrift IPA"
-publishAt: ""
+publishAt: 2026-12-05T12:53:00+01:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [ielts, samostoyatelnaya-podgotovka, plan]
 keyword: "план подготовки к ielts самостоятельно"
 cover: path
 coverAlt: "Экран Your IELTS path в приложении Lexkite: модульные этапы подготовки по баллам"
-publishAt: ""
+publishAt: 2026-12-02T19:49:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

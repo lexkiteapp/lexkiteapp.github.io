@@ -33,6 +33,7 @@ quiz: [
     explain: "La constancia diaria activa la memoria a largo plazo mediante la repetición espaciada y consolida los reflejos."
   }
 ]
+publishAt: 2026-12-03T21:43:00-06:00
 ---
 
 Muchos hispanohablantes piensan que aprender inglés es una cuestión de "talento especial" o que requiere años encerrado en una academia tradicional. Sin embargo, la gran mayoría de quienes abandonan no fracasan por falta de capacidad, sino por empezar en el orden equivocado: memorizar listas infinitas de verbos irregulares, obsesionarse con la ortografía antes de entrenar el oído o estudiar durante horas el fin de semana para luego no tocar un libro de lunes a viernes.

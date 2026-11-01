@@ -9,7 +9,7 @@ tags: [pensar-em-ingles, speaking, fluencia, habitos]
 keyword: "como pensar em inglês"
 cover: path
 coverAlt: "Roteiro de estudos de conversação e desenvolvimento de pensamento direto em inglês no Lexkite"
-publishAt: ""
+publishAt: 2026-12-10T07:58:00-03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [dongmingci, budingshi, yingyu-yufa]
 keyword: "动名词和不定式的区别"
 cover: dict
 coverAlt: "Lexkite英语词典界面展示动词非谓语搭配规则音标释义与真实语境例句"
-publishAt: ""
+publishAt: 2026-12-01T07:22:00+08:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

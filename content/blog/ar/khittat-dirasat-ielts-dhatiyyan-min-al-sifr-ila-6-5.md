@@ -9,7 +9,7 @@ tags: [ielts, khitta-dirasiyya, dirasa-dhatiyya]
 keyword: "خطة دراسة ielts ذاتيا"
 cover: path
 coverAlt: "شاشة Your IELTS path في تطبيق Lexkite توضح مسار الدراسة الأكاديمي مقسماً حسب درجات الباند"
-publishAt: ""
+publishAt: 2026-12-02T21:39:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

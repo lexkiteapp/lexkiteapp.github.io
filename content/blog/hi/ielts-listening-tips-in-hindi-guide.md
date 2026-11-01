@@ -9,7 +9,7 @@ tags: [listening, ielts, exam-tips]
 keyword: "ielts listening tips in hindi"
 cover: listening
 coverAlt: "Lexkite पर IELTS Listening अभ्यास स्क्रीन जिसमें 10 मॉक टेस्ट 4 भाग और ऑडियो स्पीड कंट्रोल उपलब्ध है"
-publishAt: ""
+publishAt: 2026-11-30T08:57:00+05:30
 factChecked: 2026-11-01
 qualityScore: 95
 author: Lexkite

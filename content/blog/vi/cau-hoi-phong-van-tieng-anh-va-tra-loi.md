@@ -9,7 +9,7 @@ tags: [phong-van, job-interview, speaking, su-nghiep]
 keyword: "câu hỏi phỏng vấn tiếng anh"
 cover: path
 coverAlt: "Lộ trình rèn luyện kỹ năng phỏng vấn tiếng Anh chuyên nghiệp trên Lexkite"
-publishAt: ""
+publishAt: 2027-01-14T12:49:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

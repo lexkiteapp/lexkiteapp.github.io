@@ -9,7 +9,7 @@ tags: [listening, ingilizce, dinleme-becerisi]
 keyword: "ingilizce listening geliştirme yolları"
 cover: dict
 coverAlt: "İngiliz ve Amerikan sesli telaffuzu ve IPA fonetik transkripsiyonunu gösteren Lexkite sözlük ekranı"
-publishAt: ""
+publishAt: 2026-12-03T08:21:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

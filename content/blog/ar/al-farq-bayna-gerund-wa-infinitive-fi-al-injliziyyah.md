@@ -9,7 +9,7 @@ tags: [gerund, infinitive, kawaid-al-injliziya]
 keyword: "الفرق بين gerund و infinitive"
 cover: dict
 coverAlt: "واجهة معجم Lexkite التفاعلي توضح أنماط الأفعال مع gerund و infinitive ونطقها الصوتي"
-publishAt: ""
+publishAt: 2026-11-28T07:31:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

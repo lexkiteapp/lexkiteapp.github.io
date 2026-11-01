@@ -33,6 +33,7 @@ quiz: [
     explain: "'Sensible' berakar dari *good sense* (masuk akal/bijak), sedangkan 'sensitive' berakar dari *senses/emotions* (peka/sensitif)"
   }
 ]
+publishAt: 2026-12-06T09:16:00+07:00
 ---
 
 Dalam perjalanan belajar bahasa Inggris, banyak pembelajar asal Indonesia menemui hambatan berupa **kata bahasa inggris yang sering salah arti** atau membingungkan (*confusing words*). Beberapa kata memiliki ejaan yang hampir serupa, lafal yang terdengar sama (*homophones*), atau terjemahan harfiah dalam bahasa Indonesia yang terasa identik padahal memiliki fungsi tata bahasa (*part of speech*) dan nuansa makna yang sangat berlainan.

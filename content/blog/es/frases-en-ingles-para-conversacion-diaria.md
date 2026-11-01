@@ -33,6 +33,7 @@ quiz: [
     explain: "'Sorry, I didn't catch that' comunica con amabilidad que no pudiste oír sin culpar al interlocutor."
   }
 ]
+publishAt: 2026-12-01T21:35:00-06:00
 ---
 
 Para la inmensa mayoría de los estudiantes de idiomas, el objetivo primordial no es memorizar reglas teóricas aisladas, sino desenvolverse con soltura, confianza y naturalidad en el día a día. Ya sea para pedir un café en una cafetería concurrida, orientarse en una ciudad extranjera o entablar una conversación informal con compañeros de trabajo, dominar **frases en ingles para conversacion diaria** transforma el conocimiento pasivo de los libros en fluidez práctica inmediata.
