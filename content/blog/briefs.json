@@ -15997,6 +15997,50 @@
       ],
       "angle": "Vollständiger Leitfaden zu modalen Hilfsverben im Englischen: Regeln, Bedeutungen und typische Fehler bei can, could, may, might, should und must mit Beispielen.",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "gioi-tu-in-on-at-trong-tieng-anh-quy-tac",
+      "keyword": "giới từ in on at trong tiếng anh",
+      "topic": "Giới Từ In On At trong Tiếng Anh: Quy Tắc Hình Kim Tự Tháp",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "gioi-tu",
+        "preposition"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Hướng dẫn làm chủ giới từ in on at trong tiếng Anh theo mô hình kim tự tháp ngược: thời gian từ thế kỷ đến giờ, địa điểm từ quốc gia đến số nhà và phương tiện giao thông.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "prepositions-in-on-at-rules-and-examples",
+      "keyword": "prepositions in on at",
+      "topic": "Prepositions of Place and Time: In, On, At Rules and Examples",
+      "category": "ngu-phap",
+      "tags": [
+        "grammar",
+        "prepositions",
+        "basics"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Comprehensive guide to English prepositions in, on, and at for time and place: inverted pyramid visualization, vehicle rules, common exceptions, and practice quizzes.",
+      "intent": "informational"
     }
   ]
 }
