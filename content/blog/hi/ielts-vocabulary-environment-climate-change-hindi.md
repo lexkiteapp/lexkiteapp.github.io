@@ -37,19 +37,19 @@ quiz: [
 ग्लोबल वार्मिंग और ग्रीनहाउस गैसों पर चर्चा करते समय साधारण शब्दों के स्थान पर इन वैज्ञानिक शब्दों का प्रयोग करें:
 
 1. **Anthropogenic emissions**: मानवीय गतिविधियों और उद्योगों द्वारा उत्पन्न ग्रीनहाउस गैस उत्सर्जन
-   - *उदाहरण:* Environmental researchers confirm that anthropogenic emissions from expanding petrochemical industrial zones accelerate atmospheric degradation.
+   - *उदाहरण:* Independent atmospheric studies verify that anthropogenic emissions produced by heavy chemical manufacturing perturb regional precipitation trends.
 2. **Mitigate climate catastrophe**: आसन्न जलवायु विनाश या महाविपदा को धीमा करना या टालना
-   - *उदाहरण:* Binding international agreements are urgently needed to mitigate climate catastrophe before polar sea ice vanishes permanently.
+   - *उदाहरण:* Urgent transnational accords must be ratified to mitigate climate catastrophe before alpine freshwater reservoirs disappear.
 3. **Greenhouse effect intensification**: वायुमंडलीय प्रदूषकों के कारण ग्रीनहाउस प्रभाव का अत्यधिक तीव्र होना
-   - *उदाहरण:* Widespread coal-fired energy production fuels greenhouse effect intensification across rapidly industrializing economies.
+   - *उदाहरण:* Rampant industrial smoke emission drives greenhouse effect intensification, trapping surplus solar thermal energy near ground level.
 4. **Carbon-intensive infrastructure**: कार्बन-सघन बुनियादी ढाँचा (जीवाश्म ईंधन पर अत्यधिक निर्भर व्यवस्था)
-   - *उदाहरण:* Multilateral climate finance assists emerging economies in moving away from obsolete carbon-intensive infrastructure.
+   - *उदाहरण:* Development financial consortiums are divesting completely from carbon-intensive infrastructure like thermal coal mines and diesel rail corridors.
 5. **Combustion of fossil fuels**: जीवाश्म ईंधनों (कोयला, पेट्रोलियम, गैस) का दहन
-   - *उदाहरण:* Gradually eliminating the combustion of fossil fuels represents the single most decisive step toward improving urban air purity.
+   - *उदाहरण:* Replacing domestic combustion of fossil fuels with electrified induction cooking drastically purifies metropolitan household air.
 6. **Accelerated glacial melting**: हिमनदों (ग्लेशियरों) और ध्रुवीय बर्फ का तेजी से पिघलना
-   - *उदाहरण:* Marine geologists caution that accelerated glacial melting will submerge vulnerable coastal deltas within decades.
+   - *उदाहरण:* Himalayan glaciological surveys show that accelerated glacial melting severely threatens continuous downstream agricultural irrigation.
 7. **Extreme meteorological phenomena**: चरम मौसमी आपदाएं (जैसे भयंकर चक्रवात, सूखा, जानलेवा लू)
-   - *उदाहरण:* Smallholder agrarian communities face catastrophic harvest losses as a direct consequence of unpredictable extreme meteorological phenomena.
+   - *उदाहरण:* Subtropical farming cooperatives suffer severe economic destitution whenever extreme meteorological phenomena ruin seasonal cereal plantations.
 
 पर्यावरण और विज्ञान से जुड़े अकादमिक लेखों को पढ़ने के लिए [Lexkite रीडिंग मॉड्यूल](/#/reading) का अभ्यास करें।
 
@@ -116,7 +116,7 @@ quiz: [
 > **निबंध का प्रश्न:** *Some people believe that protecting the environment is the responsibility of national governments, while others think individuals should make lifestyle changes. Discuss both views and give your opinion.*
 >
 > **मॉडल बॉडी पैराग्राफ (Band 8.5):**  
-> Supporters of centralized statutory governance convincingly argue that national cabinets hold the exclusive authority required to mandate macroeconomic restructuring. Specifically, environmental ministries can enforce strict statutory quotas, prohibiting illegal **toxic effluent discharge** while penalizing corporate reliance on the **combustion of fossil fuels**. Furthermore, by systematically redirecting public capital from **carbon-intensive infrastructure** toward grid-scale **photovoltaic solar arrays** and **zero-emission public transport**, national leaders can accelerate the **decarbonization of heavy industry**. Without institutional enforcement mechanisms and centralized accountability, uncoordinated individual habits cannot reverse acute **habitat fragmentation** or withstand increasingly unpredictable **extreme meteorological phenomena**.
+> From a macroeconomic perspective, public policy specialists maintain that only governmental administrations possess the statutory authority needed to orchestrate systemic ecological transitions. In practice, regulatory agencies can outlaw unlicensed **toxic effluent discharge**, while systematically removing fuel subsidies that encourage the **combustion of fossil fuels**. Concurrently, by shifting budgetary investments away from **carbon-intensive infrastructure** toward scalable **photovoltaic solar arrays** and electrified **zero-emission public transport**, ministerial leaders can catalyze the comprehensive **decarbonization of heavy industry**. In the absence of enforceable statutory penal codes, decentralized community contributions cannot arrest alarming **habitat fragmentation** or withstand recurring **extreme meteorological phenomena**.
 
 ## 6. भारतीय छात्रों की 4 सामान्य गलतियां जिनसे बचना चाहिए
 
