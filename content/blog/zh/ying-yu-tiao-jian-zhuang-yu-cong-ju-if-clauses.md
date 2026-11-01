@@ -3,7 +3,7 @@ title: "英语条件状语从句 (If Clauses) 全面总结：从0到3型及混�
 description: "英语条件状语从句语法全景深度解析指南：系统剖析从零条件句、第一条件句、第二条件句、第三条件句到混合虚拟条件句的核心公式，对比真实条件与虚拟语气的本质区别，结合商务写作与学术实战例句，助你彻底理清条件从句逻辑，轻松攻克各大英语考试语法难点。"
 slug: ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses
 lang: zh
-translationKey: cau-dieu-kien-tieng-anh-conditionals
+translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [grammar, conditionals, if-clauses]
 keyword: "英语条件状语从句"

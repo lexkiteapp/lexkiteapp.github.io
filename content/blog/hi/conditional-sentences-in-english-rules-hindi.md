@@ -1,4 +1,5 @@
 ---
+translationKey: cau-dieu-kien-trong-tieng-anh
 title: "Conditional Sentences in English in Hindi: सभी 4 प्रकार के नियम"
 slug: "conditional-sentences-in-english-rules-hindi"
 translationKey: cau-dieu-kien-tieng-anh-conditionals
