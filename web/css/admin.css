@@ -82,6 +82,17 @@ body.adm {
   .adm-tag { display: none; }
 }
 @media (max-width: 420px) { .adm-top { gap: .35rem; padding: 0 .5rem; } .adm-brand .wordmark { display: none; } }
+/* Điện thoại (owner 1/11, iPhone: chữ "lexkite" bị nút ⌕ đè, nút ↩ 🌗 VI|EN Thoát chật/tràn): chỉ logo (đã là link về app → ẩn nút ↩ trùng),
+   mọi nút đầu trang ≥ 44 px, không co chữ, không tràn. */
+@media (max-width: 480px) {
+  .adm-top { gap: .25rem; padding: 0 .5rem; }
+  .adm-brand .wordmark { display: none; }
+  .adm-brand { min-width: 44px; min-height: 44px; justify-content: center; flex: none; }
+  .adm-top .adm-ibtn, .adm.adm-in .adm-cmdk { width: 44px; height: 44px; flex: none; }
+  .adm-me { gap: .25rem; flex: none; }
+  .adm-me #home { display: none; }
+  .adm-me .btn { height: 44px; min-height: 44px; min-width: 44px; padding: 0 .55rem; flex: none; }
+}
 
 /* ---------- Đầu trang ---------- */
 .pg-head { max-width: var(--a-max); margin: 0 0 1.4rem; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: .8rem 1rem; }
@@ -304,11 +315,13 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .savebar .sp { flex: 1; }
 
 /* ---------- Biểu đồ nhẹ (SVG/HTML) ---------- */
-.hbars .row2 { display: grid; grid-template-columns: minmax(80px, 36%) 1fr auto; gap: .75rem; align-items: center; font-size: .86rem; padding: .38rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.hbars .row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(48px, 28%) auto; gap: .65rem; align-items: center; font-size: .86rem; min-height: 40px; padding: .3rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
 .hbars .row2:last-child { border-bottom: 0; }
-.hbars .k { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 550; }
-.hbars .track { height: 7px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
-.hbars .track i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--primary) 85%, var(--accent))); min-width: 3px; }
+.hbars .k { min-width: 0; font-weight: 550; line-height: 1.3; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } /* tên đủ, tối đa 2 dòng (không còn "VN · Vi…") */
+.hbars .k .cc { display: inline-block; min-width: 3.3em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.hbars .track { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.hbars .track i { display: block; height: 100%; border-radius: 99px; background: var(--primary); min-width: 4px; } /* thang chung = % trên tổng, giống thẻ Nền tảng */
+.hbars .track i.z { min-width: 0; width: 0 !important; }
 .hbars .v { font-weight: 750; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
 .hbars .v small { font-weight: 500; color: var(--muted); }
 .hchart { display: flex; align-items: flex-end; gap: 4px; height: 160px; padding-top: .6rem; }
@@ -354,8 +367,13 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .map-card .world-map { height: 360px; margin-top: .6rem; position: relative; border-radius: 12px; border: 1px solid var(--line); background: color-mix(in srgb, var(--surface-2) 40%, var(--surface)); overflow: hidden; }
 .map-card .world-map.fallback { height: auto; }
 @media (max-width: 560px) { .map-card .world-map { height: 220px; } }
-.map-legend { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: .75rem; font-size: .78rem; font-weight: 600; color: var(--muted); }
-.map-legend .ml-i { display: inline-flex; align-items: center; gap: .3rem; } .map-legend i { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
+.map-legend { display: flex; align-items: center; gap: .55rem; margin-top: .75rem; font-size: .78rem; font-weight: 600; color: var(--muted); }
+.map-legend .ml-end { flex: none; white-space: nowrap; }
+.map-legend .ml-strip { display: flex; flex: 1 1 auto; min-width: 0; max-width: 340px; } /* một dải màu liền, nhãn số dưới từng khúc */
+.map-legend .ml-seg { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.map-legend .ml-seg i { display: block; width: 100%; height: 10px; }
+.map-legend .ml-seg:first-child i { border-radius: 99px 0 0 99px; } .map-legend .ml-seg:last-child i { border-radius: 0 99px 99px 0; }
+.map-legend .ml-seg small { font-size: .7rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .world-map .jvm-zoom-btn { background: var(--surface); color: var(--text); border: 1px solid var(--line); width: 26px; height: 26px; line-height: 22px; padding: 0; text-align: center; border-radius: 8px; left: 12px; font-weight: 700; box-sizing: border-box; box-shadow: var(--a-card-shadow); transition: all .14s ease; cursor: pointer; }
 .world-map .jvm-zoom-btn:hover { background: var(--surface-2); border-color: var(--primary); }
 .world-map .jvm-zoom-btn.jvm-zoomin { top: 12px; } .world-map .jvm-zoom-btn.jvm-zoomout { top: 44px; }

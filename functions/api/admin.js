@@ -73,6 +73,8 @@ const all = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).all()).re
 const dayStr = t => new Date(t).toISOString().slice(0, 10); // ngày UTC – hạn mức nhà cung cấp (D1, AI) reset 0h UTC
 // Thống kê truy cập: "ngày" theo giờ Việt Nam (vday, hit.js) · chỉ người thật: bỏ máy tự động (cột bot) và khách là tài khoản quản trị
 // (vid đã gắn uid có email trong ADMIN_EMAILS – chỉ dùng trong SQL, không trả về máy khách)
+// Nguồn giới thiệu đã lọc nội bộ (dữ liệu ghi trước khi hit.js lọc INTERNAL_REF): localhost/LAN/preview → trực tiếp
+const REFX = "CASE WHEN COALESCE(ref, '') IN ('localhost', '127.0.0.1', '[::1]', '0.0.0.0') OR ref LIKE '10.%' OR ref LIKE '192.168.%' OR ref LIKE '%.local' OR ref LIKE '%.lexkite.pages.dev' THEN '' ELSE COALESCE(ref, '') END";
 // Thẻ Nền tảng: số thiết bị KHÁC NHAU (mọi nền tảng gộp) + số thiết bị dùng ≥ 2 nền tảng. Web và PWA cùng origin dùng chung vid (localStorage)
 // → một máy mở web rồi mở bản đã cài nằm ở CẢ HAI dòng plat; cộng các dòng sẽ đếm trùng, nên dòng Tổng phải lấy từ đây.
 // Cùng điều kiện ngày với dòng plat tương ứng: hôm nay `day = ?`, 30 ngày `day >= ?`.
@@ -323,7 +325,7 @@ const OPS = {
     const top = (col, n = 12) => all(db, `SELECT ${col} AS k, COUNT(*) AS n, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur FROM sessions WHERE ${H} AND day >= ? GROUP BY ${col} ORDER BY n DESC LIMIT ${n}`, from);
     const [daily, refs, countries, devs, langs, plats, paths, sum, freq] = await Promise.all([
       all(db, `SELECT day, COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, from),
-      top("COALESCE(NULLIF(ref, ''), '(trực tiếp)')"), top('country', 20), top('dev'), top('lang', 15), top('plat'), top('path', 15),
+      top(`COALESCE(NULLIF(${REFX}, ''), '(trực tiếp)')`), top('country', 20), top('dev'), top('lang', 15), top('plat'), top('path', 15),
       one(db, `SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret, SUM(pages <= 1 AND dur < 15) AS bounce, (SELECT lcp FROM sessions WHERE ${H} AND day >= ?1 AND lcp > 0 ORDER BY lcp LIMIT 1 OFFSET (SELECT CAST(COUNT(*) * 0.75 AS INT) FROM sessions WHERE ${H} AND day >= ?1 AND lcp > 0)) AS lcp, SUM(lcp > 0 AND lcp <= 2500) AS lcpGood, SUM(lcp > 0) AS lcpN FROM sessions WHERE ${H} AND day >= ?1`, from),
       all(db, `SELECT CASE WHEN c = 1 THEN '1' WHEN c <= 3 THEN '2–3' WHEN c <= 7 THEN '4–7' WHEN c <= 15 THEN '8–15' ELSE '16+' END AS k, COUNT(*) AS n FROM (SELECT vid, COUNT(*) AS c FROM sessions WHERE ${H} AND day >= ? GROUP BY vid) GROUP BY k`, from),
     ]);
@@ -351,7 +353,7 @@ const OPS = {
         one(db, `SELECT COUNT(*) AS s, COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors, AVG(dur) AS dur FROM sessions WHERE ${H} AND day = ?`, d1),
         all(db, `SELECT country AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY k ORDER BY n DESC LIMIT 250`, d1),
         all(db, 'SELECT path AS k, n FROM pageviews_day WHERE day = ? ORDER BY n DESC LIMIT 10', d1),
-        all(db, `SELECT ref AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND day = ? AND ref <> '' GROUP BY ref ORDER BY n DESC LIMIT 10`, d1),
+        all(db, `SELECT ${REFX} AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND day = ? AND ${REFX} <> '' GROUP BY k ORDER BY n DESC LIMIT 10`, d1),
         all(db, `SELECT COALESCE(plat, 'web') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY k ORDER BY n DESC`, d1),
         // Đã loại khỏi số người thật hôm nay: máy tự động theo loại (ci · ci-app · ua · bot · dc · admin) + khách là tài khoản quản trị
         all(db, `SELECT COALESCE(bot, 'admin') AS k, COUNT(*) AS s, COUNT(DISTINCT vid) AS v FROM sessions WHERE day = ? AND NOT (${H}) GROUP BY k ORDER BY s DESC`, d1),

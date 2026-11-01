@@ -1,4 +1,4 @@
-// Ảnh + gác thẻ "📱 Nền tảng" (#analytics) – khung thật web/admin.html, Firebase giả, /api/* = dữ liệu mẫu (số thật của owner 1/11), 0 mạng.
+// Ảnh + gác trang #analytics trên điện thoại (thẻ "📱 Nền tảng" + cả trang) – khung thật web/admin.html, Firebase giả, /api/* = dữ liệu mẫu (số thật của owner 1/11), 0 mạng.
 // 360/390 px × sáng/tối. Chỉ ở tag=after, FAIL khi: trang tràn ngang, nhãn xuống dòng / dòng cao không đều, thanh không cùng dòng với số,
 // dòng < 44 px, dòng 0 có thanh, dòng > 0 thanh < 3 px, thanh không cùng thang (tỉ lệ độ dài ≠ tỉ lệ số), thiếu dòng Tổng, axe (WCAG A/AA) > 0 lỗi.
 // Dùng: node scripts/test/admin-plat-shots.mjs [web=web] [out=out/admin-plat] [tag=after]  ·  --compare out/admin-plat → sheet-*.jpg (TRƯỚC | SAU)
@@ -20,6 +20,13 @@ if (process.argv[2] === '--compare') {
     const page = await browser.newPage({ viewport: { width: w * 2 + 48, height: 300 }, deviceScaleFactor: 2 });
     await page.setContent(`<body style="margin:0;background:#777;font:600 14px system-ui;color:#fff;display:flex;gap:16px;padding:16px;align-items:flex-start">${[['TRƯỚC', fb], ['SAU', fa]].map(([t, f]) => `<figure style="margin:0"><figcaption style="padding:0 0 6px">${t} · ${w}px ${th} ${l.toUpperCase()}</figcaption>${img(f)}</figure>`).join('')}</body>`);
     const f = path.join(OUT, `sheet-${w}-${th}-${l}.jpg`); await page.screenshot({ path: f, fullPage: true, type: 'jpeg', quality: 80 }); made.push(f); await page.close();
+    // cả trang #analytics: TRƯỚC | SAU (1×, để owner thấy tràn/thu nhỏ trên điện thoại)
+    const pb = path.join(OUT, 'before-page-' + name(w, th, l)), pa = path.join(OUT, 'after-page-' + name(w, th, l));
+    if (fs.existsSync(pa)) {
+      const p2 = await browser.newPage({ viewport: { width: w * 2 + 48, height: 300 } });
+      await p2.setContent(`<body style="margin:0;background:#777;font:600 14px system-ui;color:#fff;display:flex;gap:16px;padding:16px;align-items:flex-start">${[['TRƯỚC', pb], ['SAU', pa]].map(([t, f2]) => `<figure style="margin:0"><figcaption style="padding:0 0 6px">${t} · #analytics ${w}px ${th} ${l.toUpperCase()}</figcaption>${fs.existsSync(f2) ? `<img style="width:${w}px;display:block" src="data:image/png;base64,${fs.readFileSync(f2).toString('base64')}">` : '(không có ảnh)'}</figure>`).join('')}</body>`);
+      const f3 = path.join(OUT, `sheet-page-${w}-${th}-${l}.jpg`); await p2.screenshot({ path: f3, fullPage: true, type: 'jpeg', quality: 72 }); made.push(f3); await p2.close();
+    }
   }
   await browser.close(); console.log(made.join('\n') || 'không có ảnh'); process.exit(0);
 }
@@ -27,7 +34,8 @@ if (process.argv[2] === '--compare') {
 const [WEB = 'web', OUT = 'out/admin-plat', TAG = 'after'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const R = o => Object.entries(o).map(([k, n]) => ({ k, n }));
 // Số thật trong ảnh chụp của owner (1/11) + số thiết bị khác nhau server mới trả (15 máy dùng cả web và PWA)
-const LIVE = { ...FX.live, platsToday: R({ web: 17, android: 2, ext: 1 }), plats30: R({ web: 209, ext: 15, pwa: 12, android: 8, ios: 1 }), devToday: { v: 20, multi: 0 }, dev30: { v: 230, multi: 15 } };
+const LIVE = { ...FX.live, online: 3, viewing: R({ home: 1, review: 1, say: 1 }), today: { ...FX.live.today, visitors: 10 }, countries: R({ VN: 6, JP: 2, IN: 1, US: 1 }),
+  pagesToday: R({ home: 8, review: 3, say: 1 }), refs: R({ 'google.com': 3, 'facebook.com': 1 }), platsToday: R({ web: 17, android: 2, ext: 1 }), plats30: R({ web: 209, ext: 15, pwa: 12, android: 8, ios: 1 }), devToday: { v: 20, multi: 0 }, dev30: { v: 230, multi: 15 } };
 const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => window.__AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = () => {}; } }) };
   const U = { uid: 'plat', email: 'admin@example.com', displayName: 'Plat', photoURL: '', getIdToken: async () => 'x' };
   window.__AUTH = { currentUser: U, onAuthStateChanged: cb => setTimeout(() => cb(U), 0), signOut: async () => {}, signInWithPopup: async () => {} };`;
@@ -52,6 +60,8 @@ for (const [width, scheme, lang] of CONFIGS) {
   await page.waitForTimeout(400); await loc.scrollIntoViewIfNeeded(); await page.waitForTimeout(150);
   await loc.screenshot({ path: path.join(OUT, `${TAG}-${name(width, scheme, lang)}`) });
   const card = await loc.elementHandle();
+  await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(100);
+  await page.screenshot({ path: path.join(OUT, `${TAG}-page-${name(width, scheme, lang)}`), fullPage: true });
   if (TAG === 'after') {
     const res = await card.evaluate((c, W) => {
       const o = [], rows = [...c.querySelectorAll('tbody tr')], over = document.scrollingElement.scrollWidth - innerWidth;
@@ -91,10 +101,29 @@ for (const [width, scheme, lang] of CONFIGS) {
       return o;
     }, width);
     for (const x of res) fails.push(`${tag}: ${x}`);
+    // ---- CẢ TRANG #analytics (owner 1/11 iPhone): không tràn/thu nhỏ, đầu trang không đè + chỗ bấm ≥ 44 px, thanh mọi thẻ cùng kiểu, tên nước đủ, chú giải bản đồ 1 dải ----
+    const pg = await page.evaluate(W => {
+      const o = [], lw = document.documentElement.clientWidth, vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
+      if (document.scrollingElement.scrollWidth > lw + 1 || innerWidth > W + 1) o.push(`cả trang: tràn/thu nhỏ – scrollWidth ${document.scrollingElement.scrollWidth}, viewport ${lw}, innerWidth ${innerWidth}`);
+      const top = [...document.querySelectorAll('.adm-top > *, .adm-me > *')].filter(e => vis(e) && !e.classList.contains('adm-me') && !e.classList.contains('adm-email'));
+      for (let i = 0; i < top.length; i++) for (let j = i + 1; j < top.length; j++) { const a = top[i].getBoundingClientRect(), b = top[j].getBoundingClientRect(); if (Math.min(a.right, b.right) - Math.max(a.left, b.left) > 1 && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 1) o.push(`đầu trang: "${top[i].textContent.trim().slice(0, 12) || top[i].className}" đè "${top[j].textContent.trim().slice(0, 12) || top[j].className}"`); }
+      for (const e of top.filter(e => e.matches('a, button'))) { const r = e.getBoundingClientRect(); if (r.width < 43.5 || r.height < 43.5) o.push(`đầu trang: chỗ bấm "${e.textContent.trim().slice(0, 12) || e.id}" ${Math.round(r.width)}×${Math.round(r.height)} < 44`); if (r.right > lw + 1) o.push(`đầu trang: "${e.textContent.trim().slice(0, 12)}" tràn mép phải`); }
+      for (const row of document.querySelectorAll('.hbars .row2')) {
+        const i = row.querySelector('.track i'), v = +(row.querySelector('.v').firstChild.textContent || '').replace(/[^\d]/g, ''), fw = i ? i.getBoundingClientRect().width : -1, k = row.querySelector('.k');
+        if (!v && fw > 0) o.push(`thanh: dòng 0 "${k.textContent.trim()}" vẫn vẽ ${fw}px`);
+        if (v && fw < 3) o.push(`thanh: dòng ${v} "${k.textContent.trim()}" chỉ ${Math.round(fw)}px (trông như chấm lỗi)`);
+        if (k.scrollHeight > k.clientHeight + 1 && k.querySelector('.cc')) o.push(`tên nước bị cắt: "${k.textContent.trim()}"`);
+      }
+      const segs = [...document.querySelectorAll('.map-legend .ml-seg')];
+      if (segs.length && new Set(segs.map(s => Math.round(s.getBoundingClientRect().top))).size > 1) o.push('chú giải bản đồ xuống dòng');
+      const lg = document.querySelector('.map-legend'); if (lg && lg.getBoundingClientRect().height > 48) o.push(`chú giải bản đồ cao ${Math.round(lg.getBoundingClientRect().height)}px (lộn xộn)`);
+      return o;
+    }, width);
+    for (const x of pg) fails.push(`${tag}: ${x}`);
     if (!AXE) fails.push(`${tag}: thiếu axe-core`);
     else {
       await page.addScriptTag({ content: AXE });
-      const v = await card.evaluate(async c => (await window.axe.run(c, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa'] } })).violations.map(x => `${x.id}: ${x.nodes.slice(0, 2).map(n => n.target.join(' ')).join(', ')}`));
+      const v = await page.evaluate(async () => (await window.axe.run({ include: [['.adm-top'], ['.adm-content']], exclude: [['.world-map']] }, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa'] } })).violations.map(x => `${x.id}: ${x.nodes.slice(0, 2).map(n => n.target.join(' ')).join(', ')}`));
       for (const x of v) fails.push(`${tag}: axe ${x}`);
     }
   }
@@ -104,4 +133,4 @@ await browser.close();
 fs.writeFileSync(path.join(OUT, TAG + '.json'), JSON.stringify({ fails }, null, 1));
 if (TAG !== 'after') { console.log(`admin-plat-shots (${TAG}): đã chụp ${CONFIGS.length} ảnh`, fails.length ? JSON.stringify(fails) : ''); process.exit(0); }
 if (fails.length) { console.log('✗ admin-plat-shots:\n  ' + fails.join('\n  ')); process.exit(1); }
-console.log(`✓ admin-plat-shots: thẻ Nền tảng × ${CONFIGS.length} cấu hình (360/390, sáng/tối) – 1 dòng/nền tảng, thang chung, Tổng, ≥ 44 px, axe 0 lỗi`);
+console.log(`✓ admin-plat-shots: #analytics × ${CONFIGS.length} cấu hình (360/390, sáng/tối) – không tràn/thu nhỏ, đầu trang ≥ 44 px không đè, thẻ Nền tảng + thanh mọi thẻ cùng thang, tên nước đủ, chú giải 1 dải, axe 0 lỗi`);
