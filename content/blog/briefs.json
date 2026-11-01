@@ -16305,6 +16305,72 @@
       ],
       "angle": "دليل إعداد خطة دراسة ielts ذاتيا بدون معاهد: 4 مراحل متتالية، تقسيم الوقت اليومي على المهارات الأربع وحفظ المفردات الأكاديمية بنظام FSRS.",
       "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "como-melhorar-o-listening-em-ingles-metodo",
+      "keyword": "como melhorar o listening em inglês",
+      "topic": "Como Melhorar o Listening em Inglês: O Método das 5 Etapas",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "ingles",
+        "compreensao-auditiva"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "Descubra como melhorar o listening em inglês de verdade: entenda por que você lê bem mas não entende o áudio, a diferença entre bottom-up e top-down, e o método das 5 etapas.",
+      "intent": "informational"
+    },
+    {
+      "lang": "fr",
+      "slug": "comment-ameliorer-sa-comprehension-orale-en-anglais",
+      "keyword": "comment ameliorer sa comprehension orale en anglais",
+      "topic": "Comment Améliorer sa Compréhension Orale en Anglais : Méthode en 5 Étapes",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "comprehension-orale",
+        "anglais"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "Guide complet pour améliorer sa compréhension orale en anglais : pourquoi vous comprenez à l écrit mais pas à l oral, écoute ascendante et descendante, et méthode d écoute active.",
+      "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "englisches-hoerverstehen-verbessern-5-schritte-methode",
+      "keyword": "englisches hoerverstehen verbessern",
+      "topic": "Englisches Hörverstehen verbessern: Die 5-Schritte-Methode für Alltag und IELTS",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "hoerverstehen",
+        "englisch-lernen"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "Praktische Anleitung, wie Sie Ihr englisches Hörverstehen verbessern: Warum geschriebenes Englisch leichter fällt, Bottom-up vs. Top-down und aktives Hören mit Diktat.",
+      "intent": "informational"
     }
   ]
 }
