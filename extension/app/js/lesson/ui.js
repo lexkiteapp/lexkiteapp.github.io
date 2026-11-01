@@ -9,7 +9,7 @@
   const offNow = () => { try { const o = JSON.parse(ls.get(OFF_KEY) || '{}'), now = Date.now(); return { listen: (o.listen || 0) > now, speak: (o.speak || 0) > now }; } catch (e) { return {}; } };
   const setOff = k => { let o = {}; try { o = JSON.parse(ls.get(OFF_KEY) || '{}'); } catch (e) { /* hỏng → mới */ } o[k] = Date.now() + HOUR; ls.set(OFF_KEY, JSON.stringify(o)); };
   const learnVi = () => (window.I18N && I18N.learnLang ? I18N.learnLang() : 'vi') === 'vi';
-  const meanOf = c => (App.meanOf ? App.meanOf(c) : '') || c.vi || c.def || '';
+  const meanOf = c => (c ? (App.meanOf ? App.meanOf(c) : '') || c.vi || c.def || '' : ''); // thẻ null (bài ghép cặp, card: null) → '' như App.meanOf
 
   // Bộ khởi đầu (người mới, chưa có thẻ) và bộ demo cho anh duyệt: từ có ảnh đúng từ#loại + gold bank. Nghĩa vi; ngôn ngữ khác → App.meanOf / gói nghĩa.
   const now0 = Date.now();
@@ -112,6 +112,7 @@
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean });
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
+    if (window.LKAudio && LKAudio.offline.on()) LKAudio.offline.lesson(story || items, (state.settings || {}).accent); // 📥 gói offline đang bật → cất audio bài đang học
     if (demo || /[?&]sandbox=1/.test(location.search)) App._lsn = L; // bài thử / sandbox: gác bố cục CI (ux1-guard.mjs, qa-bot.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
     const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
@@ -173,7 +174,7 @@
     if (!L) return;
     const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.7 : 0.95;
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd }); else { UI.tts(text, 'en-US', rate, { onEnd }); }
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd }); else { UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
   const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };

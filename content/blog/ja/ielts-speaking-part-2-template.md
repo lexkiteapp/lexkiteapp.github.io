@@ -4,7 +4,7 @@ title: "IELTS スピーキング パート2 テンプレート：1分準備と2�
 description: "IELTS スピーキング パート2 テンプレートと構成法を徹底解説。1分間のメモ作成のコツ、沈黙を防ぐPPF（過去・現在・未来）構成、Part 3で発展的な意見を述べるPEEL法まで、Band 7.5以上を狙う具体例付きで紹介します。"
 keyword: "ielts スピーキング パート2 テンプレート"
 lang: ja
-translationKey: ielts-speaking-part-2-template
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, template]
 cover: speaking
