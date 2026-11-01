@@ -17536,6 +17536,121 @@
       ],
       "angle": "실전 비즈니스 영어 협상 표현 가이드: 조건부 양보 제안, 가격 대치 국면 타개, 정중한 거절과 계약서 조항 최종 확정까지 핵심 패턴 완벽 정리.",
       "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "frazy-dlya-peregovorov-na-angliyskom",
+      "keyword": "фразы для переговоров на английском",
+      "topic": "Фразы для деловых переговоров на английском: уступки, торг и заключение контракта",
+      "category": "ky-nang",
+      "tags": [
+        "peregovory",
+        "delovoy-angliyskiy",
+        "speaking",
+        "kontrakt"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Практическое руководство по фразам для переговоров на английском: условные уступки, обсуждение цены, выход из тупика и подписание международного контракта.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "ingilizce-muzakere-kaliplari-ve-sozlesme",
+      "keyword": "İngilizce müzakere kalıpları",
+      "topic": "İngilizce Müzakere Kalıpları: Fiyat Pazarlığı, Koşullu Taviz ve Sözleşme Kapatma",
+      "category": "ky-nang",
+      "tags": [
+        "muzakere",
+        "is-ingilizcesi",
+        "speaking",
+        "sozlesme"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "İş dünyasında İngilizce müzakere kalıpları rehberi: karşı teklif sunma, koşullu tavizler, fiyat kilitlenmelerini aşma ve anlaşma bağlama stratejileri.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "samnuan-tor-rong-phasa-angrit-thurakit",
+      "keyword": "ภาษาอังกฤษ เจรจาต่อรอง",
+      "topic": "ภาษาอังกฤษ เจรจาต่อรองธุรกิจ: การต่อรองราคา การแลกเปลี่ยนเงื่อนไข และปิดดีลสัญญา",
+      "category": "ky-nang",
+      "tags": [
+        "tor-rong",
+        "business-english",
+        "speaking",
+        "sanya"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "รวมประโยคและสำนวนภาษาอังกฤษ เจรจาต่อรองธุรกิจ: การยื่นข้อเสนอโต้แย้ง การประนีประนอมอย่างมีเงื่อนไข การคลี่คลายจุดติดขัด และการลงนามในสัญญาการค้า.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "ibarat-al-mufawadat-bil-injiliziyya-lil-aamal",
+      "keyword": "عبارات التفاوض باللغة الإنجليزية",
+      "topic": "عبارات التفاوض باللغة الإنجليزية في الأعمال: تقديم العروض المضادة وإبرام العقود",
+      "category": "ky-nang",
+      "tags": [
+        "mufawadat",
+        "aamal-injiliziyya",
+        "speaking",
+        "uqud"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "دليل عبارات التفاوض باللغة الإنجليزية للأعمال: تقديم التنازلات المشروطة، معالجة الجمود في الأسعار، والوصول إلى صفقات رابحة وتوقيع العقود التجارية.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "business-english-me-negotiation-phrases-guide",
+      "keyword": "business english negotiation phrases",
+      "topic": "Business English Negotiation Phrases: मोलभाव, शर्तें और कॉन्ट्रैक्ट क्लोजिंग गाइड",
+      "category": "ky-nang",
+      "tags": [
+        "negotiation",
+        "business-english",
+        "speaking",
+        "contract"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "व्यावसायिक सौदों के लिए business english negotiation phrases: सशर्त छूट की पेशकश, गतिरोध दूर करना, प्रति-प्रस्ताव और सफल अनुबंध हस्ताक्षर के महत्वपूर्ण पैटर्न।",
+      "intent": "informational"
     }
   ]
 }
