@@ -14819,6 +14819,29 @@
       ],
       "angle": "英語の受動態（Passive Voice）の作り方と時制別公式を徹底解説。能動態との自然な使い分け、形式主語を用いた非人称受動態、IELTSライティングでの活用法まで網羅。",
       "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "ielts-speaking-part-2-template-cue-card-dicas",
+      "keyword": "ielts speaking part 2 template",
+      "topic": "IELTS Speaking Part 2 Template: Estrutura para falar por 2 minutos",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "speaking",
+        "cue-card",
+        "template"
+      ],
+      "shots": [
+        "practice-speak",
+        "mock"
+      ],
+      "routes": [
+        "/#/practice/speak",
+        "/#/mock"
+      ],
+      "angle": "Domine o IELTS Speaking Part 2 com template de 4 passos: como aproveitar o 1 minuto de anotações, preencher 2 minutos com fluência e evitar pausas.",
+      "intent": "informational"
     }
   ]
 }
