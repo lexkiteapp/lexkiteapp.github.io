@@ -381,6 +381,10 @@
   'Nghĩa từ hiển thị bằng': 'Show word meanings in',
   'Định nghĩa tiếng Anh': 'English definitions',
   'Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)': 'Natural voices for listening & examiner (streams audio)',
+  'Nghe offline: tải sẵn khoảng {n} từ thông dụng và bài đang học': 'Offline listening: download about {n} common words and your current lesson',
+  'Khoảng {mb} MB, tối đa {max} MB. Tắt để xóa khỏi máy.': 'About {mb} MB, up to {max} MB. Turn off to remove it from this device.',
+  'Đã tải {done}/{total} · {mb} MB': 'Downloaded {done}/{total} · {mb} MB',
+  'Đã đạt giới hạn {max} MB': 'Storage limit of {max} MB reached',
   // ← en/hubs.js
   'Làm lại cho chắc · lần trước {pct}%': 'Redo to lock it in · last time {pct}%',
   'Trộn câu hỏi của cả chương': 'Mixed questions from the whole chapter',
