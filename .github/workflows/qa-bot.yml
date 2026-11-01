@@ -6,7 +6,7 @@
 name: QA bot
 on:
   pull_request:
-    paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
+    paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
   workflow_run:
     workflows: ['Pages deploy', 'Preview site']
     types: [completed]
@@ -55,11 +55,17 @@ jobs:
           node scripts/test/qa-bot.mjs $T --out out/qa-bot --only "$ONLY" --write-baseline out/qa-bot/baseline-seen.json
           echo "rc=$?" > out/qa-bot/rc
           cat out/qa-bot/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Lối thoát mọi màn học (exit-sweep – docs/specs/exit-button.md)
+        run: |
+          set +e
+          if [ -n "$BASE_URL" ]; then T="--base $BASE_URL"; else T="--root dist"; fi
+          node scripts/test/exit-sweep.mjs $T --out out/qa-bot/exit-sweep
+          echo "rc=$?" > out/qa-bot/exit-sweep/rc
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: qa-bot, path: out/qa-bot, retention-days: 7, if-no-files-found: ignore }
       - name: Kết luận
-        run: grep -q 'rc=0' out/qa-bot/rc
+        run: grep -q 'rc=0' out/qa-bot/rc && grep -q 'rc=0' out/qa-bot/exit-sweep/rc
 
   before-after:
     if: always() && github.event_name == 'pull_request'

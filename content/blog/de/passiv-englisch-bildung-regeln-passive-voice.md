@@ -4,7 +4,7 @@ title: "Passiv Englisch Regeln: Bildung, Zeiten und Passive Voice"
 description: "Passiv Englisch Regeln: Vollständige Anleitung zur Bildung des Passive Voice in allen Zeitformen, Umformung Aktiv zu Passiv und akademischer Schreibstil."
 keyword: "passiv englisch regeln"
 lang: de
-translationKey: passive-voice-in-english
+translationKey: cau-bi-dong-tieng-anh-passive-voice
 category: ngu-phap
 tags: [passiv, passive-voice, grammatik]
 cover: placement
