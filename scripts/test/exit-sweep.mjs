@@ -145,9 +145,10 @@ for (const W of [768, 1440]) {
       if (b.grown) {
         // So hai lần vẽ MỚI (như người dùng thấy): A = trang có nới, B = trang riêng tắt nới (ExitGuard._noGrow) – cùng route, cùng cỡ.
         // (Bật/tắt nới trên cùng trang để lại vết vẽ lại cục bộ ở góc bo của thanh dính .mk-bar – không phải hình người dùng thấy.)
+        // Bố cục: hộp nhìn thấy trùng tuyệt đối; tổ tiên so x/y/rộng (chiều cao phụ thuộc nội dung ngẫu nhiên của bài – quick/practice).
         const clip = { x: Math.max(0, b.x - 8), y: Math.max(0, b.y - 8), width: b.w + 16, height: b.h + 16 };
         const shotOf = pg => pg.screenshot({ clip, animations: 'disabled', caret: 'hide' });
-        const geo = pg => pg.evaluate(() => { const out = []; let e = document.querySelector('#view [data-exit]'); const f = e.querySelector(':scope > .lk-face'); out.push('hiện ' + (q => [q.x, q.y, q.width, q.height].join(','))((f || e).getBoundingClientRect())); for (let k = 0; e && k < 7; k++, e = e.parentElement) { const q = e.getBoundingClientRect(); out.push(e.tagName.toLowerCase() + '.' + [...e.classList].filter(c => !/^lk-(grow|hit44)$/.test(c)).join('.') + ' ' + (k ? [q.x, q.y, q.width, q.height].join(',') : '')); } return out; });
+        const geo = pg => pg.evaluate(() => { const out = []; let e = document.querySelector('#view [data-exit]'); const f = e.querySelector(':scope > .lk-face'); out.push('hiện ' + (q => [q.x, q.y, q.width, q.height].join(','))((f || e).getBoundingClientRect())); for (let k = 0; e && k < 7; k++, e = e.parentElement) { const q = e.getBoundingClientRect(); out.push(e.tagName.toLowerCase() + '.' + [...e.classList].filter(c => !/^lk-(grow|hit44)$/.test(c)).join('.') + ' ' + (k ? [q.x, q.y, q.width].join(',') : '')); } return out; });
         const A = await shotOf(page), gA = await geo(page); await sleep(400); const A2 = await shotOf(page);
         const pb = await ctx.newPage(); pb.on('dialog', d => d.accept());
         try {
