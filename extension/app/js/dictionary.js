@@ -387,8 +387,12 @@
     hit.terms = hit.terms.length <= 1 && !agree ? mine : [...new Set([...mine, ...hit.terms])].slice(0, 6);
     return out;
   }
+  // Từ loại PHỤ của kho (mục mở rộng đa từ loại, local.more – docs/LEXICON.md §Mở rộng 20k): nghĩa biên soạn vào ĐÚNG khối từ loại, sau từ loại chính
+  const moreOf = local => (local && Array.isArray(local.more) ? local.more.filter(m => m && m.pos && (m.vi || m.def)) : []);
   function build(word, local, gg, fd, wk, img, sents) {
     if (gg && local) gg = { ...gg, senses: fixSenses(gg.senses, local) };
+    if (gg) for (const m of moreOf(local)) { const lp = POS_SENSE[m.pos], had = gg.senses.some(x => (POS_SENSE[String(x.pos).toLowerCase()] || String(x.pos).toLowerCase()) === lp), s2 = fixSenses(gg.senses, m);
+      gg = { ...gg, senses: had || s2[0].pos !== lp ? s2 : [...s2.slice(1), s2[0]] }; }
     const gFirst = gg && gg.defs[0] && gg.defs[0].defs[0];
     const fFirst = fd && fd.meanings[0];
     const anyEx = (gg && gg.defs.flatMap(m => m.defs).find(d => d.ex)) || (fd && fd.meanings.flatMap(m => m.defs).find(d => d.ex));
@@ -411,6 +415,9 @@
         oxford = [{ pos: lp, defs: [curDef] }, ...oxford];
       }
     }
+    for (const m of moreOf(local)) { if (!m.def) continue;
+      const lp = POS_FULL[m.pos] || m.pos, curDef = { def: m.def, ex: m.ex || '' }, hit = oxford.find(x => (POS_FULL[String(x.pos).toLowerCase()] || x.pos) === lp);
+      if (hit) hit.defs = [curDef, ...hit.defs.filter(d => d.def !== m.def && !m.def.includes(d.def))].slice(0, 3); else oxford.push({ pos: lp, defs: [curDef] }); }
     return {
       word,
       found: true,
@@ -537,5 +544,5 @@
     return null;
   }
   const quickL = async (...a) => forLang(await quick(...a)), lookupL = async (...a) => forLang(await lookup(...a));
-  g.Dict = { translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  g.Dict = { buildEntry: build, translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

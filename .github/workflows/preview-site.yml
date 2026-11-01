@@ -1,6 +1,8 @@
 # Site PREVIEW cho chủ duyệt redesign: main mới nhất + mọi PR mở gắn nhãn `preview` (gộp tăng dần theo số PR) → Cloudflare Pages
 # dự án RIÊNG `lexkite-preview` (nhánh `preview` ⇒ https://preview.lexkite-preview.pages.dev). KHÔNG đụng dự án production `lexkite`.
 # Nhánh gộp chỉ tồn tại trong runner, không bao giờ push. PR xung đột / hỏng cú pháp / hỏng build ⇒ BỎ QUA, ghi vào summary.
+# Xung đột CHỈ trên tệp SINH (ci-triage.yml, gói dịch, extension/app, font icon, jobs…) ⇒ tự giải bằng scripts/ci/preview-resolve.mjs, rồi chạy lại bộ sinh một lần
+# (scripts/ci/preview-regen.sh) trước khi dựng site. Xung đột ở tệp thật khác ⇒ vẫn bỏ qua PR, summary ghi rõ tệp nào.
 name: Preview site
 on:
   schedule:
@@ -32,13 +34,21 @@ jobs:
         run: |
           git config user.name preview-bot; git config user.email preview-bot@users.noreply.github.com
           git checkout -q -b preview-integration
-          : > /tmp/included.txt; : > /tmp/skipped.txt
+          : > /tmp/included.txt; : > /tmp/skipped.txt; : > /tmp/resolved.txt
+          cp scripts/ci/preview-resolve.mjs /tmp/preview-resolve.mjs   # bản của main, không phụ thuộc PR đang gộp
+          mkdir -p /tmp/pvstate; export PREVIEW_STATE=/tmp/pvstate
           for n in $(gh pr list --label preview --state open --json number --jq 'sort_by(.number)[].number'); do
             git fetch -q origin "pull/$n/head:pr-$n" || { echo "skipped: #$n không tải được" >> /tmp/skipped.txt; continue; }
             sha=$(git rev-parse --short=9 "pr-$n")
             if ! git merge -q --no-edit "pr-$n" >/tmp/merge.log 2>&1; then
-              git merge --abort 2>/dev/null || git reset -q --hard HEAD
-              echo "skipped: #$n xung đột khi gộp ($sha)" >> /tmp/skipped.txt; continue
+              # chỉ tệp sinh xung đột ⇒ tự giải (bản của PR đến / hợp khóa), commit rồi đi tiếp; còn tệp thật ⇒ bỏ qua PR + liệt kê tệp
+              if blockers=$(node /tmp/preview-resolve.mjs 2>/tmp/resolve.err) && git -c core.editor=true commit -q --no-edit >>/tmp/merge.log 2>&1; then
+                echo "resolved: #$n xung đột chỉ ở tệp sinh – đã tự giải ($blockers)" >> /tmp/resolved.txt
+              else
+                files=$(printf '%s' "$blockers" | tr '\n' ' ' | cut -c1-300)
+                git merge --abort 2>/dev/null || git reset -q --hard HEAD
+                echo "skipped: #$n xung đột khi gộp ($sha) – tệp thật: ${files:-?}" >> /tmp/skipped.txt; continue
+              fi
             fi
             # kiểm nhanh tệp đổi: cú pháp JS + JSON hợp lệ (hỏng ⇒ lùi PR này)
             bad=""
@@ -52,7 +62,11 @@ jobs:
             if [ -n "$bad" ]; then git reset -q --hard HEAD^1; echo "skipped: #$n lỗi cú pháp ở $bad ($sha)" >> /tmp/skipped.txt; continue; fi
             echo "#$n $sha" >> /tmp/included.txt
           done
-          cat /tmp/included.txt /tmp/skipped.txt
+          cat /tmp/included.txt /tmp/resolved.txt /tmp/skipped.txt
+      - name: Sinh lại tệp sinh sau khi gộp (cùng thứ tự prepush/build)
+        run: |
+          npm ci --no-audit --no-fund
+          PREVIEW_STATE=/tmp/pvstate bash scripts/ci/preview-regen.sh
       - name: Dựng site (như production)
         run: |
           if ! (npm ci --no-audit --no-fund && bash scripts/build-web.sh) > /tmp/build.log 2>&1; then
@@ -93,5 +107,6 @@ jobs:
         run: |
           { echo "## Preview site"; echo "URL: $PREVIEW_URL"; echo "main: $(git rev-parse --short=9 main)"; echo
             echo "### PR đã gộp"; [ -s /tmp/included.txt ] && sed 's/^/- /' /tmp/included.txt || echo "- (không có)"
+            echo "### Xung đột tệp sinh đã tự giải"; [ -s /tmp/resolved.txt ] && sed 's/^/- /' /tmp/resolved.txt || echo "- (không có)"
             echo "### Bỏ qua"; [ -s /tmp/skipped.txt ] && sed 's/^/- /' /tmp/skipped.txt || echo "- (không có)"
             echo "### Kết quả kiểm: ${{ steps.chk.outputs.result }}"; } >> $GITHUB_STEP_SUMMARY

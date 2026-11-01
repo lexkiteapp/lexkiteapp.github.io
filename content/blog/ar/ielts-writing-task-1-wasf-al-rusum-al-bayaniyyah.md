@@ -4,7 +4,7 @@ title: "IELTS Writing Task 1: شرح شامل لوصف الرسوم البيان
 description: "ielts writing task 1 شرح كامل لوصف الرسوم البيانية والاتجاهات وهيكل المقال من 4 فقرات مع مفردات أكاديمية ونماذج إجابات عالية الدرجات."
 keyword: "ielts writing task 1 شرح"
 lang: ar
-translationKey: ielts-writing-task-1-guide
+translationKey: ielts-writing-task-1-line-graph
 category: ielts
 tags: [ielts, task-1, writing]
 cover: placement

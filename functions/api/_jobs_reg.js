@@ -227,6 +227,19 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "required-gate",
+   "workflow": "required-gate.yml",
+   "cron": [
+    "17,47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false
+  },
+  {
    "id": "content-protect",
    "workflow": "content-protect.yml",
    "cron": [
@@ -638,6 +651,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "sentence-audio-asr",
+   "workflow": "sentence-audio-asr.yml",
+   "cron": [
+    "43 1-23/4 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 170,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "word-packs",
    "workflow": "word-packs.yml",
    "cron": [
@@ -649,6 +676,20 @@ export const REG = {
     "gemini"
    ],
    "minutes": 45,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "sent-packs",
+   "workflow": "sent-packs.yml",
+   "cron": [
+    "50 21 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 60,
    "est": {},
    "lease": false
   },

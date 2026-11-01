@@ -6,6 +6,7 @@
 Áp dụng cho phiên chính, mọi agent con và Antigravity. Mục tiêu: cùng kết quả, ít token hơn ≥ 50 %.
 
 ## 1. Đọc
+- BẢN ĐỒ MÃ: mọi phiên đọc `docs/CODEMAP.md` TRƯỚC (≤ 25 KB, tự sinh bởi `scripts/codemap.mjs`), tra vị trí code bằng `docs/codemap.json` (`node -e`/jq), rồi chỉ grep/mở đúng file bản đồ trỏ tới; cấm khám phá repo mù (ls/find/grep rộng).
 - Đầu phiên: chỉ `docs/README.md` + `docs/METHODS.md` + phần đang mở của `docs/agents/BOARD.md`. Tài liệu khác chỉ đọc khi đụng đúng vùng đó (README ghi "khi nào đọc").
 - Không đọc nguyên file lớn: dùng `grep -n` rồi `sed -n 'a,bp'`; JSON lớn → `python3 -c` lấy đúng khóa; log CI → `grep`/`tail` vài dòng.
 - Không bao giờ đọc file output/JSONL của agent; chờ thông báo kết quả.
@@ -18,6 +19,8 @@
 - Luôn ghi: "làm trên main mới nhất của github.com/lexkiteapp/lexkiteapp.github.io" (worktree agent có thể bắt đầu từ lịch sử cũ).
 - Việc máy móc (dịch, chuyển file, gộp, kiểm tra) → `model: sonnet`/`haiku`; việc thiết kế/khó mới dùng model mạnh.
 - Đặt trần token cho mỗi agent (~150k); vượt → dừng và báo.
+
+- **Đặc tả gọn trước khi code (anh chủ 31/10, kiểu Spec Kit rút gọn):** tính năng lớn (≥3 màn hoặc >½ ngày) → 1 file `docs/specs/<tên>.md` ≤1 trang: mục tiêu, tiêu chí "xong", danh sách việc, cổng kiểm tra; duyệt xong mới code. Việc nhỏ/sửa lỗi làm thẳng.
 
 ## 3. Chờ & theo dõi
 - CI/quota: 1 lệnh `until …; do sleep 20–120; done` hoặc hẹn giờ 1 lần (CronCreate); không hỏi trạng thái lặp lại (đã làm cạn D1 2 lần), không đọc file output của agent.
@@ -51,7 +54,7 @@
 - **Một agent = một đợt việc có điểm kết thúc rõ** (≤ ~2 giờ hoặc 1 mốc giao hàng). Xong mốc → báo cáo → DỪNG. Việc tiếp theo = agent MỚI với brief ≤25 dòng (tóm tắt trạng thái + file + việc còn lại), KHÔNG SendMessage tiếp vào agent đã dùng nhiều (> ~80k token, 30/10; trước 23/10 là ~300k).
 - **≤ 2 phiên làm việc cùng lúc**; mỗi khu vực 1 phiên.
 - **Tự thu gọn (29/10, bắt buộc):** phiên dài (≈ 150k, xong 1 mốc, hoặc sau khi nén ngữ cảnh) → bàn giao ≤ 15 dòng → phiên MỚI, cùng cổng chất lượng.
-- **Không nén ngữ cảnh (anh chủ 31/10, TOÀN HỆ THỐNG, kể cả phiên điều phối):** không /compact. Phiên dài (con ≈ 130–150k sau 1 mốc; điều phối ≈ 80k) → bàn giao ≤ 15 dòng vào side-session-notes → phiên MỚI → lưu trữ phiên cũ. Phiên con chỉ báo khi xong mốc hoặc cần anh/điều phối quyết; không kết thúc lượt chỉ để báo "đang chờ CI" (mỗi lượt đánh thức điều phối); điều phối không trả lời các tin "đang chờ".
+- **Không nén ngữ cảnh (anh chủ 31/10, TOÀN HỆ THỐNG, kể cả phiên điều phối):** không /compact. Phiên dài: phiên con ≈ 130–150k sau 1 mốc → bàn giao ≤ 15 dòng vào side-session-notes → phiên MỚI → lưu trữ phiên cũ. Phiên điều phối (anh chủ 31/10) ≈ 100k, lúc rảnh giữa hai việc (≥ 150k thì làm ngay) → cập nhật coordinator-handoff.md → `clear_session("self")` (giữ nguyên id nên tin phiên con vẫn về) → đọc handoff trước tiên. Phiên con chỉ báo khi xong mốc hoặc cần anh/điều phối quyết; không kết thúc lượt chỉ để báo "đang chờ CI" (mỗi lượt đánh thức điều phối); điều phối không trả lời các tin "đang chờ".
 - **Điều phối xoay agent con** > ~80k token ngay sau khi nó xong 1 mốc; phiên xong việc → tự lưu trữ (archive).
 - **Không agent nào được chờ CI/quota trong ngữ cảnh của nó**: phải dừng và để Claude chính hẹn giờ (CronCreate 1 lần) hoặc lệnh nền `until … sleep 120`.
 - **Agent tự hỏi trạng thái lặp lại** (thông báo "vẫn đang chờ…") → TaskStop ngay.
