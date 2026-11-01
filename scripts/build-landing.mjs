@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { minify } from 'terser';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, themePage, themeSwitch, TSW_CSS, TSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { CSS, FOOT_CSS, SEO_L, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeSwitch, TSW_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr
@@ -57,11 +57,14 @@ const gaBtn = (l, place, appQ, web) => `<a class="btn ghost gapp" href="${appQ}"
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
-const hintJs = lang => `(function(){try{var P=${JSON.stringify(lang)},S=${JSON.stringify(Object.fromEntries(Object.entries(SUG).filter(([l]) => l !== lang)))},ls=window.localStorage;if(ls.getItem('lk.lhint'))return;
-var n=ls.getItem('vb.uiLang')||(navigator.languages&&navigator.languages[0])||navigator.language||'';n=String(n).toLowerCase().split('-')[0];if(!S[n]||n===P)return;
-var d=document.createElement('div');d.className='lhint';d.lang=n;if(n==='ar')d.dir='rtl';d.setAttribute('role','region');d.setAttribute('aria-label',S[n][0]);
-d.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';d.firstChild.textContent=S[n][0];var a=d.querySelector('a'),b=d.querySelector('button');a.href=n==='vi'?'/':'/'+n+'/';a.textContent=S[n][1];b.setAttribute('aria-label',S[n][2]);
-var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclick=function(){x();d.remove()};document.body.appendChild(d)}catch(e){}})();`;
+// Chữ gợi ý 15 ngôn ngữ → web/js/lhint.json, chỉ tải khi thật sự cần hiện (ngôn ngữ đã chọn/trình duyệt ≠ trang) → landing ≤ 16 KB gzip
+export const HINT_FILE = '/js/lhint.json';
+const hintJs = lang => `(function(){try{var P=${JSON.stringify(lang)},ls=window.localStorage;if(ls.getItem('lk.lhint'))return;
+var n=ls.getItem('vb.uiLang')||ls.getItem('lk.lang')||(navigator.languages&&navigator.languages[0])||navigator.language||'';n=String(n).toLowerCase().split('-')[0];if(n===P||${JSON.stringify(LANGS.join(' '))}.split(' ').indexOf(n)<0)return;
+fetch('${HINT_FILE}').then(function(r){return r.json()}).then(function(A){var S=A[n];if(!S)return;
+var d=document.createElement('div');d.className='lhint';d.lang=n;if(n==='ar')d.dir='rtl';d.setAttribute('role','region');d.setAttribute('aria-label',S[0]);
+d.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';d.firstChild.textContent=S[0];var a=d.querySelector('a'),b=d.querySelector('button');a.href=n==='vi'?'/':'/'+n+'/';a.textContent=S[1];b.setAttribute('aria-label',S[2]);
+var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclick=function(){x();d.remove()};document.body.appendChild(d)})['catch'](function(){})}catch(e){}})();`;
 
 // ----- CSS riêng của landing (chỉ token màu của site-layout / BRAND-RULES) -----
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-block!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
@@ -185,7 +188,7 @@ ${siteHeader({ nav, open: [start, esc(c.nav.start)], extra: gaBtn(lang, 'head', 
 ${c.faq.map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n')}</section>
 <section class="final" aria-labelledby="hc"><h2 id="hc">${esc(c.finalH)}</h2><p>${esc(c.finalP)}</p><a class="btn lg" href="${start}">${esc(c.hero.cta)} ${rtl ? '←' : '→'}</a></section>
 </main>
-${siteFooter({ lang, text: esc(c.foot), tm: esc(c.tm), langHref: landingHref, getApp: gaBtn(lang, 'foot', appQ, true) })}
+${siteFooter({ lang, text: esc(c.foot), tm: esc(c.tm), langHref: landingHref, getApp: gaBtn(lang, 'foot', appQ, true) }).replace(SITE_UI, SITE_UI_LAZY)}
 <script>${hintJs(lang)}</script>
 <script>${EXT_JS}
 self.LK_GETAPP_T='${gaFile(lang)}';
@@ -198,9 +201,10 @@ ${GETAPP_JS}</script>
 export const fileOf = l => l === 'vi' ? 'web/index.html' : `web/${l}/index.html`;
 // Trang 404 (web/404.html, viết tay, song ngữ vi/en): chèn nút đổi ngôn ngữ góc trên (→ trang chủ từng ngôn ngữ) vào giữa <!--lsw--><!--/lsw-->.
 // Trang dùng token màu riêng (--card/--fg/--coral) → ánh xạ sang token của khối lsw dùng chung.
-export const render404 = html => themePage(html).replace(/<!--lsw-->[\s\S]*?<!--\/lsw-->/, () => `<!--lsw--><style>.top{position:absolute;top:12px;inset-inline-end:16px;--surface:var(--card);--text:var(--fg);--primary:var(--coral);--accent-soft:var(--line)}.top{display:flex;gap:8px}.top .lsw-m{display:block}${LSW_CSS}${TSW_CSS}</style>
-  <div class="top">${themeSwitch('vi')}${langSwitch({ lang: 'vi', label: 'Ngôn ngữ · Language' })}</div><script>${LSW_JS}
-${TSW_JS}</script><!--/lsw-->`);
+// Chân trang chung (siteFooter vi + Privacy/Terms tiếng Anh như chân trang mini cũ) giữa <!--foot--><!--/foot-->; token riêng của 404 → token chân trang
+const FOOT404 = () => `<!--foot--><style>${FOOT_CSS}.site-foot{align-self:stretch;margin:40px -16px -24px;--surface:var(--card);--text:var(--fg);--muted:var(--mut);--primary:var(--coral)}</style>${siteFooter({ lang: 'vi', text: SEO_L.vi.foot, tm: SEO_L.vi.tm, langHref: landingHref, coExtra: [['/en/privacy', 'Privacy', ' lang="en"'], ['/en/terms', 'Terms', ' lang="en"']] }).replace(SITE_UI, '')}<!--/foot-->`;
+export const render404 = html => themePage(html).replace(/<!--foot-->[\s\S]*?<!--\/foot-->/, FOOT404).replace(/<!--lsw-->[\s\S]*?<!--\/lsw-->/, () => `<!--lsw--><style>.top{position:absolute;top:12px;inset-inline-end:16px;--surface:var(--card);--text:var(--fg);--primary:var(--coral);--accent-soft:var(--line)}.top{display:flex;gap:8px}.top .lsw-m{display:block}${LSW_CSS}${TSW_CSS}</style>
+  <div class="top">${themeSwitch('vi')}${langSwitch({ lang: 'vi', label: 'Ngôn ngữ · Language' })}</div>${SITE_UI}<!--/lsw-->`);
 for (const l of LANGS) for (const [, , code] of renderPurged(l).matchAll(SCRIPT)) {
   if (MINI.has(code) || !code.trim()) continue;
   const r = await minify(code, { compress: { passes: 2 }, mangle: true, format: { comments: false } }); // không ép ascii: giữ chữ UTF-8 (gợi ý 15 ngôn ngữ)
@@ -219,6 +223,9 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web' + gaFile(l)); continue; }
     fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, j);
   }
+  { const f = new URL('web' + HINT_FILE, R), j = JSON.stringify(SUG) + '\n'; if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web' + HINT_FILE); } else fs.writeFileSync(f, j); }
+  { const f = new URL('web/js/site-ui.js', R), j = SITE_UI_JS(); if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web/js/site-ui.js'); } else fs.writeFileSync(f, j); } // JS dùng chung trang tĩnh (site-layout SITE_UI)
+  for (const n of ['bye', 'blog-lang']) { const f = new URL(`web/${n}.html`, R), cur = fs.readFileSync(f, 'utf8'), html = themePage(cur); if (check) { if (html !== cur) stale.push(`web/${n}.html`); } else if (html !== cur) fs.writeFileSync(f, html); } // trang viết tay: chống nháy bản mới
   { const f = new URL('web/404.html', R), cur = fs.readFileSync(f, 'utf8'), html = render404(cur); if (check) { if (html !== cur) stale.push('web/404.html'); } else fs.writeFileSync(f, html); }
   if (stale.length && !process.env.CI) { // cục bộ (npm test): tự dựng lại cho khỏi dừng giữa chừng; trên CI (CI=true) vẫn nghiêm ngặt
     const r = spawnSync(process.execPath, [fileURLToPath(import.meta.url)], { stdio: 'inherit' });

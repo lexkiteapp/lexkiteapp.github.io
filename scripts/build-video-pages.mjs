@@ -2,7 +2,7 @@
 // video (bìa trước, không tự phát) + phụ đề TIẾNG ANH + transcript tiếng Anh (khung trang theo ngôn ngữ) + JSON-LD VideoObject + hreflang; dist/sitemap-video.xml (chuẩn video sitemap).
 // Nguồn: web/data/videos.json + content/video/web/captions/<id>.json (scripts/video/web-rendition.mjs). Mẫu thử (test) → noindex, không vào sitemap.
 import fs from 'node:fs';
-import { CSS, esc, ld, landingHref, appHref, themePage, themeSwitch, TSW_JS } from './lib/site-layout.mjs';
+import { CSS, esc, ld, landingHref, appHref, themePage, themeSwitch, SITE_UI } from './lib/site-layout.mjs';
 import { LANGS, MANIFEST, CAPTIONS_DIR, readJSON, videoHref } from './lib/video-web.mjs';
 
 const SITE = 'https://lexkite.com', D = 'dist/';
@@ -46,7 +46,7 @@ for (const it of items) {
 <h1 lang="en">${esc(it.title)}</h1><p>${esc(dsc)} · ${Math.round(it.duration)}s${it.tags.cefr ? ' · CEFR ' + esc(it.tags.cefr) : ''}</p>
 <video controls playsinline preload="none" crossorigin="anonymous" poster="${esc(it.poster)}" aria-label="${esc(it.title)}"><source src="${esc(it.src)}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="${esc(it.vtt_en)}" default></video>
 <p><a class="btn" href="${appHref(lang)}">${esc(cta)} – ${esc(open)} ${RTL.has(lang) ? '←' : '→'}</a></p>
-<h2>${esc(tLab)} <small lang="en">(English)</small></h2><ol>${lines}</ol></main><script>${TSW_JS}</script></body></html>`);
+<h2>${esc(tLab)} <small lang="en">(English)</small></h2><ol>${lines}</ol></main>${SITE_UI}</body></html>`);
     const dir = D + videoHref(lang, it.slug).slice(1); fs.mkdirSync(dir, { recursive: true }); fs.writeFileSync(dir + 'index.html', html); pages++;
     if (!it.test) sm.push(`<url><loc>${url}</loc>${LANGS.map(l => `<xhtml:link rel="alternate" hreflang="${l}" href="${SITE}${videoHref(l, it.slug)}"/>`).join('')}<video:video><video:thumbnail_loc>${esc(it.poster)}</video:thumbnail_loc><video:title>${esc(it.title)}</video:title><video:description>${esc(desc)}</video:description><video:content_loc>${esc(it.src)}</video:content_loc><video:duration>${Math.round(it.duration)}</video:duration><video:family_friendly>yes</video:family_friendly></video:video></url>`);
   }

@@ -48,7 +48,8 @@ for (const [mode, scheme, stored] of MODES) {
     const v = await page.evaluate(async () => (await axe.run(document, { runOnly: ['color-contrast'], resultTypes: ['violations'] })).violations.flatMap(x => x.nodes.map(n => `${n.target.join(' ')} – ${(n.any[0] || {}).message || ''}`.slice(0, 200))));
     for (const x of v.slice(0, 5)) bad.push(`${tag}: tương phản ${x}`);
     if (SHOTS) await page.screenshot({ path: path.join(SHOTS, `${name}-${mode}.png`), fullPage: false });
-    if (st.btn && mode === 'auto-light' && name.startsWith('landing-en')) { // vòng bấm trên trang thật: tự động → sáng → tối → tự động, có lưu + nhãn đổi
+    if (st.btn && mode === 'auto-light' && name.startsWith('landing-en')) {
+      await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => bad.push('landing-en: /js/site-ui.js không nạp sau load')); // vòng bấm trên trang thật: tự động → sáng → tối → tự động, có lưu + nhãn đổi
       const seq = [];
       for (let i = 0; i < 3; i++) { await page.click('[data-tsw] >> visible=true'); seq.push(await page.evaluate(() => [document.documentElement.getAttribute('data-theme'), localStorage.getItem('lk.theme'), document.querySelector('[data-tsw]').getAttribute('aria-label')].join('|'))); }
       if (!/^light\|light\|.+: Light theme$/.test(seq[0]) || !/^dark\|dark\|.+: Dark theme$/.test(seq[1]) || !/^\|\|.+: Theme: match system$/.test(seq[2])) bad.push(`landing-en: vòng nút sai ${seq.join(' → ')}`);
@@ -65,6 +66,46 @@ for (const [mode, scheme, stored] of MODES) {
   for (const [p, name] of PAGES) { const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }).catch(() => {});
     const ov = await page.evaluate(OVER), vis = await page.evaluate(() => { const b = document.querySelector('[data-tsw]'); if (!b) return true; const q = b.getBoundingClientRect(); return q.width > 0 && q.right <= innerWidth + .5 && q.left >= -.5; });
     if (ov) bad.push(`${name} @360: ${ov}`); if (!vis) bad.push(`${name} @360: nút giao diện ra ngoài màn hình`); await page.close(); }
+  await ctx.close(); }
+// Đồng bộ app ↔ web (cùng origin lexkite.com): app lưu ielts.settings.theme + vb.uiLang → trang tĩnh tối + link về bản vi; bấm nút web → ielts.settings đổi theo
+{ const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, colorScheme: 'light' }); await serve(ctx);
+  await ctx.addInitScript(() => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); localStorage.setItem('ielts.settings', JSON.stringify({ theme: 'dark', goal: 20 })); localStorage.setItem('ielts.settingsAt', String(Date.now())); localStorage.setItem('vb.uiLang', 'vi'); } } catch (e) { /* */ } });
+  for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|404|blog-en|blog-post-en|tools-en|seo-en)$/.test(n))) {
+    const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
+    const r = await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), logo: (document.querySelector('.flogo,header .logo,.logo') || {}).getAttribute?.('href'), app: [...document.querySelectorAll('a[href^="/app/"]')].map(a => a.getAttribute('href')).filter(h => /hl=/.test(h)), blog: [...document.querySelectorAll('a[href$="/blog/"]:not([hreflang])')].filter(a => !a.closest('[data-lsw],.flang')).map(a => a.getAttribute('href')).filter(h => h !== '/vi/blog/') }));
+    if (r.th !== 'dark') bad.push(`sync ${name}: app đặt tối nhưng data-theme=${r.th}`);
+    if (r.logo && r.logo !== '/') bad.push(`sync ${name}: app chọn vi nhưng logo → ${r.logo}`);
+    if (r.app.length) bad.push(`sync ${name}: link app còn ?hl= (${r.app[0]}) – sẽ ghi đè ngôn ngữ đã chọn`);
+    if (r.blog.length) bad.push(`sync ${name}: link blog chưa về bản vi (${r.blog[0]})`);
+    checks++; await page.close();
+  }
+  const page = await ctx.newPage(); await page.goto(BASE + '/en/', { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
+  await page.click('[data-tsw] >> visible=true'); // tối → tự động
+  const a = await page.evaluate(() => JSON.parse(localStorage.getItem('ielts.settings')));
+  await page.click('[data-tsw] >> visible=true'); // → sáng
+  const b = await page.evaluate(() => [JSON.parse(localStorage.getItem('ielts.settings')), document.documentElement.getAttribute('data-theme')]);
+  if (a.theme !== 'auto' || b[0].theme !== 'light' || b[1] !== 'light' || b[0].goal !== 20) bad.push(`sync: bấm nút web không vá ielts.settings.theme (${a.theme} → ${b[0].theme}, giữ khoá khác: ${b[0].goal})`);
+  await page.reload({ waitUntil: 'load' }); if (await page.evaluate(() => document.documentElement.getAttribute('data-theme')) !== 'light') bad.push('sync: tải lại sau khi chọn sáng trên web → không còn sáng');
+  checks++; await ctx.close(); }
+// Chân trang: 390 px nhóm gập (chỉ "Sản phẩm" mở), ô chạm ≥ 48 px; 1280 px 4 nhóm mở; menu ngôn ngữ bàn phím. Ảnh footer-{sáng,tối}-{1280,390}.png
+for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', 'dark']) {
+  const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: scheme, reducedMotion: 'reduce' }); await serve(ctx);
+  for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|blog-en|404)$/.test(n))) {
+    const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
+    const f = await page.evaluate(W => { const g = [...document.querySelectorAll('.site-foot .fg')], small = [...document.querySelectorAll('.site-foot summary, .site-foot .fbtn, .site-foot .tsw, .site-foot .fg[open] a')].filter(e => e.getBoundingClientRect().width).map(e => [e.className || e.tagName, Math.round(e.getBoundingClientRect().height)]).filter(([, h]) => h < (W < 720 ? 48 : 44)); return { n: g.length, open: g.filter(x => x.open).length, small, ul: [...document.querySelectorAll('.site-foot .fg a')].some(a => getComputedStyle(a).textDecorationLine.includes('underline')) }; }, W);
+    const tag = `footer ${name} @${W} ${scheme}`; checks++;
+    if (f.n !== 4) bad.push(`${tag}: ${f.n} nhóm (cần 4)`);
+    if (f.open !== (W < 720 ? 1 : 4)) bad.push(`${tag}: ${f.open} nhóm mở (cần ${W < 720 ? 1 : 4})`);
+    if (f.small.length) bad.push(`${tag}: ô chạm nhỏ ${JSON.stringify(f.small.slice(0, 3))}`);
+    if (f.ul) bad.push(`${tag}: link chân trang gạch chân khi chưa hover`);
+    if (name === 'landing-en') {
+      await page.focus('.flang summary'); await page.keyboard.press('Enter');
+      const o = await page.evaluate(() => document.querySelector('.flang').open && [...document.querySelectorAll('.flangs a')].length); await page.keyboard.press('Escape');
+      if (o !== 15 || await page.evaluate(() => document.querySelector('.flang').open)) bad.push(`${tag}: menu ngôn ngữ bàn phím (Enter mở 15 mục, Esc đóng) sai`);
+      if (SHOTS) await page.locator('.site-foot').screenshot({ path: path.join(SHOTS, `footer-${scheme}-${W}.png`) });
+    }
+    await page.close();
+  }
   await ctx.close(); }
 await browser.close();
 if (bad.length) { console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }

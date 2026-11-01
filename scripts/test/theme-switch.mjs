@@ -7,7 +7,7 @@
 // Trình duyệt thật (tương phản axe sáng + tối, không nháy): scripts/test/theme-static.mjs (CI theme-qa.yml).
 // Dùng: node scripts/test/theme-switch.mjs [dist]  (mặc định kiểm web/ + dist/ nếu đã dựng)
 import fs from 'node:fs'; import path from 'node:path'; import { JSDOM } from 'jsdom';
-import { THEME_HEAD, TSW_JS, themeCss, themeLabels, themeSwitch, LANG_NAMES } from '../lib/site-layout.mjs';
+import { THEME_HEAD, TSW_JS, LANG_JS, FOOT_JS, SITE_UI_JS, SITE_UI_V, themeCss, themeLabels, themeSwitch, siteFooter, LANG_NAMES } from '../lib/site-layout.mjs';
 
 const bad = []; let pages = 0;
 const ok = (c, m) => { if (!c) bad.push(m); };
@@ -30,10 +30,13 @@ for (const root of roots) for (const f of walk(root)) {
   for (const [, c] of h.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)) if (themeCss(c) !== c) { ok(false, `${f}: còn @media (prefers-color-scheme) chưa đổi sang mẫu data-theme`); break; }
   if (/data-lsw/.test(h)) {
     ok(/<button type="button" class="tsw" data-tsw/.test(h), `${f}: có nút ngôn ngữ nhưng thiếu nút giao diện`);
-    ok(h.includes("closest('[data-tsw]')") || h.includes('closest("[data-tsw]")'), `${f}: thiếu script nút giao diện`);
+    ok(h.includes("closest('[data-tsw]')") || h.includes('closest("[data-tsw]")') || h.includes(`/js/site-ui.js?v=${SITE_UI_V}`), `${f}: thiếu script nút giao diện`);
   }
+  // Trang có nút giao diện/ngôn ngữ nạp JS dùng chung đúng phiên bản (?v= = băm nội dung hiện tại – trang dựng cũ → đỏ)
+  if (/data-tsw|data-lsw|class="flang"/.test(h) && h.includes('/js/site-ui.js')) ok(h.includes(`/js/site-ui.js?v=${SITE_UI_V}`), `${f}: /js/site-ui.js sai phiên bản – dựng lại trang`);
 }
 ok(pages >= (roots.includes('dist') ? 1000 : 60), `chỉ thấy ${pages} trang – sai thư mục?`);
+for (const root of roots) { const f = path.join(root, 'js/site-ui.js'); ok(fs.existsSync(f) && (root !== 'web' || fs.readFileSync(f, 'utf8') === SITE_UI_JS()), `${f}: thiếu hoặc cũ so với site-layout – chạy node scripts/build-landing.mjs`); } // dist: bản đã rút gọn
 
 // Nhãn: đủ 15 ngôn ngữ, khác bản tiếng Việt gốc (đã dịch thật qua pipeline docs/I18N-PIPELINE.md), không rỗng
 for (const l of Object.keys(LANG_NAMES)) {
@@ -64,6 +67,48 @@ ok(w.document.documentElement.getAttribute('data-theme') === 'dark', 'tab khác 
 w = run('dark'); ok(w.document.documentElement.getAttribute('data-theme') === 'dark' && lab(w) === `${L[3]}: ${L[2]}`, 'đã lưu tối → <head> đặt data-theme=dark trước khi vẽ');
 w = run('light', true); ok(w.document.documentElement.getAttribute('data-theme') === 'light', 'đã lưu sáng trên máy để tối → vẫn sáng');
 w = run('<img onerror=1>'); ok(!w.document.documentElement.hasAttribute('data-theme'), 'giá trị lạ trong lk.theme → bỏ qua (tự động)');
+
+// Đồng bộ app ↔ web (cùng origin): app lưu ielts.settings {theme} + ielts.settingsAt; web lưu lk.theme + lk.themeAt; mới hơn thắng
+const run2 = (seed, mq = false) => {
+  const dom = new JSDOM(`<!doctype html><html><head><meta charset="utf-8"></head><body>${themeSwitch('en')}</body></html>`, { url: 'https://lexkite.com/en/', runScripts: 'outside-only' });
+  const w = dom.window; for (const [k, v] of Object.entries(seed)) w.localStorage.setItem(k, v); w.matchMedia = () => ({ matches: mq });
+  w.eval((THEME_HEAD.match(/<script data-lkt>([\s\S]*)<\/script>/) || [])[1]); w.eval(TSW_JS); return w;
+};
+const th = w => w.document.documentElement.getAttribute('data-theme');
+w = run2({ 'ielts.settings': JSON.stringify({ theme: 'dark', goal: 20 }), 'ielts.settingsAt': '1000' });
+ok(th(w) === 'dark', 'app đặt tối (ielts.settings.theme=dark), web chưa chọn → trang tĩnh tối');
+w = run2({ 'ielts.settings': JSON.stringify({ theme: 'dark' }), 'ielts.settingsAt': '1000', 'lk.theme': 'light', 'lk.themeAt': '2000' });
+ok(th(w) === 'light', 'web chọn sáng SAU app → sáng (mốc mới hơn thắng)');
+w = run2({ 'ielts.settings': JSON.stringify({ theme: 'dark' }), 'ielts.settingsAt': '3000', 'lk.theme': 'light', 'lk.themeAt': '2000' });
+ok(th(w) === 'dark', 'app đổi tối SAU web → tối');
+w = run2({ 'ielts.settings': JSON.stringify({ theme: 'auto' }), 'ielts.settingsAt': '3000', 'lk.theme': 'dark', 'lk.themeAt': '2000' });
+ok(th(w) === null, 'app chọn tự động sau cùng → theo hệ thống');
+w = run2({ 'ielts.settings': '{bad json', 'lk.theme': 'dark' }); ok(th(w) === 'dark', 'ielts.settings hỏng → bỏ qua, vẫn theo lk.theme');
+w = run2({ 'ielts.settings': JSON.stringify({ theme: 'dark', goal: 20, uiX: [1] }), 'ielts.settingsAt': '1000' });
+w.document.querySelector('[data-tsw]').click(); // tối → tự động
+{ const p = JSON.parse(w.localStorage.getItem('ielts.settings')); ok(p.theme === 'auto' && p.goal === 20 && p.uiX[0] === 1 && +w.localStorage.getItem('ielts.settingsAt') > 1000 && w.localStorage.getItem('ielts.settingsAt') === w.localStorage.getItem('lk.themeAt'), 'bấm nút web → vá ielts.settings.theme + settingsAt, giữ nguyên khoá khác'); }
+w.document.querySelector('[data-tsw]').click(); ok(JSON.parse(w.localStorage.getItem('ielts.settings')).theme === 'light' && th(w) === 'light', 'bấm tiếp → sáng ở cả hai');
+w = run2({}); w.document.querySelector('[data-tsw]').click(); ok(w.localStorage.getItem('ielts.settings') === null && w.localStorage.getItem('ielts.settingsAt') === null, 'chưa từng mở app → không tạo ielts.settings');
+w = run2({ 'ielts.settings': JSON.stringify({ theme: 'light' }), 'ielts.settingsAt': '1' });
+w.localStorage.setItem('ielts.settings', JSON.stringify({ theme: 'dark' })); w.localStorage.setItem('ielts.settingsAt', String(Date.now()));
+w.dispatchEvent(Object.assign(new w.Event('storage'), { key: 'ielts.settings', newValue: '' })); ok(th(w) === 'dark', 'app (tab khác) đổi giao diện → trang tĩnh đổi theo');
+
+// Ngôn ngữ: lựa chọn của app (vb.uiLang) / web (lk.lang) → link nội bộ (logo, Mở app, nav, chân trang) trỏ bản ngôn ngữ đó; menu ngôn ngữ giữ nguyên
+const runL = (seed, page = 'en') => {
+  const dom = new JSDOM(`<!doctype html><html lang="${page}"><body><header><a class="logo" href="/${page}/">x</a><a href="/app/?hl=${page}#/topic/a">app</a><a href="/${page}/blog/">b</a><a href="/en/vocabulary/">v</a></header>${siteFooter({ lang: page, text: 'Lexkite', langHref: l => `/${l}/blog/` })}</body></html>`, { url: `https://lexkite.com/${page}/`, runScripts: 'outside-only' });
+  const w = dom.window; for (const [k, v] of Object.entries(seed)) w.localStorage.setItem(k, v); w.matchMedia = q => ({ matches: false, addEventListener() {} }); w.eval(LANG_JS); w.eval(FOOT_JS); return w;
+};
+w = runL({ 'vb.uiLang': 'vi' });
+{ const d = w.document, hr = s => d.querySelector(s).getAttribute('href');
+  ok(hr('.logo') === '/' && hr('header a[href^="/app/"]') === '/app/#/topic/a' && hr('header a[href$="/blog/"]') === '/vi/blog/' && hr('header a[href*=vocabulary]') === '/en/vocabulary/', 'app chọn vi → logo /, Mở app /app/ (giữ #), blog /vi/blog/; link không chắc có bản dịch giữ nguyên');
+  ok(hr('.flogo') === '/' && hr('.fbtn.pri') === '/app/' && d.querySelector('.flangs [lang=ja]').getAttribute('href') === '/ja/blog/', 'chân trang: logo + Mở app theo vi, danh sách ngôn ngữ không bị đổi');
+  d.addEventListener('click', e => e.preventDefault()); // jsdom không chuyển trang
+  d.querySelector('.flangs [lang=ja]').dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));
+  ok(w.localStorage.getItem('lk.lang') === 'ja' && w.localStorage.getItem('vb.uiLang') === 'ja', 'chọn ngôn ngữ trên web → ghi cả lk.lang và vb.uiLang (app mở ra cùng ngôn ngữ)'); }
+w = runL({}); ok(w.document.querySelector('.logo').getAttribute('href') === '/en/' && w.document.querySelector('header a[href^="/app/"]').getAttribute('href') === '/app/?hl=en#/topic/a', 'chưa chọn ngôn ngữ → link giữ nguyên');
+w = runL({ 'lk.lang': 'ar' }, 'ja'); ok(w.document.querySelector('.logo').getAttribute('href') === '/ar/', 'chỉ có lk.lang → vẫn theo lk.lang');
+w = runL({ 'vb.uiLang': '"/><x' }); ok(w.document.querySelector('.logo').getAttribute('href') === '/en/', 'mã ngôn ngữ lạ → bỏ qua');
+{ const d = runL({}).document, g = [...d.querySelectorAll('.fg')]; ok(g.length === 4 && g.every(x => x.open) && d.querySelector('.flang summary').getAttribute('aria-label').startsWith('Language: '), 'chân trang: 4 nhóm (máy tính luôn mở), menu ngôn ngữ có aria-label'); }
 
 // Bộ đổi CSS: hai chiều + bất biến khi chạy lại
 const c1 = themeCss(':root{--a:1;color-scheme:light dark}@media (prefers-color-scheme:dark){:root{--a:2}.x,[dir=rtl] .y{color:red}}@media (prefers-color-scheme:light){.z{color:blue}}');

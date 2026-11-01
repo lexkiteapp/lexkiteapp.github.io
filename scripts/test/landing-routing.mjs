@@ -106,10 +106,12 @@ for (const l of LANGS.filter(x => x !== 'vi')) {
 }
 
 // ---------- 3) Gợi ý ngôn ngữ (chỉ người dùng thật, sau khi vẽ) ----------
+// JS dùng chung trang tĩnh nằm ở file /js/site-ui.js (defer) → jsdom chạy inline cùng nội dung
+const inlUi = h => h.replace(/<script src="\/js\/site-ui\.js[^"]*" defer><\/script>|<script>addEventListener\("load"[^<]{0,160}\/js\/site-ui\.js[^<]{0,80}<\/script>/g, () => `<script>${rd('web/js/site-ui.js')}</script>`); // landing: nạp sau load (đã rút gọn)
 async function hint(file, langs, local = {}) {
-  const html = rd(file).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
-  const dom = new JSDOM(html, { url: 'https://lexkite.com/', runScripts: 'dangerously', beforeParse(w) { Object.defineProperty(w.navigator, 'languages', { get: () => langs }); for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v); } });
-  await new Promise(r => setTimeout(r, 10));
+  const html = inlUi(rd(file)).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const dom = new JSDOM(html, { url: 'https://lexkite.com/', runScripts: 'dangerously', beforeParse(w) { Object.defineProperty(w.navigator, 'languages', { get: () => langs }); for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v); w.fetch = u => Promise.resolve({ json: () => JSON.parse(rd('web' + new URL(u, 'https://lexkite.com/').pathname)) }); } }); // chữ gợi ý tải từ web/js/lhint.json khi cần
+  await new Promise(r => setTimeout(r, 30));
   return dom.window;
 }
 {
@@ -137,7 +139,7 @@ async function hint(file, langs, local = {}) {
     ok(items.length === LANGS.length && items.every(a => a.getAttribute('href') === landingHref(a.lang) && a.getAttribute('hreflang') === a.lang && a.textContent === LANG_NAMES[a.lang]) && items.filter(a => a.hasAttribute('aria-current')).map(a => a.lang).join() === l && items.find(a => a.lang === 'ar').getAttribute('dir') === 'rtl', `${fileOf(l)}: 15 ngôn ngữ tên bản địa, lang/hreflang, trỏ trang chủ từng ngôn ngữ, đánh dấu ngôn ngữ hiện tại, ar RTL`);
   }
   // Hành vi bàn phím/chuột chạy thật trong jsdom (trang ar để thử RTL); KHÔNG tự chuyển trang theo lựa chọn đã nhớ
-  const html = rd('web/ar/index.html').replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const html = inlUi(rd('web/ar/index.html')).replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
   const dom = new JSDOM(html, { url: 'https://lexkite.com/ar/', runScripts: 'dangerously', beforeParse(w) { w.localStorage.setItem('vb.uiLang', 'ja'); w.localStorage.setItem('lk.lhint', '1'); } });
   await new Promise(r => setTimeout(r, 10));
   const w = dom.window, d = w.document, b = d.querySelector('[data-lsw] button'), m = d.getElementById(b.getAttribute('aria-controls')), key = (el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
