@@ -1,6 +1,11 @@
 {
  "_doc": "Việc hạ nguồn của kho từ (docs/JOBS.md §Đồ thị kho từ). Mọi script đọc kho (loadAll/loadBrowserIndex/dist/lexicon.json/IELTS_DATA.INDEX) PHẢI có ở đây: via = đường nạp có mục mở rộng (expand-aware), hoặc skip + lý do. scripts/test/lexicon-expand.mjs đỏ khi script mới đọc kho mà chưa đăng ký, khi via không còn trong mã, hoặc khi mục từ có TRƯỜNG mới chưa khai trong fields.",
  "consumers": {
+  "scripts/content-score.mjs": {
+   "what": "content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh)",
+   "via": "loadAllPlus",
+   "job": "content-qa.yml (score)"
+  },
   "scripts/lexicon/shards.mjs": {
    "what": "mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ",
    "via": "loadExpand",

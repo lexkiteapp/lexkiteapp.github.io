@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Bảng điểm chất lượng nội dung (docs/CONTENT-WORLD-PLAN.md §3.5, P0.7): 6 mảng × 0–100 + tổng, từ ĐỘ PHỦ × TỈ LỆ QUA CỔNG.
-// Số liệu dùng lại cổng có sẵn: content-check (--json → reports/content-stats.json + lỗi theo mảng), build-lexicon (kho từ một nguồn),
+// Số liệu dùng lại cổng có sẵn: content-check (--json → reports/content-stats.json + lỗi theo mảng), build-lexicon (kho từ một nguồn + mở rộng, loadAllPlus),
 // content/lexicon/img.json (ảnh theo nghĩa), i18n-qa (lỗi bản dịch 15 ngôn ngữ). 0 token, chỉ đọc repo.
 // Chuẩn đích (CHUAN) cố định theo "ông lớn" ở §2 của kế hoạch – KHÔNG hạ; khác targets.json (chỉ tiêu lô, được nâng dần).
 // Ngưỡng sàn: content/pipeline/score.budget.json (như scripts/test/visual-qa.budget.json) – điểm < sàn → exit 1; sàn chỉ được tăng.
@@ -10,7 +10,7 @@
 import fs from 'node:fs';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { loadContent } from './lib/content-load.mjs';
-import { loadAll, key } from './lexicon/lib.mjs';
+import { loadAllPlus, key } from './lexicon/lib.mjs';
 
 const ARG = process.argv.slice(2), BUDGET = 'content/pipeline/score.budget.json', OUT = 'content/pipeline/SCORE.md';
 const rd = p => fs.readFileSync(p, 'utf8'), ex = p => fs.existsSync(p);
@@ -35,7 +35,7 @@ const ls = (d, re) => (ex(d) ? fs.readdirSync(d).filter(f => re.test(f)) : []);
 // ---------- Cổng 2: build-lexicon (kho từ một nguồn phải nhất quán) ----------
 const lex = spawnSync('node', ['scripts/build-lexicon.mjs'], { encoding: 'utf8' });
 const lexOk = lex.status === 0;
-const rows = new Map(); for (const e of loadAll()) { const k = key(e.row); if (!rows.has(k)) rows.set(k, e.row); }
+const rows = new Map(); for (const e of await loadAllPlus()) { const k = key(e.row); if (!rows.has(k)) rows.set(k, e.row); }
 const R = [...rows.values()], NV = R.length, has = i => R.filter(r => String(r[i] || '').trim()).length / (NV || 1);
 const img = JSON.parse(rd('content/lexicon/img.json')).items || {};
 const imgN = [...rows.keys()].filter(k => img[k]).length;
