@@ -66,15 +66,19 @@
   // Hộp thật ≥ 44, pixel không đổi (docs/specs/exit-button.md)
   function grow(x, r) {
     const cs = getComputedStyle(x), px = v => parseFloat(v) || 0, S = x.style;
-    if (!r.width || x.dataset.lkGrow != null || cs.display === 'inline' || (cs.boxShadow || 'none') !== 'none' || ['Top', 'Right', 'Bottom', 'Left'].some(k => px(cs['border' + k + 'Width']))) return;
-    const dx = Math.max(0, (44 - r.width) / 2), dy = Math.max(0, (44 - r.height) / 2), P = ['Top', 'Right', 'Bottom', 'Left'].map(k => px(cs['padding' + k])), M = ['Top', 'Right', 'Bottom', 'Left'].map(k => px(cs['margin' + k]));
-    const rad = c => { const [h, v = h] = (cs['border' + c + 'Radius'] || cs.borderRadius || '0').split(' '), f = (s, L) => (/%/.test(s) ? px(s) / 100 * L : px(s)); return `${f(h, r.width) + dx}px ${f(v, r.height) + dy}px`; };
-    const C = ['TopLeft', 'TopRight', 'BottomRight', 'BottomLeft'], R = C.map(rad);
+    const SD = ['Top', 'Right', 'Bottom', 'Left'], B = SD.map(k => px(cs['border' + k + 'Width'])); // viền trong suốt (vd. .btn.ghost) → coi như padding
+    const bc = getComputedStyle(x, '::before').content;
+    if (!r.width || x.dataset.lkGrow != null || cs.display === 'inline' || (bc && bc !== 'none' && bc !== 'normal') || (cs.boxShadow || 'none') !== 'none' || SD.some((k, i) => B[i] && !/transparent|rgba\([^)]*,\s*0\)/.test(cs['border' + k + 'Color']))) return;
+    const dx = Math.max(0, (44 - r.width) / 2), dy = Math.max(0, (44 - r.height) / 2), P = SD.map((k, i) => px(cs['padding' + k]) + B[i]), M = SD.map(k => px(cs['margin' + k]));
+    // Nền/bo góc gốc vẽ lại y hệt bằng ::before (hộp cũ, cùng màu – theo cả :hover qua background: inherit); nền của chính nút chỉ còn sau chữ (clip text) = không thấy
+    const rad = c => { const [h, v = h] = (cs['border' + c + 'Radius'] || cs.borderRadius || '0').split(' '), f = (s, L) => (/%/.test(s) ? px(s) / 100 * L : px(s)); return `${f(h, r.width)}px ${f(v, r.height)}px`; };
     x.dataset.lkGrow = S.cssText;
-    Object.assign(S, { boxSizing: 'content-box', width: r.width - P[1] - P[3] + 'px', height: r.height - P[0] - P[2] + 'px', minWidth: 0, minHeight: 0, border: `solid transparent`, borderWidth: `${dy}px ${dx}px`, backgroundClip: 'padding-box', margin: `${M[0] - dy}px ${M[1] - dx}px ${M[2] - dy}px ${M[3] - dx}px`, outlineOffset: px(cs.outlineOffset) - Math.max(dx, dy) + 'px' });
-    C.forEach((c, i) => { S['border' + c + 'Radius'] = R[i]; });
+    Object.assign(S, { boxSizing: 'content-box', width: r.width - P[1] - P[3] + 'px', height: r.height - P[0] - P[2] + 'px', minWidth: 0, minHeight: 0, padding: `${P[0] + dy}px ${P[1] + dx}px ${P[2] + dy}px ${P[3] + dx}px`, borderWidth: 0, margin: `${M[0] - dy}px ${M[1] - dx}px ${M[2] - dy}px ${M[3] - dx}px`, outlineOffset: px(cs.outlineOffset) - Math.max(dx, dy) + 'px' });
+    S.setProperty('--lk-gx', dx + 'px'); S.setProperty('--lk-gy', dy + 'px');
+    ['TopLeft', 'TopRight', 'BottomRight', 'BottomLeft'].forEach((c, i) => S.setProperty('--lk-r' + i, rad(c)));
+    x.classList.add('lk-grow');
   }
-  const ungrow = x => { if (x && x.dataset.lkGrow != null) { x.style.cssText = x.dataset.lkGrow; delete x.dataset.lkGrow; } };
+  const ungrow = x => { if (x && x.dataset.lkGrow != null) { x.style.cssText = x.dataset.lkGrow; x.classList.remove('lk-grow'); delete x.dataset.lkGrow; } };
   const exitEl = () => { const v = view(); return v && (v.querySelector('[data-exit]') || findExit(v)); };
   // Không dùng [data-done] chung (cờ "đã nạp" của .wn-slot/quảng cáo/usage) – docs/specs/exit-button.md
   const finished = () => done || !!(view() && view().querySelector('.lsn-done, [data-lesson-done], .lesson-complete, #wDone:not([hidden])'));

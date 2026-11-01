@@ -8,6 +8,7 @@
 import { chromium, devices } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { serve } from '../quality/serve.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
@@ -63,6 +64,15 @@ for (const r of cls.WITH_ARG) {
 await page0.context().close();
 
 // ---------- 3) kiểm từng màn ----------
+// Giải mã PNG (8 bit, không xen kẽ – ảnh chụp Chromium) → so từng điểm ảnh: số điểm khác + chênh lệch kênh lớn nhất
+const png = buf => {
+  let i = 8, w = 0, h = 0, ct = 6; const idat = [];
+  while (i < buf.length) { const len = buf.readUInt32BE(i), type = buf.toString('ascii', i + 4, i + 8), d = buf.subarray(i + 8, i + 8 + len); if (type === 'IHDR') { w = d.readUInt32BE(0); h = d.readUInt32BE(4); ct = d[9]; } else if (type === 'IDAT') idat.push(d); i += 12 + len; }
+  const bpp = ct === 6 ? 4 : ct === 2 ? 3 : ct === 4 ? 2 : 1, raw = zlib.inflateSync(Buffer.concat(idat)), st = w * bpp, out = Buffer.alloc(h * st);
+  for (let y = 0; y < h; y++) { const f = raw[y * (st + 1)]; for (let x = 0; x < st; x++) { const v = raw[y * (st + 1) + 1 + x], a = x >= bpp ? out[y * st + x - bpp] : 0, b = y ? out[(y - 1) * st + x] : 0, c = x >= bpp && y ? out[(y - 1) * st + x - bpp] : 0; const pa = Math.abs(b - c), pb = Math.abs(a - c), pc = Math.abs(a + b - 2 * c); out[y * st + x] = (v + [0, a, b, (a + b) >> 1, pa <= pb && pa <= pc ? a : pb <= pc ? b : c][f]) & 255; } }
+  return { w, h, bpp, px: out };
+};
+const pxDiff = (A, B) => { const a = png(A), b = png(B); if (a.w !== b.w || a.h !== b.h) return { n: -1, max: 255 }; let n = 0, max = 0; for (let k = 0; k < a.px.length; k += a.bpp) { let d = 0; for (let c = 0; c < Math.min(3, a.bpp); c++) d = Math.max(d, Math.abs(a.px[k + c] - b.px[k + c])); if (d) { n++; max = Math.max(max, d); } } return { n, max }; };
 const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return 1; const [r, g, b] = m.slice(0, 3).map(v => { v = +v / 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
 const ctxBefore = await ctxOf(THEMES[0], false);
 for (const theme of THEMES) {
@@ -138,8 +148,7 @@ for (const W of [768, 1440]) {
         const flip = on => page.evaluate(o => { const x = document.querySelector('#view [data-exit]'); if (o) ExitGuard._grow(x); else ExitGuard._ungrow(x); }, on);
         const A = await shot(); await flip(false); const B = await shot(); await flip(true); const C = await shot();
         if (!A.equals(C)) { px = 'nền động'; notes.push(`${where}: vùng nút có chuyển động – bỏ qua so ảnh`); }
-        else if (!A.equals(B)) { px = 'KHÁC'; fail(where, `nới vùng chạm làm đổi pixel nút thoát (${b.sel})`); await page.screenshot({ path: `${OUT}/shots/${r}-${W}-grow.png`, clip }); }
-        else px = '0';
+        else { const d = pxDiff(A, B); if (d.n) { px = `${d.n} điểm (max ${d.max})`; fail(where, `nới vùng chạm làm đổi ${d.n} điểm ảnh nút thoát, chênh tối đa ${d.max}/255 (${b.sel}) ` + await page.evaluate(() => { const x = document.querySelector('#view [data-exit]'), c = getComputedStyle(x); return JSON.stringify({ css: x.style.cssText, bs: c.boxSizing, pad: c.padding, tr: c.transition, lh: c.lineHeight, disp: c.display }); })); fs.writeFileSync(`${OUT}/shots/${r}-${W}-grow.png`, A); fs.writeFileSync(`${OUT}/shots/${r}-${W}-nogrow.png`, B); } else px = '0'; }
       }
       rows.push(`| ${r} | ${W} px | \`${hash}\` | ${Math.round(b.w)}×${Math.round(b.h)} | diff ${px} |`);
     } catch (e) { fail(where, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
