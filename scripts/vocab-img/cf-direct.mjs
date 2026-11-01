@@ -73,10 +73,18 @@ export async function cfImage(a, model, prompt, size, F = fetch) {
   const b = Buffer.from(img, 'base64'); b.meta = { provider: 'cloudflare', model, acct: a.id }; return b;
 }
 
+/** tài khoản vẽ: đầu kho (VIMG_DRAW_SHARE) như fill; VIMG_DRAW_FROM=tail (chỉ pilot, 31/10): ĐUÔI kho, từ cuối ngược lên, chừa VIMG_TAIL_KEEP (10)
+ *  tài khoản cuối cho giám khảo thị giác (local_judge.py đi từ cuối) – fill tự khởi động khi đầu kho hồi rồi vét hết phần vẽ → pilot đói mãi */
+export function drawAccounts(env = process.env) {
+  const all = poolAccounts(env), head = Math.max(1, Math.ceil(all.length * Math.min(1, +(env.VIMG_DRAW_SHARE || 1))));
+  if (env.VIMG_DRAW_FROM !== 'tail') return all.slice(0, head);
+  return all.slice(head, Math.max(head, all.length - Math.max(0, +(env.VIMG_TAIL_KEEP ?? 10)))).reverse();
+}
+
 /** nhà vẽ xoay vòng tài khoản: max = tổng trần ảnh mọi tài khoản (≤ VIMG_MAX_CF) */
 export function cfProvider(model, env = process.env, F = fetch) {
   // 26/10: vẽ chỉ dùng VIMG_DRAW_SHARE đầu kho (mặc định 1); phần đuôi để dành cho giám khảo thị giác + văn bản (kho từ) – vẽ không bao giờ làm đói việc chấm
-  const all = poolAccounts(env), accts = all.slice(0, Math.max(1, Math.ceil(all.length * Math.min(1, +(env.VIMG_DRAW_SHARE || 1))))), npi = npiOf(model, env), keep = 1 - Math.min(0.9, Math.max(0, +(env.VIMG_CF_RESERVE ?? 0.1)));
+  const accts = drawAccounts(env), npi = npiOf(model, env), keep = 1 - Math.min(0.9, Math.max(0, +(env.VIMG_CF_RESERVE ?? 0.1)));
   // VIMG_CF_UNCAPPED=1 (chủ 26/10: kho chỉ Lexkite dùng → vắt hết): không trần ước tính, mỗi tài khoản vẽ tới khi Cloudflare báo 4006 hết neuron ngày
   const per = env.VIMG_CF_UNCAPPED === '1' ? 1e6 : Math.floor(DAILY_NEURONS * keep / npi), left = new Map(accts.map(a => [a.id, per])), stats = { accounts: accts.length, per_account: per, npi, ok: 0, by_acct: {}, dead: [] };
   let i = 0;

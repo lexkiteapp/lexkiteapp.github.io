@@ -54,6 +54,20 @@ jobs:
         # mục ready:true trong brand/library/manifest.json = đã approved + đã lên media.lexkite.com → thiếu là lỗi thật
         env: { GITHUB_TOKEN: '${{ github.token }}' } # dự phòng tải blob git khi CDN còn bản cũ
         run: node scripts/video/library.mjs fetch-render
+      # Diễn viên = ĐÚNG bộ nhân vật registry (web/teach/characters.json – 2D Ama/Carlos trang phục 1, chủ 28/10; docs/CHARACTERS.md):
+      # tải thưa đúng clip phông xanh nguồn PRO từ lexkite-footage → clip stacked khung medium (scripts/video/registry_clips.py). Không có kho nhân vật khác.
+      - name: 0b · Diễn viên registry (2D Ama/Carlos) – dựng clip stacked từ footage phông xanh
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git /tmp/footage
+          P=$(python3 -c "import json;R=json.load(open('web/teach/characters.json'));print(' '.join(f'/anchor/green/kfull_pro/{c[\"src\"]}.mp4 /anchor/green/kmask_pro/{c[\"src\"]}.mkv' for p in R['people'].values() for c in p['clips'].values()))")
+          git -C /tmp/footage sparse-checkout set --no-cone $P; git -C /tmp/footage checkout -q; rm -f ~/.ssh/footage; du -sh /tmp/footage
+          python3 scripts/video/registry_clips.py /tmp/footage/anchor/green brand/library
+          rm -rf /tmp/footage
       - name: Dựng video mẫu (toàn bộ các bước)
         env:
           KOKORO_NODE_PATH: /tmp/kk/node_modules

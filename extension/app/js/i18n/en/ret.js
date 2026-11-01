@@ -2,6 +2,12 @@
  * English translations for the habit layer: streak calendar, milestones, thaw ritual, seasonal events, chest (web/js/retention.js)
  */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+  'Chuỗi {n} ngày!': '{n} day streak!',
+  'Đã học {a}/7 ngày': '{a} of 7 days done',
+  'Đã đạt mục tiêu hôm nay': 'Daily goal reached',
+  'Còn {n} {u} hôm nay': '{n} {u} left today',
+  'Mục tiêu mỗi ngày': 'Daily goal',
+  'lượt ôn': 'reviews',
   'Khung {name}': '{name} frame',
   'Băng': 'Ice', 'Lửa': 'Fire', 'Vàng': 'Gold', 'Đêm': 'Night', 'Cầu vồng': 'Rainbow', 'Lá thu': 'Autumn leaf', 'Tuyết': 'Snow', 'Hoa xuân': 'Spring bloom',
   'Nhãn dán': 'Sticker',

@@ -50,7 +50,7 @@ export function buildTargets(keys, ctx) {
     if (kd === 'concept') { T[k] = { kind: 'concept', fam: familyOf(e.w), h: conceptHash(e.w), target: e.def }; continue; }
     if (kd === 'object') { const c = cards[k]; T[k] = { kind: 'object', target: `an illustration of ${e.w}: ${String(e.def || '').slice(0, 120)}`, caption_ref: [e.w, ...((c && c.s) || []), String(e.def || '')], sib, ...(c && !c.skip ? { prompt: promptFromCard(k, c, ATT) } : {}) }; continue; }
     const s = scenes[k];
-    T[k] = { kind: 'scene', ex: s && s.ex, target: s && s.cap ? s.cap : '', caption_ref: s && !s.skip ? [s.cap, s.ex] : [], sib, sit: s && s.sc, ...(s && !s.skip && s.sc && s.ex ? { prompt: promptScene(k, s, ATT) } : { fallback: 'type' }) };
+    T[k] = { kind: 'scene', ex: s && s.ex, ...(s && s.ps ? { ps: s.ps, check: s.check } : {}), target: s && s.cap ? s.cap : '', caption_ref: s && !s.skip ? [s.cap, s.ex, ...(s.ps ? [s.ps] : [])] : [], sib, sit: s && s.sc, ...(s && !s.skip && s.sc && s.ex ? { prompt: promptScene(k, s, ATT) } : { fallback: 'type' }) };
   }
   return T;
 }

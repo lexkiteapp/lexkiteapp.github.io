@@ -1,5 +1,5 @@
 // Đẩy chữ niêm yết + ảnh App Store lên App Store Connect bằng API chính thức (JWT ES256), chạy lại bao nhiêu lần cũng được (idempotent).
-// Nguồn chữ: store/apple/listing.json · ảnh: <shots>/<device>/<lang>/<n>.png (scripts/ios-shots.mjs, nhánh ios-shots).
+// Nguồn chữ: store/metadata/<locale>.json (khối "apple", qua scripts/store-metadata.mjs) + store/apple/listing.json (phần chung) · ảnh: <shots>/<device>/<lang>/<n>.png (scripts/ios-shots.mjs, nhánh ios-shots).
 // CHỈ ghi: tên/phụ đề/URL chính sách (appInfoLocalizations), mô tả/từ khóa/quảng bá/URL (appStoreVersionLocalizations), danh mục,
 // bản quyền, ghi chú cho người duyệt, ảnh chụp – của bản 1.0 đang "Prepare for Submission".
 // KHÔNG nộp duyệt, KHÔNG đổi giá/phân phối/độ tuổi/quyền riêng tư (anh chủ tự làm – docs/STORE-READINESS.md § B).
@@ -15,6 +15,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import { load as loadMetadata } from './store-metadata.mjs';
 
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
@@ -23,6 +24,8 @@ const DRY = flag('--dry-run');
 const ONLY = opt('--only', 'all');
 const SHOTS = opt('--shots', 'store/apple/screenshots');
 const L = JSON.parse(fs.readFileSync('store/apple/listing.json', 'utf8'));
+// Chữ từng ngôn ngữ: một file một ngôn ngữ trong store/metadata/ (nguồn duy nhất, chung với Google Play)
+L.locales = Object.fromEntries(Object.entries(loadMetadata()).map(([loc, d]) => [loc, d.apple]));
 const MD = 'store/apple/LISTING.md';
 
 // ---------- Kiểm tra offline ----------

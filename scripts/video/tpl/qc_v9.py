@@ -121,6 +121,8 @@ if BD:   # ---- board mode: text on the whiteboard, captions clear of face AND b
     R['text_on_board'] = dict(ok=not off_b and where.get('hook') == 'board' and not [k for k in text_band if k == 'hook'] and not chest, outside_zone=off_b[:4], n_outside=len(off_b), quiz_cta_on_chest=chest,
                               text_pops_on_band=text_band, widgets_on_band=[k for k, w in where.items() if w != 'board' and k not in text_band], zone=Z,
                               note='hook always on the board; a text pop / widget that cannot reach 50 / 52 px on the board falls back to the under-chin band (listed)')
+    if T.get('overlay') is not None:   # motion layer (docs/VIDEO-MOTION.md): the cards are drawn OVER the frame, not written on the board -> overlay_layout + qc_motion overlay_host own the placement
+        R['text_on_board'] = dict(ok=True, applies=False, note='overlay cards (scripts/video/motion): gated by overlay_layout / overlay_host')
     bm = np.zeros((1920, 1080), bool); st_ = BD['body']['step']
     for row in filter(None, BD['body']['rows'].split(';')):
         y, ivs = row.split(':'); y = int(y)

@@ -1,0 +1,117 @@
+{
+ "_doc": "Màn Gọi giáo viên (#/call/<id>, cờ ux1) – d do web/js/call.js dựng từ cuộc gọi thật. Carlos (Chars, 2D) đứng SAU thẻ phụ đề/điều khiển đục (thẻ kéo lên chồng đáy phòng) nên không lộ đường cắt hông. d.opts = gợi ý trả lời (chip cùng khuôn), d.tip = sửa lỗi tế nhị / gợi ý.",
+ "i18n": {
+  "Profile": "Hồ sơ người học",
+  "Teacher Room": "Phòng giáo viên",
+  "End Call": "Kết thúc cuộc gọi",
+  "Leave": "Kết thúc"
+ },
+ "text": {
+  "70%": "d.pct + '%'",
+  "02:41": "'00:00'",
+  "IELTS Speaking Part 2": "d.title",
+  "Band 7.5": "d.lv",
+  "HD": "'HD'",
+  "Teacher Ama": "d.who",
+  "“Describe a memorable journey you took...”": "d.line",
+  "Tip: Share where you went, with whom, and how it felt.": "d.tip",
+  "Mic Active": "d.micLbl",
+  "Active Drill Session": "t('Cuộc gọi luyện tập')",
+  "Speaker": "t('Nghe lại')",
+  "LIVE": "t('Trực tiếp')"
+ },
+ "html": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)": "d.trHtml"
+ },
+ "attr": {
+  ":scope > header > div > button": {
+   "id": "'cEnd'",
+   "type": "'button'",
+   "aria-label": "t('Kết thúc cuộc gọi')"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'",
+   "id": "'cBar'"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": {
+   "id": "'cPct'"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "data-href": "'#/me'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > button": {
+   "id": "'cOptTog'",
+   "aria-expanded": "'true'",
+   "aria-controls": "'cOpts'",
+   "aria-label": "t('Gợi ý trả lời')"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(3)": {
+   "id": "'cT'",
+   "aria-live": "'off'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)": {
+   "id": "'cTr'",
+   "aria-pressed": "d.showTr",
+   "aria-label": "d.trLbl"
+  },
+  ":scope > main > div > div:nth-child(3) > div > p:nth-child(2)": {
+   "id": "'cL1'",
+   "lang": "'en'",
+   "aria-live": "'polite'"
+  },
+  ":scope > main > div > div:nth-child(3) > div > p:nth-child(3)": {
+   "id": "'cTip'"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": {
+   "id": "'cSpk'",
+   "type": "'button'",
+   "aria-label": "t('Nghe lại')"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > button": {
+   "id": "'cMic'",
+   "type": "'button'",
+   "aria-pressed": "'false'",
+   "aria-label": "t('Nói')"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > span": {
+   "id": "'cMicL'"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(3) > button": {
+   "id": "'cEnd2'",
+   "type": "'button'"
+  }
+ },
+ "cls": {
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "w-[70%]": "''"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)": {
+   "flex": "d.canTr ? 'flex' : 'invisible'"
+  },
+  ":scope > main > div > div:nth-child(3)": {
+   "mt-3": "'-mt-14'"
+  }
+ },
+ "tag": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)": {
+   "to": "button"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "motion-reduce:animate-none",
+  ":scope > main > div > div:nth-child(3) > div > div:nth-child(1) > div:nth-child(2) > div": "motion-reduce:animate-none",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div": "motion-reduce:animate-none",
+  ":scope > main > div > div:nth-child(2) > div": "isolate",
+  ":scope > main > div > div:nth-child(1) > div > button": "relative after:absolute after:-inset-0.5 after:content-['']"
+ },
+ "remove": [
+  ":scope > main > div > div:nth-child(2) > div > div:nth-child(4)"
+ ],
+ "after": {
+  ":scope > main > div > div:nth-child(2) > div > div:nth-child(3)": "d.teacher",
+  ":scope > main > div > div:nth-child(3) > div > p:nth-child(2)": "d.l2",
+  ":scope > main > div > div:nth-child(3) > div > p:nth-child(3)": "d.opts"
+ },
+ "_tap": " Vùng chạm ≥44: nới vô hình bằng ::after (không đổi hình Stitch)."
+}

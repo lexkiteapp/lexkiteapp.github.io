@@ -1,0 +1,110 @@
+/* Call Ama / Carlos – kịch bản rẽ nhánh theo kỳ thi (IELTS Speaking Part 1/2/3, TOEIC) + đời sống. Nội dung tự biên soạn 100 % (docs/CONTENT-RULES.md).
+ * Đồ thị: start + nodes{ id: { m câu giáo viên, o gợi ý (o[0] = câu mẫu), br [[regex, câu đáp, nútKế]], re đáp mặc định, next, min (số từ tối thiểu
+ * để không bị nhắc "trả lời đầy đủ hơn"), long (lượt nói dài Part 2), prep (giây chuẩn bị), cue (ý gợi ý thẻ đề) } }.
+ * words = từ chủ đề đếm trong tổng kết ("bạn đã dùng 5/8 từ"); phrases = cụm nên nhớ → thẻ ôn. Logic: js/call/engine.js. */
+(function (g) {
+  g.CALLS = (g.CALLS || []).concat([
+    {
+      id: 'ielts-p1-home', em: '🏠', lv: 'B1', exam: 'ielts-p1', who: 'ama', title: 'IELTS Part 1: home, work and free time', role: 'IELTS Speaking examiner (practice)',
+      words: ['hometown', 'neighbourhood', 'quiet', 'crowded', 'commute', 'major', 'colleagues', 'relax', 'weekend', 'prefer'],
+      phrases: [['to be honest', 'a natural way to start an honest answer'], ['I’d say…', 'a soft way to give your opinion'], ['a bit of both', 'partly one thing, partly the other'], ['when it comes to…', 'about this topic…'], ['I’m into…', 'I really like…']],
+      start: 'name',
+      nodes: {
+        name: { m: 'Good morning. My name is Ama. Can you tell me your full name, please?', o: ['My name is Linh Nguyen, but most people call me Linh.', 'I’m Minh. My full name is Tran Van Minh.'], re: 'Thank you. Now, let’s talk about what you do.', next: 'job', min: 4 },
+        job: { m: 'Do you work, or are you a student?', o: ['I’m a student. I’m studying business at a university in Hanoi.', 'I work as a sales assistant in a bank, and I really enjoy it.', 'A bit of both, actually. I study in the morning and work part-time in the evening.'], min: 10,
+          br: [['both|part[- ]time', 'Interesting, that sounds busy.', 'both'], ['student|study|studying|university|college|major', 'Okay.', 'study'], ['work|job|company|office|bank|engineer|teacher|nurse', 'I see.', 'work']], re: 'I see.', next: 'work' },
+        study: { m: 'What do you like most about your studies?', o: ['I like my major because it is very practical, and my classmates are really friendly.', 'To be honest, I love the group projects, because I learn a lot from other people.'], min: 12, re: 'That sounds useful.', next: 'home' },
+        work: { m: 'What do you like most about your job?', o: ['I’d say my colleagues. They are helpful, so I never feel stressed at work.', 'I like that every day is different, and I can meet new customers.'], min: 12, re: 'Thank you.', next: 'home' },
+        both: { m: 'How do you manage your time between work and study?', o: ['I plan my week every Sunday, so I know when to study and when to work.', 'It’s not easy, but I use a calendar app and I study on the bus during my commute.'], min: 12, re: 'Good planning.', next: 'home' },
+        home: { m: 'Let’s move on to your hometown. Where is your hometown?', o: ['My hometown is Da Nang, a coastal city in the centre of Vietnam.', 'I come from a small town near Hue. It’s quiet and very green.'], min: 10,
+          br: [['quiet|small|village|countryside|green', 'It sounds peaceful.', 'live'], ['big|city|busy|crowded|capital', 'A big city, then.', 'live']], re: 'Thank you.', next: 'live' },
+        live: { m: 'Would you like to live there in the future? Why or why not?', o: ['Yes, I would, because the air is fresh, life is calm and my whole family lives there.', 'Probably not. It’s a lovely place, but there are more jobs in big cities.'], min: 12, re: 'I understand.', next: 'free' },
+        free: { m: 'Now let’s talk about free time. What do you usually do at the weekend?', o: ['When it comes to weekends, I usually relax at home, cook with my family and watch a film.', 'I’m into sports, so I play badminton with my friends on Saturday mornings.'], min: 14,
+          br: [['sport|football|badminton|gym|run|swim', 'Staying active, that’s great.'], ['home|relax|film|movie|read|sleep', 'A relaxing weekend.']], re: 'That sounds nice.', next: 'prefer' },
+        prefer: { m: 'Do you prefer spending free time alone or with other people?', o: ['I prefer spending time with friends, because we can share ideas and have fun together.', 'I’d say a bit of both. I like quiet time alone, but I also enjoy meeting friends.'], min: 14, re: 'Thank you. That’s the end of Part 1.', next: null },
+      },
+      end: 'Well done. You gave clear answers. Try to add a reason or an example to every answer.',
+    },
+    {
+      id: 'ielts-p2-place', em: '🗺️', lv: 'B2', exam: 'ielts-p2', who: 'carlos', title: 'IELTS Part 2: describe a place you like to visit', role: 'IELTS Speaking examiner (practice)',
+      words: ['scenery', 'peaceful', 'atmosphere', 'located', 'recommend', 'memorable', 'local', 'breathtaking', 'crowded', 'relaxing'],
+      phrases: [['it’s located in…', 'it is in (a place)'], ['what I love most is…', 'the best thing for me is…'], ['it takes about … to get there', 'the travel time is…'], ['I’d highly recommend it', 'I really think you should go'], ['it’s worth a visit', 'it is good enough to visit']],
+      start: 'intro',
+      nodes: {
+        intro: { m: 'Now I’m going to give you a topic. You have one minute to prepare, then talk for one to two minutes. Describe a place you like to visit.', prep: 60,
+          cue: ['where it is', 'how you get there', 'what you do there', 'and explain why you like it'],
+          o: ['I’m ready.'], re: 'Alright. Please start speaking now.', next: 'talk', min: 0 },
+        talk: { m: 'Remember to say where it is, how you get there, what you do there, and why you like it.', long: true, min: 120,
+          o: ['I’d like to talk about Hoi An, an old town that is located in central Vietnam. It takes about forty minutes to get there from Da Nang by bus. When I visit, I usually walk along the river, try local food and take photos of the lanterns. What I love most is the peaceful atmosphere in the evening, because the whole town is lit up and nobody is in a hurry. I first went there with my family when I was ten, so it’s a memorable place for me, and every visit brings back happy memories. Another reason I like it is that it’s not expensive: a bowl of local noodles costs only a dollar or two. Overall, it’s definitely worth a visit, and I’d highly recommend it to anyone.'],
+          re: 'Thank you.', next: 'often' },
+        often: { m: 'How often do you go there?', o: ['About twice a year, usually in the summer holidays.', 'Not very often, maybe once a year, because it is quite far.'], min: 6, re: 'Thank you.', next: 'others', br: [['never|first', 'Only once, then.']] },
+        others: { m: 'Would you recommend it to tourists?', o: ['Yes, definitely, but I’d suggest going early in the morning, because it gets crowded later.', 'I would, because the scenery is breathtaking and the local people are friendly.'], min: 10, re: 'Thank you. That’s the end of Part 2.', next: null },
+      },
+      end: 'Good job. In Part 2, try to keep talking for the full two minutes, and use your notes for each point.',
+    },
+    {
+      id: 'ielts-p3-tech', em: '💻', lv: 'B2', exam: 'ielts-p3', who: 'carlos', title: 'IELTS Part 3: technology and learning', role: 'IELTS Speaking examiner (practice)',
+      words: ['online', 'convenient', 'motivation', 'distraction', 'interaction', 'skills', 'generation', 'access', 'traditional', 'benefit'],
+      phrases: [['on the one hand… on the other hand…', 'to compare two sides'], ['it depends on…', 'the answer changes with…'], ['in the long run', 'after a long time'], ['a double-edged sword', 'something with good and bad sides'], ['to some extent', 'partly']],
+      start: 'online',
+      nodes: {
+        online: { m: 'Let’s discuss technology and education. Do you think online learning is better than learning in a classroom?', min: 25,
+          o: ['It depends on the learner. On the one hand, online learning is convenient and cheap. On the other hand, many students need a teacher in the room to stay motivated.', 'To some extent, yes, because people can study anywhere. However, classroom learning gives more interaction, which is important for speaking skills.'],
+          br: [['depends|both|on the one hand|to some extent', 'That’s a balanced view.', 'young'], ['better|yes|convenient|flexible', 'So you see clear advantages.', 'young'], ['worse|no|prefer (the )?classroom|traditional', 'So you prefer traditional classes.', 'young']], re: 'Interesting.', next: 'young' },
+        young: { m: 'Why do you think young people pick up new technology faster than older people?', min: 25,
+          o: ['I think young people grew up with smartphones, so technology feels natural to them. Older people often worry about making mistakes, which slows them down.', 'Mainly because of exposure. The younger generation uses apps every day at school, while many older people only started using them recently.'], re: 'That makes sense.', next: 'risk' },
+        risk: { m: 'What are the risks of children spending a lot of time on screens?', min: 25,
+          o: ['The biggest risk is distraction. Children may find it hard to focus on long tasks, and they spend less time playing outside, which is bad for their health.', 'Technology is a double-edged sword. It gives children access to information, but too much screen time can affect their sleep and their social skills.'], re: 'Good point.', next: 'future' },
+        future: { m: 'How might technology change the way people learn in the future?', min: 25,
+          o: ['In the long run, I believe learning will be more personal. For example, apps could find each student’s weak points and give them the right practice.', 'I think teachers will still be important, but they will use technology to give faster feedback, so students can learn more efficiently.'], re: 'Thank you. That’s the end of the speaking test.', next: null },
+      },
+      end: 'Well done. In Part 3, give your opinion, a reason and an example, and compare both sides when you can.',
+    },
+    {
+      id: 'toeic-reschedule', em: '📅', lv: 'B1', exam: 'toeic', who: 'ama', title: 'TOEIC: rescheduling a client meeting', role: 'office manager at a client company',
+      words: ['schedule', 'appointment', 'available', 'conflict', 'reschedule', 'confirm', 'invoice', 'deadline', 'colleague', 'conference'],
+      phrases: [['I’m afraid…', 'a polite way to give bad news'], ['would … work for you?', 'is … a good time for you?'], ['I’ll send you a calendar invite', 'I will email the meeting time'], ['sorry for the inconvenience', 'sorry for the trouble'], ['let me double-check', 'let me check again']],
+      start: 'hello',
+      nodes: {
+        hello: { m: 'Good afternoon, Bright Office Supplies, this is Ama speaking. How can I help you?', min: 10,
+          o: ['Hello, this is Linh from Green Tech. I’m calling about our meeting on Thursday.', 'Hi Ama, I’m afraid I need to reschedule our appointment this week.'],
+          br: [['reschedule|change|move|cancel|postpone', 'Oh, no problem at all.', 'why'], ['meeting|appointment|thursday', 'Yes, I have it here: Thursday at ten.', 'why']], re: 'Sure, what can I do for you?', next: 'why' },
+        why: { m: 'May I ask why you need to change the time?', min: 10,
+          o: ['I have a schedule conflict. Our director called an urgent meeting at the same time.', 'I’m afraid I have to attend a conference on Thursday morning.'], re: 'I understand, these things happen.', next: 'when' },
+        when: { m: 'When would you be available instead?', min: 6,
+          o: ['Would Friday at two p.m. work for you?', 'I’m available on Monday morning, any time after nine.'],
+          br: [['friday', 'Let me double-check… Friday at two is fine.', 'confirm'], ['monday', 'Monday morning… we have ten o’clock free.', 'confirm'], ['tuesday|wednesday|next week', 'Let me see… that should be possible.', 'confirm']], re: 'Let me see… I can offer Friday at two.', next: 'confirm' },
+        confirm: { m: 'Shall I send you a calendar invite to confirm the new time?', min: 5,
+          o: ['Yes, please. Could you send it to my work email?', 'That would be great, thank you. Sorry for the inconvenience.'], re: 'Of course.', next: 'extra' },
+        extra: { m: 'Is there anything else I can help you with today?', min: 4,
+          o: ['Yes, could you also send me the invoice before the deadline on Friday?', 'No, that’s everything. Thank you for your help.'],
+          br: [['invoice|bill|price|quote', 'Sure, I’ll attach the invoice to the email.'], ['no|that’s (all|everything)|that is all', 'Great.']], re: 'Okay.', next: null },
+      },
+      end: 'Thank you for calling. Have a great afternoon!',
+    },
+    {
+      id: 'bakery', em: '🥐', lv: 'A2', exam: 'everyday', who: 'carlos', title: 'At the bakery', role: 'friendly baker',
+      words: ['bread', 'loaf', 'fresh', 'slice', 'croissant', 'cake', 'sweet', 'bag', 'change', 'receipt'],
+      phrases: [['a loaf of bread', 'one whole bread'], ['freshly baked', 'just made in the oven'], ['could I have…?', 'a polite way to order'], ['keep the change', 'you do not need to give me money back'], ['that’s all, thanks', 'I do not want anything else']],
+      start: 'hi',
+      nodes: {
+        hi: { m: 'Good morning! Welcome to Sunny Bakery. What can I get you today?', min: 5, kw: ['bread'],
+          o: ['Could I have a loaf of bread, please?', 'Hi! I’d like two croissants, please.', 'What do you recommend?'],
+          br: [['recommend|suggest|best|popular', 'Our sourdough bread is freshly baked this morning!', 'bread'], ['croissant', 'Great choice, they are still warm.', 'drink'], ['bread|loaf|sourdough', 'Sure!', 'bread']], re: 'Sure!', next: 'bread' },
+        bread: { m: 'Would you like the bread sliced or whole?', min: 2, kw: ['bread', 'sliced', 'whole'],
+          o: ['Sliced, please.', 'Whole is fine, thanks.'], br: [['slice', 'No problem, I’ll slice it for you.'], ['whole', 'Okay, whole.']], re: 'Okay.', next: 'sweet' },
+        sweet: { m: 'Anything sweet? The chocolate cake is very popular.', min: 3,
+          o: ['Yes, one slice of chocolate cake, please.', 'No, thank you. Just the bread.'], br: [['yes|cake|slice|sure', 'Lovely. One slice of cake.'], ['no|just', 'Just the bread, then.']], re: 'Okay.', next: 'drink' },
+        drink: { m: 'Would you like a coffee with that?', min: 3,
+          o: ['No, thanks. That’s all.', 'Yes, a small black coffee, please.'], re: 'Alright.', next: 'pay' },
+        pay: { m: 'That’s eight dollars fifty, please. Do you need a bag?', min: 4,
+          o: ['Yes, please. Here’s ten dollars.', 'No, thanks, I have my own bag. Can I pay by card?'],
+          br: [['card|tap|phone', 'Of course, just tap your card here.'], ['ten|keep the change|cash', 'Thank you! Here’s your change and your receipt.']], re: 'Thank you!', next: null },
+      },
+      end: 'Enjoy your bread, and have a lovely day!',
+    },
+  ]);
+  // Gán giáo viên cho các cuộc gọi đời sống cũ (Ama / Carlos – 2 giáo viên duy nhất, theo registry) + nhóm chủ đề
+  const WHO = { coffee: 'ama', weekend: 'carlos', 'first-day': 'ama', standup: 'carlos', doctor: 'ama', apartment: 'carlos' };
+  for (const c of g.CALLS) { if (!c.who) c.who = WHO[c.id] || 'ama'; if (!c.exam) c.exam = 'everyday'; }
+})(typeof self !== 'undefined' ? self : this);

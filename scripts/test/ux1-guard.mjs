@@ -54,7 +54,7 @@ async function run(width, scheme, lang) {
 
   // 🔥 Giữ chuỗi: mốc 7 ngày (tự hiện khi mở app) → rương → rã băng
   await page.evaluate(async () => { if (App.lazy) await App.lazy('streak', 'ret').catch(() => {}); if (window.Ret) Ret.check(); }).catch(() => {});
-  await page.waitForFunction(() => !!document.querySelector('#modal:not([hidden]) .ret-cel'), null, { timeout: 8000 }).catch(() => errs.push(`${tag}: mốc 7 ngày không hiện`));
+  await page.waitForFunction(() => !!document.querySelector('#modal:not([hidden]) .ret-cel, #modal:not([hidden]) [data-ret-cel]'), null, { timeout: 8000 }).catch(() => errs.push(`${tag}: mốc 7 ngày không hiện`));
   await check('ret-milestone');
   if (await click('#retChestTile')) { await page.waitForTimeout(1200); await check('ret-chest'); }
   await page.evaluate(() => { const m = document.getElementById('modal'); if (m) m.hidden = true; if (window.Ret) Ret.thaw(); });
@@ -67,7 +67,7 @@ async function run(width, scheme, lang) {
   await go('home?pick=1'); await check('goal-pick');
   await click('.ux1-pk-tg .chip'); await page.waitForTimeout(1600); await check('home-map');
   await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); // cùng URL → goto không vẽ lại
-  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
+  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-st="done"]'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
   await check('home-map-n4');
   for (const r of ROUTES) { await go(r); await check(r); }
 

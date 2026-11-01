@@ -182,7 +182,7 @@
   // Đăng ký trong infra/resources.json. Mỗi 2 lỗi liên tiếp → chuyển sang gốc kế tiếp cho cả phiên.
   let cdnFail = 0;
   const AUDIO_BASES = g.AUDIO_BASES = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
-  g.audioUrl = k => AUDIO_BASES[Math.min(AUDIO_BASES.length - 1, cdnFail >> 1)] + k + '.mp3';
+  g.audioUrl = k => AUDIO_BASES[Math.min(AUDIO_BASES.length - 1, cdnFail >> 1)] + k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : '') + '.mp3'; // -s2: câu đã render lại qua cổng ASR (docs/WORD-AUDIO.md, khóa mới, không ghi đè bản cũ)
   g.audioFail = () => { cdnFail++; };
   g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
   function tts(text, accent = 'en-GB', rate, opts = {}) {
@@ -331,7 +331,7 @@
   }
   function recognizeWhisper(target, cb) {
     const run = () => {
-      const words = String(target).split(/\s+/).length, ms = Math.min(12000, Math.max(2500, 1500 + words * 600));
+      const words = String(target).split(/\s+/).length, ms = cb.maxMs || Math.min(12000, Math.max(2500, 1500 + words * 600));
       let stream = null, media = null, chunks = [], stopped = false;
       const ctl = { _whisper: true, stop: () => finish(), abort: () => { stopped = true; if (media && media.state !== 'inactive') media.stop(); if (stream) stream.getTracks().forEach(t => t.stop()); } };
       const finish = () => { if (media && media.state !== 'inactive') media.stop(); };
@@ -360,6 +360,7 @@
   }
   function recognize(target, accent, cb = {}) {
     const SR = g.SpeechRecognition || g.webkitSpeechRecognition;
+    if (cb.whisper && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb); // gọi viên chọn "trên máy" (call.js)
     if (SR && prefs().whisperMode && whisperOK() && navigator.mediaDevices && g.MediaRecorder) return recognizeWhisper(target, cb);
     if (!SR) { if (g.Core && g.Core.Store.isExtension || !(navigator.mediaDevices && g.MediaRecorder)) { cb.error && cb.error('unsupported'); return null; } return recognizeWhisper(target, cb); }
     if (activeRec) { const old = activeRec; activeRec = null; old._stale = true; try { old.abort(); } catch (e) { /* đã dừng */ } }
@@ -567,5 +568,5 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

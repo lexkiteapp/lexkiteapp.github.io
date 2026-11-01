@@ -175,6 +175,7 @@ ASK_Q = ('You check pictures for an English-learning app. Question: does this pi
          '"missing": "what is missing or wrong, max 8 words", "text": true if any letters, words or numbers are visible}}')
 def ask_q(t):
     """câu hỏi có/không cho ảnh cảnh/bìa/bài học – CÙNG mẫu cho ảnh cũ và mới (không dùng prompt vẽ)"""
+    if t['kind'] == 'scene' and t.get('ps'): return f'this scene: "{t["ps"]}" (it illustrates the sentence "{t.get("ex")}")'   # e4: chấm đúng câu cảnh đã vẽ
     if t['kind'] == 'scene': return f'the situation of this sentence: "{t.get("ex") or t.get("target")}"'
     if t['kind'] == 'cover': return f'the topic "{t["target"].replace("a picture about ", "")}" (recognisable objects or activity of this topic, not a generic room)'
     return f'this situation: "{t["target"]}"'
@@ -208,6 +209,26 @@ def api_ask(im, q):
         except Exception:
             time.sleep(3); continue
     _API['fails'] += 1; return None
+
+CHECK_Q = ('You check a picture for an English-learning app. Answer from the picture ONLY, strictly (if it is not clearly visible, the answer is no): {q} '
+           'Reply JSON only: {{"answer": "yes" or "no", "confidence": 0-100}}')
+def check_yes(im, q, model=None):
+    """e4 (29/10): câu hỏi kiểm NGHĨA của thẻ (vd. 'Is half of the class getting on the bus?') – bắt buộc yes ≥ VIMG_CHECK_CONF; None = không trả lời"""
+    if not q or not use_cf_vision(): return None
+    import io
+    b = io.BytesIO(); im.convert('RGB').resize((448, 448)).save(b, 'JPEG', quality=85)
+    for _ in range(2):
+        j = cf_vision(CHECK_Q.format(q=q), b.getvalue(), model)
+        if not j: return None
+        t = j['text'] or ''; m = re.search(r'\{.*\}', t, re.S)
+        try: o = json.loads(m.group(0)) if m else {}
+        except Exception: o = {}
+        a = str(o.get('answer', '')).strip().lower() or ('yes' if re.match(r'\W*yes', t, re.I) else 'no' if re.match(r'\W*no', t, re.I) else '')
+        if a in ('yes', 'no'):
+            try: c = float(o.get('confidence', 50))
+            except Exception: c = 50.0
+            return (a == 'yes', c)
+    return None
 
 def framing(im):
     """MỘT khuôn (chủ 24/10): chủ thể ở giữa, chừa lề ~10 %. Đo khung vật = điểm ảnh khác nền viền (trung vị) → lề nhỏ nhất (tỉ lệ cạnh) + lệch tâm."""
@@ -254,7 +275,7 @@ def features(im, k, t, T, LEX, keys_all, centroid):
     sc = {}
     if t.get('kind', 'object') != 'object':
         # tín hiệu RIÊNG cho cảnh (24/10): CLIP ảnh ↔ CÂU (không phải gloss), chú thích ↔ câu, giám khảo thị giác hỏi có/không về tình huống
-        sent = t.get('ex') or t['target']
+        sent = t.get('ps') or t.get('ex') or t['target']   # e4: so với câu cảnh (thứ thật sự được vẽ)
         dsent = [(T.get(d[0]) or {}).get('ex') or d[1] for d in ds]
         cs = emb_txt([sent] + dsent) @ v
         sc['hard_ex'] = dsent[int(np.argmax(cs[1:]))] if len(dsent) else None   # câu anh em CLIP thấy giống nhất → câu đối chứng cho giám khảo kép
@@ -263,7 +284,7 @@ def features(im, k, t, T, LEX, keys_all, centroid):
         sc['cap_ex'] = round(float(ss[0]), 4); sc['cap_ex_rank'] = int((ss[1:] > ss[0]).sum()) + 1; sc['cap_ex_margin'] = round(float(ss[0] - ss[1:].max()), 4)
     fr = framing(im)
     return {**sc, 'frame': fr, 'api': None, 'api_model': None, 'api_rank': None, 'api_sim': None,
-            '_ctx': {'st': st, 'refs': refs, 'R': R, 'sent': (t.get('ex') or t['target']) if t.get('kind', 'object') != 'object' else None},
+            '_ctx': {'st': st, 'refs': refs, 'R': R, 'sent': (t.get('ps') or t.get('ex') or t['target']) if t.get('kind', 'object') != 'object' else None},
             'clip_rank': rank, 'clip_margin': round(margin, 4), 'cap': c, 'cap_rank': crank, 'cap_sim': round(float(per[0]), 4),
             'cap_margin': round(float(per[0] - np.max(per[1:])), 4), 'ocr': ocr(im), 'nsfw': round(nsfw(im), 4),
             'style': round(float(v @ centroid), 4) if centroid is not None else None, 'ph': phash(im), '_v': v}
@@ -308,7 +329,7 @@ def _yesno(im, q, model):
     return None
 def consensus(im, t, f):
     """→ (ok, chi tiết). Chỉ gọi khi VIMG_CONSENSUS=1, ảnh cảnh, có câu ví dụ + câu đối chứng, và đã qua cổng cứng."""
-    sent, hard = t.get('ex') or t.get('target'), f.get('hard_ex')
+    sent, hard = t.get('ps') or t.get('ex') or t.get('target'), f.get('hard_ex')
     if not sent or not hard or not use_cf_vision(): return False, 'no-sentence/no-vision'
     det = []
     for m in CONS_MODELS:
@@ -395,9 +416,19 @@ def main():
         else: ft['api_skipped'] = 'local fail'; _API['skipped'] += 1
         r = [] if a.features_only else verdict(ft, th, t['kind'])
         if dup: r.append('duplicate (pHash)')
+        # e4: ảnh cảnh đã qua (kể cả nhờ giám khảo kép) phải trả lời YES câu kiểm NGHĨA của thẻ – CẢ HAI mô hình (pilot 29/10: 'half', 'future' qua oan khi chỉ hỏi câu cảnh)
+        def _check(rr):
+            # luật (29/10 rejudge: 1 mô hình bắt buộc loại oan 'here'): hỏi CẢ HAI mô hình; nhận khi ≥ 1 'yes' (≥ 70) và KHÔNG mô hình nào 'no' chắc (≥ 80); không ai trả lời → hàng chờ
+            if rr or t['kind'] == 'object' or not t.get('check'): return rr
+            res = [check_yes(im, t['check'], m) for m in CONS_MODELS]; ft['chk'] = [None if x is None else [x[0], x[1]] for x in res]
+            got = [x for x in res if x]
+            if not got: return rr + ['queue: meaning check unavailable']
+            yes = any(a and c >= float(os.environ.get('VIMG_CHECK_CONF', '70')) for a, c in got); hard_no = any((not a) and c >= 80 for a, c in got)
+            return rr if yes and not hard_no else rr + [f'meaning check: no ({t["check"][:50]})']
         if r and os.environ.get('VIMG_CONSENSUS') == '1' and t['kind'] != 'object' and not any(x.startswith(HARD) for x in r):
             ok, det = consensus(im, t, ft); ft['cons'] = det
             if ok: ft['cons_soft'] = r; ft.update(ask_yes=True, ask_model='consensus:' + '+'.join(m.split('/')[-1] for m in CONS_MODELS), ask_conf=ft.get('ask_conf') or CONS_CONF); r = []   # nhận nhờ giám khảo kép; giữ lý do cổng mềm để soát
+        if not a.features_only: r = _check(r)
         seen_ph.append(ft['ph'])
         res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
         print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], flush=True)

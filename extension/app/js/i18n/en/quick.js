@@ -40,7 +40,7 @@
   "Kiểm tra trình độ chi tiết (20 câu)": "Detailed level test (20 questions)",
   "Kết quả phong cách tiếng Anh": "English Style Result",
   "Luyện TOEIC với từ vựng công sở": "TOEIC practice with workplace vocabulary",
-  "Luyện nói & đóng vai tình huống cùng Call Mia": "Practice speaking & roleplay scenarios with Call Mia",
+  "Luyện nói & đóng vai tình huống qua cuộc gọi với Ama và Carlos": "Speaking & role-play practice on a video call with Ama and Carlos",
   "Luyện phản xạ nghe – nói": "Listening & speaking reflex drills",
   "Làm thêm lượt nữa": "Play another round",
   "Lướt tìm ý chính, trả lời vừa đủ ý rồi giải quyết việc khác 💼": "Skim for the key points, reply just enough, then move on 💼",

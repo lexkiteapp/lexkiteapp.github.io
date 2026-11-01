@@ -1,0 +1,172 @@
+{
+ "_doc": "Màn Câu hỏi bài học (#/lesson/go, cờ ux1) – d do web/js/lesson/ui.js dựng từ phiên học thật. Ama (Chars+LessonTeacher, 2D) đứng SAU thẻ đề bài đục (thẻ kéo lên chồng đáy hình). Lưới đáp án = #lsnBody: trắc nghiệm dùng khuôn thẻ A–D (chưa chọn / đã chọn), dạng khác (xếp chữ, gõ, ghép, nói, ảnh) dựng vào cùng ô. Chân trang: Bỏ qua = tắt nghe/nói, Báo lỗi = hộp báo lỗi, Kiểm tra = chấm.",
+ "i18n": {
+  "Close lesson": "Thoát bài học",
+  "Learner profile": "Hồ sơ người học",
+  "Skip": "Bỏ qua",
+  "Report": "Báo lỗi",
+  "Skip question": "Bỏ qua câu hỏi",
+  "Report question": "Báo lỗi câu hỏi",
+  "Play sentence audio in British Received Pronunciation": "Nghe câu mẫu"
+ },
+ "text": {
+  "Active Drill Session": "d.title",
+  "70%": "d.pct + '%'",
+  "3 IN A ROW": "d.combo",
+  "IELTS BAND 7.0 DRILL": "d.chip",
+  "0:02 • Tap to hear sentence": "d.play",
+  "British Received Pronunciation": "d.who",
+  "CHECK ANSWER": "t('Kiểm tra đáp án')"
+ },
+ "html": {
+  ":scope > main > div > div:nth-child(2) > div > div:nth-child(2)": "''"
+ },
+ "attr": {
+  ":scope > header > div > button": {
+   "href": "d.close",
+   "id": "'lsnX'",
+   "aria-label": "t('Thoát bài học')"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": {
+   "id": "'lsnPct'",
+   "dir": "'ltr'"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-label": "t('Tiến độ bài học')",
+   "aria-valuemin": "'0'",
+   "aria-valuemax": "'100'",
+   "aria-valuenow": "'0'"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:0%'",
+   "id": "'lsnFill'"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "data-href": "'#/me'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1)": {
+   "id": "'lsnCombo'",
+   "aria-live": "'polite'"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)": {
+   "id": "'lsnComboT'"
+  },
+  ":scope > main > div > div:nth-child(2) > div > button": {
+   "id": "'lsnPlay'",
+   "type": "'button'",
+   "aria-label": "t('Nghe lại')"
+  },
+  ":scope > main > div > div:nth-child(2) > div > div:nth-child(2)": {
+   "id": "'lsnBub'",
+   "aria-live": "'polite'"
+  },
+  ":scope > main > div > div:nth-child(3)": {
+   "id": "'lsnBody'"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)": {
+   "id": "'lsnSkip'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button:nth-child(2)": {
+   "id": "'lsnRep'",
+   "type": "'button'",
+   "aria-label": "t('Báo lỗi câu hỏi')"
+  },
+  ":scope > main > div > div:nth-child(4) > button": {
+   "id": "'lsnCheck'",
+   "type": "'button'",
+   "disabled": "'disabled'"
+  }
+ },
+ "cls": {
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "w-[70%]": "''"
+  }
+ },
+ "tag": {
+  ":scope > header > div > button": {
+   "to": "a"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "to": "button"
+  }
+ },
+ "addClass": {
+  ":scope > header > div > button": "lsn-x",
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2)": "lsn-bar",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1)": "lsn-combo",
+  ":scope > main > div > div:nth-child(2)": "isolate lsn-qcard",
+  ":scope > main > div > div:nth-child(2) > div": "relative z-10",
+  ":scope > main > div > div:nth-child(1)": "lsn-qchips",
+  ":scope > main > div > div:nth-child(4)": "lsn-qfoot",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)": "lsn-skipb relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']",
+  ":scope > main > div > div:nth-child(4) > button": "disabled:opacity-50 disabled:shadow-none disabled:active:translate-y-0 motion-reduce:transition-none",
+  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > main > div > div:nth-child(2) > div > button": "relative after:absolute after:-inset-y-0.5 after:inset-x-0 after:content-['']",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button:nth-child(2)": "relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']"
+ },
+ "after": {
+  ":scope > header > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "'<b class=\"sr-only\" id=\"lsnQn\"></b>'",
+  ":scope > main > div > div:nth-child(1)": "d.teacher",
+  ":scope > main > div > div:nth-child(2) > div > button": "d.slow"
+ },
+ "repeat": [
+  {
+   "list": "d.opts",
+   "as": "r",
+   "samples": ":scope > main > div > div:nth-child(3) > button",
+   "pick": "r.v",
+   "variants": {
+    "off": ":scope > main > div > div:nth-child(3) > button:nth-child(1)",
+    "on": ":scope > main > div > div:nth-child(3) > button:nth-child(2)"
+   },
+   "bind": {
+    "off": {
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "data-o": "r.o",
+       "aria-pressed": "'false'"
+      }
+     },
+     "addClass": {
+      ":scope": "lsn-opt"
+     },
+     "html": {
+      ":scope > div > span": "e(r.k)",
+      ":scope > span": "e(r.t)"
+     },
+     "cls": {
+      ":scope": {
+       "h-24": "'min-h-[96px]'"
+      }
+     }
+    },
+    "on": {
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "data-o": "r.o",
+       "aria-pressed": "'true'"
+      }
+     },
+     "addClass": {
+      ":scope": "lsn-opt"
+     },
+     "html": {
+      ":scope > div > span:nth-child(1)": "e(r.k)",
+      ":scope > span": "e(r.t)"
+     },
+     "cls": {
+      ":scope": {
+       "h-24": "'min-h-[96px]'"
+      }
+     }
+    }
+   }
+  }
+ ],
+ "_tap": " Vùng chạm ≥44: nới vô hình bằng ::after (không đổi hình Stitch)."
+}

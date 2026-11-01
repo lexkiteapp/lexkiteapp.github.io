@@ -193,6 +193,7 @@ Owner brief: the standard educational-Shorts format of the big channels (CapCut 
 
 
 ## 14. v9 template family on the v8 engine (25/10/2026, owner approved the v8 look)
+(obsolete 29/10: render_v9 paused → `VIDEO-TEACH2D.md`.)
 Six formats, ONE sample each (approval gate – no batch). Renderer `scripts/video/tpl/render_v9.py` (spec-driven), gates `scripts/video/tpl/qc_v9.py`,
 workflow `video-templates9.yml` (dispatch, matrix), specs + reviewed scripts `content/video/cine/news/templates-v1/`, teachers/sets `docs/VIDEO-TEACHERS.md`.
 - v8 fixes: hook/pops never touch the head (gate `head_clear`; pops sit under the chin, above the captions) · captions centred on x 540 (`caption_center`, was −54 px) ·
