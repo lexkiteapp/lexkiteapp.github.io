@@ -77,6 +77,8 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
 - Trượt → `scripts/sentence-audio/render.mjs`: Kokoro fp32, cùng giọng của câu; câu: tốc độ 1,0 → 0,92 → 1,08; cụm ≤ 3 chữ: `METHODS` ở trên.
   Bản đầu tiên qua lại cổng → mp3 64 kbps khóa mới `<khóa>-s2.mp3` (không ghi đè khóa cũ), `LISTEN_AUDIO_S2` trong `web/js/listen/audio-index.js`,
   `web/js/ui.js` `audioUrl` tự trỏ sang. Vẫn trượt → `web/audio/l/asr-fail.tsv` (lý do: chữ Whisper nghe, WER), app phát bản cũ.
+- 1/11: EnglishTextNormalizer xoá chữ trong ngoặc mà Kokoro đọc to ("(D) A man…") → `norm` bỏ dấu ngoặc trước (hai bên, ngưỡng giữ nguyên; 129/450 câu dài trượt oan); `--selftest` chạy trước mỗi shard.
+  Câu trượt thử lại bằng `retry_fail` (dispatch; `todo.mjs --retry-fail`, `merge.mjs` chỉ ghi đè "fail"). Cụm ≤ 3 chữ có thêm phương án theo phiên âm từ điển (`scripts/word-audio/ipa.mjs`, hậu tố `_ipa`).
 - Số liệu: `web/audio/l/asr-stats.json`; test `scripts/test/sentence-asr.mjs` (trong `npm test`). Câu mới từ `gen-audio.mjs` xuất 64 kbps và qua cổng ở lượt sau.
 - Chưa làm: newtab add-on (`extension/newtab.js`) vẫn phát bản cũ cho từ có `-s2` (bản cũ còn trên CDN).
 - Lượt thử 300 câu (run 41211034940, 31/10): bản đang phục vụ đạt 282/300 (94,0 %); sau render lại đạt 295/300 (98,3 %).
