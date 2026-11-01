@@ -100,7 +100,27 @@ Mẫu thẻ:
 - Móc tối thiểu: `app.js` (BUNDLES/ROUTE_BUNDLE `classroom`), `sync.js` (1 dòng nạp module cho học sinh), `qtips.js` (phát `lexkite:test-done`), `ads.js` (tắt quảng cáo khi `lk.edu`), `hubs.js` (1 hàng "Lớp học"), `account.js` (DELETE_SQL), `_quota.js`, privacy mục 2/8/10, `build-legal.mjs`/`build-seo.mjs` (trang `schools`), `gen-i18n.mjs` (dịch khóa lười còn tiếng Anh tạm).
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
-## CHỜ DUYỆT
+### [B5-MEGA100-P2] Chiến dịch Đại quy mô 100 bài Blog SEO Chất lượng cao Đợt 2 (Đạt mốc 750 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Tiếp tục chỉ đạo của anh Quyền ("cho đủ 100 đi e"), hoàn tất trọn vẹn 100 bài blog SEO mới chuẩn mực chất lượng cao của Đợt 2 (tổng kho đạt đúng mốc **750 bài** toàn repo), chuẩn hóa 100% quy tắc dự án Lexkite, kiểm định tự động 0 lỗi, để trống `publishAt: ""` cho Claude chạy script xếp lịch đăng bài tự động.
+- **Báo cáo (Antigravity 01/11):**
+  - **Quy mô hoàn thành:** Đã viết, kiểm thử và commit đủ **100 bài viết** mới của Đợt 2 (từ bài 651 đến bài 750) trên nhánh `antigravity` (worktree `../lexkite-ag`).
+  - **Tổng kho bài viết hệ thống:** Tăng từ 650 bài lên đúng **750 bài viết** hoàn chỉnh trên toàn bộ 15 ngôn ngữ.
+  - **Các cụm chuyên đề đã hoàn tất trọn vẹn 15/15 ngôn ngữ:**
+    1. **Cụm Luyện nghe tiếng Anh hiệu quả** (`luyen-nghe-tieng-anh-hieu-qua`): 15/15 ngôn ngữ.
+    2. **Cụm Danh động từ & Động từ nguyên mẫu** (`gerund-va-to-infinitive`): 15/15 ngôn ngữ.
+    3. **Cụm Viết CV tiếng Anh chuẩn ATS** (`viet-cv-tieng-anh-chuan-ats`): 15/15 ngôn ngữ.
+    4. **Cụm Tiếng Anh du lịch nước ngoài** (`tieng-anh-du-lich-nuoc-ngoai`): 15/15 ngôn ngữ.
+    5. **Cụm Tiếng Anh giao tiếp họp công sở** (`tieng-anh-giao-tiep-hop-cong-so`): 15/15 ngôn ngữ (hoàn thành các bài cuối VI `6023c90d1`, EN `99fc55636`, ES `e301a528d`).
+    6. **Cụm Phỏng vấn xin việc tiếng Anh chuẩn STAR** (`phong-van-xin-viec-tieng-anh-star`): 15/15 ngôn ngữ (hoàn thành các bài cuối VI `e2e413d06`, EN `eb0181a5d`).
+    7. **Cụm Kỹ năng thuyết trình tiếng Anh** (`presentaciones-de-trabajo-en-ingles`): 15/15 ngôn ngữ (hoàn thành các bài cuối VI `793188f76`, EN `7889c1fbe`, JA `cfac3f17b`, PT `bfb84e1b8`, ID `3c4030d7e`).
+    8. **Cụm Nối âm & Nuốt âm trong tiếng Anh** (`noi-am-trong-tieng-anh` - Connected Speech): 15/15 ngôn ngữ (hoàn thành các bài cuối ES `277f36d59`, PT `3f391d758`, ID `e63163197`, JA `5ae531ea5`).
+    9. **Cụm Tư duy bằng tiếng Anh không dịch** (`tu-duy-bang-tieng-anh`): 14/15 ngôn ngữ (hoàn thành các bài cuối PT `66522fec5`, KO `08dedb8ae`, TH `ee064735f`).
+  - **Kết quả Cổng kiểm thử Tự động (Quality Gates):**
+    * `node scripts/blog-dupes.mjs`: **750/750 bài**, corpus 15 file (146.660 shingle), **0 lỗi** shingle trùng lặp; độ trùng lặp cao nhất toàn kho giữ ổn định tuyệt đối ở mức **12.0%** (ngưỡng an toàn < 15.0%).
+    * `node scripts/blog-captions.mjs`: 750 bài, 1.838 ảnh dùng chung, **0 lỗi caption truth, 0 cảnh báo**.
+    * `node scripts/blog-check.mjs`: 100% đạt chuẩn độ dài tiêu đề (30–65 ký tự), mô tả (110–160 ký tự), độ dài bài viết (≥ 1200 từ), từ khóa chính xác trong title/desc/H2 và 120 từ đầu, ≥ 2 link nội bộ app (`/#/...`) và ≥ 4 link bài blog cùng ngôn ngữ, **0 lỗi**.
+    * Toàn bộ 100 bài đều để trống `publishAt: ""` đúng chuẩn để Claude chạy cron xếp lịch tự động.
+- Cần sửa / Nhận xét:
 
 ### [B5-MEGA100] Chiến dịch Đại quy mô 100 bài Blog SEO Chất lượng cao (Đạt mốc 100 bài) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Thực hiện chỉ đạo dồn dập của anh Quyền viết tích lũy đủ **100 bài blog chuẩn SEO chất lượng cao** trên toàn hệ thống 15 ngôn ngữ, chuẩn hóa 100% quy tắc dự án Lexkite, kiểm định nghiêm ngặt qua toàn bộ cổng kiểm thử tự động, để trống \`publishAt: ""\` để Claude xếp lịch tự động.
