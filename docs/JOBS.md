@@ -133,4 +133,5 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/expand/job.mjs` – tập vi của kho hiện có = danh sách kiểm vi do AI lấp (cùng Viet74K) | bỏ qua: chỉ đọc nghĩa vi để kiểm chính tả/từ có thật; không ghi/xuất kho | — |
 | `scripts/dict/build.mjs` – trang từ điển tĩnh /dict (docs/SEO-DICT-PAGES.md) | `loadBrowserIndex` | dict-pages.yml (CI) |
 | `scripts/dict/wordnet.mjs` – trích Open English WordNet → content/dict/wordnet.json, chỉ giữ từ đơn có trong kho (docs/SEO-DICT-PAGES.md) | `loadBrowserIndex` | tay (chạy lại khi kho từ lớn thêm) → build.mjs đọc file đã commit |
+| `scripts/sentence-audio/render.mjs` – phiên âm từ điển (Anh/Mỹ) cho phương án render lại cụm ≤ 3 chữ trượt cổng ASR câu | `loadAllPlus` | sentence-audio-asr mỗi 4 giờ |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |
