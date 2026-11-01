@@ -4,11 +4,12 @@
 import fs from 'node:fs';
 export const IDX = 'web/js/listen/audio-index.js', LEDGER = 'web/audio/l/asr.tsv', FAIL = 'web/audio/l/asr-fail.tsv', STATS = 'web/audio/l/asr-stats.json';
 export const S2 = '-s2'; // hậu tố khóa mới (CDN đệm 1 năm – không ghi đè khóa cũ). Đổi cách tạo lần nữa → hậu tố mới, không dùng lại.
-const set = (src, name) => new Set(((src.match(new RegExp(name + ' = new Set\\("([^"]*)"')) || [, ''])[1]).split(/\s+/).filter(Boolean));
-export function readIndex(f = IDX) { const s = fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : ''; return { have: set(s, 'LISTEN_AUDIO'), s2: set(s, 'LISTEN_AUDIO_S2') }; }
+import { encode, DEC } from './keyset.mjs';
+// Đọc bằng cách CHẠY tệp (dạng nén keyset.mjs; vẫn đọc được dạng chuỗi cũ) – không regex
+export function readIndex(f = IDX) { const g = {}; if (fs.existsSync(f)) new Function('self', fs.readFileSync(f, 'utf8'))(g); return { have: new Set(g.LISTEN_AUDIO || []), s2: new Set(g.LISTEN_AUDIO_S2 || []) }; }
 export function writeIndex(have, s2, f = IDX) {
-  const j = x => `new Set(${JSON.stringify([...x].sort().join(' '))}.split(' ').filter(Boolean))`;
-  fs.writeFileSync(f, `/* Danh sách câu thoại đã có file âm thanh Kokoro (tự sinh bởi scripts/gen-audio.mjs; LISTEN_AUDIO_S2 = đã render lại qua cổng ASR, scripts/sentence-audio/merge.mjs) */\n(function (g) { g.LISTEN_AUDIO = ${j(have)}; g.LISTEN_AUDIO_S2 = ${j(s2)}; })(typeof self !== 'undefined' ? self : this);\n`);
+  const j = x => { const e = encode(x); return `D(${JSON.stringify(e.s)},${e.k},${e.n})`; };
+  fs.writeFileSync(f, `/* Danh sách câu thoại đã có file âm thanh Kokoro (tự sinh bởi scripts/gen-audio.mjs; LISTEN_AUDIO_S2 = đã render lại qua cổng ASR, scripts/sentence-audio/merge.mjs). Dạng nén Rice – scripts/sentence-audio/keyset.mjs */\n(function (g) { var D = ${DEC}; g.LISTEN_AUDIO = ${j(have)}; g.LISTEN_AUDIO_S2 = ${j(s2)}; })(typeof self !== 'undefined' ? self : this);\n`);
 }
 export const readLedger = (f = LEDGER) => new Map((fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : '').split('\n').filter(Boolean).map(l => l.split('\t')));
 // ≤ 3 chữ (từ vựng đọc đơn): tạo lại bằng các phương án từ đơn (scripts/word-audio/kokoro.mjs METHODS); dài hơn: câu, đổi tốc độ
