@@ -4,7 +4,7 @@ title: "المبني للمجهول في اللغة الإنجليزية: قوا
 description: "المبني للمجهول في اللغة الإنجليزية: شرح قواعد صيغة Passive Voice في جميع الأزمنة، كيفية تحويل الجمل، واستخداماته في الكتابة الأكاديمية والمهنية."
 keyword: "المبني للمجهول في اللغة الإنجليزية"
 lang: ar
-translationKey: passive-voice-in-english
+translationKey: cau-bi-dong-tieng-anh-passive-voice
 category: ngu-phap
 tags: [qawaid, passive-voice, grammar]
 cover: grammar
