@@ -74,6 +74,20 @@ for (const [u, k, h, b] of [['u_learner1', 'meta', 'h_meta', sampleMeta], ['u_le
   sql.prepare('INSERT INTO docs (uid, k, h, body, updated) VALUES (?, ?, ?, ?, ?)').run(u, k, h, b, now);
 const docsOf = uid => sql.prepare('SELECT COUNT(*) AS c FROM docs WHERE uid = ?').get(uid).c;
 
+console.log('0. Nâng lược đồ sync 2 → 3 trên D1 production cũ (cột cc):');
+// Giả lập D1 đang chạy: đã ghi schema_ver sync=2, bảng users chưa có cc, đã có người dùng. Gọi /api/sync TRƯỚC admin (admin.js tự thêm cột, sẽ che lỗi).
+sql.exec('CREATE TABLE IF NOT EXISTS schema_ver (k TEXT PRIMARY KEY, v INTEGER NOT NULL, at INTEGER) WITHOUT ROWID');
+sql.prepare('INSERT INTO schema_ver (k, v, at) VALUES (?, ?, ?)').run('sync', 2, now - 864e5);
+{ const before = sql.prepare('SELECT uid, email, name, created, seen, plat, n FROM users ORDER BY uid').all();
+  assert.ok(!sql.prepare('PRAGMA table_info(users)').all().some(c => c.name === 'cc'), 'trước nâng cấp: chưa có cột cc');
+  assert.equal((await sync('u_learner2', { op: 'pull', have: {} })).s, 200, 'đồng bộ chạy được ngay trong lượt nâng lược đồ');
+  assert.ok(sql.prepare('PRAGMA table_info(users)').all().some(c => c.name === 'cc'), 'once(sync, 3) thêm cột cc trên D1 đang ở phiên bản 2');
+  assert.ok(sql.prepare("SELECT 1 FROM sqlite_master WHERE type = 'index' AND name = 'idx_users_cc'").get(), 'tạo chỉ mục idx_users_cc');
+  assert.equal(sql.prepare("SELECT v FROM schema_ver WHERE k = 'sync'").get().v, 3, 'ghi phiên bản lược đồ 3');
+  assert.deepEqual(sql.prepare('SELECT uid, email, name, created, seen, plat, n FROM users ORDER BY uid').all(), before, 'dữ liệu người dùng cũ giữ nguyên');
+  assert.equal(sql.prepare('SELECT COUNT(*) AS c FROM users WHERE cc IS NULL').get().c, before.length, 'tài khoản cũ: cc = NULL (nhóm "chưa rõ"), không đoán'); }
+console.log('✓ chỉ THÊM cột/chỉ mục (không đổi/xoá), dữ liệu cũ nguyên vẹn, phiên bản 2 → 3');
+
 console.log('1. Cổng quản trị:');
 assert.equal((await adm('userBlock', { uid: 'u_learner1', blocked: 1, confirm: 'learner1@lexkite.com' }, null)).s, 403, 'không token → 403');
 assert.equal((await adm('userBlock', { uid: 'u_learner1', blocked: 1, confirm: 'learner1@lexkite.com' }, await tok('u_learner2', { email: 'learner2@lexkite.com', email_verified: true }))).s, 403, 'người học tự gọi op quản trị → 403');

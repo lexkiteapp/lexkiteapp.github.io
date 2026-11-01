@@ -54,7 +54,7 @@ Mã hóa khi truyền: **Có** (HTTPS). Người dùng yêu cầu xóa được:
 |---|---|---|---|---|---|
 | App activity → App interactions | Có | Không | Bắt buộc (thống kê ẩn danh, mã khách ngẫu nhiên) | Analytics | `app.js` → `/api/hit` (`functions/api/hit.js`) |
 | App info & performance → Crash logs, Diagnostics | Có | Không | Bắt buộc | Analytics, App functionality | lỗi JS → `/api/hit`; tốc độ tải (LCP) |
-| Location → Approximate location | Có (quốc gia suy từ IP bởi Cloudflare, không lưu IP) | Không | Bắt buộc | Analytics | `hit.js` (cột country) |
+| Location → Approximate location | Có (quốc gia suy từ IP bởi Cloudflare, không lưu IP) | Không | Bắt buộc | Analytics | `hit.js` (cột country); khi đăng nhập: `functions/api/sync.js` (cột `users.cc`, mã quốc gia lần đồng bộ gần nhất – gắn với tài khoản) |
 | Messages → Other in-app messages / App activity → Other user-generated content | Có (bài viết/câu nói gửi chấm AI, tin Roleplay, nội dung báo lỗi + ảnh chụp màn hình tùy chọn) | Có – **xử lý hộ** bởi Google Gemini / Cloudflare Workers AI (chọn "service provider", không tính là chia sẻ) | Tùy chọn | App functionality | `functions/api/ai.js`, `report.js` |
 | Personal info → Email address | Có (chỉ khi người dùng tự nhập trong form liên hệ / muốn nhận tin báo lỗi) | Không | Tùy chọn | App functionality (hỗ trợ) | `contact.js`, `report.js` |
 | Audio → Voice or sound recordings | **Không thu thập** (nhận dạng giọng nói trên máy / dịch vụ của hệ điều hành; không gửi lên máy chủ mình) | – | – | – | `speaking.js`, `ui.js` |
