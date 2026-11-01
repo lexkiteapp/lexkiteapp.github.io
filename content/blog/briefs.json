@@ -16701,6 +16701,72 @@
       ],
       "angle": "Gerund ve infinitive konu anlatımı detaylı rehber: Gelecek hedefi ile gerçek deneyim mantığı, stop/remember/try gibi anlamı değişen fiiller ve edat kuralı.",
       "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "kan-chai-gerund-lae-infinitive-phasa-angkrit",
+      "keyword": "การใช้ gerund และ infinitive",
+      "topic": "การใช้ Gerund และ Infinitive: ความต่าง กฎเหล็ก และกริยาที่ความหมายเปลี่ยน",
+      "category": "ngu-phap",
+      "tags": [
+        "gerund",
+        "infinitive",
+        "waiyakon-phasa-angkrit"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "การใช้ gerund และ infinitive เจาะลึกความต่างเชิงตรรกะ: อนาคตเป้าหมาย vs ประสบการณ์จริง, คำกริยาที่เปลี่ยนความหมาย (stop/remember/try) และกฎเหล็กหลังคำบุพบท.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "al-farq-bayna-gerund-wa-infinitive-fi-al-injliziyyah",
+      "keyword": "الفرق بين gerund و infinitive",
+      "topic": "الفرق بين Gerund و Infinitive في الإنجليزية: القواعد والمنطق والأفعال متغيرة المعنى",
+      "category": "ngu-phap",
+      "tags": [
+        "gerund",
+        "infinitive",
+        "kawaid-al-injliziya"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "شرح الفرق بين gerund و infinitive في اللغة الإنجليزية: منطق التطلع للمستقبل مقابل التجربة الواقعية، الأفعال التي يتغير معناها وقاعدة حروف الجر الذهبية.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "gerund-and-infinitive-rules-in-hindi-difference",
+      "keyword": "gerund and infinitive rules in hindi",
+      "topic": "Gerund and Infinitive Rules in Hindi: अंतर, नियम और अर्थ बदलने वाली क्रियाएं",
+      "category": "ngu-phap",
+      "tags": [
+        "gerund",
+        "infinitive",
+        "english-grammar-hindi"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "Gerund and infinitive rules in hindi: jane bhavishya ke lakshya aur vastavik anubhav ka antar, stop/remember/try jaise arth badalne wale verbs aur prepositions ka niyam.",
+      "intent": "informational"
     }
   ]
 }
