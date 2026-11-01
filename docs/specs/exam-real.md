@@ -1,5 +1,8 @@
 # Spec: bài thi thử chuẩn thi thật (exam-real)
 
+> TL;DR: Mọi màn thi thử chạy như thi thật (đồng hồ theo mốc thời gian thật, bảng câu, cờ, nộp có xác nhận) + màn chữa bài chung `ExamKit.review`. Giao diện port từ ref Stitch `brand/stitch/exam/`. Trạng thái: M1 + M2 (#/toeic-test) xong trên nhánh `exam-real`; còn M3–M4.
+> Đọc khi: sửa bất kỳ màn thi thử/chữa bài nào.
+
 **Mục tiêu:** mọi màn làm bài thi trong app chạy như thi thật (đồng hồ chuẩn, bảng câu, đánh dấu, nộp có xác nhận) và chữa bài đầy đủ (điểm quy đổi, thống kê, lọc, giải thích 15 ngôn ngữ, làm lại câu sai). $0, không gọi AI lúc người học mở.
 
 ## Kiểm kê (01/11, main 408788038)
@@ -32,7 +35,7 @@ Không có đồng hồ theo mốc thời gian thật ở đâu cả (tab ẩn �
 ## Việc (mỗi mốc 1 PR)
 1. M0: 3 màn Stitch sáng+tối (đang làm bài, xác nhận nộp, chữa bài) → chủ duyệt.
 2. M1: exam-kit (đồng hồ, lưu, bảng câu, phím, nộp) + test đơn vị đồng hồ (tab ẩn, tải lại, hết giờ tự nộp) + gắn `#/toeic-test` (cả Listening).
-3. M2: chữa bài chung + bảng quy đổi TOEIC + gắn toeic-test; e2e một đề (journey-e2e `h.shot`).
+3. M2: chữa bài chung + bảng quy đổi TOEIC + gắn toeic-test; e2e một đề (journey-e2e J9 `h.shot`). **Xong:** khung focus từng đơn vị câu, sheet nộp, `ExamKit.review`, "Làm lại câu sai" (`#/toeic-test/n?retry=1`). Dữ liệu tùy chọn mỗi câu cho M4: `whyWrong` (khóa = chỉ số hoặc chữ phương án), `grammar {href,label}`, `vocab [từ]`.
 4. M3: gắn mock, listen-test, cbt (thêm lưu), toeic-r, placement (đếm xuôi), toefl-p/toeic-sw (đồng hồ chuẩn).
 5. M4: job CI giải thích phương án sai + từ/ngữ pháp → tĩnh 15 ngôn ngữ.
 

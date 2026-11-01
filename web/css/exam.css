@@ -79,7 +79,7 @@ body.xk-focus .view { max-width: 640px; padding: 0 0 calc(96px + env(safe-area-i
 
 /* --- Sheet bảng câu + xác nhận nộp (exam-confirm) --- */
 #modalBox:has(> .xk-sheet) { padding: 0; background: var(--surface); border: 2px solid var(--line-2); }
-@media (max-width: 600px) { #modal:has(.xk-sheet) { align-items: flex-end; padding: 0; } #modalBox:has(> .xk-sheet) { width: 100%; max-height: 92vh; border-radius: 32px 32px 0 0; border-bottom: 0; box-shadow: 0 -8px 30px rgba(0,0,0,.22); } }
+@media (max-width: 600px) { #modal:has(.xk-sheet) { place-items: end center; padding: 0; } #modalBox:has(> .xk-sheet) { width: 100%; max-height: 92vh; border-radius: 32px 32px 0 0; border-bottom: 0; box-shadow: 0 -8px 30px rgba(0,0,0,.22); } }
 .xk-sheet { display: grid; gap: .75rem; padding: .75rem 1rem 1rem; } .xk-sheet p { margin: 0; }
 .xk-handle { justify-self: center; width: 48px; height: 6px; border-radius: var(--r-pill); background: var(--line-2); }
 .xk-range { font-size: .75rem; font-weight: 700; color: var(--muted); }
