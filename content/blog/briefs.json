@@ -13768,6 +13768,305 @@
       ],
       "angle": "단순 암기에서 벗어나 전치사와 부사의 기본 이미지로 이해하는 영어 구동사 학습법. 일상 회화 필수 표현부터 학술 에세이 대체 어휘까지 완벽 정리.",
       "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "collocations-en-ingles-para-ielts",
+      "keyword": "collocations en inglés para ielts",
+      "topic": "Collocations en Inglés para IELTS: Combinaciones Naturales para Subir de Band",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "Guía completa sobre colocaciones léxicas en inglés para candidatos de IELTS: tipos de combinaciones, 40 expresiones de alta frecuencia por temas y cómo evitar errores de traducción literal.",
+      "intent": "informational"
+    },
+    {
+      "lang": "fr",
+      "slug": "collocations-anglaises-pour-ielts",
+      "keyword": "collocations anglaises pour ielts",
+      "topic": "Collocations Anglaises pour IELTS : Guide Complet et Exemples Clés",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "Comprendre et mémoriser les collocations naturelles en anglais pour réussir les épreuves écrites et orales de l IELTS sans calquer sur le français.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "collocations-em-ingles-para-ielts",
+      "keyword": "collocations em inglês para ielts",
+      "topic": "Collocations em Inglês para IELTS: Combinações Naturais para Nota 7+",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "Domine as combinações lexicais naturais mais valorizadas pelos examinadores do IELTS com listas temáticas, lógica de uso e técnicas de memorização.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "collocation-bahasa-inggris-untuk-ielts",
+      "keyword": "collocation bahasa inggris untuk ielts",
+      "topic": "Collocation Bahasa Inggris untuk IELTS: Pasangan Kata Alami Penunjang Skor",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "Panduan praktis menguasai kolokasi bahasa Inggris untuk tes IELTS Writing dan Speaking agar terhindar dari terjemahan kaku kata per kata.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "collocations-phasa-angkrit-ielts",
+      "keyword": "collocations ภาษาอังกฤษ ielts",
+      "topic": "รวม Collocations ภาษาอังกฤษสำหรับ IELTS: เพิ่มคะแนนคำศัพท์อย่างเป็นธรรมชาติ",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "เจาะลึกกลุ่มคำจับคู่ collocation ในภาษาอังกฤษสำหรับเตรียมสอบ IELTS Writing และ Speaking เพื่อการใช้ภาษาที่ลื่นไหลเหมือนเจ้าของภาษา",
+      "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "kollokatsii-v-angliyskom-dlya-ielts",
+      "keyword": "коллокации в английском для ielts",
+      "topic": "Коллокации в английском для IELTS: Устойчивые словосочетания для высокого балла",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "Полное руководство по изучению устойчивых английских словосочетаний для успешной сдачи IELTS Academic с тематическими примерами.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "ielts-icin-ingilizce-collocations-rehberi",
+      "keyword": "ielts için ingilizce collocations",
+      "topic": "IELTS için İngilizce Collocations: Doğal Kelime Eşleşmeleri ve Örnekler",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "IELTS sınavında kelime bilgisi puanınızı artıracak en önemli İngilizce eşdizimler, mantığı ve bağlam içinde kullanım yöntemleri.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "al-mutalazimat-al-lafziyyah-ielts-collocations",
+      "keyword": "المتلازمات اللفظية في الانجليزية ielts",
+      "topic": "المتلازمات اللفظية في الإنجليزية لاختبار IELTS: دليل شامل وأمثلة عملية",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "شرح شامل لكيفية استخدام وتثبيت المتلازمات اللفظية باللغة الإنجليزية للوصول إلى درجات متقدمة في اختبار الآيلتس.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "ielts-collocations-in-hindi-guide",
+      "keyword": "ielts collocations in hindi",
+      "topic": "IELTS Collocations in Hindi: प्राकृतिक शब्द युग्म और परीक्षा में उच्च स्कोर के नियम",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "हिन्दी माध्यम से समझें IELTS collocations के नियम, विभिन्न श्रेणियों के शब्द युग्म और राइटिंग टास्क 2 में इनका प्रभावी प्रयोग।",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "ielts-collocation-shizen-na-rengo-eigo",
+      "keyword": "ielts コロケーション collocation 英語",
+      "topic": "IELTS対策コロケーション完全ガイド：自然な連語表現でスコアを伸ばす方法",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "IELTSのライティングとスピーキングで高得点を獲得するための重要コロケーション学習法。不自然な和文英訳を回避する実践的ノウハウ。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "ielts-collocation-yeongeo-yeoneo-chongjeongri",
+      "keyword": "ielts 콜로케이션 collocation 연어 정리",
+      "topic": "IELTS 콜로케이션(Collocation) 핵심 정리: 원어민식 자연스러운 연어 표현",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "IELTS 시험관을 사로잡는 고급 연어 완벽 분석. 직역의 함정에서 벗어나 라이팅과 스피킹 점수를 단숨에 끌어올리는 비결.",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "ya-si-da-pei-collocations-ti-fen-zhi-nan",
+      "keyword": "雅思 词汇搭配 collocations 提分",
+      "topic": "雅思词汇搭配（Collocations）完全指南：地道英文表达与写作提分策略",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "摆脱中式英语硬翻，掌握雅思官方考官青睐的高分核心词汇搭配，全面提升写作与口语的地道表达能力。",
+      "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "ielts-kollokationen-englisch-tipps",
+      "keyword": "ielts kollokationen englisch",
+      "topic": "IELTS Kollokationen im Englischen: Natürliche Wortverbindungen für Band 7+",
+      "category": "tu-vung",
+      "tags": [
+        "vocabulary",
+        "ielts",
+        "writing",
+        "collocations"
+      ],
+      "shots": [
+        "dict-resilient",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/dict",
+        "/#/practice/learn"
+      ],
+      "angle": "Erfahren Sie, wie Sie englische Kollokationen gezielt im IELTS Writing und Speaking einsetzen, um typische Übersetzungsfehler zu vermeiden.",
+      "intent": "informational"
     }
   ]
 }
