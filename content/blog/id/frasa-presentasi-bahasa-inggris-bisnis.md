@@ -9,7 +9,7 @@ tags: [presentasi, business-english, speaking, karier]
 keyword: "presentasi bahasa inggris"
 cover: path
 coverAlt: "Panduan belajar keterampilan presentasi bahasa Inggris dan komunikasi bisnis di Lexkite"
-publishAt: ""
+publishAt: 2026-12-05T12:41:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

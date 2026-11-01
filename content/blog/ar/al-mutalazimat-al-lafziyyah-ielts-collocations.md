@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "المتلازمات اللفظية في الانجليزية ielts"
 cover: dict
 coverAlt: "شاشة قاموس ليكسكايت لكلمة resilient مع النطق والمتلازمات اللفظية"
-publishAt: ""
+publishAt: 2026-11-26T07:02:00+03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [ielts, calisma-plani, kendi-kendine]
 keyword: "ielts çalışma planı"
 cover: path
 coverAlt: "Lexkite Your IELTS path ekranı: band hedeflerine göre ayrılmış aşamalı çalışma haritası"
-publishAt: ""
+publishAt: 2026-12-01T19:30:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

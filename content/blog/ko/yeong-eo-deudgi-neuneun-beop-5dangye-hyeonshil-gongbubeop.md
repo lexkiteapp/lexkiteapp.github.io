@@ -9,7 +9,7 @@ category: ky-nang
 tags: [listening, yeong-eo, deudgi-gongbubeop]
 cover: dict
 coverAlt: "Lexkite 영어 단어 사전 검색 인터페이스: 원어민 발음 기호와 예문 설명"
-publishAt: ""
+publishAt: 2026-12-07T08:36:00+09:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

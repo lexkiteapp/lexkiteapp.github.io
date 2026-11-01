@@ -9,7 +9,7 @@ tags: [listening, ielts, exam-tips]
 keyword: "ielts 리스닝 팁 listening 공부법"
 cover: listening
 coverAlt: "Lexkite IELTS 리스닝 연습 화면은 10개 모의고사 세트 4개 파트 음원 재생 속도 조절 기능 제공"
-publishAt: ""
+publishAt: 2026-12-02T20:17:00+09:00
 factChecked: 2026-11-01
 qualityScore: 95
 author: Lexkite

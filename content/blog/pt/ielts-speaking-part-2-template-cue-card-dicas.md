@@ -33,6 +33,7 @@ quiz: [
     explain: "O arco narrativo cinematográfico garante desenvolvimento fluido e progressão temporal natural ao longo dos 120 segundos."
   }
 ]
+publishAt: 2026-12-03T12:27:00-03:00
 ---
 
 Para a grande maioria dos candidatos ao exame IELTS, a segunda etapa do teste oral (o temido *Long Turn* ou *Cue Card*) é o momento de maior tensão psicológica. Receber um cartão com um tema imprevisível, dispor de apenas 60 segundos de preparação e precisar falar ininterruptamente por dois minutos completos diante do examinador pode congelar até mesmo estudantes fluentes. Dominar um **ielts speaking part 2 template** funcional é a melhor estratégia para eliminar o medo do silêncio, organizar os pensamentos sob pressão e garantir uma nota superior a Band 7.5 em fluência e recursos lexicais.

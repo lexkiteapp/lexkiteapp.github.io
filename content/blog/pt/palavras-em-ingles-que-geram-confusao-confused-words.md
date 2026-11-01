@@ -33,6 +33,7 @@ quiz: [
     explain: "'Sensible' deriva de *good sense* (bom senso, sensatez), e 'sensitive' deriva de *senses/emotions* (sensibilidade, suscetibilidade)"
   }
 ]
+publishAt: 2026-12-15T19:00:00-03:00
 ---
 
 No processo de aprendizagem do inglês, é comum que estudantes brasileiros encontrem armadilhas lexicais: são as **palavras em ingles que geram confusao** (*confusing words*). Muitas dessas palavras possuem grafia ou pronúncia bastante parecidas, ou uma tradução literal idêntica para o português, embora pertençam a classes gramaticais diferentes ou transmitam sentidos opostos.

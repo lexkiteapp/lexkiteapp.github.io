@@ -9,7 +9,7 @@ tags: [travel-english, travel-phrases, speaking]
 keyword: "travel english phrases for abroad trips"
 cover: home
 coverAlt: "Lexkite home screen showing daily language practice goals and conversation learning modules"
-publishAt: ""
+publishAt: 2026-12-31T20:20:00+05:30
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

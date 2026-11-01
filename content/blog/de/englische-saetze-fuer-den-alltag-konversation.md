@@ -33,6 +33,7 @@ quiz: [
     explain: "'Could you elaborate a bit more on that?' ist eine respektvolle und professionelle Bitte um Präzisierung"
   }
 ]
+publishAt: 2026-12-04T07:52:00+01:00
 ---
 
 Für viele deutsche Lernende ist die spontane mündliche Kommunikation die größte Hürde auf dem Weg zu flüssigem Englisch. Wer grammatikalische Regeln zwar fehlerfrei beherrscht, im echten Gespräch jedoch jedes Wort im Kopf aus dem Deutschen übersetzt, gerät schnell ins Stocken. Die Lösung liegt im Erlernen fester **englische sätze für den alltag** (*Lexical Chunks*), die man situationsgerecht und ohne Zögern abrufen kann.

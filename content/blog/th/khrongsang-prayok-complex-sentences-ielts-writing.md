@@ -48,6 +48,7 @@ quiz: [
     explain: "การตัด If แล้วสลับลำดับเป็น Were + ประธาน + to คือ Type 2 Inversion ซึ่งเป็นโครงสร้างระดับสูงที่ช่วยยกคะแนน Grammar"
   }
 ]
+publishAt: 2026-11-26T08:17:00+07:00
 ---
 
 ในการสอบ IELTS Writing ทั้ง Task 1 และ Task 2 เกณฑ์การให้คะแนนที่ผู้สอบจำนวนมากพบว่ายากที่สุดในการขยับคะแนนขึ้นสู่ Band 7.0 หรือสูงกว่า คือเกณฑ์ **Grammatical Range and Accuracy (ความหลากหลายและความถูกต้องทางไวยากรณ์)** คำอธิบายของเกณฑ์นี้ระบุไว้อย่างชัดเจนว่า ผู้สอบที่ได้ Band 7+ จะต้อง *«uses a variety of complex structures with frequent error-free sentences»*

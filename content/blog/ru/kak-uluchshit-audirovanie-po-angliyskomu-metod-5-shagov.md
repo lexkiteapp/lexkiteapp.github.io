@@ -9,7 +9,7 @@ tags: [listening, audirovanie, angliyskiy]
 keyword: "как улучшить аудирование по английскому"
 cover: dict
 coverAlt: "Словарная статья Lexkite с британским и американским аудиопроизношением и транскрипцией IPA"
-publishAt: ""
+publishAt: 2026-11-30T19:44:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

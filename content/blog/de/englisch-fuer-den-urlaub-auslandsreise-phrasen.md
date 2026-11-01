@@ -9,7 +9,7 @@ tags: [englisch-urlaub, reise-englisch, reisen]
 keyword: "englisch für den urlaub"
 cover: home
 coverAlt: "Startseite und tägliche Lernziele für praktisches Reisewortschatz-Training auf Lexkite"
-publishAt: ""
+publishAt: 2026-12-02T21:53:00+01:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

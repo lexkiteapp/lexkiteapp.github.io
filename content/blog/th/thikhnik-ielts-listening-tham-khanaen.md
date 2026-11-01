@@ -9,7 +9,7 @@ tags: [listening, ielts, exam-tips]
 keyword: "เทคนิค ielts listening ทำคะแนน"
 cover: listening
 coverAlt: "หน้าจอฝึกทำข้อสอบ IELTS Listening บน Lexkite พร้อมแบบทดสอบ 10 ชุด ครบ 4 ส่วนและปรับความเร็วเสียงได้"
-publishAt: ""
+publishAt: 2026-11-30T09:55:00+07:00
 factChecked: 2026-11-01
 qualityScore: 95
 author: Lexkite

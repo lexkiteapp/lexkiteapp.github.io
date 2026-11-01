@@ -9,7 +9,7 @@ tags: [gerundiy, infinitiv, angliyskaya-grammatika]
 keyword: "герундий или инфинитив в английском"
 cover: dict
 coverAlt: "Интерфейс словаря Lexkite с транскрипцией, значениями и примерами глагольного управления"
-publishAt: ""
+publishAt: 2026-11-28T12:29:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [connected-speech, onsei-henka, listening, hatsuon]
 keyword: "英語 音声変化 connected speech"
 cover: path
 coverAlt: "英語の音声変化とリスニング発音トレーニングの学習ロードマップ"
-publishAt: ""
+publishAt: 2026-12-18T12:28:00+09:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

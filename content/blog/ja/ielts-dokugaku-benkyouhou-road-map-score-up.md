@@ -9,7 +9,7 @@ tags: [ielts, dokugaku, benkyouhou]
 keyword: "ielts 独学 勉強法"
 cover: path
 coverAlt: "LexkiteのYour IELTS path画面：目標バンド別の段階的な学習ロードマップ"
-publishAt: ""
+publishAt: 2026-12-19T19:32:00+09:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

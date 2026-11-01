@@ -33,6 +33,7 @@ quiz: [
     explain: "L'anglais est une langue à rythme accentuel. Les mots fonctionnels inaccentués sont phonétiquement écrasés et se réduisent au son neutre Schwa."
   }
 ]
+publishAt: 2026-11-25T08:29:00+01:00
 ---
 Avez-vous déjà vécu cette situation déconcertante ? Vous regardez une série en anglais avec les sous-titres et vous avez l'impression de tout comprendre. Mais dès que vous désactivez les sous-titres ou qu'un locuteur natif s'adresse directement à vous, les phrases se transforment en un flux sonore continu et indéchiffrable. Des mots que vous connaissez parfaitement à l'écrit semblent s'évaporer dans la conversation.
 
