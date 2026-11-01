@@ -516,6 +516,8 @@ def load_th():
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--dir', required=True); ap.add_argument('--attempt', type=int, default=1)
     ap.add_argument('--targets'); ap.add_argument('--lex', default=os.path.join(ROOT, 'dist/lexicon.json')); ap.add_argument('--features-only', action='store_true')
+    ap.add_argument('--prefilter', action='store_true', help='chỉ cổng cục bộ cho ứng viên 1 → <dir>/cand2.a<n>.json (khoá cần ứng viên 2), không gọi thị giác')
+    ap.add_argument('--recand', action='store_true', help='chấm ứng viên 2..N mới vẽ cho khoá đã trượt giám khảo (recand.a<n>.json), không chấm lại ứng viên 1')
     a = ap.parse_args()
     LEX = json.load(open(a.lex)); T = json.load(open(a.targets or os.path.join(a.dir, 'targets.json')))
     th, centroid, _ = load_th()
@@ -525,10 +527,22 @@ def main():
     keys_all = [k for k in LEX if LEX[k].get('def')]
     out_f = os.path.join(a.dir, f'judge.local.a{a.attempt}.json'); res = json.load(open(out_f)) if os.path.exists(out_f) else {}
     t0, n = time.time(), 0; seen_ph = list(known)
+    rcf = os.path.join(a.dir, f'recand.a{a.attempt}.json')
+    RC = set(json.load(open(rcf))['items']) if a.recand and os.path.exists(rcf) else set()
+    if a.prefilter:   # (b) vòng 2: ứng viên 1 trượt CỨNG cục bộ (chữ, NSFW, phong cách, trùng) hoặc > 6 KB → cần ứng viên 2 ngay; còn lại chờ giám khảo
+        need = []
+        for k, t in T.items():
+            f = os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.jpg')
+            if not (t.get('kind') == 'scene' and t.get('ps') and t.get('prompt') and os.path.exists(f)) or k in res: continue
+            im = Image.open(f).convert('RGB'); ft = features(im, k, t, T, LEX, keys_all, centroid)
+            lr = verdict(ft, th, t['kind'], local_only=True)
+            if any(hamm(ft['ph'], p) <= th['ph_max'] for p in seen_ph) or any(x.startswith(HARD) for x in lr) or not size_ok(im): need.append(k)
+            else: seen_ph.append(ft['ph'])
+        json.dump({'items': need}, open(os.path.join(a.dir, f'cand2.a{a.attempt}.json'), 'w')); print(f'lọc trước ứng viên 1: {len(need)} khoá cần ứng viên 2'); return
     for k, t in T.items():
         if not t.get('prompt') or not t.get('target'): continue
         f = os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.jpg')
-        if not os.path.exists(f) or k in res: continue
+        if not os.path.exists(f) or (k in res and k not in RC): continue
         im = Image.open(f).convert('RGB')
         ft = features(im, k, t, T, LEX, keys_all, centroid); v = ft.pop('_v'); ctx = ft.pop('_ctx'); n += 1
         dup = any(hamm(ft['ph'], p) <= th['ph_max'] for p in seen_ph)
@@ -537,24 +551,25 @@ def main():
         if not a.features_only and t['kind'] == 'scene' and t.get('ps') and os.environ.get('VIMG_JUDGE', 'e6') == 'e6' and cfs:
             # (b) 01/11: VIMG_CANDS ứng viên cùng prompt – lọc CỤC BỘ rẻ (chữ/OCR, NSFW, phong cách, trùng pHash, CLIP/chú thích ↔ câu), xếp hạng,
             #     chỉ gửi ứng viên tốt nhất lên giám khảo (ngưỡng y nguyên); trượt giám khảo → ứng viên kế trước khi vẽ lại. Ứng viên trượt cục bộ cứng / > 6 KB không tốn lượt thị giác.
-            C = [(1, f, im, ft, v, ctx, dup)]
+            prior = res.pop(k, None) if k in RC else None   # --recand: ứng viên 1 đã trượt giám khảo → chỉ chấm ứng viên mới
+            C = [] if prior else [(1, f, im, ft, v, ctx, dup)]
             for cf_ in cfs:
                 im2 = Image.open(cf_).convert('RGB'); f2 = features(im2, k, t, T, LEX, keys_all, centroid); v2 = f2.pop('_v'); c2 = f2.pop('_ctx')
                 C.append((int(cf_.rsplit('.c', 1)[1].split('.')[0]), cf_, im2, f2, v2, c2, any(hamm(f2['ph'], p) <= th['ph_max'] for p in seen_ph)))
             def rank_(c):
                 lr = verdict(c[3], th, t['kind'], local_only=True)
                 return (c[6] or any(x.startswith(HARD) for x in lr), len(lr), -(c[3].get('clip_ex_margin', -1) + c[3].get('cap_ex_margin', -1)))
-            C.sort(key=rank_); tried = []
+            C.sort(key=rank_); tried = [[1, (prior['reasons'] or ['?'])[0][:60]]] if prior else []
             for ci, cf_, im_c, ft_c, _, ctx_c, dup_c in C:
                 if dup_c: r = ['duplicate (pHash)']
                 else: ft_c['_ctx'] = ctx_c; r = judge_scene(im_c, t, ft_c, th, t['kind']); ft_c.pop('_ctx', None)
                 ft_c['judge'] = 'e6'; tried.append([ci, (r or ['pass'])[0][:60]])
                 if not r or any(x.startswith('queue:') for x in r): break   # đạt, hoặc giám khảo không trả lời → không đốt ứng viên kế
-            ft_c.update(cands=len(C), cand=ci, cand_tried=tried)
+            ft_c.update(cands=len(C) + bool(prior), cand=ci, cand_tried=tried)
             if not r and ci != 1:   # ứng viên thắng → tên ảnh chuẩn (scene_final/scene-publish đọc <slug>.a<n>.jpg); ứng viên 1 giữ lại để soát
                 os.replace(f, f.replace('.jpg', '.c1.jpg')); shutil.copyfile(cf_, f)
-            seen_ph.append(ft_c['ph']); res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'cands': len(C), 'f': ft_c}
-            print(k, 'PASS' if not r else 'FAIL', f'[ứng viên {ci}/{len(C)}]', '; '.join(r)[:140], '·', ft_c['cap'][:70], flush=True); continue
+            seen_ph.append(ft_c['ph']); res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'cands': len(C) + bool(prior), 'f': ft_c}
+            print(k, 'PASS' if not r else 'FAIL', f'[ứng viên {ci}/{len(C) + bool(prior)}]', '; '.join(r)[:140], '·', ft_c['cap'][:70], flush=True); continue
         if not a.features_only and not dup and t['kind'] == 'scene' and t.get('ps') and os.environ.get('VIMG_JUDGE', 'e6') == 'e6':
             ft['_ctx'] = ctx; r = judge_scene(im, t, ft, th, t['kind']); ft.pop('_ctx', None); ft['judge'] = 'e6'
             seen_ph.append(ft['ph']); res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
@@ -589,6 +604,8 @@ def main():
                'vision_err': _API.get('err', {}), 'audit_calls': _API['audit_calls'], 'audit_neurons': round(_API['audit_neurons'], 1), 'audit_disagree': _API['audit_disagree']},
               open(os.path.join(a.dir, f'judge-api.a{a.attempt}.{uuid.uuid4().hex[:8]}.json'), 'w'))
     fails = [k for k, v in res.items() if not v['pass']]
+    # (b) vòng 2: trượt giám khảo (không phải hàng chờ/trùng) mà chưa có ứng viên kế → vẽ ứng viên 2 rồi --recand trước khi vẽ lại thẻ mới
+    json.dump({'items': [k for k in fails if res[k]['kind'] == 'scene' and not res[k].get('cands') and not any(str(x).startswith(('queue:', 'duplicate')) for x in res[k]['reasons'])]}, open(rcf, 'w'))
     if a.attempt == 1: json.dump({'items': fails}, open(os.path.join(a.dir, 'retry.json'), 'w'))
     else: json.dump({'items': fails, '_note': 'trượt 2 lần → hàng chờ; giám khảo API (GrabCast vision / Gemini) tuỳ chọn chỉ chấm hàng này'}, open(os.path.join(a.dir, 'queue.json'), 'w'))
     print(f'giám khảo cục bộ lần {a.attempt}: {sum(v["pass"] for v in res.values())}/{len(res)} đạt · {n} ảnh trong {mins:.1f} phút = {n / max(mins, 1e-3):.1f} ảnh/phút')

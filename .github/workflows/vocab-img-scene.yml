@@ -215,19 +215,15 @@ jobs:
           cp prep/content/lexicon/vimg-judge.json content/lexicon/ 2>/dev/null || true
           cp prep/keys.json keys.json 2>/dev/null || true
           mkdir -p $OUT && cp prep/out/vimg-scene/cardstats.prep.json $OUT/ 2>/dev/null || true
-      - name: Vẽ lần 1
+      - name: Vẽ + giám khảo lần 1 (ứng viên khi cần – cand-round.sh)
         if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
-        run: node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt 1 --shard ${{ matrix.shard }}/${{ strategy.job-total }}
-      - name: Giám khảo cục bộ lần 1
-        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
-        run: python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt 1
+        run: bash scripts/vocab-img/cand-round.sh 1 ${{ matrix.shard }}/${{ strategy.job-total }}
       - name: Vẽ lại 1 lần (prompt tinh) + chấm lần 2
         if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot' && github.event.inputs.variants != '1'
         run: |
           # e6: ảnh trượt vì lỗi THẺ (chữ, không thấy nghĩa) → viết lại thẻ kèm lý do trước khi vẽ lại (không vẽ lại y prompt cũ)
           node scripts/vocab-img/scene.mjs --refix --out $OUT --attempt 1 --write --stats $OUT/cardstats.refix.s${{ matrix.shard }}.a1.json || true
-          node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt 2 --shard ${{ matrix.shard }}/${{ strategy.job-total }} --only $OUT/retry.json || true
-          ls $OUT/raw/*.a2.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt 2 || true
+          bash scripts/vocab-img/cand-round.sh 2 ${{ matrix.shard }}/${{ strategy.job-total }} --only $OUT/retry.json || true
       - uses: actions/upload-artifact@v4
         if: always() && steps.lease.outputs.skip != '1'
         with:
