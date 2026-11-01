@@ -3,7 +3,7 @@ title: "IELTS Speaking Parte 2 y 3 Estructura: Plantillas Band 7+"
 description: "Aprende la ielts speaking parte 2 y 3 estructura con plantillas para hablar 2 minutos en la Cue Card y responder preguntas abstractas con éxito."
 slug: ielts-speaking-parte-2-y-3-estructura
 lang: es
-translationKey: ielts-speaking-parte-2-y-3-estructura
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, cue-card]
 keyword: "ielts speaking parte 2 y 3 estructura"

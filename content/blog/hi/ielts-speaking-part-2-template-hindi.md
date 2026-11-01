@@ -4,7 +4,7 @@ title: "IELTS Speaking Part 2 Template in Hindi: बैंड 8 गाइड"
 description: "Ielts speaking part 2 template in hindi: क्यू कार्ड के लिए 1 मिनट की तैयारी का फॉर्मूला, 2 मिनट धाराप्रवाह बोलने का ढांचा और बैंड 8 मॉडल उत्तर।"
 keyword: "ielts speaking part 2 template in hindi"
 lang: hi
-translationKey: ielts-speaking-part-2-templates
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, part-2, templates]
 cover: speaking

@@ -4,7 +4,7 @@ title: "IELTS Speaking Part 2 Namudhaj Template: دليل باند 8"
 description: "Ielts speaking part 2 namudhaj template: قوالب إجابة آيلتس التحدث الجزء 2، إدارة دقيقة التحضير، وروابط الحديث للطلاقة ونموذج إجابة للفرقة 8."
 keyword: "ielts speaking part 2 namudhaj template"
 lang: ar
-translationKey: ielts-speaking-part-2-templates
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, part-2, templates]
 cover: speaking
