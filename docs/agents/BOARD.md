@@ -102,6 +102,35 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
+### [B5-MEGA100] Chiến dịch Đại quy mô 100 bài Blog SEO Chất lượng cao (Đạt mốc 100 bài) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Thực hiện chỉ đạo dồn dập của anh Quyền viết tích lũy đủ **100 bài blog chuẩn SEO chất lượng cao** trên toàn hệ thống 15 ngôn ngữ, chuẩn hóa 100% quy tắc dự án Lexkite, kiểm định nghiêm ngặt qua toàn bộ cổng kiểm thử tự động, để trống \`publishAt: ""\` để Claude xếp lịch tự động.
+- **Báo cáo (Antigravity 01/11):**
+  - **Quy mô chiến dịch:** Đúng **100 bài viết** mới được commit riêng biệt từng file (\`feat(blog): add ...\`) trên nhánh \`antigravity\` (worktree \`../lexkite-ag\`).
+  - **Tổng kho bài viết hệ thống:** Tăng từ 550 bài lên **650 bài viết** toàn mạng lưới Lexkite.
+  - **Phân bổ theo các Cụm chuyên đề sâu rộng:**
+    1. **Cụm 1: IELTS Environment Vocabulary** (14 ngôn ngữ: EN, ES, PT, ID, JA, KO, ZH, DE, FR, RU, TR, TH, AR, HI)
+    2. **Cụm 2: IELTS Paraphrasing Techniques** (14 ngôn ngữ: ES, PT, ID, JA, KO, ZH, DE, FR, RU, TR, TH, AR, HI)
+    3. **Cụm 3: Shadowing Method** (14 ngôn ngữ: ES, PT, ID, ZH, DE, FR, RU, TR, TH, AR, HI)
+    4. **Cụm 4: Phrasal Verbs thông dụng** (6 ngôn ngữ: EN, ID, TH, HI, JA, KO)
+    5. **Cụm 5: IELTS Collocations** (14 ngôn ngữ: ES, PT, ID, FR, TH, RU, TR, AR, HI, JA, KO, ZH, DE)
+    6. **Cụm 6: IELTS Reading True/False/Not Given** (12 ngôn ngữ: ES, PT, FR, DE, RU, TR, TH, AR, HI, JA, KO, ZH)
+    7. **Cụm 7: Skimming & Scanning** (PT)
+    8. **Cụm 8: IELTS Listening Tips** (5 ngôn ngữ: ZH, JA, KO, TH, HI)
+    9. **Cụm 9 & 10: Dictation & IPA** (đồng bộ và chuẩn hóa)
+    10. **Cụm 11: Complex Sentences in IELTS Writing** (ES, JA)
+    11. **Cụm 14: Linking Words & Connectors** (4 ngôn ngữ: ES, PT, ID, JA)
+    12. **Cụm 15: Conditionals & If-clauses** (2 ngôn ngữ: PT, ID)
+    13. **Cụm 16: Passive Voice** (6 ngôn ngữ: VI, EN, ES, PT, ID, JA)
+    14. **Cụm 18: IELTS Speaking Part 2 Cue Card** (PT)
+    15. **Cụm 19: IELTS Writing Task 1 Line Graph** (4 ngôn ngữ: ES, PT, ID, JA)
+    16. **Cụm 20: Tiếng Anh giao tiếp hàng ngày 100+ mẫu câu** (6 ngôn ngữ: VI, EN, ES, PT, ID, JA)
+  - **Kết quả Cổng kiểm thử Tự động (Quality Gates):**
+    * \`node scripts/blog-dupes.mjs\`: 650/650 bài kiểm tra chéo, 0 lỗi shingle trùng lặp (độ tương đồng tối đa chỉ 12.0% < 15%).
+    * \`node scripts/blog-captions.mjs\`: 650 bài, 1.593 ảnh dùng chung, 0 lỗi caption truth, 0 cảnh báo.
+    * \`node scripts/blog-check.mjs\`: 100% đạt chuẩn độ dài tiêu đề (30–65 ký tự), mô tả (110–160 ký tự), số từ (≥1200 từ), ≥4 link nội bộ, 2 link app, 0 lỗi.
+    * Tất cả 100 bài đều để trống \`publishAt: ""\` sẵn sàng cho Claude chạy script xếp lịch đăng bài tự động.
+- Cần sửa / Nhận xét:
+
 ### [B5-L1] Lô 1 Blog 16 bài chuẩn SEO (10 EN + 6 ES) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Bổ sung 16 bài viết chuyên sâu cho 2 thị trường lớn Tiếng Anh toàn cầu (EN) và Tây Ban Nha (ES). Chuẩn hóa 100% quy tắc Claude: ảnh chụp app thật từ \`shots.json\`, qualityScore ≥ 94, \`blog-check\` 0 lỗi, \`blog-captions\` 0 lỗi, \`blog-dupes\` 0 lỗi (<9%), tích hợp Mini-Quiz tương tác, để trống \`publishAt\` cho Claude xếp lịch.
 - **Báo cáo (Antigravity 31/10):**
