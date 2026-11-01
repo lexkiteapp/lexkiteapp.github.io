@@ -4,15 +4,16 @@
 // Chủ báo 01/11: "mobile vẫn còn lỗi giao diện, Cá nhân không bấm chọn được". Chạy trong mobile-qa.yml.
 // Chạy: node scripts/test/mobile-nav.mjs http://localhost:8080 out/mobile-nav   → thoát 1 nếu có lỗi; ảnh chụp từng bước trong thư mục ra.
 import fs from 'node:fs';
-import { chromium } from 'playwright';
+import { chromium, webkit } from 'playwright';
 
 const BASE = (process.argv[2] || 'http://localhost:8080').replace(/\/$/, ''), OUT = process.argv[3] || 'out/mobile-nav';
 fs.mkdirSync(OUT, { recursive: true });
 const UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
 const fails = [], log = m => console.log(m), bad = (k, m) => { fails.push(`[${k}] ${m}`); console.log('  ✗ ' + m); };
 
+let BT = chromium; // MNAV_BROWSERS=chromium,webkit (WebKit ≈ Safari iPhone)
 async function open(scheme, ux1, { hangIdb = false, fresh = false } = {}) {
-  const browser = await chromium.launch();
+  const browser = await BT.launch();
   const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA, colorScheme: scheme, locale: 'vi', reducedMotion: 'reduce' });
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push(String(e).slice(0, 300)));
@@ -31,31 +32,35 @@ async function open(scheme, ux1, { hangIdb = false, fresh = false } = {}) {
 const ready = page => page.waitForFunction(() => { const v = document.getElementById('view'); return v && v.children.length && !v.querySelector('.skel-page,.skel-study') && !document.body.classList.contains('bare'); }, null, { timeout: 15000 }).then(() => true, () => false);
 const overflow = page => page.evaluate(() => { const W = innerWidth; if (document.documentElement.scrollWidth <= W + 1) return []; return [...document.querySelectorAll('#view *')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.right > W + 1 && !e.closest('[class*="overflow-x"],.tabs,.steps,.set-nav,.hscroll,[style*="overflow"]'); }).slice(0, 5).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 3).join('.') + ' →' + Math.round(e.getBoundingClientRect().right)); });
 // Tab "Tôi" đang HIỆN ở đáy màn hình (thanh Stitch trong #view hoặc #bnav cũ)
-const meTab = page => page.evaluate(() => {
+const tabAt = (page, key) => page.evaluate(key => {
   const vis = a => { const r = a.getBoundingClientRect(), s = getComputedStyle(a); return r.width > 0 && r.height > 0 && r.bottom <= innerHeight + 1 && r.top >= innerHeight / 2 && s.visibility !== 'hidden'; };
-  const a = [...document.querySelectorAll('a[data-tab="me"], #bnav a[href="#/me"]')].find(vis); if (!a) return null;
+  const a = [...document.querySelectorAll(`a[data-tab="${key}"]`)].find(vis); if (!a) return null;
   const r = a.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2, top = document.elementFromPoint(x, y);
   const d = e => e ? e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + '.' + [...e.classList].slice(0, 4).join('.') : '∅';
-  return { x, y, hit: !!top && a.contains(top), top: d(top), pe: getComputedStyle(a).pointerEvents };
-});
+  return { x, y, hit: !!top && a.contains(top), top: d(top), pe: getComputedStyle(a).pointerEvents, href: a.getAttribute('href') };
+}, key);
+const meTab = page => tabAt(page, 'me');
 const onMe = page => page.waitForFunction(() => location.hash.startsWith('#/me') && !!document.querySelector('#view .v2-me, #view [data-act], #view h1'), null, { timeout: 8000 }).then(() => true, () => false);
 
 async function run(scheme, ux1) {
-  const k = `${scheme}·ux1=${ux1 ? 1 : 0}`; log(`▶ ${k}`);
+  const k = `${BT.name()}·${scheme}·ux1=${ux1 ? 1 : 0}`; log(`▶ ${k}`);
   const { browser, page, errs } = await open(scheme, ux1);
   await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/home`, { waitUntil: 'load' });
-  if (!(await ready(page))) { bad(k, 'app không vẽ trang Học trong 15 s'); await page.screenshot({ path: `${OUT}/${scheme}-ux1${+ux1}-boot.png` }); await browser.close(); return; }
-  for (const from of ['home', 'review', 'train', 'league', 'settings']) {
-    await page.evaluate(h => { location.hash = h; }, '#/' + from); await page.waitForTimeout(900); await ready(page);
+  if (!(await ready(page))) { bad(k, 'app không vẽ trang Học trong 15 s'); await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-ux1${+ux1}-boot.png` }); await browser.close(); return; }
+  // Sang từng tab chính bằng CÁCH NGƯỜI DÙNG LÀM (chạm tab đó ở thanh dưới), rồi chạm "Tôi"; thêm Cài đặt (trang con, vào bằng địa chỉ)
+  for (const from of [...(ux1 ? ['learn', 'review', 'train', 'league'] : ['home', 'vocab', 'skills', 'tests']), 'settings']) { // khóa tab: ux1 (Stitch 5 tab) / thanh cũ
+    if (from === 'settings') await page.evaluate(() => { location.hash = '#/settings'; });
+    else { const tb = await tabAt(page, from); if (!tb) { bad(k, `không thấy tab "${from}" ở thanh dưới (đang ở ${await page.evaluate(() => location.hash)})`); continue; } await page.touchscreen.tap(tb.x, tb.y); }
+    await page.waitForTimeout(900); await ready(page);
     const ov = await overflow(page); if (ov.length) bad(k, `#/${from} tràn ngang: ${ov.join(', ')}`);
     const tab = await meTab(page);
     if (!tab) { bad(k, `#/${from}: không thấy tab "Tôi" ở thanh dưới`); continue; }
     if (!tab.hit || tab.pe === 'none') bad(k, `#/${from}: tab "Tôi" bị che bởi ${tab.top} (pointer-events ${tab.pe})`);
     await page.touchscreen.tap(tab.x, tab.y);
-    if (!(await onMe(page))) { bad(k, `#/${from}: chạm tab "Tôi" không mở trang Tôi (hash ${await page.evaluate(() => location.hash)})`); await page.screenshot({ path: `${OUT}/${scheme}-ux1${+ux1}-from-${from}.png` }); }
+    if (!(await onMe(page))) { bad(k, `#/${from}: chạm tab "Tôi" không mở trang Tôi (hash ${await page.evaluate(() => location.hash)})`); await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-ux1${+ux1}-from-${from}.png` }); }
   }
   await page.evaluate(() => { location.hash = '#/me'; }); await onMe(page); await page.waitForTimeout(600);
-  await page.screenshot({ path: `${OUT}/${scheme}-ux1${+ux1}-me.png`, fullPage: true });
+  await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-ux1${+ux1}-me.png`, fullPage: true });
   const ov = await overflow(page); if (ov.length) bad(k, `#/me tràn ngang: ${ov.join(', ')}`);
   // Các hàng trong trang Tôi phải chạm được (không bị lớp nào che) và phản hồi
   const tapSel = async (sel, what) => {
@@ -65,7 +70,7 @@ async function run(scheme, ux1) {
     await page.touchscreen.tap(p.x, p.y); await page.waitForTimeout(700); return true;
   };
   if (ux1) {
-    const theme = () => page.evaluate(() => (document.querySelector('#view [data-act="theme"]') || {}).textContent || '');
+    const theme = () => page.evaluate(() => ((window.App && App.state.settings) || {}).theme + '|' + document.documentElement.getAttribute('data-theme') + '|' + ((document.querySelector('#view [data-act="theme"]') || {}).closest ? document.querySelector('#view [data-act="theme"]').closest('[data-row]')?.textContent : ''));
     const t0 = await theme();
     if (await tapSel('#view [data-act="theme"]', 'hàng "Chế độ màu"') && (await theme()) === t0) bad(k, '#/me: chạm "Chế độ màu" không đổi giá trị');
     if (await tapSel('#view [data-act="lang"]', 'hàng "Ngôn ngữ"')) {
@@ -80,10 +85,10 @@ async function run(scheme, ux1) {
 
 // Người mới (trang chào): không tràn ngang, nút "Bắt đầu" chạm được và vào bước thiết lập
 async function welcome(scheme) {
-  const k = `${scheme}·chào`; log(`▶ ${k}`);
+  const k = `${BT.name()}·${scheme}·chào`; log(`▶ ${k}`);
   const { browser, page } = await open(scheme, true, { fresh: true });
   await page.goto(`${BASE}/app/?sandbox=1&hl=vi`, { waitUntil: 'load' }); await page.waitForTimeout(2500);
-  await page.screenshot({ path: `${OUT}/${scheme}-welcome.png` });
+  await page.screenshot({ path: `${OUT}/${BT.name()}-${scheme}-welcome.png` });
   const ov = await page.evaluate(() => { const W = innerWidth; return [...document.querySelectorAll('#view *')].filter(e => { const r = e.getBoundingClientRect(); if (!r.width || r.right <= W + 1) return false; for (let p = e.parentElement; p; p = p.parentElement) { const s = getComputedStyle(p); if (/auto|scroll/.test(s.overflowX)) return false; } return true; }).slice(0, 5).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 3).join('.') + ' →' + Math.round(e.getBoundingClientRect().right)); });
   if (ov.length) bad(k, `trang chào tràn/cắt chữ ngang: ${ov.join(', ')}`);
   await browser.close();
@@ -91,7 +96,7 @@ async function welcome(scheme) {
 
 // IndexedDB treo → app phải tự chuyển sang lưu cục bộ và vẫn vẽ trang + bấm được tab Tôi (trước đây: kẹt ở màn chào, không gì bấm được)
 async function hungIdb() {
-  const k = 'IndexedDB treo'; log(`▶ ${k}`);
+  const k = `${BT.name()}·IndexedDB treo`; log(`▶ ${k}`);
   const { browser, page } = await open('light', true, { hangIdb: true });
   await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/home`, { waitUntil: 'load' });
   if (!(await ready(page))) { bad(k, 'app kẹt khi IndexedDB không trả lời (không vẽ trang Học trong 15 s)'); await page.screenshot({ path: `${OUT}/idb-hang.png` }); await browser.close(); return; }
@@ -100,8 +105,11 @@ async function hungIdb() {
   await browser.close();
 }
 
-for (const scheme of ['light', 'dark']) { for (const ux1 of [true, false]) await run(scheme, ux1); await welcome(scheme); }
-await hungIdb();
+for (const b of (process.env.MNAV_BROWSERS || 'chromium').split(',')) {
+  BT = b === 'webkit' ? webkit : chromium; console.log(`\n=== ${b}`);
+  for (const scheme of ['light', 'dark']) { for (const ux1 of [true, false]) await run(scheme, ux1); await welcome(scheme); }
+  await hungIdb();
+}
 fs.writeFileSync(`${OUT}/report.json`, JSON.stringify({ fails }, null, 1));
 console.log(fails.length ? `\n❌ ${fails.length} lỗi:\n` + fails.join('\n') : '\n✅ mobile-nav: tab "Tôi" chạm được ở mọi tab, sáng/tối, ux1 bật/tắt; không tràn ngang; IndexedDB treo vẫn chạy');
 process.exit(fails.length ? 1 : 0);
