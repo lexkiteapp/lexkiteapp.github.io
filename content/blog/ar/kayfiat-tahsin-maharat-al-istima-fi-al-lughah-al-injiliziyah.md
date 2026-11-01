@@ -9,7 +9,7 @@ category: ky-nang
 tags: [listening, al-istima, al-lughah-al-injiliziyah]
 cover: dict
 coverAlt: "واجهة البحث الصوتي والمعجم التفاعلي مع نطق الكلمات الإنجليزية في تطبيق Lexkite"
-publishAt: ""
+publishAt: 2026-12-01T12:47:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

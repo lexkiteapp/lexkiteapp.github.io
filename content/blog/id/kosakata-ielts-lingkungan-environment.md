@@ -48,6 +48,7 @@ quiz: [
     explain: "Artikel menyarankan mengganti 'nature' dengan istilah yang lebih presisi seperti 'fragile ecosystems' atau 'biodiverse habitats' agar nada esai lebih akademis."
   }
 ]
+publishAt: 2026-12-09T20:09:00+07:00
 ---
 
 Isu lingkungan hidup, krisis iklim global, dan transisi menuju energi bersih merupakan tema yang sangat sering muncul di seluruh modul ujian IELTS. Ketika menghadapi soal esai di **IELTS Writing Task 2** atau sesi diskusi mendalam di **IELTS Speaking Part 3**, sebagian besar peserta asal Indonesia kerap mengulang kalimat-kalimat sederhana seperti *«the environment is getting bad»*, *«we need to protect nature»*, atau *«cars create dirty smoke»*. Kebiasaan ini membuat skor sumber leksikal (*Lexical Resource*) Anda tertahan di angka Band 5.5 atau 6.0.

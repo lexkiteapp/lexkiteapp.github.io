@@ -9,7 +9,7 @@ tags: [gerund, infinitive, ingilizce-dilbilgisi]
 keyword: "gerund ve infinitive konu anlatımı"
 cover: dict
 coverAlt: "Lexkite İngilizce sözlük arayüzünde fiil kalıpları, telaffuz ve örnek cümle ekranı"
-publishAt: ""
+publishAt: 2026-11-29T19:18:00+03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

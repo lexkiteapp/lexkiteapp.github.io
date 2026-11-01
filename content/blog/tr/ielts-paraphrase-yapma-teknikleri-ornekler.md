@@ -48,6 +48,7 @@ quiz: [
     explain: "Paraphrase yalnızca ilk adımdır; giriş, yazarın görüşünü ortaya koyan net bir tez cümlesiyle bitmelidir ve bunu unutmak büyük hatadır."
   }
 ]
+publishAt: 2026-12-05T08:37:00+03:00
 ---
 
 Yetkin biçimde **ielts paraphrase yapma** yeteneği, 6.5 bandında takılıp kalan adaylar ile 7.5–8.5 hedefine rahatça ulaşanlar arasındaki en belirleyici farktır. **IELTS Writing Task 2** sınavında giriş paragrafında soru cümlesini aynen kopyalamak kesinlikle puan kaybına yol açar; sınav değerlendiricileri kopyalanan kısımları toplam kelime sayımından doğrudan çıkarır. İlk cümleden itibaren özgün kelime dağarcığınız ve dil esnekliğiniz titizlikle incelenir.

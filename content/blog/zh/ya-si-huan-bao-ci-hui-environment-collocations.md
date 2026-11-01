@@ -48,6 +48,7 @@ quiz: [
     explain: "文章在常见错误中指出，混淆这两个词会显得不够专业：weather 描述短期天气，climate 描述长期气候模式。"
   }
 ]
+publishAt: 2026-11-27T19:42:00+08:00
 ---
 
 **雅思 环保 词汇** 以及全球变暖、可再生能源转型与生物多样性保护，是 **IELTS Writing Task 2** 和 **IELTS Speaking Part 3** 中考查频率极高的核心母题。许多考生在论述环保类题目时，往往反复使用诸如 *«the environment is getting worse»*, *«we must protect nature»*, *«cars make dirty smoke»* 等初中水平的基础词汇，导致词汇多样性（Lexical Resource）这一项常年被限制在 Band 5.5 或 6.0。

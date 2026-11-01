@@ -33,6 +33,7 @@ quiz: [
     explain: "En español no distinguimos b y v al hablar, pero en inglés /b/ une ambos labios (bilabial) y /v/ apoya los dientes superiores en el labio inferior con vibración vocal."
   }
 ]
+publishAt: 2026-11-19T08:57:00-06:00
 ---
 En español leemos casi exactamente lo que está escrito: una *a* siempre suena como una *a*, y una *t* suena idéntica en cualquier palabra. Al aprender inglés, este principio se desmorona por completo: combinaciones idénticas como *ough* suenan de forma distinta en *thought* (/θɔːt/), *through* (/θruː/), *rough* (/rʌf/) y *though* (/ðoʊ/). Por este motivo, dominar una **guía pronunciación ipa inglés** adaptada a los hispanohablantes es la herramienta más potente para ganar seguridad, afinar el oído y dejar de adivinar cómo se pronuncia cada término nuevo.
 

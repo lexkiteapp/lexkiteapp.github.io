@@ -43,6 +43,7 @@ quiz: [
     explain: "Makale, 'artificial intelligence (AI)' şeklinde ilk kullanımda açmayı ve sonra kısaltmayı kullanmayı kabul edilebilir bulur; çeşitlilik için eş ifadelere de yer vermeyi önerir."
   }
 ]
+publishAt: 2026-11-24T07:42:00+03:00
 ---
 
 Yapay zeka (AI), otomasyon ve dijital dönüşüm konuları hem **IELTS Writing Task 2** hem de **IELTS Speaking Part 3** sınavlarının en sık karşılaşılan soru başlıkları arasındadır. Pek çok aday kompozisyonlarında sürekli *«AI is good»*, *«technology develops fast»* veya *«robots change life»* gibi basit ve tekrarlayan cümleler kurduğu için **Lexical Resource (Kelime Çeşitliliği)** kriterinde Band 5.5 veya 6.0 bandında takılıp kalır.

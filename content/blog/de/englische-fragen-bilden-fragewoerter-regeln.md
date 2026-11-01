@@ -33,6 +33,7 @@ quiz: [
     explain: "Auf eine verneinte Aussage ('haven't seen') folgt ein bejahtes Question Tag mit demselben Hilfsverb ('have you?')."
   }
 ]
+publishAt: 2026-11-24T08:16:00+01:00
 ---
 Ob im Vorstellungsgespräch, beim Networking im Büro oder auf Reisen: Wer sich auf Englisch verständigen möchte, muss in der Lage sein, präzise und fehlerfreie Fragen zu formulieren. Viele deutsche Sprecher neigen jedoch dazu, deutsche Satzstrukturen Wort für Wort ins Englische zu übertragen. Sätze wie *"Play you tennis?"* oder *"What you did yesterday?"* sind typische Fehler, die das Gegenüber verwirren.
 

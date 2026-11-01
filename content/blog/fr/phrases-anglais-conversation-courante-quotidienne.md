@@ -33,6 +33,7 @@ quiz: [
     explain: "'Could you elaborate a bit more on that?' est très respectueux et naturel dans les échanges anglophones"
   }
 ]
+publishAt: 2026-12-03T08:29:00+01:00
 ---
 
 Pour de nombreux apprenants francophones, s'exprimer avec aisance au quotidien représente le véritable défi de l'apprentissage linguistique. Connaître les règles de grammaire par cœur ne suffit pas : pour engager une conversation fluide et spontanée, il est indispensable de maîtriser des **phrases anglais conversation courante** prêtes à l'emploi.

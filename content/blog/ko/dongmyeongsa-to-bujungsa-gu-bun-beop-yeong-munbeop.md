@@ -9,7 +9,7 @@ tags: [dongmyeongsa, to-bujungsa, yeong-munbeop]
 keyword: "동명사 to부정사 구분"
 cover: dict
 coverAlt: "Lexkite 영어 단어 사전에서 동사의 어법과 예문 발음 기호를 확인하는 화면"
-publishAt: ""
+publishAt: 2026-12-03T12:53:00+09:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

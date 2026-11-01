@@ -9,7 +9,7 @@ tags: [resume-writing, ats-resume, career]
 keyword: "how to write an ats friendly resume"
 cover: goal
 coverAlt: "Lexkite goal planning and career tracking screen showing language milestones"
-publishAt: ""
+publishAt: 2026-12-29T07:08:00+05:30
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

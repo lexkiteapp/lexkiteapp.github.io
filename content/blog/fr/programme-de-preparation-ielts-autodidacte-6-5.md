@@ -9,7 +9,7 @@ tags: [ielts, preparation, autodidacte]
 keyword: "programme de preparation ielts autodidacte"
 cover: path
 coverAlt: "Écran Your IELTS path de Lexkite présentant les étapes d apprentissage par niveau de band"
-publishAt: ""
+publishAt: 2026-12-04T08:45:00+01:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [ielts, cronograma-de-estudos, autodidata]
 keyword: "cronograma de estudos ielts autodidata"
 cover: path
 coverAlt: "Interface Your IELTS path do Lexkite mostrando as etapas modulares de estudo por band"
-publishAt: ""
+publishAt: 2026-12-12T19:35:00-03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready
