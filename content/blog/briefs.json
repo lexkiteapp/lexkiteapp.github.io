@@ -17239,6 +17239,73 @@
       ],
       "angle": "英語音声変化（connected speech）の完全ガイド。連結（リエゾン）、脱落（リダクション）、同化、弱形（weak forms）の規則を理解して速い英語を聞き取る。",
       "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "como-pensar-em-ingles-sem-traduzir-mentalmente",
+      "keyword": "como pensar em inglês",
+      "topic": "Como Pensar em Inglês Sem Traduzir: 4 Passos Práticos para Falar com Fluência",
+      "category": "ky-nang",
+      "tags": [
+        "pensar-em-ingles",
+        "speaking",
+        "fluencia",
+        "habitos"
+      ],
+      "shots": [
+        "library",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Descubra como pensar em inglês sem traduzir mentalmente: 4 fases práticas para treinar seu diálogo interno, eliminar o filtro do português e falar com naturalidade.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "yeong-eolo-saeng-gag-hagi-beon-yeog-eobs-i",
+      "keyword": "영어로 생각하기",
+      "topic": "영어로 생각하기：머릿속 번역 습관을 없애고 유창하게 말하는 4단계 훈련법",
+      "category": "ky-nang",
+      "tags": [
+        "speaking",
+        "fluency",
+        "english-thinking"
+      ],
+      "shots": [
+        "library",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "영어로 생각하기 완전 정복 가이드. 한국어 번역 과정을 거치지 않고 머릿속에서 영어로 바로 떠올려 자연스럽게 회화하는 4단계 실전 훈련 비법을 공개합니다.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "thikhnik-khit-pen-phasa-angkrit-mai-plae",
+      "keyword": "คิดเป็นภาษาอังกฤษ",
+      "topic": "วิธีฝึก คิดเป็นภาษาอังกฤษ โดยไม่ต้องแปลไทยในหัว: 4 ขั้นตอนพูดคล่องเป็นธรรมชาติ",
+      "category": "ky-nang",
+      "tags": [
+        "speaking",
+        "fluency",
+        "thinking-in-english"
+      ],
+      "shots": [
+        "library",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "คู่มือฝึก คิดเป็นภาษาอังกฤษ แบบไม่ต้องแปลในหัว: เคล็ดลับ 4 ขั้นตอนเปลี่ยนระบบความคิด ฝึกพูดคนเดียว และโต้ตอบภาษาอังกฤษได้อย่างลื่นไหลและมั่นใจ.",
+      "intent": "informational"
     }
   ]
 }
