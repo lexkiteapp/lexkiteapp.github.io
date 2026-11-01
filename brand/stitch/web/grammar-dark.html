@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Grammar Guide — Present Perfect vs Past Simple</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error-container": "#ffdad6",
+            "on-tertiary-container": "#392900",
+            "error-container": "#93000a",
+            "on-tertiary-fixed": "#261a00",
+            "surface-container-highest": "#2b373a",
+            "outline": "#879391",
+            "primary": "#6bd8ce",
+            "outline-variant": "#3d4947",
+            "on-primary-fixed": "#00201e",
+            "inverse-on-surface": "#263236",
+            "surface-container": "#162125",
+            "surface-tint": "#6bd8ce",
+            "on-tertiary": "#402e00",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-surface-variant": "#bcc9c7",
+            "secondary-container": "#981201",
+            "primary-fixed": "#88f5ea",
+            "on-surface": "#d8e5e9",
+            "surface-bright": "#2f3b3e",
+            "surface-container-high": "#202c2f",
+            "secondary-fixed": "#ffdad3",
+            "surface-dim": "#091518",
+            "on-background": "#d8e5e9",
+            "surface": "#091518",
+            "tertiary": "#f4bf40",
+            "on-primary-container": "#00322e",
+            "tertiary-fixed": "#ffdf9e",
+            "secondary": "#ffb4a6",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary-container": "#ba8b00",
+            "on-primary-fixed-variant": "#00504b",
+            "inverse-surface": "#d8e5e9",
+            "error": "#ffb4ab",
+            "surface-variant": "#2b373a",
+            "primary-container": "#2ba39a",
+            "on-primary": "#003733",
+            "inverse-primary": "#006a64",
+            "on-secondary-container": "#ffa493",
+            "surface-container-lowest": "#051013",
+            "on-secondary": "#660800",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container-low": "#121d20",
+            "on-error": "#690005",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-secondary-fixed": "#3f0300",
+            "background": "#091518"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .tactile-card {
+      background-color: #121d20;
+      border: 2px solid #2b373a;
+      box-shadow: 0 5px 0 #051013;
+      border-radius: 1rem;
+    }
+    .tactile-subcard {
+      background-color: #162125;
+      border: 1.5px solid #2b373a;
+      box-shadow: 0 4px 0 #051013;
+      border-radius: 0.75rem;
+    }
+    .tactile-orange-btn {
+      background: linear-gradient(180deg, #ff9e2c 0%, #ea580c 100%);
+      color: #1C1003;
+      font-weight: 800;
+      box-shadow: 0 6px 0 #9A3412;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-orange-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #9A3412;
+    }
+    .tactile-secondary-btn {
+      background-color: #162125;
+      border: 2px solid #2b373a;
+      color: #d8e5e9;
+      box-shadow: 0 4px 0 #051013;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #051013;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
+<!-- TOP NAVIGATION (Source of truth: TopNavBar from Shared Components JSON) -->
+<header class="bg-surface dark:bg-surface border-b-2 border-surface-variant dark:border-surface-container-highest shadow-[0_4px_0_theme(colors.surface-container-high)] docked full-width top-0 sticky z-50">
+<div class="w-full max-w-[1440px] mx-auto px-6 py-2.5 flex items-center justify-between">
+<!-- Brand Logo -->
+<div class="flex items-center gap-8">
+<a class="font-headline text-headline text-primary dark:text-inverse-primary font-bold flex items-center gap-2 text-xl tracking-tight" href="#">
+<div class="relative w-7 h-7 flex items-center justify-center">
+<!-- Diamond kite emblem: orange and teal halves -->
+<svg class="w-7 h-7" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 2L2 16L16 30L16 2Z" fill="#6bd8ce"></path>
+<path d="M16 2L30 16L16 30L16 2Z" fill="#f97316"></path>
+<path d="M16 2V30M2 16H30" stroke="#091518" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-white text-xl font-extrabold tracking-tight">Lexkite</span>
+</a>
+<!-- Main Nav Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface font-label text-sm transition-colors" href="#">Words</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface font-label text-sm transition-colors" href="#">Tools</a>
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary font-label text-sm pb-1 font-bold" href="#">Blog</a>
+</nav>
+</div>
+<!-- Trailing Controls -->
+<div class="flex items-center gap-3">
+<!-- Language Picker -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-surface-container-highest text-on-surface-variant text-xs font-bold hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="language">language</span>
+<span>EN</span>
+<span class="material-symbols-outlined text-xs" data-icon="expand_more">expand_more</span>
+</button>
+<!-- Secondary Action: Add to Chrome -->
+<button class="hidden lg:flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-low border border-surface-container-highest text-on-surface text-xs font-bold hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="extension">extension</span>
+<span>Add to Chrome</span>
+</button>
+<!-- Primary Action: Start free -->
+<a class="tactile-orange-btn px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 active:translate-y-0.5 transition-transform duration-100" href="#">
+<span>Start free</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="w-full max-w-[1440px] mx-auto px-6 py-8 flex-1">
+<!-- 2. BREADCRUMBS & HERO HEADER -->
+<div class="mb-8">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-2 text-xs font-medium text-on-surface-variant mb-4">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-outline-variant">›</span>
+<a class="hover:text-primary transition-colors" href="#">Grammar Library</a>
+<span class="text-outline-variant">›</span>
+<a class="hover:text-primary transition-colors" href="#">Verb Tenses</a>
+<span class="text-outline-variant">›</span>
+<span class="text-on-surface font-semibold">Present perfect vs past simple</span>
+</nav>
+<!-- Badges Row -->
+<div class="flex flex-wrap items-center gap-2.5 mb-4">
+<span class="px-3 py-1 rounded-full bg-primary-container/20 border border-primary text-primary text-xs font-bold tracking-wide uppercase">
+          Grammar Notebook
+        </span>
+<span class="px-3 py-1 rounded-full bg-tertiary text-[#1C1003] text-xs font-extrabold tracking-wide uppercase shadow-[0_2px_0_#9a7300]">
+          Band 6.5 • 8.0 Essential
+        </span>
+<span class="flex items-center gap-1.5 text-xs font-medium text-on-surface-variant px-2.5 py-1 rounded-full bg-surface-container border border-surface-container-highest">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="schedule">schedule</span>
+          6-min read &amp; self-test
+        </span>
+</div>
+<!-- Main Title -->
+<h1 class="text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3">
+        Present perfect <span class="text-primary italic">vs</span> past simple
+      </h1>
+<p class="text-base text-on-surface-variant max-w-3xl leading-relaxed mb-6 font-medium">
+        Use past simple when the time door is closed and finished; use present perfect when the experience still touches right now.
+      </p>
+<!-- Golden Rule Banner -->
+<div class="tactile-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-l-4 border-l-tertiary">
+<div class="flex items-start sm:items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-tertiary/15 border border-tertiary/40 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary text-xl" data-icon="lightbulb" data-weight="fill">lightbulb</span>
+</div>
+<div>
+<span class="text-xs font-bold text-tertiary uppercase tracking-wider block mb-0.5">Golden Rule</span>
+<p class="text-sm font-semibold text-white">Specific time stamp in the past? Drop 'have' immediately.</p>
+</div>
+</div>
+<button class="tactile-secondary-btn px-4 py-2 text-xs font-bold flex items-center justify-center gap-2 rounded-xl self-start sm:self-auto">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="print">print</span>
+<span>Print lesson notes</span>
+</button>
+</div>
+</div>
+<!-- 3. MAIN 2-COLUMN LAYOUT -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT CONTENT COLUMN (~68% / col-span-8) -->
+<div class="lg:col-span-8 space-y-10">
+<!-- SECTION 01: Mental Picture -->
+<section class="tactile-card p-6 sm:p-7" id="section-01">
+<div class="flex items-center gap-2.5 mb-4">
+<span class="w-7 h-7 rounded-lg bg-primary/20 text-primary border border-primary/40 text-xs font-extrabold flex items-center justify-center">01</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high border border-surface-container-highest text-primary text-[11px] font-extrabold uppercase tracking-wider">CORE CONCEPT</span>
+<h2 class="text-xl font-bold text-white ml-1">When to use: The Mental Picture</h2>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6 font-medium">
+            Think of tenses not as formulas to memorize, but as cameras focusing on time. Both discuss actions before this exact second, but their cameras are pointed in completely opposite directions:
+          </p>
+<!-- 2 Comparative Cards Side-by-Side -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<!-- Card A: Past Simple -->
+<div class="tactile-subcard p-5 border-t-2 border-t-tertiary">
+<div class="flex items-center justify-between mb-3">
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Action in a Closed Box • Historic</span>
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_#f4bf40]"></span>
+</div>
+<h3 class="text-lg font-extrabold text-white mb-2">Past Simple</h3>
+<p class="text-xs text-on-surface-variant mb-4 leading-relaxed">
+                The event belongs to a historical segment that is over. The time window has sealed shut behind it.
+              </p>
+<div class="mb-4">
+<span class="text-[10px] font-extrabold text-tertiary uppercase tracking-wider block mb-2">DEAD GIVEAWAYS (TIME MARKERS)</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">yesterday</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">in 2021</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">3 weeks ago</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">last night</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">when I was young</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-container-highest">
+<p class="text-xs font-bold text-white mb-1">“I lived in Tokyo for two years.”</p>
+<p class="text-[11px] text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="lock">lock</span>
+                  (I don't live there anymore)
+                </p>
+</div>
+</div>
+<!-- Card B: Present Perfect -->
+<div class="tactile-subcard p-5 border-t-2 border-t-primary">
+<div class="flex items-center justify-between mb-3">
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Connected to Right Now • Life experience</span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_#6bd8ce]"></span>
+</div>
+<h3 class="text-lg font-extrabold text-white mb-2">Present Perfect</h3>
+<p class="text-xs text-on-surface-variant mb-4 leading-relaxed">
+                The event has a lifeline attached to the present moment. The experience or result is active right now.
+              </p>
+<div class="mb-4">
+<span class="text-[10px] font-extrabold text-primary uppercase tracking-wider block mb-2">DEAD GIVEAWAYS (CONNECTORS)</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">already</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">yet</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">since Monday</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">for 5 years</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">ever / never</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low border border-surface-container-highest text-[11px] text-on-surface font-semibold">so far</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-surface-container-highest">
+<p class="text-xs font-bold text-white mb-1">“I have lived in Tokyo for two years.”</p>
+<p class="text-[11px] text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+                  (I still live there today)
+                </p>
+</div>
+</div>
+</div>
+<!-- Tutor Observation Callout -->
+<div class="p-4 rounded-xl bg-surface-container border border-surface-container-highest flex items-start gap-3.5">
+<div class="w-8 h-8 rounded-lg bg-primary/20 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-base" data-icon="local_cafe" data-weight="fill">local_cafe</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary tracking-wider uppercase block mb-1">TUTOR OBSERVATION: THE BROKEN KEY TEST</span>
+<p class="text-xs text-on-surface leading-relaxed">
+                If you lost your keys 10 minutes ago and cannot enter your house right now, say <span class="font-bold text-white">“I have lost my key”</span> (current problem). But if you found them an hour later, you must say <span class="font-bold text-white">“I lost my key this morning”</span> because the consequence is resolved.
+              </p>
+</div>
+</div>
+</section>
+<!-- SECTION 02: Structure & Form Reference -->
+<section class="tactile-card p-6 sm:p-7" id="section-02">
+<div class="flex items-center gap-2.5 mb-4">
+<span class="w-7 h-7 rounded-lg bg-primary/20 text-primary border border-primary/40 text-xs font-extrabold flex items-center justify-center">02</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high border border-surface-container-highest text-primary text-[11px] font-extrabold uppercase tracking-wider">SYNTAX GUIDE</span>
+<h2 class="text-xl font-bold text-white ml-1">Structure &amp; Form Reference</h2>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6 font-medium">
+            Compare the structural anatomy of both tenses side-by-side across positive, negative, and interrogative sentences:
+          </p>
+<!-- Table Container -->
+<div class="overflow-x-auto rounded-xl border border-surface-container-highest shadow-[0_4px_0_#051013] mb-4">
+<table class="w-full text-left text-xs border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/60 text-on-surface-variant font-bold border-b border-surface-container-highest">
+<th class="py-3 px-4 uppercase tracking-wider w-1/4">SENTENCE TYPE</th>
+<th class="py-3 px-4 uppercase tracking-wider w-3/8 text-tertiary">PAST SIMPLE (V2 / DID)</th>
+<th class="py-3 px-4 uppercase tracking-wider w-3/8 text-primary">PRESENT PERFECT (HAVE/HAS + V3)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest bg-surface-container-low font-medium">
+<!-- (+) Positive -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3.5 px-4 font-bold text-white flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-primary/20 text-primary text-[10px] flex items-center justify-center font-black">+</span>
+                    Positive
+                  </td>
+<td class="py-3.5 px-4 text-on-surface">
+<span class="font-bold text-white block mb-0.5">Subject + V2</span>
+<span class="text-on-surface-variant text-[11px] italic">“They published the paper in May.”</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">
+<span class="font-bold text-white block mb-0.5">Subject + have/has + V3</span>
+<span class="text-on-surface-variant text-[11px] italic">“They have published three papers this year.”</span>
+</td>
+</tr>
+<!-- (-) Negative -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3.5 px-4 font-bold text-white flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-error-container text-error text-[10px] flex items-center justify-center font-black">-</span>
+                    Negative
+                  </td>
+<td class="py-3.5 px-4 text-on-surface">
+<span class="font-bold text-white block mb-0.5">Subject + did not + base verb</span>
+<span class="text-on-surface-variant text-[11px] italic">“We did not receive approval yesterday.”</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">
+<span class="font-bold text-white block mb-0.5">Subject + have/has not + V3</span>
+<span class="text-on-surface-variant text-[11px] italic">“We have not received approval yet.”</span>
+</td>
+</tr>
+<!-- (?) Question -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3.5 px-4 font-bold text-white flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-tertiary/20 text-tertiary text-[10px] flex items-center justify-center font-black">?</span>
+                    Question
+                  </td>
+<td class="py-3.5 px-4 text-on-surface">
+<span class="font-bold text-white block mb-0.5">Did + Subject + base verb?</span>
+<span class="text-on-surface-variant text-[11px] italic">“Did you finish the lab report?”</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">
+<span class="font-bold text-white block mb-0.5">Have/Has + Subject + V3?</span>
+<span class="text-on-surface-variant text-[11px] italic">“Have you ever analyzed this dataset?”</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Memory Latch Note -->
+<div class="px-4 py-3 rounded-lg bg-surface-container border border-surface-container-highest flex items-center gap-2.5 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-tertiary flex-shrink-0" data-icon="bookmark">bookmark</span>
+<span><strong class="text-white">Memory latch:</strong> With 'did' in past simple negatives and questions, the main verb reverts to base form (<em class="text-primary">did you eat</em>, not <em class="text-error">did you ate</em>).</span>
+</div>
+</section>
+<!-- SECTION 03: Real Sentences in Academic & Daily Context -->
+<section class="tactile-card p-6 sm:p-7" id="section-03">
+<div class="flex items-center gap-2.5 mb-4">
+<span class="w-7 h-7 rounded-lg bg-primary/20 text-primary border border-primary/40 text-xs font-extrabold flex items-center justify-center">03</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high border border-surface-container-highest text-primary text-[11px] font-extrabold uppercase tracking-wider">CONTEXTUAL PAIRS</span>
+<h2 class="text-xl font-bold text-white ml-1">Real Sentences in Academic &amp; Daily Context</h2>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6 font-medium">
+            Observe how native speakers and IELTS Band 8+ examinees swap tenses depending entirely on their time frame:
+          </p>
+<div class="space-y-4">
+<!-- Scenario Card A -->
+<div class="tactile-subcard p-5">
+<div class="flex items-center justify-between mb-3 border-b border-surface-container-highest pb-2.5">
+<span class="text-xs font-bold text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                  Scenario A: Scientific Breakthroughs &amp; History
+                </span>
+<span class="text-[10px] font-extrabold text-on-surface-variant tracking-wider uppercase">HISTORICAL VS RECENT</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+<div class="p-3 rounded-lg bg-surface-container-low border border-surface-container-highest">
+<span class="text-[10px] font-extrabold text-tertiary uppercase block mb-1">PAST SIMPLE</span>
+<p class="font-bold text-white mb-1">“Alexander Fleming discovered penicillin in 1928.”</p>
+<p class="text-[11px] text-on-surface-variant">Closed event tied to a fixed historical date (1928).</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-surface-container-highest">
+<span class="text-[10px] font-extrabold text-primary uppercase block mb-1">PRESENT PERFECT</span>
+<p class="font-bold text-white mb-1">“Researchers have discovered dozens of antibiotic strains.”</p>
+<p class="text-[11px] text-on-surface-variant">Cumulative discovery with ongoing medical relevance today.</p>
+</div>
+</div>
+</div>
+<!-- Scenario Card B -->
+<div class="tactile-subcard p-5">
+<div class="flex items-center justify-between mb-3 border-b border-surface-container-highest pb-2.5">
+<span class="text-xs font-bold text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  Scenario B: Career Experience in IELTS Speaking Part 1 &amp; 2
+                </span>
+<span class="text-[10px] font-extrabold text-on-surface-variant tracking-wider uppercase">JOB HISTORY</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+<div class="p-3 rounded-lg bg-surface-container-low border border-surface-container-highest">
+<span class="text-[10px] font-extrabold text-tertiary uppercase block mb-1">PAST SIMPLE</span>
+<p class="font-bold text-white mb-1">“I worked as a software intern last summer.”</p>
+<p class="text-[11px] text-on-surface-variant">The internship ended completely; last summer is over.</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-surface-container-highest">
+<span class="text-[10px] font-extrabold text-primary uppercase block mb-1">PRESENT PERFECT</span>
+<p class="font-bold text-white mb-1">“I have worked in tech for over five years.”</p>
+<p class="text-[11px] text-on-surface-variant">Career started 5 years ago and continues currently.</p>
+</div>
+</div>
+</div>
+<!-- Scenario Card C -->
+<div class="tactile-subcard p-5">
+<div class="flex items-center justify-between mb-3 border-b border-surface-container-highest pb-2.5">
+<span class="text-xs font-bold text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                  Scenario C: 'Today' / Time Period Still Open
+                </span>
+<span class="text-[10px] font-extrabold text-on-surface-variant tracking-wider uppercase">OPEN TIMELINE</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+<div class="p-3 rounded-lg bg-surface-container-low border border-surface-container-highest">
+<span class="text-[10px] font-extrabold text-tertiary uppercase block mb-1">PAST SIMPLE</span>
+<p class="font-bold text-white mb-1">“I drank two cups of coffee this morning.”</p>
+<p class="text-[11px] text-on-surface-variant">Spoken in the afternoon or evening when 'this morning' is gone.</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-surface-container-highest">
+<span class="text-[10px] font-extrabold text-primary uppercase block mb-1">PRESENT PERFECT</span>
+<p class="font-bold text-white mb-1">“I have drunk two cups of coffee this morning.”</p>
+<p class="text-[11px] text-on-surface-variant">Spoken at 10 AM while the morning window is still active.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 04: Exam Pitfalls: Wrong → Right Pairs -->
+<section class="tactile-card p-6 sm:p-7" id="section-04">
+<div class="flex items-center gap-2.5 mb-4">
+<span class="w-7 h-7 rounded-lg bg-primary/20 text-primary border border-primary/40 text-xs font-extrabold flex items-center justify-center">04</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high border border-surface-container-highest text-primary text-[11px] font-extrabold uppercase tracking-wider">BAND 7 FIXES</span>
+<h2 class="text-xl font-bold text-white ml-1">Exam Pitfalls: Wrong → Right Pairs</h2>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6 font-medium">
+            Examiners spot these three recurring grammatical mismatches instantly. Memorize these contrast patterns:
+          </p>
+<div class="space-y-4">
+<!-- Trap 1 -->
+<div class="tactile-subcard p-4 sm:p-5">
+<span class="text-xs font-extrabold text-tertiary uppercase tracking-wider block mb-2">TRAP 1: MIXING PRESENT PERFECT WITH SPECIFIC TIMESTAMPS</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2.5">
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-error/30 flex items-start gap-2.5">
+<span class="px-2 py-0.5 rounded bg-error-container text-error text-[10px] font-extrabold flex-shrink-0">WRONG</span>
+<p class="text-xs text-on-surface font-semibold">“I have completed my degree in 2022.”</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-primary/30 flex items-start gap-2.5">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-extrabold flex-shrink-0">RIGHT</span>
+<p class="text-xs text-white font-semibold">“I completed my degree in 2022.”</p>
+</div>
+</div>
+<p class="text-[11px] text-on-surface-variant">
+<strong>Why:</strong> The specific point in time (<em class="text-on-surface">in 2022</em>) cuts any link to the present, requiring Past Simple immediately.
+              </p>
+</div>
+<!-- Trap 2 -->
+<div class="tactile-subcard p-4 sm:p-5">
+<span class="text-xs font-extrabold text-tertiary uppercase tracking-wider block mb-2">TRAP 2: CONFUSING 'SINCE' (START POINT) AND 'FOR' (DURATION)</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2.5">
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-error/30 flex items-start gap-2.5">
+<span class="px-2 py-0.5 rounded bg-error-container text-error text-[10px] font-extrabold flex-shrink-0">WRONG</span>
+<p class="text-xs text-on-surface font-semibold">“She has studied law since four years.”</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-primary/30 flex items-start gap-2.5">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-extrabold flex-shrink-0">RIGHT</span>
+<p class="text-xs text-white font-semibold">“She has studied law for four years.”</p>
+</div>
+</div>
+<p class="text-[11px] text-on-surface-variant">
+<strong>Why:</strong> Use <em class="text-primary">for</em> with an expanse or duration of time (4 years, 2 hours). Use <em class="text-primary">since</em> with an exact anchor point (since 2020, since March).
+              </p>
+</div>
+<!-- Trap 3 -->
+<div class="tactile-subcard p-4 sm:p-5">
+<span class="text-xs font-extrabold text-tertiary uppercase tracking-wider block mb-2">TRAP 3: USING PAST SIMPLE FOR UNCOMPLETED LIFE EXPERIENCES</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2.5">
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-error/30 flex items-start gap-2.5">
+<span class="px-2 py-0.5 rounded bg-error-container text-error text-[10px] font-extrabold flex-shrink-0">WRONG</span>
+<p class="text-xs text-on-surface font-semibold">“Did you ever visit Canada?”</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-primary/30 flex items-start gap-2.5">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-extrabold flex-shrink-0">RIGHT</span>
+<p class="text-xs text-white font-semibold">“Have you ever visited Canada?”</p>
+</div>
+</div>
+<p class="text-[11px] text-on-surface-variant">
+<strong>Why:</strong> When inquiring about general human lifetime experiences without a timeframe restriction, Present Perfect is essential.
+              </p>
+</div>
+</div>
+</section>
+<!-- SECTION 05: 3-Question Mini Check -->
+<section class="tactile-card p-6 sm:p-7" id="section-05">
+<div class="flex items-center gap-2.5 mb-4">
+<span class="w-7 h-7 rounded-lg bg-primary/20 text-primary border border-primary/40 text-xs font-extrabold flex items-center justify-center">05</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high border border-surface-container-highest text-primary text-[11px] font-extrabold uppercase tracking-wider">INTERACTIVE DRILL</span>
+<h2 class="text-xl font-bold text-white ml-1">3-Question Mini Check</h2>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6 font-medium">
+            Test your instinct on authentic test items. Choose the correct verb form, then reveal the pedagogical reasoning:
+          </p>
+<div class="space-y-6">
+<!-- Question 1 -->
+<div class="tactile-subcard p-5">
+<span class="text-xs font-bold text-tertiary mb-2 block">QUESTION 1 • TIME ANCHOR</span>
+<p class="text-sm font-bold text-white mb-3">“The government _____ the public transport subsidy last November.”</p>
+<div class="space-y-2 mb-4">
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-surface-container-highest cursor-pointer hover:border-primary/50 transition-colors">
+<input class="text-primary focus:ring-primary border-outline-variant bg-surface" name="q1" type="radio"/>
+<span class="text-xs font-semibold text-white">A. has increased</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-surface-container-highest cursor-pointer hover:border-primary/50 transition-colors">
+<input class="text-primary focus:ring-primary border-outline-variant bg-surface" name="q1" type="radio"/>
+<span class="text-xs font-semibold text-white">B. increased</span>
+</label>
+</div>
+<!-- Answer Toggle -->
+<details class="text-xs group">
+<summary class="cursor-pointer font-bold text-primary flex items-center gap-1.5 select-none hover:text-primary-fixed">
+<span class="material-symbols-outlined text-sm group-open:rotate-90 transition-transform" data-icon="chevron_right">chevron_right</span>
+                  Reveal Answer &amp; Explanation
+                </summary>
+<div class="mt-2.5 p-3 rounded-lg bg-surface-container-low border border-primary/20 text-on-surface leading-relaxed">
+<p class="font-bold text-primary mb-1">Correct Answer: B. increased</p>
+<p class="text-[11px] text-on-surface-variant">The sentence gives a specific past timestamp ("last November"). Once a closed timeline is stated, you cannot use present perfect.</p>
+</div>
+</details>
+</div>
+<!-- Question 2 -->
+<div class="tactile-subcard p-5">
+<span class="text-xs font-bold text-tertiary mb-2 block">QUESTION 2 • CONTINUING ACTION</span>
+<p class="text-sm font-bold text-white mb-3">“Dr. Aris _____ over forty peer-reviewed journal papers so far.”</p>
+<div class="space-y-2 mb-4">
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-surface-container-highest cursor-pointer hover:border-primary/50 transition-colors">
+<input class="text-primary focus:ring-primary border-outline-variant bg-surface" name="q2" type="radio"/>
+<span class="text-xs font-semibold text-white">A. has written</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-surface-container-highest cursor-pointer hover:border-primary/50 transition-colors">
+<input class="text-primary focus:ring-primary border-outline-variant bg-surface" name="q2" type="radio"/>
+<span class="text-xs font-semibold text-white">B. wrote</span>
+</label>
+</div>
+<!-- Answer Toggle -->
+<details class="text-xs group">
+<summary class="cursor-pointer font-bold text-primary flex items-center gap-1.5 select-none hover:text-primary-fixed">
+<span class="material-symbols-outlined text-sm group-open:rotate-90 transition-transform" data-icon="chevron_right">chevron_right</span>
+                  Reveal Answer &amp; Explanation
+                </summary>
+<div class="mt-2.5 p-3 rounded-lg bg-surface-container-low border border-primary/20 text-on-surface leading-relaxed">
+<p class="font-bold text-primary mb-1">Correct Answer: A. has written</p>
+<p class="text-[11px] text-on-surface-variant">"So far" indicates that the action continues to the current moment and more publications may follow.</p>
+</div>
+</details>
+</div>
+<!-- Question 3 -->
+<div class="tactile-subcard p-5">
+<span class="text-xs font-bold text-tertiary mb-2 block">QUESTION 3 • RESULT NOW</span>
+<p class="text-sm font-bold text-white mb-3">“Sorry I can't open the PDF, I _____ my laptop password.”</p>
+<div class="space-y-2 mb-4">
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-surface-container-highest cursor-pointer hover:border-primary/50 transition-colors">
+<input class="text-primary focus:ring-primary border-outline-variant bg-surface" name="q3" type="radio"/>
+<span class="text-xs font-semibold text-white">A. forgot</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-surface-container-highest cursor-pointer hover:border-primary/50 transition-colors">
+<input class="text-primary focus:ring-primary border-outline-variant bg-surface" name="q3" type="radio"/>
+<span class="text-xs font-semibold text-white">B. have forgotten</span>
+</label>
+</div>
+<!-- Answer Toggle -->
+<details class="text-xs group">
+<summary class="cursor-pointer font-bold text-primary flex items-center gap-1.5 select-none hover:text-primary-fixed">
+<span class="material-symbols-outlined text-sm group-open:rotate-90 transition-transform" data-icon="chevron_right">chevron_right</span>
+                  Reveal Answer &amp; Explanation
+                </summary>
+<div class="mt-2.5 p-3 rounded-lg bg-surface-container-low border border-primary/20 text-on-surface leading-relaxed">
+<p class="font-bold text-primary mb-1">Correct Answer: B. have forgotten</p>
+<p class="text-[11px] text-on-surface-variant">The past action directly affects current capability (can't open the file right now), demanding present perfect.</p>
+</div>
+</details>
+</div>
+</div>
+<!-- Bottom Practice Banner with Candy Tactile Orange CTA -->
+<div class="mt-8 p-6 rounded-2xl bg-surface-container-high border-2 border-primary/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h4 class="text-base font-bold text-white mb-1">Ready to practice speaking with Carlos?</h4>
+<p class="text-xs text-on-surface-variant max-w-md">Run a 3-minute interactive drill to reinforce both tenses.</p>
+</div>
+<a class="tactile-orange-btn px-6 py-3.5 rounded-2xl text-xs font-extrabold uppercase tracking-wide flex items-center justify-center gap-2 flex-shrink-0" href="#">
+<span>LAUNCH 3-MIN DRILL →</span>
+</a>
+</div>
+</section>
+</div>
+<!-- RIGHT SIDEBAR COLUMN (~32% / col-span-4) -->
+<aside class="lg:col-span-4 space-y-6 sticky top-20">
+<!-- Card 1: Lesson Contents -->
+<div class="tactile-card p-5">
+<div class="flex items-center gap-2 mb-3.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="toc">toc</span>
+<h3 class="text-xs font-extrabold uppercase tracking-wider text-white">Lesson Contents</h3>
+</div>
+<nav class="space-y-1 text-xs">
+<a class="flex items-center gap-2.5 py-2 px-2.5 rounded-lg text-on-surface hover:text-primary hover:bg-surface-container transition-colors" href="#section-01">
+<span class="text-primary font-mono font-bold text-[11px]">01</span>
+<span>When to use: Mental Picture</span>
+</a>
+<a class="flex items-center gap-2.5 py-2 px-2.5 rounded-lg text-on-surface hover:text-primary hover:bg-surface-container transition-colors" href="#section-02">
+<span class="text-primary font-mono font-bold text-[11px]">02</span>
+<span>Structure &amp; Form Table</span>
+</a>
+<a class="flex items-center gap-2.5 py-2 px-2.5 rounded-lg text-on-surface hover:text-primary hover:bg-surface-container transition-colors" href="#section-03">
+<span class="text-primary font-mono font-bold text-[11px]">03</span>
+<span>Contextual Example Pairs</span>
+</a>
+<a class="flex items-center gap-2.5 py-2 px-2.5 rounded-lg text-on-surface hover:text-primary hover:bg-surface-container transition-colors" href="#section-04">
+<span class="text-primary font-mono font-bold text-[11px]">04</span>
+<span>Common Mistakes (Wrong → Right)</span>
+</a>
+<a class="flex items-center gap-2.5 py-2 px-2.5 rounded-lg text-on-surface hover:text-primary hover:bg-surface-container transition-colors" href="#section-05">
+<span class="text-primary font-mono font-bold text-[11px]">05</span>
+<span>3-Question Mini Check</span>
+</a>
+</nav>
+</div>
+<!-- Card 2: Grammar Coach Box with EMPTY DASHED TEACHER SLOT -->
+<div class="tactile-card p-5 border-t-2 border-t-primary">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-extrabold uppercase tracking-wider text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              Grammar Coach
+            </span>
+<span class="text-[10px] font-bold text-primary px-2 py-0.5 rounded bg-primary/20">LIVE TIP</span>
+</div>
+<!-- EMPTY DASHED TEACHER SLOT: Strictly empty according to Design System -->
+<div class="w-full h-36 rounded-xl border-2 border-dashed border-primary/40 bg-surface-container-lowest/80 flex flex-col items-center justify-center text-center p-4 mb-4">
+<span class="material-symbols-outlined text-3xl text-primary/60 mb-1" data-icon="school">school</span>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-white">TEACHER SLOT</span>
+<span class="text-[10px] text-on-surface-variant font-medium mt-0.5">2D coach loads here during active study sessions</span>
+</div>
+<!-- Coach Ama's Tip Speech Bubble -->
+<div class="relative p-3.5 rounded-xl bg-surface-container-high border border-surface-container-highest text-xs text-on-surface leading-relaxed">
+<div class="flex items-center gap-1.5 mb-1.5 text-tertiary font-bold text-[11px]">
+<span class="material-symbols-outlined text-xs" data-icon="tips_and_updates">tips_and_updates</span>
+<span>Coach Ama's Tip</span>
+</div>
+            “In IELTS Writing Task 1 charts from 2000 to 2020, stick 100% to Past Simple. Only bring in Present Perfect if the chart runs up to the present year!”
+          </div>
+</div>
+<!-- Card 3: Related Grammar Guides -->
+<div class="tactile-card p-5">
+<div class="flex items-center gap-2 mb-3.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="library_books">library_books</span>
+<h3 class="text-xs font-extrabold uppercase tracking-wider text-white">Related Grammar Guides</h3>
+</div>
+<div class="space-y-3">
+<a class="block p-3 rounded-xl bg-surface-container-low border border-surface-container-highest hover:border-primary/40 transition-colors" href="#">
+<h4 class="text-xs font-bold text-white mb-0.5">Present Perfect Continuous vs Simple</h4>
+<p class="text-[11px] text-on-surface-variant">Focus on duration vs result • 5 min</p>
+</a>
+<a class="block p-3 rounded-xl bg-surface-container-low border border-surface-container-highest hover:border-primary/40 transition-colors" href="#">
+<h4 class="text-xs font-bold text-white mb-0.5">Past Simple vs Past Perfect</h4>
+<p class="text-[11px] text-on-surface-variant">The 'past of the past' made easy • 7 min</p>
+</a>
+<a class="block p-3 rounded-xl bg-surface-container-low border border-surface-container-highest hover:border-primary/40 transition-colors" href="#">
+<h4 class="text-xs font-bold text-white mb-0.5">Used to vs Would vs Past Simple</h4>
+<p class="text-[11px] text-on-surface-variant">Habits in the past • 4 min</p>
+</a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- 4. FOOTER (Source of truth: Footer from Shared Components JSON) -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t-2 border-surface-variant dark:border-surface-container-highest mt-16 full-width">
+<div class="w-full max-w-[1440px] mx-auto px-6 py-12">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-10">
+<!-- Brand & Mission Column -->
+<div class="md:col-span-2">
+<div class="flex items-center gap-2 mb-3">
+<svg class="w-6 h-6" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 2L2 16L16 30L16 2Z" fill="#6bd8ce"></path>
+<path d="M16 2L30 16L16 30L16 2Z" fill="#f97316"></path>
+<path d="M16 2V30M2 16H30" stroke="#091518" stroke-width="2"></path>
+</svg>
+<span class="font-headline text-lg font-bold text-primary dark:text-inverse-primary">Lexkite</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed max-w-sm mb-4">
+            Empowering students, researchers, and global test takers with tactile, high-retention language learning frameworks aligned with CEFR standards.
+          </p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="text-[11px] font-bold text-primary uppercase tracking-wider">Band 8.5 Engine Active</span>
+</div>
+</div>
+<!-- Column 1: Study Tools -->
+<div>
+<h4 class="text-xs font-extrabold uppercase tracking-wider text-white mb-3">Study Tools</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Dictionary</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">IELTS Prep</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">TOEIC Prep</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Collocations Deck</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Grammar Notebooks</a></li>
+</ul>
+</div>
+<!-- Column 2: Resources & Links from JSON -->
+<div>
+<h4 class="text-xs font-extrabold uppercase tracking-wider text-white mb-3">Pedagogy</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">CEFR Alignment</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Developer Tools</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Scoring Rubrics</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Research Papers</a></li>
+</ul>
+</div>
+<!-- Column 3: Company & Legal -->
+<div>
+<h4 class="text-xs font-extrabold uppercase tracking-wider text-white mb-3">Company</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Company</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Legal &amp; Support</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary font-body-sm transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<!-- Copyright Bar -->
+<div class="pt-6 border-t border-surface-container-highest flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-on-surface-variant">
+<p>© 2025 Lexkite Inc. Academic framework aligned with CEFR standards. All rights reserved.</p>
+<div class="flex items-center gap-4">
+<span class="text-[11px] text-outline">v2.4.0 (Tactile Night)</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

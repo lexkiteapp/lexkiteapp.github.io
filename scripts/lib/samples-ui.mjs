@@ -5,7 +5,7 @@
 // Chữ giao diện: S.vi / S.en (các trang này chỉ có 2 bản ngôn ngữ vi + en; x-default = en).
 import fs from 'node:fs'; import vm from 'node:vm';
 import { esc, SEO_L, siteChrome, landingHref, UI_JS, copyJs, LSW_CSS } from './site-layout.mjs';
-import { render as stRender, teacher, compact } from './st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/sample|speaking-*.html → web/js/st/web/*.js)
+import { render as stRender, teacher, compact } from './st-web.mjs'; // khung Stitch v2.1 (brand/stitch/web/sample|speaking-*.html → brand/stitch/web/gen/*.js)
 
 // ---------- Chữ giao diện (vi / en) ----------
 export const S = {
@@ -241,7 +241,7 @@ export const smpTail = (lang = 'vi') => `<div id="glp" hidden><b class="gp" lang
 export const smpHead = () => `<style>${SMP_CSS}</style>`;
 
 // ================= Khung Stitch v2.1: trang bài mẫu Writing Task 2 + trang chủ đề Speaking (vi + en) =================
-// Bố cục/icon/nút = brand/stitch/web/{sample,speaking}-light|dark.html (bind/{sample,speaking}.json → web/js/st/web/*.js, KHÔNG sửa tay).
+// Bố cục/icon/nút = brand/stitch/web/{sample,speaking}-light|dark.html (bind/{sample,speaking}.json → brand/stitch/web/gen/*.js, KHÔNG sửa tay).
 // Ở đây CHỈ dựng dữ liệu thật d (chữ thô – khung tự escape; trường *html / ess / a là HTML đã escape). Đầu/chân trang = chrome.js chung (siteChrome).
 // Thứ mẫu không vẽ (không cắt): hộp nghĩa cụm từ #glp, gợi ý add-on/PWA (extBox/pwaBox, ẩn tới khi JS bật) → CSS nhỏ bằng token Stitch (STW_CSS).
 // @icons palette translate print schedule format_align_left account_tree menu_book edit_note quiz layers format_list_numbered mic forum
@@ -279,18 +279,18 @@ ${GLP_CSS}
 
 // Trang hoàn chỉnh: <head> SEO của generator giữ NGUYÊN (meta/canonical/<!--HL-->/OG/JSON-LD) – chỉ thân + CSS theo Stitch.
 //   crumbs: [[tên, href]] (breadcrumb hiển thị = khung Stitch, JSON-LD BreadcrumbList vẫn trong head) · alt: bản vi↔en (đổi ngôn ngữ trên thanh đầu trang).
-export function stPage({ lang, head, crumbs, alt, k, d, ext = '' }) {
+export function stPage({ lang, head, crumbs, alt, k, d, ext = '', css = '', js = '', res = [] }) { // css/js: phần mẫu không vẽ của trang (vd VOCAB_CSS) · res: liên kết thêm cột Tài nguyên chân trang (sectionNav cũ)
   const t = SEO_L[lang], c = LAND(lang), self = crumbs[crumbs.length - 1][1], app = t.app;
   const langHref = l => l === lang ? self : alt && l === t.switchTo[1] ? alt : landingHref(l);
   const chrome = siteChrome({ lang, nav: [[app, t.open, lang], ...t.nav.map(([h, n]) => [h, n, lang])], open: [`${app}#/welcome/setup`, c.nav.start], signin: [`${app}#/welcome/login`, c.nav.login],
-    home: landingHref(lang), langHref, label: c.langL, text: t.foot, tm: t.tm });
+    home: landingHref(lang), langHref, label: c.langL, text: t.foot, tm: t.tm, extraRes: res });
   const pg = stRender(k, { ...d, crumbs, crumbL: S[lang].crumbL }, { lang, chrome });
   const body = pg.body.replace('</main>', () => ext + '</main>');
   // nạp sớm chữ Plus Jakarta Sans (font-display:swap) → chữ thật có trước lần vẽ đầu, không nhảy bố cục khi máy thiếu font dự phòng khớp số đo (Arial/Liberation – CLS cổng stitch-web)
   const pre = ['latin', ...(lang === 'vi' ? ['vietnamese'] : [])].map(x => `<link rel="preload" href="/fonts/pjs-${x}.woff2" as="font" type="font/woff2" crossorigin>`).join('');
-  return compact(`<!doctype html><html lang="${lang}"><head>${head}${pre}<style>${pg.css}\n${STW_CSS}</style></head><body class="stw st"><a class="skip" href="#main">${t.skip}</a>
+  return compact(`<!doctype html><html lang="${lang}"><head>${head}${pre}<style>${pg.css}\n${STW_CSS}${css ? '\n' + css : ''}</style></head><body class="stw st"><a class="skip" href="#main">${t.skip}</a>
 ${body}
-${smpTail(lang)}<script>${copyJs(lang)}${UI_JS}</script></body></html>`);
+${smpTail(lang)}<script>${copyJs(lang)}${UI_JS}${js}</script></body></html>`);
 }
 
 // d của trang bài mẫu Task 2. o: { p, m, paras, st, gl:[[cụm, nghĩa?]], ess: HTML các đoạn (đã thủy ấn), modelHref, writeHref, secHref, secName, rel:[thẻ], ak(cụm)→khóa audio }

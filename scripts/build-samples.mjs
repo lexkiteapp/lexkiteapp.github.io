@@ -5,6 +5,7 @@
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
+import { vocabHubD, vocabSetD, VOCAB_CSS, VOCAB_JS } from './lib/vocab-st.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail, stPage, writingD, writingCard, speakingD, speakingCard, pagerRel } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.vi, U = SU.vi, APP = L.app; // APP: gốc app (hash route) – theo site-layout
@@ -27,13 +28,15 @@ const page = (title, desc, canon, body, name, enId, o = {}) => {
   const p = canon.slice(SITE.length), sec = p.split('/')[0], id = p.split('/')[1];
   const vis = [['Trang chủ', '/'], [SEC[sec] || sec, `/${sec}/`], ...(id ? [[name || title, `/${p}`]] : [])];
   const alt = EN[sec] ? `/${EN[sec]}/${enId ?? id ?? ''}` : '';
-  if (o.st) return stPage({ lang: 'vi', head: head(title, desc, canon, o), crumbs: vis, alt, k: o.st, d: body, ext: o.ext }); // khung Stitch v2.1: body = dữ liệu d (samples-ui writingD/speakingD)
+  if (o.st) return stPage({ lang: 'vi', head: head(title, desc, canon, o), crumbs: vis, alt, k: o.st, d: body, ext: o.ext, css: o.css, js: o.js, res: o.res }); // khung Stitch v2.1: body = dữ liệu d (samples-ui writingD/speakingD)
   return seoPage({ lang: 'vi', head: head(title, desc, canon, o), crumbs: vis, body: o.smp ? body + smpTail() : body, alt, section: `/${sec}/` });
 };
 const hero = (h1, { emoji = '', lead = '', chips = [] } = {}) => `<header class="hero"><h1>${emoji ? `<span class="em" aria-hidden="true">${esc(emoji)}</span>` : ''}${h1}</h1>${lead ? `<p>${lead}</p>` : ''}${chips.length ? `<div class="sub">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</div>` : ''}</header>`;
 const indexHero = (h1, lead, sec) => `${hero(esc(h1), { lead })}\n${sectionNav('vi', `/${sec}/`)}\n${filterBox('vi')}`;
 const related = (items, card) => items.length ? `<section class="grp" aria-labelledby="rel"><h2 id="rel">${L.related}</h2><div class="grid">${items.map(card).join('')}</div></section>` : '';
 const group = (id, title, sub, cards) => `<section class="grp" aria-labelledby="g-${id}"><h2 id="g-${id}">${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.join('')}</div></section>`;
+// sectionNav cũ (mục lục) → cột Tài nguyên chân trang của khung Stitch: các chuyên mục chưa có trên thanh đầu trang
+const secRes = (lang, cur) => SEO_L[lang].sections.filter(([h]) => h !== cur && !SEO_L[lang].nav.some(([n]) => n === h));
 const short = (s, n) => s.length > n ? s.slice(0, n - 3).replace(/\s+\S*$/, '') + '…' : s;
 const wmDate = gitDate('web/js/models.js', 'web/js/write').replace(/-/g, '');
 const wm = (html, id) => embedWatermark(html, `LK:${id}:${wmDate}`); // thủy ấn tàng hình (P1) trong bài mẫu – ngày = lần sửa dữ liệu cuối (build ổn định)
@@ -113,31 +116,24 @@ ${group2('all', 'Chủ đề', `${made.length} ${L.items}`, made.map(spCard))}</
 {
   const { TOPICS: TP, audioKey } = loadVocab();
   const GROUP = { topics: 'Từ vựng IELTS theo chủ đề', writing: 'Từ vựng IELTS Writing', speaking: 'Từ vựng IELTS Speaking', awl: 'Từ học thuật AWL', core: 'Từ vựng cốt lõi NGSL', toeic: 'Từ vựng TOEIC', domain: 'Từ vựng chuyên ngành', exam: 'Từ vựng theo kỳ thi' };
-  const chipsOf = x => { const { level, exams } = vocabMeta(x); return [[`${x.words.length} từ`, 'ink'], ...(level ? [[level, 'alt']] : []), ...exams]; };
-  const vCard = x => setCard({ href: `/tu-vung/${x.id}`, title: x.name, desc: x.desc, emoji: x.emoji, chips: chipsOf(x), key: `${x.id} ${GROUP[x.group] || ''}` });
   fs.mkdirSync('dist/tu-vung', { recursive: true });
   for (const x of TP) {
     const g = GROUP[x.group] || 'Từ vựng', n = x.words.length;
     const title = `${g}: ${x.name} – ${n} từ có phiên âm, nghĩa tiếng Việt, ví dụ`;
     const desc = `${n} từ vựng ${x.name} (${g}) kèm phiên âm IPA, nghĩa tiếng Việt, định nghĩa và câu ví dụ: ${x.words.slice(0, 8).map(w => w.word).join(', ')}… Học flashcard miễn phí trên Lexkite.`;
-    const rows = x.words.map((w, i) => { const k = audioKey(w.word); return `<tr><td class="no">${i + 1}</td><td><span class="w">${k ? audioBtn(k, w.word, 'vi') : ''}${esc(w.word)}</span>${w.pos ? `<span class="pos">${esc(w.pos)}</span>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td><td>${esc(w.vi || '')}</td><td class="ex">${esc(w.ex || '')}</td></tr>`; }).join('');
-    const body = `${hero(esc(x.name), { emoji: x.emoji || '📘', lead: x.desc ? esc(x.desc) : '', chips: [g, ...chipsOf(x)] })}
-${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, '🃏 Học bộ này bằng flashcard (miễn phí)', 'Mở bộ từ trong app', 'Ôn lặp lại ngắt quãng FSRS, nghe phát âm, tự kiểm tra – lưu tiến độ tự động.', 'vocab')}
-<div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
-${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, `Thuộc ${n} từ này trong vài ngày`, 'Học ngay', 'Mỗi ngày vài phút, app tự nhắc đúng lúc bạn sắp quên.', 'vocab')}
-${related(relatedOf(TP, x, y => y.group === x.group), vCard)}
-${extBox('vi', 'vocab')}
-${pwaBox('vi', 'vocab')}`;
-    fs.writeFileSync(`dist/tu-vung/${x.id}.html`, page(title, desc, `${SITE}tu-vung/${x.id}`, body, x.name));
+    // Khung Stitch v2.1 (brand/stitch/web/vocab-set-*.html, dữ liệu scripts/lib/vocab-st.mjs): đường dẫn 4 cấp, chip nhóm/cấp độ/kỳ thi, thẻ từng từ (từ, loại, CEFR, IPA, loa nếu có audio, nghĩa, ví dụ tô từ),
+    //   2 CTA app cũ → nút "Học…" cuối danh sách + thẻ luyện cột phải (data-hit cta_topic_click), Ama, bộ liên quan, add-on/PWA
+    const body = vocabSetD('vi', { x, g, meta: vocabMeta, audioKey, app: y => `/app/#/topic/${encodeURIComponent(y.id)}`, appHub: '/tu-vung/', related: relatedOf(TP, x, y => y.group === x.group),
+      name: y => y.name, href: y => `/tu-vung/${y.id}`, G: GROUP, total: TP.length, grpHref: `/tu-vung/#g-${x.group}`, lead: x.desc || '' });
+    fs.writeFileSync(`dist/tu-vung/${x.id}.html`, page(title, desc, `${SITE}tu-vung/${x.id}`, body, x.name, undefined, { st: 'vocab-set', css: VOCAB_CSS, js: VOCAB_JS('vi'), ext: extBox('vi', 'vocab') + pwaBox('vi', 'vocab') }));
   }
   const byG = {}; for (const x of TP) (byG[x.group] = byG[x.group] || []).push(x);
   const total = TP.reduce((a, x) => a + x.words.length, 0), nAu = TP.reduce((a, x) => a + x.words.filter(w => audioKey(w.word)).length, 0), F = FIND_I18N.vi;
+  // Khung Stitch v2.1 (brand/stitch/web/vocab-hub-*.html, dữ liệu scripts/lib/vocab-st.mjs): 4 ô số thật (bộ/từ/nhóm/có phát âm), Ama, ô lọc + viên nhóm (UI_JS), nhóm → thẻ bộ, CTA app + ngữ pháp; sectionNav → cột Tài nguyên chân trang
   fs.writeFileSync('dist/tu-vung/index.html', page(`Từ vựng IELTS, TOEIC, TOEFL theo chủ đề – ${TP.length} bộ, ${total.toLocaleString('vi')} từ – Lexkite`, `${TP.length} bộ từ vựng IELTS, TOEIC, TOEFL theo chủ đề và kỳ thi, có phiên âm, nghĩa tiếng Việt và ví dụ. Học flashcard miễn phí.`, `${SITE}tu-vung/`,
-    `<div class="page smp">${hero2({ h1: esc(`Từ vựng theo chủ đề (${TP.length} bộ)`), lead: `${total.toLocaleString('vi')} từ có phiên âm, nghĩa tiếng Việt, ví dụ và phát âm. Chọn một bộ để xem danh sách, rồi học bằng flashcard miễn phí.`, mood: 'cheer', cls: 'has-kit',
-  statsHtml: stats([[TP.length, F[2]], [total.toLocaleString('vi'), F[3]], [Object.keys(byG).length, F[4]], [nAu.toLocaleString('vi'), F[5]]]) })}
-${sectionNav('vi', '/tu-vung/')}
-${filterBox('vi', typeFilter(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '']), TP.length, 'vi', F[1]))}
-${Object.entries(byG).map(([k, xs]) => group(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}</div>`));
+    vocabHubD('vi', { TP, G: GROUP, audioKey, meta: vocabMeta, name: x => x.name, href: x => `/tu-vung/${x.id}`, app: x => `/app/#/topic/${encodeURIComponent(x.id)}`, appHome: APP, gram: '/ngu-phap/',
+      crumbs: [['Trang chủ', '/'], [SEC['tu-vung'], '/tu-vung/']], h1: `Từ vựng theo chủ đề (${TP.length} bộ)`, lead: `${total.toLocaleString('vi')} từ có phiên âm, nghĩa tiếng Việt, ví dụ và phát âm. Chọn một bộ để xem danh sách, rồi học bằng flashcard miễn phí.` }),
+    undefined, undefined, { st: 'vocab-hub', css: VOCAB_CSS, js: VOCAB_JS('vi'), res: secRes('vi', '/tu-vung/') }));
   addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib');
   console.log(`✓ SEO: ${TP.length} trang bộ từ vựng + mục lục`);
 }

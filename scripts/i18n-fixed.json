@@ -32009,5 +32009,50 @@
     "ar": "كوّن الجملة بالإنجليزية",
     "ru": "Составьте предложение на английском",
     "tr": "Cümleyi İngilizce kur"
+  },
+  "Có audio": {
+    "es": "Con audio",
+    "pt": "Com áudio",
+    "fr": "Avec audio",
+    "de": "Mit Audio",
+    "id": "Ada audio",
+    "th": "มีเสียง",
+    "zh": "有音频",
+    "ja": "音声あり",
+    "ko": "오디오 있음",
+    "hi": "ऑडियो सहित",
+    "ar": "مع صوت",
+    "ru": "С аудио",
+    "tr": "Sesli"
+  },
+  "Luyện trong app": {
+    "es": "Practicar en la app",
+    "pt": "Praticar no app",
+    "fr": "S’entraîner dans l’app",
+    "de": "In der App üben",
+    "id": "Latihan di aplikasi",
+    "th": "ฝึกในแอป",
+    "zh": "在应用中练习",
+    "ja": "アプリで練習",
+    "ko": "앱에서 연습",
+    "hi": "ऐप में अभ्यास करें",
+    "ar": "تدرّب في التطبيق",
+    "ru": "Практика в приложении",
+    "tr": "Uygulamada pratik yap"
+  },
+  "Xóa ô lọc": {
+    "es": "Borrar búsqueda",
+    "pt": "Limpar busca",
+    "fr": "Effacer la recherche",
+    "de": "Suche löschen",
+    "id": "Hapus pencarian",
+    "th": "ล้างการค้นหา",
+    "zh": "清除搜索",
+    "ja": "検索をクリア",
+    "ko": "검색 지우기",
+    "hi": "खोज साफ़ करें",
+    "ar": "مسح البحث",
+    "ru": "Очистить поиск",
+    "tr": "Aramayı temizle"
   }
 }

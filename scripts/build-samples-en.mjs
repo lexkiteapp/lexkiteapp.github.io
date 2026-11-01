@@ -2,6 +2,7 @@
 // + hreflang vi ↔ en giữa 2 bản. Chạy sau build-samples.mjs. Giao diện chung: scripts/lib/site-layout.mjs.
 import fs from 'node:fs'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
+import { vocabHubD, vocabSetD, VOCAB_CSS, VOCAB_JS } from './lib/vocab-st.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
 import crypto from 'node:crypto';
 import { embedWatermark } from '../content/protection/watermark.mjs';
@@ -24,7 +25,7 @@ const page = (title, desc, path, viPath, body, name, o = {}) => {
   const p = path.split('/'), sec = p[1], id = p[2];
   const vis = [['Home', '/en/'], [SEC[sec] || sec, `/en/${sec}/`], ...(SUB[id] && p[3] ? [[SUB[id], `/en/${sec}/${id}/`]] : []), ...(id ? [[name || title, `/${path}`]] : [])];
   const alt = fs.existsSync(file(viPath)) ? `/${viPath}` : '';
-  if (o.st) return stPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis, alt, k: o.st, d: body, ext: o.ext }); // khung Stitch v2.1: body = dữ liệu d (samples-ui writingD/speakingD)
+  if (o.st) return stPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis, alt, k: o.st, d: body, ext: o.ext, css: o.css, js: o.js, res: o.res }); // khung Stitch v2.1: body = dữ liệu d (samples-ui writingD/speakingD)
   return seoPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis, body, alt, section: `/en/${sec}/` });
 };
 const file = p => 'dist/' + (p.endsWith('/') ? p + 'index.html' : p + '.html');
@@ -115,28 +116,20 @@ ${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard))}</div>$
   const c = { self: {}, window: {} }; c.self = c.window = c; vm.createContext(c); vm.runInContext(fs.readFileSync('web/js/i18n/en.js', 'utf8'), c);
   const D = (c.I18N_DICT && c.I18N_DICT.en) || {};
   const enName = x => D[x.name] || x.id.replace(/^(ex|dom|awl|ngsl|tsl)-/, '').replace(/-/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
-  const chipsOf = x => { const { level, exams } = vocabMeta(x); return [[`${x.words.length} words`, 'ink'], ...(level ? [[level, 'alt']] : []), ...exams]; };
-  const vCard = x => setCard({ href: `/en/vocabulary/${x.id}`, title: enName(x), emoji: x.emoji, chips: chipsOf(x), key: `${x.id} ${G[x.group] || ''}` });
   for (const x of TP) {
     const g = G[x.group] || 'Vocabulary', n = x.words.length, nm = enName(x);
-    const rows = x.words.map((w, i) => { const k = audioKey(w.word); return `<tr><td class="no">${i + 1}</td><td><span class="w">${k ? audioBtn(k, w.word, 'en') : ''}${esc(w.word)}</span>${w.pos ? `<span class="pos">${esc(w.pos)}</span>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td><td>${esc(w.def || '')}</td><td class="ex">${esc(w.ex || '')}</td></tr>`; }).join('');
+    // Khung Stitch v2.1 (vocab-set, dữ liệu scripts/lib/vocab-st.mjs) – như bản vi (build-samples.mjs), nghĩa = định nghĩa tiếng Anh
+    const d = vocabSetD('en', { x, g, meta: vocabMeta, audioKey, app: y => `${APP}/topic/${encodeURIComponent(y.id)}`, appHub: '/en/vocabulary/', related: relatedOf(TP, x, y => y.group === x.group),
+      name: enName, href: y => `/en/vocabulary/${y.id}`, G, total: TP.length, grpHref: `/en/vocabulary/#g-${x.group}`, lead: `${n} words with IPA, English definitions and example sentences.` });
     out(`en/vocabulary/${x.id}`, `tu-vung/${x.id}`, page(`${g}: ${nm} – ${n} Words with IPA, Definitions & Examples`, `${n} ${g.toLowerCase()} words (${nm}) with IPA, English definitions and example sentences: ${x.words.slice(0, 8).map(w => w.word).join(', ')}… Learn with free flashcards.`, `en/vocabulary/${x.id}`, `tu-vung/${x.id}`,
-      `${hero(esc(nm), { emoji: x.emoji || '📘', chips: [g, ...chipsOf(x)] })}
-${ctaBox(`${APP}/topic/${encodeURIComponent(x.id)}`, '🃏 Learn this set with free flashcards', 'Open this set in the app', 'FSRS spaced repetition, audio and self-tests – progress saved automatically.', 'vocab')}
-<div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
-${ctaBox(`${APP}/topic/${encodeURIComponent(x.id)}`, `Remember all ${n} words in a few days`, 'Start learning', 'A few minutes a day – the app reminds you right before you forget.', 'vocab')}
-${related(relatedOf(TP, x, y => y.group === x.group), vCard)}
-${extBox('en', 'vocab')}
-${pwaBox('en', 'vocab')}`, nm));
+      d, nm, { st: 'vocab-set', css: VOCAB_CSS, js: VOCAB_JS('en'), ext: extBox('en', 'vocab') + pwaBox('en', 'vocab') }));
   }
   const by = {}; for (const x of TP) (by[x.group] = by[x.group] || []).push(x);
   const total = TP.reduce((a, x) => a + x.words.length, 0), nAu = TP.reduce((a, x) => a + x.words.filter(w => audioKey(w.word)).length, 0), F = FIND_I18N.en;
   out('en/vocabulary/', 'tu-vung/', page(`IELTS, TOEIC & TOEFL Vocabulary Lists – ${TP.length} Sets – Lexkite`, `${TP.length} vocabulary lists for IELTS, TOEIC and TOEFL with IPA, definitions and examples. Learn with free flashcards.`, 'en/vocabulary/', 'tu-vung/',
-    `<div class="page smp">${hero2({ h1: esc(`Vocabulary lists (${TP.length} sets)`), lead: `${total.toLocaleString('en')} words with IPA, definitions, examples and audio. Pick a set to see the list, then learn it with free flashcards.`, mood: 'cheer', cls: 'has-kit',
-  statsHtml: stats([[TP.length, F[2]], [total.toLocaleString('en'), F[3]], [Object.keys(by).length, F[4]], [nAu.toLocaleString('en'), F[5]]]) })}
-${sectionNav('en', '/en/vocabulary/')}
-${filterBox('en', typeFilter(Object.entries(by).map(([k, xs]) => [k, G[k] || k, xs.length, '']), TP.length, 'en', F[1]))}
-${Object.entries(by).map(([k, xs]) => group(k, G[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}</div>`));
+    vocabHubD('en', { TP, G, audioKey, meta: vocabMeta, name: enName, href: x => `/en/vocabulary/${x.id}`, app: x => `${APP}/topic/${encodeURIComponent(x.id)}`, appHome: APP.replace(/#$/, ''), gram: '/en/grammar/',
+      crumbs: [['Home', '/en/'], [SEC.vocabulary || 'Vocabulary', '/en/vocabulary/']], h1: `Vocabulary lists (${TP.length} sets)`, lead: `${total.toLocaleString('en')} words with IPA, definitions, examples and audio. Pick a set to see the list, then learn it with free flashcards.` }),
+    undefined, { st: 'vocab-hub', css: VOCAB_CSS, js: VOCAB_JS('en'), res: SEO_L.en.sections.filter(([h]) => h !== '/en/vocabulary/' && !SEO_L.en.nav.some(([n]) => n === h)) }));
 }
 // ===== Bài học app → trang tiếng Anh (docs/SEO-ARCH.md §6): ngữ pháp, phát âm, IELTS Writing Task 1 / General Task 1 =====
 // Nội dung app soạn tiếng Việt → bản tiếng Anh viết riêng cho người học quốc tế ở content/seo-en/{grammar,pron}.json (khóa = chuỗi gốc tiếng Việt;
