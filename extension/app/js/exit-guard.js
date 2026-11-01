@@ -106,7 +106,7 @@
   document.addEventListener('pointerdown', touch, true); document.addEventListener('input', touch, true);
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || !cur || e.defaultPrevented || modalOpen()) return;
-    const a = document.activeElement; if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && a.value) return; // Esc trong ô đang gõ = xoá/thoát ô, không rời bài
+    const a = document.activeElement; if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && a.value) return; // Esc trong ô đang gõ = xóa/thoát ô, không rời bài
     e.preventDefault(); exit(false);
   });
   // Back hệ thống / vuốt iOS: rời màn học đang dở bằng lịch sử → giữ lại màn (pushState không vẽ lại) rồi hỏi.
