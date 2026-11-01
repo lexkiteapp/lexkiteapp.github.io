@@ -148,6 +148,7 @@ on:
       - 'E2E dịch vùng chọn'
       - 'Kho dịch sẵn câu ví dụ + định nghĩa (14 ngôn ngữ)'
       - 'Phát audio (Chromium + WebKit)'
+      - 'codemap'
       - 'TTS A/B (Kokoro vs ElevenLabs)'
       - 'required-gate'
   schedule:
