@@ -17421,6 +17421,52 @@
       ],
       "angle": "Guide complet de la négociation en anglais phrases utiles pour formuler des contre-propositions, gérer les concessions, surmonter les blocages et signer des contrats.",
       "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "verhandlungen-auf-englisch-phrasen",
+      "keyword": "verhandlungen auf englisch phrasen",
+      "topic": "Verhandlungen auf Englisch: Wichtige Phrasen, Gegenangebote und Taktiken",
+      "category": "ky-nang",
+      "tags": [
+        "verhandlungen",
+        "business-english",
+        "vertrieb",
+        "speaking"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Leitfaden für Verhandlungen auf Englisch: Professionelle Formulierungen für Gegenangebote, das Lösen von Preisblockaden und rechtssichere Vertragsabschlüsse.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "frasa-negosiasi-bahasa-inggris-bisnis",
+      "keyword": "negosiasi bahasa inggris",
+      "topic": "Negosiasi Bahasa Inggris: Frasa Tawar-Menawar Kontrak dan Menutup Kesepakatan",
+      "category": "ky-nang",
+      "tags": [
+        "negosiasi",
+        "business-english",
+        "karier",
+        "speaking"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Panduan lengkap negosiasi bahasa inggris: teknik mengajukan penawaran balik, konsesi bersyarat, mengatasi kebuntuan harga, dan menutup kontrak bisnis.",
+      "intent": "informational"
     }
   ]
 }
