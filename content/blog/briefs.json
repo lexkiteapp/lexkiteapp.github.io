@@ -15909,6 +15909,94 @@
       ],
       "angle": "零基础自学英语实用90天破局指南：先声音后拼写，主攻高频1000核心词与核心句型，搭配FSRS间隔复习，告别死记硬背与学了就忘。",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "dong-tu-khuyet-thieu-modal-verbs-can-could-should-must",
+      "keyword": "động từ khuyết thiếu can could should must",
+      "topic": "Động Từ Khuyết Thiếu: Cách Dùng Can, Could, Should, Must Chuẩn Nhất",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "modal-verbs",
+        "dong-tu"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Tổng hợp quy tắc động từ khuyết thiếu: phân biệt can/could, should/ought to, must/have to, mức độ chắc chắn và các lỗi sai kinh điển người Việt hay mắc.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "modal-verbs-in-english-rules-and-examples",
+      "keyword": "modal verbs in english",
+      "topic": "Modal Verbs in English: Rules, Meaning, and Common Mistakes",
+      "category": "ngu-phap",
+      "tags": [
+        "grammar",
+        "modal-verbs",
+        "verbs"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Complete guide to modal verbs in English: ability, permission, obligation, possibility with can, could, may, might, should, must, and practice exercises.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "verbos-modais-em-ingles-can-could-should-must",
+      "keyword": "verbos modais em ingles",
+      "topic": "Verbos Modais em Inglês: Guia Definitivo de Can, Could, Should e Must",
+      "category": "ngu-phap",
+      "tags": [
+        "gramatica",
+        "verbos-modais",
+        "modal-verbs"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Domine os verbos modais em inglês: regras de can, could, may, might, should e must, diferenças de significado e os erros mais frequentes de brasileiros.",
+      "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "modale-hilfsverben-englisch-can-could-should-must",
+      "keyword": "modale hilfsverben englisch",
+      "topic": "Modale Hilfsverben im Englischen: Can, Could, Should, Must Regeln",
+      "category": "ngu-phap",
+      "tags": [
+        "grammatik",
+        "modalverben",
+        "hilfsverben"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Vollständiger Leitfaden zu modalen Hilfsverben im Englischen: Regeln, Bedeutungen und typische Fehler bei can, could, may, might, should und must mit Beispielen.",
+      "intent": "informational"
     }
   ]
 }
