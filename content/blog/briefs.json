@@ -15667,6 +15667,116 @@
       ],
       "angle": "精选高频地道的日常英语口语常用句型：涵盖闲聊寒暄、委婉表达观点、化解冷场与自然接话技巧，全场景实用例句深度解析。",
       "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "angliyskie-frazy-na-kazhdyy-den-razgovornik",
+      "keyword": "английские фразы на каждый день",
+      "topic": "Самые полезные английские фразы на каждый день для живого общения и диалогов",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/speaking"
+      ],
+      "angle": "Подборка необходимых английских фраз на каждый день: приветствия, смолл-ток, поддержание диалога, телефонные звонки и полезные клише без зубрежки.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "gunluk-ingilizce-konusma-kaliplari-cumleler",
+      "keyword": "gunluk ingilizce konusma kaliplari",
+      "topic": "Akıcı iletişim için en çok kullanılan günlük İngilizce konuşma kalıpları ve diyaloglar",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/speaking"
+      ],
+      "angle": "Günlük İngilizce konuşma kalıpları rehberi: selamlaşmalar, sohbet başlatma (small talk), fikir belirtme, kafede sipariş verme ve doğal yanıt cümleleri.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "prayok-phasa-angkrit-chai-nai-chiwit-pracham-wan",
+      "keyword": "ประโยคภาษาอังกฤษใช้ในชีวิตประจําวัน",
+      "topic": "รวมประโยคภาษาอังกฤษใช้ในชีวิตประจำวันที่พบบ่อย พร้อมบทสนทนาและวิธีพูดให้เป็นธรรมชาติ",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/speaking"
+      ],
+      "angle": "รวมประโยคภาษาอังกฤษใช้ในชีวิตประจำวันที่เจ้าของภาษาพูดบ่อยที่สุด: การทักทาย ชวนคุย แสดงความเห็น สั่งอาหาร สื่อสารลื่นไหลไม่ต้องแปลในหัว.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "jumal-injliziyyah-mustakhdamah-fi-al-hayat-al-yawmiyyah",
+      "keyword": "جمل انجليزية تستخدم في الحياة اليومية",
+      "topic": "أهم الجمل والعبارات الإنجليزية المستخدمة في الحياة اليومية للمحادثة بطلاقة",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/speaking"
+      ],
+      "angle": "دليل شامل لأكثر جمل انجليزية تستخدم في الحياة اليومية: التحيات، بدء الحوار، إبداء الرأي بلباقة، والردود التلقائية لتجاوز حاجز التردد.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "daily-use-english-sentences-conversation-guide",
+      "keyword": "daily use english sentences with hindi meaning",
+      "topic": "दैनिक जीवन में सबसे ज्यादा बोले जाने वाले अंग्रेजी वाक्य और बातचीत के तरीके",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/speaking"
+      ],
+      "angle": "Daily use English sentences with Hindi meaning: रोजमर्रा की बातचीत, अभिवादन, स्मॉल टॉक, राय व्यक्त करना और रेस्टोरेंट में अंग्रेजी बोलने के आसान वाक्य।",
+      "intent": "informational"
     }
   ]
 }
