@@ -131,6 +131,11 @@ ok(r.body && r.why !== 'quota', 'đã hết lượt vẫn được phục vụ b
   ok(net.some(u => u.startsWith('/api/dictlookup?src=dapi&w=')) && net.some(u => u.startsWith('/api/dictlookup?src=gtx&')), 'web gọi từ điển + gtx qua /api/dictlookup cùng nguồn');
   ok(!net.some(u => /translate\.googleapis\.com|api\.dictionaryapi\.dev\/api/.test(u)), 'web không gọi thẳng translate.googleapis.com / api.dictionaryapi.dev');
   void res;
+  // Phản hồi lỗi (404/500) mà thân chưa đọc → request phải bị huỷ ngay (thân trả chậm từng giữ trang > 30 s, font audit 1/11)
+  const sigs = []; const ctxA = { ...ctx, fetch: async (u, init = {}) => { sigs.push(init.signal); return { ok: false, status: 404, json: async () => { throw new Error('html'); } }; }, location: { hostname: 'lexkite.com', protocol: 'https:' } };
+  ctxA.self = ctxA; vm.createContext(ctxA); vm.runInContext(fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8'), ctxA);
+  await ctxA.Dict.lookup('zymurgyy', { image: false, examples: false }).catch(() => {});
+  ok(sigs.length && sigs.every(sg => sg && sg.aborted), `fetchJSON huỷ mọi request trả lỗi (${sigs.filter(sg => sg && sg.aborted).length}/${sigs.length} đã huỷ)`);
   // Bản trong app di động (capacitor://localhost) → proxy trên lexkite.com
   const net2 = []; const ctx2 = { ...ctx, fetch: async u => { net2.push(String(u)); return { ok: true, json: async () => null }; }, location: { hostname: 'localhost', protocol: 'capacitor:' } };
   ctx2.self = ctx2; vm.createContext(ctx2); vm.runInContext(fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8'), ctx2);
@@ -155,7 +160,7 @@ ok(r.body && r.why !== 'quota', 'đã hết lượt vẫn được phục vụ b
   const dj = fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8');
   ok(/const EXT = !!\(g\.location && \/\^\(chrome\|moz\)-extension:\$\/\.test\(location\.protocol\)\)/.test(dj), 'EXT chỉ đúng trong add-on (chrome-extension:/moz-extension:)');
   const app = fs.readFileSync(path.join(ROOT, 'web/js/app.js'), 'utf8');
-  ok(/\$\{DL\}\?src=gtx&sl=vi/.test(app) && /x\.ok \? x\.json\(\) : null/.test(app), 'app.js: dịch nội dung qua proxy, phản hồi lỗi → null');
+  ok(/\$\{DL\}\?src=gtx&sl=vi/.test(app) && /x\.ok \? x\.json\(\) : \(x\.body && x\.body\.cancel\(\)\.catch\(\(\) => \{\}\), null\)/.test(app), 'app.js: dịch nội dung qua proxy, phản hồi lỗi → null + huỷ thân chưa đọc');
   ok(/\$\{DL\}\?src=gtx&sl=vi[^\n]*signal: AbortSignal\.timeout \? AbortSignal\.timeout\(\d+\) : undefined/.test(app), 'app.js: lô dịch nội dung có giới hạn thời gian (request treo không giữ trang mãi)');
   const sw = fs.readFileSync(path.join(ROOT, 'web/sw.js'), 'utf8');
   const byp = sw.indexOf("if (url.pathname === '/api/dictlookup') return;"), xo = sw.indexOf("url.hostname === 'lexkite.com'"), so = sw.indexOf('url.origin !== location.origin) return;');
