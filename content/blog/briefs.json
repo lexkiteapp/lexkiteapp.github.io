@@ -4636,8 +4636,8 @@
         "library"
       ],
       "routes": [
-        "/#/write",
-        "/#/library"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Formelle und halbformelle geschäftliche E-Mails auf Englisch verfassen: Vorlagen, Anreden und Höflichkeitsfloskeln",
       "intent": "học",
@@ -4661,8 +4661,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/speaking",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Die häufigsten Fragen im englischen Vorstellungsgespräch souverän beantworten mit Beispielen und STAR-Methode",
       "intent": "học",
@@ -4810,8 +4810,8 @@
         "library"
       ],
       "routes": [
-        "/#/write",
-        "/#/library"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Modèles d'emails professionnels en anglais : formules de politesse, relances, confirmations et pièges à éviter",
       "intent": "học",
@@ -4835,8 +4835,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/speaking",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Préparer un entretien d'embauche en anglais : réponses aux questions récurrentes et présentation de son parcours",
       "intent": "học",
@@ -5161,8 +5161,8 @@
         "library"
       ],
       "routes": [
-        "/#/write",
-        "/#/library"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "직장인을 위한 비즈니스 영어 이메일 핵심 표현 50선: 요청, 회신, 일정 조율 및 완곡한 거절 표현",
       "intent": "học",
@@ -5186,8 +5186,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/speaking",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "외국계 기업 및 대기업 영어 면접 빈출 질문 10가지와 합격을 부르는 답변 구성 공식",
       "intent": "học",
@@ -5862,8 +5862,8 @@
         "library"
       ],
       "routes": [
-        "/#/write",
-        "/#/library"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "职场外企必备商务英语邮件指南：格式规范、常用地道句型与常见中式英语纠错",
       "intent": "học",
@@ -5887,8 +5887,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/speaking",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "外企英文面试10大必考经典问题拆解：自我介绍、优缺点回答技巧与STAR原则应用",
       "intent": "học",
@@ -6911,8 +6911,8 @@
         "dict"
       ],
       "routes": [
-        "/#/library",
-        "/#/dict"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Aufbau, Action Verbs und ATS-sicheres Format für einen professionellen englischen Lebenslauf (Resume).",
       "intent": "học",
@@ -6935,8 +6935,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/library",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Praktische Redewendungen für englische Meetings: Diskussionen eröffnen, höflich unterbrechen und Next Steps vereinbaren.",
       "intent": "học",
@@ -6959,8 +6959,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/library",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Wie man im Beruf und auf Reisen auf Englisch das Eis bricht: sichere Gesprächsthemen und offene Fragen.",
       "intent": "học",
@@ -7127,8 +7127,8 @@
         "dict"
       ],
       "routes": [
-        "/#/library",
-        "/#/dict"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Format international, verbes d action et règles indispensables pour rédiger un CV en anglais percutant.",
       "intent": "học",
@@ -7151,8 +7151,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/library",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Phrases professionnelles pour ouvrir une réunion, exprimer son avis, interrompre poliment et fixer les prochaines étapes.",
       "intent": "học",
@@ -7175,8 +7175,8 @@
         "dict"
       ],
       "routes": [
-        "/#/library",
-        "/#/dict"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Le guide de survie linguistique en anglais pour l aéroport, l hôtel, le restaurant et les urgencias en voyage.",
       "intent": "học",
@@ -7367,8 +7367,8 @@
         "dict"
       ],
       "routes": [
-        "/#/library",
-        "/#/dict"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "一页纸外企英文简历（Resume）标准格式、ATS筛选规则与谷歌XYZ行动动词撰写指南。",
       "intent": "học",
@@ -7391,8 +7391,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/library",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "跨国职场线上会议全流程实用句型：主持开场、礼貌插话、委婉表达异议与敲定 Action Items。",
       "intent": "học",
@@ -7415,8 +7415,8 @@
         "dict"
       ],
       "routes": [
-        "/#/library",
-        "/#/dict"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "机场值机、酒店入住、餐厅点餐、交通问路与紧急求助的出国实用英语生存指南。",
       "intent": "học",
@@ -7607,8 +7607,8 @@
         "dict"
       ],
       "routes": [
-        "/#/library",
-        "/#/dict"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "외국계 기업 합격을 부르는 1장 영문 이력서(Resume) 양식, ATS 통과 기준과 액션 동사 모음.",
       "intent": "học",
@@ -7631,8 +7631,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/library",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "글로벌 화상 회의를 주도하는 실전 영어 표현: 안건 소개, 정중한 끼어들기, 부드러운 반론과 액션 아이템.",
       "intent": "học",
@@ -7655,8 +7655,8 @@
         "dict"
       ],
       "routes": [
-        "/#/library",
-        "/#/dict"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "공항 체크인, 기내, 호텔, 식당 주문, 길 찾기부터 응급상황까지 완벽 대비하는 해외여행 영어회화 가이드.",
       "intent": "học",
@@ -9604,8 +9604,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/speaking",
-        "/#/practice/speak"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Präsentationen auf Englisch halten: Die besten Redewendungen für Intro, Folienübergang, Diagramme und Q&A",
       "intent": "informational",
@@ -9700,8 +9700,8 @@
         "phrases"
       ],
       "routes": [
-        "/#/write",
-        "/#/phrases"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Mots de liaison en anglais : liste indispensable de connecteurs logiques pour structurer vos textes et essais",
       "intent": "informational",
@@ -9748,8 +9748,8 @@
         "phrases"
       ],
       "routes": [
-        "/#/speaking",
-        "/#/phrases"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "Réussir sa présentation en anglais : phrases clés pour l introduction, les transitions et les questions-réponses",
       "intent": "informational",
@@ -9844,8 +9844,8 @@
         "phrases"
       ],
       "routes": [
-        "/#/write",
-        "/#/phrases"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "영어 접속부사 및 연결어 총정리: 에세이와 IELTS 라이팅 필수 표현 리스트",
       "intent": "informational",
@@ -9892,8 +9892,8 @@
         "phrases"
       ],
       "routes": [
-        "/#/speaking",
-        "/#/phrases"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "영어 프레젠테이션 표현 총정리: 오프닝 인사부터 슬라이드 전환과 Q&A 핵심 문장",
       "intent": "informational",
@@ -10420,8 +10420,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/write",
-        "/samples/"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "英语连接词Linking Words全分类解析：转折、因果、递进与举例逻辑词汇总及写作标点指南",
       "intent": "informational",
@@ -10468,8 +10468,8 @@
         "practice-speak"
       ],
       "routes": [
-        "/#/speaking",
-        "/speaking/"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "商务英语Presentation句型汇总：专业开场、图表数据过渡与问答答辩应对技巧",
       "intent": "informational",
@@ -11267,9 +11267,8 @@
         "study"
       ],
       "routes": [
-        "/#/listening",
-        "/#/practice",
-        "/#/study"
+        "/#/dict/resilient",
+        "/#/speaking"
       ],
       "angle": "귀가 뚫리는 영어 딕테이션(받아쓰기) 5단계 공부법: 연음, 약형, 축약형을 잡고 리스닝 점수를 극대화하는 법",
       "intent": "informational",
@@ -15598,7 +15597,7 @@
       ],
       "routes": [
         "/#/dict/resilient",
-        "/#/practice/speak"
+        "/#/speaking"
       ],
       "angle": "Sélection des meilleures phrases en anglais pour la conversation courante: salutations, small talk, exprimer son opinion, réagir naturellement avec audio et mise en situation.",
       "intent": "informational"
@@ -15620,7 +15619,7 @@
       ],
       "routes": [
         "/#/dict/resilient",
-        "/#/practice/speak"
+        "/#/speaking"
       ],
       "angle": "Die besten englischen Sätze für den Alltag: Small Talk, Meinungen äußern, Höflichkeitsfloskeln und natürliche Reaktionen im Gespräch mit praktischen Beispielen.",
       "intent": "informational"
@@ -15642,7 +15641,7 @@
       ],
       "routes": [
         "/#/dict/resilient",
-        "/#/practice/speak"
+        "/#/speaking"
       ],
       "angle": "원어민이 일상에서 가장 자주 사용하는 필수 일상 영어 회화 표현 모음: 인사, 스몰토크, 의견 표현, 맞장구 치기 및 자연스러운 대화 패턴 완벽 정리.",
       "intent": "informational"
@@ -15664,7 +15663,7 @@
       ],
       "routes": [
         "/#/dict/resilient",
-        "/#/practice/speak"
+        "/#/speaking"
       ],
       "angle": "精选高频地道的日常英语口语常用句型：涵盖闲聊寒暄、委婉表达观点、化解冷场与自然接话技巧，全场景实用例句深度解析。",
       "intent": "informational"
