@@ -37,7 +37,9 @@ function iosPolicy() {
 async function open(bt) {
   const browser = await bt.launch();
   const dev = devices['iPhone 13'];
-  const ctx = await browser.newContext({ ...dev, locale: 'vi' });
+  // serviceWorkers 'block': sw.js tự tải mp3 audio.lexkite.com (cache âm thanh) – yêu cầu từ service worker KHÔNG đi qua ctx.route → trước đây phát mp3 THẬT
+  // từ mạng (lời dẫn ~10 s + quãng nghỉ 8 s) thay cho WAV 0,4 s → "Bấm để nghe" phát đúng mà câu 2 tới sau 15 s chờ → báo im lặng sai (e2e đỏ 01/11). Nay kín, không cần mạng.
+  const ctx = await browser.newContext({ ...dev, locale: 'vi', serviceWorkers: 'block' });
   await ctx.route(/\.mp3(\?|$)/, r => r.fulfill({ status: 200, contentType: 'audio/wav', body: wav }));
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push(String(e).slice(0, 200)));
