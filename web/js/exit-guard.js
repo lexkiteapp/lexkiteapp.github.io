@@ -73,13 +73,13 @@
     f.className = x.className.replace(/\blk-hit44\b/, '') + ' lk-face';
     f.style.cssText = S.cssText; Object.assign(f.style, { position: 'relative', inset: 'auto', margin: 0, flex: 'none', boxSizing: 'border-box', width: r.width + 'px', height: r.height + 'px', display: cs.display });
     while (x.firstChild) f.appendChild(x.firstChild);
-    x.dataset.lkGrow = S.cssText; x.appendChild(f); x.classList.add('lk-grow');
+    x.dataset.lkGrow = S.cssText; x.appendChild(f); x.classList.add('lk-grow'); x.classList.remove('lk-hit44'); // hộp đã ≥ 44 → bỏ ::after nới ảo
     Object.assign(S, { boxSizing: 'content-box', width: r.width + 'px', height: r.height + 'px', minWidth: 0, minHeight: 0, padding: `${dy}px ${dx}px`, borderWidth: 0, margin: `${M[0] - dy}px ${M[1] - dx}px ${M[2] - dy}px ${M[3] - dx}px` });
   }
   const ungrow = x => {
     if (!x || x.dataset.lkGrow == null) return;
     const f = x.querySelector(':scope > .lk-face'); if (f) { while (f.firstChild) x.insertBefore(f.firstChild, f); f.remove(); }
-    x.style.cssText = x.dataset.lkGrow; x.classList.remove('lk-grow'); delete x.dataset.lkGrow;
+    x.style.cssText = x.dataset.lkGrow; x.classList.remove('lk-grow'); x.classList.add('lk-hit44'); delete x.dataset.lkGrow;
   };
   const exitEl = () => { const v = view(); return v && (v.querySelector('[data-exit]') || findExit(v)); };
   // Không dùng [data-done] chung (cờ "đã nạp" của .wn-slot/quảng cáo/usage) – docs/specs/exit-button.md
