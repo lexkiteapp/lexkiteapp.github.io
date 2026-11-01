@@ -154,5 +154,6 @@
     dirty: v => { dirty = v !== false; },
     backTo: () => backTo,
     exit: () => exit(false),
+    _s: () => ({ cur, dirty, done, bypass, backTo, hist: hist.slice(-4), ex: !!exitEl(), exHref: exitEl() && exitEl().getAttribute('href'), exOn: !!(exitEl() && exitEl().onclick), act: document.activeElement && document.activeElement.tagName }), // chẩn đoán cho exit-sweep
   };
 })(typeof self !== 'undefined' ? self : this);

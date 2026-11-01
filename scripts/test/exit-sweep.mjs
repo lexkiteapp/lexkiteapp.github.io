@@ -35,6 +35,7 @@ const boot = async (page, hash) => { await page.goto(appUrl(hash), { waitUntil: 
 const go = async (page, hash) => { await page.evaluate(x => { location.hash = x; }, hash); await sleep(1300); };
 const state = page => page.evaluate(() => ({ hash: location.hash, learn: document.body.classList.contains('lk-learn'), modal: !!document.querySelector('#modal:not([hidden])'), filled: !!document.querySelector('#view > :not(.skel-page):not(.skel-study)') }));
 const left = (s, hash) => !s.learn && s.hash !== hash && s.filled;
+const diag = page => page.evaluate(() => JSON.stringify(window.ExitGuard && ExitGuard._s ? ExitGuard._s() : {})).catch(() => '');
 // Hộp hỏi đang mở → bấm "Thoát" (hộp chung [data-exit-go] hoặc nút thoát của hộp riêng màn)
 const confirmLeave = async page => page.evaluate(() => { const b = document.querySelector('#modal:not([hidden]) [data-exit-go]') || [...document.querySelectorAll('#modal:not([hidden]) a.btn, #modal:not([hidden]) button.btn')].find(x => !x.classList.contains('primary')); if (b) b.click(); return !!b; });
 
@@ -98,7 +99,7 @@ for (const theme of THEMES) {
       // b) Esc
       await go(page, hash); await page.keyboard.press('Escape'); await sleep(1300);
       s = await state(page); if (s.modal) { await confirmLeave(page); await sleep(1300); s = await state(page); }
-      if (!left(s, '#' + hash)) fail(where, 'Esc không rời màn (' + s.hash + ')');
+      if (!left(s, '#' + hash)) fail(where, 'Esc không rời màn (' + s.hash + ') ' + JSON.stringify(s) + ' ' + await diag(page));
       // c) back hệ thống khi đang làm dở → hỏi; "Tiếp tục học" ở lại; "Thoát" rời màn
       await go(page, '/home'); await go(page, hash); await page.evaluate(() => ExitGuard.dirty(true));
       await page.goBack(); await sleep(1300); s = await state(page);
@@ -108,7 +109,7 @@ for (const theme of THEMES) {
         await sleep(600); s = await state(page);
         if (!stay || s.modal || !s.learn || s.hash !== '#' + hash) fail(where, '"Tiếp tục học" không giữ màn (' + s.hash + ')');
         await page.goBack(); await sleep(1300); await confirmLeave(page); await sleep(1300); s = await state(page);
-        if (!left(s, '#' + hash)) fail(where, '"Thoát" sau back không rời màn (' + s.hash + ')');
+        if (!left(s, '#' + hash)) fail(where, '"Thoát" sau back không rời màn (' + s.hash + ') ' + JSON.stringify(s) + ' ' + await diag(page));
       }
       rows.push(`| ${r} | ${theme} | \`${hash}\` | ${Math.round(btn.w)}×${Math.round(btn.h)} | ${ratio.toFixed(1)} |`);
     } catch (e) { fail(where, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
