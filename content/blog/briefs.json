@@ -16921,6 +16921,72 @@
       ],
       "angle": "Guia prático de inglês para viagem internacional: frases indispensáveis para imigração no aeroporto, hotel, restaurantes, pedir direções e resolver emergências.",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "tieng-anh-giao-tiep-hop-cong-so-mau-cau",
+      "keyword": "tiếng anh giao tiếp họp công sở",
+      "topic": "Tiếng Anh Giao Tiếp Họp Công Sở: 100+ Mẫu Câu Mở Đầu, Thảo Luận và Chốt Vấn Đề",
+      "category": "ky-nang",
+      "tags": [
+        "tieng-anh-hop",
+        "business-meeting",
+        "giao-tiep-cong-so"
+      ],
+      "shots": [
+        "practice-speak",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/practice/speak",
+        "/#/practice/learn"
+      ],
+      "angle": "Cẩm nang tiếng anh giao tiếp họp công sở thực chiến: phát biểu ý kiến lịch sự, ngắt lời khéo léo, xử lý bất đồng và tổng kết biên bản cuộc họp chuyên nghiệp.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "business-english-meeting-phrases-guide",
+      "keyword": "business english meeting phrases",
+      "topic": "Business English Meeting Phrases: Professional Expressions for Leading and Contributing",
+      "category": "ky-nang",
+      "tags": [
+        "business-english",
+        "meeting-phrases",
+        "workplace-communication"
+      ],
+      "shots": [
+        "practice-speak",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/practice/speak",
+        "/#/practice/learn"
+      ],
+      "angle": "Essential business english meeting phrases: opening discussions, politely interrupting, expressing constructive disagreement, and summarizing action items effectively.",
+      "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "frases-en-ingles-para-reuniones-de-trabajo",
+      "keyword": "frases en inglés para reuniones de trabajo",
+      "topic": "Frases en Inglés para Reuniones de Trabajo: Guía Práctica de Expresiones Profesionales",
+      "category": "ky-nang",
+      "tags": [
+        "ingles-de-negocios",
+        "reuniones-de-trabajo",
+        "frases-profesionales"
+      ],
+      "shots": [
+        "practice-speak",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/practice/speak",
+        "/#/practice/learn"
+      ],
+      "angle": "Guía completa de frases en inglés para reuniones de trabajo: cómo abrir la sesión, interrumpir con cortesía, debatir desacuerdos y resumir planes de acción sin rodeos.",
+      "intent": "informational"
     }
   ]
 }
