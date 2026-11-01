@@ -33,6 +33,7 @@ quiz: [
     explain: "Las cláusulas de participio con -ing permiten condensar relaciones de causa y efecto de manera elegante y puramente académica."
   }
 ]
+publishAt: 2026-11-27T09:17:00-06:00
 ---
 
 Muchos candidatos al examen IELTS creen erróneamente que para obtener una puntuación destacada en el criterio de *Grammatical Range and Accuracy* deben redactar oraciones kilométricas y farragosas. En realidad, los examinadores oficiales buscan variedad sintáctica, precisión de puntuación y naturalidad estructural. Dominar las **oraciones complejas ielts writing** no consiste en complicar innecesariamente el mensaje, sino en combinar oraciones independientes con subordinadas de forma equilibrada para sustentar argumentos de nivel Band 7.0 a 8.5.

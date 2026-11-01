@@ -33,6 +33,7 @@ quiz: [
     explain: "Com o verbo 'to be' e tempos contínuos, a interrogação é feita por simples inversão do auxiliar com o sujeito."
   }
 ]
+publishAt: 2026-11-22T09:47:00-03:00
 ---
 Em português, transformar uma afirmação em pergunta é extremamente simples: basta mudar a entonação no final da frase. Dizemos *«Você gosta de café.»* e, para perguntar, apenas elevamos o tom: *«Você gosta de café?»*.
 

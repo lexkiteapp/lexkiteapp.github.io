@@ -33,6 +33,7 @@ quiz: [
     explain: "En secuencias industriales o de laboratorio, el foco recae en el objeto transformado, quedando el agente en un segundo plano irrelevante."
   }
 ]
+publishAt: 2026-11-29T20:16:00-06:00
 ---
 
 En la comunicación formal en lengua inglesa, la voz pasiva constituye una herramienta sintáctica imprescindible. En lugar de centrar la atención en la persona o entidad que ejecuta la acción, la voz pasiva traslada el foco comunicativo hacia el receptor, el resultado o el fenómeno objeto de estudio. En exámenes oficiales como IELTS, TOEFL o Cambridge C1 Advanced, dominar la **voz pasiva en ingles passive voice** permite mantener un tono estrictamente objetivo, variar la complejidad oracional y prescindir de pronombres personales informales.

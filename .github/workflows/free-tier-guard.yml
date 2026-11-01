@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: "scripts\ninfra\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}', sparse-checkout: "scripts\ninfra\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }
       - uses: actions/setup-node@v4
         with: { node-version: '24' }
       - name: Đo & đánh giá
@@ -32,5 +32,5 @@ jobs:
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/free-tier-state.json && git commit -m "free-tier-guard: chế độ Worker $(node -p "require('./web/free-tier-state.json').mode") [CF-Pages-Skip]" && git push
+          git add web/free-tier-state.json && git commit -m "free-tier-guard: chế độ Worker $(node -p "require('./web/free-tier-state.json').mode") [CF-Pages-Skip] [skip ci]" && git push
           gh workflow run pages-deploy.yml --ref main -f urgent=true -f quiet=0 -f reason="free-tier-guard: đổi chế độ Worker"

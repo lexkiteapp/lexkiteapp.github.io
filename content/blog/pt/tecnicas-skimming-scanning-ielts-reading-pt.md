@@ -9,7 +9,7 @@ tags: [reading, ielts, exam-tips]
 keyword: "skimming e scanning ielts reading"
 cover: reading
 coverAlt: "Lista de artigos e passagens de leitura acadêmica do IELTS na plataforma Lexkite"
-publishAt: ""
+publishAt: 2026-11-29T12:06:00-03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

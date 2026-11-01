@@ -33,6 +33,7 @@ quiz: [
     explain: "Untuk kalimat dengan to be atau modal auxiliary, kalimat tanya dibentuk cukup dengan membalik posisi to be/modal ke depan subjek."
   }
 ]
+publishAt: 2026-11-20T19:30:00+07:00
 ---
 Dalam bahasa Indonesia, mengubah pernyataan menjadi pertanyaan sangatlah fleksibel. Kita cukup menaikkan intonasi di akhir kalimat: *"Kamu mau ikut."* menjadi *"Kamu mau ikut?"* atau menambahkan kata tanya *"apakah"*.
 

@@ -32,7 +32,7 @@ jobs:
     timeout-minutes: 200   # 30/10 đo pilot 9: ~14 s/từ (Gemini 3.x chậm) → LX_N 600 ≈ 140 phút
     steps:
       - uses: actions/checkout@v4
-        with: { ref: '${{ github.ref }}' }   # 31/10: lượt chờ hàng đợi (concurrency) phải lấy main MỚI lúc chạy, không phải SHA lúc xếp hàng (run 41178484346 làm lại retry cũ + xung đột khi lưu)
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}', ref: '${{ github.ref }}' }   # 31/10: lượt chờ hàng đợi (concurrency) phải lấy main MỚI lúc chạy, không phải SHA lúc xếp hàng (run 41178484346 làm lại retry cũ + xung đột khi lưu)
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
@@ -125,7 +125,7 @@ jobs:
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main && node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
             git diff --cached --quiet && { echo 'đã có trên main'; exit 0; }
-            git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip]" && git push -q origin HEAD:main && exit 0
+            git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip] [skip ci]" && git push -q origin HEAD:main && exit 0
             sleep $((i * 7)); done; exit 1
       - uses: actions/upload-artifact@v4
         if: always()

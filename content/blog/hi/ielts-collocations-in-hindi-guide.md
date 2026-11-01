@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "ielts collocations in hindi"
 cover: dict
 coverAlt: "लेक्सकाइट डिक्शनरी में resilient शब्द का अर्थ उच्चारण और कोलोकेशन विवरण"
-publishAt: ""
+publishAt: 2026-11-28T19:13:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

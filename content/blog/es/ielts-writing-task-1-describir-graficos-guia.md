@@ -33,6 +33,7 @@ quiz: [
     explain: "Los periodos históricos concluidos en el pasado requieren obligatoriamente el Past Simple para narrar fluctuaciones y variaciones."
   }
 ]
+publishAt: 2026-11-30T19:23:00-06:00
 ---
 
 En la versión académica del examen IELTS, la primera tarea de expresión escrita (*Writing Task 1*) exige a los candidatos analizar una representación gráfica —como un gráfico de líneas, un diagrama de barras, un gráfico circular o una tabla de datos— y redactar un reporte formal de al menos 150 palabras en un tiempo recomendado de 20 minutos. Aunque suele considerarse menos intimidante que el ensayo de Task 2, obtener una puntuación sobresaliente en **ielts writing task 1 graficos** demanda precisión analítica, síntesis de tendencias macroscópicas y un repertorio léxico depurado.
