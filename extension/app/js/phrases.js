@@ -425,11 +425,15 @@
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const timed = (p, ms) => Promise.race([Promise.resolve(p), sleep(ms).then(() => { throw new Error('timeout'); })]);
   let trP = null, trCtrl = new AbortController();
-  const trLib = () => (window.TrFast && TrFast.get ? Promise.resolve(TrFast) : trP || (trP = new Promise(res => {
-    const sc = document.createElement('script'); sc.src = 'js/tr-fast.js'; sc.async = true;
-    sc.onload = () => res(window.TrFast && TrFast.get ? TrFast : null); sc.onerror = () => { trP = null; res(null); };
+  // Nạp lười 1 tệp script (mỗi tệp 1 lần, lỗi → thử lại lần sau). Không dùng App.need('struct'): mục 'struct' trong bảng gói của app.js
+  // nằm lẫn trong dòng chú thích → App.need ném lỗi đồng bộ → bảng "Dịch" kẹt mãi ở trạng thái chờ (lỗi gốc chủ báo 01/11).
+  const JS = {};
+  const loadJs = (src, ok) => (ok() ? Promise.resolve(true) : JS[src] || (JS[src] = new Promise(res => {
+    const sc = document.createElement('script'); sc.src = src; sc.async = true;
+    sc.onload = () => res(!!ok()); sc.onerror = () => { delete JS[src]; res(false); };
     document.head.appendChild(sc);
   })));
+  const trLib = () => loadJs('js/tr-fast.js', () => window.TrFast && TrFast.get).then(v => (v ? TrFast : null));
   const newSeq = () => { trCtrl.abort(); trCtrl = new AbortController(); return ++popSeq; }; // vùng chọn/bảng mới → hủy mọi yêu cầu dịch cũ
   async function trFast(text, L = I18N.learnLang(), o = {}) {
     const F = await timed(trLib(), 1500).catch(() => null);
@@ -507,12 +511,15 @@
     $('[data-x]', pop).onclick = closePop;
     if (k === 'tr') {
       const L = I18N.learnLang();
-      const [r0] = await Promise.all([trFast(info.text, L, { signal: sig }), window.VBStruct ? null : timed(App.need('struct'), 2500).catch(() => {})]);
+      // Cấu trúc trong đoạn (structures.js, tải lười) KHÔNG chặn bản dịch: nạp song song, có thì chèn vào sau
+      const stP = loadJs('js/structures.js', () => window.VBStruct);
+      const r0 = await trFast(info.text, L, { signal: sig });
       if (stale()) return;
       const vi = r0.text;
-      let structs = []; try { structs = window.VBStruct ? VBStruct.analyze(info.text, 4) : []; } catch (e) { /* bỏ qua */ }
+      const stHtml = () => { let structs = []; try { structs = window.VBStruct ? VBStruct.analyze(info.text, 4) : []; } catch (e) { /* bỏ qua */ }
+        return structs.length ? `<div class="st-box"><b class="small">${UI.icon('puzzle')} ${t('Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-row"><b>${esc(t(x.name))}</b> <i class="muted">“${esc(x.match)}”</i><div class="small muted">${esc(t(x.vi))}</div><a class="small" href="#/grammar/${esc(x.lesson)}">${UI.icon('ruler')} ${t('Học bài này →')}</a></div>`).join('')}</div>` : ''; };
       pop.innerHTML = `${head(t('Bản dịch'), 'globe')}${trHtml(vi, info.text)}
-        ${structs.length ? `<div class="st-box"><b class="small">${UI.icon('puzzle')} ${t('Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-row"><b>${esc(t(x.name))}</b> <i class="muted">“${esc(x.match)}”</i><div class="small muted">${esc(t(x.vi))}</div><a class="small" href="#/grammar/${esc(x.lesson)}">${UI.icon('ruler')} ${t('Học bài này →')}</a></div>`).join('')}</div>` : ''}
+        <div data-st>${stHtml()}</div>
         <div data-aiout></div>
         <div class="row" style="margin-top:.5rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm" data-sps>🐢</button><button class="btn sm primary" data-deep>🤖 ${t('Giải thích sâu')}</button></div>`;
       // Chỉ thay phần bản dịch, giữ nguyên phần còn lại của bảng; bản dịch đến muộn (sau ngân sách) tự thay nghĩa từng từ
@@ -525,6 +532,7 @@
       };
       const rt = $('[data-retry]', pop); if (rt) rt.onclick = retry;
       lateFill(r0);
+      if (!window.VBStruct) stP.then(() => { const box = $('[data-st]', pop); if (box && !stale() && window.VBStruct) { box.innerHTML = stHtml(); place(pop, info.rect); } });
       $('[data-sp]', pop).onclick = () => UI.tts(info.text, state.settings.accent);
       $('[data-sps]', pop).onclick = () => UI.tts(info.text, state.settings.accent, 0.65);
       $('[data-deep]', pop).onclick = async ev => {

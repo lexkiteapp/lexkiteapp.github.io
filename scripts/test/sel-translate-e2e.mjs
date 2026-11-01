@@ -91,7 +91,7 @@ for (const [vp, scheme] of matrix) {
   // Chẩn đoán khi bảng còn kẹt khung tạm: từng bước của đường dịch (tải tr-fast.js, kho, App.need) có thời gian riêng
   if (await page.evaluate(() => !!document.querySelector('.sel-pop [data-busy]'))) console.log('  chẩn đoán:', JSON.stringify(await page.evaluate(async () => {
     const T = ms => new Promise(r => setTimeout(() => r('TIMEOUT'), ms)), t = async (name, p) => { const t0 = performance.now(); try { const v = await Promise.race([p, T(5000)]); return name + '=' + JSON.stringify(v && v.text !== undefined ? { text: String(v.text).slice(0, 40), src: v.src } : v).slice(0, 80) + ' ' + Math.round(performance.now() - t0) + 'ms'; } catch (e) { return name + ' THROW ' + e.message; } };
-    return [typeof TrFast, typeof App.trFast, await t('trFast', App.trFast('Hard work does not always guarantee promotion', 'vi')), await t('get', window.TrFast ? TrFast.get('Hard work does not always guarantee promotion', 'vi') : null), await t('need', App.need('struct')), typeof VBStruct, I18N.learnLang(), (window.__errs || []).join('|')];
+    return [typeof TrFast, typeof App.trFast, await t('trFast', App.trFast('Hard work does not always guarantee promotion', 'vi')), await t('get', window.TrFast ? TrFast.get('Hard work does not always guarantee promotion', 'vi') : null), typeof VBStruct, I18N.learnLang(), (window.__errs || []).join('|')];
   })), errs.join(' | '));
   const g0 = await geom(page);
   ok(g0.defFound && g0.defAbove, `[${tag}] định nghĩa nằm trên câu ví dụ (bố cục trang từ)`);

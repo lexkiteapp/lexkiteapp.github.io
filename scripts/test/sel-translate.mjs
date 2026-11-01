@@ -82,6 +82,13 @@ ok(await until(() => /Rất vui được gặp bạn/.test(pop().textContent), 1
 calls = 0; await selectLine(0); await clickTr(); await tick(20);
 ok(/Rất vui được gặp bạn/.test(pop().textContent) && calls === 0, 'cùng câu lần 2 → bộ đệm, hiện tức thì, không gọi mạng');
 
+// Lỗi gốc 01/11: gói 'struct' của App.need hỏng (ném lỗi đồng bộ), structures.js chưa nạp → bảng vẫn phải hiện bản dịch, không kẹt khung tạm
+{ const VB = w.VBStruct, need = w.App.need; delete w.VBStruct; w.App.need = () => { throw new TypeError("Cannot read properties of undefined (reading 'map')"); };
+  mode = 'ok'; w.TrFast._mem.clear(); await selectLine(1); await clickTr();
+  ok(await until(() => /Rất vui được gặp bạn/.test(pop().textContent), 1500) && !pop().querySelector('[data-busy]'), 'App.need hỏng + chưa có VBStruct → bản dịch vẫn hiện, không kẹt');
+  ok(pop().querySelector('[data-st]'), 'chỗ chèn "Cấu trúc trong đoạn" có sẵn (điền khi structures.js nạp xong)');
+  w.VBStruct = VB; w.App.need = need; }
+
 // ===== (2) Vị trí: DƯỚI câu, không che định nghĩa phía trên =====
 mode = 'ok'; w.TrFast._mem.clear();
 const top = () => parseFloat(pop().style.top), bottom = () => top() + 200, left = () => parseFloat(pop().style.left);
