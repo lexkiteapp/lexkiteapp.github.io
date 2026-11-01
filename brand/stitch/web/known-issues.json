@@ -17,6 +17,7 @@
   "sample: [light+dark] nút btn-tactile-coral chữ trắng trên gradient #FF6F56→#F2553B 2.74<4.5 → #10191B (5.22–6.51)",
   "hub: biến :root của mẫu (--teal-primary, --border-warm…) không theo khung (bộ chuyển bỏ :root) → viên lọc \"All\" chữ trắng trên nền trong suốt 1.06 → khai báo lại biến bằng đúng giá trị mẫu trên gốc khung (bind addClass :scope)",
   "hub: [light] chip CTA #FFC94A trên white/15 + gradient #0D6964 3.04<4.5 → #FFFFFF (4.66); thời gian đọc #4E6668 trên white/80 phủ ảnh (tối nhất 3.82) → #0F3D3E (≥7.44)",
-  "dict-hub: [light] chữ phụ #6f7978 (outline) trên #fff8f4/#fff 4.26–4.48<4.5 (số từ \"(27 words)\", \"Press Enter to search\") → #3f4947 (on-surface-variant, 8.85); nút loa giữ #6f7978 (biểu tượng 4.27 ≥ 3)"
+  "dict-hub: [light] chữ phụ #6f7978 (outline) trên #fff8f4/#fff 4.26–4.48<4.5 (số từ \"(27 words)\", \"Press Enter to search\") → #3f4947 (on-surface-variant, 8.85); nút loa giữ #6f7978 (biểu tượng 4.27 ≥ 3)",
+  "dict-hub: [dark] nút ghost (Save word) – mẫu dùng .tactile-btn-ghost nền #fff nhưng chữ #A5C6CB 1.81<4.5 → chữ #00201e (có trong mẫu tối)"
  ]
 }

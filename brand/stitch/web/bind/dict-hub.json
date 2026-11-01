@@ -398,6 +398,9 @@
   },
   "[class~=\"lt:text-[#6f7978]\"]": {
    "lt:text-[#6f7978]": "'lt:text-[#3f4947]'"
+  },
+  "[class~=\"tactile-btn-ghost\"][class~=\"dk:text-[#A5C6CB]\"]": {
+   "dk:text-[#A5C6CB]": "'dk:text-[#00201e]'"
   }
  },
  "addClass": {
