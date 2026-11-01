@@ -1,135 +1,144 @@
 ---
 slug: cara-paraphrase-ielts-writing-reading
-title: "Cara paraphrase ielts: 5 Teknik Kunci Meraih Band 8+"
-description: "Pelajari cara paraphrase ielts dengan 5 teknik teruji: sinonim akademik, pergeseran kelas kata, variasi sintaksis, dan contoh esai Writing Task 2 Band 8.5."
+title: "Cara Paraphrase IELTS : 5 Teknik Jitu Menuju Band 8.5"
+description: "Pelajari cara paraphrase ielts dengan tepat: 5 teknik parafrase untuk Writing Task 2 dan Reading, contoh kalimat Band 8.5 serta tips menghindari kesalahan umum."
 keyword: "cara paraphrase ielts"
 lang: id
 translationKey: cach-paraphrase-trong-ielts
 category: ielts
 tags: [ielts, paraphrase, writing, reading]
 cover: write
-coverAlt: "Ruang latihan menulis IELTS Task 2 di Lexkite dengan prompt topik, saran kosakata, dan esai model band 8"
+coverAlt: "Ruang Latihan Menulis Lexkite IELTS Task 2: Soal per topik, bantuan brainstorming, kosakata akademis, dan contoh esai Band 8"
 qualityScore: 96
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
 quiz: [
   {
-    q: "Apa kesalahan paling fatal saat melakukan paraphrase soal esai IELTS Writing Task 2 pada paragraf pendahuluan?",
+    q: "Kesalahan paling fatal yang sering dilakukan kandidat saat melakukan paraphrase pada pengantar IELTS Writing Task 2 adalah:",
     options: [
-      "Mengganti kata secara acak dengan sinonim yang tidak tepat sehingga mengubah makna logis kalimat",
-      "Mengubah urutan klausa utama dan klausa bawahan",
-      "Mengubah kata sifat menjadi kata benda abstrak",
-      "Menggabungkan dua kalimat sederhana menjadi kalimat majemuk"
+      "Mengganti kata per kata secara mekanis dengan sinonim acak tanpa memperhatikan kolokasi alami dan konteks kalimat",
+      "Membalikkan urutan antara klausa utama dan klausa bawahan",
+      "Mengubah kata kerja menjadi kata benda melalui nominalisasi (Nominalization)",
+      "Menggunakan bentuk kalimat pasif akademis yang objektif"
     ],
     answer: 0,
-    explain: "Mengganti kata secara buta tanpa memahami kolokasi dan nuansa konteks akademik sering kali merusak pesan kalimat dan menurunkan skor Lexical Resource."
+    explain: "Menukar kata satu per satu tanpa memperhatikan konteks alami dan kolokasi (Collocations) menghasilkan kalimat rancu yang menurunkan skor Lexical Resource secara drastis."
   }
 ]
 ---
 
-Menguasai **cara paraphrase ielts** merupakan salah satu keterampilan paling esensial untuk mendobrak batas skor 6.5 menuju level superior Band 7.5 hingga 8.5 dalam tes IELTS akademik. Saat menghadapi soal **IELTS Writing Task 2**, kekeliruan paling umum yang langsung memangkas nilai adalah menyalin ulang kalimat soal kata demi kata pada paragraf pengantar. Penguji menilai keluwesan kosakata dan ketepatan struktur kalimat Anda sejak baris pertama.
+Menguasai **cara paraphrase ielts** secara fasih dan akurat adalah pembeda krusial antara tertahan di band 6.5 dengan melaju mantap ke band 7.5 hingga 8.5. Pada **IELTS Writing Task 2**, menyalin mentah-mentah soal pada paragraf pengantar (*Introduction*) akan berakibat fatal: penguji akan mencoret dan memotong kalimat salinan tersebut dari total hitungan kata esai Anda. Sejak kalimat pertama, keluwesan tata bahasa dan kemandirian kosakata Anda sudah dinilai secara saksama.
 
-Teknik paraphrase tidak hanya krusial untuk tes menulis. Dalam **IELTS Reading** dan **IELTS Listening**, pertanyaan hampir tidak pernah menggunakan kata yang persis sama dengan teks bacaan atau rekaman audio; mengenali padanan makna dan variasi struktur adalah kunci menemukan jawaban yang benar. Sementara dalam **Speaking**, kemampuan memparafrase membantu Anda menjelaskan ide saat lupa istilah tertentu tanpa mengorbankan kelancaran. Panduan komprehensif ini mengupas 5 teknik utama, contoh kontekstual, latihan terarah, dan jebakan umum yang harus dihindari.
+Urgensi paraphrase tidak hanya berlaku untuk esai menulis. Di bagian **IELTS Reading** dan **Listening**, butir pertanyaan hampir tidak pernah menggunakan pilihan kata yang persis sama dengan teks atau rekaman suara; menemukan kalimat parafrasa dengan cepat adalah rahasia menjawab soal dalam hitungan detik. Di ujian wawancara (**Speaking**), kemampuan menjelaskan kembali ide saat lupa kata spesifik akan menjaga kelancaran (*Fluency*) berbicara Anda. Panduan ini mengupas 5 formula parafrase akademis, contoh kalimat Band 8.5 orisinal, serta jebakan umum yang wajib dihindari.
 
-## 1. Mengapa memahami cara paraphrase ielts menentukan skor di 4 keterampilan
+## 1. Mengapa memahami cara paraphrase ielts menentukan skor akhir Anda
 
-Kecakapan menerapkan **cara paraphrase ielts** berdampak langsung pada seluruh kriteria penilaian resmi:
+Keterampilan parafrase terkait erat dengan empat pilar penilaian resmi:
 
-- **Writing Task 1 dan Task 2:** Menulis ulang soal dengan kata-kata sendiri di paragraf pendahuluan membuktikan kekayaan leksikal (*Lexical Resource*). Pada paragraf isi, variasi ekspresi mencegah pengulangan kata yang monoton.
-- **Reading:** Menemukan sinonim dan perubahan bentuk kalimat dalam soal tipe *True/False/Not Given* dan *Matching Headings* sangat penting untuk memindai informasi dengan cepat.
-- **Listening:** Pembicara dalam audio sering kali menyampaikan poin penting dengan frasa yang berbeda dari lembar soal; menunggu kata yang persis sama membuat Anda tertinggal.
-- **Speaking:** Ketika Anda lupa kata tertentu di tengah ujian Part 2 atau Part 3, kemampuan menguraikan konsep tersebut dengan frasa lain melindungi nilai kelancaran dan koherensi (*Fluency and Coherence*).
+- **Writing Task 1 & 2:** Menyusun ulang kalimat soal pada pendahuluan membuktikan kekayaan leksikal (*Lexical Resource*), dan variasi konstruksi kalimat mendongkrak skor *Grammatical Range and Accuracy*.
+- **Reading:** Pada soal *True/False/Not Given* dan *Matching Headings*, letak jawaban selalu tersembunyi di balik kalimat yang telah diparafrasekan secara cerdik.
+- **Listening:** Pembicara audio kerap memanfaatkan istilah sinonim atau definisi melingkar agar pendengar tidak sekadar mencocokkan kata kunci secara dangkal.
+- **Speaking:** Pada Part 3, merumuskan kembali pertanyaan abstrak dari penguji memberikan jeda berharga untuk menyusun argumen matang tanpa jeda hening yang canggung.
 
-Berlatihlah menyusun dan membedah esai di [Modul Writing Lexkite](/#/write).
+Cobalah berlatih merangkai paragraf pengantar Task 2 secara interaktif di [Studio Menulis Lexkite](/#/write).
 
-![Ruang latihan menulis IELTS Task 2 di Lexkite dengan prompt topik, saran kosakata, dan esai model band 8](media:write "Tulis dan periksa esai IELTS dengan panduan kosakata akademik dan struktur kalimat di Lexkite")
+![Ruang Latihan Menulis Lexkite IELTS Task 2: Soal per topik, bantuan brainstorming, kosakata akademis, dan contoh esai Band 8](media:write "Berlatih memparafrasekan pengantar esai IELTS Writing Task 2 di studio menulis Lexkite")
 
-## 2. Teknik 1: Penggunaan sinonim akademik yang cermat
+## 2. Teknik 1: Pergantian sinonim akademis sesuai konteks
 
-Mengganti kata dengan padanan makna yang sesuai adalah metode paling populer, namun membutuhkan ketelitian tinggi karena sinonim absolut sangat jarang ada dalam bahasa Inggris formal.
+Memilih padanan kata adalah langkah paling lumrah, namun membutuhkan kehati-hatian ekstra terkait tingkat formalitas akademis:
 
-- **Kalimat asal:** *Many young people prefer working from home rather than commuting to an office.*
-- **Hasil paraphrase (Band 8.5):** *A considerable proportion of modern professionals favor telecommuting over traveling to conventional workplaces.*
+- **Kalimat asli dari soal:** *A large number of young jobseekers choose freelancing rather than securing positions in corporate firms.*
+- **Parafrase akademis (Band 8.5):** *A notable proportion of recent graduates prefer independent contract work over pursuing employment within conventional corporate organizations.*
 
-> **Peringatan penting:** Jangan mengganti kata semata-mata agar terdengar rumit. Mengganti *schoolchildren* dengan *infants* atau *juveniles* justru merusak makna. Selalu periksa kolokasi (*collocations*) dan derajat formalitas kata tersebut.
+> **Peringatan penguji:** Jangan memakai kata arkais yang berlebihan semata-mata demi terdengar canggih. Menukar *young jobseekers* dengan kata kaku seperti *youthful supplicants* justru terdengar ganjil. Gunakan pasangan kata yang lazim (*Collocations*) dalam karya ilmiah.
 
 Periksa kolokasi dan makna kata yang tepat melalui [Kamus Lexkite](/#/dict/resilient).
 
 ![Tampilan kamus dwibahasa Lexkite yang menampilkan definisi kata, audio pelafalan UK/US, dan contoh kalimat](media:dict "Cek definisi formal, transkripsi fonetik, dan kolokasi kata di kamus Lexkite")
 
-## 3. Teknik 2: Pergeseran kelas kata (Word Form Shift)
+## 3. Teknik 2: Pergeseran kelas kata dan nominalisasi (Nominalization)
 
-Teknik ini mengubah kata kerja menjadi kata benda (nominalisasi), kata sifat menjadi kata keterangan, atau sebaliknya. Perubahan kelas kata memaksa seluruh kalimat mengatur ulang strukturnya secara elegan dan alami:
+Mengubah kata kerja menjadi kata benda (**nominalisasi**) atau kata sifat menjadi kata keterangan merombak kerangka kalimat secara total sehingga esai terdengar formal dan ringkas:
 
-- **Dari kata kerja menjadi kata benda (Nominalisasi):**
-  - *Asal:* The government should invest significantly in renewable energy to protect the environment.
-  - *Paraphrase (Band 8):* Substantial public investment in renewable energy is indispensable for environmental preservation.
+- **Dari kata kerja menjadi kata benda:**
+  - *Asal:* Regional authorities should subsidize renewable energy generation to protect rural ecosystems.
+  - *Parafrase (Band 8):* Substantial governmental subsidization of renewable power generation is imperative for the conservation of rural ecosystems.
 - **Dari kata sifat menjadi kata keterangan:**
-  - *Asal:* The sudden rise in international tuition fees caused widespread public dissatisfaction.
-  - *Paraphrase (Band 8.5):* International tuition fees increased abruptly, triggering intense dissatisfaction among prospective students.
+  - *Asal:* The sudden reduction in corporate taxes caused unexpected budgetary shortfalls nationwide.
+  - *Parafrase (Band 8.5):* Corporate taxes dropped precipitously across the country, causing unforeseen fiscal deficits for national treasuries.
 
 Kuasai kaidah sintaksis lanjutan di [Modul Grammar Lexkite](/#/grammar).
 
 ![Alur belajar tata bahasa Inggris IELTS di Lexkite dengan 12 tenses dan latihan interaktif](media:grammar "Pelajari transformasi klausa dan struktur gramatikal tingkat lanjut di modul grammar Lexkite")
 
-## 4. Teknik 3: Rekonstruksi sintaksis dan variasi kalimat aktif-pasif
+## 4. Teknik 3: Rekonstruksi sintaksis dan bentuk pasif akademis
 
-Mengubah tata urutan klausa atau beralih dari kalimat aktif ke kalimat pasif akademis memperbarui format kalimat tanpa mengubah substansi pesan:
+Memutar urutan klausa utama dan bawahan, atau bertransisi dari kalimat aktif ke pasif ilmiah, memberikan nuansa tulisan yang objektif:
 
-- **Pembalikan klausa konsesi:**
-  - *Asal:* Although artificial intelligence creates new industries, it threatens manual jobs.
-  - *Paraphrase:* While routine manual occupations face severe disruption from automation, novel technological sectors continue to emerge simultaneously.
+- **Pembalikan klausa konsesi (Meskipun):**
+  - *Asal:* Although remote teleworking delivers undeniable convenience, many professionals miss face-to-face mentorship.
+  - *Parafrase:* In-person workplace mentoring remains deeply valued by numerous professionals, despite the clear logistical flexibility provided by remote teleworking.
 - **Transisi ke kalimat pasif akademis:**
-  - *Asal:* Municipal authorities must implement strict emission ceilings to purify urban air.
-  - *Paraphrase:* Stringent emissions ceilings ought to be instituted by municipal authorities to diminish atmospheric pollutants.
+  - *Asal:* Municipal planners ought to penalize industrial polluters that contaminate municipal waterways.
+  - *Parafrase:* Commercial enterprises that discharge toxins into urban rivers ought to be strictly penalized by municipal regulatory bodies.
 
-## 5. Teknik 4: Penggunaan konjungsi logis sebab-akibat
+## 5. Teknik 4: Memodifikasi penghubung sebab-akibat (Cause & Effect)
 
-Menghubungkan dua gagasan utama menggunakan konjungsi kausalitas formal (*owing to*, *as a consequence of*, *given that*) memperkuat kohesi esai:
+Tinggalkan kata sambung sederhana seperti *because* dan gantikan dengan penghubung analitis yang berbobot: *owing to*, *as a consequence of*, atau *stemming from*:
 
-- *Asal:* Excessive reliance on private motor vehicles is creating intolerable traffic jams in major capitals.
-- *Paraphrase (Band 8.5):* Given that urban commuters depend overwhelmingly on personal automobiles, metropolitan capitals suffer chronic vehicular congestion.
+- *Asal:* Many university entrants struggle with autonomous study because high school curricula provide constant teacher oversight.
+- *Parafrase (Band 8.5):* Owing to secondary institutions providing continuous instructional supervision, numerous university freshmen experience severe difficulties when cultivating autonomous study habits.
 
 ## 6. Teknik 5: Reformulasi negasi dan antitesis
 
-Menyatakan kebenaran suatu gagasan dengan meniadakan kebalikannya adalah strategi bernilai tinggi yang memperlihatkan kedewasaan gaya bahasa:
+Menyampaikan suatu gagasan positif dengan meniadakan kebalikannya mencerminkan kematangan nalar dan kemahiran linguistik yang tinggi:
 
-- *Asal:* Consuming fast food regularly is harmful to cardiovascular health.
-- *Paraphrase:* Failing to moderate fast food intake is rarely beneficial to long-term cardiovascular well-being.
+- *Asal:* Regular cardiovascular exercise during middle age is crucial for maintaining cognitive acuity.
+- *Parafrase:* Leading a sedentary daily routine throughout middle age is seldom beneficial for preserving long-term cognitive acuity.
 
-## 7. Analisis paragraf pengantar hasil paraphrase (Writing Task 2)
+## 7. Bedah kasus: Parafrase lengkap paragraf pengantar Task 2
 
-Mari amati bagaimana teknik-teknik ini diterapkan secara terpadu dalam pengantar esai:
+Amati bagaimana kelima formula di atas menyatu dengan mulus dalam mengolah soal ujian:
 
-> **Soal resmi IELTS:**  
-> *Some people believe that unpaid community service should be a compulsory part of high school programmes. To what extent do you agree or disagree?*
+> **Soal ujian resmi:**  
+> *Some sociologists argue that universal basic income should be guaranteed to every citizen regardless of employment status. To what extent do you agree or disagree?*
 >
-> **Paragraf pengantar hasil paraphrase (Band 8.5):**  
-> It is often argued that secondary educational institutions ought to mandate voluntary civic engagement as an obligatory component of their core curriculum. From my perspective, while enforcing mandatory social participation undeniably cultivates altruistic responsibility among adolescents, compelling students without considering their academic workloads may inadvertently foster resentment.
+> **Hasil parafrase pengantar (Band 8.5):**  
+> A growing cohort of social theorists contends that an unconditional state dividend ought to be distributed to all permanent residents irrespective of their occupational circumstances. In my assessment, while introducing an unconditional safety net undeniably cushions vulnerable households against automation-driven job loss, financing such universal disbursements without targeted criteria risks straining public budgets and disincentivizing workforce participation.
 
-## 8. Latihan terarah: Memparafrase 3 soal esai populer
+## 8. Tiga latihan terarah beserta pembahasannya
 
-Pahami penerapan kombinasi teknik di atas pada 3 contoh soal berikut:
+### Latihan 1: Akses internet gratis di tempat umum
+- **Soal:** *Municipal councils should provide complimentary broadband connectivity in all public parks and libraries.*
+- **Strategi:** Nominalisasi dipadukan dengan kalimat pasif (*provide connectivity* → *the provision ought to be subsidized*).
+- **Parafrase (Band 8.5):* *The provision of unrestricted high-speed internet access across civic gathering spaces ought to be universally funded by municipal administrations.*
 
-### Latihan 1: Pendidikan tinggi gratis
-- **Soal:** *Tertiary education should be universally free for all domestic citizens regardless of their socioeconomic status.*
-- **Paraphrase model (Band 8.5):** *State authorities ought to eliminate undergraduate tuition fees entirely, ensuring that access to higher learning is guaranteed irrespective of familial wealth.*
+### Latihan 2: Dampak wisata bahari pada terumbu karang
+- **Soal:** *Unregulated recreational scuba diving causes permanent structural damage to fragile coral reefs.*
+- **Strategi:** Pembalikan sebab-akibat dan variasi kelas kata (*diving causes damage* → *reefs suffer deterioration due to influx*).
+- **Parafrase (Band 8.5):* *Fragile marine ecosystems and offshore coral formations suffer severe physical deterioration largely attributable to the uncontrolled influx of recreational divers.*
 
-### Latihan 2: Otomasi tenaga kerja
-- **Soal:** *Advances in artificial intelligence and robotics will inevitably eliminate millions of white-collar and clerical occupations.*
-- **Paraphrase model (Band 8.5):** *As cognitive algorithms and automation systems continue to proliferate, knowledge workers and administrative personnel confront unprecedented professional displacement.*
+### Latihan 3: Penggantian tenaga perawat oleh robot medis
+- **Soal:** *Automated robotic assistants will take over nursing duties in geriatric healthcare facilities.*
+- **Strategi:** Sinonim kontekstual dan pergeseran fokus kalimat (*robots take over duties* → *caregivers face substitution*).
+- **Parafrase (Band 8.5):* *Human caregivers in elderly nursing homes face increasing functional substitution as sophisticated assistive robotics become widely deployed.*
 
-### Latihan 3: Pariwisata massal di kota bersejarah
-- **Soal:** *The exponential growth of international mass tourism causes irreparable harm to historic monuments and local communities.*
-- **Paraphrase model (Band 8.5):** *Ancient heritage landmarks and residential neighborhoods are increasingly jeopardized by the relentless influx of global sightseers.*
+## 9. Empat kesalahan fatal saat memparafrasekan kalimat
 
-## 9. 4 Kesalahan umum saat melakukan paraphrase
+1. **Mengganti kata per kata secara mekanis:** Menukar setiap kata persis urutan aslinya menghasilkan frasa aneh yang merusak kolokasi bahasa Inggris.
+2. **Pergeseran makna esensial:** Mengubah dugaan bersyarat (*may contribute*) menjadi fakta mutlak (*completely causes*) menghilangkan kehati-hatian akademis.
+3. **Penyusupan bahasa informal:** Menyelipkan kata santai seperti *kids*, *stuff*, atau *heaps of* akan menjatuhkan derajat keilmiahan tulisan.
+4. **Lupa merumuskan kalimat tesis:** Memparafrasekan soal hanyalah awal pengantar; Anda wajib menyertakan pernyataan sikap (*Thesis Statement*) yang tegas.
 
-1. **Mengganti kata per kata tanpa mengubah sintaksis:** Cara ini sering menghasilkan kalimat aneh yang sulit dimengerti.
-2. **Pergeseran makna:** Mengganti *working from home* dengan *unemployment* sepenuhnya merusak logika esai.
-3. **Menggunakan ragam bahasa informal:** Memakai kata seperti *kids* alih-alih *schoolchildren* menurunkan derajat formalitas tulisan.
-4. **Lupa menyertakan pernyataan tesis:** Melakukan paraphrase pada soal hanyalah langkah awal; pendahuluan wajib memuat sikap Anda yang tegas (*thesis statement*).
+## 10. Strategi kilat 3 langkah di ruang ujian
+
+Untuk memparafrasekan topik esai dalam kurun waktu 2 menit di ruang ujian:
+
+- **Langkah 1 (Kunci Istilah Pokok):** Garis bawahi istilah teknis (seperti *universal basic income* atau *coral reefs*) yang tidak boleh diganti secara serampangan.
+- **Langkah 2 (Tentukan Arsitektur Kalimat):** Putuskan apakah Anda akan menerapkan nominalisasi, kalimat pasif, atau inversi klausa konsesi.
+- **Langkah 3 (Pemeriksaan Makna):** Baca kilat dalam 15 detik untuk memastikan substansi pernyataan tidak melenceng.
 
 ## Panduan pelengkap untuk mengoptimalkan persiapan IELTS Anda
 
@@ -138,19 +147,19 @@ Pahami penerapan kombinasi teknik di atas pada 3 contoh soal berikut:
 - **Rumus kalimat tanya**: Pahami kaidah penting di [Rumus Kalimat Tanya Bahasa Inggris 5W1H](/id/blog/rumus-kalimat-tanya-bahasa-inggris-5w1h/)
 - **Latihan menyimak terfokus**: Pertajam telinga lewat [Metode Dictation Meningkatkan Listening](/id/blog/metode-dictation-meningkatkan-listening-bahasa-inggris/)
 - **Kamus monolingual**: Biasakan berpikir dalam bahasa Inggris dengan [Cara Menggunakan Kamus Bahasa Inggris Monolingual](/id/blog/cara-menggunakan-kamus-bahasa-inggris-monolingual/)
-- **Dialog bahasa Inggris nyata**: Dengarkan percakapan di [Sampel Percakapan Bahasa Inggris](/samples/)
+- **Bank contoh kalimat**: Pelajari ungkapan alami penutur asli di [koleksi contoh kalimat kontekstual](/samples/)
 
-{{youtube: | Cara Paraphrase IELTS 5 Teknik Kunci Meraih Band 8}}
+{{youtube: | Cara Paraphrase IELTS 5 Teknik Jitu Menuju Band 8.5}}
 
-{{cta: /#/write | Masuk ke ruang menulis Lexkite sekarang dan latih paraphrase esai IELTS}}
+{{cta: /#/write | Mulai latihan paraphrase topik IELTS Task 2 di Studio Menulis Lexkite sekarang juga}}
 
-## Pertanyaan yang Sering Diajukan (FAQ)
+## Tanya Jawab Populer (FAQ)
 
-### Apakah semua kata dalam soal esai harus diparafrase?
-Tidak. Kosakata teknis atau istilah spesifik (seperti *university*, *climate change*, atau *government*) tidak perlu dipaksakan diganti. Fokuskan perhatian pada perubahan struktur tata bahasa dan kata kerja pendukung.
+### Apakah semua kata dalam soal wajib diganti?
+Sama sekali tidak. Istilah topik utama seperti *university*, *renewable energy*, atau *climate change* wajib dipertahankan. Konsentrasikan perubahan Anda pada kata kerja, kata sifat, dan pola sintaksis.
 
-### Apakah menyalin kalimat soal akan mengurangi nilai?
-Ya. Penguji akan mencoret kalimat yang disalin persis dari soal dalam penghitungan jumlah kata minimum, yang dapat membuat esai Anda kurang dari 250 kata dan menurunkan skor *Task Achievement*.
+### Bagaimana akibatnya jika saya menyalin soal apa adanya?
+Penguji akan menghapus kalimat salinan tersebut dari hitungan kata esai Anda. Jika sisa kata kurang dari 250 kata, esai akan terkena sanksi pemotongan skor berat pada kriteria *Task Achievement*.
 
-### Bagaimana cara memanfaatkan teknik paraphrase saat Speaking Part 3?
-Gunakan teknik ini untuk mengulur waktu secara elegan saat memikirkan ide jawaban (*"That is an intriguing question regarding whether governments should prioritize renewable transitions..."*), membuktikan kelancaran dan penguasaan bahasa Anda.
+### Bagaimana mengaplikasikan paraphrase di Speaking Part 3?
+Di bagian ketiga wawancara, awali jawaban Anda dengan merumuskan ulang pertanyaan penguji dengan gaya kalimat Anda sendiri (misalnya: *"That is a thought-provoking dilemma regarding whether municipal authorities should allocate public funds to green initiatives..."*). Hal ini memberi Anda waktu berpikir sembari langsung memamerkan kemahiran kosakata.
