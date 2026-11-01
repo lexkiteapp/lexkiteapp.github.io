@@ -4,7 +4,7 @@ title: "جمل معقدة Complex Sentences ايلتس: أسرار باند 7.5+
 description: "دليل كتابة جمل معقدة complex sentences ايلتس: الجمل الموصولة، أشباه الجمل الحالية والمصدرية، أسلوب التقديم والتأخير، ونماذج فقرات كاملة لباند 8."
 keyword: "جمل معقدة complex sentences ايلتس"
 lang: ar
-translationKey: cau-phuc-ielts-writing-complex-sentences
+translationKey: ngu-phap-ielts-cau-phuc
 category: ielts
 tags: [ielts, writing, complex-sentences, qawaid]
 cover: write

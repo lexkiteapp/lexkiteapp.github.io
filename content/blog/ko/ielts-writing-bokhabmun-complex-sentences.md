@@ -4,7 +4,7 @@ title: "IELTS 라이팅 복합문 작성법: Band 7.0+를 위한 문법 다양�
 description: "IELTS 라이팅 복합문 작성법과 문법 다양성(Grammatical Range) 고득점 전략 완벽 가이드. 관계대명사, 부사절 접속사, 분사구문, 도치 구문까지 Band 7.0~8.0 달성을 위한 실전 예문과 템플릿, 확인 퀴즈를 상세히 정리합니다."
 keyword: "ielts 라이팅 복합문"
 lang: ko
-translationKey: cau-phuc-trong-ielts-writing
+translationKey: ngu-phap-ielts-cau-phuc
 category: ielts
 tags: [ielts, writing, complex-sentences, grammar]
 cover: write

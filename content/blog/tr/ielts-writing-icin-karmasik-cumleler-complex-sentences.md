@@ -4,7 +4,7 @@ title: "IELTS Writing Karmaşık Cümleler: Band 7+ Rehberi ve Örnekleri"
 description: "IELTS writing karmaşık cümleler kurma rehberi: Yan cümleler, ortaçlar, devrik yapılar, noktalama kuralları ve Band 7+ örnek cümleleri."
 keyword: "ielts writing karmaşık cümleler"
 lang: tr
-translationKey: cau-phuc-ielts-writing-complex-sentences
+translationKey: ngu-phap-ielts-cau-phuc
 category: ngu-phap
 tags: [ielts, writing, karmasik-cumleler, dilbilgisi]
 cover: write

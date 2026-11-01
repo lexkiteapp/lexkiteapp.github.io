@@ -4,7 +4,7 @@ title: "Complex Sentences IELTS Writing: โครงสร้างประโ
 description: "วิธีเขียน complex sentences ielts writing ให้ถูกต้อง: รวมอนุประโยค Adverbial, Relative Clauses, Participles และ Inversion พร้อมตัวอย่าง Band 8."
 keyword: "complex sentences ielts writing"
 lang: th
-translationKey: cau-phuc-ielts-writing-complex-sentences
+translationKey: ngu-phap-ielts-cau-phuc
 category: ngu-phap
 tags: [ielts, writing, complex-sentences, wayakon]
 cover: write

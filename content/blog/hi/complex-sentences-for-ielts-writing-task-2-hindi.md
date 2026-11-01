@@ -4,7 +4,7 @@ title: "IELTS राइटिंग कॉम्प्लेक्स सें�
 description: "IELTS राइटिंग कॉम्प्लेक्स सेंटेंस कैसे बनाएं: 5 उन्नत जटिल वाक्य संरचनाएं, कंजंक्शन, मॉडल पैराग्राफ और ग्रामर रेंज में बैंड 7.5+ पाने की अचूक गाइड।"
 keyword: "ielts राइटिंग कॉम्प्लेक्स सेंटेंस"
 lang: hi
-translationKey: cau-phuc-ielts-writing-complex-sentences
+translationKey: ngu-phap-ielts-cau-phuc
 category: ielts
 tags: [ielts, writing, complex-sentences, grammar]
 cover: write
