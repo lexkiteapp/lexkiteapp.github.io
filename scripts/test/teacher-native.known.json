@@ -3,8 +3,6 @@
   "raw": {
     "web/js/call.js": 1,
     "web/js/lesson/teacher.js": 3,
-    "web/js/retention.js": 2,
-    "web/js/st/common.js": 2,
-    "web/js/ux1.js": 1
+    "web/js/st/common.js": 1
   }
 }

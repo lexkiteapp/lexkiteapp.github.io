@@ -1,5 +1,5 @@
 // 🧍 Cổng teacher-native (npm test, phần tĩnh): giáo viên trên màn phải đi qua chỗ giáo viên chung Chars.slot (web/js/teacher-slot.js) – đứng sau bệ,
-// không vệt cắt/khối xám ở hông, cỡ chuẩn s/m/l/xl. Ảnh tĩnh nửa người đặt trần (Chars.img/still/poster/avatar) chỉ còn ở các chỗ đã ghi trong
+// không vệt cắt/khối xám ở hông, cỡ chuẩn xs/s/m/l/xl. Ảnh tĩnh nửa người đặt trần (Chars.img/still/poster/avatar) chỉ còn ở các chỗ đã ghi trong
 // teacher-native.known.json (danh sách CHỈ ĐƯỢC GIẢM khi chuyển từng màn sang slot; thêm chỗ mới = đỏ). Luật: docs/CHARACTERS.md §Chỗ giáo viên.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,7 +12,7 @@ for (const f of walk(path.join(ROOT, 'web/js'))) {
   const rel = path.relative(ROOT, f).split(path.sep).join('/'); if (SKIP.has(rel)) continue;
   const s = fs.readFileSync(f, 'utf8');
   const n = (s.match(/Chars\.(img|still|poster|avatar)\(/g) || []).length; if (n) raw[rel] = n;
-  for (const m of s.matchAll(/Chars\.slot\([^)]*?size:\s*'([a-z]+)'/g)) if (!['s', 'm', 'l', 'xl'].includes(m[1])) err.push(`${rel}: Chars.slot size '${m[1]}' ngoài cỡ chuẩn s/m/l/xl`);
+  for (const m of s.matchAll(/Chars\.slot\([^)]*?size:\s*'([a-z]+)'/g)) if (!['xs', 's', 'm', 'l', 'xl'].includes(m[1])) err.push(`${rel}: Chars.slot size '${m[1]}' ngoài cỡ chuẩn xs/s/m/l/xl`);
   if (/teach\/(ama|carlos)\/still-/.test(s)) err.push(`${rel}: đường dẫn ảnh giáo viên viết tay – dùng Chars.slot`);
 }
 for (const [f, n] of Object.entries(raw)) {
