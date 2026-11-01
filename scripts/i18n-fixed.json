@@ -8842,19 +8842,19 @@
     "tr": "çene kapalı"
   },
   "hàm hé": {
-    "es": "mandíbula ligeramente abierta",
-    "pt": "mandíbula levemente aberta",
-    "fr": "mâchoire légèrement ouverte",
-    "de": "Kiefer leicht geöffnet",
-    "id": "rahang sedikit terbuka",
+    "es": "mandíbula entreabierta",
+    "pt": "mandíbula entreaberta",
+    "fr": "mâchoire mi-ouverte",
+    "de": "Kiefer halb offen",
+    "id": "rahang setengah terbuka",
     "th": "ขากรรไกรเปิดเล็กน้อย",
-    "zh": "下颌微开",
-    "ja": "あごを少し開く",
-    "ko": "턱을 살짝 열고",
-    "hi": "जबड़ा थोड़ा खुला",
-    "ar": "الفك مفتوح قليلًا",
-    "ru": "челюсть слегка приоткрыта",
-    "tr": "çene hafif açık"
+    "zh": "下颌半开",
+    "ja": "あごを半分開く",
+    "ko": "턱을 반쯤 열고",
+    "hi": "जबड़ा आधा खुला",
+    "ar": "الفك نصف مفتوح",
+    "ru": "челюсть приоткрыта",
+    "tr": "çene yarı açık"
   },
   "hàm mở rộng": {
     "es": "mandíbula muy abierta",
@@ -31709,6 +31709,21 @@
     "ar": "التوصية لصديق بدرس طبخ",
     "ru": "Рекомендация другу кулинарных курсов",
     "tr": "Arkadaşa yemek kursunu önerme"
+  },
+  "Xếp câu tiếng Anh": {
+    "es": "Forma la frase en inglés",
+    "pt": "Monte a frase em inglês",
+    "fr": "Construis la phrase en anglais",
+    "de": "Bilde den Satz auf Englisch",
+    "id": "Susun kalimat dalam bahasa Inggris",
+    "th": "เรียงประโยคภาษาอังกฤษ",
+    "zh": "用英语组句",
+    "ja": "英語で文を組み立てよう",
+    "ko": "영어 문장 만들기",
+    "hi": "अंग्रेज़ी में वाक्य बनाएँ",
+    "ar": "كوّن الجملة بالإنجليزية",
+    "ru": "Составьте предложение на английском",
+    "tr": "Cümleyi İngilizce kur"
   },
   "môi hơi kéo sang hai bên": {
     "es": "labios ligeramente estirados",
