@@ -16767,6 +16767,72 @@
       ],
       "angle": "Gerund and infinitive rules in hindi: jane bhavishya ke lakshya aur vastavik anubhav ka antar, stop/remember/try jaise arth badalne wale verbs aur prepositions ka niyam.",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "cach-viet-cv-tieng-anh-chuan-ats",
+      "keyword": "cách viết cv tiếng anh chuẩn ats",
+      "topic": "Cách Viết CV Tiếng Anh Chuẩn ATS: Mẫu Đẹp, Động Từ Hành Động và Bí Quyết Trúng Tuyển",
+      "category": "ky-nang",
+      "tags": [
+        "cv-tieng-anh",
+        "ats-resume",
+        "xin-viec"
+      ],
+      "shots": [
+        "practice-learn",
+        "library"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/library"
+      ],
+      "angle": "Hướng dẫn cách viết cv tiếng anh chuẩn ats từ A-Z: vượt qua bộ lọc tự động, cấu trúc chuẩn quốc tế, bảng động từ hành động mạnh mẽ và những lỗi chí mạng cần tránh.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "how-to-write-an-ats-friendly-resume",
+      "keyword": "how to write an ats friendly resume",
+      "topic": "How to Write an ATS Friendly Resume: Template, Action Verbs, and Formatting Tips",
+      "category": "ky-nang",
+      "tags": [
+        "resume-writing",
+        "ats-resume",
+        "career"
+      ],
+      "shots": [
+        "practice-learn",
+        "library"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/library"
+      ],
+      "angle": "Comprehensive guide on how to write an ats friendly resume: beating automated applicant tracking systems, reverse-chronological layout, strong action verbs, and quantifiable impact.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "como-fazer-curriculo-em-ingles-ats-resume",
+      "keyword": "como fazer currículo em inglês ats",
+      "topic": "Como Fazer Currículo em Inglês ATS: Modelo, Verbos de Ação e Dicas",
+      "category": "ky-nang",
+      "tags": [
+        "curriculo-em-ingles",
+        "ats-resume",
+        "carreira"
+      ],
+      "shots": [
+        "practice-learn",
+        "library"
+      ],
+      "routes": [
+        "/#/practice/learn",
+        "/#/library"
+      ],
+      "angle": "Aprenda como fazer currículo em inglês ats: estrutura internacional aceita por robôs de triagem, lista de verbos de ação para destacar conquistas e erros comuns de tradução.",
+      "intent": "informational"
     }
   ]
 }
