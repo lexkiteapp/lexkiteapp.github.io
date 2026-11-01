@@ -108,9 +108,9 @@ for (const [vp, scheme] of matrix) {
     ok(T.length === 20 && p95(T) <= 300, `câu có sẵn: p95 tới chữ dịch ${Math.round(p95(T))} ms ≤ 300 ms (${T.length} lượt)`);
     // (b) Câu tự do – từng nguồn chậm/chặn; p95 ≤ 2,5 s
     const F = [], cases = [['gtx 0,2–2 s, MyMemory chặn', { gtx: () => 200 + Math.random() * 1800, mm: 'block' }], ['gtx chặn, MyMemory 0,1–1,2 s', { gtx: 'block', mm: () => 100 + Math.random() * 1100 }], ['gtx 5 s, MyMemory 0,5 s', { gtx: 5000, mm: 500 }]];
-    for (const [name, cfg] of cases) { await net(ctx, cfg); for (const s of FREE) {
+    for (const [ci, [name, cfg]] of cases.entries()) { await net(ctx, cfg); for (const s of FREE) {
       await page.evaluate(() => window.TrFast && TrFast._mem.clear());
-      const t0 = await selectAndTranslate(page, s + ' ' + name); if (t0 == null) { F.push(Infinity); continue; }
+      const t0 = await selectAndTranslate(page, s + ' Case ' + 'abc'[ci]); // đuôi ASCII: câu có chữ Việt bị app bỏ qua (không phải câu tiếng Anh) if (t0 == null) { F.push(Infinity); ok(false, `[${name}] thanh nút Dịch không hiện`); continue; }
       const painted = await firstPaint(page), r = await waitResult(page, 6000); F.push(r.ms);
       if (s === FREE[0]) { ok(painted, `[${name}] khung tạm hiện ngay khi bấm`); ok(!r.retry && /\[(gtx|mm)\]/.test(r.text), `[${name}] có bản dịch (${Math.round(r.ms)} ms): ${r.text.slice(0, 50)}`); }
     } }
@@ -128,7 +128,8 @@ for (const [vp, scheme] of matrix) {
     // (e) Đóng: Esc · bấm ra ngoài
     await page.keyboard.press('Escape'); ok(await page.evaluate(() => document.querySelector('.sel-pop').hidden), 'Esc → đóng bảng');
     await net(ctx, { gtx: 4000, mm: 'block' }); await selectAndTranslate(page, FREE[3] + ' outside');
-    await page.mouse.click(5, vp.height - 5); await page.waitForTimeout(150);
+    { const b = await page.evaluate(() => { const d = [...document.querySelectorAll('#view *')].find(e => e.children.length === 0 && /a move to a more important job/i.test(e.textContent)); const r = (d || document.querySelector('#view')).getBoundingClientRect(); return [r.left + 4, r.top + r.height / 2]; }); await page.mouse.click(b[0], b[1]); } // chỗ trống trong trang (định nghĩa), không trúng thanh tab/liên kết
+    await page.waitForTimeout(150);
     ok(await page.evaluate(() => document.querySelector('.sel-pop').hidden), 'bấm ra ngoài → đóng bảng');
     // (f) Câu sát mép dưới màn hình → bảng tự lật lên, vẫn trong khung
     await page.evaluate(() => { const b = document.querySelector('.example-box'); b.scrollIntoView({ block: 'end' }); window.scrollBy(0, 0); });
