@@ -44,9 +44,33 @@ def native_font_path():
     assert fam.split()[-1].lower() in Path(out[0]).name.lower() or 'cjk' in out[0].lower(), ('thiếu phông', fam, out)
     return out[0], int(out[1] or 0)
 NPATH, NIDX = native_font_path() if spec.get('native') else (None, 0)
-nfont = lambda sz: ImageFont.truetype(NPATH, sz, index=NIDX, layout_engine=ImageFont.Layout.RAQM)
 NQA = json.loads((OUT / 'native-qa.json').read_text()) if (OUT / 'native-qa.json').exists() else {}
 NHOOK = NQA.get('hook') or (spec.get('native') or {}).get('hook')
+# Dòng bản địa = nhiều đoạn chữ: chữ Latin/dấu ngoặc (vd. “Good name”) bằng phông thương hiệu, chữ bản địa bằng Noto – phông Devanagari/Thai/Arabic
+# không có chữ Latin (lô thử 01/11: hi-good-name hiện ô vuông, cổng native_glyphs bắt được). Mỗi đoạn được raqm dựng hình riêng.
+BRAND_B = str(FD / 'BeVietnamPro-Bold.ttf')
+def _cmap(path, idx=0):
+    from fontTools.ttLib import TTFont
+    return set(TTFont(path, fontNumber=idx).getBestCmap())
+CMAP = {BRAND_B: _cmap(BRAND_B), NPATH: _cmap(NPATH, NIDX)} if NPATH else {}
+def nruns(s):
+    """[(đoạn, đường dẫn phông)]: ký tự Latin/dấu câu chung → phông thương hiệu (nếu có glyph), còn lại → phông bản địa; khoảng trắng theo đoạn đang chạy"""
+    out = []
+    for c in s:
+        latin = ord(c) < 0x250 or 0x2000 <= ord(c) <= 0x206F
+        f = BRAND_B if (latin and ord(c) in CMAP[BRAND_B]) or not NPATH else NPATH
+        if c.isspace() and out: f = out[-1][1]
+        if out and out[-1][1] == f: out[-1][0] += c
+        else: out.append([c, f])
+    return [(a, b) for a, b in out]
+def nfont_at(path, sz): return ImageFont.truetype(path, sz, index=NIDX if path == NPATH else 0, layout_engine=ImageFont.Layout.RAQM)
+def native_line(dr, cx, cy, s, size, lo, maxw, fill):
+    rs = nruns(s); m = ImageDraw.Draw(Image.new('RGB', (1, 1)))
+    width = lambda sz: sum(m.textlength(a, font=nfont_at(f, sz)) for a, f in rs)
+    while size > lo and width(size) > maxw: size -= 2
+    x = cx - width(size) / 2
+    for a, f in rs:
+        F = nfont_at(f, size); txt(dr, (x, cy), a, F, fill, 'lm'); x += dr.textlength(a, font=F)
 # màu tay lấy mẫu từ poster-2x (da, blazer, áo trong). Carlos: cần lấy mẫu + anh duyệt hình trước khi bật tay cho thầy (câu của thầy không có tay → bỏ qua, có cảnh báo)
 HANDPAL = {'ama': {'skin': '#752414', 'shade': '#5A1A0E', 'sleeve': '#B8352A', 'cuff': '#FBFAE4'}}  # tay áo tối hơn blazer 1 bậc → cẳng tay tách khỏi thân
 
@@ -119,7 +143,7 @@ def hook(dr, t):
     """Thẻ hook 2 hàng: tiêu đề bản địa (≤ 1,5 s: có từ khung 0, giữ suốt clip làm tựa) + dòng tiếng Anh (stop: sai ✗ → đúng ✓ | pair: X vs Y)"""
     hk, tpl = spec['hook'], spec.get('template', 'tip-card')
     dr.rounded_rectangle((48, HOOK_Y0 + 14, W - 48, HOOK_Y1 + 14), 44, fill=LEDGE); dr.rounded_rectangle((48, HOOK_Y0, W - 48, HOOK_Y1), 44, fill=CARD)
-    if NHOOK: txt(dr, (W / 2, HOOK_Y0 + 62), NHOOK, fit(NHOOK, nfont, 52, W - 2 * 96, 30), LIP, 'mm')
+    if NHOOK: native_line(dr, W / 2, HOOK_Y0 + 62, NHOOK, 52, 30, W - 2 * 96, LIP)
     cy = HOOK_Y1 - 82 if NHOOK else (HOOK_Y0 + HOOK_Y1) / 2
     if tpl == 'pair':
         a, b = hk['a'], hk['b']; cur = None
@@ -248,11 +272,9 @@ def logic():
 LANGS15 = 'ar de en es fr hi id ja ko pt_BR ru th tr vi zh_CN'.split()
 def glyphs_ok():
     if not NHOOK: return True
-    from fontTools.ttLib import TTFont
     from PIL import features
     if LANG in ('hi', 'th', 'ar') and not features.check('raqm'): return False   # chữ ghép (Devanagari/Thai/Arabic) cần raqm, không thì vỡ dấu
-    cmap = TTFont(NPATH, fontNumber=NIDX).getBestCmap()
-    return all(ord(c) in cmap for c in NHOOK if not c.isspace())
+    return all(ord(c) in CMAP[f] for a, f in nruns(NHOOK) for c in a if not c.isspace())   # mỗi ký tự có glyph trong đúng phông vẽ nó
 g.update({
   'safe_zone_9x16': X0 >= SAFE_X and X1 <= W - SAFE_X and Y0 >= SAFE_T and Y1 <= SAFE_B,
   'caption_sync_kokoro': all(sync_ok(sg) for sg in segs),

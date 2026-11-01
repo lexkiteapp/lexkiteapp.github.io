@@ -27,7 +27,7 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng aspell aspell-en >/dev/null
           python3 -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
-          python3 -m pip install -q kokoro==0.9.4 soundfile resvg-py==0.2.0 pillow numpy
+          python3 -m pip install -q kokoro==0.9.4 soundfile resvg-py==0.2.0 pillow numpy fonttools
       - name: Giọng + mốc âm vị
         run: python3 scripts/rig/tts.py "$SPEC" qa/rig
       - name: Khung (mặt vẽ, tay, thở, bản prefers-reduced-motion) + đo khớp miệng
