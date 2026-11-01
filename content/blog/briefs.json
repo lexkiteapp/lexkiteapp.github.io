@@ -16525,6 +16525,72 @@
       ],
       "angle": "English listening skills kaise improve kare: jane kyu padh kar samajhna aasan hai par sun kar nahi, connected speech, aur 5-step dictation tatha shadowing guide.",
       "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "gerundio-e-infinitivo-em-ingles-regras-e-diferencas",
+      "keyword": "gerúndio e infinitivo em inglês",
+      "topic": "Gerúndio e Infinitivo em Inglês: Regras, Diferenças e Guia Prático",
+      "category": "ngu-phap",
+      "tags": [
+        "gerundio",
+        "infinitivo",
+        "gramatica-inglesa"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "Domine o uso de gerúndio e infinitivo em inglês: a lógica da ação futura versus experiência real, verbos que mudam de significado e tabela prática de verbos comuns.",
+      "intent": "informational"
+    },
+    {
+      "lang": "fr",
+      "slug": "gerondif-ou-infinitif-en-anglais-regles-et-exercices",
+      "keyword": "gérondif ou infinitif en anglais",
+      "topic": "Gérondif ou Infinitif en Anglais : Règles, Différences et Exemples",
+      "category": "ngu-phap",
+      "tags": [
+        "gerondif",
+        "infinitif",
+        "grammaire-anglaise"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "Comprendre quand utiliser le gérondif ou infinitif en anglais : logique de projection vers le futur vs expérience vécue, verbes à double sens (stop, remember, try) et quiz.",
+      "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "gerund-oder-infinitiv-englisch-regeln-und-unterschiede",
+      "keyword": "gerund oder infinitiv englisch",
+      "topic": "Gerund oder Infinitiv Englisch: Regeln, Unterschiede und Merk-Tipps",
+      "category": "ngu-phap",
+      "tags": [
+        "gerund",
+        "infinitiv",
+        "englische-grammatik"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "Verständlicher Leitfaden zu Gerund oder Infinitiv im Englischen: Zukunftsabsicht vs. reale Erfahrung, Verben mit Bedeutungswechsel (remember, stop, try) und Übungsbeispiele.",
+      "intent": "informational"
     }
   ]
 }
