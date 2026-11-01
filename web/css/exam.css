@@ -20,3 +20,25 @@
 .cbt-split::after, .ck-split::after { content: ""; position: absolute; top: 50%; left: calc(50% - 2px); transform: translate(-50%, -50%); width: 2px; height: 26px; border-radius: 1px; background: currentColor; color: rgba(0, 0, 0, .28); box-shadow: 4px 0 0 currentColor; }
 @media (prefers-color-scheme: dark) { .cbt-split::after, .ck-split::after { color: rgba(255, 255, 255, .38); } }
 
+/* ExamKit (web/js/exam-kit.js) – port ref Stitch brand/stitch/exam/exam-{run,confirm}-light: chip đồng hồ, cờ đánh dấu, bảng câu, sheet nộp bài */
+.xk-clock { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; padding: 0 .85rem; border-radius: var(--r-pill, 999px); border: 2px solid var(--line); background: var(--surface); color: var(--text); font-variant-numeric: tabular-nums; box-shadow: 0 3px 0 var(--line); }
+.xk-clock svg, .xk-clock i { width: 18px; height: 18px; color: var(--primary-text); }
+.xk-clock.w5 { border-color: var(--gold); background: var(--gold-soft); color: var(--gold-text); } .xk-clock.w5 svg { color: var(--gold-text); }
+.xk-clock.w1 { border-color: var(--again); background: var(--again-soft); color: var(--again-text); } .xk-clock.w1 svg { color: var(--again-text); }
+@media (prefers-reduced-motion: no-preference) { .xk-clock.w1 { animation: xkPulse 1s ease-in-out infinite alternate; } @keyframes xkPulse { to { box-shadow: 0 0 0 4px var(--again-soft); } } }
+.xk-q { position: relative; } .xk-q > .xk-flag { float: inline-end; margin: 0 0 .3rem .5rem; }
+.xk-flag, .xk-x { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; box-shadow: 0 3px 0 var(--line); }
+.xk-flag svg, .xk-x svg { width: 20px; height: 20px; } .xk-flag.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-text); }
+.tx-grid button.fl { box-shadow: inset -6px 6px 0 -3px var(--accent); }
+.xk-sheet { display: grid; gap: .8rem; } .xk-sheet p { margin: 0; }
+.xk-tabs { display: flex; gap: .4rem; flex-wrap: wrap; } .xk-tab { min-height: 44px; padding: 0 1rem; border-radius: var(--r-pill, 999px); border: 2px solid var(--line); background: var(--surface); color: var(--text); font-weight: 700; cursor: pointer; } .xk-tab.on { border-color: var(--primary); background: var(--primary-soft); color: var(--primary-text); }
+.xk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: .4rem; max-height: 46vh; overflow: auto; padding: 2px 2px 6px; }
+.xk-n { position: relative; min-height: 44px; border-radius: 10px; border: 2px dashed var(--line); background: var(--surface); color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums; cursor: pointer; }
+.xk-n.on { border: 2px solid var(--primary); background: var(--primary); color: var(--on-done, #fff); } .xk-n.cur { outline: 3px solid var(--accent); outline-offset: 1px; }
+.xk-n.fl::after { content: ''; position: absolute; top: -2px; inset-inline-end: -2px; border: 7px solid transparent; border-top-color: var(--accent); border-inline-end-color: var(--accent); border-start-end-radius: 8px; }
+.xk-legend { display: flex; gap: 1rem; flex-wrap: wrap; color: var(--muted); } .xk-legend span { display: inline-flex; align-items: center; gap: .35rem; } .xk-legend .xk-n { display: inline-block; min-height: 0; width: 14px; height: 14px; border-radius: 4px; }
+.xk-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+.xk-stat { display: grid; justify-items: center; padding: .6rem .4rem; border-radius: 16px; border: 2px solid var(--line); background: var(--surface); box-shadow: 0 5px 0 var(--line); } .xk-stat b { font-size: 1.6rem; } .xk-stat small { color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.xk-stat.ok b { color: var(--primary-text); } .xk-stat.warn { border-color: var(--gold); background: var(--gold-soft); } .xk-stat.warn b, .xk-stat.warn small { color: var(--gold-text); }
+.xk-note { padding: .6rem .8rem; border-radius: 12px; background: var(--gold-soft); color: var(--gold-text); }
+.xk-modes { border: 0; padding: 0; margin: .9rem 0 0; display: grid; gap: .4rem; } .xk-mode { display: flex; align-items: center; gap: .6rem; min-height: 48px; padding: .4rem .8rem; border: 2px solid var(--line); border-radius: 14px; cursor: pointer; } .xk-mode:has(input:checked) { border-color: var(--primary); background: var(--primary-soft); } .xk-mode svg { width: 20px; height: 20px; color: var(--primary-text); }

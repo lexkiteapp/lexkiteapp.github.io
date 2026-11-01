@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite TOEIC Mock Test — Submit your test?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #FFF9F3;
+      color: #1C1003;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF9F3]">
+
+  <!-- Mobile Viewport Container: 390px, no outer frame/bezels -->
+  <div class="relative w-[390px] min-h-[844px] bg-[#FFF9F3] flex flex-col overflow-hidden select-none">
+
+    <!-- ==============================================
+         BACKGROUND LAYER (Dimmed TOEIC Test in Progress)
+         ============================================== -->
+    <div class="absolute inset-0 flex flex-col pointer-events-none opacity-40 filter blur-[1.5px]">
+      
+      <!-- TOP BAR: FOCUS variant (56px) -->
+      <header class="h-14 px-4 flex items-center justify-between border-b-2 border-[#EFE5DA] bg-[#FFF9F3]">
+        <!-- Round Close (X) button -->
+        <div class="w-10 h-10 rounded-full bg-white border-2 border-[#E8DCCF] shadow-[0_3px_0_0_#D9C6B0] flex items-center justify-center">
+          <svg class="w-4 h-4 text-[#4A382A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+        <!-- Rounded Progress Track -->
+        <div class="flex-1 mx-3 flex flex-col justify-center">
+          <div class="flex items-center justify-between text-[11px] font-bold text-[#715C4B] mb-1">
+            <span>Q 192 of 200</span>
+            <span class="text-[#136B66]">96%</span>
+          </div>
+          <div class="w-full h-3 bg-[#EFE5DA] rounded-full overflow-hidden">
+            <div class="h-full bg-[#136B66] rounded-full w-[96%]"></div>
+          </div>
+        </div>
+        <!-- Time pill status chip -->
+        <div class="h-8 px-2.5 rounded-full bg-white border border-[#E8DCCF] flex items-center gap-1.5 shadow-[0_2px_0_0_#D9C6B0]">
+          <svg class="w-3.5 h-3.5 text-[#F59E0B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span class="text-xs font-black text-[#1C1003]">06:41</span>
+        </div>
+      </header>
+
+      <!-- Dimmed In-test Body Content -->
+      <div class="p-4 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-md bg-[#E6F4F2] text-[#136B66] text-xs font-extrabold uppercase tracking-wide">Part 7 · Reading Comprehension</span>
+          <span class="text-xs font-bold text-[#8C7A6B]">Questions 191–195</span>
+        </div>
+
+        <!-- Question Card -->
+        <div class="bg-white rounded-2xl p-4 border-2 border-[#EFE5DA] shadow-[0_5px_0_0_#E5D7C7] space-y-3">
+          <p class="text-sm font-semibold text-[#3D2E20] leading-snug">
+            What is indicated about the newly scheduled delivery window for international consignments?
+          </p>
+          <div class="space-y-2 pt-1">
+            <div class="p-3 rounded-xl border-2 border-[#136B66] bg-[#E8F6F4] flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-[#136B66] text-white text-xs font-black flex items-center justify-center">A</span>
+              <span class="text-xs font-bold text-[#136B66]">It requires customs clearance approval prior to shipment dispatch.</span>
+            </div>
+            <div class="p-3 rounded-xl border border-[#EFE5DA] bg-[#FFFBF8] flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-[#F5ECE0] text-[#715C4B] text-xs font-black flex items-center justify-center">B</span>
+              <span class="text-xs font-medium text-[#715C4B]">It was postponed due to inclement weather conditions.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         SCRIM / OVERLAY (Reassuring warm tinted scrim)
+         ============================================== -->
+    <div class="absolute inset-0 bg-[#2D2116]/55 backdrop-blur-[2px] z-10 transition-opacity"></div>
+
+    <!-- ==============================================
+         BOTTOM SHEET MODAL (Lexkite Bright Day Theme)
+         ============================================== -->
+    <div class="relative z-20 mt-auto w-full bg-[#FFFBF7] rounded-t-[32px] border-t-2 border-x-2 border-[#EDE0D2] shadow-[0_-8px_30px_rgba(45,33,22,0.22)] flex flex-col max-h-[92vh] overflow-y-auto">
+      
+      <!-- Drag Handle -->
+      <div class="w-full pt-3 pb-1 flex justify-center">
+        <div class="w-12 h-1.5 rounded-full bg-[#DDCFC0]"></div>
+      </div>
+
+      <!-- Sheet Header & Reassuring Headline -->
+      <div class="px-4 pt-2 pb-3 text-center">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F4F2] border border-[#BCE4DE] mb-2 shadow-[0_2px_0_0_#B0DAD3]">
+          <span class="w-2 h-2 rounded-full bg-[#136B66] animate-pulse"></span>
+          <span class="text-[11px] font-extrabold text-[#136B66] tracking-wider uppercase">TOEIC Full Mock Test</span>
+        </div>
+        <h2 class="text-[23px] font-black text-[#1C1003] tracking-tight leading-tight">
+          Submit your test?
+        </h2>
+        <p class="text-xs font-bold text-[#715C4B] mt-1 flex items-center justify-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-[#F59E0B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Time left: <strong class="text-[#1C1003] font-black">06:41</strong></span>
+          <span class="text-[#D3C4B3]">•</span>
+          <span class="text-[#136B66] font-bold">You can still review</span>
+        </p>
+      </div>
+
+      <!-- Sheet Body: 16px margins, 8px spacing grid -->
+      <div class="px-4 space-y-3 pb-2">
+
+        <!-- Three Stat Tiles in a Row -->
+        <div class="grid grid-cols-3 gap-2">
+          
+          <!-- Answered Tile (Teal) -->
+          <div class="bg-white rounded-2xl p-2.5 border-2 border-[#D7EFEA] shadow-[0_4px_0_0_#C5E4DE] text-center flex flex-col items-center justify-between">
+            <div class="flex items-center gap-1 text-[11px] font-bold text-[#136B66] uppercase tracking-wider">
+              <svg class="w-3.5 h-3.5 text-[#136B66]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Done</span>
+            </div>
+            <div class="text-2xl font-black text-[#136B66] tracking-tight my-0.5">192</div>
+            <div class="text-[10px] font-extrabold px-1.5 py-0.5 rounded-full bg-[#E6F4F2] text-[#136B66]">Answered</div>
+          </div>
+
+          <!-- Blank Tile (Warm Orange Warning Tint) -->
+          <div class="bg-[#FFF4E8] rounded-2xl p-2.5 border-2 border-[#FBD8B3] shadow-[0_4px_0_0_#F0C496] text-center flex flex-col items-center justify-between ring-1 ring-[#F59E0B]/30">
+            <div class="flex items-center gap-1 text-[11px] font-bold text-[#B45309] uppercase tracking-wider">
+              <svg class="w-3.5 h-3.5 text-[#EA580C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Blank</span>
+            </div>
+            <div class="text-2xl font-black text-[#B45309] tracking-tight my-0.5">8</div>
+            <div class="text-[10px] font-extrabold px-1.5 py-0.5 rounded-full bg-[#FFE5CC] text-[#B45309]">Unanswered</div>
+          </div>
+
+          <!-- Flagged Tile (Flag Accent) -->
+          <div class="bg-white rounded-2xl p-2.5 border-2 border-[#EFE5DA] shadow-[0_4px_0_0_#E0D2C2] text-center flex flex-col items-center justify-between">
+            <div class="flex items-center gap-1 text-[11px] font-bold text-[#715C4B] uppercase tracking-wider">
+              <svg class="w-3.5 h-3.5 text-[#F59E0B]" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line></svg>
+              <span>Review</span>
+            </div>
+            <div class="text-2xl font-black text-[#1C1003] tracking-tight my-0.5">3</div>
+            <div class="text-[10px] font-extrabold px-1.5 py-0.5 rounded-full bg-[#F5ECE0] text-[#715C4B]">Flagged</div>
+          </div>
+
+        </div>
+
+        <!-- Question Map Card with Compact Grid (16px radius, 2px border, 5px bottom ledge) -->
+        <div class="bg-white rounded-2xl p-3 border-2 border-[#EFE5DA] shadow-[0_5px_0_0_#E2D5C6] space-y-2.5">
+          
+          <!-- Map Header & Range Indicator -->
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-black text-[#1C1003] tracking-tight flex items-center gap-1.5">
+              <span>Question Map</span>
+              <span class="text-[11px] font-bold text-[#8C7A6B]">(1–200)</span>
+            </span>
+            <span class="text-[10px] font-black uppercase tracking-wider text-[#136B66] bg-[#E8F6F4] px-2 py-0.5 rounded-md">
+              Tap any to jump
+            </span>
+          </div>
+
+          <!-- Compact Question Grid: 8 columns x 6 preview rows (sample 48 items around active end-game) -->
+          <!-- Legend styles: answered = solid teal, blank = outlined, flagged = small orange flag corner -->
+          <div class="grid grid-cols-8 gap-1.5">
+            <!-- Items 181–200 & sample overview -->
+            <!-- 177: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">177</div>
+            <!-- 178: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">178</div>
+            <!-- 179: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">179</div>
+            <!-- 180: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">180</div>
+            <!-- 181: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">181</div>
+            <!-- 182: Blank (Outlined) -->
+            <div class="h-6 rounded bg-white border-2 border-dashed border-[#F59E0B] text-[#B45309] text-[10px] font-black flex items-center justify-center">182</div>
+            <!-- 183: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">183</div>
+            <!-- 184: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">184</div>
+
+            <!-- Row 2 -->
+            <!-- 185: Answered + Flagged (teal with orange corner flag) -->
+            <div class="relative h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47] overflow-hidden">
+              <span>185</span>
+              <div class="absolute top-0 right-0 w-2.5 h-2.5 bg-[#F59E0B] [clip-path:polygon(100%_0,0_0,100%_100%)]"></div>
+            </div>
+            <!-- 186: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">186</div>
+            <!-- 187: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">187</div>
+            <!-- 188: Blank (Outlined) -->
+            <div class="h-6 rounded bg-white border-2 border-dashed border-[#F59E0B] text-[#B45309] text-[10px] font-black flex items-center justify-center">188</div>
+            <!-- 189: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">189</div>
+            <!-- 190: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">190</div>
+            <!-- 191: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">191</div>
+            <!-- 192: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">192</div>
+
+            <!-- Row 3 -->
+            <!-- 193: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">193</div>
+            <!-- 194: Blank (Outlined) -->
+            <div class="h-6 rounded bg-white border-2 border-dashed border-[#F59E0B] text-[#B45309] text-[10px] font-black flex items-center justify-center">194</div>
+            <!-- 195: Answered + Flagged -->
+            <div class="relative h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47] overflow-hidden">
+              <span>195</span>
+              <div class="absolute top-0 right-0 w-2.5 h-2.5 bg-[#F59E0B] [clip-path:polygon(100%_0,0_0,100%_100%)]"></div>
+            </div>
+            <!-- 196: Blank (Outlined) -->
+            <div class="h-6 rounded bg-white border-2 border-dashed border-[#F59E0B] text-[#B45309] text-[10px] font-black flex items-center justify-center">196</div>
+            <!-- 197: Answered -->
+            <div class="h-6 rounded bg-[#136B66] text-white text-[10px] font-black flex items-center justify-center shadow-[0_1px_0_0_#0C4B47]">197</div>
+            <!-- 198: Blank (Outlined) -->
+            <div class="h-6 rounded bg-white border-2 border-dashed border-[#F59E0B] text-[#B45309] text-[10px] font-black flex items-center justify-center">198</div>
+            <!-- 199: Blank (Outlined + Flagged corner) -->
+            <div class="relative h-6 rounded bg-white border-2 border-dashed border-[#F59E0B] text-[#B45309] text-[10px] font-black flex items-center justify-center overflow-hidden">
+              <span>199</span>
+              <div class="absolute top-0 right-0 w-2.5 h-2.5 bg-[#F59E0B] [clip-path:polygon(100%_0,0_0,100%_100%)]"></div>
+            </div>
+            <!-- 200: Blank (Outlined) -->
+            <div class="h-6 rounded bg-white border-2 border-dashed border-[#F59E0B] text-[#B45309] text-[10px] font-black flex items-center justify-center">200</div>
+          </div>
+
+          <!-- One-line Legend -->
+          <div class="pt-1.5 border-t border-[#F2E8DC] flex items-center justify-between text-[11px] font-bold text-[#715C4B]">
+            <!-- Legend item 1 -->
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded bg-[#136B66]"></span>
+              <span>Answered (192)</span>
+            </div>
+            <!-- Legend item 2 -->
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded bg-white border-2 border-dashed border-[#F59E0B]"></span>
+              <span class="text-[#B45309]">Blank (8)</span>
+            </div>
+            <!-- Legend item 3 -->
+            <div class="flex items-center gap-1.5">
+              <div class="relative w-3 h-3 rounded bg-[#136B66] overflow-hidden">
+                <div class="absolute top-0 right-0 w-1.5 h-1.5 bg-[#F59E0B] [clip-path:polygon(100%_0,0_0,100%_100%)]"></div>
+              </div>
+              <span>Flagged (3)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Reassurance Micro-banner -->
+        <div class="px-3 py-2 rounded-xl bg-[#FFF9EE] border border-[#FDE68A] flex items-center gap-2">
+          <div class="w-5 h-5 rounded-full bg-[#FEF3C7] flex items-center justify-center shrink-0">
+            <svg class="w-3 h-3 text-[#B45309]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <p class="text-[11px] font-semibold text-[#854D0E] leading-tight">
+            No penalty for incorrect answers in TOEIC. Guessing blank questions increases your predicted score!
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ==============================================
+           ACTIONS SECTION (Candy-orange button + Review text button)
+           ============================================== -->
+      <div class="p-4 pt-2 bg-[#FFFBF7] border-t border-[#EDE0D2] space-y-2">
+        
+        <!-- Primary Candy-Orange Tactile Button: full-width, 6px darker ledge, deep brown-black label (#1C1003) -->
+        <button class="relative w-full h-13 py-3.5 rounded-2xl bg-[#F59E0B] active:translate-y-1 shadow-[0_6px_0_0_#B45309] active:shadow-[0_2px_0_0_#B45309] transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <span class="text-[16px] font-black text-[#1C1003] tracking-wide">
+            Submit test
+          </span>
+          <svg class="w-4 h-4 text-[#1C1003]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <!-- Secondary Text Button: "Review 8 blank questions" -->
+        <button class="w-full py-2.5 text-center text-xs font-black text-[#136B66] hover:text-[#0C4B47] active:opacity-75 transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
+          <svg class="w-3.5 h-3.5 text-[#F59E0B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Review 8 blank questions</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
