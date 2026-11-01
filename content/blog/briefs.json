@@ -16591,6 +16591,72 @@
       ],
       "angle": "Verständlicher Leitfaden zu Gerund oder Infinitiv im Englischen: Zukunftsabsicht vs. reale Erfahrung, Verben mit Bedeutungswechsel (remember, stop, try) und Übungsbeispiele.",
       "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "doumeishi-to-futeishi-tsukaiwake-eigo-bunpou",
+      "keyword": "動名詞 不定詞 使い分け",
+      "topic": "動名詞と不定詞の使い分け：未来志向vs経験の論理と意味が変わる動詞",
+      "category": "ngu-phap",
+      "tags": [
+        "doumeishi",
+        "futeishi",
+        "eigo-bunpou"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "動名詞 不定詞 使い分けの完全ガイド：丸暗記を脱却する「未来への志向 vs 過去・現実の体験」の核心ルール、意味が激変する動詞（stop/remember/try）と前置詞の鉄則。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "dongmyeongsa-to-bujungsa-gu-bun-beop-yeong-munbeop",
+      "keyword": "동명사 to부정사 구분",
+      "topic": "동명사 to부정사 구분 완벽 정리: 미래지향 vs 경험의 원리와 의미 변화 동사",
+      "category": "ngu-phap",
+      "tags": [
+        "dongmyeongsa",
+        "to-bujungsa",
+        "yeong-munbeop"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "동명사 to부정사 구분 핵심 원리와 실전 가이드: 단순 암기를 넘어서는 미래지향과 현실 경험의 차이, stop/remember/try 등 뜻이 바뀌는 동사와 전치사 뒤 ing 절대 규칙.",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "dongmingci-yu-budingshi-qubie-yongfa-yingyu-yufa",
+      "keyword": "动名词和不定式的区别",
+      "topic": "动名词和不定式的区别：未来指向vs真实体验的底层逻辑与易混动词",
+      "category": "ngu-phap",
+      "tags": [
+        "dongmingci",
+        "budingshi",
+        "yingyu-yufa"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "动名词和不定式的区别深度解析：告别死记硬背，理解指向未来与已发生经验的认知逻辑，精讲stop/remember/try等词义翻转动词及介词加ing铁律。",
+      "intent": "informational"
     }
   ]
 }
