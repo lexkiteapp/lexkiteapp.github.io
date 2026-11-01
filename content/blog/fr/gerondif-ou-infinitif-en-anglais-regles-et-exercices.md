@@ -9,7 +9,7 @@ tags: [gerondif, infinitif, grammaire-anglaise]
 keyword: "gérondif ou infinitif en anglais"
 cover: dict
 coverAlt: "Dictionnaire Lexkite avec transcriptions phonétiques, définitions complètes et exemples de verbes à l'infinitif"
-publishAt: ""
+publishAt: 2026-12-02T08:35:00+01:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

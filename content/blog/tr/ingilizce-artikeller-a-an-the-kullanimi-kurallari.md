@@ -33,6 +33,7 @@ quiz: [
     explain: "States, Kingdom, Republic içeren ya da çoğul eki taşıyan ülke adlarında her zaman 'the' kullanılır."
   }
 ]
+publishAt: 2026-12-02T19:23:00+03:00
 ---
 
 Türkçe konuşan İngilizce öğrencileri için en çok kafa karıştıran ve ileri seviyelerde dahi en sık hata yapılan dil bilgisi konularının başında artikeller (*articles*) gelir. Türkçede *a/an* veya *the* gibi sözcüklerin doğrudan bire bir karşılığı olan bağımsız bir dil bilgisel sözcük türü bulunmadığı için, yazı yazarken veya konuşurken "Acaba buraya a mi gelecek, the mi koymalıyım, yoksa boş mu bırakmalıyım?" ikilemi sürekli yaşanır.

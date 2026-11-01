@@ -33,6 +33,7 @@ quiz: [
     explain: "Konsistensi waktu pendek setiap hari mengaktifkan pengulangan berjarak (spaced repetition) dan membentuk memori jangka panjang."
   }
 ]
+publishAt: 2026-12-02T09:24:00+07:00
 ---
 
 Banyak orang di Indonesia merasa bahwa belajar bahasa Inggris membutuhkan "bakat alami" atau biaya kursus jutaan rupiah. Faktanya, sebagian besar pemula yang menyerah bukan karena kurang pintar, melainkan karena salah urutan belajar: langsung menghafal rumus belasan tenses di minggu pertama, mengumpulkan banyak buku tanpa membacanya tuntas, atau belajar kata baru tanpa pernah mendengarkan suaranya.

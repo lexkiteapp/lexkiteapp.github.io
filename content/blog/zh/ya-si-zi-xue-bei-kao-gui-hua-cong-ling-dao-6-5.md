@@ -9,7 +9,7 @@ tags: [ielts, zi-xue, gui-hua]
 keyword: "雅思自学备考规划"
 cover: path
 coverAlt: "Lexkite的Your IELTS path界面：按目标分数分阶段展示的雅思学习路径"
-publishAt: ""
+publishAt: 2026-12-04T12:16:00+08:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

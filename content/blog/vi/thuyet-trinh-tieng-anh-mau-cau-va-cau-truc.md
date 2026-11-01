@@ -9,7 +9,7 @@ tags: [thuyet-trinh, presentation, speaking, tieng-anh-cong-so]
 keyword: "thuyết trình tiếng anh"
 cover: path
 coverAlt: "Lộ trình học kỹ năng thuyết trình tiếng Anh chuyên nghiệp trên Lexkite"
-publishAt: ""
+publishAt: 2027-01-15T12:15:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

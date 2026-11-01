@@ -9,7 +9,7 @@ tags: [cv-tieng-anh, ats-resume, xin-viec]
 keyword: "cách viết cv tiếng anh chuẩn ats"
 cover: goal
 coverAlt: "Màn hình đặt mục tiêu trên Lexkite với kỳ thi mục tiêu, ngày thi và số giờ học mỗi tuần"
-publishAt: ""
+publishAt: 2027-01-13T21:24:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -59,6 +59,7 @@ quiz: [
     explain: "El Paso 1 propone un fragmento corto de 30 a 60 segundos, escuchado una o dos veces, para captar la idea global y el tono."
   }
 ]
+publishAt: 2026-12-08T19:57:00-06:00
 ---
 
 Dominar la **técnica shadowing inglés** es uno de los métodos más potentes y validados por la psicolingüística para transformar un conocimiento pasivo del idioma en una expresión oral fluida, natural y segura. Es común que comprendas perfectamente frases como *I'd rather not talk about it* al leerlas, pero que al intentar decirlas en una conversación espontánea tu pronunciación suene entrecortada y rígida. La técnica del sombreado vocal (*shadowing*) fue creada precisamente para eliminar esa brecha entre comprensión pasiva y articulación activa.

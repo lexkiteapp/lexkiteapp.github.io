@@ -33,6 +33,7 @@ quiz: [
     explain: "Une proposition négative ('haven't seen') appelle un question tag affirmatif avec le même auxiliaire ('have you?')."
   }
 ]
+publishAt: 2026-11-23T19:46:00+01:00
 ---
 Que ce soit lors d'un entretien d'embauche, d'un appel professionnel ou d'une simple discussion en voyage, savoir formuler des questions claires et correctes est indispensable. Pourtant, les francophones ont souvent tendance à calquer la syntaxe française en se contentant de monter l'intonation en fin de phrase (*"You come tomorrow?"*) ou en traduisant littéralement (*"Play you tennis?"*).
 

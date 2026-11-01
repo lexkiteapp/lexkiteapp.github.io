@@ -33,6 +33,7 @@ quiz: [
     explain: "Les pays au pluriel ou comportant des termes comme States, Kingdom ou Republic requièrent 'the'."
   }
 ]
+publishAt: 2026-11-30T21:26:00+01:00
 ---
 
 L'apprentissage des articles en anglais représente l'un des défis les plus sournois pour les apprenants francophones. En apparence, la correspondance semble évidente : traduire *"un/une"* par *a/an* et *"le/la/les"* par *the*. Pourtant, les règles régissant les **articles en anglais a an the** reposent sur une conception cognitive de la généralité et de la spécificité radicalement différente de celle du français.

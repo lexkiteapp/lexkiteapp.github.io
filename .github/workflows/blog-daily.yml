@@ -17,6 +17,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -26,7 +27,7 @@ jobs:
         run: |
           if ! git diff --quiet -- content/blog; then
             git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
-            git add content/blog && git commit -m "Blog: tự xếp lịch bài mới [CF-Pages-Skip]" && git push
+            git add content/blog && git commit -m "Blog: tự xếp lịch bài mới [CF-Pages-Skip] [skip ci]" && git push
           else echo "· Không có bài mới cần xếp lịch"; fi
       - name: Nhắc việc (issue)
         env:

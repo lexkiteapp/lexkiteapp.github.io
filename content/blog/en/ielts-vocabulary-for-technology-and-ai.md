@@ -33,6 +33,7 @@ quiz: [
     explain: "'The digital divide' is the standard sociological and academic term for disparities in digital access and literacy."
   }
 ]
+publishAt: 2026-12-20T07:43:00+05:30
 ---
 In IELTS Writing Task 2 and Speaking Part 3, technology is undeniably one of the most recurring thematic domains. From essays debating algorithmic automation to discussions about surveillance capitalism, examiners assess whether you possess the lexical precision to discuss complex modern phenomena. Memorizing broad, vague terms like *convenient* or *modern machines* will cap your Lexical Resource score at Band 6. Mastering nuanced **ielts vocabulary for technology and ai** terminology unlocks the Band 7 and Band 8 threshold.
 

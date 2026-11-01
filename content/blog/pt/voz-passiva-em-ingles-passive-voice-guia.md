@@ -33,6 +33,7 @@ quiz: [
     explain: "A voz passiva remove o foco dos pesquisadores individuais e o concentra inteiramente nas evidências e processos observados."
   }
 ]
+publishAt: 2026-12-02T20:08:00-03:00
 ---
 
 Em produções textuais de nível intermediário a avançado, a voz passiva desempenha um papel de destaque na arquitetura discursiva da língua inglesa. Ao contrário da linguagem falada cotidiana — que costuma priorizar a voz ativa pela agilidade — a escrita acadêmica em exames como IELTS e TOEFL exige o emprego refinado da **voz passiva em ingles passive voice**. Esse recurso permite desviar o foco do agente humano para evidenciar o resultado, os dados empíricos e as transformações materiais de forma neutra e formal.
