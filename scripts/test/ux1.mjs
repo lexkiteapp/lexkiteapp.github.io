@@ -176,7 +176,8 @@ if ($('.v2-me')) { // Tôi (Stitch v2): MỌI mục trang Tôi cũ còn tới đ
       const num = s => (String(s).match(/\d+/g) || []).map(Number), ring = +$('.v2-review main svg[viewBox="0 0 120 120"]').parentElement.querySelector('span').textContent.trim();
       const chips = [...$('#start-review-btn').previousElementSibling.children].flatMap(c => num(c.textContent)), decks = $$('.v2-review main a[href^="#/deck?from="]').map(a => num(a.closest('.relative').lastElementChild.firstElementChild.textContent)[0]);
       const dc = w.Core.Cards.dueCount(App.state.cards, App.state.settings, App.state.stats);
-      ok(ring === dc.total && chips.reduce((a, b) => a + b, 0) === ring && decks.reduce((a, b) => a + b, 0) === ring && dc.newCount > 0, `Ôn (Stitch v2): số liệu nhất quán – vòng ${ring} = chip ${chips.join('+')} = các bộ ${decks.join('+')} (đến hạn ${dc.due} + mới ${dc.newCount})`);
+      const nw = +(($('.v2-review main').textContent.match(/·\s*(\d+) (?:thẻ mới|new)/) || [])[1] || 0); // số thẻ mới ở dòng "Ước tính ~m phút · n thẻ mới" (giữ hàng chip như mẫu Stitch)
+      ok(ring === dc.total && chips.length === 2 && chips[0] + chips[1] + nw === ring && nw === dc.newCount && decks.reduce((a, b) => a + b, 0) === ring && dc.newCount > 0, `Ôn (Stitch v2): số liệu nhất quán – vòng ${ring} = chip ${chips.join('+')} + mới ${nw} = các bộ ${decks.join('+')} (đến hạn ${dc.due} + mới ${dc.newCount})`);
       for (let i = 0; i < 3; i++) delete App.state.cards['nw' + i]; }
     await go('#/review?ahead=2');
     ok(!$('.v2-review'), 'Ôn: ?ahead= vẫn vào thẳng phiên ôn (không qua hub)');

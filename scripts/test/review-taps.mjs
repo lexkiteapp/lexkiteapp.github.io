@@ -64,12 +64,12 @@ async function run(type, name, opts, scheme) {
     await hub(); const loc = page.locator(sel).nth(nth); if (!(await loc.count())) { ok(false, `${tag}: ${label} – không có phần tử (${sel})`); return; }
     const pt = await loc.evaluate((el, inner) => { const t = inner ? el.closest('.relative').querySelector(inner) : el; if (!t) return { miss: 'không thấy ' + inner };
       if (!el.closest('header, nav')) t.scrollIntoView({ block: 'center' }); const r = t.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-      const miss = [], hit = (x, y) => { const h = document.elementFromPoint(x, y), k = !!h && (h === el || el.contains(h)); if (!k) miss.push(`(${Math.round(x)},${Math.round(y)})→${h ? h.tagName + '.' + String(h.className).slice(0, 40) : 'ngoài màn'}`); return k; }, top = document.elementFromPoint(cx, cy);
+      const slip = [], hit = (x, y) => { const h = document.elementFromPoint(x, y), k = !!h && (h === el || el.contains(h)); if (!k) slip.push(`(${Math.round(x)},${Math.round(y)})→${h ? h.tagName + '.' + String(h.className).slice(0, 40) : 'ngoài màn'}`); return k; }, top = document.elementFromPoint(cx, cy);
       return { x: cx, y: cy, w: r.width, h: r.height, center: hit(cx, cy), by: top && !(top === el || el.contains(top)) ? `${top.tagName}.${String(top.className).slice(0, 50)}` : '',
-        tall: hit(cx, cy - 21) & hit(cx, cy + 21), wide: hit(cx - 21, cy) & hit(cx + 21, cy), miss }; }, inner);
+        tall: hit(cx, cy - 21) & hit(cx, cy + 21), wide: hit(cx - 21, cy) & hit(cx + 21, cy), slip }; }, inner);
     if (pt.miss) { ok(false, `${tag}: ${label} – ${pt.miss}`); return; }
     ok(pt.center, `${tag}: ${label} – không bị lớp nào đè${pt.by ? ' (bị ' + pt.by + ' đè)' : ''}`);
-    ok(pt.tall && pt.wide, `${tag}: ${label} – vùng chạm ≥ 44×44 px (hộp ${Math.round(pt.w)}×${Math.round(pt.h)}${pt.tall && pt.wide ? '' : '; trượt ' + pt.miss.join(' ')})`);
+    ok(pt.tall && pt.wide, `${tag}: ${label} – vùng chạm ≥ 44×44 px (hộp ${Math.round(pt.w)}×${Math.round(pt.h)}${pt.tall && pt.wide ? '' : '; trượt ' + pt.slip.join(' ')})`);
     if (want === null) return;
     const before = await page.evaluate(() => location.hash); await page.touchscreen.tap(pt.x, pt.y);
     const got = await page.waitForFunction(([b, w]) => location.hash !== b && [].concat(w).some(x => location.hash.startsWith(x)) ? location.hash : false, [before, want], { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
