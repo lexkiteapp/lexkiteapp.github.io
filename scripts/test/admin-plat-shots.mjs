@@ -56,7 +56,12 @@ for (const [width, scheme, lang] of CONFIGS) {
     const res = await card.evaluate((c, W) => {
       const o = [], rows = [...c.querySelectorAll('tbody tr')], over = document.scrollingElement.scrollWidth - innerWidth;
       if (over > 1) o.push(`trang tràn ngang ${over} px`);
-      if (innerWidth > W + 1) o.push(`trang bị thu nhỏ để vừa nội dung: rộng bố cục ${innerWidth}/${W} px`);
+      if (innerWidth > W + 1) {
+        // phần tử sâu nhất rộng hơn màn thật → thủ phạm làm trình duyệt điện thoại thu nhỏ cả trang
+        const wide = [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().width > W + 1 && ![...e.children].some(k => k.getBoundingClientRect().width > W + 1));
+        const id = e => e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + '.' + [...e.classList].slice(0, 2).join('.') + ':' + Math.round(e.getBoundingClientRect().width) + '/minW=' + getComputedStyle(e).minWidth;
+        o.push(`trang bị thu nhỏ để vừa nội dung: rộng bố cục ${innerWidth}/${W} px – phần tử rộng nhất (sâu nhất): ${wide.slice(0, 6).map(id).join(', ')}`);
+      }
       const cw = c.getBoundingClientRect().width; if (cw < W * 0.8) o.push(`thẻ chỉ rộng ${Math.round(cw)}/${W} px (bị ép vào nửa lưới)`);
       if (c.scrollWidth > c.clientWidth + 1) o.push(`thẻ tràn ngang ${c.scrollWidth - c.clientWidth} px`);
       if (rows.length !== 5) o.push(`cần 5 dòng nền tảng, có ${rows.length}`);
