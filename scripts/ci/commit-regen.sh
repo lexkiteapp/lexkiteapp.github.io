@@ -5,6 +5,7 @@
 #   bash scripts/ci/commit-regen.sh "<thông điệp>" "<lệnh sinh>" <tệp/thư mục…>
 set -u
 MSG=$1; REGEN=$2; shift 2
+case "$MSG" in *"[CF-Pages-Skip]"*) ;; *) MSG="$MSG [CF-Pages-Skip]";; esac   # tệp sinh: không dựng lại Pages (scripts/test/pages-skip.mjs)
 git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
 for i in 1 2 3 4 5 6; do
   git fetch -q origin main && git reset -q --hard origin/main || { sleep 5; continue; }
