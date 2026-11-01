@@ -1,0 +1,30 @@
+# Font tự host cho Stitch web/app (web/fonts: Plus Jakarta Sans + Material Symbols subset theo icon mẫu dùng) – máy dev/sandbox không tới được
+# fonts.googleapis.com, nên CI tải: push lên nhánh stitch-* mà mẫu dùng icon chưa có trong web/fonts/msym.json → chạy --fonts, commit lại nhánh đó.
+# (Push bằng GITHUB_TOKEN không kích workflow khác → chạy lại stitch-web bằng workflow_dispatch sau khi commit font.)
+name: Stitch fonts
+on:
+  push:
+    branches: ['stitch-*']
+    paths: ['brand/stitch/**', 'web/js/st/**', 'scripts/build-stitch-css.mjs', '.github/workflows/stitch-fonts.yml']
+permissions:
+  contents: write
+concurrency:
+  group: stitch-fonts-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  fonts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund --ignore-scripts && npm i --no-save --no-audit --no-fund tailwindcss@3.4.17
+      - name: Thiếu icon → tải lại font, commit
+        run: |
+          if node scripts/build-stitch-css.mjs --check 2>&1 | grep -q 'icon chưa có trong web/fonts'; then
+            node scripts/build-stitch-css.mjs --fonts | tail -3
+            node scripts/build-stitch-css.mjs --check | tail -3
+            git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add web/fonts && git commit -m "stitch-fonts: tải lại font tự host (icon mới trong mẫu) [CF-Pages-Skip]" && git push
+          else echo 'font đủ icon'; fi
