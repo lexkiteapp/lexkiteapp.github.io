@@ -15777,6 +15777,138 @@
       ],
       "angle": "Daily use English sentences with Hindi meaning: रोजमर्रा की बातचीत, अभिवादन, स्मॉल टॉक, राय व्यक्त करना और रेस्टोरेंट में अंग्रेजी बोलने के आसान वाक्य।",
       "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "how-to-learn-english-from-scratch-roadmap",
+      "keyword": "how to learn english from scratch",
+      "topic": "How to Learn English from Scratch: A 90-Day Self-Study Roadmap",
+      "category": "phuong-phap",
+      "tags": [
+        "beginner",
+        "self-study",
+        "study-plan"
+      ],
+      "shots": [
+        "placement",
+        "review"
+      ],
+      "routes": [
+        "/#/placement",
+        "/#/review"
+      ],
+      "angle": "Actionable 90-day roadmap for absolute beginners to learn English independently: sound systems first, 1000 core words, basic sentence patterns, and daily habits.",
+      "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "como-aprender-ingles-desde-cero-guia",
+      "keyword": "como aprender ingles desde cero",
+      "topic": "Cómo Aprender Inglés Desde Cero: Plan de 90 Días para Principiantes",
+      "category": "phuong-phap",
+      "tags": [
+        "ingles-desde-cero",
+        "autodidacta",
+        "plan-estudio"
+      ],
+      "shots": [
+        "placement",
+        "review"
+      ],
+      "routes": [
+        "/#/placement",
+        "/#/review"
+      ],
+      "angle": "Guía práctica de 90 días para aprender inglés desde cero por tu cuenta: fonética básica, primeras 1.000 palabras frecuentes, gramática mínima y rutina diaria sin frustración.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "cara-belajar-bahasa-inggris-dari-nol",
+      "keyword": "cara belajar bahasa inggris dari nol",
+      "topic": "Cara Belajar Bahasa Inggris dari Nol: Rencana 90 Hari Belajar Otodidak",
+      "category": "phuong-phap",
+      "tags": [
+        "belajar-otodidak",
+        "bahasa-inggris-pemula",
+        "jadwal-belajar"
+      ],
+      "shots": [
+        "placement",
+        "review"
+      ],
+      "routes": [
+        "/#/placement",
+        "/#/review"
+      ],
+      "angle": "Panduan langkah demi langkah cara belajar bahasa Inggris dari nol secara mandiri dalam 90 hari: fokus bunyi dan pengucapan, 1.000 kosakata pertama, dan kebiasaan harian efektif.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "eigo-dokugaku-yarinaoshi-road-map",
+      "keyword": "英語 独学 やり直し ロードマップ",
+      "topic": "大人の英語やり直し独学ロードマップ：ゼロから90日で基礎を固める勉強法",
+      "category": "phuong-phap",
+      "tags": [
+        "dokugaku",
+        "yarinaoshi",
+        "kiso-eigo"
+      ],
+      "shots": [
+        "placement",
+        "review"
+      ],
+      "routes": [
+        "/#/placement",
+        "/#/review"
+      ],
+      "angle": "挫折知らずの大人の英語独学やり直しロードマップ。発音記号、コア単語1000語、中学レベルの必須文法、音読習慣で90日後に英語の基礎を完全に固める手順。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "yeongeo-dokhak-chobo-90il-keorikyulleom",
+      "keyword": "영어 독학 기초 공부법",
+      "topic": "성인 영어 독학 기초 공부법: 노베이스를 위한 90일 완성 로드맵",
+      "category": "phuong-phap",
+      "tags": [
+        "yeongeo-dokhak",
+        "gicho-yeongeo",
+        "gongbubeop"
+      ],
+      "shots": [
+        "placement",
+        "review"
+      ],
+      "routes": [
+        "/#/placement",
+        "/#/review"
+      ],
+      "angle": "영포자 노베이스도 성공하는 영어 독학 기초 공부법 90일 로드맵. 발음 기호, 핵심 어휘 1000단어, 필수 문장 패턴과 지속 가능한 매일 루틴 완성 가이드.",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "ling-ji-chu-zi-xue-ying-yu-90-tian-gui-hua",
+      "keyword": "零基础自学英语",
+      "topic": "零基础自学英语90天全规划：从发音核心词到日常交流的高效路线图",
+      "category": "phuong-phap",
+      "tags": [
+        "ling-ji-chu",
+        "zi-xue-ying-yu",
+        "xue-xi-fang-fa"
+      ],
+      "shots": [
+        "placement",
+        "review"
+      ],
+      "routes": [
+        "/#/placement",
+        "/#/review"
+      ],
+      "angle": "零基础自学英语实用90天破局指南：先声音后拼写，主攻高频1000核心词与核心句型，搭配FSRS间隔复习，告别死记硬背与学了就忘。",
+      "intent": "informational"
     }
   ]
 }
