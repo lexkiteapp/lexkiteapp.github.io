@@ -34,19 +34,21 @@
     card(view, s, i);
   });
 
-  // 📚 Các loạt (chưa có ref Stitch riêng → cùng token/khuôn thẻ của mặt trước; chủ duyệt ảnh)
+  // 📚 Các loạt – ref Stitch brand/stitch/v2/say-list-{light,dark}.html (khung say-front, thân = danh sách thẻ 88 px + thanh tiến độ)
   function list(view, D) {
     const sn = seen(), d = { tabs: ST2.tabs('train') };
     const rows = D.series.map(s => { const n = s.items.filter(x => sn[s.id + '/' + x.id]).length, first = s.items.find(x => !sn[s.id + '/' + x.id]) || s.items[0];
-      return `<a href="#/say/${esc(s.id)}/${esc(first.id)}" class="flex items-center gap-3 p-3 pr-4 rounded-[1.25rem] border-2 min-h-[88px] lt:bg-[#ffffff] lt:border-[#eae1d8] lt:shadow-[0_5px_0_#e2d5c7] dk:bg-[#10252b] dk:border-[#234e57] dk:shadow-[0_6px_0_#051013]">
-        <span class="w-16 h-16 shrink-0 rounded-[1rem] overflow-hidden flex items-end justify-center lt:bg-[#f6ece4] dk:bg-[#121d20]">${Chars.img(s.teacher, { kind: 'still', pose: s.items[0].pose, size: 64, alt: '', cls: 'w-full h-full object-contain object-bottom' })}</span>
-        <span class="flex-1 min-w-0"><span class="block text-[17px] leading-[22px] font-extrabold tracking-tight lt:text-[#10191b] dk:text-[#e6f1f3]" lang="en">${esc(s.title)}</span>
-        <span class="block text-[13px] leading-[18px] font-semibold mt-0.5 lt:text-[#46595c] dk:text-[#a9bec2]">${esc(t('{n}/{total} thẻ · với {name}', { n, total: s.items.length, name: Chars.name(s.teacher) }))}</span></span>
-        <span class="material-symbols-outlined text-[22px] lt:text-[#00514d] dk:text-[#2dd4bf]" aria-hidden="true">arrow_forward</span></a>`; }).join('');
+      const pct = Math.round(100 * n / s.items.length);
+      return `<a href="#/say/${esc(s.id)}/${esc(first.id)}" class="h-[88px] w-full rounded-[16px] border-2 px-3 flex items-center justify-between gap-2 transition-transform active:translate-y-[2px] lt:bg-[#ffffff] lt:border-[#eae1d8] lt:shadow-[0_5px_0_0_#e2d5c7] lt:active:shadow-[0_3px_0_0_#e2d5c7] dk:bg-[#10252b] dk:border-[#234e57] dk:shadow-[0_6px_0_0_#051013] dk:active:shadow-[0_3px_0_0_#051013]">
+        <span class="flex items-center gap-3 flex-1 min-w-0 pr-2"><span class="w-[64px] h-[64px] shrink-0 rounded-[14px] overflow-hidden flex items-end justify-center lt:bg-[#fffaf5] dk:bg-[#121d20]">${Chars.img(s.teacher, { kind: 'still', pose: s.items[0].pose, size: 64, alt: '', cls: 'w-full h-full object-contain object-bottom' })}</span>
+        <span class="flex-1 min-w-0"><span class="block text-[17px] font-bold truncate leading-tight mb-1 lt:text-[#1f1b16] dk:text-[#e6f1f3]" lang="en">${esc(s.title)}</span>
+        <span class="block text-[12px] font-medium mb-1.5 leading-none lt:text-[#5c5349] dk:text-[#a9bec2]">${esc(t('{n}/{total} thẻ · với {name}', { n, total: s.items.length, name: Chars.name(s.teacher) }))}</span>
+        <span class="block w-full max-w-[170px] h-[5px] rounded-full overflow-hidden lt:bg-[#eff4f3] dk:bg-[#234e57]" role="progressbar" aria-valuemin="0" aria-valuemax="${s.items.length}" aria-valuenow="${n}" aria-label="${esc(s.title)}"><span class="block h-full rounded-full lt:bg-[#00514d] dk:bg-[#2dd4bf]" style="width:${pct}%"></span></span></span></span>
+        <span class="material-symbols-outlined w-7 h-7 flex items-center justify-center shrink-0 text-[24px] lt:text-[#00514d] dk:text-[#2dd4bf]" aria-hidden="true">chevron_right</span></a>`; }).join('');
     ST2.mount(view, 'say-front', Object.assign(d, { series: '', step: '', regLbl: '', say: '', ipa: '', teacher: '', back: '#/train', pct: 0, n: 0, total: 0, nav: '', heard: '' }), null);
     const root = view.querySelector('.v2'), main = root.querySelector('main');
-    main.innerHTML = `<p class="text-[15px] leading-[22px] font-semibold px-1 lt:text-[#46595c] dk:text-[#a9bec2]">${esc(t('Câu người bản xứ hay nói, kèm tình huống dùng và câu nên tránh. Chạm thẻ để lật.'))}</p>
-      <div id="sayList" class="flex flex-col gap-3 pt-3 pb-28">${rows}</div>`;
+    main.innerHTML = `<p class="text-[14px] leading-[20px] font-medium mb-5 lt:text-[#5c5349] dk:text-[#a9bec2]">${esc(t('Câu người bản xứ hay nói, kèm tình huống dùng và câu nên tránh. Chạm thẻ để lật.'))}</p>
+      <div id="sayList" class="flex flex-col gap-3 pb-28">${rows}</div>`;
     main.insertAdjacentHTML('afterend', navHtml(d));
     root.querySelector('header button[data-href]').setAttribute('aria-label', t('Quay về'));
     const fl = root.querySelector('#sFlag'); if (fl) { fl.classList.add('invisible'); fl.setAttribute('aria-hidden', 'true'); fl.tabIndex = -1; } // ⚑ chỉ có nghĩa trên một thẻ cụ thể; giữ chỗ để tiêu đề ở giữa
