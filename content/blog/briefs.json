@@ -17306,6 +17306,52 @@
       ],
       "angle": "คู่มือฝึก คิดเป็นภาษาอังกฤษ แบบไม่ต้องแปลในหัว: เคล็ดลับ 4 ขั้นตอนเปลี่ยนระบบความคิด ฝึกพูดคนเดียว และโต้ตอบภาษาอังกฤษได้อย่างลื่นไหลและมั่นใจ.",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "tieng-anh-dam-phan-thuong-luong-hop-dong",
+      "keyword": "tiếng anh đàm phán",
+      "topic": "Tiếng Anh Đàm Phán: Mẫu Câu Thương Lượng Hợp Đồng và Thuyết Phục Đối Tác",
+      "category": "ky-nang",
+      "tags": [
+        "dam-phan",
+        "negotiation",
+        "tieng-anh-cong-so",
+        "speaking"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Cẩm nang tiếng anh đàm phán thương mại: mở đầu thương lượng, đưa ra đề xuất đối ứng, xử lý bế tắc và chốt điều khoản hợp đồng chuyên nghiệp.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "business-english-negotiation-phrases-guide",
+      "keyword": "business english negotiation phrases",
+      "topic": "Business English Negotiation Phrases: Professional Bargaining and Deal Closing",
+      "category": "ky-nang",
+      "tags": [
+        "business-english",
+        "negotiation",
+        "bargaining",
+        "workplace-communication"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Essential business english negotiation phrases: framing counteroffers, navigating concessions, overcoming deal deadlocks, and sealing commercial agreements.",
+      "intent": "informational"
     }
   ]
 }
