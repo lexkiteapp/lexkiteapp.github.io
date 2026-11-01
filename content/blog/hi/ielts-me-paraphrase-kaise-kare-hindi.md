@@ -49,8 +49,8 @@ Task 2 के परिचयात्मक वाक्यों का अभ
 
 समानार्थी शब्दों का उपयोग सबसे सीधा तरीका है, लेकिन अकादमिक अंग्रेजी में पूरी तरह विनिमेय (Absolute Synonyms) शब्द बहुत दुर्लभ होते हैं:
 
-- **मूल प्रश्न वाक्य:** *A large number of young personnel prefer working remotely rather than commuting daily to conventional offices.*
-- **अकादमिक पैराफ्रेज (Band 8.5):** *A significant proportion of junior staff members prioritize telecommuting over travelling on a daily basis to traditional corporate premises.*
+- **मूल प्रश्न वाक्य:** *A growing number of mid-career executives abandon corporate headquarters to pursue agricultural livelihoods.*
+- **अकादमिक पैराफ्रेज (Band 8.5):** *An increasing fraction of experienced managerial personnel relinquish metropolitan corporate desks in favor of agrarian vocations.*
 
 > **परीक्षक की चेतावनी:** केवल विद्वता दिखाने के लिए पुराने या अप्राकृतिक शब्दों का उपयोग न करें। उदाहरण के लिए, स्कूली छात्रों के संदर्भ में *schoolchildren* की जगह *juveniles* (बाल अपराधी) या *infants* (शिशु) लिखना अर्थ का अनर्थ कर देता है। शब्दों का स्वाभाविक जुड़ाव (*Collocations*) सर्वोपरि है।
 
@@ -63,11 +63,11 @@ Task 2 के परिचयात्मक वाक्यों का अभ
 शब्द के व्याकरणिक रूप को बदलना—जैसे क्रिया (Verb) को संज्ञा (Noun) में बदलना जिसे **Nominalization** कहते हैं—वाक्य को परिपक्व अकादमिक गंभीरता प्रदान करता है:
 
 - **क्रिया से संज्ञा रूपांतरण:**
-  - *मूल वाक्य:* The government should invest heavily in clean public transportation to curb urban smog.
-  - *पैराफ्रेज (Band 8):* Substantial public investment in clean transit networks is imperative to mitigate metropolitan atmospheric pollution.
+  - *मूल वाक्य:* State authorities must restore natural wetlands comprehensively to prevent catastrophic river floods.
+  - *पैराफ्रेज (Band 8):* Comprehensive governmental restoration of river basin wetlands is imperative for flood prevention.
 - **विशेषण से क्रियाविशेषण रूपांतरण:**
-  - *मूल वाक्य:* The rapid escalation in rental fees triggered immense stress among suburban university students.
-  - *पैराफ्रेज (Band 8.5):* Rental rates escalated rapidly across suburban districts, inducing substantial anxiety among undergraduate scholars.
+  - *मूल वाक्य:* The abrupt cancellation of vocational training subsidies caused enormous discontent among young apprentices.
+  - *पैराफ्रेज (Band 8.5):* Vocational apprentice stipends were terminated abruptly, precipitating profound discontent across regional trade centers.
 
 जटिल वाक्यों के निर्माण के लिए [Lexkite व्याकरण अनुभाग](/#/grammar) का उपयोग करें।
 
@@ -78,52 +78,52 @@ Task 2 के परिचयात्मक वाक्यों का अभ
 मुख्य और आश्रित उपवाक्यों का क्रम उलटना या Active से औपचारिक Passive Voice में बदलना अर्थ बदले बिना शैली को नया रूप देता है:
 
 - **विरोधाभासी उपवाक्य (Concession) का क्रम बदलना:**
-  - *मूल वाक्य:* Although professional trade apprenticeships supply practical workplace abilities, numerous school-leavers favor university degrees.
-  - *पैराफ्रेज:* Conventional academic credentials continue to be favoured by most school-leavers, notwithstanding the pragmatic vocational competencies delivered by trade apprenticeships.
+  - *मूल वाक्य:* Although automated translation tools deliver rapid multilingual summaries, human translators guarantee subtle cultural accuracy.
+  - *पैराफ्रेज:* Invaluable cultural nuances and linguistic subtleties remain effectively preserved by human linguists, despite the impressive efficiency offered by automated digital translation tools.
 - **अकादमिक Passive Voice का उपयोग:**
-  - *मूल वाक्य:* Local municipalities should regulate personal automobile emissions in historic pedestrian centres.
-  - *पैराफ्रेज:* The emission levels of private motor vehicles in historic urban districts ought to be strictly monitored by municipal authorities.
+  - *मूल वाक्य:* Commercial fisheries should drastically curtail trawling operations in vulnerable coastal sanctuaries.
+  - *पैराफ्रेज:* Trawling activities across delicate marine ecosystems ought to be rigorously restricted by maritime fisheries authorities.
 
 ## 5. फॉर्मूला 4: कारण और प्रभाव वाले कनेक्टर्स (Cause & Effect) का पुनर्गठन
 
 साधारण *because* को दोहराने के बजाय उच्च स्तरीय विश्लेषणात्मक कनेक्टर्स का उपयोग करें जैसे *owing to*, *stemming from*, या *as a consequence of*:
 
-- *मूल वाक्य:* Many graduates encounter severe obstacles during job searches because hiring managers insist on extensive work experience.
-- *पैराफ्रेज (Band 8.5):* Owing to corporate employers demanding verifiable industry track records, recent graduates encounter severe impediments when pursuing entry-level appointments.
+- *मूल वाक्य:* Regional libraries face severe patron shortages because modern readers overwhelmingly download commercial e-books.
+- *पैराफ्रेज (Band 8.5):* Owing to bibliophiles gravitating predominantly toward commercial electronic publications, civic libraries experience unprecedented declines in patron footfall.
 
 ## 6. फॉर्मूला 5: विलोम संकल्पना और नकारात्मक रूपांतरण (Antonymy)
 
 सकारात्मक विचार को उसके विपरीत के निषेध (Negation) द्वारा व्यक्त करना परिपक्व लेखन शैली का प्रतीक है:
 
-- *मूल वाक्य:* Establishing consistent reading routines in early childhood is crucial for intellectual development.
-- *पैराफ्रेज:* Neglecting structured literacy habits during early development is seldom conducive to cultivating sharp intellectual faculties.
+- *मूल वाक्य:* Encouraging collaborative group projects in primary classrooms fosters interpersonal empathy.
+- *पैराफ्रेज:* Disregarding cooperative peer assignments in early schooling is seldom conducive to cultivating mature social empathy.
 
 ## 7. व्यावहारिक केस स्टडी: Task 2 निबंध के परिचय का रूपांतरण
 
 आइए देखें कि ये पांचों तकनीकें एक वास्तविक परीक्षा प्रश्न में कैसे घुलमिल जाती हैं:
 
 > **आधिकारिक परीक्षा प्रश्न:**  
-> *Some educators believe that practical computer coding should be made mandatory for all secondary school students. To what extent do you agree or disagree?*
+> *Some environmentalists contend that international air passenger travel should be severely quota-restricted to combat global climate anomalies. To what extent do you agree or disagree?*
 >
 > **आदर्श Band 8.5 पैराफ्रेज:**  
-> A growing contingent of pedagogical experts maintains that foundational software programming ought to constitute a compulsory module within secondary curricula. From my standpoint, while acquiring technical literacy indisputably equips adolescents with indispensable modern workplace capabilities, mandating coding classes across all disciplines indiscriminately risks overburdening pupils whose aptitudes lie within the creative humanities.
+> A contingent of ecological researchers asserts that cross-border aviation journeys ought to be subjected to stringent legislative quotas to mitigate planetary climate destabilization. From my perspective, while capping discretionary leisure flights would undeniably alleviate stratospheric emissions, curtailing global air transit indiscriminately poses catastrophic threats to international scientific exchange, humanitarian diplomacy, and dependent tourist economies.
 
 ## 8. 3 व्यावहारिक अभ्यास और विस्तृत समाधान
 
-### अभ्यास 1: ऐतिहासिक केंद्रों में निजी वाहनों पर प्रतिबंध
-- **प्रश्न वाक्य:** *City councils should ban private cars from municipal centers to eliminate traffic gridlock.*
-- **तकनीक:** संज्ञाकरण और कर्मवाच्य (*ban cars* → *vehicular restrictions should be enforced*).
-- **Band 8.5 रूपांतरण:** *The complete prohibition of personal passenger cars in central urban corridors ought to be implemented to alleviate chronic vehicular congestion.*
+### अभ्यास 1: ऐतिहासिक पांडुलिपियों का डिजिटलीकरण
+- **प्रश्न वाक्य:** *National archives should systematically digitize rare historical manuscripts to prevent cultural loss.*
+- **तकनीक:** संज्ञाकरण और कर्मवाच्य (*digitize manuscripts* → *the preservation should be accelerated*).
+- **Band 8.5 रूपांतरण:** *The comprehensive digital preservation of ancient literary artifacts ought to be aggressively subsidized by national archival institutions.*
 
-### अभ्यास 2: प्लास्टिक पैकेजिंग और मिट्टी का क्षरण
-- **प्रश्न वाक्य:** *The rampant usage of non-biodegradable packaging causes catastrophic soil degradation.*
-- **तकनीक:** कारण-परिणाम का उलटफेर और विशेषण बदलाव (*usage causes degradation* → *soil suffers due to reliance*).
-- **Band 8.5 रूपांतरण:** *Agricultural and suburban soil systems suffer severe environmental degradation primarily as a result of pervasive reliance on disposable plastic wrapping.*
+### अभ्यास 2: फास्ट फैशन वस्त्र और जल संकट
+- **प्रश्न वाक्य:** *The massive overproduction of disposable fast-fashion garments depletes critical freshwater aquifers.*
+- **तकनीक:** कारण-परिणाम का उलटफेर और विशेषण बदलाव (*overproduction depletes aquifers* → *aquifers suffer due to manufacturing*).
+- **Band 8.5 रूपांतरण:** *Freshwater aquatic reservoirs encounter catastrophic hydrological depletion principally stemming from the relentless expansion of disposable garment manufacturing.*
 
-### अभ्यास 3: ऑटोमेशन और कार्यालय कर्मचारियों की चुनौतियां
-- **प्रश्न वाक्य:** *Sophisticated automated algorithms will replace millions of administrative workers within a decade.*
-- **तकनीक:** अकादमिक समानार्थी और क्रिया की दिशा बदलना (*algorithms replace workers* → *staff face redundancy*).
-- **Band 8.5 रूपांतरण:** *Due to the rapid proliferation of algorithmic automation, extensive tiers of clerical and corporate personnel face imminent structural redundancy.*
+### अभ्यास 3: स्वायत्त मालवाहक वाहन और परिवहन श्रमिक
+- **प्रश्न वाक्य:** *Driverless commercial freight trucks will displace millions of long-haul logistics drivers.*
+- **तकनीक:** अकादमिक समानार्थी और क्रिया की दिशा बदलना (*trucks displace drivers* → *haulage staff confront redundancy*).
+- **Band 8.5 रूपांतरण:** *Long-distance haulage personnel confront severe occupational displacement as autonomous vehicular freight systems attain widespread regulatory approval.*
 
 ## 9. परीक्षार्थियों द्वारा की जाने वाली 4 बड़ी गलतियां
 
@@ -136,7 +136,7 @@ Task 2 के परिचयात्मक वाक्यों का अभ
 
 परीक्षा के दबाव में 2 मिनट के भीतर सटीक पैराफ्रेज तैयार करने के 3 कदम:
 
-- **कदम 1 (स्थिर शब्दों को पहचानें):** मुख्य विषयगत शब्दों (जैसे *renewable energy* या *tertiary education*) को रेखांकित करें जिन्हें जबरन बदलने की जरूरत नहीं है।
+- **कदम 1 (स्थिर शब्दों को पहचानें):** मुख्य विषयगत शब्दों (जैसे *climate anomalies*, *international air passenger travel*) को रेखांकित करें जिन्हें जबरन बदलने की जरूरत नहीं है।
 - **कदम 2 (ढांचे का चयन करें):** तय करें कि आप संज्ञाकरण (Nominalization) करेंगे या वाक्य का क्रम उलटकर पैसिव बनाएंगे।
 - **कदम 3 (सटीकता जांच):** 15 सेकंड में जांच लें कि मूल प्रश्न का केंद्रीय विचार सुरक्षित है या नहीं।
 
