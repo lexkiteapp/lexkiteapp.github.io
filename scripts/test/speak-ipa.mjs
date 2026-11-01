@@ -106,8 +106,8 @@ assert.match(study, /q\.answer && q\.answer\.toLowerCase\(\) !== w\.word\.toLowe
 // 2e. Câu + loa: loa nằm trong .say-line (cố định ở mép cuối) – không trôi theo chữ
 const gram = fs.readFileSync('web/js/grammar.js', 'utf8');
 assert.equal((gram.match(/sayBtn\(/g) || []).length, 1, 'grammar.js: mọi loa đi qua sayLine()');
-assert.match(study, /fi-ex say-line"><span class="say-tx">/, 'Thẻ ôn: ví dụ + loa dùng .say-line');
-assert.match(study, /sheet-ex"><div class="say-line"><span class="say-tx">/, 'Bảng phản hồi: ví dụ + loa dùng .say-line');
+assert.match(study, /fi-ex say-line" data-sent="\$\{esc\(c\.ex\)\}"><span class="say-tx">/, 'Thẻ ôn: ví dụ + loa dùng .say-line, mang data-sent (câu sạch cho popup tra từ)');
+assert.match(study, /sheet-ex"><div class="say-line" data-sent="\$\{esc\(w\.ex\)\}"><span class="say-tx">/, 'Bảng phản hồi: ví dụ + loa dùng .say-line, mang data-sent');
 assert.match(fs.readFileSync('web/css/style.css', 'utf8'), /\.say-line \{ display: flex;/, 'style.css có .say-line');
 console.log('✓ Bảng phản hồi không lặp từ · loa thẳng hàng (.say-line) ở ngữ pháp, thẻ ôn, phản hồi luyện tập');
 
