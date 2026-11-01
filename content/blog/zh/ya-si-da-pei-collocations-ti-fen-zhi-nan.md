@@ -43,54 +43,54 @@ qualityScore: 93
 ### 环境保护、气候变化与能源危机
 
 * **Pose a grave threat:** 构成极其严重且紧迫的威胁。
-  * *例句:* "Rising sea levels **pose a grave threat** to vulnerable coastal communities worldwide."
+  * *例句:* "Severe soil erosion **poses a grave threat** to agricultural yields across rural provinces."
 * **Mitigate the impact:** 减轻或缓解负面冲击。
-  * *例句:* "Coordinated international policies are essential to **mitigate the impact** of industrial emissions."
+  * *例句:* "Stricter carbon pricing helps **mitigate the impact** of fossil-fuel dependence."
 * **Deplete natural resources:** 大肆消耗并耗尽宝贵的自然资源。
-  * *例句:* "Unsustainable consumption models continue to **deplete natural resources** at an alarming rate."
+  * *例句:* "Excessive mining activities **deplete natural resources** in vulnerable highland regions."
 * **Renewable energy sources:** 可再生、清洁环保的能源形式。
-  * *例句:* "Governments should allocate more subsidies to **renewable energy sources** such as wind and solar power."
+  * *例句:* "Transitioning toward regional **renewable energy sources** lowers sovereign reliance on imported gas."
 * **Irreversible damage:** 无法逆转且无法弥补的毁灭性损害。
-  * *例句:* "Unchecked deforestation causes **irreversible damage** to tropical rainforest ecosystems."
+  * *例句:* "Dumping untreated industrial chemicals inflicts **irreversible damage** on riparian wetlands."
 
 ### 科学技术、人工智能与数字化社会
 
 * **Revolutionize communication:** 从根本上彻底变革交流沟通模式。
-  * *例句:* "Instant messaging tools have completely **revolutionized communication** across international enterprises."
+  * *例句:* "Enterprise collaboration software has **revolutionized communication** between dispersed global branches."
 * **Technological breakthrough:** 突破性的重大科技进展或创新成果。
-  * *例句:* "Recent **technological breakthroughs** in machine learning will transform medical diagnostic accuracy."
+  * *例句:* "Exciting **technological breakthroughs** in nanotechnology will accelerate clean water desalination."
 * **Bridge the digital divide:** 缩小并消除数字鸿沟与科技受惠差距。
-  * *例句:* "Subsidized broadband initiatives help **bridge the digital divide** in remote schooling areas."
+  * *例句:* "Providing affordable municipal fiber helps **bridge the digital divide** in marginalized suburbs."
 * **Pose ethical dilemmas:** 引发复杂的伦理道德困境与哲学争议。
-  * *例句:* "Autonomous transport algorithms **pose ethical dilemmas** regarding collision accountability."
+  * *例句:* "Facial recognition algorithms **pose ethical dilemmas** concerning individual privacy protections."
 * **Vulnerable to cyberattacks:** 极易遭受网络攻击、黑客入侵或数据泄露。
-  * *例句:* "Unprotected municipal databases remain dangerously **vulnerable to cyberattacks**."
+  * *例句:* "Interconnected utility control networks remain highly **vulnerable to cyberattacks**."
 
 ### 现代教育、职业技能与青年发展
 
 * **Foster critical thinking:** 培养、塑造并激发独立批判性思维能力。
-  * *例句:* "Modern curricula should strive to **foster critical thinking** rather than passive memorization."
+  * *例句:* "Debating controversial societal questions **fosters critical thinking** among high school students."
 * **Acquire practical skills:** 获取能在实际生产环境中落地的实用操作技能。
-  * *例句:* "Vocational workshops allow students to **acquire practical skills** needed in modern industries."
+  * *例句:* "Hands-on culinary apprenticeships allow trainees to **acquire practical skills** for hospitality."
 * **Broaden one's horizons:** 开阔个人视野、拓宽眼界与文化格局。
-  * *例句:* "Studying in a multicultural environment helps scholars **broaden their horizons** substantially."
+  * *例句:* "Participating in cross-border charity programs helps students **broaden their horizons**."
 * **Bridge the gap:** 弥合学术书本理论与行业现实需求之间的鸿沟。
-  * *例句:* "Corporate internships help to **bridge the gap** between textbook theories and actual market practices."
+  * *例句:* "Collaborative research ventures **bridge the gap** between pure mathematics and financial engineering."
 * **Shape future prospects:** 塑造并拓展青年人才未来的职业前途与机遇。
-  * *例句:* "Early bilingual education plays an indispensable role in **shaping future prospects** for children."
+  * *例句:* "Early mentorship programs play a monumental role in **shaping future prospects** for graduates."
 
 ![雅思大作文写作实战室展示按话题分类的词汇建议与段落结构引导](media:write "雅思写作练习室提供丰富的高分词汇建议与论文提纲构思指导")
 
 ### 城市治理、社会政策与公共资源
 
 * **Alleviate poverty:** 缓解、减轻并消除贫困落后状态。
-  * *例句:* "Microfinance credit programs have proven effective in helping to **alleviate poverty** in rural areas."
+  * *例句:* "Targeted agricultural subsidies have proven effective to **alleviate poverty** in developing provinces."
 * **Tackle homelessness:** 采取果断切实措施攻克无家可归流浪者难题。
-  * *例句:* "Metropolitan administrations must design holistic policies to **tackle homelessness** sustainably."
+  * *例句:* "Civic coalitions should build transitional housing to **tackle homelessness** during economic downturns."
 * **Promote social cohesion:** 促进社区内不同群体的社会凝聚力与和谐融合。
-  * *例句:* "Shared recreational facilities serve to **promote social cohesion** among diverse neighborhood groups."
+  * *例句:* "Community gardening clubs help **promote social cohesion** across varied socioeconomic demographics."
 * **Strain public services:** 使公共交通、医疗医疗等基础设施承受巨大承载负荷。
-  * *例句:* "Rapid population movement toward megacities continues to **strain public services** beyond sustainable limits."
+  * *例句:* "An uncontrolled population boom can **strain public services**, notably emergency medical care."
 
 ## 中国考生常见的中式英语硬翻陷阱
 
