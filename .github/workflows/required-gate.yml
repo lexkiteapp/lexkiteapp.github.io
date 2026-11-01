@@ -30,6 +30,7 @@ on:
       - 'iOS → ảnh App Store'
       - 'Journey E2E'
       - 'Mobile QA'
+      - 'Mobile WebKit E2E'
       - 'npm test'
       - 'Perf profile'
       - 'QA bot'
