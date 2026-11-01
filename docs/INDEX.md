@@ -94,6 +94,7 @@
 - [VIDEO.md](VIDEO.md) — Nguồn sự thật video hiện hành: chiến lược (NEWS-ANCHOR), look v5, builder scripts/cine/, CI cine-render, lưu trữ, kho footage; đọc khi: mọi việc video
 - [VISUAL-LEARNING-PLAN.md](VISUAL-LEARNING-PLAN.md) — Kế hoạch ảnh học ngoài thẻ từ vựng: các ứng viên theo giá trị/công sức, giai đoạn 1 (24/10), luật cho mọi giai đoạn; đọc khi: thêm ảnh minh họa mới
 - [VOCAB-IMG-STYLE.md](VOCAB-IMG-STYLE.md) — Chuẩn ảnh từ vựng: nghiên cứu app lớn, khoa học học tập, phong cách nhà duy nhất, khung hình đọc được ở 96-160 px, luật theo lớp từ, dàn nhân vật; đọc khi: sinh/duyệt ảnh từ vựng
+- [TTS-AB.md](TTS-AB.md) — Phép thử A/B giọng Kokoro ↔ ElevenLabs: bộ câu, chấm CI, nghe mù, trần credit, giấy phép; đọc khi: chọn engine giọng đọc, xem sổ chi ElevenLabs
 - [WORD-AUDIO.md](WORD-AUDIO.md) — Giọng đọc từ đơn (audio/w) bản s3: vấn đề, thí nghiệm word-audio-lab, cách làm hiện tại, giấy phép, kết quả; đọc khi: sửa âm thanh từ
 - [YOUTUBE-SETUP.md](YOUTUBE-SETUP.md) — Tải short đã duyệt lên YouTube ($0): hiện đăng tay qua Studio, thiết lập một lần, dùng hằng ngày, kiểm định API compliance, bảo mật, nhiều kênh; đọc khi: đăng video lên YouTube
 - [i18n-review-2026-10-16.md](i18n-review-2026-10-16.md) — Nhật ký rà soát bản dịch 16/10/2026 cho các chuỗi bị back-translation gắn cờ (OK/WRONG); đọc khi: tra quyết định dịch cũ
