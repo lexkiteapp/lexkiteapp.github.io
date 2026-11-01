@@ -107,24 +107,24 @@ const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.hi
   await popOnly(E, '#/home');
   ok(modalOpen(E.d) && E.w.location.hash === '#/quick?i=2', 'back sau replaceState của màn → hỏi, URL khôi phục = #/quick?i=2 (đang ' + E.w.location.hash + ')');
 }
-{ // 8) nút thoát 36×36 (desktop, .icon-btn) → hộp thật 44×44 mà hình giữ nguyên: padding +4, lề −4 (bố cục không đổi); nền & bo góc gốc vẽ ở ::before đúng hộp cũ (lk-grow)
+{ // 8) nút thoát < 44 (desktop: .icon-btn 36×36, .btn.sm.ghost 54×36) → hộp THẬT ≥ 44 mà điểm ảnh giữ nguyên:
+  //    phần nhìn thấy chuyển vào span.lk-face (cùng lớp, cùng hộp), nút thành hộp trong suốt bọc ngoài (padding + lề âm → bố cục không đổi)
   const E = await boot(), b = E.d.createElement('a');
-  b.className = 'icon-btn'; b.style.cssText = 'display:inline-grid;width:36px;height:36px;padding:0;border-radius:50%;background:#eee'; E.d.body.appendChild(b);
+  b.className = 'icon-btn has-i lk-hit44'; b.href = '#/home'; b.setAttribute('aria-label', 'Exit'); b.style.cssText = 'color:red'; b.innerHTML = '<svg class="i"></svg>'; E.d.body.appendChild(b);
   b.getBoundingClientRect = () => ({ top: 0, left: 0, width: 36, height: 36, right: 36, bottom: 36 });
-  E.w.ExitGuard._grow(b); const S = b.style;
-  ok(b.classList.contains('lk-grow') && S.paddingTop === '4px' && S.paddingLeft === '4px' && S.width === '36px' && S.height === '36px' && S.boxSizing === 'content-box', 'nới: padding 4 px quanh nội dung 36×36 → hộp 44×44 (' + S.cssText + ')');
-  ok(S.marginTop === '-4px' && S.marginLeft === '-4px', 'nới: lề −4 px → bố cục không đổi');
-  ok(S.getPropertyValue('--lk-gx') === '4px' && S.getPropertyValue('--lk-gy') === '4px' && S.getPropertyValue('--lk-r0') === '18px 18px', 'nới: ::before = hộp cũ (lệch 4 px), bo góc 50% của 36 = 18 px');
+  E.w.ExitGuard._grow(b); const S = b.style, f = b.querySelector(':scope > .lk-face');
+  ok(f && f.tagName === 'SPAN' && f.classList.contains('icon-btn') && f.classList.contains('has-i') && !f.classList.contains('lk-hit44') && f.querySelector('svg.i'), 'nới: phần nhìn thấy (icon) chuyển vào span.lk-face cùng lớp');
+  ok(f && f.style.width === '36px' && f.style.height === '36px' && f.style.boxSizing === 'border-box' && f.style.color === 'red' && f.style.margin === '0px', 'lk-face: đúng hộp cũ 36×36, giữ style nội tuyến (' + (f && f.style.cssText) + ')');
+  ok(b.classList.contains('lk-grow') && S.paddingTop === '4px' && S.paddingLeft === '4px' && S.width === '36px' && S.boxSizing === 'content-box' && S.borderWidth === '0px', 'nút: hộp 44×44 = 36 + padding 4 (' + S.cssText + ')');
+  ok(S.marginTop === '-4px' && S.marginLeft === '-4px', 'nút: lề −4 px → bố cục không đổi');
+  ok(b.getAttribute('href') === '#/home' && b.getAttribute('aria-label') === 'Exit', 'nút giữ href/aria (handler, id không đổi)');
   const css = fs.readFileSync('web/css/style.css', 'utf8');
-  ok(/\.lk-grow\s*\{[^}]*background-clip:\s*text/.test(css) && /\.lk-grow::before\s*\{[^}]*inset:\s*var\(--lk-gy\) var\(--lk-gx\)[^}]*background:\s*inherit[^}]*background-clip:\s*border-box[^}]*z-index:\s*-1/.test(css), 'style.css: nền nút chỉ vẽ ở ::before (kế thừa cả :hover), không tràn ra vùng nới');
-  const gb = E.d.createElement('button'); gb.className = 'btn sm ghost'; gb.style.cssText = 'display:inline-flex;padding:6px 12px;border:1px solid transparent;border-radius:10px'; E.d.body.appendChild(gb);
-  gb.getBoundingClientRect = () => ({ top: 0, left: 0, width: 54, height: 36, right: 54, bottom: 36 });
-  E.w.ExitGuard._grow(gb);
-  ok(gb.style.paddingTop === '11px' && gb.style.paddingLeft === '13px' && gb.style.height === '22px' && gb.style.width === '28px' && gb.style.marginTop === '-4px' && gb.style.marginLeft === '0px' && gb.style.getPropertyValue('--lk-r0') === '10px 10px', 'nút ghost (viền 1 px trong suốt, 54×36): viền → padding, cao thêm 4 px mỗi bên (' + gb.style.cssText + ')');
-  const cb = E.d.createElement('button'); cb.style.cssText = 'display:inline-flex;width:30px;height:30px;border:2px solid rgb(0, 0, 0)'; E.d.body.appendChild(cb);
-  cb.getBoundingClientRect = () => ({ top: 0, left: 0, width: 30, height: 30, right: 30, bottom: 30 });
-  E.w.ExitGuard._grow(cb); ok(cb.dataset.lkGrow == null && !cb.classList.contains('lk-grow'), 'nút có viền màu → không nới (tránh đổi hình)');
-  E.w.ExitGuard._ungrow(b); ok(!b.dataset.lkGrow && !b.classList.contains('lk-grow') && S.width === '36px' && !S.paddingTop.startsWith('4'), 'gỡ nới → về đúng style cũ');
+  ok(/\.lk-grow\s*\{[^}]*background:\s*none !important[^}]*border-color:\s*transparent !important[^}]*box-shadow:\s*none !important[^}]*opacity:\s*1 !important/.test(css), 'style.css: hộp bọc (.lk-grow) không vẽ gì – chỉ .lk-face vẽ');
+  const gb = E.d.createElement('button'); gb.className = 'btn sm ghost'; gb.id = 'mkQuit'; gb.textContent = 'Quit'; E.d.body.appendChild(gb);
+  gb.getBoundingClientRect = () => ({ top: 0, left: 0, width: 54, height: 35.99, right: 54, bottom: 35.99 });
+  E.w.ExitGuard._grow(gb); const gp = parseFloat(gb.style.paddingTop);
+  ok(gb.id === 'mkQuit' && gb.querySelector('.lk-face.btn.ghost') && gb.style.paddingLeft === '0px' && 35.99 + 2 * gp >= 44 && gp * 64 === Math.round(gp * 64) && gb.style.marginTop === -gp + 'px', 'nút ghost 54×35.99: cao ≥ 44 (không hụt vì số lẻ), bước 1/64 px, id giữ trên nút (' + gb.style.cssText + ')');
+  E.w.ExitGuard._ungrow(b); ok(!b.dataset.lkGrow && !b.classList.contains('lk-grow') && !b.querySelector('.lk-face') && b.querySelector(':scope > svg.i') && S.cssText === 'color: red;', 'gỡ nới → về đúng DOM & style cũ (' + S.cssText + ')');
 }
 console.log(fails ? `✗ exit-guard: ${fails}/${n} lỗi` : `✓ exit-guard: ${n} kiểm tra`);
 process.exit(fails ? 1 : 0);
