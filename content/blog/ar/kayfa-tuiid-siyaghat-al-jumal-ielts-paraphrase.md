@@ -49,8 +49,8 @@ quiz: [
 
 يعد استخدام المترادفات الأسلوب الأكثر بديهية، غير أنه يتطلب حذراً شديداً من حيث ملاءمة السياق الأكاديمي والمستوى اللغوي:
 
-- **الجملة الأصلية من السؤال:** *A large number of young personnel prefer working remotely rather than commuting daily to conventional offices.*
-- **إعادة الصياغة الأكاديمية (Band 8.5):** *A significant proportion of junior staff members prioritize telecommuting over travelling on a daily basis to traditional corporate premises.*
+- **الجملة الأصلية من السؤال:** *A growing cohort of established researchers leave prestigious universities to launch independent biotech start-ups.*
+- **إعادة الصياغة الأكاديمية (Band 8.5):** *An increasing number of seasoned investigators depart tenured academic posts to initiate private biotechnological enterprises.*
 
 > **تنبيه للممتحنين:** تجنب استخدام كلمات قديمة أو معقدة بشكل متكلف لمجرد التباهي. على سبيل المثال، استبدال كلمة *poor students* بتعبير غير لائق مثل *destitute wretches* يفسد رصانة المقال؛ استخدم التعبيرات الأكاديمية المقبولة دولياً مثل *economically disadvantaged learners*.
 
@@ -63,11 +63,11 @@ quiz: [
 يؤدي تحويل الفعل إلى اسم (**الاشتقاق الاسمي**) أو الصفة إلى ظرف إلى إعادة صياغة هيكل الجملة بالكامل مع إضفاء طابع علمي محكم:
 
 - **تحويل الفعل إلى اسم (Nominalization):**
-  - *الأصل:* The government should invest heavily in clean public transportation to curb urban smog.
-  - *إعادة الصياغة (Band 8):* Substantial public investment in clean transit networks is imperative to mitigate metropolitan atmospheric pollution.
+  - *الأصل:* Municipal authorities must inspect chemical discharge facilities rigorously to protect drinking aquifers.
+  - *إعادة الصياغة (Band 8):* Rigorous municipal inspection of chemical discharge conduits is indispensable to safeguard potable subterranean reservoirs.
 - **تحويل الصفة إلى ظرف:**
-  - *الأصل:* The rapid escalation in rental fees triggered immense stress among suburban university students.
-  - *إعادة الصياغة (Band 8.5):* Rental rates escalated rapidly across suburban districts, inducing substantial anxiety among undergraduate scholars.
+  - *الأصل:* The unexpected suspension of cultural heritage subsidies produced immense panic among community curators.
+  - *إعادة الصياغة (Band 8.5):* Heritage preservation grants were suspended unexpectedly, producing widespread consternation throughout regional museum administrations.
 
 عزز فهمك للروابط والتراكيب المعقدة عبر [قسم قواعد اللغة Lexkite](/#/grammar).
 
@@ -78,52 +78,52 @@ quiz: [
 إن تبديل ترتيب الجمل الرئيسية والثانوية، أو التحول من صيغة المبني للمعلوم إلى المبني للمجهول الأكاديمي، يجدد تدفق العبارة دون المساس بالحقائق:
 
 - **عكس جملة التناقض (Concession):**
-  - *الأصل:* Although professional trade apprenticeships supply practical workplace abilities, numerous school-leavers favor university degrees.
-  - *إعادة الصياغة:* Conventional academic credentials continue to be favoured by most school-leavers, notwithstanding the pragmatic vocational competencies delivered by trade apprenticeships.
+  - *الأصل:* Although digital textbooks provide immediate search capabilities, tactile paper formats facilitate deeper memorization.
+  - *إعادة الصياغة:* Deeper conceptual retention is consistently demonstrated by tactile printed volumes, notwithstanding the evident retrieval efficiency afforded by electronic course materials.
 - **استخدام المبني للمجهول الأكاديمي:**
-  - *الأصل:* Local municipalities should regulate personal automobile emissions in historic pedestrian centres.
-  - *إعادة الصياغة:* The emission levels of private motor vehicles in historic urban districts ought to be strictly monitored by municipal authorities.
+  - *الأصل:* National aviation agencies must impose stricter flight curfews near densely populated residential districts.
+  - *إعادة الصياغة:* Stringent nocturnal flight curfews ought to be formally instituted by civil aviation authorities across residential metropolitan zones.
 
 ## 5. الطريقة 4: تعديل أدوات الربط السببية والنتائج
 
 استبدل كلمة *because* البسيطة بأدوات ربط تحليلية متطورة مثل *owing to*، *as a consequence of*، أو *stemming from*:
 
-- *الأصل:* Many graduates encounter severe obstacles during job searches because hiring managers insist on extensive work experience.
-- *إعادة الصياغة (Band 8.5):* Owing to corporate employers demanding verifiable industry track records, recent graduates encounter severe impediments when pursuing entry-level appointments.
+- *الأصل:* Rural post offices face imminent closure because residents utilize commercial encrypted messaging applications.
+- *إعادة الصياغة (Band 8.5):* Civic postal branches confront widespread structural redundancy largely stemming from inhabitants relying overwhelmingly on encrypted virtual correspondence platforms.
 
 ## 6. الطريقة 5: أسلوب التضاد ونفي العكس (Antonymy)
 
 يعد التعبير عن الفكرة من خلال نفي نقيضها أسلوباً بلاغياً راقياً يبرز نضجاً لغوياً وقدرة فكرية رفيعة:
 
-- *الأصل:* Establishing consistent reading routines in early childhood is crucial for intellectual development.
-- *إعادة الصياغة:* Neglecting structured literacy habits during early development is seldom conducive to cultivating sharp intellectual faculties.
+- *الأصل:* Mandating foreign language immersion in kindergarten programs accelerates early social cognition.
+- *إعادة الصياغة:* Omitting multilingual immersion curricula from early childhood centers is seldom conducive to fostering versatile cognitive elasticity.
 
 ## 7. نموذج تطبيقي: إعادة صياغة مقدمة مقال Task 2 كاملة
 
 لنرى كيف تتكامل هذه الطرق الخمس معاً في التعامل مع موضوع حقيقي:
 
 > **نص السؤال الرسمي:**  
-> *Some educators believe that practical computer coding should be made mandatory for all secondary school students. To what extent do you agree or disagree?*
+> *Some urban sociologists contend that architectural monuments and historic city centers should be completely converted into pedestrian-only walking zones. To what extent do you agree or disagree?*
 >
 > **المقدمة المعاد صياغتها باحترافية (Band 8.5):**  
-> A growing contingent of pedagogical experts maintains that foundational software programming ought to constitute a compulsory module within secondary curricula. From my standpoint, while acquiring technical literacy indisputably equips adolescents with indispensable modern workplace capabilities, mandating coding classes across all disciplines indiscriminately risks overburdening pupils whose aptitudes lie within the creative humanities.
+> A growing contingent of metropolitan planners advocates that ancient heritage precincts ought to be comprehensively designated as exclusive pedestrian thoroughfares. From my perspective, while banning motor vehicles undeniably safeguards vulnerable historic edifices and enriches local air quality, imposing absolute vehicular embargoes without modernizing underground perimeter logistics risks suffocating traditional commercial merchants.
 
 ## 8. ثلاثة تمارين عملية مع التحليل المفصل
 
-### التمرين 1: منع السيارات الخاصة في مراكز المدن القديمة
-- **العبارة الأصلية:** *City councils should ban private cars from municipal centers to eliminate traffic gridlock.*
-- **الاستراتيجية المستخدمة:** الاشتقاق الاسمي مع المبني للمجهول (*ban cars* → *vehicular restrictions should be enforced*).
-- **الصياغة الأكاديمية (Band 8.5):** *The complete prohibition of personal passenger cars in central urban corridors ought to be implemented to alleviate chronic vehicular congestion.*
+### التمرين 1: دعم مراكز الأبحاث الزراعية
+- **العبارة الأصلية:** *Central governments should provide financial grants to agronomists who study drought-tolerant staple crops.*
+- **الاستراتيجية المستخدمة:** الاشتقاق الاسمي مع المبني للمجهول (*provide grants* → *the funding should be channeled*).
+- **الصياغة الأكاديمية (Band 8.5):* *Substantial fiscal disbursements ought to be systematically channeled by national ministries toward scientific research exploring arid-resistant grains.*
 
-### التمرين 2: الاعتماد على التغليف البلاستيكي غير القابل للتحلل
-- **العبارة الأصلية:** *The rampant usage of non-biodegradable packaging causes catastrophic soil degradation.*
-- **الاستراتيجية المستخدمة:** تبديل السبب بالنتيجة مع تحويل الصيغة (*usage causes degradation* → *soil suffers due to reliance*).
-- **الصياغة الأكاديمية (Band 8.5):** *Agricultural and suburban soil systems suffer severe environmental degradation primarily as a result of pervasive reliance on disposable plastic wrapping.*
+### التمرين 2: تدفق السياحة الفاخرة على الجزر النائية
+- **العبارة الأصلية:** *Unregulated luxury resort developments destroy pristine mangrove wetlands on tropical islands.*
+- **الاستراتيجية المستخدمة:** تبديل السبب بالنتيجة مع تحويل الصيغة (*development destroys wetlands* → *wetlands suffer as a consequence*).
+- **الصياغة الأكاديمية (Band 8.5):* *Pristine coastal mangrove belts experience severe ecological devastation primarily as a consequence of the aggressive expansion of high-end seaside hospitality complexes.*
 
-### التمرين 3: تأثير الأتمتة على الوظائف المكتبية
-- **العبارة الأصلية:** *Sophisticated automated algorithms will replace millions of administrative workers within a decade.*
-- **الاستراتيجية المستخدمة:** المرادفات الاصطلاحية المتقدمة وتغيير زاوية الفعل (*algorithms replace workers* → *staff face redundancy*).
-- **الصياغة الأكاديمية (Band 8.5):** *Due to the rapid proliferation of algorithmic automation, extensive tiers of clerical and corporate personnel face imminent structural redundancy.*
+### التمرين 3: انتشار برمجيات المراقبة في المدارس
+- **العبارة الأصلية:** *Installing biometric facial recognition scanners in school corridors provokes severe privacy concerns.*
+- **الاستراتيجية المستخدمة:** المرادفات الاصطلاحية المتقدمة وتغيير زاوية الفعل (*installing scanners provokes concerns* → *civil liberties are perceived as compromised*).
+- **الصياغة الأكاديمية (Band 8.5):* *Students' fundamental privacy safeguards are widely perceived as compromised following the extensive deployment of automated biometric surveillance apparatus across educational campuses.*
 
 ## 9. أربعة أخطاء شائعة تؤدي لخسارة الدرجات
 
@@ -136,7 +136,7 @@ quiz: [
 
 لإعادة صياغة أي موضوع في غضون دقيقتين دون تردد في قاعة الامتحان:
 
-- **الخطوة 1 (تحديد الثوابت):** ضع خطاً تحت المصطلحات التخصصية التي لا تحتاج إلى بدائل متكلفة (مثل *renewable energy* أو *tertiary education*).
+- **الخطوة 1 (تحديد الثوابت):** ضع خطاً تحت المصطلحات التخصصية التي لا تحتاج إلى بدائل متكلفة (مثل *pedestrian-only walking zones* أو *historic monuments*).
 - **الخطوة 2 (اختيار البنية البديلة):** قرر فوراً ما إذا كنت ستعتمد على الاشتقاق الاسمي أو المبني للمجهول أو إعادة صياغة السبب والنتيجة.
 - **الخطوة 3 (فحص السلامة اللغوية):** ألق نظرة سريعة لمدة 15 ثانية للتأكد من بقاء المعنى الأصلي دون زيادة أو تحريف.
 
@@ -162,4 +162,4 @@ quiz: [
 سيقوم الفاحص بشطب الأجزاء المنسوخة حرفياً ولن يتم احتسابها ضمن عدد كلمات المقال. وإذا قل المقال عن 250 كلمة نتيجة لذلك، فستفقد درجات مؤثرة في معيار إنجاز المهمة (*Task Achievement*).
 
 ### كيف يمكنني الاستفادة من إعادة الصياغة في اختبار المحادثة Speaking؟
-في الجزء الثالث (Part 3)، ابدأ إجابتك بإعادة صياغة سؤال الممتحن بتعبيرك الخاص (مثلاً: *"That is a compelling inquiry regarding whether civic authorities ought to invest more in alternative energy..."*). يمنحك ذلك وقتاً للتفكير ويبرز ثروتك اللغوية منذ اللحظة الأولى.
+في الجزء الثالث (Part 3)، ابدأ إجابتك بإعادة صياغة سؤال الممتحن بتعبيرك الخاص (مثلاً: *"That is an intriguing inquiry regarding whether municipal authorities ought to invest more in alternative energy..."*). يمنحك ذلك وقتاً للتفكير ويبرز ثروتك اللغوية منذ اللحظة الأولى.
