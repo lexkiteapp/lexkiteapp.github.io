@@ -1,0 +1,97 @@
+{
+ "note": "Sàn độ phủ giọng Kokoro – chỉ lên (scripts/audio/coverage.mjs --ratchet, audio.yml). KHÔNG sửa tay để hạ.",
+ "groups": {
+  "listening": {
+   "pct": 100,
+   "missing": 0
+  },
+  "lesson-stories": {
+   "pct": 100,
+   "missing": 0
+  },
+  "calls": {
+   "pct": 100,
+   "missing": 0
+  },
+  "toefl-speaking": {
+   "pct": 100,
+   "missing": 0
+  },
+  "speaking-questions": {
+   "pct": 100,
+   "missing": 0
+  },
+  "readings": {
+   "pct": 50,
+   "missing": 1017
+  },
+  "speaking-samples": {
+   "pct": 50,
+   "missing": 1852
+  },
+  "confidence": {
+   "pct": 1.77,
+   "missing": 998
+  },
+  "roleplay": {
+   "pct": 1.06,
+   "missing": 2060
+  },
+  "toeic-speaking": {
+   "pct": 0.69,
+   "missing": 577
+  },
+  "ui-lines": {
+   "pct": 0,
+   "missing": 8
+  },
+  "toefl-models": {
+   "pct": 0,
+   "missing": 402
+  },
+  "mock-speaking": {
+   "pct": 0,
+   "missing": 41
+  },
+  "pron": {
+   "pct": 27.36,
+   "missing": 1216
+  },
+  "speak-situations": {
+   "pct": 6.25,
+   "missing": 15
+  },
+  "lesson-teacher": {
+   "pct": 0.22,
+   "missing": 455
+  },
+  "gold-examples": {
+   "pct": 0.24,
+   "missing": 846
+  },
+  "models": {
+   "pct": 0,
+   "missing": 326
+  },
+  "grammar": {
+   "pct": 0.17,
+   "missing": 2895
+  },
+  "examples-uk": {
+   "pct": 100,
+   "missing": 0
+  },
+  "examples-us": {
+   "pct": 0.01,
+   "missing": 9721
+  },
+  "words-uk": {
+   "pct": 100,
+   "missing": 0
+  },
+  "words-us": {
+   "pct": 96.55,
+   "missing": 273
+  }
+ }
+}
