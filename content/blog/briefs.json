@@ -16041,6 +16041,78 @@
       ],
       "angle": "Comprehensive guide to English prepositions in, on, and at for time and place: inverted pyramid visualization, vehicle rules, common exceptions, and practice quizzes.",
       "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "plan-de-estudio-ielts-autodidacta-de-cero-a-6-5",
+      "keyword": "plan de estudio ielts autodidacta",
+      "topic": "Plan de Estudio IELTS Autodidacta: De Cero a Band 6.5 Paso a Paso",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "plan-de-estudio",
+        "autodidacta"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "Guía completa de preparación autodidacta para el examen IELTS: división en 4 fases, distribución diaria de horas para listening, reading, writing y speaking, y recursos con FSRS.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "cronograma-de-estudos-ielts-autodidata-do-zero-ao-6-5",
+      "keyword": "cronograma de estudos ielts autodidata",
+      "topic": "Cronograma de Estudos IELTS Autodidata: Do Zero ao Band 6.5+",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "cronograma-de-estudos",
+        "autodidata"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "Como montar um cronograma de estudos IELTS autodidata eficaz: 4 fases essenciais, distribuição diária do tempo, rotina de 4 habilidades e repetição espaçada FSRS.",
+      "intent": "informational"
+    },
+    {
+      "lang": "fr",
+      "slug": "programme-de-preparation-ielts-autodidacte-6-5",
+      "keyword": "programme de preparation ielts autodidacte",
+      "topic": "Programme de Préparation IELTS Autodidacte : De Zéro à 6.5+",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "preparation",
+        "autodidacte"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "Guide complet pour préparer l examen IELTS en autodidacte : feuille de route en 4 étapes, répartition quotidienne du travail pour les 4 épreuves et mémorisation FSRS.",
+      "intent": "informational"
     }
   ]
 }
