@@ -14669,6 +14669,156 @@
       ],
       "angle": "Panduan lengkap kalimat pengandaian bahasa Inggris (conditional sentences): rumus tipe 0 sampai 3, mixed conditionals, inversi formal dan kesalahan umum.",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "cau-bi-dong-tieng-anh-passive-voice",
+      "keyword": "câu bị động tiếng anh passive voice",
+      "topic": "Câu bị động tiếng Anh (Passive Voice): Công thức 12 thì và ứng dụng IELTS",
+      "category": "ngu-phap",
+      "tags": [
+        "passive-voice",
+        "ngu-phap",
+        "ielts",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Nắm vững toàn bộ công thức câu bị động tiếng Anh trong 12 thì, thể bị động đặc biệt (bị động kép, mệnh lệnh, nhờ bảo) và cách dùng khách quan trong IELTS Writing Task 1 & 2.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "passive-voice-in-english-rules-and-examples",
+      "keyword": "passive voice in english rules",
+      "topic": "Passive Voice in English: Complete Rules, Tense Formulations, and Academic Writing",
+      "category": "ngu-phap",
+      "tags": [
+        "passive-voice",
+        "grammar",
+        "ielts",
+        "academic-writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Master the passive voice in English across all tenses: when to use it for academic objectivity in IELTS Writing, impersonal passives, and common mistakes to avoid.",
+      "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "voz-pasiva-en-ingles-passive-voice-reglas",
+      "keyword": "voz pasiva en ingles passive voice",
+      "topic": "Voz pasiva en inglés (Passive Voice): Reglas, fórmulas en todos los tiempos y uso académico",
+      "category": "ngu-phap",
+      "tags": [
+        "passive-voice",
+        "voz-pasiva",
+        "gramatica",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Guía completa de la voz pasiva en inglés: cómo transformar oraciones activas a pasivas en todos los tiempos verbales, pasivas impersonales y su relevancia en ensayos formales.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "voz-passiva-em-ingles-passive-voice-guia",
+      "keyword": "voz passiva em ingles passive voice",
+      "topic": "Voz passiva em inglês (Passive Voice): Regras, fórmulas em todos os tempos verbais e exemplos",
+      "category": "ngu-phap",
+      "tags": [
+        "passive-voice",
+        "voz-passiva",
+        "gramatica",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Aprenda as regras da voz passiva em inglês (passive voice): fórmulas completas dos tempos verbais, estruturas impessoais com verbos de relato e uso acadêmico no IELTS.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "kalimat-pasif-bahasa-inggris-passive-voice",
+      "keyword": "kalimat pasif bahasa inggris passive voice",
+      "topic": "Kalimat Pasif Bahasa Inggris (Passive Voice): Rumus Lengkap 16 Tenses dan Contoh",
+      "category": "ngu-phap",
+      "tags": [
+        "passive-voice",
+        "kalimat-pasif",
+        "tata-bahasa",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Panduan lengkap rumus kalimat pasif bahasa Inggris (passive voice) di berbagai tenses, bentuk pasif khusus (impersonal passive), dan penggunaannya dalam penulisan formal.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "eigo-judoutai-passive-voice-tsukaikata",
+      "keyword": "英語 受動態 passive voice 使い方",
+      "topic": "英語の受動態（Passive Voice）完全マスター：基本公式から学術エッセイでの使い分けまで",
+      "category": "ngu-phap",
+      "tags": [
+        "passive-voice",
+        "judoutai",
+        "grammar",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "英語の受動態（Passive Voice）の作り方と時制別公式を徹底解説。能動態との自然な使い分け、形式主語を用いた非人称受動態、IELTSライティングでの活用法まで網羅。",
+      "intent": "informational"
     }
   ]
 }
