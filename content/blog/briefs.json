@@ -16437,6 +16437,94 @@
       ],
       "angle": "Практическое руководство, как улучшить аудирование по английскому языку: почему текст понятен глазами, но не на слух, методы bottom-up и top-down, диктанты и разбор беглой речи.",
       "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "yeong-eo-deudgi-neuneun-beop-5dangye-hyeonshil-gongbubeop",
+      "keyword": "영어 듣기 느는 법",
+      "topic": "영어 듣기 느는 법: 5단계 딕테이션과 쉐도잉 현실 공부법",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "yeong-eo",
+        "deudgi-gongbubeop"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "영어 듣기 느는 법의 핵심 원리와 5단계 현실 실천법: 왜 읽기는 되는데 귀는 안 열릴까, 연음과 탈락 극복, 받아쓰기와 쉐도잉 훈련 가이드.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "withee-phatthana-thaksa-kan-fang-phasa-angkrit-5-khantorn",
+      "keyword": "วิธีพัฒนาทักษะการฟังภาษาอังกฤษ",
+      "topic": "วิธีพัฒนาทักษะการฟังภาษาอังกฤษ: เทคนิค 5 ขั้นตอนฝึกฟังให้เข้าใจ",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "phasa-angkrit",
+        "kan-fang"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "คู่มือวิธีพัฒนาทักษะการฟังภาษาอังกฤษ: วิเคราะห์สาเหตุที่อ่านออกแต่ฟังไม่ทัน, การเชื่อมเสียง connected speech, เทคนิค Dictation และ Shadowing 5 ขั้นตอน.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "kayfiat-tahsin-maharat-al-istima-fi-al-lughah-al-injiliziyah",
+      "keyword": "كيفية تحسين مهارة الاستماع في اللغة الانجليزية",
+      "topic": "كيفية تحسين مهارة الاستماع في اللغة الانجليزية: طريقة الـ 5 خطوات العملية",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "al-istima",
+        "al-lughah-al-injiliziyah"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "دليل كيفية تحسين مهارة الاستماع في اللغة الانجليزية: لماذا نقرأ بسهولة ونعجز عن السمع، دمج الكلمات المتصلة، وتمارين الإملاء والتكرار الظلي في 5 خطوات.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "english-listening-skills-kaise-improve-kare-5-steps-guide",
+      "keyword": "english listening skills kaise improve kare",
+      "topic": "English Listening Skills Kaise Improve Kare: 5-Step Practical Guide",
+      "category": "ky-nang",
+      "tags": [
+        "listening",
+        "english-listening",
+        "listening-skills"
+      ],
+      "shots": [
+        "listening",
+        "practice"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/practice"
+      ],
+      "angle": "English listening skills kaise improve kare: jane kyu padh kar samajhna aasan hai par sun kar nahi, connected speech, aur 5-step dictation tatha shadowing guide.",
+      "intent": "informational"
     }
   ]
 }
