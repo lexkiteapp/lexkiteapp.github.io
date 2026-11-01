@@ -1119,6 +1119,9 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 #view:focus, #view:focus-visible { outline: none; } /* focus chuyển về nội dung khi đổi trang – không viền quanh cả trang */
 @keyframes viewIn { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { #view { animation: none; } }
+/* Thanh tab Stitch (shell.js, trong #view): dính đáy NGAY cả khi CSS màn (css/st-v2-*.css) chưa nạp xong – loadCss thôi chờ sau 1,5 s; trước đây lần nạp đầu
+   trên máy chậm (WebKit/iPhone) thanh tab nằm trong luồng ở cuối trang. Cùng giá trị với lớp Tailwind fixed bottom-0 w-full z-50 → không đổi giao diện. */
+body.v2on #view nav.fixed.bottom-0 { position: fixed; bottom: 0; width: 100%; z-index: 50; }
 /* Khung chờ khi tải */
 .skel-page { display: grid; gap: .9rem; padding-top: .4rem; }
 .skel { border-radius: 14px; background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3, var(--line)) 50%, var(--surface-2) 75%); background-size: 200% 100%; animation: skel 1.2s ease-in-out infinite; }
