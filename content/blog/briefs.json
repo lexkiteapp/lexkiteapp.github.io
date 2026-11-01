@@ -15206,6 +15206,138 @@
       ],
       "angle": "全面解析中国学习者常犯的英语冠词错误：定冠词 the、不定冠词 a/an 与零冠词的核心逻辑与决策树，彻底摆脱漏用或乱用冠词的问题。",
       "intent": "informational"
+    },
+    {
+      "lang": "fr",
+      "slug": "articles-en-anglais-a-an-the-regles-et-exemples",
+      "keyword": "articles en anglais a an the",
+      "topic": "Articles en Anglais : Règles de A, An, The et Quand Omettre l'Article",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "articles",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Guide exhaustif sur les articles en anglais pour francophones : a/an vs the, l'article zéro (Zero Article) et l'arbre de décision pour ne plus hésiter.",
+      "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "englische-artikel-a-an-the-regeln-und-beispiele",
+      "keyword": "englische artikel a an the regeln",
+      "topic": "Englische Artikel a, an, the: Regeln, Ausnahmen und der Nullartikel",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "artikel",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Komplette Übersicht über die englischen Artikel a, an, the und den Nullartikel (Zero Article). Klare Ausspracheregeln und Entscheidungsbaum für Deutschsprachige.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "ingilizce-artikeller-a-an-the-kullanimi-kurallari",
+      "keyword": "ingilizce a an the kullanimi",
+      "topic": "İngilizce Artikeller (A, An, The) Kullanımı ve Sıfır Artikel Kuralları",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "artikeller",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "Türkçe konuşanlar için İngilizce artikeller rehberi: a/an ve the farkı, sıfır artikel (Zero Article) mantığı ve karar ağacıyla adım adım anlatım.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "kan-chai-articles-phasa-angkrit-a-an-the",
+      "keyword": "การใช้ a an the",
+      "topic": "หลักการใช้ a, an, the ในภาษาอังกฤษ และกฎ Zero Article เข้าใจง่าย",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "articles",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "สรุปหลักการใช้ a an the ในภาษาอังกฤษที่คนไทยมักสับสน พร้อมกฎการละ article (Zero Article) และโฟลว์ชาร์ตช่วยตัดสินใจอย่างแม่นยำ",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "qawaid-adawat-al-tarifi-wa-al-tankir-fi-al-injliziyyah-a-an-the",
+      "keyword": "قواعد a an the في اللغة الانجليزية",
+      "topic": "قواعد أدوات التعريف والتنكير a و an و the وحالات عدم استخدام أداة في الإنجليزية",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "adawat",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "دليل شامل لقواعد أدوات التنكير والتعريف في اللغة الإنجليزية: الفرق بين a و an و the، وقاعدة Zero Article مع شجرة اتخاذ القرار وتمارين عملية.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "english-articles-a-an-the-rules-in-hindi",
+      "keyword": "articles a an the rules in hindi",
+      "topic": "English Articles a, an, the के नियम: Zero Article और सही इस्तेमाल की गाइड",
+      "category": "ngu-phap",
+      "tags": [
+        "ngu-phap",
+        "articles",
+        "grammar"
+      ],
+      "shots": [
+        "dict",
+        "grammar"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/grammar"
+      ],
+      "angle": "अंग्रेजी में Articles (a, an, the) के सभी नियम हिन्दी में समझें: स्वर ध्वनि के आधार पर an का प्रयोग, the के अनिवार्य नियम और Zero Article की पहचान।",
+      "intent": "informational"
     }
   ]
 }
