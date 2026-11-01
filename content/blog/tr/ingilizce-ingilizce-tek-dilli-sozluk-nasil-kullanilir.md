@@ -4,7 +4,7 @@ title: "İngilizce İngilizce sözlük kullanımı: Tek dilli sözlük rehberi"
 description: "İngilizce ingilizce sözlük kullanımı rehberi: tek dilli sözlükle düşünme alışkanlığı, collocations, gramer etiketleri ve kelime öğrenme yöntemleri."
 keyword: "ingilizce ingilizce sözlük kullanımı"
 lang: tr
-translationKey: cach-tra-tu-dien-anh-anh-hieu-qua
+translationKey: cach-su-dung-tu-dien-anh-anh-hieu-qua
 category: tu-vung
 tags: [sozluk, kelime-ogrenme, calisma-yontemi, collocations]
 cover: dict

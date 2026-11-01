@@ -4,7 +4,7 @@ title: "Como usar dicionário inglês inglês: Guia do monolíngue"
 description: "Aprenda como usar dicionário inglês inglês: destrave o pensamento em inglês, aprenda collocations, evite traduções viciadas e turbine o vocabulário."
 keyword: "como usar dicionário inglês inglês"
 lang: pt
-translationKey: cach-tra-tu-dien-anh-anh-hieu-qua
+translationKey: cach-su-dung-tu-dien-anh-anh-hieu-qua
 category: tu-vung
 tags: [dicionario, vocabulario, metodo-de-estudo, collocations]
 cover: dict

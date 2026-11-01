@@ -3,7 +3,7 @@ title: "How to Use an English English Dictionary for Fluency"
 description: "Master how to use an english english dictionary: decode phonetic symbols, collocations, word classes, and break free from direct translation habits."
 slug: how-to-use-an-english-english-dictionary
 lang: en
-translationKey: cach-dung-tu-dien-anh-anh
+translationKey: cach-su-dung-tu-dien-anh-anh-hieu-qua
 category: phuong-phap
 tags: [dictionary, vocabulary, learning-methods, self-study]
 keyword: "how to use an english english dictionary"

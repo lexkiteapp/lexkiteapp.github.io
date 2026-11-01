@@ -3,7 +3,7 @@ title: "Cómo usar un diccionario inglés inglés para hablar con fluidez"
 description: "Aprende cómo usar un diccionario inglés inglés: descifra símbolos fonéticos, colocaciones, códigos gramaticales y deja de traducir palabra por palabra."
 slug: como-usar-un-diccionario-ingles-ingles
 lang: es
-translationKey: cach-dung-tu-dien-anh-anh
+translationKey: cach-su-dung-tu-dien-anh-anh-hieu-qua
 category: phuong-phap
 tags: [diccionario, vocabulario, metodos-aprendizaje, autoaprendizaje]
 keyword: "cómo usar un diccionario inglés inglés"

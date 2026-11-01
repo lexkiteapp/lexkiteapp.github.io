@@ -4,7 +4,7 @@ title: "Cara menggunakan kamus bahasa Inggris: Panduan monolingual"
 description: "Pelajari cara menggunakan kamus bahasa Inggris monolingual (Inggris-Inggris): bangun pola pikir native, pahami collocations dan hindari salah arti."
 keyword: "cara menggunakan kamus bahasa inggris"
 lang: id
-translationKey: cach-tra-tu-dien-anh-anh-hieu-qua
+translationKey: cach-su-dung-tu-dien-anh-anh-hieu-qua
 category: tu-vung
 tags: [kamus, kosakata, metode-belajar, collocations]
 cover: dict

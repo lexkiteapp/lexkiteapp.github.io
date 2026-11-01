@@ -4,7 +4,7 @@ title: "วิธีใช้พจนานุกรมอังกฤษอั
 description: "วิธีใช้พจนานุกรมอังกฤษอังกฤษ ฉบับสมบูรณ์: ทำความเข้าใจนิยามภาษาอังกฤษ การดู Collocations คำเหมือน สัทอักษร IPA และวิธีเลิกแปลตรงตัว."
 keyword: "วิธีใช้พจนานุกรมอังกฤษอังกฤษ"
 lang: th
-translationKey: cach-dung-tu-dien-anh-anh
+translationKey: cach-su-dung-tu-dien-anh-anh-hieu-qua
 category: tu-vung
 tags: [photchananukrom, kham-sap, withi-rian, collocations]
 cover: dict
