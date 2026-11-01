@@ -37,19 +37,19 @@ quiz: [
 เมื่อต้องเขียนถึงภาวะโลกร้อนและการปล่อยก๊าซเรือนกระจก ควรหลีกเลี่ยงคำพูดลอยๆ แล้วเลือกใช้คำศัพท์ทางวิทยาศาสตร์ที่แม่นยำ:
 
 1. **Anthropogenic emissions**: การปล่อยก๊าซเรือนกระจกที่เกิดจากกิจกรรมของมนุษย์โดยตรง
-   - *ตัวอย่าง:* Climatologists verify that anthropogenic emissions represent the primary driver of accelerated oceanic warming.
+   - *ตัวอย่าง:* Satellite climate sensors reveal that anthropogenic emissions from expanding metropolitan areas trigger severe localized thermal anomalies.
 2. **Mitigate climate catastrophe**: บรรเทาหรือยับยั้งมหันตภัยทางสภาพภูมิอากาศ
-   - *ตัวอย่าง:* Binding multilateral accords are urgently required to mitigate climate catastrophe before polar tipping points become irreversible.
+   - *ตัวอย่าง:* Decisive diplomatic accords are urgently needed to mitigate climate catastrophe before tropical coral reefs bleach irreversibly.
 3. **Greenhouse effect intensification**: การทวีความรุนแรงของปรากฏการณ์เรือนกระจก
-   - *ตัวอย่าง:* Reliance on coal combustion fuels greenhouse effect intensification across expanding industrial corridors.
+   - *ตัวอย่าง:* Expanding aviation fuel consumption drastically accelerates greenhouse effect intensification in the upper stratosphere.
 4. **Carbon-intensive infrastructure**: โครงสร้างพื้นฐานที่พึ่งพาการปล่อยคาร์บอนสูง (เช่น โรงไฟฟ้าฟอสซิล)
-   - *ตัวอย่าง:* Multilateral green loans enable emerging economies to transition away from obsolete carbon-intensive infrastructure.
+   - *ตัวอย่าง:* International lenders are halting all financing for carbon-intensive infrastructure like lignite plants and diesel freight corridors.
 5. **Combustion of fossil fuels**: การเผาไหม้เชื้อเพลิงฟอสซิล (ถ่านหิน น้ำมัน ก๊าซธรรมชาติ)
-   - *ตัวอย่าง:* Phasing out the combustion of fossil fuels represents the single most decisive step toward improving urban air purity.
+   - *ตัวอย่าง:* Replacing thermal coal combustion with geothermal energy represents a proven pathway to reducing national particulate emissions.
 6. **Accelerated glacial melting**: การละลายของธารน้ำแข็งและพืดน้ำแข็งขั้วโลกอย่างรวดเร็ว
-   - *ตัวอย่าง:* Oceanographers warn that accelerated glacial melting will submerge vulnerable coastal deltas within decades.
+   - *ตัวอย่าง:* Environmental hydrologists caution that accelerated glacial melting disrupts seasonal freshwater delivery to millions of downstream farmers.
 7. **Extreme meteorological phenomena**: ปรากฏการณ์สภาพอากาศสุดขั้ว (เช่น คลื่นความร้อน พายุรุนแรง ภัยแล้งยาวนาน)
-   - *ตัวอย่าง:* Rural agricultural communities suffer severe harvest losses due to unpredictable extreme meteorological phenomena.
+   - *ตัวอย่าง:* Insurers are facing astronomical indemnity payouts following a relentless wave of extreme meteorological phenomena across Southeast Asia.
 
 ฝึกฝนการอ่านบทความวิชาการเกี่ยวกับสิ่งแวดล้อมได้ที่ [โมดูลฝึกอ่าน Reading ของ Lexkite](/#/reading)
 
@@ -61,13 +61,13 @@ quiz: [
 
 | กลุ่มคำวิชาการ (Collocation) | ความหมายภาษาไทย | ตัวอย่างประโยค Band 8.5 |
 |---|---|---|
-| **Habitat fragmentation** | ภาวะถิ่นที่อยู่อาศัยถูกตัดขาดและแบ่งเป็นหย่อมๆ | Expanding highway networks cause severe habitat fragmentation, isolating vulnerable mammalian populations. |
-| **Precipitous decline in biodiversity** | การลดลงอย่างฮวบฮาบของความหลากหลายทางชีวภาพ | Heavy agricultural pesticide spraying sparks a precipitous decline in biodiversity among beneficial insect pollinators. |
-| **Endangered endemic species** | สิ่งมีชีวิตเฉพาะถิ่นที่เสี่ยงต่อการสูญพันธุ์ | Strict national biosphere reserves protect endangered endemic species from illegal commercial poaching syndicates. |
-| **Irreversible ecological imbalance** | ความไม่สมดุลทางนิเวศวิทยาอย่างถาวรที่ไม่สามารถฟื้นฟูได้ | Overharvesting apex marine predators triggers an irreversible ecological imbalance throughout delicate coral reef systems. |
-| **Poaching and illicit trade** | การล่าสัตว์ป่าและการลักลอบค้าสัตว์ป่าผิดกฎหมาย | Cross-border police cooperation is essential to dismantle organized cartels profiting from wildlife poaching and illicit trade. |
-| **Ecological restoration projects** | โครงการฟื้นฟูระบบนิเวศเชิงวิทยาศาสตร์ | Municipal councils should allocate tax revenue toward urban wetland ecological restoration projects. |
-| **Invasive exotic species** | สิ่งมีชีวิตต่างถิ่นที่รุกรานและทำลายระบบนิเวศท้องถิ่น | The accidental introduction of invasive exotic species often outcompetes indigenous freshwater flora and fauna. |
+| **Habitat fragmentation** | ภาวะถิ่นที่อยู่อาศัยถูกตัดขาดและแบ่งเป็นหย่อมๆ | Expanding agricultural concessions cause acute habitat fragmentation, separating endangered wild elephant corridors. |
+| **Precipitous decline in biodiversity** | การลดลงอย่างฮวบฮาบของความหลากหลายทางชีวภาพ | Widespread wetland draining causes a precipitous decline in biodiversity among migratory wading birds. |
+| **Endangered endemic species** | สิ่งมีชีวิตเฉพาะถิ่นที่เสี่ยงต่อการสูญพันธุ์ | Strict marine sanctuaries shield endangered endemic species from devastating bottom-trawling operations. |
+| **Irreversible ecological imbalance** | ความไม่สมดุลทางนิเวศวิทยาอย่างถาวรที่ไม่สามารถฟื้นฟูได้ | Overharvesting coastal mangroves induces an irreversible ecological imbalance across tidal nursery zones. |
+| **Poaching and illicit trade** | การล่าสัตว์ป่าและการลักลอบค้าสัตว์ป่าผิดกฎหมาย | DNA forensic tracking helps border authorities suppress wildlife poaching and illicit trade across international ports. |
+| **Ecological restoration projects** | โครงการฟื้นฟูระบบนิเวศเชิงวิทยาศาสตร์ | Forestry departments are funding community-led ecological restoration projects to replant native rainforest canopies. |
+| **Invasive exotic species** | สิ่งมีชีวิตต่างถิ่นที่รุกรานและทำลายระบบนิเวศท้องถิ่น | Proliferating invasive exotic species like water hyacinth starve native aquatic organisms of dissolved oxygen. |
 
 ตรวจสอบความหมายที่ละเอียดและการออกเสียงได้ที่ [พจนานุกรม Lexkite](/#/dict/resilient)
 
@@ -78,15 +78,15 @@ quiz: [
 วิกฤตขยะสังเคราะห์และมลพิษในทะเลต้องการคำศัพท์เชิงวิเคราะห์ที่ชัดเจน:
 
 - **Non-biodegradable synthetic waste**: ขยะสังเคราะห์ที่ไม่ย่อยสลายได้ตามธรรมชาติ (เช่น พลาสติกและโฟม)
-  - *ตัวอย่าง:* Commercial hypermarkets generate enormous volumes of non-biodegradable synthetic waste through single-use packaging.
+  - *ตัวอย่าง:* Discarded maritime gear introduces thousands of tons of non-biodegradable synthetic waste into remote marine reserves.
 - **Microplastic contamination**: การปนเปื้อนของไมโครพลาสติก (ซึ่งแทรกซึมเข้าสู่ห่วงโซ่อาหารและน้ำดื่ม)
-  - *ตัวอย่าง:* Marine toxicologists have documented alarming microplastic contamination within both commercial seafood and table salt.
+  - *ตัวอย่าง:* Toxicological blood screenings reveal widespread microplastic contamination within both human residents and pelagic apex fish.
 - **Excessive consumer packaging**: บรรจุภัณฑ์สินค้าที่ฟุ่มเฟือยเกินความจำเป็น
-  - *ตัวอย่าง:* Imposing regulatory taxes on excessive consumer packaging forces consumer goods manufacturers to switch to compostable alternatives.
+  - *ตัวอย่าง:* Heavy retail surcharges on excessive consumer packaging push supermarket chains toward reusable glass receptacles.
 - **Municipal landfill saturation**: ปริมาณขยะล้นบ่อฝังกลบของเทศบาลเมือง
-  - *ตัวอย่าง:* Metropolitan capitals face imminent municipal landfill saturation unless aggressive waste segregation is strictly enforced.
+  - *ตัวอย่าง:* Densely populated provinces face catastrophic municipal landfill saturation, requiring rapid transition to circular recycling loops.
 - **Toxic effluent discharge**: การปล่อยน้ำเสียปนเปื้อนสารพิษจากโรงงานลงสู่แหล่งน้ำสาธารณะ
-  - *ตัวอย่าง:* Strict criminal penalties must be levied against chemical factories guilty of untreated toxic effluent discharge into public waterways.
+  - *ตัวอย่าง:* Pollution control inspectors must penalize chemical refiners guilty of clandestine toxic effluent discharge into rural irrigation canals.
 
 จัดหมวดหมู่และทบทวนคำศัพท์อย่างเป็นระบบผ่าน [คลังคำศัพท์ Lexkite](/#/library)
 
@@ -97,17 +97,17 @@ quiz: [
 เมื่อต้องนำเสนอแนวทางแก้ไขปัญหาในย่อหน้าหลักของเรียงความ ให้ใช้คำศัพท์เทคโนโลยีสะอาดเหล่านี้:
 
 - **Harness renewable sources**: การดึงเอาและใช้ประโยชน์จากแหล่งพลังงานหมุนเวียน (เช่น แสงอาทิตย์ ลม น้ำ)
-  - *ตัวอย่าง:* Developing island nations must harness renewable sources to eliminate expensive economic dependence on imported fossil fuels.
+  - *ตัวอย่าง:* Tropical nations can harness renewable sources by building offshore floating wind arrays and tidal turbines.
 - **Photovoltaic solar arrays**: แผงเซลล์แสงอาทิตย์และฟาร์มโซลาร์เซลล์
-  - *ตัวอย่าง:* Installing rooftop photovoltaic solar arrays allows residential households to curtail their annual carbon footprints substantially.
+  - *ตัวอย่าง:* Deploying bifacial photovoltaic solar arrays across arid plains maximizes electrical yield without encroaching on arable farmland.
 - **Decarbonization of heavy industry**: การลดการปล่อยคาร์บอนในภาคอุตสาหกรรมหนัก (เหล็ก ซีเมนต์ เคมีภัณฑ์)
-  - *ตัวอย่าง:* Accelerating the decarbonization of heavy industry requires state subsidies for commercial green hydrogen infrastructure.
+  - *ตัวอย่าง:* Mandating carbon border adjustments accelerates the decarbonization of heavy industry among competing global exporters.
 - **Geothermal energy extraction**: การดึงพลังงานความร้อนใต้พิภพมาใช้ผลิตไฟฟ้า
-  - *ตัวอย่าง:* Volcanic geographies provide exceptional natural conditions for continuous, clean geothermal energy extraction.
+  - *ตัวอย่าง:* Subterranean steam tapping offers reliable baseload geothermal energy extraction unaffected by seasonal weather patterns.
 - **Sustainable agricultural stewardship**: การดูแลจัดการภาคการเกษตรอย่างยั่งยืนและรักษ์ดิน
-  - *ตัวอย่าง:* Rewarding sustainable agricultural stewardship discourages farming conglomerates from converting arable soils into degraded wastelands.
+  - *ตัวอย่าง:* Practicing sustainable agricultural stewardship helps preserve organic humus layers against torrential erosion.
 - **Zero-emission public transport**: ระบบขนส่งสาธารณะที่ปราศจากมลพิษ (รถเมล์ไฟฟ้า รถไฟฟ้ารางเบา)
-  - *ตัวอย่าง:* Urban planners should expand zero-emission public transport networks to relieve inner-city respiratory illnesses.
+  - *ตัวอย่าง:* Municipalities subsidizing zero-emission public transport networks see an immediate decrease in urban smog hospitalization rates.
 
 ## 5. บทวิเคราะห์ย่อหน้าตัวอย่าง Writing Task 2 (Band 8.5)
 
@@ -116,7 +116,7 @@ quiz: [
 > **โจทย์เรียงความ IELTS:** *Some people believe that protecting the environment is the responsibility of national governments, while others think individuals should make lifestyle changes. Discuss both views and give your opinion.*
 >
 > **ย่อหน้าตัวอย่าง (Band 8.5):**  
-> Proponents of state-level intervention convincingly argue that sovereign cabinets hold the exclusive legislative power necessary to drive macroeconomic reform. Specifically, environmental ministries can establish binding statutory quotas, prohibiting illegal **toxic effluent discharge** while penalizing corporate reliance on the **combustion of fossil fuels**. Furthermore, by systematically redirecting public capital from **carbon-intensive infrastructure** toward grid-scale **photovoltaic solar arrays** and **zero-emission public transport**, national leaders can accelerate the **decarbonization of heavy industry**. Without institutional enforcement mechanisms and centralized accountability, uncoordinated individual habits cannot reverse acute **habitat fragmentation** or withstand increasingly unpredictable **extreme meteorological phenomena**.
+> On the one hand, environmental analysts legitimately contend that central administrations possess the unique regulatory capacity required for ecological turnaround. Through strict statutory mandates, state regulators can outlaw unauthorized **toxic effluent discharge**, while removing government subsidies that perpetuate the **combustion of fossil fuels**. Concurrently, by channeling public infrastructure funds away from **carbon-intensive infrastructure** toward grid-scale **photovoltaic solar arrays** and **zero-emission public transport**, ministerial leaders can catalyze the holistic **decarbonization of heavy industry**. In the absence of comprehensive national legislation and punitive corporate enforcement, localized voluntary actions are insufficient to halt devastating **habitat fragmentation** or manage volatile **extreme meteorological phenomena**.
 
 ## 6. 4 ข้อผิดพลาดสำคัญที่ผู้สอบควรหลีกเลี่ยง
 
