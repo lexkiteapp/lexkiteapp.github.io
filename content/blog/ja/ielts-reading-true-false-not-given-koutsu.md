@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "ielts reading true false not given コツ"
 cover: reading
 coverAlt: "LexkiteアプリのIELTSリーディング記事一覧画面でA2からC1までの長文を掲載"
-publishAt: ""
+publishAt: 2026-12-06T21:10:00+09:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

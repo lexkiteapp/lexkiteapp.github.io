@@ -33,6 +33,7 @@ quiz: [
     explain: "Algorithmic bias adalah konsep etika teknologi yang sangat sering diangkat dalam soal IELTS Writing Task 2 tentang regulasi kecerdasan buatan."
   }
 ]
+publishAt: 2026-11-23T20:58:00+07:00
 ---
 Topik «Technology & Artificial Intelligence (AI)» merupakan salah satu tema yang paling sering diujikan dalam tes IELTS resmi. Topik esai **IELTS Writing Task 2** maupun pertanyaan mendalam di **Speaking Part 3** secara berkala menuntut peserta menganalisis dampak otomatisasi terhadap penyerapan tenaga kerja, pengawasan biometrik, etika kecerdasan buatan, hingga ketergantungan gawai pada anak-anak.
 

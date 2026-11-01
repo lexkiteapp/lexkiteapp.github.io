@@ -33,6 +33,7 @@ quiz: [
     explain: "Data historis dengan tahun yang sudah berlalu wajib dilaporkan menggunakan Simple Past Tense."
   }
 ]
+publishAt: 2026-11-30T12:31:00+07:00
 ---
 
 Dalam modul akademik tes IELTS, bagian *Writing Task 1* menguji kemampuan Anda untuk menganalisis dan mendeskripsikan informasi visual—seperti grafik garis (*line graph*), grafik batang (*bar chart*), diagram lingkaran (*pie chart*), maupun tabel statistik—dalam bentuk laporan objektif formal minimal 150 kata selama sekitar 20 menit. Menguasai **ielts writing task 1 grafik** membutuhkan ketelitian dalam membaca tren, kemampuan mengelompokkan data secara koheren, dan penggunaan kosakata variatif untuk menggambarkan fluktuasi numerik.

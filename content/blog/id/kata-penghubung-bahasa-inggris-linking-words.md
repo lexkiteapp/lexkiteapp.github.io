@@ -33,6 +33,7 @@ quiz: [
     explain: "'Moreover' digunakan untuk menyajikan informasi atau bukti tambahan yang memperkuat argumen utama."
   }
 ]
+publishAt: 2026-11-27T09:35:00+07:00
 ---
 
 Saat menulis esai akademik, menyusun surat bisnis profesional, atau mengikuti tes bahasa Inggris resmi seperti IELTS dan TOEFL, memiliki ide yang cemerlang saja belum cukup. Mutu tulisan Anda sangat ditentukan oleh seberapa runtut dan kohesif ide-ide tersebut saling tersambung. Penguasaan **kata penghubung bahasa inggris linking words** yang tepat membuat pembaca dapat mengikuti alur logika Anda secara mulus tanpa tersendat, menghubungkan premis, perbandingan, sebab-akibat, hingga kesimpulan secara elegan.

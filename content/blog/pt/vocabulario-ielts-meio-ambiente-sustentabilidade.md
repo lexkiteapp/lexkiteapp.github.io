@@ -48,6 +48,7 @@ quiz: [
     explain: "'Combustion of fossil fuels' designa a queima de combustíveis fósseis como carvão mineral, diesel e gás, sendo um termo preciso para essays sobre emissões."
   }
 ]
+publishAt: 2026-12-18T07:27:00-03:00
 ---
 
 O meio ambiente, as alterações climáticas e a preservação ecológica figuram entre os tópicos mais recorrentes em todas as seções do exame IELTS. Ao redigir redações no **IELTS Writing Task 2** ou responder a perguntas analíticas no **IELTS Speaking Part 3**, muitos estudantes lusófonos recorrem a formulações simplistas como *«the environment is damaged»*, *«we must save nature»* ou *«cars make air dirty»*. Essa falta de repertório técnico restringe a pontuação de recurso lexical (*Lexical Resource*) a Band 5.5 ou 6.0.

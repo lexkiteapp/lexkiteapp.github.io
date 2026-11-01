@@ -33,6 +33,7 @@ quiz: [
     explain: "La primera escucha global establece el contexto semántico general, lo que reduce la carga cognitiva y permite anticipar estructuras en las siguientes pasadas."
   }
 ]
+publishAt: 2026-11-23T19:21:00-06:00
 ---
 ¿Te ha ocurrido alguna vez ver una serie o escuchar un pódcast en inglés, sentir que comprendes el tema general y luego, cuando un nativo te habla cara a cara, no entender casi nada de lo que dice? Esta frustración es fruto de la **ilusión de comprensión pasiva**. Al escuchar de fondo, tu cerebro se apoya en pistas contextuales, expresiones faciales y música para completar mentalmente enormes lagunas acústicas. La **técnica de dictado en inglés** rompe esa ilusión y obliga a tu oído a descifrar cada fonema con precisión quirúrgica.
 

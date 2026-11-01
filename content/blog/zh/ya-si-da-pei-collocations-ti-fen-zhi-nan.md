@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "雅思 词汇搭配 collocations 提分"
 cover: dict
 coverAlt: "Lexkite词典中查询单词resilient的发音释义与常见搭配展示"
-publishAt: ""
+publishAt: 2026-11-28T07:57:00+08:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

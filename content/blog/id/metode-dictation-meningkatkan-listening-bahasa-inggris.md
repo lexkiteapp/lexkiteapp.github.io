@@ -33,6 +33,7 @@ quiz: [
     explain: "Sebagai bahasa berbasis tekanan (*stress-timed*), bahasa Inggris mengompres kata-kata gramatikal tidak bertekanan menjadi bunyi yang sangat singkat dan samar."
   }
 ]
+publishAt: 2026-11-22T08:28:00+07:00
 ---
 Pernahkah Anda merasa bingung saat mendengarkan penutur asli berbicara cepat? Menguasai **metode dictation bahasa inggris** adalah kunci tercepat untuk melatih pendengaran telinga kita agar mampu menangkap setiap kata dengan presisi.
 

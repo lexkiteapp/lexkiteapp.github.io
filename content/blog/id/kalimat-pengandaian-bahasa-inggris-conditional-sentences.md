@@ -33,6 +33,7 @@ quiz: [
     explain: "Dalam bahasa Inggris formal, 'were' digunakan untuk semua subjek pada Second Conditional: 'If I were you'."
   }
 ]
+publishAt: 2026-11-28T09:11:00+07:00
 ---
 
 Menguasai kalimat pengandaian (*Conditional Sentences* atau *If Clauses*) adalah salah satu tonggak terpenting dalam perjalanan menguasai tata bahasa Inggris tingkat lanjut. Baik saat mendiskusikan fenomena ilmiah, menyusun rencana masa depan yang realistis, maupun mengevaluasi keputusan historis di masa lampau, pemahaman yang mendalam tentang **kalimat pengandaian bahasa inggris conditional sentences** akan mendongkrak skor penulisan esai formal Anda di tes IELTS, TOEFL, maupun korespondensi bisnis.

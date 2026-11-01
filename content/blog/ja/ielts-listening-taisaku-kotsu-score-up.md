@@ -9,7 +9,7 @@ tags: [listening, ielts, exam-tips]
 keyword: "ielts リスニング コツ listening 対策"
 cover: listening
 coverAlt: "LexkiteのIELTSリスニング演習画面には4つのセクションからなる10セットの模擬テストと速度変更機能が搭載"
-publishAt: ""
+publishAt: 2026-12-07T20:51:00+09:00
 factChecked: 2026-11-01
 qualityScore: 95
 author: Lexkite
