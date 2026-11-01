@@ -90,11 +90,18 @@
   }
 
   // ---------- Hiển thị ----------
+  // Ảnh Part 1: <picture> AVIF (it.avif = có bản .avif cùng tên) → .jpg dự phòng; width/height thật (it.w/it.h) giữ chỗ → CLS 0
+  const photoHtml = it => {
+    const src = (/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com/') + it.img;
+    const wh = it.w && it.h ? ` width="${+it.w}" height="${+it.h}"` : '';
+    const img = `<img class="lq-photo" src="${esc(src)}"${wh} alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" decoding="async" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">`;
+    return it.avif ? `<picture><source type="image/avif" srcset="${esc(src.replace(/\.jpe?g$/i, '.avif'))}">${img}</picture>` : img;
+  };
   function groupHtml(gr, gi, tips) {
     const head = `<div class="lq-instr">${gr.title ? `<b>${esc(gr.title)}</b><br>` : ''}<i>${esc(gr.instr)}</i></div>${tips && g.QT ? g.QT.box(g.QT.kindOf(gr)) : ''}`;
     // TOEIC Part 1 (photo): ảnh + chỉ chữ (A)–(D); 4 câu mô tả chỉ nghe, hiện lại sau khi nộp (mark)
     if (gr.type === 'mcq' && gr.photo) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
-      <img class="lq-photo" src="${esc((/^https?:/.test(location.protocol) ? "" : "https://lexkite.com/") + it.img)}" alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">
+      ${photoHtml(it)}
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>(${L[k]})</b></label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (gr.type === 'mcq') return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>${L[k]}</b>${o === L[k] ? '' : ' ' + esc(o)}</label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
