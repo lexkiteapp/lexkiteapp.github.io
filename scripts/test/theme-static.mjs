@@ -87,12 +87,12 @@ for (const [mode, scheme, stored] of MODES) {
   if (a.theme !== 'auto' || b[0].theme !== 'light' || b[1] !== 'light' || b[0].goal !== 20) bad.push(`sync: bấm nút web không vá ielts.settings.theme (${a.theme} → ${b[0].theme}, giữ khoá khác: ${b[0].goal})`);
   await page.reload({ waitUntil: 'load' }); if (await page.evaluate(() => document.documentElement.getAttribute('data-theme')) !== 'light') bad.push('sync: tải lại sau khi chọn sáng trên web → không còn sáng');
   checks++; await ctx.close(); }
-// Chân trang: 390 px nhóm gập (chỉ "Sản phẩm" mở), ô chạm ≥ 48 px; 1280 px 4 nhóm mở; menu ngôn ngữ bàn phím. Ảnh footer-{sáng,tối}-{1280,390}.png
+// Chân trang (tiêu đề nhóm trên máy tính là chữ, không bấm được → không đo): 390 px nhóm gập (chỉ "Sản phẩm" mở), ô chạm ≥ 48 px; 1280 px 4 nhóm mở; menu ngôn ngữ bàn phím. Ảnh footer-{sáng,tối}-{1280,390}.png
 for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', 'dark']) {
   const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: scheme, reducedMotion: 'reduce' }); await serve(ctx);
   for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|blog-en|404)$/.test(n))) {
     const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
-    const f = await page.evaluate(W => { const g = [...document.querySelectorAll('.site-foot .fg')], small = [...document.querySelectorAll('.site-foot summary, .site-foot .fbtn, .site-foot .tsw, .site-foot .fg[open] a')].filter(e => e.getBoundingClientRect().width).map(e => [e.className || e.tagName, Math.round(e.getBoundingClientRect().height)]).filter(([, h]) => h < (W < 720 ? 48 : 44)); return { n: g.length, open: g.filter(x => x.open).length, small, ul: [...document.querySelectorAll('.site-foot .fg a')].some(a => getComputedStyle(a).textDecorationLine.includes('underline')) }; }, W);
+    const f = await page.evaluate(W => { const g = [...document.querySelectorAll('.site-foot .fg')], small = [...document.querySelectorAll(`${W < 720 ? '.site-foot summary' : '.flang summary'}, .site-foot .fbtn, .site-foot .tsw, .site-foot .fg[open] a`)].filter(e => e.getBoundingClientRect().width).map(e => [e.className || e.tagName, Math.round(e.getBoundingClientRect().height)]).filter(([, h]) => h < (W < 720 ? 48 : 44)); return { n: g.length, open: g.filter(x => x.open).length, small, ul: [...document.querySelectorAll('.site-foot .fg a')].some(a => getComputedStyle(a).textDecorationLine.includes('underline')) }; }, W);
     const tag = `footer ${name} @${W} ${scheme}`; checks++;
     if (f.n !== 4) bad.push(`${tag}: ${f.n} nhóm (cần 4)`);
     if (f.open !== (W < 720 ? 1 : 4)) bad.push(`${tag}: ${f.open} nhóm mở (cần ${W < 720 ? 1 : 4})`);
