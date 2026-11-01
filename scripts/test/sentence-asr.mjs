@@ -22,6 +22,11 @@ ok(g.audioUrl && g.audioUrl('abc') === `B/abc${S2}.mp3` && g.audioUrl('xyz') ===
 const py = fs.readFileSync('scripts/sentence-asr.py', 'utf8'), w = +((py.match(/^WER_MAX = ([0-9.]+)/m) || [])[1]);
 ok(w > 0 && w <= 0.10, `scripts/sentence-asr.py WER_MAX = ${w} – không được nới quá 0.10`);
 ok(/WER ≤ 10 %/.test(fs.readFileSync('docs/WORD-AUDIO.md', 'utf8')), 'docs/WORD-AUDIO.md phải ghi ngưỡng "WER ≤ 10 %"');
+// 7) chỉ mục dạng nén Rice (keyset.mjs): mã hoá ↔ giải mã khớp tuyệt đối (gồm khóa lớn nhất 2^32−1, tập rỗng), tệp thật giải mã ra đúng số khóa
+{ const { encode, decode } = await import('../sentence-audio/keyset.mjs');
+  const rnd = Array.from({ length: 5000 }, (_, i) => ((Math.imul(i + 1, 2654435761) >>> 0)).toString(36)).concat(['0', (2 ** 32 - 1).toString(36)]);
+  for (const t of [rnd, [], ['zik0zj']]) { const d = decode(encode(t)), w = new Set(t); ok(d.size === w.size && [...w].every(k => d.has(k)), `keyset: mã hoá/giải mã lệch (${t.length} khóa)`); }
+  ok(have.size > 1000 && [...have].every(k => /^[0-9a-z]{1,7}$/.test(k)), `${'web/js/listen/audio-index.js'}: giải mã ra khóa lạ / quá ít khóa (${have.size})`); }
 if (errs.length) { console.error('✗ sentence-asr:\n  ' + errs.slice(0, 20).join('\n  ')); process.exit(1); }
 console.log(`✓ sentence-asr: ${led.size} câu đã kiểm · ${s2.size} khóa -s2 · ${fk.size} câu trượt có lý do`);
 // Phiên âm từ điển → âm vị Kokoro cho phương án render lại (cùng mảng – gọi từ đây để không phải sửa dòng test dài trong package.json)
