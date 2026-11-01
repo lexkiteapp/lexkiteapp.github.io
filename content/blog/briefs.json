@@ -14842,6 +14842,106 @@
       ],
       "angle": "Domine o IELTS Speaking Part 2 com template de 4 passos: como aproveitar o 1 minuto de anotações, preencher 2 minutos com fluência e evitar pausas.",
       "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "ielts-writing-task-1-describir-graficos-guia",
+      "keyword": "ielts writing task 1 graficos",
+      "topic": "IELTS Writing Task 1: Guía para describir gráficos y tablas paso a paso",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "task-1",
+        "graficos"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "Cómo redactar el reporte de IELTS Writing Task 1 en 20 minutos: estructura de 4 párrafos, redacción de la visión general (Overview) y vocabulario de tendencias.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "ielts-writing-task-1-como-descrever-graficos",
+      "keyword": "ielts writing task 1 graficos",
+      "topic": "IELTS Writing Task 1: Como descrever gráficos de linha, barras e tabelas",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "task-1",
+        "graficos"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "Passo a passo definitivo para o IELTS Writing Task 1: estrutura dos 4 parágrafos, como redigir um Overview impecável e termos para descrever variações numéricas.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "ielts-writing-task-1-cara-mendeskripsikan-grafik",
+      "keyword": "ielts writing task 1 grafik",
+      "topic": "IELTS Writing Task 1: Cara Mendeskripsikan Grafik Garis, Batang, dan Tabel",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "task-1",
+        "grafik"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "Panduan praktis menulis laporan IELTS Writing Task 1 dalam 20 menit: struktur 4 paragraf, teknik menyusun Overview yang tepat, dan kosakata tren kenaikan/penurunan.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "ielts-writing-task-1-graph-bunseki-koutsu",
+      "keyword": "ielts writing task 1 グラフ コツ",
+      "topic": "IELTS Writing Task 1グラフ問題完全対策：20分でまとめる分析と記述のコツ",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "task-1",
+        "graph"
+      ],
+      "shots": [
+        "write",
+        "grammar",
+        "dict"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/grammar",
+        "/#/dict/resilient"
+      ],
+      "angle": "IELTSライティングTask 1（折れ線・棒グラフ・表）の書き方を徹底解説。4段落構成、高得点の鍵となるOverview（全体概要）のまとめ方、数値変動を表す重要動詞・副詞を網羅。",
+      "intent": "informational"
     }
   ]
 }
