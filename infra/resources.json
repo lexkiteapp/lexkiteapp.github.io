@@ -476,7 +476,7 @@
       "key": "gtx",
       "name": "Google Translate (gtx) & từ điển mở",
       "kind": "api",
-      "purpose": "Dịch máy lúc chạy (dự phòng – nội dung chính đã dịch sẵn ở web/i18n/content), nghĩa từ, phiên âm, ví dụ, ảnh minh họa",
+      "purpose": "Dịch máy lúc chạy (dự phòng – nội dung chính đã dịch sẵn ở web/i18n/content), nghĩa từ, phiên âm, ví dụ, ảnh minh họa. Web/app gọi gtx + dictionaryapi.dev qua proxy cùng nguồn functions/api/dictlookup.js (đệm biên, lỗi → 200 null, hạn mức translate); add-on gọi thẳng (host_permissions)",
       "console": "",
       "free": "Miễn phí, không cam kết (có thể bị giới hạn)",
       "upgrade": "Dịch sẵn lúc build (đã làm) / Gemini",

@@ -29,7 +29,7 @@ export const DEFAULTS = {
   classroom: { anon: [0, 0],     free: [30, 1500], ipx: 20, store: 'edge' },                                        // lớp học: giáo viên + học sinh (cả lớp chung 1 IP trường)
   img:       { anon: [30, 300],  free: [30, 300],  ipx: 3,  store: 'edge' },                                        // ảnh minh họa – chỉ tính lượt trượt bộ đệm
   hit:       { anon: [120, 10000], free: [120, 10000], ipx: 1, store: 'edge' },                                   // thống kê (sendBeacon, theo IP) – vượt → bỏ qua im lặng
-  translate: { anon: [60, 2000], free: [60, 2000], ipx: 3,  store: 'edge' },                                        // dự phòng: hiện dịch chạy thẳng từ máy khách, chưa có proxy
+  translate: { anon: [60, 2000], free: [60, 2000], ipx: 3,  store: 'edge' },                                        // /api/dictlookup (từ điển + dịch máy gtx của web/app) – chỉ tính lượt trượt bộ đệm
 };
 // Trần gói miễn phí/ngày – PHẢI khớp "cap" trong infra/resources.json (scripts/test/quota.mjs kiểm). perKey: nhân với số khóa đang có.
 export const PROVIDERS = {

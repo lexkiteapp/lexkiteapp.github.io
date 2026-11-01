@@ -208,7 +208,7 @@ const chromeMock = new Proxy({}, { get: (t, k) => {
   return deep();
 } });
 const nav = { onLine: true, language: 'en-US' };
-const sw = { addEventListener() {}, console, Date, Math, JSON, Promise, Map, Set, URL, URLSearchParams, AbortController, AbortSignal, TextEncoder, Uint8Array, Event, EventTarget, setTimeout, clearTimeout, fetch: fakeFetch, crypto: webcrypto, navigator: nav, chrome: chromeMock, location: { hostname: 'abc' } };
+const sw = { addEventListener() {}, console, Date, Math, JSON, Promise, Map, Set, URL, URLSearchParams, AbortController, AbortSignal, TextEncoder, Uint8Array, Event, EventTarget, setTimeout, clearTimeout, fetch: fakeFetch, crypto: webcrypto, navigator: nav, chrome: chromeMock, location: { hostname: 'abc', protocol: 'chrome-extension:' } };
 sw.self = sw; sw.globalThis = sw; vm.createContext(sw);
 for (const f of ['web/js/data.js', 'web/js/core.js', 'web/js/vi-check.js', 'web/js/dictionary.js', 'extension/background.js']) vm.runInContext(rd(f), sw, { filename: f });
 await sleep(20);

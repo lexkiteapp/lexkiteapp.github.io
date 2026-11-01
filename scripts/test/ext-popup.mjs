@@ -42,7 +42,7 @@ const fakeFetch = async url => {
   if (url.includes('page/definition')) return res(WIKT_DEF[decodeURIComponent(url.split('/').pop())] || null);
   return res(null); // Wiktionary IPA, Tatoeba, Datamuse… → không có
 };
-const sw = { console, Date, Math, JSON, Promise, Map, Set, URL, AbortController, TextEncoder, setTimeout, clearTimeout, fetch: fakeFetch, location: { hostname: 'abcdefghijklmnopabcdefghijklmnop' } };
+const sw = { console, Date, Math, JSON, Promise, Map, Set, URL, AbortController, TextEncoder, setTimeout, clearTimeout, fetch: fakeFetch, location: { hostname: 'abcdefghijklmnopabcdefghijklmnop', protocol: 'chrome-extension:' } };
 sw.self = sw; vm.createContext(sw);
 vm.runInContext(rd('web/js/data.js'), sw);
 vm.runInContext(rd('web/js/dictionary.js'), sw);

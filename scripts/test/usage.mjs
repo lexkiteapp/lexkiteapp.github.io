@@ -220,7 +220,7 @@ await go('#/hubs', 50); await go('#/vocab', 200);
 ok($('a.hub-card[href="#/usage"]'), 'Từ vựng › Tra cứu: thẻ “Cách dùng từ”');
 
 ok(!errors.length, 'không lỗi JS: ' + errors.slice(0, 5).join(' | '));
-ok(!net.slice(net0).some(u => /translate\.googleapis[^ ]*sl=vi|generativelanguage/.test(u)), 'giao diện tiếng Việt: không dịch máy nội dung, không gọi AI');
+ok(!net.slice(net0).some(u => /(translate\.googleapis|\/api\/dictlookup\?src=gtx)[^ ]*sl=vi|generativelanguage/.test(u)), 'giao diện tiếng Việt: không dịch máy nội dung, không gọi AI');
 
 // ================= 3. Khóa giao diện có bản tiếng Anh =================
 const src = fs.readFileSync('web/js/usage.js', 'utf8');

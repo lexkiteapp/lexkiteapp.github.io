@@ -24,8 +24,16 @@
   // Ngôn ngữ NGHĨA: chuỗi dự phòng giao diện → en, KHÔNG BAO GIỜ vi cho người dùng không-vi (trừ khi họ tự chọn nghĩa tiếng Việt trong Cài đặt).
   // Ngữ cảnh không có I18N (service worker, content script) giữ hành vi cũ (vi).
   const wantVi = () => !(g.I18N && g.I18N.meanLang && g.I18N.meanLang() !== 'vi');
-  const GTX = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&hl=vi&dj=1'; // dịch câu ví dụ sang vi (translateVi)
-  const GTX_DICT = () => (wantVi() ? GTX : 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=en&hl=en&dj=1'); // từ điển Oxford: tên từ loại/ví dụ theo hl
+  // Từ điển mở & dịch máy Google (gtx): web/app di động đi qua proxy cùng nguồn /api/dictlookup (functions/api/dictlookup.js) – đệm ở biên
+  // Cloudflare, nguồn lỗi/429 → 200 + null (không lỗi CORS trên console, rơi xuống nhánh dự phòng); app di động gọi bản trên lexkite.com.
+  // Add-on (trang/service worker chrome-extension:) có host_permissions → gọi thẳng nguồn: không vướng CORS, không tốn trần Functions 100k/ngày
+  // (docs/FREE-TIER.md). Chỉ các dòng `EXT ?` bên dưới được chứa tên miền nguồn (scripts/test/dictlookup.mjs kiểm).
+  const EXT = !!(g.location && /^(chrome|moz)-extension:$/.test(location.protocol));
+  const DL = ((g.location && /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname)) ? '' : 'https://lexkite.com') + '/api/dictlookup';
+  const gtxURL = (sl, tl, extra = '') => (EXT ? 'https://translate.googleapis.com/translate_a/single?client=gtx' : `${DL}?src=gtx`) + `&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}${extra}`;
+  const dapiURL = word => (EXT ? `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}` : `${DL}?src=dapi&w=${encodeURIComponent(word)}`);
+  const GTX = gtxURL('en', 'vi', '&hl=vi&dj=1'); // dịch câu ví dụ sang vi (translateVi)
+  const GTX_DICT = () => (wantVi() ? GTX : gtxURL('en', 'en', '&hl=en&dj=1')); // từ điển Oxford: tên từ loại/ví dụ theo hl
   const VI_DIA = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
   const VI_POS = { 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb', 'giới từ': 'preposition', 'liên từ': 'conjunction', 'đại từ': 'pronoun', 'thán từ': 'interjection', 'từ hạn định': 'determiner', 'viết tắt': 'abbreviation', 'cụm từ': 'phrase', 'tiền tố': 'prefix', 'hậu tố': 'suffix' };
   const posEn = p => (typeof p === 'string' ? VI_POS[p.normalize('NFC').toLowerCase().trim()] || p : p);
@@ -101,7 +109,7 @@
   }
 
   async function fromFreeDict(word) {
-    const data = await fetchJSON(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`, 3000);
+    const data = await fetchJSON(dapiURL(word), 3500);
     if (!Array.isArray(data) || !data.length) return null;
     const out = { ipa: '', ipaUS: '', audio: '', audioUS: '', meanings: [], syn: [] };
     for (const entry of data) {
@@ -279,7 +287,7 @@
     if (tl === 'vi' && sl === 'en') return translateVi(text);
     const k = sl + '|' + tl + '|' + text; if (trCache.has(k)) return trCache.get(k);
     const dv = await deviceTranslate(text, tl, sl); if (dv) { trCache.set(k, dv); return dv; }
-    const d = await fetchJSON(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${encodeURIComponent(tl)}&dj=1&dt=t&q=${encodeURIComponent(text)}`);
+    const d = await fetchJSON(`${gtxURL(sl, tl)}&dj=1&dt=t&q=${encodeURIComponent(text)}`);
     let r = (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || '';
     if (!r) r = await myMemory(text, tl, sl);
     if (r) trCache.set(k, r);
@@ -290,7 +298,7 @@
   async function translateAuto(text, tl = 'vi', hint = '') {
     text = String(text || '').trim();
     if (!text) return { text: '', src: baseLang(hint), tl };
-    const gtx = async (sl, to) => { const d = await fetchJSON(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${encodeURIComponent(to)}&dj=1&dt=t&q=${encodeURIComponent(text)}`); return d ? { t: (d.sentences || []).map(x => x.trans || '').join('').trim(), src: baseLang(d.src) } : null; };
+    const gtx = async (sl, to) => { const d = await fetchJSON(`${gtxURL(sl, to)}&dj=1&dt=t&q=${encodeURIComponent(text)}`); return d ? { t: (d.sentences || []).map(x => x.trans || '').join('').trim(), src: baseLang(d.src) } : null; };
     const fallback = async (to, sl) => (sl && sl !== 'auto' ? (await deviceTranslate(text, to, sl)) || (await myMemory(text, to, sl)) : '');
     const r = await gtx('auto', tl), src = (r && r.src) || baseLang(hint);
     if (src && src === baseLang(tl)) {

@@ -119,7 +119,7 @@ ok(/Lex\.peekAu/.test(ui), 'UI.speak hỏi cờ âm thanh Lex trước khi tải
 {
   Lex._reset(); Lex._setFetch(fakeFetch);
   const net = [];
-  const ctx = { console, setTimeout, clearTimeout, AbortController, TextEncoder, URL, Lex, fetch: async u => { net.push(u); return { ok: true, json: async () => (/wiktionary/.test(u) ? {} : /dictionaryapi/.test(u) ? [{ phonetics: [{ text: '/WRONG-US/', audio: 'x-us.mp3' }], meanings: [] }] : {}) }; } };
+  const ctx = { console, setTimeout, clearTimeout, AbortController, TextEncoder, URL, Lex, fetch: async u => { net.push(u); return { ok: true, json: async () => (/wiktionary/.test(u) ? {} : /dictionaryapi|src=dapi/.test(u) ? [{ phonetics: [{ text: '/WRONG-US/', audio: 'x-us.mp3' }], meanings: [] }] : {}) }; } };
   ctx.self = ctx; vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8'), ctx);
   const D = ctx.Dict, w = Object.keys(INDEX).find(k => INDEX[k].ipaUS && INDEX[k].def && /^[a-z]{6,}$/.test(k));
