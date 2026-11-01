@@ -156,8 +156,11 @@ ok(r.body && r.why !== 'quota', 'đã hết lượt vẫn được phục vụ b
   ok(/const EXT = !!\(g\.location && \/\^\(chrome\|moz\)-extension:\$\/\.test\(location\.protocol\)\)/.test(dj), 'EXT chỉ đúng trong add-on (chrome-extension:/moz-extension:)');
   const app = fs.readFileSync(path.join(ROOT, 'web/js/app.js'), 'utf8');
   ok(/\$\{DL\}\?src=gtx&sl=vi/.test(app) && /x\.ok \? x\.json\(\) : null/.test(app), 'app.js: dịch nội dung qua proxy, phản hồi lỗi → null');
+  ok(/\$\{DL\}\?src=gtx&sl=vi[^\n]*signal: AbortSignal\.timeout \? AbortSignal\.timeout\(\d+\) : undefined/.test(app), 'app.js: lô dịch nội dung có giới hạn thời gian (request treo không giữ trang mãi)');
   const sw = fs.readFileSync(path.join(ROOT, 'web/sw.js'), 'utf8');
-  ok(/if \(url\.pathname === '\/api\/dictlookup'\) return;/.test(sw), "sw.js: /api/dictlookup đi mạng thẳng (không ignoreSearch trả nhầm mục từ khác)");
+  const byp = sw.indexOf("if (url.pathname === '/api/dictlookup') return;"), xo = sw.indexOf("url.hostname === 'lexkite.com'"), so = sw.indexOf('url.origin !== location.origin) return;');
+  ok(byp > 0, "sw.js: /api/dictlookup đi mạng thẳng (không ignoreSearch trả nhầm mục từ khác)");
+  ok(byp > 0 && byp < xo && byp < so, 'sw.js: bỏ qua /api/dictlookup TRƯỚC nhánh khác nguồn lexkite.com (app di động/127.0.0.1) – SW không giữ request đã huỷ (font audit treo)');
 }
 
 console.log(fails ? `✗ dictlookup: ${fails}/${n} kiểm tra hỏng` : `✓ dictlookup: ${n} kiểm tra – proxy từ điển/dịch máy dự phòng sạch, web không gọi thẳng nguồn`);
