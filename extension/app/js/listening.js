@@ -95,11 +95,14 @@
       if (key) {
         el = shared || new Audio(); el.__own = own; el.src = aUrl(key); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
         const me = el; let ok = false;
-        el.onplaying = () => { if (my !== seq) return; ok = true; audioDown = 0; };
-        el.onended = () => { if (my === seq && el === me) timer = setTimeout(next, l.say ? 600 : 280); };
-        el.onerror = () => { if (my !== seq || el !== me) return; el = null; if (!ok) { audioDown++; window.audioFail && window.audioFail(); } ttsLine(); };
+        // Canh giờ mp3 (iOS mạng chập chờn: play() treo không báo lỗi, hoặc phát xong mà không có 'ended') → không treo im lặng ở 1 câu:
+        // 8 s chưa phát → coi như lỗi tải (giọng máy đọc câu này); đang phát quá độ dài file + 3 s → sang câu kế (mỗi câu vẫn chỉ 1 lần).
+        let wd = setTimeout(() => { if (my !== seq || el !== me || ok) return; me.onplaying = me.onended = me.onerror = null; me.pause(); el = null; audioDown++; ttsLine(); }, 8000);
+        el.onplaying = () => { if (my !== seq) return; ok = true; audioDown = 0; clearTimeout(wd); const d = me.duration; if (isFinite(d) && d > 0) wd = setTimeout(() => { if (my === seq && el === me) { me.onended = null; me.pause(); timer = setTimeout(next, 280); } }, (d / (me.playbackRate || 1) + 3) * 1000); };
+        el.onended = () => { clearTimeout(wd); if (my === seq && el === me) timer = setTimeout(next, l.say ? 600 : 280); };
+        el.onerror = () => { clearTimeout(wd); if (my !== seq || el !== me) return; el = null; if (!ok) { audioDown++; window.audioFail && window.audioFail(); } ttsLine(); };
         let pr; try { pr = el.play(); } catch (e) { pr = Promise.reject(e); }
-        if (pr && pr.catch) pr.catch(e => { if (my !== seq || el !== me || ok) return; if (blockedErr(e)) { el = null; blocked(); return; } el = null; ttsLine(); });
+        if (pr && pr.catch) pr.catch(e => { if (my !== seq || el !== me || ok) return; clearTimeout(wd); if (blockedErr(e)) { el = null; blocked(); return; } el = null; ttsLine(); });
         // tải trước câu kế tiếp → không bị khựng giữa các câu
         const nx = q.slice(pos + 1).find(x => x.t || x.say), nk = nx && hqKey(nx); if (nk) { const pre = new Audio(); pre.preload = 'auto'; pre.src = aUrl(nk); }
         return;

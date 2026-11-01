@@ -14,20 +14,22 @@ const fails = [], bad = (k, m) => { fails.push(`[${k}] ${m}`); console.log('  �
 const wav = (() => { const n = 3200, b = Buffer.alloc(44 + n * 2); b.write('RIFF', 0); b.writeUInt32LE(36 + n * 2, 4); b.write('WAVEfmt ', 8); b.writeUInt32LE(16, 16); b.writeUInt16LE(1, 20); b.writeUInt16LE(1, 22); b.writeUInt32LE(8000, 24); b.writeUInt32LE(16000, 28); b.writeUInt16LE(2, 32); b.writeUInt16LE(16, 34); b.write('data', 36); b.writeUInt32LE(n * 2, 40); return b; })();
 
 function iosPolicy() {
-  let act = 0; const tr = e => { if (e.isTrusted) act = performance.now(); };
+  let act = -Infinity; const tr = e => { if (e.isTrusted) act = performance.now(); };
   ['touchend', 'click', 'keydown', 'pointerup'].forEach(ev => addEventListener(ev, tr, true));
   const active = () => performance.now() - act < 1000;
-  window.__aud = { ok: [], blocked: 0, ttsBlocked: 0, tts: 0 };
+  window.__aud = { ok: [], blocked: 0, ttsBlocked: 0, tts: 0, log: [] }; const lg = m => { const L = window.__aud.log; L.push(Math.round(performance.now() / 100) / 10 + 's ' + m); if (L.length > 40) L.shift(); };
+  ['playing', 'ended', 'error', 'stalled'].forEach(ev => addEventListener(ev, e => { const t = e.target; if (t instanceof HTMLMediaElement) lg(ev + ' ' + String(t.getAttribute('src') || '').split('/').pop().slice(0, 24)); }, true));
   const P = HTMLMediaElement.prototype, play = P.play;
   P.play = function () {
-    if (!active() && !this.__unlocked) { window.__aud.blocked++; return Promise.reject(new DOMException('The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.', 'NotAllowedError')); }
-    this.__unlocked = true; const src = this.currentSrc || this.src || '';
+    const src = String(this.getAttribute('src') || this.src || ''), nm = src.split('/').pop().slice(0, 24); // src thuộc tính (đồng bộ) – currentSrc của phần tử dùng chung còn là bài TRƯỚC
+    if (!active() && !this.__unlocked) { window.__aud.blocked++; lg('blocked ' + nm); return Promise.reject(new DOMException('The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.', 'NotAllowedError')); }
+    this.__unlocked = true; lg('play ' + nm);
     if (!/^data:/.test(src)) window.__aud.ok.push(src.split('/').pop());
     return play.call(this);
   };
   if ('speechSynthesis' in window) {
     let ttsOk = false; const speak = speechSynthesis.speak.bind(speechSynthesis);
-    speechSynthesis.speak = u => { if (!ttsOk && !active()) { window.__aud.ttsBlocked++; setTimeout(() => u.onerror && u.onerror({ error: 'not-allowed' }), 0); return; } ttsOk = true; window.__aud.tts++; return speak(u); };
+    speechSynthesis.speak = u => { lg('speak "' + String(u.text).slice(0, 16) + '"' + (!ttsOk && !active() ? ' (chặn)' : '')); if (!ttsOk && !active()) { window.__aud.ttsBlocked++; setTimeout(() => u.onerror && u.onerror({ error: 'not-allowed' }), 0); return; } ttsOk = true; window.__aud.tts++; return speak(u); };
   }
 }
 
@@ -46,7 +48,7 @@ const goPart = async page => {
   await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/mock/run?s=listening&l=1`, { waitUntil: 'load' });
   return page.waitForSelector('#mkStart', { timeout: 20000 }).then(() => true, () => false);
 };
-const aud = page => page.evaluate(() => ({ ...window.__aud, ok: window.__aud.ok.slice(), hq: !!(window.LISTEN_AUDIO && LISTEN_AUDIO.size), sp: 'speechSynthesis' in window, now: (document.getElementById('lNow') || {}).textContent || '' }));
+const aud = page => page.evaluate(() => ({ ...window.__aud, ok: window.__aud.ok.slice(), log: window.__aud.log.join(' › '), hq: !!(window.LISTEN_AUDIO && LISTEN_AUDIO.size), sp: 'speechSynthesis' in window, now: (document.getElementById('lNow') || {}).textContent || '' }));
 
 async function run(name, bt) {
   console.log(`▶ ${name}`);
@@ -58,7 +60,7 @@ async function run(name, bt) {
     await page.waitForFunction(() => window.__aud.ok.length >= 2, null, { timeout: 15000 }).catch(() => {});
     const a = await aud(page);
     await page.screenshot({ path: `${OUT}/${name}-auto.png` });
-    if (a.ok.length < 2) bad(k, `không có tiếng: ${a.ok.length} câu phát được, ${a.blocked} lần bị chặn, giọng máy bị chặn ${a.ttsBlocked}, giọng máy nói ${a.tts}, mp3 sẵn ${a.hq}, speechSynthesis ${a.sp}, đang: "${a.now}"`);
+    if (a.ok.length < 2) bad(k, `không có tiếng: ${a.ok.length} câu phát được, ${a.blocked} lần bị chặn, giọng máy bị chặn ${a.ttsBlocked}, giọng máy nói ${a.tts}, mp3 sẵn ${a.hq}, speechSynthesis ${a.sp}, đang: "${a.now}"; nhật ký: ${a.log}`);
     else console.log(`  ✓ phát ${a.ok.length} câu (bị chặn ${a.blocked})`);
     if (errs.length) bad(k, 'lỗi JS: ' + errs.join(' | '));
     await browser.close(); }
@@ -70,7 +72,7 @@ async function run(name, bt) {
     await page.evaluate(() => document.getElementById('mkSkip').click());
     const btn = await page.waitForSelector('#lkTapPlay', { timeout: 8000 }).catch(() => null);
     const before = await aud(page);
-    if (!btn) { bad(k, `không hiện nút "Bấm để nghe" khi bị chặn (chặn ${before.blocked}, phát ${before.ok.length}, giọng máy chặn ${before.ttsBlocked}/nói ${before.tts}, mp3 sẵn ${before.hq}, speechSynthesis ${before.sp}, đang: "${before.now}")`); await page.screenshot({ path: `${OUT}/${name}-blocked.png` }); await browser.close(); return; }
+    if (!btn) { bad(k, `không hiện nút "Bấm để nghe" khi bị chặn (chặn ${before.blocked}, phát ${before.ok.length}, giọng máy chặn ${before.ttsBlocked}/nói ${before.tts}, mp3 sẵn ${before.hq}, speechSynthesis ${before.sp}, đang: "${before.now}"; nhật ký: ${before.log})`); await page.screenshot({ path: `${OUT}/${name}-blocked.png` }); await browser.close(); return; }
     await page.screenshot({ path: `${OUT}/${name}-tap-to-listen.png` });
     const vis = await page.evaluate(() => { const b = document.getElementById('lkTapPlay'), r = b.getBoundingClientRect(), top = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2); return r.width > 0 && r.bottom <= innerHeight && b.contains(top); });
     if (!vis) bad(k, 'nút "Bấm để nghe" bị che hoặc ngoài màn hình');
