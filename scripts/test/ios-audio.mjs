@@ -17,7 +17,7 @@ function iosPolicy() {
   let act = 0; const tr = e => { if (e.isTrusted) act = performance.now(); };
   ['touchend', 'click', 'keydown', 'pointerup'].forEach(ev => addEventListener(ev, tr, true));
   const active = () => performance.now() - act < 1000;
-  window.__aud = { ok: [], blocked: 0, ttsBlocked: 0 };
+  window.__aud = { ok: [], blocked: 0, ttsBlocked: 0, tts: 0 };
   const P = HTMLMediaElement.prototype, play = P.play;
   P.play = function () {
     if (!active() && !this.__unlocked) { window.__aud.blocked++; return Promise.reject(new DOMException('The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.', 'NotAllowedError')); }
@@ -27,7 +27,7 @@ function iosPolicy() {
   };
   if ('speechSynthesis' in window) {
     let ttsOk = false; const speak = speechSynthesis.speak.bind(speechSynthesis);
-    speechSynthesis.speak = u => { if (!ttsOk && !active()) { window.__aud.ttsBlocked++; setTimeout(() => u.onerror && u.onerror({ error: 'not-allowed' }), 0); return; } ttsOk = true; return speak(u); };
+    speechSynthesis.speak = u => { if (!ttsOk && !active()) { window.__aud.ttsBlocked++; setTimeout(() => u.onerror && u.onerror({ error: 'not-allowed' }), 0); return; } ttsOk = true; window.__aud.tts++; return speak(u); };
   }
 }
 
@@ -46,7 +46,7 @@ const goPart = async page => {
   await page.goto(`${BASE}/app/?sandbox=1&hl=vi#/mock/run?s=listening&l=1`, { waitUntil: 'load' });
   return page.waitForSelector('#mkStart', { timeout: 20000 }).then(() => true, () => false);
 };
-const aud = page => page.evaluate(() => ({ ...window.__aud, ok: window.__aud.ok.slice() }));
+const aud = page => page.evaluate(() => ({ ...window.__aud, ok: window.__aud.ok.slice(), hq: !!(window.LISTEN_AUDIO && LISTEN_AUDIO.size), sp: 'speechSynthesis' in window, now: (document.getElementById('lNow') || {}).textContent || '' }));
 
 async function run(name, bt) {
   console.log(`▶ ${name}`);
@@ -58,7 +58,7 @@ async function run(name, bt) {
     await page.waitForFunction(() => window.__aud.ok.length >= 2, null, { timeout: 15000 }).catch(() => {});
     const a = await aud(page);
     await page.screenshot({ path: `${OUT}/${name}-auto.png` });
-    if (a.ok.length < 2) bad(k, `không có tiếng: ${a.ok.length} câu phát được, ${a.blocked} lần bị chặn, giọng máy bị chặn ${a.ttsBlocked}`);
+    if (a.ok.length < 2) bad(k, `không có tiếng: ${a.ok.length} câu phát được, ${a.blocked} lần bị chặn, giọng máy bị chặn ${a.ttsBlocked}, giọng máy nói ${a.tts}, mp3 sẵn ${a.hq}, speechSynthesis ${a.sp}, đang: "${a.now}"`);
     else console.log(`  ✓ phát ${a.ok.length} câu (bị chặn ${a.blocked})`);
     if (errs.length) bad(k, 'lỗi JS: ' + errs.join(' | '));
     await browser.close(); }
@@ -70,7 +70,7 @@ async function run(name, bt) {
     await page.evaluate(() => document.getElementById('mkSkip').click());
     const btn = await page.waitForSelector('#lkTapPlay', { timeout: 8000 }).catch(() => null);
     const before = await aud(page);
-    if (!btn) { bad(k, `không hiện nút "Bấm để nghe" khi bị chặn (chặn ${before.blocked}, phát ${before.ok.length})`); await page.screenshot({ path: `${OUT}/${name}-blocked.png` }); await browser.close(); return; }
+    if (!btn) { bad(k, `không hiện nút "Bấm để nghe" khi bị chặn (chặn ${before.blocked}, phát ${before.ok.length}, giọng máy chặn ${before.ttsBlocked}/nói ${before.tts}, mp3 sẵn ${before.hq}, speechSynthesis ${before.sp}, đang: "${before.now}")`); await page.screenshot({ path: `${OUT}/${name}-blocked.png` }); await browser.close(); return; }
     await page.screenshot({ path: `${OUT}/${name}-tap-to-listen.png` });
     const vis = await page.evaluate(() => { const b = document.getElementById('lkTapPlay'), r = b.getBoundingClientRect(), top = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2); return r.width > 0 && r.bottom <= innerHeight && b.contains(top); });
     if (!vis) bad(k, 'nút "Bấm để nghe" bị che hoặc ngoài màn hình');

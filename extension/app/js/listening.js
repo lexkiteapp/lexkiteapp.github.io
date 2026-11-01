@@ -115,11 +115,16 @@
       if (!('speechSynthesis' in window)) { timer = setTimeout(next, 300); return; }
       const c = l.say ? cast._narrator : (cast[l.s] || cast._narrator);
       const parts = UI.splitSentences(l.say || l.t);
+      // Bộ canh giờ: bộ đọc giọng máy đôi khi nuốt câu (không bao giờ báo onstart/onend – iOS sau khi khóa màn hình, trình duyệt không có giọng) → trước đây bài nghe
+      // TREO im lặng ở câu đó. Chưa bắt đầu nói sau 4 s, hoặc nói quá lâu so với độ dài câu → coi như xong, sang câu kế (mỗi câu vẫn chỉ phát 1 lần).
+      let said = false, wd = 0; const fin = () => { if (said || my !== seq) return; said = true; clearTimeout(wd); timer = setTimeout(next, l.say ? 600 : 280); };
+      const words = (l.say || l.t || '').split(/\s+/).length, cap = 4000 + words * 900 / (l.say ? 0.95 : rate());
+      wd = setTimeout(() => { if (my !== seq || said) return; if (!speechSynthesis.speaking) { said = true; speechSynthesis.cancel(); timer = setTimeout(next, 280); } else wd = setTimeout(() => { if (my === seq && !said) { said = true; speechSynthesis.cancel(); timer = setTimeout(next, 280); } }, cap); }, 4000);
       parts.forEach((t, k) => {
         const u = new SpeechSynthesisUtterance(t);
         u.lang = c.lang; if (c.voice) u.voice = c.voice; u.pitch = c.pitch; u.rate = l.say ? 0.95 : rate();
-        u.onerror = e => { if (my !== seq) return; if (e && e.error === 'not-allowed') { speechSynthesis.cancel(); blocked(); return; } if (k === parts.length - 1) timer = setTimeout(next, l.say ? 600 : 280); };
-        if (k === parts.length - 1) u.onend = () => { if (my === seq) timer = setTimeout(next, l.say ? 600 : 280); };
+        u.onerror = e => { if (my !== seq || said) return; if (e && e.error === 'not-allowed') { said = true; clearTimeout(wd); speechSynthesis.cancel(); blocked(); return; } if (k === parts.length - 1) fin(); };
+        if (k === parts.length - 1) u.onend = fin;
         speechSynthesis.speak(u);
       });
       }
