@@ -546,9 +546,9 @@ const AUTO_OPS = {
   /** Token Meta theo kênh (đổi Page/IG ở Quản trị): kiểm bằng 1 lượt Graph rồi lưu mã hóa; xóa cầu dao + sức khỏe của kênh đó. */
   'POST auto/token': async ({ env, db, b }) => { await setupLock(db, env); const out = await setToken(env, db, b); await clearCh(db, out.channel_id); return out; },
   /** Kết nối một chạm (functions/api/_meta_oauth.js): start → { url } + cookie lk_meta; Page chờ chọn; App Secret dán 1 lần (mã hóa). */
-  'POST auto/oauth/start': async ({ env, db, b, who }) => { await setupLock(db, env); await setupOAuth(db, env); return startOAuth(env, db, b, who); },
-  'POST auto/oauth/pages': async ({ env, db, b, who }) => { await setupOAuth(db, env); return pendingPages(env, db, b, who); },
-  'POST auto/oauth/pick': async ({ env, db, b, who }) => { await setupLock(db, env); await setupOAuth(db, env); const out = await pickPage(env, db, b, who); await clearCh(db, out.channel_id); return out; },
+  'POST auto/oauth/start': async ({ env, db, b, who, now }) => { await setupLock(db, env); await setupOAuth(db, env); return startOAuth(env, db, b, who, now); }, // now: đồng hồ tiêm (test); bỏ trống = Date.now()
+  'POST auto/oauth/pages': async ({ env, db, b, who, now }) => { await setupOAuth(db, env); return pendingPages(env, db, b, who, now); },
+  'POST auto/oauth/pick': async ({ env, db, b, who, now }) => { await setupLock(db, env); await setupOAuth(db, env); const out = await pickPage(env, db, b, who, now); await clearCh(db, out.channel_id); return out; },
   'POST auto/app': async ({ env, db, b, who }) => { await setupOAuth(db, env); return setAppSecret(env, db, b, who); },
   'POST auto/token/del': async ({ env, db, b }) => { await setupLock(db, env); const out = await delToken(db, b); await clearCh(db, String(b.channel_id)); return out; },
   /** Duyệt tay 1 bài autopilot khi đang đi qua Meta (GrabCast lỗi nên board/approve không gọi được): chỉ đánh dấu duyệt, lượt Meta đăng đúng slot. */
