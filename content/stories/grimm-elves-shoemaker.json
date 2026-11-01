@@ -1,0 +1,150 @@
+{
+  "id": "grimm-elves-shoemaker",
+  "kind": "book",
+  "level": "A2",
+  "title": "The Elves and the Shoemaker",
+  "summary": "A poor shoemaker finds new shoes in his shop every morning, and he wants to know who makes them.",
+  "source": {
+    "type": "public-domain",
+    "work": "Grimm's Fairy Tales (Kinder- und Hausmärchen), \"The Elves\"",
+    "author": "Jacob and Wilhelm Grimm",
+    "published": 1812,
+    "authorDied": 1863,
+    "url": "https://www.gutenberg.org/ebooks/2591",
+    "note": "Retold from the plot of the tale in new A2 English by Lexkite; no sentences copied from any translation."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original tale in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [],
+    "scene": "Flat 2D illustration: a small old shoe shop at night, a candle on the table, two tiny elves sewing a pair of red shoes, no text"
+  },
+  "audio": {
+    "wpm": 120,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Last Piece of Leather",
+      "sentences": [
+        "Once upon a time, there was a poor shoemaker.",
+        "He worked hard every day, but he had very little money.",
+        "One evening, he had only one piece of leather left.",
+        "He cut it carefully and put it on his table.",
+        "\"I will make the shoes tomorrow morning,\" he said to his wife.",
+        "Then he went to bed and slept.",
+        "In the morning, he could not believe his eyes.",
+        "There was a beautiful pair of shoes on the table.",
+        "Every stitch was small and perfect.",
+        "Soon a rich customer came into the shop.",
+        "He liked the shoes so much that he paid a high price.",
+        "Now the shoemaker had enough money for more leather."
+      ],
+      "words": [
+        "upon",
+        "leather",
+        "carefully",
+        "believe",
+        "pair",
+        "perfect",
+        "customer",
+        "price"
+      ],
+      "quiz": [
+        {
+          "q": "What did the shoemaker leave on the table?",
+          "options": [
+            "A pair of finished shoes",
+            "One piece of cut leather",
+            "Some money for his wife"
+          ],
+          "answer": 1,
+          "explain": "He cut his last piece of leather and left it on the table to work on in the morning."
+        },
+        {
+          "q": "Why was the shoemaker surprised in the morning?",
+          "options": [
+            "His shop was empty.",
+            "His wife made the shoes.",
+            "He found beautiful shoes that he did not make."
+          ],
+          "answer": 2,
+          "explain": "Someone made a perfect pair of shoes while he was asleep."
+        },
+        {
+          "q": "What did the shoemaker do with the money?",
+          "options": [
+            "He bought more leather.",
+            "He closed his shop.",
+            "He gave it to the customer."
+          ],
+          "answer": 0,
+          "explain": "The high price gave him enough money for more leather."
+        }
+      ]
+    },
+    {
+      "title": "Thank You, Little Friends",
+      "sentences": [
+        "This happened every night for many weeks.",
+        "The shoemaker and his wife were not poor anymore.",
+        "One night before Christmas, his wife had an idea.",
+        "\"Let's stay awake and see who helps us,\" she said.",
+        "They hid behind a curtain in the corner of the room.",
+        "At midnight, two tiny elves came in.",
+        "Their clothes were old, and they had no shoes.",
+        "The elves sat at the table and worked very fast.",
+        "When the shoes were ready, they ran away.",
+        "The next day, the wife made small shirts and coats.",
+        "The shoemaker made two pairs of tiny shoes.",
+        "That night, the elves found the presents and put them on.",
+        "They danced happily and never came back.",
+        "But the shoemaker was lucky for the rest of his life."
+      ],
+      "words": [
+        "anymore",
+        "hide",
+        "curtain",
+        "corner",
+        "midnight",
+        "tiny",
+        "present",
+        "lucky"
+      ],
+      "quiz": [
+        {
+          "q": "Where did the shoemaker and his wife hide?",
+          "options": [
+            "Under the table",
+            "Behind a curtain",
+            "In the garden"
+          ],
+          "answer": 1,
+          "explain": "They hid behind a curtain in the corner of the room."
+        },
+        {
+          "q": "Why did the wife make clothes for the elves?",
+          "options": [
+            "The elves asked for them.",
+            "She wanted to sell them.",
+            "The elves had old clothes and no shoes."
+          ],
+          "answer": 2,
+          "explain": "She saw that the elves' clothes were old and they had no shoes, so she wanted to thank them."
+        },
+        {
+          "q": "What happened after the elves got the presents?",
+          "options": [
+            "They danced and never came back.",
+            "They made more shoes.",
+            "They stayed in the shop."
+          ],
+          "answer": 0,
+          "explain": "The elves were happy, danced, and did not come back."
+        }
+      ]
+    }
+  ]
+}

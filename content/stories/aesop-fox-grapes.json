@@ -1,0 +1,88 @@
+{
+  "id": "aesop-fox-grapes",
+  "kind": "book",
+  "level": "A1",
+  "title": "The Fox and the Grapes",
+  "summary": "A hungry fox wants some grapes, but they are too high for him.",
+  "source": {
+    "type": "public-domain",
+    "work": "Aesop's Fables",
+    "author": "Aesop",
+    "published": -550,
+    "authorDied": -564,
+    "url": "https://www.gutenberg.org/ebooks/21",
+    "note": "Retold from the plot of the fable in new A1 English by Lexkite; no sentences copied from any translation."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original fable in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [],
+    "scene": "Flat 2D illustration: an orange fox sitting under a tall green vine with purple grapes, warm summer sky, no text"
+  },
+  "audio": {
+    "wpm": 110,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Too High",
+      "sentences": [
+        "It is a hot summer day.",
+        "A fox walks in a big garden.",
+        "He is very hungry and thirsty.",
+        "He sees some grapes on a tall plant.",
+        "The grapes are purple and sweet.",
+        "The fox jumps, but he cannot get them.",
+        "He jumps again and again.",
+        "The grapes are too high for him.",
+        "Now the fox is hot, sad and angry.",
+        "He looks up at the grapes.",
+        "\"They are not sweet,\" he says.",
+        "\"They are sour, and I do not want them.\"",
+        "Then he walks away with an empty stomach."
+      ],
+      "words": [
+        "hungry",
+        "thirsty",
+        "jump",
+        "angry",
+        "empty",
+        "stomach"
+      ],
+      "quiz": [
+        {
+          "q": "Why does the fox jump?",
+          "options": [
+            "He wants the grapes.",
+            "He is happy.",
+            "He sees a dog."
+          ],
+          "answer": 0,
+          "explain": "The fox is hungry and wants to eat the grapes on the tall plant."
+        },
+        {
+          "q": "Can the fox get the grapes?",
+          "options": [
+            "Yes, after two jumps.",
+            "No, they are too high.",
+            "Yes, a friend helps him."
+          ],
+          "answer": 1,
+          "explain": "The story says the grapes are too high for him."
+        },
+        {
+          "q": "Why does the fox say the grapes are sour?",
+          "options": [
+            "He tastes them.",
+            "He cannot get them, so he says they are bad.",
+            "The farmer tells him."
+          ],
+          "answer": 1,
+          "explain": "He never tastes them. He says they are sour because he cannot reach them – this is the lesson of the fable."
+        }
+      ]
+    }
+  ]
+}
