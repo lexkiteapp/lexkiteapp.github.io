@@ -16833,6 +16833,94 @@
       ],
       "angle": "Aprenda como fazer currículo em inglês ats: estrutura internacional aceita por robôs de triagem, lista de verbos de ação para destacar conquistas e erros comuns de tradução.",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "tieng-anh-du-lich-nuoc-ngoai-mau-cau-giao-tiep",
+      "keyword": "tiếng anh du lịch nước ngoài",
+      "topic": "Tiếng Anh Du Lịch Nước Ngoài: 100+ Mẫu Câu Giao Tiếp và Hội Thoại Thực Tế",
+      "category": "ky-nang",
+      "tags": [
+        "tieng-anh-du-lich",
+        "giao-tiep",
+        "hoi-thoai"
+      ],
+      "shots": [
+        "practice-speak",
+        "dict"
+      ],
+      "routes": [
+        "/#/practice/speak",
+        "/#/dict/resilient"
+      ],
+      "angle": "Cẩm nang tiếng anh du lịch nước ngoài thực chiến: từ sân bay, thủ tục hải quan, đặt phòng khách sạn, gọi món nhà hàng đến xử lý sự cố khẩn cấp tự tin.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "travel-english-phrases-for-abroad-trips",
+      "keyword": "travel english phrases for abroad trips",
+      "topic": "Travel English Phrases for Abroad Trips: Airport, Hotel, and Emergency Guide",
+      "category": "ky-nang",
+      "tags": [
+        "travel-english",
+        "travel-phrases",
+        "speaking"
+      ],
+      "shots": [
+        "practice-speak",
+        "dict"
+      ],
+      "routes": [
+        "/#/practice/speak",
+        "/#/dict/resilient"
+      ],
+      "angle": "Essential travel english phrases for abroad trips: navigating airports, border control, hotel check-in, ordering food, asking for directions, and handling emergencies.",
+      "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "englisch-fuer-den-urlaub-auslandsreise-phrasen",
+      "keyword": "englisch für den urlaub",
+      "topic": "Englisch für den Urlaub: Wichtige Phrasen für Flughafen, Hotel und Restaurant",
+      "category": "ky-nang",
+      "tags": [
+        "englisch-urlaub",
+        "reise-englisch",
+        "reisen"
+      ],
+      "shots": [
+        "practice-speak",
+        "dict"
+      ],
+      "routes": [
+        "/#/practice/speak",
+        "/#/dict/resilient"
+      ],
+      "angle": "Praktischer Sprachführer Englisch für den Urlaub: Meistern Sie Flughafen-Check-in, Zollkontrolle, Hotelbuchung, Restaurantbesuche und Notfälle im Ausland souverän.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "ingles-para-viagem-internacional-frases-essenciais",
+      "keyword": "inglês para viagem internacional",
+      "topic": "Inglês para Viagem Internacional: Frases Essenciais e Diálogos Práticos",
+      "category": "ky-nang",
+      "tags": [
+        "ingles-para-viagem",
+        "viagem-internacional",
+        "conversacao"
+      ],
+      "shots": [
+        "practice-speak",
+        "dict"
+      ],
+      "routes": [
+        "/#/practice/speak",
+        "/#/dict/resilient"
+      ],
+      "angle": "Guia prático de inglês para viagem internacional: frases indispensáveis para imigração no aeroporto, hotel, restaurantes, pedir direções e resolver emergências.",
+      "intent": "informational"
     }
   ]
 }
