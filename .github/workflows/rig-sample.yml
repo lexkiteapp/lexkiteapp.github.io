@@ -25,7 +25,7 @@ jobs:
           key: kokoro-py-82m-v1
       - name: Công cụ (ffmpeg, espeak-ng, Kokoro python Apache-2.0, resvg)
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng >/dev/null
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng aspell aspell-en >/dev/null
           python3 -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
           python3 -m pip install -q kokoro==0.9.4 soundfile resvg-py==0.2.0 pillow numpy
       - name: Giọng + mốc âm vị

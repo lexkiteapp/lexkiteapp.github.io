@@ -7,6 +7,9 @@
  "template": "stop",
  "fps": 30,
  "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
  "lead": 0.0,
  "gap": 0.55,
  "tail": 0.7,

@@ -22,7 +22,8 @@ def main():
     for k, sg in enumerate(spec['segments']):
         audio, ph, words, t0 = [], [], [], 0.0
         who = sg.get('who', spec['who']); voice = people[who]['voice']['video']
-        for r in pipe(sg['text'], voice=voice, speed=spec['speed']):
+        speed = sg.get('speed') or spec.get('speeds', {}).get(who, spec['speed'])   # giọng mỗi giáo viên nhanh/chậm khác nhau → tốc độ riêng để ≤150 wpm
+        for r in pipe(sg['text'], voice=voice, speed=speed):
             a = r.audio.numpy() if hasattr(r.audio, 'numpy') else np.asarray(r.audio)
             pd, ps = [int(x) for x in r.pred_dur], [c for c in r.phonemes if c in vocab]
             assert len(pd) == len(ps) + 2, (len(pd), len(ps))

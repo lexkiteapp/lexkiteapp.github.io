@@ -147,6 +147,7 @@ def frame(fr, t):
     base = BASES[fr['who']]; face = svg_img(fr['g'], base.width, base.height); body = base.copy(); body.alpha_composite(face)
     if fr['tilt'] or fr['nod']:
         body = body.rotate(fr['tilt'], resample=Image.BICUBIC, center=tuple(RIGS[fr['who']]['pivot']), translate=(0, fr['nod']))
+    body = body.crop((0, 0, body.width, CARD_Y0 + 40 - TY))   # thân dừng sau thẻ phụ đề: không lòi tà áo dưới thẻ (ảnh đầu trơn cao hơn thẻ)
     im.alpha_composite(body, (TX, int(round(TY + fr['breath']))))
     if fr['hand'] and fr['who'] in HANDPAL:
         hl = svg_img(hand_svg(fr['hand'], fr['hk'], fr['hmode'], fr['who']), W, H)
