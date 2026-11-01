@@ -14619,6 +14619,56 @@
       ],
       "angle": "英語論文・エッセイやビジネス会話で必須のつなぎ言葉（linking words）を機能別に完全網羅。逆接、理由、添加、結論の自然な使い分けを例文付きで解説。",
       "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "oracoes-condicionais-em-ingles-if-clauses",
+      "keyword": "oracoes condicionais em ingles if clauses",
+      "topic": "Orações condicionais em inglês (If Clauses): Guia completo do Zero ao Third Conditional",
+      "category": "ngu-phap",
+      "tags": [
+        "condicionais",
+        "if-clauses",
+        "gramatica",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Domine todas as orações condicionais em inglês: fórmulas do Zero, First, Second, Third e Mixed Conditionals com exemplos e inversão formal.",
+      "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "kalimat-pengandaian-bahasa-inggris-conditional-sentences",
+      "keyword": "kalimat pengandaian bahasa inggris conditional sentences",
+      "topic": "Kalimat Pengandaian Bahasa Inggris (Conditional Sentences): Rumus Tipe 0, 1, 2, 3 dan Contoh",
+      "category": "ngu-phap",
+      "tags": [
+        "conditional-sentences",
+        "if-clauses",
+        "tata-bahasa",
+        "writing"
+      ],
+      "shots": [
+        "grammar",
+        "dict",
+        "write"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/dict/resilient",
+        "/#/write"
+      ],
+      "angle": "Panduan lengkap kalimat pengandaian bahasa Inggris (conditional sentences): rumus tipe 0 sampai 3, mixed conditionals, inversi formal dan kesalahan umum.",
+      "intent": "informational"
     }
   ]
 }
