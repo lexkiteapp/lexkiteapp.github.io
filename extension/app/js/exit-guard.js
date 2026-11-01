@@ -121,6 +121,8 @@
   let navType = '', tapAt = 0, seen = location.hash, popFor = '', popRes = '', popT = 0, popClr = 0; const hist = [];
   if (g.navigation && g.navigation.addEventListener) g.navigation.addEventListener('navigate', e => { navType = e.navigationType; });
   document.addEventListener('click', () => { tapAt = Date.now(); }, true); // chạm (trong màn, hộp hỏi, tab) rồi đổi hash = điều hướng chủ động, không phải back
+  // Màn tự đổi query bằng replaceState (không bắn sự kiện) → seen theo URL thật, để giữ màn khôi phục đúng URL và không bỏ sót lượt back
+  try { const RS = history.replaceState; history.replaceState = function () { const r = RS.apply(this, arguments); seen = location.hash; return r; }; } catch (e) { /* bỏ qua */ }
   const hashOf = u => { const i = String(u || '').indexOf('#'); return i >= 0 ? String(u).slice(i) : ''; };
   const routeNow = () => { if (g.App && App.route) App.route(); };
   // Một lượt đổi URL sang h: true = giữ màn (đã khôi phục URL, đang hỏi), false = cho đi

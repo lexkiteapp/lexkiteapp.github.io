@@ -54,7 +54,7 @@ const modalOpen = d => !d.getElementById('modal').hidden;
 const press = (E, sel) => { const b = E.d.querySelector(sel); ok(b, 'có nút ' + sel); if (b) b.click(); };
 const toQuick = async E => { E.w.location.hash = '#/quick'; await tick(); };
 // back/vuốt mà trình duyệt chỉ bắn popstate (không hashchange): URL đổi rồi popstate
-const popOnly = async (E, h) => { E.w.history.replaceState(null, '', h); E.w.dispatchEvent(new E.w.PopStateEvent('popstate', { state: null })); await tick(); };
+const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.history, null, '', h); /* lượt duyệt lịch sử thật: URL đổi, không qua history.replaceState của app */ E.w.dispatchEvent(new E.w.PopStateEvent('popstate', { state: null })); await tick(); };
 
 { // 2) Esc chưa làm gì → rời màn
   const E = await boot(); await toQuick(E);
@@ -89,7 +89,7 @@ const popOnly = async (E, h) => { E.w.history.replaceState(null, '', h); E.w.dis
 }
 { // 6) đích của lượt bị giữ + hashchange theo sau bị chặn
   const E = await boot(); await toQuick(E); await tick(900); E.w.ExitGuard.dirty(true);
-  E.w.history.replaceState(null, '', '#/home'); E.w.dispatchEvent(new E.w.PopStateEvent('popstate', { state: null }));
+  E.w.History.prototype.replaceState.call(E.w.history, null, '', '#/home'); E.w.dispatchEvent(new E.w.PopStateEvent('popstate', { state: null }));
   const r0 = E.App.renders;
   E.w.dispatchEvent(new E.w.HashChangeEvent('hashchange', { oldURL: 'https://lexkite.test/app/#/quick', newURL: 'https://lexkite.test/app/#/home' })); await tick();
   ok(E.App.renders === r0 && /notes/.test(E.d.getElementById('view').textContent), 'hashchange của lượt đã giữ không vẽ lại màn học');
@@ -99,6 +99,12 @@ const popOnly = async (E, h) => { E.w.history.replaceState(null, '', h); E.w.dis
   ok(modalOpen(F.d), 'đổi hash sang mục trước khi dở → hỏi');
   press(F, '#modal [data-exit-go]'); await tick(300);
   ok(F.w.location.hash === '#/me' && /Me/.test(F.d.getElementById('view').textContent), '"Thoát" đi đúng đích #/me (đang ' + F.w.location.hash + ')');
+}
+{ // 7) màn tự đổi query (replaceState) rồi back khi dở → giữ màn đúng URL đã đổi
+  const E = await boot(); await toQuick(E); await tick(900);
+  E.w.history.replaceState(null, '', '#/quick?i=2'); E.w.ExitGuard.dirty(true);
+  await popOnly(E, '#/home');
+  ok(modalOpen(E.d) && E.w.location.hash === '#/quick?i=2', 'back sau replaceState của màn → hỏi, URL khôi phục = #/quick?i=2 (đang ' + E.w.location.hash + ')');
 }
 console.log(fails ? `✗ exit-guard: ${fails}/${n} lỗi` : `✓ exit-guard: ${n} kiểm tra`);
 process.exit(fails ? 1 : 0);
