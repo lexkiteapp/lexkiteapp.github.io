@@ -3,7 +3,7 @@
 > TL;DR: Phối hợp Claude ⇄ Antigravity: quy tắc vàng, phân vùng file, việc mở, phân vùng đang giữ. Giao việc hằng ngày ở agents/BOARD.md; nhật ký bàn giao cũ ở archive/COORDINATION-LOG.md.
 > Đọc khi: sửa ngoài vùng của mình hoặc gộp nhánh.
 
-Mục đích: chia tải để không ai chạm giới hạn token, không sửa đè lên nhau.
+Mục đích: chia tải để không ai chạm giới hạn token, không sửa đè lên nhau. Remote thật, cách ship, prepush: `METHODS.md` §2 (thay mọi nhắc `origin`, `lexkite-main`, `ship2.sh` dưới đây). Số phiên/agent: `TOKEN-RULES.md` §9.
 
 **➡️ Giao việc & báo cáo hằng ngày ở `docs/agents/BOARD.md`** (TODO → ĐANG LÀM → CHỜ DUYỆT → ĐÃ XONG). File này chỉ giữ quy tắc chung.
 

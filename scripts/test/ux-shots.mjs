@@ -8,7 +8,7 @@ const [AFTER, BEFORE, OUT = 'out/ux'] = process.argv.slice(2); fs.mkdirSync(OUT,
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
 // UX1=1 (nhánh ux-shots-ux1*): bật cờ ux1 ở cả 2 bản (bản trước không có → giao diện cũ); 'sau|trước' = trang tương ứng ở bản cũ; đo fps khi đổi tab
 const UX1 = process.env.UX1 === '1';
-const ROUTES = UX1 ? ['home?pick=1|home', 'home', 'train|skills', 'tests', 'me', 'league'] : ['home', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'mistakes', 'quick', 'me', 'goal', 'dict/sustainable', 'confidence', 'grammar', 'pron/th-sounds'];
+const ROUTES = UX1 ? ['home?pick=1|home', 'home', 'lesson/go?demo=1', 'lesson-fb', 'goal', 'train|skills', 'tests', 'me', 'league'] : ['home', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'mistakes', 'quick', 'me', 'goal', 'dict/sustainable', 'confidence', 'grammar', 'pron/th-sounds'];
 const CONFIGS = UX1 ? [['mobile', 'light', 'en'], ['mobile', 'dark', 'en'], ['mobile', 'light', 'ar'], ['desktop', 'light', 'en'], ['desktop', 'dark', 'en']] : [['mobile', 'light', 'en'], ['mobile', 'dark', 'en'], ['mobile', 'light', 'ar'], ['desktop', 'light', 'en'], ['desktop', 'dark', 'vi']];
 const browser = await chromium.launch();
 const report = { errs: [], metrics: {} };
@@ -31,7 +31,12 @@ async function run(TAG, ROOT, vn, scheme, lang) {
   await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500);
   for (const r0 of ROUTES) {
     const [ra, rb] = r0.split('|'), r = ra, go = TAG === 'before' && rb ? rb : ra;
-    await page.goto(url(go), { waitUntil: 'load' }); await page.waitForTimeout(1800);
+    await page.goto(url(go === 'lesson-fb' ? 'lesson/go?demo=1' : go), { waitUntil: 'load' }); await page.waitForTimeout(1800);
+    if (go === 'lesson-fb') await page.evaluate(async () => { // tấm phản hồi sau khi chấm 1 câu (đáp án bất kỳ)
+      const q = s => document.querySelector(s), b = q('.lsn-opts .lsn-opt') || q('.lsn-bank .lsn-tile') || q('.lsn-match .lsn-opt'), i = q('#lsnIn');
+      if (b) b.click(); if (i) { i.value = 'x'; i.dispatchEvent(new Event('input')); }
+      await new Promise(r => setTimeout(r, 150)); const c = q('#lsnCheck'); if (c && !c.disabled) c.click(); await new Promise(r => setTimeout(r, 900));
+    }).catch(() => {});
     const name = `${TAG}-${vn}-${scheme}-${lang}-${r.replace(/[/?=]/g, '_')}`;
     await page.screenshot({ path: path.join(OUT, name + '.jpg'), type: 'jpeg', quality: 70 });
     report.metrics[name] = await page.evaluate(() => {

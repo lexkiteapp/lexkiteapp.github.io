@@ -1,0 +1,279 @@
+{
+ "_note": "Teach2D script + hook review (gate 1). The CI refuses to render an episode whose lines differ from the reviewed script. Fix facts in the data row, then regenerate (gen.py) and review again.",
+ "verdicts": {
+  "t2_mistake_discuss": {
+   "template": "mistake",
+   "hook": "Stop saying “discuss about”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, no jargon, quiz answer spoken)",
+   "script": {
+    "h": "Stop saying discuss about!",
+    "w": "Many learners say: We will discuss about the budget.",
+    "r": "Better: We will discuss the budget.",
+    "y": "Discuss needs no about. Discuss the plan.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Discuss! We need to discuss the budget.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_phrasal_hangout": {
+   "template": "phrasal",
+   "hook": "Don't say “play together”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, quiz answer spoken; social cut ≤ 28 s)",
+   "script": {
+    "h": "Don't say play together!",
+    "w": "Not: Want to play together this weekend?",
+    "r": "Say: Want to hang out this weekend?",
+    "m": "Hang out means relax together.",
+    "k": "Kids play. Adults hang out!",
+    "q": "Quick quiz! Which one sounds natural?",
+    "a": "Hang out! Want to hang out after class?",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_stress_photographer": {
+   "template": "stress",
+   "hook": "Where's the stress?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, quiz answer spoken; social cut ≤ 28 s)",
+   "script": {
+    "h": "Where's the stress? Photograph!",
+    "a": "Photograph. Stress on the first part.",
+    "b": "Now say photographer.",
+    "m": "The stress moves to the second part.",
+    "r": "Say it with me: photographer.",
+    "q": "Quick quiz! Where's the stress?",
+    "ans": "The second part. Photographer.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_usuk_elevator": {
+   "template": "usuk",
+   "hook": "US or UK?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, no jargon, quiz answer spoken)",
+   "script": {
+    "h": "U.S. or U.K.?",
+    "us": "In America, you take the elevator.",
+    "uk": "In Britain, you take the lift. Same thing!",
+    "x": "Excuse me, where's the elevator?",
+    "q": "Quick quiz! You're in London. What do you look for?",
+    "a": "The lift!",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_verbs_break": {
+   "template": "verbs",
+   "hook": "break · broke · broken",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, no jargon, quiz answer spoken)",
+   "script": {
+    "h": "Three forms of break. Ready?",
+    "b": "Base form: break.",
+    "p": "Past: broke. Yesterday, I broke my phone.",
+    "pp": "Past participle: broken.",
+    "w": "Not breaked! Break is irregular.",
+    "q": "Quick quiz! The window is broke, or broken?",
+    "a": "Broken! The window is broken.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_pair_raise": {
+   "template": "pair",
+   "hook": "Raise or rise?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "Raise or rise? Same thing?",
+    "r": "Please raise your hand.",
+    "w": "Not: please rise your hand.",
+    "m1": "Raise moves something.",
+    "m2": "Rise moves by itself.",
+    "k": "The sun rises. Nobody raises it!",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Rises! The sun rises at six.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_native_flushot": {
+   "template": "native",
+   "hook": "Textbook or real English?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, quiz answer spoken; social cut ≤ 28 s)",
+   "script": {
+    "h": "Textbook or real English?",
+    "w": "Textbook: I need to get a flu injection.",
+    "r": "Natives say: I need to get a flu shot.",
+    "y": "In everyday American English, it's a flu shot.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Shot! Many people get a flu shot every fall.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_pattern_decide": {
+   "template": "pattern",
+   "hook": "Decide + ?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "Decide going, or decide to go?",
+    "w": "Many learners say: I decided going home.",
+    "r": "Better: I decided to go home.",
+    "y": "After decide, use to plus verb.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "To buy! They decided to buy a new car.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_guess_umbrella": {
+   "template": "guess",
+   "hook": "Guess the word!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "Guess the word in three clues!",
+    "c1": "Clue one: it protects you from rain.",
+    "c2": "Clue two: it has eight letters.",
+    "c3": "Clue three: it starts with U.",
+    "q": "Got it? Comment your guess!",
+    "a": "Umbrella! Don't forget your umbrella; it might rain later.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_level_a2": {
+   "template": "level",
+   "hook": "Level check!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, quiz answer spoken; social cut ≤ 28 s)",
+   "script": {
+    "h": "Level check! Ready?",
+    "q1": "Question one.",
+    "a1": "I started this job two years ago.",
+    "q2": "Question two.",
+    "a2": "I hate sitting in traffic.",
+    "q3": "Question three.",
+    "a3": "What's the reason for the change?",
+    "s": "Three out of three? Comment below!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_prep_smile": {
+   "template": "prep",
+   "hook": "Which little word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "script": {
+    "h": "One little word. Which one?",
+    "s": "She smiled... me. To, or at?",
+    "r": "At! She smiled at me.",
+    "y": "You smile at a person, like you look at them.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "At! The teacher smiled at the students.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2_call_mytreat": {
+   "template": "call",
+   "hook": "“My treat”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "What does my treat mean?",
+    "m": "Your teammate says: It's my treat today!",
+    "y": "My treat means: I will pay for you.",
+    "o": "Say: Thank you so much!",
+    "q": "Quick quiz! You pay for a friend. What do you say?",
+    "a": "It's my treat! I will pay for you.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app call script web/js/call/calls.js (phrase + meaning + reply option), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_dictation_surname": {
+   "template": "dictation",
+   "hook": "What did she say?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "What did she say? Listen!",
+    "s1": "Could you spell the surname for me, please?",
+    "g": "Once more. Fill the gap!",
+    "q": "Could you spell the surname for me, please?",
+    "a": "Spell the surname! Surname means your family name.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app listening script web/js/listen + audited word bank, quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_grammar_presentsimple": {
+   "template": "grammar",
+   "hook": "Present Simple in 60s",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "Present Simple. One rule!",
+    "r": "He, she or it? The verb gets an s.",
+    "w": "Not: She don't like crowded places.",
+    "b": "Say: She doesn't like crowded places.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Watches! My father watches the news every evening.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app grammar point web/js/grammar (formula, listed mistake, listed quiz item), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_review_deadline": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "Remember this word?",
+    "f": "Here's your card: deadline.",
+    "q": "Think! What does it mean?",
+    "b": "It means the time by which something must be finished.",
+    "x": "The deadline for the sales report is Friday afternoon.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from audited word bank + the app review grade labels (en i18n), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_toeic_nextspring": {
+   "template": "toeic",
+   "hook": "TOEIC in 10 seconds",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "TOEIC question. Ten seconds!",
+    "s": "Brightwell Logistics blank its new distribution center in Da Nang next spring.",
+    "k": "Find the clue: next spring.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Will open! Next spring is the future.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app TOEIC reading bank Part 5 (answer key + cue), quiz answer spoken; social cut ≤ 28 s)"
+  }
+ }
+}

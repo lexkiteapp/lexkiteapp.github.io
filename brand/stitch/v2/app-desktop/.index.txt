@@ -1,0 +1,2 @@
+sidebar-light 10d3bf6effe348d985edd9c7a3abd364 key3 project 18075333702575270507 – desktop shell sidebar (Kit). Main area = placeholder, not ported.
+sidebar-dark 6c8fe9e317b64081ae3f0e175d6fe4d8 key3 – dark edit of sidebar-light.

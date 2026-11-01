@@ -7,6 +7,10 @@ on:
     paths: ['.github/workflows/store-shots.yml', 'scripts/store-shots.mjs']
 permissions:
   contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   shots:
     runs-on: ubuntu-latest
