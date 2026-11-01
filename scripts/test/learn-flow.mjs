@@ -320,15 +320,15 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // thiết lập lần đầu: mục tiêu (5 gói) → trình độ → Ngày 1
   delete S.settings.tracks;
   await go('#/welcome/setup', 900);
-  ok($$('.trk-opt[data-track]').length === 5 && $$('.trk-opt[aria-pressed=true]').length === 1, 'thiết lập: “Mục tiêu của bạn là gì?” 5 gói');
-  ok($('.onb .progress[aria-valuenow="1"]') && $('#onbBack') && $('.onb-say') && $('#obNext') && !$('#go') && !$('[data-lv]'), 'thiết lập từng bước: 1 câu hỏi/màn, thanh tiến độ, nút quay lại, Kit, nút Tiếp tục');
-  const say0 = $('.onb-say').textContent;
+  ok($$('[data-track]:is(.trk-opt,[role=radio])').length === 5 && $$('[data-track]:is([aria-pressed=true],[aria-checked=true])').length === 1, 'thiết lập: “Mục tiêu của bạn là gì?” 5 gói');
+  ok($('[role=progressbar][aria-valuenow="1"]') && $('#onbBack') && $('#onbSay, .onb-say') && $('#obNext') && !$('#go') && !$('[data-lv]'), 'thiết lập từng bước: 1 câu hỏi/màn, thanh tiến độ, nút quay lại, Kit, nút Tiếp tục');
+  const say0 = $('#onbSay, .onb-say').textContent; // bước 1 = khung Stitch (#onbSay), bước chưa port = .onb-say
   click($('[data-track=work]')); await tick(600);
-  ok($('.onb-say').textContent !== say0 && $('[data-track=work][aria-pressed=true]'), 'Kit phản hồi khi chọn gói');
+  ok($('#onbSay, .onb-say').textContent !== say0 && $('[data-track=work]:is([aria-pressed=true],[aria-checked=true])'), 'Kit phản hồi khi chọn gói');
   click($('#obNext')); await tick(100);
   ok($('.onb .progress[aria-valuenow="2"]') && $('.onb-test[data-lv=test]') && $('[data-lv=work2]'), 'màn 2: kiểm tra đầu vào 5 phút + trình độ của gói Công sở');
   click($('#onbBack')); await tick(100);
-  ok($('[data-track=work][aria-pressed=true]') && $('.onb .progress[aria-valuenow="1"]'), 'quay lại màn 1 giữ lựa chọn');
+  ok($('[data-track=work]:is([aria-pressed=true],[aria-checked=true])') && $('[role=progressbar][aria-valuenow="1"]'), 'quay lại màn 1 giữ lựa chọn');
   click($('#obNext')); await tick(100);
   click($('[data-lv=work2]')); await tick(100);
   ok($('[data-lv=work2][aria-pressed=true]'), 'chọn trình độ chặng 2');

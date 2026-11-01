@@ -31,7 +31,8 @@
   },
   ":scope > main > section:nth-child(1) > div:nth-child(2) > div > p": {
    "role": "'status'",
-   "aria-live": "'polite'"
+   "aria-live": "'polite'",
+   "id": "'onbSay'"
   },
   ":scope > main > section:nth-child(1) > div:nth-child(2) > div > h1": {
    "id": "'onbQ'"

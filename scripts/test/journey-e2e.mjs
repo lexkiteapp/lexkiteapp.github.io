@@ -151,7 +151,7 @@ async function toLast(h) { for (let i = 0; i < 8 && !(await h.has('#go')); i++) 
 async function setup(h, { test = false } = {}) {
   await h.boot('/welcome/setup', h.q);
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 });
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 });
   await h.click(test ? '[data-lv="test"]' : '.trk-lv [data-lv]:not([data-lv="test"])');
   await toLast(h);
   await h.click('#go', { wait: 1500 });
@@ -181,7 +181,7 @@ async function j1(h) {
   h.ok(!(await softAskShown(h)), 'KHÔNG hỏi nhắc học lúc mở app lần đầu');
   await h.audit('first-load');
   if (await h.has('#noAcct')) await h.click('#noAcct');
-  await h.click('button.trk-opt'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
+  await h.click('[data-track]'); await h.click('#obNext', { wait: 250 }); await h.click('[data-lv="test"]'); await toLast(h); await h.click('#go', { wait: 1500 });
   h.ok(/#\/placement/.test(page.url()), 'chọn "kiểm tra đầu vào" → #/placement');
   await h.click('#go', { wait: 600 });
   for (let i = 0; i < 26 && !(await h.has('.pl-result')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) { await o.nth(i % 2).click().catch(() => {}); } await sleep(520); }
