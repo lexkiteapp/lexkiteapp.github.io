@@ -273,6 +273,10 @@ async function j2(h) {
     await h.click('#sFlip', { wait: 900 });
     h.ok(await h.has('#sCard[data-face="back"]'), 'chạm "Lật" → mặt sau');
     await h.audit('say-back'); await h.shot('say-back');
+    // giao diện tối (cùng 3 màn) – ảnh để soát trước/sau với ref Stitch tối, không thêm cổng
+    await page.emulateMedia({ colorScheme: 'dark' });
+    try { await h.go('#/say'); await h.wait('#sayList a', 8000); await h.shot('say-list-dark'); await h.click('#sayList a', { wait: 1200 }); await h.shot('say-front-dark'); await h.click('#sFlip', { wait: 900 }); await h.shot('say-back-dark'); }
+    finally { await page.emulateMedia({ colorScheme: 'light' }); }
   } else console.log('⚠ journey: chưa có web/data/say.json (CI say-native.yml chưa dịch xong) – bỏ qua bước Say it like a native');
   await h.go('#/roleplay/salary');
   const lv = await page.locator('.rp-seg button[aria-pressed="true"]').first().innerText().catch(() => '');
