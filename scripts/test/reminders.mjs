@@ -159,5 +159,7 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
     ok(wa.getHours() === 20 && wa.getMinutes() === 30, 'add-on: giờ theo lịch sử phiên học trong chrome.storage (học 21:00 → nhắc 20:30)');
   }
 }
+// Gia sư 1-1 (lời nhắc giọng gia sư dùng chung lịch này) – chạy kèm vì package.json đang bị nhiều PR mở giữ; chuyển thẳng vào npm test khi rảnh
+{ const { spawnSync } = await import('node:child_process'); const r = spawnSync(process.execPath, ['scripts/test/tutor.mjs'], { stdio: 'inherit' }); ok(r.status === 0, 'scripts/test/tutor.mjs xanh'); }
 console.log(fail ? `✗ reminders: ${fail}/${n} lỗi` : `✓ reminders: ${n} kiểm`);
 process.exit(fail ? 1 : 0);
