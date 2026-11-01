@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "IELTS公式採点基準（Lexical Resource Band 8+）において、「habitat fragmentation（生息地の分断）」は学術的かつ極めて正確な標準コロケーションです。"
+  },
+  {
+    q: "「Anthropogenic emissions」が指す内容として、記事の説明に合うものはどれですか？",
+    options: [
+      "火山噴火で自然に発生するガス",
+      "人間の産業活動によって生じる温室効果ガスの排出",
+      "海洋から蒸発する水蒸気",
+      "宇宙から降り注ぐ放射線"
+    ],
+    answer: 1,
+    explain: "anthropogenic は「人為的な」という意味で、人間の産業活動に由来する温室効果ガスの排出を指す学術的なコロケーションです。"
+  },
+  {
+    q: "環境エッセイで「nature」を多用することについて、記事はどう助言していますか？",
+    options: [
+      "「nature」は最も学術的なので積極的に使うべきである",
+      "「nature」はSpeakingでのみ使用してよい",
+      "「people harm nature」のような表現は幼稚に聞こえるので、「fragile ecosystems」や「ecological balance」など具体的な語に置き換える",
+      "「nature」の代わりに必ず「green」を使う"
+    ],
+    answer: 2,
+    explain: "記事は、漠然とした「nature」より fragile ecosystems や biodiverse habitats のような精密な語を使うと学術的な印象が高まると説明しています。"
   }
 ]
 ---

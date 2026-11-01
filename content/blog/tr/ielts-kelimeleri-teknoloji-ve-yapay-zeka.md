@@ -19,6 +19,28 @@ quiz: [
     options: ["Automate human jobs entirely", "Supplant human workforce", "Delete workers from factories", "Cancel physical employees"],
     answer: 1,
     explain: "Akademik IELTS Writing metinlerinde 'supplant the human workforce' veya 'displace human workers' kalıpları, basit fiillere kıyasla Band 7.5+ Lexical Resource puanı kazandırır."
+  },
+  {
+    q: "Makaleye göre 'Technological singularity' neyi ifade eder?",
+    options: [
+      "Bir şirketin tek bir ürün üretmesi",
+      "İnternet bağlantısının kesilmesi",
+      "Siber saldırıdan sonra veri kurtarma",
+      "Makine zekasının insan zekasını aştığı eşik"
+    ],
+    answer: 3,
+    explain: "Technological singularity, makine zekasının insan zekasını aşacağı varsayılan eşiği anlatır ve yapay zeka tartışmalarında kullanılan ileri düzey bir terimdir."
+  },
+  {
+    q: "Yazıda 'AI' kısaltmasının kullanımı hakkında ne söyleniyor?",
+    options: [
+      "Kesinlikle yasaktır",
+      "İlk geçtiği yerde tam adı yazılırsa sonra kısaltma kullanmak kabul edilebilir ve puan kaybettirmez",
+      "Yalnızca Speaking sınavında kullanılabilir",
+      "Her cümlede kısaltma kullanmak zorunludur"
+    ],
+    answer: 1,
+    explain: "Makale, 'artificial intelligence (AI)' şeklinde ilk kullanımda açmayı ve sonra kısaltmayı kullanmayı kabul edilebilir bulur; çeşitlilik için eş ifadelere de yer vermeyi önerir."
   }
 ]
 ---

@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "在雅思官方评分标准（Lexical Resource Band 8+）中，'habitat fragmentation' 是描述生态栖息地破碎化的标准学术搭配。"
+  },
+  {
+    q: "文章中 “Irreversible ecological imbalance” 最贴切的含义是什么？",
+    options: [
+      "可再生能源转型",
+      "城市垃圾填埋场饱和",
+      "不可逆转的生态系统失衡",
+      "冰川加速融化"
+    ],
+    answer: 2,
+    explain: "该搭配指生态系统遭到永久性破坏，例如过度捕杀顶级海洋捕食者导致珊瑚礁生态失衡，属于学术写作中的常用表达。"
+  },
+  {
+    q: "文章如何区分 weather 与 climate？",
+    options: [
+      "二者完全等同，可随意互换",
+      "weather 指短期的日常天气状况，climate 指几十年维度的长期气候系统",
+      "climate 仅指冬季气温",
+      "weather 只用于口语"
+    ],
+    answer: 1,
+    explain: "文章在常见错误中指出，混淆这两个词会显得不够专业：weather 描述短期天气，climate 描述长期气候模式。"
   }
 ]
 ---

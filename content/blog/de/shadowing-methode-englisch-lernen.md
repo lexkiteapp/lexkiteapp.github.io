@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "Beim Shadowing folgt der Lernende der Originalstimme wie ein Schatten mit minimaler zeitlicher Verzögerung, um Satzmelodie, Wortverbindungen und Pausen intuitiv zu verinnerlichen."
+  },
+  {
+    q: "Mit welcher Geschwindigkeit wird in Schritt 3 (Reading Shadowing) die Aufnahme abgespielt?",
+    options: [
+      "Leicht gedrosselt, etwa 0,8x",
+      "Doppelt so schnell, 2.0x",
+      "Immer 1.5x",
+      "Gar nicht, ohne Ton"
+    ],
+    answer: 0,
+    explain: "In Schritt 3 läuft die Aufnahme bei leicht gedrosseltem Tempo (0,8x) und Sie sprechen laut mit, während die Augen dem Text folgen."
+  },
+  {
+    q: "Was ist in Schritt 5 vorgesehen?",
+    options: [
+      "Das Skript auswendig lernen",
+      "Die eigene Stimme beim Blind Shadowing aufnehmen und mit dem Originalsprecher vergleichen",
+      "Die Aufnahme löschen",
+      "Nur noch leise mitlesen"
+    ],
+    answer: 1,
+    explain: "Schritt 5 ist die Selbstaufnahme mit dem Smartphone und der kritische Abgleich mit dem Original, um Abweichungen sofort zu hören."
+  },
+  {
+    q: "Wie lang sollte der Audioabschnitt für die reine Hörprobe in Schritt 1 sein?",
+    options: [
+      "30 bis 60 Sekunden",
+      "Mindestens 30 Minuten",
+      "Etwa 5 Sekunden",
+      "Eine ganze Stunde"
+    ],
+    answer: 0,
+    explain: "Für das Blind Listening empfiehlt der Artikel einen kurzen Abschnitt von 30 bis 60 Sekunden, den Sie ein- bis zweimal aufmerksam hören."
   }
 ]
 ---

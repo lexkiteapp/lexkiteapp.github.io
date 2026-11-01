@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "Wer isoliert Wörter nachschlägt und blind ersetzt, riskiert unnatürliche Kollokationen und Sinnverzerrungen, was die Bewertung bei Lexical Resource empfindlich mindert."
+  },
+  {
+    q: "Was empfiehlt der Praxistipp beim Austausch von Synonymen?",
+    options: [
+      "Alltagswörter krampfhaft durch veraltete Fremdwörter ersetzen",
+      "Einfache Wörter nicht leichtfertig durch gestelzte Begriffe wie paupers ersetzen und auf das Register achten",
+      "Nie Synonyme verwenden",
+      "Nur Wörter aus dem Fragetext wiederholen"
+    ],
+    answer: 1,
+    explain: "Der Artikel warnt davor, simple Wörter wie poor people ohne Not durch veraltete oder gestelzte Begriffe zu ersetzen; das Register muss passen."
+  },
+  {
+    q: "Was versteht der Artikel unter Nominalisierung beim Paraphrasieren?",
+    options: [
+      "Das Weglassen aller Substantive",
+      "Den Wechsel der Wortart, etwa von einem Verb zu einem Substantiv, der das grammatikalische Gerüst verändert",
+      "Das Übersetzen ins Deutsche",
+      "Das Anhängen von Adverbien an jeden Satz"
+    ],
+    answer: 1,
+    explain: "Bei der Nominalisierung wird z. B. aus fund healthcare ein funding of healthcare; das verändert das Satzgerüst und wirkt formell-akademisch."
+  },
+  {
+    q: "Wo verbirgt sich im Reading laut Artikel der Kern der Lösung fast immer hinter einer Paraphrase?",
+    options: [
+      "In Aufgaben wie True/False/Not Given und Matching Paragraphs",
+      "Nur in der Überschrift des Textes",
+      "In den Seitenzahlen",
+      "Ausschließlich in Zahlenangaben"
+    ],
+    answer: 0,
+    explain: "Gerade bei True/False/Not Given und Matching Paragraphs steckt die Lösung fast immer in einer cleveren Paraphrase statt in denselben Signalwörtern."
   }
 ]
 ---

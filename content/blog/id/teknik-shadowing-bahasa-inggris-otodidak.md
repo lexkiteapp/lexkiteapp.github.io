@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "Shadowing menuntut pembelajar mengikuti suara penutur layaknya bayangan dengan jeda sangat singkat, mereplikasi intonasi, ritme, dan pelafalan alami secara simultan."
+  },
+  {
+    q: "Berapa durasi klip audio yang ideal untuk latihan shadowing menurut artikel?",
+    options: [
+      "10 hingga 15 menit",
+      "5 hingga 8 menit",
+      "30 hingga 90 detik",
+      "Kurang dari 10 detik"
+    ],
+    answer: 2,
+    explain: "Artikel menyarankan klip 30–90 detik, karena menguasai satu paragraf pendek dengan sempurna lebih bermanfaat daripada tersendat pada monolog panjang."
+  },
+  {
+    q: "Bagaimana seharusnya kata fungsional seperti 'to', 'for', 'at', dan 'and' dilafalkan saat shadowing?",
+    options: [
+      "Ditekan sangat keras agar jelas",
+      "Dilafalkan melemah menjadi bunyi schwa /ə/ seperti percakapan alami",
+      "Dilewati sepenuhnya",
+      "Dieja huruf per huruf"
+    ],
+    answer: 1,
+    explain: "Dalam percakapan alami kata fungsional hampir selalu melemah menjadi schwa; menekannya berlebihan membuat irama kalimat terdengar tidak alami."
   }
 ]
 ---

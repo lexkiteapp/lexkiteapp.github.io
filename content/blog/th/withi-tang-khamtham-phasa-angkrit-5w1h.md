@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "ในประโยคคำถาม Present Simple เมื่อใช้กริยาช่วย 'does' กับประธานเอกพจน์ (he/she/it) กริยาแท้จะต้องกลับเป็นรูปช่องที่ 1 ไม่ผัน (bare infinitive) เสมอ"
+  },
+  {
+    q: "ประโยคใดถูกต้องเมื่อต้องการถามว่า \"ใครโทรหาปีเตอร์เมื่อวาน\" ตามบทความ?",
+    options: [
+      "Who did call Peter yesterday?",
+      "Who called Peter yesterday?",
+      "Who does called Peter yesterday?",
+      "Did who call Peter yesterday?"
+    ],
+    answer: 1,
+    explain: "เมื่อ Who ทำหน้าที่เป็นประธาน ไม่ต้องใช้ do/does/did ช่วย จึงใช้ Who called Peter yesterday? ซึ่งเป็น Subject Question"
+  },
+  {
+    q: "เหตุใด \"What did happen?\" จึงฟังดูแปลก และควรใช้รูปใดแทน?",
+    options: [
+      "ควรใช้ What does happened?",
+      "ไม่แปลกเลย ใช้ได้ทุกกรณี",
+      "ควรใช้ Did what happen?",
+      "ควรใช้ What happened? เพราะ What เป็นประธานจึงไม่ต้องมี did"
+    ],
+    answer: 3,
+    explain: "What ในประโยคนี้ทำหน้าที่เป็นประธานของ happen จึงไม่ต้องเรียกกริยาช่วย did มาช่วย รูปที่ถูกคือ What happened?"
   }
 ]
 ---

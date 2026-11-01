@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "'Habitat fragmentation and degradation' is a precise academic collocation recognized in Band 8+ Lexical Resource criteria for environmental essays."
+  },
+  {
+    q: "What does the collocation \"carbon-intensive infrastructure\" refer to?",
+    options: [
+      "Solar and wind power networks",
+      "Energy and transit systems heavily reliant upon fossil fuels",
+      "Buildings made of carbon fibre",
+      "Water treatment plants"
+    ],
+    answer: 1,
+    explain: "The article defines carbon-intensive infrastructure as energy and transit systems that depend heavily on fossil fuels, which developing nations should move away from."
+  },
+  {
+    q: "Which term means the rapid disappearance of polar ice sheets?",
+    options: [
+      "Greenhouse effect intensification",
+      "Combustion of fossil fuels",
+      "Accelerated glacial melting",
+      "Anthropogenic emissions"
+    ],
+    answer: 2,
+    explain: "Accelerated glacial melting is the rapid disappearance of polar ice sheets, while the other options describe trapped radiation, burning fuels and human-caused emissions."
+  },
+  {
+    q: "What does \"anthropogenic emissions\" mean in the article?",
+    options: [
+      "Emissions from volcanoes",
+      "Carbon and greenhouse emissions resulting directly from human activity",
+      "Emissions measured only in cities",
+      "Emissions that have already been neutralised"
+    ],
+    answer: 1,
+    explain: "Anthropogenic means caused by humans, so the phrase covers carbon and greenhouse emissions resulting directly from human activity."
   }
 ]
 ---

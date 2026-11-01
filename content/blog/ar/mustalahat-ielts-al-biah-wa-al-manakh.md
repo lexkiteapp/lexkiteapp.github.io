@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "في معايير تقييم الآيلتس الرسمية (Lexical Resource Band 8+)، يُعد مصطلح 'habitat fragmentation' المتلازم الأكاديمي الأدق والمقبول دولياً."
+  },
+  {
+    q: "ماذا تعني العبارة Anthropogenic emissions؟",
+    options: [
+      "الانبعاثات الناتجة عن الأنشطة البشرية والصناعية",
+      "الانبعاثات البركانية الطبيعية",
+      "الذوبان المتسارع للجليد",
+      "الانبعاثات المنخفضة الكربون"
+    ],
+    answer: 0,
+    explain: "Anthropogenic تعني ناتجاً عن الإنسان، فالعبارة تصف الانبعاثات الناجمة عن النشاط البشري والصناعي كما في قائمة المقال."
+  },
+  {
+    q: "أي تعبير يصف انحداراً حاداً في التنوع الحيوي بحسب جدول المقال؟",
+    options: [
+      "Habitat fragmentation",
+      "Precipitous decline in biodiversity",
+      "Accelerated glacial melting",
+      "Carbon-intensive infrastructure"
+    ],
+    answer: 1,
+    explain: "Precipitous decline in biodiversity تعني انحداراً حاداً وكبيراً في التنوع الحيوي، أما Habitat fragmentation فتصف تجزؤ الموائل."
+  },
+  {
+    q: "ما معنى Carbon-intensive infrastructure؟",
+    options: [
+      "بنية تحتية صديقة للبيئة",
+      "بنية تحتية كثيفة الانبعاثات الكربونية معتمدة على الوقود الأحفوري",
+      "محطات لتنقية مياه الشرب",
+      "شبكات الطاقة الشمسية"
+    ],
+    answer: 1,
+    explain: "العبارة تعني بنية تحتية معتمدة كلياً على الوقود الأحفوري، ومثالها محطات الفحم التي يطالب المقال بوقف تمويلها."
   }
 ]
 ---

@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "يوفر القاموس الأحادي تعريفات مصاغة بلغة إنجليزية سهلة وأمثلة سياقية حية، مما يعود الدماغ على التفكير بالإنجليزية وتجنب أخطاء الترجمة الحرفية القاتلة."
+  },
+  {
+    q: "ماذا يعني الرمز [U] بجانب كلمة مثل information في القاموس؟",
+    options: [
+      "أنها فعل متعدٍ",
+      "أنها اسم غير معدود فلا تسبقه an ولا يُجمع بإضافة s",
+      "أنها كلمة رسمية جداً",
+      "أنها اسم معدود يُجمع بسهولة"
+    ],
+    answer: 1,
+    explain: "[U] يعني Uncountable، لذلك لا نقول an information ولا informations، وهذا من الرموز النحوية التي ينبه إليها المقال."
+  },
+  {
+    q: "كيف نستخدم الفعل discuss وفق ما يوضحه المقال عن الرمز [T]؟",
+    options: [
+      "discuss about the issue",
+      "discuss on the issue",
+      "discuss the issue مباشرة دون حرف جر",
+      "discuss of the issue"
+    ],
+    answer: 2,
+    explain: "discuss فعل متعدٍ [T] يأخذ مفعولاً مباشراً، لذا نقول discuss the issue دون about."
+  },
+  {
+    q: "أي مثال يوضح فكرة المتلازمات اللفظية (Collocations) في المقال؟",
+    options: [
+      "heavy rain وليس strong rain",
+      "angry تعني غاضب دائماً",
+      "information تجمع على informations",
+      "depend of بدل depend on"
+    ],
+    answer: 0,
+    explain: "القاموس الأحادي يبين الكلمات التي تقترن طبيعياً، فنقول heavy rain وmake a decision ولا نقول strong rain أو do a decision."
   }
 ]
 ---

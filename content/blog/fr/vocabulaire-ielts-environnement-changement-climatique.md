@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "Dans les critères officiels de l'IELTS (Lexical Resource Band 8+), 'habitat fragmentation' est la collocation académique standard reconnue pour sa haute précision."
+  },
+  {
+    q: "Quelle différence l'article établit-il entre « weather » et « climate » ?",
+    options: [
+      "Aucune, ce sont des synonymes",
+      "Weather désigne la météo à court terme, climate les régimes climatiques globaux observés sur plusieurs décennies",
+      "Weather concerne les océans, climate les forêts",
+      "Climate désigne la météo du jour"
+    ],
+    answer: 1,
+    explain: "Confondre weather et climate figure parmi les erreurs courantes: weather est la météo journalière, climate renvoie aux régimes observés sur plusieurs décennies."
+  },
+  {
+    q: "Que signifie « Carbon-intensive infrastructure » ?",
+    options: [
+      "Infrastructures à forte intensité carbonée, dépendantes des combustibles fossiles",
+      "Réseaux d'énergie solaire",
+      "Usines de recyclage du papier",
+      "Parcs urbains"
+    ],
+    answer: 0,
+    explain: "La liste du thème 1 définit ce terme comme des infrastructures à forte intensité carbonée, dépendantes des combustibles fossiles."
+  },
+  {
+    q: "Que faut-il préférer à l'expression « people destroy nature » selon l'article ?",
+    options: [
+      "people hurt trees",
+      "Des termes précis comme fragile biomes ou biodiverse habitats",
+      "nature is bad now",
+      "people should plant flowers and ride bikes"
+    ],
+    answer: 1,
+    explain: "L'usage vague du mot nature sonne infantile; l'article recommande des termes précis tels que fragile biomes ou biodiverse habitats."
   }
 ]
 ---

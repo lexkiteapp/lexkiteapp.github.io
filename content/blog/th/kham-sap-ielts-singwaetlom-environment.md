@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "ในเกณฑ์การให้คะแนนอย่างเป็นทางการของ IELTS (Lexical Resource Band 8+) คำว่า 'habitat fragmentation' เป็น Collocation ทางวิชาการมาตรฐานที่มีความถูกต้องและสละสลวยสูงสุด"
+  },
+  {
+    q: "ในบทความ คำว่า \"Habitat fragmentation\" หมายถึงอะไร?",
+    options: [
+      "การฟื้นฟูป่าชายเลน",
+      "การลักลอบค้าสัตว์ป่า",
+      "ภาวะถิ่นที่อยู่อาศัยถูกตัดขาดและแยกส่วน",
+      "การละลายของธารน้ำแข็ง"
+    ],
+    answer: 2,
+    explain: "Habitat fragmentation คือภาวะที่ถิ่นที่อยู่อาศัยของสัตว์ป่าถูกตัดขาดเป็นส่วนย่อย เช่น จากการสร้างถนนหรือการขยายพื้นที่เกษตร"
+  },
+  {
+    q: "คำใดในบทความใช้อธิบายการปนเปื้อนของอนุภาคพลาสติกขนาดเล็กที่เข้าสู่ห่วงโซ่อาหาร?",
+    options: [
+      "Municipal landfill saturation",
+      "Greenhouse effect intensification",
+      "Microplastic contamination",
+      "Geothermal energy extraction"
+    ],
+    answer: 2,
+    explain: "Microplastic contamination คือการปนเปื้อนของไมโครพลาสติกที่เข้าสู่ห่วงโซ่อาหารและน้ำดื่ม จึงเป็นคำที่ตรงกับความหมายนี้"
   }
 ]
 ---

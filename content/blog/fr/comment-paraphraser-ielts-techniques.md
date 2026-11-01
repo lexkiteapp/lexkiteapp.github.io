@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "Remplacer des mots isolés sans respecter le contexte académique produit des assemblages lexicaux anormaux, ce qui fait chuter la note du critère Lexical Resource."
+  },
+  {
+    q: "Que conseille la mise en garde pratique au sujet des synonymes ?",
+    options: [
+      "Remplacer chaque mot courant par un terme archaïque",
+      "Ne pas insérer des mots rares ou archaïques simplement pour impressionner le correcteur",
+      "Ne jamais changer le vocabulaire de l'énoncé",
+      "Utiliser uniquement des mots de plus de dix lettres"
+    ],
+    answer: 1,
+    explain: "L'article déconseille d'insérer des termes rares ou archaïques uniquement pour impressionner, car cela déforme le sens et le registre."
+  },
+  {
+    q: "En quoi consiste la nominalisation dans la paraphrase ?",
+    options: [
+      "Supprimer tous les noms de la phrase",
+      "Convertir un verbe en nom (ou un adjectif en adverbe) pour modifier l'armature de la phrase",
+      "Traduire la phrase mot à mot",
+      "Ajouter une conclusion"
+    ],
+    answer: 1,
+    explain: "La nominalisation change la classe d'un mot, par exemple invest heavily devient heavy expenditure, ce qui donne une densité formelle académique."
+  },
+  {
+    q: "Dans quel type d'exercices du Reading les pièges reposent-ils sur des reformulations subtiles ?",
+    options: [
+      "True/False/Not Given et Matching Headings",
+      "Uniquement les questions de chiffres",
+      "Les titres de page",
+      "Les légendes de photos"
+    ],
+    answer: 0,
+    explain: "L'article précise que dans les exercices True/False/Not Given ou Matching Headings, la quasi-totalité des pièges repose sur des reformulations du texte."
   }
 ]
 ---

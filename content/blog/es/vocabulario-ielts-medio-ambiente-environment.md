@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "En los descriptores de banda de IELTS (Lexical Resource Band 8+), 'habitat fragmentation' y 'widespread deforestation' son colocaciones formales de alta precisión."
+  },
+  {
+    q: "¿Qué significa «Greenhouse effect intensification»?",
+    options: [
+      "Reducción de gases en la atmósfera",
+      "Intensificación del efecto invernadero debido a gases contaminantes",
+      "Construcción de invernaderos",
+      "Aumento de la lluvia ácida"
+    ],
+    answer: 1,
+    explain: "Según la lista del artículo, la expresión designa la intensificación del efecto invernadero causada por gases contaminantes."
+  },
+  {
+    q: "¿Qué describe «Combustion of fossil fuels»?",
+    options: [
+      "La quema de hidrocarburos, carbón y gas natural para generar electricidad o transporte",
+      "El deshielo de los casquetes polares",
+      "El reciclaje de plásticos",
+      "La reforestación urbana"
+    ],
+    answer: 0,
+    explain: "Combustion of fossil fuels es la quema de hidrocarburos, carbón y gas natural, y el ejemplo del artículo la señala como paso decisivo para reducir el smog."
+  },
+  {
+    q: "¿Cuál de estas expresiones equivale a «deshielo acelerado de los glaciares y casquetes polares»?",
+    options: [
+      "Extreme meteorological phenomena",
+      "Accelerated glacial melting",
+      "Carbon-intensive infrastructure",
+      "Anthropogenic emissions"
+    ],
+    answer: 1,
+    explain: "Accelerated glacial melting es el deshielo acelerado de glaciares; Extreme meteorological phenomena se refiere a sequías, huracanes y olas de calor."
   }
 ]
 ---

@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "'Having analyzed...' yapısı bir perfect participle clause olup, ana cümleden önce tamamlanmış bir eylemi özne tekrarı olmadan bağlayan ileri düzey bir karmaşık cümle yapısıdır."
+  },
+  {
+    q: "Makaleye göre 'Comma Splice' nedir?",
+    options: [
+      "Cümleyi çok kısa yazmak",
+      "Virgülü hiç kullanmamak",
+      "İki bağımsız cümleyi bağlaç olmadan sadece virgülle ayırmak",
+      "Tırnak işaretini yanlış kullanmak"
+    ],
+    answer: 2,
+    explain: "Comma splice, iki bağımsız tam cümleyi bağlaç kullanmadan yalnızca virgülle birleştirmektir ve makalede en vahim noktalama hatası olarak anılır."
+  },
+  {
+    q: "'Were the government to subsidize solar energy, ...' yapısı makalede hangi formüle örnektir?",
+    options: [
+      "Ortaç yapısı",
+      "İsim yan cümlesi",
+      "Sıfat yan cümlesi",
+      "Tip 2 devrik şart cümlesi (If atılarak)"
+    ],
+    answer: 3,
+    explain: "If sözcüğü atılıp Were + özne + to kullanılan bu yapı Tip 2 devrik şart cümlesidir ve gramer hakimiyetini gösteren ileri düzey bir formüldür."
   }
 ]
 ---

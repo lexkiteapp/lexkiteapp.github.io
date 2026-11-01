@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "In den offiziellen IELTS Band Descriptors (Lexical Resource Band 8+) ist 'habitat fragmentation' der exakte akademische Fachbegriff."
+  },
+  {
+    q: "Was bedeutet Anthropogenic emissions laut Artikel?",
+    options: [
+      "Natürliche Vulkanemissionen",
+      "Ausschließlich durch menschliche Aktivitäten verursachte Treibhausgase",
+      "Emissionen aus der Landwirtschaft allein",
+      "Emissionen von Tieren"
+    ],
+    answer: 1,
+    explain: "Anthropogenic heißt vom Menschen verursacht; gemeint sind Treibhausgase, die ausschließlich durch menschliche Aktivitäten entstehen."
+  },
+  {
+    q: "Welche Kollokation steht für einen drastischen, rapiden Rückgang der Artenvielfalt?",
+    options: [
+      "Accelerated glacial melting",
+      "Precipitous decline in biodiversity",
+      "Greenhouse effect intensification",
+      "Combustion of fossil fuels"
+    ],
+    answer: 1,
+    explain: "Precipitous decline in biodiversity bezeichnet einen drastischen Rückgang der Artenvielfalt; Habitat fragmentation meint dagegen die Zerschneidung von Lebensräumen."
+  },
+  {
+    q: "Was bedeutet Mitigate climate catastrophe?",
+    options: [
+      "Eine Klimakatastrophe herbeiführen",
+      "Eine verheerende Klimakatastrophe abmildern oder abwenden",
+      "Das Klima ignorieren",
+      "Die Treibhausgase erhöhen"
+    ],
+    answer: 1,
+    explain: "Mitigate bedeutet abmildern; die Kollokation beschreibt, eine drohende Klimakatastrophe abzumildern oder abzuwenden."
   }
 ]
 ---

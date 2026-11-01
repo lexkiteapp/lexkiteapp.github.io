@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "No critério Lexical Resource do IELTS Band 8+, 'habitat fragmentation' e 'extensive deforestation' são expressões formais precisas."
+  },
+  {
+    q: "O que significa 'Habitat fragmentation' segundo o artigo?",
+    options: [
+      "Recuperação de áreas desmatadas",
+      "Comércio ilegal de animais",
+      "Aumento da temperatura dos oceanos",
+      "Divisão e ruptura de biomas contínuos"
+    ],
+    answer: 3,
+    explain: "Habitat fragmentation é a divisão e ruptura de biomas contínuos, por exemplo causada por empreendimentos imobiliários sem regulação."
+  },
+  {
+    q: "Qual collocation descreve a queima de carvão, diesel e gás para gerar eletricidade?",
+    options: [
+      "Accelerated glacial melting",
+      "Combustion of fossil fuels",
+      "Poaching and illicit trade",
+      "Municipal landfill saturation"
+    ],
+    answer: 1,
+    explain: "'Combustion of fossil fuels' designa a queima de combustíveis fósseis como carvão mineral, diesel e gás, sendo um termo preciso para essays sobre emissões."
   }
 ]
 ---

@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "IELTS resmi değerlendirme kriterlerinde (Lexical Resource Band 8+), 'habitat fragmentation' habitat parçalanmasını anlatan en kusursuz ve akademik eşdizimdir."
+  },
+  {
+    q: "Makaleye göre 'Habitat fragmentation' ifadesi neyi anlatır?",
+    options: [
+      "Yenilenebilir enerji yatırımlarının artması",
+      "Deniz suyunun asitlenmesi",
+      "Doğal yaşam alanlarının parçalanması ve birbirinden kopması",
+      "Plastik atıkların geri dönüşümü"
+    ],
+    answer: 2,
+    explain: "Habitat fragmentation, karayolu veya yerleşim gibi insan faaliyetleri yüzünden doğal yaşam alanlarının parçalanıp birbirinden kopmasını anlatan akademik bir collocation'dır."
+  },
+  {
+    q: "Makalede 'weather' ve 'climate' arasındaki fark nasıl açıklanıyor?",
+    options: [
+      "İkisi tamamen aynı anlama gelir",
+      "Weather kısa süreli günlük atmosfer koşullarını, climate ise uzun dönemli hava örüntülerini anlatır",
+      "Climate yalnızca kış mevsimi için kullanılır",
+      "Weather sadece Speaking'de kullanılır"
+    ],
+    answer: 1,
+    explain: "Hata listesinde weather'ın kısa vadeli günlük koşulları, climate'ın ise onlarca yıllık uzun dönemli örüntüleri ifade ettiği vurgulanır; karıştırmak puan kaybettirir."
   }
 ]
 ---

@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "O shadowing baseia-se em seguir o locutor como uma sombra, apenas uma fração de segundo atrás, replicando o ritmo, a conexão entre palavras e as reduções da fala conectada."
+  },
+  {
+    q: "Qual é a duração recomendada das faixas de áudio para praticar shadowing?",
+    options: [
+      "De 10 a 20 minutos",
+      "De 5 a 10 segundos",
+      "De 30 a 90 segundos",
+      "Qualquer duração, quanto mais longa melhor"
+    ],
+    answer: 2,
+    explain: "O artigo recomenda faixas de 30 a 90 segundos, pois dominar um trecho curto com perfeição traz mais benefício do que tropeçar em áudios longos."
+  },
+  {
+    q: "Que erro o artigo aponta sobre as palavras funcionais como 'to', 'of', 'for' e 'at'?",
+    options: [
+      "Elas nunca devem ser pronunciadas",
+      "Pronunciá-las com força excessiva soa artificial, pois no inglês natural elas usam formas fracas",
+      "Devem sempre ser soletradas",
+      "Devem ser faladas mais rápido que as demais palavras, sem exceção"
+    ],
+    answer: 1,
+    explain: "Ignorar as formas fracas (weak forms) e acentuar demais palavras funcionais torna a fala artificial; o ritmo da frase importa tanto quanto os sons isolados."
   }
 ]
 ---

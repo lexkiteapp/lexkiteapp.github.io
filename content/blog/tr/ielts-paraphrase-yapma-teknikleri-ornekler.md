@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "Sözlükten gelişigüzel eş anlamlı seçip bağlamı ve collocation kurallarını yok saymak, yapay cümleler doğurarak Lexical Resource puanını ciddi şekilde düşürür."
+  },
+  {
+    q: "Makaleye göre ihtiyatlı bir ifadeyi ('some studies indicate') mutlak bir gerçeğe ('every study confirms') çevirmek neden hatadır?",
+    options: [
+      "Cümleyi kısalttığı için",
+      "Anlam kapsamını saptırır ve akademik tarafsızlığı zedeler",
+      "Bağlaç sayısını artırdığı için",
+      "Sadece Reading'i etkilediği için"
+    ],
+    answer: 1,
+    explain: "Hedge edilmiş bir iddiayı kesin hükme çevirmek orijinal anlamı saptırır; bu yüzden 'anlam kapsamını saptırma' büyük tuzaklardan biri sayılır."
+  },
+  {
+    q: "Girişte soruyu yeniden ifade ettikten sonra makale ne yapmayı önerir?",
+    options: [
+      "Hemen sonuç paragrafına geçmek",
+      "Kişisel duruşu net bir tez cümlesiyle (Thesis Statement) bağlamak",
+      "Soruyu aynen tekrar yazmak",
+      "Bir istatistik uydurmak"
+    ],
+    answer: 1,
+    explain: "Paraphrase yalnızca ilk adımdır; giriş, yazarın görüşünü ortaya koyan net bir tez cümlesiyle bitmelidir ve bunu unutmak büyük hatadır."
   }
 ]
 ---

@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "Shadowing tekniği, öğrencinin bir gölge gibi konuşmacının hemen ardından ses tonunu, kelime bağlantılarını (linking) ve duraklamalarını anlık olarak taklit etmesine dayanır."
+  },
+  {
+    q: "Günlük 15 dakikalık planda 'metinsiz kör gölgeleme' hangi dakikalarda yapılır?",
+    options: [
+      "0 – 3. dakika",
+      "3 – 7. dakika",
+      "7 – 11. dakika",
+      "11 – 15. dakika"
+    ],
+    answer: 2,
+    explain: "Planda 7–11. dakikalar metinsiz kör gölgeleme (3-4 tekrar) içindir; amaç spontane motor refleksi pekiştirmektir."
+  },
+  {
+    q: "Planın 11 – 15. dakikalarındaki faaliyet nedir?",
+    options: [
+      "Yeni kelime ezberlemek",
+      "Ses kaydı alıp orijinaliyle karşılaştırarak tonlama sapmalarını bulmak",
+      "Dizi izlemek",
+      "Dilbilgisi testi çözmek"
+    ],
+    answer: 1,
+    explain: "Son dört dakika ses kaydı ve karşılaştırmaya ayrılır; böylece tonlama sapmaları fark edilip düzeltilir."
   }
 ]
 ---

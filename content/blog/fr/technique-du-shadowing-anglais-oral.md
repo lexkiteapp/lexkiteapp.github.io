@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "Le shadowing consiste à suivre la voix du locuteur natif comme son ombre, avec une fraction de seconde de retard, pour calquer instinctivement la mélodie, les liaisons et le rythme de la phrase."
+  },
+  {
+    q: "À quelle vitesse lance-t-on l'audio à l'étape 3 (Reading Shadowing) si nécessaire ?",
+    options: [
+      "0,8x",
+      "1,5x",
+      "2,0x",
+      "0,1x"
+    ],
+    answer: 0,
+    explain: "À l'étape 3, on lance l'audio à vitesse légèrement réduite (0,8x) et on répète en suivant le texte, une seconde derrière le narrateur."
+  },
+  {
+    q: "Quelle est la particularité de l'étape 4 (Blind Shadowing) ?",
+    options: [
+      "On lit le script à voix basse",
+      "On met le texte hors de vue et on répète à vitesse normale en se guidant à l'oreille",
+      "On traduit en français",
+      "On n'écoute plus l'audio"
+    ],
+    answer: 1,
+    explain: "En shadowing pur, on écarte la transcription et on lance l'enregistrement à 1.0x; l'article en fait le cœur de la technique."
+  },
+  {
+    q: "Quelle durée d'extrait recommande l'étape 1 (écoute à l'aveugle) ?",
+    options: [
+      "30 à 60 secondes",
+      "15 à 20 minutes",
+      "Environ 5 secondes",
+      "Plus d'une heure"
+    ],
+    answer: 0,
+    explain: "On écoute un extrait court de 30 à 60 secondes, une ou deux fois, pour saisir le sens global et le tempo avant toute répétition."
   }
 ]
 ---

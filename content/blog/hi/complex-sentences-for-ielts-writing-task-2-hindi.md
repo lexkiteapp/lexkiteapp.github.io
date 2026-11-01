@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "IELTS आधिकारिक बैंड विवरण (Band Descriptors) के अनुसार बैंड 7.0+ के लिए विभिन्न प्रकार की जटिल वाक्य संरचनाओं (complex structures) का लचीला उपयोग और अधिकांश वाक्यों का त्रुटिहीन होना अनिवार्य है।"
+  },
+  {
+    q: "लेख के अनुसार 'Although' से शुरू होने वाले वाक्य में कौन सा वाक्य सही है?",
+    options: [
+      "Although AI creates new jobs, but many factory workers will suffer.",
+      "Although AI creates new jobs, many factory workers will suffer.",
+      "Although AI creates new jobs and many factory workers will suffer.",
+      "Although, AI creates new jobs but, many factory workers will suffer."
+    ],
+    answer: 1,
+    explain: "Although या While के साथ 'but' नहीं लगाया जाता। दोनों उपवाक्यों के बीच केवल कॉमा आता है, जैसा लेख के गलत और सही वाक्य के उदाहरण में दिखाया गया है।"
+  },
+  {
+    q: "लेख में दिए गए उदाहरण के अनुसार केवल 'so' से जुड़ा कंपाउंड वाक्य (Air pollution is worsening..., so governments must invest...) किस बैंड का दिखाया गया है?",
+    options: [
+      "Band 4",
+      "Band 5",
+      "Band 6",
+      "Band 9"
+    ],
+    answer: 2,
+    explain: "लेख सरल वाक्यों को Band 5, 'so' से जुड़े कंपाउंड वाक्य को Band 6 और Because वाले कॉम्प्लेक्स वाक्य को Band 8 का उदाहरण बताता है।"
+  },
+  {
+    q: "कॉम्प्लेक्स वाक्य (Complex sentence) की सही परिभाषा क्या है?",
+    options: [
+      "दो स्वतंत्र वाक्य जिन्हें and से जोड़ा गया हो",
+      "एक स्वतंत्र उपवाक्य और कम से कम एक आश्रित उपवाक्य का मेल",
+      "केवल एक कर्ता और एक क्रिया वाला वाक्य",
+      "40 शब्दों से लंबा कोई भी वाक्य"
+    ],
+    answer: 1,
+    explain: "लेख बताता है कि जटिल वाक्य में कम से कम एक स्वतंत्र उपवाक्य (Independent clause) और एक आश्रित उपवाक्य होता है, जो कारण, विरोध या समय दर्शाता है।"
   }
 ]
 ---

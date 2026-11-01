@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "ในงานเขียนเชิงวิชาการ IELTS Writing Task 2 วลี 'displace the workforce' หรือ 'supplant human labor' เป็น collocation มาตรฐานที่ช่วยยกระดับคะแนน Lexical Resource สู่ระดับ Band 7.5+"
+  },
+  {
+    q: "ตามบทความ \"Algorithmic bias\" หมายถึงอะไร?",
+    options: [
+      "ความเร็วในการประมวลผลของคอมพิวเตอร์",
+      "ความลำเอียงหรืออคติที่แฝงอยู่ในอัลกอริทึม",
+      "การรั่วไหลของข้อมูลส่วนบุคคล",
+      "การเรียนรู้ภาษาของมนุษย์"
+    ],
+    answer: 1,
+    explain: "Algorithmic bias คือความลำเอียงที่แฝงอยู่ในอัลกอริทึม มักเกิดจากข้อมูลที่ใช้ฝึกระบบ จึงเป็นคำสำคัญในหัวข้อจริยธรรม AI"
+  },
+  {
+    q: "วลีใดในหมวดตลาดแรงงานและระบบอัตโนมัติที่หมายถึง \"แย่งงาน / ผลักดันแรงงานออกจากตลาด\"?",
+    options: [
+      "Reskill and upskill",
+      "Human-machine synergy",
+      "Displace the workforce",
+      "Sedentary lifestyle"
+    ],
+    answer: 2,
+    explain: "Displace the workforce ใช้เมื่อพูดถึงหุ่นยนต์หรือระบบอัตโนมัติที่เข้ามาแทนที่แรงงานมนุษย์ในการอภิปรายเรื่องตลาดงาน"
   }
 ]
 ---

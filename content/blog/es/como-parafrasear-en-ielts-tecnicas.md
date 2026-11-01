@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "Reemplazar palabras aisladas sin respetar el contexto y las colocaciones naturales genera frases forzadas que reducen drásticamente la puntuación en Lexical Resource."
+  },
+  {
+    q: "¿Qué ventaja ofrece parafrasear la pregunta del examinador en la Parte 3 del Speaking?",
+    options: [
+      "Evita tener que responder",
+      "Te da valiosos segundos para estructurar tus ideas",
+      "Cambia el tema de la conversación",
+      "Reduce la duración del examen"
+    ],
+    answer: 1,
+    explain: "Según el artículo, retomar la pregunta abstracta con tus propias palabras te concede unos segundos para organizar las ideas antes de responder."
+  },
+  {
+    q: "¿En qué consiste la nominalización como técnica de paráfrasis?",
+    options: [
+      "En eliminar los sustantivos de la oración",
+      "En cambiar la clase de palabra, por ejemplo de verbo a sustantivo abstracto, para reestructurar la oración",
+      "En traducir la frase palabra por palabra",
+      "En añadir más conectores al final"
+    ],
+    answer: 1,
+    explain: "La nominalización convierte un verbo en sustantivo (subsidize pasa a subsidization) y reestructura la oración con un tono más formal y académico."
+  },
+  {
+    q: "¿Qué advierte el evaluador sobre la sustitución por sinónimos?",
+    options: [
+      "Que nunca se deben usar sinónimos",
+      "Que no se fuercen términos arcaicos solo para sonar sofisticado, porque distorsionan el sentido",
+      "Que hay que usar siempre la palabra más larga",
+      "Que se repitan las palabras de la consigna"
+    ],
+    answer: 1,
+    explain: "El artículo recomienda cuidar el registro académico y evitar términos arcaicos o inadecuados que distorsionen el sentido del ensayo."
   }
 ]
 ---

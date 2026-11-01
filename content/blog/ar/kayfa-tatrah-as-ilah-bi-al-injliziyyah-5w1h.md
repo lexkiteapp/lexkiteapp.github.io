@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "في زمن المضارع البسيط، عند استخدام الفعل المساعد 'does' مع الضمائر المفردة (he/she/it)، يعود الفعل الأساسي وجوباً إلى صيغة المصدر المجرد (bare infinitive) بدون أي إضافات."
+  },
+  {
+    q: "أي سؤال صحيح لتحويل الجملة «The executives were satisfied with the quarterly results»؟",
+    options: [
+      "Did the executives satisfied with the quarterly results?",
+      "Were the executives satisfied with the quarterly results?",
+      "Do the executives were satisfied with the quarterly results?",
+      "The executives were satisfied with the quarterly results?"
+    ],
+    answer: 1,
+    explain: "مع أفعال الكينونة (is, am, are, was, were) نعكس الترتيب فقط بوضع الفعل في بداية الجملة دون استدعاء Do أو Did."
+  },
+  {
+    q: "أي صيغة تكوّن سؤالاً صحيحاً مع فاعل مفرد غائب في المضارع البسيط؟",
+    options: [
+      "Does the software supports real-time collaboration?",
+      "Do the software support real-time collaboration?",
+      "Does the software support real-time collaboration?",
+      "Is the software support real-time collaboration?"
+    ],
+    answer: 2,
+    explain: "نستخدم Does مع He/She/It ونجرد الفعل الأساسي من علامة -s، فيصبح Does the software support كما في مثال المقال."
+  },
+  {
+    q: "ما الذي يحدث للفعل الناقص (modal) عند تكوين سؤال نعم أو لا مثل «We can reschedule the deadline»؟",
+    options: [
+      "يبقى في مكانه ونضيف Do",
+      "يُنقل إلى بداية الجملة ويبقى الفعل الأساسي في المصدر: Can we reschedule",
+      "يتحول إلى الماضي مع Did",
+      "يُحذف ويُستبدل بـ Does"
+    ],
+    answer: 1,
+    explain: "يتقدم الفعل الناقص إلى الصدارة ويبقى الفعل الأساسي في صيغة المصدر، مثل Can we reschedule وShould applicants submit."
   }
 ]
 ---

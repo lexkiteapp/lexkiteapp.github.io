@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "IELTS 공식 밴드 기술서(Lexical Resource Band 8+)에서 'habitat fragmentation'은 서식지 파편화를 나타내는 가장 표준적이고 정확한 학술 콜로케이션입니다."
+  },
+  {
+    q: "글에서 'Habitat fragmentation'은 어떤 의미로 설명되나요?",
+    options: [
+      "서식지 복원 사업",
+      "외래종의 유입",
+      "기후 변화로 인한 가뭄",
+      "서식지 파편화 및 단절"
+    ],
+    answer: 3,
+    explain: "Habitat fragmentation은 고속도로 건설 등으로 야생동물의 서식지가 쪼개지고 단절되는 현상을 뜻하는 학술 연어입니다."
+  },
+  {
+    q: "'Irreversible ecological imbalance'가 가장 잘 어울리는 상황은 무엇인가요?",
+    options: [
+      "도시 대기 질이 일시적으로 나빠진 경우",
+      "최상위 해양 포식자를 남획해 생태계 균형이 영구적으로 무너지는 경우",
+      "재활용 정책이 새로 도입된 경우",
+      "태양광 패널이 설치된 경우"
+    ],
+    answer: 1,
+    explain: "본문 예문처럼 최상위 포식자를 과도하게 잡으면 되돌릴 수 없는 생태계 불균형이 발생하므로 이 표현이 적합합니다."
   }
 ]
 ---

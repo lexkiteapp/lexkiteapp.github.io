@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "Menukar kata satu per satu tanpa memperhatikan konteks alami dan kolokasi (Collocations) menghasilkan kalimat rancu yang menurunkan skor Lexical Resource secara drastis."
+  },
+  {
+    q: "Apa akibat menyalin mentah-mentah soal pada paragraf pengantar IELTS Writing Task 2?",
+    options: [
+      "Skor otomatis naik",
+      "Penguji mencoret kalimat salinan itu dari total hitungan kata esai",
+      "Esai dianggap lebih orisinal",
+      "Tidak ada pengaruh sama sekali"
+    ],
+    answer: 1,
+    explain: "Menurut artikel, kalimat soal yang disalin mentah-mentah akan dicoret dan dipotong dari total hitungan kata esai, sehingga berakibat fatal."
+  },
+  {
+    q: "Mengapa menukar young jobseekers dengan youthful supplicants tidak disarankan?",
+    options: [
+      "Karena terlalu pendek",
+      "Karena terdengar kaku dan ganjil; sebaiknya pakai pasangan kata yang lazim (collocations)",
+      "Karena itu bukan bahasa Inggris",
+      "Karena penguji hanya menerima kata dari soal"
+    ],
+    answer: 1,
+    explain: "Peringatan penguji menyebut kata arkais demi terdengar canggih justru ganjil, jadi gunakan kolokasi yang lazim dalam karya ilmiah."
+  },
+  {
+    q: "Apa yang dimaksud dengan nominalisasi dalam teknik parafrase?",
+    options: [
+      "Mengubah kata kerja menjadi kata benda atau kata sifat menjadi kata keterangan untuk merombak kerangka kalimat",
+      "Menghapus semua kata benda",
+      "Menerjemahkan kata per kata",
+      "Menambah tanda baca"
+    ],
+    answer: 0,
+    explain: "Nominalisasi mengubah kelas kata, misalnya subsidize menjadi subsidization, sehingga struktur kalimat berubah total dan esai terdengar formal serta ringkas."
   }
 ]
 ---

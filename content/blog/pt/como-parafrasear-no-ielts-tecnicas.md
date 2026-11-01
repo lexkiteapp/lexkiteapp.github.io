@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "A troca cega de vocábulos isolados sem levar em conta o contexto e as colocações naturais gera frases artificiais e compromete severamente a pontuação em Lexical Resource."
+  },
+  {
+    q: "Segundo o artigo, qual é o risco de transformar uma hipótese como 'may contribute' em 'definitely causes' ao parafrasear?",
+    options: [
+      "Nenhum, pois ambos têm o mesmo sentido",
+      "Distorce a intenção da questão e o rigor acadêmico",
+      "Aumenta automaticamente a nota de Lexical Resource",
+      "Só afeta a seção de Listening"
+    ],
+    answer: 1,
+    explain: "O artigo lista a distorção da intenção como erro fatal: trocar uma hipótese sutil por uma afirmação categórica muda o sentido original e fere o rigor acadêmico."
+  },
+  {
+    q: "Como deve terminar a introdução de um essay depois de parafrasear a proposta?",
+    options: [
+      "Com uma citação de outro autor",
+      "Com uma pergunta ao examinador",
+      "Com a posição do autor, a Thesis Statement",
+      "Com uma lista de vocabulário"
+    ],
+    answer: 2,
+    explain: "Parafrasear a proposta é apenas o primeiro passo; o texto indica que a introdução deve obrigatoriamente terminar com a tomada de posição (Thesis Statement)."
   }
 ]
 ---

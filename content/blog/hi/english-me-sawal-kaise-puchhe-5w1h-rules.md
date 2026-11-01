@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "प्रेजेंट सिंपल में ही/शी/इट के साथ प्रश्न बनाते समय सहायक क्रिया 'does' का प्रयोग होता है और मुख्य क्रिया अपने मूल रूप (bare infinitive) में वापस आ जाती है।"
+  },
+  {
+    q: "'The senior engineer is available for the meeting' को प्रश्न में बदलने पर सही रूप कौन सा है?",
+    options: [
+      "Does the senior engineer available for the meeting?",
+      "Is the senior engineer available for the meeting?",
+      "Do the senior engineer is available for the meeting?",
+      "The senior engineer is available for the meeting?"
+    ],
+    answer: 1,
+    explain: "To Be क्रिया (is, am, are, was, were) को सीधे कर्ता से पहले लाया जाता है, इसमें Do या Does की जरूरत नहीं पड़ती।"
+  },
+  {
+    q: "Present Simple में He/She/It के साथ प्रश्न में मुख्य क्रिया का कौन सा रूप आता है?",
+    options: [
+      "Does the application synchronizes data?",
+      "Does the application synchronize data?",
+      "Do the application synchronize data?",
+      "Is the application synchronize data?"
+    ],
+    answer: 1,
+    explain: "Does के साथ मुख्य क्रिया अपने मूल रूप में रहती है, इसलिए 'synchronize' लिखा जाता है, 'synchronizes' नहीं, जैसा लेख में बताया गया है।"
+  },
+  {
+    q: "मोडल क्रिया वाले वाक्य 'We can postpone the client briefing' का सही प्रश्न कौन सा है?",
+    options: [
+      "Do we can postpone the client briefing?",
+      "We can postpone the client briefing?",
+      "Can we postpone the client briefing?",
+      "Does we postpone the client briefing?"
+    ],
+    answer: 2,
+    explain: "मोडल क्रिया (can, should, will आदि) कर्ता से पहले आ जाती है और मुख्य क्रिया मूल रूप में रहती है, इसलिए Can we postpone सही है।"
   }
 ]
 ---

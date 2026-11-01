@@ -24,6 +24,39 @@ quiz: [
     ],
     answer: 0,
     explain: "El shadowing consiste en seguir al hablante como una sombra, apenas una fracción de segundo por detrás, imitando la velocidad, la unión de palabras (linking) y la melodía del discurso."
+  },
+  {
+    q: "¿A qué velocidad se reproduce el audio en el Paso 3 (Reading Shadowing) si es necesario?",
+    options: [
+      "0.8x",
+      "1.5x",
+      "2.0x",
+      "0.2x"
+    ],
+    answer: 0,
+    explain: "En el Paso 3 se reduce ligeramente la velocidad (0.8x si es necesario) mientras se lee el guion en voz alta, un segundo por detrás del narrador."
+  },
+  {
+    q: "¿Qué se hace en el Paso 4 (Blind Shadowing)?",
+    options: [
+      "Se lee la transcripción en silencio",
+      "Se aparta el texto y se repite el audio a 1.0x guiándose solo por el oído",
+      "Se traduce cada frase al español",
+      "Se escribe el audio completo"
+    ],
+    answer: 1,
+    explain: "El sombreado a ciegas aparta la transcripción por completo y usa velocidad normal; el artículo lo llama el verdadero núcleo del shadowing."
+  },
+  {
+    q: "¿Cuánto debe durar el fragmento de audio para la escucha atenta inicial?",
+    options: [
+      "De 30 a 60 segundos",
+      "Entre 20 y 30 minutos",
+      "Unos 5 segundos",
+      "Una hora completa"
+    ],
+    answer: 0,
+    explain: "El Paso 1 propone un fragmento corto de 30 a 60 segundos, escuchado una o dos veces, para captar la idea global y el tono."
   }
 ]
 ---

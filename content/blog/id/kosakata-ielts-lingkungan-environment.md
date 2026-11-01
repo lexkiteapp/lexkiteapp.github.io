@@ -24,6 +24,28 @@ quiz: [
     ],
     answer: 0,
     explain: "Dalam kriteria penilaian resmi IELTS (Lexical Resource Band 8+), 'habitat fragmentation' adalah kolokasi akademik formal yang sangat tepat."
+  },
+  {
+    q: "Dalam esai tentang perubahan iklim, kolokasi mana yang tepat untuk menyebut emisi gas rumah kaca yang murni berasal dari aktivitas manusia?",
+    options: [
+      "Natural gas smoke",
+      "Anthropogenic emissions",
+      "Human air dirt",
+      "Factory wind gas"
+    ],
+    answer: 1,
+    explain: "'Anthropogenic emissions' adalah istilah ilmiah untuk emisi yang dihasilkan aktivitas industri manusia, sehingga cocok untuk esai bernuansa akademis."
+  },
+  {
+    q: "Menurut artikel, apa kesalahan umum saat menulis tentang lingkungan dengan kata 'nature'?",
+    options: [
+      "Kata itu terlalu teknis untuk esai IELTS",
+      "Kata itu hanya boleh dipakai di Speaking Part 1",
+      "Frasa seperti 'people harm nature' terdengar kekanak-kanakan; lebih baik pakai 'fragile ecosystems' atau 'ecological balance'",
+      "Kata itu selalu salah secara tata bahasa"
+    ],
+    answer: 2,
+    explain: "Artikel menyarankan mengganti 'nature' dengan istilah yang lebih presisi seperti 'fragile ecosystems' atau 'biodiverse habitats' agar nada esai lebih akademis."
   }
 ]
 ---
