@@ -361,6 +361,11 @@
       const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
       bank.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked || L.tiles.includes(+b.dataset.i)) return; L.tiles.push(+b.dataset.i); L.popLast = true; if (window.Sfx) Sfx.pop(); draw(); L.popLast = false; };
       ans.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked) return; L.tiles = L.tiles.filter(i => i !== +b.dataset.a); draw(); };
+      // Kéo-thả (drag.js): chèn vào vị trí bất kỳ · đổi chỗ · kéo ra để gỡ; bàn phím ←/→ đổi chỗ, Delete gỡ; aria-live đọc vị trí mới
+      let live = $('#lsnLive'); if (!live) { live = document.createElement('p'); live.id = 'lsnLive'; live.className = 'sr-only'; live.setAttribute('aria-live', 'polite'); ans.after(live); }
+      if (L.drag) L.drag.destroy();
+      L.drag = window.TileDrag ? TileDrag.bind({ ans, bank, get: () => L.tiles, set: o => { L.tiles = o; draw(); }, locked: () => L.checked, word: i => it.tiles[i], say: s => { live.textContent = s; }, t }) : null;
+      ans.setAttribute('aria-description', t('Kéo ô để đổi chỗ; hoặc dùng phím mũi tên trái/phải, Delete để gỡ'));
     }
     on('lsnMic', () => {
       const out = $('#lsnHeard'), mic = $('#lsnMic'); if (L.checked) return;

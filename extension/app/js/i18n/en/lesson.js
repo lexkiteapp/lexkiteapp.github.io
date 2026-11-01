@@ -66,5 +66,8 @@
     "Nói hay hơn": "Better phrase",
     "Chạm cụm từ để nghe phát âm chuẩn": "Tap a phrase to hear the native pronunciation",
     "Đối thoại": "Dialogue",
+    "Kéo ô để đổi chỗ; hoặc dùng phím mũi tên trái/phải, Delete để gỡ": "Drag a tile to move it, or use the left/right arrow keys; press Delete to remove it",
+    "{w}: vị trí {n}/{m}": "{w}: position {n} of {m}",
+    "Đã gỡ {w}": "Removed {w}",
   });
 })(typeof self !== 'undefined' ? self : this);
