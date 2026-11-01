@@ -29,7 +29,8 @@ export const SCENE_STYLE = 'Wordless flat vector illustration of one everyday mo
   'high contrast, plain walls and plain surfaces, people communicate only with faces and hand gestures, purely pictorial. Friendly, culturally neutral, suitable for young children.';
 // e4 (29/10): prompt cũ ~1.000 ký tự (thẻ 320 + phong cách 600) → mô hình bỏ ý sau, giám khảo hỏi câu ví dụ còn ảnh vẽ thẻ → 2–7 % đạt.
 // Phong cách e4 NGẮN (cùng bảng màu/nét s1), đặt SAU câu cảnh; không nhắc chữ/biểu tượng (nhắc → hiện ra).
-export const SCENE_STYLE_E4 = 'Flat vector illustration, simple rounded shapes, clean dark teal outlines, big expressive faces, deep teal, warm orange, golden yellow and soft pink, ' +
+// e6 vòng 3 (pilot 41279771197): 'big expressive faces' → klein vẽ NGƯỜI LỚN thành trẻ con ('a cartoon boy' cho 'a man') và gắn mặt cười lên đồ vật (bóng đèn, táo) → mặt chỉ ở người lớn
+export const SCENE_STYLE_E4 = 'Flat vector illustration, simple rounded shapes, clean dark teal outlines, adults with big expressive faces, plain faceless objects, deep teal, warm orange, golden yellow and soft pink, ' +
   'plain light cream background, the people and key objects large and centered, purely pictorial, friendly, suitable for young children.';
 // khuôn theo lớp từ (nghĩa CẢNH = trừu tượng): câu nhấn thêm sau mô tả thẻ – đặt TRƯỚC SCENE_STYLE (FLUX ưu tiên đầu prompt)
 export const SCENE_CLASS = {
@@ -57,7 +58,7 @@ export function promptScene(k, sc, attempt = 1) {
   if (sc && sc.ps) {   // e4: câu cảnh ngắn → người kiểu Mỹ đa dạng theo giới (tất định), khung theo biến thể, phong cách ngắn
     const h = fnv(k); let i = 0;
     const pick = g => { const L = PEOPLE.filter(p => new RegExp('\\ba ' + g + '\\b').test(p)); return L[(h >>> (3 * i++)) % L.length]; };
-    let s = scrub(String(sc.ps).replace(/["“”]/g, ''), String(k).split('#')[0]).replace(/\ban? (woman|man)\b/gi, (m, g) => pick(g.toLowerCase()));
+    let s = scrub(String(sc.ps).replace(/["“”]/g, ''), String(k).split('#')[0]).replace(/\ban? (woman|man)\b/gi, (m, g) => pick(g.toLowerCase()).replace(/^a (woman|man)\b/, 'an adult $1'));
     const fr = FRAMES[(h + attempt - 1) % FRAMES.length];
     return `Illustration, ${fr}: ${s.replace(/\.+$/, '')}.${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${SCENE_STYLE_E4}`;
   }
@@ -101,6 +102,8 @@ Hard rules for ps (a card that breaks one is rejected):
 3. no symbols: arrows, hearts, stars, lightbulbs, question marks, speech or thought bubbles, logos, flags, icons, charts, maps.
 4. people are 'a woman' or 'a man'; 'a girl' or 'a boy' only when the meaning needs a child; no names, ages, hair or clothes colours, no counts above three.
 5. one action, at most two key objects, one simple place shown by one object in it; no metaphor, nothing tiny, nothing far away. Every detail you write will be checked in the picture: write ONLY what carries the meaning (no furniture, background, colours or extra props that the meaning does not need).
+6. one frozen moment: never "about to", "trying to", "hovering", "indicating", "swiping", "before/after", plans or sequences; the meaning must be a clear physical state or action you could photograph.
+7. objects never have faces; compare amounts only with huge obvious differences (one full glass and one empty glass).
 Rules for check: test the MEANING in words different from ps, so the same people and objects WITHOUT that meaning get "no"; never contain w; never ask whether something "indicates", "represents", "illustrates" or "symbolizes" an idea.
 If an item has "fix", your previous card for it was rejected for that reason: write a NEW card that avoids it (another sentence or another scene is fine).
 If no sentence reaches draw >= 4 under these rules, reply {"skip": "short reason"} for that k (no picture is better than a wrong one).
@@ -110,6 +113,8 @@ duck (n) ["A duck swam across the pond."] -> {"ex":"A duck swam across the pond.
 hunter (n) ["The hunter waited quietly in the forest."] -> {"ex":"The hunter waited quietly in the forest.","ps":"a man in a green coat crouches behind a bush holding a bow, watching a deer","check":"Is a person quietly waiting to catch a wild animal?","cap":"a man with a bow hiding behind a bush near a deer","who":1,"draw":5}
 consider (v) ["We are considering moving to the countryside."] -> {"ex":"We are considering moving to the countryside.","ps":"a woman and a man at a kitchen table look thoughtfully at a small model house and a small model tower","check":"Are the two people carefully deciding between two choices before acting?","cap":"a couple thinking at a table with two model homes","who":2,"draw":4}
 cheap (adj) ["The food at the night market is cheap and tasty."] -> {"ex":"The food at the night market is cheap and tasty.","ps":"a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles","check":"Does the big meal clearly cost very little money?","cap":"a woman buying a big bowl of noodles from a vendor","who":2,"draw":4}
+deny (v) ["He denied breaking the window."] -> {"ex":"He denied breaking the window.","ps":"a man shakes his head and pushes both palms forward beside a broken window","check":"Is the man saying he did not do it?","cap":"a man shaking his head beside a broken window","who":1,"draw":4}
+prevent (v) ["The fence prevents the dog from running onto the road."] -> {"ex":"The fence prevents the dog from running onto the road.","ps":"a dog jumps against a tall wooden fence that blocks its way to a road","check":"Is something stopping the animal from getting out?","cap":"a dog blocked by a tall wooden fence near a road","who":0,"draw":5}
 quickly (adv) ["He ran quickly to catch the bus."] -> {"ex":"He ran quickly to catch the bus.","ps":"a man sprints with long strides and a determined face toward a big green bus","check":"Is the man moving at high speed?","cap":"a man running hard toward a green bus","who":1,"draw":5}
 agreement (n) ["They reached an agreement after a long talk."] -> {"ex":"They reached an agreement after a long talk.","ps":"a woman and a man across a small table smile and shake hands firmly","check":"Have the two people just settled something together?","cap":"two people smiling and shaking hands over a table","who":2,"draw":4}
 Reply JSON only.`;
