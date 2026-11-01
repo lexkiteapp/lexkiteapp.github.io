@@ -4,7 +4,7 @@ title: "เทคนิค Dictation ฝึกฟังภาษาอังก�
 description: "เทคนิค dictation ฝึกฟังภาษาอังกฤษ ฉบับสมบูรณ์: วิธีฝึกเขียนตามคำบอก 4 ขั้นตอน จับเสียงเชื่อม Connected Speech คำย่อ และเข้าใจสำเนียงเจ้าของภาษา."
 keyword: "dictation ฝึกฟังภาษาอังกฤษ"
 lang: th
-translationKey: phuong-phap-dictation-luyen-nghe-tieng-anh
+translationKey: luyen-nghe-tieng-anh-bang-phuong-phap-dictation
 category: phuong-phap
 tags: [dictation, listening, connected-speech, kan-fang]
 cover: listening

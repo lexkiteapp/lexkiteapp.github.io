@@ -3,7 +3,7 @@ title: "Técnica de dictado en inglés: entrena tu oído al 100%"
 description: "Descubre la técnica de dictado en inglés: un protocolo en 5 pasos para captar el habla rápida, weak forms, contracciones y eliminar errores de listening."
 slug: tecnica-dictado-en-ingles-listening
 lang: es
-translationKey: chep-chinh-ta-tieng-anh-dictation
+translationKey: luyen-nghe-tieng-anh-bang-phuong-phap-dictation
 category: ky-nang
 tags: [dictado, listening, ortografia, aprendizaje-activo]
 keyword: "técnica de dictado en inglés"

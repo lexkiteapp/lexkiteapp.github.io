@@ -3,7 +3,7 @@ title: "English Dictation Practice: Rebuild Your Listening Ear"
 description: "Master english dictation practice with our 5-step training protocol: catch weak forms, fast connected speech, and eliminate subtle listening gaps."
 slug: english-dictation-practice-guide
 lang: en
-translationKey: chep-chinh-ta-tieng-anh-dictation
+translationKey: luyen-nghe-tieng-anh-bang-phuong-phap-dictation
 category: ky-nang
 tags: [dictation, listening, spelling, active-learning]
 keyword: "english dictation practice"
