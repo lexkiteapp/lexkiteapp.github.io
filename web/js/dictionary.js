@@ -16,7 +16,7 @@
     const t = setTimeout(() => ctrl.abort(), ms);
     try {
       const r = await fetch(url, { signal: ctrl.signal });
-      if (!r.ok) { ctrl.abort(); return null; } // phản hồi lỗi: huỷ luôn thân chưa đọc – thân trả chậm/treo (404 HTML từ máy CI) từng giữ request > 30 s
+      if (!r.ok) { ctrl.abort(); return null; } // phản hồi lỗi: hủy luôn thân chưa đọc – thân trả chậm/treo (404 HTML từ máy CI) từng giữ request > 30 s
       return await r.json();
     } catch (e) { return null; } finally { clearTimeout(t); }
   };

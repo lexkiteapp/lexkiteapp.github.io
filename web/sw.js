@@ -43,9 +43,9 @@ self.addEventListener('fetch', e => {
     return;
   }
   // Proxy từ điển/dịch máy (cùng nguồn trên lexkite.com, hoặc https://lexkite.com/... từ app di động/127.0.0.1): SW KHÔNG đụng vào – trình duyệt tự đi
-  // mạng + bộ đệm HTTP (Cache-Control của functions/api/dictlookup.js), AbortController của máy khách huỷ thẳng request. Các nhánh dưới ép no-cache
+  // mạng + bộ đệm HTTP (Cache-Control của functions/api/dictlookup.js), AbortController của máy khách hủy thẳng request. Các nhánh dưới ép no-cache
   // (thêm lượt Functions), cất mọi lượt tra vào CACHE, dự phòng ignoreSearch có thể trả nhầm mục của TỪ KHÁC, và request qua SW bị treo quá 30 s
-  // khi máy khách đã huỷ (font audit 1/11: networkidle không bao giờ đạt ở #/review, #/practice/learn).
+  // khi máy khách đã hủy (font audit 1/11: networkidle không bao giờ đạt ở #/review, #/practice/learn).
   if (url.pathname === '/api/dictlookup') return;
   // App/add-on gọi file từ lexkite.com (khác nguồn): lấy mạng trước, lưu lại để dùng khi offline
   if (e.request.method === 'GET' && url.origin !== location.origin && (url.hostname === 'lexkite.pages.dev' || url.hostname === 'lexkite.com')) {
