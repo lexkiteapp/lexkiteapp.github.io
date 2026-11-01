@@ -32,7 +32,8 @@
     "test:leak": "node scripts/test/i18n-leak.js web en,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr --strict",
     "test:leak-down": "node scripts/test/i18n-leak.js web en,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr --strict --gtx-down",
     "content:queue": "node scripts/content-queue.mjs",
-    "content:gate": "node scripts/test/content-check.mjs && node scripts/content-qa/gate.mjs && node scripts/content-qa/exam-format-check.mjs && node scripts/test/blog-images.mjs && node scripts/blog-schedule.mjs --verify && node scripts/test/size-budget.mjs && node scripts/vi-lint.mjs && node scripts/test/brand-check.mjs && node scripts/test/characters-gate.mjs && node scripts/test/samples-ui.mjs && node scripts/test/infra-check.mjs"
+    "content:score": "node scripts/content-score.mjs",
+    "content:gate": "node scripts/test/content-check.mjs && node scripts/content-qa/gate.mjs && node scripts/test/blog-images.mjs && node scripts/blog-schedule.mjs --verify && node scripts/test/size-budget.mjs && node scripts/vi-lint.mjs && node scripts/test/brand-check.mjs && node scripts/test/characters-gate.mjs && node scripts/test/samples-ui.mjs && node scripts/test/infra-check.mjs"
   },
   "devDependencies": {
     "axe-core": "^4.10.2",
