@@ -571,19 +571,34 @@
     let timer = 0, busy = false, again = false;
     // Bản dịch SẴN do CI tạo (scripts/gen-content-i18n.mjs, CDN) → hiện ngay đúng ngôn ngữ; chỉ câu chưa có mới dịch máy lúc chạy
     let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (window.VBNative && VBNative.is) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json') // app gốc: file nằm sẵn trong gói (www/i18n/content) → dùng được khi offline
-      .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => { pre = j || {}; clearTimeout(timer); timer = setTimeout(pass, 0); }); // về muộn (> 1,5 s, mạng chậm) → dịch lại trang đang mở
+      .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => { pre = j || {}; setTimeout(pass, 0); }); // về muộn (> 1,5 s, mạng chậm) → dịch lại trang đang mở
     const got = k => mem[k] || (pre && pre[k]) || ''; // bản dịch sẵn không ghi vào localStorage (giữ bộ nhớ máy nhẹ)
+    const ok = n => { const s = n.nodeValue.trim().replace(/\s+/g, ' '); return s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn, [translate="yes"]')); }; /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */
+    const put = x => { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!got(s)) return false; const m = x.nodeValue.match(/^\s*/)[0], e = x.nodeValue.match(/\s*$/)[0]; x.nodeValue = m + got(s) + e; return true; };
+    const unwait = root => [root, ...root.querySelectorAll('.wn.wn-tr, .tr-wait')].forEach(el => { if (el.matches('.wn.wn-tr, .tr-wait') && !VI.test(el.textContent)) el.classList.remove('wn-tr', 'tr-wait'); });
+    // Chỗ vừa chèn mà đã có bản dịch (bộ nhớ đệm / bản sẵn) → thay NGAY trong lúc DOM đổi (trước khi trình duyệt vẽ):
+    // vẽ lại trang không chớp tiếng Việt 120 ms, nghĩa chờ dịch (.tr-wait) hiện liền thay vì chờ lượt pass sau
+    const apply = a => {
+      if (!a.isConnected) return;
+      if (a.nodeType === 3) { if (a.parentElement && ok(a) && put(a)) unwait(a.parentElement.closest('.wn.wn-tr, .tr-wait') || a.parentElement); return; }
+      if (a.nodeType !== 1) return;
+      const tw = document.createTreeWalker(a, NodeFilter.SHOW_TEXT); let n, hit = false;
+      while ((n = tw.nextNode())) if (ok(n) && put(n)) hit = true;
+      if (hit) unwait(a);
+    };
+    // Chữ sắp hiện (vd. nghĩa cụm từ ở #/dict, biết ngay từ lần vẽ nhanh) → dịch trước, lần vẽ đủ dùng bản dịch có sẵn
+    const want = new Set();
+    App.cxWant = list => { (list || []).forEach(x => { const s = String(x || '').trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && !got(s)) want.add(s); }); if (want.size) setTimeout(pass, 0); };
     async function pass() {
       if (busy) { again = true; return; } busy = true;
       try {
         if (!pre) await Promise.race([preP, new Promise(r => setTimeout(r, 1500))]);
         const nodes = [], tw = document.createTreeWalker(view, NodeFilter.SHOW_TEXT); let n;
-        while ((n = tw.nextNode())) { const s = n.nodeValue.trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn, [translate="yes"]'))) nodes.push(n); /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */ }
-        const need = []; let failed = false;
+        while ((n = tw.nextNode())) if (ok(n)) nodes.push(n);
+        const need = [...want].filter(s => !got(s)); let failed = false; want.clear();
         // Thuộc tính hiển thị (tooltip, nhãn trợ năng, gợi ý ô nhập) cũng phải theo ngôn ngữ người dùng
         const attrs = []; view.querySelectorAll('[title],[aria-label],[placeholder]').forEach(el => { if (el.closest(SKIP) && !el.matches('input,textarea')) return; ['title', 'aria-label', 'placeholder'].forEach(a => { const v = el.getAttribute(a); if (v && VI.test(v)) attrs.push([el, a, v.trim()]); }); });
         attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); else if (!need.includes(v)) need.push(v); });
-        const put = x => { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!got(s)) return false; const m = x.nodeValue.match(/^\s*/)[0], e = x.nodeValue.match(/\s*$/)[0]; x.nodeValue = m + got(s) + e; return true; };
         nodes.forEach(x => { if (!put(x)) { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!need.includes(s)) need.push(s); } });
         for (let i = 0; i < need.length;) { // lô ≤ 1800 ký tự
           const batch = []; let len = 0; while (i < need.length && len + need[i].length < 1800) { batch.push(need[i]); len += need[i].length + 1; i++; } if (!batch.length) batch.push(need[i++]);
@@ -594,13 +609,15 @@
         }
         if (need.length) { save(); nodes.forEach(put); attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); }); }
         // Ghi chú học từ (soạn tiếng Việt): chỉ hiện khi đã dịch hết sang ngôn ngữ người học – không lộ tiếng Việt khi dịch chậm/lỗi
-        view.querySelectorAll('.wn.wn-tr, .tr-wait').forEach(el => { if (!VI.test(el.textContent)) el.classList.remove('wn-tr', 'tr-wait'); });
+        unwait(view);
         // dịch hỏng → tiếng Anh viết tay (data-en)
         if (failed) view.querySelectorAll('.tr-wait[data-en]').forEach(el => { el.textContent = el.dataset.en; el.lang = 'en'; el.classList.remove('tr-wait'); });
         view.querySelectorAll('.an-ch:not([data-gl])').forEach(ch => { const g = ch.querySelector('.an-gl'); if (g && !g.classList.contains('tr-wait')) ch.dataset.gl = g.textContent; });
-      } finally { busy = false; if (again) { again = false; clearTimeout(timer); timer = setTimeout(pass, 0); } }
+      } finally { busy = false; if (again) { again = false; setTimeout(pass, 0); } }
     }
-    new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(pass, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
+    // Gom thay đổi DOM ≤ 120 ms rồi dịch – hẹn giờ KHÔNG dời lại theo mỗi thay đổi: trang vẽ dần/đổi liên tục (khối điền muộn, hoạt ảnh)
+    // từng làm lượt dịch bị hoãn mãi, chữ tiếng Việt (hoặc ô .tr-wait trống) nằm đó lâu hơn hẳn 120 ms
+    new MutationObserver(ms => { for (const m of ms) m.addedNodes.forEach(apply); if (!timer) timer = setTimeout(() => { timer = 0; pass(); }, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
   })();
   document.addEventListener('change', e => { if (e.target.matches && e.target.matches('[data-whisper]')) { state.settings.whisperMode = e.target.checked; saveSettings(); if (e.target.checked) toast(t('Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.'), 4500); } });
   window.addEventListener('hashchange', route);
@@ -1042,6 +1059,7 @@
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
+    if (App.cxWant) App.cxWant(phraseLib({ word: Dict.normWord(q) }).map(x => x.vi)); // nghĩa cụm từ (tiếng Việt, chờ dịch) đi dịch song song với tra từ – lần vẽ đủ hiện ngay bằng ngôn ngữ người học
     const fast = await w(fastP); await vimgP;
     if (!same()) return;
     if (fast) paint(fast, false);
@@ -1163,10 +1181,13 @@
   });
 
   // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
+  function phraseLib(e, lx) {
+    const re = UI.wordRegex(e.word), lx2 = (lx || []).filter(w => re.test(w.word));
+    return [...lx2, ...Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word) && !lx2.some(l => l.word === w.word))].slice(0, 10);
+  }
   function drawPhrases(e, lx) {
     const el = $('#phraseBox'); if (!el) return;
-    const re = UI.wordRegex(e.word), lx2 = (lx || []).filter(w => re.test(w.word));
-    const lib = [...lx2, ...Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word) && !lx2.some(l => l.word === w.word))].slice(0, 10);
+    const re = UI.wordRegex(e.word), lib = phraseLib(e, lx);
     const mine = Object.values(state.cards).filter(c => /\s/.test(c.word) && re.test(c.word) && !lib.some(l => l.word === c.word)).slice(0, 10);
     const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent-text);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
       <div class="row" style="margin-top:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${own || inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã lưu')}</span>` : `<button class="btn sm ghost" data-add-seed="${esc(w.word)}">+ ${t('Lưu cụm')}</button>`}</div></div>`;
