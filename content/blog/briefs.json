@@ -1092,7 +1092,8 @@
       ],
       "angle": "Cấu trúc email công việc, mở/kết theo mức trang trọng, lời đề nghị lịch sự, lỗi hay gặp, 3 email mẫu tự viết",
       "intent": "informational",
-      "type": "evergreen"
+      "type": "evergreen",
+      "lang": "vi"
     },
     {
       "slug": "toeic-part-5-meo-lam-bai",
