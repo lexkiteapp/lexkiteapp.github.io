@@ -3,7 +3,8 @@
 // teacher-native.known.json (danh sách CHỈ ĐƯỢC GIẢM khi chuyển từng màn sang slot; thêm chỗ mới = đỏ). Luật: docs/CHARACTERS.md §Chỗ giáo viên.
 import fs from 'node:fs';
 import path from 'node:path';
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
+import { fileURLToPath } from 'node:url';
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const KNOWN = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/test/teacher-native.known.json'), 'utf8')).raw;
 const SKIP = new Set(['web/js/characters.js', 'web/js/teacher-slot.js']);
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith('.js') ? [path.join(d, e.name)] : []);

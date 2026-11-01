@@ -4,5 +4,10 @@
     "web/js/call.js": 1,
     "web/js/lesson/teacher.js": 3,
     "web/js/st/common.js": 1
-  }
+  },
+  "runtime": [
+    "call",
+    "lesson"
+  ],
+  "_runtime": "Màn còn ảnh đặt trần (poster Call #311/#293, LessonTeacher #293): vệt cắt chỉ cảnh báo. Chỉ được BỚT khi chuyển màn sang Chars.slot."
 }

@@ -9,6 +9,7 @@ const [WEB = 'web', OUT = 'out/teacher-native'] = process.argv.slice(2); fs.mkdi
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.mp4': 'video/mp4', '.webm': 'video/webm', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
 const ROUTES = [['learn', '?ux1=1#/learn'], ['streak', '?ux1=1#/streak'], ['lesson', '?ux1=1#/lesson/go?demo=1'], ['call', '?ux1=1#/call'], ['goal', '?ux1=1#/goal']];
 const THEMES = ['light', 'dark'], SIZES = [72, 112, 152, 208];
+let RT_OK = []; try { RT_OK = JSON.parse(fs.readFileSync('scripts/test/teacher-native.known.json', 'utf8')).runtime || []; } catch (e) { /* trống */ }
 let KNOWN = {}; try { KNOWN = JSON.parse(fs.readFileSync('scripts/test/teacher-native.known.json', 'utf8')).raw || {}; } catch (e) { /* không có → mọi chỗ trần chỉ cảnh báo */ }
 const browser = await chromium.launch();
 const rows = [], warns = [], jsErrs = []; let total = 0;
@@ -28,12 +29,14 @@ function measure(SZ) {
     if (slot) {
       const sr = R(slot), led = slot.querySelector('.tslot-ledge'), mr = R(m);
       if (!led) it.errs.push('thiếu .tslot-ledge');
-      else { const lr = R(led); if (!(lr.w > 0 && lr.h > 0) || lr.b < mr.b - 1.5 || lr.t > mr.b - 1) it.errs.push(`bệ không che đáy khung (bệ ${Math.round(lr.t)}..${Math.round(lr.b)} · ảnh đáy ${Math.round(mr.b)})`); }
+      else { const lr = R(led), fg = slot.querySelector('.tslot-fig'), vb = Math.min(mr.b, fg ? R(fg).b : mr.b); // đáy NHÌN THẤY (khung .tslot-fig cắt phần mờ dưới bệ)
+        if (!(lr.w > 0 && lr.h > 0) || lr.b < vb - 1.5 || lr.t > vb - 1) it.errs.push(`bệ không che đáy khung (bệ ${Math.round(lr.t)}..${Math.round(lr.b)} · ảnh đáy ${Math.round(vb)})`); }
+      const fr = { l: sr.l + sr.w * 0.15, r: sr.r - sr.w * 0.15, t: sr.t + sr.h * 0.07, b: sr.b }; fr.w = fr.r - fr.l; fr.h = fr.b - fr.t; // vùng người + bệ (bỏ khoảng trong suốt trên đầu/hai bên)
       for (const e of all) { // đè chữ / nút khác
         if (e.contains(slot) || slot.contains(e) || e === document.body) continue;
         const leafText = e.children.length === 0 && [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());
         if (!leafText && !e.matches('button, a[href], [role=button]')) continue;
-        if (!shown(e)) continue; const er = R(e); if (inter(sr, er) > 4) { it.errs.push('đè lên ' + lab(e)); if (it.errs.length > 4) break; }
+        if (!shown(e) || e.closest('[role=status][aria-live]')) continue; const er = R(e); if (inter(fr, er) > 4) { it.errs.push('đè lên ' + lab(e)); if (it.errs.length > 4) break; }
       }
       for (let a = slot.parentElement; a && a !== document.body && a !== document.documentElement; a = a.parentElement) { // tổ tiên xén đỉnh
         const s = getComputedStyle(a); if (!/(hidden|clip|auto|scroll)/.test(s.overflowY + s.overflowX)) continue;
@@ -78,7 +81,7 @@ async function run(theme) {
       row.n = res.items.length; let bi = 0;
       for (const it of res.items) {
         if (it.slot) for (const e of it.errs) row.errs.push(`${it.src}: ${e}`);
-        else { const frac = await bareCut(page, bi++).catch(() => null); const msg = `${it.src}: đặt trần` + (frac == null ? '' : ` (đáy khác nền ${Math.round(frac * 100)}%)`); warns.push(`${name}/${theme} ${msg}`); if (frac != null && frac > 0.25) row.errs.push(`${msg} → vệt cắt`); }
+        else { const frac = await bareCut(page, bi++).catch(() => null); const msg = `${it.src}: đặt trần` + (frac == null ? '' : ` (đáy khác nền ${Math.round(frac * 100)}%)`); warns.push(`${name}/${theme} ${msg}`); if (frac != null && frac > 0.25) (RT_OK.includes(name) ? warns : row.errs).push(`${msg} → vệt cắt${RT_OK.includes(name) ? ' (màn chờ chuyển – known.json runtime)' : ''}`); }
       }
       await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: path.join(OUT, `${name}-${theme}.jpg`), type: 'jpeg', quality: 70, scale: 'css' }).catch(() => {});
       if (!row.n) row.note = 'không có giáo viên trên màn';

@@ -252,7 +252,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     off: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#ffffff] lt:[border:1.5px_solid_rgb(226,_232,_231)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#233942] dk:[box-shadow:0_5px_0_#0d1a1e]',
     on: 'group relative p-3.5 min-h-[44px] flex flex-col items-center justify-center gap-1 text-center lt:bg-[#E6F3F2] lt:shadow-sm lt:[border:2px_solid_rgb(13,_105,_100)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#2BA39A] dk:[box-shadow:0_5px_0_#093c37]',
   };
-  const teach2 = who => Chars.slot(who, { pose: 'encourage', size: 'm', cls: 'shrink-0', lazy: true }); // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi); đứng SAU hàng huy hiệu nền đục màu thẻ (-mt-7) → đường hông/chỗ mờ của ảnh đầu→hông khuất hẳn
+  const teach2 = who => Chars.slot(who, { pose: 'encourage', size: 'm', cls: 'shrink-0', lazy: true, style: 'margin-bottom:1.75rem' }); // đứng trên dải huy hiệu băng (-mt-7) bên dưới, bệ không bị che // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi); đứng SAU hàng huy hiệu nền đục màu thẻ (-mt-7) → đường hông/chỗ mờ của ảnh đầu→hông khuất hẳn
   const v2On = () => !!(g.ST2 && g.ST2.streak && App.ux1On && App.ux1On());
   // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
   const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)
