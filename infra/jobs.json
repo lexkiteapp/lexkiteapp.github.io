@@ -221,6 +221,19 @@
    "lease": false
   },
   {
+   "id": "required-gate",
+   "workflow": "required-gate.yml",
+   "cron": [
+    "17,47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false
+  },
+  {
    "id": "content-protect",
    "workflow": "content-protect.yml",
    "cron": [

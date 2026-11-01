@@ -38,6 +38,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:12 | `ci-triage` | `12 * * * *` | reports | gh_minutes | 5 | d1_internal_reads≈10 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
+| 00:17 | `required-gate` | `17,47 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:17 | `lexicon-expand` | `17 */3 * * *` | render | cf_pool, gh_minutes | 120 | cf_pool_neurons≈600000 | ✓ |
 | 00:20 | `word-audio` | `20 */4 * * *` | render | gh_minutes | 150 | — | — |
 | 00:23 | `pages-deploy` | `23 */3 * * *` | publishing | gh_minutes | 2 | — | — |
