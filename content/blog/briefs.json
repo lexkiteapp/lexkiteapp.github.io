@@ -15558,6 +15558,116 @@
       ],
       "angle": "अंग्रेजी के कन्फ्यूजिंग वर्ड्स (affect vs effect, borrow vs lend, sensible vs sensitive) को हिन्दी में समझें: पार्ट्स ऑफ स्पीच, ट्रिक्स और अभ्यास प्रश्न।",
       "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "kak-uchit-slova-dlya-ielts-effektivno-metody",
+      "keyword": "как учить слова для ielts",
+      "topic": "Как эффективно учить академические слова и коллокации для сдачи экзамена IELTS",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "ielts",
+        "vocabulary"
+      ],
+      "shots": [
+        "dict",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/review"
+      ],
+      "angle": "Полное практическое руководство: как эффективно учить слова для IELTS, избегать бессмысленной зубрежки, работать с контекстом, коллокациями и системой интервального повторения FSRS.",
+      "intent": "informational"
+    },
+    {
+      "lang": "fr",
+      "slug": "phrases-anglais-conversation-courante-quotidienne",
+      "keyword": "phrases anglais conversation courante",
+      "topic": "Les phrases essentielles en anglais pour la conversation courante au quotidien",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "Sélection des meilleures phrases en anglais pour la conversation courante: salutations, small talk, exprimer son opinion, réagir naturellement avec audio et mise en situation.",
+      "intent": "informational"
+    },
+    {
+      "lang": "de",
+      "slug": "englische-saetze-fuer-den-alltag-konversation",
+      "keyword": "englische sätze für den alltag",
+      "topic": "Die wichtigsten englischen Sätze für den Alltag und flüssige Konversation",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "Die besten englischen Sätze für den Alltag: Small Talk, Meinungen äußern, Höflichkeitsfloskeln und natürliche Reaktionen im Gespräch mit praktischen Beispielen.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "ilsang-yeongeo-hoehwa-pyohyeon-moeum-chobojah",
+      "keyword": "일상 영어 회화 표현",
+      "topic": "원어민이 매일 쓰는 필수 일상 영어 회화 표현 및 대화 패턴 총정리",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "원어민이 일상에서 가장 자주 사용하는 필수 일상 영어 회화 표현 모음: 인사, 스몰토크, 의견 표현, 맞장구 치기 및 자연스러운 대화 패턴 완벽 정리.",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "ri-chang-ying-yu-kou-yu-chang-yong-ju-xing",
+      "keyword": "日常 英语 口语 常用 句型",
+      "topic": "地道日常英语口语常用句型与高频对话交流表达",
+      "category": "ky-nang",
+      "tags": [
+        "ky-nang",
+        "speaking",
+        "conversation"
+      ],
+      "shots": [
+        "dict",
+        "speaking"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/practice/speak"
+      ],
+      "angle": "精选高频地道的日常英语口语常用句型：涵盖闲聊寒暄、委婉表达观点、化解冷场与自然接话技巧，全场景实用例句深度解析。",
+      "intent": "informational"
     }
   ]
 }
