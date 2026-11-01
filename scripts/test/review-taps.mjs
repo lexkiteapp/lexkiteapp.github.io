@@ -48,6 +48,11 @@ async function run(type, name, opts, scheme) {
   await page.waitForSelector('.v2-review', { timeout: 30000 }); await page.waitForTimeout(800);
   ok(!(await page.evaluate(() => document.body.classList.contains('focus'))), `${tag}: màn Ôn không ở chế độ tập trung (thanh tab hiện)`);
   await page.screenshot({ path: path.join(OUT, `hub-${name}-${scheme}.png`) });
+  { const f = await page.evaluate(() => { const svg = document.querySelector('.v2-review main svg[viewBox="0 0 120 120"]'), lab = svg && svg.parentElement.querySelectorAll('span')[1]; if (!lab) return null; // vòng: r 50 nét 9 (viewBox 120) → lòng tròn r 45.5
+      const s = svg.getBoundingClientRect(), r = s.width * 45.5 / 120, cx = s.left + s.width / 2, cy = s.top + s.height / 2, L = lab.getBoundingClientRect(), ws = [], rg = document.createRange(); rg.selectNodeContents(lab);
+      for (const q of rg.getClientRects()) ws.push(q); const inside = ws.every(q => [[q.left, q.top], [q.right, q.top], [q.left, q.bottom], [q.right, q.bottom]].every(([x, y]) => Math.hypot(x - cx, y - cy) <= r + 0.5));
+      return { inside, w: Math.round(L.width), lines: ws.length }; });
+    ok(f && f.inside, `${tag}: chữ "Cần ôn hôm nay" nằm trọn trong lòng vòng tròn${f ? ` (rộng ${f.w}px, ${f.lines} dòng)` : ''}`); }
   // Kiểm 1 phần tử: cuộn vào giữa, không bị đè, vùng chạm ≥ 44 px, chạm → đúng trang
   const check = async (label, sel, want, nth = 0, inner = null) => {
     await hub(); const loc = page.locator(sel).nth(nth); if (!(await loc.count())) { ok(false, `${tag}: ${label} – không có phần tử (${sel})`); return; }

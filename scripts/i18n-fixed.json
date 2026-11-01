@@ -32039,5 +32039,20 @@
     "ar": "بطاقات مألوفة: {n}",
     "ru": "Знакомые карточки: {n}",
     "tr": "Tanıdık kartlar: {n}"
+  },
+  "{a} quen · {b} mới": {
+    "es": "{a} familiares · {b} nuevas",
+    "pt": "{a} familiares · {b} novos",
+    "fr": "{a} familières · {b} nouvelles",
+    "de": "{a} vertraut · {b} neu",
+    "id": "{a} akrab · {b} baru",
+    "th": "{a} คุ้นเคย · {b} ใหม่",
+    "zh": "{a} 熟悉 · {b} 新",
+    "ja": "{a} 慣れた · {b} 新規",
+    "ko": "{a} 익숙 · {b} 새 카드",
+    "hi": "{a} परिचित · {b} नए",
+    "ar": "{a} مألوفة · {b} جديدة",
+    "ru": "{a} знакомых · {b} новых",
+    "tr": "{a} tanıdık · {b} yeni"
   }
 }

@@ -43,6 +43,7 @@
   "Ghi {n} thẻ vào trí nhớ dài hạn": "Lock {n} cards into long-term memory",
   "{n} sắp quên": "{n} Critical",
   "{n} quen": "{n} Familiar",
+  "{a} quen · {b} mới": "{a} Familiar · {b} New",
   "Bắt đầu ôn": "START REVIEW",
   "Ước tính ~{m} phút": "Estimated study time: ~{m} mins",
   "Bộ thẻ • {n} đang dùng": "Study Decks • {n} Active",
