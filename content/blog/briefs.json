@@ -16657,6 +16657,50 @@
       ],
       "angle": "动名词和不定式的区别深度解析：告别死记硬背，理解指向未来与已发生经验的认知逻辑，精讲stop/remember/try等词义翻转动词及介词加ing铁律。",
       "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "gerundiy-ili-infinitiv-v-angliyskom-pravila-i-raznitsa",
+      "keyword": "герундий или инфинитив в английском",
+      "topic": "Герундий или инфинитив в английском: логика выбора и глаголы с изменением значения",
+      "category": "ngu-phap",
+      "tags": [
+        "gerundiy",
+        "infinitiv",
+        "angliyskaya-grammatika"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "Герундий или инфинитив в английском: понятная логика будущего намерения против реального опыта, глаголы stop, remember, try и железное правило предлогов.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "gerund-ve-infinitive-konu-anlatimi-farklari",
+      "keyword": "gerund ve infinitive konu anlatımı",
+      "topic": "Gerund ve Infinitive Konu Anlatımı: Farklar, Mantık ve Anlamı Değişen Fiiller",
+      "category": "ngu-phap",
+      "tags": [
+        "gerund",
+        "infinitive",
+        "ingilizce-dilbilgisi"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "Gerund ve infinitive konu anlatımı detaylı rehber: Gelecek hedefi ile gerçek deneyim mantığı, stop/remember/try gibi anlamı değişen fiiller ve edat kuralı.",
+      "intent": "informational"
     }
   ]
 }
