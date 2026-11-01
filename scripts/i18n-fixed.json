@@ -32024,5 +32024,20 @@
     "ar": "كوّن الجملة بالإنجليزية",
     "ru": "Составьте предложение на английском",
     "tr": "Cümleyi İngilizce kur"
+  },
+  "Bấm để nghe": {
+    "es": "Toca para escuchar",
+    "pt": "Toque para ouvir",
+    "fr": "Touchez pour écouter",
+    "de": "Zum Anhören tippen",
+    "id": "Ketuk untuk mendengar",
+    "th": "แตะเพื่อฟัง",
+    "zh": "点按收听",
+    "ja": "タップして聞く",
+    "ko": "탭하여 듣기",
+    "hi": "सुनने के लिए टैप करें",
+    "ar": "اضغط للاستماع",
+    "ru": "Нажмите, чтобы слушать",
+    "tr": "Dinlemek için dokun"
   }
 }
