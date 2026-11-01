@@ -227,6 +227,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "ci-filler",
+   "workflow": "ci-filler.yml",
+   "cron": [
+    "4-59/10 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "required-gate",
    "workflow": "required-gate.yml",
    "cron": [

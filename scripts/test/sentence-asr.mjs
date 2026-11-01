@@ -24,3 +24,5 @@ ok(w > 0 && w <= 0.10, `scripts/sentence-asr.py WER_MAX = ${w} – không đư�
 ok(/WER ≤ 10 %/.test(fs.readFileSync('docs/WORD-AUDIO.md', 'utf8')), 'docs/WORD-AUDIO.md phải ghi ngưỡng "WER ≤ 10 %"');
 if (errs.length) { console.error('✗ sentence-asr:\n  ' + errs.slice(0, 20).join('\n  ')); process.exit(1); }
 console.log(`✓ sentence-asr: ${led.size} câu đã kiểm · ${s2.size} khóa -s2 · ${fk.size} câu trượt có lý do`);
+// Phiên âm từ điển → âm vị Kokoro cho phương án render lại (cùng mảng – gọi từ đây để không phải sửa dòng test dài trong package.json)
+await import('./word-ipa.mjs');
