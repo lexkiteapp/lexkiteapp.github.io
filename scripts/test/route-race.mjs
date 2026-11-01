@@ -68,7 +68,8 @@ for (const h of ['#/stats', '#/vocab', '#/settings']) {
 {
   const V0 = w.VImg; let got = false, calls = 0, delays = [];
   w.VImg = { enabled: () => true, loaded: () => got, need: () => { const ms = delays[calls++] ?? 300; return new Promise(r => setTimeout(() => { got = true; r(); }, ms)); }, prefetch() {}, pic: () => '', has: () => false, get: () => null, slot: () => '' };
-  for (const away of ['#/stats', '#/home']) // (màn Ôn Stitch #/review?hub=1 cần cờ ux1 – jsdom không bật; review-taps.mjs kiểm trên WebKit/Chromium thật) {
+  // (màn Ôn Stitch #/review?hub=1 cần cờ ux1 – jsdom không bật; review-taps.mjs kiểm trên WebKit/Chromium thật)
+  for (const away of ['#/stats', '#/home']) {
     got = false; calls = 0;
     await go('#/home', 100); w.location.hash = '#/review'; await tick(40); w.location.hash = away; await settle(600);
     ok(calls > 0, `ôn → ${away}: phiên ôn đã chờ mảnh ảnh (VImg.need được gọi)`);
