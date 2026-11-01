@@ -24,7 +24,7 @@
 2. **Dựng 10–14 bài** (`build`): mỗi từ 2 dạng khác nhau theo dữ liệu có thật (không có câu → không có dạng câu; không có ảnh đúng `từ#loại` → không có dạng ảnh); xen kẽ, không 2 bài liền cùng từ.
 3. **Hàng đợi**: sai → bản sao vào cuối hàng, gắn nhãn **"Lỗi cũ"** (tối đa 2 lần/bài); thanh tiến độ chỉ tăng khi đúng.
 4. **COMBO**: đúng liên tiếp ≥ 3 → hiện "🔥 COMBO ×n", sai → về 0. **Màn kết**: +XP · tỉ lệ đúng · COMBO cao nhất · thời gian · từ cần ôn.
-5. **Phản hồi tức thì** (sheet dưới): đúng/sai, đáp án, nghĩa, IPA + trọng âm, ghi chú US/UK (khi `ipa ≠ ipaUS`), nút **Giải thích** (gold `why` + sai→đúng, hoặc định nghĩa + ví dụ) – 0 AI.
+5. **Phản hồi tức thì** (sheet dưới): đúng/sai, đáp án, nghĩa, IPA + trọng âm, ghi chú US/UK (khi `ipa ≠ ipaUS`), nút **Giải thích**: phần CÂU trước – `lesson/why.js` (lỗi vừa mắc so với đáp án, trật tự từ, từ nhiễu, ví dụ MỚI không lặp câu bài; docs/specs/sentence-builder.md), rồi phần TỪ (gold `why` + sai→đúng, hoặc định nghĩa + ví dụ) – 0 AI.
 6. **"Không nghe được lúc này" / "Không nói được lúc này"**: tắt dạng đó 60 phút (`lk.lsn.off`), các bài còn lại tự đổi sang bản đọc/bản chọn; không trừ điểm.
 7. **Cuối bài → FSRS**: từ sai ≥ 1 lần → `grade 0` (Quên) – chưa có thẻ thì `App.addWord` để vào hàng ôn; từ đến hạn đúng ngay lần đầu → `grade 2`; từ chưa đến hạn đúng → không đổi lịch. XP qua `App.reward`. Demo (`?demo=1`) không ghi gì.
 8. **0 tim, 0 năng lượng, 0 khóa**: không có giới hạn số bài/ngày.
