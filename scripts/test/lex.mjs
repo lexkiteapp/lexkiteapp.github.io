@@ -134,6 +134,29 @@ ok(/Lex\.peekAu/.test(ui), 'UI.speak hỏi cờ âm thanh Lex trước khi tải
   if (has('go')) { const g2 = await D.quick('went'); eq([g2.word, g2.from], ['go', 'went'], 'Dict.quick("went") → mục "go", from="went"'); }
 }
 
+// 9b) Cụm nhiều chữ: không gọi dictionaryapi.dev (chỉ mục một từ → 404 chắc chắn, iOS E2E đỏ "http: 404 …/rose%20slightly");
+//     Wiktionary REST/parse chỉ khi trang của cụm tồn tại (MediaWiki query 200 + missing) – thành ngữ có trang vẫn có định nghĩa
+{
+  Lex._reset(); Lex._setFetch(fakeFetch);
+  const net = [], HAS = new Set(['kick the bucket']);
+  const fetch2 = async u => { net.push(u); const q = /[?&]titles=([^&]+)/.exec(u); if (q) { const t = decodeURIComponent(q[1]); return { ok: true, json: async () => ({ query: { pages: [HAS.has(t) ? { title: t, pageid: 1 } : { title: t, missing: true }] } }) }; }
+    if (/rest_v1\/page\/definition\/kick%20the%20bucket/.test(u)) return { ok: true, json: async () => ({ en: [{ partOfSpeech: 'Verb', definitions: [{ definition: 'To explain' }] }] }) };
+    return /dictionaryapi|rest_v1|action=parse/.test(u) ? { ok: false, status: 404, json: async () => ({}) } : { ok: true, json: async () => ({}) }; };
+  const ctx = { console, setTimeout, clearTimeout, AbortController, TextEncoder, URL, Lex, fetch: fetch2 };
+  ctx.self = ctx; vm.createContext(ctx);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8'), ctx);
+  for (const p of ['the most striking change', 'rose slightly', 'made up']) {
+    net.length = 0; await ctx.Dict.lookup(p, { image: false, examples: false }).catch(() => null); await ctx.Dict.quick(p).catch(() => null);
+    const bad = net.filter(u => /dictionaryapi\.dev|rest_v1\/page\/definition|action=parse/.test(u));
+    ok(!bad.length, `cụm "${p}" (không có trang Wiktionary): không gọi API mục một từ / REST 404 – ${bad.join(' ')}`);
+  }
+  net.length = 0; const af = await ctx.Dict.lookup('kick the bucket', { image: false, examples: false });
+  ok(net.some(u => /rest_v1\/page\/definition\/kick%20the%20bucket/.test(u)) && !net.some(u => /dictionaryapi\.dev/.test(u)), 'cụm có trang Wiktionary ("kick the bucket") vẫn lấy định nghĩa Wiktionary, không gọi dictionaryapi.dev');
+  ok(af && af.found !== false && JSON.stringify(af.meanings || af.oxford || []).includes('To explain'), 'lookup("kick the bucket") có định nghĩa từ Wiktionary');
+  const n0 = net.length; await ctx.Dict.lookup('zyzzyva', { image: false, examples: false }).catch(() => null);
+  ok(net.slice(n0).some(u => /dictionaryapi\.dev\/api\/v2\/entries\/en\/zyzzyva/.test(u)),'từ đơn vẫn dùng dictionaryapi.dev (không cắt nguồn)');
+}
+
 // 10) Cổng nhất quán: build-lexicon (dict-consistency) gọi shards; add-on & các giao diện nạp Lex
 const bg = fs.readFileSync(path.join(ROOT, 'extension/background.js'), 'utf8');
 ok(/importScripts\([^)]*lex\.js/.test(bg), 'add-on service worker nạp lex.js (cùng kho với web)');

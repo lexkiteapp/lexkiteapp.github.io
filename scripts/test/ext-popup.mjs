@@ -40,6 +40,7 @@ const fakeFetch = async url => {
   if (url.includes('api.dictionaryapi.dev')) return res(FREEDICT[decodeURIComponent(url.split('/').pop())] || null);
   if (url.includes('/api/img')) return res(imgReply(q('w')));
   if (url.includes('page/definition')) return res(WIKT_DEF[decodeURIComponent(url.split('/').pop())] || null);
+  if (url.includes('action=query') && q('titles')) return res({ query: { pages: [WIKT_DEF[q('titles')] ? { title: q('titles'), pageid: 1 } : { title: q('titles'), missing: true }] } }); // cụm: hỏi trang tồn tại trước (dictionary.js wikiHas)
   return res(null); // Wiktionary IPA, Tatoeba, Datamuse… → không có
 };
 const sw = { console, Date, Math, JSON, Promise, Map, Set, URL, AbortController, TextEncoder, setTimeout, clearTimeout, fetch: fakeFetch, location: { hostname: 'abcdefghijklmnopabcdefghijklmnop' } };
