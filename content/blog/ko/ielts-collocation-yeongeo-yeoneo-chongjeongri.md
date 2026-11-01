@@ -28,11 +28,11 @@ IELTS 시험에서 고득점, 특히 어휘력(Lexical Resource) 영역에서 7.
 
 학술적이고 격식 있는 글쓰기에서 자주 쓰이는 주요 연어 구조는 다음과 같습니다:
 
-1. **동사 + 명사 (Verb + Noun):** *address an issue*, *pose a threat*, *spark debate*
-2. **형용사 + 명사 (Adjective + Noun):** *pressing concern*, *compelling evidence*, *rapid urbanization*
-3. **명사 + 명사 (Noun + Noun):** *carbon footprint*, *traffic congestion*, *energy consumption*
-4. **동사 + 부사 (Verb + Adverb):** *strongly disagree*, *drastically increase*, *fluctuate wildly*
-5. **부사 + 형용사 (Adverb + Adjective):** *strictly prohibited*, *vitally important*, *deeply rooted*
+1. **동사 + 명사:** *resolve a conflict*, *assume responsibility*, *trigger a reaction*
+2. **형용사 + 명사:** *pressing priority*, *concrete evidence*, *exponential growth*
+3. **명사 + 명사:** *fossil fuels*, *life expectancy*, *air quality*
+4. **동사 + 부사:** *readily admit*, *drop significantly*, *differ substantially*
+5. **부사 + 형용사:** *vitally essential*, *utterly unacceptable*, *highly advantageous*
 
 이러한 정형화된 고급 연어 덩어리를 적절히 구사하면 불필요한 군더더기 문장을 줄이고, 논리적 설득력을 극대화할 수 있습니다.
 
@@ -105,14 +105,13 @@ IELTS Writing Task 2에서 가장 높은 출제 빈도를 자랑하는 핵심 �
 
 시간이 촉박한 실전 시험에서 한국어 어휘를 글자 그대로 1:1 치환할 때 생기는 오류들입니다:
 
-| 어색한 직역 표현 | 원어민다운 올바른 Collocation | 오류의 원인과 뉘앙스 차이 |
+| 한국어식 직역 오류 | 자연스러운 원어민 연어 | 뉘앙스 분석 |
 | :--- | :--- | :--- |
-| *Do a mistake* | **Make a mistake** | 실수는 행동의 수행(*do*)이 아니라 발생(*make*)으로 봅니다. |
-| *Pass an exam* (시험을 치르다) | **Take / Sit an exam** | *Pass*는 '합격하다'이며, 시험을 보는 행위 자체는 *take*입니다. |
-| *Strong rain* | **Heavy rain** | 비가 많이 오는 것은 강한 것(*strong*)이 아니라 무거운 것(*heavy*)으로 묘사합니다. |
-| *Gain a decision* | **Reach a decision** | 회의나 고민 끝에 결론에 도달하는 것은 *reach* 동사를 씁니다. |
-| *Make damage* | **Cause / Do damage** | 손해나 피해를 입히는 것은 *cause* 또는 *do*와 결합합니다. |
-| *Give an opinion* (에세이 서술) | **Express an opinion** | 학술적 글쓰기에서는 *express*나 *voice*가 훨씬 격조 높은 표현입니다. |
+| *Open a meeting* | **Convene a meeting** | 공식 회의를 소집하고 개최할 때는 *convene*을 씁니다. |
+| *See a movie* (대화체 외) | **Watch a film** | 정식 작품을 감상할 때는 *watch*와 *film*의 결합이 자연스럽습니다. |
+| *Strong coffee* | **Rich / Strong coffee** | 커피의 쓴맛과 농도는 *rich*나 *strong*을 정확히 씁니다. |
+| *Say a lie* | **Tell a lie** | 거짓말을 하다에는 동사 *tell*을 결합합니다. |
+| *Pay taxes* (부과하다) | **Impose taxes** | 정부가 세금을 매기는 것은 *impose* 동사를 씁니다. |
 
 이러한 직역의 오류를 바로잡는 것만으로도 어휘 채점 항목에서 큰 폭의 감점을 방지할 수 있습니다.
 
