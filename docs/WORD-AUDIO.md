@@ -81,3 +81,10 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
 - Chưa làm: newtab add-on (`extension/newtab.js`) vẫn phát bản cũ cho từ có `-s2` (bản cũ còn trên CDN).
 - Lượt thử 300 câu (run 41211034940, 31/10): bản đang phục vụ đạt 282/300 (94,0 %); sau render lại đạt 295/300 (98,3 %).
   Trượt thật: từ đơn đọc sai (wine → "Wind", reap → "rape", farm → "Thumbed"). Khoảng 2 s/câu (small.en int8) → 25k câu ≈ 15–20 giờ máy, 6 shard × 1500 câu/lượt.
+
+## Độ phủ – một giọng Kokoro mọi nơi (1/11)
+- `scripts/audio/coverage.mjs`: mọi nhóm nội dung tĩnh app đọc to (kho `scripts/sentence-audio/corpus.mjs` gắn `groups`; từ = `s3.tsv` hoặc khóa câu cùng giọng). Thiếu = giọng máy (mỗi máy một giọng) → mục tiêu 0.
+- Sàn `web/audio/coverage.json` chỉ lên: `audio.yml` chạy `--ratchet` sau mỗi lượt; `scripts/test/audio-coverage.mjs` (npm test) đỏ khi nhóm tụt dưới sàn quá `GRACE` = 25 câu mới chưa render. Mở rộng nhóm = nhóm mới, không nhét vào nhóm cũ.
+- Nhóm theo accent người học có cả `bf_emma` lẫn `af_heart` (trước 1/11 câu ví dụ, bài đọc, câu trả lời mẫu chỉ có giọng Anh). Lời giáo viên #/lesson: khóa cả câu theo giọng nhân vật; thiếu → `UI.tts` thử từng câu rồi mới giọng máy.
+- `audio.yml`: ma trận shard động `scripts/ci/shards.mjs` = min(24, 40 − job đang chạy − 8, ⌈câu/500⌉).
+- Ngoài phạm vi: nghĩa tiếng mẹ đẻ ở Học rảnh tay (15 ngôn ngữ, Kokoro không có tiếng Việt) và câu động (AI, tra trang) – xem [TTS-AB](TTS-AB.md).
