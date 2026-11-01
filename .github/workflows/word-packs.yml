@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [scripts/gen-word-packs.mjs, .github/workflows/word-packs.yml]
+    paths: [scripts/gen-word-packs.mjs, scripts/lib/pack-gloss.mjs, content/wordlists/*.gloss.json, .github/workflows/word-packs.yml]
 permissions:
   contents: write
 concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chung hàng đợi: không gọi Google Translate song song (tránh bị chặn)
@@ -23,6 +23,9 @@ jobs:
       - name: Dịch & tinh chỉnh
         run: |
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-word-packs.mjs "$l" --refine 450 || echo "lỗi $l"; done
+      - name: Đối chiếu ngược (mẫu 40 từ/ngôn ngữ) – báo mục nghi sai vào job summary, không chặn lưu
+        continue-on-error: true
+        run: node scripts/pack-backcheck.mjs all --sample 40 --max-bad 15
       - name: Lưu kết quả (lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
         run: |
           git config user.name "lexkite-bot"
