@@ -14337,6 +14337,138 @@
       ],
       "angle": "手把手教你攻破雅思阅读中最易失分的判断题，掌握逻辑矛盾判定法，杜绝主观臆断与过度推导。",
       "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "ya-si-ting-li-ti-fen-ji-qiao-ielts-listening",
+      "keyword": "雅思听力 技巧 ielts listening",
+      "topic": "雅思听力提分技巧全攻略：9大实战法则与干扰项破解秘诀",
+      "category": "ielts",
+      "tags": [
+        "listening",
+        "ielts",
+        "exam-tips"
+      ],
+      "shots": [
+        "practice-speak",
+        "mock"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/mock"
+      ],
+      "angle": "系统梳理雅思听力提分避坑技巧：审题预判、数字拼写规范、干扰项（Distractors）破解、以及录音只放一遍时的心态调整与专项突破。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "ielts-listening-taisaku-kotsu-score-up",
+      "keyword": "ielts リスニング コツ listening 対策",
+      "topic": "IELTSリスニング対策完全ガイド：スコアを落とさない9つの実践のコツ",
+      "category": "ielts",
+      "tags": [
+        "listening",
+        "ielts",
+        "exam-tips"
+      ],
+      "shots": [
+        "practice-speak",
+        "mock"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/mock"
+      ],
+      "angle": "IELTSリスニングで確実にスコアを伸ばす9つの実践テクニック。先読み予測、ひっかけ問題（distractors）の回避法、スペルミスの撲滅からパート別勉強法まで徹底解説。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "ielts-listening-jeonryak-score-up-bibeop",
+      "keyword": "ielts 리스닝 팁 listening 공부법",
+      "topic": "IELTS 리스닝 만점 공략법: 감점을 없애는 9가지 실전 전략",
+      "category": "ielts",
+      "tags": [
+        "listening",
+        "ielts",
+        "exam-tips"
+      ],
+      "shots": [
+        "practice-speak",
+        "mock"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/mock"
+      ],
+      "angle": "단 한 번 들려주는 IELTS 리스닝 시험에서 고득점을 사수하는 핵심 노하우. 사전 문제 분석, 함정(distractor) 간파법, 철자 실수 방지 및 파트별 실전 훈련 가이드.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "thikhnik-ielts-listening-tham-khanaen",
+      "keyword": "เทคนิค ielts listening ทำคะแนน",
+      "topic": "รวมเทคนิค IELTS Listening ทำคะแนน: 9 เคล็ดลับดักจับคะแนนและหลบหลุมพราง",
+      "category": "ielts",
+      "tags": [
+        "listening",
+        "ielts",
+        "exam-tips"
+      ],
+      "shots": [
+        "practice-speak",
+        "mock"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/mock"
+      ],
+      "angle": "สรุปเทคนิคการทำข้อสอบ IELTS Listening ให้ได้ Band สูง: วิธีอ่านโจทย์ล่วงหน้า, การจับกับดักการเปลี่ยนใจของคู่สนทนา, ข้อควรระวังเรื่องตัวสะกดและการนับจำนวนคำ.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "ielts-listening-tips-in-hindi-guide",
+      "keyword": "ielts listening tips in hindi",
+      "topic": "IELTS Listening Tips in Hindi: परीक्षा में आसान अंक बचाने के 9 व्यावहारिक नियम",
+      "category": "ielts",
+      "tags": [
+        "listening",
+        "ielts",
+        "exam-tips"
+      ],
+      "shots": [
+        "practice-speak",
+        "mock"
+      ],
+      "routes": [
+        "/#/listening",
+        "/#/mock"
+      ],
+      "angle": "हिन्दी में समझें IELTS Listening में उच्च बैंड स्कोर लाने के 9 सटीक नियम: प्रश्नों का पूर्वावलोकन, विकर्षक (distractors) की पहचान, सटीक वर्तनी और शांत मन से परीक्षा देने की तकनीक।",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "tecnicas-skimming-scanning-ielts-reading-pt",
+      "keyword": "skimming e scanning ielts reading",
+      "topic": "Skimming e Scanning no IELTS Reading: O Guia Definitivo para Ler Rápido",
+      "category": "ielts",
+      "tags": [
+        "reading",
+        "ielts",
+        "exam-tips"
+      ],
+      "shots": [
+        "reading",
+        "read-article"
+      ],
+      "routes": [
+        "/#/reading",
+        "/#/mistakes"
+      ],
+      "angle": "Aprenda a aplicar as técnicas de skimming e scanning no IELTS Reading para encontrar respostas em segundos sem precisar ler o texto palavra por palavra.",
+      "intent": "informational"
     }
   ]
 }
