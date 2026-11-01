@@ -1,9 +1,9 @@
 {
- "score": 95,
+ "score": 100,
  "gates": {
   "voice_is_teacher": true,
   "english_only": true,
-  "pace_le_150wpm": false,
+  "pace_le_150wpm": true,
   "hook_le_1_5s": true,
   "duration_15_30s": true,
   "lipsync_lag_le_45ms": true,
@@ -33,8 +33,8 @@
  "above_b1": [],
  "deeplink": "#/grammar",
  "native_font": "BeVietnamPro-Bold.ttf",
- "lufs": -16.3,
- "truePeak": -1.4,
+ "lufs": -16.4,
+ "truePeak": -1.5,
  "voices": [
   {
    "who": "carlos",
@@ -53,13 +53,13 @@
    "voice": "am_fenrir"
   }
  ],
- "total": 15.525,
+ "total": 19.325,
  "words": 37,
- "wpmSpeech": 169,
- "wpmOverall": 143,
- "firstVoicedS": 0.28,
- "lagMaxAbsMs": 10,
- "visemePctMin": 89,
+ "wpmSpeech": 131,
+ "wpmOverall": 115,
+ "firstVoicedS": 0.26,
+ "lagMaxAbsMs": 20,
+ "visemePctMin": 91,
  "flicker": 0,
  "blinksPerMin": 19,
  "rows": [
@@ -67,17 +67,17 @@
    "k": 0,
    "emo": "explain",
    "hand": "",
-   "dur": 4.3,
-   "lagMs": 0,
-   "visemePct": 94,
+   "dur": 5.475,
+   "lagMs": 10,
+   "visemePct": 93,
    "flicker": 0
   },
   {
    "k": 1,
    "emo": "explain",
    "hand": "",
-   "dur": 3.05,
-   "lagMs": 0,
+   "dur": 3.9,
+   "lagMs": 10,
    "visemePct": 98,
    "flicker": 0
   },
@@ -85,7 +85,7 @@
    "k": 2,
    "emo": "encourage",
    "hand": "",
-   "dur": 3.125,
+   "dur": 4.1,
    "lagMs": 0,
    "visemePct": 91,
    "flicker": 0
@@ -94,9 +94,9 @@
    "k": 3,
    "emo": "happy",
    "hand": "",
-   "dur": 2.7,
-   "lagMs": 10,
-   "visemePct": 89,
+   "dur": 3.5,
+   "lagMs": 20,
+   "visemePct": 95,
    "flicker": 0
   }
  ],

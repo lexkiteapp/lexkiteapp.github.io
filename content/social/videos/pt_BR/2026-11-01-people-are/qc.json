@@ -1,0 +1,137 @@
+{
+ "score": 95,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": false,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": true
+ },
+ "safe_box": [
+  147.25,
+  272,
+  932.375,
+  1513
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/grammar",
+ "native_font": "BeVietnamPro-Bold.ttf",
+ "lufs": -16.2,
+ "truePeak": -1.5,
+ "voices": [
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  },
+  {
+   "who": "ama",
+   "voice": "af_bella"
+  }
+ ],
+ "total": 18.95,
+ "words": 35,
+ "wpmSpeech": 127,
+ "wpmOverall": 111,
+ "firstVoicedS": 0.43,
+ "lagMaxAbsMs": 20,
+ "visemePctMin": 79,
+ "flicker": 0,
+ "blinksPerMin": 19,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 4.175,
+   "lagMs": 20,
+   "visemePct": 88,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 5.125,
+   "lagMs": 10,
+   "visemePct": 92,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "encourage",
+   "hand": "palm",
+   "dur": 3.5,
+   "lagMs": 10,
+   "visemePct": 79,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "happy",
+   "hand": "thumb",
+   "dur": 3.8,
+   "lagMs": 0,
+   "visemePct": 89,
+   "flicker": 0
+  }
+ ],
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true
+  },
+  "back": {
+   "hook": "Do you say “people are”?",
+   "caption": "In Portuguese we say “the people are”, but in English “people” is always plural: “people are”. Say “People are nice”, never “people are”. Repeat with Ama and practice grammar on the Lexkite app.",
+   "glosses": [
+    {
+     "word": "people",
+     "sense": 1,
+     "gloss": "pessoas",
+     "back": "people"
+    }
+   ]
+  },
+  "sim": {
+   "hook": 0.75,
+   "caption": 0.9
+  }
+ }
+}

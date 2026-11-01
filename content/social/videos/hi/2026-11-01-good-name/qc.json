@@ -1,0 +1,137 @@
+{
+ "score": 95,
+ "gates": {
+  "voice_is_teacher": true,
+  "english_only": true,
+  "pace_le_150wpm": true,
+  "hook_le_1_5s": true,
+  "duration_15_30s": true,
+  "lipsync_lag_le_45ms": true,
+  "viseme_ge_80pct": true,
+  "no_mouth_flicker": true,
+  "blink_6_30_per_min": true,
+  "loudness_-16_lufs": true,
+  "reduced_motion_variant": true,
+  "caption_contrast": true,
+  "frames_eq_duration": true,
+  "safe_zone_9x16": true,
+  "caption_sync_kokoro": true,
+  "english_spelling": true,
+  "english_le_b1": true,
+  "deeplink_real_route": true,
+  "script_logic": true,
+  "native_text_qa": true,
+  "native_glyphs": false
+ },
+ "safe_box": [
+  102.2421875,
+  260,
+  972.4765625,
+  1513
+ ],
+ "misspelled": [],
+ "above_b1": [],
+ "deeplink": "#/phrases",
+ "native_font": "NotoSansDevanagari-Bold.ttf",
+ "lufs": -16.6,
+ "truePeak": -1.4,
+ "voices": [
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  },
+  {
+   "who": "carlos",
+   "voice": "am_fenrir"
+  }
+ ],
+ "total": 20.6,
+ "words": 40,
+ "wpmSpeech": 132,
+ "wpmOverall": 117,
+ "firstVoicedS": 0.32,
+ "lagMaxAbsMs": 10,
+ "visemePctMin": 86,
+ "flicker": 0,
+ "blinksPerMin": 15,
+ "rows": [
+  {
+   "k": 0,
+   "emo": "explain",
+   "hand": "",
+   "dur": 4.75,
+   "lagMs": 10,
+   "visemePct": 93,
+   "flicker": 0
+  },
+  {
+   "k": 1,
+   "emo": "explain",
+   "hand": "",
+   "dur": 4.625,
+   "lagMs": 0,
+   "visemePct": 95,
+   "flicker": 0
+  },
+  {
+   "k": 2,
+   "emo": "encourage",
+   "hand": "",
+   "dur": 4.7,
+   "lagMs": 10,
+   "visemePct": 87,
+   "flicker": 0
+  },
+  {
+   "k": 3,
+   "emo": "happy",
+   "hand": "",
+   "dur": 4.175,
+   "lagMs": 10,
+   "visemePct": 86,
+   "flicker": 0
+  }
+ ],
+ "cost": {
+  "kling_credits": 0,
+  "usd": 0,
+  "ci_minutes_note": "xem thời gian job rig-sample"
+ },
+ "native": {
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "i18n_script": true,
+   "glosses_from_lexicon": true,
+   "hashtags": true,
+   "lengths": true,
+   "backcheck_meaning": true,
+   "gloss_backcheck": true
+  },
+  "back": {
+   "hook": "Stop saying “Good name”!",
+   "caption": "In India “What is your good name?” It's common, but most English speakers find it strange. Just say “What is your name?” (Name). Even more polite: “May I have your name, please?” Carlos Repeat after the teacher and practice in the Lexkite app.",
+   "glosses": [
+    {
+     "word": "name",
+     "sense": 1,
+     "gloss": "नाम",
+     "back": "Name"
+    }
+   ]
+  },
+  "sim": {
+   "hook": 1,
+   "caption": 0.97
+  }
+ }
+}
