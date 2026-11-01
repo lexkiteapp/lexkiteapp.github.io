@@ -9,7 +9,7 @@ tags: [vocabulary, speaking, phrasal-verbs]
 keyword: "english phrasal verbs in hindi"
 cover: practice-learn
 coverAlt: "लेक्सकाइट ऐप पर अंग्रेजी शब्दावली और बहुविकल्पीय अभ्यास स्क्रीन"
-publishAt: ""
+publishAt: 2026-11-27T20:59:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

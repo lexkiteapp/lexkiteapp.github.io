@@ -33,6 +33,7 @@ quiz: [
     explain: "Союзы Although, Even though, Whereas и While вводят придаточные уступки (Adverbial clauses of concession), демонстрируя высокий уровень синтаксиса."
   }
 ]
+publishAt: 2026-11-24T20:54:00+03:00
 ---
 В официальных критериях оценки IELTS Writing Task 2 по параметру **Grammatical Range and Accuracy (GRA)** для получения Band 7.0 черным по белому написано: *«Uses a variety of complex structures with good flexibility and accuracy»*. Если ваше сочинение состоит исключительно из простых предложений (*Simple Sentences*) и цепочек с союзами *and, but, so* (*Compound Sentences*), экзаменатор не сможет поставить оценку выше 5.5–6.0, даже при безупречной лексике.
 

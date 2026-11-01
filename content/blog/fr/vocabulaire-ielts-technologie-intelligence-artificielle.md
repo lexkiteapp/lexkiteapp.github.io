@@ -33,6 +33,7 @@ quiz: [
     explain: "'Algorithmic bias' (biais algorithmique) est le concept clé pour aborder l'éthique de l'IA dans l'IELTS Writing Task 2."
   }
 ]
+publishAt: 2026-11-26T20:57:00+01:00
 ---
 Dans les épreuves récentes de l'IELTS, qu'il s'agisse de la dissertation d'argumentation (**Writing Task 2**) ou des échanges du **Speaking Part 3**, maîtriser un **vocabulaire ielts technologie** précis est devenu indispensable. Le thème de l'intelligence artificielle (IA) et de l'automatisation figure parmi les sujets les plus fréquents et exigeants. Les examinateurs testent la capacité des candidats à débattre d'enjeux sociétaux cruciaux : *« L'automatisation va-t-elle détruire des millions d'emplois ? »*, *« La surveillance algorithmique menace-t-elle nos libertés ? »* ou *« Les écrans aggravent-ils l'isolement ? »*.
 

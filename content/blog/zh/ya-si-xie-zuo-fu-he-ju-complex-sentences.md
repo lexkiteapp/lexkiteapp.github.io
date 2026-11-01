@@ -33,6 +33,7 @@ quiz: [
     explain: "Band 7 评分标准明确要求考生能灵活运用多样化的复杂句型结构（a variety of complex structures），且大部分句子做到准确无误。"
   }
 ]
+publishAt: 2026-11-26T08:40:00+08:00
 ---
 很多雅思考生在查阅雅思写作官方评分标准（Band Descriptors）时，对“语法多样性与准确性（Grammatical Range and Accuracy）”这一项往往存在巨大的认知偏差。
 

@@ -48,6 +48,7 @@ quiz: [
     explain: "Dalam percakapan alami kata fungsional hampir selalu melemah menjadi schwa; menekannya berlebihan membuat irama kalimat terdengar tidak alami."
   }
 ]
+publishAt: 2026-12-10T07:19:00+07:00
 ---
 
 Menguasai **teknik shadowing bahasa inggris** secara konsisten merupakan rahasia utama para poliglot untuk mendobrak kendala berbicara kaku dan terbata-bata. Banyak pembelajar mampu memahami kalimat rumit saat membaca buku atau menonton film dengan takarir, namun lidah seketika kelu saat harus merangkai kalimat serupa dalam percakapan nyata. Hambatan ini muncul bukan karena minimnya hafalan kosakata, melainkan karena otot artikulasi mulut dan jalur auditori otak belum terbiasa bergerak secara otomatis.

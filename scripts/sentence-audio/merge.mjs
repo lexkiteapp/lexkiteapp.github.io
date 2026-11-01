@@ -9,9 +9,11 @@ const { jobs } = collect(), { have, s2 } = readIndex(), led = readLedger(), clea
 const fails = new Map((fs.existsSync(FAIL) ? fs.readFileSync(FAIL, 'utf8') : '').split('\n').slice(1).filter(Boolean).map(l => [l.split('\t')[0], l]));
 const run = { ok: 0, s2: 0, fail: 0 };
 for (const [k, v] of Object.entries(res)) {
-  if (led.has(k) || !have.has(k) || !jobs.has(k) || String(v).startsWith('pending')) continue;
+  // kết quả cuối ok/s2 không bị ghi đè; "fail" được thử lại (todo.mjs --retry-fail) – đạt thì rời asr-fail.tsv
+  if ((led.has(k) && led.get(k) !== 'fail') || !have.has(k) || !jobs.has(k) || String(v).startsWith('pending')) continue;
   const st = v === 'ok' ? 'ok' : v === 's2' ? 's2' : 'fail'; led.set(k, st); run[st]++;
   if (st === 's2') s2.add(k);
+  if (st !== 'fail') fails.delete(k);
   if (st === 'fail') { const j = jobs.get(k); fails.set(k, [k, j.voice, clean(v), clean(j.text)].join('\t')); }
 }
 fs.mkdirSync(LEDGER.replace(/\/[^/]*$/, ''), { recursive: true });

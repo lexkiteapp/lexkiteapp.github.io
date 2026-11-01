@@ -48,6 +48,7 @@ quiz: [
     explain: "記事は、漠然とした「nature」より fragile ecosystems や biodiverse habitats のような精密な語を使うと学術的な印象が高まると説明しています。"
   }
 ]
+publishAt: 2026-12-03T09:12:00+09:00
 ---
 
 **IELTS 環境 単語** や地球温暖化、再生可能エネルギーの導入、生物多様性の保護といった環境問題は、**IELTS Writing Task 2** および **Speaking Part 3** で最も頻出するテーマの一つです。多くの日本人受験者は環境問題のエッセイを書く際、*«the environment is getting worse»*, *«we must protect nature»*, *«cars make dirty smoke»* といった中学レベルの平易な表現を繰り返してしまい、語彙力（Lexical Resource）のスコアがBand 5.5〜6.0で停滞してしまうケースが後を絶ちません。
