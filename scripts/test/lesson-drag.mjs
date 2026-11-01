@@ -60,7 +60,7 @@ ok(order.join() === '0,1' && /Đã gỡ/.test(said), 'phím Delete: gỡ');
 locked = true; P('pointerdown', tile(ans, 1), 70, 20); P('pointermove', doc, 90, 30); P('pointermove', doc, 0, 20); P('pointerup', doc, 0, 20);
 ok(order.join() === '0,1', 'đã chấm: không kéo được');
 // CSS: giảm chuyển động + không chặn cuộn ngoài ô
-const css = fs.readFileSync('web/css/st-lesson.css', 'utf8');
+const css = fs.readFileSync('web/css/tactile-x.css', 'utf8');
 ok(/prefers-reduced-motion:reduce\)\{\.lsn-ghost\{transition:none/.test(css) && /\.lsn-ans \.lsn-tile,\.lsn-bank \.lsn-tile\{touch-action:none/.test(css), 'CSS: reduced-motion + touch-action chỉ trên ô');
 
 console.log(`\n${total - fails}/${total} lesson-drag`);
