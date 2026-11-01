@@ -76,6 +76,12 @@ const pvAfter = pv(H.dayOf(NOW), 'home');
 ok(pvAfter === 2, 'máy tự động không cộng lượt xem từng trang (chỉ người thật + cubot = 2)');
 // bot gửi lỗi JS / add-on → bỏ
 await hit({ t: 'e', msg: 'boom', src: 'x.js' }, { asn: 8075 }); ok(!sql.prepare("SELECT 1 FROM errors WHERE msg = 'boom'").get(), 'lỗi JS từ máy chủ đám mây không ghi');
+// lỗi JS từ bản dev/preview → bỏ (bảng admin chỉ đếm lỗi của bản người học đang chạy); bản chính, add-on, app native → giữ
+for (const o of ['http://localhost:8080', 'http://127.0.0.1:4173', 'https://say-native.lexkite.pages.dev', 'https://1a2b3c4d.lexkite.pages.dev']) await hit({ t: 'e', msg: 'dev ' + o, src: 'x.js' }, { headers: { Origin: o } });
+ok(!sql.prepare("SELECT 1 FROM errors WHERE msg LIKE 'dev %'").get(), 'lỗi JS từ localhost:<cổng> / preview *.lexkite.pages.dev không ghi');
+await hit({ t: 'e', msg: 'devref', src: 'x.js' }, { headers: { Referer: 'https://fix-x.lexkite.pages.dev/app/#/say' } }); ok(!sql.prepare("SELECT 1 FROM errors WHERE msg = 'devref'").get(), 'lỗi JS có Referer preview không ghi');
+for (const o of ['https://lexkite.com', 'https://lexkite.pages.dev', 'chrome-extension://lgjmmabcdefghijklmnopabcdefghijk', 'https://localhost', 'capacitor://localhost']) await hit({ t: 'e', msg: 'prod ' + o, src: 'x.js' }, { headers: { Origin: o } });
+ok(sql.prepare("SELECT COUNT(*) AS n FROM errors WHERE msg LIKE 'prod %'").get().n === 5, 'lỗi JS từ lexkite.com / add-on / app native vẫn ghi');
 await hit({ t: 'x', vid: 'extciaaaaaa', ev: { install: 1 } }, { asn: 8075 }); ok(!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'install'").get(), 'add-on cài trên CI không tính lượt cài');
 
 // ---------- 3) Gộp trùng theo sid · bot không "hoá người" · trang quản trị ----------
