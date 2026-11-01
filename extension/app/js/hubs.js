@@ -43,6 +43,12 @@
     const { total } = Core.Cards.dueCount(state.cards, state.settings, state.stats);
     const deck = Object.values(state.cards), mastered = deck.filter(c => c.srs && c.srs.interval >= 21).length;
     const ex = App.exam();
+    // Cờ ux1 bật → khung Stitch v2 (brand/stitch/v2/bind/hub-vocab.json); tắt hoặc thiếu khung → bản cũ bên dưới (đủ mục như nhau)
+    if (App.ux1On && App.ux1On() && window.ST2 && ST2['hub-vocab']) {
+      return ST2.mount(view, 'hub-vocab', { exam: EXAMS[ex].short, due: String(total), deckN: deck.length, mastered, deckChip: deck.length ? String(deck.length) : '',
+        deckStat: t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered }), cta: total ? t('Ôn ngay') : t('Học từ mới'), ctaHref: total ? '#/review' : '#/path',
+        ctaAria: total ? t('Ôn {n} thẻ hôm nay', { n: total }) : t('Không còn thẻ cần ôn – học từ mới nhé'), libHref: '#/library' + (ex === 'toeic' ? '?g=toeic' : '') }, 'train');
+    }
     view.innerHTML = head(UI.icon('library') + ' ' + t('Từ vựng'), t('Học từ mới, ôn đúng lúc sắp quên và tra cứu nhanh.'))
       + `<a class="card hover hub-hero" href="#/review"><span class="hub-ic" aria-hidden="true">${UI.icon('layers')}</span><span class="hub-tx"><b>${total ? t('Ôn {n} thẻ hôm nay', { n: total }) : t('Không còn thẻ cần ôn – học từ mới nhé')}</b><small>${t('Ôn đúng lúc sắp quên giúp nhớ lâu gấp nhiều lần')}</small></span><span class="btn primary sm">${total ? t('Ôn ngay') : t('Học từ mới')} →</span></a>`
       + sect(t('Học & ôn'), card('#/path', UI.icon('map'), t('Lộ trình từ vựng'), t('Từng chặng nhỏ, mở khóa dần theo trình độ'))

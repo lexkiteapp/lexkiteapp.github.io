@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Skills Hub</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed": "#88f5ea",
+            "inverse-primary": "#006a64",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-secondary-fixed": "#3f0300",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container-high": "#202c2f",
+            "surface-container": "#162125",
+            "surface-variant": "#2b373a",
+            "tertiary": "#f4bf40",
+            "primary": "#6bd8ce",
+            "on-tertiary-fixed": "#261a00",
+            "error-container": "#93000a",
+            "surface-container-highest": "#2b373a",
+            "primary-container": "#2ba39a",
+            "outline-variant": "#3d4947",
+            "on-primary": "#003733",
+            "surface-container-lowest": "#051013",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-bright": "#2f3b3e",
+            "on-primary-fixed": "#00201e",
+            "surface-tint": "#6bd8ce",
+            "surface": "#091518",
+            "on-tertiary-container": "#392900",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-dim": "#091518",
+            "on-tertiary": "#402e00",
+            "background": "#091518",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-surface": "#d8e5e9",
+            "on-error": "#690005",
+            "secondary-container": "#981201",
+            "secondary-fixed": "#ffdad3",
+            "tertiary-fixed-dim": "#f4bf40",
+            "tertiary-container": "#ba8b00",
+            "on-secondary": "#660800",
+            "on-background": "#d8e5e9",
+            "inverse-on-surface": "#263236",
+            "surface-container-low": "#121d20",
+            "outline": "#879391",
+            "secondary": "#ffb4a6",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "inverse-surface": "#d8e5e9",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary-container": "#ffa493",
+            "on-primary-container": "#00322e"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "sm": "0.25rem",
+            "md": "0.75rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #091518;
+      color: #d8e5e9;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tactile-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 rgba(0,0,0,0.6);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-surface flex justify-center antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- 390px Edge-to-Edge Mobile Canvas (No outer frame/bezel) -->
+<div class="w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-24 overflow-x-hidden">
+<!-- 1. HUB TOP APP BAR (Sticky / Top) -->
+<header class="sticky top-0 z-40 w-full bg-[#091518] border-b border-[#1b2a2e] px-4 py-2.5 flex items-center justify-between">
+<!-- Left: Brand Kite Logo & Wordmark -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#12282a] border border-[#204543] flex items-center justify-center text-[#6bd8ce] shadow-[0_2px_0_0_#061113]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">kitesurfing</span>
+</div>
+<span class="font-extrabold text-[17px] tracking-tight text-[#f1f5f6]">Lexkite</span>
+</div>
+<!-- Right: Status / Exam Cluster -->
+<div class="flex items-center gap-1.5">
+<!-- Exam Pill -->
+<span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold tracking-wider bg-[#102528] text-[#6bd8ce] border border-[#1e3e40]">
+          IELTS
+        </span>
+<!-- Streak Badge -->
+<div class="flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-[#1b1c14] border border-[#3b3518] text-[#f4bf40] text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>14</span>
+</div>
+<!-- Star Score Badge -->
+<div class="flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-[#1b1c14] border border-[#3b3518] text-[#f4bf40] text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>820</span>
+</div>
+<!-- User Avatar Initial -->
+<div class="w-7 h-7 rounded-full bg-[#2ba39a] text-[#00322e] font-extrabold text-xs flex items-center justify-center ml-0.5 shadow-[0_1px_0_0_#00201e]">
+          L
+        </div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 pt-4 flex flex-col gap-4">
+<!-- 2. HEADER SECTION -->
+<section class="flex flex-col gap-1.5">
+<!-- Tag Pill -->
+<div class="self-start inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#0f2e2d] text-[#38d9cb] border border-[#1d4a46] text-[11px] font-extrabold tracking-wide uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-[#38d9cb]"></span>
+<span>CORE MASTERY</span>
+</div>
+<!-- Heading + Module Badge -->
+<div class="flex items-center justify-between mt-0.5">
+<h1 class="text-[24px] font-extrabold text-[#f1f5f6] tracking-tight leading-none">Skills Hub</h1>
+<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#162125] text-[#8fa4a8] border border-[#203338]">
+            4 Core Modules
+          </span>
+</div>
+<!-- Subtitle -->
+<p class="text-[13px] font-medium text-[#a3b7ba] leading-snug">
+          Adaptive multi-modal drills aligned with Cambridge IELTS Band 7.5+ metrics.
+        </p>
+</section>
+<!-- 3. 2x2 CORE MODULE CARDS -->
+<section class="grid grid-cols-2 gap-3">
+<!-- Listening Card -->
+<div class="bg-[#121d20] border border-[#203338] rounded-xl p-3.5 flex flex-col justify-between shadow-[0_4px_0_0_#071114] tactile-btn transition-transform">
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-[#182a2e] border border-[#234246] flex items-center justify-center text-[#38d9cb] shadow-[0_2px_0_0_#0a1518]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">headphones</span>
+</div>
+<!-- Circular Progress Badge -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8 transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="14" stroke="#1c2d31" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="14" stroke="#38d9cb" stroke-dasharray="88" stroke-dashoffset="28" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<span class="absolute text-[10px] font-extrabold text-[#38d9cb]">68%</span>
+</div>
+</div>
+<div>
+<h2 class="text-[15px] font-bold text-[#f1f5f6] leading-tight">Listening</h2>
+<p class="text-[11px] text-[#94a9ad] mt-0.5">Parts 1–4 Audio</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#1a2b2f] flex items-center justify-between text-[#6bd8ce] font-extrabold text-xs">
+<span>Practice</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</div>
+</div>
+<!-- Reading Card -->
+<div class="bg-[#121d20] border border-[#203338] rounded-xl p-3.5 flex flex-col justify-between shadow-[0_4px_0_0_#071114] tactile-btn transition-transform">
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-[#242114] border border-[#443a18] flex items-center justify-center text-[#f4bf40] shadow-[0_2px_0_0_#0a1518]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<!-- Circular Progress Badge -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8 transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="14" stroke="#1c2d31" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="14" stroke="#f4bf40" stroke-dasharray="88" stroke-dashoffset="23" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<span class="absolute text-[10px] font-extrabold text-[#f4bf40]">74%</span>
+</div>
+</div>
+<div>
+<h2 class="text-[15px] font-bold text-[#f1f5f6] leading-tight">Reading</h2>
+<p class="text-[11px] text-[#94a9ad] mt-0.5">Passages 1–3</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#1a2b2f] flex items-center justify-between text-[#6bd8ce] font-extrabold text-xs">
+<span>Practice</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</div>
+</div>
+<!-- Writing Card -->
+<div class="bg-[#121d20] border border-[#203338] rounded-xl p-3.5 flex flex-col justify-between shadow-[0_4px_0_0_#071114] tactile-btn transition-transform">
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-[#271d2e] border border-[#492d5c] flex items-center justify-center text-[#cb96ff] shadow-[0_2px_0_0_#0a1518]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+</div>
+<!-- Circular Progress Badge -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8 transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="14" stroke="#1c2d31" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="14" stroke="#cb96ff" stroke-dasharray="88" stroke-dashoffset="42" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<span class="absolute text-[10px] font-extrabold text-[#cb96ff]">52%</span>
+</div>
+</div>
+<div>
+<h2 class="text-[15px] font-bold text-[#f1f5f6] leading-tight">Writing</h2>
+<p class="text-[11px] text-[#94a9ad] mt-0.5">Task 1 &amp; Task 2</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#1a2b2f] flex items-center justify-between text-[#6bd8ce] font-extrabold text-xs">
+<span>Practice</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</div>
+</div>
+<!-- Speaking Card -->
+<div class="bg-[#121d20] border border-[#203338] rounded-xl p-3.5 flex flex-col justify-between shadow-[0_4px_0_0_#071114] tactile-btn transition-transform">
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-[#142923] border border-[#1b4b3c] flex items-center justify-center text-[#55e7ad] shadow-[0_2px_0_0_#0a1518]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<!-- Circular Progress Badge -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="w-8 h-8 transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="14" stroke="#1c2d31" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="14" stroke="#55e7ad" stroke-dasharray="88" stroke-dashoffset="35" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<span class="absolute text-[10px] font-extrabold text-[#55e7ad]">60%</span>
+</div>
+</div>
+<div>
+<h2 class="text-[15px] font-bold text-[#f1f5f6] leading-tight">Speaking</h2>
+<p class="text-[11px] text-[#94a9ad] mt-0.5">Part 1, 2 &amp; 3</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#1a2b2f] flex items-center justify-between text-[#6bd8ce] font-extrabold text-xs">
+<span>Practice</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- 4. PROMO / MARATHON BANNER -->
+<section class="bg-[#0c2827] border border-[#1a4d48] rounded-xl p-3.5 flex items-center justify-between shadow-[0_4px_0_0_#051514]">
+<div class="flex items-start gap-2.5 pr-2">
+<div class="w-9 h-9 rounded-lg bg-[#163e3b] border border-[#235d57] flex-shrink-0 flex items-center justify-center text-[#f4bf40] mt-0.5 shadow-[0_2px_0_0_#071a19]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h3 class="text-[13px] font-extrabold text-[#f1f5f6] leading-tight">Mock Test Marathon</h3>
+<p class="text-[11px] text-[#93b5b1] mt-0.5 leading-snug">Complete 2 drills to earn 50 XP bonus</p>
+</div>
+</div>
+<button class="flex-shrink-0 bg-[#f59e0b] text-[#1a0f02] font-extrabold text-xs px-3 py-2 rounded-lg shadow-[0_4px_0_0_#b45309] active:translate-y-0.5 active:shadow-[0_2px_0_0_#b45309] transition-transform">
+          Boost XP
+        </button>
+</section>
+<!-- 5. SPECIALIZED PRACTICE SECTION -->
+<section class="flex flex-col gap-2.5 pb-2">
+<div class="flex items-center justify-between">
+<h2 class="text-[16px] font-bold text-[#f1f5f6] tracking-tight">Specialized Practice</h2>
+<a class="text-xs font-bold text-[#38d9cb] hover:underline flex items-center gap-0.5" href="#">
+            View all
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Grammar Tile -->
+<div class="bg-[#121d20] border border-[#203338] rounded-xl p-3 shadow-[0_3px_0_0_#071114] tactile-btn">
+<div class="w-8 h-8 rounded-lg bg-[#242114] border border-[#3f3516] flex items-center justify-center text-[#f4bf40] mb-2 shadow-[0_1px_0_0_#081215]">
+<span class="material-symbols-outlined text-[18px]">spellcheck</span>
+</div>
+<h4 class="text-xs font-bold text-[#f1f5f6]">Grammar</h4>
+<p class="text-[10px] text-[#8ea4a7] mt-0.5">Rules &amp; Drills</p>
+</div>
+<!-- Pronunciation Tile -->
+<div class="bg-[#121d20] border border-[#203338] rounded-xl p-3 shadow-[0_3px_0_0_#071114] tactile-btn">
+<div class="w-8 h-8 rounded-lg bg-[#14282c] border border-[#1e444b] flex items-center justify-center text-[#38d9cb] mb-2 shadow-[0_1px_0_0_#081215]">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</div>
+<h4 class="text-xs font-bold text-[#f1f5f6]">Pronunciation</h4>
+<p class="text-[10px] text-[#8ea4a7] mt-0.5">Phonetics &amp; /θ/</p>
+</div>
+<!-- Roleplay Tile -->
+<div class="bg-[#121d20] border border-[#203338] rounded-xl p-3 shadow-[0_3px_0_0_#071114] tactile-btn">
+<div class="w-8 h-8 rounded-lg bg-[#2d1b1a] border border-[#4f2a28] flex items-center justify-center text-[#ff8c79] mb-2 shadow-[0_1px_0_0_#081215]">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+</div>
+<h4 class="text-xs font-bold text-[#f1f5f6]">Roleplay</h4>
+<p class="text-[10px] text-[#8ea4a7] mt-0.5">AI Examiner</p>
+</div>
+<!-- Text Fixer Tile -->
+<div class="bg-[#121d20] border border-[#203338] rounded-xl p-3 shadow-[0_3px_0_0_#071114] tactile-btn">
+<div class="w-8 h-8 rounded-lg bg-[#182332] border border-[#233d59] flex items-center justify-center text-[#74b0ff] mb-2 shadow-[0_1px_0_0_#081215]">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+</div>
+<h4 class="text-xs font-bold text-[#f1f5f6]">Text fixer</h4>
+<p class="text-[10px] text-[#8ea4a7] mt-0.5">Draft checker</p>
+</div>
+</div>
+</section>
+</main>
+<!-- 6. CANONICAL BOTTOM NAVIGATION BAR (Sticky Docked) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] z-50 flex justify-around items-center px-2 py-2 bg-[#091518] border-t border-[#1b2a2e] shadow-[0_-4px_12px_rgba(0,0,0,0.5)]">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center text-[#94a9ad] hover:text-[#6bd8ce] px-2 py-1 font-medium transition-colors">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab (With unread notification badge '8') -->
+<button class="flex flex-col items-center justify-center text-[#94a9ad] hover:text-[#6bd8ce] px-2 py-1 font-medium transition-colors relative">
+<span class="material-symbols-outlined text-[22px]">style</span>
+<span class="absolute top-0 right-3 w-4 h-3.5 bg-[#ea580c] text-white text-[9px] font-black rounded-full flex items-center justify-center leading-none">8</span>
+<span class="text-[11px] font-bold mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-[#112d2b] border border-[#245954] text-[#6bd8ce] rounded-xl px-3 py-1 font-bold shadow-[0_2px_0_0_#071716]">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[11px] font-extrabold mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center text-[#94a9ad] hover:text-[#6bd8ce] px-2 py-1 font-medium transition-colors">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center text-[#94a9ad] hover:text-[#6bd8ce] px-2 py-1 font-medium transition-colors">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</button>
+</nav>
+</div>
+</body></html>
