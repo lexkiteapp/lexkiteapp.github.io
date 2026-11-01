@@ -15338,6 +15338,116 @@
       ],
       "angle": "अंग्रेजी में Articles (a, an, the) के सभी नियम हिन्दी में समझें: स्वर ध्वनि के आधार पर an का प्रयोग, the के अनिवार्य नियम और Zero Article की पहचान।",
       "intent": "informational"
+    },
+    {
+      "lang": "id",
+      "slug": "kata-bahasa-inggris-yang-sering-salah-arti-confused-words",
+      "keyword": "kata bahasa inggris yang sering salah arti",
+      "topic": "Pasangan kata bahasa Inggris yang sering membingungkan dan salah diartikan",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "vocab"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/vocab"
+      ],
+      "angle": "Panduan mengenali pasangan kata bahasa Inggris yang sering membingungkan (affect vs effect, complement vs compliment, borrow vs lend) lengkap dengan contoh dan cara membedakannya.",
+      "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "eigo-machigaeyasui-tangoshu-confusing-words",
+      "keyword": "英語 間違いやすい 単語",
+      "topic": "日本人が間違えやすい英単語の使い分けとニュアンスの違い",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "vocab"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/vocab"
+      ],
+      "angle": "日本人が混同しやすい英単語（affect/effect, lend/borrow, see/look/watch, say/tell/speak）のニュアンスの違いとコロケーションをネイティブ視点で徹底解説。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "heongdon-doegi-swiun-yeongeo-daneo-confusing-words",
+      "keyword": "헷갈리는 영어 단어",
+      "topic": "한국인이 가장 자주 혼동하는 영단어 뉘앙스 차이와 올바른 사용법",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "vocab"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/vocab"
+      ],
+      "angle": "한국인 학습자가 헷갈리기 쉬운 영단어 쌍(affect/effect, borrow/lend, sensitive/sensible, lie/lay)의 핵심 뉘앙스와 예문, 암기 팁을 정리한 완벽 가이드.",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "ying-yu-yi-hun-ci-bian-xi-confusing-words",
+      "keyword": "英语 易混词 辨析",
+      "topic": "英语中最容易混淆的常见词汇对比与用法辨析",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "vocab"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/vocab"
+      ],
+      "angle": "针对中国英语学习者梳理最容易搞混的常见英语近义词与易混词（affect vs effect, historic vs historical, accept vs except），配详细例句与记忆技巧。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ru",
+      "slug": "lozhnye-druzya-perevodchika-angliyskiy-confusing-words",
+      "keyword": "ложные друзья переводчика в английском",
+      "topic": "Ложные друзья переводчика в английском языке и похожие слова, вызывающие ошибки",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "vocab"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/vocab"
+      ],
+      "angle": "Разбор типичных ложных друзей переводчика и коварных пар слов в английском языке (accurate, actual, brilliant, sympathetic, affect vs effect) с примерами и правильным переводом.",
+      "intent": "informational"
     }
   ]
 }
