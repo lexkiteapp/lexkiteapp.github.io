@@ -37,19 +37,19 @@ Pour viser l'excellence à Band 7.5 ou 8.5, les examinateurs exigent l'emploi na
 Pour traiter du réchauffement climatique et des émissions industrielles, remplacez les tournures vagues par des termes scientifiques précis :
 
 1. **Anthropogenic emissions**: Émissions anthropiques (gaz à effet de serre résultant directement des activités humaines).
-   - *Exemple:* Climate scientists confirm that anthropogenic emissions constitute the dominant catalyst for accelerated oceanic warming.
+   - *Exemple:* Independent climatological reports verify that anthropogenic emissions continue to disrupt seasonal monsoon cycles across equatorial continents.
 2. **Mitigate climate catastrophe**: Atténuer ou endiguer une catastrophe climatique imminente.
-   - *Exemple:* Binding multilateral treaties are urgently required to mitigate climate catastrophe before atmospheric tipping points become irreversible.
+   - *Exemple:* Prompt transnational regulatory interventions are required to mitigate climate catastrophe before alpine permafrost thaws completely.
 3. **Greenhouse effect intensification**: Intensification de l'effet de serre due aux polluants atmosphériques.
-   - *Exemple:* Persistent reliance on coal-fired power stations fuels greenhouse effect intensification across expanding industrial corridors.
+   - *Exemple:* Soaring aviation traffic contributes significantly to greenhouse effect intensification, trapping surplus radiant heat in the upper troposphere.
 4. **Carbon-intensive infrastructure**: Infrastructures à forte intensité carbonée (dépendantes des combustibles fossiles).
-   - *Exemple:* Targeted green loans enable developing nations to transition away from obsolete carbon-intensive infrastructure.
+   - *Exemple:* Multilateral banks must stop underwriting carbon-intensive infrastructure such as petroleum refineries and coal export terminals.
 5. **Combustion of fossil fuels**: Combustion d'énergies fossiles (charbon, pétrole, gaz naturel).
-   - *Exemple:* Phasing out the combustion of fossil fuels remains the single most decisive step toward improving urban air purity.
+   - *Exemple:* Eliminating subsidies on the combustion of fossil fuels encourages power utilities to switch rapidly toward offshore wind turbines.
 6. **Accelerated glacial melting**: Fonte accélérée des glaciers et des calottes polaires.
-   - *Exemple:* Oceanographers warn that accelerated glacial melting will submerge vulnerable coastal deltas within decades.
+   - *Exemple:* Glaciologists warn that accelerated glacial melting alters thermohaline circulation across the North Atlantic basin.
 7. **Extreme meteorological phenomena**: Phénomènes météorologiques extrêmes (ouragans dévastateurs, sécheresses intenses, canicules).
-   - *Exemple:* Global agricultural production faces recurrent disruption due to the volatility of extreme meteorological phenomena.
+   - *Exemple:* Smallholder agrarian cooperatives suffer severe food insecurity whenever extreme meteorological phenomena ruin seasonal harvests.
 
 Développez votre compréhension écrite sur des articles scientifiques dans le [module de lecture Lexkite](/#/reading).
 
@@ -61,13 +61,13 @@ Les questions portant sur la déforestation et les espèces menacées exigent de
 
 | Collocation académique | Signification en français | Exemple d'application Band 8.5 |
 |---|---|---|
-| **Habitat fragmentation** | Fragmentation et morcellement des habitats naturels | Unregulated transport infrastructure induces severe habitat fragmentation, isolating endangered terrestrial mammals. |
-| **Precipitous decline in biodiversity** | Chute brutale et massive de la biodiversité | Intensive agricultural pesticide application causes a precipitous decline in biodiversity among native insect pollinators. |
-| **Endangered endemic species** | Espèces endémiques menacées d'extinction | Strict ecological reserves shield endangered endemic species from commercial poaching and habitat destruction. |
-| **Irreversible ecological imbalance** | Déséquilibre écologique irréversible | Overharvesting apex marine predators triggers an irreversible ecological imbalance throughout vulnerable coral reefs. |
-| **Poaching and illicit trade** | Braconnage et commerce illégal d'animaux sauvages | Cross-border law enforcement is essential to dismantle organized cartels profiting from wildlife poaching and illicit trade. |
-| **Ecological restoration projects** | Projets scientifiques de réhabilitation écologique | Municipal authorities should allocate tax revenue toward urban wetland ecological restoration projects. |
-| **Invasive exotic species** | Espèces exotiques envahissantes | The accidental introduction of invasive exotic species often outcompetes indigenous freshwater organisms. |
+| **Habitat fragmentation** | Fragmentation et morcellement des habitats naturels | Expanding logging tracks precipitate extensive habitat fragmentation, dividing old-growth wilderness into vulnerable parcels. |
+| **Precipitous decline in biodiversity** | Chute brutale et massive de la biodiversité | Monoculture agriculture in tropical regions triggers a precipitous decline in biodiversity among native bird populations. |
+| **Endangered endemic species** | Espèces endémiques menacées d'extinction | Wildlife corridors help endangered endemic species migrate safely across heavily urbanized regions. |
+| **Irreversible ecological imbalance** | Déséquilibre écologique irréversible | Bottom trawling by industrial fishing vessels introduces an irreversible ecological imbalance to seabed habitats. |
+| **Poaching and illicit trade** | Braconnage et commerce illégal d'animaux sauvages | Satellite monitoring aids park rangers in stopping wildlife poaching and illicit trade within national sanctuaries. |
+| **Ecological restoration projects** | Projets scientifiques de réhabilitation écologique | Regional authorities are launching ambitious ecological restoration projects to revive degraded peat bog reserves. |
+| **Invasive exotic species** | Espèces exotiques envahissantes | Discharged ship ballast water frequently introduces invasive exotic species that wipe out indigenous shellfish beds. |
 
 Vérifiez les définitions fines et la prononciation dans le [Dictionnaire Lexkite](/#/dict/resilient).
 
@@ -78,15 +78,15 @@ Vérifiez les définitions fines et la prononciation dans le [Dictionnaire Lexki
 La problématique des déchets synthétiques requiert une grande rigueur analytique :
 
 - **Non-biodegradable synthetic waste**: Déchets synthétiques non biodégradables qui persistent durant des siècles.
-  - *Exemple:* Retail supermarket chains produce enormous volumes of non-biodegradable synthetic waste through single-use packaging.
+  - *Exemple:* Fast-fashion textile manufacturers discard massive volumes of non-biodegradable synthetic waste that pollute inland water sources.
 - **Microplastic contamination**: Contamination par les microplastiques dans la chaîne trophique et l'eau potable.
-  - *Exemple:* Marine biologists have identified alarming microplastic contamination within both drinking water reserves and commercial table salt.
+  - *Exemple:* Scientific autopsies have revealed extensive microplastic contamination in the digestive tracts of migratory seabirds.
 - **Excessive consumer packaging**: Suremballage commercial et emballages à usage unique.
-  - *Exemple:* Imposing fiscal penalties on excessive consumer packaging forces manufacturers to adopt compostable paper alternatives.
+  - *Exemple:* Banning excessive consumer packaging on fresh produce compels retail outlets to distribute goods in bulk.
 - **Municipal landfill saturation**: Saturation des décharges municipales de déchets solides.
-  - *Exemple:* Metropolitan areas face imminent municipal landfill saturation unless aggressive waste segregation is strictly enforced.
+  - *Exemple:* Overpopulated conurbations confront critical municipal landfill saturation, necessitating large-scale waste-to-energy incinerators.
 - **Toxic effluent discharge**: Rejet d'effluents industriels toxiques non traités dans les cours d'eau.
-  - *Exemple:* Heavy financial sanctions must be levied against chemical factories guilty of untreated toxic effluent discharge into public waterways.
+  - *Exemple:* Environmental inspection agencies must shut down dyeing plants responsible for clandestine toxic effluent discharge into rural streams.
 
 Structurez vos listes de vocabulaire thématiques grâce à la [Bibliothèque de Vocabulaire Lexkite](/#/library).
 
@@ -97,17 +97,17 @@ Structurez vos listes de vocabulaire thématiques grâce à la [Bibliothèque de
 Pour formuler des solutions concrètes et innovantes dans vos dissertations, appuyez-vous sur ce lexique de technologies vertes :
 
 - **Harness renewable sources**: Capter et exploiter les sources d'énergie renouvelable (solaire, éolien, marémoteur).
-  - *Exemple:* Coastal nations must harness renewable sources to diminish economic reliance on imported fossil fuels.
+  - *Exemple:* Landlocked nations can harness renewable sources by investing in high-altitude hydroelectric pumped storage.
 - **Photovoltaic solar arrays**: Champs de panneaux solaires photovoltaïques.
-  - *Exemple:* Installing rooftop photovoltaic solar arrays allows residential households to curtail their annual carbon footprints substantially.
+  - *Exemple:* Floating photovoltaic solar arrays deployed across agricultural irrigation reservoirs prevent evaporation while producing zero-carbon power.
 - **Decarbonization of heavy industry**: Décarbonation des industries lourdes (sidérurgie, cimenteries, chimie).
-  - *Exemple:* Accelerating the decarbonization of heavy industry requires state subsidies for commercial green hydrogen infrastructure.
+  - *Exemple:* Tax credits for carbon capture equipment support the gradual decarbonization of heavy industry across industrialized provinces.
 - **Geothermal energy extraction**: Extraction d'énergie géothermique à partir de la chaleur souterraine.
-  - *Exemple:* Volcanic geographies provide exceptional natural conditions for continuous, clean geothermal energy extraction.
+  - *Exemple:* Deep borehole drilling enables year-round geothermal energy extraction for municipal district heating networks.
 - **Sustainable agricultural stewardship**: Gestion agricole éco-responsable préservant les sols arables.
-  - *Exemple:* Rewarding sustainable agricultural stewardship discourages farming conglomerates from converting arable soils into degraded wastelands.
+  - *Exemple:* Farmers practicing sustainable agricultural stewardship utilize organic crop rotation instead of petroleum-derived synthetic fertilizers.
 - **Zero-emission public transport**: Transports en commun zéro émission (bus électriques, tramways, trains à hydrogène).
-  - *Exemple:* Urban planners should expand zero-emission public transport networks to relieve inner-city respiratory illnesses.
+  - *Exemple:* Replacing aging diesel commuter buses with zero-emission public transport fleets immediately lowers urban particulate matter levels.
 
 ## 5. Analyse d'un paragraphe modèle Writing Task 2 (Band 8.5)
 
@@ -116,7 +116,7 @@ Examinons comment combiner harmonieusement ces collocations dans un paragraphe a
 > **Sujet de dissertation IELTS :** *Some people believe that protecting the environment is the responsibility of national governments, while others think individuals should make lifestyle changes. Discuss both views and give your opinion.*
 >
 > **Paragraphe modèle (Band 8.5) :**  
-> Advocates of centralized intervention persuasively argue that sovereign administrations command the legislative authority required to enforce systemic structural reforms. Specifically, state agencies can establish binding environmental standards, deterring untreated **toxic effluent discharge** while penalizing corporate reliance on the **combustion of fossil fuels**. Furthermore, by systematically redirecting subsidies from **carbon-intensive infrastructure** toward grid-scale **photovoltaic solar arrays** and **zero-emission public transport**, legislators stimulate the rapid **decarbonization of heavy industry**. Without enforceable statutory sanctions against multinational commercial polluters, decentralized individual efforts remain fundamentally inadequate to reverse widespread **habitat fragmentation** or mitigate recurrent **extreme meteorological phenomena**.
+> From an institutional perspective, only public authorities possess the statutory power necessary to enact macroeconomic structural changes. Primarily, environment ministries can penalize multinational polluters caught engaging in unlawful **toxic effluent discharge**, while phasing out commercial dependence on the **combustion of fossil fuels**. In addition, by diverting public funding away from **carbon-intensive infrastructure** toward grid-scale **photovoltaic solar arrays** and modern **zero-emission public transport**, state leaders can expedite the **decarbonization of heavy industry**. Without enforceable statutory sanctions and comprehensive legal limits, uncoordinated civic habits cannot overcome acute **habitat fragmentation** or withstand increasingly unpredictable **extreme meteorological phenomena**.
 
 ## 6. 4 Pièges fréquents à éviter dans les essais sur l'écologie
 
