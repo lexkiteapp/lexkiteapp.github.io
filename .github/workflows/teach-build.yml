@@ -22,6 +22,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - name: Footage (sparse)
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
         run: |
@@ -48,7 +49,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A web/teach
-          git diff --cached --quiet || { git commit -q -m "teach: bộ nhân vật 2D duy nhất (characters.json) [teach-build] [CF-Pages-Skip]"; git push -q origin HEAD:${GITHUB_REF_NAME}; }
+          git diff --cached --quiet || { git commit -q -m "teach: bộ nhân vật 2D duy nhất (characters.json) [teach-build] [CF-Pages-Skip] [skip ci]"; git push -q origin HEAD:${GITHUB_REF_NAME}; }
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: teach, path: "web/teach\nout/teach-sheet.jpg", retention-days: 7 }
