@@ -21,7 +21,14 @@ const segs = TL.segments.map((s, i) => {
   let ok = 0, tot = 0; for (let k = 0; k < n; k++) { if (env[k] < peak * .1) continue; const want = new Set(); for (let d = -4; d <= 4; d++) { const v = truth((k + d) / 100); if (v) want.add(v); } if (!want.size) continue; tot++; if (want.has(S[k].shape)) ok++; }
   let flick = 0, run = 1; for (let k = 1; k < n; k++) { if (S[k].shape === S[k - 1].shape) { run++; continue; } if (k - run > 0 && run < Math.round(LS.MIN_HOLD * 100) - 1) flick++; run = 1; }
   const firstVoiced = env.findIndex(v => v > peak * .1) / 100;
-  return { ...s, env, cues, M, lagMs: xlag(S.map(q => q.mouth.u + q.mouth.d), env), visemePct: tot ? Math.round(100 * ok / tot) : 0, flicker: flick, firstVoiced };
+  // độ lệch miệng–tiếng: đo TỪNG CỤM có tiếng (cắt ở chỗ lặng ≥ 120 ms, cụm ≥ 0,6 s), cổng lấy cụm lệch nhiều nhất. Đo cả câu một lần (lagGlobalMs, giữ để
+  // đối chiếu) bị khoảng lặng giữa câu (dấu phẩy) kéo lệch giả 130–180 ms dù hình miệng đúng âm vị ≥ 88 % trong ±40 ms (lô thử L1 01/11: es-library, hi-know-ing).
+  const open = S.map(q => q.mouth.u + q.mouth.d), chunks = []; let c0 = -1, quiet = 0;
+  for (let k = 0; k <= n; k++) { const v = k < n && env[k] >= peak * .1;
+    if (v) { if (c0 < 0) c0 = k; quiet = 0; } else if (c0 >= 0 && (++quiet >= 12 || k === n)) { const c1 = k - quiet + 1; if (c1 - c0 >= 60) chunks.push([Math.max(0, c0 - 10), Math.min(n, c1 + 10)]); c0 = -1; quiet = 0; } }
+  const lagChunksMs = chunks.map(([a, b]) => xlag(open.slice(a, b), env.slice(a, b)));
+  const lagGlobalMs = xlag(open, env), lagMs = lagChunksMs.length ? lagChunksMs.reduce((m, x) => Math.abs(x) > Math.abs(m) ? x : m, 0) : lagGlobalMs;
+  return { ...s, env, cues, M, lagMs, lagGlobalMs, lagChunksMs, visemePct: tot ? Math.round(100 * ok / tot) : 0, flicker: flick, firstVoiced };
 });
 // 2) khung theo thời gian toàn bài: câu đang chạy = câu cuối có start ≤ t (phần lặng sau câu vẫn do máy câu đó → chớp/liếc liền mạch)
 const HAND = { in: .35, out: .3, pre: .1 };
@@ -49,5 +56,5 @@ const m = { voices: segs.map(s => ({ who: s.who, voice: s.voice })), total: TL.t
   firstVoicedS: +(segs[0].start + segs[0].firstVoiced).toFixed(2), lagMaxAbsMs: Math.max(...segs.map(s => Math.abs(s.lagMs))), visemePctMin: Math.min(...segs.map(s => s.visemePct)),
   flicker: segs.reduce((a, s) => a + s.flicker, 0), blinksPerMin: Math.round(60 * A.blinks / TL.total),
   reducedStill: R.frames.every(f => !f.tilt && !f.nod && !f.breath && f.hmode === 'fade') && R.frames.length === A.frames.length,
-  rows: segs.map(s => ({ k: s.k, emo: s.emo, hand: s.hand || '', dur: s.dur, lagMs: s.lagMs, visemePct: s.visemePct, flicker: s.flicker })) };
+  rows: segs.map(s => ({ k: s.k, emo: s.emo, hand: s.hand || '', dur: s.dur, lagMs: s.lagMs, lagGlobalMs: s.lagGlobalMs, lagChunksMs: s.lagChunksMs, visemePct: s.visemePct, flicker: s.flicker })) };
 fs.writeFileSync(`${OUT}/metrics.json`, JSON.stringify(m, null, 1)); console.log(JSON.stringify(m));
