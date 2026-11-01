@@ -302,4 +302,18 @@ else:
   ok(/alive_head=\$\{head\}/.test(rd('scripts/lib/cf-pool-probe.mjs')) && /if \(i < HEAD\) head\+\+/.test(rd('scripts/lib/cf-pool-probe.mjs')), 'cf-pool-probe: PROBE_HEAD đếm riêng phần vẽ');
   ok(/def js\(o\)/.test(rd('scripts/vocab-img/calibrate.py')) && /default=js/.test(rd('scripts/vocab-img/calibrate.py')), 'calibrate.py: đặc trưng có đối tượng mô hình không làm hỏng calibration.json (TypeError SentenceTransformer)');
 }
+// 8e. 01/11 hướng (b) ứng viên/prompt + (d) giám khảo không mất lượt thử vì tài khoản cạn – ngưỡng giám khảo giữ nguyên
+{ const lj = rd('scripts/vocab-img/local_judge.py'), sg = rd('scripts/vocab-img/scene-gen.mjs'), cf = await import('../vocab-img/cf-direct.mjs'), rp = await import('../vocab-img/report.mjs');
+  const fd = cf.cfInput('@cf/black-forest-labs/flux-2-klein-4b', 'p', '512', 7).form;
+  ok(fd.get('seed') === '7' && !cf.cfInput('@cf/black-forest-labs/flux-2-klein-4b', 'p').form.has('seed') && cf.cfInput('@cf/black-forest-labs/flux-1-schnell', 'p', '512', 3).json.seed === 3, 'ứng viên 2..N: seed gửi theo họ mô hình, ứng viên 1 không hạt');
+  ok(/VIMG_CANDS/.test(sg) && /\.c' \+ c/.test(sg) && /T\[k\]\.kind === 'scene' && T\[k\]\.ps && \(!candOnly \|\| candOnly\.has\(k\)\) \? CANDS : 1/.test(sg), 'scene-gen: N ứng viên chỉ cho ảnh cảnh e6, tên <slug>.a<n>.c<c>.jpg');
+  ok(/C\.sort\(key=rank_\)/.test(lj) && /startswith\('queue:'\)/.test(lj) && /shutil\.copyfile\(cf_, f\)/.test(lj), 'local_judge: xếp ứng viên cục bộ, chỉ tốt nhất lên giám khảo, trượt → ứng viên kế, thắng → tên chuẩn');
+  ok(/used up your daily/.test(lj) && /i -= 1; continue/.test(lj), 'thị giác: tài khoản cạn (429 daily allocation) bị bỏ mà không ăn lượt thử');
+  const D = fs.mkdtempSync((process.env.TMPDIR || '/tmp') + '/rp-'); fs.writeFileSync(D + '/result.json', JSON.stringify({ items: { 'a#n': { pass: true, kind: 'scene' }, 'b#v': { pass: false, kind: 'scene' } } }));
+  fs.writeFileSync(D + '/judge.local.a1.json', JSON.stringify({ 'a#n': { pass: true, kind: 'scene', cands: 2, reasons: [] }, 'b#v': { pass: false, kind: 'scene', cands: 2, reasons: ['vision: no (x)'] } }));
+  const pr = rp.passReport(D); ok(pr.scene_images === 4 && pr.first_round === 1 && pr.first_round_rate === 0.5, 'report: đếm mọi ứng viên là ảnh vẽ + tỷ lệ đạt lượt đầu theo nghĩa');
+  const cr = rd('scripts/vocab-img/cand-round.sh');
+  ok(/--prefilter/.test(cr) && /--cands-only \$OUT\/cand2/.test(cr) && /--cands-only \$OUT\/recand/.test(cr) && /\$J --recand/.test(cr) && /--recand/.test(lj) && /gen-stats\.s\$\{SI\}\.a\$\{ATT\}\.\$\{i\}/.test(sg), 'ứng viên 2 vẽ khi cần: lọc cục bộ → giám khảo → ứng viên mới cho khoá trượt; gen-stats không ghi đè');
+  ok(/VIMG_CANDS: \$\{\{ github\.event\.inputs\.cands \|\| '1' \}\}/.test(rd('.github/workflows/vocab-img-scene.yml')), 'workflow: input cands, lịch fill mặc định 1');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);

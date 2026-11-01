@@ -70,17 +70,21 @@ async function main() {
   const only = arg('only') ? new Set(JSON.parse(fs.readFileSync(arg('only'), 'utf8')).items) : null;
   // song song trong 1 việc: GrabCast ảnh 60/phút/IP (mỗi runner GitHub một IP) → VIMG_CONC luồng (mặc định 6 ≈ 60 ảnh/phút với ~5 s/ảnh); 429 → Retry-After (gen.mjs)
   let n = 0, retries = 0, safetyRe = 0, safetyFail = 0, stop = false; const t0 = Date.now(), CONC = Math.max(1, +(process.env.VIMG_CONC || 6));
-  const todo = keys.filter(k => T[k] && T[k].prompt && (!only || only.has(k)) && !fs.existsSync(path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`)));
-  async function one(k) {
-    const t = T[k], file = path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`);
+  // (b) 01/11: VIMG_CANDS ứng viên/prompt cho ảnh cảnh e6 (klein ~31 neuron/ảnh) → <slug>.a<n>.c<c>.jpg; local_judge.py lọc cục bộ rồi chỉ gửi ứng viên tốt nhất lên giám khảo, trượt → ứng viên kế
+  // --cands-only <tệp {items}>: ứng viên 2..N CHỈ cho các khoá này (vòng 2 pilot: ứng viên 1 trượt lọc cục bộ / trượt giám khảo → mới vẽ thêm, không vẽ sẵn)
+  const candOnly = arg('cands-only') ? new Set(fs.existsSync(arg('cands-only')) ? JSON.parse(fs.readFileSync(arg('cands-only'), 'utf8')).items : []) : null;
+  const CANDS = Math.max(1, Math.min(4, +(process.env.VIMG_CANDS || 1))), candF = (k, c) => path.join(OUT, 'raw', `${slug(k)}.a${ATT}${c > 1 ? '.c' + c : ''}.jpg`);
+  const todo = keys.filter(k => T[k] && T[k].prompt && (!only || only.has(k))).flatMap(k => Array.from({ length: T[k].kind === 'scene' && T[k].ps && (!candOnly || candOnly.has(k)) ? CANDS : 1 }, (_, i) => [k, i + 1])).filter(([k, c]) => !fs.existsSync(candF(k, c)));
+  async function one([k, c]) {
+    const t = T[k], file = candF(k, c), o = c > 1 ? { seed: fnv(`${k}|${ATT}|${c}`) % 2147483647 } : {};
     for (const p of PROVIDERS) {
       if (dead.has(p.id) || used[p.id] >= p.max) continue;
       used[p.id]++; const s = Date.now();
       // 24/10: GrabCast trả 500 "Something went wrong" cho ~40 % lượt → thử lại 2 lần (5 s, 15 s) trước khi bỏ nhà vẽ; 429 vẫn do gen.mjs (Retry-After)
       // 5xx: thử lại theo Retry-After của GrabCast (không có → 5 s, 15 s); mọi mã HTTP được đếm ở GC_STATS (gen.mjs) → gen-stats.s<i>.a<n>.json
       let pr = t.prompt, soft = 0;
-      for (let tr = 0; tr < 3; tr++) { let ra = 0; try { const buf = await p.run(pr); if (isImg(buf)) { fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ...(buf.meta ? { gc_provider: buf.meta.provider, model: buf.meta.model } : { model: modelInUse() }), ms: Date.now() - s, tries: tr + 1, ...(soft ? { soft } : {}) }); return; } } catch (err) { if (err instanceof Safety) { if (soft >= 2) { safetyFail++; log.push({ k, attempt: ATT, provider: p.id, error: 'safety (rephrased ×2)' }); return; } soft++; safetyRe++; pr = soften(t.prompt, soft); continue; } if (err.constructor.name === 'Quota' || !(err.status >= 500 || /\b5\d\d\b/.test(String(err.message)))) break; ra = +err.retryAfter || 0; retries++; } await new Promise(r => setTimeout(r, ra ? Math.min(120, ra) * 1e3 : 5000 + 10000 * tr)); }
-      try { const buf = await p.run(pr); if (!isImg(buf)) throw new Error('không phải ảnh'); fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ...(buf.meta ? { gc_provider: buf.meta.provider, model: buf.meta.model } : { model: modelInUse() }), ms: Date.now() - s }); return; }
+      for (let tr = 0; tr < 3; tr++) { let ra = 0; try { const buf = await p.run(pr, o); if (isImg(buf)) { fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, ...(c > 1 ? { cand: c } : {}), provider: p.id, ...(buf.meta ? { gc_provider: buf.meta.provider, model: buf.meta.model } : { model: modelInUse() }), ms: Date.now() - s, tries: tr + 1, ...(soft ? { soft } : {}) }); return; } } catch (err) { if (err instanceof Safety) { if (soft >= 2) { safetyFail++; log.push({ k, attempt: ATT, provider: p.id, error: 'safety (rephrased ×2)' }); return; } soft++; safetyRe++; pr = soften(t.prompt, soft); continue; } if (err.constructor.name === 'Quota' || !(err.status >= 500 || /\b5\d\d\b/.test(String(err.message)))) break; ra = +err.retryAfter || 0; retries++; } await new Promise(r => setTimeout(r, ra ? Math.min(120, ra) * 1e3 : 5000 + 10000 * tr)); }
+      try { const buf = await p.run(pr, o); if (!isImg(buf)) throw new Error('không phải ảnh'); fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, ...(c > 1 ? { cand: c } : {}), provider: p.id, ...(buf.meta ? { gc_provider: buf.meta.provider, model: buf.meta.model } : { model: modelInUse() }), ms: Date.now() - s }); return; }
       catch (err) { if (err instanceof Safety) { safetyFail++; log.push({ k, attempt: ATT, provider: p.id, error: 'safety' }); return; } if (err.constructor.name === 'Quota') { dead.add(p.id); console.warn(`⏸ ${p.id}: ${err.message}`); } else { console.warn(`✗ ${p.id} ${k}: ${err.message}`); log.push({ k, attempt: ATT, provider: p.id, error: String(err.message).slice(0, 160) }); } }
     }
     if (PROVIDERS.every(p => dead.has(p.id) || used[p.id] >= p.max)) stop = true;
@@ -92,7 +96,8 @@ async function main() {
   { const c = cfStats(); if (c.accounts && c.dead.length >= c.accounts && !GC_STATS.exhausted_at) { GC_STATS.exhausted_at = new Date().toISOString(); GC_STATS.ok_before_exhausted = c.ok; } }
   if (GC_STATS.exhausted_at || GC_STATS.no_provider) { fs.writeFileSync(path.join(OUT, 'EXHAUSTED'), JSON.stringify({ at: GC_STATS.exhausted_at || new Date().toISOString(), ok_before: GC_STATS.ok_before_exhausted ?? GC_STATS.ok })); console.log(`⏹ bể neuron CF cạn – ${GC_STATS.ok_before_exhausted ?? GC_STATS.ok} ảnh trước khi cạn`); }
   fs.writeFileSync(logF, JSON.stringify(log, null, 1));
-  fs.writeFileSync(path.join(OUT, `gen-stats.s${SI}.a${ATT}.json`), JSON.stringify({ shard: SI, attempt: ATT, wanted: n + todo.length, images: n, retries_5xx: retries, safety_rephrased: safetyRe, safety_failed: safetyFail, gc: GC_STATS, cf: cfStats() }));
+  let gsF = path.join(OUT, `gen-stats.s${SI}.a${ATT}.json`); for (let i = 2; fs.existsSync(gsF); i++) gsF = path.join(OUT, `gen-stats.s${SI}.a${ATT}.${i}.json`);   // cand-round.sh gọi 3 lần/biến thể → không ghi đè (report.mjs cộng mọi tệp)
+  fs.writeFileSync(gsF, JSON.stringify({ shard: SI, attempt: ATT, wanted: n + todo.length, images: n, cands: CANDS, retries_5xx: retries, safety_rephrased: safetyRe, safety_failed: safetyFail, gc: GC_STATS, cf: cfStats() }));
   console.log('GrabCast ảnh:', JSON.stringify(GC_STATS)); console.log('Workers AI thẳng (cf):', JSON.stringify(cfStats()));
   const min = (Date.now() - t0) / 60e3;
   fs.writeFileSync(path.join(OUT, `speed.gen.s${SI}.a${ATT}.json`), JSON.stringify({ images: n, minutes: +min.toFixed(2), per_min: +(n / Math.max(min, 1e-3)).toFixed(2) }));
