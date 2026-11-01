@@ -15448,6 +15448,116 @@
       ],
       "angle": "Разбор типичных ложных друзей переводчика и коварных пар слов в английском языке (accurate, actual, brilliant, sympathetic, affect vs effect) с примерами и правильным переводом.",
       "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "palavras-em-ingles-que-geram-confusao-confused-words",
+      "keyword": "palavras em ingles que geram confusao",
+      "topic": "Pares de palavras em inglês que causam confusão e como diferenciá-las",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/review"
+      ],
+      "angle": "Guia prático para não confundir mais pares de palavras em inglês como affect vs effect, borrow vs lend, sensible vs sensitive e complement vs compliment.",
+      "intent": "informational"
+    },
+    {
+      "lang": "tr",
+      "slug": "ingilizcede-en-cok-karistirilan-kelimeler-confused-words",
+      "keyword": "ingilizcede en cok karistirilan kelimeler",
+      "topic": "İngilizcede en çok karıştırılan kelime çiftleri, anlam farkları ve püf noktaları",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/review"
+      ],
+      "angle": "Türk öğrencilerin İngilizce öğrenirken en sık karıştırdığı kelime çiftleri (affect/effect, borrow/lend, sensible/sensitive, historic/historical) ve akılda kalıcı ipuçları.",
+      "intent": "informational"
+    },
+    {
+      "lang": "th",
+      "slug": "kham-saps-phasa-angkrit-thi-mak-cha-sap-son-confusing-words",
+      "keyword": "คำศัพท์ภาษาอังกฤษที่มักสับสน",
+      "topic": "คู่คำศัพท์ภาษาอังกฤษที่คนไทยมักสับสนและใช้ผิดบ่อย พร้อมวิธีแยกแยะ",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/review"
+      ],
+      "angle": "สรุปคู่คำศัพท์ภาษาอังกฤษที่มักสับสนและใช้ผิดบ่อย เช่น affect vs effect, borrow vs lend, sensible vs sensitive พร้อมตัวอย่างประโยคและเทคนิคจำแม่น",
+      "intent": "informational"
+    },
+    {
+      "lang": "ar",
+      "slug": "kalimat-injliziyyah-tuthir-al-hira-confusing-words",
+      "keyword": "كلمات انجليزية تثير الحيرة",
+      "topic": "أزواج الكلمات الإنجليزية الأكثر إثارة للحيرة والخلط وكيفية التمييز بينها",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/review"
+      ],
+      "angle": "دليل شامل لأشهر الكلمات الإنجليزية المتشابهة والمحيرة (affect vs effect, borrow vs lend, sensible vs sensitive) مع أمثلة حية وحيل ذكية للتمييز الدقيق.",
+      "intent": "informational"
+    },
+    {
+      "lang": "hi",
+      "slug": "confusing-words-in-english-with-hindi-meaning",
+      "keyword": "confusing words in english with hindi meaning",
+      "topic": "अंग्रेजी के सबसे भ्रमित करने वाले शब्द युग्म और उनके सही प्रयोग के नियम",
+      "category": "tu-vung",
+      "tags": [
+        "tu-vung",
+        "vocabulary",
+        "tips"
+      ],
+      "shots": [
+        "dict",
+        "review"
+      ],
+      "routes": [
+        "/#/dict/resilient",
+        "/#/review"
+      ],
+      "angle": "अंग्रेजी के कन्फ्यूजिंग वर्ड्स (affect vs effect, borrow vs lend, sensible vs sensitive) को हिन्दी में समझें: पार्ट्स ऑफ स्पीच, ट्रिक्स और अभ्यास प्रश्न।",
+      "intent": "informational"
     }
   ]
 }
