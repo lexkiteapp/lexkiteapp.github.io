@@ -22,76 +22,76 @@
    "missing": 0
   },
   "readings": {
-   "pct": 65.73,
-   "missing": 697
+   "pct": 100,
+   "missing": 0
   },
   "speaking-samples": {
-   "pct": 66.47,
-   "missing": 1242
+   "pct": 100,
+   "missing": 0
   },
   "confidence": {
-   "pct": 35.73,
-   "missing": 653
+   "pct": 100,
+   "missing": 0
   },
   "roleplay": {
-   "pct": 34.82,
-   "missing": 1357
+   "pct": 100,
+   "missing": 0
   },
   "toeic-speaking": {
-   "pct": 32.19,
-   "missing": 394
+   "pct": 100,
+   "missing": 0
   },
   "ui-lines": {
-   "pct": 62.5,
-   "missing": 3
+   "pct": 100,
+   "missing": 0
   },
   "toefl-models": {
-   "pct": 34.08,
-   "missing": 265
+   "pct": 100,
+   "missing": 0
   },
   "mock-speaking": {
-   "pct": 31.71,
-   "missing": 28
+   "pct": 100,
+   "missing": 0
   },
   "pron": {
-   "pct": 51.61,
-   "missing": 810
+   "pct": 100,
+   "missing": 0
   },
   "speak-situations": {
-   "pct": 25,
-   "missing": 12
+   "pct": 100,
+   "missing": 0
   },
   "lesson-teacher": {
-   "pct": 32.02,
-   "missing": 310
+   "pct": 100,
+   "missing": 0
   },
   "gold-examples": {
-   "pct": 33.02,
-   "missing": 568
+   "pct": 100,
+   "missing": 0
   },
   "models": {
-   "pct": 29.75,
-   "missing": 229
+   "pct": 100,
+   "missing": 0
   },
   "grammar": {
-   "pct": 34.17,
-   "missing": 1909
+   "pct": 100,
+   "missing": 0
   },
   "examples-uk": {
    "pct": 100,
    "missing": 0
   },
   "examples-us": {
-   "pct": 33.07,
-   "missing": 6507
+   "pct": 100,
+   "missing": 0
   },
   "words-uk": {
    "pct": 100,
    "missing": 0
   },
   "words-us": {
-   "pct": 97.67,
-   "missing": 184
+   "pct": 100,
+   "missing": 0
   }
  }
 }
