@@ -39,6 +39,16 @@ const seed = async () => { localStorage.setItem('lk.ux1', '1'); localStorage.set
   for (let i = 0; i < 12; i++) map['word' + i] = mk('word' + i, {}, false);
   await Core.Cards.save(map); App.state.cards = await Core.Cards.all(); };
 
+// Chữ trong vòng (số + "Cần ôn hôm nay") nằm trọn trong lòng tròn (r 50, nét 9 / viewBox 120 → r trong 45.5): từng dòng chữ, cả 4 góc
+const RING = () => { const svg = document.querySelector('.v2-review main svg[viewBox="0 0 120 120"]'), sp = svg && svg.parentElement.querySelectorAll('span'); if (!sp || sp.length < 2) return null;
+  const s = svg.getBoundingClientRect(), r = s.width * 45.5 / 120, cx = s.left + s.width / 2, cy = s.top + s.height / 2, out = [];
+  for (const el of [sp[0], sp[1]]) { const rg = document.createRange(); rg.selectNodeContents(el); for (const q of rg.getClientRects()) if (q.width) out.push(q); }
+  const worst = Math.max(...out.flatMap(q => [[q.left, q.top], [q.right, q.top], [q.left, q.bottom], [q.right, q.bottom]].map(([x, y]) => Math.hypot(x - cx, y - cy))));
+  return { inside: worst <= r + 0.5, over: +(worst - r).toFixed(1), lines: out.length - 1, text: sp[1].textContent.trim() }; };
+const ringCheck = async (page, tag) => { const f = await page.evaluate(RING);
+  ok(f && f.inside, `${tag}: chữ "${f ? f.text : 'Cần ôn hôm nay'}" nằm trọn trong lòng vòng tròn${f ? ` (${f.lines} dòng${f.inside ? '' : ', lố ' + f.over + 'px'})` : ' – không thấy vòng'}`); return f; };
+const LANGS = ['vi', 'en', ...fs.readFileSync(path.resolve(ROOT, '../scripts/i18n-langs.txt'), 'utf8').split('\n').map(x => x.trim()).filter(x => /^[a-z]{2}$/.test(x))];
+
 async function run(type, name, opts, scheme) {
   const browser = await type.launch(), ctx = await browser.newContext({ ...opts, colorScheme: scheme, serviceWorkers: 'block' }); await serve(ctx, ROOT);
   const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
@@ -48,11 +58,7 @@ async function run(type, name, opts, scheme) {
   await page.waitForSelector('.v2-review', { timeout: 30000 }); await page.waitForTimeout(800);
   ok(!(await page.evaluate(() => document.body.classList.contains('focus'))), `${tag}: màn Ôn không ở chế độ tập trung (thanh tab hiện)`);
   await page.screenshot({ path: path.join(OUT, `hub-${name}-${scheme}.png`) });
-  { const f = await page.evaluate(() => { const svg = document.querySelector('.v2-review main svg[viewBox="0 0 120 120"]'), lab = svg && svg.parentElement.querySelectorAll('span')[1]; if (!lab) return null; // vòng: r 50 nét 9 (viewBox 120) → lòng tròn r 45.5
-      const s = svg.getBoundingClientRect(), r = s.width * 45.5 / 120, cx = s.left + s.width / 2, cy = s.top + s.height / 2, L = lab.getBoundingClientRect(), ws = [], rg = document.createRange(); rg.selectNodeContents(lab);
-      for (const q of rg.getClientRects()) ws.push(q); const inside = ws.every(q => [[q.left, q.top], [q.right, q.top], [q.left, q.bottom], [q.right, q.bottom]].every(([x, y]) => Math.hypot(x - cx, y - cy) <= r + 0.5));
-      return { inside, w: Math.round(L.width), lines: ws.length }; });
-    ok(f && f.inside, `${tag}: chữ "Cần ôn hôm nay" nằm trọn trong lòng vòng tròn${f ? ` (rộng ${f.w}px, ${f.lines} dòng)` : ''}`); }
+  await ringCheck(page, tag);
   // Kiểm 1 phần tử: cuộn vào giữa, không bị đè, vùng chạm ≥ 44 px, chạm → đúng trang
   const check = async (label, sel, want, nth = 0, inner = null) => {
     await hub(); const loc = page.locator(sel).nth(nth); if (!(await loc.count())) { ok(false, `${tag}: ${label} – không có phần tử (${sel})`); return; }
@@ -72,6 +78,11 @@ async function run(type, name, opts, scheme) {
   await hub(); const decks = await page.locator(DECK).count(); ok(decks >= 2, `${tag}: có ≥ 2 thẻ bộ (web + thư viện), thấy ${decks}`);
   for (let i = 0; i < decks; i++) { const href = await page.locator(DECK).nth(i).getAttribute('href');
     await check(`thẻ bộ ${href}`, DECK, href, i); await check(`chip đến hạn của ${href}`, DECK, href, i, ':scope > div:last-child > span:first-child'); }
+  if (scheme === 'dark') { // sweep 15 ngôn ngữ giao diện (Đức/Nga/Hindi dài hơn, Ả Rập phải-sang-trái): chữ trong vòng không tràn
+    const seen = new Set(); for (const L of LANGS) { await page.goto(`https://lk.test/app/?sandbox=1&hl=${L}${HUB}`, { waitUntil: 'load' }); await page.waitForSelector('.v2-review', { timeout: 30000 }); await page.waitForTimeout(700);
+      const f = await ringCheck(page, `${tag}/${L}`); if (f) seen.add(f.text); if (L === 'de' || L === 'ru') await page.screenshot({ path: path.join(OUT, `ring-${name}-${L}.png`), clip: { x: 0, y: 40, width: 375, height: 330 } }); }
+    ok(seen.size >= 12, `${tag}: nhãn vòng đã dịch theo ngôn ngữ (${seen.size} bản khác nhau / ${LANGS.length})`);
+    await page.goto(`https://lk.test/app/?sandbox=1&hl=vi${HUB}`, { waitUntil: 'load' }); }
   ok(!errs.length, `${tag}: không lỗi JS${errs.length ? ': ' + errs.slice(0, 3).join(' | ') : ''}`);
   await browser.close(); }
 
