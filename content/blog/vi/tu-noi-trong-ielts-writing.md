@@ -3,7 +3,7 @@ title: "Từ nối trong IELTS Writing: dùng đúng chức năng, tránh lạm 
 description: "Tổng hợp từ nối trong IELTS Writing theo chức năng, lỗi lạm dụng hay gặp và cách tạo liên kết tự nhiên để cải thiện tiêu chí Coherence and Cohesion trong bài."
 slug: tu-noi-trong-ielts-writing
 lang: vi
-translationKey: tu-noi-trong-ielts-writing
+translationKey: tu-noi-tieng-anh-linking-words
 category: ielts
 tags: [linking-words, writing]
 keyword: "từ nối trong ielts writing"

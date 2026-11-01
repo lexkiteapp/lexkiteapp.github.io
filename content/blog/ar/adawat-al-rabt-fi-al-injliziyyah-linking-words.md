@@ -4,7 +4,7 @@ title: "أدوات الربط في اللغة الإنجليزية: دليل ت�
 description: "أدوات الربط في اللغة الإنجليزية: تصنيف شامل لأهم كلمات الربط الأكاديمية للانتقال والتباين والإضافة، لرفع درجات Cohesion في مقالات الآيلتس."
 keyword: "أدوات الربط في اللغة الإنجليزية"
 lang: ar
-translationKey: linking-words-in-english
+translationKey: tu-noi-tieng-anh-linking-words
 category: ielts
 tags: [linking-words, ielts, writing]
 cover: placement
