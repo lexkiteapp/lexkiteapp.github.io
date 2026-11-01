@@ -1,5 +1,5 @@
 ---
-title: "Reglas de los condicionales en inglés: fórmulas, ejemplos y mixtos"
+title: "Reglas de los condicionales en inglés: fórmulas y ejemplos"
 description: "Aprende las reglas de los condicionales en inglés: fórmulas completas del condicional 0, 1, 2, 3 y mixtos, con ejemplos claros y errores comunes."
 slug: oraciones-condicionales-en-ingles-reglas-y-ejemplos
 lang: es
