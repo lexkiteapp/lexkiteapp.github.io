@@ -142,14 +142,21 @@ for (const W of [768, 1440]) {
       if (!b) { fail(where, 'không có nút thoát [data-exit]'); continue; }
       if (b.w < 44 || b.h < 44) fail(where, `vùng chạm thật ${Math.round(b.w)}×${Math.round(b.h)} < 44×44 (${b.sel})`);
       let px = '–';
-      if (b.grown) { // ảnh vùng nút: có nới (A) / gỡ nới (B) / nới lại (C) – A ≠ C = nền động (ghi chú), A ≠ B = nới làm đổi hình (lỗi)
+      if (b.grown) {
+        // So hai lần vẽ MỚI (như người dùng thấy): A = trang có nới, B = trang riêng tắt nới (ExitGuard._noGrow) – cùng route, cùng cỡ.
+        // (Bật/tắt nới trên cùng trang để lại vết vẽ lại cục bộ ở góc bo của thanh dính .mk-bar – không phải hình người dùng thấy.)
         const clip = { x: Math.max(0, b.x - 8), y: Math.max(0, b.y - 8), width: b.w + 16, height: b.h + 16 };
-        const shot = () => page.screenshot({ clip, animations: 'disabled', caret: 'hide' });
-        const flip = on => page.evaluate(o => { const x = document.querySelector('#view [data-exit]'); if (o) ExitGuard._grow(x); else ExitGuard._ungrow(x); }, on);
-        const geo = () => page.evaluate(() => { const out = []; let e = document.querySelector('#view [data-exit]'); const f = e.querySelector(':scope > .lk-face'); if (f) { const q = f.getBoundingClientRect(); out.push('face ' + [q.x, q.y, q.width, q.height].join(',')); } for (let k = 0; e && k < 7; k++, e = e.parentElement) { const q = e.getBoundingClientRect(); out.push(e.tagName.toLowerCase() + '.' + [...e.classList].join('.') + ' ' + [q.x, q.y, q.width, q.height].join(',')); } return out; });
-        const A = await shot(), gA = await geo(); await flip(false); const B = await shot(), gB = await geo(); await flip(true); const C = await shot();
-        if (!A.equals(C)) { px = 'nền động'; notes.push(`${where}: vùng nút có chuyển động – bỏ qua so ảnh`); }
-        else { const d = pxDiff(A, B); if (d.n) { px = `${d.n} điểm (max ${d.max})`; fail(where, `nới vùng chạm làm đổi ${d.n} điểm ảnh nút thoát, chênh tối đa ${d.max}/255 (${b.sel}) ` + await page.evaluate(() => { const x = document.querySelector('#view [data-exit]'), c = getComputedStyle(x); return JSON.stringify({ css: x.style.cssText, bs: c.boxSizing, pad: c.padding, tr: c.transition, lh: c.lineHeight, disp: c.display }); })); console.log('· hình học có nới / không nới (' + where + '):\n   ' + gA.map((g, k) => g + (g === gB[k] ? '' : '   ≠ ' + gB[k])).join('\n   ')); fs.writeFileSync(`${OUT}/shots/${r}-${W}-grow.png`, A); fs.writeFileSync(`${OUT}/shots/${r}-${W}-nogrow.png`, B); } else px = '0'; }
+        const shotOf = pg => pg.screenshot({ clip, animations: 'disabled', caret: 'hide' });
+        const geo = pg => pg.evaluate(() => { const out = []; let e = document.querySelector('#view [data-exit]'); const f = e.querySelector(':scope > .lk-face'); out.push('hiện ' + (q => [q.x, q.y, q.width, q.height].join(','))((f || e).getBoundingClientRect())); for (let k = 0; e && k < 7; k++, e = e.parentElement) { const q = e.getBoundingClientRect(); out.push(e.tagName.toLowerCase() + '.' + [...e.classList].filter(c => !/^lk-(grow|hit44)$/.test(c)).join('.') + ' ' + (k ? [q.x, q.y, q.width, q.height].join(',') : '')); } return out; });
+        const A = await shotOf(page), gA = await geo(page); await sleep(400); const A2 = await shotOf(page);
+        const pb = await ctx.newPage(); pb.on('dialog', d => d.accept());
+        try {
+          await boot(pb, '/home'); await pb.evaluate(() => ExitGuard._noGrow(true)); await go(pb, hash); await pb.mouse.move(W - 2, 898);
+          const B = await shotOf(pb), gB = await geo(pb), same = gA.every((g, k) => g === gB[k]);
+          if (!A.equals(A2)) { px = 'nền động'; notes.push(`${where}: vùng nút có chuyển động – bỏ qua so ảnh`); }
+          else if (!same) { px = 'lệch'; fail(where, 'nới làm lệch bố cục: ' + gA.map((g, k) => g === gB[k] ? '' : g + ' ≠ ' + gB[k]).filter(Boolean).join(' | ')); }
+          else { const d = pxDiff(A, B); if (d.n) { px = `${d.n} điểm (max ${d.max})`; fail(where, `nới vùng chạm làm đổi ${d.n} điểm ảnh, chênh tối đa ${d.max}/255 (${b.sel})`); fs.writeFileSync(`${OUT}/shots/${r}-${W}-grow.png`, A); fs.writeFileSync(`${OUT}/shots/${r}-${W}-nogrow.png`, B); } else px = '0'; }
+        } finally { await pb.close(); }
       }
       rows.push(`| ${r} | ${W} px | \`${hash}\` | ${Math.round(b.w)}×${Math.round(b.h)} | diff ${px} |`);
     } catch (e) { fail(where, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }

@@ -61,10 +61,11 @@
     if (!x) return;
     x.setAttribute('data-exit', '');
     if (!x.getAttribute('aria-label')) x.setAttribute('aria-label', t('Thoát bài học'));
-    const r = x.getBoundingClientRect(); if (r.width < 44 || r.height < 44) { x.classList.add('lk-hit44'); grow(x, r); }
+    const r = x.getBoundingClientRect(); if (r.width < 44 || r.height < 44) { x.classList.add('lk-hit44'); if (!noGrow) grow(x, r); }
   }
   // Hộp thật ≥ 44 mà KHÔNG đổi điểm ảnh: phần nhìn thấy chuyển nguyên vào <span class="… lk-face"> (cùng lớp → cùng CSS, cùng hộp, cùng vị trí);
   // chính nút (<a>/<button>, giữ handler/id/aria) thành hộp trong suốt bọc ngoài: padding + lề âm → bố cục không đổi (docs/specs/exit-button.md)
+  let noGrow = false; // exit-sweep: trang đối chứng không nới
   function grow(x, r) {
     const cs = getComputedStyle(x), px = v => parseFloat(v) || 0, S = x.style, SD = ['Top', 'Right', 'Bottom', 'Left'], M = SD.map(k => px(cs['margin' + k]));
     if (!r.width || x.dataset.lkGrow != null || cs.display === 'inline') return;
@@ -195,7 +196,7 @@
     backTo: () => backTo,
     exit: () => exit(false),
     _nav: () => ({ seen, popFor, popRes }),
-    _grow: x => grow(x, x.getBoundingClientRect()), _ungrow: ungrow, // exit-sweep: so ảnh có/không nới (diff phải = 0)
+    _grow: x => grow(x, x.getBoundingClientRect()), _ungrow: ungrow, _noGrow: v => { noGrow = !!v; }, // exit-sweep: so ảnh có/không nới (diff phải = 0)
     _s: () => ({ cur, dirty, done, bypass, backTo, hist: hist.slice(-4), ex: !!exitEl(), exHref: exitEl() && exitEl().getAttribute('href'), exOn: !!(exitEl() && exitEl().onclick), act: document.activeElement && document.activeElement.tagName }), // chẩn đoán cho exit-sweep
   };
 })(typeof self !== 'undefined' ? self : this);
