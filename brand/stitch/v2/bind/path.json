@@ -31,6 +31,26 @@
    "aria-valuemin": "0",
    "aria-valuemax": "100",
    "aria-label": "t('Tiến độ')"
+  },
+  ":scope > header > div > div:nth-child(1) > div:nth-child(1)": {
+   "href": "'#/goal'",
+   "aria-label": "t('Mức sẵn sàng thi') + ': ' + d.hdr.exam",
+   "data-hdr": "'exam'"
+  },
+  ":scope > header > div > div:nth-child(1) > div:nth-child(2)": {
+   "href": "'#/streak'",
+   "aria-label": "t('Chuỗi ngày học') + ': ' + d.hdr.streak",
+   "data-hdr": "'streak'"
+  },
+  ":scope > header > div > div:nth-child(1) > div:nth-child(3)": {
+   "href": "'#/league'",
+   "aria-label": "t('Tổng XP') + ': ' + d.hdr.xp",
+   "data-hdr": "'xp'"
+  },
+  ":scope > header > div > div:nth-child(1) > div:nth-child(4)": {
+   "href": "'#/stats'",
+   "aria-label": "t('Mục tiêu hôm nay') + ': ' + d.hdr.goal",
+   "data-hdr": "'goal'"
   }
  },
  "cls": {
@@ -48,6 +68,22 @@
   ":scope > header > div > div:nth-child(2)": {
    "to": "a",
    "addClass": "relative after:absolute after:-inset-1.5 after:content-['']"
+  },
+  ":scope > header > div > div:nth-child(1) > div:nth-child(1)": {
+   "to": "a",
+   "addClass": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
+  },
+  ":scope > header > div > div:nth-child(1) > div:nth-child(2)": {
+   "to": "a",
+   "addClass": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
+  },
+  ":scope > header > div > div:nth-child(1) > div:nth-child(3)": {
+   "to": "a",
+   "addClass": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
+  },
+  ":scope > header > div > div:nth-child(1) > div:nth-child(4)": {
+   "to": "a",
+   "addClass": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']"
   }
  },
  "repeat": [
