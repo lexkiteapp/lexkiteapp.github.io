@@ -84,7 +84,12 @@
     'Khách hôm nay': 'Visitors today', 'Trang/khách': 'Pages/visitor', 'Thời gian TB': 'Avg. time', 'mỗi phiên hôm nay': 'per session today', 'Tổng lượt xem': 'Total views', '{n} khách từ trước đến nay': '{n} visitors all-time', '14 ngày qua': 'Last 14 days',
     '🌍 Quốc gia hôm nay': '🌍 Countries today', '👀 Đang xem': '👀 Viewing now', 'Không ai online trong 5 phút qua': 'Nobody online in the last 5 minutes', '📄 Trang xem nhiều hôm nay': '📄 Top pages today',
     'Theo trang vào đầu tiên (chưa có số lượt xem từng trang).': 'Based on landing pages (per-page views not available yet).', '🔗 Nguồn giới thiệu hôm nay': '🔗 Referrers today', 'Chủ yếu truy cập trực tiếp': 'Mostly direct traffic',
-    '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Số khách (thiết bị) khác nhau.': 'Unique visitors (devices).',
+    '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Web (trình duyệt)': 'Web (browser)', 'App iOS': 'iOS app', 'App Android': 'Android app', 'Tỉ lệ': 'Share', 'Tổng thiết bị': 'All devices',
+    'Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày': 'Devices by platform: today, 30 days and % of all devices in 30 days',
+    'PWA = web đã cài lên máy · Add-on = tiện ích Chrome': 'PWA = installed web app · Add-on = Chrome extension',
+    'Đếm thiết bị khác nhau (mã ẩn danh của trình duyệt/app) có ít nhất 1 phiên người thật; đã loại bot và tài khoản quản trị. Hôm nay = từ 00:00 giờ Việt Nam (UTC+7). 30 ngày = 30 ngày gần nhất tính cả hôm nay, cập nhật 10 phút/lần. % = phần trong tổng thiết bị 30 ngày.': 'Counts distinct devices (anonymous browser/app ID) with at least one human session; bots and admin accounts are excluded. Today = since 00:00 Vietnam time (UTC+7). 30 days = the last 30 days including today, refreshed every 10 min. % = share of all devices in 30 days.',
+    '{n} thiết bị dùng từ 2 nền tảng trở lên: có mặt ở mỗi dòng đó nhưng chỉ tính 1 lần ở Tổng, nên cộng các dòng sẽ lớn hơn Tổng.': ['{n} device used 2+ platforms: it appears in each of those rows but counts once in the total, so the rows add up to more than the total.', '{n} devices used 2+ platforms: they appear in each of those rows but count once in the total, so the rows add up to more than the total.'],
+    'Tổng tạm = cộng các dòng (máy chủ chưa gửi số thiết bị khác nhau).': 'Total is the sum of rows for now (the server has not sent the distinct-device count yet).',
     '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
     // Phân tích
     'Khoảng thời gian (phần Chi tiết)': 'Date range (Details section)', 'ℹ️ Đang lấy mẫu {p}% người dùng – số phiên/người thực tế ≈ số dưới đây × {x}; tỉ lệ % và trung bình giữ nguyên.': 'ℹ️ Sampling {p}% of users – actual sessions/users ≈ figures below × {x}; percentages and averages are unaffected.',
@@ -654,6 +659,24 @@
   const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; };
   const PLAT = { web: ['🌐', 'Web'], pwa: ['📲', 'PWA (web đã cài)'], ext: ['🧩', 'Add-on Chrome'], ios: ['🍎', 'iOS'], android: ['🤖', 'Android'], app: ['📱', 'App (cũ)'] };
   const platName = k => PLAT[k] ? L(PLAT[k][1]) : k || '–', platIcon = k => (PLAT[k] || ['❔'])[0];
+  // Thẻ Nền tảng: nhãn ngắn 1 dòng + tên đầy đủ (title + trình đọc màn hình)
+  const PSHORT = { web: ['Web', 'Web (trình duyệt)'], pwa: ['PWA', 'PWA (web đã cài)'], ext: ['Add-on', 'Add-on Chrome'], ios: ['iOS', 'App iOS'], android: ['Android', 'App Android'], app: ['App (cũ)', 'App (cũ)'] };
+  const platCard = l => {
+    const { rows, total, multi, approx } = AdminPlat.platRows(l);
+    const lab = k => { const [sh, full] = PSHORT[k] ? PSHORT[k].map(x => L(x)) : [k || '–', k || '–']; return `<th scope="row" title="${esc(full)}"><span class="pi" aria-hidden="true">${platIcon(k)}</span><span class="pn" aria-hidden="true">${esc(sh)}</span><span class="sr-only">${esc(full)}</span></th>`; };
+    const share = r => `<td class="ps"><span class="pbar" aria-hidden="true"><i class="${r.w ? '' : 'z'}" style="width:${r.w.toFixed(2)}%"></i></span><span class="pp num">${r.pct}</span></td>`;
+    const tr = r => `<tr class="${r.d30 ? '' : 'zero'}">${lab(r.k)}<td class="num">${num(r.today)}</td><td class="num">${num(r.d30)}</td>${share(r)}</tr>`;
+    return `<div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3>
+      <table class="plat-tbl"><caption class="sr-only">${L('Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày')}</caption>
+        <thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th><th scope="col" class="num">${L('Tỉ lệ')}</th></tr></thead>
+        <tbody>${rows.map(tr).join('')}</tbody>
+        <tfoot><tr><th scope="row"><span class="pi" aria-hidden="true">Σ</span><span class="pn">${L('Tổng thiết bị')}</span></th><td class="num">${num(total.today)}</td><td class="num">${num(total.d30)}</td><td class="ps"><span class="pp num">${total.d30 ? '100%' : '0%'}</span></td></tr></tfoot>
+      </table>
+      <p class="plat-note">${L('Đếm thiết bị khác nhau (mã ẩn danh của trình duyệt/app) có ít nhất 1 phiên người thật; đã loại bot và tài khoản quản trị. Hôm nay = từ 00:00 giờ Việt Nam (UTC+7). 30 ngày = 30 ngày gần nhất tính cả hôm nay, cập nhật 10 phút/lần. % = phần trong tổng thiết bị 30 ngày.')}</p>
+      ${multi ? `<p class="plat-note">${L('{n} thiết bị dùng từ 2 nền tảng trở lên: có mặt ở mỗi dòng đó nhưng chỉ tính 1 lần ở Tổng, nên cộng các dòng sẽ lớn hơn Tổng.', { n: num(multi) })}</p>` : ''}
+      ${approx ? `<p class="plat-note">${L('Tổng tạm = cộng các dòng (máy chủ chưa gửi số thiết bị khác nhau).')}</p>` : ''}
+      <p class="plat-note">${L('PWA = web đã cài lên máy · Add-on = tiện ích Chrome')}</p></div>`;
+  };
   const mkRegion = () => { try { return new Intl.DisplayNames([LANG], { type: 'region' }); } catch (e) { return null; } }; // trình duyệt cũ → null
   let regionNames = mkRegion();
   const cname = c => { if (c === 'T1') return 'Tor'; if (!realCC(c)) return L('Không rõ'); try { return regionNames ? regionNames.of(c) : c; } catch (e) { return c; } };
@@ -699,16 +722,13 @@
   };
   const route = k => '#/' + (k || 'home');
   const liveGrid = l => {
-    const P = ['web', 'pwa', 'ext', 'ios', 'android'], m = rows => Object.fromEntries((rows || []).map(r => [r.k, r.n]));
-    const pt = m(l.platsToday), p30 = m(l.plats30), keys = [...P, ...Object.keys({ ...pt, ...p30 }).filter(k => !P.includes(k))];
-    const tt = Math.max(1, ...keys.map(k => pt[k] || 0)), t3 = Math.max(1, ...keys.map(k => p30[k] || 0));
     return `
       <div class="card"><h3>${L('🌍 Quốc gia hôm nay')}</h3>${bars((l.countries || []).slice(0, 12), r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', (l.today || {}).visitors)}</div>
       <div class="card"><h3>${L('👀 Đang xem')} <span class="small muted">· ${num(l.online)} online</span></h3>${(l.viewing || []).length ? bars(l.viewing, r => route(r.k)) : emptyState(L('Không ai online trong 5 phút qua'))}</div>
       <div class="card"><h3>${L('📄 Trang xem nhiều hôm nay')}</h3>${bars(l.pagesToday, r => route(r.k))}${l.pagesFallback ? `<p class="tiny muted">${L('Theo trang vào đầu tiên (chưa có số lượt xem từng trang).')}</p>` : ''}</div>
       <div class="card"><h3>${L('🔗 Nguồn giới thiệu hôm nay')}</h3>${(l.refs || []).length ? bars(l.refs) : emptyState(L('Chủ yếu truy cập trực tiếp'))}</div>
       <div class="card"><h3>${L('🔥 Trang xem nhiều · 7 ngày')}</h3>${bars(l.pages7, r => route(r.k))}</div>
-      <div class="card"><h3>${L('📱 Nền tảng')}</h3><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td>${platIcon(k)} ${esc(platName(k))}</td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
+      ${platCard(l)}`;
   };
   // Nạp jsvectormap (MIT, lưu sẵn trong web/js/vendor) chỉ khi mở tab Phân tích
   const loadMap = () => mapLib || (mapLib = new Promise((ok, fail) => {
