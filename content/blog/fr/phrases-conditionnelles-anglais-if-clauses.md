@@ -3,7 +3,7 @@ title: "Phrases conditionnelles anglais : guide if clauses de 0 à 3"
 description: "Comprenez les phrases conditionnelles anglais sans confusion : règles claires du conditionnel 0 au type 3, exemples concrets et exercices pratiques."
 slug: phrases-conditionnelles-anglais-if-clauses
 lang: fr
-translationKey: cau-dieu-kien-tieng-anh-conditionals
+translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [grammaire, temps, conditionnels]
 keyword: "phrases conditionnelles anglais"

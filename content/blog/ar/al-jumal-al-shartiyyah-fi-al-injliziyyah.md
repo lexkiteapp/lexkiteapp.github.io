@@ -4,7 +4,7 @@ title: "الجمل الشرطية في اللغة الإنجليزية: دليل
 description: "الجمل الشرطية في اللغة الإنجليزية: شرح شامل لجميع حالات if الصفرية والأولى والثانية والثالثة والمختلطة مع الصيغ التركيبية وتمارين تطبيقية مجانية."
 keyword: "الجمل الشرطية في اللغة الإنجليزية"
 lang: ar
-translationKey: conditional-sentences-in-english
+translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [qawaid, conditional, if-clauses]
 cover: grammar
