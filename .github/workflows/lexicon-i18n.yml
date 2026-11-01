@@ -18,6 +18,7 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Dựng kho (dist/lexicon.json)
@@ -29,5 +30,5 @@ jobs:
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add web/packs
           git diff --cached --quiet && exit 0
-          git commit -qm "Nghĩa 13 ngôn ngữ: dịch theo nghĩa + duyệt AI (lô tự động) [CF-Pages-Skip]"
+          git commit -qm "Nghĩa 13 ngôn ngữ: dịch theo nghĩa + duyệt AI (lô tự động) [CF-Pages-Skip] [skip ci]"
           for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1

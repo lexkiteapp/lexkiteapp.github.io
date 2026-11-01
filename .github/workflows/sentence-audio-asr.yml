@@ -77,6 +77,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/download-artifact@v4
@@ -102,5 +103,5 @@ jobs:
           bash scripts/build-extension.sh >/dev/null   # bản add-on của audio-index.js phải khớp web/ (scripts/test/ext-sync.mjs)
           git add web/audio/l/ web/js/listen/audio-index.js extension/app/js/listen/audio-index.js
           git diff --cached --quiet && exit 0
-          git commit -qm "Cổng ASR audio câu: thêm lô đã kiểm (còn ${{ needs.plan.outputs.left }} câu trước lượt này) [CF-Pages-Skip]"
+          git commit -qm "Cổng ASR audio câu: thêm lô đã kiểm (còn ${{ needs.plan.outputs.left }} câu trước lượt này) [CF-Pages-Skip] [skip ci]"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
