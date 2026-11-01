@@ -130,7 +130,7 @@ def cf_vision(prompt, jpeg, model=None):
     import base64, urllib.request, urllib.error
     body = json.dumps({'messages': [{'role': 'user', 'content': [{'type': 'text', 'text': prompt}, {'type': 'image_url', 'image_url': {'url': 'data:image/jpeg;base64,' + base64.b64encode(jpeg).decode()}}]}], 'max_tokens': 300, 'temperature': 0}).encode()
     acc = _cf_accts()
-    for i in range(6):
+    for i in range(10):
         if not acc: _API['dead'] = True; print('⏸ thị giác CF: mọi tài khoản hết lượt', flush=True); return None
         a, t = acc[_CFV['i'] % len(acc)]
         try:
@@ -143,11 +143,11 @@ def cf_vision(prompt, jpeg, model=None):
             if r is None and res.get('choices'): r = res['choices'][0].get('message', {}).get('content')
             return {'text': r if isinstance(r, str) else json.dumps(r), 'model': model or _CFV['model']}
         except urllib.error.HTTPError as e:
-            m = e.read().decode('utf8', 'ignore')[:200]
+            m = e.read().decode('utf8', 'ignore')[:200]; _API.setdefault('err', {})[str(e.code)] = _API.setdefault('err', {}).get(str(e.code), 0) + 1
             if e.code in (401, 403) or '4006' in m or 'neuron' in m.lower(): acc.remove((a, t)); continue
-            time.sleep(min(60, 5 * (i + 1))); continue
-        except Exception:
-            time.sleep(3); continue
+            _CFV['i'] += 1; time.sleep(min(20, 3 * (i + 1))); continue   # e6: lỗi tạm → tài khoản KẾ (pilot 41274610314: thử lại cùng tài khoản → 33 ảnh 'judge unavailable')
+        except Exception as e:
+            k_ = type(e).__name__; _API.setdefault('err', {})[k_] = _API.setdefault('err', {}).get(k_, 0) + 1; _CFV['i'] += 1; time.sleep(3); continue
     _API['fails'] += 1; return None
 def api_vision(im):
     """→ dict | None (None = không có/đã cạn → người gọi xử lý 'API exhausted')"""
@@ -243,14 +243,14 @@ def check_yes(im, q, model=None):
 # Luồng: cổng cục bộ (OCR, NSFW, phong cách, pHash, CLIP/máy chú thích, cỡ ≤ 6 KB) trượt cứng → không gọi API.
 #   1) mô tả MÙ (không thấy câu/từ – giữ cổng api_ex, không thiên vị) ; mô tả mù có chữ/không an toàn/lệch câu → dừng, không hỏi tiếp
 #   2) MỘT lượt hỏi gộp: câu cảnh + câu kiểm NGHĨA + câu anh em giống nhất (chống gật bừa)
-#   3) mô hình thứ 2 (khác họ) CHỈ cho ca sát ngưỡng: cục bộ trượt mềm mà mô hình 1 nói yes; kiểm nghĩa yes 70–SURE hoặc no < 80.
+#   3) mô hình thứ 2 (khác họ): đồng thuận khi cục bộ trượt mềm mà mô hình 1 chắc yes; kiểm nghĩa luôn hỏi cả hai (luật e4), trừ khi mô hình 1 đã no chắc.
 # Ảnh gửi JUDGE_PX = 336 (đúng 1 ô ảnh Llama 4 → ~150 token thay ~720 của 448²); ≥ cỡ ảnh người học thấy (≤ 160 CSS px, lưu 384); chữ nhỏ vẫn do OCR 768 px chặn.
 JUDGE_PX = int(os.environ.get('VIMG_JUDGE_PX', '336'))
-CHECK_CONF = float(os.environ.get('VIMG_CHECK_CONF', '70')); CHECK_SURE = float(os.environ.get('VIMG_CHECK_SURE', '90'))
+CHECK_CONF = float(os.environ.get('VIMG_CHECK_CONF', '70'))
 BLIND_Q = ('Describe this picture for a vocabulary app in one sentence: who or what is shown and what is happening. Do not guess what it was meant to teach. '
            'Reply JSON only: {"describe": "one sentence", "text": true if any letters, words or numbers are visible, "unsafe": true if unsuitable for children}')
 ONE_Q = ('You check a picture for an English-learning app. Answer from the picture ONLY and strictly (if it is not clearly visible, the answer is no). '
-         'A) Does the picture clearly show {scene}? B) {check} C) Does the picture clearly show {other}? '
+         'A) Does this picture clearly show {scene}? A learner must understand it from the picture alone (wrong people, missing key object or action, unclear situation = no). B) {check} C) Does the picture clearly show {other}? '
          'Reply JSON only: {{"a": "yes" or "no", "a_conf": 0-100, "missing": "what is missing or wrong for A, max 8 words", "b": "yes" or "no", "b_conf": 0-100, '
          '"c": "yes" or "no", "c_conf": 0-100, "text": true if any letters, words or numbers are visible}}')
 PEOPLE_RE = re.compile(r'\b(a|an|the|one)\s+(young |old |little )?(woman|man|girl|boy|lady|gentleman)\b', re.I)
@@ -335,20 +335,13 @@ def judge_scene(im, t, ft, th, kind):
         ft['cons'] = f"{m1['model'].split('/')[-1]}:{'Y' if m1['a'][0] else 'N'}{int(m1['a'][1])}/{'Y' if m1['c'][0] else 'N'}{int(m1['c'][1])}" + (f" {CONS_MODELS[1].split('/')[-1]}:{'Y' if b['a'][0] else 'N'}{int(b['a'][1])}/{'Y' if b['c'][0] else 'N'}{int(b['c'][1])}" if b else '')
         if ok1 and ok2: ft['cons_soft'] = r; ft['ask_model'] = 'consensus:' + '+'.join(m.split('/')[-1] for m in CONS_MODELS[:2]); r = []
     if r: return r
-    if hard_other: return ['vision: also says yes to a sibling sentence']
     if not t.get('check'): return r
-    # (b) kiểm NGHĨA – luật e4: ≥ 1 mô hình yes ≥ CHECK_CONF và KHÔNG mô hình nào no chắc (≥ 80). Mô hình 1 yes ≥ CHECK_SURE → đủ; sát ngưỡng → hỏi mô hình 2
+    # (b) kiểm NGHĨA – luật e4 nguyên vẹn: hỏi CẢ HAI mô hình; nhận khi ≥ 1 yes ≥ CHECK_CONF và KHÔNG mô hình nào no chắc (≥ 80).
+    #     Pilot 41274610314: luật tắt "mô hình 1 yes ≥ 90 là đủ" bị mô hình 2 bác chắc 8/32 ca → bỏ luật tắt (chỉ bỏ mô hình 2 khi mô hình 1 đã no chắc).
     y1, c1 = m1['b']
     if not y1 and c1 >= 80: return [f'meaning check: no ({t["check"][:50]})']
-    if y1 and c1 >= CHECK_SURE:
-        if os.environ.get('VIMG_JUDGE_AUDIT') == '1' and len(CONS_MODELS) > 1:   # pilot: đo luật tắt có lệch luật e4 không (neuron tính riêng, không vào giá/ảnh)
-            _CFV['audit'] = True
-            try: b = ask_one(im, t, ft, CONS_MODELS[1])
-            finally: _CFV['audit'] = False
-            if b: ft['audit'] = [b['b'][0], b['b'][1]]; _API['audit_disagree'] += int((not b['b'][0]) and b['b'][1] >= 80)
-        return []
     b = second()
-    if not b: return [] if (y1 and c1 >= CHECK_CONF) else ['queue: meaning check unavailable']
+    if not b: return ['queue: meaning check unavailable']
     ft['chk'].append([b['b'][0], b['b'][1]])
     got = [(y1, c1), b['b']]
     yes = any(a_ and c_ >= CHECK_CONF for a_, c_ in got); hard_no = any((not a_) and c_ >= 80 for a_, c_ in got)
@@ -567,7 +560,7 @@ def main():
     import uuid
     json.dump({'attempt': a.attempt, 'images': n, 'vision_calls': _API['calls'], 'vision_fails': _API['fails'], 'vision_skipped_local_fail': _API['skipped'], 'vision_dead': _API['dead'],
                'vision_neurons': round(_API['neurons'], 1), 'vision_tok_missing': _API['tok_missing'], 'second_model_calls': _API['calls2'], 'size_fail_local': _API['size_fail'],
-               'audit_calls': _API['audit_calls'], 'audit_neurons': round(_API['audit_neurons'], 1), 'audit_disagree': _API['audit_disagree']},
+               'vision_err': _API.get('err', {}), 'audit_calls': _API['audit_calls'], 'audit_neurons': round(_API['audit_neurons'], 1), 'audit_disagree': _API['audit_disagree']},
               open(os.path.join(a.dir, f'judge-api.a{a.attempt}.{uuid.uuid4().hex[:8]}.json'), 'w'))
     fails = [k for k, v in res.items() if not v['pass']]
     if a.attempt == 1: json.dump({'items': fails}, open(os.path.join(a.dir, 'retry.json'), 'w'))

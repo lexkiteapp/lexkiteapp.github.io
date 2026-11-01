@@ -48,14 +48,14 @@ def flat(im, colors=48):
     return q
 
 def encode(im, dst):
-    for side, f in [(s_, 0) for s_ in (384, 320, 288)] + [(s_, 1) for s_ in (384, 320, 288)]:   # hộp hiển thị ≤ 160 CSS px (/words/ 256 dùng @2x khi có) – thu nhỏ trước khi hạ chất lượng quá thấp; f=1: tranh phẳng (flat) cùng cỡ
-        s = im.resize((side, side), Image.LANCZOS); s = flat(s) if f else s
+    for side, f in [(s_, 0) for s_ in (384, 320, 288)] + [(s_, 1) for s_ in (384, 320, 288)] + [(288, 2)]:   # hộp hiển thị ≤ 160 CSS px (/words/ 256 dùng @2x khi có) – thu nhỏ trước khi hạ chất lượng quá thấp; f=1: tranh phẳng (flat) cùng cỡ
+        s = im.resize((side, side), Image.LANCZOS); s = flat(s, 48 if f == 1 else 24) if f else s
         w, qw = enc(s, 'WEBP', (70, 60, 50, 42, 35));
         try: av, qa = enc(s, 'AVIF', (60, 50, 40, 32, 25))
         except Exception: av = None
         if w and av:
             open(dst + '.webp', 'wb').write(w); open(dst + '.avif', 'wb').write(av)
-            return {'side': side, 'webp': len(w), 'avif': len(av), 'q': qw, **({'flat': 1} if f else {})}
+            return {'side': side, 'webp': len(w), 'avif': len(av), 'q': qw, **({'flat': f} if f else {})}
     return None
 
 def h16(path):
