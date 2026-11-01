@@ -16185,6 +16185,78 @@
       ],
       "angle": "Пошаговый план самостоятельной подготовки к IELTS: 4 ключевых этапа, ежедневное расписание на 4 навыка и интервальное повторение по алгоритму FSRS.",
       "intent": "informational"
+    },
+    {
+      "lang": "ja",
+      "slug": "ielts-dokugaku-benkyouhou-road-map-score-up",
+      "keyword": "ielts 独学 勉強法",
+      "topic": "IELTS独学勉強法：初心者からBand 6.5突破までの完全ロードマップ",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "dokugaku",
+        "benkyouhou"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "完全独学でIELTS 6.5を達成するためのロードマップ：4つの学習フェーズ、社会人のための毎日の時間配分、FSRS分散学習による学術単語定着。",
+      "intent": "informational"
+    },
+    {
+      "lang": "ko",
+      "slug": "ielts-dokhak-gongbubeop-roadmap-chobo-6-5",
+      "keyword": "ielts 독학 공부법",
+      "topic": "IELTS 독학 공부법: 노베이스부터 Band 6.5 달성까지 4단계 로드맵",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "dokhak",
+        "gongbubeop"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "학원 없이 끝내는 IELTS 독학 공부법: 4단계 커리큘럼, 직장인과 학생을 위한 매일 90분 시간 배분, FSRS 간격 반복을 활용한 아카데믹 단어 암기.",
+      "intent": "informational"
+    },
+    {
+      "lang": "zh",
+      "slug": "ya-si-zi-xue-bei-kao-gui-hua-cong-ling-dao-6-5",
+      "keyword": "雅思自学备考规划",
+      "topic": "雅思自学备考规划：零基础到Band 6.5+四阶段学习路径",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "zi-xue",
+        "gui-hua"
+      ],
+      "shots": [
+        "path",
+        "goal",
+        "placement"
+      ],
+      "routes": [
+        "/#/path",
+        "/#/goal",
+        "/#/placement"
+      ],
+      "angle": "零报班高效雅思自学备考规划：听说读写四阶段时间拆解、上班族与学生党每日90分钟时间分配、FSRS间隔重复学术词汇速记法。",
+      "intent": "informational"
     }
   ]
 }
