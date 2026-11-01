@@ -12853,7 +12853,8 @@
         "/#/dict/resilient"
       ],
       "angle": "IELTSライティング・スピーキングで頻出の環境問題・気候変動の重要英単語・コロケーション35選とBand 7.5+模範解答",
-      "intent": "informational"
+      "intent": "informational",
+      "lang": "ja"
     },
     {
       "slug": "ielts-hwangyeong-daneo-collocation",
@@ -12876,7 +12877,8 @@
         "/#/dict/resilient"
       ],
       "angle": "IELTS 라이팅 Task 2 및 스피킹 빈출 환경·기후변화 핵심 어휘 35개와 Band 7.5+ 모델 에세이",
-      "intent": "informational"
+      "intent": "informational",
+      "lang": "ko"
     },
     {
       "slug": "ya-si-huan-bao-ci-hui-environment-collocations",
@@ -12899,7 +12901,8 @@
         "/#/dict/resilient"
       ],
       "angle": "雅思写作Task 2与口语环境类高频学术词汇、专业搭配（Collocations）及Band 8范文解析",
-      "intent": "informational"
+      "intent": "informational",
+      "lang": "zh"
     },
     {
       "slug": "ielts-vokabeln-umwelt-klimawandel-collocations",
@@ -12922,7 +12925,8 @@
         "/#/dict/resilient"
       ],
       "angle": "Wichtige IELTS-Vokabeln und akademische Kollokationen zum Thema Umwelt, erneuerbare Energien und Klimawandel für Writing Task 2",
-      "intent": "informational"
+      "intent": "informational",
+      "lang": "de"
     },
     {
       "slug": "vocabulaire-ielts-environnement-changement-climatique",
@@ -12991,7 +12995,8 @@
         "/#/dict/resilient"
       ],
       "angle": "IELTS Writing Task 2 ve Speaking için çevre, iklim değişikliği ve yenilenebilir enerji akademik kelimeleri, collocations ve model paragraflar",
-      "intent": "informational"
+      "intent": "informational",
+      "lang": "tr"
     },
     {
       "slug": "kham-sap-ielts-singwaetlom-environment",
