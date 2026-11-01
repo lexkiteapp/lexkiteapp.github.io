@@ -4,7 +4,7 @@ title: "IPA 発音記号 英語完全ガイド：母音・子音の一覧表と�
 description: "IPA 発音記号 英語の読み方を徹底解説。カタカナ発音を卒業するための母音・子音の一覧表、日本人特有のLとRやBとVの攻略法、強勢アクセントの見分け方まで、初級者から上級者まで実践できる体系的な学習手順を詳しく分かりやすく紹介します。"
 keyword: "ipa 発音記号 英語"
 lang: ja
-translationKey: cach-doc-phien-am-ipa
+translationKey: bang-phien-am-tieng-anh-ipa
 category: phat-am
 tags: [ipa, hatsuon, speaking, phonetics]
 cover: pron

@@ -3,7 +3,7 @@ title: "IPA Pronunciation Guide for English Learners"
 description: "Master English pronunciation with this comprehensive ipa pronunciation guide: full vowel and consonant charts, stress marks, and a daily practice routine."
 slug: ipa-pronunciation-guide-for-english-learners
 lang: en
-translationKey: cach-doc-phien-am-ipa
+translationKey: bang-phien-am-tieng-anh-ipa
 category: phat-am
 tags: [ipa, pronunciation, speaking, phonetics]
 keyword: "ipa pronunciation guide"

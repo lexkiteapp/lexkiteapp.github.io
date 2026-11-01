@@ -3,7 +3,7 @@ title: "Guía pronunciación IPA inglés para hispanohablantes"
 description: "Aprende con esta guía pronunciación ipa inglés: tabla de vocales y consonantes conflictivas (b/v, sh/ch, z/s), acentuación y trucos prácticos."
 slug: guia-pronunciacion-ipa-ingles
 lang: es
-translationKey: cach-doc-phien-am-ipa
+translationKey: bang-phien-am-tieng-anh-ipa
 category: phat-am
 tags: [ipa, pronunciacion, speaking, fonetica]
 keyword: "guía pronunciación ipa inglés"

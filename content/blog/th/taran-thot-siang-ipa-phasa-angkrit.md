@@ -4,7 +4,7 @@ title: "ตาราง IPA ภาษาอังกฤษ ฉบับสมบ
 description: "ตาราง ipa ภาษาอังกฤษ ครบ 44 เสียงสัทศาสตร์: สระเดี่ยว สระประสม พยัญชนะ พร้อมคำอ่าน เทคนิคแยกเสียง และวิธีแก้จุดผิดคลาสสิกของคนไทย."
 keyword: "ตาราง ipa ภาษาอังกฤษ"
 lang: th
-translationKey: bang-phien-am-ipa-tieng-anh
+translationKey: bang-phien-am-tieng-anh-ipa
 category: phat-am
 tags: [ipa, kan-ok-siang, speaking, phonetics]
 cover: pron
