@@ -20,3 +20,5 @@ assert.deepEqual([shardCount({ left: 12939, busy: 13, per: 500 }), shardCount({ 
 // LessonTeacher.say: thiếu file cả câu → UI.tts phải được thử file từng câu (không noHq) – 1/11 lời giáo viên luôn rơi về giọng máy
 import fs from 'node:fs';
 assert.ok(!/noHq:\s*!!o\.voice/.test(fs.readFileSync('web/js/lesson/teacher.js', 'utf8')), 'web/js/lesson/teacher.js: dự phòng không được bỏ qua giọng Kokoro (noHq)');
+// Commit chỉ mục 1 dòng khi nhiều workflow cùng ghi (scripts/ci/commit-regen.sh)
+await import('./commit-regen.mjs');
