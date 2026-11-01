@@ -9,7 +9,8 @@ on:
   workflow_dispatch:
     inputs:
       limit: { description: 'Số câu mỗi shard', default: '1500' }
-      shards: { description: 'Số shard (song song tối đa 3)', default: '6' }
+      shards: { description: 'Số shard (song song tối đa 6)', default: '6' }
+      retry_fail: { description: 'Thử lại câu đang trượt (asr-fail.tsv) thay vì câu chưa kiểm', type: boolean, default: false }
 permissions:
   contents: write
 concurrency: { group: sentence-audio-asr, cancel-in-progress: false }
@@ -25,8 +26,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: c
+        env: { RF: "${{ github.event.inputs.retry_fail == 'true' && '--retry-fail' || '' }}" }
         run: |
-          echo "left=$(node scripts/sentence-audio/todo.mjs --count | grep -o 'cần nghe [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+          echo "left=$(node scripts/sentence-audio/todo.mjs --count $RF | grep -o 'cần nghe [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
           n="${{ github.event.inputs.shards || '6' }}"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
   check:
     needs: plan
@@ -47,8 +49,11 @@ jobs:
           pip install -q 'faster-whisper==1.2.1' 'av==18.1.0' 'whisper-normalizer==0.1.12'
       - uses: actions/cache@v4
         with: { path: ~/.cache/huggingface, key: whisper-small-en-ct2 }
+      - name: Tự kiểm chuẩn hoá WER (ca từng trượt oan phải đạt, ca đọc sai phải trượt)
+        run: python3 scripts/sentence-asr.py --selftest
       - name: Danh sách câu của shard
-        run: node scripts/sentence-audio/todo.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}" --out .sa/todo.json
+        env: { RF: "${{ github.event.inputs.retry_fail == 'true' && '--retry-fail' || '' }}" }
+        run: node scripts/sentence-audio/todo.mjs $RF --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}" --out .sa/todo.json
       - name: Nghe bản đang phục vụ
         run: python3 scripts/sentence-asr.py --todo .sa/todo.json --res .sa/res-${{ matrix.shard }}.json --minutes 100
       - name: Cài kokoro-js (chỉ khi có câu trượt)
