@@ -352,6 +352,26 @@
    "delegate": [
     "test/authority-pages.mjs"
    ]
+  },
+  {
+   "id": "say-native",
+   "paths": [
+    "content/say-native"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "pair",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "say-native/build.mjs"
+   ]
   }
  ],
  "skip": {

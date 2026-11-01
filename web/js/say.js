@@ -78,6 +78,9 @@
       const root = ST2.mount(view, f === 'front' ? 'say-front' : 'say-back', f === 'front' ? front : back, null);
       const c = $('#sCard', root);
       if (f === 'front') c.classList.add('[@media(max-height:760px)]:min-h-[340px]'); // máy thấp (360×740 + thanh ngày ux1): thẻ 410 px đẩy 3 nút xuống dưới thanh tab
+      else { const row = $('#sMic', root) && $('#sMic', root).closest('section'); // mặt sau dài: hàng 🎤/Thẻ tiếp dính ngay trên thanh tab (máy thấp) – không lấp ló dưới thanh tab, luôn bấm được
+        const mn = root.querySelector('main'); if (mn) mn.classList.add('[@media(max-height:760px)_and_(max-width:1023px)]:overflow-x-clip'); // overflow-x-hidden biến main thành khung cuộn → sticky không dính; clip cắt y như vậy mà không phá sticky
+        if (row) row.classList.add('[@media(max-height:760px)_and_(max-width:1023px)]:sticky', '[@media(max-height:760px)_and_(max-width:1023px)]:bottom-[68px]', '[@media(max-height:760px)_and_(max-width:1023px)]:z-10', 'lt:[@media(max-height:760px)_and_(max-width:1023px)]:bg-[#fff8f3]', 'dk:[@media(max-height:760px)_and_(max-width:1023px)]:bg-[#091518]'); }
       if (anim && !matchMedia('(prefers-reduced-motion: reduce)').matches && c.animate) c.animate([{ transform: 'perspective(900px) rotateY(80deg)', opacity: 0.4 }, { transform: 'none', opacity: 1 }], { duration: 260, easing: 'ease-out' });
       wire(root);
     };
