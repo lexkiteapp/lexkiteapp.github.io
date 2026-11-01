@@ -39,7 +39,7 @@ No módulo acadêmico do teste IELTS, a primeira tarefa da prova escrita (*Writi
 
 Neste guia completo, exploraremos o roteiro comprovado de quatro parágrafos, como redigir um *Overview* de alto nível e as fórmulas de vocabulário essenciais para descrever variações numéricas sem repetições monótonas.
 
-![Página de dicionário inteligente com pronúncia e definições no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
+![Página de dicionário inteligente com pronúncia e definições no Lexkite](media:dict "Consulte verbos de tendência e expressões de proporção no dicionário interativo do Lexkite")
 
 ## Como a banca examinadora avalia o ielts writing task 1 graficos?
 

@@ -65,7 +65,7 @@ A paráfrase atua diretamente sobre os quatro critérios oficiais de correção:
 
 Pratique a reformulação de introduções em nosso ambiente interativo no [Laboratório de Escrita Lexkite](/#/write).
 
-![Sala de redação do IELTS Writing Task 2 no Lexkite com escolha de tema, sugestões de ideias, vocabulário, estrutura do texto e modelo nota 8 comentado](media:write "Treinar a paráfrase de temas do IELTS Writing Task 2 no laboratório de redação Lexkite")
+![Laboratório de escrita Lexkite para IELTS Task 2: temas classificados, dicas de brainstorming, vocabulário acadêmico e redações Band 8](media:write "Treinar a paráfrase de temas do IELTS Writing Task 2 no laboratório de redação Lexkite")
 
 ## 2. Técnica 1: Substituição criteriosa por sinônimos contextuais
 
@@ -78,7 +78,7 @@ Trocar termos por equivalentes semânticos é o primeiro impulso, mas requer cau
 
 Pesquise regências e colocações adequadas no [Dicionário Lexkite](/#/dict/resilient).
 
-![Interface do dicionário bilíngue Lexkite mostrando definições, áudio UK/US e frases de exemplo](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
+![Interface do dicionário bilíngue Lexkite mostrando definições, áudio UK/US e frases de exemplo](media:dict "Consultar colocações acadêmicas e definições precisas para paráfrase no dicionário Lexkite")
 
 ## 3. Técnica 2: Variação morfológica e nominalização (Nominalization)
 

@@ -102,7 +102,7 @@ Les grands dictionnaires unilingues proposent des encadrés de synonymes détail
 ### Étape 5 : Ancrer le mot dans la mémoire à long terme
 Transférez les collocations et expressions remarquables dans votre plan de révision. Dans l'[espace d'entraînement Lexkite](/#/practice), révisez vos nouvelles acquisitions grâce à des quiz variés.
 
-![Mini-quiz sur le sens d’une expression – rédiger un mail professionnel en anglais](media:practice-test "Vérifiez votre vocabulaire avec des questions rapides à quatre choix")
+![Mini-quiz sur le sens d’une expression – rédiger un mail professionnel en anglais](media:practice-test "Fixez vos collocations et synonymes dans votre mémoire à long terme grâce aux exercices interactifs")
 
 ## Les 3 erreurs courantes lors de la consultation d'un dictionnaire
 

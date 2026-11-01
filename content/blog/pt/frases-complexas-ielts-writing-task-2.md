@@ -117,7 +117,7 @@ Utilize com extrema moderação (apenas 1 vez na redação inteira) para enfatiz
 
 Consulte sinônimos e o registro formal de termos no [dicionário do Lexkite](/#/dict/resilient).
 
-![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
+![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Verifique a regência de conjunções e adjetivos formais no dicionário inteligente do Lexkite")
 
 ## Técnica prática de combinação de frases (Sentence Combining)
 

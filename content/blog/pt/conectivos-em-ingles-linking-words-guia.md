@@ -39,7 +39,7 @@ Ao produzir uma redação acadêmica, redigir um e-mail profissional ou defender
 
 Neste guia completo, exploraremos o que são esses conectivos, como se organizam por função discursiva e quais convenções de pontuação devem ser rigorosamente seguidas.
 
-![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
+![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Verifique a regência e o uso formal de conectivos no dicionário do Lexkite")
 
 ## O que são conectivos em inglês (Linking Words) e qual a sua importância?
 

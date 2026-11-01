@@ -79,7 +79,7 @@ Apenas um dicionário monolíngue exibe a etiqueta **[U]** logo após a palavra,
 
 Pratique a leitura de artigos autênticos e clique nas palavras para ver definições instantâneas no [módulo de leitura do Lexkite](/#/reading).
 
-![Texto de leitura do Lexkite The Growing Problem of Space Debris com palavras-chave destacadas, consulta com um toque e questões True/False/Not Given](media:read-article "Toque numa palavra para ver o significado e salvá-la, depois responda às questões True/False/Not Given")
+![Texto de leitura do Lexkite The Growing Problem of Space Debris com palavras-chave destacadas, consulta com um toque e questões True/False/Not Given](media:read-article "Leia textos acadêmicos e consulte definições no dicionário integrado com um clique")
 
 ## As 3 Melhores Ferramentas Monolíngues Gratuitas
 
@@ -105,7 +105,7 @@ Consultar a palavra e simplesmente fechar a aba do navegador garante que ela ser
 
 Revise seus flashcards diários com o algoritmo FSRS na [sessão de revisão do Lexkite](/#/review).
 
-![Revisão de flashcards no Lexkite: cartão da palavra pollution com emoji, pronúncia, botão Virar e barra de progresso](media:review "Revise as palavras salvas com flashcards e acompanhe quantos faltam")
+![Revisão de flashcards no Lexkite: cartão da palavra pollution com emoji, pronúncia, botão Virar e barra de progresso](media:review "Revise flashcards inteligentes com algoritmo de repetição espaçada e definições em inglês")
 
 ## Estudo de caso real: A anatomia completa de um verbete pesquisado
 

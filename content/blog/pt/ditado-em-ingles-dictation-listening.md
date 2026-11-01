@@ -85,7 +85,7 @@ Abra a transcrição original (*transcript*) e compare minuciosamente com o seu 
 
 Ao encontrar termos ou expressões desconhecidas, confira a pronúncia e o significado exato no [dicionário do Lexkite](/#/dict/resilient).
 
-![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
+![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte transcrições fonéticas e aprenda a pronúncia correta de termos que você errou no ditado")
 
 ### Passo 4: Leitura espelhada (Shadowing)
 Após corrigir tudo, coloque o áudio novamente e leia o texto em voz alta junto com o locutor nativo, imitando a entonação, o ritmo e as conexões entre as palavras. Se o seu aparelho fonador consegue reproduzir a frase com naturalidade, seu ouvido nunca mais falhará em reconhecê-la.

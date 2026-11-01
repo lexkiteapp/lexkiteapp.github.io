@@ -39,7 +39,7 @@ Em produções textuais de nível intermediário a avançado, a voz passiva dese
 
 Neste guia abrangente, exploraremos a lógica da transformação passiva em todos os tempos verbais, as fórmulas impessoais com verbos de relato e os métodos mais eficazes para elevar a pontuação de gramática na sua redação.
 
-![Página de dicionário inteligente com pronúncia e definições no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
+![Página de dicionário inteligente com pronúncia e definições no Lexkite](media:dict "Consulte a regência verbal e os particípios passados no dicionário interativo do Lexkite")
 
 ## Quando e por que utilizar a voz passiva em ingles passive voice?
 

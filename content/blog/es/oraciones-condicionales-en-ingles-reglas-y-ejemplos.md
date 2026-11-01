@@ -1,12 +1,12 @@
 ---
-title: "Oraciones condicionales en inglés: reglas y ejemplos"
-description: "Domina las oraciones condicionales en inglés: fórmulas completas del condicional 0, 1, 2, 3 y mixtos, con ejemplos claros y errores comunes."
+title: "Reglas de los condicionales en inglés: fórmulas, ejemplos y mixtos"
+description: "Aprende las reglas de los condicionales en inglés: fórmulas completas del condicional 0, 1, 2, 3 y mixtos, con ejemplos claros y errores comunes."
 slug: oraciones-condicionales-en-ingles-reglas-y-ejemplos
 lang: es
 translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [condicionales, gramatica, if-clauses, writing]
-keyword: "oraciones condicionales en inglés"
+keyword: "reglas de los condicionales en inglés"
 cover: grammar
 coverAlt: "Ngữ pháp IELTS với lộ trình chương, 12 thì từ cấp A1 đến B2 và bài luyện tổng hợp"
 factChecked: 2026-10-15
@@ -36,9 +36,9 @@ quiz: [
 ---
 Poder expresar posibilidades reales, imaginar futuros alternativos y analizar situaciones pasadas con precisión es indispensable para comunicarse con fluidez. En la gramática, las **oraciones condicionales en inglés** constituyen la estructura lógica que sostiene desde una negociación de negocios hasta un ensayo académico para exámenes oficiales. Muchos hispanohablantes tropiezan al formular estas frases debido a las diferencias entre el subjuntivo español y los tiempos verbales del inglés.
 
-Aprender las fórmulas exactas de los condicionales no solo te permitirá hablar con mayor naturalidad, sino que elevará tu puntuación en criterios de variedad gramatical en exámenes como IELTS, TOEFL o Cambridge.
+Dominar las reglas de los condicionales en inglés y sus fórmulas exactas no solo te permitirá hablar con mayor naturalidad, sino que elevará tu puntuación en criterios de variedad gramatical en exámenes como IELTS, TOEFL o Cambridge.
 
-## La estructura básica de una oración condicional
+## Reglas de los condicionales en inglés: la estructura básica
 
 Toda oración condicional consta de dos proposiciones interdependientes:
 1. **La condición (if-clause):** Establece el requisito o la hipótesis previa.

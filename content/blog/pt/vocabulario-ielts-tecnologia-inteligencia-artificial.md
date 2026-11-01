@@ -54,7 +54,7 @@ A substituição de postos operacionais por sistemas autônomos e robôs industr
 
 Leia artigos originais sobre ciência e tecnologia no [módulo de leitura do Lexkite](/#/reading) e amplie seu repertório léxico.
 
-![Texto de leitura do Lexkite The Growing Problem of Space Debris com palavras-chave destacadas, consulta com um toque e questões True/False/Not Given](media:read-article "Toque numa palavra para ver o significado e salvá-la, depois responda às questões True/False/Not Given")
+![Texto de leitura do Lexkite The Growing Problem of Space Debris com palavras-chave destacadas, consulta com um toque e questões True/False/Not Given](media:read-article "Explore textos acadêmicos autênticos e salve collocations tecnológicas diretamente para seu vocabulário")
 
 ## Dependência digital, hiperconectividade e impactos sociais
 
@@ -73,7 +73,7 @@ Em debates sobre educação e sociedade, os examinadores avaliam sua capacidade 
 
 Pesquise significados detalhados de termos complexos e sinônimos no [dicionário inteligente do Lexkite](/#/dict/resilient).
 
-![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
+![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte transcrições fonéticas e aprenda a aplicação exata de termos acadêmicos em inglês")
 
 ## Inteligência Artificial, ética de dados e vigilância biométrica
 
@@ -114,7 +114,7 @@ Substituir verbos simples como *make*, *help*, *change* por verbos acadêmicos e
 
 Consolide esses verbos através de simulados e exercícios no [módulo de prática do Lexkite](/#/practice).
 
-![Central de jogos e exercícios com quiz e ditado no Lexkite](media:practice "Escolha o tipo de exercício e as palavras do seu caderno no Lexkite")
+![Central de jogos e exercícios com quiz e ditado no Lexkite](media:practice "Treine collocations e verbos acadêmicos em questionários interativos e flashcards")
 
 ## Exemplo de Parágrafo Modelo para IELTS Writing Task 2 (Band 8.5)
 

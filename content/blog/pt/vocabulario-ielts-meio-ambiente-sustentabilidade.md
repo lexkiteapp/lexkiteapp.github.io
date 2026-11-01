@@ -75,7 +75,7 @@ Ao analisar o aquecimento global e as emissões de carbono, substitua clichês v
 
 Pratique a leitura de textos acadêmicos sobre biologia e climatologia no [módulo de Leitura do Lexkite](/#/reading).
 
-![Módulo de leitura do IELTS no Lexkite com níveis A2 a C1, consulta interativa de termos e salvamento de vocabulário](media:read-article "Toque numa palavra para ver o significado e salvá-la, depois responda às questões True/False/Not Given")
+![Módulo de leitura do IELTS no Lexkite com níveis A2 a C1, consulta interativa de termos e salvamento de vocabulário](media:read-article "Leia textos acadêmicos sobre meio ambiente e amplie seu vocabulário em contexto com o Lexkite")
 
 ## 2. vocabulário ielts meio ambiente: Biodiversidade e fragmentação de habitats
 
@@ -93,7 +93,7 @@ Tópicos que tratam do declínio da fauna e flora requerem terminologia especial
 
 Confira o significado exato, pronúncia e regência de cada termo no [Dicionário Lexkite](/#/dict/resilient).
 
-![Interface do dicionário bilíngue Lexkite mostrando definições, áudio UK/US e frases de exemplo](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
+![Interface do dicionário bilíngue Lexkite mostrando definições, áudio UK/US e frases de exemplo](media:dict "Consulte definições acadêmicas, transcrições fonéticas e colocações no dicionário Lexkite")
 
 ## 3. Gestão de resíduos, plásticos e preservação oceânica
 
