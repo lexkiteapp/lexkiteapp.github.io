@@ -110,6 +110,23 @@ for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', '
     await page.close();
   }
   await ctx.close(); }
+// GIF app → blog (cho chủ duyệt, chỉ khi --shots): app đặt Tối + Tiếng Việt → bấm link Blog thật trong app → blog vẫn tối + bản vi; khung ảnh app-blog-NN.png (theme-qa.yml ghép GIF)
+if (SHOTS && has('app/index.html')) {
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: 'light', reducedMotion: 'reduce' }); await serve(ctx);
+  await ctx.addInitScript(() => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); localStorage.setItem('ielts.settings', JSON.stringify({ theme: 'dark' })); localStorage.setItem('ielts.settingsAt', String(Date.now())); localStorage.setItem('vb.uiLang', 'vi'); } } catch (e) { /* */ } });
+  const page = await ctx.newPage(); let n = 0; const shot = async () => page.screenshot({ path: path.join(SHOTS, `app-blog-${String(++n).padStart(2, '0')}.png`) });
+  await page.goto(BASE + '/app/', { waitUntil: 'load' }); await page.waitForTimeout(2500); await shot();
+  const link = page.locator('a[data-blog]:visible, a[href$="/blog/"]:visible').first();
+  if (await link.count()) { await link.hover().catch(() => {}); await shot(); await Promise.all([page.waitForLoadState('load'), link.click()]); }
+  else { bad.push('gif app→blog: app không có link Blog hiện'); await page.goto(BASE + '/vi/blog/', { waitUntil: 'load' }); }
+  await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {}); await page.waitForTimeout(400); await shot();
+  const r = await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), lang: document.documentElement.lang, path: location.pathname }));
+  if (r.th !== 'dark') bad.push(`gif app→blog: blog mở từ app nhưng data-theme=${r.th}`);
+  if (!/^vi/.test(r.lang)) bad.push(`gif app→blog: app chọn Tiếng Việt nhưng blog mở bản ${r.lang} (${r.path})`);
+  await page.evaluate(() => scrollTo(0, innerHeight * .9)); await page.waitForTimeout(200); await shot();
+  await page.locator('.site-foot').scrollIntoViewIfNeeded().catch(() => {}); await page.evaluate(() => scrollTo(0, document.body.scrollHeight)); await page.waitForTimeout(200); await shot();
+  fs.writeFileSync(path.join(SHOTS, 'app-blog.txt'), JSON.stringify(r) + '\n'); checks++; await ctx.close();
+}
 await browser.close();
 if (bad.length) { console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }
 console.log(`✓ theme-static: ${PAGES.length} trang × ${MODES.length} chế độ (${checks} lượt) – đúng data-theme, không nháy, tương phản AA 0 lỗi, nút vòng/lưu/44 px, không tràn @360${SHOTS ? ` · ảnh: ${SHOTS}/` : ''}`);
