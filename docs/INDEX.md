@@ -18,6 +18,7 @@
 - [CI-RUNNERS.md](CI-RUNNERS.md) — Ngân sách 20 runner GitHub Actions: việc nền ≤ ~10 (max-parallel), concurrency PR hủy lượt cũ, prod-release 1 lượt chờ, lượt ma queued; đọc khi: thêm workflow ma trận/nền hoặc check PR phải xếp hàng
 - [QUALITY-PIPELINE.md](QUALITY-PIPELINE.md) — Phương pháp "làm 1 lần ăn ngay" cho pipeline sinh nội dung (ảnh, kho từ): thước đo trước, nhánh riêng, pilot mẫu khó cố định, đạt mới hàng loạt, tự dừng khi tụt, mỗi lỗi một test; đọc khi: bắt đầu/đổi prompt, mô hình, giám khảo, nguồn
 - [SYNC-DRIVE.md](SYNC-DRIVE.md) — Đồng bộ local-first qua Google Drive appDataFolder của chính người học: so sánh hạn mức, thiết kế, di chuyển từ D1, việc chủ duyệt; đọc khi: sửa đồng bộ/đăng nhập/xóa tài khoản.
+- [specs/account-flow.md](specs/account-flow.md) — Spec luồng tài khoản: hiện trạng, 8 lỗi kèm cách tái hiện, thiết kế đích, 5 mốc + việc của chủ; đọc khi: sửa đăng ký/đăng nhập/gộp/đồng bộ.
 - [FREE-TIER.md](FREE-TIER.md) — Free-tier guard hằng ngày: số dùng thật so với trần gói miễn phí (Workers, D1, R2, Pages build, repo), chế độ shed của Worker; đọc khi: thêm Worker/trang tự sinh/việc nền hoặc có issue free-tier
 - [CLASSROOM.md](CLASSROOM.md) — Chế độ lớp học (giáo viên/học sinh): tạo lớp, giao bài qua Google Classroom, dữ liệu tối thiểu, chi phí D1 và giới hạn; đọc khi: sửa tính năng lớp học
 - [CONFIDENCE.md](CONFIDENCE.md) — Lộ trình Giao tiếp tự tin (#/confidence) A1→B2: bài 5-8 phút, bộ công cụ tự tin, thử thách 2 phút/ngày, điểm tự tin; đọc khi: sửa/nối tính năng tự tin hoặc video liên quan
@@ -33,6 +34,7 @@
 - [CWS-FEATURED.md](CWS-FEATURED.md) — Checklist huy hiệu Featured trên Chrome Web Store: kỹ thuật & tuân thủ, listing & trải nghiệm, cách gửi xét, cách giữ huy hiệu; đọc khi: chuẩn bị listing add-on
 - [CWS-RULES.md](CWS-RULES.md) — Quy tắc Chrome Web Store và quy trình phát hành add-on: không mã từ xa, giới hạn cửa hàng, phát hành tự động, thiết lập workflow, kiểm thử; đọc khi: sửa extension/ hoặc phát hành add-on
 - [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) — Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên; đọc khi: mọi thay đổi giao diện
+- [WEB-PAGES](WEB-PAGES.md) — kiểm kê mọi trang không phải app + admin: trạng thái Stitch Kit, screen, PR chủ, cổng web-sweep; đọc khi đổi giao diện trang tĩnh/blog/SEO/pháp lý/admin
 - [STITCH-V2-PORT](STITCH-V2-PORT.md) — port màn Stitch v2 vào app bằng bộ chuyển tự động; đọc khi port/sửa màn v2
 - [GAME-FEEL.md](GAME-FEEL.md) — Lớp game feel: gói âm CC0, rung, chuyển động phản hồi (XP, thanh, combo), nhân vật phản ứng, cờ ?feel=1; đọc khi: sửa âm/hiệu ứng phản hồi
 - [DISTRIBUTION.md](DISTRIBUTION.md) — Kênh & phân phối (nhúng + social): vai trò kênh, định tuyến, hợp đồng cho tác tử social (GrabCast), hệ thống web/app; đọc khi: sửa phân phối/social
