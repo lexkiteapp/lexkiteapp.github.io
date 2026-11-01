@@ -97,6 +97,7 @@ def main():
 def sheet(D, T, res, out):
     """tờ ảnh: mỗi ô = ảnh (cảnh/khái niệm/bìa) + từ + câu ví dụ dưới ảnh (như thẻ học) + dấu ĐẠT/TRƯỢT"""
     W, H, C = 240, 330, 8; keys = list(T.keys()); rows = (len(keys) + C - 1) // C
+    if not keys: print('tờ ảnh: 0 ảnh – không ghi', out); return   # 31/10 pilot 41146130096: kho CF cạn → 0 thẻ/0 ảnh, Image 0 px → ValueError đỏ cả lượt
     im = Image.new('RGB', (C * W, rows * H), '#ffffff'); dr = ImageDraw.Draw(im)
     try: f = ImageFont.truetype('DejaVuSans.ttf', 12); fb = ImageFont.truetype('DejaVuSans-Bold.ttf', 14)
     except Exception:

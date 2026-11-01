@@ -54,6 +54,14 @@ const formOf = (w, s) => { const t = words(s), st = w.split('-')[0].slice(0, Mat
 // Cổng 1 mục (CỨNG): lược đồ · IPA hợp lệ (Anh từ Wiktionary, Mỹ từ CMUdict) · 2 giám khảo khác họ ≥ 4 lệch ≤ 1 · CEFR · dịch (≥ 4 cả 2 giám khảo, đúng chữ viết, không lẫn tiếng Việt, dịch ngược ≥ 0.8)
 // định nghĩa đúng HÌNH từ loại (quy ước kho, đo 26/10: v 1348/1348 "to …", adj/adv 0 mạo từ/"to", n 0 "to") – pilot 11: purple#adj "a colour that…"
 export const DEF_POS_FIX = { v: 'a verb definition must start with "to …"', adj: 'an adjective definition must describe a quality (no "a/an/the …" noun phrase, no "to …")', adv: 'an adverb definition must not start with "a/an/the" or "to"', n: 'a noun definition must not start with "to …"' };
+/** NGỮ PHÁP def tất định (soát Sonnet pilot 31/10: resuscitate "to restore consciousness, energy, or life to" – giới từ cụt; orphan "a child whose both parents have died" – lượng từ sau "whose").
+ *  Trả lý do (tiếng Anh, đưa vào lxdef viết lại 1 lần) hoặc ''. */
+export function defGrammarBad(def) {
+  const d = String(def || '').trim().toLowerCase().replace(/[.;:,\s]+$/, '');
+  if (/\b(to|of|with|from|a|an|the|and|or)$/.test(d)) return 'the definition must not end with a dangling "' + d.split(/\s+/).pop() + '" – give the object or rephrase';
+  if (/\bwhose (both|all|each|every|either|neither)\b/.test(d)) return 'ungrammatical quantifier after "whose" – e.g. "whose parents have both died"';
+  return '';
+}
 export function defPosOk(def, pos) {
   const d = String(def || '').trim().toLowerCase();
   if (pos === 'v') return /^to /.test(d);
@@ -95,6 +103,19 @@ export function viAgreeSources(srcs) {
   for (const s of Object.keys(srcs)) for (const v of [].concat(srcs[s] || []).flatMap(viNorm)) { const k = viKey(v); if (!k) continue; const o = m.get(k) || m.set(k, { v, src: [] }).get(k); if (!o.src.includes(s)) o.src.push(s); }
   return [...m.values()].filter(o => o.src.length >= 2);
 }
+/** vi BỊ PHẢN BÁC (lớp L1, pilot 31/10 peel#v "gọt": Wiktionary + lxtr trùng, qua trắc nghiệm 3/3 nhưng sai – lxtr nhận câu ví dụ "peel apples" nên neo vào từ hẹp).
+ *  ai = { a, b, c }: câu trả lời vi của từng AI. Phương án c (từ viAgreeSources) chỉ nhận khi số AI ỦNG HỘ > số AI PHẢN BÁC
+ *  (AI có trả lời mà không phương án nào trùng khoá / bao nhau với c: "múa ba lê" ⊃ "ba lê" = không phản bác). */
+export function viContested(c, ai) {
+  const k = viKey(c.v), sup = c.src.filter(s => s !== 'wk' && ai[s]).length;
+  const dis = Object.keys(ai).filter(s => !c.src.includes(s) && viNorm(ai[s]).length && !viNorm(ai[s]).some(v => { const q = viKey(v); return q && (q === k || q.includes(k) || k.includes(q)); })).length;
+  return sup <= dis;
+}
+/** từ nội dung (5 chữ đầu) để so nhãn bảng dịch Wiktionary với gloss/def */
+export const CW = t => new Set((String(t).toLowerCase().match(/[a-z]{3,}/g) || []).filter(x => !['the', 'and', 'for', 'with', 'that', 'which', 'from', 'into', 'something', 'someone', 'used', 'especially', 'usually', 'often', 'having', 'being', 'etc', 'one', 'other', 'any', 'such', 'are', 'not', 'its', 'has'].includes(x)).map(x => x.slice(0, 5)));
+export const ov = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n; };
+/** bảng dịch đã chọn (chỉ số ti) MƠ HỒ khi một bảng khác khớp NGUỒN NGƯỜI VIẾT (gloss + lemma WordNet – không def AI) ngang hoặc hơn (lớp D1: razor "shaving knife" ↔ "shaving instrument" → pt navalha = dao cạo thẳng) */
+export function trTableAmbiguous(labels, ti, text) { const T = CW(text), m = ov(CW(labels[ti] || ''), T); return labels.some((g, j) => j !== ti && ov(CW(g), T) >= m); }
 /** bản dịch 12 ngôn ngữ cũng cần ≥ 2 nguồn độc lập (pilot 29/10: detriment ko 상해 – chỉ bảng Wiktionary + trắc nghiệm nghĩa vẫn lọt) */
 // soát 50 mẫu pilot 29/10: 9/11 bản dịch sai chỉ 1 nguồn; 2 còn lại khớp Wiktionary ∩ OMW nhưng không tự nhiên (pt surpresa, zh 蚤) → AI họ A xác nhận + nguồn người viết;
 export const TR2 = /^wiktionary\+omw\+ai$/; // soát pilot 2: 5/7 lỗi dịch chỉ 2 nguồn (omw+ai, wiktionary+ai) → cần ĐỦ 3 nguồn
@@ -128,6 +149,7 @@ export function gateEntry(e, { keep } = {}) {
   if (!e.ipaUS) why.push('ipa: thiếu IPA Mỹ'); else if (badChars(e.ipaUS).length) why.push('ipa: Mỹ ngoài bảng ' + badChars(e.ipaUS).join(''));
   if (!e.def || words(e.def).length > 18 || words(e.def).includes(e.w)) why.push('schema: định nghĩa');
   else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);
+  else if (defGrammarBad(e.def)) why.push('schema: định nghĩa sai ngữ pháp – ' + defGrammarBad(e.def));
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
   else if (e.ex.some(x => !isSentence(x))) why.push('ví dụ: không phải câu hoàn chỉnh (viết hoa đầu, có dấu câu cuối)');
   if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa
@@ -192,11 +214,13 @@ export function gateEntry(e, { keep } = {}) {
   return why.length ? { ok: false, why } : { ok: true, bt: +btr.toFixed(2) };
 }
 const files = sub => ex(DIR + sub) ? fs.readdirSync(new URL(DIR + sub, ROOT)).filter(f => /^[\w.-]+\.json$/.test(f) && f !== 'candidates.json').map(f => DIR + sub + f) : [];
-// từ đã xử lý (đã xuất + chờ soát + hàng duyệt) – để chạy lại không làm trùng
+// MỤC đã xử lý (đã xuất + chờ soát + hàng duyệt) theo khoá `từ#loại` – để chạy lại không làm trùng. 30/10 (đa từ loại): trước đây khoá theo TỪ
+// nên kho có duck#n thì duck#v không bao giờ được làm → trần ~11–12k. Mục hàng duyệt 'keep: … từ loại khác' KHÔNG tính (requeue.mjs --pos đưa về retry).
+export const OTHER_POS = /^keep: từ đã có trong kho với từ loại khác/;
 export function doneWords() {
   const s = new Set();
-  for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k.split('#')[0]);
-  if (ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] })) s.add(String(q.id).split('#')[0]);
+  for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k);
+  if (ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] }) && !OTHER_POS.test((q.why || [])[0] || '')) s.add(String(q.id));
   return s;
 }
 // Mục ĐÃ XUẤT: lô ở content/lexicon/expand/<lô>.json có tệp kiểm mẫu content/qa/batches/lx-<lô>.json đạt (status published)
@@ -211,6 +235,9 @@ export function loadExpand() {
 }
 // Dạng INDEX (giống IELTS_DATA.INDEX của trình duyệt) cho mảnh tra từ
 export const toIndex = e => ({ word: e.w, ipa: e.ipa, pos: e.pos, vi: e.vi, def: e.def, ex: e.ex[0], col: e.col, syn: e.syn, level: e.level, emoji: e.emoji || '', ipaUS: e.ipaUS === e.ipa ? '' : e.ipaUS, topic: e.topic || '', ex2: e.ex[1], ...(e.note_vi ? { note: e.note_vi } : {}), x: 1 });
+// Từ loại PHỤ của một từ đã có mục (30/10 đa từ loại: kho có duck#n, mở rộng thêm duck#v) → INDEX[duck].more[] – mảnh tra từ chở theo mục chính,
+// từ điển hiện ở khối đúng từ loại (dictionary.js build). Nghĩa 13 ngôn ngữ ở mảnh ngôn ngữ, khoá `từ#loại` (như gói web/packs).
+export const toMore = e => { const { word, emoji, note, ...m } = toIndex(e); return m; };
 // Dạng dòng kho (scripts/lexicon/lib.mjs loadAll) cho việc Node hạ nguồn (âm thanh, kịch bản, dist/lexicon.json…)
 export const expandRows = () => loadExpand().map(({ e, batch, file }) => ({ file, line: -1, set: e.topic || 'xw-everyday', x: 1, batch, row: [e.w, e.ipa, e.pos, e.vi, e.def, e.ex[0], e.col.join('|'), e.syn.join('|'), e.level, e.emoji || '', e.ipaUS === e.ipa ? '' : e.ipaUS] }));
 

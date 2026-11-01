@@ -85,12 +85,6 @@
    "why": "clip-sentence sim 0.1617",
    "b": "40276144478"
   },
-  "group booking#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (more than ten rooms); clip-sentence sim 0.2091; vision description-sentence sim 0.1603",
-   "b": "40088424311"
-  },
   "group#n": {
    "at": "2026-10-26",
    "tries": 4,
@@ -150,12 +144,6 @@
    "tries": 4,
    "why": "clip-sentence sim 0.1967",
    "b": "40276144478"
-  },
-  "polite#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (phone call, customer); vision description-sentence sim 0.1858",
-   "b": "40088424311"
   },
   "poorly#adv": {
    "at": "2026-10-24",
