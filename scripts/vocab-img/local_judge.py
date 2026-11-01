@@ -130,7 +130,7 @@ def cf_vision(prompt, jpeg, model=None):
     import base64, urllib.request, urllib.error
     body = json.dumps({'messages': [{'role': 'user', 'content': [{'type': 'text', 'text': prompt}, {'type': 'image_url', 'image_url': {'url': 'data:image/jpeg;base64,' + base64.b64encode(jpeg).decode()}}]}], 'max_tokens': 300, 'temperature': 0}).encode()
     acc = _cf_accts()
-    for i in range(10):
+    for i in range(16):
         if not acc: _API['dead'] = True; print('⏸ thị giác CF: mọi tài khoản hết lượt', flush=True); return None
         a, t = acc[_CFV['i'] % len(acc)]
         try:
@@ -145,7 +145,7 @@ def cf_vision(prompt, jpeg, model=None):
         except urllib.error.HTTPError as e:
             m = e.read().decode('utf8', 'ignore')[:200]; _API.setdefault('err', {})[str(e.code)] = _API.setdefault('err', {}).get(str(e.code), 0) + 1
             if e.code in (401, 403) or '4006' in m or 'neuron' in m.lower(): acc.remove((a, t)); continue
-            _CFV['i'] += 1; time.sleep(min(20, 3 * (i + 1))); continue   # e6: lỗi tạm → tài khoản KẾ (pilot 41274610314: thử lại cùng tài khoản → 33 ảnh 'judge unavailable')
+            _CFV['i'] += 1; time.sleep(min(60, 8 * (i + 1)) if e.code == 429 else min(20, 3 * (i + 1))); continue   # pilot 41279771197: 93 lần 429 → chờ lùi dài hơn; e6: lỗi tạm → tài khoản KẾ (pilot 41274610314: thử lại cùng tài khoản → 33 ảnh 'judge unavailable')
         except Exception as e:
             k_ = type(e).__name__; _API.setdefault('err', {})[k_] = _API.setdefault('err', {}).get(k_, 0) + 1; _CFV['i'] += 1; time.sleep(3); continue
     _API['fails'] += 1; return None
