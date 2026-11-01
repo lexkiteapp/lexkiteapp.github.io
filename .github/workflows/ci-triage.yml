@@ -147,6 +147,7 @@ on:
       - 'Cổng ASR audio câu'
       - 'Phát audio (Chromium + WebKit)'
       - 'media-clips'
+      - 'codemap'
       - 'TTS A/B (Kokoro vs ElevenLabs)'
       - 'required-gate'
   schedule:
