@@ -7,6 +7,10 @@ on:
     paths: ['.github/workflows/store-video-viral.yml', 'scripts/store-video-viral.mjs']
 permissions:
   contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   viral:
     runs-on: ubuntu-latest

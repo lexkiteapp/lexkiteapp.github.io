@@ -133,7 +133,7 @@
     for (const [k, v] of Object.entries(a.unitDone || {})) unitDone[k] = Math.max(unitDone[k] || 0, v);
     // Lượt đóng băng: lấy theo bản nhiều XP hơn (tiến độ mới hơn); ngày đã đóng băng: hợp 2 bên
     const lead = (b.xp || 0) > (a.xp || 0) ? b : a;
-    return { ...a, xp: Math.max(a.xp || 0, b.xp || 0), days, total, best, unitDone, freezes: lead.freezes || 0, freezeAt: Math.max(a.freezeAt || 0, b.freezeAt || 0), frozen: { ...(b.frozen || {}), ...(a.frozen || {}) },
+    return { ...b, ...a, xp: Math.max(a.xp || 0, b.xp || 0), days, total, best, unitDone, freezes: lead.freezes || 0, freezeAt: Math.max(a.freezeAt || 0, b.freezeAt || 0), frozen: { ...(b.frozen || {}), ...(a.frozen || {}) },
       listenDone: maxMerge(a.listenDone, b.listenDone), grammarDone: maxMerge(a.grammarDone, b.grammarDone), pronDone: maxMerge(a.pronDone, b.pronDone), listenBest: maxMerge(a.listenBest, b.listenBest), rtype: (() => { const o = { ...(b.rtype || {}) }; for (const [k, v] of Object.entries(a.rtype || {})) if (!o[k] || v.t > o[k].t) o[k] = v; return o; })(), toeicBest: (a.toeicBest || {}).total >= ((b.toeicBest || {}).total || 0) ? a.toeicBest : b.toeicBest, badges: { ...b.badges, ...a.badges }, readDone: { ...(b.readDone || {}), ...(a.readDone || {}) }, questsDone: { ...(b.questsDone || {}), ...(a.questsDone || {}) }, ...((a.ret || b.ret) ? { ret: mergeRet(a.ret, b.ret) } : {}) };
   }
 
@@ -215,7 +215,19 @@
 
   // Chuỗi ổn định (khóa sắp xếp) để so dữ liệu trước/sau khi gộp – thứ tự khóa khác nhau không tính là "đổi"
   const stable = v => JSON.stringify(v, (k, x) => x && typeof x === 'object' && !Array.isArray(x) ? Object.keys(x).sort().reduce((o, key) => (o[key] = x[key], o), {}) : x);
-  async function pullMerge(opt = {}) {
+  // Một lượt kéo tại một thời điểm: đăng nhập chuyển hướng gọi start() 2 lần (getRedirectResult + onAuth) → dùng chung 1 lượt
+  const pulling = {};
+  const pullMerge = (opt = {}) => { const k = JSON.stringify(opt); return pulling[k] || (pulling[k] = pullMerge0(opt).finally(() => { delete pulling[k]; })); };
+  // Offline-first: lỗi mạng → thử lại lùi dần 30 s → 10 phút và ngay khi có mạng; dữ liệu luôn ở máy, không báo lỗi khi chỉ là mất mạng
+  let netN = 0, netT = null, needPull = false;
+  const offline = () => typeof navigator !== 'undefined' && navigator.onLine === false;
+  const syncOk = () => { netN = 0; clearTimeout(netT); netT = null; };
+  function retryLater() {
+    if (netT || !Sync.user || Sync.mode === 'off' || Sync.mode === 'drive') return;
+    netT = setTimeout(() => { netT = null; if (needPull) pullMerge({ quiet: true }); else push(); }, Math.min(600000, 30000 * 2 ** netN++));
+  }
+  const netFail = e => { retryLater(); if (offline()) return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); console.warn('sync', e); setStatus('error', e.message); };
+  async function pullMerge0(opt = {}) {
     if (Sync.deleting) return;
     setStatus('syncing');
     try {
@@ -231,8 +243,9 @@
       // Đăng nhập tài khoản khác với lần trước → hỏi trước khi gộp dữ liệu trên máy vào
       const lastUid = await Store.get('lastUid', '');
       if (lastUid && lastUid !== Sync.user.uid && Object.keys(await Cards.all()).length) {
-        const keep = confirm(t('Máy này đang có dữ liệu học của tài khoản khác.\n\nOK = gộp dữ liệu trên máy vào tài khoản này\nHủy = chỉ dùng dữ liệu của tài khoản này'));
-        if (!keep) { await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null); await Store.set('deleted', {}); }
+        const t0 = Date.now(), keep = confirm(t('Máy này đang có dữ liệu học của tài khoản khác.\n\nOK = gộp dữ liệu trên máy vào tài khoản này\nHủy = chỉ dùng dữ liệu của tài khoản này'));
+        // WebView (Facebook/Zalo…) chặn hộp thoại → trả về ngay: coi như gộp, không bao giờ xóa. Trước khi xóa luôn giữ 1 bản sao (Sync.restoreBackup)
+        if (!keep && Date.now() - t0 >= 40) { await Store.set('acctBackup', { uid: lastUid, at: Date.now(), cards: await Cards.all(), stats: await Core.Stats.get(), game: await Game.get(), deleted: await Store.get('deleted', {}) }); await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null); await Store.set('deleted', {}); }
       }
       await Store.set('lastUid', Sync.user.uid);
       if (docs.meta) {
@@ -252,23 +265,24 @@
       // Chuyển sang Drive: chỉ đẩy lên D1 khi tài khoản ĐÃ có dữ liệu ở D1 (để máy chưa cập nhật vẫn khớp) – người mới không tạo dòng D1 nào
       if (opt.migrate) { if (docs.meta) await push(); else setStatus('ok'); return !!docs.meta; }
       await push();
+      needPull = false;
       if (!opt.quiet) toast(docs.meta ? '☁️ ' + (extReady ? t('Đã đồng bộ dữ liệu học (kể cả add-on)') : t('Đã đồng bộ dữ liệu học')) : '☁️ ' + t('Đã sao lưu dữ liệu lên tài khoản'));
     } catch (e) {
       if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + 6 * 3600e3); setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); return; }
-      console.warn('sync', e); setStatus('error', e.message);
+      needPull = true; netFail(e);
     }
   }
   // Gộp 1 bản từ xa (meta D1 hoặc ảnh chụp Drive) vào kho trên máy – dùng chung cho cả 2 đường
   async function mergeIn(remote, remoteCards) {
-    const local = { cards: await Cards.all(), stats: await Core.Stats.get(), game: await Game.get(), settings: await Store.get('settings', {}), deleted: await Store.get('deleted', {}) };
-    const before = stable([local.cards, local.stats, local.game, local.settings]);
+    const before = stable([await Cards.all(), await Core.Stats.get(), await Game.get(), await Store.get('settings', {})]);
     const deleted = Object.assign(Object.create(null), remote.deleted || {});
-    for (const [k, t] of Object.entries(local.deleted)) deleted[k] = Math.max(deleted[k] || 0, t);
+    for (const [k, t] of Object.entries(await Store.get('deleted', {}))) deleted[k] = Math.max(deleted[k] || 0, t);
     pruneDel(deleted);
     await Store.set('deleted', deleted);
-    await Cards.save(mergeCards(local.cards, remoteCards, deleted));
-    await Store.set('stats', mergeStats(local.stats, remote.stats || { days: {} }));
-    await Store.set('game', mergeGame(local.game, remote.game));
+    // Đọc lại bản trên máy SÁT lúc ghi (thẻ: trong khóa Cards) → câu trả lời/XP ghi giữa lúc chờ mạng (đang làm bài) không bị đè
+    if (Cards.mutate) await Cards.mutate(m => mergeCards(m, remoteCards, deleted)); else await Cards.save(mergeCards(await Cards.all(), remoteCards, deleted));
+    await Store.set('stats', mergeStats(await Core.Stats.get(), remote.stats || { days: {} }));
+    await Store.set('game', mergeGame(await Game.get(), remote.game));
     // Cài đặt: ưu tiên bản mới sửa gần nhất
     if (remote.settings && (remote.settingsAt || 0) > (await Store.get('settingsAt', 0))) { await Store.set('settings', remote.settings); await Store.set('settingsAt', remote.settingsAt); }
     await syncExtension();
@@ -378,8 +392,14 @@
     await start();
   };
 
-  async function push() {
-    if (!Sync.user || !db || Sync.deleting || Sync.mode === 'off') return;
+  // Một lượt đẩy tại một thời điểm; có thay đổi giữa lúc đẩy → đẩy thêm 1 lượt ngay sau
+  let pushing = null, pushAgain = false;
+  function push() {
+    if (pushing) { pushAgain = true; return pushing; }
+    return (pushing = push0().finally(() => { pushing = null; if (pushAgain) { pushAgain = false; push(); } }));
+  }
+  async function push0() {
+    if (!Sync.user || Sync.deleting || Sync.mode === 'off') return;
     if (Date.now() < await Store.get('syncPausedUntil', 0)) return;
     setStatus('syncing');
     try {
@@ -409,12 +429,12 @@
       if (extReady) { extCall('set', { cards: await Cards.all(), deleted: await Store.get('deleted', {}), stats: await Core.Stats.get() }); extCall('linked', { email: Sync.user.email, name: Sync.user.displayName || '' }); }
       Object.assign(sentHashes, pending); // chỉ ghi nhận "đã gửi" khi commit thành công
       dirty = false;
-      Sync.lastSync = Date.now();
+      Sync.lastSync = Date.now(); syncOk();
       setStatus('ok');
     } catch (e) {
       // Hết hạn mức miễn phí trong ngày → tạm dừng đồng bộ đến hôm sau; dữ liệu vẫn an toàn trên máy
       if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + 6 * 3600e3); setStatus('ok', t('Đồng bộ tạm nghỉ vài giờ (máy chủ miễn phí đã đủ lượt hôm nay) – dữ liệu vẫn lưu trên máy và sẽ tự đồng bộ sau.')); return; }
-      console.warn('push', e); setStatus('error', e.message);
+      netFail(e);
     }
   }
 
@@ -428,7 +448,7 @@
     timer = setTimeout(() => { timer = null; if (dirty) drive ? driveRun('push') : push(); }, drive ? SyncDrive.cfg().every : +((window.LK_SYNC && LK_SYNC.d1Every) || 180000));
   };
   const flush = () => { if (Sync.user && dirty) { clearTimeout(timer); timer = null; Sync.mode === 'drive' ? driveRun('hide') : push(); } };
-  window.addEventListener('online', () => { if (Sync.mode === 'drive') driveRun('online'); });
+  window.addEventListener('online', () => { if (Sync.mode === 'drive') return driveRun('online'); if (!Sync.user || Sync.mode === 'off' || !(needPull || dirty || netT)) return; syncOk(); return needPull ? pullMerge({ quiet: true }) : push(); });
   document.addEventListener('visibilitychange', () => { if (document.hidden) flush(); });
   window.addEventListener('pagehide', flush);
   const authOut = () => nativeAuth ? NativeAuth.signOut() : firebase.auth().signOut();
@@ -479,6 +499,9 @@
   };
   // Xóa tài khoản: web/js/account-delete.js (tải lười), máy chủ functions/api/account.js
   Sync.api = API;
+  // Bản sao trước khi xóa dữ liệu máy lúc đổi tài khoản → gộp lại vào tài khoản hiện tại (không mất gì)
+  Sync.restoreBackup = async () => { const b = await Store.get('acctBackup', null); if (!b) return false; await mergeIn({ stats: b.stats, game: b.game, deleted: b.deleted }, b.cards || {}); await Store.set('acctBackup', null); Sync.schedule(); return true; };
+  Sync._merge = { cards: mergeCards, stats: mergeStats, game: mergeGame }; // kiểm thử (scripts/test/account-flow.mjs) + QA Console
   Sync.deleteAccount = () => (window.AccountDelete ? Promise.resolve() : loadScript('js/account-delete.js')).then(() => AccountDelete.open());
   Sync.afterDelete = async () => { sentHashes = {}; if (window.SyncDrive) SyncDrive.tok.clear(); Sync.mode = ''; try { localStorage.removeItem('lk.league'); localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ } try { await authOut(); } catch (e) { /* tài khoản đã xóa */ } };
 
