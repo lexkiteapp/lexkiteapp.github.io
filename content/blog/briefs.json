@@ -17352,6 +17352,75 @@
       ],
       "angle": "Essential business english negotiation phrases: framing counteroffers, navigating concessions, overcoming deal deadlocks, and sealing commercial agreements.",
       "intent": "informational"
+    },
+    {
+      "lang": "es",
+      "slug": "frases-en-ingles-para-negociaciones-de-negocios",
+      "keyword": "negociación en inglés frases",
+      "topic": "Frases en Inglés para Negociaciones de Negocios: Cómo Regatear y Cerrar Acuerdos",
+      "category": "ky-nang",
+      "tags": [
+        "negociacion",
+        "business-english",
+        "ventas",
+        "speaking"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Guía práctica de negociación en inglés frases clave para plantear contraofertas, conceder ventajas condicionales, destrabar desacuerdos y firmar contratos comerciales.",
+      "intent": "informational"
+    },
+    {
+      "lang": "pt",
+      "slug": "frases-em-ingles-para-negociacao-de-contratos",
+      "keyword": "negociação em inglês frases",
+      "topic": "Frases em Inglês para Negociação: Como Fazer Contrapropostas e Fechar Acordos",
+      "category": "ky-nang",
+      "tags": [
+        "negociacao",
+        "business-english",
+        "carreira",
+        "speaking"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Manual de negociação em inglês frases essenciais para abrir rodadas de negócios, propor concessões condicionais, superar impasses de preços e selar parcerias duradouras.",
+      "intent": "informational"
+    },
+    {
+      "lang": "fr",
+      "slug": "negocier-en-anglais-phrases-cles-affaires",
+      "keyword": "négociation en anglais phrases",
+      "topic": "Négociation en Anglais : Phrases Clés pour Défendre Vos Prix et Conclure des Accords",
+      "category": "ky-nang",
+      "tags": [
+        "negociation",
+        "business-english",
+        "commerce",
+        "speaking"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Guide complet de la négociation en anglais phrases utiles pour formuler des contre-propositions, gérer les concessions, surmonter les blocages et signer des contrats.",
+      "intent": "informational"
     }
   ]
 }
