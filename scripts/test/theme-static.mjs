@@ -55,7 +55,7 @@ for (const [mode, scheme, stored] of MODES) {
       if (!/^light\|light\|.+: Light theme$/.test(seq[0]) || !/^dark\|dark\|.+: Dark theme$/.test(seq[1]) || !/^\|\|.+: Theme: match system$/.test(seq[2])) bad.push(`landing-en: vòng nút sai ${seq.join(' → ')}`);
       await page.click('[data-tsw] >> visible=true'); await page.reload({ waitUntil: 'load' });
       if (await page.evaluate(() => document.documentElement.getAttribute('data-theme')) !== 'light') bad.push('landing-en: tải lại không giữ lựa chọn sáng');
-      const box = await page.locator('[data-tsw] >> visible=true').boundingBox(); if (!box || box.width < 44 || box.height < 44) bad.push(`landing-en: nút giao diện ${box && Math.round(box.width)}×${box && Math.round(box.height)} < 44 px trên điện thoại`);
+      const box = await page.locator('[data-tsw] >> visible=true').first().boundingBox(); if (!box || box.width < 44 || box.height < 44) bad.push(`landing-en: nút giao diện ${box && Math.round(box.width)}×${box && Math.round(box.height)} < 44 px trên điện thoại`);
     }
     await page.close();
   }
