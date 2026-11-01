@@ -100,7 +100,9 @@ def frame(fr, t):
         body = body.rotate(fr['tilt'], resample=Image.BICUBIC, center=tuple(RIGS[fr['who']]['pivot']), translate=(0, fr['nod']))
     im.alpha_composite(body, (TX, int(round(TY + fr['breath']))))
     if fr['hand'] and fr['who'] in HANDPAL:
-        im.alpha_composite(svg_img(hand_svg(fr['hand'], fr['hk'], fr['hmode'], fr['who']), W, H))
+        hl = svg_img(hand_svg(fr['hand'], fr['hk'], fr['hmode'], fr['who']), W, H)
+        hl.paste((0, 0, 0, 0), (0, CARD_Y0 + 60, W, H))   # khuỷu/tay áo dừng sau thẻ phụ đề, không lòi xuống dưới thẻ
+        im.alpha_composite(hl)
     dr = ImageDraw.Draw(im)
     dr.rounded_rectangle((48, CARD_Y0 + 14, W - 48, CARD_Y1 + 14), 48, fill=LEDGE); dr.rounded_rectangle((48, CARD_Y0, W - 48, CARD_Y1), 48, fill=CARD)
     seg = segs[fr['seg']]
