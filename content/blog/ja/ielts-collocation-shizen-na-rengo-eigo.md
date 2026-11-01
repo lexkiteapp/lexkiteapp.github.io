@@ -28,11 +28,11 @@ IELTSテストにおいて、特に語彙力（Lexical Resource）でBand 7.0以
 
 アカデミック・フォーマル英語における主要なコロケーションのパターンは以下の通りです。
 
-1. **動詞 ＋ 名詞（Verb + Noun）：** *address an issue*, *pose a threat*, *spark debate*
-2. **形容詞 ＋ 名詞（Adjective + Noun）：** *pressing concern*, *compelling evidence*, *rapid urbanization*
-3. **名詞 ＋ 名詞（Noun + Noun）：** *carbon footprint*, *traffic congestion*, *energy consumption*
-4. **動詞 ＋ 副詞（Verb + Adverb）：** *strongly disagree*, *drastically increase*, *fluctuate wildly*
-5. **副詞 ＋ 形容詞（Adverb + Adjective）：** *strictly prohibited*, *vitally important*, *deeply rooted*
+1. **動詞 ＋ 名詞：** *tackle a crisis*, *raise awareness*, *spark controversy*
+2. **形容詞 ＋ 名詞：** *grave concern*, *empirical evidence*, *unprecedented growth*
+3. **名詞 ＋ 名詞：** *emission levels*, *living standards*, *resource allocation*
+4. **動詞 ＋ 副詞：** *firmly believe*, *sharply decline*, *vary considerably*
+5. **副詞 ＋ 形容詞：** *heavily dependent*, *crucially important*, *widely accepted*
 
 これらの定型表現を使いこなすことで、回りくどい説明を省き、エッセイ全体を簡潔かつ知的なトーンに仕上げることができます。
 
@@ -96,14 +96,13 @@ IELTS Writing Task 2で頻出する主要テーマから、エッセイの説得
 
 試験本番のタイムプレッシャー下では、日本語の発想をそのまま英語に置き換えてしまうミスが多発します。
 
-| 不自然な直訳 | 自然で正確なコロケーション | 背景と解説 |
+| 不自然な和文英訳 | 自然なアカデミック表現 | 語感の解説 |
 | :--- | :--- | :--- |
-| *Do a mistake* | **Make a mistake** | ミスは「作り出す」イメージのため *make* を使います。 |
-| *Pass an exam*（受験する） | **Take / Sit an exam** | *Pass* は「合格する」を意味し、受験する行為は *take* です。 |
-| *Strong rain* | **Heavy rain** | 激しい雨には *strong* ではなく *heavy* を組み合わせます。 |
-| *Gain a decision* | **Reach a decision** | 議論の末に結論に至る動作には *reach* を用います。 |
-| *Make damage* | **Cause / Do damage** | 損害や被害は *cause*（引き起こす）または *do* と連動します。 |
-| *Give an opinion*（論文調） | **Express an opinion** | フォーマルな記述では *express* や *voice* が推奨されます。 |
+| *Make a research* | **Conduct / Carry out research** | 研究・調査は *conduct* や *carry out* と結びつきます。 |
+| *Give attention* | **Pay attention** | 注意を払う動作には動詞 *pay* を用います。 |
+| *Big traffic* | **Heavy traffic** | 交通渋滞の激しさは *heavy* で修飾します。 |
+| *Do an effort* | **Make an effort** | 努力を払う行為は動詞 *make* を選択します。 |
+| *Catch a bus* (乗り過ごす) | **Miss a bus** | 乗り遅れは *miss* を使って表現します。 |
 
 これらの細かな不自然さを解消するだけで、語彙項目のスコアは一気に安定します。
 
