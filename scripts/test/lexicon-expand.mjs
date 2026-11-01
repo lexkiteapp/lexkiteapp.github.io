@@ -23,6 +23,12 @@ const good = () => ({ w: 'forsake', pos: 'v', ipa: '/fəˈseɪk/', ipaUS: '/fər
   ok(gateEntry(ai('kỷ niệm', ['souvenir; fond memory', 'memento', 'keepsake'], { w: 'recollection', def: 'the ability to remember past events', syn: [] })).why.some(x => /dịch ngược không khớp/.test(x)), 'vi AI: recollection "kỷ niệm" → trượt');
   ok(viBtOk({ w: 'foul', def: 'very offensive and causing disgust', syn: [], qa: { viBtw: ['disgusting', 'revolting', 'disgusting; repulsive'] } }), 'vi AI: khớp gốc từ của def (disgusting ~ disgust)');
   ok(viBtOk({ w: 'foul', def: 'x', syn: [], qa: { viBtw: ['disgusting', 'disgusting'], viLem: ['disgusting', 'foul'] } }), 'vi AI: khớp lemma WordNet');
+  // descend#v 31/10: "xuống" → "to go down" khớp lemma WordNet "go down" – dạng LƯU phải giữ qa.viLem (job.mjs từng xoá → mục đã xuất trượt cổng, main đỏ)
+  { const d = { w: 'descend', def: 'to move from a higher to a lower position', syn: ['fall'], qa: { viBtw: ['to go down', 'to go down; to descend', 'go down'], viLem: ['fall', 'go down', 'come down'] } };
+    ok(viBtOk(d), 'vi Wiktionary: descend "xuống" khớp lemma WordNet "go down"');
+    const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), P = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/promote.mjs'), 'utf8');
+    ok(!/delete ent\.qa\.viLem/.test(J), 'job.mjs không được xoá qa.viLem khỏi dạng lưu (bằng chứng viBtOk)');
+    ok(/gateEntry\(e\)/.test(J) && /gateEntry\(P\.items\[k\]\)/.test(P), 'job.mjs (lưới cuối) + promote.mjs cổng lại dạng lưu trước khi ghi/xuất'); }
   ok(!viBtOk({ w: 'caucus', def: 'to meet in order to choose a candidate or support a policy', syn: [], qa: { viBtw: ['to vote', 'to elect; to vote', 'to vote'] } }), 'vi AI: caucus "bầu chọn" → không khớp');
   ok(hasGap(gateEntry(ai('bỏ rơi', ['to abandon']))), 'vi AI: thiếu dịch ngược = lỗ → sinh lại, không vào hàng duyệt');
   ok(gateEntry({ ...good(), src: { tr: { vi: 'wiktionary' } } }).ok, 'vi Wiktionary: không cần dịch ngược'); }
