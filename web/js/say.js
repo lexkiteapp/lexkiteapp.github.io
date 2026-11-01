@@ -77,10 +77,12 @@
       stopRec(); UI.stopSpeak(); face = f;
       const root = ST2.mount(view, f === 'front' ? 'say-front' : 'say-back', f === 'front' ? front : back, null);
       const c = $('#sCard', root);
+      if (f === 'front') c.classList.add('[@media(max-height:760px)]:min-h-[340px]'); // máy thấp (360×740 + thanh ngày ux1): thẻ 410 px đẩy 3 nút xuống dưới thanh tab
       if (anim && !matchMedia('(prefers-reduced-motion: reduce)').matches && c.animate) c.animate([{ transform: 'perspective(900px) rotateY(80deg)', opacity: 0.4 }, { transform: 'none', opacity: 1 }], { duration: 260, easing: 'ease-out' });
       wire(root);
     };
-    const flip = () => { paint(face === 'front' ? 'back' : 'front', true); const b = $(face === 'front' ? '#sFlip' : '#sSpk'); if (b) b.focus({ preventScroll: true }); };
+    const flip = () => { paint(face === 'front' ? 'back' : 'front', true); window.scrollTo(0, 0); // mặt mới = nội dung mới, đọc từ đầu (không kẹt nút dưới thanh tab)
+      const b = $(face === 'front' ? '#sFlip' : '#sSpk'); if (b) b.focus({ preventScroll: true }); };
     const mic = btn => {
       const out = $('#sHeard'); if (rec) return stopRec();
       if (!UI.recognize) return toast(t('Trình duyệt này chưa hỗ trợ nhận giọng nói'));

@@ -294,11 +294,11 @@
   },
   "t2_react_lookintoit": {
    "template": "react",
-   "hook": "A customer reports a bug?",
+   "hook": "A client reports a bug?",
    "hook_true": true,
    "script_reviewed": true,
    "script": {
-    "h": "A customer reports a bug?",
+    "h": "A client reports a bug?",
     "p": "I'll look into it.",
     "r": "Repeat after me: I'll look into it.",
     "m": "I will check this problem.",
@@ -320,8 +320,8 @@
     "r": "Repeat after me: I'm over the moon!",
     "m": "I'm extremely happy.",
     "s": "Or say: I'm really happy.",
-    "q": "Quick quiz! You got the job! You are…",
-    "a": "You are over the moon.",
+    "q": "Quick quiz! You got the job! You're…",
+    "a": "You're over the moon.",
     "c": "Save this. Free on lexkite.com."
    },
    "reviewer": "Claude (American English teacher review 31/10/2026: one phrase from content/say-native/series.json, IPA + definition = audited lexicon row, hook taken from the item's situation (`when`), repeat gap 1.6 s, the don't line is shown only (rude = masked, never voiced, never in the quiz), quiz answer spoken; social cut ≤ 28 s)"
