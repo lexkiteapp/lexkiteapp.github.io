@@ -37,6 +37,8 @@ TEXT = {l['id']: l['text'] for l in LJ['lines'] if l.get('text')}; TEXT.update({
 T1 = o.tpl == 1
 DIRA = o.dir == 'A'; LOC = True   # v5: every render has the location look (captions, countdown, end card); PLATE_N only for B
 PLATE_N = (None if DIRA else (o.plate or SP.get('plate'))) if T1 else None; HOSTN = o.host_name or SP.get('host') or 'ama'; CLIP = o.clip or SP.get('clip') or 'ga4_talk_natural'
+import os as _o, sys as _s; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), '..', '..')); from teach.registry import check as _chk  # 1 bộ nhân vật 2D (characters.json)
+_chk(HOSTN, [CLIP])
 CTA = SP.get('cta') or None
 def F(kind, size): return ImageFont.truetype(f"{o.fonts}/{FONTS[kind]}", size)
 def nrm(w): return re.sub(r"[^a-z0-9']", '', w.lower().replace('’', "'")).strip("'")

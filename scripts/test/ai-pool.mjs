@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Test ai-pool (scripts/lib/ai-pool.mjs) – ngoại tuyến, mọi nhà cung cấp giả (fetch mock). docs/API-KEYS.md §8.
 import fs from 'fs';
-import { createPool, allowed, familyOf, judgeKey, modelInfo, CHAINS, untilPacificMidnight, JUDGE_B_SYS, sameFamOk, cfTextOn } from '../lib/ai-pool.mjs';
+import { createPool, allowed, familyOf, judgeKey, modelInfo, CHAINS, untilPacificMidnight, JUDGE_B_SYS, sameFamOk, cfTextOn, pickModels, normOut } from '../lib/ai-pool.mjs';
 import { agree } from '../content-qa/lib.mjs';
+import { parseKeys, keyRing } from '../lib/key-pool.mjs';
 import { build } from '../../functions/api/lexai.js';
 
 let n = 0; const ok = (c, m) => { if (!c) { console.error('✗ ' + m); process.exit(1); } n++; };
@@ -174,7 +175,7 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
 {
   const src = fs.readFileSync(new URL('../lib/ai-pool.mjs', import.meta.url), 'utf8').replace(/^\s*\/\/.*$/gm, '');
   ok(!/env\.AI\b|CLOUDFLARE_API_TOKEN|CF_AI_TOKEN(?!_2)|CF_ACCOUNT_ID|CF_ACCOUNT(?!_2)/.test(src), 'không tham chiếu Workers AI / token tài khoản chính');
-  ok(Object.values(CHAINS).flat().every(r => ['lexai', 'gc-cf', 'cf2', 'gc-gemini', 'gc-groq', 'gc-vision', 'studio', 'cf2-vision'].includes(r)), 'chuỗi chỉ gồm tuyến được phép');
+  ok(Object.values(CHAINS).flat().every(r => ['gem', 'groq', 'lexai', 'gc-cf', 'cf2', 'gc-gemini', 'gc-groq', 'gc-vision', 'studio', 'cf2-vision'].includes(r)), 'chuỗi chỉ gồm tuyến được phép');
   const lx = fs.readFileSync(new URL('../../functions/api/lexai.js', import.meta.url), 'utf8');
   ok(/stripBackgroundAI\(env\)/.test(lx) && !/env\.AI\.run/.test(lx), 'lexai: không gọi env.AI (tài khoản chính)');
 }
@@ -190,4 +191,41 @@ for (const f of ['../lexicon/expand/job.mjs', '../explain/job.mjs', '../scriptba
   const s = fs.readFileSync(new URL(f, import.meta.url), 'utf8');
   ok(/from '(\.\.\/)+lib\/ai-pool\.mjs'/.test(s) && !/fetch\(API/.test(s), f + ' dùng ai-pool');
 }
+// 30/10: kho khoá GEMINI_POOL / GROQ_POOL – đọc đúng loại, xoay khoá, 429 ngày → khoá nghỉ tới lượt đặt lại, 429 phút → Retry-After, không bao giờ ghi khoá ra nhật ký
+{ const G1 = 'AIza' + 'a'.repeat(35), G2 = 'AQ.' + 'b'.repeat(30), Q1 = 'gsk_' + 'c'.repeat(40), Q2 = 'gsk_' + 'd'.repeat(40);
+  ok(parseKeys(`# kho\n${G1}\n\n${G2}\n${G1}\n${Q1}`, 'gemini').join() === [G1, G2].join() && parseKeys(`${Q1}\n${Q2}\n${G1}`, 'groq').join() === [Q1, Q2].join(), 'parseKeys: đúng loại, bỏ trùng/dòng lạ');
+  let t = 1e6; const ring = keyRing([G1, G2], { now: () => t }); const a = ring.next(), b = ring.next(); ok(a.key === G1 && b.key === G2, 'keyRing xoay vòng');
+  ring.park('k0', 60e3, 'minute'); ok(ring.next().key === G2 && ring.next().key === G2 && ring.live() === 1, 'keyRing: khoá nghỉ bị bỏ qua'); t += 61e3; ok(ring.live() === 2, 'keyRing: hết nghỉ thì dùng lại');
+  const logs = [], seen = [];
+  const f = async (url, init = {}) => { const body = init.body ? JSON.parse(init.body) : {}, h = init.headers || {}; seen.push(h['x-goog-api-key'] || h.Authorization);
+    if (url.includes('generativelanguage') && url.includes('/models?')) return J({ models: [{ name: 'models/gemini-2.5-flash', supportedGenerationMethods: ['generateContent'] }, { name: 'models/gemini-3.8-flash', supportedGenerationMethods: ['generateContent'] }, { name: 'models/gemini-3.8-flash-lite', supportedGenerationMethods: ['generateContent'] }] });
+    if (url.endsWith('api.groq.com/openai/v1/models')) return J({ data: [{ id: 'openai/gpt-oss-120b' }, { id: 'meta-llama/llama-4-maverick-17b-128e-instruct' }, { id: 'whisper-large-v3' }] });
+    if (url.includes('generativelanguage')) { if (h['x-goog-api-key'] === G1) return new Response('{"error":{"message":"Quota exceeded for metric generate_content_free_tier_requests, limit 250 PerDay"}}', { status: 429 });
+      return J({ candidates: [{ content: { parts: [{ text: JSON.stringify({ 'apple#n': { s: 5 } }) }] } }] }); }
+    if (url.includes('api.groq.com')) { if (h.Authorization === 'Bearer ' + Q1) return new Response('{"error":{"message":"Rate limit reached ... requests per minute (RPM)"}}', { status: 429, headers: { 'Retry-After': '7' } });
+      return J({ choices: [{ message: { content: JSON.stringify({ 'apple#n': { s: 4 } }) } }] }); }
+    if (url === LX && body.mode === 'ping') return J({ gemini: 0 });
+    throw new Error('unexpected ' + url); };
+  const P = createPool({ fetch: f, env: { GEMINI_POOL: `${G1}\n${G2}`, GROQ_POOL: `${Q1}\n${Q2}` }, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: l => logs.push(l), sleep: async () => {}, now: () => t, prompt: async r => ({ sys: 'S', user: JSON.stringify(r.items) }) });
+  const g = await P.gen({ mode: 'lxdef', items: ITEMS }); ok(g && g.route === 'gem' && /gemini-3\.8-flash/.test(g.model) && g.out['apple#n'].s === 5, 'gem: soạn bằng Gemini Flash mới nhất (đọc danh sách mô hình thật), khoá hết hạn mức ngày → khoá kế');
+  const st = P.stats().keys; ok(st.gem.live === 1 && st.gem.parked.day === 1, 'gem: khoá hết hạn mức NGÀY nghỉ (không thử lại trong lượt)');
+  const j = await P.judge({ mode: 'lxjudge', items: ITEMS }); ok(j && j.route === 'groq' && j.fam === 'gpt-oss' && P.stats().keys.groq.parked.minute === 1, 'groq: giám khảo A gpt-oss, 429 theo phút → khoá nghỉ Retry-After');
+  const pair = await P.judgePair({ mode: 'lxjudge', items: ITEMS }); ok(pair.a && pair.b && pair.a.fam !== pair.b.fam, 'gem + groq: 2 giám khảo khác họ');
+  const c = await P.judge({ mode: 'lxjudge', items: ITEMS }, { chain: ['groq', 'cf2'], slot: 'C', exclude: [pair.a.fam, pair.b.fam] }); ok(c && c.fam === 'llama', 'groq: giám khảo C họ thứ ba (llama)');
+  ok(!logs.join('\n').includes(G1) && !logs.join('\n').includes(Q1) && !JSON.stringify(P.stats()).includes(G1) && !JSON.stringify(P.stats()).includes(Q2), 'không bao giờ ghi khoá ra nhật ký/thống kê'); }
+{ const g = pickModels('gem', ['models/gemini-2.5-flash', 'models/gemini-3.8-flash', 'models/gemini-3.8-flash-lite', 'models/gemini-4-flash-preview', 'models/gemini-3.6-flash', 'models/gemini-3.8-flash-image']);
+  ok(g && g.gen[0] === 'gemini-4-flash-preview' && g.gen[1] === 'gemini-3.8-flash' && !g.gen.some(m => /lite|image/.test(m)), 'pickModels gem: Flash bản mới nhất từ danh sách thật, bỏ lite/image');
+  const q = pickModels('groq', ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'whisper-large-v3', 'meta-llama/llama-4-maverick-17b-128e-instruct', 'meta-llama/llama-guard-4-12b', 'llama-3.1-8b-instant', 'qwen/qwen3-32b']);
+  ok(q && q.gen[0] === 'openai/gpt-oss-120b' && q.C[0] === 'meta-llama/llama-4-maverick-17b-128e-instruct' && q.C.every(m => !/gpt-oss|guard|whisper|8b-instant/.test(m)), 'pickModels groq: C họ khác gpt-oss, hạng L trước, bỏ guard/whisper/8b');
+  ok(modelInfo('qwen/qwen3.8-27b').tier === 'M' && allowed('lxwsd', 'qwen/qwen3.8-27b') && pickModels('groq', ['openai/gpt-oss-120b', 'qwen/qwen3.8-27b', 'allam-2-7b']).C[0] === 'qwen/qwen3.8-27b', 'qwen3.8-27b (Groq 30/10) đủ chuẩn giám khảo C; allam-7b thì không');
+  { const I = [{ k: 'a#n' }, { k: 'b#v' }], o1 = normOut([{ 'b#v': { ex0: 2 } }, { 'a#n': { ex0: 1 } }], I), o2 = normOut({ 'a#n': { 'a#n': { wk1: 1 } }, 'b#v': { wk1: 3 } }, I);
+    ok(o1['a#n'].ex0 === 1 && o1['b#v'].ex0 === 2 && o2['a#n'].wk1 === 1 && o2['b#v'].wk1 === 3, 'normOut: mảng [{k:{…}}] (gpt-oss Groq) và tầng bọc trùng khoá → đúng mục'); }
+  ok(pickModels('gem', []) === null && pickModels('groq', ['whisper-large-v3']) === null, 'pickModels: danh sách rỗng → giữ mặc định'); }
+{ const G = 'AIza' + 'e'.repeat(35); let n503 = 0, slept = 0;
+  const f = async url => { if (url.includes('/models?')) return J({ models: [{ name: 'models/gemini-3.8-flash', supportedGenerationMethods: ['generateContent'] }] });
+    if (url.includes('generativelanguage') && n503++ < 2) return new Response('{"error":{"code":503,"message":"The model is overloaded"}}', { status: 503 });
+    if (url.includes('generativelanguage')) return J({ candidates: [{ content: { parts: [{ text: JSON.stringify({ 'apple#n': { s: 5 } }) }] } }] });
+    if (url === LX) return J({ gemini: 0 }); throw new Error('unexpected ' + url); };
+  const P = createPool({ fetch: f, env: { GEMINI_POOL: G }, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: () => {}, sleep: async ms => { slept += ms; }, now: () => 1e12, prompt: async r => ({ sys: 'S', user: JSON.stringify(r.items) }) });
+  const g = await P.gen({ mode: 'lxdef', items: ITEMS }, { chain: ['gem'] }); ok(g && g.route === 'gem' && n503 === 3 && slept >= 32e3, 'gem 503 quá tải: chờ rồi thử lại (không rơi ngay sang giám khảo yếu)'); }
 console.log(`✓ ai-pool test: ${n} kiểm tra`);

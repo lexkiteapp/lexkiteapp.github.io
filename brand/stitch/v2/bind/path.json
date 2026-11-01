@@ -1,0 +1,221 @@
+{
+ "_doc": "Bản đồ gắn dữ liệu màn Học (Learning Path) – d do ux1.js map() dựng (d.hdr, d.unit, d.nodes, d.tabs…). Đầu trang + thanh tab của màn này là CHUẨN CHUNG (shell.js).",
+ "shell": true,
+ "i18n": {
+  "Guide": "Hướng dẫn chặng",
+  "Progress": "Tiến độ",
+  "START LESSON": "Bắt đầu bài học"
+ },
+ "text": {
+  "IELTS": "d.hdr.exam",
+  "14": "d.hdr.streak",
+  "820": "d.hdr.xp",
+  "14/20": "d.hdr.goal",
+  "Unit 3: Writing Task 1": "d.unit.title",
+  "65% Completed": "d.unit.pctText",
+  "NEXT: UNIT 4 • SPEAKING ESSENTIALS": "d.nextUnit"
+ },
+ "attr": {
+  ":scope > header > div > div:nth-child(2)": {
+   "href": "'#/me'",
+   "aria-label": "t('Tài khoản')"
+  },
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > button": {
+   "data-act": "'guide'",
+   "aria-haspopup": "'dialog'"
+  },
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(3) > div:nth-child(2) > div": {
+   "style": "'width:' + d.unit.pct + '%'",
+   "role": "'progressbar'",
+   "aria-valuenow": "d.unit.pct",
+   "aria-valuemin": "0",
+   "aria-valuemax": "100",
+   "aria-label": "t('Tiến độ')"
+  }
+ },
+ "cls": {
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(3) > div:nth-child(2) > div": {
+   "w-[65%]": "''"
+  },
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > div > div > span": {
+   "dk:text-[#2BA39A]": "'dk:text-[#4FD1C5]'"
+  },
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > button > span:nth-child(1)": {
+   "lt:text-[#0D6964]": "'lt:text-[#0F6B63]'"
+  }
+ },
+ "tag": {
+  ":scope > header > div > div:nth-child(2)": {
+   "to": "a",
+   "addClass": "relative after:absolute after:-inset-1.5 after:content-['']"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.nodes",
+   "as": "r",
+   "variants": {
+    "gold": ":scope > main > div > div:nth-child(2) > div:nth-child(1)",
+    "teal": ":scope > main > div > div:nth-child(2) > div:nth-child(2)",
+    "next": ":scope > main > div > div:nth-child(2) > div:nth-child(3)",
+    "lock": ":scope > main > div > div:nth-child(2) > div:nth-child(5)",
+    "exam": ":scope > main > div > div:nth-child(2) > div:nth-child(6)"
+   },
+   "samples": ":scope > main > div > div:nth-child(2) > div",
+   "pick": "r.st === 'done' ? (r.kind === 'lesson' ? 'gold' : 'teal') : r.st === 'next' ? 'next' : r.cp ? 'exam' : 'lock'",
+   "bind": {
+    "gold": {
+     "text": {
+      "Overview": "r.label"
+     },
+     "html": {
+      "button > span.material-symbols-outlined": "r.icon"
+     },
+     "attr": {
+      "button": {
+       "aria-label": "r.aria",
+       "data-href": "r.href",
+       "data-st": "r.st"
+      }
+     },
+     "cls": {
+      ":scope": {
+       "translate-x-6": "r.off"
+      },
+      "button > span.material-symbols-outlined": {
+       "lt:text-[#FFFFFF]": "'lt:text-[#261A00]'"
+      }
+     }
+    },
+    "teal": {
+     "text": {
+      "Vocabulary": "r.label"
+     },
+     "html": {
+      "button > span.material-symbols-outlined": "r.icon"
+     },
+     "attr": {
+      "button": {
+       "aria-label": "r.aria",
+       "data-href": "r.href",
+       "data-st": "r.st"
+      }
+     },
+     "cls": {
+      ":scope": {
+       "-translate-x-8": "r.off"
+      }
+     }
+    },
+    "lock": {
+     "text": {
+      "Data Analysis": "r.label"
+     },
+     "html": {
+      "button > span.material-symbols-outlined": "r.icon"
+     },
+     "attr": {
+      "button": {
+       "aria-label": "r.aria",
+       "aria-disabled": "'true'",
+       "data-st": "r.st"
+      }
+     },
+     "cls": {
+      ":scope": {
+       "translate-x-6": "r.off"
+      }
+     }
+    },
+    "exam": {
+     "text": {
+      "Unit Assessment": "r.label"
+     },
+     "html": {
+      "button > span.material-symbols-outlined": "r.icon"
+     },
+     "attr": {
+      "button": {
+       "aria-label": "r.aria",
+       "aria-disabled": "'true'",
+       "data-st": "r.st"
+      }
+     }
+    },
+    "next": {
+     "text": {
+      "STAGE 3": "d.stage",
+      "2/4": "d.step",
+      "Writing Task 1 & Cohesion": "r.title"
+     },
+     "html": {
+      ":scope > div:nth-child(2) > div:nth-child(1) > button > span.material-symbols-outlined": "r.icon"
+     },
+     "attr": {
+      "button": {
+       "aria-label": "r.aria",
+       "data-href": "r.href",
+       "data-cur": "1"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(1) > button": {
+       "data-st": "r.st"
+      }
+     },
+     "after": {
+      ":scope > div:nth-child(2) > div:nth-child(1)": "d.teacher"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.tabs",
+   "as": "x",
+   "variants": {
+    "on": ":scope > nav > div > a:nth-child(1)",
+    "off": ":scope > nav > div > a:nth-child(2)"
+   },
+   "samples": ":scope > nav > div > a",
+   "pick": "x.on ? 'on' : 'off'",
+   "bind": {
+    "on": {
+     "text": {
+      "Learn": "x.label"
+     },
+     "html": {
+      "span.material-symbols-outlined": "x.icon"
+     },
+     "attr": {
+      ":scope": {
+       "href": "x.href",
+       "data-tab": "x.k"
+      }
+     }
+    },
+    "off": {
+     "text": {
+      "Review": "x.label"
+     },
+     "html": {
+      "span.material-symbols-outlined": "x.icon"
+     },
+     "attr": {
+      ":scope": {
+       "href": "x.href",
+       "data-tab": "x.k"
+      }
+     }
+    }
+   }
+  }
+ ],
+ "addClass": {
+  ":scope > main > div > div:nth-child(2)": "overflow-x-clip",
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > button": "relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-['']",
+  ":scope > header > div > div:nth-child(1)": "min-w-0 max-[374px]:gap-1",
+  ":scope > header > div > div:nth-child(1) > div": "max-[374px]:px-2 max-[374px]:gap-1"
+ },
+ "_contrast": "Sửa tương phản (chỉ màu, lấy từ Stitch): icon sao nút vàng bản sáng = #261A00 như bản tối Stitch; icon sách dải chặng bản tối = #4FD1C5 (màu sửa tương phản Stitch v2.1).",
+ "html": {
+  ":scope > header > div > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "ST2.flame(ST2.flameState(d.hdr.streak), 20)"
+ }
+}

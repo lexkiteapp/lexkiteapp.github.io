@@ -1126,6 +1126,21 @@
       "match": [
         "modal.com"
       ]
+    },
+    {
+      "key": "teach-cdn",
+      "name": "Cloudflare Pages lexkite-teach (teach.lexkite.com) – ảnh/clip giáo viên",
+      "kind": "cdn",
+      "purpose": "Kho riêng ảnh + clip Ama/Carlos (web/teach/** → tên có băm sha256[:12], cache immutable 1 năm, CORS * cho WebGL). Deploy bởi .github/workflows/teach-cdn.yml (wrangler pages deploy, secret CLOUDFLARE_API_TOKEN), verify sha256 với web/teach/characters.json. Dự phòng: SW + Chars về /teach/ cùng gốc (giữ nguyên). Add-on dùng bản đóng gói. Spec docs/specs/teach-assets-cdn.md",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/pages/view/lexkite-teach",
+      "free": "Tài sản tĩnh Pages: băng thông + lượt tải không giới hạn · 20.000 tệp/bản · 25 MB/tệp",
+      "upgrade": "Không cần; chuyển R2 (mục blog-media-r2) nếu > 20.000 tệp hoặc tệp > 25 MB",
+      "status": "Miễn phí",
+      "match": [
+        "teach.lexkite.com",
+        "lexkite-teach.pages.dev",
+        "lexkite-teach"
+      ]
     }
   ],
   "links": {

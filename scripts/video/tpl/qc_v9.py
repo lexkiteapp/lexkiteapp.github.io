@@ -121,6 +121,8 @@ if BD:   # ---- board mode: text on the whiteboard, captions clear of face AND b
     R['text_on_board'] = dict(ok=not off_b and where.get('hook') == 'board' and not [k for k in text_band if k == 'hook'] and not chest, outside_zone=off_b[:4], n_outside=len(off_b), quiz_cta_on_chest=chest,
                               text_pops_on_band=text_band, widgets_on_band=[k for k, w in where.items() if w != 'board' and k not in text_band], zone=Z,
                               note='hook always on the board; a text pop / widget that cannot reach 50 / 52 px on the board falls back to the under-chin band (listed)')
+    if T.get('overlay') is not None:   # motion layer (docs/VIDEO-MOTION.md): the cards are drawn OVER the frame, not written on the board -> overlay_layout + qc_motion overlay_host own the placement
+        R['text_on_board'] = dict(ok=True, applies=False, note='overlay cards (scripts/video/motion): gated by overlay_layout / overlay_host')
     bm = np.zeros((1920, 1080), bool); st_ = BD['body']['step']
     for row in filter(None, BD['body']['rows'].split(';')):
         y, ivs = row.split(':'); y = int(y)
@@ -282,6 +284,8 @@ if T.get('board_contrast') is not None and T.get('v14'):   # v14 board writing m
     R['board_contrast'] = dict(ok=bool(_bc) and not _bad, min=min((x['cr'] for x in _bc), default=None), n=len(_bc), low=_bad[:6])
 R['host_sharp'] = dict(ok=bool(Sh) and len(enc) == len(Sh) and med(up) >= 0.80 and min(up) >= 0.65 and med(enc) >= 0.80,
                        push_vs_native_median=round(med(up), 3), push_vs_native_min=round(min(up, default=0), 3), encoded_vs_rendered_median=round(med(enc), 3), samples=len(Sh))
+from overlay_gates import overlay_gates   # graphic overlays (Stitch cards / Remotion motion layer): contrast, layout, IPA == token – no-op without timeline 'overlay'
+R.update(overlay_gates(T, [(f['t'], els(f)) for f in fr], SAFE, ROOT))
 prb = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,width,height,bit_rate,r_frame_rate', '-of', 'json', vid], capture_output=True, text=True).stdout)
 v = [s_ for s_ in prb['streams'] if s_['codec_type'] == 'video'][0]; dur = float(prb['format']['duration']); vb = int(v.get('bit_rate') or 0) / 1e6
 R['file'] = dict(ok=18 <= dur <= 45.5 and (v['width'], v['height']) == (1080, 1920) and 8.0 <= vb <= 9.5, duration=round(dur, 2), video_mbps=round(vb, 2), size_mb=round(int(prb['format']['size']) / 1e6, 1), fps=v['r_frame_rate'])

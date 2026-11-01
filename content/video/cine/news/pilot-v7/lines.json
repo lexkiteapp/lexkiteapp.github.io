@@ -1,4 +1,5 @@
 {
+ "retired": "owner 28/10: only 2D registry Ama/Carlos (web/teach/characters.json) – this pilot uses a non-registry character, kept as history only, never rendered (registry.check blocks it)",
  "note": "Pilot v7 'news + scene' (docs/VIDEO-TEMPLATES.md §12). Lesson tpl1b_airport_gate_cc6fbe. Anchor Ama (anchor bank, af_bella) introduces; CUT to the airport bank where traveller Ama (af_bella, same character) says the wrong line, agent Mei (af_sarah) reacts, Ama says the right line; back to the anchor for rule, examples, quiz, answer, CTA. v7_h = the reviewed hook line (hook-truth hash).",
  "voices": { "ama": "af_bella", "mei": "af_sarah" },
  "speed": 0.88,

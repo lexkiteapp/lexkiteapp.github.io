@@ -36,7 +36,7 @@ A topic is admitted only if its key fact comes from our data and a QC gate can v
 1. **Point bank** (`scripts/scriptbank`, 21,221 unique `pid` from usage/grammar/lexicon) → filtered by the strength filter above.
 2. **Planner**: series × point × level × teacher × set × hook style × layout × accent colour. Each clip differs from the last 30 on ≥ 4 of 7 axes; the content hash (point + key sentence) is never reused.
 3. **Script** (deterministic template + data) → `lib.qc` → AI judge only scores (≥ 4) → `reviewed-hooks.json` (hook_true).
-4. **Render on GitHub Actions** (0 credits): Kokoro 0.8 → Rhubarb mouth → whisper word clock → render_v9 → qc_v9 (27 gates incl. pace,
+4. **Render on GitHub Actions** (0 credits): Kokoro 0.8 → Rhubarb mouth → whisper word clock → render_v9 → qc_v9 (render_v9 paused 29/10 → `VIDEO-TEACH2D.md`; 27 gates incl. pace,
    caption_sync, lipsync, min_text_px, continuity, host_sharp) → rubric ≥ 90 → pHash/chromaprint vs every published clip.
 5. **Queue** → Admin "Chờ duyệt" → owner approves → publish. Cron/bulk only after the owner approves the template samples.
 6. **Feedback**: save/share/completion per series → re-weights the planner each week. New template ≥ 1 per month so the look never goes stale.
@@ -47,7 +47,7 @@ not re-skinning the same points. Platform caps: ≤ 2–3 posts per channel per 
 
 ## Production standard (owner-approved 26/10/2026, `content/video/cine/news/approved.json`)
 - Host clip plays **as generated** (`host_fx: raw`): no mouth swap, no hold smoothing – processing the teacher caused the visible glitches. The mouth talks but is not word-synced.
-- Footage bank, not per-video generation; videos reuse the bank at 0 credits. **27/10: 3D only, 2 hosts** – Carlos 3D (c05 family) and Ama 3D (a05 family), right-third medium shot; clips tagged `mood` (talk/present/excited/question/wow), bad frames listed as `avoid` in teachers.json; tools `scripts/video/bank3d/`.
+- Footage bank, not per-video generation; videos reuse the bank at 0 credits. **27/10: 2 hosts** (obsolete 27/10 "3D only" → 28/10 night: characters 2D ONLY, no mixing – METHODS §0) – Carlos (c05 family) and Ama (a05 family), right-third medium shot; clips tagged `mood` (talk/present/excited/question/wow), bad frames listed as `avoid` in teachers.json; tools `scripts/video/bank3d/`.
 - **Layout v14 (27/10, supersedes v12/v13):** the lesson is written ON the whiteboard above the head (no card box), top-left anchored, type up to 1.7× the v12 mock; marker ink takes the board's real light (shadow darkens it), soft ink edge, no halo; fixed plate captions at y 1430; end card = icon + 100% FREE + lexkite.com + QR 300 px (`qrow` keeps the QR on low boards); everything inside SAFE; wall fill above the board when the frame is lowered.
 - Clip choice follows the line's mood (spec `mood` or auto from ?/!/reveal words/cards), capped per video: excited 1, wow 1, question 2 (owner: "ko lố"). Gates: `layout_v14`, `board_contrast` (≥ 3:1), `mood_restraint`, `cut_jump`, `identity` on every used frame.
 - Pace ≤ 130 wpm (qc `pace`), 0.6–0.8 s breaths; IPA from the app dictionary (Noto Sans glyphs).
@@ -88,6 +88,7 @@ Rotation fills zero-coverage areas first; each episode = one point, IPA, example
 Bulk episodes only after the owner approves the re-paced v10 samples (`video-approval-gate`). Until then: ≤ 3 samples per round.
 
 ## Pipeline v10 – how to run (series generator, 26/10/2026)
+(Render step uses render_v9 – paused 29/10; current engine `VIDEO-TEACH2D.md`. Series/gate rules below stay valid.)
 1. **Generate** (deterministic, no AI): `python3 scripts/video/tpl/gold2v9.py` reads the gold bank `content/video/scripts/bank/*.jsonl` and writes
    `content/video/cine/news/series/<slug>/<id>.json` (v9 specs, same line/pop/anchor pattern as the templates-v2 episode-1 gold specs) + `plan.json`
    (episode order, skipped items with reasons) + `reviewed-hooks.json` (verdicts). Series: `stop-saying-this` (mistake, Daniel) and

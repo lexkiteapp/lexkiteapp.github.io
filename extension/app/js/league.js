@@ -123,6 +123,57 @@
     };
   };
 
+
+  // ---------- 🎨 Stitch v2 "Leagues" (khung tự sinh web/js/st/v2/leagues.js · brand/stitch/v2/bind/leagues.json) ----------
+  // Mọi thứ của bảng cũ vẫn có: hạng/ vùng/ giờ còn lại (đầu thẻ), 30 hàng + dải thăng/xuống hạng, banner tuần trước (thẻ + nút Đã hiểu),
+  // đổi biệt danh (thẻ), quy tắc (thẻ → bảng), nút học (thẻ CTA → bài kế tiếp thật). Biểu tượng: @icons local_fire_department celebration trending_down trending_flat edit info
+  const ini = n => { const w = String(n || '?').trim().split(/\s+/); return ((w.length > 1 ? w[0][0] + w[1][0] : String(n || '?').trim().slice(0, 2)) || '?').toUpperCase(); };
+  function rulesHtml() {
+    return `<div style="max-width:520px;margin:0 auto"><h2 style="margin-top:0">${t('Quy tắc giải đấu tuần')}</h2><ul class="muted small" style="padding-inline-start:1.2rem;margin:0;line-height:1.6">
+      <li><b>${t('Nhóm thi đấu:')}</b> ${t('Mỗi nhóm tối đa 30 người học có cùng bậc xếp hạng.')}</li>
+      <li><b>${t('Chu kỳ tuần:')}</b> ${t('Bắt đầu lúc 00:00 UTC thứ Hai và chốt kết quả lúc 23:59 UTC Chủ nhật (giờ quốc tế công bằng cho mọi múi giờ).')}</li>
+      <li><b>${t('Thăng hạng:')}</b> ${t('Top 7 người có XP cao nhất tuần sẽ được thăng lên bậc kế tiếp (tối đa Hạng Kim Cương).')}</li>
+      <li><b>${t('Xuống hạng:')}</b> ${t('5 người cuối bảng sẽ xuống bậc trước (áp dụng từ Hạng Bạc trở lên khi nhóm đủ người).')}</li>
+      <li><b>${t('Cách kiếm XP:')}</b> ${t('Tích lũy XP qua mọi hoạt động: ôn thẻ từ vựng FSRS (+10–15 XP), đọc bài (+10–20 XP), làm trắc nghiệm, luyện thi.')}</li>
+      <li><b>${t('Quyền riêng tư:')}</b> ${t('Chỉ hiển thị biệt danh và XP tuần. Bạn có thể đổi biệt danh bất kỳ lúc nào hoặc rời giải đấu trong mục Cài đặt.')}</li></ul>
+      <div class="row right" style="margin-top:1rem"><button type="button" class="btn" data-close>${t('Đóng')}</button></div></div>`;
+  }
+  async function v2Board(data, curTier, nextTier, board, me, leftTime, last, lastKey) {
+    const rules = data.rules || {}, upCut = rules.up || 7, downCut = rules.down || 5, maxTier = rules.maxTier != null ? rules.maxTier : 5;
+    const canDown = data.member.tier > 0 && board.length > upCut + downCut, canUp = data.member.tier < maxTier;
+    const zoneChip = z => (z === 'up' ? t('Thăng hạng') : z === 'down' ? t('Nguy cơ') : t('An toàn'));
+    const cut = board[upCut - 1], gapUp = cut && canUp && me.zone !== 'up' ? Math.max(1, cut.xp - (me.xp || 0) + 1) : 0, myXp = me.xp != null ? me.xp : data.member.xp || 0;
+    const rows = [];
+    board.forEach((r, idx) => {
+      if (idx === upCut && canUp) rows.push({ v: 'up', label: t('Vùng thăng hạng lên {tier}', { tier: nextTier.name() }) });
+      if (canDown && idx === board.length - downCut) rows.push({ v: 'down', label: t('Vùng xuống hạng') });
+      const x = (r.xp || 0).toLocaleString(), base = { rank: r.rank, nick: r.nick, ini: ini(r.nick), xp: x };
+      rows.push(r.me ? Object.assign(base, { v: 'me', chip: zoneChip(r.zone), gap: r.zone === 'up' ? t('Đang trong vùng thăng hạng') : r.zone === 'down' ? t('Cần thêm XP để tránh xuống hạng') : gapUp ? t('Còn {n} XP để thăng hạng', { n: gapUp.toLocaleString() }) : t('Vị trí an toàn') })
+        : Object.assign(base, { v: r.rank <= 3 ? 'p' + r.rank : 'row' }));
+    });
+    if (!board.some(r => r.me)) rows.push({ v: 'me', rank: me.rank, nick: me.nick, ini: ini(me.nick), xp: (data.member.xp || 0).toLocaleString(), chip: zoneChip(''), gap: t('Vị trí an toàn') });
+    let plan = []; try { plan = (App.todayPlan ? await App.todayPlan() : []) || []; } catch (e) { plan = []; }
+    const nx = plan.find(x => !x.done), cards = [];
+    if (last) {
+      const lt = getTier(last.tier).name(), args = { rank: last.rank, of: last.of, xp: (last.xp || 0).toLocaleString(), tier: lt };
+      cards.push({ k: 'last', icon: last.move > 0 ? 'celebration' : last.move < 0 ? 'trending_down' : 'trending_flat', act: 'last', btn: t('Đã hiểu'), aria: t('Đã hiểu'),
+        title: last.move > 0 ? t('Chúc mừng! Bạn đã thăng hạng!') : last.move < 0 ? t('Kết quả tuần trước') : t('Giữ vững thứ hạng!'),
+        sub: last.move > 0 ? t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và đã thăng hạng lên {tier}!', args) : last.move < 0 ? t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và chuyển xuống {tier}. Tuần này hãy cố gắng hơn nhé!', args) : t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và tiếp tục giữ vững {tier}.', args) });
+    }
+    cards.push({ k: 'cta', icon: 'local_fire_department', title: gapUp ? t('Kiếm +{n} XP để leo hạng', { n: gapUp.toLocaleString() }) : t('Giữ vững vị trí'), sub: (nx && nx.t) || t('Ôn tập thẻ đến hạn'), btn: t('Học ngay'), href: (nx && nx.href) || '#/review', aria: t('Học ngay') + ': ' + ((nx && nx.t) || '') },
+      { k: 'nick', icon: 'edit', title: data.member.nick, sub: t('Đổi biệt danh bảng xếp hạng'), btn: t('Đổi'), act: 'nick', aria: t('Đổi biệt danh') },
+      { k: 'rules', icon: 'info', title: t('Quy tắc giải đấu tuần'), sub: t('Bảng xếp hạng 30 người học cùng hạng · Cập nhật theo tuần'), btn: t('Xem'), act: 'rules', aria: t('Quy tắc giải đấu tuần') });
+    const d = { tier: curTier.name(), left: leftTime || '', lead: canUp ? t('Top {n} lên', { n: upCut }) : t('Top {n} giữ hạng', { n: upCut }), next: canUp ? nextTier.name() : curTier.name(),
+      zoneMsg: me.zone === 'up' ? t('Đang trong vùng thăng hạng') : me.zone === 'down' ? t('Cần thêm XP để tránh xuống hạng') : t('Vị trí an toàn'), rows, cards };
+    const root = window.ST2.mount(view, 'leagues', d, 'league');
+    root.addEventListener('click', e => {
+      const b = e.target.closest && e.target.closest('[data-act]'); const a = b && b.getAttribute('data-act'); if (!a) return;
+      if (a === 'nick') League.promptChangeNick(data.member.nick);
+      else if (a === 'rules') UI.modal(rulesHtml());
+      else if (a === 'last') { try { localStorage.setItem('lk.leagueLastSeen', lastKey); } catch (x) { /* bỏ qua */ } const c = b.closest('[data-card]'); if (c) c.remove(); }
+    });
+  }
+
   // ---------- Trang #/league ----------
   routes.league = App.guard(async function () {
     const w = App.W;
@@ -333,6 +384,7 @@
         ? `<span style="color:var(--again-text);font-weight:700">▼ ${t('Cần thêm XP để tránh xuống hạng')}</span>`
         : `<span style="color:var(--muted);font-weight:600">● ${t('Vị trí an toàn')}</span>`;
 
+    if (window.ST2 && window.ST2.leagues && App.ux1On && App.ux1On()) { await v2Board(data, curTier, nextTier, board, me, leftTime, lastBanner ? last : null, lastKey); return; } // 🎨 Stitch v2 (cờ ux1)
     const heroCard = `
       <div class="card league-hero-card">
         <div class="row between wrap" style="gap:1rem;align-items:center">

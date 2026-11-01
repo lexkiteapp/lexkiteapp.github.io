@@ -89,7 +89,7 @@ const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display
 @media (max-width:600px){header.top .bar{gap:8px}header .btn{white-space:nowrap}header .lsw-c{display:none}header .lsw-b{width:44px;min-height:44px;padding:0;justify-content:center}header .gapp{flex:none;width:44px;padding:0}header .gapp span{display:none}nav.main>a:not(.btn){display:none}nav.main{gap:8px}header.top .bar{flex-wrap:nowrap}.feat,.res,.steps{grid-template-columns:1fr}.lh{padding-top:12px}.lead{font-size:17px}.final{padding:28px 18px}.kit{top:-28px;right:0;width:64px;height:64px}}
 .xf h2{font-size:clamp(26px,3.4vw,34px);letter-spacing:-.02em;line-height:1.2;margin:0 0 6px}.xf{display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:center}.xf ul{list-style:none;padding:0;margin:16px 0 20px;display:grid;gap:8px}.xf li::before{content:'✓ ';color:var(--accent);font-weight:800}.xf img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(15,61,62,.18)}
 @media (max-width:820px){.xf{grid-template-columns:1fr}}
-@media (prefers-color-scheme:dark){.eyebrow,.fc mark,.gr .ok{color:#7fd6cc}.final .btn{color:#0F3D3E!important}.steps li::before{color:#0f1017}}`;
+@media (prefers-color-scheme:dark){.eyebrow,.fc mark,.gr .ok{color:#7fd6cc}.final .btn{color:#0F3D3E!important}.steps li::before{color:var(--bg)}}`;
 
 // ----- Bỏ CSS không dùng: khung chung (site-layout CSS) phục vụ cả trang SEO/blog; landing chỉ giữ luật có lớp/id/thẻ xuất hiện trong trang
 // (kể cả trong script nội tuyến – lớp do JS thêm như .lhint, .dc, .ga, lsw vẫn được giữ) → landing ≤ 16 KB gzip (scripts/test/landing-routing.mjs)

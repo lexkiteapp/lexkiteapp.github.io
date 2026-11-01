@@ -11,6 +11,8 @@ import path from 'path';
 import { STYLE } from './style.mjs';
 import { pick, load } from './media-repo.mjs';
 import { NEURONS_PER_IMG } from './gen.mjs';
+import { cardWins } from './scene.mjs';
+import { neuronReport, passReport } from './report.mjs';
 // neuron ước tính / lượt thị giác GrabCast (CF llama-4-scout: ~1.000 token vào gồm ảnh 448², ~80 ra × bảng giá 24.545 / 77.273 neuron/1M) – ghi đè VIMG_NEURONS_PER_VISION
 const NEURONS_PER_VISION = +(process.env.VIMG_NEURONS_PER_VISION || 31);
 
@@ -42,9 +44,10 @@ for (const [k, r] of ok) {
 }
 const sorted = o => Object.fromEntries(Object.entries(o).sort(([a], [b]) => (a < b ? -1 : 1)));
 img.items = sorted(img.items); fs.writeFileSync(IMG, JSON.stringify(img, null, 1) + '\n');
-// thẻ cảnh do các việc ma trận viết (chỉ THÊM, không đè thẻ đã có / thẻ chủ sửa)
+// thẻ cảnh do các việc ma trận viết: THÊM thẻ mới; đè thẻ cũ chỉ khi bản mới là SCENE_V còn bản cũ không (29/10: chỉ THÊM → thẻ e4 viết lại bị bỏ,
+// lượt nào cũng viết lại cùng ~2.000 thẻ) hoặc cùng bản mà đếm hỏng e4bad tăng. Thẻ chủ sửa đã là bản hiện hành → không bị đè.
 const cur = fs.existsSync(SC) ? rd(SC) : { items: {} }; let c = 0;
-for (const f of fs.readdirSync(D).filter(f => /^cards\..*\.json$/.test(f))) for (const [k, v] of Object.entries(rd(path.join(D, f)).items || {})) if (!cur.items[k]) { cur.items[k] = v; c++; }
+for (const f of fs.readdirSync(D).filter(f => /^cards\..*\.json$/.test(f))) for (const [k, v] of Object.entries(rd(path.join(D, f)).items || {})) if (cardWins(cur.items[k], v)) { cur.items[k] = v; c++; }
 cur.items = sorted(cur.items); fs.writeFileSync(SC, JSON.stringify(cur, null, 1) + '\n');
 // hàng chờ: thử đủ V biến thể, không ảnh nào qua (lý do cuối ghi lại để sửa prompt)
 const q = fs.existsSync(QF) ? rd(QF) : { _note: 'Nghĩa cảnh đã thử đủ biến thể mà không ảnh nào qua giám khảo cảnh – fill bỏ qua tới khi sửa thẻ (vimg-scenes.json) / prompt rồi xoá mục khỏi đây (scene-publish.mjs).', items: {} };
@@ -65,11 +68,12 @@ const imgs = gs.reduce((a, g) => a + g.images, 0), calls = sum('submit');
 // bể CF: ảnh vẽ được trước khi cạn (ai_exhausted), lượt thị giác (chỉ ảnh qua cục bộ – local_judge.py judge-api.*.json), neuron ước tính / ảnh nhận
 const ja = fs.readdirSync(D).filter(f => /^judge-api\./.test(f)).map(f => rd(path.join(D, f))), vis = ja.reduce((a, j) => a + (+j.vision_calls || 0), 0), visSkip = ja.reduce((a, j) => a + (+j.vision_skipped_local_fail || 0), 0);
 const exAt = gs.map(g => g.gc.exhausted_at).filter(Boolean).sort()[0] || null, exhausted = !!exAt || sum('no_provider') > 0;
-const neur = imgs * NEURONS_PER_IMG + vis * NEURONS_PER_VISION;
+// e6 (01/11): neuron theo mô hình THẬT + usage token (report.mjs); lượt fill 41205453283 ghi hằng schnell 57,6 dù vẽ klein
+const NR = neuronReport(D), neur = NR.total || imgs * NEURONS_PER_IMG + vis * NEURONS_PER_VISION, PR = passReport(D);
 const rep = { run: BATCH, accepted: n, images_generated: imgs, gc_image_calls: calls, calls_per_accepted: n ? +(calls / n).toFixed(1) : null, images_per_accepted: n ? +(imgs / n).toFixed(1) : null,
   http: codes, s5xx: sum('s5xx'), s429: sum('s429'), ai_busy: sum('ai_busy'), ai_unavailable: sum('ai_unavailable'), ai_exhausted: sum('ai_exhausted'), safety_refused: sum('safety'), safety_rephrased: gs.reduce((a, g) => a + (g.safety_rephrased || 0), 0), safety_failed: gs.reduce((a, g) => a + (g.safety_failed || 0), 0), job_err: sum('job_err'), timeout: sum('timeout'), net: sum('net'), s5xx_rate: calls ? +(sum('s5xx') / calls).toFixed(3) : 0,
   ai_exhausted_hit: exhausted, exhausted_at: exAt, images_before_exhausted: exhausted ? gs.reduce((a, g) => a + (g.gc.ok_before_exhausted ?? g.images), 0) : null, accepted_before_exhausted: exhausted ? n : null,
-  vision_calls: vis, vision_skipped_local_fail: visSkip, neurons_est: { per_generated_image: NEURONS_PER_IMG, per_vision_call: NEURONS_PER_VISION, total: Math.round(neur), per_accepted_image: n ? Math.round(neur / n) : null },
+  vision_calls: vis, vision_skipped_local_fail: visSkip, pass: PR, neurons: NR, neurons_est: { per_generated_image: NR.npi ?? NEURONS_PER_IMG, per_vision_call: NR.vision_calls ? +(NR.vision_neurons / NR.vision_calls).toFixed(1) : NEURONS_PER_VISION, total: Math.round(neur), per_accepted_image: n ? Math.round(neur / n) : null },
   by_model: gs.reduce((a, g) => { for (const [k_, v] of Object.entries(g.gc.by_model || {})) a[k_] = (a[k_] || 0) + v; return a; }, {}), model_fallback: sum('model_fallback'), config_err: sum('config'),
   cards_added: c, queued: qn, scene_total: Object.values(img.items).filter(x => x.kind === 'scene').length, img_total: Object.values(img.items).filter(x => x.h).length };
 fs.writeFileSync(path.join(D, 'fill-report.json'), JSON.stringify(rep, null, 1));

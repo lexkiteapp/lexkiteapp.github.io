@@ -144,7 +144,7 @@ t('R2: ký SigV4 đúng vector mẫu AWS, không có secret → không dùng R2'
 });
 
 // ——— blog-check: luật ảnh riêng trên kho tạm (bật enforce) ———
-const { checkPosts } = await import('../blog-check.mjs');
+const { checkPosts, latinTitle } = await import('../blog-check.mjs');
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-bi-')), mk = (f, s) => { fs.mkdirSync(path.dirname(path.join(tmp, f)), { recursive: true }); fs.writeFileSync(path.join(tmp, f), s); };
 mk('config.json', JSON.stringify({ images: { ...IMG, enforce: true, enforceFrom: '2026-10-20', leadHours: 36 } }));
 mk('briefs.json', '{"briefs":[]}'); mk('media.json', JSON.stringify({ items: { grammar: { hash: '1de55385a5', w: 1920, h: 1200, widths: [480, 960, 1440] } } }));
@@ -166,6 +166,12 @@ t('blog-check: route lạ, @id chưa khai báo, sơ đồ chưa khai báo, alt s
   const bad = rules(P({ shots: ['#/dict/resilient'] }, '![Dictionary with a "real-time" pronunciation score](media:@s1 "x")\n\n![](media:@s1 "y")\n')).join('\n');
   assert.match(bad, /\[alt-truth\] alt media:@s1 khẳng định cụm "real-time"/);
   fs.rmSync(path.join(tmp, 'media'), { recursive: true });
+});
+t('blog-check: tiêu đề ru/ar/zh/ja/ko/th phiên âm Latin → lỗi; tên kỳ thi/thuật ngữ Anh + hi Hinglish → được', () => {
+  for (const [l, s] of [['ru', 'IELTS Speaking Part 2 Shablon Template: Band 8.0'], ['ru', 'Kak Dumat na Angliyskom Bez Perevoda v Golove'], ['ar', 'Huruf al Jarr in on at Qawaid: دليل الزمان والمكان'], ['ar', 'TOEFL iBT Academic Discussion Writing Dalil: درجة 5/5'], ['ja', 'Eigo no Benkyouhou: Tango wo Oboeru Kotsu'], ['th', 'Theknik Fang Phasa Angkrit: วิธีฝึก']])
+    assert.ok(latinTitle(l, s), `${l}: "${s}" phải bị bắt`);
+  for (const [l, s] of [['ru', 'Шаблон ответа IELTS Speaking Part 2: монолог на Band 8.0'], ['ru', 'Relative clauses в английском: who, which, that и запятые'], ['ar', 'كتابة Academic Discussion في التوفل TOEFL iBT: درجة 5/5'], ['zh', '英语连读规则 (Connected Speech) 解析：连读、弱读与发音'], ['ja', 'TOEFL Complete the Words 対策：新形式リーディングの解き方'], ['th', 'Modal Verbs Can Could Should Must: กฎการใช้และข้อควรระวัง'], ['hi', 'English Presentation Phrases in Hindi: Pro Tips'], ['en', 'Shadowing Technique']])
+    assert.equal(latinTitle(l, s), null, `${l}: "${s}" không được bắt`);
 });
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(`✓ blog-images: ${n} nhóm test đạt`);

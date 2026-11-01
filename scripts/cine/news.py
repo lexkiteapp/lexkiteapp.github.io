@@ -32,7 +32,12 @@ def line_tempo(line):   # caption reading speed <= 15 cps -> slow the line (>= 0
     s0, s1 = speech(line); need = len(TEXT[line]) / 14.0 - 0.2   # v6: caption tail is ~0.25 s (no dead air), not 0.49
     return 1.0 if need <= s1 - s0 else max(0.84, round((s1 - s0) / need - 0.005, 3))
 def talk_dur(line, at, breath=0.4, tempo=None): return at + speech(line)[1] / (tempo or line_tempo(line)) + breath
+import json as _j, os as _o2
+_CHARS = set(_j.load(open(_o2.path.join(_o2.path.dirname(_o2.path.abspath(__file__)), '..', '..', 'web', 'teach', 'characters.json')))['people'])   # 1 bộ nhân vật (docs/CHARACTERS.md)
+
+
 def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.4, frames=None, raw=False, other=None, tempo=None):
+    if who not in _CHARS: raise SystemExit(f'✗ news: host {who} ngoài registry web/teach/characters.json (chỉ Ama/Carlos 2D, chủ 28/10)')
     """talk shot (line) = at + speech end + breath; hold shot = dur. frames: source indices (ping-pong through the clip by default)."""
     if EDIT: id, clip, who, frame, at, other, frames = ED_shot(id, clip, who, frame, line, at, other, frames, tempo)
     if line:

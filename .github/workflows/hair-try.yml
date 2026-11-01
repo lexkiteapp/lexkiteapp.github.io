@@ -1,0 +1,23 @@
+# 💇 Thử đổi màu tóc trên 1 clip/người (0 credit): đẩy nhánh hair-try* → scripts/teach/hair.py trên PRO matte của lượt matte-pro → artifact so sánh trước/sau.
+name: hair-try
+on:
+  push:
+    branches: ['hair-try*']
+permissions: { contents: read, actions: read }
+jobs:
+  try:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env: { MATTE_RUN: '40691299893', HEX: '#4A2C1E' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { run-id: '${{ env.MATTE_RUN }}', pattern: 'matte-g*_talk', merge-multiple: true, path: green, github-token: '${{ github.token }}' }
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null && pip install -q opencv-python-headless==4.10.0.84 numpy==2.1.3
+      - run: |
+          ls -R green | head
+          python3 scripts/teach/hair.py green ga9_talk ama "$HEX" out/hair
+          python3 scripts/teach/hair.py green gc10_talk carlos "$HEX" out/hair
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: hair-try, path: out/hair/*_cmp.mp4, retention-days: 7 }

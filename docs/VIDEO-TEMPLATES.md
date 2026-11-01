@@ -193,6 +193,7 @@ Owner brief: the standard educational-Shorts format of the big channels (CapCut 
 
 
 ## 14. v9 template family on the v8 engine (25/10/2026, owner approved the v8 look)
+(obsolete 29/10: render_v9 paused → `VIDEO-TEACH2D.md`.)
 Six formats, ONE sample each (approval gate – no batch). Renderer `scripts/video/tpl/render_v9.py` (spec-driven), gates `scripts/video/tpl/qc_v9.py`,
 workflow `video-templates9.yml` (dispatch, matrix), specs + reviewed scripts `content/video/cine/news/templates-v1/`, teachers/sets `docs/VIDEO-TEACHERS.md`.
 - v8 fixes: hook/pops never touch the head (gate `head_clear`; pops sit under the chin, above the captions) · captions centred on x 540 (`caption_center`, was −54 px) ·
@@ -224,3 +225,10 @@ workflow `video-templates9.yml` (dispatch, matrix), specs + reviewed scripts `co
 - Captions: one row; a one-word page is allowed at a sentence end or when both two-word pages are measured wider than the column.
 - qc_v9 `min_text_px` gate reads the per-element measurements (`m` in every timeline element). Dissolves use a steep blend (<= 2 frames
   with a faint second pose) against see-through arms at loop seams.
+
+## 16. Overlay QC gates (28/10/2026 – Stitch-design cards; visuals + motion owned by the Remotion motion layer)
+`scripts/video/tpl/overlay_gates.py`, called by qc_v9 (no-op unless the timeline has `overlay`). The overlay renderer writes the contract in the
+module docstring (per-state text/fill pairs + glyph boxes, card fill measured on the composited frame, every IPA shown). Gates:
+`overlay_contrast` (≥ 3:1 every state + on the frame), `overlay_layout` (no overlap / outside the card; on screen inside SAFE, never on a caption
+or pop), `overlay_ipa` (IPA == audited bank US cell for the exact token shown, stress dot == IPA mark). Unit test `scripts/test/overlay-gates.mjs`.
+Measured v14 board zones: Carlos 751×506, Ama 750×391 (region [86,266,836|837,657|772]).

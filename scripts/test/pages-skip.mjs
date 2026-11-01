@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Cổng build Cloudflare Pages (docs/FREE-TIER.md §7): commit máy KHÔNG được quên [CF-Pages-Skip], và chỉ pages-deploy.yml được kích deploy.
 //   1) mọi `git … commit … -m "…"` trong .github/workflows/*.yml có [CF-Pages-Skip] trong thông điệp
-//   2) chỉ pages-deploy.yml dùng secret CF_PAGES_DEPLOY_HOOK / `wrangler pages deploy` – nơi khác gọi `gh workflow run pages-deploy.yml`
+//   2) chỉ pages-deploy.yml (và preview-site.yml → dự án riêng lexkite-preview) dùng secret CF_PAGES_DEPLOY_HOOK / `wrangler pages deploy` – nơi khác gọi `gh workflow run pages-deploy.yml`
 //   3) script trong scripts/ có `commit` phải gắn tag hoặc nằm trong EXTERNAL (commit vào kho KHÁC repo chính: media/footage)
 //   4) scripts/pages/deploy.mjs decide()/isSite() đúng logic gom
 import fs from 'node:fs'; import path from 'node:path'; import { decide, isSite, pickLast } from '../pages/deploy.mjs';
@@ -19,6 +19,8 @@ for (const f of fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f))) {
   });
   if (f !== 'pages-deploy.yml') lines.forEach((l, i) => {
     if (/^\s*#/.test(l)) return;
+    // ngoại lệ duy nhất: preview-site.yml deploy dự án RIÊNG lexkite-preview (không đụng build/quota dự án lexkite)
+    if (f === 'preview-site.yml' && /--project-name lexkite-preview --branch preview\b/.test(l) && !/CF_PAGES_DEPLOY_HOOK/.test(l)) return;
     if (/CF_PAGES_DEPLOY_HOOK|wrangler[^\n]*pages\s+deploy/.test(l)) bad(`${WF}/${f}:${i + 1} tự deploy Pages – dùng: gh workflow run pages-deploy.yml -f reason=…`);
   });
 }

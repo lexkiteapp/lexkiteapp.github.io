@@ -6,7 +6,8 @@
 | Thành phần | Nguồn DUY NHẤT | Ghi chú |
 |---|---|---|
 | Linh vật **Kit** (6 cảm xúc: happy, win, cheer, think, sad, sleep) | `web/js/kit.js` → `Kit.svg(cảm xúc, cỡ, hoạt cảnh)` | `brand/kit-*.svg` được **xuất tự động** từ file này (`node scripts/build-social-kit.mjs`) – không sửa tay |
-| Icon app | `web/icons/icon.svg` | nền #0F3D3E, diều gradient #F2553B → #FFB054, vàng #FFC94A, kem #FFE7C2 |
+| **Màu (mọi bề mặt)** | `brand/tokens.json` → `node scripts/build-tokens.mjs` | sinh :root sáng/tối của `web/css/style.css`, trang tĩnh (`site-layout.mjs` đọc JSON), bong bóng dịch/kiểm câu add-on (`--d-*`), `web/icons/icon.svg`, logo tối, end card video (`Short.jsx`), `build-social-kit.mjs` |
+| Icon app | `web/icons/icon.svg` (sinh từ `tokens.json` → `icon`) | nền #0F3D3E + vệt sáng trên #17595A, diều #FFB054 → #FF7A4D (≥ 3:1 trên cả vệt sáng), vàng #FFC94A, kem #FFE7C2. PNG (16–512, maskable, Apple, cửa hàng) dựng trên CI |
 | Logo ngang / đơn sắc | `brand/lexkite-logo-{light,dark}.svg`, `brand/lexkite-mark*.svg` | cùng tông icon.svg |
 | Wordmark | "lex" màu chữ + "kite" gradient #E5502F → #FFB054 (`.wordmark b`, `.grad-text` trong `web/css/style.css`) | |
 | Mạng xã hội | `brand/social/` (dựng bằng `scripts/build-social-kit.mjs`) | đọc Kit từ kit.js |
@@ -18,13 +19,17 @@
 - **Không** đổi logo/wordmark/icon, không thêm ™ vào `<title>`, tiêu đề, nút hay mọi lần nhắc tên trong bài. `brand-check.mjs` kiểm.
 
 ## Bảng màu
-Teal đậm **#0F3D3E** (chủ đạo) · teal phụ #17595A · cam **#E5502F** / #F2553B · vàng cam #FFB054 · vàng #FFC94A / #FFD36A · má hồng #FF8FA3 · kem #FFF7EA / #FFE7C2 · xanh thành công #2FBF71.
+Nguồn: `brand/tokens.json` (không ghi hex ở nơi khác). Teal đậm **#0F3D3E** (chủ đạo – không làm sáng trên icon/logo) · teal phụ #17595A · **teal sáng #1F7A75 / #2BA39A** (`--done`: thanh tiến độ, nút bài đã học, huy hiệu) · cam **#E5502F** / #F2553B (nút chính – CTA luôn cam) · cam sáng #FF7A4D · vàng cam #FFB054 · vàng #FFC94A / #FFD36A · má hồng #FF8FA3 · kem #FFF7EA / #FFE7C2 · xanh thành công #2FBF71.
+- **Hai chế độ**, mặc định theo máy (như Duolingo), chọn tay trong Cài đặt (`data-theme`). Tối = teal đậm ấm (nền #10191B · thẻ #172427 · #1E2F33), không đen lạnh; sáng giữ nền #f5f6fb. Cùng CTA cam, teal sáng, diều, giáo viên.
+- Khớp thiết kế Stitch (`out/stitch/v1/…/DESIGN.md`): nút chính = gradient `--cta-1` #FFB054 → `--cta-2` #F2553B, gờ `--cta-lip` #B53A22, **chữ `--cta-ink` #1A0E0B** (chữ trắng trên cam chỉ 1,7:1 – không dùng); chữ phụ giữ #A3B9B7 (#94A8AB của Stitch < 7:1); `--faint` #5A7175 cho ổ khóa/mờ, `--ledge` gờ nổi.
+- Ngưỡng (`brand-check`, không nới): chữ/nền ≥ 15:1 · chữ phụ ≥ 7:1 · chữ CTA ≥ 4.5:1 · teal sáng/thẻ, `--faint`, diều/nền icon ≥ 3:1.
+- Dựng PNG icon/logo/mạng xã hội + ảnh trước/sau: đẩy nhánh `brand-build*` (`.github/workflows/brand-build.yml`).
 
 ## Đã bỏ (không dùng)
-Kit "lưng xanh dương" cũ: **#2F62C0, #244E9E** – `scripts/test/brand-check.mjs` (trong `npm test`) chặn ship nếu màu này xuất hiện lại.
+Kit "lưng xanh dương" cũ: **#2F62C0, #244E9E**; nền tối lạnh cũ #0f1017… (`tokens.json` → `retired`). `scripts/test/brand-check.mjs` (trong `npm test`) chặn ship nếu chúng quay lại, và chặn màu lạ MỚI trong CSS app/add-on (màu cũ đã khóa ở `scripts/test/brand-colors.lock.json`, chỉ được bớt).
 
 ## Đổi thương hiệu
-Sửa ở nguồn (kit.js / icon.svg / logo) → chạy `node scripts/build-social-kit.mjs` → `npm test` → ship. Mọi nơi khác tự cập nhật.
+Sửa ở nguồn (`brand/tokens.json` / kit.js) → `node scripts/build-tokens.mjs` → đẩy nhánh `brand-build*` (CI chạy `build-social-kit.mjs`) → `npm test` → ship. Mọi nơi khác tự cập nhật.
 
 ## Watermark video
 - Chỉ dùng **wordmark chữ** "lexkite" (phông Bricolage Grotesque ExtraBold – OFL, `brand/social/src/fonts/`) kèm mark diều nhỏ không nền (`brand/lexkite-mark-mono.svg` đổi màu trắng). **Không** đặt ô vuông app icon lên video.

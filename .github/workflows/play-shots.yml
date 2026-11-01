@@ -4,9 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/play-shots.yml', 'scripts/play-shots.mjs']
+    paths: ['.github/workflows/play-shots.yml', 'scripts/play-shots.mjs', 'scripts/lib/png-rgba.mjs', 'scripts/test/png-rgba.mjs', 'brand/lexkite-icon-512.png']
 permissions:
   contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   shots:
     runs-on: ubuntu-latest
@@ -15,6 +19,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Kiểm đổi icon sang PNG 32-bit RGBA (hồi quy 01/11)
+        run: node scripts/test/png-rgba.mjs
       - name: Chụp
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1

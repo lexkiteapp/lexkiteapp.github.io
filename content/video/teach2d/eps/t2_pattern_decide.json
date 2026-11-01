@@ -1,0 +1,91 @@
+{
+ "id": "t2_pattern_decide",
+ "template": "pattern",
+ "series": "Verb Patterns",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Decide going, or decide to go?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I decided going home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I decided to go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After decide, use to plus verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To buy! They decided to buy a new car.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "verb": "decide",
+  "pat": "to + verb",
+  "good": "decided to go",
+  "bad": "decided going",
+  "wrong": "I decided going home.",
+  "right": "I decided to go home.",
+  "why": "After decide, use to plus verb.",
+  "aha": "Plan, hope and want also take to!",
+  "quiz": {
+   "stem": "They decided ___ a new car.",
+   "options": [
+    "to buy",
+    "buying"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/decide",
+  "link": "https://lexkite.com/app/#/verb/decide",
+  "say": "Practice verb patterns"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Decide + ?"
+ },
+ "src": {
+  "gold": "sb_05b65d49",
+  "pid": "u:v:decide:to"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ }
+}

@@ -9,7 +9,7 @@
  "topicHint": "\"Phrasal verb at work: …\" (có meeting/office/deadline) → office-english · \"Cafe English: …\" → ordering-coffee",
  "roles": { "opener": "người dùng phrasal verb tự nhiên", "learner": "người hiểu nghĩa đen → hiểu ra", "explainer": "người nói nghĩa", "modeler": "người dùng lại trong câu khác", "kit": "Kit – cặp đối nghĩa/mẹo" },
  "scenes": {
-  "office": { "roles": { "opener": ["diane"], "learner": ["mia"], "explainer": ["mia"], "modeler": ["diane"] } },
+  "office": { "roles": { "opener": ["carlos"], "learner": ["ama"], "explainer": ["ama"], "modeler": ["carlos"] } },
   "cafe": { "roles": { "opener": ["carlos"], "learner": ["ama"], "explainer": ["carlos"], "modeler": ["ama"] } }
  },
  "vars": {

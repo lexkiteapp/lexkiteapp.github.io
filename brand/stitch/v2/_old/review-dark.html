@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite v2 — Review</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#0B171A',
+              card: '#162327',
+              container: '#121D20',
+              deep: '#071012',
+            },
+            teal: {
+              DEFAULT: '#2BA39A',
+              light: '#36BFB5',
+              dark: '#1F7A75',
+              ledge: '#135450',
+            },
+            coral: {
+              DEFAULT: '#F2553B',
+              light: '#FF6F57',
+              dark: '#C83B24',
+              ledge: '#A12A16',
+            },
+            amber: {
+              DEFAULT: '#FFB054',
+              light: '#FFC175',
+              dark: '#D98A2F',
+            },
+            gold: {
+              DEFAULT: '#FFC94A',
+              light: '#FFD76B',
+              dark: '#DBA528',
+              ledge: '#AD7F18',
+            },
+            violet: {
+              DEFAULT: '#9B72CF',
+              dark: '#764FB1',
+              ledge: '#583689',
+            },
+            ink: '#EEF6F7',
+            muted: '#8A9EA2',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #071012;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+    }
+    .ledge-cta {
+      box-shadow: 0 6px 0 #B53A22, 0 10px 20px rgba(242, 85, 59, 0.25);
+    }
+    .ledge-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #B53A22, 0 6px 12px rgba(242, 85, 59, 0.2);
+    }
+    .ledge-card {
+      box-shadow: 0 5px 0 #0C1518;
+    }
+    .ledge-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #0C1518;
+    }
+    .shine-gloss {
+      background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 38%, rgba(155, 114, 207, 0.16) 0%, rgba(43, 163, 154, 0.08) 45%, transparent 70%);
+    }
+  </style>
+</head>
+<body class="flex justify-center items-start min-h-screen p-0 sm:py-6 text-ink">
+
+  <!-- Mobile Device Container (390px canvas) -->
+  <div class="relative w-full max-w-[390px] min-h-screen sm:min-h-[844px] bg-surface flex flex-col justify-between overflow-hidden sm:rounded-[44px] sm:ring-1 sm:ring-white/10 sm:shadow-2xl">
+    
+    <!-- Top System / Safe Area Ambient -->
+    <div class="w-full flex flex-col z-30 bg-surface/95 backdrop-blur-md sticky top-0 border-b border-white/5">
+      
+      <!-- v2 Header (4 Chunky Stat Items Evenly Spaced) -->
+      <header class="px-5 pt-4 pb-3 flex items-center justify-between">
+        
+        <!-- 1) IELTS Exam Shield Chip -->
+        <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-teal/15 border border-teal/40">
+          <div class="w-5 h-5 rounded-full bg-teal flex items-center justify-center shadow-sm">
+            <span class="material-symbols-rounded text-surface text-[14px] font-bold">shield</span>
+          </div>
+          <span class="text-teal font-extrabold text-[13px] tracking-tight">IELTS</span>
+        </div>
+
+        <!-- 2) Streak Flame with Red Notification Dot -->
+        <div class="relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-coral/15 border border-coral/30">
+          <div class="w-5 h-5 rounded-full bg-gradient-to-tr from-coral to-amber flex items-center justify-center shadow-sm">
+            <span class="material-symbols-rounded text-surface-deep text-[14px]">local_fire_department</span>
+          </div>
+          <span class="text-coral-light font-extrabold text-[14px]">14</span>
+          <!-- Small Red Notification Dot -->
+          <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-coral border-2 border-surface"></span>
+        </div>
+
+        <!-- 3) XP Bolt Gold -->
+        <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-gold/15 border border-gold/30">
+          <div class="w-5 h-5 rounded-full bg-gradient-to-tr from-gold to-amber flex items-center justify-center shadow-sm">
+            <span class="material-symbols-rounded text-surface-deep text-[14px]">bolt</span>
+          </div>
+          <span class="text-gold font-extrabold text-[14px]">820</span>
+        </div>
+
+        <!-- 4) Daily Goal Mini Progress Ring (14/20) -->
+        <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-teal/10 border border-teal/25">
+          <div class="relative w-5 h-5 flex items-center justify-center">
+            <svg class="w-5 h-5 -rotate-90" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9.5" fill="none" stroke="#162327" stroke-width="3" />
+              <circle cx="12" cy="12" r="9.5" fill="none" stroke="#2BA39A" stroke-width="3" stroke-dasharray="60" stroke-dashoffset="18" stroke-linecap="round" />
+            </svg>
+            <span class="material-symbols-rounded absolute text-teal text-[10px]">check</span>
+          </div>
+          <span class="text-teal font-extrabold text-[13px] tracking-tight">14<span class="text-muted text-[11px] font-semibold">/20</span></span>
+        </div>
+
+      </header>
+    </div>
+
+    <!-- Scrollable Review Content -->
+    <main class="flex-1 px-5 pt-3 pb-24 overflow-y-auto no-scrollbar space-y-5 hero-glow">
+
+      <!-- HERO SECTION: Big Progress Ring + Card Stack Illustration + Primary CTA -->
+      <section class="bg-surface-card border-2 border-white/10 rounded-[28px] p-5 ledge-card relative overflow-hidden flex flex-col items-center text-center">
+        <!-- Subtle Specular Sheen overlay -->
+        <div class="absolute inset-x-0 top-0 h-24 shine-gloss pointer-events-none"></div>
+
+        <!-- Progress Ring + Card Stack Centerpiece -->
+        <div class="relative w-44 h-44 my-2 flex items-center justify-center">
+          
+          <!-- Outer Ambient Glow Ring -->
+          <div class="absolute inset-0 rounded-full bg-gradient-to-b from-coral/20 to-violet/20 blur-md"></div>
+
+          <!-- Circular SVG Progress Ring (12 / 16 spaced repetition items) -->
+          <svg class="w-44 h-44 -rotate-90 drop-shadow-lg" viewBox="0 0 176 176">
+            <!-- Background Track -->
+            <circle cx="88" cy="88" r="74" fill="none" stroke="#0F1B1E" stroke-width="13" />
+            <!-- Active S-Curve Progress Segment (Coral to Amber) -->
+            <circle cx="88" cy="88" r="74" fill="none" stroke="url(#coralAmberGrad)" stroke-width="13"
+                    stroke-dasharray="465" stroke-dashoffset="125" stroke-linecap="round" />
+            
+            <defs>
+              <linearGradient id="coralAmberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFB054" />
+                <stop offset="60%" stop-color="#F2553B" />
+                <stop offset="100%" stop-color="#C83B24" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- Inside Center Stack: Illustrated Cards Graphic & Big Count -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+            
+            <!-- Tactile 2-Tone Stack-of-Cards Illustration -->
+            <div class="relative w-12 h-9 mb-1">
+              <!-- Back Card (Violet) -->
+              <div class="absolute left-1.5 top-0 w-9 h-7 rounded-md bg-violet-dark border border-violet/40 -rotate-6 shadow-sm"></div>
+              <!-- Mid Card (Teal) -->
+              <div class="absolute left-2.5 top-1 w-9 h-7 rounded-md bg-teal-dark border border-teal/40 rotate-3 shadow-sm"></div>
+              <!-- Front Card (Amber/Coral glossy) -->
+              <div class="absolute left-2 top-2 w-9 h-7 rounded-md bg-gradient-to-tr from-coral to-amber border border-amber/60 flex items-center justify-center shadow-md">
+                <span class="material-symbols-rounded text-surface-deep text-[13px] font-bold">style</span>
+              </div>
+            </div>
+
+            <!-- Big Stat & Label -->
+            <div class="flex items-baseline gap-1">
+              <span class="text-[34px] font-extrabold tracking-tight leading-none text-white drop-shadow-sm">12</span>
+            </div>
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-coral-light mt-0.5">Due Today</span>
+          </div>
+        </div>
+
+        <!-- Headline & Spaced Repetition Rationale -->
+        <h1 class="text-[20px] font-extrabold text-ink mt-1 tracking-tight">Daily Review</h1>
+        <p class="text-[13px] font-medium text-muted mt-0.5 mb-4">Lock 12 IELTS collocations into long-term memory</p>
+
+        <!-- Full-Width START REVIEW Primary CTA with 6px Ledge -->
+        <button class="w-full h-14 rounded-2xl bg-gradient-to-r from-coral via-coral to-amber text-surface-deep font-extrabold text-[16px] tracking-wide flex items-center justify-center gap-2 ledge-cta transition-all">
+          <span class="material-symbols-rounded text-[22px] font-bold">play_arrow</span>
+          <span>START REVIEW</span>
+        </button>
+
+      </section>
+
+      <!-- STAT TILES SECTION (3 Chunky Stat Tiles with colored 2px borders) -->
+      <section class="grid grid-cols-3 gap-2.5">
+        
+        <!-- Tile 1: Due (Coral) -->
+        <div class="bg-surface-card rounded-2xl p-3 border-2 border-coral/60 ledge-card relative overflow-hidden flex flex-col">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-coral-light">Due</span>
+            <div class="w-6 h-6 rounded-full bg-coral/20 flex items-center justify-center text-coral">
+              <span class="material-symbols-rounded text-[14px]">schedule</span>
+            </div>
+          </div>
+          <span class="text-[26px] font-extrabold leading-none text-white tracking-tight">12</span>
+          <span class="text-[11px] font-semibold text-muted mt-1">Cards ready</span>
+        </div>
+
+        <!-- Tile 2: Learning (Gold) -->
+        <div class="bg-surface-card rounded-2xl p-3 border-2 border-gold/60 ledge-card relative overflow-hidden flex flex-col">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-gold">Learning</span>
+            <div class="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold">
+              <span class="material-symbols-rounded text-[14px]">auto_stories</span>
+            </div>
+          </div>
+          <span class="text-[26px] font-extrabold leading-none text-white tracking-tight">28</span>
+          <span class="text-[11px] font-semibold text-muted mt-1">In training</span>
+        </div>
+
+        <!-- Tile 3: Mastered (Teal) -->
+        <div class="bg-surface-card rounded-2xl p-3 border-2 border-teal/60 ledge-card relative overflow-hidden flex flex-col">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-teal">Mastered</span>
+            <div class="w-6 h-6 rounded-full bg-teal/20 flex items-center justify-center text-teal">
+              <span class="material-symbols-rounded text-[14px]">verified</span>
+            </div>
+          </div>
+          <span class="text-[26px] font-extrabold leading-none text-white tracking-tight">142</span>
+          <span class="text-[11px] font-semibold text-muted mt-1">Permanent</span>
+        </div>
+
+      </section>
+
+      <!-- DECK CARDS SECTION (3 Deck cards with glossy tinted icon circle, short title & small colored 'due' chip) -->
+      <section class="space-y-3">
+        <div class="flex items-center justify-between px-1">
+          <h2 class="text-[15px] font-extrabold tracking-tight text-ink uppercase text-[12px] tracking-wider text-muted">Study Decks</h2>
+          <span class="text-[12px] font-bold text-teal flex items-center gap-1">
+            <span>3 Active</span>
+            <span class="material-symbols-rounded text-[14px]">tune</span>
+          </span>
+        </div>
+
+        <!-- Deck Card 1: Academic Collocations (Teal / Band 7.5+) -->
+        <div class="w-full bg-surface-card border-2 border-white/10 hover:border-teal/50 rounded-2xl p-3.5 flex items-center justify-between ledge-card cursor-pointer transition-all">
+          <div class="flex items-center gap-3.5">
+            <!-- Glossy Tinted Icon Circle (Teal) -->
+            <div class="relative w-12 h-12 rounded-full bg-gradient-to-b from-teal to-teal-dark p-0.5 shadow-md flex items-center justify-center">
+              <div class="w-full h-full rounded-full bg-teal-dark/70 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-x-0 top-0 h-1/2 bg-white/25 rounded-t-full"></div>
+                <span class="material-symbols-rounded text-white text-[22px]">menu_book</span>
+              </div>
+            </div>
+            
+            <!-- Details -->
+            <div class="flex flex-col text-left">
+              <span class="text-[15px] font-extrabold text-white leading-tight">Academic Collocations</span>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-[11px] font-bold text-teal bg-teal/15 px-2 py-0.5 rounded-full border border-teal/30">Band 7.5+</span>
+                <span class="text-[11px] font-medium text-muted">24 total</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Colored Due Chip -->
+          <div class="px-2.5 py-1 rounded-full bg-coral/20 border border-coral/40 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-coral animate-pulse"></span>
+            <span class="text-[12px] font-extrabold text-coral-light">6 due</span>
+          </div>
+        </div>
+
+        <!-- Deck Card 2: Task 2 Connectors (Amber / Gold) -->
+        <div class="w-full bg-surface-card border-2 border-white/10 hover:border-gold/50 rounded-2xl p-3.5 flex items-center justify-between ledge-card cursor-pointer transition-all">
+          <div class="flex items-center gap-3.5">
+            <!-- Glossy Tinted Icon Circle (Amber/Gold) -->
+            <div class="relative w-12 h-12 rounded-full bg-gradient-to-b from-amber to-gold-dark p-0.5 shadow-md flex items-center justify-center">
+              <div class="w-full h-full rounded-full bg-gold-dark/70 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-x-0 top-0 h-1/2 bg-white/25 rounded-t-full"></div>
+                <span class="material-symbols-rounded text-white text-[22px]">draw</span>
+              </div>
+            </div>
+            
+            <!-- Details -->
+            <div class="flex flex-col text-left">
+              <span class="text-[15px] font-extrabold text-white leading-tight">Task 2 Connectors</span>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-[11px] font-bold text-gold bg-gold/15 px-2 py-0.5 rounded-full border border-gold/30">Band 8.0</span>
+                <span class="text-[11px] font-medium text-muted">18 total</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Colored Due Chip -->
+          <div class="px-2.5 py-1 rounded-full bg-amber/20 border border-amber/40 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber"></span>
+            <span class="text-[12px] font-extrabold text-amber">4 due</span>
+          </div>
+        </div>
+
+        <!-- Deck Card 3: Speaking Phrasal Verbs (Violet / Coral) -->
+        <div class="w-full bg-surface-card border-2 border-white/10 hover:border-violet/50 rounded-2xl p-3.5 flex items-center justify-between ledge-card cursor-pointer transition-all">
+          <div class="flex items-center gap-3.5">
+            <!-- Glossy Tinted Icon Circle (Violet) -->
+            <div class="relative w-12 h-12 rounded-full bg-gradient-to-b from-violet to-violet-dark p-0.5 shadow-md flex items-center justify-center">
+              <div class="w-full h-full rounded-full bg-violet-dark/70 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-x-0 top-0 h-1/2 bg-white/25 rounded-t-full"></div>
+                <span class="material-symbols-rounded text-white text-[22px]">mic</span>
+              </div>
+            </div>
+            
+            <!-- Details -->
+            <div class="flex flex-col text-left">
+              <span class="text-[15px] font-extrabold text-white leading-tight">Speaking Phrasal Verbs</span>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-[11px] font-bold text-violet bg-violet/15 px-2 py-0.5 rounded-full border border-violet/30">Band 7.0</span>
+                <span class="text-[11px] font-medium text-muted">16 total</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Colored Due Chip -->
+          <div class="px-2.5 py-1 rounded-full bg-violet/20 border border-violet/40 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-violet"></span>
+            <span class="text-[12px] font-extrabold text-violet">2 due</span>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- v2 TAB BAR (5 Icon-Only Tabs, No Text Labels, Big 30px Illustrated Filled Icons, Review ACTIVE) -->
+    <nav class="absolute bottom-0 inset-x-0 h-[72px] bg-surface-deep/95 backdrop-blur-md border-t border-white/10 px-4 flex items-center justify-around z-30">
+      
+      <!-- Tab 1: Learn (Kite/Map - Inactive) -->
+      <button class="w-12 h-12 rounded-2xl flex items-center justify-center text-muted hover:text-teal transition-transform active:scale-95">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center">
+          <span class="material-symbols-rounded text-[28px] text-[#4A6469]">alt_route</span>
+        </div>
+      </button>
+
+      <!-- Tab 2: Review (Cards Stack - ACTIVE: 2px Teal Border + Teal Tint Container + Red Badge) -->
+      <button class="relative w-12 h-12 rounded-2xl bg-teal/15 border-2 border-teal flex items-center justify-center text-teal shadow-md shadow-teal/10 transition-transform active:scale-95">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+          <span class="material-symbols-rounded text-[28px] text-teal">layers</span>
+        </div>
+        <!-- Small Red Notification Dot on active review tab -->
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-coral"></span>
+      </button>
+
+      <!-- Tab 3: Practice (Bolt Dumbbell - Inactive) -->
+      <button class="w-12 h-12 rounded-2xl flex items-center justify-center text-muted hover:text-coral transition-transform active:scale-95">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center">
+          <span class="material-symbols-rounded text-[28px] text-[#4A6469]">fitness_center</span>
+        </div>
+      </button>
+
+      <!-- Tab 4: Leagues (Trophy - Inactive) -->
+      <button class="w-12 h-12 rounded-2xl flex items-center justify-center text-muted hover:text-gold transition-transform active:scale-95">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center">
+          <span class="material-symbols-rounded text-[28px] text-[#4A6469]">emoji_events</span>
+        </div>
+      </button>
+
+      <!-- Tab 5: Me (Smiling Profile - Inactive) -->
+      <button class="w-12 h-12 rounded-2xl flex items-center justify-center text-muted hover:text-teal transition-transform active:scale-95">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center">
+          <span class="material-symbols-rounded text-[28px] text-[#4A6469]">person</span>
+        </div>
+      </button>
+
+    </nav>
+
+  </div>
+
+</body>
+</html>
+
