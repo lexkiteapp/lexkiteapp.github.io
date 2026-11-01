@@ -93,7 +93,7 @@
       d.extra.forEach(w => r.mistakes.push({ k: 'extra', w, g: it.type === 'type' ? '' : gloss(w) }));
       d.missing.forEach(w => r.mistakes.push({ k: 'miss', w }));
       r.mine = d.B.join(' ');
-      if (it.tiles) { const A = toks(it.answer).map(k), used = new Set(d.extra.map(k)); it.tiles.filter(w => !A.includes(k(w))).forEach(w => r.noise.push({ w, g: gloss(w), used: used.has(k(w)) })); }
+      if (it.tiles) { const A = toks(it.answer).map(k), used = new Set(d.extra.map(k)); it.tiles.filter(w => !A.includes(k(w)) && !used.has(k(w))).forEach(w => r.noise.push({ w, g: gloss(w) })); } // từ nhiễu đã dùng = đã giải thích ở "Lỗi của bạn" → không lặp
       const all = rules(it.answer, deps.pos), hot = new Set(d.moved.map(x => x.j));
       const isHot = x => hot.has(x.i) || hot.has(x.i + 1) || (x.k === 'toinf' && hot.has(x.i + 2)), PRI = { freq: 0, freqBe: 0, modal: 1, toinf: 1, mod: 2, adj: 3 }, by = (x, y) => PRI[x.k] - PRI[y.k];
       r.rules = all.filter(isHot).sort(by).concat(all.filter(x => !isHot(x)).sort(by)).slice(0, 3); // luật dính tới lỗi vừa mắc trước, rồi luật quan trọng hơn

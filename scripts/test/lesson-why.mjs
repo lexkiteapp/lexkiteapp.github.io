@@ -23,7 +23,7 @@ ok(r.mistakes.some(m => m.k === 'extra' && m.w === 'innovation' && m.g === 'sự
 ok(r.rules.some(x => x.k === 'freq' && x.adv === 'often' && x.v === 'struggle'), 'luật S + often + V');
 ok(r.rules.some(x => x.k === 'toinf' && x.v === 'struggle' && x.v2 === 'obtain'), 'luật struggle to + V');
 ok(r.rules.some(x => x.k === 'mod' && x.a === 'bank' && x.b === 'loans'), 'luật cụm danh từ bank loans');
-ok(r.noise.map(x => x.w).join() === 'innovation,employment' && r.noise[1].g === 'việc làm', 'giải thích mọi từ nhiễu');
+ok(r.noise.map(x => x.w).join() === 'employment' && r.noise[0].g === 'việc làm', 'giải thích mọi từ nhiễu chưa dùng (từ đã dùng nằm ở Lỗi của bạn, không lặp)');
 ok(r.ex.length >= 1 && r.ex.length <= 2, 'có 1–2 ví dụ');
 ok(r.ex.every(x => W.notSame(x, SENT)), 'ví dụ KHÔNG trùng câu bài tập');
 const h = W.html(r, t, esc);
