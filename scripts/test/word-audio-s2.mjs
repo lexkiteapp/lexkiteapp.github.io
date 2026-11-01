@@ -6,3 +6,5 @@ const lex = new Set((await loadAllPlus()).map(e => e.row[0].trim()));
 for (const [w, p] of Object.entries(STRONG)) if (!lex.has(w) || p.length !== 2 || !p.every(x => /ˈ/.test(x))) { bad++; console.log(`✗ ${w}: không có trong kho từ hoặc thiếu phiên âm Anh/Mỹ có trọng âm`); }
 if (bad) process.exit(1);
 console.log(`✓ word-audio-s2: app + add-on dùng khóa ${WAV} · ${Object.keys(STRONG).length} từ dạng mạnh có trong kho từ`);
+// Độ phủ giọng Kokoro dựng sẵn (cùng mảng audio – gọi từ đây để không phải sửa dòng test dài trong package.json, hay xung đột)
+await import('./audio-coverage.mjs');
