@@ -7,7 +7,7 @@ import { grammarD, grammarHubD, relItem, GRAM_CSS, GRAM_JS } from './lib/grammar
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
 import crypto from 'node:crypto';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail, stPage, writingD, writingCard, speakingD, speakingCard, pagerRel } from './lib/samples-ui.mjs';
+import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail, stPage, writingD, letterD, writingCard, speakingD, speakingCard, pagerRel } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.en, U = SU.en;
 // URL công khai không đuôi .html (Cloudflare Pages chuyển 308 /x.html → /x); file trên đĩa vẫn là *.html
 const today = new Date().toISOString().slice(0, 10);
@@ -26,7 +26,7 @@ const page = (title, desc, path, viPath, body, name, o = {}) => {
   const p = path.split('/'), sec = p[1], id = p[2];
   const vis = [['Home', '/en/'], [SEC[sec] || sec, `/en/${sec}/`], ...(SUB[id] && p[3] ? [[SUB[id], `/en/${sec}/${id}/`]] : []), ...(id ? [[name || title, `/${path}`]] : [])];
   const alt = fs.existsSync(file(viPath)) ? `/${viPath}` : '';
-  if (o.st) return stPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis, alt, k: o.st, d: body, ext: o.ext, css: o.css, js: o.js, res: o.res }); // khung Stitch v2.1: body = dữ liệu d (samples-ui writingD/speakingD)
+  if (o.st) return stPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis.length > 3 ? [vis[0], ...vis.slice(-2)] : vis, alt, k: o.st, d: body, ext: o.ext, css: o.css, js: o.js, res: o.res }); // khung Stitch v2.1: body = dữ liệu d (samples-ui writingD/speakingD)
   return seoPage({ lang: 'en', head: head(title, desc, path, o), crumbs: vis, body, alt, section: `/en/${sec}/` });
 };
 const file = p => 'dist/' + (p.endsWith('/') ? p + 'index.html' : p + '.html');
@@ -257,23 +257,20 @@ ${typeFilter(byT.map(([k, xs]) => [k, TY[k], xs.length, 't-x']), made.length, 'e
 ${byT.map(([k, xs]) => group2(k, TY[k], `${xs.length} ${L.items}`, xs.map(c1), 't-x')).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Academic Writing Task 1 samples', made.map(([x]) => `${SITE}en/ielts-writing/task-1/${x.id}`))] }), 'ielts-writing', true);
 
-  const { LT, MD } = loadLetters(), TONE = { formal: 'Formal letter', 'semi-formal': 'Semi-formal letter', informal: 'Informal letter' };
+  const { LT, MD } = loadLetters(), { audioKey } = loadVocab(), TONE = { formal: 'Formal letter', 'semi-formal': 'Semi-formal letter', informal: 'Informal letter' };
   const ml = LT.map(x => [x, MD.find(y => y.id === 'gt-' + x.id)]).filter(([, m]) => m);
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
   const c2 = ([x, m]) => smpCard({ href: `/en/ielts-writing/general-task-1/${x.id}`, cls: toneCls(x.tone), tag: TONE[x.tone] || x.tone, emoji: '✉️', title: cap(x.topic), desc: short(x.situation, 120), band: m.band, meta: [`${m.words} ${U.words}`, `${docStats(m.text).phrases} ${U.phrases}`], key: `${x.topic} ${x.tone}` });
   ml.forEach(([x, m], di) => {
     const gl = [...m.text.matchAll(/\[\[([^|\]]*)\|[^\]]*\]\]/g)].map(z => [z[1], '']), paras = parseDoc(m.text, 'en', /\n\s*\n|\n/), st = docStats(m.text), prev = ml[di - 1], next = ml[di + 1], tn = TONE[x.tone] || x.tone;
-    const body = `<article class="page smp smp-doc ${toneCls(x.tone)}">${hero2({ kicker: ['IELTS General Training', 'Writing Task 1', tn], h1: `${esc(cap(x.topic))} – IELTS General Task 1 sample letter`, statsHtml: stats([[m.band, 'Band', 'band'], [m.words, U.words], [st.phrases, U.phrases], [st.links, U.links], [mins(m.words), U.minL]]) })}
-${promptBox(U.task, `<p>${esc(x.situation)}</p><p>Write a letter to ${esc(x.to)}. In your letter:</p><ul>${x.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul><div class="open">Begin your letter: <b>${esc(x.open)}</b></div>`)}
-${ctaBox(`${APP}/letters/${x.id}`, '✍️ Practise this letter (word count, self-check, AI feedback)', 'Open in the app')}
-<div class="ess-grid">${sideHtml(paras, 'en')}<div class="ess-main"><h2>Model letter</h2>${embedWatermark(docHtml(paras, 'en', 'letter'), `LK:en/ielts-writing/general-task-1/${x.id}:${lm.replace(/-/g, '')}`)}
-<h2>Useful phrases (${gl.length})</h2>${phraseCards(gl)}${saveBox(`${APP}/model/gt-${x.id}`, 'en')}</div></div>
-${ctaKit(`${APP}/letters/${x.id}`, 'Your turn: write this letter', 'Start writing', 'Word count, self-check and AI feedback in the app.')}
-${pager2(prev && [`/en/ielts-writing/general-task-1/${prev[0].id}`, cap(prev[0].topic)], next && [`/en/ielts-writing/general-task-1/${next[0].id}`, cap(next[0].topic)], 'en')}
-${related(relatedOf(ml, ml[di], d => d[0].tone === x.tone, 4), c2)}
-${extBox('en', 'letters')}</article>${smpTail('en')}`;
+    // Khung Stitch v2.1 mẫu SAMPLE (như bài mẫu Task 2 /en/samples/): đề thư, dàn bài, chú thích màu, thư mẫu (thủy ấn), cụm từ, CTA luyện viết thư, Ama, thư trước/sau + cùng giọng văn, add-on/PWA
+    const ess = embedWatermark(paras.map(z => `<p>${z.html}</p>`).join('\u0000'), `LK:en/ielts-writing/general-task-1/${x.id}:${lm.replace(/-/g, '')}`).split('\u0000').map(z => z.slice(3, -4));
+    const card = ([[y, ym], rel]) => writingCard('en', `/en/ielts-writing/general-task-1/${y.id}`, [{ text: cap(y.topic), type: TONE[y.tone] || y.tone }, ym], rel);
+    const body = letterD('en', { x, toneL: tn, m, paras, st, gl, ess, h1: `${cap(x.topic)} – IELTS General Task 1 sample letter`, lead: `Band ${m.band} IELTS General Training Writing Task 1 ${tn.toLowerCase()} (${m.words} words) with highlighted useful phrases and linking words.`,
+      modelHref: `${APP}/model/gt-${x.id}`, writeHref: `${APP}/letters/${x.id}`, secHref: '/en/ielts-writing/general-task-1/', secName: SUB['general-task-1'], ak: audioKey,
+      rel: pagerRel(prev, relatedOf(ml, ml[di], d => d[0].tone === x.tone, 4), next, (a, z) => !!z && a[0].id === z[0].id).map(card) });
     outL(`en/ielts-writing/general-task-1/${x.id}`, `viet-thu/${x.id}`, page(uniqT(`IELTS General Writing Task 1 ${tn}: ${cap(x.topic)} – Band ${m.band} Sample`, `IELTS General Task 1 ${tn.toLowerCase()} sample (${x.id}): ${short(x.situation, 50)}`), `Band ${m.band} IELTS General Training Writing Task 1 ${tn.toLowerCase()} (${m.words} words): ${short(x.situation, 110)}`, `en/ielts-writing/general-task-1/${x.id}`, `viet-thu/${x.id}`, body, cap(x.topic),
-      { lr: { learningResourceType: 'Sample letter', wordCount: m.words, teaches: `IELTS General Training Writing Task 1 – ${x.tone}`, assesses: `IELTS Band ${m.band}` } }), 'ielts-writing', true);
+      { st: 'sample', ext: extBox('en', 'letters') + pwaBox('en', 'letters'), lr: { learningResourceType: 'Sample letter', wordCount: m.words, teaches: `IELTS General Training Writing Task 1 – ${x.tone}`, assesses: `IELTS Band ${m.band}` } }), 'ielts-writing', true);
     cnt('ielts-writing', true);
   });
   const tones = Object.keys(TONE).map(k => [k, ml.filter(([x]) => x.tone === k)]).filter(([, xs]) => xs.length);

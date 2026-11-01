@@ -8,7 +8,7 @@ import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar
 import { vocabHubD, vocabSetD, VOCAB_CSS, VOCAB_JS } from './lib/vocab-st.mjs';
 import { grammarD, grammarHubD, relItem, GRAM_CSS, GRAM_JS } from './lib/grammar-st.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail, stPage, writingD, writingCard, speakingD, speakingCard, pagerRel } from './lib/samples-ui.mjs';
+import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail, stPage, writingD, letterD, writingCard, speakingD, speakingCard, pagerRel } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.vi, U = SU.vi, APP = L.app; // APP: gốc app (hash route) – theo site-layout
 // URL công khai không đuôi .html (Cloudflare Pages chuyển 308 /x.html → /x); file trên đĩa vẫn là *.html
 const today = new Date().toISOString().slice(0, 10);
@@ -211,19 +211,15 @@ ${Object.entries(by).map(([k, xs]) => group(k, GN[k] || k, `${xs.length} ${L.les
   made.forEach(([x, m], di) => {
     const gl = [...m.text.matchAll(/\[\[([^|\]]*)\|([^\]]*)\]\]/g)].map(z => [z[1], z[2]]);
     const paras = parseDoc(m.text, 'vi', /\n\s*\n|\n/), st = docStats(m.text), prev = made[di - 1], next = made[di + 1];
-    const body = `<article class="page smp smp-doc ${toneCls(x.tone)}">${hero2({ kicker: ['IELTS General Training', 'Writing Task 1', TONE[x.tone] || ''].filter(Boolean), h1: `${esc(x.titleVi || x.topic)} – thư mẫu IELTS General Task 1`,
-      statsHtml: stats([[m.band, 'Band', 'band'], [m.words, U.words], [st.phrases, U.phrases], [st.links, U.links], [mins(m.words), U.minL]]) })}
-${promptBox(U.task, `<p lang="en">${esc(x.situation)}</p><ul lang="en">${x.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul><div class="open">Begin your letter: <b>${esc(x.open)}</b></div>`)}
-${ctaBox(`${APP}#/letters/${x.id}`, '✍️ Luyện viết thư này (đếm từ, tự kiểm, chấm AI)', 'Mở đề trong app')}
-<div class="ess-grid">${sideHtml(paras, 'vi')}<div class="ess-main"><h2>Thư mẫu</h2>${wm(docHtml(paras, 'vi', 'letter'), `viet-thu/${x.id}`)}
-<h2>Cụm từ hay (${gl.length})</h2>${phraseCards(gl)}${saveBox(`${APP}#/model/gt-${x.id}`, 'vi')}</div></div>
-${ctaKit(`${APP}#/letters/${x.id}`, 'Đến lượt bạn: tự viết thư theo đề này', 'Viết thư', 'Đếm từ, tự kiểm và chấm AI ngay trong app.')}
-${pager2(prev && [`/viet-thu/${prev[0].id}`, prev[0].titleVi || prev[0].topic], next && [`/viet-thu/${next[0].id}`, next[0].titleVi || next[0].topic], 'vi')}
-${related(relatedOf(made, made[di], d => d[0].tone === x.tone, 4), lCard)}
-${extBox('vi', 'letters')}
-${pwaBox('vi', 'letters')}</article>`;
+    // Khung Stitch v2.1 mẫu SAMPLE (brand/stitch/web/sample-*.html, như bài mẫu Task 2): đề thư (tình huống + ý cần viết + câu mở thư), dàn bài, chú thích màu, thư mẫu (thủy ấn, chạm cụm từ xem nghĩa),
+    //   cụm từ + nghĩa, CTA luyện viết thư + Viết thư, Ama, thư trước/sau + cùng giọng văn, add-on/PWA
+    const ess = wm(paras.map(z => `<p>${z.html}</p>`).join('\u0000'), `viet-thu/${x.id}`).split('\u0000').map(z => z.slice(3, -4));
+    const card = ([[y, ym], rel]) => writingCard('vi', `/viet-thu/${y.id}`, [{ text: y.titleVi || y.topic, type: TONE[y.tone] || y.tone }, ym], rel);
+    const body = letterD('vi', { x, toneL: TONE[x.tone] || x.tone, m, paras, st, gl, ess, h1: `${x.titleVi || x.topic} – thư mẫu IELTS General Task 1`, lead: `Thư mẫu IELTS General Training Writing Task 1 band ${m.band} – ${TONE[x.tone] || ''}, có chú thích cụm từ hay tiếng Việt.`,
+      modelHref: `${APP}#/model/gt-${x.id}`, writeHref: `${APP}#/letters/${x.id}`, secHref: '/viet-thu/', secName: SEC['viet-thu'], ak: audioKey,
+      rel: pagerRel(prev, relatedOf(made, made[di], d => d[0].tone === x.tone, 4), next, (a, z) => !!z && a[0].id === z[0].id).map(card) });
     fs.writeFileSync(`dist/viet-thu/${x.id}.html`, page(`Thư mẫu IELTS General Task 1: ${x.titleVi || x.topic} (${(TONE[x.tone] || '').toLowerCase()}) – band ${m.band}`, `Thư mẫu IELTS General Training Writing Task 1 band ${m.band} – ${TONE[x.tone] || ''}: ${x.situation.slice(0, 120)}… Có chú thích cụm từ hay tiếng Việt.`, `${SITE}viet-thu/${x.id}`, body, x.titleVi || x.topic, undefined,
-      { smp: 1, lr: { learningResourceType: 'Sample letter', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS General Training Writing Task 1 – ${x.tone}`, assesses: `IELTS Band ${m.band}` } }));
+      { smp: 1, st: 'sample', ext: extBox('vi', 'letters') + pwaBox('vi', 'letters'), lr: { learningResourceType: 'Sample letter', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS General Training Writing Task 1 – ${x.tone}`, assesses: `IELTS Band ${m.band}` } }));
   });
   const tones = Object.keys(TONE).map(k => [k, made.filter(([x]) => x.tone === k)]).filter(([, xs]) => xs.length);
   fs.writeFileSync('dist/viet-thu/index.html', page(`${made.length} thư mẫu IELTS General Writing Task 1 (trang trọng, bán trang trọng, thân mật) – Lexkite`, `${made.length} thư mẫu IELTS General Task 1 band 8 theo 3 giọng văn, có chú thích cụm từ tiếng Việt, luyện viết thư miễn phí.`, `${SITE}viet-thu/`,

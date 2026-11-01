@@ -309,6 +309,16 @@ export function writingD(lang, o) {
     appL: U.appL, cta: ctaT, kit: kitT, ama: teacher('ama', 'point', { size: 128 }), // ô Stitch: hình đứng 70×110 trong khung h-28 (112 px) → ảnh cao 111 px
     relK: U.qType(p.type), relH: SEO_L[lang].related, secHref: o.secHref, secName: o.secName, rel: o.rel };
 }
+// d của trang thư mẫu IELTS General Task 1 (/viet-thu/<đề>, /en/ielts-writing/general-task-1/<đề>) – CÙNG khung Stitch "sample" với bài mẫu Task 2:
+//   đề = tình huống (q) + các ý cần viết + câu mở thư (ask); dạng đề = giọng văn; CTA = luyện viết thư trong app; dàn bài/chú thích màu/cụm từ/Ama/bài trước-sau như Task 2.
+//   o: như writingD + { x (đề thư: situation, bullets, open, to), toneL }
+export function letterD(lang, o) {
+  const { x } = o, d = writingD(lang, { ...o, p: { text: x.situation, type: o.toneL } }), vi = lang === 'vi';
+  const ask = [...(lang === 'en' && x.to ? [`Write a letter to ${x.to}. In your letter:`] : []), ...x.bullets.map(b => `• ${b}`), `Begin your letter: ${x.open}`].join(' ');
+  return { ...d, kick: 'IELTS General Training · Writing Task 1', q: x.situation, ask, modelH: vi ? 'Thư mẫu' : 'Model letter',
+    cta: vi ? ['Luyện viết thư này (đếm từ, tự kiểm, chấm AI)', 'Mở đề thư trong app: đếm từ, tự kiểm và chấm AI.', 'Mở đề trong app'] : ['Practise this letter (word count, self-check, AI feedback)', 'Open the task in the app: word count, self-check and AI feedback.', 'Open in the app'],
+    kit: vi ? ['Đến lượt bạn: tự viết thư theo đề này', 'Đếm từ, tự kiểm và chấm AI ngay trong app.', 'Viết thư'] : ['Your turn: write this letter', 'Word count, self-check and AI feedback in the app.', 'Start writing'] };
+}
 // Thẻ bài mẫu cho lưới "bài trước / sau / liên quan": [p, m] + rel ('prev' | 'next' | '')
 export const writingCard = (lang, href, [p, m], rel = '') => { const U = S[lang];
   return { href, rel, band: `Band ${m.band}`, tag: rel === 'prev' ? `← ${U.prev}` : rel === 'next' ? `${U.next} →` : p.type, title: p.text, desc: `${m.words} ${U.words} · ${U.min(mins(m.words))}`, meta: `${docStats(m.text).phrases} ${U.phrases}`, more: `${U.read} ›` }; };
