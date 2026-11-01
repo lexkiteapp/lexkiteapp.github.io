@@ -31,6 +31,12 @@ export const SCENE_STYLE = 'Wordless flat vector illustration of one everyday mo
 // Phong cách e4 NGẮN (cùng bảng màu/nét s1), đặt SAU câu cảnh; không nhắc chữ/biểu tượng (nhắc → hiện ra).
 export const SCENE_STYLE_E4 = 'Flat vector illustration, simple rounded shapes, clean dark teal outlines, big expressive faces, deep teal, warm orange, golden yellow and soft pink, ' +
   'plain light cream background, the people and key objects large and centered, purely pictorial, friendly, suitable for young children.';
+// MẪU 02/11 (chưa duyệt – chỉ pilot, VIMG_STYLE=lite): ít chi tiết hơn để giảm chữ lạc + ảnh > 6 KB (vòng 2 #358: chữ 14, size 13, thị giác bác 18 / 90 nghĩa).
+// Cùng bảng màu/nét/nền s1; bớt vật nền, mảng màu phẳng lớn. Không nhắc chữ/biểu tượng (nhắc → hiện ra). Lịch fill KHÔNG dùng tới khi chủ duyệt hình.
+export const SCENE_STYLE_LITE = 'Minimal flat vector illustration with very few shapes: only the people and the one or two objects that matter, nothing else in the scene, ' +
+  'large flat areas of color, thick clean dark teal outlines, simple friendly faces, deep teal, warm orange, golden yellow and soft pink, ' +
+  'plain light cream background, blank smooth surfaces, the people and key objects large and centered, purely pictorial, suitable for young children.';
+export const sceneStyle = (env = process.env) => (env.VIMG_STYLE === 'lite' ? SCENE_STYLE_LITE : SCENE_STYLE_E4);
 // khuôn theo lớp từ (nghĩa CẢNH = trừu tượng): câu nhấn thêm sau mô tả thẻ – đặt TRƯỚC SCENE_STYLE (FLUX ưu tiên đầu prompt)
 export const SCENE_CLASS = {
   noun: 'The one key moment that shows the idea fills the frame, every detail supports it.',
@@ -59,7 +65,7 @@ export function promptScene(k, sc, attempt = 1) {
     const pick = g => { const L = PEOPLE.filter(p => new RegExp('\\ba ' + g + '\\b').test(p)); return L[(h >>> (3 * i++)) % L.length]; };
     let s = scrub(String(sc.ps).replace(/["“”]/g, ''), String(k).split('#')[0]).replace(/\ban? (woman|man)\b/gi, (m, g) => pick(g.toLowerCase()));
     const fr = FRAMES[(h + attempt - 1) % FRAMES.length];
-    return `Illustration, ${fr}: ${s.replace(/\.+$/, '')}.${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${SCENE_STYLE_E4}`;
+    return `Illustration, ${fr}: ${s.replace(/\.+$/, '')}.${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${sceneStyle()}`;
   }
   // >>> (không >>): fnv không dấu, >> 3 ra số ÂM → PEOPLE[-n] = undefined ("undefined (interviewer)" trong prompt e2)
   const h = fnv(k), raw = String(sc.sc || '');
