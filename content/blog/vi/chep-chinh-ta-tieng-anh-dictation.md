@@ -3,7 +3,7 @@ title: "Chép chính tả tiếng Anh: cách luyện nghe dictation không nản
 description: "Chép chính tả tiếng Anh (dictation) giúp tai nghe ra nối âm, âm cuối, từ nhỏ. Hướng dẫn cách làm, chọn mức độ, sửa lỗi và giữ thói quen 10 phút mỗi ngày."
 slug: chep-chinh-ta-tieng-anh-dictation
 lang: vi
-translationKey: chep-chinh-ta-tieng-anh-dictation
+translationKey: luyen-nghe-tieng-anh-bang-phuong-phap-dictation
 category: phuong-phap
 tags: [dictation, listening]
 keyword: "chép chính tả tiếng anh"

@@ -4,7 +4,7 @@ title: "IELTS Writing Task 1 Aufbau: Diagramme beschreiben"
 description: "ielts writing task 1 aufbau: Komplette Anleitung zum 4-Absätze-Muster für Liniendiagramme, Tabellen und Prozesse mit Vokabular für Band 8+ Scores."
 keyword: "ielts writing task 1 aufbau"
 lang: de
-translationKey: ielts-writing-task-1-guide
+translationKey: ielts-writing-task-1-line-graph
 category: ielts
 tags: [ielts, task-1, writing]
 cover: placement
