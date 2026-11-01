@@ -364,8 +364,8 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 /* Thẻ Nền tảng (js/admin-plat.js): 1 dòng/nền tảng, cột thẳng, số tabular, 1 thanh = % thiết bị 30 ngày trên thang chung, dòng Tổng */
 .plat-card { min-width: 0; grid-column: 1 / -1; } /* thẻ bảng 4 cột: luôn chiếm cả hàng lưới, không bị ép vào 1 ô hẹp */
 /* css/adm.css ép .adm-grid thành 2 cột 1fr ở ≤ 480 px (dành cho ô Quản trị nhỏ). Thẻ Phân tích trực tiếp có nội dung tối thiểu > nửa màn
-   → lưới tràn, trình duyệt điện thoại thu nhỏ cả trang về ~480 px (ảnh owner 1/11). Ở điện thoại: 1 cột. */
-@media (max-width: 480px) { .live-grid.adm-grid { grid-template-columns: minmax(0, 1fr); } .live-grid > .card { min-width: 0; } }
+   → lưới tràn, trình duyệt điện thoại thu nhỏ cả trang về ~480 px (ảnh owner 1/11; test chỉ ra thẻ Quốc gia/Tần suất). Ở điện thoại: 1 cột. */
+@media (max-width: 480px) { .adm-grid:has(> .card) { grid-template-columns: minmax(0, 1fr); } .adm-grid > .card { min-width: 0; } } /* mọi lưới thẻ (Trực tiếp, Chi tiết…); ô .adm-tile giữ 2 cột */
 .plat-tbl thead th:first-child { text-align: left; }
 .plat-tbl { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; color: var(--text); }
 .plat-tbl th, .plat-tbl td { height: 44px; padding: 0 .35rem; border-bottom: 1px solid color-mix(in srgb, var(--line-2) 70%, transparent); white-space: nowrap; vertical-align: middle; }
