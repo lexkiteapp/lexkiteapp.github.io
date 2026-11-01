@@ -6,6 +6,7 @@ import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
 import { vocabHubD, vocabSetD, VOCAB_CSS, VOCAB_JS } from './lib/vocab-st.mjs';
+import { grammarD, grammarHubD, relItem, GRAM_CSS, GRAM_JS } from './lib/grammar-st.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail, stPage, writingD, writingCard, speakingD, speakingCard, pagerRel } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.vi, U = SU.vi, APP = L.app; // APP: gốc app (hash route) – theo site-layout
@@ -143,36 +144,23 @@ ${group2('all', 'Chủ đề', `${made.length} ${L.items}`, made.map(spCard))}</
   const { G, UNITS } = loadGrammar();
   const unitOf = id => UNITS.find(u => u.id === id) || { id, name: id, emoji: '', desc: '' };
   fs.mkdirSync('dist/ngu-phap', { recursive: true });
-  const hlEx = s => esc(s).replace(/\[\[(.+?)\]\]/g, "<b>$1</b>"); // [[…]] = cấu trúc mục tiêu
-  const blk = b => {
-    if (b.type === 'formula') return `<h2>Công thức</h2><div class="tbl" tabindex="0"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(r.label || '')}</th><td>${r.parts.map(p => esc(p.t)).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
-    if (b.type === 'uses') return `<h2>Cách dùng</h2><ol class="uses">${b.items.map(u => `<li><b>${esc(u.title)}</b>${u.ex ? `<br><i>${hlEx(u.ex)}</i>` : ''}${u.vi ? ` – ${esc(u.vi)}` : ''}</li>`).join('')}</ol>`;
-    if (b.type === 'signals') return `<h2>Dấu hiệu nhận biết</h2><p class="sig">${b.words.map(w => `<span class="chip">${esc(w)}</span>`).join(' ')}</p>`;
-    if (b.type === 'table') return `<div class="tbl" tabindex="0"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-    if (b.type === 'tip') return `<div class="tip">💡 ${esc(b.text)}</div>`;
-    if (b.type === 'mistake') return `<div class="err">❌ <s>${esc(b.wrong)}</s><br>✅ <b>${esc(b.right)}</b>${b.why ? `<br><span class="why">${esc(b.why)}</span>` : ''}</div>`;
-    if (b.type === 'ielts') return `<h2>Ứng dụng trong IELTS</h2><p>${esc(b.text)}</p>`;
-    return '';
-  };
-  const gCard = l => setCard({ href: `/ngu-phap/${l.id}`, title: l.title, desc: [l.en, short(l.summary || '', 110)].filter(Boolean).join(' – '), emoji: l.emoji, chips: [[l.level || '', 'alt']].filter(c => c[0]), key: `${l.en || ''} ${unitOf(l.unit).name}` });
+  // Khung Stitch v2.1 (brand/stitch/web/grammar-*.html, dữ liệu scripts/lib/grammar-st.mjs): cách dùng → thẻ, công thức → bảng, bảng 2 cột → cặp ví dụ, lỗi → Trap,
+  //   quiz → Mini Check (3 câu), IELTS → ô quan sát, mẹo → Golden rule; 2 CTA app → thẻ CTA cuối Mini Check; pager + liên quan → cột "Bài liên quan" (rel prev/next); add-on/PWA cuối main
   G.forEach((l, gi) => {
-    const prev = G[gi - 1], next = G[gi + 1], pn = `<nav class="pager" aria-label="Bài trước / bài sau">${prev ? `<a rel="prev" href="/ngu-phap/${prev.id}">← ${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a rel="next" href="/ngu-phap/${next.id}">${esc(next.title)} →</a>` : ''}</nav>`;
-    const bl = l.blocks || [], firstMistake = bl.findIndex(b => b.type === 'mistake'), u = unitOf(l.unit);
-    const body = `<article class="page">${hero(esc(l.title), { emoji: l.emoji || '📘', lead: esc(l.summary || ''), chips: [...(l.en ? [[l.en, 'ink']] : []), ...(l.level ? [[l.level, 'alt']] : []), u.name] })}
-${ctaBox(`/app/#/grammar/${encodeURIComponent(l.id)}`, '🧠 Học bài này có minh họa & bài tập (miễn phí)', 'Mở bài học', 'Sơ đồ trực quan, công thức màu và bài tập chấm điểm ngay.')}
-${bl.map((b, i) => (i === firstMistake ? '<h2>Lỗi hay gặp</h2>' : '') + blk(b)).join('\n')}
-${ctaBox(`/app/#/grammar/${encodeURIComponent(l.id)}`, `✏️ Làm bài tập ${esc(l.en || l.title)}`, 'Làm bài tập')}
-${pn}
-${related(relatedOf(G, l, y => y.unit === l.unit, 4), gCard)}
-${extBox('vi', 'grammar')}
-${pwaBox('vi', 'grammar')}</article>`;
-    fs.writeFileSync(`dist/ngu-phap/${l.id}.html`, page(`${l.title} (${l.en}) – công thức, cách dùng, dấu hiệu, lỗi hay gặp | Lexkite`, `${l.title} (${l.en}): ${l.summary || ''} Công thức, ví dụ song ngữ, lỗi người Việt hay mắc và cách dùng trong IELTS.`.slice(0, 300), `${SITE}ngu-phap/${l.id}`, body, l.title));
+    const prev = G[gi - 1], next = G[gi + 1], u = unitOf(l.unit), sub = y => [y.en, y.level].filter(Boolean).join(' · ');
+    const rel = [...(prev ? [relItem('vi', prev.title, `/ngu-phap/${prev.id}`, '', 'prev')] : []), ...relatedOf(G, l, y => y.unit === l.unit, 4).map(y => relItem('vi', y.title, `/ngu-phap/${y.id}`, sub(y))), ...(next ? [relItem('vi', next.title, `/ngu-phap/${next.id}`, '', 'next')] : [])];
+    const body = grammarD('vi', { l, h1: l.title, lead: l.summary || '', unit: [u.name, `/ngu-phap/#g-${u.id}`], app: `/app/#/grammar/${encodeURIComponent(l.id)}`, rel });
+    fs.writeFileSync(`dist/ngu-phap/${l.id}.html`, page(`${l.title} (${l.en}) – công thức, cách dùng, dấu hiệu, lỗi hay gặp | Lexkite`, `${l.title} (${l.en}): ${l.summary || ''} Công thức, ví dụ song ngữ, lỗi người Việt hay mắc và cách dùng trong IELTS.`.slice(0, 300), `${SITE}ngu-phap/${l.id}`, body, l.title, undefined,
+      { st: 'grammar', css: GRAM_CSS, js: GRAM_JS, ext: extBox('vi', 'grammar') + pwaBox('vi', 'grammar') }));
   });
   const units = {}; for (const l of G) (units[l.unit || 'khac'] = units[l.unit || 'khac'] || []).push(l);
   const order = [...UNITS.map(u => u.id).filter(id => units[id]), ...Object.keys(units).filter(k => !UNITS.some(u => u.id === k))];
+  // Mục lục: khung danh sách vocab-hub (nhóm → thẻ, ô lọc + viên chủ điểm, Ama, 4 ô số thật); sectionNav → cột Tài nguyên chân trang
   fs.writeFileSync('dist/ngu-phap/index.html', page(`Ngữ pháp tiếng Anh từ cơ bản đến IELTS – ${G.length} bài | Lexkite`, `${G.length} bài ngữ pháp tiếng Anh: 12 thì, câu điều kiện, bị động, mệnh đề quan hệ… có công thức, ví dụ song ngữ, lỗi hay gặp và bài tập miễn phí.`, `${SITE}ngu-phap/`,
-    `${indexHero(`Ngữ pháp tiếng Anh (${G.length} bài)`, 'Từ nền tảng đến band 7+: công thức, cách dùng, dấu hiệu nhận biết, lỗi người Việt hay mắc và ứng dụng trong IELTS.', 'ngu-phap')}
-${order.map(k => { const u = unitOf(k); return group(k, `${u.emoji ? u.emoji + ' ' : ''}${u.name}`, `${units[k].length} ${L.lessons}`, units[k].map(gCard)).replace('</h2>', `</h2>${u.desc ? `<p>${esc(u.desc)}</p>` : ''}`); }).join('\n')}`));
+    grammarHubD('vi', { G, units: order.map(k => { const u = unitOf(k); return { k, name: u.name, desc: u.desc, items: units[k] }; }), href: l => `/ngu-phap/${l.id}`, app: l => `/app/#/grammar/${encodeURIComponent(l.id)}`,
+      title: l => l.title, sub: l => [l.en, short(l.summary || '', 110)].filter(Boolean).join(' – '), unitName: l => unitOf(l.unit).name, appHome: APP, vocab: '/tu-vung/',
+      crumbs: [['Trang chủ', '/'], [SEC['ngu-phap'], '/ngu-phap/']], h1: `Ngữ pháp tiếng Anh (${G.length} bài)`, lead: 'Từ nền tảng đến band 7+: công thức, cách dùng, dấu hiệu nhận biết, lỗi người Việt hay mắc và ứng dụng trong IELTS.' }),
+    undefined, undefined, { st: 'vocab-hub', css: VOCAB_CSS, js: VOCAB_JS('vi'), res: secRes('vi', '/ngu-phap/') }));
   addSm([`${SITE}ngu-phap/`, ...G.map(l => `${SITE}ngu-phap/${l.id}`)], 'web/js/grammar');
   console.log(`✓ SEO: ${G.length} trang ngữ pháp + mục lục`);
 }

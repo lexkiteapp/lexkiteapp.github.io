@@ -9,7 +9,7 @@ const [ROOT = 'dist', OUT = 'out/stitch-web'] = process.argv.slice(2); fs.mkdirS
 const SRC = 'brand/stitch/web', LIM = fs.existsSync('scripts/test/stitch-web-diff.json') ? JSON.parse(fs.readFileSync('scripts/test/stitch-web-diff.json', 'utf8')) : {};
 const AXE = createRequire(path.resolve('package.json')).resolve('axe-core/axe.min.js');
 // trang → URL đại diện của mẫu (mẫu phủ nhiều trang: hub = blog index + chỉ mục speaking/samples)
-export const PAGES = { home: '/en/', sample: '/en/samples/p27', speaking: '/en/speaking/thoi-tiet-cac-mua', post: '/en/blog/academic-word-list/', hub: '/en/blog/', 'vocab-hub': '/en/vocabulary/', 'vocab-set': '/en/vocabulary/environment', 'dict-hub': '/en/dictionary/' }; // dict-hub: trang từ điển (scripts/dict/build.mjs, chép vào dist/ trong stitch-web.yml)
+export const PAGES = { home: '/en/', sample: '/en/samples/p27', speaking: '/en/speaking/thoi-tiet-cac-mua', post: '/en/blog/academic-word-list/', hub: '/en/blog/', 'vocab-hub': '/en/vocabulary/', 'vocab-set': '/en/vocabulary/environment', 'dict-hub': '/en/dictionary/', grammar: '/en/grammar/present-perfect' }; // dict-hub: trang từ điển (scripts/dict/build.mjs, chép vào dist/ trong stitch-web.yml)
 const VPS = { desk: { width: 1280, height: 900 }, phone: { width: 390, height: 844 } }, CAP = 6000; // chụp tối đa 6000 px chiều cao (đủ toàn trang mẫu)
 const STILL = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
 

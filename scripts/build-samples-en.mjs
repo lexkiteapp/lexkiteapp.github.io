@@ -3,6 +3,7 @@
 import fs from 'node:fs'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
 import { vocabHubD, vocabSetD, VOCAB_CSS, VOCAB_JS } from './lib/vocab-st.mjs';
+import { grammarD, grammarHubD, relItem, GRAM_CSS, GRAM_JS } from './lib/grammar-st.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
 import crypto from 'node:crypto';
 import { embedWatermark } from '../content/protection/watermark.mjs';
@@ -156,40 +157,24 @@ const cnt = (k, idx) => nL[k][idx ? 0 : 1]++;
   const UD = { foundation: 'Parts of speech, word formation, pronouns, questions and numbers – the basics for beginners.', tenses: 'The 12 tenses and ways to talk about the future.', verbs: 'Modal verbs, the passive, conditionals and reported speech.', words: 'Articles, countable nouns, comparisons, prepositions and subject–verb agreement.', sentences: 'Relative clauses, noun clauses, linking and inversion for band 7+.', academic: 'Participle clauses, the subjunctive, nominalisation, hedging and punctuation for band 7.5+.' };
   const idxG = new Set(), tr = new Map();
   for (const l of G) { const [t, m] = mkT(MAP); tr.set(l, t); const walk = o => { if (typeof o === 'string') t(o); else if (Array.isArray(o)) o.forEach(walk); else if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) if (!['ex', 'vi', 'wrong', 'right', 'marks', 'c'].includes(k)) walk(v); }; walk([l.summary, l.blocks.filter(b => ['formula', 'uses', 'tip', 'mistake', 'ielts', 'table', 'signals'].includes(b.type)), l.quiz.slice(0, 3)]); if (ok(m)) idxG.add(l.id); }
-  const gCard = l => setCard({ href: `/en/grammar/${l.id}`, title: l.en, desc: short(tr.get(l)(l.summary) || '', 110), emoji: l.emoji, chips: [[l.level || '', 'alt']].filter(c => c[0]), key: `${l.en} ${UN[l.unit] || ''}` });
+  // Khung Stitch v2.1 (brand/stitch/web/grammar-*.html, dữ liệu scripts/lib/grammar-st.mjs) – cùng cách map với bản vi; chuỗi qua t() (content/seo-en/grammar.json), câu ví dụ qua enOnly
   G.forEach((l, gi) => {
-    const t = tr.get(l), idx = idxG.has(l.id), bl = l.blocks || [], prev = G[gi - 1], next = G[gi + 1];
-    const blk = b => {
-      if (b.type === 'formula') return `<h2>Formula</h2><div class="tbl" tabindex="0"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(t(r.label || ''))}</th><td>${r.parts.map(p => esc(t(p.t))).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
-      if (b.type === 'uses') return `<h2>When to use ${esc(l.en)}</h2><ol class="uses">${b.items.map(u => `<li><b>${esc(t(u.title))}</b>${u.ex ? `<br><i>${hlEx(u.ex)}</i>` : ''}</li>`).join('')}</ol>`;
-      if (b.type === 'signals') return `<h2>Signal words</h2><p class="sig">${b.words.map(w => `<span class="chip">${esc(t(w))}</span>`).join(' ')}</p>`;
-      if (b.type === 'table') return `<div class="tbl" tabindex="0"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(t(h))}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(t(String(x)))}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-      if (b.type === 'tip') return t(b.text) ? `<div class="tip">💡 ${esc(t(b.text))}</div>` : '';
-      if (b.type === 'mistake') return `<div class="err">❌ <s>${esc(enOnly(b.wrong))}</s><br>✅ <b>${esc(enOnly(b.right))}</b>${t(b.why) ? `<br><span class="why">${esc(t(b.why))}</span>` : ''}</div>`;
-      if (b.type === 'ielts') return t(b.text) ? `<h2>Using it in IELTS</h2><p>${esc(t(b.text))}</p>${b.ex ? `<p><i>${hlEx(b.ex)}</i></p>` : ''}` : '';
-      return '';
-    };
-    const fm = bl.findIndex(b => b.type === 'mistake'), sum = t(l.summary), href = `${APP}/grammar/${encodeURIComponent(l.id)}`;
-    const body = `<article class="page">${hero(esc(l.en), { emoji: l.emoji || '📘', lead: esc(sum), chips: [...(l.level ? [[l.level, 'alt']] : []), UN[l.unit] || l.unit] })}
-${ctaBox(href, '🧠 Learn this lesson with visuals and exercises (free)', 'Open in the app', 'Colour-coded formulas, timelines and instantly marked exercises.')}
-${bl.map((b, i) => (i === fm ? '<h2>Common mistakes</h2>' : '') + blk(b)).join('\n')}
-${quizHtml(l.quiz.slice(0, 3), t)}
-${ctaBox(href, `✏️ Practise ${esc(l.en)}: ${l.quiz.length} more questions`, 'Practise in the app')}
-<nav class="pager" aria-label="Previous / next lesson">${prev ? `<a rel="prev" href="/en/grammar/${prev.id}">← ${esc(prev.en)}</a>` : '<span></span>'}${next ? `<a rel="next" href="/en/grammar/${next.id}">${esc(next.en)} →</a>` : ''}</nav>
-${related(relatedOf(G, l, y => y.unit === l.unit, 4), gCard)}
-${extBox('en', 'grammar')}
-${pwaBox('en', 'grammar')}</article>`;
+    const t = tr.get(l), idx = idxG.has(l.id), prev = G[gi - 1], next = G[gi + 1], href = `${APP}/grammar/${encodeURIComponent(l.id)}`, sum = t(l.summary);
+    const rel = [...(prev ? [relItem('en', prev.en, `/en/grammar/${prev.id}`, '', 'prev')] : []), ...relatedOf(G, l, y => y.unit === l.unit, 4).map(y => relItem('en', y.en, `/en/grammar/${y.id}`, [UN[y.unit], y.level].filter(Boolean).join(' · '))), ...(next ? [relItem('en', next.en, `/en/grammar/${next.id}`, '', 'next')] : [])];
+    const body = grammarD('en', { l, t, x: enOnly, h1: l.en, lead: sum, unit: [UN[l.unit] || l.unit, `/en/grammar/#g-${l.unit}`], app: href, rel });
     const title = uniqT(`${l.en}: Formula, Uses, Examples & Common Mistakes | Lexkite`, `${l.en} (${l.id}) – English Grammar Lesson | Lexkite`);
     outL(`en/grammar/${l.id}`, `ngu-phap/${l.id}`, page(title, `${l.en} (${l.level}): ${sum} Formula, examples, common mistakes and a free quiz with answers.`, `en/grammar/${l.id}`, `ngu-phap/${l.id}`, body, l.en,
-      { lr: { learningResourceType: 'Lesson', educationalLevel: l.level, teaches: `English grammar – ${l.en}` } }), 'grammar', idx);
+      { st: 'grammar', css: GRAM_CSS, js: GRAM_JS, ext: extBox('en', 'grammar') + pwaBox('en', 'grammar'), lr: { learningResourceType: 'Lesson', educationalLevel: l.level, teaches: `English grammar – ${l.en}` } }), 'grammar', idx);
     cnt('grammar', idx);
   });
   const units = {}; for (const l of G) (units[l.unit] ||= []).push(l);
   const order = [...UNITS.map(u => u.id).filter(id => units[id]), ...Object.keys(units).filter(k => !UNITS.some(u => u.id === k))];
+  // Mục lục: khung danh sách vocab-hub (như /en/vocabulary/); sectionNav → cột Tài nguyên chân trang
   outL('en/grammar/', 'ngu-phap/', page(`English Grammar Lessons: ${G.length} Topics from Basics to IELTS | Lexkite`, `${G.length} free English grammar lessons: all 12 tenses, conditionals, the passive, relative clauses and more, with formulas, examples, common mistakes and quizzes.`, 'en/grammar/', 'ngu-phap/',
-    `${indexHero(`English grammar (${G.length} lessons)`, 'From the basics to band 7+: formulas, uses, signal words, common mistakes and quick quizzes with answers.', 'grammar')}
-${order.map(k => group(k, `${(UNITS.find(u => u.id === k) || {}).emoji || ''} ${UN[k] || k}`.trim(), `${units[k].length} ${L.lessons}`, units[k].map(gCard)).replace('</h2>', `</h2>${UD[k] ? `<p>${esc(UD[k])}</p>` : ''}`)).join('\n')}`, undefined,
-    { ld: [itemList('English grammar lessons', G.map(l => `${SITE}en/grammar/${l.id}`))] }), 'grammar', true);
+    grammarHubD('en', { G, units: order.map(k => ({ k, name: UN[k] || k, desc: UD[k] || '', items: units[k] })), href: l => `/en/grammar/${l.id}`, app: l => `${APP}/grammar/${encodeURIComponent(l.id)}`, t: l => tr.get(l),
+      title: l => l.en, sub: l => short(tr.get(l)(l.summary) || '', 110), unitName: l => UN[l.unit] || l.unit, appHome: APP.replace(/#$/, ''), vocab: '/en/vocabulary/',
+      crumbs: [['Home', '/en/'], [SEC.grammar, '/en/grammar/']], h1: `English grammar (${G.length} lessons)`, lead: 'From the basics to band 7+: formulas, uses, signal words, common mistakes and quick quizzes with answers.' }), undefined,
+    { st: 'vocab-hub', css: VOCAB_CSS, js: VOCAB_JS('en'), res: SEO_L.en.sections.filter(([h]) => h !== '/en/grammar/' && !SEO_L.en.nav.some(([n]) => n === h)), ld: [itemList('English grammar lessons', G.map(l => `${SITE}en/grammar/${l.id}`))] }), 'grammar', true);
 }
 
 // ---- Pronunciation ----
