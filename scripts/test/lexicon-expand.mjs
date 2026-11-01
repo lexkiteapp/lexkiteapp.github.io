@@ -377,6 +377,9 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   const d = doneWords(), keys = [...d]; ok(keys.length && keys.every(k => /#/.test(k)), 'doneWords: khoá từ#loại (không theo từ – duck#n không chặn duck#v)');
   const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items.filter(x => x.src === 'lexicon-expand' && OTHER_POS.test((x.why || [])[0] || ''));
   ok(Q.every(x => !d.has(x.id)), 'doneWords: mục "keep: … từ loại khác" không bị loại (requeue --pos đưa về retry)');
+  { const dq = doneWords({ queue: false }), all = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items.filter(x => x.src === 'lexicon-expand'), fun = all.filter(x => (x.why || []).length && x.why.every(y => /^(dịch vi|ví dụ):/.test(y)));
+    ok(!fun.length || fun.some(x => !dq.has(String(x.id))), 'doneWords({queue:false}): mục hàng duyệt chưa xuất không bị chặn (requeue --funnel từng ra 0 mục mà xoá 8.937 mục)');
+    ok(/doneWords\(\{ queue: false \}\)/.test(fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/requeue.mjs'), 'utf8')), 'requeue.mjs dùng doneWords({ queue: false })'); }
   // từ điển: nghĩa biên soạn của từ loại phụ vào ĐÚNG khối, sau từ loại chính; không đè khối có sẵn
   const vm = await import('node:vm'), src = fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8'), g = { I18N: { meanLang: () => 'vi', learnLang: () => 'en' }, fetch: async () => ({ ok: false }), AbortController, setTimeout, clearTimeout, console };
   g.self = g; vm.createContext(g); vm.runInContext(src, g);

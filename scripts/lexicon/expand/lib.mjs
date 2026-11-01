@@ -224,10 +224,11 @@ const files = sub => ex(DIR + sub) ? fs.readdirSync(new URL(DIR + sub, ROOT)).fi
 // MỤC đã xử lý (đã xuất + chờ soát + hàng duyệt) theo khoá `từ#loại` – để chạy lại không làm trùng. 30/10 (đa từ loại): trước đây khoá theo TỪ
 // nên kho có duck#n thì duck#v không bao giờ được làm → trần ~11–12k. Mục hàng duyệt 'keep: … từ loại khác' KHÔNG tính (requeue.mjs --pos đưa về retry).
 export const OTHER_POS = /^keep: từ đã có trong kho với từ loại khác/;
-export function doneWords() {
+// queue: false = chỉ mục đã xuất/chờ soát (requeue.mjs – 01/11: tính cả hàng duyệt thì --funnel ra 0 mục mà vẫn xoá 8.937 mục khỏi hàng duyệt)
+export function doneWords({ queue = true } = {}) {
   const s = new Set();
   for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k);
-  if (ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] }) && !OTHER_POS.test((q.why || [])[0] || '')) s.add(String(q.id));
+  if (queue && ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] }) && !OTHER_POS.test((q.why || [])[0] || '')) s.add(String(q.id));
   return s;
 }
 // Mục ĐÃ XUẤT: lô ở content/lexicon/expand/<lô>.json có tệp kiểm mẫu content/qa/batches/lx-<lô>.json đạt (status published)

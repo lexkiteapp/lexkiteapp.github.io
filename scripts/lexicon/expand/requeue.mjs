@@ -15,8 +15,8 @@ const q = JSON.parse(rd(QUEUE)), retry = fs.existsSync(new URL(RETRY, ROOT)) ? J
 // --funnel (MỘT LẦN sau khi sửa gốc nguồn – 31/10 Wiktionary tiếng Việt + câu Wiktionary theo nghĩa khoá): mục CHỈ rớt vì vi và/hoặc thiếu câu người viết → làm lại; KHÔNG để trong lệnh mỗi lượt (trượt lại = lặp vô hạn)
 const FUNNEL_RE = x => (x.why || []).length > 0 && (x.why || []).every(y => /^(dịch vi|ví dụ):/.test(y));
 const move = x => x.src === 'lexicon-expand' && ((GAPS && (hasGap({ ok: false, why: x.why || [] }) || (/^gen:/.test((x.why || [])[0] || '') && !x.data))) || (BATCH && x.batch === BATCH && !/^keep:/.test((x.why || [])[0] || '')) || (POS && OTHER_POS.test((x.why || [])[0] || '')) || (FUNNEL && FUNNEL_RE(x)));
-// khoá trùng = từ#loại (31/10): crush#n có trong kho, crush#v vẫn làm được → chỉ chặn ĐÚNG mục đã xuất/chờ soát (test retry ∩ doneWords = ∅)
-const DONE = doneWords(), moveOk = x => move(x) && !DONE.has(String(x.id));
+// khoá trùng = từ#loại (31/10); DONE KHÔNG tính hàng duyệt (chính các mục đang chuyển): crush#n có trong kho, crush#v vẫn làm được → chỉ chặn ĐÚNG mục đã xuất/chờ soát (test retry ∩ doneWords = ∅)
+const DONE = doneWords({ queue: false }), moveOk = x => move(x) && !DONE.has(String(x.id));
 const out = q.items.filter(moveOk);
 const PEND = arg('--pending') && `content/lexicon/expand/pending/${arg('--pending')}.json`;
 if (PEND && fs.existsSync(new URL(PEND, ROOT))) { out.push(...Object.keys(JSON.parse(rd(PEND)).items).filter(id => !DONE.has(id)).map(id => ({ id }))); fs.unlinkSync(new URL(PEND, ROOT)); }
