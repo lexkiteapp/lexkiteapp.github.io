@@ -59,7 +59,7 @@ quiz: [
 
 तकनीकी लेखों को पढ़ने और संदर्भ में शब्दों को समझने के लिए [Lexkite रीडिंग मॉड्यूल](/#/reading) का उपयोग करें।
 
-![Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc](media:read-article "टेक्नोलॉजी और स्पेस डिब्रिस से जुड़े एकेडमिक लेखों को Lexkite रीडिंग मोड में संदर्भ सहित पढ़ें")
+![Lexkite पर रीडिंग लेख The Growing Problem of Space Debris: रंगीन मुख्य शब्द, छूकर अर्थ देखना और True/False/Not Given प्रश्न](media:read-article "टेक्नोलॉजी और स्पेस डिब्रिस से जुड़े एकेडमिक लेखों को Lexkite रीडिंग मोड में संदर्भ सहित पढ़ें")
 
 ## 2. रोजगार, ऑटोमेशन और कार्यबल (Workforce & Employment)
 
@@ -98,7 +98,7 @@ quiz: [
 
 इन कोलोकेशन्स को याद करने के लिए [Lexkite प्रैक्टिस हब](/#/practice) के रिक्त स्थान भरें टेस्ट का अभ्यास करें।
 
-![Màn hình luyện từ vựng qua bài tập quiz và smartLearn trên Lexkite](media:practice "Giao diện bài tập quiz và smartLearn trên Lexkite giúp ghi nhớ từ vựng qua phản xạ lặp lại ngắt quãng")
+![Lexkite अभ्यास केंद्र: स्मार्ट लर्न, मैच, उच्चारण, बहुविकल्पी, रिक्त स्थान, सुनकर लिखना, टेस्ट और राइटिंग रूम](media:practice "Lexkite में अभ्यास का प्रकार और अपनी शब्द-सूची चुनें")
 
 ## राइटिंग टास्क 2 का मॉडल पैराग्राफ (बैंड 8.0)
 

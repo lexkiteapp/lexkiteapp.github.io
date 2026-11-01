@@ -1,6 +1,6 @@
 ---
 slug: tieng-anh-giao-tiep-hang-ngay-mau-cau-thong-dung
-title: "tiếng anh giao tiếp hàng ngày: 100+ Mẫu Câu Đàm Thoại Thông Dụng"
+title: "Tiếng anh giao tiếp hàng ngày: 100+ Mẫu Câu Đàm Thoại Thông Dụng"
 description: "Tổng hợp các mẫu câu tiếng anh giao tiếp hàng ngày thông dụng nhất: chào hỏi, mua sắm, hỏi đường, ăn uống và kết bạn kèm ngữ điệu tự nhiên chuẩn bản xứ."
 keyword: "tiếng anh giao tiếp hàng ngày"
 lang: vi

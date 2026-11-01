@@ -1,6 +1,6 @@
 ---
 slug: kata-penghubung-bahasa-inggris-linking-words
-title: "kata penghubung bahasa inggris linking words: Panduan dan Contoh"
+title: "Kata penghubung bahasa inggris linking words: Panduan dan Contoh"
 description: "Kuasai kata penghubung bahasa inggris linking words: tabel konjungsi berdasarkan fungsi logika, aturan tanda baca dan contoh kalimat esai akademik."
 keyword: "kata penghubung bahasa inggris linking words"
 lang: id

@@ -1,6 +1,6 @@
 ---
 slug: conectivos-em-ingles-linking-words-guia
-title: "conectivos em ingles linking words: Guia completo com exemplos"
+title: "Conectivos em ingles linking words: Guia completo com exemplos"
 description: "Domine os conectivos em ingles linking words: tabela de conectores por função lógica, regras de pontuação e exemplos práticos para redações formais e exames."
 keyword: "conectivos em ingles linking words"
 lang: pt
@@ -39,7 +39,7 @@ Ao produzir uma redação acadêmica, redigir um e-mail profissional ou defender
 
 Neste guia completo, exploraremos o que são esses conectivos, como se organizam por função discursiva e quais convenções de pontuação devem ser rigorosamente seguidas.
 
-![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Verifique a regência e o uso formal de conectivos no dicionário do Lexkite")
+![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
 
 ## O que são conectivos em inglês (Linking Words) e qual a sua importância?
 

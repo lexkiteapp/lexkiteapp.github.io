@@ -58,7 +58,7 @@ Para garantir Band 7.5 ou superior, entre **60% e 75% das suas frases devem pert
 
 Pratique a redação com análise de estrutura no [módulo de escrita do Lexkite](/#/write).
 
-![Phòng viết IELTS Task 2: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng gợi ý, khung viết bài, bài mẫu band 8 có chú thích, thống kê xu hướng dạng đề](media:write "Escreva suas redações no Lexkite com contagem de palavras e análise de variedade sintática")
+![Sala de redação do IELTS Writing Task 2 no Lexkite com escolha de tema, sugestões de ideias, vocabulário, estrutura do texto e modelo nota 8 comentado](media:write "Escreva suas redações no Lexkite com contagem de palavras e análise de variedade sintática")
 
 ## 5 Estruturas sintáticas para frases complexas IELTS Writing
 
@@ -84,7 +84,7 @@ As orações com particípio presente (*-ing*) ou passado (*-ed*) conferem fluid
 
 Revise a sintaxe e a regência verbal no [guia de gramática do Lexkite](/#/grammar).
 
-![Ngữ pháp IELTS: lộ trình chương, 12 thì (hiện tại đơn, tiếp diễn, hoàn thành…), cấp A1–B2, bài luyện tổng hợp](media:grammar "Estude regras gramaticais avançadas e orações de particípio no guia completo de gramática")
+![Trilha de gramática do Lexkite: capítulos, os 12 tempos verbais, níveis A1–B2 e exercícios de revisão](media:grammar "Estude regras gramaticais avançadas e orações de particípio no guia completo de gramática")
 
 ### 3. Orações Adjetivas Relativas (Defining vs. Non-Defining Relative Clauses)
 
@@ -117,7 +117,7 @@ Utilize com extrema moderação (apenas 1 vez na redação inteira) para enfatiz
 
 Consulte sinônimos e o registro formal de termos no [dicionário do Lexkite](/#/dict/resilient).
 
-![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Verifique a regência de conjunções e adjetivos formais no dicionário inteligente do Lexkite")
+![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
 
 ## Técnica prática de combinação de frases (Sentence Combining)
 

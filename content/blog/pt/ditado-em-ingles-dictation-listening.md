@@ -54,7 +54,7 @@ Em um livro ou artigo, as palavras estão perfeitamente separadas por espaços e
 
 Treine o listening com controle de velocidade e áudios de múltiplos sotaques no [módulo de audição do Lexkite](/#/listening).
 
-![Luyện nghe IELTS: 10 đề, 4 phần mỗi đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập / Nghe lần đầu / Chép chính tả](media:listening "Ajuste a velocidade de reprodução e transcreva frases curtas para afiar seu ouvido")
+![Prática de listening IELTS no Lexkite: 10 testes com quatro partes, sotaques britânico, americano e australiano e velocidade ajustável](media:listening "Ajuste a velocidade de reprodução e transcreva frases curtas para afiar seu ouvido")
 
 ## Guia em 4 passos: O método de ditado em inglês listening
 
@@ -85,7 +85,7 @@ Abra a transcrição original (*transcript*) e compare minuciosamente com o seu 
 
 Ao encontrar termos ou expressões desconhecidas, confira a pronúncia e o significado exato no [dicionário do Lexkite](/#/dict/resilient).
 
-![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte transcrições fonéticas e aprenda a pronúncia correta de termos que você errou no ditado")
+![Página de dicionário com pronúncia e exemplos no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
 
 ### Passo 4: Leitura espelhada (Shadowing)
 Após corrigir tudo, coloque o áudio novamente e leia o texto em voz alta junto com o locutor nativo, imitando a entonação, o ritmo e as conexões entre as palavras. Se o seu aparelho fonador consegue reproduzir a frase com naturalidade, seu ouvido nunca mais falhará em reconhecê-la.

@@ -1,6 +1,6 @@
 ---
 slug: daily-english-conversation-sentences-guide
-title: "daily english conversation: 100+ Essential Spoken Phrases"
+title: "Daily english conversation: 100+ Essential Spoken Phrases"
 description: "Master daily english conversation with 100+ natural phrases: greetings, dining, shopping, directions, and small talk with native pronunciation."
 keyword: "daily english conversation"
 lang: en

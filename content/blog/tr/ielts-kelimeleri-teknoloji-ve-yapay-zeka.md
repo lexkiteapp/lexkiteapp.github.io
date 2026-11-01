@@ -54,7 +54,7 @@ Yapay zeka modellerini ve algoritmik karar mekanizmalarını anlatırken genel g
 
 Güncel teknoloji makalelerini okurken karşılaştığınız bu terimleri [Lexkite okuma modülü](/#/reading) ile doğrudan bağlamında inceleyebilirsiniz.
 
-![Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc](media:read-article "Giao diện bài đọc The Growing Problem of Space Debris trên Lexkite giúp tra cứu và ghi nhớ từ khóa trực tiếp")
+![Lexkite okuma metni The Growing Problem of Space Debris: renkli anahtar kelimeler, dokunarak sözlükte arama ve True/False/Not Given soruları](media:read-article "Kelimeye dokunup anlamını görün, kaydedin ve True/False/Not Given sorularını yanıtlayın")
 
 ## İş Gücü, Otomasyon ve İstihdam Üzerine İleri Düzey İfadeler
 
@@ -106,7 +106,7 @@ Aşağıdaki paragrafta, yukarıda öğrendiğimiz collocation kalıplarının b
 
 Bu paragraftaki cümle dizilimlerini ve kelime eşleşmelerini [Lexkite interaktif pratik modülünde](/#/practice) test edin.
 
-![Màn hình luyện từ vựng qua bài tập quiz và smartLearn trên Lexkite](media:practice "Giao diện bài tập quiz và smartLearn trên Lexkite giúp ghi nhớ từ vựng qua phản xạ lặp lại ngắt quãng")
+![Lexkite alıştırma merkezi: Akıllı öğrenme, Eşleştirme, Telaffuz, Çoktan seçmeli, Boşluk doldurma, Dinle ve yaz, Test ve Yazma odası](media:practice "Lexkite'ta alıştırma türünü ve kelime kaynağınızı seçin")
 
 ## IELTS Speaking Part 3 İçin Hazır Konuşma Kalıpları
 

@@ -54,7 +54,7 @@ Bir kitapta kelimeler boşluklarla ayrılmıştır. Ancak anadili İngilizce ola
 
 Dinleme hızını ayarlayabileceğiniz ve farklı aksanları deneyimleyebileceğiniz [Lexkite dinleme odasında](/#/listening) kulak egzersizlerine başlayın.
 
-![Luyện nghe IELTS: 10 đề, 4 phần mỗi đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập / Nghe lần đầu / Chép chính tả](media:listening "Ses hızını ayarlayarak cümleleri parça parça transkribe edin ve dinleme reflekslerinizi geliştirin")
+![Lexkite IELTS dinleme pratiği: dörder bölümlü 10 test, İngiliz, Amerikan ve Avustralya aksanları, ayarlanabilir hız](media:listening "Ses hızını ayarlayarak cümleleri parça parça transkribe edin ve dinleme reflekslerinizi geliştirin")
 
 ## 4 Adımda İngilizce Dictation Listening Çalışma Rehberi
 
@@ -105,7 +105,7 @@ Metni düzelttikten sonra kaydı yeniden başlatın ve konuşmacıyla eşzamanl�
 
 Dikte alıştırmalarından öğrendiğiniz kalıpları [Lexkite interaktif testlerinde](/#/practice) pekiştirin.
 
-![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "Màn hình bài kiểm tra trắc nghiệm từ vựng run out of trên Lexkite để củng cố phản xạ ghi nhớ từ vựng")
+![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "Dört seçenekli kısa sorularla kelime bilginizi ölçün")
 
 ## Dikte Seviyelerine Göre Önerilen Çalışma Kaynakları
 

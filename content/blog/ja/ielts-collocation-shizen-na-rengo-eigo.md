@@ -1,5 +1,5 @@
 ---
-title: "ielts コロケーション collocation 英語：頻出表現Band 7+"
+title: "Ielts コロケーション collocation 英語：頻出表現Band 7+"
 description: "ielts コロケーション collocation 英語の重要表現を徹底解説。ライティングやスピーキングでスコアを伸ばすテーマ別連語、和製英語の直訳の落とし穴から効率的な長期記憶定着メソッドまでを完全網羅して解説します。自然な英語表現を身につけましょう。"
 slug: ielts-collocation-shizen-na-rengo-eigo
 lang: ja

@@ -1,5 +1,5 @@
 ---
-title: "ielts リスニング コツ listening 対策：スコアを落とさない9つの実践法則"
+title: "Ielts リスニング コツ listening 対策：スコアを落とさない9つの実践法則"
 description: "IELTS受験者必見のielts リスニング コツ listening 対策完全版：設問先読みの予測法、ひっかけ問題（distractor）の回避術、スペルミスや単複の落とし穴を防ぎ、確実な目標バンドスコア獲得へ導く実践ノウハウ。"
 slug: ielts-listening-taisaku-kotsu-score-up
 lang: ja

@@ -45,7 +45,7 @@ quiz: [
 
 تدرب على صياغة الجمل الأكاديمية وتحليل تنوعك النحوي في [غرفة الكتابة في Lexkite](/#/write).
 
-![Phòng viết writing IELTS Task 2 trên Lexkite với gợi ý ý tưởng và bài mẫu band 8](media:write "Viết bài luận IELTS và kiểm tra các cấu trúc câu phức ngay trong phòng viết Lexkite")
+![غرفة الكتابة في Lexkite لمهمة IELTS Writing Task 2 مع اختيار الموضوع واقتراحات الأفكار والمفردات وهيكل المقال ونموذج بدرجة 8](media:write "خطّط لمقال Task 2 واكتب مسودته في غرفة الكتابة على Lexkite")
 
 ## 5 تراكيب ذهبية لصياغة جمل معقدة لباند 7.5+
 
@@ -67,7 +67,7 @@ quiz: [
 
 تعلم تفاصيل الجمل الموصولة وتدرب عليها في [منهج القواعد التفاعلي في Lexkite](/#/grammar).
 
-![Màn hình học grammar tiếng Anh trên Lexkite với danh sách bài học và bài tập cấu trúc câu](media:grammar "Học và củng cố ngữ pháp câu phức mệnh đề quan hệ và đảo ngữ trên Lexkite")
+![مسار القواعد في Lexkite: فصول مرتبة والأزمنة الاثنا عشر ومستويات من A1 إلى B2 مع تمارين شاملة](media:grammar "تعلّم القواعد فصلًا بعد فصل وتدرّب عليها في Lexkite")
 
 ### 3. أشباه الجمل المشتقة من الأفعال (Participle Clauses)
 تعتبر أشباه جمل اسم الفاعل (*Present Participle -ing*) واسم المفعول (*Past Participle -ed*) تاج الكتابة الأكاديمية، حيث تلغي تكرار الفاعل وتضفي طابعاً رصيناً:

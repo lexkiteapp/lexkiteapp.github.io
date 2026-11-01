@@ -42,7 +42,7 @@ Ao contrário da leitura tradicional em voz alta, a **técnica shadowing inglês
 
 Treine e avalie a precisão da sua articulação oral no [módulo de prática do Lexkite](/#/practice/speak).
 
-![Menu de exercícios do Lexkite com opções de estudo inteligente, pares de cartas, pronúncia, quiz e sala de escrita](media:practice "No menu de exercícios do Lexkite, você pode revisar vocabulário do shadowing com quiz e ditado")
+![Menu de exercícios do Lexkite com opções de estudo inteligente, pares de cartas, pronúncia, quiz e sala de escrita](media:practice "Escolha o tipo de exercício e as palavras do seu caderno no Lexkite")
 
 ## 2. O passo a passo em 5 fases para praticar com eficácia
 

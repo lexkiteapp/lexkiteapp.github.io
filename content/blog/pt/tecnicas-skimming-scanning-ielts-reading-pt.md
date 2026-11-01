@@ -1,5 +1,5 @@
 ---
-title: "skimming e scanning ielts reading: Guia Completo para Ler Rápido"
+title: "Skimming e scanning ielts reading: Guia Completo para Ler Rápido"
 description: "Aprenda a aplicar skimming e scanning ielts reading para localizar respostas em segundos sem precisar ler cada palavra do texto e aumente sua nota."
 slug: tecnicas-skimming-scanning-ielts-reading-pt
 lang: pt

@@ -133,7 +133,7 @@ Konsonan dikelompokkan menjadi konsonan bersuara (*voiced* — pita suara berget
 
 Uji ketepatan pelafalan Anda dan peroleh skor akurasi langsung di [latihan berbicara Lexkite](/#/practice/speak).
 
-![Luyện phát âm có chấm điểm: cụm 'cut down on', nút micro để nói, chấm theo giọng nói](media:practice-speak "Latih pengucapan frasa bahasa Inggris menggunakan mikrofon dan evaluasi akurasi fonetik Anda")
+![Latihan pelafalan Lexkite: ucapkan cut down on lewat mikrofon dan dapatkan skor pengucapan](media:practice-speak "Latih pengucapan frasa bahasa Inggris menggunakan mikrofon dan evaluasi akurasi fonetik Anda")
 
 ## 3 Langkah Mudah Menguasai Bacaan Simbol IPA
 

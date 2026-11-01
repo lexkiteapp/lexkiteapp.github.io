@@ -1,5 +1,5 @@
 ---
-title: "ielts 콜로케이션 collocation 연어 정리: Band 7+ 핵심"
+title: "Ielts 콜로케이션 collocation 연어 정리: Band 7+ 핵심"
 description: "ielts 콜로케이션 collocation 연어 정리 완벽 가이드입니다. 라이팅과 스피킹에서 득점력을 대폭 높이는 주제별 연어 표현과 직역의 오류 탈출법, 과학적 장기 기억 복습 비결을 상세히 알아봅니다."
 slug: ielts-collocation-yeongeo-yeoneo-chongjeongri
 lang: ko

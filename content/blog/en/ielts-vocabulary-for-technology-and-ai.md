@@ -82,7 +82,7 @@ To organize your revision systematically, study these high-value academic phrase
 
 For more practice with precise word partnerships, explore our comprehensive guide on [IELTS collocations](/en/blog/ielts-collocations/).
 
-![Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard](media:dict "Look up technical definitions and collocations in the Lexkite dictionary")
+![Lexkite dictionary entry for resilient: UK/US phonetics, audio, meaning, example sentences, collocations, synonyms and a Save to flashcards button](media:dict "Look up technical definitions and collocations in the Lexkite dictionary")
 
 ## Model Band 8 essay paragraph analyzing artificial intelligence
 
@@ -94,7 +94,7 @@ This paragraph achieves high lexical resource by combining formal nouns (*prolif
 
 Furthermore, the author employs academic hedging to maintain nuanced authority. To master this balanced writing style, read our guide on [hedging in academic writing](/en/blog/hedging-in-academic-writing/). The sentences are structured using conditional and concessive conjunctions. Review our principles in [complex sentences for IELTS writing](/en/blog/complex-sentences-for-ielts-writing/) to emulate this syntactical variety.
 
-![Thư viện từ vựng 6.800+ từ: tab Tất cả / Từ vựng cốt lõi NGSL / IELTS theo đề / Writing / Speaking / TOEIC (TSL); các bộ 'Từ cốt lõi 1–281…' có cấp độ A1–B2](media:library "Review categorized IELTS topic vocabulary decks in the Lexkite library")
+![Lexkite word library with 6,800+ words: tabs for All, NGSL core, IELTS by test, Writing, Speaking and TOEIC, with A1–B2 core sets](media:library "Review categorized IELTS topic vocabulary decks in the Lexkite library")
 
 ## High-impact phrases for IELTS Speaking Part 3 technology questions
 

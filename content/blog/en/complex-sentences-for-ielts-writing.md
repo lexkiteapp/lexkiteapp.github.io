@@ -88,7 +88,7 @@ Participle clauses allow you to express cause, sequence, or simultaneous action 
 
 **The Dangling Modifier Trap:** The implied subject of your participial phrase must be the exact same grammatical subject that immediately follows the comma. Writing *"Walking into the laboratory, the experiments were completed"* is ungrammatical because the experiments were not walking into the lab. Write: *Walking into the laboratory, the researchers completed the experiments.*
 
-![Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard](media:dict "Look up conjunctions, relative pronouns, and clause structures in the Lexkite dictionary")
+![Lexkite dictionary entry for resilient: UK/US phonetics, audio, meaning, example sentences, collocations, synonyms and a Save to flashcards button](media:dict "Look up conjunctions, relative pronouns, and clause structures in the Lexkite dictionary")
 
 ## 3 punctuation and run-on errors that lower grammatical scores
 
@@ -106,7 +106,7 @@ Participle clauses allow you to express cause, sequence, or simultaneous action 
 
 For broader review of logical sentence connectors, consult our guide on [linking words for IELTS writing](/en/blog/linking-words-for-ielts-writing/).
 
-![Thư viện từ vựng 6.800+ từ: tab Tất cả / Từ vựng cốt lõi NGSL / IELTS theo đề / Writing / Speaking / TOEIC (TSL); các bộ 'Từ cốt lõi 1–281…' có cấp độ A1–B2](media:library "Explore high-level vocabulary and academic linking structures in the Lexkite library")
+![Lexkite word library with 6,800+ words: tabs for All, NGSL core, IELTS by test, Writing, Speaking and TOEIC, with A1–B2 core sets](media:library "Explore high-level vocabulary and academic linking structures in the Lexkite library")
 
 ## Strategic paragraph analysis: balancing sentence lengths
 

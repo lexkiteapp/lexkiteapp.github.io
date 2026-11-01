@@ -1,6 +1,6 @@
 ---
 slug: frases-en-ingles-para-conversacion-diaria
-title: "frases en ingles para conversacion diaria: 100+ Expresiones"
+title: "Frases en ingles para conversacion diaria: 100+ Expresiones"
 description: "Aprende más de 100 frases en ingles para conversacion diaria: saludos naturales, pedir comida, direcciones, compras y charla informal en situaciones reales."
 keyword: "frases en ingles para conversacion diaria"
 lang: es

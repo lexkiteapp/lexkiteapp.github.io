@@ -79,7 +79,7 @@ To expand your mastery over tricky verb complementation, explore our detailed br
 4. **Read three example sentences aloud:** When you look up a word, read every example sentence aloud three times. This trains your vocal tract to articulate the rhythm and links the new vocabulary with its associated prepositions.
 5. **Convert rich entries into spaced repetition cards:** Instead of letting looked-up words vanish into browsing history, save them into your personal study deck. Modern learning systems like the [Lexkite review flashcard system](/#/review) leverage the FSRS algorithm to calculate the ideal moment for you to review cards before you forget them.
 
-![Phiên ôn flashcard: thẻ từ 'pollution' có ảnh emoji, phiên âm, nút Lật thẻ; thanh tiến độ số thẻ còn lại](media:review "Review saved dictionary entries as interactive flashcards with spaced repetition intervals")
+![Lexkite flashcard review: the word pollution with an emoji picture, phonetics, a Flip button and a progress bar of cards left](media:review "Review saved dictionary entries as interactive flashcards with spaced repetition intervals")
 
 ## Building your personal digital vocabulary notebook
 

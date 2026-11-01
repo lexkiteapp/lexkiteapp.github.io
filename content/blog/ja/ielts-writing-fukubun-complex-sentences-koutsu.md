@@ -1,6 +1,6 @@
 ---
 slug: ielts-writing-fukubun-complex-sentences-koutsu
-title: "ielts ライティング 複文 complex sentences 完全攻略：Band 7.0+への構文法"
+title: "Ielts ライティング 複文 complex sentences 完全攻略：Band 7.0+への構文法"
 description: "IELTS Writing Task 2でBand 7.0+を達成するielts ライティング 複文 complex sentences活用法：従属節、分詞構文、倒置構文の自然な使い分けと減点を防ぐ句読点ルールを徹底解説します。"
 keyword: "ielts ライティング 複文 complex sentences"
 lang: ja

@@ -59,7 +59,7 @@ quiz: [
 
 اقرأ المقالات العلمية وطالع هذه المصطلحات في سياقاتها الواقعية عبر [منصة القراءة في Lexkite](/#/reading).
 
-![Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc](media:read-article "Giao diện bài đọc The Growing Problem of Space Debris trên Lexkite giúp tra cứu và ghi nhớ từ khóa trực tiếp")
+![مقال قراءة في Lexkite بعنوان The Growing Problem of Space Debris مع كلمات مفتاحية ملوّنة وبحث بلمسة وأسئلة True/False/Not Given](media:read-article "اضغط على أي كلمة في النص لترى معناها واحفظها، ثم أجب عن أسئلة True/False/Not Given")
 
 ## 2. كلمات ايلتس عن التكنولوجيا: سوق العمل والأتمتة
 
@@ -98,7 +98,7 @@ quiz: [
 
 تدرب على ترسيخ هذه المصطلحات في ذاكرتك من خلال التمارين التفاعلية في [منصة التدريب في Lexkite](/#/practice).
 
-![Màn hình luyện từ vựng qua bài tập quiz và smartLearn trên Lexkite](media:practice "Giao diện bài tập quiz và smartLearn trên Lexkite giúp ghi nhớ từ vựng qua phản xạ lặp lại ngắt quãng")
+![مركز التدريب في Lexkite: التعلّم الذكي والمطابقة ونطق الكلمات والاختيار من متعدد وملء الفراغ والاستماع والكتابة والاختبار وغرفة الكتابة](media:practice "اختر نوع التمرين ومصدر الكلمات من دفترك في Lexkite")
 
 ## نموذج تطبيقي لباند 8: يقرأ في مقال Writing Task 2
 

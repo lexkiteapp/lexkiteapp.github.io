@@ -1,6 +1,6 @@
 ---
 slug: percakapan-bahasa-inggris-sehari-hari-frasa-penting
-title: "percakapan bahasa inggris sehari hari: 100+ Frasa dan Contoh"
+title: "Percakapan bahasa inggris sehari hari: 100+ Frasa dan Contoh"
 description: "Pelajari 100+ percakapan bahasa inggris sehari hari: sapaan santai, memesan makanan di kafe, belanja, petunjuk arah jalan, dan obrolan kantor praktis."
 keyword: "percakapan bahasa inggris sehari hari"
 lang: id

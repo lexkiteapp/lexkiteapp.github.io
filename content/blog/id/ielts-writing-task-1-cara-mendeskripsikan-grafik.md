@@ -1,6 +1,6 @@
 ---
 slug: ielts-writing-task-1-cara-mendeskripsikan-grafik
-title: "ielts writing task 1 grafik: Cara Analisis Data dalam 20 Menit"
+title: "Ielts writing task 1 grafik: Cara Analisis Data dalam 20 Menit"
 description: "Kuasai ielts writing task 1 grafik dalam 20 menit: struktur 4 paragraf, teknik Overview nilai tinggi, dan kosakata tren fluktuasi data yang presisi."
 keyword: "ielts writing task 1 grafik"
 lang: id

@@ -108,7 +108,7 @@ En la vida real, lo que ocurrió en el pasado a menudo determina nuestra situaci
 
 El uso correcto de condicionales mixtos demuestra un control avanzado de los tiempos verbales ante examinadores oficiales. Puedes complementar esta variedad estructural con nuestras lecciones sobre [verbos modales en inglés](/es/blog/verbos-modales-en-ingles-can-could-should-must/).
 
-![Ngữ pháp IELTS: lộ trình chương, 12 thì (hiện tại đơn, tiếp diễn, hoàn thành…), cấp A1–B2, bài luyện tổng hợp](media:grammar "Revisa los módulos de oraciones condicionales y tiempos verbales en el itinerario de gramática de Lexkite")
+![Ruta de gramática de Lexkite: capítulos, los 12 tiempos verbales, niveles A1–B2 y ejercicios de repaso](media:grammar "Revisa los módulos de oraciones condicionales y tiempos verbales en el itinerario de gramática de Lexkite")
 
 ## Alternativas elegantes a "if" para enriquecer tu redacción
 

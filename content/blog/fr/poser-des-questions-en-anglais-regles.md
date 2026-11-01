@@ -165,7 +165,7 @@ Les *question tags* correspondent au français *"n'est-ce pas ?"* ou *"hein ?"*.
 
 Entraînez-vous à manier ces structures dans les exercices de questions et QCM du [centre d'entraînement Lexkite](/#/practice).
 
-![Mini-quiz sur le sens d’une expression – rédiger un mail professionnel en anglais](media:practice-test "Mettez en pratique vos acquis grammaticaux grâce aux exercices interactifs de Lexkite")
+![Mini-quiz sur le sens d’une expression – rédiger un mail professionnel en anglais](media:practice-test "Vérifiez votre vocabulaire avec des questions rapides à quatre choix")
 
 ## Exercice d'auto-évaluation : Repérez et corrigez les erreurs
 

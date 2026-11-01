@@ -47,7 +47,7 @@ quiz: [
 
 تدرب على كتابة ما تسمعه جملة بجملة في [مختبر الاستماع التفاعلي في Lexkite](/#/listening).
 
-![Phòng luyện listening và dictation chép chính tả trên Lexkite](media:listening "غرفة تدريب الإملاء والاستماع في Lexkite مع إمكانية ضبط سرعة الصوت وتدقيق النص آلياً")
+![تدريب الاستماع لاختبار IELTS في Lexkite: 10 اختبارات بأربعة أقسام ولهجات بريطانية وأمريكية وأسترالية وسرعة قابلة للتعديل](media:listening "غرفة تدريب الإملاء والاستماع في Lexkite مع إمكانية ضبط سرعة الصوت وتدقيق النص آلياً")
 
 ## 4 خطوات عملية لتطبيق تقنية الإملاء بفاعلية في 20 دقيقة يومياً
 
@@ -98,7 +98,7 @@ quiz: [
 
 اختبر حفظك للمفردات والمصطلحات التي جمعتها من المقاطع الصوتية في [منصة التمارين الذكية في Lexkite](/#/practice).
 
-![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "Màn hình bài kiểm tra trắc nghiệm từ vựng run out of trên Lexkite giúp củng cố phản xạ ghi nhớ")
+![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "اختبر مفرداتك بأسئلة سريعة من أربعة خيارات")
 
 ## دراسة حالة واقعية: تفكيك جملة أكاديمية معقدة في الإملاء
 

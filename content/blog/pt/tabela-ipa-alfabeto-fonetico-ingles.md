@@ -55,7 +55,7 @@ Para estudantes que têm o português como língua materna, dominar o IPA resolv
 
 Explore a pronúncia interativa e o áudio nativo de cada som no [módulo de pronúncia do Lexkite](/#/pron).
 
-![Biblioteca de pronúncia fonética IPA no Lexkite](media:pron "Consulte os símbolos fonéticos IPA e ouça a pronúncia de palavras em inglês")
+![Biblioteca de pronúncia fonética IPA no Lexkite](media:pron "Treine cada som do IPA e receba uma pontuação")
 
 ## Guia da tabela ipa inglês pronúncia: As 20 vogais e ditongos do idioma
 
@@ -98,7 +98,7 @@ Ditongos são combinações de dois sons vocálicos em uma mesma sílaba:
 
 Pratique a escuta atenta e compare transcrições fonéticas no [dicionário inteligente do Lexkite](/#/dict/resilient).
 
-![Página de dicionário no Lexkite com transcrição fonética e sinônimos](media:dict "Consulte transcrições em IPA com áudio nativo britânico e americano para cada palavra")
+![Verbete de resilient no dicionário Lexkite: pronúncia UK/US, áudio, significado, frases de exemplo, colocações, sinônimos e botão Salvar no flashcard](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
 
 ## As 24 Consoantes do Inglês
 
@@ -133,7 +133,7 @@ As consoantes são classificadas em **vozeadas (com vibração das cordas vocais
 
 Treine a articulação e receba pontuação precisa em tempo real no [treinador de fala do Lexkite](/#/practice/speak).
 
-![Prática de pronúncia com pontuação por voz da expressão cut down on](media:practice-speak "Treine a pronúncia de expressões em inglês com gravação de voz e avaliação imediata")
+![Prática de pronúncia com pontuação por voz da expressão cut down on](media:practice-speak "Fale a expressão e veja sua pontuação de pronúncia")
 
 ## 3 Dicas práticas para dominar a leitura do IPA
 

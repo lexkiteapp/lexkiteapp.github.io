@@ -1,5 +1,5 @@
 ---
-title: "ielts kollokationen englisch: Natürliche Wortpaare für Band 7+"
+title: "Ielts kollokationen englisch: Natürliche Wortpaare für Band 7+"
 description: "ielts kollokationen englisch: Wichtige thematische Wortverbindungen für Writing und Speaking, typische Übersetzungsfehler und Tipps für die Prüfung."
 slug: ielts-kollokationen-englisch-tipps
 lang: de

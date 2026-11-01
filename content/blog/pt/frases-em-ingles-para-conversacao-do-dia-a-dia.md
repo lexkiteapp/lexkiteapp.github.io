@@ -1,6 +1,6 @@
 ---
 slug: frases-em-ingles-para-conversacao-do-dia-a-dia
-title: "frases em ingles para conversacao: 100+ Expressões Úteis"
+title: "Frases em ingles para conversacao: 100+ Expressões Úteis"
 description: "Aprenda mais de 100 frases em ingles para conversacao do dia a dia: cumprimentos naturais, como pedir comida, compras, direções e conversas informais."
 keyword: "frases em ingles para conversacao"
 lang: pt

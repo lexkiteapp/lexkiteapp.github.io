@@ -133,7 +133,7 @@ Kelimelerin IPA karşılıklarını ve telaffuz kayıtlarını incelemek için [
 
 Telaffuzunuzu yapay zeka destekli konuşma odasında test etmek için [Lexkite konuşma pratiği alanına](/#/practice/speak) geçin.
 
-![Luyện phát âm có chấm điểm: cụm 'cut down on', nút micro để nói, chấm theo giọng nói](media:practice-speak "Mikrofonla konuşarak telaffuz doğruluğunuzu test edin ve anında fonetik puan alın")
+![Lexkite telaffuz pratiği: cut down on ifadesini mikrofona söyleyin ve telaffuz puanınızı görün](media:practice-speak "Mikrofonla konuşarak telaffuz doğruluğunuzu test edin ve anında fonetik puan alın")
 
 ## 3 Adımda IPA Okuma Alışkanlığı Kazanma
 

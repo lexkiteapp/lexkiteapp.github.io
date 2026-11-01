@@ -1,6 +1,6 @@
 ---
 slug: ielts-speaking-part-2-template-cue-card-dicas
-title: "ielts speaking part 2 template: Estrutura para falar 2 minutos"
+title: "Ielts speaking part 2 template: Estrutura para falar 2 minutos"
 description: "Domine o ielts speaking part 2 template com a técnica dos 4 passos: como aproveitar 1 minuto de anotações, preencher 2 minutos e garantir Band 7.5+."
 keyword: "ielts speaking part 2 template"
 lang: pt

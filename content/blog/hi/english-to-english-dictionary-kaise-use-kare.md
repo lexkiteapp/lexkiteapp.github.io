@@ -72,14 +72,14 @@ quiz: [
 
 द्विभाषी अनुवाद और पठन कौशल के लिए [Lexkite रीडिंग मॉड्यूल](/#/reading) का अभ्यास करें।
 
-![Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc](media:read-article "Giao diện bài đọc The Growing Problem of Space Debris trên Lexkite giúp tra cứu và ghi nhớ từ khóa trực tiếp")
+![Lexkite पर रीडिंग लेख The Growing Problem of Space Debris: रंगीन मुख्य शब्द, छूकर अर्थ देखना और True/False/Not Given प्रश्न](media:read-article "शब्द को छूकर अर्थ देखें, सेव करें और True/False/Not Given प्रश्न हल करें")
 
 ### 5. स्पेस्ड रिपीटीशन (Spaced Repetition) से शब्दों को सुरक्षित करें
 नया शब्द सीखने के बाद उसे भूलने से बचाने के लिए अपने डिजिटल फ्लैशकार्ड में जोड़ें और वैज्ञानिक अंतराल पर उसका रिवीजन करें।
 
 अपने वोकैबुलरी कार्ड्स की समीक्षा [Lexkite रिव्यू हब](/#/review) में करें।
 
-![Phiên ôn flashcard từ vựng tiếng Anh trên Lexkite](media:review "फ्लैशकार्ड्स और स्पेस्ड रिपीटीशन प्रणाली के साथ शब्दों को स्थायी स्मृति में सुरक्षित करें")
+![Lexkite फ्लैशकार्ड रिव्यू: pollution शब्द का कार्ड, इमोजी चित्र, उच्चारण, कार्ड पलटने का बटन और बचे कार्डों की प्रगति पट्टी](media:review "फ्लैशकार्ड्स और स्पेस्ड रिपीटीशन प्रणाली के साथ शब्दों को स्थायी स्मृति में सुरक्षित करें")
 
 ## विश्व की शीर्ष 4 शिक्षार्थी डिक्शनरी (Learner's Dictionaries)
 

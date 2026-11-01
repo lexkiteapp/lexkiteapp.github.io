@@ -45,7 +45,7 @@ quiz: [
 
 ทดลองฝึกเขียนและตรวจทานประโยคซับซ้อนใน [ห้องเขียน Lexkite](/#/write)
 
-![Phòng viết writing IELTS Task 2 trên Lexkite với gợi ý ý tưởng và bài mẫu band 8](media:write "Viết bài luận IELTS và kiểm tra các cấu trúc câu phức ngay trong phòng viết Lexkite")
+![ห้องฝึกเขียน IELTS Writing Task 2 ของ Lexkite มีให้เลือกหัวข้อ ไอเดียตั้งต้น คำศัพท์แนะนำ โครงเรียงความ และตัวอย่าง band 8 พร้อมคำอธิบาย](media:write "วางโครงและเขียนเรียงความ Task 2 ในห้องฝึกเขียนของ Lexkite")
 
 ## 5 สูตรเขียน Complex Sentences คว้าคะแนน Band 7.5+
 
@@ -67,7 +67,7 @@ quiz: [
 
 ศึกษาบทเรียนและทำแบบฝึกหัด Relative Clauses เพิ่มเติมได้ที่ [คอร์สไวยากรณ์ Lexkite](/#/grammar)
 
-![Màn hình học grammar tiếng Anh trên Lexkite với danh sách bài học và bài tập cấu trúc câu](media:grammar "Học và củng cố ngữ pháp câu phức mệnh đề quan hệ và đảo ngữ trên Lexkite")
+![เส้นทางไวยากรณ์ใน Lexkite: บทเรียนเป็นบท ๆ 12 Tenses ระดับ A1–B2 และแบบฝึกหัดรวม](media:grammar "เรียนและฝึกไวยากรณ์ทีละบทใน Lexkite")
 
 ### 3. กลุ่มคำกริยา Participle Clauses (เคล็ดลับภาษาข่าวและวิชาการ)
 นี่คือโครงสร้างขั้นสูงที่เปลี่ยนประโยคธรรมดาให้กลายเป็นงานเขียนเชิงวิชาการชั้นยอด แบ่งออกเป็น 2 รูปแบบ:

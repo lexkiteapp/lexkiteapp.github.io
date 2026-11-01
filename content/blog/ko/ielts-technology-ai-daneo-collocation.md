@@ -74,7 +74,7 @@ IELTS 라이팅 Task 2와 스피킹 Part 3에서 최근 가장 높은 빈도로 
 
 실전 학술 지문을 읽으며 어휘력을 키우려면 [Lexkite 리딩 코스](/#/reading)를 활용해 보세요.
 
-![Bài đọc 'The Growing Problem of Space Debris': từ khóa tô màu, chạm để tra & lưu, danh sách từ khóa bên phải, câu hỏi True/False/Not Given](media:read-article "아이엘츠 리딩 룸에서 기술 및 과학 학술 지문을 읽으며 문맥 속 어휘를 확인한다")
+![Lexkite 읽기 지문 The Growing Problem of Space Debris: 색으로 표시된 핵심어, 탭해서 뜻 찾기, True/False/Not Given 문제](media:read-article "아이엘츠 리딩 룸에서 기술 및 과학 학술 지문을 읽으며 문맥 속 어휘를 확인한다")
 
 ### 3. 사회적 영향, 윤리 및 디지털 격차 (Societal Impact & Ethics)
 

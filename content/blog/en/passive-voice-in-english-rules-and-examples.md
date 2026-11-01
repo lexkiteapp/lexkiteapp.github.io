@@ -1,6 +1,6 @@
 ---
 slug: passive-voice-in-english-rules-and-examples
-title: "passive voice in english rules: Complete Guide & Academic Use"
+title: "Passive voice in english rules: Complete Guide & Academic Use"
 description: "Master passive voice in english rules: complete tense formulas, impersonal passive constructions, and how to maintain academic objectivity in IELTS Writing."
 keyword: "passive voice in english rules"
 lang: en

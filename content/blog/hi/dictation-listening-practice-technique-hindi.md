@@ -47,7 +47,7 @@ quiz: [
 
 सुनकर एक-एक वाक्य टाइप करने का अभ्यास [Lexkite लिसनिंग रूम](/#/listening) में करें।
 
-![Phòng luyện listening và dictation chép chính tả trên Lexkite](media:listening "Lexkite में ऑडियो सुनकर टाइप करने और स्वतः स्पेलिंग चेक की उन्नत डिक्टेशन प्रणाली")
+![Lexkite पर IELTS लिसनिंग अभ्यास: 10 टेस्ट, हर टेस्ट में 4 भाग, ब्रिटिश-अमेरिकी-ऑस्ट्रेलियाई लहजे और बदलने योग्य गति](media:listening "Lexkite में ऑडियो सुनकर टाइप करने और स्वतः स्पेलिंग चेक की उन्नत डिक्टेशन प्रणाली")
 
 ## 4 स्टेप्स: डिक्टेशन इंग्लिश लिसनिंग का रोजाना 20 मिनट अभ्यास
 
@@ -98,7 +98,7 @@ quiz: [
 
 लिसनिंग से सीखे गए शब्दों और वाक्यांशों का अभ्यास [Lexkite इंटरएक्टिव टेस्ट](/#/practice) में करें।
 
-![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "Màn hình bài kiểm tra trắc nghiệm từ vựng run out of trên Lexkite giúp củng cố phản xạ ghi nhớ")
+![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "चार विकल्पों वाले छोटे प्रश्नों से अपनी शब्दावली जाँचें")
 
 ## केस स्टडी: एक कठिन एकेडमिक वाक्य का डिक्टेशन विश्लेषण
 

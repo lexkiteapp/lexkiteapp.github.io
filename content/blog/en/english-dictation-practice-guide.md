@@ -79,7 +79,7 @@ The most valuable part of dictation is not the transcription itself, but the red
 
 Document recurring patterns in your study notes. Within two weeks, you will know precisely which consonant clusters or weak forms require targeted ear training.
 
-![Luyện nghe IELTS: 10 đề, 4 phần mỗi đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập / Nghe lần đầu / Chép chính tả](media:listening "Practise IELTS listening sections with British, American, and Australian accents")
+![Lexkite IELTS listening practice: 10 tests with four parts each, British, American and Australian accents and adjustable speed](media:listening "Practise IELTS listening sections with British, American, and Australian accents")
 
 ## Best audio resources for dictation practice
 

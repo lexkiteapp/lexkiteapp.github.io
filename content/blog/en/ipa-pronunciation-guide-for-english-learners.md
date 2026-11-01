@@ -120,7 +120,7 @@ Notice how changing stress alters grammatical categories in noun-verb pairs:
 
 For a detailed breakdown of patterns across prefixes and suffixes, explore our dedicated guide on [English word stress rules](/en/blog/english-word-stress-rules/).
 
-![Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard](media:dict "Check both British and American IPA transcriptions before adding vocabulary to your study deck")
+![Lexkite dictionary entry for resilient: UK/US phonetics, audio, meaning, example sentences, collocations, synonyms and a Save to flashcards button](media:dict "Check both British and American IPA transcriptions before adding vocabulary to your study deck")
 
 ## Daily 4-step IPA training routine
 
@@ -130,7 +130,7 @@ Integrating phonetic practice into your language routine takes less than ten min
 2. **Isolate difficult sound contrasts:** Identify your personal mother-tongue blind spots. Spanish and Japanese speakers frequently confuse `/b/` and `/v/` or `/l/` and `/r/`. Arabic speakers often substitute `/p/` with `/b/`. German and Russian speakers tend to devoice final consonants, turning *bed* into *bet*. Practise five minimal pairs aloud every morning using the [IPA phonetic guide](/#/pron).
 3. **Use acoustic recording tools:** Read sample sentences aloud into the [pronunciation scoring tool](/#/practice/speak) to receive instant feedback on your consonant clarity and vowel duration.
 
-![Luyện phát âm có chấm điểm: cụm 'cut down on', nút micro để nói, chấm theo giọng nói](media:practice-speak "Record your pronunciation to compare your spoken output against native phonetic targets")
+![Lexkite pronunciation practice: say cut down on into the microphone and get a score for your speech](media:practice-speak "Record your pronunciation to compare your spoken output against native phonetic targets")
 
 4. **Combine phonetics with rhythm:** Once you feel confident articulating target words in isolation, practice blending them into natural phrases using the [shadowing technique](/en/blog/shadowing-technique/) to develop natural cadence and intonation.
 

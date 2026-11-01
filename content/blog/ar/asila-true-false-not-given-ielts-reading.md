@@ -1,5 +1,5 @@
 ---
-title: "true false not given ielts reading: دليل حل الأسئلة لدرجة 7+"
+title: "True false not given ielts reading: دليل حل الأسئلة لدرجة 7+"
 description: "تعلم حل أسئلة true false not given ielts reading بدقة: الفرق القاطع بين False و Not Given، وخطوات البحث عن الدليل وتفادي التخمين الخاطئ."
 slug: asila-true-false-not-given-ielts-reading
 lang: ar

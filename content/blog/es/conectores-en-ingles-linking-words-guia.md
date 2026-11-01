@@ -1,6 +1,6 @@
 ---
 slug: conectores-en-ingles-linking-words-guia
-title: "conectores en ingles linking words: Guía completa y ejemplos"
+title: "Conectores en ingles linking words: Guía completa y ejemplos"
 description: "Aprende los conectores en ingles linking words esenciales: clasificación por funciones lógicas, reglas de puntuación y ejemplos prácticos para redactar ensayos."
 keyword: "conectores en ingles linking words"
 lang: es

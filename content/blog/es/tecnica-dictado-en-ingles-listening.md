@@ -80,7 +80,7 @@ El valor del dictado no reside en escribir perfecto, sino en analizar qué fall�
 
 Apunta estos descubrimientos en una libreta de errores auditivos. En solo diez días sabrás con exactitud cuáles son tus puntos débiles fonéticos.
 
-![Luyện nghe IELTS: 10 đề, 4 phần mỗi đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập / Nghe lần đầu / Chép chính tả](media:listening "Entrena con audios de examen que incluyen opción de transcripción y velocidad ajustable")
+![Práctica de listening IELTS en Lexkite: 10 exámenes de cuatro partes, acentos británico, estadounidense y australiano y velocidad ajustable](media:listening "Entrena con audios de examen que incluyen opción de transcripción y velocidad ajustable")
 
 ## Recursos ideales para entrenar con dictados
 

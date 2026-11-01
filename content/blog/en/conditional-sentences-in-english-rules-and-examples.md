@@ -109,7 +109,7 @@ Real life does not always fit neatly into fixed timeframes. What happened in the
 
 Employing mixed conditionals demonstrates sophisticated control over tense harmony—a hallmark of Band 7+ performance in academic writing tasks. To review how clauses connect logically across longer texts, explore our guide on [complex sentences for IELTS writing](/en/blog/complex-sentences-for-ielts-writing/) and see our model essays in [Writing samples](/en/samples/).
 
-![Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard](media:dict "Look up conditional phrases and vocabulary collocations in the Lexkite dictionary")
+![Lexkite dictionary entry for resilient: UK/US phonetics, audio, meaning, example sentences, collocations, synonyms and a Save to flashcards button](media:dict "Look up conditional phrases and vocabulary collocations in the Lexkite dictionary")
 
 ## Alternatives to "if": elevating your formal style
 
@@ -139,7 +139,7 @@ Repeating *if* across every paragraph makes writing monotonous. Polished academi
 4. **Overusing the same basic scenarios:**
    - In IELTS essays, move beyond personal cliches like *If I had money...* Apply conditionals to societal policies, demographic shifts, and economic trends.
 
-![Bài kiểm tra trắc nghiệm: 'run out of' chọn nghĩa đúng trong 4 phương án](media:practice-test "Practise identifying the correct meaning of words in multiple choice questions")
+![Lexkite multiple-choice test: choose the right meaning of run out of from four options](media:practice-test "Practise identifying the correct meaning of words in multiple choice questions")
 
 ## Daily practice routine to lock in conditional structures
 

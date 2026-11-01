@@ -1,5 +1,5 @@
 ---
-title: "ielts reading true false not given 해법: Band 7+ 핵심 공략"
+title: "Ielts reading true false not given 해법: Band 7+ 핵심 공략"
 description: "ielts reading true false not given 해법 완벽 분석. False와 Not Given의 논리적 구분 기준부터 4단계 실전 풀이 전략, 오답 방지 비결과 리딩 득점 비법을 상세히 정리해 드립니다."
 slug: ielts-reading-true-false-not-given-haebeop
 lang: ko

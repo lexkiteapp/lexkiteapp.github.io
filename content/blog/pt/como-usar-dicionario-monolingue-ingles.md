@@ -53,7 +53,7 @@ A transição de um dicionário bilíngue para um monolíngue pode parecer intim
 
 Consulte sinônimos e exemplos autênticos no [dicionário inteligente do Lexkite](/#/dict/resilient).
 
-![Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard](media:dict "Consulte transcrições fonéticas completas, definições contextuais e collocations no Lexkite")
+![Verbete de resilient no dicionário Lexkite: pronúncia UK/US, áudio, significado, frases de exemplo, colocações, sinônimos e botão Salvar no flashcard](media:dict "Consulte transcrições fonéticas completas, definições contextuais e collocations no Lexkite")
 
 ## Guia prático: como usar dicionário inglês inglês e decifrar seus códigos
 
@@ -79,7 +79,7 @@ Apenas um dicionário monolíngue exibe a etiqueta **[U]** logo após a palavra,
 
 Pratique a leitura de artigos autênticos e clique nas palavras para ver definições instantâneas no [módulo de leitura do Lexkite](/#/reading).
 
-![Bài đọc 'The Growing Problem of Space Debris' với từ khóa và câu hỏi trong Lexkite](media:read-article "Leia textos acadêmicos e consulte definições no dicionário integrado com um clique")
+![Texto de leitura do Lexkite The Growing Problem of Space Debris com palavras-chave destacadas, consulta com um toque e questões True/False/Not Given](media:read-article "Toque numa palavra para ver o significado e salvá-la, depois responda às questões True/False/Not Given")
 
 ## As 3 Melhores Ferramentas Monolíngues Gratuitas
 
@@ -105,7 +105,7 @@ Consultar a palavra e simplesmente fechar a aba do navegador garante que ela ser
 
 Revise seus flashcards diários com o algoritmo FSRS na [sessão de revisão do Lexkite](/#/review).
 
-![Phiên ôn flashcard từ vựng với emoji và phiên âm trong Lexkite](media:review "Revise flashcards inteligentes com algoritmo de repetição espaçada e definições em inglês")
+![Revisão de flashcards no Lexkite: cartão da palavra pollution com emoji, pronúncia, botão Virar e barra de progresso](media:review "Revise as palavras salvas com flashcards e acompanhe quantos faltam")
 
 ## Estudo de caso real: A anatomia completa de um verbete pesquisado
 

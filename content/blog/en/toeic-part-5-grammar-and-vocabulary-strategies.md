@@ -86,7 +86,7 @@ Rather than memorizing isolated words, memorize the fixed business word partners
 
 For an extensive review of natural word partnerships, explore our comprehensive guide on [IELTS collocations](/en/blog/ielts-collocations/), many of which appear identical in formal TOEIC business environments.
 
-![Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard](media:dict "Look up business word collocations and preposition patterns in the Lexkite dictionary")
+![Lexkite dictionary entry for resilient: UK/US phonetics, audio, meaning, example sentences, collocations, synonyms and a Save to flashcards button](media:dict "Look up business word collocations and preposition patterns in the Lexkite dictionary")
 
 When you encounter unfamiliar business terms in practice tests, look them up immediately in the [Lexkite dictionary](/#/dict/resilient). Checking the full entry reveals whether a word functions as a countable noun, an intransitive verb, or a formal participle, which prevents recurring grammar traps in Part 5.
 
@@ -107,7 +107,7 @@ When you encounter unfamiliar business terms in practice tests, look them up imm
 
 To sharpen your structural awareness for modifier clauses, review our guide on [complex sentences for IELTS writing](/en/blog/complex-sentences-for-ielts-writing/).
 
-![Thư viện từ vựng 6.800+ từ: tab Tất cả / Từ vựng cốt lõi NGSL / IELTS theo đề / Writing / Speaking / TOEIC (TSL); các bộ 'Từ cốt lõi 1–281…' có cấp độ A1–B2](media:library "Explore business and academic word lists in the Lexkite library to build lexical range")
+![Lexkite word library with 6,800+ words: tabs for All, NGSL core, IELTS by test, Writing, Speaking and TOEIC, with A1–B2 core sets](media:library "Explore business and academic word lists in the Lexkite library to build lexical range")
 
 ## 3-step daily training routine to build test speed
 

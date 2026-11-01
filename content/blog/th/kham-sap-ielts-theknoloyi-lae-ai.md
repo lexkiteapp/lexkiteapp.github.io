@@ -59,7 +59,7 @@ quiz: [
 
 ฝึกอ่านบทความวิชาการเกี่ยวกับเทคโนโลยีและวิทยาการคอมพิวเตอร์ใน [โหมดการอ่าน Lexkite](/#/reading)
 
-![Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc](media:read-article "Giao diện bài đọc The Growing Problem of Space Debris trên Lexkite giúp tra cứu và ghi nhớ từ khóa trực tiếp")
+![บทความฝึกอ่านใน Lexkite เรื่อง The Growing Problem of Space Debris มีคำสำคัญไฮไลต์ แตะเพื่อดูความหมาย และคำถาม True/False/Not Given](media:read-article "แตะคำเพื่อดูความหมายและบันทึก แล้วตอบคำถาม True/False/Not Given")
 
 ## 2. หมวดตลาดแรงงานและระบบอัตโนมัติ (Automation & Workforce)
 
@@ -98,7 +98,7 @@ quiz: [
 
 ฝึกทำแบบทดสอบเติมคำศัพท์และทดสอบความจำใน [แบบฝึกหัดทบทวน Lexkite](/#/practice)
 
-![Màn hình luyện từ vựng qua bài tập quiz và smartLearn trên Lexkite](media:practice "Giao diện bài tập quiz và smartLearn trên Lexkite giúp ghi nhớ từ vựng qua phản xạ lặp lại ngắt quãng")
+![ศูนย์ฝึกของ Lexkite: เรียนอัจฉริยะ จับคู่ ฝึกออกเสียง ปรนัย เติมคำ ฟังแล้วพิมพ์ แบบทดสอบ และห้องฝึกเขียน](media:practice "เลือกรูปแบบการฝึกและชุดคำจากสมุดคำศัพท์ของคุณใน Lexkite")
 
 ## ตัวอย่างย่อหน้า IELTS Writing Task 2 ระดับ Band 8
 

@@ -79,7 +79,7 @@ Türkçede çoğul olarak kullandığımız birçok kavram, İngilizcede kesinli
 
 Özgün akademik makaleleri okumak ve yeni kelimeleri bağlamında görmek için [Lexkite okuma salonunu](/#/reading) keşfedin.
 
-![Bài đọc 'The Growing Problem of Space Debris' với từ khóa và câu hỏi trong Lexkite](media:read-article "Özgün makaleleri okurken bilmediğiniz kelimelerin tek dilli açıklamalarına anında erişin")
+![Lexkite okuma metni The Growing Problem of Space Debris: renkli anahtar kelimeler, dokunarak sözlükte arama ve True/False/Not Given soruları](media:read-article "Özgün makaleleri okurken bilmediğiniz kelimelerin tek dilli açıklamalarına anında erişin")
 
 ## İnternetteki En İyi 3 Ücretsiz Öğrenici Sözlüğü
 
@@ -105,7 +105,7 @@ Sözlüğü açıp kelimeye baktıktan sonra sekmeyi hemen kapatırsanız, o kel
 
 Hafıza eğrisine göre optimize edilmiş kartlarınızı [Lexkite kart tekrarı bölümünde](/#/review) günlük olarak tazeleyin.
 
-![Phiên ôn flashcard từ vựng với emoji và phiên âm trong Lexkite](media:review "FSRS aralıklı tekrar algoritması ile kelime kartlarınızı düzenli aralıklarla pekiştirin")
+![Lexkite kart tekrarı: pollution kelime kartı, emoji görseli, okunuş, Kartı çevir düğmesi ve kalan kart çubuğu](media:review "FSRS aralıklı tekrar algoritması ile kelime kartlarınızı düzenli aralıklarla pekiştirin")
 
 ## Pratik Örnek: "Compromise" Sözcüğünün Anatomisi
 

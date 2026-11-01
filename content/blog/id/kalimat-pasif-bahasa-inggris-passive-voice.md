@@ -1,6 +1,6 @@
 ---
 slug: kalimat-pasif-bahasa-inggris-passive-voice
-title: "kalimat pasif bahasa inggris passive voice: Rumus dan Contoh"
+title: "Kalimat pasif bahasa inggris passive voice: Rumus dan Contoh"
 description: "Kuasai kalimat pasif bahasa inggris passive voice: rumus lengkap di berbagai tenses, bentuk impersonal passive dan strategi penulisan esai akademik."
 keyword: "kalimat pasif bahasa inggris passive voice"
 lang: id

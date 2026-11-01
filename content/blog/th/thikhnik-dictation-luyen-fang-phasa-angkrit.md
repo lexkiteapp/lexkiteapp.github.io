@@ -47,7 +47,7 @@ quiz: [
 
 ฝึกฝนการฟังและพิมพ์ตามทีละประโยคใน [ห้องฝึกฟัง Lexkite](/#/listening)
 
-![Phòng luyện listening và dictation chép chính tả trên Lexkite](media:listening "ห้องฝึกฟัง dictation ใน Lexkite พร้อมระบบปรับความเร็วเสียงและตรวจเช็กความถูกต้องอัตโนมัติ")
+![ฝึกฟัง IELTS ใน Lexkite: 10 ชุด ชุดละ 4 พาร์ต สำเนียงอังกฤษ อเมริกัน ออสเตรเลีย และปรับความเร็วได้](media:listening "ห้องฝึกฟัง dictation ใน Lexkite พร้อมระบบปรับความเร็วเสียงและตรวจเช็กความถูกต้องอัตโนมัติ")
 
 ## 4 ขั้นตอนฝึก Dictation ให้ได้ผลสูงสุดใน 20 นาทีต่อวัน
 
@@ -91,7 +91,7 @@ quiz: [
 
 ทดสอบความเข้าใจคำศัพท์และสำนวนที่ได้จากการฟังใน [แบบทดสอบทบทวน Lexkite](/#/practice)
 
-![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "Màn hình bài kiểm tra trắc nghiệm từ vựng run out of trên Lexkite giúp củng cố phản xạ ghi nhớ")
+![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "ทดสอบคำศัพท์ด้วยคำถามสี่ตัวเลือกแบบรวดเร็ว")
 
 ## ตัวอย่างกรณีศึกษา: วิเคราะห์ประโยคจริงที่ผู้เรียนมักแกะเสียงพลาด
 

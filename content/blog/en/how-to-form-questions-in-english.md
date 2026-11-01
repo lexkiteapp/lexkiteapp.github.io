@@ -125,7 +125,7 @@ If the direct question is a Yes/No question, introduce the indirect clause with 
 
 Writing polite inquiries is a vital skill for international communication; see our detailed breakdown in [how to write a formal email](/en/blog/how-to-write-a-formal-email/) and sample models in [Writing samples](/en/samples/).
 
-![Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard](media:dict "Look up question particles and auxiliary verb definitions in the Lexkite dictionary")
+![Lexkite dictionary entry for resilient: UK/US phonetics, audio, meaning, example sentences, collocations, synonyms and a Save to flashcards button](media:dict "Look up question particles and auxiliary verb definitions in the Lexkite dictionary")
 
 ## 5 frequent question formation traps to avoid
 

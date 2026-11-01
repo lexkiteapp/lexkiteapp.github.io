@@ -79,7 +79,7 @@ Kamus monolingual langsung membubuhkan tanda **[U]** tepat di sebelah kata, meli
 
 Baca artikel teks asli dan temukan arti kata asing secara langsung di [modul membaca Lexkite](/#/reading).
 
-![Bài đọc 'The Growing Problem of Space Debris' với từ khóa và câu hỏi trong Lexkite](media:read-article "Jelajahi artikel bacaan akademik otentik dan pelajari kosakata baru dalam konteks kalimat nyata")
+![Artikel bacaan Lexkite The Growing Problem of Space Debris dengan kata kunci berwarna, ketuk untuk mencari arti, dan soal True/False/Not Given](media:read-article "Jelajahi artikel bacaan akademik otentik dan pelajari kosakata baru dalam konteks kalimat nyata")
 
 ## 3 Pilihan Kamus Monolingual Daring Terbaik
 
@@ -105,7 +105,7 @@ Mencari arti kata lalu menutup aplikasi tanpa mencatatnya memastikan kata terseb
 
 Ulas kembali kartu kata kosakata Anda setiap hari dengan algoritma FSRS di [sesi latihan Lexkite](/#/review).
 
-![Phiên ôn flashcard từ vựng với emoji và phiên âm trong Lexkite](media:review "Tinjau kartu pintar kosakata secara teratur menggunakan algoritma pengulangan berjeda FSRS")
+![Sesi ulang flashcard Lexkite: kartu kata pollution dengan gambar emoji, pelafalan, tombol Balik kartu, dan bilah progres](media:review "Tinjau kartu pintar kosakata secara teratur menggunakan algoritma pengulangan berjeda FSRS")
 
 ## Studi Kasus Nyata: Mengupas Tuntas Entri Kata "Compromise"
 

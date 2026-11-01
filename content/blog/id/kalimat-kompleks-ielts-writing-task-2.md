@@ -58,7 +58,7 @@ Untuk mencapai skor Band 7.5 ke atas, sekitar **60% hingga 75% dari kalimat dala
 
 Latih keterampilan menulis esai dengan penghitung kata dan analisa kalimat di [ruang menulis Lexkite](/#/write).
 
-![Phòng viết IELTS Task 2: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng gợi ý, khung viết bài, bài mẫu band 8 có chú thích, thống kê xu hướng dạng đề](media:write "Latih penulisan esai IELTS Task 2 dengan bantuan ide topik dan analisis struktur tata bahasa di Lexkite")
+![Ruang menulis IELTS Writing Task 2 di Lexkite dengan pilihan topik, saran ide, kosakata, kerangka esai, dan contoh band 8 beranotasi](media:write "Latih penulisan esai IELTS Task 2 dengan bantuan ide topik dan analisis struktur tata bahasa di Lexkite")
 
 ## 5 Pola Sintaksis Kalimat Kompleks IELTS Writing
 

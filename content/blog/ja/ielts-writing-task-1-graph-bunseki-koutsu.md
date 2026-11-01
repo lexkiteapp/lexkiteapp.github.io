@@ -1,6 +1,6 @@
 ---
 slug: ielts-writing-task-1-graph-bunseki-koutsu
-title: "ielts writing task 1 グラフ コツ：20分でまとめる分析と記述法"
+title: "Ielts writing task 1 グラフ コツ：20分でまとめる分析と記述法"
 description: "IELTSアカデミック試験対策として役立つielts writing task 1 グラフ コツを徹底整理。高得点を狙う4段落構成の書き方、Overview作成手順、数値変動を表す重要動詞・前置詞の使い分けを詳しく解説します。"
 keyword: "ielts writing task 1 グラフ コツ"
 lang: ja

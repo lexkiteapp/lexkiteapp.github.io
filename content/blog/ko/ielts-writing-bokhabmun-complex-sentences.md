@@ -56,7 +56,7 @@ IELTS 라이팅 Task 2 에세이를 작성할 때, 단어는 열심히 외워서
 
 아이엘츠 실전 라이팅 작성과 밴드별 모범 답안 분석은 [Lexkite 라이팅 룸](/#/write)에서 체계적으로 훈련할 수 있습니다.
 
-![Phòng viết IELTS Task 2: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng gợi ý, khung viết bài, bài mẫu band 8 có chú thích, thống kê xu hướng dạng đề](media:write "라이팅 룸에서 주제별 아이디어 힌트와 밴드 8 모범 답안을 확인하며 복합문 구사력을 단련한다")
+![Lexkite IELTS Writing Task 2 작문실: 주제 선택, 아이디어 힌트, 추천 어휘, 에세이 개요, 해설이 달린 밴드 8 모범 답안](media:write "라이팅 룸에서 주제별 아이디어 힌트와 밴드 8 모범 답안을 확인하며 복합문 구사력을 단련한다")
 
 ## IELTS 고득점을 견인하는 4대 복합문 문형 공식
 

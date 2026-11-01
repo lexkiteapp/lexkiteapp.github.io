@@ -1,6 +1,6 @@
 ---
 slug: ielts-writing-task-1-como-descrever-graficos
-title: "ielts writing task 1 graficos: Como descrever dados em 20 min"
+title: "Ielts writing task 1 graficos: Como descrever dados em 20 min"
 description: "Aprenda a estruturar o ielts writing task 1 graficos: fórmula dos 4 parágrafos, como criar um Overview nota máxima e termos essenciais para variações numéricas."
 keyword: "ielts writing task 1 graficos"
 lang: pt
@@ -39,7 +39,7 @@ No módulo acadêmico do teste IELTS, a primeira tarefa da prova escrita (*Writi
 
 Neste guia completo, exploraremos o roteiro comprovado de quatro parágrafos, como redigir um *Overview* de alto nível e as fórmulas de vocabulário essenciais para descrever variações numéricas sem repetições monótonas.
 
-![Página de dicionário inteligente com pronúncia e definições no Lexkite](media:dict "Consulte verbos de tendência e expressões de proporção no dicionário interativo do Lexkite")
+![Página de dicionário inteligente com pronúncia e definições no Lexkite](media:dict "Consulte uma palavra e salve-a nos flashcards com um toque")
 
 ## Como a banca examinadora avalia o ielts writing task 1 graficos?
 

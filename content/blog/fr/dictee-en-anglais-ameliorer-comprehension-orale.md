@@ -123,7 +123,7 @@ Pour maintenir votre motivation, choisissez des supports dont vous comprenez int
 
 Consolidez vos acquis auditifs dans l'[espace d'exercices Lexkite](/#/practice) en intégrant vos nouvelles expressions dans des quiz interactifs.
 
-![Exercice QCM Lexkite : choisir le bon sens de « run out of »](media:practice-test "Validez le sens précis des expressions idiomatiques entendues lors de vos écoutes grâce aux quiz QCM")
+![Exercice QCM Lexkite : choisir le bon sens de « run out of »](media:practice-test "Vérifiez votre vocabulaire avec des questions rapides à quatre choix")
 
 ## 3 conseils pratiques pour maximiser vos séances de dictée
 

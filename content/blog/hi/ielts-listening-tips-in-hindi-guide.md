@@ -1,5 +1,5 @@
 ---
-title: "ielts listening tips in hindi: 9 आसान नियम और बैंड स्कोर टिप्स"
+title: "Ielts listening tips in hindi: 9 आसान नियम और बैंड स्कोर टिप्स"
 description: "ielts listening tips in hindi: प्रश्नों का पूर्वावलोकन, विकर्षक (distractors) की पहचान, स्पेलिंग और एकवचन-बहुवचन की गलतियों से बचने के असरदार नियम।"
 slug: ielts-listening-tips-in-hindi-guide
 lang: hi

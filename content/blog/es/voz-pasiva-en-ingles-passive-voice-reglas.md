@@ -1,6 +1,6 @@
 ---
 slug: voz-pasiva-en-ingles-passive-voice-reglas
-title: "voz pasiva en ingles passive voice: Reglas y fórmulas"
+title: "Voz pasiva en ingles passive voice: Reglas y fórmulas"
 description: "Domina la voz pasiva en ingles passive voice: fórmulas en todos los tiempos verbales, pasivas impersonales y estrategias para redactar ensayos académicos."
 keyword: "voz pasiva en ingles passive voice"
 lang: es

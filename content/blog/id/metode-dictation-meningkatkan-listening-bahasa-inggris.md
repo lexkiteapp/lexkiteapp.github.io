@@ -52,7 +52,7 @@ Dalam buku cetak, setiap kata dipisahkan dengan rapi oleh spasi putih. Namun dal
 
 Latih ketajaman telinga Anda dengan fitur pengatur kecepatan dan dialog aksen beragam di [modul mendengarkan Lexkite](/#/listening).
 
-![Luyện nghe IELTS: 10 đề, 4 phần mỗi đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập / Nghe lần đầu / Chép chính tả](media:listening "Sesuaikan kecepatan pemutaran audio dan transkripsikan kalimat demi kalimat di modul listening Lexkite")
+![Latihan listening IELTS di Lexkite: 10 tes masing-masing empat bagian, aksen Inggris, Amerika, dan Australia, serta kecepatan yang bisa diatur](media:listening "Sesuaikan kecepatan pemutaran audio dan transkripsikan kalimat demi kalimat di modul listening Lexkite")
 
 ## Panduan 4 Langkah: Penerapan Metode Dictation Bahasa Inggris
 

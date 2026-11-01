@@ -1,6 +1,6 @@
 ---
 slug: oracoes-condicionais-em-ingles-if-clauses
-title: "oracoes condicionais em ingles if clauses: Guia do Zero ao 3"
+title: "Oracoes condicionais em ingles if clauses: Guia do Zero ao 3"
 description: "Domine as oracoes condicionais em ingles if clauses: fórmulas do Zero, First, Second, Third e Mixed Conditionals com regras e exemplos práticos para exames."
 keyword: "oracoes condicionais em ingles if clauses"
 lang: pt

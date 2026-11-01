@@ -1,6 +1,6 @@
 ---
 slug: ielts-writing-task-1-describir-graficos-guia
-title: "ielts writing task 1 graficos: Guía para describir tendencias"
+title: "Ielts writing task 1 graficos: Guía para describir tendencias"
 description: "Aprende a redactar el reporte de ielts writing task 1 graficos: estructura en 4 párrafos, cómo redactar un Overview impecable y vocabulario de tendencias."
 keyword: "ielts writing task 1 graficos"
 lang: es

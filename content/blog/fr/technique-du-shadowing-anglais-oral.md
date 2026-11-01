@@ -42,7 +42,7 @@ Contrairement à la simple lecture à haute voix, la **technique du shadowing an
 
 Évaluez la clarté de votre élocution en temps réel dans le [module de pratique de Lexkite](/#/practice/speak).
 
-![Menu d'entraînement interactif Lexkite proposant étude intelligente, paires de cartes, prononciation, quiz et salle d'écriture](media:practice "Dans le menu d'exercices de Lexkite, consolidez le vocabulaire issu du shadowing grâce aux quiz et à la dictée")
+![Menu d'entraînement interactif Lexkite proposant étude intelligente, paires de cartes, prononciation, quiz et salle d'écriture](media:practice "Choisissez le type d'exercice et les mots de votre carnet dans Lexkite")
 
 ## 2. Le protocole en 5 étapes pour un shadowing réussi
 
@@ -72,7 +72,7 @@ Enregistrez votre propre voix à l'aide de votre téléphone pendant la phase de
 
 Pour perfectionner un phonème particulièrement récalcitrant, référez-vous à la [bibliothèque phonétique IPA de Lexkite](/#/pron).
 
-![Bibliothèque de prononciation IPA Lexkite avec voyelles, diphtongues et consonnes pour travailler chaque son](media:pron "Isolez et travaillez les sons anglais les plus délicats grâce à la bibliothèque IPA de Lexkite")
+![Bibliothèque de prononciation IPA Lexkite avec voyelles, diphtongues et consonnes pour travailler chaque son](media:pron "Entraînez chaque son de l'API et obtenez un score")
 
 ## 3. Critères essentiels pour sélectionner les bons extraits audio
 

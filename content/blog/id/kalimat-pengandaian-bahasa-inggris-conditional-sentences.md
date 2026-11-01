@@ -1,6 +1,6 @@
 ---
 slug: kalimat-pengandaian-bahasa-inggris-conditional-sentences
-title: "kalimat pengandaian bahasa inggris conditional sentences: Rumus"
+title: "Kalimat pengandaian bahasa inggris conditional sentences: Rumus"
 description: "Kuasai kalimat pengandaian bahasa inggris conditional sentences: rumus tipe 0, 1, 2, 3, mixed conditionals, inversi formal dan contoh kalimat esai akademik."
 keyword: "kalimat pengandaian bahasa inggris conditional sentences"
 lang: id

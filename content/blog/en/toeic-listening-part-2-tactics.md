@@ -83,7 +83,7 @@ Watch out for these three acoustic deception patterns:
 
 Whenever you hear an option that loudly repeats a key noun or verb from the prompt, treat it with extreme suspicion. Nine times out of ten, it is a deliberate distractor.
 
-![Luyện nghe IELTS: 10 đề, 4 phần mỗi đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập / Nghe lần đầu / Chép chính tả](media:listening "Practise listening to international English accents with varied speaking rates in the listening lab")
+![Lexkite IELTS listening practice: 10 tests with four parts each, British, American and Australian accents and adjustable speed](media:listening "Practise listening to international English accents with varied speaking rates in the listening lab")
 
 ## Decoding modern indirect responses
 

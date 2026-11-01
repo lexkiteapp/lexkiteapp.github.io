@@ -78,7 +78,7 @@ To structure your vocabulary acquisition, study these high-value academic phrase
 
 For additional high-utility word partnerships across public policy topics, see our curated guide on [IELTS collocations](/en/blog/ielts-collocations/).
 
-![Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard](media:dict "Look up health collocations and example sentences in the Lexkite dictionary")
+![Lexkite dictionary entry for resilient: UK/US phonetics, audio, meaning, example sentences, collocations, synonyms and a Save to flashcards button](media:dict "Look up health collocations and example sentences in the Lexkite dictionary")
 
 ## Model Band 8 essay paragraph on public health intervention
 
@@ -91,7 +91,7 @@ This paragraph demonstrates Band 8+ proficiency through several deliberate techn
 2. It balances concessions against primary arguments using clear transition markers. To review cohesive structuring, explore our guide on [linking words for IELTS writing](/en/blog/linking-words-for-ielts-writing/).
 3. It integrates multi-clause sentences with flawless grammar. Review our framework in [complex sentences for IELTS writing](/en/blog/complex-sentences-for-ielts-writing/) to emulate this syntactical variety.
 
-![Thư viện từ vựng 6.800+ từ: tab Tất cả / Từ vựng cốt lõi NGSL / IELTS theo đề / Writing / Speaking / TOEIC (TSL); các bộ 'Từ cốt lõi 1–281…' có cấp độ A1–B2](media:library "Explore categorized health and lifestyle vocabulary modules in the Lexkite library")
+![Lexkite word library with 6,800+ words: tabs for All, NGSL core, IELTS by test, Writing, Speaking and TOEIC, with A1–B2 core sets](media:library "Explore categorized health and lifestyle vocabulary modules in the Lexkite library")
 
 ## High-impact phrases for IELTS Speaking on health and lifestyle
 

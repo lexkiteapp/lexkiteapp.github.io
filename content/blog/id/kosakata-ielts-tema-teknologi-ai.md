@@ -54,7 +54,7 @@ Pertanyaan mengenai penggantian peran manusia oleh mesin cerdas selalu menjadi m
 
 Jelajahi artikel bacaan ilmiah mengenai inovasi teknologi di [modul membaca Lexkite](/#/reading) dan simpan kolokasi baru ke catatan Anda.
 
-![Bài đọc 'The Growing Problem of Space Debris' với từ khóa và câu hỏi trong Lexkite](media:read-article "Baca artikel otentik seputar sains dan teknologi serta simpan kolokasi akademik ke kamus pribadi")
+![Artikel bacaan Lexkite The Growing Problem of Space Debris dengan kata kunci berwarna, ketuk untuk mencari arti, dan soal True/False/Not Given](media:read-article "Baca artikel otentik seputar sains dan teknologi serta simpan kolokasi akademik ke kamus pribadi")
 
 ## Ketergantungan Digital, Hiperkonektivitas, dan Dampak Sosial
 

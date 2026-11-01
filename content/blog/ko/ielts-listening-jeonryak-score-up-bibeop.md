@@ -1,5 +1,5 @@
 ---
-title: "ielts 리스닝 팁 listening 공부법: 0.5점을 올리는 9가지 실전 전략"
+title: "Ielts 리스닝 팁 listening 공부법: 0.5점을 올리는 9가지 실전 전략"
 description: "목표 점수를 달성하는 ielts 리스닝 팁 listening 공부법 완전 정복 가이드: 문제 사전 분석법, 함정(distractor) 간파 요령, 단복수 및 철자 실수 방지 팁과 파트별 실전 훈련 전략을 상세히 소개합니다."
 slug: ielts-listening-jeonryak-score-up-bibeop
 lang: ko

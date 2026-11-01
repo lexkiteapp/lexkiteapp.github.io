@@ -48,7 +48,7 @@ Ancak aynı düşünceyi sebep, zıtlık ve zaman ilişkisini hiyerarşik olarak
 
 Kendi yazdığınız kompozisyonları [Lexkite yazma odasında](/#/write) deneyerek cümle yapılarınızın çeşitliliğini test edebilirsiniz.
 
-![Giao diện phòng viết writing trên Lexkite với gợi ý bài mẫu và thống kê dạng đề](media:write "Viết bài luận IELTS và kiểm tra các cấu trúc câu phức ngay trong phòng viết Lexkite")
+![Lexkite IELTS Writing Task 2 yazma odası: konu seçimi, fikir önerileri, önerilen kelimeler, deneme taslağı ve açıklamalı band 8 örneği](media:write "Task 2 denemenizi Lexkite yazma odasında planlayıp yazın")
 
 ## Band 7+ Kazandıran 5 İleri Düzey Karmaşık Cümle Formülü
 
@@ -69,7 +69,7 @@ IELTS Writing Task 1 ve Task 2 metinlerinizde doğal bir ritim yakalamak için a
 
 Tüm bu gramer yapılarının ayrıntılı konu anlatımlarını [Lexkite dilbilgisi modülünde](/#/grammar) bulabilirsiniz.
 
-![Màn hình học grammar tiếng Anh trên Lexkite với danh sách bài học và bài tập cấu trúc câu](media:grammar "Học và củng cố ngữ pháp câu phức mệnh đề quan hệ và đảo ngữ trên Lexkite")
+![Lexkite dilbilgisi yolu: bölümler, 12 zaman, A1–B2 seviyeleri ve karma alıştırmalar](media:grammar "Lexkite'ta dilbilgisini bölüm bölüm öğrenip pekiştirin")
 
 ### 3. Ortaç Yapıları (Participle Clauses)
 Gereksiz özne tekrarlarını yok edip metne akıcı bir gazete/makale dili katan en prestijli yapıdır. Present participle (*-ing*) ve past participle (*-ed / V3*) olmak üzere ikiye ayrılır:
