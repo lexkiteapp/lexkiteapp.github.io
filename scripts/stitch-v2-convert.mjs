@@ -93,6 +93,8 @@ function emit(root, bind, k) {
     for (const [sel, c] of Object.entries(b.addClass || {})) for (const el of QA(scope, sel)) el.setAttribute('class', ((el.getAttribute('class') || '') + ' ' + c).trim()); // chỉ class không đổi hình (cắt tràn, móc kiểm thử…)
     for (const [sel, o] of Object.entries(b.tag || {})) for (const el of QA(scope, sel)) { const n = el.ownerDocument.createElement(o.to); for (const a of el.attributes) n.setAttribute(a.name, a.value); // đổi thẻ (div → a href) giữ nguyên class
       if (o.addClass) n.setAttribute('class', (n.getAttribute('class') || '') + ' ' + o.addClass); n.append(...el.childNodes); el.replaceWith(n); }
+    for (const [sel, o] of Object.entries(b.wrap || {})) for (const el of QA(scope, sel)) { const w = el.ownerDocument.createElement(o.to || 'a'); // bọc phần tử trong thẻ mới (vd link trong suốt cao 44 px quanh viên thuốc 32 px: vùng chạm thật, hình giữ nguyên)
+      if (o.class) w.setAttribute('class', o.class); for (const [a, expr] of Object.entries(o.attr || {})) w.setAttribute(a, mark(`e(${expr})`)); el.before(w); w.append(el); }
     for (const sel of b.remove || []) for (const el of QA(scope, sel)) el.remove(); // chỉ phần tử Stitch giữ chỗ (người vẽ/ảnh mẫu) – thay bằng Chars qua html/after
     const tw = scope.ownerDocument.createTreeWalker(scope, 4); const texts = []; while (tw.nextNode()) texts.push(tw.currentNode);
     for (const n of texts) { const s = n.textContent, key = s.trim(); if (!key || /\u0001/.test(s)) continue; if (n.parentElement && isIcon(n.parentElement)) continue;

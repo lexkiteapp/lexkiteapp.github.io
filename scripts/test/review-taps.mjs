@@ -17,7 +17,7 @@ const TARGETS = [
   ['đầu trang: mục tiêu hôm nay', '.v2 header a[data-hdr="goal"]', '#/stats'],
   ['đầu trang: tài khoản', '.v2 header a[href="#/me"]', '#/me'],
   ['Bắt đầu ôn', '#start-review-btn', '#/review'],
-  ['chip sắp quên', '.v2-review main button[data-href^="#/review"][aria-label]:not(#start-review-btn)', '#/review'],
+  ['chip sắp quên', '.v2-review main button[data-href^="#/review"][aria-label]:not(#start-review-btn)', ['#/practice/learn?src=forgetting', '#/review']], // có thẻ sắp quên → học nhanh nhóm sắp quên; không có → phiên ôn
   ['chip quen', '.v2-review main a[href^="#/review"][aria-label]', '#/review'],
   ['ô Thẻ sẵn sàng', '.v2-review main .grid > a:nth-child(1)', '#/review'],
   ['ô Đang luyện', '.v2-review main .grid > a:nth-child(2)', '#/deck?m=12'],
@@ -64,20 +64,20 @@ async function run(type, name, opts, scheme) {
     await hub(); const loc = page.locator(sel).nth(nth); if (!(await loc.count())) { ok(false, `${tag}: ${label} – không có phần tử (${sel})`); return; }
     const pt = await loc.evaluate((el, inner) => { const t = inner ? el.closest('.relative').querySelector(inner) : el; if (!t) return { miss: 'không thấy ' + inner };
       if (!el.closest('header, nav')) t.scrollIntoView({ block: 'center' }); const r = t.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-      const hit = (x, y) => { const h = document.elementFromPoint(x, y); return !!h && (h === el || el.contains(h)); }, top = document.elementFromPoint(cx, cy);
+      const miss = [], hit = (x, y) => { const h = document.elementFromPoint(x, y), k = !!h && (h === el || el.contains(h)); if (!k) miss.push(`(${Math.round(x)},${Math.round(y)})→${h ? h.tagName + '.' + String(h.className).slice(0, 40) : 'ngoài màn'}`); return k; }, top = document.elementFromPoint(cx, cy);
       return { x: cx, y: cy, w: r.width, h: r.height, center: hit(cx, cy), by: top && !(top === el || el.contains(top)) ? `${top.tagName}.${String(top.className).slice(0, 50)}` : '',
-        tall: hit(cx, cy - 21) && hit(cx, cy + 21), wide: hit(cx - 21, cy) && hit(cx + 21, cy) }; }, inner);
+        tall: hit(cx, cy - 21) & hit(cx, cy + 21), wide: hit(cx - 21, cy) & hit(cx + 21, cy), miss }; }, inner);
     if (pt.miss) { ok(false, `${tag}: ${label} – ${pt.miss}`); return; }
     ok(pt.center, `${tag}: ${label} – không bị lớp nào đè${pt.by ? ' (bị ' + pt.by + ' đè)' : ''}`);
-    ok(pt.tall && pt.wide, `${tag}: ${label} – vùng chạm ≥ 44×44 px (hộp ${Math.round(pt.w)}×${Math.round(pt.h)})`);
+    ok(pt.tall && pt.wide, `${tag}: ${label} – vùng chạm ≥ 44×44 px (hộp ${Math.round(pt.w)}×${Math.round(pt.h)}${pt.tall && pt.wide ? '' : '; trượt ' + pt.miss.join(' ')})`);
     if (want === null) return;
     const before = await page.evaluate(() => location.hash); await page.touchscreen.tap(pt.x, pt.y);
-    const got = await page.waitForFunction(([b, w]) => location.hash !== b && location.hash.startsWith(w) ? location.hash : false, [before, want], { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
+    const got = await page.waitForFunction(([b, w]) => location.hash !== b && [].concat(w).some(x => location.hash.startsWith(x)) ? location.hash : false, [before, want], { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
     ok(!!got, `${tag}: ${label} – chạm → ${want}${got ? '' : ' (vẫn ở ' + (await page.evaluate(() => location.hash)) + ')'}`); };
   for (const [label, sel, want] of TARGETS) await check(label, sel, want);
   await hub(); const decks = await page.locator(DECK).count(); ok(decks >= 2, `${tag}: có ≥ 2 thẻ bộ (web + thư viện), thấy ${decks}`);
-  for (let i = 0; i < decks; i++) { const href = await page.locator(DECK).nth(i).getAttribute('href');
-    await check(`thẻ bộ ${href}`, DECK, href, i); await check(`chip đến hạn của ${href}`, DECK, href, i, ':scope > div:last-child > span:first-child'); }
+  for (const href of await page.locator(DECK).evaluateAll(as => as.map(a => a.getAttribute('href')))) { const sel = `${DECK.split('[')[0]}[href="${href}"]`; // lấy href trước (thứ tự bộ có thể đổi sau khi mở phiên ôn)
+    await check(`thẻ bộ ${href}`, sel, href); await check(`chip đến hạn của ${href}`, sel, href, 0, ':scope > div:last-child > span:first-child'); }
   if (scheme === 'dark') { // sweep 15 ngôn ngữ giao diện (Đức/Nga/Hindi dài hơn, Ả Rập phải-sang-trái): chữ trong vòng không tràn
     const seen = new Set(); for (const L of LANGS) { await page.goto(`https://lk.test/app/?sandbox=1&hl=${L}${HUB}`, { waitUntil: 'load' }); await page.waitForSelector('.v2-review', { timeout: 30000 }); await page.waitForTimeout(700);
       const f = await ringCheck(page, `${tag}/${L}`); if (f) seen.add(f.text); if (L === 'de' || L === 'ru') await page.screenshot({ path: path.join(OUT, `ring-${name}-${L}.png`), clip: { x: 0, y: 40, width: 375, height: 330 } }); }
