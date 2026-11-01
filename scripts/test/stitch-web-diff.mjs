@@ -43,12 +43,14 @@ const AUDIT = () => { const OWN = /^https?:\/\/(([a-z0-9-]+\.)?lexkite\.com|127\
 const browser = await chromium.launch(), res = {}, bad = [], sheets = [];
 async function shot(url, vp, scheme, file) {
   const ctx = await browser.newContext({ viewport: vp, deviceScaleFactor: 1, reducedMotion: 'reduce', colorScheme: scheme }), page = await ctx.newPage();
-  await page.addInitScript(() => { window.__cls = 0; new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); });
+  await page.addInitScript(() => { window.__cls = 0; window.__clsSrc = []; const sel = n => n && n.nodeType === 1 ? n.tagName.toLowerCase() + (n.id ? '#' + n.id : '') + (typeof n.className === 'string' && n.className.trim() ? '.' + n.className.trim().split(/\s+/).slice(0, 2).join('.') : '') : '?'; new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; if (e.value > .005) window.__clsSrc.push(`${e.value.toFixed(3)}@${Math.round(e.startTime)}ms ${(e.sources || []).slice(0, 2).map(x => sel(x.node)).join(' + ')}`); } }).observe({ type: 'layout-shift', buffered: true }); });
   await page.route(/^https?:\/\/(?!127\.0\.0\.1|([a-z0-9-]+\.)?lexkite\.com\/|i\.ytimg\.com\/)/, r => /fonts\.(googleapis|gstatic)\.com|cdn\.tailwindcss\.com/.test(r.request().url()) && url.startsWith('file:') ? r.continue() : r.abort()); // mẫu Stitch cần CDN của nó; trang thật: 0 request ra ngoài
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 }).catch(() => {}); await page.addStyleTag({ content: STILL }).catch(() => {}); await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {}); await page.waitForTimeout(400);
+  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 }).catch(() => {}); await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {}); await page.waitForTimeout(400);
+  // CLS chốt ở đây (như người dùng thấy khi tải) – các bước sau (chèn CSS tắt hoạt ảnh, kéo khung cao để chụp rồi thu lại) là của máy đo, không tính
+  const cls0 = await page.evaluate(() => [window.__cls || 0, window.__clsSrc || []]).catch(() => [0, []]); await page.addStyleTag({ content: STILL }).catch(() => {});
   const h = Math.min(CAP, await page.evaluate(() => document.documentElement.scrollHeight)); await page.setViewportSize({ width: vp.width, height: h }); await page.waitForTimeout(200);
   const buf = await page.screenshot({ fullPage: false }); fs.writeFileSync(file, buf);
-  let audit = null; if (!url.startsWith('file:')) { await page.setViewportSize(vp); audit = await page.evaluate(AUDIT); audit.cls = +(await page.evaluate(() => window.__cls)).toFixed(3);
+  let audit = null; if (!url.startsWith('file:')) { await page.setViewportSize(vp); audit = await page.evaluate(AUDIT); audit.cls = +cls0[0].toFixed(3); audit.clsSrc = cls0[1].slice(0, 6);
     await page.addScriptTag({ path: AXE }); audit.axe = await page.evaluate(async () => (await axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'] } })).violations.map(v => ({ id: v.id, impact: v.impact, n: v.nodes.length, t: v.nodes.slice(0, 30).map(x => { const c = (x.any[0] || {}).data || {}; return x.target.join(' ') + (c.fgColor ? ` [${c.fgColor} trên ${c.bgColor} = ${c.contrastRatio}:1, cần ${c.expectedContrastRatio}] «${(x.html || '').replace(/<[^>]+>/g, '').trim().slice(0, 30)}»` : ''); }) }))); }
   await ctx.close(); return { buf, audit }; }
 
@@ -62,7 +64,7 @@ for (const [k, u] of Object.entries(PAGES)) for (const [v, vp] of Object.entries
       if (serious.length) bad.push(`${tag}: axe AA ${serious.map(x => `${x.id}×${x.n}`).join(', ')}`);
       if (au.nSmall) bad.push(`${tag}: ${au.nSmall} vùng chạm < 44 px (${au.small.join(' | ')})`);
       if (v === 'phone' && au.hscroll) bad.push(`${tag}: cuộn ngang ở 390 px`);
-      if (au.cls > 0.1) bad.push(`${tag}: CLS ${au.cls} > 0.1`);
+      if (au.cls > 0.1) bad.push(`${tag}: CLS ${au.cls} > 0.1 (${(au.clsSrc || []).join('; ')})`);
       if (au.broken.length || au.ext.length) bad.push(`${tag}: ảnh vỡ/ngoài ${[...au.broken, ...au.ext].slice(0, 3).join(' ')}`);
       if (au.ph) bad.push(`${tag}: còn chữ giữ chỗ giáo viên/placeholder`); }
     const l = LIM[tag]; if (l) { if (!au.v2) bad.push(`${tag}: có ngưỡng nhưng trang chưa dùng khung Stitch`); for (const m of ['ssim', 'rows']) if (l[m] != null && r[m] < l[m]) bad.push(`${tag} ${m} ${r[m]} < ${l[m]}`); }
