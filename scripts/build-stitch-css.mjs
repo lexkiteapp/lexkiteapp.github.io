@@ -15,9 +15,11 @@ const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['w
 // Màn Stitch v2 (khung TỰ SINH bởi scripts/stitch-v2-convert.mjs – web/js/st/v2/<màn>.js): mỗi màn 1 nhóm = vỏ chung + khung màn + file gắn dữ liệu.
 //   Cấu hình Tailwind MẶC ĐỊNH thuần (như Stitch): tên màu/cỡ chữ/bo góc của Stitch đã được bộ chuyển đổi ra giá trị thật.
 const V2 = fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [];
-const V2DATA = { path: ['web/js/ux1.js'], review: ['web/js/ux1.js'], practice: ['web/js/ux1.js'], me: ['web/js/ux1-me.js'], streak: ['web/js/retention.js'], 'exam-readiness': ['web/js/goal.js'], 'teacher-call': ['web/js/call.js'], 'lesson-question': ['web/js/lesson/ui.js'], 'feedback-correct': ['web/js/lesson/ui.js'], 'feedback-wrong': ['web/js/lesson/ui.js'], 'lesson-complete': ['web/js/lesson/ui.js'], 'story-duo': ['web/js/lesson/ui.js'] }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
+const V2DATA = { path: ['web/js/ux1.js'], review: ['web/js/ux1.js'], practice: ['web/js/ux1.js'], me: ['web/js/ux1-me.js'], streak: ['web/js/retention.js'], 'exam-readiness': ['web/js/goal.js'], 'teacher-call': ['web/js/call.js'], 'lesson-question': ['web/js/lesson/ui.js'], 'feedback-correct': ['web/js/lesson/ui.js'], 'feedback-wrong': ['web/js/lesson/ui.js'], 'lesson-complete': ['web/js/lesson/ui.js'], 'story-duo': ['web/js/lesson/ui.js'], 'pas-drill': ['web/js/speak/app.js'], 'pas-sit': ['web/js/speak/app.js'] }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
 for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', `web/js/st/v2/${k}.js`, ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
 const OUT = g => `web/css/st-${g}.css`;
+// Gói nhiều màn nạp CÙNG LÚC (BCSS trong app.js): tiền tố PRE chung (token, font, vỏ, reset ≈ 3,5 KB gz) tách ra 1 file nạp 1 lần thay vì lặp trong từng file màn.
+const SHARED = { 'v2-speak-pre': ['v2-pas-drill', 'v2-pas-sit'] }, NOPRE = new Set(Object.values(SHARED).flat());
 
 const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(' ');
 const C = Object.entries(TOK.color);
@@ -81,7 +83,7 @@ function build(g) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'st-')), cfg = path.join(tmp, 'tw.config.cjs'), inp = path.join(tmp, 'in.css'), out = path.join(tmp, 'out.css');
   fs.writeFileSync(cfg, (g.startsWith('v2-') ? configV2 : config)(GROUPS[g], g)); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
   execFileSync(process.execPath, [path.join(twDir(), 'lib/cli.js'), '-c', cfg, '-i', inp, '-o', out, '--minify'], { stdio: ['ignore', 'ignore', 'pipe'] });
-  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${PRE}\n${fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, '')}\n`;
+  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${NOPRE.has(g) ? `/* tiền tố chung: css/st-${Object.keys(SHARED).find(k => SHARED[k].includes(g))}.css */` : PRE}\n${fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, '')}\n`;
 }
 
 // ---- font tự host (chạy khi đổi danh sách icon): Google Fonts CSS2 API, UA Chrome để nhận WOFF2 ----
@@ -111,8 +113,9 @@ for (const f of [...new Set(Object.values(GROUPS).flat()), ...Object.keys(GROUPS
   if (EXT.test(t)) bad.push(`${f}: src/href/url trỏ ra ngoài (${t.match(EXT)[0]}…) – chỉ đường dẫn nội bộ`); }
 const used = icons(), have = fs.existsSync('web/fonts/msym.json') ? JSON.parse(fs.readFileSync('web/fonts/msym.json', 'utf8')) : [];
 const lack = used.filter(n => !have.includes(n)); if (lack.length) bad.push(`icon chưa có trong web/fonts/msym.woff2: ${lack.join(', ')} → chạy --fonts`);
-for (const g of Object.keys(GROUPS)) {
-  const css = build(g), gz = zlib.gzipSync(css, { level: 9 }).length;
+const HEAD = '/* Stitch: tiền tố chung (token sáng/tối, font, vỏ app, reset .v2) – KHÔNG sửa tay: node scripts/build-stitch-css.mjs */\n';
+for (const g of [...Object.keys(GROUPS), ...Object.keys(SHARED)]) {
+  const css = SHARED[g] ? HEAD + PRE + '\n' : build(g), gz = zlib.gzipSync(css, { level: 9 }).length;
   console.log(`st-${g}.css: ${(css.length / 1024).toFixed(1)} KB · gz ${(gz / 1024).toFixed(2)} KB (ngân sách 10 KB)`);
   if (gz > BUDGET) bad.push(`st-${g}.css gz ${gz} B > ${BUDGET} B`);
   if (A.has('--check')) { if (!fs.existsSync(OUT(g)) || fs.readFileSync(OUT(g), 'utf8') !== css) bad.push(`${OUT(g)} lệch bản biên dịch (sửa web/js/st/* hoặc token mà chưa chạy node scripts/build-stitch-css.mjs)`); }

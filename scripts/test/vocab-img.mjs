@@ -213,7 +213,11 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   ok(share.length >= 6 && share.every(x => x > 0 && x <= 0.7) && share.filter((x, i) => i % 2).every(x => x <= 0.5), 'VIMG_DRAW_SHARE ≤ 0,7 khi kho từ pilot, ≤ 0,5 khi hàng loạt/chưa đặt (đuôi kho cho giám khảo + kho từ)');
   ok(/vision_dead": true/.test(wf) && /touch \$OUT\/EXHAUSTED/.test(wf), 'giám khảo thị giác hết neuron → dừng vẽ (không vẽ ảnh không ai chấm)');
   ok(/PROBE_SHARE=\$\{\{ vars\.LX_PILOT == '1' && '0\.7' \|\| '0\.5' \}\} PROBE_QUICK=1/.test(wf) && /PROBE_ALIVE" -lt 10/.test(wf), 'fill dò nhanh phần vẽ của kho trước khi bật máy (không lượt rỗng)');
-  ok(/fill:[\s\S]*?max-parallel: [1-5]\b/.test(wf), 'fill giữ ≤ 5 máy GitHub cùng lúc (chừa máy cho npm test/Prod release)');
+  { const fillJob = wf.slice(wf.indexOf('\n  fill:'), wf.indexOf('\n  fillpub:')), line = (wf.match(/\n\s+(h=\$\{VIMG_HOUR[^\n]+)/) || [])[1];
+    const { execFileSync } = await import('child_process'), par = h => +execFileSync('bash', ['-c', line.replace('>> $GITHUB_OUTPUT', '') + ' >/dev/null; echo $par'], { env: { ...process.env, VIMG_HOUR: String(h) }, encoding: 'utf8' }).trim();
+    const day = [...Array(14).keys()].map(i => par(i + 1)), night = [0, 15, 16, 18, 20, 22, 23].map(par);
+    ok(/max-parallel: \$\{\{ fromJSON\(needs\.plan\.outputs\.par \|\| '5'\) \}\}/.test(fillJob) && /par: \$\{\{ steps\.p\.outputs\.par \}\}/.test(wf) && day.every(x => x >= 1 && x <= 3) && night.every(x => x >= 1 && x <= 5), 'fill: ban ngày VN (01–15 UTC) ≤ 3 máy, đêm ≤ 5 (chừa máy cho giao diện/npm test/Prod release)');
+    ok(/n=\$\{\{ github\.event\.inputs\.shards \|\| '10' \}\}/.test(wf), 'fill vẫn 10 việc (cùng trần ảnh mỗi việc) – bớt máy song song không bớt ảnh/ngày'); }
   ok(/\[ "\$CHAIN" = 0 \]/.test(wf) && /gh workflow run vocab-img-scene\.yml/.test(wf), 'tự nối lượt: biến repo so trong bash');
   const all = fs.readdirSync(new URL('../../.github/workflows/', import.meta.url)).map(f => rd('.github/workflows/' + f)).join('\n');
   ok(!/if:.*vars\.[A-Z_]+ *[!=]= *'0'/.test(all), "không workflow nào so vars.X với '0' trong if: (GitHub coi '' == '0')");
