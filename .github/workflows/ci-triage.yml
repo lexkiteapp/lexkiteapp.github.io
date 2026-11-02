@@ -150,10 +150,13 @@ on:
       - 'Phát audio (Chromium + WebKit)'
       - 'codemap'
       - 'TTS A/B (Kokoro vs ElevenLabs)'
+      - 'Màn Ôn – chạm được'
       - 'required-gate'
       - 'ci-filler'
       - 'QA backlog'
       - 'Upgrade audit'
+      - 'cdn-mirror'
+      - 'stitch-fonts'
   schedule:
     - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
   workflow_dispatch:
