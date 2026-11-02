@@ -6,7 +6,7 @@ import fs from 'node:fs'; import path from 'node:path';
 const [SRC = 'out/stitch/v3', DST = 'brand/stitch/v3'] = process.argv.slice(2);
 const st = JSON.parse(fs.readFileSync(path.join(SRC, 'state.json'), 'utf8')), q = JSON.parse(fs.readFileSync(path.join(SRC, 'queue.json'), 'utf8'));
 const qc = fs.existsSync(path.join(SRC, 'qc.json')) ? JSON.parse(fs.readFileSync(path.join(SRC, 'qc.json'), 'utf8')) : {};
-const surf = id => id === 'email-digest' ? 'email' : id.startsWith('share-card') ? 'share' : id.startsWith('ext-') ? 'ext' : 'app';
+const surf = id => id === 'email-digest' ? 'email' : id.startsWith('share-card') || id.startsWith('reel-') ? 'share' : id.startsWith('ext-') ? 'ext' : 'app';
 const done = {}; for (const j of Object.values(st.jobs)) if (j.status === 'done' && !(done[j.tag]?.at > j.at)) done[j.tag] = j; // bản mới nhất (sau vòng sửa QC)
 const dev = id => (q.find(j => j.id === id || id.startsWith(j.id + '-v')) || {}).device || 'MOBILE';
 const teacher = id => /^(lesson|placement)/.test(id);

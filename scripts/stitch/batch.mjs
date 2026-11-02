@@ -61,10 +61,13 @@ async function grab(k, u, f) { if (!u) return false; const r = await fetch(u, { 
 async function run(job, k) {
   const h = hash(job), base = job.from && latest(job.from);
   if (job.from && !base) return 'wait';
-  if (base && base.key !== k.name) return 'otherkey';
+  // Khoá gốc hết lượt → vẽ lại bản tối trên project khoá khác: sinh mới = prompt bản sáng + yêu cầu tối (không sửa được chéo project).
+  const moved = base && base.key !== k.name; let lightPrompt = '';
+  if (moved) { lightPrompt = queue.find(x => tag(x) === job.from)?.prompt || ''; if (!lightPrompt || job.kind !== 'edit') return 'otherkey'; }
   const args = { projectId: k.project, prompt: job.prompt, deviceType: job.device || 'MOBILE' };
   let tool = 'generate_screen_from_text';
-  if (job.kind === 'edit') { tool = 'edit_screens'; args.selectedScreenIds = [base.screenId]; }
+  if (moved) { args.prompt = `${lightPrompt}\n\nRender this screen in its DARK theme. ${job.prompt}`; args.designSystem = k.ds; }
+  else if (job.kind === 'edit') { tool = 'edit_screens'; args.selectedScreenIds = [base.screenId]; }
   else if (job.kind === 'variants') { tool = 'generate_variants'; args.selectedScreenIds = [base.screenId]; args.variantOptions = { variantCount: job.count || 3, creativeRange: 'EXPLORE', aspects: ['LAYOUT', 'COLOR_SCHEME', 'TEXT_FONT'] }; }
   else args.designSystem = k.ds;
   if (DRY) { log('DRY', k.name, tool, tag(job)); return 'done'; }
@@ -109,14 +112,17 @@ async function worker(k) {
     if (c.used >= DAILY || started >= MAX || stopped()) return;
     // Việc gen tự do chọn khoá; edit/variants phải về đúng khoá của màn gốc.
     const job = queue.find(j => !isDone(j) && !busy.has(hash(j)) && (() => {
-      if (!j.from) return true; const b = latest(j.from); return b && b.key === k.name; })());
+      if (!j.from) return true; const b = latest(j.from); if (!b) return false; if (b.key === k.name) return true;
+      const bc = cred(b.key); return j.kind === 'edit' && !!bc.limitedAt && Date.now() - Date.parse(bc.limitedAt) < REST_MS && queue.some(x => tag(x) === j.from); })());
     if (!job) { if (queue.some(j => !isDone(j) && busy.size)) { await new Promise(r => setTimeout(r, 20e3)); continue; } return; }
     busy.add(hash(job)); started++;
     const r = await run(job, k); busy.delete(hash(job));
     if (r === 'limit') started--;
   }
 }
-const allLimited = () => KEYS.every(k => { const c = cred(k.name); return c.used >= DAILY || (c.limitedAt && Date.now() - Date.parse(c.limitedAt) < 6 * 3600e3 && c.fail >= 6); });
+// --wait-hours N: khi cả 3 khoá hết lượt, vẫn thử lại mỗi 15 phút trong N giờ (cửa sổ 24h trượt mở dần) thay vì thoát.
+const T0 = Date.now(), WAIT_H = +opt('--wait-hours', 0);
+const allLimited = () => Date.now() - T0 >= WAIT_H * 3600e3 && KEYS.every(k => { const c = cred(k.name); return c.used >= DAILY || (c.limitedAt && Date.now() - Date.parse(c.limitedAt) < 6 * 3600e3 && c.fail >= 6); });
 log(`queue ${queue.length}, done ${queue.filter(isDone).length}, keys ${KEYS.map(k => k.name).join(',')}`);
 await Promise.all(KEYS.flatMap(k => [worker(k), worker(k)])); // 2 luồng/khoá
 const left = queue.filter(j => !isDone(j)).length;
