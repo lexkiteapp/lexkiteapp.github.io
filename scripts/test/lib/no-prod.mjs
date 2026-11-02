@@ -6,7 +6,7 @@
 // Cờ PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS: không có thì fetch() TỪ service worker (sw.js âm thanh/vimg) lọt ra mạng thật.
 // Đi kèm .github/actions/no-prod (chặn DNS ở /etc/hosts → lỡ sót cũng 0 lượt prod). Kiểm: scripts/test/no-prod-hosts.mjs.
 import { githubCandidates, typeOf, PROD_CDN, PROD_API } from '../../media/origin.mjs';
-process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS ||= '1';
+if (process.env.LEXKITE_NO_PROD_SW !== 'off') process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS ||= '1'; // off: ext-e2e (SW add-on)
 
 const memo = new Map(); // URL → {status, headers, body} trong một lượt chạy: ảnh/âm thanh lặp không tải lại GitHub
 export const stats = { cdn: 0, github: 0, api: 0, miss: 0 };
@@ -22,7 +22,10 @@ export async function noProd(ctx, opts = {}) {
         stats.github++;
         const r = await route.fetch({ url: g, headers: range ? { range } : {}, maxRedirects: 5 });
         if (r.status() >= 400) continue;
-        const res = { status: r.status(), headers: { ...r.headers(), 'content-type': typeOf(url), 'access-control-allow-origin': '*', 'x-origin': 'ci-github' }, body: await r.body() };
+        const body = await r.body(), src = r.headers(), headers = { 'content-type': typeOf(url), 'access-control-allow-origin': '*', 'x-origin': 'ci-github', 'cache-control': 'public, max-age=31536000, immutable' };
+        // KHÔNG chép content-encoding/content-length/transfer-encoding: body() đã giải nén → header gốc làm hỏng ảnh/âm thanh (onerror → chữ cái thay ảnh)
+        for (const k of ['etag', 'last-modified', 'accept-ranges', 'content-range']) if (src[k]) headers[k] = src[k];
+        const res = { status: r.status(), headers, body };
         if (key && res.status === 200) memo.set(key, res);
         return route.fulfill(res);
       } catch (e) { /* thử gốc kế */ }
