@@ -1,5 +1,5 @@
 // 🧭 nav-sweep – mỗi màn học đi được từ đầu tới màn kết CHỈ bằng bàn phím, không ngõ cụt (docs/specs/learn-flow-nav.md). Chỉ chạy trên CI (qa-bot.yml).
-// Mỗi bước: trả lời thử bằng phím (1 = phương án đầu, phím số đặt thẻ, gõ "a" vào ô trống) rồi Enter (ExitGuard: Enter = nút chính Kiểm tra/Tiếp tục).
+// Mỗi bước: trả lời thử bằng phím (1 = phương án đầu, phím số đặt thẻ, gõ "a" vào ô trống; màn chưa có phím số → focus thẻ/phương án đầu + Space) rồi Enter (ExitGuard: Enter = nút chính Kiểm tra/Tiếp tục).
 // Đo theo màn: có nút thoát · thanh tiến độ · Enter có đi tiếp · có Bỏ qua (nghe/nói) · tới màn kết · màn kết có bước tiếp theo · số bước.
 // Cổng (chỉ siết): mọi thiếu sót phải nằm trong scripts/test/nav-sweep.known.json; thiếu sót MỚI → đỏ; mục known đã hết thiếu → đỏ (xoá khỏi known).
 // Dùng: node scripts/test/nav-sweep.mjs [--root dist | --base URL] [--out out/nav-sweep] [--steps 40] [--write-known]
@@ -54,11 +54,30 @@ const probe = () => {
   const radios = [...v.querySelectorAll('input[type=radio]')].filter(i => !i.disabled), unanswered = radios.length && !radios.some(i => i.checked);
   const blank = [...v.querySelectorAll('input[type=text], input:not([type]), textarea')].find(i => vis(i) && !i.disabled && !i.readOnly && !i.value);
   const bank = [...document.querySelectorAll('#lsnBank .lsn-tile:not(.used), [data-tile-bank] [data-i]:not(.used)')].filter(vis).length;
-  const opt = [...v.querySelectorAll('.lsn-opt:not([disabled]), [data-opt]:not([disabled]), .opt:not([disabled])')].find(vis);
+  const opt = [...v.querySelectorAll('.lsn-opt:not([disabled]), [data-opt]:not([disabled]), .opt:not([disabled]), .qk-btn:not([disabled])')].find(vis);
   const prog = !!v.querySelector('[role=progressbar], progress, .lsn-bar, .progress');
   const sig = location.hash + '|' + (v.innerText || '').length + '|' + (p ? (p.id || p.className) + (p.textContent || '').trim().slice(0, 20) : '') + '|' + document.querySelectorAll('#lsnFoot *').length;
   return { learn: document.body.classList.contains('lk-learn'), hash: location.hash, end: !!end, nextLinks, exit: !!v.querySelector('[data-exit]'), prog, skip: [...document.querySelectorAll(SKIP)].some(vis),
     primary: p ? (p.id ? '#' + p.id : p.tagName.toLowerCase() + '.' + [...p.classList].slice(0, 2).join('.')) : '', unanswered: !!unanswered, blank: !!blank, bank, opt: !!opt, sig };
+};
+
+const blur = page => page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur());
+// Thẻ/phương án trả lời đầu tiên còn chọn được (bỏ qua nút thoát, nghe lại, gợi ý, bỏ qua, mic) → focus để bấm Space
+const focusAnswer = () => {
+  const v = document.querySelector('#view'); if (!v) return false;
+  const SKIP = '#lsnNoL, #lsnNoS, #skip, #skipW, #lfxNoAudio, #mkSkip, [data-lk-skip], .lfx-skipmic, [data-exit], [data-lk-primary]';
+  const bad = /skip|hint|gợi ý|bỏ qua|listen|replay|nghe|play|phát|slow|chậm|audio|speak|mic|nói|record|ghi âm|share|khoe|back|quay lại|exit|thoát|close|đóng|report|báo/i;
+  const tiles = [...document.querySelectorAll('#lsnBank .lsn-tile:not(.used), [data-tile-bank] [data-i]:not(.used)')];
+  const pool = tiles.length ? tiles : [...v.querySelectorAll('button:not([disabled]), [role=button]:not([aria-disabled=true]), [role=radio], label:has(> input[type=radio])')];
+  const el = pool.find(b => {
+    if (b.closest('.lk-exitbar, .study-top, .lk-exit-ask, nav, header, #lsnFoot') || b.matches(SKIP) || b.getAttribute('aria-pressed') === 'true') return false;
+    const r = b.getBoundingClientRect(); if (!(r.width > 0 && r.height > 0) || getComputedStyle(b).visibility === 'hidden') return false;
+    const lab = ((b.getAttribute('aria-label') || '') + ' ' + (b.title || '') + ' ' + (b.innerText || '')).trim();
+    return (b.innerText || '').trim().length > 0 && !bad.test(lab);
+  });
+  if (!el) return false;
+  if (!el.hasAttribute('tabindex') && !/^(BUTTON|A|INPUT)$/.test(el.tagName)) el.tabIndex = 0;
+  el.focus(); return true;
 };
 
 const rows = [], found = {};
@@ -72,17 +91,31 @@ for (const [r, hash] of samples) {
     for (let k = 0; k < STEPS && !s.end; k++) {
       m.steps = k + 1; m.skip = m.skip || s.skip; m.prog = m.prog || s.prog;
       if (!s.learn) { m.dead = 'rời màn học trước màn kết (' + s.hash + ')'; break; }
-      // trả lời thử bằng bàn phím
-      await page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur());
-      if (s.bank) for (let i = 0; i < Math.min(s.bank, 12); i++) await page.keyboard.press('1');
-      else if (s.unanswered) await page.keyboard.press('1');
-      else if (s.blank) { await page.evaluate(() => { const v = document.querySelector('#view'); const i = [...v.querySelectorAll('input[type=text], input:not([type]), textarea')].find(x => !x.disabled && !x.readOnly && !x.value && x.getBoundingClientRect().height > 0); if (i) i.focus(); }); await page.keyboard.type('a'); await page.keyboard.press('Enter'); await sleep(500); await page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur()); }
-      else if (s.opt) { await page.evaluate(() => { const o = [...document.querySelectorAll('#view .lsn-opt:not([disabled]), #view [data-opt]:not([disabled]), #view .opt:not([disabled])')].find(x => x.getBoundingClientRect().height > 0); if (o) o.focus(); }); await page.keyboard.press('Space'); await page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur()); }
-      const before = (await page.evaluate(probe)).sig;
+      // trả lời thử bằng bàn phím – leo thang tới khi có nút chính (hoặc màn tự sang bước sau):
+      // ① phím của màn (phím số đặt thẻ/chọn, gõ "a" vào ô trống) ② Tab tới thẻ/phương án đầu + Space (màn chưa có phím số)
+      const pre0 = s.sig;
+      if (!s.primary) {
+        await blur(page);
+        if (s.bank) for (let i = 0; i < Math.min(s.bank, 12); i++) await page.keyboard.press('1');
+        else if (s.blank) { await page.evaluate(() => { const v = document.querySelector('#view'); const i = [...v.querySelectorAll('input[type=text], input:not([type]), textarea')].find(x => !x.disabled && !x.readOnly && !x.value && x.getBoundingClientRect().height > 0); if (i) i.focus(); }); await page.keyboard.type('a'); await page.keyboard.press('Enter'); await sleep(500); await blur(page); }
+        else await page.keyboard.press('1');
+        await sleep(400);
+        let a = await page.evaluate(probe);
+        for (let j = 0; j < 12 && !a.end && a.learn && (a.bank || (!a.primary && a.sig === pre0)); j++) {
+          if (!(await page.evaluate(focusAnswer))) break;
+          await page.keyboard.press('Space'); await sleep(350); await blur(page);
+          a = await page.evaluate(probe);
+        }
+        // màn tự bay sang bước sau khi chọn (quick, reflex…): tính là đi tiếp, không cần Enter
+        if (a.sig !== pre0 && !a.primary && a.hash === s.hash) { const b = await page.evaluate(probe); if (!b.primary) { still = 0; s = b; continue; } }
+        if (a.end || !a.learn) { s = a; continue; }
+      }
+      await blur(page);
+      const pre = await page.evaluate(probe), before = pre.sig;
       await page.keyboard.press('Enter'); await sleep(700);
       // màn tự bay qua bước nghe/nói khi không có micro/âm thanh → chờ thêm
       let n = await page.evaluate(probe); if (n.sig === before && !n.end) { await sleep(1200); n = await page.evaluate(probe); }
-      if (n.sig !== before) { still = 0; if (s.primary) m.enter = true; } else if (++still >= 2) { m.dead = `kẹt ở bước ${k + 1}: Enter không đi tiếp (nút chính: ${n.primary || 'không có'})`; break; }
+      if (n.sig !== before) { still = 0; if (pre.primary) m.enter = true; } else if (++still >= 2) { m.dead = `kẹt ở bước ${k + 1}: Enter không đi tiếp (nút chính: ${n.primary || 'không có'})`; break; }
       s = n;
     }
     m.end = s.end; m.next = s.end && s.nextLinks > 0; m.prog = m.prog || s.prog; m.skip = m.skip || s.skip;
