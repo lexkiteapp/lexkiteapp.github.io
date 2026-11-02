@@ -93,6 +93,8 @@ export function automation(request) {
 // Lỗi JS từ bản dev/preview (không phải code đang chạy cho người học): máy dev http://localhost:<cổng> / 127.0.0.1, bản preview nhánh
 // <nhánh|hash>.lexkite.pages.dev (dùng chung Functions + D1). Ví dụ 31/10: nhánh say-native chưa gộp ghi lỗi '#/say' vào bảng admin.
 // Giữ: lexkite.com, lexkite.pages.dev (bản chính), add-on chrome-extension://, app native (https://localhost, capacitor://localhost – không cổng).
+// Nguồn giới thiệu nội bộ: máy chính mình / mạng LAN / preview nhánh – coi như truy cập trực tiếp (dùng cả ở truy vấn admin cho dữ liệu cũ)
+export const INTERNAL_REF = /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+|172\.(1[6-9]|2\d|3[01])\.\d+\.\d+|[a-z0-9-]+\.local|[a-z0-9-]+\.lexkite\.pages\.dev)$/;
 export function devOrigin(request) {
   const h = request.headers, hosts = [];
   for (const v of [h.get('Origin'), h.get('Referer'), request.url]) { try { if (v && v !== 'null') hosts.push(new URL(v)); } catch (e) { /* bỏ qua */ } }
@@ -177,10 +179,11 @@ export async function onRequestPost({ request, env }) {
     const now = Date.now();
     if (b.t === 's' && /^[a-z0-9]{8,32}$/i.test(b.sid || '')) {
       let ref = cut(b.ref, 200); try { ref = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) { ref = ''; }
-      if (/(^|\.)lexkite\.(com|pages\.dev)$/.test(ref)) ref = '';
+      if (/(^|\.)lexkite\.(com|pages\.dev)$/.test(ref) || INTERNAL_REF.test(ref)) ref = ''; // localhost = trang trong app native (https://localhost) hoặc máy dev → không phải nguồn giới thiệu
       const day = dayOf(now), route = v => /^[a-z0-9-]{1,40}$/.test(v) && !NOT_ROUTE.has(v) ? v : '';
       // Phiên mở thẳng trang quản trị (#/admin) → coi là nội bộ, đếm riêng như máy tự động
-      const bot = auto || (NOT_ROUTE.has(cut(b.path, 60)) ? 'admin' : null);
+      // Phiên từ bản dev (http://localhost:<cổng>) / preview nhánh *.lexkite.pages.dev → 'dev' (không lẫn vào số người học thật)
+      const bot = auto || (NOT_ROUTE.has(cut(b.path, 60)) ? 'admin' : devOrigin(request) ? 'dev' : null);
       // ON CONFLICT: COALESCE(bot, ?16) – một khi đã là máy tự động thì giữ nguyên (không "hoá người" ở nhịp gửi sau)
       const sid = cut(b.sid, 32), vid = cut(b.vid, 32), country = cut(request.cf && request.cf.country, 2) || 'XX', hb = !!b.hb;
       // Analytics Engine (miễn phí, hạn mức riêng, 0 dòng D1): mọi beacon phiên → 1 điểm. Bố cục: aeHit() / docs/CAPACITY.md §Kiến trúc A2

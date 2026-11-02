@@ -66,7 +66,7 @@
     // Biểu đồ
     '{h}h: {n} phiên': '{h}:00 – {n} sessions', '{d}: {f} mới · {b} quay lại': '{d}: {f} new · {b} returning', 'Khách mới': 'New visitors', 'Quay lại': 'Returning',
     'PWA (web đã cài)': 'PWA (installed web)', 'Add-on Chrome': 'Chrome add-on', 'App (cũ)': 'App (legacy)',
-    'Lượt xem và khách 14 ngày qua': 'Views and visitors, last 14 days', '{d}: {v} lượt xem · {u} khách': '{d}: {v} views · {u} visitors', 'Lượt xem': 'Views', 'Khách': 'Visitors', 'Phiên theo ngày: {r}': 'Sessions per day: {r}',
+    'Lượt xem và khách 14 ngày qua': 'Views and visitors, last 14 days', '{d}: {v} lượt xem · {u} khách': '{d}: {v} views · {u} visitors', 'Lượt xem': 'Views', 'Khách': 'Visitors', 'Lượt xem (trục trái)': 'Views (left axis)', 'Khách (trục phải)': 'Visitors (right axis)', 'Hôm nay (đến giờ)': 'Today (so far)', 'Phiên theo ngày: {r}': 'Sessions per day: {r}',
     // Tổng quan
     'Cập nhật {t}': 'Updated {t}', 'Làm mới': 'Refresh', 'Tải lại số liệu': 'Reload data', 'Người thật': 'Real people', 'Học viên': 'Learners', 'Vận hành': 'Operations',
     'Người thật hôm nay': 'Humans today', 'Người thật 7 ngày': 'Humans · 7 days', 'Người thật 30 ngày': 'Humans · 30 days', 'thiết bị khác nhau': 'unique devices', 'hôm qua': 'yesterday', '7 ngày trước đó': 'previous 7 days', '30 ngày trước đó': 'previous 30 days',
@@ -84,7 +84,12 @@
     'Khách hôm nay': 'Visitors today', 'Trang/khách': 'Pages/visitor', 'Thời gian TB': 'Avg. time', 'mỗi phiên hôm nay': 'per session today', 'Tổng lượt xem': 'Total views', '{n} khách từ trước đến nay': '{n} visitors all-time', '14 ngày qua': 'Last 14 days',
     '🌍 Quốc gia hôm nay': '🌍 Countries today', '👀 Đang xem': '👀 Viewing now', 'Không ai online trong 5 phút qua': 'Nobody online in the last 5 minutes', '📄 Trang xem nhiều hôm nay': '📄 Top pages today',
     'Theo trang vào đầu tiên (chưa có số lượt xem từng trang).': 'Based on landing pages (per-page views not available yet).', '🔗 Nguồn giới thiệu hôm nay': '🔗 Referrers today', 'Chủ yếu truy cập trực tiếp': 'Mostly direct traffic',
-    '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Số khách (thiết bị) khác nhau.': 'Unique visitors (devices).',
+    '🔥 Trang xem nhiều · 7 ngày': '🔥 Top pages · 7 days', '📱 Nền tảng': '📱 Platforms', 'Nền tảng': 'Platform', 'Nền tảng@@h': 'Platforms', 'Web (trình duyệt)': 'Web (browser)', 'App iOS': 'iOS app', 'App Android': 'Android app', 'Tỉ lệ': 'Share', 'Tổng thiết bị': 'All devices', 'Bản dev/preview': 'Dev/preview builds', 'Tổng': 'Total',
+    'Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày': 'Devices by platform: today, 30 days and % of all devices in 30 days',
+    'PWA = web đã cài lên máy · Add-on = tiện ích Chrome': 'PWA = installed web app · Add-on = Chrome extension',
+    'Đếm thiết bị khác nhau (mã ẩn danh của trình duyệt/app) có ít nhất 1 phiên người thật; đã loại bot và tài khoản quản trị. Hôm nay = từ 00:00 giờ Việt Nam (UTC+7). 30 ngày = 30 ngày gần nhất tính cả hôm nay, cập nhật 10 phút/lần. % = phần trong tổng thiết bị 30 ngày.': 'Counts distinct devices (anonymous browser/app ID) with at least one human session; bots and admin accounts are excluded. Today = since 00:00 Vietnam time (UTC+7). 30 days = the last 30 days including today, refreshed every 10 min. % = share of all devices in 30 days.',
+    '{n} thiết bị dùng từ 2 nền tảng trở lên: có mặt ở mỗi dòng đó nhưng chỉ tính 1 lần ở Tổng, nên cộng các dòng sẽ lớn hơn Tổng.': ['{n} device used 2+ platforms: it appears in each of those rows but counts once in the total, so the rows add up to more than the total.', '{n} devices used 2+ platforms: they appear in each of those rows but count once in the total, so the rows add up to more than the total.'],
+    'Tổng tạm = cộng các dòng (máy chủ chưa gửi số thiết bị khác nhau).': 'Total is the sum of rows for now (the server has not sent the distinct-device count yet).',
     '{c} quốc gia · {n} khách': '{c} countries · {n} visitors', ' · {n} không rõ': ' · {n} unknown', 'Ít': 'Few', 'Nhiều khách': 'Many visitors', '{c} – {n} khách hôm nay': '{c} – {n} visitors today', 'Không tải được bản đồ – danh sách quốc gia:': 'Map failed to load – country list:',
     // Phân tích
     'Khoảng thời gian (phần Chi tiết)': 'Date range (Details section)', 'ℹ️ Đang lấy mẫu {p}% người dùng – số phiên/người thực tế ≈ số dưới đây × {x}; tỉ lệ % và trung bình giữ nguyên.': 'ℹ️ Sampling {p}% of users – actual sessions/users ≈ figures below × {x}; percentages and averages are unaffected.',
@@ -127,6 +132,9 @@
     'Đã khôi phục thành công {n} tài liệu': 'Successfully restored {n} documents', 'Lỗi khôi phục: {e}': 'Restore error: {e}',
     '🔎 Tìm email, tên hoặc UID': '🔎 Search email, name or UID', 'Tìm người dùng': 'Search users', 'Vai trò': 'Role', 'Trạng thái': 'Status', 'Hoạt động 7 ngày': 'Active (7 days)', 'Ngủ đông >30 ngày': 'Dormant >30 days', 'Mới 7 ngày': 'New (7 days)',
     'Sắp xếp': 'Sort', 'Mới nhất': 'Newest', 'Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)': 'Download CSV for the current filter (max 5,000 rows)',
+    'Quốc gia': 'Country', 'Chưa rõ': 'Unknown', 'Chưa rõ quốc gia': 'Unknown country', 'Tham gia từ': 'Joined from', 'đến ngày': 'to', 'Tham gia sớm nhất': 'Earliest joined', 'Vào nhiều nhất': 'Most visits', 'Bỏ lọc': 'Clear filters',
+    '🌍 Người dùng theo quốc gia': '🌍 Users by country', 'Lần đồng bộ gần nhất · bấm để lọc': 'Latest sync · click to filter', '{n} quốc gia': ['{n} country', '{n} countries'], 'xem tất cả trong ô lọc Quốc gia': 'see all in the Country filter',
+    '"Chưa rõ" = tài khoản chưa đồng bộ lại từ khi có thống kê quốc gia': '"Unknown" = accounts that have not synced since country stats were added',
     'Tổng người dùng': 'Total users', 'tài khoản đã đồng bộ': 'synced accounts', 'Hoạt động hôm nay': 'Active today', '24 giờ qua': 'last 24 hours', 'Hoạt động 7 / 30 ngày': 'Active 7 / 30 days', '{p}% còn hoạt động trong tháng': '{p}% active this month',
     'tài khoản đăng ký mới': 'new sign-ups', 'Theo nền tảng': 'By platform', 'Lần vào': 'Visits', 'Chi tiết': 'Details', 'Xóa dữ liệu': 'Delete data', 'Không có người dùng khớp bộ lọc': 'No users match the filter', 'Thử bỏ bớt bộ lọc hoặc từ khóa.': 'Try removing some filters or search terms.',
     ' (lọc từ {n})': ' (filtered from {n})', '← Trước': '← Prev', 'Sau →': 'Next →', '⏳ Đang xuất…': '⏳ Exporting…', 'Đã xuất {n} dòng': ['Exported {n} row', 'Exported {n} rows'], 'Lỗi xuất CSV': 'CSV export failed',
@@ -200,6 +208,7 @@
   const copyBtn = (v, label) => `<button type="button" class="copy" data-copy="${esc(v)}" aria-label="${esc(L('Sao chép {v}', { v }))}" title="${esc(L('Sao chép'))}">${esc(label == null ? v : label)}</button>`;
   // Mã quốc gia Cloudflare: XX = không rõ, T1 = mạng Tor (không phải quốc gia) – không vẽ cờ giả
   const realCC = c => /^[A-Z]{2}$/.test(c || '') && c !== 'XX' && c !== 'T1';
+  const CL = r => ({ html: `<span class="cc">${FLAG(r.k)}</span> ${esc(cname(r.k))}`, t: FLAG(r.k) + ' · ' + cname(r.k) }); // cờ + mã (cột cố định) + tên nước đủ
   const FLAG = c => realCC(c) ? String.fromCodePoint(...[...c].map(x => 127397 + x.charCodeAt(0))) + ' ' + c : c === 'T1' ? '🧅 Tor' : '🌐 ?';
 
   // ---------- Điều hướng: nhóm → mục [khóa, biểu tượng, nhãn, mô tả, id huy hiệu] ----------
@@ -640,10 +649,13 @@
   // Cột chồng khách mới / quay lại theo ngày
   const stack = rows => { if (!rows.length) return NODATA(); const m = Math.max(1, ...rows.map(r => (r.fresh || 0) + (r.back || 0))); return `<div class="hchart stack">${rows.slice(-30).map(r => `<div title="${L('{d}: {f} mới · {b} quay lại', { d: esc(r.day), f: r.fresh || 0, b: r.back || 0 })}"><i class="b" style="height:${(r.back || 0) / m * 100}%"></i><i style="height:${(r.fresh || 0) / m * 100}%"></i><small>${esc(String(r.day).slice(8))}</small></div>`).join('')}</div><p class="small muted"><span class="lg new"></span> ${L('Khách mới')} <span class="lg back"></span> ${L('Quay lại')}</p>`; };
   // total: mẫu số cho % khi rows chỉ là top N (vd. 12 quốc gia đầu) – thiếu thì lấy tổng các dòng đang hiện
+  // Thanh dùng chung (mọi thẻ danh sách): thang = % trên tổng (total hoặc cộng các dòng) – cùng kiểu thẻ Nền tảng (js/admin-plat.js):
+  // dòng 0 không vẽ thanh, dòng > 0 thanh tối thiểu 4 px, "<1%". Nhãn: chữ thường hoặc { html, t } (vd. cờ + mã nước thẳng cột + tên đủ).
   const bars = (rows, label = r => r.k, val = r => r.n, extra = r => '', total = 0) => {
     if (!rows || !rows.length) return NODATA();
-    const max = Math.max(1, ...rows.map(val)), tot = Math.max(+total || 0, rows.reduce((t, r) => t + (+val(r) || 0), 0)) || 1;
-    return `<div class="hbars">${rows.map(r => `<div class="row2"><span class="k" title="${esc(label(r))}">${esc(label(r)) || '–'}</span><span class="track"><i style="width:${val(r) / max * 100}%"></i></span><span class="v">${num(val(r))}<small> · ${Math.round(val(r) / tot * 100)}%${extra(r)}</small></span></div>`).join('')}</div>`;
+    const tot = Math.max(+total || 0, rows.reduce((t, r) => t + (+val(r) || 0), 0)) || 1;
+    const lab = r => { const x = label(r); return x && x.html != null ? [x.html, x.t] : [esc(x) || '–', x]; };
+    return `<div class="hbars">${rows.map(r => { const v = +val(r) || 0, sh = v / tot * 100, [h, t] = lab(r); return `<div class="row2"><span class="k" title="${esc(t)}">${h}</span><span class="track" aria-hidden="true"><i class="${v ? '' : 'z'}" style="width:${v ? Math.min(100, sh).toFixed(2) : 0}%"></i></span><span class="v">${num(v)}<small> · ${AdminPlat.pctText(sh)}${extra(r)}</small></span></div>`; }).join('')}</div>`;
   };
   // Đủ mọi ngày trong khoảng chọn (ngày không có phiên = 0) – tránh vài cột khổng lồ khi dữ liệu thưa
   const padDays = (rows, days) => { const by = Object.fromEntries((rows || []).map(r => [r.day, r])), out = []; for (let i = Math.min(days, 90) - 1; i >= 0; i--) { const d = vday(Date.now() - i * 864e5); out.push(by[d] || { day: d, s: 0, v: 0 }); } return out; };
@@ -654,28 +666,46 @@
   const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; };
   const PLAT = { web: ['🌐', 'Web'], pwa: ['📲', 'PWA (web đã cài)'], ext: ['🧩', 'Add-on Chrome'], ios: ['🍎', 'iOS'], android: ['🤖', 'Android'], app: ['📱', 'App (cũ)'] };
   const platName = k => PLAT[k] ? L(PLAT[k][1]) : k || '–', platIcon = k => (PLAT[k] || ['❔'])[0];
+  // Thẻ Nền tảng: nhãn ngắn 1 dòng + tên đầy đủ (title + trình đọc màn hình)
+  const PSHORT = { web: ['Web', 'Web (trình duyệt)'], pwa: ['PWA', 'PWA (web đã cài)'], ext: ['Add-on', 'Add-on Chrome'], ios: ['iOS', 'App iOS'], android: ['Android', 'App Android'], app: ['App (cũ)', 'App (cũ)'] };
+  const platCard = l => {
+    const { rows, total, multi, approx } = AdminPlat.platRows(l);
+    const lab = k => { const [sh, full] = PSHORT[k] ? PSHORT[k].map(x => L(x)) : [k || '–', k || '–']; return `<th scope="row" title="${esc(full)}"><span class="pi" aria-hidden="true">${platIcon(k)}</span><span class="pn" aria-hidden="true">${esc(sh)}</span><span class="sr-only">${esc(full)}</span></th>`; };
+    const share = r => `<td class="ps"><span class="pbar" aria-hidden="true"><i class="${r.w ? '' : 'z'}" style="width:${r.w.toFixed(2)}%"></i></span><span class="pp num">${r.pct}</span></td>`;
+    const tr = r => `<tr class="${r.d30 ? '' : 'zero'}">${lab(r.k)}<td class="num">${num(r.today)}</td><td class="num">${num(r.d30)}</td>${share(r)}</tr>`;
+    return `<div class="card plat-card"><h3>${L('📱 Nền tảng')}</h3>
+      <table class="plat-tbl" aria-label="${esc(L('Thiết bị theo nền tảng: hôm nay, 30 ngày và % trong tổng thiết bị 30 ngày'))}"><colgroup><col><col class="c-n"><col class="c-n"><col class="c-s"></colgroup>
+        <thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th><th scope="col" class="num">${L('Tỉ lệ')}</th></tr></thead>
+        <tbody>${rows.map(tr).join('')}</tbody>
+        <tfoot><tr><th scope="row" title="${esc(L('Tổng thiết bị'))}"><span class="pi" aria-hidden="true">Σ</span><span class="pn" aria-hidden="true">${L('Tổng')}</span><span class="sr-only">${L('Tổng thiết bị')}</span></th><td class="num">${num(total.today)}</td><td class="num">${num(total.d30)}</td><td class="ps"><span class="pp num">${total.d30 ? '100%' : '0%'}</span></td></tr></tfoot>
+      </table>
+      <p class="plat-note">${L('Đếm thiết bị khác nhau (mã ẩn danh của trình duyệt/app) có ít nhất 1 phiên người thật; đã loại bot và tài khoản quản trị. Hôm nay = từ 00:00 giờ Việt Nam (UTC+7). 30 ngày = 30 ngày gần nhất tính cả hôm nay, cập nhật 10 phút/lần. % = phần trong tổng thiết bị 30 ngày.')}</p>
+      ${multi ? `<p class="plat-note">${L('{n} thiết bị dùng từ 2 nền tảng trở lên: có mặt ở mỗi dòng đó nhưng chỉ tính 1 lần ở Tổng, nên cộng các dòng sẽ lớn hơn Tổng.', { n: num(multi) })}</p>` : ''}
+      ${approx ? `<p class="plat-note">${L('Tổng tạm = cộng các dòng (máy chủ chưa gửi số thiết bị khác nhau).')}</p>` : ''}
+      <p class="plat-note">${L('PWA = web đã cài lên máy · Add-on = tiện ích Chrome')}</p></div>`;
+  };
   const mkRegion = () => { try { return new Intl.DisplayNames([LANG], { type: 'region' }); } catch (e) { return null; } }; // trình duyệt cũ → null
   let regionNames = mkRegion();
   const cname = c => { if (c === 'T1') return 'Tor'; if (!realCC(c)) return L('Không rõ'); try { return regionNames ? regionNames.of(c) : c; } catch (e) { return c; } };
   const durS = s => { s = Math.round(+s || 0); return s < 60 ? L('{s} giây', { s }) : L('{m}p {s}s', { m: Math.floor(s / 60), s: String(s % 60).padStart(2, '0') }); };
   const nf1 = x => (+x || 0).toLocaleString(LOC(), { maximumFractionDigits: 1 });
   // Biểu đồ vùng mượt 2 chuỗi (lượt xem + khách) – di chuột vào cột để xem số (title)
-  const areaChart = rows => {
-    if (!rows || !rows.length) return NODATA();
-    const W = Math.round(Math.min(1200, Math.max(320, main.clientWidth - 70))), H = 200, PL = 36, T = 12, B = 22, iw = W - PL - 8, ih = H - T - B, n = rows.length;
-    const max = Math.max(1, ...rows.map(r => +r.views || 0), ...rows.map(r => +r.visitors || 0)), nice = Math.ceil(max / Math.pow(10, Math.floor(Math.log10(max)))) * Math.pow(10, Math.floor(Math.log10(max)));
-    const X = i => PL + (n === 1 ? iw / 2 : i * iw / (n - 1)), Y = v => T + ih - (+v || 0) / nice * ih;
+  const areaChart = l => {
+    const { rows, maxV, maxU } = AdminSeries.seriesRows(l); // js/admin-series.js – thang riêng cho lượt xem (trái) và khách (phải)
+    if (!rows.length) return NODATA();
+    const W = Math.round(Math.min(1200, Math.max(320, main.clientWidth - 70))), H = 200, PL = 36, PR = 32, T = 12, B = 22, iw = W - PL - PR, ih = H - T - B, n = rows.length;
+    const X = i => PL + (n === 1 ? iw / 2 : i * iw / (n - 1)), Y = (v, m) => T + ih - (+v || 0) / m * ih;
     const smooth = pts => pts.map((p, i) => { if (!i) return `M${p[0].toFixed(1)},${p[1].toFixed(1)}`; const a = pts[i - 2] || pts[i - 1], b = pts[i - 1], c = p, d = pts[i + 1] || p, k = 6; return `C${(b[0] + (c[0] - a[0]) / k).toFixed(1)},${Math.min(T + ih, b[1] + (c[1] - a[1]) / k).toFixed(1)} ${(c[0] - (d[0] - b[0]) / k).toFixed(1)},${Math.min(T + ih, c[1] - (d[1] - b[1]) / k).toFixed(1)} ${c[0].toFixed(1)},${c[1].toFixed(1)}`; }).join(' ');
-    const pv = rows.map((r, i) => [X(i), Y(r.views)]), pu = rows.map((r, i) => [X(i), Y(r.visitors)]), lv = smooth(pv);
-    const grid = [0, .5, 1].map(f => `<line x1="${PL}" x2="${W - 8}" y1="${(T + ih - f * ih).toFixed(1)}" y2="${(T + ih - f * ih).toFixed(1)}" class="ac-grid"/><text x="${PL - 6}" y="${(T + ih - f * ih + 3).toFixed(1)}" text-anchor="end">${num(Math.round(nice * f))}</text>`).join('');
+    const pv = rows.map((r, i) => [X(i), Y(r.views, maxV)]), pu = rows.map((r, i) => [X(i), Y(r.visitors, maxU)]), lv = smooth(pv);
+    const grid = [0, .5, 1].map(f => { const y = (T + ih - f * ih).toFixed(1), ty = (T + ih - f * ih + 3).toFixed(1); return `<line x1="${PL}" x2="${W - PR}" y1="${y}" y2="${y}" class="ac-grid"/><text x="${PL - 6}" y="${ty}" text-anchor="end">${num(Math.round(maxV * f))}</text><text x="${W - PR + 6}" y="${ty}" text-anchor="start" class="ac-ax-u">${num(Math.round(maxU * f))}</text>`; }).join('');
     const dd = d => LANG === 'en' ? d.slice(5, 7) + '/' + d.slice(8) : d.slice(8) + '/' + d.slice(5, 7), cw = n > 1 ? iw / (n - 1) : iw;
     return `<svg class="area-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${L('Lượt xem và khách 14 ngày qua')}"><defs><linearGradient id="acFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--primary)" stop-opacity=".3"/><stop offset="1" stop-color="var(--primary)" stop-opacity="0"/></linearGradient></defs>
       ${grid}<path d="${lv} L${X(n - 1).toFixed(1)},${T + ih} L${X(0).toFixed(1)},${T + ih} Z" fill="url(#acFill)"/><path d="${lv}" class="ac-v"/><path d="${smooth(pu)}" class="ac-u"/>
-      ${rows.map((r, i) => `<g class="ac-col"><rect x="${(X(i) - cw / 2).toFixed(1)}" y="${T}" width="${cw.toFixed(1)}" height="${ih}" fill="transparent"/><line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${T}" y2="${T + ih}" class="ac-hl"/><circle cx="${pv[i][0].toFixed(1)}" cy="${pv[i][1].toFixed(1)}" r="3.5" class="ac-dv"/><circle cx="${pu[i][0].toFixed(1)}" cy="${pu[i][1].toFixed(1)}" r="3" class="ac-du"/>${i % 2 === (n - 1) % 2 ? `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="middle">${dd(r.day)}</text>` : ''}<title>${L('{d}: {v} lượt xem · {u} khách', { d: dd(r.day), v: num(r.views), u: num(r.visitors) })}</title></g>`).join('')}</svg>
-      <p class="small muted ac-legend"><span class="lg new"></span> ${L('Lượt xem')} <span class="lg vis"></span> ${L('Khách')}</p>`;
+      ${rows.map((r, i) => `<g class="ac-col"><rect x="${(X(i) - cw / 2).toFixed(1)}" y="${T}" width="${cw.toFixed(1)}" height="${ih}" fill="transparent"/><line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${T}" y2="${T + ih}" class="ac-hl"/><circle cx="${pv[i][0].toFixed(1)}" cy="${pv[i][1].toFixed(1)}" r="3.5" class="ac-dv"/><circle cx="${pu[i][0].toFixed(1)}" cy="${pu[i][1].toFixed(1)}" r="3" class="ac-du"/>${i % 2 === (n - 1) % 2 ? `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="middle">${r.today ? L('Hôm nay') : dd(r.day)}</text>` : ''}<title>${L('{d}: {v} lượt xem · {u} khách', { d: r.today ? L('Hôm nay (đến giờ)') : dd(r.day), v: num(r.views), u: num(r.visitors) })}</title></g>`).join('')}</svg>
+      <p class="small muted ac-legend"><span class="lg new"></span> ${L('Lượt xem (trục trái)')} <span class="lg vis"></span> ${L('Khách (trục phải)')}</p>`;
   };
   // Dòng "đã loại": máy tự động & quản trị hôm nay không cộng vào số người thật (để thấy bộ lọc đang chạy)
-  const EXCL = { ci: 'CI của mình', 'ci-app': 'App trên máy ảo CI', ua: 'Bot/công cụ (UA)', bot: 'Bot đã xác minh', dc: 'Máy chủ đám mây', admin: 'Quản trị' };
+  const EXCL = { ci: 'CI của mình', 'ci-app': 'App trên máy ảo CI', ua: 'Bot/công cụ (UA)', bot: 'Bot đã xác minh', dc: 'Máy chủ đám mây', dev: 'Bản dev/preview', admin: 'Quản trị' };
   const exclLine = l => {
     const x = l.excluded; if (!x) return '';
     const parts = (x.kinds || []).map(r => `${esc(L(EXCL[r.k] || r.k))} ${num(r.s)}`).join(' · ');
@@ -695,20 +725,17 @@
         ${lt('⏱️', L('Thời gian TB'), t.s ? durS(t.dur) : '–', L('mỗi phiên hôm nay'))}
         ${lt('Σ', L('Tổng lượt xem'), num(tot.views), L('{n} khách từ trước đến nay', { n: num(tot.visitors) }))}
       </div>
-      <div class="ac-wrap"><div class="small muted ac-title">${L('14 ngày qua')}</div>${areaChart(l.series)}</div>`;
+      <div class="ac-wrap"><div class="small muted ac-title">${L('14 ngày qua')}</div>${areaChart(l)}</div>`;
   };
   const route = k => '#/' + (k || 'home');
   const liveGrid = l => {
-    const P = ['web', 'pwa', 'ext', 'ios', 'android'], m = rows => Object.fromEntries((rows || []).map(r => [r.k, r.n]));
-    const pt = m(l.platsToday), p30 = m(l.plats30), keys = [...P, ...Object.keys({ ...pt, ...p30 }).filter(k => !P.includes(k))];
-    const tt = Math.max(1, ...keys.map(k => pt[k] || 0)), t3 = Math.max(1, ...keys.map(k => p30[k] || 0));
     return `
-      <div class="card"><h3>${L('🌍 Quốc gia hôm nay')}</h3>${bars((l.countries || []).slice(0, 12), r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', (l.today || {}).visitors)}</div>
-      <div class="card"><h3>${L('👀 Đang xem')} <span class="small muted">· ${num(l.online)} online</span></h3>${(l.viewing || []).length ? bars(l.viewing, r => route(r.k)) : emptyState(L('Không ai online trong 5 phút qua'))}</div>
+      <div class="card"><h3>${L('🌍 Quốc gia hôm nay')}</h3>${bars((l.countries || []).slice(0, 12), CL, r => r.n, () => '', (l.today || {}).visitors)}</div>
+      <div class="card"><h3>${L('👀 Đang xem')} <span class="small muted">· ${num(l.online)} online</span></h3>${(l.viewing || []).length ? bars(l.viewing, r => route(r.k), r => r.n, () => '', l.online) : emptyState(L('Không ai online trong 5 phút qua'))}</div>
       <div class="card"><h3>${L('📄 Trang xem nhiều hôm nay')}</h3>${bars(l.pagesToday, r => route(r.k))}${l.pagesFallback ? `<p class="tiny muted">${L('Theo trang vào đầu tiên (chưa có số lượt xem từng trang).')}</p>` : ''}</div>
       <div class="card"><h3>${L('🔗 Nguồn giới thiệu hôm nay')}</h3>${(l.refs || []).length ? bars(l.refs) : emptyState(L('Chủ yếu truy cập trực tiếp'))}</div>
       <div class="card"><h3>${L('🔥 Trang xem nhiều · 7 ngày')}</h3>${bars(l.pages7, r => route(r.k))}</div>
-      <div class="card"><h3>${L('📱 Nền tảng')}</h3><table class="tbl plat-tbl"><thead><tr><th scope="col">${L('Nền tảng')}</th><th scope="col" class="num">${L('Hôm nay')}</th><th scope="col" class="num">${L('30 ngày')}</th></tr></thead><tbody>${keys.map(k => `<tr><td>${platIcon(k)} ${esc(platName(k))}</td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</tbody></table><p class="tiny muted">${L('Số khách (thiết bị) khác nhau.')}</p></div>`;
+      ${platCard(l)}`;
   };
   // Nạp jsvectormap (MIT, lưu sẵn trong web/js/vendor) chỉ khi mở tab Phân tích
   const loadMap = () => mapLib || (mapLib = new Promise((ok, fail) => {
@@ -723,7 +750,7 @@
     const rows = (countries || []).filter(r => realCC(r.k)), vals = Object.fromEntries(rows.map(r => [r.k, r.n])), known = rows.reduce((a, r) => a + r.n, 0), unk = (countries || []).filter(r => !realCC(r.k)).reduce((a, r) => a + r.n, 0);
     mapKey = JSON.stringify(countries || []);
     if ($('#mapSum')) $('#mapSum').textContent = L('{c} quốc gia · {n} khách', { c: rows.length, n: num(known) }) + (unk ? L(' · {n} không rõ', { n: num(unk) }) : '');
-    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">${L('Ít')}</span>${BUCKETS.map(b => `<span class="ml-i"><i style="background:${b[2]}"></i>${b[0]}</span>`).join('')}<span class="small muted">${L('Nhiều khách')}</span>`;
+    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="ml-end">${L('Ít')}</span><span class="ml-strip">${BUCKETS.map(b => `<span class="ml-seg"><i style="background:${b[2]}"></i><small>${b[0]}</small></span>`).join('')}</span><span class="ml-end">${L('Nhiều khách')}</span>`;
     try {
       const JVM = await loadMap(); if (!$('#worldMap') || tab !== 'analytics') return;
       if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; }
@@ -740,7 +767,7 @@
       if (window.ResizeObserver && !mapRO) { let w = 0; mapRO = new ResizeObserver(() => { const k = box.clientWidth + 'x' + box.clientHeight; if (worldMap && k !== w) { w = k; try { worldMap.updateSize(); } catch (e) { /* bỏ qua */ } } }); mapRO.observe(box); }
     } catch (e) {
       box.classList.add('fallback');
-      box.innerHTML = `<p class="small muted">${L('Không tải được bản đồ – danh sách quốc gia:')}</p>${bars(rows, r => FLAG(r.k) + ' · ' + cname(r.k))}`;
+      box.innerHTML = `<p class="small muted">${L('Không tải được bản đồ – danh sách quốc gia:')}</p>${bars(rows, CL)}`;
     }
   }
   // ---------- Người dùng: hộp thoại chi tiết & xóa dữ liệu (gõ lại UID để xác nhận) ----------
@@ -777,6 +804,7 @@
         <dl class="u-facts">
           ${fact('UID', copyBtn(u.uid || uid))}
           ${fact(L('Nền tảng'), `${platIcon(u.plat)} ${esc(platName(u.plat))}`)}
+          ${fact(L('Quốc gia'), u.cc ? `${esc(FLAG(u.cc))} · ${esc(cname(u.cc))}` : `<span class="muted">${L('Chưa rõ')}</span>`)}
           ${fact(L('Ngày tạo'), rel(u.created))}
           ${fact(L('Hoạt động gần nhất'), rel(u.seen))}
           ${fact(L('Số lần vào (đồng bộ)'), num(u.n))}
@@ -1076,7 +1104,7 @@
         <div class="card mt"><h3>${L('Phiên theo ngày')}</h3>${chart(padDays(a.daily, a.days), 's', L('Phiên theo ngày: {r}', { r: span }))}</div>
         <div class="adm-grid">
           <div class="card"><h3>${L('Nguồn truy cập')}</h3>${bars(a.refs, r => L(r.k), r => r.n, r => ` · ${dur(r.dur)}`)}</div>
-          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k), r => r.n, () => '', s.s)}</div>
+          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, CL, r => r.n, () => '', s.s)}</div>
           <div class="card"><h3>${L('Trang vào đầu tiên')}</h3>${bars(a.paths, r => '#/' + r.k)}</div>
           <div class="card"><h3>${L('Tần suất (số phiên mỗi khách)')}</h3>${bars(['1', '2–3', '4–7', '8–15', '16+'].map(k => (a.freq || []).find(f => f.k === k) || { k, n: 0 }), r => L('{k} lần', { k: r.k }))}</div>
           <div class="card"><h3>${L('Thiết bị')}</h3>${bars(a.devs)}<h3 class="mt">${L('Nền tảng@@h')}</h3>${bars(a.plats, r => platName(r.k))}</div>
@@ -1110,7 +1138,12 @@
     },
     async users() {
       let f; try { f = JSON.parse(sessionStorage.getItem('adm.uf') || '{}'); } catch (e) { f = {}; }
-      f = { q: '', role: '', status: '', plat: '', sort: 'seen', offset: 0, ...f };
+      f = { q: '', role: '', status: '', plat: '', cc: '', from: '', to: '', sort: 'seen', offset: 0, ...f };
+      // Quốc gia: mã 2 chữ Cloudflare lưu ở lần đồng bộ gần nhất (users.cc, không lưu IP) – cờ + tên theo ngôn ngữ trang quản trị
+      const flagOf = c => realCC(c) ? String.fromCodePoint(...[...c].map(x => 127397 + x.charCodeAt(0))) : c === 'T1' ? '🧅' : '🌐';
+      const ccName = c => (c ? cname(c) : L('Chưa rõ quốc gia'));
+      const ccCell = c => `<span aria-hidden="true">${flagOf(c)}</span> ${c ? esc(ccName(c)) : `<span class="muted">${L('Chưa rõ')}</span>`}`;
+      let ccs = [];
       const sel = (id, label, opts) => `<label class="u-sel"><span>${L(label)}</span><select id="${id}">${opts.map(([v, t]) => `<option value="${v}" ${f[id.slice(1)] === v ? 'selected' : ''}>${L(t)}</option>`).join('')}</select></label>`;
       setActions(`<button type="button" class="btn sm" id="ucsv" title="${esc(L('Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)'))}">⬇ CSV</button>`);
       main.innerHTML = `
@@ -1121,11 +1154,16 @@
             ${sel('frole', 'Vai trò', [['', 'Tất cả'], ['admin', 'Quản trị'], ['learner', 'Người học']])}
             ${sel('fstatus', 'Trạng thái', [['', 'Tất cả'], ['active7', 'Hoạt động 7 ngày'], ['dormant', 'Ngủ đông >30 ngày'], ['new7', 'Mới 7 ngày']])}
             ${sel('fplat', 'Nền tảng', [['', 'Tất cả'], ['web', 'Web'], ['ios', 'iOS'], ['android', 'Android'], ['ext', 'Add-on Chrome'], ['app', 'App (cũ)']])}
-            ${sel('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất']])}
+            <label class="u-sel"><span>${L('Quốc gia')}</span><select id="fcc"><option value="">${L('Tất cả')}</option>${f.cc ? `<option value="${esc(f.cc)}" selected>${esc(f.cc === '??' ? L('Chưa rõ quốc gia') : ccName(f.cc))}</option>` : ''}</select></label>
+            <label class="u-sel"><span>${L('Tham gia từ')}</span><input type="date" id="ffrom" value="${esc(f.from)}"></label>
+            <label class="u-sel"><span>${L('đến ngày')}</span><input type="date" id="fto" value="${esc(f.to)}"></label>
+            ${sel('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất'], ['old', 'Tham gia sớm nhất'], ['n', 'Vào nhiều nhất']])}
+            <button type="button" class="btn ghost sm" id="uclr" ${['q', 'role', 'status', 'plat', 'cc', 'from', 'to'].some(k => f[k]) ? '' : 'hidden'}>${L('Bỏ lọc')}</button>
           </div>
           <div class="tbl-wrap scroll" id="uTable"><span class="sk sk-block" style="margin:0"></span></div>
           <div class="u-pager" id="uPager"></div>
-        </div>`;
+        </div>
+        <section class="card mt" aria-labelledby="uCcH"><div class="card-h"><h2 class="h3" id="uCcH">${L('🌍 Người dùng theo quốc gia')}</h2><span class="small muted">${L('Lần đồng bộ gần nhất · bấm để lọc')}</span></div><div id="uCc"><span class="sk sk-block" style="margin:0"></span></div></section>`;
       const save = () => sessionStorage.setItem('adm.uf', JSON.stringify(f));
       let my = 0;
       const load = async () => {
@@ -1133,21 +1171,32 @@
         try { r = await api('users', f); } catch (e) { if (me === my && tab === 'users') $('#uTable').innerHTML = errBox(e); return; }
         if (me !== my || tab !== 'users') return;
         const k = r.kpi || {}, tot = r.total || 0;
+        ccs = r.countries || [];
+        const known = ccs.filter(c => c.k), top = known.slice(0, 15), unk = (ccs.find(c => !c.k) || {}).n || 0;
+        const fcc = $('#fcc'); fcc.innerHTML = `<option value="">${L('Tất cả')}</option>${[...known].sort((a, b) => ccName(a.k).localeCompare(ccName(b.k), LOC())).map(c => `<option value="${esc(c.k)}">${flagOf(c.k)} ${esc(ccName(c.k))} (${num(c.n)})</option>`).join('')}${unk ? `<option value="??">${esc(L('Chưa rõ quốc gia'))} (${num(unk)})</option>` : ''}`;
+        if (f.cc && ![...fcc.options].some(o => o.value === f.cc)) fcc.insertAdjacentHTML('beforeend', `<option value="${esc(f.cc)}">${esc(ccName(f.cc))}</option>`);
+        fcc.value = f.cc;
+        const max = Math.max(1, ...ccs.map(c => c.n)), sum = ccs.reduce((t, c) => t + c.n, 0) || 1;
+        const ccRow = (c, lbl) => `<button type="button" class="row2 u-ccrow" data-cc="${esc(c.k || '??')}" aria-pressed="${f.cc === (c.k || '??')}"><span class="k">${lbl}</span><span class="track"><i style="width:${c.n / max * 100}%"></i></span><span class="v">${num(c.n)}<small> · ${Math.round(c.n / sum * 100)}%</small></span></button>`;
+        $('#uCc').innerHTML = ccs.length ? `<div class="hbars u-cc">${top.map(c => ccRow(c, ccCell(c.k))).join('')}${unk ? ccRow({ k: '', n: unk }, `<span aria-hidden="true">🌐</span> <span class="muted">${L('Chưa rõ quốc gia')}</span>`) : ''}</div>
+          <p class="small muted">${L('{n} quốc gia', { n: num(known.length) })}${known.length > top.length ? ' · ' + L('xem tất cả trong ô lọc Quốc gia') : ''}${unk ? ' · ' + L('"Chưa rõ" = tài khoản chưa đồng bộ lại từ khi có thống kê quốc gia') : ''}</p>` : NODATA();
+        $('#uCc').querySelectorAll('[data-cc]').forEach(b => { b.onclick = () => { f.cc = f.cc === b.dataset.cc ? '' : b.dataset.cc; f.offset = 0; load(); }; });
+        $('#uclr').hidden = !['q', 'role', 'status', 'plat', 'cc', 'from', 'to'].some(x => f[x]);
         $('#uKpi').innerHTML = `
           ${tile({ l: L('Tổng người dùng'), v: num(tot), s: L('tài khoản đã đồng bộ') })}
           ${tile({ l: L('Hoạt động hôm nay'), v: num(k.act1), s: L('24 giờ qua') })}
           ${tile({ l: L('Hoạt động 7 / 30 ngày'), v: `${num(k.act7)} <small>/ ${num(k.act30)}</small>`, s: L('{p}% còn hoạt động trong tháng', { p: tot ? Math.round((k.act30 || 0) / tot * 100) : 0 }) })}
           ${tile({ l: L('Mới 7 ngày'), v: num(k.new7), s: L('tài khoản đăng ký mới') })}
           <div class="kstat"><span class="tile-l">${L('Theo nền tảng')}</span><div class="u-plats">${(r.plats || []).map(p => `<span class="chip">${platIcon(p.k)} ${esc(platName(p.k))} · <b>${num(p.n)}</b></span>`).join('') || '<span class="small muted">–</span>'}</div></div>`;
-        $('#uTable').innerHTML = `<table class="tbl u-tbl"><thead><tr><th scope="col">${L('Người dùng')}</th><th scope="col">${L('Vai trò')}</th><th scope="col">${L('Nền tảng')}</th><th scope="col">${L('Ngày tạo')}</th><th scope="col">${L('Hoạt động gần nhất')}</th><th scope="col" class="num">${L('Lần vào')}</th><th scope="col"><span class="sr-only">${L('Thao tác')}</span></th></tr></thead><tbody>
+        $('#uTable').innerHTML = `<table class="tbl u-tbl"><thead><tr><th scope="col">${L('Người dùng')}</th><th scope="col">${L('Vai trò')}</th><th scope="col">${L('Nền tảng')}</th><th scope="col">${L('Quốc gia')}</th><th scope="col">${L('Ngày tạo')}</th><th scope="col">${L('Hoạt động gần nhất')}</th><th scope="col" class="num">${L('Lần vào')}</th><th scope="col"><span class="sr-only">${L('Thao tác')}</span></th></tr></thead><tbody>
           ${(r.rows || []).map(u => {
             const utags = (Array.isArray(u.tags) ? u.tags : (() => { try { return JSON.parse(u.tags || '[]'); } catch (e) { return []; } })());
             return `<tr><td><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><b>${esc(u.name || L('(không tên)'))}</b> ${u.blocked ? `<span class="chip bad sm">⛔ ${L('Bị khóa')}</span>` : ''}<br><span class="small muted">${esc(u.email || u.uid)}</span>${utags.length ? `<div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.2rem">${utags.map(t => `<span class="chip sm">${esc(t)}</span>`).join('')}</div>` : ''}</span></div></td>
             <td>${rolePill(u.isAdmin)}</td>
-            <td class="nowrap">${platIcon(u.plat)} ${esc(platName(u.plat))}</td><td class="small nowrap">${rel(u.created)}</td>
+            <td class="nowrap">${platIcon(u.plat)} ${esc(platName(u.plat))}</td><td class="nowrap">${ccCell(u.cc)}</td><td class="small nowrap">${rel(u.created)}</td>
             <td class="small nowrap"><span class="dot ${Date.now() - u.seen < 7 * 864e5 ? 'ok' : Date.now() - u.seen > 30 * 864e5 ? '' : 'warn'}"></span>${rel(u.seen)}</td><td class="num">${num(u.n)}</td>
             <td class="nowrap"><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${L('Chi tiết')}</button> <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${L('Gửi thông báo')}">📣 ${L('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${L('Xóa dữ liệu')}</button></td></tr>`;
-          }).join('') || `<tr><td colspan="7">${emptyState(L('Không có người dùng khớp bộ lọc'), L('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}</td></tr>`}</tbody></table>`;
+          }).join('') || `<tr><td colspan="8">${emptyState(L('Không có người dùng khớp bộ lọc'), L('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}</td></tr>`}</tbody></table>`;
         const from = r.filtered ? f.offset + 1 : 0, to = Math.min(f.offset + 50, r.filtered);
         $('#uPager').innerHTML = `<span>${num(from)}–${num(to)} / ${num(r.filtered)}${r.filtered !== tot ? L(' (lọc từ {n})', { n: num(tot) }) : ''}</span><span><button type="button" class="btn sm" id="uprev" ${f.offset ? '' : 'disabled'}>${L('← Trước')}</button> <button type="button" class="btn sm" id="unext" ${to < r.filtered ? '' : 'disabled'}>${L('Sau →')}</button></span>`;
         $('#uprev').onclick = () => { f.offset = Math.max(0, f.offset - 50); load(); };
@@ -1157,14 +1206,15 @@
         main.querySelectorAll('[data-notif]').forEach(b => { b.onclick = () => { try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: b.dataset.notif, email: b.dataset.em })); } catch (e) { /* bỏ qua */ } show('notices'); }; });
       };
       let deb; $('#uq').oninput = () => { clearTimeout(deb); deb = setTimeout(() => { f.q = $('#uq').value.trim(); f.offset = 0; load(); }, 350); };
-      [['#frole', 'role'], ['#fstatus', 'status'], ['#fplat', 'plat'], ['#fsort', 'sort']].forEach(([id, k]) => { $(id).onchange = () => { f[k] = $(id).value; f.offset = 0; load(); }; });
+      [['#frole', 'role'], ['#fstatus', 'status'], ['#fplat', 'plat'], ['#fcc', 'cc'], ['#ffrom', 'from'], ['#fto', 'to'], ['#fsort', 'sort']].forEach(([id, k]) => { $(id).onchange = () => { f[k] = $(id).value; f.offset = 0; load(); }; });
+      $('#uclr').onclick = () => { Object.assign(f, { q: '', role: '', status: '', plat: '', cc: '', from: '', to: '', offset: 0 }); ['#uq', '#frole', '#fstatus', '#fplat', '#fcc', '#ffrom', '#fto'].forEach(id => { $(id).value = ''; }); load(); };
       $('#ucsv').onclick = async () => {
         const b = $('#ucsv'); b.disabled = true; b.textContent = L('⏳ Đang xuất…');
         try {
           const r = await api('usersExport', { ...f, offset: 0 });
           const cell = v => { let x = String(v == null ? '' : v); if (/^[=+\-@\t\r]/.test(x)) x = "'" + x; return /[",\n\r;]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; };
           const iso = t => t ? new Date(t).toISOString() : '';
-          const lines = [['email', 'name', 'role', 'plat', 'created', 'seen', 'n'], ...r.rows.map(u => [u.email, u.name, u.isAdmin ? 'admin' : 'learner', u.plat, iso(u.created), iso(u.seen), u.n])].map(x => x.map(cell).join(','));
+          const lines = [['email', 'name', 'role', 'plat', 'country', 'created', 'seen', 'n'], ...r.rows.map(u => [u.email, u.name, u.isAdmin ? 'admin' : 'learner', u.plat, u.cc || '', iso(u.created), iso(u.seen), u.n])].map(x => x.map(cell).join(','));
           const url = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' }));
           const a = document.createElement('a'); a.href = url; a.download = `lexkite-users-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
           toast(L('Đã xuất {n} dòng', { n: num(r.rows.length) }));

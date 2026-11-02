@@ -76,12 +76,24 @@ body.adm {
   .side-scrim { display: block; position: fixed; inset: 0; z-index: 65; background: color-mix(in srgb, var(--text) 45%, transparent); }
   .adm-cmdk { min-width: 0; margin-left: auto; width: 36px; padding: 0; justify-content: center; }
   .adm.adm-in .adm-cmdk { display: inline-grid; place-items: center; }
-  .adm-cmdk .adm-cmdk-t, .adm-cmdk kbd { display: none; }
+  .adm-cmdk kbd { display: none; }
+  .adm-cmdk .adm-cmdk-t { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } /* chỉ ẩn bằng mắt: nút ⌕ vẫn có tên cho trình đọc màn hình (axe button-name) */
   .adm-me { margin-left: 0; }
   .adm-email, .adm-me .lbl { display: none; }
   .adm-tag { display: none; }
 }
 @media (max-width: 420px) { .adm-top { gap: .35rem; padding: 0 .5rem; } .adm-brand .wordmark { display: none; } }
+/* Điện thoại (owner 1/11, iPhone: chữ "lexkite" bị nút ⌕ đè, nút ↩ 🌗 VI|EN Thoát chật/tràn): chỉ logo (đã là link về app → ẩn nút ↩ trùng),
+   mọi nút đầu trang ≥ 44 px, không co chữ, không tràn. */
+@media (max-width: 480px) {
+  .adm-top { gap: .25rem; padding: 0 .5rem; }
+  .adm-brand .wordmark { display: none; }
+  .adm-brand { min-width: 44px; min-height: 44px; justify-content: center; flex: none; }
+  .adm-top .adm-ibtn, .adm.adm-in .adm-cmdk { width: 44px; height: 44px; flex: none; }
+  .adm-me { gap: .25rem; flex: none; }
+  .adm-me #home { display: none; }
+  .adm-me .btn { height: 44px; min-height: 44px; min-width: 44px; padding: 0 .55rem; flex: none; }
+}
 
 /* ---------- Đầu trang ---------- */
 .pg-head { max-width: var(--a-max); margin: 0 0 1.4rem; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: .8rem 1rem; }
@@ -304,11 +316,13 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .savebar .sp { flex: 1; }
 
 /* ---------- Biểu đồ nhẹ (SVG/HTML) ---------- */
-.hbars .row2 { display: grid; grid-template-columns: minmax(80px, 36%) 1fr auto; gap: .75rem; align-items: center; font-size: .86rem; padding: .38rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.hbars .row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(48px, 28%) auto; gap: .65rem; align-items: center; font-size: .86rem; min-height: 40px; padding: .3rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
 .hbars .row2:last-child { border-bottom: 0; }
-.hbars .k { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 550; }
-.hbars .track { height: 7px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
-.hbars .track i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--primary) 85%, var(--accent))); min-width: 3px; }
+.hbars .k { min-width: 0; font-weight: 550; line-height: 1.3; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } /* tên đủ, tối đa 2 dòng (không còn "VN · Vi…") */
+.hbars .k .cc { display: inline-block; min-width: 3.3em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.hbars .track { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.hbars .track i { display: block; height: 100%; border-radius: 99px; background: var(--primary); min-width: 4px; } /* thang chung = % trên tổng, giống thẻ Nền tảng */
+.hbars .track i.z { min-width: 0; width: 0 !important; }
 .hbars .v { font-weight: 750; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
 .hbars .v small { font-weight: 500; color: var(--muted); }
 .hchart { display: flex; align-items: flex-end; gap: 4px; height: 160px; padding-top: .6rem; }
@@ -324,6 +338,7 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .area-chart .ac-grid { stroke: var(--line); stroke-dasharray: 3 4; }
 .area-chart .ac-v { fill: none; stroke: var(--primary); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; filter: drop-shadow(0 2px 4px color-mix(in srgb, var(--primary) 20%, transparent)); }
 .area-chart .ac-u { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.area-chart text.ac-ax-u { fill: var(--accent); }
 .area-chart .ac-hl { stroke: var(--muted); stroke-dasharray: 2 3; opacity: 0; }
 .area-chart .ac-dv { fill: var(--primary); opacity: 0; } .area-chart .ac-du { fill: var(--accent); opacity: 0; }
 .area-chart .ac-col:hover .ac-hl, .area-chart .ac-col:hover circle { opacity: 1; }
@@ -354,14 +369,44 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .map-card .world-map { height: 360px; margin-top: .6rem; position: relative; border-radius: 12px; border: 1px solid var(--line); background: color-mix(in srgb, var(--surface-2) 40%, var(--surface)); overflow: hidden; }
 .map-card .world-map.fallback { height: auto; }
 @media (max-width: 560px) { .map-card .world-map { height: 220px; } }
-.map-legend { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: .75rem; font-size: .78rem; font-weight: 600; color: var(--muted); }
-.map-legend .ml-i { display: inline-flex; align-items: center; gap: .3rem; } .map-legend i { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
+.map-legend { display: flex; align-items: center; gap: .55rem; margin-top: .75rem; font-size: .78rem; font-weight: 600; color: var(--muted); }
+.map-legend .ml-end { flex: none; white-space: nowrap; }
+.map-legend .ml-strip { display: flex; flex: 1 1 auto; min-width: 0; max-width: 340px; } /* một dải màu liền, nhãn số dưới từng khúc */
+.map-legend .ml-seg { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.map-legend .ml-seg i { display: block; width: 100%; height: 10px; }
+.map-legend .ml-seg:first-child i { border-radius: 99px 0 0 99px; } .map-legend .ml-seg:last-child i { border-radius: 0 99px 99px 0; }
+.map-legend .ml-seg small { font-size: .7rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .world-map .jvm-zoom-btn { background: var(--surface); color: var(--text); border: 1px solid var(--line); width: 26px; height: 26px; line-height: 22px; padding: 0; text-align: center; border-radius: 8px; left: 12px; font-weight: 700; box-sizing: border-box; box-shadow: var(--a-card-shadow); transition: all .14s ease; cursor: pointer; }
 .world-map .jvm-zoom-btn:hover { background: var(--surface-2); border-color: var(--primary); }
 .world-map .jvm-zoom-btn.jvm-zoomin { top: 12px; } .world-map .jvm-zoom-btn.jvm-zoomout { top: 44px; }
 .jvm-tooltip { background: var(--text) !important; color: var(--bg) !important; font: 600 .78rem/1.3 system-ui, sans-serif !important; padding: .35rem .6rem !important; border-radius: 8px !important; z-index: 60; box-shadow: var(--shadow-lg) !important; }
 .live-grid { margin-top: 0; margin-bottom: .4rem; }
-.plat-tbl td, .plat-tbl th { padding: .5rem .45rem; }
+/* Thẻ Nền tảng (js/admin-plat.js): 1 dòng/nền tảng, cột thẳng, số tabular, 1 thanh = % thiết bị 30 ngày trên thang chung, dòng Tổng */
+.plat-card { min-width: 0; grid-column: 1 / -1; } /* thẻ bảng 4 cột: luôn chiếm cả hàng lưới, không bị ép vào 1 ô hẹp */
+/* css/adm.css ép .adm-grid thành 2 cột 1fr ở ≤ 480 px (dành cho ô Quản trị nhỏ). Thẻ Phân tích trực tiếp có nội dung tối thiểu > nửa màn
+   → lưới tràn, trình duyệt điện thoại thu nhỏ cả trang về ~480 px (ảnh owner 1/11; test chỉ ra thẻ Quốc gia/Tần suất). Ở điện thoại: 1 cột. */
+@media (max-width: 480px) { .adm-grid:has(> .card) { grid-template-columns: minmax(0, 1fr); } .adm-grid > .card { min-width: 0; } } /* mọi lưới thẻ (Trực tiếp, Chi tiết…); ô .adm-tile giữ 2 cột */
+.plat-tbl thead th:first-child { text-align: left; }
+.plat-tbl { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; color: var(--text); }
+.plat-tbl th, .plat-tbl td { height: 44px; padding: 0 .35rem; border-bottom: 1px solid color-mix(in srgb, var(--line-2) 70%, transparent); white-space: nowrap; vertical-align: middle; }
+.plat-tbl th:first-child { padding-left: 0; } .plat-tbl tr > :last-child { padding-right: 0; }
+.plat-tbl .c-n { width: 3.4em; } .plat-tbl .c-s { width: 28%; }
+.plat-tbl thead th { height: 36px; font-size: .75rem; line-height: 1.2; font-weight: 700; color: var(--muted); text-transform: none; letter-spacing: 0; white-space: normal; border-bottom: 1px solid var(--line-2); }
+.plat-tbl tbody th, .plat-tbl tfoot th { overflow: hidden; text-overflow: ellipsis; }
+.plat-tbl .num { text-align: right; }
+.plat-tbl tbody th, .plat-tbl tfoot th { text-align: left; font-weight: 650; }
+.plat-tbl tbody td.num { font-weight: 700; }
+.plat-tbl .pi { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: .35rem; border-radius: 7px; background: var(--surface-2); font-size: 14px; line-height: 1; vertical-align: middle; font-weight: 800; color: var(--muted); }
+.plat-tbl .pn { vertical-align: middle; }
+.plat-tbl .ps { text-align: right; } .plat-tbl .ps > * { vertical-align: middle; }
+.plat-tbl .pbar { display: inline-block; width: calc(100% - 3.1em); height: 8px; margin-right: .4em; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.plat-tbl .pbar i { display: block; height: 100%; min-width: 4px; border-radius: 99px; background: var(--primary); }
+.plat-tbl .pbar i.z { min-width: 0; width: 0 !important; }
+.plat-tbl .pp { display: inline-block; min-width: 2.7em; text-align: right; font-weight: 650; color: var(--muted); font-size: .8rem; }
+.plat-tbl tr.zero td.num, .plat-tbl tr.zero .pp { color: var(--muted); font-weight: 500; }
+.plat-tbl tfoot th, .plat-tbl tfoot td { border-bottom: 0; border-top: 2px solid var(--line-2); font-weight: 800; }
+.plat-tbl tfoot .pp { color: var(--text); }
+.plat-note { margin: .5rem 0 0; font-size: .78rem; line-height: 1.45; color: var(--muted); }
 .adm-main svg { touch-action: pan-x pan-y; } .adm-main .world-map svg { touch-action: none; }
 .range-tabs { display: inline-flex; gap: 3px; padding: 3px; border-radius: 11px; background: var(--surface-2); border: 1px solid var(--line); flex-wrap: wrap; box-shadow: var(--a-card-shadow); }
 .range-tabs button { all: unset; cursor: pointer; padding: .32rem .75rem; border-radius: 8px; font-size: .82rem; font-weight: 600; color: var(--muted); transition: all .14s ease; }
@@ -380,8 +425,13 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .u-tools { display: flex; flex-wrap: wrap; gap: .65rem; align-items: flex-end; margin-bottom: 1rem; }
 .u-tools input[type=search] { flex: 1 1 240px; min-width: 0; }
 .u-sel { display: flex; flex-direction: column; gap: .25rem; font-size: .74rem; font-weight: 650; color: var(--muted); }
+.u-tools input[type=date] { min-height: 2.25rem; }
+.u-cc .u-ccrow { width: 100%; background: none; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); color: inherit; font: inherit; text-align: left; cursor: pointer; border-radius: 6px; padding-inline: .35rem; min-height: 44px; }
+.u-cc .u-ccrow:hover, .u-cc .u-ccrow:focus-visible { background: var(--surface-2); }
+.u-cc .u-ccrow[aria-pressed=true] { background: color-mix(in srgb, var(--primary) 12%, transparent); box-shadow: inset 3px 0 0 var(--primary); }
 .u-sel select { width: auto; min-width: 135px; padding: .5rem .7rem; font-size: .85rem; border-radius: 9px; }
 .u-tbl td { vertical-align: middle; padding: .65rem .6rem; }
+.u-tbl td:first-child { min-width: 15rem; } /* tên/email không bị bóp từng chữ khi bảng nhiều cột – bảng tự cuộn ngang trong .tbl-wrap */
 .u-who { display: flex; align-items: center; gap: .7rem; min-width: 0; } .u-who > span:last-child { min-width: 0; overflow-wrap: anywhere; }
 .u-av { width: 34px; height: 34px; border-radius: 50%; flex: none; display: inline-grid; place-items: center; font-weight: 800; font-size: .92rem; color: var(--primary); background: var(--primary-soft); border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent); box-shadow: 0 1px 2px rgba(0,0,0,.04); }
 .u-av.big { width: 48px; height: 48px; font-size: 1.25rem; }

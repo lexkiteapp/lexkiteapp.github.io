@@ -3,13 +3,16 @@
 name: Admin – gác bố cục
 on:
   pull_request:
-    paths: ['web/admin.html', 'web/js/admin*.js', 'web/css/admin.css', 'web/css/style.css', 'scripts/test/admin-guard.mjs', 'scripts/lib/layout-scan.mjs', 'scripts/test/fixtures/admin-fx.mjs', '.github/workflows/admin-guard.yml']
+    paths: ['web/admin.html', 'web/js/admin*.js', 'web/css/admin.css', 'web/css/style.css', 'scripts/test/admin-guard.mjs', 'scripts/lib/layout-scan.mjs', 'scripts/test/fixtures/admin-fx.mjs', 'scripts/test/admin-plat-shots.mjs', 'functions/api/admin.js', '.github/workflows/admin-guard.yml']
   push:
     branches: [main]
-    paths: ['web/admin.html', 'web/js/admin*.js', 'web/css/admin.css', 'web/css/style.css', 'scripts/test/admin-guard.mjs', 'scripts/lib/layout-scan.mjs', 'scripts/test/fixtures/admin-fx.mjs', '.github/workflows/admin-guard.yml']
+    paths: ['web/admin.html', 'web/js/admin*.js', 'web/css/admin.css', 'web/css/style.css', 'scripts/test/admin-guard.mjs', 'scripts/lib/layout-scan.mjs', 'scripts/test/fixtures/admin-fx.mjs', 'scripts/test/admin-plat-shots.mjs', 'functions/api/admin.js', '.github/workflows/admin-guard.yml']
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: admin-guard-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   guard:
     runs-on: ubuntu-latest
@@ -21,7 +24,7 @@ jobs:
         with: { node-version: 22 }
       - name: Playwright
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
           npx playwright install --with-deps chromium >/dev/null
           sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null || true
       - name: Ảnh TRƯỚC (main, chỉ chụp)
@@ -29,11 +32,18 @@ jobs:
           B=$(git merge-base HEAD origin/main); [ "$B" = "$(git rev-parse HEAD)" ] && B=HEAD~1
           mkdir -p /tmp/before && git archive "$B" web | tar -x -C /tmp/before
           node scripts/test/admin-guard.mjs /tmp/before/web out/admin-guard before || true
+      - name: Thẻ Nền tảng – ảnh TRƯỚC (main)
+        run: node scripts/test/admin-plat-shots.mjs /tmp/before/web out/admin-guard/plat before || true
+      - name: Thẻ Nền tảng – 360/390 sáng/tối, thang chung, Tổng, axe 0 lỗi (SAU)
+        run: node scripts/test/admin-plat-shots.mjs web out/admin-guard/plat after
       - name: Gác bố cục (SAU)
+        if: ${{ !cancelled() }}
         run: node scripts/test/admin-guard.mjs web out/admin-guard after
       - name: Ghép TRƯỚC | SAU
         if: ${{ !cancelled() }}
-        run: node scripts/test/admin-guard.mjs --compare out/admin-guard
+        run: |
+          node scripts/test/admin-guard.mjs --compare out/admin-guard
+          node scripts/test/admin-plat-shots.mjs --compare out/admin-guard/plat
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with: { name: admin-guard, path: out/admin-guard, retention-days: 14 }

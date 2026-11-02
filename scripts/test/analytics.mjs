@@ -124,6 +124,24 @@ ok(an.status === 200 && an.j.sum.v === 7, 'op analytics: 7 khách thật từ 11
 ok(an.j.excluded.s >= 8, 'op analytics trả số phiên đã loại (≥ 8: 3 ci-app + ci + 3 ua + dc + admin…)');
 const ov = await api('overview'); ok(ov.status === 200 && ov.j.sessions.today === 5, 'op overview: phiên hôm nay chỉ người thật (hum1, hum2, cub1, fi1, vn1) – được ' + (ov.j.sessions && ov.j.sessions.today));
 const gr = await api('growth', { days: 7 }); ok(gr.status === 200, 'op growth chạy được với cột bot');
+// Thẻ Nền tảng: web và PWA cùng origin dùng chung vid → máy h1 mở thêm bản đã cài nằm ở 2 dòng plat, nhưng Tổng thiết bị chỉ tính 1 lần
+ok(L.devToday && L.devToday.v === L.today.visitors && L.devToday.multi === 0 && L.dev30 && L.dev30.v >= L.devToday.v, 'live: devToday.v = khách hôm nay, dev30.v ≥ devToday.v – ' + JSON.stringify([L.devToday, L.dev30]));
+await hit(S('hum1pwaaaaa', 'h1humanaaa', { plat: 'pwa' }));
+const L2 = (await api('live', { days: 7 })).j, pt2 = Object.fromEntries(L2.platsToday.map(r => [r.k, r.n])), p302 = Object.fromEntries(L2.plats30.map(r => [r.k, r.n]));
+ok(pt2.pwa === 1 && L2.devToday.v === L.devToday.v && L2.devToday.multi === 1 && L2.platsToday.reduce((a, r) => a + r.n, 0) === L2.devToday.v + 1, 'live: 1 máy web + PWA → dòng PWA = 1, Tổng hôm nay không đổi, multi = 1 (cộng dòng = Tổng + 1) – ' + JSON.stringify([L2.platsToday, L2.devToday]));
+ok(p302.pwa === 1 && L2.dev30.multi === 1 && L2.dev30.v === L.dev30.v, 'live: 30 ngày cùng nguồn sessions – PWA = 1, Tổng 30 ngày không đếm trùng, multi = 1 – ' + JSON.stringify(L2.dev30));
+// Nguồn "localhost" (owner 1/11): phiên từ bản dev/preview → bot 'dev' (loại); ref localhost/LAN (trang trong app native, máy dev) → trực tiếp; dữ liệu cũ lọc ở truy vấn
+await hit(S('dev1aaaaaaa', 'd1devlocal'), { headers: { Origin: 'http://localhost:8788' } });
+await hit(S('dev2aaaaaaa', 'd2preview1'), { headers: { Origin: 'https://fix-x.lexkite.pages.dev' } });
+await hit(S('ref1aaaaaaa', 'r1reflocal', { ref: 'http://localhost/app/' }));
+await hit(S('ref2aaaaaaa', 'r2refgoogl', { ref: 'https://www.google.com/search?q=x' }));
+sql.prepare("INSERT INTO sessions (sid, vid, day, at, country, ref, dev, lang, plat, path, dur, pages, ret) VALUES ('old1aaaaaaa', 'o1oldlocal', ?, ?, 'VN', 'localhost', 'mobile', 'vi', 'web', 'home', 5, 1, 0)").run(H.dayOf(NOW), NOW);
+ok(row('dev1aaaaaaa').bot === 'dev' && row('dev2aaaaaaa').bot === 'dev', 'phiên từ http://localhost:<cổng> / preview *.lexkite.pages.dev → bot dev (không tính là người học)');
+ok(row('ref1aaaaaaa').bot === null && row('ref1aaaaaaa').ref === '' && row('ref2aaaaaaa').ref === 'google.com', 'ref localhost → trực tiếp (phiên vẫn là người thật); google.com giữ nguyên');
+const L3 = (await api('live', { days: 7 })).j, an3 = (await api('analytics', { days: 7 })).j;
+ok(!L3.refs.some(r => /localhost|pages\.dev/.test(r.k)) && L3.refs.some(r => r.k === 'google.com'), 'live: "Nguồn giới thiệu hôm nay" không còn localhost (kể cả dòng cũ) – ' + JSON.stringify(L3.refs));
+ok(!an3.refs.some(r => /localhost/.test(r.k)), 'analytics: nguồn giới thiệu không có localhost – ' + JSON.stringify(an3.refs));
+ok(L3.excluded.kinds.some(k => k.k === 'dev' && k.s === 2), 'live: "đã loại" có dòng dev = 2 – ' + JSON.stringify(L3.excluded.kinds));
 
 // ---------- 6) Add-on: ngày máy khách nhanh hơn VN (UTC+8…+14) vẫn nhận ----------
 NOW = Date.UTC(2026, 9, 17, 16, 30); // 23:30 VN; Nhật đã sang 18/10
