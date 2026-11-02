@@ -196,4 +196,6 @@ node scripts/test/video-pron.mjs
 node scripts/test/mqa-parity.mjs
 node scripts/say-native/build.mjs --check
 node scripts/test/hit-retry.mjs
+node scripts/test/tr-race.mjs
+node scripts/test/tr-packs.mjs
 node scripts/test/suite-guard.mjs
