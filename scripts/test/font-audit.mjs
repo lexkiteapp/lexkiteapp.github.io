@@ -134,12 +134,17 @@ async function browserScan(part, base) {
   for (const vp of VPS) {
     const ctx = await browser.newContext({ ...vp, deviceScaleFactor: 1, locale: 'vi' });
     const page = await ctx.newPage();
+    // Chẩn đoán "không mở được" (networkidle quá giờ): request còn treo + đếm theo host trong lượt mở trang → biết trang chờ cái gì
+    const pending = new Set(); let hosts = {};
+    page.on('request', q => { pending.add(q); const h = q.url().replace(/^(\w+:\/\/[^/]+(\/api\/[a-z-]+)?).*$/, '$1'); hosts[h] = (hosts[h] || 0) + 1; });
+    const done = q => pending.delete(q); page.on('requestfinished', done); page.on('requestfailed', done);
+    const netDiag = () => ` · treo: ${[...pending].slice(0, 4).map(q => q.url().slice(0, 90)).join(' , ') || '–'} · request/host: ${Object.entries(hosts).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([h, n]) => `${h.replace(/^https?:\/\//, '')}×${n}`).join(' ')}`;
     if (part === 'app') { // qua màn chào để vào thẳng app
       await page.goto(`${base}/app/?sandbox=1#/welcome/setup`, { waitUntil: 'networkidle', timeout: 30000 }).catch(() => {});
       await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1500); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
     }
     for (const url of pages) {
-      const r = { url, vp: vp.name };
+      const r = { url, vp: vp.name }; hosts = {};
       try {
         await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
         await page.waitForTimeout(part === 'app' ? 900 : 300);
@@ -147,7 +152,7 @@ async function browserScan(part, base) {
         Object.assign(r, await page.evaluate(`(${inPage})(${srOnlyHidden})`));
         const shot = `${OUT}/${part}-${vp.name}-${url.replace(/^\w+:\/\/[^/]+/, '').replace(/[^\w]+/g, '_').slice(0, 60) || 'root'}.jpg`;
         await page.screenshot({ path: shot, type: 'jpeg', quality: 55 });
-      } catch (e) { r.error = String(e.message || e).slice(0, 160); }
+      } catch (e) { r.error = String(e.message || e).split('\n')[0].slice(0, 160) + netDiag().slice(0, 700); }
       results.push(r);
     }
     await ctx.close();
