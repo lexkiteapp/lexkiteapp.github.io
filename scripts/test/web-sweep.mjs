@@ -10,6 +10,7 @@
 // Ngưỡng = scripts/test/web-sweep.known.json: số lỗi mỗi loại×kiểm chỉ được GIẢM (cái mới = 0). Hết lỗi → hạ số trong file (không bao giờ nâng).
 // Dùng: node scripts/test/web-sweep.mjs <base-url> <dist> <out> [--write-known]
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
+import { noProd } from './lib/no-prod.mjs';
 import { scan } from '../lib/layout-scan.mjs';
 import { extUnavailable, splitConsoleErrors, corsBlockedUrl } from '../lib/qa-classify.mjs';
 const require = createRequire(import.meta.url);
@@ -73,6 +74,7 @@ const extStatus = u => { if (!extSt.has(u)) extSt.set(u, fetch(u, { method: 'HEA
 const report = [], extDown = new Map();   // host ngoài trả 429/5xx → lỗi CORS kèm theo không tính err, nhưng in cảnh báo rõ ở cuối
 async function run(j) {
   const ctx = await browser.newContext({ viewport: { width: VPS[j.vp].width, height: VPS[j.vp].height }, isMobile: !!VPS[j.vp].isMobile, hasTouch: !!VPS[j.vp].hasTouch, colorScheme: j.scheme });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage(); const cons = [], pgErrs = [], http = [];
   page.on('console', m => m.type() === 'error' && !/favicon|ERR_CONNECTION|net::ERR|\/api\/|Failed to load resource/.test(m.text()) && cons.push(m.text()));
   page.on('pageerror', e => pgErrs.push(String(e).slice(0, 120)));

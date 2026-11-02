@@ -200,13 +200,28 @@ export const REG = {
    "id": "free-tier-guard",
    "workflow": "free-tier-guard.yml",
    "cron": [
-    "35 1 * * *"
+    "35 1 * * *",
+    "17 * * * *"
    ],
    "priority": "reports",
    "resources": [
     "gh_minutes"
    ],
    "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "cdn-mirror",
+   "workflow": "cdn-mirror.yml",
+   "cron": [
+    "47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
    "est": {},
    "lease": false
   },

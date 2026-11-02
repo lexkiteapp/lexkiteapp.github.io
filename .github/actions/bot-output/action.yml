@@ -1,0 +1,60 @@
+# Kết quả bot trên nhánh ≠ main (nhánh PR): KHÔNG commit/đẩy vào nhánh (đầu PR thành commit bot → CI/required-gate treo, rebase dính
+# commit lạc – 2/11 PR #402/#410). Thay vào đó: file đổi (so với `base`) → artifact `bot-output-<name>` (giữ đường dẫn, kèm
+# .bot-output-deleted), danh sách vào job summary, (tuỳ chọn) 1 comment PR cố định. Người làm PR: `bash scripts/ci/bot-output.sh <name>`
+# rồi tự commit → CI chạy như mọi push. Luật + test: scripts/test/no-pr-branch-push.mjs (docs/CI-RUNNERS.md › required-gate).
+name: bot-output
+description: Kết quả bot trên nhánh PR → artifact + summary + comment (không đẩy vào nhánh)
+inputs:
+  name: { description: 'tên ngắn (artifact bot-output-<name>, lệnh lấy về)', required: true }
+  paths: { description: 'pathspec git cách nhau dấu cách/xuống dòng', required: true }
+  base: { description: 'so với commit nào (mặc định HEAD; workflow đã commit cục bộ thì truyền github.sha)', required: false, default: 'HEAD' }
+  report: { description: 'file markdown thêm vào summary + comment (tuỳ chọn)', required: false, default: '' }
+  comment: { description: "'true' = comment cố định lên PR mở của nhánh (cần pull-requests: write)", required: false, default: 'false' }
+  retention-days: { description: 'giữ artifact', required: false, default: '14' }
+outputs:
+  changed: { description: "'1' nếu có file đổi", value: '${{ steps.diff.outputs.changed }}' }
+runs:
+  using: composite
+  steps:
+    - id: diff
+      shell: bash
+      env: { NAME: '${{ inputs.name }}', PATHS: '${{ inputs.paths }}', BASE: '${{ inputs.base }}', REPORT: '${{ inputs.report }}' }
+      run: |
+        D="$RUNNER_TEMP/bot-output-$NAME"; rm -rf "$D"; mkdir -p "$D"; L="$RUNNER_TEMP/bot-output-$NAME.md"
+        read -r -a P <<< "${PATHS//$'\n'/ }"
+        for p in "${P[@]}"; do git add -A -- "$p" 2>/dev/null || true; done   # từng pathspec: 1 cái không khớp không được làm hỏng cả lệnh
+        git diff --cached --name-only --diff-filter=d "$BASE" -- "${P[@]}" > "$RUNNER_TEMP/bo-up.txt"
+        git diff --cached --name-only --diff-filter=D "$BASE" -- "${P[@]}" > "$RUNNER_TEMP/bo-del.txt"
+        git reset -q
+        up=$(grep -c . "$RUNNER_TEMP/bo-up.txt" || true); del=$(grep -c . "$RUNNER_TEMP/bo-del.txt" || true)
+        if [ "$up$del" = 00 ]; then echo "changed=0" >> "$GITHUB_OUTPUT"; else
+          echo "changed=1" >> "$GITHUB_OUTPUT"
+          while IFS= read -r f; do mkdir -p "$D/$(dirname "$f")"; cp -p "$f" "$D/$f"; done < "$RUNNER_TEMP/bo-up.txt"
+          [ "$del" = 0 ] || cp "$RUNNER_TEMP/bo-del.txt" "$D/.bot-output-deleted"
+        fi
+        {
+          echo "<!-- bot-output:$NAME -->"
+          echo "### 🤖 \`$NAME\` – kết quả bot (không đẩy vào nhánh)"
+          if [ "$up$del" = 00 ]; then echo "✓ Không có file nào đổi so với \`${BASE:0:12}\` – nhánh đã đủ."; else
+            echo "**$up** file đổi, **$del** file xoá → artifact \`bot-output-$NAME\` ([lượt chạy]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)). Lấy về rồi tự commit:"
+            echo; echo '```bash'; echo "bash scripts/ci/bot-output.sh $NAME $GITHUB_REF_NAME $GITHUB_RUN_ID"; echo '```'
+            echo "<details><summary>Danh sách file</summary>"; echo; sed 's/^/- /' "$RUNNER_TEMP/bo-up.txt" | head -300; sed 's/^/- (xoá) /' "$RUNNER_TEMP/bo-del.txt" | head -100; echo; echo "</details>"
+          fi
+          [ -n "$REPORT" ] && [ -f "$REPORT" ] && { echo; cat "$REPORT"; }
+          true
+        } > "$L"
+        cat "$L" >> "$GITHUB_STEP_SUMMARY"
+    - if: steps.diff.outputs.changed == '1'
+      uses: actions/upload-artifact@v4
+      with: { name: 'bot-output-${{ inputs.name }}', path: '${{ runner.temp }}/bot-output-${{ inputs.name }}', include-hidden-files: true, retention-days: '${{ inputs.retention-days }}', overwrite: true }
+    - if: inputs.comment == 'true'
+      shell: bash
+      env: { GH_TOKEN: '${{ github.token }}', NAME: '${{ inputs.name }}', CHANGED: '${{ steps.diff.outputs.changed }}' }
+      run: |
+        # 1 comment cố định / PR / name: sửa tại chỗ; không có gì đổi và chưa từng comment → im
+        pr=$(gh api "repos/$GITHUB_REPOSITORY/pulls?state=open&head=$GITHUB_REPOSITORY_OWNER:$GITHUB_REF_NAME" -q '.[0].number' 2>/dev/null || true)
+        [ -n "$pr" ] || { echo "· nhánh chưa có PR mở – chỉ ghi summary"; exit 0; }
+        L="$RUNNER_TEMP/bot-output-$NAME.md"; head -c 60000 "$L" > "$L.c"
+        id=$(gh api "repos/$GITHUB_REPOSITORY/issues/$pr/comments?per_page=100" --paginate -q ".[] | select(.body | startswith(\"<!-- bot-output:$NAME -->\")) | .id" 2>/dev/null | tail -1 || true)
+        if [ -n "$id" ]; then gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$id" -F body=@"$L.c" >/dev/null && echo "· sửa comment #$id trên PR $pr"
+        elif [ "$CHANGED" = 1 ]; then gh api "repos/$GITHUB_REPOSITORY/issues/$pr/comments" -F body=@"$L.c" >/dev/null && echo "· comment mới trên PR $pr"; fi || echo "::warning::không comment được PR $pr (quyền pull-requests: write?) – xem job summary"

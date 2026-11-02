@@ -1,6 +1,6 @@
 # FREE-TIER – giữ hệ thống ở 0 đồng khi traffic tăng (SEO hạng mục 6)
 
-> TL;DR: `free-tier-guard.yml` đo số dùng thật mỗi ngày so với trần gói miễn phí; ≥ 60 % cảnh báo, ≥ 80 % mở issue `free-tier`; Worker có chế độ "shed" khi lượt gần trần. Không bao giờ tự nâng gói.
+> TL;DR: `free-tier-guard.yml` đo số dùng thật mỗi ngày (đủ mục) + MỖI GIỜ (lượt Workers+Functions hôm nay, ngoại suy) so với trần gói miễn phí; ≥ 60 % cảnh báo, ≥ 80 % mở issue `free-tier`; Worker có chế độ "shed" khi lượt gần trần. Không bao giờ tự nâng gói.
 > Đọc khi: thêm Worker/trang tự sinh/việc nền, hoặc khi có issue `free-tier`. Chi phí D1 theo người dùng: docs/CAPACITY.md.
 
 ## 1. Trần gói miễn phí đang theo dõi (`scripts/free-tier/limits.mjs`)
@@ -24,6 +24,8 @@
 - `node scripts/free-tier/guard.mjs` (`--dry`: không ghi file, không mở issue). ~4 truy vấn GraphQL + ≤ 45 trang Pages API + ~6 GitHub/ngày, không thử lại.
 - ≥ 60 % → `::warning` + bảng Summary. ≥ 80 % → issue nhãn `free-tier` (cập nhật nội dung + 1 bình luận/ngày); hết nguy cơ → tự bình luận và đóng.
 - Thiếu khoá → bỏ qua trung tính phần đó (xanh + ghi chú). Có khoá mà không lấy được số → đỏ.
+
+- **Bản trong ngày (mỗi giờ :17, `scripts/free-tier/intraday.mjs`)** – sự cố 01/11: bản ngày chỉ nhìn hôm qua → 174k/100k trong ngày không ai thấy, /api chết 16:22–24:00Z. Nay: 1 truy vấn GraphQL (`workersInvocationsAdaptive` + `pagesFunctionsInvocationsAdaptiveGroups`, `datetime_geq` 00:00Z), ngoại suy tới 24:00 theo nhịp ≤ 3 giờ gần nhất; mức = max(thực tế, ngoại suy): ≥ 60 % dừng workflow nền gọi prod (`PAUSE`, chỉ cái đang active, ghi tên vào `paused`), ≥ 80 % shed + issue. Trong ngày chỉ lên mức; qua 00:00Z tự gỡ shed + mở lại đúng workflow đã dừng. Ghi file khi đổi; deploy Pages chỉ khi shed đổi. Bản ngày không còn tự bật/gỡ shed. Hồi quy: số thật theo giờ 01/11 (`scripts/test/fixtures/cf-hourly-2026-11-01.json`) phải bật shed trước 100k (lượt :17 đầu tiên có ≥ 1 giờ dữ liệu – 01:17Z, thực tế 7,9k, ngoại suy 148k – đã bật; < 1 giờ chỉ tính số thực tế).
 
 ## 3. Giảm tải chủ động (không cắt tính năng)
 - **Trình duyệt trước**: lượt trong `max-age` không tới Worker. Ảnh/âm thanh tên theo mã băm: `max-age=1 năm, immutable`. `media.lexkite.com/library/*`: `max-age=1 ngày, stale-while-revalidate=7 ngày`.

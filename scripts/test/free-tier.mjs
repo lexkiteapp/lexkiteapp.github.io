@@ -4,7 +4,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { evaluate, markdown, r2Class, level, LIMITS, WARN, ALERT } from '../free-tier/limits.mjs';
-import { cfUsage, pagesBuilds, writeState } from '../free-tier/guard.mjs';
+import { cfUsage, pagesBuilds, writeState, intradayMain } from '../free-tier/guard.mjs';
+import { project, decide, hourly, writeIntraday, pauseWorkflows, query as iQuery, PAUSE } from '../free-tier/intraday.mjs';
 import { edgeCached, mode, _resetMode, shedRobots, cacheControl, STATE_URL } from '../../workers/lib/edge.mjs';
 
 let n = 0; const ok = (name, fn) => Promise.resolve().then(fn).then(() => { n++; }, e => { console.error('✗ ' + name); throw e; });
@@ -111,4 +112,68 @@ await ok('dict: shed holds stage advance, rollback path untouched', async () => 
   const h = decide(s0, null, { live: true, shed: true }); assert.equal(h.change, false); assert.match(h.why, /shed/);
   const w = fs.readFileSync('workers/dict/index.mjs', 'utf8'); assert.match(w, /edgeCached\(/); assert.match(w, /mode\(\)/); assert.match(w, /stale-while-revalidate|cacheControl\(/);
 });
+// ---- Bản trong ngày (mỗi giờ) – hồi quy sự cố 01/11: lượt THẬT theo giờ (174k/100k) phải bật shed TRƯỚC khi chạm 100k ----
+const FX = JSON.parse(fs.readFileSync(new URL('./fixtures/cf-hourly-2026-11-01.json', import.meta.url), 'utf8'));
+const D0 = Date.parse(FX.day + 'T00:00:00Z');
+const gqlAt = now => { // GraphQL giả: các giờ đã qua đủ, giờ đang chạy theo tỉ lệ phút
+  const h = (now - D0) / 36e5, wk = [], fn = [];
+  for (const [hr, s, n] of FX.rows) { if (hr > h) continue; const v = hr + 1 <= h ? n : Math.round(n * (h - hr)); const dt = new Date(D0 + hr * 36e5).toISOString(); (s === 'fn' ? fn : wk).push({ dimensions: { datetimeHour: dt, scriptName: s }, sum: { requests: v } }); }
+  return { wk, fn };
+};
+await ok('intraday query: 1 truy vấn từ 00:00Z hôm nay', () => { const q = iQuery('abc', D0 + 5 * 36e5); assert.match(q, /datetime_geq:"2026-11-01T00:00:00Z"/); assert.match(q, /workersInvocationsAdaptive/); assert.match(q, /pagesFunctionsInvocationsAdaptiveGroups/); assert.doesNotMatch(q, /date_leq/); });
+await ok('intraday 01/11: shed bật trước 100k, cảnh báo/dừng trước nữa', () => {
+  let cur = {}, firstWarn = null, firstShed = null;
+  for (let m = 17; m < 24 * 60; m += 60) { // cron :17 mỗi giờ
+    const now = D0 + m * 6e4, { hours } = hourly(gqlAt(now)), p = project(hours, now), d = decide(p, cur, now);
+    if (d.pause && firstWarn === null) firstWarn = { m, total: p.total };
+    if (d.mode === 'shed' && firstShed === null) firstShed = { m, total: p.total };
+    cur = { ...d };
+  }
+  assert.ok(firstShed, 'phải bật shed trong ngày 01/11'); assert.ok(firstShed.total < 100000, `shed lúc ${firstShed.total} ≥ 100k`);
+  assert.ok(firstShed.total < 10000 && firstShed.m <= 77, `shed quá muộn (${firstShed.total} lúc phút ${firstShed.m})`); assert.ok(firstWarn.m <= firstShed.m);
+  assert.equal(cur.mode, 'shed'); // không tự gỡ trong ngày dù 17:00Z trở đi lượt về ~0
+});
+await ok('intraday: không hạ mức trong ngày, sang ngày mới tự gỡ', () => {
+  const now = D0 + 20 * 36e5, low = { total: 100, projected: 200 };
+  assert.equal(decide(low, { day: FX.day, level: 'alert' }, now).mode, 'shed');
+  const next = decide(low, { day: FX.day, level: 'alert' }, now + 5 * 36e5); assert.equal(next.mode, 'normal'); assert.equal(next.pause, false); assert.equal(next.day, '2026-11-02');
+  assert.equal(decide({ total: 59999, projected: 1 }, {}, now).level, 'ok'); assert.equal(decide({ total: 1, projected: 60000 }, {}, now).level, 'warn'); assert.equal(decide({ total: 80000, projected: 0 }, {}, now).mode, 'shed');
+});
+await ok('intraday: ngoại suy theo nhịp ≤ 3 giờ gần nhất', () => {
+  const hours = Array(24).fill(0); hours[0] = 100000; hours[9] = 1000; hours[10] = 500; // 10:30Z
+  const e = Array(24).fill(0); e[0] = 3000; assert.equal(project(e, D0 + 0.3 * 36e5).projected, 3000); // < 1 giờ: không ngoại suy (nhiễu)
+  const p = project(hours, D0 + 10.5 * 36e5); assert.equal(p.total, 101500); assert.equal(Math.round(p.rate), Math.round(1500 / 3.5)); assert.ok(p.projected > p.total);
+});
+await ok('intraday: ghi trạng thái chỉ khi đổi', () => {
+  const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ftgi-')), 's.json');
+  const d = { mode: 'normal', level: 'warn', day: FX.day, paused: ['ci-filler.yml'] };
+  assert.deepEqual(writeIntraday(d, 0, f), { changed: true, modeChanged: true }); assert.deepEqual(writeIntraday(d, 1, f), { changed: false, modeChanged: false });
+  assert.deepEqual(writeIntraday({ ...d, mode: 'shed', level: 'alert' }, 2, f), { changed: true, modeChanged: true }); assert.equal(JSON.parse(fs.readFileSync(f, 'utf8')).mode, 'shed');
+});
+const ghFake = (states, calls) => async (u, o = {}) => { const w = u.split('/workflows/')[1]; calls.push(`${o.method || 'GET'} ${w}`); return { ok: true, json: async () => ({ state: states[w] }) }; };
+await ok('intraday: chỉ dừng workflow đang active, mở lại đúng cái đã dừng', async () => {
+  const calls = [], states = Object.fromEntries(PAUSE.map(w => [w, 'active'])); states['i18n.yml'] = 'disabled_manually';
+  const paused = await pauseWorkflows('t', { pause: true, already: [] }, ghFake(states, calls));
+  assert.ok(!paused.includes('i18n.yml') && paused.includes('ci-filler.yml')); assert.ok(!calls.includes('PUT i18n.yml/disable'));
+  const c2 = []; assert.deepEqual(await pauseWorkflows('t', { pause: false, already: paused }, ghFake(states, c2)), []); assert.deepEqual(c2, paused.map(w => `PUT ${w}/enable`));
+});
+await ok('intraday end-to-end 01/11 03:17Z: shed + dừng + issue, không đóng issue', async () => {
+  const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ftge-')), 's.json'), now = D0 + (3 * 60 + 17) * 6e4, calls = [];
+  const fetcher = async (u, o = {}) => {
+    if (u.includes('/graphql')) return { ok: true, json: async () => ({ data: { viewer: { accounts: [gqlAt(now)] } } }) };
+    calls.push(`${o.method || 'GET'} ${u.replace(/^https:\/\/api\.github\.com\/repos\/[^/]+\/[^/]+/, '')}`);
+    if (u.includes('/actions/workflows/')) return { ok: true, json: async () => ({ state: 'active' }) };
+    if (u.includes('/issues?')) return { ok: true, json: async () => [] };
+    return { ok: true, json: async () => ({}) };
+  };
+  const r = await intradayMain({ now, env: { CF_ANALYTICS_TOKEN: 'x', CF_ACCOUNT_ID: 'e34e', GITHUB_TOKEN: 'g' }, fetcher, file: f });
+  assert.equal(r.mode, 'shed'); assert.ok(r.total < 100000); assert.deepEqual(r.paused, PAUSE);
+  const st = JSON.parse(fs.readFileSync(f, 'utf8')); assert.equal(st.mode, 'shed'); assert.equal(st.day, FX.day);
+  assert.ok(calls.some(c => c === 'POST /issues')); assert.ok(!calls.some(c => /PATCH \/issues\/\d+$/.test(c)));
+});
+await ok('workflow: cron mỗi giờ chạy --intraday, bản ngày vẫn quét đủ', () => {
+  const wf = fs.readFileSync('.github/workflows/free-tier-guard.yml', 'utf8');
+  assert.match(wf, /cron: '17 \* \* \* \*'/); assert.match(wf, /cron: '35 1 \* \* \*'/); assert.match(wf, /--intraday/); assert.match(wf, /mode_changed/);
+});
+
 console.log(`free-tier: ${n}/${n} ok`);

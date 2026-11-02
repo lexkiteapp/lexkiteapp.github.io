@@ -7,6 +7,7 @@
 // Dùng: node scripts/test/ux1-guard.mjs <web> [out] [--part i/n] [--shots]   (--shots: chụp MỌI bước → tờ trước/sau)
 import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 import { serve, scan } from './ux-guard-lib.mjs';
 const args = process.argv.slice(2), flags = args.filter(a => a.startsWith('--')), pos = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1] || '').startsWith('--part'));
 const [ROOT = 'web', OUT = 'out/ux1-guard'] = pos, SHOTS = flags.includes('--shots');
@@ -22,6 +23,7 @@ const found = {}, errs = [], seen = [];
 async function run(width, scheme, lang) {
   const vp = width < 768 ? { viewport: { width, height: 800 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width, height: width > 1600 ? 1080 : 860 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block', reducedMotion: 'reduce' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.ret', '1'); } catch (e) { /* */ } });
   await serve(ctx, ROOT);
   const page = await ctx.newPage(), tag = `${width}-${scheme}-${lang}`;
