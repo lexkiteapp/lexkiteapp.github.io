@@ -48,15 +48,16 @@ const prep = `for (let k = 0; k < 30 && !(window.App && App.state && App.state.s
   localStorage.setItem('lk.cfg', JSON.stringify({ at: Date.now() + 864e5, v: { ads_android: '1' } })); localStorage.setItem('lk.vid', 'aaaaaaaa'); localStorage.setItem('lk.ads', JSON.stringify({ firstAt: Date.now() - 3 * 864e5 })); return 1`;
 for (let k = 0; k < 3; k++) {
   await ev(prep);
-  await ev('location.reload(); return 1'); try { ws.close(); } catch (e) { /* bỏ qua */ }
+  // mở lại như người dùng quay lại app (#/home) – tải lại giữ nguyên hash #/welcome của lần mở đầu thì vẫn là vùng cấm
+  await ev("history.replaceState(null, '', location.pathname + location.search + '#/home'); location.reload(); return 1"); try { ws.close(); } catch (e) { /* bỏ qua */ }
   await sleep(8000);
   if (!(await connect())) { fail('Mất DevTools sau khi tải lại'); finish(); }
   // chờ vỏ ads.js + router vẽ trang đầu (app-loader nạp JS sau lần vẽ đầu)
   info.boot = await ev(`for (let k = 0; k < 30 && !(window.Ads && window.App && location.hash); k++) await new Promise(r => setTimeout(r, 500));
     return { plat: Capacitor.getPlatform(), plugin: !!(Capacitor.Plugins && Capacitor.Plugins.AdMob), on: !!(window.Ads && Ads.on()), cfg: (JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}).ads_android, hash: location.hash, onboarded: !!(App.state.settings || {}).onboarded }`);
   console.log('boot', JSON.stringify(info.boot));
-  if (info.boot && info.boot.cfg === '1' && info.boot.onboarded) break;
-  console.log('… lk.cfg/onboarded bị ghi đè trong lúc tải lại – ghi lại lần ' + (k + 2));
+  if (info.boot && info.boot.cfg === '1' && info.boot.onboarded && !/^#\/welcome/.test(info.boot.hash || '')) break;
+  console.log('… lk.cfg/onboarded/hash chưa đúng sau khi tải lại – ghi lại lần ' + (k + 2));
 }
 if (!info.boot || !info.boot.onboarded || /^#\/welcome/.test(info.boot.hash || '')) fail('App vẫn ở onboarding (' + JSON.stringify(info.boot && info.boot.hash) + ') – vùng cấm, bài test phải chạy như người dùng đã học');
 if (!info.boot || !info.boot.plugin) fail('Không có plugin AdMob trong bản build (ADS_NATIVE=1?)'); else ok('Plugin AdMob có trong app');
