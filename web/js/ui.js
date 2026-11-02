@@ -396,11 +396,14 @@
   const stopRecognize = () => { if (activeRec) { activeRec._stale = true; try { activeRec.abort(); } catch (e) { /* đã dừng */ } activeRec = null; } };
 
   // Ảnh minh họa kèm ghi nguồn theo giấy phép Creative Commons
-  // Không dùng onclick="…" nội tuyến (CSP của add-on chặn): bấm ⓘ ghi nguồn ảnh không lật thẻ; [data-confirm] hỏi lại trước khi đi tiếp
+  // Không dùng handler onclick nội tuyến (CSP của add-on chặn): bấm ⓘ ghi nguồn ảnh không lật thẻ; [data-confirm] hỏi lại trước khi đi tiếp
   if (g.document && !g.__lkDeleg) {
     g.__lkDeleg = true;
     document.addEventListener('click', e => {
       if (e.target.closest && e.target.closest('.pcredit')) { e.stopPropagation(); return; }
+      // Liên kết "Bỏ qua tới nội dung chính": <base href="/"> → href="#view" sẽ rời /app/ → chặn và đưa tiêu điểm vào #view (thay onclick= nội tuyến – CSP)
+      const sk = e.target.closest && e.target.closest('a.skip-link[href="#view"]');
+      if (sk) { const v = document.getElementById('view'); if (v) { e.preventDefault(); v.focus(); } return; }
       const c = e.target.closest && e.target.closest('[data-confirm]');
       if (c && !confirm(c.dataset.confirm)) { e.preventDefault(); e.stopPropagation(); }
     }, true);

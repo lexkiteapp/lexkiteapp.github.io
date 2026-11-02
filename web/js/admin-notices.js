@@ -52,7 +52,7 @@
         <!-- Form Soạn thông báo -->
         <div class="card" id="nComposeCard">
           <h3 style="margin-bottom:1rem">✍️ ${L('Soạn thông báo mới')}</h3>
-          <form id="nForm" class="form2" onsubmit="return false">
+          <form id="nForm" class="form2">
             <label>
               <b>${L('Tiêu đề thông báo')} *</b>
               <input type="text" id="nTitle" required maxlength="200" placeholder="${L('VD: Cập nhật giao diện phòng thi IELTS mới 🎉')}">
