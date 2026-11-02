@@ -336,5 +336,223 @@
    "spoken-grammar",
    "ambiguity-control"
   ]
+ },
+ "Dễ học – lô": {
+  "_note": "Hàng sửa P0-H (docs/specs/learnability.md): 25 bài yếu nhất của mảng điểm thấp nhất; sửa theo thang tầng 0 → 1 → 2, qua cổng QA, rồi chạy lại learnability.",
+  "area": "vocab",
+  "items": [
+   {
+    "id": "nawl5",
+    "score": 54.6,
+    "fix": [
+     "mã hoá kép 61% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "nawl2",
+    "score": 55.4,
+    "fix": [
+     "mã hoá kép 65% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl1",
+    "score": 55.4,
+    "fix": [
+     "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "nawl3",
+    "score": 55.5,
+    "fix": [
+     "mã hoá kép 65% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "nawl4",
+    "score": 55.6,
+    "fix": [
+     "mã hoá kép 62% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 5%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl2",
+    "score": 55.7,
+    "fix": [
+     "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "nawl1",
+    "score": 55.8,
+    "fix": [
+     "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl1",
+    "score": 56,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 11%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl6",
+    "score": 56.1,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl3",
+    "score": 56.4,
+    "fix": [
+     "mã hoá kép 68% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl5",
+    "score": 57,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "xw-religion-history",
+    "score": 57,
+    "fix": [
+     "mã hoá kép 32% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl2",
+    "score": 57.7,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl3",
+    "score": 57.7,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "bsl4",
+    "score": 57.8,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl5",
+    "score": 57.9,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl8",
+    "score": 57.9,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 3%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl10",
+    "score": 58,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 2%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "xw-military",
+    "score": 58.2,
+    "fix": [
+     "mã hoá kép 35% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl9",
+    "score": 58.3,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 2%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl7",
+    "score": 58.5,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl4",
+    "score": 58.6,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "ngsl6",
+    "score": 59,
+    "fix": [
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 2%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "xw-people",
+    "score": 59.6,
+    "fix": [
+     "mã hoá kép 41% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   },
+   {
+    "id": "xw-qualities",
+    "score": 60.1,
+    "fix": [
+     "mã hoá kép 43% (ảnh/audio từ/audio câu)",
+     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+     "ví dụ: thiếu collocation/đồng nghĩa"
+    ]
+   }
+  ]
  }
 }

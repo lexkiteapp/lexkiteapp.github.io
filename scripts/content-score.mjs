@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Bảng điểm chất lượng nội dung (docs/CONTENT-WORLD-PLAN.md §3.5, P0.7): 7 mảng × 0–100 + tổng, từ ĐỘ PHỦ × TỈ LỆ QUA CỔNG.
+// Bảng điểm chất lượng nội dung (docs/CONTENT-WORLD-PLAN.md §3.5, P0.7): 8 mảng × 0–100 + tổng, từ ĐỘ PHỦ × TỈ LỆ QUA CỔNG.
 // Số liệu dùng lại cổng có sẵn: lkf-check (khung Can-do, P0-C), grammar-map-check (kho điểm ngữ pháp, P0-D), content-check (--json → reports/content-stats.json + lỗi theo mảng), build-lexicon (kho từ một nguồn + mở rộng, loadAllPlus),
 // content/lexicon/img.json (ảnh theo nghĩa), i18n-qa (lỗi bản dịch 15 ngôn ngữ). 0 token, chỉ đọc repo.
 // Chuẩn đích (CHUAN) cố định theo "ông lớn" ở §2 của kế hoạch – KHÔNG hạ; khác targets.json (chỉ tiêu lô, được nâng dần).
@@ -48,6 +48,10 @@ const LK = ex('reports/lkf-coverage.json') ? JSON.parse(rd('reports/lkf-coverage
 // ---------- Cổng 5: grammar-map-check (kho điểm ngữ pháp ↔ 77 bài + hàng chờ, P0-D) ----------
 const giRun = spawnSync('node', ['scripts/content-qa/grammar-map-check.mjs'], { encoding: 'utf8' });
 const GI = ex('reports/grammar-inventory.json') ? JSON.parse(rd('reports/grammar-inventory.json')) : { points: 0, taught: 0, errors: 1 };
+
+// ---------- Cổng 6: learnability (sư phạm "dễ học – dễ nhớ", P0-H, docs/specs/learnability.md) → content/pipeline/LEARN.md ----------
+const lnRun = spawnSync('node', ['scripts/content-qa/learnability.mjs'], { encoding: 'utf8' });
+const LN = ex('reports/learnability.json') ? JSON.parse(rd('reports/learnability.json')) : { areas: {} };
 
 // ---------- Cổng 3: i18n-qa (15 ngôn ngữ) ----------
 const qa = spawnSync('node', ['scripts/i18n-qa.mjs'], { encoding: 'utf8' }).stdout || '';
@@ -98,6 +102,9 @@ const AREAS = {
   lkf: { name: 'Khung Can-do', err: LK.errors, items: LK.total.items, gate: lkfRun.status === 0, parts: [
     ['mục tiêu LKF tự soạn', LK.objectives, 600, 25], ['ô kỹ năng × cấp đủ ≥ 15', LK.cellsOk, 36, 15],
     ['nội dung có lo hợp lệ', LK.total.tagged, LK.total.items || 1, 35], ['mục tiêu đã có nội dung luyện', LK.objectivesUsed, 600, 25]] },
+  // Điểm sư phạm trung bình từng mảng bài (12 tiêu chí a…l, chuẩn 100 = mọi bài đạt mọi tiêu chí áp dụng được)
+  learn: { name: 'Dễ học – dễ nhớ', err: 0, gate: lnRun.status === 0, parts: Object.entries({ grammar: 'Ngữ pháp', path: 'Bài lộ trình', vocab: 'Bộ từ', skills: 'Kỹ năng' })
+    .map(([k, nm]) => [nm, LN.areas[k]?.score || 0, 100, 25])] },
   i18n: { name: 'i18n', err: 0, parts: [
     ['ngôn ngữ đạt i18n-qa', qaRows.reduce((a, q) => a + (1 - Math.min(1, q.hard / NK)), 0), LANGS.length, 45],
     ['nhãn ngắn dịch tay', qaRows.reduce((a, q) => a + (1 - Math.min(1, q.short / NK)), 0), LANGS.length, 10],
