@@ -35,16 +35,11 @@
     'verb-types': [`\\b(seem|seems|seemed|become|becomes|became|look|looks|looked|feel|feels|felt|sound|sounds|appear|appears|remain|remains|give|gave|send|sent|show|showed|offer|offered|lend|lent|tell|told) \\w+`, 'Động từ nối (seem, become…) / 2 tân ngữ (give sb sth)'],
     conjunctions: [`,\\s*(but|so|yet|or|nor)\\b|\\beither\\b[^.]*\\bor\\b|\\bneither\\b[^.]*\\bnor\\b|\\bboth\\b[^.]*\\band\\b|\\bnot only\\b|\\b(although|because|unless|whereas|whether)\\b`, 'Liên từ: but / so · either … or · although / because'],
     'reported-advanced': [`\\b(advised|warned|urged|encouraged|reminded|persuaded|ordered|begged|invited)\\s\\w+\\s(to|not to)\\b|\\b(apologi[sz]ed for|accused \\w+ of|insisted on|denied|admitted|suggested)\\b`, 'S + advised/warned + O + (not) to V · accused sb of V-ing'],
-<<<<<<< HEAD
     'sentence-types': [`,\\s*(which|who|although|because|while|whereas|but|and|so|or|yet)\\b|\\b(although|because|while|when|if|before|after|since|unless|as soon as)\\b[^.]*,|\\b\\w+ (because|although|when|before|after|unless|until) (i|you|we|they|he|she|it|\\w+) \\w+`, 'Câu phức / ghép: mệnh đề chính + mệnh đề phụ'],
-    'parts-of-speech-patterns': [`\\b(the|a|an|this|that|these|those|my|your|his|her|its|their|our)\\s(\\w+ly\\s)?\\w+(ive|ful|ous|al|ic|able|ent|ant)\\s\\w+`, 'Từ hạn định + (trạng từ) + tính từ + danh từ'],
-=======
-    'sentence-types': [`,\\s*(which|who|although|because|while|whereas|but|and so)\\b|\\b(although|because|while|when|if)\\b[^.]*,`, 'Câu phức / ghép: mệnh đề chính + mệnh đề phụ'],
     'be-am-is-are': [`\\b(i am|i'm|(you|we|they) (are|aren't)|(you|we|they)'re|(he|she|it) (is|isn't)|(he|she|it)'s|\\w+ (is|are) (not )?(a|an|from|in|at|on|\\w+)|^\\s*(am|is|are) \\w+)\\b`, 'S + am / is / are (not) … · Am / Is / Are + S …?'],
     'a-an-plurals': [`\\b(an [aeiou]\\w*|a [b-df-hj-np-tv-z]\\w*)\\b|\\b(two|three|four|five|six|seven|eight|nine|ten|many|some|these|those)\\s(\\w+\\s)?(\\w+s|men|women|children|people|feet|teeth|mice)\\b`, 'a / an + N số ít · two / many + N số nhiều (-s, -es, -ies, men, children…)'],
     'prepositions-time-place-basic': [`\\b(at \\d|at (noon|night|midnight)|on (monday|tuesday|wednesday|thursday|friday|saturday|sunday)|on \\d{1,2} \\w+|in (january|february|march|april|may|june|july|august|september|october|november|december|\\d{4}|spring|summer|autumn|winter|the (morning|afternoon|evening))|(in|on|under|behind|between|next to|in front of) (the|my|your|his|her|our|their) \\w+)\\b`, 'at + giờ · on + thứ / ngày · in + tháng / năm · in / on / under / next to + the N'],
-    'parts-of-speech-patterns': [`\\b(the|a|an|this|their|our)\\s(\\w+ly\\s)?\\w+(ive|ful|ous|al|ic|able|ent|ant)\\s\\w+`, 'Từ hạn định + (trạng từ) + tính từ + danh từ'],
->>>>>>> real/main
+    'parts-of-speech-patterns': [`\\b(the|a|an|this|that|these|those|my|your|his|her|its|their|our)\\s(\\w+ly\\s)?\\w+(ive|ful|ous|al|ic|able|ent|ant)\\s\\w+`, 'Từ hạn định + (trạng từ) + tính từ + danh từ'],
     'word-formation': [`\\b\\w{3,}(tion|sion|ment|ness|ity|ance|ence|ise|ize|ify|ful|less|ous|ive|able|ible)\\b|\\b(un|dis|mis|over|under)\\w{4,}\\b`, 'Tiền tố / hậu tố tạo từ (-tion, -ment, un-, re-…)'],
     pronouns: [`\\b(myself|yourself|himself|herself|itself|ourselves|themselves|whom|whose|each other|one another|mine|yours|theirs|ours|hers)\\b`, 'Đại từ phản thân / sở hữu / each other …'],
     determiners: [`\\b(each|every|either|neither|both|several|few|a few|little|a little|much|many|all|most|no|another|other)\\s\\w+`, 'each/every · few/a few · much/many · another/other + N'],
