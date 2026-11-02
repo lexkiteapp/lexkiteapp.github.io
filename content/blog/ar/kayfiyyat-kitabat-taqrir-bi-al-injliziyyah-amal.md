@@ -63,22 +63,22 @@ qualityScore: 95
 
 يتطلب قسم التوصيات (Recommendations) موازنة دقيقة بين الحزم التقني والاحترام التام لسلطة الإدارة في اتخاذ القرار:
 
-- *"It is strongly recommended that engineering management allocate supplementary headcount to the payments team."*
-- *"We advise piloting the automated deployment pipeline across two feature squads prior to full rollout."*
-- *"Immediate consideration should be given to renegotiating pricing tiers with auxiliary cloud vendors."*
-- *"A prudent mitigation strategy involves deploying the updated payment schema under a gradual feature flag."*
+- *"It is highly advisable that executive leadership assign additional engineering resources to the data platform."*
+- *"We recommend testing the automated deployment pipeline across select backend services before full enterprise rollout."*
+- *"Immediate review should be undertaken regarding pricing commitments with secondary cloud hosting providers."*
+- *"A sensible contingency strategy involves launching the revised payment gateway under a progressive traffic percentage."*
 
 ## نموذج واقعي لمقتطف من تقرير أعمال تنفيذي
 
 إليك مثالاً حقيقياً على صياغة الملخص التنفيذي في تقرير تدقيق فني:
 
 ```markdown
-### Executive Summary: API Latency Remediation Review
-This audit assesses transaction bottlenecks identified during our Q3 2026 digital product release. 
-Telemetry traces indicate that synchronous third-party webhook verification introduced an average 1.7-second delay, 
-triggering an estimated 13% drop in trial conversion metrics. 
-By deploying edge proxy caching and asynchronous event queues, 
-we project latency reduction below 230ms and full investment amortization within five months.
+### Executive Summary: Database Throughput Optimization Audit
+This operational briefing evaluates query latency bottlenecks identified during our Q3 digital platform expansion. 
+Diagnostic metrics indicate that unindexed relational tables introduced an average 1.9-second delay per session, 
+causing an estimated 14% decline in trial subscription conversions. 
+By deploying distributed key-value caching and asynchronous event queues, 
+we project response latency below 210ms and complete investment amortization within five months.
 ```
 
 ![cut down on 구문과 녹음 마이크 버튼이 표시된 Lexkite 발음 연습 화면](media:practice-speak "شاشة التدريب على النطق في تطبيق Lexkite مع عبارة cut down on وزر التسجيل الصوتي لتقييم إلقاء تقارير الأعمال")

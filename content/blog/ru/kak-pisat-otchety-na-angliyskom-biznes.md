@@ -63,10 +63,10 @@ qualityScore: 95
 
 В разделе рекомендаций важно сочетать уверенность эксперта с уважением к полномочиям руководства:
 
-- *"It is strongly recommended that engineering management allocate supplementary headcount to the payments team."*
-- *"We advise piloting the automated deployment pipeline across two feature squads prior to full rollout."*
-- *"Immediate consideration should be given to renegotiating pricing tiers with auxiliary cloud vendors."*
-- *"A prudent mitigation strategy involves deploying the updated payment schema under a gradual feature flag."*
+- *"Leadership is strongly advised to dedicate supplementary engineering specialists to the payments infrastructure."*
+- *"We recommend validating the automated CI/CD pipeline across two core services prior to wide adoption."*
+- *"Direct attention should be focused on renegotiating SLA contract terms with auxiliary hosting vendors."*
+- *"A reliable contingency plan involves introducing the revised authentication flow under an incremental canary release."*
 
 ## Реальный пример фрагмента аналитического отчета
 
@@ -74,11 +74,11 @@ qualityScore: 95
 
 ```markdown
 ### Executive Summary: API Latency Remediation Review
-This audit assesses transaction bottlenecks identified during our Q3 2026 digital product release. 
-Telemetry traces indicate that synchronous third-party webhook verification introduced an average 1.7-second delay, 
-triggering an estimated 13% drop in trial conversion metrics. 
-By deploying edge proxy caching and asynchronous event queues, 
-we project latency reduction below 230ms and full investment amortization within five months.
+This audit assesses transaction bottlenecks identified during our Q3 digital platform expansion. 
+Diagnostic traces indicate that unoptimized third-party webhooks introduced an average 1.6-second delay, 
+triggering an estimated 11% decline in checkout trial conversions. 
+By deploying edge proxy caching and asynchronous worker pools, 
+we project response latency below 220ms and full investment amortization within five months.
 ```
 
 ![cut down on 구문과 녹음 마이크 버튼이 표시된 Lexkite 발음 연습 화면](media:practice-speak "Экран тренировки произношения в Lexkite с фразой cut down on и кнопкой микрофона для презентации бизнес-отчетов")
