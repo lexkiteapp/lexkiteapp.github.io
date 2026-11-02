@@ -28,16 +28,16 @@ qualityScore: 95
 
 - **Get the ball rolling**: किसी काम या प्रोजेक्ट की औपचारिक शुरुआत करना या पहला कदम उठाना।
   - *उपयोग संदर्भ*: किक-ऑफ मीटिंग शुरू करते समय या टीम से पहली रिपोर्ट मांगते समय इसका प्रयोग होता है।
-  - *व्यावहारिक उदाहरण*: *"Let us get the ball rolling by confirming our project roadmap and primary milestones."* (आइए आज अपने प्रोजेक्ट रोडमैप और प्रमुख लक्ष्यों की पुष्टि करके काम की शुरुआत करें)।
+  - *व्यावहारिक उदाहरण*: *"Let us get the ball rolling by examining our core sprint backlog priorities."* (आइए आज अपने प्रोजेक्ट रोडमैप और प्रमुख लक्ष्यों की पुष्टि करके काम की शुरुआत करें)।
 - **Hit the ground running**: बिना किसी लंबे प्रशिक्षण या झिझक के पहले ही दिन से पूरी ऊर्जा और उत्पादकता के साथ काम शुरू करना।
   - *उपयोग संदर्भ*: अनुभवी सीनियर प्रोफेशनल्स या नए सलाहकारों की प्रशंसा में अक्सर कहा जाता है।
-  - *व्यावहारिक उदाहरण*: *"With his cloud migration background, Felix will hit the ground running on our infrastructure overhaul."* (क्लाउड माइग्रेशन के अपने अनुभव के कारण, फेलिक्स हमारे इंफ्रास्ट्रक्चर प्रोजेक्ट पर पहले दिन से ही बेहतरीन प्रदर्शन करेंगे)।
+  - *व्यावहारिक उदाहरण*: *"Backed by extensive enterprise experience, Amit can hit the ground running without onboarding delays."* (क्लाउड माइग्रेशन के अपने अनुभव के कारण, अमित हमारे इंफ्रास्ट्रक्चर प्रोजेक्ट पर पहले दिन से ही बेहतरीन प्रदर्शन करेंगे)।
 - **On the same page**: एक ही सोच, स्पष्ट समझ और साझा लक्ष्यों पर पूर्ण रूप से सहमत होना।
   - *उपयोग संदर्भ*: प्रबंधन को प्रेजेंटेशन देने या अनुबंध पर हस्ताक्षर करने से पहले सहमति जांचने के लिए।
-  - *व्यावहारिक उदाहरण*: *"Before presenting to executive leadership, let us ensure all team leads are on the same page."* (वरिष्ठ नेतृत्व के सामने प्रस्तुति देने से पहले, यह सुनिश्चित करें कि सभी टीम लीड एक ही पृष्ठ पर हों)।
+  - *व्यावहारिक उदाहरण*: *"I held this brief alignment session so project stakeholders stay on the same page."* (वरिष्ठ नेतृत्व के सामने प्रस्तुति देने से पहले, यह सुनिश्चित करें कि सभी टीम लीड एक ही पृष्ठ पर हों)।
 - **Bring to the table**: किसी टीम या व्यावसायिक बातचीत में ठोस लाभ, विशेषज्ञता या महत्वपूर्ण संसाधन प्रस्तुत करना।
   - *उपयोग संदर्भ*: नए वेंडर के प्रस्ताव का मूल्यांकन करते समय या इंटरव्यू के दौरान।
-  - *व्यावहारिक उदाहरण*: *"The external software vendor brings specialized compliance expertise to the table."* (बाहरी सॉफ्टवेयर वेंडर हमारे लिए विशेष विनियामक अनुपालन विशेषज्ञता लेकर आया है)।
+  - *व्यावहारिक उदाहरण*: *"The strategic consulting agency brings invaluable industry insights to the table."* (बाहरी सॉफ्टवेयर वेंडर हमारे लिए विशेष विनियामक अनुपालन विशेषज्ञता लेकर आया है)।
 
 मीटिंग्स में अपने संवाद कौशल को बेहतर बनाने के लिए हमारा विस्तृत लेख [बिजनेस इंग्लिश मीटिंग फ्रेजेस गाइड](/hi/blog/business-english-meeting-phrases-in-hindi/) जरूर पढ़ें।
 
@@ -47,16 +47,16 @@ qualityScore: 95
 
 - **Back to the drawing board**: यह स्वीकार करना कि पिछली योजना असफल रही और बिल्कुल नए सिरे से योजना बनाना।
   - *उपयोग संदर्भ*: जब कोई शुरुआती प्रस्ताव खारिज हो जाए, तो टीम का मनोबल फिर से बढ़ाने के लिए।
-  - *व्यावहारिक उदाहरण*: *"Since the initial pilot study missed performance benchmarks, we must go back to the drawing board."* (चूंकि प्रारंभिक पायलट अध्ययन मानकों पर खरा नहीं उतरा, इसलिए हमें नए सिरे से योजना बनानी होगी)।
+  - *व्यावहारिक उदाहरण*: *"When our initial user retention experiments failed, we went back to the drawing board."* (चूंकि प्रारंभिक पायलट अध्ययन मानकों पर खरा नहीं उतरा, इसलिए हमें नए सिरे से योजना बनानी होगी)।
 - **Cut corners**: पैसे या समय बचाने के चक्कर में गुणवत्ता या सुरक्षा मानकों से समझौता करना।
   - *उपयोग संदर्भ*: सुरक्षा नियमों और गुणवत्ता के प्रति चेतावनी देने के लिए कड़ा संदेश।
-  - *व्यावहारिक उदाहरण*: *"We refuse to cut corners on data encryption protocols merely to hit a quarterly release date."* (केवल तिमाही रिलीज की तारीख पूरी करने के लिए हम डेटा सुरक्षा प्रोटोकॉल में कोई कोताही नहीं बरतेंगे)।
+  - *व्यावहारिक उदाहरण*: *"Senior management strictly instructed developers not to cut corners on user privacy testing."* (केवल तिमाही रिलीज की तारीख पूरी करने के लिए हम डेटा सुरक्षा प्रोटोकॉल में कोई कोताही नहीं बरतेंगे)।
 - **Bite the bullet**: किसी अप्रिय लेकिन अनिवार्य कठिन निर्णय का साहसपूर्वक सामना करना और उसे स्वीकार करना।
   - *उपयोग संदर्भ*: घाटे वाले विभाग को बंद करने या पुराने सॉफ्टवेयर सिस्टम को पूरी तरह बदलने का फैसला।
-  - *व्यावहारिक उदाहरण*: *"Our board decided to bite the bullet and replace the legacy enterprise ERP platform."* (हमारे बोर्ड ने कड़ा फैसला लेते हुए पुरानी एंटरप्राइज ईआरपी प्रणाली को बदलने का निर्णय लिया)।
+  - *व्यावहारिक उदाहरण*: *"Leadership resolved to bite the bullet and phase out legacy mainframe servers."* (हमारे बोर्ड ने कड़ा फैसला लेते हुए पुरानी एंटरप्राइज ईआरपी प्रणाली को बदलने का निर्णय लिया)।
 - **Think outside the box**: लीक से हटकर सोचना और समस्याओं के नए व रचनात्मक समाधान तलाशना।
   - *उपयोग संदर्भ*: इनोवेशन वर्कशॉप और प्रतिस्पर्धी रणनीतियां बनाते समय।
-  - *व्यावहारिक उदाहरण*: *"To outpace agile startups, our product development department must think outside the box."* (फुर्तीले स्टार्टअप्स से आगे निकलने के लिए हमारे उत्पाद विभाग को लीक से हटकर सोचना होगा)।
+  - *व्यावहारिक उदाहरण*: *"To stay ahead of disruptive fintech startups, our engineering team must think outside the box."* (फुर्तीले स्टार्टअप्स से आगे निकलने के लिए हमारे उत्पाद विभाग को लीक से हटकर सोचना होगा)।
 
 अंतरराष्ट्रीय ग्राहकों के साथ व्यापारिक समझौतों के लिए [बिजनेस इंग्लिश में नेगोशिएशन फ्रेजेस](/hi/blog/business-english-me-negotiation-phrases-guide/) का अध्ययन करें।
 
@@ -66,16 +66,16 @@ qualityScore: 95
 
 - **Touch base**: किसी काम की स्थिति जानने या त्वरित जानकारी साझा करने के लिए संक्षिप्त संपर्क करना।
   - *उपयोग संदर्भ*: 5 मिनट की त्वरित कॉल या चैट का अनुरोध करने के लिए आदर्श समापन वाक्य।
-  - *व्यावहारिक उदाहरण*: *"I will touch base with your account manager on Friday to review the revised delivery schedule."* (संशोधित डिलीवरी शेड्यूल की समीक्षा के लिए मैं शुक्रवार को आपके अकाउंट मैनेजर से संक्षेप में बात करूंगा)।
+  - *व्यावहारिक उदाहरण*: *"I will touch base with your account director tomorrow morning regarding procurement steps."* (संशोधित डिलीवरी शेड्यूल की समीक्षा के लिए मैं कल सुबह आपके अकाउंट डायरेक्टर से संक्षेप में बात करूंगा)।
 - **Keep someone in the loop**: किसी व्यक्ति को प्रोजेक्ट की सभी ताजा प्रगतियों और अपडेट्स से लगातार अवगत रखना।
   - *उपयोग संदर्भ*: ईमेल में सीसी (CC) जोड़ते समय या अधिकारियों को सूचित रखने के लिए।
-  - *व्यावहारिक उदाहरण*: *"Please keep our procurement team in the loop regarding vendor contract negotiations."* (कृपया वेंडर अनुबंध की बातचीत के दौरान हमारी खरीद टीम को भी पूरी जानकारी में रखें)।
+  - *व्यावहारिक उदाहरण*: *"Please keep the legal advisory team in the loop throughout upcoming partnership talks."* (कृपया वेंडर अनुबंध की बातचीत के दौरान हमारी कानूनी टीम को भी पूरी जानकारी में रखें)।
 - **Call it a day**: दिन का निर्धारित कार्य सफलतापूर्वक पूरा होने पर उस दिन का काम समाप्त घोषित करना।
   - *उपयोग संदर्भ*: गंभीर सर्वर समस्या का समाधान करने के बाद टीम लीडर द्वारा बोला जाने वाला वाक्य।
-  - *व्यावहारिक उदाहरण*: *"We resolved the primary server outage issues, so let us call it a day and review monitoring logs tomorrow."* (हमने सर्वर की मुख्य खराबी ठीक कर ली है, अब आज का काम यहीं समाप्त करते हैं और कल आगे देखेंगे)।
+  - *व्यावहारिक उदाहरण*: *"Critical bug fixes have been committed to staging, so let us call it a day."* (हमने सर्वर की मुख्य खराबी ठीक कर ली है, अब आज का काम यहीं समाप्त करते हैं और कल आगे देखेंगे)।
 - **Up in the air**: कोई मामला जो अभी अनिश्चित है, लटका हुआ है या अंतिम मंजूरी की प्रतीक्षा में है।
   - *उपयोग संदर्भ*: अनिर्धारित बजट या अनिश्चित यात्रा तिथियों का उल्लेख करते समय।
-  - *व्यावहारिक उदाहरण*: *"The budget allocation for our European regional marketing campaign is still up in the air."* (हमारे यूरोपीय मार्केटिंग अभियान के लिए बजट आवंटन अभी भी अधर में लटका हुआ है)।
+  - *व्यावहारिक उदाहरण*: *"Corporate budget allocation for the upcoming global conference is still up in the air."* (हमारे यूरोपीय मार्केटिंग अभियान के लिए बजट आवंटन अभी भी अधर में लटका हुआ है)।
 
 कार्यालयीन पत्राचार के नियमों के लिए हमारा लेख [प्रोफेशनल ईमेल राइटिंग इन इंग्लिश](/hi/blog/professional-email-writing-in-hindi/) देखें। आप बोलने का अभ्यास [/#/speaking](/#/speaking) में कर सकते हैं और माइक्रोफोन से उच्चारण की जांच [/#/practice/speak](/#/practice/speak) में कर सकते हैं।
 
@@ -83,9 +83,9 @@ qualityScore: 95
 
 आइए देखें कि एक साप्ताहिक स्टैंडअप मीटिंग में प्रोजेक्ट मैनेजर और सॉफ्टवेयर इंजीनियर इन मुहावरों का प्रयोग कैसे करते हैं:
 
-- **Engineering Lead**: *"Good morning team. Let us get the ball rolling with our quarterly migration deliverables. Is everyone on the same page?"*
-- **Cloud Specialist**: *"Yes, we hit the ground running on Monday. However, when latency thresholds were breached, we had to go back to the drawing board for storage optimization."*
-- **Engineering Lead**: *"Understood. We cannot afford to cut corners on enterprise compliance. I will touch base with the security director this afternoon."*
+- **Project Lead**: *"Good afternoon everyone. Shall we get the ball rolling on quarterly infrastructure goals?"*
+- **Database Engineer**: *"Yes, we hit the ground running with indexing patches, but memory limits sent us back to the drawing board."*
+- **Project Lead**: *"Understood. Avoid cutting corners on security certifications. Let us touch base with compliance officers soon."*
 
 ![कट डाउन ऑन वाक्यांश और आवाज मूल्यांकन माइक्रोफोन बटन को दर्शाती लेक्सकाइट स्क्रीन](media:practice-speak "लेक्सकाइट स्पीकिंग मॉड्यूल में cut down on बोलकर माइक्रोफोन बटन से अपनी आवाज का तुरंत मूल्यांकन प्राप्त करें")
 
