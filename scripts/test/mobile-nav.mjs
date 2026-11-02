@@ -5,6 +5,7 @@
 // Chạy: node scripts/test/mobile-nav.mjs http://localhost:8080 out/mobile-nav   → thoát 1 nếu có lỗi; ảnh chụp từng bước trong thư mục ra.
 import fs from 'node:fs';
 import { chromium, webkit } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 
 const BASE = (process.argv[2] || 'http://localhost:8080').replace(/\/$/, ''), OUT = process.argv[3] || 'out/mobile-nav';
 fs.mkdirSync(OUT, { recursive: true });
@@ -15,6 +16,7 @@ let BT = chromium; // MNAV_BROWSERS=chromium,webkit (WebKit ≈ Safari iPhone)
 async function open(scheme, ux1, { hangIdb = false, fresh = false } = {}) {
   const browser = await BT.launch();
   const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA, colorScheme: scheme, locale: 'vi', reducedMotion: 'reduce' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push(String(e).slice(0, 300)));
   await page.addInitScript(({ ux1, hangIdb, fresh }) => {
@@ -113,6 +115,8 @@ async function run(scheme, ux1) {
   const ov = await overflow(page); if (ov.length) bad(k, `#/me tràn ngang: ${ov.join(', ')}`);
   // Các hàng trong trang Tôi phải chạm được (không bị lớp nào che) và phản hồi
   const tapSel = async (sel, what) => {
+    // trang Tôi vẽ bất đồng bộ (build() chờ isAdmin/blogLive ≤ 500 ms mỗi cái; WebKit CI chậm hơn) → chờ hàng xuất hiện tối đa 8 s; không có vẫn là LỖI
+    await page.waitForFunction(sel => [...document.querySelectorAll(sel)].some(x => x.getBoundingClientRect().width), sel, { timeout: 8000 }).catch(() => {});
     const p = await page.evaluate(sel => { const e = [...document.querySelectorAll(sel)].find(x => x.getBoundingClientRect().width); if (!e) return null; e.scrollIntoView({ block: 'center' }); const r = e.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2, top = document.elementFromPoint(x, y); return { x, y, hit: !!top && e.contains(top), top: top ? top.tagName.toLowerCase() + '.' + [...top.classList].slice(0, 3).join('.') : '∅' }; }, sel);
     if (!p) { bad(k, `#/me: không thấy ${what}`); return false; }
     if (!p.hit) bad(k, `#/me: ${what} bị che bởi ${p.top}`);
