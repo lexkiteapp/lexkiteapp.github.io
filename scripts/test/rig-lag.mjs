@@ -1,6 +1,8 @@
-// Test hồi quy cổng lệch miệng rig 2D (scripts/rig/lag.mjs, cổng render.py lipsync_lag ≤ 45 ms). Dữ liệu thật: mốc âm vị Kokoro + RMS 100 Hz của 10 câu
-// (es-age-be, hi-good-name, pt_BR-people-are#2, pt_BR-actually#2; lượt CI 02/11) trong fixtures/rig-lag.json – không cần Kokoro/wav. Chạy: node scripts/test/rig-lag.mjs
-// 1) đúng: mọi câu |lag| ≤ 45. Ca lỗi đo cũ: es-age-be 60 ms (âm vị đầu câu cộng trùng), people-are#2 220 ms (cụm cắt giữa từ), actually#2 −50 ms (bật "t" coi là mép)
+// Test hồi quy cổng lệch miệng rig 2D (scripts/rig/lag.mjs, cổng render.py lipsync_lag ≤ 45 ms). Dữ liệu thật: mốc âm vị Kokoro + RMS 100 Hz của 13 câu
+// (es-age-be, hi-good-name, pt_BR-people-are#2, pt_BR-actually#2, vi-final-s#1–2, vi-reel-phrase-same-here#0; lượt CI 02/11) trong fixtures/rig-lag.json
+// – không cần Kokoro/wav. Chạy: node scripts/test/rig-lag.mjs
+// 1) đúng: mọi câu |lag| ≤ 45. Ca lỗi cũ: es-age-be 60 ms (âm vị đầu câu cộng trùng), people-are#2 220 ms (cụm cắt giữa từ), actually#2 −50 ms (bật "t" coi là mép),
+//    final-s#2 / phrase#0 −80/−50 ms ("r" cuối Kokoro kéo qua lặng), final-s#1 "Plays" (môi khép p trước tiếng), good-name#3 "please" (l nuốt vào môi khép → mở trễ 30 ms)
 // 2) miệng trễ 60 ms so với tiếng → cổng PHẢI đỏ (mọi câu); sớm 80 ms → cũng đỏ. Engine cố ý cho miệng đi trước LEAD (20 ms) → "trễ 60 ms so với tiếng" = dời cue LEAD + 60 ms
 // 3) gốc: âm vị đầu câu Kokoro muộn hơn tiếng (kokoroOnsetMs > 0) nhưng miệng rời X đúng mép tiếng (mouthOnsetMs ≈ −LEAD)
 // 4) một ngưỡng bật tiếng: align() mặc định neo cue đúng LS.onsets (cùng ONSET)

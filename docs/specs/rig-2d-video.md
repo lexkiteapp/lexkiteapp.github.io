@@ -21,7 +21,7 @@
 **Cổng QC.** Điểm = phần trăm cổng đạt; cần ≥90 và không cổng nào đỏ.
 - Giọng đúng giáo viên, chỉ tiếng Anh, nhịp ≤150 wpm, hook ≤1,5 s (tiếng và thẻ hook xuất hiện từ khung 0), dài 15–30 s.
 - Khớp miệng: lệch ≤45 ms, đúng hình ≥80 %, không nháy miệng, chớp mắt 6–30 lần/phút.
-  - Lệch đo ở scripts/rig/lag.mjs: miệng ↔ hình chuẩn âm vị theo cụm + miệng rời X ↔ mép bật tiếng (một ngưỡng `LS.ONSET` 5 %). Âm vị đầu câu Kokoro muộn 35–60 ms → `LS.anchor` neo vào tiếng. Test hồi quy: scripts/test/rig-lag.mjs (miệng trễ 60 ms phải đỏ).
+  - Lệch đo ở scripts/rig/lag.mjs: miệng ↔ hình chuẩn âm vị theo cụm + lúc miệng mở ↔ mép bật tiếng (một ngưỡng `LS.ONSET` 5 %). `LS.anchor` neo âm vị Kokoro vào mép bật/tắt tiếng thật (đầu câu muộn 35–60 ms, "r" cuối kéo qua lặng 300 ms). Test hồi quy: scripts/test/rig-lag.mjs (miệng trễ 60 ms phải đỏ).
 - Âm lượng −16 ±1 LUFS, đỉnh ≤ −1 dBTP.
 - Có bản reduced-motion; tương phản phụ đề ≥4,5:1; số khung khớp thời lượng.
 

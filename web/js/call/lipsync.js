@@ -46,12 +46,15 @@
     cues.push({ start: t, end: Math.max(t, dur), value: 'X' });
     return smooth(cues);
   }
-  /** Gộp hình trùng nhau liền kề và nuốt mảnh < MIN_HOLD vào hình trước (hết nháy). */
+  /** Gộp hình trùng nhau liền kề và nuốt mảnh < MIN_HOLD vào hình trước (hết nháy) – trừ mảnh mở ngay sau môi khép A: nuốt vào hình SAU,
+   * vì kéo môi khép qua lúc bật tiếng là miệng mở trễ (hi-good-name "please": "l" 40 ms sau "p" → môi khép thêm 40 ms, mở trễ 30 ms). */
   function smooth(cues) {
-    const out = [];
-    for (const c of cues) {
-      const p = out[out.length - 1];
-      if (p && (p.value === c.value || c.end - c.start < MIN_HOLD - 1e-6)) { p.end = c.end; continue; }   // 1e-6: 2,95 − 2,90 < 0,05 trong số thực
+    const out = []; let carry = null;
+    for (const [i, c0] of cues.entries()) {
+      const p = out[out.length - 1], c = carry === null ? c0 : { ...c0, start: carry }; carry = null;
+      const short = c.end - c.start < MIN_HOLD - 1e-6;   // 1e-6: 2,95 − 2,90 < 0,05 trong số thực
+      if (p && short && p.value === 'A' && c.value !== 'X' && c.value !== 'A' && cues[i + 1] && cues[i + 1].value !== 'X') { carry = c.start; continue; }
+      if (p && (p.value === c.value || short)) { p.end = c.end; continue; }
       out.push({ ...c });
     }
     if (out.length > 1 && out[0].end - out[0].start < MIN_HOLD) { out[1].start = 0; out.shift(); }
@@ -84,6 +87,19 @@
       for (let k = j; k <= i; k++) { out[k].s = Math.max(out[k].s, t); out[k].e = Math.max(out[k].e, t); }
       out[j].s = t; if (j > 0) out[j - 1].e = Math.max(out[j - 1].s, t);   // âm/lặng trước khúc kết thúc đúng tại mép
     }
+    // mép TẮT tiếng (lần cuối ≥ ONSET trước ≥ QUIET im / hết file): âm cuối cụm Kokoro kéo dài qua lặng ("r" của "here." thêm 300–350 ms – vi-final-s, reel phrase)
+    // → kết thúc tại mép tắt; dấu câu/khoảng sau nó bắt đầu tại đó. align() vốn đã khép miệng tại mép tắt → hình chuẩn nay khớp tiếng thật (trước đo −50…−80 ms giả).
+    for (const t of offsets(env, hz)) {
+      const i = out.findIndex(x => x.s < t && x.e > t && /[a-zA-Zɐ-ʒʤʧᵊæðŋθ]/.test(x.p)); if (i < 0 || out[i].e - t > (o.maxOff ?? 0.5)) continue;
+      out[i].e = t; if (out[i + 1] && out[i + 1].s > t && !/[a-zA-Zɐ-ʒʤʧᵊæðŋθˈˌ]/.test(out[i + 1].p)) out[i + 1].s = t;   // âm sau (tắc "k" khép im trước tiếng bật) giữ mốc
+    }
+    return out;
+  }
+  /** Các mép tắt tiếng (giây): sau khung cuối ≥ ONSET × đỉnh là ≥ QUIET im (hoặc hết env). */
+  function offsets(env, hz = 100) {
+    const pk = Math.max(...env, 1e-6), thr = pk * ONSET, out = []; let last = -1, q = 0;
+    for (let k = 0; k <= env.length; k++) { if (k < env.length && env[k] >= thr) { last = k; q = 0; continue; }
+      if (last >= 0 && (++q >= QUIET * hz || k === env.length)) { out.push((last + 1) / hz); last = -1; } }
     return out;
   }
   function align(cues, env, o = {}) {
@@ -247,6 +263,6 @@
     return self;
   }
 
-  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, ONSET, QUIET, onsets, anchor, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, ONSET, QUIET, onsets, offsets, anchor, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

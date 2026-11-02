@@ -46,13 +46,15 @@ export function measure(s, env, i = 0, { delay = 0 } = {}) {
   const onsetDiffMs = diff(sp), kokoroOnsetMs = diff(LS.phoneSpans(s.ph)), mean = v => v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : 0;
   const CH = chunks.length ? chunks : [[0, n]], alignChunksMs = CH.map(([a, b]) => mean(onsetDiffMs.filter((_, j) => ons[j] * 100 >= a && ons[j] * 100 < b)));
   const alignMs = mean(onsetDiffMs), lagChunksMs = CH.map(([a, b], j) => xlag(open.slice(a, b), truthOpen.slice(a, b)) + alignChunksMs[j]);
-  // (c) miệng ↔ tiếng trực tiếp ở mỗi mép bật tiếng (không qua âm vị): khung đầu tiên miệng rời X (trong ±200 ms) − mép tiếng. Không phụ thuộc anchor → bắt cả lỗi neo sai.
-  // Miệng không khép qua lặng ngắn (không có X trong 200 ms trước mép) → không có mép miệng để đo, bỏ qua (null).
-  const mouthOnsetMs = ons.map(t => { const k0 = Math.min(n - 1, Math.round(t * 100)); let k = k0;
-    if (S[k].shape === 'X') { while (k < Math.min(n, k0 + 20) && S[k].shape === 'X') k++; return (k - k0) * 10; }
-    while (k > Math.max(0, k0 - 20) && S[k - 1].shape !== 'X') k--; return k > 0 && S[k - 1].shape === 'X' ? (k - k0) * 10 : null; })
-  // hình CHỦ Ý đi trước (LS.LEADS: môi khép A 65 ms, F/V 45, chu môi 40) được trừ phần đi trước dư so với LEAD chung – như cổng đúng hình ở trên
-    .map((d, j) => { if (d === null) return null; const k = Math.min(n - 1, Math.max(0, Math.round(ons[j] * 100) + d / 10)), sh = S[k].shape; return d + Math.round(((LS.LEADS[sh] || LS.LEAD) - LS.LEAD) * 1000); });
+  // (c) miệng ↔ tiếng trực tiếp ở mỗi mép bật tiếng: khung đầu tiên miệng MỞ (hình khác X nghỉ và A môi khép, trong ±200 ms) − mép tiếng.
+  // Mép lấy từ tiếng, không từ âm vị (trừ âm môi dưới đây) → bắt cả lỗi neo sai. A tính là khép: môi khép cho "p/b" hiện trong lúc khép im trước tiếng bật là đúng phát âm (vi-final-s "Plays":
+  // A sớm 100 ms), miệng chỉ mở khi bật. Miệng không khép qua lặng ngắn (không có khung khép trong 200 ms trước mép) → không có mép để đo, bỏ qua (null).
+  // Hình mở CHỦ Ý đi trước (LS.LEADS: F/V 45, chu môi 40 ms) được trừ phần đi trước dư so với LEAD chung – như cổng đúng hình ở trên.
+  const shut = k => S[k].shape === 'X' || S[k].shape === 'A';
+  // Âm môi hữu thanh (m, b) đang phát ngay tại mép tiếng: môi còn khép khi đã có tiếng → mốc mở = cuối khúc A đó (hi-good-name "May", pt_BR "means").
+  const mouthOnsetMs = ons.map(t => { const m = sp.find(x => x.v === 'A' && x.s <= t + 0.01 && t + 0.01 < x.e), k0 = Math.min(n - 1, Math.round((m ? m.e : t) * 100)); let k = k0;
+    if (shut(k)) { while (k < Math.min(n - 1, k0 + 20) && shut(k)) k++; } else { while (k > Math.max(0, k0 - 20) && !shut(k - 1)) k--; if (k === 0 || !shut(k - 1)) return null; }
+    return (k - k0) * 10 + Math.round(((LS.LEADS[S[k].shape] || LS.LEAD) - LS.LEAD) * 1000); });
   const lagMs = [...lagChunksMs, ...mouthOnsetMs.filter(x => x !== null)].reduce((m, x) => Math.abs(x) > Math.abs(m) ? x : m, 0);
   return { ...s, env, cues, M, chunks, lagMs, lagGlobalMs, lagChunksMs, lagEnvChunksMs, onsetDiffMs, kokoroOnsetMs, mouthOnsetMs, alignMs, alignChunksMs, visemePct: tot ? Math.round(100 * ok / tot) : 0, flicker: flick, firstVoiced };
 }
