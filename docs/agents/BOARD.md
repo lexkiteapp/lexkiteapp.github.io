@@ -185,8 +185,24 @@ Mẫu thẻ:
     * TH: `content/blog/th/withi-khian-business-proposal-phasa-angkrit.md` (commit `608f519e0`)
     * AR: `content/blog/ar/kayfa-taktub-muqtarah-amal-bi-al-injliziyyah.md` (commit `33414268a`)
     * HI: `content/blog/hi/business-proposal-in-english-hindi-guide.md` (commit `4d2fc7ece`)
-    * Tổng bài toàn repo: **911 bài** (60 bài mới Đợt 4). 100% PASS Quality Gates, shingle max 12.0%.
-  - 🔄 **Bắt đầu Cụm 5:** Kỹ năng phỏng vấn theo phương pháp STAR bằng tiếng Anh (`phong-van-star-method-tieng-anh`) - 15 ngôn ngữ.
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm 5** (`phong-van-star-method-tieng-anh`):
+    * VI: `content/blog/vi/phuong-phap-star-trong-phong-van-tieng-anh.md` (commit `f1b792742`)
+    * EN: `content/blog/en/star-method-in-english-interviews-guide.md` (commit `53adb249b`)
+    * ES: `content/blog/es/metodo-star-en-entrevistas-en-ingles-guia.md` (commit `1804112f8`)
+    * PT: `content/blog/pt/metodo-star-em-entrevistas-em-ingles-guia.md` (commit `8b18ec4f9`)
+    * FR: `content/blog/fr/methode-star-en-entretien-en-anglais-guide.md` (commit `18d0e61c8`)
+    * DE: `content/blog/de/star-methode-im-vorstellungsgespraech-auf-englisch-guide.md` (commit `8c4f0ca05`)
+    * ID: `content/blog/id/metode-star-dalam-interview-bahasa-inggris-panduan.md` (commit `d4fd0d11a`)
+    * JA: `content/blog/ja/eigo-mensetsu-star-hou-guide.md` (commit `053a75b10`)
+    * ZH: `content/blog/zh/ying-yu-mian-shi-star-fa-ze-zhi-nan.md` (commit `d667374c1`)
+    * KO: `content/blog/ko/yeongeo-myeonjeop-star-gibeop-guide.md` (commit `12374d074`)
+    * RU: `content/blog/ru/metod-star-na-sobesedovanii-na-angliyskom.md` (commit `d9b3599cd`)
+    * TR: `content/blog/tr/ingilizce-mulakatta-star-teknigi-rehber.md` (commit `ae19f6add`)
+    * TH: `content/blog/th/theknik-star-samphat-ngan-phasa-angkrit.md` (commit `f6a7d866b`)
+    * AR: `content/blog/ar/tiqniyyat-star-fi-al-muqabalat-bi-al-injliziyyah.md` (commit `aaac9e3d1`)
+    * HI: `content/blog/hi/english-interview-star-technique-guide.md` (commit `80279f0da`)
+    * Tổng bài toàn repo: **926 bài** (75 bài mới Đợt 4). 100% PASS Quality Gates, shingle max 12.0%.
+  - 🔄 **Bắt đầu Cụm 6:** Ngữ điệu và trọng âm câu trong giao tiếp tiếng Anh nâng cao (`ngu-dieu-va-sentence-stress-tieng-anh`) - 15 ngôn ngữ.
 - **Cần sửa / Nhận xét:**
 
 ### [B5-MEGA100-P3] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 3 (Đạt mốc 851 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
