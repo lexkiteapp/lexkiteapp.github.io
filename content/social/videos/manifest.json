@@ -201,8 +201,8 @@
     "ama"
    ],
    "duration_s": 21.475,
-   "score": 95,
-   "pass": false,
+   "score": 100,
+   "pass": true,
    "status": "draft",
    "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-final-s#/grammar",
    "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-video.mp4",

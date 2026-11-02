@@ -113,7 +113,7 @@
    "lagEnvChunksMs": [
     10,
     170,
-    140
+    130
    ],
    "onsetDiffMs": [
     0,
@@ -136,7 +136,7 @@
     0,
     0
    ],
-   "visemePct": 98,
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -147,7 +147,7 @@
    "lagMs": -20,
    "lagGlobalMs": -20,
    "lagChunksMs": [
-    -20,
+    -10,
     0
    ],
    "lagEnvChunksMs": [
@@ -186,7 +186,7 @@
    "lagGlobalMs": 0,
    "lagChunksMs": [
     -30,
-    -20
+    -10
    ],
    "lagEnvChunksMs": [
     0,

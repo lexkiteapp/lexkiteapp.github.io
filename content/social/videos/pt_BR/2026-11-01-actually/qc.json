@@ -33,7 +33,7 @@
  "above_b1": [],
  "deeplink": "#/vocab",
  "native_font": "BeVietnamPro-Bold.ttf",
- "lufs": -16.4,
+ "lufs": -16.3,
  "truePeak": -1.5,
  "voices": [
   {
@@ -58,8 +58,8 @@
  "wpmSpeech": 108,
  "wpmOverall": 96,
  "firstVoicedS": 0.25,
- "lagMaxAbsMs": 30,
- "visemePctMin": 94,
+ "lagMaxAbsMs": 20,
+ "visemePctMin": 95,
  "flicker": 0,
  "blinksPerMin": 17,
  "rows": [
@@ -68,11 +68,11 @@
    "emo": "explain",
    "hand": "",
    "dur": 5,
-   "lagMs": -30,
+   "lagMs": -20,
    "lagGlobalMs": -10,
    "lagChunksMs": [
     0,
-    -30
+    -20
    ],
    "lagEnvChunksMs": [
     -10,
@@ -84,11 +84,11 @@
    ],
    "kokoroOnsetMs": [
     70,
-    25
+    35
    ],
    "mouthOnsetMs": [
     -20,
-    -15
+    -10
    ],
    "alignMs": 0,
    "alignChunksMs": [
@@ -106,7 +106,7 @@
    "lagMs": -20,
    "lagGlobalMs": -10,
    "lagChunksMs": [
-    -20,
+    -10,
     0
    ],
    "lagEnvChunksMs": [
@@ -200,7 +200,7 @@
     0,
     0
    ],
-   "visemePct": 94,
+   "visemePct": 95,
    "flicker": 0
   }
  ],

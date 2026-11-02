@@ -33,7 +33,7 @@
  "above_b1": [],
  "deeplink": "#/pron",
  "native_font": "NotoSansCJK-Bold.ttc",
- "lufs": -16,
+ "lufs": -16.1,
  "truePeak": -1.5,
  "voices": [
   {
@@ -63,7 +63,7 @@
  "wpmOverall": 109,
  "firstVoicedS": 0.44,
  "lagMaxAbsMs": 30,
- "visemePctMin": 97,
+ "visemePctMin": 98,
  "flicker": 0,
  "blinksPerMin": 19,
  "rows": [
@@ -76,7 +76,7 @@
    "lagGlobalMs": 10,
    "lagChunksMs": [
     0,
-    10
+    0
    ],
    "lagEnvChunksMs": [
     0,
@@ -99,7 +99,7 @@
     0,
     0
    ],
-   "visemePct": 97,
+   "visemePct": 98,
    "flicker": 0
   },
   {
@@ -110,7 +110,7 @@
    "lagMs": -20,
    "lagGlobalMs": 0,
    "lagChunksMs": [
-    -20,
+    -10,
     -10
    ],
    "lagEnvChunksMs": [
@@ -186,8 +186,8 @@
    "lagMs": -20,
    "lagGlobalMs": -20,
    "lagChunksMs": [
-    -20,
-    -20
+    -10,
+    -10
    ],
    "lagEnvChunksMs": [
     -20,
@@ -210,7 +210,7 @@
     0,
     0
    ],
-   "visemePct": 97,
+   "visemePct": 99,
    "flicker": 0
   },
   {

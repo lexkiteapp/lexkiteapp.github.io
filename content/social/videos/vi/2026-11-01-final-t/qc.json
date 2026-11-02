@@ -76,7 +76,7 @@
    ],
    "lagEnvChunksMs": [
     0,
-    -10
+    0
    ],
    "onsetDiffMs": [
     0,
@@ -95,7 +95,7 @@
     0,
     0
    ],
-   "visemePct": 98,
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -141,8 +141,8 @@
    "lagMs": -20,
    "lagGlobalMs": -20,
    "lagChunksMs": [
-    -20,
-    -10
+    -10,
+    0
    ],
    "lagEnvChunksMs": [
     -20,
@@ -150,17 +150,14 @@
    ],
    "onsetDiffMs": [
     0,
-    0,
     0
    ],
    "kokoroOnsetMs": [
     60,
-    10,
     -20
    ],
    "mouthOnsetMs": [
     -20,
-    null,
     -20
    ],
    "alignMs": 0,
@@ -179,7 +176,7 @@
    "lagMs": -20,
    "lagGlobalMs": 0,
    "lagChunksMs": [
-    -10,
+    0,
     0
    ],
    "lagEnvChunksMs": [
@@ -196,14 +193,14 @@
    ],
    "mouthOnsetMs": [
     -20,
-    null
+    -20
    ],
    "alignMs": 0,
    "alignChunksMs": [
     0,
     0
    ],
-   "visemePct": 99,
+   "visemePct": 98,
    "flicker": 0
   }
  ],

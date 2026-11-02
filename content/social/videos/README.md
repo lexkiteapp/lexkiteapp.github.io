@@ -34,5 +34,5 @@
 
 | ngày | tiêu đề | lỗi nhắm tới | QC | trạng thái | tải |
 |---|---|---|---|---|---|
-| 2026-11-01 | [Người Việt hay quên âm “s” này!](vi/2026-11-01-final-s/caption.txt) | Quên thêm -s cho động từ sau he/she/it (tiếng Việt không chia động từ) | 95 ❌ | draft | [video](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-video.mp4) · [bìa](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-cover.jpg) |
+| 2026-11-01 | [Người Việt hay quên âm “s” này!](vi/2026-11-01-final-s/caption.txt) | Quên thêm -s cho động từ sau he/she/it (tiếng Việt không chia động từ) | 100 ✅ | draft | [video](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-video.mp4) · [bìa](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-cover.jpg) |
 | 2026-11-01 | [Nuốt âm cuối: “white” thành “why”!](vi/2026-11-01-final-t/caption.txt) | Nuốt âm cuối: "white" nghe thành "why" (tiếng Việt không bật âm cuối) | 100 ✅ | draft | [video](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-t-video.mp4) · [bìa](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-t-cover.jpg) |

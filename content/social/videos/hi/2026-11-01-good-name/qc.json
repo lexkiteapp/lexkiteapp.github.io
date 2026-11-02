@@ -58,7 +58,7 @@
  "wpmSpeech": 132,
  "wpmOverall": 117,
  "firstVoicedS": 0.32,
- "lagMaxAbsMs": 25,
+ "lagMaxAbsMs": 20,
  "visemePctMin": 96,
  "flicker": 0,
  "blinksPerMin": 15,
@@ -135,7 +135,7 @@
    "lagMs": -20,
    "lagGlobalMs": -10,
    "lagChunksMs": [
-    -10,
+    0,
     0
    ],
    "lagEnvChunksMs": [
@@ -167,7 +167,7 @@
    "emo": "happy",
    "hand": "",
    "dur": 4.175,
-   "lagMs": -25,
+   "lagMs": -20,
    "lagGlobalMs": -10,
    "lagChunksMs": [
     -20,
@@ -175,7 +175,7 @@
    ],
    "lagEnvChunksMs": [
     -20,
-    0
+    -10
    ],
    "onsetDiffMs": [
     0,
@@ -192,8 +192,8 @@
    "mouthOnsetMs": [
     -20,
     null,
-    -15,
-    -25
+    -20,
+    -10
    ],
    "alignMs": 0,
    "alignChunksMs": [

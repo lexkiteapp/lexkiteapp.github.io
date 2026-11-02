@@ -34,7 +34,7 @@
  "deeplink": "#/grammar",
  "native_font": "NotoSansCJK-Bold.ttc",
  "lufs": -16.6,
- "truePeak": -1.4,
+ "truePeak": -1.5,
  "voices": [
   {
    "who": "carlos",
@@ -59,7 +59,7 @@
  "wpmOverall": 129,
  "firstVoicedS": 0.27,
  "lagMaxAbsMs": 20,
- "visemePctMin": 95,
+ "visemePctMin": 96,
  "flicker": 0,
  "blinksPerMin": 18,
  "rows": [
@@ -71,11 +71,11 @@
    "lagMs": -20,
    "lagGlobalMs": -10,
    "lagChunksMs": [
-    0,
+    10,
     0
    ],
    "lagEnvChunksMs": [
-    -10,
+    0,
     -10
    ],
    "onsetDiffMs": [
@@ -90,7 +90,7 @@
    ],
    "mouthOnsetMs": [
     -20,
-    -15,
+    -20,
     -20
    ],
    "alignMs": 0,
@@ -98,7 +98,7 @@
     0,
     0
    ],
-   "visemePct": 98,
+   "visemePct": 97,
    "flicker": 0
   },
   {
@@ -106,7 +106,7 @@
    "emo": "explain",
    "hand": "",
    "dur": 5.35,
-   "lagMs": -20,
+   "lagMs": -10,
    "lagGlobalMs": -10,
    "lagChunksMs": [
     0,
@@ -121,20 +121,17 @@
    "onsetDiffMs": [
     0,
     0,
-    0,
     0
    ],
    "kokoroOnsetMs": [
     -5,
     -10,
-    5,
-    -100
+    5
    ],
    "mouthOnsetMs": [
     -10,
     -10,
-    -10,
-    -20
+    -10
    ],
    "alignMs": 0,
    "alignChunksMs": [
@@ -142,7 +139,7 @@
     0,
     0
    ],
-   "visemePct": 98,
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -171,7 +168,7 @@
    "alignChunksMs": [
     0
    ],
-   "visemePct": 95,
+   "visemePct": 96,
    "flicker": 0
   },
   {

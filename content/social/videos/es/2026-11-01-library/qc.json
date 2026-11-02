@@ -63,7 +63,7 @@
  "wpmOverall": 114,
  "firstVoicedS": 0.45,
  "lagMaxAbsMs": 40,
- "visemePctMin": 98,
+ "visemePctMin": 99,
  "flicker": 0,
  "blinksPerMin": 17,
  "rows": [
@@ -72,10 +72,10 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.2,
-   "lagMs": -30,
+   "lagMs": -20,
    "lagGlobalMs": 0,
    "lagChunksMs": [
-    -30,
+    -20,
     -10
    ],
    "lagEnvChunksMs": [
@@ -99,7 +99,7 @@
     0,
     0
    ],
-   "visemePct": 98,
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -198,7 +198,7 @@
     0,
     0
    ],
-   "visemePct": 98,
+   "visemePct": 99,
    "flicker": 0
   },
   {

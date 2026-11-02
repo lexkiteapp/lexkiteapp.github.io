@@ -34,7 +34,7 @@
  "deeplink": "#/grammar",
  "native_font": "BeVietnamPro-Bold.ttf",
  "lufs": -16.4,
- "truePeak": -1.5,
+ "truePeak": -1.4,
  "voices": [
   {
    "who": "carlos",
@@ -59,7 +59,7 @@
  "wpmOverall": 115,
  "firstVoicedS": 0.26,
  "lagMaxAbsMs": 20,
- "visemePctMin": 97,
+ "visemePctMin": 98,
  "flicker": 0,
  "blinksPerMin": 19,
  "rows": [
@@ -71,12 +71,12 @@
    "lagMs": -20,
    "lagGlobalMs": -10,
    "lagChunksMs": [
+    10,
     0,
-    -10,
     10
    ],
    "lagEnvChunksMs": [
-    -10,
+    0,
     110,
     -10
    ],
@@ -101,7 +101,7 @@
     0,
     0
    ],
-   "visemePct": 99,
+   "visemePct": 98,
    "flicker": 0
   },
   {
@@ -200,7 +200,7 @@
     0,
     0
    ],
-   "visemePct": 97,
+   "visemePct": 98,
    "flicker": 0
   }
  ],
