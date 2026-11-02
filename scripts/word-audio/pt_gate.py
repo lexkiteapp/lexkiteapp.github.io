@@ -48,6 +48,26 @@ def hear(f, carrier=None):
     return t
 def pcm_of(f):
     return np.frombuffer(subprocess.check_output(['ffmpeg', '-v', 'error', '-i', f, '-f', 'f32le', '-ac', '1', '-ar', str(SR), '-']), np.float32).copy()
+def detail(src, text):
+    """Bỏ tiếng xì thừa Kokoro sinh ở CUỐI phát ngôn (lượt 41444914173: comida/mão đọc trơ kết thúc bằng ~100 ms ZCR 0,55–0,68 ở −20 dB
+    → nghe "comidas", "mãos"; câu mang cũng vậy → ghép vào nghe "ságua", "somente"). Chỉ cắt khi chữ viết KHÔNG tận cùng bằng âm xát s/z/x/r
+    và đoạn xì dài 30–250 ms ngay sau phần hữu thanh. Trả đường dẫn wav mới (hoặc src nếu không có gì để cắt)."""
+    last = re.sub(r'[^\w]+$', '', unicodedata.normalize('NFC', text).strip()).lower()
+    if not last or last[-1] in 'szxr': return src             # r cuối pt-BR = âm xát vô thanh thật [h]/[χ]
+    pcm = pcm_of(src); fr = SR // 100; n = len(pcm) // fr
+    if n < 10: return src
+    db = np.array([10 * np.log10(np.mean(pcm[i * fr:(i + 1) * fr] ** 2) + 1e-12) for i in range(n)]); db -= db.max()
+    zc = np.array([np.mean(np.abs(np.diff(np.sign(pcm[i * fr:(i + 1) * fr]))) > 0) for i in range(n)])
+    e = n - 1
+    while e > 0 and db[e] <= -36: e -= 1                      # bỏ lặng cuối
+    while e > 0 and zc[e] < 0.25 and db[e] < -28: e -= 1      # phần tắt dần nhỏ, ít xát
+    b = e
+    while b > 0 and zc[b] >= 0.25 and db[b] > -36: b -= 1     # đoạn xì
+    if not (3 <= e - b <= 25) or zc[b] >= 0.2: return src     # không có đoạn xì rõ ngay sau phần hữu thanh
+    o = pcm[:(b + 1) * fr].copy(); fo = min(len(o), int(SR * 0.025)); o[-fo:] *= np.linspace(1, 0, fo)
+    dst = src[:-4] + '.da.wav'
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '1', '-i', '-', dst], input=o.astype('float32').tobytes(), check=True)
+    return dst
 def cut_last(word, src):
     """Câu mang "A palavra é: TỪ." → wav chỉ còn TỪ, hoặc (None, lý do). Câu phải được nghe ra đúng từ ở cuối (= asr_lib.cut_last, language pt)."""
     segs, _ = model.transcribe(src, language='pt', beam_size=5, temperature=0.0, word_timestamps=True, condition_on_previous_text=False)
@@ -75,13 +95,14 @@ def gate(r):
         if c['m'] == 'cut':
             src, why = cut_last(r['w'], c['f'])
             if not src: tried.append({'m': 'cut', 'heard': why}); continue
+        src = detail(src, r['w'])
         mp3 = src[:-4] + '.mp3'; li = norm16(src, mp3); heard = hear(mp3, CARRIER.get(r['v']) if ' ' not in r['w'].strip() else None)
         last = {'v': r['v'], 'w': r['w'], 'key': r.get('key'), 'm': c['m'], 'mp3': mp3, 'heard': heard, 'lufs': li, 'asr': nrm(heard) == nrm(r['w']), 'loud': li is not None and abs(li + 16) <= 1.0}
         last['ok'] = last['asr'] and last['loud']; tried.append({'m': c['m'], 'heard': heard})
         if last['ok']: break
     if last is None: last = {'v': r['v'], 'w': r['w'], 'ok': False, 'asr': False, 'loud': False, 'heard': '; '.join(t['heard'] for t in tried)}
     return {**last, 'tried': tried}
-CARRIER = probe.get('carrier') or {}
+CARRIER = {v: detail(f, 'A palavra é') for v, f in (probe.get('carrier') or {}).items()}
 res = [gate(r) if r.get('f') else {**r, 'ok': False, 'why': r.get('err', 'no file')} for r in probe.get('rows', [])]
 by = {}
 for x in res: by.setdefault(x.get('v', '?'), []).append(x)
@@ -98,8 +119,12 @@ if PUB:
     json.dump({v: sorted(ws) for v, ws in idx.items()}, open(os.path.join(OUT, 'index.json'), 'w'), ensure_ascii=False, indent=1)
 txt = '\n'.join(lines); print(txt)
 if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write(txt + '\n')
-ok = sum(x['ok'] for x in res); n = len(res) or 1
-bad_loud = [x['w'] for x in res if x.get('asr') and not x.get('loud')]
-if ok == 0 or bad_loud or ok / n < MIN:
-    print(f'✗ pt-gate: đạt {ok}/{n} (< {MIN:.0%}) hoặc trượt độ to {bad_loud}'); sys.exit(1)
-print(f'✓ pt-gate: đạt {ok}/{n}')
+# Tiêu chí tính RIÊNG từng giọng dùng thật (PT_REQUIRE, mặc định Ama pf_dora + Carlos pm_alex); giọng khác (Piper đối chứng) chỉ báo cáo.
+REQ = [v for v in os.environ.get('PT_REQUIRE', 'pf_dora,pm_alex').split(',') if v]
+bad = []
+for v in REQ:
+    xs = by.get(v, []); ok = sum(x['ok'] for x in xs); n = len(xs) or 1
+    bad_loud = [x['w'] for x in xs if x.get('asr') and not x.get('loud')]
+    if ok == 0 or bad_loud or ok / n < MIN: bad.append(f'{v} đạt {ok}/{n} (< {MIN:.0%}) hoặc trượt độ to {bad_loud}')
+    else: print(f'✓ pt-gate {v}: đạt {ok}/{n}')
+if bad: print('✗ pt-gate: ' + ' · '.join(bad)); sys.exit(1)
