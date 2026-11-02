@@ -9,7 +9,7 @@ tags: [gerund, infinitive, waiyakon-phasa-angkrit]
 keyword: "การใช้ gerund และ infinitive"
 cover: dict
 coverAlt: "หน้าจอพจนานุกรม Lexkite แสดงตัวอย่างการใช้คำกริยากับ gerund และ to-infinitive พร้อมเสียงอ่านแท้"
-publishAt: ""
+publishAt: 2026-12-02T12:06:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [gerundio, infinitivo, gramatica-inglesa]
 keyword: "gerúndio e infinitivo em inglês"
 cover: dict
 coverAlt: "Dicionário Lexkite com definições em inglês, transcrição fonética e exemplos de regência verbal"
-publishAt: ""
+publishAt: 2026-12-13T19:57:00-03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

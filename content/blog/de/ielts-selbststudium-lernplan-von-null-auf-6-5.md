@@ -9,7 +9,7 @@ tags: [ielts, selbststudium, lernplan]
 keyword: "ielts selbststudium lernplan"
 cover: path
 coverAlt: "Lexkite Bildschirm Your IELTS path mit modularen Lernstufen nach Zielband"
-publishAt: ""
+publishAt: 2026-12-07T07:18:00+01:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [listening, bahasa-inggris, pendengaran]
 keyword: "cara meningkatkan listening bahasa inggris"
 cover: dict
 coverAlt: "Kamus Lexkite menampilkan pelafalan audio aksen Inggris dan Amerika serta transkripsi fonetik IPA"
-publishAt: ""
+publishAt: 2026-12-03T20:01:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

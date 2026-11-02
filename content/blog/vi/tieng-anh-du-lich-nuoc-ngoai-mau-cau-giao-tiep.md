@@ -9,7 +9,7 @@ tags: [tieng-anh-du-lich, giao-tiep, hoi-thoai]
 keyword: "tiếng anh du lịch nước ngoài"
 cover: home
 coverAlt: "Giao diện trang chủ và lộ trình học tiếng Anh giao tiếp mỗi ngày trên ứng dụng Lexkite"
-publishAt: ""
+publishAt: 2027-01-16T09:01:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

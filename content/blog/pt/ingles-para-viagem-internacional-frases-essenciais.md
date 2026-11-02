@@ -9,7 +9,7 @@ tags: [ingles-para-viagem, viagem-internacional, conversacao]
 keyword: "inglês para viagem internacional"
 cover: home
 coverAlt: "Painel inicial com metas diárias de estudo e módulos de conversação prática no Lexkite"
-publishAt: ""
+publishAt: 2026-12-14T07:43:00-03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

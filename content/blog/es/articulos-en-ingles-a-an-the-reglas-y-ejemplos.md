@@ -33,6 +33,7 @@ quiz: [
     explain: "Los países en plural o con términos políticos colectivos (Kingdom, Republic, States) exigen el uso de 'the'."
   }
 ]
+publishAt: 2026-12-02T08:41:00-06:00
 ---
 
 El uso de los artículos en inglés representa uno de los mayores quebraderos de cabeza para los hispanohablantes. Aunque a primera vista parece sencillo traducir *"el/la"* por *the* y *"un/una"* por *a/an*, las reglas subyacentes que rigen los **articulos en ingles a an the** responden a una lógica de pensamiento muy diferente a la del español.

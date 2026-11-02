@@ -9,7 +9,7 @@ tags: [gerund, infinitiv, englische-grammatik]
 keyword: "gerund oder infinitiv englisch"
 cover: dict
 coverAlt: "Lexkite Wörterbuch mit Lautschrift, Bedeutungsnuancen und Verbkonstruktionen im Englischen"
-publishAt: ""
+publishAt: 2026-12-06T07:14:00+01:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [doumeishi, futeishi, eigo-bunpou]
 keyword: "動名詞 不定詞 使い分け"
 cover: dict
 coverAlt: "Lexkite英語辞書の発音記号と例文および動詞の語法解説画面"
-publishAt: ""
+publishAt: 2026-12-14T09:58:00+09:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

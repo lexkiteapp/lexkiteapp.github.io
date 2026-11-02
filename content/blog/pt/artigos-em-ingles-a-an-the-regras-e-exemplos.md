@@ -33,6 +33,7 @@ quiz: [
     explain: "Países no plural ou com termos como 'Kingdom', 'Republic' ou 'States' exigem 'the'."
   }
 ]
+publishAt: 2026-12-07T09:08:00-03:00
 ---
 
 O domínio dos artigos em inglês costuma ser uma das maiores fontes de tropeços para falantes de português. À primeira vista, a correspondência parece direta: traduzir *"o/a"* por *the* e *"um/uma"* por *a/an*. Contudo, as regras que governam os **artigos em ingles a an the** operam sobre uma lógica mental de generalidade e especificidade profundamente diferente da língua portuguesa.

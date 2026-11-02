@@ -29,7 +29,7 @@ const env = process.env;
 // 26/10: 'cf' = Workers AI THẲNG (cf-direct.mjs: CF_POOL → tài khoản 2), xoay tài khoản, trần VIMG_MAX_CF (mặc định 0 = tắt) – thay GrabCast khi GrabCast hỏng
 const cfP = () => cfProvider(modelId(env.VIMG_MODEL) || MODEL_DEFAULT);
 export const PROVIDERS = [
-  { id: 'cf', get max() { return CF.max; }, ok: () => CF.ok(), run: p => CF.run(p).catch(e => { throw e instanceof CfQuota ? new Quota(e.message) : e instanceof CfSafety ? new Safety(e.message) : e; }) },
+  { id: 'cf', get max() { return CF.max; }, ok: () => CF.ok(), run: (p, o) => CF.run(p, o).catch(e => { throw e instanceof CfQuota ? new Quota(e.message) : e instanceof CfSafety ? new Safety(e.message) : e; }) },
   // 24/10 chủ: GrabCast TRƯỚC và gần như duy nhất (kho ~70 khóa Cloudflare, chưa có người dùng thật → dùng tối đa, chừa ~10 %); cf2 mặc định 0
   { id: 'grabcast', max: +(env.VIMG_MAX_GC || 40), ok: () => env.GRABCAST_AI_KEY, run: grabcast },
   { id: 'cf2', max: +(env.VIMG_MAX_CF2 || 0), ok: () => env.CF_AI_TOKEN_2 && env.CF_ACCOUNT_2, run: p => cfRest(env.CF_ACCOUNT_2, env.CF_AI_TOKEN_2, p) },
@@ -80,7 +80,7 @@ export function gcBody(prompt, model = modelId(env.VIMG_MODEL), size = env.VIMG_
   return b;
 }
 let gcModel = modelId(env.VIMG_MODEL);
-let CF_; const CF = { get max() { return (CF_ ||= cfP()).max; }, ok: () => (CF_ ||= cfP()).ok(), run: p => (CF_ ||= cfP()).run(p), get stats() { return (CF_ ||= cfP()).stats; } };
+let CF_; const CF = { get max() { return (CF_ ||= cfP()).max; }, ok: () => (CF_ ||= cfP()).ok(), run: (p, o) => (CF_ ||= cfP()).run(p, o), get stats() { return (CF_ ||= cfP()).stats; } };
 export const cfStats = () => CF.stats;
 export const modelInUse = () => gcModel || MODEL_DEFAULT;
 const GC = String(env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');

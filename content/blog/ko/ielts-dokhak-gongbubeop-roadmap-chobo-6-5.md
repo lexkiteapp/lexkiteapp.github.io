@@ -9,7 +9,7 @@ tags: [ielts, dokhak, gongbubeop]
 keyword: "ielts 독학 공부법"
 cover: path
 coverAlt: "Lexkite Your IELTS path 화면: 밴드 목표별 단계적 학습 로드맵"
-publishAt: ""
+publishAt: 2026-12-05T08:57:00+09:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

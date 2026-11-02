@@ -9,7 +9,7 @@ tags: [apresentacoes, business-english, speaking, carreira]
 keyword: "apresentações em inglês frases"
 cover: path
 coverAlt: "Roteiro de estudos de apresentações profissionais em inglês e comunicação corporativa no Lexkite"
-publishAt: ""
+publishAt: 2026-12-06T20:11:00-03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

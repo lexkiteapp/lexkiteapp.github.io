@@ -9,7 +9,7 @@ tags: [tieng-anh-hop, business-meeting, giao-tiep-cong-so]
 keyword: "tiếng anh giao tiếp họp công sở"
 cover: path
 coverAlt: "Lộ trình học tiếng Anh công sở và kỹ năng giao tiếp chuyên nghiệp trên Lexkite"
-publishAt: ""
+publishAt: 2027-01-18T19:16:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

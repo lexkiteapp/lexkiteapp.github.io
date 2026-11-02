@@ -8,6 +8,10 @@ let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m)
 ok(capacity({ busy: 13, starved: 0 }) === 19, '13 busy → 40 − 13 − 8 = 19');
 ok(capacity({ busy: 32, starved: 0 }) === 0 && capacity({ busy: 35, starved: 0 }) === 0, 'busy ≥ 32 → 0');
 ok(capacity({ busy: 5, starved: 1 }) === 0, 'có job đói runner → 0');
+// hồi quy 02/11 04:21Z: busy 20, queued 118 (đói 0) → mã cũ bơm 12 job (40/40, check PR #406/#418 không có runner) – phải 0
+ok(capacity({ busy: 20, queued: 118, starved: 0 }) === 0, '04:21Z busy 20 + queued 118 → 0 shard');
+ok(capacity({ busy: 20, queued: 5, starved: 0 }) === 7, 'busy + queued + shard ≤ 32 → 32 − 20 − 5 = 7');
+ok(capacity({ busy: 10, queued: 0, starved: 0, prQueued: 1 }) === 0, 'check PR đang xếp hàng → 0');
 const W = { id: 'w', workflow: 'w.yml', cpu_bound: true, shards_input: 'shards', max_shards: 6 };
 ok(shardsFor(W, 19) === 6 && shardsFor(W, 4) === 4 && shardsFor(W, 0) === 0, 'shard = min(trần, chỗ)');
 ok(shardsFor({ ...W, min_shards: 3 }, 2) === 0, 'dưới min_shards → không dispatch');
@@ -28,6 +32,8 @@ ok(plan([W], { free: 8, active: new Set(), left: () => null })[0].act === 'skip'
 const now = Date.parse('2026-11-01T12:00:00Z'), old = '2026-11-01T11:58:00Z', fresh = '2026-11-01T11:59:50Z';
 const c = countJobs([[{ status: 'in_progress' }, { status: 'queued', created_at: old }], [{ status: 'queued', created_at: old }, { status: 'queued', created_at: fresh }]], now);
 ok(c.busy === 1 && c.queued === 3 && c.starved === 1, 'job queued trong lượt đang chạy = bị giữ (max-parallel), không phải đói');
+const cp = countJobs([{ event: 'pull_request', jobs: [{ status: 'in_progress' }, { status: 'queued', created_at: fresh }] }, { event: 'schedule', jobs: [{ status: 'queued', created_at: fresh }] }], now);
+ok(cp.prQueued === 1 && cp.queued === 2 && cp.busy === 1, 'job check PR đang xếp hàng được đếm riêng (prQueued)');
 // --- log + báo cáo
 ok(logLine({ ts: 't', busy: 13, queued: 0, dispatched: 12, backlog: 2 }) === 't\t13\t0\t12\t2\t70', 'idle = (32 − 13 − 12) × 10');
 ok(logLine({ ts: 't', busy: 13, queued: 0, dispatched: 0, backlog: 0 }).endsWith('\t0'), 'không tồn đọng → idle 0');
@@ -54,5 +60,6 @@ for (const e of reg.entries) {
 }
 const self = fs.readFileSync('.github/workflows/ci-filler.yml', 'utf8'), tm = self.match(/timeout-minutes:\s*(\d+)/);
 ok(/^concurrency:/m.test(self) && tm && +tm[1] <= 5 && /cron: '[^']*\/10 /.test(self) && /workflow_dispatch/.test(self), 'ci-filler.yml: cron 10 phút, concurrency, timeout ≤ 5');
+await import('./qa-fill.mjs');   // phần QA mở rộng (sổ 8 QA, cùng sha, qa-backlog, upgrade-audit) – cùng 1 lệnh trong npm test
 if (fail) { console.error(`✗ ci-filler: ${fail} lỗi`); process.exit(1); }
 console.log('✓ ci-filler: shard, chặn trùng, log/báo cáo, sổ ↔ workflow');

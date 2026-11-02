@@ -1,0 +1,588 @@
+{
+ "id": "cmu_95408ad1",
+ "template": "mistake",
+ "title": "Common Mix-ups #8 – steal vs rob",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "accent": "yellow",
+ "active": "cream",
+ "hook_style": "mix-up: X badge + quoted error",
+ "motif": "meaning first, then the right sentence",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict",
+  "say": "Look up any word"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "u_w"
+ ],
+ "error_re": "\\bsomeone\\W+robbed\\W+my\\b",
+ "lines": [
+  {
+   "id": "u_h",
+   "text": "Most learners mix this up.",
+   "gap": 0.5
+  },
+  {
+   "id": "u_w",
+   "text": "Someone robbed my phone.",
+   "key": {
+    "red": [
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_k",
+   "text": "Natives say: Someone stole my phone.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_y",
+   "text": "You steal a thing. You rob a person or a place.",
+   "key": {
+    "yellow": [
+     1,
+     5
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_x",
+   "text": "Someone stole my bike. They robbed a bank.",
+   "key": {
+    "green": [
+     1,
+     5
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_t",
+   "text": "Robbers rob banks, and thieves steal money!",
+   "key": {
+    "yellow": [
+     0,
+     1,
+     5
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q",
+   "text": "Quick quiz! He blank my wallet!",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q2",
+   "text": "Stole, or robbed?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "u_a",
+   "text": "Stole! He stole my wallet!",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.65
+  },
+  {
+   "id": "u_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.65
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Not",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“Someone ",
+      "white"
+     ],
+     [
+      "robbed ",
+      "red"
+     ],
+     [
+      "my phone.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Someone "
+      ],
+      [
+       "stole ",
+       "green"
+      ],
+      [
+       "my phone."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "stole",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/stoʊl/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "robbed",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " robbed",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " stole",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Someone "
+      ],
+      [
+       "stole ",
+       "green"
+      ],
+      [
+       "my bike."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "They "
+      ],
+      [
+       "robbed ",
+       "green"
+      ],
+      [
+       "a bank."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " STEAL ",
+       "hl"
+      ],
+      [
+       "things"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "ROB ",
+       "hl"
+      ],
+      [
+       "people and places"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "He "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "my wallet!"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "q": [
+    [
+     [
+      "He ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " my wallet!",
+      "white"
+     ]
+    ]
+   ],
+   "a": "stole",
+   "b": "robbed",
+   "correct": "a",
+   "reveal": [
+    "u_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " robbed",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " stole",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "stole",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/stoʊl/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Common Mix-ups",
+  "ep": 8
+ },
+ "source": {
+  "bank": "sb_95408ad1",
+  "pid": "c:mixup:steal-rob",
+  "cefr": "B1",
+  "diff": "medium",
+  "ipa": "/stoʊl/"
+ }
+}
