@@ -1,0 +1,31 @@
+# 🔊 Phát audio ổn định mọi máy (docs/specs/audio-quality.md việc 4): chọn giọng máy dự phòng (Node) + gói offline khớp s3.tsv
+# + Playwright Chromium & WebKit (Safari): mở khóa, phát được, 404/treo → gốc CDN dự phòng → giọng máy đúng người nói, không chồng tiếng.
+name: Phát audio (Chromium + WebKit)
+on:
+  pull_request:
+    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/lesson/teacher.js', 'web/js/settings.js', 'web/sw.js', 'web/audio/w/s3.tsv', 'web/data/offline-pack.json', 'scripts/audio/offline-pack.mjs', 'scripts/test/audio-*.mjs', '.github/workflows/audio-play.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/lesson/teacher.js', 'web/sw.js', 'scripts/test/audio-*.mjs']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: audio-play-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+jobs:
+  play:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn giọng máy dự phòng + gói offline
+        run: node scripts/test/audio-voice.mjs && node scripts/audio/offline-pack.mjs --check
+      - name: Cài Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium webkit
+      - name: Phát audio – Chromium + WebKit
+        run: node scripts/test/audio-play.mjs chromium,webkit

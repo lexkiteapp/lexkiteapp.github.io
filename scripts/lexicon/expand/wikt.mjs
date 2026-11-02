@@ -24,7 +24,7 @@ export async function kaikki(w, pos, stat = {}) {
       const vi = [], seen = new Set();
       for (const e of ents.filter(e => e.pos === KPOS[pos])) for (const t of [...(e.translations || []), ...(e.senses || []).flatMap(s => (s.translations || []).map(x => ({ ...x, sense: x.sense || (s.glosses || [])[0] })))])
         if ((t.lang_code === 'vi' || t.code === 'vi') && t.word && !seen.has(t.word)) { seen.add(t.word); vi.push({ w: t.word, sense: String(t.sense || '').slice(0, 60) }); }
-      // NGUỒN NGƯỜI VIẾT (source-first 24/10): ví dụ dùng của Wiktionary (type example, KHÔNG trích dẫn văn học có ref) + bảng dịch theo nghĩa (nhóm theo gloss của bảng dịch)
+      // NGUỒN NGƯỜI VIẾT (source-first 24/10; 31/10 giữ 40 câu – 8 câu đầu thường thuộc nghĩa khác của từ nhiều nghĩa, job.mjs lọc theo nghĩa khoá): ví dụ dùng của Wiktionary (type example, KHÔNG trích dẫn văn học có ref) + bảng dịch theo nghĩa (nhóm theo gloss của bảng dịch)
       const mine = ents.filter(e => e.pos === KPOS[pos]), exs = [], trg = new Map();
       for (const e of mine) for (const s of e.senses || []) for (const x of s.examples || []) { const t = String(x.text || '').replace(/\s+/g, ' ').trim();
         if (!t || x.ref || (x.type && x.type !== 'example') || t.split(' ').length > 22 || /[“”"]|\d{3,}|^\W/.test(t)) continue; exs.push({ t, g: String((s.glosses || [])[0] || '').slice(0, 140) }); }
@@ -32,7 +32,7 @@ export async function kaikki(w, pos, stat = {}) {
         const l = TRL[t.lang_code || t.code]; if (!l || !t.word || (t.tags || []).some(g => /Traditional|archaic|obsolete|dated|rare|slang|vulgar/i.test(g))) continue;
         const g = String(t.sense || '').slice(0, 120), grp = trg.get(g) || trg.set(g, { g, tr: {} }).get(g), w = trWord(t.word, l);
         if (w && !(grp.tr[l] = grp.tr[l] || []).includes(w) && grp.tr[l].length < 1) grp.tr[l].push(w); } // CHỈ từ đầu bảng: từ sau hay là từ hiếm/phương ngữ/sai (testuz, お凸, de Koi, ru борода cho chin – pilot 9–10)
-      return { g1: mine.flatMap(e => (e.senses || []).map(s => String((s.glosses || [])[0] || ''))).filter(Boolean).slice(0, 3), exs: exs.slice(0, 8), trg: [...trg.values()].filter(x => Object.keys(x.tr).length >= 2).slice(0, 8),
+      return { g1: mine.flatMap(e => (e.senses || []).map(s => String((s.glosses || [])[0] || ''))).filter(Boolean).slice(0, 3), exs: exs.slice(0, 40), trg: [...trg.values()].filter(x => Object.keys(x.tr).length >= 2).slice(0, 8),
         uk: (all(UKR)[0] || {}).ipa || '', us: (all(USR)[0] || {}).ipa || '', ukAll: all(UKR).map(s => s.ipa), ukNoRegion: snd.filter(s => !s.tg.some(t => UKR.test(t) || USR.test(t) || /^(US|Canada|Australia|Scotland|Ireland|Northern-England|archaic)$/.test(t))).map(s => s.ipa), vi };
     } catch { await new Promise(s => setTimeout(s, 1500 * (i + 1))); }
   }

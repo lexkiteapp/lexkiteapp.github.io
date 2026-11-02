@@ -3,7 +3,7 @@ title: "아이엘츠 스피킹 파트2 템플릿 : 1분 준비로 2분 완벽 �
 description: "아이엘츠 스피킹 파트2 템플릿 실전 공략법: 1분 메모 준비 시간으로 2분을 막힘없이 채우는 4단계 스토리텔링 프레임워크와 파트3 심층 추상 질문 확장 논리, 원어민 채점관을 사로잡는 고득점 연결어와 어휘 팁을 전격 공개합니다."
 slug: ielts-speaking-part-2-3-template
 lang: ko
-translationKey: ielts-speaking-part-2-3-template
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, cue-card]
 keyword: "아이엘츠 스피킹 파트2 템플릿"

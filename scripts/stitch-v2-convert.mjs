@@ -25,8 +25,11 @@ const arb = v => String(v).trim().replace(/\s+/g, '_');
 // "hover:!-mt-2/50" → {pre:'hover:', imp:'!', neg:'-', base:'mt-2', op:'/50'}
 const split = c => { const i = c.lastIndexOf(':', c.includes('[') ? c.indexOf('[') : c.length); const pre = i >= 0 ? c.slice(0, i + 1) : '', rest = c.slice(i + 1);
   const m = rest.match(/^(!?)(-?)(.*?)(\/[\w.[\]]+)?$/); return { pre, imp: m[1], neg: m[2], base: m[3], op: m[4] || '' }; };
-function resolver(ext) { const col = ext.colors || {}, fs_ = ext.fontSize || {}, rad = ext.borderRadius || {}, sp = ext.spacing || {};
+// màu lồng nhau như Tailwind: { teal: { deep, DEFAULT } } → 'teal-deep', 'teal' (thiếu bước này → lt:bg-teal-deep không ra CSS, nút mất nền)
+const flat = (o, k = '', r = {}) => { for (const [s, v] of Object.entries(o || {})) { const n = s === 'DEFAULT' ? k : k ? `${k}-${s}` : s; if (v && typeof v === 'object' && !Array.isArray(v)) flat(v, n, r); else r[n] = v; } return r; };
+function resolver(ext) { const col = flat(ext.colors), fs_ = ext.fontSize || {}, rad = ext.borderRadius || {}, sp = ext.spacing || {}, bsh = ext.boxShadow || {};
   return (cls, has) => { const { pre, imp, neg, base, op } = split(cls), out = [];
+    if (base.startsWith('shadow-') && bsh[base.slice(7)] != null) return [`${pre}${imp}shadow-[${arb(bsh[base.slice(7)])}]`]; // bóng riêng của mẫu (shadow-btn-teal)
     if (base.startsWith('font-') && (ext.fontFamily || {})[base.slice(5)]) return []; // họ chữ: cả app dùng Plus Jakarta Sans ở gốc
     for (const p of COLOR_P) if (base.startsWith(p + '-') && col[base.slice(p.length + 1)] != null) { const v = col[base.slice(p.length + 1)]; return [`${pre}${imp}${p}-[${arb(v)}]${op}`]; }
     if (base.startsWith('text-') && fs_[base.slice(5)]) { const v = fs_[base.slice(5)], [size, o = {}] = Array.isArray(v) ? v : [v]; const lh = typeof o === 'string' ? o : o.lineHeight;

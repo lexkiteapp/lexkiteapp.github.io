@@ -1,4 +1,5 @@
 ---
+translationKey: tu-noi-tieng-anh-linking-words
 title: "Linking Words in English in Hindi: निबंध लेखन के लिए कनेक्टर्स"
 slug: "linking-words-in-english-essay-writing-hindi"
 description: "Linking words in english in hindi: अंग्रेजी निबंध, ईमेल और IELTS राइटिंग में कोहेसन बढ़ाने के लिए आवश्यक कनेक्टर्स की सूची, प्रयोग के नियम और उदाहरण।"

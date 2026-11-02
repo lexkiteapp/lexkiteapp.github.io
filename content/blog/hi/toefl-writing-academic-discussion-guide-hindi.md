@@ -162,6 +162,10 @@ ETS का स्वचालित मूल्यांकन सॉफ्ट�
 
 {{youtube: | TOEFL iBT Writing for an Academic Discussion Guide in Hindi}}
 
+## संबंधित अध्ययन सामग्री
+
+- [अकादमिक लेखन के लिए कनेक्टर्स गाइड](/hi/blog/linking-words-in-english-essay-writing-hindi/)
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### Q1. क्या दोनों छात्रों के नाम अपने उत्तर में लिखना जरूरी है?
