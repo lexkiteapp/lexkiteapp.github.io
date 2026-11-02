@@ -6,6 +6,7 @@
 import fs from 'node:fs'; import path from 'node:path';
 import { chromium, webkit, devices } from 'playwright';
 import { serve } from './stitch-screens.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const ROOT = path.resolve(process.argv[2] || 'web'), OUT = process.argv[3] || 'out/review-taps'; fs.mkdirSync(OUT, { recursive: true });
 let fails = 0, total = 0; const ok = (c, m) => { total++; if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
 const HUB = '#/review?hub=1';
@@ -49,7 +50,7 @@ async function run(type, name, opts, scheme) {
   const drawnOk = w => { const d = App.drawn(); return d.tok === App.routeToken() && d.hash === location.hash && (!w || (location.hash === w && !!document.querySelector('#view .v2-review'))); };
   const settle = async (want, timeout = 15000) => { const end = Date.now() + timeout;
     while (Date.now() < end) {
-      if (!(await page.waitForFunction(drawnOk, want, { timeout: Math.max(1, end - Date.now()) }).then(() => true, () => false))) return false;
+      if (!(await waitFn(page, drawnOk, want, { timeout: Math.max(1, end - Date.now()) }).then(() => true, () => false))) return false;
       await page.evaluate(() => { const v = document.getElementById('view'); return Promise.all((v ? v.getAnimations({ subtree: true }) : []).filter(a => (a.effect && a.effect.getTiming().iterations) !== Infinity).map(a => a.finished.catch(() => {}))).then(() => 0); });
       if (await page.evaluate(drawnOk, want)) return true; } // trong lúc chờ hiệu ứng lại có lượt điều hướng mới → chờ tiếp
     return false; };
@@ -58,7 +59,7 @@ async function run(type, name, opts, scheme) {
   let shot = 0; const hub = async () => { await page.evaluate(h => { location.hash = h; }, HUB); if (await settle(HUB)) return true;
     ok(false, `${tag}: màn Ôn không vẽ lại khi về ${HUB} (${await diag()})`); await page.screenshot({ path: path.join(OUT, `fail-${name}-${scheme}-${++shot}.png`) }).catch(() => {});
     await page.evaluate(() => { location.hash = '#/home'; }); await settle(null); await page.evaluate(h => { location.hash = h; }, HUB); return settle(HUB); }; // gỡ kẹt để kiểm tiếp các nút còn lại
-  await page.goto('https://lk.test/app/?sandbox=1#/home', { waitUntil: 'load' }); await page.waitForFunction(() => window.App && App.state && App.saveSettings && window.Core, null, { timeout: 30000 });
+  await page.goto('https://lk.test/app/?sandbox=1#/home', { waitUntil: 'load' }); await waitFn(page, () => window.App && App.state && App.saveSettings && window.Core, null, { timeout: 30000 });
   await page.evaluate(seed); await page.goto('https://lk.test/app/?sandbox=1' + HUB, { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' });
   await page.waitForSelector('.v2-review', { timeout: 30000 }); ok(await settle(HUB, 30000), `${tag}: màn Ôn vẽ xong lúc mở (${await diag()})`);
   ok(!(await page.evaluate(() => document.body.classList.contains('focus'))), `${tag}: màn Ôn không ở chế độ tập trung (thanh tab hiện)`);
@@ -76,7 +77,7 @@ async function run(type, name, opts, scheme) {
     ok(pt.tall && pt.wide, `${tag}: ${label} – vùng chạm ≥ 44×44 px (hộp ${Math.round(pt.w)}×${Math.round(pt.h)}${pt.tall && pt.wide ? '' : '; trượt ' + pt.slip.join(' ')})`);
     if (want === null) return;
     const before = await page.evaluate(() => location.hash); await page.touchscreen.tap(pt.x, pt.y);
-    const got = await page.waitForFunction(([b, w]) => location.hash !== b && [].concat(w).some(x => location.hash.startsWith(x)) ? location.hash : false, [before, want], { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
+    const got = await waitFn(page, ([b, w]) => location.hash !== b && [].concat(w).some(x => location.hash.startsWith(x)) ? location.hash : false, [before, want], { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
     ok(!!got, `${tag}: ${label} – chạm → ${want}${got ? '' : ' (vẫn ở ' + (await page.evaluate(() => location.hash)) + ')'}`);
     if (got) ok(await settle(null), `${tag}: ${label} – trang đích vẽ xong (${await diag()})`); }; // về màn Ôn khi trang đích đã vẽ xong (cả lối chuyển tiếp ?src=forgetting → học nhanh)
   for (const [label, sel, want] of TARGETS) await check(label, sel, want);
