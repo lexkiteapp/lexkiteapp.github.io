@@ -41,6 +41,7 @@ on:
       - 'size-guard'
       - 'Stitch diff'
       - 'Stitch quality QC'
+      - 'target-content'
       - 'Teach build'
       - 'teach-video'
       - 'Công cụ miễn phí (tools pages)'
@@ -50,6 +51,7 @@ on:
       - 'video-motion'
       - 'video-shard-equiv'
       - 'Web sweep'
+      - 'word-audio-pt'
   check_suite:
     types: [completed]
   schedule:
