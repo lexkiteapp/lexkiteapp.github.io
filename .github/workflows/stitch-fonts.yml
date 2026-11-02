@@ -1,6 +1,7 @@
-# 🔣 Dựng lại phông icon Material Symbols (web/fonts/msym*.woff2 + msym.json) theo HỢP danh sách icon của nhánh, rồi đẩy về CHÍNH nhánh đó.
+# 🔣 Dựng lại phông icon Material Symbols (web/fonts/msym*.woff2 + msym.json) + CSS Stitch theo HỢP danh sách icon của nhánh.
 # Vì sao: gộp main vào PR Stitch hay xung đột 3 tệp nhị phân này; chỉ dựng lại được khi có mạng tới Google Fonts (máy bị chặn) → chạy trên CI.
-# Dùng: gh workflow run stitch-fonts.yml -f ref=<nhánh PR>. Cấm main (main dựng qua PR như mọi thay đổi). Đẩy bằng khoá deploy → CI của PR chạy lại.
+# KHÔNG đẩy vào nhánh (luật no-pr-branch-push, #424): kết quả → artifact bot-output-stitch-fonts.
+# Dùng: gh workflow run stitch-fonts.yml -f ref=<nhánh PR>  →  bash scripts/ci/bot-output.sh stitch-fonts <nhánh>  → git add web/fonts web/css && commit.
 name: stitch-fonts
 on:
   workflow_dispatch:
@@ -20,18 +21,14 @@ jobs:
         env: { REF: '${{ inputs.ref }}' }
         run: case "$REF" in main|refs/heads/main|'') echo "::error::stitch-fonts không chạy trên main"; exit 1;; esac
       - uses: actions/checkout@v4
-        with: { ref: '${{ inputs.ref }}', ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # khoá deploy: push lại kích CI của PR (GITHUB_TOKEN thì không)
+        with: { ref: '${{ inputs.ref }}' }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Dựng phông icon theo hợp danh sách icon
+      - name: Dựng phông icon theo hợp danh sách icon (+ CSS Stitch)
         run: |
           npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 >/dev/null
           node scripts/build-stitch-css.mjs --fonts
           node scripts/build-stitch-css.mjs --check
-      - name: Đẩy về nhánh
-        env: { REF: '${{ inputs.ref }}' }
-        run: |
-          git add web/fonts web/css
-          git diff --cached --quiet && { echo "phông đã khớp – không đổi"; exit 0; }
-          git -c user.name="lexkite-bot" -c user.email="bot@lexkite.com" commit -q -m "Phông icon: dựng lại theo hợp danh sách icon (stitch-fonts)"
-          git push origin "HEAD:refs/heads/$REF"
+      - name: Kết quả → artifact (không đẩy vào nhánh)
+        uses: ./.github/actions/bot-output
+        with: { name: stitch-fonts, paths: 'web/fonts web/css' }
