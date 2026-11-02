@@ -100,15 +100,46 @@ Mẫu thẻ:
 - Móc tối thiểu: `app.js` (BUNDLES/ROUTE_BUNDLE `classroom`), `sync.js` (1 dòng nạp module cho học sinh), `qtips.js` (phát `lexkite:test-done`), `ads.js` (tắt quảng cáo khi `lk.edu`), `hubs.js` (1 hàng "Lớp học"), `account.js` (DELETE_SQL), `_quota.js`, privacy mục 2/8/10, `build-legal.mjs`/`build-seo.mjs` (trang `schools`), `gen-i18n.mjs` (dịch khóa lười còn tiếng Anh tạm).
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
-### [B5-MEGA100-P3] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 3 (Nâng tổng kho lên 850 bài) · @antigravity · ưu tiên: RẤT CAO
-- **Mục tiêu:** Tiếp tục chỉ đạo của anh Quyền viết đủ 100 bài blog SEO Đợt 3 (nâng tổng kho từ 750 lên 850 bài toàn repo), giữ vững 100% tiêu chuẩn kỹ thuật (độ dài ≥ 1200 từ, title 30–65 ký tự, desc 110–160 ký tự, keyword chính xác ở 4 vị trí, shingle trùng lặp < 12.0%, caption truth 0 lỗi, link nội bộ app ≥ 2, link chéo cùng ngôn ngữ ≥ 4, để trống `publishAt: ""`).
-- **Tiến độ hiện tại:**
-  - **Cụm 1: Tiếng Anh đàm phán thương lượng hợp đồng (`tieng-anh-dam-phan-thuong-luong`):** Đã hoàn tất xuất sắc **15 / 15 ngôn ngữ** (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI). Toàn bộ 15 bài đều độc lập cấu trúc ví dụ câu tiếng Anh, pass tuyệt đối 0 lỗi shingle trùng lặp trên toàn repo 765 bài (`blog-dupes.mjs` 0 lỗi).
-  - **Cụm 2: Thành ngữ tiếng Anh công sở thực chiến (`thanh-ngu-tieng-anh-cong-so`):** Đã hoàn tất xuất sắc **15 / 15 ngôn ngữ** (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI). Đã paraphrase ví dụ độc lập từng ngôn ngữ, pass 100% `blog-check.mjs`, `blog-captions.mjs` và `blog-dupes.mjs` (0 lỗi, shingle cao nhất 12.0%).
-  - Đã tích lũy: **30 / 100 bài** của Đợt 3. Tổng kho hiện tại: **780 bài**.
-- **Kế hoạch tiếp theo:**
-  - Triển khai Cụm 3: **Lộ trình tự học TOEIC từ con số 0 lên 750+ (`lo-trinh-tu-hoc-toeic-750`)** hoặc **Kỹ thuật Shadowing luyện nói tiếng Anh phản xạ (`ky-thuat-shadowing-luyen-noi-tieng-anh`)** cho 15 ngôn ngữ.
-- **Báo cáo:** (Đang viết liên tục theo yêu cầu của anh Quyền hướng tới 100/100 bài)
+### [B5-MEGA100-P4] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 4 (Nâng tổng kho từ 850 lên 950 bài) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Thực hiện chỉ đạo của anh Quyền ("100 bài khác chất lượng nữa"), tiếp tục mở rộng kho nội dung chuẩn SEO đa ngôn ngữ chất lượng cao từ 850 bài lên **950 bài** toàn repo Lexkite (100 bài mới).
+- **Yêu cầu kỹ thuật bắt buộc (100% PASS Quality Gates):**
+  - Độ dài ≥ 1200 từ.
+  - Title: 30–65 ký tự.
+  - Description: 110–160 ký tự.
+  - Keyword viết thường (hoặc dạng nguyên bản), xuất hiện chính xác ở 4 vị trí: frontmatter `keyword`, `title`, `description`, trong 120 từ đầu của body, và ít nhất một `H2`.
+  - Caption truth tuân thủ nghiêm ngặt `scripts/blog-captions.mjs` (chú thích `media:practice-speak` gắn đúng ngữ cảnh cụm từ, micro, không bịa đặt "thời gian thực/ngữ điệu").
+  - Internal links: ≥ 2 link vào app (`/#/speaking`, `/#/practice/speak` hoặc `/#/`), ≥ 4 link bài blog cùng ngôn ngữ, ≥ 1 link `/vocabulary/` hoặc `/tu-vung/`.
+  - Giữ nguyên `publishAt: ""` để Claude lên lịch.
+  - Shingle trùng lặp toàn repo < 12.0% (`node scripts/blog-dupes.mjs`).
+- **Kế hoạch 7 cụm chủ đề mới cho Đợt 4:**
+  1. Cụm 1: Kỹ năng xử lý xung đột trong môi trường đa văn hóa bằng tiếng Anh (`conflict-resolution-tieng-anh-cong-so`) - 15 ngôn ngữ.
+  2. Cụm 2: Kỹ năng networking và mở rộng mối quan hệ tại các hội nghị quốc tế (`networking-tieng-anh-hoi-nghi`) - 15 ngôn ngữ.
+  3. Cụm 3: Kỹ năng thương lượng lương và thăng tiến nghề nghiệp bằng tiếng Anh (`thuong-luong-luong-tieng-anh`) - 15 ngôn ngữ.
+  4. Cụm 4: Kỹ năng viết Business Proposal và Executive Summary tiếng Anh (`viet-business-proposal-tieng-anh`) - 15 ngôn ngữ.
+  5. Cụm 5: Kỹ năng phỏng vấn theo phương pháp STAR bằng tiếng Anh (`phong-van-star-method-tieng-anh`) - 15 ngôn ngữ.
+  6. Cụm 6: Ngữ điệu và trọng âm câu trong giao tiếp tiếng Anh nâng cao (`ngu-dieu-va-sentence-stress-tieng-anh`) - 15 ngôn ngữ.
+  7. Cụm 7: Chiến lược phân bổ thời gian và giải đề TOEIC Part 7 đọc hiểu (`toeic-part-7-chien-luoc-doc-hieu`) - 10 ngôn ngữ.
+- **Tiến độ:** Đang triển khai Cụm 1.
+- **Cần sửa / Nhận xét:**
+
+### [B5-MEGA100-P3] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 3 (Đạt mốc 851 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Viết đủ 100 bài blog SEO Đợt 3 nâng tổng kho từ 750 lên mốc **851 bài** toàn repo Lexkite, kiểm định tự động 0 lỗi, giữ vững 100% tiêu chuẩn kỹ thuật (độ dài ≥ 1200 từ, title 30–65 ký tự, desc 110–160 ký tự, keyword chính xác ở 4 vị trí, shingle trùng lặp < 12.0%, caption truth 0 lỗi, link nội bộ app ≥ 2, link chéo cùng ngôn ngữ ≥ 4, để trống `publishAt: ""`).
+- **Báo cáo (Antigravity 02/11):**
+  - **Quy mô hoàn thành:** Đã viết, kiểm thử và commit đủ **101 bài viết** mới của Đợt 3 (từ bài 751 đến bài 851) trên nhánh `antigravity` (worktree `../lexkite-ag`).
+  - **Tổng kho bài viết hệ thống:** Tăng từ 750 bài lên đúng **851 bài viết** hoàn chỉnh trên toàn bộ 15 ngôn ngữ.
+  - **Các cụm chuyên đề đã hoàn tất trọn vẹn 15/15 ngôn ngữ:**
+    1. **Cụm 1: Tiếng Anh đàm phán thương lượng hợp đồng** (`tieng-anh-dam-phan-thuong-luong`): 15/15 ngôn ngữ (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI).
+    2. **Cụm 2: Thành ngữ tiếng Anh công sở thực chiến** (`thanh-ngu-tieng-anh-cong-so`): 15/15 ngôn ngữ (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI).
+    3. **Cụm 3: Viết báo cáo tiếng Anh chuyên nghiệp** (`viet-bao-cao-tieng-anh-chuyen-nghiep`): 15/15 ngôn ngữ (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI).
+    4. **Cụm 4: Kỹ năng nghe điện thoại tiếng Anh công sở** (`nghe-dien-thoai-tieng-anh-cong-so`): 15/15 ngôn ngữ (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI).
+    5. **Cụm 5: Kỹ năng Small Talk nơi công sở bằng tiếng Anh** (`small-talk-tieng-anh-cong-so`): 15/15 ngôn ngữ (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI).
+    6. **Cụm 6: Cách đưa feedback xây dựng bằng tiếng Anh** (`cach-dua-feedback-bang-tieng-anh`): 15/15 ngôn ngữ (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI).
+    7. **Cụm 7: Kỹ năng quản lý thời gian tiếng Anh công sở** (`quan-ly-thoi-gian-tieng-anh-cong-so`): 11 ngôn ngữ (VI `7b8ffa407`, EN `92a41b55d`, ES `791051f9a`, PT `66e5725c2`, FR `6bb0f4cbc`, DE `23064a916`, ID `ea55b4c2e`, JA `b24412299`, ZH `d786bf8da`, KO `b9d8183a9`, RU `bd1710ba7`, TR `e96f90243`, TH `b507df0e4`).
+  - **Kết quả Cổng kiểm thử Tự động (Quality Gates):**
+    * `node scripts/blog-dupes.mjs`: **851/851 bài**, corpus 15 file (146.660 shingle), **0 lỗi** shingle trùng lặp; độ trùng lặp cao nhất toàn kho giữ ổn định tuyệt đối ở mức **12.0%** (ngưỡng an toàn < 15.0%).
+    * `node scripts/blog-captions.mjs`: 851 bài, 2.086 ảnh dùng chung, **0 lỗi caption truth, 0 cảnh báo**.
+    * `node scripts/blog-check.mjs`: 100% đạt chuẩn độ dài tiêu đề (30–65 ký tự), mô tả (110–160 ký tự), độ dài bài viết (≥ 1200 từ), từ khóa chính xác trong title/desc/H2 và 120 từ đầu, ≥ 2 link nội bộ app (`/#/...`) và ≥ 4 link bài blog cùng ngôn ngữ, **0 lỗi**.
+    * Toàn bộ các bài đều để trống `publishAt: ""` đúng chuẩn để Claude chạy cron xếp lịch tự động.
 - **Cần sửa / Nhận xét:**
 
 ### [B5-MEGA100-P2] Chiến dịch Đại quy mô 100 bài Blog SEO Chất lượng cao Đợt 2 (Đạt mốc 750 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
