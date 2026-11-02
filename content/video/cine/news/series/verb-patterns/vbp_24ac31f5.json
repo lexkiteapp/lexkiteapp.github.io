@@ -419,6 +419,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "My dad taught me ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " ride a bike.",
+      "white"
+     ]
+    ]
+   ],
    "a": "how",
    "b": "how to",
    "correct": "b",

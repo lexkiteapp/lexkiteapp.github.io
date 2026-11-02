@@ -4,6 +4,7 @@
 // Tương phản/visual guard dùng lại scripts/test/contrast.mjs (bước riêng trong workflow). Không gọi API trả phí.
 import { chromium } from 'playwright';
 import fs from 'fs';
+import { routeCiHeader } from '../lib/http.mjs';
 const BASE = (process.argv[2] || 'https://lexkite.com').replace(/\/$/, '');
 const OUT = process.argv[3] || 'out/post-deploy';
 fs.mkdirSync(OUT, { recursive: true });
@@ -36,7 +37,8 @@ const PAGES = [
 const VPS = [{ id: 'm390', width: 390, height: 844, isMobile: true, hasTouch: true }, { id: 'd1440', width: 1440, height: 900 }];
 
 async function visit(browser, vp, pg, url) {
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, extraHTTPHeaders: CI });
+  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch });
+  await routeCiHeader(ctx, BASE, CI['X-Lexkite-CI']);
   const page = await ctx.newPage(), errs = [], add = (t, m) => { m = String(m).replace(/\s+/g, ' ').slice(0, 300); if (!IGNORE.test(m) && !errs.some(e => e.t === t && e.m === m)) errs.push({ t, m }); };
   const same = u => { try { return new URL(u).origin === ORIGIN; } catch (e) { return false; } };
   page.on('console', m => { if (m.type() === 'error' && (!m.location().url || same(m.location().url))) add('console', m.text() + (m.location().url ? ' @' + m.location().url : '')); });

@@ -62,8 +62,12 @@ def main():
     out = {'_note': 'Ngưỡng giám khảo cục bộ (scripts/vocab-img/local_judge.py), do calibrate.py sinh – không sửa tay. centroid = tâm phong cách s1 (CLIP ViT-B-32, ảnh nhãn ok).',
            'model': {'clip': 'ViT-B-32/laion2b_s34b_b79k', 'captioner': os.environ.get('VIMG_CAPTIONER', 'smolvlm') , 'text': 'all-MiniLM-L6-v2', 'nsfw': 'Falconsai/nsfw_image_detection', 'ocr': 'tesseract'},
            'th': th, 'cal': cal, 'centroid': [round(float(x), 5) for x in cen]}
-    json.dump({**out, 'features': {lid: {**ft, 'ok': ok} for lid, ok, ft in feats}}, open('calibration.json', 'w'), indent=1)
-    if a.write: json.dump(out, open(LJ.TH_FILE, 'w'), indent=1)
+    if a.write: json.dump(out, open(LJ.TH_FILE, 'w'), indent=1)   # ngưỡng ghi TRƯỚC tệp đặc trưng (31/10: đặc trưng lỗi → ngưỡng mới mất)
+    # đặc trưng có thể chứa đối tượng mô hình (31/10 pilot 41146130096: SentenceTransformer → TypeError) → numpy về số/list, đối tượng lạ bỏ (null)
+    def js(o):
+        try: return o.tolist()
+        except Exception: return None
+    json.dump({**out, 'features': {lid: {**ft, 'ok': ok} for lid, ok, ft in feats}}, open('calibration.json', 'w'), indent=1, default=js)
 
 if __name__ == '__main__':
     main()

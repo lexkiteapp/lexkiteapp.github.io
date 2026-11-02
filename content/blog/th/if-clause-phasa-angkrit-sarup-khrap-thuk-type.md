@@ -3,7 +3,7 @@ title: "If-Clause สรุปครบทุก Type: โครงสร้า�
 description: "if clause สรุป ครบทุก Type ตั้งแต่ Zero ถึง Third Conditional และ Mixed พร้อมตัวอย่างประโยค ข้อควรระวัง และแนวข้อสอบภาษาอังกฤษ"
 slug: if-clause-phasa-angkrit-sarup-khrap-thuk-type
 lang: th
-translationKey: cau-dieu-kien-tieng-anh-conditionals
+translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [grammar, conditionals, if-clauses]
 keyword: "if clause สรุป"
