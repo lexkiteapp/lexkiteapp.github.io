@@ -3,7 +3,7 @@ title: "İngilizce If Clauses: Koşul Cümleleri Kuralları ve Örnekleri"
 description: "ingilizce if clauses kuralları, Type 0, 1, 2, 3 ve Mixed yapıları, zaman formülleri, örnek cümleler ve sık yapılan hatalar tek rehberde."
 slug: ingilizce-if-clauses-kosul-cumleleri-rehberi
 lang: tr
-translationKey: cau-dieu-kien-tieng-anh-conditionals
+translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [grammar, conditionals, if-clauses]
 keyword: "ingilizce if clauses"

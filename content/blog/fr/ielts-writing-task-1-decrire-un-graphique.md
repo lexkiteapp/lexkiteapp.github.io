@@ -3,7 +3,7 @@ title: "IELTS writing task 1 graphique : méthode et vocabulaire"
 description: "Réussissez l IELTS writing task 1 graphique : plan en 4 paragraphes, vocabulaire des tendances, analyse de courbes et modèle corrigé pour viser un score 7+."
 slug: ielts-writing-task-1-decrire-un-graphique
 lang: fr
-translationKey: ielts-writing-task-1-mo-ta-bieu-do
+translationKey: ielts-writing-task-1-line-graph
 category: ielts
 tags: [ielts, writing, task-1]
 keyword: "ielts writing task 1 graphique"

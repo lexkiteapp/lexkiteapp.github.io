@@ -133,32 +133,21 @@
   }
 
   // ---------- Phát âm ----------
-  // Xếp hạng giọng đọc: ưu tiên giọng neural/tự nhiên, rồi giọng chất lượng cao của hệ điều hành
-  function voiceScore(v, accent) {
-    let s = 0;
-    const n = v.name;
-    if (v.lang === accent || v.lang.replace('_', '-') === accent) s += 100; else if (v.lang.startsWith('en')) s += 10; else return -1;
-    if (/Natural|Neural|Online/i.test(n)) s += 60;                       // Edge: Microsoft Sonia/Ryan/Libby Online (Natural)
-    if (/^Google (UK|US) English/i.test(n)) s += 50;                       // Chrome
-    if (/Premium|Enhanced|Siri/i.test(n)) s += 45;                         // macOS/iOS giọng tải thêm
-    if (/Daniel|Serena|Kate|Oliver|Arthur|Martha|Samantha|Ava|Evan|Zoe|Allison|Tom|Susan/i.test(n)) s += 20;
-    if (/Fred|Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Wobble|Zarvox|Trinoids|Whisper|Junior|Ralph|Kathy|Jester|Organ|Superstar|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley/i.test(n)) s -= 200; // giọng hiệu ứng
-    if (v.localService === false) s += 5;
-    return s;
-  }
-  function voicesFor(accent) {
-    if (!('speechSynthesis' in g)) return [];
-    return speechSynthesis.getVoices().map(v => ({ v, s: voiceScore(v, accent) })).filter(x => x.s > 0).sort((a, b) => b.s - a.s).map(x => x.v);
+  // Xếp hạng giọng đọc (LKAudio.voiceScore – web/js/audio.js): đúng accent, giọng neural/tự nhiên; gender 'f'/'m' → đúng người nói (Ama nữ, Carlos nam)
+  const LA = () => g.LKAudio || null;
+  function voicesFor(accent, gender) {
+    if (!('speechSynthesis' in g) || !LA()) return [];
+    return LA().rank(speechSynthesis.getVoices(), accent, gender);
   }
   const prefs = () => (g.App && g.App.state && g.App.state.settings) || {};
   // Micro: bật tự tăng âm + lọc ồn + khử vọng của trình duyệt (giọng nhỏ, văn phòng/xe bus vẫn thu rõ)
   const MIC = { audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true, channelCount: 1 } };
   // 🤫 Chế độ thì thầm: chuẩn hóa âm lượng bản ghi trước khi nhận dạng (khuếch đại tới đỉnh 0,9 – tối đa 8×, không vỡ tiếng)
   const boost = ch => { let pk = 0; for (let i = 0; i < ch.length; i++) { const a = Math.abs(ch[i]); if (a > pk) pk = a; } const gain = pk > 0 ? Math.min(8, 0.9 / pk) : 1; if (gain > 1.05) for (let i = 0; i < ch.length; i++) ch[i] *= gain; return ch; };
-  function pickVoice(accent) {
+  function pickVoice(accent, gender) {
     const want = prefs().voice && prefs().voice[accent];
-    const list = voicesFor(accent);
-    return (want && list.find(v => v.name === want)) || list[0] || null;
+    if (!('speechSynthesis' in g) || !LA()) return null;
+    return LA().pickVoice(speechSynthesis.getVoices(), accent, gender, want);
   }
   // Tách đoạn dài thành câu (giữ ngữ điệu tự nhiên, tránh Chrome cắt khi > ~15 giây)
   function splitSentences(text) {
@@ -176,34 +165,42 @@
   // opts: { rate, onSentence(i, text), onEnd() }
   // Giọng Kokoro tạo sẵn cho câu đọc đơn (câu hỏi giám khảo, TOEFL…): có file thì phát mp3, không thì giọng máy
   let hqEl = null;
-  const stopHq = () => { if (hqEl) { hqEl.onended = hqEl.onerror = null; hqEl.pause(); hqEl = null; } };
+  const stopHq = () => { if (hqEl) { hqEl.stop(); hqEl = null; } };
   // CDN âm thanh: audio.lexkite.com (Cloudflare Worker workers/audio, cache 1 năm, máy chủ gần người dùng, dò các kho media) → dự phòng
   // Pages của kho media m2 (infra/media-repos.json) → gốc cũ lexkiteapp.github.io/audio (dự phòng 1 bản phát hành, docs/STORAGE.md).
   // Đăng ký trong infra/resources.json. Mỗi 2 lỗi liên tiếp → chuyển sang gốc kế tiếp cho cả phiên.
+  // Mỗi lần phát: thử gốc hiện hành rồi các gốc sau nó (LKAudio.play: lỗi/404/quá 7 giây → gốc kế tiếp) → hết gốc mới dùng giọng máy.
   let cdnFail = 0;
   const AUDIO_BASES = g.AUDIO_BASES = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
-  g.audioUrl = k => AUDIO_BASES[Math.min(AUDIO_BASES.length - 1, cdnFail >> 1)] + k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : '') + '.mp3'; // -s2: câu đã render lại qua cổng ASR (docs/WORD-AUDIO.md, khóa mới, không ghi đè bản cũ)
+  const baseAt = () => Math.min(AUDIO_BASES.length - 1, cdnFail >> 1);
+  const lk = k => k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : ''); // -s2: câu đã render lại qua cổng ASR (docs/WORD-AUDIO.md, khóa mới, không ghi đè bản cũ)
+  g.audioUrl = k => AUDIO_BASES[Math.min(AUDIO_BASES.length - 1, cdnFail >> 1)] + k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : '') + '.mp3'; // dòng tự đủ (scripts/test/sentence-asr.mjs chạy riêng)
+  g.audioUrls = (k, kind = 'l') => AUDIO_BASES.slice(baseAt()).map(b => b.replace(/l\/$/, kind + '/') + (kind === 'l' ? lk(k) : k) + '.mp3'); // mọi gốc còn dùng được, theo thứ tự
   g.audioFail = () => { cdnFail++; };
   g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
+  // opts: { rate, onSentence(i, text), onEnd(), voice: mã Kokoro (af_heart/am_michael…) hoặc who: 'ama'|'carlos' – giọng file + giới tính giọng máy dự phòng }
   function tts(text, accent = 'en-GB', rate, opts = {}) {
     if (!text) return;
     stopHq();
-    if (g.KVoice && g.LISTEN_AUDIO && prefs().hqVoice !== false && !opts.noHq) {
-      const v = accent === 'en-US' ? 'af_heart' : 'bf_emma', whole = g.KVoice.lineKey(v, text);
+    const kv = LA() && LA().kokoro(opts.voice || (opts.who && g.Chars && g.Chars.voice ? g.Chars.voice(opts.who) : ''));
+    const gender = opts.gender || (kv ? kv.gender : LA() && opts.who ? LA().genderFor(opts.who) : '');
+    if (g.KVoice && g.LISTEN_AUDIO && prefs().hqVoice !== false && !opts.noHq && LA()) {
+      const v = kv && kv.accent === accent ? (opts.voice || g.Chars.voice(opts.who)) : accent === 'en-US' ? 'af_heart' : 'bf_emma', whole = g.KVoice.lineKey(v, text);
       const segs = g.LISTEN_AUDIO.has(whole) ? [[whole, text]] : splitSentences(text).map(p => [g.KVoice.lineKey(v, p), p]);
       if (segs.length && segs.every(([k]) => g.LISTEN_AUDIO.has(k))) {
         const my = ++speakSeq; if ('speechSynthesis' in g) speechSynthesis.cancel();
         const pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
-        const url = g.audioUrl;
         const play = i => {
           if (my !== speakSeq) return;
           if (i >= segs.length) { hqEl = null; if (opts.onEnd) opts.onEnd(); return; }
-          const el = hqEl = new Audio(url(segs[i][0])); el.preservesPitch = true; el.playbackRate = pr;
           if (opts.onSentence) opts.onSentence(i, segs[i][1]);
-          el.onended = () => play(i + 1);
-          el.onerror = () => { g.audioFail(); if (hqEl === el) { hqEl = null; tts(segs.slice(i).map(x => x[1]).join(' '), accent, rate, { ...opts, noHq: true }); } };
-          if (segs[i + 1]) { const n = new Audio(); n.preload = 'auto'; n.src = url(segs[i + 1][0]); }
-          try { const r = el.play(); if (r && r.catch) r.catch(() => el.onerror && el.onerror()); } catch (e) { el.onerror(); }
+          hqEl = LA().play(g.audioUrls(segs[i][0]), {
+            rate: pr,
+            onBase: () => g.audioFail(),
+            onStart: () => { if (segs[i + 1]) LA().preload(g.audioUrls(segs[i + 1][0])[0]); }, // tải trước câu kế tiếp
+            onEnd: () => play(i + 1),
+            onFail: why => { if (my !== speakSeq) return; hqEl = null; LA().note('tts', why + ' ' + segs[i][0]); tts(segs.slice(i).map(x => x[1]).join(' '), accent, rate, { ...opts, noHq: true, gender }); },
+          });
         };
         play(0);
         return;
@@ -232,7 +229,7 @@
     const my = ++speakSeq;
     speechSynthesis.cancel();
     if (speechSynthesis.paused) speechSynthesis.resume(); // Chrome đôi khi kẹt ở trạng thái tạm dừng → không đọc nữa
-    const voice = pickVoice(accent);
+    const voice = pickVoice(accent, gender);
     const base = rate || prefs().ttsRate || 0.92;
     const parts = splitSentences(text);
     // Chrome đôi khi "treo" sau cancel → resume định kỳ khi đọc đoạn dài
@@ -246,9 +243,9 @@
       speechSynthesis.speak(u);
     });
   }
-  const stopSpeak = () => { speakSeq++; stopHq(); const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
+  const stopSpeak = () => { speakSeq++; stopHq(); if (wordEl) { wordEl.stop(); wordEl = null; } const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
   // Từ đơn: ưu tiên bản ghi giọng người thật; câu: giọng tổng hợp tốt nhất
-  let audioEl = null;
+  let audioEl = null, wordEl = null;
   // Bộ nhớ đệm bản ghi giọng người thật (Cache Storage, tối đa 400 file gần nhất): lần sau phát tức thì, nghe được cả khi offline
   const AUDIO_CACHE = 'vb-audio-v1';
   async function audioSrc(url) {
@@ -276,12 +273,13 @@
     // Từ trong kho: giọng Kokoro Anh/Mỹ (scripts/gen-word-audio.mjs, audio.lexkite.com/audio/w/) – chưa có file/không mạng → giọng máy
     const wk = String(text || '').trim(), au = g.Lex && g.Lex.peekAu ? g.Lex.peekAu(wk) : undefined; // Lex biết từ không có file → không tải 404
     const lx = au && g.Lex.peek(wk), we = !url && au !== false && g.navigator && navigator.onLine && ((g.IELTS_DATA && g.IELTS_DATA.INDEX[wk.toLowerCase()]) || (lx && lx.word.toLowerCase() === wk.toLowerCase() ? lx : null));
-    if (we && !wordMiss.has(accent + wk)) {
-      const v = accent === 'en-US' ? 'af_heart' : 'bf_emma', base = g.audioUrl('x').replace(/l\/x\.mp3$/, 'w/');
+    if (we && !wordMiss.has(accent + wk) && LA()) {
+      const v = accent === 'en-US' ? 'af_heart' : 'bf_emma';
       stopSpeak();
-      const my = speakSeq, el = audioEl = new Audio(base + fnv36(v + '|' + we.word.trim() + WAV) + '.mp3'); el.preservesPitch = true; el.playbackRate = slow ? 0.7 : 1;
-      const miss = () => { if (el.onerror) { el.onerror = null; wordMiss.add(accent + wk); if (my === speakSeq) fb(); } };
-      el.onerror = miss; try { const pr = el.play(); if (pr && pr.catch) pr.catch(miss); } catch (e) { miss(); }
+      const my = speakSeq;
+      // Gốc CDN lần lượt (lỗi/404/quá giờ → gốc kế tiếp); hết gốc → giọng máy (ghi nhật ký dự phòng). Bị chặn tự phát → giọng máy, không đánh dấu thiếu file.
+      wordEl = LA().play(g.audioUrls(fnv36(v + '|' + we.word.trim() + WAV), 'w'), { rate: slow ? 0.7 : 1, onBase: () => g.audioFail(),
+        onFail: why => { wordEl = null; if (why !== 'blocked') wordMiss.add(accent + wk); LA().note('tts', why + ' w:' + wk); if (my === speakSeq) fb(); } });
       return;
     }
     if (url) {

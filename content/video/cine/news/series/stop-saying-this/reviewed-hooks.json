@@ -3,7 +3,7 @@
  "verdicts": {
   "sts_040ec72a": {
    "template": "mistake",
-   "hook": "✗ / “I apologize you for the delay.”",
+   "hook": "✗ “I apologize you for the delay.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
