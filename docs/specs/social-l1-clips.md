@@ -29,6 +29,8 @@
   - logic kịch bản (câu sai/đúng nằm trong lời nói, có "Repeat after me", tay chỉ cho người đã có màu tay)
   - native-qa
   - đủ glyph trong phông bản địa (Noto qua fc-match; Devanagari/Thai/Arabic cần raqm)
+  - tờ khung hình `frames.jpg` (`scripts/rig/framecheck.py`, ~1 khung/s + khung cuối): không chữ thừa (OCR ⊂ chữ khuôn vẽ + từ của spec), đúng giáo viên 2D theo câu (điểm ảnh khớp rig Ama/Carlos), vùng an toàn từng khung. Test `scripts/test/rig-framecheck.py`.
+  - tiếng Ả Rập: dòng bản địa nhiều phông theo bidi (`scripts/rig/bidi.py`, test `rig-bidi.mjs`).
 
 **Lưu trữ** (miễn phí, công khai, không bí mật):
 - Thư mục `content/social/videos/<lang>/<YYYY-MM-DD>-<slug>/` chứa:
@@ -38,11 +40,13 @@
 - `video.mp4` và `cover.jpg` nằm ở Release `social-<lang>`, tên tài sản `<ngày>-<slug>-video.mp4` / `-cover.jpg`.
 - `manifest.json` và `README.md` (mục lục theo ngôn ngữ) do `scripts/rig/store.mjs` sinh.
 - Chạy lại cùng slug thì giữ ngày và trạng thái cũ.
+- Clip trượt bất kỳ cổng nào không xuất (không kho, không Release) → `rejected.json` (spec_sha); bản đạt cũ giữ nguyên. Test `rig-store.mjs`.
 
 **CI.**
 - `social-clips.yml`: plan → render (matrix, `max_parallel` = min(10, 40 − đang bận − 8)) → store (release + commit về nhánh đã chạy).
 - `concurrency` xếp hàng, mỗi job có `timeout-minutes`.
 - Trên nhánh PR: push spec/engine thì dựng lại cả lô.
+- Hàng loạt: `infra/ci-backlog.json` mục `social-clips` (ci-filler, `specs=todo`): chỉ spec L1/Reels chưa có clip đạt ở nội dung hiện tại (`scripts/rig/todo.mjs`).
 
 **Lô thử (01/11).** 10 clip: vi (-s ngôi 3, âm cuối white/why) · ja (L/R, mạo từ a) · es (tuổi với be, library ≠ librería) · hi (I am knowing, good name) · pt_BR (actually ≠ atualmente, people are).
 

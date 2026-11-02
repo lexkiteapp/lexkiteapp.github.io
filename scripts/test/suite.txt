@@ -63,6 +63,8 @@ node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
 node scripts/test/call-engine.mjs
 node scripts/test/rig-lag.mjs
+node scripts/test/rig-bidi.mjs
+node scripts/test/rig-store.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
 node scripts/test/review-done.mjs

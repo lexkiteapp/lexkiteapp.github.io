@@ -5,7 +5,7 @@ name: social-clips
 on:
   workflow_dispatch:
     inputs:
-      specs: { description: 'glob spec (cách nhau bởi dấu cách)', default: 'content/video/rig/l1/*/*.json content/video/rig/reels/*/*.json' }
+      specs: { description: "glob spec (cách nhau bởi dấu cách) | 'todo' = spec chưa có clip đạt (scripts/rig/todo.mjs, ci-filler)", default: 'content/video/rig/l1/*/*.json content/video/rig/reels/*/*.json' }
       max_parallel: { description: 'trần song song (job plan tự giảm theo min(10, 40 − đang bận − 8))', default: '10' }
       store: { description: 'lưu kho + release (true/false)', default: 'true' }
   push:   # nhánh PR (workflow_dispatch chỉ gọi được khi file đã ở main): đổi spec/engine → dựng lại cả lô thử
@@ -31,7 +31,7 @@ jobs:
           GLOBS: ${{ inputs.specs || 'content/video/rig/l1/*/*.json content/video/rig/reels/*/*.json' }}
         run: |
           shopt -s nullglob
-          files=(); for g in $GLOBS; do files+=($g); done
+          if [ "$GLOBS" = todo ]; then mapfile -t files < <(node scripts/rig/todo.mjs --list | head -n 60); else files=(); for g in $GLOBS; do files+=($g); done; fi
           echo "specs=$(printf '%s\n' "${files[@]}" | jq -R . | jq -sc 'map(select(length>0))')" >> "$GITHUB_OUTPUT"
           printf '%s\n' "${files[@]}"
       - id: r   # luật runner (memory ci-full-use): song song = min(10, yêu cầu, 40 − job đang chạy − 8), tối thiểu 1 (xếp hàng)
@@ -47,6 +47,7 @@ jobs:
           echo "par=$par" >> "$GITHUB_OUTPUT"; echo "runner đang bận: $busy/40 → song song $par" | tee -a "$GITHUB_STEP_SUMMARY"
   render:
     needs: plan
+    if: needs.plan.outputs.specs != '[]'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
@@ -66,7 +67,7 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng aspell aspell-en fonts-noto-core fonts-noto-cjk libraqm0 >/dev/null
           python3 -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
-          python3 -m pip install -q kokoro==0.9.4 soundfile resvg-py==0.2.0 pillow numpy fonttools
+          python3 -m pip install -q kokoro==0.9.4 soundfile resvg-py==0.2.0 pillow numpy fonttools rapidocr-onnxruntime==1.3.24
       - name: Chữ bản địa (luật i18n-qa + dịch ngược gtx + nghĩa từ kho)
         run: node scripts/rig/native-qa.mjs "${{ matrix.spec }}" qa/rig
       - name: Giọng + mốc âm vị
@@ -75,6 +76,9 @@ jobs:
         run: node scripts/rig/timeline.mjs "${{ matrix.spec }}" qa/rig
       - name: Dựng MP4 + QC (vùng an toàn, phụ đề khớp, chính tả, ≤B1, deep-link, logic, chữ bản địa)
         run: python3 scripts/rig/render.py "${{ matrix.spec }}" qa/rig
+      - name: Cổng tờ khung hình tự soát (test hồi quy rồi từng khung ~1/s – chữ thừa, đúng giáo viên 2D, vùng an toàn)
+        if: ${{ !cancelled() }}
+        run: python3 scripts/test/rig-framecheck.py && python3 scripts/rig/framecheck.py "${{ matrix.spec }}" qa/rig
       - id: n
         if: always()
         run: echo "id=$(jq -r .id '${{ matrix.spec }}')" >> "$GITHUB_OUTPUT"
@@ -90,6 +94,7 @@ jobs:
             qa/rig/*/cover.jpg
             qa/rig/*/key-*.jpg
             qa/rig/*/sheet.jpg
+            qa/rig/*/frames.jpg
             qa/rig/*/qc.json
             qa/rig/*/native-qa.json
             qa/rig/*/report.md

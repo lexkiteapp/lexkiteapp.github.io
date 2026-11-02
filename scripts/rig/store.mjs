@@ -3,26 +3,29 @@
 // + video.mp4, cover.jpg ở GitHub Release "social-<lang>" (miễn phí, file ≤ 2 GB, tên tài sản <YYYY-MM-DD>-<slug>-video.mp4 / -cover.jpg; link trong meta.json).
 // Chạy lại cùng slug: giữ ngày + trạng thái (draft/approved/posted) cũ, chỉ thay file. Sau cùng sinh manifest.json (mọi clip theo ngôn ngữ, trạng thái).
 // Không ghi token/bí mật vào file công khai. Dùng: node scripts/rig/store.mjs <thư mục artifact đã tải> <ngày UTC> <repo owner/name>
-import fs from 'node:fs'; import path from 'node:path';
-const [ART, DAY, REPO] = process.argv.slice(2), ROOT = 'content/social/videos', uploads = [];
+import fs from 'node:fs'; import path from 'node:path'; import { specFiles, sha, STORE } from './todo.mjs';
+const [ART, DAY, REPO] = process.argv.slice(2), ROOT = STORE, uploads = [], RJ = `${ROOT}/rejected.json`;
+const rejected = fs.existsSync(RJ) ? JSON.parse(fs.readFileSync(RJ, 'utf8')) : {};
 const app = (id, dl) => `https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=${id}${dl}`;
 for (const dir of fs.readdirSync(ART).map(d => path.join(ART, d)).filter(d => fs.statSync(d).isDirectory())) {
   const inner = fs.readdirSync(dir).map(x => path.join(dir, x)).find(x => fs.existsSync(path.join(x, 'qc.json')));
   if (!inner) continue;
-  const id = path.basename(inner), specF = fs.readdirSync('content/video/rig/l1', { recursive: true }).map(f => path.join('content/video/rig/l1', f)).filter(f => f.endsWith('.json'))
-    .find(f => JSON.parse(fs.readFileSync(f, 'utf8')).id === id);
-  if (!specF) { console.log('bỏ qua (không phải clip L1):', id); continue; }
+  const id = path.basename(inner), specF = specFiles().find(f => JSON.parse(fs.readFileSync(f, 'utf8')).id === id);   // L1 + khuôn Reels (đã duyệt 03/11)
+  if (!specF) { console.log('bỏ qua (không có spec L1/Reels):', id); continue; }
   const spec = JSON.parse(fs.readFileSync(specF, 'utf8')), qc = JSON.parse(fs.readFileSync(path.join(inner, 'qc.json'), 'utf8'));
   const nq = JSON.parse(fs.readFileSync(path.join(inner, 'native-qa.json'), 'utf8')), L = spec.lang;
+  const failed = Object.entries(qc.gates).filter(([, v]) => !v).map(([k]) => k);
+  // clip trượt bất kỳ cổng nào (gồm 3 cổng tờ khung hình) KHÔNG xuất: không ghi kho, không đưa lên Release; bản đạt cũ (nếu có) giữ nguyên
+  if (failed.length || !fs.existsSync(path.join(inner, `${id}.mp4`))) { rejected[id] = { spec_sha: sha(specF), failed, date: DAY }; console.log('KHÔNG xuất (trượt cổng):', id, failed.join(',')); continue; }
+  delete rejected[id];
   fs.mkdirSync(path.join(ROOT, L), { recursive: true });
   const old = fs.readdirSync(path.join(ROOT, L)).find(d => d.slice(11) === spec.slug), folder = old || `${DAY}-${spec.slug}`, F = path.join(ROOT, L, folder);
   const prev = old && fs.existsSync(path.join(F, 'meta.json')) ? JSON.parse(fs.readFileSync(path.join(F, 'meta.json'), 'utf8')) : {};
   fs.mkdirSync(F, { recursive: true });
   const rel = `https://github.com/${REPO}/releases/download/social-${L}/`, base = `${folder}`;
-  const failed = Object.entries(qc.gates).filter(([, v]) => !v).map(([k]) => k);
   const meta = { id, lang: L, slug: spec.slug, date: folder.slice(0, 10), title: nq.hook, topic: spec.en.hook, mistake: spec.mistake,
     template: spec.template, teachers: [...new Set(qc.voices.map(v => v.who))], duration_s: qc.total, wpm: qc.wpmSpeech,
-    qc: { score: qc.score, pass: failed.length === 0, failed }, deeplink: app(id, spec.deeplink), spec: specF,
+    qc: { score: qc.score, pass: failed.length === 0, failed }, deeplink: app(id, spec.deeplink), spec: specF, spec_sha: sha(specF),
     files: { video: rel + base + '-video.mp4', cover: rel + base + '-cover.jpg', caption: 'caption.txt', qc: 'qc.json' },
     status: prev.status && prev.status !== 'draft' ? prev.status : 'draft', posted: prev.posted || {}, updated: DAY };
   fs.writeFileSync(path.join(F, 'meta.json'), JSON.stringify(meta, null, 1) + '\n');
@@ -30,6 +33,7 @@ for (const dir of fs.readdirSync(ART).map(d => path.join(ART, d)).filter(d => fs
   fs.writeFileSync(path.join(F, 'qc.json'), JSON.stringify({ ...qc, native: { gates: nq.gates, back: nq.back, sim: nq.sim } }, null, 1) + '\n');
   uploads.push([L, path.join(inner, `${id}.mp4`), `${base}-video.mp4`], [L, path.join(inner, 'cover.jpg'), `${base}-cover.jpg`]);
 }
+fs.mkdirSync(ROOT, { recursive: true }); fs.writeFileSync(RJ, JSON.stringify(rejected, null, 1) + '\n');   // todo.mjs: không dựng lại spec_sha đã trượt
 // manifest: mọi clip đã lưu (kể cả lượt trước), theo ngôn ngữ
 const clips = fs.existsSync(ROOT) ? fs.readdirSync(ROOT).filter(l => fs.statSync(path.join(ROOT, l)).isDirectory()).flatMap(l => fs.readdirSync(path.join(ROOT, l))
   .filter(d => fs.existsSync(path.join(ROOT, l, d, 'meta.json'))).map(d => ({ path: `${ROOT}/${l}/${d}`, ...JSON.parse(fs.readFileSync(path.join(ROOT, l, d, 'meta.json'), 'utf8')) }))) : [];

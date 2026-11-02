@@ -11,6 +11,7 @@ import io, json, re, subprocess, sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import resvg_py
+from bidi import base_rtl, visual   # scripts/rig/bidi.py (cùng thư mục)
 
 ROOT = Path(__file__).resolve().parents[2]
 spec = json.loads(Path(sys.argv[1]).read_text()); OUT = Path(sys.argv[2]) / spec['id']
@@ -34,8 +35,9 @@ CARD_Y0, CARD_Y1 = 1270, 1450
 CTA_Y = 1500
 LIST_TY, LIST_BAND = 1150, 1470   # say4/mispron: đỉnh ảnh giáo viên thu nhỏ · dải đáy (chữ CTA trong vùng an toàn ≤ 1540)
 BOXES = []                              # mọi khung chữ đã vẽ → cổng safe_zone
+FB, FT = [], {}                         # khung chữ + vùng giáo viên của khung hình đang vẽ → frames-check.json (scripts/rig/framecheck.py)
 def txt(dr, xy, s, font, fill, anchor='la'):
-    dr.text(xy, s, font=font, fill=fill, anchor=anchor); BOXES.append(dr.textbbox(xy, s, font=font, anchor=anchor))
+    dr.text(xy, s, font=font, fill=fill, anchor=anchor); b = dr.textbbox(xy, s, font=font, anchor=anchor); BOXES.append(b); FB.append([s, *b])
 def fit(s, f, sz, maxw, lo):
     while sz > lo and ImageDraw.Draw(Image.new('RGB', (1, 1))).textlength(s, font=f(sz)) > maxw: sz -= 2
     return f(sz)
@@ -69,10 +71,10 @@ def nruns(s):
     return [(a, b) for a, b in out]
 def nfont_at(path, sz): return ImageFont.truetype(path, sz, index=NIDX if path == NPATH else 0, layout_engine=ImageFont.Layout.RAQM)
 def native_line(dr, cx, cy, s, size, lo, maxw, fill, left=False):
-    rs = nruns(s); m = ImageDraw.Draw(Image.new('RGB', (1, 1)))
+    rtl = base_rtl(s); rs = visual(nruns(s), rtl); m = ImageDraw.Draw(Image.new('RGB', (1, 1)))   # ar: thứ tự đoạn theo bidi (scripts/rig/bidi.py)
     width = lambda sz: sum(m.textlength(a, font=nfont_at(f, sz)) for a, f in rs)
     while size > lo and width(size) > maxw: size -= 2
-    x = cx if left else cx - width(size) / 2
+    x = (cx + maxw - width(size) if rtl else cx) if left else cx - width(size) / 2   # dòng RTL canh lề phải của cột
     for a, f in rs:
         F = nfont_at(f, size); txt(dr, (x, cy), a, F, fill, 'lm'); x += dr.textlength(a, font=F)
 # màu tay lấy mẫu từ poster-2x (da, blazer, áo trong). Carlos: cần lấy mẫu + anh duyệt hình trước khi bật tay cho thầy (câu của thầy không có tay → bỏ qua, có cảnh báo)
@@ -237,7 +239,7 @@ def mouth_zoom(im, fr):
     face = base.copy(); face.alpha_composite(svg_img(fr['g'], base.width, base.height))
     ZW, ZH = 320, 196
     crop = face.crop((mx - 90, my - 48, mx + 90, my + 62)).resize((ZW, ZH), Image.LANCZOS)   # 180×110 → 320×196: môi mở xuống dưới → khung lệch xuống 7 px
-    x0, y0 = W - 48 - ZW, CARD_Y0 - ZH - 30
+    x0, y0 = W - 48 - ZW, CARD_Y0 - ZH - 30; FT['excl'] = [x0 - 8, y0 - 8, x0 + ZW + 8, y0 + ZH + 8]
     mask = Image.new('L', crop.size, 0); ImageDraw.Draw(mask).rounded_rectangle((0, 0, *crop.size), 44, fill=255)
     dr = ImageDraw.Draw(im); dr.rounded_rectangle((x0 - 8, y0 - 8, x0 + ZW + 8, y0 + ZH + 8), 50, fill=CARD, outline=TEAL, width=6)
     im.paste(crop, (x0, y0), mask)
@@ -259,17 +261,18 @@ def reel_minpair(dr, t):
         native_line(dr, cx, HOOK_Y0 + 298, it['native'], 30, 22, cw - 40, MUTED)
 
 def frame(fr, t):
-    im = Image.new('RGBA', (W, H), BG + (255,))
+    FB.clear(); FT.clear(); im = Image.new('RGBA', (W, H), BG + (255,))
     base = BASES[fr['who']]; face = svg_img(fr['g'], base.width, base.height); body = base.copy(); body.alpha_composite(face)
     if fr['tilt'] or fr['nod']:
         body = body.rotate(fr['tilt'], resample=Image.BICUBIC, center=tuple(RIGS[fr['who']]['pivot']), translate=(0, fr['nod']))
     if LISTT:   # giáo viên thu nhỏ 0,62 dưới danh sách; dải đáy che đường cắt ảnh
         sc = .62; b2 = body.resize((round(body.width * sc), round(body.height * sc)), Image.LANCZOS)
         im.alpha_composite(b2, ((W - b2.width) // 2, int(round(LIST_TY + fr['breath'] * sc))))
+        FT.update(xy=[(W - b2.width) // 2, int(round(LIST_TY + fr['breath'] * sc))], sc=sc, clip=[0, 0, W, LIST_BAND])
         ImageDraw.Draw(im).rectangle((0, LIST_BAND, W, H), fill=LEDGE)
     else:
         body = body.crop((0, 0, body.width, CARD_Y0 + 40 - TY))   # thân dừng sau thẻ phụ đề: không lòi tà áo dưới thẻ (ảnh đầu trơn cao hơn thẻ)
-        im.alpha_composite(body, (TX, int(round(TY + fr['breath']))))
+        im.alpha_composite(body, (TX, int(round(TY + fr['breath'])))); FT.update(xy=[TX, int(round(TY + fr['breath']))], sc=1, clip=[0, 0, W, CARD_Y0])
     if fr['hand'] and fr['who'] in HANDPAL and not LISTT:
         hl = svg_img(hand_svg(fr['hand'], fr['hk'], fr['hmode'], fr['who']), W, H)
         hl.paste((0, 0, 0, 0), (0, CARD_Y0 + 60, W, H))   # khuỷu/tay áo dừng sau thẻ phụ đề, không lòi xuống dưới thẻ
@@ -291,7 +294,12 @@ def sh(*a): return subprocess.run(a, check=True, capture_output=True, text=True)
 
 def render(name, fj):
     D = json.loads((OUT / fj).read_text()); d = OUT / f'fr-{name}'; d.mkdir(exist_ok=True)
-    for i, fr in enumerate(D['frames']): frame(fr, i / D['fps']).save(d / f'{i:05d}.png', compress_level=1)
+    fc, n = OUT / 'fc', len(D['frames']); fc.mkdir(exist_ok=True); chk = []
+    for i, fr in enumerate(D['frames']):
+        im = frame(fr, i / D['fps']); im.save(d / f'{i:05d}.png', compress_level=1)
+        if name == 'full' and (i % D['fps'] == 0 or i == n - 1):   # tờ khung hình ~1 khung/s + khung cuối → framecheck.py
+            im.save(fc / f'{i:05d}.png'); chk.append({'i': i, 't': round(i / D['fps'], 2), 'who': fr['who'], 'seg': fr['seg'], 'boxes': [list(b) for b in FB], 'teacher': dict(FT)})
+    if name == 'full': (OUT / 'frames-check.json').write_text(json.dumps({'template': TPL, 'W': W, 'H': H, 'safe': [SAFE_X, SAFE_T, W - SAFE_X, SAFE_B], 'frames': chk}))
     mp4 = OUT / f"{spec['id']}{'' if name == 'full' else '-' + name}.mp4"
     sh('ffmpeg', '-y', '-v', 'error', '-framerate', str(D['fps']), '-i', str(d / '%05d.png'), '-i', str(OUT / 'voice.wav'), '-map', '0:v', '-map', '1:a', '-shortest',
        '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', str(mp4))
