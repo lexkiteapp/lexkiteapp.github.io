@@ -206,7 +206,7 @@ async function j1(h) {
     const tb = await page.evaluate(() => { const t = document.querySelector('#toast.show'); if (!t) return null; const r = t.getBoundingClientRect(); return [...document.querySelectorAll('#view .btn.primary, .learn-bar, .bottom-nav')].filter(b => { const q = b.getBoundingClientRect(); return q.height && q.top > innerHeight * .45 && q.top < innerHeight && r.bottom > q.top + 2 && r.top < q.bottom && r.left < q.right && r.right > q.left; }).map(b => b.textContent.trim().slice(0, 30)); });
     h.ok(!tb || !tb.length, 'toast không che nút/thanh ở đáy: ' + (tb || []).join(' | '));
     h.ok(await page.evaluate(() => document.activeElement && document.activeElement !== document.body), 'focus được trả về (không rơi về <body>) sau khi đóng hộp');
-    h.ok(+(await h.ls('lk.reask')) > 0, 'đã ghi lk.reask (không hỏi lại)');
+    { const v = await h.ls('lk.reask'), r = typeof v === 'string' ? JSON.parse(v || 'null') : v; h.ok(r && r.n === 1 && r.no === 1 && r.at > 0, 'đã ghi lk.reask {n:1, "để sau"} – chỉ hỏi lại sau ≥ 7 ngày + ≥ 3 ngày học (' + JSON.stringify(r) + ')'); }
     h.ok(!(await page.evaluate(() => window.__perm || 0)), 'từ chối → KHÔNG gọi hộp quyền của trình duyệt');
   }
   // bài thứ 2 (cùng phiên) + sau khi tải lại → không bao giờ hỏi lại
@@ -262,6 +262,22 @@ async function j2(h) {
   for (let i = 0; i < 8 && !(await h.has('#cfRp')); i++) { if (await h.has('#cfSkip')) await h.click('#cfSkip', { wait: 500 }); else if (await h.has('#cfNext')) await h.click('#cfNext', { wait: 500 }); else await sleep(500); }
   if (h.ok(await h.has('#cfRp'), 'bài tự tin đi tới bước nhập vai')) { await h.click('#cfRp', { wait: 1500 }); h.ok(/\bB2\b/.test(await page.locator('#view').innerText()), 'nhập vai từ bài tự tin hiển thị mức B2'); }
   await h.audit('confidence');
+  // 🗣️ Say it like a native (docs/SAY-NATIVE.md): danh sách loạt → thẻ (mặt trước) → lật (mặt sau); web/data/say.json do CI say-native.yml dựng
+  if (await page.evaluate(() => fetch('data/say.json').then(r => r.ok, () => false))) {
+    await h.go('#/say'); await h.wait('#sayList a', 8000);
+    h.ok(await page.locator('#sayList a').count() >= 3, 'Say it like a native: ≥ 3 loạt thẻ');
+    await h.audit('say-list'); await h.shot('say-list');
+    await h.click('#sayList a', { wait: 1200 });
+    h.ok(await h.has('#sCard[data-face="front"] img'), 'thẻ mặt trước có giáo viên (Chars)');
+    await h.audit('say-front'); await h.shot('say-front');
+    await h.click('#sFlip', { wait: 900 });
+    h.ok(await h.has('#sCard[data-face="back"]'), 'chạm "Lật" → mặt sau');
+    await h.audit('say-back'); await h.shot('say-back');
+    // giao diện tối (cùng 3 màn) – ảnh để soát trước/sau với ref Stitch tối, không thêm cổng
+    await page.emulateMedia({ colorScheme: 'dark' });
+    try { await h.go('#/say'); await h.wait('#sayList a', 8000); await h.shot('say-list-dark'); await h.click('#sayList a', { wait: 1200 }); await h.shot('say-front-dark'); await h.click('#sFlip', { wait: 900 }); await h.shot('say-back-dark'); }
+    finally { await page.emulateMedia({ colorScheme: 'light' }); }
+  } else console.log('⚠ journey: chưa có web/data/say.json (CI say-native.yml chưa dịch xong) – bỏ qua bước Say it like a native');
   await h.go('#/roleplay/salary');
   const lv = await page.locator('.rp-seg button[aria-pressed="true"]').first().innerText().catch(() => '');
   h.ok(/B2/.test(lv), 'nhập vai: mức chọn sẵn B2 (' + lv + ')');

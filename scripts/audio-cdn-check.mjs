@@ -13,12 +13,12 @@ import { fileURLToPath } from 'node:url';
 import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { loadRepos, servingRepos } from './lib/media-repos.mjs';
+import { readIndex } from './sentence-audio/lib.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };
-const src = fs.readFileSync(path.join(root, 'web/js/listen/audio-index.js'), 'utf8');
-const keys = (src.match(/new Set\("([^"]*)"/) || [, ''])[1].split(/\s+/).filter(Boolean);
+const keys = [...readIndex(path.join(root, 'web/js/listen/audio-index.js')).have]; // dạng nén Rice – chạy tệp (scripts/sentence-audio/keyset.mjs)
 if (!keys.length) { console.error('audio-cdn-check: không đọc được LISTEN_AUDIO'); process.exit(1); }
 
 // --local (npm test, không mạng): chỉ mục đọc được + repo chính KHÔNG chứa mp3 (đã chuyển sang kho media – docs/STORAGE.md); đủ tệp trong kho: --media (pages.yml)

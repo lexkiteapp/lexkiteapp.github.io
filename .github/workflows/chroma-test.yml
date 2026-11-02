@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 # Thử tách nền PHÔNG XANH cho 1 clip Kling (scripts/video/chroma_key.py) – chạy trên CI để máy anh chủ không phải xử lý nặng.
 # Kết quả (artifact chroma-test): stacked.mp4 + meta.json + ảnh soi mép (ghép lên nền tối/sáng/caro, phóng to vùng tóc/tay/giày).
 name: Thử tách nền phông xanh
