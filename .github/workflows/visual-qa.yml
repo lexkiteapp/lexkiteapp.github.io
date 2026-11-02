@@ -17,6 +17,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: 🎬 Video bài học E2E (sandbox + vtest, Chrome có H.264; vi/ar/ja × điện thoại/máy tính)

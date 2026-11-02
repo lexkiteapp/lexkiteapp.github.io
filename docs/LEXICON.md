@@ -28,6 +28,7 @@ Cấp độ do người soạn; `content/wordlists/cefr-oxford.json` chỉ có c
 ## Nghĩa 13 ngôn ngữ (P1)
 - `web/packs/<lang>.json`: `"từ"` → `[nghĩa, cờ, tin cậy]`; `"từ#loại"` cho từ có ≥ 2 từ loại. Cờ 2 = dịch theo nghĩa + từ loại (đầu vào: từ, loại, định nghĩa Anh, ví dụ). Tin cậy 1 = AI duyệt ≤ 3/5 → app hiện nhãn "Dịch máy" (chỉ khi đó).
 - CI `lexicon-i18n.yml` (04:30 VN, 120 lần gọi × 25 mục): `scripts/lexicon/i18n-job.mjs` → `/api/lexai` (xác thực JWT OIDC GitHub, không secret) → kho khóa Gemini miễn phí xoay vòng → Workers AI. Thứ tự: ko, th, hi, zh, ja, ar, rồi es pt fr de id ru tr. Tiếp tục từ chỗ dừng (mục chưa cờ 2 / chưa điểm).
+- Cờ gói: 0 dịch nhanh · 1 tinh chỉnh cũ (CHƯA kiểm dịch ngược → `--refine` làm lại dần) · 2 bảng tay/từ điển theo nghĩa · 3 tinh chỉnh đã kiểm dịch ngược (`scripts/lib/pack-gloss.mjs`: chỉ giữ bản dịch dịch ngược về đúng từ gốc, xếp theo độ phổ biến). Sai nghĩa → thêm vào `content/wordlists/pack-fix.gloss.json` (13 ngôn ngữ) rồi `gen-word-packs.mjs all --gloss-only`; cổng `scripts/test/pack-gloss.mjs` (offline, trong npm test) + `scripts/pack-backcheck.mjs` (mạng, mẫu hằng đêm).
 - Bảng tay `content/wordlists/*.gloss.json` luôn thắng (đã sửa ward/support/level/express/motor/instrument/lobby/shaft/refer cho ngôn ngữ ưu tiên). `word-packs.yml` (gtx) chỉ điền từ còn thiếu, không đè cờ 2.
 
 ## Giọng đọc từ (P2)
