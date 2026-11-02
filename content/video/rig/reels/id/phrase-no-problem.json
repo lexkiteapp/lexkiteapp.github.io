@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "id-reel-phrase-no-problem",
+ "lang": "id",
+ "slug": "phrase-no-problem",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Answering thanks and sorry with only yes or okay"
+ },
+ "items": [
+  {
+   "en": "No problem",
+   "native": "Tidak apa-apa.",
+   "gloss_en": "It is okay."
+  }
+ ],
+ "segments": [
+  {
+   "text": "No problem.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, that is okay, do not worry.",
+   "emo": "explain"
+  },
+  {
+   "text": "Sorry, I am late. No problem!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. No problem.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "“Tidak apa-apa” bahasa Inggrisnya?",
+  "turn": "Giliranmu!",
+  "cta": "Ikuti ucapannya ya!",
+  "caption": "Mau bilang “tidak apa-apa” dalam bahasa Inggris? Ucapkan “No problem” – artinya tidak masalah, jangan khawatir. Contoh: “Sorry, I am late.” – “No problem!”. Dengarkan Ama, lalu ulangi saat jeda. Latihan lebih lanjut ada di aplikasi Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#belajarbahasainggris",
+   "#inggrismudah",
+   "#pelafalan"
+  ]
+ },
+ "en": {
+  "hook": "How do you say “tidak apa-apa”?",
+  "caption": "Want to say “it is okay” in English? Say “No problem” – it means that is okay, do not worry. Example: “Sorry, I am late.” – “No problem!”. Listen to Ama, then say it in the pause. More practice is in the Lexkite app."
+ }
+}

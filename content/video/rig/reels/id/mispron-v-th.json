@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "id-reel-mispron-v-th",
+ "lang": "id",
+ "slug": "mispron-v-th",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "V and TH in common words"
+ },
+ "items": [
+  {
+   "en": "very",
+   "native": "Gigi atas sentuh bibir bawah, bukan P.",
+   "gloss_en": "Upper teeth touch the lower lip, not P."
+  },
+  {
+   "en": "thirty",
+   "native": "Letakkan lidah di antara gigi, bukan T.",
+   "gloss_en": "Put your tongue between your teeth, not T."
+  },
+  {
+   "en": "video",
+   "native": "V di awal: bukan P, bukan F.",
+   "gloss_en": "V at the start: not P, not F."
+  },
+  {
+   "en": "think",
+   "native": "Lidah keluar sedikit di antara gigi.",
+   "gloss_en": "Tongue comes out a little between the teeth."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many people say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Very. Very.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Thirty. Thirty.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "Video. Video.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "Think. Think.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 kata yang sering salah diucapkan",
+  "turn": "Giliranmu!",
+  "cta": "Ikuti ucapannya ya!",
+  "caption": "Apakah kamu mengucapkan 4 kata ini dengan benar? Pada “very” dan “video”, gigi atas menyentuh bibir bawah; pada “thirty” dan “think”, lidah ada di antara gigi. Dengarkan Carlos, lalu ulangi saat jeda. Latihan pengucapan ada di aplikasi Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#belajarbahasainggris",
+   "#inggrismudah",
+   "#pelafalan"
+  ]
+ },
+ "en": {
+  "hook": "4 words people often say wrong",
+  "caption": "Do you say these 4 words correctly? In “very” and “video”, your top teeth touch your lower lip; in “thirty” and “think”, your tongue is between your teeth. Listen to Carlos, then say each word in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

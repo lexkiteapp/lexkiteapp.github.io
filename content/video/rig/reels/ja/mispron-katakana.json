@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ja-reel-mispron-katakana",
+ "lang": "ja",
+ "slug": "mispron-katakana",
+ "who": "ama",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Reading English words like katakana"
+ },
+ "items": [
+  {
+   "en": "vanilla",
+   "native": "上の歯を下くちびるに当てます",
+   "gloss_en": "Put your top teeth on your lower lip."
+  },
+  {
+   "en": "banana",
+   "native": "強く読むのは2番目の音です",
+   "gloss_en": "The stress is on the second sound."
+  },
+  {
+   "en": "film",
+   "native": "lのあとに母音を入れません",
+   "gloss_en": "Do not add a vowel after the l."
+  },
+  {
+   "en": "strike",
+   "native": "最初のsとtの間に母音を入れません",
+   "gloss_en": "Do not add a vowel between the s and t."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many learners say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Vanilla. Vanilla.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Banana. Banana.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Film. Film.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Strike. Strike.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "カタカナ読みになりやすい4語",
+  "turn": "あなたの番です！",
+  "cta": "続けて言ってみよう！",
+  "caption": "カタカナのまま読んでいませんか？“vanilla”は唇の使い方、“banana”は2番目を強く読む、“film”と“strike”は母音を入れないのがコツです。Ama先生のあとに続けて言ってみよう。Lexkiteアプリで発音を練習。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語発音",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words easy to read like katakana",
+  "caption": "Are you reading them like katakana? The trick for “vanilla” is your lips, in “banana” you stress the second sound, and in “film” and “strike” you do not add vowels. Repeat after teacher Ama. Practice pronunciation in the Lexkite app."
+ }
+}

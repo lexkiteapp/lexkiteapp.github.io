@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "en-reel-minpair-ship-sheep",
+ "lang": "en",
+ "slug": "minpair-ship-sheep",
+ "who": "carlos",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up short and long vowels"
+ },
+ "items": [
+  {
+   "en": "ship",
+   "native": "A big boat on the sea.",
+   "gloss_en": "a big boat"
+  },
+  {
+   "en": "sheep",
+   "native": "A farm animal with wool.",
+   "gloss_en": "a farm animal"
+  },
+  {
+   "en": "sit",
+   "native": "Rest on a chair.",
+   "gloss_en": "rest on a chair"
+  },
+  {
+   "en": "seat",
+   "native": "A chair to sit on.",
+   "gloss_en": "a chair"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Ship, Sheep, Sit, Seat. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Ship. Sheep.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Sit. Seat.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Ship, Sheep, Sit, Seat.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "Short or long vowel?",
+  "turn": "Your turn!",
+  "cta": "Repeat after me!",
+  "caption": "Can you hear the difference between “ship” and “sheep”, or “sit” and “seat”? For the long sound, spread your lips; for the short sound, relax them. Watch Carlos’s mouth, then say each word in the pause. Practice more in the Lexkite app.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishlesson",
+   "#speakenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Short or long vowel?",
+  "caption": "Can you hear the difference between “ship” and “sheep”, or “sit” and “seat”? For the long sound, spread your lips; for the short sound, relax them. Watch Carlos’s mouth, then say each word in the pause. Practice more in the Lexkite app."
+ }
+}

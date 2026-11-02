@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "th-reel-mispron-final",
+ "lang": "th",
+ "slug": "mispron-final",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Dropping the last sound of English words"
+ },
+ "items": [
+  {
+   "en": "milk",
+   "native": "ท้ายคำต้องมีเสียง k ด้วย",
+   "gloss_en": "There is a k sound at the end too."
+  },
+  {
+   "en": "desk",
+   "native": "ลงท้ายด้วย sk อย่าตัดทิ้ง",
+   "gloss_en": "End with the sk sound, do not cut it."
+  },
+  {
+   "en": "help",
+   "native": "ปิดริมฝีปากเป็นเสียง p ตอนท้าย",
+   "gloss_en": "Close your lips for the p at the end."
+  },
+  {
+   "en": "friend",
+   "native": "เสียง d ท้ายคำต้องออกให้ชัด",
+   "gloss_en": "Say the d sound at the end clearly."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many learners say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Milk. Milk.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Desk. Desk.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Help. Help.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Friend. Friend.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 คำที่คนไทยมักพูดไม่ครบเสียง",
+  "turn": "ถึงตาคุณแล้ว!",
+  "cta": "พูดตามเลย!",
+  "caption": "เคยพูดคำอังกฤษแล้วเสียงท้ายหายไปไหม? ลองฝึก 4 คำนี้: “milk”, “desk”, “help” และ “friend” ต้องออกเสียงตัวสุดท้ายให้ครบ ฟังครู Carlos อ่านแล้วพูดตามในช่วงเงียบ ฝึกออกเสียงต่อในแอป Lexkite",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words Thai learners often say short",
+  "caption": "Does the end of English words disappear when you speak? Practice these 4 words: “milk”, “desk”, “help” and “friend” need their last sound. Listen to Carlos, then say each word in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

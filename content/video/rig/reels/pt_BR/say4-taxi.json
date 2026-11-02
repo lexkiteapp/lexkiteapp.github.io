@@ -1,0 +1,89 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "pt_BR-reel-say4-taxi",
+ "lang": "pt_BR",
+ "slug": "say4-taxi",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing short lines for a taxi"
+ },
+ "items": [
+  {
+   "en": "To the airport, please.",
+   "native": "Para o aeroporto, por favor."
+  },
+  {
+   "en": "How long will it take?",
+   "native": "Quanto tempo vai levar?"
+  },
+  {
+   "en": "Please stop here.",
+   "native": "Pode parar aqui, por favor."
+  },
+  {
+   "en": "Keep the change.",
+   "native": "Pode ficar com o troco."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Taking a taxi? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "To the airport, please.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "How long will it take?",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Please stop here.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Keep the change.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Pegando um táxi: o que dizer?",
+  "turn": "Sua vez!",
+  "cta": "Repita comigo!",
+  "caption": "Fica travado na hora de pegar um táxi em inglês? Salve estas 4 frases, como “To the airport, please.” e “Keep the change.” Ouça a Ama e repita na pausa. Pratique mais no app Lexkite.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Taking a taxi: what do you say?",
+  "caption": "Do you freeze when taking a taxi in English? Save these 4 lines, such as “To the airport, please.” and “Keep the change.” Listen to Ama and repeat in the pause. Practice more in the Lexkite app."
+ }
+}

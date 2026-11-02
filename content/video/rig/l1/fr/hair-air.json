@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "fr-hair-air",
+ "lang": "fr",
+ "slug": "hair-air",
+ "who": "ama",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Dropping the H (hair → air)",
+  "vi": "Bỏ âm H: \"hair\" nghe thành \"air\" (tiếng Pháp không đọc H)",
+  "l1": "French has no pronounced /h/, so “hair” sounds like “air”."
+ },
+ "hook": {
+  "a": "hair",
+  "b": "air"
+ },
+ "segments": [
+  {
+   "text": "Hair, or air? Only one of them has an H sound.",
+   "emo": "explain"
+  },
+  {
+   "text": "Hair. Push a little air out first, like on a cold day. Hair.",
+   "emo": "explain"
+  },
+  {
+   "text": "Air. Nothing at the start. Just open your mouth. Air.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. My hair is long. The air is fresh.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job!",
+   "emo": "happy",
+   "who": "ama",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "Tu oublies le H de “hair” ?",
+  "caption": "Les francophones oublient souvent le H, donc “hair” ressemble à “air”. Pour le H, souffle un peu d’air avant le mot ; pour “air”, commence directement par la voyelle. Répète après la prof Ama et travaille la prononciation dans l’appli Lexkite.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#prononciation",
+   "#anglaisfacile",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do you forget the H in “hair”?",
+  "caption": "French speakers often drop the H, so “hair” sounds like “air”. For H, push a little air out before the word; for “air”, start right away with the vowel. Repeat after teacher Ama and practice pronunciation in the Lexkite app."
+ }
+}

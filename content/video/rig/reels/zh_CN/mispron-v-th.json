@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "zh_CN-reel-mispron-v-th",
+ "lang": "zh_CN",
+ "slug": "mispron-v-th",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying v like w, th like s, and dropping the end of world"
+ },
+ "items": [
+  {
+   "en": "very",
+   "native": "v 要用上齿轻咬下唇",
+   "gloss_en": "For v, bite your lower lip with your top teeth."
+  },
+  {
+   "en": "think",
+   "native": "th 舌尖伸到上下齿之间",
+   "gloss_en": "For th, put your tongue between your teeth."
+  },
+  {
+   "en": "wine",
+   "native": "w 嘴唇要圆，不碰牙齿",
+   "gloss_en": "For w, round your lips and do not touch your teeth."
+  },
+  {
+   "en": "world",
+   "native": "结尾的 ld 不要丢掉",
+   "gloss_en": "Do not drop the ld at the end."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many learners say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Very. Very.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Think. Think.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Wine. Wine.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "World. World.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "中国人常读错的 4 个单词",
+  "turn": "轮到你了！",
+  "cta": "跟我一起读吧！",
+  "caption": "“very”读成“wery”，“think”读成“sink”？这 4 个词最容易读错：“very”、“think”、“wine”和“world”。听 Carlos 老师示范，再在停顿时跟读。发音练习尽在 Lexkite 应用。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#每日英语",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words Chinese learners often say wrong",
+  "caption": "Do you say “very” as “wery” and “think” as “sink”? These 4 words are easy to get wrong: “very”, “think”, “wine” and “world”. Listen to teacher Carlos, then repeat in the pause. Pronunciation practice is in the Lexkite app."
+ }
+}

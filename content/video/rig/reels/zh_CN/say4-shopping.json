@@ -1,0 +1,92 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "zh_CN-reel-say4-shopping",
+ "lang": "zh_CN",
+ "slug": "say4-shopping",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing short lines for shopping"
+ },
+ "items": [
+  {
+   "en": "How much for this one?",
+   "native": "这个多少钱？",
+   "gloss_en": "How much is this?"
+  },
+  {
+   "en": "Can I try it on?",
+   "native": "我可以试穿吗？"
+  },
+  {
+   "en": "Do you have a small one?",
+   "native": "有小一号的吗？",
+   "gloss_en": "Do you have a smaller one?"
+  },
+  {
+   "en": "I will take it.",
+   "native": "我就买这个了。",
+   "gloss_en": "I will buy this."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Shopping in English? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "How much for this one?",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Can I try it on?",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Do you have a small one?",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "I will take it.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "买东西用英语怎么说？",
+  "turn": "轮到你了！",
+  "cta": "跟我一起读吧！",
+  "caption": "出国购物不敢开口？这 4 句一定要收藏，比如“How much for this one?”和“Can I try it on?”。先听 Ama 老师示范，再在停顿时跟读。更多口语练习，尽在 Lexkite 应用。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#每日英语",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you shop in English?",
+  "caption": "Afraid to speak when shopping abroad? Save these 4 lines, such as “How much for this one?” and “Can I try it on?” First listen to teacher Ama, then repeat in the pause. More speaking practice is in the Lexkite app."
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "tr-reel-phrase-not-bad",
+ "lang": "tr",
+ "slug": "phrase-not-bad",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Only saying very good or very bad"
+ },
+ "items": [
+  {
+   "en": "Not bad",
+   "native": "Fena değil.",
+   "gloss_en": "Not bad."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Not bad.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, it is pretty good.",
+   "emo": "explain"
+  },
+  {
+   "text": "How was the movie? Not bad!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. Not bad.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "“Fena değil” İngilizcede ne olur?",
+  "turn": "Sıra sende!",
+  "cta": "Birlikte tekrar edelim!",
+  "caption": "Her şeye “very good” demekten sıkıldın mı? “Not bad.” yani fena değil, günlük konuşmada çok doğal. Örnek: “How was the movie?” – “Not bad!” Ama öğretmeni dinle, sessizlikte tekrar et. Lexkite uygulamasında devam et.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizce",
+   "#ingilizcekonuşma",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you say \"not bad\" in English?",
+  "caption": "Tired of saying “very good” about everything? “Not bad.” means pretty good and sounds natural in conversation. Example: “How was the movie?” – “Not bad!” Listen to Ama, then repeat in the pause. Keep going in the Lexkite app."
+ }
+}

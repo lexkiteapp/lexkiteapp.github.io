@@ -1,0 +1,66 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "ru-depends-on",
+ "lang": "ru",
+ "slug": "depends-on",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Depends from (instead of depends on)",
+  "vi": "\"Depends from\" thay vì \"depends on\" (tiếng Nga: зависит от)",
+  "l1": "Russian “зависит от” literally means “depends from”."
+ },
+ "hook": {
+  "bad": "It depends from the weather",
+  "good": "It depends on the weather",
+  "strike": "from",
+  "add": [
+   "on"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, it depends from the weather. Say, it depends on the weather.",
+   "emo": "explain"
+  },
+  {
+   "text": "After depend, we always use on.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. It depends on the weather. It depends on you.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Nice! Say it again.",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "“Depends from” — это ошибка!",
+  "caption": "В русском после этого глагола стоит слово «от» (“from”), поэтому учащиеся говорят “depends from”. По-английски нужно “depends on”: “It depends on the weather”. Повторяйте за Carlos и тренируйте грамматику в приложении Lexkite.",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийязык",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "“Depends from” is a mistake!",
+  "caption": "Russian uses the word for “from” after this verb, so learners say “depends from”. In English we say “depends on”: “It depends on the weather”. Repeat after Carlos and practice grammar in the Lexkite app."
+ }
+}

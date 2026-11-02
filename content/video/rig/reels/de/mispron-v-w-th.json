@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "de-reel-mispron-v-w-th",
+ "lang": "de",
+ "slug": "mispron-v-w-th",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "V, W and TH in common words"
+ },
+ "items": [
+  {
+   "en": "very",
+   "native": "Sprich V weich und stimmhaft, nicht wie F.",
+   "gloss_en": "Say V soft and voiced, not like F."
+  },
+  {
+   "en": "world",
+   "native": "W mit runden Lippen, nicht wie V.",
+   "gloss_en": "W with round lips, not like V."
+  },
+  {
+   "en": "three",
+   "native": "Zunge zwischen die Zähne, nicht S oder F.",
+   "gloss_en": "Tongue between the teeth, not S or F."
+  },
+  {
+   "en": "water",
+   "native": "Das T in der Mitte klingt weich.",
+   "gloss_en": "The T in the middle sounds soft."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many people say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Very. Very.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "World. World.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "Three. Three.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "Water. Water.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 Wörter, die viele falsch sagen",
+  "turn": "Du bist dran!",
+  "cta": "Sprich einfach nach!",
+  "caption": "Sagst du diese 4 Wörter richtig? Bei “very” ist das V stimmhaft, bei “world” sind die Lippen rund, bei “three” steckt die Zunge zwischen den Zähnen, und in “water” klingt das T weich. Hör Carlos zu und sprich in der Pause nach. Übe mehr in der Lexkite-App.",
+  "hashtags": [
+   "#lexkite",
+   "#englischlernen",
+   "#englischsprechen",
+   "#englischfürdeutsche"
+  ]
+ },
+ "en": {
+  "hook": "4 words Germans often say wrong",
+  "caption": "Do you say these 4 words correctly? In “very” the V is voiced, in “world” your lips are round, in “three” your tongue is between your teeth, and in “water” the T sounds soft. Listen to Carlos, then say each word in the pause. Practice more in the Lexkite app."
+ }
+}

@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ar-reel-mispron-p-b",
+ "lang": "ar",
+ "slug": "mispron-p-b",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying B instead of P in common words"
+ },
+ "items": [
+  {
+   "en": "people",
+   "native": "ابدأ بصوت P خفيف وليس B.",
+   "gloss_en": "Start with a light P sound, not a B."
+  },
+  {
+   "en": "paper",
+   "native": "اجعل الـ P قوياً بنفخة هواء.",
+   "gloss_en": "Make the P strong with a puff of air."
+  },
+  {
+   "en": "problem",
+   "native": "الـ P الأولى هواء بلا صوت، لا تقل B.",
+   "gloss_en": "The first P is air without voice, do not say B."
+  },
+  {
+   "en": "purple",
+   "native": "ابدأ بـ P، ثم صوت ER طويل.",
+   "gloss_en": "Start with P, then a long ER sound."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many people say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "People. People.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Paper. Paper.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "Problem. Problem.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "Purple. Purple.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 كلمات فيها P يخطئ فيها الكثيرون",
+  "turn": "دورك الآن!",
+  "cta": "رددوا معي!",
+  "caption": "هل تنطق P مثل B؟ في كلمات مثل “people” و“paper” و“problem” و“purple” يجب أن يكون الصوت الأول هواءً بلا صوت. استمع إلى المعلم Carlos ثم كرّر في لحظة الصمت. تدرّب على النطق أكثر في تطبيق Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#تعلم_الانجليزية",
+   "#نطق_الانجليزي",
+   "#الانجليزية"
+  ]
+ },
+ "en": {
+  "hook": "4 words with P that many people say wrong",
+  "caption": "Do you say P like B? In words like “people”, “paper”, “problem” and “purple”, the first sound should be air without voice. Listen to Carlos, then say each word in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

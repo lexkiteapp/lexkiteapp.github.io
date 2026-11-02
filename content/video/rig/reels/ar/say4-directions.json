@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ar-reel-say4-directions",
+ "lang": "ar",
+ "slug": "say4-directions",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing short lines for asking the way"
+ },
+ "items": [
+  {
+   "en": "Where is the bus stop?",
+   "native": "أين محطة الحافلات؟",
+   "gloss_en": "Where is the bus station?"
+  },
+  {
+   "en": "How far is it?",
+   "native": "كم يبعد المكان؟",
+   "gloss_en": "How far is the place?"
+  },
+  {
+   "en": "Is it near here?",
+   "native": "هل هو قريب من هنا؟",
+   "gloss_en": "Is it close to here?"
+  },
+  {
+   "en": "Can you help me, please?",
+   "native": "هل يمكنك مساعدتي من فضلك؟",
+   "gloss_en": "Can you help me, please?"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Lost in a new city? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Where is the bus stop?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "How far is it?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "Is it near here?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "Can you help me, please?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "كيف تسأل عن الطريق بالإنجليزية؟",
+  "turn": "دورك الآن!",
+  "cta": "رددوا معي!",
+  "caption": "هل تتردد في السؤال عن الطريق بالإنجليزية؟ احفظ هذه الجمل الأربع: “Where is the bus stop?”، “How far is it?”، “Is it near here?”، “Can you help me, please?”. استمع إلى المعلمة Ama ثم كرّر في لحظة الصمت. تدرّب أكثر في تطبيق Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#تعلم_الانجليزية",
+   "#نطق_الانجليزي",
+   "#الانجليزية"
+  ]
+ },
+ "en": {
+  "hook": "How do you ask for directions in English?",
+  "caption": "Do you hesitate to ask for directions in English? Save these 4 lines: “Where is the bus stop?”, “How far is it?”, “Is it near here?”, “Can you help me, please?”. Listen to Ama, then say each one in the pause. Practice more in the Lexkite app."
+ }
+}

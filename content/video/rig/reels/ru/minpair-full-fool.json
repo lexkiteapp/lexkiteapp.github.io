@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ru-reel-minpair-full-fool",
+ "lang": "ru",
+ "slug": "minpair-full-fool",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up short and long oo"
+ },
+ "items": [
+  {
+   "en": "full",
+   "native": "полный",
+   "gloss_en": "full"
+  },
+  {
+   "en": "fool",
+   "native": "дурак",
+   "gloss_en": "fool"
+  },
+  {
+   "en": "pull",
+   "native": "тянуть",
+   "gloss_en": "pull"
+  },
+  {
+   "en": "pool",
+   "native": "бассейн",
+   "gloss_en": "pool"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Full, Fool, Pull, Pool. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Full. Fool.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Pull. Pool.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Full, Fool, Pull, Pool.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "Слышите разницу в звуке «у»?",
+  "turn": "Твоя очередь!",
+  "cta": "Повторяй за мной!",
+  "caption": "“full” и “fool”, “pull” и “pool”: в русском нет разницы между коротким и долгим «у». В коротком звуке губы расслаблены, в долгом вытянуты вперёд. Посмотрите на рот Амы и повторите в паузе. Практика в приложении Lexkite.",
+  "hashtags": [
+   "#английскийязык",
+   "#учианглийский",
+   "#разговорныйанглийский",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Can you hear the oo sound?",
+  "caption": "“full” and “fool”, “pull” and “pool”: Russian does not separate the short and long oo. For the short sound your lips are relaxed, for the long one they push forward. Watch Ama’s mouth and repeat in the pause. Practice in the Lexkite app."
+ }
+}

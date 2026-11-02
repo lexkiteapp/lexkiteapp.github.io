@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "tr-reel-mispron-th-w",
+ "lang": "tr",
+ "slug": "mispron-th-w",
+ "who": "ama",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying th like s or d, and w like v"
+ },
+ "items": [
+  {
+   "en": "think",
+   "native": "Dilin ucu dişlerin arasında, s değil",
+   "gloss_en": "Put the tip of your tongue between your teeth, not s."
+  },
+  {
+   "en": "mother",
+   "native": "th için dili dişlerin arasına koy",
+   "gloss_en": "Put your tongue between your teeth for the middle th."
+  },
+  {
+   "en": "water",
+   "native": "w için dudaklar yuvarlak, v değil",
+   "gloss_en": "Round your lips for w, not v."
+  },
+  {
+   "en": "very",
+   "native": "v için üst dişler alt dudağa değer",
+   "gloss_en": "Your top teeth touch your lower lip for v."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many learners say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Think. Think.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Mother. Mother.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Water. Water.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Very. Very.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "Sık yanlış söylenen 4 kelime",
+  "turn": "Sıra sende!",
+  "cta": "Birlikte tekrar edelim!",
+  "caption": "“think” ve “mother” kelimelerindeki th sesini s ya da d gibi mi söylüyorsun? “water” kelimesinde w, “very” kelimesinde v sesine dikkat et. Ama öğretmeni dinle, sessizlikte tekrar et. Telaffuzu Lexkite uygulamasında çalış.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizce",
+   "#ingilizcekonuşma",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words Turkish learners often say wrong",
+  "caption": "Do you say the th in “think” and “mother” like s or d? Be careful with w in “water” and v in “very”. Listen to teacher Ama, then repeat in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ko-reel-say4-cafe",
+ "lang": "ko",
+ "slug": "say4-cafe",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing short lines for ordering at a cafe"
+ },
+ "items": [
+  {
+   "en": "Can I have a coffee, please?",
+   "native": "커피 한 잔 주시겠어요?",
+   "gloss_en": "Could I get a coffee, please?"
+  },
+  {
+   "en": "I would like it hot.",
+   "native": "따뜻하게 주세요.",
+   "gloss_en": "I want it warm."
+  },
+  {
+   "en": "Can I pay by card?",
+   "native": "카드로 계산해도 될까요?",
+   "gloss_en": "May I pay with a card?"
+  },
+  {
+   "en": "Thank you, have a nice day.",
+   "native": "감사합니다, 좋은 하루 보내세요.",
+   "gloss_en": "Thank you, have a good day."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Ordering at a cafe? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Can I have a coffee, please?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "I would like it hot.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "Can I pay by card?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "Thank you, have a nice day.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "카페에서 영어로 주문하기",
+  "turn": "이제 네 차례!",
+  "cta": "따라 읽어 보세요!",
+  "caption": "카페에서 영어로 주문하기가 떨리나요? 이 4문장을 저장해 두세요: “Can I have a coffee, please?”, “I would like it hot.”, “Can I pay by card?”, “Thank you, have a nice day.”. Ama 선생님의 발음을 듣고 멈춘 사이에 따라 해 보세요. Lexkite 앱에서 더 연습해 보세요.",
+  "hashtags": [
+   "#lexkite",
+   "#영어공부",
+   "#영어회화",
+   "#영어발음"
+  ]
+ },
+ "en": {
+  "hook": "Ordering at a cafe in English",
+  "caption": "Nervous about ordering at a cafe in English? Save these 4 lines: “Can I have a coffee, please?”, “I would like it hot.”, “Can I pay by card?”, “Thank you, have a nice day.”. Listen to Ama, then say each one in the pause. Practice more in the Lexkite app."
+ }
+}

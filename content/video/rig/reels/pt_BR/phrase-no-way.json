@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "pt_BR-reel-phrase-no-way",
+ "lang": "pt_BR",
+ "slug": "phrase-no-way",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Only saying no without feeling"
+ },
+ "items": [
+  {
+   "en": "No way",
+   "native": "De jeito nenhum.",
+   "gloss_en": "Not at all."
+  }
+ ],
+ "segments": [
+  {
+   "text": "No way.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, that is not possible.",
+   "emo": "explain"
+  },
+  {
+   "text": "Do you want to jump? No way!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. No way.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "“De jeito nenhum” em inglês?",
+  "turn": "Sua vez!",
+  "cta": "Repita comigo!",
+  "caption": "Quer recusar com força? Diga “No way.”, que significa de jeito nenhum. Exemplo: “Do you want to jump?” – “No way!” Ouça a Ama e repita na pausa. Pratique mais no app Lexkite.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "\"No way\" in English?",
+  "caption": "Want to refuse strongly? Say “No way.”, which means not at all. Example: “Do you want to jump?” – “No way!” Listen to Ama and repeat in the pause. Practice more in the Lexkite app."
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "th-went-yesterday",
+ "lang": "th",
+ "slug": "went-yesterday",
+ "who": "ama",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Not changing the verb for the past (I go yesterday)",
+  "l1": "Thai verbs do not change for tense, so time words do the job."
+ },
+ "hook": {
+  "bad": "I go to work yesterday",
+  "good": "I went to work yesterday",
+  "strike": "go",
+  "add": [
+   "went"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, I go to work yesterday. Say, I went to work yesterday.",
+   "emo": "explain"
+  },
+  {
+   "text": "Yesterday is in the past. So the verb changes. Go becomes went.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I went to work yesterday. She went home early.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Past time, past verb.",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "เมื่อวานต้องใช้ went นะ!",
+  "caption": "เคยพูดว่า “I go to work yesterday” ไหม? ภาษาไทยไม่เปลี่ยนรูปคำกริยาตามเวลา แต่ภาษาอังกฤษต้องเปลี่ยน ต้องพูดว่า “I went to work yesterday.” ฟังครู Ama แล้วพูดตาม ฝึกไวยากรณ์ต่อในแอป Lexkite",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ไวยากรณ์อังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Use “went” for yesterday!",
+  "caption": "Do you ever say “I go to work yesterday”? Thai verbs do not change with time, but English verbs do. Say “I went to work yesterday.” Listen to Ama and repeat after her. Practice grammar in the Lexkite app."
+ }
+}

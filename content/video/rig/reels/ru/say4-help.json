@@ -1,0 +1,89 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ru-reel-say4-help",
+ "lang": "ru",
+ "slug": "say4-help",
+ "who": "carlos",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing polite lines to ask for help"
+ },
+ "items": [
+  {
+   "en": "Can you help, please?",
+   "native": "Вы не поможете, пожалуйста?"
+  },
+  {
+   "en": "I do not understand.",
+   "native": "Я не понимаю."
+  },
+  {
+   "en": "Can you say that again?",
+   "native": "Можете повторить?"
+  },
+  {
+   "en": "Please speak more slowly.",
+   "native": "Говорите помедленнее, пожалуйста."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Do not understand someone? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Can you help, please?",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "I do not understand.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Can you say that again?",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Please speak more slowly.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Не понял? Скажи по-английски",
+  "turn": "Твоя очередь!",
+  "cta": "Повторяй за мной!",
+  "caption": "Не поняли собеседника и растерялись? Сохраните 4 простые фразы, например “Can you help, please?” и “Can you say that again?”. Послушайте Карлоса, а в паузе повторите сами. Больше практики в приложении Lexkite.",
+  "hashtags": [
+   "#английскийязык",
+   "#учианглийский",
+   "#разговорныйанглийский",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Did not understand? Say it in English",
+  "caption": "Did not understand the other person and froze? Save 4 easy lines, such as “Can you help, please?” and “Can you say that again?” Listen to Carlos, then repeat in the pause. More practice is in the Lexkite app."
+ }
+}

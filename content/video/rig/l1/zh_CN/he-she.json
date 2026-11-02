@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "zh_CN-he-she",
+ "lang": "zh_CN",
+ "slug": "he-she",
+ "who": "ama",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Mixing up he and she",
+  "l1": "Chinese tā sounds the same for he and she."
+ },
+ "hook": {
+  "a": "he",
+  "b": "she"
+ },
+ "segments": [
+  {
+   "text": "He, or she? These are two different words.",
+   "emo": "explain"
+  },
+  {
+   "text": "He is for a man. He is my brother.",
+   "emo": "explain"
+  },
+  {
+   "text": "She is for a woman. She is my sister.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. He is my brother. She is my sister.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job!",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "“he”和“she”别再说混了！",
+  "caption": "中文里“他”和“她”读音一样，所以说英语时“he”和“she”很容易混。“he”指男性，“she”指女性：“He is my brother.” “She is my sister.” 跟着 Ama 老师读一读，更多练习在 Lexkite 应用里。",
+  "hashtags": [
+   "#学英语",
+   "#英语语法",
+   "#英语口语",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Stop mixing up he and she!",
+  "caption": "In Chinese “tā” sounds the same for he and she, so he and she are easy to mix up. He is for a man, she is for a woman: “He is my brother.” “She is my sister.” Read along with teacher Ama. More practice is in the Lexkite app."
+ }
+}

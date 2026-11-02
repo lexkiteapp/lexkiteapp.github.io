@@ -1,0 +1,66 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "de-become-get",
+ "lang": "de",
+ "slug": "become-get",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Using become for “to receive” (I become a letter)",
+  "vi": "Dùng become với nghĩa \"nhận\": \"I become a letter\" (tiếng Đức: bekommen = nhận)",
+  "l1": "German “bekommen” means to receive, a false friend of “become”."
+ },
+ "hook": {
+  "bad": "I become a letter from my bank",
+  "good": "I get a letter from my bank",
+  "strike": "become",
+  "add": [
+   "get"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, I become a letter from my bank. Say, I get a letter from my bank.",
+   "emo": "explain"
+  },
+  {
+   "text": "Become means to change into something. To receive something, say get.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I get a letter. I get a gift.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Nice! Get is a very useful word.",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "Become heißt nicht bekommen!",
+  "caption": "Im Deutschen heißt “bekommen” empfangen, aber das englische “become” bedeutet werden. Wenn du etwas bekommst, sagst du “get”: “I get a letter from my bank”, nicht “I become a letter”. Sprich Carlos nach und übe Grammatik in der Lexkite-App.",
+  "hashtags": [
+   "#englischlernen",
+   "#falschefreunde",
+   "#englischgrammatik",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Become does not mean bekommen!",
+  "caption": "In German “bekommen” means to receive, but the English “become” means to turn into something. To receive something, say “get”: “I get a letter from my bank”, not “I become a letter”. Repeat after Carlos and practice grammar in the Lexkite app."
+ }
+}

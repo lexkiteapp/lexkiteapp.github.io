@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "pt_BR-reel-mispron-final-h",
+ "lang": "pt_BR",
+ "slug": "mispron-final-h",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Adding a vowel at the end of words, and saying h like r"
+ },
+ "items": [
+  {
+   "en": "milk",
+   "native": "Termine em k, sem som de u no meio",
+   "gloss_en": "End with k, with no u sound in the middle."
+  },
+  {
+   "en": "bag",
+   "native": "Termine em g, sem um i no final",
+   "gloss_en": "End with g, without an i at the end."
+  },
+  {
+   "en": "think",
+   "native": "Língua entre os dentes, não é t",
+   "gloss_en": "Tongue between your teeth, it is not t."
+  },
+  {
+   "en": "hello",
+   "native": "O h é um sopro leve, não um r forte",
+   "gloss_en": "The h is a soft breath, not a strong r."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many learners say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Milk. Milk.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Bag. Bag.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Think. Think.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Hello. Hello.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 palavras que muita gente erra",
+  "turn": "Sua vez!",
+  "cta": "Repita comigo!",
+  "caption": "Você fala “miuk” em vez de “milk” e “bagui” em vez de “bag”? Cuidado também com o th de “think” e com o h de “hello”. Ouça o Carlos e repita na pausa. Pratique a pronúncia no app Lexkite.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words many people get wrong",
+  "caption": "Do you say “miuk” instead of “milk” and “bagui” instead of “bag”? Also watch the th in “think” and the h in “hello”. Listen to Carlos and repeat in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

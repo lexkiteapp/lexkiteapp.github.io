@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "tr-reel-minpair-bad-bed",
+ "lang": "tr",
+ "slug": "minpair-bad-bed",
+ "who": "carlos",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up the vowels in bad, bed, bid and but"
+ },
+ "items": [
+  {
+   "en": "bad",
+   "native": "kötü",
+   "gloss_en": "bad"
+  },
+  {
+   "en": "bed",
+   "native": "yatak",
+   "gloss_en": "bed"
+  },
+  {
+   "en": "bid",
+   "native": "teklif",
+   "gloss_en": "offer"
+  },
+  {
+   "en": "but",
+   "native": "ama",
+   "gloss_en": "but"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Bad, Bed, Bid, But. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Bad. Bed.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Bid. But.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Bad, Bed, Bid, But.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "a, e, i: farkı duyuyor musun?",
+  "turn": "Sıra sende!",
+  "cta": "Birlikte tekrar edelim!",
+  "caption": "“bad”, “bed”, “bid” ve “but” arasındaki fark sadece ünlü sesinde. Türkçede olmayan a sesi için ağzını geniş aç. Carlos hocanın ağzına bak, sessizlikte tekrar et. Lexkite uygulamasında devam et.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizce",
+   "#ingilizcekonuşma",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Can you hear a, e, i?",
+  "caption": "The only difference between “bad”, “bed”, “bid” and “but” is the vowel. Open your mouth wide for the a sound that Turkish does not have. Watch Carlos’s mouth, then repeat in the pause. Keep going in the Lexkite app."
+ }
+}

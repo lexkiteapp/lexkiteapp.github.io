@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ko-reel-minpair-p-f",
+ "lang": "ko",
+ "slug": "minpair-p-f",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up P and F"
+ },
+ "items": [
+  {
+   "en": "pan",
+   "native": "프라이팬",
+   "gloss_en": "frying pan"
+  },
+  {
+   "en": "fan",
+   "native": "선풍기",
+   "gloss_en": "fan"
+  },
+  {
+   "en": "pine",
+   "native": "소나무",
+   "gloss_en": "pine tree"
+  },
+  {
+   "en": "fine",
+   "native": "괜찮은",
+   "gloss_en": "fine"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Pan, fan, pine, fine. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Pan. Fan.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Pine. Fine.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Pan, fan, pine, fine.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "P일까 F일까? 입 모양을 보세요!",
+  "turn": "이제 네 차례!",
+  "cta": "따라 읽어 보세요!",
+  "caption": "“pan”과 “fan”이 똑같이 들리나요? P는 두 입술을 붙였다 떼며 내고, F는 윗니를 아랫입술에 살짝 대고 바람을 내보내요. “pine”과 “fine”도 마찬가지예요. Ama 선생님의 입 모양을 보고 멈춘 사이에 따라 해 보세요. Lexkite 앱에서 더 연습해 보세요.",
+  "hashtags": [
+   "#lexkite",
+   "#영어공부",
+   "#영어회화",
+   "#영어발음"
+  ]
+ },
+ "en": {
+  "hook": "P or F? Watch the mouth!",
+  "caption": "Do “pan” and “fan” sound the same? For P, press your lips together and release; for F, touch your top teeth to your lower lip and let air out. The same goes for “pine” and “fine”. Watch Ama’s mouth, then say each word in the pause. Practice more in the Lexkite app."
+ }
+}

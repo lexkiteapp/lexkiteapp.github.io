@@ -1,0 +1,66 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "id-thank-tank",
+ "lang": "id",
+ "slug": "thank-tank",
+ "who": "carlos",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Saying T for TH (thank → tank)",
+  "vi": "Đọc TH thành T: \"thank\" nghe thành \"tank\" (tiếng Indonesia không có âm TH)",
+  "l1": "Indonesian has no /θ/, so learners use /t/."
+ },
+ "hook": {
+  "a": "thank",
+  "b": "tank"
+ },
+ "segments": [
+  {
+   "text": "Thank, or tank? The first sound is different.",
+   "emo": "explain"
+  },
+  {
+   "text": "Thank. Put your tongue between your teeth. Thank.",
+   "emo": "explain"
+  },
+  {
+   "text": "Tank. Touch the top of your mouth with your tongue. Tank.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. Thank you. A big tank.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Nice work!",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "“Thank” jadi “tank”?",
+  "caption": "Banyak penutur bahasa Indonesia mengucapkan T untuk TH, sehingga “thank” terdengar seperti “tank”. Untuk TH, letakkan lidah di antara gigi; untuk T, sentuhkan lidah ke langit-langit mulut. Ulangi bersama Carlos dan latihan pengucapan di aplikasi Lexkite.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#pelafalan",
+   "#inggrismudah",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Does “thank” become “tank”?",
+  "caption": "Many Indonesian speakers say T instead of TH, so “thank” sounds like “tank”. For TH, put your tongue between your teeth; for T, touch the top of your mouth. Repeat after Carlos and practice pronunciation in the Lexkite app."
+ }
+}

@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "id-reel-minpair-bed-bad",
+ "lang": "id",
+ "slug": "minpair-bed-bad",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up short e and a (bed / bad, pen / pan)"
+ },
+ "items": [
+  {
+   "en": "bed",
+   "native": "tempat tidur",
+   "gloss_en": "bed"
+  },
+  {
+   "en": "bad",
+   "native": "buruk",
+   "gloss_en": "bad"
+  },
+  {
+   "en": "pen",
+   "native": "pulpen",
+   "gloss_en": "pen"
+  },
+  {
+   "en": "pan",
+   "native": "panci",
+   "gloss_en": "pan"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Bed, bad, pen, pan. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Bed. Bad.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Pen. Pan.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Bed, bad, pen, pan.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "Bed atau bad? Perhatikan mulutnya!",
+  "turn": "Giliranmu!",
+  "cta": "Ikuti ucapannya ya!",
+  "caption": "Apakah “bed” dan “bad” terdengar sama? Untuk “bed”, mulut terbuka sedang; untuk “bad”, buka mulut lebih lebar. Begitu juga “pen” dan “pan”. Perhatikan mulut Ama, lalu ulangi saat jeda. Latihan lebih lanjut ada di aplikasi Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#belajarbahasainggris",
+   "#inggrismudah",
+   "#pelafalan"
+  ]
+ },
+ "en": {
+  "hook": "Bed or bad? Watch the mouth!",
+  "caption": "Do “bed” and “bad” sound the same? For “bed”, open your mouth a medium amount; for “bad”, open it wider. The same goes for “pen” and “pan”. Watch Ama’s mouth, then say each word in the pause. More practice is in the Lexkite app."
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "th-reel-phrase-never-mind",
+ "lang": "th",
+ "slug": "phrase-never-mind",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing how to say it is not important"
+ },
+ "items": [
+  {
+   "en": "Never mind",
+   "native": "ไม่เป็นไรนะ",
+   "gloss_en": "It is okay."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Never mind.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, it is not important.",
+   "emo": "explain"
+  },
+  {
+   "text": "I forgot the book. Never mind!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. Never mind.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "“ไม่เป็นไร” พูดว่าอะไร?",
+  "turn": "ถึงตาคุณแล้ว!",
+  "cta": "พูดตามเลย!",
+  "caption": "อยากบอกว่า “ไม่เป็นไรนะ” เวลาอีกฝ่ายขอโทษหรือเรื่องไม่สำคัญ? ลองพูดว่า “Never mind.” ตัวอย่าง: “I forgot the book. Never mind!” ฟังครู Ama แล้วพูดตามในช่วงเงียบ ฝึกต่อในแอป Lexkite",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you say \"it is okay\"?",
+  "caption": "Want to say it is okay when someone says sorry or the matter is not important? Say “Never mind.” Example: “I forgot the book. Never mind!” Listen to Ama, then say it in the pause. Practice more in the Lexkite app."
+ }
+}

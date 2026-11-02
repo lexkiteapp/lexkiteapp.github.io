@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "de-reel-say4-small-talk",
+ "lang": "de",
+ "slug": "say4-small-talk",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing easy lines for first small talk"
+ },
+ "items": [
+  {
+   "en": "Nice to meet you.",
+   "native": "Freut mich, dich kennenzulernen.",
+   "gloss_en": "I am glad to meet you."
+  },
+  {
+   "en": "Where are you from?",
+   "native": "Woher kommst du?",
+   "gloss_en": "Where do you come from?"
+  },
+  {
+   "en": "I am from Germany.",
+   "native": "Ich komme aus Deutschland.",
+   "gloss_en": "I come from Germany."
+  },
+  {
+   "en": "I am learning English.",
+   "native": "Ich lerne Englisch.",
+   "gloss_en": "I learn English."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Meeting someone new? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Nice to meet you.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Where are you from?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "I am from Germany.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "I am learning English.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Small Talk auf Englisch: 4 Sätze",
+  "turn": "Du bist dran!",
+  "cta": "Sprich einfach nach!",
+  "caption": "Du möchtest beim ersten Treffen nicht stumm bleiben? Merk dir diese 4 Sätze: “Nice to meet you.”, “Where are you from?”, “I am from Germany.”, “I am learning English.”. Hör Ama zu und sprich in der Pause nach. Übe mehr in der Lexkite-App.",
+  "hashtags": [
+   "#lexkite",
+   "#englischlernen",
+   "#englischsprechen",
+   "#englischfürdeutsche"
+  ]
+ },
+ "en": {
+  "hook": "Small talk in English: 4 lines",
+  "caption": "Do not want to stay silent when you meet someone? Save these 4 lines: “Nice to meet you.”, “Where are you from?”, “I am from Germany.”, “I am learning English.”. Listen to Ama, then say each one in the pause. Practice more in the Lexkite app."
+ }
+}

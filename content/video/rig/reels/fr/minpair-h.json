@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "fr-reel-minpair-h",
+ "lang": "fr",
+ "slug": "minpair-h",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Dropping the H (hair / air)"
+ },
+ "items": [
+  {
+   "en": "hair",
+   "native": "les cheveux",
+   "gloss_en": "hair"
+  },
+  {
+   "en": "air",
+   "native": "l’air",
+   "gloss_en": "air"
+  },
+  {
+   "en": "heart",
+   "native": "le cœur",
+   "gloss_en": "heart"
+  },
+  {
+   "en": "art",
+   "native": "l’art",
+   "gloss_en": "art"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Hair, air, heart, art. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Hair. Air.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Heart. Art.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Hair, air, heart, art.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "Le H ou pas ? Regarde la bouche !",
+  "turn": "À toi de jouer !",
+  "cta": "Répète après moi !",
+  "caption": "“hair” ou “air” ? “heart” ou “art” ? Avec le H, on souffle un peu d’air avant la voyelle ; sans H, on commence directement. Regarde la bouche d’Ama, puis répète chaque mot pendant le silence. Continue dans l’appli Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#prononciation"
+  ]
+ },
+ "en": {
+  "hook": "With the H or not? Watch the mouth!",
+  "caption": "“hair” or “air”? “heart” or “art”? With the H, you push a little air out before the vowel; without it, you start right away. Watch Ama’s mouth, then say each word in the pause. Continue in the Lexkite app."
+ }
+}

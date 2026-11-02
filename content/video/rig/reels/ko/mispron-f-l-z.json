@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ko-reel-mispron-f-l-z",
+ "lang": "ko",
+ "slug": "mispron-f-l-z",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "F, L and Z in common words"
+ },
+ "items": [
+  {
+   "en": "coffee",
+   "native": "윗니를 아랫입술에 살짝 대고 F 소리 내기",
+   "gloss_en": "Lightly touch the upper teeth to the lower lip for F"
+  },
+  {
+   "en": "family",
+   "native": "첫 소리는 ㅍ이 아니라 F예요.",
+   "gloss_en": "The first sound is F, not P."
+  },
+  {
+   "en": "light",
+   "native": "혀끝을 윗잇몸에 붙여서 L 소리 내기",
+   "gloss_en": "Touch the tongue tip to the upper gum for L"
+  },
+  {
+   "en": "zoo",
+   "native": "ㅈ이 아니라 윙윙대는 Z 소리",
+   "gloss_en": "Not J: a buzzing Z sound"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many people say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Coffee. Coffee.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Family. Family.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "Light. Light.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "Zoo. Zoo.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "한국인이 자주 틀리는 단어 4개",
+  "turn": "이제 네 차례!",
+  "cta": "따라 읽어 보세요!",
+  "caption": "이 4개 단어, 제대로 발음하고 있나요? “coffee”와 “family”는 F, “light”는 L, “zoo”는 Z 소리가 중요해요. Carlos 선생님의 발음을 듣고 멈춘 사이에 따라 해 보세요. Lexkite 앱에서 발음을 더 연습해 보세요.",
+  "hashtags": [
+   "#lexkite",
+   "#영어공부",
+   "#영어회화",
+   "#영어발음"
+  ]
+ },
+ "en": {
+  "hook": "4 words Koreans often say wrong",
+  "caption": "Are you saying these 4 words correctly? The F sound matters in “coffee” and “family”, L in “light”, and Z in “zoo”. Listen to Carlos, then say each word in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

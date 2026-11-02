@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "es-reel-phrase-take-care",
+ "lang": "es",
+ "slug": "phrase-take-care",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Only saying goodbye without a kind wish"
+ },
+ "items": [
+  {
+   "en": "Take care",
+   "native": "Cuídate.",
+   "gloss_en": "Take care."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Take care.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, be safe and stay well.",
+   "emo": "explain"
+  },
+  {
+   "text": "See you next week. Take care!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. Take care.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "¿Cómo te despides con cariño?",
+  "turn": "¡Tu turno!",
+  "cta": "¡Repite conmigo!",
+  "caption": "¿Siempre dices solo “Bye”? Prueba “Take care.”, que significa cuídate y suena muy natural al despedirte. Ejemplo: “See you next week. Take care!” Escucha a Ama y repite tú en la pausa. Más práctica en la app Lexkite.",
+  "hashtags": [
+   "#aprenderinglés",
+   "#inglésfácil",
+   "#inglésonline",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you say goodbye kindly?",
+  "caption": "Do you always just say “Bye”? Try “Take care.”, which means look after yourself and sounds natural when you say goodbye. Example: “See you next week. Take care!” Listen to Ama and repeat in the pause. More practice in the Lexkite app."
+ }
+}

@@ -1,0 +1,89 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "en-reel-say4-cafe",
+ "lang": "en",
+ "slug": "say4-cafe",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing easy lines for a cafe"
+ },
+ "items": [
+  {
+   "en": "Can I have a large coffee?",
+   "native": "A polite way to order your drink."
+  },
+  {
+   "en": "Can I have milk?",
+   "native": "Ask for milk in your drink."
+  },
+  {
+   "en": "I will have the same.",
+   "native": "Order what your friend orders."
+  },
+  {
+   "en": "Can I pay by card?",
+   "native": "Ask how you can pay."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Ordering coffee in English? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Can I have a large coffee?",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Can I have milk?",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "I will have the same.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Can I pay by card?",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Order coffee in English",
+  "turn": "Your turn!",
+  "cta": "Repeat after me!",
+  "caption": "Nervous about ordering coffee in English? Save these 4 easy lines, such as “Can I have a large coffee?” and “Can I pay by card?” Listen to Ama, then say each one in the pause. Practice more in the Lexkite app.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishlesson",
+   "#speakenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Order coffee in English",
+  "caption": "Nervous about ordering coffee in English? Save these 4 easy lines, such as “Can I have a large coffee?” and “Can I pay by card?” Listen to Ama, then say each one in the pause. Practice more in the Lexkite app."
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "tr-a-teacher",
+ "lang": "tr",
+ "slug": "a-teacher",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Leaving out a or an before a job (I am teacher)",
+  "l1": "Turkish has no articles."
+ },
+ "hook": {
+  "bad": "I am teacher",
+  "good": "I am a teacher",
+  "add": [
+   "a"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, I am teacher. Say, I am a teacher.",
+   "emo": "explain"
+  },
+  {
+   "text": "Turkish has no a or the. In English, a small word goes before a job.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I am a teacher. He is a doctor.",
+   "emo": "encourage"
+  },
+  {
+   "text": "Great job! Do not forget the small word.",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "Küçük “a”yı unutma!",
+  "caption": "Türkçede a ve an yok, bu yüzden “I am teacher” diyenler çok. Meslekten önce a ya da an gelir. Doğrusu “I am a teacher.” Carlos hocayla birlikte tekrar edin. Daha fazla dilbilgisi için Lexkite uygulamasına bakın.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcegramer",
+   "#ingilizce",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do not forget the small “a”!",
+  "caption": "Turkish has no a or an, so many people say “I am teacher”. Before a job, English needs a or an. The right form is “I am a teacher.” Repeat with teacher Carlos. For more grammar, see the Lexkite app."
+ }
+}

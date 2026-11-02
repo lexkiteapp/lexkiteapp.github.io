@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "de-reel-minpair-v-w",
+ "lang": "de",
+ "slug": "minpair-v-w",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up V and W"
+ },
+ "items": [
+  {
+   "en": "wet",
+   "native": "nass",
+   "gloss_en": "wet"
+  },
+  {
+   "en": "vet",
+   "native": "der Tierarzt",
+   "gloss_en": "animal doctor"
+  },
+  {
+   "en": "west",
+   "native": "der Westen",
+   "gloss_en": "west"
+  },
+  {
+   "en": "vest",
+   "native": "die Weste",
+   "gloss_en": "vest"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Wet, vet, west, vest. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Wet. Vet.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "West. Vest.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Wet, vet, west, vest.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "V oder W? Achte auf den Mund!",
+  "turn": "Du bist dran!",
+  "cta": "Sprich einfach nach!",
+  "caption": "Klingen “wet” und “vet” für dich gleich? Bei W sind die Lippen rund, bei V berühren die oberen Zähne die Unterlippe. Genauso bei “west” und “vest”. Schau auf Amas Mund und sprich in der Pause nach. Übe mehr in der Lexkite-App.",
+  "hashtags": [
+   "#lexkite",
+   "#englischlernen",
+   "#englischsprechen",
+   "#englischfürdeutsche"
+  ]
+ },
+ "en": {
+  "hook": "V or W? Watch the mouth!",
+  "caption": "Do “wet” and “vet” sound the same to you? For W, your lips are round; for V, your top teeth touch your lower lip. The same goes for “west” and “vest”. Watch Ama’s mouth, then say each word in the pause. Practice more in the Lexkite app."
+ }
+}

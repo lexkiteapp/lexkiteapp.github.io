@@ -1,0 +1,66 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "de-since-for",
+ "lang": "de",
+ "slug": "since-for",
+ "who": "ama",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Using since for a length of time (I live here since two years)",
+  "vi": "Dùng since cho khoảng thời gian: \"I live here since two years\" (tiếng Đức: seit zwei Jahren)",
+  "l1": "German “seit” covers both “since” and “for”."
+ },
+ "hook": {
+  "bad": "I live here since two years",
+  "good": "I have lived here for two years",
+  "strike": "since",
+  "add": [
+   "have",
+   "for"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, I live here since two years. Say, I have lived here for two years.",
+   "emo": "explain"
+  },
+  {
+   "text": "For a length of time, use for. Use since only for a start, like since Monday.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I have lived here for two years.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Now say it about you.",
+   "emo": "happy",
+   "who": "ama",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "Sagst du “since two years”?",
+  "caption": "Im Deutschen sagt man “seit zwei Jahren”, aber im Englischen steht bei einer Zeitspanne “for”: “I have lived here for two years”. Für den Startpunkt, zum Beispiel seit Montag, nimmt man “since”. Sprich Ama nach und übe Grammatik in der Lexkite-App.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischgrammatik",
+   "#englischfürdeutsche",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do you say “since two years”?",
+  "caption": "In German you say “seit zwei Jahren”, but in English a length of time takes “for”: “I have lived here for two years”. For a starting point, like Monday, use “since”. Repeat after Ama and practice grammar in the Lexkite app."
+ }
+}

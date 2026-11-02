@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "hi-reel-minpair-v-w",
+ "lang": "hi",
+ "slug": "minpair-v-w",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up v and w"
+ },
+ "items": [
+  {
+   "en": "wine",
+   "native": "शराब",
+   "gloss_en": "wine"
+  },
+  {
+   "en": "van",
+   "native": "वैन गाड़ी",
+   "gloss_en": "van"
+  },
+  {
+   "en": "wait",
+   "native": "इंतज़ार करना",
+   "gloss_en": "wait"
+  },
+  {
+   "en": "vote",
+   "native": "वोट देना",
+   "gloss_en": "vote"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Wine, Van, Wait, Vote. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Wine. Van.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Wait. Vote.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Wine, Van, Wait, Vote.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "V और W का फ़र्क़ सुनिए",
+  "turn": "अब आपकी बारी!",
+  "cta": "मेरे साथ दोहराइए!",
+  "caption": "हिंदी में v और w लगभग एक जैसे बोले जाते हैं, पर “wine” और “van” अलग शब्द हैं। w में होंठ गोल होते हैं, v में ऊपर के दाँत निचले होंठ को छूते हैं। Ama टीचर का मुँह देखिए और ख़ामोशी में दोहराइए। Lexkite ऐप में अभ्यास कीजिए।",
+  "hashtags": [
+   "#अंग्रेज़ी_सीखें",
+   "#spokenenglish",
+   "#englishspeaking",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Hear the difference between V and W",
+  "caption": "In Hindi v and w sound almost the same, but “wine” and “van” are different words. For w your lips are round; for v your top teeth touch your lower lip. Watch teacher Ama’s mouth and repeat in the pause. Practice in the Lexkite app."
+ }
+}

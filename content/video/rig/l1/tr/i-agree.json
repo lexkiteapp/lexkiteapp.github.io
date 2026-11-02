@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "tr-i-agree",
+ "lang": "tr",
+ "slug": "i-agree",
+ "who": "ama",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Adding am before agree (I am agree)",
+  "l1": "Turkish katılıyorum is one word with a personal ending, so learners add am."
+ },
+ "hook": {
+  "bad": "I am agree",
+  "good": "I agree",
+  "strike": "am",
+  "add": [
+   "agree"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, I am agree. Say, I agree.",
+   "emo": "explain"
+  },
+  {
+   "text": "Agree is already a verb. So we do not need am.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I agree with you. She agrees with me.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Short and simple.",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "“I am agree” demeyin!",
+  "caption": "Türkçede “katılıyorum” tek kelime olduğu için çok kişi İngilizcede “I am agree” diyor. Doğrusu “I agree.” Agree zaten bir fiil, “am” gerekmez. “I agree with you.” cümlesini Ama öğretmenle tekrar edin. Dilbilgisini Lexkite uygulamasında çalışın.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcegramer",
+   "#ingilizce",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do not say “I am agree”!",
+  "caption": "Because “katılıyorum” is one word in Turkish, many people say “I am agree” in English. The right form is “I agree.” Agree is already a verb, so you do not need am. Repeat “I agree with you.” after teacher Ama. Study grammar in the Lexkite app."
+ }
+}

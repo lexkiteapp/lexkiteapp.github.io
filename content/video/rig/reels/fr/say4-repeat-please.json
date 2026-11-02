@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "fr-reel-say4-repeat-please",
+ "lang": "fr",
+ "slug": "say4-repeat-please",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing polite lines when you do not understand"
+ },
+ "items": [
+  {
+   "en": "Can you repeat that, please?",
+   "native": "Pouvez-vous répéter, s’il vous plaît ?",
+   "gloss_en": "Can you say that again, please?"
+  },
+  {
+   "en": "Could you speak slowly?",
+   "native": "Pourriez-vous parler lentement ?",
+   "gloss_en": "Could you talk slowly?"
+  },
+  {
+   "en": "What does this word mean?",
+   "native": "Que veut dire ce mot ?",
+   "gloss_en": "What does this word mean?"
+  },
+  {
+   "en": "I do not understand.",
+   "native": "Je ne comprends pas.",
+   "gloss_en": "I do not understand."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Do not understand? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Can you repeat that, please?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Could you speak slowly?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "What does this word mean?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "I do not understand.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Pas compris ? Dis-le en anglais",
+  "turn": "À toi de jouer !",
+  "cta": "Répète après moi !",
+  "caption": "Tu ne comprends pas et tu n’oses pas le dire ? Retiens ces 4 phrases : “Can you repeat that, please?”, “Could you speak slowly?”, “What does this word mean?”, “I do not understand.”. Écoute Ama, puis répète pendant le silence. Continue dans l’appli Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#prononciation"
+  ]
+ },
+ "en": {
+  "hook": "Do not understand? Say it in English",
+  "caption": "Do you not understand but are afraid to say so? Save these 4 lines: “Can you repeat that, please?”, “Could you speak slowly?”, “What does this word mean?”, “I do not understand.”. Listen to Ama, then say each one in the pause. Continue in the Lexkite app."
+ }
+}

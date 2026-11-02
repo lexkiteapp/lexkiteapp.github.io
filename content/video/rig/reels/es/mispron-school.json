@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "es-reel-mispron-school",
+ "lang": "es",
+ "slug": "mispron-school",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Adding e before s, saying h silently, and saying v like b"
+ },
+ "items": [
+  {
+   "en": "school",
+   "native": "No añadas una e al principio",
+   "gloss_en": "Do not add an e at the start."
+  },
+  {
+   "en": "house",
+   "native": "La h se pronuncia: es un soplo suave",
+   "gloss_en": "The h is pronounced, it is a soft breath."
+  },
+  {
+   "en": "very",
+   "native": "La v toca el labio con los dientes",
+   "gloss_en": "The v touches your lip with your teeth."
+  },
+  {
+   "en": "island",
+   "native": "La s no se pronuncia",
+   "gloss_en": "The s is silent."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many learners say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "School. School.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "House. House.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Very. Very.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Island. Island.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 palabras que se suelen decir mal",
+  "turn": "¡Tu turno!",
+  "cta": "¡Repite conmigo!",
+  "caption": "¿Dices “eschool” en vez de “school”? Fíjate también en la h de “house”, en la v de “very” y en la s muda de “island”. Escucha a Carlos y repite tú en la pausa. Practica la pronunciación en la app Lexkite.",
+  "hashtags": [
+   "#aprenderinglés",
+   "#inglésfácil",
+   "#inglésonline",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words people often say wrong",
+  "caption": "Do you say “eschool” instead of “school”? Also watch the h in “house”, the v in “very” and the silent s in “island”. Listen to Carlos and repeat in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

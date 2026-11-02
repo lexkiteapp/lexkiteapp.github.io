@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "de-reel-phrase-looking-forward",
+ "lang": "de",
+ "slug": "phrase-looking-forward",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying I wait for it instead of looking forward"
+ },
+ "items": [
+  {
+   "en": "I am looking forward to it",
+   "native": "Ich freue mich darauf.",
+   "gloss_en": "I am happy about it."
+  }
+ ],
+ "segments": [
+  {
+   "text": "I am looking forward to it.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, I am happy about something in the future.",
+   "emo": "explain"
+  },
+  {
+   "text": "Our trip is on Friday. I am looking forward to it!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. I am looking forward to it.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "„Freue mich darauf“ auf Englisch?",
+  "turn": "Du bist dran!",
+  "cta": "Sprich einfach nach!",
+  "caption": "Statt “I wait for it” sagt man auf Englisch “I am looking forward to it” – das heißt: Ich freue mich darauf. Beispiel: “Our trip is on Friday.” – “I am looking forward to it!”. Hör Ama zu und sprich in der Pause nach. Übe mehr in der Lexkite-App.",
+  "hashtags": [
+   "#lexkite",
+   "#englischlernen",
+   "#englischsprechen",
+   "#englischfürdeutsche"
+  ]
+ },
+ "en": {
+  "hook": "How do you say “Ich freue mich darauf”?",
+  "caption": "Instead of “I wait for it”, English speakers say “I am looking forward to it” – it means I am happy about something to come. Example: “Our trip is on Friday.” – “I am looking forward to it!”. Listen to Ama, then say it in the pause. Practice more in the Lexkite app."
+ }
+}

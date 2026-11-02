@@ -1,0 +1,63 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "fr-i-am-agree",
+ "lang": "fr",
+ "slug": "i-am-agree",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "I am agree (instead of I agree)",
+  "vi": "\"I am agree\" thay vì \"I agree\" (tiếng Pháp: je suis d'accord)",
+  "l1": "French “je suis d’accord” uses “be” + adjective."
+ },
+ "hook": {
+  "bad": "I am agree",
+  "good": "I agree",
+  "strike": "am"
+ },
+ "segments": [
+  {
+   "text": "Don't say, I am agree. Say, I agree.",
+   "emo": "explain"
+  },
+  {
+   "text": "Agree is already a verb, so we do not need am.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I agree. She agrees with me.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Good! Short and simple.",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "Tu dis “I am agree” ?",
+  "caption": "En français on dit « je suis d’accord », mais en anglais “agree” est déjà un verbe : “I agree”, pas “I am agree”. Répète avec Carlos et travaille la grammaire dans l’appli Lexkite.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#grammaireanglaise",
+   "#anglaisfacile",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do you say “I am agree”?",
+  "caption": "In French you say “je suis d’accord”, but in English “agree” is already a verb: “I agree”, not “I am agree”. Repeat with Carlos and practice grammar in the Lexkite app."
+ }
+}

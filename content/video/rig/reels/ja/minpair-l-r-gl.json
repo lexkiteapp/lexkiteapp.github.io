@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ja-reel-minpair-l-r-gl",
+ "lang": "ja",
+ "slug": "minpair-l-r-gl",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up L and R"
+ },
+ "items": [
+  {
+   "en": "light",
+   "native": "光",
+   "gloss_en": "light"
+  },
+  {
+   "en": "right",
+   "native": "右",
+   "gloss_en": "right"
+  },
+  {
+   "en": "glass",
+   "native": "ガラス",
+   "gloss_en": "glass"
+  },
+  {
+   "en": "grass",
+   "native": "草",
+   "gloss_en": "grass"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Light, Right, Glass, Grass. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Light. Right.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Glass. Grass.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Light, Right, Glass, Grass.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "LとRの違い、聞き分けられる？",
+  "turn": "あなたの番です！",
+  "cta": "続けて言ってみよう！",
+  "caption": "“light”と“right”、“glass”と“grass”はLとRだけが違います。Lは舌先を上の歯の後ろにつけ、Rは舌をどこにもつけません。Ama先生の口を見て、間の時間に続けて言ってみよう。Lexkiteアプリで練習。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語発音",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Can you hear the difference between L and R?",
+  "caption": "“light” and “right”, “glass” and “grass” differ only in L and R. For L, touch the tip of your tongue behind your top teeth; for R, your tongue touches nothing. Watch teacher Ama’s mouth and say each one in the pause. Practice in the Lexkite app."
+ }
+}

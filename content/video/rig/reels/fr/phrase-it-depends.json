@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "fr-reel-phrase-it-depends",
+ "lang": "fr",
+ "slug": "phrase-it-depends",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Answering with a long sentence instead of a short natural phrase"
+ },
+ "items": [
+  {
+   "en": "It depends",
+   "native": "Ça dépend.",
+   "gloss_en": "It depends."
+  }
+ ],
+ "segments": [
+  {
+   "text": "It depends.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, maybe yes, maybe no.",
+   "emo": "explain"
+  },
+  {
+   "text": "Are you free on Sunday? It depends!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. It depends.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Comment dire « ça dépend » ?",
+  "turn": "À toi de jouer !",
+  "cta": "Répète après moi !",
+  "caption": "Tu veux répondre « ça dépend » en anglais ? Dis “It depends” – cela veut dire peut-être oui, peut-être non. Exemple : “Are you free on Sunday?” – “It depends!”. Écoute Ama, puis répète pendant le silence. Continue dans l’appli Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#prononciation"
+  ]
+ },
+ "en": {
+  "hook": "How do you say “ça dépend”?",
+  "caption": "Want to say “it depends” in English? Say “It depends” – it means maybe yes, maybe no. Example: “Are you free on Sunday?” – “It depends!”. Listen to Ama, then say it in the pause. Continue in the Lexkite app."
+ }
+}

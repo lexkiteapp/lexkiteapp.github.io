@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "hi-reel-mispron-w-th",
+ "lang": "hi",
+ "slug": "mispron-w-th",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying w like v, th like t, and adding i before school"
+ },
+ "items": [
+  {
+   "en": "water",
+   "native": "w में होंठ गोल करें, v नहीं",
+   "gloss_en": "Round your lips for w, not v."
+  },
+  {
+   "en": "think",
+   "native": "th में जीभ दाँतों के बीच रखें",
+   "gloss_en": "Put your tongue between your teeth for th."
+  },
+  {
+   "en": "school",
+   "native": "शुरू में इ की आवाज़ न जोड़ें",
+   "gloss_en": "Do not add an i sound at the start."
+  },
+  {
+   "en": "doctor",
+   "native": "जीभ को मोड़ें नहीं, मसूड़ों से छुएँ",
+   "gloss_en": "Do not curl your tongue, touch your gums."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many learners say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Water. Water.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Think. Think.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "School. School.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Doctor. Doctor.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "भारतीयों की आम ग़लती वाले 4 शब्द",
+  "turn": "अब आपकी बारी!",
+  "cta": "मेरे साथ दोहराइए!",
+  "caption": "“water” को “वाटर” और “think” को “टिंक” बोलते हैं? “school” के आगे इ न जोड़ें और “doctor” में जीभ न मोड़ें। Carlos टीचर को सुनिए और ख़ामोशी में दोहराइए। Lexkite ऐप में उच्चारण का अभ्यास कीजिए।",
+  "hashtags": [
+   "#अंग्रेज़ी_सीखें",
+   "#spokenenglish",
+   "#englishspeaking",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words Indians often say wrong",
+  "caption": "Do you say “water” like “vaatar” and “think” like “tink”? Do not add an i before “school” and do not curl your tongue in “doctor”. Listen to teacher Carlos and repeat in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

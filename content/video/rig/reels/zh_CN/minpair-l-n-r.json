@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "zh_CN-reel-minpair-l-n-r",
+ "lang": "zh_CN",
+ "slug": "minpair-l-n-r",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up l, n and r"
+ },
+ "items": [
+  {
+   "en": "light",
+   "native": "灯",
+   "gloss_en": "light"
+  },
+  {
+   "en": "night",
+   "native": "夜晚",
+   "gloss_en": "night"
+  },
+  {
+   "en": "right",
+   "native": "正确的",
+   "gloss_en": "correct"
+  },
+  {
+   "en": "white",
+   "native": "白色",
+   "gloss_en": "white"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Light, Night, Right, White. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Light. Night.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Right. White.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Light, Night, Right, White.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "l、n、r 总是分不清？",
+  "turn": "轮到你了！",
+  "cta": "跟我一起读吧！",
+  "caption": "“light”、“night”、“right”和“white”的开头很容易混。l 的舌尖顶住上齿后面，n 要走鼻音，r 的舌头卷起来但不碰上颚。看 Ama 老师的嘴型，在停顿时跟读。更多练习在 Lexkite 应用。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#每日英语",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Always mixing up l, n and r?",
+  "caption": "The starts of “light”, “night”, “right” and “white” are easy to mix up. For l, the tongue touches behind the top teeth; n uses the nose; for r, the tongue curls but does not touch the top. Watch Ama’s mouth and repeat in the pause. More practice is in the Lexkite app."
+ }
+}

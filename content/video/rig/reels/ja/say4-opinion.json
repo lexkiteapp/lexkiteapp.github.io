@@ -1,0 +1,89 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ja-reel-say4-opinion",
+ "lang": "ja",
+ "slug": "say4-opinion",
+ "who": "carlos",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing clear lines to share your opinion"
+ },
+ "items": [
+  {
+   "en": "I think so too.",
+   "native": "私もそう思います。"
+  },
+  {
+   "en": "I do not think so.",
+   "native": "私はそうは思いません。"
+  },
+  {
+   "en": "Good idea.",
+   "native": "いい考えですね。"
+  },
+  {
+   "en": "I will think about it.",
+   "native": "少し考えてみます。"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Want to share your opinion? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "I think so too.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "I do not think so.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Good idea.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "I will think about it.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "意見を英語で言うには？",
+  "turn": "あなたの番です！",
+  "cta": "続けて言ってみよう！",
+  "caption": "英語で自分の意見を言うのは難しい？この4つの表現を保存しよう。たとえば“I think so too.”と“I will think about it.”。Carlos先生の声を聞いて、間の時間に続けて言ってみよう。Lexkiteアプリでもっと練習できます。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語発音",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you share your opinion?",
+  "caption": "Is it hard to share your opinion in English? Save these 4 lines, such as “I think so too.” and “I will think about it.” Listen to Carlos, then say each one in the pause. You can practice more in the Lexkite app."
+ }
+}

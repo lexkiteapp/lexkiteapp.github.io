@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "es-reel-minpair-b-v",
+ "lang": "es",
+ "slug": "minpair-b-v",
+ "who": "carlos",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up b and v"
+ },
+ "items": [
+  {
+   "en": "boat",
+   "native": "barco",
+   "gloss_en": "boat"
+  },
+  {
+   "en": "vote",
+   "native": "voto",
+   "gloss_en": "vote"
+  },
+  {
+   "en": "ban",
+   "native": "prohibición",
+   "gloss_en": "ban"
+  },
+  {
+   "en": "van",
+   "native": "furgoneta",
+   "gloss_en": "van"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Boat, Vote, Ban, Van. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Boat. Vote.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Ban. Van.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Boat, Vote, Ban, Van.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "B o V: ¡mira bien mis labios!",
+  "turn": "¡Tu turno!",
+  "cta": "¡Repite conmigo!",
+  "caption": "En español la b y la v suenan igual, pero en inglés no. En “vote” y “van” los dientes tocan el labio; en “boat” y “ban” se cierran los labios. Mira la boca de Carlos y repite en la pausa. Práctica en la app Lexkite.",
+  "hashtags": [
+   "#aprenderinglés",
+   "#inglésfácil",
+   "#inglésonline",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "B or V: watch my lips!",
+  "caption": "In Spanish b and v sound the same, but not in English. In “vote” and “van” your teeth touch your lip; in “boat” and “ban” your lips close. Watch Carlos’s mouth and repeat in the pause. Practice in the Lexkite app."
+ }
+}

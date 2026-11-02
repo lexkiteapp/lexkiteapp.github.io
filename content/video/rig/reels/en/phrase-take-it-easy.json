@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "en-reel-phrase-take-it-easy",
+ "lang": "en",
+ "slug": "phrase-take-it-easy",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Only saying goodbye or relax in a stiff way"
+ },
+ "items": [
+  {
+   "en": "Take it easy",
+   "native": "Relax. Do not worry.",
+   "gloss_en": "Relax and do not worry."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Take it easy.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, relax and do not worry.",
+   "emo": "explain"
+  },
+  {
+   "text": "You work too much. Take it easy!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. Take it easy.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "A friendly way to say relax",
+  "turn": "Your turn!",
+  "cta": "Repeat after me!",
+  "caption": "Want a friendly way to tell someone to relax? Say “Take it easy.” It also works as a casual goodbye. Example: “You work too much. Take it easy!” Listen to Ama, then say it in the pause. Practice more in the Lexkite app.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishlesson",
+   "#speakenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "A friendly way to say relax",
+  "caption": "Want a friendly way to tell someone to relax? Say “Take it easy.” It also works as a casual goodbye. Example: “You work too much. Take it easy!” Listen to Ama, then say it in the pause. Practice more in the Lexkite app."
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "ko-drop-subject",
+ "lang": "ko",
+ "slug": "drop-subject",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Dropping the subject (Went to the shop yesterday)",
+  "vi": "Bỏ chủ ngữ: \"Went to the shop yesterday\" (tiếng Hàn được lược chủ ngữ)",
+  "l1": "Korean often drops the subject when it is clear."
+ },
+ "hook": {
+  "bad": "Went to the shop yesterday",
+  "good": "I went to the shop yesterday",
+  "add": [
+   "I"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, went to the shop yesterday. Say, I went to the shop yesterday.",
+   "emo": "explain"
+  },
+  {
+   "text": "English sentences need a subject. Say who does the action.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. I went to the shop yesterday.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Good job! Do not forget the subject.",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "주어를 빼먹지 않았나요?",
+  "caption": "한국어에서는 주어를 생략할 수 있지만, 영어 문장에는 주어가 꼭 필요해요. “I went to the shop yesterday”라고 말하고 “Went to the shop yesterday”라고는 하지 않아요. Carlos 선생님을 따라 말해 보고 Lexkite 앱에서 문법을 연습해 보세요.",
+  "hashtags": [
+   "#영어공부",
+   "#영어문법",
+   "#영어회화",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Are you skipping the subject?",
+  "caption": "In Korean you can drop the subject, but English sentences need one: “I went to the shop yesterday”, not “Went to the shop yesterday”. Repeat after Carlos and practice grammar in the Lexkite app."
+ }
+}

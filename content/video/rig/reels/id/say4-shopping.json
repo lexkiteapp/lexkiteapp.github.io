@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "id-reel-say4-shopping",
+ "lang": "id",
+ "slug": "say4-shopping",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing simple lines for shopping"
+ },
+ "items": [
+  {
+   "en": "How much is this?",
+   "native": "Berapa harganya?",
+   "gloss_en": "What is the price?"
+  },
+  {
+   "en": "Do you have a smaller size?",
+   "native": "Apakah ada ukuran yang lebih kecil?",
+   "gloss_en": "Is there a smaller size?"
+  },
+  {
+   "en": "Can I try it on?",
+   "native": "Boleh saya coba?",
+   "gloss_en": "May I try it?"
+  },
+  {
+   "en": "I will take it.",
+   "native": "Saya ambil yang ini.",
+   "gloss_en": "I will buy this one."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Shopping in English? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "How much is this?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Do you have a smaller size?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "Can I try it on?",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "I will take it.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Belanja pakai bahasa Inggris",
+  "turn": "Giliranmu!",
+  "cta": "Ikuti ucapannya ya!",
+  "caption": "Bingung saat belanja di luar negeri? Simpan 4 kalimat ini: “How much is this?”, “Do you have a smaller size?”, “Can I try it on?”, “I will take it.”. Dengarkan Ama, lalu ulangi saat jeda. Latihan lebih lanjut ada di aplikasi Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#belajarbahasainggris",
+   "#inggrismudah",
+   "#pelafalan"
+  ]
+ },
+ "en": {
+  "hook": "Shopping in English",
+  "caption": "Confused when shopping abroad? Save these 4 lines: “How much is this?”, “Do you have a smaller size?”, “Can I try it on?”, “I will take it.”. Listen to Ama, then say each one in the pause. More practice is in the Lexkite app."
+ }
+}

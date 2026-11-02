@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "ar-missing-is",
+ "lang": "ar",
+ "slug": "missing-is",
+ "who": "carlos",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Leaving out is/am/are in the present (She beautiful)",
+  "vi": "Bỏ is/am/are ở thì hiện tại: \"She beautiful\" (tiếng Ả Rập không có động từ \"là\" ở hiện tại)",
+  "l1": "Arabic has no present-tense “to be”, so learners skip it."
+ },
+ "hook": {
+  "bad": "She beautiful",
+  "good": "She is beautiful",
+  "add": [
+   "is"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, she beautiful. Say, she is beautiful.",
+   "emo": "explain"
+  },
+  {
+   "text": "In English, every sentence needs a verb. Use is, am, or are.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. She is beautiful. He is tired.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Do not forget is.",
+   "emo": "happy"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "هل تنسى “is” في الجملة؟",
+  "caption": "العربية تحذف الفعل “is” في المضارع، لكن الإنجليزية تحتاجه في كل جملة: نقول “She is beautiful” وليس “She beautiful”. كرّر مع المعلم Carlos وتدرّب على القواعد في تطبيق Lexkite.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#قواعد_الانجليزية",
+   "#الانجليزية",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do you forget “is” in a sentence?",
+  "caption": "Arabic skips the verb “is” in the present, but English needs it in every sentence: “She is beautiful”, not “She beautiful”. Repeat after Carlos and practice grammar in the Lexkite app."
+ }
+}

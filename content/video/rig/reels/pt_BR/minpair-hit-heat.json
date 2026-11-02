@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "pt_BR-reel-minpair-hit-heat",
+ "lang": "pt_BR",
+ "slug": "minpair-hit-heat",
+ "who": "carlos",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up short and long i, and a, o"
+ },
+ "items": [
+  {
+   "en": "hit",
+   "native": "bater",
+   "gloss_en": "hit"
+  },
+  {
+   "en": "heat",
+   "native": "calor",
+   "gloss_en": "heat"
+  },
+  {
+   "en": "hat",
+   "native": "chapéu",
+   "gloss_en": "hat"
+  },
+  {
+   "en": "hot",
+   "native": "quente",
+   "gloss_en": "hot"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Hit, Heat, Hat, Hot. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Hit. Heat.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Hat. Hot.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Hit, Heat, Hat, Hot.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "Hit, heat, hat, hot: qual é qual?",
+  "turn": "Sua vez!",
+  "cta": "Repita comigo!",
+  "caption": "“hit” e “heat” têm vogais diferentes, e “hat” e “hot” também. No “heat” a vogal é longa e os lábios se esticam; no “hit” ela é curta e relaxada. Olhe a boca do Carlos e repita na pausa. Pratique no app Lexkite.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Hit, heat, hat, hot: which is which?",
+  "caption": "“hit” and “heat” have different vowels, and so do “hat” and “hot”. In “heat” the vowel is long and your lips stretch; in “hit” it is short and relaxed. Watch Carlos’s mouth and repeat in the pause. Practice in the Lexkite app."
+ }
+}

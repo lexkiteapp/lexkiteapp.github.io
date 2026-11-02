@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ar-reel-phrase-take-your-time",
+ "lang": "ar",
+ "slug": "phrase-take-your-time",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing a polite way to say there is no hurry"
+ },
+ "items": [
+  {
+   "en": "Take your time",
+   "native": "خذ وقتك.",
+   "gloss_en": "Take your time."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Take your time.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, there is no hurry.",
+   "emo": "explain"
+  },
+  {
+   "text": "I am not ready yet. Take your time!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. Take your time.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "كيف تقول «خذ وقتك» بالإنجليزية؟",
+  "turn": "دورك الآن!",
+  "cta": "رددوا معي!",
+  "caption": "تريد أن تقول لصديقك «خذ وقتك»؟ قل “Take your time” – أي لا داعي للعجلة، وهي عبارة لطيفة وطبيعية. مثال: “I am not ready yet.” – “Take your time!”. استمع إلى المعلمة Ama ثم كرّر في لحظة الصمت. تدرّب أكثر في تطبيق Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#تعلم_الانجليزية",
+   "#نطق_الانجليزي",
+   "#الانجليزية"
+  ]
+ },
+ "en": {
+  "hook": "How do you say “take your time” in English?",
+  "caption": "Want to tell a friend there is no hurry? Say “Take your time” – it is kind and natural. Example: “I am not ready yet.” – “Take your time!”. Listen to Ama, then say it in the pause. Practice more in the Lexkite app."
+ }
+}

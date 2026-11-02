@@ -1,0 +1,89 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "th-reel-say4-intro",
+ "lang": "th",
+ "slug": "say4-intro",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing easy lines to introduce yourself"
+ },
+ "items": [
+  {
+   "en": "Nice to meet you.",
+   "native": "ยินดีที่ได้รู้จักนะ"
+  },
+  {
+   "en": "I work in a bank.",
+   "native": "ฉันทำงานที่ธนาคาร"
+  },
+  {
+   "en": "I live near here.",
+   "native": "ฉันอยู่แถวนี้"
+  },
+  {
+   "en": "See you tomorrow.",
+   "native": "เจอกันพรุ่งนี้นะ"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Meeting someone new? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Nice to meet you.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "I work in a bank.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "I live near here.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "See you tomorrow.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "แนะนำตัวเป็นภาษาอังกฤษพูดว่าไง?",
+  "turn": "ถึงตาคุณแล้ว!",
+  "cta": "พูดตามเลย!",
+  "caption": "เจอคนใหม่แล้วไม่รู้จะพูดอะไรดี? เก็บ 4 ประโยคง่าย ๆ นี้ไว้เลย เช่น “Nice to meet you.” และ “See you tomorrow.” ฟังครู Ama อ่านให้ฟัง แล้วพูดตามในช่วงเงียบนะ ฝึกต่อได้ในแอป Lexkite",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you introduce yourself?",
+  "caption": "Not sure what to say to someone new? Save these 4 easy lines, such as “Nice to meet you.” and “See you tomorrow.” Listen to Ama, then say each one in the pause. Practice more in the Lexkite app."
+ }
+}

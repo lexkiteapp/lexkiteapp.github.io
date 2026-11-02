@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "id-past-go",
+ "lang": "id",
+ "slug": "past-go",
+ "who": "ama",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Not changing the verb for the past (Yesterday I go)",
+  "vi": "Không đổi động từ sang quá khứ: \"Yesterday I go\" (tiếng Indonesia không chia thì)",
+  "l1": "Indonesian verbs do not change for tense; time words do the job."
+ },
+ "hook": {
+  "bad": "Yesterday I go to the market",
+  "good": "Yesterday I went to the market",
+  "strike": "go",
+  "add": [
+   "went"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, yesterday I go to the market. Say, yesterday I went to the market.",
+   "emo": "explain"
+  },
+  {
+   "text": "For the past, the English verb changes. Go becomes went.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. Yesterday I went to the market.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Say it again with a friend.",
+   "emo": "happy",
+   "who": "ama",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "Masih bilang “I go” kemarin?",
+  "caption": "Kata kerja bahasa Indonesia tidak berubah untuk masa lalu, tetapi kata kerja bahasa Inggris berubah: “Yesterday I went to the market”, bukan “Yesterday I go to the market”. Go menjadi went. Ulangi bersama Ama dan latihan tata bahasa di aplikasi Lexkite.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#inggrismudah",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Still saying “I go” for yesterday?",
+  "caption": "Indonesian verbs do not change for the past, but English verbs do: “Yesterday I went to the market”, not “Yesterday I go to the market”. Go becomes went. Repeat after Ama and practice grammar in the Lexkite app."
+ }
+}

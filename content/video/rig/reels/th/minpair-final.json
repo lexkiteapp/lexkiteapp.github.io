@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "th-reel-minpair-final",
+ "lang": "th",
+ "slug": "minpair-final",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up the final sounds d, g, k and n"
+ },
+ "items": [
+  {
+   "en": "bad",
+   "native": "แย่",
+   "gloss_en": "bad"
+  },
+  {
+   "en": "bag",
+   "native": "กระเป๋า",
+   "gloss_en": "bag"
+  },
+  {
+   "en": "back",
+   "native": "ด้านหลัง",
+   "gloss_en": "back"
+  },
+  {
+   "en": "ban",
+   "native": "ห้าม",
+   "gloss_en": "ban"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Bad, Bag, Back, Ban. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Bad. Bag.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Back. Ban.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Bad, Bag, Back, Ban.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "ท้ายคำต่างกัน ฟังออกไหม?",
+  "turn": "ถึงตาคุณแล้ว!",
+  "cta": "พูดตามเลย!",
+  "caption": "“bad”, “bag”, “back” กับ “ban” ต่างกันที่เสียงท้ายคำเท่านั้น คนไทยมักออกเสียงท้ายเหมือนกันหมด ลองดูปากครู Ama แล้วพูดตามในช่วงเงียบ ฝึกต่อในแอป Lexkite",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Can you hear the last sound?",
+  "caption": "“bad”, “bag”, “back” and “ban” differ only in the last sound. Thai learners often say them all the same way. Watch Ama’s mouth, then say each word in the pause. Practice more in the Lexkite app."
+ }
+}

@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "en-reel-mispron-silent",
+ "lang": "en",
+ "slug": "mispron-silent",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying silent letters and extra syllables"
+ },
+ "items": [
+  {
+   "en": "island",
+   "native": "The s is silent.",
+   "gloss_en": "The s is silent."
+  },
+  {
+   "en": "clothes",
+   "native": "Say it like the word close.",
+   "gloss_en": "Say it like the word close."
+  },
+  {
+   "en": "castle",
+   "native": "The t is silent.",
+   "gloss_en": "The t is silent."
+  },
+  {
+   "en": "listen",
+   "native": "The t is silent.",
+   "gloss_en": "The t is silent."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many people say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Island. Island.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Clothes. Clothes.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Castle. Castle.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Listen. Listen.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 words with silent letters",
+  "turn": "Your turn!",
+  "cta": "Repeat after me!",
+  "caption": "Do you say every letter? Not in these words: “island”, “clothes”, “castle” and “listen” all hide a sound. Listen to Carlos, then say each word in the pause. Practice pronunciation in the Lexkite app.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishlesson",
+   "#speakenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words with silent letters",
+  "caption": "Do you say every letter? Not in these words: “island”, “clothes”, “castle” and “listen” all hide a sound. Listen to Carlos, then say each word in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

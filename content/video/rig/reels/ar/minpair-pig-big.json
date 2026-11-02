@@ -1,0 +1,98 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ar-reel-minpair-pig-big",
+ "lang": "ar",
+ "slug": "minpair-pig-big",
+ "who": "ama",
+ "template": "minpair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Mixing up P and B"
+ },
+ "items": [
+  {
+   "en": "pig",
+   "native": "خنزير",
+   "gloss_en": "pig"
+  },
+  {
+   "en": "big",
+   "native": "كبير",
+   "gloss_en": "big"
+  },
+  {
+   "en": "pack",
+   "native": "يحزم",
+   "gloss_en": "pack"
+  },
+  {
+   "en": "back",
+   "native": "ظهر",
+   "gloss_en": "back"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Pig, big, pack, back. Watch my mouth.",
+   "emo": "explain"
+  },
+  {
+   "text": "Pig. Big.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Pack. Back.",
+   "emo": "explain",
+   "repeat": true,
+   "pair": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Repeat after me. Pig, big, pack, back.",
+   "emo": "encourage",
+   "repeat": true,
+   "pair": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "P أم B؟ شاهد حركة الفم!",
+  "turn": "دورك الآن!",
+  "cta": "رددوا معي!",
+  "caption": "هل “pig” و“big” تبدوان متشابهتين؟ في P يخرج هواء بلا صوت من الشفتين، أما في B فيهتز الصوت. وكذلك “pack” و“back”. راقب فم المعلمة Ama ثم كرّر في لحظة الصمت. تدرّب أكثر في تطبيق Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#تعلم_الانجليزية",
+   "#نطق_الانجليزي",
+   "#الانجليزية"
+  ]
+ },
+ "en": {
+  "hook": "P or B? Watch the mouth!",
+  "caption": "Do “pig” and “big” sound alike to you? For P, air comes out of the lips without voice; for B, your voice vibrates. The same goes for “pack” and “back”. Watch Ama’s mouth, then say each word in the pause. Practice more in the Lexkite app."
+ }
+}

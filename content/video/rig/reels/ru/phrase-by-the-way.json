@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ru-reel-phrase-by-the-way",
+ "lang": "ru",
+ "slug": "phrase-by-the-way",
+ "who": "carlos",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing how to start a new topic"
+ },
+ "items": [
+  {
+   "en": "By the way",
+   "native": "Кстати.",
+   "gloss_en": "By the way."
+  }
+ ],
+ "segments": [
+  {
+   "text": "By the way.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, I have one more thing to say.",
+   "emo": "explain"
+  },
+  {
+   "text": "By the way, I like your bag.",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. By the way.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Как по-английски «кстати»?",
+  "turn": "Твоя очередь!",
+  "cta": "Повторяй за мной!",
+  "caption": "Хотите перевести разговор на другую тему? Скажите “By the way”: это значит «кстати». Пример: “By the way, I like your bag.” Послушайте Карлоса, а в паузе повторите сами. Больше практики в приложении Lexkite.",
+  "hashtags": [
+   "#английскийязык",
+   "#учианглийский",
+   "#разговорныйанглийский",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you say \"kstati\" in English?",
+  "caption": "Want to move the talk to a new topic? Say “By the way”, which means by the way. Example: “By the way, I like your bag.” Listen to Carlos, then repeat in the pause. More practice is in the Lexkite app."
+ }
+}

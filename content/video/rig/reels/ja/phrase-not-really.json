@@ -1,0 +1,72 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ja-reel-phrase-not-really",
+ "lang": "ja",
+ "slug": "phrase-not-really",
+ "who": "carlos",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying yes when you really mean no"
+ },
+ "items": [
+  {
+   "en": "Not really",
+   "native": "そうでもないよ。",
+   "gloss_en": "Not really."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Not really.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, it is a soft no.",
+   "emo": "explain"
+  },
+  {
+   "text": "Do you like coffee? Not really.",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. Not really.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "「そうでもない」は英語で？",
+  "turn": "あなたの番です！",
+  "cta": "続けて言ってみよう！",
+  "caption": "ノーと言いにくくて、つい「Yes」と答えていませんか？“Not really.”なら、やんわり断れる自然な言い方です。例：“Do you like coffee?” “Not really.” Carlos先生のあとに続けて言ってみよう。Lexkiteアプリで練習。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語発音",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you say \"not really\" in English?",
+  "caption": "Is it hard to say no, so you answer “Yes”? “Not really.” is a natural, soft way to say no. Example: “Do you like coffee?” “Not really.” Repeat after teacher Carlos. Practice in the Lexkite app."
+ }
+}

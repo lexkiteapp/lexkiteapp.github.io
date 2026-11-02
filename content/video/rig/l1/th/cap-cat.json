@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "th-cap-cat",
+ "lang": "th",
+ "slug": "cap-cat",
+ "who": "ama",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Dropping or mixing the final sound (cap / cat)",
+  "l1": "Thai has only unreleased final stops, so p, t and k sound alike."
+ },
+ "hook": {
+  "a": "cap",
+  "b": "cat"
+ },
+ "segments": [
+  {
+   "text": "Cap, or cat? These are two different words.",
+   "emo": "explain"
+  },
+  {
+   "text": "Cap. Close your lips at the end. Cap.",
+   "emo": "explain"
+  },
+  {
+   "text": "Cat. Touch your tongue to the top of your mouth at the end. Cat.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. Put on your cap. Feed the cat.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job!",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "cap กับ cat เสียงท้ายต่างกัน!",
+  "caption": "“cap” (หมวก) กับ “cat” (แมว) ต่างกันที่เสียงท้ายคำเท่านั้น เสียง p ต้องปิดริมฝีปาก ส่วนเสียง t ต้องใช้ปลายลิ้นแตะเพดาน ฟังครู Ama แล้วพูดตามนะ ฝึกออกเสียงต่อในแอป Lexkite",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ออกเสียงอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "cap and cat end differently!",
+  "caption": "“cap” (hat) and “cat” differ only in the last sound. For p, close your lips; for t, touch the tip of your tongue to the top of your mouth. Listen to Ama and repeat after her. Practice pronunciation in the Lexkite app."
+ }
+}

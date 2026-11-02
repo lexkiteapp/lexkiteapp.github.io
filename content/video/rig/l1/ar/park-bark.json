@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "ar-park-bark",
+ "lang": "ar",
+ "slug": "park-bark",
+ "who": "ama",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Mixing up P and B (park / bark)",
+  "vi": "Lẫn P và B: \"park\" thành \"bark\" (tiếng Ả Rập không có âm P)",
+  "l1": "Arabic has no /p/ sound, so it turns into /b/."
+ },
+ "hook": {
+  "a": "park",
+  "b": "bark"
+ },
+ "segments": [
+  {
+   "text": "Park, or bark? These are two different words.",
+   "emo": "explain"
+  },
+  {
+   "text": "Park starts with a P. Close your lips, then let a little air out. Park.",
+   "emo": "explain"
+  },
+  {
+   "text": "Bark starts with a B. Your voice starts right away. Bark.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. We park the car. The dog can bark.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job!",
+   "emo": "happy",
+   "who": "ama",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "هل تنطق P مثل B؟",
+  "caption": "ليس في العربية صوت P، فتبدو “park” مثل “bark”. عند نطق P أغلق شفتيك ثم أخرج قليلاً من الهواء، أما B فيبدأ الصوت فيه فوراً. كرّر مع المعلمة Ama وتدرّب على النطق في تطبيق Lexkite.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#نطق_الانجليزي",
+   "#الانجليزية",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do you say P like B?",
+  "caption": "Arabic has no P sound, so “park” sounds like “bark”. For P, close your lips and let a little air out; for B, your voice starts right away. Repeat after teacher Ama and practice pronunciation in the Lexkite app."
+ }
+}

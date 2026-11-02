@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "ru-reel-mispron-th-hotel",
+ "lang": "ru",
+ "slug": "mispron-th-hotel",
+ "who": "ama",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying th like z or s, w like v, and stressing the wrong syllable"
+ },
+ "items": [
+  {
+   "en": "this",
+   "native": "Язык между зубами, не «з»",
+   "gloss_en": "Put your tongue between your teeth, not z."
+  },
+  {
+   "en": "think",
+   "native": "Язык между зубами, не «с»",
+   "gloss_en": "Put your tongue between your teeth, not s."
+  },
+  {
+   "en": "water",
+   "native": "Губы округлены, это не «в»",
+   "gloss_en": "Round your lips, it is not v."
+  },
+  {
+   "en": "hotel",
+   "native": "Ударение на втором слоге",
+   "gloss_en": "The stress is on the second syllable."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many learners say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "This. This.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Think. Think.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Water. Water.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Hotel. Hotel.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 слова, в которых часто ошибаются",
+  "turn": "Твоя очередь!",
+  "cta": "Повторяй за мной!",
+  "caption": "Говорите «зис» вместо “this” и «синк» вместо “think”? Следите за th, за звуком w в слове “water” и за ударением в слове “hotel”. Послушайте Аму, а в паузе повторите. Практика произношения в приложении Lexkite.",
+  "hashtags": [
+   "#английскийязык",
+   "#учианглийский",
+   "#разговорныйанглийский",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "4 words people often get wrong",
+  "caption": "Do you say “zis” instead of “this” and “sink” instead of “think”? Watch the th, the w sound in “water” and the stress in “hotel”. Listen to Ama, then repeat in the pause. Pronunciation practice is in the Lexkite app."
+ }
+}

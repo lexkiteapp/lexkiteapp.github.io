@@ -1,0 +1,89 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "hi-reel-say4-office",
+ "lang": "hi",
+ "slug": "say4-office",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing polite lines for work"
+ },
+ "items": [
+  {
+   "en": "Can I ask a question?",
+   "native": "क्या मैं एक सवाल पूछ सकूँ?"
+  },
+  {
+   "en": "I will check and tell you.",
+   "native": "रुकिए, मैं देखकर बता दूँ।"
+  },
+  {
+   "en": "Sorry for the delay.",
+   "native": "देरी के लिए माफ़ कीजिए।"
+  },
+  {
+   "en": "Thank you for the help.",
+   "native": "मदद के लिए शुक्रिया।"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Talking at work? Here are four polite lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Can I ask a question?",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "I will check and tell you.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Sorry for the delay.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Thank you for the help.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "ऑफिस में विनम्रता से कैसे बोलें?",
+  "turn": "अब आपकी बारी!",
+  "cta": "मेरे साथ दोहराइए!",
+  "caption": "ऑफिस में अंग्रेज़ी बोलते हुए झिझक होती है? ये 4 वाक्य सहेज लीजिए, जैसे “Can I ask a question?” और “Thank you for the help.” Ama टीचर को सुनिए और ख़ामोशी में ख़ुद दोहराइए। Lexkite ऐप में और अभ्यास कीजिए।",
+  "hashtags": [
+   "#अंग्रेज़ी_सीखें",
+   "#spokenenglish",
+   "#englishspeaking",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "How do you speak politely at work?",
+  "caption": "Do you hesitate to speak English at the office? Save these 4 lines, such as “Can I ask a question?” and “Thank you for the help.” Listen to teacher Ama and repeat in the pause. Practice more in the Lexkite app."
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "ko-rock-lock",
+ "lang": "ko",
+ "slug": "rock-lock",
+ "who": "ama",
+ "template": "pair",
+ "fps": 30,
+ "speed": 0.85,
+ "lead": 0.0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Mixing up R and L (rock / lock)",
+  "vi": "Lẫn R và L: \"rock\" / \"lock\" (tiếng Hàn chỉ có một âm giữa R và L)",
+  "l1": "Korean has one liquid sound between R and L."
+ },
+ "hook": {
+  "a": "rock",
+  "b": "lock"
+ },
+ "segments": [
+  {
+   "text": "Rock, or lock? These are two different words.",
+   "emo": "explain"
+  },
+  {
+   "text": "Rock. Your tongue does not touch anything. Rock.",
+   "emo": "explain"
+  },
+  {
+   "text": "Lock. Your tongue touches the top of your mouth, just behind your teeth. Lock.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. A big rock. A new lock.",
+   "emo": "encourage",
+   "who": "ama",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job!",
+   "emo": "happy",
+   "who": "ama",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "“rock”과 “lock”, 같게 들려요?",
+  "caption": "한국어에는 R과 L 사이의 소리 하나밖에 없어서 “rock”과 “lock”이 똑같이 들릴 수 있어요. R은 혀가 어디에도 닿지 않고, L은 혀끝을 윗니 바로 뒤에 붙여요. Ama 선생님을 따라 말해 보고 Lexkite 앱에서 발음을 연습해 보세요.",
+  "hashtags": [
+   "#영어공부",
+   "#영어발음",
+   "#영어회화",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "Do “rock” and “lock” sound the same?",
+  "caption": "Korean has one sound between R and L, so “rock” and “lock” can sound the same. For R, your tongue touches nothing; for L, touch the tip of your tongue just behind your top teeth. Repeat after teacher Ama and practice pronunciation in the Lexkite app."
+ }
+}

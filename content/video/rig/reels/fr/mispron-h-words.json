@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "fr-reel-mispron-h-words",
+ "lang": "fr",
+ "slug": "mispron-h-words",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Dropping the H in common words"
+ },
+ "items": [
+  {
+   "en": "hotel",
+   "native": "Le H se prononce, comme un petit souffle.",
+   "gloss_en": "The H is pronounced, like a small breath."
+  },
+  {
+   "en": "house",
+   "native": "Souffle sur le H avant de dire ouse.",
+   "gloss_en": "Blow on the H before saying ouse."
+  },
+  {
+   "en": "happy",
+   "native": "Le H initial fait un petit souffle.",
+   "gloss_en": "The first H makes a small breath."
+  },
+  {
+   "en": "hungry",
+   "native": "Pas de « ongry » : le H est bien là.",
+   "gloss_en": "Not ongry: the H is really there."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many people say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Hotel. Hotel.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "House. House.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 1
+  },
+  {
+   "text": "Happy. Happy.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 2
+  },
+  {
+   "text": "Hungry. Hungry.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 3
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 mots où le H se prononce",
+  "turn": "À toi de jouer !",
+  "cta": "Répète après moi !",
+  "caption": "En anglais, le H se prononce : on souffle un peu d’air au début de “hotel”, “house”, “happy” et “hungry”. Écoute Carlos, puis répète chaque mot pendant le silence. Travaille la prononciation dans l’appli Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#prononciation"
+  ]
+ },
+ "en": {
+  "hook": "4 words where the H is pronounced",
+  "caption": "In English the H is pronounced: you push a little air out at the start of “hotel”, “house”, “happy” and “hungry”. Listen to Carlos, then say each word in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

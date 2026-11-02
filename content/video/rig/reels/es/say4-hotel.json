@@ -1,0 +1,89 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "es-reel-say4-hotel",
+ "lang": "es",
+ "slug": "say4-hotel",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing short lines for a hotel"
+ },
+ "items": [
+  {
+   "en": "I have a reservation.",
+   "native": "Tengo una reserva."
+  },
+  {
+   "en": "Where can I eat breakfast?",
+   "native": "¿Dónde puedo desayunar?"
+  },
+  {
+   "en": "Can I use the pool?",
+   "native": "¿Puedo usar la piscina?"
+  },
+  {
+   "en": "Can I have another key?",
+   "native": "¿Me puede dar otra llave?"
+  }
+ ],
+ "segments": [
+  {
+   "text": "Checking in at a hotel? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "I have a reservation.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Where can I eat breakfast?",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Can I use the pool?",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Can I have another key?",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "En el hotel, ¿cómo lo digo?",
+  "turn": "¡Tu turno!",
+  "cta": "¡Repite conmigo!",
+  "caption": "¿Te da vergüenza hablar en inglés en el hotel? Guarda estas 4 frases, como “I have a reservation.” y “Where can I eat breakfast?”. Escucha a Ama y repite tú en la pausa. Practica más en la app Lexkite.",
+  "hashtags": [
+   "#aprenderinglés",
+   "#inglésfácil",
+   "#inglésonline",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "What do you say at a hotel?",
+  "caption": "Shy about speaking English at the hotel? Save these 4 lines, such as “I have a reservation.” and “Where can I eat breakfast?” Listen to Ama and repeat in the pause. Practice more in the Lexkite app."
+ }
+}

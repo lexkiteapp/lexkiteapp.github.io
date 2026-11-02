@@ -1,0 +1,66 @@
+{
+ "_doc": "Clip theo lỗi L1 của người học ngôn ngữ này (docs/specs/social-l1-clips.md). Giáo viên nói tiếng Anh ≤B1; native.* = bản tay (tầng i18n-fixed), {m:từ[#nghĩa]} lấy nghĩa từ web/packs/<lang>.json (vi: kho từ).",
+ "id": "zh_CN-turn-on-light",
+ "lang": "zh_CN",
+ "slug": "turn-on-light",
+ "who": "ama",
+ "template": "stop",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0,
+ "gap": 0.55,
+ "tail": 0.7,
+ "mistake": {
+  "en": "Saying open the light instead of turn on the light",
+  "l1": "Chinese kāi dēng uses the verb open (kāi) for lights."
+ },
+ "hook": {
+  "bad": "Please open the light",
+  "good": "Please turn on the light",
+  "strike": "open",
+  "add": [
+   "turn",
+   "on"
+  ]
+ },
+ "segments": [
+  {
+   "text": "Don't say, please open the light. Say, please turn on the light.",
+   "emo": "explain"
+  },
+  {
+   "text": "In Chinese, we open the light. In English, we turn it on.",
+   "emo": "explain"
+  },
+  {
+   "text": "Repeat after me. Please turn on the light. Please turn off the fan.",
+   "emo": "encourage",
+   "hand": "palm"
+  },
+  {
+   "text": "Great job! Open is for doors.",
+   "emo": "happy",
+   "hand": "thumb"
+  }
+ ],
+ "deeplink": "#/grammar",
+ "cta": "Practice it in Lexkite · Grammar",
+ "native": {
+  "hook": "开灯别说“open the light”！",
+  "caption": "中文说“开灯”，所以很多人直接说成“open the light”。其实英语要说“turn on the light”，关灯是“turn off the light”。跟着 Ama 老师读一读，在 Lexkite 应用里练习更多语法。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语语法",
+   "#learnenglish",
+   "#lexkite"
+  ]
+ },
+ "en": {
+  "hook": "It is not “open the light”!",
+  "caption": "In Chinese you say “open the light”, so many people say it in English too. In English you say “turn on the light”, and to switch it off, “turn off the light”. Read along with teacher Ama and practice more grammar in the Lexkite app."
+ }
+}
