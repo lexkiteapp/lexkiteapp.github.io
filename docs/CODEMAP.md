@@ -10,11 +10,11 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `extension/` (1183 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (70 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (17 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (741 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `scripts/` (742 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (143 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (573 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (2288 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (2289 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (214 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (167 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
@@ -288,4 +288,4 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: reminders
 
-## Mô-đun JS chính (0/900; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+## Mô-đun JS chính (0/901; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
