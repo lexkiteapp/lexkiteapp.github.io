@@ -12,7 +12,7 @@
 
 | khuôn | bố cục | lời giáo viên |
 |---|---|---|
-| say4 | hook + CTA bản địa · 4 dòng 01–04 (EN karaoke · IPA · nghĩa) · giáo viên 0,62× | mở bài + 4 câu, mỗi câu có lặng |
+| say4 | thẻ hook (hook bản địa · "đọc theo" ↔ viên đến lượt bạn · CTA) · 4 dòng 01–04 (EN karaoke · IPA · nghĩa) · giáo viên 1:1 dưới danh sách, thân quá mép đáy | mở bài + 4 câu, mỗi câu có lặng |
 | mispron | như say4, mỗi dòng 1 từ + mẹo bản địa | mỗi từ đọc 2 lần, có lặng |
 | phrase | thẻ lớn: hook · cụm EN 120 px · IPA · nghĩa | cụm → nghĩa → ví dụ → "Repeat after me", cụm nói ≥3 lần |
 | minpair | 4 từ + IPA, từ đang đọc sáng · khung cận cảnh miệng 1,33× ở vai phải | cả bộ → từng cặp có lặng → cả bộ |
@@ -23,6 +23,7 @@
 - `items_native_glyphs`
 - `turn_contrast` ≥4.5
 - native-qa: `items_native` (chữ viết, BAD, độ dài) và `items_backcheck` (dịch ngược gtx ≥0.3 so với gloss_en)
+- `teacher_full_1x` (mọi khuôn, đo điểm ảnh khung chính): giáo viên 1:1, thấy ≥ 55 % thân; đoạn mờ dần/hàng cắt luôn khuất. Test `scripts/test/rig-figure.py` tiêm lỗi (0,62×, cắt còn đầu, thẻ đè ngực) phải đỏ. Lỗi 03/11: say4/mispron chỉ còn đầu nhỏ.
 - `script_logic` theo khuôn: say4 đúng 4 câu đúng thứ tự · mispron mỗi từ ≥2 lần · phrase ≥3 lần · minpair các từ có IPA khác nhau
 
 **Mẫu vi (chờ anh duyệt):**

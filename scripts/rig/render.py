@@ -11,6 +11,8 @@ import io, json, re, subprocess, sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import resvg_py
+sys.path.insert(0, str(Path(__file__).parent))
+import figure   # đặt giáo viên 1:1 mọi khuôn + cổng teacher_full_1x
 
 ROOT = Path(__file__).resolve().parents[2]
 spec = json.loads(Path(sys.argv[1]).read_text()); OUT = Path(sys.argv[2]) / spec['id']
@@ -26,13 +28,12 @@ BASES = {w: Image.open(ROOT / f"web/teach/{w}/head-bare-2x.webp").convert('RGBA'
 SAFE_T, SAFE_B, SAFE_X = 220, H - 380, 40   # vùng an toàn 9:16 (nút/tiêu đề của TikTok/Reels/Shorts)
 TPL = spec.get('template', 'tip-card')
 REEL = TPL in ('say4', 'mispron', 'phrase', 'minpair')   # khuôn Reels (docs/specs/social-reels-templates.md)
-LISTT = TPL in ('say4', 'mispron')                        # danh sách 01–04: giáo viên thu nhỏ dưới danh sách, không thẻ phụ đề (dòng đang đọc = karaoke)
-HOOK_Y0, HOOK_Y1 = 232, {'phrase': 640, 'minpair': 600, 'say4': 400, 'mispron': 400}.get(TPL, 470)
-TX, TY = (W - 1108) // 2, {'phrase': 650, 'minpair': 580}.get(TPL, 520)          # giáo viên: tỉ lệ 1:1 (không phóng to ảnh), thân dưới nằm sau thẻ phụ đề → không lộ đường cắt
+LISTT = TPL in figure.LIST_TPL                            # danh sách 01–04: giáo viên 1:1 dưới danh sách (thân quá mép đáy), không thẻ phụ đề (dòng đang đọc = karaoke)
+HOOK_Y0, HOOK_Y1 = 232, {'phrase': 640, 'minpair': 600, 'say4': figure.LIST_HOOK_Y1, 'mispron': figure.LIST_HOOK_Y1}.get(TPL, 470)
+TX, TY, KEEP = figure.place(TPL)   # giáo viên: tỉ lệ 1:1 (không phóng/thu ảnh); thân dưới sau thẻ phụ đề hoặc quá mép đáy → không lộ đường cắt
 HDY = TY - 420                          # tay vẽ theo toạ độ thân (bản đầu TY = 420)
-CARD_Y0, CARD_Y1 = 1270, 1450
+CARD_Y0, CARD_Y1 = figure.CARD_Y0, figure.CARD_Y1
 CTA_Y = 1500
-LIST_TY, LIST_BAND = 1150, 1470   # say4/mispron: đỉnh ảnh giáo viên thu nhỏ · dải đáy (chữ CTA trong vùng an toàn ≤ 1540)
 BOXES = []                              # mọi khung chữ đã vẽ → cổng safe_zone
 def txt(dr, xy, s, font, fill, anchor='la'):
     dr.text(xy, s, font=font, fill=fill, anchor=anchor); BOXES.append(dr.textbbox(xy, s, font=font, anchor=anchor))
@@ -205,12 +206,14 @@ def karaoke_line(dr, x, cy, sg, lt, F, maxw):
 def reel_list(dr, t):
     """say4 / mispron: hook bản địa + 4 dòng 01–04 (câu/từ EN · IPA từ kho · dòng bản địa), dòng đang học sáng, viên đến lượt bạn trong khoảng lặng"""
     dr.rounded_rectangle((48, HOOK_Y0 + 14, W - 48, HOOK_Y1 + 14), 44, fill=LEDGE); dr.rounded_rectangle((48, HOOK_Y0, W - 48, HOOK_Y1), 44, fill=CARD)
-    native_line(dr, W / 2, HOOK_Y0 + 62, NHOOK, 58, 34, W - 2 * 96, LIP)
-    native_line(dr, W / 2, HOOK_Y0 + 128, UI.get('cta', ''), 38, 28, W - 2 * 96, MUTED)
     cs, (tsg, tk) = cur_item(t), turn_k(t); ci = cs['item'] if cs else -1
-    y0, RH = HOOK_Y1 + 40, 150
+    native_line(dr, W / 2, HOOK_Y0 + 54, NHOOK, 58, 34, W - 2 * 96, LIP)
+    if tsg is not None: turn_pill(dr, W / 2, HOOK_Y0 + 128, tk)   # khoảng lặng: viên "Đến lượt bạn!" thay dòng "đọc theo" (cùng chỗ, không đè giáo viên)
+    else: native_line(dr, W / 2, HOOK_Y0 + 128, UI.get('cta', ''), 38, 28, W - 2 * 96, MUTED)
+    txt(dr, (W / 2, HOOK_Y0 + 196), spec['cta'], F_CTA, MUTED, 'mm')
+    y0, RH = figure.LIST_Y0, figure.LIST_RH
     for i, it in enumerate(ITEMS):
-        y = y0 + i * (RH + 14); on = i == ci
+        y = y0 + i * (RH + figure.LIST_GAP); on = i == ci
         dr.rounded_rectangle((48, y, W - 48, y + RH), 32, fill=CARD, outline=TEAL if on else LEDGE, width=6 if on else 3)
         dr.rounded_rectangle((72, y + 22, 72 + 64, y + 22 + 52), 16, fill=TEAL if on else LEDGE)
         txt(dr, (104, y + 48), f'{i + 1:02d}', font(32, 'BeVietnamPro-Bold.ttf'), WHITE if on else HEAD, 'mm')
@@ -220,7 +223,6 @@ def reel_list(dr, t):
         else: txt(dr, (X, y + 40), line, F, LIP if on and TPL == 'mispron' else HEAD, 'lm')
         txt(dr, (X, y + 86), it['ipa'], fit(it['ipa'], f_ipa, 34, MW, 24), TEAL, 'lm')
         native_line(dr, X, y + 124, it['native'], 32, 24, MW, MUTED, left=True)
-    if tsg is not None: turn_pill(dr, W / 2, y0 + 4 * (RH + 14) + 40, tk)
 def reel_phrase(dr, t):
     """phrase: thẻ lớn = hook bản địa + cụm EN to + IPA + nghĩa bản địa"""
     it = ITEMS[0]
@@ -258,26 +260,22 @@ def reel_minpair(dr, t):
         txt(dr, (cx, HOOK_Y0 + 250), it['ipa'], fit(it['ipa'], f_ipa, 40, cw - 30, 26), TEAL, 'mm')
         native_line(dr, cx, HOOK_Y0 + 298, it['native'], 30, 22, cw - 40, MUTED)
 
-def frame(fr, t):
+def frame(fr, t, teacher=True):
+    """teacher=False: cùng khung nhưng không vẽ giáo viên/tay → figure.visible_mask đo phần giáo viên thấy được (cổng teacher_full_1x)"""
     im = Image.new('RGBA', (W, H), BG + (255,))
     base = BASES[fr['who']]; face = svg_img(fr['g'], base.width, base.height); body = base.copy(); body.alpha_composite(face)
     if fr['tilt'] or fr['nod']:
         body = body.rotate(fr['tilt'], resample=Image.BICUBIC, center=tuple(RIGS[fr['who']]['pivot']), translate=(0, fr['nod']))
-    if LISTT:   # giáo viên thu nhỏ 0,62 dưới danh sách; dải đáy che đường cắt ảnh
-        sc = .62; b2 = body.resize((round(body.width * sc), round(body.height * sc)), Image.LANCZOS)
-        im.alpha_composite(b2, ((W - b2.width) // 2, int(round(LIST_TY + fr['breath'] * sc))))
-        ImageDraw.Draw(im).rectangle((0, LIST_BAND, W, H), fill=LEDGE)
-    else:
-        body = body.crop((0, 0, body.width, CARD_Y0 + 40 - TY))   # thân dừng sau thẻ phụ đề: không lòi tà áo dưới thẻ (ảnh đầu trơn cao hơn thẻ)
-        im.alpha_composite(body, (TX, int(round(TY + fr['breath']))))
-    if fr['hand'] and fr['who'] in HANDPAL and not LISTT:
+    if KEEP: body = body.crop((0, 0, body.width, KEEP))   # thân dừng sau thẻ phụ đề: không lòi tà áo dưới thẻ (ảnh đầu trơn cao hơn thẻ)
+    if teacher: im.alpha_composite(body, (TX, int(round(TY + fr['breath']))))   # say4/mispron: thân chạy quá mép đáy (Pillow cắt phần ngoài khung)
+    if teacher and fr['hand'] and fr['who'] in HANDPAL and not LISTT:
         hl = svg_img(hand_svg(fr['hand'], fr['hk'], fr['hmode'], fr['who']), W, H)
         hl.paste((0, 0, 0, 0), (0, CARD_Y0 + 60, W, H))   # khuỷu/tay áo dừng sau thẻ phụ đề, không lòi xuống dưới thẻ
         im.alpha_composite(hl)
     if TPL == 'minpair': mouth_zoom(im, fr)
     dr = ImageDraw.Draw(im)
     if LISTT:
-        reel_list(dr, t); txt(dr, (W / 2, LIST_BAND + 40), spec['cta'], F_CTA, HEAD, 'mm')
+        reel_list(dr, t)
         return im.convert('RGB')
     dr.rounded_rectangle((48, CARD_Y0 + 14, W - 48, CARD_Y1 + 14), 48, fill=LEDGE); dr.rounded_rectangle((48, CARD_Y0, W - 48, CARD_Y1), 48, fill=CARD)
     seg = segs[fr['seg']]; tsg, tk = turn_k(t) if REEL else (None, 0)
@@ -314,11 +312,13 @@ D, d, mp4 = render('full', 'frames.json')
 _, _, mp4r = render('reduced', 'frames-reduced.json')
 # khung chính: hook (0 s), giải thích, khen (tay), khích lệ (tay)
 fps, keys = D['fps'], [('hook', 0.6)] + ([('fix', switch_time() + .7)] if TPL in ('stop', 'tip-card') else []) + [(f'turn{i}', (s['turn'][0] + s['turn'][1]) / 2) for i, s in enumerate(segs) if s.get('turn')][:2] + [('explain', segs[1]['start'] + 1.0)] + [(s['emo'], s['start'] + min(1.2, s['dur'] * .6)) for s in segs if s.get('hand')]
-ims = []
+ims, FIG = [], {}
 for nm, t in keys:
     k = min(int(t * fps), len(D['frames']) - 1)
     while k < len(D['frames']) - 1 and D['frames'][k]['blink'] > .05: k += 1   # khung chính: mắt mở
     p = OUT / f'key-{nm}.jpg'; Image.open(d / f'{k:05d}.png').convert('RGB').save(p, quality=90); ims.append(Image.open(p))
+    fr = D['frames'][k]   # giáo viên thấy được ở khung chính = khác biệt giữa khung có / không có giáo viên
+    FIG[nm] = figure.gate(figure.visible_mask(frame(fr, k / fps), frame(fr, k / fps, teacher=False)), BASES[fr['who']].getchannel('A'))
 sheet = Image.new('RGB', (len(ims) * 540, 960), BG)
 for i, x in enumerate(ims): sheet.paste(x.resize((540, 960), Image.LANCZOS), (i * 540, 0))
 sheet.save(OUT / 'sheet.jpg', quality=88)
@@ -342,6 +342,7 @@ g = {
   'reduced_motion_variant': M['reducedStill'],
   'caption_contrast': min(contrast(HEAD, CARD), contrast(LIP, CARD)) >= 4.5 and contrast(MUTED, CARD) >= 4.5,
   'frames_eq_duration': len(D['frames']) == int(-(-D['total'] * fps // 1)),
+  'teacher_full_1x': all(ok for ok, _ in FIG.values()),   # giáo viên 1:1, thấy ≥ 55 % thân ở mọi khung chính (lỗi 03/11: say4/mispron chỉ còn đầu nhỏ)
 }
 # --- cổng clip L1 / mạng xã hội (docs/specs/social-l1-clips.md)
 X0, Y0, X1, Y1 = min(b[0] for b in BOXES), min(b[1] for b in BOXES), max(b[2] for b in BOXES), max(b[3] for b in BOXES)
@@ -404,7 +405,7 @@ if REEL:   # IPA: đúng chuỗi kho từ (native-qa ghi từ loadAllPlus) và p
             'items_native_glyphs': all(ord(c) in CMAP[f] for x in ITEMS + [{'native': UI.get('turn', '')}, {'native': UI.get('cta', '')}] for a, f in nruns(x['native']) for c in a if not c.isspace()),
             'turn_contrast': contrast(WHITE, TEAL) >= 4.5 and contrast(TEAL, CARD) >= 4.5 and contrast(HEAD, LEDGE) >= 4.5})
 score = round(100 * sum(g.values()) / len(g))
-qc = {'score': score, 'gates': g, 'safe_box': [X0, Y0, X1, Y1], 'misspelled': missp, 'above_b1': hard, 'deeplink': dl, 'native_font': Path(NPATH).name if NPATH else None, 'lufs': I, 'truePeak': tp, **{k: M[k] for k in ['voices', 'total', 'words', 'wpmSpeech', 'wpmOverall', 'firstVoicedS', 'lagMaxAbsMs', 'visemePctMin', 'flicker', 'blinksPerMin']}, 'rows': M['rows'],
+qc = {'score': score, 'gates': g, 'safe_box': [X0, Y0, X1, Y1], 'misspelled': missp, 'above_b1': hard, 'deeplink': dl, 'native_font': Path(NPATH).name if NPATH else None, 'lufs': I, 'truePeak': tp, **{k: M[k] for k in ['voices', 'total', 'words', 'wpmSpeech', 'wpmOverall', 'firstVoicedS', 'lagMaxAbsMs', 'visemePctMin', 'flicker', 'blinksPerMin']}, 'rows': M['rows'], 'teacher': {nm: m for nm, (_, m) in FIG.items()},
       'cost': {'kling_credits': 0, 'usd': 0, 'ci_minutes_note': 'xem thời gian job rig-sample'}}
 (OUT / 'qc.json').write_text(json.dumps(qc, indent=1))
 rep = [f"## Rig 2D {spec['id']} – điểm {score}/100", '', '| cổng | ok |', '|---|---|'] + [f'| {k} | {"✅" if v else "❌"} |' for k, v in g.items()] + ['', '```', json.dumps({k: v for k, v in qc.items() if k not in ('gates', 'rows')}), '```', '', '| câu | emo | tay | s | lệch ms | đúng hình % | nháy |', '|---|---|---|---|---|---|---|'] + [f"| {r['k']} | {r['emo']} | {r['hand']} | {r['dur']:.2f} | {r['lagMs']} | {r['visemePct']} | {r['flicker']} |" for r in M['rows']]

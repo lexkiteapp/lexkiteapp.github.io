@@ -10,7 +10,7 @@ on:
       store: { description: 'lưu kho + release (true/false)', default: 'true' }
   push:   # nhánh PR (workflow_dispatch chỉ gọi được khi file đã ở main): đổi spec/engine → dựng lại cả lô thử
     branches-ignore: [main]
-    paths: ['content/video/rig/l1/**', 'content/video/rig/reels/**', 'scripts/rig/**', '.github/workflows/social-clips.yml']
+    paths: ['content/video/rig/l1/**', 'content/video/rig/reels/**', 'scripts/rig/**', 'scripts/test/rig-figure.py', '.github/workflows/social-clips.yml']
 concurrency:
   group: social-clips-${{ github.ref }}
   cancel-in-progress: false   # render/lưu kho: xếp hàng, không huỷ giữa chừng
@@ -26,6 +26,8 @@ jobs:
       par: ${{ steps.r.outputs.par }}
     steps:
       - uses: actions/checkout@v4
+      - name: Test hồi quy khung giáo viên (1:1, ≥ 55 % thân, không lộ đoạn mờ; tiêm lỗi 0,62×/cắt đầu phải đỏ)
+        run: python3 -m pip install -q pillow && python3 scripts/test/rig-figure.py
       - id: p
         env:
           GLOBS: ${{ inputs.specs || 'content/video/rig/l1/*/*.json content/video/rig/reels/*/*.json' }}
