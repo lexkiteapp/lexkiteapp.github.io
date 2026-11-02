@@ -2,12 +2,12 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 45.6 / 100**
+**Tổng: 47.3 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **45.2** | 45.2 | 45.2% | 100% | 0 |
-| Ngữ pháp | **39.6** | 39.6 | 39.6% | 100% | 0 |
+| Ngữ pháp | **51.4** | 51.4 | 51.4% | 100% | 0 |
 | Giao tiếp | **14.1** | 14.1 | 14.1% | 100% | 0 |
 | 4 kỹ năng | **48.2** | 48.2 | 48.2% | 100% | 0 |
 | Đề thi | **30.4** | 30.4 | 30.4% | 100% | 0 |
@@ -39,7 +39,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | bài C2 (chưa làm) | 0 / 10 | 0% | 8 |
 | trắc nghiệm | 1020 / 3000 | 34% | 20 |
 | tự luận | 920 / 3000 | 31% | 20 |
-| kho điểm ngữ pháp (LKF) (chưa làm) | 0 / 300 | 0% | 12 |
+| kho điểm ngữ pháp | 300 / 300 | 100% | 12 |
+| điểm đã có bài đúng cấp | 150 / 300 | 50% | 12 |
 
 ## Giao tiếp
 
