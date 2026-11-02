@@ -37,5 +37,38 @@ ok(bar.getAttribute('aria-valuenow') === '55' && w.localStorage.getItem('sp') ==
 for (let i = 0; i < 10; i++) bar.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
 ok(bar.getAttribute('aria-valuenow') === '75', 'giới hạn 25–75 %');
 $('#root').remove(); key('a'); ok(!$('#root'), 'gỡ màn → tự tháo bộ bắt phím (không lỗi)');
+// ── điền từ: biến thể đúng (accept/hint) ──
+const CK = w.ChoiceKit, A = (g, a, o) => CK.accept(g, a, o);
+ok(A('Do not', "don't").ok && A("I’m late.", 'I am late').ok && A('cannot', "can't").ok && A("it's", 'it is').ok, 'accept: viết tắt ↔ đầy đủ, nháy cong, dấu chấm cuối');
+ok(A('  BECAUSE ', 'because').how === 'variant' && A('because', 'because').how === 'exact', 'accept: hoa/thường + khoảng trắng = biến thể; trùng = exact');
+ok(!A('becuase', 'because').ok && A('becuase', 'because', { typo: true }).how === 'typo', 'accept: sai 1 ký tự chỉ đúng khi bật typo');
+ok(!A('cat', 'car', { typo: true }).ok && !A('', 'x').ok && !A('do', "don't").ok, 'accept: từ ngắn không tha lỗi; rỗng sai; khác nghĩa sai');
+ok(A('colour', 'color', { alts: ['colour'] }).ok, 'accept: đáp án thay thế');
+ok(CK.hint('because').head === 'b' && CK.hint('because').len === 7, 'hint: chữ đầu + số ký tự');
+// ── xếp câu: tiles (chạm đặt/gỡ về đúng ô cũ, phím số, Backspace, ←/→, kéo) ──
+ok(JSON.stringify(CK.insertAt([0, 1, 2], 2, 0)) === '[2,0,1]' && JSON.stringify(CK.insertAt([0, 1], 5, 9)) === '[0,1,5]', 'insertAt: chèn/đổi chỗ, kẹp biên');
+const R = [{ left: 0, top: 0, width: 50, height: 40 }, { left: 60, top: 0, width: 50, height: 40 }];
+ok(CK.slotIndex(R, 10, 10) === 0 && CK.slotIndex(R, 80, 10) === 1 && CK.slotIndex(R, 200, 10) === 2 && CK.slotIndex([R[1], R[0]], 100, 10, true) === 0 && CK.slotIndex([R[1], R[0]], 5, 10, true) === 2, 'slotIndex: trái/phải/cuối, RTL đảo');
+w.document.body.insertAdjacentHTML('beforeend', '<div id="ans"></div><div id="bank"></div><p id="live"></p>');
+const words = ['I', 'like', 'tea'], ord = { v: [] }, ans = $('#ans'), bank = $('#bank');
+const drawT = () => { ans.innerHTML = ord.v.map(i => `<button class="lsn-tile" data-a="${i}">${words[i]}</button>`).join(''); bank.innerHTML = words.map((x, i) => `<button class="lsn-tile${ord.v.includes(i) ? ' used' : ''}" data-i="${i}">${x}</button>`).join(''); };
+drawT();
+let locked = false;
+const tk = CK.tiles({ ans, bank, get: () => ord.v, set: o => { ord.v = o; }, draw: drawT, locked: () => locked, word: i => words[i], say: x => { $('#live').textContent = x; }, t: (k, v) => k.replace(/\{(\w+)\}/g, (_, n) => v[n]) });
+bank.querySelector('[data-i="2"]').click(); bank.querySelector('[data-i="0"]').click();
+ok(JSON.stringify(ord.v) === '[2,0]' && bank.querySelector('[data-i="2"]').classList.contains('used') && bank.children.length === 3, 'chạm ngân hàng → đặt cuối; ô cũ giữ chỗ (không nhảy bố cục)');
+ok($('#live').textContent === 'I: vị trí 2/2', 'aria-live đọc vị trí');
+ans.querySelector('[data-a="2"]').click();
+ok(JSON.stringify(ord.v) === '[0]' && !bank.querySelector('[data-i="2"]').classList.contains('used'), 'chạm thẻ đã đặt → về đúng ô cũ');
+key('2'); key('3'); ok(JSON.stringify(ord.v) === '[0,1,2]', 'phím số đặt thẻ thứ n của ngân hàng');
+key('Backspace'); ok(JSON.stringify(ord.v) === '[0,1]', 'Backspace gỡ thẻ cuối');
+const t1 = ans.querySelector('[data-a="1"]'); t1.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
+ok(JSON.stringify(ord.v) === '[1,0]', '← trên thẻ đã đặt → đổi chỗ');
+locked = true; key('3'); bank.querySelector('[data-i="2"]').click(); ok(JSON.stringify(ord.v) === '[1,0]', 'đã chấm → khoá mọi thao tác');
+locked = false;
+const pe = (type, el, x, y) => el.dispatchEvent(Object.assign(new w.MouseEvent(type, { bubbles: true, clientX: x, clientY: y, button: 0 }), { pointerId: 1 }));
+pe('pointerdown', bank.querySelector('[data-i="2"]'), 5, 5); pe('pointermove', w.document, 30, 30); pe('pointermove', w.document, 1, 20); pe('pointerup', w.document, 1, 20);
+ok(ord.v.length === 3 && ord.v.includes(2) && !w.document.querySelector('.lsn-ghost'), 'kéo thẻ ngân hàng vào hàng đáp án → chèn, dọn bóng kéo');
+tk.destroy(); key('Backspace'); ok(ord.v.length === 3, 'destroy → tháo bộ bắt phím');
 if (fails) { console.log(`✗ choice-kit: ${fails}/${n} lỗi`); process.exit(1); }
-console.log(`✓ choice-kit: ${n} kiểm (phím A–D/1–4, bỏ qua khi gõ, gạch đáp án + nhớ, chia cột)`);
+console.log(`✓ choice-kit: ${n} kiểm (phím A–D/1–4, bỏ qua khi gõ, gạch đáp án + nhớ, chia cột, điền từ biến thể, xếp câu chạm/phím/kéo)`);

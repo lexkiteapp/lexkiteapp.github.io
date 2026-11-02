@@ -126,5 +126,20 @@ const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.hi
   ok(gb.id === 'mkQuit' && gb.querySelector('.lk-face.btn.ghost') && gb.style.paddingLeft === '0px' && 35.99 + 2 * gp >= 44 && gp * 64 === Math.round(gp * 64) && gb.style.marginTop === -gp + 'px', 'nút ghost 54×35.99: cao ≥ 44 (không hụt vì số lẻ), bước 1/64 px, id giữ trên nút (' + gb.style.cssText + ')');
   E.w.ExitGuard._ungrow(b); ok(!b.dataset.lkGrow && !b.classList.contains('lk-grow') && !b.querySelector('.lk-face') && b.querySelector(':scope > svg.i') && S.cssText === 'color: red;', 'gỡ nới → về đúng DOM & style cũ (' + S.cssText + ')');
 }
+{ // 7) Enter = nút chính của bước (khung chung docs/specs/learn-flow-nav.md); không bắt khi đang ở nút/ô gõ hoặc hộp hỏi mở; thanh FOCUS bật mặc định
+  const E = await boot(); await toQuick(E);
+  const v = E.d.getElementById('view'); let hits = 0;
+  v.insertAdjacentHTML('beforeend', '<button id="nextQ" disabled>Next</button><button id="chk" data-lk-primary>Check</button><input id="inp">');
+  E.d.getElementById('chk').onclick = () => { hits++; };
+  ok(E.w.ExitGuard.primary() && E.w.ExitGuard.primary().id === 'chk', 'primary(): bỏ nút bị khoá, chọn [data-lk-primary]');
+  E.d.body.dispatchEvent(new E.w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }));
+  ok(hits === 1, 'Enter (không ở nút/ô gõ) → bấm nút chính');
+  E.d.getElementById('inp').focus(); E.d.getElementById('inp').dispatchEvent(new E.w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }));
+  ok(hits === 1, 'Enter trong ô gõ → để màn tự xử lý (không bấm hai lần)');
+  E.d.getElementById('inp').blur(); E.d.getElementById('modal').hidden = false;
+  E.d.body.dispatchEvent(new E.w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }));
+  ok(hits === 1, 'Enter khi hộp hỏi mở → không bấm nút của màn'); E.d.getElementById('modal').hidden = true;
+  ok(E.d.body.classList.contains('focus'), 'thanh FOCUS bật mặc định ở màn học (tắt: lk.exitbar = 0)');
+}
 console.log(fails ? `✗ exit-guard: ${fails}/${n} lỗi` : `✓ exit-guard: ${n} kiểm tra`);
 process.exit(fails ? 1 : 0);

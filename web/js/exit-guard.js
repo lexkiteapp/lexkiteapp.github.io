@@ -17,7 +17,8 @@
   };
   const parse = h => { const m = /^#\/([^/?]*)\/?([^?]*)/.exec(h || ''); return m ? [m[1] || 'home', decodeURIComponent(m[2] || '')] : ['home', '']; };
   const learnHash = h => { const [n, a] = parse(h); return isLearn(n, a); };
-  const flagOn = () => { try { if (/[?&]exitbar=1\b/.test(location.search + location.hash)) sessionStorage.setItem('lk.exitbar.pv', '1'); return sessionStorage.getItem('lk.exitbar.pv') === '1' || localStorage.getItem('lk.exitbar') === '1'; } catch (e) { return false; } };
+  // Thanh FOCUS bật mặc định (exit-sweep xanh, luật duyệt 2/11); tắt thử: ?exitbar=0 hoặc localStorage lk.exitbar = '0'
+  const flagOn = () => { try { const m = /[?&]exitbar=([01])\b/.exec(location.search + location.hash); if (m) sessionStorage.setItem('lk.exitbar.pv', m[1]); const pv = sessionStorage.getItem('lk.exitbar.pv'); return pv ? pv === '1' : localStorage.getItem('lk.exitbar') !== '0'; } catch (e) { return true; } };
 
   let backTo = '#/home', cur = '', dirty = false, done = false, saves = [], bypass = false, bar = null;
   const view = () => document.getElementById('view');
@@ -125,6 +126,21 @@
     const a = document.activeElement; if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && a.value) return; // Esc trong ô đang gõ = xóa/thoát ô, không rời bài
     e.preventDefault(); exit(false);
   });
+  // Enter = nút chính của bước (Kiểm tra → Tiếp tục), khung chung docs/specs/learn-flow-nav.md. Màn đánh dấu [data-lk-primary] hoặc dùng id đã biết.
+  // Không bắt khi đang ở nút/link (trình duyệt tự bấm), ô gõ (màn tự xử lý Enter), hộp hỏi đang mở.
+  const PRIMARY = '[data-lk-primary], #lsnNext, #lsnCheck, #lsnGo, #nextQ, #gotIt, #nx, #sNext, #dChk, #rNext, #rSub, #ppNext, #rxNext, #tNext, #mkNext, #ivNext, #spkNext, #sayNext, #hfNext, #check, [data-lv-next]';
+  const usable = el => shown(el) && !el.disabled && el.getAttribute('aria-disabled') !== 'true' && !el.closest('[hidden], [inert]');
+  function primaryEl() {
+    const roots = [view(), document.getElementById('lsnFoot')].filter(Boolean);
+    for (const r of roots) { const k = [...r.querySelectorAll(PRIMARY)].find(usable); if (k) return k; }
+    return null;
+  }
+  const own = el => !!el && el !== document.body && (/^(INPUT|TEXTAREA|SELECT|BUTTON|A|SUMMARY)$/.test(el.tagName) || el.isContentEditable || /^(button|link|checkbox|radio|switch|tab|option|menuitem)$/.test(el.getAttribute('role') || ''));
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' || !cur || e.defaultPrevented || e.repeat || e.isComposing || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey || modalOpen() || own(document.activeElement)) return;
+    const p = primaryEl(); if (!p) return;
+    e.preventDefault(); p.click();
+  });
   // Back/vuốt iOS khi làm dở → giữ màn (pushState) rồi hỏi.
   // Nhận biết "quay lại": Navigation API (traverse) nếu có; không thì hash mới = mục trước trong lịch sử phiên và không có chạm điều hướng trong màn ngay trước.
   // Nghe cả popstate + hashchange (back từ mục pushState chỉ có popstate), mỗi lượt xử lý 1 lần – docs/specs/exit-button.md
@@ -195,6 +211,7 @@
     dirty: v => { dirty = v !== false; },
     backTo: () => backTo,
     exit: () => exit(false),
+    primary: () => primaryEl(), // nav-sweep: nút Enter sẽ bấm
     _nav: () => ({ seen, popFor, popRes }),
     _grow: x => grow(x, x.getBoundingClientRect()), _ungrow: ungrow, _noGrow: v => { noGrow = !!v; }, // exit-sweep: so ảnh có/không nới (diff phải = 0)
     _s: () => ({ cur, dirty, done, bypass, backTo, hist: hist.slice(-4), ex: !!exitEl(), exHref: exitEl() && exitEl().getAttribute('href'), exOn: !!(exitEl() && exitEl().onclick), act: document.activeElement && document.activeElement.tagName }), // chẩn đoán cho exit-sweep
