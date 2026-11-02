@@ -41,7 +41,7 @@ if todo:
     if redo:
         print('re-synthesising slower:', [(l['id'], l['speed']) for l in redo]); synth(redo, 'b')
         for l in redo: print(f"  {l['id']} span {span(l['id']):.2f} s for {len(l['text'])} chars")
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from whisper_det import load, DECODE   # same words + times on every runner (asr_match)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from whisper_det import load, DECODE, load_audio, snap_onsets   # same words + times on every runner (asr_match)
 M = load('base.en'); norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
 for l in base['lines']:
     if l['id'] not in need or os.path.exists(f'{V}/{l["id"]}.words.json'): continue
@@ -63,6 +63,8 @@ for l in base['lines']:
         t0 = T[lo][1] if lo is not None else 0.05; t1 = T[hi][0] if hi is not None else dur - 0.05
         run = [k for k in range((lo + 1) if lo is not None else 0, hi if hi is not None else len(toks))]; tot = sum(len(toks[k]) for k in run); acc = sum(len(toks[k]) for k in run if k < i)
         T[i] = (t0 + (t1 - t0) * acc / tot, t0 + (t1 - t0) * (acc + len(toks[i])) / tot)
+    au = load_audio(f'{V}/{l["id"]}.wav'); snap_onsets(au, aw, s='s', e='e')   # whisper starts a word after a pause in the silence -> first voiced frame (ASR back-check + captions)
+    T = [(w['s'], w['e']) for w in snap_onsets(au, [dict(s=t[0], e=t[1]) for t in T], s='s', e='e')]
     for i in range(1, len(T)):   # strictly increasing starts
         if T[i][0] <= T[i - 1][0]: T[i] = (T[i - 1][0] + 0.05, max(T[i][1], T[i - 1][0] + 0.1))
     json.dump(dict(words=[dict(w=w, s=round(t[0], 3), e=round(t[1], 3)) for w, t in zip(toks, T)], whisper=' '.join(w.word.strip() for w in hw), interpolated=miss, asr=' '.join(x['w'] for x in aw), asr_words=aw),
