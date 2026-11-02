@@ -115,7 +115,7 @@ Lịch sử đầy đủ (bài học 17–26/10, Kling, chroma key, kho, video, 
 - CI giọng: runner mới không có ffmpeg → `apt-get install ffmpeg`; ghim faster-whisper 1.0.3.
 - D1: việc nền qua `_d1guard.js` (429 `quota-guard` ≥ 50 %), truy vấn theo khoá (EXPLAIN chặn quét bảng), không thăm dò API bằng vòng lặp; dữ liệu nội bộ ở D1 `lexkite-internal` (tài khoản CF thứ 2).
 - Mọi việc nền khai báo `infra/jobs.json` + lease (fail-closed); neuron Workers AI tài khoản chính dành cho người dùng, nền dùng tài khoản 2.
-- CI đỏ: `ci-triage.yml` quét 10 phút mọi workflow; job gọi API bọc `scripts/ci/quota-skip.mjs`. Workflow mới: timeout + concurrency + paths – `ci-policy.mjs`, `CI-RUNNERS.md`.
+- CI đỏ: `ci-triage.yml` quét 10 phút; job gọi API bọc `quota-skip.mjs`; workflow mới qua `ci-policy.mjs`.
 
 ## Làm đúng 1 lần (anh chủ 24/10 – không sửa đi sửa lại)
 Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) đi qua 5 bước, ghi ngắn trong brief/PR:
