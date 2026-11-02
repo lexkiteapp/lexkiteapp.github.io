@@ -6,6 +6,7 @@
 Áp dụng cho phiên chính, mọi agent con và Antigravity. Mục tiêu: cùng kết quả, ít token hơn ≥ 50 %.
 
 ## 1. Đọc
+- BẢN ĐỒ MÃ: mọi phiên đọc `docs/CODEMAP.md` TRƯỚC (≤ 25 KB, tự sinh bởi `scripts/codemap.mjs`), tra vị trí code bằng `docs/codemap.json` (`node -e`/jq), rồi chỉ grep/mở đúng file bản đồ trỏ tới; cấm khám phá repo mù (ls/find/grep rộng).
 - Đầu phiên: chỉ `docs/README.md` + `docs/METHODS.md` + phần đang mở của `docs/agents/BOARD.md`. Tài liệu khác chỉ đọc khi đụng đúng vùng đó (README ghi "khi nào đọc").
 - Không đọc nguyên file lớn: dùng `grep -n` rồi `sed -n 'a,bp'`; JSON lớn → `python3 -c` lấy đúng khóa; log CI → `grep`/`tail` vài dòng.
 - Không bao giờ đọc file output/JSONL của agent; chờ thông báo kết quả.

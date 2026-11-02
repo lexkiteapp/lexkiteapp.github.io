@@ -16,6 +16,7 @@ import { adminGate, adminAudit } from './admin.js';
 import { gate, DEFAULTS } from './_quota.js';
 import { triage, errSig, createIssue, scrub, SEVS } from './_triage.js';
 import { moderate, mask, defang } from './_abuse.js';
+import { MAIL_KEYS, MAIL_I18N } from './_report-i18n.js';
 
 // Ngân sách mặc định cho tính năng 'report' (đăng ký tại đây để không phải sửa _quota.js; quản trị vẫn đè được qua quota_config)
 if (!DEFAULTS.report) DEFAULTS.report = { anon: [2, 6], free: [3, 12], ipx: 2, store: 'd1', providers: ['mail', 'ai'] };
@@ -149,14 +150,39 @@ export function adminMail(row, ctx, env) {
   if (row.tri) lines.splice(2, 0, `AI (${row.tri.by}${row.tri.confidence ? ' ' + Math.round(row.tri.confidence * 100) + '%' : ''}): ${row.tri.summary_vi || ''}`, row.tri.suggested_fix ? 'Fix: ' + row.tri.suggested_fix : '', '');
   return { subject: `[Lexkite]${row.sev ? ' [' + row.sev + ']' : ''} ${tid(row.id)} ${row.cat}: ${defang(mask(String(row.msg || ''))).replace(/\s+/g, ' ').slice(0, 60)}`, text: lines.filter(x => x != null).join('\n'), ...(EMAIL.test(to) ? { to } : {}), ...(row.notify && EMAIL.test(row.email || '') ? { replyTo: row.email } : {}) };
 }
-const ST_TXT = { vi: { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' }, en: { new: 'New', ack: 'Acknowledged', prog: 'In progress', fixed: 'Fixed', wontfix: "Won't fix", dup: 'Duplicate' } };
+// Thư cho người báo đúng ngôn ngữ giao diện lúc gửi (15 ngôn ngữ, chữ lấy từ nhóm dịch 'report' của app – _report-i18n.js sinh tự động); mã lạ → tiếng Anh
+const fill = (s, v = {}) => String(s).replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m));
+export function mailT(lang) {
+  const L = String(lang || '').toLowerCase().slice(0, 2), d = L === 'vi' ? null : MAIL_I18N[L] || MAIL_I18N.en;
+  return (k, v) => { const i = MAIL_KEYS.indexOf(k); return fill(d && i >= 0 ? d[i] : k, v); };
+}
+// Cùng cách nói mốc với màn cảm ơn trong app (web/js/report.js etaText)
+export const etaText = (e, t) => !e ? '' : e.kind === 'feature' ? t('Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.') : t('Dự kiến xử lý: {t}', { t: e.h < 48 ? t('trong {n} giờ', { n: e.h }) : e.h === 168 ? t('trong 1 tuần') : e.h % 24 === 0 && e.h <= 120 ? t('trong {a}–{b} ngày', { a: e.h / 24 - 1, b: e.h / 24 }) : t('trong {n} ngày', { n: Math.ceil(e.h / 24) }) });
+const ST_KEY = { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' };
 // Thư cho người báo khi đổi trạng thái / có phản hồi (chỉ khi họ đã đồng ý nhận thư)
 export function userMail(row) {
-  const vi = row.lang === 'vi', s = ST_TXT[vi ? 'vi' : 'en'][row.status] || row.status, link = `${SITE}/app/#/report/${row.tok}`;
-  const text = vi
-    ? `Báo lỗi ${tid(row.id)} của bạn: ${s}.${row.reply ? `\n\nPhản hồi từ Lexkite:\n${row.reply}` : ''}${row.dup_of ? `\n\nTrùng với ${tid(row.dup_of)}.` : ''}\n\nXem trạng thái: ${link}\n\n— Lexkite (bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi)`
-    : `Your report ${tid(row.id)}: ${s}.${row.reply ? `\n\nReply from Lexkite:\n${row.reply}` : ''}${row.dup_of ? `\n\nDuplicate of ${tid(row.dup_of)}.` : ''}\n\nView status: ${link}\n\n— Lexkite (you get this email because you asked for updates when sending the report)`;
-  return { to: row.email, subject: vi ? `[Lexkite] ${tid(row.id)}: ${s}` : `[Lexkite] ${tid(row.id)}: ${s}`, text };
+  const t = mailT(row.lang), link = `${SITE}/app/#/report/${row.tok}`, head = t('Báo lỗi {id}: {s}', { id: tid(row.id), s: t(ST_KEY[row.status] || row.status) });
+  const L = [head];
+  if (row.status === 'fixed') L.push('', t('Cảm ơn bạn đã giúp Lexkite tốt hơn!'), ...(row.fix_ver ? [t('Đã sửa trong phiên bản {v}', { v: row.fix_ver })] : []));
+  if (row.reply) L.push('', t('Phản hồi từ Lexkite'), row.reply);
+  if (row.dup_of) L.push('', t('Trùng với {id}', { id: tid(row.dup_of) }));
+  L.push('', t('Xem trạng thái'), link, '', '— Lexkite · ' + t('Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.'));
+  return { to: row.email, subject: '[Lexkite] ' + head, text: L.join('\n') };
+}
+
+// Thư cảm ơn ngay khi tạo phiếu (chỉ khi người báo để email + đồng ý): mã LX, mốc dự kiến (đã có mức AI nếu kịp), liên kết riêng #/report/<mã>
+export function thanksMail(row, eta) {
+  const t = mailT(row.lang), head = t('Báo lỗi {id}: {s}', { id: tid(row.id), s: t('Đã nhận') });
+  const L = [head, '', t('Cảm ơn bạn đã giúp Lexkite tốt hơn!'), ...(eta ? [etaText(eta, t)] : []), '', t('Lưu đường dẫn riêng này để theo dõi trạng thái:'), `${SITE}/app/#/report/${row.tok}`, '', '— Lexkite · ' + t('Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.')];
+  return { to: row.email, subject: '[Lexkite] ' + head, text: L.join('\n') };
+}
+async function thank(env, db, q, id) {
+  const r = await db.prepare('SELECT id, tok, cat, sev, lang, email, notify, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
+  if (!r || !r.notify || r.spam || r.sandbox || !EMAIL.test(r.email || '')) return false;
+  if (q.near('mail')) { await ev(db, id, 'system', 'mail-skipped', 'quota').run(); return false; }
+  const ok = await mail(env, 'user', thanksMail(r, etaOf(r.cat, r.sev, await etaCfg(db))));
+  await db.batch([ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', 'thanks'), ...(ok ? [q.use('mail')] : [])]).catch(() => {});
+  return ok;
 }
 
 // Sau khi tạo: chữ ký lỗi → phiếu gốc trùng (7 ngày) · số phiếu tương tự · AI/luật phân loại · thư quản trị theo mức · Issue cho Claude Code
@@ -242,7 +268,8 @@ async function create(request, env, b, bg) {
   await db.batch(w);
   if (cat === 'content' && ctx.cid && !spam && !ctx.sandbox) await flagContent(db, env, ctx.cid, who, now).catch(() => {});
   // AI phân loại + gom trùng + thư quản trị + GitHub Issue: chạy nền (waitUntil) – người dùng nhận mã ngay
-  const p = after(env, db, q, { id, cat, area, msg, email, notify, shot, errs, ctx, spam }).catch(() => {});
+  // Thư cảm ơn chạy sau AI phân loại (mốc theo mức P0–P3 nếu kịp); AI lỗi vẫn gửi (mốc theo loại)
+  const p = after(env, db, q, { id, cat, area, msg, email, notify, shot, errs, ctx, spam }).catch(() => {}).then(() => notify && thank(env, db, q, id)).catch(() => {});
   if (bg) bg(p); else await p;
   return json(request, 200, { ok: true, id: tid(id), token: tok, eta: etaOf(cat, null, await etaCfg(db)) });
 }
@@ -268,7 +295,7 @@ const csvCell = v => { const s = String(v == null ? '' : v); const x = /^[=+\-@\
 const median = a => { if (!a.length) return null; a = [...a].sort((x, y) => x - y); const m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
 
 async function notifyReporter(env, db, id) {
-  const r = await db.prepare('SELECT id, tok, status, reply, dup_of, email, notify, lang FROM reports WHERE id = ?').bind(id).first();
+  const r = await db.prepare('SELECT id, tok, status, reply, dup_of, fix_ver, email, notify, lang FROM reports WHERE id = ?').bind(id).first();
   if (!r || !r.notify || !EMAIL.test(r.email || '')) return false;
   const ok = await mail(env, 'user', userMail(r));
   await ev(db, id, 'system', ok ? 'mailed' : 'mail-failed').run();
@@ -401,8 +428,8 @@ Object.assign(OPS, {
     const r = await db.prepare('SELECT id, cat FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
     const reply = (note || 'Fixed – thank you for reporting!') + (commit ? ` (commit ${commit})` : '');
     const fv = str(b.ver, 40) || commit;
+    if (fv) await db.prepare('UPDATE reports SET fix_ver = ? WHERE id = ? OR dup_of = ?').bind(fv, id, id).run(); // trước khi gửi thư → thư ghi đúng phiên bản
     const out = await apply(env, db, id, { status: 'fixed', reply }, who.email);
-    if (fv) await db.prepare('UPDATE reports SET fix_ver = ? WHERE id = ? OR dup_of = ?').bind(fv, id, id).run();
     const dups = ((await db.prepare("SELECT id FROM reports WHERE dup_of = ? AND status != 'fixed'").bind(id).all()).results || []).map(x => x.id);
     let mailed = out.mailed ? 1 : 0; for (const d of dups) { const o = await apply(env, db, d, { status: 'fixed', reply }, who.email); if (o.mailed) mailed++; }
     await ev(db, id, who.email, 'resolve', commit).run();

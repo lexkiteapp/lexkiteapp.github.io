@@ -4,7 +4,6 @@ const D = g.I18N_DICT = g.I18N_DICT || {};
 D.en = Object.assign(D.en || {}, {
 'Bài học trộn đang thử nghiệm, sắp ra mắt.': 'Mixed lessons are in testing and coming soon.',
 'Quay về trang chủ': 'Back to home',
-'Thoát bài học': 'Quit lesson',
 'Tiến độ bài học': 'Lesson progress',
 'Bài thử (không lưu tiến độ)': 'Demo lesson (progress is not saved)',
 'Dịch câu này': 'Translate this sentence',
@@ -55,6 +54,7 @@ D.en = Object.assign(D.en || {}, {
 'Truyện': 'Story',
 'Báo lỗi câu hỏi': 'Report question',
 'Trả lời câu hỏi': 'Answer the question',
+'Xem video bài học': 'Watch the lesson video',
 "Mục tiêu {s}": "Target {s}",
 "Câu {a}/{b}": "Question {a} of {b}",
 "Mẫu âm thanh": "Audio sample",

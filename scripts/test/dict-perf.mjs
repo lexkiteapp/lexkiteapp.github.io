@@ -10,6 +10,7 @@ import os from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
 import zlib from 'node:zlib';
+import { READ_PRON_SRC } from './pron-read.mjs';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('dict-perf: playwright chưa cài – bỏ qua'); process.exit(0); }
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const ROOT = path.resolve(arg('--root') || '.'), WEB = path.join(ROOT, 'web'), LABEL = arg('--label') || 'run', STRICT = process.argv.includes('--strict');
@@ -120,7 +121,7 @@ if (INDEX) {
     await page.evaluate(w => { location.hash = '#/dict/' + encodeURIComponent(w); }, w);
     await page.waitForFunction(() => document.querySelector('#result .entry-word'), null, { timeout: 30000 }).catch(() => {});
     await sleep(2500);
-    const got = await page.evaluate(() => { const ipa = [...document.querySelectorAll('#result .pron .ipa')].map(x => x.textContent.trim()); return { word: (document.querySelector('#result .entry-word') || {}).textContent, uk: ipa[0], us: ipa[1], vi: ((document.querySelector('#result .entry-head .vi') || {}).textContent || '').trim(), def: ((document.querySelector('#result .entry-head div[lang=en]') || {}).textContent || '').trim() }; });
+    const got = await page.evaluate(`(() => { const ipa = (${READ_PRON_SRC})(document.querySelector('#result .pron')); return { word: (document.querySelector('#result .entry-word') || {}).textContent, uk: ipa.uk, us: ipa.us, vi: ((document.querySelector('#result .entry-head .vi') || {}).textContent || '').trim(), def: ((document.querySelector('#result .entry-head div[lang=en]') || {}).textContent || '').trim() }; })()`); // IPA theo nhãn UK/US, không theo vị trí (thứ tự giọng đổi theo người học – scripts/test/pron-read.mjs)
     const want = { word: want0.word, uk: want0.ipa || '—', us: want0.ipaUS || want0.ipa || '—', vi: want0.vi, def: want0.def };
     const bad = Object.keys(want).filter(f => String(got[f] || '') !== String(want[f] || ''));
     R.consistency.push({ w, ok: !bad.length, bad: bad.map(f => `${f}: "${String(got[f]).slice(0, 40)}" ≠ "${String(want[f]).slice(0, 40)}"`) });

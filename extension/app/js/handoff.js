@@ -53,7 +53,7 @@
       const data = JSON.parse(new TextDecoder().decode(await pipe(packed, DecompressionStream)));
       const mine = await Core.Cards.all(); let added = 0, updated = 0;
       for (const [w, c] of Object.entries(data.cards || {})) { if (!mine[w]) { mine[w] = c; added++; } else if (activity(c) > activity(mine[w])) { mine[w] = c; updated++; } }
-      await Core.Cards.save(mine); state.cards = await Core.Cards.all(); if (window.Sync && Sync.schedule) Sync.schedule();
+      await Core.Cards.save(mine); state.cards = await Core.Cards.mine(); if (window.Sync && Sync.schedule) Sync.schedule();
       history.replaceState(null, '', location.pathname + location.search + '#/handoff/done'); // xóa khóa khỏi thanh địa chỉ
       view.innerHTML = `<div class="card center"><div style="font-size:2.4rem">✅</div><h1>${t('Đã nhận dữ liệu')}</h1><p>${t('{a} thẻ mới · {u} thẻ cập nhật tiến độ.', { a: added, u: updated })}</p><a class="btn primary" href="#/review">${t('Ôn ngay')} →</a></div>`;
     } catch (e) {

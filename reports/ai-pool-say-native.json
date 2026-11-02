@@ -1,0 +1,31 @@
+{
+ "job": "say-native",
+ "at": "2026-11-02T06:20:55.205Z",
+ "used": {
+  "lexai": 0,
+  "gc": 0,
+  "cf2": 0,
+  "cfLeak": 0,
+  "cf2Dead": [],
+  "gem": 0,
+  "groq": 0
+ },
+ "budget": {
+  "lexai": 400,
+  "gc": 2000,
+  "cf2": 100000
+ },
+ "by": {},
+ "keys": {
+  "gem": {
+   "size": 85,
+   "live": 85,
+   "parked": {}
+  },
+  "groq": {
+   "size": 109,
+   "live": 109,
+   "parked": {}
+  }
+ }
+}
