@@ -1,0 +1,107 @@
+{
+ "id": "t4_grammar_stative",
+ "template": "grammar",
+ "series": "Grammar in 60s",
+ "part": 1,
+ "theme": "light",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Most learners miss this!",
+   "pause": 0.42,
+   "speed": 1.25
+  },
+  {
+   "id": "r",
+   "text": "State verbs stay simple.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not: This book is belonging to the library.",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Say: This book belongs to the library.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Don't understand! I don't understand this graph. Can you explain it?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "en": "Stative vs Dynamic Verbs",
+  "level": "B1",
+  "bricks": [
+   "belong · want · know",
+   "simple form"
+  ],
+  "wrong": "This book is belonging to the library.",
+  "right": "This book belongs to the library.",
+  "strike": "is belonging",
+  "hl": "belongs",
+  "quiz": {
+   "stem": "I ___ this graph. Can you explain it?",
+   "options": [
+    "am not understanding",
+    "don't understand"
+   ],
+   "answer": 1
+  },
+  "brick_labels": [
+   "STATE VERB",
+   "ALWAYS"
+  ],
+  "brick_cues": [
+   "state",
+   "simple"
+  ]
+ },
+ "cta": {
+  "area": "grammar",
+  "route": "#/grammar/stative-dynamic",
+  "link": "https://lexkite.com/app/#/grammar/stative-dynamic",
+  "say": "Learn this rule"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Most learners miss this",
+  "style": "most",
+  "hl": "Most learners"
+ },
+ "src": {
+  "grammar": "stative-dynamic"
+ },
+ "scene": "library",
+ "hook_by": 1.5,
+ "layout": "corner",
+ "est": {
+  "words": 50,
+  "seconds": 29.3,
+  "wpm": 102,
+  "hook_s": 1.35
+ }
+}

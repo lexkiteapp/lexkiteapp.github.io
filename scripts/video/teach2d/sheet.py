@@ -40,6 +40,7 @@ if lrows:
 for p in glob.glob(f'{A}/tv-embed-shots-*/*.png'): Image.open(p).convert('RGB').save(f'{OUT}/embed_{os.path.basename(p)[:-4]}.jpg', quality=85)
 open(f'{OUT}/review.md', 'w').write('\n'.join(md) + '\n'); print('\n'.join(md))
 bad = [q for q in qcs if not q['ok']]
-want = {(os.path.basename(f)[:-5], fm) for f in glob.glob(f'{ROOT}/content/video/teach2d/eps/*.json') for fm in ('short', 'wide')}
+_asked = json.loads(os.environ.get('TV_EPS') or 'null') or [os.path.basename(f)[:-5] for f in glob.glob(f'{ROOT}/content/video/teach2d/eps/*.json')]   # every episode the run was asked for must have rendered
+want = {(e, fm) for e in _asked for fm in ('short', 'wide')}
 miss = sorted(want - {(q['ep'], q['format']) for q in qcs}); print('missing renders:', miss or 'none')
 sys.exit(1 if not qcs or bad or miss else 0)

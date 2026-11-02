@@ -65,7 +65,7 @@ jobs:
       - name: Voice (Kokoro teacher voice from the registry -> Rhubarb -> whisper word clock)
         run: |
           E=content/video/teach2d/eps/${{ matrix.ep }}.json
-          python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text']) for l in e['lines']]),open('lines.json','w'),indent=1)"
+          python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in e['lines']]),open('lines.json','w'),indent=1)"   # a line's own speed (hook_speed) wins
           python3 scripts/video/tpl/pilot5_voice.py lines.json vo   # lines faster than ~15 chars/s are re-synthesised slower (news_voice.py, floor 0.7)
           # learner pace (> 4.6 syllables/s) or a bad whisper clock -> voice that line again (max 2 rounds); qc.py gates the result
           for r in 1 2; do python3 scripts/video/teach2d/pace.py lines.json vo || break; NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo; done
@@ -94,16 +94,17 @@ jobs:
           mkdir -p $O; W=$(python3 -c "import json;print(json.load(open('$E'))['teacher'])")
           python3 scripts/video/teach2d/host.py $W host > $O/host.log
           TH=$(python3 -c "import json;print(json.load(open('$E'))['theme'])"); echo "TH=$TH" >> "$GITHUB_ENV"
+          EL=$(python3 -c "import json;print(json.load(open('$E')).get('layout','corner'))"); echo "EL=$EL" >> "$GITHUB_ENV"   # the episode's own short layout (pilot row field, default corner)
           python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --public $O/pub --out $O/props.json
           for A in dark dusk light; do [ $A = $TH ] && continue   # the other looks, for the owner's colour pick (stills only)
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $A --public $O/pub_$A --out $O/props_$A.json; done
-          if [ ${{ matrix.fmt }} = short ]; then for L in side bubble; do   # layout variants (owner 29/10: show layout variety) – stills only
+          if [ ${{ matrix.fmt }} = short ]; then for L in corner side bubble; do [ $L = $EL ] && continue   # the other layouts (owner 29/10: show layout variety) – stills only
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format short --layout $L --public $O/pub_lay_$L --out $O/props_lay_$L.json; done; fi
       - name: QC before render (timeline gates, every look – stops here, no render minutes spent on a bad layout)
         run: |
           python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --out $O/qc_pre.json
           for A in dark dusk light; do [ $A = $TH ] || python3 scripts/video/teach2d/qc.py --timeline $O/props_$A.json.timeline.json --out $O/qc_pre_$A.json; done
-          for L in side bubble; do [ -f $O/props_lay_$L.json ] && python3 scripts/video/teach2d/qc.py --timeline $O/props_lay_$L.json.timeline.json --out $O/qc_pre_lay_$L.json; done; true
+          for L in corner side bubble; do [ -f $O/props_lay_$L.json ] && python3 scripts/video/teach2d/qc.py --timeline $O/props_lay_$L.json.timeline.json --out $O/qc_pre_lay_$L.json; done; true
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - uses: actions/cache@v4
@@ -121,8 +122,8 @@ jobs:
               npx remotion still src/index.jsx teach-short "$R/alt_${A}_$t.png" --props="$R/props_$A.json" --public-dir="$R/pub_$A" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
           if [ ${{ matrix.fmt }} = short ]; then
             TS=$(python3 -c "import json;T=json.load(open('$R/props.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (3,len(L)-3)))")
-            for t in $TS; do ffmpeg -nostdin -v error -y -ss $t -i "$R/${{ matrix.ep }}-short.mp4" -frames:v 1 "$R/lay_corner_$t.png"
-              for L in side bubble; do npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
+            for t in $TS; do ffmpeg -nostdin -v error -y -ss $t -i "$R/${{ matrix.ep }}-short.mp4" -frames:v 1 "$R/lay_${EL}_$t.png"
+              for L in corner side bubble; do [ $L = $EL ] && continue; npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
           fi
       - name: QC after render (file, loudness, teacher visible, frames) + contact sheet
         shell: bash
@@ -185,7 +186,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with: { name: 'tv-embed-shots-${{ github.run_id }}', path: shots/, retention-days: 14 }
   sheet:   # one review sheet for the owner: every pilot's frames + QC score, both themes
-    needs: [render, embed]
+    needs: [preqc, render, embed]
     if: always() && needs.render.result != 'cancelled'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -195,6 +196,7 @@ jobs:
         with: { pattern: 'tv-*-${{ github.run_id }}', path: art }
       - run: pip install -q pillow==11.0.0
       - name: Review sheet + score table (red when any pilot < 90 or a gate fails, or nothing rendered)
+        env: { TV_EPS: '${{ needs.preqc.outputs.list }}' }   # the episodes this run was asked for (empty input = every pilot)
         run: python3 scripts/video/teach2d/sheet.py art review
       - uses: actions/upload-artifact@v4
         with: { name: 'tv-review-${{ github.run_id }}', path: review/, retention-days: 14 }

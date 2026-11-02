@@ -1,0 +1,98 @@
+{
+ "id": "t4_pattern_hesitate",
+ "template": "pattern",
+ "series": "Verb Patterns",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Contacting, or to contact?",
+   "pause": 0.42,
+   "speed": 1.25
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Don't hesitate contacting us.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Don't hesitate to contact us.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Hesitate is followed by to plus verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To call! Please don't hesitate to call us.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "verb": "hesitate",
+  "pat": "to + verb",
+  "good": "hesitate to contact",
+  "bad": "hesitate contacting",
+  "wrong": "Don't hesitate contacting us.",
+  "right": "Don't hesitate to contact us.",
+  "why": "Hesitate is followed by to plus verb.",
+  "aha": "This line ends lots of work emails!",
+  "quiz": {
+   "stem": "Please don't hesitate ___ us.",
+   "options": [
+    "to call",
+    "calling"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/hesitate",
+  "link": "https://lexkite.com/app/#/verb/hesitate",
+  "say": "Practice verb patterns"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Contacting, or to contact?",
+  "style": "question",
+  "hl": "to contact"
+ },
+ "src": {
+  "gold": "sb_29c61515",
+  "pid": "u:v:hesitate:to"
+ },
+ "scene": "office",
+ "hook_by": 1.5,
+ "layout": "side",
+ "est": {
+  "words": 48,
+  "seconds": 28.4,
+  "wpm": 102,
+  "hook_s": 1.35
+ }
+}

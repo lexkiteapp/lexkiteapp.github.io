@@ -1,0 +1,110 @@
+{
+ "id": "t4_pair_beside",
+ "template": "pair",
+ "series": "Same or Different?",
+ "part": 1,
+ "theme": "dark",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "word-usage",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Most learners mix these!",
+   "pause": 0.42,
+   "speed": 1.25
+  },
+  {
+   "id": "r",
+   "text": "Sit beside me.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not: sit besides me.",
+   "pause": 0.42
+  },
+  {
+   "id": "m1",
+   "text": "Beside means next to.",
+   "pause": 0.42
+  },
+  {
+   "id": "m2",
+   "text": "Besides means also.",
+   "pause": 0.42
+  },
+  {
+   "id": "k",
+   "text": "One extra S changes the meaning!",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Besides! Besides coffee, I also like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "a": "beside",
+  "b": "besides",
+  "mean_a": "Beside means next to.",
+  "mean_b": "Besides means also.",
+  "aha": "One extra S changes the meaning!",
+  "right": "Sit beside me.",
+  "quiz": {
+   "stem": "___ coffee, I also like tea.",
+   "options": [
+    "Besides",
+    "Beside"
+   ],
+   "answer": 0
+  },
+  "tags": [
+   "NEXT TO",
+   "ALSO"
+  ]
+ },
+ "cta": {
+  "area": "word-usage",
+  "route": "#/usage/beside-besides",
+  "link": "https://lexkite.com/app/#/usage/beside-besides",
+  "say": "Compare tricky words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Most learners mix these up",
+  "style": "most",
+  "hl": "Most learners"
+ },
+ "src": {
+  "gold": "sb_2ed92c40",
+  "pid": "u:c:beside-besides"
+ },
+ "scene": "park",
+ "hook_by": 1.5,
+ "layout": "bubble",
+ "est": {
+  "words": 47,
+  "seconds": 28.7,
+  "wpm": 98,
+  "hook_s": 1.35
+ }
+}
