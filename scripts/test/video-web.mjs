@@ -20,6 +20,12 @@ ok(!validateManifest({ version: 1, items: [good] }).length, 'mẫu manifest đú
 for (const [k, v] of [['score', 80], ['template', 'scene'], ['src', 'http://evil.example/x.mp4'], ['test', 'no'], ['quiz', { q: 'x', options: ['a'], answer: 3 }], ['vtt', { vi: 'https://media.lexkite.com/video/x_123456/vi-0123abcd.vtt' }], ['vtt_en', 'https://evil.example/en.vtt']])
   ok(validateManifest({ version: 1, items: [{ ...good, [k]: v }] }).length > 0, `schema phải bắt lỗi ${k}`);
 ok(validateManifest({ version: 1, items: [good, good] }).some(x => /trùng/.test(x)), 'schema bắt id trùng');
+// 2b) video nhúng bài học (embeds): 4:5 + 16:9, mp4/jpg/vtt trên media.lexkite.com, mẫu thử phải test: true
+const emb = (man.embeds || []); ok(emb.length && emb.every(e => e.test === true), 'embeds: có mẫu và CHƯA duyệt → test: true');
+const ge = JSON.parse(JSON.stringify(emb[0] || {}));
+for (const [k, f] of [['w', r => { r.sq45.w = 1080; r.sq45.h = 1920; }], ['src', r => { r.wide.src = 'https://evil.example/a.mp4'; }], ['poster', r => { r.sq45.poster = r.sq45.poster.replace('.jpg', '.png'); }], ['fmt', r => { r.short = r.wide; }]]) {
+  const b = JSON.parse(JSON.stringify(ge)); f(b.renditions); ok(validateManifest({ version: 1, items: [], embeds: [b] }).length > 0, `embeds phải bắt lỗi ${k}`);
+}
 
 // 3) chọn clip: bản tin + QA ≥ 90 + duyệt/mẫu thử; diễn cảnh cũ & bị loại không vào
 const qa = (o = {}) => ({ status: 'pass', result: 'ALL PASS', fail: 0, lipsync_ms: 40, cps_max: 15, ...o });

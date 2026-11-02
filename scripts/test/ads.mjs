@@ -128,6 +128,10 @@ ok(!P.interstitial(aCtx, fOn, st({ lastPct: 40 }), now) && P.interstitial(aCtx, 
   ok(!P.slot({ ...dn, plat: 'android' }, fOn, 'done') && !P.slot({ ...dn, edu: true }, fOn, 'done') && !P.slot({ ...dn, vid: hvid }, fOn, 'done'), 'ô kết quả: không app gốc (đã có toàn màn hình), không lớp học, không nhóm đối chứng'); }
 
 // ---------- 1c) VÙNG CẤM QUẢNG CÁO (policy.js ZONES/LIVE – docs/ADS.md §1c) ----------
+// Hồi quy ads-demo Android (đỏ 2/11 sau #444): máy mới cài mở #/welcome = vùng cấm onboarding → bài demo AdMob thật phải chạy như người dùng ĐÃ học (trang Hôm nay)
+{ const andr = { plat: 'android', route: 'home', path: '/', vid }, demo = fs.readFileSync('scripts/test/ads-demo-android.mjs', 'utf8');
+  ok(P.zone({ ...andr, route: 'welcome' }).k === 'onboarding' && !P.rewarded({ ...andr, route: 'welcome' }, fOn, 'ai') && P.rewarded(andr, fOn, 'ai'), 'Android: #/welcome chặn có thưởng (onboarding), #/home cho phép');
+  ok(/settings\.onboarded = true; await App\.saveSettings\(\)/.test(demo) && /cfg0 = await ev\(/.test(demo) && /info\.boot\.cfg === '1'/.test(demo) && /'#\/home'\); location\.reload\(\)/.test(demo), 'ads-demo-android: đánh dấu đã onboarding + mở lại ở #/home + chờ lượt tải config đầu + kiểm lk.cfg còn cờ sau khi tải lại'); }
 { const keys = P.ZONES.map(z => z[0]);
   ok(['exam', 'onboarding', 'pay', 'admin', 'classroom', 'call', 'speak', 'lesson'].every(k => keys.includes(k)) && ['mic', 'call', 'answering'].every(k => P.LIVE.includes(k)), 'vùng cấm đủ: thi/test · onboarding · thanh toán · quản trị · lớp học/giáo viên · Call · nói · bài học + trạng thái mic/gọi/đang trả lời');
   const HARD = ['mock', 'placement', 'toeic-test', 'toeic-r', 'toeic-sw', 'toefl', 'toefl-p', 'listen-test', 'cbt', 'welcome', 'onboard', 'setup', 'pay', 'checkout', 'upgrade', 'pro', 'admin', 'class', 'teacher', 'school'];

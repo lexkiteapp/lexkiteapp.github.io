@@ -1,0 +1,41 @@
+# Giọng từ đơn tiếng Bồ Đào Nha (pt-BR) – lượt MẪU 20 từ (chạy tay; docs/specs/target-language.md §Giọng). Không đẩy gì vào repo, không dựng cả bộ.
+# Dò kokoro-js có tự đọc pt không → Kokoro-82M + âm vị pt-br (misaki EspeakG2P, pt_g2p.py) (pf_dora = Ama, pm_alex = Carlos) → −16 LUFS + Whisper đa ngôn ngữ nghe lại (scripts/word-audio/pt_gate.py).
+name: word-audio-pt
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: 'Số từ mẫu (từ content/target/pt/seed.json)', default: '20' }
+  pull_request:
+    paths: ['scripts/word-audio/pt-sample.mjs', 'scripts/word-audio/pt_g2p.py', 'scripts/word-audio/pt_piper.py', 'scripts/word-audio/pt_gate.py', '.github/workflows/word-audio-pt.yml']
+    types: [labeled]
+permissions: { contents: read }
+concurrency: { group: 'word-audio-pt-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  sample:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.label.name == 'word-audio-pt' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env: { OUT: out/pt-sample, PT_N: '${{ github.event.inputs.n || 20 }}', KOKORO_DTYPE: fp32 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: 'kokoro-82m-v1-fp32' }
+      - name: G2P pt-br (misaki EspeakG2P + espeak-ng đầy đủ – kokoro-js chỉ kèm espeak tiếng Anh)
+        run: pip install -q "misaki==0.9.4" "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4"
+      - name: Dò + dựng mẫu
+        run: NODE_PATH=/tmp/kk/node_modules node scripts/word-audio/pt-sample.mjs
+      - name: Dự phòng theo spec – Piper pt_BR faber (nam) cùng cổng, để so sánh
+        if: ${{ env.PT_ALL != '1' }}
+        run: pip install -q "piper-tts==1.8.0" && python3 scripts/word-audio/pt_piper.py
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/huggingface, key: whisper-large-v3-turbo-ct2 }
+      - name: Cổng −16 LUFS + nghe lại (Whisper large-v3-turbo, pt)
+        run: pip install -q "faster-whisper==1.2.1" "av==18.1.0" && python3 scripts/word-audio/pt_gate.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: pt-word-sample, path: out/pt-sample, retention-days: 14 }
