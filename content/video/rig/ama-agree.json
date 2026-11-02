@@ -13,5 +13,6 @@
     { "text": "Great job! That sounds perfect.", "emo": "happy", "hand": "thumb" },
     { "text": "Now try it with a friend. I agree with you.", "emo": "encourage", "hand": "palm" }
   ],
-  "cta": "Practice it in Lexkite · Grammar tips"
+  "cta": "Practice it in Lexkite · Grammar tips",
+  "deeplink": "#/grammar"
 }
