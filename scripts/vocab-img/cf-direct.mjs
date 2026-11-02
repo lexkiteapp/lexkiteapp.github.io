@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 // Vẽ ảnh THẲNG trên Workers AI (REST), không qua GrabCast (26/10: GrabCast trả 500 cho 700/700 lượt ảnh → vocab-img-scene dừng).
 // Tài khoản (thứ tự dùng): CF_POOL (kho tài khoản miễn phí, chủ dán vào secret; bỏ VIMG_POOL_SKIP=5 tài khoản đầu – GrabCast còn dùng) → tài khoản 2 (CF_ACCOUNT_2/CF_AI_TOKEN_2).
 // CF_POOL: mỗi mục "account_id:token", ngăn bằng xuống dòng / phẩy / chấm phẩy; hoặc JSON [{"account":"…","token":"…"}]. KHÔNG bao giờ tài khoản chính (CF_ACCOUNT_1).
@@ -67,6 +68,18 @@ export async function cfImage(a, model, prompt, size, F = fetch, seed) {
   const b = Buffer.from(img, 'base64'); b.meta = { provider: 'cloudflare', model, acct: a.id }; return b;
 }
 
+/** sàn tài khoản sống cho pilot pool=tail theo KÍCH THƯỚC việc (02/11: sàn cố định 15 chặn lượt 18 nghĩa khi đuôi còn 11 tài khoản ≈ 100k neuron, việc cần ~4k).
+ *  = max(3, ceil(nghĩa × biến thể × 250 neuron × 2 dự phòng / 10k neuron/tài khoản)). Lịch fill giữ sàn cũ. */
+export const PILOT_NPM = 250, PILOT_ACCT = 10000;
+export function pilotFloor(n, variants = 1) { return Math.max(3, Math.ceil(Math.max(0, +n || 0) * Math.max(1, +variants || 1) * PILOT_NPM * 2 / PILOT_ACCT)); }
+/** số nghĩa cảnh của pilot từ input only (tệp {items} | danh sách phẩy | +thêm vào pick) và pick (n:from:fn) */
+export function pilotSize(only = '', pick = '60:0:20', rd = f => JSON.parse(fs.readFileSync(f, 'utf8'))) {
+  const n0 = +(String(pick || '60').split(':')[0]) || 60, o = String(only || '').trim();
+  if (!o) return n0;
+  const add = o.startsWith('+'), b = add ? o.slice(1) : o;
+  const k = /\.json$/.test(b) ? (rd(b).items || []).length : b.split(',').filter(Boolean).length;
+  return add ? n0 + k : k;
+}
 /** tài khoản vẽ: đầu kho (VIMG_DRAW_SHARE) như fill; VIMG_DRAW_FROM=tail (chỉ pilot, 31/10): ĐUÔI kho, từ cuối ngược lên, chừa VIMG_TAIL_KEEP (10)
  *  tài khoản cuối cho giám khảo thị giác (local_judge.py đi từ cuối) – fill tự khởi động khi đầu kho hồi rồi vét hết phần vẽ → pilot đói mãi */
 export function drawAccounts(env = process.env) {
