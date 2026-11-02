@@ -153,8 +153,24 @@ Mẫu thẻ:
     * TH: `content/blog/th/thaksa-networking-phasa-angkrit-hop-prachum.md` (commit `52e98f30f`)
     * AR: `content/blog/ar/al-tawasul-al-mihani-bi-al-injliziyyah-fi-al-mutamarat.md` (commit `81b4e8b59`)
     * HI: `content/blog/hi/international-conference-me-english-networking-guide.md` (commit `aa2c06f31`)
-    * Tổng bài toàn repo: **881 bài** (30 bài mới Đợt 4). 100% PASS Quality Gates, shingle max 12.0%.
-  - 🔄 **Bắt đầu Cụm 3:** Kỹ năng thương lượng lương và thăng tiến nghề nghiệp bằng tiếng Anh (`thuong-luong-luong-tieng-anh`).
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm 3** (`thuong-luong-luong-tieng-anh`):
+    * VI: `content/blog/vi/ky-nang-deal-luong-tieng-anh-chuyen-nghiep.md` (commit `96841a46b`)
+    * EN: `content/blog/en/salary-negotiation-in-english-guide.md` (commit `cd091bcbb`)
+    * ES: `content/blog/es/negociacion-salarial-en-ingles-guia.md` (commit `a349373e9`)
+    * PT: `content/blog/pt/negociacao-salarial-em-ingles-guia.md` (commit `504803323`)
+    * FR: `content/blog/fr/negociation-salariale-en-anglais-guide.md` (commit `c5e4d9f54`)
+    * DE: `content/blog/de/gehaltsverhandlung-auf-englisch-guide.md` (commit `26cb2746c`)
+    * ID: `content/blog/id/negosiasi-gaji-bahasa-inggris-panduan.md` (commit `037d42f7a`)
+    * JA: `content/blog/ja/business-eigo-kyuuyo-koushou-salary-negotiation.md` (commit `8bcf1a286`)
+    * ZH: `content/blog/zh/xin-zi-tan-pan-ying-yu-ji-qiao.md` (commit `423c4e316`)
+    * KO: `content/blog/ko/yeolbong-hyeobsang-yeongeo-salary-negotiation.md` (commit `1590ee3bf`)
+    * RU: `content/blog/ru/peregovory-o-zarplate-na-angliyskom-rukovodstvo.md` (commit `1204693fb`)
+    * TR: `content/blog/tr/ingilizce-maas-pazarligi-teknikleri-rehberi.md` (commit `643b1e50e`)
+    * TH: `content/blog/th/tor-rong-ngoen-duean-phasa-angkrit-khu-mue.md` (commit `6d0e3eca7`)
+    * AR: `content/blog/ar/al-tafawud-ala-al-ratib-bi-al-injliziyyah.md` (commit `4d5cdb145`)
+    * HI: `content/blog/hi/salary-negotiation-in-english-hindi-guide.md` (commit `8a2ec42ff`)
+    * Tổng bài toàn repo: **896 bài** (45 bài mới Đợt 4). 100% PASS Quality Gates, shingle max 12.0%.
+  - 🔄 **Bắt đầu Cụm 4:** Kỹ năng viết Business Proposal và Executive Summary tiếng Anh (`viet-business-proposal-tieng-anh`).
 - **Cần sửa / Nhận xét:**
 
 ### [B5-MEGA100-P3] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 3 (Đạt mốc 851 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
