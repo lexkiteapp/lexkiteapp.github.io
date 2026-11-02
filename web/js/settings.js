@@ -74,7 +74,7 @@
         + row(t('Giờ nhắc'), `<input type="time" class="input" id="sTime" value="${esc(s.reminderTime)}">`, Store.isExtension ? t('Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.') : t('Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.'))
         + tog('sAuto', s.reminderAuto !== false, t('Tự động theo giờ bạn hay học'), t('Nhắc 30 phút trước giờ bạn hay học nhất (sau vài ngày học).') + (R && R.habitMin && R.habitMin(R.recent()) >= 0 ? ' ' + t('Kit thấy bạn hay học lúc khoảng {time}.', { time: R.hm(R.habitMin(R.recent())) }) : ''))
         + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`, t('Không nhắc trong khung giờ này. Tối đa 1 lời nhắc mỗi ngày.'))
-        + `<fieldset class="set-row col" style="border:0;margin:0;padding:0"><legend class="set-l"><span>${t('Loại lời nhắc')}</span></legend>${[['due', t('Thẻ đến hạn')], ['word', t('Từ trong sổ của bạn')], ['streak', t('Chuỗi ngày sắp mất')], ['conf', t('Bài tự tin')], ['week', t('Tiến bộ tuần')], ['goal', t('Mục tiêu hôm nay')]].map(([k, l]) => tog('sTy_' + k, ((s.remTypes || {})[k]) !== false, l)).join('')}</fieldset>`
+        + `<fieldset class="set-row col" style="border:0;margin:0;padding:0"><legend class="set-l"><span>${t('Loại lời nhắc')}</span></legend>${[['due', t('Thẻ đến hạn')], ['word', t('Từ trong sổ của bạn')], ['streak', t('Chuỗi ngày sắp mất')], ['conf', t('Bài tự tin')], ['week', t('Tiến bộ tuần')], ['goal', t('Mục tiêu hôm nay')], ['path', t('Bài đang học')]].map(([k, l]) => tog('sTy_' + k, ((s.remTypes || {})[k]) !== false, l)).join('')}</fieldset>`
         + '<div id="remPush"></div>'
         + `<div class="set-row"><div class="set-btns">${Store.isExtension ? '' : `<button type="button" class="btn sm" id="sPerm" ${perm === 'granted' || perm === 'unsupported' ? 'disabled' : ''}>${perm === 'granted' ? '✓ ' + t('Đã cho phép thông báo') : perm === 'unsupported' ? t('Không hỗ trợ thông báo') : '🔔 ' + t('Cho phép thông báo')}</button><button type="button" class="btn sm" id="sIcs">📅 ${t('Thêm vào Lịch (.ics)')}</button>`}<button type="button" class="btn sm ghost" id="sTest">${t('Thử gửi thông báo')}</button></div></div></div>`
         + tog('sGold', s.goldenOn, t('Nhắc “thời điểm vàng”'), t('Báo khi có từ sắp bị quên'))
@@ -101,7 +101,7 @@
     App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const nav = $('.set-nav'); if (nav && !nav.querySelector('[data-jump="admin"]')) { nav.insertAdjacentHTML('afterbegin', `<button type="button" data-jump="admin"><span aria-hidden="true">${UI.icon('shield')}</span> ${t('Quản trị')}</button>`); nav.querySelector('[data-jump="admin"]').onclick = () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
     $$('.set-nav [data-jump]').forEach(b => b.onclick = () => { const el = document.getElementById('set-' + b.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
 
-    const save = async () => { await saveSettings(); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };
+    const save = async o => { await saveSettings(o); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };
     $('#sAuto').onchange = e => { s.reminderAuto = e.target.checked; if (s.reminderAuto && R) { const st = R.hm(R.pickTime(state.stats, s)); s.reminderTime = st; $('#sTime').value = st; } save(); };
     $$('[id^="sTy_"]').forEach(x => { x.onchange = () => { s.remTypes = { ...(s.remTypes || {}), [x.id.slice(4)]: x.checked }; save(); }; });
     // Nhắc cả khi đóng app (Web Push, nhóm thử nhỏ theo cờ máy chủ) – iPhone chỉ khi đã thêm vào Màn hình chính
@@ -114,7 +114,7 @@
       rp.innerHTML = tog('sPush', on, t('Nhắc cả khi đóng app'), t('Dùng thông báo đẩy của trình duyệt. Nội dung học không gửi lên máy chủ.'));
       $('#sPush').onchange = async e => { try { if (e.target.checked) { if (await Notification.requestPermission() !== 'granted' || !(await R.subscribe())) throw new Error('perm'); toast('⏰ ' + t('Đã bật nhắc học')); } else await R.unsubscribe(); } catch (x) { e.target.checked = false; toast(t('Bạn chưa cho phép thông báo')); } };
     })().catch(() => {});
-    $('#sRem').onchange = e => { s.reminderOn = e.target.checked; $('#remOpts').hidden = !s.reminderOn; save(); };
+    $('#sRem').onchange = e => { s.reminderOn = e.target.checked; $('#remOpts').hidden = !s.reminderOn; save({ ask: s.reminderOn }); };
     $('#sTime').onchange = e => { s.reminderTime = e.target.value || '20:00'; s.reminderAuto = false; const a = $('#sAuto'); if (a) a.checked = false; save(); toast(t('Sẽ nhắc lúc {time} mỗi ngày', { time: s.reminderTime })); };
     $('#sNew').oninput = e => { s.dailyNew = +e.target.value; $('#vNew').textContent = s.dailyNew; save(); };
     $('#sGoal').oninput = e => { s.dailyGoal = +e.target.value; $('#vGoal').textContent = s.dailyGoal; save(); };

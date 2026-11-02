@@ -56,7 +56,7 @@ export async function setup(db) {
     // Cổng QA nội dung (docs/CONTENT-QA.md §7): 1 phiếu "nội dung sai"/thiết bị/mục; đủ HIDE_N thiết bị → mục vào config 'content_hidden' (1 dòng, client đọc 1 lần/phiên)
     db.prepare('CREATE TABLE IF NOT EXISTS content_flags (cid TEXT NOT NULL, who TEXT NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (cid, who)) WITHOUT ROWID'),
   ]);
-  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
+  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
   await db.prepare('CREATE INDEX IF NOT EXISTS reports_sig ON reports (sig, at)').run().catch(() => {});
   ready = true;
 }
@@ -129,7 +129,24 @@ export function etaOf(cat, sev, E = ETA_DEFAULT) {
   if (sev === 'P2' || sev === 'P3') return ['content', 'i18n', 'audio'].includes(cat) || sev === 'P3' ? { kind: 'content', h: E.content } : { kind: 'normal', h: E.normal };
   return cat === 'account' ? { kind: 'serious', h: E.serious } : cat === 'bug' ? { kind: 'normal', h: E.normal } : { kind: 'content', h: E.content };
 }
-const pub = (r, E) => r && ({ id: tid(r.id), status: r.status, cat: r.cat, at: r.at, upd: r.upd, reply: r.reply || '', dup: r.dup_of ? tid(r.dup_of) : '', fixed_at: r.fixed_at || 0, fix_ver: r.fix_ver || '', eta: etaOf(r.cat, r.sev, E), triaged: !!r.sev });
+const median = a => { if (!a.length) return null; a = [...a].sort((x, y) => x - y); const m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
+// Mốc thông minh (giờ): mốc gốc theo mức/loại, ≥ trung vị thời gian sửa thật của cùng mức (90 ngày, ≥ 3 phiếu), cộng thêm 10 % cho mỗi phiếu
+// đang mở cùng mức hoặc gấp hơn xếp trước (tối đa 30 phiếu); ≥ 48 giờ làm tròn lên theo ngày; tối đa 90 ngày. Sau AI lưu ảnh chụp đầu vào
+// eta_x = {m: trung vị giờ, a: số phiếu trước} → quản trị đổi mốc gốc (config 'report_eta') vẫn áp ngay cho phiếu cũ.
+export function smartH(base, medH, ahead) {
+  let h = Math.max(base, medH > 0 ? medH : 0) * (1 + Math.min(Math.max(ahead | 0, 0), 30) / 10);
+  h = Math.min(2160, Math.ceil(h)); return h < 48 ? h : Math.min(2160, Math.ceil(h / 24) * 24);
+}
+async function smartEta(db, cat, sev, E, id = 0) {
+  const e = etaOf(cat, sev, E); if (!e.h) return e;
+  const rank = SEV_RANK[sev] ?? 9, higher = SEVS.filter(x => SEV_RANK[x] <= rank);
+  const ahead = (((await db.prepare(`SELECT COUNT(*) AS n FROM reports WHERE status IN ('new', 'ack', 'prog') AND dup_of IS NULL AND spam = 0 AND sandbox = 0 AND cat != 'idea' AND id != ?${higher.length ? ` AND (sev IS NULL OR sev IN (${higher.map(() => '?').join(', ')}))` : ''}`).bind(id, ...higher).first()) || {}).n) || 0;
+  const fx = sev ? ((await db.prepare("SELECT fixed_at - at AS dt FROM reports WHERE status = 'fixed' AND sev = ? AND spam = 0 AND sandbox = 0 AND fixed_at > ? LIMIT 500").bind(sev, Date.now() - 90 * DAY).all()).results || []).map(r => r.dt).filter(x => x >= 0) : [];
+  const med = fx.length >= 3 ? median(fx) / 36e5 : 0;
+  return { ...e, h: smartH(e.h, med, ahead), ahead, x: JSON.stringify({ m: Math.round(med * 10) / 10, a: ahead }) };
+}
+const etaPub = (r, E) => { const e = etaOf(r.cat, r.sev, E); let x = null; try { x = r.eta_x ? JSON.parse(r.eta_x) : null; } catch (er) { /* bỏ qua */ } return e.h && x ? { ...e, h: smartH(e.h, +x.m || 0, +x.a || 0) } : e; };
+const pub = (r, E) => r && ({ id: tid(r.id), status: r.status, cat: r.cat, at: r.at, upd: r.upd, reply: r.reply || '', dup: r.dup_of ? tid(r.dup_of) : '', fixed_at: r.fixed_at || 0, fix_ver: r.fix_ver || '', eta: etaPub(r, E), triaged: !!r.sev });
 const ev = (db, id, by, act, note = '') => db.prepare('INSERT INTO report_events (rid, at, by, act, note) VALUES (?, ?, ?, ?, ?)').bind(id, Date.now(), str(by, 120), act, str(note, 500));
 async function cfgGet(db) { try { const r = await db.prepare("SELECT v FROM config WHERE k = 'report_notify'").first(); return ['instant', 'digest', 'off'].includes(r && r.v) ? r.v : 'instant'; } catch (e) { return 'instant'; } }
 
@@ -170,6 +187,21 @@ export function userMail(row) {
   return { to: row.email, subject: '[Lexkite] ' + head, text: L.join('\n') };
 }
 
+// Thư cảm ơn ngay khi tạo phiếu (chỉ khi người báo để email + đồng ý): mã LX, mốc dự kiến (đã có mức AI nếu kịp), liên kết riêng #/report/<mã>
+export function thanksMail(row, eta) {
+  const t = mailT(row.lang), head = t('Báo lỗi {id}: {s}', { id: tid(row.id), s: t('Đã nhận') });
+  const L = [head, '', t('Cảm ơn bạn đã giúp Lexkite tốt hơn!'), ...(eta ? [etaText(eta, t)] : []), '', t('Lưu đường dẫn riêng này để theo dõi trạng thái:'), `${SITE}/app/#/report/${row.tok}`, '', '— Lexkite · ' + t('Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.')];
+  return { to: row.email, subject: '[Lexkite] ' + head, text: L.join('\n') };
+}
+async function thank(env, db, q, id) {
+  const r = await db.prepare('SELECT id, tok, cat, sev, eta_x, lang, email, notify, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
+  if (!r || !r.notify || r.spam || r.sandbox || !EMAIL.test(r.email || '')) return false;
+  if (q.near('mail')) { await ev(db, id, 'system', 'mail-skipped', 'quota').run(); return false; }
+  const ok = await mail(env, 'user', thanksMail(r, etaPub(r, await etaCfg(db))));
+  await db.batch([ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', 'thanks'), ...(ok ? [q.use('mail')] : [])]).catch(() => {});
+  return ok;
+}
+
 // Sau khi tạo: chữ ký lỗi → phiếu gốc trùng (7 ngày) · số phiếu tương tự · AI/luật phân loại · thư quản trị theo mức · Issue cho Claude Code
 async function after(env, db, q, r) {
   if (r.spam) return;
@@ -185,7 +217,8 @@ async function after(env, db, q, r) {
     await db.batch([db.prepare('DELETE FROM report_shots WHERE rid = ?').bind(r.id), db.prepare('UPDATE reports SET has_shot = 0, spam = 1, sev = ?, ai = ? WHERE id = ?').bind(tri.severity, JSON.stringify(tri), r.id), ev(db, r.id, 'ai', 'shot-removed', tri.image_safety)]);
     return;
   }
-  const w = [db.prepare(`UPDATE reports SET sev = ?, sig = ?, ai = ?${root ? ", dup_of = ?, status = 'dup'" : ''} WHERE id = ?`).bind(...[tri.severity, sig, JSON.stringify(tri), ...(root ? [root.id] : []), r.id]), ev(db, r.id, 'ai', 'triage', `${tri.severity} · ${tri.by}${root ? ' · dup ' + tid(root.id) : ''}`)];
+  const eh = (await smartEta(db, r.cat, tri.severity, await etaCfg(db), r.id)).x || null; // mốc chính xác sau AI (trang trạng thái + thư cảm ơn)
+  const w = [db.prepare(`UPDATE reports SET sev = ?, sig = ?, ai = ?, eta_x = ?${root ? ", dup_of = ?, status = 'dup'" : ''} WHERE id = ?`).bind(...[tri.severity, sig, JSON.stringify(tri), eh, ...(root ? [root.id] : []), r.id]), ev(db, r.id, 'ai', 'triage', `${tri.severity} · ${tri.by}${root ? ' · dup ' + tid(root.id) : ''}`)];
   if (root) w.push(db.prepare('UPDATE reports SET upd = upd WHERE id = ?').bind(root.id), ev(db, root.id, 'ai', 'merged', tid(r.id) + ' (auto)'));
   if (tri.by === 'ai') w.push(q.use('ai', q.cost || 60));
   await db.batch(w);
@@ -253,9 +286,11 @@ async function create(request, env, b, bg) {
   await db.batch(w);
   if (cat === 'content' && ctx.cid && !spam && !ctx.sandbox) await flagContent(db, env, ctx.cid, who, now).catch(() => {});
   // AI phân loại + gom trùng + thư quản trị + GitHub Issue: chạy nền (waitUntil) – người dùng nhận mã ngay
-  const p = after(env, db, q, { id, cat, area, msg, email, notify, shot, errs, ctx, spam }).catch(() => {});
+  // Thư cảm ơn chạy sau AI phân loại (mốc theo mức P0–P3 nếu kịp); AI lỗi vẫn gửi (mốc theo loại)
+  const p = after(env, db, q, { id, cat, area, msg, email, notify, shot, errs, ctx, spam }).catch(() => {}).then(() => notify && thank(env, db, q, id)).catch(() => {});
   if (bg) bg(p); else await p;
-  return json(request, 200, { ok: true, id: tid(id), token: tok, eta: etaOf(cat, null, await etaCfg(db)) });
+  const { x: _x, ...e0 } = await smartEta(db, cat, null, await etaCfg(db), id).catch(() => etaOf(cat, null)); // trước AI: theo loại + hàng đợi
+  return json(request, 200, { ok: true, id: tid(id), token: tok, eta: e0 });
 }
 
 // ---------- Quản trị ----------
@@ -276,7 +311,6 @@ function where(b) {
   return { sql: ' WHERE ' + w.join(' AND '), a };
 }
 const csvCell = v => { const s = String(v == null ? '' : v); const x = /^[=+\-@\t\r]/.test(s) ? "'" + s : s; return /[",\n\r]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; }; // chống CSV injection
-const median = a => { if (!a.length) return null; a = [...a].sort((x, y) => x - y); const m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
 
 async function notifyReporter(env, db, id) {
   const r = await db.prepare('SELECT id, tok, status, reply, dup_of, fix_ver, email, notify, lang FROM reports WHERE id = ?').bind(id).first();
@@ -377,7 +411,8 @@ Object.assign(OPS, {
     const shot = r.has_shot ? ((await db.prepare('SELECT data FROM report_shots WHERE rid = ?').bind(id).first()) || {}).data : '';
     const sim = (await db.prepare(`SELECT COUNT(*) AS n FROM reports WHERE id != ?1 AND spam = 0 AND at > ?2 AND (area = ?3 OR (?4 != '' AND sig = ?4))`).bind(id, Date.now() - 7 * DAY, r.area, r.sig || '').first() || {}).n || 0;
     const tri = await triage(env, { msg: r.msg, cat: r.cat, area: r.area, route: r.route, plat: r.plat, ver: r.ver, lang: r.lang, errs, shot, similar: sim, cands: [] });
-    await db.batch([db.prepare('UPDATE reports SET sev = ?, ai = ? WHERE id = ?').bind(tri.severity, JSON.stringify(tri), id), ev(db, id, who.email, 'triage', tri.severity + ' · ' + tri.by)]);
+    const eh = (await smartEta(db, r.cat, tri.severity, await etaCfg(db), id)).x || null;
+    await db.batch([db.prepare('UPDATE reports SET sev = ?, ai = ?, eta_x = ? WHERE id = ?').bind(tri.severity, JSON.stringify(tri), eh, id), ev(db, id, who.email, 'triage', tri.severity + ' · ' + tri.by)]);
     return { ok: true, ai: tri };
   },
   // "Giao Claude Code": tạo GitHub Issue (đề xuất phải được Duyệt trước)
@@ -446,7 +481,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
       const ts = (b.op === 'status' ? [b.t] : Array.isArray(b.ts) ? b.ts.slice(0, 20) : []).filter(x => TOK.test(String(x || '')));
       if (!ts.length) return json(request, b.op === 'status' ? 404 : 200, b.op === 'status' ? { error: 'not-found' } : { rows: [] });
       await setup(env.DB);
-      const E = await etaCfg(env.DB), rows = (await env.DB.prepare(`SELECT id, tok, status, cat, sev, at, upd, reply, dup_of, fixed_at, fix_ver FROM reports WHERE tok IN (${ts.map(() => '?').join(', ')})`).bind(...ts).all()).results || [];
+      const E = await etaCfg(env.DB), rows = (await env.DB.prepare(`SELECT id, tok, status, cat, sev, eta_x, at, upd, reply, dup_of, fixed_at, fix_ver FROM reports WHERE tok IN (${ts.map(() => '?').join(', ')})`).bind(...ts).all()).results || [];
       if (b.op === 'status') return rows[0] ? json(request, 200, pub(rows[0], E)) : json(request, 404, { error: 'not-found' });
       return json(request, 200, { rows: rows.map(r => ({ t: r.tok, ...pub(r, E) })) });
     }
