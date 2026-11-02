@@ -29,6 +29,7 @@ on:
       - 'hair-try'
       - 'iOS → ảnh App Store'
       - 'Journey E2E'
+      - 'Lesson embed video'
       - 'Mobile QA'
       - 'npm test'
       - 'Perf profile'
