@@ -64,7 +64,8 @@ jobs:
           python3 scripts/video/motion/embed_spec.py $SPEC > embed.json
           for x in "$SPEC:vo" "embed.json:vo_e"; do S=${x%%:*}; D=${x##*:}
             python3 -c "import json;s=json.load(open('$S'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
-            NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json $D; done
+            NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json $D
+            node scripts/video/tpl/pron.mjs audit-json "$S" $D/vis3/pron.json; done   # Kokoro phonemes vs CMUdict + on-screen IPA vs bank -> qc_v9 pron_kokoro / ipa_token
       - uses: actions/upload-artifact@v4
         with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: 'vo*/', retention-days: 3 }
   render:

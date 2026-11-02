@@ -1094,6 +1094,20 @@ export const REG = {
    "minutes": 2,
    "est": {},
    "lease": false
+  },
+  {
+   "id": "world-scorecard",
+   "workflow": "world-scorecard.yml",
+   "cron": [
+    "30 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false
   }
  ]
 };
