@@ -1,6 +1,16 @@
 {
  "_doc": "Việc hạ nguồn của kho từ (docs/JOBS.md §Đồ thị kho từ). Mọi script đọc kho (loadAll/loadBrowserIndex/dist/lexicon.json/IELTS_DATA.INDEX) PHẢI có ở đây: via = đường nạp có mục mở rộng (expand-aware), hoặc skip + lý do. scripts/test/lexicon-expand.mjs đỏ khi script mới đọc kho mà chưa đăng ký, khi via không còn trong mã, hoặc khi mục từ có TRƯỜNG mới chưa khai trong fields.",
  "consumers": {
+  "scripts/content-score.mjs": {
+   "what": "content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh)",
+   "via": "loadAllPlus",
+   "job": "content-qa.yml (score)"
+  },
+  "scripts/content-qa/lkf-check.mjs": {
+   "what": "reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do",
+   "via": "loadAllPlus",
+   "job": "npm test + content-qa.yml (score)"
+  },
   "scripts/lexicon/shards.mjs": {
    "what": "mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ",
    "via": "loadExpand",
@@ -169,6 +179,11 @@
    "what": "trích Open English WordNet → content/dict/wordnet.json, chỉ giữ từ đơn có trong kho (docs/SEO-DICT-PAGES.md)",
    "via": "loadBrowserIndex",
    "job": "tay (chạy lại khi kho từ lớn thêm) → build.mjs đọc file đã commit"
+  },
+  "scripts/sentence-audio/render.mjs": {
+   "what": "phiên âm từ điển (Anh/Mỹ) cho phương án render lại cụm ≤ 3 chữ trượt cổng ASR câu",
+   "via": "loadAllPlus",
+   "job": "sentence-audio-asr mỗi 4 giờ"
   }
  },
  "todo": {
@@ -189,6 +204,8 @@
   "topic",
   "ex2",
   "note",
-  "x"
- ]
+  "x",
+  "more"
+ ],
+ "_more": "Trường `more` của INDEX (31/10 đa từ loại): từ loại PHỤ của từ đã có mục ([{pos, ipa, ipaUS, vi, def, ex, ex2, col, syn, level, topic, x}]) – shards.mjs mergeExpand; nghĩa 13 ngôn ngữ ở mảnh ngôn ngữ khoá từ#loại; dictionary.js hiện ở khối đúng từ loại. Việc hạ nguồn theo TỪ (âm thanh, tab mới, /words/) không cần; theo NGHĨA đọc dist/lexicon.json (khoá từ#loại, đã có) hoặc loadAllPlus (khoá từ#loại)."
 }

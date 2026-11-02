@@ -3,7 +3,7 @@ title: "IELTS Writing Task 1 Grafik: Rapor Yazma ve Analiz Taktikleri"
 description: "ielts writing task 1 grafik yorumlama rehberi: Çizgi, sütun grafik ve tabloları analiz etme, 4 paragraflı yapı, trend kelimeleri ve şablonlar."
 slug: ielts-writing-task-1-grafik-yorumlama-rehberi
 lang: tr
-translationKey: ielts-writing-task-1-huong-dan-mo-ta-bieu-do
+translationKey: ielts-writing-task-1-line-graph
 category: ielts
 tags: [ielts, ielts-writing, task-1]
 keyword: "ielts writing task 1 grafik"

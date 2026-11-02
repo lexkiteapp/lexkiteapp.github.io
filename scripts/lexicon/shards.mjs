@@ -11,7 +11,8 @@ import vm from 'vm';
 import zlib from 'zlib';
 import crypto from 'crypto';
 import { createRequire } from 'module';
-import { loadExpand, toIndex } from './expand/lib.mjs';
+import { loadExpand, toIndex, toMore } from './expand/lib.mjs';
+import { normPos } from './lib.mjs';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const require = createRequire(import.meta.url);
@@ -30,8 +31,16 @@ export function loadBrowserIndex({ expand = true } = {}) {
   // Mục MỞ RỘNG đã xuất (content/lexicon/expand, docs/LEXICON.md §Mở rộng 20k): không nằm trong web/js (ngân sách) – trình duyệt nhận qua mảnh Lex;
   // ghép vào INDEX ở đây để MỌI việc hạ nguồn đọc INDEX (mảnh, trang /words/, cổng nhất quán) tự có từ mới. Không bao giờ đè mục sẵn có.
   const INDEX = ctx.IELTS_DATA.INDEX, XM = new Map();
-  if (expand) for (const { e } of loadExpand()) { const k = e.w.toLowerCase(); if (INDEX[k]) continue; INDEX[k] = toIndex(e); XM.set(k, e.m || {}); }
+  // Từ đã có mục mà mục mở rộng là TỪ LOẠI KHÁC (duck#n có, duck#v mới) → INDEX[k].more (bản sao – không sửa đối tượng của bộ chủ đề); cùng từ loại → bỏ (mục sẵn có thắng).
+  if (expand) mergeExpand(INDEX, XM, loadExpand().map(x => x.e));
   return { INDEX, XM, TOPICS: ctx.IELTS_DATA.TOPICS, VERBS: ctx.LK_VERBS, files };
+}
+export function mergeExpand(INDEX, XM, list) {
+  for (const e of list) { const k = e.w.toLowerCase(), cur = INDEX[k];
+    if (!cur) { INDEX[k] = toIndex(e); XM.set(k, e.m || {}); continue; }
+    if (normPos(cur.pos) === e.pos || (cur.more || []).some(m => m.pos === e.pos)) continue;
+    INDEX[k] = { ...cur, more: [...(cur.more || []), toMore(e)] }; XM.set(k + '#' + e.pos, e.m || {}); }
+  return INDEX;
 }
 const IRR_PLURAL = 'children child|men man|women woman|people person|feet foot|teeth tooth|mice mouse|geese goose|criteria criterion|phenomena phenomenon|analyses analysis|crises crisis|theses thesis|hypotheses hypothesis|data datum|media medium|bacteria bacterium|curricula curriculum|indices index|appendices appendix|lives life|wives wife|knives knife|leaves leaf|halves half|selves self|shelves shelf|wolves wolf|better good|best good|worse bad|worst bad|further far|farther far';
 
@@ -67,7 +76,8 @@ export function buildShards() {
     const P = JSON.parse(fs.readFileSync(path.join(ROOT, 'web/packs', f), 'utf8')), list = [];
     core.forEach((c, i) => {
       const j = Math.floor(i / LANG_GROUP); list[j] = list[j] || {};
-      for (const k of Object.keys(c.d.e)) { const e = c.d.e[k], lk = e.word.toLowerCase(), v = P[lk + '#' + gpos(e.pos)] || P[lk] || (e.x && XM.get(k) && XM.get(k)[f.slice(0, 2)] ? [XM.get(k)[f.slice(0, 2)], 2, 0] : null); if (v) list[j][k] = v; }
+      for (const k of Object.keys(c.d.e)) { const e = c.d.e[k], lk = e.word.toLowerCase(), v = P[lk + '#' + gpos(e.pos)] || P[lk] || (e.x && XM.get(k) && XM.get(k)[f.slice(0, 2)] ? [XM.get(k)[f.slice(0, 2)], 2, 0] : null); if (v) list[j][k] = v;
+        for (const m of e.more || []) { const mk = k + '#' + m.pos, mv = P[lk + '#' + m.pos] || (XM.get(k + '#' + m.pos) || {})[f.slice(0, 2)]; if (mv) list[j][mk] = Array.isArray(mv) ? mv : [mv, 2, 0]; } } // từ loại phụ: cùng mảnh với từ chính (Lex.get tra theo từ)
     });
     langs[f.slice(0, 2)] = list;
   }

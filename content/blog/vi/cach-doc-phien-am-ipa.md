@@ -3,7 +3,7 @@ title: "Cách đọc phiên âm IPA tiếng Anh cho người Việt mới bắt 
 description: "Cách đọc phiên âm IPA từ con số 0: bảng nguyên âm, phụ âm, các cặp âm người Việt hay nhầm, khác biệt Anh–Mỹ và cách tra phiên âm để tự đọc đúng mọi từ."
 slug: cach-doc-phien-am-ipa
 lang: vi
-translationKey: cach-doc-phien-am-ipa
+translationKey: bang-phien-am-tieng-anh-ipa
 category: tu-vung
 tags: [ipa, phat-am]
 keyword: "cách đọc phiên âm ipa"

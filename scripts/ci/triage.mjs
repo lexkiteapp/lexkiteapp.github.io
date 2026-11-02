@@ -179,6 +179,8 @@ async function sweep() {
   // 3) bản tin ngày → tóm tắt job + cảnh báo Quản trị + 1 thư/ngày (chỉ khi có đỏ)
   const day = failed.filter(r => r.created_at >= new Date(now - 24 * 3600e3).toISOString() && r.name !== 'ci-triage');
   const d = digest(day, latest, await openIssues(), await videoSummary(now).catch(e => { console.log('video summary:', e.message); return null; }));
+  // 4) runner 24 h (ci-filler): TB/đỉnh theo giờ + phút-runner rảnh khi còn tồn đọng (KPI → ~0)
+  try { const f = await import('./filler.mjs'), u = f.report(await f.readLog()); d.md += '\n' + u.md; d.text += `\n\nRunner 24 h: ${u.msg}`; } catch (e) { console.log('runner report:', e.message); }
   summary(d.md);
   if (!process.env.LEXKITE_DRIVE_CLI_KEY) return console.log('Không có LEXKITE_DRIVE_CLI_KEY – chỉ ghi tóm tắt job.');
   try {

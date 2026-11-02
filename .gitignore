@@ -68,3 +68,4 @@ web/data/lex-index.json
 # Tệp media sinh trên CI – đẩy lên kho media (scripts/media/push.mjs), KHÔNG commit vào repo chính
 .media-out/
 dist-dict/
+.sa/
