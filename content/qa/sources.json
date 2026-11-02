@@ -218,7 +218,9 @@
    ],
    "delegate": [
     "content-qa/lkf-check.mjs",
-    "test/lkf.mjs"
+    "test/lkf.mjs",
+    "content-qa/grammar-map-check.mjs",
+    "test/grammar-inventory.mjs"
    ]
   },
   {
