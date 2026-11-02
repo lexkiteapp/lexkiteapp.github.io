@@ -6,7 +6,7 @@
 // Cờ PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS: không có thì fetch() TỪ service worker (sw.js âm thanh/vimg) lọt ra mạng thật.
 // Đi kèm .github/actions/no-prod (chặn DNS ở /etc/hosts → lỡ sót cũng 0 lượt prod). Kiểm: scripts/test/no-prod-hosts.mjs.
 import { githubCandidates, typeOf, PROD_CDN, PROD_API } from '../../media/origin.mjs';
-process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS ||= '1';
+if (process.env.LEXKITE_NO_PROD_SW !== 'off') process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS ||= '1'; // off: ext-e2e (SW add-on)
 
 const memo = new Map(); // URL → {status, headers, body} trong một lượt chạy: ảnh/âm thanh lặp không tải lại GitHub
 export const stats = { cdn: 0, github: 0, api: 0, miss: 0 };
