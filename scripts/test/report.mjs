@@ -378,6 +378,20 @@ ok(R.smartH(72, 0, 0) === 72 && R.smartH(24, 0, 5) === 36 && R.smartH(72, 100, 0
   sql.prepare("UPDATE reports SET email = 'm@example.com', notify = 1 WHERE id = ?").run(+c3.j.id.slice(3) - 1000);
   mailOk = false; await call({ op: 'set', id: c3.j.id, reply: 'mail test' }, { token: ADM }); mailOk = true;
   ok((await call({ op: 'cfg' }, { token: ADM })).j.mail_st === 'no-key', 'Worker thư trả 501 → thẻ Chất lượng báo "chưa có khóa"');
+  // Màn cảm ơn "Báo cho tôi khi sửa xong": đăng ký "chỉ báo lỗi" (ro) không nhận lời nhắc học, không đè lịch thiết bị đã bật nhắc học; op pid gắn vào phiếu bằng mã riêng
+  const PU = await import(new URL('../../functions/api/push.js', import.meta.url)), ps = b => PU.onRequestPost({ request: new Request('https://lexkite.com/api/push', { method: 'POST', headers: { 'CF-Connecting-IP': '10.9.9.9' }, body: JSON.stringify(b) }), env: E2 }).then(async r => ({ s: r.status, j: await r.json().catch(() => ({})) }));
+  const EP = 'https://fcm.googleapis.com/fcm/send/report-only-1', ro = await ps({ op: 'sub', k: 'web', ro: 1, ep: EP, lmin: 1200, tz: 'Asia/Tokyo', lang: 'ja' });
+  const rw = sql2.prepare('SELECT done, lang FROM push_subs WHERE id = ?').get(ro.j.id);
+  ok(ro.s === 200 && /^[a-f0-9]{32}$/.test(ro.j.id) && rw.done === 1 && rw.lang === 'ja', 'sub ro: thiết bị chỉ nhận báo "đã sửa" (done = 1 → không lời nhắc học): ' + JSON.stringify([ro, rw]));
+  const EP2 = 'https://fcm.googleapis.com/fcm/send/reminder-on-2', on = await ps({ op: 'sub', k: 'web', ep: EP2, lmin: 1170, tz: 'UTC', lang: 'en' }); await ps({ op: 'sub', k: 'web', ro: 1, ep: EP2, lmin: 1200, tz: 'UTC', lang: 'fr' });
+  const r2w = sql2.prepare('SELECT done, lmin, lang FROM push_subs WHERE id = ?').get(on.j.id);
+  ok(r2w.done === 0 && r2w.lmin === 1170 && r2w.lang === 'fr', 'sub ro trên thiết bị đã bật nhắc học → giữ lịch nhắc, chỉ đổi ngôn ngữ');
+  const c4 = await call(good({ cat: 'bug', msg: 'Pid attach test: lesson list is empty today.' }), { ip: '10.0.0.99', env: E2 }), id4 = +c4.j.id.slice(3) - 1000;
+  const a1 = await call({ op: 'pid', t: c4.j.token, pid: ro.j.id }, { env: E2 }), a2 = await call({ op: 'pid', t: c4.j.token, pid: 'e'.repeat(32) }, { env: E2 }), a3 = await call({ op: 'pid', t: 'x'.repeat(24), pid: 'e'.repeat(32) }, { env: E2 });
+  ok(a1.j.set === true && a2.j.set === false && a3.j.set === false && sql.prepare('SELECT pid FROM reports WHERE id = ?').get(id4).pid === ro.j.id, 'op pid: gắn 1 lần bằng mã riêng; không đè, mã sai không gắn');
+  ok((await call({ op: 'pid', t: c4.j.token, pid: 'nothex' }, { env: E2 })).s === 400, 'op pid: id thiết bị sai định dạng → 400');
+  await call({ op: 'set', id: c4.j.id, status: 'fixed' }, { token: ADM, env: E2 });
+  ok(sql2.prepare('SELECT COUNT(*) AS n FROM push_now WHERE sid = ? AND rid = ?').get(ro.j.id, id4).n === 1, 'phiếu gắn từ màn cảm ơn → Đã sửa → có báo đẩy');
   globalThis.fetch = f0; }
 
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }

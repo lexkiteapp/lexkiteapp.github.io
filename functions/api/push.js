@@ -8,6 +8,7 @@
  * Nút:
  *   GET  ?op=cfg                         → { on, pct, key, fcm } (cache 1 giờ) – cờ PUSH_PCT (0–100, nhóm thử theo máy), FCM_ON
  *   POST {op:'sub', ep|token, k, lmin, q:[q1,q2], tz (IANA), lang, st}  → { id }   (ghi 1 dòng)
+ *     ro: 1 = chỉ báo lỗi "đã sửa" (done = 1, không nhắc học; không đè lịch thiết bị đã bật nhắc học)
  *   POST {op:'touch', id, lmin, q, tz, lang, st}  → { ok } | { gone:1 }  (máy khách chỉ gửi khi ngày mở app/đã học/giờ/tz/ngôn ngữ ĐỔI)
  *   POST {op:'unsub', id}                → { ok }
  *   POST {op:'ev', e:[[ev, tpl, n], …]}  → 204 (≤ 12 bộ đếm/lượt, 1 lượt ghi gộp)
@@ -174,6 +175,9 @@ export async function onRequestPost({ request, env }) {
       if (k === 'web' ? (pct(env) <= 0 || !PUSH_HOST.test(ep) || ep.length > 700) : (!fcmOn(env) || !/^[\w:\-.]{20,400}$/.test(ep))) return json(request, 400, { error: 'bad-sub' });
       const lmin = minOk(b.lmin); if (lmin == null) return json(request, 400, { error: 'lmin' });
       const tz = tzOk(b.tz), id = await sha(k + '|' + ep), today = localDay(now, tz), lang = LANGS.includes(b.lang) ? b.lang : 'en', q = Array.isArray(b.q) ? b.q.map(minOk) : [1320, 480];
+      // ro = "chỉ báo lỗi" (màn cảm ơn Báo lỗi): done = 1 → không bao giờ nhận lời nhắc học; thiết bị đã bật nhắc học → giữ nguyên lịch, chỉ đổi ngôn ngữ
+      if (b.ro) { await db.batch([db.prepare('INSERT INTO push_subs (id, k, ep, slot, tz, lmin, q1, q2, act, std, last, n, done, lang, at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1320, 480, ?7, 0, 0, 0, 1, ?8, ?9) ON CONFLICT (id) DO UPDATE SET lang = ?8')
+        .bind(id, k, ep, slotFor(lmin, tz, now), tz, lmin, today, lang, now), bump(db, day(now), 'subs:rep')]); return json(request, 200, { id }); }
       await db.batch([db.prepare('INSERT INTO push_subs (id, k, ep, slot, tz, lmin, q1, q2, act, std, last, n, done, lang, at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, 0, 0, 0, ?11, ?12) ON CONFLICT (id) DO UPDATE SET slot = ?4, tz = ?5, lmin = ?6, q1 = ?7, q2 = ?8, act = ?9, std = MAX(std, ?10), n = 0, done = 0, lang = ?11')
         .bind(id, k, ep, slotFor(lmin, tz, now), tz, lmin, q[0], q[1], today, b.st ? today : 0, lang, now), bump(db, day(now), 'subs:' + k)]);
       return json(request, 200, { id });

@@ -74,6 +74,7 @@ const done = d.querySelector('.lkr-done');
 ok(done && done.getAttribute('role') === 'status' && done.textContent.includes('Thank you for helping make Lexkite better!'), 'màn cảm ơn (role=status)');
 ok(done.querySelector('.lkr-kit svg'), 'có Kit (web/js/kit.js)');
 ok(done.querySelector('.lkr-tid').textContent === 'LX-1001', 'hiện mã LX');
+ok(done.querySelector('#lkrPushRow') && done.querySelector('#lkrPushRow').hidden, 'máy đã có thông báo đẩy (nhắc học) → không hiện nút "Báo cho tôi khi sửa xong"');
 ok(done.querySelector('.lkr-eta').textContent.includes('within 2–3 days'), 'mốc dự kiến theo loại (72 giờ → 2–3 ngày)');
 ok(done.textContent.includes("You'll see updates right in the app"), 'không để email → nhắc xem cập nhật trong app');
 ok(done.querySelector('a.btn.primary').getAttribute('href') === '#/report/' + 'T'.repeat(24) && done.querySelector('a.btn.primary').textContent === 'Track progress', 'nút "Theo dõi tiến độ" → link riêng');
@@ -120,6 +121,23 @@ ok(v.querySelector('.lkr-list a[href="#/report/' + 'T'.repeat(24) + '"]'), '#/re
   const none = C({ mail_st: 'no-key', push: 'no-d1b' });
   ok(none.every(i => !i.ok && i.fix) && by({ mail_st: 'no-key' }, 'mail').fix.includes('RESEND_API_KEY') && by({ push: 'off' }, 'push').fix.includes('PUSH_PCT') && by({}, 'cli').fix.includes('LEXKITE_REPORT_CLI_KEY'), 'checks: thiếu bí mật → ⚠️ + chỗ nhập (thư 501 → RESEND/BREVO, push tắt → PUSH_PCT)');
   ok(C({ ai: 1, gh: 1, cli: 1, mail_st: 'ok', push: 'ok' }).every(i => i.ok), 'checks: đủ cả → ✅'); }
+
+// "Báo cho tôi khi sửa xong": chỉ khi chưa có push; bấm mới xin quyền; iOS Safari chưa thêm MH chính / đã chặn → ẩn; đăng ký ro + gắn vào phiếu
+{ const X = R._t, nav = w.navigator, KEY = 'B'.repeat(87); let perm = 'default', asked = 0, subd = 0;
+  w.localStorage.removeItem('lk.push');
+  Object.defineProperty(nav, 'serviceWorker', { configurable: true, value: { ready: Promise.resolve({ pushManager: { getSubscription: async () => null, subscribe: async o => { subd++; return { toJSON: () => ({ endpoint: 'https://fcm.googleapis.com/fcm/send/abc' }) }; } } }) } });
+  w.PushManager = function () {}; w.Notification = { get permission() { return perm; }, requestPermission: async () => { asked++; return perm = 'granted'; } };
+  sent = []; reply = b => (b && b.op === 'sub' ? { id: 'c'.repeat(32) } : b && b.op === 'pid' ? { ok: true, set: true } : {});
+  const f0 = w.fetch; w.fetch = async (url, init) => (String(url).includes('/api/push?op=cfg') ? { ok: true, json: async () => ({ on: true, key: KEY }) } : f0(url, init));
+  const k = await X.fixPushKey(); ok(k === KEY && asked === 0, 'chưa có push + cờ bật → hiện nút, CHƯA xin quyền');
+  const on = await X.fixPushOn('T'.repeat(24), k), sb = sent.find(x => x.b.op === 'sub'), pd = sent.find(x => x.b.op === 'pid');
+  ok(on && asked === 1 && subd === 1 && sb && sb.b.ro === 1 && sb.url.endsWith('/api/push') && pd && pd.b.t === 'T'.repeat(24) && pd.b.pid === 'c'.repeat(32) && JSON.parse(w.localStorage.getItem('lk.rpush')).id === 'c'.repeat(32), 'bấm → xin quyền → đăng ký "chỉ báo lỗi" (ro) → gắn id thiết bị vào phiếu');
+  ok((await X.fixPushKey()) === '', 'đã đăng ký → không hiện nút lần sau');
+  w.localStorage.removeItem('lk.rpush'); perm = 'denied'; ok((await X.fixPushKey()) === '', 'đã chặn quyền → ẩn nút');
+  perm = 'default'; perm = 'default'; w.Notification.requestPermission = async () => 'denied'; ok((await X.fixPushOn('T'.repeat(24), KEY)) === false, 'từ chối quyền → không đăng ký (vẫn thấy cập nhật trong app)');
+  const ua = nav.userAgent; Object.defineProperty(nav, 'userAgent', { configurable: true, value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)' });
+  ok((await X.fixPushKey()) === '', 'iOS Safari chưa thêm vào Màn hình chính → ẩn nút');
+  Object.defineProperty(nav, 'userAgent', { configurable: true, value: ua }); w.fetch = f0; }
 
 if (fails) { console.error(`✗ report-ui: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report-ui: ${n} kiểm tra – nút nổi, form, a11y, dữ liệu gửi, màn cảm ơn, mốc dự kiến, khóa 30 s, trang trạng thái`);

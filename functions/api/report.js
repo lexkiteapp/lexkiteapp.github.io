@@ -521,6 +521,13 @@ export async function onRequestPost({ request, env, waitUntil }) {
   try {
     if (b.op === 'create') return await create(request, env, b, typeof waitUntil === 'function' ? waitUntil : null);
     if (b.op === 'hidden') { await setup(env.DB); return new Response(JSON.stringify({ cids: await hiddenList(env.DB) }), { status: 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=600', ...cors(request) } }); } // công khai: chỉ mã nội dung
+    // Màn cảm ơn: "Báo cho tôi khi sửa xong" → gắn id thiết bị (đăng ký /api/push vừa tạo) vào phiếu; chỉ người giữ mã riêng, chỉ khi chưa có
+    if (b.op === 'pid') {
+      const t0 = String(b.t || ''), pid = String(b.pid || ''); if (!TOK.test(t0) || !/^[a-f0-9]{32}$/.test(pid)) return json(request, 400, { error: 'pid' });
+      await setup(env.DB);
+      const r0 = await env.DB.prepare("UPDATE reports SET pid = ? WHERE tok = ? AND COALESCE(pid, '') = '' AND status NOT IN ('fixed', 'wontfix')").bind(pid, t0).run();
+      return json(request, 200, { ok: true, set: !!(r0.meta && r0.meta.changes) });
+    }
     if (b.op === 'status' || b.op === 'mine') {
       const ts = (b.op === 'status' ? [b.t] : Array.isArray(b.ts) ? b.ts.slice(0, 20) : []).filter(x => TOK.test(String(x || '')));
       if (!ts.length) return json(request, b.op === 'status' ? 404 : 200, b.op === 'status' ? { error: 'not-found' } : { rows: [] });

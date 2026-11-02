@@ -32909,5 +32909,50 @@
     "ar": "شكرًا لإبلاغك – اضغط لعرض التفاصيل.",
     "ru": "Спасибо за сообщение – нажмите, чтобы посмотреть подробности.",
     "tr": "Bildirdiğin için teşekkürler – ayrıntılar için dokun."
+  },
+  "Báo cho tôi khi sửa xong": {
+    "es": "Avísame cuando esté solucionado",
+    "pt": "Avise-me quando for corrigido",
+    "fr": "Me prévenir quand ce sera corrigé",
+    "de": "Benachrichtige mich, wenn es behoben ist",
+    "id": "Beri tahu saya saat sudah diperbaiki",
+    "th": "แจ้งฉันเมื่อแก้ไขเสร็จ",
+    "zh": "修复后通知我",
+    "ja": "修正されたら知らせる",
+    "ko": "해결되면 알려 주세요",
+    "hi": "ठीक होने पर मुझे सूचित करें",
+    "ar": "أبلغني عند الإصلاح",
+    "ru": "Сообщить, когда исправят",
+    "tr": "Düzeltilince bana haber ver"
+  },
+  "Đã bật – bạn sẽ nhận thông báo khi lỗi được sửa.": {
+    "es": "Listo: recibirás una notificación cuando esté solucionado.",
+    "pt": "Pronto – você receberá uma notificação quando for corrigido.",
+    "fr": "C'est fait – vous recevrez une notification quand ce sera corrigé.",
+    "de": "Erledigt – du bekommst eine Benachrichtigung, sobald es behoben ist.",
+    "id": "Selesai – kamu akan menerima notifikasi saat sudah diperbaiki.",
+    "th": "เปิดแล้ว – คุณจะได้รับการแจ้งเตือนเมื่อแก้ไขเสร็จ",
+    "zh": "已开启——修复后你会收到通知。",
+    "ja": "設定しました。修正されたら通知が届きます。",
+    "ko": "설정했어요. 해결되면 알림을 보내 드릴게요.",
+    "hi": "चालू हो गया – ठीक होने पर आपको सूचना मिलेगी।",
+    "ar": "تم – سيصلك إشعار عند الإصلاح.",
+    "ru": "Готово – вы получите уведомление, когда исправят.",
+    "tr": "Tamam – düzeltildiğinde bildirim alacaksın."
+  },
+  "Chưa bật được thông báo – bạn vẫn thấy cập nhật trong app.": {
+    "es": "No se pudieron activar las notificaciones; seguirás viendo las novedades en la app.",
+    "pt": "Não foi possível ativar as notificações – você ainda verá as atualizações no app.",
+    "fr": "Impossible d'activer les notifications – vous verrez quand même les mises à jour dans l'app.",
+    "de": "Benachrichtigungen konnten nicht aktiviert werden – Updates siehst du trotzdem in der App.",
+    "id": "Notifikasi belum bisa diaktifkan – kamu tetap bisa melihat kabar terbaru di aplikasi.",
+    "th": "ยังเปิดการแจ้งเตือนไม่ได้ – คุณยังเห็นความคืบหน้าได้ในแอป",
+    "zh": "无法开启通知——你仍可在应用内查看进展。",
+    "ja": "通知をオンにできませんでした。進捗はアプリ内で確認できます。",
+    "ko": "알림을 켜지 못했어요. 진행 상황은 앱에서 계속 볼 수 있어요.",
+    "hi": "सूचनाएँ चालू नहीं हो सकीं – आप ऐप में अपडेट देख सकते हैं।",
+    "ar": "تعذّر تشغيل الإشعارات – ستظل ترى التحديثات داخل التطبيق.",
+    "ru": "Не удалось включить уведомления – обновления по-прежнему видны в приложении.",
+    "tr": "Bildirimler açılamadı – güncellemeleri yine uygulamada görebilirsin."
   }
 }
