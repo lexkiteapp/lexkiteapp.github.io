@@ -89,6 +89,7 @@ node scripts/test/capacity.mjs
 node scripts/test/free-tier.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
+node scripts/test/target-lang.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
@@ -99,6 +100,7 @@ node scripts/test/required-gate.mjs
 node scripts/test/drive-ui.mjs
 node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
+node scripts/test/cron-watch.mjs
 node scripts/test/reminders.mjs
 node scripts/test/focus-targets.mjs
 node --check scripts/test/journey-e2e.mjs
@@ -195,6 +197,8 @@ node scripts/test/shell-lazy.mjs
 node scripts/test/video-pron.mjs
 node scripts/test/mqa-parity.mjs
 node scripts/say-native/build.mjs --check
+node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
 node scripts/test/suite-guard.mjs
+node scripts/test/codemap-budget.mjs
