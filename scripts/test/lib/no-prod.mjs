@@ -22,7 +22,10 @@ export async function noProd(ctx, opts = {}) {
         stats.github++;
         const r = await route.fetch({ url: g, headers: range ? { range } : {}, maxRedirects: 5 });
         if (r.status() >= 400) continue;
-        const res = { status: r.status(), headers: { ...r.headers(), 'content-type': typeOf(url), 'access-control-allow-origin': '*', 'x-origin': 'ci-github' }, body: await r.body() };
+        const body = await r.body(), src = r.headers(), headers = { 'content-type': typeOf(url), 'access-control-allow-origin': '*', 'x-origin': 'ci-github', 'cache-control': 'public, max-age=31536000, immutable' };
+        // KHÔNG chép content-encoding/content-length/transfer-encoding: body() đã giải nén → header gốc làm hỏng ảnh/âm thanh (onerror → chữ cái thay ảnh)
+        for (const k of ['etag', 'last-modified', 'accept-ranges', 'content-range']) if (src[k]) headers[k] = src[k];
+        const res = { status: r.status(), headers, body };
         if (key && res.status === 200) memo.set(key, res);
         return route.fulfill(res);
       } catch (e) { /* thử gốc kế */ }
