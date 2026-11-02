@@ -156,25 +156,27 @@
 </div>
 </header>
 <!-- DRILL SUB-HEADER STRIP -->
-<section class="px-4 pt-3 pb-2 flex items-center justify-between gap-2">
-<!-- Left Drill Pill -->
-<div class="flex items-center gap-2 px-3 py-1.5 bg-[#121d20] border-2 border-[#202c2f] rounded-full shadow-[0_2px_0_0_#051013]">
-<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
-<span class="font-label-sm text-label-sm text-primary tracking-wider font-extrabold uppercase">DRILL 8 OF 10 • RAPID VOCAB</span>
+<section class="px-4 pt-3 pb-2 flex items-center justify-between gap-2"><!-- Left Drill Pill -->
+<div class="flex items-center gap-2 px-3 py-1.5 bg-[#0e3835] border-2 border-[#2ba39a] rounded-full shadow-[0_2px_0_0_#051013]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#5eead4] shadow-sm"></span>
+<span class="font-label-sm text-[11px] text-[#5eead4] tracking-wider font-extrabold uppercase">DRILL 8 OF 10 • RAPID VOCAB</span>
 </div>
 <!-- Right Time Pill -->
-<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#3b181b] border-2 border-[#93000a] rounded-full shadow-[0_2px_0_0_#051013]">
-<span class="material-symbols-outlined text-[#ffb4ab] text-[16px]" data-icon="timer">timer</span>
-<span class="font-label-sm text-label-sm text-[#ffb4ab] font-extrabold tracking-wide">0:00</span>
-</div>
-</section>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#900f00] border-2 border-[#ffb4ab] rounded-full shadow-[0_2px_0_0_#051013]">
+<svg class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9zm0 16a7 7 0 1 1 7-7 7.008 7.008 0 0 1-7 7zm1-11h-2v5l4.25 2.52.75-1.23-3-1.79z"></path>
+</svg>
+<span class="font-label-sm text-[12px] text-white font-black tracking-wide">0:00</span>
+</div></section>
 <!-- MAIN SCROLLABLE CONTENT CANVAS -->
 <main class="px-4 space-y-4 pt-1"><!-- TEACHER SPEECH BUBBLE ROW -->
 <section class="flex items-start gap-3">
-<!-- Left: teacher-slot indicator (No photo, no avatar face, abstract teacher slot) -->
-<div class="teacher-slot w-[68px] h-[78px] rounded-2xl bg-[#0e1d20] border-2 border-dashed border-[#2ba39a]/60 flex flex-col items-center justify-center shrink-0 shadow-[0_2px_0_0_#051013] relative">
-<span class="material-symbols-outlined text-[#6bd8ce] text-[26px] opacity-90" data-icon="school">school</span>
-<span class="font-label-sm text-[10px] leading-3 text-[#6bd8ce] font-bold mt-1 text-center">TEACHER<br/>SLOT</span>
+<!-- Left: teacher-slot indicator (empty, abstract, no person/avatar) -->
+<div class="teacher-slot w-[68px] h-[78px] rounded-2xl bg-[#0e1d20] border-2 border-dashed border-[#2ba39a] flex flex-col items-center justify-center shrink-0 shadow-[0_2px_0_0_#051013] relative">
+<svg class="w-7 h-7 text-[#7ee7d8]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm0 15.09l-5-2.73v-3.79l5 2.73 5-2.73v3.79l-5 2.73zM12 5.3L18.8 9 12 12.7 5.2 9 12 5.3z"></path>
+</svg>
+<span class="font-label-sm text-[10px] leading-3 text-[#7ee7d8] font-black mt-1 text-center tracking-wider">TEACHER<br/>SLOT</span>
 </div>
 <!-- Right: Speech bubble with pointer -->
 <div class="flex-1 bg-[#121d20] border-2 border-[#202c2f] rounded-2xl p-3 shadow-[0_3px_0_0_#051013] relative mt-1">
@@ -182,11 +184,11 @@
 <div class="absolute -left-[9px] top-4 w-0 h-0 border-t-[7px] border-t-transparent border-r-[8px] border-r-[#202c2f] border-b-[7px] border-b-transparent"></div>
 <div class="absolute -left-[6px] top-4 w-0 h-0 border-t-[6px] border-t-transparent border-r-[7px] border-r-[#121d20] border-b-[6px] border-b-transparent"></div>
 <div class="flex items-center justify-between">
-<p class="font-label-sm text-label-sm text-[#6bd8ce] font-extrabold uppercase tracking-wider">CARLOS • TEACHER • Just now</p>
+<p class="font-label-sm text-[11px] text-[#5eead4] font-black uppercase tracking-wider">CARLOS • TEACHER • JUST NOW</p>
 </div>
-<p class="font-body-md text-body-md text-[#d8e5e9] font-medium italic mt-0.5">
-          “So close – one more round?”
-        </p>
+<p class="font-body-md text-[15px] text-[#f1f5f9] font-medium italic mt-0.5 leading-snug">
+      “So close – one more round?”
+    </p>
 </div>
 </section>
 <!-- CENTRAL RESULT CARD -->
@@ -194,81 +196,97 @@
 <!-- Stopwatch Badge on top ledge -->
 <div class="relative -mt-10 mb-2">
 <div class="w-14 h-14 rounded-full bg-[#162125] border-2 border-[#ffb4ab] flex items-center justify-center shadow-[0_3px_0_0_#051013]">
-<span class="material-symbols-outlined text-[#ffb4ab] text-[30px]" data-icon="alarm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">alarm</span>
+<svg class="w-7 h-7 text-[#ffb4ab]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path>
+</svg>
 </div>
-<span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#3b181b] border border-[#93000a] text-[#ffdad6] font-label-sm text-[11px] px-2 py-0.5 rounded-full font-bold shadow-sm">
-          0:00
-        </span>
+<span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#900f00] border-2 border-[#ffb4ab] text-white font-label-sm text-[11px] px-2.5 py-0.5 rounded-full font-black shadow-sm tracking-wider">
+      0:00
+    </span>
 </div>
 <!-- Result Headline & Subtitle -->
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-[#d8e5e9] mt-1">
-        Time’s up!
-      </h1>
-<p class="font-body-md text-body-md text-[#bcc9c7] mt-1 font-semibold">
-        You answered 8 of 10 – <span class="text-[#6bd8ce] font-extrabold underline decoration-2 decoration-[#6bd8ce]">6 correct.</span>
+<h1 class="text-[28px] font-black text-white mt-1 leading-tight tracking-tight">
+    Time’s up!
+  </h1>
+<p class="font-body-md text-[15px] text-[#e2e8f0] mt-1 font-semibold">
+    You answered 8 of 10 – <span class="text-[#5eead4] font-black underline decoration-2 decoration-[#5eead4]">6 correct.</span>
 </p>
 <!-- Three Stat Boxes Matrix -->
 <div class="grid grid-cols-3 gap-2.5 w-full mt-4">
 <!-- 1. Accuracy Card -->
-<div class="bg-[#162125] border-2 border-[#202c2f] rounded-2xl p-2.5 flex flex-col items-center shadow-[0_3px_0_0_#051013]">
-<div class="w-8 h-8 rounded-full bg-[#00504b] flex items-center justify-center mb-1">
-<span class="material-symbols-outlined text-[#6bd8ce] text-[18px]" data-icon="ads_click">ads_click</span>
+<div class="bg-[#162125] border-2 border-[#2b373a] rounded-2xl p-2.5 flex flex-col items-center shadow-[0_3px_0_0_#051013]">
+<div class="w-8 h-8 rounded-full bg-[#00504b] flex items-center justify-center mb-1 text-[#5eead4]">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+</svg>
 </div>
-<span class="font-label-sm text-[11px] text-[#bcc9c7] font-extrabold tracking-wider">ACCURACY</span>
-<span class="font-headline-sm text-headline-sm text-[#d8e5e9] font-black mt-0.5">75%</span>
+<span class="font-label-sm text-[11px] text-[#cbd5e1] font-black tracking-wider">ACCURACY</span>
+<span class="font-headline-sm text-[20px] text-white font-black mt-0.5">75%</span>
 </div>
 <!-- 2. XP Card -->
-<div class="bg-[#162125] border-2 border-[#202c2f] rounded-2xl p-2.5 flex flex-col items-center shadow-[0_3px_0_0_#051013]">
-<div class="w-8 h-8 rounded-full bg-[#5b4300] flex items-center justify-center mb-1">
-<span class="material-symbols-outlined text-[#f4bf40] text-[18px]" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div class="bg-[#162125] border-2 border-[#2b373a] rounded-2xl p-2.5 flex flex-col items-center shadow-[0_3px_0_0_#051013]">
+<div class="w-8 h-8 rounded-full bg-[#5b4300] flex items-center justify-center mb-1 text-[#f4bf40]">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .78.36.42.84L11 21z"></path>
+</svg>
 </div>
-<span class="font-label-sm text-[11px] text-[#bcc9c7] font-extrabold tracking-wider">XP</span>
-<span class="font-headline-sm text-headline-sm text-[#d8e5e9] font-black mt-0.5">+12</span>
+<span class="font-label-sm text-[11px] text-[#cbd5e1] font-black tracking-wider">XP</span>
+<span class="font-headline-sm text-[20px] text-[#f4bf40] font-black mt-0.5">+12</span>
 </div>
 <!-- 3. Streak Card -->
-<div class="bg-[#162125] border-2 border-[#202c2f] rounded-2xl p-2.5 flex flex-col items-center shadow-[0_3px_0_0_#051013]">
-<div class="w-8 h-8 rounded-full bg-[#900f00] flex items-center justify-center mb-1">
-<span class="material-symbols-outlined text-[#ffb4a6] text-[18px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<div class="bg-[#162125] border-2 border-[#2b373a] rounded-2xl p-2.5 flex flex-col items-center shadow-[0_3px_0_0_#051013]">
+<div class="w-8 h-8 rounded-full bg-[#900f00] flex items-center justify-center mb-1 text-[#ffb4a6]">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.61 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM12 20c-3.31 0-6-2.69-6-6 0-1.53.58-3.13 1.57-4.32.18 1.94 1.78 3.49 3.75 3.49 1.13 0 2.14-.5 2.82-1.3.73 1.05 1.86 2.13 1.86 4.13 0 2.21-1.79 4-4 4z"></path>
+</svg>
 </div>
-<span class="font-label-sm text-[11px] text-[#bcc9c7] font-extrabold tracking-wider">STREAK</span>
-<span class="font-headline-sm text-headline-sm text-[#d8e5e9] font-black mt-0.5">4</span>
+<span class="font-label-sm text-[11px] text-[#cbd5e1] font-black tracking-wider">STREAK</span>
+<span class="font-headline-sm text-[20px] text-[#ffb4a6] font-black mt-0.5">4</span>
 </div>
 </div>
 <!-- Pacing Pill Chip -->
-<div class="mt-4 px-3.5 py-1.5 bg-[#162125] border border-[#202c2f] rounded-full flex items-center gap-1.5 shadow-sm">
-<span class="material-symbols-outlined text-[#6bd8ce] text-[16px]" data-icon="speed">speed</span>
-<span class="font-label-md text-[13px] text-[#bcc9c7] font-semibold">Paced at 4.2s per question</span>
+<div class="mt-4 px-3.5 py-1.5 bg-[#162125] border border-[#2b373a] rounded-full flex items-center gap-1.5 shadow-sm">
+<svg class="w-4 h-4 text-[#5eead4]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.28-10.43zM10.59 15.41a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z"></path>
+</svg>
+<span class="font-label-md text-[13px] text-[#cbd5e1] font-semibold">Paced at 4.2s per question</span>
 </div>
 </section>
 <!-- REVIEW SNIPPET CARD / QUESTION BANNER -->
 <section class="bg-[#121d20] border-2 border-[#202c2f] rounded-2xl p-3 shadow-[0_3px_0_0_#051013] flex items-center justify-between gap-2.5">
 <div class="flex items-center gap-2.5 min-w-0">
 <!-- Question number circular badge -->
-<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center shrink-0 font-extrabold shadow-[0_2px_0_0_#051013]">
-          8
-        </div>
+<div class="w-8 h-8 rounded-full bg-primary-container text-white font-label-md text-label-md flex items-center justify-center shrink-0 font-black shadow-[0_2px_0_0_#051013]">
+      8
+    </div>
 <!-- Question text -->
 <div class="truncate">
-<p class="font-label-sm text-[11px] text-[#bcc9c7] uppercase tracking-wider font-extrabold">Last Question</p>
-<p class="font-body-md text-body-md text-[#d8e5e9] font-bold truncate">Which word means “vital”?</p>
+<p class="font-label-sm text-[11px] text-[#94a3b8] uppercase tracking-wider font-extrabold">LAST QUESTION</p>
+<p class="font-body-md text-[14px] text-[#f1f5f9] font-bold truncate">Which word means “v…”</p>
 </div>
 </div>
 <!-- Answer Chip Badge -->
-<div class="shrink-0 px-2.5 py-1 bg-[#0b2820] border-2 border-[#2ba39a] text-[#88f5ea] rounded-xl flex items-center gap-1 font-label-md text-label-md font-bold shadow-[0_2px_0_0_#051013]">
+<div class="shrink-0 px-3 py-1 bg-[#0b2820] border-2 border-[#2ba39a] text-[#88f5ea] rounded-xl flex items-center gap-1.5 font-label-md text-[13px] font-black shadow-[0_2px_0_0_#051013]">
 <span>Crucial</span>
-<span class="material-symbols-outlined text-[16px] font-black" data-icon="check">check</span>
+<svg class="w-4 h-4 text-[#88f5ea]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<polyline points="20 6 9 17 4 12"></polyline>
+</svg>
 </div>
 </section>
 <!-- BOTTOM ACTION BUTTONS -->
 <section class="space-y-3 pt-2">
 <!-- Primary Action Button: Sunny Vibrant Orange with dark ledge and dark ink label -->
-<button aria-label="See answers" class="w-full h-14 bg-[#f98e09] border-2 border-[#c96a00] text-[#1a0d00] font-label-lg text-label-lg font-extrabold rounded-2xl shadow-[0_4px_0_0_#804300] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all duration-150">
+<button aria-label="See answers" class="w-full h-14 bg-[#f98e09] border-2 border-[#c96a00] text-[#1a0d00] font-label-lg text-label-lg font-black rounded-2xl shadow-[0_4px_0_0_#804300] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all duration-150">
 <span>See answers</span>
-<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+<svg class="w-5 h-5 text-[#1a0d00]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+</svg>
 </button>
-<!-- Secondary Action Button: Tactile Dark Slate Button with lighter text -->
-<button aria-label="Try again" class="w-full h-[52px] bg-[#162125] border-2 border-[#2b373a] text-[#d8e5e9] font-label-lg text-label-lg font-bold rounded-2xl shadow-[0_3px_0_0_#051013] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all duration-150">
-<span class="material-symbols-outlined text-[20px] text-[#6bd8ce]" data-icon="replay">replay</span>
+<!-- Secondary Action Button: Tactile Dark Slate Button with crisp cyan mint text -->
+<button aria-label="Try again" class="w-full h-[52px] bg-[#162125] border-2 border-[#2b373a] text-[#5eead4] font-label-lg text-label-lg font-extrabold rounded-2xl shadow-[0_3px_0_0_#051013] flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all duration-150">
+<svg class="w-5 h-5 text-[#5eead4]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"></path>
+</svg>
 <span>Try again</span>
 </button>
 </section></main>

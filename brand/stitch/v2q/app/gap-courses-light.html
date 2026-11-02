@@ -35,7 +35,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="w-[390px] mx-auto min-h-screen relative bg-[#FFF7EA] text-[#1F2424] flex flex-col pb-24 select-none antialiased">
 <!-- TOP APP BAR (56px) -->
 <header class="sticky top-0 z-40 w-full h-[56px] px-4 bg-[#FFF7EA]/95 backdrop-blur-md flex items-center justify-between border-b border-[#EADEC8]/60">
@@ -81,10 +81,7 @@
 <!-- Speech Bubble Left Arrow Notch -->
 <div class="absolute -left-[9px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[9px] border-r-[#EADEC8]"></div>
 <div class="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-r-[7px] border-r-white"></div>
-<div class="flex items-center justify-between mb-1">
-<span class="text-[11px] font-extrabold tracking-wider text-[#2BA39A] uppercase">Teacher Ama</span>
-<span class="material-symbols-outlined text-[16px] text-[#A69B89]">volume_up</span>
-</div>
+<div class="flex items-center justify-between mb-1"><span class="text-[11px] font-extrabold tracking-wider text-[#134E4A] uppercase">Teacher Ama</span><svg class="w-4 h-4 text-[#4A5D5A]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg></div>
 <p class="text-[14px] leading-tight font-bold text-[#2A241C]">
           “Your homework is half done!”
         </p>
@@ -93,32 +90,11 @@
 <!-- 2. ACTIVE COHORT CARD -->
 <section class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_5px_0_0_#D8CFBC] p-4 flex flex-col gap-3">
 <!-- Cohort Top Row -->
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2 py-0.5 rounded-md bg-[#2BA39A]/15 text-[#196B64] font-extrabold text-[10px] tracking-wide uppercase">
-            Active Cohort
-          </span>
-<span class="text-[12px] font-semibold text-[#665E52] flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px] text-[#8C8070]">group</span>
-            18 learners
-          </span>
-</div>
-<button aria-label="Cohort options" class="w-6 h-6 flex items-center justify-center text-[#8C8070] hover:text-[#2A241C] transition-colors">
-<span class="material-symbols-outlined text-[18px]">more_horiz</span>
-</button>
-</div>
+<div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-md bg-[#D1F2EE] text-[#0F3D3E] font-extrabold text-[10px] tracking-wide uppercase border border-[#A2E2DB]">Active Cohort</span><span class="text-[12px] font-bold text-[#3B4846] flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-[#2B5450]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>18 learners</span></div><button aria-label="Cohort options" class="w-6 h-6 flex items-center justify-center text-[#4A5856] hover:text-[#173835] transition-colors"><svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></svg></button></div>
 <!-- Cohort Headline & Task Row -->
 <div>
 <h2 class="text-[20px] font-extrabold text-[#1B1611] tracking-tight mb-1.5">IELTS Evening B</h2>
-<div class="flex items-center gap-2">
-<div class="flex items-center gap-1.5 text-[13px] font-bold text-[#242A2A]">
-<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
-<span>Unit 4 vocabulary</span>
-</div>
-<span class="px-2 py-0.5 rounded-full bg-[#FFF1ED] text-[#D84328] font-bold text-[11px] border border-[#FCD8CE]">
-            Due Friday
-          </span>
-</div>
+<div class="flex items-center gap-2"><div class="flex items-center gap-1.5 text-[13px] font-bold text-[#142423]"><span class="w-2 h-2 rounded-full bg-[#117C73]"></span><span>Unit 4 vocabulary</span></div><span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#991B1B] font-extrabold text-[11px] border border-[#FCA5A5]">Due Friday</span></div>
 </div>
 <!-- Progress Track -->
 <div class="w-full bg-[#EFE9DD] rounded-full h-3 overflow-hidden p-0.5">
@@ -127,99 +103,14 @@
 </div>
 </div>
 <!-- Footer Progress Metrics -->
-<div class="flex items-center justify-between text-[12px] font-bold text-[#6D6559]">
-<span>6 of 12 exercises finished</span>
-<span class="text-[#196B64] font-extrabold">50% completed</span>
-</div>
+<div class="flex items-center justify-between text-[12px] font-bold text-[#6D6559]"><span class="text-[#3B4846] font-bold">6 of 12 exercises finished</span><span class="text-[#0E5C56] font-extrabold">50% completed</span></div>
 </section>
 <!-- 3. JOIN A CLASS CARD -->
-<section class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_5px_0_0_#D8CFBC] p-4 flex flex-col gap-2.5">
-<div class="flex items-baseline justify-between">
-<h3 class="text-[15px] font-extrabold text-[#2A241C] tracking-tight">
-<span class="text-[#2BA39A] font-black mr-0.5">#</span> Join a class
-        </h3>
-<span class="text-[12px] font-semibold text-[#8C8070]">Got teacher code?</span>
-</div>
-<div class="flex items-center gap-2">
-<div class="relative flex-1">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#8C8070] text-[18px]">key</span>
-<input class="w-full bg-[#FBF8F2] border-2 border-[#EADEC8] rounded-xl pl-9 pr-3 py-2 text-[14px] font-extrabold text-[#231E18] tracking-wider focus:outline-none focus:border-[#2BA39A]" readonly="" type="text" value="IELTS-B2"/>
-</div>
-<button class="tactile-btn shrink-0 bg-[#2BA39A] text-white font-extrabold text-[14px] px-5 py-2.5 rounded-xl border-t border-white/30 shadow-[0_4px_0_0_#1B6C65] transition-all flex items-center justify-center" style="--ledge-color: #1B6C65;">
-          Join
-        </button>
-</div>
-</section>
+<section class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_5px_0_0_#D8CFBC] p-4 flex flex-col gap-2.5"><div class="flex items-baseline justify-between"><h3 class="text-[15px] font-extrabold text-[#1B1611] tracking-tight"><span class="text-[#0F3D3E] font-black mr-0.5">#</span> Join a class</h3><span class="text-[12px] font-bold text-[#2D4A4D]">Got teacher code?</span></div><div class="flex items-center gap-2"><div class="relative flex-1"><svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#3D5B5E]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="7.5" cy="15.5" r="4.5"></circle><path d="m21 3-9.5 9.5"></path><path d="m15.5 7.5 3 3"></path></svg><input class="w-full bg-[#FBF8F2] border-2 border-[#D8CFBC] rounded-xl pl-9 pr-3 py-2 text-[14px] font-extrabold text-[#142423] tracking-wider focus:outline-none focus:border-[#0F3D3E]" readonly="" type="text" value="IELTS-B2"/></div><button class="tactile-btn shrink-0 bg-[#0F3D3E] text-white font-extrabold text-[14px] px-5 py-2.5 rounded-xl border-t border-white/30 shadow-[0_4px_0_0_#072223] transition-all flex items-center justify-center" style="--ledge-color: #072223;">Join</button></div></section>
 <!-- 4. CURRICULUM COURSES SECTION -->
 <section class="flex flex-col gap-2.5 pt-1">
-<div class="flex items-center justify-between">
-<h3 class="text-[16px] font-extrabold text-[#221C16] tracking-tight">Curriculum courses</h3>
-<button class="text-[12px] font-extrabold text-[#2BA39A] hover:underline flex items-center">
-          View all (6) <span class="material-symbols-outlined text-[14px] ml-0.5">chevron_right</span>
-</button>
-</div>
-<div class="flex flex-col gap-2.5">
-<!-- Course 1 -->
-<article class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3 flex items-center justify-between gap-3">
-<div class="flex items-center gap-3">
-<div class="w-11 h-11 rounded-xl bg-[#EBF7F6] border border-[#BCE4E0] flex items-center justify-center text-[#2BA39A] shadow-inner shrink-0">
-<span class="material-symbols-outlined text-[24px]">school</span>
-</div>
-<div>
-<h4 class="text-[15px] font-extrabold text-[#221C16] leading-snug">IELTS Foundations</h4>
-<p class="text-[12px] font-medium text-[#766E61]">24 lessons • Band 5.5 to 6.5</p>
-</div>
-</div>
-<!-- 75% Circular Ring Indicator -->
-<div class="relative w-10 h-10 shrink-0 flex items-center justify-center">
-<svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36">
-<path class="text-[#EFE9DD]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
-<path class="text-[#2BA39A]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="3.5"></path>
-</svg>
-<span class="absolute text-[10px] font-black text-[#1A5C56]">75%</span>
-</div>
-</article>
-<!-- Course 2 -->
-<article class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3 flex items-center justify-between gap-3">
-<div class="flex items-center gap-3">
-<div class="w-11 h-11 rounded-xl bg-[#FFF1EE] border border-[#FCD5CC] flex items-center justify-center text-[#F2553B] shadow-inner shrink-0">
-<span class="material-symbols-outlined text-[22px]">edit</span>
-</div>
-<div>
-<h4 class="text-[15px] font-extrabold text-[#221C16] leading-snug">Band 7 Writing</h4>
-<p class="text-[12px] font-medium text-[#766E61]">18 lessons • Task 1 &amp; Task 2</p>
-</div>
-</div>
-<!-- 40% Circular Ring Indicator -->
-<div class="relative w-10 h-10 shrink-0 flex items-center justify-center">
-<svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36">
-<path class="text-[#EFE9DD]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
-<path class="text-[#F2553B]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="40, 100" stroke-linecap="round" stroke-width="3.5"></path>
-</svg>
-<span class="absolute text-[10px] font-black text-[#A8321F]">40%</span>
-</div>
-</article>
-<!-- Course 3 -->
-<article class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3 flex items-center justify-between gap-3">
-<div class="flex items-center gap-3">
-<div class="w-11 h-11 rounded-xl bg-[#EEF5FC] border border-[#CDE1F7] flex items-center justify-center text-[#2A7FD9] shadow-inner shrink-0">
-<span class="material-symbols-outlined text-[22px]">mic</span>
-</div>
-<div>
-<h4 class="text-[15px] font-extrabold text-[#221C16] leading-snug">Everyday Speaking</h4>
-<p class="text-[12px] font-medium text-[#766E61]">30 drills • Fluency &amp; IPA</p>
-</div>
-</div>
-<!-- 15% Circular Ring Indicator -->
-<div class="relative w-10 h-10 shrink-0 flex items-center justify-center">
-<svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36">
-<path class="text-[#EFE9DD]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
-<path class="text-[#2A7FD9]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="15, 100" stroke-linecap="round" stroke-width="3.5"></path>
-</svg>
-<span class="absolute text-[10px] font-black text-[#1C5B9E]">15%</span>
-</div>
-</article>
-</div>
+<div class="flex items-center justify-between"><h3 class="text-[16px] font-extrabold text-[#1B1611] tracking-tight">Curriculum courses</h3><button class="text-[12px] font-extrabold text-[#0D5C58] hover:text-[#072223] flex items-center gap-0.5 transition-colors">View all (6) <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div>
+<div class="flex flex-col gap-2.5"><article class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3 flex items-center justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-[#E6F7F5] border border-[#9EE2DB] flex items-center justify-center text-[#0F3D3E] shadow-inner shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div><div><h4 class="text-[15px] font-extrabold text-[#1B1611] leading-snug">IELTS Foundations</h4><p class="text-[12px] font-bold text-[#3B4846]">24 lessons • Band 5.5 to 6.5</p></div></div><div class="relative w-10 h-10 shrink-0 flex items-center justify-center"><svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36"><path class="text-[#E8DFC9]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path><path class="text-[#0E6C64]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="3.5"></path></svg><span class="absolute text-[11px] font-black text-[#0B4F4A]">75%</span></div></article><article class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3 flex items-center justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-[#FEECE8] border border-[#FCA5A5] flex items-center justify-center text-[#B91C1C] shadow-inner shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></div><div><h4 class="text-[15px] font-extrabold text-[#1B1611] leading-snug">Band 7 Writing</h4><p class="text-[12px] font-bold text-[#3B4846]">18 lessons • Task 1 &amp; Task 2</p></div></div><div class="relative w-10 h-10 shrink-0 flex items-center justify-center"><svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36"><path class="text-[#E8DFC9]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path><path class="text-[#B91C1C]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="40, 100" stroke-linecap="round" stroke-width="3.5"></path></svg><span class="absolute text-[11px] font-black text-[#881337]">40%</span></div></article><article class="bg-white rounded-2xl border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3 flex items-center justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-[#E8F1FC] border border-[#BFDBFE] flex items-center justify-center text-[#1D4ED8] shadow-inner shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="23"></line><line x1="8" x2="16" y1="23" y2="23"></line></svg></div><div><h4 class="text-[15px] font-extrabold text-[#1B1611] leading-snug">Everyday Speaking</h4><p class="text-[12px] font-bold text-[#3B4846]">30 drills • Fluency &amp; IPA</p></div></div><div class="relative w-10 h-10 shrink-0 flex items-center justify-center"><svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36"><path class="text-[#E8DFC9]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path><path class="text-[#1D4ED8]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="15, 100" stroke-linecap="round" stroke-width="3.5"></path></svg><span class="absolute text-[11px] font-black text-[#1E3A8A]">15%</span></div></article></div>
 </section>
 <!-- 5. PRIMARY CTA BUTTON -->
 <div class="pt-2 pb-1">
@@ -230,31 +121,5 @@
 </div>
 </main>
 <!-- 6. BOTTOM TAB NAVIGATION (Docked 5 Tabs) -->
-<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-16 bg-white/95 backdrop-blur-md border-t-2 border-[#EADEC8] px-2 flex items-center justify-around z-50">
-<!-- Tab 1: Today -->
-<button class="tactile-tab flex flex-col items-center justify-center text-[#7A7163] px-3 py-1 hover:text-[#2A241C] transition-colors">
-<span class="material-symbols-outlined text-[22px]">calendar_today</span>
-<span class="text-[11px] font-bold mt-0.5">Today</span>
-</button>
-<!-- Tab 2: Vocab -->
-<button class="tactile-tab flex flex-col items-center justify-center text-[#7A7163] px-3 py-1 hover:text-[#2A241C] transition-colors">
-<span class="material-symbols-outlined text-[22px]">menu_book</span>
-<span class="text-[11px] font-bold mt-0.5">Vocab</span>
-</button>
-<!-- Tab 3: Skills (ACTIVE) -->
-<button class="tactile-tab flex flex-col items-center justify-center bg-[#EBF7F6] text-[#196B64] border-2 border-[#64B8B0] rounded-xl px-3.5 py-1 shadow-sm">
-<span class="material-symbols-outlined text-[22px] text-[#2BA39A]">psychology</span>
-<span class="text-[11px] font-extrabold mt-0.5 text-[#196B64]">Skills</span>
-</button>
-<!-- Tab 4: Tests -->
-<button class="tactile-tab flex flex-col items-center justify-center text-[#7A7163] px-3 py-1 hover:text-[#2A241C] transition-colors">
-<span class="material-symbols-outlined text-[22px]">quiz</span>
-<span class="text-[11px] font-bold mt-0.5">Tests</span>
-</button>
-<!-- Tab 5: Me -->
-<button class="tactile-tab flex flex-col items-center justify-center text-[#7A7163] px-3 py-1 hover:text-[#2A241C] transition-colors">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="text-[11px] font-bold mt-0.5">Me</span>
-</button>
-</nav>
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-16 bg-white/95 backdrop-blur-md border-t-2 border-[#EADEC8] px-2 flex items-center justify-around z-50"><button class="tactile-tab flex flex-col items-center justify-center text-[#4B5856] px-3 py-1 hover:text-[#173835] transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg><span class="text-[11px] font-extrabold mt-0.5">Today</span></button><button class="tactile-tab flex flex-col items-center justify-center text-[#4B5856] px-3 py-1 hover:text-[#173835] transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span class="text-[11px] font-extrabold mt-0.5">Vocab</span></button><button class="tactile-tab flex flex-col items-center justify-center bg-[#D6F3F0] text-[#0A4A45] border-2 border-[#20847B] rounded-xl px-3.5 py-1 shadow-sm"><svg class="w-5 h-5 text-[#0A4A45]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-2.96A2.5 2.5 0 0 1 9.5 2Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-2.96A2.5 2.5 0 0 0 14.5 2Z"></path></svg><span class="text-[11px] font-black mt-0.5 text-[#0A4A45]">Skills</span></button><button class="tactile-tab flex flex-col items-center justify-center text-[#4B5856] px-3 py-1 hover:text-[#173835] transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg><span class="text-[11px] font-extrabold mt-0.5">Tests</span></button><button class="tactile-tab flex flex-col items-center justify-center text-[#4B5856] px-3 py-1 hover:text-[#173835] transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="text-[11px] font-extrabold mt-0.5">Me</span></button></nav>
 </body></html>
