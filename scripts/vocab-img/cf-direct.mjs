@@ -3,6 +3,7 @@
 // CF_POOL: mỗi mục "account_id:token", ngăn bằng xuống dòng / phẩy / chấm phẩy; hoặc JSON [{"account":"…","token":"…"}]. KHÔNG bao giờ tài khoản chính (CF_ACCOUNT_1).
 // Mỗi tài khoản: 10.000 neuron/ngày (về 0 lúc 00:00 UTC), chừa VIMG_CF_RESERVE (10 %) → trần ảnh = floor(phần dùng / neuron mỗi ảnh của mô hình).
 // 4006 / 429 hết hạn mức / 401 / 403 → bỏ tài khoản đó tới hết lượt; 3040 (quá tải tạm) → người gọi thử lại.
+import { poolAccounts, poolHold } from '../lib/cf-pool.mjs';
 
 /** neuron ƯỚC TÍNH mỗi ảnh (bảng giá Workers AI 10/2026; schnell ra cố định 1024² × 4 bước, các mô hình khác 512²). Đo lại bằng analytics rồi sửa; ghi đè VIMG_NPI_<tên>. */
 export const NPI = {
@@ -29,16 +30,8 @@ export function parsePool(raw) {
   return out;
 }
 
-/** danh sách tài khoản dùng để vẽ (gộp token trùng tài khoản – token sau dự phòng khi token trước hỏng; không tài khoản chính) */
-export function poolAccounts(env = process.env) {
-  const by = new Map();
-  for (const [a, t] of parsePool(env.CF_POOL)) (by.get(a) || by.set(a, []).get(a)).push(t);
-  const skip = Math.max(0, +(env.VIMG_POOL_SKIP ?? 5)), out = [];
-  [...by].slice(skip).forEach(([a, toks], i) => out.push({ id: 'pool' + (i + skip), acct: a, tok: toks[0], toks }));
-  if (env.CF_ACCOUNT_2 && env.CF_AI_TOKEN_2 && env.VIMG_CF_USE_CF2 !== '0') out.push({ id: 'cf2', acct: env.CF_ACCOUNT_2, tok: env.CF_AI_TOKEN_2, toks: [env.CF_AI_TOKEN_2] });
-  const main = String(env.CF_ACCOUNT_1 || '').toLowerCase(), seen = new Set();
-  return out.filter(x => x.acct.toLowerCase() !== main && !seen.has(x.acct) && seen.add(x.acct));
-}
+/** danh sách tài khoản dùng để vẽ: MỘT nguồn scripts/lib/cf-pool.mjs (gồm giữ chỗ pilot CF_POOL_HOLD) – 02/11 bỏ bản chép trùng */
+export { poolAccounts, poolHold };
 
 /** thân yêu cầu theo họ mô hình: schnell JSON {prompt, steps} (không cỡ) · FLUX.2 multipart · còn lại JSON có width/height */
 export function cfInput(model, prompt, size = '512', seed) {

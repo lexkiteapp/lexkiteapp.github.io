@@ -112,6 +112,14 @@ def _neurons(model, usage):
     pin, pout = PRICE.get(str(model).split('/')[-1], (24545, 77273))
     try: return (float(usage['prompt_tokens']) * pin + float(usage['completion_tokens']) * pout) / 1e6
     except Exception: _API['tok_missing'] += 1; return 31.0
+def pool_hold(raw=None, now=None):
+    """CF_POOL_HOLD "<n>@<ISO Z>" → n tài khoản cuối dành cho pilot tới hạn (cùng luật scripts/lib/cf-pool.mjs poolHold); sai/hết hạn → 0"""
+    import time, datetime
+    m = re.match(r'^(\d{1,3})@(\d{4}-\d{2}-\d{2}T[\d:.]+Z)$', str(os.environ.get('CF_POOL_HOLD', '') if raw is None else raw).strip())
+    if not m: return 0
+    try: exp = datetime.datetime.fromisoformat(m.group(2).replace('Z', '+00:00')).timestamp()
+    except ValueError: return 0
+    return min(int(m.group(1)), 60) if exp > (time.time() if now is None else now) else 0
 def _cf_accts():
     """26/10: thị giác THẲNG trên Workers AI (cùng tài khoản với cf-direct.mjs: CF_POOL bỏ VIMG_POOL_SKIP đầu → tài khoản 2; không bao giờ tài khoản chính)"""
     if _CFV['accts'] is None:
@@ -121,7 +129,9 @@ def _cf_accts():
         items = [(a.lower(), t) for a, t in items if a and t and not (a.lower() in seen or seen.add(a.lower()))]   # cùng tài khoản: giữ token đầu (cùng thứ tự với cf-direct.mjs)
         out = items[int(os.environ.get('VIMG_POOL_SKIP', '5')):]
         if os.environ.get('CF_ACCOUNT_2') and os.environ.get('CF_AI_TOKEN_2') and os.environ.get('VIMG_CF_USE_CF2') != '0': out.append((os.environ['CF_ACCOUNT_2'], os.environ['CF_AI_TOKEN_2']))
-        main = os.environ.get('CF_ACCOUNT_1'); _CFV['accts'] = [a for a in dict(out).items() if a[0] != main][::-1]   # từ ĐUÔI kho (vẽ dùng phần đầu – VIMG_DRAW_SHARE)
+        main = os.environ.get('CF_ACCOUNT_1'); acc = [a for a in dict(out).items() if a[0] != main]
+        hold = 0 if os.environ.get('CF_POOL_ROLE') == 'pilot' else pool_hold()   # 02/11 giữ chỗ pilot (cf-pool.mjs poolHold): giám khảo fill không dùng n tài khoản cuối
+        _CFV['accts'] = (acc[:max(0, len(acc) - hold)] if hold else acc)[::-1]   # từ ĐUÔI kho (vẽ dùng phần đầu – VIMG_DRAW_SHARE)
     return _CFV['accts']
 def use_cf_vision():
     return (os.environ.get('VIMG_VISION') == 'cf' or not os.environ.get('GRABCAST_AI_KEY')) and bool(_cf_accts())

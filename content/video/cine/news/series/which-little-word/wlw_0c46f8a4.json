@@ -1,7 +1,7 @@
 {
  "id": "wlw_0c46f8a4",
  "template": "mistake",
- "title": "Which Little Word? #5 – fond + of: liking someone or something",
+ "title": "Which Little Word? #6 – fond + of: liking someone or something",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
@@ -184,22 +184,47 @@
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
        "I'm fond "
       ],
       [
-       "of",
+       "of ",
        "green"
+      ],
+      [
+       "my grandma."
       ]
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
-       "my grandma."
+       "fond",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/fɑːnd/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "with",
+       "red"
+      ],
+      [
+       "”"
       ]
      ]
     }
@@ -397,6 +422,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "He's fond ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " spicy food.",
+      "white"
+     ]
+    ]
+   ],
    "a": "of",
    "b": "with",
    "correct": "a",
@@ -455,6 +496,21 @@
        "green"
       ]
      ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "fond",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/fɑːnd/"
+      ]
+     ]
     }
    ],
    "from": [
@@ -486,13 +542,13 @@
  ],
  "series": {
   "name": "Which Little Word?",
-  "ep": 5
+  "ep": 6
  },
  "source": {
   "bank": "sb_0c46f8a4",
   "pid": "u:p:fond:of",
   "cefr": "B1",
   "diff": "medium",
-  "ipa": null
+  "ipa": "/fɑːnd/"
  }
 }

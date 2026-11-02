@@ -26,6 +26,9 @@ permissions:
   id-token: write   # JWT OIDC cho /api/lexai
 # pilot nhánh nhóm riêng theo nhánh (không xếp sau lượt main 2 giờ, không đè cron main); mẫu cố định (words) KHÔNG ghi repo → nhóm riêng thêm theo mẫu (31/10: 2 pilot bị thay thế khi chờ)
 concurrency: { group: "lexicon-expand${{ github.ref != 'refs/heads/main' && format('-{0}', github.ref_name) || '' }}${{ github.event.inputs.words && format('-pilot-{0}', github.event.inputs.words) || '' }}", cancel-in-progress: false }
+# 02/11 giữ chỗ kho cho pilot ảnh (scripts/lib/cf-pool.mjs poolHold): khi biến repo CF_POOL_HOLD còn hạn, ai-pool cf2 không dùng n tài khoản cuối
+env:
+  CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
 jobs:
   expand:
     runs-on: ubuntu-latest

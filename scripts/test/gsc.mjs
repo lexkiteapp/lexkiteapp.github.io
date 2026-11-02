@@ -89,6 +89,7 @@ ok(!rep.declines.some(d => d.slug === 'fsrs-la-gi'), '(d) giảm nhẹ 7 % → b
 ok(!rep.declines.some(d => d.slug === 'cau-bi-dong'), '(d) trang tăng → bỏ');
 
 ok(rep.dictQueue.some(d => d.term === 'resilient'), 'hàng đợi từ điển có "resilient"');
+ok(!gap('resilient là gì'), '(a) truy vấn tra từ → chỉ vào hàng đợi từ điển, không đề xuất blog');
 ok(rep.priority.length >= 4 && rep.priority.every((x, i) => x.rank === i + 1 && (i === 0 || rep.priority[i - 1].gain >= x.gain)), 'ưu tiên xếp giảm dần theo gain');
 ok(new Set(rep.priority.map(x => x.type)).size >= 4, 'ưu tiên có đủ loại việc');
 
