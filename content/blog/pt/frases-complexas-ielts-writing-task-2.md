@@ -33,6 +33,7 @@ quiz: [
     explain: "Conjunções como Although, Even though, Whereas e While estabelecem concessão e contraste dentro de um único período subordinado complexo."
   }
 ]
+publishAt: 2026-11-26T20:47:00-03:00
 ---
 Nos critérios oficiais de avaliação do IELTS Writing Task 2, o descritor de **Grammatical Range and Accuracy (GRA)** para a faixa **Band 7.0** estipula claramente: *«Uses a variety of complex structures with good flexibility and accuracy»*. Para alcançar essa nota, dominar **frases complexas ielts writing (Complex Sentences)** é um requisito indispensável.
 

@@ -192,6 +192,57 @@
    ]
   },
   {
+   "id": "exam-spec",
+   "paths": [
+    "content/exams"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs"
+   ]
+  },
+  {
+   "id": "framework",
+   "paths": [
+    "content/framework"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "content-qa/lkf-check.mjs",
+    "test/lkf.mjs",
+    "content-qa/grammar-map-check.mjs",
+    "test/grammar-inventory.mjs"
+   ]
+  },
+  {
+   "id": "target-lang",
+   "paths": [
+    "content/target"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "translation",
+    "spot"
+   ],
+   "delegate": [
+    "test/target-lang.mjs"
+   ],
+   "_note": "Ngôn ngữ đích (docs/specs/target-language.md): seed soát tay; bộ lõi do scripts/target/gen.mjs sinh – 2 giám khảo khác họ + dịch ngược en + mẫu soát ≥5 %"
+  },
+  {
    "id": "writing",
    "paths": [
     "web/js/write"
@@ -352,6 +403,26 @@
    ],
    "delegate": [
     "test/authority-pages.mjs"
+   ]
+  },
+  {
+   "id": "say-native",
+   "paths": [
+    "content/say-native"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "pair",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "say-native/build.mjs"
    ]
   },
   {

@@ -26,7 +26,8 @@ const REG = J('content/qa/sources.json');
 const dirs = [...fs.readdirSync(P('content'), { withFileTypes: true }).filter(d => d.isDirectory()).map(d => 'content/' + d.name),
   ...fs.readdirSync(P('web/js'), { withFileTypes: true }).filter(d => d.isDirectory() && !['vendor', 'i18n'].includes(d.name)).map(d => 'web/js/' + d.name)];
 for (const d of dirs) if (!REG.sources.some(s => (s.paths || []).some(p => p === d || p.startsWith(d + '/') || d.startsWith(p + '/'))) && !(REG.skip || {})[d]) H('đăng ký', `${d} chưa có trong content/qa/sources.json (thêm nguồn + cách kiểm, hoặc "skip" kèm lý do)`);
-for (const s of REG.sources) { if (!s.owner || !s.checks || !s.checks.length) H('đăng ký', `${s.id}: thiếu owner/checks`); for (const t of s.delegate || []) if (!fs.readFileSync(P('package.json'), 'utf8').includes(t)) H('đăng ký', `${s.id}: test uỷ quyền "${t}" không có trong npm test`); }
+const NPM_TEST = fs.readFileSync(P('package.json'), 'utf8') + (fs.existsSync(P('scripts/test/suite.txt')) ? fs.readFileSync(P('scripts/test/suite.txt'), 'utf8') : ''); // npm test = package.json "test" + danh sách scripts/test/suite.txt (run-suite)
+for (const s of REG.sources) { if (!s.owner || !s.checks || !s.checks.length) H('đăng ký', `${s.id}: thiếu owner/checks`); for (const t of s.delegate || []) if (!NPM_TEST.includes(t)) H('đăng ký', `${s.id}: test uỷ quyền "${t}" không có trong npm test`); }
 
 // ---------- Kho từ (đối chiếu từ + CEFR) ----------
 const LEX = new Map();

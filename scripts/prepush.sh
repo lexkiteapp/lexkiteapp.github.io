@@ -4,7 +4,7 @@
 set -e
 cd "$(dirname "$0")/.."
 node scripts/build-tokens.mjs           # brand/tokens.json → :root CSS, add-on, icon.svg (docs/BRAND-RULES.md)
-node scripts/ci/sync-triage.mjs          # workflow mới → ci-triage.yml
+node scripts/ci/required-gate.mjs --sync  # workflow chạy trên PR → required-gate.yml (workflow_run)
 node scripts/path/build-mix.mjs          # sửa ngữ pháp/phát âm → web/js/path-mix.js
 node scripts/confidence/build.mjs        # sửa content/confidence → web/js/confidence/data.js
 node scripts/speak/build.mjs --write    # sửa content/situations → web/js/speak/data.js (Play & Speak)
@@ -17,6 +17,7 @@ node scripts/test/docs-budget.mjs
 node scripts/test/infra-check.mjs
 node scripts/test/no-url-pathname.mjs
 node scripts/test/ci-triage.mjs
+node scripts/test/ci-policy.mjs          # mọi workflow: timeout + concurrency + phạm vi (2/11)
 node scripts/content-qa/gate.mjs     # thư mục content/ mới → content/qa/sources.json
 node scripts/jobs/gen.mjs --write >/dev/null && node scripts/jobs/gen.mjs && node scripts/test/jobs-check.mjs   # workflow có lịch → infra/jobs.json
 git status --short
