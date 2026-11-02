@@ -292,6 +292,7 @@
     const foot = $('#lsnFoot'); if (foot) { foot.hidden = true; foot.innerHTML = ''; foot.className = ST.FOOT; document.body.appendChild(foot); } // tấm phản hồi của câu trước → về body
     const lv = view.querySelector('#lsn'); if (lv) lv.classList.remove('st-dim');
     L.v2 = !!q; L.qblk.style.display = $('#lsnBody').style.display = q ? '' : 'none';
+    L.qfootEl.hidden = false; // LX-1001: tấm phản hồi của bài kiểm giữa truyện ẩn chân nút → câu thoại kế tiếp phải hiện lại, nếu không mất nút Tiếp tục (kẹt bài)
     const b = L.qfootEl.querySelector('button'), sp = b.querySelector('span:not(.material-symbols-outlined)');
     b.id = q ? 'lsnCheck' : 'lsnGo'; b.classList.toggle('lsn-gonext', !q); sp.textContent = q ? t('Kiểm tra đáp án') : t('Tiếp tục'); b.disabled = q;
   }

@@ -307,6 +307,7 @@ for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' 
       const n = D.querySelectorAll('.lsn-ln').length; sawLine = sawLine || n > 0; bothOk = bothOk || (n >= 2 && !!D.querySelector('.lsn-ln.ama') && !!D.querySelector('.lsn-ln.carlos'));
       if (kind === 'radio') ok(!/[A-Za-z]{3}/.test([...D.querySelectorAll('.lsn-ln p')].map(x => x.textContent).join('')), 'v2 radio: chỉ nghe, bong bóng không hiện chữ');
       else if (n) ok(D.querySelector('.lsn-ln:last-child p').textContent === it.sent, 'v2 story: bong bóng cuối = câu đang đọc');
+      ok($('#lsnGo') && !$('#lsnGo').closest('[hidden]') && !$('#lsnGo').disabled, `v2 ${kind}: câu thoại nào cũng thấy nút Tiếp tục (kể cả sau bài kiểm giữa truyện – LX-1001)`);
       prevLines = n; await solve(true); continue;
     }
     const inDuo = it.type === 'q'; sawQ = sawQ || (inDuo ? !!D.querySelector('.v2-story-duo .lsn-qblk') && !!$('#lsnBody .lsn-opt') : !!D.querySelector('.v2-lesson-question'));
