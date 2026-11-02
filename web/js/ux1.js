@@ -250,6 +250,7 @@
     const d = { due, off: due || done ? C * (1 - done / (done + due)) : C, mem: t('{p}% trí nhớ', { p: avg.toFixed(1) }), lock: t('Ghi {n} thẻ vào trí nhớ dài hạn', { n: due }),
       critText: t('{n} sắp quên', { n: crit }), famText: t('{n} quen', { n: Math.max(0, dc.due - crit) }), critHref: crit ? '#/review?src=forgetting' : '#/review', critAria: t('Thẻ sắp quên: {n}', { n: crit }),
       cta: ahead ? t('Ôn trước →') : t('Bắt đầu ôn'), startHref: ahead ? '#/review?ahead=2' : '#/review', startAria: t('Bắt đầu ôn: {n} thẻ đến hạn', { n: due }), est: t('Ước tính ~{m} phút', { m: Math.max(1, Math.ceil(due / 3)) }),
+      famHref: ahead ? '#/review?ahead=2' : '#/review', famAria: t('Thẻ quen: {n}', { n: Math.max(0, dc.due - crit) }), readyHref: ahead ? '#/review?ahead=2' : '#/review', trainHref: '#/deck?m=12', permHref: '#/deck?m=3', // ô số liệu + chip "quen" bấm được (ô Đang luyện = mức 1–2, Nhớ lâu = mức 3, như SRS.mastery)
       training: studied.filter(c => SRS.mastery(c.srs) < 3).length, perm: studied.filter(c => SRS.mastery(c.srs) === 3).length, decksTitle: t('Bộ thẻ • {n} đang dùng', { n: decks.length }), decks };
     return ST2.mount(view, 'review', d, 'review');
   }

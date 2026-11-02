@@ -60,6 +60,7 @@ for (const e of reg.entries) {
 }
 const self = fs.readFileSync('.github/workflows/ci-filler.yml', 'utf8'), tm = self.match(/timeout-minutes:\s*(\d+)/);
 ok(/^concurrency:/m.test(self) && tm && +tm[1] <= 5 && /cron: '[^']*\/10 /.test(self) && /workflow_dispatch/.test(self), 'ci-filler.yml: cron 10 phút, concurrency, timeout ≤ 5');
-await import('./qa-fill.mjs');   // phần QA mở rộng (sổ 8 QA, cùng sha, qa-backlog, upgrade-audit) – cùng 1 lệnh trong npm test
+await import('./qa-fill.mjs');
+await import('./gh-api.mjs');   // helper GitHub API dùng chung (ETag, poll ≥ 5 phút, hạn mức) – cùng lệnh npm test   // phần QA mở rộng (sổ 8 QA, cùng sha, qa-backlog, upgrade-audit) – cùng 1 lệnh trong npm test
 if (fail) { console.error(`✗ ci-filler: ${fail} lỗi`); process.exit(1); }
 console.log('✓ ci-filler: shard, chặn trùng, log/báo cáo, sổ ↔ workflow');

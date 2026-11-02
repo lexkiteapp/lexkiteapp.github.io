@@ -62,6 +62,25 @@ for (const h of ['#/stats', '#/vocab', '#/settings']) {
   await go('#/practice/learn?src=deck', 30); w.location.hash = h; await tick(0); w.location.hash = '#/home'; await tick(0); w.location.hash = h; await tick(900);
   ok(w.location.hash === h && !$('.learn-bar') && !$('.today-head'), `học → ${h} → home → ${h}: trang cuối ${h} giữ nguyên`);
 }
+// 3b) Phiên ôn chờ mảnh chỉ mục ảnh (VImg.need, mạng chậm) mà người học đã rời đi (Bắt đầu ôn → chạm ngay tab Ôn / trang khác):
+//     mảnh về muộn KHÔNG được vẽ thẻ ôn đè trang mới (lỗi review-taps 1/11: thẻ ôn đè màn Ôn, hash vẫn là #/review?hub=1 → kẹt).
+//     Tương tự Học thông minh rời đi rồi quay lại đúng hash cũ (A→B→A): lượt cũ không được vẽ thêm một lần nữa.
+{
+  const V0 = w.VImg; let got = false, calls = 0, delays = [];
+  w.VImg = { enabled: () => true, loaded: () => got, need: () => { const ms = delays[calls++] ?? 300; return new Promise(r => setTimeout(() => { got = true; r(); }, ms)); }, prefetch() {}, pic: () => '', has: () => false, get: () => null, slot: () => '' };
+  // (màn Ôn Stitch #/review?hub=1 cần cờ ux1 – jsdom không bật; review-taps.mjs kiểm trên WebKit/Chromium thật)
+  for (const away of ['#/stats', '#/home']) {
+    got = false; calls = 0;
+    await go('#/home', 100); w.location.hash = '#/review'; await tick(40); w.location.hash = away; await settle(600);
+    ok(calls > 0, `ôn → ${away}: phiên ôn đã chờ mảnh ảnh (VImg.need được gọi)`);
+    ok(w.location.hash === away && !$('#view .study-wrap .study-top'), `ôn → ${away}: mảnh ảnh về muộn không vẽ thẻ ôn đè trang mới`);
+  }
+  // lượt cũ chờ mảnh 700 ms, lượt mới 50 ms → lượt mới vẽ trước; lượt cũ về sau không được vẽ đè (trước đây chỉ so hash – A→B→A trùng hash nên lọt)
+  got = false; calls = 0; delays = [700, 50]; await go('#/home', 100); w.location.hash = '#/practice/learn?src=deck'; await tick(5); w.location.hash = '#/home'; await tick(5); w.location.hash = '#/practice/learn?src=deck'; await settle(400);
+  const s0 = sig(), el = $('#fi'); await tick(800);
+  ok(w.location.hash.startsWith('#/practice/learn') && $('#fi') === el && sig() === s0, `học → home → học (mảnh ảnh chậm): lượt cũ không vẽ lại phiên học (${s0})`);
+  w.VImg = V0;
+}
 // 4) Tổng quát: MỌI route trong bảng App.routes — đi tới R rồi chuyển ngay sang #/stats (và ngược lại) ở nhiều độ trễ; trang cuối phải giống hệt khi vào thẳng, không có lượt cũ vẽ đè.
 {
   const view = () => $('#view'), snap = () => ((view() || {}).textContent || '').replace(/\s+/g, ' ').trim().slice(0, 200) + '|' + ((view() || {}).children.length);
