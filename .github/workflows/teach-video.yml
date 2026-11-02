@@ -37,11 +37,11 @@ jobs:
         with: { node-version: 22 }
       - run: node scripts/test/motion-core.mjs
       - run: python3 scripts/test/media-origin.py   # pictures from GitHub origins, Worker last (2/11 429)
-      - id: m
-        run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick '${{ github.event.inputs.eps }}' '${{ github.event.inputs.shards }}' '${{ github.event_name }}')" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
-      - id: p   # free runners, not a fixed 10/12 (owner 2/11: use idle CI for video): min(24, 40 - busy - 8, jobs), 8 kept for PR checks
+      - id: p   # free runners, not a fixed 10/12 (owner 2/11: use idle CI for video): min(24, 40 - busy - 8), 8 kept for PR checks
         env: { GITHUB_TOKEN: '${{ github.token }}' }
-        run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ steps.m.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+        run: echo "par=$(node scripts/ci/shards.mjs --left 48 --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+      - id: m   # a batch takes only what the free runners finish in ~1.5 h (4 episodes per runner); ci-filler dispatches the next slice
+        run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick '${{ github.event.inputs.eps }}' '${{ github.event.inputs.shards }}' '${{ github.event_name }}' ${{ steps.p.outputs.par }})" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
   voice:
     needs: preqc
     runs-on: ubuntu-latest
@@ -79,11 +79,24 @@ jobs:
           n=$(ls vo/vis3/*.words.json | wc -l); echo "$n lines voiced"; [ "$n" -gt 5 ] || { echo "::error::no voice"; exit 1; }
       - uses: actions/upload-artifact@v4
         with: { name: 'tvo-${{ matrix.ep }}-${{ github.run_id }}', path: 'vo/vis3/', retention-days: 3 }
-  render:
+  par:   # count free runners again before the render matrix (preqc's count is an hour old in a busy queue; 2/11 run 41380206879 was stuck at 1)
     needs: [preqc, voice]
+    if: always() && needs.preqc.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs: { par: '${{ steps.p.outputs.par }}' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts/ci }
+      - id: p
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+  render:   # one red voice job no longer skips the whole batch: that episode's render fails on its missing voice artifact, the rest render
+    needs: [preqc, voice, par]
+    if: always() && needs.preqc.result == 'success' && needs.par.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.preqc.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
+    strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.par.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
     env: { O: 'out/${{ matrix.ep }}/${{ matrix.fmt }}', E: 'content/video/teach2d/eps/${{ matrix.ep }}.json', MEDIA_ORIGIN_ONLY: '1' }   # pictures from the GitHub origins only, never media.lexkite.com (Workers cap)
     steps:
       - uses: actions/checkout@v4

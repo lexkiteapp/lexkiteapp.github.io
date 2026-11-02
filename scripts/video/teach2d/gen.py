@@ -632,7 +632,8 @@ if __name__ == '__main__':
         print(json.dumps(T_[:int(A_[A_.index('--take') + 1])] if '--take' in A_ else T_)); sys.exit(0)
     if '--pick' in A_:   # teach-video preqc: explicit ids > next N todo (ci-filler 'shards') > PR smoke (pilots + first auto ep of each template) > pilots
         i = A_.index('--pick'); ids, n, ev = [x.strip() for x in A_[i + 1].split(',') if x.strip()], int(A_[i + 2] or 0), A_[i + 3]
-        if not ids and n > 0: ids = todo()[:min(n, 120)]   # render matrix = 2 x episodes <= 256 jobs
+        par = int(A_[i + 4]) if len(A_) > i + 4 and A_[i + 4].isdigit() else 30
+        if not ids and n > 0: ids = todo()[:min(n, 120, 4 * par)]   # render matrix = 2 x episodes <= 256 jobs; ~4 episodes per free runner per run
         if not ids:
             ids = [r['id'] for r in PIL['pilots']]
             if ev == 'pull_request': R_ = load_auto()['rows']; ids += [next(r['id'] for r in R_ if r['template'] == t) for t in CANDS if any(r['template'] == t for r in R_)]
