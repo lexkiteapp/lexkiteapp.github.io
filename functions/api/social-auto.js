@@ -6,10 +6,11 @@ import { cliVerify } from './drive.js';
 import { limit } from './sync.js';
 import { guardBackground } from './_d1guard.js';
 import { runAuto, autoStatus } from './_social_auto.js';
+import { readText, bodyFail } from './_body.js';
 
 const json = (status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 export async function onRequestPost({ request, env }) {
-  const text = await request.text().catch(() => ''); if (text.length > 2048) return json(413, { error: 'too-large' });
+  let text; try { text = await readText(request, 2048); } catch (e) { const f = bodyFail(e); return json(f.status, { error: f.error }); }
   let b; try { b = JSON.parse(text || '{}'); } catch (e) { return json(400, { error: 'json' }); }
   if (!request.headers.get('X-Drive-Sig') || !(await cliVerify(env, request, text))) return json(403, { error: 'forbidden' });
   if (await limit('socauto:' + (request.headers.get('CF-Connecting-IP') || '?'), 6, 600)) return json(429, { error: 'too-fast' }); // CI 1 lượt/2 giờ; chặn vòng lặp lỗi

@@ -292,10 +292,14 @@ async function nanoExplain(text, sentence) {
 async function serverExplain(text, sentence, langName) {
   if (navigator.onLine === false) return { error: 'OFFLINE' };
   let r;
-  try { r = await fetch(AI_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Lexkite-Device': await deviceId() }, signal: AbortSignal.timeout(45000), body: JSON.stringify({ prompt: EX_PROMPT(text, sentence, langName), sys: AI_SYS }) }); }
+  // Prompt hệ thống do máy chủ chọn theo task 'explain' (= AI_SYS ở trên, functions/api/ai.js SYS.explain). Vé người thật: trang add-on (app/js/human.js) chép vào chrome.storage 'lk.human'
+  const dev = await deviceId(), hm = (await chrome.storage.local.get('lk.human'))['lk.human'], hd = { 'Content-Type': 'application/json', 'X-Lexkite-Device': dev };
+  if (hm && hm.d === dev && typeof hm.t === 'string' && hm.e > Date.now() + 60e3) hd['X-Lexkite-Human'] = hm.t;
+  try { r = await fetch(AI_URL, { method: 'POST', headers: hd, signal: AbortSignal.timeout(45000), body: JSON.stringify({ prompt: EX_PROMPT(text, sentence, langName), task: 'explain' }) }); }
   catch (e) { return { error: navigator.onLine === false ? 'OFFLINE' : 'FAILED' }; }
   const j = await r.json().catch(() => ({}));
   if (r.status === 429) return { error: j && j.msg === 'quota.daily' ? 'QUOTA_DAY' : 'BUSY' };
+  if (r.status === 403 && j && j.error === 'human') return { error: 'HUMAN' }; // khách chưa xác minh (cờ AI_HUMAN_ENFORCE) → thẻ nhắc mở Lexkite một lần
   if (!r.ok || !okExplain(j && j.out)) return { error: r.status === 503 ? 'BUSY' : 'FAILED' };
   const out = j.out; delete out._model;
   return { result: out, left: typeof j.left === 'number' ? j.left : null, via: 'server' };

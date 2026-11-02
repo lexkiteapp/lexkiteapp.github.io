@@ -297,13 +297,14 @@
       "key": "turnstile",
       "name": "Cloudflare Turnstile",
       "kind": "security",
-      "purpose": "Chống bot form liên hệ",
+      "purpose": "Chống bot: form liên hệ (/api/contact), tạo báo lỗi (/api/report) và AI miễn phí cho khách (/api/ai) – bắt buộc token Turnstile hoặc vé người thật 12 h (POST /api/human, functions/api/human.js + _human.js; trang iframe web/human.html cho app gốc capacitor:// và trang add-on; máy khách web/js/human.js). Fail closed: siteverify lỗi → 503. Env Pages: TURNSTILE_SECRET_KEY (bắt buộc để bật), HUMAN_TICKET_KEY (tùy chọn, khóa ký vé riêng ≥ 32 ký tự; trống = dẫn xuất từ TURNSTILE_SECRET_KEY), AI_HUMAN_ENFORCE (\"1\" = /api/ai chặn khách không vé; trống = khách không vé chỉ được ½ hạn mức). Tài liệu docs/HUMAN.md",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/turnstile",
       "free": "Không giới hạn",
       "upgrade": "—",
       "status": "Miễn phí",
       "match": [
-        "challenges.cloudflare.com"
+        "challenges.cloudflare.com",
+        "/api/human"
       ]
     },
     {
