@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { minify } from 'terser';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { CSS, FOOT_CSS, SEO_L, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeSwitch, TSW_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
+import { HINT_FILE, CSS, FOOT_CSS, SEO_L, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, themePage, themeSwitch, TSW_CSS, SITE_UI, SITE_UI_LAZY, SITE_UI_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr
@@ -57,14 +57,8 @@ const gaBtn = (l, place, appQ, web) => `<a class="btn ghost gapp" href="${appQ}"
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
-// Chữ gợi ý 15 ngôn ngữ → web/js/lhint.json, chỉ tải khi thật sự cần hiện (ngôn ngữ đã chọn/trình duyệt ≠ trang) → landing ≤ 16 KB gzip
-export const HINT_FILE = '/js/lhint.json';
-const hintJs = lang => `(function(){try{var P=${JSON.stringify(lang)},ls=window.localStorage;if(ls.getItem('lk.lhint'))return;
-var n=ls.getItem('vb.uiLang')||ls.getItem('lk.lang')||(navigator.languages&&navigator.languages[0])||navigator.language||'';n=String(n).toLowerCase().split('-')[0];if(n===P||${JSON.stringify(LANGS.join(' '))}.split(' ').indexOf(n)<0)return;
-fetch('${HINT_FILE}').then(function(r){return r.json()}).then(function(A){var S=A[n];if(!S)return;
-var d=document.createElement('div');d.className='lhint';d.lang=n;if(n==='ar')d.dir='rtl';d.setAttribute('role','region');d.setAttribute('aria-label',S[0]);
-d.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';d.firstChild.textContent=S[0];var a=d.querySelector('a'),b=d.querySelector('button');a.href=n==='vi'?'/':'/'+n+'/';a.textContent=S[1];b.setAttribute('aria-label',S[2]);
-var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclick=function(){x();d.remove()};document.body.appendChild(d)})['catch'](function(){})}catch(e){}})();`;
+// Dải gợi ý ngôn ngữ: mã nằm trong js/site-ui.js (site-layout HINT_JS), chữ 15 ngôn ngữ → web/js/lhint.json (HINT_FILE); trang chỉ cần <body data-lhint="lhint"> (giá trị = tên lớp để purgeCss giữ luật .lhint: lớp do JS ngoài thêm)
+
 
 // ----- CSS riêng của landing (chỉ token màu của site-layout / BRAND-RULES) -----
 const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-block!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
@@ -156,7 +150,7 @@ ${ld(graph)}
 <style>${CSS}
 ${LCSS}</style>
 </head>
-<body>
+<body data-lhint="lhint">
 <a class="skip" href="#nd">${esc(c.skip)}</a>
 ${siteHeader({ nav, open: [start, esc(c.nav.start)], extra: gaBtn(lang, 'head', appQ), home: landingHref(lang), lang, langHref: landingHref, label: c.langL })}
 <main id="nd">
@@ -189,7 +183,6 @@ ${c.faq.map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(q)}
 <section class="final" aria-labelledby="hc"><h2 id="hc">${esc(c.finalH)}</h2><p>${esc(c.finalP)}</p><a class="btn lg" href="${start}">${esc(c.hero.cta)} ${rtl ? '←' : '→'}</a></section>
 </main>
 ${siteFooter({ lang, text: esc(c.foot), tm: esc(c.tm), langHref: landingHref, getApp: gaBtn(lang, 'foot', appQ, true) }).replace(SITE_UI, SITE_UI_LAZY)}
-<script>${hintJs(lang)}</script>
 <script>${EXT_JS}
 self.LK_GETAPP_T='${gaFile(lang)}';
 ${GETAPP_JS}</script>

@@ -1,4 +1,4 @@
-/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */
+/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS + HINT_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */
 (function (w, d) {
 function init(r) {
 var b = r.querySelector('[aria-haspopup]'), m = r.querySelector('[role=menu]');
@@ -43,4 +43,10 @@ if(n&&n!=h)a.setAttribute('href',n)})})(document);
 (function(d){var q=window.matchMedia?matchMedia('(max-width:720px)'):{matches:!1},G=d.querySelectorAll('.fg'),F=function(){[].forEach.call(G,function(x,i){x.open=!q.matches||!i})};F();q.addEventListener&&q.addEventListener('change',F);
 [].forEach.call(G,function(x){x.addEventListener('toggle',function(){if(!q.matches&&!x.open)x.open=true})});
 d.addEventListener('click',function(e){[].forEach.call(d.querySelectorAll('.flang[open]'),function(x){if(!x.contains(e.target))x.open=false})});d.addEventListener('keydown',function(e){var x=e.key=='Escape'&&e.target.closest&&e.target.closest('.flang[open]');if(x){x.open=false;x.querySelector('summary').focus()}})})(document);
+(function(d){var b=d.body,P=d.documentElement.lang,ls;if(!b||!b.hasAttribute('data-lhint'))return;try{ls=window.localStorage;if(ls.getItem('lk.lhint'))return;
+var n=ls.getItem('vb.uiLang')||ls.getItem('lk.lang')||(navigator.languages&&navigator.languages[0])||navigator.language||'';n=String(n).toLowerCase().split('-')[0];if(n===P||"vi en es pt fr de id th zh ja ko hi ar ru tr".split(' ').indexOf(n)<0)return;
+fetch('/js/lhint.json').then(function(r){return r.json()}).then(function(A){var S=A[n];if(!S)return;
+var e=d.createElement('div');e.className='lhint';e.lang=n;if(n==='ar')e.dir='rtl';e.setAttribute('role','region');e.setAttribute('aria-label',S[0]);
+e.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';e.firstChild.textContent=S[0];var a=e.querySelector('a'),c=e.querySelector('button');a.href=n==='vi'?'/':'/'+n+'/';a.textContent=S[1];c.setAttribute('aria-label',S[2]);
+var x=function(){try{ls.setItem('lk.lhint','1')}catch(z){}};a.onclick=x;c.onclick=function(){x();e.remove()};b.appendChild(e)})['catch'](function(){})}catch(z){}})(document);
 window.LkUi=1;

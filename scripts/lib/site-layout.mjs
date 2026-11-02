@@ -318,7 +318,16 @@ ${SITE_UI}`;
 };
 // JS dùng chung mọi trang tĩnh (menu ngôn ngữ đầu trang + nút giao diện + đồng bộ ngôn ngữ + chân trang) → 1 file tĩnh có cache (web/js/site-ui.js,
 // sinh bởi scripts/build-landing.mjs; --check báo cũ). Không nằm inline → landing nhẹ hơn (≤ 16 KB gz). Chống nháy vẫn inline (THEME_HEAD).
-export const SITE_UI_JS = () => `/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */\n${LSW_JS}\n${TSW_JS}\n${LANG_JS}\n${FOOT_JS}\nwindow.LkUi=1;\n`;
+// Dải gợi ý ngôn ngữ của trang giới thiệu (chỉ trang có <body data-lhint>): trình duyệt/app dùng ngôn ngữ khác trang đang xem → dải nhỏ, đóng được, chỉ người thật sau khi vẽ.
+// Nằm trong site-ui.js (có cache, nạp sau load) thay vì script nội tuyến → mỗi landing nhẹ hơn ~0,5 KB gzip (ngân sách 16 KB, ru sát trần). Chữ 15 ngôn ngữ → HINT_FILE, chỉ tải khi cần hiện.
+export const HINT_FILE = '/js/lhint.json';
+export const HINT_JS = `(function(d){var b=d.body,P=d.documentElement.lang,ls;if(!b||!b.hasAttribute('data-lhint'))return;try{ls=window.localStorage;if(ls.getItem('lk.lhint'))return;
+var n=ls.getItem('vb.uiLang')||ls.getItem('lk.lang')||(navigator.languages&&navigator.languages[0])||navigator.language||'';n=String(n).toLowerCase().split('-')[0];if(n===P||${JSON.stringify(Object.keys(LANG_NAMES).join(' '))}.split(' ').indexOf(n)<0)return;
+fetch('${HINT_FILE}').then(function(r){return r.json()}).then(function(A){var S=A[n];if(!S)return;
+var e=d.createElement('div');e.className='lhint';e.lang=n;if(n==='ar')e.dir='rtl';e.setAttribute('role','region');e.setAttribute('aria-label',S[0]);
+e.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';e.firstChild.textContent=S[0];var a=e.querySelector('a'),c=e.querySelector('button');a.href=n==='vi'?'/':'/'+n+'/';a.textContent=S[1];c.setAttribute('aria-label',S[2]);
+var x=function(){try{ls.setItem('lk.lhint','1')}catch(z){}};a.onclick=x;c.onclick=function(){x();e.remove()};b.appendChild(e)})['catch'](function(){})}catch(z){}})(document);`;
+export const SITE_UI_JS = () => `/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs (LSW_JS + TSW_JS + LANG_JS + FOOT_JS + HINT_JS) – sửa ở đó rồi chạy node scripts/build-landing.mjs */\n${LSW_JS}\n${TSW_JS}\n${LANG_JS}\n${FOOT_JS}\n${HINT_JS}\nwindow.LkUi=1;\n`;
 export const SITE_UI_V = createHash('sha256').update(SITE_UI_JS()).digest('hex').slice(0, 8);
 export const SITE_UI = `<script src="/js/site-ui.js?v=${SITE_UI_V}" defer></script>`;
 // Landing (giữ LCP: không <script src> trong HTML – landing-routing kiểm): nạp cùng file SAU sự kiện load, như js/get-app.js nạp khi cần
