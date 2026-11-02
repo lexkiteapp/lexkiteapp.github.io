@@ -8,11 +8,13 @@
 import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import { execFileSync } from 'node:child_process';
 import { hosts, merge, diff, typeFor, cacheFor, ACCOUNT } from './hosts.mjs';
 import { signV4, sha256hex } from '../lib/media-store.mjs';
+import { r2Frozen } from '../lib/r2-freeze.mjs';
 
 const args = process.argv.slice(2), opt = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };
 const DRY = args.includes('--dry'), VERIFY = +opt('verify', 40), MAX = +opt('max', 0), CONC = +opt('concurrency', 24);
 const MANIFEST = '_mirror/manifest.json';
 if (!process.env.CI && !DRY) { console.error('cdn-mirror: chỉ chạy trên CI (hoặc --dry)'); process.exit(2); }
+if (r2Frozen() && !DRY) { console.log('::notice::R2 đóng băng (chốt $0 – free-tier guard ≥ 90 %) → không ghi R2'); process.exit(0); }
 
 const enc = s => encodeURIComponent(s).replace(/[!'()*]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase());
 function s3(bucket) {

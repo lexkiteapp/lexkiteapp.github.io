@@ -6,6 +6,9 @@ on:
     - cron: '33 */3 * * *'   # mỗi 3 giờ: đo đường nạp lại (00:00 UTC hay cửa sổ 24 h trượt?)
   workflow_dispatch:
 permissions: { contents: read, actions: write }   # actions: write = khởi động lại lượt ảnh khi kho mở
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   probe:
     runs-on: ubuntu-latest

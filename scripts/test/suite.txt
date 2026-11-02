@@ -99,6 +99,7 @@ node scripts/test/required-gate.mjs
 node scripts/test/drive-ui.mjs
 node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
+node scripts/test/cron-watch.mjs
 node scripts/test/reminders.mjs
 node scripts/test/focus-targets.mjs
 node --check scripts/test/journey-e2e.mjs
@@ -196,4 +197,5 @@ node scripts/test/video-pron.mjs
 node scripts/test/mqa-parity.mjs
 node scripts/say-native/build.mjs --check
 node scripts/test/hit-retry.mjs
+node scripts/test/ci-policy.mjs
 node scripts/test/suite-guard.mjs
