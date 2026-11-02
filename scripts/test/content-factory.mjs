@@ -87,6 +87,7 @@ const mk = { ...MQ, seeds: () => [mseed] };
     'thiếu ___': i => { i.qs[0].q = 'Zorblat the cat drinks milk.'; },
     'hai ___': i => { i.qs[0].q = 'Zorblat ___ the cat ___ milk.'; },
     'trùng phương án': i => { i.qs[1].options = ['work', 'work', 'works', 'working']; },
+    'trùng sau chuẩn hoá của cổng (gạch nối)': i => { i.qs[1].options = ['work', 'works', 'twenty-minute', 'twenty minute']; }, // hồi quy lô thử 02/11 (gate grammar/schema)
     'đáp án ngoài 0–3': i => { i.qs[2].answer = 4; },
     'lời giải không tiếng Việt': i => { i.qs[3].explain = 'Subject is singular so add s.'; },
     'lời giải nhắc chữ cái': i => { i.qs[3].explain = 'Đáp án B vì chủ ngữ số ít.'; },

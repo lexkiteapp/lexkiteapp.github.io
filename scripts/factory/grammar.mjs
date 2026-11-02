@@ -2,6 +2,7 @@
 // Kho: content/factory/grammar-quiz.json → web/js/grammar/bank-gen.js (build-grammar-bank.mjs). Luật cứng phản chiếu scripts/test/content-check.mjs (mcq/checkExplain/lintEn).
 import { rj, wj, enLint, MAXW, words } from './lib.mjs';
 import { loadContent } from '../lib/content-load.mjs';
+import { norm as qaNorm } from '../content-qa/lib.mjs';
 import { build } from './build-grammar-bank.mjs';
 
 const DATA = 'content/factory/grammar-quiz.json', PER_LESSON = 39, PER_SEED = 5;
@@ -66,7 +67,7 @@ export const KINDS = {
       'Rules: test ONLY the grammar point named by "en" (summary explains it) at the CEFR level "level"; exactly ONE defensible answer (the wrong options must be clearly wrong, not alternative correct forms); ' +
       'vary the answer position across the 5 questions; original sentences, natural English, realistic everyday or academic contexts; keep sentences short for the level; ' +
       'do not repeat or paraphrase the questions in "avoid"; no names of real brands/people; no emoji; explanations in Vietnamese with full diacritics.',
-    rubric: 'Check each of the 5 questions: it tests the lesson grammar point (not something else); exactly one option is correct and the key (answer index) is right; ' +
+    rubric: 'If ANY wrong option would also be grammatical in the sentence, the question has more than one answer: score it at most 2. A register/style question must state the required register in the stem, e.g. "(formal)". Check each of the 5 questions: it tests the lesson grammar point (not something else); exactly one option is correct and the key (answer index) is right; ' +
       'distractors are plausible but definitely wrong; the English is natural; the explanation is correct, in Vietnamese, and explains the rule without contradiction; the difficulty suits the CEFR level.',
     view: (it, s) => ({ lesson: s.en, level: s.level, qs: it.qs }),
     rules(it, s) {
@@ -82,7 +83,7 @@ export const KINDS = {
         if (words(t) > maxw) e.push(`${w}: ${words(t)} từ > ${maxw}`);
         const o = q.options;
         if (!Array.isArray(o) || o.length !== 4 || !o.every(x => typeof x === 'string' && x.trim() && x === x.trim())) { e.push(`${w}: cần 4 phương án chuỗi không rỗng, đã cắt khoảng trắng`); return; }
-        if (new Set(o.map(x => x.replace(/\s+/g, ' ').toLowerCase())).size !== 4) e.push(`${w}: trùng phương án`);
+        if (new Set(o.map(qaNorm)).size !== 4) e.push(`${w}: trùng phương án (chuẩn hoá như cổng content-qa)`); // lô thử 02/11: 'twenty minutes' ≡ 'twenty-minutes' lọt luật cũ, đỏ gate grammar/schema
         if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3) { e.push(`${w}: answer phải là số nguyên 0–3`); return; }
         pos.add(q.answer);
         e.push(...enLint(o[q.answer], `${w} đáp án`), ...anErrs(w + ' đáp án', o[q.answer]));

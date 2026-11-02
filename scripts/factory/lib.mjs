@@ -98,7 +98,7 @@ export async function runBatch(K, { n = 25, shard = 0, shards = 1, pool, dry = f
   }
   const bad = checked.filter(x => !x.ok).length;
   st.auditBad = bad;
-  const batch = { id: `cf-${K.kind}-${new Date().toISOString().slice(0, 10)}-s${shard}`, source: `factory:${K.kind}`, n: ok.length, checked, status: !ok.length ? 'empty' : checked.length < N ? 'pending' : bad / ok.length > 0.02 && bad > 0 ? 'rejected' : 'accepted' };
+  const batch = { id: `cf-${K.kind}-${new Date().toISOString().slice(0, 10)}-s${shard}`, source: 'content-factory', kind: K.kind, n: ok.length, checked, status: !ok.length ? 'empty' : checked.length < N ? 'pending' : bad / Math.max(1, checked.length) > 0.02 ? 'rejected' : 'accepted' };
   if (batch.status === 'accepted') for (const m of ok) res.accepted.push({ k: m.s.k, seed: m.s, item: K.finalize ? K.finalize(m.it, m.s) : m.it, qa: m.qa });
   else for (const m of ok) res.review.push({ k: m.s.k, kind: K.kind, item: m.it, qa: m.qa, why: `lô ${batch.status} (soát mẫu ${bad}/${checked.length} sai)` });
   res.batch = batch;

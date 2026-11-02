@@ -2,13 +2,13 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 47.3 / 100**
+**Tổng: 48 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **45.2** | 45.2 | 45.2% | 100% | 0 |
-| Ngữ pháp | **51.4** | 51.4 | 51.4% | 100% | 0 |
-| Giao tiếp | **14.1** | 14.1 | 14.1% | 100% | 0 |
+| Ngữ pháp | **51.4** | 51.9 | 51.4% | 100% | 0 |
+| Giao tiếp | **18.7** | 18.7 | 18.7% | 100% | 0 |
 | 4 kỹ năng | **48.2** | 48.2 | 48.2% | 100% | 0 |
 | Đề thi | **30.4** | 30.4 | 30.4% | 100% | 0 |
 | Khung Can-do | **79.1** | 79.1 | 79.1% | 100% | 0 |
@@ -50,7 +50,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | roleplay | 16 / 60 | 27% | 20 |
 | tình huống Play & Speak | 1 / 40 | 3% | 20 |
 | mục gold (giải thích cách dùng) | 228 / 1000 | 23% | 20 |
-| sổ mẫu câu theo chức năng (chưa làm) | 0 / 100 | 0% | 20 |
+| sổ mẫu câu theo chức năng (chưa làm) | 23 / 100 | 23% | 20 |
 
 ## 4 kỹ năng
 
