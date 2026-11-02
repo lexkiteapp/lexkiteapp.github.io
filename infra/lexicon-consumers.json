@@ -6,6 +6,11 @@
    "via": "loadAllPlus",
    "job": "content-qa.yml (score)"
   },
+  "scripts/content-qa/lkf-check.mjs": {
+   "what": "reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do",
+   "via": "loadAllPlus",
+   "job": "npm test + content-qa.yml (score)"
+  },
   "scripts/lexicon/shards.mjs": {
    "what": "mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ",
    "via": "loadExpand",

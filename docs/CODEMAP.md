@@ -10,16 +10,16 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `extension/` (1183 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (70 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (17 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (741 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `scripts/` (744 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (143 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (573 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (2288 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (2291 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (214 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (167 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (35): account,admin,admin-clips,admin-prefs,admin-shorts,ads-report,ads-reward,ai,backlinks,capacity,class,config,contact,dictlookup,distribution,drive,growth,handoff,hit,i18nfix,img,jobs,keys,league,lexai,notices,ota,push,quota,report,social,social-auto,studio,sync,youtube
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:641 s/test:265 s/video:101 js/vimg:64 s/cine:48 s/lib:31 s/vocab-img:31 s/lexicon:30 js/notes:27 js/grammar:25 js/readtest:21 js/st:21 js/lib:20 s/pron:19 js/get-app:15 js/toeic:15 js/listen:12 s/ci:11 s/ops:9 js/write:9 s/footage:8 s/word-audio:7 js/speak:7 js/usage:7 s/dict:6 s/sentence-audio:6 s/teach:6 js/pron:6 s/capacity:5 js/lesson:5 s/quality:4 s/teacher:4 s/tts-ab:4 js/ads:4 js/toefl:4 js/vendor:4 s/content-qa:3 s/explain:3 s/ota:3 s/scriptbank:3 js/call:3 js/roleplay:3 js/tools:3
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:641 s/test:266 s/video:101 js/vimg:64 s/cine:48 s/lib:31 s/vocab-img:31 s/lexicon:30 js/notes:27 js/grammar:25 js/readtest:21 js/st:21 js/lib:20 s/pron:19 js/get-app:15 js/toeic:15 js/listen:12 s/ci:11 s/ops:9 js/write:9 s/footage:8 s/word-audio:7 js/speak:7 js/usage:7 s/dict:6 s/sentence-audio:6 s/teach:6 js/pron:6 s/capacity:5 js/lesson:5 s/content-qa:4 s/quality:4 s/teacher:4 s/tts-ab:4 js/ads:4 js/toefl:4 js/vendor:4 s/explain:3 s/ota:3 s/scriptbank:3 js/call:3 js/roleplay:3 js/tools:3
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md. Test: scripts/test/i18n-*.mjs
@@ -39,7 +39,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 1. `web/js/app.js` ←80 · App,LK_GETAPP_T,retArm,retOn,retTrack,parseHash…
 2. `web/js/st/common.js` ←31 · ST
 3. `functions/api/sync.js` ←26 · claims,verify,limit,PACK_MAX,viewOf,userDocs…
-4. `scripts/lexicon/lib.mjs` ←19 · ROOT,rd,wr,PRIORITY,SOURCES,parseRow…
+4. `scripts/lexicon/lib.mjs` ←20 · ROOT,rd,wr,PRIORITY,SOURCES,parseRow…
 5. `scripts/video/library.mjs` ←18 · ROOT,LIB,CAND,MANIFEST,CDN,parseName…
 6. `web/js/ai.js` ←17 · AI
 7. `web/js/sync.js` ←17 · Sync,VBBridge
@@ -247,7 +247,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - youtube-manual [cron,manual] Manual YouTube path (docs/YOUTUBE-SETUP.md §0)
 - youtube-upload [cron,manual] Upload owner-approved shorts to YouTube…
 
-## Test (223) → vùng phủ (file đích chi tiết: json `tests`)
+## Test (224) → vùng phủ (file đích chi tiết: json `tests`)
 - `web/js`: account-delete account-flow account-ui admin-gate admin-ui ads-admin ads-cls ads analytics anki audio-play audio-voice call-engine choice-kit client-security clips-perf confidence criteria dict-sent-lang dictlookup drive-ui exit-guard ext-popup ext-selection facade-perf feel focus-targets get-app ipa-accent league learn-flow lex mobile-guards mobile-qa native-auth next-step pron-coach pron-pairs quick-ui report-ui retention sel-translate shell-size social-ui speak-ipa speak static-routes streak-flame streak-ui sync-drive tutor unit usage verbs video-web
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe call-e2e clutter confidence-shots content-check contrast crawl d1-scan docs-budget e2e explain-shots final-qc i18n-switch lazyfix listing-check native-facade nav-render no-url-pathname profile-route pron-read qa-bot-diff review-done review-modes-ui review-modes review-shots route-race screens seo-sitemap serve-web smoke toeic-read-e2e tools-ui ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep
 - `functions/api`: admin-ads-shots admin-dist-shots admin-guard admin-prefs ads-revenue ai-pool api-security capacity classroom clip-bulk dist-roles distribution drive jobs keys live-check notices pr-check quota report schema-lock social-auto social-meta-oauth social-meta social-mgr social-proxy sync-ctx sync-pack user-mgmt ux1-rollout yt-manual
@@ -267,6 +267,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/lexicon`: dict-perf lexicon-expand
 - `web/app`: bundle-names shell-lazy
 - `.github/workflows`: required-gate
+- `content/framework`: lkf
 - `content/lexicon`: vocab-img-strict
 - `content/situations`: situations
 - `mobile/ios`: ai-local
@@ -288,4 +289,4 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: reminders
 
-## Mô-đun JS chính (0/900; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+## Mô-đun JS chính (0/903; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
