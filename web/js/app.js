@@ -605,7 +605,7 @@
         nodes.forEach(x => { if (!put(x)) { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!need.includes(s)) need.push(s); } });
         for (let i = 0; i < need.length;) { // lô ≤ 1800 ký tự
           const batch = []; let len = 0; while (i < need.length && len + need[i].length < 1800) { batch.push(need[i]); len += need[i].length + 1; i++; } if (!batch.length) batch.push(need[i++]);
-          const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=vi&tl=${to}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`).then(x => x.json()).catch(() => null);
+          const r = await fetch(`${Dict.gtxURL('vi', to)}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`, { signal: AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined }).then(x => (x.ok ? x.json() : (x.body && x.body.cancel().catch(() => {}), null))).catch(() => null);
           if (!r || !r[0]) { failed = true; break; }
           const out = r[0].map(x => x[0]).join('').split('\n');
           batch.forEach((s, k) => { if (out[k] && out[k].trim()) mem[s] = out[k].trim(); });
