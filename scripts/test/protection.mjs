@@ -1,7 +1,7 @@
 // Test bảo vệ nội dung: bộ dựng luật WAF (scripts/lib/cf-waf-rules.mjs), sổ băm (scripts/lib/content-registry.mjs),
 // WebSub/copy-watch (hàm thuần) và sổ thật trong repo còn nguyên chuỗi băm. Không gọi mạng.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { buildRules, mergeRules, sameRules, mask, HTML_PREFIXES, DATA_PREFIXES, NEVER, LANGS, RL_DEFAULT, CI_HEADER } from '../lib/cf-waf-rules.mjs';
+import { buildRules, mergeRules, sameRules, mask, HTML_PREFIXES, DATA_PREFIXES, NEVER, LANGS, RL_DEFAULT, CI_HEADER, API_RL } from '../lib/cf-waf-rules.mjs';
 import { readRegistry, verifyChain, appendEntry, recordPublish, recordArchive, recordDataset, recordRelease, datasetRoot, sha256, REGISTRY, OTS_DIR, otsPath, otsPending, stampable, otsState, registryLines } from '../lib/content-registry.mjs';
 import { spawnSync } from 'node:child_process';
 import { feedsFor } from '../websub-ping.mjs';
@@ -33,6 +33,11 @@ ok(rl.ratelimit.period === 10 && rl.ratelimit.characteristics.includes('ip.src')
 ok(rl.ratelimit.requests_per_period >= 30 && rl.ratelimit.requests_per_period === RL_DEFAULT.requests, 'ngưỡng ≥ 30 req/10 s');
 ok(rl.ratelimit.requests_per_period >= 4 * 10, 'ngưỡng ≥ 4× người đọc nhanh nhất (~10 trang/10 s, 1 request nội dung/trang)');
 ok(!/http\.host|http\.request\.headers|user_agent/.test(rl.expression), 'rate limit chỉ dùng path + cf.client.bot (giới hạn gói Free)');
+// API công khai (audit bảo mật 2/11): /api/ai, /api/contact, /api/report, /api/handoff bị đếm ở rate limit, khớp ĐÚNG đường dẫn
+for (const a of ['/api/ai', '/api/contact', '/api/report', '/api/handoff']) ok(API_RL.includes(a) && rl.expression.includes(`"${a}"`), `rate limit phủ ${a}`);
+ok(/http\.request\.uri\.path in \{"\/api\/ai"/.test(rl.expression) && !rl.expression.includes('starts_with(http.request.uri.path, "/api'), 'API chỉ khớp đúng đường dẫn (không tiền tố /api/ – sync/studio/drive/CLI không bị đếm)');
+ok(API_RL.every(a => !/^\/api\/(sync|studio|drive|lexai|quota|admin)/.test(a)), 'không đếm API nội bộ/CI');
+ok(!R.custom.some(r => r.expression.includes('"/api/')), 'luật chặn/thử thách không bao giờ chạm /api/*');
 ok(!rl.expression.includes('starts_with(http.request.uri.path, "/blog/")'), 'rate limit không tính /blog/ trơn (trùng đường ảnh media.lexkite.com/blog/…)');
 ok(rl.action === 'block' && rl.ratelimit.mitigation_timeout === 10, 'vượt ngưỡng → chặn 10 s (gói Free không cho challenge)');
 ok(buildRules({ ciSecret: SECRET, rl: { action: 'block' } }).ratelimit[0].ratelimit.mitigation_timeout === 10, 'hành động block → timeout 10 s');

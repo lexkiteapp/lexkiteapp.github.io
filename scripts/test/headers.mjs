@@ -20,7 +20,7 @@ const need = {
   'x-frame-options': v => /^(SAMEORIGIN|DENY)$/.test(v),
   'x-content-type-options': v => v === 'nosniff',
   'referrer-policy': v => /strict-origin-when-cross-origin|no-referrer/.test(v),
-  'strict-transport-security': v => /max-age=(\d+)/.test(v) && +v.match(/max-age=(\d+)/)[1] >= 15552000,
+  'strict-transport-security': v => /max-age=(\d+)/.test(v) && +v.match(/max-age=(\d+)/)[1] >= 31536000 && /includeSubDomains/.test(v) && /preload/.test(v), // HSTS preload (audit 2/11: mọi subdomain HTTPS; owner nộp hstspreload.org)
   'permissions-policy': v => /camera=\(\)/.test(v) && /geolocation=\(\)/.test(v),
   'cross-origin-opener-policy': v => /same-origin-allow-popups/.test(v), // cần cho cửa sổ đăng nhập Google (Firebase signInWithPopup)
 };
