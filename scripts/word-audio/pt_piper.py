@@ -13,6 +13,7 @@ v = 'piper_faber'; d = os.path.join(OUT, v); os.makedirs(d, exist_ok=True)
 def say(text, f):
     subprocess.run([sys.executable, '-m', 'piper', '-m', os.path.join(M, NAME + '.onnx'), '-f', f, '--', text], check=True, capture_output=True)
 rows = []
+cf = os.path.join(d, '_carrier.wav'); say('A palavra é:', cf); probe.setdefault('carrier', {})[v] = cf
 for i, w in enumerate(words):
     c = []
     if ' ' not in w.strip(): f = os.path.join(d, f'{i}.0.wav'); say('A palavra é: ' + w + '.', f); c.append({'m': 'cut', 'f': f})

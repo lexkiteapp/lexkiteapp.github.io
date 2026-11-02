@@ -31,11 +31,21 @@ from faster_whisper import WhisperModel
 # Bộ nghe: large-v3-turbo đa ngôn ngữ. Lượt 41433773084 chứng minh "small" không nghe nổi từ đơn tiếng Bồ: giọng ĐỐI CHỨNG Piper pt_BR (rõ, dữ liệu CC0)
 # cũng chỉ 7/20, nghe "homem" → "O que é isso?", "gato" → "Pronto." – bộ nghe yếu chứ không phải giọng. Nghe tốt hơn = cổng chặt hơn (vẫn khớp đúng chữ).
 model = WhisperModel(os.environ.get('PT_ASR', 'large-v3-turbo'), device='cpu', compute_type='int8')
-def hear(f):
+def hear(f, carrier=None):
+    """Chữ nghe được. Từ đơn: ghép SAU câu mang của chính giọng đó ("A palavra é:" + 0,25 s lặng + clip) rồi lấy phần sau câu mang –
+    Whisper (cả large-v3-turbo) bịa chữ khi nghe từ tiếng Bồ trơ trọi: lượt 41439608580 giọng đối chứng Piper "casa" → "Realmente.", "dia" → "Tchau.".
+    Bộ nghe KHÔNG được biết từ đích; câu mang không nghe ra đúng → trả nguyên văn (trượt)."""
     w = f + '.pad.wav'
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', 'adelay=600:all=1,apad=pad_dur=0.6', '-ar', '16000', '-ac', '1', w], check=True)
+    if carrier:
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', carrier, '-i', f, '-filter_complex', '[0:a]aresample=16000,apad=pad_dur=0.25[c];[1:a]aresample=16000[x];[c][x]concat=n=2:v=0:a=1,adelay=600:all=1,apad=pad_dur=0.6', '-ac', '1', w], check=True)
+    else:
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', 'adelay=600:all=1,apad=pad_dur=0.6', '-ar', '16000', '-ac', '1', w], check=True)
     segs, _ = model.transcribe(w, language='pt', beam_size=5, temperature=0.0, without_timestamps=True, condition_on_previous_text=False)
-    os.remove(w); return ' '.join(s.text for s in segs).strip()
+    os.remove(w); t = ' '.join(s.text for s in segs).strip()
+    if carrier:
+        m = re.match(r'^\W*a\W+palavra\W+(?:é|e)\W*(.*)$', unicodedata.normalize('NFC', t), re.I | re.S)
+        return m.group(1).strip() if m else '[câu mang] ' + t
+    return t
 def pcm_of(f):
     return np.frombuffer(subprocess.check_output(['ffmpeg', '-v', 'error', '-i', f, '-f', 'f32le', '-ac', '1', '-ar', str(SR), '-']), np.float32).copy()
 def cut_last(word, src):
@@ -65,12 +75,13 @@ def gate(r):
         if c['m'] == 'cut':
             src, why = cut_last(r['w'], c['f'])
             if not src: tried.append({'m': 'cut', 'heard': why}); continue
-        mp3 = src[:-4] + '.mp3'; li = norm16(src, mp3); heard = hear(mp3)
+        mp3 = src[:-4] + '.mp3'; li = norm16(src, mp3); heard = hear(mp3, CARRIER.get(r['v']) if ' ' not in r['w'].strip() else None)
         last = {'v': r['v'], 'w': r['w'], 'key': r.get('key'), 'm': c['m'], 'mp3': mp3, 'heard': heard, 'lufs': li, 'asr': nrm(heard) == nrm(r['w']), 'loud': li is not None and abs(li + 16) <= 1.0}
         last['ok'] = last['asr'] and last['loud']; tried.append({'m': c['m'], 'heard': heard})
         if last['ok']: break
     if last is None: last = {'v': r['v'], 'w': r['w'], 'ok': False, 'asr': False, 'loud': False, 'heard': '; '.join(t['heard'] for t in tried)}
     return {**last, 'tried': tried}
+CARRIER = probe.get('carrier') or {}
 res = [gate(r) if r.get('f') else {**r, 'ok': False, 'why': r.get('err', 'no file')} for r in probe.get('rows', [])]
 by = {}
 for x in res: by.setdefault(x.get('v', '?'), []).append(x)

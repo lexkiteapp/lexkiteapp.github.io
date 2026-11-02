@@ -42,8 +42,11 @@ probe.sample = await ph('coração');
 if (!probe.sample || probe.voiceDownload) { fs.writeFileSync(path.join(OUT, 'probe.json'), JSON.stringify(probe, null, 1)); console.error('✗ Kokoro + espeak pt-br không dùng được:', JSON.stringify(probe)); process.exit(3); }
 
 const rows = [];
+probe.carrier = {};
 for (const v of VOICES) {
   fs.mkdirSync(path.join(OUT, v), { recursive: true });
+  // câu mang đọc riêng (cùng giọng) – pt_gate.py ghép trước clip khi nghe lại từ đơn (Whisper bịa chữ khi nghe từ tiếng Bồ trơ trọi)
+  if (PH[CARRIER]) { const f = path.join(OUT, v, '_carrier.wav'); k.wav(f, trim((await k.run(k.phIds(PH[CARRIER]), v, 0.9)).pcm)); probe.carrier[v] = f; }
   for (const w of words) {
     const p = await ph(w); if (!p) { rows.push({ v, w, err: 'phonemize' }); continue; }
     // ứng viên theo thứ tự ưu tiên: từ đơn → [cut (câu mang), dot (đọc trơ)]; câu → [dot]. pt_gate.py nhận ứng viên đầu tiên qua cổng.
