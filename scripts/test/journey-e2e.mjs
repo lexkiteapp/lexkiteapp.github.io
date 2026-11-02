@@ -14,7 +14,7 @@ const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ?
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'je-out'));
 const LANGS = arg('lang', 'vi,en,ar').split(','), DEVS = arg('device', 'desktop,mobile').split(',');
 const VISUAL_DEVS = ['m360', 'm390'], VWARN = []; // kiểm hình tự động chạy trên điện thoại nhỏ (docs/METHODS.md)
-const ONLY = arg('only', '1,2,3,4,5,6,8').split(',').map(Number), EXT = process.argv.includes('--ext');
+const ONLY = arg('only', '1,2,3,4,5,6,8').split(',').map(Number), EXT = process.argv.includes('--ext'), REPEAT = Math.max(1, +arg('repeat', 1) || 1); // --repeat N: chạy J7 N lần (đo chập chờn: --only 0 --ext --repeat 20)
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT + '/shots', { recursive: true });
 const CHECKS = fs.readFileSync(new URL('./journey-e2e/checks.js', import.meta.url), 'utf8');
@@ -417,7 +417,7 @@ async function j7(lang) {
   const tag = `j7-${lang}`, fails = [], t0 = Date.now(), fail = m => { fails.push(m); console.log(`  ✗ [${tag}] ${m}`); }, ok = (c, m) => (c || fail(m), !!c);
   const EXTD = path.resolve('extension'), prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lkj7-'));
   const ctx = await chromium.launchPersistentContext(prof, { channel: 'chromium', headless: true, locale: LOCALE[lang], viewport: { width: 1280, height: 860 }, args: [`--disable-extensions-except=${EXTD}`, `--load-extension=${EXTD}`, `--lang=${LOCALE[lang]}`] });
-  const errs = [];
+  const errs = [], diag = [];
   try {
     const ART = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Why cities are planting forests</title></head><body style="font:18px/1.7 Georgia;max-width:760px;margin:30px auto"><h1>Why cities are planting forests</h1><p>Urban planners argue that trees are infrastructure. Dense canopies improve the <span id="w">resilience</span> of neighbourhoods during heatwaves.</p></body></html>`;
     await ctx.route('https://news.example.test/**', r => r.fulfill({ contentType: 'text/html', body: ART }));
@@ -431,7 +431,8 @@ async function j7(lang) {
     const pg = await ctx.newPage(); await pg.goto('https://news.example.test/article'); await sleep(1200);
     // boot.js chạy lúc document_idle rồi mới nhờ SW chèn content.js → chờ ĐIỀU KIỆN (bảng tra hiện), nhấp đúp lại nếu lần trước rơi vào lúc mồi chưa gắn
     const popUp = () => pg.waitForFunction(() => { const b = document.querySelector('ielts-lexi-popup')?.shadowRoot?.querySelector('.box'); return !!(b && !b.hidden && b.getBoundingClientRect().height > 0); }, null, { timeout: 8000 }).then(() => true, () => false);
-    for (let i = 0; i < 4; i++) { await pg.locator('#w').dblclick(); if (await popUp()) break; }
+    const tD = Date.now();
+    for (let i = 0; i < 4; i++) { await pg.locator('#w').dblclick(); const up = await popUp(); diag.push(`lần nhấp ${i + 1}: bảng ${up ? 'hiện' : 'KHÔNG hiện'} @${Date.now() - tD} ms`); if (up) break; }
     await pg.waitForFunction(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return !!(r && r.querySelector('#save') && /\S/.test((r.querySelector('.ctx') || {}).innerText || '')); }, null, { timeout: 15000 }).catch(() => {});
     const pop = () => pg.evaluate(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return r ? { box: !!(r.querySelector('.box') && !r.querySelector('.box').hidden), ctx: (r.querySelector('.ctx') || {}).innerText || '', save: !!r.querySelector('#save'), saved: !!(r.querySelector('#save') || {}).disabled } : null; });
     const p1 = await pop();
@@ -454,6 +455,13 @@ async function j7(lang) {
     ok(/resilience/i.test(await app.locator('#view').innerText().catch(() => '')), 'app (add-on) có từ vừa lưu');
   } catch (e) { fail('kịch bản dừng: ' + String(e.message).split('\n')[0].slice(0, 200)); }
   for (const e of errs) fail(e);
+  if (fails.length) { // chẩn đoán lúc đỏ: mồi/nội dung đã gắn chưa (thế giới cô lập của add-on), bảng có trong DOM không, SW còn sống không
+    try {
+      const sw2 = ctx.serviceWorkers()[0];
+      const snap = sw2 ? await sw2.evaluate(async () => { const out = []; for (const t of await chrome.tabs.query({})) { if (!/^https?:/.test(t.url || '')) continue; try { const [r] = await chrome.scripting.executeScript({ target: { tabId: t.id }, func: () => ({ boot: !!window.__lkBoot && !window.__lkBoot.off, cs: !!window.__lkCS, popupEl: !!document.querySelector('ielts-lexi-popup'), sel: String(getSelection()).slice(0, 20), ready: document.readyState }) }); out.push({ url: t.url.slice(0, 40), ...r.result }); } catch (e) { out.push({ url: t.url.slice(0, 40), err: String(e.message).slice(0, 80) }); } } return out; }).catch(e => 'sw: ' + e.message) : 'SW đã mất (' + ctx.serviceWorkers().length + ' worker)';
+      console.log(`  ℹ [${tag}] chẩn đoán: ${diag.join(' | ')} · tab: ${JSON.stringify(snap)}`);
+    } catch (e) { console.log(`  ℹ [${tag}] chẩn đoán lỗi: ${e.message}`); }
+  }
   results.push({ id: 7, name: 'add-on', lang, dev: 'desktop', ok: !fails.length, fails, notes: [], ms: Date.now() - t0 });
   console.log(`${fails.length ? '✗' : '✓'} J7 add-on [${lang}] ${Math.round((Date.now() - t0) / 1000)} s`);
   await ctx.close();
@@ -510,7 +518,7 @@ for (const lang of LANGS) for (const dev of DEVS) {
   }
   if (ONLY.includes(6)) await journey(6, 'học sinh lớp học: không QC, không hỏi nhắc', lang, dev, j6, { q: '', ask: true, firebase: true, webdriverOff: true, config: { ads_web: '1' }, seed: { 'ielts.settings': JSON.stringify({ onboarded: true }) } });
 }
-if (EXT) for (const lang of LANGS) await j7(lang);
+if (EXT) for (const lang of LANGS) for (let i = 0; i < REPEAT; i++) await j7(lang);
 await browser.close(); srv.close();
 
 // ---------- báo cáo ----------
