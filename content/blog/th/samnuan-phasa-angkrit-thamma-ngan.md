@@ -28,16 +28,16 @@ qualityScore: 95
 
 - **Get the ball rolling**: เริ่มต้นลงมือทำขั้นตอนแรกเพื่อให้โปรเจกต์เริ่มขับเคลื่อนไปข้างหน้า
   - *บริบทการใช้งาน*: เหมาะสำหรับเปิดการประชุมคิกออฟ หรือกระตุ้นให้สมาชิกเริ่มส่งงานชิ้นแรก
-  - *ตัวอย่างประโยค*: *"Let us get the ball rolling by confirming our project roadmap and primary milestones."* (เรามาเริ่มเปิดงานกันด้วยการยืนยันแผนงานและเป้าหมายสำคัญระยะแรกกันดีกว่า)
+  - *ตัวอย่างประโยค*: *"Let us kick off the alignment meeting and get the ball rolling on user onboarding tasks."* (เรามาเริ่มเปิดงานกันด้วยการยืนยันแผนงานและเป้าหมายสำคัญระยะแรกกันดีกว่า)
 - **Hit the ground running**: เริ่มต้นทำงานใหม่ได้ทันทีด้วยประสิทธิภาพสูงและเต็มกำลังโดยไม่ต้องเสียเวลาปรับตัวนาน
   - *บริบทการใช้งาน*: มักใช้ชื่นชมบุคลากรระดับซีเนียร์หรือผู้เชี่ยวชาญเฉพาะทางที่เพิ่งรับเข้ามา
-  - *ตัวอย่างประโยค*: *"With his cloud migration background, Felix will hit the ground running on our infrastructure overhaul."* (ด้วยประสบการณ์ด้านคลาวด์ เฟลิกซ์จะสามารถเริ่มงานปรับปรุงโครงสร้างพื้นฐานได้อย่างรวดเร็วตั้งแต่วันแรก)
+  - *ตัวอย่างประโยค*: *"With deep fintech experience, our newly hired analyst will hit the ground running immediately."* (ด้วยประสบการณ์ด้านฟินเทค นักวิเคราะห์คนใหม่จะสามารถเริ่มงานได้อย่างรวดเร็วและมีประสิทธิภาพตั้งแต่วันแรก)
 - **On the same page**: มีความเข้าใจตรงกัน มีเป้าหมายร่วมกัน และเห็นพ้องในทิศทางเดียวกันโดยไม่มีข้อสงสัย
   - *บริบทการใช้งาน*: จำเป็นอย่างยิ่งก่อนที่จะนำเสนอแผนงานต่อบอร์ดบริหารเพื่อป้องกันการเข้าใจผิด
-  - *ตัวอย่างประโยค*: *"Before presenting to executive leadership, let us ensure all team leads are on the same page."* (ก่อนที่จะนำเสนอต่อผู้บริหารระดับสูง ให้เราแน่ใจก่อนว่าหัวหน้าทีมทุกคนเข้าใจตรงกันทั้งหมด)
+  - *ตัวอย่างประโยค*: *"We organized a quick workshop to guarantee that product teams stay on the same page."* (เราจัดเวิร์กช็อปสั้นๆ เพื่อให้แน่ใจว่าทีมผลิตภัณฑ์ทุกคนเข้าใจตรงกันทั้งหมด)
 - **Bring to the table**: มอบประโยชน์ที่จับต้องได้ นำความเชี่ยวชาญพิเศษ หรือทรัพยากรสำคัญมาสู่การเจรจา
   - *บริบทการใช้งาน*: พบบ่อยในการประเมินข้อเสนอของคู่ค้า หรือการสัมภาษณ์ผู้สมัครงานระดับผู้จัดการ
-  - *ตัวอย่างประโยค*: *"The external software vendor brings specialized compliance expertise to the table."* (ผู้ให้บริการซอฟต์แวร์ภายนอกนำความเชี่ยวชาญด้านการปฏิบัติตามกฎระเบียบมาช่วยทีมเราได้อย่างมาก)
+  - *ตัวอย่างประโยค*: *"The logistics contractor brings advanced warehouse automation technology to the table."* (ผู้ให้บริการขนส่งนำเทคโนโลยีคลังสินค้าอัตโนมัติขั้นสูงมาช่วยเสริมศักยภาพให้กับเรา)
 
 หากต้องการเพิ่มความคล่องแคล่วในการประชุมกลุ่ม สามารถอ่านเพิ่มเติมได้ที่ [วลีภาษาอังกฤษสำหรับการประชุมงาน](/th/blog/wali-phasa-angkrit-hop-prachum/)
 
@@ -47,16 +47,16 @@ qualityScore: 95
 
 - **Back to the drawing board**: ยอมรับว่าแผนการเดิมไม่ประสบความสำเร็จ และต้องกลับไปเริ่มต้นวางแผนใหม่ตั้งแต่ศูนย์
   - *บริบทการใช้งาน*: ใช้เพื่อสร้างพลังใจให้ทีมเดินหน้าต่อเมื่อข้อเสนอแรกไม่ผ่านการอนุมัติ
-  - *ตัวอย่างประโยค*: *"Since the initial pilot study missed performance benchmarks, we must go back to the drawing board."* (เนื่องจากการทดสอบระยะแรกไม่ผ่านเกณฑ์มาตรฐาน เราจึงต้องกลับไปเริ่มต้นวางแผนใหม่ทั้งหมด)
+  - *ตัวอย่างประโยค*: *"Because user adoption targets were missed, the campaign leads went back to the drawing board."* (เนื่องจากตัวเลขการใช้งานจริงไม่ถึงเป้าหมาย ทีมงานจึงตัดสินใจกลับไปเริ่มต้นวางแผนกลยุทธ์ใหม่ตั้งแต่ต้น)
 - **Cut corners**: ลดต้นทุนหรือประหยัดเวลาด้วยการใช้วิธีที่ไม่ได้มาตรฐานจนอาจกระทบต่อคุณภาพและความปลอดภัย
   - *บริบทการใช้งาน*: มักใช้เป็นคำเตือนเรื่องการรักษามาตรฐานความปลอดภัยหรือการตรวจสอบคุณภาพ
-  - *ตัวอย่างประโยค*: *"We refuse to cut corners on data encryption protocols merely to hit a quarterly release date."* (เราจะไม่ยอมลดทอนมาตรฐานความปลอดภัยในการเข้ารหัสข้อมูลเพียงเพื่อเร่งเปิดตัวให้ทันสิ้นไตรมาส)
+  - *ตัวอย่างประโยค*: *"Project directors warned staff never to cut corners during medical equipment testing."* (ผู้อำนวยการโครงการเตือนว่าห้ามลดขั้นตอนหรือลดทอนมาตรฐานในการทดสอบอุปกรณ์การแพทย์โดยเด็ดขาด)
 - **Bite the bullet**: กัดฟันยอมรับการตัดสินใจที่เจ็บปวดหรือมีค่าใช้จ่ายสูงซึ่งหลีกเลี่ยงไม่ได้
   - *บริบทการใช้งาน*: เมื่อผู้บริหารจำเป็นต้องปิดสาขาที่ขาดทุน หรือตัดสินใจรื้อระบบไอทีเก่าทิ้ง
-  - *ตัวอย่างประโยค*: *"Our board decided to bite the bullet and replace the legacy enterprise ERP platform."* (คณะกรรมการบริหารตัดสินใจยอมแบกรับภาระเพื่อเปลี่ยนระบบ ERP องค์กรที่ล้าสมัยทั้งหมด)
+  - *ตัวอย่างประโยค*: *"Executives decided to bite the bullet and discontinue money-losing regional service branches."* (ผู้บริหารระดับสูงตัดสินใจยอมแบกรับความสูญเสียเพื่อยุติบริการในสาขาภูมิภาคที่ขาดทุนต่อเนื่อง)
 - **Think outside the box**: คิดนอกกรอบและมองหาทางออกที่สร้างสรรค์ แปลกใหม่จากวิธีเดิมๆ
   - *บริบทการใช้งาน*: เป็นคำแนะนำหลักในเซสชันระดมความคิดเพื่อสร้างจุดเด่นทางการตลาด
-  - *ตัวอย่างประโยค*: *"To outpace agile startups, our product development department must think outside the box."* (เพื่อให้ก้าวนำสตาร์ตอัปที่มีความคล่องตัว ฝ่ายพัฒนาผลิตภัณฑ์ของเราจำเป็นต้องคิดนอกกรอบอย่างจริงจัง)
+  - *ตัวอย่างประโยค*: *"To outperform older industry giants, our marketing creatives must think outside the box."* (เพื่อเอาชนะบริษัทยักษ์ใหญ่ในวงการ ทีมครีเอทีฟของเราจำเป็นต้องคิดนอกกรอบอย่างสร้างสรรค์)
 
 สำหรับการเจรจาต่อรองสัญญาการค้า สามารถศึกษาเพิ่มเติมได้ที่ [สำนวนต่อรองภาษาอังกฤษธุรกิจ](/th/blog/samnuan-tor-rong-phasa-angrit-thurakit/)
 
@@ -66,26 +66,26 @@ qualityScore: 95
 
 - **Touch base**: ติดต่อพูดคุยกันสั้นๆ เพื่ออัปเดตความคืบหน้าหรือสอบถามสถานะงานเบื้องต้น
   - *บริบทการใช้งาน*: ประโยคลงท้ายยอดนิยมสำหรับการขอนัดคุยสั้นๆ 5 นาที
-  - *ตัวอย่างประโยค*: *"I will touch base with your account manager on Friday to review the revised delivery schedule."* (ผมจะติดต่อประสานงานสั้นๆ กับผู้จัดการบัญชีของคุณในวันศุกร์เพื่อตรวจดูตารางการส่งมอบที่ปรับปรุงใหม่)
+  - *ตัวอย่างประโยค*: *"I will touch base with your account team on Wednesday after contract sign-offs finish."* (ผมจะติดต่อประสานงานสั้นๆ กับทีมดูแลลูกค้าของคุณในวันพุธหลังการเซ็นสัญญาสิ้นสุดลง)
 - **Keep someone in the loop**: แจ้งข่าวสารความคืบหน้าให้ผู้อื่นรับทราบอย่างสม่ำเสมอไม่ให้ตกหล่น
   - *บริบทการใช้งาน*: นิยมใช้เมื่อส่งสำเนา (CC) อีเมลให้หัวหน้างานหรือผู้เกี่ยวข้องรับทราบ
-  - *ตัวอย่างประโยค*: *"Please keep our procurement team in the loop regarding vendor contract negotiations."* (โปรดแจ้งความคืบหน้าเกี่ยวกับการเจรจาสัญญากับคู่ค้าให้ทีมจัดซื้อทราบเป็นระยะด้วยครับ)
+  - *ตัวอย่างประโยค*: *"Please keep division heads in the loop as supply chain discussions advance."* (โปรดแจ้งความคืบหน้าเกี่ยวกับการเจรจาห่วงโซ่อุปทานให้หัวหน้าฝ่ายทราบอย่างต่อเนื่องด้วยครับ)
 - **Call it a day**: จบการทำงานในวันนั้น หรือยุติการประชุมหลังจากบรรลุเป้าหมายที่ตั้งไว้พอสมควรแล้ว
   - *บริบทการใช้งาน*: ผู้ดำเนินรายการมักใช้เพื่อสรุปจบการแก้ปัญหาที่ตึงเครียดมาทั้งวัน
-  - *ตัวอย่างประโยค*: *"We resolved the primary server outage issues, so let us call it a day and review monitoring logs tomorrow."* (เราแก้ปัญหาหลักที่ทำให้เซิร์ฟเวอร์ล่มเรียบร้อยแล้ว วันนี้พอแค่นี้ก่อนแล้วพรุ่งนี้ค่อยมาดูรายงานกันใหม่)
+  - *ตัวอย่างประโยค*: *"All priority bugs have been patched successfully, so let us call it a day."* (เราแก้ไขจุดบกพร่องสำคัญทั้งหมดเรียบร้อยแล้ว วันนี้ขอปิดงานไว้แค่นี้ก่อน)
 - **Up in the air**: สถานการณ์ที่ยังไม่แน่นอน ยังค้างคา หรือกำลังรอการอนุมัติขั้นสุดท้าย
   - *บริบทการใช้งาน*: อธิบายแผนงานที่ยังรอการเคาะงบประมาณหรือการยืนยันวันเดินทาง
-  - *ตัวอย่างประโยค*: *"The budget allocation for our European regional marketing campaign is still up in the air."* (การจัดสรรงบประมาณสำหรับแคมเปญการตลาดในยุโรปยังคงค้างคาและรอการอนุมัติอยู่)
+  - *ตัวอย่างประโยค*: *"The final date for overseas office launching remains up in the air pending legal permits."* (วันเปิดตัวสำนักงานในต่างประเทศอย่างเป็นทางการยังคงค้างคาและรอใบอนุญาตทางกฎหมายอยู่)
 
 สำหรับการเขียนอีเมลแบบมืออาชีพ สามารถอ่านเทคนิคได้ที่ [เขียน email ภาษาอังกฤษทางการ](/th/blog/khian-email-phasa-angkrit-thang-kan/) คุณยังสามารถฝึกพูดในระบบจำลอง [/#/speaking](/#/speaking) และตรวจสอบการออกเสียงผ่านไมโครโฟนได้ที่ [/#/practice/speak](/#/practice/speak)
 
 ## ตัวอย่างบทสนทนาจริงในที่ทำงานด้วยสำนวนธุรกิจ
 
-ลองดูตัวอย่างการสนทนาสั้นๆ ระหว่างหัวหน้าทีมกับวิศวกรซอฟต์แวร์ในการประชุมย่อยประจำสัปดาห์:
+ลองดูตัวอย่างการสนทนาสั้นๆ ระหว่างผู้จัดการฝ่ายปฏิบัติการกับผู้เชี่ยวชาญด้านระบบ:
 
-- **Engineering Lead**: *"Good morning team. Let us get the ball rolling with our quarterly migration deliverables. Is everyone on the same page?"*
-- **Cloud Specialist**: *"Yes, we hit the ground running on Monday. However, when latency thresholds were breached, we had to go back to the drawing board for storage optimization."*
-- **Engineering Lead**: *"Understood. We cannot afford to cut corners on enterprise compliance. I will touch base with the security director this afternoon."*
+- **Operations Manager**: *"Hi team. Why do not we get the ball rolling with our quarterly sprint review?"*
+- **Systems Architect**: *"We hit the ground running with cloud migration, but latency spikes forced us back to the drawing board for storage caching."*
+- **Operations Manager**: *"Right. Never cut corners on database compliance. Let us touch base with legal advisors before moving forward."*
 
 ![หน้าจอฝึกออกเสียงบน Lexkite แสดงวลี cut down on และปุ่มไมโครโฟนประเมินเสียงพูด](media:practice-speak "ฝึกออกเสียงบน Lexkite ด้วยวลี cut down on พร้อมปุ่มไมโครโฟนเพื่อตรวจวัดความถูกต้องของเสียง")
 
