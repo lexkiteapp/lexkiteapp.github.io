@@ -88,6 +88,7 @@
 - [STORE-READINESS.md](STORE-READINESS.md) — Sẵn sàng lên Google Play & App Store (com.lexkite.app): trạng thái hiện tại, checklist Play, App Store, chung, và khi bật AdMob; đọc khi: nộp/cập nhật app lên store
 - [TECH-RADAR.md](TECH-RADAR.md) — Tech radar: chuẩn chọn công nghệ (miễn phí, tiên tiến, chạy ở máy người dùng/biên); danh sách áp dụng, theo dõi, không dùng và lý do; đọc khi: thêm thư viện/dịch vụ
 - [TOKEN-RULES.md](TOKEN-RULES.md) — Luật tiết kiệm token: đọc ít, giao việc cho agent ngắn, không chờ/poll, gộp kiểm thử, nội dung hàng loạt, báo cáo ngắn; đọc khi: ĐẦU MỖI PHIÊN và khi giao việc
+- [COMPETITOR-UPLIFT.md](COMPETITOR-UPLIFT.md) — Học từ 4You + 10 app lớn: 9 hạng mục có bằng chứng, chạy $0, xếp giá trị ÷ công sức, thứ tự PR; đọc khi: chọn việc "học đối thủ"
 - [UX-BENCHMARK.md](UX-BENCHMARK.md) — Top 10 khoảng cách Lexkite vs Duolingo (tự sinh từ bảng World) + việc nên làm theo trục; đọc khi: chọn việc UX/sản phẩm tiếp theo
 - [WORLD-SCORECARD.md](WORLD-SCORECARD.md) — Thước đo "vượt Duolingo" trên CI: trục, nguồn, mốc Duolingo an toàn, sàn chỉ tăng; đọc khi: đọc/sửa content/pipeline/WORLD.md
 - [UX-PUBLIC.md](UX-PUBLIC.md) — Audit UX trang vào cửa + app (24/10): lỗi nặng nhất, token vai trò, mẫu lỗi toàn app, Lighthouse trước→sau, LCP màn đầu; đọc khi: sửa landing/UX công khai
