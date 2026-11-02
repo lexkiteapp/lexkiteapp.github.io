@@ -3,315 +3,358 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Lexkite — Sentence Patterns</title>
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Google Fonts: Plus Jakarta Sans & Space Mono -->
+<title>Lexkite Sentence Patterns (Bright Day Mobile)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Space+Mono:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind Configuration -->
-<script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            brand: {
-              cream: '#FFF7EA',
-              darkTeal: '#0F3D3E',
-              midTeal: '#1D5A5B',
-              mutedTeal: '#4E6668',
-              accentTeal: '#167D7F',
-              cyanGlow: '#2DD4BF',
-              borderTone: '#D8CFBC',
-              tagBg: '#F5EFE1',
-            }
+            "primary-container": "#136a63",
+            "surface-container-low": "#fff1e8",
+            "secondary-container": "#fd9500",
+            "surface-container": "#faebe1",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "inverse-primary": "#88d4cb",
+            "primary-fixed": "#a4f1e7",
+            "on-primary": "#ffffff",
+            "tertiary": "#5b4300",
+            "surface-container-highest": "#efe0d6",
+            "primary-fixed-dim": "#88d4cb",
+            "surface-container-high": "#f4e5db",
+            "background": "#fff8f5",
+            "on-secondary-fixed": "#2d1600",
+            "inverse-surface": "#372f28",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#fff8f5",
+            "on-surface": "#211a14",
+            "on-primary-fixed": "#00201d",
+            "surface-tint": "#126a63",
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-tertiary-container": "#ffd370",
+            "surface-dim": "#e6d7cd",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#ffdf9b",
+            "error": "#ba1a1a",
+            "outline": "#6f7977",
+            "secondary": "#8c5000",
+            "on-primary-fixed-variant": "#00504a",
+            "tertiary-container": "#785a00",
+            "on-tertiary-fixed": "#251a00",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#ffdcbf",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#00504b",
+            "surface": "#fff8f5",
+            "inverse-on-surface": "#fdeee3",
+            "on-secondary-container": "#633700",
+            "on-primary-container": "#9be7de",
+            "outline-variant": "#bec9c6",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#ffb872",
+            "surface-variant": "#efe0d6",
+            "on-surface-variant": "#3f4947",
+            "on-background": "#211a14"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter-lg": "2rem",
+            "space-xl": "2.5rem",
+            "gutter-md": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem",
+            "margin-md": "2rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem"
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"Space Mono"', 'monospace'],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
           }
         }
       }
     }
   </script>
-<!-- Custom CSS for tactile shadows & fine styling -->
-<style data-purpose="tactile-elevation">
-    /* Tactile bottom ledge for standard white cards */
-    .tactile-card {
-      border: 2px solid #D8CFBC;
-      box-shadow: 0 4px 0 #D8CFBC;
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
     }
-    
-    /* Tactile action button */
-    .tactile-orange-btn {
-      background: linear-gradient(180deg, #F97A44 0%, #EA542A 100%);
-      border: 2px solid #A22E1A;
-      box-shadow: 0 5px 0 #912714;
-    }
-    .tactile-orange-btn:active {
-      transform: translateY(3px);
-      box-shadow: 0 2px 0 #912714;
-    }
-
-    /* Small tactile pill buttons */
-    .tactile-chip {
-      border: 1.5px solid #D8CFBC;
-      box-shadow: 0 2px 0 #D8CFBC;
-    }
-
-    /* Speech bubble arrow */
-    .speech-bubble-tail {
-      position: absolute;
-      left: -9px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-top: 7px solid transparent;
-      border-bottom: 7px solid transparent;
-      border-right: 9px solid #FFFFFF;
-    }
-    .speech-bubble-tail-border {
-      position: absolute;
-      left: -11px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-right: 11px solid #D8CFBC;
-    }
-
-    /* Hide scrollbar for category tabs */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
     }
   </style>
-</head>
-<body class="bg-[#FFF7EA] text-brand-darkTeal font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-brand-accentTeal selection:text-white">
-<!-- BEGIN: MainHeader -->
-<header class="sticky top-0 z-30 bg-[#FFF7EA]/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b border-[#EFE5D0]">
-<!-- Brand Logo -->
-<div class="flex items-center gap-2" data-purpose="app-branding">
-<svg class="w-6 h-6 flex-shrink-0" fill="none" viewbox="0 0 32 32">
-<path d="M16 2L29 16L16 30L3 16L16 2Z" fill="#2E9E98"></path>
-<path d="M16 2L29 16L16 16L16 2Z" fill="#F47444"></path>
-<path d="M16 16L29 16L16 30L16 16Z" fill="#167D7F"></path>
-<path d="M3 16L16 16L16 30L3 16Z" fill="#42B8A6"></path>
-</svg>
-<span class="font-bold text-xl tracking-tight text-brand-darkTeal">Lexkite</span>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased select-none flex justify-center w-full min-h-screen">
+<!-- Mobile Root Canvas: Strictly 390px edge-to-edge -->
+<main class="w-[390px] min-h-screen bg-background relative flex flex-col pb-44 overflow-x-hidden">
+<!-- 1. Top App Bar -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b-2 border-surface-variant shadow-[0_4px_0_0_#efe0d6]">
+<!-- Brand Logo / Wordmark -->
+<div class="flex items-center gap-1.5 active:translate-y-0.5 transition-transform">
+<div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-[0_2px_0_0_#003834]">
+<span class="material-symbols-outlined fill-1 text-[18px]">flight</span>
 </div>
-<!-- Streak and XP Badges -->
-<div class="flex items-center gap-2" data-purpose="user-gamification-badges">
-<div class="flex items-center gap-1.5 px-2.5 py-1 bg-white tactile-chip rounded-full text-xs font-bold text-brand-darkTeal">
-<span class="text-sm">🔥</span>
-<span>14</span>
+<span class="font-headline-sm text-headline-sm tracking-tight text-primary">Lexkite</span>
 </div>
-<div class="flex items-center gap-1.5 px-2.5 py-1 bg-white tactile-chip rounded-full text-xs font-bold text-brand-darkTeal">
-<span class="text-sm text-amber-500 font-extrabold">⚡</span>
-<span>820</span>
+<!-- Gamified Status Chips & Profile Avatar -->
+<div class="flex items-center gap-2">
+<!-- Streak Chip -->
+<div class="flex items-center gap-1 bg-[#FFF1D6] border-2 border-[#E8C26E] rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#D9B055] active:translate-y-0.5 transition-transform cursor-pointer">
+<span class="material-symbols-outlined fill-1 text-[#E07900] text-[16px]">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-[#5C3B00] font-extrabold">14</span>
 </div>
+<!-- Points / XP Chip -->
+<div class="flex items-center gap-1 bg-surface-container-highest border-2 border-outline-variant/60 rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#D8C9BF] active:translate-y-0.5 transition-transform cursor-pointer">
+<span class="material-symbols-outlined fill-1 text-secondary-container text-[16px]">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface font-extrabold">820</span>
 </div>
-</header>
-<!-- END: MainHeader -->
-<!-- BEGIN: ScrollableContent -->
-<main class="flex-1 px-4 pt-3.5 pb-28 flex flex-col gap-4">
-<!-- BEGIN: TeacherQuoteBanner -->
-<section aria-label="Teacher recommendation" class="flex items-center gap-2.5">
-<!-- Teacher Avatar Slot -->
-<div class="w-[66px] h-[66px] flex-shrink-0 bg-[#E8F3F1] border-2 border-dashed border-[#2E9E98] rounded-2xl flex flex-col items-center justify-center p-1" data-purpose="teacher-avatar">
-<svg class="w-6 h-6 text-[#167D7F] mb-0.5" fill="currentColor" viewbox="0 0 24 24">
-<path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18C5 19.94 8.13 22 12 22C15.87 22 19 19.94 19 17.18V13.18L12 17L5 13.18Z"></path>
-</svg>
-<span class="text-[9px] font-extrabold tracking-wider text-[#167D7F]">TEACHER</span>
-</div>
-<!-- Speech Bubble -->
-<div class="relative flex-1 bg-white border-2 border-[#D8CFBC] rounded-2xl p-2.5 px-3 shadow-[0_2px_0_#D8CFBC]">
-<div class="speech-bubble-tail-border"></div>
-<div class="speech-bubble-tail"></div>
-<div class="flex items-center gap-1.5 mb-0.5">
-<span class="w-2 h-2 rounded-full bg-[#167D7F] inline-block"></span>
-<span class="text-[10px] font-extrabold tracking-wide uppercase text-[#167D7F]">CARLOS • IELTS SPEAKING COACH</span>
-</div>
-<p class="text-xs font-bold text-brand-darkTeal leading-snug">
-          “Steal these for Speaking Part 3.”
-        </p>
-</div>
-</section>
-<!-- END: TeacherQuoteBanner -->
-<!-- BEGIN: TitleAndSearch -->
-<section class="flex flex-col gap-3">
-<div>
-<h1 class="text-2xl font-extrabold text-brand-darkTeal tracking-tight">Sentence Patterns</h1>
-<p class="text-xs font-medium text-brand-mutedTeal mt-0.5">Useful patterns for Speaking and Writing</p>
-</div>
-<!-- Search Bar -->
-<div class="relative flex items-center">
-<div class="absolute left-3.5 flex items-center pointer-events-none text-brand-mutedTeal">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-</svg>
-</div>
-<input class="w-full bg-white tactile-chip rounded-xl py-2.5 pl-10 pr-12 text-xs font-medium placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#167D7F] border-[#D8CFBC]" placeholder="Search phrases, clauses, linking words..." type="search"/>
-<div class="absolute right-2.5 px-1.5 py-0.5 bg-[#EFE9DC] border border-[#D8CFBC] rounded-md text-[10px] font-bold text-brand-mutedTeal pointer-events-none">
-          ⌘K
+<!-- User Avatar Circle -->
+<div class="w-8 h-8 rounded-full bg-[#136A63] border-2 border-[#0B423E] text-on-primary flex items-center justify-center font-headline-sm text-[14px] shadow-[0_2px_0_0_#0B423E] cursor-pointer active:translate-y-0.5 transition-transform">
+          L
         </div>
 </div>
-<!-- Filter Pills Carousel -->
-<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" role="tablist">
-<!-- Active Pill -->
-<button class="flex items-center gap-1 px-3.5 py-1.5 bg-[#0F3D3E] text-white rounded-full text-xs font-bold flex-shrink-0 shadow-[0_2px_0_#072425]">
-<span>Opinions</span>
-<span class="w-4 h-4 rounded-full bg-white/20 text-[10px] flex items-center justify-center font-bold">5</span>
-</button>
-<!-- Inactive Pills -->
-<button class="px-3.5 py-1.5 bg-white tactile-chip text-brand-mutedTeal hover:text-brand-darkTeal rounded-full text-xs font-semibold flex-shrink-0">
-          Agreeing
-        </button>
-<button class="px-3.5 py-1.5 bg-white tactile-chip text-brand-mutedTeal hover:text-brand-darkTeal rounded-full text-xs font-semibold flex-shrink-0">
-          Describing trends
-        </button>
-<button class="px-3.5 py-1.5 bg-white tactile-chip text-brand-mutedTeal hover:text-brand-darkTeal rounded-full text-xs font-semibold flex-shrink-0">
-          Contrasting
-        </button>
+</header>
+<!-- Scrollable Screen Body -->
+<div class="px-4 pt-3 flex flex-col gap-4">
+<!-- 2. Teacher Slot Card -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3 shadow-[0_4px_0_0_#efe0d6] flex gap-3 items-stretch">
+<!-- Dashed Teacher Slot Container -->
+<div class="w-20 shrink-0 border-2 border-dashed border-outline-variant/80 rounded-xl bg-surface-container-low/60 flex flex-col items-center justify-center p-1.5 text-center">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined fill-1 text-[20px]">school</span>
+</div>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-bold leading-tight">TEACHER<br/>SLOT</span>
+</div>
+<!-- Speech Bubble Container -->
+<div class="flex-1 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-sm text-[11px] tracking-wider uppercase text-primary font-bold">Carlos • IELTS Speaking Coach</span>
+</div>
+<p class="font-headline-sm text-[15px] leading-snug text-on-surface font-bold">
+              “Steal these for Speaking Part 3.”
+            </p>
+</div>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant mt-1">
+            High-scoring framing devices that buy thinking time while boosting lexical resource.
+          </p>
 </div>
 </section>
-<!-- END: TitleAndSearch -->
-<!-- Section Meta Label -->
-<div class="flex items-center justify-between text-[10px] font-bold tracking-wider uppercase text-brand-mutedTeal px-0.5 mt-0.5">
-<span>CURATED FOR OPINIONS (5 PATTERNS)</span>
-<span class="text-[#167D7F] lowercase font-semibold">All loaded</span>
-</div>
-<!-- BEGIN: FormulaCard01 -->
-<article class="bg-white rounded-2xl p-3.5 tactile-card flex flex-col gap-3" data-purpose="pattern-card">
-<!-- Card Top Header -->
-<div class="flex items-center justify-between">
+<!-- 3. Header Section & Controls -->
+<section class="flex flex-col gap-3">
+<!-- Headline Row -->
+<div>
 <div class="flex items-center gap-2">
-<span class="px-2 py-0.5 bg-[#167D7F] text-white rounded text-[10px] font-extrabold tracking-wide uppercase">
-            FORMULA 01
-          </span>
-<span class="text-xs font-bold text-brand-darkTeal">Stating viewpoint</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Sentence Patterns</h1>
+<span class="bg-[#136A63] text-on-primary font-label-sm text-[11px] px-2.5 py-0.5 rounded-full border border-[#0B423E] shadow-[0_2px_0_0_#0B423E]">
+              Band 7.5+
+            </span>
 </div>
-<div class="flex items-center gap-1.5">
-<button aria-label="Listen to pronunciation" class="p-1 text-[#167D7F] border border-[#D8CFBC] rounded-lg hover:bg-stone-50">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M15.536 8.464a5 5 0 010 7.072M11 5L6 9H2v6h4l5 4V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
+<p class="font-body-md text-body-md text-on-surface-variant -mt-0.5">
+            Useful patterns for Speaking and Writing
+          </p>
+</div>
+<!-- Search / Filter Input -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined text-outline absolute left-3 text-[20px]">search</span>
+<input class="w-full bg-surface-container-lowest border-2 border-surface-variant rounded-xl pl-9 pr-14 py-2 font-body-sm text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary shadow-[0_3px_0_0_#efe0d6] transition-all" placeholder="Filter patterns or prompt..." type="text"/>
+<div class="absolute right-2.5 px-2 py-0.5 rounded-md bg-surface-variant border border-outline-variant/60 font-label-sm text-[11px] text-on-surface-variant font-bold">
+            ⌘K
+          </div>
+</div>
+<!-- Filter Chips Carousel -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+<!-- Active Chip -->
+<button class="shrink-0 flex items-center gap-1.5 bg-[#136A63] text-on-primary border-2 border-[#0B423E] px-3.5 py-1.5 rounded-full font-label-md text-label-md shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 transition-transform">
+<span>Opinions</span>
+<span class="bg-[#0B423E] text-on-primary text-[11px] px-1.5 py-0.2 rounded-full font-extrabold">5</span>
 </button>
-<button aria-label="Bookmark pattern" class="p-1 text-[#EA542A] border border-[#D8CFBC] rounded-lg hover:bg-stone-50">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
+<!-- Inactive Chip 1 -->
+<button class="shrink-0 bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant hover:border-outline px-3.5 py-1.5 rounded-full font-label-md text-label-md shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 transition-transform">
+            Agreeing
+          </button>
+<!-- Inactive Chip 2 -->
+<button class="shrink-0 bg-surface-container-lowest text-on-surface-variant border-2 border-surface-variant hover:border-outline px-3.5 py-1.5 rounded-full font-label-md text-label-md shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 transition-transform">
+            Describing trends
+          </button>
+</div>
+</section>
+<!-- 4. Section Subheader -->
+<section class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-[11px] tracking-wider text-on-surface-variant uppercase font-bold">
+          CURATED FOR OPINIONS (5 PATTERNS)
+        </span>
+<span class="font-label-sm text-[12px] text-primary font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[15px] fill-1">check_circle</span>
+          All loaded
+        </span>
+</section>
+<!-- 5. Sentence Pattern Cards -->
+<section class="flex flex-col gap-3.5">
+<!-- Formula 01 Card -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] transition-transform">
+<!-- Card Header Row -->
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-2">
+<span class="bg-surface-container-high text-on-surface-variant border border-outline-variant/60 font-label-sm text-[10px] px-2 py-0.5 rounded-md font-extrabold tracking-wider">
+                FORMULA 01
+              </span>
+<h2 class="font-headline-sm text-[16px] text-on-surface font-bold">Stating viewpoint</h2>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-low border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
 </button>
 </div>
+<!-- Template Frame Container -->
+<div class="bg-[#EEF7F5] border border-[#BDE3DE] rounded-xl p-2.5 mb-2.5">
+<div class="font-label-sm text-[10px] uppercase tracking-wider text-primary font-bold mb-1">
+              TEMPLATE FRAME
+            </div>
+<p class="font-headline-sm text-[15px] text-[#00504B] font-extrabold leading-snug">
+              “I’d argue that + clause”
+            </p>
 </div>
-<!-- Monospace Formula Definition -->
-<div class="bg-[#F8F4EA] border border-[#E8DEC8] rounded-xl px-3 py-2 text-xs font-mono font-bold text-brand-darkTeal">
-        “I’d argue that + clause”
-      </div>
-<!-- Realistic Context Example (Dark Teal Box) -->
-<div class="bg-[#0F3D3E] rounded-xl p-3.5 text-white shadow-inner">
-<p class="text-xs leading-relaxed font-medium">
-          “<span class="text-[#2DD4BF] font-bold">I’d argue that</span> public transport subsidies yield far broader economic benefits than highway expansion.”
-        </p>
+<!-- Exam Delivery Box -->
+<div class="bg-surface-bright border border-surface-variant/80 rounded-xl p-2.5">
+<div class="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-1">
+              EXAM DELIVERY
+            </div>
+<p class="font-body-md text-[13.5px] leading-relaxed text-on-surface">
+              “<mark class="bg-emerald-100 text-teal-900 font-bold px-1.5 py-0.5 rounded">I’d argue that</mark> public transport subsidies yield far broader economic benefits than highway expansion.”
+            </p>
 </div>
 </article>
-<!-- END: FormulaCard01 -->
-<!-- BEGIN: FormulaCard02 -->
-<article class="bg-white rounded-2xl p-3.5 tactile-card flex flex-col gap-3" data-purpose="pattern-card">
-<!-- Card Top Header -->
-<div class="flex items-center justify-between">
+<!-- Formula 02 Card -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] transition-transform">
+<!-- Card Header Row -->
+<div class="flex items-center justify-between mb-2.5">
 <div class="flex items-center gap-2">
-<span class="px-2 py-0.5 bg-[#0F3D3E] text-white rounded text-[10px] font-extrabold tracking-wide uppercase">
-            FORMULA 02
-          </span>
-<span class="text-xs font-bold text-brand-darkTeal">Nuanced stance</span>
+<span class="bg-surface-container-high text-on-surface-variant border border-outline-variant/60 font-label-sm text-[10px] px-2 py-0.5 rounded-md font-extrabold tracking-wider">
+                FORMULA 02
+              </span>
+<h2 class="font-headline-sm text-[16px] text-on-surface font-bold">Nuanced stance</h2>
 </div>
-<div class="flex items-center gap-1.5">
-<button aria-label="Listen to pronunciation" class="p-1 text-[#167D7F] border border-[#D8CFBC] rounded-lg hover:bg-stone-50">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M15.536 8.464a5 5 0 010 7.072M11 5L6 9H2v6h4l5 4V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</button>
-<button aria-label="Bookmark pattern" class="p-1 text-brand-mutedTeal border border-[#D8CFBC] rounded-lg hover:bg-stone-50">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
+<button class="w-8 h-8 rounded-full bg-surface-container-low border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
 </button>
 </div>
+<!-- Template Frame Container -->
+<div class="bg-[#EEF7F5] border border-[#BDE3DE] rounded-xl p-2.5 mb-2.5">
+<div class="font-label-sm text-[10px] uppercase tracking-wider text-primary font-bold mb-1">
+              TEMPLATE FRAME
+            </div>
+<p class="font-headline-sm text-[15px] text-[#00504B] font-extrabold leading-snug">
+              “It is widely held that..., yet I believe...”
+            </p>
 </div>
-<!-- Monospace Formula Definition -->
-<div class="bg-[#F8F4EA] border border-[#E8DEC8] rounded-xl px-3 py-2 text-xs font-mono font-bold text-brand-darkTeal">
-        “It is widely held that..., yet I believe...”
-      </div>
-<!-- Realistic Context Example (Dark Teal Box) -->
-<div class="bg-[#0F3D3E] rounded-xl p-3.5 text-white shadow-inner">
-<p class="text-xs leading-relaxed font-medium">
-          “<span class="text-[#2DD4BF] font-bold">It is widely held that</span> degrees guarantee success, <span class="text-[#2DD4BF] font-bold">yet I believe</span> adaptive micro-skills matter more.”
-        </p>
+<!-- Exam Delivery Box -->
+<div class="bg-surface-bright border border-surface-variant/80 rounded-xl p-2.5">
+<div class="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-1">
+              EXAM DELIVERY
+            </div>
+<p class="font-body-md text-[13.5px] leading-relaxed text-on-surface">
+              “<mark class="bg-emerald-100 text-teal-900 font-bold px-1.5 py-0.5 rounded">It is widely held that</mark> degrees guarantee success, <mark class="bg-emerald-100 text-teal-900 font-bold px-1.5 py-0.5 rounded">yet I believe</mark> adaptive micro-skills matter more.”
+            </p>
 </div>
 </article>
-<!-- END: FormulaCard02 -->
-<!-- BEGIN: PrimaryAction -->
-<div class="pt-1">
-<button class="w-full tactile-orange-btn py-3 px-4 rounded-2xl flex items-center justify-between text-white font-extrabold active:translate-y-0.5 transition-transform" data-purpose="drill-cta">
-<div class="flex items-center gap-2 text-sm text-[#1B0B04]">
-<span class="text-base text-black">⚡</span>
-<span>Practise these 5</span>
+</section>
 </div>
-<div class="bg-black/20 hover:bg-black/25 text-[#1B0B04] px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
-<span>5 min drill</span>
-<span>→</span>
+<!-- 6. Floating Action Strip (CTA) -->
+<div class="fixed bottom-[68px] w-[390px] px-4 py-2 z-30 pointer-events-none">
+<button class="pointer-events-auto w-full bg-[#FF9600] active:bg-[#F28C00] text-[#1E1711] font-label-lg text-label-lg py-3.5 px-4 rounded-2xl border-2 border-[#D97300] shadow-[0_4px_0_0_#C25E00] active:shadow-none active:translate-y-1 transition-all flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-xl leading-none">⚡</span>
+<span class="font-extrabold tracking-tight">Practise these 5</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-[#FFF0D4] text-[#633700] text-[11px] font-extrabold px-2.5 py-1 rounded-full border border-[#E8C26E]">
+            5 min drill
+          </span>
+<span class="material-symbols-outlined text-[20px] font-extrabold">arrow_forward</span>
 </div>
 </button>
 </div>
-<!-- END: PrimaryAction -->
-</main>
-<!-- END: ScrollableContent -->
-<!-- BEGIN: BottomNavigation -->
-<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-white border-t-2 border-[#D8CFBC] px-3 py-1.5 flex items-center justify-around z-40" data-purpose="tab-navigation">
+<!-- 7. Canonical Lexkite Bottom Tab Bar (5 equal tabs) -->
+<nav class="fixed bottom-0 w-[390px] bg-surface-container-lowest border-t-2 border-surface-variant shadow-[0_-4px_0_0_#efe0d6] z-40 py-1.5 px-2 flex justify-between items-center">
 <!-- Tab 1: Today -->
-<a aria-label="Today" class="flex flex-col items-center justify-center py-1 w-14 text-brand-mutedTeal" href="#">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<rect height="18" rx="2" stroke-width="2" width="18" x="3" y="4"></rect>
-<path d="M16 2v4M8 2v4M3 10h18" stroke-width="2"></path>
-</svg>
-<span class="text-[10px] font-bold">Today</span>
-</a>
+<button class="flex-1 flex flex-col items-center justify-center text-on-surface-variant py-1 active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Today</span>
+</button>
 <!-- Tab 2: Vocab -->
-<a aria-label="Vocab" class="flex flex-col items-center justify-center py-1 w-14 text-brand-mutedTeal" href="#">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="text-[10px] font-bold">Vocab</span>
-</a>
-<!-- Tab 3: Skills (ACTIVE) -->
-<a aria-current="page" aria-label="Skills" class="flex flex-col items-center justify-center py-1 px-3 bg-[#EAF5F4] border-2 border-[#167D7F] rounded-xl text-[#0F3D3E]" href="#">
-<svg class="w-5 h-5 mb-0.5 text-[#167D7F]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="text-[10px] font-extrabold text-[#0F3D3E]">Skills</span>
-</a>
+<button class="flex-1 flex flex-col items-center justify-center text-on-surface-variant py-1 relative active:translate-y-0.5 transition-transform">
+<div class="relative">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#FF9600] border border-white"></span>
+</div>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (Active) -->
+<button class="flex-1 flex flex-col items-center justify-center py-1">
+<div class="bg-[#EEF7F5] border-2 border-[#136A63] text-primary px-3.5 py-1 rounded-full flex flex-col items-center shadow-[0_2px_0_0_#136A63]">
+<span class="material-symbols-outlined fill-1 text-[20px]">psychology</span>
+<span class="font-label-sm text-[11px] font-extrabold leading-none mt-0.5">Skills</span>
+</div>
+</button>
 <!-- Tab 4: Tests -->
-<a aria-label="Tests" class="flex flex-col items-center justify-center py-1 w-14 text-brand-mutedTeal" href="#">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="text-[10px] font-bold">Tests</span>
-</a>
+<button class="flex-1 flex flex-col items-center justify-center text-on-surface-variant py-1 active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Tests</span>
+</button>
 <!-- Tab 5: Me -->
-<a aria-label="Me profile" class="flex flex-col items-center justify-center py-1 w-14 text-brand-mutedTeal" href="#">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="text-[10px] font-bold">Me</span>
-</a>
+<button class="flex-1 flex flex-col items-center justify-center text-on-surface-variant py-1 active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Me</span>
+</button>
 </nav>
-<!-- END: BottomNavigation -->
+</main>
 </body></html>
