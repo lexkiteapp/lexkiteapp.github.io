@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tài sản "đầu trơn" cho mặt VẼ trong luồng Call (web/js/call/face.js, docs/specs/call-lipsync.md): poster-2x đã xoá mắt/mày/miệng/ria (face_board.bare_head)
+"""Tài sản "đầu trơn" cho mặt VẼ trong luồng Call (web/js/call/face.js, docs/LESSON-ENGINE.md §Khớp miệng): poster-2x đã xoá mắt/mày/miệng/ria (face_board.bare_head)
 → web/teach/<who>/head-bare-2x.webp (1108×960) + head-bare.webp (554×480), nền trong suốt; ghi sha256 vào web/teach/characters.json (cổng characters-gate).
 Chạy lại khi poster-2x hoặc RIG.erase đổi. Dùng: python3 scripts/lipsync/head_bare.py   (cần: numpy pillow resvg-py; node 22)"""
 import hashlib, json

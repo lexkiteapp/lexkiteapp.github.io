@@ -15,7 +15,6 @@
 - [BRAND-RULES.md](BRAND-RULES.md) — Nguồn thương hiệu duy nhất cho Lexkite: bảng màu (Kit chỉ từ web/js/kit.js, teal), thứ đã bỏ (xanh cũ #2F62C0), đổi tên thương hiệu, watermark video; đọc khi: đụng logo, màu, tên, watermark
 - [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
-- [specs/call-lipsync.md](specs/call-lipsync.md) — Khớp miệng mặt VẼ cho giáo viên 2D (Call, bài học/Truyện, bản nhúng): lớp vector LipFace, mốc CI cues.js (chế độ pre/live), cổng ≥ 50 fps CPU 4×; đọc khi: sửa mặt vẽ, mốc khớp miệng, teacher.js
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code
 - [CI-RUNNERS.md](CI-RUNNERS.md) — Ngân sách 40 runner GitHub Pro (repo giữ công khai): việc nền ≤ ~20 (max-parallel), concurrency PR hủy lượt cũ, prod-release 1 lượt chờ, lượt ma queued; đọc khi: thêm workflow ma trận/nền hoặc check PR phải xếp hàng

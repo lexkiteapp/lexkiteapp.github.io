@@ -2,7 +2,7 @@
  * Hình theo Rhubarb: X nghỉ · A M/B/P môi mím · B răng khép (K S T EE) · C mở (EH AE) · D mở rộng (AA) · E tròn nhẹ (AO ER) · F chu môi (UW OW W) · G F/V răng trên chạm môi dưới · H L lưỡi chạm răng trên.
  * Mỗi hình = bộ số (rộng, mở trên/dưới, tròn, cười, răng, lưỡi) → svg(). Trộn 2 hình = nội suy bộ số (morph mượt, không chồng mờ 2 ảnh) → cùng kiểu lớp miệng Rive (input số = viseme).
  * Nét theo đúng nhân vật: phẳng, không viền ngoài; Ama môi nâu đỏ đậm + nét miệng tối; Carlos nét đen + lòng miệng nâu, ria mép vẽ đè lên trên (lớp mặt giữ ria).
- * Thuần (không DOM): chạy cả trình duyệt lẫn Node (scripts/lipsync/mouth-board.mjs dựng bảng duyệt). docs/specs/call-lipsync.md. */
+ * Thuần (không DOM): chạy cả trình duyệt lẫn Node (scripts/lipsync/mouth-board.mjs dựng bảng duyệt). docs/LESSON-ENGINE.md §Khớp miệng. */
 (function (g) {
   // w: nửa bề ngang (×STYLE.hw) · u/d: mở lên/xuống (×hw) · a: mũ dạng (1 = góc nhọn hình lá, .5 = bầu dục) · s: cười (góc miệng nhếch) · tt/tb: răng trên/dưới (phần lòng miệng) · tg: lưỡi · tu: lưỡi cong lên chạm răng trên · bite: răng trên đè môi dưới (F/V) · lip: dày môi (×)
   const SHAPE = {

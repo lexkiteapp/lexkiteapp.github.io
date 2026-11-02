@@ -1,4 +1,4 @@
-/* 🙂 LipFace – mặt VẼ nhiều lớp cho giáo viên 2D Ama/Carlos (kiểu state machine của Rive/Duolingo, docs/specs/call-lipsync.md).
+/* 🙂 LipFace – mặt VẼ nhiều lớp cho giáo viên 2D Ama/Carlos (kiểu state machine của Rive/Duolingo, docs/LESSON-ENGINE.md §Khớp miệng).
  * Lớp: đầu (poster-2x đã xóa mắt/mày/miệng → "đầu trơn") · mắt (lòng trắng, tròng, đốm sáng) · mi (mí trên = chớp) · mày · ria (Carlos) · miệng (LipMouth).
  * Input số giống Rive: viseme (a,b,k) + gain (độ lớn tiếng) · blink 0..1 · look {x,y} −1..1 · brow (nhướng) · knit (nhíu trong) · tilt (độ) · nod (px).
  * machine(who, o) = các lớp chạy song song theo thời gian (chớp, liếc, nhướng mày, nghiêng đầu khi nói) – hàm thuần của t + hạt giống → phát thật và dựng video giống hệt.
@@ -10,12 +10,16 @@
   const RIG = {
     ama: {
       skin: '#742414', ink: '#0B0605', pivot: [554, 640], mouth: [550, 392], rest: 0, look: [0.12, -0.12], hl: true, lw: 6.5, flick: 1, iris: 0.66,
+      // tính cách (docs/CHARACTERS.md): Ama hoạt bát – chớp/liếc nhanh hơn, mày & đầu biểu cảm rõ
+      temper: { blink: [2.4, 2.6], dbl: .2, brow: .8, tilt: 1.6, nod: 3.4, sacc: [1.4, 1.8] },
       eyes: [{ c: [483, 316], rx: 32, ry: 30, side: -1 }, { c: [619, 316], rx: 32, ry: 30, side: 1 }],
       brows: [{ i: [516, 241], p: [483, 225], o: [446, 241], th: 13 }, { i: [584, 242], p: [617, 226], o: [655, 242], th: 13 }],
       erase: [[483, 313, 46, 41], [619, 313, 46, 41], [481, 236, 44, 22], [619, 237, 44, 22], [550, 392, 58, 20]]
     },
     carlos: {
       skin: '#DA7845', ink: '#0A0503', pivot: [566, 650], mouth: [560, 399], rest: 0.3, look: [-0.55, 0], hl: false, lw: 7.5, flick: 0, iris: 0.5,
+      // Carlos điềm đạm – chớp thưa, ít liếc, mày/đầu chuyển động nhỏ và chậm hơn
+      temper: { blink: [3.2, 3.2], dbl: .1, brow: .55, tilt: 1.0, nod: 2.4, sacc: [2.0, 2.6] },
       eyes: [{ c: [510, 307], rx: 29, ry: 18, side: -1 }, { c: [613, 306], rx: 26, ry: 18, side: 1 }],
       brows: [{ i: [547, 264], p: [515, 254], o: [484, 265], th: 20 }, { i: [589, 264], p: [612, 253], o: [636, 265], th: 20 }],
       stache: { c: [568, 379], w: 60, h: 17 },
@@ -67,24 +71,26 @@
   // PRNG có hạt giống (mulberry32) → cùng câu, cùng chuyển động
   const rng = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
   const ease = x => x * x * (3 - 2 * x);
-  const EMO = { happy: { brow: .25, tilt: 1.5 }, cheer: { brow: .45, tilt: 2 }, explain: { brow: .12, tilt: -1 }, encourage: { brow: .3, tilt: 1.8 }, thinking: { brow: .1, knit: .5, tilt: -2.5, look: [-.4, -.5] }, concern: { knit: .8, tilt: -1.5 }, listen: {} };
+  // smile: góc miệng (cộng vào s của hình miệng) · nodHz/nodPx: gật chậm khi nghe (không cần tiếng)
+  const EMO = { happy: { brow: .25, tilt: 1.5, smile: .25 }, cheer: { brow: .45, tilt: 2, smile: .35 }, explain: { brow: .12, tilt: -1 }, encourage: { brow: .3, tilt: 1.8, smile: .18 },
+    thinking: { brow: .1, knit: .5, tilt: -2.5, look: [-.4, -.5] }, concern: { knit: .8, tilt: -1.5, smile: -.2 }, listen: { brow: .15, tilt: 1.2, smile: .08, nodHz: .55, nodPx: 2 } };
   /** Bộ máy biểu cảm. o: { cues, env (RMS 100 Hz, tùy chọn), dur, emo, seed, text }.
    *  Lớp miệng: viseme từ cues × độ mở theo độ lớn tiếng (LipSync.gain). Song song: chớp mắt (2.8–5.6 s, 15 % chớp đôi, 150 ms), liếc (đứng nhìn người học khi nói, liếc nhẹ khi ngắt),
    *  nhướng mày ở chỗ nhấn (tiếng bật lên sau im) và cuối câu hỏi, nghiêng/gật đầu nhẹ theo năng lượng nói. Trả { at(t) → trạng thái, blinks }. */
   function machine(who, o = {}) {
-    const R = RIG[who] || RIG.ama, r = rng(o.seed ?? 7), E = EMO[o.emo] || {}, dur = o.dur ?? 3, env = o.env || null, hz = 100;
+    const R = RIG[who] || RIG.ama, T = R.temper, r = rng(o.seed ?? 7), E = EMO[o.emo] || {}, dur = o.dur ?? 3, env = o.env || null, hz = 100, calm = !!o.calm; // calm = giảm chuyển động
     const G = env ? LS.gain(env) : () => 1, cues = o.cues || [{ start: 0, end: dur, value: 'X' }];
     const peak = env ? Math.max(...env, 1e-6) : 1, von = env ? Uint8Array.from(env, v => v > peak * .1 ? 1 : 0) : null; // có tiếng theo từng mẫu env (tính 1 lần, talk() đọc 11 mẫu/khung)
     const voiced = t => von ? von[clamp(Math.round(t * hz), 0, von.length - 1)] === 1 : LS.stateAt(cues, t).b !== 'X';
     // lịch chớp mắt
-    const blinks = []; for (let t = 1 + r() * 1.6; t < dur + 6; t += 2.8 + r() * 2.8) { blinks.push(t); if (r() < .15) blinks.push(t += .26); }
+    const blinks = []; for (let t = 1 + r() * 1.6; t < dur + 6; t += T.blink[0] + r() * T.blink[1]) { blinks.push(t); if (r() < T.dbl) blinks.push(t += .26); }
     const blinkAt = t => { let v = 0; for (const b of blinks) { const d = t - b; if (d >= 0 && d < .15) v = Math.max(v, d < .06 ? ease(d / .06) : d < .08 ? 1 : 1 - ease((d - .08) / .07)); } return v; };
     // điểm nhấn = tiếng bật lên sau ≥ 150 ms im (đầu cụm) · cuối câu hỏi
     const acc = []; if (env) { let q = 99; for (let i = 0; i < env.length; i++) { if (env[i] > peak * .1) { if (q >= 15) acc.push(i / hz); q = 0; } else q++; } }
     if (/\?\s*$/.test(o.text || '')) { const lastOn = [...cues].reverse().find(c => c.value !== 'X'); if (lastOn) acc.push(Math.max(0, lastOn.start - .25)); }
     const pulse = (t, w) => acc.reduce((v, a) => { const d = t - a + .04; return d > 0 && d < w ? Math.max(v, Math.sin(Math.PI * d / w)) : v; }, 0);
     // liếc: đổi điểm nhìn ở chỗ im (không liếc giữa từ), 70 ms
-    const sacc = [{ t: 0, x: R.look[0], y: R.look[1] }]; for (let t = 1 + r() * 1.5; t < dur + 6; t += 1.6 + r() * 2.2) { if (voiced(t)) continue; const lk = E.look || R.look; sacc.push({ t, x: lk[0] + (r() - .5) * .5, y: lk[1] + (r() - .5) * .25 }); }
+    const sacc = [{ t: 0, x: R.look[0], y: R.look[1] }]; for (let t = 1 + r() * 1.5; !calm && t < dur + 6; t += T.sacc[0] + r() * T.sacc[1]) { if (voiced(t)) continue; const lk = E.look || R.look; sacc.push({ t, x: lk[0] + (r() - .5) * .5, y: lk[1] + (r() - .5) * .25 }); }
     const lookAt = t => { let i = 0; while (i < sacc.length - 1 && sacc[i + 1].t <= t) i++; const a = sacc[Math.max(0, i - 1)], b = sacc[i], k = i ? ease(clamp((t - b.t) / .07, 0, 1)) : 1;
       const tx = voiced(t) ? R.look[0] * .8 : b.x; return { x: a.x + (tx - a.x) * k, y: a.y + (b.y - a.y) * k }; };
     let sp = 0, lastT = -1, ph = r() * 6; // năng lượng nói làm mượt (lớp nghiêng đầu)
@@ -94,11 +100,13 @@
       at(t) {
         const s = LS.stateAt(cues, t), p = LM.mix(s.a, s.b, s.k), gn = G(t), open = p.u + p.d > .02;
         if (open) { p.u *= gn; p.d *= gn; p.w *= .9 + .1 * Math.min(1, gn); }
+        if (E.smile) p.s = clamp(p.s + E.smile * (open ? .5 : 1), -.3, .9);
         sp = talk(t); lastT = t;
         const acc = pulse(t, .45);
         return { mouth: p, shape: s.k >= .5 ? s.b : s.a, gain: gn, open: open ? Math.min(1, (p.u + p.d) / .9) : 0, blink: blinkAt(t), look: lookAt(t),
-          brow: clamp((E.brow || 0) + acc * .7, -.3, 1), knit: E.knit || 0,
-          tilt: (E.tilt || 0) * .6 + sp * (1.4 * Math.sin(t * 1.7 + ph) + .6 * Math.sin(t * 3.1 + ph * 2)), nod: acc * 3 * sp, talk: sp };
+          brow: clamp((E.brow || 0) + acc * T.brow, -.3, 1), knit: E.knit || 0,
+          tilt: calm ? 0 : (E.tilt || 0) * .6 + sp * T.tilt * (.9 * Math.sin(t * 1.7 + ph) + .4 * Math.sin(t * 3.1 + ph * 2)),
+          nod: calm ? 0 : acc * T.nod * sp + (E.nodHz ? E.nodPx * Math.max(0, Math.sin(t * Math.PI * 2 * E.nodHz + ph)) : 0), talk: sp };
       }
     };
   }

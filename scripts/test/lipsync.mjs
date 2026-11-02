@@ -52,3 +52,22 @@ console.log('lipsync face ok');
 // dấu nhấn Kokoro (ˈ) có thời lượng → thuộc nguyên âm SAU (model phát nguyên âm trong khoảng đó)
 const sp = LS.phoneSpans([{ p: 't', s: 0, e: .1 }, { p: 'ˈ', s: .1, e: .25 }, { p: 'I', s: .25, e: .4 }]);
 assert.deepEqual(sp.map(x => [x.v, x.s]), [['B', 0], ['D', .1]]);
+// LipPaint: chuỗi SVG của LipFace → lệnh canvas (1 nguồn hình học). Nhánh display="none" bị bỏ, clip của mắt/miệng giữ, mỗi lớp có lệnh tô.
+{ const LP = (await import('node:module')).createRequire(import.meta.url)('../../web/js/call/paint.js'), LF2 = (await import('node:module')).createRequire(import.meta.url)('../../web/js/call/face.js');
+  for (const who of ['ama', 'carlos']) for (const mouth of ['X', 'D', 'G']) {
+    const P = LF2.parts(who, { mouth, blink: mouth === 'G' ? 1 : 0 }), ops = P.map(p => LP.compile(p));
+    assert.ok(ops.slice(0, 2).every(o => o.some(x => x.op === 'clip') && o.filter(x => x.op === 'fill').length >= 2), `${who}: mắt có clip + tô`);
+    const m = ops[3], fills = m.filter(x => x.op === 'fill' || x.op === 'stroke').length; assert.ok(fills >= 1, `${who} ${mouth}: miệng có nét`);
+    assert.equal(m.filter(x => x.op === 'save').length, m.filter(x => x.op === 'restore').length, 'save/restore cân');
+    const inner = (await import('node:module')).createRequire(import.meta.url)('../../web/js/call/mouths.js').STYLE[who].inner;
+    assert.equal(m.some(x => x.op === 'fill' && x.c === inner), mouth !== 'X', `${who} ${mouth}: lòng miệng chỉ vẽ khi mở (display none bị bỏ)`);
+  }
+  assert.deepEqual(LP.compile('<g display="none"><path d="M0 0L1 1" fill="#000"/></g><path d="M0 0" fill="#fff" opacity=".5"/>').map(x => [x.op, x.c, x.al]), [['fill', '#fff', .5]]);
+  console.log('lipsync paint ok'); }
+// Biểu cảm theo nhân vật: Carlos chớp thưa hơn Ama; giảm chuyển động → không nghiêng/gật; nghe → gật nhẹ không cần tiếng; vui → khóe miệng lên
+{ const LF3 = (await import('node:module')).createRequire(import.meta.url)('../../web/js/call/face.js');
+  const bl = w => LF3.machine(w, { dur: 120, seed: 3 }).blinks.length; assert.ok(bl('ama') > bl('carlos'), `Ama chớp nhiều hơn Carlos (${bl('ama')} > ${bl('carlos')})`);
+  const C = LF3.machine('ama', { dur: 10, emo: 'listen', calm: true }); assert.ok([...Array(50)].every((_, i) => C.at(i / 10).tilt === 0 && C.at(i / 10).nod === 0), 'calm: không nghiêng/gật');
+  const Lm = LF3.machine('carlos', { dur: 10, emo: 'listen' }); assert.ok(Math.max(...[...Array(50)].map((_, i) => Lm.at(i / 10).nod)) > 1, 'nghe: gật nhẹ');
+  assert.ok(LF3.machine('ama', { emo: 'happy' }).at(1).mouth.s > LF3.machine('ama', {}).at(1).mouth.s, 'vui: khóe miệng lên');
+  console.log('lipsync temper ok'); }

@@ -36,7 +36,7 @@ jobs:
           left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
           [ "${{ github.event.inputs.only_call_cues }}" = "true" ] && left=0
           echo "left=$left" >> "$GITHUB_OUTPUT"
-          # mốc khớp miệng câu giáo viên (Call + Truyện – docs/specs/call-lipsync.md): job cues riêng, chạy song song với gen
+          # mốc khớp miệng câu giáo viên (Call + Truyện – docs/LESSON-ENGINE.md §Khớp miệng): job cues riêng, chạy song song với gen
           echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
           # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
           echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "${{ github.event.inputs.shards || '24' }}")" >> "$GITHUB_OUTPUT"

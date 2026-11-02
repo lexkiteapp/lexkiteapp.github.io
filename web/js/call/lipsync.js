@@ -1,17 +1,17 @@
 /* 👄 LipSync – khớp miệng 2D theo âm vị (9 hình miệng Rhubarb/Preston Blair: X nghỉ · A M/B/P · B răng khép · C mở · D mở rộng · E tròn nhẹ · F chu môi · G F/V · H L).
- * Hai nguồn mốc (docs/specs/call-lipsync.md):
+ * Hai nguồn mốc (docs/LESSON-ENGINE.md §Khớp miệng):
  *  - "pre": câu dựng sẵn → Rhubarb (--dialogFile) chạy trên CI → cues [{start,end,value}].
  *  - "live": câu AI lúc chạy → fromText(chữ) (CMUdict + luật chữ) → con trỏ âm vị chạy theo đồng hồ âm thanh, chỉ tiến khi có tiếng (năng lượng Web Audio),
  *    im → X. speechSynthesis (không có âm thanh) → chạy theo thời gian ước lượng, neo lại ở onboundary nếu trình duyệt bắn.
  * Vẽ: stateAt(cues, t) → {a, b, k}: hình cũ a trộn sang hình mới b theo k (0..1, BLEND giây) – cùng 1 hàm cho phát thật và dựng video (đo được, không lệch).
  * Thuần (không DOM) trừ player(); test: scripts/test/lipsync.mjs. */
 (function (g) {
-  const SHAPES = ['X', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-  const BLEND = 0.06, MIN_HOLD = 0.05, LEAD = 0.02; // trộn 60 ms · giữ ≥ 50 ms (chống nháy) · hình đi trước tiếng 20 ms (mắt chấp nhận hình sớm, không chấp nhận hình trễ)
+  /* @visemes – SINH TỪ web/js/call/visemes.json (node scripts/lipsync/visemes-sync.mjs) – bảng chung web/mốc CI/video, không sửa tay */
+  const VIS = {"shapes":["X","A","B","C","D","E","F","G","H"],"names":{"X":"nghỉ","A":"M/B/P môi mím","B":"răng khép (K S T EE)","C":"mở (EH AE)","D":"mở rộng (AA)","E":"tròn nhẹ (AO ER)","F":"chu môi (UW OW W)","G":"F/V răng chạm môi dưới","H":"L lưỡi chạm răng trên"},"fallback":"B","timing":{"blend":0.06,"minHold":0.05,"lead":0.02},"leads":{"A":0.065,"G":0.045,"F":0.04},"arpabet":{"M":"A","B":"A","P":"A","F":"G","V":"G","L":"H","W":"F","UW":"F","OW":"F","UH":"F","OY":"F","AO":"E","ER":"E","R":"E","AA":"D","AY":"D","AW":"D","AE":"C","EH":"C","AH":"C","EY":"C","IH":"B","IY":"B"},"ipa":{"m":"A","b":"A","p":"A","f":"G","v":"G","l":"H","w":"F","u":"F","ʊ":"F","O":"F","Y":"F","ɔ":"E","ɜ":"E","ɝ":"E","ɚ":"E","ɹ":"E","ɑ":"D","I":"D","W":"D","æ":"C","ɛ":"C","ʌ":"C","ə":"C","ɐ":"C","ᵊ":"C","A":"C","ɪ":"B","i":"B"}};
+  /* @visemes-end */
+  const SHAPES = VIS.shapes, BLEND = VIS.timing.blend, MIN_HOLD = VIS.timing.minHold, LEAD = VIS.timing.lead, P2V = VIS.arpabet, IPA = VIS.ipa, LEADS = VIS.leads; // trộn 60 ms · giữ ≥ 50 ms (chống nháy) · hình đi trước tiếng 20 ms · độ đi trước riêng M/B/P, F/V, W/OO
   // ARPAbet → hình miệng (bảng của Rhubarb: github.com/DanielSWolf/rhubarb-lip-sync#mouth-shapes)
-  const P2V = { M: 'A', B: 'A', P: 'A', F: 'G', V: 'G', L: 'H', W: 'F', UW: 'F', OW: 'F', UH: 'F', OY: 'F', AO: 'E', ER: 'E', R: 'E',
-    AA: 'D', AY: 'D', AW: 'D', AE: 'C', EH: 'C', AH: 'C', EY: 'C', IH: 'B', IY: 'B' }; // còn lại (K G T D N S Z TH DH CH JH SH ZH Y HH NG) → B
-  const vOf = p => P2V[p.replace(/\d/, '')] || 'B';
+  const vOf = p => P2V[p.replace(/\d/, '')] || VIS.fallback;
   const isV = p => /^[AEIOU]/.test(p);
   // Luật chữ → âm vị (dự phòng khi từ không có trong từ điển): đủ để chọn hình miệng, không để đọc IPA
   const RULES = [['tion', 'SH AH N'], ['ough', 'OW'], ['igh', 'AY'], ['ee', 'IY'], ['ea', 'IY'], ['oo', 'UW'], ['ou', 'AW'], ['ow', 'OW'], ['oi', 'OY'], ['ay', 'EY'], ['ai', 'EY'], ['au', 'AO'],
@@ -101,8 +101,6 @@
     return out;
   }
   // Âm vị IPA của Kokoro/misaki (en-US; chữ hoa = nguyên âm đôi: A eɪ · I aɪ · W aʊ · Y ɔɪ · O oʊ · T flap) → hình miệng (cùng bảng P2V)
-  const IPA = { m: 'A', b: 'A', p: 'A', f: 'G', v: 'G', l: 'H', w: 'F', u: 'F', 'ʊ': 'F', O: 'F', Y: 'F', 'ɔ': 'E', 'ɜ': 'E', 'ɝ': 'E', 'ɚ': 'E', 'ɹ': 'E',
-    'ɑ': 'D', I: 'D', W: 'D', 'æ': 'C', 'ɛ': 'C', 'ʌ': 'C', 'ə': 'C', 'ɐ': 'C', 'ᵊ': 'C', A: 'C', 'ɪ': 'B', i: 'B' }; // phụ âm còn lại → B
   /** Âm vị Kokoro [{p,s,e}] → khúc [{v,s,e}]: dấu nhấn (ˈˌ) và dấu dài (ː) có thời lượng riêng trong pred_dur, model phát nguyên âm SAU trong khoảng đó
    * → gộp vào âm sau (ː gộp vào âm trước). v = hình miệng · 'X' = dấu câu/ngắt · ' ' = khoảng trắng giữa từ. */
   function phoneSpans(ph) {
@@ -110,7 +108,7 @@
     for (const x of ph) {
       if (/[ˈˌ]/.test(x.p)) { pend = pend ?? x.s; continue; }
       if (x.p === 'ː') { if (out.length) out[out.length - 1].e = x.e; continue; }
-      const v = x.p === ' ' ? ' ' : !/[a-zA-Zɐ-ʒʤʧᵊæðŋθ]/.test(x.p) ? 'X' : (IPA[x.p] || 'B');
+      const v = x.p === ' ' ? ' ' : !/[a-zA-Zɐ-ʒʤʧᵊæðŋθ]/.test(x.p) ? 'X' : (IPA[x.p] || VIS.fallback);
       out.push({ v, s: pend ?? x.s, e: x.e }); pend = null;
     }
     return out;
@@ -129,7 +127,6 @@
     return smooth(cues);
   }
   /** Độ đi trước riêng từng hình (Rive/Duolingo: môi khép M/B/P, răng-môi F/V, chu môi W/OO phải tới TRƯỚC tiếng). LEAD chung đã có trong stateAt → chỉ dời phần dư, hình trước vẫn giữ ≥ MIN_HOLD (không nháy). */
-  const LEADS = { A: 0.065, G: 0.045, F: 0.04 };
   function lead(cues) {
     const out = cues.map(c => ({ ...c }));
     for (let i = 1; i < out.length; i++) { const d = (LEADS[out[i].value] || LEAD) - LEAD; if (d <= 0) continue;
@@ -219,6 +216,6 @@
     return self;
   }
 
-  const api = { SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  const api = { VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, player, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

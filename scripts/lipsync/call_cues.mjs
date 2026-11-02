@@ -1,10 +1,11 @@
-// Mốc khớp miệng cho câu giáo viên dựng sẵn – Call + Truyện bài học (docs/specs/call-lipsync.md §Đưa vào hệ thống; CI audio.yml): Kokoro python sinh tiếng VÀ mốc âm vị CÙNG một lần
+// Mốc khớp miệng cho câu giáo viên dựng sẵn – Call + Truyện bài học (docs/LESSON-ENGINE.md §Khớp miệng §Đưa vào hệ thống; CI audio.yml): Kokoro python sinh tiếng VÀ mốc âm vị CÙNG một lần
 // (scripts/lipsync/kokoro_ts.py) → <khóa>-ls.mp3 (kho media, bản riêng – mp3 cũ đệm immutable 1 năm nên không ghi đè) + mốc đã align/smooth/lead như lab.mjs.
 // Mỗi câu phải qua cổng mặt vẽ như lab (drawn_frames.mjs): lệch tiếng–miệng ≤ 45 ms · đúng hình theo âm vị ≥ 80 % · 0 nháy. Câu trượt → không ghi mốc (app tự chạy live), báo trong bảng.
 // Ra: .media-out/audio/l/<khóa>-ls.mp3 + web/js/call/cues.js (LK_CUES: mốc nén + độ lớn tiếng 100 Hz 8 bit + từ điển nhỏ cho live) – chỉ commit sau khi đẩy mp3 thành công.
 // Dùng: node scripts/lipsync/call_cues.mjs --count   (in "cần tạo N")  ·  --index-only (chỉ ghi chỉ mục)  ·  node scripts/lipsync/call_cues.mjs   (cần python kokoro==0.9.4 + espeak-ng, ffmpeg)
 import fs from 'node:fs'; import os from 'node:os'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
 const req = createRequire(import.meta.url), LS = req('../../web/js/call/lipsync.js'), LF = req('../../web/js/call/face.js');
+import { fromKokoro } from './cues_cli.mjs'; // CÙNG đường ống mốc với video (cues_cli.mjs) → web và video không lệch
 const OUT = process.env.AUDIO_OUT || '.media-out/audio/l', IDX = 'web/js/call/cues.js', QA = fs.mkdtempSync(os.tmpdir() + '/callcues-');
 const sh = (c, a) => execFileSync(c, a, { stdio: ['ignore', 'pipe', 'pipe'] }).toString();
 const c = { self: {} }; c.self = c; vm.createContext(c);
@@ -59,7 +60,7 @@ if (todo.length) {
     sh('ffmpeg', ['-y', '-v', 'error', '-i', raw, '-af', 'loudnorm=I=-16:TP=-1.5', '-ar', '24000', '-ac', '1', '-c:a', 'libmp3lame', '-b:a', '64k', mp3]);
     sh('ffmpeg', ['-y', '-v', 'error', '-i', mp3, '-ar', '24000', '-ac', '1', '-c:a', 'pcm_s16le', back]);
     const env = rms100(back), dur = env.length / 100, kp = JSON.parse(fs.readFileSync(`${QA}/${key}.ph.json`, 'utf8'));
-    const cues = LS.lead(LS.smooth(LS.align(LS.fromPhones(kp.ph, dur), env, { words: kp.words }))), s = score(l, cues, env, kp.ph), pass = Math.abs(s.lagMs) <= 45 && s.visemePct >= 80 && s.flicker === 0;
+    const cues = fromKokoro(kp, env), s = score(l, cues, env, kp.ph), pass = Math.abs(s.lagMs) <= 45 && s.visemePct >= 80 && s.flicker === 0;
     rows.push({ key, text: l.text, ...s, pass });
     if (pass) { const pk = pack(cues, env); K[key] = [pk[0], pk[1], zrun(pk[2])]; } else { fs.rmSync(mp3); K[key] = 0; } // trượt cổng → không đẩy mp3, ghi 0 (app dùng live, đêm sau không thử lại – đổi câu = khóa mới)
   }
