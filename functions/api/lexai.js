@@ -7,6 +7,7 @@
 import { candidates, report, gemFetch } from './_keys.js';
 
 import { stripBackgroundAI } from './_d1guard.js';
+import { readJSON, BodyError } from './_body.js';
 const ISS = 'https://token.actions.githubusercontent.com', AUD = 'lexkite-lexai', REPO = 'lexkiteapp/lexkiteapp.github.io';
 const NAMES = { en: 'English', vi: 'Vietnamese', es: 'Spanish', pt: 'Brazilian Portuguese', fr: 'French', de: 'German', id: 'Indonesian', th: 'Thai', zh: 'Simplified Chinese', ja: 'Japanese', ko: 'Korean', hi: 'Hindi', ar: 'Arabic', ru: 'Russian', tr: 'Turkish' };
 const b64u = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((s.length + 3) % 4)), c => c.charCodeAt(0));
@@ -229,7 +230,7 @@ export async function onRequestPost({ request, env }) {
   const claims = await verifyOidc((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   if (!claims) return J({ error: 'unauthorized' }, 401);
   env = stripBackgroundAI(env); // lexai chỉ dành cho CI (OIDC) = việc nền: KHÔNG bao giờ tiêu Workers AI tài khoản chính (đặt chỗ cho người dùng)
-  const b = await request.json().catch(() => ({}));
+  let b; try { b = (await readJSON(request, 1_000_000)) || {}; } catch (e) { if (e instanceof BodyError && e.status === 413) return J({ error: 'too-large' }, 413); b = {}; }
   if (b.mode === 'ping') { const list = await candidates(env, 'gemini').catch(() => []); return J({ gemini: list.length }); } // sức khỏe kho Gemini – không gọi mô hình
   const p = build(b); if (!p) return J({ error: 'bad-request' }, 400);
   if (b.prompt === true) return J({ sys: p.sys + JSON_ONLY, user: p.user, temp: p.temp }); // cho nhà cung cấp khác (ai-pool) – không gọi mô hình

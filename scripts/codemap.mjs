@@ -174,8 +174,10 @@ gods.forEach((n, i) => out.push(`${i + 1}. \`${n.path}\` ←${indeg(n)} · ${pic
 out.push('', `## Routes \`#/…\` → file xử lý (${routeList.length})`);
 const byFile = {}; for (const [r, fs_] of routeList) for (const f of fs_) (byFile[f] ||= []).push(r.slice(2));
 for (const [f, rs] of Object.entries(byFile).sort()) out.push(`- \`${short(f, 'web/js/')}\`: ${rs.join(' ')}`);
-out.push('', `## Workflows (${workflows.length}): [trigger] việc kiểm/làm`);
-for (const w of workflows) out.push(`- ${w.file.replace(/\.ya?ml$/, '')} [${w.triggers.join(',') || '?'}] ${w.desc}`);
+out.push('', `## Workflows (${workflows.length}) gom theo [trigger]: tên việc kiểm/làm`);
+// gom theo bộ trigger (02/11): không lặp "[cron,manual] " trên từng dòng – cùng nội dung, nhỏ hơn ~1,7 KB để CODEMAP ≤ 25 KB còn chỗ cho mô-đun
+const byTrig = {}; for (const w of workflows) (byTrig[w.triggers.join(',') || '?'] ||= []).push(w);
+for (const [tg, ws] of Object.entries(byTrig).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))) { out.push(`- [${tg}]`); for (const w of ws) out.push(`  - ${w.file.replace(/\.ya?ml$/, '')} ${w.desc}`); }
 out.push('', `## Test (${tests.length}) → vùng phủ (file đích chi tiết: json \`tests\`)`);
 for (const [a, ts] of Object.entries(testsByArea).sort((x, y) => y[1].length - x[1].length || x[0].localeCompare(y[0]))) out.push(`- \`${a}\`: ${ts.join(' ')}`);
 const fixed = Buffer.byteLength(out.join('\n'));
@@ -185,7 +187,8 @@ const cand = Object.values(nodes).filter(n => !/^scripts\/test\//.test(n.path) &
   .map(n => ({ n, score: indeg(n) * 4 + n.imports.length + Math.min(n.exports.length, 6) * 0.3 })).sort((a, b) => b.score - a.score || a.n.path.localeCompare(b.n.path));
 const line = n => { const base = path.posix.basename(n.path); const dep = nonTest(n).slice(0, 3).map(p => path.posix.basename(p)).join(','); const use = n.imports.slice(0, 3).map(p => path.posix.basename(p)).join(','); return `${base}${n.exports.length ? ': ' + pick(n.exports, 5) : ''} →${use || '-'} ←${indeg(n)}${dep ? ' (' + dep + ')' : ''}`; };
 const chosen = []; let used = 0;
-for (const c of cand) { const L = Buffer.byteLength(line(c.n)) + 3; if (used + L + 40 > room) continue; chosen.push(c.n); used += L; }
+const dirs = new Set(); // tiền tố "- `thư mục/` " của mỗi nhóm cũng tính vào ngân sách (trước 02/11 bỏ sót → vượt trần 25 KB khi thêm thư mục/mô-đun)
+for (const c of cand) { const d = path.posix.dirname(c.n.path), L = Buffer.byteLength(line(c.n)) + 3 + (dirs.has(d) ? 0 : Buffer.byteLength(`- \`${d}/\` `) + 1); if (used + L + 40 > room) continue; chosen.push(c.n); dirs.add(d); used += L; }
 const groups = {}; for (const n of chosen) (groups[path.posix.dirname(n.path)] ||= []).push(n);
 out.push('', `## Mô-đun JS chính (${chosen.length}/${Object.keys(nodes).length}; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng`);
 for (const [d, ns] of Object.entries(groups).sort()) out.push(`- \`${d}/\` ` + ns.sort((a, b) => a.path.localeCompare(b.path)).map(line).join(' · '));
