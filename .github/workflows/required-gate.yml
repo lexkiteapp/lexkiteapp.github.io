@@ -33,6 +33,7 @@ on:
       - 'npm test'
       - 'Perf profile'
       - 'QA bot'
+      - 'Say it like a native – meanings'
       - 'size-guard'
       - 'Stitch diff'
       - 'Teach build'
