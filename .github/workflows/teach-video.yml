@@ -19,6 +19,7 @@ jobs:
     outputs: { list: '${{ steps.m.outputs.list }}', par: '${{ steps.p.outputs.par }}' }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - name: Specs regenerate identically + reviewed scripts
         run: |
           python3 scripts/video/teach2d/gen.py -q
@@ -49,6 +50,7 @@ jobs:
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.preqc.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}' } }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - uses: actions/cache@v4
         with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
       - name: ffmpeg (static build, cached)
@@ -88,6 +90,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { sparse-checkout: scripts/ci }
+      - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - id: p
         env: { GITHUB_TOKEN: '${{ github.token }}' }
         run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
@@ -100,6 +103,7 @@ jobs:
     env: { O: 'out/${{ matrix.ep }}/${{ matrix.fmt }}', E: 'content/video/teach2d/eps/${{ matrix.ep }}.json', MEDIA_ORIGIN_ONLY: '1' }   # pictures from the GitHub origins only, never media.lexkite.com (Workers cap)
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - uses: actions/cache@v4
         with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
       - name: ffmpeg (static build, cached)
@@ -175,6 +179,7 @@ jobs:
     timeout-minutes: 45   # 4 screenshots per episode; a 120-episode batch takes ~25 min
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - uses: actions/download-artifact@v4
         with: { pattern: 'tv-*-wide-${{ github.run_id }}', path: art, merge-multiple: false }
       - uses: actions/setup-node@v4
@@ -212,6 +217,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { ssh-key: "${{ github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && secrets.BOT_DEPLOY_KEY || '' }}" }   # bank.json -> main over the deploy key (ruleset), main batches only
+      - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - uses: actions/download-artifact@v4
         with: { pattern: 'tv-*-${{ github.run_id }}', path: art }
       - run: pip install -q pillow==11.0.0
