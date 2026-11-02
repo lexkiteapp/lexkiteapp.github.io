@@ -11,8 +11,8 @@ on:
     - cron: '17 4 * * 1' # thứ Hai hằng tuần
 permissions:
   contents: read
-concurrency:
-  group: ads-demo
+concurrency: # theo ref: lượt PR và lượt main không huỷ nhau (2/11: PR #448 huỷ lượt kiểm main); cùng nhánh thì lượt mới huỷ lượt cũ
+  group: ads-demo-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   web:

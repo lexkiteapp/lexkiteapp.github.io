@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 🗺️ Bản đồ mã nguồn (Node 22, chỉ dùng thư viện có sẵn): quét repo → docs/CODEMAP.md (≤ 25 KB, đọc ĐẦU PHIÊN) + docs/codemap.json (đồ thị đầy đủ).
-// Dùng: node scripts/codemap.mjs [--check]   (--check: không ghi, thoát 1 nếu file đã commit lệch)
+// Dùng: node scripts/codemap.mjs [--check] [--out=<thư mục>]   (--check: không ghi, thoát 1 nếu file đã commit lệch; --out: ghi vào thư mục khác thay docs/ – dùng cho test)
 // Đầu ra xác định (không có ngày/sha) → chạy lại không đổi thì không sinh commit. Tra chính xác: node -e / jq trên docs/codemap.json.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,8 +9,11 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CAP = 25000;                       // trần CODEMAP.md (byte)
+const SLACK = 1200;                      // chừa dư dưới trần: mục Mô-đun chỉ lấp tới CAP − SLACK
+const MIN_MOD = 3000;                    // phần cố định phải chừa ≥ chừng này cho mục Mô-đun, không thì cảnh báo sớm
 const MAX_SRC = 400 * 1000;              // bỏ qua file > 400 KB (dữ liệu sinh)
 const CHECK = process.argv.includes('--check');
+const OUT = (process.argv.find(a => a.startsWith('--out=')) || '').slice(6);
 const sh = (cmd, args) => execFileSync(cmd, args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 28 });
 
 // ---------- 1. liệt kê file ----------
@@ -95,10 +98,11 @@ for (const f of files.filter(f => f.startsWith(wfDir + '/') && /\.ya?ml$/.test(f
   if (has('workflow_call')) trig.push('call');
   if (has('issues') || has('issue_comment')) trig.push('issue');
   // mô tả: dòng chú thích đầu file (trước `name:`)
-  const com = []; for (const l of lines) { if (/^#/.test(l)) com.push(l.replace(/^#+\s*/, '')); else if (l.trim()) break; }
-  let desc = (com.join(' ') || name).replace(/\s+/g, ' ').replace(/^[^\p{L}\p{N}(]+/u, '').trim();
+  const com = []; for (const l of lines) { if (/^#\s*ci-policy:/.test(l)) continue; if (/^#/.test(l)) com.push(l.replace(/^#+\s*/, '')); else if (l.trim()) break; }
+  const self = path.basename(f).replace(/\.ya?ml$/, '');
+  let desc = (com.join(' ') || name).replace(new RegExp('\\s*\\(scripts/test/' + self.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\.m?js\\)', 'g'), '').replace(/\s+/g, ' ').replace(/^[^\p{L}\p{N}(]+/u, '').trim();
   desc = desc.split(/\.\s|\s[—–]\s/)[0].replace(/[:;,\s]+$/, '');
-  if (desc.length > 62) desc = desc.slice(0, 62).replace(/\s+\S*$/, '') + '…';
+  if (desc.length > 200) desc = desc.slice(0, 200).replace(/\s+\S*$/, '') + '…';   // json giữ câu đầu đầy đủ hơn; md rút gọn bằng brief()
   workflows.push({ file: path.basename(f), name, triggers: trig, desc });
 }
 
@@ -174,22 +178,32 @@ gods.forEach((n, i) => out.push(`${i + 1}. \`${n.path}\` ←${indeg(n)} · ${pic
 out.push('', `## Routes \`#/…\` → file xử lý (${routeList.length})`);
 const byFile = {}; for (const [r, fs_] of routeList) for (const f of fs_) (byFile[f] ||= []).push(r.slice(2));
 for (const [f, rs] of Object.entries(byFile).sort()) out.push(`- \`${short(f, 'web/js/')}\`: ${rs.join(' ')}`);
-out.push('', `## Workflows (${workflows.length}): [trigger] việc kiểm/làm`);
-for (const w of workflows) out.push(`- ${w.file.replace(/\.ya?ml$/, '')} [${w.triggers.join(',') || '?'}] ${w.desc}`);
+// Gộp theo bộ trigger (mỗi bộ in 1 lần) thay vì lặp [trigger] trên từng dòng.
+out.push('', `## Workflows (${workflows.length}) theo trigger: tên: việc kiểm/làm`);
+const WF_DESC = 40, wfName = w => w.file.replace(/\.ya?ml$/, '');
+const brief = d => d.length > WF_DESC ? d.slice(0, WF_DESC).replace(/\s+\S*$/, '').replace(/[:;,(\s]+$/, '') + '…' : d;
+const byTrig = {}; for (const w of workflows) (byTrig[w.triggers.join(',') || '?'] ||= []).push(w);
+for (const [t, ws] of Object.entries(byTrig).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])))
+  out.push(`- [${t}] ` + ws.map(w => `${wfName(w)}${(d => d && d !== w.name && d !== wfName(w) ? ': ' + brief(d) : '')(w.desc.replace(new RegExp('^' + wfName(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ':\\s*'), ''))}`).join(' · '));
 out.push('', `## Test (${tests.length}) → vùng phủ (file đích chi tiết: json \`tests\`)`);
 for (const [a, ts] of Object.entries(testsByArea).sort((x, y) => y[1].length - x[1].length || x[0].localeCompare(y[0]))) out.push(`- \`${a}\`: ${ts.join(' ')}`);
 const fixed = Buffer.byteLength(out.join('\n'));
 // Mô-đun: lấp phần ngân sách còn lại, ưu tiên theo mức nối (dependents) rồi số export; json giữ tất cả.
-const room = CAP - fixed - 700;
-const cand = Object.values(nodes).filter(n => !/^scripts\/test\//.test(n.path) && (indeg(n) > 0 || n.imports.length > 1) && n.exports.length + n.imports.length > 0)
+const room = CAP - SLACK - fixed;
+if (room < MIN_MOD) console.warn(`⚠ codemap: phần cố định ${fixed} B chỉ chừa ${room} B cho mục Mô-đun (< ${MIN_MOD}) – làm gọn các mục cố định trước khi chạm trần ${CAP}`);
+const godSet = new Set(gods.map(n => n.path));
+const cand = Object.values(nodes).filter(n => !/^scripts\/test\//.test(n.path) && !godSet.has(n.path) && (indeg(n) > 0 || n.imports.length > 1) && n.exports.length + n.imports.length > 0)
   .map(n => ({ n, score: indeg(n) * 4 + n.imports.length + Math.min(n.exports.length, 6) * 0.3 })).sort((a, b) => b.score - a.score || a.n.path.localeCompare(b.n.path));
 const line = n => { const base = path.posix.basename(n.path); const dep = nonTest(n).slice(0, 3).map(p => path.posix.basename(p)).join(','); const use = n.imports.slice(0, 3).map(p => path.posix.basename(p)).join(','); return `${base}${n.exports.length ? ': ' + pick(n.exports, 5) : ''} →${use || '-'} ←${indeg(n)}${dep ? ' (' + dep + ')' : ''}`; };
-const chosen = []; let used = 0;
-for (const c of cand) { const L = Buffer.byteLength(line(c.n)) + 3; if (used + L + 40 > room) continue; chosen.push(c.n); used += L; }
+// Đếm byte chính xác: dòng mục + tiền tố nhóm thư mục (mỗi nhóm mới tốn `- \`dir/\` ` + xuống dòng) + dòng tiêu đề.
+const modHead = c => `## Mô-đun JS chính (${c}/${Object.keys(nodes).length}, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng`;
+const chosen = [], seenDir = new Set(); let used = Buffer.byteLength('\n\n' + modHead(Object.keys(nodes).length) + '\n');
+for (const c of cand) { const d = path.posix.dirname(c.n.path); const L = Buffer.byteLength(line(c.n)) + (seenDir.has(d) ? Buffer.byteLength(' · ') : Buffer.byteLength(`- \`${d}/\` \n`)); if (used + L > room) continue; chosen.push(c.n); seenDir.add(d); used += L; }
 const groups = {}; for (const n of chosen) (groups[path.posix.dirname(n.path)] ||= []).push(n);
-out.push('', `## Mô-đun JS chính (${chosen.length}/${Object.keys(nodes).length}; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng`);
+out.push('', modHead(chosen.length));
 for (const [d, ns] of Object.entries(groups).sort()) out.push(`- \`${d}/\` ` + ns.sort((a, b) => a.path.localeCompare(b.path)).map(line).join(' · '));
 const md = out.join('\n') + '\n';
+if (chosen.length && Buffer.byteLength(md) > CAP - SLACK) { console.error(`✗ codemap: đếm byte mục Mô-đun lệch (${Buffer.byteLength(md)} B > ${CAP - SLACK})`); process.exit(1); }
 if (Buffer.byteLength(md) > CAP) { console.error(`✗ CODEMAP ${Buffer.byteLength(md)} B > ${CAP}`); process.exit(1); }
 
 // ---------- 9. ghi ----------
@@ -200,7 +214,8 @@ const graph = {
   nodes: Object.fromEntries(Object.entries(nodes).map(([k, n]) => [k, { exports: n.exports, imports: n.imports, importedBy: n.importedBy, ...(n.head ? { note: n.head } : {}) }])),
 };
 const json = JSON.stringify(graph) + '\n';
-const MD = path.join(ROOT, 'docs/CODEMAP.md'), JS = path.join(ROOT, 'docs/codemap.json');
+const OUT_DIR = OUT ? path.resolve(OUT) : path.join(ROOT, 'docs');
+const MD = path.join(OUT_DIR, 'CODEMAP.md'), JS = path.join(OUT_DIR, 'codemap.json');
 if (CHECK) {
   const same = fs.existsSync(MD) && fs.readFileSync(MD, 'utf8') === md && fs.existsSync(JS) && fs.readFileSync(JS, 'utf8') === json;
   console.log(same ? '✓ codemap: khớp' : '✗ codemap: lệch – chạy node scripts/codemap.mjs'); process.exit(same ? 0 : 1);
