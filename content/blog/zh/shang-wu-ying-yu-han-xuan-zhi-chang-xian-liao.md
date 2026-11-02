@@ -66,18 +66,18 @@ qualityScore: 95
 在以Zoom或Teams为主导的分布式办公模式下，缺乏物理空间的相遇容易让团队关系显得冰冷事务化。主动加入线上寒暄能极大提升团队凝聚力：
 
 - **等待参会人员进场的间隙**：
-  - *"How has everyone's week been shaping up so far?"*
-  - *"Nice ergonomic home office arrangement you have there, Kevin; is that a standing desk?"*
+  - *"Is my screen share displaying clearly for everyone on the line?"*
+  - *"Looks like cool autumn weather on your side of town today, Kevin!"*
 - **企业即时通讯（Slack/Teams）开场微寒暄**：
-  - *"Hope you are having a productive morning! Quick question regarding the sprint board whenever you have a moment."*
+  - *"Hope your week is running smoothly! Quick clarification on the API endpoint when you have a second."*
 
 ## 得体优雅地结束闲聊与离场句型
 
 懂得如何优雅礼貌地结束对话，与懂得如何开场同等重要。无休止的拖延会让彼此都感到为难。推荐使用以下转折句型：
 
-- *"It was wonderful catching up on your project status, but I should let you get back to your morning tasks."*
-- *"I see our guest presenter has just arrived; let us definitely continue our chat over lunch."*
-- *"I need to head over to another client sync right now, but it was delightful speaking with you today."*
+- *"I would love to continue this discussion, but our engineering demo kicks off in three minutes."*
+- *"Terrific catching up on things! Let us definitely grab a beverage together later this week."*
+- *"I shall leave you to your focus tasks; wishing you a productive afternoon ahead!"*
 
 关于会后书面邮件跟进，请参考我们的[商务英语邮件格式与写作技巧](/zh/blog/shang-wu-ying-yu-you-jian-ge-shi/)。你也可以进入口语练习系统[/#/speaking](/#/speaking)进行仿真演练，并在[/#/practice/speak](/#/practice/speak)通过麦克风检验发音与语调。
 
@@ -85,11 +85,12 @@ qualityScore: 95
 
 以下是两位同事在周一早晨咖啡机旁的一段生动对话：
 
-- **Li Wei (研发架构师)**: *"Morning Rachel! How did yesterday's client onboarding session go?"*
-- **Rachel (产品经理)**: *"It went remarkably well! The client loved our new analytics dashboard, though we noted a minor question about user permission settings."*
-- **Li Wei**: *"That is excellent feedback overall. Are you taking some time to recharge this weekend after such a demanding delivery?"*
-- **Rachel**: *"Yes, absolutely! We are driving out to the lakeside for a quiet family getaway. How about you, Li Wei? Any plans?"*
-- **Li Wei**: *"Just a relaxing cycling trip around town if the weather holds up. Well, looks like our alignment standup is starting. Let us head in!"*
+- **Li Wei (研发架构师)**: *"Morning Rachel! Did you get held up by that bridge repair traffic today?"*
+- **Rachel (产品经理)**: *"Luckily not, I caught the commuter ferry ahead of rush hour. How did the database migration conclude?"*
+- **Li Wei**: *"Without any hiccups! The automated benchmark tests finished green right before midnight."*
+- **Rachel**: *"That is outstanding news! Any exciting activities planned to unwind over the weekend?"*
+- **Li Wei**: *"Going camping near the national park if the forecast holds. What about your weekend, Rachel?"*
+- **Rachel**: *"Taking my son to his swimming championship meet on Sunday. Oh, looks like our design sync started. Let us step in!"*
 
 ![Lexkite口语发音练习界面展示cut down on短语及麦克风打分按钮](media:practice-speak "在Lexkite口语模块练习cut down on发音并在麦克风评分下检验闲聊发音自然度")
 

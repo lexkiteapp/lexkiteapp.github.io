@@ -66,18 +66,18 @@ qualityScore: 95
 ZoomやTeamsを中心としたリモートワークでは、物理的な給湯室での遭遇がないため、意図的に雑談を取り入れないとチーム関係が冷え切ってしまいます。
 
 - **Web会議の開始前の数分間**: 全員が揃うまでの沈黙をやわらげます。
-  - *"How has everyone's week been shaping up so far?"*
-  - *"Nice ergonomic home office arrangement you have there, Ken; is that a standing desk?"*
+  - *"Can everyone hear my audio properly through this mic setup?"*
+  - *"Looks like bright sunny weather on your side today, Ken; quite refreshing!"*
 - **SlackやTeamsでのちょっとした気遣い**: 用件の前に一言添えるだけで角が立ちません。
-  - *"Hope you are having a productive morning! Quick question regarding the sprint board whenever you have a moment."*
+  - *"Wishing you a smooth morning! Quick sync regarding the deployment timeline whenever free."*
 
 ## 雑談をスマートかつ礼儀正しく切り上げる表現
 
 雑談を美しく終わらせる技術は、始める技術と同じくらい大切です。だらだらと引き延ばしてしまうと、お互いの業務を圧迫してしまいます。
 
-- *"It was wonderful catching up on your project status, but I should let you get back to your morning tasks."*
-- *"I see our guest presenter has just arrived; let us definitely continue our chat over lunch."*
-- *"I need to head over to another client sync right now, but it was delightful speaking with you today."*
+- *"I would love to hear more, but our architecture standup begins in two minutes."*
+- *"Glad we got to connect! Let us definitely catch up again during our afternoon coffee break."*
+- *"I will let you return to your focus work; have an exceptionally productive day!"*
 
 ビジネス文書の書き方は[ビジネス英語メールの書き方ガイド](/ja/blog/business-eigo-mail-kakikata/)をご確認ください。発音練習は[/#/speaking](/#/speaking)で、音声テストは[/#/practice/speak](/#/practice/speak)でお試しいただけます。
 
@@ -85,11 +85,12 @@ ZoomやTeamsを中心としたリモートワークでは、物理的な給湯�
 
 プロジェクト開始前のオフィスでの自然なやり取りを見てみましょう。
 
-- **Takeshi (エンジニア)**: *"Morning Emily! How did yesterday's client onboarding session go?"*
-- **Emily (プロダクトマネージャー)**: *"It went remarkably well! The client loved our new analytics dashboard, though we noted a minor question about user permission settings."*
-- **Takeshi**: *"That is excellent feedback overall. Are you taking some time to recharge this weekend after such a demanding delivery?"*
-- **Emily**: *"Yes, absolutely! We are driving out to the coast for a quiet family getaway. How about you, Takeshi? Any plans?"*
-- **Takeshi**: *"Just a relaxing cycling trip around town if the weather holds up. Well, looks like our alignment standup is starting. Let us head in!"*
+- **Takeshi (エンジニア)**: *"Morning Emily! Did you run into heavy road congestion this morning?"*
+- **Emily (プロダクトマネージャー)**: *"Fortunately no, I boarded the express train early. How did the payment module testing wrap up?"*
+- **Takeshi**: *"Everything passed smoothly! We deployed the latest patch right before heading out yesterday."*
+- **Emily**: *"That is fantastic progress! Doing anything relaxing this coming weekend to unwind?"*
+- **Takeshi**: *"Planning a calm hike near Mount Takao if skies stay clear. How about yourself, Emily?"*
+- **Emily**: *"Hosting a small barbecue with close friends on Saturday. Ah, our sync room just opened up. Let us jump on!"*
 
 ![Lexkiteの発音練習画面でcut down onのフレーズと録音マイクボタンが表示されている様子](media:practice-speak "Lexkite発音練習画面でcut down onを発声しマイクボタンでスモールトークの音声を評価")
 

@@ -75,9 +75,9 @@ Bagi tim yang bekerja secara daring lewat Zoom atau Google Meet, ketiadaan inter
 
 Mengetahui kapan dan bagaimana menyudahi obrolan santai sama pentingnya dengan memulainya. Memaksakan obrolan berlarut-larut justru bisa membuat suasana canggung. Gunakan kalimat penutup yang elegan:
 
-- *"It was wonderful catching up on your project status, but I should let you get back to your morning tasks."*
-- *"I see our guest presenter has just arrived; let us definitely continue our chat over lunch."*
-- *"I need to head over to another client sync right now, but it was delightful speaking with you today."*
+- *"I would love to chat further, but our cross-team review begins in three minutes."*
+- *"Great catching up on things! Let us certainly sit down for coffee later this week."*
+- *"I will leave you to your focus tasks; wishing you a productive afternoon ahead!"*
 
 Untuk korespondensi tertulis tindak lanjut, pelajari aturan dalam [cara menulis email bahasa Inggris bisnis](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/). Latih kelancaran bicara Anda di ruang interaktif [/#/speaking](/#/speaking) dan periksa akurasi vokal di [/#/practice/speak](/#/practice/speak).
 
@@ -85,11 +85,12 @@ Untuk korespondensi tertulis tindak lanjut, pelajari aturan dalam [cara menulis 
 
 Simak dialog nyata antara dua rekan kerja di dekat mesin kopi sebelum rapat mingguan:
 
-- **Dimas (Software Engineer)**: *"Morning Maya! How did yesterday's client onboarding session go?"*
-- **Maya (Product Manager)**: *"It went remarkably well! The client loved our new analytics dashboard, though we noted a minor question about user permission settings."*
-- **Dimas**: *"That is excellent feedback overall. Are you taking some time to recharge this weekend after such a demanding delivery?"*
-- **Maya**: *"Yes, absolutely! We are driving out to the hills for a quiet family getaway. How about you, Dimas? Any plans?"*
-- **Dimas**: *"Just a relaxing cycling trip around town if the weather holds up. Well, looks like our alignment standup is starting. Let us head in!"*
+- **Dimas (Software Engineer)**: *"Morning Maya! Did you encounter any roadblocks with that heavy expressway traffic today?"*
+- **Maya (Product Manager)**: *"Luckily no, I hopped on the early commuter rail. How did the user permission overhaul wrap up?"*
+- **Dimas**: *"Without any issues! We pushed the release candidate right before leaving yesterday."*
+- **Maya**: *"That is fantastic velocity! Doing anything fun this weekend to unwind after the sprint?"*
+- **Dimas**: *"Planning a calm hike near the national park if the forecast holds. What about your weekend, Maya?"*
+- **Maya**: *"Taking my family to an art gallery exhibition on Saturday. Ah, our sync room just opened. Let us head inside!"*
 
 ![Latihan berbicara Lexkite dengan frasa cut down on dilengkapi tombol mikrofon untuk evaluasi suara](media:practice-speak "Latihan pengucapan di Lexkite dengan frasa cut down on dan tombol mikrofon untuk menilai suara saat berbincang")
 
