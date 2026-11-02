@@ -256,7 +256,7 @@
             <div class="wc-hd"><div class="wc-wrow"><span class="entry-word wc-word">${esc(c.word)}</span><button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
               <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}${UI.pronHtml(c)}</div>
               <div class="vi wi-vi">${esc(mean(c))}</div><div class="wi-native" data-native></div></div>
-            ${App.vimgCard(c, mean(c), 'back', (x => [].concat(x || [])[0] || '')(c.ex))}
+            ${c.tl && !c.img ? '' : App.vimg(...App.imgKey(c), mean(c), 'back', (x => [].concat(x || [])[0] || '')(c.ex))}
             ${c.def && mean(c) !== c.def ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div lang="en">${esc(c.def)}</div></div>` : ''}
             ${c.ex ? `<div class="wi-sec wi-ex"><span class="wi-lb">💬 ${t('Ví dụ')}</span><div class="fi-ex say-line"><span class="say-tx">${highlight(c.ex, c.word)}</span><button class="icon-btn sm" data-speak-text="${esc(c.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div></div>` : ''}
             ${c.contexts.length ? `<div class="wi-sec"><span class="wi-lb">📌 ${t('Ngữ cảnh của bạn')}</span>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${ytOf(x.source) ? ` <button class="ctx-say sm" data-ytsrc="${esc(x.source)}" title="${t('Xem lại đoạn gốc')}">▶</button>` : ''}${x.title ? ` <span class="muted">— ${esc(ctxTitle(x.title))}</span>` : ''}${x.vi && (I18N.meanLang() === 'vi' || I18N.lang() !== 'en') ? `<div style="font-style:normal">${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
@@ -678,7 +678,7 @@
         // (hình → từ & âm → nghĩa → định nghĩa → ví dụ có dịch → kết hợp từ) – không phải lật, không bỏ sót ví dụ
         const arr = x => [].concat(x || []).filter(Boolean);
         const col = arr(w.col).slice(0, 4), syn = arr(w.syn).slice(0, 4);
-        const vimg = App.vimgCard(w, mean(w), 'card', [].concat(w.ex || [])[0] || ''); // 🖼️ ảnh theo nghĩa (cờ vocab_img) thay emoji/ảnh cũ, hộp cố định
+        const vimg = w.tl && !w.img ? '' : App.vimg(...App.imgKey(w), mean(w), 'card', [].concat(w.ex || [])[0] || ''); // 🖼️ ảnh theo nghĩa (cờ vocab_img) thay emoji/ảnh cũ, hộp cố định
         $('#qbox').innerHTML = `<div class="card wi" id="fi">
             <div class="wi-top${vimg || picOk(w) ? '' : ' nopic'}">${vimg || (picOk(w) ? pic(w).replace('class="pic"', 'class="pic wi-pic" aria-hidden="true"') : '')}
               <div class="wi-head"><span class="chip lv">✨ ${t('Từ mới')}</span>
