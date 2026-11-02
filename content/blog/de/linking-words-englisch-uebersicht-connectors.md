@@ -4,7 +4,7 @@ title: "Linking Words Englisch Übersicht: Die besten Bindewörter"
 description: "Linking words englisch übersicht: Die wichtigsten Bindewörter und Konnektoren für Essays, IELTS und Business English mit Beispielen und Kommaregeln."
 keyword: "linking words englisch übersicht"
 lang: de
-translationKey: linking-words-in-english
+translationKey: tu-noi-tieng-anh-linking-words
 category: ielts
 tags: [linking-words, essay, ielts]
 cover: placement

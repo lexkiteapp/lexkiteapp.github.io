@@ -1,4 +1,5 @@
 ---
+translationKey: ielts-writing-task-1-line-graph
 title: "IELTS Writing Task 1 in Hindi: चार्ट और ग्राफ विश्लेषण गाइड"
 slug: "ielts-writing-task-1-graph-description-hindi"
 description: "IELTS writing task 1 in hindi: बार चार्ट, लाइन ग्राफ और पाई चार्ट का 4-पैराग्राफ स्ट्रक्चर, रुझान दर्शाने वाली शब्दावली और बैंड 8 मॉडल उत्तर गाइड।"

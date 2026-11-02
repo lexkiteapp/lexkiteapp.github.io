@@ -11,7 +11,7 @@
    "diff": "easy",
    "words": 60,
    "est_s": 31.3,
-   "ipa": "/weɪt/",
+   "ipa": "/ˈweɪtɪŋ/",
    "content_hash": "620c246cd8a70d59"
   },
   {
@@ -33,7 +33,7 @@
    "diff": "medium",
    "words": 68,
    "est_s": 34.1,
-   "ipa": "/breɪk/",
+   "ipa": "/ˈbreɪkɪŋ/",
    "content_hash": "53c6c1e8583c76a7"
   },
   {
@@ -55,7 +55,7 @@
    "diff": "hard",
    "words": 74,
    "est_s": 36.2,
-   "ipa": "/weɪt/",
+   "ipa": "/meɪd/",
    "content_hash": "0ae182e43d06c527"
   }
  ],
@@ -93,7 +93,7 @@
   {
    "bank": "sb_23d1d6e3",
    "point": "think + pass: be considered",
-   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['The house is '], ['thought to be ', 'green'], ['old.']]"
+   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [['He is thought '], ['to ', 'green'], ['be very smart.']]; note ex line > 26 chars: [['The house is '], ['thought to be ', 'green'], ['old.']]"
   },
   {
    "bank": "sb_2dbe96b7",

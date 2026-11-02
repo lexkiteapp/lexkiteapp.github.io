@@ -93,7 +93,7 @@ ok(!$('#vbList').hidden && $$('#vbList [role=option]').some(o => o.dataset.v ===
 key(q, 'ArrowDown'); ok(q.getAttribute('aria-activedescendant') === 'vbo0', 'mũi tên ↓ chọn gợi ý (aria-activedescendant)');
 const first = $('#vbo0').dataset.v; key(q, 'Enter'); await tick(150);
 ok(w.location.hash === '#/verb/' + first, 'Enter → mở động từ đã chọn');
-ok(!net.some(u => !/translate|datamuse|wiktionary|dictionaryapi|tatoeba|glosbe/i.test(u)) || true, 'không gọi mạng lạ');
+ok(!net.some(u => !/translate|dictlookup|datamuse|wiktionary|dictionaryapi|tatoeba|glosbe/i.test(u)) || true, 'không gọi mạng lạ');
 ok(typeof w.LK_VERBS.verbOf === 'function' && w.LK_VERBS.verbOf({ word: 'went', pos: '' }) === 'go', 'từ điển: nhận ra động từ để hiện nút Chia động từ');
 
 // ================= ✍️ Sửa ngữ pháp =================

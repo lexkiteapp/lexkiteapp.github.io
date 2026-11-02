@@ -33,6 +33,17 @@
   Cache-Control: public, max-age=31536000, stale-while-revalidate=86400
 /screenshots/*
   Cache-Control: public, max-age=604800
+# Ảnh/clip giáo viên, ảnh, hiệu ứng âm thanh, font tự lưu trữ: tên KHÔNG theo mã băm (có thể dựng lại cùng tên) → không immutable.
+# Trước 31/10 rơi về mặc định Pages "max-age=0, must-revalidate" → mỗi lượt xem hỏi lại máy chủ từng file (clip giáo viên ~200 KB, font chặn chữ).
+# 1 giờ dùng thẳng + stale-while-revalidate: quá hạn thì hiện bản cũ ngay, tải bản mới ngầm (bản dựng mới tới người dùng ≤ 1 lượt xem sau 1 giờ).
+/teach/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=604800
+/fonts/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=604800
+/img/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/sfx/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 /og-default.png
   Cache-Control: public, max-age=604800
 # Blog & trang SEO tĩnh: HTML luôn kiểm tra bản mới (bài đăng theo lịch); RSS/sitemap cũng vậy
