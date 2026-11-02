@@ -62,8 +62,8 @@ def detail(src, text):
     while e > 0 and db[e] <= -36: e -= 1                      # bỏ lặng cuối
     while e > 0 and zc[e] < 0.25 and db[e] < -28: e -= 1      # phần tắt dần nhỏ, ít xát
     b = e
-    while b > 0 and zc[b] >= 0.25 and db[b] > -36: b -= 1     # đoạn xì
-    if not (3 <= e - b <= 25) or zc[b] >= 0.2: return src     # không có đoạn xì rõ ngay sau phần hữu thanh
+    while b > 0 and zc[b] >= 0.25 and db[b] > -40: b -= 1     # đoạn xì (giọng nam pm_alex tắt tới −37 dB)
+    if not (3 <= e - b <= 25) or zc[b] >= 0.25: return src    # không có đoạn xì rõ ngay sau phần hữu thanh
     o = pcm[:(b + 1) * fr].copy(); fo = min(len(o), int(SR * 0.025)); o[-fo:] *= np.linspace(1, 0, fo)
     dst = src[:-4] + '.da.wav'
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '1', '-i', '-', dst], input=o.astype('float32').tobytes(), check=True)
