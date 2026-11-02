@@ -1,0 +1,88 @@
+{
+ "id": "t2a_verbs_speak",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of speak. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: speak.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: spoke. She spoke in a calm and friendly manner.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: spoken.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not speaked! Speak is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! English is blank all over the world. Spoke, or spoken?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Spoken! English is spoken all over the world.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "speak",
+  "past": "spoke",
+  "pp": "spoken",
+  "over": "speaked",
+  "quiz": {
+   "stem": "English is ___ all over the world.",
+   "options": [
+    "spoke",
+    "spoken"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/speak",
+  "link": "https://lexkite.com/app/#/verb/speak",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "speak · spoke · spoken"
+ },
+ "est": {
+  "words": 57,
+  "seconds": 33.9,
+  "wpm": 101
+ }
+}

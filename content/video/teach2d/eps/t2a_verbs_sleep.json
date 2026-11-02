@@ -1,0 +1,88 @@
+{
+ "id": "t2a_verbs_sleep",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of sleep. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: sleep.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: slept. I've got backache because I slept on the floor yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: slept.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not sleeped! Sleep is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! I've got backache because I blank on the floor yesterday. Sleeped, or slept?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Slept! I've got backache because I slept on the floor yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "sleep",
+  "past": "slept",
+  "pp": "slept",
+  "over": "sleeped",
+  "quiz": {
+   "stem": "I've got backache because I ___ on the floor yesterday.",
+   "options": [
+    "sleeped",
+    "slept"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/sleep",
+  "link": "https://lexkite.com/app/#/verb/sleep",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "sleep · slept · slept"
+ },
+ "est": {
+  "words": 65,
+  "seconds": 37.8,
+  "wpm": 103
+ }
+}

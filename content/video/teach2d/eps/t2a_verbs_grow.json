@@ -1,0 +1,88 @@
+{
+ "id": "t2a_verbs_grow",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of grow. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: grow.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: grew. I grew up in a small town by the sea.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: grown.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not growed! Grow is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! The festival has blank enormously in recent years. Grew, or grown?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Grown! The festival has grown enormously in recent years.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "grow",
+  "past": "grew",
+  "pp": "grown",
+  "over": "growed",
+  "quiz": {
+   "stem": "The festival has ___ enormously in recent years.",
+   "options": [
+    "grew",
+    "grown"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/grow",
+  "link": "https://lexkite.com/app/#/verb/grow",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "grow · grew · grown"
+ },
+ "est": {
+  "words": 61,
+  "seconds": 35.9,
+  "wpm": 102
+ }
+}

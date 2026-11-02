@@ -1,0 +1,88 @@
+{
+ "id": "t2a_verbs_fall",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of fall. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: fall.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: fell. He broke his arm when he fell off his bike.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: fallen.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not falled! Fall is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! The crime rate in the city has fell, or fallen?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Fallen! The crime rate in the city has fallen.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "fall",
+  "past": "fell",
+  "pp": "fallen",
+  "over": "falled",
+  "quiz": {
+   "stem": "The crime rate in the city has ___.",
+   "options": [
+    "fell",
+    "fallen"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/fall",
+  "link": "https://lexkite.com/app/#/verb/fall",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "fall · fell · fallen"
+ },
+ "est": {
+  "words": 60,
+  "seconds": 35.4,
+  "wpm": 102
+ }
+}

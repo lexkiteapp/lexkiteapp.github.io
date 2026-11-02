@@ -1,0 +1,88 @@
+{
+ "id": "t2a_verbs_hear",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of hear. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: hear.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: heard. I heard a strange noise in the night.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: heard.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not heared! Hear is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! I blank a strange sound outside the window. Heared, or heard?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Heard! I heard a strange sound outside the window.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "hear",
+  "past": "heard",
+  "pp": "heard",
+  "over": "heared",
+  "quiz": {
+   "stem": "I ___ a strange sound outside the window.",
+   "options": [
+    "heared",
+    "heard"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/hear",
+  "link": "https://lexkite.com/app/#/verb/hear",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "hear · heard · heard"
+ },
+ "est": {
+  "words": 59,
+  "seconds": 34.9,
+  "wpm": 101
+ }
+}

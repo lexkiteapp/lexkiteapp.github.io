@@ -1,0 +1,106 @@
+{
+ "id": "t2a_stress_humidity",
+ "template": "stress",
+ "series": "Where's the Stress?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where's the stress? Humid!",
+   "pause": 0.42
+  },
+  {
+   "id": "a",
+   "text": "Humid. Stress on the first part.",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Now say humidity.",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "The stress moves to the second part.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Say it with me: humidity.",
+   "pause": 1.8,
+   "repeat": true
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Where's the stress?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "ans",
+   "text": "The second part. Humidity.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "a": {
+   "word": "humid",
+   "syl": [
+    "hu",
+    "mid"
+   ],
+   "stress": 0,
+   "say": "first",
+   "ipa": "/ˈhjuːməd/"
+  },
+  "b": {
+   "word": "humidity",
+   "syl": [
+    "hu",
+    "mi",
+    "di",
+    "ty"
+   ],
+   "stress": 1,
+   "say": "second",
+   "ipa": "/hjuːˈmɪdəti/"
+  },
+  "quiz": {
+   "options": [
+    "HU",
+    "MI"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/stress-shift",
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "say": "Check word stress"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where's the stress?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 29.4,
+  "wpm": 92
+ }
+}

@@ -6,11 +6,12 @@ name: teach-video
 on:
   workflow_dispatch:
     inputs:
-      eps: { description: 'comma list of episode ids (content/video/teach2d/eps), empty = all pilots', default: '' }
+      eps: { description: 'comma list of episode ids (content/video/teach2d/eps), empty = shards / pilots', default: '' }
+      shards: { description: 'render the next N gated episodes not yet in bank.json (gen.py --todo; ci-filler fills idle runners with this), 0 = pilots', default: '0' }
   pull_request:
     paths: ['scripts/video/teach2d/**', 'scripts/media/origin.py', 'scripts/test/media-origin.py', 'scripts/ci/shards.mjs', 'scripts/video/remotion/src/teach/**', 'content/video/teach2d/**', '.github/workflows/teach-video.yml']
 permissions: { contents: read, actions: read }   # actions: read = count busy runners (scripts/ci/shards.mjs)
-concurrency: { group: 'teach-video-${{ github.ref }}', cancel-in-progress: true }
+concurrency: { group: 'teach-video-${{ github.ref }}-${{ github.event_name }}', cancel-in-progress: "${{ github.event_name == 'pull_request' }}" }   # a batch on main is never cancelled by the next one (it queues)
 jobs:
   preqc:   # gate 1 (seconds): generator self-checks, reviewed script == spec, motion parity
     runs-on: ubuntu-latest
@@ -20,14 +21,16 @@ jobs:
       - uses: actions/checkout@v4
       - name: Specs regenerate identically + reviewed scripts
         run: |
-          python3 scripts/video/teach2d/gen.py
-          git diff --exit-code content/video/teach2d/eps || { echo "::error::eps/*.json differ from gen.py output – regenerate and review"; exit 1; }
+          python3 scripts/video/teach2d/gen.py -q
+          git status --porcelain content/video/teach2d/eps | grep . && { echo "::error::eps/*.json differ from gen.py output (pilots.json + auto.json) – regenerate and review"; exit 1; }
+          python3 scripts/test/teach2d-gen.py   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
           python3 - <<'PY'
           import json, glob, sys
           R = json.load(open('content/video/teach2d/reviewed.json'))['verdicts']; bad = []
           for f in glob.glob('content/video/teach2d/eps/*.json'):
               e = json.load(open(f)); v = R.get(e['id']) or {}
               if not (v.get('hook_true') and v.get('script') == {l['id']: l['text'] for l in e['lines']}): bad.append(e['id'])
+              elif v.get('machine') and not all((v.get('gates') or {}).get(g) for g in ('data', 'level', 'hook', 'dup')): bad.append(e['id'])   # machine verdict: every gate green
           print('unreviewed:', bad); sys.exit(1 if bad else 0)
           PY
       - uses: actions/setup-node@v4
@@ -35,7 +38,7 @@ jobs:
       - run: node scripts/test/motion-core.mjs
       - run: python3 scripts/test/media-origin.py   # pictures from GitHub origins, Worker last (2/11 429)
       - id: m
-        run: echo "list=$(python3 -c "import json,glob,os;a='${{ github.event.inputs.eps }}'.strip();print(json.dumps([x.strip() for x in a.split(',') if x.strip()] or sorted(os.path.basename(f)[:-5] for f in glob.glob('content/video/teach2d/eps/*.json'))))")" >> "$GITHUB_OUTPUT"
+        run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick '${{ github.event.inputs.eps }}' '${{ github.event.inputs.shards }}' '${{ github.event_name }}')" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
       - id: p   # free runners, not a fixed 10/12 (owner 2/11: use idle CI for video): min(24, 40 - busy - 8, jobs), 8 kept for PR checks
         env: { GITHUB_TOKEN: '${{ github.token }}' }
         run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ steps.m.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
@@ -81,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.preqc.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
-    env: { O: 'out/${{ matrix.ep }}/${{ matrix.fmt }}', E: 'content/video/teach2d/eps/${{ matrix.ep }}.json' }
+    env: { O: 'out/${{ matrix.ep }}/${{ matrix.fmt }}', E: 'content/video/teach2d/eps/${{ matrix.ep }}.json', MEDIA_ORIGIN_ONLY: '1' }   # pictures from the GitHub origins only, never media.lexkite.com (Workers cap)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
@@ -156,7 +159,7 @@ jobs:
     needs: render
     if: always() && needs.render.result != 'cancelled'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45   # 4 screenshots per episode; a 120-episode batch takes ~25 min
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -188,17 +191,32 @@ jobs:
           node shot.mjs
       - uses: actions/upload-artifact@v4
         with: { name: 'tv-embed-shots-${{ github.run_id }}', path: shots/, retention-days: 14 }
-  sheet:   # one review sheet for the owner: every pilot's frames + QC score, both themes
-    needs: [render, embed]
+  sheet:   # one review sheet: every episode's frames + QC score, both themes; then the bank (only QC >= 90 with every gate green)
+    needs: [preqc, render, embed]
     if: always() && needs.render.result != 'cancelled'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && secrets.BOT_DEPLOY_KEY || '' }}" }   # bank.json -> main over the deploy key (ruleset), main batches only
       - uses: actions/download-artifact@v4
         with: { pattern: 'tv-*-${{ github.run_id }}', path: art }
       - run: pip install -q pillow==11.0.0
-      - name: Review sheet + score table (red when any pilot < 90 or a gate fails, or nothing rendered)
+      - name: Bank verdicts + score table (short AND wide QC >= 90, every gate green, no duplicate video)
+        if: always()
+        run: |
+          python3 scripts/video/teach2d/bank.py collect art '${{ needs.preqc.outputs.list }}' ${{ github.run_id }} $RUNNER_TEMP/bank-delta.json review-bank.md bank
+          mkdir -p review && cp review-bank.md review/ && cp $RUNNER_TEMP/bank-delta.json review/ && cat review-bank.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'tv-bank-${{ github.run_id }}', path: 'bank/', retention-days: 90, if-no-files-found: ignore }   # banked videos (phone 9:16, embed 16:9, poster)
+      - name: bank.json + BANK.md -> main (batch on main only; regenerated on the newest main – scripts/ci/commit-regen.sh)
+        if: always() && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+        run: bash scripts/ci/commit-regen.sh "teach-video: bank ${{ github.run_id }} [CF-Pages-Skip] [skip ci]" "python3 scripts/video/teach2d/bank.py merge $RUNNER_TEMP/bank-delta.json" content/video/teach2d/bank.json content/video/teach2d/BANK.md
+      - name: Review sheet + score table (red when any episode < 90 or a gate fails, or nothing rendered)
+        if: always()
+        env: { LIST: '${{ needs.preqc.outputs.list }}' }
         run: python3 scripts/video/teach2d/sheet.py art review
       - uses: actions/upload-artifact@v4
+        if: always()
         with: { name: 'tv-review-${{ github.run_id }}', path: review/, retention-days: 14 }

@@ -1,0 +1,88 @@
+{
+ "id": "t2a_verbs_write",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of write. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: write.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: wrote. I wrote every new word in my notebook.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: written.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not writed! Write is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! She has blank a series of books for children. Wrote, or written?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Written! She has written a series of books for children.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "write",
+  "past": "wrote",
+  "pp": "written",
+  "over": "writed",
+  "quiz": {
+   "stem": "She has ___ a series of books for children.",
+   "options": [
+    "wrote",
+    "written"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/write",
+  "link": "https://lexkite.com/app/#/verb/write",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "write · wrote · written"
+ },
+ "est": {
+  "words": 61,
+  "seconds": 35.9,
+  "wpm": 102
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "id": "t2a_verbs_see",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of see. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: see.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: saw. He grinned when he saw his exam result.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: seen.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not seed! See is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! The city has blank rapid growth. Saw, or seen?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Seen! The city has seen rapid growth.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "see",
+  "past": "saw",
+  "pp": "seen",
+  "over": "seed",
+  "quiz": {
+   "stem": "The city has ___ rapid growth.",
+   "options": [
+    "saw",
+    "seen"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/see",
+  "link": "https://lexkite.com/app/#/verb/see",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "see · saw · seen"
+ },
+ "est": {
+  "words": 55,
+  "seconds": 32.9,
+  "wpm": 100
+ }
+}
