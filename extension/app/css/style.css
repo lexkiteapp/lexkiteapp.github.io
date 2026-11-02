@@ -1152,6 +1152,7 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 /* Ô quảng cáo (docs/ADS.md): kích thước CỐ ĐỊNH từ lúc vẽ → 0 CLS; luôn có nhãn "Quảng cáo"; không nhận focus */
 .ad-slot { box-sizing: border-box; height: 290px; margin: 1.4rem auto .4rem; padding: .4rem; max-width: 340px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; text-align: center; contain: strict; }
 .ad-slot.empty ins { visibility: hidden; }
+.ad-slot[data-ad="done"] { margin-top: 2.5rem; } /* ô dưới thẻ kết quả: cách xa nút (chống bấm nhầm – chính sách AdSense) */
 .ad-slot .ad-label { height: 1rem; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-align: start; margin: 0 0 .3rem .2rem; }
 html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
 
