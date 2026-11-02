@@ -92,7 +92,11 @@ for (const h of ['#/stats', '#/vocab', '#/settings']) {
   slow(w.Store); slow(w.Core && w.Core.Store);
   // Trang "ổn định" (vào thẳng 2 lần ra y hệt) thì lượt đua phải khớp từng chữ; trang có nội dung ngẫu nhiên (quick, paraphrase…) chỉ kiểm "không phải stats".
   const R0 = w.Math.random, seeded = s => () => { s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
-  const verdict = async r => { await go('#/' + r, 0); await settle(180); const a = snap(); await go('#/stats', 0); await settle(60); await go('#/' + r, 0); await settle(180); return { solo: a, stable: snap() === a }; };
+  // Hai lần vào thẳng chạy với HAI RNG cố định khác nhau (seed 1 / 2): trang ngẫu nhiên luôn ra khác → phân loại tất định. Trước đây dùng RNG thật cả hai lần:
+  // quick (câu đầu từ 4 thẻ) thỉnh thoảng trùng do may rủi → bị xếp "ổn định" → lượt đua bị so từng chữ → đỏ chập chờn (xem 4b).
+  const under = async (seed, f) => { const m = w.Math.random; w.Math.random = seeded(seed); try { return await f(); } finally { w.Math.random = m; } };
+  const visit = async r => { await go('#/' + r, 0); await settle(180); return snap(); };
+  const verdict = async r => { const a = await under(1, () => visit(r)); await go('#/stats', 0); await settle(60); const b = await under(2, () => visit(r)); return { solo: a, stable: a === b }; };
   const raceBack = async (r, gap) => { w.location.hash = '#/stats'; await tick(5); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await tick(10); w.location.hash = '#/' + r; await settle(260); };
   const solo = {}, stable = {}; await go('#/stats', 0); await settle(150); solo.stats = snap();
   for (const r of names) ({ solo: solo[r], stable: stable[r] } = await verdict(r));
