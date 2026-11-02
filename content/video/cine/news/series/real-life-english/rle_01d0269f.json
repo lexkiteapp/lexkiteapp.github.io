@@ -142,9 +142,11 @@
     [
      [
       "@x"
-     ]
-    ],
-    [
+     ],
+     [
+      " ",
+      "white"
+     ],
      [
       "“Don't go at ",
       "white"
@@ -428,6 +430,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "The gym is very busy at ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " times.",
+      "white"
+     ]
+    ]
+   ],
    "a": "peak",
    "b": "full",
    "correct": "a",

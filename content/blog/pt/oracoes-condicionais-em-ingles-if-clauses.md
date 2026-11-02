@@ -33,6 +33,7 @@ quiz: [
     explain: "No Second Conditional formal, usa-se 'were' para todas as pessoas gramaticais: 'If I were you'."
   }
 ]
+publishAt: 2026-12-01T08:38:00-03:00
 ---
 
 As orações condicionais (*Conditional Sentences* ou *If Clauses*) representam um dos pilares mais fundamentais da gramática inglesa. Seja ao expressar leis da natureza, planejar cenários futuros plausíveis ou especular sobre oportunidades perdidas no passado, o domínio das **oracoes condicionais em ingles if clauses** é um divisor de águas entre um nível básico de conversação e a fluência acadêmica exigida em exames como IELTS, TOEFL e Cambridge C1.

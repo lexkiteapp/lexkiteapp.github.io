@@ -93,7 +93,7 @@ Chú thích cột: **Mục tiêu** đo được · **Cổng QA** tự động (p
 |---|---|---|---|
 | P0-A | Spec đề 10 kỳ + `exam-format-check` | `content/exams/spec/*`, `scripts/content-qa/exam-format-check.mjs` | 100 % đề hiện có xanh hoặc có danh sách lệch cụ thể |
 | P0-B | `content:score` + ngưỡng chỉ tăng trong CI | `scripts/content-score.mjs`, `content-qa.yml` | SCORE.md sinh tự động, CI đỏ khi giảm |
-| P0-C | Khung LKF + `lkf-check` + gắn `lo` cho mục cũ | `content/framework/lkf.json`, các file data | ≥ 95 % mục có `lo` hợp lệ |
+| P0-C | Khung LKF + `lkf-check` + gắn `lo` cho mục cũ | `content/framework/lkf.json`, `content/framework/lo-map.json` (gắn `lo` tách khỏi web/js), `scripts/content-qa/lkf-check.mjs` | ≥ 95 % mục có `lo` hợp lệ · **xong 02/11**: 585 mục tiêu, 36/36 ô ≥ 15, 9.581/9.581 mục = 100 %; mới 114/585 mục tiêu có nội dung luyện (mảng "Khung Can-do" trong SCORE.md) |
 | P0-D | Kho điểm ngữ pháp + ánh xạ 77 bài + hàng chờ bài thiếu | `content/framework/grammar-inventory.json` | mọi bài ↔ điểm; hàng chờ A1/C1/C2 vào `targets.json` |
 | P0-E | Schema nghĩa v2 + `sense-check` + lô thử 100 từ lõi | `scripts/build-lexicon.mjs`, `LEXICON.md` | lô thử 100 % xanh, rồi CI chạy 3.000 từ theo đêm |
 | P0-F | Ngân hàng lỗi L1 (6 ngôn ngữ đầu, rồi 14) | `web/js/grammar/l1/*`, `scripts/content-qa/l1-check.mjs` | 150 mục đầu xanh, ghép vào khối `mistake` sẵn có |

@@ -2,15 +2,16 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 40 / 100**
+**Tổng: 45.6 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **44.8** | 44.8 | 44.8% | 100% | 0 |
+| Kho từ | **45.2** | 45.2 | 45.2% | 100% | 0 |
 | Ngữ pháp | **39.6** | 39.6 | 39.6% | 100% | 0 |
 | Giao tiếp | **14.1** | 14.1 | 14.1% | 100% | 0 |
 | 4 kỹ năng | **48.2** | 48.2 | 48.2% | 100% | 0 |
 | Đề thi | **30.4** | 30.4 | 30.4% | 100% | 0 |
+| Khung Can-do | **79.1** | 79.1 | 79.1% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
 ## Kho từ
@@ -22,7 +23,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4532 / 20000 | 23% | 12 |
 | đồng nghĩa | 2520 / 20000 | 13% | 8 |
 | IPA Mỹ | 5787 / 20000 | 29% | 5 |
-| ảnh theo nghĩa | 2461 / 20000 | 12% | 15 |
+| ảnh theo nghĩa | 3088 / 20000 | 15% | 15 |
 | C2 | 255 / 1000 | 26% | 10 |
 | A1 | 836 / 1000 | 84% | 5 |
 
@@ -88,6 +89,15 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Cambridge B2 (chưa làm) | 0 / 6 | 0% | 8 |
 | Cambridge C1 (chưa làm) | 0 / 6 | 0% | 8 |
 | Cambridge C2 (chưa làm) | 0 / 6 | 0% | 8 |
+
+## Khung Can-do
+
+| Thành phần | Có / chuẩn | % | Trọng số |
+|---|---|---|---|
+| mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
+| ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
+| nội dung có lo hợp lệ | 9581 / 9581 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 114 / 600 | 19% | 25 |
 
 ## i18n
 

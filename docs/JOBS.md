@@ -33,10 +33,13 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:00 | `seo-gsc` | `0 0 * * 1` | reports | gh_minutes | 2 | — | — |
 | 00:00 | `push` | `*/10 * * * *` | publishing | web_push | 1 | d1_internal_reads≈17000, d1_internal_writes≈2000 | — |
 | 00:03 | `cf-pool-probe` | `3 0 * * *`<br>`33 */3 * * *` | reports | gh_minutes | 1 | neurons≈121 | — |
+| 00:04 | `ci-filler` | `4-59/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `blog-publish` | `7 */3 * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:12 | `ci-triage` | `12 * * * *` | reports | gh_minutes | 5 | d1_internal_reads≈10 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
+| 00:17 | `free-tier-guard` | `35 1 * * *`<br>`17 * * * *` | reports | gh_minutes | 2 | — | — |
+| 00:17 | `required-gate` | `17,47 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:17 | `lexicon-expand` | `17 */3 * * *` | render | cf_pool, gh_minutes | 120 | cf_pool_neurons≈600000 | ✓ |
 | 00:20 | `word-audio` | `20 */4 * * *` | render | gh_minutes | 150 | — | — |
 | 00:23 | `pages-deploy` | `23 */3 * * *` | publishing | gh_minutes | 2 | — | — |
@@ -50,11 +53,11 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 01:25 | `capacity-watch` | `25 1 * * *` | reports | d1_main, gh_minutes | 2 | d1_main_reads≈40 | — |
 | 01:30 | `pr-check` | `30 1 * * *` | publishing | gh_minutes | 10 | — | — |
 | 01:30 | `screens` | `30 1 * * *` | render | gh_minutes | 25 | — | — |
-| 01:35 | `free-tier-guard` | `35 1 * * *` | reports | gh_minutes | 2 | — | — |
 | 01:43 | `sentence-audio-asr` | `43 1-23/4 * * *` | render | gh_minutes | 170 | — | — |
 | 01:45 | `footage-archive` | `45 1,2,6,14,15,16,17,18,20,21,22 * * *` | archive | drive_pool, d1_internal, gh_minutes | 50 | d1_internal_reads≈3000, drive_calls≈700 | ✓ |
 | 01:50 | `contrast` | `50 1 * * *` | reports | gh_minutes | 15 | — | — |
 | 02:00 | `dict-stage` | `0 2 * * 2` | reports | gh_minutes | 5 | — | — |
+| 02:00 | `upgrade-audit` | `0 2 * * 1` | reports | gh_minutes | 2 | — | — |
 | 02:10 | `nav-render` | `10 2 * * *` | render | gh_minutes | 20 | — | — |
 | 02:17 | `content-protect` | `17 2 * * 0` | reports | gh_minutes | 10 | — | — |
 | 02:20 | `font-audit` | `20 2 * * 1` | reports | gh_minutes | 10 | — | — |
@@ -96,6 +99,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | Việc hạ nguồn | Đọc qua | Việc/lịch |
 |---|---|---|
 | `scripts/content-score.mjs` – content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh) | `loadAllPlus` | content-qa.yml (score) |
+| `scripts/content-qa/lkf-check.mjs` – reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do | `loadAllPlus` | npm test + content-qa.yml (score) |
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |
@@ -132,4 +136,5 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/expand/job.mjs` – tập vi của kho hiện có = danh sách kiểm vi do AI lấp (cùng Viet74K) | bỏ qua: chỉ đọc nghĩa vi để kiểm chính tả/từ có thật; không ghi/xuất kho | — |
 | `scripts/dict/build.mjs` – trang từ điển tĩnh /dict (docs/SEO-DICT-PAGES.md) | `loadBrowserIndex` | dict-pages.yml (CI) |
 | `scripts/dict/wordnet.mjs` – trích Open English WordNet → content/dict/wordnet.json, chỉ giữ từ đơn có trong kho (docs/SEO-DICT-PAGES.md) | `loadBrowserIndex` | tay (chạy lại khi kho từ lớn thêm) → build.mjs đọc file đã commit |
+| `scripts/sentence-audio/render.mjs` – phiên âm từ điển (Anh/Mỹ) cho phương án render lại cụm ≤ 3 chữ trượt cổng ASR câu | `loadAllPlus` | sentence-audio-asr mỗi 4 giờ |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |

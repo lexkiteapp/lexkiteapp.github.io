@@ -172,6 +172,7 @@ export function analyze(data, content, opts = {}) {
     const term = lookupTerm(q);
     if (term) { const d = dictQueue.get(term) || { term, impressions: 0, clicks: 0, queries: [] }; d.impressions += c.impressions; d.clicks += c.clicks; if (d.queries.length < 5) d.queries.push(q); dictQueue.set(term, d); }
     if (c.impressions < T.gapMinImpr || intent === 'brand') continue;
+    if (term && intent === 'lookup') continue; // "X là gì / แปลว่า": việc của trang từ điển (dictQueue), không viết blog mỏng ăn thịt trang từ
     const qf = feats(q), cov = covering(q, qf, c.lang);
     const topPage = [...c.pages].sort((a, b) => b[1] - a[1])[0][0];
     if (cov.length && position <= T.weakPos) continue; // đã có bài đúng ý và đứng ≤ 30 → việc của (b), không phải bài mới

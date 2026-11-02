@@ -29,7 +29,7 @@ const file = p => 'dist/' + (p.endsWith('/') ? p + 'index.html' : p + '.html');
 // Cặp vi ↔ en: hreflang hai chiều giống hệt nhau (vi, en, x-default → bản tiếng Anh cho người dùng ngôn ngữ khác)
 // type: trang bài học mới (grammar/pronunciation/ielts-writing) → sitemap-<type>.xml riêng (đo GSC theo loại) + .seo-urls-en.txt (IndexNow, build-seo-pages.mjs gộp)
 const typed = [];
-const out = (path, viPath, html, type) => { fs.mkdirSync('dist/' + path.replace(/[^/]*$/, ''), { recursive: true }); if (type) typed.push([path, lm, type, fs.existsSync(file(viPath)) ? viPath : '', html]); else urls.push([path, lm]);
+const out = (path, viPath, html, type) => { fs.mkdirSync('dist/' + path.replace(/[^/]*$/, ''), { recursive: true }); if (type) typed.push([path, lm, type, fs.existsSync(file(viPath)) ? viPath : '', html]); else if (type !== null) urls.push([path, lm]); // null = noindex → không vào sitemap
   const vf = file(viPath), hl = fs.existsSync(vf) ? `<link rel="alternate" hreflang="vi" href="${SITE}${viPath}"><link rel="alternate" hreflang="en" href="${SITE}${path}"><link rel="alternate" hreflang="x-default" href="${SITE}${path}">` : '';
   fs.writeFileSync(file(path), html.replace('<!--HL-->', hl));
   if (hl) { const v = fs.readFileSync(vf, 'utf8'); if (!v.includes('<link rel="alternate" hreflang="en"')) fs.writeFileSync(vf, v.replace('<meta property="og:type"', hl + '<meta property="og:type"')); } };
@@ -160,7 +160,7 @@ const enOnly = s => String(s ?? '').replace(/\s*\(([^)]*)\)/g, (m, x) => (VIRX.t
 const hlEx = s => esc(enOnly(s)).replace(/\[\[(.+?)\]\]/g, '<b>$1</b>');
 const quizHtml = (qs, T) => qs.length ? `<h2>Quick quiz (${qs.length} questions)</h2><ol class="uses">${qs.map(q => `<li><p><b>${hlEx(T(q.q))}</b></p><ol type="a">${q.options.map(o => `<li>${esc(T(o))}</li>`).join('')}</ol><details><summary>Show answer</summary><p>✅ <b>${esc(T(q.options[q.answer]))}</b>${T(q.explain) ? ` – ${esc(T(q.explain))}` : ''}</p></details></li>`).join('')}</ol>` : '';
 const robotsOf = idx => (idx ? '' : '<meta name="robots" content="noindex,follow">');
-const outL = (path, viPath, html, type, idx) => out(path, idx ? viPath : '-', idx ? html : html.replace('<meta name="theme-color"', robotsOf(false) + '<meta name="theme-color"'), idx ? type : '');
+const outL = (path, viPath, html, type, idx) => out(path, idx ? viPath : '-', idx ? html : html.replace('<meta name="theme-color"', robotsOf(false) + '<meta name="theme-color"'), idx ? type : null);
 const nL = { grammar: [0, 0], pronunciation: [0, 0], 'ielts-writing': [0, 0] }; // [index được, noindex]
 const cnt = (k, idx) => nL[k][idx ? 0 : 1]++;
 

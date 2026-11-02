@@ -1,0 +1,96 @@
+{
+ "_doc": "Say it like a native – mặt trước thẻ (#/say/<loạt>/<thẻ>), d do web/js/say.js dựng từ web/data/say.json. Giữ đầu trang trong của Stitch (quay lại loạt · tiêu đề · ⚑ báo lỗi nội dung); thanh tab Stitch → thanh tab chung (d.nav = ST2.shell, tab Luyện). Chỗ giáo viên trống (140×110) = Chars.still(<giáo viên của loạt>, <tư thế của thẻ>). Cả thẻ chạm để lật; hàng 'Tap to flip' = nút thật cho bàn phím/trình đọc màn hình.",
+ "i18n": {
+  "Say it like a native": "Nói như người bản xứ",
+  "Tap to flip": "Chạm để lật",
+  "Listen": "Nghe từ tốn",
+  "Say it": "Tự nói thử",
+  "Share": "Chia sẻ",
+  "Go back": "Quay về",
+  "Listen to pronunciation": "Nghe phát âm"
+ },
+ "text": {
+  "Disagree without a fight · 3/7": "d.series",
+  "Step 3 of 7": "d.step",
+  "POLITE": "d.regLbl",
+  "“I see where you're coming from”": "'“' + d.say + '”'",
+  "/aɪ ˌsiː wer jʊr ˈkʌmɪŋ frəm/": "d.ipa"
+ },
+ "html": {
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2)": "d.teacher"
+ },
+ "attr": {
+  ":scope > div > header > button:nth-child(1)": {
+   "data-href": "d.back",
+   "type": "'button'"
+  },
+  ":scope > div > header > button:nth-child(3)": {
+   "id": "'sFlag'",
+   "type": "'button'",
+   "aria-label": "t('Báo lỗi thẻ này')"
+  },
+  ":scope > div > main > div:nth-child(1) > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-valuemin": "'0'",
+   "aria-valuemax": "d.total",
+   "aria-valuenow": "d.n",
+   "aria-label": "d.step"
+  },
+  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > div > main > section:nth-child(2)": {
+   "id": "'sCard'",
+   "data-face": "'front'"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > button": {
+   "id": "'sSpk'",
+   "type": "'button'"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > h2": {
+   "lang": "'en'",
+   "id": "'sSay'"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div:nth-child(1)": {
+   "id": "'sFlip'",
+   "type": "'button'",
+   "aria-label": "t('Lật thẻ – xem nghĩa và cách dùng')"
+  },
+  ":scope > div > main > section:nth-child(3) > button:nth-child(1)": {
+   "id": "'sSlow'",
+   "type": "'button'"
+  },
+  ":scope > div > main > section:nth-child(3) > button:nth-child(2)": {
+   "id": "'sMic'",
+   "type": "'button'",
+   "aria-pressed": "'false'"
+  },
+  ":scope > div > main > section:nth-child(3) > button:nth-child(3)": {
+   "id": "'sShare'",
+   "type": "'button'"
+  }
+ },
+ "cls": {
+  ":scope > div > main > div:nth-child(1) > div:nth-child(2) > div": {
+   "[width:42.85%]": "''"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2)": {
+   "pointer-events-none": "'pointer-events-none -mb-5 -mr-2 shrink-0'"
+  }
+ },
+ "tag": {
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div:nth-child(1)": {
+   "to": "button"
+  }
+ },
+ "addClass": {
+  ":scope > div > main > section:nth-child(2)": "cursor-pointer"
+ },
+ "remove": [
+  ":scope > div > nav"
+ ],
+ "after": {
+  ":scope > div > main": "d.nav",
+  ":scope > div > main > section:nth-child(3)": "d.heard"
+ }
+}

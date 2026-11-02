@@ -194,3 +194,26 @@ export function blogVideoBox(post, items, esc) {
   return `<aside class="vidbox" aria-label="${esc(lab)}"><a href="${videoHref(post.lang, it.slug)}"><img src="${esc(it.poster)}" alt="" width="180" height="320" loading="lazy" decoding="async"><span><small>🎬 ${esc(lab)}</small><b lang="en">${esc(it.title)}</b><span class="btn">${esc(cta)} ▶</span></span></a></aside>`;
 }
 export const BLOG_VIDEO_CSS = '.vidbox a{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:10px;margin:24px 0;text-decoration:none;color:inherit;background:var(--surface)}.vidbox img{width:90px;height:160px;object-fit:cover;border-radius:10px;flex:none}.vidbox span{display:flex;flex-direction:column;gap:6px}.vidbox .btn{align-self:flex-start}';
+
+// ---------- kiểm tài nguyên sau publish (trang /video/<slug>/ tải poster/phụ đề KHÁC NGUỒN: <track> luôn cần CORS) ----------
+/** Phán quyết 1 tài nguyên trên CDN: ok | missing (404/403…: thiếu file / sai tên băm) | nocors (thiếu Access-Control-Allow-Origin)
+ *  | down (429 – vd. Cloudflare 1027 Workers hết 100k lượt/ngày – hoặc 5xx/không kết nối: chưa kiểm được, KHÔNG được coi là ok). */
+export function assetVerdict(status, acao) {
+  if (!status || status === 429 || status >= 500) return 'down';
+  if (status !== 200 && status !== 206) return 'missing';
+  return acao === '*' || /^https:\/\/([\w-]+\.)?lexkite\.com$/.test(acao || '') ? 'ok' : 'nocors';
+}
+/** Kiểm src/poster/vtt_en của các mục (GET Range 0-0 + Origin lexkite.com). Thử lại `tries` lần khi down.
+ *  → { bad: [{id,url,verdict,status}], down: [...] } – bad = lỗi thật (chặn publish), down = máy chủ chưa phục vụ (hoãn mục). */
+export async function verifyAssets(items, { fetchImpl = fetch, tries = 3, waitMs = 5000 } = {}) {
+  const bad = [], down = [];
+  for (const it of items) for (const url of [it.src, it.poster, it.vtt_en].filter(Boolean)) {
+    let v = 'down', st = 0;
+    for (let i = 0; i < tries && v === 'down'; i++) {
+      if (i) await new Promise(r => setTimeout(r, waitMs * i));
+      try { const r = await fetchImpl(url, { headers: { Origin: 'https://lexkite.com', Range: 'bytes=0-0' }, signal: AbortSignal.timeout(20000) }); st = r.status; v = assetVerdict(st, r.headers.get('access-control-allow-origin')); await r.body?.cancel?.(); } catch { st = 0; v = 'down'; }
+    }
+    if (v !== 'ok') (v === 'down' ? down : bad).push({ id: it.id, url, verdict: v, status: st });
+  }
+  return { bad, down };
+}

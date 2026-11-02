@@ -4,6 +4,7 @@
 // câu đố EN (✓/✗) → phản hồi → "Video tiếp theo" phát clip KHÁC. Ảnh: <out>/<lang>-<vp>-<chỗ>-{card,quiz,next}.png
 import fs from 'node:fs';
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 const [BASE = 'http://localhost:8080', OUT = 'out/video-web'] = process.argv.slice(2);
 fs.mkdirSync(OUT, { recursive: true });
 const VPS = { mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }, desktop: { viewport: { width: 1280, height: 860 } } };
@@ -18,6 +19,7 @@ const fails = [], log = m => console.log(m);
 const browser = await chromium.launch({ channel: process.env.PW_CHANNEL || 'chrome' });
 for (const lang of ['vi', 'ar', 'ja']) for (const [vp, opt] of Object.entries(VPS)) {
   const ctx = await browser.newContext({ ...opt, locale: lang, reducedMotion: 'reduce' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push(String(e.message).slice(0, 160)));
   await page.goto(`${BASE}/app/?sandbox=1&vtest=1&hl=${lang}#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
