@@ -1,3 +1,4 @@
+# 02/11: chạm file để GitHub đăng ký cron mỗi giờ mới – canh bởi scripts/ci/cron-watch.mjs
 # Free-tier guard (docs/FREE-TIER.md). MỖI GIỜ (:17): bản trong ngày – 1 truy vấn GraphQL lượt Workers + Functions từ 00:00Z, ngoại suy tới 24:00;
 # ≥ 60 % dừng workflow nền gọi prod, ≥ 80 % bật shed + issue, qua 00:00Z tự gỡ (scripts/free-tier/intraday.mjs – sự cố 01/11: bản ngày chỉ nhìn hôm qua).
 # HẰNG NGÀY (01:35): quét đủ: số dùng THẬT (Cloudflare GraphQL + Pages API + GitHub API) so với trần gói miễn phí.
