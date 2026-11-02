@@ -41,6 +41,9 @@ Màn cảm ơn (Kit, mã, mốc theo loại: tài khoản 24 h, lỗi 2–3 ngà
 ## Thư cho người báo (15 ngôn ngữ)
 Thư cảm ơn ngay khi tạo phiếu (chỉ khi để email + đồng ý; chạy nền sau AI phân loại nên mốc theo mức P0–P3, AI lỗi vẫn gửi): mã LX, mốc dự kiến, liên kết riêng `#/report/<mã>`; lịch sử ghi `mailed`/`mail-failed` · `thanks`. Đổi trạng thái/phản hồi → thư cập nhật. Thư theo ngôn ngữ giao diện lúc gửi (`lang` của phiếu; mã lạ → tiếng Anh). Chữ lấy từ nhóm dịch `report` của app (một nguồn): `scripts/gen-report-mail-i18n.mjs` sinh `functions/api/_report-i18n.js` (chạy tự động cuối `scripts/i18n-fix.mjs`; `scripts/test/report.mjs` báo lệch nguồn). Thêm chữ thư mới: thêm khóa vào `MAIL_KEYS` + `en/report.js` + `i18n-fixed.json`, rồi `node scripts/i18n-fix.mjs`.
 
+## Thư cho người báo (15 ngôn ngữ)
+Thư cảm ơn ngay khi tạo phiếu (chỉ khi để email + đồng ý; chạy nền sau AI phân loại nên mốc theo mức P0–P3, AI lỗi vẫn gửi): mã LX, mốc dự kiến, liên kết riêng `#/report/<mã>`; lịch sử ghi `mailed`/`mail-failed` · `thanks`. Đổi trạng thái/phản hồi → thư cập nhật. Thư theo ngôn ngữ giao diện lúc gửi (`lang` của phiếu; mã lạ → tiếng Anh). Chữ lấy từ nhóm dịch `report` của app (một nguồn): `scripts/gen-report-mail-i18n.mjs` sinh `functions/api/_report-i18n.js` (chạy tự động cuối `scripts/i18n-fix.mjs`; `scripts/test/report.mjs` báo lệch nguồn). Thêm chữ thư mới: thêm khóa vào `MAIL_KEYS` + `en/report.js` + `i18n-fixed.json`, rồi `node scripts/i18n-fix.mjs`.
+
 ## Biến môi trường
 Thẻ Chất lượng (admin › Tổng quan) › **Cài đặt & bí mật** liệt kê mục còn thiếu + chỗ nhập (op `cfg`: `ai`, `gh`, `cli`, `mail_st` ok/no-key (Worker thư trả 501)/no-binding/failing/unknown, `push` ok/off/no-d1b) – chỉ cờ, không giá trị.
 Pages: `ADMIN_EMAILS`, `REPORT_NOTIFY_EMAIL`, `GH_ISSUES_TOKEN`, `LEXKITE_REPORT_CLI_KEY`, `CF_AI_TOKEN`/`CF_ACCOUNT_ID` (khi không có binding AI), `TURNSTILE_SECRET_KEY`. Worker mail: `RESEND_API_KEY`, `BREVO_API_KEY`.
