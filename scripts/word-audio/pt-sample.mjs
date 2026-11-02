@@ -14,7 +14,7 @@ import { readJSON, seedPath } from '../target/lib.mjs';
 
 if (!process.env.CI) { console.error('Chỉ chạy trên CI (word-audio-pt.yml) – việc nặng không chạy trên máy'); process.exit(75); }
 const require = createRequire(path.join(process.env.NODE_PATH || process.cwd(), 'x.js'));
-const OUT = process.env.OUT || 'out/pt-sample', N = +(process.env.PT_N || 20), VOICES = ['pf_dora', 'pm_alex'];
+const CARRIER = 'A palavra é:', OUT = process.env.OUT || 'out/pt-sample', N = +(process.env.PT_N || 20), VOICES = ['pf_dora', 'pm_alex'];
 const words = readJSON(seedPath('pt')).words.slice(0, N).map(w => w.word);
 fs.mkdirSync(OUT, { recursive: true });
 const probe = { words: words.length, at: new Date().toISOString() };
@@ -34,8 +34,9 @@ for (const v of VOICES) {
 }
 // âm vị cả lô một lần (python khởi động chậm): {chữ: âm vị}
 let PH = {};
-try { PH = JSON.parse(execFileSync('python3', [fileURLToPath(new URL('./pt_g2p.py', import.meta.url))], { input: JSON.stringify(['coração', ...words]), maxBuffer: 1 << 26 }).toString()); } catch (e) { probe.phErr = String((e.stdout || '') + e.message).slice(0, 300); }
+try { PH = JSON.parse(execFileSync('python3', [fileURLToPath(new URL('./pt_g2p.py', import.meta.url))], { input: JSON.stringify(['coração', CARRIER, ...words]), maxBuffer: 1 << 26 }).toString()); } catch (e) { probe.phErr = String((e.stdout || '') + e.message).slice(0, 300); }
 if (PH.__err) probe.phErr = PH.__err;
+// Câu mang (như cut_wordis tiếng Anh, kokoro.mjs): Kokoro đọc từ trơ trọi hay sinh đuôi lạ (lượt 41430778545: "Livros", "GATZU") → đọc trong câu rồi pt_gate.py cắt từ cuối theo mốc Whisper
 const ph = async w => (PH[w] ? { p: PH[w], lang: 'pt-br (misaki espeak)' } : null);
 probe.sample = await ph('coração');
 if (!probe.sample || probe.voiceDownload) { fs.writeFileSync(path.join(OUT, 'probe.json'), JSON.stringify(probe, null, 1)); console.error('✗ Kokoro + espeak pt-br không dùng được:', JSON.stringify(probe)); process.exit(3); }
@@ -45,8 +46,12 @@ for (const v of VOICES) {
   fs.mkdirSync(path.join(OUT, v), { recursive: true });
   for (const w of words) {
     const p = await ph(w); if (!p) { rows.push({ v, w, err: 'phonemize' }); continue; }
-    const pcm = trim((await k.run(k.phIds(p.p + '.'), v, 0.9)).pcm);
-    const f = path.join(OUT, v, w + '.wav'); k.wav(f, pcm); rows.push({ v, w, ph: p.p, f, sec: +(pcm.length / 24000).toFixed(2) });
+    // ứng viên theo thứ tự ưu tiên: từ đơn → [cut (câu mang), dot (đọc trơ)]; câu → [dot]. pt_gate.py nhận ứng viên đầu tiên qua cổng.
+    const mid = a => a.slice(1, -1), single = !/\s/.test(w.trim()), cands = [];
+    if (single && PH[CARRIER]) cands.push(['cut', (await k.run([0, ...mid(k.phIds(PH[CARRIER])), ...mid(k.phIds(' ')), ...mid(k.phIds(p.p + '.')), 0], v, 0.9)).pcm]);
+    cands.push(['dot', trim((await k.run(k.phIds(p.p + '.'), v, 0.9)).pcm)]);
+    const c = cands.map(([m, pcm], i) => { const f = path.join(OUT, v, w + '.' + i + '.wav'); k.wav(f, pcm); return { m, f, sec: +(pcm.length / 24000).toFixed(2) }; });
+    rows.push({ v, w, ph: p.p, f: c[0].f, cands: c });
   }
 }
 probe.rows = rows;
