@@ -125,6 +125,7 @@
 - [play-and-speak.md](specs/play-and-speak.md) — Spec-lite (chờ chủ duyệt) vừa học vừa chơi + luyện nói theo tình huống: kiểm kê, so app top, 9 tính năng, P0–P2, kế hoạch 40 tình huống × 12 mẫu câu, $0; đọc khi: làm luyện nói/mini-game nói/nhập vai
 - [specs/rig-2d-video.md](specs/rig-2d-video.md) — Rig 2D giáo viên → video 0 credit (SVG + Kokoro mốc âm vị, CI rig-sample, 13 cổng QC); đọc khi: làm video giáo viên 2D hoặc thay clip Kling
 - [specs/social-l1-clips.md](specs/social-l1-clips.md) — Clip mạng xã hội theo lỗi L1 từng ngôn ngữ (rig 2D nói tiếng Anh, tiêu đề + chú thích bản địa, kho content/social/videos theo ngôn ngữ, CI social-clips); đọc khi: làm/đăng clip theo thị trường
+- [specs/social-reels-templates.md](specs/social-reels-templates.md) — 4 khuôn Reels đọc theo (say4 · mispron · phrase · minpair) trên rig 2D, chừa lặng cho người xem đọc theo; đọc khi: làm/sửa clip Reels học phát âm
 
 ## Lưu trữ (docs/archive/ – nguyên văn, chỉ để tra cứu)
 - [PLAYBOOK.md](archive/PLAYBOOK.md) — Sổ tay vận hành cũ (15/10): kiến trúc 0 đồng, thứ tự ship, pipeline GitHub Actions, nội dung/bản quyền, giọng đọc. METHODS.md thắng khi lệch; đọc khi: tra quy trình cũ
