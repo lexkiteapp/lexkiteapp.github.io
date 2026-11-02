@@ -182,3 +182,6 @@ Lịch sử đầy đủ (bài học 17–22/10, Kling, chroma key, kho, video):
 - Gửi cả lô 8 plate (225 cr) không thử 1 trước – vi phạm CREDIT-RULES.
 - Cảnh footage làm 3 lượt vì thiếu danh sách clip – cảnh mới làm 1 lượt đủ 15 clip (`docs/archive/CINE-SCENE-STANDARD.md`).
 - Bản clone tạm tên chung (`$TMPDIR/lk`) bị phiên khác `rm -rf` giữa chừng (24/10, mất 1 lượt sửa) → clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad để chạy lại.
+
+## Chuyển từ METHODS.md §4 (2/11, nguyên văn – nguồn chính nay là docs/CI-RUNNERS.md)
+- **Runner GitHub (1/11, Pro = 40 runner):** chừa 8 cho PR/prod-release, phần rảnh `ci-filler` tự lấp từ `infra/ci-backlog.json` (`max-parallel` bắt buộc; repo giữ CÔNG KHAI để phút Actions miễn phí), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.

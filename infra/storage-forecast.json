@@ -1,5 +1,5 @@
 {
- "at": "2026-11-01",
+ "at": "2026-11-02",
  "words_now": 8697,
  "target": 20000,
  "add": 11303,
@@ -20,7 +20,7 @@
  "repo_mb": {
   "source_expand": 22.6,
   "source_expand_git": 7.5,
-  "main_repo_now": 1021,
+  "main_repo_now": 1025,
   "soft": 1000
  },
  "web_js_bytes": 0,
@@ -39,14 +39,14 @@
    "kinds": [
     "code"
    ],
-   "tree_mb": 204.4,
-   "files": 7198,
-   "api_mb": 1021,
+   "tree_mb": 217.6,
+   "files": 7325,
+   "api_mb": 1025,
    "soft_mb": 1000,
    "soft_files": null,
-   "size_mb": 1021,
-   "at_target_mb": 1029,
-   "at_target_files": 7198,
+   "size_mb": 1025,
+   "at_target_mb": 1033,
+   "at_target_files": 7325,
    "pct": 102,
    "pct_target": 103
   },
@@ -77,16 +77,16 @@
    "kinds": [
     "audio"
    ],
-   "tree_mb": 634.6,
-   "files": 46713,
-   "api_mb": 540,
+   "tree_mb": 1333.3,
+   "files": 68190,
+   "api_mb": 1238,
    "soft_mb": 1000,
    "soft_files": 60000,
-   "size_mb": 634.6,
-   "at_target_mb": 772,
-   "at_target_files": 69319,
-   "pct": 63,
-   "pct_target": 77
+   "size_mb": 1333.3,
+   "at_target_mb": 1470,
+   "at_target_files": 90796,
+   "pct": 133,
+   "pct_target": 147
   },
   {
    "id": "m3",
@@ -113,22 +113,22 @@
    "kinds": [
     "img"
    ],
-   "tree_mb": 42.3,
-   "files": 8892,
-   "api_mb": 42,
+   "tree_mb": 63.9,
+   "files": 12780,
+   "api_mb": 61,
    "soft_mb": 1000,
    "soft_files": 60000,
-   "size_mb": 42.3,
-   "at_target_mb": 42,
-   "at_target_files": 8892,
-   "pct": 4,
-   "pct_target": 4
+   "size_mb": 63.9,
+   "at_target_mb": 64,
+   "at_target_files": 12780,
+   "pct": 6,
+   "pct_target": 6
   }
  ],
  "alerts": [
-  "repo chính 1021 MB / 1000 MB (≥ 70 %) – phần lớn là lịch sử git (không viết lại, docs/STORAGE.md §3); cây đầu nhánh 204.4 MB",
+  "repo chính 1025 MB / 1000 MB (≥ 70 %) – phần lớn là lịch sử git (không viết lại, docs/STORAGE.md §3); cây đầu nhánh 217.6 MB",
   "lexkite-media 796.8 MB / 1000 MB (≥ 70 %) – kho đã đóng (full), chỉ đọc",
-  "lexkite-media-2 772 MB / 1000 MB khi đủ 20000 từ (≥ 70 %) – chuyển state=full, mở kho kế (infra/media-repos.json)",
-  "lexkite-media-2: 69319 tệp khi đủ 20000 từ (≥ 70 % của 60000)"
+  "lexkite-media-2 1470 MB / 1000 MB khi đủ 20000 từ (≥ 70 %) – chuyển state=full, mở kho kế (infra/media-repos.json)",
+  "lexkite-media-2: 90796 tệp khi đủ 20000 từ (≥ 70 % của 60000)"
  ]
 }
