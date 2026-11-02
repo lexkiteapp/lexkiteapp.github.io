@@ -187,6 +187,7 @@ node scripts/test/dict-stage.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
 node scripts/content-qa/exam-format-check.mjs
+node scripts/test/lesson-why.mjs
 node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs
