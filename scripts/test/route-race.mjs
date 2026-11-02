@@ -90,14 +90,28 @@ for (const h of ['#/stats', '#/vocab', '#/settings']) {
   // Làm chậm đọc dữ liệu (Store.get/App.need) 40 ms để lượt vẽ cũ về MUỘN hơn lượt mới — nếu không, đọc tức thì xong trước khi lượt sau bắt đầu và race không bao giờ xảy ra.
   const slow = o => { if (!o || !o.get) return; const g0 = o.get.bind(o); o.get = (...a) => new Promise(r => setTimeout(r, 40)).then(() => g0(...a)); };
   slow(w.Store); slow(w.Core && w.Core.Store);
+  // Trang "ổn định" (vào thẳng 2 lần ra y hệt) thì lượt đua phải khớp từng chữ; trang có nội dung ngẫu nhiên (quick, paraphrase…) chỉ kiểm "không phải stats".
+  const R0 = w.Math.random, seeded = s => () => { s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const verdict = async r => { await go('#/' + r, 0); await settle(180); const a = snap(); await go('#/stats', 0); await settle(60); await go('#/' + r, 0); await settle(180); return { solo: a, stable: snap() === a }; };
+  const raceBack = async (r, gap) => { w.location.hash = '#/stats'; await tick(5); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await tick(10); w.location.hash = '#/' + r; await settle(260); };
   const solo = {}, stable = {}; await go('#/stats', 0); await settle(150); solo.stats = snap();
-  for (const r of names) { await go('#/' + r, 0); await settle(180); solo[r] = snap(); await go('#/stats', 0); await settle(60); await go('#/' + r, 0); await settle(180); stable[r] = snap() === solo[r]; } // trang có nội dung ngẫu nhiên (quick, paraphrase…) chỉ kiểm "không phải stats"
+  for (const r of names) ({ solo: solo[r], stable: stable[r] } = await verdict(r));
   for (const [i, r] of names.entries()) {
     const gap = i % 2 ? 0 : 15; // xen kẽ độ trễ để giữ test < 1 phút
     await go('#/home', 50); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await settle(260);
     ok(snap() === solo.stats, `route "${r}" → stats (gap ${gap}ms): trang cuối là stats, không bị "${r}" vẽ đè`);
-    w.location.hash = '#/stats'; await tick(5); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await tick(10); w.location.hash = '#/' + r; await settle(260);
-    ok(stable[r] ? snap() === solo[r] : snap() !== solo.stats, `stats → "${r}" (gap ${gap}ms): trang cuối là "${r}" như khi vào thẳng`);
+    await raceBack(r, gap);
+    ok(stable[r] ? snap() === solo[r] : snap() !== solo.stats, `stats → "${r}" (gap ${gap}ms): trang cuối là "${r}" như khi vào thẳng${stable[r] ? '' : ' (trang ngẫu nhiên: không phải stats)'}`);
+  }
+  // 4b) Hồi quy (route-race đỏ chập chờn 1/224 trên PR #428, #466: `stats → "quick" (gap 15ms)`): quick bốc ngẫu nhiên câu đầu từ 4 thẻ của bộ test,
+  //     hai lần vào thẳng có lúc TRÙNG NHAU do may rủi → bị xếp "ổn định" → lượt đua (ngẫu nhiên khác) bị so khớp từng chữ → đỏ dù bộ định tuyến đúng.
+  //     Ép đúng tình huống may rủi đó: RNG của trang lặp lại y hệt sau mỗi lần điều hướng → phân loại vẫn phải nhận ra quick là trang ngẫu nhiên.
+  {
+    let env; const reset = () => { env = seeded(7); }; reset(); w.addEventListener('hashchange', reset); w.Math.random = () => env();
+    const v = await verdict('quick');
+    w.removeEventListener('hashchange', reset); w.Math.random = R0;
+    ok(!v.stable, 'quick (nội dung ngẫu nhiên) không bị xếp "ổn định" kể cả khi hai lần vào thẳng trùng nhau do may rủi');
+    for (let k = 0; k < 3; k++) { await go('#/home', 50); await raceBack('quick', 15); ok(v.stable ? snap() === v.solo : snap() !== solo.stats, `hồi quy #${k}: stats → "quick" (gap 15ms) với RNG thật sau phân loại may rủi`); }
   }
 }
 ok(!errors.some(e => !/Not implemented/.test(e)), 'không lỗi JS: ' + errors.slice(0, 3).join(' | '));
