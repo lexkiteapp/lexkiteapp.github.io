@@ -59,12 +59,38 @@
       "purpose": "CDN âm thanh audio.lexkite.com/audio/<l|w>/<khoá>.mp3: đứng trước các kho media GitHub Pages (infra/media-repos.json kind audio: lexkite-media-2, rồi gốc cũ lexkiteapp.github.io/audio – dự phòng 1 bản phát hành), thử lần lượt tới khi có 200; máy chủ gần người dùng (có VN), cache 1 năm; app/SW tự lùi về Pages của kho nếu Worker lỗi",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-audio/production",
       "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
-      "upgrade": "Khi > 100k lượt/ngày: chuyển âm thanh sang R2 + tên miền tùy chỉnh (không qua Worker) hoặc Workers Paid",
+      "upgrade": "Đang thay bằng R2 tĩnh lexkite-audio-cdn (key audio-cdn-r2, docs/CAPACITY.md §A5) – Worker giữ deploy làm đường lùi (scripts/cdn/cutover.mjs rollback)",
       "status": "Miễn phí",
       "match": [
         "audio.lexkite.com",
         "lexkite-audio"
       ]
+    },
+    {
+      "key": "media-cdn-r2",
+      "name": "Cloudflare R2 lexkite-media-cdn (media.lexkite.com tĩnh)",
+      "purpose": "Bản chép tăng dần (scripts/cdn/mirror.mjs, workflow cdn-mirror.yml mỗi giờ) của lexkite-media + lexkite-media-4 (vimg, /mN/vimg) + Release wv-<bài> (video/) – khoá = đường dẫn URL, Content-Type/Cache-Control đặt theo đối tượng (1 năm immutable; library/ 1 ngày + SWR 7 ngày). Tên miền riêng media.lexkite.com + Cache Rule lexkite_cdn_cache + Transform Rule (CORS *, nosniff, CSP cho SVG). Range MP4 do R2. Sổ _mirror/manifest.json + _mirror/status.json (cổng cutover).",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-media-cdn",
+      "match": [
+        "lexkite-media-cdn"
+      ],
+      "kind": "cdn",
+      "free": "R2 Free: 10 GB lưu trữ · 1 triệu Class A (ghi)/tháng · 10 triệu Class B (đọc)/tháng · băng thông ra 0 đ; lượt trúng Cache Rule = 0 Class B, KHÔNG tính trần 100k Workers",
+      "upgrade": "> 8 GB hoặc Class B > 8 triệu/tháng (free-tier-guard đo) → xem docs/CAPACITY.md §A5",
+      "status": "Chờ chủ bật R2 + quyền token (docs/CAPACITY.md §A5)"
+    },
+    {
+      "key": "audio-cdn-r2",
+      "name": "Cloudflare R2 lexkite-audio-cdn (audio.lexkite.com tĩnh)",
+      "purpose": "Bản chép tăng dần (scripts/cdn/mirror.mjs, cdn-mirror.yml) của mọi kho media kind audio (infra/media-repos.json, kho mới nhất thắng) – audio/<l|w>/<khoá>.mp3, 1 năm immutable. Tên miền riêng audio.lexkite.com + cùng Cache/Transform Rule. Đường lùi GitHub giữ ở app/SW (web/js/ui.js AUDIO_BASES, web/sw.js: lỗi/404/7 s → Pages m2 → gốc cũ).",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-audio-cdn",
+      "match": [
+        "lexkite-audio-cdn"
+      ],
+      "kind": "cdn",
+      "free": "R2 Free: 10 GB lưu trữ · 1 triệu Class A (ghi)/tháng · 10 triệu Class B (đọc)/tháng · băng thông ra 0 đ; lượt trúng Cache Rule = 0 Class B, KHÔNG tính trần 100k Workers",
+      "upgrade": "> 8 GB hoặc Class B > 8 triệu/tháng (free-tier-guard đo) → xem docs/CAPACITY.md §A5",
+      "status": "Chờ chủ bật R2 + quyền token (docs/CAPACITY.md §A5)"
     },
     {
       "key": "audio-origin",
@@ -374,7 +400,7 @@
       "purpose": "CDN ảnh riêng (blog, ảnh chụp app): đứng trước kho lexkite-media, máy chủ gần người dùng, cache 1 năm. /library/* = kho dựng video (WebP/MP4 có Range/index.json, cache 1 ngày) do scripts/video/library.mjs sync đẩy lên. /blog/p/* = ảnh riêng từng bài: đọc R2 lexkite-blog-media (binding BLOG_MEDIA) trước, không có thì lùi về kho GitHub. /video/<bài>/* = bản web của short bản tin (mp4 720p có Range, poster WebP, phụ đề VTT tiếng Anh) – gốc GitHub Release wv-<bài> của repo web, cache 1 năm (immutable, tên theo mã băm)",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-media/production",
       "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
-      "upgrade": "Kho gần 1 GB → đổi ORIGIN trong workers/media sang R2 (URL ảnh giữ nguyên)",
+      "upgrade": "Đang thay bằng R2 tĩnh lexkite-media-cdn (key media-cdn-r2, docs/CAPACITY.md §A5) – Worker giữ deploy làm đường lùi (scripts/cdn/cutover.mjs rollback)",
       "status": "Miễn phí",
       "match": [
         "media.lexkite.com",
