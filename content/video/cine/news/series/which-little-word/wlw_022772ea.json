@@ -144,9 +144,11 @@
     [
      [
       "@x"
-     ]
-    ],
-    [
+     ],
+     [
+      " ",
+      "white"
+     ],
      [
       "“What's the reason ",
       "white"
@@ -424,6 +426,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "What's the reason ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " the change?",
+      "white"
+     ]
+    ]
+   ],
    "a": "for",
    "b": "of",
    "correct": "a",

@@ -69,6 +69,7 @@ jobs:
     env: { JE_LANGS: '${{ matrix.lang }}' }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod  # app trong máy ảo Android: /api + media prod → không phân giải (app chạy nhánh offline như web)
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - uses: actions/setup-java@v4
@@ -119,6 +120,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod  # app trong Simulator: /api + media prod → không phân giải (app chạy nhánh offline như web)
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - name: Chọn Xcode 26

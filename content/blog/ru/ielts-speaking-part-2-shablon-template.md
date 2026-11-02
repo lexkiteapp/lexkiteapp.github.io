@@ -4,7 +4,7 @@ title: "Шаблон ответа IELTS Speaking Part 2: монолог на Ban
 description: "Шаблон ответа IELTS Speaking Part 2: структура речи на 2 минуты, стратегия подготовки за 60 секунд, связки для беглости речи и примеры на Band 8.0."
 keyword: "шаблон ответа ielts speaking part 2"
 lang: ru
-translationKey: luyen-thi-template-ielts-speaking-part-2
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, shablon]
 cover: speaking

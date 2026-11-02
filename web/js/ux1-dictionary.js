@@ -8,8 +8,8 @@
  * Dùng khi thi, Họ từ (+ ô video) · Nghĩa theo từ loại (Oxford + Wiktionary bổ sung, [data-saysent]) + nguồn · câu song ngữ [data-speak-text] + [data-use-sent] ·
  * #saveCard #ctx #ctxVi #trCtx #saveWord + mức thuộc · #phraseBox [data-speak] [data-add-seed] #addPhr · #related (từ gần nghĩa) · autoSpeak.
  * @icons arrow_back local_fire_department bolt bookmarks search arrow_forward history verified bookmark_add bookmark_added volume_up slow_motion_video psychology add_circle check_circle mic schema menu_book format_quote hub compare_arrows add remove lightbulb psychology_alt cancel school family_history expand_less expand_more close translate arrow_outward edit_note g_translate save chat_bubble travel_explore search_off extension */
-(function () {
-  const App = window.App; if (!App || !App.routes || !App.routes.dict || !App.dictPhrases || !self.IELTS_DATA) return;
+window.__ux1Dict = function () { // dict-page.js (gói lười dictp) gọi lại khi đã dựng xong routes.dict; ux1 nạp trước/sau đều chạy đúng 1 lần
+  const App = window.App; if (!App || !App.routes || !App.routes.dict || !App.dictPhrases || !self.IELTS_DATA || App.__dictV2) return; App.__dictV2 = 1;
   const { state, routes } = App, old = routes.dict, esc = UI.esc, INDEX = IELTS_DATA.INDEX, Store = Core.Store;
   const on = () => !!(self.ST2 && ST2.dictionary && App.ux1On && App.ux1On());
   const VI = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
@@ -205,4 +205,5 @@
     }
     function $$(s, r) { return [...r.querySelectorAll(s)]; }
   });
-})();
+};
+window.__ux1Dict();

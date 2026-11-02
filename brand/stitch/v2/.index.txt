@@ -36,3 +36,7 @@ stats-light b1331523dfed4e58994947c2f2f032b3 (Lexkite v2.1 Light — Progress & 
 stats-dark fced5908895b4ce6a7f633a722fa0a69 (Lexkite v2.1 Dark — Progress & Badges)
 mistakes-light d48687a50c15451d966b02fbe6249609 (Lexkite v2.1 Light — Mistakes Notebook)
 mistakes-dark d1ed2a48a6524e6ea6355d31dae7e59f (Lexkite v2.1 Dark — Mistakes Notebook)
+pas-sit-light 45068b5f4ec24ce28bc1a5ba8fd91bd6 (Lexkite Situation — Café & restaurant, contrast fix; key3 project 18075333702575270507; closest Stitch match to pas-sit-light.html, recorded 01/11)
+pas-sit-dark c08d044dcea84df89345f4de817fcb85 (Lexkite Situation — Café & restaurant, Tactile Night DONE-pill fix; key3 project 18075333702575270507)
+pas-drill-light d99a0c00da2c4af8b2df64250a03ba90 (Lexkite Speaking Drill — Say it in 3 beats, clean classes; key3 project 18075333702575270507)
+pas-drill-dark 3af039605d8b49a488407a9d39f5f7d1 (Lexkite Speaking Drill — Say it in 3 beats, Tactile Night; key3 project 18075333702575270507)

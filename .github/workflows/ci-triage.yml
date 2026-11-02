@@ -139,6 +139,20 @@ on:
       - 'teach-video'
       - 'Kiểm tra sau deploy (post-deploy-check)'
       - 'Preview site'
+      - 'QA bot'
+      - 'Bản dịch câu ví dụ cho bài học (15 ngôn ngữ)'
+      - 'Bản dịch câu ví dụ cho bài học (15 ngôn ngữ)'
+      - 'QA bot'
+      - 'Say it like a native – meanings'
+      - 'Web sweep'
+      - 'Cổng ASR audio câu'
+      - 'Phát audio (Chromium + WebKit)'
+      - 'codemap'
+      - 'TTS A/B (Kokoro vs ElevenLabs)'
+      - 'required-gate'
+      - 'ci-filler'
+      - 'QA backlog'
+      - 'Upgrade audit'
   schedule:
     - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
   workflow_dispatch:
@@ -150,7 +164,7 @@ jobs:
     if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure'
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    concurrency: { group: 'ci-triage-${{ github.event.workflow_run.id }}', cancel-in-progress: false }
+    concurrency: { group: 'ci-triage-${{ github.event.workflow_run.name }}-${{ github.event.workflow_run.head_branch }}', cancel-in-progress: true }   # 1/11: cùng workflow+nhánh đỏ liên tiếp → chỉ lượt mới nhất triage (trước đây 55 lượt dồn hàng, mỗi lượt giữ 1 runner ~5 phút chờ)
     steps:
       - uses: actions/checkout@v4
         with: { sparse-checkout: scripts/ci, sparse-checkout-cone-mode: true }

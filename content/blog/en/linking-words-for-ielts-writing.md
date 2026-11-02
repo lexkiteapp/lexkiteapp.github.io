@@ -3,7 +3,7 @@ title: "Linking Words for IELTS Writing: Use Them Like a Band 8"
 description: "Linking words for IELTS Writing grouped by function, the overuse mistakes that cost Coherence and Cohesion marks, and better ways to connect ideas naturally."
 slug: linking-words-for-ielts-writing
 lang: en
-translationKey: tu-noi-trong-ielts-writing
+translationKey: tu-noi-tieng-anh-linking-words
 category: ielts
 tags: [linking-words, writing, ielts, cohesion]
 keyword: "linking words for ielts writing"
