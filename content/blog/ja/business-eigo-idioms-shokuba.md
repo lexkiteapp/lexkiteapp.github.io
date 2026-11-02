@@ -28,16 +28,16 @@ qualityScore: 95
 
 - **Get the ball rolling**: 企画をスタートさせる、最初の第一歩を踏み出して案件を前進させる。
   - *使用場面*: キックオフミーティングの冒頭や、担当者に初動のアクションを促す際に最適です。
-  - *実践例文*: *"Let us get the ball rolling by confirming our project roadmap and primary milestones."* (本日のロードマップと主要マイルストーンを確定して、早速プロジェクトを始動させましょう)。
+  - *実践例文*: *"Shall we get the ball rolling by reviewing the quarterly performance targets?"* (四半期の業績目標をレビューして、早速ミーティングを始めましょうか)。
 - **Hit the ground running**: 着任初日から即戦力としてフルスピードで成果を出す。
   - *使用場面*: 経験豊富なシニアエンジニアや即戦力コンサルタントの採用時に好まれる表現です。
-  - *実践例文*: *"Given his cloud migration background, Felix will hit the ground running on our infrastructure overhaul."* (クラウド移行の豊富な実績があるため、フェリックスはインフラ刷新で初日から即戦力として活躍してくれるでしょう)。
+  - *実践例文*: *"Our new technical lead can hit the ground running without needing lengthy onboarding sessions."* (新しいテクニカルリードは、長々とした研修を必要とせず初日から即戦力で稼働できます)。
 - **On the same page**: 全員が共通の認識や方向性を共有しており、齟齬がない状態にある。
   - *使用場面*: 経営陣への提案や契約締結前に、認識の一致を念押しする際に欠かせません。
-  - *実践例文*: *"Before presenting to executive leadership, let us ensure all team leads are on the same page."* (経営陣へのプレゼン前に、各チームリーダーの認識が完全に一致しているか確認しましょう)。
+  - *実践例文*: *"I want to confirm everyone is on the same page regarding client deliverable dates."* (クライアントへの納品期日について、全員の認識が揃っているか確認したいと思います)。
 - **Bring to the table**: 組織や交渉の場に有益な強み、専門スキル、具体的リソースをもたらす。
   - *使用場面*: パートナー企業とのアライアンス検討や採用面接で頻出します。
-  - *実践例文*: *"The external software vendor brings specialized compliance expertise to the table."* (その外部ソフトウェアベンダーは、専門的なコンプライアンスの知見をもたらしてくれます)。
+  - *実践例文*: *"Each cross-functional team member brings distinct domain strengths to the table."* (部門横断チームの各メンバーが、それぞれ固有の専門的強みを持ち寄っています)。
 
 会議での発言力を高めたい方は、[ビジネス英語ミーティングで役立つフレーズ](/ja/blog/business-eigo-meeting-phrases/)も併せてご覧ください。
 
@@ -47,16 +47,16 @@ qualityScore: 95
 
 - **Back to the drawing board**: 現行の計画が失敗に終わったことを認め、白紙に戻して最初から再設計する。
   - *使用場面*: 提案が通らなかった際に、チームの士気を前向きに切り替える声かけとして使われます。
-  - *実践例文*: *"Since the initial pilot study missed performance benchmarks, we must go back to the drawing board."* (初期パイロット試験が目標値に達しなかったため、企画を白紙に戻して再検討する必要があります)。
+  - *実践例文*: *"The prototype did not satisfy stress tests, so we are going back to the drawing board."* (試作機が耐久テストを満たさなかったため、私たちは白紙に戻して設計を見直します)。
 - **Cut corners**: 品質や安全性を犠牲にして安易に手を抜き、コストや時間を削る。
   - *使用場面*: コンプライアンス違反やセキュリティリスクに対する強い警告として用いられます。
-  - *実践例文*: *"We refuse to cut corners on data encryption protocols merely to hit a quarterly release date."* (四半期のリリース期日に間に合わせるためだけに、データ暗号化の基準で手を抜くわけにはいきません)。
+  - *実践例文*: *"Under strict safety guidelines, we must avoid cutting corners during factory system installations."* (厳格な安全基準に基づき、工場設備導入の際に安易な手抜きを行うことは絶対に許されません)。
 - **Bite the bullet**: 避けられない困難やコストを覚悟の上で受け入れ、思い切って決断を下す。
   - *使用場面*: 不採算事業の撤退や、老朽化した社内基幹システムの刷新を決める際に用いられます。
-  - *実践例文*: *"Our board decided to bite the bullet and replace the legacy enterprise ERP platform."* (取締役会は苦渋の決断を下し、長年使われてきたレガシー基幹システムを刷新することを決定しました)。
+  - *実践例文*: *"Executive committee decided to bite the bullet and shut down unprofitable physical retail locations."* (執行委員会は苦渋の決断を下し、不採算の実店舗拠点を閉鎖することを決めました)。
 - **Think outside the box**: 固定観念にとらわれず、自由で斬新な視点から解決策を考える。
   - *使用場面*: ブレストや差別化戦略の検討セッションで定番のフレーズです。
-  - *実践例文*: *"To outpace agile startups, our product development department must think outside the box."* (機動力の高いスタートアップに差をつけるため、商品開発部門は既成概念にとらわれない発想が求められます)。
+  - *実践例文*: *"Facing stiff international competition, our creative studio has to think outside the box."* (厳しい国際競争に直面する中、当社のクリエイティブスタジオは既成概念にとらわれない発想をする必要があります)。
 
 海外パートナーとの条件交渉を進める際は、[ビジネス英語の交渉・契約フレーズ集](/ja/blog/business-eigo-koshou-phrases-keiyaku/)も参考にしてください。
 
@@ -66,16 +66,16 @@ qualityScore: 95
 
 - **Touch base**: 状況確認や手短な情報共有のために、短時間連絡を取り合う。
   - *使用場面*: 5分程度の簡単な通話や確認メッセージを依頼する際の結びの言葉として最適です。
-  - *実践例文*: *"I will touch base with your account manager on Friday to review the revised delivery schedule."* (改定版の納品スケジュールを確認するため、金曜日に担当マネージャーへ手短にご連絡いたします)。
+  - *実践例文*: *"Let us touch base briefly next Tuesday after you finish client contract negotiations."* (クライアントとの契約交渉が完了した後、来週火曜日に手短にすり合わせを行いましょう)。
 - **Keep someone in the loop**: 関係者に最新の進捗状況を常に共有し、情報共有から外さない。
   - *使用場面*: メールのCC追加時や、ステークホルダーへの定期報告で必須の表現です。
-  - *実践例文*: *"Please keep our procurement team in the loop regarding vendor contract negotiations."* (ベンダーとの契約交渉の進捗について、購買チームへも常に情報共有をお願いします)。
+  - *実践例文*: *"Kindly keep the lead architect in the loop whenever database configurations change."* (データベース構成に変更が生じた際は、主任アーキテクトにも必ず最新状況を共有してください)。
 - **Call it a day**: 十分な成果が出た段階で、その日の業務や作業セッションを切り上げる。
   - *使用場面*: 長時間の障害対応や集中討議を終える際、ファシリテーターが発する合図です。
-  - *実践例文*: *"We resolved the primary server outage issues, so let us call it a day and review monitoring logs tomorrow."* (主要なサーバー障害の対応は完了したので、本日の業務はここまでにして、明日ログを再確認しましょう)。
+  - *実践例文*: *"Our debugging objectives for tonight are achieved, so let us call it a day."* (今晩予定していたデバッグ作業の目標は達成できたので、今日はここで切り上げましょう)。
 - **Up in the air**: 未決定のままで宙に浮いている、最終承認待ちの状態で確定していない。
   - *使用場面*: 予算配分や実施スケジュールの確定待ちを表す際に使われます。
-  - *実践例文*: *"The budget allocation for our European regional marketing campaign is still up in the air."* (欧州地域向けのマーケティング予算配分は、承認待ちでまだ確定していません)。
+  - *実践例文*: *"The exact release date for overseas expansion remains up in the air."* (海外展開の正確なリリース日については、承認待ちのためまだ未定のままです)。
 
 英文メールをより洗練されたものにするには、[ビジネス英語メールの書き方ガイド](/ja/blog/business-eigo-mail-kakikata/)が役立ちます。また、発話の練習はスピーキング専用スペース[/#/speaking](/#/speaking)で、マイクを使った発音チェックは[/#/practice/speak](/#/practice/speak)でお試しいただけます。
 
