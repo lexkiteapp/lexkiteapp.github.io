@@ -60,7 +60,7 @@
       if (dead) return;
       const dt = prev ? (now - prev) / 1000 : 1 / 60; prev = now; stats.frames++; if (dt > 0.05) stats.long++;
       let s, talking = false;
-      if (emoUntil && now > emoUntil) { emoUntil = 0; if (idleEmo !== 'listen') setIdle(''); } // phản ứng ngắn đã hết → nghỉ thường (câu đang nói giữ biểu cảm tới hết câu)
+      if (emoUntil && now > emoUntil) { emoUntil = 0; if (idleEmo !== 'listen') setIdle(held ? held[0] : ''); } // phản ứng ngắn đã hết → về tư thế đang giữ / nghỉ thường (câu đang nói giữ biểu cảm tới hết câu)
       stats.mode = S ? (S.L ? 'live' : 'pre') : 'idle';
       if (S) {
         const t = S.clk(); talking = S.a ? playing(S.a) : (performance.now() - S.t0) / 1000 < S.dur;
@@ -81,9 +81,10 @@
       }
       cur = s; stats.shape = s.shape; stats.open = Math.round(s.open * 100) / 100; raf = requestAnimationFrame(frame);
     };
-    let cur = null;
-    const talkEmo = () => (emoUntil && idleEmo && idleEmo !== 'listen' ? idleEmo : undefined); // vừa phản ứng xong mà nói luôn → giữ biểu cảm khi nói
-    const setIdle = emo => { idleEmo = emo; stats.emo = emo; idle = LF.machine(who, { dur: 120, seed: seed(who + emo), emo: emo || undefined, calm }); };
+    let cur = null, held = null; // held = [biểu cảm, tên tư thế] do pose(p) giữ tới pose(null) – như ảnh tư thế, nhưng miệng vẫn khớp khi nói
+    const talkEmo = () => (emoUntil && idleEmo && idleEmo !== 'listen' ? idleEmo : held ? held[0] : undefined); // vừa phản ứng xong mà nói luôn → giữ biểu cảm khi nói
+    const setIdle = emo => { idleEmo = emo; stats.emo = emo; const ps = held && held[0] === emo ? held[1] : emo; if (ps && ps !== 'listen') rig.dataset.pose = ps; else delete rig.dataset.pose; // QA (final-qc): tư thế của mặt vẽ = biểu cảm đang thể hiện
+ idle = LF.machine(who, { dur: 120, seed: seed(who + emo), emo: emo || undefined, calm }); };
     let ro = null;
     pic.onerror = () => { if (!dead) { dead = true; onFail(); } };
     pic.onload = () => {
@@ -124,7 +125,8 @@
       },
       quiet() { if (S && S.node) try { S.node.disconnect(); } catch (e) { /* bỏ qua */ } S = null; },
       /** listen(true): người học đang nói → mắt nhìn người học, mày hơi nhướng, gật nhẹ theo nhịp (máy nghỉ 'listen'); false → nghỉ thường */
-      listen(on) { if (dead) return; if (on) self.quiet(); emoUntil = 0; setIdle(on ? 'listen' : ''); },
+      listen(on) { if (dead) return; if (on) self.quiet(); emoUntil = 0; setIdle(on ? 'listen' : held ? held[0] : ''); },
+      hold(emo, name) { if (dead) return; held = emo && LF.EMO[emo] ? [emo, name || emo] : null; emoUntil = 0; setIdle(held ? emo : ''); },
       /** react('happy'|'encourage'|'cheer'|'concern'|'thinking', ms): biểu cảm ngắn trên mặt vẽ (đúng/sai) – câu nói kế tiếp mang theo biểu cảm đó */
       react(emo, ms = 1800) { if (dead || !LF.EMO[emo]) return; setIdle(emo); emoUntil = performance.now() + ms; },
       state: () => cur,
@@ -184,13 +186,13 @@
       // mặt vẽ: tư thế ảnh tĩnh (tài sản có sẵn) + biểu cảm tương ứng trên mặt vẽ; nói trong lúc đang tư thế → bỏ ảnh tĩnh để miệng vẽ khớp tiếng (không nói bằng ảnh tĩnh ngậm miệng)
       listen(on) { if (fc) fc.listen(on); },
       react(emo, ms) { if (fc) fc.react(emo, ms); },
-      pose(p) { let im = rig.querySelector('.tch-still'); if (fc && p) fc.react(POSE_EMO[p] || p, 2400); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
+      pose(p) { let im = rig.querySelector('.tch-still'); if (fc) fc.hold(p ? POSE_EMO[p] || p : null, p); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
         if (im) im.src = Chars.still(who, p); else { rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 })); }
         rig.classList.add('posed'); },
       // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – vòng nói chạy đúng độ dài file; thiếu file → giọng máy
       say(text, o = {}) {
         lastTxt = text; // mặt vẽ đang nạp (gate): nói NGAY (không trễ câu đầu); nạp xong → mặt vẽ bám phần tử đang phát (live)
-        if (fc && rig.classList.contains('posed')) api.pose(null);
+        if (fc && rig.classList.contains('posed')) { const im = rig.querySelector('.tch-still'); if (im) im.remove(); rig.classList.remove('posed'); } // nói: bỏ ảnh tĩnh, mặt vẽ giữ biểu cảm tư thế (fc.hold) tới pose(null)
         const my = ++run, rate = o.rate || 0.95;
         let ended = false; const end = () => { if (ended) return; ended = true; if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
         talking(true);

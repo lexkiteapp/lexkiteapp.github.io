@@ -55,8 +55,8 @@ const TEACH = async () => {
     // clip sống (canvas/video trong .tch): tư thế = nói/nghe theo vòng đang chạy; khung hình đo trên ảnh poster cùng khung của clip
     const tch = e.closest('.tch'), live = e.tagName !== 'IMG' || !!(tch && /poster/.test(e.getAttribute('src') || '')), // poster của .tch = giáo viên sống khi máy không phát được clip (Chromium CI không có H.264) → tư thế theo vòng nói/nghe
       pimg = live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
-    if (e.tagName === 'IMG' && tch && tch.querySelector('canvas.tch-cv, canvas.tch-face')) continue; // poster dưới clip / mặt vẽ khớp miệng (canvas.tch-face, teacher.js) đang chạy: đã tính qua canvas
-    const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = live ? (tch && tch.classList.contains('speaking') ? 'talk' : 'listen') : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
+    if (e.tagName === 'IMG' && tch && (tch.querySelector('canvas.tch-cv') || (/poster/.test(e.getAttribute('src') || '') && tch.querySelector('canvas.tch-face')))) continue; // poster dưới clip / dưới mặt vẽ khớp miệng (canvas.tch-face, teacher.js): đã tính qua canvas; ảnh tư thế vẫn tính
+    const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = live ? (e.classList.contains('tch-face') && e.parentElement.dataset.pose ? e.parentElement.dataset.pose : tch && tch.classList.contains('speaking') ? 'talk' : 'listen') /* mặt vẽ: tư thế = biểu cảm đang thể hiện (data-pose, teacher.js react/pose) */ : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
     e.scrollIntoView({ block: 'center' }); await new Promise(res => setTimeout(res, 60));
     const r = e.getBoundingClientRect(), bad = [], cut = []; let visBottom = r.bottom; // cut = nửa người/mờ/cắt: ĐẠT nếu khuất hẳn sau 1 mặt đục của Stitch (thẻ/bàn/bảng che đường hông, kiểu Duolingo)
     // vòng tròn / hào quang / khung: chính nó hoặc 3 tổ tiên gần bo tròn ≥ 40 % cạnh ngắn có nền/viền/bóng, hoặc cắt tràn
