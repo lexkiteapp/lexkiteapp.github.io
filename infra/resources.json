@@ -1146,14 +1146,39 @@
       "key": "stitch",
       "name": "Google Stitch (thiết kế UI, MCP)",
       "kind": "design",
-      "purpose": "Sinh thiết kế màn hình app/web/add-on (project 'Lexkite English Exam Prep', hệ Tactile A tối / B sáng) qua MCP; chỉ dùng lúc thiết kế, KHÔNG chạy trong sản phẩm, không dán mã Tailwind",
+      "purpose": "Sinh thiết kế màn hình app/web/add-on (Lexkite Kit, bảng màu A tối / B sáng) qua MCP HTTP (scripts/stitch/batch.mjs, kho brand/stitch/v3); chỉ dùng lúc thiết kế, KHÔNG chạy trong sản phẩm",
       "console": "https://stitch.withgoogle.com/",
-      "free": "Miễn phí ~400 credit/ngày/tài khoản",
-      "upgrade": "Hết quota → đổi tài khoản Google khác (chủ đăng nhập); khóa chỉ ở ~/.config/lexkite/stitch-key + cấu hình MCP người dùng, không vào repo",
+      "free": "Miễn phí ~400 lượt sinh/sửa mỗi tài khoản, cửa sổ trượt 24h (không reset nửa đêm); 3 tài khoản = ~1.200/ngày",
+      "upgrade": "Hết hạn mức 1 khoá → batch.mjs tự xoay sang khoá khác (project mỗi tài khoản 403 với khoá tài khoản khác → sửa/biến thể chạy đúng khoá gốc); khoá chỉ ở ~/.config/lexkite/stitch-key{,-2,-3}, không vào repo",
       "status": "Đang dùng (thiết kế)",
       "match": [
-        "stitch.withgoogle.com"
-      ]
+        "stitch.withgoogle.com",
+        "stitch.googleapis.com"
+      ],
+      "accounts": [
+        {
+          "key": "key1",
+          "file": "~/.config/lexkite/stitch-key",
+          "project": "7268539912208977707",
+          "designSystem": "assets/1b7a8a3d3d52404bb332d9ba3f783547"
+        },
+        {
+          "key": "key2",
+          "file": "~/.config/lexkite/stitch-key-2",
+          "project": "10804635390057604965",
+          "designSystem": "assets/11359391721543991869"
+        },
+        {
+          "key": "key3",
+          "file": "~/.config/lexkite/stitch-key-3",
+          "project": "18075333702575270507",
+          "designSystem": "assets/16469239436252875897"
+        }
+      ],
+      "cap": {
+        "day": 1200,
+        "unit": "lượt sinh/sửa (3 tài khoản × ~400)"
+      }
     }
   ],
   "links": {

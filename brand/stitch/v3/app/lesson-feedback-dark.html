@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite - Grammatik Lektion</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#10191B",
+            "surface": "#10191B",
+            "card-bg": "#172427",
+            "raised-surface": "#1E2F33",
+            "border-custom": "#283F46",
+            "ledge-custom": "#0E181A",
+            "primary-text": "#E8F1F0",
+            "secondary-text": "#A9BDBB",
+            "teal-accent": "#38C5B9",
+            "teal-dark": "#2BA39A",
+            "success-surface": "#123A2B",
+            "success-border": "#1F5F45"
+          },
+          "fontFamily": {
+            "title": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #10191B;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-body antialiased flex justify-center min-h-screen select-none">
+<!-- Mobile Viewport Container (390px Max Width) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col relative overflow-hidden">
+<!-- Top Chrome (Task-focused Context: Global Nav is Suppressed) -->
+<header class="h-14 w-full bg-[#10191B] flex items-center justify-between px-4 fixed top-0 left-0 right-0 max-w-[390px] mx-auto z-40 border-b-2 border-[#283F46]">
+<!-- Schließen Action Button -->
+<button aria-label="Lektion abbrechen und schließen" class="w-10 h-10 min-w-[40px] min-h-[40px] rounded-xl bg-[#1E2F33] border-2 border-[#283F46] flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] active:translate-y-0.5 transition-transform" style="box-shadow: 0 3px 0 0 #0E181A;">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<!-- Progress Track & Count -->
+<div class="flex-1 mx-3 flex flex-col justify-center gap-1">
+<div class="flex justify-between items-center text-[#A9BDBB]">
+<span class="font-label text-[11px] tracking-wider font-extrabold uppercase text-[#A9BDBB]">FRAGE 4 VON 10</span>
+<span class="font-label text-[11px] text-[#38C5B9] font-extrabold">40%</span>
+</div>
+<div class="h-2.5 w-full bg-[#172427] rounded-full overflow-hidden p-0.5 border border-[#283F46]">
+<div class="h-full bg-[#38C5B9] rounded-full transition-all duration-500 relative" style="width: 40%;">
+<div class="absolute inset-0 bg-white/20 rounded-full h-1/2 top-0"></div>
+</div>
+</div>
+</div>
+<!-- Streaks & XP Status Pills -->
+<div class="flex items-center gap-1.5">
+<div class="flex items-center gap-1 bg-[#1E2F33] px-2 py-1 rounded-xl border-2 border-[#283F46]" style="box-shadow: 0 2px 0 0 #0E181A;">
+<span class="text-[14px]">🔥</span>
+<span class="font-label text-[12px] text-[#F4BF40] font-bold">14</span>
+</div>
+<div class="flex items-center gap-1 bg-[#1E2F33] px-2 py-1 rounded-xl border-2 border-[#283F46]" style="box-shadow: 0 2px 0 0 #0E181A;">
+<span class="text-[14px] text-[#38C5B9]">⚡</span>
+<span class="font-label text-[12px] text-[#38C5B9] font-bold">820</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Question Workspace (Reserve bottom space for docked Feedback Sheet) -->
+<div class="flex-1 overflow-y-auto custom-scroll pt-16 pb-[320px] px-4 flex flex-col gap-3.5">
+<!-- Category Pill -->
+<div class="pt-2 flex items-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E2F33] border-2 border-[#283F46] font-label text-[12px] text-[#38C5B9] font-bold tracking-wide">
+  🎓 IELTS Band 7.0 · Grammatik
+</span>
+</div>
+<!-- Coach Prompt Area with Teacher-Slot -->
+<section class="flex items-start gap-3">
+<!-- 96px rounded dashed placeholder box labelled 'teacher-slot' (no person drawn) -->
+<div class="teacher-slot w-24 h-24 min-w-[96px] min-h-[96px] rounded-2xl border-2 border-dashed border-[#2BA39A] bg-[#152A2D] flex flex-col items-center justify-center p-2 text-center relative shadow-inner">
+<span class="material-symbols-outlined text-[#38C5B9] text-[28px] mb-1" data-icon="school">school</span>
+<span class="font-label text-[11px] leading-tight text-[#38C5B9] font-bold">teacher-slot</span>
+</div>
+<!-- Coach Ama's German Guidance Bubble -->
+<div class="flex-1 bg-[#172427] rounded-2xl p-3 border-2 border-[#283F46] relative" style="box-shadow: 0 4px 0 0 #0E181A;">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="font-label text-[13px] text-[#38C5B9] font-bold">Coach Ama •</span>
+</div>
+<p class="font-body text-[#E8F1F0] text-[14px] leading-snug">
+  Achte auf den Signalzeitpunkt in der Vergangenheit!
+</p>
+</div>
+</section>
+<!-- Question Prompt & Audio Controls -->
+<section class="bg-[#172427] rounded-2xl p-4 border-2 border-[#283F46] flex flex-col gap-3" style="box-shadow: 0 4px 0 0 #0E181A;">
+<span class="font-label text-[11px] text-[#A9BDBB] tracking-wider uppercase font-extrabold">SETZE DIE PASSENDE VERBFORM EIN</span>
+<!-- Sentence Fill-in-the-Blank with Highlighted Blank -->
+<div class="font-title text-[20px] text-[#E8F1F0] font-bold leading-relaxed">
+  She 
+  <span class="inline-flex items-center justify-center min-w-[100px] px-3 py-1 mx-1 rounded-xl bg-[#2BA39A] text-[#10191B] font-extrabold border-b-2 border-[#38C5B9] text-[18px]">
+    has lived
+  </span> 
+  in Berlin since 2019.
+</div>
+<!-- Audio Control Buttons -->
+<div class="flex items-center gap-2 pt-1 border-t border-[#283F46]">
+<button aria-label="Satz normal abspielen" class="h-11 min-h-[44px] px-3.5 rounded-xl bg-[#1E2F33] border-2 border-[#283F46] flex items-center gap-2 text-[#E8F1F0] hover:bg-[#283F46] active:translate-y-0.5 transition-transform" style="box-shadow: 0 3px 0 0 #0E181A;">
+<span class="material-symbols-outlined text-[19px] text-[#38C5B9]" data-icon="volume_up">volume_up</span>
+<span class="font-label text-[13px] font-bold">Abspielen</span>
+</button>
+<button aria-label="Satz verlangsamt mit 0.75-facher Geschwindigkeit abspielen" class="h-11 min-h-[44px] px-3.5 rounded-xl bg-[#1E2F33] border-2 border-[#283F46] flex items-center gap-2 text-[#E8F1F0] hover:bg-[#283F46] active:translate-y-0.5 transition-transform" style="box-shadow: 0 3px 0 0 #0E181A;">
+<span class="material-symbols-outlined text-[19px] text-[#F4BF40]" data-icon="slow_motion_video">slow_motion_video</span>
+<span class="font-label text-[13px] font-bold">Langsam 0.75x</span>
+</button>
+</div>
+</section>
+<!-- 4 Answer Options -->
+<section aria-label="Antwortoptionen" class="flex flex-col gap-2.5" role="radiogroup">
+<!-- Option A: CORRECT / VERIFIED -->
+<div aria-checked="true" class="min-h-[58px] rounded-2xl bg-[#172427] border-2 border-[#38C5B9] flex items-center justify-between px-4 cursor-pointer active:translate-y-1 transition-transform relative overflow-hidden shadow-[0_0_16px_rgba(56,197,185,0.15)]" role="radio" style="box-shadow: 0 5px 0 0 #1A544F;" tabindex="0">
+<!-- Top Gloss Specular Highlight -->
+<div class="absolute inset-x-0 top-0 h-1 bg-[#38C5B9]/25 pointer-events-none"></div>
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-[#2BA39A] text-[#10191B] font-label text-[13px] flex items-center justify-center font-extrabold">A</span>
+<span class="font-body text-[#38C5B9] font-bold text-[17px]">has lived</span>
+</div>
+<div class="w-7 h-7 rounded-full bg-[#38C5B9] flex items-center justify-center text-[#10191B]">
+<span class="material-symbols-outlined text-[18px]" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Option B: lived (neutral raised) -->
+<div aria-checked="false" class="min-h-[58px] rounded-2xl bg-[#1E2F33] border-2 border-[#283F46] flex items-center justify-between px-4 cursor-pointer hover:bg-[#283F46]/50 active:translate-y-1 transition-transform relative" role="radio" style="box-shadow: 0 5px 0 0 #0E181A;" tabindex="0">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-[#172427] text-[#A9BDBB] font-label text-[13px] flex items-center justify-center font-bold">B</span>
+<span class="font-body text-[#E8F1F0] text-[16px] font-medium">lived</span>
+</div>
+<span class="w-6 h-6 rounded-full border-2 border-[#283F46]"></span>
+</div>
+<!-- Option C: is living (neutral raised) -->
+<div aria-checked="false" class="min-h-[58px] rounded-2xl bg-[#1E2F33] border-2 border-[#283F46] flex items-center justify-between px-4 cursor-pointer hover:bg-[#283F46]/50 active:translate-y-1 transition-transform relative" role="radio" style="box-shadow: 0 5px 0 0 #0E181A;" tabindex="0">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-[#172427] text-[#A9BDBB] font-label text-[13px] flex items-center justify-center font-bold">C</span>
+<span class="font-body text-[#E8F1F0] text-[16px] font-medium">is living</span>
+</div>
+<span class="w-6 h-6 rounded-full border-2 border-[#283F46]"></span>
+</div>
+<!-- Option D: had lived (neutral raised) -->
+<div aria-checked="false" class="min-h-[58px] rounded-2xl bg-[#1E2F33] border-2 border-[#283F46] flex items-center justify-between px-4 cursor-pointer hover:bg-[#283F46]/50 active:translate-y-1 transition-transform relative" role="radio" style="box-shadow: 0 5px 0 0 #0E181A;" tabindex="0">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-xl bg-[#172427] text-[#A9BDBB] font-label text-[13px] flex items-center justify-center font-bold">D</span>
+<span class="font-body text-[#E8F1F0] text-[16px] font-medium">had lived</span>
+</div>
+<span class="w-6 h-6 rounded-full border-2 border-[#283F46]"></span>
+</div>
+</section>
+</div>
+<!-- Docked Tactile Feedback Footer Sheet -->
+<aside aria-label="Ergebnis-Rückmeldung" class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-[#123A2B] border-t-2 border-[#1F5F45] rounded-t-3xl p-4 flex flex-col gap-3 shadow-[0_-8px_24px_rgba(0,0,0,0.6)]" style="box-shadow: 0 -4px 0 0 #0D261C, 0 -8px 24px rgba(0,0,0,0.6);">
+<!-- Header Row: Green success badge, title with XP, and coach chime -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 min-w-[40px] rounded-xl bg-[#38C5B9] flex items-center justify-center text-[#10191B]" style="box-shadow: 0 3px 0 0 #1A544F;">
+<span class="material-symbols-outlined text-[24px]" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<div class="font-title text-[20px] leading-tight text-[#38C5B9] font-extrabold tracking-tight">Richtig! +2 XP</div>
+<div class="font-label text-[12px] text-[#A9BDBB] flex items-center gap-1 font-bold">
+<span>✪</span> Ama: Super gemacht!
+</div>
+</div>
+</div>
+<button aria-label="Frage als Favorit markieren oder merken" class="w-10 h-10 min-w-[40px] rounded-xl bg-[#172427] border-2 border-[#1F5F45] flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] active:translate-y-0.5 transition-transform" style="box-shadow: 0 2px 0 0 #0E181A;">
+<span class="material-symbols-outlined text-[20px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<!-- Grammatical Explanation Card -->
+<div class="bg-[#172427] rounded-xl p-3 border-2 border-[#1F5F45] text-[13px] leading-relaxed text-[#E8F1F0]">
+<p>
+  Wir verwenden das <span class="text-[#38C5B9] font-bold">Present Perfect</span> (<span class="font-bold underline decoration-[#38C5B9]">has lived</span>), wenn eine Handlung in der Vergangenheit begonnen hat und bis in die Gegenwart andauert – signalisiert durch das Signalwort <strong class="text-[#F4BF40] font-bold">„since 2019“</strong>.
+</p>
+</div>
+<!-- Button Row: Secondary & Primary Full-Width CTA -->
+<div class="flex flex-col gap-2 pt-0.5">
+<!-- Secondary Action: Grammatikregel anzeigen -->
+<button class="w-full min-h-[44px] rounded-xl bg-[#1E2F33] border-2 border-[#283F46] font-label text-[13px] font-bold text-[#E8F1F0] flex items-center justify-center gap-2 hover:bg-[#283F46] active:translate-y-1 transition-transform" style="box-shadow: 0 4px 0 0 #0E181A;">
+<span>📖</span>
+<span>Grammatikregel anzeigen</span>
+</button>
+<!-- Primary Full-Width CTA: 'WEITER →' -->
+<button class="w-full min-h-[54px] rounded-2xl flex items-center justify-center gap-2 font-display text-[17px] font-extrabold tracking-wider uppercase active:translate-y-1 transition-transform relative overflow-hidden" style="background: linear-gradient(135deg, #F2553B 0%, #FF7A45 100%); color: #1B0B04; box-shadow: 0 5px 0 0 #942D1C;">
+<!-- Top Glossy Specular Highlight -->
+<div class="absolute inset-x-0 top-0 h-1 bg-white/30 pointer-events-none"></div>
+<span>WEITER →</span>
+</button>
+</div>
+</aside>
+</main>
+</body></html>

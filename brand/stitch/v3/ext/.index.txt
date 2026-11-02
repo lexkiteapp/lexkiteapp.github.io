@@ -1,0 +1,5 @@
+# Stitch v3 kho mẫu – ext (scripts/stitch/batch.mjs, 3 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
+ext-newtab 314901e34ab0466ab4779e876f16a005 eff710d10a8841f2b8486fc981cf342a DESKTOP QC | key2 project 10804635390057604965
+ext-popup be940f60b6a94b9c9749d0f80b7657f7 46d7108be9104cfba55f961295379d71 MOBILE QC | key3 project 18075333702575270507
+ext-word 696e88045f4243e698eacb8500740418 d71106c11adc401db1ef4c734f325bea DESKTOP QC | key2 project 10804635390057604965
+ext-writecheck ecac2306204e4945b18b9bf15ab636b9 4e7cf368f76f468cab21ca3583ebb37c DESKTOP QC | key3 project 18075333702575270507

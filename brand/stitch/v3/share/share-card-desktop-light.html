@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Shareable Progress Card Preview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#bcc9c7",
+            "surface-bright": "#2f3b3e",
+            "primary": "#6bd8ce",
+            "background": "#091518",
+            "surface": "#091518",
+            "outline": "#879391",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary": "#f4bf40",
+            "secondary-container": "#981201",
+            "secondary-fixed-dim": "#ffb4a6",
+            "inverse-primary": "#006a64",
+            "inverse-on-surface": "#263236",
+            "on-background": "#d8e5e9",
+            "on-primary-container": "#00322e",
+            "on-primary-fixed": "#00201e",
+            "secondary-fixed": "#ffdad3",
+            "secondary": "#ffb4a6",
+            "primary-container": "#2ba39a",
+            "surface-container-lowest": "#051013",
+            "surface-tint": "#6bd8ce",
+            "on-secondary-fixed-variant": "#900f00",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-fixed": "#88f5ea",
+            "on-primary-fixed-variant": "#00504b",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "on-secondary": "#660800",
+            "on-secondary-container": "#ffa493",
+            "tertiary-container": "#ba8b00",
+            "surface-container-highest": "#2b373a",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-tertiary-fixed": "#261a00",
+            "on-error": "#690005",
+            "surface-container-low": "#121d20",
+            "on-tertiary-container": "#392900",
+            "error": "#ffb4ab",
+            "on-secondary-fixed": "#3f0300",
+            "inverse-surface": "#d8e5e9",
+            "surface-variant": "#2b373a",
+            "surface-dim": "#091518",
+            "surface-container": "#162125",
+            "on-surface": "#d8e5e9",
+            "on-tertiary": "#402e00",
+            "outline-variant": "#3d4947",
+            "surface-container-high": "#202c2f",
+            "on-primary": "#003733",
+            "on-tertiary-fixed-variant": "#5b4300"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "gutter": "16px",
+            "space-md": "16px",
+            "margin": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "space-sm": "8px"
+          },
+          "fontFamily": {
+            "label": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile button sinking effects */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #00504b;
+    }
+    .tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #93000a;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen antialiased flex flex-row selection:bg-primary selection:text-on-primary">
+<!-- ========================================================================= -->
+<!-- SIDE NAVIGATION (Desktop Shell - 256px wide docked left)                   -->
+<!-- Shared Components: SideNavBar                                             -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-full w-64 flex flex-col justify-between p-4 z-40 bg-surface border-r-2 border-outline [box-shadow:4px_0_0_0_#1E1B14]">
+<div class="flex flex-col gap-6">
+<!-- Brand Logo Anchor -->
+<div class="flex items-center gap-3 px-2 pt-2">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center border-2 border-primary [box-shadow:0_4px_0_0_#00504b]">
+<span class="material-symbols-outlined text-on-primary-container text-2xl fill" data-icon="change_history">change_history</span>
+</div>
+<div class="flex flex-col">
+<span class="text-title font-title font-extrabold text-primary-fixed tracking-tight">Lexkite</span>
+<span class="text-label font-label text-outline uppercase tracking-wider text-[10px]">Language Mastery</span>
+</div>
+</div>
+<!-- Placement Badge CTA -->
+<div class="p-3 rounded-xl bg-surface-container-low border-2 border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg fill" data-icon="verified">verified</span>
+<span class="text-label font-label text-on-surface text-xs">Diagnostic Active</span>
+</div>
+<span class="text-label font-label px-2 py-0.5 rounded-full bg-surface-container-highest text-primary-fixed text-[10px]">IELTS C1</span>
+</div>
+<!-- Main Navigation Cluster (5 tabs) -->
+<nav class="flex flex-col gap-2">
+<!-- Today Tab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-surface hover:bg-surface-container-high transition-transform duration-75 active:translate-y-0.5 font-semibold" href="#today">
+<span class="material-symbols-outlined text-xl" data-icon="calendar_today">calendar_today</span>
+<span class="text-body font-body font-semibold">Today</span>
+</a>
+<!-- Vocab Tab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-surface hover:bg-surface-container-high transition-transform duration-75 active:translate-y-0.5 font-semibold" href="#vocab">
+<span class="material-symbols-outlined text-xl" data-icon="menu_book">menu_book</span>
+<span class="text-body font-body font-semibold">Vocab</span>
+</a>
+<!-- Skills Tab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-surface hover:bg-surface-container-high transition-transform duration-75 active:translate-y-0.5 font-semibold" href="#skills">
+<span class="material-symbols-outlined text-xl" data-icon="psychology">psychology</span>
+<span class="text-body font-body font-semibold">Skills</span>
+</a>
+<!-- Tests Tab -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-surface hover:bg-surface-container-high transition-transform duration-75 active:translate-y-0.5 font-semibold" href="#tests">
+<span class="material-symbols-outlined text-xl" data-icon="assignment">assignment</span>
+<span class="text-body font-body font-semibold">Tests</span>
+</a>
+<!-- Me Tab (ACTIVE: Exact match for Profile & Milestone progress flow) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary-container dark:bg-secondary text-primary dark:text-surface [box-shadow:0_3px_0_0_#12514D] font-bold" href="#me">
+<span class="material-symbols-outlined text-xl fill" data-icon="person">person</span>
+<span class="text-body font-body font-bold">Me</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer: Streak, XP & Localization Indicator -->
+<div class="flex flex-col gap-3 pt-4 border-t-2 border-outline-variant">
+<!-- Streak Tile -->
+<div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container border border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg fill" data-icon="local_fire_department">local_fire_department</span>
+<span class="text-label font-label text-on-surface text-xs">Streak</span>
+</div>
+<span class="text-label font-label text-secondary font-bold text-xs">32 Days</span>
+</div>
+<!-- Experience Tile -->
+<div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container border border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg fill" data-icon="bolt">bolt</span>
+<span class="text-label font-label text-on-surface text-xs">Experience</span>
+</div>
+<span class="text-label font-label text-tertiary-fixed font-bold text-xs">1,240 XP</span>
+</div>
+<!-- Language selector dropdown trigger -->
+<button class="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container border border-outline-variant transition-colors text-on-surface-variant hover:text-on-surface" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="translate">translate</span>
+<span class="text-label font-label text-xs uppercase tracking-wider">EN (US)</span>
+</div>
+<span class="text-label font-label text-[10px] text-outline">15 Langs</span>
+</button>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE CONTAINER (ml-64 offset for docked sidebar)                 -->
+<!-- ========================================================================= -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 bg-background">
+<!-- Top Navigation Bar (Shared Components: TopNavBar) -->
+<header class="sticky top-0 z-30 w-full border-b-2 border-outline bg-surface-dim [box-shadow:0_4px_0_0_#1E1B14]">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1240px] mx-auto w-full">
+<!-- Breadcrumb / Section Context -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors text-body font-body font-semibold" href="#me">
+<span>Me</span>
+</a>
+<span class="text-outline">/</span>
+<div class="flex items-center gap-2">
+<span class="text-title font-title text-on-surface font-extrabold tracking-tight">Share Milestone</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container text-label font-label text-[10px] uppercase font-bold">Verified</span>
+</div>
+</div>
+<!-- Trailing Actions & Profile Chip -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container border-2 border-outline-variant text-on-surface text-label font-label uppercase transition-transform duration-75 active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="flag">flag</span>
+<span>Export Report</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container border-2 border-outline-variant text-on-surface text-label font-label uppercase transition-transform duration-75 active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<span>Settings</span>
+</button>
+<div class="h-6 w-0.5 bg-outline-variant mx-1"></div>
+<!-- Profile Badge Chip -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high border border-outline-variant">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-extrabold text-xs">
+              K
+            </div>
+<div class="flex flex-col text-left">
+<span class="text-label font-label text-on-surface text-xs leading-none">Learner Kai</span>
+<span class="text-[10px] text-tertiary-fixed font-label font-semibold leading-none mt-0.5">Band 7.5 Target</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-8 py-8 max-w-[1240px] mx-auto w-full flex flex-col gap-8">
+<!-- Stage Header & Format Switcher Controls -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-outline-variant pb-6">
+<div>
+<h1 class="text-display font-display text-on-surface tracking-tight">Share Your Exam Milestone</h1>
+<p class="text-body font-body text-on-surface-variant mt-1">Export or share your verified Cambridge &amp; ETS progress card to study groups or social platforms.</p>
+</div>
+<!-- Format Selector Tabs (Pill style with tactile border) -->
+<div class="inline-flex p-1.5 rounded-xl bg-surface-container border-2 border-outline-variant">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary-container text-label font-label uppercase font-extrabold shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="crop_portrait">crop_portrait</span>
+<span>Portrait Card (4:5 / 1080×1350)</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high text-label font-label uppercase transition-all" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="smartphone">smartphone</span>
+<span>Story (9:16)</span>
+</button>
+</div>
+</div>
+<!-- Main Stage Workspace: 2-Column Split (Left: Progress Card Preview, Right: Tactile Share Panel) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- =================================================================== -->
+<!-- CENTRAL SHARE CARD PREVIEW (Tactile 1080x1350 Simulation, lg:col-span-7) -->
+<!-- =================================================================== -->
+<div class="lg:col-span-7 flex flex-col items-center justify-center p-6 rounded-2xl bg-surface-container-low border-2 border-outline-variant [box-shadow:inset_0_2px_4px_rgba(0,0,0,0.4)]">
+<!-- Dimensions Label & Aspect Ratio Reminder -->
+<div class="w-full flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label font-label text-outline text-[11px] uppercase tracking-wider">Live Preview • 1080 × 1350 HD Export</span>
+</div>
+<span class="text-label font-label text-on-surface-variant text-[11px] uppercase bg-surface-container px-2 py-0.5 rounded border border-outline-variant">PNG 300 DPI</span>
+</div>
+<!-- THE TACTILE SOCIAL PROGRESS CARD -->
+<div class="w-full max-w-[440px] rounded-2xl bg-surface-container-high border-2 border-primary-container [box-shadow:0_8px_0_0_#00504b,0_16px_24px_rgba(0,0,0,0.5)] p-6 flex flex-col gap-5 text-on-surface transition-transform duration-150" id="milestone-card">
+<!-- Card Header: Lexkite Kite Brand + Verified Pill -->
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary-container [box-shadow:0_3px_0_0_#00504b]">
+<span class="material-symbols-outlined text-xl fill" data-icon="change_history">change_history</span>
+</div>
+<div>
+<div class="text-title font-title text-base font-extrabold text-primary-fixed leading-tight tracking-tight">Lexkite</div>
+<div class="text-[10px] font-label text-outline uppercase tracking-wider">Adaptive Diagnostics</div>
+</div>
+</div>
+<!-- Verified Badge Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 border border-primary text-primary-fixed text-label font-label text-[11px] uppercase font-bold tracking-wider">
+<span class="material-symbols-outlined text-xs fill" data-icon="verified">verified</span>
+<span>IELTS Academic • Verified</span>
+</div>
+</div>
+<!-- Projected Band Score Hero Banner -->
+<div class="p-5 rounded-xl bg-surface-container border-2 border-outline-variant [box-shadow:0_4px_0_0_#091518] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="text-label font-label text-outline uppercase tracking-widest text-[11px]">Projected Band Score</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-secondary text-label font-label text-[11px] font-extrabold [box-shadow:0_2px_0_0_#660800]">
+                  +0.5 Band Jump
+                </span>
+</div>
+<!-- Big Focal Metric -->
+<div class="flex items-baseline justify-between mt-1">
+<div class="text-display font-display text-3xl font-extrabold text-primary-fixed tracking-tight">
+                  Band 6.5 <span class="text-tertiary">→</span> 7.0
+                </div>
+<div class="px-3 py-1 rounded-lg bg-primary-container text-on-primary-container text-label font-label font-extrabold text-xs uppercase [box-shadow:0_2px_0_0_#00322e]">
+                  C1 Level
+                </div>
+</div>
+<!-- Stepper / Target Path Track -->
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/60">
+<div class="flex items-center gap-1 text-on-surface-variant text-label font-label text-[11px]">
+<span class="material-symbols-outlined text-primary text-xs fill" data-icon="check_circle">check_circle</span>
+<span>Prev: 6.5 Competent</span>
+</div>
+<span class="text-outline text-xs">→</span>
+<div class="flex items-center gap-1 text-tertiary-fixed font-label font-bold text-[11px]">
+<span class="material-symbols-outlined text-tertiary text-xs fill" data-icon="star">star</span>
+<span>Goal: 7.0 Good User</span>
+</div>
+</div>
+</div>
+<!-- Teacher Endorsement Slot & Speech Bubble -->
+<div class="flex items-stretch gap-3">
+<!-- Rounded Dashed Placeholder Box (Teacher Slot as per strict rules) -->
+<div class="teacher-slot w-[130px] flex-shrink-0 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-low p-2 flex flex-col items-center justify-center text-center gap-1">
+<span class="material-symbols-outlined text-2xl text-outline" data-icon="school">school</span>
+<span class="text-[11px] font-label text-outline uppercase font-bold tracking-tight">teacher-slot</span>
+<span class="text-[9px] text-on-surface-variant font-medium leading-none">Ama / Carlos 2D live</span>
+</div>
+<!-- Speech Bubble Endorsement -->
+<div class="flex-1 p-3.5 rounded-xl bg-surface-container border-2 border-outline-variant relative flex flex-col justify-center">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-primary text-sm fill" data-icon="record_voice_over">record_voice_over</span>
+<span class="text-label font-label text-xs font-bold text-on-surface">Teacher Carlos • IELTS Coach</span>
+</div>
+<p class="text-body font-body text-xs text-on-surface-variant italic leading-relaxed">
+                  "Remarkable momentum! Cohesion and Lexical Resource are locked in for Band 7.0."
+                </p>
+</div>
+</div>
+<!-- Key Metrics Grid (3 tactile stat tiles with 2px border and 4px ledge) -->
+<div class="grid grid-cols-3 gap-2.5">
+<!-- Stat 1: Words Mastered -->
+<div class="p-3 rounded-xl bg-surface-container border-2 border-outline-variant [box-shadow:0_4px_0_0_#051013] flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-lg mb-1" data-icon="menu_book">menu_book</span>
+<span class="text-title font-title text-base font-extrabold text-on-surface">1,240</span>
+<span class="text-label font-label text-[9px] text-outline uppercase mt-0.5 tracking-wider">Words Mastered</span>
+</div>
+<!-- Stat 2: Study Streak -->
+<div class="p-3 rounded-xl bg-surface-container border-2 border-outline-variant [box-shadow:0_4px_0_0_#051013] flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary text-lg mb-1 fill" data-icon="local_fire_department">local_fire_department</span>
+<span class="text-title font-title text-base font-extrabold text-secondary">32 Days</span>
+<span class="text-label font-label text-[9px] text-outline uppercase mt-0.5 tracking-wider">Study Streak</span>
+</div>
+<!-- Stat 3: Accuracy Rate -->
+<div class="p-3 rounded-xl bg-surface-container border-2 border-outline-variant [box-shadow:0_4px_0_0_#051013] flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-tertiary text-lg mb-1" data-icon="ads_click">ads_click</span>
+<span class="text-title font-title text-base font-extrabold text-tertiary-fixed">91.8%</span>
+<span class="text-label font-label text-[9px] text-outline uppercase mt-0.5 tracking-wider">Accuracy Rate</span>
+</div>
+</div>
+<!-- Card Footer: Verification Stamp & Calibration Credit -->
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between text-[10px] text-outline font-label uppercase tracking-wider">
+<span>lexkite.com</span>
+<span>Cambridge &amp; IDP Calibrated</span>
+<span class="text-primary-fixed">Free Practice</span>
+</div>
+</div>
+</div>
+<!-- =================================================================== -->
+<!-- ACTION CONTROLS & SOCIAL DISTRIBUTION (lg:col-span-5)              -->
+<!-- =================================================================== -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Primary Actions Tactile Card -->
+<div class="p-6 rounded-2xl bg-surface-container border-2 border-outline-variant [box-shadow:0_4px_0_0_#1E1B14] flex flex-col gap-4">
+<h2 class="text-title font-title text-on-surface font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="ios_share">ios_share</span>
+<span>Export &amp; Share</span>
+</h2>
+<p class="text-body font-body text-xs text-on-surface-variant">
+              Generate a high-res image optimized for messaging apps and social story feeds with verified calibration badges.
+            </p>
+<!-- Primary Action: Save Image (Tactile Coral-Amber Gradient CTA) -->
+<button class="tactile-coral w-full min-h-[52px] px-6 py-3 rounded-xl bg-gradient-to-r from-secondary to-tertiary hover:opacity-95 text-on-primary-fixed font-title font-extrabold text-base border-2 border-outline [box-shadow:0_5px_0_0_#981201] flex items-center justify-center gap-3 transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-xl fill" data-icon="download">download</span>
+<span>Save Image (PNG 1080×1350)</span>
+</button>
+<!-- Secondary Action: Share Card -->
+<button class="tactile-btn w-full min-h-[48px] px-6 py-3 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-title font-bold text-sm border-2 border-outline-variant [box-shadow:0_4px_0_0_#051013] flex items-center justify-center gap-2 transition-transform duration-75" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+<span>Share Card (Native Share API)</span>
+</button>
+</div>
+<!-- Quick Share Channels Bento -->
+<div class="p-6 rounded-2xl bg-surface-container border-2 border-outline-variant [box-shadow:0_4px_0_0_#1E1B14] flex flex-col gap-4">
+<span class="text-label font-label text-outline uppercase tracking-wider text-xs">Direct Channel Share</span>
+<div class="grid grid-cols-2 gap-3">
+<!-- WhatsApp -->
+<button class="tactile-card min-h-[48px] px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high border-2 border-outline-variant [box-shadow:0_3px_0_0_#051013] flex items-center gap-3 text-left transition-transform duration-75" type="button">
+<div class="w-8 h-8 rounded-lg bg-[#25D366]/20 text-[#25D366] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label font-label text-xs text-on-surface font-bold">WhatsApp</span>
+<span class="text-[10px] text-outline font-label">Chat &amp; Group</span>
+</div>
+</button>
+<!-- Telegram -->
+<button class="tactile-card min-h-[48px] px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high border-2 border-outline-variant [box-shadow:0_3px_0_0_#051013] flex items-center gap-3 text-left transition-transform duration-75" type="button">
+<div class="w-8 h-8 rounded-lg bg-[#229ED9]/20 text-[#229ED9] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="send">send</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label font-label text-xs text-on-surface font-bold">Telegram</span>
+<span class="text-[10px] text-outline font-label">Study Channel</span>
+</div>
+</button>
+<!-- Instagram Stories -->
+<button class="tactile-card min-h-[48px] px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high border-2 border-outline-variant [box-shadow:0_3px_0_0_#051013] flex items-center gap-3 text-left transition-transform duration-75" type="button">
+<div class="w-8 h-8 rounded-lg bg-[#E1306C]/20 text-[#E1306C] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="history_toggle_off">history_toggle_off</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label font-label text-xs text-on-surface font-bold">IG Stories</span>
+<span class="text-[10px] text-outline font-label">Auto-sticker</span>
+</div>
+</button>
+<!-- Copy Link -->
+<button class="tactile-card min-h-[48px] px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high border-2 border-outline-variant [box-shadow:0_3px_0_0_#051013] flex items-center gap-3 text-left transition-transform duration-75" type="button">
+<div class="w-8 h-8 rounded-lg bg-primary/20 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="content_copy">content_copy</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label font-label text-xs text-on-surface font-bold">Copy Link</span>
+<span class="text-[10px] text-outline font-label">Verified URL</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Localization Readiness Alert Pill -->
+<div class="p-4 rounded-xl bg-surface-container-low border-2 border-outline-variant flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl flex-shrink-0" data-icon="language">language</span>
+<div class="flex flex-col">
+<span class="text-label font-label text-xs text-on-surface font-bold">Localization Calibrated</span>
+<p class="text-[11px] text-on-surface-variant font-body">Previewing in English (US) • Card layout dynamically flexes for +40% longer strings (German, Vietnamese, Russian, Arabic).</p>
+</div>
+</div>
+<!-- Micro Tips Tile -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm fill" data-icon="lightbulb">lightbulb</span>
+<span class="text-[11px] font-label text-on-surface font-semibold">Teacher Carlos endorsement verified on 14 March 2025</span>
+</div>
+<span class="text-label font-label text-[10px] text-primary-fixed uppercase underline cursor-pointer">Details</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
