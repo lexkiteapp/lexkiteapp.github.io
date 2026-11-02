@@ -179,3 +179,4 @@ Lịch sử đầy đủ (bài học 17–22/10, Kling, chroma key, kho, video):
 ## Lỗi Kling (chuyển từ METHODS §8, 01/11)
 - Mảng zsh 1-based → gửi Kling prompt rỗng (−50 cr): dùng `bash -c`, dry-run in lệnh.
 - Script ghi đè biến prompt bằng đường dẫn ảnh (−43 cr): đọc lại lệnh trước khi gửi.
+- Gửi cả lô 8 plate (225 cr) không thử 1 trước – vi phạm CREDIT-RULES.

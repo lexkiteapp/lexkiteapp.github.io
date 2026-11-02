@@ -223,7 +223,6 @@
 'Lặp lại ngắt quãng': 'Spaced repetition',
 'Ngữ liệu dễ hiểu': 'Comprehensible input',
 '1 bài ngữ pháp': '1 grammar lesson',
-'Sửa lỗi sai': 'Fix mistakes',
 'Nghe 1 phần': 'Listen to 1 part',
 'Luyện Speaking': 'Practice Speaking',
 'Ghép thẻ tính giờ': 'Timed matching',

@@ -58,7 +58,7 @@ assert.equal(UI.audioFor({ audio: 'https://x/of-uk.mp3' }, 'en-US'), '', 'US kh�
 const src = f => fs.readFileSync(f, 'utf8');
 assert.match(src('web/js/study.js'), /UI\.pronHtml\(c\)/, 'thẻ học: 2 giọng');
 assert.doesNotMatch(src('web/js/study.js'), /speak\([cw]\.word, accent\(\), [cw]\.audio\)/, 'thẻ học phát bản ghi đúng giọng');
-assert.match(src('web/js/app.js'), /UI\.pronHtml\(e, \{ pills: true \}\)/, 'từ điển 2 giọng (viên riêng)');
+assert.match(src('web/js/dict-page.js'), /UI\.pronHtml\(e, \{ pills: true \}\)/, 'từ điển 2 giọng (viên riêng) – trang #/dict ở dict-page.js');
 assert.equal((UI.pronHtml({ word: 'water', ipa: '/ˈwɔːtə/', ipaUS: '/ˈwɔːtər/' }, { pills: true }).match(/^<span>|<\/span><span>/g) || []).length, 2, 'pills: 2 viên');
 for (const f of ['web/js/quick.js', 'web/js/reading.js', 'web/js/listening.js', 'web/js/phrases.js', 'web/js/handsfree.js']) assert.match(src(f), /UI\.ipaHtml\(/, f);
 assert.match(src('web/js/lesson/ui.js'), /UI\.pronHtml\(/, 'bài học 2 giọng');
