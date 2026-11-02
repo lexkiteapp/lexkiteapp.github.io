@@ -32,8 +32,14 @@ export function measure(s, env, i = 0, { delay = 0 } = {}) {
   // 30–120 ms không đổi số đo → không phải lỗi engine.
   const open = S.map(q => q.mouth.u + q.mouth.d), chunks = []; let c0 = -1, quiet = 0;
   const truthOpen = Array.from({ length: n }, (_, k) => { const v = truth(k / 100) || 'X', p = LM.mix(v, v, 1); return p.u + p.d; });
-  for (let k = 0; k <= n; k++) { const v = k < n && env[k] >= peak * .1;
-    if (v) { if (c0 < 0) c0 = k; quiet = 0; } else if (c0 >= 0 && (++quiet >= 12 || k === n)) { const c1 = k - quiet + 1; if (c1 - c0 >= 60) chunks.push([Math.max(0, c0 - 10), Math.min(n, c1 + 10)]); c0 = -1; quiet = 0; } }
+  // cụm: cùng ngưỡng LS.ONSET / LS.QUIET với mép bật tiếng; cụm < 0,6 s GỘP vào cụm sau (cuối câu: vào cụm trước), không bỏ – trước 02/11 ngưỡng 10 % + bỏ cụm ngắn
+  // làm cụm sau bắt đầu giữa từ ("Re|peat" pt_BR-people-are) → tương quan chéo trượt sang đỉnh phụ 220 ms
+  const push = (a, b) => chunks.push([Math.max(0, a - 10), Math.min(n, b + 10)]); let last = -1;
+  for (let k = 0; k <= n; k++) { const v = k < n && env[k] >= peak * LS.ONSET;
+    if (v) { if (c0 < 0) c0 = k; quiet = 0; last = k; continue; }
+    if (c0 < 0 || (++quiet < LS.QUIET * 100 && k < n)) continue;
+    if (last + 1 - c0 >= 60) { push(c0, last + 1); c0 = -1; } else if (k === n) { if (chunks.length) chunks[chunks.length - 1][1] = Math.min(n, last + 11); else push(c0, last + 1); }
+    quiet = 0; }
   const lagEnvChunksMs = chunks.map(([a, b]) => xlag(open.slice(a, b), env.slice(a, b))), lagGlobalMs = xlag(open, env);
   const ons = LS.onsets(env), diff = spans => { const P = spans.filter(x => x.v !== ' ' && x.v !== 'X');
     return P.length ? ons.map(t => Math.round(1000 * (P.reduce((m, x) => Math.abs(x.s - t) < Math.abs(m.s - t) ? x : m).s - t))) : []; };
@@ -48,5 +54,5 @@ export function measure(s, env, i = 0, { delay = 0 } = {}) {
   // hình CHỦ Ý đi trước (LS.LEADS: môi khép A 65 ms, F/V 45, chu môi 40) được trừ phần đi trước dư so với LEAD chung – như cổng đúng hình ở trên
     .map((d, j) => { if (d === null) return null; const k = Math.min(n - 1, Math.max(0, Math.round(ons[j] * 100) + d / 10)), sh = S[k].shape; return d + Math.round(((LS.LEADS[sh] || LS.LEAD) - LS.LEAD) * 1000); });
   const lagMs = [...lagChunksMs, ...mouthOnsetMs.filter(x => x !== null)].reduce((m, x) => Math.abs(x) > Math.abs(m) ? x : m, 0);
-  return { ...s, env, cues, M, lagMs, lagGlobalMs, lagChunksMs, lagEnvChunksMs, onsetDiffMs, kokoroOnsetMs, mouthOnsetMs, alignMs, alignChunksMs, visemePct: tot ? Math.round(100 * ok / tot) : 0, flicker: flick, firstVoiced };
+  return { ...s, env, cues, M, chunks, lagMs, lagGlobalMs, lagChunksMs, lagEnvChunksMs, onsetDiffMs, kokoroOnsetMs, mouthOnsetMs, alignMs, alignChunksMs, visemePct: tot ? Math.round(100 * ok / tot) : 0, flicker: flick, firstVoiced };
 }

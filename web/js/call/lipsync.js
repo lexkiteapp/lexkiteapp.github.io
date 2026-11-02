@@ -63,10 +63,13 @@
   // Mép bật tiếng: RMS ≥ ONSET × đỉnh câu (5 % ≈ −26 dB) sau lặng ≥ QUIET. MỘT định nghĩa cho cả neo mốc (align, anchor) lẫn cổng đo (scripts/rig/timeline.mjs):
   // 10 % (−20 dB) bỏ sót phần đầu âm nhẹ (tiếng nổ d/t, xát s/h, nguyên âm mở bằng thanh hầu) → miệng mở trễ 40–80 ms so với tiếng nghe được (lô 02/11 es-age-be "Don't": 320 → 240 ms).
   const ONSET = 0.05, QUIET = 0.12;
-  /** Các mép bật tiếng (giây) trong env (RMS hz): lần đầu vượt ONSET × đỉnh sau ≥ QUIET im. */
+  /** Các mép bật tiếng (giây) trong env (RMS hz): lần đầu vượt ONSET × đỉnh sau ≥ QUIET im, và có tiếng ≥ MIN_HOLD trong 80 ms sau đó.
+   * Tiếng nhả ngắn hơn (bật "t" cuối "fact." sau khoảng khép im – pt_BR-actually 2,02 s, 20 ms) không phải lúc bắt đầu nói: môi/lưỡi đã ở đúng chỗ từ lúc khép,
+   * nên không neo âm vị và không đo mép miệng ở đó; im sau nó vẫn tính tiếp (không reset). */
   function onsets(env, hz = 100) {
-    const pk = Math.max(...env, 1e-6), out = []; let q = 1e9;
-    for (let k = 0; k < env.length; k++) { if (env[k] >= pk * ONSET) { if (q >= QUIET * hz) out.push(k / hz); q = 0; } else q++; }
+    const pk = Math.max(...env, 1e-6), thr = pk * ONSET, out = []; let q = 1e9;
+    const sustained = k => { let c = 0; for (let j = k; j < Math.min(env.length, k + Math.round(0.08 * hz)); j++) if (env[j] >= thr) c++; return c >= Math.round(MIN_HOLD * hz); };
+    for (let k = 0; k < env.length; k++) { if (env[k] >= thr) { if (q >= QUIET * hz) { if (!sustained(k)) continue; out.push(k / hz); } q = 0; } else q++; }
     return out;
   }
   /** Neo mốc âm vị Kokoro vào tiếng thật (trước fromPhones): khúc âm đầu tiên sau mỗi mép bật tiếng (onsets) bắt đầu đúng tại mép nếu lệch ≤ max.
