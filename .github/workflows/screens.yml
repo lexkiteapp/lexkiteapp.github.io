@@ -9,6 +9,10 @@ on:
     paths: ['.github/workflows/screens.yml', 'scripts/test/screens.mjs']
 permissions:
   contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   shots:
     runs-on: ubuntu-latest

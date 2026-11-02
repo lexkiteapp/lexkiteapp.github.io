@@ -60,6 +60,10 @@ const PL = { id: 'x', platform: 'dev.to', url: 'https://dev.to/u/post-1', status
   let r = P.evaluateFigshare(p, api({ description: '<p>See <a href="https://lexkite.com/en/research/confused-words/">research</a></p>' }));
   ok(r.state === 'ok' && r.link && r.links[0] === 'https://lexkite.com/en/research/confused-words/' && r.via === 'api', 'Figshare: link trong mô tả → ok');
   ok(P.evaluateFigshare(p, api({ description: '<p>x</p>', references: ['https://lexkite.com/en/research/'] })).state === 'ok', 'Figshare: link trong references → ok');
+  r = P.evaluateFigshare(p, api({ description: 'Latest version: https://lexkite.com/en/research/confused-words/ . Also archived on Zenodo: https://doi.org/10.5281/zenodo.23662626 .' }));
+  ok(r.state === 'ok' && r.link && r.rel === null && r.links[0] === 'https://lexkite.com/en/research/confused-words/', 'Figshare: URL dạng chữ trong mô tả (tự gắn link khi hiển thị) → ok, rel chưa rõ (01/11 báo nhầm link-gone)');
+  ok(P.classify({ ...p, status: 'live', expectedRel: 'unknown' }, r).level === 'ok', 'Figshare: URL dạng chữ không bị xếp regression');
+  ok(P.evaluateFigshare(p, api({ description: 'see https://notlexkite.com.evil.example/x and https://example.com/?u=lexkite.com' })).state === 'link-missing', 'Figshare: URL chữ khác tên miền → vẫn link-missing');
   ok(P.evaluateFigshare(p, api({ description: '<p>no link</p>' })).state === 'link-missing', 'Figshare: mô tả mất link → link-missing (vẫn bắt được link-gone thật)');
   ok(P.evaluateFigshare(p, res(404, '{}')).state === 'removed' && P.evaluateFigshare(p, res(429, '')).state === 'blocked' && P.evaluateFigshare(p, res(0, '', { error: 'timeout' })).state === 'error' && P.evaluateFigshare(p, res(200, 'not json')).state === 'error', 'Figshare: 404 → gỡ · 429 → chặn · lỗi mạng/JSON → không kết luận');
   const seen = []; r = await P.checkPlacement(p, async (url, o) => { seen.push([url, o && o.accept]); return api({ description: '<a href="https://lexkite.com/">x</a>' }); });

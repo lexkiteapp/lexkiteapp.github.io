@@ -76,6 +76,12 @@ const pvAfter = pv(H.dayOf(NOW), 'home');
 ok(pvAfter === 2, 'máy tự động không cộng lượt xem từng trang (chỉ người thật + cubot = 2)');
 // bot gửi lỗi JS / add-on → bỏ
 await hit({ t: 'e', msg: 'boom', src: 'x.js' }, { asn: 8075 }); ok(!sql.prepare("SELECT 1 FROM errors WHERE msg = 'boom'").get(), 'lỗi JS từ máy chủ đám mây không ghi');
+// lỗi JS từ bản dev/preview → bỏ (bảng admin chỉ đếm lỗi của bản người học đang chạy); bản chính, add-on, app native → giữ
+for (const o of ['http://localhost:8080', 'http://127.0.0.1:4173', 'https://say-native.lexkite.pages.dev', 'https://1a2b3c4d.lexkite.pages.dev']) await hit({ t: 'e', msg: 'dev ' + o, src: 'x.js' }, { headers: { Origin: o } });
+ok(!sql.prepare("SELECT 1 FROM errors WHERE msg LIKE 'dev %'").get(), 'lỗi JS từ localhost:<cổng> / preview *.lexkite.pages.dev không ghi');
+await hit({ t: 'e', msg: 'devref', src: 'x.js' }, { headers: { Referer: 'https://fix-x.lexkite.pages.dev/app/#/say' } }); ok(!sql.prepare("SELECT 1 FROM errors WHERE msg = 'devref'").get(), 'lỗi JS có Referer preview không ghi');
+for (const o of ['https://lexkite.com', 'https://lexkite.pages.dev', 'chrome-extension://lgjmmabcdefghijklmnopabcdefghijk', 'https://localhost', 'capacitor://localhost']) await hit({ t: 'e', msg: 'prod ' + o, src: 'x.js' }, { headers: { Origin: o } });
+ok(sql.prepare("SELECT COUNT(*) AS n FROM errors WHERE msg LIKE 'prod %'").get().n === 5, 'lỗi JS từ lexkite.com / add-on / app native vẫn ghi');
 await hit({ t: 'x', vid: 'extciaaaaaa', ev: { install: 1 } }, { asn: 8075 }); ok(!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'install'").get(), 'add-on cài trên CI không tính lượt cài');
 
 // ---------- 3) Gộp trùng theo sid · bot không "hoá người" · trang quản trị ----------
@@ -131,6 +137,18 @@ ok(!!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'blog:quiz_done'").get()
 ok(!sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE 'blog:drop%'").get(), 'sự kiện quiz lạ bị bỏ');
 await hit({ t: 'q', ev: 'ret_on_d7' }, { ip: '6.6.6.7' }); await hit({ t: 'q', ev: 'ret_maybe_d7' }, { ip: '6.6.6.7' });
 ok(!!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'ret:ret_on_d7'").get() && !sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE '%ret_maybe%'").get(), 'thử nghiệm cờ ret: chỉ nhận 4 sự kiện cho phép');
+
+// Beacon dự phòng bằng fetch (app native capacitor://localhost, không sendBeacon): /api/hit không trả CORS → fetch chế độ cors
+// bị trình duyệt từ chối ("Load failed" – iOS E2E đỏ) dù máy chủ đã nhận. Beacon không đọc phản hồi → bắt buộc mode: 'no-cors'.
+{
+  const fsm = await import('node:fs');
+  for (const f of ['web/js/app.js', 'web/js/lesson-video.js', 'web/js/ads/run.js']) {
+    const src = fsm.readFileSync(f, 'utf8');
+    const calls = [...src.matchAll(/fetch\([^;]*?\/api\/hit'?[^)]*?\{([^}]*)\}/g)];
+    ok(calls.length > 0, `${f}: tìm thấy fetch /api/hit dự phòng`);
+    for (const c of calls) ok(/mode:\s*'no-cors'/.test(c[1]), `${f}: fetch /api/hit dự phòng phải mode 'no-cors' (${c[1].trim().slice(0, 80)})`);
+  }
+}
 
 Date.now = realNow;
 console.log(fails ? `✗ analytics: ${fails}/${n} lỗi` : `✓ analytics: ${n} kiểm tra đạt (loại bot/CI/quản trị, gộp sid, ngày giờ VN, % quốc gia, di chuyển dữ liệu)`);

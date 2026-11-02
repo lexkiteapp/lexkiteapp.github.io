@@ -1,4 +1,5 @@
 ---
+translationKey: cau-bi-dong-tieng-anh-passive-voice
 title: "Passive Voice Rules in Hindi: Active से Passive बनाने के नियम"
 slug: "passive-voice-rules-in-english-hindi"
 description: "Passive voice rules in hindi: अंग्रेजी के सभी काल में एक्टिव से पैसिव वॉइस बनाने के नियम, फॉर्मूला चार्ट, बाय का सही प्रयोग और प्रमुख गलतियाँ समझें।"
