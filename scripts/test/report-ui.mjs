@@ -6,7 +6,7 @@ import jsdom from 'jsdom';
 const { JSDOM } = jsdom;
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const rd = f => fs.readFileSync(new URL('../../web/' + f, import.meta.url), 'utf8');
-const dom = new JSDOM('<!doctype html><html><head></head><body><nav class="side-foot"></nav><main id="view" class="view"></main></body></html>', { url: 'https://lexkite.com/#/dict/record?q=private', runScripts: 'outside-only', pretendToBeVisual: true });
+const dom = new JSDOM('<!doctype html><html><head></head><body><nav class="side-foot"><a data-blog href="/blog/">Blog</a><a data-l="about" href="/about">About</a><a href="/contact">Contact</a></nav><main id="view" class="view"></main></body></html>', { url: 'https://lexkite.com/#/dict/record?q=private', runScripts: 'outside-only', pretendToBeVisual: true });
 const w = dom.window, d = w.document;
 w.localStorage.setItem('vb.uiLang', 'en'); w.localStorage.setItem('lk.vid', 'abcdefgh12345678xyz'); w.localStorage.setItem('lk.push', JSON.stringify({ id: 'a'.repeat(32) }));
 const mq = { matches: false, fs: [], addEventListener: (e, f) => { mq.fs.push(f); }, f: () => mq.fs.forEach(f => f()) }; w.matchMedia = () => mq; w.console.error = () => {};
@@ -16,6 +16,9 @@ for (const f of ['js/i18n.js', 'js/i18n/en.js', 'js/i18n/en/report.js', 'js/kit.
 w.App = { routes: {} };
 w.eval(rd('js/report-pill.js'));
 d.dispatchEvent(new w.Event('DOMContentLoaded'));
+const lazyTag = [...d.head.querySelectorAll('script')].find(x => /js\/report-pill-ui\.js$/.test(x.src));
+w.eval(rd('js/report-pill-ui.js')); // jsdom không tải script – nạp tay phần lười đúng như trình duyệt
+const STYLE = rd('css/style.css'), CSS = (STYLE.match(/\/\* report-pill[\s\S]*?\/\* \/report-pill \*\//) || [''])[0];
 const tick = (ms = 0) => new Promise(r => setTimeout(r, ms));
 
 // ---------- Nút nổi ----------
@@ -28,7 +31,9 @@ w.location.hash = '#/practice/flash'; w.dispatchEvent(new w.HashChangeEvent('has
 ok(pill.hidden, 'ẩn khi đang luyện tập'); w.location.hash = '#/dict/record?q=private'; w.dispatchEvent(new w.HashChangeEvent('hashchange')); ok(!pill.hidden, 'hiện lại ngoài bài luyện');
 
 // Không che nội dung: nút tròn 44 px, tên đọc được, .view chừa đáy (--fab-space), ẩn khi cuộn xuống/gõ phím/có thanh dính đáy
-const CSS = w.LexReportCSS || '';
+ok(lazyTag && fs.statSync(new URL('../../web/js/report-pill.js', import.meta.url)).size < 3072, 'lõi report-pill.js < 3 KB, tự nạp phần lười report-pill-ui.js');
+ok(CSS && !d.querySelector('style') && /\.lk-rep\{/.test(CSS), 'kiểu nút nằm trong css/style.css (nạp cùng khung – không chèn <style> bằng JS)');
+ok(/\.side-foot:not\(\.sf-ok\)>a:not\(\[data-blog\]\)/.test(CSS) && /\.side-foot:not\(\.sf-ok\) \.lk-rep\.in-side\{margin-top:calc\(\.4rem \+ 44px\)\}/.test(CSS) && d.querySelector('.side-foot').classList.contains('sf-ok') && d.querySelector('.side-foot>.sf-more .sf-m a[href="/contact"]') && d.querySelector('.side-foot>a[data-blog]') && d.querySelector('.side-foot>a[data-l=about]'), 'chân thanh bên: link phụ vào ⋯ Xem thêm, giữ Blog/Giới thiệu; ẩn sẵn link phụ + chừa hàng 44 px tới khi gom xong (.sf-ok) → không xô bố cục');
 ok(pill.querySelector('.lk-rep-l') && pill.querySelector('.lk-rep-l').textContent === 'Report' && /width:44px;height:44px/.test(CSS), 'nút gọn 44×44 px, nhãn "Report" cho trình đọc màn hình (data-i18n – đổi ngôn ngữ vẫn dịch)');
 ok(d.documentElement.classList.contains('lk-fab') && /--fab-space:\d+px/.test(CSS) && /html\.lk-fab body:not\(\.cbt-mode\):not\(\.bare\) \.view\{padding-bottom:calc\([^}]*var\(--fab-space\)/.test(CSS), 'html.lk-fab + .view padding-bottom có var(--fab-space) → nội dung cuối trang không bị nút che');
 ok(/:has\([^)]*\.learn-bar[^)]*\.grade-bar[^)]*#modal:not\(\[hidden\]\)[^)]*dialog\[open\]/.test(CSS) && /body\.focus \.lk-rep/.test(CSS), 'ẩn khi có thanh "Tiếp tục"/thanh chấm/hộp thoại/màn tập trung');

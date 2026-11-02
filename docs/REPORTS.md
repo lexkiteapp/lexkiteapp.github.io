@@ -5,7 +5,7 @@
 Người dùng báo lỗi → mã LX-xxxx + link riêng `#/report/<mã>` → AI phân loại → quản trị/Claude Code xử lý → báo người dùng.
 
 ## Thành phần
-- `web/js/report-pill.js` – nút nổi + bộ đệm 20 lỗi console; không nằm trong SHELL của `sw.js` (báo lỗi cần mạng); tự đăng ký route, **không sửa `app.js`** (chỉ 1 dòng `<script defer>` trong `web/index.html`).
+- `web/js/report-pill.js` – **lõi < 3 KB** (trần trong `scripts/test/size-guard.mjs`, không nới): bộ đệm 20 lỗi console + nút + route; tự đăng ký route, **không sửa `app.js`** (chỉ 1 dòng `<script defer>`). Kiểu nút/chân thanh bên/token nằm trong `css/style.css` § report-pill (nạp cùng khung – không nháy; link phụ chân thanh bên ẩn sẵn + chừa 1 hàng 44 px tới khi gom xong `.sf-ok` → không xô bố cục). Phần lười `web/js/report-pill-ui.js` (lõi nạp sau DOMContentLoaded): ẩn khi cuộn/gõ, "⋯ Xem thêm", hỏi trạng thái phiếu; tải lỗi → hiện lại link phụ.
 - `web/js/report.js` (tải lười) – form, ảnh đính kèm nén trên máy (`MAXPX`/`MAXB`, mặc định 1600 px / 300 KB – xem § Ảnh chụp), màn cảm ơn có Kit + mốc dự kiến, khóa gửi 30 s, trang trạng thái có dòng thời gian, nhắc trong app ≤ 1 lần/12 h.
 - `web/js/i18n/en/report.js` – nhóm chữ tải lười (`LAZY="report"` trong `build-i18n.sh`); 13 ngôn ngữ dịch tay trong `scripts/i18n-fixed.json`.
 - Add-on: mục "⚑ Báo cáo sự cố" trong popup – chỉ gửi **tên miền** tab đang xem, không thêm quyền.
