@@ -51,9 +51,9 @@
     let idleEmo = '', idle = LF.machine(who, { dur: 120, seed: seed(who), calm }), emoUntil = 0;
     let cv = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0;
     const ac = audioCtx();
-    const fit = () => { // khung canvas theo rig (contain + căn đáy như poster) – chỉ khi đổi cỡ, không mỗi khung
-      const w = rig.clientWidth || 200, h = rig.clientHeight || w * 960 / 1108, s = Math.min(w / 1108, h / 960);
-      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); box = [dpr * s, dpr * (w - 1108 * s) / 2, dpr * (h - 960 * s)]; last = '';
+    const fit = () => { // canvas = đúng khung poster 1108×960 (CSS bài học/Call đặt canvas y như ảnh poster: contain căn đáy, hay phóng 172 % kiểu bán thân) – chỉ khi đổi cỡ
+      const w = Math.max(rig.clientWidth || 200, cv.getBoundingClientRect().width || 0), W = Math.round(Math.min(1108, w * dpr));
+      cv.width = W; cv.height = Math.round(W * 960 / 1108); box = [W / 1108, 0, 0]; last = '';
     };
     const playing = a => !!(a && !a.paused && !a.ended && a.readyState >= 2);
     const frame = now => {
@@ -90,11 +90,11 @@
       if (dead) return;
       cv = D.createElement('canvas'); cv.className = 'tch-face'; cv.setAttribute('aria-hidden', 'true');
       ctx = cv.getContext('2d'); if (!ctx || !g.Path2D) { dead = true; return onFail(); }
-      rig.appendChild(cv); fit(); rig.classList.add('drawn'); stats.t0 = performance.now();
-      if (g.ResizeObserver) { ro = new ResizeObserver(() => { if (!dead) fit(); }); ro.observe(rig); }
+      rig.appendChild(cv); rig.dataset.face = who; fit(); // data-face (không thêm class: giữ khóa bố cục .tch-rig của các cổng QA) stats.t0 = performance.now();
+      if (g.ResizeObserver) { ro = new ResizeObserver(() => { if (!dead) fit(); }); ro.observe(rig); ro.observe(cv); }
       raf = requestAnimationFrame(frame);
     };
-    if (!D.getElementById('tch-face-css')) D.head.insertAdjacentHTML('beforeend', '<style id="tch-face-css">.tch-rig .tch-face{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.tch-rig.drawn>img.tch-poster{visibility:hidden}.tch-rig.posed .tch-face{visibility:hidden}</style>');
+    if (!D.getElementById('tch-face-css')) D.head.insertAdjacentHTML('beforeend', '<style id="tch-face-css">.tch-rig .tch-face{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;pointer-events:none}.tch-rig[data-face]>img.tch-poster{visibility:hidden}.tch-rig.posed .tch-face{visibility:hidden}</style>');
     pic.src = Chars.head(who, hi);
     const self = {
       stats,
@@ -128,7 +128,7 @@
       /** react('happy'|'encourage'|'cheer'|'concern'|'thinking', ms): biểu cảm ngắn trên mặt vẽ (đúng/sai) – câu nói kế tiếp mang theo biểu cảm đó */
       react(emo, ms = 1800) { if (dead || !LF.EMO[emo]) return; setIdle(emo); emoUntil = performance.now() + ms; },
       state: () => cur,
-      destroy() { dead = true; self.quiet(); cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); }
+      destroy() { dead = true; self.quiet(); cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); delete rig.dataset.face; }
     };
     return self;
   }

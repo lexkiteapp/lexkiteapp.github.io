@@ -1,4 +1,4 @@
-// 👄 Ảnh mặt vẽ khớp miệng của Ama + Carlos (canvas .tch-rig.drawn canvas.tch-face): cuộc gọi + bài học, sáng/tối, 375/1280 px.
+// 👄 Ảnh mặt vẽ khớp miệng của Ama + Carlos (canvas .tch-rig canvas.tch-face): cuộc gọi + bài học, sáng/tối, 375/1280 px.
 // Chạy trên CI (call-qa.yml) cho bản mới (qa/lip-after) và bản main (qa/lip-before, chưa có mặt vẽ → chụp những gì hiện ra).
 // Không mạng thật: mọi host ngoài bị chặn; audio.lexkite.com / lexkite-media → tiếng giả (fixtureAudio, copy từ call-e2e.mjs); lexkite.com/api → 200/204 rỗng.
 // Truyện (hai giáo viên cùng màn): bỏ qua – không có route cố định (nút bản đồ 'story' phụ thuộc kế hoạch học).
@@ -94,11 +94,11 @@ for (const sc of SCREENS) for (const theme of ['light', 'dark']) for (const w of
     const o = await open({ vp: { width: w, height: w === 375 ? 812 : 800 }, theme, who: sc.pre });
     ctx = o.ctx; const { page, errs } = o; pg = page;
     await sc.run(page);
-    await page.waitForSelector('.tch-rig.drawn canvas.tch-face', { timeout: 6000 }).catch(() => {});
+    await page.waitForSelector('.tch-rig canvas.tch-face', { timeout: 6000 }).catch(() => {});
     await page.waitForTimeout(1200); // giữa câu
     await page.screenshot({ path: path.join(OUT, name + '.png') });
     report[name] = await page.evaluate(() => ({
-      canvas: !!document.querySelector('.tch-rig.drawn canvas.tch-face'),
+      canvas: !!document.querySelector('.tch-rig canvas.tch-face'),
       canvases: document.querySelectorAll('canvas.tch-face').length,
       lip: window.__callState ? (() => { try { return window.__callState().lip; } catch (e) { return 'err'; } })() : null,
     }));

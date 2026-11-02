@@ -249,7 +249,7 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   const { ctx, page, errs } = await open({ vp: { width: 375, height: 812 }, video: rec, audio: true });
   await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
   await go(page, '#/call/coffee'); await page.waitForSelector('#callGo'); await page.click('#callGo');
-  const on = await until(page, () => document.querySelector('.tch-rig.drawn canvas.tch-face'), null, 15000).then(() => true, () => false);
+  const on = await until(page, () => document.querySelector('.tch-rig canvas.tch-face'), null, 15000).then(() => true, () => false);
   ok(on, 'mặt vẽ: đầu trơn + mắt/mày/miệng vector (canvas) thay clip');
   ok(!(await page.$('.tch-cv')) && !(await page.$('.tch-rig video')), 'mặt vẽ: không tải clip WebGL');
   if (!rec) {
