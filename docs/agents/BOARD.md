@@ -100,6 +100,16 @@ Mẫu thẻ:
 - Móc tối thiểu: `app.js` (BUNDLES/ROUTE_BUNDLE `classroom`), `sync.js` (1 dòng nạp module cho học sinh), `qtips.js` (phát `lexkite:test-done`), `ads.js` (tắt quảng cáo khi `lk.edu`), `hubs.js` (1 hàng "Lớp học"), `account.js` (DELETE_SQL), `_quota.js`, privacy mục 2/8/10, `build-legal.mjs`/`build-seo.mjs` (trang `schools`), `gen-i18n.mjs` (dịch khóa lười còn tiếng Anh tạm).
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
+### [B5-MEGA100-P3] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 3 (Nâng tổng kho lên 850 bài) · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Tiếp tục chỉ đạo của anh Quyền viết đủ 100 bài blog SEO Đợt 3 (nâng tổng kho từ 750 lên 850 bài toàn repo), giữ vững 100% tiêu chuẩn kỹ thuật (độ dài ≥ 1200 từ, title 30–65 ký tự, desc 110–160 ký tự, keyword chính xác ở 4 vị trí, shingle trùng lặp < 12.0%, caption truth 0 lỗi, link nội bộ app ≥ 2, link chéo cùng ngôn ngữ ≥ 4, để trống `publishAt: ""`).
+- **Tiến độ hiện tại:**
+  - **Cụm 1: Tiếng Anh đàm phán thương lượng hợp đồng (`tieng-anh-dam-phan-thuong-luong`):** Đã hoàn tất xuất sắc **15 / 15 ngôn ngữ** (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI). Toàn bộ 15 bài đều độc lập cấu trúc ví dụ câu tiếng Anh, pass tuyệt đối 0 lỗi shingle trùng lặp trên toàn repo 765 bài (`blog-dupes.mjs` 0 lỗi).
+  - Đã tích lũy: **15 / 100 bài** của Đợt 3. Tổng kho hiện tại: **765 bài**.
+- **Kế hoạch tiếp theo:**
+  - Triển khai Cụm 2: **Lộ trình tự học TOEIC từ con số 0 đến 750+** hoặc **Thành ngữ tiếng Anh công sở thực chiến (Business Idioms)** cho 15 ngôn ngữ.
+- **Báo cáo:** (Đang viết liên tục)
+- **Cần sửa / Nhận xét:**
+
 ### [B5-MEGA100-P2] Chiến dịch Đại quy mô 100 bài Blog SEO Chất lượng cao Đợt 2 (Đạt mốc 750 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Tiếp tục chỉ đạo của anh Quyền ("cho đủ 100 đi e"), hoàn tất trọn vẹn 100 bài blog SEO mới chuẩn mực chất lượng cao của Đợt 2 (tổng kho đạt đúng mốc **750 bài** toàn repo), chuẩn hóa 100% quy tắc dự án Lexkite, kiểm định tự động 0 lỗi, để trống `publishAt: ""` cho Claude chạy script xếp lịch đăng bài tự động.
 - **Báo cáo (Antigravity 01/11):**
