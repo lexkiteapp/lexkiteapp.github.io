@@ -36,13 +36,13 @@ button, input { font: inherit; color: inherit; }
 .nt-chips { display: inline-flex; flex-wrap: wrap; gap: 4px; align-items: center; }
 .chip { font-size: 11px; font-weight: 600; padding: 0 7px; border-radius: 99px; background: var(--chip); color: var(--ink); white-space: nowrap; line-height: 1.5; }
 .chip.pos { background: #f1f2f8; color: #565a6e; font-weight: 600; font-size: 11px; }
-@media (prefers-color-scheme: dark) { .chip.pos { background: #2a2b3a; color: #c3c6d6; } } .chip.cefr { background: #FFB054; color: #3B1D06; } .chip.exam { background: transparent; border: 1px solid rgba(255,255,255,.14); color: var(--mut); }
+@media (prefers-color-scheme: dark) { .chip.pos { background: #26393E; color: #A3B9B7; } } .chip.cefr { background: #FFB054; color: #3B1D06; } .chip.exam { background: transparent; border: 1px solid rgba(255,255,255,.14); color: var(--mut); }
 .nt-card .ipa { color: var(--mut); font-family: "Charis SIL", "Doulos SIL", "Segoe UI", "Lucida Sans Unicode", "Arial Unicode MS", "Noto Sans", "DejaVu Sans", Roboto, sans-serif; margin-top: 1px; font-size: 13px; }
 /* nút nghe – cùng mẫu .spks/.spk của bảng tra (content.js) */
 .spks { display: flex; gap: 6px; margin: 5px 0 0; flex-wrap: wrap; justify-content: center; }
 .spk { border: 0; background: #fdece6; color: #A5300F; border-radius: 999px; height: 24px; padding: 0 10px; cursor: pointer; font: 600 12px/24px -apple-system, "Segoe UI", sans-serif; vertical-align: middle; }
 .spk:hover, .spk[aria-pressed="true"] { background: #CC3F1C; color: #fff; }
-@media (prefers-color-scheme: dark) { .spk { background: #2a2b3a; color: #ffb199; } }
+@media (prefers-color-scheme: dark) { .spk { background: #26393E; color: #ffb199; } }
 .nt-body { position: relative; margin-top: 7px; }
 .m1 { font-size: 17px; font-weight: 700; color: var(--acc); }
 .d1 { font-size: 12px; color: var(--dim); }

@@ -29,7 +29,7 @@
     idle(() => hit1(ev, id));
   };
   const hit1 = (ev, id) => {
-    try { const b = JSON.stringify({ t: 'v', ev, id }); if (navigator.sendBeacon && web) navigator.sendBeacon('/api/hit', b); else fetch(BASE + '/api/hit', { method: 'POST', body: b, keepalive: true }).catch(() => {}); } catch (e) { /* bỏ qua */ }
+    try { const b = JSON.stringify({ t: 'v', ev, id }); if (navigator.sendBeacon && web) navigator.sendBeacon('/api/hit', b); else fetch(BASE + '/api/hit', { method: 'POST', body: b, keepalive: true, mode: 'no-cors' }).catch(() => {}); } catch (e) { /* bỏ qua */ }
   };
 
   function css() {

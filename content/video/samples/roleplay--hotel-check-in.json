@@ -12,7 +12,7 @@
   "template": "roleplay",
   "lines": [
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "hook",
     "text": "Um… what do I say?",
     "expr": "confused",
@@ -26,9 +26,9 @@
     "gesture": "open hands"
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "example",
-    "text": "Hi, I have a reservation under Mia Chen.",
+    "text": "Hi, I have a reservation under Ama Brown.",
     "expr": "friendly",
     "gesture": ""
    },
@@ -48,7 +48,7 @@
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "cta",
     "text": "Roleplay this free on lexkite.com",
     "expr": "happy smile",

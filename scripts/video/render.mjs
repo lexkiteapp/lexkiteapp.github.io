@@ -101,6 +101,7 @@ const STEPS = {
       const msg = `bối cảnh "${g.scene}" (${st.time}) không có phòng thật – phòng của tag: ${have.join(', ') || 'chưa có trong brand/library/manifest.json'} (CI: library.mjs fetch-render)`;
       if (!ALLOW_STUDIO) throw new Error(msg); console.log('⚠️ ' + msg + ' → nền gradient thương hiệu (chỉ chạy thử)');
     }
+    V.placeMedium(st);
     s.stage = st; s.consistency = V.consistencyVerdict(st.fails);
     if (s.variant) s.variant.fp.clips = st.clips;
     console.log(`  chủ đề ${st.topic} · bối cảnh ${st.segs.map(g => `${g.scene}(${g.room.id})`).join(' → ')} · ${st.time}`);
@@ -343,7 +344,8 @@ async function prepActor(s, a, pub) {
   let file = a.asset && a.asset.kind !== 'none' && a.asset.file ? libFile(a.asset.file) : null, kind = a.asset ? a.asset.kind : 'none';
   if (file && !fs.existsSync(file)) file = null;
   if (!file && !STRICT) {
-    const c = [path.join(LIB, `chars/${a.who}/neutral.png`), ...['neutral.png', 'dna.png', 'a-rembg.png'].map(x => path.join(ROOT, `brand/characters/_candidates/${a.who}/${x}`))].find(x => fs.existsSync(x));
+    // KHÔNG lấp chỗ trống bằng ảnh nhân vật kiểu khác (chủ 28/10: 1 bộ 2D duy nhất, web/teach/characters.json) – chỉ ảnh kho của chính nhân vật đó
+    const c = [path.join(LIB, `chars/${a.who}/neutral.png`)].find(x => fs.existsSync(x));
     if (c) { file = c; kind = 'still'; todo(s, 'actor-placeholder'); console.log(`⚠️ ${a.who}: chưa có tài nguyên kho → ảnh tạm ${path.relative(ROOT, c)}`); }
   }
   if (!file) { console.log(`⚠️ ${a.who}: không có tài nguyên – bỏ khỏi cảnh`); todo(s, 'actor'); return null; }
@@ -360,6 +362,9 @@ async function prepActor(s, a, pub) {
     fs.writeFileSync(meta, JSON.stringify(m));
   }
   const m = JSON.parse(fs.readFileSync(meta, 'utf8')); fs.copyFileSync(out, path.join(pub, name));
+  // clip registry khung medium: chân ẢO dưới đáy clip (manifest foot/figH) – không đo từ mặt nạ (thân bị cắt ở hông, chạm đáy khung hình)
+  const r = a.asset && a.asset.medium && a.asset.h ? m.h / a.asset.h : 0;
+  if (r) { m.foot = [Math.round(m.w / 2), Math.round(a.asset.foot[1] * r)]; m.figH = Math.round(a.asset.figH * r); }
   return { src: name, kind: still ? 'img' : 'video', aw: m.w, ah: m.h, foot: m.foot, figH: m.figH, dur: m.dur || 5, fps: m.fps || 24 };
 }
 async function composeRemotion(s, [w, h], D) {

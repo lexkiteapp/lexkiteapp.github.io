@@ -1,0 +1,34 @@
+{
+  "locale": "vi",
+  "playLocale": "vi",
+  "appleLocale": "vi",
+  "webLang": "vi",
+  "keywords": {
+    "primary": "từ vựng tiếng anh",
+    "secondary": [
+      "học từ vựng",
+      "học tiếng anh",
+      "flashcard tiếng anh",
+      "từ vựng ielts",
+      "từ vựng toeic",
+      "phát âm tiếng anh",
+      "từ điển anh việt"
+    ],
+    "research": "2026-10-31: gợi ý tìm kiếm App Store (VN), top 30 Google Play (hl=vi, gl=VN), Google suggest. Lexkite chưa vào top 30 cho các từ này."
+  },
+  "play": {
+    "title": "Lexkite: Từ vựng tiếng Anh",
+    "shortDescription": "Học từ vựng tiếng Anh bằng flashcard, tra từ Anh–Việt, luyện IELTS và TOEIC",
+    "fullDescription": "Lexkite là ứng dụng học từ vựng tiếng Anh miễn phí 100% cho người học hằng ngày và người luyện thi IELTS, TOEIC, TOEFL. Không có gói trả phí, không mua trong app, không giới hạn \"tim\" hay \"năng lượng\" – cũng không cần tài khoản hay đăng nhập: mở app là học được ngay.\n\nHỌC TỪ VỰNG TIẾNG ANH ĐÚNG TRỌNG TÂM\n• Hơn 6.800 từ có phiên âm IPA và phát âm: từ cốt lõi NGSL, 570 từ học thuật AWL, 1.250 từ vựng TOEIC, từ vựng IELTS theo chủ đề, phrasal verb và collocation.\n• Kế hoạch học từ mới và ôn tập mỗi ngày theo mục tiêu và trình độ của bạn.\n• Bài kiểm tra trình độ 5 phút cho biết bạn đang ở đâu và gợi ý lộ trình học.\n\nFLASHCARD GIÚP NHỚ LÂU\n• Flashcard tiếng Anh được lên lịch bằng FSRS – thuật toán lặp lại ngắt quãng hiện đại.\n• Sau mỗi thẻ, bạn chấm mức độ nhớ – app hẹn lần ôn tiếp theo đúng lúc bạn sắp quên.\n• Nhắc học hằng ngày và widget trên màn hình chính hiện số thẻ cần ôn hôm nay cùng chuỗi ngày học.\n\nTRA TỪ ANH–VIỆT, NGHE PHÁT ÂM CHUẨN\n• Phát âm Anh–Anh và Anh–Mỹ, nghĩa theo từ loại, định nghĩa và ví dụ.\n• Lưu từ vào flashcard chỉ với một chạm.\n\nLUYỆN THI IELTS, TOEIC, TOEFL\n• IELTS: thi thử 4 kỹ năng có quy đổi band, đề Listening 40 câu và luyện Reading.\n• TOEIC: đề Listening & Reading đầy đủ, quy đổi điểm 10–990.\n• TOEFL iBT: luyện theo từng phần Reading, Listening, Writing, Speaking.\n• Có giải thích đáp án và lịch sử điểm.\n\nNGỮ PHÁP, CÁCH DÙNG TỪ VÀ KỸ NĂNG\n• Các chủ điểm ngữ pháp và bài kiểm tra ngữ pháp tổng hợp 40 câu.\n• Giải thích rõ các lỗi hay gặp, như affect và effect, interested và interesting.\n• Luyện nghe và chép chính tả, luyện phát âm bằng micro, bài đọc và trò chơi từ vựng.\n• AI nhận xét bài viết và luyện hội thoại nhập vai (cần kết nối mạng).\n\nHỌC MỖI NGÀY THẬT DỄ\n• Dùng được khi không có mạng: ôn flashcard và học bình thường. Tra từ mới và các tính năng AI cần mạng.\n• Chuỗi ngày học, mục tiêu ngày, điểm XP và thống kê tiến độ.\n• Giao diện sáng và tối.\n• Giao diện 15 ngôn ngữ: Tiếng Việt, tiếng Anh, Tây Ban Nha, Bồ Đào Nha, Pháp, Đức, Indonesia, Thái, Trung, Nhật, Hàn, Hindi, Ả Rập, Nga và Thổ Nhĩ Kỳ.\n\nTÔN TRỌNG QUYỀN RIÊNG TƯ\n• Dữ liệu học được lưu trên thiết bị của bạn.\n• Chính sách quyền riêng tư: https://lexkite.com/vi/privacy\n\nMỗi ngày học một ít từ vựng tiếng Anh – mọi tính năng của Lexkite đều miễn phí cho tất cả mọi người.\n\nGóp ý, hỏi đáp: support@lexkite.com · https://lexkite.com\n\nLexkite là sản phẩm độc lập, không liên kết và không được bảo trợ bởi British Council, IDP, Cambridge University Press & Assessment hay ETS. IELTS, TOEIC, TOEFL là nhãn hiệu của các chủ sở hữu tương ứng."
+  },
+  "apple": {
+    "name": "Lexkite: Từ vựng tiếng Anh",
+    "subtitle": "Học từ mới, flashcard, tra từ",
+    "keywords": "từ điển,anh việt,phát âm,ngữ pháp,ôn tập,lặp lại ngắt quãng,luyện nghe,anh văn,IPA,luyện thi",
+    "promotionalText": "Học từ vựng tiếng Anh miễn phí 100% với flashcard FSRS, tra từ rõ ràng và đề luyện IELTS, TOEIC, TOEFL. Không thu phí, không cần đăng nhập, học được khi không có mạng.",
+    "description": "Lexkite là ứng dụng học từ vựng tiếng Anh miễn phí 100% cho người học hằng ngày và người luyện thi IELTS, TOEIC, TOEFL. Không có gói trả phí, không mua trong app, không giới hạn \"tim\" hay \"năng lượng\" – cũng không cần tài khoản hay đăng nhập: mở app là học được ngay.\n\nHỌC TỪ VỰNG TIẾNG ANH ĐÚNG TRỌNG TÂM\n• Hơn 6.800 từ có phiên âm IPA và phát âm: từ cốt lõi NGSL, 570 từ học thuật AWL, 1.250 từ vựng TOEIC, từ vựng IELTS theo chủ đề, phrasal verb và collocation.\n• Kế hoạch học từ mới và ôn tập mỗi ngày theo mục tiêu và trình độ của bạn.\n• Bài kiểm tra trình độ 5 phút cho biết bạn đang ở đâu và gợi ý lộ trình học.\n\nFLASHCARD GIÚP NHỚ LÂU\n• Flashcard tiếng Anh được lên lịch bằng FSRS – thuật toán lặp lại ngắt quãng hiện đại.\n• Sau mỗi thẻ, bạn chấm mức độ nhớ – app hẹn lần ôn tiếp theo đúng lúc bạn sắp quên.\n• Nhắc học hằng ngày, cùng widget trên Màn hình chính và Màn hình khóa hiện số thẻ cần ôn hôm nay và chuỗi ngày học.\n\nTRA TỪ ANH–VIỆT, NGHE PHÁT ÂM CHUẨN\n• Phát âm Anh–Anh và Anh–Mỹ, nghĩa theo từ loại, định nghĩa và ví dụ.\n• Lưu từ vào flashcard chỉ với một chạm.\n\nLUYỆN THI IELTS, TOEIC, TOEFL\n• IELTS: thi thử 4 kỹ năng có quy đổi band, đề Listening 40 câu và luyện Reading.\n• TOEIC: đề Listening & Reading đầy đủ, quy đổi điểm 10–990.\n• TOEFL iBT: luyện theo từng phần Reading, Listening, Writing, Speaking.\n• Có giải thích đáp án và lịch sử điểm.\n\nNGỮ PHÁP, CÁCH DÙNG TỪ VÀ KỸ NĂNG\n• Các chủ điểm ngữ pháp và bài kiểm tra ngữ pháp tổng hợp 40 câu.\n• Giải thích rõ các lỗi hay gặp, như affect và effect, interested và interesting.\n• Luyện nghe và chép chính tả, luyện phát âm bằng micro, bài đọc và trò chơi từ vựng.\n• Học nghe rảnh tay, vẫn phát tiếp khi khóa màn hình.\n• AI nhận xét bài viết và luyện hội thoại nhập vai (cần kết nối mạng).\n\nHỌC MỖI NGÀY THẬT DỄ\n• Dùng được khi không có mạng: ôn flashcard và học bình thường. Tra từ mới và các tính năng AI cần mạng.\n• Chuỗi ngày học, mục tiêu ngày, điểm XP và thống kê tiến độ.\n• Giao diện sáng và tối.\n• Giao diện 15 ngôn ngữ: Tiếng Việt, tiếng Anh, Tây Ban Nha, Bồ Đào Nha, Pháp, Đức, Indonesia, Thái, Trung, Nhật, Hàn, Hindi, Ả Rập, Nga và Thổ Nhĩ Kỳ.\n\nTÔN TRỌNG QUYỀN RIÊNG TƯ\n• Dữ liệu học được lưu trên thiết bị của bạn. Không có quảng cáo trong bài học, bài kiểm tra hay đề thi.\n• Chính sách quyền riêng tư: https://lexkite.com/vi/privacy\n\nMỗi ngày học một ít từ vựng tiếng Anh – mọi tính năng của Lexkite đều miễn phí cho tất cả mọi người.\n\nGóp ý, hỏi đáp: support@lexkite.com · https://lexkite.com\n\nLexkite là sản phẩm độc lập, không liên kết và không được bảo trợ bởi British Council, IDP, Cambridge University Press & Assessment hay ETS. IELTS, TOEIC, TOEFL là nhãn hiệu của các chủ sở hữu tương ứng.",
+    "privacyPolicyUrl": "https://lexkite.com/vi/privacy",
+    "supportUrl": "https://lexkite.com/app/?hl=vi#/contact",
+    "marketingUrl": "https://lexkite.com/"
+  }
+}

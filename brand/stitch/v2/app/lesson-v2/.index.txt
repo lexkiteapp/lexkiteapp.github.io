@@ -1,0 +1,5 @@
+# lesson-v2 refs (key3 project 18075333702575270507, Kit DS assets/16469239436252875897) – CHỜ CHỦ DUYỆT 31/10
+home light 59bc17f4eaad43a4b309f7608c7b92ef dark 33b4f640610c4ac29b889a47ece48480 | frame-hub; ⚠ path node names invented (map to real pathPlan kinds on port)
+build light 394a6c72d2cd446ba6f2a2d339bfe449 dark 48f357a548b6427c941cc7f6d1521e71 | frame-focus + teacher slot
+type light 7f85a69aeac443a29873465d1e5845c7 dark 355cc738be3841fe858482f4c9cb9ec6 | frame-focus + teacher slot; 'Answers auto-saved' only if true
+wrong light d227b283503840f5ab597a1ce9a811e8 dark c518e50280c448d68aac59f6060c3afe | feedback-wrong sheet

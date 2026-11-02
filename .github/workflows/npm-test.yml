@@ -23,5 +23,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - run: npm ci --no-audit --no-fund
+      - name: nhánh gốc cho báo cáo khung app theo module (shell-size.mjs so Δ cùng bản Node)
+        run: git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main || true
       - name: npm test (cổng — cùng bộ kiểm với mergecheck/health/Prod release)
         run: npm test

@@ -1,0 +1,127 @@
+{
+ "_doc": "Màn Sẵn sàng thi (#/goal, cờ ux1) – d do web/js/goal.js dựng từ dữ liệu thật (thi thử / kiểm tra đầu vào; chưa có → trạng thái trống, không bịa số). Đầu trang + thanh tab chuẩn chung (shell.js, tab Tôi). Vòng cung = điểm ước tính / thang tối đa, chấm vàng = mục tiêu. d.extra = các thẻ phụ của trang cũ (tiêu đề, form mục tiêu, kế hoạch tuần, chỉ tiêu tuần, thi thử gợi ý) chèn sau nút chính, cùng khuôn thẻ của mẫu.",
+ "remove": [
+  ":scope > header",
+  ":scope > nav",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)"
+ ],
+ "html": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)": "e(d.readyChip)",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(d.days)",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e(d.tgChip)",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(1) > span:nth-child(1)": "e(d.cur)",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(1) > span:nth-child(2)": "e('/ ' + d.of)",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div > span": "e(d.sub)",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > span:nth-child(1)": "e(d.mn)",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(3) > span:nth-child(1)": "e(d.cur)",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(4) > span:nth-child(1)": "e(d.target + '★')",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(5) > span:nth-child(1)": "e(d.mx)",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > span:nth-child(2)": "e(d.recL)",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > span": "e(d.recIcon)",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > h3": "e(d.recTitle)",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(2) > p": "e(d.recBody)",
+  ":scope > main > div > button > span:nth-child(1)": "e(d.btnText)",
+  ":scope > main > div > button > span:nth-child(3)": "e(d.btnTag)"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(2)": {
+   "style": "d.days ? '' : 'display:none'"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > svg": {
+   "role": "'img'",
+   "aria-label": "d.gaugeAria"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > svg > path:nth-child(3)": {
+   "d": "d.arc",
+   "style": "d.real ? '' : 'display:none'"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > svg > circle": {
+   "cx": "d.mxX",
+   "cy": "d.mxY"
+  },
+  ":scope > main > div > div:nth-child(3)": {
+   "role": "'list'"
+  },
+  ":scope > main > div > button": {
+   "data-href": "d.btnHref"
+  },
+  ":scope > main > div > button > span:nth-child(3)": {
+   "style": "d.btnTag ? '' : 'display:none'"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)": "motion-reduce:animate-none"
+ },
+ "after": {
+  ":scope > main > div > button": "d.extra"
+ },
+ "repeat": [
+  {
+   "list": "d.skills",
+   "as": "r",
+   "samples": ":scope > main > div > div:nth-child(3) > div",
+   "pick": "r.v",
+   "variants": {
+    "ok": ":scope > main > div > div:nth-child(3) > div:nth-child(1)",
+    "weak": ":scope > main > div > div:nth-child(3) > div:nth-child(3)"
+   },
+   "bind": {
+    "ok": {
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "aria-label": "r.al",
+       "role": "'listitem'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(3) > div": {
+       "style": "'width:' + r.w + '%'"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div > span": "e(r.icon)",
+      ":scope > div:nth-child(1) > span": "e(r.status)",
+      ":scope > div:nth-child(2) > span": "e(r.name)",
+      ":scope > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)": "e(r.band)",
+      ":scope > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)": "e('/ ' + r.top)"
+     }
+    },
+    "weak": {
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "aria-label": "r.al",
+       "role": "'listitem'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(3) > div": {
+       "style": "'width:' + r.w + '%'"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div > span": "e(r.icon)",
+      ":scope > div:nth-child(1) > span": "e(r.status)",
+      ":scope > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": "e(r.name)",
+      ":scope > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(r.gap)",
+      ":scope > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)": "e(r.band)",
+      ":scope > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)": "e('/ ' + r.top)"
+     }
+    }
+   }
+  }
+ ],
+ "text": {
+  "Overall Projection": "d.lProj",
+  "Mod": "d.lMin",
+  "Goal": "d.lGoal",
+  "Expert": "d.lMax"
+ }
+}

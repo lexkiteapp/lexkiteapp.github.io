@@ -1,0 +1,197 @@
+{
+ "_doc": "Màn Chuỗi (#/streak + màn chúc mừng mốc, cờ ux1) – d do web/js/retention.js dựng từ dữ liệu thật. Không thanh tab (mount tab null), giữ đầu trang × của Stitch. d.extra = các thẻ phụ (đóng băng, mốc kế, sự kiện, rương, bộ sưu tập) chèn giữa nhóm mục tiêu và nút CONTINUE, cùng khuôn thẻ của mẫu. Tương phản: chip ACTIVE bản tối dùng chữ #261A00 (màu có sẵn trong Stitch) trên nền #2BA39A. Ngọn lửa (30/10, Stitch \"Tactile Flame\"): class st-fl + data-fl = d.fl (active/frozen/lost/milestone, ST2.flameState) → màu trạng thái + lửa lay nhẹ ở ST2.flameCss (runtime.js); số chuỗi ở viên trắng dưới lửa, mực #10191B.",
+ "i18n": {
+  "Close session": "Đóng màn chuỗi",
+  "Active Drill Session": "Phiên chuỗi ngày",
+  "User Profile": "Hồ sơ người học",
+  "STREAK MASTER": "Bậc thầy chuỗi",
+  "THIS WEEK": "Tuần này",
+  "ACTIVE": "Đang chọn",
+  "CONTINUE": "Tiếp tục"
+ },
+ "text": {
+  "70%": "d.pct + '%'",
+  "+25 XP": "d.gain",
+  "14 day streak!": "d.title",
+  "You're on fire! Keep the momentum going.": "d.say",
+  "5 of 7 completed": "d.wk",
+  "14": "d.now",
+  "/ 20 XP": "'/ ' + d.goal + ' ' + d.unit",
+  "· 70%": "'· ' + d.pct + '%'",
+  "6 XP left today • 1 drill away": "d.left"
+ },
+ "html": {
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span": "e(d.n)"
+ },
+ "attr": {
+  ":scope > header > div > button": {
+   "data-href": "'#/home'"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2)": {
+   "role": "'list'"
+  },
+  ":scope > main > div > div:nth-child(4) > div > div:nth-child(1) > svg > circle:nth-child(2)": {
+   "stroke-dashoffset": "d.off"
+  },
+  ":scope > main > div > div:nth-child(4)": {
+   "role": "'progressbar'",
+   "aria-valuemin": "0",
+   "aria-valuemax": "d.goal",
+   "aria-valuenow": "d.now",
+   "aria-label": "d.goalAria"
+  },
+  ":scope > main > div > div:nth-child(5)": {
+   "role": "'radiogroup'",
+   "aria-label": "d.goalAria"
+  },
+  ":scope > main > div > button": {
+   "id": "'retNext'",
+   "type": "'button'"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "data-href": "'#/me'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(2) > p": {
+   "data-ret-say": "''"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > svg": {
+   "data-fl": "d.fl",
+   "aria-hidden": "'true'",
+   "focusable": "'false'"
+  }
+ },
+ "cls": {
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "w-[70%]": "''"
+  }
+ },
+ "after": {
+  ":scope > main > div > div:nth-child(5)": "d.extra"
+ },
+ "repeat": [
+  {
+   "list": "d.week",
+   "as": "r",
+   "samples": ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div",
+   "pick": "r.v",
+   "variants": {
+    "d1": ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(1)",
+    "d5": ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(5)",
+    "d6": ":scope > main > div > div:nth-child(3) > div:nth-child(2) > div:nth-child(6)"
+   },
+   "bind": {
+    "d1": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.l)",
+      ":scope > div > span": "e(r.icon)"
+     },
+     "cls": {
+      ":scope > div > span:nth-child(1)": {
+       "lt:text-[#ffffff]": "'lt:text-[#261A00]'"
+      }
+     }
+    },
+    "d5": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.l)"
+     },
+     "cls": {
+      ":scope > div > span:nth-child(1)": {
+       "lt:text-[#ffffff]": "'lt:text-[#261A00]'"
+      }
+     }
+    },
+    "d6": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.l)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.goals",
+   "as": "r",
+   "samples": ":scope > main > div > div:nth-child(5) > div",
+   "pick": "r.v",
+   "variants": {
+    "off": ":scope > main > div > div:nth-child(5) > div:nth-child(1)",
+    "on": ":scope > main > div > div:nth-child(5) > div:nth-child(2)"
+   },
+   "bind": {
+    "off": {
+     "attr": {
+      ":scope": {
+       "role": "'radio'",
+       "tabindex": "'0'",
+       "aria-checked": "'false'",
+       "data-goal": "r.k"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "e(r.icon)"
+     },
+     "text": {
+      "Casual": "r.name",
+      "5 min": "r.sub",
+      "10 XP": "r.xp"
+     }
+    },
+    "on": {
+     "attr": {
+      ":scope": {
+       "role": "'radio'",
+       "tabindex": "'0'",
+       "aria-checked": "'true'",
+       "data-goal": "r.k"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "e(r.icon)"
+     },
+     "text": {
+      "Regular": "r.name",
+      "10 min": "r.sub",
+      "20 XP": "r.xp"
+     },
+     "cls": {
+      ":scope > div:nth-child(1) > div:nth-child(2) > div > span": {
+       "dk:text-[#EEF6F7]": "'dk:text-[#261A00]'"
+      }
+     }
+    }
+   }
+  }
+ ],
+ "tag": {
+  ":scope > header > div > div:nth-child(3)": {
+   "to": "button"
+  }
+ },
+ "addClass": {
+  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > main > div > div:nth-child(2) > div:nth-child(1) > svg": "st-fl"
+ },
+ "_contrast": "Chip ACTIVE bản tối 2.78 → chữ #261A00 (màu có sẵn trong Stitch, như sao nút vàng ở bind/path.json) trên nền #2BA39A. Hồ sơ (avatar) thành nút → #/me. Icon lửa/dấu tick ô tuần bản sáng: trắng trên cam 1.6 → #261A00 (màu có sẵn trong Stitch)."
+}

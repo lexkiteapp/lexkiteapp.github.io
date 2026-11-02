@@ -9,7 +9,7 @@
  "topicHint": "\"Office idiom: …\" → office-english (office) · \"Slang at the cafe: …\" → ordering-coffee (cafe)",
  "roles": { "opener": "người dùng idiom/slang tự nhiên hoặc người học sốc", "learner": "người nói bản sách giáo khoa + CTA", "explainer": "người giải nghĩa", "modeler": "người dùng lại tự nhiên", "kit": "Kit – khi nào dùng" },
  "scenes": {
-  "office": { "roles": { "opener": ["diane"], "learner": ["mia"], "explainer": ["mia"], "modeler": ["diane"] } },
+  "office": { "roles": { "opener": ["carlos"], "learner": ["ama"], "explainer": ["ama"], "modeler": ["carlos"] } },
   "cafe": { "roles": { "opener": ["ama"], "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } }
  },
  "vars": {

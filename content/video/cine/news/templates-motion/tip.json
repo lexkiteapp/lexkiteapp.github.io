@@ -1,0 +1,279 @@
+{
+ "id": "mo_tip_since_for",
+ "template": "tip",
+ "title": "Motion Teacher Tip #1 – since vs for (rule tiles keyed to the voice)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar",
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice grammar"
+ },
+ "series": {
+  "name": "Teacher Tip",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "t_h",
+   "text": "Since or for? Here's the easy rule."
+  },
+  {
+   "id": "t_1",
+   "text": "Use for with a length of time.",
+   "gap": 0.7
+  },
+  {
+   "id": "t_2",
+   "text": "I've been here for three days.",
+   "gap": 0.7
+  },
+  {
+   "id": "t_3",
+   "text": "Use since with a starting point.",
+   "gap": 0.7
+  },
+  {
+   "id": "t_4",
+   "text": "I've been here since Monday.",
+   "gap": 0.7
+  },
+  {
+   "id": "t_5",
+   "text": "So: for three days, since Monday.",
+   "gap": 0.7
+  },
+  {
+   "id": "t_sh",
+   "text": "Send this to a friend who mixes them up!",
+   "gap": 0.7
+  },
+  {
+   "id": "t_c",
+   "text": "Save this, and practice grammar on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "t_h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Since",
+      "green"
+     ],
+     [
+      " or ",
+      "white"
+     ],
+     [
+      "for?",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "t_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "hook_text": "Since or for?",
+  "end_line": "t_c",
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Teacher tip · grammar",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Since",
+        "teal"
+       ],
+       [
+        " or "
+       ],
+       [
+        "for?",
+        "gold"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sum",
+    "at": [
+     "t_5",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Remember",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "for",
+        "gold"
+       ],
+       [
+        " three days"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "since",
+        "teal"
+       ],
+       [
+        " Monday"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "rules",
+    "at": [
+     "t_1",
+     1
+    ],
+    "rows": [
+     {
+      "t": "tile",
+      "tag": "FOR",
+      "tone": "gold",
+      "lines": [
+       [
+        [
+         "length of time",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "for",
+        "gold"
+       ],
+       [
+        " three days"
+       ]
+      ],
+      "ex_at": [
+       "t_2",
+       3
+      ],
+      "at": [
+       "t_1",
+       1
+      ]
+     },
+     {
+      "t": "tile",
+      "tag": "SINCE",
+      "tone": "teal",
+      "lines": [
+       [
+        [
+         "starting point",
+         "muted"
+        ]
+       ]
+      ],
+      "ex": [
+       [
+        "since",
+        "teal"
+       ],
+       [
+        " Monday"
+       ]
+      ],
+      "ex_at": [
+       "t_4",
+       3
+      ],
+      "at": [
+       "t_3",
+       1
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "embed": {
+  "drop": [
+   "t_sh",
+   "t_c"
+  ],
+  "end": {
+   "id": "t_n",
+   "text": "Next, let's practice since and for."
+  }
+ }
+}

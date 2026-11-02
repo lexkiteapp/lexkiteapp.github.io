@@ -1,0 +1,216 @@
+{
+ "/*/": {
+  "tap": 1
+ },
+ "/": {
+  "tap": 9
+ },
+ "/404.html": {
+  "meta": 1,
+  "tap": 2
+ },
+ "/L/*/": {
+  "tap": 1
+ },
+ "/L/": {
+  "tap": 9
+ },
+ "/L/about/*/": {
+  "tap": 1
+ },
+ "/L/blog/*/": {
+  "tap": 15
+ },
+ "/L/blog/categoria/*/": {
+  "tap": 1
+ },
+ "/L/blog/categorie/*/": {
+  "tap": 1
+ },
+ "/L/blog/chu-de/*/": {
+  "tap": 1
+ },
+ "/L/blog/etiket/*/": {
+  "tap": 1
+ },
+ "/L/blog/etiqueta/*/": {
+  "tap": 1
+ },
+ "/L/blog/etiquette/*/": {
+  "tap": 1
+ },
+ "/L/blog/kategori/*/": {
+  "tap": 1
+ },
+ "/L/blog/kategorie/*/": {
+  "tap": 1
+ },
+ "/L/blog/page/*/": {
+  "tap": 1
+ },
+ "/L/blog/pagina/*/": {
+  "tap": 1
+ },
+ "/L/blog/schlagwort/*/": {
+  "tap": 1
+ },
+ "/L/blog/tag/*/": {
+  "tap": 1
+ },
+ "/L/blog/tema/*/": {
+  "tap": 1
+ },
+ "/L/blog/the/*/": {
+  "tap": 1
+ },
+ "/L/blog/topic/*/": {
+  "tap": 1
+ },
+ "/L/blog/topik/*/": {
+  "tap": 1
+ },
+ "/L/blog/trang/*/": {
+  "tap": 1
+ },
+ "/L/conversations/*": {
+  "tap": 1
+ },
+ "/L/credits.html": {
+  "lang": 13,
+  "meta": 2,
+  "tap": 2
+ },
+ "/L/dictionary/*/": {
+  "tap": 1
+ },
+ "/L/englisch-einstufungstest/*/": {
+  "tap": 1
+ },
+ "/L/english-level-test/*/": {
+  "tap": 1
+ },
+ "/L/grammar/*": {
+  "tap": 5
+ },
+ "/L/ielts-writing/*/": {
+  "tap": 1
+ },
+ "/L/ielts-writing/general-task-1/*": {
+  "tap": 4
+ },
+ "/L/ielts-writing/task-1/*": {
+  "tap": 4
+ },
+ "/L/ingilizce-seviye-testi/*/": {
+  "tap": 1
+ },
+ "/L/kiem-tra-trinh-do-tieng-anh/*/": {
+  "tap": 1
+ },
+ "/L/privacy.html": {
+  "lang": 13,
+  "meta": 2,
+  "tap": 2
+ },
+ "/L/pronunciation/*": {
+  "tap": 2
+ },
+ "/L/research/*/": {
+  "tap": 1
+ },
+ "/L/samples/*": {
+  "tap": 4
+ },
+ "/L/schools.html": {
+  "lang": 13,
+  "meta": 2,
+  "tap": 2
+ },
+ "/L/speaking/*": {
+  "tap": 2
+ },
+ "/L/terms.html": {
+  "lang": 13,
+  "meta": 2,
+  "tap": 2
+ },
+ "/L/tes-level-bahasa-inggris/*/": {
+  "tap": 1
+ },
+ "/L/test-de-niveau-anglais/*/": {
+  "tap": 1
+ },
+ "/L/test-de-nivel-de-ingles/*/": {
+  "tap": 1
+ },
+ "/L/test-na-uroven-angliyskogo/*/": {
+  "tap": 1
+ },
+ "/L/teste-de-nivel-de-ingles/*/": {
+  "tap": 1
+ },
+ "/L/tu-dien/*/": {
+  "tap": 1
+ },
+ "/L/video/*/": {
+  "tap": 1
+ },
+ "/L/vocabulary/*": {
+  "tap": 2
+ },
+ "/L/words/*": {
+  "tap": 1
+ },
+ "/admin.html": {
+  "contrast": 1,
+  "meta": 1,
+  "tap": 2
+ },
+ "/blog-lang.html": {
+  "tap": 1
+ },
+ "/bye.html": {
+  "meta": 1,
+  "tap": 1
+ },
+ "/credits.html": {
+  "meta": 1,
+  "tap": 2
+ },
+ "/embed/*/": {
+  "meta": 1
+ },
+ "/ngu-phap/*": {
+  "tap": 2
+ },
+ "/phat-am/*": {
+  "tap": 2
+ },
+ "/privacy.html": {
+  "meta": 1,
+  "tap": 2
+ },
+ "/samples/*": {
+  "tap": 5
+ },
+ "/schools.html": {
+  "meta": 1,
+  "tap": 2
+ },
+ "/speaking/*": {
+  "tap": 2
+ },
+ "/terms.html": {
+  "meta": 1,
+  "tap": 2
+ },
+ "/tu-vung/*": {
+  "tap": 2
+ },
+ "/video/*/": {
+  "tap": 1
+ },
+ "/viet-thu/*": {
+  "tap": 5
+ }
+}

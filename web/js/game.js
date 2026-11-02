@@ -137,7 +137,19 @@
   };
   // Hiệu ứng thêm (tap/streak/shimmer/combo) nạp lười trong streak-ui.js qua Sfx.extend; trước khi nạp xong gọi là không làm gì
   for (const k of ['tap', 'streak', 'shimmer', 'combo']) Sfx[k] = () => {};
-  Sfx.extend = f => Object.assign(Sfx, f(tone, buzz));
+  Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); }; // khóa: lớp game feel đã giữ âm này
+  // 🎮 Lớp "game feel" (docs/GAME-FEEL.md): công tắc Cài đặt hoặc ?feel=1 / ?feel=0, nhớ trong vb.feel; chỉ khi bật mới nạp js/feel.js
+  // Sfx.feel() → đang bật? · Sfx.feel(true|false) → lưu + bật/tắt ngay (không cần tải lại)
+  const feelGet = () => { try { return g.localStorage.getItem('vb.feel') === '1'; } catch (e) { return false; } };
+  const feelLoad = () => { if (g.Feel || !g.document || g.document.getElementById('feelJs')) return; const s = g.document.createElement('script'), me = g.document.querySelector('script[src*="js/game.js"]'); s.id = 'feelJs'; s.src = (me ? me.getAttribute('src').replace(/game\.js.*$/, '') : 'js/') + 'feel.js'; s.defer = true; g.document.head.appendChild(s); };
+  Sfx.feel = on => {
+    if (on === undefined) return feelGet();
+    try { g.localStorage.setItem('vb.feel', on ? '1' : '0'); } catch (e) { /* bỏ qua */ }
+    if (g.Feel) g.Feel.set(!!on); else if (on) feelLoad();
+    return !!on;
+  };
+  try { const m = g.location && /[?&#]feel=([01])/.exec(g.location.search + g.location.hash); if (m) g.localStorage.setItem('vb.feel', m[1]); } catch (e) { /* bỏ qua */ }
+  if (feelGet()) feelLoad();
 
   // ---------- Phản hồi trả lời dùng chung cho MỌI bề mặt luyện tập (một chỗ duy nhất, không chép lại) ----------
   // Sfx.answer(ok, { el, answer, badge, exam }) → âm + rung (tắt cùng cài đặt âm thanh) + nảy/rung nhẹ el (tắt khi giảm chuyển động)

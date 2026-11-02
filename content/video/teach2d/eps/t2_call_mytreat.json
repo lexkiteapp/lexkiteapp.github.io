@@ -1,0 +1,83 @@
+{
+ "id": "t2_call_mytreat",
+ "template": "call",
+ "series": "Ask Ama",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "call",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What does my treat mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "Your teammate says: It's my treat today!",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "My treat means: I will pay for you.",
+   "pause": 0.42
+  },
+  {
+   "id": "o",
+   "text": "Say: Thank you so much!",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You pay for a friend. What do you say?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It's my treat! I will pay for you.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "title": "Coffee run for the team",
+  "em": "☕",
+  "line": "It's my treat today!",
+  "phrase": "my treat",
+  "mean": "I will pay for you",
+  "reply": "Thank you so much!",
+  "quiz": {
+   "options": [
+    "It's my treat!",
+    "No worries!"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "call",
+  "route": "#/call/coffee",
+  "link": "https://lexkite.com/app/#/call/coffee",
+  "say": "Practice a real call"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“My treat”?"
+ },
+ "src": {
+  "call": "coffee",
+  "turn": 5
+ },
+ "est": {
+  "words": 50,
+  "seconds": 29.6,
+  "wpm": 101
+ }
+}

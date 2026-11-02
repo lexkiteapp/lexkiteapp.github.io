@@ -2,7 +2,7 @@
 // Bộ mẫu social có nhân vật (thumbnail YouTube/Shorts, ảnh bài đăng, end card có QR, lower-third, bảng nhận diện).
 // Chạy: node scripts/build-social-templates.mjs   ·   sửa chữ hook ở brand/social/templates/templates.json
 // Chữ hook là <text> thật (sửa được trong Figma/Inkscape/Illustrator, cần phông Google: Bricolage Grotesque, Be Vietnam Pro, Noto Sans).
-// Nhân vật: cắt từ ảnh gốc trong brand/characters/_candidates (không commit) → brand/social/templates/assets/chars/*.jpg (commit).
+// Nhân vật: CHỈ 2 giáo viên 2D từ web/teach/characters.json → brand/social/templates/assets/chars/*.jpg (commit).
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -15,22 +15,16 @@ const ASSETS = path.join(TPL, 'assets', 'chars');
 const T = JSON.parse(fs.readFileSync(path.join(TPL, 'templates.json'), 'utf8'));
 const CH = T.characters;
 
-// ---------- ảnh nhân vật ----------
-const SRC_DIRS = [process.env.CHAR_SRC, path.join(ROOT, 'brand/characters/_candidates'), path.resolve(ROOT, '../../..', 'brand/characters/_candidates')].filter(Boolean);
+// ---------- ảnh nhân vật: CHỈ từ registry web/teach/characters.json (2 giáo viên 2D, chủ 28/10) ----------
+// bust = poster.webp (đầu → hông, nền trong suốt) đặt trên nền kem; face = avatar.webp (vuông đầu-vai). Cổng: scripts/test/characters-gate.mjs
+const REG = JSON.parse(fs.readFileSync(path.join(ROOT, 'web/teach/characters.json'), 'utf8'));
+for (const k of Object.keys(CH)) if (!REG.people[k]) throw new Error(`templates.json: nhân vật "${k}" không có trong web/teach/characters.json`);
 async function prepareChars() {
   fs.mkdirSync(ASSETS, { recursive: true });
-  const dir = SRC_DIRS.find((d) => fs.existsSync(d));
-  for (const [k, c] of Object.entries(CH)) {
-    const bust = path.join(ASSETS, `${k}-bust.jpg`), face = path.join(ASSETS, `${k}-face.jpg`);
-    const src = dir && path.join(dir, c.src);
-    if (!src || !fs.existsSync(src)) {
-      if (!fs.existsSync(bust)) throw new Error(`Thiếu ảnh nhân vật ${k}: đặt ảnh gốc vào brand/characters/_candidates/${c.src} hoặc CHAR_SRC=…`);
-      continue; // dùng bản đã cắt sẵn trong repo
-    }
-    const [bx, by, bw, bh] = c.bust;
-    await sharp(src).extract({ left: bx, top: by, width: bw, height: bh }).resize(900).jpeg({ quality: 86, mozjpeg: true }).toFile(bust);
-    const [fx, fy, fs_] = c.face;
-    await sharp(src).extract({ left: Math.round(fx - fs_ / 2), top: Math.round(fy - fs_ / 2), width: fs_, height: fs_ }).resize(600).jpeg({ quality: 86, mozjpeg: true }).toFile(face);
+  for (const k of Object.keys(CH)) {
+    const T2 = path.join(ROOT, 'web/teach', k), bg = { r: 255, g: 247, b: 234 }; // C.paper (cream)
+    await sharp(path.join(T2, 'poster.webp')).resize({ width: 900, height: 1200, fit: 'contain', position: 'bottom', background: { ...bg, alpha: 1 } }).flatten({ background: bg }).jpeg({ quality: 88, mozjpeg: true }).toFile(path.join(ASSETS, `${k}-bust.jpg`));
+    await sharp(path.join(T2, 'avatar.webp')).resize(600).flatten({ background: bg }).jpeg({ quality: 88, mozjpeg: true }).toFile(path.join(ASSETS, `${k}-face.jpg`));
   }
 }
 // href tương đối khi lưu SVG; base64 khi dựng PNG
@@ -253,7 +247,7 @@ function endcardV() {
   s += g.def + text(T.url, { x: 540, y: 800, font: 'display', size: 96, fill: `url(#${g.id})`, anchor: 'middle', ls: -2 });
   s += `<rect x="290" y="860" width="500" height="500" rx="40" fill="${C.sun}" transform="translate(14 14)"/>` + qr(290, 860, 500);
   s += text(e.sub, { x: 540, y: 1430, font: 'bold', size: 36, fill: C.sky, anchor: 'middle' });
-  ['mia', 'leo', 'ama'].forEach((k, i) => { s += frame(k, 'face', 'circle', 300 + i * 170, 1470, 140, 140, { offset: null, rw: 6 }); });
+  Object.keys(CH).forEach((k, i, a) => { s += frame(k, 'face', 'circle', 540 - a.length * 85 + 15 + i * 170, 1470, 140, 140, { offset: null, rw: 6 }); });
   s += text(e.crew, { x: 540, y: 1660, font: 'body', size: 30, fill: C.paper, anchor: 'middle', opacity: 0.9 });
   s += lockup(540 - lockupWidth(54) / 2, 1700, 54).svg;
   return svgDoc(w, h, s);
@@ -269,7 +263,7 @@ function endcardH() {
   s += g.def + text(T.url, { x: 110, y: 510, font: 'display', size: us, fill: `url(#${g.id})`, ls: -0.02 * us });
   s += text(e.sub, { x: 110, y: 600, font: 'bold', size: 40, fill: C.sky });
   s += `<rect x="110" y="660" width="330" height="330" rx="28" fill="${C.sun}" transform="translate(12 12)"/>` + qr(110, 660, 330);
-  ['mia', 'leo', 'ama'].forEach((k, i) => { s += frame(k, 'bust', 'arch', 940 + i * 300, 360 - (i === 1 ? 60 : 0), 270, 380 + (i === 1 ? 60 : 0), { offset: [C.coral, C.sun, C.coralMid][i], dx: 0, dy: -14 }); });
+  Object.keys(CH).forEach((k, i) => { s += frame(k, 'bust', 'arch', 1040 + i * 330, 330, 300, 420, { offset: [C.coral, C.sun][i % 2], dx: 0, dy: -14 }); });
   s += text(e.crew, { x: 1345, y: 830, font: 'heavy', size: 40, fill: C.paper, anchor: 'middle' });
   s += glow(1760, 930, 170, C.sun, 0.2) + kit(1660, 840, 200, 'win', 6);
   return svgDoc(w, h, s);
@@ -305,13 +299,13 @@ function brandSheet() {
   });
   s += text('Aa Bricolage Grotesque', { x: 90, y: 530, font: 'display', size: 76, fill: C.teal, ls: -2 }) + text('ExtraBold 800 · hooks, titles, wordmark', { x: 90, y: 572, font: 'body', size: 24, fill: C.teal, opacity: 0.7 });
   s += text('Aa Be Vietnam Pro — Tiếng Việt', { x: 980, y: 530, font: 'heavy', size: 56, fill: C.teal }) + text('600–800 · body, labels, Vietnamese', { x: 980, y: 572, font: 'body', size: 24, fill: C.teal, opacity: 0.7 });
-  ['mia', 'leo', 'ama', 'diane', 'carlos'].forEach((k, i) => {
+  Object.keys(CH).forEach((k, i) => {
     const x = 90 + i * 250;
     s += frame(k, 'face', 'circle', x, 640, 200, 200, { offset: null, ring: C.teal, rw: 5 });
     s += text(CH[k].name, { x: x + 100, y: 890, font: 'display', size: 36, fill: C.teal, anchor: 'middle' }) + text(CH[k].role, { x: x + 100, y: 924, font: 'body', size: 19, fill: C.teal, anchor: 'middle', opacity: 0.7 });
   });
   ['happy', 'cheer', 'win', 'think'].forEach((m, i) => { s += kit(1380 + (i % 2) * 230, 600 + Math.floor(i / 2) * 210, 190, m); });
-  s += text('Kit — only from web/js/kit.js · characters only from locked Elements · rules: docs/BRAND-RULES.md', { x: 90, y: 1020, font: 'body', size: 22, fill: C.teal, opacity: 0.7 });
+  s += text('Kit — only from web/js/kit.js · characters only from web/teach/characters.json · rules: docs/BRAND-RULES.md', { x: 90, y: 1020, font: 'body', size: 22, fill: C.teal, opacity: 0.7 });
   return svgDoc(w, h, s);
 }
 

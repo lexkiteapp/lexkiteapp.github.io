@@ -1,0 +1,82 @@
+{
+ "_doc": "Màn Ôn (Retention Drill hub) – d do Ux1.reviewHub (web/js/ux1.js) dựng. Đầu trang + thanh tab = chuẩn chung (shell.js). Nút Bắt đầu mở phiên ôn thật #/review (study.js).",
+ "remove": [
+  ":scope > header",
+  ":scope > nav"
+ ],
+ "i18n": {
+  "Spaced Repetition Active": "Ôn ngắt quãng đang bật",
+  "Today's Retention Drill": "Bài ôn giữ trí nhớ hôm nay",
+  "RECOMMENDED NOW": "Nên ôn ngay",
+  "Due Today": "Cần ôn hôm nay",
+  "Daily Review": "Ôn tập hằng ngày",
+  "Cards ready": "Thẻ sẵn sàng",
+  "In training": "Đang luyện",
+  "Permanent": "Nhớ lâu",
+  "Manage": "Quản lý",
+  "Manage study decks": "Quản lý bộ thẻ"
+ },
+ "text": {
+  "12": "d.due",
+  "28": "d.training",
+  "142": "d.perm",
+  "94.8% Memory": "d.mem",
+  "Lock 12 IELTS collocations into long-term memory": "d.lock",
+  "4 Critical": "d.critText",
+  "8 Familiar": "d.famText",
+  "START REVIEW": "d.cta",
+  "Estimated study time: ~4 mins": "d.est",
+  "Study Decks • 3 Active": "d.decksTitle"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > svg > circle:nth-child(2)": {
+   "stroke-dashoffset": "d.off"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > button": {
+   "data-href": "d.startHref",
+   "aria-label": "d.startAria"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > span:nth-child(1)": {
+   "data-href": "d.critHref",
+   "aria-label": "d.critAria"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": {
+   "data-href": "'#/deck'"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+ },
+ "tag": {
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > span:nth-child(1)": {
+   "to": "button",
+   "addClass": "relative after:absolute after:-inset-y-3 after:inset-x-0 after:content-['']"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.decks",
+   "as": "r",
+   "samples": ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div",
+   "variants": {
+    "one": ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div:nth-child(1)"
+   },
+   "bind": {
+    "one": {
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.name) + '</a>'",
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "r.icon"
+     },
+     "text": {
+      "Band 7.5+": "r.ret",
+      "• 86 cards": "'• ' + r.cards",
+      "6 due": "r.dueText"
+     },
+     "addClass": {
+      ":scope": "relative"
+     }
+    }
+   }
+  }
+ ]
+}

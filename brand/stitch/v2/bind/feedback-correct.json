@@ -1,0 +1,82 @@
+{
+ "_doc": "Tấm phản hồi ĐÚNG (#lsnFoot, #/lesson/go) – chỉ phần tấm (keep); câu hỏi/đầu trang là khung lesson-question (thẻ đáp án đúng/sai do web/js/lesson/ui.js v2optMark). Mẫu v2.1 'dict' (30/10) có thẻ từ điển + Vì sao? → gắn dữ liệu thật: d do ui.js feedbackV2 dựng: head, xp (trống = ẩn viên XP), tlabel (giáo viên · Giáo viên của bạn), word, ipa (2 giọng khác → cả 2), a1/a2 + acc/url/ar (2 loa đúng giọng, thứ tự UI.accOrder), mean, extra (chuỗi/combo – cờ Feel), boxes (Tăng điểm/Giải thích, ẩn tới khi có). Không có thẻ từ (ghép cặp) → ui.js gỡ .lsn-dict/.lsn-whyrow. Tiếp tục = #lsnNext. Chữ UK/US bản tối: mẫu teal #2BA39A trên nền teal 15 % = 4.29:1 → #4FD1C5 (màu chữ teal tối của bộ Kit, ≥ 4.5:1). 30/10 mẫu 'hero': khối giáo viên + Replay = khung lesson-question có sẵn; thẻ câu Fill in the blank = parts.qcard (ui.js chèn trước #lsnBody): qkind = tên dạng bài, câu = qpre + viên đáp án + qpost (dạng không có câu → chỉ viên).",
+ "keep": ":scope > main > div > div:nth-child(5)",
+ "i18n": {
+  "Why?": "Vì sao?",
+  "Tap the speaker to hear the sentence again.": "Chạm loa để nghe lại câu."
+ },
+ "text": {
+  "Excellent!": "d.head",
+  "+10 XP": "d.xp",
+  "CONTINUE": "t('Tiếp tục')",
+  "\"I like": "d.qpre ? '\"' + d.qpre : ''",
+  "to music.\"": "d.qpost ? d.qpost + '\"' : ''"
+ },
+ "html": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(1)": "d.tlabel",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)": "d.word",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)": "d.ipa",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > p": "d.mean",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(1) > span:nth-child(2)": "d.a1",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(2) > span:nth-child(2)": "d.a2",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > span": "e(d.qkind)",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > p > span": "e(d.qpick)"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1)": {
+   "role": "'status'"
+  },
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > button": {
+   "id": "'lsnWhy'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(5) > div:nth-child(4) > button": {
+   "id": "'lsnNext'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(5) .material-symbols-outlined": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(1)": {
+   "type": "'button'",
+   "data-speak": "d.say",
+   "data-accent": "d.acc1",
+   "data-url": "d.url1",
+   "aria-label": "d.ar1"
+  },
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(2)": {
+   "type": "'button'",
+   "data-speak": "d.say",
+   "data-accent": "d.acc2",
+   "data-url": "d.url2",
+   "aria-label": "d.ar2"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > button": {
+   "id": "'lsnFqPlay'",
+   "type": "'button'",
+   "aria-label": "t('Nghe câu')"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) .material-symbols-outlined": {
+   "aria-hidden": "'true'"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1) > div:nth-child(2)": "lsn-xpp",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2)": "lsn-dict",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3)": "lsn-whyrow",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > p": "lsn-fqs",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > button": "min-w-[44px] min-h-[44px] -m-[13px]"
+ },
+ "after": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1)": "d.extra",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3)": "d.boxes"
+ },
+ "cls": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button": {
+   "dk:text-[#2BA39A]": "'dk:text-[#4FD1C5]'"
+  }
+ },
+ "parts": {
+  "qcard": ":scope > main > div > div:nth-child(4) > div:nth-child(1)"
+ }
+}

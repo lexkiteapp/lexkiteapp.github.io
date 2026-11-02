@@ -1,0 +1,83 @@
+{
+ "id": "t2_usuk_elevator",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, you take the elevator.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, you take the lift. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Excuse me, where's the elevator?",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in London. What do you look for?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The lift!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "elevator",
+  "uk": "lift",
+  "ipa_us": "/ˈeləveɪtər/",
+  "ipa_uk": "/lɪft/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "elevator",
+    "lift"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/elevator",
+  "link": "https://lexkite.com/app/#/dict/elevator",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ }
+}

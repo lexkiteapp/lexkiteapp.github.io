@@ -69,20 +69,20 @@ t('báo cáo phủ', () => {
   assert.equal(c.counts.reject, 1);
 });
 
-t('manifest dựng (render.mjs): chỉ clip approved có stacked đạt + phòng có file & hồ sơ', () => {
+t('manifest dựng (render.mjs): nhân vật CHỈ clip registry (chủ 28/10) – clip kho cũ không bao giờ vào, kể cả approved + stacked đạt', () => {
   const tmp = fs.mkdtempSync(path.join(process.env.TMPDIR || '/tmp', 'lib-')), f = path.join(tmp, 'manifest.json');
-  fs.writeFileSync(f, JSON.stringify({ clips: [{ id: 'mia_idle', outfit: 'party', facing: 'right' }], rooms: [], stills: [{ file: 'stills/x.png' }] }));
+  const reg = { id: 'reg_ama_talk_a', who: 'ama', file: 'clips/registry/ama_talk_a.mp4', build: 'registry', pose: 'talk', alpha: 'stacked', medium: true, ready: true };
+  fs.writeFileSync(f, JSON.stringify({ clips: [{ id: 'mia_idle', outfit: 'party', facing: 'right' }, reg], rooms: [], stills: [{ file: 'stills/x.png' }] }));
   const m = emptyManifest(), st = (o = {}) => ({ stacked: { file: 'x', status: 'PASS', foot: [300, 1500], figH: 1500, w: 600, h: 1520, ...o } });
   m.items.push({ id: 'clips/mia_idle.mp4', kind: 'clip', who: 'mia', file: 'clips/src/mia_idle.mp4', tags: ['idle'], roles: ['listener'], status: 'approved', variants: st(), locations: {} });
+  m.items.push({ id: 'clips/ama_old.mp4', kind: 'clip', who: 'ama', file: 'clips/src/ama_old.mp4', tags: ['talk'], roles: ['speaker'], status: 'approved', variants: st(), locations: {} });
   m.items.push({ id: 'clips/leo_talk.mp4', kind: 'clip', who: 'leo', file: 'clips/src/leo_talk.mp4', tags: ['talk'], roles: ['speaker'], status: 'approved', variants: st({ status: 'FAIL', issues: ['FAIL stacked_mask: x'] }), locations: {} });
-  m.items.push({ id: 'clips/ama_wave.mp4', kind: 'clip', who: 'ama', file: 'clips/src/ama_wave.mp4', roles: ['speaker'], status: 'approved', locations: {} });
-  m.items.push({ id: 'clips/ama_nod.mp4', kind: 'clip', who: 'ama', file: 'clips/src/ama_nod.mp4', roles: ['listener'], status: 'reject', variants: st(), locations: {} });
-  const probs = writeRenderManifest(m, f, rel => rel === 'clips/mia_idle.mp4');
+  const probs = writeRenderManifest(m, f, rel => rel === 'clips/mia_idle.mp4' || rel === 'clips/ama_old.mp4');
   const rm = JSON.parse(fs.readFileSync(f, 'utf8'));
-  const mia = rm.clips.find(c => c.id === 'mia_idle');
-  assert.equal(mia.alpha, 'stacked'); assert.equal(mia.outfit, 'party'); assert.equal(mia.figH, 1500); assert.equal(mia.ready, true); assert.equal(mia.file, 'clips/mia_idle.mp4');
-  assert.ok(!rm.clips.some(c => c.id === 'leo_talk' || c.id === 'ama_wave'), 'clip chưa có stacked đạt không được thêm');
-  assert.ok(probs.some(p => /leo_talk.*FAIL/.test(p)) && probs.some(p => /stills\/x\.png/.test(p)));
+  assert.equal(rm.clips.find(c => c.id === 'mia_idle').ready, false, 'người ngoài registry: mục cũ bị tắt (ready:false)');
+  assert.ok(!rm.clips.some(c => c.id === 'ama_old' || c.id === 'leo_talk'), 'clip kho cũ (kể cả Ama kiểu cũ) không được thêm vào danh mục dựng');
+  assert.deepEqual(rm.clips.find(c => c.id === 'reg_ama_talk_a'), reg, 'clip registry giữ nguyên ready:true (CI dựng tại chỗ)');
+  assert.ok(probs.some(p => /^clip .*ready:false/.test(p)) && probs.some(p => /stills\/x\.png/.test(p)));
   assert.equal(rm.stills.length, 1); assert.equal(rm.stills[0].ready, false); // danh mục giữ nguyên, chỉ đánh dấu
   fs.rmSync(tmp, { recursive: true });
 });
@@ -115,7 +115,8 @@ if (fs.existsSync(mf)) {
     assert.ok(parseName(e.file), 'tên sai chuẩn trong manifest: ' + e.file);
     assert.ok(!ids.has(e.id) && !shas.has(e.sha256), 'trùng id/sha trong manifest: ' + e.id);
     ids.add(e.id); shas.add(e.sha256);
-    assert.ok(['approved', 'reserve', 'reject'].includes(e.status), e.id);
+    assert.ok(['approved', 'reserve', 'reject', 'retired'].includes(e.status), e.id);
+    if (e.status === 'retired') assert.ok(e.retired && e.retiredFrom, 'retired (nhân vật kho cũ, chủ 28/10) cần lý do + trạng thái gốc: ' + e.id); // giữ dữ liệu + sao lưu, không bao giờ vào render
     if (e.status === 'approved') assert.ok((e.qa ?? 0) >= 90 || e.waiver, 'approved thiếu qa ≥ 90/waiver: ' + e.id);
     if (e.status === 'approved' && (e.check || {}).status === 'FAIL') assert.ok(e.manualReview && e.manualReview.reason && e.waiver, 'approved nhưng check FAIL (thiếu duyệt tay có lý do – library.mjs approve): ' + e.id);
     assert.ok(!/AIza|ghp_|gho_|github_pat_/.test(JSON.stringify(e)), 'manifest chứa khoá/token: ' + e.id);

@@ -224,7 +224,7 @@
         name: t('Hệ Tự Nhiên & Phản Xạ'),
         desc: t('Bạn học bằng trực giác, không sợ sai và thích tương tác thực tế. Bạn tiến bộ nhanh nhất khi biến tiếng Anh thành trò chơi và giao tiếp tự nhiên mỗi ngày.'),
         recs: [
-          ['#/call', '🎙️ ' + t('Luyện nói & đóng vai tình huống cùng Call Mia')],
+          ['#/call', '🎙️ ' + t('Luyện nói & đóng vai tình huống qua cuộc gọi với Ama và Carlos')],
           ['#/quick', '⚡ ' + t('Chơi nhanh 15 giây mỗi khi có thời gian rảnh')],
           ['#/reflex', '🎧 ' + t('Luyện phản xạ nghe – nói')]
         ]

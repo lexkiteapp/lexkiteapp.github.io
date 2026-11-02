@@ -7,6 +7,7 @@
 // Dùng: node scripts/test/ux1-guard.mjs <web> [out] [--part i/n] [--shots]   (--shots: chụp MỌI bước → tờ trước/sau)
 import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 import { serve, scan } from './ux-guard-lib.mjs';
 const args = process.argv.slice(2), flags = args.filter(a => a.startsWith('--')), pos = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1] || '').startsWith('--part'));
 const [ROOT = 'web', OUT = 'out/ux1-guard'] = pos, SHOTS = flags.includes('--shots');
@@ -22,6 +23,7 @@ const found = {}, errs = [], seen = [];
 async function run(width, scheme, lang) {
   const vp = width < 768 ? { viewport: { width, height: 800 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width, height: width > 1600 ? 1080 : 860 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block', reducedMotion: 'reduce' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.ret', '1'); } catch (e) { /* */ } });
   await serve(ctx, ROOT);
   const page = await ctx.newPage(), tag = `${width}-${scheme}-${lang}`;
@@ -54,7 +56,7 @@ async function run(width, scheme, lang) {
 
   // 🔥 Giữ chuỗi: mốc 7 ngày (tự hiện khi mở app) → rương → rã băng
   await page.evaluate(async () => { if (App.lazy) await App.lazy('streak', 'ret').catch(() => {}); if (window.Ret) Ret.check(); }).catch(() => {});
-  await page.waitForFunction(() => !!document.querySelector('#modal:not([hidden]) .ret-cel'), null, { timeout: 8000 }).catch(() => errs.push(`${tag}: mốc 7 ngày không hiện`));
+  await page.waitForFunction(() => !!document.querySelector('#modal:not([hidden]) .ret-cel, #modal:not([hidden]) [data-ret-cel]'), null, { timeout: 8000 }).catch(() => errs.push(`${tag}: mốc 7 ngày không hiện`));
   await check('ret-milestone');
   if (await click('#retChestTile')) { await page.waitForTimeout(1200); await check('ret-chest'); }
   await page.evaluate(() => { const m = document.getElementById('modal'); if (m) m.hidden = true; if (window.Ret) Ret.thaw(); });
@@ -67,7 +69,7 @@ async function run(width, scheme, lang) {
   await go('home?pick=1'); await check('goal-pick');
   await click('.ux1-pk-tg .chip'); await page.waitForTimeout(1600); await check('home-map');
   await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); // cùng URL → goto không vẽ lại
-  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
+  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-st="done"]'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
   await check('home-map-n4');
   for (const r of ROUTES) { await go(r); await check(r); }
 

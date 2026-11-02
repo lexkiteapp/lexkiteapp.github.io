@@ -10,8 +10,8 @@
  "cefr": "B1",
  "area": "word-usage",
  "plate": "clothing_store",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "carlos",
+ "clip": "gc11_talk",
  "hook": {
   "line": "n_1d6760_h",
   "quote": "Consumers make the products.",

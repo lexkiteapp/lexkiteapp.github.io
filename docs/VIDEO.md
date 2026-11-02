@@ -3,7 +3,7 @@
 > TL;DR: Nguồn sự thật video hiện hành: chiến lược (NEWS-ANCHOR), look v5, builder scripts/cine/, CI cine-render, lưu trữ, kho footage. Tài liệu video cũ toàn văn ở archive/.
 > Đọc khi: mọi việc video.
 
-Tiêu credit → `docs/CREDIT-RULES.md` trước. Tài liệu cũ (toàn văn, giữ số §): `docs/archive/{VIDEO-PIPELINE,VIDEO-SYSTEM-PLAN,CINE-SCENE-STANDARD,KLING-PLAN,LISTENING-CHANNEL-PLAN,VIDEO-CONTENT-PLAN}.md`.
+**Hiện hành 29/10: video dạy học = `docs/VIDEO-TEACH2D.md` (MỘT pipeline Remotion + Stitch). Nhân vật CHỈ 2D (28/10 tối) – mọi chỗ ghi 3D dưới đây là cũ; render_v9 tạm dừng. NEWS-ANCHOR §1–2: chờ chủ xác nhận.** Tiêu credit → `docs/CREDIT-RULES.md` trước. Tài liệu cũ (toàn văn, giữ số §): `docs/archive/{VIDEO-PIPELINE,VIDEO-SYSTEM-PLAN,CINE-SCENE-STANDARD,KLING-PLAN,LISTENING-CHANNEL-PLAN,VIDEO-CONTENT-PLAN}.md`.
 
 ## 1. Chiến lược (chủ chốt)
 - **Định dạng CHÍNH = NEWS-ANCHOR**: 2 người dẫn trên phông xanh nói về 1 tình huống, nền ảnh tĩnh theo chủ đề. 0 credit, 0 token mỗi clip khi scale; sinh & dựng trên GitHub Actions.
@@ -78,12 +78,11 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 - Nội dung: `content/video/cine/news/{bank,bg_topics,lines}.json`, `content/video/cine/{used,coverage}.json`, `content/video/cine/publish/`.
 - `brand/library/cine` là gitignore → nguồn bền = Kho Drive theo `archive-manifest.json` (§5b); `lexkite-footage` giữ manifest + file nhỏ (+ binary cũ đóng băng).
 
-## 7. Credit (tóm tắt – đầy đủ `docs/CREDIT-RULES.md`)
-0 credit trước · phiếu phân tích · dry-run in lệnh · ảnh (1 cr) đạt rồi mới clip (25 cr) · thử 1 cái, lần lượt · hỏng 2 lần → DỪNG, báo chủ · trần credit mỗi việc · chỉ dùng kết quả ≥ 90 (`docs/MEDIA-QA-RUBRIC.md`) · ghi ledger. Không tiêu nếu chủ chưa duyệt rõ trong chat.
+## 7. Credit → `docs/CREDIT-RULES.md` (nguồn duy nhất)
 - Kling cử chỉ tay (22/10): chỉ 1 dáng tay ĐƠN giữ yên (ngón trỏ / lòng bàn tay mở, ngang ngực) – chuỗi đếm ngón theo thời gian KHÔNG làm được. Ảnh ¾ hay sai hướng → xin 2 ảnh/lượt, xác định hướng bằng tai/khuyên tai.
 
-## 8. Pipeline cũ (2D Remotion)
-`video.yml` / `video-auto.yml` / Video Studio (`scripts/video/*`) – `docs/archive/VIDEO-PIPELINE.md`; không phải định dạng chính.
+## 8. Pipeline Remotion cũ (`video.yml`)
+`video.yml` / `video-auto.yml` / Video Studio (`scripts/video/*`) – `docs/archive/VIDEO-PIPELINE.md`. (obsolete 29/10 "không phải định dạng chính" → pipeline Remotion hiện hành: `docs/VIDEO-TEACH2D.md`.)
 
 ## Thư viện clip quy mô lớn (22/10/2026)
 - `/api/admin-clips` (functions/api/admin-clips.js, logic thuần `_clip_logic.js`): `query` (lọc + sắp xếp + phân trang con trỏ, bìa ký chỉ cho trang đó), `ids` ("chọn tất cả N kết quả"), `export` (CSV), `bulk` (approve · unapprove · pause · resume · reject{reason} · restore · web_on/off · reschedule{start,days,from,to} · channel · delete{hard}). Lô ≤ 100 id, kết quả từng clip, giới hạn tốc độ, nhật ký `admin_log` (`clips.bulk.<action>`); delete = DANGER (đăng nhập ≤ 15 phút), xoá mềm giữ công thức, `hard` đánh dấu deleted=2 + bỏ khỏi hàng đợi YouTube.
@@ -91,7 +90,7 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 - Giao diện `web/js/admin-clips.js`: lưới ảo hóa (thẻ cao cố định, < 300 nút DOM), chọn nhiều O(1), thanh thao tác sticky, tác vụ dang dở tiếp tục được (localStorage). Ngân sách hiệu năng: `scripts/test/clips-perf.mjs` (CI `clips-perf.yml`); logic: `scripts/test/clip-bulk.mjs`.
 - Phân phối nhiều kênh (22/10/2026): `/api/distribution` + `_distribution.js` (định tuyến luật đầu tiên thắng + dự phòng, hạn mức/ngày, giãn cách, khung giờ theo múi giờ kênh, jitter ±20 phút, chống trùng tiêu đề/bìa, không lặp mẫu liền kề), D1 `yt_chan_cfg` / `yt_rules` / `yt_plan`; gói đăng hiện kênh + giờ; sync báo `wrong-channel`; kênh tự tạm dừng khi sync gặp forbidden/revoked hoặc ≥ 5 lần tải lỗi (cảnh báo ở status.alerts). Phân loại: `_taxonomy.js` (một nguồn), loại nội dung short/long/podcast ở `_clip_logic.js`. Chưa làm: giao diện tab "Kênh & phân phối", vai trò embed/social + metadata viral, facade nhúng nhẹ.
 
-## 9. Luật dựng, QA, tách nền, Kling, kho 3D (chuyển nguyên văn từ METHODS 27/10)
+## 9. Luật dựng, QA, tách nền, Kling (chuyển nguyên văn từ METHODS 27/10)
 - Mọi lớp chữ phải có hộp bố cục & bị QA kiểm; điểm tự chấm cao ≠ khung đúng → luôn soi khung/tờ ảnh ghép.
 - ffmpeg: luôn `-nostdin`; `alimiter level=0`; tone −60 dB ở 0 s.
 - Người dẫn = giáo viên Mỹ (KHÔNG lower-third tên – chủ bỏ 22/10; giữ "Teacher's tip", "Repeat after me", giọng giáo viên); chỉ cử chỉ trung tính, đứng; không cử chỉ ký hiệu (đếm ngón/lắc ngón Kling hỏng).
@@ -103,8 +102,8 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 - **Ngữ pháp dựng (chủ 24/10 – "chuyển cảnh nghiệp dư" dù QC 100):** `scripts/cine/news_edit.py` (`NEWS_EDIT=A|B|C`): cắt đúng chỗ ngắt câu, không cắt giữa câu, đổi người = J-cut/cắt cứng/whip 6-8 khung (không pan 0,7 s), nhấn = punch 1.0↔1.12, chữ động vào/ra mượt, duck nền −40 dB. Cổng `scripts/cine/qa_edit.py` (cắt giữa câu = 0, cắt-đúng-ngắt ≥ 0,9, pan chậm = 0, pop-in = 0). Chi tiết: `archive/METHODS-HISTORY.md` § "Ngữ pháp dựng".
 - QC bắt buộc mọi khâu: `docs/VIDEO-QC.md` (trước & sau cho nhân vật, nền, kịch bản, giọng, phụ đề, video); trượt 1 cổng = không dùng/không đăng.
 - Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
-- Video dạy học (27/10, chuẩn ở `VIDEO-SERIES.md` §Production standard): chỉ 2 người dẫn 3D (Carlos, Ama); bố cục v14 = viết thẳng lên bảng, mực theo ánh sáng bảng; clip theo tâm trạng câu, biểu cảm có trần.
-- Kho 3D (`scripts/video/bank3d/`): ảnh khung đầu qua `check_first.py` TRƯỚC khi tạo clip; mọi clip có câu khoá vị trí (`send2.sh`), neo ảnh chuẩn; sau: `qc2.py`, tờ ảnh, gate CI.
+- Video dạy học (27/10, chuẩn ở `VIDEO-SERIES.md` §Production standard): chỉ 2 người dẫn (Carlos, Ama) – (obsolete 28/10 "3D" → CHỈ 2D, `VIDEO-TEACH2D.md`); bố cục v14 = viết thẳng lên bảng, mực theo ánh sáng bảng; clip theo tâm trạng câu, biểu cảm có trần.
+- Bộ bọc Kling (`scripts/video/bank3d/`, tên cũ; kho 3D dừng 28/10): ảnh khung đầu qua `check_first.py` TRƯỚC khi tạo clip; mọi clip có câu khoá vị trí (`send2.sh`), neo ảnh chuẩn; sau: `qc2.py`, tờ ảnh, gate CI.
 - Tách nền: không ghi màu đen dưới alpha 0, không ngưỡng alpha sau co giãn; dùng `matte_refine.py`, `place()`/`over()` premultiplied, QA `edge_qa()` + zoom 400 %.
 - Người dẫn luôn ĐỨNG, cử chỉ trung tính, không cử chỉ ký hiệu; khung đầu = khung cuối tư thế để nối.
 - Nền: OCR (`bgqc.py`) + nhìn tay; không ghi "clock" trong prompt; mỗi nền phải có sàn đứng được; nhân vật mới = i2i TỪ ref cũ + cổng tay `ref_qc.py`.

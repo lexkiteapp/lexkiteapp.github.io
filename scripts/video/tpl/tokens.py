@@ -103,8 +103,11 @@ HOST_LOCK = dict(shoulder=392, fit=0.03, shoulder_tol=0.05, top=1024, cx=540, cr
 CAPTION = dict(size=76, y=928, max_words=4, stroke=6, pill=(255, 201, 74), sync_ms=80)   # word-level karaoke band between the cards and the host's head
 VIDEO = dict(min_mbps=8.0, min_s=25, max_s=40, max_mb=60, target_kbps=8600)              # samples: >= 8 Mbps 1080x1920 (owner 25/10)
 SHARP = dict(min_ratio=0.80)                                                              # host-region Laplacian variance, encoded / rendered frame
-# hosts used by the batch pipeline (one natural-talk clip each; PRO matte + mouth meta in the footage bank)
-HOST_CLIPS = dict(ama='ga4_talk_natural', carlos='gc4_talk_natural', mia='gm1_talk_natural')
+# hosts used by the batch pipeline = ONLY the 2 registry teachers (web/teach/characters.json, owner 28/10: one 2D Ama + one 2D Carlos everywhere;
+# Mia/Jake stay in the footage bank, unused). One natural-talk clip each (PRO matte + mouth meta in the footage bank).
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), '..', '..'))
+from teach.registry import video_clips as _vc
+HOST_CLIPS = _vc()
 # hook truth (docs/VIDEO-TEMPLATES.md §9): "Stop/Never saying" only when the Groq judge says the learner line is a real error
 HOOKS = dict(strong=[('Stop saying this.', 'Stop saying'), ('Never say this.', 'Never say'), ('Natives never say this.', 'Natives never say')],
              soft=[('Americans usually say this.', 'Americans usually say'), ('Sound more natural.', 'Sound more natural:')])

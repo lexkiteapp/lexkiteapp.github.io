@@ -10,8 +10,8 @@
  "cefr": "C1",
  "area": "phrases",
  "plate": "library",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "carlos",
+ "clip": "gc11_talk",
  "hook": {
   "line": "n_01bb45_h",
   "quote": "Can I borrow from the other library loan?",

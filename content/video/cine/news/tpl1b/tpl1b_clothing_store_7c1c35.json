@@ -10,8 +10,8 @@
  "cefr": "B1",
  "area": "roleplay",
  "plate": "clothing_store",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "ama",
+ "clip": "ga11_talk",
  "hook": {
   "line": "n_7c1c35_h",
   "quote": "It is not work.",

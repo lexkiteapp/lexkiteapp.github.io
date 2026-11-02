@@ -1,0 +1,117 @@
+{
+ "_doc": "Màn Hoàn thành bài học (#/lesson/go, cờ ux1) – d do web/js/lesson/ui.js finish() dựng từ phiên thật. Ama (cheer, ảnh tĩnh) đứng SAU thẻ 'sub' đục (thẻ kéo lên chồng đáy hình). Combo/thời gian/từ đã học/từ sai/không sai câu nào nằm trong thẻ này (d.more); Bài khác = #lsnAgain; nút thứ hai = Sổ lỗi sai (có câu sai) hoặc Bản đồ bài học; X (2 chỗ) = Bản đồ bài học; Chia sẻ = #lsnShare.",
+ "i18n": {
+  "Close lesson": "Thoát bài học",
+  "Learner profile": "Hồ sơ người học",
+  "Lesson complete!": "Hoàn thành bài học!",
+  "Share results": "Chia sẻ kết quả",
+  "TOTAL XP": "Tổng XP",
+  "ACCURACY": "Chính xác",
+  "STREAK": "Chuỗi"
+ },
+ "text": {
+  "Active Drill Session": "d.title",
+  "70%": "d.pct",
+  "UNIT 3 • WRITING TASK 1": "d.chip",
+  "+25": "d.xp",
+  "100%": "d.acc",
+  "14": "d.streak",
+  "Vocabulary Mastery +3": "d.sub",
+  "Mastered 4 complex linking expressions today.": "d.learned",
+  "CONTINUE": "t('Bài khác')",
+  "REVIEW LESSON": "d.rev"
+ },
+ "attr": {
+  ":scope > header > div > button": {
+   "href": "d.close",
+   "id": "'lsnX'",
+   "aria-label": "t('Thoát bài học')"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": {
+   "dir": "'ltr'"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-label": "t('Tiến độ bài học')",
+   "aria-valuemin": "'0'",
+   "aria-valuemax": "'100'",
+   "aria-valuenow": "'100'"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:100%'"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "data-href": "'#/me'",
+   "type": "'button'",
+   "aria-label": "t('Hồ sơ người học')"
+  },
+  ":scope > main > div > div:nth-child(1) > button:nth-child(1)": {
+   "href": "d.close",
+   "id": "'lsnX2'",
+   "aria-label": "d.mapL"
+  },
+  ":scope > main > div > div:nth-child(1) > button:nth-child(3)": {
+   "id": "'lsnShare'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(3) > div > svg:nth-child(2) > circle:nth-child(2)": {
+   "stroke-dashoffset": "d.off1"
+  },
+  ":scope > main > div > div:nth-child(3) > div > svg:nth-child(3) > circle:nth-child(2)": {
+   "stroke-dashoffset": "d.off2"
+  },
+  ":scope > main > div > div:nth-child(6) > button:nth-child(1)": {
+   "id": "'lsnAgain'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(6) > button:nth-child(2)": {
+   "id": "'lsnRev'",
+   "href": "d.revHref"
+  },
+  ":scope .material-symbols-outlined": {
+   "aria-hidden": "'true'"
+  }
+ },
+ "cls": {
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "w-[70%]": "''"
+  },
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span:nth-child(1)": {
+   "truncate": "''"
+  },
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span:nth-child(2)": {
+   "truncate": "''"
+  }
+ },
+ "tag": {
+  ":scope > header > div > button": {
+   "to": "a"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "to": "button"
+  },
+  ":scope > main > div > div:nth-child(1) > button:nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > main > div > div:nth-child(6) > button:nth-child(2)": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > main > div > div:nth-child(1) > button:nth-child(1)": "relative after:absolute after:-inset-1 after:content-['']",
+  ":scope > main > div > div:nth-child(1) > button:nth-child(3)": "relative after:absolute after:-inset-1 after:content-['']",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "max-w-[60%]",
+  ":scope > main > div > div:nth-child(4)": "lsn-stats",
+  ":scope > main > div > div:nth-child(5)": "relative z-10 lsn-sub",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span": "break-words",
+  ":scope > main > div > div:nth-child(6) > button:nth-child(2)": "no-underline"
+ },
+ "after": {
+  ":scope > main > div > div:nth-child(4)": "d.teacher",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span:nth-child(2)": "d.more"
+ },
+ "html": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(3) > div:nth-child(1)": "ST2.flame(ST2.flameState(+d.streak), 26)"
+ }
+}

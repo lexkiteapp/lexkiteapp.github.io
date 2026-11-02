@@ -12,28 +12,28 @@
   "template": "roleplay",
   "lines": [
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "hook",
     "text": "Um… how do I book?",
     "expr": "confused",
     "gesture": ""
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "situation",
     "text": "Hello! Welcome to the clinic.",
     "expr": "friendly",
     "gesture": "open hands"
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "example",
     "text": "Hi, I'd like to make an appointment, please. I have a sore throat.",
     "expr": "friendly",
     "gesture": ""
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "explain",
     "text": "Sure. Tomorrow at nine works. See you then!",
     "expr": "happy smile",
@@ -48,7 +48,7 @@
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "cta",
     "text": "Roleplay this free on lexkite.com",
     "expr": "happy smile",

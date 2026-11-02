@@ -27,6 +27,8 @@ SP = json.load(open(o.lesson)); LID = SP['id']; H6 = SP['hook']['line'][2:8]
 LJ = json.load(open(o.lines or os.path.join(os.path.dirname(o.lesson), 'lines.json'))); TEXT = {l['id']: l['text'] for l in LJ['lines']}
 T1 = o.tpl == 1
 PLATE_N = (o.plate or SP.get('plate')) if T1 else None; HOSTN = o.host_name or SP.get('host') or 'ama'; CLIP = o.clip or SP.get('clip') or 'ga4_talk_natural'
+import os as _o, sys as _s; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), '..', '..')); from teach.registry import check as _chk  # 1 bộ nhân vật 2D (characters.json)
+_chk(HOSTN, [CLIP])
 CTA = SP.get('cta') or None
 def F(kind, size): return ImageFont.truetype(f"{o.fonts}/{FONTS[kind]}", size)
 def nrm(w): return re.sub(r"[^a-z0-9']", '', w.lower().replace('’', "'")).strip("'")

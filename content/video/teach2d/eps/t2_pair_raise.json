@@ -1,0 +1,99 @@
+{
+ "id": "t2_pair_raise",
+ "template": "pair",
+ "series": "Same or Different?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "word-usage",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Raise or rise? Same thing?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Please raise your hand.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not: please rise your hand.",
+   "pause": 0.42
+  },
+  {
+   "id": "m1",
+   "text": "Raise moves something.",
+   "pause": 0.42
+  },
+  {
+   "id": "m2",
+   "text": "Rise moves by itself.",
+   "pause": 0.42
+  },
+  {
+   "id": "k",
+   "text": "The sun rises. Nobody raises it!",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Rises! The sun rises at six.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "a": "raise",
+  "b": "rise",
+  "mean_a": "Raise moves something.",
+  "mean_b": "Rise moves by itself.",
+  "aha": "The sun rises. Nobody raises it!",
+  "right": "Please raise your hand.",
+  "quiz": {
+   "stem": "The sun ___ at six.",
+   "options": [
+    "raises",
+    "rises"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "word-usage",
+  "route": "#/usage/raise-rise",
+  "link": "https://lexkite.com/app/#/usage/raise-rise",
+  "say": "Compare tricky words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Raise or rise?"
+ },
+ "src": {
+  "gold": "sb_3e77d39c",
+  "pid": "u:c:rise-raise"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 30.4,
+  "wpm": 97
+ }
+}
