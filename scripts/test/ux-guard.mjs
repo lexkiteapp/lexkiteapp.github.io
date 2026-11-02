@@ -6,6 +6,7 @@
 // Dùng: node scripts/test/ux-guard.mjs <web> [out=out/ux-guard]   (CI: .github/workflows/ux-cards.yml)
 import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 import { serve, scan } from './ux-guard-lib.mjs'; // hàm quét dùng chung với ux1-guard.mjs
 const [ROOT = 'web', OUT = 'out/ux-guard'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const ROUTES = ['home', 'path', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'mistakes', 'quick', 'me', 'stats', 'league', 'goal', 'dict/sustainable', 'confidence', 'grammar', 'grammar/tenses', 'pron/th-sounds', 'lesson'];
@@ -17,6 +18,7 @@ const add = (k, v) => { (found[k] ||= []).push(v); };
 async function run(width, scheme, lang) {
   const vp = width < 768 ? { viewport: { width, height: 800 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width, height: 860 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await serve(ctx, ROOT);
   const page = await ctx.newPage(); const tag = `${width}-${scheme}-${lang}`;
   page.on('pageerror', e => errs.push(`${tag}: ${e.message}`));

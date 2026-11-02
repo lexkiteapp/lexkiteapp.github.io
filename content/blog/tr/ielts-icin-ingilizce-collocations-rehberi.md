@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "ielts için ingilizce collocations"
 cover: dict
 coverAlt: "Resilient kelimesinin telaffuzunu ve eşdizimlerini gösteren Lexkite sözlük ekranı"
-publishAt: ""
+publishAt: 2026-11-27T12:16:00+03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

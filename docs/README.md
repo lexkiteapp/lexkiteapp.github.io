@@ -1,6 +1,6 @@
 # docs/ – đọc trước
 
-> TL;DR: Đầu phiên đọc `README` + `TOKEN-RULES` + `METHODS` + `agents/BOARD`; còn lại mở theo bảng chủ đề → file sở hữu dưới đây. Mô tả từng file: [INDEX.md](INDEX.md).
+> TL;DR: Đầu phiên đọc `CODEMAP` (bản đồ mã) + `README` + `TOKEN-RULES` + `METHODS` + `agents/BOARD`; còn lại mở theo bảng chủ đề → file sở hữu dưới đây. Mô tả từng file: [INDEX.md](INDEX.md).
 > Đọc khi: đầu phiên.
 
 **Luật:** một chủ đề = một file sở hữu; nơi khác chỉ link `docs/X.md §n`, không chép lại. Cũ/lịch sử → `archive/`. Thêm doc mới = 1 dòng ở INDEX + khối `> TL;DR:` (test `docs-budget`: ≤ 45 KB/file, METHODS ≤ 20 KB).
@@ -17,6 +17,7 @@
 | i18n 15 ngôn ngữ | `I18N-PIPELINE.md` |
 | Nội dung học: quy trình · chuẩn · cổng QA · lộ trình | `CONTENT-PIPELINE.md` · `CONTENT-RULES.md` · `CONTENT-QA.md` · `CONTENT-ROADMAP.md` · chuẩn đích + pha P0–P2 `CONTENT-WORLD-PLAN.md` |
 | Lời giải đáp án · kho từ vựng · ảnh từ vựng · giọng từ | `EXPLAIN.md` · `LEXICON.md` · `VOCAB-IMG-STYLE.md` · `WORD-AUDIO.md` |
+| Say it like a native (thẻ phản xạ #/say + video react) | `SAY-NATIVE.md` |
 | Giao tiếp tự tin · nhắc học · lớp học · giáo viên trong app | `CONFIDENCE.md` · `REMINDERS.md` · `RETENTION.md` · `CLASSROOM.md` · `VIDEO-TEACHERS.md` |
 | Thương hiệu (brand-check đọc – giữ mã màu) · hệ thiết kế · UX · port Stitch v2 | `BRAND-RULES.md` · `DESIGN-SYSTEM.md` · `UX-PUBLIC.md` · `UX-BENCHMARK.md` · `STITCH-V2-PORT.md` · `STITCH-COVERAGE.md` · `WEB-PAGES.md` (trang không phải app) |
 | Game feel: âm thanh, rung, chuyển động phản hồi, nhân vật phản ứng (pilot sau cờ `?feel=1`) | `GAME-FEEL.md` |

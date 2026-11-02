@@ -33,6 +33,7 @@ quiz: [
     explain: "'The digital divide' (la brecha digital) es el término académico unánime para describir desigualdades de acceso a la tecnología moderna."
   }
 ]
+publishAt: 2026-11-24T21:59:00-06:00
 ---
 En las pruebas de IELTS Writing Task 2 y Speaking Parte 3, el impacto de los avances tecnológicos es uno de los temas más frecuentes del examen. Desde redacciones sobre el reemplazo de empleos por inteligencia artificial hasta debates éticos sobre la vigilancia masiva de datos, los examinadores evalúan si posees el repertorio léxico adecuado para analizar fenómenos complejos. Utilizar términos vagos o informales como *convenient machines* o *cool gadgets* estancará tu puntuación de Lexical Resource en Banda 6. Dominar un **vocabulario ielts tecnología** avanzado es el puente hacia la codiciada Banda 7 y 8.
 
