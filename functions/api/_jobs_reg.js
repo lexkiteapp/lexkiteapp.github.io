@@ -200,7 +200,8 @@ export const REG = {
    "id": "free-tier-guard",
    "workflow": "free-tier-guard.yml",
    "cron": [
-    "35 1 * * *"
+    "35 1 * * *",
+    "17 * * * *"
    ],
    "priority": "reports",
    "resources": [
