@@ -12,6 +12,7 @@ import path from 'path';
 import os from 'os';
 import vm from 'vm';
 import { execFileSync } from 'child_process';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const ROOT = path.resolve('web');
 const ctxSW = { self: {} }; vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'js/toeic/sw1.js'), 'utf8'), ctxSW);
@@ -95,10 +96,10 @@ async function run(name, cfg) {
   // Bấm chuẩn bị rồi "Nói ngay" (bỏ qua 45 giây chuẩn bị)
   await page.click('#swPrepB'); await page.clock.runFor(2000);
   await page.click('#swGo');
-  await page.waitForFunction(() => window.MediaRecorder && document.querySelector('#swPhase').textContent.includes('🔴'), null, { timeout: 5000 });
+  await waitFn(page, () => window.MediaRecorder && document.querySelector('#swPhase').textContent.includes('🔴'), null, { timeout: 5000 });
   await page.waitForTimeout(1200); // để MediaRecorder có dữ liệu thật
   await page.clock.runFor((UNIT.secs + 1) * 1000); // tua hết 45 giây ghi âm
-  await page.waitForFunction(() => (document.querySelector('#swRes') || {}).textContent, null, { timeout: 10000 });
+  await waitFn(page, () => (document.querySelector('#swRes') || {}).textContent, null, { timeout: 10000 });
   const r = await page.evaluate(() => {
     const el = document.querySelector('#swRes'), tx = el.innerText;
     const num = re => { const m = tx.match(re); return m ? +m[1] : null; };
