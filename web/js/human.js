@@ -53,17 +53,18 @@
     }));
   }
 
-  let tkP = null;
+  let tkP = null, failAt = 0; // xác minh ngầm vừa thất bại (mạng chặn challenges.cloudflare.com, app gốc lỗi…) → 10 phút không thử lại trừ khi force
   function ticket(force) {
     const c = read(); if (!force && fresh(c)) return Promise.resolve(c.t);
+    if (!force && Date.now() - failAt < 6e5) return Promise.resolve('');
     return tkP || (tkP = (async () => {
       try {
         const me = dev(); if (!me) return '';
-        const tok = await token(); if (!tok) return '';
+        const tok = await token(); if (!tok) { failAt = Date.now(); return ''; }
         const d2 = await swDev();
         const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Lexkite-Device': me }, body: JSON.stringify(d2 && d2 !== me ? { token: tok, dev2: d2 } : { token: tok }) });
         const j = await r.json().catch(() => ({}));
-        if (!r.ok || !j.ticket) return '';
+        if (!r.ok || !j.ticket) { failAt = Date.now(); return ''; }
         try { localStorage.setItem(KEY, JSON.stringify({ t: j.ticket, e: j.exp, d: me })); } catch (e) { /* bỏ qua */ }
         const s = ext(); if (s && d2) try { await s.set({ 'lk.human': { t: j.ticket, e: j.exp, d: d2 } }); } catch (e) { /* bỏ qua */ }
         return j.ticket;

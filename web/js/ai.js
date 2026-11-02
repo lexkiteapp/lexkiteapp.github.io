@@ -126,7 +126,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
   async function callProxy(prompt, again) {
     const h = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
     try { if (window.Sync && Sync.user) h.Authorization = 'Bearer ' + await Sync.user.getIdToken(); } catch (e) { /* chưa đăng nhập: hạn mức khách */ }
-    if (!h.Authorization) { const H = await UI.human(); if (H) { await H.ticket(!!again); H.headers(h); } } // khách: vé người thật (docs/HUMAN.md)
+    if (!h.Authorization && UI.humanHdr) await UI.humanHdr(h, again); // khách: vé người thật (docs/HUMAN.md) – lượt thường không chờ Turnstile; 403 human (cờ AI_HUMAN_ENFORCE) → chờ vé rồi thử lại
     const ctrl = new AbortController(), to = setTimeout(() => ctrl.abort(), 60000);
     let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, task: 'grade' }) }); } finally { clearTimeout(to); }
     const j = await r.json().catch(() => ({}));

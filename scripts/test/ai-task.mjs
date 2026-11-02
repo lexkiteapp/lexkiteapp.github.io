@@ -60,5 +60,14 @@ ok(/task: 'explain'/.test(bg) && !/sys: AI_SYS/.test(bg), 'background.js gửi t
 ok(/JSON\.stringify\(\{ prompt, task, rp, kind: 'rp' \}\)/.test(rp) && /proxy\('rp', rpArgs\(s, L\)/.test(rp) && /proxy\('rpcoach'/.test(rp) && !/proxy\(sysOf/.test(rp), 'roleplay.js gửi task rp/rpcoach + tham số, không gửi sys');
 for (const f of ['web/js/ai.js', 'web/js/roleplay.js', 'extension/background.js']) ok(!/\bsys\s*[,:}]\s*[^\n]*api\/ai|body: JSON\.stringify\(\{[^}]*\bsys\b/.test(rd(f)), f + ': không body nào còn trường sys');
 
+// Hồi quy 02/11: lượt AI của khách KHÔNG được chờ Turnstile/tải script (trước đây chờ ≤ 15 s mỗi lượt khi xác minh ngầm lỗi → roleplay treo)
+{
+  const rd = p => fs.readFileSync(new URL('../../' + p, import.meta.url), 'utf8');
+  for (const p of ['web/js/ai.js', 'web/js/roleplay.js']) { const s = rd(p); ok(/UI\.humanHdr\(h, again\)/.test(s) && !/await H\.ticket\(/.test(s), `${p}: dùng UI.humanHdr (không await ticket ở lượt thường)`); }
+  const ui = rd('web/js/ui.js'), hs = rd('web/js/human.js');
+  ok(/async function humanHdr\(h, again\) \{\n\s+if \(again\) \{ const H = await human\(\)/.test(ui) && /const H = window\.Human;/.test(ui), 'humanHdr: chỉ chờ khi again (403 human), lượt thường dùng vé sẵn + lấy nền');
+  ok(/setTimeout\(fin, 4000\)/.test(ui), 'UI.human(): tải js/human.js có hạn 4 s (không treo khi script không tải được)');
+  ok(/failAt = Date\.now\(\)/.test(hs) && /Date\.now\(\) - failAt < 6e5/.test(hs), 'human.js: xác minh lỗi → 10 phút không thử lại (trừ force)');
+}
 console.log(fails ? `✗ ai-task: ${fails}/${n} lỗi` : `✓ ai-task: ${n} kiểm tra – prompt hệ thống cố định, roleplay làm sạch, khớp máy khách`);
 process.exit(fails ? 1 : 0);

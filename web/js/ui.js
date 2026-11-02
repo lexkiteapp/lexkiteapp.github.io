@@ -440,7 +440,7 @@
   // Hạn mức máy chủ (functions/api/_quota.js): mã thiết bị ngẫu nhiên (X-Lexkite-Device) · 429 { error:'quota', msg, resetAt, signIn } → câu báo
   const dev = () => { try { let d = localStorage.getItem('lk.dev'); if (!d) localStorage.setItem('lk.dev', d = [...crypto.getRandomValues(new Uint8Array(20))].map(b => (b % 36).toString(36)).join('')); return d; } catch (e) { return ''; } };
   // Vé người thật (js/human.js, tải lười): khách gọi /api/ai, /api/report, /api/contact – docs/HUMAN.md
-  let humanP; const human = () => humanP || (humanP = window.Human ? Promise.resolve(window.Human) : new Promise(r => { const s = document.createElement('script'); s.src = 'js/human.js'; s.onload = s.onerror = () => { if (!window.Human) humanP = null; r(window.Human || null); }; document.head.appendChild(s); }));
+  let humanP; const human = () => humanP || (humanP = window.Human ? Promise.resolve(window.Human) : new Promise(r => { const s = document.createElement('script'); s.src = 'js/human.js'; const fin = () => { clearTimeout(to); if (!window.Human) humanP = null; r(window.Human || null); }, to = setTimeout(fin, 4000); s.onload = s.onerror = fin; document.head.appendChild(s); })); // ≤ 4 s: mạng chậm/không tải được script thì nơi gọi chạy tiếp không vé, không treo
   const quotaText = (j = {}) => { const r = j.resetAt, at = r && new Date(r).toLocaleString([], r - Date.now() > 864e5 ? { dateStyle: 'short', timeStyle: 'short' } : { timeStyle: 'short' }); return (j.msg === 'quota.daily' && at ? t('Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.', { time: at }) : t('Máy chủ đang bận – thử lại sau ít phút.')) + (j.signIn ? ' ' + t('Đăng nhập để có thêm lượt.') : ''); };
   // Icon UI: 1 bộ Lucide, sprite #lk-sprite (docs/DESIGN-SYSTEM.md)
   const icon = (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
@@ -568,5 +568,13 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  // Gắn vé người thật vào header cho /api/ai (khách). Lượt thường KHÔNG chờ (không tải script/không giải Turnstile trên đường găng): có vé còn hạn
+  // thì gắn, chưa có thì lấy nền cho lượt sau. again (máy chủ trả 403 human – cờ AI_HUMAN_ENFORCE) → chờ vé mới rồi mới thử lại.
+  async function humanHdr(h, again) {
+    if (again) { const H = await human(); if (H) { await H.ticket(true); H.headers(h); } return h; }
+    const H = window.Human;
+    if (H) { if (!H.headers(h)['X-Lexkite-Human']) H.ticket().catch(() => {}); } else human().then(x => x && x.ticket()).catch(() => {});
+    return h;
+  }
+  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);
