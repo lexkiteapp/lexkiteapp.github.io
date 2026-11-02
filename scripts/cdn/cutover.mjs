@@ -8,6 +8,7 @@
 // Token: CLOUDFLARE_API_TOKEN hoặc ~/.config/lexkite/cf-token – quyền: Workers R2 Storage Edit, Workers Scripts Edit,
 // Zone lexkite.com: Cache Rules Edit, Transform Rules Edit, DNS Edit. Không in token.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import { isMain } from '../lib/is-main.mjs';
 import { hosts, ACCOUNT, ZONE, typeFor, cacheFor } from './hosts.mjs';
 
 export const REF = 'lexkite_cdn_';
@@ -90,6 +91,8 @@ async function switchHost(h) {
   catch (e) { summary(`✗ ${e.message} → quay lại Worker`); await rollback(h); throw e; }
   console.log(`+ ${h.hostname} → R2 ${h.bucket} (${st.keys} khoá). Kiểm: node scripts/cdn/cutover.mjs verify --host ${Object.keys(HOSTS).find(k => HOSTS[k] === h)}`);
 }
+/** Chốt $0 (free-tier guard, R2 ≥ 90 %): mọi tên miền về Worker (nguồn GitHub). */
+export async function rollbackAll() { for (const h of Object.values(HOSTS)) await rollback(h); }
 async function rollback(h) {
   const d = await cf('DELETE', `${A}/r2/buckets/${h.bucket}/domains/custom/${h.hostname}`); console.log(d.ok ? `− ${h.hostname} ↛ R2` : `(R2 chưa gắn ${h.hostname}: ${d.status})`);
   for (let i = 0; i < 10; i++) {
@@ -99,6 +102,8 @@ async function rollback(h) {
   }
   throw new Error('gắn lại Worker thất bại – làm tay: Workers › ' + h.worker + ' › Domains');
 }
+/** Trạng thái cache biên của GET đã lưu: HIT (hoặc STALE/REVALIDATED/UPDATING = vẫn phục vụ từ cache). DYNAMIC/BYPASS/MISS = không cache. */
+export const cacheHit = st => /^(HIT|STALE|REVALIDATED|UPDATING)$/i.test(String(st || ''));
 export function checkResponse(k, r, { range } = {}) {
   const bad = [], hd = n => r.headers.get(n) || '';
   if (r.status !== (range ? 206 : 200)) bad.push(`status ${r.status}`);
@@ -114,17 +119,19 @@ async function verify(name, h) {
   for (const k of st.sample) {
     const url = `https://${h.hostname}/${k}`, range = /\.mp4$/.test(k);
     const r1 = await fetch(url, { headers: { Origin: 'https://lexkite.com', ...(range ? { Range: 'bytes=0-99' } : {}) } }); await r1.arrayBuffer();
-    const r2 = await fetch(url, { headers: range ? { Range: 'bytes=0-99' } : {} }); await r2.arrayBuffer();
+    // Đo cache LUÔN bằng GET (Cloudflare không cache HEAD → HEAD luôn DYNAMIC, báo nhầm 02/11); lần 3 phải HIT (lần 1 có Origin → khoá Vary khác)
+    const get = async () => { const x = await fetch(url, { headers: range ? { Range: 'bytes=0-99' } : {} }); await x.arrayBuffer(); return x; };
+    const r2 = await get(), r3 = await get();
     const errs = checkResponse(k, r1, { range }); if (process.env.CDN_RULES === '1' && r1.headers.get('x-origin') !== 'r2') errs.push(`x-origin ${r1.headers.get('x-origin')}`); // X-Origin do Transform Rule (cần quyền zone)
-    const hit = r2.headers.get('cf-cache-status');
+    const hit = r3.headers.get('cf-cache-status'); if (!cacheHit(hit)) errs.push(`cache biên ${hit} (GET lần 3 phải HIT)`);
     if (errs.length) bad++;
-    console.log(`${errs.length ? '✗' : '✓'} ${k} ${r1.status} lần 2 ${hit}${errs.length ? ' – ' + errs.join(', ') : ''}`);
+    console.log(`${errs.length ? '✗' : '✓'} ${k} ${r1.status} GET lần 3 ${hit}${errs.length ? ' – ' + errs.join(', ') : ''}`);
   }
   console.log(`${name}: ${st.sample.length - bad}/${st.sample.length} đạt`);
   if (bad) process.exitCode = 1;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMain(import.meta.url)) { // so realpath: /tmp ↔ /private/tmp (02/11: so chuỗi → khối main không chạy, switch im lặng 'thành công')
   const [cmd] = process.argv.slice(2), i = process.argv.indexOf('--host'), name = i > 0 ? process.argv[i + 1] : '';
   const h = HOSTS[name];
   if (!['prepare', 'check'].includes(cmd) && !h) { console.error('dùng: check | prepare | switch|verify|rollback --host media|audio'); process.exit(2); }

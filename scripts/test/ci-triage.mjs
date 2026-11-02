@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody, supersededWhy, scriptRefs, importRefs } from '../ci/triage.mjs';
+import { classify, excerpt, digest, issueBody, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
@@ -62,12 +62,20 @@ const marker = path.join(tmp, 'ran');
 rc = await quotaRun([node, '-e', `require('fs').writeFileSync(${JSON.stringify(marker)}, '1')`], { env: { ...base, QUOTA_SKIP: '1' }, out: sink, err: sink });
 ok(rc === 0 && !fs.existsSync(marker), 'QUOTA_SKIP=1 → bước sau không chạy');
 
-// --- workflow: danh sách ci-triage khớp, youtube-* bọc quota-skip + khoá SSH cho cả bước
+// --- workflow: ci-triage quét định kỳ, youtube-* bọc quota-skip + khoá SSH cho cả bước
 const WF = path.join(ROOT, '.github/workflows'), files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f));
 const nameOf = f => ((fs.readFileSync(path.join(WF, f), 'utf8').match(/^name:\s*(.+)$/m) || [])[1] || f).trim().replace(/^['"]|['"]$/g, '');
 const tri = fs.readFileSync(path.join(WF, 'ci-triage.yml'), 'utf8');
-{ const { sync } = await import('../ci/sync-triage.mjs'), d = sync(false); // danh sách phải khớp 2 chiều; sửa bằng 1 lệnh
-  ok(!d.missing.length && !d.stale.length, `ci-triage.yml lệch .github/workflows (thiếu: ${d.missing.join(', ') || '-'}; thừa: ${d.stale.join(', ') || '-'}) → chạy: node scripts/ci/sync-triage.mjs`); }
+// 2/11: quét định kỳ phủ MỌI workflow thay cho workflow_run (trước: ~3.400 lượt/ngày, 93 % bị bỏ qua; lượt đỏ giữ runner ngủ 5 phút)
+ok(!/^\s*workflow_run:/m.test(tri) && /cron: '\*\/10 \* \* \* \*'/.test(tri) && /triage\.mjs scan/.test(tri), 'ci-triage: quét 10 phút (scan), không workflow_run – phủ cả workflow mới');
+ok(/sweep[\s\S]*github\.event\.schedule == '12 \* \* \* \*'/.test(tri), 'ci-triage: sweep (đóng issue + bản tin 00 UTC) chỉ ở cron giờ, không lặp 6 lần/giờ');
+ok(!/setTimeout\(r, d \* 1000\)/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')), 'triage: không ngủ giữ runner chờ chạy lại');
+{ const R = (id, o) => ({ id, name: 'QA bot', event: 'schedule', conclusion: 'failure', created_at: '2026-11-02T06:00:00Z', updated_at: '2026-11-02T06:30:00Z', ...o });
+  const got = pickFailures([R(1), R(2, { event: 'pull_request' }), R(3, { name: 'ci-triage' }), R(4, { conclusion: 'success' }), R(5, { updated_at: '2026-11-02T05:00:00Z' }), R(6, { updated_at: '2026-11-02T06:10:00Z' })], '2026-11-02T06:05:00Z').map(r => r.id);
+  ok(got.join() === '6,1', `pickFailures: chỉ lượt đỏ không-PR, không phải ci-triage, kết thúc từ mốc, cũ → mới (được ${got})`);
+  const now = Date.parse('2026-11-02T07:00:00Z');
+  ok(scanSince('2026-11-02T06:50:00Z', now, 300) === '2026-11-02T06:42:00.000Z', 'scanSince: lượt trước − (trễ + 3 phút) chồng lấn');
+  ok(scanSince(null, now, 300) === '2026-11-02T04:00:00.000Z' && scanSince('2026-10-30T00:00:00Z', now, 300) === '2026-11-02T04:00:00.000Z', 'scanSince: không có/quá cũ → 3 giờ'); }
 ok(/run_attempt|rerun-failed-jobs/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')) && /attempt > 1/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')), 'triage: chỉ chạy lại khi attempt = 1');
 for (const f of files) {
   const s = fs.readFileSync(path.join(WF, f), 'utf8');

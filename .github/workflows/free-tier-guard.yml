@@ -1,3 +1,4 @@
+# 02/11: chạm file để GitHub đăng ký cron mỗi giờ mới – canh bởi scripts/ci/cron-watch.mjs
 # Free-tier guard (docs/FREE-TIER.md). MỖI GIỜ (:17): bản trong ngày – 1 truy vấn GraphQL lượt Workers + Functions từ 00:00Z, ngoại suy tới 24:00;
 # ≥ 60 % dừng workflow nền gọi prod, ≥ 80 % bật shed + issue, qua 00:00Z tự gỡ (scripts/free-tier/intraday.mjs – sự cố 01/11: bản ngày chỉ nhìn hôm qua).
 # HẰNG NGÀY (01:35): quét đủ: số dùng THẬT (Cloudflare GraphQL + Pages API + GitHub API) so với trần gói miễn phí.
@@ -25,6 +26,7 @@ jobs:
         id: guard
         env:
           CF_ANALYTICS_TOKEN: '${{ secrets.CF_ANALYTICS_TOKEN }}'
+          CLOUDFLARE_API_TOKEN: '${{ secrets.CLOUDFLARE_API_TOKEN }}' # chốt $0 R2 ≥ 90 %: tên miền media/audio về Worker (scripts/cdn/cutover.mjs rollbackAll)
           CF_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7 # ID tài khoản chính (công khai, như dict-stage.yml)
           CF_ANALYTICS_TOKEN_2: '${{ secrets.CF_ANALYTICS_TOKEN_2 }}'
           CF_ACCOUNT_2: '${{ secrets.CF_ACCOUNT_2 }}'
