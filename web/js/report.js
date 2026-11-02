@@ -15,6 +15,9 @@
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const ls = { get(k, f) { try { const v = localStorage.getItem(k); return v == null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* bỏ qua */ } } };
   const mine = () => (Array.isArray(ls.get(KEY, [])) ? ls.get(KEY, []) : []);
+  // Báo đẩy "đã sửa": sw.js đọc '/__rep' (cache lk-meta) khi có push rỗng → hỏi trạng thái các phiếu chưa sửa → "Lỗi LX-… đã được sửa" (chữ đã dịch sẵn ở đây)
+  const syncRep = a => { try { if (!('caches' in w)) return; caches.open('lk-meta').then(c => c.put('/__rep', new Response(JSON.stringify({ title: t('Lỗi {id} đã được sửa'), body: t('Cảm ơn bạn đã báo – chạm để xem chi tiết.'), rows: a.map(x => ({ t: x.t, id: x.id, st: x.st })) }), { headers: { 'Content-Type': 'application/json' } }))).catch(() => {}); } catch (e) { /* không có Cache API */ } };
+  const devId = () => { const p = ls.get('lk.push', null) || ls.get('lk.fcm', null); return p && /^[a-f0-9]{32}$/.test(p.id || '') ? p.id : ''; }; // id thiết bị nhắc học (nếu đã bật)
   // Mốc xử lý dự kiến (máy chủ trả { kind, h } – cấu hình trong Quản trị) → chữ
   const etaText = e => !e ? '' : e.kind === 'feature' ? t('Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.') : t('Dự kiến xử lý: {t}', { t: e.h < 48 ? t('trong {n} giờ', { n: e.h }) : e.h === 168 ? t('trong 1 tuần') : e.h % 24 === 0 && e.h <= 120 ? t('trong {a}–{b} ngày', { a: e.h / 24 - 1, b: e.h / 24 }) : t('trong {n} ngày', { n: Math.ceil(e.h / 24) }) });
   const LOCK = 30e3; let lastSent = 0; // chống gửi lặp: khóa nút 30 giây sau mỗi lần gửi
@@ -137,11 +140,11 @@
       if (msg.length < 10) { err(t('Hãy mô tả ít nhất 10 ký tự.')); $('#lkrMsg').focus(); return; }
       if (notify && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { err(t('Email không hợp lệ.')); $('#lkrEm').focus(); return; }
       const go = $('#lkrGo'); go.disabled = true; go.textContent = t('Đang gửi…');
-      let r; try { r = await post({ op: 'create', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value, msg, notify, email, ctx: await ctxP, errs: (w.__lkErrs || []).slice(-20), shot, hp: dlg.querySelector('input[name=website]').value, ms: Date.now() - ms0 }, true); } catch (x) { r = { _s: 0 }; }
+      let r; try { r = await post({ op: 'create', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value, msg, notify, email, ctx: await ctxP, errs: (w.__lkErrs || []).slice(-20), shot, pid: devId(), hp: dlg.querySelector('input[name=website]').value, ms: Date.now() - ms0 }, true); } catch (x) { r = { _s: 0 }; }
       go.disabled = false; go.textContent = t('Gửi');
       if (!r.ok) { err(r._s === 429 ? t('Bạn gửi hơi nhiều – thử lại sau ít phút.') : r.error === 'email' ? t('Email không hợp lệ.') : r.error === 'short' ? t('Hãy mô tả ít nhất 10 ký tự.') : r.error === 'shot' ? t('Ảnh quá lớn hoặc không đọc được.') : t('Không gửi được. Kiểm tra kết nối rồi thử lại.')); return; }
       lastSent = Date.now(); ls.set('lk.rpl', lastSent);
-      if (r.token) { const a = mine().filter(x => x.t !== r.token); a.push({ t: r.token, id: r.id, at: Date.now(), upd: Date.now(), st: 'new', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value }); ls.set(KEY, a.slice(-20)); }
+      if (r.token) { const a = mine().filter(x => x.t !== r.token); a.push({ t: r.token, id: r.id, at: Date.now(), upd: Date.now(), st: 'new', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value }); ls.set(KEY, a.slice(-20)); syncRep(a.slice(-20)); }
       done(r, notify);
     };
     function done(r, notify) {
@@ -211,10 +214,11 @@
     const a = mine(); ls.set('lk.rpc', Date.now());
     if (!a.length) return [];
     let r; try { r = await post({ op: 'mine', ts: a.map(x => x.t) }); } catch (e) { return []; }
-    const rows = r.rows || [], changed = [];
-    for (const x of a) { const s = rows.find(y => y.t === x.t); if (!s) continue; if (s.upd > (x.seen || x.upd || 0)) changed.push({ ...x, st: s.status }); x.st = s.status; x.upd = s.upd; }
-    ls.set(KEY, a);
-    if (changed.length && d.body) {
+    const rows = r.rows || [], changed = [], quiet = Date.now() - (+ls.get('lk.rpt', 0) || 0) < 432e5; // ≤ 1 lời nhắc/12 giờ – bị chặn thì giữ thay đổi cho lượt sau
+    for (const x of a) { const s = rows.find(y => y.t === x.t); if (!s) continue; const ch = s.upd > (x.seen || x.upd || 0); if (ch) changed.push({ ...x, st: s.status }); if (!ch || !quiet) { x.st = s.status; x.upd = s.upd; } }
+    ls.set(KEY, a); await dict(); syncRep(a);
+    if (changed.length && d.body && !quiet) {
+      ls.set('lk.rpt', Date.now());
       await dict(); style();
       const c = changed[changed.length - 1], el = d.createElement('div');
       el.className = 'lkr-toast'; el.setAttribute('role', 'status');

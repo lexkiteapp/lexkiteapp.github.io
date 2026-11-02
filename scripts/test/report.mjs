@@ -70,7 +70,7 @@ ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act = 
 { mails.length = 0; mailOk = false;
   const c2 = await call(good({ notify: true, email: 'zh@example.com', msg: '页面上的音标显示错误，请修复一下。', ctx: { route: 'dict/x', lang: 'zh', ver: '1', plat: 'web' } }), { ip: '10.0.0.77' });
   const id2 = +c2.j.id.slice(3) - 1000, z = mails.find(m => m.body.to === 'zh@example.com'); mailOk = true;
-  ok(z && z.body.subject.includes('已收到') && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'mail-failed' AND note = 'thanks'").get(id2).n === 1, 'thư cảm ơn đúng ngôn ngữ; nhà gửi thư lỗi → ghi mail-failed (admin thấy)');
+  ok(z && z.body.subject.includes('已收到') && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'mail-failed' AND note = 'thanks · 501'").get(id2).n === 1, 'thư cảm ơn đúng ngôn ngữ; nhà gửi thư lỗi → ghi mail-failed + mã HTTP (admin thấy)');
   mails.length = 0; const c3 = await call(good({ msg: 'No email given, the audio button does nothing.' }), { ip: '10.0.0.78' });
   ok(c3.s === 200 && !mails.some(m => m.path === '/user'), 'không để email → không thư cảm ơn'); }
 // AI phân loại + GitHub Issue (P1, lỗi nội dung) – đã làm sạch
@@ -353,6 +353,32 @@ ok(R.smartH(72, 0, 0) === 72 && R.smartH(24, 0, 5) === 36 && R.smartH(72, 100, 0
   ok((await sq({ op: 'progress', commit: 'd'.repeat(40), ids: [c.j.id] })).j.rows[0].skip === 'fixed', 'progress: phiếu đã sửa không mở lại');
   const m = await AF.run('merged', { call: callE, env: { PR_TITLE: 'Fix', PR_BODY: '', PR_BRANCH: 'x', SHA, PR: '1' }, log: () => {} });
   ok(!m.ids.length, 'merged: PR không có mã → không gọi API'); }
+
+// Báo đẩy "đã sửa" (item 5): phiếu nhớ id thiết bị nhắc học (pid, không lộ ra admin/công khai) → Đã sửa → hàng đợi push_now ở D1 nội bộ; thiếu D1B → bỏ qua an toàn
+{ const sql2 = new DatabaseSync(':memory:'), f0 = globalThis.fetch, PID = 'f'.repeat(32);
+  globalThis.fetch = async (url, init = {}) => { if (!String(url).startsWith('https://api.cloudflare.com/client/v4/accounts/acc2/d1/')) return f0(url, init);
+    const b = JSON.parse(init.body), one = q => /^\s*(SELECT|WITH)/i.test(q.sql) ? { results: sql2.prepare(q.sql).all(...(q.params || [])) } : (sql2.prepare(q.sql).run(...(q.params || [])), { results: [], meta: {} });
+    return new Response(JSON.stringify({ success: true, result: b.batch ? b.batch.map(one) : [one(b)] }), { status: 200 }); };
+  const E2 = { ...ENV, D1B_ACCOUNT_ID: 'acc2', D1B_TOKEN: 'tok2', PUSH_PCT: '100' };
+  const c = await call(good({ cat: 'bug', msg: 'Flashcards freeze when I swipe quickly twice.', pid: PID }), { ip: '10.0.0.93', env: E2 }), id = +c.j.id.slice(3) - 1000;
+  const c2 = await call(good({ cat: 'bug', msg: 'Another bug with a bad device id value here.', pid: 'NOT-HEX' }), { ip: '10.0.0.94', env: E2 });
+  ok(sql.prepare('SELECT pid FROM reports WHERE id = ?').get(id).pid === PID && !sql.prepare('SELECT pid FROM reports WHERE id = ?').get(+c2.j.id.slice(3) - 1000).pid, 'create: lưu id thiết bị hợp lệ, bỏ giá trị lạ');
+  const gt = await call({ op: 'get', id: c.j.id }, { token: ADM, env: E2 }), st = await call({ op: 'status', t: c.j.token }, { env: E2 });
+  ok(!gt.text.includes(PID) && !st.text.includes(PID), 'id thiết bị không lộ ở admin get / trang trạng thái');
+  const s1 = await call({ op: 'set', id: c.j.id, status: 'fixed' }, { token: ADM, env: E2 });
+  const q = sql2.prepare('SELECT sid, rid FROM push_now').all();
+  ok(s1.j.pushed === true && q.length === 1 && q[0].sid === PID && q[0].rid === id && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'push-queued'").get(id).n === 1, 'Đã sửa → xếp báo đẩy vào push_now (D1 nội bộ) + ghi lịch sử: ' + JSON.stringify(s1.j));
+  await call({ op: 'set', id: c.j.id, reply: 'thanks again' }, { token: ADM, env: E2 });
+  ok(sql2.prepare('SELECT COUNT(*) AS n FROM push_now').get().n === 1, 'chỉ báo đẩy khi chuyển sang Đã sửa (phản hồi sau không đẩy lại)');
+  const c3 = await call(good({ cat: 'bug', msg: 'Third bug: quiz timer never stops at all.', pid: PID }), { ip: '10.0.0.95' });
+  const s3 = await call({ op: 'set', id: c3.j.id, status: 'fixed' }, { token: ADM });
+  ok(s3.s === 200 && s3.j.pushed === false, 'chưa cấu hình D1 nội bộ → bỏ qua báo đẩy, Đã sửa vẫn chạy');
+  const cf = await call({ op: 'cfg' }, { token: ADM, env: E2 }), cf0 = await call({ op: 'cfg' }, { token: ADM, env: { ...ENV, MAIL: undefined } });
+  ok(cf.j.push === 'ok' && cf0.j.push === 'no-d1b' && cf0.j.mail_st === 'no-binding' && ['ok', 'no-key', 'failing', 'unknown'].includes(cf.j.mail_st) && !/tok2|acc2|SECRET/.test(cf.text), 'cfg: cờ push / thư (không lộ bí mật): ' + JSON.stringify([cf.j.push, cf.j.mail_st, cf0.j.push]));
+  sql.prepare("UPDATE reports SET email = 'm@example.com', notify = 1 WHERE id = ?").run(+c3.j.id.slice(3) - 1000);
+  mailOk = false; await call({ op: 'set', id: c3.j.id, reply: 'mail test' }, { token: ADM }); mailOk = true;
+  ok((await call({ op: 'cfg' }, { token: ADM })).j.mail_st === 'no-key', 'Worker thư trả 501 → thẻ Chất lượng báo "chưa có khóa"');
+  globalThis.fetch = f0; }
 
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê`);

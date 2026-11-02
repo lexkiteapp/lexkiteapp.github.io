@@ -32879,5 +32879,35 @@
     "ar": "تصلك هذه الرسالة لأنك طلبت تلقي التحديثات عند إرسال البلاغ.",
     "ru": "Вы получили это письмо, потому что при отправке сообщения попросили присылать обновления.",
     "tr": "Bu e-postayı, raporu gönderirken güncelleme almayı seçtiğiniz için alıyorsunuz."
+  },
+  "Lỗi {id} đã được sửa": {
+    "es": "El problema {id} se ha solucionado",
+    "pt": "O problema {id} foi corrigido",
+    "fr": "Le problème {id} a été corrigé",
+    "de": "Problem {id} wurde behoben",
+    "id": "Masalah {id} sudah diperbaiki",
+    "th": "แก้ไขปัญหา {id} แล้ว",
+    "zh": "问题 {id} 已修复",
+    "ja": "問題 {id} は修正されました",
+    "ko": "문제 {id}이(가) 해결되었습니다",
+    "hi": "समस्या {id} ठीक कर दी गई है",
+    "ar": "تم إصلاح المشكلة {id}",
+    "ru": "Проблема {id} исправлена",
+    "tr": "{id} numaralı sorun düzeltildi"
+  },
+  "Cảm ơn bạn đã báo – chạm để xem chi tiết.": {
+    "es": "Gracias por avisarnos: toca para ver los detalles.",
+    "pt": "Obrigado por avisar – toque para ver os detalhes.",
+    "fr": "Merci de l'avoir signalé – touchez pour voir les détails.",
+    "de": "Danke für deine Meldung – tippe für Details.",
+    "id": "Terima kasih sudah melapor – ketuk untuk melihat detail.",
+    "th": "ขอบคุณที่แจ้งปัญหา – แตะเพื่อดูรายละเอียด",
+    "zh": "感谢你的反馈——点按查看详情。",
+    "ja": "ご報告ありがとうございます。タップして詳細を確認してください。",
+    "ko": "신고해 주셔서 감사합니다. 탭하여 자세히 보세요.",
+    "hi": "रिपोर्ट करने के लिए धन्यवाद – विवरण देखने के लिए टैप करें।",
+    "ar": "شكرًا لإبلاغك – اضغط لعرض التفاصيل.",
+    "ru": "Спасибо за сообщение – нажмите, чтобы посмотреть подробности.",
+    "tr": "Bildirdiğin için teşekkürler – ayrıntılar için dokun."
   }
 }

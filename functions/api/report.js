@@ -10,6 +10,8 @@
  * Ảnh chụp: data URL ≤ 300 KB (đã nén ở máy) lưu D1 bảng report_shots – không bao giờ công khai, chỉ lệnh quản trị 'shot' đọc được.
  * Thư: báo lỗi mới → quản trị (Worker lexkite-mail, /send; REPORT_NOTIFY_EMAIL nếu có) theo chế độ config 'report_notify' (instant|digest|off);
  *      đổi trạng thái/phản hồi → người báo (nếu đã đồng ý) qua /user của Worker (Resend/Brevo). Trong app: trang #/report/<token> + nhắc khi mở app. */
+import { coordDb, d1bReady } from './_d1b.js';
+import { PUSH_NOW_SQL } from './push.js';
 import { claims } from './sync.js';
 import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit } from './admin.js';
@@ -56,7 +58,7 @@ export async function setup(db) {
     // Cổng QA nội dung (docs/CONTENT-QA.md §7): 1 phiếu "nội dung sai"/thiết bị/mục; đủ HIDE_N thiết bị → mục vào config 'content_hidden' (1 dòng, client đọc 1 lần/phiên)
     db.prepare('CREATE TABLE IF NOT EXISTS content_flags (cid TEXT NOT NULL, who TEXT NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (cid, who)) WITHOUT ROWID'),
   ]);
-  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
+  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT', 'pid TEXT']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
   await db.prepare('CREATE INDEX IF NOT EXISTS reports_sig ON reports (sig, at)').run().catch(() => {});
   ready = true;
 }
@@ -150,10 +152,20 @@ const pub = (r, E) => r && ({ id: tid(r.id), status: r.status, cat: r.cat, at: r
 const ev = (db, id, by, act, note = '') => db.prepare('INSERT INTO report_events (rid, at, by, act, note) VALUES (?, ?, ?, ?, ?)').bind(id, Date.now(), str(by, 120), act, str(note, 500));
 async function cfgGet(db) { try { const r = await db.prepare("SELECT v FROM config WHERE k = 'report_notify'").first(); return ['instant', 'digest', 'off'].includes(r && r.v) ? r.v : 'instant'; } catch (e) { return 'instant'; } }
 
+let MAIL_ST = 0; // mã HTTP lần gửi gần nhất (501 = Worker thư chưa có khóa nhà cung cấp) → ghi vào sự kiện mail-failed → thẻ Chất lượng báo "chưa có khóa"
 async function mail(env, path, payload) {
-  if (!env.MAIL) return false;
+  if (!env.MAIL) { MAIL_ST = 0; return false; }
   const r = await env.MAIL.fetch('https://mail/' + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => null);
+  MAIL_ST = r ? r.status : 0;
   return !!(r && r.ok);
+}
+// Phiếu sang Đã sửa + máy báo có bật nhắc học (pid = id thiết bị push_subs) → hàng đợi push_now ở D1 nội bộ; cron workers/push gửi ≤ 10 phút sau.
+// Chưa cấu hình D1 nội bộ (D1B_*) hoặc phiếu không có pid → bỏ qua (thư/nhắc trong app vẫn chạy).
+async function pushFixed(env, db, id) {
+  const r = await db.prepare('SELECT pid, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
+  if (!r || !r.pid || r.spam || r.sandbox || !d1bReady(env)) return false;
+  try { const c = coordDb(env); await c.batch([c.prepare(PUSH_NOW_SQL), c.prepare('INSERT OR IGNORE INTO push_now (sid, rid, at) VALUES (?, ?, ?)').bind(r.pid, id, Date.now())]); await ev(db, id, 'system', 'push-queued').run(); return true; }
+  catch (e) { await ev(db, id, 'system', 'push-failed', String(e && e.message || e).slice(0, 80)).run().catch(() => {}); return false; }
 }
 // Thư cho quản trị khi có báo lỗi mới: tóm tắt + liên kết Quản trị (không chứa mã riêng của người báo)
 export function adminMail(row, ctx, env) {
@@ -198,7 +210,7 @@ async function thank(env, db, q, id) {
   if (!r || !r.notify || r.spam || r.sandbox || !EMAIL.test(r.email || '')) return false;
   if (q.near('mail')) { await ev(db, id, 'system', 'mail-skipped', 'quota').run(); return false; }
   const ok = await mail(env, 'user', thanksMail(r, etaPub(r, await etaCfg(db))));
-  await db.batch([ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', 'thanks'), ...(ok ? [q.use('mail')] : [])]).catch(() => {});
+  await db.batch([ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', ok ? 'thanks' : 'thanks · ' + MAIL_ST), ...(ok ? [q.use('mail')] : [])]).catch(() => {});
   return ok;
 }
 
@@ -277,8 +289,9 @@ async function create(request, env, b, bg) {
   let spam = mod.hide || spamScore(msg, email) >= 2 ? 1 : 0;
   if (!spam && (await db.prepare('SELECT id FROM reports WHERE who = ? AND msg = ? AND at > ? LIMIT 1').bind(who, msg, now - DAY).first())) spam = 1; // gửi lặp y hệt
   const area = areaOf(ctx.route, ctx.plat, ctx.dom), tok = token();
-  const row = await db.prepare('INSERT INTO reports (tok, at, upd, status, cat, area, msg, email, notify, uid, who, lang, plat, ver, route, ctx, errs, has_shot, spam, sandbox) VALUES (?, ?, ?, \'new\', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id')
-    .bind(tok, now, now, cat, area, msg, email, notify ? 1 : 0, (who0 && who0.sub) || '', who, ctx.lang, ctx.plat, ctx.ver, ctx.route, JSON.stringify(ctx), JSON.stringify(errs), shot ? 1 : 0, spam, ctx.sandbox ? 1 : 0).first();
+  const pid = /^[a-f0-9]{32}$/.test(String(b.pid || '')) ? String(b.pid) : ''; // id thiết bị nhắc học (nếu đã bật) → báo đẩy khi Đã sửa
+  const row = await db.prepare('INSERT INTO reports (tok, at, upd, status, cat, area, msg, email, notify, uid, who, lang, plat, ver, route, ctx, errs, has_shot, spam, sandbox, pid) VALUES (?, ?, ?, \'new\', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id')
+    .bind(tok, now, now, cat, area, msg, email, notify ? 1 : 0, (who0 && who0.sub) || '', who, ctx.lang, ctx.plat, ctx.ver, ctx.route, JSON.stringify(ctx), JSON.stringify(errs), shot ? 1 : 0, spam, ctx.sandbox ? 1 : 0, pid).first();
   const id = row.id, w = [ev(db, id, 'reporter', 'create', spam ? 'spam' + (mod.why.length ? ' · ' + mod.why.join(', ') : '') : '')];
   if (shot) w.push(db.prepare('INSERT INTO report_shots (rid, mime, data) VALUES (?, ?, ?)').bind(id, shot.slice(5, shot.indexOf(';')), shot));
   // Dọn lười (≈1% lượt gửi): xóa báo lỗi > 24 tháng (chính sách quyền riêng tư) – kèm ảnh & lịch sử
@@ -316,10 +329,17 @@ async function notifyReporter(env, db, id) {
   const r = await db.prepare('SELECT id, tok, status, reply, dup_of, fix_ver, email, notify, lang FROM reports WHERE id = ?').bind(id).first();
   if (!r || !r.notify || !EMAIL.test(r.email || '')) return false;
   const ok = await mail(env, 'user', userMail(r));
-  await ev(db, id, 'system', ok ? 'mailed' : 'mail-failed').run();
+  await ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', ok ? '' : String(MAIL_ST)).run();
   return ok;
 }
 
+// Thẻ Chất lượng: bí mật/khóa còn thiếu (chủ app nhập) – không lộ giá trị, chỉ cờ
+export async function secrets(env, db) {
+  const last = await db.prepare("SELECT act, note FROM report_events WHERE act IN ('mailed', 'mail-failed') ORDER BY id DESC LIMIT 1").first().catch(() => null);
+  const mailSt = !env.MAIL ? 'no-binding' : !last ? 'unknown' : last.act === 'mailed' ? 'ok' : /\b501\b/.test(last.note || '') ? 'no-key' : 'failing';
+  const push = !d1bReady(env) ? 'no-d1b' : !(+env.PUSH_PCT > 0 || String(env.FCM_ON || '') === '1') ? 'off' : 'ok';
+  return { mail_st: mailSt, push };
+}
 const OPS = {
   async unhide(env, db, b) { // quản trị: hiện lại 1 mục đã sửa (xoá phiếu cũ để đếm lại từ 0)
     const cid = String(b.cid || ''); if (!CID.test(cid)) return { status: 400, error: 'cid' };
@@ -340,7 +360,7 @@ const OPS = {
   },
   async get(env, db, b) {
     const id = rid(b.id); const r = await db.prepare('SELECT * FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
-    const { tok, who, uid, ...rest } = r; // mã riêng, IP băm, uid không trả về
+    const { tok, who, uid, pid, ...rest } = r; // mã riêng, IP băm, uid, id thiết bị không trả về
     const events = (await db.prepare('SELECT at, by, act, note FROM report_events WHERE rid = ? ORDER BY id DESC LIMIT 50').bind(id).all()).results || [];
     const dups = ((await db.prepare('SELECT id FROM reports WHERE dup_of = ?').bind(id).all()).results || []).map(x => tid(x.id));
     let ctx = {}, errs = [], ai = null; try { ctx = JSON.parse(r.ctx || '{}'); errs = JSON.parse(r.errs || '[]'); ai = r.ai ? JSON.parse(r.ai) : null; } catch (e) { /* bỏ qua */ }
@@ -366,7 +386,8 @@ async function apply(env, db, id0, b, by) {
     if (tell) { sets.push('upd = ?'); a.push(now); }
     await db.batch([db.prepare(`UPDATE reports SET ${sets.join(', ')} WHERE id = ?`).bind(...a, id), ...evs.map(([act, note]) => ev(db, id, by, act, note))]);
     const mailed = tell && b.mail !== false ? await notifyReporter(env, db, id) : false;
-    return { ok: true, changed: true, mailed };
+    const pushed = b.status === 'fixed' && r.status !== 'fixed' ? await pushFixed(env, db, id) : false;
+    return { ok: true, changed: true, mailed, pushed };
   }
 }
 Object.assign(OPS, {
@@ -402,7 +423,7 @@ Object.assign(OPS, {
   async cfg(env, db, b, who) {
     if (b.eta && typeof b.eta === 'object') { const e = {}; for (const k of ['serious', 'normal', 'content']) { const v = Math.round(+b.eta[k]); if (!(v >= 1 && v <= 2160)) throw new Error('eta'); e[k] = v; } await db.prepare("INSERT OR REPLACE INTO config (k, v, at, by) VALUES ('report_eta', ?, ?, ?)").bind(JSON.stringify(e), Date.now(), who.email).run(); }
     if (b.notify != null) { if (!['instant', 'digest', 'off'].includes(b.notify)) throw new Error('notify'); await db.prepare("INSERT OR REPLACE INTO config (k, v, at, by) VALUES ('report_notify', ?, ?, ?)").bind(b.notify, Date.now(), who.email).run(); }
-    return { notify: await cfgGet(db), eta: await etaCfg(db), gh: !!env.GH_ISSUES_TOKEN, cli: !!env.LEXKITE_REPORT_CLI_KEY, ai: !!(env.AI || env.CF_AI_TOKEN), to: env.REPORT_NOTIFY_EMAIL ? 'REPORT_NOTIFY_EMAIL' : 'default', user: !!env.MAIL };
+    return { notify: await cfgGet(db), eta: await etaCfg(db), gh: !!env.GH_ISSUES_TOKEN, cli: !!env.LEXKITE_REPORT_CLI_KEY, ai: !!(env.AI || env.CF_AI_TOKEN), to: env.REPORT_NOTIFY_EMAIL ? 'REPORT_NOTIFY_EMAIL' : 'default', user: !!env.MAIL, ...(await secrets(env, db)) };
   },
   // AI phân loại lại (nút trong Quản trị)
   async retriage(env, db, b, who) {

@@ -12,6 +12,7 @@
  *   POST {op:'unsub', id}                → { ok }
  *   POST {op:'ev', e:[[ev, tpl, n], …]}  → 204 (≤ 12 bộ đếm/lượt, 1 lượt ghi gộp)
  *   POST {op:'due'} + X-Push-Cron        → { web:[{id,ep}], fcm:[{id,token,lang,kind}] } (cron Worker workers/push; cầu dao + ngân sách điều phối + ≤ 40/lượt)
+ *     + thông báo "đã sửa" từ hàng đợi push_now (pickFixed; FCM kind 'fixed' + rid)
  *   POST {op:'gone', ids} + X-Push-Cron  → xóa đăng ký hết hạn (404/410 từ dịch vụ push)
  *   POST {op:'stats'} (quản trị)          → 30 ngày bộ đếm cho thẻ "Thông báo" */
 import { coordDb, d1bReady } from './_d1b.js';
@@ -51,6 +52,24 @@ export function slotFor(lmin, tz, now = Date.now()) {
 export const inQuiet = (n, q1, q2) => (q1 == null || q2 == null || q1 === q2 ? false : q1 < q2 ? n >= q1 && n < q2 : n >= q1 || n < q2);
 const day = t => new Date(t).toISOString().slice(0, 10);
 
+/** Hàng đợi "Lỗi LX-xxxx đã được sửa" (functions/api/report.js pushFixed ghi khi phiếu sang Đã sửa): sid = id thiết bị push_subs, rid = id phiếu. */
+export const PUSH_NOW_SQL = 'CREATE TABLE IF NOT EXISTS push_now (sid TEXT NOT NULL, rid INTEGER NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (sid, rid)) WITHOUT ROWID';
+/** Chọn thông báo "đã sửa" (thuần – test): bỏ qua giờ nhắc/1 lần mỗi ngày, VẪN tôn trọng giờ yên lặng (để lượt sau); thiết bị đã hủy hoặc chờ > 3 ngày → bỏ.
+ * rows: push_now LEFT JOIN push_subs; taken: id thiết bị đã có lời nhắc trong lượt này (push rỗng – SW tự ưu tiên báo đã sửa). → { web, fcm, drop:[[sid, rid]] } */
+export function pickFixed(rows, env, now = Date.now(), room = MAX_SEND, taken = new Set()) {
+  const out = { web: [], fcm: [], drop: [] };
+  for (const r of rows) {
+    const k = r.k === 'fcm' ? (fcmOn(env) ? 'fcm' : '') : r.k === 'web' && pct(env) > 0 ? 'web' : '';
+    if (!k || now - (+r.at || 0) > 3 * DAY) { out.drop.push([r.sid, r.rid]); continue; }
+    if (inQuiet(tzParts(now, r.tz || 'UTC').min, r.q1, r.q2)) continue;
+    if (out.web.length + out.fcm.length >= room) break;
+    out.drop.push([r.sid, r.rid]);
+    if (k === 'fcm') out.fcm.push({ id: r.sid, token: r.ep, lang: r.lang || 'en', kind: 'fixed', rid: 'LX-' + (1000 + (+r.rid || 0)) });
+    else if (!taken.has(r.sid) && !out.web.some(x => x.id === r.sid)) out.web.push({ id: r.sid, ep: r.ep });
+  }
+  return out;
+}
+
 let READY = false;
 export async function setupPush(db) {
   if (READY) return;
@@ -59,6 +78,7 @@ export async function setupPush(db) {
     db.prepare('CREATE INDEX IF NOT EXISTS push_slot ON push_subs (slot, last)'),
     db.prepare('CREATE INDEX IF NOT EXISTS push_k_last ON push_subs (k, last)'),
     db.prepare('CREATE TABLE IF NOT EXISTS ntf_daily (day TEXT NOT NULL, k TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, k)) WITHOUT ROWID'),
+    db.prepare(PUSH_NOW_SQL),
   ]);
   READY = true;
 }
@@ -123,6 +143,11 @@ export async function onRequestPost({ request, env }) {
       const rows = (await db.prepare(`SELECT id, k, ep, tz, lmin, q1, q2, act, std, last, n, done, lang FROM push_subs WHERE (${where}) AND last < ? AND done = 0 LIMIT 120`).bind(...ranges.flat(), now - 20 * 3600e3).all()).results || [];
       const p = pickDue(rows.filter(r => (r.k === 'fcm' ? fcmOn(env) : pct(env) > 0)), now);
       const ids = [...p.web, ...p.fcm].map(x => x.id);
+      // Báo "đã sửa" (≤ chỗ còn lại trong lượt): push rỗng như lời nhắc – SW hỏi trạng thái phiếu của máy rồi hiện "Lỗi LX-… đã được sửa"
+      const fr = (await db.prepare('SELECT n.sid, n.rid, n.at, s.k, s.ep, s.tz, s.q1, s.q2, s.lang FROM push_now n LEFT JOIN push_subs s ON s.id = n.sid ORDER BY n.at LIMIT 60').all()).results || [];
+      const fx = fr.length ? pickFixed(fr, env, now, MAX_SEND - ids.length, new Set(p.web.map(x => x.id))) : { web: [], fcm: [], drop: [] };
+      if (fx.drop.length) await db.batch([...fx.drop.map(([sid, rid]) => db.prepare('DELETE FROM push_now WHERE sid = ? AND rid = ?').bind(sid, rid)), ...(fx.web.length + fx.fcm.length ? [bump(db, day(now), 'sent:fixed', fx.web.length + fx.fcm.length)] : [])]);
+      p.web.push(...fx.web); p.fcm.push(...fx.fcm);
       if (ids.length) {
         const byId = new Map(rows.map(r => [r.id, r])), st = [bump(db, day(now), 'sent', ids.length)];
         for (const id of ids) { const r = byId.get(id); st.push(db.prepare('UPDATE push_subs SET last = ?, n = n + 1, slot = ? WHERE id = ?').bind(now, slotFor(+r.lmin || 0, r.tz || 'UTC', now + 3600e3), id)); } // tính lại khung UTC cho ngày mai (đổi giờ mùa hè)

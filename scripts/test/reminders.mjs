@@ -93,15 +93,25 @@ const src = fs.readFileSync('workers/push/index.js', 'utf8').replace(/^import CO
 const W = await import('data:text/javascript;base64,' + Buffer.from(src).toString('base64'));
 ok(W.copyOf('ja', 'miss')[0].includes('Kit') && !/[ạảấầậđ]/.test(W.copyOf('ja', 'back').join('')), 'FCM ja đúng ngôn ngữ');
 ok(W.copyOf('xx', 'back')[0] === W.copyOf('en', 'back')[0] && W.copyOf('vi', 'back')[0] !== W.copyOf('en', 'back')[0], 'FCM: ngôn ngữ lạ → en (không bao giờ vi)');
+{ const fm = W.fcmMessage({ token: 't', lang: 'zh', kind: 'fixed', rid: 'LX-1042' }).message, bad = W.fcmMessage({ token: 't', lang: 'en', kind: 'fixed', rid: '<x>' }).message;
+  ok(fm.notification.title === '问题 LX-1042 已修复' && fm.data.rid === 'LX-1042' && fm.data.route === '#/home' && !bad.notification.title.includes('<') && !bad.data.rid, 'FCM "đã sửa": đúng ngôn ngữ + mã LX, mã lạ bị bỏ'); }
+{ const at = Date.UTC(2026, 9, 28, 14, 0), E = { PUSH_PCT: '100', FCM_ON: '1' }, row = (o = {}) => ({ sid: 'c'.repeat(32), rid: 42, at: at - 3600e3, k: 'web', ep: 'https://fcm.googleapis.com/fcm/send/x', tz: 'Asia/Ho_Chi_Minh', q1: 1320, q2: 420, lang: 'ja', ...o });
+  const a = S.pickFixed([row(), row({ rid: 43 }), row({ sid: 'd'.repeat(32), k: 'fcm', ep: 't'.repeat(30) })], E, at);
+  ok(a.web.length === 1 && a.fcm.length === 1 && a.fcm[0].rid === 'LX-1042' && a.fcm[0].kind === 'fixed' && a.fcm[0].lang === 'ja' && a.drop.length === 3, 'pickFixed: 1 push rỗng/thiết bị (dù nhiều phiếu), FCM kèm mã LX + ngôn ngữ, xóa khỏi hàng đợi');
+  const q = S.pickFixed([row({ tz: 'Asia/Ho_Chi_Minh' })], E, Date.UTC(2026, 9, 28, 17, 0));
+  ok(!q.web.length && !q.drop.length, 'pickFixed: giờ yên lặng địa phương (0:00) → giữ cho lượt sau');
+  const g = S.pickFixed([row({ k: null }), row({ at: at - 4 * 864e5 }), row({ rid: 44 })], { PUSH_PCT: '0' }, at);
+  ok(!g.web.length && g.drop.length === 3, 'pickFixed: thiết bị đã hủy / chờ > 3 ngày / cờ tắt → bỏ, không gửi');
+  ok(!S.pickFixed([row()], E, at, 40, new Set(['c'.repeat(32)])).web.length && !S.pickFixed([row(), row({ sid: 'e'.repeat(32) })], E, at, 1).web.slice(1).length, 'pickFixed: thiết bị đã có lời nhắc lượt này → không push thêm; tôn trọng chỗ còn lại'); }
 const m = W.fcmMessage({ token: 't', lang: 'ar', kind: 'week' }).message; ok(m.token === 't' && m.data.route === '#/stats' && m.notification.title && m.apns && m.android, 'FCM v1 message');
 // ---------- Service worker: push → lời nhắc hôm nay từ kế hoạch đã dịch; click → 'open' ----------
-const shown = [], posts = [], store = {}, L2 = {};
+const shown = [], posts = [], store = {}, L2 = {}; let repRes = () => ({ rows: [] });
 const today = key(new Date());
 store['/__meta'] = JSON.stringify({ v: 2, plan: [{ day: today, title: 'T-today', body: 'B', url: '/app/#/review?w=x', tpl: 'word2' }], gen: { title: 'G', body: 'g', tpl: 'gen1' }, miss: { title: 'M', body: 'm', tpl: 'ms1' }, act: today });
 const caches = { open: async () => ({ match: async k => (store[k] ? { json: async () => JSON.parse(store[k]) } : null), put: async (k, r) => { store[k] = await r.text(); } }), keys: async () => [] };
 const self = { registration: { scope: 'https://lexkite.com/app/', showNotification: async (t, o) => shown.push([t, o]) }, addEventListener: (t, f) => { L2[t] = f; }, clients: { matchAll: async () => [], openWindow: async () => {}, claim: async () => {} }, skipWaiting: () => {} };
 class Resp { constructor(b) { this.b = b; } async text() { return String(this.b); } async json() { return JSON.parse(this.b); } }
-vm.runInNewContext(fs.readFileSync('web/sw.js', 'utf8'), { self, caches, location: { origin: 'https://lexkite.com' }, URL, Response: Resp, Request: class {}, fetch: async (u, o) => { posts.push(JSON.parse(o.body)); return {}; }, console, setTimeout, clearTimeout, Date, JSON, Promise });
+vm.runInNewContext(fs.readFileSync('web/sw.js', 'utf8'), { self, caches, location: { origin: 'https://lexkite.com' }, URL, Response: Resp, Request: class {}, fetch: async (u, o) => { posts.push(JSON.parse(o.body)); return u === '/api/report' ? { json: async () => repRes() } : {}; }, console, setTimeout, clearTimeout, Date, JSON, Promise });
 const run = async (t, ev) => { let p; ev.waitUntil = x => { p = x; }; L2[t](ev); await p; };
 await run('push', {});
 ok(shown.length === 1 && shown[0][0] === 'T-today' && shown[0][1].data.tpl === 'word2', 'SW push: thông báo = kế hoạch hôm nay');
@@ -111,6 +121,19 @@ await run('push', {}); ok(shown[1][0] === 'M', 'SW push: lâu không mở app �
 delete store['/__meta']; await run('push', {}); ok(shown.length === 3, 'SW push: không có dữ liệu vẫn LUÔN hiện thông báo (iOS/Safari bắt buộc)');
 await run('notificationclick', { notification: { close() {}, data: { url: '/app/#/review', tpl: 'due1' } } });
 ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'), 'SW click: đếm open theo mẫu');
+// Báo "Lỗi LX-… đã được sửa": push rỗng + phiếu chưa đóng ở '/__rep' → hỏi trạng thái → hiện báo đã sửa THAY lời nhắc, đánh dấu chk; chưa sửa/mạng lỗi → lời nhắc
+{ const TK = 'A'.repeat(24), n0 = shown.length;
+  store['/__meta'] = JSON.stringify({ v: 2, plan: [{ day: today, title: 'T-today', body: 'B', url: '/app/#/review', tpl: 'word2' }], act: today });
+  store['/__rep'] = JSON.stringify({ title: '問題 {id} は修正されました', body: 'B-ja', rows: [{ t: TK, id: 'LX-1042', st: 'prog' }, { t: 'Z'.repeat(24), id: 'LX-1001', st: 'fixed' }] });
+  repRes = () => ({ rows: [{ t: TK, id: 'LX-1042', status: 'prog' }] }); await run('push', {});
+  ok(shown[n0][0] === 'T-today' && posts.some(b => b.op === 'mine' && b.ts.length === 1 && b.ts[0] === TK), 'SW push: phiếu chưa sửa → lời nhắc như cũ; chỉ hỏi phiếu chưa đóng');
+  repRes = () => ({ rows: [{ t: TK, id: 'LX-1042', status: 'fixed' }] }); await run('push', {});
+  const r = JSON.parse(store['/__rep']);
+  ok(shown[n0 + 1][0] === '問題 LX-1042 は修正されました' && shown[n0 + 1][1].data.url === '/app/#/report/' + TK && shown[n0 + 1][1].data.tpl === 'rfix' && r.chk === 1 && r.rows[0].st === 'fixed', 'SW push: phiếu vừa Đã sửa → "Lỗi LX-1042 đã được sửa" (đúng ngôn ngữ), mở trang phiếu, đánh dấu chk');
+  await run('push', {}); ok(shown[n0 + 2][0] === 'T-today', 'SW push: đã báo rồi → lần sau lại là lời nhắc (không báo lặp)');
+  store['/__rep'] = JSON.stringify({ title: 'X {id}', body: '', rows: [{ t: TK, id: 'LX-1042', st: 'new' }] }); repRes = () => { throw new Error('offline'); };
+  await run('push', {}); ok(shown[n0 + 3][0] === 'T-today', 'SW push: mạng lỗi → vẫn hiện lời nhắc (iOS bắt buộc hiện)');
+  delete store['/__rep']; }
 
 // ---- Add-on (extension/background.js): dùng CHUNG Remind.plan – giờ yên lặng, ≤ 1/ngày, văn bản cụ thể (số thẻ), liên kết sâu, không quyền mới ----
 {

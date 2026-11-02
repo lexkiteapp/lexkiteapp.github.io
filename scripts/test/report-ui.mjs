@@ -8,7 +8,7 @@ let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log
 const rd = f => fs.readFileSync(new URL('../../web/' + f, import.meta.url), 'utf8');
 const dom = new JSDOM('<!doctype html><html><head></head><body><nav class="side-foot"></nav><main id="view" class="view"></main></body></html>', { url: 'https://lexkite.com/#/dict/record?q=private', runScripts: 'outside-only', pretendToBeVisual: true });
 const w = dom.window, d = w.document;
-w.localStorage.setItem('vb.uiLang', 'en'); w.localStorage.setItem('lk.vid', 'abcdefgh12345678xyz');
+w.localStorage.setItem('vb.uiLang', 'en'); w.localStorage.setItem('lk.vid', 'abcdefgh12345678xyz'); w.localStorage.setItem('lk.push', JSON.stringify({ id: 'a'.repeat(32) }));
 const mq = { matches: false, fs: [], addEventListener: (e, f) => { mq.fs.push(f); }, f: () => mq.fs.forEach(f => f()) }; w.matchMedia = () => mq; w.console.error = () => {};
 let sent = [], reply = () => ({ ok: true, id: 'LX-1001', token: 'T'.repeat(24), eta: { kind: 'normal', h: 72 } });
 w.fetch = async (url, init) => { const b = JSON.parse(init.body); sent.push({ url, b, h: init.headers }); return { status: 200, json: async () => reply(b) }; };
@@ -68,6 +68,7 @@ const s0 = sent[0];
 ok(s0 && s0.url === '/api/report' && s0.b.op === 'create' && s0.b.cat === 'content' && s0.b.notify === false && s0.b.email === '', 'gửi đúng loại; không email khi không chọn nhận cập nhật');
 ok(s0 && s0.b.ctx.route === 'dict/record' && s0.b.ctx.cid === 'record' && s0.b.ctx.lang === 'en' && /^\d+x\d+$/.test(s0.b.ctx.vw) && !JSON.stringify(s0.b.ctx).includes('private'), 'ngữ cảnh: trang bỏ ?query, mã nội dung, ngôn ngữ, khung nhìn');
 ok(s0 && s0.b.errs.length === 2 && s0.h['X-Lexkite-Device'] === 'abcdefgh12345678xyz', 'kèm lỗi console + mã thiết bị');
+ok(s0 && s0.b.pid === 'a'.repeat(32), 'kèm id thiết bị nhắc học (báo đẩy khi Đã sửa)');
 // Màn cảm ơn
 const done = d.querySelector('.lkr-done');
 ok(done && done.getAttribute('role') === 'status' && done.textContent.includes('Thank you for helping make Lexkite better!'), 'màn cảm ơn (role=status)');
@@ -103,6 +104,22 @@ await R.page('V'.repeat(24), new w.URLSearchParams()); await tick(5);
 ok(/not found/.test(v.textContent) || /Could not send/.test(v.textContent), 'mã riêng sai → thông báo không tìm thấy');
 await R.page('', new w.URLSearchParams()); await tick(5);
 ok(v.querySelector('.lkr-list a[href="#/report/' + 'T'.repeat(24) + '"]'), '#/report → danh sách "Báo lỗi của tôi"');
+
+// Nhắc trong app khi phiếu đổi trạng thái: ≤ 1 lời nhắc/12 giờ; bị chặn thì GIỮ thay đổi cho lượt sau (không mất)
+{ const TK = 'T'.repeat(24), clr = () => d.querySelectorAll('.lkr-toast').forEach(e => e.remove()); let u = Date.now() + 1000;
+  w.localStorage.removeItem('lk.rpt'); clr(); reply = b => (b.op === 'mine' ? { rows: [{ t: TK, status: 'prog', upd: u }] } : {});
+  const c1 = await R.poll(); ok(c1.length === 1 && d.querySelector('.lkr-toast'), 'poll: phiếu đổi trạng thái → nhắc trong app'); clr();
+  u += 1000; reply = b => (b.op === 'mine' ? { rows: [{ t: TK, status: 'fixed', upd: u }] } : {});
+  const c2 = await R.poll(), me = JSON.parse(w.localStorage.getItem('lk.rp')).find(x => x.t === TK);
+  ok(c2.length === 1 && !d.querySelector('.lkr-toast') && me.st === 'prog', 'poll: trong 12 giờ không nhắc lần 2, thay đổi được giữ');
+  w.localStorage.setItem('lk.rpt', String(Date.now() - 13 * 3600e3));
+  const c3 = await R.poll(); ok(c3.length === 1 && d.querySelector('.lkr-toast') && d.querySelector('.lkr-toast').textContent.includes('Fixed'), 'poll: sau 12 giờ nhắc thay đổi đã giữ (Đã sửa)'); clr(); }
+
+// Thẻ Chất lượng › Cài đặt & bí mật: báo rõ khóa còn thiếu + chỗ nhập (không giá trị bí mật)
+{ w.eval(rd('js/admin-reports.js')); const C = w.AdminReports._t.checks, by = (c, k) => C(c).find(i => i.k === k);
+  const none = C({ mail_st: 'no-key', push: 'no-d1b' });
+  ok(none.every(i => !i.ok && i.fix) && by({ mail_st: 'no-key' }, 'mail').fix.includes('RESEND_API_KEY') && by({ push: 'off' }, 'push').fix.includes('PUSH_PCT') && by({}, 'cli').fix.includes('LEXKITE_REPORT_CLI_KEY'), 'checks: thiếu bí mật → ⚠️ + chỗ nhập (thư 501 → RESEND/BREVO, push tắt → PUSH_PCT)');
+  ok(C({ ai: 1, gh: 1, cli: 1, mail_st: 'ok', push: 'ok' }).every(i => i.ok), 'checks: đủ cả → ✅'); }
 
 if (fails) { console.error(`✗ report-ui: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report-ui: ${n} kiểm tra – nút nổi, form, a11y, dữ liệu gửi, màn cảm ơn, mốc dự kiến, khóa 30 s, trang trạng thái`);

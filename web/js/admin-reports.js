@@ -5,6 +5,11 @@
  * Mọi lệnh qua /api/report (cổng adminGate, ghi admin_log). Mọi dữ liệu người dùng hiển thị qua esc(). Chữ tiếng Anh ở bảng EN. */
 (function () {
   const EN = {
+    'Cài đặt & bí mật': 'Setup & secrets', 'Đủ': 'Ready', 'Thiếu': 'Missing', 'AI phân loại': 'AI triage', 'GitHub Issue cho Claude Code': 'GitHub issues for Claude Code', 'Tự động theo PR (LX-xxxx)': 'Auto status from PRs (LX-xxxx)',
+    'Thư cho người báo': 'Reporter emails', 'Báo đẩy "đã sửa"': '"Fixed" push notifications', 'Chưa gửi thư nào – chưa biết': 'No email sent yet – unknown', 'Gửi thư đang lỗi – xem lịch sử phiếu': 'Emails are failing – check ticket history',
+    'Pages: binding AI hoặc secret CF_AI_TOKEN + CF_ACCOUNT_ID': 'Pages: AI binding or CF_AI_TOKEN + CF_ACCOUNT_ID secrets', 'Pages: secret GH_ISSUES_TOKEN (PAT, Issues: Read & write)': 'Pages: GH_ISSUES_TOKEN secret (PAT, Issues: Read & write)',
+    'Pages + GitHub Actions: secret LEXKITE_REPORT_CLI_KEY (≥ 32 ký tự, cùng giá trị)': 'Pages + GitHub Actions: LEXKITE_REPORT_CLI_KEY secret (≥ 32 chars, same value)', 'Worker lexkite-mail: secret RESEND_API_KEY hoặc BREVO_API_KEY': 'Worker lexkite-mail: RESEND_API_KEY or BREVO_API_KEY secret',
+    'Pages: service binding MAIL → lexkite-mail': 'Pages: MAIL service binding → lexkite-mail', 'Pages: secret D1B_ACCOUNT_ID + D1B_TOKEN (D1 nội bộ)': 'Pages: D1B_ACCOUNT_ID + D1B_TOKEN secrets (internal D1)', 'Pages: biến PUSH_PCT > 0 hoặc FCM_ON = 1': 'Pages: PUSH_PCT > 0 or FCM_ON = 1 variable',
     '🐞 Báo lỗi người dùng': '🐞 User reports', 'Tất cả đang mở': 'All open', 'Mới': 'New', 'Đã tiếp nhận': 'Acknowledged', 'Đang xử lý': 'In progress', 'Đã sửa': 'Fixed', 'Không sửa': "Won't fix", 'Trùng lặp': 'Duplicate', 'Spam': 'Spam',
     'Tìm mã LX-…, nội dung, email, trang, phiên bản': 'Search LX-…, text, email, page, version', 'Mọi khu vực': 'All areas', 'Mọi loại': 'All types', 'Mọi nền tảng': 'All platforms', 'Mới nhất': 'Newest', 'Cũ nhất': 'Oldest', 'Vừa cập nhật': 'Recently updated',
     'Xuất CSV': 'Export CSV', 'Tải lại': 'Reload', 'Thư báo quản trị': 'Admin email', 'Ngay khi có': 'Instant', 'Tóm tắt hằng ngày': 'Daily digest', 'Tắt': 'Off', 'Gồm báo lỗi thử (sandbox)': 'Include sandbox reports',
@@ -202,7 +207,21 @@
       <div class="rp-kpis" style="margin-top:.6rem"><div><h4 style="margin:.2rem 0 .4rem">${T('7 ngày qua')}</h4><div class="bars" role="img" aria-label="${esc(s.days7.map(d => d.day + ': ' + d.n).join(', '))}">${s.days7.map(d => `<div title="${esc(d.day)}: ${d.n} ${T('mới')} · ${d.fixed} ${T('đã sửa')}"><i style="height:${Math.max(3, d.n / m7 * 100)}%"></i><small>${esc(d.day.slice(8))}</small></div>`).join('')}</div></div>
         <div><h4 style="margin:.2rem 0 .4rem">${T('Theo khu vực (30 ngày)')}</h4>${s.byArea.length ? s.byArea.slice(0, 8).map(a => `<div class="rp-hbar"><span>${esc(T(AREAS[a.area] || a.area))}</span><span class="b"><i style="width:${a.n / mA * 100}%"></i></span><span>${num(a.n)}</span></div>`).join('') : `<p class="small muted">${T('chưa có')}</p>`}</div></div>`;
     el.querySelector('a[href="#reports"]').onclick = e => { e.preventDefault(); const b = document.querySelector('#tabs [data-tab="reports"]'); if (b) b.click(); };
+    api('cfg').then(c => { const x = document.createElement('div'), list = checks(c), miss = list.filter(i => !i.ok).length; x.className = 'rp-setup';
+      x.innerHTML = `<h4 style="margin:.8rem 0 .4rem">${T('Cài đặt & bí mật')} · ${miss ? `<span class="rp-warn" style="display:inline">${T('Thiếu')} ${num(miss)}</span>` : T('Đủ')}</h4><ul class="small" style="margin:0;padding-inline-start:1.1rem">${list.map(i => `<li>${i.ok ? '✅' : '⚠️'} ${esc(T(i.label))}${i.ok ? '' : ` – <span class="muted">${esc(T(i.fix))}</span>`}</li>`).join('')}</ul>`;
+      el.appendChild(x); }).catch(() => {});
+  }
+  // Thẻ Chất lượng › Cài đặt & bí mật (thuần – test): cờ từ op cfg, không giá trị bí mật. Bí mật chỉ chủ app nhập (docs/REPORTS.md § Biến môi trường).
+  function checks(c) {
+    c = c || {};
+    return [
+      { k: 'ai', ok: !!c.ai, label: 'AI phân loại', fix: 'Pages: binding AI hoặc secret CF_AI_TOKEN + CF_ACCOUNT_ID' },
+      { k: 'gh', ok: !!c.gh, label: 'GitHub Issue cho Claude Code', fix: 'Pages: secret GH_ISSUES_TOKEN (PAT, Issues: Read & write)' },
+      { k: 'cli', ok: !!c.cli, label: 'Tự động theo PR (LX-xxxx)', fix: 'Pages + GitHub Actions: secret LEXKITE_REPORT_CLI_KEY (≥ 32 ký tự, cùng giá trị)' },
+      { k: 'mail', ok: c.mail_st === 'ok', label: 'Thư cho người báo', fix: { 'no-key': 'Worker lexkite-mail: secret RESEND_API_KEY hoặc BREVO_API_KEY', 'no-binding': 'Pages: service binding MAIL → lexkite-mail', failing: 'Gửi thư đang lỗi – xem lịch sử phiếu' }[c.mail_st] || 'Chưa gửi thư nào – chưa biết' },
+      { k: 'push', ok: c.push === 'ok', label: 'Báo đẩy "đã sửa"', fix: c.push === 'off' ? 'Pages: biến PUSH_PCT > 0 hoặc FCM_ON = 1' : 'Pages: secret D1B_ACCOUNT_ID + D1B_TOKEN (D1 nội bộ)' },
+    ];
   }
 
-  window.AdminReports = { render, card, _t: { T, EN } };
+  window.AdminReports = { render, card, _t: { T, EN, checks } };
 })();
