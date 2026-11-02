@@ -73,6 +73,7 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   const y = fs.readFileSync(new URL('../../.github/workflows/required-gate.yml', import.meta.url), 'utf8');
   ok(!/^\s*paths(-ignore)?:/m.test(y.split('\njobs:')[0]), 'không paths-filter (gate phải báo trên mọi PR)');
   ok(/timeout-minutes: [1-3]\n/.test(y) && /cancel-in-progress: true/.test(y), 'job ngắn (timeout ≤ 3) + concurrency hủy lượt cũ theo sha');
+  ok(!/^concurrency:/m.test(y) && /\n    concurrency:\n      group: required-gate-/.test(y), 'concurrency ở mức job: lượt bị if bỏ qua không huỷ lượt đánh giá thật cùng sha (2/11)');
   ok(/statuses: write/.test(y) && !/contents: write/.test(y), 'quyền tối thiểu: statuses write, không ghi mã');
   ok(/head\.repo\.full_name == github\.repository/.test(y) && !/ref: \$\{\{ github\.event\.workflow_run/.test(y), 'PR fork: không checkout mã PR, job pull_request chỉ cho PR cùng repo');
   ok(new RegExp(`name: ${SELF_JOB}\\n`).test(y), `tên job = ${SELF_JOB} (để tự loại khỏi đánh giá)`);

@@ -8,7 +8,6 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 
 export const GENERATED = [
-  /^\.github\/workflows\/ci-triage\.yml$/,           // scripts/ci/sync-triage.mjs
   /^web\/js\/i18n\/[A-Za-z_]+\.js$/,                 // gói dịch lõi (build-i18n.sh / gen-i18n / i18n-fix)
   /^web\/js\/i18n\/(?!en\/)[A-Za-z_]+\/[^/]+\.js$/,  // gói dịch nhóm tải lười của 13 ngôn ngữ ngoài en (split-i18n.mjs)
   /^extension\/(app\/|academic\.json$|nt\/)/,        // bản chép web/ → extension/app + academic.json + nt/ (scripts/build-extension.sh)

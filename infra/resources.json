@@ -60,7 +60,7 @@
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-audio/production",
       "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
       "upgrade": "Đang thay bằng R2 tĩnh lexkite-audio-cdn (key audio-cdn-r2, docs/CAPACITY.md §A5) – Worker giữ deploy làm đường lùi (scripts/cdn/cutover.mjs rollback)",
-      "status": "Miễn phí",
+      "status": "Dự phòng (không gắn tên miền từ 02/11 – cutover.mjs rollback để gắn lại)",
       "match": [
         "audio.lexkite.com",
         "lexkite-audio"
@@ -77,7 +77,7 @@
       "kind": "cdn",
       "free": "R2 Free: 10 GB lưu trữ · 1 triệu Class A (ghi)/tháng · 10 triệu Class B (đọc)/tháng · băng thông ra 0 đ; lượt trúng Cache Rule = 0 Class B, KHÔNG tính trần 100k Workers",
       "upgrade": "> 8 GB hoặc Class B > 8 triệu/tháng (free-tier-guard đo) → xem docs/CAPACITY.md §A5",
-      "status": "Chờ chủ bật R2 trên dashboard (cdn-mirror.yml tự kiểm, dừng trung tính tới khi bật) – docs/CAPACITY.md §A5"
+      "status": "Đang dùng (02/11/2026 ~10:05Z) – tên miền gắn R2, Worker giữ deploy làm đường lùi; chốt $0 ≥ 90 % (docs/FREE-TIER.md §R2)"
     },
     {
       "key": "audio-cdn-r2",
@@ -90,7 +90,7 @@
       "kind": "cdn",
       "free": "R2 Free: 10 GB lưu trữ · 1 triệu Class A (ghi)/tháng · 10 triệu Class B (đọc)/tháng · băng thông ra 0 đ; lượt trúng Cache Rule = 0 Class B, KHÔNG tính trần 100k Workers",
       "upgrade": "> 8 GB hoặc Class B > 8 triệu/tháng (free-tier-guard đo) → xem docs/CAPACITY.md §A5",
-      "status": "Chờ chủ bật R2 trên dashboard (cdn-mirror.yml tự kiểm, dừng trung tính tới khi bật) – docs/CAPACITY.md §A5"
+      "status": "Đang dùng (02/11/2026 ~10:05Z) – tên miền gắn R2, Worker giữ deploy làm đường lùi; chốt $0 ≥ 90 % (docs/FREE-TIER.md §R2)"
     },
     {
       "key": "audio-origin",
@@ -401,7 +401,7 @@
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-media/production",
       "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
       "upgrade": "Đang thay bằng R2 tĩnh lexkite-media-cdn (key media-cdn-r2, docs/CAPACITY.md §A5) – Worker giữ deploy làm đường lùi (scripts/cdn/cutover.mjs rollback)",
-      "status": "Miễn phí",
+      "status": "Dự phòng (không gắn tên miền từ 02/11 – cutover.mjs rollback để gắn lại)",
       "match": [
         "media.lexkite.com",
         "lexkite-media"
