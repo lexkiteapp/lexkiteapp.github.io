@@ -2,7 +2,8 @@
 // luật zone không đè luật khác, workflow có cổng + concurrency + timeout. Không mạng.
 import assert from 'node:assert/strict'; import fs from 'node:fs';
 import { hosts, mediaPath, audioPath, vimgPath, videoAsset, typeFor, cacheFor, merge, diff, IMMUTABLE, LIBRARY_CC } from '../cdn/hosts.mjs';
-import { RULES, REF, CORS, mergeRules, checkResponse } from '../cdn/cutover.mjs';
+import { RULES, REF, CORS, mergeRules, checkResponse, r2State } from '../cdn/cutover.mjs';
+import { s3Secret, tokenId } from '../cdn/creds.mjs';
 
 // 1) Lọc như workers/media (nhánh mặc định) + workers/audio
 for (const [p, ok] of [['blog/p/ab12-480.avif', true], ['blog/cover.webp', true], ['library/clips/a_v2.mp4', true], ['library/index.json', true],
@@ -40,8 +41,19 @@ assert.deepEqual(CORS.rules[0].allowed.methods, ['GET', 'HEAD']); assert.ok(CORS
 const res = (status, h) => ({ status, headers: new Headers(h) });
 assert.deepEqual(checkResponse('library/a.mp4', res(206, { 'content-type': 'video/mp4', 'cache-control': LIBRARY_CC, 'access-control-allow-origin': '*', 'content-range': 'bytes 0-99/5000' }), { range: true }), []);
 assert.deepEqual(checkResponse('audio/l/a.mp3', res(200, { 'content-type': 'audio/mpeg', 'cache-control': 'max-age=60' })), ['cache max-age=60', 'CORS']);
-// 7) Workflow: lịch bỏ qua trung tính khi thiếu secret, concurrency xếp hàng, timeout, sổ việc nền
+// 7) R2 chưa bật / thiếu quyền → trung tính (không ném), đã bật → on
+assert.equal(r2State({ ok: true, j: { success: true } }), 'on');
+assert.equal(r2State({ ok: false, j: { errors: [{ code: 10042, message: 'Please enable R2 through the Cloudflare Dashboard.' }] } }), 'off');
+assert.equal(r2State({ ok: false, j: { errors: [{ code: 10000, message: 'Authentication error' }] } }), 'noperm');
+// 8) Khoá S3 suy từ token: id + sha256(giá trị) (tài liệu R2)
+assert.equal(s3Secret('abc'), 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');
+assert.equal(await tokenId('t', async u => ({ ok: !u.includes('/user/'), json: async () => (u.includes('/user/') ? { success: false } : { success: true, result: { id: 'tid' } }) })), 'tid');
+// 9) Workflow: kiểm R2 trước, dùng secret có sẵn, mọi bước sau gắn điều kiện r2 == on; concurrency xếp hàng, timeout; switch có verify
 const wf = fs.readFileSync('.github/workflows/cdn-mirror.yml', 'utf8');
-assert.match(wf, /concurrency: \{ group: cdn-mirror, cancel-in-progress: false \}/); assert.match(wf, /timeout-minutes: \d+/); assert.match(wf, /bỏ qua/);
+assert.match(wf, /concurrency: \{ group: cdn-mirror, cancel-in-progress: false \}/); assert.match(wf, /timeout-minutes: \d+/);
+assert.match(wf, /secrets\.CLOUDFLARE_API_TOKEN/); assert.match(wf, /cutover\.mjs check/); assert.match(wf, /switch --host "\$HOST" && sleep 30 && node scripts\/cdn\/cutover\.mjs verify/);
+for (const step of wf.split('\n      - ').slice(1).filter(x => /mirror\.mjs|creds\.mjs|cutover\.mjs (prepare|switch|\"\$ACTION)/.test(x))) assert.match(step, /steps\.check\.outputs\.r2 == 'on'/, step.slice(0, 60));
 assert.ok(JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')).jobs.some(j => j.workflow === 'cdn-mirror.yml'));
+// 10) switch: gắn R2 lỗi → quay lại Worker ngay (không để tên miền trống)
+const cut = fs.readFileSync('scripts/cdn/cutover.mjs', 'utf8'); assert.match(cut, /catch \(e\) \{ summary\([^)]*quay lại Worker`\); await rollback\(h\); throw e; \}/);
 console.log('cdn-r2: OK');

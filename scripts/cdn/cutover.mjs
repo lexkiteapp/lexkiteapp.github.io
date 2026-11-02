@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Chuyển media.lexkite.com / audio.lexkite.com từ Worker sang R2 tĩnh (docs/CAPACITY.md §A4). Chỉ gọi API Cloudflare (nhẹ, chạy tay được).
+//   node scripts/cdn/cutover.mjs check              → R2 đã bật? (GITHUB_OUTPUT r2=on|off|noperm; off/noperm = dừng trung tính + việc chủ cần bấm)
 //   node scripts/cdn/cutover.mjs prepare            → tạo bucket (apac) + CORS + Cache Rule + Transform Rule (giữ nguyên luật khác của zone)
 //   node scripts/cdn/cutover.mjs switch --host audio → cổng: _mirror/status.json đủ (thiếu 0, lỗi 0, < 26 h) → gỡ tên miền Worker → gắn tên miền R2
 //   node scripts/cdn/cutover.mjs verify --host audio → mẫu thật qua tên miền: 200/206 Range, kiểu, cache, CORS, lần 2 HIT
@@ -40,18 +41,38 @@ async function cf(method, p, body) {
 const must = async (what, method, p, body) => { const r = await cf(method, p, body); if (!r.ok) throw new Error(`${what}: ${r.status} ${JSON.stringify(r.j.errors || r.j).slice(0, 300)}`); return r.j.result; };
 const A = `/accounts/${ACCOUNT}`;
 
+const summary = t => { console.log(t); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, t + '\n'); };
+const out = (k, v) => { if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `${k}=${v}\n`); };
+/** R2 đã bật trên tài khoản chưa? on | off (chủ chưa bật – mã 10042) | noperm (token thiếu Workers R2 Storage). Không bao giờ ném lỗi. */
+export function r2State(r) {
+  if (r.ok) return 'on';
+  const codes = ((r.j && r.j.errors) || []).map(e => +e.code), msg = JSON.stringify((r.j && r.j.errors) || '').toLowerCase();
+  if (codes.includes(10042) || /enable r2|r2 is not enabled|not subscribed/.test(msg)) return 'off';
+  return 'noperm';
+}
+export const R2_HELP = { off: 'Cần chủ bấm: dash.cloudflare.com › R2 Object Storage › bật R2 (Cloudflare đòi phương thức thanh toán; trong hạn Free 10 GB / 1 tr ghi / 10 tr đọc mỗi tháng = $0).', noperm: 'Token CI (secret CLOUDFLARE_API_TOKEN) thiếu quyền Account › Workers R2 Storage › Edit.' };
+async function check() {
+  const st = r2State(await cf('GET', `${A}/r2/buckets`)); out('r2', st);
+  if (st === 'on') { let n = 0; for (const h of Object.values(HOSTS)) if ((await cf('GET', `${A}/r2/buckets/${h.bucket}`)).ok) n++; out('buckets', n === Object.keys(HOSTS).length ? 1 : 0); }
+  summary(st === 'on' ? '✅ R2 đã bật trên tài khoản – chép + chuyển được.' : `⏸ R2: ${st}. ${R2_HELP[st]} Dừng trung tính (không đổi gì).`);
+  return st;
+}
 async function prepare() {
   for (const h of Object.values(HOSTS)) {
     const b = await cf('GET', `${A}/r2/buckets/${h.bucket}`);
     if (!b.ok) { await must(`tạo bucket ${h.bucket}`, 'POST', `${A}/r2/buckets`, { name: h.bucket, locationHint: 'apac' }); console.log(`+ bucket ${h.bucket}`); }
     await must(`CORS ${h.bucket}`, 'PUT', `${A}/r2/buckets/${h.bucket}/cors`, CORS);
   }
+  // Luật zone (Cache Rule + Transform Rule) – cần quyền Zone Cache Rules/Transform Rules Edit. Thiếu → vẫn chạy được: Cloudflare cache mặc định
+  // theo đuôi tệp (mp3/ảnh/mp4, tôn trọng Cache-Control của đối tượng) + CORS của bucket; chỉ library/*.json không cache biên (đọc R2 Class B, 0 lượt Worker).
+  let rules = 0;
   for (const [phase, mine] of Object.entries(RULES)) {
     const cur = await cf('GET', `/zones/${ZONE}/rulesets/phases/${phase}/entrypoint`);
-    if (!cur.ok && cur.status !== 404) throw new Error(`đọc ${phase}: ${cur.status} ${JSON.stringify(cur.j.errors).slice(0, 200)}`);
-    await must(`ghi ${phase}`, 'PUT', `/zones/${ZONE}/rulesets/phases/${phase}/entrypoint`, { rules: mergeRules(cur.ok ? cur.j.result.rules : [], mine) });
-    console.log(`✓ ${phase}: ${mine.length} luật Lexkite CDN`);
+    if (!cur.ok && cur.status !== 404) { summary(`⚠️ ${phase}: token thiếu quyền (${cur.status}) – bỏ qua; cần chủ thêm Zone › ${phase.includes('cache') ? 'Cache Rules' : 'Transform Rules'} › Edit để có ${phase.includes('cache') ? 'cache biên cho .json' : 'nosniff/CSP SVG/X-Origin'}.`); continue; }
+    const w = await cf('PUT', `/zones/${ZONE}/rulesets/phases/${phase}/entrypoint`, { rules: mergeRules(cur.ok ? cur.j.result.rules : [], mine) });
+    if (w.ok) { rules++; console.log(`✓ ${phase}: ${mine.length} luật Lexkite CDN`); } else summary(`⚠️ ghi ${phase}: ${w.status} – bỏ qua`);
   }
+  out('rules', rules);
 }
 async function readStatus(h) {
   const r = await fetch(`https://api.cloudflare.com/client/v4${A}/r2/buckets/${h.bucket}/objects/_mirror/status.json`, { headers: { Authorization: `Bearer ${token()}` } });
@@ -64,7 +85,9 @@ async function switchHost(h) {
   if (!st || st.missing !== 0 || st.fail !== 0 || st.bad !== 0 || age > 26) throw new Error(`cổng: bucket ${h.bucket} chưa đủ (status ${JSON.stringify(st)}) – chạy cdn-mirror.yml trước`);
   const wd = await workerDomain(h.hostname);
   if (wd) { await must('gỡ tên miền Worker', 'DELETE', `${A}/workers/domains/${wd.id}`); console.log(`− ${h.hostname} ↛ Worker ${wd.service}`); }
-  await must('gắn tên miền R2', 'POST', `${A}/r2/buckets/${h.bucket}/domains/custom`, { domain: h.hostname, zoneId: ZONE, enabled: true, minTLS: '1.2' });
+  // Gắn R2 lỗi (vd. token thiếu quyền zone) → gắn lại Worker NGAY (không để tên miền trống); app/SW vẫn lùi GitHub trong lúc chuyển
+  try { await must('gắn tên miền R2', 'POST', `${A}/r2/buckets/${h.bucket}/domains/custom`, { domain: h.hostname, zoneId: ZONE, enabled: true, minTLS: '1.2' }); }
+  catch (e) { summary(`✗ ${e.message} → quay lại Worker`); await rollback(h); throw e; }
   console.log(`+ ${h.hostname} → R2 ${h.bucket} (${st.keys} khoá). Kiểm: node scripts/cdn/cutover.mjs verify --host ${Object.keys(HOSTS).find(k => HOSTS[k] === h)}`);
 }
 async function rollback(h) {
@@ -92,7 +115,7 @@ async function verify(name, h) {
     const url = `https://${h.hostname}/${k}`, range = /\.mp4$/.test(k);
     const r1 = await fetch(url, { headers: { Origin: 'https://lexkite.com', ...(range ? { Range: 'bytes=0-99' } : {}) } }); await r1.arrayBuffer();
     const r2 = await fetch(url, { headers: range ? { Range: 'bytes=0-99' } : {} }); await r2.arrayBuffer();
-    const errs = checkResponse(k, r1, { range }); if (r1.headers.get('x-origin') !== 'r2') errs.push(`x-origin ${r1.headers.get('x-origin')}`);
+    const errs = checkResponse(k, r1, { range }); if (process.env.CDN_RULES === '1' && r1.headers.get('x-origin') !== 'r2') errs.push(`x-origin ${r1.headers.get('x-origin')}`); // X-Origin do Transform Rule (cần quyền zone)
     const hit = r2.headers.get('cf-cache-status');
     if (errs.length) bad++;
     console.log(`${errs.length ? '✗' : '✓'} ${k} ${r1.status} lần 2 ${hit}${errs.length ? ' – ' + errs.join(', ') : ''}`);
@@ -104,8 +127,8 @@ async function verify(name, h) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const [cmd] = process.argv.slice(2), i = process.argv.indexOf('--host'), name = i > 0 ? process.argv[i + 1] : '';
   const h = HOSTS[name];
-  if (cmd !== 'prepare' && !h) { console.error('dùng: prepare | switch|verify|rollback --host media|audio'); process.exit(2); }
-  const run = { prepare, switch: () => switchHost(h), verify: () => verify(name, h), rollback: () => rollback(h) }[cmd];
+  if (!['prepare', 'check'].includes(cmd) && !h) { console.error('dùng: check | prepare | switch|verify|rollback --host media|audio'); process.exit(2); }
+  const run = { check, prepare, switch: () => switchHost(h), verify: () => verify(name, h), rollback: () => rollback(h) }[cmd];
   if (!run) { console.error('lệnh lạ: ' + cmd); process.exit(2); }
   run().catch(e => { console.error('✗ ' + e.message); process.exit(1); });
 }

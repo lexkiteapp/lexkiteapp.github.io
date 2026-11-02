@@ -77,7 +77,7 @@
       "kind": "cdn",
       "free": "R2 Free: 10 GB lưu trữ · 1 triệu Class A (ghi)/tháng · 10 triệu Class B (đọc)/tháng · băng thông ra 0 đ; lượt trúng Cache Rule = 0 Class B, KHÔNG tính trần 100k Workers",
       "upgrade": "> 8 GB hoặc Class B > 8 triệu/tháng (free-tier-guard đo) → xem docs/CAPACITY.md §A5",
-      "status": "Chờ chủ bật R2 + quyền token (docs/CAPACITY.md §A5)"
+      "status": "Chờ chủ bật R2 trên dashboard (cdn-mirror.yml tự kiểm, dừng trung tính tới khi bật) – docs/CAPACITY.md §A5"
     },
     {
       "key": "audio-cdn-r2",
@@ -90,7 +90,7 @@
       "kind": "cdn",
       "free": "R2 Free: 10 GB lưu trữ · 1 triệu Class A (ghi)/tháng · 10 triệu Class B (đọc)/tháng · băng thông ra 0 đ; lượt trúng Cache Rule = 0 Class B, KHÔNG tính trần 100k Workers",
       "upgrade": "> 8 GB hoặc Class B > 8 triệu/tháng (free-tier-guard đo) → xem docs/CAPACITY.md §A5",
-      "status": "Chờ chủ bật R2 + quyền token (docs/CAPACITY.md §A5)"
+      "status": "Chờ chủ bật R2 trên dashboard (cdn-mirror.yml tự kiểm, dừng trung tính tới khi bật) – docs/CAPACITY.md §A5"
     },
     {
       "key": "audio-origin",
