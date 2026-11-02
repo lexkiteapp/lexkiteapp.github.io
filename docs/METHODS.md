@@ -46,7 +46,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Mergecheck (nguồn duy nhất, TOKEN-RULES §4 trỏ về đây): `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp).
 - Trước ship: `npm test` (= `scripts/test/suite.txt`, test mới thêm 1 dòng ở đó; hoặc test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới ở `infra/resources.json`).
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
-- **Trước MỖI lần push: `npm run prepush`** (tự dựng lại ci-triage, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
+- **Trước MỖI lần push: `npm run prepush`** (tự dựng lại required-gate, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
 - `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
@@ -118,7 +118,7 @@ Lịch sử đầy đủ (bài học 17–26/10, Kling, chroma key, kho, video, 
 - CI giọng: runner mới không có ffmpeg → `apt-get install ffmpeg`; ghim faster-whisper 1.0.3.
 - D1: việc nền qua `_d1guard.js` (429 `quota-guard` ≥ 50 %), truy vấn theo khoá (EXPLAIN chặn quét bảng), không thăm dò API bằng vòng lặp; dữ liệu nội bộ ở D1 `lexkite-internal` (tài khoản CF thứ 2).
 - Mọi việc nền khai báo `infra/jobs.json` + lease (fail-closed); neuron Workers AI tài khoản chính dành cho người dùng, nền dùng tài khoản 2.
-- CI đỏ: `ci-triage.yml` phân loại; workflow mới phải thêm vào danh sách `workflow_run`; job gọi API bọc `scripts/ci/quota-skip.mjs`.
+- CI đỏ: `ci-triage.yml` quét 10 phút; job gọi API bọc `quota-skip.mjs`; workflow mới qua `ci-policy.mjs`.
 
 ## Làm đúng 1 lần (anh chủ 24/10 – không sửa đi sửa lại)
 Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) đi qua 5 bước, ghi ngắn trong brief/PR:
