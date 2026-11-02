@@ -1319,6 +1319,8 @@
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thêm cho hôm nay": "More for today", "{n} thẻ cần ôn": "{n} cards to review"}); })(typeof self !== 'undefined' ? self : this);
 /* Bài học trộn (#/lesson) trên trang chủ – khi cờ lesson_mix bật */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Bài học trộn": "Mixed lesson", "Nghe · nói · xếp câu từ chính các từ của bạn": "Listen, speak and build sentences with your own words"}); })(typeof self !== 'undefined' ? self : this);
+/* Lối vào báo cáo tuần + tất cả huy hiệu từ #/stats (web/js/ux1-badges.js) */
+(function (g) { Object.assign(g.I18N_DICT.en, {"Xem báo cáo tuần": "See weekly report", "Xem tất cả huy hiệu": "See all badges"}); })(typeof self !== 'undefined' ? self : this);
 /* ExitGuard (web/js/exit-guard.js): hỏi khi thoát giữa bài */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thoát bây giờ sẽ mất tiến độ bài này?": "Leave now and lose your progress in this lesson?", "Thoát bài?": "Leave this lesson?", "Tiến độ đã được lưu – lần sau bạn học tiếp từ đây.": "Your progress is saved – next time you'll pick up right here.", "Tiếp tục học": "Keep learning", "Thoát bài học": "Quit lesson"}); })(typeof self !== 'undefined' ? self : this);
 

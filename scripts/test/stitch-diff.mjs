@@ -92,7 +92,7 @@ for (const scheme of ['dark', 'light']) {
     if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.$(READY[k]))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     // ảnh trọn màn như mẫu: khung cao bằng nội dung → thanh dưới/chân cố định nằm đúng đáy, không lọt giữa ảnh; cuộn về đầu, bỏ focus
-    const fullH = await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
+    const fullH = await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); if (document.querySelector('[role=dialog][aria-modal=true]')) return 0; /* hộp thoại phủ màn (bảng chi tiết/chúc mừng huy hiệu): thấy đúng 1 màn hình, trang dưới khóa cuộn → chụp 844 px */ const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
     await page.setViewportSize({ width: W, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(300);
     const buf = await page.screenshot(); await auditContrast(page, buf, `${k}-${scheme}-390`); ph[`${k}-${scheme}`] = await page.evaluate(PHSCAN).catch(() => []); await page.setViewportSize({ width: W, height: 844 }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf);
     await page.addScriptTag({ path: AXE }).catch(() => {});
@@ -132,7 +132,7 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
           return w < 43.5 || h < 43.5; })()) tap.push(`${(e.textContent.trim() || e.getAttribute('aria-label') || e.tagName).slice(0, 14)} ${Math.round(r.width)}x${Math.round(r.height)}`); }
       const lg = document.querySelector('.topbar .brand img'), lr = lg && lg.getBoundingClientRect();
       return { hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 5), clip: clip.slice(0, 5), tap: tap.slice(0, 8), tapN: tap.length, logo: lg ? { src: lg.getAttribute('src'), w: Math.round(lr.width), h: Math.round(lr.height), nat: lg.naturalWidth } : null }; }).catch(e => ({ error: e.message }));
-    const fullH = await page.evaluate(() => { scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
+    const fullH = await page.evaluate(() => { scrollTo(0, 0); if (document.querySelector('[role=dialog][aria-modal=true]')) return 0; /* hộp thoại phủ màn (bảng chi tiết/chúc mừng huy hiệu): thấy đúng 1 màn hình, trang dưới khóa cuộn → chụp 844 px */ const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
     await page.setViewportSize({ width: QW, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(250);
     { const b = await page.screenshot(); fs.writeFileSync(path.join(OUT, `w${QW}-${k}-${scheme}.png`), b); await auditContrast(page, b, `${k}-${scheme}-${QW}`); } await page.setViewportSize({ width: QW, height: 844 });
   }

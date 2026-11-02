@@ -1,0 +1,81 @@
+{
+ "_doc": "Màn chúc mừng huy hiệu mới (sự kiện 'badge' của Game.track, game.js:101 → App.reward) – web/js/ux1-badges.js mở lớp phủ toàn màn, nhiều huy hiệu cùng lúc → lần lượt. Bản tối dựng lại trong Stitch từ bản sáng (31/10, id e46a3203…) → 1 cây chung. Huy chương = badge-art.js (thay tên lửa Stitch). 'LEVEL 3 UNLOCKED' (bịa) → 'Huy hiệu thứ n/19' thật; '+30 XP towards Band 7.5' (bịa) → số huy hiệu đã sưu tầm thật. Ô giáo viên = Chars (Ama/Carlos cheer, luân phiên). Chuyển động: st-pop + st-burst (tắt khi giảm chuyển động).",
+ "i18n": {
+  "MILESTONE COMPLETE": "Đạt cột mốc",
+  "New badge!": "Huy hiệu mới!",
+  "Share": "Chia sẻ",
+  "Continue →": "Tiếp tục →",
+  "Unlocked Badge Visual": "Huy chương vừa mở",
+  "Feedback and Teacher Status": "Lời khen của giáo viên",
+  "Go back": "Quay về trang trước"
+ },
+ "text": {
+  "LEVEL 3 UNLOCKED": "d.kicker",
+  "Review machine": "d.name",
+  "Reviewed 50 spaced flashcards today!": "d.desc",
+  "🎉 GREAT PACE!": "'🎉 ' + d.chip",
+  "Super memory streak!": "d.say",
+  "Keep it up.": "d.sub",
+  "+30 XP earned towards Band 7.5 target": "d.foot"
+ },
+ "html": {
+  ":scope > main > section:nth-child(3) > div > div:nth-child(3)": "d.art",
+  ":scope > main > section:nth-child(5) > div:nth-child(1)": "d.teacher"
+ },
+ "attr": {
+  ":scope > main > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > section:nth-child(3)": {
+   "data-bu-medal": "''"
+  },
+  ":scope > main > section:nth-child(5) > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > header > button": {
+   "type": "'button'",
+   "data-bu-next": "''"
+  },
+  ":scope > main > footer > div:nth-child(1) > button:nth-child(1)": {
+   "type": "'button'",
+   "data-share": "''",
+   "aria-label": "t('Chia sẻ')"
+  },
+  ":scope > main > footer > div:nth-child(1) > button:nth-child(2)": {
+   "type": "'button'",
+   "data-bu-next": "''",
+   "aria-label": "t('Tiếp tục')"
+  }
+ },
+ "cls": {
+  ":scope > main > div:nth-child(1) > span:nth-child(1)": {
+   "lt:text-[#fe9d19]": "'lt:text-[#B45309]'",
+   "lt:opacity-70": "''",
+   "dk:opacity-40": "''"
+  },
+  ":scope > main > div:nth-child(1) > span:nth-child(2)": {
+   "lt:opacity-60": "''",
+   "dk:opacity-30": "''"
+  },
+  ":scope > main > div:nth-child(1) > span:nth-child(3)": {
+   "lt:text-[#fe9d19]": "'lt:text-[#B45309]'",
+   "lt:opacity-40": "''",
+   "dk:opacity-50": "''"
+  },
+  ":scope > main > div:nth-child(1) > span:nth-child(4)": {
+   "opacity-60": "''"
+  },
+  ":scope > main > section:nth-child(5) > div:nth-child(1)": {
+   "border-2": "''",
+   "border-dashed": "''",
+   "lt:bg-[#fcf2e9]": "''",
+   "lt:border-[#136b66]": "''",
+   "lt:shadow-[0_4px_0_0_#E5DACB]": "''",
+   "dk:bg-[#0d1f23]": "''",
+   "dk:border-[#2dd4bf]": "''",
+   "dk:shadow-[0_4px_0_0_#071316]": "''",
+   "p-2.5": "'p-0 relative h-[120px]'",
+   "justify-center": "'justify-end'"
+  }
+ }
+}

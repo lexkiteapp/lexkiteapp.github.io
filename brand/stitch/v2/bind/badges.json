@@ -1,0 +1,126 @@
+{
+ "_doc": "Tất cả huy hiệu (#/badges, mở từ hàng huy hiệu ở #/stats) – d do web/js/ux1-badges.js dựng từ Game.BADGES (19 id, tên/mô tả thật qua t()) + state.game.badges[id]=thời điểm. Ô huy hiệu = huy chương Stitch (badge-sheet, web/js/st/v2/badge-art.js): đã nhận = màu, chưa nhận = đĩa khóa Stitch + vòng tiến độ thật. Thẻ 'Collector Tier 2' (bịa) → huy hiệu kế tiếp gần nhất (thật: còn n nữa + thanh). Ô giáo viên = Chars (Ama). Thẻ 'Next unlock' = cách mở huy hiệu kế tiếp. Thanh tab Stitch → thanh tab chung (mount tab 'me'). Chạm ô → bảng chi tiết (badge-detail).",
+ "i18n": {
+  "Go back": "Quay về trang trước",
+  "Badges": "Huy hiệu",
+  "Milestone Goal": "Mục tiêu kế tiếp",
+  "Next unlock in reach!": "Sắp mở khóa!"
+ },
+ "text": {
+  "7 / 19": "d.count",
+  "Collector Tier 2": "d.next.name",
+  "12 to unlock": "d.next.left",
+  "Teacher Slot": "d.tName",
+  "2D teacher loads here": "d.tSay",
+  "Standby": "d.tChip",
+  "Complete today's 3-minute dictation to level up Grand Library.": "d.next.how"
+ },
+ "html": {
+  ":scope > main > div:nth-child(4) > div > div > div:nth-child(1)": "d.teacher"
+ },
+ "remove": [
+  ":scope > nav"
+ ],
+ "attr": {
+  ":scope > main > header > button": {
+   "type": "'button'",
+   "data-href": "'#/stats'",
+   "id": "'bdBack'"
+  },
+  ":scope > main > header > div": {
+   "aria-label": "d.countAria"
+  },
+  ":scope > main > section:nth-child(2)": {
+   "id": "'bdNext'"
+  },
+  ":scope > main > section:nth-child(2) > div > div:nth-child(2) > div": {
+   "role": "'progressbar'",
+   "aria-valuemin": "0",
+   "aria-valuemax": "100",
+   "aria-valuenow": "d.next.pct",
+   "aria-label": "d.next.name"
+  },
+  ":scope > main > section:nth-child(2) > div > div:nth-child(2) > div > div": {
+   "style": "'width:' + d.next.pct + '%'"
+  },
+  ":scope > main > div:nth-child(3)": {
+   "id": "'bdGrid'"
+  },
+  ":scope > main > div:nth-child(4)": {
+   "id": "'bdTeach'"
+  },
+  ":scope > main > div:nth-child(4) > div > div > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > section:nth-child(5)": {
+   "id": "'bdTip'"
+  }
+ },
+ "cls": {
+  ":scope > main > section:nth-child(2) > div > div:nth-child(2) > div > div": {
+   "[width:58%]": "''"
+  },
+  ":scope > main > div:nth-child(4) > div": {
+   "border-dashed": "'border-solid'"
+  },
+  ":scope > main > div:nth-child(4) > div > div > div:nth-child(1)": {
+   "border": "'overflow-hidden'"
+  },
+  ":scope > main": {
+   "pt-4": "'pt-4 pb-32'"
+  },
+  ":scope > main > header > div > span:nth-child(1)": {
+   "text-[#F59E0B]": "'lt:text-[#B45309] dk:text-[#F59E0B]'"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.items",
+   "as": "r",
+   "samples": ":scope > main > div:nth-child(3) > div",
+   "pick": "r.v",
+   "variants": {
+    "got": ":scope > main > div:nth-child(3) > div:nth-child(1)",
+    "lock": ":scope > main > div:nth-child(3) > div:nth-child(4)"
+   },
+   "bind": {
+    "got": {
+     "tag": {
+      ":scope": {
+       "to": "button"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "data-badge": "r.id",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > div": "r.art",
+      ":scope > span": "e(r.name)"
+     }
+    },
+    "lock": {
+     "tag": {
+      ":scope": {
+       "to": "button"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "data-badge": "r.id",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > div": "r.art",
+      ":scope > span": "e(r.name)"
+     }
+    }
+   }
+  }
+ ]
+}

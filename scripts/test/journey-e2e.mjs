@@ -99,7 +99,9 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
     async ready() { await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }); await sleep(700); },
     async go(hash) { await page.evaluate(x => { location.hash = x; }, hash); await sleep(900); },
     /** Hộp "Lên cấp N!" (app.js → modal) bật trễ sau khi cộng XP → che nút đang bấm (J2 en: #cfGo timeout). Người dùng thật bấm "Tuyệt vời!" rồi đi tiếp. */
-    async dismissLevelUp() { const b = page.locator('#modal:not([hidden]) #modalBox > .celebrate:has(> .em:text-is("🎖️")) > button[data-close]').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng hộp "Lên cấp"'); await b.click({ timeout: 5000 }).catch(() => {}); await page.locator('#modal').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {}); return true; },
+    /** Màn "Huy hiệu mới!" (ux1-badges.js, sự kiện badge của App.reward) che toàn màn → người dùng thật bấm Tiếp tục rồi đi tiếp (cùng cách với hộp "Lên cấp"). */
+    async dismissBadge() { const b = page.locator('.v2s-badge-unlocked [data-bu-next]:visible').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng màn "Huy hiệu mới!"'); await b.click({ timeout: 5000 }).catch(() => {}); await sleep(300); return true; },
+    async dismissLevelUp() { await h.dismissBadge(); const b = page.locator('#modal:not([hidden]) #modalBox > .celebrate:has(> .em:text-is("🎖️")) > button[data-close]').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng hộp "Lên cấp"'); await b.click({ timeout: 5000 }).catch(() => {}); await page.locator('#modal').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {}); return true; },
     async click(sel, o = {}) {
       const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: o.timeout || 10000 }); await l.scrollIntoViewIfNeeded().catch(() => {});
       const end = Date.now() + 20000, inModal = /#modal/.test(sel);
@@ -217,6 +219,14 @@ async function j1(h) {
   h.ok(!(await softAskShown(h)), 'sau tải lại + bài mới: không hỏi lại');
   await h.audit('after-reload');
   await h.offline('/day/1', () => page.locator('ol.day-steps a[data-step="learn"].ok').count().then(n => n > 0), 'Ngày 1 vẫn ghi "Học từ mới" đã xong');
+  // Báo cáo tuần + huy hiệu (Stitch, ux1-badges.js): lối vào từ #/stats → màn tuần, tất cả huy hiệu, bảng chi tiết, màn chúc mừng
+  await h.dismissLevelUp(); await h.go('#/stats'); await sleep(600);
+  await h.go('#/week'); await h.wait('#wkChart', 15000); h.ok(await page.locator('#wkChart [role=listitem]').count() === 7, 'báo cáo tuần: 7 cột ngày'); await h.audit('week-report'); await h.shot('week-report');
+  await h.go('#/badges'); await h.wait('#bdGrid [data-badge]', 15000); h.ok(await page.locator('#bdGrid [data-badge]').count() === 19, 'tất cả huy hiệu: đủ 19 ô'); await h.audit('badges'); await h.shot('badges');
+  await h.click('#bdGrid [data-badge]', { wait: 600 }); h.ok(await h.has('#bdSheet'), 'chạm huy hiệu → bảng chi tiết'); await h.shot('badge-detail');
+  await page.keyboard.press('Escape'); await sleep(300); h.ok(!(await h.has('#bdSheet')), 'Esc đóng bảng chi tiết');
+  await page.evaluate(() => BadgeUI.unlocked(Game.BADGES[0])); await sleep(900); h.ok(await h.has('.v2s-badge-unlocked [data-bu-next]:visible'), 'màn "Huy hiệu mới!" hiện'); await h.shot('badge-unlocked');
+  h.ok(await h.dismissBadge(), 'Tiếp tục đóng màn chúc mừng'); h.ok(!(await h.has('.v2s-badge-unlocked')), 'màn chúc mừng đã đóng');
 }
 
 // ---------- 2. Học viên quay lại: home → ngày lộ trình có ngữ pháp + phát âm → xong → "Tiếp theo" → bài tự tin B2 → nhập vai B2 ----------
