@@ -32625,6 +32625,21 @@
     "ru": "Говорите как носитель",
     "tr": "Anadil gibi konuş"
   },
+  "Thẻ quen: {n}": {
+    "es": "Tarjetas conocidas: {n}",
+    "pt": "Cartões conhecidos: {n}",
+    "fr": "Cartes connues : {n}",
+    "de": "Bekannte Karten: {n}",
+    "id": "Kartu yang dikenal: {n}",
+    "th": "การ์ดที่คุ้นเคย: {n}",
+    "zh": "熟悉的卡片：{n}",
+    "ja": "なじみのカード：{n} 枚",
+    "ko": "익숙한 카드: {n}",
+    "hi": "परिचित कार्ड: {n}",
+    "ar": "بطاقات مألوفة: {n}",
+    "ru": "Знакомые карточки: {n}",
+    "tr": "Tanıdık kartlar: {n}"
+  },
   "Đã gỡ {w}": {
     "ar": "تمت إزالة {w}",
     "de": "{w} entfernt",
