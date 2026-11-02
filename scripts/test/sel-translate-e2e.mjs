@@ -77,7 +77,7 @@ const geom = page => page.evaluate(() => {
   const def = [...document.querySelectorAll('#view *')].find(e => e.children.length === 0 && /a move to a more important job/i.test(e.textContent)) || null, dr = def && def.getBoundingClientRect();
   const sel = getSelection().rangeCount ? getSelection().getRangeAt(0).getBoundingClientRect() : null;
   const hit = (a, b) => a && b && a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
-  return { pop: [pr.left, pr.top, pr.right, pr.bottom].map(Math.round), vw, sw: document.documentElement.scrollWidth, defFound: !!def, coversDef: hit(pr, dr), coversSel: hit(pr, sel), defAbove: !!(dr && sel && dr.bottom <= sel.top) };
+  return { pop: [pr.left, pr.top, pr.right, pr.bottom].map(Math.round), defR: dr ? [dr.top, dr.bottom].map(Math.round) : null, defTag: def ? def.tagName + '.' + def.className + '@' + (def.closest('[id]') || {}).id : null, selR: sel ? [sel.top, sel.bottom, sel.width].map(Math.round) : null, vw, sw: document.documentElement.scrollWidth, defFound: !!def, coversDef: hit(pr, dr), coversSel: hit(pr, sel), defAbove: !!(dr && sel && dr.bottom <= sel.top) };
 });
 
 const matrix = [[{ width: 390, height: 844 }, 'light'], [{ width: 390, height: 844 }, 'dark'], [{ width: 1280, height: 800 }, 'light'], [{ width: 1280, height: 800 }, 'dark']];
@@ -95,7 +95,7 @@ for (const [vp, scheme] of matrix) {
     return [typeof TrFast, typeof App.trFast, await t('trFast', App.trFast('Hard work does not always guarantee promotion', 'vi')), await t('get', window.TrFast ? TrFast.get('Hard work does not always guarantee promotion', 'vi') : null), typeof VBStruct, I18N.learnLang(), (window.__errs || []).join('|')];
   })), errs.join(' | '));
   const g0 = await geom(page);
-  ok(g0.defFound && g0.defAbove, `[${tag}] định nghĩa nằm trên câu ví dụ (bố cục trang từ)`);
+  ok(g0.defFound && g0.defAbove, `[${tag}] định nghĩa nằm trên câu ví dụ (bố cục trang từ)${g0.defFound && g0.defAbove ? '' : ' – đo: ' + JSON.stringify({ def: g0.defR, defTag: g0.defTag, sel: g0.selR, pop: g0.pop })}`);
   ok(!g0.coversDef, `[${tag}] bảng KHÔNG che định nghĩa (bảng ${g0.pop})`);
   ok(!g0.coversSel, `[${tag}] bảng không che câu đang chọn`);
   ok(g0.pop[0] >= 7.5 && g0.pop[2] <= g0.vw - 7.5 && g0.sw <= g0.vw, `[${tag}] không tràn ngang (bảng ${g0.pop[0]}–${g0.pop[2]} / ${g0.vw}, trang ${g0.sw})`);
