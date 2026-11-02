@@ -69,6 +69,12 @@
    "hand": "",
    "dur": 5.475,
    "lagMs": 10,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    10,
+    0,
+    10
+   ],
    "visemePct": 93,
    "flicker": 0
   },
@@ -77,7 +83,12 @@
    "emo": "explain",
    "hand": "",
    "dur": 3.9,
-   "lagMs": 10,
+   "lagMs": 20,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0,
+    20
+   ],
    "visemePct": 98,
    "flicker": 0
   },
@@ -87,6 +98,11 @@
    "hand": "",
    "dur": 4.1,
    "lagMs": 0,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    0,
+    0
+   ],
    "visemePct": 91,
    "flicker": 0
   },
@@ -96,7 +112,12 @@
    "hand": "",
    "dur": 3.5,
    "lagMs": 20,
-   "visemePct": 95,
+   "lagGlobalMs": 20,
+   "lagChunksMs": [
+    20,
+    0
+   ],
+   "visemePct": 94,
    "flicker": 0
   }
  ],

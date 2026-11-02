@@ -58,8 +58,8 @@
  "wpmSpeech": 147,
  "wpmOverall": 129,
  "firstVoicedS": 0.27,
- "lagMaxAbsMs": 20,
- "visemePctMin": 87,
+ "lagMaxAbsMs": 10,
+ "visemePctMin": 86,
  "flicker": 0,
  "blinksPerMin": 18,
  "rows": [
@@ -68,8 +68,13 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.05,
-   "lagMs": 20,
-   "visemePct": 87,
+   "lagMs": 10,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0,
+    10
+   ],
+   "visemePct": 86,
    "flicker": 0
   },
   {
@@ -78,6 +83,11 @@
    "hand": "",
    "dur": 5.35,
    "lagMs": 10,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    10,
+    10
+   ],
    "visemePct": 95,
    "flicker": 0
   },
@@ -87,6 +97,10 @@
    "hand": "",
    "dur": 3.4,
    "lagMs": 10,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    10
+   ],
    "visemePct": 88,
    "flicker": 0
   },
@@ -96,6 +110,11 @@
    "hand": "",
    "dur": 4.375,
    "lagMs": 10,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0,
+    10
+   ],
    "visemePct": 93,
    "flicker": 0
   }

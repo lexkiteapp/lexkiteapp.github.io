@@ -17,11 +17,10 @@
  "duration_s": 19.75,
  "wpm": 138,
  "qc": {
-  "score": 90,
+  "score": 95,
   "pass": false,
   "failed": [
-   "lipsync_lag_le_45ms",
-   "native_glyphs"
+   "lipsync_lag_le_45ms"
   ]
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-know-ing#/grammar",
@@ -34,5 +33,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-01"
+ "updated": "2026-11-02"
 }

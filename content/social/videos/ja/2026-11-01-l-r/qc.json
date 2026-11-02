@@ -73,6 +73,11 @@
    "hand": "",
    "dur": 3.825,
    "lagMs": 30,
+   "lagGlobalMs": 30,
+   "lagChunksMs": [
+    20,
+    30
+   ],
    "visemePct": 91,
    "flicker": 0
   },
@@ -81,7 +86,12 @@
    "emo": "explain",
    "hand": "",
    "dur": 6.1,
-   "lagMs": 20,
+   "lagMs": 10,
+   "lagGlobalMs": 20,
+   "lagChunksMs": [
+    10,
+    0
+   ],
    "visemePct": 85,
    "flicker": 0
   },
@@ -90,8 +100,12 @@
    "emo": "explain",
    "hand": "",
    "dur": 3.9,
-   "lagMs": 10,
-   "visemePct": 95,
+   "lagMs": 0,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0
+   ],
+   "visemePct": 96,
    "flicker": 0
   },
   {
@@ -100,7 +114,12 @@
    "hand": "palm",
    "dur": 3.5,
    "lagMs": 0,
-   "visemePct": 88,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 90,
    "flicker": 0
   },
   {
@@ -109,6 +128,10 @@
    "hand": "thumb",
    "dur": 1.85,
    "lagMs": 30,
+   "lagGlobalMs": 30,
+   "lagChunksMs": [
+    30
+   ],
    "visemePct": 95,
    "flicker": 0
   }

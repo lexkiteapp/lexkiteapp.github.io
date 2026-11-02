@@ -33,7 +33,7 @@
  "above_b1": [],
  "deeplink": "#/vocab",
  "native_font": "BeVietnamPro-Bold.ttf",
- "lufs": -16.4,
+ "lufs": -16.3,
  "truePeak": -1.5,
  "voices": [
   {
@@ -68,7 +68,12 @@
    "emo": "explain",
    "hand": "",
    "dur": 5,
-   "lagMs": 0,
+   "lagMs": 10,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    10,
+    0
+   ],
    "visemePct": 91,
    "flicker": 0
   },
@@ -78,6 +83,11 @@
    "hand": "",
    "dur": 4.025,
    "lagMs": 0,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    0,
+    0
+   ],
    "visemePct": 88,
    "flicker": 0
   },
@@ -86,8 +96,13 @@
    "emo": "explain",
    "hand": "",
    "dur": 5.4,
-   "lagMs": 10,
-   "visemePct": 91,
+   "lagMs": 0,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 92,
    "flicker": 0
   },
   {
@@ -95,7 +110,12 @@
    "emo": "encourage",
    "hand": "palm",
    "dur": 3.875,
-   "lagMs": 0,
+   "lagMs": -10,
+   "lagGlobalMs": 0,
+   "lagChunksMs": [
+    0,
+    -10
+   ],
    "visemePct": 80,
    "flicker": 0
   }

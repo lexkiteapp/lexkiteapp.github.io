@@ -20,7 +20,7 @@
   "score": 95,
   "pass": false,
   "failed": [
-   "viseme_ge_80pct"
+   "lipsync_lag_le_45ms"
   ]
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=pt_BR-people-are#/grammar",
@@ -33,5 +33,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-01"
+ "updated": "2026-11-02"
 }

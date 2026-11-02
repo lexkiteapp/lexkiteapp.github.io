@@ -17,11 +17,9 @@
  "duration_s": 20.6,
  "wpm": 132,
  "qc": {
-  "score": 95,
-  "pass": false,
-  "failed": [
-   "native_glyphs"
-  ]
+  "score": 100,
+  "pass": true,
+  "failed": []
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-good-name#/phrases",
  "spec": "content/video/rig/l1/hi/good-name.json",
@@ -33,5 +31,5 @@
  },
  "status": "draft",
  "posted": {},
- "updated": "2026-11-01"
+ "updated": "2026-11-02"
 }

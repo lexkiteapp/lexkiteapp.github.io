@@ -13,8 +13,8 @@
 
 | ngày | tiêu đề | lỗi nhắm tới | QC | trạng thái | tải |
 |---|---|---|---|---|---|
-| 2026-11-01 | [“Good name” कहना छोड़िए!](hi/2026-11-01-good-name/caption.txt) | Dịch nguyên văn "What is your good name?" (shubh naam) | 95 ❌ | draft | [video](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-video.mp4) · [bìa](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-cover.jpg) |
-| 2026-11-01 | [“I am knowing” सही नहीं है!](hi/2026-11-01-know-ing/caption.txt) | Lạm dụng thì tiếp diễn với động từ trạng thái: "I am knowing" | 90 ❌ | draft | [video](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-video.mp4) · [bìa](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-cover.jpg) |
+| 2026-11-01 | [“Good name” कहना छोड़िए!](hi/2026-11-01-good-name/caption.txt) | Dịch nguyên văn "What is your good name?" (shubh naam) | 100 ✅ | draft | [video](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-video.mp4) · [bìa](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-cover.jpg) |
+| 2026-11-01 | [“I am knowing” सही नहीं है!](hi/2026-11-01-know-ing/caption.txt) | Lạm dụng thì tiếp diễn với động từ trạng thái: "I am knowing" | 95 ❌ | draft | [video](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-video.mp4) · [bìa](https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-cover.jpg) |
 
 ## 日本語 (`ja`) – 2 clip
 

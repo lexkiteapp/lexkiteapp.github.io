@@ -24,9 +24,9 @@
   "native_glyphs": true
  },
  "safe_box": [
-  126,
+  125.6796875,
   272,
-  955,
+  954.6796875,
   1513
  ],
  "misspelled": [],
@@ -58,7 +58,7 @@
  "wpmSpeech": 138,
  "wpmOverall": 123,
  "firstVoicedS": 0.43,
- "lagMaxAbsMs": 20,
+ "lagMaxAbsMs": 30,
  "visemePctMin": 84,
  "flicker": 0,
  "blinksPerMin": 17,
@@ -68,7 +68,11 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.175,
-   "lagMs": 20,
+   "lagMs": 10,
+   "lagGlobalMs": 20,
+   "lagChunksMs": [
+    10
+   ],
    "visemePct": 86,
    "flicker": 0
   },
@@ -77,7 +81,12 @@
    "emo": "explain",
    "hand": "",
    "dur": 6.975,
-   "lagMs": 10,
+   "lagMs": 0,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0,
+    0
+   ],
    "visemePct": 84,
    "flicker": 0
   },
@@ -87,6 +96,11 @@
    "hand": "palm",
    "dur": 4.225,
    "lagMs": 10,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0,
+    10
+   ],
    "visemePct": 86,
    "flicker": 0
   },
@@ -95,7 +109,12 @@
    "emo": "happy",
    "hand": "thumb",
    "dur": 3.75,
-   "lagMs": 10,
+   "lagMs": 30,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    30,
+    0
+   ],
    "visemePct": 88,
    "flicker": 0
   }

@@ -69,6 +69,11 @@
    "hand": "",
    "dur": 4.35,
    "lagMs": 20,
+   "lagGlobalMs": 20,
+   "lagChunksMs": [
+    20,
+    0
+   ],
    "visemePct": 93,
    "flicker": 0
   },
@@ -78,6 +83,13 @@
    "hand": "",
    "dur": 7.025,
    "lagMs": 20,
+   "lagGlobalMs": 20,
+   "lagChunksMs": [
+    20,
+    0,
+    10,
+    20
+   ],
    "visemePct": 94,
    "flicker": 0
   },
@@ -87,6 +99,11 @@
    "hand": "",
    "dur": 4.9,
    "lagMs": 10,
+   "lagGlobalMs": 10,
+   "lagChunksMs": [
+    0,
+    10
+   ],
    "visemePct": 88,
    "flicker": 0
   },
@@ -95,7 +112,11 @@
    "emo": "happy",
    "hand": "",
    "dur": 4.925,
-   "lagMs": 20,
+   "lagMs": 10,
+   "lagGlobalMs": 20,
+   "lagChunksMs": [
+    10
+   ],
    "visemePct": 92,
    "flicker": 0
   }

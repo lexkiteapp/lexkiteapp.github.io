@@ -1,6 +1,6 @@
 {
  "_doc": "Sinh tự động bởi scripts/rig/store.mjs – đừng sửa tay (trạng thái sửa trong meta.json từng clip).",
- "updated": "2026-11-01",
+ "updated": "2026-11-02",
  "count": 10,
  "by_lang": {
   "es": [
@@ -80,8 +80,8 @@
     "carlos"
    ],
    "duration_s": 20.6,
-   "score": 95,
-   "pass": false,
+   "score": 100,
+   "pass": true,
    "status": "draft",
    "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-good-name#/phrases",
    "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-good-name-video.mp4",
@@ -100,7 +100,7 @@
     "ama"
    ],
    "duration_s": 19.75,
-   "score": 90,
+   "score": 95,
    "pass": false,
    "status": "draft",
    "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-know-ing#/grammar",
