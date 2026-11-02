@@ -1,0 +1,259 @@
+{
+ "id": "20261030",
+ "source": "lexicon-expand",
+ "n": 155,
+ "checked": [
+  {
+   "id": "toothbrush#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "survivor#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "fox#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "honey#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "frost#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "bush#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "razor#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "waterfall#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "mankind#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "badminton#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "spice#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "seaweed#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "yogurt#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "handbag#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "lemonade#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "submarine#n",
+   "ok": false,
+   "note": "def limits submarine to warships; civilian/research submarines exist, so def is too narrow."
+  },
+  {
+   "id": "camel#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "sweat#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "navy#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "flute#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "beef#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "daddy#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "forehead#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "biochemistry#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "tiger#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "killer#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "geology#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "diaper#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "deaf#adj",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "suffix#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "playground#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "debris#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "selfish#adj",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "cliff#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "third#adj",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "sandal#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "thief#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "rabbit#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "dirt#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "ivory#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "sunflower#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "ape#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "temple#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "undo#v",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "crow#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "moss#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "nephew#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "fisherman#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "granddaughter#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "wrist#n",
+   "ok": true,
+   "note": ""
+  }
+ ],
+ "at": "2026-10-30",
+ "status": "published"
+}

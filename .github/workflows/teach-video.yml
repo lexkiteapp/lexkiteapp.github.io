@@ -39,7 +39,7 @@ jobs:
     needs: preqc
     runs-on: ubuntu-latest
     timeout-minutes: 25
-    strategy: { fail-fast: false, max-parallel: 5, matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}' } }
+    strategy: { fail-fast: false, max-parallel: 10, matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}' } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
@@ -76,7 +76,7 @@ jobs:
     needs: [preqc, voice]
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy: { fail-fast: false, max-parallel: 6, matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
+    strategy: { fail-fast: false, max-parallel: 12, matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
     env: { O: 'out/${{ matrix.ep }}/${{ matrix.fmt }}', E: 'content/video/teach2d/eps/${{ matrix.ep }}.json' }
     steps:
       - uses: actions/checkout@v4

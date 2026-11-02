@@ -14,7 +14,7 @@ import nltk
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--words', required=True); ap.add_argument('--tatoeba', required=True); ap.add_argument('--bad'); ap.add_argument('--out', required=True)
-ap.add_argument('--per', type=int, default=6)
+ap.add_argument('--per', type=int, default=10)  # 29/10: ví dụ chỉ từ người viết → nhiều ứng viên hơn cho giám khảo nguồn + trắc nghiệm nghĩa
 a = ap.parse_args()
 W = json.load(open(a.words))
 WNP = {'n': wn.NOUN, 'v': wn.VERB, 'adj': wn.ADJ, 'adv': wn.ADV}

@@ -1,0 +1,55 @@
+# Soát bản LIVE lexkite.com sau mỗi lượt Pages deploy (cron 3 giờ của pages-deploy.yml) để bắt lỗi ẩn: console error, exception, request 4xx/5xx same-origin,
+# ảnh vỡ, trang trống ở các tuyến chính (landing add-on, app + tab chính, từ điển, blog) × 390px/1440px; thêm tương phản (contrast.mjs, tập màn chính).
+# Có lỗi → job đỏ → ci-triage mở issue ci-failure. Chạy tay: Actions → Run workflow. Không dùng API trả phí.
+name: Kiểm tra sau deploy (post-deploy-check)
+on:
+  workflow_run:
+    workflows: ['Pages deploy']
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      base_url: { description: 'URL gốc cần soát', required: false, default: 'https://lexkite.com', type: string }
+  workflow_call:   # dùng lại nguyên bộ kiểm cho site xem thử mới: uses: ./.github/workflows/post-deploy-check.yml với base_url
+    inputs:
+      base_url: { description: 'URL gốc cần soát', required: false, default: 'https://lexkite.com', type: string }
+permissions:
+  contents: read
+concurrency:
+  group: post-deploy-check
+  cancel-in-progress: true
+jobs:
+  check:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+      BASE: ${{ inputs.base_url || 'https://lexkite.com' }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: "${{ github.event.workflow_run.head_sha || github.sha }}" }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
+          npx playwright install --with-deps chromium
+      - name: Soát tuyến live (console / exception / request / ảnh vỡ)
+        id: routes
+        timeout-minutes: 8
+        env: { WAIT_SW: "${{ github.event_name == 'workflow_run' && '1' || '0' }}" }
+        run: node scripts/test/post-deploy-check.mjs "$BASE" out/post-deploy
+      - name: Tương phản màu (contrast.mjs, màn chính)
+        id: contrast
+        if: ${{ !cancelled() }}
+        timeout-minutes: 6
+        env: { CONTRAST_ROUTES: 'home,vocab,skills,tests,me,verb/take' }
+        run: |
+          set +e
+          node scripts/test/contrast.mjs "$BASE/app/" 2>&1 | tee out/post-deploy/contrast.txt
+          rc=${PIPESTATUS[0]}
+          { echo; echo '### 🎨 Tương phản'; if [ $rc -eq 0 ]; then echo '✅ đạt AA'; else echo '❌ có chỗ chưa đạt:'; echo '```'; head -c 3000 out/post-deploy/contrast.txt; echo '```'; fi; } | tee -a out/post-deploy/report.md >> "$GITHUB_STEP_SUMMARY"
+          exit $rc
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: post-deploy-check, path: "out/post-deploy\ncontrast-report.json", if-no-files-found: ignore, retention-days: 7 }

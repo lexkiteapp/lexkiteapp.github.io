@@ -90,6 +90,14 @@ export function automation(request) {
   if (DC_ASN.has(+cf.asn)) return 'dc';
   return null;
 }
+// Lỗi JS từ bản dev/preview (không phải code đang chạy cho người học): máy dev http://localhost:<cổng> / 127.0.0.1, bản preview nhánh
+// <nhánh|hash>.lexkite.pages.dev (dùng chung Functions + D1). Ví dụ 31/10: nhánh say-native chưa gộp ghi lỗi '#/say' vào bảng admin.
+// Giữ: lexkite.com, lexkite.pages.dev (bản chính), add-on chrome-extension://, app native (https://localhost, capacitor://localhost – không cổng).
+export function devOrigin(request) {
+  const h = request.headers, hosts = [];
+  for (const v of [h.get('Origin'), h.get('Referer'), request.url]) { try { if (v && v !== 'null') hosts.push(new URL(v)); } catch (e) { /* bỏ qua */ } }
+  return hosts.some(u => /^[a-z0-9-]+\.lexkite\.pages\.dev$/.test(u.hostname) || (u.protocol === 'http:' && !!u.port && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)));
+}
 const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang của người dùng" – không ghi vào lượt xem/đang xem
 
 export async function setup(db) {
@@ -226,7 +234,7 @@ export async function onRequestPost({ request, env }) {
       if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(day, kind, n)));
       // Cổng giữ chân: tối đa 1 lần/giờ/trung tâm dữ liệu, chỉ đọc khoảng ngày (SEARCH theo PK) – không quét bảng
       if (!(await limit('ads-guard', 1, 3600))) await adsGuard(env.DB, now).catch(() => {});
-    } else if (b.t === 'e' && b.msg) {
+    } else if (b.t === 'e' && b.msg && !devOrigin(request)) {
       const msg = cut(b.msg, 300), src = cut(b.src, 200) + (b.line ? ':' + (+b.line || 0) : '');
       await env.DB.prepare('INSERT INTO errors (h, msg, src, path, ver, n, first, last) VALUES (?1, ?2, ?3, ?4, ?5, 1, ?6, ?6) ON CONFLICT (h) DO UPDATE SET n = n + 1, last = ?6, path = ?4, ver = ?5')
         .bind(await sha(msg + '|' + src), msg, src, cut(b.path, 60), cut(b.ver, 30), now).run();

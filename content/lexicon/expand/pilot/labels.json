@@ -1,0 +1,829 @@
+{
+ "_doc": "Nhãn chấm tự động mẫu pilot cố định (grade.mjs). bad: mục từng lỗi kèm lớp (L1–L6 LÕI, D1–D3 DỊCH) – nếu mục ĐẠT thì trường đó KHÔNG được còn giá trị xấu (khớp nguyên phương án; re:true = biểu thức; when = chỉ áp khi mục khoá cùng nghĩa/def). good: mục soát tay đúng (20261028-pilot@13:31Z) – theo dõi tỉ lệ còn đạt. Thêm nhãn sau mỗi lần soát; không bao giờ xoá nhãn.",
+ "bad": [
+  {
+   "k": "idol#n",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "thần tượng",
+   "when": {
+    "sense": "idol.n.01"
+   },
+   "note": "nghĩa tượng thờ – thần tượng = người được hâm mộ"
+  },
+  {
+   "k": "daze#n",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "chạng vạng"
+  },
+  {
+   "k": "puff#v",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "hú"
+  },
+  {
+   "k": "vanity#n",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "tính hư ảo"
+  },
+  {
+   "k": "sway#v",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "đu"
+  },
+  {
+   "k": "bequest#n",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "di chúc",
+   "note": "di chúc = will; bequest = di sản/vật để lại"
+  },
+  {
+   "k": "pyre#n",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "lò hỏa táng",
+   "note": "giàn hỏa táng"
+  },
+  {
+   "k": "purple#adj",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "đỏ tía"
+  },
+  {
+   "k": "railroad#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "A new railroad will soon be laid here.",
+   "when": {
+    "def": "company|organi[sz]ation"
+   },
+   "note": "def công ty, ví dụ nói đường ray"
+  },
+  {
+   "k": "palate#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "He tasted the wine, noting the palate's subtle sweetness.",
+   "note": "nghĩa vị giác/nếm rượu, không phải vòm miệng"
+  },
+  {
+   "k": "muscular#adj",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "His body is very muscular.",
+   "when": {
+    "sense": "muscular.a.01"
+   },
+   "note": "muscular.a.01 = thuộc về cơ; ví dụ = vạm vỡ"
+  },
+  {
+   "k": "muscular#adj",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "Tom is muscular, isn't he?",
+   "when": {
+    "sense": "muscular.a.01"
+   }
+  },
+  {
+   "k": "swimmer#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "They were all good swimmers.",
+   "when": {
+    "sense": "swimmer.n.01"
+   },
+   "note": "swimmer.n.01 = vận động viên thi bơi"
+  },
+  {
+   "k": "snail#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "We were late going to look for snails.",
+   "note": "câu gượng"
+  },
+  {
+   "k": "waterfall#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "A man was hit by a waterfall.",
+   "note": "câu vô lý"
+  },
+  {
+   "k": "conservatory#n",
+   "cls": "L3",
+   "field": "sense",
+   "bad": "conservatory.n.01",
+   "note": "\"the faculty and students\" – nghĩa hiếm"
+  },
+  {
+   "k": "judgement#n",
+   "cls": "L3",
+   "field": "sense",
+   "bad": "opinion.n.04",
+   "note": "văn bản pháp lý ở B1"
+  },
+  {
+   "k": "fissure#n",
+   "cls": "L3",
+   "field": "sense",
+   "bad": "fissure.n.03",
+   "note": "khe của cơ quan"
+  },
+  {
+   "k": "purple#adj",
+   "cls": "L4",
+   "field": "def",
+   "bad": "^(a|an|the) "
+  },
+  {
+   "k": "uninteresting#adj",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/əˈnɪntrəstɪŋ/"
+  },
+  {
+   "k": "vinegar#n",
+   "cls": "L5",
+   "field": "ipa",
+   "bad": "/ˈvɪnəɡəː/"
+  },
+  {
+   "k": "categorize#v",
+   "cls": "L6",
+   "field": "ex",
+   "bad": "\\b(muslims?|islam)\\b",
+   "re": true
+  },
+  {
+   "k": "repress#v",
+   "cls": "D1",
+   "field": "m.th",
+   "bad": "กลั้น"
+  },
+  {
+   "k": "cassette#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "卡式"
+  },
+  {
+   "k": "detriment#n",
+   "cls": "D1",
+   "field": "m.ko",
+   "bad": "상해"
+  },
+  {
+   "k": "resuscitate#v",
+   "cls": "D1",
+   "field": "m.fr",
+   "bad": "ressusciter"
+  },
+  {
+   "k": "mainline#n",
+   "cls": "D2",
+   "field": "m.pt",
+   "bad": "inyectar"
+  },
+  {
+   "k": "bustle#v",
+   "cls": "D2",
+   "field": "m.ja",
+   "bad": "忙しむ"
+  },
+  {
+   "k": "eyebrow#n",
+   "cls": "D2",
+   "field": "m.th",
+   "bad": "ภมุ"
+  },
+  {
+   "k": "conservatory#n",
+   "cls": "D2",
+   "field": "m.ja",
+   "bad": "コンサーヴァトーリ"
+  },
+  {
+   "k": "carelessly#adv",
+   "cls": "D3",
+   "field": "m.es",
+   "bad": "descuidado"
+  },
+  {
+   "k": "dizzy#adj",
+   "cls": "D3",
+   "field": "m.tr",
+   "bad": "baş dönmesi"
+  },
+  {
+   "k": "owl#n",
+   "cls": "D1",
+   "field": "m.es",
+   "bad": "mochuelo",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "playground#n",
+   "cls": "D1",
+   "field": "m.de",
+   "bad": "Spielwiese",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "playground#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "操场",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "cassette#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "磁带盒",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "sunbathe#v",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "expor ao sol",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "motionless#adj",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "不活动的",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "motionless#adj",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "estático",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "drugstore#n",
+   "cls": "D1",
+   "field": "m.es",
+   "bad": "droguería",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "invisible#adj",
+   "cls": "D1",
+   "field": "m.id",
+   "bad": "gaib",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "astonishment#n",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "surpresa",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "astonishment#n",
+   "cls": "D1",
+   "field": "m.id",
+   "bad": "kekaguman",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "flea#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "蚤",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "seawater#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "^water (that )?contain(s|ing) salts?$",
+   "note": "def quá rộng (gloss WordNet) – soát 29/10"
+  },
+  {
+   "k": "minefield#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "abandoned field became a dangerous minefield",
+   "re": true,
+   "note": "ví dụ AI vô lý – soát 29/10"
+  },
+  {
+   "k": "sulfur#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "tasteless odorless",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "rhinoceros#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "odd.toed|massive.powerful",
+   "note": "soát Sonnet pilot 2 29/10 11:36 (sửa mẫu: \"plant‑eating\" là cụm tự nhiên, không phải lỗi)",
+   "re": true
+  },
+  {
+   "k": "despair#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "rescued from despair at the last minute",
+   "note": "soát Sonnet pilot 2 29/10 11:36",
+   "re": true
+  },
+  {
+   "k": "mighty#adj",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "lifted the mighty weight",
+   "note": "soát Sonnet pilot 2 29/10 11:36",
+   "re": true
+  },
+  {
+   "k": "selfish#adj",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "tự lợi",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "expel#v",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "trục xuất",
+   "note": "soát Sonnet pilot 2 29/10 11:36",
+   "when": {
+    "def": "school|club|organi"
+   }
+  },
+  {
+   "k": "congregate#v",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "tập trung",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "razor#n",
+   "cls": "D1",
+   "field": "m.de",
+   "bad": "Rasiermesser",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "razor#n",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "navalha",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "feather#n",
+   "cls": "D1",
+   "field": "m.ja",
+   "bad": "羽毛",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "spice#n",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "tempero",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "dizzy#adj",
+   "cls": "D1",
+   "field": "m.fr",
+   "bad": "vertigineux",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "sulfur#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "硫磺",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "misery#n",
+   "cls": "D1",
+   "field": "m.es",
+   "bad": "miseria",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "misery#n",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "miséria",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "misery#n",
+   "cls": "D1",
+   "field": "m.tr",
+   "bad": "sefalet",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "crow#n",
+   "cls": "D1",
+   "field": "m.fr",
+   "bad": "corbeau",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "peel#v",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "gọt",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "demography#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "demographers",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "moonlight#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "smuggler",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "liberation#n",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/ˌlɪbɜːrˈeɪʃn/",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "arithmetic#n",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/ərˈɪθmətɪk/",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "diarrhea#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "tumou?r",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "thigh#n",
+   "cls": "L6",
+   "field": "ex",
+   "bad": "hand on (my|her|his) thigh",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "seawater#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "^water that has salts? dissolved in it$",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "adsorption#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "^.{0,40}gas molecules",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "rifle#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "rifled bore",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "re": true
+  },
+  {
+   "k": "cassette#n",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "hộp băng",
+   "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "coffin#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "onto the church altar",
+   "note": "soát Sonnet pilot 4 29/10 13:56",
+   "re": true
+  },
+  {
+   "k": "demography#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "demography reports",
+   "note": "soát Sonnet pilot 4 29/10 13:56",
+   "re": true
+  },
+  {
+   "k": "succulent#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "^Succulent plants",
+   "note": "soát Sonnet pilot 4 29/10 13:56",
+   "re": true
+  },
+  {
+   "k": "succulent#n",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/ˈsʌkjəlɪnt/",
+   "note": "soát Sonnet pilot 4 29/10 13:56"
+  },
+  {
+   "k": "diphtheria#n",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/dɪfˈθɪriɑː/",
+   "note": "soát Sonnet pilot 4 29/10 13:56"
+  },
+  {
+   "k": "subcontinent#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "smaller than a continent or part of a larger one",
+   "note": "soát Sonnet pilot 4 29/10 13:56",
+   "re": true
+  },
+  {
+   "k": "malaria#n",
+   "cls": "L5",
+   "field": "ipa",
+   "bad": "/mæˈleəriə/",
+   "note": "soát Sonnet pilot 7 30/10 – UK espeak lệch Britfone məˈlɛəɹɪə"
+  },
+  {
+   "k": "playground#n",
+   "cls": "D1",
+   "field": "m.fr",
+   "bad": "terrain de jeu",
+   "note": "soát Sonnet pilot 7 30/10 – sân thể thao; khu vui chơi trẻ em = aire de jeux"
+  }
+ ],
+ "good": [
+  {
+   "k": "haven#n",
+   "sense": "haven.n.01",
+   "vi": "nơi trú ẩn"
+  },
+  {
+   "k": "cheerfully#adv",
+   "sense": "cheerfully.r.01",
+   "vi": "vui vẻ"
+  },
+  {
+   "k": "dazzle#n",
+   "sense": "dazzle.n.01",
+   "vi": "chói mắt"
+  },
+  {
+   "k": "desperation#n",
+   "sense": "despair.n.01",
+   "vi": "tuyệt vọng"
+  },
+  {
+   "k": "amplify#v",
+   "sense": "magnify.v.01",
+   "vi": "khuếch đại"
+  },
+  {
+   "k": "elude#v",
+   "sense": "elude.v.01",
+   "vi": "trốn chạy khỏi"
+  },
+  {
+   "k": "adsorption#n",
+   "sense": "adsorption.n.01",
+   "vi": "hấp phụ"
+  },
+  {
+   "k": "razor#n",
+   "sense": "razor.n.01",
+   "vi": "dao cạo"
+  },
+  {
+   "k": "drugstore#n",
+   "sense": "drugstore.n.01",
+   "vi": "hiệu thuốc"
+  },
+  {
+   "k": "mastery#n",
+   "sense": "command.n.06",
+   "vi": "sự thành thạo; thông thạo"
+  },
+  {
+   "k": "graceful#adj",
+   "sense": "graceful.a.01",
+   "vi": "duyên dáng; thanh lịch"
+  },
+  {
+   "k": "diarrhea#n",
+   "sense": "diarrhea.n.01",
+   "vi": "tiêu chảy"
+  },
+  {
+   "k": "highland#n",
+   "sense": "highland.n.01",
+   "vi": "sơn nguyên"
+  },
+  {
+   "k": "toxicity#n",
+   "sense": "toxicity.n.01",
+   "vi": "độ độc; độc tính"
+  },
+  {
+   "k": "succulent#n",
+   "sense": "succulent.n.01",
+   "vi": "cây mọng nước"
+  },
+  {
+   "k": "playful#adj",
+   "sense": "playful.a.01",
+   "vi": "vui tươi; tinh nghịch"
+  },
+  {
+   "k": "lament#v",
+   "sense": "lament.v.01",
+   "vi": "khóc than; than khóc"
+  },
+  {
+   "k": "inscription#n",
+   "sense": "inscription.n.01",
+   "vi": "chữ khắc"
+  },
+  {
+   "k": "rustle#v",
+   "sense": "rustle.v.01",
+   "vi": "rì rào; xào xạc"
+  },
+  {
+   "k": "bracelet#n",
+   "sense": "bracelet.n.02",
+   "vi": "vòng tay"
+  },
+  {
+   "k": "prowl#v",
+   "sense": "prowl.v.01",
+   "vi": "rình rập"
+  },
+  {
+   "k": "contempt#n",
+   "sense": "contempt.n.01",
+   "vi": "khinh bỉ"
+  },
+  {
+   "k": "expel#v",
+   "sense": "expel.v.01",
+   "vi": "trục xuất; đuổi"
+  },
+  {
+   "k": "happenstance#n",
+   "sense": "coincidence.n.01",
+   "vi": "tình cờ; ngẫu nhiên"
+  },
+  {
+   "k": "fragrance#n",
+   "sense": "aroma.n.02",
+   "vi": "mùi thơm"
+  },
+  {
+   "k": "remuneration#n",
+   "sense": "wage.n.01",
+   "vi": "thù lao; tiền công"
+  },
+  {
+   "k": "airspace#n",
+   "sense": "airspace.n.01",
+   "vi": "không phận"
+  },
+  {
+   "k": "mythology#n",
+   "sense": "mythology.n.01",
+   "vi": "thần thoại"
+  },
+  {
+   "k": "resin#n",
+   "sense": "resin.n.01",
+   "vi": "nhựa"
+  },
+  {
+   "k": "transcend#v",
+   "sense": "exceed.v.01",
+   "vi": "vượt qua"
+  },
+  {
+   "k": "blackboard#n",
+   "sense": "blackboard.n.01",
+   "vi": "bảng đen"
+  },
+  {
+   "k": "meltdown#n",
+   "sense": "meltdown.n.01",
+   "vi": "nóng chảy hạt nhân"
+  },
+  {
+   "k": "misty#adj",
+   "sense": "brumous.s.01",
+   "vi": "sương mù"
+  },
+  {
+   "k": "mathematician#n",
+   "sense": "mathematician.n.01",
+   "vi": "nhà toán học"
+  },
+  {
+   "k": "housework#n",
+   "sense": "housework.n.01",
+   "vi": "việc nhà"
+  },
+  {
+   "k": "incense#n",
+   "sense": "incense.n.01",
+   "vi": "hương"
+  },
+  {
+   "k": "dishonest#adj",
+   "sense": "dishonest.a.01",
+   "vi": "gian dối"
+  },
+  {
+   "k": "chuckle#n",
+   "sense": "chortle.n.01",
+   "vi": "cười khúc khích"
+  },
+  {
+   "k": "violently#adv",
+   "sense": "violently.r.01",
+   "vi": "dữ dội"
+  },
+  {
+   "k": "hedgehog#n",
+   "sense": "hedgehog.n.02",
+   "vi": "nhím"
+  },
+  {
+   "k": "cessation#n",
+   "sense": "cessation.n.01",
+   "vi": "sự chấm dứt"
+  },
+  {
+   "k": "seaport#n",
+   "sense": "seaport.n.01",
+   "vi": "hải cảng"
+  },
+  {
+   "k": "repent#v",
+   "sense": "repent.v.01",
+   "vi": "hối lỗi; ăn năn"
+  },
+  {
+   "k": "subcommittee#n",
+   "sense": "subcommittee.n.01",
+   "vi": "tiểu ban"
+  },
+  {
+   "k": "prominence#n",
+   "sense": "prominence.n.01",
+   "vi": "danh tiếng"
+  }
+ ],
+ "fixedLabels": [
+  {
+   "k": "bracelet#n",
+   "cls": "D1",
+   "field": "m.ja",
+   "bad": "腕輪",
+   "note": "soát Sonnet pilot 3 29/10 12:52",
+   "why": "sửa nhãn 30/10: 腕輪 (うでわ) = bracelet/bangle theo JMdict; Wiktionary + Japanese WordNet + AI cùng đưa ra → nhãn soát pilot 3 sai, không phải lỗi dịch"
+  }
+ ]
+}

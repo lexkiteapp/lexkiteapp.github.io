@@ -7,12 +7,6 @@
    "why": "vision: text; vision description-sentence sim 0.1692",
    "b": "40088424311"
   },
-  "alternative#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (bridge closure and route); clip-sentence sim 0.122; vision description-sentence sim 0.0406",
-   "b": "40088424311"
-  },
   "apart#adv": {
    "at": "2026-10-24",
    "tries": 4,
@@ -23,12 +17,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "text: Ay; vision: no (diverse backgrounds); vision description-sentence sim 0.1906",
-   "b": "40088424311"
-  },
-  "boss#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (key action of leaving); clip-sentence sim 0.1737; vision description-sentence sim -0.0552",
    "b": "40088424311"
   },
   "busy#adj": {
@@ -43,12 +31,6 @@
    "why": "vision: no (two more candidates); vision description-sentence sim 0.299",
    "b": "40088424311"
   },
-  "car rental#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (arrivals hall and car rental sign); clip-sentence sim 0.1253; vision description-sentence sim 0.0723",
-   "b": "40088424311"
-  },
   "careless#adj": {
    "at": "2026-10-24",
    "tries": 4,
@@ -61,12 +43,6 @@
    "why": "vision description-sentence sim 0.0577",
    "b": "40088424311"
   },
-  "countryside#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1825; vision description-sentence sim 0.0685",
-   "b": "40088424311"
-  },
   "decentralize#v": {
    "at": "2026-10-24",
    "tries": 4,
@@ -77,12 +53,6 @@
    "at": "2026-10-26",
    "tries": 4,
    "why": "clip-sentence sim 0.1542",
-   "b": "40276144478"
-  },
-  "do#v": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1856",
    "b": "40276144478"
   },
   "edit access#n": {
@@ -102,30 +72,6 @@
    "tries": 4,
    "why": "clip-sentence sim 0.1617",
    "b": "40276144478"
-  },
-  "globally#adv": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "text: ly; vision: no (global recognition); vision: text; vision description-sentence sim 0.0936",
-   "b": "40088424311"
-  },
-  "group booking#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (more than ten rooms); clip-sentence sim 0.2091; vision description-sentence sim 0.1603",
-   "b": "40088424311"
-  },
-  "group#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.2078",
-   "b": "40276144478"
-  },
-  "half#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "text: only halfddd class; vision: text; vision description-sentence sim 0.0914",
-   "b": "40088424311"
   },
   "here#adv": {
    "at": "2026-10-24",
@@ -163,12 +109,6 @@
    "why": "vision: no (mistake not shown); clip-sentence sim 0.2143; vision description-sentence sim 0.0526",
    "b": "40088424311"
   },
-  "natural#adj": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (no clear resource shown); vision description-sentence sim 0.0994",
-   "b": "40276144478"
-  },
   "noticeboard#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -180,12 +120,6 @@
    "tries": 4,
    "why": "clip-sentence sim 0.1967",
    "b": "40276144478"
-  },
-  "polite#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (phone call, customer); vision description-sentence sim 0.1858",
-   "b": "40088424311"
   },
   "poorly#adv": {
    "at": "2026-10-24",
@@ -199,35 +133,17 @@
    "why": "vision: no (postal code, form details); clip-sentence sim 0.2015; vision description-sentence sim 0.0852",
    "b": "40088424311"
   },
-  "producer#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (coffee plant and Brazil); vision description-sentence sim 0.0601",
-   "b": "40088424311"
-  },
   "reader#n": {
    "at": "2026-10-26",
    "tries": 4,
    "why": "vision: no (thousands of readers); vision description-sentence sim 0.175",
    "b": "40276144478"
   },
-  "remember#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (restaurant or name); clip-sentence sim 0.1495; vision description-sentence sim 0.136",
-   "b": "40088424311"
-  },
   "result#n": {
    "at": "2026-10-26",
    "tries": 4,
    "why": "clip-sentence sim 0.1702",
    "b": "40276144478"
-  },
-  "roommate#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (library not shown); clip-sentence sim 0.2177; vision description-sentence sim 0.2903",
-   "b": "40088424311"
   },
   "schedule#n": {
    "at": "2026-10-24",

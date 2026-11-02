@@ -6,11 +6,13 @@ import fs from 'fs';
 import { poolAccounts } from './cf-pool.mjs';
 // PROBE_SHARE (0–1): chỉ dò phần ĐẦU kho (phần vẽ ảnh, VIMG_DRAW_SHARE) – lượt ảnh tự kiểm trước khi bật máy; PROBE_QUICK=1 bỏ analytics
 const ALL = poolAccounts({ ...process.env, VIMG_POOL_SKIP: '0' }), A = ALL.slice(0, Math.max(1, Math.ceil(ALL.length * Math.min(1, +(process.env.PROBE_SHARE || 1))))), M = '@cf/meta/llama-3.2-1b-instruct', c = { ok: 0, q4006: 0, auth: 0, other: 0 };
-await Promise.all(A.map(async a => {
+// PROBE_HEAD (0–1, 31/10): đếm riêng tài khoản còn neuron ở phần ĐẦU (vẽ) – pilot dò cả kho: thẻ cảnh dùng đuôi, vẽ dùng đầu (pilot 41158516082: 15/121 sống, thẻ ăn hết, vẽ 0 ảnh)
+const HEAD = process.env.PROBE_HEAD ? Math.ceil(ALL.length * Math.min(1, +process.env.PROBE_HEAD)) : 0; let head = 0;
+await Promise.all(A.map(async (a, i) => {
   try {
     const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${a.acct}/ai/run/${M}`, { method: 'POST', headers: { Authorization: 'Bearer ' + a.tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: [{ role: 'user', content: 'hi' }], max_tokens: 1 }) });
     const j = await r.json().catch(() => ({})), e = JSON.stringify(j.errors || '');
-    if (r.ok && j.success) c.ok++; else if (/4006|daily free allocation/i.test(e)) c.q4006++; else if (r.status === 401 || r.status === 403 || /10000/.test(e)) c.auth++; else c.other++;
+    if (r.ok && j.success) { c.ok++; if (i < HEAD) head++; } else if (/4006|daily free allocation/i.test(e)) c.q4006++; else if (r.status === 401 || r.status === 403 || /10000/.test(e)) c.auth++; else c.other++;
   } catch { c.other++; }
 }));
 // neuron đã dùng 24 h qua (GraphQL analytics – cần quyền Account Analytics Read; thiếu quyền → in lỗi đầu tiên, không sao)
@@ -25,4 +27,4 @@ if (!process.env.PROBE_QUICK) await Promise.all(A.map(async a => {
 }));
 const st = used.length ? (() => { const v = [...used].sort((x, y) => x - y); return `neuron 24 h (${v.length} tk): min ${Math.round(v[0])} · trung vị ${Math.round(v[v.length >> 1])} · max ${Math.round(v[v.length - 1])} · tổng ${Math.round(v.reduce((t, x) => t + x, 0))}`; })() : `analytics: không đọc được (${gqlErr || 'không dữ liệu'})`;
 const line = `${new Date().toISOString()} · kho CF ${A.length} tài khoản: còn neuron ${c.ok} · hết neuron (4006) ${c.q4006} · lỗi quyền ${c.auth} · lỗi khác ${c.other} · ${st}`;
-console.log(line); if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `alive=${c.ok}\n`); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, line + '\n');
+console.log(line); if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `alive=${c.ok}\n` + (HEAD ? `alive_head=${head}\nalive_tail=${c.ok - head}\n` : '')); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, line + '\n');

@@ -429,6 +429,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Great talk yesterday, ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      "?",
+      "white"
+     ]
+    ]
+   ],
    "a": "isn't",
    "b": "wasn't it",
    "correct": "b",

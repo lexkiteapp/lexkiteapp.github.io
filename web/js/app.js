@@ -216,8 +216,9 @@
   const retB = () => { try { let b = localStorage.getItem('lk.rb'); if (b == null || isNaN(+b)) { b = String(Math.floor(Math.random() * 100)); localStorage.setItem('lk.rb', b); } return +b; } catch (e) { return 99; } };
   App.retArm = () => { const c = retCfg(), p = +c.ret_pct; if (c.ret === '0' || c.ret === '1' || !(p > 0 && p <= 50)) return ''; const b = retB(); return b < p ? 'on' : b >= 50 && b < 50 + p ? 'off' : ''; };
   App.retOn = () => { try { const q = /[?&]ret=([01])/.exec(location.search); if (q) localStorage.setItem('lk.ret', q[1]); const f = localStorage.getItem('lk.ret'); if (f === '1' || f === '0') return f === '1'; const c = retCfg(); if (c.ret === '0') return false; if (c.ret === '1') return true; const p = +c.ret_pct; return p > 0 && retB() < p; } catch (e) { return false; } };
-  App.retTrack = st => { try { const a = App.retArm(); if (!a || localStorage.getItem('lk.noTrack') === '1') return; const go = (k, ev) => { if (localStorage.getItem(k)) return; localStorage.setItem(k, '1'); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', d = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, d) : fetch(u, { method: 'POST', body: d, keepalive: true }).catch(() => {}); }; go('lk.rx', 'ret_' + a + '_seen'); if (st >= 7) go('lk.rd7', 'ret_' + a + '_d7'); } catch (e) { /* bỏ qua */ } };
+  App.retTrack = st => { try { const a = App.retArm(); if (!a || localStorage.getItem('lk.noTrack') === '1') return; const go = (k, ev) => { if (localStorage.getItem(k)) return; localStorage.setItem(k, '1'); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', d = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, d) : fetch(u, { method: 'POST', body: d, keepalive: true, mode: 'no-cors' }).catch(() => {}); }; go('lk.rx', 'ret_' + a + '_seen'); if (st >= 7) go('lk.rd7', 'ret_' + a + '_d7'); } catch (e) { /* bỏ qua */ } };
 
+  App.parseHash = () => parseHash(); // trang lười (dict-page.js) dùng chung
   function parseHash() {
     const raw = location.hash.replace(/^#\/?/, '') || 'home';
     const [path, qs] = raw.split('?');
@@ -227,6 +228,7 @@
   // ---------- Nạp module theo trang (lazy loading): trang đầu chỉ tải phần lõi, phần nặng tải khi cần ----------
   const G = 'js/grammar/', BUNDLES = {
     grammar: ['js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check'].map(f => G + f + '.js'), 'js/grammar.js'],
+    pas: ['js/i18n/en/v2.js', 'js/i18n/en/speak.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/pas-sit.js', 'js/st/v2/pas-drill.js', 'js/characters.js', 'js/speak/data.js', 'js/speak/score.js', 'js/speak/app.js'], // 🎙️ Play & Speak (cờ speak_pack, docs/specs/play-and-speak.md)
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
@@ -235,11 +237,13 @@
     reflex: ['js/reflex.js'],
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
+    say: ['js/i18n/en/v2.js', 'js/i18n/en/say.js', 'js/i18n/en/share.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/say-front.js', 'js/st/v2/say-back.js', 'js/say.js'], // 🗣️ Say it like a native: thẻ phản xạ 2 mặt, khung Stitch v2 say-front/back (docs/SAY-NATIVE.md)
     call: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/teacher-call.js', 'js/pron/pairs.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/call/calls.js', 'js/call/calls-exam.js', 'js/call/engine.js', 'js/call.js'], // Call Ama/Carlos: cuộc gọi luyện nói rẽ nhánh, giáo viên khớp môi (docs/CALL.md); khung Stitch v2 teacher-call
+    struct: ['js/structures.js'], // VBStruct cho popup dịch (phrases.js) – thiếu khóa này App.need('struct') ném TypeError
     courses: ['js/courses.js'], goal: ['js/i18n/en/goal.js', 'js/st/common.js', 'js/st/goal.js', 'js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
     listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
-    writing: ['js/i18n/en/ideast.js', 'js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
+    writing: ['js/i18n/en/ideast.js', 'js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js', 'js/phrases-model.js'], // phrases-model.js: #/model #/models #/phrases (tách khỏi phrases.js 01/11)
     mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'js/readtest/gt3.js', 'js/mock.js', 'js/rtype.js'],
     tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'js/lib/domain-a.js', 'js/lib/domain-b.js', 'js/lib/exam-vocab.js', 'js/lib/exam-vocab2.js', 'js/lib/exam-vocab3.js', 'js/lib/nawl.js', 'js/lib/bsl.js'],
     speak: ['js/i18n/en/speakt.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/speak/samples.js', 'js/speak/more2.js', 'js/speak/more3.js', 'js/speak/more.js', 'js/speaking.js'], // Phòng Speaking: chỉ tải khi mở
@@ -254,6 +258,7 @@
     ota: ['js/i18n/en/ota.js', 'js/ota-key.js', 'js/ota.js'], // 🔄 cập nhật OTA + nhắc cập nhật app (chỉ app gốc, docs/OTA.md)
     remind: ['js/i18n/en/remind.js', 'js/remind.js'], settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
     streak: ['js/streak-ui.js'], ret: ['js/i18n/en/ret.js', 'js/retention.js'], // 🔥 lớp giữ thói quen – luôn nạp cùng gói 'streak' (mỗi file chỉ thuộc 1 gói) struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
+    dictp: ['js/dict-page.js'], // 📖 trang Từ điển #/dict (tách khỏi app.js 01/11)
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     uidx: ['js/usage-index.js'], usage: ['js/i18n/en/usage.js', 'js/choice-kit.js', 'js/usage-core.js', 'js/usage.js'], uP: ['js/usage/prep-adj.js', 'js/usage/prep-verb.js', 'js/usage/prep-noun.js'], uV: ['js/usage/verb.js'], uA: ['js/usage/adv.js'], uS: ['js/usage/struct.js'], uC: ['js/usage/pair.js'], // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
     placement: ['js/placement.js'], // 🧭 Kiểm tra đầu vào thích ứng (ước tính band + khoảng tin cậy)
@@ -275,9 +280,9 @@
     ux1: ['js/i18n/en/ux1.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/home.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/path.js', 'js/st/v2/review.js', 'js/st/v2/practice.js', 'js/st/v2/leagues.js', 'js/st/v2/me.js', 'js/st/v2/streak.js', 'js/st/v2/exam-readiness.js', 'js/ux1.js', 'js/ux1-me.js'], lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
-  const ROUTE_BUNDLE = { train: 'ux1', lesson: 'lesson', streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { speak: 'pas', train: 'ux1', lesson: 'lesson', streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', say: 'say', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
-    toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
+    toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx', 'dictp'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
   const bundleP = {};
   // Phần nặng tải từ CDN jsDelivr (theo commit); CDN lỗi → máy chủ chính.
   const CDN = (() => { try { if (Store.isExtension || (window.VBNative && VBNative.is)) return null; const el = document.getElementById('vb-cdn'); return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; } })(); // { base: GitHub Pages, files: [file dữ liệu] }
@@ -301,7 +306,7 @@
   // nạp kèm (song song) gói đầu tiên được mở → module luôn vẽ khi đã có bản dịch; tiếng Việt (ngôn ngữ gốc) không cần
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
   // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
-  const BCSS = { mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-path.css', 'css/st-v2-review.css', 'css/st-v2-practice.css', 'css/st-v2-leagues.css', 'css/st-v2-me.css', 'css/st-v2-streak.css', 'css/st-v2-exam-readiness.css'] }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
+  const BCSS = { say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'], pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'], mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], call: ['css/st-v2-teacher-call.css'], ux1: ['css/st-home.css', 'css/st-v2-path.css', 'css/st-v2-review.css', 'css/st-v2-practice.css', 'css/st-v2-leagues.css', 'css/st-v2-me.css', 'css/st-v2-streak.css', 'css/st-v2-exam-readiness.css'] }, cssP = {}; // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs)
   const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || []).map(loadCss))).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
@@ -501,7 +506,7 @@
   let ux1R = null; // kết quả cờ từ config, chốt theo lượt tải trang
   const ux1Remote = () => { if (ux1R == null) { const c = ux1Cfg(), p = +c.ux1_pct; ux1R = ux1Off(c.ux1) ? false : ux1All(c.ux1) ? true : p > 0 && ux1B() < p; } return ux1R; };
   App.ux1On = () => { try { if (/[?&]ux1=1\b/.test(location.search + location.hash)) sessionStorage.setItem('lk.ux1.pv', '1'); if (sessionStorage.getItem('lk.ux1.pv') === '1') return true; const f = localStorage.getItem('lk.ux1'); if (f === '1' || f === '0') return f === '1'; return ux1Remote(); } catch (e) { return false; } };
-  App.ux1Track = st => { try { const a = App.ux1Arm(); if (!a || localStorage.getItem('lk.noTrack') === '1') return; const go = (k, ev) => { if (localStorage.getItem(k)) return; localStorage.setItem(k, '1'); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', d = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, d) : fetch(u, { method: 'POST', body: d, keepalive: true }).catch(() => {}); }; go('lk.ux', 'ux1_' + a + '_seen'); if (st >= 2) go('lk.ud1', 'ux1_' + a + '_d1'); if (st >= 7) go('lk.ud7', 'ux1_' + a + '_d7'); } catch (e) { /* bỏ qua */ } };
+  App.ux1Track = st => { try { const a = App.ux1Arm(); if (!a || localStorage.getItem('lk.noTrack') === '1') return; const go = (k, ev) => { if (localStorage.getItem(k)) return; localStorage.setItem(k, '1'); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', d = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, d) : fetch(u, { method: 'POST', body: d, keepalive: true, mode: 'no-cors' }).catch(() => {}); }; go('lk.ux', 'ux1_' + a + '_seen'); if (st >= 2) go('lk.ud1', 'ux1_' + a + '_d1'); if (st >= 7) go('lk.ud7', 'ux1_' + a + '_d7'); } catch (e) { /* bỏ qua */ } };
   App.updateChrome = () => updateChrome();
   App.lessonOn = () => { if (App.ux1On()) return true; try { const f = localStorage.getItem('lk.lesson'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lesson_mix; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
   // 🖼️ Ảnh minh họa theo nghĩa (cờ vocab_img: true/false ghi đè, chưa đặt = TỰ ĐỘNG bật khi chỉ mục có ≥ 150 ảnh đã chấm; thử: localStorage lk.vimg=1 – docs/LEXICON.md § Ảnh minh họa). Tắt → không tải gì, không hộp.
@@ -570,36 +575,53 @@
     let timer = 0, busy = false, again = false;
     // Bản dịch SẴN do CI tạo (scripts/gen-content-i18n.mjs, CDN) → hiện ngay đúng ngôn ngữ; chỉ câu chưa có mới dịch máy lúc chạy
     let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (window.VBNative && VBNative.is) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json') // app gốc: file nằm sẵn trong gói (www/i18n/content) → dùng được khi offline
-      .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => { pre = j || {}; clearTimeout(timer); timer = setTimeout(pass, 0); }); // về muộn (> 1,5 s, mạng chậm) → dịch lại trang đang mở
+      .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => { pre = j || {}; setTimeout(pass, 0); }); // về muộn (> 1,5 s, mạng chậm) → dịch lại trang đang mở
     const got = k => mem[k] || (pre && pre[k]) || ''; // bản dịch sẵn không ghi vào localStorage (giữ bộ nhớ máy nhẹ)
+    const ok = n => { const s = n.nodeValue.trim().replace(/\s+/g, ' '); return s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn, [translate="yes"]')); }; /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */
+    const put = x => { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!got(s)) return false; const m = x.nodeValue.match(/^\s*/)[0], e = x.nodeValue.match(/\s*$/)[0]; x.nodeValue = m + got(s) + e; return true; };
+    const unwait = root => [root, ...root.querySelectorAll('.wn.wn-tr, .tr-wait')].forEach(el => { if (el.matches('.wn.wn-tr, .tr-wait') && !VI.test(el.textContent)) el.classList.remove('wn-tr', 'tr-wait'); });
+    // Chỗ vừa chèn mà đã có bản dịch (bộ nhớ đệm / bản sẵn) → thay NGAY trong lúc DOM đổi (trước khi trình duyệt vẽ):
+    // vẽ lại trang không chớp tiếng Việt 120 ms, nghĩa chờ dịch (.tr-wait) hiện liền thay vì chờ lượt pass sau
+    const apply = a => {
+      if (!a.isConnected) return;
+      if (a.nodeType === 3) { if (a.parentElement && ok(a) && put(a)) unwait(a.parentElement.closest('.wn.wn-tr, .tr-wait') || a.parentElement); return; }
+      if (a.nodeType !== 1) return;
+      const tw = document.createTreeWalker(a, NodeFilter.SHOW_TEXT); let n, hit = false;
+      while ((n = tw.nextNode())) if (ok(n) && put(n)) hit = true;
+      if (hit) unwait(a);
+    };
+    // Chữ sắp hiện (vd. nghĩa cụm từ ở #/dict, biết ngay từ lần vẽ nhanh) → dịch trước, lần vẽ đủ dùng bản dịch có sẵn
+    const want = new Set();
+    App.cxWant = list => { (list || []).forEach(x => { const s = String(x || '').trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && !got(s)) want.add(s); }); if (want.size) setTimeout(pass, 0); };
     async function pass() {
       if (busy) { again = true; return; } busy = true;
       try {
         if (!pre) await Promise.race([preP, new Promise(r => setTimeout(r, 1500))]);
         const nodes = [], tw = document.createTreeWalker(view, NodeFilter.SHOW_TEXT); let n;
-        while ((n = tw.nextNode())) { const s = n.nodeValue.trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn, [translate="yes"]'))) nodes.push(n); /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */ }
-        const need = []; let failed = false;
+        while ((n = tw.nextNode())) if (ok(n)) nodes.push(n);
+        const need = [...want].filter(s => !got(s)); let failed = false; want.clear();
         // Thuộc tính hiển thị (tooltip, nhãn trợ năng, gợi ý ô nhập) cũng phải theo ngôn ngữ người dùng
         const attrs = []; view.querySelectorAll('[title],[aria-label],[placeholder]').forEach(el => { if (el.closest(SKIP) && !el.matches('input,textarea')) return; ['title', 'aria-label', 'placeholder'].forEach(a => { const v = el.getAttribute(a); if (v && VI.test(v)) attrs.push([el, a, v.trim()]); }); });
         attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); else if (!need.includes(v)) need.push(v); });
-        const put = x => { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!got(s)) return false; const m = x.nodeValue.match(/^\s*/)[0], e = x.nodeValue.match(/\s*$/)[0]; x.nodeValue = m + got(s) + e; return true; };
         nodes.forEach(x => { if (!put(x)) { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!need.includes(s)) need.push(s); } });
         for (let i = 0; i < need.length;) { // lô ≤ 1800 ký tự
           const batch = []; let len = 0; while (i < need.length && len + need[i].length < 1800) { batch.push(need[i]); len += need[i].length + 1; i++; } if (!batch.length) batch.push(need[i++]);
-          const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=vi&tl=${to}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`).then(x => x.json()).catch(() => null);
+          const r = await fetch(`${Dict.gtxURL('vi', to)}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`, { signal: AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined }).then(x => (x.ok ? x.json() : (x.body && x.body.cancel().catch(() => {}), null))).catch(() => null);
           if (!r || !r[0]) { failed = true; break; }
           const out = r[0].map(x => x[0]).join('').split('\n');
           batch.forEach((s, k) => { if (out[k] && out[k].trim()) mem[s] = out[k].trim(); });
         }
         if (need.length) { save(); nodes.forEach(put); attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); }); }
         // Ghi chú học từ (soạn tiếng Việt): chỉ hiện khi đã dịch hết sang ngôn ngữ người học – không lộ tiếng Việt khi dịch chậm/lỗi
-        view.querySelectorAll('.wn.wn-tr, .tr-wait').forEach(el => { if (!VI.test(el.textContent)) el.classList.remove('wn-tr', 'tr-wait'); });
+        unwait(view);
         // dịch hỏng → tiếng Anh viết tay (data-en)
         if (failed) view.querySelectorAll('.tr-wait[data-en]').forEach(el => { el.textContent = el.dataset.en; el.lang = 'en'; el.classList.remove('tr-wait'); });
         view.querySelectorAll('.an-ch:not([data-gl])').forEach(ch => { const g = ch.querySelector('.an-gl'); if (g && !g.classList.contains('tr-wait')) ch.dataset.gl = g.textContent; });
-      } finally { busy = false; if (again) { again = false; clearTimeout(timer); timer = setTimeout(pass, 0); } }
+      } finally { busy = false; if (again) { again = false; setTimeout(pass, 0); } }
     }
-    new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(pass, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
+    // Gom thay đổi DOM ≤ 120 ms rồi dịch – hẹn giờ KHÔNG dời lại theo mỗi thay đổi: trang vẽ dần/đổi liên tục (khối điền muộn, hoạt ảnh)
+    // từng làm lượt dịch bị hoãn mãi, chữ tiếng Việt (hoặc ô .tr-wait trống) nằm đó lâu hơn hẳn 120 ms
+    new MutationObserver(ms => { for (const m of ms) m.addedNodes.forEach(apply); if (!timer) timer = setTimeout(() => { timer = 0; pass(); }, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
   })();
   document.addEventListener('change', e => { if (e.target.matches && e.target.matches('[data-whisper]')) { state.settings.whisperMode = e.target.checked; saveSettings(); if (e.target.checked) toast(t('Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.'), 4500); } });
   window.addEventListener('hashchange', route);
@@ -941,8 +963,7 @@
     };
   };
 
-  // ================= TỪ ĐIỂN =================
-  const lookedUp = new Set();
+  // ================= TỪ ĐIỂN: trang #/dict ở js/dict-page.js (gói lười 'dictp', tách khỏi khung app 01/11) =================
   // Trang pháp lý đúng ngôn ngữ giao diện (web/<lang>/privacy.html sinh bởi scripts/build-legal.mjs); trong add-on/app trỏ về lexkite.com
   App.legalUrl = name => (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/' + I18N.lang() + '/' + name;
 
@@ -1007,6 +1028,7 @@
   // Lời mời cài add-on (chỉ Chromium máy tính, chưa cài – web/js/ext-cta.js quyết định), nạp lười; URL cửa hàng: js/ext-config.js
   let extP = null;
   const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
+  App.extCta = extCta; // trang Từ điển (dict-page.js, tải lười) gọi lời mời cài add-on
   // Nút "Tải app" (menu bên + trang Tôi + nút cài trên Android): js/get-app.js chọn CWS / Google Play / hướng dẫn cài theo nền tảng, nạp lười sau add-on
   let gaP = null;
   window.LK_GETAPP_T = () => ({ iph: [t('Cài Lexkite lên iPhone'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh dưới của Safari'), t('Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)'), t('Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app')],
@@ -1014,193 +1036,6 @@
     ipad: [t('Cài Lexkite lên iPad'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari')],
     mac: [t('Cài Lexkite lên Mac'), t('Trong Safari, chọn <b>Tệp › Thêm vào Dock</b>'), t('Bấm <b>Thêm</b> – Lexkite sẽ mở như một app')], ok: t('Đã hiểu') });
   App.getApp = root => Store.isExtension ? Promise.resolve(null) : (gaP || (gaP = extCta().then(() => loadScript('js/get-app.js')).catch(() => {}))).then(() => { if (window.LKGetApp) LKGetApp.scan(root || document); return window.LKGetApp || null; });
-  routes.dict = App.guard(async function (q) {
-    const fastP = q ? Dict.quick(q) : null, vimgP = App.vimgReady(q ? [q] : null); // tra song song với đọc 'recent' (từ trong kho: vài ms) + chỉ mục ảnh (cờ bật)
-    const w = App.W, recent = await w(Store.get('recent', []));
-    view.innerHTML = `
-      <div class="page-head"><div><h1>${t('Từ điển Anh – Việt')}</h1><p class="muted">${t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan')}</p></div></div>
-      <form class="search" id="searchForm" autocomplete="off">
-        <input class="input" id="q" placeholder="${t('Nhập từ tiếng Anh, ví dụ: sustainable')}" value="${esc(q)}" spellcheck="false" autocapitalize="off" autocorrect="off">
-        <button class="btn primary lg">${t('Tra từ')}</button>
-      </form>
-      ${recent.length ? `<div class="row small" style="margin-top:.7rem"><span class="muted">${t('Gần đây:')}</span>${recent.map(r => `<a class="chip" href="#/dict/${encodeURIComponent(r)}">${esc(r)}</a>`).join('')}</div>` : ''}
-      <div id="result" style="margin-top:1.25rem"></div>
-      <div class="ext-card" data-ext-cta="app" hidden><div><b>🧩 ${t('Tra từ ngay trên mọi trang web')}</b><p class="small muted">${t('Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.')}</p></div><a class="btn sm primary" data-ext-cta="app" hidden>${t('Thêm vào Chrome')}</a></div>`;
-    extCta();
-    $('#searchForm').onsubmit = e => { e.preventDefault(); const v = $('#q').value.trim(); if (v) location.hash = `#/dict/${encodeURIComponent(v)}`; };
-    if (!q) {
-      $('#q').focus();
-      const sample = ['resilient', 'mitigate', 'phenomenon', 'detrimental', 'ubiquitous', 'paradigm'];
-      $('#result').innerHTML = `<div class="card empty"><div class="em">📖</div><h3>${t('Tra bất kỳ từ tiếng Anh nào')}</h3><p>${t('Phiên âm UK/US, nghĩa tiếng Việt theo từ loại, định nghĩa Oxford Languages, câu ví dụ song ngữ, hình minh họa — rồi lưu vào flashcard kèm câu ngữ cảnh của riêng bạn.')}</p>
-        <div class="row center" style="margin-top:1rem">${sample.map(s => `<a class="chip" href="#/dict/${s}">${s}</a>`).join('')}</div>
-        <p class="small" style="margin-top:1rem">💡 ${t('Cài <b>add-on Chrome</b> để bấm đúp vào từ hoặc bôi đen câu trên bất kỳ trang web nào.')}</p></div>`;
-      return;
-    }
-    App.notesReady(q); // tải khối "Hiểu sâu" song song với tra từ (lần vẽ đủ chờ nó – xem dưới)
-    $('#result').innerHTML = UI.skel(t('Đang tra “{q}”…', { q: esc(q) }), 4); // khung chờ hình mục từ (từ · phiên âm · nghĩa) thay vì ⏳
-    // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
-    let spoke = false;
-    const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
-    const fast = await w(fastP); await vimgP;
-    if (!same()) return;
-    if (fast) paint(fast, false);
-    const full = await w(Dict.lookup(q));
-    if (!same()) return;
-    if (!full || !full.found) {
-      if (!fast) $('#result').innerHTML = `<div class="card empty"><div class="em">🤔</div><p>${t('Không tìm thấy “{q}”.', { q: esc(q) })}${full && full.vi ? ' ' + t('Gợi ý dịch: <b>{vi}</b>', { vi: esc(full.vi) }) : ''}</p><p class="small">${t('Kiểm tra chính tả hoặc kết nối mạng.')}</p></div>`;
-      return;
-    }
-    Store.set('recent', [full.word, ...recent.filter(r => r !== full.word)].slice(0, 8));
-    const lk = todayKey() + ':' + full.word;
-    if (!lookedUp.has(lk)) { lookedUp.add(lk); reward({ lookups: 1 }); }
-    extCta().then(x => x && x.lookup({ text: t('Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.'), btn: t('Thêm vào Chrome'), close: t('Đóng') }));
-    // Chờ khối "Hiểu sâu" (đã tải song song từ lần vẽ nhanh, tối đa 1,5 s) rồi mới vẽ bản đủ → khối nằm sẵn trong lần vẽ, không chèn muộn phía trên ô lưu
-    await Promise.race([App.notesReady(full.word), new Promise(r => setTimeout(r, 1500))]);
-    if (!same()) return;
-    paint(full, true);
-
-    function paint(e, final) {
-    const keep = $('#ctx') ? $('#ctx').value : '';
-    const card = state.cards[e.word];
-
-    const vh = App.vimg(e.word, e.pos, App.meanOf(e), { w: 'dict', photo: true }, [].concat(e.ex || [])[0] || ''); // hộp ảnh tra từ cố định 160 px (vai dict) – có ảnh thì điện thoại xếp dọc (cột 84 px của ảnh cũ sẽ bóp hộp)
-    $('#result').innerHTML = `
-      <div class="card">
-        <div class="entry-head${vh ? ' has-vimg' : ''}">
-          <div>
-            <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}${e.from ? `<span class="chip" data-from lang="en">${esc(e.from)} → ${esc(e.word)}</span>` : ''}</div>
-            <div class="pron">
-              ${UI.pronHtml(e, { pills: true })}
-              <span><b class="small">🐢 ${t('Chậm')}</b><button class="icon-btn sm" data-slow="${esc(e.word)}" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🔊</button></span>
-            </div>
-            ${I18N.meanLang() === 'en' ? '<div class="vi wi-native" data-dnative></div>' : `<div class="vi">${esc(e.vi)}</div>`}
-            ${e.def ? `<div style="margin-top:.4rem" lang="en">${esc(e.def)}</div>` : ''}
-            <div class="row" style="margin-top:.8rem">
-              ${card ? `<span class="chip ok">✓ ${t('Đã có trong flashcard')}</span>` : `<button class="btn primary" id="quickSave">+ ${t('Lưu flashcard')}</button>`}
-              <a class="btn" href="#/practice/speak?w=${encodeURIComponent(e.word)}">🎙️ ${t('Luyện phát âm')}</a>
-              ${window.LK_VERBS && LK_VERBS.verbOf(e) ? `<a class="btn" href="#/verb/${encodeURIComponent(LK_VERBS.verbOf(e))}">🔤 ${t('Chia động từ')}</a>` : ''}${window.LK_USAGE_IDX && LK_USAGE_IDX.w[e.word.toLowerCase()] ? `<a class="btn" href="#/usage/${encodeURIComponent(e.word.toLowerCase())}">📘 ${t('Cách dùng')}</a>` : ''}
-            </div>
-          </div>
-          ${vh || pic(e)}
-        </div>
-        ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div>` : ''}
-        ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}
-        ${App.notesHtml(e.word)}
-        ${(() => { // Gom theo từ loại như Oxford/Cambridge: mỗi từ loại = nghĩa Việt + định nghĩa Anh + ví dụ của chính nghĩa đó
-          const VIP = { 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb', 'giới từ': 'preposition', 'liên từ': 'conjunction', 'đại từ': 'pronoun', 'thán từ': 'interjection', 'từ hạn định': 'determiner', 'viết tắt': 'abbreviation', 'cụm từ': 'phrase' };
-          const key = p => { p = String(p || '').toLowerCase(); return VIP[p] || p; };
-          const G = [], by = {}, grp = p => by[p] || (by[p] = G[G.push({ pos: p, vi: [], defs: [] }) - 1]);
-          if (I18N.meanLang() === 'vi') (e.senses || []).forEach(x => { grp(key(x.pos)).vi = x.terms; });
-          (e.oxford || []).forEach(m => { const g2 = grp(key(m.pos)); g2.defs = g2.defs.concat(m.defs); });
-          if (!(e.oxford || []).length) (e.meanings || []).forEach(m => { const g2 = grp(key(m.pos)); g2.defs = g2.defs.concat(m.defs.slice(0, 3)); });
-          const list = G.filter(x => x.vi.length || x.defs.length);
-          return list.length ? `<div style="margin-top:1.2rem"><h3>📖 ${t('Nghĩa theo từ loại')}</h3>${list.map(x => `<div class="pos-block"><div class="pos-head"><span class="chip pos">${esc(I18N.lang() === 'vi' ? Object.keys(VIP).find(k => VIP[k] === x.pos) || x.pos : x.pos)}</span>${x.vi.length ? `<b class="vi">${x.vi.map(esc).join(', ')}</b>` : ''}</div>
-            ${x.defs.length ? `<ol>${x.defs.slice(0, 4).map(d => `<li>${esc(d.def)}${d.ex ? `<div class="ex small">“${highlight(d.ex, e.word)}” <button class="ctx-say" data-saysent="${esc(d.ex)}" title="${t('Nghe cả câu')}">🔊</button></div>` : ''}</li>`).join('')}</ol>` : ''}</div>`).join('')}
-            <div class="tiny muted">${t('Nguồn: Oxford Languages (qua Google), Wiktionary')}</div></div>` : '';
-        })()}
-        ${e.meanings.length && (e.oxford || []).length ? `<details style="margin-top:.8rem"><summary class="small"><b>${t('Định nghĩa bổ sung')}</b> <span class="muted">(Wiktionary)</span></summary>${e.meanings.map(m => `
-          <div class="meaning"><span class="chip pos">${esc(t(m.pos))}</span>
-            <ol>${m.defs.map(d => `<li>${esc(d.def)}${d.ex ? `<div class="ex small">“${highlight(d.ex, e.word)}”</div>` : ''}</li>`).join('')}</ol></div>`).join('')}</details>` : ''}
-      </div>
-
-      ${(e.sentences || []).length ? `<div class="card" style="margin-top:1rem">
-        <h3>💬 ${t('Câu ví dụ song ngữ')}</h3>
-        ${e.sentences.map(s => `<div class="meaning"><div>${highlight(s.en, e.word)} <button class="icon-btn sm" data-speak-text="${esc(s.en)}" aria-label="${t('Nghe cả câu')}">🔊</button></div><div class="muted small">${esc(s.vi)} <span class="chip">${s.auto ? t('Oxford · dịch máy') : 'Tatoeba'}</span></div>
-          <button class="btn sm ghost" data-use-sent="${esc(s.en)}">📌 ${t('Dùng làm ngữ cảnh')}</button></div>`).join('')}
-      </div>` : ''}
-
-      ${final ? `<div class="card" style="margin-top:1rem" id="saveCard">
-        <h3>${card ? '📌 ' + t('Thêm ngữ cảnh cho từ này') : '➕ ' + t('Lưu vào flashcard kèm ngữ cảnh')}</h3>
-        <label class="field"><span class="muted small" style="font-weight:500">${t('Câu bạn gặp từ này (bài đọc, phim, báo…) – ngữ cảnh giúp nhớ lâu gấp nhiều lần')}</span>
-          <textarea class="input" id="ctx" placeholder="${t('Dán câu có chứa “{w}”…', { w: esc(e.word) })}"></textarea></label>
-        <div id="ctxVi" class="muted small" style="margin-top:.4rem"></div>
-        <div class="row" style="margin-top:.7rem">
-          <button class="btn" id="trCtx">🌐 ${t('Dịch câu')}</button>
-          <button class="btn primary" id="saveWord">${card ? t('Thêm ngữ cảnh') : t('Lưu vào flashcard')}</button>
-          ${card ? `<span class="muted small">${t('{n} ngữ cảnh', { n: card.contexts.length })} · ${masteryDots(card.srs)}</span>` : ''}
-        </div>
-      </div>` : UI.skel(t('Đang tra “{q}”…', { q: esc(e.word) }), 3)} <!-- ô lưu kèm ngữ cảnh chỉ có ở lần vẽ ĐỦ: lần vẽ nhanh có ô thì người đang gõ/bàn phím mở sẽ bị lần vẽ đủ đẩy xô (CLS 0,68 mobile-qa dict 360) -->
-      ${final ? `<div class="card" style="margin-top:1rem"><div id="phraseBox"></div><div id="related"></div></div>` : ''}`; /* 2 khối điền muộn (Lex.phrases, Datamuse) ở CUỐI trang: về muộn không đẩy ô lưu/ô ngữ cảnh (CLS 0,66 mobile-qa 360) */
-    bindCommon();
-    App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
-    if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, UI.audioFor(e, state.settings.accent)); }
-    if (final) { loadRelated(e); drawPhrases(e); if (window.Lex) Lex.phrases(e.word).then(l => { if (l && l.length && same() && $('#phraseBox')) drawPhrases(e, l); }).catch(() => {}); } // cụm từ theo mảnh (không nạp 2,3 MB gói từ)
-    if (keep) { $('#ctx').value = keep; }
-
-    let ctxVi = '';
-    const trCtx = async () => {
-      const text = $('#ctx').value.trim();
-      if (!text) return '';
-      $('#ctxVi').textContent = '⏳ ' + t('Đang dịch…');
-      const ml = (I18N && I18N.meanLang && I18N.meanLang()) || 'vi';
-      const userLang = (I18N && I18N.lang && I18N.lang()) || 'vi';
-      const targetLang = ml === 'vi' ? 'vi' : (userLang !== 'en' ? userLang : 'vi');
-      ctxVi = targetLang === 'vi' ? await Dict.translateVi(text) : await Dict.translateTo(text, targetLang);
-      const flg = (I18N && I18N.flag ? I18N.flag(targetLang) : (targetLang === 'vi' ? '🇻🇳' : '🌐'));
-      $('#ctxVi').textContent = ctxVi ? `${flg} ${ctxVi}` : t('Không dịch được câu này.');
-      return ctxVi;
-    };
-    const qs = $('#quickSave');
-    if (!$('#ctx')) { if (qs) qs.onclick = async () => { await addWord(e, null); toast(t('Đã lưu “{w}” vào flashcard', { w: e.word })); routes.dict(e.word); }; return; } // lần vẽ nhanh: chưa có ô ngữ cảnh
-    $('#trCtx').onclick = trCtx;
-    $('#ctx').oninput = () => { ctxVi = ''; $('#ctxVi').textContent = ''; };
-    $$('[data-use-sent]').forEach(b => b.onclick = () => {
-      const s = e.sentences.find(x => x.en === b.dataset.useSent);
-      $('#ctx').value = s.en; ctxVi = s.vi; $('#ctxVi').textContent = `🇻🇳 ${s.vi}`;
-      $('#saveCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-    const save = async () => {
-      const text = $('#ctx').value.trim();
-      if (text && !ctxVi) await trCtx();
-      await addWord(e, text ? { text, vi: ctxVi, source: '', title: 'Ghi chú của bạn' } : null);
-      toast(card ? t('Đã cập nhật thẻ') : t('Đã lưu “{w}” vào flashcard', { w: e.word }));
-      location.hash === `#/dict/${encodeURIComponent(e.word)}` ? routes.dict(e.word) : (location.hash = `#/dict/${encodeURIComponent(e.word)}`);
-    };
-    $('#saveWord').onclick = save;
-    if (qs) qs.onclick = save;
-    }
-  });
-
-  // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
-  function drawPhrases(e, lx) {
-    const el = $('#phraseBox'); if (!el) return;
-    const re = UI.wordRegex(e.word), lx2 = (lx || []).filter(w => re.test(w.word));
-    const lib = [...lx2, ...Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word) && !lx2.some(l => l.word === w.word))].slice(0, 10);
-    const mine = Object.values(state.cards).filter(c => /\s/.test(c.word) && re.test(c.word) && !lib.some(l => l.word === c.word)).slice(0, 10);
-    const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent-text);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
-      <div class="row" style="margin-top:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${own || inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã lưu')}</span>` : `<button class="btn sm ghost" data-add-seed="${esc(w.word)}">+ ${t('Lưu cụm')}</button>`}</div></div>`;
-    el.innerHTML = `<div style="margin-top:1rem"><div class="row between"><h3 style="margin:0">🧩 ${t('Cụm từ & cấu trúc với “{w}”', { w: esc(e.word) })}</h3><button class="btn sm" id="addPhr">＋ ${t('Lưu cụm / cấu trúc của bạn')}</button></div>
-      ${lib.length || mine.length ? `<div class="phr-grid">${lib.map(w => row(w, false)).join('')}${mine.map(c => row(c, true)).join('')}</div>` : `<p class="small muted" style="margin:.4rem 0 0">${t('Chưa có cụm nào trong thư viện. Mẹo: <b>bôi đen một cụm trong câu ví dụ</b> phía trên rồi bấm “🧩 Lưu cụm này”.')}</p>`}</div>`;
-    bindCommon();
-    $('#addPhr').onclick = () => App.savePhraseDialog({ phrase: e.word + ' ', sentence: e.ex || '' });
-  }
-
-  // Từ liên quan (Datamuse): tính từ hay đi kèm, danh từ hay đi kèm, trái nghĩa, gần nghĩa
-  async function loadRelated(e) {
-    const w = encodeURIComponent(e.word);
-    const get = async u => { try { const r = await fetch(u).then(r => r.json()); return Array.isArray(r) ? r : []; } catch (x) { return []; } };
-    // Danh từ → tính từ hay đi kèm; tính từ → danh từ hay đi sau (tránh cụm vô nghĩa)
-    const isNoun = /^n|danh/.test(e.pos || ''), isAdj = /^adj|tính/.test(e.pos || '');
-    const STOP = new Set(['more', 'most', 'less', 'least', 'very', 'other', 'such', 'same', 'own', 'many', 'much', 'few', 'several', 'certain', 'various', 'error', 'orthogonal']);
-    const [jjb0, jja, ant, ml] = await Promise.all([
-      isNoun || !isAdj ? get(`https://api.datamuse.com/words?rel_jjb=${w}&max=14`) : [],
-      isAdj ? get(`https://api.datamuse.com/words?rel_jja=${w}&max=10`) : [],
-      get(`https://api.datamuse.com/words?rel_ant=${w}&max=6`),
-      get(`https://api.datamuse.com/words?ml=${w}&max=16&md=f`),
-    ]);
-    const jjb = isAdj ? [] : jjb0.filter(x => !STOP.has(x.word) && x.score > 300).slice(0, 10);
-    const el = $('#related'); if (!el || parseHash().arg !== e.word && parseHash().arg.toLowerCase() !== e.word) return;
-    const chips = (arr, fmt) => arr.map(x => `<a class="chip" href="#/dict/${encodeURIComponent(x.word)}">${esc(fmt(x.word))}</a>`).join(' ');
-    let html = '';
-    if (jjb.length) html += `<div style="margin-top:.6rem"><b>🧩 ${t('Tính từ hay đi với “{w}”:', { w: esc(e.word) })}</b> ${chips(jjb, x => `${x} ${e.word}`)}</div>`;
-    if (jja.length) html += `<div style="margin-top:.6rem"><b>🧩 ${t('Danh từ hay đi sau:')}</b> ${chips(jja, x => `${e.word} ${x}`)}</div>`;
-    if (ant.length) html += `<div style="margin-top:.6rem"><b>↔ ${t('Trái nghĩa:')}</b> ${chips(ant, x => x)}</div>`;
-    const syn = new Set(e.syn);
-    const stemE = e.word.slice(0, Math.max(5, e.word.length - 4));
-    const mlf = ml.filter(x => !syn.has(x.word) && !/\s/.test(x.word) && !x.word.startsWith(stemE) && !e.word.startsWith(x.word.slice(0, 6)) && +(((x.tags || []).find(t => t.startsWith('f:')) || 'f:0').slice(2)) >= 1).slice(0, 8);
-    if (mlf.length) html += `<div style="margin-top:.6rem"><b>🔀 ${t('Từ gần nghĩa:')}</b> ${chips(mlf, x => x)}</div>`;
-    el.innerHTML = html;
-  }
 
   // ================= SỔ TỪ =================
   // 🔗 Chia sẻ bộ thẻ: nén danh sách từ vào chính đường link (không máy chủ, không giới hạn). Chỉ gồm nội dung từ – không có ngữ cảnh cá nhân/tiến độ.
@@ -1731,7 +1566,7 @@
     let lcp = 0, hid = document.visibilityState === 'hidden' ? 0 : Infinity;
     addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') hid = Math.min(hid, performance.now()); }, true);
     try { new PerformanceObserver(l => { const e = l.getEntries().pop(); if (e && e.startTime < hid) lcp = Math.round(e.startTime); }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* trình duyệt không hỗ trợ */ } // LCP thật của người dùng (Core Web Vitals)
-    const send = d => { try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(d)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(d), keepalive: true }); } catch (e) { /* bỏ qua */ } };
+    const send = d => { try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(d)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(d), keepalive: true, mode: 'no-cors' }); } catch (e) { /* bỏ qua */ } };
     // Quy mô lớn: chỉ một tỉ lệ người dùng gửi thống kê phiên (hit_rate do quản trị đặt, ổn định theo vid) – giữ D1/Functions trong gói miễn phí
     let rate = 1; try { rate = Math.min(1, Math.max(0.01, +localStorage.getItem('lk.hr') || 1)); } catch (e) { /* bỏ qua */ }
     // lk.noTrack = máy của quản trị (admin.js tự đặt khi mở trang Quản trị) → không gửi phiên (vẫn báo lỗi JS & nhận thông báo)

@@ -54,6 +54,14 @@ const formOf = (w, s) => { const t = words(s), st = w.split('-')[0].slice(0, Mat
 // Cổng 1 mục (CỨNG): lược đồ · IPA hợp lệ (Anh từ Wiktionary, Mỹ từ CMUdict) · 2 giám khảo khác họ ≥ 4 lệch ≤ 1 · CEFR · dịch (≥ 4 cả 2 giám khảo, đúng chữ viết, không lẫn tiếng Việt, dịch ngược ≥ 0.8)
 // định nghĩa đúng HÌNH từ loại (quy ước kho, đo 26/10: v 1348/1348 "to …", adj/adv 0 mạo từ/"to", n 0 "to") – pilot 11: purple#adj "a colour that…"
 export const DEF_POS_FIX = { v: 'a verb definition must start with "to …"', adj: 'an adjective definition must describe a quality (no "a/an/the …" noun phrase, no "to …")', adv: 'an adverb definition must not start with "a/an/the" or "to"', n: 'a noun definition must not start with "to …"' };
+/** NGỮ PHÁP def tất định (soát Sonnet pilot 31/10: resuscitate "to restore consciousness, energy, or life to" – giới từ cụt; orphan "a child whose both parents have died" – lượng từ sau "whose").
+ *  Trả lý do (tiếng Anh, đưa vào lxdef viết lại 1 lần) hoặc ''. */
+export function defGrammarBad(def) {
+  const d = String(def || '').trim().toLowerCase().replace(/[.;:,\s]+$/, '');
+  if (/\b(to|of|with|from|a|an|the|and|or)$/.test(d)) return 'the definition must not end with a dangling "' + d.split(/\s+/).pop() + '" – give the object or rephrase';
+  if (/\bwhose (both|all|each|every|either|neither)\b/.test(d)) return 'ungrammatical quantifier after "whose" – e.g. "whose parents have both died"';
+  return '';
+}
 export function defPosOk(def, pos) {
   const d = String(def || '').trim().toLowerCase();
   if (pos === 'v') return /^to /.test(d);
@@ -66,7 +74,77 @@ export const SENSITIVE = /\b(muslims?|islam(ic|ists?)?|jews?|jewish|christians?|
 export const ADULT = /\b(virgins?|virginity|sex|sexual(ly)?|sexy|intercourse|naked|nude|porn\w*|erotic|condoms?|prostitut\w*|orgasm\w*)\b/i;
 // ví dụ phải là CÂU hoàn chỉnh (pilot 20261028: ballet "a classically-trained ballet dancer" – cụm danh từ, không phải câu)
 export const isSentence = x => /^["'“‘(]?[A-Z0-9]/.test(String(x || '').trim()) && /[.!?]["'”’)]?$/.test(String(x || '').trim());
+/** biến tố của từ (không phái sinh): s/es/ed/d/ing/er/est, y→ies/ied, e câm, phụ âm đôi; bất quy tắc qua 4 chữ đầu chỉ khi từ ≥ 5 chữ và đuôi ngắn (forsook) */
+export function inflRe(w) { const b = String(w).toLowerCase().replace(/[^a-z-]/g, ''), st = b.replace(/e$/, ''), y = b.replace(/y$/, ''), dbl = b + b.slice(-1);
+  return new RegExp(`\\b(${b}(s|es|d|ed|ing|er|est)?|${st}(ed|ing|er|est)|${y}(ies|ied|ier|iest)|${dbl}(ed|ing|er|est))\\b`, 'i'); }
+// ---- "RA LÀ OK" (29/10): trắc nghiệm nghĩa 3 giám khảo (lxwsd) – một luật cho mọi trường (docs/LEXICON.md §Mở rộng 20k)
+/** probe đạt khi CẢ 3 giám khảo (khác họ) chọn đúng số nghĩa khoá (1-based); thiếu phiếu = không đạt */
+export const wsdOk = (votes, lock) => Array.isArray(votes) && votes.length >= 3 && votes.every(v => Number(v) === lock);
+/** KHÓA NGHĨA THÔNG DỤNG (lớp L3): nghĩa 1 của Wiktionary (xếp theo độ thông dụng) → số nghĩa WordNet mà CẢ 3 giám khảo chọn.
+ *  Không đồng thuận → chấp nhận nghĩa SemCor chỉ khi nghĩa 2 Wiktionary được cả 3 chọn ĐÚNG nghĩa đó (nghĩa phổ biến thật); còn lại null = bỏ từ (hàng duyệt). */
+export function lockSense(v1, v2, semIdx, n) {
+  const one = v => Array.isArray(v) && v.length >= 3 && v.every(x => Number(x) === Number(v[0])) && Number(v[0]) >= 1 && Number(v[0]) <= n ? Number(v[0]) : 0;
+  if (one(v1)) return { idx: one(v1), by: 'wiktionary-1' };
+  if (one(v2) && one(v2) === semIdx) return { idx: semIdx, by: 'wiktionary-2+semcor' };
+  // 2/3 giám khảo chọn nghĩa 1 Wiktionary = ĐÚNG nghĩa SemCor (tần suất ngữ liệu) → hai tín hiệu độc lập cùng chỉ một nghĩa (pilot 29/10: expel, transcend)
+  const maj = v => (Array.isArray(v) && v.length >= 3 ? [...new Set(v.map(Number))].find(x => x >= 1 && v.filter(y => Number(y) === x).length >= 2) : 0) || 0;
+  if (maj(v1) && maj(v1) === semIdx) return { idx: semIdx, by: 'wiktionary-1-2of3+semcor' };
+  return null;
+}
+/** vi chuẩn hoá để so nguồn: thường, bỏ ngoặc, NFC */
+export const viNorm = v => String(v || '').toLowerCase().normalize('NFC').replace(/\([^)]*\)/g, '').split(/[;,]/).map(x => x.trim().replace(/\s+/g, ' ')).filter(Boolean);
+/** vi HAI NGUỒN ĐỘC LẬP (lớp L1): nguồn = { wk: Wiktionary (bảng khớp nghĩa ∪ mục vi cùng từ loại), wv: Wiktionary tiếng Việt (31/10), a: lxtr, b: lxvi (họ khác) }.
+ *  Trả [{ v, src: [...] }] theo thứ tự wk → a → b, chỉ phương án có ≥ 2 nguồn. */
+// khoá so khớp vi (pilot 29/10: "khinh bỉ" ≠ "sự khinh bỉ" → trượt oan): bỏ từ chỉ loại đầu (sự/việc/cái/con/nỗi/niềm/cuộc/chiếc; "tính" chỉ khi còn ≥ 2 âm tiết – tính toán ≠ toán; KHÔNG bỏ "lòng": lòng bàn tay ≠ bàn tay),
+// giữ thứ tự âm tiết (đảo = đổi nghĩa). Phương án hiển thị = dạng gặp đầu tiên (Wiktionary trước).
+// dấu thanh kiểu cũ/mới (31/10 pilot phễu: witch "phù thuỷ" ≠ "phù thủy"): oa/oe/uy không phụ âm cuối → dấu về nguyên âm cuối (hoà = hòa, thuỷ = thủy)
+const TONE = /[\u0300\u0301\u0303\u0309\u0323]/;
+export const viTone = v => String(v || '').normalize('NFD').split(' ').map(w => { const t = w.match(TONE); if (!t) return w; const b = w.replace(TONE, ''); return /(o[ae]|uy)$/.test(b) ? b + t[0] : w; }).join(' ').normalize('NFC');
+export const viKey = v => viNorm(v)[0] ? viTone(viNorm(v)[0]).replace(/^(sự|việc|cái|con|nỗi|niềm|cuộc|chiếc|thói) (?=\S)/, '').replace(/^tính (?=\S+ \S)/, '') : ''; // KHÔNG đảo âm tiết: thần tượng ≠ tượng thần
+export function viAgreeSources(srcs) {
+  const m = new Map();
+  for (const s of Object.keys(srcs)) for (const v of [].concat(srcs[s] || []).flatMap(viNorm)) { const k = viKey(v); if (!k) continue; const o = m.get(k) || m.set(k, { v, src: [] }).get(k); if (!o.src.includes(s)) o.src.push(s); }
+  // khớp ĐẦU NGỮ (31/10 pilot phễu: doze "giấc ngủ ngắn" ⊂ "giấc ngủ ngắn lơ mơ", toss "ném" ⊂ "ném lên"): tiếng Việt đầu ngữ đứng trước → từ người viết = phương án AI
+  // + ≤ 2 âm tiết bổ nghĩa SAU thì phương án AI (rộng hơn) được nguồn người viết đỡ. KHÔNG khớp đuôi (lòng bàn tay ≠ bàn tay). Trắc nghiệm 3/3 vẫn chấm CHÍNH phương án AI.
+  const HUMS = ['wk', 'wv'], all = [...m.entries()], hum = all.filter(([, o]) => o.src.some(x => HUMS.includes(x)));
+  for (const [k, o] of all) if (!o.src.some(x => HUMS.includes(x))) for (const [hk, h] of hum) if (hk.startsWith(k + ' ') && hk.split(' ').length - k.split(' ').length <= 2) for (const x of h.src) if (HUMS.includes(x) && !o.src.includes(x)) o.src.push(x);
+  return [...m.values()].filter(o => o.src.length >= 2);
+}
+/** vi BỊ PHẢN BÁC (lớp L1, pilot 31/10 peel#v "gọt": Wiktionary + lxtr trùng, qua trắc nghiệm 3/3 nhưng sai – lxtr nhận câu ví dụ "peel apples" nên neo vào từ hẹp).
+ *  ai = { a, b, c }: câu trả lời vi của từng AI. Phương án c (từ viAgreeSources) chỉ nhận khi số AI ỦNG HỘ > số AI PHẢN BÁC
+ *  (AI có trả lời mà không phương án nào trùng khoá / bao nhau với c: "múa ba lê" ⊃ "ba lê" = không phản bác). */
+export function viContested(c, ai) {
+  const k = viKey(c.v), sup = c.src.filter(s => s !== 'wk' && s !== 'wv' && ai[s]).length;
+  const dis = Object.keys(ai).filter(s => !c.src.includes(s) && viNorm(ai[s]).length && !viNorm(ai[s]).some(v => { const q = viKey(v); return q && (q === k || q.includes(k) || k.includes(q)); })).length;
+  return sup <= dis;
+}
+/** từ nội dung (5 chữ đầu) để so nhãn bảng dịch Wiktionary với gloss/def */
+export const CW = t => new Set((String(t).toLowerCase().match(/[a-z]{3,}/g) || []).filter(x => !['the', 'and', 'for', 'with', 'that', 'which', 'from', 'into', 'something', 'someone', 'used', 'especially', 'usually', 'often', 'having', 'being', 'etc', 'one', 'other', 'any', 'such', 'are', 'not', 'its', 'has'].includes(x)).map(x => x.slice(0, 5)));
+export const ov = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n; };
+/** bảng dịch đã chọn (chỉ số ti) MƠ HỒ khi một bảng khác khớp NGUỒN NGƯỜI VIẾT (gloss + lemma WordNet – không def AI) ngang hoặc hơn (lớp D1: razor "shaving knife" ↔ "shaving instrument" → pt navalha = dao cạo thẳng) */
+export function trTableAmbiguous(labels, ti, text) { const T = CW(text), m = ov(CW(labels[ti] || ''), T); return labels.some((g, j) => j !== ti && ov(CW(g), T) >= m); }
+/** bản dịch 12 ngôn ngữ cũng cần ≥ 2 nguồn độc lập (pilot 29/10: detriment ko 상해 – chỉ bảng Wiktionary + trắc nghiệm nghĩa vẫn lọt) */
+// soát 50 mẫu pilot 29/10: 9/11 bản dịch sai chỉ 1 nguồn; 2 còn lại khớp Wiktionary ∩ OMW nhưng không tự nhiên (pt surpresa, zh 蚤) → AI họ A xác nhận + nguồn người viết;
+export const TR2 = /^wiktionary\+omw\+ai$/; // soát pilot 2: 5/7 lỗi dịch chỉ 2 nguồn (omw+ai, wiktionary+ai) → cần ĐỦ 3 nguồn
+export function trNorm(l, t) { return String(t || '').split(/\s*;\s*/)[0].toLowerCase().trim().replace(/[\u064B-\u0652\u0670]/g, '').replace(/[+_]/g, l === 'ja' ? '' : ' ').replace(/\s+/g, ' ').replace(l === 'ja' ? /する$/ : /$^/, ''); }
+export const trIn = (l, t, list) => { const T = trNorm(l, t); return !!T && [].concat(list || []).flatMap(x => String(x || '').split(/\s*;\s*/)).some(x => trNorm(l, x) === T); };
+// HÌNH TỪ LOẠI của bản dịch (lớp D3: carelessly es "descuidado" tính từ, dizzy tr danh từ) – luật tất định cho đuôi rõ ràng; không có luật → đạt (giám khảo lxwsd chặn tiếp)
+export function posShapeOk(l, pos, t, w = '') {
+  const x = String(t || '').trim().split(/\s*;\s*/)[0] || '', f = x.split(/\s+/)[0], last = x.split(/\s+/).pop();
+  if (!x) return false;
+  if (pos === 'adv' && /ly$/.test(w)) { if (['es', 'pt'].includes(l)) return /mente$/.test(last); if (l === 'fr') return /ment$/.test(last); if (l === 'ru') return /[оеи]$/.test(f); }
+  if (pos === 'v') { if (['es', 'pt'].includes(l)) return /(r|rse|r-se)$/.test(f); if (l === 'fr') return /^(se |s')?\S*(er|ir|re|oir)$/.test(x.replace(/^(se |s')/, '')) || /(er|ir|re|oir)$/.test(f); if (l === 'ru') return /(ть|ти|чь)(ся|сь)?$/.test(f); if (l === 'tr') return /(mak|mek)$/.test(last); if (l === 'de') return /n$/.test(last); if (l === 'ko') return /다$/.test(last); }
+  if (pos === 'adj') { if (l === 'ru') return /(ый|ий|ой|ая|яя|ое|ее|ые|ие)$/.test(f); if (l === 'ko') return /(다|운|은|는|한|인|른|된)$/.test(last); }
+  if (pos === 'n' && l === 'de') return /^[A-ZÄÖÜ]/.test(last);
+  return true;
+}
+/** khớp OMW (lớp D1): bản dịch (từ đầu) có trong lemma OMW của CHÍNH synset (chuẩn hoá: thường, bỏ harakat, bỏ "する" đuôi tiếng Nhật) */
+export const omwHas = (l, t, list) => trIn(l, t, list);
 export function gateEntry(e, { keep } = {}) {
+  // mục ĐÃ QUA cổng và đã lưu (qa.trKeep, perLang bị xoá, ngôn ngữ trượt bị bỏ, qa.btw gộp vào qa.bt) – xét lại theo đúng dạng lưu:
+  // ngôn ngữ còn lại vẫn phải đủ mọi điều kiện, dịch ngược dùng kết quả đã chấm (qa.bt). Trước 30/10 chưa từng có lô xuất nên test chưa chạm tới.
+  const stored = !!(e && !e.perLang && e.qa && Array.isArray(e.qa.trKeep));
+  if (stored) e = { ...e, perLang: true, _stored: true };
   const why = [];
   if (!e) return { ok: false, why: ['gen: không sinh được'] };
   if (keep === false) return { ok: false, why: ['keep: không phải mục từ chuẩn'] };
@@ -78,6 +156,7 @@ export function gateEntry(e, { keep } = {}) {
   if (!e.ipaUS) why.push('ipa: thiếu IPA Mỹ'); else if (badChars(e.ipaUS).length) why.push('ipa: Mỹ ngoài bảng ' + badChars(e.ipaUS).join(''));
   if (!e.def || words(e.def).length > 18 || words(e.def).includes(e.w)) why.push('schema: định nghĩa');
   else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);
+  else if (defGrammarBad(e.def)) why.push('schema: định nghĩa sai ngữ pháp – ' + defGrammarBad(e.def));
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
   else if (e.ex.some(x => !isSentence(x))) why.push('ví dụ: không phải câu hoàn chỉnh (viết hoa đầu, có dấu câu cuối)');
   if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa
@@ -97,6 +176,12 @@ export function gateEntry(e, { keep } = {}) {
   // KHÓA NGHĨA (pilot 7: prop/tweet lệch nghĩa): cả 2 giám khảo phải trả lời "yes" – thiếu = trượt
   if (Array.isArray(e.qa.sense) && !(e.qa.sense.length >= 2 && e.qa.sense.every(x => x === 'yes'))) why.push('nghĩa: ví dụ/dịch không đúng nghĩa khóa (' + e.qa.sense.join('/') + ')');
   if (e.posDrift) why.push('nghĩa: đổi từ loại ' + e.pos + '→' + e.posDrift);
+  // khoá nghĩa thông dụng (lớp L3) + trắc nghiệm nghĩa 3 giám khảo (lớp L1/L2): thiếu đồng thuận = trượt, không bao giờ nhận
+  if (e.senseLock === false) why.push('nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo)');
+  const W = e.qa.wsd;
+  if (W) { if (!Array.isArray(W.ex) || W.ex.length !== 2 || !W.ex.every(Boolean)) why.push('nghĩa: ví dụ chưa qua trắc nghiệm nghĩa 3 giám khảo');
+    if (W.vi !== true) why.push('dịch vi: chưa qua trắc nghiệm nghĩa 3 giám khảo');
+    if (!Array.isArray(e.qa.viSrc) || e.qa.viSrc.length < 2 || !(e.qa.viSrc.includes('wk') || e.qa.viSrc.includes('wv'))) why.push('dịch vi: cần Wiktionary (en/vi) + ≥ 1 nguồn khác trùng (2 nguồn độc lập)'); }
   if (e.ipaPos === false) why.push('ipa-pos: không có IPA Anh khớp từ loại (cặp đổi trọng âm danh–động)');
   // CEFR: nguồn kiểu EVP (CEFR-J/Octanove) thắng; chỉ dải tần suất → giám khảo kiểm, lệch ≥ 2 bậc → trượt (pilot 7: assault A2)
   if (CE.includes(e.level) && (e.cefrSrc || 'freq') === 'freq' && Array.isArray(e.qa.cefrJ)) { const off = e.qa.cefrJ.filter(x => CE.includes(x)).map(x => Math.abs(CE.indexOf(x) - CE.indexOf(e.level))); if (off.some(d => d >= 2)) why.push('cefr: giám khảo lệch ≥ 2 bậc (' + e.qa.cefrJ.join('/') + ' ≠ ' + e.level + ')'); }
@@ -108,15 +193,20 @@ export function gateEntry(e, { keep } = {}) {
   let bt = 0; const drop = {};
   for (const l of LANGS) {
     const t = (e.m || {})[l], sc = (e.qa.tr || {})[l] || [];
+    if (e._stored && !t && !e.qa.trKeep.includes(l)) continue; // dạng lưu: ngôn ngữ đã bỏ ở cổng (qa.trDrop) – không có bản dịch là đúng
     const is = trIssues(e.w, t, l); if (t && SCRIPT[l] && !SCRIPT[l].test(t)) is.push('không có chữ bản địa'); if (t && String(t).toLowerCase().trim() === e.w && !['es', 'pt', 'fr', 'de', 'id', 'tr'].includes(l)) is.push('chép nguyên từ tiếng Anh');
     if (e.qa.bad && e.qa.bad[l]) is.push(/translit/.test(e.qa.bad[l]) ? 'phiên âm tiếng Anh' : 'khác từ loại/khác từ');
     if (e.perLang) {
       // CỔNG THEO TRƯỜNG (chủ 27/10): ngôn ngữ chỉ HIỆN khi bản dịch đó đạt – nguồn người viết (bảng Wiktionary khớp nghĩa chắc chắn), đủ 3 giám khảo ≥ 4,
       // từ có thật (trcheck), dịch ngược khớp; trượt → bỏ ngôn ngữ đó khỏi mục (app dùng đường dịch hiện có của kho), KHÔNG làm trượt cả mục.
-      if (t && ((e.src && e.src.tr) || {})[l] !== 'wiktionary') is.push('không phải nguồn người viết (Wiktionary)');
+      if (t && !/^(wiktionary|omw)/.test(((e.src && e.src.tr) || {})[l] || '')) is.push('không phải nguồn người viết (Wiktionary/OMW)');
+      else if (t && W && !TR2.test(((e.src && e.src.tr) || {})[l] || '')) is.push('cần 2 nguồn độc lập (Wiktionary / OMW / AI)');
+      if (t && W && !(W.tr && W.tr[l] === true)) is.push('chưa qua trắc nghiệm nghĩa 3 giám khảo');
+      if (t && !posShapeOk(l, e.pos, t, e.w)) is.push('sai hình từ loại ' + e.pos);
       if (t && e.trBad && e.trBad[l]) is.push('từ không có thật (wordfreq: ' + [].concat(e.trBad[l]).join(', ') + ')');
       if (t && !is.length && (sc.length < 3 || Math.min(...sc) < 4)) is.push('giám khảo < 4 (' + sc.join('/') + ')');
-      if (t && !is.length && !btOk(e, l)) is.push('dịch ngược không khớp');
+      if (t && !is.length && !e._stored && !btOk(e, l)) is.push('dịch ngược không khớp');
+      if (t && e._stored && !e.qa.trKeep.includes(l)) is.push('ngôn ngữ không nằm trong trKeep');
       if (is.length) drop[l] = is.join(', '); else bt++;
       continue;
     }
@@ -124,17 +214,21 @@ export function gateEntry(e, { keep } = {}) {
     if (sc.length < (e.qa.n || 2) || Math.min(...sc) < 4) why.push(`dịch ${l}: giám khảo < 4 (${sc.join('/')})`);
     if (btOk(e, l)) bt++;
   }
+  if (e._stored) for (const [l, d] of Object.entries(drop)) why.push(`dịch ${l}: ${d}`); // dạng lưu: không còn quyền bỏ ngôn ngữ – mọi bản dịch còn lại phải đạt
   if (e.perLang) return why.length ? { ok: false, why } : { ok: true, bt: +(bt / LANGS.length).toFixed(2), keep: LANGS.filter(l => !(l in drop)), drop };
   const btr = e.qa.btw ? bt / LANGS.length : e.qa.bt;
   if (!(btr >= 0.8)) why.push(`dịch ngược ${btr && btr.toFixed(2)} < 0.8`);
   return why.length ? { ok: false, why } : { ok: true, bt: +btr.toFixed(2) };
 }
 const files = sub => ex(DIR + sub) ? fs.readdirSync(new URL(DIR + sub, ROOT)).filter(f => /^[\w.-]+\.json$/.test(f) && f !== 'candidates.json').map(f => DIR + sub + f) : [];
-// từ đã xử lý (đã xuất + chờ soát + hàng duyệt) – để chạy lại không làm trùng
-export function doneWords() {
+// MỤC đã xử lý (đã xuất + chờ soát + hàng duyệt) theo khoá `từ#loại` – để chạy lại không làm trùng. 30/10 (đa từ loại): trước đây khoá theo TỪ
+// nên kho có duck#n thì duck#v không bao giờ được làm → trần ~11–12k. Mục hàng duyệt 'keep: … từ loại khác' KHÔNG tính (requeue.mjs --pos đưa về retry).
+export const OTHER_POS = /^keep: từ đã có trong kho với từ loại khác/;
+// queue: false = chỉ mục đã xuất/chờ soát (requeue.mjs – 01/11: tính cả hàng duyệt thì --funnel ra 0 mục mà vẫn xoá 8.937 mục khỏi hàng duyệt)
+export function doneWords({ queue = true } = {}) {
   const s = new Set();
-  for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k.split('#')[0]);
-  if (ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] })) s.add(String(q.id).split('#')[0]);
+  for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k);
+  if (queue && ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] }) && !OTHER_POS.test((q.why || [])[0] || '')) s.add(String(q.id));
   return s;
 }
 // Mục ĐÃ XUẤT: lô ở content/lexicon/expand/<lô>.json có tệp kiểm mẫu content/qa/batches/lx-<lô>.json đạt (status published)
@@ -149,6 +243,9 @@ export function loadExpand() {
 }
 // Dạng INDEX (giống IELTS_DATA.INDEX của trình duyệt) cho mảnh tra từ
 export const toIndex = e => ({ word: e.w, ipa: e.ipa, pos: e.pos, vi: e.vi, def: e.def, ex: e.ex[0], col: e.col, syn: e.syn, level: e.level, emoji: e.emoji || '', ipaUS: e.ipaUS === e.ipa ? '' : e.ipaUS, topic: e.topic || '', ex2: e.ex[1], ...(e.note_vi ? { note: e.note_vi } : {}), x: 1 });
+// Từ loại PHỤ của một từ đã có mục (30/10 đa từ loại: kho có duck#n, mở rộng thêm duck#v) → INDEX[duck].more[] – mảnh tra từ chở theo mục chính,
+// từ điển hiện ở khối đúng từ loại (dictionary.js build). Nghĩa 13 ngôn ngữ ở mảnh ngôn ngữ, khoá `từ#loại` (như gói web/packs).
+export const toMore = e => { const { word, emoji, note, ...m } = toIndex(e); return m; };
 // Dạng dòng kho (scripts/lexicon/lib.mjs loadAll) cho việc Node hạ nguồn (âm thanh, kịch bản, dist/lexicon.json…)
 export const expandRows = () => loadExpand().map(({ e, batch, file }) => ({ file, line: -1, set: e.topic || 'xw-everyday', x: 1, batch, row: [e.w, e.ipa, e.pos, e.vi, e.def, e.ex[0], e.col.join('|'), e.syn.join('|'), e.level, e.emoji || '', e.ipaUS === e.ipa ? '' : e.ipaUS] }));
 
@@ -160,3 +257,15 @@ export function poolEmpty(status, body) { return (status === 503 || status === 4
 export function queueable(r, callOk) { return !r.ok && !(callOk === false && /^gen:/.test(r.why[0] || '')); }
 /** Cầu dao: sau `max` lần liên tiếp kho rỗng thì mở (ngừng gọi) */
 export function breaker(max = 3) { let n = 0; const b = { open: false, hit(empty) { n = empty ? n + 1 : 0; if (n >= max) b.open = true; return b.open; } }; return b; }
+
+/** câu trả lời trắc nghiệm nghĩa của 1 mục → {probeId: số}. Mô hình hay bọc thêm 1 tầng ({probes:{…}}, {answers:{…}}, [{id, sense}]) – 30/10 gpt-oss trên Groq
+ *  trả khuôn bọc nên giám khảo A luôn "null" → khoá nghĩa trượt hàng loạt. null = không đọc được (ghi nhật ký, không đoán). */
+export function wsdUnwrap(o, ids) {
+  const num = v => (typeof v === 'number' || (typeof v === 'string' && /^\d+$/.test(v.trim())) ? Number(v) : (v && typeof v === 'object' && !Array.isArray(v) && ['sense', 'n', 'answer', 'value'].some(x => x in v) ? num(v.sense ?? v.n ?? v.answer ?? v.value) : undefined));
+  const flat = x => { if (!x || typeof x !== 'object') return null;
+    if (Array.isArray(x)) { const r = {}; for (const y of x) if (y && typeof y === 'object') { const id = y.id ?? y.probe ?? y.k; if (id != null) r[id] = num(y.sense ?? y.n ?? y.answer ?? y.value); } return r; }
+    const r = {}; for (const id of ids) if (id in x) r[id] = num(x[id]); return Object.values(r).some(v => v !== undefined) ? r : null; };
+  const d = flat(o); if (d) return d;
+  if (o && typeof o === 'object') for (const key of ['probes', 'answers', 'senses', 'result', 'results', 'out']) { const r = flat(o[key]); if (r && Object.values(r).some(v => v !== undefined)) return r; }
+  return null;
+}
