@@ -7,6 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { loadKokoro, trim } from './kokoro.mjs';
 import { readJSON, seedPath } from '../target/lib.mjs';
@@ -33,7 +34,7 @@ for (const v of VOICES) {
 }
 // âm vị cả lô một lần (python khởi động chậm): {chữ: âm vị}
 let PH = {};
-try { PH = JSON.parse(execFileSync('python3', [path.join(path.dirname(new URL(import.meta.url).pathname), 'pt_g2p.py')], { input: JSON.stringify(['coração', ...words]), maxBuffer: 1 << 26 }).toString()); } catch (e) { probe.phErr = String((e.stdout || '') + e.message).slice(0, 300); }
+try { PH = JSON.parse(execFileSync('python3', [fileURLToPath(new URL('./pt_g2p.py', import.meta.url))], { input: JSON.stringify(['coração', ...words]), maxBuffer: 1 << 26 }).toString()); } catch (e) { probe.phErr = String((e.stdout || '') + e.message).slice(0, 300); }
 if (PH.__err) probe.phErr = PH.__err;
 const ph = async w => (PH[w] ? { p: PH[w], lang: 'pt-br (misaki espeak)' } : null);
 probe.sample = await ph('coração');
