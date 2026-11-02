@@ -32744,5 +32744,20 @@
     "th": "ซ่อนคำแปล",
     "tr": "Çeviriyi gizle",
     "zh": "隐藏翻译"
+  },
+  "Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.": {
+    "es": "Recibes este correo porque pediste novedades al enviar el reporte.",
+    "pt": "Você recebe este e-mail porque pediu atualizações ao enviar o relatório.",
+    "fr": "Vous recevez cet e-mail car vous avez demandé des mises à jour en envoyant le signalement.",
+    "de": "Du erhältst diese E-Mail, weil du beim Senden der Meldung Updates angefordert hast.",
+    "id": "Anda menerima email ini karena meminta kabar terbaru saat mengirim laporan.",
+    "th": "คุณได้รับอีเมลนี้เพราะเลือกรับข่าวสารอัปเดตตอนส่งรายงาน",
+    "zh": "你收到这封邮件，是因为你在提交反馈时选择了接收更新。",
+    "ja": "このメールは、報告の送信時に更新のお知らせを希望されたためお送りしています。",
+    "ko": "신고를 보낼 때 업데이트 받기를 선택하셔서 이 메일을 보내 드립니다.",
+    "hi": "आपको यह ईमेल इसलिए मिला क्योंकि रिपोर्ट भेजते समय आपने अपडेट पाने का विकल्प चुना था।",
+    "ar": "تصلك هذه الرسالة لأنك طلبت تلقي التحديثات عند إرسال البلاغ.",
+    "ru": "Вы получили это письмо, потому что при отправке сообщения попросили присылать обновления.",
+    "tr": "Bu e-postayı, raporu gönderirken güncelleme almayı seçtiğiniz için alıyorsunuz."
   }
 }

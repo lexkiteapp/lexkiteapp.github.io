@@ -289,5 +289,24 @@ ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act IN
   ok(u.j.ok && !h.includes(XC) && sql.prepare('SELECT COUNT(*) AS n FROM content_flags WHERE cid = ?').get(XC).n === 0, 'quản trị hiện lại → bỏ khỏi danh sách ẩn + đếm lại từ 0');
 }
 
+// Thư người báo theo đúng 15 ngôn ngữ (hồi quy LX-1001: phiếu tiếng Trung nhận thư tiếng Anh) + bản dịch thư khớp nguồn app
+{
+  const GEN = await import(new URL('../gen-report-mail-i18n.mjs', import.meta.url));
+  const fs = await import('node:fs');
+  ok(fs.readFileSync(new URL('../../functions/api/_report-i18n.js', import.meta.url), 'utf8') === GEN.build(), '_report-i18n.js khớp nguồn web/js/i18n/<lang>/report.js (chạy node scripts/gen-report-mail-i18n.mjs)');
+  const I = await import(new URL('../../functions/api/_report-i18n.js', import.meta.url));
+  ok(GEN.LANGS.length === 15 && GEN.LANGS.every(l => l === 'vi' || (I.MAIL_I18N[l] && I.MAIL_I18N[l].length === I.MAIL_KEYS.length)), 'thư có đủ 15 ngôn ngữ, đủ khóa');
+  const vars = s => (s.match(/\{\w+\}/g) || []).sort().join();
+  const bad = []; for (const l in I.MAIL_I18N) I.MAIL_KEYS.forEach((k, i) => { const v = I.MAIL_I18N[l][i]; if (vars(v) !== vars(k) || (l !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(v))) bad.push(l + ': ' + k); });
+  ok(!bad.length, 'bản dịch thư giữ biến {id}/{s}/… và không lẫn tiếng Việt: ' + bad.slice(0, 3).join(' | '));
+  const row = { id: 1, tok: 'T'.repeat(24), status: 'fixed', reply: 'OK', dup_of: null, fix_ver: '20261102', email: 'a@b.co' };
+  const zh = R.userMail({ ...row, lang: 'zh-CN' }), en = R.userMail({ ...row, lang: 'xx' }), vi = R.userMail({ ...row, lang: 'vi' }), ar = R.userMail({ ...row, lang: 'ar' });
+  ok(zh.subject.includes('LX-1001') && zh.subject.includes('已修复') && zh.text.includes('20261102') && zh.text.includes('#/report/' + row.tok) && !/Fixed|Your report/.test(zh.text), 'phiếu tiếng Trung → thư tiếng Trung (tiêu đề, phiên bản, liên kết)');
+  ok(en.subject === '[Lexkite] Report LX-1001: Fixed' && en.text.includes('Fixed in version 20261102'), 'ngôn ngữ lạ → thư tiếng Anh');
+  ok(vi.subject === '[Lexkite] Báo lỗi LX-1001: Đã sửa' && vi.text.includes('Phản hồi từ Lexkite\nOK'), 'thư tiếng Việt');
+  ok(ar.text.includes('LX-1001') && /[\u0600-\u06FF]/.test(ar.subject), 'thư tiếng Ả Rập');
+  const t = R.mailT('ja'); ok(R.etaText({ kind: 'normal', h: 72 }, t) === t('Dự kiến xử lý: {t}', { t: t('trong {a}–{b} ngày', { a: 2, b: 3 }) }) && !R.etaText({ kind: 'normal', h: 72 }, t).includes('{'), 'mốc dự kiến dịch đúng, không sót biến');
+}
+
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê`);
