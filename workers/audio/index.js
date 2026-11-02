@@ -1,3 +1,4 @@
+// ĐANG THAY bằng R2 tĩnh lexkite-audio-cdn (docs/CAPACITY.md §A5, scripts/cdn/) – Worker giữ deploy làm đường lùi: scripts/cdn/cutover.mjs rollback --host audio.
 // audio.lexkite.com – Cloudflare đứng trước các kho media GitHub Pages (infra/media-repos.json, kind audio); ảnh dùng Worker riêng workers/media.
 // Máy chủ gần người dùng (có VN), bộ nhớ đệm 1 năm ở Cloudflare & trình duyệt (tên file băm theo nội dung nên không bao giờ đổi), giảm băng thông GitHub.
 // Từ 24/10/2026 mp3 không còn trong repo chính: dò lần lượt ORIGINS (kho mới nhất trước), trả bản 200 đầu tiên; 404 ở mọi gốc → 404 (đệm 60 s).

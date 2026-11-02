@@ -212,6 +212,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "cdn-mirror",
+   "workflow": "cdn-mirror.yml",
+   "cron": [
+    "47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [
@@ -1077,6 +1091,20 @@ export const REG = {
     "gh_minutes"
    ],
    "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "world-scorecard",
+   "workflow": "world-scorecard.yml",
+   "cron": [
+    "30 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
    "est": {},
    "lease": false
   }

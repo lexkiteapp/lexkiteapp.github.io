@@ -84,7 +84,8 @@
     })().catch(() => {}).then(() => { libW = null; });
   };
   // Câu đầu vẽ khi p xong (kho đã làm nóng); giữ thanh "Ngày n" mà path-day.js chèn vào view trong lúc chờ
-  const startWhen = (p, next) => { const h0 = location.hash; p.then(() => { if (location.hash !== h0) return; const bar = view.querySelector('.day-bar'); next(); if (bar && !view.querySelector('.day-bar')) view.prepend(bar); }); };
+  // Bỏ khi đã có lượt điều hướng mới (token) – kể cả đi rồi quay lại đúng hash cũ (A→B→A: hash trùng nhưng phiên cũ đã bị thay) – hoặc hash đã đổi
+  const startWhen = (p, next) => { const h0 = location.hash, tok = App.routeToken(); p.then(() => { if (App.routeStale(tok) || location.hash !== h0) return; const bar = view.querySelector('.day-bar'); next(); if (bar && !view.querySelector('.day-bar')) view.prepend(bar); }); };
   // Phương án nhiễu tính trước theo lát (Distract.pickAsync – cùng thuật toán pick): câu đầu trước khi vẽ, câu sau lúc rảnh sau khi vẽ câu trước.
   // Chưa xong / không đủ 3 → renderQuestion tự tính đồng bộ như cũ.
   const disKey = q => (q.type === 'mcq-vi' ? 'vi' : q.type === 'mcq-en' ? 'word' : null);
@@ -212,7 +213,8 @@
     const c = state.cards[key];
     if (!c) { session.queue.shift(); return session.queue.length ? showCard() : reviewDone(false); }
     // 🖼️ mảnh chỉ mục ảnh của thẻ này chưa về (vocab-img v3, ~5 KB) → tải rồi mới vẽ (không chèn hộp rỗng); lỗi mạng = mảnh rỗng, không lặp
-    if (window.VImg && VImg.loaded && !VImg.loaded(c.word)) { VImg.need(session.queue.slice(0, 4).map(k => state.cards[k]).filter(Boolean).map(x => x.word)).then(showCard); return; }
+    // App.live: mảnh về muộn sau khi người học đã rời phiên (vd. Bắt đầu ôn rồi chạm ngay tab Ôn) → bỏ, không vẽ thẻ đè trang mới (review-taps 1/11)
+    if (window.VImg && VImg.loaded && !VImg.loaded(c.word)) { App.live(VImg.need(session.queue.slice(0, 4).map(k => state.cards[k]).filter(Boolean).map(x => x.word))).then(showCard); return; }
     // Thẻ thêm hàng loạt chưa có phiên âm/định nghĩa → bổ sung ngầm cho thẻ này và vài thẻ kế tiếp
     session.queue.slice(0, 3).forEach(k => { const x = state.cards[k]; if (x && (!x.ipa || !x.def) && App.enrichLater) App.enrichLater(k); });
     if (window.VImg) VImg.prefetch(session.queue.slice(1, 4).map(k => state.cards[k]).filter(Boolean).map(x => [x.word, x.pos])); // 🖼️ ảnh 3 thẻ kế – lúc rảnh
@@ -536,7 +538,8 @@
       if (answered) return $('#nextQ').click();
       const a = $('#ans').value.trim().toLowerCase().replace(/\s+/g, ' ');
       if (!a) return;
-      let ok = a === w.word.toLowerCase() || a === target.toLowerCase(), ty = null;
+      // Biến thể viết đúng (hoa/thường, nháy cong, dấu câu cuối, viết tắt don't = do not) – ChoiceKit.accept, gói lfx
+      let ok = a === w.word.toLowerCase() || a === target.toLowerCase() || !!(window.ChoiceKit && (ChoiceKit.accept($('#ans').value, target).ok || ChoiceKit.accept($('#ans').value, w.word).ok)), ty = null;
       // Lỗi chính tả nhỏ (≤ 1 sửa/từ ≥ 4 chữ cái) → vẫn đúng + gạch chân chỗ sửa. Không áp cho bài chính tả và dạng từ đang kiểm (điền từ đã chia ≠ từ gốc)
       if (!ok && FX) {
         const strict = q.type === 'type-spell' || (isCloze && target.toLowerCase() !== w.word.toLowerCase());

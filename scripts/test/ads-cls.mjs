@@ -51,7 +51,8 @@ async function run({ cmp = 'none', fill = true, dnt = false } = {}) {
   const P = {}; P.self = P; vm.createContext(P); vm.runInContext(rd('web/js/ads/policy.js'), P);
   let hv = 'h0'; for (let i = 0; P.AdsPolicy.cohort(hv) !== 'h'; i++) hv = 'h' + i + 'zzzzzzz';
   let av = 'aaaaaaaa'; for (let i = 0; P.AdsPolicy.cohort(av) !== 'a'; i++) av = 'a' + i + 'zzzzzzz';
-  async function stat(file, urlPath, vid) {
+  const QC = process.env.ADS_QC_DIR || 'out/ads-qc'; fs.mkdirSync(QC, { recursive: true }); // ảnh QC ô quảng cáo (sáng/tối, 390 px) – artifact ads-qc-shots
+  async function stat(file, urlPath, vid, shot) {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }), p = await ctx.newPage();
     await p.addInitScript(() => Object.defineProperty(Navigator.prototype, 'webdriver', { get: () => false }));
     await p.addInitScript(v => { localStorage.setItem('lk.vid', v); window.__cls = 0; new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); }, vid);
@@ -70,12 +71,14 @@ async function run({ cmp = 'none', fill = true, dnt = false } = {}) {
     const y0 = await p.evaluate(() => { const h = document.querySelector('.ad-hold'); return Math.round(h.nextElementSibling.getBoundingClientRect().top + scrollY); }); // tọa độ tài liệu (không phụ thuộc cuộn)
     await p.waitForTimeout(7500); // load → rảnh 3 s → static.js → policy/run → AdSense giả (600 ms)
     const out = await p.evaluate(() => { const h = document.querySelector('.ad-hold'), a = h.querySelector('.ad-slot'); return { cls: window.__cls, y: Math.round(h.nextElementSibling.getBoundingClientRect().top + scrollY), hh: Math.round(h.getBoundingClientRect().height), filled: !!a.querySelector('ins[data-ad-status="filled"]'), hidden: a.hidden, n: document.querySelectorAll('.ad-slot').length }; });
-    await ctx.close(); return { ...out, y0 };
+    const wide = await p.evaluate(() => { const a = document.querySelector('.ad-slot'), r = a.getBoundingClientRect(), lab = a.querySelector('.ad-label'); return { over: document.documentElement.scrollWidth > innerWidth, inside: r.left >= 0 && r.right <= innerWidth, label: !!lab && lab.getBoundingClientRect().height > 0 && getComputedStyle(lab).visibility !== 'hidden' }; });
+    if (shot) for (const scheme of ['light', 'dark']) { await p.emulateMedia({ colorScheme: scheme }); await p.waitForTimeout(150); await p.screenshot({ path: path.join(QC, `${shot}-${scheme}-390.png`) }); }
+    await ctx.close(); return { ...out, ...wide, y0 };
   }
   const bp = '/' + path.relative(path.join(T, 'b'), path.dirname(blogF)).split(path.sep).join('/') + '/', dp = '/' + path.relative(path.join(T, 'd', 'assets'), path.dirname(dictF)).split(path.sep).join('/') + '/';
-  { const r = await stat(blogF, bp, av); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 2, `blog dài ${bp} (390px): ô giữa bài có quảng cáo, CLS = ${r.cls}, khung 290px, nội dung dưới ô không xê dịch, ${r.n} ô/bài ${JSON.stringify(r)}`); }
+  { const r = await stat(blogF, bp, av, 'blog'); ok(!r.over && r.inside && r.label, `blog 390px: ô nằm gọn trong màn hình, không cuộn ngang, nhãn "Quảng cáo" thấy được ${JSON.stringify(r)}`); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 2, `blog dài ${bp} (390px): ô giữa bài có quảng cáo, CLS = ${r.cls}, khung 290px, nội dung dưới ô không xê dịch, ${r.n} ô/bài ${JSON.stringify(r)}`); }
   { const r = await stat(blogF, bp, hv); ok(r.hidden && r.cls === 0 && r.y === r.y0 && r.hh === 290, `blog dài, nhóm đối chứng (ô bị ẩn): khung vẫn giữ 290px, CLS = ${r.cls} ${JSON.stringify(r)}`); }
-  { const r = await stat(dictF, dp, av); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 1, `trang từ điển ${dp} (390px): 1 ô có quảng cáo, CLS = ${r.cls}, nội dung dưới ô không xê dịch ${JSON.stringify(r)}`); }
+  { const r = await stat(dictF, dp, av, 'dict'); ok(!r.over && r.inside && r.label, `từ điển 390px: ô gọn trong màn hình, nhãn thấy được ${JSON.stringify(r)}`); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 1, `trang từ điển ${dp} (390px): 1 ô có quảng cáo, CLS = ${r.cls}, nội dung dưới ô không xê dịch ${JSON.stringify(r)}`); }
   { const r = await stat(dictF, dp, hv); ok(r.hidden && r.cls === 0 && r.y === r.y0, `trang từ điển, nhóm đối chứng: CLS = ${r.cls} ${JSON.stringify(r)}`); }
   fs.rmSync(T, { recursive: true, force: true }); }
 await browser.close();
