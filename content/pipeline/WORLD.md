@@ -9,14 +9,14 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 
 | Trục | Nhóm | Lexkite | Duolingo | Mục tiêu | Khoảng cách | Sàn | Đo |
 |---|---|---|---|---|---|---|---|
-| Độ phủ nội dung (content:score) | lõi | **47.3** | – | 90 | 42.7 | 47.3 | content/pipeline/SCORE.md |
+| Độ phủ nội dung (content:score) | lõi | **47.7** | – | 90 | 42.3 | 47.3 | content/pipeline/SCORE.md |
 | Dễ học – dễ nhớ (learnability, LEARN.md) | lõi | **–** | – | 90 | – | – | chưa có LEARN.md (PR #427 chưa gộp) |
 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | lõi | **75** | – | 100 | 25 | – | 6.5 s · 10 chạm (probe 2026-11-02) |
 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | lõi | **50** | – | 100 | 50 | – | 2 chạm |
 | Vòng thói quen: chuỗi · nhắc học · mục tiêu ngày · đóng băng chuỗi | lõi | **100** | 100 | 100 | 0 | 100 | ✓chuỗi ✓đóng băng ✓mục tiêu ngày ✓nhắc học |
 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | lõi | **53.3** | 50* | 100 | 46.7 | 53.3 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ |
 | Học khi mất mạng (SW shell · điều hướng dự phòng · gói từ offline) | lõi | **100** | 33* | 100 | 0 | 100 | ✓shell ✓điều hướng dự phòng ✓gói từ offline |
-| Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | lõi | **20.7** | – | 100 | 79.3 | 10.7 | 358.7 / 374.0 KB gz (đích 300) |
+| Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | lõi | **18.2** | – | 100 | 81.8 | 10.7 | 360.5 / 374.0 KB gz (đích 300) |
 | Tốc độ trang chủ di động (Lighthouse performance) | lõi | **99** | – | 98 | -1 | 97 | trang chủ di động: LCP 1.7 s, CLS 0, TBT 0 ms (2026-11-02) |
 | Truy cập (Lighthouse accessibility trang chủ + app) | lõi | **100** | – | 100 | 0 | 99 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |
 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | lõi | **22.1** | – | 100 | 77.9 | 22.1 | 15 Stitch / 68 màn (ref 27, tay 24) |
@@ -46,9 +46,9 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 |---|---|---|---|---|---|---|
 | 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 6.7 → 100 | 5 | 3 | 155.5 | 1/15 ngôn ngữ có "vì sao" (en 254; đích 200/ngôn ngữ) |
 | 2 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | 50 → 100 | 4 | 2 | 100 | 2 chạm |
-| 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 20.7 → 100 | 3 | 3 | 79.3 | 358.7 / 374.0 KB gz (đích 300) |
+| 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 18.2 → 100 | 3 | 3 | 81.8 | 360.5 / 374.0 KB gz (đích 300) |
 | 4 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 53.3 → 100 | 5 | 3 | 77.8 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ |
 | 5 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 75 → 100 | 5 | 2 | 62.5 | 6.5 s · 10 chạm (probe 2026-11-02) |
 | 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 52.5 → 100 | 5 | 4 | 59.4 | IELTS 10 · TOEIC 7 · TOEFL 4 · Cambridge 0 đề (đích 10/kỳ) |
 | 7 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 22.1 → 100 | 3 | 4 | 58.4 | 15 Stitch / 68 màn (ref 27, tay 24) |
-| 8 | Độ phủ nội dung (content:score) | 47.3 → 90 | 5 | 4 | 53.4 | content/pipeline/SCORE.md |
+| 8 | Độ phủ nội dung (content:score) | 47.7 → 90 | 5 | 4 | 52.9 | content/pipeline/SCORE.md |

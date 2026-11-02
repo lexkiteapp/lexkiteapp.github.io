@@ -13,12 +13,12 @@ _Tự sinh từ `content/pipeline/WORLD.md` (2026-11-02)._
 |---|---|---|---|---|---|---|
 | 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 6.7 → 100 | 5 | 3 | 155.5 | 1/15 ngôn ngữ có "vì sao" (en 254; đích 200/ngôn ngữ) |
 | 2 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | 50 → 100 | 4 | 2 | 100 | 2 chạm |
-| 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 20.7 → 100 | 3 | 3 | 79.3 | 358.7 / 374.0 KB gz (đích 300) |
+| 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 18.2 → 100 | 3 | 3 | 81.8 | 360.5 / 374.0 KB gz (đích 300) |
 | 4 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 53.3 → 100 | 5 | 3 | 77.8 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ |
 | 5 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 75 → 100 | 5 | 2 | 62.5 | 6.5 s · 10 chạm (probe 2026-11-02) |
 | 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 52.5 → 100 | 5 | 4 | 59.4 | IELTS 10 · TOEIC 7 · TOEFL 4 · Cambridge 0 đề (đích 10/kỳ) |
 | 7 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 22.1 → 100 | 3 | 4 | 58.4 | 15 Stitch / 68 màn (ref 27, tay 24) |
-| 8 | Độ phủ nội dung (content:score) | 47.3 → 90 | 5 | 4 | 53.4 | content/pipeline/SCORE.md |
+| 8 | Độ phủ nội dung (content:score) | 47.7 → 90 | 5 | 4 | 52.9 | content/pipeline/SCORE.md |
 <!-- auto:world-gaps:end -->
 
 ## Việc nên làm theo trục (người viết; số đo ở bảng trên)
