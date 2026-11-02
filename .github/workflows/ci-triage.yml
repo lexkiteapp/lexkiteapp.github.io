@@ -150,6 +150,7 @@ on:
       - 'Phát audio (Chromium + WebKit)'
       - 'codemap'
       - 'TTS A/B (Kokoro vs ElevenLabs)'
+      - 'Màn Ôn – chạm được'
       - 'required-gate'
       - 'ci-filler'
       - 'QA backlog'

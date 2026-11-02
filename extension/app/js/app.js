@@ -1084,14 +1084,14 @@
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}" aria-label="${t('Tìm từ hoặc nghĩa…')}">
         <select class="input" id="filterTopic" aria-label="${t('Chọn bộ từ')}"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
         <select class="input" id="filterFrom" aria-label="${t('Mọi nguồn')}"><option value="">${t('Mọi nguồn')}</option>${Object.entries(ORIGINS).map(([k, o]) => `<option value="${k}" ${from === k ? 'selected' : ''}>${o.emoji} ${o.name}</option>`).join('')}<option value="forget" ${from === 'forget' ? 'selected' : ''}>⚠️ ${t('Sắp quên')}</option></select>
-        <select class="input" id="filterM" aria-label="${t('Mọi mức độ')}"><option value="">${t('Mọi mức độ')}</option><option value="0">${t('Chưa học')}</option><option value="1">${t('Đang học')}</option><option value="2">${t('Quen')}</option><option value="3">${t('Đã thuộc')}</option></select>
+        <select class="input" id="filterM" aria-label="${t('Mọi mức độ')}"><option value="">${t('Mọi mức độ')}</option><option value="0">${t('Chưa học')}</option><option value="12">${t('Đang luyện')}</option><option value="1">${t('Đang học')}</option><option value="2">${t('Quen')}</option><option value="3">${t('Đã thuộc')}</option></select>
       </div>
       <div class="card" id="deckList"></div>`;
     let shownRows = list;
     const draw = () => {
       const q = $('#filterQ').value.trim().toLowerCase(), tp = $('#filterTopic').value, m = $('#filterM').value, fr = $('#filterFrom').value;
       const forgetSet = new Set(forgetting().map(c => c.word));
-      const rows = list.filter(c => (!q || c.word.includes(q) || (c.vi || '').toLowerCase().includes(q)) && (!tp || (tp.startsWith('deck:') ? c.deck === tp.slice(5) : c.topic === tp)) && (m === '' || SRS.mastery(c.srs) === +m)
+      const rows = list.filter(c => (!q || c.word.includes(q) || (c.vi || '').toLowerCase().includes(q)) && (!tp || (tp.startsWith('deck:') ? c.deck === tp.slice(5) : c.topic === tp)) && (m === '' || (m === '12' ? c.srs && (c.srs.reps > 0 || c.srs.last) && SRS.mastery(c.srs) < 3 : SRS.mastery(c.srs) === +m))
         && (!fr || (fr === 'forget' ? forgetSet.has(c.word) : origin(c) === fr))).sort((a, b) => fr === 'forget' ? SRS.retention(a.srs) - SRS.retention(b.srs) : b.added - a.added);
       shownRows = rows;
       $('#deckList').innerHTML = rows.length ? rows.slice(0, 400).map(c => `
@@ -1107,6 +1107,7 @@
       $$('[data-edit]').forEach(b => b.onclick = () => editCard(b.dataset.edit, draw));
     };
     ['filterQ', 'filterTopic', 'filterM', 'filterFrom'].forEach(id => $('#' + id).addEventListener('input', draw));
+    const qm = query && query.get('m'); if (qm && [...$('#filterM').options].some(o => o.value === qm)) $('#filterM').value = qm; // #/deck?m=12|3 từ ô số liệu màn Ôn
     draw();
     const dn = () => { const tp = $('#filterTopic').value, T = TOPICS.find(x => x.id === tp); return T ? T.name : tp.startsWith('deck:') ? tp.slice(5) : t('Sổ từ'); };
     $('#exportBtn').onclick = () => App.xport({ shown: shownRows, name: dn() });
