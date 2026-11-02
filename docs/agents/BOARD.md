@@ -201,8 +201,24 @@ Mẫu thẻ:
     * TH: `content/blog/th/theknik-star-samphat-ngan-phasa-angkrit.md` (commit `f6a7d866b`)
     * AR: `content/blog/ar/tiqniyyat-star-fi-al-muqabalat-bi-al-injliziyyah.md` (commit `aaac9e3d1`)
     * HI: `content/blog/hi/english-interview-star-technique-guide.md` (commit `80279f0da`)
-    * Tổng bài toàn repo: **926 bài** (75 bài mới Đợt 4). 100% PASS Quality Gates, shingle max 12.0%.
-  - 🔄 **Bắt đầu Cụm 6:** Ngữ điệu và trọng âm câu trong giao tiếp tiếng Anh nâng cao (`ngu-dieu-va-sentence-stress-tieng-anh`) - 15 ngôn ngữ.
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm 6** (`ngu-dieu-va-sentence-stress-tieng-anh`):
+    * VI: `content/blog/vi/trong-am-cau-trong-tieng-anh-quy-tac-luyen-tap.md` (commit `847265880`)
+    * EN: `content/blog/en/sentence-stress-in-english-speaking-guide.md` (commit `12fb00b2f`)
+    * ES: `content/blog/es/acento-oracional-en-ingles-guia.md` (commit `8c0824e0e`)
+    * PT: `content/blog/pt/ritmo-e-stress-oracional-em-ingles-guia.md` (commit `e2551e6d0`)
+    * FR: `content/blog/fr/accent-de-phrase-en-anglais-guide.md` (commit `b0f2a2c0b`)
+    * DE: `content/blog/de/satzakzent-im-englischen-guide.md` (commit `af2467dc2`)
+    * ID: `content/blog/id/ritme-dan-sentence-stress-bahasa-inggris.md` (commit `5ec41b973`)
+    * JA: `content/blog/ja/eigo-bun-no-stress-rhythm-guide.md` (commit `5f502f57c`)
+    * ZH: `content/blog/zh/ying-yu-ju-zi-zhong-yin-yu-jie-zou.md` (commit `d5961d8af`)
+    * KO: `content/blog/ko/yeongeo-munjang-gangse-sentence-stress-guide.md` (commit `86fed39a8`)
+    * RU: `content/blog/ru/frazoe-udarenie-v-angliyskom-yazyke.md` (commit `42b942ea3`)
+    * TR: `content/blog/tr/ingilizce-cumle-vurgusu-ve-ritim-rehber.md` (commit `d0a246489`)
+    * TH: `content/blog/th/sentence-stress-phasa-angkrit-thikhnik.md` (commit `ed266350f`)
+    * AR: `content/blog/ar/nabarat-al-jumal-wa-al-tashdid-fi-al-injliziyyah.md` (commit `4d79a1e52`)
+    * HI: `content/blog/hi/sentence-stress-in-english-hindi-guide.md` (commit `f21540f14`)
+    * Tổng bài toàn repo: **941 bài** (90 bài mới Đợt 4). 100% PASS Quality Gates, shingle max 12.0%.
+  - 🔄 **Bắt đầu Cụm 7:** Chiến lược phân bổ thời gian và giải đề TOEIC Part 7 đọc hiểu (`toeic-part-7-chien-luoc-doc-hieu`) - 9 ngôn ngữ cuối cùng để cán mốc **950 bài**.
 - **Cần sửa / Nhận xét:**
 
 ### [B5-MEGA100-P3] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 3 (Đạt mốc 851 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
