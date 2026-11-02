@@ -1,11 +1,13 @@
 // Giọng từ đơn tiếng Bồ Đào Nha (pt-BR) – lượt MẪU 20 từ (docs/specs/target-language.md §Giọng). CHỈ chạy trên CI (word-audio-pt.yml).
 // 1) Dò: kokoro-js có tự đọc tiếng Bồ không? (thư viện chỉ phiên âm 'a'=en-us / 'b'=en-gb và chỉ kèm giọng Anh/Mỹ → dự kiến KHÔNG)
-// 2) Đường thay: cùng mô hình Kokoro-82M (Apache-2.0) + âm vị espeak-ng 'pt-br' (gói phonemizer mà kokoro-js dùng) + giọng pf_dora (Ama, nữ) / pm_alex (Carlos, nam)
+// 2) Đường thay: cùng mô hình Kokoro-82M (Apache-2.0) + âm vị pt-br từ G2P chính thức của Kokoro (misaki EspeakG2P + espeak-ng đầy đủ, scripts/word-audio/pt_g2p.py –
+//    gói phonemizer kèm kokoro-js chỉ có tiếng Anh: lượt 41428871761) + giọng pf_dora (Ama, nữ) / pm_alex (Carlos, nam)
 //    tải từ onnx-community/Kokoro-82M-v1.0-ONNX. Không dùng được → thoát 3 (đổi sang Piper pt_BR, ghi trong spec).
 // Ra: $OUT/<giọng>/<từ>.wav + $OUT/probe.json → scripts/word-audio/pt_gate.py (−16 LUFS + nghe lại bằng Whisper đa ngôn ngữ).
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { execFileSync } from 'node:child_process';
 import { loadKokoro, trim } from './kokoro.mjs';
 import { readJSON, seedPath } from '../target/lib.mjs';
 
@@ -29,10 +31,12 @@ for (const v of VOICES) {
   if (!r.ok) { probe.voiceDownload = `${v}: HTTP ${r.status}`; break; }
   fs.writeFileSync(f, Buffer.from(await r.arrayBuffer()));
 }
-let phonemize = null;
-try { ({ phonemize } = require('phonemizer')); } catch (e) { probe.phonemizer = 'missing: ' + e.message.slice(0, 120); }
-const ph = async w => { for (const lang of ['pt-br', 'pt-BR', 'pt']) { try { const p = (await phonemize(w, lang)).join(' ').trim(); if (p) return { p, lang }; } catch (e) { probe.phErr = e.message.slice(0, 160); } } return null; };
-probe.sample = phonemize ? await ph('coração') : null;
+// âm vị cả lô một lần (python khởi động chậm): {chữ: âm vị}
+let PH = {};
+try { PH = JSON.parse(execFileSync('python3', [path.join(path.dirname(new URL(import.meta.url).pathname), 'pt_g2p.py')], { input: JSON.stringify(['coração', ...words]), maxBuffer: 1 << 26 }).toString()); } catch (e) { probe.phErr = String((e.stdout || '') + e.message).slice(0, 300); }
+if (PH.__err) probe.phErr = PH.__err;
+const ph = async w => (PH[w] ? { p: PH[w], lang: 'pt-br (misaki espeak)' } : null);
+probe.sample = await ph('coração');
 if (!probe.sample || probe.voiceDownload) { fs.writeFileSync(path.join(OUT, 'probe.json'), JSON.stringify(probe, null, 1)); console.error('✗ Kokoro + espeak pt-br không dùng được:', JSON.stringify(probe)); process.exit(3); }
 
 const rows = [];
