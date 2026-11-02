@@ -58,12 +58,13 @@ jobs:
         with: { name: 'journey-${{ matrix.lang }}', path: 'je-out/${{ matrix.lang }}*', retention-days: 7, if-no-files-found: ignore }
 
   # Đo chập chờn của J7 (add-on): chạy lặp N lần trong MỘT máy sạch (không chạy J1–6 trước) và in chẩn đoán mỗi lượt đỏ.
-  # Tự chạy khi đẩy lên nhánh journey-e2e* (20 lần) hoặc workflow_dispatch với j7_repeat > 0.
+  # Tự chạy khi đẩy lên nhánh journey-e2e* (100 lần × 6 job) hoặc workflow_dispatch với j7_repeat > 0.
   j7-repeat:
-    name: j7-repeat (${{ matrix.load }})
+    name: j7-repeat (${{ matrix.load }}-${{ matrix.shard }})
     strategy:
       fail-fast: false
       matrix:
+        shard: [1, 2, 3]
         load: [none, cpu]   # cpu = máy bị tải gấp đôi số lõi (mô phỏng runner chậm lúc chạy sau J1–6)
     if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.j7_repeat != '' && inputs.j7_repeat != '0')
     runs-on: ubuntu-latest
@@ -87,13 +88,13 @@ jobs:
       - name: Tải CPU nền
         if: matrix.load == 'cpu'
         run: for i in $(seq 1 $(( $(nproc) * 2 ))); do (while :; do :; done) & done; sleep 1
-      - name: J7 lặp ${{ inputs.j7_repeat || 20 }} lần
-        run: node scripts/test/journey-e2e.mjs --root dist --lang en --only 0 --ext --repeat ${{ inputs.j7_repeat || 20 }} --out je-out/j7
+      - name: J7 lặp ${{ inputs.j7_repeat || 100 }} lần
+        run: node scripts/test/journey-e2e.mjs --root dist --lang en --only 0 --ext --repeat ${{ inputs.j7_repeat || 100 }} --out je-out/j7
       - if: always()
         run: cat je-out/j7/summary.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: 'journey-j7-repeat-${{ matrix.load }}', path: 'je-out/j7', retention-days: 7, if-no-files-found: ignore }
+        with: { name: 'journey-j7-repeat-${{ matrix.load }}-${{ matrix.shard }}', path: 'je-out/j7', retention-days: 7, if-no-files-found: ignore }
 
   android:
     if: inputs.native == '1'
