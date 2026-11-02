@@ -73,18 +73,18 @@ async function open({ vp, theme, who }) {
 const go = (page, h) => page.evaluate(x => { location.hash = x; }, h);
 
 const SCREENS = [
-  { id: 'call', who: 'ama', run: async page => { // Cuộc gọi coffee: giáo viên mặc định của kịch bản
-      await go(page, '#/call/coffee'); await page.waitForSelector('#callGo', { timeout: 15000 }); await page.click('#callGo');
-      await page.waitForSelector('.call-ov', { timeout: 10000 });
-      await page.waitForFunction(() => window.__callState && window.__callState().phase === 'talk', null, { timeout: 12000 }).catch(() => {});
-    } },
-  { id: 'lesson', who: 'carlos', pre: 'ama', run: lesson }, // lk.lsn.who=ama → bài này Carlos
-  { id: 'lesson', who: 'ama', pre: 'carlos', run: lesson }, // lk.lsn.who=carlos → bài này Ama
+  { id: 'call', who: 'ama', run: page => call(page, 'coffee') }, // Cuộc gọi coffee: Ama
+  { id: 'call', who: 'carlos', run: page => call(page, 'bakery') }, // Cuộc gọi bakery: Carlos (calls-exam.js)
+  { id: 'lesson', who: 'auto', pre: 'ama', run: lesson }, // bài học: lk.lsn.who xen kẽ (bản v2 luôn Ama)
 ];
+async function call(page, id) { // màn Call v2 không còn .call-ov: chờ giáo viên #cTch rồi lúc đang nói
+  await go(page, '#/call/' + id); await page.waitForSelector('#callGo', { timeout: 15000 }); await page.click('#callGo');
+  await page.waitForSelector('#cTch .tch-rig, .tch .tch-rig', { timeout: 12000 });
+  await page.waitForFunction(() => window.__callState && window.__callState().phase === 'talk', null, { timeout: 12000 }).catch(() => {});
+}
 async function lesson(page) {
-  await go(page, '#/lesson?demo=1'); await page.waitForSelector('.lsn-start, #lsnTch', { timeout: 15000 });
-  const st = await page.$('.lsn-start'); if (st) await st.click(); else await go(page, '#/lesson/go?demo=1');
-  await page.waitForSelector('#lsnTch', { timeout: 15000 });
+  await go(page, '#/lesson/go?demo=1');
+  await page.waitForSelector('.tch .tch-rig', { timeout: 15000 });
 }
 
 for (const sc of SCREENS) for (const theme of ['light', 'dark']) for (const w of [375, 1280]) {
