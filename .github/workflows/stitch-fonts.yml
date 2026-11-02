@@ -1,0 +1,37 @@
+# 🔣 Dựng lại phông icon Material Symbols (web/fonts/msym*.woff2 + msym.json) theo HỢP danh sách icon của nhánh, rồi đẩy về CHÍNH nhánh đó.
+# Vì sao: gộp main vào PR Stitch hay xung đột 3 tệp nhị phân này; chỉ dựng lại được khi có mạng tới Google Fonts (máy bị chặn) → chạy trên CI.
+# Dùng: gh workflow run stitch-fonts.yml -f ref=<nhánh PR>. Cấm main (main dựng qua PR như mọi thay đổi). Đẩy bằng khoá deploy → CI của PR chạy lại.
+name: stitch-fonts
+on:
+  workflow_dispatch:
+    inputs:
+      ref: { description: 'nhánh PR cần dựng lại phông icon (không phải main)', required: true }
+concurrency:
+  group: stitch-fonts-${{ inputs.ref }}
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  fonts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Chặn main
+        env: { REF: '${{ inputs.ref }}' }
+        run: case "$REF" in main|refs/heads/main|'') echo "::error::stitch-fonts không chạy trên main"; exit 1;; esac
+      - uses: actions/checkout@v4
+        with: { ref: '${{ inputs.ref }}', ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # khoá deploy: push lại kích CI của PR (GITHUB_TOKEN thì không)
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng phông icon theo hợp danh sách icon
+        run: |
+          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 >/dev/null
+          node scripts/build-stitch-css.mjs --fonts
+          node scripts/build-stitch-css.mjs --check
+      - name: Đẩy về nhánh
+        env: { REF: '${{ inputs.ref }}' }
+        run: |
+          git add web/fonts web/css
+          git diff --cached --quiet && { echo "phông đã khớp – không đổi"; exit 0; }
+          git -c user.name="lexkite-bot" -c user.email="bot@lexkite.com" commit -q -m "Phông icon: dựng lại theo hợp danh sách icon (stitch-fonts)"
+          git push origin "HEAD:refs/heads/$REF"
