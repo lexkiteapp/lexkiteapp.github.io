@@ -23,7 +23,9 @@ jobs:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
       - uses: ./.github/actions/no-prod
-        with: { hosts: 'audio.lexkite.com media.lexkite.com' }  # cần trang tĩnh lexkite.com live (không tính lượt); /api do no-prod.mjs mock
+        # trang tĩnh lexkite.com live cần cho mục 6 (Pages tĩnh không tính lượt; /api do no-prod.mjs mock). media.lexkite.com KHÔNG chặn DNS:
+        # ảnh minh họa do service worker CỦA ADD-ON tải (Playwright không route được SW extension) – ≈ 10 lượt/ngôn ngữ/lượt ≈ 120/ngày; hết khi media sang R2 (#406)
+        with: { hosts: 'audio.lexkite.com' }
       - name: Dùng add-on của commit cũ
         if: inputs.ext_ref != ''
         run: git checkout ${{ inputs.ext_ref }} -- extension web

@@ -18,6 +18,8 @@ export const PROD_OK = {
   'pages.yml': 'audio-cdn-check mẫu 150 tệp/lượt qua audio.lexkite.com (chỉ khi đổi âm thanh)',
 };
 const PROD_URL = /https:\/\/(media|audio)\.lexkite\.com|lexkite\.(com|pages\.dev)\/api/;
+// Workflow được bỏ chặn DNS một host prod (kèm lý do + ước tính) – mọi workflow khác phải chặn đủ media + audio
+export const DNS_EXCEPT = { 'ext-e2e.yml': { host: 'media.lexkite.com', why: 'ảnh do service worker add-on tải (không route được) ≈ 120 lượt/ngày' } };
 const bad = [], wfText = f => fs.readFileSync('.github/workflows/' + f, 'utf8');
 const stripComments = s => s.split('\n').filter(l => !/^\s*#/.test(l)).map(l => l.replace(/\s#\s.*$/, '')).join('\n');
 const backlog = JSON.parse(fs.readFileSync('infra/ci-backlog.json', 'utf8')).entries.filter(e => e.eligible !== false);
@@ -25,7 +27,11 @@ for (const e of backlog) {
   const f = e.workflow, s = wfText(f), code = stripComments(s);
   if (PROBE[f]) { if (!((e.probe || {}).stale_hours >= PROBE[f].minStale)) bad.push(`${f}: probe prod phải có stale_hours ≥ ${PROBE[f].minStale}`); continue; }
   const jobs = code.split(/\n  [a-z0-9_-]+:\n/).slice(1).filter(j => /actions\/checkout@/.test(j));
-  for (const j of jobs) if (!/uses: \.\/\.github\/actions\/no-prod/.test(j) && !/etc\/hosts/.test(j)) bad.push(`${f}: có job thiếu bước chặn prod (uses: ./.github/actions/no-prod)`);
+  for (const j of jobs) {
+    if (!/uses: \.\/\.github\/actions\/no-prod/.test(j) && !/etc\/hosts/.test(j)) { bad.push(`${f}: có job thiếu bước chặn prod (uses: ./.github/actions/no-prod)`); continue; }
+    const hosts = (j.match(/hosts: '([^']+)'/) || [])[1]; // không ghi = mặc định chặn đủ
+    if (hosts) for (const h of ['media.lexkite.com', 'audio.lexkite.com']) if (!hosts.includes(h) && (DNS_EXCEPT[f] || {}).host !== h) bad.push(`${f}: bỏ chặn ${h} không có trong DNS_EXCEPT`);
+  }
   if (/https:\/\/(media|audio)\.lexkite\.com|lexkite\.(com|pages\.dev)\/api/.test(code)) bad.push(`${f}: lệnh chạy gọi URL prod`);
   for (const m of code.matchAll(/node (scripts\/[^\s"']+\.m?js)/g)) {
     const p = m[1]; if (HERMETIC.has(p) || !fs.existsSync(p)) continue;
