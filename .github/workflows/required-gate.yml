@@ -21,6 +21,7 @@ on:
       - 'Brand build'
       - 'call-qa'
       - 'capacity-sim'
+      - 'Cards render (share/OG/email)'
       - 'Characters shots'
       - 'Content QA gate'
       - 'Trang từ điển (dict pages)'
