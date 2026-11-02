@@ -327,10 +327,10 @@ else:
   ok(/--prefilter/.test(cr) && /--cands-only \$OUT\/cand2/.test(cr) && /--cands-only \$OUT\/recand/.test(cr) && /\$J --recand/.test(cr) && /--recand/.test(lj) && /gen-stats\.s\$\{SI\}\.a\$\{ATT\}\.\$\{i\}/.test(sg), 'ứng viên 2 vẽ khi cần: lọc cục bộ → giám khảo → ứng viên mới cho khoá trượt; gen-stats không ghi đè');
   ok(/VIMG_CANDS: \$\{\{ github\.event\.inputs\.cands \|\| '1' \}\}/.test(rd('.github/workflows/vocab-img-scene.yml')), 'workflow: input cands, lịch fill mặc định 1');
 }
-// 8f. 02/11 mẫu phong cách ít chi tiết: CHỈ pilot (VIMG_STYLE=lite), mặc định + lịch fill vẫn e4 đã duyệt
+// 8f. 02/11 phong cách ít chi tiết: lite+ là mặc định workflow (cả lịch fill) sau pilot 92 nghĩa; code không env vẫn e4; style=e4 quay về
 { const sc = await import('../vocab-img/scene.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml');
   ok(sc.sceneStyle({}) === sc.SCENE_STYLE_E4 && sc.sceneStyle({ VIMG_STYLE: 'lite' }) === sc.SCENE_STYLE_LITE && !/\b(text|letters?|words?|signs?|labels?)\b/i.test(sc.SCENE_STYLE_LITE), 'phong cách lite chỉ khi VIMG_STYLE=lite, không nhắc chữ');
-  ok(/VIMG_STYLE: "\$\{\{ github\.event\.inputs\.mode == 'pilot' && github\.event\.inputs\.style \|\| '' \}\}"/.test(wf), 'workflow: style chỉ cho pilot');
+  { const st = [...wf.matchAll(/VIMG_STYLE: "([^"]+)"/g)].map(m => m[1]); ok(st.length === 4 && st.every(x => x === "${{ github.event.inputs.style || 'liteplus' }}") && sc.sceneStyle({ VIMG_STYLE: 'e4' }) === sc.SCENE_STYLE_E4, 'workflow 02/11: lite+ cho mọi job (cả lịch fill) – input style=e4 quay về phong cách cũ'); }
 }
 // 8h. 02/11 sàn tài khoản pilot đuôi theo kích thước việc (không cố định 15); lịch fill giữ sàn 10
 { const cd = await import('../vocab-img/cf-direct.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml');
