@@ -27,7 +27,17 @@ const NEXT = ['a.path-cta', 'ol.day-steps a[data-step="learn"]:not(.ok)', 'ol.da
 async function answered() { // màn học có câu trả lời được chấp nhận (thẻ "đã biết"/đáp án đúng/qua thẻ kế)
   return page.evaluate(() => !!document.querySelector('.option.correct, .choice.correct, .study-wrap .celebrate') || (window.__lkAns || 0) > 0).catch(() => false);
 }
-async function toLesson(c, max = 8) { for (let i = 0; i < max; i++) { for (const s of ANSWER) if (await vis(s)) return s; let moved = false; for (const s of NEXT) if (await c.tap(s, 900)) { moved = true; break; } if (!moved) await sleep(700); } return null; }
+// tới màn học = thấy nút trả lời (ANSWER) hoặc màn học đã mở (thẻ cần lật / khung .study-wrap – vd. #/practice/learn); chờ tới 4 s sau mỗi chạm
+const ARRIVE = [...ANSWER, '.study-wrap #flipBtn', '.study-wrap'];
+async function arrived(list) { for (const s of list) if (await vis(s)) return s; return null; }
+async function toLesson(c, { list = ANSWER, max = 8 } = {}) {
+  for (let i = 0; i < max; i++) {
+    const hit = await arrived(list); if (hit) return hit;
+    let moved = false; for (const s of NEXT) if (await c.tap(s, 300)) { moved = true; break; }
+    await page.waitForSelector(list.join(', '), { state: 'visible', timeout: moved ? 4000 : 1500 }).catch(() => {});
+  }
+  return arrived(list);
+}
 
 const res = { at: new Date().toISOString(), lang: LANG, device: 'Pixel 7', firstRun: { ok: false }, today: { ok: false }, errors: errs };
 try {
@@ -51,8 +61,8 @@ try {
   const c = counter();
   await page.goto(`${O}/app/?sandbox=1&hl=${LANG}#/home`, { waitUntil: 'load' }); await sleep(2500);
   if (/welcome/.test(page.url())) throw new Error('đã thiết lập nhưng /app/ quay về màn chào');
-  const sel = await toLesson(c); if (!sel) throw new Error('không tới bài hôm nay từ ' + page.url().replace(O, ''));
-  res.today = { ok: true, taps: c.taps, trail: c.trail };
+  const sel = await toLesson(c, { list: ARRIVE }); if (!sel) throw new Error('không tới bài hôm nay từ ' + page.url().replace(O, ''));
+  res.today = { ok: true, taps: c.taps, trail: c.trail, at: sel, route: page.url().replace(O, '') };
 } catch (e) { res.today.err = String(e.message || e).slice(0, 200); }
 await browser.close(); srv.close();
 fs.mkdirSync(path.dirname(OUT), { recursive: true }); fs.writeFileSync(OUT, JSON.stringify(res, null, 1) + '\n');

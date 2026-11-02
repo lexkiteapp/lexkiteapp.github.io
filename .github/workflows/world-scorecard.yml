@@ -41,14 +41,18 @@ jobs:
       - name: Chặn host Lexkite (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com api.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Probe hành trình (dist cục bộ)
+        id: probe
+        continue-on-error: true   # vẫn chấm + lưu số đo khác (Duolingo, cổng QA); bước cuối làm đỏ lượt chạy
         run: node scripts/world/probe.mjs --root dist --lang en
       - name: Cổng QA trên main (GitHub API)
         env: { GITHUB_TOKEN: '${{ github.token }}' }
         run: node scripts/world/ci-status.mjs
       - name: Chấm + kiểm sàn (chỉ tăng)
+        id: score
+        continue-on-error: true
         run: |
           node scripts/world-scorecard.mjs --write --check
-          if [ "$GITHUB_REF" = refs/heads/main ]; then node scripts/world-scorecard.mjs --write --raise; fi
+          if [ "$GITHUB_REF" = refs/heads/main ] && [ '${{ steps.probe.outcome }}' = success ]; then node scripts/world-scorecard.mjs --write --raise; fi
           cat content/pipeline/WORLD.md >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
@@ -67,3 +71,7 @@ jobs:
           git commit -qm "Bảng World $(date -u +%F) [CF-Pages-Skip] [skip ci]"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
           echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1
+      - name: Đỏ nếu probe hoặc sàn trượt
+        if: steps.probe.outcome != 'success' || steps.score.outcome != 'success'
+        run: |
+          echo "::error::probe=${{ steps.probe.outcome }} score=${{ steps.score.outcome }} – xem reports/world/probe.json (trail/err) và WORLD.md"; exit 1

@@ -538,7 +538,8 @@
       if (answered) return $('#nextQ').click();
       const a = $('#ans').value.trim().toLowerCase().replace(/\s+/g, ' ');
       if (!a) return;
-      let ok = a === w.word.toLowerCase() || a === target.toLowerCase(), ty = null;
+      // Biến thể viết đúng (hoa/thường, nháy cong, dấu câu cuối, viết tắt don't = do not) – ChoiceKit.accept, gói lfx
+      let ok = a === w.word.toLowerCase() || a === target.toLowerCase() || !!(window.ChoiceKit && (ChoiceKit.accept($('#ans').value, target).ok || ChoiceKit.accept($('#ans').value, w.word).ok)), ty = null;
       // Lỗi chính tả nhỏ (≤ 1 sửa/từ ≥ 4 chữ cái) → vẫn đúng + gạch chân chỗ sửa. Không áp cho bài chính tả và dạng từ đang kiểm (điền từ đã chia ≠ từ gốc)
       if (!ok && FX) {
         const strict = q.type === 'type-spell' || (isCloze && target.toLowerCase() !== w.word.toLowerCase());

@@ -33,7 +33,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - **API backend**: functions/api/<tên>.js = /api/<tên>; helper functions/api/_*.js (quota, abuse…); test api-security.mjs
 - **Add-on**: extension/{manifest.json,background.js,content.js,popup.js,newtab.js}; build scripts/build-extension.sh (web → extension/app); test ext-*.mjs; docs/CWS-RULES.md
 - **Blog / SEO**: content/blog + scripts/blog-pipeline.mjs, build-blog.mjs, build-seo.mjs; workflow blog-daily; docs/BLOG-RUNBOOK.md
-- **CI / việc nền**: infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = package.json "test"; scripts/prepush.sh; docs/CI-RUNNERS.md
+- **CI / việc nền**: infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = scripts/test/suite.txt (npm test → run-suite.mjs); scripts/prepush.sh; docs/CI-RUNNERS.md
 
 ## God nodes (15 module được import/nạp nhiều nhất; không tính test)
 1. `web/js/app.js` ←81 · App,LK_GETAPP_T,retArm,retOn,retTrack,parseHash…
