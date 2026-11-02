@@ -10,4 +10,7 @@ articles: [['I bought new phone yesterday.', 'I bought a new phone yesterday.', 
 'dependent-prepositions': [['We discussed about the problem.', 'We discussed the problem.', '"Thảo luận về" nhưng discuss đi thẳng với tân ngữ, không có about (tương tự: mention, emphasize).']],
 'there-is-empty-it': [['In my city has many parks.', 'There are many parks in my city.', '"Ở thành phố tôi có…" không dịch là has; tiếng Anh dùng There is / There are.']],
 'ing-ed-adjectives-prepositions': [['I am very boring in this lesson.', 'I am very bored in this lesson.', 'Tiếng Việt "chán" dùng cho cả người lẫn vật; tiếng Anh: -ed tả cảm xúc của người, -ing tả thứ gây ra cảm xúc.']],
+'be-am-is-are': [['I very happy today.', 'I am very happy today.', '"Tôi rất vui" không cần chữ "là", nhưng tiếng Anh luôn cần am / is / are trước tính từ.']],
+'a-an-plurals': [['I have two cat.', 'I have two cats.', 'Tiếng Việt không đổi danh từ khi nói nhiều ("hai con mèo"); tiếng Anh phải thêm -s / -es từ hai trở lên.']],
+'prepositions-time-place-basic': [['I will call you in Monday.', 'I will call you on Monday.', 'Tiếng Việt dùng một chữ "vào" cho mọi mốc (vào thứ Hai, vào tháng Sáu); tiếng Anh tách ba: at + giờ, on + thứ / ngày, in + tháng / năm.']],
 } };
