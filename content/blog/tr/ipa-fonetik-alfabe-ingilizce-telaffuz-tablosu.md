@@ -33,6 +33,7 @@ quiz: [
     explain: "Peltek 'th' sesi (/θ/), dil ucunun dişler arasına hafifçe yerleştirilip havanın dışarı sızmasıyla çıkarılır; 's' veya 't' ile karıştırılmamalıdır."
   }
 ]
+publishAt: 2026-11-20T12:45:00+03:00
 ---
 İngilizce öğrenirken en çok karşılaşılan hayal kırıklıklarından biri, yazılan bir kelimeyi Türkçe gibi harf harf okumaya çalıştığınızda anadili İngilizce olan birinin sizi anlamamasıdır. *Through*, *thought*, *though* ve *tough* kelimeleri aynı *-ough* harf dizilimine sahip olmasına rağmen, dört tamamen farklı ses tonuyla telaffuz edilir.
 

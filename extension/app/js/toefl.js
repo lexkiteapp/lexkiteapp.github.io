@@ -140,8 +140,8 @@
     body.innerHTML = `${units.map((u, ui) => {
       let k = 0;
       const html = esc(u.text).replace(/\{([^|}]*)\|([^}]*)\}/g, (m, pre, miss) => { k++; ans.push({ ui, k, pre, miss, explain: QE.exT((u.explain || [])[k - 1] || '') });
-        return `<span style="white-space:nowrap">${pre}<input class="gap" data-cw="${ans.length - 1}" style="width:${miss.length + 1.6}ch;min-width:0;padding:0 .15rem;margin:0" maxlength="${pre.length + miss.length}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(t('Ô trống {n}', { n: k }))}"></span>`; });
-      return `<div class="card toeic-u" data-u="${ui}"><div><b>${esc(u.title)}</b><div class="lq-instr" style="margin-top:.5rem"><i>${esc(u.instr || '')}</i></div><div style="line-height:2.3;font-size:1.02rem">${html}</div><div data-cwfb></div></div></div>`;
+        return `<label class="cw-slot">${pre}<input class="gap cw" data-cw="${ans.length - 1}" style="--n:${miss.length}" maxlength="${pre.length + miss.length}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(t('Ô trống {n}', { n: k }))}"></label>`; }); // ô inline: rộng theo số chữ thiếu, thẳng baseline, vùng chạm 44 px ở .cw-slot::after (style.css)
+      return `<div class="card toeic-u" data-u="${ui}"><div><b>${esc(u.title)}</b><div class="lq-instr" style="margin-top:.5rem"><i>${esc(u.instr || '')}</i></div><div class="cw-text">${html}</div><div data-cwfb></div></div></div>`;
     }).join('')}
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">✅ ${t('Nộp bài & xem giải thích')}</button></div><div id="tRes" style="margin-top:1rem"></div>`;
     const inputs = $$('input[data-cw]', body);

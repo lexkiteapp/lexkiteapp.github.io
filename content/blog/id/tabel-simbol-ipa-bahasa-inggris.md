@@ -33,6 +33,7 @@ quiz: [
     explain: "Bunyi /θ/ (voiceless dental fricative) mewajibkan ujung lidah berada di antara gigi, bukan diganti dengan bunyi 's', 't', atau 'f'."
   }
 ]
+publishAt: 2026-11-19T12:35:00+07:00
 ---
 Pernahkah Anda merasa bingung mengapa tulisan kata dalam bahasa Inggris sering kali sangat berbeda dengan cara membacanya? Kata-kata seperti *through*, *thought*, *though*, dan *tough* memiliki ejaan huruf *-ough* yang sama, tetapi masing-masing dilafalkan dengan bunyi vokal yang sama sekali berbeda.
 

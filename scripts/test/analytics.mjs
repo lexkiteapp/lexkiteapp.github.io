@@ -138,6 +138,39 @@ ok(!sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE 'blog:drop%'").get(), 
 await hit({ t: 'q', ev: 'ret_on_d7' }, { ip: '6.6.6.7' }); await hit({ t: 'q', ev: 'ret_maybe_d7' }, { ip: '6.6.6.7' });
 ok(!!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'ret:ret_on_d7'").get() && !sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE '%ret_maybe%'").get(), 'thử nghiệm cờ ret: chỉ nhận 4 sự kiện cho phép');
 
+// Beacon dự phòng bằng fetch (app native capacitor://localhost, không sendBeacon): /api/hit không trả CORS → fetch chế độ cors
+// bị trình duyệt từ chối ("Load failed" – iOS E2E đỏ) dù máy chủ đã nhận. Beacon không đọc phản hồi → bắt buộc mode: 'no-cors'.
+{
+  const fsm = await import('node:fs');
+  for (const f of ['web/js/app.js', 'web/js/lesson-video.js', 'web/js/ads/run.js']) {
+    const src = fsm.readFileSync(f, 'utf8');
+    const calls = [...src.matchAll(/fetch\([^;]*?\/api\/hit'?[^)]*?\{([^}]*)\}/g)];
+    ok(calls.length > 0, `${f}: tìm thấy fetch /api/hit dự phòng`);
+    // Ngoại lệ duy nhất: web cùng nguồn (URL tương đối '/api/hit', mode 'same-origin') cần đọc mã lỗi để gửi bù (lk.hitq)
+    for (const c of calls) ok(/mode:\s*'no-cors'/.test(c[1]) || (/mode:\s*'same-origin'/.test(c[1]) && /^fetch\('\/api\/hit'/.test(c[0])), `${f}: fetch /api/hit dự phòng phải mode 'no-cors' (${c[1].trim().slice(0, 80)})`);
+  }
+}
+
+// ---------- 8) Gửi bù sau gián đoạn /api (01/11: hạn mức Workers 100k/ngày cạn 16:22→00:00 UTC → Live traffic 0) ----------
+NOW = Date.UTC(2026, 10, 2, 1, 0); // 08:00 VN 02/11 – API sống lại
+const T0 = Date.UTC(2026, 10, 1, 18, 0); // phiên mở 01:00 VN 02/11 lúc API chết
+ok(H.lateAt({ late: 1, t0: T0 }, NOW) === T0 && H.lateAt({}, NOW) === 0, 'lateAt: phiên gửi bù trả thời điểm gốc, phiên thường 0');
+ok(H.lateAt({ late: 1, t0: NOW - 37 * 3600e3 }, NOW) === -1 && H.lateAt({ late: 1, t0: NOW + 5e3 }, NOW) === -1 && H.lateAt({ late: 1 }, NOW) === -1, 'lateAt: quá 36 giờ / tương lai / thiếu t0 → bỏ');
+await hit(S('lateaaaaaaa', 'l2lateaaaa', { late: 1, t0: T0, dur: 120, pages: 3, pv: { home: 1, review: 2 } }), { ip: '7.7.7.1' });
+const lr = row('lateaaaaaaa');
+ok(lr && lr.day === '2026-11-02' && lr.at === T0, 'phiên gửi bù ghi vào ngày/giờ gốc (at = t0)');
+ok(lr && lr.last === T0 + 120e3, 'phiên gửi bù: last = t0 + dur → không tính "đang online"');
+ok(pv('2026-11-02', 'review') === 2, 'lượt xem của phiên gửi bù được cộng vào ngày gốc');
+ok((sql.prepare("SELECT n FROM ext_events WHERE day = '2026-11-02' AND kind = 'hit:late'").get() || {}).n === 1, 'đếm hit:late theo ngày gốc (Quản trị hiện "gửi bù")');
+await hit(S('lateaaaaaaa', 'l2lateaaaa', { late: 1, t0: T0, dur: 60, pages: 2 }), { ip: '7.7.7.1' });
+ok(row('lateaaaaaaa').pages === 3 && row('lateaaaaaaa').dur === 120, 'bản cũ hơn gửi lại không làm giảm pages/dur (MAX)');
+await hit(S('old2aaaaaaa', 'o2oldaaaaa', { late: 1, t0: NOW - 40 * 3600e3 }), { ip: '7.7.7.1' });
+ok(!row('old2aaaaaaa'), 'phiên gửi bù quá hạn không bị dồn vào hôm nay');
+await hit(S('lbotaaaaaaa', 'l3botaaaaa', { late: 1, t0: T0 }), { ip: '7.7.7.2', asn: 8075 });
+ok(row('lbotaaaaaaa').bot === 'dc' && (sql.prepare("SELECT n FROM ext_events WHERE day = '2026-11-02' AND kind = 'hit:late'").get() || {}).n === 1, 'máy tự động gửi bù vẫn bị loại, không cộng hit:late');
+const lv = await api('live', { days: 7 });
+ok(lv.status === 200 && lv.j.late === 1 && lv.j.today.visitors >= 1 && lv.j.online === 0, 'op live: hôm nay có khách nhờ gửi bù, late = 1, không ai "đang online" ảo – ' + JSON.stringify({ late: lv.j.late, v: lv.j.today && lv.j.today.visitors, on: lv.j.online }));
+
 Date.now = realNow;
 console.log(fails ? `✗ analytics: ${fails}/${n} lỗi` : `✓ analytics: ${n} kiểm tra đạt (loại bot/CI/quản trị, gộp sid, ngày giờ VN, % quốc gia, di chuyển dữ liệu)`);
 process.exit(fails ? 1 : 0);

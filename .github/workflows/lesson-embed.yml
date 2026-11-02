@@ -1,0 +1,34 @@
+# 🎞️ Video nhúng một bước #/lesson (cờ lv_embed): e2e Chrome thật trên fixture từ artifact video-motion (PR #191) – scripts/test/lesson-embed-e2e.mjs.
+# Ảnh chụp 360/390 px + 1366/1920 px ở artifact lesson-embed. Hermetic: 0 lượt chạm prod, 0 tài khoản; KHÔNG tải lên YouTube/R2.
+name: Lesson embed video
+on:
+  workflow_dispatch:
+    inputs:
+      run_id: { description: 'Lượt video-motion để lấy artifact embed (trống = mới nhất)', required: false, default: '' }
+  pull_request:
+    paths: ['web/js/lesson-video.js', 'web/js/lesson/**', 'web/data/videos.json', 'web/js/i18n/*/lvideo.js', 'web/js/i18n/*/lesson.js', 'scripts/test/lesson-embed*', 'scripts/test/ux-guard-lib.mjs', '.github/workflows/lesson-embed.yml']
+concurrency: { group: 'lesson-embed-${{ github.ref }}', cancel-in-progress: true }
+permissions: { contents: read, actions: read }
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chrome >/dev/null
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk >/dev/null || true
+      - name: Fixture (artifact video-motion embed)
+        env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', RUN_ID: '${{ inputs.run_id }}' }
+        run: |
+          bash scripts/test/lesson-embed-fixture.sh out/lv-fixture
+          echo "### Fixture: $(cat out/lv-fixture/fixture.json)" >> "$GITHUB_STEP_SUMMARY"
+      - name: E2E bước video (4:5 điện thoại · 16:9 máy tính · VTT · chương · ended → bước kế · gác bố cục)
+        run: node scripts/test/lesson-embed-e2e.mjs web out/lv-fixture out/lesson-embed
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: lesson-embed, path: out/lesson-embed, retention-days: 14 }

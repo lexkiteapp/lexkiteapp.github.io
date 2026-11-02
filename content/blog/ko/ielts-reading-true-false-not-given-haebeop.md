@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "ielts reading true false not given 해법"
 cover: reading
 coverAlt: "Lexkite 앱의 IELTS 리딩 지문 목록 화면으로 A2부터 C1까지 다양한 난이도 제공"
-publishAt: ""
+publishAt: 2026-12-01T07:57:00+09:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

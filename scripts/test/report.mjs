@@ -63,6 +63,16 @@ const am = mails.find(m => m.path === '/send');
 ok(am && am.body.subject.includes(c1.j.id) && am.body.text.includes('admin.html?r=1#reports') && am.body.text.includes('dict/record'), 'thư quản trị: mã LX, liên kết Quản trị, trang');
 ok(am && !JSON.stringify(am.body).includes(c1.j.token), 'thư quản trị không chứa mã riêng của người báo');
 ok(am && am.body.replyTo === 'reporter@example.com', 'thư quản trị: Reply-To = người báo đã đồng ý');
+// Thư cảm ơn ngay khi tạo phiếu (người báo để email + đồng ý): mã, mốc sau AI (P1 → 2–3 ngày), liên kết riêng; ghi lịch sử
+const tm = mails.find(m => m.path === '/user' && m.body.to === 'reporter@example.com');
+ok(tm && tm.body.subject === `[Lexkite] Report ${c1.j.id}: Received` && tm.body.text.includes('#/report/' + c1.j.token) && tm.body.text.includes('Expected: within 2–3 days') && tm.body.text.includes('Thank you'), 'thư cảm ơn khi tạo: mã LX, mốc theo mức AI, liên kết riêng: ' + JSON.stringify(tm && tm.body.text));
+ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act = 'mailed' AND note = 'thanks'").get().n === 1, 'thư cảm ơn ghi lịch sử (mailed · thanks)');
+{ mails.length = 0; mailOk = false;
+  const c2 = await call(good({ notify: true, email: 'zh@example.com', msg: '页面上的音标显示错误，请修复一下。', ctx: { route: 'dict/x', lang: 'zh', ver: '1', plat: 'web' } }), { ip: '10.0.0.77' });
+  const id2 = +c2.j.id.slice(3) - 1000, z = mails.find(m => m.body.to === 'zh@example.com'); mailOk = true;
+  ok(z && z.body.subject.includes('已收到') && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'mail-failed' AND note = 'thanks'").get(id2).n === 1, 'thư cảm ơn đúng ngôn ngữ; nhà gửi thư lỗi → ghi mail-failed (admin thấy)');
+  mails.length = 0; const c3 = await call(good({ msg: 'No email given, the audio button does nothing.' }), { ip: '10.0.0.78' });
+  ok(c3.s === 200 && !mails.some(m => m.path === '/user'), 'không để email → không thư cảm ơn'); }
 // AI phân loại + GitHub Issue (P1, lỗi nội dung) – đã làm sạch
 const t1 = sql.prepare('SELECT sev, ai, issue, sig FROM reports WHERE id = 1').get();
 ok(t1.sev === 'P1' && JSON.parse(t1.ai).by === 'ai' && t1.sig.length === 16, 'AI phân loại: lưu mức + kết quả + chữ ký lỗi');
@@ -287,6 +297,25 @@ ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act IN
   ok((await call({ op: 'unhide', cid: XC })).s === 401 || (await call({ op: 'unhide', cid: XC })).s === 403, 'hiện lại: cần quyền quản trị');
   const u = await call({ op: 'unhide', cid: XC }, { token: ADM }); h = (await call({ op: 'hidden' })).j.cids || [];
   ok(u.j.ok && !h.includes(XC) && sql.prepare('SELECT COUNT(*) AS n FROM content_flags WHERE cid = ?').get(XC).n === 0, 'quản trị hiện lại → bỏ khỏi danh sách ẩn + đếm lại từ 0');
+}
+
+// Thư người báo theo đúng 15 ngôn ngữ (hồi quy LX-1001: phiếu tiếng Trung nhận thư tiếng Anh) + bản dịch thư khớp nguồn app
+{
+  const GEN = await import(new URL('../gen-report-mail-i18n.mjs', import.meta.url));
+  const fs = await import('node:fs');
+  ok(fs.readFileSync(new URL('../../functions/api/_report-i18n.js', import.meta.url), 'utf8') === GEN.build(), '_report-i18n.js khớp nguồn web/js/i18n/<lang>/report.js (chạy node scripts/gen-report-mail-i18n.mjs)');
+  const I = await import(new URL('../../functions/api/_report-i18n.js', import.meta.url));
+  ok(GEN.LANGS.length === 15 && GEN.LANGS.every(l => l === 'vi' || (I.MAIL_I18N[l] && I.MAIL_I18N[l].length === I.MAIL_KEYS.length)), 'thư có đủ 15 ngôn ngữ, đủ khóa');
+  const vars = s => (s.match(/\{\w+\}/g) || []).sort().join();
+  const bad = []; for (const l in I.MAIL_I18N) I.MAIL_KEYS.forEach((k, i) => { const v = I.MAIL_I18N[l][i]; if (vars(v) !== vars(k) || (l !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(v))) bad.push(l + ': ' + k); });
+  ok(!bad.length, 'bản dịch thư giữ biến {id}/{s}/… và không lẫn tiếng Việt: ' + bad.slice(0, 3).join(' | '));
+  const row = { id: 1, tok: 'T'.repeat(24), status: 'fixed', reply: 'OK', dup_of: null, fix_ver: '20261102', email: 'a@b.co' };
+  const zh = R.userMail({ ...row, lang: 'zh-CN' }), en = R.userMail({ ...row, lang: 'xx' }), vi = R.userMail({ ...row, lang: 'vi' }), ar = R.userMail({ ...row, lang: 'ar' });
+  ok(zh.subject.includes('LX-1001') && zh.subject.includes('已修复') && zh.text.includes('20261102') && zh.text.includes('#/report/' + row.tok) && !/Fixed|Your report/.test(zh.text), 'phiếu tiếng Trung → thư tiếng Trung (tiêu đề, phiên bản, liên kết)');
+  ok(en.subject === '[Lexkite] Report LX-1001: Fixed' && en.text.includes('Fixed in version 20261102'), 'ngôn ngữ lạ → thư tiếng Anh');
+  ok(vi.subject === '[Lexkite] Báo lỗi LX-1001: Đã sửa' && vi.text.includes('Phản hồi từ Lexkite\nOK'), 'thư tiếng Việt');
+  ok(ar.text.includes('LX-1001') && /[\u0600-\u06FF]/.test(ar.subject), 'thư tiếng Ả Rập');
+  const t = R.mailT('ja'); ok(R.etaText({ kind: 'normal', h: 72 }, t) === t('Dự kiến xử lý: {t}', { t: t('trong {a}–{b} ngày', { a: 2, b: 3 }) }) && !R.etaText({ kind: 'normal', h: 72 }, t).includes('{'), 'mốc dự kiến dịch đúng, không sót biến');
 }
 
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }

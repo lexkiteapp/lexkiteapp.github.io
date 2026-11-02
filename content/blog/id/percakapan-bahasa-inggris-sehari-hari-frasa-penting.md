@@ -33,6 +33,7 @@ quiz: [
     explain: "'Sorry, I didn't quite catch that' memberitahukan secara santun bahwa Anda belum mendengar dengan jelas tanpa menyalahkan lawan bicara."
   }
 ]
+publishAt: 2026-12-01T19:55:00+07:00
 ---
 
 Bagi sebagian besar pembelajar bahasa Inggris, tujuan akhir dari belajar bahasa bukanlah sekadar menghafal rumus tata bahasa di atas kertas, melainkan kemampuan berbicara secara percaya diri, luwes, dan spontan dalam kehidupan nyata. Mulai dari memesan kopi di kedai yang ramai, menanyakan arah jalan saat bepergian ke luar negeri, hingga mengobrol santai dengan rekan kerja saat istirahat makan siang, menguasai **percakapan bahasa inggris sehari hari** adalah kunci utama yang mengubah pemahaman teori menjadi kefasihan praktis.

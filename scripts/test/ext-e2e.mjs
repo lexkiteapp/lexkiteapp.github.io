@@ -3,6 +3,7 @@
 // Ra: report-<lang>.json (từng kiểm tra: ok/lỗi + chi tiết) và ảnh chụp các bước. Thoát mã 1 nếu có kiểm tra thất bại.
 // Content script dùng shadow DOM 'open' khi navigator.webdriver (chỉ lúc kiểm thử) để đọc được nội dung bảng tra.
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
@@ -43,6 +44,7 @@ const ctx = await chromium.launchPersistentContext(prof, {
   channel: 'chromium', headless: true, locale: LOCALE, viewport: { width: 1280, height: 860 },
   args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${LOCALE}`],
 });
+await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
 await ctx.route('https://t1.example.com/**', r => r.fulfill({ contentType: 'text/html', body: ARTICLE }));
 await ctx.route('https://t2.example.com/**', r => r.fulfill({ contentType: 'text/html', body: CSP_PAGE, headers: { 'Content-Security-Policy': "img-src 'self'; style-src 'self'" } })); // chặn cả ảnh ngoài, data: và <style>/style="" chèn vào
 await ctx.route('https://t3.example.com/**', r => r.fulfill({ contentType: 'text/html', body: FRAME }));
