@@ -59,6 +59,7 @@ quiz: [
     explain: "Accelerated glacial melting es el deshielo acelerado de glaciares; Extreme meteorological phenomena se refiere a sequías, huracanes y olas de calor."
   }
 ]
+publishAt: 2026-12-09T12:19:00-06:00
 ---
 
 El medio ambiente, la crisis climática y la transición hacia energías renovables representan uno de los temas más frecuentes tanto en **IELTS Writing Task 2** como en **IELTS Speaking Part 3**. Muchos hispanohablantes suelen recurrir a expresiones simplistas como *«the environment is in danger»*, *«people must protect animals»* o *«cars make smoke»*, lo cual estanca de inmediato la puntuación de recurso léxico (*Lexical Resource*) en Band 5.5 o 6.0.

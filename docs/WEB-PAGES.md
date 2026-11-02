@@ -71,4 +71,4 @@ Không phải trang hiển thị (không cần Stitch): sitemap*, rss + `rss.xsl
 `scripts/test/web-sweep.mjs`: tự gom loại trang từ `dist` (loại mới tự vào cổng), 1 trang mẫu/loại (+ bản vi, ar) × 390/1280 × sáng/tối:
 lỗi console, tài nguyên 4xx, tràn ngang, cắt/chồng/tràn chữ (`layout-scan.mjs`), vùng chạm < 44 px, tương phản + axe AA, CLS > 0,1, LCP > 2,5 s,
 nền sai giao diện (không có tối), meta/OG thiếu, `lang`/`dir=rtl` sai. Ngưỡng `scripts/test/web-sweep.known.json` = số lỗi hiện có mỗi loại × kiểm,
-**chỉ được hạ**; mỗi nhóm port phải đưa loại của mình về 0. Admin: `admin-guard.yml` (bố cục). i18n chuỗi: `seo-pages.mjs` mục 6 + `i18n.yml`.
+**chỉ được hạ**; mỗi nhóm port phải đưa loại của mình về 0. Lỗi CORS của host ngoài đang trả 429/5xx (vd. `media.lexkite.com` hết hạn mức Workers – Cloudflare 1027) in thành cảnh báo riêng, không tính err; 404/thiếu CORS thật vẫn đỏ (`scripts/lib/qa-classify.mjs`). Video mới: `web-rendition.mjs verify` kiểm src/poster/VTT 200 + CORS trước khi vào manifest. Admin: `admin-guard.yml` (bố cục). i18n chuỗi: `seo-pages.mjs` mục 6 + `i18n.yml`.

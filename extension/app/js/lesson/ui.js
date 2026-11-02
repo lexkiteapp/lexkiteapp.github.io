@@ -93,6 +93,10 @@
     return Promise.all([...new Set(words.map(shardOf))].map(k => SENTP[L + k] || (SENTP[L + k] = fetch(`${base}/packs/sent/${L}/${k}.json`).then(r => (r.ok ? r.json() : {})).then(j => { SENT[L + k] = j; }).catch(() => { delete SENTP[L + k]; })))).then(() => {}); };
   const sentGloss = (c, en) => { const L = nativeLang(), w = c && String(c.word || '').toLowerCase().trim(), v = w && (SENT[L + shardOf(w)] || {})[w]; return v && E.norm(v[0]) === E.norm(en) ? v[1] : ''; };
 
+  // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded). Thử: ?lvembed=1 (nhớ trên máy), ?lvembed=0 tắt; hoặc cấu hình xa lk.cfg.v.lv_embed.
+  const lvOn = () => {
+    try { const m = /[?&]lvembed=([01])\b/.exec(location.href); if (m) ls.set('lk.lv_embed', m[1]); const f = ls.get('lk.lv_embed'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(ls.get('lk.cfg') || 'null'), v = c && c.v && c.v.lv_embed; return v === true || v === '1' || v === 'true'; } catch (e) { return false; }
+  };
   routes.lesson = async function (arg) {
     css(); cleanup();
     const demo = /[?&]demo=1\b/.test(location.hash);
@@ -110,6 +114,7 @@
     let pool0 = [];
     if (!story) { const pk = App.loadPack ? App.loadPack().catch(() => {}) : null; await Promise.all([pk, sentLoad(picks.map(p => p.card.word))]); } // nghĩa từ + bản dịch câu tiếng mẹ đẻ trước khi dựng đề
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean });
+    if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
     if (window.LKAudio && LKAudio.offline.on()) LKAudio.offline.lesson(story || items, (state.settings || {}).accent); // 📥 gói offline đang bật → cất audio bài đang học
@@ -234,6 +239,7 @@
     const fill = (html, grid) => { if (V) body.className = grid ? GRID : FLOW; body.innerHTML = V && grid ? '' : html; }; // v2: lưới 2 cột cho trắc nghiệm (bindItem vẽ thẻ), dạng khác = cột dọc cùng ô
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
     if (it.type === 'line') return L.frame === 'duo' ? lineDuo(it) : line(it);
+    if (it.type === 'video') return video(it);
     const chat = $('#lsnChat'); if (chat) chat.hidden = true; // bài kiểm giữa truyện: ẩn lời thoại (không lộ đáp án)
     if (it.type === 'q') {
       bub.innerHTML = tag + esc(TITLE(it)) + ST.lsnSub(it.prompt, 'en');
@@ -327,6 +333,18 @@
     $('#lsnPlay').onclick = () => say(it.sent, false, it.who);
     $('#lsnGo').onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
     setTimeout(() => say(it.sent, false, it.who), 200);
+  }
+
+  // 🎞️ Bước xem video: gói lvideo + manifest chỉ tải khi bước này mở; video hết (end card "Next step →") → bấm chính nút Tiếp tục của bài
+  function video(it) {
+    $('#lsnBub').textContent = t('Xem video bài học');
+    $('#lsnBody').innerHTML = '<div class="lsn-vid" id="lsnVid"></div>';
+    const foot = $('#lsnFoot'); foot.className = 'lsn-foot';
+    foot.innerHTML = `<div><span class="grow"></span><button class="btn primary lg" id="lsnGo">${t('Tiếp tục')}</button></div>`;
+    const go = () => { if (!L || L.dead || L.sess.cur !== it) return; const v = $('#lsnVid video'); if (v) v.pause(); L.sess.answer(true); next(); };
+    $('#lsnGo').onclick = go;
+    App.need('lvideo').then(() => (window.LessonVideo ? LessonVideo.embed($('#lsnVid'), { words: it.words, onEnd: () => { const b = $('#lsnGo'); if (b && L && L.sess.cur === it) b.click(); } }) : false))
+      .then(ok => { if (!ok) go(); }).catch(go); // không có video (manifest rỗng / lỗi mạng) → bỏ qua bước, bài vẫn chạy
   }
 
   function bindItem(it, audioText) {

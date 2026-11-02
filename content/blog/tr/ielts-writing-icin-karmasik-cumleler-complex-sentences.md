@@ -48,6 +48,7 @@ quiz: [
     explain: "If sözcüğü atılıp Were + özne + to kullanılan bu yapı Tip 2 devrik şart cümlesidir ve gramer hakimiyetini gösteren ileri düzey bir formüldür."
   }
 ]
+publishAt: 2026-11-25T20:58:00+03:00
 ---
 
 IELTS Writing Task 2 sınavında 7.0 veya daha yüksek bir bant skoruna ulaşmak isteyen adayların en çok zorlandığı değerlendirme kriteri **Grammatical Range and Accuracy (Dilbilgisi Çeşitliliği ve Doğruluğu)** ölçütüdür. Resmi IELTS değerlendirme tablosuna göre, bir adayın Band 7 alabilmesi için *«uses a variety of complex structures with frequent error-free sentences»* standardını karşılaması şarttır. Bu kapsamlı rehberde, **IELTS writing karmaşık cümleler** (complex sentences) kurmanın en etkili 5 formülünü, noktalama kurallarını ve sık yapılan hataları inceliyoruz.

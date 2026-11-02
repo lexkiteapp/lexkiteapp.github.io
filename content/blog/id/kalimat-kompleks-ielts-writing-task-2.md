@@ -33,6 +33,7 @@ quiz: [
     explain: "Kata hubung Although, Even though, Whereas, dan While memperkenalkan klausa subordinatif konsesi yang memperlihatkan fleksibilitas tata bahasa tingkat tinggi."
   }
 ]
+publishAt: 2026-11-24T07:26:00+07:00
 ---
 Dalam kriteria penilaian resmi IELTS Writing Task 2, deskriptor **Grammatical Range and Accuracy (GRA)** untuk peraih skor **Band 7.0** secara eksplisit menuntut: *«Uses a variety of complex structures with good flexibility and accuracy»*. Untuk menembus skor tersebut, penguasaan **kalimat kompleks ielts writing (Complex Sentences)** adalah persyaratan mutlak.
 

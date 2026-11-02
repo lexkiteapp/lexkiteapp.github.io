@@ -48,6 +48,7 @@ quiz: [
     explain: "본문 예문처럼 최상위 포식자를 과도하게 잡으면 되돌릴 수 없는 생태계 불균형이 발생하므로 이 표현이 적합합니다."
   }
 ]
+publishAt: 2026-11-28T12:19:00+09:00
 ---
 
 **IELTS 환경 단어** 와 지구 온난화, 신재생 에너지 전환, 생태계 보존 문제는 **IELTS Writing Task 2** 와 **IELTS Speaking Part 3** 에서 가장 높은 빈도로 출제되는 핵심 주제입니다. 많은 한국인 수험생들은 환경 관련 에세이를 작성할 때 *«the environment is getting worse»*, *«we must protect nature»*, *«cars make dirty smoke»* 와 같은 중학교 수준의 단순한 어휘를 반복적으로 사용하여 어휘력(Lexical Resource) 점수가 Band 5.5 또는 6.0에 머무는 한계에 부딪힙니다.
