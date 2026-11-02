@@ -9,14 +9,17 @@
   const WITH_ARG = ['lesson', 'practice', 'listen', 'listen-test', 'dictation', 'grammar', 'read', 'toefl-p', 'toeic-r', 'toeic-test', 'toeic-sw', 'pron', 'roleplay', 'mock', 'letters'];
   const NOT_LEARN = ['home', 'welcome', 'contact', 'deck', 'dict', 'library', 'stats', 'topic', 'class', 'confidence', 'course', 'courses', 'criteria', 'fix', 'goal', 'handoff', 'me', 'skill', 'skills', 'tests', 'vocab', 'ideas', 'league', 'listening', 'method', 'day', 'path', 'tracks', 'model', 'models', 'phrases', 'mistakes', 'qstats', 'style', 'reading', 'report', 'resources', 'streak', 'settings', 'toefl', 'toeic', 'usage', 'train', 'verb'];
   const extra = new Set(); // màn đăng ký lúc chạy (gói lười: truyện, video, Play & Speak…): ExitGuard.learn('story')
-  const isLearn = (name, arg) => {
+  // #/review?hub=1 (thanh tab, ux1) = màn "Ôn" trung tâm của Stitch, không phải phiên ôn – cùng điều kiện study.js
+  const reviewHub = q => /(^|[?&])hub=1(&|$)/.test(q || '') && !!(g.App && App.ux1On && App.ux1On());
+  const isLearn = (name, arg, q) => {
+    if (name === 'review' && reviewHub(q)) return false;
     if (extra.has(name) || ALWAYS.includes(name)) return true;
     if (!WITH_ARG.includes(name) || !arg) return false;
     if (name === 'lesson') return arg === 'go' || /^\d/.test(arg) || !(g.App && App.ux1On && App.ux1On()); // ux1: #/lesson = bản đồ chặng
     return arg !== 'mix';
   };
-  const parse = h => { const m = /^#\/([^/?]*)\/?([^?]*)/.exec(h || ''); return m ? [m[1] || 'home', decodeURIComponent(m[2] || '')] : ['home', '']; };
-  const learnHash = h => { const [n, a] = parse(h); return isLearn(n, a); };
+  const parse = h => { const m = /^#\/([^/?]*)\/?([^?]*)\??(.*)/.exec(h || ''); return m ? [m[1] || 'home', decodeURIComponent(m[2] || ''), m[3] || ''] : ['home', '', '']; };
+  const learnHash = h => { const [n, a, q] = parse(h); return isLearn(n, a, q); };
   // Thanh FOCUS bật mặc định (exit-sweep xanh, luật duyệt 2/11); tắt thử: ?exitbar=0 hoặc localStorage lk.exitbar = '0'
   const flagOn = () => { try { const m = /[?&]exitbar=([01])\b/.exec(location.search + location.hash); if (m) sessionStorage.setItem('lk.exitbar.pv', m[1]); const pv = sessionStorage.getItem('lk.exitbar.pv'); return pv ? pv === '1' : localStorage.getItem('lk.exitbar') !== '0'; } catch (e) { return true; } };
 
@@ -128,7 +131,7 @@
   });
   // Enter = nút chính của bước (Kiểm tra → Tiếp tục), khung chung docs/specs/learn-flow-nav.md. Màn đánh dấu [data-lk-primary] hoặc dùng id đã biết.
   // Không bắt khi đang ở nút/link (trình duyệt tự bấm), ô gõ (màn tự xử lý Enter), hộp hỏi đang mở.
-  const PRIMARY = '[data-lk-primary], #lsnNext, #lsnCheck, #lsnGo, #nextQ, #gotIt, #nx, #sNext, #dChk, #rNext, #rSub, #ppNext, #rxNext, #tNext, #mkNext, #ivNext, #spkNext, #sayNext, #hfNext, #check, [data-lv-next]';
+  const PRIMARY = '[data-lk-primary], #lsnNext, #lsnCheck, #lsnGo, #nextQ, #gotIt, #nx, #sNext, #dChk, #rNext, #rSub, #ppNext, #rxNext, #tNext, #mkNext, #ivNext, #spkNext, #sayNext, #hfNext, #check, #tGo, #mkGo, [data-lv-next]';
   const usable = el => shown(el) && !el.disabled && el.getAttribute('aria-disabled') !== 'true' && !el.closest('[hidden], [inert]');
   function primaryEl() {
     const roots = [view(), document.getElementById('lsnFoot')].filter(Boolean);
@@ -189,10 +192,10 @@
 
   // Mỗi lượt vẽ trang (App.afterRoute, gọi từ app.js)
   function after(name) {
-    const [n, a] = parse(location.hash);
+    const [n, a, q] = parse(location.hash);
     if (bar && !bar.isConnected) bar = null;
     seen = location.hash;
-    if (!isLearn(n, a)) { cur = ''; if (n !== 'welcome') backTo = location.hash || '#/home'; document.body.classList.remove('lk-learn'); return; }
+    if (!isLearn(n, a, q)) { cur = ''; if (n !== 'welcome') backTo = location.hash || '#/home'; document.body.classList.remove('lk-learn'); return; }
     if (location.hash !== cur) { dirty = false; done = false; saves = []; }
     cur = location.hash; document.body.classList.add('lk-learn');
     if (flagOn()) document.body.classList.add('focus'); // khung §5d FOCUS: màn học không có thanh trên/tab dưới (route() tự gỡ khi rời màn)

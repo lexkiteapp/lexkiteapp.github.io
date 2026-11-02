@@ -236,7 +236,7 @@
   }
 
   // ── Thang gợi ý dùng chung (Call, nói, viết, điền từ, xếp câu – chủ 2/11, docs/specs/learn-flow-nav.md) ──
-  // Mặc định ẩn: chỉ nút 💡 "Cần gợi ý?" mờ. Bậc 1 (bấm, hoặc im lặng quietMs – A1 sớm, B2+ muộn) = câu mở đầu/từ khoá; bậc 2 (bấm lần nữa) = câu mẫu đầy đủ.
+  // Mặc định ẩn: chỉ nút 💡 "Cần gợi ý?" mờ. Bậc 1 (bấm, hoặc im lặng quietMs – A1 sớm, B2+ muộn) = câu mở đầu/từ khóa; bậc 2 (bấm lần nữa) = câu mẫu đầy đủ.
   // Dùng gợi ý → o.onUse(bậc) để màn ghi "có trợ giúp" (giảm nhẹ XP, đưa câu vào ôn). Phím H = bậc kế (không bắt khi đang gõ). o.activity() reset đồng hồ im lặng.
   const QUIET = { A1: 5000, A2: 6000, B1: 7000, B2: 8500, C1: 10000, C2: 10000 };
   function hints(host, o = {}) {

@@ -141,5 +141,12 @@ const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.hi
   ok(hits === 1, 'Enter khi hộp hỏi mở → không bấm nút của màn'); E.d.getElementById('modal').hidden = true;
   ok(E.d.body.classList.contains('focus'), 'thanh FOCUS bật mặc định ở màn học (tắt: lk.exitbar = 0)');
 }
+{ // 9) #/review?hub=1 (thanh tab, ux1) = màn "Ôn" trung tâm Stitch → không phải màn học: không chèn thanh FOCUS (lỗi #432: stitch-diff review ssim 0.19)
+  const E = await boot(), G = E.w.ExitGuard;
+  E.App.ux1On = () => true;
+  ok(!G.isLearn('review', '', 'hub=1') && G.isLearn('review', '', '') && G.isLearn('review', '', 'ahead=1'), 'isLearn: hub Ôn (ux1) không phải màn học; phiên ôn #/review vẫn là màn học');
+  E.App.ux1On = () => false;
+  ok(G.isLearn('review', '', 'hub=1'), 'isLearn: ux1 tắt → study.js mở phiên ôn ngay cả với ?hub=1 → vẫn là màn học');
+}
 console.log(fails ? `✗ exit-guard: ${fails}/${n} lỗi` : `✓ exit-guard: ${n} kiểm tra`);
 process.exit(fails ? 1 : 0);

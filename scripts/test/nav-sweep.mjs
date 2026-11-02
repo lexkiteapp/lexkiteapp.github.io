@@ -66,9 +66,12 @@ const blur = page => page.evaluate(() => document.activeElement && document.acti
 const focusAnswer = () => {
   const v = document.querySelector('#view'); if (!v) return false;
   const SKIP = '#lsnNoL, #lsnNoS, #skip, #skipW, #lfxNoAudio, #mkSkip, [data-lk-skip], .lfx-skipmic, [data-exit], [data-lk-primary]';
-  const bad = /skip|hint|gợi ý|bỏ qua|listen|replay|nghe|play|phát|slow|chậm|audio|speak|mic|nói|record|ghi âm|share|khoe|back|quay lại|exit|thoát|close|đóng|report|báo/i;
+  const bad = /skip|hint|gợi ý|bỏ qua|listen|replay|nghe|play|phát|slow|chậm|audio|speak|mic|nói|record|ghi âm|share|khoe|back|quay lại|previous|prev\b|exit|thoát|close|đóng|report|báo|sound|transcript|model|mẫu|idea/i;
   const tiles = [...document.querySelectorAll('#lsnBank .lsn-tile:not(.used), [data-tile-bank] [data-i]:not(.used)')];
-  const pool = tiles.length ? tiles : [...v.querySelectorAll('button:not([disabled]), [role=button]:not([aria-disabled=true]), [role=radio], label:has(> input[type=radio])')];
+  // màn giới thiệu trong bài (cbt, rtype…): link "Bắt đầu" ở lại cùng route học cũng là bước tiếp
+  const route = (/^#\/([^/?]*)/.exec(location.hash) || [])[1] || '';
+  const same = route ? [...v.querySelectorAll(`a[href^="#/${route}/"], a[href^="#/${route}?"]`)] : [];
+  const pool = tiles.length ? tiles : [...v.querySelectorAll('button:not([disabled]), [role=button]:not([aria-disabled=true]), [role=radio], label:has(> input[type=radio])'), ...same];
   const el = pool.find(b => {
     if (b.closest('.lk-exitbar, .study-top, .lk-exit-ask, nav, header, #lsnFoot') || b.matches(SKIP) || b.getAttribute('aria-pressed') === 'true') return false;
     const r = b.getBoundingClientRect(); if (!(r.width > 0 && r.height > 0) || getComputedStyle(b).visibility === 'hidden') return false;
@@ -79,6 +82,8 @@ const focusAnswer = () => {
   if (!el.hasAttribute('tabindex') && !/^(BUTTON|A|INPUT)$/.test(el.tagName)) el.tabIndex = 0;
   el.focus(); return true;
 };
+
+const focusSkip = () => { const el = [...document.querySelectorAll('#lsnNoL, #lsnNoS, #skip, #skipW, #lfxNoAudio, #mkSkip, [data-lk-skip], .lfx-skipmic')].find(b => { const r = b.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !b.disabled; }); if (!el) return false; el.focus(); return true; };
 
 const rows = [], found = {};
 for (const [r, hash] of samples) {
@@ -94,11 +99,12 @@ for (const [r, hash] of samples) {
       // trả lời thử bằng bàn phím – leo thang tới khi có nút chính (hoặc màn tự sang bước sau):
       // ① phím của màn (phím số đặt thẻ/chọn, gõ "a" vào ô trống) ② Tab tới thẻ/phương án đầu + Space (màn chưa có phím số)
       const pre0 = s.sig;
-      if (!s.primary) {
+      if (!s.primary || s.bank || s.unanswered || s.blank || s.opt) {
         await blur(page);
         if (s.bank) for (let i = 0; i < Math.min(s.bank, 12); i++) await page.keyboard.press('1');
         else if (s.blank) { await page.evaluate(() => { const v = document.querySelector('#view'); const i = [...v.querySelectorAll('input[type=text], input:not([type]), textarea')].find(x => !x.disabled && !x.readOnly && !x.value && x.getBoundingClientRect().height > 0); if (i) i.focus(); }); await page.keyboard.type('a'); await page.keyboard.press('Enter'); await sleep(500); await blur(page); }
-        else await page.keyboard.press('1');
+        else if (s.unanswered || !s.primary) await page.keyboard.press('1');
+        if (s.opt && !s.unanswered) { await page.evaluate(() => { const o = [...document.querySelectorAll('#view .lsn-opt:not([disabled]), #view [data-opt]:not([disabled]), #view .opt:not([disabled]), #view .qk-btn:not([disabled])')].find(x => x.getBoundingClientRect().height > 0); if (o) o.focus(); }); await page.keyboard.press('Space'); await blur(page); }
         await sleep(400);
         let a = await page.evaluate(probe);
         for (let j = 0; j < 12 && !a.end && a.learn && (a.bank || (!a.primary && a.sig === pre0)); j++) {
@@ -115,6 +121,8 @@ for (const [r, hash] of samples) {
       await page.keyboard.press('Enter'); await sleep(700);
       // màn tự bay qua bước nghe/nói khi không có micro/âm thanh → chờ thêm
       let n = await page.evaluate(probe); if (n.sig === before && !n.end) { await sleep(1200); n = await page.evaluate(probe); }
+      // bước nghe/nói không làm được (không micro/loa trên CI) → bấm "Bỏ qua" của màn như người học
+      if (n.sig === before && !n.end && n.skip && await page.evaluate(focusSkip)) { await page.keyboard.press('Space'); await sleep(900); await blur(page); n = await page.evaluate(probe); if (n.sig !== before) { still = 0; s = n; continue; } }
       if (n.sig !== before) { still = 0; if (pre.primary) m.enter = true; } else if (++still >= 2) { m.dead = `kẹt ở bước ${k + 1}: Enter không đi tiếp (nút chính: ${n.primary || 'không có'})`; break; }
       s = n;
     }

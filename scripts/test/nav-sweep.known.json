@@ -7,10 +7,6 @@
   "enter",
   "end"
  ],
- "paraphrase": [
-  "enter",
-  "end"
- ],
  "placement": [
   "enter",
   "end"
@@ -44,7 +40,6 @@
   "skip"
  ],
  "lesson": [
-  "enter",
   "end"
  ],
  "practice": [
@@ -66,8 +61,7 @@
   "end"
  ],
  "toefl-p": [
-  "enter",
-  "end"
+  "enter"
  ],
  "toeic-r": [
   "enter",
@@ -83,7 +77,6 @@
  ],
  "pron": [
   "enter",
-  "end",
   "skip"
  ],
  "roleplay": [
