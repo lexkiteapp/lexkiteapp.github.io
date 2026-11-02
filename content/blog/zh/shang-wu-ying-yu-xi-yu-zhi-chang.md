@@ -28,16 +28,16 @@ qualityScore: 95
 
 - **Get the ball rolling**: 启动计划或迈出实质性的第一步，使项目进入正轨。
   - *应用场景*: 适合用作立项会议的开场白，或敦促各模块负责人尽快提交首版方案。
-  - *实战例句*: *"Let us get the ball rolling by confirming our project roadmap and primary milestones."* (让我们今天先确定项目路线图和首批关键里程碑，正式启动工作)。
+  - *实战例句*: *"Let us kick off discussions and get the ball rolling on quarterly procurement priorities."* (让我们启动讨论，就季度采购优先事项正式拉开序幕)。
 - **Hit the ground running**: 入职第一天或接手新任务后便能迅速进入状态并高效产出。
   - *应用场景*: 招聘资深技术架构师或外部战略顾问时极具分量的赞扬。
-  - *实战例句*: *"Given his cloud migration background, Felix will hit the ground running on our infrastructure overhaul."* (凭借深厚的云迁移经验，菲利克斯在基础设施重构中必将迅速进入高效状态)。
+  - *实战例句*: *"Thanks to thorough preparation, the implementation squad can hit the ground running without hesitation."* (得益于前期的周密准备，实施团队能毫不迟疑地迅速进入高效交付状态)。
 - **On the same page**: 达成高度共识，在战略方向和执行目标上保持步调一致。
   - *应用场景*: 向集团管理层汇报前，确保内部团队思想高度统一。
-  - *实战例句*: *"Before presenting to executive leadership, let us ensure all team leads are on the same page."* (在向管理层汇报之前，我们要确保各团队负责人达成完全共识)。
+  - *实战例句*: *"We should schedule a brief alignment sync to keep stakeholders on the same page."* (我们应当安排一次简短的对齐会，确保各方利益相关者保持步调一致)。
 - **Bring to the table**: 为团队协作或商业谈判贡献独特优势、专业技能或关键资源。
   - *应用场景*: 评估外部供应商资质或进行高级人才面谈时非常常用。
-  - *实战例句*: *"The external software vendor brings specialized compliance expertise to the table."* (这家外部软件供应商能为我们带来不可多得的合规专业见解)。
+  - *实战例句*: *"The joint venture partner brings established regional retail networks to the table."* (合资伙伴为我们带来了深厚的区域零售分销网络优势)。
 
 若需全面提升涉外会议的表达能力，建议查阅我们的[英文会议常用句型指南](/zh/blog/ying-wen-hui-yi-chang-yong-ju-xing/)。
 
@@ -47,16 +47,16 @@ qualityScore: 95
 
 - **Back to the drawing board**: 坦然承认先前方案行不通，需要推倒重来从零规划。
   - *应用场景*: 当立项提案未获批准时，用此表达激励团队重整旗鼓。
-  - *实战例句*: *"Since the initial pilot study missed performance benchmarks, we must go back to the drawing board."* (由于首轮试点未达基准指标，我们需要从头再来重新构思方案)。
+  - *实战例句*: *"When the pricing strategy failed customer acquisition trials, we went back to the drawing board."* (当定价策略未能通过获客测试时，我们果断返回原点重新设计方案)。
 - **Cut corners**: 为了省时省钱而偷工减料或省略必要的质量安全管控程序。
   - *应用场景*: 通常用作合规自查或代码质量管控时的严肃告诫。
-  - *实战例句*: *"We refuse to cut corners on data encryption protocols merely to hit a quarterly release date."* (我们决不能仅仅为了赶上季度发布日期而在数据加密标准上偷工减料)。
+  - *实战例句*: *"Engineering leadership insisted that developers must never cut corners on security audits."* (技术负责人坚决强调，研发人员绝不能在安全审计环节偷工减料)。
 - **Bite the bullet**: 咬紧牙关直面痛苦但不可避免的重大决定，承担必要代价。
   - *应用场景*: 关闭亏损业务线或更换老旧企业软件系统时的果断决策。
-  - *实战例句*: *"Our board decided to bite the bullet and replace the legacy enterprise ERP platform."* (董事会决定咬紧牙关，全面更换老旧的企业ERP系统)。
+  - *实战例句*: *"Management eventually had to bite the bullet and decommission underperforming regional branches."* (管理层最终不得不痛下决心，关闭了业绩欠佳的区域分支机构)。
 - **Think outside the box**: 跳出固有思维框架，以颠覆性视角寻找创新解决方案。
   - *应用场景*: 战略头脑风暴或竞品突围研讨会上的核心指导思想。
-  - *实战例句*: *"To outpace agile startups, our product development department must think outside the box."* (为了超越敏捷初创公司，我们的产品研发部门必须突破常规创新思考)。
+  - *实战例句*: *"To outsmart industry incumbents, our brand campaign had to think outside the box."* (为了在行业老牌巨头中脱颖而出，我们的品牌推广策划必须打破常规另辟蹊径)。
 
 如果需要与海外客户进行价格与条款博弈，请参考[商务英语谈判句型与合同沟通](/zh/blog/shang-wu-ying-yu-tan-pan-ju-xing-he-tong/)。
 
@@ -66,16 +66,16 @@ qualityScore: 95
 
 - **Touch base**: 与某人进行简短沟通以同步最新状态或互通简要信息。
   - *应用场景*: 邮件结尾提议进行5分钟快速对齐时的最佳用语。
-  - *实战例句*: *"I will touch base with your account manager on Friday to review the revised delivery schedule."* (我将在周五与您的客户经理简短沟通，确认最新的交付计划)。
+  - *实战例句*: *"I plan to touch base with your team after reviewing the revised milestone document."* (在审阅完修订版里程碑文档后，我计划与贵方团队进行一次简短沟通)。
 - **Keep someone in the loop**: 让相关人员持续知悉事情的最新进展，保持信息同步。
   - *应用场景*: 抄送邮件或向项目监督人阶段性汇报时常用。
-  - *实战例句*: *"Please keep our procurement team in the loop regarding vendor contract negotiations."* (在与供应商进行合同谈判期间，请务必让采购团队了解最新进展)。
+  - *实战例句*: *"Please keep department directors in the loop as commercial discussions progress."* (随着商务谈判的推进，请务必让各部门总监保持信息同步)。
 - **Call it a day**: 工作取得阶段性成果后决定结束当天的任务或会议。
   - *应用场景*: 解决完高优先级技术故障后宣布收工的常用语。
-  - *实战例句*: *"We resolved the primary server outage issues, so let us call it a day and review monitoring logs tomorrow."* (主要服务器故障已经排除，今天就到此为止，明天再细看监控日志)。
+  - *实战例句*: *"We have resolved all critical deployment blockers, so let us call it a day."* (我们已经清除了所有高优先级的部署障碍，今天的工作就先到此结束吧)。
 - **Up in the air**: 方案或决策仍悬而未决，处于等待最终批复或未确定状态。
   - *应用场景*: 描述预算审批延迟或海外出差行程尚未敲定。
-  - *实战例句*: *"The budget allocation for our European regional marketing campaign is still up in the air."* (我们欧洲区域营销活动的预算分配目前依然悬而未决)。
+  - *实战例句*: *"Final venue confirmation for our annual developer summit is still up in the air."* (我们年度开发者峰会的最终场地确认目前依然处于待定状态)。
 
 关于撰写严谨规范的英文信函，请深入阅读[商务英语邮件格式与写作技巧](/zh/blog/shang-wu-ying-yu-you-jian-ge-shi/)。你也可以进入口语训练模块[/#/speaking](/#/speaking)进行实战对练，或在[/#/practice/speak](/#/practice/speak)通过智能打分检验语音语调。
 
