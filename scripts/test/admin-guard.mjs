@@ -10,6 +10,7 @@ import { scan, ADMIN_SEL } from '../lib/layout-scan.mjs';
 import { FX, BFX, VFX, VIT, NOW } from './fixtures/admin-fx.mjs';
 import { buildRows, readFixture, unitMap } from '../ads/report.mjs';
 import { stats, guardOf, revPack } from '../../functions/api/_ads.js';
+import { waitFn } from '../lib/pw-wait.mjs';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('admin-guard: playwright chưa cài – bỏ qua'); process.exit(0); }
 const browser = await pw.chromium.launch();
 const SHOTS = [['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark']];
@@ -79,7 +80,7 @@ for (const [width, scheme, lang] of CONFIGS) {
   for (const r of routes) {
     cur = r;
     await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(r.startsWith('video/') ? 900 : 700);
-    await page.waitForFunction(() => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
+    await waitFn(page, () => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
     const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav' }).catch(e => ({ err: [e.message] }));
     // khung: tràn ngang trang, nội dung lấp khung (không cột trống giữa thanh bên và nội dung)
     res.shell = await page.evaluate(() => {

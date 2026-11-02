@@ -7,6 +7,7 @@ import { chromium, webkit } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { waitFn } from '../lib/pw-wait.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const which = (process.argv[2] || 'chromium,webkit').split(',');
 
@@ -63,10 +64,10 @@ for (const name of which) {
     return route.fulfill({ contentType: 'audio/wav', body: SHORT });
   });
   await page.goto('https://lk.test/');
-  await page.waitForFunction(() => window.LKAudio && window.UI && window.UI.tts);
+  await waitFn(page, () => window.LKAudio && window.UI && window.UI.tts);
   // chạy f trong cử chỉ người dùng (click thật) – giống người dùng bấm nút nghe
   const step = async (fn, arg) => { await page.evaluate(([src, a]) => { window.__step = () => (0, eval)('(' + src + ')')(a); }, [fn.toString(), arg]); await page.click('#go'); };
-  const res = (k, ms = 8000) => page.waitForFunction(k => window.__res[k] !== undefined, k, { timeout: ms }).then(() => page.evaluate(k => window.__res[k], k)).catch(() => undefined);
+  const res = (k, ms = 8000) => waitFn(page, k => window.__res[k] !== undefined, k, { timeout: ms }).then(() => page.evaluate(k => window.__res[k], k)).catch(() => undefined);
 
   // 1) mở khóa
   check(await page.evaluate(() => !LKAudio.isUnlocked()), 'chưa mở khóa trước lần chạm đầu');

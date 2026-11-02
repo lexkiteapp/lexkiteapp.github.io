@@ -9,6 +9,7 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import { serve } from '../quality/serve.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'je-out'));
@@ -96,7 +97,7 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
     lang, dev, page, ctx, st, fail, ok, notes, reqs, mobile: dev !== 'desktop', q: opts.q ?? 'sandbox=1',
     url: (hash, q = 'sandbox=1') => `${O}/app/?${q ? q + '&' : ''}hl=${lang}#${hash}`,
     async boot(hash, q = h.q) { await page.goto(h.url(hash, q), { waitUntil: 'load', timeout: 45000 }); await h.ready(); },
-    async ready() { await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }); await sleep(700); },
+    async ready() { await waitFn(page, () => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }); await sleep(700); },
     async go(hash) { await page.evaluate(x => { location.hash = x; }, hash); await sleep(900); },
     /** Hộp "Lên cấp N!" (app.js → modal) bật trễ sau khi cộng XP → che nút đang bấm (J2 en: #cfGo timeout). Người dùng thật bấm "Tuyệt vời!" rồi đi tiếp. */
     async dismissLevelUp() { const b = page.locator('#modal:not([hidden]) #modalBox > .celebrate:has(> .em:text-is("🎖️")) > button[data-close]').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng hộp "Lên cấp"'); await b.click({ timeout: 5000 }).catch(() => {}); await page.locator('#modal').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {}); return true; },
@@ -446,9 +447,9 @@ async function j7(lang) {
     await sleep(1500); for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch(() => {});
     const pg = await ctx.newPage(); await pg.goto('https://news.example.test/article'); await sleep(1200);
     // boot.js chạy lúc document_idle rồi mới nhờ SW chèn content.js → chờ ĐIỀU KIỆN (bảng tra hiện), nhấp đúp lại nếu lần trước rơi vào lúc mồi chưa gắn
-    const popUp = () => pg.waitForFunction(() => { const b = document.querySelector('ielts-lexi-popup')?.shadowRoot?.querySelector('.box'); return !!(b && !b.hidden && b.getBoundingClientRect().height > 0); }, null, { timeout: 8000 }).then(() => true, () => false);
+    const popUp = () => waitFn(pg, () => { const b = document.querySelector('ielts-lexi-popup')?.shadowRoot?.querySelector('.box'); return !!(b && !b.hidden && b.getBoundingClientRect().height > 0); }, null, { timeout: 8000 }).then(() => true, () => false);
     for (let i = 0; i < 4; i++) { await pg.locator('#w').dblclick(); if (await popUp()) break; }
-    await pg.waitForFunction(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return !!(r && r.querySelector('#save') && /\S/.test((r.querySelector('.ctx') || {}).innerText || '')); }, null, { timeout: 15000 }).catch(() => {});
+    await waitFn(pg, () => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return !!(r && r.querySelector('#save') && /\S/.test((r.querySelector('.ctx') || {}).innerText || '')); }, null, { timeout: 15000 }).catch(() => {});
     const pop = () => pg.evaluate(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return r ? { box: !!(r.querySelector('.box') && !r.querySelector('.box').hidden), ctx: (r.querySelector('.ctx') || {}).innerText || '', save: !!r.querySelector('#save'), saved: !!(r.querySelector('#save') || {}).disabled } : null; });
     const p1 = await pop();
     ok(p1 && p1.box, 'add-on: nhấp đúp → bảng tra hiện');

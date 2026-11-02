@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { serve } from '../quality/serve.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const OUT = path.resolve(arg('out', 'out/qa-bot')), ONLY = arg('only', 'journeys,ui,perf,storage').split(',');
@@ -78,7 +79,7 @@ async function context(w, theme, { seed = {}, ux1 = 0 } = {}) {
   return { ctx, page, errs, bad, take: async () => { const rej = await page.evaluate(() => window.__rej.splice(0)).catch(() => []); const out = [...new Set([...errs.splice(0), ...rej.map(x => 'unhandledrejection: ' + x), ...bad.splice(0).map(x => 'request: ' + x)])]; return out; } };
 }
 const appUrl = hash => `${O}/app/?sandbox=1&hl=en#${hash}`;
-async function ready(page) { await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }); await sleep(900); }
+async function ready(page) { await waitFn(page, () => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }); await sleep(900); }
 async function boot(page, hash) { await page.goto(appUrl(hash), { waitUntil: 'load', timeout: 45000 }); await ready(page); }
 async function go(page, hash) { await page.evaluate(x => { location.hash = x; }, hash); await sleep(1100); }
 // màn không trống / không kẹt: #view có nội dung và không còn vòng quay/khung chờ sau 8 s

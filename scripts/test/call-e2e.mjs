@@ -11,6 +11,7 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const OUT = path.resolve(arg('--out') || 'qa-call'), BEFORE = process.argv.includes('--before'), WAV = arg('--whisper');
@@ -75,7 +76,7 @@ async function open(o = {}) {
 }
 const go = (page, h) => page.evaluate(x => { location.hash = x; }, h);
 const state = page => page.evaluate(() => (window.__callState ? window.__callState() : null));
-const until = (page, fn, arg, ms = 15000) => page.waitForFunction(fn, arg, { timeout: ms });
+const until = (page, fn, arg, ms = 15000) => waitFn(page, fn, arg, { timeout: ms });
 
 if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   for (const [vp, tag] of [[{ width: 1280, height: 800 }, 'd'], [{ width: 375, height: 812 }, 'm']]) {

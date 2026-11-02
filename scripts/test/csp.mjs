@@ -82,5 +82,12 @@ ok(checkPage(good.replace(/(<meta http-equiv[^>]*>)([\s\S]*?)(<\/body>)/, '$2$1$
 ok(hashOf('a\r\nb') === hashOf('a\nb'), 'hash phải chuẩn hoá CRLF như trình phân tích HTML');
 ok(checkPage(injectMeta('<html><head></head><body><script type="application/ld+json">{"a":1}</script><p title="a onclick=b">x</p></body></html>', policy), policy).length === 0, 'JSON-LD / chữ "onclick=" trong giá trị thuộc tính không phải lỗi');
 
+// Test trình duyệt không dùng page.waitForFunction (Playwright eval predicate trong trang → CSP chặn 'unsafe-eval' → Journey E2E đỏ giả, 2/11)
+{
+  const walkJs = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'node_modules' ? [] : walkJs(path.join(d, e.name))) : /\.(m?js)$/.test(e.name) ? [path.join(d, e.name)] : []);
+  const bad = walkJs(path.join(ROOT, 'scripts')).filter(f => !/pw-wait\.mjs$|csp\.mjs$/.test(f) && /\.waitForFunction\(/.test(fs.readFileSync(f, 'utf8')));
+  ok(!bad.length, 'dùng waitFn (scripts/lib/pw-wait.mjs) thay page.waitForFunction: ' + bad.map(f => path.relative(ROOT, f)).join(', '));
+}
+
 if (errs.length) { console.error(`✗ csp: ${errs.length} lỗi\n  - ` + errs.slice(0, 40).join('\n  - ')); process.exit(1); }
 console.log(`✓ csp: header chặn thật; ${nWeb} trang web/ (${nInline} script nội tuyến có hash)${dist ? `, ${nDist} trang dist/` : ''}; JS không handler on*=`);

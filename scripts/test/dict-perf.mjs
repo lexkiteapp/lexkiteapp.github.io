@@ -11,6 +11,7 @@ import path from 'node:path';
 import http from 'node:http';
 import zlib from 'node:zlib';
 import { READ_PRON_SRC } from './pron-read.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('dict-perf: playwright chưa cài – bỏ qua'); process.exit(0); }
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const ROOT = path.resolve(arg('--root') || '.'), WEB = path.join(ROOT, 'web'), LABEL = arg('--label') || 'run', STRICT = process.argv.includes('--strict');
@@ -63,7 +64,7 @@ const ctx = await browser.newContext(MOBILE); await thirdParty(ctx);
 await ctx.addInitScript(() => { try { localStorage.setItem('vb-onboarded', '1'); } catch (e) { /* */ } window.__lt = []; try { new PerformanceObserver(l => { for (const e of l.getEntries()) window.__lt.push({ t: e.startTime, d: e.duration }); }).observe({ type: 'longtask', buffered: true }); } catch (e) { /* */ } });
 let { page, cdp, net } = await newPage(ctx);
 await page.goto(ORIGIN + '/app/?sandbox=1#/dict', { waitUntil: 'load' });
-await page.waitForFunction(() => window.Dict && document.querySelector('#q'), null, { timeout: 60000 });
+await waitFn(page, () => window.Dict && document.querySelector('#q'), null, { timeout: 60000 });
 await sleep(6000); // rảnh: lex.js + mục lục, các gói tải sẵn (prefetch không thực thi)
 const quiet = async () => { const t = Date.now(); while (Date.now() - net.last < 3000 && Date.now() - t < 90000) await sleep(500); };
 R.firstLoadKB = +(net.bytes / 1024).toFixed(1); R.firstLoadSameKB = +(net.same / 1024).toFixed(1);
@@ -106,7 +107,7 @@ if (await page.locator('#gq').count()) {
 
 // ---------- 4) Offline: trang mới cùng hồ sơ (IndexedDB còn) → từ đã tra vẫn hiện khi mất mạng ----------
 if (hasShards) {
-  const p2 = await newPage(ctx); await p2.page.goto(ORIGIN + '/app/?sandbox=1#/home', { waitUntil: 'load' }); await p2.page.waitForFunction(() => window.Dict); await sleep(3000);
+  const p2 = await newPage(ctx); await p2.page.goto(ORIGIN + '/app/?sandbox=1#/home', { waitUntil: 'load' }); await waitFn(p2.page, () => window.Dict); await sleep(3000);
   await p2.cdp.send('Network.emulateNetworkConditions', { offline: true, latency: 0, downloadThroughput: -1, uploadThroughput: -1 });
   R.offlineOk = await p2.page.evaluate(async () => { const L = window.Lex || await new Promise(r => setTimeout(() => r(window.Lex), 2000)); if (!L) return 'no Lex'; L._reset(); const r = await L.get('mitigate'); return !!(r && r.entry && r.entry.vi); });
   await p2.page.close();
@@ -119,7 +120,7 @@ if (INDEX) {
   for (const w of SAMPLE) {
     const k = w.toLowerCase(); const want0 = INDEX[k] || (w === 'children' ? INDEX.child : w === 'went' ? INDEX.go : null); if (!want0) continue;
     await page.evaluate(w => { location.hash = '#/dict/' + encodeURIComponent(w); }, w);
-    await page.waitForFunction(() => document.querySelector('#result .entry-word'), null, { timeout: 30000 }).catch(() => {});
+    await waitFn(page, () => document.querySelector('#result .entry-word'), null, { timeout: 30000 }).catch(() => {});
     await sleep(2500);
     const got = await page.evaluate(`(() => { const ipa = (${READ_PRON_SRC})(document.querySelector('#result .pron')); return { word: (document.querySelector('#result .entry-word') || {}).textContent, uk: ipa.uk, us: ipa.us, vi: ((document.querySelector('#result .entry-head .vi') || {}).textContent || '').trim(), def: ((document.querySelector('#result .entry-head div[lang=en]') || {}).textContent || '').trim() }; })()`); // IPA theo nhãn UK/US, không theo vị trí (thứ tự giọng đổi theo người học – scripts/test/pron-read.mjs)
     const want = { word: want0.word, uk: want0.ipa || '—', us: want0.ipaUS || want0.ipa || '—', vi: want0.vi, def: want0.def };
