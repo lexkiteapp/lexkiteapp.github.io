@@ -38,6 +38,9 @@ def main():
         dur = len(wav) / SR
         segs.append(dict(sg, k=k, who=who, voice=voice, start=round(t, 4), dur=round(dur, 4), ph=ph, words=words, wav=str(out / f'seg-{k}.wav')))
         gap = spec['gap'] if k < len(spec['segments']) - 1 else spec['tail']
+        if sg.get('repeat'):   # khuôn Reels: chừa lặng cho người xem đọc theo = max(min, k × độ dài câu mẫu) (docs/specs/social-reels-templates.md)
+            r = spec.get('repeat', {}); gap = max(gap, r.get('min', 1.8), r.get('k', 1.2) * dur)
+            segs[-1]['turn'] = [round(t + dur, 4), round(t + dur + gap, 4)]
         track += [wav, np.zeros(int(gap * SR), np.float32)]; t = sum(len(x) for x in track) / SR
         print(k, f'{dur:.2f}s', len(words), 'từ', voice)
     full = np.concatenate(track); sf.write(out / 'voice.raw.wav', full, SR, subtype='PCM_16')

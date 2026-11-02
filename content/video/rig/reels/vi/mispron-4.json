@@ -1,0 +1,94 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "vi-reel-mispron-4",
+ "lang": "vi",
+ "slug": "mispron-4",
+ "who": "carlos",
+ "template": "mispron",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Common words Vietnamese learners pronounce wrongly",
+  "vi": "Từ quen mà người Việt hay đọc sai"
+ },
+ "items": [
+  {
+   "en": "island",
+   "native": "Chữ s câm, không đọc.",
+   "gloss_en": "The letter s is silent, do not read it."
+  },
+  {
+   "en": "recipe",
+   "native": "Ba âm tiết: re-ci-pe.",
+   "gloss_en": "Three syllables: re-ci-pe."
+  },
+  {
+   "en": "vegetable",
+   "native": "Chỉ ba âm tiết, nuốt chữ e giữa.",
+   "gloss_en": "Only three syllables, swallow the middle e."
+  },
+  {
+   "en": "comfortable",
+   "native": "Nhấn âm đầu, nuốt chữ or.",
+   "gloss_en": "Stress the first syllable, swallow the or."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Four words many people say wrong. Listen, then repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Island. Island.",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "Recipe. Recipe.",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "Vegetable. Vegetable.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Comfortable. Comfortable.",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/pron",
+ "cta": "Practice it in Lexkite · Pronunciation",
+ "native": {
+  "hook": "4 từ người Việt hay đọc sai",
+  "turn": "Đến lượt bạn!",
+  "cta": "Hãy đọc theo nhé!",
+  "caption": "Bạn có đang đọc sai 4 từ quen thuộc này? “island” không đọc chữ s, “recipe” có ba âm tiết, “vegetable” và “comfortable” phải nuốt bớt âm giữa. Nghe thầy Carlos đọc mẫu, rồi đọc theo trong khoảng lặng nhé. Luyện phát âm thêm trong app Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#phatamtienganh",
+   "#hoctienganh",
+   "#tienganhmatgoc"
+  ]
+ },
+ "en": {
+  "hook": "4 words Vietnamese learners often say wrong",
+  "caption": "Are you saying these 4 common words wrong? In “island” the s is silent, “recipe” has three syllables, and “vegetable” and “comfortable” drop a middle sound. Listen to Carlos, then say each word in the pause. Practice pronunciation in the Lexkite app."
+ }
+}

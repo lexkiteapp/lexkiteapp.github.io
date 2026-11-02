@@ -5,12 +5,12 @@ name: social-clips
 on:
   workflow_dispatch:
     inputs:
-      specs: { description: 'glob spec (cách nhau bởi dấu cách)', default: 'content/video/rig/l1/*/*.json' }
+      specs: { description: 'glob spec (cách nhau bởi dấu cách)', default: 'content/video/rig/l1/*/*.json content/video/rig/reels/*/*.json' }
       max_parallel: { description: 'trần song song (job plan tự giảm theo min(10, 40 − đang bận − 8))', default: '10' }
       store: { description: 'lưu kho + release (true/false)', default: 'true' }
   push:   # nhánh PR (workflow_dispatch chỉ gọi được khi file đã ở main): đổi spec/engine → dựng lại cả lô thử
     branches-ignore: [main]
-    paths: ['content/video/rig/l1/**', 'scripts/rig/**', '.github/workflows/social-clips.yml']
+    paths: ['content/video/rig/l1/**', 'content/video/rig/reels/**', 'scripts/rig/**', '.github/workflows/social-clips.yml']
 concurrency:
   group: social-clips-${{ github.ref }}
   cancel-in-progress: false   # render/lưu kho: xếp hàng, không huỷ giữa chừng
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - id: p
         env:
-          GLOBS: ${{ inputs.specs || 'content/video/rig/l1/*/*.json' }}
+          GLOBS: ${{ inputs.specs || 'content/video/rig/l1/*/*.json content/video/rig/reels/*/*.json' }}
         run: |
           shopt -s nullglob
           files=(); for g in $GLOBS; do files+=($g); done

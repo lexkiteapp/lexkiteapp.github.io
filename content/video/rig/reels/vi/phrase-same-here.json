@@ -1,0 +1,73 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "vi-reel-phrase-same-here",
+ "lang": "vi",
+ "slug": "phrase-same-here",
+ "who": "ama",
+ "template": "phrase",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Saying “Me too” for everything",
+  "vi": "Lúc nào cũng chỉ nói “Me too”"
+ },
+ "items": [
+  {
+   "en": "Same here",
+   "native": "Mình cũng vậy.",
+   "gloss_en": "Me too."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Same here.",
+   "emo": "explain",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "It means, me too.",
+   "emo": "explain"
+  },
+  {
+   "text": "I am so tired today. Same here!",
+   "emo": "happy",
+   "repeat": true,
+   "item": 0
+  },
+  {
+   "text": "Repeat after me. Same here.",
+   "emo": "encourage",
+   "repeat": true,
+   "item": 0
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "“Mình cũng vậy” nói sao?",
+  "turn": "Đến lượt bạn!",
+  "cta": "Hãy đọc theo nhé!",
+  "caption": "Chán nói “Me too” mãi? Thử “Same here” – nghĩa là mình cũng vậy, rất tự nhiên khi trò chuyện. Ví dụ: “I am so tired today.” – “Same here!”. Nghe cô Ama rồi đọc theo trong khoảng lặng nhé. Luyện thêm trong app Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#tienganhgiaotiep",
+   "#hoctienganh",
+   "#tienganhmatgoc"
+  ]
+ },
+ "en": {
+  "hook": "How do you say “me too” naturally?",
+  "caption": "Tired of saying “Me too”? Try “Same here” – it means me too and sounds natural in conversation. Example: “I am so tired today.” – “Same here!”. Listen to Ama, then say it in the pause. Practice more in the Lexkite app."
+ }
+}

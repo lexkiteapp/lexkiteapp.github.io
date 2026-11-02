@@ -1,0 +1,93 @@
+{
+ "_doc": "Khuôn Reels (docs/specs/social-reels-templates.md): Ama/Carlos đọc mẫu tiếng Anh ≤150 wpm, chừa lặng cho người xem đọc theo (repeat), IPA lấy từ kho từ lúc dựng, chữ bản địa viết tay (native-qa).",
+ "id": "vi-reel-say4-order",
+ "lang": "vi",
+ "slug": "say4-order",
+ "who": "ama",
+ "template": "say4",
+ "fps": 30,
+ "speed": 0.85,
+ "speeds": {
+  "carlos": 0.7
+ },
+ "lead": 0.0,
+ "gap": 0.5,
+ "tail": 0.9,
+ "repeat": {
+  "min": 1.8,
+  "k": 1.2
+ },
+ "mistake": {
+  "en": "Not knowing short, polite lines for ordering food",
+  "vi": "Không biết câu ngắn, lịch sự khi gọi món"
+ },
+ "items": [
+  {
+   "en": "Can I see the menu, please?",
+   "native": "Cho mình xem thực đơn với."
+  },
+  {
+   "en": "What do you recommend?",
+   "native": "Bạn gợi ý món gì?",
+   "gloss_en": "What do you suggest?"
+  },
+  {
+   "en": "No ice, please.",
+   "native": "Đừng cho đá nhé.",
+   "gloss_en": "Don't add ice, please."
+  },
+  {
+   "en": "Can I have the bill, please?",
+   "native": "Cho mình thanh toán nhé.",
+   "gloss_en": "I would like to pay, please."
+  }
+ ],
+ "segments": [
+  {
+   "text": "Ordering food in English? Here are four easy lines. Repeat after me.",
+   "emo": "explain"
+  },
+  {
+   "text": "Can I see the menu, please?",
+   "emo": "explain",
+   "item": 0,
+   "repeat": true
+  },
+  {
+   "text": "What do you recommend?",
+   "emo": "explain",
+   "item": 1,
+   "repeat": true
+  },
+  {
+   "text": "No ice, please.",
+   "emo": "explain",
+   "item": 2,
+   "repeat": true
+  },
+  {
+   "text": "Can I have the bill, please?",
+   "emo": "explain",
+   "item": 3,
+   "repeat": true
+  }
+ ],
+ "deeplink": "#/phrases",
+ "cta": "Practice it in Lexkite · Phrases",
+ "native": {
+  "hook": "Gọi món bằng tiếng Anh nói sao?",
+  "turn": "Đến lượt bạn!",
+  "cta": "Hãy đọc theo nhé!",
+  "caption": "Đi ăn mà ngại gọi món bằng tiếng Anh? Lưu ngay 4 câu này: “Can I see the menu, please?”, “What do you recommend?”, “No ice, please.”, “Can I have the bill, please?”. Nghe cô Ama đọc mẫu rồi đọc theo trong khoảng lặng nhé. Luyện thêm trong app Lexkite.",
+  "hashtags": [
+   "#lexkite",
+   "#tienganhgiaotiep",
+   "#hoctienganh",
+   "#tienganhmatgoc"
+  ]
+ },
+ "en": {
+  "hook": "How do you order food in English?",
+  "caption": "Nervous about ordering food in English? Save these 4 lines: “Can I see the menu, please?”, “What do you recommend?”, “No ice, please.”, “Can I have the bill, please?”. Listen to Ama, then say each one in the pause. Practice more in the Lexkite app."
+ }
+}

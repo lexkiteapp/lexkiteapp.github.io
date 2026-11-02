@@ -24,11 +24,15 @@ F_KICK, F_HOOK, F_CAP, F_CTA = font(46, 'BeVietnamPro-Bold.ttf'), font(84), font
 RIGS = json.loads(subprocess.check_output(['node', '-e', "console.log(JSON.stringify(require('./web/js/call/face.js').RIG))"], cwd=ROOT))
 BASES = {w: Image.open(ROOT / f"web/teach/{w}/head-bare-2x.webp").convert('RGBA') for w in RIGS}  # 1108×960, cùng tọa độ face.js; người nói theo từng câu
 SAFE_T, SAFE_B, SAFE_X = 220, H - 380, 40   # vùng an toàn 9:16 (nút/tiêu đề của TikTok/Reels/Shorts)
-HOOK_Y0, HOOK_Y1 = 232, 470
-TX, TY = (W - 1108) // 2, 520          # giáo viên: tỉ lệ 1:1 (không phóng to ảnh), thân dưới nằm sau thẻ phụ đề → không lộ đường cắt
+TPL = spec.get('template', 'tip-card')
+REEL = TPL in ('say4', 'mispron', 'phrase', 'minpair')   # khuôn Reels (docs/specs/social-reels-templates.md)
+LISTT = TPL in ('say4', 'mispron')                        # danh sách 01–04: giáo viên thu nhỏ dưới danh sách, không thẻ phụ đề (dòng đang đọc = karaoke)
+HOOK_Y0, HOOK_Y1 = 232, {'phrase': 640, 'minpair': 560, 'say4': 400, 'mispron': 400}.get(TPL, 470)
+TX, TY = (W - 1108) // 2, {'phrase': 650, 'minpair': 580}.get(TPL, 520)          # giáo viên: tỉ lệ 1:1 (không phóng to ảnh), thân dưới nằm sau thẻ phụ đề → không lộ đường cắt
 HDY = TY - 420                          # tay vẽ theo toạ độ thân (bản đầu TY = 420)
 CARD_Y0, CARD_Y1 = 1270, 1450
 CTA_Y = 1500
+LIST_TY, LIST_BAND = 1150, 1470   # say4/mispron: đỉnh ảnh giáo viên thu nhỏ · dải đáy (chữ CTA trong vùng an toàn ≤ 1540)
 BOXES = []                              # mọi khung chữ đã vẽ → cổng safe_zone
 def txt(dr, xy, s, font, fill, anchor='la'):
     dr.text(xy, s, font=font, fill=fill, anchor=anchor); BOXES.append(dr.textbbox(xy, s, font=font, anchor=anchor))
@@ -64,11 +68,11 @@ def nruns(s):
         else: out.append([c, f])
     return [(a, b) for a, b in out]
 def nfont_at(path, sz): return ImageFont.truetype(path, sz, index=NIDX if path == NPATH else 0, layout_engine=ImageFont.Layout.RAQM)
-def native_line(dr, cx, cy, s, size, lo, maxw, fill):
+def native_line(dr, cx, cy, s, size, lo, maxw, fill, left=False):
     rs = nruns(s); m = ImageDraw.Draw(Image.new('RGB', (1, 1)))
     width = lambda sz: sum(m.textlength(a, font=nfont_at(f, sz)) for a, f in rs)
     while size > lo and width(size) > maxw: size -= 2
-    x = cx - width(size) / 2
+    x = cx if left else cx - width(size) / 2
     for a, f in rs:
         F = nfont_at(f, size); txt(dr, (x, cy), a, F, fill, 'lm'); x += dr.textlength(a, font=F)
 # màu tay lấy mẫu từ poster-2x (da, blazer, áo trong). Carlos: cần lấy mẫu + anh duyệt hình trước khi bật tay cho thầy (câu của thầy không có tay → bỏ qua, có cảnh báo)
@@ -166,22 +170,117 @@ def hook(dr, t):
             m = re.search(rf'(?<![A-Za-z]){re.escape(a)}(?![A-Za-z])', line)
             if m: xs = x0 + dr.textlength(line[:m.start()], font=F); dr.rounded_rectangle((xs, cy + F.size * .42, xs + dr.textlength(a, font=F), cy + F.size * .42 + 8), 4, fill=TEAL)
 
+
+# ---------- khuôn Reels (docs/specs/social-reels-templates.md): say4 · mispron (danh sách 01–04) · phrase (thẻ một cụm) · minpair (bộ từ gần âm + cận cảnh miệng)
+F_IPA_PATH = str(FD / 'NotoSans-Medium.ttf')   # IPA (ʃ ɪ ə ˈ …): phông thương hiệu không có glyph → Noto Sans (OFL, đã có trong brand)
+f_ipa = lambda sz: ImageFont.truetype(F_IPA_PATH, sz)
+ITEMS, UI = NQA.get('items') or [], NQA.get('ui') or {}
+WHITE = (255, 255, 255)
+def turn_k(t):
+    """trong khoảng lặng đọc theo của câu nào (s['turn'] = [đầu, cuối] do tts.py ghi) → (câu, tỉ lệ đã qua 0..1)"""
+    for sg in segs:
+        a, b = sg.get('turn') or (0, 0)
+        if a <= t < b: return sg, (t - a) / (b - a)
+    return None, 0
+def cur_item(t):
+    """mục đang học: mục của câu đang nói hoặc vừa nói xong (kể cả khoảng lặng đọc theo); trước câu đầu có mục = None"""
+    cur = None
+    for sg in segs:
+        if sg['start'] - .15 <= t and ('item' in sg or 'pair' in sg): cur = sg
+    return cur
+def turn_pill(dr, cx, cy, k):
+    """viên "Đến lượt bạn!" (chữ bản địa) + thanh đếm lùi trong khoảng lặng"""
+    s = UI.get('turn') or 'Your turn!'; m = ImageDraw.Draw(Image.new('RGB', (1, 1)))
+    w = sum(m.textlength(a, font=nfont_at(f, 40)) for a, f in nruns(s)) + 72
+    dr.rounded_rectangle((cx - w / 2, cy - 36, cx + w / 2, cy + 36), 36, fill=TEAL)
+    native_line(dr, cx, cy, s, 40, 30, w - 40, WHITE)
+    dr.rounded_rectangle((cx - w / 2 + 24, cy + 24, cx + w / 2 - 24, cy + 30), 3, fill=hx(TOK['--teal-2']))
+    dr.rounded_rectangle((cx - w / 2 + 24, cy + 24, cx - w / 2 + 24 + (w - 48) * (1 - k), cy + 30), 3, fill=WHITE)
+def karaoke_line(dr, x, cy, sg, lt, F, maxw):
+    """dòng tiếng Anh tô theo mốc từ Kokoro (cùng nguồn với tiếng + miệng); trả về bề rộng"""
+    ws = words_of(sg); disp = sg['text'].split() if len(sg['text'].split()) == len(ws) else [w['w'] for w in ws]
+    for tk, w in zip(disp, ws):
+        col = LIP if w['start'] <= lt < w['end'] + .08 else HEAD
+        txt(dr, (x, cy), tk, F, col, 'lm'); x += dr.textlength(tk + ' ', font=F)
+def reel_list(dr, t):
+    """say4 / mispron: hook bản địa + 4 dòng 01–04 (câu/từ EN · IPA từ kho · dòng bản địa), dòng đang học sáng, viên đến lượt bạn trong khoảng lặng"""
+    dr.rounded_rectangle((48, HOOK_Y0 + 14, W - 48, HOOK_Y1 + 14), 44, fill=LEDGE); dr.rounded_rectangle((48, HOOK_Y0, W - 48, HOOK_Y1), 44, fill=CARD)
+    native_line(dr, W / 2, HOOK_Y0 + 62, NHOOK, 58, 34, W - 2 * 96, LIP)
+    native_line(dr, W / 2, HOOK_Y0 + 128, UI.get('cta', ''), 38, 28, W - 2 * 96, MUTED)
+    cs, (tsg, tk) = cur_item(t), turn_k(t); ci = cs['item'] if cs else -1
+    y0, RH = HOOK_Y1 + 40, 150
+    for i, it in enumerate(ITEMS):
+        y = y0 + i * (RH + 14); on = i == ci
+        dr.rounded_rectangle((48, y, W - 48, y + RH), 32, fill=CARD, outline=TEAL if on else LEDGE, width=6 if on else 3)
+        dr.rounded_rectangle((72, y + 22, 72 + 64, y + 22 + 52), 16, fill=TEAL if on else LEDGE)
+        txt(dr, (104, y + 48), f'{i + 1:02d}', font(32, 'BeVietnamPro-Bold.ttf'), WHITE if on else HEAD, 'mm')
+        X, MW = 160, W - 48 - 160 - 28
+        line = it['en'] if TPL == 'say4' else it['en'].capitalize(); F = fit(line, font, 48, MW, 32)
+        if on and cs and cs['start'] <= t < cs['start'] + cs['dur'] + .1 and TPL == 'say4': karaoke_line(dr, X, y + 40, cs, t - cs['start'], F, MW)
+        else: txt(dr, (X, y + 40), line, F, LIP if on and TPL == 'mispron' else HEAD, 'lm')
+        txt(dr, (X, y + 86), it['ipa'], fit(it['ipa'], f_ipa, 34, MW, 24), TEAL, 'lm')
+        native_line(dr, X, y + 124, it['native'], 32, 24, MW, MUTED, left=True)
+    if tsg is not None: turn_pill(dr, W / 2, y0 + 4 * (RH + 14) + 40, tk)
+def reel_phrase(dr, t):
+    """phrase: thẻ lớn = hook bản địa + cụm EN to + IPA + nghĩa bản địa"""
+    it = ITEMS[0]
+    dr.rounded_rectangle((48, HOOK_Y0 + 14, W - 48, HOOK_Y1 + 14), 44, fill=LEDGE); dr.rounded_rectangle((48, HOOK_Y0, W - 48, HOOK_Y1), 44, fill=CARD)
+    native_line(dr, W / 2, HOOK_Y0 + 64, NHOOK, 56, 34, W - 2 * 96, LIP)
+    cs = cur_item(t); on = bool(cs) and cs['start'] <= t < cs['start'] + cs['dur'] + .1
+    F = fit(it['en'], font, 120, W - 2 * 110, 64); txt(dr, (W / 2, HOOK_Y0 + 196), it['en'], F, TEAL if on else HEAD, 'mm')
+    txt(dr, (W / 2, HOOK_Y0 + 294), it['ipa'], fit(it['ipa'], f_ipa, 52, W - 2 * 110, 32), TEAL, 'mm')
+    native_line(dr, W / 2, HOOK_Y0 + 360, it['native'], 46, 30, W - 2 * 110, MUTED)
+def mouth_zoom(im, fr):
+    """minpair: cận cảnh miệng (cùng khung mặt đang vẽ, phóng 1,33×) trong khung bo góc ở vai phải – người xem nhìn khẩu hình"""
+    R = RIGS[fr['who']]; mx, my = R['mouth']; base = BASES[fr['who']]
+    face = base.copy(); face.alpha_composite(svg_img(fr['g'], base.width, base.height))
+    crop = face.crop((mx - 120, my - 85, mx + 120, my + 85)).resize((320, 227), Image.LANCZOS)   # 1,33×: khung nhỏ ở vai phải, không che mặt
+    x0, y0 = W - 48 - 320, CARD_Y0 - 227 - 30
+    mask = Image.new('L', crop.size, 0); ImageDraw.Draw(mask).rounded_rectangle((0, 0, *crop.size), 48, fill=255)
+    dr = ImageDraw.Draw(im); dr.rounded_rectangle((x0 - 8, y0 - 8, x0 + 328, y0 + 235), 54, fill=CARD, outline=TEAL, width=6)
+    im.paste(crop, (x0, y0), mask)
+def reel_minpair(dr, t):
+    """minpair: hook bản địa + 4 từ (IPA từ kho dưới mỗi từ), từ đang đọc sáng (mốc từ Kokoro)"""
+    dr.rounded_rectangle((48, HOOK_Y0 + 14, W - 48, HOOK_Y1 + 14), 44, fill=LEDGE); dr.rounded_rectangle((48, HOOK_Y0, W - 48, HOOK_Y1), 44, fill=CARD)
+    native_line(dr, W / 2, HOOK_Y0 + 62, NHOOK, 56, 34, W - 2 * 96, LIP)
+    cur = None
+    for sg in segs:
+        for w in sg['words']:
+            if sg['start'] + w['start'] - .05 <= t < sg['start'] + w['end'] + .25 and norm(w['w']) in [[x['en']] for x in ITEMS]: cur = norm(w['w'])[0]
+    cw = (W - 2 * 72) / len(ITEMS)
+    for i, it in enumerate(ITEMS):
+        cx = 72 + cw * (i + .5); on = cur == it['en']
+        if on: dr.rounded_rectangle((cx - cw / 2 + 8, HOOK_Y0 + 118, cx + cw / 2 - 8, HOOK_Y1 - 22), 28, fill=hx(TOK['--surface-2']), outline=TEAL, width=5)
+        txt(dr, (cx, HOOK_Y0 + 180), it['en'], fit(it['en'], font, 70, cw - 30, 40), TEAL if on else HEAD, 'mm')
+        txt(dr, (cx, HOOK_Y0 + 250), it['ipa'], fit(it['ipa'], f_ipa, 40, cw - 30, 26), TEAL, 'mm')
+        native_line(dr, cx, HOOK_Y0 + 298, it['native'], 30, 22, cw - 24, MUTED)
+
 def frame(fr, t):
     im = Image.new('RGBA', (W, H), BG + (255,))
     base = BASES[fr['who']]; face = svg_img(fr['g'], base.width, base.height); body = base.copy(); body.alpha_composite(face)
     if fr['tilt'] or fr['nod']:
         body = body.rotate(fr['tilt'], resample=Image.BICUBIC, center=tuple(RIGS[fr['who']]['pivot']), translate=(0, fr['nod']))
-    body = body.crop((0, 0, body.width, CARD_Y0 + 40 - TY))   # thân dừng sau thẻ phụ đề: không lòi tà áo dưới thẻ (ảnh đầu trơn cao hơn thẻ)
-    im.alpha_composite(body, (TX, int(round(TY + fr['breath']))))
-    if fr['hand'] and fr['who'] in HANDPAL:
+    if LISTT:   # giáo viên thu nhỏ 0,62 dưới danh sách; dải đáy che đường cắt ảnh
+        sc = .62; b2 = body.resize((round(body.width * sc), round(body.height * sc)), Image.LANCZOS)
+        im.alpha_composite(b2, ((W - b2.width) // 2, int(round(LIST_TY + fr['breath'] * sc))))
+        ImageDraw.Draw(im).rectangle((0, LIST_BAND, W, H), fill=LEDGE)
+    else:
+        body = body.crop((0, 0, body.width, CARD_Y0 + 40 - TY))   # thân dừng sau thẻ phụ đề: không lòi tà áo dưới thẻ (ảnh đầu trơn cao hơn thẻ)
+        im.alpha_composite(body, (TX, int(round(TY + fr['breath']))))
+    if fr['hand'] and fr['who'] in HANDPAL and not LISTT:
         hl = svg_img(hand_svg(fr['hand'], fr['hk'], fr['hmode'], fr['who']), W, H)
         hl.paste((0, 0, 0, 0), (0, CARD_Y0 + 60, W, H))   # khuỷu/tay áo dừng sau thẻ phụ đề, không lòi xuống dưới thẻ
         im.alpha_composite(hl)
+    if TPL == 'minpair': mouth_zoom(im, fr)
     dr = ImageDraw.Draw(im)
+    if LISTT:
+        reel_list(dr, t); txt(dr, (W / 2, LIST_BAND + 40), spec['cta'], F_CTA, HEAD, 'mm')
+        return im.convert('RGB')
     dr.rounded_rectangle((48, CARD_Y0 + 14, W - 48, CARD_Y1 + 14), 48, fill=LEDGE); dr.rounded_rectangle((48, CARD_Y0, W - 48, CARD_Y1), 48, fill=CARD)
-    seg = segs[fr['seg']]
-    if fr['lt'] >= -.2: caption(dr, seg, fr['lt'])
-    hook(dr, t)
+    seg = segs[fr['seg']]; tsg, tk = turn_k(t) if REEL else (None, 0)
+    if tsg is not None: turn_pill(dr, W / 2, (CARD_Y0 + CARD_Y1) / 2, tk)
+    elif fr['lt'] >= -.2: caption(dr, seg, fr['lt'])
+    {'phrase': reel_phrase, 'minpair': reel_minpair}.get(TPL, hook)(dr, t)
     txt(dr, (W / 2, CTA_Y), spec['cta'], F_CTA, MUTED, 'mm')
     return im.convert('RGB')
 
@@ -211,7 +310,7 @@ segs = json.loads((OUT / 'frames.json').read_text())['segments']
 D, d, mp4 = render('full', 'frames.json')
 _, _, mp4r = render('reduced', 'frames-reduced.json')
 # khung chính: hook (0 s), giải thích, khen (tay), khích lệ (tay)
-fps, keys = D['fps'], [('hook', 0.6)] + ([('fix', switch_time() + .7)] if spec.get('template', 'tip-card') != 'pair' else []) + [('explain', segs[1]['start'] + 1.0)] + [(s['emo'], s['start'] + min(1.2, s['dur'] * .6)) for s in segs if s.get('hand')]
+fps, keys = D['fps'], [('hook', 0.6)] + ([('fix', switch_time() + .7)] if TPL in ('stop', 'tip-card') else []) + [(f'turn{i}', (s['turn'][0] + s['turn'][1]) / 2) for i, s in enumerate(segs) if s.get('turn')][:2] + [('explain', segs[1]['start'] + 1.0)] + [(s['emo'], s['start'] + min(1.2, s['dur'] * .6)) for s in segs if s.get('hand')]
 ims = []
 for nm, t in keys:
     k = min(int(t * fps), len(D['frames']) - 1)
@@ -258,9 +357,19 @@ for f in (ROOT / 'web/js').rglob('*.js'):
     routes |= {a or b for a, b in re.findall(r"routes(?:\.([A-Za-z0-9_-]+)|\['([A-Za-z0-9_-]+)'\])\s*=", f.read_text(errors='ignore'))}
 dl = spec.get('deeplink', '')
 def logic():
-    hk, tpl, said = spec['hook'], spec.get('template', 'tip-card'), ' '.join(norm(text))
+    hk, tpl, said = spec.get('hook', {}), TPL, ' '.join(norm(text))
     sayn = lambda x: ' '.join(norm(re.sub(r'\d+', lambda m: hk.get('say', {}).get(m.group(0), m.group(0)), x)))
     ok = 3 <= len(spec['segments']) <= 6 and 'repeat after me' in said and all(not sg.get('hand') or sg.get('who', spec['who']) in HANDPAL for sg in spec['segments'])
+    if REEL:   # khuôn Reels: mục nào cũng có IPA từ kho + dòng bản địa, giáo viên đọc đúng mục, có khoảng lặng đọc theo cho mục
+        SG, its = spec['segments'], spec.get('items', [])
+        rep = [sg for sg in SG if sg.get('repeat')]
+        ok &= len(its) == len(ITEMS) and all(x.get('ipa') and x.get('native') for x in ITEMS) and bool(rep) and all(sg.get('turn') for sg in segs if sg.get('repeat'))
+        if TPL == 'say4': ok &= len(its) == 4 and [norm(sg['text']) for sg in SG if 'item' in sg] == [norm(x['en']) for x in its] and all('item' in sg for sg in rep)
+        if TPL == 'mispron': ok &= len(its) == 4 and all(norm(SG[[sg.get('item') for sg in SG].index(i)]['text']).count(x['en']) >= 2 for i, x in enumerate(its))
+        if TPL == 'phrase': ok &= len(its) == 1 and said.count(' '.join(norm(its[0]['en']))) >= 3
+        if TPL == 'minpair': ok &= 3 <= len(its) <= 4 and all(x['en'] in norm(SG[0]['text']) and x['en'] in ' '.join(norm(' '.join(sg['text'] for sg in rep))).split() for x in its) \
+            and len({x['ipa'] for x in ITEMS}) == len(ITEMS)
+        return bool(ok and spec.get('mistake', {}).get('en') and spec['lang'] in LANGS15)
     if tpl == 'pair': ok &= hk['a'] in norm(spec['segments'][0]['text']) and hk['b'] in norm(spec['segments'][0]['text'])
     else:
         s0 = ' '.join(norm(spec['segments'][0]['text']))
@@ -285,6 +394,12 @@ g.update({
 })
 if spec.get('native'):
   g.update({'native_text_qa': bool(NQA.get('ok')), 'native_glyphs': glyphs_ok()})
+if REEL:   # IPA: đúng chuỗi kho từ (native-qa ghi từ loadAllPlus) và phông IPA có đủ glyph
+  IC = _cmap(F_IPA_PATH)
+  g.update({'ipa_from_lexicon': bool(NQA.get('gates', {}).get('ipa_from_lexicon')) and all(x['ipa'] for x in ITEMS),
+            'ipa_glyphs': all(ord(c) in IC for x in ITEMS for c in x['ipa'] if not c.isspace()),
+            'items_native_glyphs': all(ord(c) in CMAP[f] for x in ITEMS + [{'native': UI.get('turn', '')}, {'native': UI.get('cta', '')}] for a, f in nruns(x['native']) for c in a if not c.isspace()),
+            'turn_contrast': contrast(WHITE, TEAL) >= 4.5 and contrast(TEAL, CARD) >= 4.5 and contrast(HEAD, LEDGE) >= 4.5})
 score = round(100 * sum(g.values()) / len(g))
 qc = {'score': score, 'gates': g, 'safe_box': [X0, Y0, X1, Y1], 'misspelled': missp, 'above_b1': hard, 'deeplink': dl, 'native_font': Path(NPATH).name if NPATH else None, 'lufs': I, 'truePeak': tp, **{k: M[k] for k in ['voices', 'total', 'words', 'wpmSpeech', 'wpmOverall', 'firstVoicedS', 'lagMaxAbsMs', 'visemePctMin', 'flicker', 'blinksPerMin']}, 'rows': M['rows'],
       'cost': {'kling_credits': 0, 'usd': 0, 'ci_minutes_note': 'xem thời gian job rig-sample'}}
