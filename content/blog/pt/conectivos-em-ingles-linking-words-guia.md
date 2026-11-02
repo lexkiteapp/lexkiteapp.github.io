@@ -33,6 +33,7 @@ quiz: [
     explain: "'Consequently' indica que o evento subsequente é o resultado ou desfecho lógico direto da premissa anterior."
   }
 ]
+publishAt: 2026-11-30T09:25:00-03:00
 ---
 
 Ao produzir uma redação acadêmica, redigir um e-mail profissional ou defender argumentos em exames como IELTS e TOEFL, apresentar boas ideias não é suficiente. A maturidade do seu texto é julgada principalmente pela coesão e pela clareza lógica entre as orações. O domínio dos **conectivos em ingles linking words** garante que o leitor acompanhe o raciocínio sem interrupções, estabelecendo transições suaves entre causas, efeitos, contrastes e conclusões.

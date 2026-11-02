@@ -33,6 +33,7 @@ quiz: [
     explain: "Collocations (birlikte kullanılan kelimeler), 'karar almak' ifadesini 'take a decision' yerine doğal hali olan 'make a decision' şeklinde öğrenmenizi sağlar."
   }
 ]
+publishAt: 2026-11-22T19:36:00+03:00
 ---
 İngilizce öğrenirken belirli bir aşamaya gelen herkes şu tanıdık duvarla karşılaşır: kafanızda Türkçe bir cümle kurarsınız, örneğin *"bir karar aldım"* demek istersiniz, almak fiilinin *take* olduğunu hatırlayıp *«I took a decision»* dersiniz. Ancak anadili İngilizce olan biri her zaman doğal bir akıcılıkla *«I made a decision»* diyecektir.
 

@@ -17,17 +17,25 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Xếp lịch bài mới (qua cổng chất lượng)
         run: node scripts/blog-pipeline.mjs queue || echo "::warning::Có bài chưa đạt cổng chất lượng – chưa xếp lịch"
       - name: Commit lịch đăng
+        if: github.ref == 'refs/heads/main'
         run: |
           if ! git diff --quiet -- content/blog; then
             git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
-            git add content/blog && git commit -m "Blog: tự xếp lịch bài mới [CF-Pages-Skip]" && git push
+            git add content/blog && git commit -m "Blog: tự xếp lịch bài mới [CF-Pages-Skip] [skip ci]" && git push
           else echo "· Không có bài mới cần xếp lịch"; fi
+      - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh blog-daily <nhánh>)
+        if: github.ref != 'refs/heads/main'
+        uses: ./.github/actions/bot-output
+        with:
+          name: blog-daily
+          paths: content/blog
       - name: Nhắc việc (issue)
         env:
           GH_TOKEN: ${{ github.token }}

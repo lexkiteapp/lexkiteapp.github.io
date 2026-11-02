@@ -59,6 +59,7 @@ quiz: [
     explain: "Gerade bei True/False/Not Given und Matching Paragraphs steckt die Lösung fast immer in einer cleveren Paraphrase statt in denselben Signalwörtern."
   }
 ]
+publishAt: 2026-12-08T08:30:00+01:00
 ---
 
 Das gekonnte **IELTS Paraphrasieren** zählt zu den wirkungsvollsten Fertigkeiten, um die gefürchtete 6.5-Hürde zu überwinden und ein klares Band 7.5 bis 8.5 zu erzielen. Wenn Sie in **IELTS Writing Task 2** die Aufgabenstellung in Ihrer Einleitung schlicht abschreiben, wird dieser Teil bei der offiziellen Wortzählung ignoriert. Die Prüfer bewerten bereits ab dem ersten Satz, ob Sie vorgegebene Konzepte eigenständig, präzise und idiomatisch formulieren können.
