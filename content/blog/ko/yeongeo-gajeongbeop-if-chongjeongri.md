@@ -3,7 +3,7 @@ title: "영어 가정법 총정리 : if 조건문 0부터 3까지 완벽 정리"
 description: "영어 가정법 완벽 가이드: 조건문 Type 0부터 Type 3, 혼합 가정법의 핵심 시제 공식과 실전 예문, 한국인 학습자가 공인 영어 시험과 일상 회화에서 자주 헷갈리는 문법 포인트를 한 번에 명쾌하게 정리합니다."
 slug: yeongeo-gajeongbeop-if-chongjeongri
 lang: ko
-translationKey: cau-dieu-kien-tieng-anh-conditionals
+translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [grammar, conditionals, tense]
 keyword: "영어 가정법"

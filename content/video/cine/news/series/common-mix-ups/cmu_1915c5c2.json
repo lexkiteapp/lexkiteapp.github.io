@@ -1,0 +1,559 @@
+{
+ "id": "cmu_1915c5c2",
+ "template": "mistake",
+ "title": "Common Mix-ups #1 – bored vs boring",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "accent": "yellow",
+ "active": "cream",
+ "hook_style": "mix-up: X badge + quoted error",
+ "motif": "meaning first, then the right sentence",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict",
+  "say": "Look up any word"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "u_w"
+ ],
+ "error_re": "\\bi'm\\W+boring\\W+in\\b",
+ "lines": [
+  {
+   "id": "u_h",
+   "text": "Most learners mix this up.",
+   "gap": 0.5
+  },
+  {
+   "id": "u_w",
+   "text": "I'm boring in this class.",
+   "key": {
+    "red": [
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_k",
+   "text": "Natives say: I'm bored in this class.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_y",
+   "text": "Bored is how you feel. Boring is what makes you feel it.",
+   "key": {
+    "yellow": [
+     4,
+     10
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_x",
+   "text": "This movie is boring.",
+   "gap": 0.65,
+   "key": {
+    "green": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "u_t",
+   "text": "Tired and tiring work the same way!",
+   "gap": 0.65
+  },
+  {
+   "id": "u_q",
+   "text": "Quick quiz! This lesson is so blank!",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q2",
+   "text": "Boring, or bored?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "u_a",
+   "text": "Boring! This lesson is so boring!",
+   "key": {
+    "green": [
+     0,
+     5
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.65
+  },
+  {
+   "id": "u_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.65
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Not",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“I'm ",
+      "white"
+     ],
+     [
+      "boring ",
+      "red"
+     ],
+     [
+      "in this class.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I'm "
+      ],
+      [
+       "bored ",
+       "green"
+      ],
+      [
+       "in this class."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "bored",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/bɔːrd/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "boring",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " boring",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " bored",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "This movie is "
+      ],
+      [
+       "boring.",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " feel = "
+      ],
+      [
+       "-ED",
+       "hl"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "it does it = "
+      ],
+      [
+       "-ING",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "This lesson is so "
+      ],
+      [
+       "___!",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "q": [
+    [
+     [
+      "This lesson is so ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      "!",
+      "white"
+     ]
+    ]
+   ],
+   "a": "boring",
+   "b": "bored",
+   "correct": "a",
+   "reveal": [
+    "u_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " boring",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " bored",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "bored",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/bɔːrd/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Common Mix-ups",
+  "ep": 1
+ },
+ "source": {
+  "bank": "sb_1915c5c2",
+  "pid": "c:mixup:bored-boring",
+  "cefr": "A2",
+  "diff": "easy",
+  "ipa": "/bɔːrd/"
+ }
+}

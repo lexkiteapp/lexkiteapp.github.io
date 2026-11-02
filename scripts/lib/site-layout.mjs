@@ -75,7 +75,7 @@ ${FOOT_CSS}
 // Sáng: nút cam đậm #CC3F1C (= --primary của app, chữ trắng đạt AA 4.9:1); tối giữ #FF8466 với chữ tối.
 // Vùng chạm ≥ 44px + thanh đầu một hàng trên điện thoại – dùng chung cho MỌI trang tĩnh có siteHeader/crumbs/footer (trang SEO + blog; quality-sweep touch-target)
 export const TAP_CSS = `.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;line-height:1.2;transition:filter .15s,transform .15s}.btn:hover{filter:brightness(1.06)}.btn:active{transform:translateY(1px)}
-nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:0 4px}.lsw .lsw-b{min-height:44px;padding:0 14px}
+nav.main a:not(.btn){display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 4px}.lsw .lsw-b{min-height:44px;padding:0 14px}
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 6px;margin:0 0 8px}.crumbs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.crumbs [aria-current]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
 .cats a,.tf a,.jump a{display:inline-flex;align-items:center;min-height:44px;padding-top:0;padding-bottom:0}
 .site-foot li a,.flangs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.site-foot li a{justify-content:flex-start}.pager a{display:inline-flex;align-items:center;min-height:44px}.site-foot li{margin:0}

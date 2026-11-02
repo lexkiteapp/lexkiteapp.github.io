@@ -16,6 +16,8 @@
   };
   // Kỳ thi đang chọn: cài đặt → mục tiêu đã đặt → đã làm bài kiểm tra IELTS → mặc định IELTS
   App.exam = () => { const s = state.settings; const e = s.exam || (s.goal && s.goal.exam) || 'ielts'; return EXAMS[e] ? e : 'ielts'; };
+  // Nhãn điểm mục tiêu (CEFR lưu 1–6 = A1–C2): ở khung app vì tab Tôi (ux1-me.js) dùng trước khi gói lười goal.js tải
+  App.goalLabel = g => (g.exam === 'general' ? ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'][g.target - 1] || '' : String(g.target));
   App.EXAMS = EXAMS;
   App.setExam = async e => { if (!EXAMS[e]) return; state.settings.exam = e; await App.saveSettings(); if (window.Sync) Sync.schedule(); App.updateExamChip(); toast(EXAMS[e].name); App.route(); };
   App.updateExamChip = () => { const b = document.getElementById('examChip'); if (!b) return; const x = EXAMS[App.exam()]; b.innerHTML = `<span aria-hidden="true">${UI.icon(x.ic)}</span> ${esc(x.short)} <span class="chev" aria-hidden="true">▾</span>`; b.title = t('Kỳ thi của bạn') + ': ' + x.name; };

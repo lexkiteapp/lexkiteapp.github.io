@@ -3,7 +3,7 @@
  "verdicts": {
   "wlw_022772ea": {
    "template": "mistake",
-   "hook": "✗ / “What's the reason of the delay?”",
+   "hook": "✗ “What's the reason of the delay?”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -33,7 +33,7 @@
   },
   "wlw_03f6978d": {
    "template": "mistake",
-   "hook": "✗ / “Stress can lead for health problems.”",
+   "hook": "✗ “Stress can lead for health problems.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -120,6 +120,36 @@
     "wrong": "She is skilled on design."
    },
    "source": "sb_03115b51"
+  },
+  "wlw_07301877": {
+   "template": "mistake",
+   "hook": "✗ “I can't concentrate in my work.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "n_h": "Small word, big mistake.",
+    "n_w": "I can't concentrate in my work.",
+    "n_k": "Say: I can't concentrate on my work.",
+    "n_y": "Concentrate on means give all your attention to.",
+    "n_x": "Concentrate on the road.",
+    "n_t": "Focus on works the same way!",
+    "n_q": "Quick quiz! Please concentrate blank the lesson.",
+    "n_q2": "On, or in?",
+    "n_a": "On! Please concentrate on the lesson.",
+    "n_sh": "Send this to a friend who mixes these up!",
+    "n_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I can't concentrate on my work.",
+    "right_lines": [
+     "n_k"
+    ],
+    "wrong_line": "n_w",
+    "wrong": "I can't concentrate in my work."
+   },
+   "source": "sb_07301877"
   },
   "wlw_0c46f8a4": {
    "template": "mistake",

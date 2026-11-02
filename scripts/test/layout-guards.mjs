@@ -13,6 +13,7 @@ ok(/\.wotd-w \{[^}]*min-height: 44px[^}]*min-width: 44px/.test(css) && /class="w
 ok(!/href="#\/welcome\/setup">\$\{t\('Bắt đầu'\)\}/.test(app), 'nút đầu trang chào có chữ mô tả (Lighthouse link-text: không dùng "Start" trơn)');
 const layout = rd('scripts/lib/site-layout.mjs'), blog = rd('scripts/build-blog.mjs');
 ok(/export const TAP_CSS = `[^`]*nav\.main a:not\(\.btn\)\{[^}]*min-height:44px/.test(layout) && /\$\{TAP_CSS\}/.test(blog), 'blog dùng chung CSS vùng chạm ≥ 44px với trang SEO');
+ok(/export const TAP_CSS = `[^`]*nav\.main a:not\(\.btn\)\{[^}]*min-width:44px/.test(layout), 'link thanh đầu rộng ≥ 44px (chữ ngắn như "Blog" từng chỉ 41px – web-sweep tap)');
 const about = R + 'dist/en/blog/about/index.html';
 if (fs.existsSync(about)) { const a = fs.readFileSync(about, 'utf8'); if (a.includes('v2s-web-')) { // blog đã port Stitch v2.1: đầu trang chung chrome.js – MỌI link/nút trong <header> phải min-h-[44px] (đo thật ở CI: scripts/test/stitch-web-diff.mjs)
     const ch = rd('web/js/st/web/chrome.js'), hd = (ch.match(/header: `([\s\S]*?)`,\n footer:/) || [])[1] || '', els = hd.match(/<(a|button)\b[^>]*>/g) || [];

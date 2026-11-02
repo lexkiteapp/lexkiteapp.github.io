@@ -3,7 +3,7 @@ title: "Từ vựng IELTS chủ đề Technology: AI, mạng xã hội, dữ li�
 description: "Từ vựng IELTS chủ đề Technology gồm AI, mạng xã hội, quyền riêng tư và công việc số, kèm collocation, câu mẫu tự đặt và lỗi người Việt hay mắc khi viết."
 slug: tu-vung-ielts-chu-de-technology
 lang: vi
-translationKey: tu-vung-ielts-chu-de-technology
+translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: tu-vung
 tags: [technology, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề technology"

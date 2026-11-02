@@ -230,7 +230,7 @@ body.call-on{overflow:hidden}
         if (my !== sayRun || !alive()) return;
         if (k >= cur.length) return done();
         const text = cur[k]; let fin = false; const next = () => { if (fin) return; fin = true; one(k + 1); };
-        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next }); else UI.tts(text, ACCENT, undefined, { onEnd: next });
+        if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
         setTimeout(next, Math.min(15000, 1500 + text.length * 90)); // trình duyệt không báo kết thúc → vẫn đi tiếp
       };
       one(0);
@@ -340,7 +340,7 @@ body.call-on{overflow:hidden}
     if (V2) { // chỗ mới của các nút Stitch: ✕ & Kết thúc = cúp máy · caret = thu/mở gợi ý trả lời · loa = nghe lại câu vừa nói (đúng giọng giáo viên)
       $('#cEnd2', ov).onclick = hang;
       const og = $('#cOptTog', ov), ob = $('#cOpts', ov); og.onclick = () => { const open = ob.hidden; ob.hidden = !open; og.setAttribute('aria-expanded', String(open)); };
-      $('#cSpk', ov).onclick = () => { const x = cur.join(' '); if (!x || phase === 'listen') return; if (tch) tch.say(x, { voice, accent: ACCENT }); else UI.tts(x, ACCENT); };
+      $('#cSpk', ov).onclick = () => { const x = cur.join(' '); if (!x || phase === 'listen') return; if (tch) tch.say(x, { voice, accent: ACCENT }); else UI.tts(x, ACCENT, undefined, { voice }); };
     }
 
     function finish() {
