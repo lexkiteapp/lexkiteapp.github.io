@@ -38,38 +38,38 @@ Terapkan ungkapan profesional teruji berikut untuk mengarahkan diskusi bisnis An
 ### 1. Membuka Sesi dan Menyampaikan Tujuan Bersama
 Awali perundingan dengan sapaan hangat yang menegaskan komitmen kolaborasi:
 
-- *"Thank you for meeting with us today. We are genuinely excited about exploring this commercial partnership."* (Terima kasih telah meluangkan waktu bertemu hari ini. Kami sangat antusias menjajaki kemitraan bisnis ini.)
-- *"Our primary objective today is to reach a mutually beneficial agreement regarding the annual enterprise licensing tier."* (Tujuan utama kami hari ini adalah mencapai kesepakatan yang saling menguntungkan terkait skema lisensi tahunan.)
-- *"Before we dive into the specific pricing tiers, could we briefly align on the implementation roadmap and deployment expectations?"* (Sebelum membahas rincian harga, dapatkah kita menyelaraskan ekspektasi jadwal penerapan dan implementasi sistem?)
-- *"We welcome your insights on these operational requirements so we can structure a proposal that supports both organizations."* (Kami sangat menghargai masukan Anda mengenai kebutuhan operasional ini agar kita dapat merancang proposal yang mendukung kedua belah pihak.)
+- *"We truly value the opportunity to sit down with your delegation today to chart out this enterprise rollout."* (Kami sangat menghargai kesempatan berdiskusi dengan delegasi Anda hari ini untuk merancang peluncuran sistem enterprise ini.)
+- *"Prior to examining granular cost components, we suggest establishing mutual alignment on deployment milestones."* (Sebelum membedah komponen biaya secara rinci, kami menyarankan penyelarasan bersama terkait pencapaian bertahap implementasi.)
+- *"Could your operations lead highlight the core efficiency targets you intend to unlock via this contract?"* (Dapatkah pimpinan operasional Anda memaparkan target efisiensi utama yang ingin dicapai melalui kontrak ini?)
+- *"From our company's viewpoint, maintaining stringent data security protocols serves as our indispensable operational foundation."* (Dari sudut pandang perusahaan kami, menjaga protokol keamanan data yang ketat merupakan landasan operasional yang tidak dapat ditawar.)
 
 ### 2. Menyampaikan Penawaran Tandingan dan Konsesi Bersyarat
 Prinsip dasar negosiasi adalah tidak memberikan konsesi secara cuma-cuma tanpa kompensasi sepadan:
 
-- *"If your organization can commit to a two-year service agreement, we would certainly consider offering an eight percent volume discount."* (Jika perusahaan Anda bersedia berkomitmen pada kontrak layanan dua tahun, kami tentu bersedia mempertimbangkan diskon volume sebesar delapan persen.)
-- *"We could potentially shorten the delivery lead time to three weeks, provided that the initial deposit is finalized by Friday."* (Kami dapat memperpendek tenggat waktu pengiriman menjadi tiga minggu, asalkan pembayaran uang muka diselesaikan sebelum hari Jumat.)
-- *"From our standpoint, accommodating your requested payment terms is feasible, assuming your technical team handles first-line support."* (Dari sudut pandang kami, menyesuaikan termin pembayaran yang Anda ajukan dapat dilakukan, dengan asumsi tim teknis internal Anda menangani dukungan tingkat pertama.)
-- *"Would you be open to adjusting the warranty coverage window in exchange for dedicated quarterly account reviews?"* (Apakah Anda terbuka untuk menyesuaikan masa garansi dengan imbalan sesi evaluasi kinerja kuartalan khusus?)
+- *"Should your executive committee endorse a multi-year partnership framework, our directors could authorize tiered pricing incentives."* (Jika komite eksekutif Anda menyetujui kerangka kemitraan multitahun, direksi kami dapat mengesahkan insentif harga berjenjang.)
+- *"We are well-equipped to advance the final deployment by fourteen days, provided the purchase authorization is executed by Friday."* (Kami siap memajukan jadwal implementasi akhir selama empat belas hari, asalkan otorisasi pembelian ditandatangani sebelum hari Jumat.)
+- *"In the event that your technical crew undertakes direct user onboarding, we would gladly waive all initial integration fees."* (Jika tim teknis internal Anda bersedia menangani pelatihan pengguna awal, kami dengan senang hati membebaskan seluruh biaya integrasi awal.)
+- *"As long as your purchase volumes remain above our agreed quarterly benchmark, we will absorb all transpacific shipping charges."* (Selama volume pembelian Anda tetap melampaui tolok ukur kuartalan yang disepakati, kami akan menanggung seluruh biaya pengiriman antarbenua.)
 
 ![Modul latihan pengucapan Lexkite menampilkan frasa cut down on dengan tombol mikrofon](media:practice-speak "Latih pengucapan argumen dan penawaran negosiasi menggunakan mikrofon pada Lexkite dengan frasa cut down on")
 
 ### 3. Menolak secara Halus dan Mengatasi Kebuntuan
 Saat permintaan mitra memberatkan margin operasional perusahaan, tolak dengan santun tanpa merusak hubungan kerja:
 
-- *"I am afraid that an across-the-board fifteen percent rebate exceeds our current margin limits. However, we could bundle complimentary onboarding workshops instead."* (Saya khawatir diskon lima belas persen melebihi batas margin kami saat ini. Namun, kami dapat menyertakan lokakarya pelatihan tanpa biaya tambahan sebagai gantinya.)
-- *"We completely understand your cash flow optimization priorities; nevertheless, a sixty-day payment term presents significant financial exposure for us."* (Kami sepenuhnya memahami prioritas arus kas Anda; kendati demikian, termin pembayaran enam puluh hari menimbulkan risiko finansial yang cukup besar bagi kami.)
-- *"It seems we have reached a slight impasse regarding unit pricing. Why don't we set this parameter aside for a moment and evaluate the maintenance provisions?"* (Tampaknya kita menemui sedikit kebuntuan terkait harga satuan. Mengapa kita tidak menunda poin ini sejenak dan mengevaluasi ketentuan pemeliharaan terlebih dahulu?)
-- *"Let us take a step back and examine the root operational bottleneck that this clause is meant to resolve."* (Mari kita melangkah mundur sejenak untuk melihat hambatan operasional mendasar yang ingin diselesaikan oleh klausul ini.)
+- *"We certainly appreciate your fiscal constraints; nonetheless, providing an allowance of that magnitude exceeds our current cost parameters."* (Kami tentu mengapresiasi kendala anggaran Anda; kendati demikian, memberikan kelonggaran sebesar itu melampaui parameter biaya kami saat ini.)
+- *"Granting that specific concession would necessitate scaling down our scheduled deliverable checkpoints, which we cannot endorse."* (Memberikan konsesi spesifik tersebut akan menuntut pengurangan pos pemeriksaan hasil kerja yang telah dijadwalkan, yang tidak dapat kami rekomendasikan.)
+- *"It appears we have encountered a temporary standstill on the subscription rates; could we pivot towards reviewing service extension clauses?"* (Tampaknya kita menemui kebuntuan sementara pada tarif langganan; dapatkah kita beralih meninjau klausul perpanjangan layanan?)
+- *"Would your committee be amenable to an outcome-based performance matrix instead of an upfront rebate?"* (Apakah komite Anda berkenan mempertimbangkan matriks performa berbasis hasil alih-alih potongan harga langsung di awal?)
 
 ![Pustaka kosakata Lexkite berisi lebih dari 6.800 kata dari level A1 hingga C1](media:library "Perkaya kosakata bisnis dan kontrak dagang dengan memanfaatkan lebih dari 6.800 kata pada pustaka Lexkite")
 
 ### 4. Menutup Perundingan dan Pengesahan Komitmen
 Pastikan tidak ada keraguan sebelum dokumen formal ditandatangani oleh kedua pihak:
 
-- *"To recap the terms we have agreed upon today: we will provide enterprise cloud hosting at ninety thousand dollars annually, with dedicated technical support."* (Untuk merangkum poin yang disepakati hari ini: kami menyediakan layanan hosting cloud perusahaan senilai sembilan puluh ribu dolar per tahun dengan dukungan teknis khusus.)
-- *"I believe we have addressed all principal concerns satisfactorily. Does this framework accurately reflect our consensus?"* (Saya rasa kita telah menuntaskan seluruh kekhawatiran utama dengan baik. Apakah ringkasan ini sudah mencerminkan kesepakatan bersama kita?)
-- *"We are very pleased with this productive outcome. Our legal counsel will prepare the master services agreement incorporating these stipulations by Thursday."* (Kami sangat puas dengan hasil produktif ini. Tim hukum kami akan menyusun draf perjanjian kerja sama utama berdasarkan poin-poin ini sebelum hari Kamis.)
-- *"Let us schedule a brief follow-up call on Friday to review the final draft and authorize the pilot rollout."* (Mari kita jadwalkan panggilan lanjutan singkat pada hari Jumat untuk meninjau draf akhir dan memulai uji coba sistem.)
+- *"Let us briefly summarize the foundational milestones ratified during our conference today to verify complete alignment."* (Mari kita rangkum secara singkat pencapaian dasar yang disahkan dalam konferensi hari ini guna memverifikasi keselarasan menyeluruh.)
+- *"Our contract specialists will furnish the binding documentation reflecting these ratified terms before Thursday noon."* (Spesialis kontrak kami akan menyediakan dokumen yang mengikat berdasarkan ketentuan yang disahkan ini sebelum hari Kamis siang.)
+- *"Contingent upon senior management validation, our team stands ready to finalize the formal agreement early next week."* (Bergantung pada validasi manajemen senior, tim kami siap menuntaskan perjanjian formal pada awal pekan depan.)
+- *"We are thoroughly enthusiastic about this collaborative outcome and look forward to building a truly impactful enterprise partnership."* (Kami sangat antusias dengan hasil kolaborasi ini dan berharap dapat membangun kemitraan korporasi yang benar-benar berdampak besar.)
 
 ## Empat Trik Negosiasi untuk Menghindari Pemotongan Harga
 
@@ -84,9 +84,9 @@ Saat pembahasan terhenti pada persoalan harga, negosiator kawakan memperkenalkan
 
 | Ungkapan Kaku / Menyerang (Hindari) | Ungkapan Santun & Persuasif (Disarankan) | Dampak Komunikasi Bisnis |
 |---|---|---|
-| *Your price is way too expensive.* | *Your pricing proposal sits slightly above our allocated fiscal budget.* | Tidak mendiskreditkan penawaran mitra; memfokuskan kendala pada anggaran internal. |
-| *We will never accept that clause.* | *I am afraid that particular condition poses significant operational friction for us.* | Menolak syarat secara tegas tanpa menyinggung perasaan perwakilan mitra. |
-| *You must sign this contract today.* | *We would appreciate finalizing the paperwork by end of day to guarantee these preferential terms.* | Mendorong percepatan penandatanganan melalui insentif positif bukan paksaan. |
+| *Your quotation is completely unacceptable.* | *Your proposal sits slightly outside our budgeted expenditure ceiling.* | Tidak mendiskreditkan penawaran mitra; memfokuskan kendala pada batas anggaran internal. |
+| *We cannot agree to these terms.* | *That condition presents substantial administrative complexity for our legal division.* | Menolak syarat secara tegas tanpa emosi dengan merujuk pada kendala administratif hukum. |
+| *You must authorize this amendment now.* | *Finalizing the paperwork today allows us to secure these preferential terms for your account.* | Mendorong percepatan penandatanganan melalui insentif positif bukan paksaan. |
 
 Perluas wawasan komunikasi korporasi Anda dengan membaca panduan [frasa bahasa Inggris untuk meeting kerja](/id/blog/frasa-bahasa-inggris-untuk-meeting-kerja/) serta tips [presentasi bahasa Inggris bisnis](/id/blog/frasa-presentasi-bahasa-inggris-bisnis/).
 
