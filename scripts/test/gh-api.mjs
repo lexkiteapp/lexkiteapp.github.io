@@ -30,4 +30,4 @@ slept.length = 0; r = await ghApi('GET', '/repos/x/y/pulls/2', { fetcher: f2, no
 ok(r.status === 0 && r.rateLimited && slept.length >= 1 && slept[0] >= 900e3, 'không đệm: ngủ tới reset, hết lượt → rateLimited (không body giả)');
 fs.rmSync(process.env.GH_API_CACHE, { recursive: true, force: true });
 console.log(fails ? `✗ gh-api: ${fails} lỗi` : '✓ gh-api: ETag/304, poll ≥ 5 phút, chờ reset, 403/429 hạn mức ≠ lỗi');
-process.exit(fails ? 1 : 0);
+if (fails) process.exit(1);   // không exit(0): được ci-filler.mjs import nối chuỗi (không sửa dòng test dài của package.json)
