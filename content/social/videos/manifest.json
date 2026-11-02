@@ -60,8 +60,8 @@
     "ama"
    ],
    "duration_s": 20.6,
-   "score": 95,
-   "pass": false,
+   "score": 100,
+   "pass": true,
    "status": "draft",
    "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-library#/vocab",
    "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-es/2026-11-01-library-video.mp4",
@@ -100,8 +100,8 @@
     "ama"
    ],
    "duration_s": 19.75,
-   "score": 95,
-   "pass": false,
+   "score": 100,
+   "pass": true,
    "status": "draft",
    "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-know-ing#/grammar",
    "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-hi/2026-11-01-know-ing-video.mp4",
@@ -181,8 +181,8 @@
     "ama"
    ],
    "duration_s": 18.95,
-   "score": 95,
-   "pass": false,
+   "score": 100,
+   "pass": true,
    "status": "draft",
    "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=pt_BR-people-are#/grammar",
    "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-pt_BR/2026-11-01-people-are-video.mp4",
@@ -201,8 +201,8 @@
     "ama"
    ],
    "duration_s": 21.475,
-   "score": 100,
-   "pass": true,
+   "score": 95,
+   "pass": false,
    "status": "draft",
    "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=vi-final-s#/grammar",
    "video": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/social-vi/2026-11-01-final-s-video.mp4",

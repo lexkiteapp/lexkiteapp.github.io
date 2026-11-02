@@ -58,8 +58,8 @@
  "wpmSpeech": 132,
  "wpmOverall": 117,
  "firstVoicedS": 0.32,
- "lagMaxAbsMs": 20,
- "visemePctMin": 86,
+ "lagMaxAbsMs": 25,
+ "visemePctMin": 96,
  "flicker": 0,
  "blinksPerMin": 15,
  "rows": [
@@ -68,13 +68,34 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.75,
-   "lagMs": 0,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
    "lagChunksMs": [
     0,
     0
    ],
-   "visemePct": 93,
+   "lagEnvChunksMs": [
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    5,
+    15
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 96,
    "flicker": 0
   },
   {
@@ -82,12 +103,28 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.625,
-   "lagMs": 0,
-   "lagGlobalMs": 0,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
     0
    ],
-   "visemePct": 95,
+   "lagEnvChunksMs": [
+    -10
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    25
+   ],
+   "mouthOnsetMs": [
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -95,13 +132,34 @@
    "emo": "encourage",
    "hand": "",
    "dur": 4.7,
-   "lagMs": 10,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
-    10,
+    -10,
     0
    ],
-   "visemePct": 87,
+   "lagEnvChunksMs": [
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    15,
+    30
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -109,13 +167,40 @@
    "emo": "happy",
    "hand": "",
    "dur": 4.175,
-   "lagMs": 20,
-   "lagGlobalMs": 10,
+   "lagMs": -25,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
-    0,
-    20
+    -20,
+    0
    ],
-   "visemePct": 86,
+   "lagEnvChunksMs": [
+    -20,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    60,
+    -5,
+    0,
+    -35
+   ],
+   "mouthOnsetMs": [
+    -20,
+    null,
+    -15,
+    -25
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
    "flicker": 0
   }
  ],

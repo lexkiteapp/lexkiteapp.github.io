@@ -17,11 +17,9 @@
  "duration_s": 20.6,
  "wpm": 132,
  "qc": {
-  "score": 95,
-  "pass": false,
-  "failed": [
-   "lipsync_lag_le_45ms"
-  ]
+  "score": 100,
+  "pass": true,
+  "failed": []
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=es-library#/vocab",
  "spec": "content/video/rig/l1/es/library.json",

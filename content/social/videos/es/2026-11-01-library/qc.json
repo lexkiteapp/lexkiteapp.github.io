@@ -1,12 +1,12 @@
 {
- "score": 95,
+ "score": 100,
  "gates": {
   "voice_is_teacher": true,
   "english_only": true,
   "pace_le_150wpm": true,
   "hook_le_1_5s": true,
   "duration_15_30s": true,
-  "lipsync_lag_le_45ms": false,
+  "lipsync_lag_le_45ms": true,
   "viseme_ge_80pct": true,
   "no_mouth_flicker": true,
   "blink_6_30_per_min": true,
@@ -62,8 +62,8 @@
  "wpmSpeech": 132,
  "wpmOverall": 114,
  "firstVoicedS": 0.45,
- "lagMaxAbsMs": 150,
- "visemePctMin": 86,
+ "lagMaxAbsMs": 40,
+ "visemePctMin": 98,
  "flicker": 0,
  "blinksPerMin": 17,
  "rows": [
@@ -72,13 +72,34 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.2,
-   "lagMs": 20,
-   "lagGlobalMs": 20,
+   "lagMs": -30,
+   "lagGlobalMs": 0,
    "lagChunksMs": [
-    20,
-    10
+    -30,
+    -10
    ],
-   "visemePct": 89,
+   "lagEnvChunksMs": [
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    50,
+    -35
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
    "flicker": 0
   },
   {
@@ -86,13 +107,34 @@
    "emo": "explain",
    "hand": "",
    "dur": 3.525,
-   "lagMs": 150,
-   "lagGlobalMs": 130,
+   "lagMs": -40,
+   "lagGlobalMs": 110,
    "lagChunksMs": [
-    40,
-    150
+    -40,
+    -10
    ],
-   "visemePct": 90,
+   "lagEnvChunksMs": [
+    60,
+    120
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    -35,
+    10
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -100,13 +142,28 @@
    "emo": "explain",
    "hand": "",
    "dur": 2.75,
-   "lagMs": 40,
-   "lagGlobalMs": 10,
+   "lagMs": -10,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
-    40,
+    0
+   ],
+   "lagEnvChunksMs": [
     -10
    ],
-   "visemePct": 94,
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    -35
+   ],
+   "mouthOnsetMs": [
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 100,
    "flicker": 0
   },
   {
@@ -114,13 +171,34 @@
    "emo": "encourage",
    "hand": "palm",
    "dur": 3.9,
-   "lagMs": 10,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
    "lagChunksMs": [
-    0,
-    10
+    -10,
+    -10
    ],
-   "visemePct": 86,
+   "lagEnvChunksMs": [
+    -20,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    35,
+    -60
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
    "flicker": 0
   },
   {
@@ -128,13 +206,34 @@
    "emo": "happy",
    "hand": "thumb",
    "dur": 3.325,
-   "lagMs": 20,
-   "lagGlobalMs": 30,
+   "lagMs": -30,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
-    10,
-    20
+    -30,
+    0
    ],
-   "visemePct": 86,
+   "lagEnvChunksMs": [
+    0,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    20,
+    -15
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
    "flicker": 0
   }
  ],

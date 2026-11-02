@@ -33,7 +33,7 @@
  "above_b1": [],
  "deeplink": "#/vocab",
  "native_font": "BeVietnamPro-Bold.ttf",
- "lufs": -16.3,
+ "lufs": -16.4,
  "truePeak": -1.5,
  "voices": [
   {
@@ -58,8 +58,8 @@
  "wpmSpeech": 108,
  "wpmOverall": 96,
  "firstVoicedS": 0.25,
- "lagMaxAbsMs": 10,
- "visemePctMin": 80,
+ "lagMaxAbsMs": 30,
+ "visemePctMin": 94,
  "flicker": 0,
  "blinksPerMin": 17,
  "rows": [
@@ -68,13 +68,34 @@
    "emo": "explain",
    "hand": "",
    "dur": 5,
-   "lagMs": 10,
-   "lagGlobalMs": 0,
+   "lagMs": -30,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
-    10,
+    0,
+    -30
+   ],
+   "lagEnvChunksMs": [
+    -10,
     0
    ],
-   "visemePct": 91,
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    70,
+    25
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -15
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -82,13 +103,34 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.025,
-   "lagMs": 0,
-   "lagGlobalMs": 0,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
+    -20,
+    0
+   ],
+   "lagEnvChunksMs": [
+    0,
+    -210
+   ],
+   "onsetDiffMs": [
     0,
     0
    ],
-   "visemePct": 88,
+   "kokoroOnsetMs": [
+    -15,
+    -60
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
    "flicker": 0
   },
   {
@@ -96,13 +138,34 @@
    "emo": "explain",
    "hand": "",
    "dur": 5.4,
-   "lagMs": 0,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
     0,
     0
    ],
-   "visemePct": 92,
+   "lagEnvChunksMs": [
+    0,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    50,
+    -5
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -10
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
    "flicker": 0
   },
   {
@@ -110,13 +173,34 @@
    "emo": "encourage",
    "hand": "palm",
    "dur": 3.875,
-   "lagMs": -10,
-   "lagGlobalMs": 0,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
-    0,
-    -10
+    -10,
+    0
    ],
-   "visemePct": 80,
+   "lagEnvChunksMs": [
+    -20,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    45,
+    -60
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 94,
    "flicker": 0
   }
  ],

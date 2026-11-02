@@ -59,7 +59,7 @@
  "wpmOverall": 107,
  "firstVoicedS": 0.26,
  "lagMaxAbsMs": 20,
- "visemePctMin": 88,
+ "visemePctMin": 97,
  "flicker": 0,
  "blinksPerMin": 20,
  "rows": [
@@ -68,13 +68,34 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.35,
-   "lagMs": 20,
-   "lagGlobalMs": 20,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
    "lagChunksMs": [
-    20,
+    0,
     0
    ],
-   "visemePct": 93,
+   "lagEnvChunksMs": [
+    0,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    50,
+    -30
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
    "flicker": 0
   },
   {
@@ -82,15 +103,34 @@
    "emo": "explain",
    "hand": "",
    "dur": 7.025,
-   "lagMs": 20,
-   "lagGlobalMs": 20,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
    "lagChunksMs": [
-    20,
+    -10,
+    0
+   ],
+   "lagEnvChunksMs": [
+    -10,
+    10
+   ],
+   "onsetDiffMs": [
     0,
-    10,
+    0
+   ],
+   "kokoroOnsetMs": [
+    50,
     20
    ],
-   "visemePct": 94,
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 97,
    "flicker": 0
   },
   {
@@ -98,13 +138,37 @@
    "emo": "encourage",
    "hand": "",
    "dur": 4.9,
-   "lagMs": 10,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
    "lagChunksMs": [
-    0,
-    10
+    -20,
+    -10
    ],
-   "visemePct": 88,
+   "lagEnvChunksMs": [
+    -20,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    60,
+    10,
+    -20
+   ],
+   "mouthOnsetMs": [
+    -20,
+    null,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 100,
    "flicker": 0
   },
   {
@@ -112,12 +176,34 @@
    "emo": "happy",
    "hand": "",
    "dur": 4.925,
-   "lagMs": 10,
-   "lagGlobalMs": 20,
+   "lagMs": -20,
+   "lagGlobalMs": 0,
    "lagChunksMs": [
-    10
+    -10,
+    0
    ],
-   "visemePct": 92,
+   "lagEnvChunksMs": [
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    75,
+    -5
+   ],
+   "mouthOnsetMs": [
+    -20,
+    null
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 99,
    "flicker": 0
   }
  ],

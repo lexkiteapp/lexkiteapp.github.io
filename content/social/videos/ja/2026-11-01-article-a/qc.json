@@ -34,7 +34,7 @@
  "deeplink": "#/grammar",
  "native_font": "NotoSansCJK-Bold.ttc",
  "lufs": -16.6,
- "truePeak": -1.5,
+ "truePeak": -1.4,
  "voices": [
   {
    "who": "carlos",
@@ -58,8 +58,8 @@
  "wpmSpeech": 147,
  "wpmOverall": 129,
  "firstVoicedS": 0.27,
- "lagMaxAbsMs": 10,
- "visemePctMin": 86,
+ "lagMaxAbsMs": 20,
+ "visemePctMin": 95,
  "flicker": 0,
  "blinksPerMin": 18,
  "rows": [
@@ -68,13 +68,37 @@
    "emo": "explain",
    "hand": "",
    "dur": 4.05,
-   "lagMs": 10,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
     0,
+    0
+   ],
+   "lagEnvChunksMs": [
+    -10,
+    -10
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    35,
+    -25,
     10
    ],
-   "visemePct": 86,
+   "mouthOnsetMs": [
+    -20,
+    -15,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
    "flicker": 0
   },
   {
@@ -82,13 +106,43 @@
    "emo": "explain",
    "hand": "",
    "dur": 5.35,
-   "lagMs": 10,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": -10,
    "lagChunksMs": [
-    10,
-    10
+    0,
+    -10,
+    0
    ],
-   "visemePct": 95,
+   "lagEnvChunksMs": [
+    -10,
+    0,
+    0
+   ],
+   "onsetDiffMs": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    -5,
+    -10,
+    5,
+    -100
+   ],
+   "mouthOnsetMs": [
+    -10,
+    -10,
+    -10,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0,
+    0
+   ],
+   "visemePct": 98,
    "flicker": 0
   },
   {
@@ -96,12 +150,28 @@
    "emo": "explain",
    "hand": "",
    "dur": 3.4,
-   "lagMs": 10,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
    "lagChunksMs": [
-    10
+    -10
    ],
-   "visemePct": 88,
+   "lagEnvChunksMs": [
+    -20
+   ],
+   "onsetDiffMs": [
+    0
+   ],
+   "kokoroOnsetMs": [
+    0
+   ],
+   "mouthOnsetMs": [
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0
+   ],
+   "visemePct": 95,
    "flicker": 0
   },
   {
@@ -109,13 +179,34 @@
    "emo": "encourage",
    "hand": "",
    "dur": 4.375,
-   "lagMs": 10,
-   "lagGlobalMs": 10,
+   "lagMs": -20,
+   "lagGlobalMs": -20,
    "lagChunksMs": [
-    0,
-    10
+    -10,
+    0
    ],
-   "visemePct": 93,
+   "lagEnvChunksMs": [
+    -20,
+    -20
+   ],
+   "onsetDiffMs": [
+    0,
+    0
+   ],
+   "kokoroOnsetMs": [
+    60,
+    -25
+   ],
+   "mouthOnsetMs": [
+    -20,
+    -20
+   ],
+   "alignMs": 0,
+   "alignChunksMs": [
+    0,
+    0
+   ],
+   "visemePct": 98,
    "flicker": 0
   }
  ],

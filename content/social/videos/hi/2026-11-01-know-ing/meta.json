@@ -17,11 +17,9 @@
  "duration_s": 19.75,
  "wpm": 138,
  "qc": {
-  "score": 95,
-  "pass": false,
-  "failed": [
-   "lipsync_lag_le_45ms"
-  ]
+  "score": 100,
+  "pass": true,
+  "failed": []
  },
  "deeplink": "https://lexkite.com/app/?utm_source=social&utm_medium=short&utm_campaign=hi-know-ing#/grammar",
  "spec": "content/video/rig/l1/hi/know-ing.json",
