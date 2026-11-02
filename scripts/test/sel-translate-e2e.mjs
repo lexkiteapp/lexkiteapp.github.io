@@ -16,7 +16,7 @@ const browser = await chromium.launch();
 
 // Mạng giả cho từng nguồn: { gtx: ms | 'block', mm: ms | 'block' }
 async function net(ctx, cfg) {
-  await ctx.unroute('**/translate.googleapis.com/**').catch(() => {}); await ctx.unroute('**/api.mymemory.translated.net/**').catch(() => {});
+  for (const u of ['**/translate.googleapis.com/**', '**/api/dictlookup?src=gtx*', '**/api.mymemory.translated.net/**']) await ctx.unroute(u).catch(() => {});
   const fake = (kind) => async route => {
     const c = cfg[kind]; if (c === 'block') return route.abort('connectionfailed');
     await new Promise(r => setTimeout(r, typeof c === 'function' ? c() : c || 0));
@@ -24,6 +24,7 @@ async function net(ctx, cfg) {
     return route.fulfill({ status: 200, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: JSON.stringify(kind === 'gtx' ? { sentences: [{ trans: tr }], src: 'en' } : { responseData: { translatedText: tr } }) }).catch(() => {});
   };
   await ctx.route('**/translate.googleapis.com/**', fake('gtx'));
+  await ctx.route('**/api/dictlookup?src=gtx*', fake('gtx')); // web/app gọi Google qua proxy /api/dictlookup (#379)
   await ctx.route('**/api.mymemory.translated.net/**', fake('mm'));
 }
 

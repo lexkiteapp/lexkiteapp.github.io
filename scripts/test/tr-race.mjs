@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
+const isG = u => /googleapis|[?&]src=gtx\b/.test(u); // web/app gọi Google qua proxy /api/dictlookup?src=gtx (#379), add-on gọi thẳng
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const src = f => fs.readFileSync('web/js/' + f, 'utf8');
 
@@ -16,8 +17,8 @@ function env({ gtx = 50, mm = 50, gtxText = 'GTX', mmText = 'MM', device = null,
   });
   const resp = j => ({ ok: !!j, status: j ? 200 : 404, json: async () => j || {} });
   const fetch = (url, o = {}) => {
-    const u = String(url), host = (u.match(/^https?:\/\/([^/]+)/) || [, 'same'])[1]; log.push(host);
-    if (/googleapis/.test(host)) return delayed(gtx, resp(gtxText ? { sentences: [{ trans: gtxText }] } : null), o.signal, u);
+    const u = String(url), host = /[?&]src=gtx\b/.test(u) ? 'gtx' : (u.match(/^https?:\/\/([^/]+)/) || [, 'same'])[1]; log.push(host);
+    if (/googleapis/.test(host) || /[?&]src=gtx\b/.test(u)) return delayed(gtx, resp(gtxText ? { sentences: [{ trans: gtxText }] } : null), o.signal, u);
     if (/mymemory/.test(host)) return delayed(mm, resp(mmText ? { responseData: { translatedText: mmText } } : null), o.signal, u);
     const m = u.match(/\/packs\/tr\/(\w+)\/(\d+)\.json$/); if (m) return delayed(packs.ms || 5, resp(packs[m[1] + '/' + m[2]] || null), o.signal, u);
     return Promise.resolve(resp(null));
@@ -36,7 +37,7 @@ const time = async p => { const t0 = Date.now(); const v = await p; return [v, D
 // 1) Song song: Google chậm 5 s, MyMemory nhanh → MyMemory thắng ~0,9 s (trước đây: chờ Google hết 8 s rồi mới hỏi MyMemory)
 { const E = env({ gtx: 5000, mm: 30 }); const [v, ms] = await time(E.D.translateTo('Hard work pays off.', 'es'));
   ok(v === 'MM' && ms < 1400, `Google chậm → MyMemory song song thắng (${v}, ${ms} ms < 1400)`);
-  ok(E.aborted.some(u => /googleapis/.test(u)), 'có kết quả → hủy yêu cầu Google còn chạy'); }
+  ok(E.aborted.some(u => isG(u)), 'có kết quả → hủy yêu cầu Google còn chạy'); }
 // 2) Google nhanh → thắng, MyMemory (hạn mức ngày) KHÔNG bị gọi
 { const E = env({ gtx: 40 }); const [v, ms] = await time(E.D.translateTo('Hard work pays off.', 'ja'));
   ok(v === 'GTX' && ms < 400, `Google nhanh → dùng ngay (${ms} ms)`); await sleep(1000);
@@ -48,7 +49,7 @@ const time = async p => { const t0 = Date.now(); const v = await p; return [v, D
 // 4) Hủy (đổi vùng chọn) → trả '' ngay, hủy fetch
 { const E = env({ gtx: 3000, mm: 3000 }); const c = new AbortController(); const p = time(E.D.translateTo('Abort me please.', 'fr', 'en', { signal: c.signal }));
   await sleep(50); c.abort(); const [v, ms] = await p;
-  ok(v === '' && ms < 150, `signal hủy → trả '' ngay (${ms} ms)`); ok(E.aborted.some(u => /googleapis/.test(u)), 'hủy → fetch Google bị hủy'); }
+  ok(v === '' && ms < 150, `signal hủy → trả '' ngay (${ms} ms)`); ok(E.aborted.some(u => isG(u)), 'hủy → fetch Google bị hủy'); }
 // 5) Translator trên máy treo → không chặn Google (trước đây chờ 4 s)
 { const E = env({ gtx: 60, device: { ms: Infinity } }); const [v, ms] = await time(E.D.translateTo('Device hangs here.', 'ko'));
   ok(v === 'GTX' && ms < 700, `Translator trên máy treo → Google vẫn về ngay (${ms} ms)`); }
@@ -73,7 +74,7 @@ const S = 'Hard work does not always guarantee promotion.';
   const T = [];
   for (let i = 0; i < 20; i++) { const E = env({ gtx: 3000, packs: { ['vi/' + sh]: { [h]: 'Chăm chỉ không phải lúc nào cũng đảm bảo được thăng tiến.' }, ms: 5 + (i % 5) * 10 } });
     const [r, ms] = await time(E.F.get(S, 'vi')); T.push(ms);
-    if (i === 0) { ok(r.src === 'pre' && /thăng tiến/.test(r.text), `câu có sẵn → kho dịch sẵn (${r.src})`); ok(!E.log.some(x => /googleapis|mymemory/.test(x)), 'câu có sẵn → không gọi Google/MyMemory');
+    if (i === 0) { ok(r.src === 'pre' && /thăng tiến/.test(r.text), `câu có sẵn → kho dịch sẵn (${r.src})`); ok(!E.log.some(x => /googleapis|^gtx$|mymemory/.test(x)), 'câu có sẵn → không gọi Google/MyMemory');
       await sleep(20); ok(E.store.size === 1, 'bản từ kho được lưu vào IndexedDB'); } }
   T.sort((a, b) => a - b); const p95 = T[Math.ceil(T.length * 0.95) - 1]; ok(p95 <= 300, `câu có sẵn: p95 tới chữ đầu tiên ${p95} ms ≤ 300 ms`);
   // 11) Câu tự do, Google chậm 1 s → vẫn trong 2,5 s; lần 2 → bộ nhớ, tức thì
@@ -83,7 +84,7 @@ const S = 'Hard work does not always guarantee promotion.';
     await sleep(20); ok(E.store.has('es|' + E.F.hash(E.F.norm('A brand new free sentence.'))), 'bản mạng lưu IndexedDB theo ngôn ngữ + băm câu'); }
   // 12) IDB bền: phiên mới (bộ nhớ trống) đọc lại từ IDB, không gọi mạng
   { const E = env({ gtx: 3000 }); E.store.set('fr|' + E.F.hash(E.F.norm('Stored before.')), { t: 'Déjà stocké.', at: 1 });
-    const [r, ms] = await time(E.F.get('Stored before.', 'fr')); ok(r.src === 'idb' && ms < 300 && !E.log.some(x => /googleapis/.test(x)), `IndexedDB → ${r.src} ${ms} ms, không gọi mạng`); }
+    const [r, ms] = await time(E.F.get('Stored before.', 'fr')); ok(r.src === 'idb' && ms < 300 && !E.log.some(x => /googleapis|^gtx$/.test(x)), `IndexedDB → ${r.src} ${ms} ms, không gọi mạng`); }
   // 13) Mọi nguồn chậm 4 s → hết ngân sách 2,5 s trả timeout + late; late về sau vẫn có bản dịch và được lưu
   { const E = env({ gtx: 4000, mm: Infinity }); const [r, ms] = await time(E.F.get('Slow network sentence.', 'de'));
     ok(r.src === 'timeout' && ms >= 2400 && ms < 2800 && r.late, `mạng chậm → hết ngân sách đúng hạn (${ms} ms) kèm late`);

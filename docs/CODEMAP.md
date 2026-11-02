@@ -6,20 +6,20 @@
 Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['web/js/app.js'])"` · `g.routes` · `g.workflows` · `g.tests` · `g.god`. Mỗi node: exports, imports, importedBy.
 
 ## Khu vực
-- `web/` (1767 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
-- `extension/` (1183 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
+- `web/` (1787 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/app.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
+- `extension/` (1202 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (70 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (17 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (753 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
-- `.github/workflows/` (143 file): CI/CD + việc nền theo lịch (xem mục Workflows)
+- `scripts/` (755 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `.github/workflows/` (144 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
-- `brand/` (573 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (2292 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `brand/` (591 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
+- `content/` (2297 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (214 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
-- `docs/` (167 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
+- `docs/` (168 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (35): account,admin,admin-clips,admin-prefs,admin-shorts,ads-report,ads-reward,ai,backlinks,capacity,class,config,contact,dictlookup,distribution,drive,growth,handoff,hit,i18nfix,img,jobs,keys,league,lexai,notices,ota,push,quota,report,social,social-auto,studio,sync,youtube
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:641 s/test:271 s/video:101 js/vimg:64 s/cine:48 s/lib:32 s/vocab-img:31 s/lexicon:30 js/notes:27 js/grammar:25 js/readtest:21 js/st:21 js/lib:20 s/pron:19 js/get-app:15 js/toeic:15 js/listen:12 s/ci:11 s/ops:9 js/write:9 s/footage:8 s/word-audio:7 js/speak:7 js/usage:7 s/dict:6 s/sentence-audio:6 s/teach:6 js/pron:6 s/capacity:5 js/lesson:5 s/content-qa:4 s/quality:4 s/teacher:4 s/tts-ab:4 js/ads:4 js/toefl:4 js/vendor:4 s/explain:3 s/free-tier:3 s/ota:3 s/scriptbank:3 js/call:3 js/roleplay:3 js/tools:3
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:655 s/test:271 s/video:101 js/vimg:64 s/cine:48 s/lib:32 s/vocab-img:31 s/lexicon:30 js/notes:27 js/grammar:25 js/st:23 js/readtest:21 js/lib:20 s/pron:19 js/get-app:15 js/toeic:15 js/listen:12 s/ci:11 s/ops:9 js/write:9 s/footage:8 s/word-audio:7 js/speak:7 js/usage:7 s/dict:6 s/sentence-audio:6 s/teach:6 js/pron:6 s/capacity:5 js/lesson:5 s/content-qa:4 s/quality:4 s/teacher:4 s/tts-ab:4 js/ads:4 js/toefl:4 js/vendor:4 s/explain:3 s/free-tier:3 s/ota:3 s/scriptbank:3 js/call:3 js/roleplay:3 js/tools:3
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md. Test: scripts/test/i18n-*.mjs
@@ -36,8 +36,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - **CI / việc nền**: infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = package.json "test"; scripts/prepush.sh; docs/CI-RUNNERS.md
 
 ## God nodes (15 module được import/nạp nhiều nhất; không tính test)
-1. `web/js/app.js` ←80 · App,LK_GETAPP_T,retArm,retOn,retTrack,parseHash…
-2. `web/js/st/common.js` ←31 · ST
+1. `web/js/app.js` ←81 · App,LK_GETAPP_T,retArm,retOn,retTrack,parseHash…
+2. `web/js/st/common.js` ←33 · ST
 3. `functions/api/sync.js` ←26 · claims,verify,limit,PACK_MAX,viewOf,userDocs…
 4. `scripts/lexicon/lib.mjs` ←20 · ROOT,rd,wr,PRIORITY,SOURCES,parseRow…
 5. `scripts/video/library.mjs` ←18 · ROOT,LIB,CAND,MANIFEST,CDN,parseName…
@@ -52,7 +52,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 14. `functions/api/_schema.js` ←12 · once,_resetSchema
 15. `scripts/lib/site-layout.mjs` ←12 · EXT_STORE,EXT_JS,GETAPP_JS,LSW_CSS,LSW_JS,esc…
 
-## Routes `#/…` → file xử lý (72)
+## Routes `#/…` → file xử lý (73)
 - `app.js`: contact deck home library stats topic welcome
 - `call.js`: call
 - `cbt.js`: cbt
@@ -89,6 +89,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `retention.js`: streak
 - `roleplay.js`: roleplay
 - `rtype.js`: rtype
+- `say.js`: say
 - `settings.js`: settings
 - `speak/app.js`: speak
 - `speaking.js`: speaking
@@ -102,7 +103,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `verbs.js`: verb
 - `write.js`: write
 
-## Workflows (143): [trigger] việc kiểm/làm
+## Workflows (144): [trigger] việc kiểm/làm
 - admin-guard [push:main,pr,manual] Gác bố cục mọi trang quản trị (scripts/test/admin-guard.mjs):…
 - admin-video-ui [push:main,manual] Quản trị → Video (#video): ảnh giao diện TRƯỚC/SAU trên dữ…
 - ads-demo [pr,cron,manual] Quảng cáo DEMO/THỬ chính thức của Google, gọi MẠNG THẬT…
@@ -194,6 +195,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - release-archive [cron,manual,after-wf] Giữ 3 bản phát hành đã ký gần nhất của mỗi loại (AAB Play ·…
 - required-gate [pr,cron,manual,after-wf] required-gate: MỘT commit status tổng hợp cho mỗi PR (để sau…
 - review-shots [manual] Ảnh trước/sau ôn tập đa chế độ + thẻ "Câu của bạn"…
+- say-native [push:main,manual] Say it like a native
 - screens [push:main,cron,manual] Chụp ảnh giao diện tự động (điện thoại/máy tính × sáng/tối ×…
 - script-bank [cron,manual] Kho kịch bản video ngắn
 - sent-packs [push:main,cron,manual] Bản dịch câu ví dụ cho bài học (15 ngôn ngữ)
@@ -289,4 +291,4 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: reminders
 
-## Mô-đun JS chính (0/911; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+## Mô-đun JS chính (0/916; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng

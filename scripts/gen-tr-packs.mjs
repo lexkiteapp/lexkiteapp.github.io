@@ -31,7 +31,7 @@ async function run(lang, { max = 1e9, offline = false } = {}) {
   for (const x of all) {
     const s = x.kind === 'ex' && sp[x.word]; // câu ví dụ đã dịch ở kho bài học (cùng câu EN)
     if (s && s[1] && norm(s[0]) === x.n) have[x.h] = s[1];
-    else if (prev[x.h]) have[x.h] = prev[x.h];
+    else if (prev[x.h] && !(prev[x.h].trim().toLowerCase() === x.en.trim().toLowerCase() && x.en.split(' ').length > 2)) have[x.h] = prev[x.h]; // bản còn nguyên tiếng Anh (Google trả lại câu gốc) → dịch lại lượt sau
   }
   const miss = all.filter(x => !have[x.h]).slice(0, max);
   console.log(lang, all.length, 'câu, có sẵn', Object.keys(have).length, '· cần dịch', offline ? 0 : miss.length);
@@ -53,6 +53,6 @@ async function run(lang, { max = 1e9, offline = false } = {}) {
 
 if (fileURLToPath(import.meta.url) === process.argv[1]) {
   const a = process.argv.slice(2), mi = a.indexOf('--max'), max = mi >= 0 ? +a[mi + 1] || 1e9 : 1e9, offline = a.includes('--offline');
-  const arg = a.find(x => !x.startsWith('--') && x !== a[mi + 1]) || 'all';
+  const arg = a.find((x, i) => !x.startsWith('--') && !(mi >= 0 && i === mi + 1)) || 'all';
   for (const l of arg === 'all' ? LANGS : [arg]) await run(l, { max, offline });
 }
