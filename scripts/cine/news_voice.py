@@ -41,16 +41,16 @@ if todo:
     if redo:
         print('re-synthesising slower:', [(l['id'], l['speed']) for l in redo]); synth(redo, 'b')
         for l in redo: print(f"  {l['id']} span {span(l['id']):.2f} s for {len(l['text'])} chars")
-from faster_whisper import WhisperModel
-M = WhisperModel('base.en', device='cpu', compute_type='int8'); norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from whisper_det import load, DECODE   # same words + times on every runner (asr_match)
+M = load('base.en'); norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
 for l in base['lines']:
     if l['id'] not in need or os.path.exists(f'{V}/{l["id"]}.words.json'): continue
-    toks = l['text'].split(); segs, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, initial_prompt=l['text'])
+    toks = l['text'].split(); segs, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, initial_prompt=l['text'], **DECODE)
     hw = [w for s in segs for w in s.words]; a, b = [norm(x) for x in toks], [norm(w.word) for w in hw]
     if sum(x in b for x in a) < 0.9 * len(a):   # base.en prompted with the exact script can return NOTHING for a short clip ("I'll look into it.", heard 0.0 x3) -> one unprompted retry, keep the better match
-        s2, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, condition_on_previous_text=False); hw2 = [w for s in s2 for w in s.words]; b2 = [norm(w.word) for w in hw2]
+        s2, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, condition_on_previous_text=False, **DECODE); hw2 = [w for s in s2 for w in s.words]; b2 = [norm(w.word) for w in hw2]
         if sum(x in b2 for x in a) > sum(x in b for x in a): hw, b = hw2, b2
-    asr, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, beam_size=5, condition_on_previous_text=False)   # ASR back-check: NO script prompt (the prompt hides mispronunciations) -> qc_v9 asr_match
+    asr, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, beam_size=5, condition_on_previous_text=False, **DECODE)   # ASR back-check: NO script prompt (the prompt hides mispronunciations) -> qc_v9 asr_match
     aw = [dict(w=w.word.strip(), s=round(w.start, 3), e=round(w.end, 3), p=round(w.probability, 3)) for s_ in asr for w in s_.words]
     T = [None] * len(toks)
     for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks():

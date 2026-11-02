@@ -7,10 +7,10 @@ In ra stdout JSON: [{"wav": ..., "words": [{"w", "start", "end", "p"}]}] (giây,
 Câu kịch bản đưa vào initial_prompt để nhận dạng sát chữ; việc khớp ngược về từng từ kịch bản làm ở lib.mjs (matchWords).
 Cần: faster-whisper (pip). Mô hình tải từ Hugging Face lần đầu (~75 MB, CI có cache).
 """
-import argparse, json, subprocess, sys
+import argparse, json, os, subprocess, sys
 
 import numpy as np
-from faster_whisper import WhisperModel
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'cine')); from whisper_det import load, DECODE   # same timings on every runner
 
 
 def load_audio(path, sr=16000):
@@ -45,12 +45,12 @@ ap = argparse.ArgumentParser()
 ap.add_argument('jobs'); ap.add_argument('--model', default='tiny.en')
 a = ap.parse_args()
 jobs = json.load(open(a.jobs))
-m = WhisperModel(a.model, device='cpu', compute_type='int8')
+m = load(a.model)
 out = []
 for j in jobs:
     audio = load_audio(j['wav'])
     segs, _ = m.transcribe(audio, language='en', word_timestamps=True, beam_size=1, vad_filter=False,
-                           initial_prompt=j.get('text') or None, condition_on_previous_text=False)
+                           initial_prompt=j.get('text') or None, condition_on_previous_text=False, **DECODE)
     words = [{'w': w.word.strip(), 'start': round(w.start, 3), 'end': round(w.end, 3), 'p': round(w.probability, 3)}
              for s in segs for w in (s.words or [])]
     out.append({'wav': j['wav'], 'words': snap_onsets(audio, words)})
