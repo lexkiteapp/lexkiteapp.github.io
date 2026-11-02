@@ -1,0 +1,183 @@
+{
+ "_doc": "Machine-readable exam format (structure only, no exam content). Counts/times checked against the official pages in verified.sources on verified.date; criteria descriptions are LexKite's own wording. Read by scripts/content-qa/exam-format-check.mjs (docs/CONTENT-QA.md §6).",
+ "id": "cam-a2",
+ "name": "A2 Key",
+ "provider": "Cambridge University Press & Assessment",
+ "cefr": ["A2"],
+ "verified": {
+  "date": "2026-11-01",
+  "sources": ["https://www.cambridgeenglish.org/exams-and-tests/qualifications/key/format/", "https://www.cambridgeenglish.org/exams-and-tests/qualifications/results/"]
+ },
+ "total_minutes": 100,
+ "sections": [
+  {
+   "id": "reading-writing",
+   "name": "Reading and Writing",
+   "minutes": 60,
+   "questions": 32,
+   "parts": [
+    {
+     "n": 1,
+     "name": "Multiple choice (short texts)",
+     "questions": 6,
+     "types": ["mcq"]
+    },
+    {
+     "n": 2,
+     "name": "Multiple matching",
+     "questions": 7,
+     "types": ["matching"]
+    },
+    {
+     "n": 3,
+     "name": "Multiple choice (long text)",
+     "questions": 5,
+     "types": ["mcq"]
+    },
+    {
+     "n": 4,
+     "name": "Multiple-choice cloze",
+     "questions": 6,
+     "types": ["mcq-gap"]
+    },
+    {
+     "n": 5,
+     "name": "Open cloze",
+     "questions": 6,
+     "types": ["open-gap"]
+    },
+    {
+     "n": 6,
+     "name": "Guided writing (email/note)",
+     "questions": 1,
+     "types": ["email"],
+     "min_words": 25,
+     "max_marks": 15
+    },
+    {
+     "n": 7,
+     "name": "Picture story",
+     "questions": 1,
+     "types": ["story"],
+     "min_words": 35,
+     "max_marks": 15
+    }
+   ]
+  },
+  {
+   "id": "listening",
+   "name": "Listening",
+   "minutes": 30,
+   "minutes_note": "includes 6 minutes transfer time",
+   "questions": 25,
+   "parts": [
+    {
+     "n": 1,
+     "name": "Multiple choice",
+     "questions": 5,
+     "types": ["mcq-picture"]
+    },
+    {
+     "n": 2,
+     "name": "Gap fill",
+     "questions": 5,
+     "types": ["gap"]
+    },
+    {
+     "n": 3,
+     "name": "Multiple choice",
+     "questions": 5,
+     "types": ["mcq"]
+    },
+    {
+     "n": 4,
+     "name": "Multiple choice",
+     "questions": 5,
+     "types": ["mcq"]
+    },
+    {
+     "n": 5,
+     "name": "Matching",
+     "questions": 5,
+     "types": ["matching"]
+    }
+   ]
+  },
+  {
+   "id": "speaking",
+   "name": "Speaking",
+   "minutes": [8, 10],
+   "format": "pairs, two examiners",
+   "parts": [
+    {
+     "n": 1,
+     "name": "Interview",
+     "questions": null,
+     "types": ["interview"],
+     "minutes": [3, 4]
+    },
+    {
+     "n": 2,
+     "name": "Discussion",
+     "questions": null,
+     "types": ["discussion"],
+     "minutes": [5, 6]
+    }
+   ],
+   "criteria": [
+    {
+     "id": "grammar-vocabulary",
+     "focus": "Range and accuracy of grammar and vocabulary for the level."
+    },
+    {
+     "id": "pronunciation",
+     "focus": "Intelligibility: sounds, stress and intonation."
+    },
+    {
+     "id": "interaction",
+     "focus": "Starts, responds to and develops the conversation with the partner."
+    },
+    {
+     "id": "global",
+     "focus": "Overall effectiveness across the whole test."
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "scale": "Cambridge English Scale",
+  "reported": [80, 150],
+  "grades": {
+   "A": [140, 150],
+   "B": [133, 139],
+   "C": [120, 132],
+   "A1": [100, 119]
+  },
+  "weights": {
+   "reading-writing": 0.5,
+   "listening": 0.25,
+   "speaking": 0.25
+  },
+  "method": "each paper/skill reported on the scale; overall = average of skills"
+ },
+ "criteria": {
+  "writing": [
+   {
+    "id": "content",
+    "focus": "Has the writer done what the task asked and is the reader fully informed?"
+   },
+   {
+    "id": "communicative",
+    "focus": "Does the text follow the conventions of its type (email, essay, article…) and hold the reader's attention with a suitable register?"
+   },
+   {
+    "id": "organisation",
+    "focus": "Is the text linked and structured so that it reads as one coherent piece?"
+   },
+   {
+    "id": "language",
+    "focus": "Range and control of vocabulary and grammar for the level."
+   }
+  ]
+ }
+}

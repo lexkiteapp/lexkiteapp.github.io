@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "ielts reading true false not given"
 cover: reading
 coverAlt: "लेक्सकाइट ऐप में A2 से C1 स्तर के अनुच्छेदों के साथ IELTS रीडिंग अभ्यास सूची"
-publishAt: ""
+publishAt: 2026-11-29T07:43:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

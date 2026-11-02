@@ -79,7 +79,15 @@
   // navigator.share (Web Share của WKWebView) mở bảng chia sẻ hệ thống che màn hình → cũng chặn trong vòng chính
   const NS = navigator.share && navigator.share.bind(navigator);
   if (NS) try { Object.defineProperty(navigator, 'share', { configurable: true, value: o => { nativeCalls.push({ plugin: 'navigator', method: 'share', arg: JSON.stringify(o || {}).slice(0, 160), step: cur.step, stubbed: stubNative }); return stubNative ? Promise.resolve() : NS(o); } }); } catch (e) { /* bỏ qua */ }
+  // Bản kiểm thử phải chạy ĐÚNG gói web của nhánh: chặn OTA. ota.js tải bản web production rồi áp khi app xuống nền
+  // (bước extlink mở Safari) → app nạp lại gói production KHÔNG có harness → "Không có sự kiện 45 s" × 13 (app-stdout: "CapgoUpdater … Reloading").
+  function freezeOta() {
+    const U = P().CapacitorUpdater; if (!U || U.__e2e) return; U.__e2e = 1;
+    for (const m of ['download', 'next', 'set']) { try { U[m] = async () => { emit({ type: 'info', key: 'ota-blocked', m }); throw new Error('e2e: OTA tắt trong bản kiểm thử'); }; } catch (e) { /* bỏ qua */ } }
+  }
+  freezeOta();
   function wrapPlugins() {
+    freezeOta();
     const ps = P(); const spec = { TextToSpeech: ['speak'], Share: ['share', 'canShare'], LocalNotifications: ['requestPermissions', 'schedule', 'checkPermissions'], Filesystem: ['writeFile'], Haptics: ['vibrate', 'impact'], StatusBar: ['setStyle'] };
     for (const [pn, ms] of Object.entries(spec)) {
       const pl = ps[pn]; if (!pl || pl.__e2e) continue;
@@ -270,6 +278,8 @@
       case 'onboard': {
         await visit('welcome', 'welcome');
         await visit('welcome/setup', 'welcome-setup');
+        // Thiết lập TỪNG BƯỚC (web/js/onboard.js: mục tiêu → trình độ → điểm → cường độ → sẵn sàng): #go chỉ có ở màn cuối → bấm "Tiếp tục" (#obNext) tới đó
+        for (let i = 0; i < 8 && !document.getElementById('go'); i++) { const nx = document.getElementById('obNext'); if (!nx) break; nx.click(); await sleep(500); }
         const go = document.getElementById('go');
         if (go && go.disabled) { const chip = document.querySelector('#view [data-topic], #view .chip'); chip && chip.click(); await sleep(300); }
         if (go && !go.disabled) { go.click(); await sleep(4500); } else add('flow', 'Không tìm thấy/bấm được nút "Bắt đầu học" (#go) ở màn thiết lập');

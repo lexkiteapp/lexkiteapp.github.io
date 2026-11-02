@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "true false not given ielts reading"
 cover: reading
 coverAlt: "รายการบทความฝึกอ่าน IELTS Reading บน Lexkite แบ่งระดับความยากตั้งแต่ A2 ถึง C1"
-publishAt: ""
+publishAt: 2026-11-29T21:04:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

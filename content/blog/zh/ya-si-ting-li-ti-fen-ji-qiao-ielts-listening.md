@@ -9,7 +9,7 @@ tags: [listening, ielts, exam-tips]
 keyword: "雅思听力 技巧 ielts listening"
 cover: listening
 coverAlt: "Lexkite 雅思听力模考与专项训练界面包含10套完整试卷4个部分可调节语速"
-publishAt: ""
+publishAt: 2026-11-30T08:53:00+08:00
 factChecked: 2026-11-01
 qualityScore: 95
 author: Lexkite

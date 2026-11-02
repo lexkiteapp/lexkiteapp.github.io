@@ -31,7 +31,7 @@ Mục tiêu: hàng nghìn short bản tin giáo viên (Ama/Carlos) mà **mỗi c
 | Hook & giữ chân | 20 | hook ≤ 1,5 s ≤ 5 từ; đổi nhịp mỗi 3–5 s; không lặng > 0,4 s; 18–28 s; kết loop + Save this |
 | Hình ảnh | 20 | nét (Laplacian), không vỡ khối (SSIM ≥ 0,97), viền tách nền sạch, màu như quay thật, đầu 2 người ±5 %, vùng an toàn |
 | Điện ảnh | 10 | single/¾ xen kẽ, đúng 180°, push-in 2–4 %, DOF nền, bóng tiếp xúc, không jump cut |
-| Giọng | 15 | Mỹ tự nhiên, 150–165 từ/phút, −14 LUFS mạng xã hội, nhấn đúng trọng âm (từ điển phát âm riêng), bed −40 dB |
+| Giọng | 15 | Mỹ tự nhiên, 150–165 từ/phút, −16 LUFS (chuẩn chung, docs/VIDEO.md), nhấn đúng trọng âm (từ điển phát âm riêng), bed −40 dB |
 | Phụ đề | 10 | khớp từng từ ±80 ms, cụm 2 dòng không kết bằng hư từ, ≥ 80 px, tương phản AA, highlight từ khoá |
 
 ## 4. Nâng từ "khá" lên 100

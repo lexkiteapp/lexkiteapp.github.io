@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "雅思阅读 true false not given 技巧"
 cover: reading
 coverAlt: "Lexkite应用的雅思阅读文章列表界面涵盖A2至C1各级别精选学术文本"
-publishAt: ""
+publishAt: 2026-11-29T08:20:00+08:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

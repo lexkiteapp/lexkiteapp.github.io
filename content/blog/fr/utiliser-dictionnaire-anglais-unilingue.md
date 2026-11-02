@@ -33,6 +33,7 @@ quiz: [
     explain: "L'étiquette [U] (Uncountable) signale immédiatement qu'un nom ne peut ni prendre la marque du pluriel ni être précédé de l'article indéfini 'a/an'."
   }
 ]
+publishAt: 2026-11-24T12:45:00+01:00
 ---
 Lorsque l'on cherche à franchir le cap du niveau intermédiaire pour atteindre une réelle fluidité en anglais, les dictionnaires bilingues (anglais-français) révèlent vite leurs limites. En cherchant un mot, on trouve deux ou trois équivalents français approximatifs, sans savoir lequel employer. C'est ainsi que naissent des phrases maladroites comme *"I make a photo"* au lieu de *take a photo*, ou *"He explained me the project"* au lieu de *explained the project to me*.
 

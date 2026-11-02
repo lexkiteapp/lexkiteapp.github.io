@@ -476,7 +476,7 @@
       "key": "gtx",
       "name": "Google Translate (gtx) & từ điển mở",
       "kind": "api",
-      "purpose": "Dịch máy lúc chạy (dự phòng – nội dung chính đã dịch sẵn ở web/i18n/content), nghĩa từ, phiên âm, ví dụ, ảnh minh họa",
+      "purpose": "Dịch máy lúc chạy (dự phòng – nội dung chính đã dịch sẵn ở web/i18n/content), nghĩa từ, phiên âm, ví dụ, ảnh minh họa. Web/app gọi gtx + dictionaryapi.dev qua proxy cùng nguồn functions/api/dictlookup.js (đệm biên, lỗi → 200 null, hạn mức translate); add-on gọi thẳng (host_permissions)",
       "console": "",
       "free": "Miễn phí, không cam kết (có thể bị giới hạn)",
       "upgrade": "Dịch sẵn lúc build (đã làm) / Gemini",
@@ -1140,6 +1140,19 @@
         "teach.lexkite.com",
         "lexkite-teach.pages.dev",
         "lexkite-teach"
+      ]
+    },
+    {
+      "key": "stitch",
+      "name": "Google Stitch (thiết kế UI, MCP)",
+      "kind": "design",
+      "purpose": "Sinh thiết kế màn hình app/web/add-on (project 'Lexkite English Exam Prep', hệ Tactile A tối / B sáng) qua MCP; chỉ dùng lúc thiết kế, KHÔNG chạy trong sản phẩm, không dán mã Tailwind",
+      "console": "https://stitch.withgoogle.com/",
+      "free": "Miễn phí ~400 credit/ngày/tài khoản",
+      "upgrade": "Hết quota → đổi tài khoản Google khác (chủ đăng nhập); khóa chỉ ở ~/.config/lexkite/stitch-key + cấu hình MCP người dùng, không vào repo",
+      "status": "Đang dùng (thiết kế)",
+      "match": [
+        "stitch.withgoogle.com"
       ]
     }
   ],

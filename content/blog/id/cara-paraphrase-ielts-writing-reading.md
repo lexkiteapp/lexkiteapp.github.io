@@ -59,6 +59,7 @@ quiz: [
     explain: "Nominalisasi mengubah kelas kata, misalnya subsidize menjadi subsidization, sehingga struktur kalimat berubah total dan esai terdengar formal serta ringkas."
   }
 ]
+publishAt: 2026-12-08T09:03:00+07:00
 ---
 
 Menguasai **cara paraphrase ielts** secara fasih dan akurat adalah pembeda krusial antara tertahan di band 6.5 dengan melaju mantap ke band 7.5 hingga 8.5. Pada **IELTS Writing Task 2**, menyalin mentah-mentah soal pada paragraf pengantar (*Introduction*) akan berakibat fatal: penguji akan mencoret dan memotong kalimat salinan tersebut dari total hitungan kata esai Anda. Sejak kalimat pertama, keluwesan tata bahasa dan kemandirian kosakata Anda sudah dinilai secara saksama.
