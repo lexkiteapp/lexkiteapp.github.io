@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" name="viewport"/>
+<title>Lexkite — Courses &amp; Class (Bright Day Mobile)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF7EA;
+      color: #1F2424;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    /* Tactile button sinking interaction */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 var(--ledge-color) !important;
+    }
+    .tactile-tab:active {
+      transform: translateY(1px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="w-[390px] mx-auto min-h-screen relative bg-[#091518] text-[#EEF6F7] flex flex-col pb-24 select-none antialiased">
+<!-- TOP APP BAR (56px) -->
+<header class="sticky top-0 z-40 w-full h-[56px] px-4 bg-[#0B171A]/95 backdrop-blur-md flex items-center justify-between border-b border-[#21363D]">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-[#2BA39A] flex items-center justify-center shadow-[0_3px_0_0_#12514D]">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#091518"></path>
+<path d="M12 2V22" stroke="#2BA39A" stroke-linecap="round" stroke-width="1.8"></path>
+<path d="M4 10H20" stroke="#2BA39A" stroke-linecap="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<span class="font-extrabold text-[19px] tracking-tight text-[#EEF6F7]">Lexkite</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-[#121E22] border border-[#243B42] rounded-full shadow-[0_2px_0_0_#091316]">
+<span class="material-symbols-outlined text-[17px] text-[#F2553B]">local_fire_department</span>
+<span class="font-extrabold text-[13px] text-[#EEF6F7]">14</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-[#121E22] border border-[#243B42] rounded-full shadow-[0_2px_0_0_#091316]">
+<span class="material-symbols-outlined text-[17px] text-[#F4BF40]">bolt</span>
+<span class="font-extrabold text-[13px] text-[#EEF6F7]">820</span>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 pt-3 flex flex-col gap-4">
+<!-- 1. TEACHER SLOT & SPEECH BUBBLE -->
+<section class="flex items-center gap-3">
+<div class="teacher-slot shrink-0 flex flex-col items-center justify-center gap-1" style="background-color: #0E2528; border: 2px dashed #2BA39A; border-radius: 16px; width: 80px; height: 90px;">
+<svg fill="none" height="30" viewbox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 3L1 9L12 15L21 10.09V17H23V9L12 3Z" fill="#6BD8CE"></path>
+<path d="M5 13.18V17.18C5 19.94 8.13 22.18 12 22.18C15.87 22.18 19 19.94 19 17.18V13.18L12 17L5 13.18Z" fill="#2BA39A"></path>
+</svg>
+<span class="text-[10px] font-extrabold tracking-wider text-[#6BD8CE]">TEACHER</span>
+</div>
+<div class="relative flex-1 bg-[#172427] rounded-2xl p-3.5 border-2 border-[#243B42] shadow-[0_4px_0_0_#0B171A]">
+<div class="absolute -left-[9px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[9px] border-r-[#243B42]"></div>
+<div class="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-r-[7px] border-r-[#172427]"></div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-extrabold tracking-wider text-[#38D5C8] uppercase">Teacher Ama</span>
+<span class="material-symbols-outlined text-[16px] text-[#7E9FA3]">volume_up</span>
+</div>
+<p class="text-[14px] leading-tight font-bold text-[#EEF6F7]">
+          “Your homework is half done!”
+        </p>
+</div>
+</section>
+<!-- 2. ACTIVE COHORT CARD -->
+<section class="bg-[#172427] rounded-2xl border-2 border-[#243B42] shadow-[0_5px_0_0_#0B171A] p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-[#0E2E30] text-[#38D5C8] font-extrabold text-[10px] tracking-wide uppercase border border-[#2BA39A]/30">
+            Active Cohort
+          </span>
+<span class="text-[12px] font-semibold text-[#A9BDBB] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-[#7E9FA3]">group</span>
+            18 learners
+          </span>
+</div>
+<button aria-label="Cohort options" class="w-6 h-6 flex items-center justify-center text-[#7E9FA3] hover:text-[#EEF6F7] transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<div>
+<h2 class="text-[20px] font-extrabold text-[#EEF6F7] tracking-tight mb-1.5">IELTS Evening B</h2>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 text-[13px] font-bold text-[#D8E5E9]">
+<span class="w-2 h-2 rounded-full bg-[#38D5C8]"></span>
+<span>Unit 4 vocabulary</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#3D1410] text-[#FFA493] font-bold text-[11px] border border-[#981201]">
+            Due Friday
+          </span>
+</div>
+</div>
+<div class="w-full bg-[#0D171A] rounded-full h-3 overflow-hidden p-0.5 border border-[#21363D]">
+<div class="bg-gradient-to-r from-[#2BA39A] to-[#4EC4BA] h-full rounded-full w-1/2 relative">
+<div class="absolute inset-0 bg-white/20 rounded-full h-1/2"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-[12px] font-bold text-[#A9BDBB]">
+<span>6 of 12 exercises finished</span>
+<span class="text-[#38D5C8] font-extrabold">50% completed</span>
+</div>
+</section>
+<!-- 3. JOIN A CLASS CARD -->
+<section class="bg-[#172427] rounded-2xl border-2 border-[#243B42] shadow-[0_5px_0_0_#0B171A] p-4 flex flex-col gap-2.5">
+<div class="flex items-baseline justify-between">
+<h3 class="text-[15px] font-extrabold text-[#EEF6F7] tracking-tight">
+<span class="text-[#38D5C8] font-black mr-0.5">#</span> Join a class
+        </h3>
+<span class="text-[12px] font-semibold text-[#7E9FA3]">Got teacher code?</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#38D5C8] text-[18px]">key</span>
+<input class="w-full bg-[#0D171A] border-2 border-[#243B42] rounded-xl pl-9 pr-3 py-2 text-[14px] font-extrabold text-[#EEF6F7] tracking-wider focus:outline-none focus:border-[#2BA39A]" readonly="" type="text" value="IELTS-B2"/>
+</div>
+<button class="tactile-btn shrink-0 bg-[#2BA39A] text-[#003733] font-extrabold text-[14px] px-5 py-2.5 rounded-xl border-t border-white/30 shadow-[0_4px_0_0_#12514D] transition-all flex items-center justify-center" style="--ledge-color: #12514D;">
+          Join
+        </button>
+</div>
+</section>
+<!-- 4. CURRICULUM COURSES SECTION -->
+<section class="flex flex-col gap-2.5 pt-1">
+<div class="flex items-center justify-between">
+<h3 class="text-[16px] font-extrabold text-[#EEF6F7] tracking-tight">Curriculum courses</h3>
+<button class="text-[12px] font-extrabold text-[#38D5C8] hover:underline flex items-center">
+          View all (6) <span class="material-symbols-outlined text-[14px] ml-0.5">chevron_right</span>
+</button>
+</div>
+<div class="flex flex-col gap-2.5">
+<article class="bg-[#172427] rounded-2xl border-2 border-[#243B42] shadow-[0_4px_0_0_#0B171A] p-3 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#0E2E30] border border-[#2BA39A]/40 flex items-center justify-center text-[#38D5C8] shadow-inner shrink-0">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<div>
+<h4 class="text-[15px] font-extrabold text-[#EEF6F7] leading-snug">IELTS Foundations</h4>
+<p class="text-[12px] font-medium text-[#A9BDBB]">24 lessons • Band 5.5 to 6.5</p>
+</div>
+</div>
+<div class="relative w-10 h-10 shrink-0 flex items-center justify-center">
+<svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#21363D]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#2BA39A]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-[10px] font-black text-[#6BD8CE]">75%</span>
+</div>
+</article>
+<article class="bg-[#172427] rounded-2xl border-2 border-[#243B42] shadow-[0_4px_0_0_#0B171A] p-3 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#2D120D] border border-[#981201]/50 flex items-center justify-center text-[#FFB4A6] shadow-inner shrink-0">
+<span class="material-symbols-outlined text-[22px]">edit</span>
+</div>
+<div>
+<h4 class="text-[15px] font-extrabold text-[#EEF6F7] leading-snug">Band 7 Writing</h4>
+<p class="text-[12px] font-medium text-[#A9BDBB]">18 lessons • Task 1 &amp; Task 2</p>
+</div>
+</div>
+<div class="relative w-10 h-10 shrink-0 flex items-center justify-center">
+<svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#21363D]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#F2553B]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="40, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-[10px] font-black text-[#FFA493]">40%</span>
+</div>
+</article>
+<article class="bg-[#172427] rounded-2xl border-2 border-[#243B42] shadow-[0_4px_0_0_#0B171A] p-3 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#0D2235] border border-[#1C5B9E]/50 flex items-center justify-center text-[#5EB1FF] shadow-inner shrink-0">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</div>
+<div>
+<h4 class="text-[15px] font-extrabold text-[#EEF6F7] leading-snug">Everyday Speaking</h4>
+<p class="text-[12px] font-medium text-[#A9BDBB]">30 drills • Fluency &amp; IPA</p>
+</div>
+</div>
+<div class="relative w-10 h-10 shrink-0 flex items-center justify-center">
+<svg class="w-10 h-10 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-[#21363D]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#2A7FD9]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="15, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute text-[10px] font-black text-[#85C4FF]">15%</span>
+</div>
+</article>
+</div>
+</section>
+<!-- 5. PRIMARY CTA BUTTON -->
+<div class="pt-2 pb-1">
+<button class="tactile-btn w-full h-[56px] rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFC94A] text-[#1B0B04] font-extrabold text-[16px] tracking-tight flex items-center justify-center gap-2 border-t-2 border-white/40 shadow-[0_6px_0_0_#B53A22] transition-all" style="--ledge-color: #B53A22;">
+<span>Continue IELTS Evening B</span>
+<span class="text-[18px] font-black">→</span>
+</button>
+</div>
+</main>
+<!-- 6. BOTTOM TAB NAVIGATION (Docked 5 Tabs) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-16 bg-[#121E22]/95 backdrop-blur-md border-t-2 border-[#21363D] px-2 flex items-center justify-around z-50">
+<button class="tactile-tab flex flex-col items-center justify-center text-[#7E9FA3] px-3 py-1 hover:text-[#EEF6F7] transition-colors">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</button>
+<button class="tactile-tab flex flex-col items-center justify-center text-[#7E9FA3] px-3 py-1 hover:text-[#EEF6F7] transition-colors">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-[11px] font-bold mt-0.5">Vocab</span>
+</button>
+<button class="tactile-tab flex flex-col items-center justify-center bg-[#0E2E30] text-[#38D5C8] border-2 border-[#2BA39A] rounded-xl px-3.5 py-1 shadow-sm">
+<span class="material-symbols-outlined text-[22px] text-[#38D5C8]">psychology</span>
+<span class="text-[11px] font-extrabold mt-0.5 text-[#38D5C8]">Skills</span>
+</button>
+<button class="tactile-tab flex flex-col items-center justify-center text-[#7E9FA3] px-3 py-1 hover:text-[#EEF6F7] transition-colors">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</button>
+<button class="tactile-tab flex flex-col items-center justify-center text-[#7E9FA3] px-3 py-1 hover:text-[#EEF6F7] transition-colors">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</button>
+</nav>
+</body></html>

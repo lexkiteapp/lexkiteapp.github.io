@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Lesson Question with Hint Sheet</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              ink: '#0F3D3E',
+              coral: '#F2553B',
+              coralDark: '#B53A22',
+              teal: '#2BA39A',
+              tealDark: '#1F7A75',
+              tealLight: '#EBF7F6',
+              mint: '#E4F6F4',
+              mintDark: '#127369',
+              amber: '#FF9F43',
+              cardBg: '#FAFAF7',
+              borderWarm: '#EADEC8',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Layered Styles -->
+<style data-purpose="button-3d-ledges">
+    .btn-3d-primary {
+      background: linear-gradient(135deg, #F2553B 0%, #FF8F3D 100%);
+      box-shadow: 0 5px 0 #B53A22;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-3d-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+    .btn-3d-secondary {
+      background-color: #FFFFFF;
+      border: 2px solid #2BA39A;
+      box-shadow: 0 4px 0 #1F7A75;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-3d-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #1F7A75;
+    }
+  </style>
+<style data-purpose="speech-bubble-tail">
+    .speech-bubble {
+      position: relative;
+    }
+    .speech-bubble::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 18px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 9px solid #2BA39A;
+    }
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 19px;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 8px solid #FFFFFF;
+    }
+  </style>
+</head>
+<body class="bg-[#F6F5F0] text-brand-ink font-sans antialiased m-0 p-0 selection:bg-brand-teal selection:text-white flex justify-center">
+<!-- BEGIN: MobileViewportContainer -->
+<!-- Strict mobile screen container, 390px native canvas -->
+<div class="relative w-full max-w-[390px] min-h-screen bg-[#FAF9F5] flex flex-col justify-between overflow-x-hidden shadow-2xl">
+<!-- BEGIN: BackgroundGrammarExercise (Underlying Lesson Canvas) -->
+<!-- Content dimmed beneath bottom sheet -->
+<div aria-hidden="true" class="w-full px-5 pt-4 pb-12 opacity-40 pointer-events-none select-none">
+<!-- Lesson Top App Bar -->
+<div class="flex items-center justify-between gap-3 mb-6">
+<button class="w-10 h-10 rounded-full bg-stone-200/80 flex items-center justify-center text-stone-600 font-bold text-lg" type="button">
+          ✕
+        </button>
+<!-- Lesson Progress Bar -->
+<div class="flex-1 h-3.5 bg-stone-200 rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-teal-500 rounded-full w-2/5"></div>
+</div>
+<!-- Hearts Remaining Counter -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 border border-rose-200 rounded-full text-rose-600 font-bold text-sm">
+<span>❤️</span>
+<span>5</span>
+</div>
+</div>
+<!-- Level & Category Chips -->
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold tracking-wider text-teal-800 bg-teal-100/70 px-3 py-1 rounded-full uppercase">
+          • Grammar Drill · B1–B2
+        </span>
+<span class="flex items-center gap-1 text-xs font-bold text-teal-700">
+          💡 Hint
+        </span>
+</div>
+<!-- Exercise Headline -->
+<h1 class="text-2xl font-extrabold text-stone-900 tracking-tight mb-5">
+        Complete the sentence
+      </h1>
+<!-- Main Lesson Fill-in-Blank Card -->
+<div class="bg-white rounded-3xl p-6 border-2 border-stone-200/80 shadow-sm space-y-4">
+<div class="flex items-center gap-1.5 text-xs font-bold text-stone-400 tracking-wider uppercase">
+<span>⚡</span>
+<span>Present Perfect</span>
+</div>
+<p class="text-xl font-bold text-stone-800 leading-relaxed">
+          “She has lived here <span class="border-b-2 border-dashed border-teal-500 px-4 inline-block text-teal-600">__________</span> 2019.”
+        </p>
+</div>
+</div>
+<!-- END: BackgroundGrammarExercise -->
+<!-- BEGIN: BackdropModalOverlay -->
+<!-- Dimmed screen backdrop -->
+<div class="fixed inset-0 bg-stone-900/40 backdrop-blur-[1px] pointer-events-none z-10"></div>
+<!-- END: BackdropModalOverlay -->
+<!-- BEGIN: HintBottomSheet -->
+<!-- Tactile mobile modal sheet docked to bottom -->
+<section aria-labelledby="hint-sheet-title" aria-modal="true" class="relative z-20 w-full bg-white rounded-t-[28px] border-t-2 border-x-2 border-brand-borderWarm shadow-[0_-8px_30px_rgba(0,0,0,0.12)] pt-3 px-5 pb-6 flex flex-col justify-end" role="dialog">
+<!-- Top Center Drag Indicator -->
+<div aria-hidden="true" class="w-12 h-1.5 bg-stone-300 rounded-full mx-auto mb-3"></div>
+<!-- Sheet Header Bar -->
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<!-- Lightbulb Badge -->
+<div aria-hidden="true" class="w-10 h-10 rounded-full bg-[#E3F6F3] border border-teal-200 flex items-center justify-center text-teal-700 shadow-sm">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm-2 18h4v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1zm2-16a5 5 0 0 1 5 5c0 1.95-.94 3.68-2.4 4.74-.38.28-.6.71-.6 1.18V16h-4v-1.08c0-.47-.22-.9-.6-1.18A4.985 4.985 0 0 1 7 9a5 5 0 0 1 5-5z"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold text-brand-ink tracking-tight" id="hint-sheet-title">
+            Hint
+          </h2>
+</div>
+<!-- Sheet Dismiss Button -->
+<button aria-label="Close Hint" class="w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 border border-stone-200 flex items-center justify-center text-stone-500 font-bold transition-colors" type="button">
+          ✕
+        </button>
+</div>
+<!-- BEGIN: TeacherCoachRow -->
+<!-- Empty teacher slot footprint constraint (No face/human drawing) -->
+<div class="flex items-start gap-3 mb-4" data-purpose="teacher-interaction">
+<!-- Empty Teacher Slot Indicator -->
+<div class="teacher-slot flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-tealLight border-2 border-dashed border-brand-teal flex flex-col items-center justify-center text-brand-tealDark shadow-sm" title="Teacher Slot">
+<!-- Graduation Cap Icon -->
+<svg aria-hidden="true" class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5l-6-3.27V17c0 2.21 2.69 4 6 4s6-1.79 6-4v-3.77l-6 3.27z"></path>
+</svg>
+<span class="text-[8px] font-extrabold tracking-wider leading-none mt-0.5">TEACHER</span>
+</div>
+<!-- Coach Thought Bubble -->
+<div class="speech-bubble flex-1 bg-white border-2 border-brand-teal rounded-2xl px-3.5 py-2.5 shadow-sm">
+<div class="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wide text-brand-tealDark mb-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
+<span>Teacher AMA</span>
+<span class="text-stone-300">•</span>
+<span class="text-stone-500">Coach</span>
+</div>
+<p class="text-sm font-bold text-brand-ink leading-snug">
+            “Think: a point or a length?”
+          </p>
+</div>
+</div>
+<!-- END: TeacherCoachRow -->
+<!-- BEGIN: RuleAndExamplesCard -->
+<div class="bg-brand-cardBg rounded-2xl border-2 border-brand-borderWarm p-3.5 mb-3.5 space-y-3">
+<!-- Explanation Rule Header -->
+<div class="flex items-start gap-2.5">
+<span class="w-5 h-5 rounded-full bg-teal-100 border border-teal-300 flex items-center justify-center text-teal-800 text-xs font-black flex-shrink-0 mt-0.5">
+            !
+          </span>
+<p class="text-xs font-bold text-stone-800 leading-relaxed">
+            Use <strong class="text-brand-teal font-extrabold underline decoration-brand-teal/40 underline-offset-2">since</strong> with a starting point in time, and <strong class="text-brand-coral font-extrabold underline decoration-brand-coral/40 underline-offset-2">for</strong> with a length of time.
+          </p>
+</div>
+<!-- Comparative Columns -->
+<div class="grid grid-cols-2 gap-2.5 pt-0.5">
+<!-- Left Column: SINCE -->
+<div class="bg-brand-tealLight rounded-xl border border-teal-300 p-2.5 flex flex-col justify-start">
+<div class="flex items-center gap-1 text-[11px] font-extrabold text-teal-800 uppercase tracking-tight mb-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-600"></span>
+<span>Since + Point</span>
+</div>
+<ul class="text-[12px] font-bold text-teal-950 space-y-1 leading-snug">
+<li>since 2019</li>
+<li>since 8:00 AM</li>
+<li>since Monday</li>
+</ul>
+</div>
+<!-- Right Column: FOR -->
+<div class="bg-rose-50/70 rounded-xl border border-rose-300 p-2.5 flex flex-col justify-start">
+<div class="flex items-center gap-1 text-[11px] font-extrabold text-rose-800 uppercase tracking-tight mb-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span>
+<span>For + Length</span>
+</div>
+<ul class="text-[12px] font-bold text-rose-950 space-y-1 leading-snug">
+<li>for 5 years</li>
+<li>for two hours</li>
+<li>for a long time</li>
+</ul>
+</div>
+</div>
+<!-- Bottom Example Row -->
+<div class="border-t border-stone-200/80 pt-2 flex items-baseline gap-1.5 text-[11px]">
+<span class="font-extrabold text-stone-500 uppercase tracking-wider">Example:</span>
+<span class="font-bold text-stone-800 leading-tight">
+            “She has lived here <strong class="text-brand-teal font-extrabold">since</strong> 2019.”
+          </span>
+</div>
+</div>
+<!-- END: RuleAndExamplesCard -->
+<!-- BEGIN: FreeHintBanner -->
+<!-- Positive reinforcement cost-free badge -->
+<div class="bg-brand-mint border border-teal-200/80 rounded-xl py-2 px-3 flex items-center justify-center gap-1.5 mb-4 text-xs font-bold text-brand-mintDark">
+<svg class="w-4 h-4 fill-current text-teal-700" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<span>Using a hint costs no hearts</span>
+</div>
+<!-- END: FreeHintBanner -->
+<!-- BEGIN: InteractiveModalActions -->
+<div class="flex flex-col gap-3">
+<!-- Primary Button: Got It -->
+<button class="btn-3d-primary w-full h-[52px] rounded-2xl flex items-center justify-center font-extrabold text-base tracking-wide text-[#1B0B04] select-none" type="button">
+          Got it
+        </button>
+<!-- Secondary Button: Show Answer -->
+<button class="btn-3d-secondary w-full h-[50px] rounded-2xl flex items-center justify-center font-extrabold text-base tracking-wide text-brand-ink select-none" type="button">
+          Show answer
+        </button>
+</div>
+<!-- END: InteractiveModalActions -->
+</section>
+<!-- END: HintBottomSheet -->
+</div>
+<!-- END: MobileViewportContainer -->
+</body></html>

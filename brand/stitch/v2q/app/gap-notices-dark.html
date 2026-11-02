@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Notifications (Tactile Night Mobile)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#2b373a",
+            "inverse-surface": "#d8e5e9",
+            "surface-container": "#162125",
+            "surface": "#091518",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-tertiary": "#402e00",
+            "on-secondary-container": "#ffa493",
+            "outline-variant": "#3d4947",
+            "error": "#ffb4ab",
+            "surface-container-low": "#121d20",
+            "inverse-primary": "#006a64",
+            "secondary-container": "#981201",
+            "on-surface-variant": "#bcc9c7",
+            "on-surface": "#d8e5e9",
+            "on-primary-fixed": "#00201e",
+            "on-tertiary-fixed": "#261a00",
+            "on-tertiary-container": "#392900",
+            "on-background": "#d8e5e9",
+            "on-secondary": "#660800",
+            "error-container": "#93000a",
+            "surface-dim": "#091518",
+            "secondary-fixed": "#ffdad3",
+            "on-primary-fixed-variant": "#00504b",
+            "outline": "#879391",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary": "#ffb4a6",
+            "primary-fixed": "#88f5ea",
+            "surface-variant": "#2b373a",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary": "#003733",
+            "secondary-fixed-dim": "#ffb4a6",
+            "inverse-on-surface": "#263236",
+            "on-secondary-fixed": "#3f0300",
+            "on-error-container": "#ffdad6",
+            "surface-container-lowest": "#051013",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary-container": "#00322e",
+            "on-error": "#690005",
+            "surface-tint": "#6bd8ce",
+            "surface-container-high": "#202c2f",
+            "primary": "#6bd8ce",
+            "tertiary": "#f4bf40",
+            "tertiary-container": "#ba8b00",
+            "surface-bright": "#2f3b3e",
+            "primary-container": "#2ba39a",
+            "background": "#091518"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "24px",
+            "space-sm": "8px",
+            "margin": "16px",
+            "gutter": "16px",
+            "space-md": "16px",
+            "space-xs": "4px",
+            "space-xl": "32px"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #091518;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    /* Physical 3D button press kinetics */
+    .tactile-press {
+      transition: transform 0.08s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.08s cubic-bezier(0.2, 0.8, 0.4, 1);
+    }
+    .tactile-press:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 currentColor !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-surface">
+<!-- Mobile Container: Edge-to-Edge exactly 390px, no outer frame -->
+<div class="w-[390px] min-h-screen bg-background relative flex flex-col pb-24 overflow-x-hidden">
+<!-- FIXED TOP APP BAR (56px) matching Shared Component Anchor tokens -->
+<header class="fixed top-0 left-0 right-0 max-w-[390px] mx-auto h-14 bg-surface-container-low z-50 px-4 flex items-center justify-between border-b-2 border-outline-variant shadow-[0_4px_0_0_#2b373a]">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-2">
+<!-- Lexkite Emblem -->
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant shadow-[0_2px_0_0_#051013]">
+<svg class="text-primary" fill="none" height="20" viewbox="0 0 24 24" width="20">
+<path d="M12 2L19.5 9.5L12 22L4.5 9.5L12 2Z" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-linejoin="round" stroke-width="2.2"></path>
+<path d="M12 2L12 22M4.5 9.5L19.5 9.5" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="font-display text-[20px] font-extrabold tracking-tight text-primary leading-none">Lexkite</span>
+</div>
+<!-- Live Gamification Counters -->
+<div class="flex items-center gap-2">
+<!-- Streak Pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container rounded-full border border-outline-variant shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-secondary text-[18px]">local_fire_department</span>
+<span class="font-label text-label text-on-surface">12</span>
+</div>
+<!-- XP Pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container rounded-full border border-outline-variant shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-tertiary text-[18px]">bolt</span>
+<span class="font-label text-label text-on-surface">820</span>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS (Starts after 56px header) -->
+<main class="flex-1 px-4 pt-20 flex flex-col gap-6">
+<!-- TEACHER CALLOUT AREA -->
+<section class="flex items-center gap-3 pt-1">
+<!-- Teacher Slot: Empty soft teal dashed rounded rectangle, Mortarboard cap SVG, STRICTLY NO PERSON PHOTO -->
+<div class="w-16 h-16 shrink-0 rounded-2xl bg-surface-container-low border-2 border-dashed border-primary-container/80 flex flex-col items-center justify-center gap-1 shadow-[0_3px_0_0_#051013]">
+<svg class="w-6 h-6 text-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18C5 19.94 8.13 22 12 22C15.87 22 19 19.94 19 17.18V13.18L12 17L5 13.18Z"></path>
+</svg>
+<span class="font-label text-[9px] tracking-wider text-primary font-extrabold uppercase">TEACHER</span>
+</div>
+<!-- Speech Bubble Card with pointer notch -->
+<div class="flex-1 relative bg-surface-container rounded-2xl p-3 border-2 border-outline-variant shadow-[0_4px_0_0_#051013]">
+<!-- Speech Bubble Notch -->
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-r-[8px] border-r-outline-variant"></div>
+<div class="absolute -left-1.5 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[7px] border-r-surface-container"></div>
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label text-[10px] tracking-wider font-extrabold text-primary uppercase">TEACHER CARLOS</span>
+</div>
+<p class="font-body text-[14px] font-bold text-on-surface leading-tight">
+            “Two things need you today.”
+          </p>
+</div>
+</section>
+<!-- SECTION TITLE & ACTION BAR -->
+<section class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<h1 class="font-title text-title font-extrabold text-on-surface tracking-tight">Notifications</h1>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low border border-primary-container text-primary font-label text-[11px] font-extrabold">
+            2 new
+          </span>
+</div>
+<button class="flex items-center gap-1 text-primary hover:text-primary-fixed-dim transition-colors text-body text-[13px] font-bold tactile-press">
+<span>✓</span>
+<span>Mark all read</span>
+</button>
+</section>
+<!-- TODAY SECTION (2 Updates) -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label text-label text-on-surface-variant font-extrabold tracking-wider uppercase">TODAY</span>
+</div>
+<!-- Card 1: Writing Feedback -->
+<article class="tactile-press bg-surface-container p-3.5 rounded-2xl border-2 border-outline-variant shadow-[0_4px_0_0_#051013] flex gap-3 cursor-pointer">
+<div class="w-12 h-12 shrink-0 rounded-xl bg-surface-container-high border border-primary-container/40 flex items-center justify-center text-primary shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-[24px]">forum</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h2 class="font-title text-[15px] font-bold text-on-surface truncate">Your writing feedback is re...</h2>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-label text-[11px] text-on-surface-variant font-semibold">2h ago</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+</div>
+<p class="font-body text-[13px] text-on-surface-variant leading-snug">
+              Teacher Ama marked your Task 2 essay on Environmental Policy.
+            </p>
+</div>
+</article>
+<!-- Card 2: Streak Saved -->
+<article class="tactile-press bg-surface-container p-3.5 rounded-2xl border-2 border-outline-variant shadow-[0_4px_0_0_#051013] flex gap-3 cursor-pointer">
+<div class="w-12 h-12 shrink-0 rounded-xl bg-surface-container-high border border-secondary/40 flex items-center justify-center text-secondary shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-[24px]">ac_unit</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h2 class="font-title text-[15px] font-bold text-on-surface truncate">Streak saved</h2>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-label text-[11px] text-on-surface-variant font-semibold">5h ago</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+</div>
+<p class="font-body text-[13px] text-on-surface-variant leading-snug">
+              A freeze kept your 12–day streak intact while you rested.
+            </p>
+</div>
+</article>
+</section>
+<!-- EARLIER SECTION (This week) -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label text-label text-on-surface-variant font-extrabold tracking-wider uppercase">EARLIER</span>
+</div>
+<!-- Card 3: Class homework due Friday -->
+<article class="tactile-press bg-surface-container p-3.5 rounded-2xl border-2 border-outline-variant shadow-[0_4px_0_0_#051013] flex gap-3 cursor-pointer">
+<div class="w-12 h-12 shrink-0 rounded-xl bg-surface-container-high border border-tertiary/40 flex items-center justify-center text-tertiary shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-[24px]">assignment</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h2 class="font-title text-[15px] font-bold text-on-surface truncate">Class homework due Friday</h2>
+<span class="font-label text-[11px] text-on-surface-variant font-semibold shrink-0">Yesterday</span>
+</div>
+<p class="font-body text-[13px] text-on-surface-variant leading-snug">
+              IELTS Evening B: finish Unit 4 vocabulary collocations (6 left).
+            </p>
+</div>
+</article>
+<!-- Card 4: New league week started -->
+<article class="tactile-press bg-surface-container p-3.5 rounded-2xl border-2 border-outline-variant shadow-[0_4px_0_0_#051013] flex gap-3 cursor-pointer">
+<div class="w-12 h-12 shrink-0 rounded-xl bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-[24px]">military_tech</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<h2 class="font-title text-[15px] font-bold text-on-surface truncate">New league week started</h2>
+<span class="font-label text-[11px] text-on-surface-variant font-semibold shrink-0">2d ago</span>
+</div>
+<p class="font-body text-[13px] text-on-surface-variant leading-snug">
+              You are currently #5 in Sapphire League. Top 3 promote to Ruby!
+            </p>
+</div>
+</article>
+</section>
+<!-- PRIMARY TACTILE CTA BANNER -->
+<section class="mt-2 flex flex-col items-center gap-2">
+<button class="w-full h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FF8D3B] text-[#1B0B04] font-display text-[17px] font-extrabold tracking-wide flex items-center justify-center gap-2 border-t border-white/20 shadow-[0_6px_0_0_#942D1C] tactile-press active:shadow-[0_2px_0_0_#942D1C]">
+<span>Review writing feedback</span>
+<span class="text-xl font-black">→</span>
+</button>
+<span class="font-label text-[12px] text-on-surface-variant font-semibold tracking-wide">
+          Takes 3 minutes • +25 XP upon completion
+        </span>
+</section>
+</main>
+<!-- FIXED BOTTOM TAB BAR (Matching Shared Components JSON & semantic mapping to "Me") -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto h-16 bg-surface-container z-50 flex justify-around items-center px-2 border-t-2 border-outline-variant shadow-[0_-4px_0_0_#2b373a]">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="font-label text-[10px] tracking-wider mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="font-label text-[10px] tracking-wider mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="font-label text-[10px] tracking-wider mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span class="font-label text-[10px] tracking-wider mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me (ACTIVE per style_active_navigation) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1.5 border-b-2 border-outline active:translate-y-1" href="#">
+<span class="material-symbols-outlined text-[22px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label text-[10px] tracking-wider font-extrabold mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

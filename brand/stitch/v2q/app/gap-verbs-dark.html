@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite - Irregular Verbs</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#392900",
+            "on-tertiary": "#402e00",
+            "surface-tint": "#6bd8ce",
+            "outline-variant": "#3d4947",
+            "on-primary": "#003733",
+            "on-background": "#d8e5e9",
+            "error": "#ffb4ab",
+            "on-secondary": "#660800",
+            "surface-container-highest": "#2b373a",
+            "tertiary-fixed": "#ffdf9e",
+            "on-error": "#690005",
+            "inverse-primary": "#006a64",
+            "surface": "#091518",
+            "on-tertiary-fixed": "#261a00",
+            "surface-dim": "#091518",
+            "on-secondary-fixed-variant": "#900f00",
+            "tertiary-fixed-dim": "#f4bf40",
+            "outline": "#879391",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#981201",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-surface-variant": "#bcc9c7",
+            "surface-container": "#162125",
+            "secondary-fixed-dim": "#ffb4a6",
+            "error-container": "#93000a",
+            "primary-fixed": "#88f5ea",
+            "inverse-surface": "#d8e5e9",
+            "on-primary-fixed-variant": "#00504b",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface-variant": "#2b373a",
+            "surface-container-high": "#202c2f",
+            "on-secondary-container": "#ffa493",
+            "background": "#091518",
+            "surface-bright": "#2f3b3e",
+            "primary": "#6bd8ce",
+            "on-primary-fixed": "#00201e",
+            "tertiary": "#f4bf40",
+            "on-primary-container": "#00322e",
+            "on-secondary-fixed": "#3f0300",
+            "secondary": "#ffb4a6",
+            "inverse-on-surface": "#263236",
+            "secondary-fixed": "#ffdad3",
+            "on-surface": "#d8e5e9",
+            "primary-container": "#2ba39a",
+            "surface-container-lowest": "#051013",
+            "surface-container-low": "#121d20",
+            "tertiary-container": "#ba8b00",
+            /* Bright Day Theme Accents */
+            "lex-cream": "#FFF7EA",
+            "lex-white": "#FFFFFF",
+            "lex-border": "#EADEC8",
+            "lex-ledge": "#D8CFBC",
+            "lex-ink": "#231815",
+            "lex-ink-muted": "#6E6259"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "32px",
+            "margin": "16px",
+            "gutter": "16px",
+            "space-lg": "24px",
+            "space-md": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px"
+          },
+          "fontFamily": {
+            "label": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Physical 3D Tactile Ledging & Press */
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF6F4E 0%, #F2553B 55%, #E14126 100%);
+      box-shadow: 0 5px 0 #A82E19, 0 8px 12px rgba(242, 85, 59, 0.28);
+      transition: all 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #A82E19, 0 3px 6px rgba(242, 85, 59, 0.2);
+    }
+    .tactile-card {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+    }
+    .tactile-subtab {
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-subtab-active {
+      box-shadow: 0 3px 0 #00504B;
+    }
+    .tactile-chip-active {
+      box-shadow: 0 3px 0 #003632;
+    }
+    .tactile-chip-inactive {
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .tactile-audio-btn {
+      box-shadow: 0 3px 0 #186E67;
+    }
+    .tactile-audio-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #186E67;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#EEF6F7] font-body antialiased flex justify-center m-0 p-0 selection:bg-primary selection:text-on-primary">
+<!-- Mobile Canvas Device Shell: exact 390px edge-to-edge -->
+<main class="w-[390px] min-h-screen relative flex flex-col bg-[#081518] pb-24 overflow-x-hidden">
+<!-- TopAppBar (Unified 56px sticky chrome) -->
+<header class="sticky top-0 z-40 bg-[#0B171A]/95 backdrop-blur flex justify-between items-center h-14 px-4 w-full border-b border-[#21363D]">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-[#2BA39A] flex items-center justify-center border-2 border-[#1B7E76] shadow-[0_3px_0_#125751]">
+<span class="material-symbols-outlined text-[#00201E] text-xl" style="font-variation-settings: 'FILL' 1;">toys</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display text-[19px] tracking-tight font-extrabold text-[#EEF6F7] leading-none">Lexkite</span>
+<span class="font-label text-[9px] uppercase tracking-widest text-[#7E9FA3] leading-none mt-0.5">Vocab Master</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 bg-[#121E22] px-2.5 py-1 rounded-full border border-[#21363D] shadow-[0_2px_0_#091316]">
+<span class="material-symbols-outlined text-[#FF6F4E] text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label text-label text-[#FFB4A6] font-extrabold">14</span>
+</div>
+<div class="flex items-center gap-1 bg-[#121E22] px-2.5 py-1 rounded-full border border-[#21363D] shadow-[0_2px_0_#091316]">
+<span class="material-symbols-outlined text-[#F4BF40] text-[18px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label text-label text-[#FFDF9E] font-extrabold">820</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Stack -->
+<div class="flex flex-col px-4 pt-3.5 gap-4">
+<!-- Sub-tabs: Segmented Tactile Control -->
+<div class="grid grid-cols-2 p-1 bg-[#0E1A1D] rounded-2xl gap-1.5 border border-[#21363D]">
+<button class="tactile-subtab-active flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#2BA39A] text-white border border-[#20847D] transition-transform active:translate-y-0.5">
+<span class="material-symbols-outlined text-[19px]" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label text-label font-bold text-white tracking-normal">Irregular verbs</span>
+</button>
+<button class="tactile-subtab flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#172427] text-[#A9BDBB] border border-[#243B42] transition-transform active:translate-y-0.5">
+<span class="material-symbols-outlined text-[18px] text-[#A9BDBB]">record_voice_over</span>
+<span class="font-label text-label text-[#A9BDBB] tracking-normal">Alphabet &amp; sounds</span>
+</button>
+</div>
+<!-- Teacher Coaching Section -->
+<section class="flex items-stretch gap-3">
+<div class="teacher-slot w-[74px] shrink-0 rounded-2xl bg-[#0E2327] border-2 border-dashed border-[#2BA39A] flex flex-col items-center justify-center p-2 text-center shadow-[0_3px_0_#091A1D]">
+<div class="w-8 h-8 rounded-full bg-[#2BA39A]/20 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[#62D7CE] text-[20px]" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<span class="font-label text-[10px] tracking-wider font-extrabold text-[#62D7CE]">TEACHER</span>
+</div>
+<div class="flex-1 bg-[#172427] rounded-2xl p-3 border-2 border-[#243B42] tactile-card relative flex flex-col justify-center">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span class="font-label text-[10px] tracking-wider uppercase font-bold text-[#2BA39A]">TEACHER AMA • IELTS COACH</span>
+</div>
+<p class="font-title text-[15px] leading-tight text-[#EEF6F7] font-bold">
+            “Say all three forms aloud.”
+          </p>
+</div>
+</section>
+<!-- Filter Chips Row -->
+<div class="flex items-center gap-2 overflow-x-auto pb-0.5 no-scrollbar">
+<button class="tactile-chip-active shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#2BA39A] text-white border border-[#20847D] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[16px] text-white" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label text-[12px] font-extrabold text-white">Most common</span>
+</button>
+<button class="tactile-chip-inactive shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#172427] text-[#EEF6F7] border-2 border-[#243B42] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[16px] text-[#A9BDBB]">sort_by_alpha</span>
+<span class="font-label text-[12px] font-bold text-[#A9BDBB]">AZ A–Z</span>
+</button>
+<button class="tactile-chip-inactive shrink-0 flex items-center gap-1 px-3 py-2 rounded-xl bg-[#172427] text-[#EEF6F7] border-2 border-[#243B42] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[#FF6F4E] text-[16px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span class="font-label text-[12px] font-bold text-[#A9BDBB]">My tricky ones</span>
+</button>
+</div>
+<!-- Verb Table Card -->
+<section class="bg-[#121E22] rounded-2xl border-2 border-[#21363D] tactile-card overflow-hidden">
+<div class="grid grid-cols-[1fr_1fr_1fr_36px] items-center px-3 py-2.5 bg-[#172427] border-b-2 border-[#21363D]">
+<span class="font-label text-[10px] tracking-wider font-extrabold text-[#A9BDBB]">BASE (V1)</span>
+<span class="font-label text-[10px] tracking-wider font-extrabold text-[#A9BDBB]">PAST (V2)</span>
+<span class="font-label text-[10px] tracking-wider font-extrabold text-[#A9BDBB]">PARTICIPLE (V3)</span>
+<span class="font-label text-[10px] tracking-wider font-extrabold text-[#A9BDBB] text-center">AUDIO</span>
+</div>
+<div class="divide-y divide-[#1E333A]">
+<div class="grid grid-cols-[1fr_1fr_1fr_36px] items-center px-3 py-2.5 hover:bg-[#16272C] transition-colors">
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">go</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/ɡəʊ/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">went</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/went/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">gone</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/ɡɒn/</div>
+</div>
+<div class="flex justify-center">
+<button aria-label="Play audio for go" class="tactile-audio-btn w-8 h-8 rounded-lg bg-[#19383E] text-[#62D7CE] flex items-center justify-center border border-[#244A52]">
+<span class="material-symbols-outlined text-[17px] text-[#62D7CE]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_1fr_1fr_36px] items-center px-3 py-2.5 bg-[#172729] hover:bg-[#1C3033] transition-colors">
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight flex items-center gap-1">
+                buy <span class="text-xs">🚩</span>
+</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/baɪ/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">bought</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/bɔːt/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">bought</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/bɔːt/</div>
+</div>
+<div class="flex justify-center">
+<button aria-label="Play audio for buy" class="tactile-audio-btn w-8 h-8 rounded-lg bg-[#19383E] text-[#62D7CE] flex items-center justify-center border border-[#244A52]">
+<span class="material-symbols-outlined text-[17px] text-[#62D7CE]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_1fr_1fr_36px] items-center px-3 py-2.5 hover:bg-[#16272C] transition-colors">
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">write</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/raɪt/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">wrote</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/rəʊt/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">written</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/ˈrɪt.ən/</div>
+</div>
+<div class="flex justify-center">
+<button aria-label="Play audio for write" class="tactile-audio-btn w-8 h-8 rounded-lg bg-[#19383E] text-[#62D7CE] flex items-center justify-center border border-[#244A52]">
+<span class="material-symbols-outlined text-[17px] text-[#62D7CE]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_1fr_1fr_36px] items-center px-3 py-2.5 hover:bg-[#16272C] transition-colors">
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">take</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/teɪk/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">took</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/tʊk/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">taken</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/ˈteɪ.kən/</div>
+</div>
+<div class="flex justify-center">
+<button aria-label="Play audio for take" class="tactile-audio-btn w-8 h-8 rounded-lg bg-[#19383E] text-[#62D7CE] flex items-center justify-center border border-[#244A52]">
+<span class="material-symbols-outlined text-[17px] text-[#62D7CE]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-[1fr_1fr_1fr_36px] items-center px-3 py-2.5 hover:bg-[#16272C] transition-colors">
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">speak</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/spiːk/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">spoke</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/spəʊk/</div>
+</div>
+<div>
+<div class="font-title text-[15px] font-extrabold text-[#EEF6F7] leading-tight">spoken</div>
+<div class="font-body text-[11px] text-[#7E9FA3] leading-none mt-0.5">/ˈspəʊ.kən/</div>
+</div>
+<div class="flex justify-center">
+<button aria-label="Play audio for speak" class="tactile-audio-btn w-8 h-8 rounded-lg bg-[#19383E] text-[#62D7CE] flex items-center justify-center border border-[#244A52]">
+<span class="material-symbols-outlined text-[17px] text-[#62D7CE]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Mastery Status Banner -->
+<div class="bg-[#0D2628] rounded-2xl px-3.5 py-3 border-2 border-[#1A4D50] shadow-[0_3px_0_#08191B] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-[#185356] text-white flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[#2FBF71] text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-label text-[13px] text-[#EEF6F7] font-extrabold leading-none">
+            16 of 95 high-yield verbs mastered
+          </span>
+</div>
+<span class="font-label text-[11px] font-bold text-[#62D7CE] bg-[#122E31] px-2 py-0.5 rounded-full border border-[#1A4D50]">
+          17%
+        </span>
+</div>
+<!-- Primary Action CTA Candy Button -->
+<div class="flex flex-col items-center gap-1.5 pt-1">
+<button class="tactile-btn-primary w-full h-14 rounded-2xl flex items-center justify-center gap-2 font-display text-[17px] font-extrabold border-t border-white/40 cursor-pointer">
+<span class="tracking-wide text-[#1B0B04] font-extrabold">Quiz me on 10 →</span>
+</button>
+<span class="font-label text-[11px] font-bold text-[#A9BDBB] text-center tracking-normal">
+          5–minute rapid recall drill • +20 XP reward
+        </span>
+</div>
+</div>
+<!-- BottomNavBar (Shared Component exact 5 destinations) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 bg-[#121E22] border-t border-[#21363D] pb-safe shadow-[0_-3px_10px_rgba(0,0,0,0.3)]">
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 active:translate-y-1 transition-transform" href="#today">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="font-label text-[10px] mt-0.5">Today</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#2BA39A]/20 text-[#2BA39A] rounded-xl px-3 py-1.5 border-2 border-[#2BA39A] shadow-[0_2px_0_#12514D] active:translate-y-1 transition-transform" href="#vocab">
+<span class="material-symbols-outlined text-[22px] text-[#2BA39A]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label text-[10px] font-extrabold mt-0.5 text-[#2BA39A]">Vocab</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 active:translate-y-1 transition-transform" href="#skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="font-label text-[10px] mt-0.5">Skills</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 active:translate-y-1 transition-transform" href="#tests">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span class="font-label text-[10px] mt-0.5">Tests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 active:translate-y-1 transition-transform" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label text-[10px] mt-0.5">Me</span>
+</a>
+</nav>
+</main>
+</body></html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite League Promotion - Gold</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #091518;
+      color: #e6f3f2;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tactile-button {
+      box-shadow: 0 4px 0 0 #b45309;
+      transition: all 0.1s ease;
+    }
+    .tactile-button:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #b45309;
+    }
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #071012;
+    }
+    .tactile-badge-gold {
+      box-shadow: 0 3px 0 0 #854d0e;
+    }
+    .tactile-badge-silver {
+      box-shadow: 0 3px 0 0 #0f1c1f;
+    }
+  </style>
+</head>
+<body class="w-full min-h-screen bg-[#091518] text-[#e6f3f2] p-4 flex flex-col justify-between font-sans selection:bg-[#2dd4bf] selection:text-[#091518]">
+<!-- Top Bar -->
+<header class="w-full flex items-center justify-between pb-3 px-0.5">
+<div class="flex items-center gap-2">
+<svg class="w-6 h-6 text-[#2dd4bf]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L3 20L12 16L21 20L12 2Z"></path>
+</svg>
+<span class="text-xl font-extrabold tracking-tight text-[#e6f3f2]">Lexkite</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Streak pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-[#112226] border border-[#1c3439] rounded-full text-xs font-bold text-[#f59e0b] shadow-[0_2px_0_0_#071012]">
+<span class="material-symbols-rounded text-base text-[#f59e0b]">local_fire_department</span>
+<span>14</span>
+</div>
+<!-- Gem counter pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-[#112226] border border-[#1c3439] rounded-full text-xs font-bold text-[#2dd4bf] shadow-[0_2px_0_0_#071012]">
+<span class="material-symbols-rounded text-base text-[#2dd4bf]">diamond</span>
+<span>420</span>
+</div>
+</div>
+</header>
+<!-- Main Container Card -->
+<main class="w-full flex-1 flex flex-col bg-[#112226] border border-[#1c3439] rounded-3xl p-4.5 sm:p-5 tactile-card relative">
+<!-- Close Button -->
+<button aria-label="Close" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#162b30] border border-[#23444c] flex items-center justify-center text-[#8ba6a9] hover:text-[#e6f3f2] transition-colors">
+<span class="material-symbols-rounded text-base">close</span>
+</button>
+<!-- Teacher Slot & Speech Bubble Row -->
+<div class="flex items-center gap-3 mt-0.5 mb-4">
+<!-- Teacher slot -->
+<div class="teacher-slot w-14 h-14 rounded-2xl border-2 border-dashed border-[#2dd4bf]/40 bg-[#2dd4bf]/10 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-rounded text-2xl text-[#2dd4bf]/60">person</span>
+</div>
+<!-- Speech Bubble -->
+<div class="flex-1 bg-[#162b30] border border-[#23444c] rounded-2xl py-2.5 px-3.5 relative mr-6">
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-r-[8px] border-r-[#162b30]"></div>
+<p class="text-[13px] font-bold text-[#e6f3f2] leading-snug">
+          “Gold looks good on you!”
+        </p>
+</div>
+</div>
+<!-- League Transition Visual Card -->
+<div class="w-full bg-[#162b30] border border-[#23444c] rounded-2xl py-3 px-4 mb-4 flex items-center justify-around">
+<!-- Silver League Badge (Previous) -->
+<div class="flex flex-col items-center gap-1.5 opacity-70">
+<div class="w-13 h-13 w-[52px] h-[52px] rounded-2xl bg-[#1a2d32] border border-[#263e44] flex items-center justify-center tactile-badge-silver">
+<span class="material-symbols-rounded text-3xl text-[#94a3b8]">shield</span>
+</div>
+<span class="text-[11px] font-bold text-[#8ba6a9]">Silver League</span>
+</div>
+<!-- Upward Arrow Indicator -->
+<div class="flex items-center justify-center">
+<span class="material-symbols-rounded text-2xl text-[#2dd4bf]">trending_up</span>
+</div>
+<!-- Gold League Badge (Promoted) -->
+<div class="flex flex-col items-center gap-1.5 relative">
+<span class="material-symbols-rounded absolute -top-1.5 -right-1 text-xs text-[#eab308]">star</span>
+<div class="w-[52px] h-[52px] rounded-2xl bg-gradient-to-b from-[#eab308] to-[#ca8a04] border border-[#fef08a] flex items-center justify-center tactile-badge-gold">
+<div class="w-9 h-9 rounded-full bg-[#a16207] flex items-center justify-center border border-[#fef08a]/60">
+<span class="material-symbols-rounded text-lg text-[#fef08a]">star</span>
+</div>
+</div>
+<span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#854d0e] text-[#fef08a] uppercase tracking-wide">GOLD LEAGUE</span>
+</div>
+</div>
+<!-- Celebratory Headline & Subheading -->
+<div class="text-center mb-4">
+<h1 class="text-[22px] font-black tracking-tight text-[#e6f3f2] mb-0.5">
+        You were promoted!
+      </h1>
+<p class="text-xs text-[#8ba6a9] font-medium">
+        Finished <span class="font-bold text-[#e6f3f2]">#4 of 30</span> this week — welcome to Gold.
+      </p>
+</div>
+<!-- Top 5 Promotion Zone Card -->
+<div class="w-full bg-[#162b30] border border-[#23444c] rounded-2xl p-3.5 mb-3.5 relative">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] font-extrabold uppercase tracking-wider text-[#2dd4bf]">TOP 5 PROMOTION ZONE</span>
+<span class="px-2 py-0.5 rounded-full bg-[#0f766e]/30 border border-[#2dd4bf]/30 text-[10px] font-bold text-[#2dd4bf]">Safe</span>
+</div>
+<!-- Podium Circles: #3 Sara K., #4 YOU, #5 James R. -->
+<div class="flex items-end justify-center gap-4 pt-1">
+<!-- #3 Sara K. -->
+<div class="flex flex-col items-center text-center">
+<span class="text-[10px] font-bold text-[#8ba6a9] mb-1">#3</span>
+<div class="w-11 h-11 rounded-full bg-[#1e2f33] border border-[#2b4247] flex items-center justify-center mb-1">
+<div class="w-8 h-8 rounded-full bg-[#fde047] text-[#713f12] font-black text-xs flex items-center justify-center">
+              SK
+            </div>
+</div>
+<span class="text-[11px] font-bold text-[#e6f3f2]">Sara K.</span>
+<span class="text-[10px] font-semibold text-[#8ba6a9]">1,980 XP</span>
+</div>
+<!-- #4 YOU (Alex L.) -->
+<div class="flex flex-col items-center text-center -translate-y-1">
+<span class="px-2 py-0.5 bg-[#0f766e] text-[#2dd4bf] text-[9px] font-extrabold uppercase rounded-full mb-1">YOU</span>
+<span class="text-[11px] font-extrabold text-[#2dd4bf] mb-0.5">#4</span>
+<div class="w-13 h-13 w-[52px] h-[52px] rounded-full bg-[#112226] border-2 border-[#2dd4bf] flex items-center justify-center mb-1 shadow-[0_0_12px_rgba(45,212,191,0.25)]">
+<div class="w-10 h-10 rounded-full bg-[#0f766e] text-[#e6f3f2] font-black text-xs flex items-center justify-center">
+              AL
+            </div>
+</div>
+<span class="text-xs font-black text-[#e6f3f2]">Alex L.</span>
+<span class="text-[10px] font-bold text-[#2dd4bf]">1,940 XP</span>
+</div>
+<!-- #5 James R. -->
+<div class="flex flex-col items-center text-center">
+<span class="text-[10px] font-bold text-[#8ba6a9] mb-1">#5</span>
+<div class="w-11 h-11 rounded-full bg-[#1e2f33] border border-[#2b4247] flex items-center justify-center mb-1">
+<div class="w-8 h-8 rounded-full bg-[#fed7aa] text-[#7c2d12] font-black text-xs flex items-center justify-center">
+              JR
+            </div>
+</div>
+<span class="text-[11px] font-bold text-[#e6f3f2]">James R.</span>
+<span class="text-[10px] font-semibold text-[#8ba6a9]">1,820 XP</span>
+</div>
+</div>
+</div>
+<!-- Reward Banner -->
+<div class="w-full bg-[#162b30] border border-[#23444c] rounded-2xl py-2.5 px-4 mb-3.5 flex items-center justify-center gap-2">
+<span class="material-symbols-rounded text-base text-[#eab308]">diamond</span>
+<span class="text-xs font-bold text-[#e6f3f2]">Gold League unlocked</span>
+</div>
+<!-- Primary CTA Button (>= 52px height) -->
+<button class="w-full min-h-[52px] py-3.5 px-4 bg-[#f59e0b] hover:bg-[#d97706] rounded-2xl text-[#1b0f00] font-black text-lg flex items-center justify-center gap-2 tactile-button mb-2.5 cursor-pointer">
+<span>Continue</span>
+<span class="material-symbols-rounded text-xl font-bold">arrow_forward</span>
+</button>
+<!-- Secondary Link -->
+<button class="w-full py-1.5 flex items-center justify-center gap-1.5 text-xs font-bold text-[#2dd4bf] hover:text-[#5eead4] transition-colors cursor-pointer">
+<span class="material-symbols-rounded text-sm">bar_chart</span>
+<span>See leaderboard</span>
+</button>
+</main>
+</body></html>

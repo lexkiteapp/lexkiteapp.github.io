@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite - IELTS Sound Lab</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-background": "#0F3D3E",
+            "tertiary-fixed": "#ffdf9e",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-high": "#202c2f",
+            "on-primary-fixed": "#00201e",
+            "inverse-on-surface": "#263236",
+            "background": "#FFF7EA",
+            "surface-bright": "#FFFFFF",
+            "surface": "#FFF7EA",
+            "surface-container": "#FFFFFF",
+            "primary-fixed": "#88f5ea",
+            "on-tertiary-container": "#392900",
+            "on-error": "#690005",
+            "tertiary-container": "#ba8b00",
+            "on-primary": "#003733",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#6bd8ce",
+            "surface-dim": "#091518",
+            "primary-container": "#2ba39a",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary-container": "#ffa493",
+            "secondary": "#ffb4a6",
+            "surface-container-low": "#F8F1E3",
+            "surface-container-lowest": "#FFFFFF",
+            "inverse-surface": "#d8e5e9",
+            "on-primary-container": "#00322e",
+            "on-secondary-fixed-variant": "#900f00",
+            "error-container": "#93000a",
+            "tertiary": "#f4bf40",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary-fixed": "#ffdad3",
+            "outline": "#EADEC8",
+            "inverse-primary": "#006a64",
+            "secondary-container": "#981201",
+            "primary": "#2BA39A",
+            "secondary-fixed-dim": "#ffb4a6",
+            "outline-variant": "#D8CFBC",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-variant": "#EBF7F6",
+            "on-secondary": "#660800",
+            "on-tertiary": "#402e00",
+            "on-surface": "#0F3D3E",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-surface-variant": "#4E6668",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface-container-highest": "#E0F5F3"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.25rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "32px",
+            "space-md": "16px",
+            "margin": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-lg": "24px",
+            "gutter": "16px"
+          },
+          fontFamily: {
+            label: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            title: ["Plus Jakarta Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          fontSize: {
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            display: ["28px", { lineHeight: "34px", fontWeight: "800" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    .tactile-active:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 var(--shadow-ledge) !important;
+    }
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex justify-center min-h-screen">
+<!-- Edge-to-edge 390px Mobile Canvas Container -->
+<div class="w-[390px] max-w-[390px] min-h-screen bg-surface flex flex-col justify-between relative overflow-hidden select-none">
+<!-- TOP SECTION: HEADER & DRILL CONTENT -->
+<div class="w-full flex flex-col">
+<!-- TopAppBar Chrome (56px Fixed Height, Mobile Tactical) -->
+<header class="w-full h-14 px-4 flex items-center justify-between gap-3 bg-surface z-20">
+<!-- Close Button -->
+<button aria-label="Close drill" class="tactile-btn w-10 h-10 rounded-full bg-white border-2 border-outline flex items-center justify-center text-on-surface active:translate-y-1 transition-transform" style="box-shadow: 0 3px 0 0 #D8CFBC;">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<!-- Chunky Progress Bar Track -->
+<div class="flex-1 h-3.5 bg-outline rounded-full p-[2px] relative overflow-hidden">
+<div class="h-full bg-primary rounded-full relative" style="width: 38%;">
+<div class="absolute inset-x-1 top-0.5 h-1 bg-white/40 rounded-full"></div>
+</div>
+</div>
+<!-- Vital Hearts Pill -->
+<div class="h-9 px-3 rounded-full bg-[#FFEAE6] border-2 border-[#FFC7BE] flex items-center gap-1.5" style="box-shadow: 0 2px 0 0 #F5B2A6;">
+<span class="material-symbols-outlined text-[#F2553B] text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-title text-sm font-extrabold text-[#741708] leading-none pt-0.5">5</span>
+</div>
+</header>
+<!-- Main Drill Canvas -->
+<main class="px-4 pt-3 flex flex-col gap-4">
+<!-- Category Pill & Title Stack -->
+<div class="flex flex-col gap-1.5 items-start">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest border border-[#BCE8E3]">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label text-[11px] text-[#1F7A75] font-extrabold tracking-wider">IELTS SOUND LAB</span>
+</div>
+<h1 class="font-display text-display text-on-background tracking-tight">Tap what you hear</h1>
+</div>
+<!-- Sound Trigger Area (Tactile Focal Element) -->
+<div class="w-full flex items-center justify-center gap-4 py-2">
+<!-- Big 88px Tactile Listen Node -->
+<button aria-label="Listen to audio prompt" class="tactile-btn w-[92px] h-[92px] rounded-full bg-primary flex flex-col items-center justify-center relative active:translate-y-1 transition-transform group" style="box-shadow: 0 6px 0 0 #12514D;">
+<!-- Top Sheen Highlight -->
+<div class="absolute top-1.5 inset-x-3 h-4 bg-white/30 rounded-full blur-[0.5px]"></div>
+<div class="flex items-center justify-center text-white mt-1">
+<span class="material-symbols-outlined text-[34px] group-hover:scale-110 transition-transform" data-icon="volume_up" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</div>
+<span class="font-label text-[11px] font-extrabold text-white tracking-widest mt-0.5">LISTEN</span>
+</button>
+<!-- Speed Modifier Tactical Pill -->
+<button aria-label="Toggle audio playback speed to 0.75x" class="tactile-btn h-11 px-3.5 rounded-2xl bg-white border-2 border-outline flex items-center justify-center gap-1 text-on-surface active:translate-y-0.5 transition-transform" style="box-shadow: 0 3px 0 0 #D8CFBC;">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="speed">speed</span>
+<span class="font-label text-xs font-bold text-on-surface">0.75×</span>
+</button>
+</div>
+<!-- Teacher Tip Section (Slot + Speech Bubble Card) -->
+<div class="flex items-stretch gap-3 w-full">
+<!-- Empty Dashed Teacher Slot (No face/person) -->
+<div aria-hidden="true" class="w-16 flex-shrink-0 flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-primary bg-surface-variant px-1 py-2">
+<div class="w-8 h-8 rounded-full bg-[#D4EFEB] flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<span class="font-label text-[9px] font-extrabold text-[#1F7A75] tracking-wider text-center">TEACHER</span>
+</div>
+<!-- Pointer Speech Bubble Card -->
+<div class="flex-1 bg-white border-2 border-outline rounded-2xl p-3 relative flex flex-col justify-center" style="box-shadow: 0 4px 0 0 #D8CFBC;">
+<!-- Speech Tail Pointer -->
+<div class="absolute -left-[9px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[9px] border-r-outline"></div>
+<div class="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[7px] border-r-white z-10"></div>
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-label text-[11px] font-extrabold text-primary tracking-wide">TEACHER AMA</span>
+<span class="font-body text-[11px] text-on-surface-variant font-bold">IELTS Coach</span>
+</div>
+<p class="font-body text-[13px] leading-tight text-on-surface font-semibold">
+              “Listen for the vowel sound in the middle.”
+            </p>
+</div>
+</div>
+<!-- Answer Cards Grid (2x2) -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<!-- Option 1 (Default) -->
+<button class="tactile-btn w-full min-h-[72px] bg-white border-2 border-outline rounded-2xl p-3 flex flex-col items-start justify-center active:translate-y-1 transition-transform relative group text-left" style="box-shadow: 0 4px 0 0 #D8CFBC;">
+<div class="font-display text-[19px] font-extrabold text-on-surface group-hover:text-primary transition-colors">though</div>
+<div class="font-mono text-[13px] font-medium text-on-surface-variant mt-0.5">/ðəʊ/</div>
+</button>
+<!-- Option 2 (Selected State) -->
+<button class="tactile-btn w-full min-h-[72px] bg-[#E8FAF8] border-2 border-primary rounded-2xl p-3 flex flex-col items-start justify-center active:translate-y-1 transition-transform relative text-left" style="box-shadow: 0 4px 0 0 #1B7871;">
+<!-- Circular Checkmark Badge -->
+<div class="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-white" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+<span class="material-symbols-outlined text-[14px] font-bold" data-icon="check">check</span>
+</div>
+<div class="font-display text-[19px] font-extrabold text-on-surface">thought</div>
+<div class="font-mono text-[13px] font-semibold text-[#1F7A75] mt-0.5">/θɔːt/</div>
+</button>
+<!-- Option 3 (Default) -->
+<button class="tactile-btn w-full min-h-[72px] bg-white border-2 border-outline rounded-2xl p-3 flex flex-col items-start justify-center active:translate-y-1 transition-transform relative group text-left" style="box-shadow: 0 4px 0 0 #D8CFBC;">
+<div class="font-display text-[19px] font-extrabold text-on-surface group-hover:text-primary transition-colors">through</div>
+<div class="font-mono text-[13px] font-medium text-on-surface-variant mt-0.5">/θruː/</div>
+</button>
+<!-- Option 4 (Default) -->
+<button class="tactile-btn w-full min-h-[72px] bg-white border-2 border-outline rounded-2xl p-3 flex flex-col items-start justify-center active:translate-y-1 transition-transform relative group text-left" style="box-shadow: 0 4px 0 0 #D8CFBC;">
+<div class="font-display text-[19px] font-extrabold text-on-surface group-hover:text-primary transition-colors">tough</div>
+<div class="font-mono text-[13px] font-medium text-on-surface-variant mt-0.5">/tʌf/</div>
+</button>
+</div>
+</main>
+</div>
+<!-- BOTTOM SECTION: FIXED ACTION AREA -->
+<footer class="w-full px-4 pt-3 pb-6 bg-surface z-20">
+<!-- Primary CTA: 56px Chunky Physical Button -->
+<button class="tactile-btn w-full h-14 rounded-2xl flex items-center justify-center relative active:translate-y-1 transition-transform overflow-hidden cursor-pointer" style="background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%); box-shadow: 0 5px 0 0 #B53A22;">
+<!-- Specular Top Gloss Ledge -->
+<div class="absolute top-1 inset-x-4 h-3 bg-white/25 rounded-full blur-[0.5px]"></div>
+<!-- Action Label -->
+<span class="font-display text-[17px] font-extrabold tracking-wider text-[#1B0B04] uppercase flex items-center gap-1">
+          CHECK
+        </span>
+</button>
+</footer>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Audio playback visual response on big button
+      const listenBtn = document.querySelector('button[aria-label="Listen to audio prompt"]');
+      if (listenBtn) {
+        listenBtn.addEventListener('click', () => {
+          listenBtn.classList.add('scale-95');
+          setTimeout(() => {
+            listenBtn.classList.remove('scale-95');
+          }, 120);
+        });
+      }
+
+      // Answer card selection toggle
+      const answerCards = document.querySelectorAll('.grid button');
+      answerCards.forEach(card => {
+        card.addEventListener('click', () => {
+          answerCards.forEach(c => {
+            c.classList.remove('bg-[#E8FAF8]', 'border-primary');
+            c.classList.add('bg-white', 'border-outline');
+            c.style.boxShadow = '0 4px 0 0 #D8CFBC';
+            const check = c.querySelector('.material-symbols-outlined[data-icon="check"]');
+            if (check && check.parentElement) {
+              check.parentElement.remove();
+            }
+            const mono = c.querySelector('.font-mono');
+            if (mono) {
+              mono.classList.remove('text-[#1F7A75]', 'font-semibold');
+              mono.classList.add('text-on-surface-variant', 'font-medium');
+            }
+          });
+
+          // Set active state
+          card.classList.remove('bg-white', 'border-outline');
+          card.classList.add('bg-[#E8FAF8]', 'border-primary');
+          card.style.boxShadow = '0 4px 0 0 #1B7871';
+          
+          const mono = card.querySelector('.font-mono');
+          if (mono) {
+            mono.classList.remove('text-on-surface-variant', 'font-medium');
+            mono.classList.add('text-[#1F7A75]', 'font-semibold');
+          }
+
+          if (!card.querySelector('.material-symbols-outlined[data-icon="check"]')) {
+            const badge = document.createElement('div');
+            badge.className = 'absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-white';
+            badge.style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            badge.innerHTML = '<span class="material-symbols-outlined text-[14px] font-bold" data-icon="check">check</span>';
+            card.appendChild(badge);
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

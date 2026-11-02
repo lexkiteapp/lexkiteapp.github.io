@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Notifications</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            lexBg: '#FFF7EA',
+            lexInk: '#0F3D3E',
+            lexDarkInk: '#1B0B04',
+            lexBorder: '#EADEC8',
+            lexLedge: '#D8CFBC',
+            lexTeal: '#2BA39A',
+            lexSubtleTeal: '#E6F6F5',
+            lexOrange: '#F2553B',
+            lexOrangeLedge: '#B53A22',
+            lexSubtext: '#4E6668',
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 #D8CFBC',
+            'tactile-card-pressed': '0 1px 0 #D8CFBC',
+            'tactile-btn': '0 5px 0 #B53A22',
+            'tactile-btn-pressed': '0 1px 0 #B53A22',
+            'tactile-nav': '0 -3px 0 #EADEC8',
+          }
+        }
+      }
+    };
+  </script>
+<!-- Custom Component Styles -->
+<style data-purpose="custom-styling">
+    body {
+      background-color: #FFF7EA;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      width: 100%;
+      max-width: 390px;
+      margin: 0 auto;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      color: #0F3D3E;
+    }
+    .tap-sink:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D8CFBC !important;
+    }
+    .btn-sink:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #B53A22 !important;
+    }
+    /* Speech bubble tail */
+    .speech-bubble::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -9px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 9px solid #EADEC8;
+    }
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -6px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 8px solid #FFFFFF;
+    }
+  </style>
+</head>
+<body class="bg-lexBg min-h-screen flex flex-col relative select-none pb-24">
+<!-- BEGIN: TopHeader -->
+<header class="h-14 px-4 flex items-center justify-between border-b border-[#EADEC8]/70 bg-lexBg sticky top-0 z-30" data-purpose="top-navigation-bar">
+<!-- Brand Logo & Name -->
+<div class="flex items-center gap-2">
+<!-- 4-diamond Origami Kite SVG -->
+<svg class="w-6 h-6 flex-shrink-0" fill="none" viewbox="0 0 32 32">
+<path d="M16 2L2 16L16 16L16 2Z" fill="#2BA39A"></path>
+<path d="M16 2L30 16L16 16L16 2Z" fill="#F2553B"></path>
+<path d="M2 16L16 30L16 16L2 16Z" fill="#FFB054"></path>
+<path d="M30 16L16 30L16 16L30 16Z" fill="#3B82F6"></path>
+</svg>
+<span class="text-xl font-extrabold tracking-tight text-lexInk">Lexkite</span>
+</div>
+<!-- Stats Badges (Streak & XP) -->
+<div class="flex items-center gap-2">
+<!-- Streak Pill -->
+<div class="flex items-center gap-1.5 bg-white border border-lexBorder rounded-full px-2.5 py-1 text-xs font-bold text-lexInk shadow-sm" data-purpose="streak-badge">
+<span aria-label="flame" class="text-sm leading-none" role="img">🔥</span>
+<span>12</span>
+</div>
+<!-- XP Pill -->
+<div class="flex items-center gap-1.5 bg-white border border-lexBorder rounded-full px-2.5 py-1 text-xs font-bold text-lexInk shadow-sm" data-purpose="xp-badge">
+<span aria-label="lightning" class="text-sm leading-none" role="img">⚡</span>
+<span class="text-[#D97706]">820</span>
+</div>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 px-4 pt-3 space-y-4">
+<!-- Teacher Carlos Coach Banner -->
+<section class="flex items-center gap-2.5 pt-1" data-purpose="coach-dialog">
+<!-- Teacher Carlos Vector Illustration -->
+<div class="teacher-slot w-14 h-14 flex-shrink-0 rounded-2xl border-2 border-dashed border-lexTeal/40 bg-lexSubtleTeal flex flex-col items-center justify-center text-lexTeal gap-0.5 select-none"><span class="material-symbols-outlined text-[20px] leading-none">school</span><span class="text-[8px] font-extrabold tracking-wider leading-none uppercase">Teacher</span></div>
+<!-- Speech Bubble -->
+<div class="speech-bubble relative flex-1 bg-white border-2 border-lexBorder rounded-2xl py-2 px-3.5 shadow-sm">
+<div class="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-lexTeal">
+<span class="w-1.5 h-1.5 rounded-full bg-lexTeal"></span>
+<span>TEACHER CARLOS</span>
+</div>
+<p class="text-xs font-bold text-lexInk mt-0.5">“Two things need you today.”</p>
+</div>
+</section>
+<!-- Notifications Section Header -->
+<section class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<h1 class="text-[22px] font-extrabold tracking-tight text-lexInk">Notifications</h1>
+<!-- Counter badge -->
+<span class="bg-lexSubtleTeal text-lexTeal text-xs font-bold px-2 py-0.5 rounded-full border border-lexTeal/30">
+          2 new
+        </span>
+</div>
+<!-- Mark all read action -->
+<button class="flex items-center gap-1 text-xs font-bold text-lexTeal hover:opacity-80 active:scale-95 transition-transform" data-purpose="mark-all-read">
+<span>✓</span>
+<span>Mark all read</span>
+</button>
+</section>
+<!-- Group: TODAY -->
+<section class="space-y-2" data-purpose="notification-group-today">
+<div class="flex items-center justify-between text-[11px] font-bold tracking-wider text-lexSubtext uppercase px-0.5">
+<span>TODAY</span>
+<span class="normal-case font-semibold text-[11px] tracking-normal">2 updates</span>
+</div>
+<!-- Card 1: Writing Feedback -->
+<article class="tap-sink bg-white border-2 border-lexBorder rounded-2xl p-3.5 shadow-tactile-card flex items-start gap-3 transition-transform cursor-pointer" data-purpose="notification-item">
+<!-- Icon: Teal with chat & pencil -->
+<div class="w-11 h-11 rounded-xl border border-teal-200 bg-teal-50 flex items-center justify-center flex-shrink-0 text-lexTeal">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+<line x1="9" x2="15" y1="10" y2="10"></line>
+<line x1="12" x2="12" y1="7" y2="13"></line>
+</svg>
+</div>
+<!-- Body -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<h2 class="text-xs font-bold text-lexInk truncate">Your writing feedback is re...</h2>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="text-[11px] font-medium text-lexSubtext">2h ago</span>
+<span class="w-2 h-2 rounded-full bg-lexTeal" title="Unread"></span>
+</div>
+</div>
+<p class="text-[11px] text-lexSubtext leading-relaxed mt-0.5">Teacher Ama marked your Task 2 essay on Environmental Policy.</p>
+</div>
+</article>
+<!-- Card 2: Streak Saved -->
+<article class="tap-sink bg-white border-2 border-lexBorder rounded-2xl p-3.5 shadow-tactile-card flex items-start gap-3 transition-transform cursor-pointer" data-purpose="notification-item">
+<!-- Icon: Red/Coral with snowflake -->
+<div class="w-11 h-11 rounded-xl border border-red-200 bg-red-50 flex items-center justify-center flex-shrink-0 text-lexOrange">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<line x1="12" x2="12" y1="2" y2="22"></line>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+<line x1="4.93" x2="19.07" y1="4.93" y2="19.07"></line>
+<line x1="19.07" x2="4.93" y1="4.93" y2="19.07"></line>
+</svg>
+</div>
+<!-- Body -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<h2 class="text-xs font-bold text-lexInk truncate">Streak saved</h2>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="text-[11px] font-medium text-lexSubtext">5h ago</span>
+<span class="w-2 h-2 rounded-full bg-lexTeal" title="Unread"></span>
+</div>
+</div>
+<p class="text-[11px] text-lexSubtext leading-relaxed mt-0.5">A freeze kept your 12–day streak intact while you rested.</p>
+</div>
+</article>
+</section>
+<!-- Group: EARLIER -->
+<section class="space-y-2 pt-1" data-purpose="notification-group-earlier">
+<div class="flex items-center justify-between text-[11px] font-bold tracking-wider text-lexSubtext uppercase px-0.5">
+<span>EARLIER</span>
+<span class="normal-case font-semibold text-[11px] tracking-normal">This week</span>
+</div>
+<!-- Card 3: Homework Due -->
+<article class="tap-sink bg-white border-2 border-lexBorder rounded-2xl p-3.5 shadow-tactile-card flex items-start gap-3 transition-transform cursor-pointer" data-purpose="notification-item">
+<!-- Icon: Amber Clipboard -->
+<div class="w-11 h-11 rounded-xl border border-amber-200 bg-amber-50 flex items-center justify-center flex-shrink-0 text-[#D97706]">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+<rect height="4" rx="1" ry="1" width="8" x="8" y="2"></rect>
+<line x1="9" x2="15" y1="12" y2="12"></line>
+<line x1="9" x2="13" y1="16" y2="16"></line>
+</svg>
+</div>
+<!-- Body -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<h2 class="text-xs font-bold text-lexInk truncate">Class homework due Friday</h2>
+<span class="text-[11px] font-medium text-lexSubtext flex-shrink-0">Yesterday</span>
+</div>
+<p class="text-[11px] text-lexSubtext leading-relaxed mt-0.5">IELTS Evening B: finish Unit 4 vocabulary collocations (6 left).</p>
+</div>
+</article>
+<!-- Card 4: League Week -->
+<article class="tap-sink bg-white border-2 border-lexBorder rounded-2xl p-3.5 shadow-tactile-card flex items-start gap-3 transition-transform cursor-pointer" data-purpose="notification-item">
+<!-- Icon: Blue Ribbon / Trophy -->
+<div class="w-11 h-11 rounded-xl border border-blue-200 bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-500">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="8" r="6"></circle>
+<path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+</svg>
+</div>
+<!-- Body -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<h2 class="text-xs font-bold text-lexInk truncate">New league week started</h2>
+<span class="text-[11px] font-medium text-lexSubtext flex-shrink-0">2d ago</span>
+</div>
+<p class="text-[11px] text-lexSubtext leading-relaxed mt-0.5">You are currently #5 in Sapphire League. Top 3 promote to Ruby!</p>
+</div>
+</article>
+</section>
+<!-- Primary Action Section -->
+<section class="pt-3 pb-3 flex flex-col items-center gap-1.5" data-purpose="primary-action-section">
+<button class="btn-sink w-full h-[52px] bg-gradient-to-r from-lexOrange via-[#F87146] to-[#FFB054] rounded-2xl font-extrabold text-lexDarkInk text-base flex items-center justify-center gap-2 shadow-tactile-btn transition-transform" data-purpose="cta-button">
+<span>Review writing feedback</span>
+<span class="text-lg">→</span>
+</button>
+<span class="text-[11px] font-semibold text-lexSubtext tracking-tight">
+        Takes 3 minutes • +25 XP upon completion
+      </span>
+</section>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomNavigation -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto h-16 bg-white border-t-2 border-lexBorder shadow-tactile-nav flex items-center justify-around px-2 z-40" data-purpose="bottom-tab-bar"><a class="flex flex-col items-center justify-center flex-1 h-full text-lexSubtext hover:text-lexInk transition-colors" data-purpose="tab-today" href="#today"><span class="material-symbols-outlined text-xl mb-0.5">today</span><span class="text-[10px] font-bold">Today</span></a><a class="flex flex-col items-center justify-center flex-1 h-full text-lexSubtext hover:text-lexInk transition-colors" data-purpose="tab-vocab" href="#vocab"><span class="material-symbols-outlined text-xl mb-0.5">menu_book</span><span class="text-[10px] font-bold">Vocab</span></a><a class="flex flex-col items-center justify-center flex-1 h-full text-lexSubtext hover:text-lexInk transition-colors" data-purpose="tab-skills" href="#skills"><span class="material-symbols-outlined text-xl mb-0.5">psychology</span><span class="text-[10px] font-bold">Skills</span></a><a class="flex flex-col items-center justify-center flex-1 h-full text-lexSubtext hover:text-lexInk transition-colors" data-purpose="tab-tests" href="#tests"><span class="material-symbols-outlined text-xl mb-0.5">quiz</span><span class="text-[10px] font-bold">Tests</span></a><a class="flex flex-col items-center justify-center flex-1 h-full" data-purpose="tab-me-active" href="#me"><div class="w-12 h-11 rounded-xl border-2 border-lexTeal bg-lexSubtleTeal flex flex-col items-center justify-center text-lexTeal"><span class="material-symbols-outlined text-[18px] mb-0.5">person</span><span class="text-[9px] font-extrabold leading-none">Me</span></div></a></nav>
+<!-- END: BottomNavigation -->
+</body></html>

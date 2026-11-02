@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS Computer Reading Simulator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "cream": {
+              50: "#fffbf7",
+              100: "#fff8f5",
+              200: "#f7eee6",
+              300: "#eddcd0",
+              400: "#dec6b4",
+            },
+            "primary": "#00504b",
+            "primary-container": "#136a63",
+            "on-primary": "#ffffff",
+            "secondary-container": "#fd9500",
+            "amber": {
+              500: "#f59e0b",
+              600: "#d97706",
+              700: "#b45309",
+            },
+            "ink": {
+              900: "#1a0d00",
+              800: "#211a14",
+              700: "#3f4947",
+              600: "#6f7977",
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Newsreader"', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #fff8f5;
+      color: #211a14;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tactile-btn {
+      box-shadow: 0 4px 0 #b45309;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #b45309;
+    }
+    .tactile-card {
+      box-shadow: 0 3px 0 #e6d7cd;
+    }
+    .tactile-chip {
+      box-shadow: 0 2px 0 #ded0c5;
+    }
+    .tactile-chip-teal {
+      box-shadow: 0 2px 0 #0b3d39;
+    }
+    .tactile-nav-btn {
+      box-shadow: 0 2px 0 #ded0c5;
+    }
+    .tactile-nav-btn-active {
+      box-shadow: 0 2px 0 #0b3d39;
+    }
+  </style>
+</head>
+<body class="bg-cream-100 text-ink-800 min-h-screen selection:bg-teal-100 selection:text-teal-900 flex flex-col justify-between">
+<!-- Full-bleed native mobile layout (edge-to-edge, 100% width, no frame mockup) -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen bg-cream-100 flex flex-col relative pb-32">
+<!-- 1. MOBILE HEADER -->
+<header class="sticky top-0 z-40 bg-cream-100/95 backdrop-blur-md border-b-2 border-cream-300 px-4 h-16 flex items-center justify-between gap-3">
+<!-- Close icon button (Tap target >= 48px) -->
+<button aria-label="Exit exam simulator" class="w-12 h-12 rounded-full bg-cream-200 border-2 border-cream-300 flex items-center justify-center text-ink-800 hover:bg-cream-300 active:translate-y-0.5 transition-all tactile-chip shrink-0" type="button">
+<span class="material-symbols-outlined text-2xl font-bold">close</span>
+</button>
+<!-- Center Progress Track with Label -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-cream-300/80 rounded-full h-3 p-0.5 overflow-hidden border border-cream-300">
+<div class="bg-[#136a63] h-full rounded-full transition-all duration-300" style="width: 54%"></div>
+</div>
+<span class="text-[11px] font-extrabold text-ink-700 mt-1 tracking-wider uppercase">READING 14 OF 26</span>
+</div>
+<!-- Hearts pill -->
+<div class="h-11 px-3 bg-cream-50 border-2 border-cream-300 rounded-full flex items-center gap-1.5 tactile-chip shrink-0">
+<span class="text-xs font-black text-ink-900">5</span>
+<span class="text-red-500 text-base leading-none">❤️</span>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT AREA -->
+<main class="flex-1 px-4 pt-3.5 space-y-3.5">
+<!-- 2. SIMULATOR SUBHEADER BAR -->
+<section class="bg-cream-50 border-2 border-cream-300 rounded-2xl p-2.5 tactile-card flex items-center justify-between gap-1.5">
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-1 bg-teal-100/80 text-[#00504b] text-[11px] font-extrabold rounded-lg border border-[#136a63]/30 tracking-tight leading-none">IELTS CBT</span>
+<span class="text-xs font-extrabold text-ink-900">Passage 2</span>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<!-- Timer Pill with Clock Icon -->
+<div class="flex items-center gap-1 px-2.5 py-1.5 bg-amber-500/15 border border-amber-600/40 rounded-xl">
+<span class="material-symbols-outlined text-base text-amber-700">timer</span>
+<span class="font-mono text-xs font-black text-amber-700 tracking-tight">38:12</span>
+</div>
+<!-- Action Buttons: Hide & Help -->
+<button class="h-9 px-2.5 bg-cream-200 border border-cream-300 rounded-xl text-ink-800 hover:bg-cream-300 active:translate-y-0.5 tactile-chip flex items-center gap-1 text-xs font-bold leading-none" type="button">
+<span class="material-symbols-outlined text-sm text-ink-700">visibility_off</span>
+<span>Hide</span>
+</button>
+<button aria-label="Help" class="w-9 h-9 flex items-center justify-center bg-cream-200 border border-cream-300 rounded-xl text-ink-800 hover:bg-cream-300 active:translate-y-0.5 tactile-chip shrink-0" type="button">
+<span class="material-symbols-outlined text-base text-ink-700">help</span>
+</button>
+</div>
+</section>
+<!-- 3. COACH AMA CARD -->
+<section class="flex items-end gap-2.5 pt-0.5">
+<!-- Coach Ama Illustration -->
+<div class="teacher-slot w-16 h-20 rounded-2xl border-2 border-dashed border-[#136a63]/40 bg-[#136a63]/5 flex flex-col items-center justify-center text-[10px] font-bold text-[#136a63] uppercase tracking-wider shrink-0"><span class="material-symbols-outlined text-2xl mb-0.5 text-[#136a63]/70">support_agent</span><span class="text-[9px] font-extrabold">Coach</span></div>
+<!-- Speech Bubble -->
+<div class="flex-1 bg-cream-50 border-2 border-cream-300 rounded-2xl rounded-bl-sm p-3 relative tactile-card">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-[10px] font-extrabold text-[#00504b] uppercase tracking-wide">COACH AMA • IELTS TIP</span>
+<span class="text-[10px] font-bold text-amber-700 bg-amber-500/15 px-2 py-0.5 rounded-md border border-amber-600/30 whitespace-nowrap">High-Scoring</span>
+</div>
+<p class="text-xs font-semibold text-ink-800 leading-snug">
+            “Remember: <strong class="text-ink-900 font-extrabold">FALSE</strong> means the text states the direct opposite. If it's not mentioned at all, pick <strong class="text-ink-900 font-extrabold">NOT GIVEN</strong>!”
+          </p>
+</div>
+</section>
+<!-- 4. ACADEMIC STIMULUS CARD -->
+<section class="bg-cream-50 border-2 border-cream-300 rounded-2xl p-4 tactile-card space-y-3">
+<!-- Stimulus Header & Highlight Tool -->
+<div class="flex items-start justify-between border-b-2 border-cream-200 pb-2.5 gap-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#00504b] text-xl mt-0.5">menu_book</span>
+<div>
+<span class="text-[10px] font-extrabold text-[#00504b] uppercase tracking-wider block">ACADEMIC STIMULUS</span>
+<h2 class="text-sm font-extrabold text-ink-900 leading-tight">The Termite Mound Architecture</h2>
+</div>
+</div>
+<!-- Highlighter Tool Button -->
+<div class="flex items-center gap-1.5 bg-cream-200 border border-cream-300 px-2 py-1.5 rounded-xl tactile-chip shrink-0">
+<span class="material-symbols-outlined text-ink-700 text-sm">ink_highlighter</span>
+<span class="text-[10px] font-extrabold text-ink-800">Highlight:</span>
+<button aria-label="Yellow highlight" class="w-3.5 h-3.5 rounded-full bg-amber-300 border border-amber-500 ring-2 ring-amber-500/30" type="button"></button>
+<button aria-label="Teal highlight" class="w-3.5 h-3.5 rounded-full bg-teal-300 border border-[#136a63]" type="button"></button>
+</div>
+</div>
+<!-- Stimulus Passage Excerpt -->
+<div class="font-serif text-[13px] leading-relaxed text-ink-800 space-y-2 bg-cream-100/70 p-3 rounded-xl border border-cream-200">
+<p>
+<span class="font-sans font-bold text-[#00504b] mr-1 text-xs">[A]</span>
+            Engineers designing modern bioclimatic office towers have increasingly abandoned industrial heating systems in favour of natural termite models. In Harare, the Eastgate Centre mimics the internal passive ventilation shafts engineered by <mark class="bg-amber-200 text-ink-900 px-1 py-0.5 rounded font-medium">Macrotermes colonies</mark>.
+          </p>
+<p>
+<span class="font-sans font-bold text-[#00504b] mr-1 text-xs">[B]</span>
+            By continuously venting warmer internal air through high chimneys during nightfall, the structure regulates internal temperatures without consuming standard refrigerants. <mark class="bg-teal-100 text-[#00504b] px-1 py-0.5 rounded font-medium border-b border-[#136a63]">Traditional synthetic cladding was completely bypassed</mark> in order to reduce capital outlay by 35 percent.
+          </p>
+</div>
+<!-- Passage Footer / Expand Trigger -->
+<div class="flex items-center justify-between text-[11px] font-bold text-ink-600 pt-0.5">
+<span>Paragraphs A–C of 6</span>
+<button class="text-[#00504b] font-extrabold hover:underline" type="button">Expand full passage (680 words) ↓</button>
+</div>
+</section>
+<!-- 5. QUESTIONS CARD (True / False / Not Given) -->
+<section class="bg-cream-50 border-2 border-cream-300 rounded-2xl p-4 tactile-card space-y-3.5">
+<!-- Questions Card Header -->
+<div class="flex items-center justify-between border-b-2 border-cream-200 pb-2.5">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-amber-500/15 text-amber-700 text-[11px] font-extrabold rounded-md border border-amber-600/30">Questions 14–17</span>
+<span class="text-xs font-extrabold text-ink-900">True / False / Not Given</span>
+</div>
+<p class="text-[11px] text-ink-700 font-medium mt-1">Choose the correct answer according to the stimulus.</p>
+</div>
+<!-- Flag Review Button -->
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-cream-300 bg-cream-200 text-ink-800 hover:bg-cream-300 active:translate-y-0.5 tactile-chip text-xs font-bold shrink-0" type="button">
+<span class="material-symbols-outlined text-sm text-amber-700">flag</span>
+<span>Review</span>
+</button>
+</div>
+<!-- Question 14 -->
+<div class="p-3 bg-cream-100 border-2 border-[#136a63]/30 rounded-xl space-y-2.5">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-[#136a63] text-white font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">14</span>
+<p class="text-xs font-bold text-ink-900 leading-snug">
+              Harare's Eastgate Centre relies primarily on organic termite blueprints rather than electric HVAC refrigeration.
+            </p>
+</div>
+<!-- Option Selectors (TRUE selected) -->
+<div class="grid grid-cols-3 gap-1.5 pt-0.5">
+<button class="min-h-[44px] py-2 px-1 rounded-xl bg-[#136a63] text-white font-extrabold text-xs tactile-chip-teal flex items-center justify-center gap-1 border border-[#0b3d39]" type="button">
+<span class="material-symbols-outlined text-sm">check</span>
+<span>TRUE</span>
+</button>
+<button class="min-h-[44px] py-2 px-1 rounded-xl bg-cream-50 text-ink-800 font-extrabold text-xs tactile-chip border-2 border-cream-300 hover:bg-cream-200" type="button">
+<span>FALSE</span>
+</button>
+<button class="min-h-[44px] py-2 px-1 rounded-xl bg-cream-50 text-ink-800 font-extrabold text-xs tactile-chip border-2 border-cream-300 hover:bg-cream-200" type="button">
+<span class="leading-tight">NOT GIVEN</span>
+</button>
+</div>
+</div>
+<!-- Question 15 -->
+<div class="p-3 bg-cream-100 border-2 border-cream-300 rounded-xl space-y-2.5">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 rounded-full bg-cream-300 text-ink-900 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-cream-400">15</span>
+<p class="text-xs font-bold text-ink-900 leading-snug">
+              The project architects spent over three years observing termite species prior to commencing construction.
+            </p>
+</div>
+<!-- Option Selectors (NOT GIVEN selected) -->
+<div class="grid grid-cols-3 gap-1.5 pt-0.5">
+<button class="min-h-[44px] py-2 px-1 rounded-xl bg-cream-50 text-ink-800 font-extrabold text-xs tactile-chip border-2 border-cream-300 hover:bg-cream-200" type="button">
+<span>TRUE</span>
+</button>
+<button class="min-h-[44px] py-2 px-1 rounded-xl bg-cream-50 text-ink-800 font-extrabold text-xs tactile-chip border-2 border-cream-300 hover:bg-cream-200" type="button">
+<span>FALSE</span>
+</button>
+<button class="min-h-[44px] py-2 px-1 rounded-xl bg-[#136a63] text-white font-extrabold text-xs tactile-chip-teal flex items-center justify-center gap-1 border border-[#0b3d39]" type="button">
+<span class="material-symbols-outlined text-sm">check</span>
+<span class="leading-tight">NOT GIVEN</span>
+</button>
+</div>
+</div>
+<!-- Question Jumper Row -->
+<div class="pt-1 flex items-center justify-between text-xs text-ink-700 font-bold border-t border-cream-200">
+<span>Question 16 &amp; 17 below</span>
+<button class="text-[#00504b] font-extrabold flex items-center gap-1 hover:underline" type="button">
+<span>Next Question</span>
+<span class="material-symbols-outlined text-base">arrow_downward</span>
+</button>
+</div>
+</section>
+<!-- 6. PASSAGE 2 NAVIGATOR -->
+<section class="bg-cream-50 border-2 border-cream-300 rounded-2xl p-3.5 tactile-card space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-extrabold text-ink-800 uppercase tracking-wider">PASSAGE 2 NAVIGATOR</span>
+<span class="text-[11px] font-bold text-[#00504b]">4 of 13 answered</span>
+</div>
+<!-- Navigator Number Buttons -->
+<div class="grid grid-cols-7 gap-1.5">
+<!-- 14: Answered (deep teal with dot) -->
+<button aria-label="Question 14 answered" class="h-10 rounded-xl bg-[#136a63] text-white text-xs font-black tactile-nav-btn-active border border-[#0b3d39] flex flex-col items-center justify-center" type="button">
+<span>14</span>
+<span class="w-1.5 h-1.5 rounded-full bg-white mt-0.5"></span>
+</button>
+<!-- 15: Answered (deep teal with dot) -->
+<button aria-label="Question 15 answered" class="h-10 rounded-xl bg-[#136a63] text-white text-xs font-black tactile-nav-btn-active border border-[#0b3d39] flex flex-col items-center justify-center" type="button">
+<span>15</span>
+<span class="w-1.5 h-1.5 rounded-full bg-white mt-0.5"></span>
+</button>
+<!-- 16: Flagged (warm amber outline with flag tag) -->
+<button aria-label="Question 16 flagged" class="h-10 rounded-xl bg-amber-500/15 text-amber-800 text-xs font-black tactile-nav-btn border-2 border-amber-600 flex flex-col items-center justify-center" type="button">
+<span>16</span>
+<span class="material-symbols-outlined text-[11px] leading-none text-amber-700">flag</span>
+</button>
+<!-- 17: Current (bold teal border) -->
+<button aria-label="Question 17 current" class="h-10 rounded-xl bg-cream-100 text-[#00504b] text-xs font-black tactile-nav-btn border-2 border-[#136a63] ring-1 ring-[#136a63] flex items-center justify-center" type="button">
+<span>17</span>
+</button>
+<!-- 18–20: Unanswered (neutral cream/slate outline) -->
+<button aria-label="Question 18 unanswered" class="h-10 rounded-xl bg-cream-200 text-ink-700 text-xs font-bold tactile-nav-btn border border-cream-300 flex items-center justify-center" type="button">
+<span>18</span>
+</button>
+<button aria-label="Question 19 unanswered" class="h-10 rounded-xl bg-cream-200 text-ink-700 text-xs font-bold tactile-nav-btn border border-cream-300 flex items-center justify-center" type="button">
+<span>19</span>
+</button>
+<button aria-label="Question 20 unanswered" class="h-10 rounded-xl bg-cream-200 text-ink-700 text-xs font-bold tactile-nav-btn border border-cream-300 flex items-center justify-center" type="button">
+<span>20</span>
+</button>
+</div>
+</section>
+</main>
+<!-- 7. BOTTOM ACTION CONTAINER (Fixed full-bleed native container) -->
+<footer class="fixed bottom-0 left-0 right-0 z-40 bg-cream-100/95 backdrop-blur-md border-t-2 border-cream-300 px-4 py-3 flex flex-col items-center gap-1.5 shadow-[0_-4px_12px_rgba(33,26,20,0.05)]">
+<div class="w-full max-w-[390px] flex flex-col items-center gap-1.5">
+<!-- Prominent tactile button (bright amber/orange #f59e0b, dark ink label #1a0d00) -->
+<button class="w-full h-14 bg-amber-500 rounded-2xl tactile-btn flex items-center justify-center gap-2 border-2 border-amber-600 group cursor-pointer" type="button">
+<span class="text-base font-extrabold text-[#1a0d00] tracking-wide">Save &amp; Next Question</span>
+<span class="material-symbols-outlined text-2xl font-black text-[#1a0d00] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</button>
+<!-- Autosave notice -->
+<div class="flex items-center justify-center gap-1.5 text-[11px] font-bold text-ink-700">
+<span class="material-symbols-outlined text-sm text-[#00504b]">lock_clock</span>
+<span>Autosaves answers every 10 seconds</span>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

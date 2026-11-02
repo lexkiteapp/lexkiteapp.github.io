@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Lesson Question with Hint Sheet (Tactile Night Mobile)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-primary-container": "#00322e",
+            "tertiary-fixed": "#ffdf9e",
+            "secondary": "#ffb4a6",
+            "surface-container-highest": "#2b373a",
+            "tertiary-container": "#ba8b00",
+            "surface-container": "#162125",
+            "inverse-surface": "#d8e5e9",
+            "on-tertiary-container": "#392900",
+            "on-background": "#d8e5e9",
+            "outline-variant": "#3d4947",
+            "on-primary-fixed-variant": "#00504b",
+            "tertiary": "#f4bf40",
+            "surface-variant": "#2b373a",
+            "surface-tint": "#6bd8ce",
+            "surface-dim": "#091518",
+            "inverse-on-surface": "#263236",
+            "error": "#ffb4ab",
+            "background": "#091518",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-secondary": "#660800",
+            "on-primary-fixed": "#00201e",
+            "error-container": "#93000a",
+            "secondary-fixed": "#ffdad3",
+            "primary": "#6bd8ce",
+            "on-surface-variant": "#bcc9c7",
+            "on-surface": "#d8e5e9",
+            "on-tertiary-fixed": "#261a00",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "primary-fixed": "#88f5ea",
+            "primary-container": "#2ba39a",
+            "surface-container-low": "#121d20",
+            "surface-container-high": "#202c2f",
+            "inverse-primary": "#006a64",
+            "on-secondary-fixed": "#3f0300",
+            "surface": "#091518",
+            "outline": "#879391",
+            "on-secondary-container": "#ffa493",
+            "on-error-container": "#ffdad6",
+            "surface-container-lowest": "#051013",
+            "surface-bright": "#2f3b3e",
+            "on-tertiary": "#402e00",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary": "#003733",
+            "secondary-fixed-dim": "#ffb4a6",
+            "secondary-container": "#981201"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "32px",
+            "space-md": "16px",
+            "margin": "16px",
+            "space-xs": "4px",
+            "space-lg": "24px",
+            "space-sm": "8px",
+            "gutter": "16px"
+          },
+          "fontFamily": {
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "title": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#081518] text-[#d8e5e9] font-body flex justify-center items-start min-h-screen antialiased select-none">
+<!-- Native Mobile Frame (390px fixed canvas) -->
+<main class="relative w-[390px] min-h-[844px] bg-[#081518] overflow-hidden flex flex-col justify-between">
+<!-- ============================================== -->
+<!-- BACKGROUND: DIMMED LESSON QUESTION VIEW       -->
+<!-- ============================================== -->
+<div class="w-full px-4 pt-3 pb-8 opacity-40 filter blur-[0.4px] pointer-events-none select-none transition-opacity">
+<!-- Top Chrome Bar -->
+<div class="flex items-center justify-between gap-3 h-12">
+<button class="w-10 h-10 rounded-full bg-[#121E22] border-2 border-[#202C2F] flex items-center justify-center text-[#8EA5A8]">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<!-- Progress Track -->
+<div class="flex-1 h-3.5 bg-[#121E22] rounded-full overflow-hidden p-0.5 border border-[#1C2C30]">
+<div class="h-full bg-[#2BA39A] rounded-full w-[35%]"></div>
+</div>
+<!-- Hearts Indicator -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#121E22] border border-[#202C2F] rounded-full">
+<span class="text-sm">❤️</span>
+<span class="text-xs font-bold text-[#E8F1F0]">5</span>
+</div>
+</div>
+<!-- Question Content -->
+<div class="mt-6 flex flex-col gap-3">
+<!-- Tag / Meta Row -->
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-extrabold tracking-wider text-[#3BD1C5] uppercase">
+            • GRAMMAR DRILL • B1–B2
+          </span>
+<span class="text-xs font-bold text-[#3BD1C5] flex items-center gap-1">
+            💡 Hint
+          </span>
+</div>
+<!-- Headline -->
+<h1 class="text-xl font-extrabold text-[#E8F1F0] tracking-tight">
+          Complete the sentence
+        </h1>
+<!-- Dimmed Question Card -->
+<div class="mt-2 bg-[#121E22] border-2 border-[#202C2F] rounded-2xl p-5 shadow-none">
+<div class="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#F4BF40] bg-[#1E271D] px-2.5 py-1 rounded-md mb-3">
+            ⚡ PRESENT PERFECT
+          </div>
+<p class="text-lg font-bold text-[#D8E5E9] leading-relaxed">
+            “She has lived here ________ 2019.”
+          </p>
+</div>
+<!-- Ghost Answer Options (Dimmed background realism) -->
+<div class="mt-3 flex flex-col gap-2.5">
+<div class="h-14 rounded-2xl bg-[#121E22] border-2 border-[#1E2B30] flex items-center px-4">
+<span class="w-6 h-6 rounded-lg bg-[#18282D] text-xs font-bold text-[#8EA5A8] flex items-center justify-center mr-3">A</span>
+<span class="font-bold text-[#8EA5A8]">since</span>
+</div>
+<div class="h-14 rounded-2xl bg-[#121E22] border-2 border-[#1E2B30] flex items-center px-4">
+<span class="w-6 h-6 rounded-lg bg-[#18282D] text-xs font-bold text-[#8EA5A8] flex items-center justify-center mr-3">B</span>
+<span class="font-bold text-[#8EA5A8]">for</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Backdrop Dimmer Overlay -->
+<div class="absolute inset-0 bg-[#081518]/75 backdrop-blur-[2px] z-10 pointer-events-auto"></div>
+<!-- ============================================== -->
+<!-- FOREGROUND: HINT BOTTOM SHEET MODAL           -->
+<!-- ============================================== -->
+<section class="relative z-20 w-full bg-[#121E22] rounded-t-[28px] border-t-2 border-[#243B42] shadow-2xl flex flex-col pt-3 pb-6 px-4">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center pb-2">
+<div class="w-9 h-1 bg-[#2A3E45] rounded-full"></div>
+</div>
+<!-- Header Row -->
+<div class="flex items-center justify-between pt-1 pb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#0D2428] border border-[#2BA39A]/40 flex items-center justify-center text-sm shadow-inner">
+            💡
+          </div>
+<h2 class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight">Hint</h2>
+</div>
+<button aria-label="Close Hint" class="w-8 h-8 rounded-full bg-[#1A2C32] border border-[#243B42] flex items-center justify-center text-[#A9BDBB] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Teacher Slot + Speech Bubble Row -->
+<div class="flex items-stretch gap-3 mb-3.5">
+<!-- Strictly No Person / No Avatar: Dashed Teacher Slot -->
+<div class="teacher-slot w-16 h-16 shrink-0 bg-[#0D2428] border-2 border-dashed border-[#2BA39A] rounded-xl flex flex-col items-center justify-center p-1.5 shadow-inner">
+<span class="material-symbols-outlined text-[#3BD1C5] text-[22px]" data-icon="school">school</span>
+<span class="text-[9px] font-extrabold tracking-widest text-[#3BD1C5] uppercase mt-1 leading-none">
+            TEACHER
+          </span>
+</div>
+<!-- Speech Bubble Card -->
+<div class="flex-1 bg-[#172427] border-2 border-[#243B42] rounded-2xl p-2.5 flex flex-col justify-center border-b-4 border-b-[#0C1416]">
+<span class="text-[10px] font-extrabold tracking-wider text-[#3BD1C5] uppercase mb-0.5">
+            • TEACHER AMA • COACH
+          </span>
+<p class="text-sm font-extrabold text-[#EEF6F7] leading-snug">
+            “Think: a point or a length?”
+          </p>
+</div>
+</div>
+<!-- Comparison / Rule Container -->
+<div class="bg-[#172427] border-2 border-[#243B42] rounded-2xl p-3 mb-3 border-b-[5px] border-b-[#0C1416]">
+<!-- Top Notice Banner -->
+<div class="flex items-start gap-2 mb-2.5 bg-[#0D2428]/60 p-2 rounded-xl border border-[#203D42]">
+<span class="material-symbols-outlined text-[#3BD1C5] text-[18px] shrink-0 mt-0.5" data-icon="info">info</span>
+<p class="text-xs font-medium text-[#EEF6F7] leading-tight">
+            Use <span style="color:#3BD1C5; font-weight:700;">since</span> with a starting point in time, and <span style="color:#F2553B; font-weight:700;">for</span> with a length of time.
+          </p>
+</div>
+<!-- 2-Column Comparison Cards -->
+<div class="grid grid-cols-2 gap-2 mb-2.5">
+<!-- Card 1: SINCE -->
+<div class="bg-[#132A2E] border-[1.5px] border-[#2BA39A] rounded-xl p-2.5 flex flex-col">
+<span class="text-[11px] font-extrabold text-[#3BD1C5] tracking-tight uppercase mb-1.5 flex items-center gap-1">
+              • SINCE + POINT
+            </span>
+<ul class="text-xs font-semibold text-[#EEF6F7] space-y-1">
+<li class="flex items-center gap-1.5"><span class="text-[#3BD1C5] text-[10px]">›</span> since 2019</li>
+<li class="flex items-center gap-1.5"><span class="text-[#3BD1C5] text-[10px]">›</span> since 8:00 AM</li>
+<li class="flex items-center gap-1.5"><span class="text-[#3BD1C5] text-[10px]">›</span> since Monday</li>
+</ul>
+</div>
+<!-- Card 2: FOR -->
+<div class="bg-[#2D1C1B] border-[1.5px] border-[#E0533C] rounded-xl p-2.5 flex flex-col">
+<span class="text-[11px] font-extrabold text-[#F2553B] tracking-tight uppercase mb-1.5 flex items-center gap-1">
+              • FOR + LENGTH
+            </span>
+<ul class="text-xs font-semibold text-[#EEF6F7] space-y-1">
+<li class="flex items-center gap-1.5"><span class="text-[#F2553B] text-[10px]">›</span> for 5 years</li>
+<li class="flex items-center gap-1.5"><span class="text-[#F2553B] text-[10px]">›</span> for two hours</li>
+<li class="flex items-center gap-1.5"><span class="text-[#F2553B] text-[10px]">›</span> for a long time</li>
+</ul>
+</div>
+</div>
+<!-- Example Footer -->
+<div class="bg-[#0E1A1D] rounded-xl px-2.5 py-1.5 text-[11.5px] text-[#A9BDBB] border border-[#1A2E33]">
+<span class="font-bold text-[#7E9899] tracking-wider uppercase text-[10px] mr-1">EXAMPLE:</span>
+          “She has lived here <span style="color:#3BD1C5; font-weight:700;">since</span> 2019.”
+        </div>
+</div>
+<!-- Heart Protection Chip -->
+<div class="bg-[#0D2A26] border border-[#1F7A75] text-[#3BD1C5] rounded-xl py-2 px-3 flex items-center justify-center gap-1.5 text-xs font-bold mb-3.5 shadow-sm">
+<span class="material-symbols-outlined text-sm font-black" data-icon="check_circle">check_circle</span>
+<span>Using a hint costs no hearts</span>
+</div>
+<!-- Action Buttons Stack (Tactile 3D Ledges) -->
+<div class="flex flex-col gap-2.5">
+<!-- Primary CTA: "Got it" -->
+<button class="w-full h-[52px] rounded-2xl flex items-center justify-center font-extrabold text-[#1B0B04] text-base tracking-wide border-b-[5px] border-b-[#B53A22] active:translate-y-[2px] active:border-b-[2px] transition-all" style="background: linear-gradient(180deg, #F2553B 0%, #FF8A3D 100%);">
+          Got it
+        </button>
+<!-- Secondary CTA: "Show answer" -->
+<button class="w-full h-[50px] rounded-2xl bg-[#172427] border-2 border-[#2BA39A] border-b-4 border-b-[#0C1416] flex items-center justify-center font-bold text-[#3BD1C5] text-sm tracking-wide active:translate-y-[2px] active:border-b-[2px] transition-all">
+          Show answer
+        </button>
+</div>
+</section>
+</main>
+</body></html>

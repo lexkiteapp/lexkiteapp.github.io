@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Sentence Patterns</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans & Space Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Space+Mono:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FFF7EA',
+              darkTeal: '#0F3D3E',
+              midTeal: '#1D5A5B',
+              mutedTeal: '#4E6668',
+              accentTeal: '#167D7F',
+              cyanGlow: '#2DD4BF',
+              borderTone: '#D8CFBC',
+              tagBg: '#F5EFE1',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom CSS for tactile shadows & fine styling -->
+<style data-purpose="tactile-elevation">
+    /* Tactile bottom ledge for standard white cards */
+    .tactile-card {
+      border: 2px solid #D8CFBC;
+      box-shadow: 0 4px 0 #D8CFBC;
+    }
+    
+    /* Tactile action button */
+    .tactile-orange-btn {
+      background: linear-gradient(180deg, #F97A44 0%, #EA542A 100%);
+      border: 2px solid #A22E1A;
+      box-shadow: 0 5px 0 #912714;
+    }
+    .tactile-orange-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #912714;
+    }
+
+    /* Small tactile pill buttons */
+    .tactile-chip {
+      border: 1.5px solid #D8CFBC;
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+
+    /* Speech bubble arrow */
+    .speech-bubble-tail {
+      position: absolute;
+      left: -9px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 9px solid #FFFFFF;
+    }
+    .speech-bubble-tail-border {
+      position: absolute;
+      left: -11px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 11px solid #D8CFBC;
+    }
+
+    /* Hide scrollbar for category tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-brand-darkTeal font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-brand-accentTeal selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-30 bg-[#FFF7EA]/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b border-[#EFE5D0]">
+<!-- Brand Logo -->
+<div class="flex items-center gap-2" data-purpose="app-branding">
+<svg class="w-6 h-6 flex-shrink-0" fill="none" viewbox="0 0 32 32">
+<path d="M16 2L29 16L16 30L3 16L16 2Z" fill="#2E9E98"></path>
+<path d="M16 2L29 16L16 16L16 2Z" fill="#F47444"></path>
+<path d="M16 16L29 16L16 30L16 16Z" fill="#167D7F"></path>
+<path d="M3 16L16 16L16 30L3 16Z" fill="#42B8A6"></path>
+</svg>
+<span class="font-bold text-xl tracking-tight text-brand-darkTeal">Lexkite</span>
+</div>
+<!-- Streak and XP Badges -->
+<div class="flex items-center gap-2" data-purpose="user-gamification-badges">
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-white tactile-chip rounded-full text-xs font-bold text-brand-darkTeal">
+<span class="text-sm">🔥</span>
+<span>14</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-white tactile-chip rounded-full text-xs font-bold text-brand-darkTeal">
+<span class="text-sm text-amber-500 font-extrabold">⚡</span>
+<span>820</span>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: ScrollableContent -->
+<main class="flex-1 px-4 pt-3.5 pb-28 flex flex-col gap-4">
+<!-- BEGIN: TeacherQuoteBanner -->
+<section aria-label="Teacher recommendation" class="flex items-center gap-2.5">
+<!-- Teacher Avatar Slot -->
+<div class="w-[66px] h-[66px] flex-shrink-0 bg-[#E8F3F1] border-2 border-dashed border-[#2E9E98] rounded-2xl flex flex-col items-center justify-center p-1" data-purpose="teacher-avatar">
+<svg class="w-6 h-6 text-[#167D7F] mb-0.5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18C5 19.94 8.13 22 12 22C15.87 22 19 19.94 19 17.18V13.18L12 17L5 13.18Z"></path>
+</svg>
+<span class="text-[9px] font-extrabold tracking-wider text-[#167D7F]">TEACHER</span>
+</div>
+<!-- Speech Bubble -->
+<div class="relative flex-1 bg-white border-2 border-[#D8CFBC] rounded-2xl p-2.5 px-3 shadow-[0_2px_0_#D8CFBC]">
+<div class="speech-bubble-tail-border"></div>
+<div class="speech-bubble-tail"></div>
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="w-2 h-2 rounded-full bg-[#167D7F] inline-block"></span>
+<span class="text-[10px] font-extrabold tracking-wide uppercase text-[#167D7F]">CARLOS • IELTS SPEAKING COACH</span>
+</div>
+<p class="text-xs font-bold text-brand-darkTeal leading-snug">
+          “Steal these for Speaking Part 3.”
+        </p>
+</div>
+</section>
+<!-- END: TeacherQuoteBanner -->
+<!-- BEGIN: TitleAndSearch -->
+<section class="flex flex-col gap-3">
+<div>
+<h1 class="text-2xl font-extrabold text-brand-darkTeal tracking-tight">Sentence Patterns</h1>
+<p class="text-xs font-medium text-brand-mutedTeal mt-0.5">Useful patterns for Speaking and Writing</p>
+</div>
+<!-- Search Bar -->
+<div class="relative flex items-center">
+<div class="absolute left-3.5 flex items-center pointer-events-none text-brand-mutedTeal">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<input class="w-full bg-white tactile-chip rounded-xl py-2.5 pl-10 pr-12 text-xs font-medium placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#167D7F] border-[#D8CFBC]" placeholder="Search phrases, clauses, linking words..." type="search"/>
+<div class="absolute right-2.5 px-1.5 py-0.5 bg-[#EFE9DC] border border-[#D8CFBC] rounded-md text-[10px] font-bold text-brand-mutedTeal pointer-events-none">
+          ⌘K
+        </div>
+</div>
+<!-- Filter Pills Carousel -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" role="tablist">
+<!-- Active Pill -->
+<button class="flex items-center gap-1 px-3.5 py-1.5 bg-[#0F3D3E] text-white rounded-full text-xs font-bold flex-shrink-0 shadow-[0_2px_0_#072425]">
+<span>Opinions</span>
+<span class="w-4 h-4 rounded-full bg-white/20 text-[10px] flex items-center justify-center font-bold">5</span>
+</button>
+<!-- Inactive Pills -->
+<button class="px-3.5 py-1.5 bg-white tactile-chip text-brand-mutedTeal hover:text-brand-darkTeal rounded-full text-xs font-semibold flex-shrink-0">
+          Agreeing
+        </button>
+<button class="px-3.5 py-1.5 bg-white tactile-chip text-brand-mutedTeal hover:text-brand-darkTeal rounded-full text-xs font-semibold flex-shrink-0">
+          Describing trends
+        </button>
+<button class="px-3.5 py-1.5 bg-white tactile-chip text-brand-mutedTeal hover:text-brand-darkTeal rounded-full text-xs font-semibold flex-shrink-0">
+          Contrasting
+        </button>
+</div>
+</section>
+<!-- END: TitleAndSearch -->
+<!-- Section Meta Label -->
+<div class="flex items-center justify-between text-[10px] font-bold tracking-wider uppercase text-brand-mutedTeal px-0.5 mt-0.5">
+<span>CURATED FOR OPINIONS (5 PATTERNS)</span>
+<span class="text-[#167D7F] lowercase font-semibold">All loaded</span>
+</div>
+<!-- BEGIN: FormulaCard01 -->
+<article class="bg-white rounded-2xl p-3.5 tactile-card flex flex-col gap-3" data-purpose="pattern-card">
+<!-- Card Top Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-[#167D7F] text-white rounded text-[10px] font-extrabold tracking-wide uppercase">
+            FORMULA 01
+          </span>
+<span class="text-xs font-bold text-brand-darkTeal">Stating viewpoint</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Listen to pronunciation" class="p-1 text-[#167D7F] border border-[#D8CFBC] rounded-lg hover:bg-stone-50">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.536 8.464a5 5 0 010 7.072M11 5L6 9H2v6h4l5 4V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Bookmark pattern" class="p-1 text-[#EA542A] border border-[#D8CFBC] rounded-lg hover:bg-stone-50">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Monospace Formula Definition -->
+<div class="bg-[#F8F4EA] border border-[#E8DEC8] rounded-xl px-3 py-2 text-xs font-mono font-bold text-brand-darkTeal">
+        “I’d argue that + clause”
+      </div>
+<!-- Realistic Context Example (Dark Teal Box) -->
+<div class="bg-[#0F3D3E] rounded-xl p-3.5 text-white shadow-inner">
+<p class="text-xs leading-relaxed font-medium">
+          “<span class="text-[#2DD4BF] font-bold">I’d argue that</span> public transport subsidies yield far broader economic benefits than highway expansion.”
+        </p>
+</div>
+</article>
+<!-- END: FormulaCard01 -->
+<!-- BEGIN: FormulaCard02 -->
+<article class="bg-white rounded-2xl p-3.5 tactile-card flex flex-col gap-3" data-purpose="pattern-card">
+<!-- Card Top Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-[#0F3D3E] text-white rounded text-[10px] font-extrabold tracking-wide uppercase">
+            FORMULA 02
+          </span>
+<span class="text-xs font-bold text-brand-darkTeal">Nuanced stance</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Listen to pronunciation" class="p-1 text-[#167D7F] border border-[#D8CFBC] rounded-lg hover:bg-stone-50">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.536 8.464a5 5 0 010 7.072M11 5L6 9H2v6h4l5 4V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Bookmark pattern" class="p-1 text-brand-mutedTeal border border-[#D8CFBC] rounded-lg hover:bg-stone-50">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Monospace Formula Definition -->
+<div class="bg-[#F8F4EA] border border-[#E8DEC8] rounded-xl px-3 py-2 text-xs font-mono font-bold text-brand-darkTeal">
+        “It is widely held that..., yet I believe...”
+      </div>
+<!-- Realistic Context Example (Dark Teal Box) -->
+<div class="bg-[#0F3D3E] rounded-xl p-3.5 text-white shadow-inner">
+<p class="text-xs leading-relaxed font-medium">
+          “<span class="text-[#2DD4BF] font-bold">It is widely held that</span> degrees guarantee success, <span class="text-[#2DD4BF] font-bold">yet I believe</span> adaptive micro-skills matter more.”
+        </p>
+</div>
+</article>
+<!-- END: FormulaCard02 -->
+<!-- BEGIN: PrimaryAction -->
+<div class="pt-1">
+<button class="w-full tactile-orange-btn py-3 px-4 rounded-2xl flex items-center justify-between text-white font-extrabold active:translate-y-0.5 transition-transform" data-purpose="drill-cta">
+<div class="flex items-center gap-2 text-sm text-[#1B0B04]">
+<span class="text-base text-black">⚡</span>
+<span>Practise these 5</span>
+</div>
+<div class="bg-black/20 hover:bg-black/25 text-[#1B0B04] px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
+<span>5 min drill</span>
+<span>→</span>
+</div>
+</button>
+</div>
+<!-- END: PrimaryAction -->
+</main>
+<!-- END: ScrollableContent -->
+<!-- BEGIN: BottomNavigation -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-white border-t-2 border-[#D8CFBC] px-3 py-1.5 flex items-center justify-around z-40" data-purpose="tab-navigation">
+<!-- Tab 1: Today -->
+<a aria-label="Today" class="flex flex-col items-center justify-center py-1 w-14 text-brand-mutedTeal" href="#">
+<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="18" rx="2" stroke-width="2" width="18" x="3" y="4"></rect>
+<path d="M16 2v4M8 2v4M3 10h18" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] font-bold">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a aria-label="Vocab" class="flex flex-col items-center justify-center py-1 w-14 text-brand-mutedTeal" href="#">
+<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] font-bold">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE) -->
+<a aria-current="page" aria-label="Skills" class="flex flex-col items-center justify-center py-1 px-3 bg-[#EAF5F4] border-2 border-[#167D7F] rounded-xl text-[#0F3D3E]" href="#">
+<svg class="w-5 h-5 mb-0.5 text-[#167D7F]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] font-extrabold text-[#0F3D3E]">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a aria-label="Tests" class="flex flex-col items-center justify-center py-1 w-14 text-brand-mutedTeal" href="#">
+<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] font-bold">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a aria-label="Me profile" class="flex flex-col items-center justify-center py-1 w-14 text-brand-mutedTeal" href="#">
+<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] font-bold">Me</span>
+</a>
+</nav>
+<!-- END: BottomNavigation -->
+</body></html>
