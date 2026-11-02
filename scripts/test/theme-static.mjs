@@ -20,7 +20,7 @@ const MODES = [['auto-light', 'light', null], ['auto-dark', 'dark', null], ['for
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.json': 'application/json', '.woff2': 'font/woff2' };
 // Phục vụ file qua page.route (không mở cổng mạng – chạy được cả trong sandbox); mọi host khác bị chặn (0 mạng ngoài: quảng cáo/phân tích/CDN)
 const BASE = 'http://lexkite.test', fileOf = u => { let p = decodeURIComponent(new URL(u).pathname); if (p.endsWith('/')) p += 'index.html'; let f = path.join(ROOT, p); if (!fs.existsSync(f) && fs.existsSync(f + '.html')) f += '.html'; return f.startsWith(ROOT) && fs.existsSync(f) && !fs.statSync(f).isDirectory() ? f : null; };
-const serve = ctx => ctx.route('**/*', r => { const u = r.request().url(); if (!u.startsWith(BASE)) return r.abort(); const f = fileOf(u); return f ? r.fulfill({ status: 200, contentType: TYPES[path.extname(f)] || 'application/octet-stream', body: fs.readFileSync(f) }) : r.fulfill({ status: 404, body: '' }); });
+const serve = (ctx, base = BASE) => ctx.route('**/*', r => { const u = r.request().url(); if (!u.startsWith(base)) return r.abort(); const f = fileOf(u); return f ? r.fulfill({ status: 200, contentType: TYPES[path.extname(f)] || 'application/octet-stream', body: fs.readFileSync(f) }) : r.fulfill({ status: 404, body: '' }); });
 const browser = await chromium.launch(args.includes('--chrome') ? { channel: 'chrome' } : {});
 // Tràn ngang: số px + phần tử sâu nhất thò ra ngoài (để sửa đúng chỗ)
 const OVER = () => { const W = document.documentElement.clientWidth, d = document.documentElement.scrollWidth - W; if (d <= 0) return ''; const o = [...document.body.querySelectorAll('*')].filter(e => { const r = e.getBoundingClientRect(); return r.width && r.right > W + 1 && ![...e.children].some(c => c.getBoundingClientRect().right > W + 1); }).slice(0, 3).map(e => `${e.tagName.toLowerCase()}${e.className && typeof e.className === 'string' ? '.' + e.className.trim().split(/\s+/).join('.') : ''}→${Math.round(e.getBoundingClientRect().right)}`); return `tràn ngang ${d}px (${o.join(', ')})`; };
@@ -111,15 +111,18 @@ for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', '
   }
   await ctx.close(); }
 // GIF app → blog (cho chủ duyệt, chỉ khi --shots): app đặt Tối + Tiếng Việt → bấm link Blog thật trong app → blog vẫn tối + bản vi; khung ảnh app-blog-NN.png (theme-qa.yml ghép GIF)
+// Origin lexkite.com (không phải lexkite.test): app chỉ coi là cùng site khi hostname khớp /(^|\.)lexkite\.(com|pages\.dev)$/ (hubs.js sameSite) → link Blog là /vi/blog/ cùng origin; trên
+// lexkite.test link Blog thành URL tuyệt đối https://lexkite.com/… bị serve() chặn → trang lỗi (pathname '/', lang rỗng) – lỗi của test, không phải của site. Mọi request vẫn do serve() trả từ dist (0 mạng ngoài), SW chặn.
 if (SHOTS && has('app/index.html')) {
-  const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: 'light', reducedMotion: 'reduce' }); await serve(ctx);
+  const APPB = 'https://lexkite.com';
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: 'light', reducedMotion: 'reduce', serviceWorkers: 'block' }); await serve(ctx, APPB);
   await ctx.addInitScript(() => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); localStorage.setItem('ielts.settings', JSON.stringify({ theme: 'dark' })); localStorage.setItem('ielts.settingsAt', String(Date.now())); localStorage.setItem('vb.uiLang', 'vi'); } } catch (e) { /* */ } });
   const page = await ctx.newPage(); let n = 0; const shot = async () => page.screenshot({ path: path.join(SHOTS, `app-blog-${String(++n).padStart(2, '0')}.png`) });
-  await page.goto(BASE + '/app/', { waitUntil: 'load' }); await page.waitForTimeout(2500); await shot();
+  await page.goto(APPB + '/app/', { waitUntil: 'load' }); await page.waitForTimeout(2500); await shot();
   // link Blog app tự trỏ theo ngôn ngữ đã chọn (App.blogUrl → /vi/blog/); ưu tiên link đó, rồi mới tới link blog bất kỳ đang hiện
   const link = page.locator('a[href$="/vi/blog/"]:visible').or(page.locator('a[data-blog]:visible')).first(), href = await link.getAttribute('href').catch(() => null);
   if (href) { await link.hover().catch(() => {}); await shot(); await Promise.all([page.waitForURL(/\/blog\//, { timeout: 10000 }).catch(() => {}), link.click()]); await page.waitForLoadState('load'); }
-  else { bad.push('gif app→blog: app không có link Blog hiện'); await page.goto(BASE + '/vi/blog/', { waitUntil: 'load' }); }
+  else { bad.push('gif app→blog: app không có link Blog hiện'); await page.goto(APPB + '/vi/blog/', { waitUntil: 'load' }); }
   await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {}); await page.waitForTimeout(400); await shot();
   const r = { href, ...(await page.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), lang: document.documentElement.lang, path: location.pathname }))) };
   if (r.th !== 'dark') bad.push(`gif app→blog: blog mở từ app nhưng data-theme=${r.th}`);
