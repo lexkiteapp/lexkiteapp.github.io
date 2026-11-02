@@ -63,3 +63,5 @@ for (const lang of ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 
   }
 }
 console.log('✓ i18n-fix: ' + n + ' nhãn đã áp bản dịch tay');
+// Thư người báo lỗi (functions/api/_report-i18n.js) lấy chữ từ nhóm 'report' vừa cập nhật → sinh lại để không lệch nguồn
+{ const { build } = await import('./gen-report-mail-i18n.mjs'); fs.writeFileSync(path.join(ROOT, 'functions/api/_report-i18n.js'), build()); }
