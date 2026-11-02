@@ -54,6 +54,7 @@ D.en = Object.assign(D.en || {}, {
 'Truyện': 'Story',
 'Báo lỗi câu hỏi': 'Report question',
 'Trả lời câu hỏi': 'Answer the question',
+'Xem video bài học': 'Watch the lesson video',
 "Mục tiêu {s}": "Target {s}",
 "Câu {a}/{b}": "Question {a} of {b}",
 "Mẫu âm thanh": "Audio sample",

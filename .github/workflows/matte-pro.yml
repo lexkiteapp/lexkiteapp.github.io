@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 name: matte-pro
 # PRO host matte (scripts/video/matte_pro.py): ViTMatte on a chroma trimap + ML foreground + flow-stable alpha, 0 credits, CPU.
 # One job per clip; results = artifacts matte-<clip> (green/kfull_pro + kmask_pro) -> pulled locally, then scripts/footage-backup.sh.
@@ -14,6 +15,7 @@ permissions: { contents: read, actions: read }
 jobs:
   plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 15   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { clips: '${{ steps.p.outputs.clips }}' }
     steps:
       - id: p

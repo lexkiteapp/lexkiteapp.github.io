@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 name: news-voice
 # Voices only (Kokoro + Rhubarb + faster-whisper, 0 credits) for news lessons -> artifact news-voice-<run>; used for local single-clip tests
 # (Rhubarb's macOS x86 binary segfaults in the Mac sandbox).
