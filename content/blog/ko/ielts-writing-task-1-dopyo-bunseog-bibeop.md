@@ -3,7 +3,7 @@ title: "IELTS writing task 1 도표 분석 : 4단락 구성과 필수 어휘"
 description: "IELTS writing task 1 도표 완벽 대비: 선 그래프, 막대 차트, 파이 차트 분석을 위한 4단락 구조 템플릿, 증감 및 추세 묘사 필수 어휘와 Band 7 이상 목표 모범 작성법을 상세히 공개합니다."
 slug: ielts-writing-task-1-dopyo-bunseog-bibeop
 lang: ko
-translationKey: ielts-writing-task-1-mo-ta-bieu-do
+translationKey: ielts-writing-task-1-line-graph
 category: ielts
 tags: [ielts, writing, task-1]
 keyword: "ielts writing task 1 도표"

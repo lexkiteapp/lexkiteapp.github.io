@@ -4,7 +4,6 @@
   D.en = Object.assign(D.en || {}, {
     'Bài học trộn đang thử nghiệm, sắp ra mắt.': 'Mixed lessons are in testing and coming soon.',
     'Quay về trang chủ': 'Back to home',
-    'Thoát bài học': 'Quit lesson',
     'Tiến độ bài học': 'Lesson progress',
     'Bài thử (không lưu tiến độ)': 'Demo lesson (progress is not saved)',
     'Dịch câu này': 'Translate this sentence',

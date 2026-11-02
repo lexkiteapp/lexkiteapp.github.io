@@ -4,7 +4,7 @@ title: "نموذج إجابة IELTS Speaking Part 2: دليل الوصول إل�
 description: "نموذج إجابة IELTS Speaking Part 2: قوالب إجابة آيلتس التحدث الجزء 2، إدارة دقيقة التحضير، روابط الحديث للطلاقة ونموذج كامل للفرقة 8."
 keyword: "نموذج إجابة ielts speaking part 2"
 lang: ar
-translationKey: ielts-speaking-part-2-templates
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, part-2, templates]
 cover: speaking

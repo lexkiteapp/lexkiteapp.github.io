@@ -3,7 +3,7 @@ title: "Условные предложения в английском : пра
 description: "Изучите условные предложения в английском языке: понятные правила от 0 до 3 типа, смешанные типы, формулы с примерами и упражнения для закрепления."
 slug: uslovnye-predlozheniya-v-angliyskom-if-clauses
 lang: ru
-translationKey: cau-dieu-kien-tieng-anh-conditionals
+translationKey: cau-dieu-kien-trong-tieng-anh
 category: ngu-phap
 tags: [grammatika, uslovnye-predlozheniya, vremena]
 keyword: "условные предложения в английском"

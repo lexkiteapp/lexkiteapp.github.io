@@ -3,7 +3,7 @@ title: "IELTS Speaking Part 2 et 3: Conseils et Modèles Band 8"
 description: "IELTS Speaking part 2 et 3: Comment tenir 2 minutes sur la Cue Card, structurer ses idées et répondre avec aisance aux questions abstraites en Part 3."
 slug: ielts-speaking-part-2-et-3
 lang: fr
-translationKey: ielts-speaking-part-2-et-3
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, cue-card]
 keyword: "ielts speaking part 2 et 3"
