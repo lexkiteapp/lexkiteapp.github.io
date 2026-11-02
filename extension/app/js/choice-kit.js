@@ -235,5 +235,43 @@
     return { place, remove, destroy };
   }
 
-  g.ChoiceKit = { attach, split, accept, canon, hint, tiles, insertAt, slotIndex };
+  // ── Thang gợi ý dùng chung (Call, nói, viết, điền từ, xếp câu – chủ 2/11, docs/specs/learn-flow-nav.md) ──
+  // Mặc định ẩn: chỉ nút 💡 "Cần gợi ý?" mờ. Bậc 1 (bấm, hoặc im lặng quietMs – A1 sớm, B2+ muộn) = câu mở đầu/từ khoá; bậc 2 (bấm lần nữa) = câu mẫu đầy đủ.
+  // Dùng gợi ý → o.onUse(bậc) để màn ghi "có trợ giúp" (giảm nhẹ XP, đưa câu vào ôn). Phím H = bậc kế (không bắt khi đang gõ). o.activity() reset đồng hồ im lặng.
+  const QUIET = { A1: 5000, A2: 6000, B1: 7000, B2: 8500, C1: 10000, C2: 10000 };
+  function hints(host, o = {}) {
+    if (!host) return null;
+    const T = (k, v) => (o.t || g.t || (s => s))(k, v), steps = [o.opener, o.full].filter(x => x && String(x).trim());
+    let lvl = 0, timer = 0;
+    host.classList.add('ck-hints');
+    host.innerHTML = '<button type="button" class="ck-hint-btn" aria-expanded="false"></button><div class="ck-hint-out" aria-live="polite"></div>';
+    const btn = host.querySelector('.ck-hint-btn'), out = host.querySelector('.ck-hint-out');
+    const paint = () => {
+      btn.textContent = '💡 ' + (lvl === 0 ? T('Cần gợi ý?') : T('Thêm gợi ý'));
+      btn.hidden = lvl >= steps.length; btn.setAttribute('aria-expanded', String(lvl > 0)); btn.classList.toggle('ck-dim', lvl === 0);
+      out.innerHTML = steps.slice(0, lvl).map((s, i) => `<p class="ck-hint-l${i + 1}" lang="en" dir="auto"></p>`).join('');
+      out.querySelectorAll('p').forEach((p, i) => { p.textContent = steps[i]; });
+    };
+    const more = () => { if (lvl >= steps.length) return; lvl++; clearTimeout(timer); paint(); if (o.onUse) o.onUse(lvl); };
+    const arm = () => { clearTimeout(timer); if (lvl === 0 && steps.length && o.auto !== false) timer = setTimeout(() => { if (host.isConnected) more(); }, o.quietMs || QUIET[String(o.level || 'B1').toUpperCase()] || 7000); };
+    const key = e => { if (!host.isConnected) return destroy(); if ((e.key === 'h' || e.key === 'H') && !e.ctrlKey && !e.metaKey && !e.altKey && !e.defaultPrevented && !typing(e.target)) { e.preventDefault(); more(); } };
+    const typing = el => !!el && (el.isContentEditable || /^(TEXTAREA|SELECT|INPUT)$/.test(el.tagName));
+    btn.onclick = more; document.addEventListener('keydown', key);
+    paint(); arm();
+    function destroy() { clearTimeout(timer); document.removeEventListener('keydown', key); }
+    return { more, level: () => lvl, used: () => lvl > 0, activity: arm, destroy };
+  }
+  // Dòng dịch tiếng mẹ đẻ dưới câu giáo viên: ẩn mặc định, chạm để hiện/ẩn (như Duolingo), nhớ lựa chọn (localStorage lk.gloss)
+  function gloss(el, o = {}) {
+    if (!el) return null;
+    const T = (k, v) => (o.t || g.t || (s => s))(k, v), K = o.key || 'lk.gloss';
+    const set = on => { el.classList.toggle('ck-gloss-on', on); el.setAttribute('aria-pressed', String(on)); el.setAttribute('aria-label', on ? T('Ẩn bản dịch') : T('Hiện bản dịch')); };
+    el.setAttribute('role', 'button'); el.tabIndex = 0; el.classList.add('ck-gloss');
+    set(ls.get(K) === '1');
+    const flip = () => { const on = !el.classList.contains('ck-gloss-on'); ls.set(K, on ? '1' : '0'); set(on); };
+    el.addEventListener('click', flip); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+    return { flip, on: () => el.classList.contains('ck-gloss-on') };
+  }
+
+  g.ChoiceKit = { attach, split, accept, canon, hint, tiles, insertAt, slotIndex, hints, gloss };
 })(typeof window !== 'undefined' ? window : globalThis);

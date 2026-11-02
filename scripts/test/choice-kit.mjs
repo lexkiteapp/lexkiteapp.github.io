@@ -70,5 +70,20 @@ const pe = (type, el, x, y) => el.dispatchEvent(Object.assign(new w.MouseEvent(t
 pe('pointerdown', bank.querySelector('[data-i="2"]'), 5, 5); pe('pointermove', w.document, 30, 30); pe('pointermove', w.document, 1, 20); pe('pointerup', w.document, 1, 20);
 ok(ord.v.length === 3 && ord.v.includes(2) && !w.document.querySelector('.lsn-ghost'), 'kéo thẻ ngân hàng vào hàng đáp án → chèn, dọn bóng kéo');
 tk.destroy(); key('Backspace'); ok(ord.v.length === 3, 'destroy → tháo bộ bắt phím');
+// ── thang gợi ý + dòng dịch ──
+w.document.body.insertAdjacentHTML('beforeend', '<div id="hb"></div><p id="gl">Mình nói nhanh thôi nhé</p>');
+const used = [];
+const hk = CK.hints($('#hb'), { opener: 'Yesterday I…', full: 'Yesterday I went to the market.', quietMs: 30, onUse: l => used.push(l) });
+ok(hk.level() === 0 && !$('#hb .ck-hint-out p') && $('#hb .ck-hint-btn').getAttribute('aria-expanded') === 'false', 'gợi ý: mặc định ẩn, chỉ nút 💡');
+hk.activity(); await new Promise(r => setTimeout(r, 15)); hk.activity(); ok(hk.level() === 0, 'gợi ý: có hoạt động → reset đồng hồ im lặng');
+await new Promise(r => setTimeout(r, 60));
+ok(hk.level() === 1 && $('#hb .ck-hint-l1').textContent === 'Yesterday I…' && !$('#hb .ck-hint-l2'), 'gợi ý: im lặng → bậc 1 chỉ câu mở đầu');
+key('h'); ok(hk.level() === 2 && $('#hb .ck-hint-l2') && $('#hb .ck-hint-btn').hidden, 'gợi ý: phím H → bậc 2 câu mẫu, hết bậc thì ẩn nút');
+ok(JSON.stringify(used) === '[1,2]' && hk.used(), 'gợi ý: báo "có trợ giúp" từng bậc');
+hk.destroy();
+const gl = CK.gloss($('#gl'));
+ok(!gl.on() && $('#gl').getAttribute('role') === 'button', 'dòng dịch: ẩn mặc định, là nút');
+$('#gl').click(); ok(gl.on() && w.localStorage.getItem('lk.gloss') === '1', 'dòng dịch: chạm → hiện + nhớ');
+w.document.body.insertAdjacentHTML('beforeend', '<p id="gl2">x</p>'); ok(CK.gloss($('#gl2')).on(), 'dòng dịch: câu sau theo lựa chọn đã nhớ');
 if (fails) { console.log(`✗ choice-kit: ${fails}/${n} lỗi`); process.exit(1); }
-console.log(`✓ choice-kit: ${n} kiểm (phím A–D/1–4, bỏ qua khi gõ, gạch đáp án + nhớ, chia cột, điền từ biến thể, xếp câu chạm/phím/kéo)`);
+console.log(`✓ choice-kit: ${n} kiểm (phím A–D/1–4, bỏ qua khi gõ, gạch đáp án + nhớ, chia cột, điền từ biến thể, xếp câu chạm/phím/kéo, thang gợi ý, dòng dịch)`);

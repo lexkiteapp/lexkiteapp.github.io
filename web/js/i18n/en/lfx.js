@@ -27,4 +27,8 @@
 "Đã gỡ {w}": "Removed {w}",
 "{w}: vị trí {n}/{m}": "{w}: position {n} of {m}",
 "Chạm thẻ để đặt hoặc gỡ; kéo để đổi chỗ; phím số đặt thẻ, Backspace gỡ thẻ cuối": "Tap a tile to place or remove it; drag to move it; number keys place a tile, Backspace removes the last one",
+"Cần gợi ý?": "Need a hint?",
+"Thêm gợi ý": "Another hint",
+"Hiện bản dịch": "Show translation",
+"Ẩn bản dịch": "Hide translation",
 }); })(typeof self !== 'undefined' ? self : this);
