@@ -25,11 +25,19 @@ def fnv(s):
     while True:
         h, r = divmod(h, 36); o = d[r] + o
         if not h: return o
+# CI tải THẲNG từ gốc GitHub Pages của kho media (cùng tệp mà Worker audio.lexkite.com phục vụ, thứ tự ORIGINS trong workers/audio/index.js),
+# KHÔNG qua Worker: gói Free 100k lượt/ngày – 2/11 các lượt nghe hàng chục nghìn tệp làm Worker hết hạn mức (lỗi 1027) cho cả người dùng.
+# url có thể là nhiều gốc nối bằng "|" (thử lần lượt) – xem ORIGINS_L / ORIGINS_W.
+ORIGINS = ['https://lexkiteapp.github.io/lexkite-media-2', 'https://lexkiteapp.github.io']
+ORIGINS_L = '|'.join(o + '/audio/l/' for o in ORIGINS); ORIGINS_W = '|'.join(o + '/audio/w/' for o in ORIGINS)
 def fetch(url, f):
-    try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'lexkite-ci-asr'})
-        with urllib.request.urlopen(req, timeout=20) as r, open(f, 'wb') as w: w.write(r.read()); return True
-    except Exception: return False
+    base, _, tail = url.rpartition('/')
+    for b in base.split('|'):
+        try:
+            req = urllib.request.Request(b.rstrip('/') + '/' + tail, headers={'User-Agent': 'lexkite-ci-asr'})
+            with urllib.request.urlopen(req, timeout=20) as r, open(f, 'wb') as w: w.write(r.read()); return True
+        except Exception: continue
+    return False
 _model = None
 def model(name='small.en'):
     global _model

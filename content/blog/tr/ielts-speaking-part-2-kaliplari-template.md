@@ -4,7 +4,7 @@ title: "IELTS Speaking Part 2 Kaliplari Template ve Taktikler"
 description: "IELTS speaking part 2 kaliplari template, 1 dakikalık hazırlık stratejisi, akıcı konuşma bağlaçları ve 2 dakikalık örnek cevap modelleri bu rehberde."
 keyword: "ielts speaking part 2 kaliplari template"
 lang: tr
-translationKey: luyen-thi-template-ielts-speaking-part-2
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, template]
 cover: speaking

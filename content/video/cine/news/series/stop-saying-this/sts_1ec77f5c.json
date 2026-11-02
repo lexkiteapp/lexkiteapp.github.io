@@ -423,6 +423,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Please send it ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " Friday.",
+      "white"
+     ]
+    ]
+   ],
    "a": "until",
    "b": "by",
    "correct": "b",

@@ -9,7 +9,7 @@
   const offNow = () => { try { const o = JSON.parse(ls.get(OFF_KEY) || '{}'), now = Date.now(); return { listen: (o.listen || 0) > now, speak: (o.speak || 0) > now }; } catch (e) { return {}; } };
   const setOff = k => { let o = {}; try { o = JSON.parse(ls.get(OFF_KEY) || '{}'); } catch (e) { /* hỏng → mới */ } o[k] = Date.now() + HOUR; ls.set(OFF_KEY, JSON.stringify(o)); };
   const learnVi = () => (window.I18N && I18N.learnLang ? I18N.learnLang() : 'vi') === 'vi';
-  const meanOf = c => (App.meanOf ? App.meanOf(c) : '') || c.vi || c.def || '';
+  const meanOf = c => (c ? (App.meanOf ? App.meanOf(c) : '') || c.vi || c.def || '' : ''); // thẻ null (bài ghép cặp, card: null) → '' như App.meanOf
 
   // Bộ khởi đầu (người mới, chưa có thẻ) và bộ demo cho anh duyệt: từ có ảnh đúng từ#loại + gold bank. Nghĩa vi; ngôn ngữ khác → App.meanOf / gói nghĩa.
   const now0 = Date.now();
@@ -84,6 +84,14 @@
   const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: t('Ôn lỗi'), story: t('Truyện'), radio: 'Radio' }[k]);
   const STORIES = kind => (window.LESSON_STORIES || []).filter(s => s.kind === kind);
   const meanLang = () => { try { return (I18N.meanLang && I18N.meanLang()) || I18N.lang() || 'en'; } catch (e) { return 'en'; } };
+  // 🌐 Ngôn ngữ mẹ đẻ của người học cho đề bài ('' = tiếng Anh → không có nghĩa tiếng mẹ đẻ, đề dựa vào âm thanh/định nghĩa)
+  const nativeLang = () => { try { return I18N.meanLang && I18N.meanLang() === 'vi' ? 'vi' : (I18N.lang() === 'en' ? '' : I18N.lang()); } catch (e) { return ''; } };
+  const nativeMean = c => { const L = nativeLang(); if (!c || !L) return ''; if (L === 'vi') return c.vi || ''; return (App.nativeGloss && App.nativeGloss(c.word, c.pos)) || ''; };
+  // Bản dịch câu ví dụ (web/packs/sent/<lang>/<mảnh>.json – scripts/gen-sent-packs.mjs), chỉ nạp mảnh của các từ trong bài; khớp đúng câu EN mới dùng
+  const SENTP = {}, SENT = {}, shardOf = w => { const c = String(w || '').trim().toLowerCase()[0] || '_'; return c >= 'a' && c <= 'z' ? c : '_'; };
+  const sentLoad = words => { const L = nativeLang(); if (!L) return Promise.resolve(); const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
+    return Promise.all([...new Set(words.map(shardOf))].map(k => SENTP[L + k] || (SENTP[L + k] = fetch(`${base}/packs/sent/${L}/${k}.json`).then(r => (r.ok ? r.json() : {})).then(j => { SENT[L + k] = j; }).catch(() => { delete SENTP[L + k]; })))).then(() => {}); };
+  const sentGloss = (c, en) => { const L = nativeLang(), w = c && String(c.word || '').toLowerCase().trim(), v = w && (SENT[L + shardOf(w)] || {})[w]; return v && E.norm(v[0]) === E.norm(en) ? v[1] : ''; };
 
   routes.lesson = async function (arg) {
     css(); cleanup();
@@ -92,18 +100,21 @@
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
     const cards = demo ? DEMO() : Object.values(state.cards || {});
     const ux = !!(window.Ux1 && App.ux1On && App.ux1On()), has = { story: STORIES('story').length, radio: STORIES('radio').length }, n = pathN(demo); // 🧭 cờ ux1: chặng theo mục tiêu + trình độ (docs/LEARNING-PATH.md)
-    const plan = ux ? Ux1.plan(E, cards, has, n) : E.pathPlan(cards, Date.now(), has), node = plan[n % plan.length];
+    const xs = arg === 'go' && ((location.hash.match(/[?&]story=([\w-]+)/) || [])[1]), XS = xs ? (self.LESSON_STORIES || []).find(x => x.id === xs) : null; // Hôm nay v2: chạm thẻ truyện → mở đúng truyện đó (ngoài lộ trình: không tính nút bản đồ)
+    const plan = ux ? Ux1.plan(E, cards, has, n) : E.pathPlan(cards, Date.now(), has), node = XS ? { kind: XS.kind } : plan[n % plan.length];
     if (arg !== 'go') return ux ? Ux1.map({ demo, plan, n }) : map(demo, plan, n);
     if (node.kind === 'exam') { ls.set(PKEY(demo), String(n + 1)); location.hash = Ux1.check(n).href; return; } // nút kiểm tra kỹ năng thi → module thi có sẵn
     await imgP();
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
-    const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null;
+    const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = XS || (sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null);
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
     let pool0 = [];
-    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
+    if (!story) { const pk = App.loadPack ? App.loadPack().catch(() => {}) : null; await Promise.all([pk, sentLoad(picks.map(p => p.card.word))]); } // nghĩa từ + bản dịch câu tiếng mẹ đẻ trước khi dựng đề
+    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean });
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
-    L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
-    if (demo) App._lsn = L; // bài thử: gác bố cục CI (scripts/test/ux1-guard.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
+    L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK, xs: !!XS };
+    if (window.LKAudio && LKAudio.offline.on()) LKAudio.offline.lesson(story || items, (state.settings || {}).accent); // 📥 gói offline đang bật → cất audio bài đang học
+    if (demo || /[?&]sandbox=1/.test(location.search)) App._lsn = L; // bài thử / sandbox: gác bố cục CI (ux1-guard.mjs, qa-bot.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
     const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
     document.body.classList.add('st'); App.onCleanup(() => document.body.classList.remove('st'));
@@ -164,19 +175,19 @@
     if (!L) return;
     const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.7 : 0.95;
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd }); else { UI.tts(text, 'en-US', rate, { onEnd }); }
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd }); else { UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
   const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };
   const TNAME = w => (w === 'carlos' ? 'Carlos' : 'Ama');
   const TITLE = it => ({
     gap: t('Chọn từ còn thiếu'),
-    build: t('Xếp thành câu'),
+    build: it.prompt ? t('Xếp câu tiếng Anh') : t('Xếp thành câu'), // có bản dịch → xếp câu tiếng Anh theo nghĩa; không có → xếp câu vừa nghe
     say: t('Nói câu này'),
     pic: it.choice ? t('Đây là gì?') : t('Nói tên hình'),
     tr: t('Dịch câu này'),
     mean: t('Chọn từ đúng'),
-    type: it.noAudio ? t('Gõ từ tiếng Anh') : t('Gõ từ bạn nghe'),
+    type: t('Gõ từ tiếng Anh'), // luôn có nghĩa/định nghĩa + độ dài + chữ đầu (không chỉ nghe)
     match: t('Ghép cặp'),
     q: t('Trả lời câu hỏi'),
     line: '',
@@ -217,9 +228,9 @@
     let sub = '';
     if (it.type === 'tr') sub = it.prompt;
     else if (it.type === 'mean') sub = meanOf(it.card);
-    else if (it.type === 'type' && it.noAudio) sub = meanOf(it.card);
-    else if (it.type === 'build' && it.noAudio) sub = it.prompt || meanOf(it.card);
-    bub.innerHTML = tag + (L.v2 && it.type === 'gap' ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en') : '');
+    else if (it.type === 'type') sub = [it.mean, it.noAudio || !it.mean ? it.def : '', t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: it.first, n: it.len })].filter(Boolean).join(' · '); // nghĩa tiếng mẹ đẻ + định nghĩa EN + độ dài/chữ đầu (gợi ý mở sẵn)
+    else if (it.type === 'build') sub = it.prompt; // bản dịch CÂU (không bao giờ là định nghĩa của từ)
+    bub.innerHTML = tag + (L.v2 && it.type === 'gap' ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, '') : '');
     const V = L.v2, snd = LISTENS(it) && !V ? ST.lsnSnd({ play: t('Nghe lại'), slow: t('Nghe chậm hơn'), label: t('Mẫu âm thanh'), name: TNAME(it.who || L.who) }) : '';
     const fill = (html, grid) => { if (V) body.className = grid ? GRID : FLOW; body.innerHTML = V && grid ? '' : html; }; // v2: lưới 2 cột cho trắc nghiệm (bindItem vẽ thẻ), dạng khác = cột dọc cùng ô
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
@@ -530,10 +541,10 @@
     const CV = L.v2 && window.ST2 && ST2['lesson-complete']; // khung Stitch lesson-complete (cờ ux1); không có → màn kết cũ
     const cheer = s.accuracy >= 80 ? 'Great job!' : 'Good work. Keep going!';
     if (L.teacher && !CV) L.teacher.say(cheer, { rate: 1, voice: VOICE(L.who) });
-    if (!L.demo) try { const k = 'lk.ux1.st', m = JSON.parse(ls.get(k) || '{}'), i = pathN(false); m[i] = s.accuracy >= 90 ? 3 : s.accuracy >= 70 ? 2 : 1; Object.keys(m).filter(x => +x < i - 60).forEach(x => delete m[x]); ls.set(k, JSON.stringify(m)); } catch (e) { /* bỏ qua */ } // sao thật của nút vừa xong (bản đồ ux1)
-    ls.set(PKEY(L.demo), String(pathN(L.demo) + 1));
+    if (!L.demo && !L.xs) try { const k = 'lk.ux1.st', m = JSON.parse(ls.get(k) || '{}'), i = pathN(false); m[i] = s.accuracy >= 90 ? 3 : s.accuracy >= 70 ? 2 : 1; Object.keys(m).filter(x => +x < i - 60).forEach(x => delete m[x]); ls.set(k, JSON.stringify(m)); } catch (e) { /* bỏ qua */ } // sao thật của nút vừa xong (bản đồ ux1)
+    if (!L.xs) ls.set(PKEY(L.demo), String(pathN(L.demo) + 1)); // truyện mở từ Hôm nay (?story=) không đẩy nút bản đồ
     ls.set('lk.lsn.acc', String(s.accuracy)); // nút kế tiếp thích nghi theo bài này (ux1)
-    if (L.story) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
+    if (L.story && !L.xs) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
     try { if (window.Sfx) Sfx.win(); /* không pháo giấy: chuyển động tiết chế (chủ 28/10) */ } catch (e) { /* bỏ qua */ }
     let added = 0; const xp = 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {

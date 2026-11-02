@@ -4,7 +4,7 @@ title: "Template IELTS Speaking Part 2 & 3: Trik Jawab Lancar 2 Menit"
 description: "Panduan template IELTS speaking part 2 dan 3. Pelajari teknik membuat catatan 1 menit, rumus PPF anti-buntu, metode PEEL, dan contoh jawaban band 8."
 keyword: "template ielts speaking part 2"
 lang: id
-translationKey: ielts-speaking-part-2-template
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, template]
 cover: speaking
