@@ -86,7 +86,8 @@
 - [STORE-READINESS.md](STORE-READINESS.md) — Sẵn sàng lên Google Play & App Store (com.lexkite.app): trạng thái hiện tại, checklist Play, App Store, chung, và khi bật AdMob; đọc khi: nộp/cập nhật app lên store
 - [TECH-RADAR.md](TECH-RADAR.md) — Tech radar: chuẩn chọn công nghệ (miễn phí, tiên tiến, chạy ở máy người dùng/biên); danh sách áp dụng, theo dõi, không dùng và lý do; đọc khi: thêm thư viện/dịch vụ
 - [TOKEN-RULES.md](TOKEN-RULES.md) — Luật tiết kiệm token: đọc ít, giao việc cho agent ngắn, không chờ/poll, gộp kiểm thử, nội dung hàng loạt, báo cáo ngắn; đọc khi: ĐẦU MỖI PHIÊN và khi giao việc
-- [UX-BENCHMARK.md](UX-BENCHMARK.md) — So sánh UX web app với Duolingo, Babbel, Busuu, Speak, Elsa, Anki/Quizlet: scorecard, tiêu chí, top 10 cải tiến, UX v3 (icon + token); đọc khi: cải tiến UX
+- [UX-BENCHMARK.md](UX-BENCHMARK.md) — Top 10 khoảng cách Lexkite vs Duolingo (tự sinh từ bảng World) + việc nên làm theo trục; đọc khi: chọn việc UX/sản phẩm tiếp theo
+- [WORLD-SCORECARD.md](WORLD-SCORECARD.md) — Thước đo "vượt Duolingo" trên CI: trục, nguồn, mốc Duolingo an toàn, sàn chỉ tăng; đọc khi: đọc/sửa content/pipeline/WORLD.md
 - [UX-PUBLIC.md](UX-PUBLIC.md) — Audit UX trang vào cửa + app (24/10): lỗi nặng nhất, token vai trò, mẫu lỗi toàn app, Lighthouse trước→sau, LCP màn đầu; đọc khi: sửa landing/UX công khai
 - [VIDEO-QC.md](VIDEO-QC.md) — Chuẩn QC video trước & sau, tự động trên CI: trượt 1 cổng là không dùng/không đăng; kết quả qc/<id>.json + điểm 100; đọc khi: kiểm tài nguyên/clip video
 - [VIDEO-SCALE-PLAN.md](VIDEO-SCALE-PLAN.md) — Kho video đa dạng + chuẩn 100/100: tránh bị nền tảng coi trùng lặp, bảy trục đa dạng, thang 100 điểm, đường ống 0 credit; đọc khi: nhân rộng video
@@ -145,5 +146,6 @@
 - [LEXICON-expand-pilots-24-10.md](archive/LEXICON-expand-pilots-24-10.md) — Nhật ký pilot 5–10 kho từ 20k (24/10, nguyên văn từ LEXICON.md); đọc khi: tra vì sao có espeak/retry/dịch ngược theo ngôn ngữ
 - [LEXICON-ra-la-ok-29-10](archive/LEXICON-ra-la-ok-29-10.md) — bài học từng lớp lỗi lexicon-expand 29/10 (nguyên văn); đọc khi sửa cổng nghĩa/IPA của lexicon-expand
 - [LEXICON-img-pilot-23-10.md](archive/LEXICON-img-pilot-23-10.md) — Pilot ảnh minh hoạ s1 ngày 23/10 (nguyên văn từ LEXICON.md); đọc khi: tra số đo pilot ảnh đầu tiên.
+- [archive/UX-BENCHMARK-2026-10.md](archive/UX-BENCHMARK-2026-10.md) — Bản so sánh UX bằng lời 25/10 (scorecard theo luồng, top 10 đã ship, UX v3 icon/token, UX1); đọc khi: tra lịch sử UX
 - [specs/upgrade-audit.md](specs/upgrade-audit.md) — Kiểm toán nâng cấp ≤1 trang so Duolingo/Anki/Elsa/Speak (UX, hiệu năng, a11y, nội dung, AI), số đo tự làm mới; đọc khi: chọn việc nâng chất lượng tiếp theo
 - [QA-BACKLOG.md](QA-BACKLOG.md) — Sổ lỗi do QA tự chạy phát hiện (1 dòng/lỗi: file sở hữu + cách tái hiện); đọc khi: chọn việc sửa chất lượng
