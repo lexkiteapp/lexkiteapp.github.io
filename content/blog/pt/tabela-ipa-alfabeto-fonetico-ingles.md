@@ -33,6 +33,7 @@ quiz: [
     explain: "Os sons fricativos dentais /θ/ (desvozeado em 'think') e /ð/ (vozeado em 'this') exigem a ponta da língua entre os dentes, sem substituir por 's', 'f' ou 'd'."
   }
 ]
+publishAt: 2026-11-21T21:12:00-03:00
 ---
 Se você já tentou ler uma palavra em inglês exatamente como ela é escrita e acabou sendo corrigido por um nativo, sabe o quanto a ortografia do idioma pode ser traiçoeira. Palavras com grafias idênticas como *tough*, *though*, *thought* e *through* possuem quatro pronúncias completamente diferentes para a combinação de letras *-ough*.
 

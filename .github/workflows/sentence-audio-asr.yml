@@ -23,6 +23,7 @@ jobs:
       shards: ${{ steps.c.outputs.shards }}
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: c
@@ -38,6 +39,7 @@ jobs:
     strategy: { max-parallel: 6, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
@@ -82,6 +84,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/download-artifact@v4
@@ -99,13 +103,10 @@ jobs:
           node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/l: câu render lại s2 (đã qua Whisper) – run ${{ github.run_id }}"
       - name: Gộp kết quả → asr.tsv + asr-fail.tsv + LISTEN_AUDIO_S2
         run: ls .sa/ && node scripts/sentence-audio/merge.mjs .sa/res-*.json && node scripts/test/sentence-asr.mjs
-      - name: Lưu chỉ mục vào repo
+      - name: Lưu chỉ mục vào repo (sinh lại trên main mới nhất nếu workflow khác vừa đẩy – scripts/ci/commit-regen.sh)
         if: github.ref == 'refs/heads/main'   # lượt thử trên nhánh khác: chỉ in tỉ lệ đạt, không đẩy/commit
         run: |
           rm -f ~/.ssh/m2
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          bash scripts/build-extension.sh >/dev/null   # bản add-on của audio-index.js phải khớp web/ (scripts/test/ext-sync.mjs)
-          git add web/audio/l/ web/js/listen/audio-index.js extension/app/js/listen/audio-index.js
-          git diff --cached --quiet && exit 0
-          git commit -qm "Cổng ASR audio câu: thêm lô đã kiểm (còn ${{ needs.plan.outputs.left }} câu trước lượt này) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+          bash scripts/ci/commit-regen.sh "Cổng ASR audio câu: thêm lô đã kiểm (còn ${{ needs.plan.outputs.left }} câu trước lượt này) [CF-Pages-Skip] [skip ci]" \
+            'node scripts/sentence-audio/merge.mjs .sa/res-*.json && node scripts/test/sentence-asr.mjs' \
+            web/audio/l/ web/js/listen/audio-index.js extension/app/js/listen/audio-index.js

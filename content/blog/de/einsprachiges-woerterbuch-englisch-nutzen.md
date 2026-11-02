@@ -33,6 +33,7 @@ quiz: [
     explain: "Die Labels [C] (Countable) und [U] (Uncountable) zeigen sofort an, ob ein Substantiv im Plural stehen oder mit dem unbestimmten Artikel verwendet werden darf."
   }
 ]
+publishAt: 2026-11-25T12:28:00+01:00
 ---
 Wer Englisch auf ein flüssiges, professionelles Niveau bringen möchte, stößt mit traditionellen zweisprachigen Wörterbüchern (Englisch–Deutsch) unweigerlich an Grenzen. Oft schlägt man ein englisches Wort nach, findet drei deutsche Übersetzungen und wählt intuitiv das falsche Wort für seinen Satz. Typische Missverständnisse wie *"I make a photo"* oder *"He explained me the problem"* entstehen fast immer durch das mentale Hin- und Herübersetzen im Kopf.
 

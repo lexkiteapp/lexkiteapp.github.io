@@ -9,7 +9,7 @@ tags: [listening, comprehension-orale, anglais]
 keyword: "comment améliorer sa compréhension orale en anglais"
 cover: dict
 coverAlt: "Interface du dictionnaire Lexkite avec prononciation audio britannique et américaine et phonétique IPA"
-publishAt: ""
+publishAt: 2026-12-01T20:49:00+01:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

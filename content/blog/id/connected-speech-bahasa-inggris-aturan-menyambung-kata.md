@@ -9,7 +9,7 @@ tags: [connected-speech, pronunciation, listening, pelafalan]
 keyword: "connected speech bahasa inggris"
 cover: path
 coverAlt: "Panduan belajar pelafalan fonetik dan teknik menyambung kata bahasa Inggris di Lexkite"
-publishAt: ""
+publishAt: 2026-12-04T07:19:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

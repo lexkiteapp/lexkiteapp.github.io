@@ -9,7 +9,7 @@ tags: [ielts, plan-de-estudio, autodidacta]
 keyword: "plan de estudio ielts autodidacta"
 cover: path
 coverAlt: "Pantalla Your IELTS path de Lexkite con etapas de estudio organizadas por band de dificultad"
-publishAt: ""
+publishAt: 2026-12-06T07:55:00-06:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

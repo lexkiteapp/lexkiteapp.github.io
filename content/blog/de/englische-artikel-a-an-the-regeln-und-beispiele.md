@@ -33,6 +33,7 @@ quiz: [
     explain: "Länder im Plural oder mit Zusätzen wie Kingdom, Republic oder States verlangen zwingend 'the'."
   }
 ]
+publishAt: 2026-12-03T12:19:00+01:00
 ---
 
 Die richtige Verwendung der englischen Artikel gehört für viele Deutschsprachige zu den hartnäckigsten Fehlerquellen. Auf den ersten Blick scheint das System denkbar unkompliziert: Das Englische unterscheidet schließlich nicht zwischen *der, die, das* und kennt keine vier grammatischen Fälle. Dennoch bereiten die **englische artikel a an the regeln** in Aufsätzen, E-Mails und Prüfungen oft Kopfzerbrechen.

@@ -9,7 +9,7 @@ tags: [vocabulary, speaking, phrasal-verbs]
 keyword: "영어 구동사 phrasal verbs 정리"
 cover: practice-learn
 coverAlt: "Lexkite 앱의 스마트 러닝 단어 연습 문제 화면"
-publishAt: ""
+publishAt: 2026-11-29T19:23:00+09:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

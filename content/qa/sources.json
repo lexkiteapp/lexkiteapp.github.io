@@ -206,6 +206,22 @@
    ]
   },
   {
+   "id": "framework",
+   "paths": [
+    "content/framework"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "content-qa/lkf-check.mjs",
+    "test/lkf.mjs"
+   ]
+  },
+  {
    "id": "writing",
    "paths": [
     "web/js/write"

@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "collocations em inglês para ielts"
 cover: dict
 coverAlt: "Entrada do dicionário Lexkite para a palavra resilient com pronúncia e colocações"
-publishAt: ""
+publishAt: 2026-11-27T08:41:00-03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ category: ky-nang
 tags: [listening, phasa-angkrit, kan-fang]
 cover: dict
 coverAlt: "หน้าจอค้นหาคำศัพท์และฟังการออกเสียงภาษาอังกฤษสำเนียงแท้ในแอปพลิเคชัน Lexkite"
-publishAt: ""
+publishAt: 2026-12-06T07:32:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

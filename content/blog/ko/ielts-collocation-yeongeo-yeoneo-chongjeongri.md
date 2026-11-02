@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "ielts 콜로케이션 collocation 연어 정리"
 cover: dict
 coverAlt: "Lexkite 사전에서 resilient 단어의 발음과 콜로케이션 연어 목록을 조회한 화면"
-publishAt: ""
+publishAt: 2026-11-30T19:27:00+09:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -33,6 +33,7 @@ quiz: [
     explain: "'Would you mind running that by me one more time?' son derece nezaketli ve doğal bir rica cümlesidir"
   }
 ]
+publishAt: 2026-11-30T12:16:00+03:00
 ---
 
 İngilizce öğrenen pek çok Türk öğrencinin ortak sorunu, gramer kurallarını ve kelimeleri bilmesine rağmen yabancılarla konuşurken takılmasıdır. Beyinde önce Türkçe cümle kurup ardından bunu kelime kelime İngilizceye çevirmeye çalışmak konuşmayı yavaşlatır ve iletişim akışını sekteye uğratır. Akıcı konuşmanın en kestirme formülü, anadili İngilizce olanların refleks olarak kullandığı **gunluk ingilizce konusma kaliplari** (*lexical chunks*) ve hazır cümle kalıplarını bir bütün olarak hafızaya almaktır.

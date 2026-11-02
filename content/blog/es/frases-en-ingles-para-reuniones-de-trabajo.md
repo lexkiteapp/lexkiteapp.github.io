@@ -9,7 +9,7 @@ tags: [ingles-de-negocios, reuniones-de-trabajo, frases-profesionales]
 keyword: "frases en inglés para reuniones de trabajo"
 cover: path
 coverAlt: "Ruta de aprendizaje de inglés para el trabajo y comunicación profesional en Lexkite"
-publishAt: ""
+publishAt: 2026-12-05T19:14:00-06:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

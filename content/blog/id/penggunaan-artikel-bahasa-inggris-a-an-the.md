@@ -33,6 +33,7 @@ quiz: [
     explain: "Negara kepulauan jamak atau yang memiliki kata 'States', 'Kingdom', atau 'Republic' wajib diawali 'the'."
   }
 ]
+publishAt: 2026-12-07T21:32:00+07:00
 ---
 
 Penggunaan artikel (*articles*) sering kali menjadi jebakan paling rumit bagi orang Indonesia saat belajar bahasa Inggris. Di permukaan, aturan ini tampak sederhana: menerjemahkan *"sebuah/seorang"* menjadi *a/an* dan menganggap *the* setara dengan kata penunjuk *"itu"*. Namun, kenyataannya sistem **penggunaan artikel a an the** bekerja berdasarkan konsep spesifisitas dan generalitas yang tidak ada padanannya secara langsung dalam tata bahasa Indonesia.

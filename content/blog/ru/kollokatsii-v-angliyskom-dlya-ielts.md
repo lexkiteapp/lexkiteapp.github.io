@@ -9,7 +9,7 @@ tags: [vocabulary, ielts, writing, collocations]
 keyword: "коллокации в английском для ielts"
 cover: dict
 coverAlt: "Словарная карточка Lexkite для слова resilient с транскрипцией и коллокациями"
-publishAt: ""
+publishAt: 2026-11-25T09:38:00+03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
