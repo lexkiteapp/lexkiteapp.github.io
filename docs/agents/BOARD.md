@@ -119,7 +119,25 @@ Mẫu thẻ:
   5. Cụm 5: Kỹ năng phỏng vấn theo phương pháp STAR bằng tiếng Anh (`phong-van-star-method-tieng-anh`) - 15 ngôn ngữ.
   6. Cụm 6: Ngữ điệu và trọng âm câu trong giao tiếp tiếng Anh nâng cao (`ngu-dieu-va-sentence-stress-tieng-anh`) - 15 ngôn ngữ.
   7. Cụm 7: Chiến lược phân bổ thời gian và giải đề TOEIC Part 7 đọc hiểu (`toeic-part-7-chien-luoc-doc-hieu`) - 10 ngôn ngữ.
-- **Tiến độ:** Đang triển khai Cụm 1.
+- **Tiến độ:**
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm 1** (`giai-quyet-xung-dot-tieng-anh-cong-so`):
+    * VI: `content/blog/vi/ky-nang-giai-quyet-xung-dot-bang-tieng-anh-cong-so.md` (commit `bb90ade6e`)
+    * EN: `content/blog/en/workplace-conflict-resolution-in-english-guide.md` (commit `f491e58c6`)
+    * ES: `content/blog/es/resolucion-de-conflictos-en-ingles-en-el-trabajo.md` (commit `7078bccee`)
+    * PT: `content/blog/pt/resolucao-de-conflitos-em-ingles-no-trabalho.md` (commit `53344b771`)
+    * FR: `content/blog/fr/resolution-des-conflits-en-anglais-au-travail.md` (commit `f5b0104cb`)
+    * DE: `content/blog/de/konfliktloesung-auf-englisch-im-beruf.md` (commit `63180ef62`)
+    * ID: `content/blog/id/resolusi-konflik-bahasa-inggris-di-kantor.md` (commit `6178c5b04`)
+    * JA: `content/blog/ja/business-eigo-tairitsu-kaishou-conflict-resolution.md` (commit `92c8bb156`)
+    * ZH: `content/blog/zh/zhi-chang-ying-yu-chong-tu-jie-jue-ji-qiao.md` (commit `2e472e21c`)
+    * KO: `content/blog/ko/business-yeongeo-galdeung-haegyeol-conflict-resolution.md` (commit `aa99c7e0e`)
+    * RU: `content/blog/ru/razreshenie-konfliktov-na-angliyskom-na-rabote.md` (commit `1967b130d`)
+    * TR: `content/blog/tr/is-hayatinda-ingilizce-catisma-cozme-teknikleri.md` (commit `b049573b0`)
+    * TH: `content/blog/th/kan-kae-khwam-khat-yaeng-phasa-angkrit-thamma-ngan.md` (commit `361a8704c`)
+    * AR: `content/blog/ar/hal-al-nizaat-bi-al-injliziyyah-fi-al-amal.md` (commit `ceb4284cf`)
+    * HI: `content/blog/hi/karyasthal-par-angrezi-me-vivad-samadhan-guide.md` (commit `b00ee6ec1`)
+    * Tổng bài toàn repo: **866 bài** (15 bài mới Đợt 4). 100% PASS Quality Gates, shingle max 12.0%.
+  - 🔄 **Bắt đầu Cụm 2:** Kỹ năng networking và mở rộng mối quan hệ tại các hội nghị quốc tế (`networking-tieng-anh-hoi-nghi`).
 - **Cần sửa / Nhận xét:**
 
 ### [B5-MEGA100-P3] Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 3 (Đạt mốc 851 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
