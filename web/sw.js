@@ -42,6 +42,11 @@ self.addEventListener('fetch', e => {
       e.respondWith(fetch(e.request).catch(() => caches.match(APP, { ignoreSearch: true }).then(r => r ? Response.redirect(new URL(APP, location.origin).href, 302) : Response.error())));
     return;
   }
+  // Proxy từ điển/dịch máy (cùng nguồn trên lexkite.com, hoặc https://lexkite.com/... từ app di động/127.0.0.1): SW KHÔNG đụng vào – trình duyệt tự đi
+  // mạng + bộ đệm HTTP (Cache-Control của functions/api/dictlookup.js), AbortController của máy khách hủy thẳng request. Các nhánh dưới ép no-cache
+  // (thêm lượt Functions), cất mọi lượt tra vào CACHE, dự phòng ignoreSearch có thể trả nhầm mục của TỪ KHÁC, và request qua SW bị treo quá 30 s
+  // khi máy khách đã hủy (font audit 1/11: networkidle không bao giờ đạt ở #/review, #/practice/learn).
+  if (url.pathname === '/api/dictlookup') return;
   // App/add-on gọi file từ lexkite.com (khác nguồn): lấy mạng trước, lưu lại để dùng khi offline
   if (e.request.method === 'GET' && url.origin !== location.origin && (url.hostname === 'lexkite.pages.dev' || url.hostname === 'lexkite.com')) {
     e.respondWith(fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); } return r; }).catch(() => caches.match(e.request)));
