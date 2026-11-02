@@ -3,7 +3,7 @@
  *   node scripts/ci/filler.mjs gate     ← đo busy/queued; không còn chỗ hoặc không còn ứng viên → ghi 1 dòng log, xuất free=0 (khỏi checkout đầy đủ)
  *   node scripts/ci/filler.mjs run      ← (checkout đầy đủ) đo lại, dò "xong chưa" từng mục, dispatch, ghi 1 dòng log
  *   node scripts/ci/filler.mjs report   ← báo cáo 24 h (trung bình/đỉnh runner theo giờ + phút-runner rảnh khi còn tồn đọng = KPI, mục tiêu ~0)
- * Luật: busy < 32 và không có job đói runner; shard = min(trần mục, 40 − busy − 8); không bao giờ dispatch workflow đang có lượt queued/in_progress;
+ * Luật: busy + queued + shard ≤ 32, không job đói, không check PR đang chờ; shard = min(trần mục, 40 − 8 − busy − queued); không bao giờ dispatch workflow đang có lượt queued/in_progress;
  * mục quota_bound (CF_POOL ảnh, Gemini lexicon) không bao giờ dispatch – thêm runner không giúp gì. Log: nhánh mồ côi ci-stats/util.tsv (48 h).
  * Commit bằng GITHUB_TOKEN không kích workflow nào; thông điệp có [CF-Pages-Skip]. */
 import fs from 'node:fs';
@@ -13,10 +13,12 @@ import { pathToFileURL } from 'node:url';
 export const SAMPLE_MIN = 10, LOG_BRANCH = 'ci-stats', LOG_FILE = 'util.tsv', KEEP_LINES = 288;
 export const loadRegistry = (f = 'infra/ci-backlog.json') => JSON.parse(fs.readFileSync(f, 'utf8'));
 
-/** Chỗ còn cho việc nền (thuần). starved = job queued > 60 s trong lượt chưa có job nào chạy (đói runner thật, không phải bị max-parallel/needs giữ). */
-export function capacity({ busy, starved }, { total = 40, reserve = 8 } = {}) {
-  if (starved > 0 || busy >= total - reserve) return 0;
-  return Math.max(0, total - busy - reserve);
+/** Chỗ còn cho việc nền (thuần). Chỉ dispatch khi busy + queued + shard mới ≤ total − reserve (32): job đang xếp hàng (kể cả bị max-parallel giữ)
+ *  cũng chiếm chỗ – 02/11 04:21Z busy 20, queued 118 (đói 0) mà vẫn bơm 12 job → 40/40, check PR không có runner.
+ *  Không bao giờ dispatch khi có job đói runner (starved) hoặc check PR (pull_request) đang xếp hàng (prQueued). */
+export function capacity({ busy, queued = 0, starved = 0, prQueued = 0 }, { total = 40, reserve = 8 } = {}) {
+  if (starved > 0 || prQueued > 0) return 0;
+  return Math.max(0, total - reserve - busy - queued);
 }
 /** Số job một mục chiếm nếu dispatch với `free` chỗ (thuần): mục có shards_input → min(max_shards, free) (≥ min_shards, không thì 0); mục cố định → jobs nếu vừa. */
 export function shardsFor(entry, free) {
@@ -28,17 +30,17 @@ const ACTIVE = new Set(['queued', 'in_progress', 'waiting', 'pending', 'requeste
 /** Chặn trùng (thuần): tập file workflow đang có lượt chưa xong. */
 export const activeWorkflows = runs => new Set(runs.filter(r => ACTIVE.has(r.status)).map(r => String(r.path || '').replace(/^\.github\/workflows\//, '').replace(/@.*$/, '')));
 export const isActive = (entry, active) => active.has(entry.workflow);
-/** Đếm từ danh sách job của các lượt chưa xong (thuần). */
+/** Đếm từ danh sách job của các lượt chưa xong (thuần). Phần tử = mảng job, hoặc { event, jobs } để đếm job check PR đang xếp hàng (prQueued). */
 export function countJobs(jobsByRun, now = Date.now()) {
-  let busy = 0, queued = 0, starved = 0;
-  for (const jobs of jobsByRun) {
+  let busy = 0, queued = 0, starved = 0, prQueued = 0;
+  for (const x of jobsByRun) {
+    const jobs = Array.isArray(x) ? x : x.jobs || [], pr = !Array.isArray(x) && /^pull_request/.test(x.event || '');
     const run = jobs.filter(j => j.status === 'in_progress').length, q = jobs.filter(j => j.status === 'queued');
-    busy += run; queued += q.length;
+    busy += run; queued += q.length; if (pr) prQueued += q.length;
     if (!run) starved += q.filter(j => now - new Date(j.created_at || now) > 60e3).length;
   }
-  return { busy, queued, starved };
+  return { busy, queued, starved, prQueued };
 }
-/** Kế hoạch dispatch (thuần): duyệt theo thứ tự sổ; left(entry) → số việc còn (0 = xong, null = không dò được → bỏ qua). */
 export function plan(entries, { free, active, left }) {
   const out = [];
   for (const e of entries) {
@@ -90,7 +92,7 @@ export async function measure() {
   for (const s of ACTIVE) runs.push(...(((await gh(`/actions/runs?status=${s}&per_page=100`)) || {}).workflow_runs || []));
   const seen = new Set(), uniq = runs.filter(r => !seen.has(r.id) && seen.add(r.id));
   const jobsByRun = [];
-  for (const r of uniq.filter(r => r.status === 'in_progress' || r.status === 'queued')) jobsByRun.push(((await gh(`/actions/runs/${r.id}/jobs?filter=latest&per_page=100`)) || {}).jobs || []);
+  for (const r of uniq.filter(r => r.status === 'in_progress' || r.status === 'queued')) jobsByRun.push({ event: r.event, jobs: ((await gh(`/actions/runs/${r.id}/jobs?filter=latest&per_page=100`)) || {}).jobs || [] });
   return { ...countJobs(jobsByRun), active: activeWorkflows(uniq) };
 }
 /** Cùng sha main và lượt gần nhất đã xanh → chạy lại chỉ tốn runner (thuần). */
@@ -128,7 +130,7 @@ async function main(mode) {
   if (mode === 'report') return summary(report(await readLog()).md);
   const m = await measure(), free = capacity(m, lim), ts = new Date().toISOString().slice(0, 16) + 'Z';
   const entries = reg.entries.filter(eligible), running = entries.filter(e => isActive(e, m.active)).length;
-  const head = `busy ${m.busy}/${lim.total} · queued ${m.queued} (đói ${m.starved}) · chỗ cho việc nền ${free} · mục đang chạy ${running}`;
+  const head = `busy ${m.busy}/${lim.total} · queued ${m.queued} (đói ${m.starved}, check PR chờ ${m.prQueued}) · chỗ cho việc nền ${free} · mục đang chạy ${running}`;
   const stale = {}; // dò stale bằng API (không cần checkout)
   for (const e of entries.filter(e => e.probe.stale_hours && !isActive(e, m.active))) stale[e.id] = await staleLeft(e).catch(() => null);
   const needCmd = entries.some(e => e.probe.cmd && !isActive(e, m.active));
