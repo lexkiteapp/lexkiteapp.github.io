@@ -197,6 +197,22 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "report-autofix",
+   "workflow": "report-autofix.yml",
+   "cron": [
+    "53 */3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 200
+   },
+   "lease": false
+  },
+  {
    "id": "free-tier-guard",
    "workflow": "free-tier-guard.yml",
    "cron": [

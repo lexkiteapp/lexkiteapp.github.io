@@ -329,5 +329,30 @@ ok(R.smartH(72, 0, 0) === 72 && R.smartH(24, 0, 5) === 36 && R.smartH(72, 100, 0
   ok(x.m === 200 && x.a >= 1 && st.j.eta.h === R.smartH(48, 200, x.a) && st.j.eta.h >= 216 && st.j.eta.h % 24 === 0, 'sau AI: mốc theo trung vị sửa thật (200 giờ) + hàng đợi, hiện trên trang trạng thái: ' + JSON.stringify(st.j.eta) + JSON.stringify(x));
   ok(c.j.eta && c.j.eta.h >= 48, 'lúc gửi: mốc theo loại + hàng đợi'); }
 
+// Tự động theo PR (report-autofix.yml): PR gộp có LX → Đang xử lý + commit chờ; bản live chứa commit → Đã sửa (CACHE); chạy lại không thư lặp
+{ const SHA = 'a'.repeat(39) + 'b', sq = async (body, env = ENV) => { const raw = JSON.stringify(body), ts = String(Date.now()); return call(raw, { ip: '10.7.7.8', env, cli: ts + '.' + await R.cliSign(CLI_KEY, ts, raw) }); };
+  const c = await call(good({ cat: 'bug', msg: 'Lesson audio stops after the second sentence every time.' }), { ip: '10.0.0.92' }), rid = +c.j.id.slice(3) - 1000;
+  sql.prepare("UPDATE reports SET email = 'pr@example.com', notify = 1, lang = 'en' WHERE id = ?").run(rid); mails.length = 0;
+  const p1 = await sq({ op: 'progress', commit: SHA, pr: 501, ids: [c.j.id, 'LX-999999'] }), p2 = await sq({ op: 'progress', commit: SHA, pr: 501, ids: [c.j.id] });
+  const st = sql.prepare('SELECT status FROM reports WHERE id = ?').get(rid).status;
+  ok(p1.s === 200 && st === 'prog' && p1.j.rows[0].prog && p1.j.rows[1].skip === 'not-found' && p2.j.rows[0].skip === 'same-commit' && mails.length === 1, 'progress: PR gộp → Đang xử lý, báo 1 thư; cùng commit lần 2 bỏ qua: ' + JSON.stringify([p1.j, p2.j]));
+  ok((await sq({ op: 'progress', commit: 'zz', ids: [c.j.id] })).s === 400 && (await call({ op: 'progress', commit: SHA, ids: [c.j.id] }, { token: undefined })).s !== 200, 'progress: commit phải đủ 40 ký tự hex; không ký → bị chặn');
+  const pd = await sq({ op: 'pending' }, { ...ENV, CF_PAGES_COMMIT_SHA: 'C'.repeat(40) });
+  ok(pd.j.rows.some(r => r.id === c.j.id && r.commit === SHA) && pd.j.live === 'c'.repeat(40), 'pending: phiếu Đang xử lý + commit chờ + commit bản live');
+  const AF = await import(new URL('../report-autofix.mjs', import.meta.url));
+  ok(AF.lxIds('Fix LX-1234 & lx-1235, again LX-1234; not XLX-1236 or LX-1000 or LX-12345678901') .join() === 'LX-1234,LX-1235', 'lxIds: lấy đúng mã, bỏ trùng/mã giả');
+  ok(AF.cacheVer("const CACHE = 'lexkite-20261102183000';") === 'lexkite-20261102183000', 'cacheVer đọc CACHE của sw.js');
+  const env2 = { ...ENV, CF_PAGES_COMMIT_SHA: 'c'.repeat(40) }, callE = async body => (await sq(body, env2)).j, logs = [];
+  const notLive = await AF.run('live', { call: callE, anc: () => false, f: async () => new Response(''), log: x => logs.push(x) });
+  ok(!notLive.done.length && sql.prepare('SELECT status FROM reports WHERE id = ?').get(rid).status === 'prog', 'live: commit chưa lên bản live → chưa Đã sửa');
+  const live = await AF.run('live', { call: callE, anc: (a, b) => a === SHA && b === 'c'.repeat(40), f: async () => new Response("const CACHE = 'lexkite-20261103000000';"), log: x => logs.push(x) });
+  const r2 = sql.prepare('SELECT status, fix_ver FROM reports WHERE id = ?').get(rid);
+  ok(live.done.includes(c.j.id) && r2.status === 'fixed' && r2.fix_ver === 'lexkite-20261103000000' && mails.length === 2, 'live: bản live chứa commit → Đã sửa, fix_ver = CACHE, báo người báo: ' + JSON.stringify(r2));
+  const again = await AF.run('live', { call: callE, anc: () => true, f: async () => new Response(''), log: () => {} }), rr = await sq({ op: 'resolve', id: c.j.id, commit: SHA });
+  ok(!again.done.length && rr.j.skipped === 'already-fixed' && mails.length === 2, 'chạy lại: không resolve/không thư lặp');
+  ok((await sq({ op: 'progress', commit: 'd'.repeat(40), ids: [c.j.id] })).j.rows[0].skip === 'fixed', 'progress: phiếu đã sửa không mở lại');
+  const m = await AF.run('merged', { call: callE, env: { PR_TITLE: 'Fix', PR_BODY: '', PR_BRANCH: 'x', SHA, PR: '1' }, log: () => {} });
+  ok(!m.ids.length, 'merged: PR không có mã → không gọi API'); }
+
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê`);

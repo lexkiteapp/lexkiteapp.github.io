@@ -441,10 +441,33 @@ Object.assign(OPS, {
         msg: scrub(r.msg).slice(0, 1500), errs: errs.map(e => scrub(e)), ai: { summary_vi: ai.summary_vi || '', type: ai.type || '', likely_cause: ai.likely_cause || '', suggested_fix: ai.suggested_fix || '', confidence: ai.confidence || 0, needs_human: ai.needs_human !== false || r.cat === 'account', by: ai.by || '' },
         issue: r.issue || '', screenshot: !!r.has_shot, admin: `${SITE}/admin.html?r=${r.id}#reports` }; }), total: rows.length };
   },
-  // Claude Code sửa & ship xong → Đã sửa + báo người báo (và các phiếu trùng)
+  // PR có mã LX-xxxx vừa gộp (workflow report-autofix.yml) → Đang xử lý + ghi commit chờ lên live (event 'pr'); lặp lại cùng commit = bỏ qua
+  async progress(env, db, b, who) {
+    const commit = /^[0-9a-f]{40}$/i.test(b.commit || '') ? String(b.commit).toLowerCase() : ''; if (!commit) throw new Error('commit');
+    const pr = Math.max(0, Math.floor(+b.pr) || 0), ids = [...new Set((Array.isArray(b.ids) ? b.ids : []).map(rid))].filter(x => x > 0).slice(0, 20), out = [];
+    for (const id of ids) {
+      const r = await db.prepare('SELECT id, status, dup_of FROM reports WHERE id = ?').bind(id).first();
+      if (!r) { out.push({ id: tid(id), skip: 'not-found' }); continue; }
+      const root = r.dup_of && r.status === 'dup' ? r.dup_of : id; // PR ghi mã phiếu trùng → áp cho phiếu gốc (resolve kéo theo cả nhóm)
+      const st = root === id ? r.status : ((await db.prepare('SELECT status FROM reports WHERE id = ?').bind(root).first()) || {}).status;
+      if (['fixed', 'wontfix'].includes(st)) { out.push({ id: tid(root), skip: st }); continue; }
+      if (await db.prepare("SELECT id FROM report_events WHERE rid = ? AND act = 'pr' AND note LIKE ?").bind(root, commit + '%').first()) { out.push({ id: tid(root), skip: 'same-commit' }); continue; }
+      const o = st === 'prog' ? { mailed: false } : await apply(env, db, root, { status: 'prog' }, who.email);
+      await ev(db, root, who.email, 'pr', commit + (pr ? ' #' + pr : '')).run();
+      out.push({ id: tid(root), prog: true, mailed: !!o.mailed });
+    }
+    return { ok: true, rows: out };
+  },
+  // Phiếu Đang xử lý có commit đã gộp, chờ bản live chứa commit (workflow so tổ tiên git với CF_PAGES_COMMIT_SHA rồi gọi resolve)
+  async pending(env, db) {
+    const rows = (await db.prepare("SELECT r.id, e.note FROM reports r JOIN report_events e ON e.id = (SELECT MAX(id) FROM report_events WHERE rid = r.id AND act = 'pr') WHERE r.status = 'prog' AND r.dup_of IS NULL ORDER BY r.id LIMIT 100").all()).results || [];
+    return { rows: rows.map(r => ({ id: tid(r.id), commit: String(r.note || '').slice(0, 40) })).filter(r => /^[0-9a-f]{40}$/.test(r.commit)), live: /^[0-9a-f]{7,40}$/i.test(env.CF_PAGES_COMMIT_SHA || '') ? String(env.CF_PAGES_COMMIT_SHA).toLowerCase() : '' };
+  },
+  // Claude Code sửa & ship xong → Đã sửa + báo người báo (và các phiếu trùng). Đã sửa rồi → bỏ qua (không thư lặp – workflow gọi lại an toàn)
   async resolve(env, db, b, who) {
     const id = rid(b.id), commit = /^[0-9a-f]{7,40}$/i.test(b.commit || '') ? String(b.commit).slice(0, 12) : '', note = str(b.note, 1500);
-    const r = await db.prepare('SELECT id, cat FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
+    const r = await db.prepare('SELECT id, cat, status FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
+    if (r.status === 'fixed') return { ok: true, id: tid(id), skipped: 'already-fixed', dups: 0, mailed: 0 };
     const reply = (note || 'Fixed – thank you for reporting!') + (commit ? ` (commit ${commit})` : '');
     const fv = str(b.ver, 40) || commit;
     if (fv) await db.prepare('UPDATE reports SET fix_ver = ? WHERE id = ? OR dup_of = ?').bind(fv, id, id).run(); // trước khi gửi thư → thư ghi đúng phiên bản
@@ -457,7 +480,7 @@ Object.assign(OPS, {
 });
 export const ADMIN_OPS = Object.keys(OPS);
 
-export const CLI_OPS = ['queue', 'resolve'];
+export const CLI_OPS = ['queue', 'resolve', 'progress', 'pending'];
 const hex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
 export async function cliSign(key, ts, raw) { const k = await crypto.subtle.importKey('raw', new TextEncoder().encode(key), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']); return hex(await crypto.subtle.sign('HMAC', k, new TextEncoder().encode(ts + '.' + raw))); }
 async function cliOk(env, h, raw) {
@@ -487,7 +510,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
     }
     const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' }); // hasOwn: 'constructor' → Object(env) sẽ trả cả env
   { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
-    // Phiên Claude Code (scripts/report-cli.mjs): chỉ 'queue' & 'resolve', ký HMAC-SHA256 bằng LEXKITE_REPORT_CLI_KEY: X-Lexkite-Cli: <ts>.<hex(HMAC(key, ts + '.' + body))>, lệch ≤ 5 phút
+    // Phiên Claude Code / workflow report-autofix (scripts/report-cli.mjs): chỉ CLI_OPS, ký HMAC-SHA256 bằng LEXKITE_REPORT_CLI_KEY: X-Lexkite-Cli: <ts>.<hex(HMAC(key, ts + '.' + body))>, lệch ≤ 5 phút
     let g;
     const cli = request.headers.get('X-Lexkite-Cli');
     if (cli && CLI_OPS.includes(b.op)) { g = (await cliOk(env, cli, raw)) ? { who: { email: 'claude-code' } } : { status: 403, error: 'forbidden' }; }
