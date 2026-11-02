@@ -1,3 +1,8 @@
 # Stitch v3 kho mẫu – share (scripts/stitch/batch.mjs, 3 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
-share-card e3e78a424e8243829dec18af848ab4ca 4f3d1f8387d34b33978a4ccd9e913cf6 MOBILE QC | key1 project 7268539912208977707
-share-card-desktop 57c221c9b01c497c8ee17044da401c26 9538c2c09a3e4f76b3a188ada5971f4c DESKTOP QC | key1 project 7268539912208977707
+share-card e3e78a424e8243829dec18af848ab4ca 4f3d1f8387d34b33978a4ccd9e913cf6 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "→" 2.79<3) · dark: 3 vùng chạm < 44px (vd "arrow_back 40×40") · dark: tương phản 1 chữ (vd "C1 LEVEL" 4.37<4.5)
+share-card-ar d86dce97263a4fdb88ede74f3dfc3d24 a6542b28b9274c048daf66f7047d606b MOBILE QC | key1 project 7268539912208977707
+share-card-de 9eaeeb2e37a34965964a6f0a9e982830 5aedb6fa70af40559984354d4a584bf1 MOBILE QC | key1 project 7268539912208977707
+share-card-desktop 57c221c9b01c497c8ee17044da401c26 9538c2c09a3e4f76b3a188ada5971f4c DESKTOP QC | key1 project 7268539912208977707 · QC: light: 4 vùng chạm < 44px (vd "translate
+EN (US)
+
+15 La 222×42") · light: chỉ 1% sáng < 35% (bản sáng bị tối?) · dark: 3 vùng chạm < 44px (vd "Me 24×24") · dark: tương phản 1 chữ (vd "/" 1.61<4.5)

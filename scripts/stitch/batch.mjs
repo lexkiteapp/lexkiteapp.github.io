@@ -26,6 +26,7 @@ const save = () => { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(SF
 const cred = k => (st.credits[day] ??= {})[k] ??= { used: 0, fail: 0, limitedAt: null };
 const hash = j => crypto.createHash('sha1').update(JSON.stringify([j.kind || 'gen', j.from || '', j.device || 'MOBILE', j.count || 0, j.prompt])).digest('hex').slice(0, 12);
 const tag = j => `${j.id}/${j.mode}`;
+const latest = t => Object.values(st.jobs).filter(x => x.tag === t && x.status === 'done').sort((a, b) => String(b.at).localeCompare(String(a.at)))[0];
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
 
 async function rpc(k, name, args) {
@@ -49,13 +50,13 @@ function screens(d, acc = []) {
   return acc;
 }
 const sid = s => String(s.id || s.name || '').split('/').pop();
-async function grab(k, u, f) { if (!u) return false; const r = await fetch(u, { headers: { 'X-Goog-Api-Key': k.key } }); // tải file Stitch cần khoá if (!r.ok) return false;
+async function grab(k, u, f) { if (!u) return false; const r = await fetch(u, { headers: { 'X-Goog-Api-Key': k.key }, signal: AbortSignal.timeout(120e3) }).catch(() => null); if (!r) return false; // tải file Stitch cần khoá if (!r.ok) return false;
   const b = Buffer.from(await r.arrayBuffer()); let out = b; // :download trả JSON { dataString } (ảnh = base64, HTML = chữ thường)
-  try { const d = JSON.parse(b.toString('utf8')).dataString; if (typeof d === 'string') out = /^\s*</.test(d) ? Buffer.from(d, 'utf8') : Buffer.from(d, 'base64'); } catch {}
+  try { const o = JSON.parse(b.toString('utf8')); if (o.error) return false; const d = o.dataString; if (typeof d === 'string') out = /^\s*</.test(d) ? Buffer.from(d, 'utf8') : Buffer.from(d, 'base64'); } catch {}
   fs.writeFileSync(f, out); return true; }
 
 async function run(job, k) {
-  const h = hash(job), base = job.from && Object.values(st.jobs).find(x => x.tag === job.from && x.status === 'done');
+  const h = hash(job), base = job.from && latest(job.from);
   if (job.from && !base) return 'wait';
   if (base && base.key !== k.name) return 'otherkey';
   const args = { projectId: k.project, prompt: job.prompt, deviceType: job.device || 'MOBILE' };
@@ -105,7 +106,7 @@ async function worker(k) {
     if (c.used >= DAILY || started >= MAX || stopped()) return;
     // Việc gen tự do chọn khoá; edit/variants phải về đúng khoá của màn gốc.
     const job = queue.find(j => !isDone(j) && !busy.has(hash(j)) && (() => {
-      if (!j.from) return true; const b = Object.values(st.jobs).find(x => x.tag === j.from && x.status === 'done'); return b && b.key === k.name; })());
+      if (!j.from) return true; const b = latest(j.from); return b && b.key === k.name; })());
     if (!job) { if (queue.some(j => !isDone(j) && busy.size)) { await new Promise(r => setTimeout(r, 20e3)); continue; } return; }
     busy.add(hash(job)); started++;
     const r = await run(job, k); busy.delete(hash(job));

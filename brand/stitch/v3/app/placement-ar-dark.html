@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - اختبار تحديد المستوى</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+Arabic:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#6bd8ce",
+            "background": "#091518",
+            "surface-dim": "#091518",
+            "on-secondary": "#660800",
+            "primary-fixed": "#88f5ea",
+            "primary": "#6bd8ce",
+            "surface-container-high": "#202c2f",
+            "on-secondary-fixed": "#3f0300",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-primary-fixed-variant": "#00504b",
+            "on-tertiary-container": "#392900",
+            "on-error-container": "#ffdad6",
+            "surface-bright": "#2f3b3e",
+            "secondary": "#ffb4a6",
+            "outline": "#879391",
+            "on-primary-container": "#00322e",
+            "surface-container": "#162125",
+            "tertiary-container": "#ba8b00",
+            "error-container": "#93000a",
+            "on-background": "#d8e5e9",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container-low": "#121d20",
+            "on-surface-variant": "#bcc9c7",
+            "on-tertiary-fixed": "#261a00",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-fixed": "#00201e",
+            "primary-container": "#2ba39a",
+            "surface-variant": "#2b373a",
+            "on-secondary-container": "#ffa493",
+            "inverse-surface": "#d8e5e9",
+            "surface-container-highest": "#2b373a",
+            "tertiary-fixed": "#ffdf9e",
+            "inverse-primary": "#006a64",
+            "surface": "#091518",
+            "on-surface": "#d8e5e9",
+            "inverse-on-surface": "#263236",
+            "surface-tint": "#6bd8ce",
+            "secondary-fixed-dim": "#ffb4a6",
+            "error": "#ffb4ab",
+            "on-primary": "#003733",
+            "secondary-fixed": "#ffdad3",
+            "on-tertiary": "#402e00",
+            "secondary-container": "#981201",
+            "tertiary": "#f4bf40",
+            "surface-container-lowest": "#051013",
+            "outline-variant": "#3d4947",
+            "on-error": "#690005"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-xs": "4px",
+            "space-xl": "32px",
+            "gutter": "16px",
+            "space-sm": "8px",
+            "margin": "16px"
+          },
+          fontFamily: {
+            display: ["Noto Sans Arabic", "Plus Jakarta Sans", "sans-serif"],
+            title: ["Noto Sans Arabic", "Plus Jakarta Sans", "sans-serif"],
+            label: ["Noto Sans Arabic", "Plus Jakarta Sans", "sans-serif"],
+            body: ["Noto Sans Arabic", "Plus Jakarta Sans", "sans-serif"],
+            latin: ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile 3D physical press behaviors */
+    .tactile-primary-cta {
+      background: linear-gradient(135deg, #F2553B 0%, #FFC94A 100%);
+      box-shadow: 0 6px 0 #B53A22, inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-primary-cta:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #B53A22, inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .tactile-secondary-btn {
+      background: #162125;
+      border: 2px solid #3d4947;
+      box-shadow: 0 4px 0 #051013, inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #051013;
+    }
+
+    .tactile-card {
+      background: #162125;
+      border: 2px solid #3d4947;
+      box-shadow: 0 5px 0 #051013;
+    }
+
+    .tactile-option-selected {
+      background: rgba(43, 163, 154, 0.15);
+      border: 2px solid #2BA39A;
+      box-shadow: 0 5px 0 #0f4f4a, inset 0 1px 0 rgba(107, 216, 206, 0.3);
+      transform: translateY(0);
+    }
+    .tactile-option-selected:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #0f4f4a;
+    }
+
+    .tactile-option-idle {
+      background: #162125;
+      border: 2px solid #3d4947;
+      box-shadow: 0 5px 0 #091518, inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-option-idle:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #091518;
+    }
+
+    .tactile-icon-btn {
+      background: #162125;
+      border: 2px solid #3d4947;
+      box-shadow: 0 4px 0 #051013;
+    }
+    .tactile-icon-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #051013;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary" style="background-color: #10191B; color: #E8F1F0;">
+<!-- Mobile Screen Container (390px base viewport) -->
+<main class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col justify-between px-space-md py-space-sm relative border-x border-outline-variant/30 shadow-2xl" style="background-color: #10191B; border-color: #263D42;">
+<!-- Top Bar (Context & Calibration) -->
+<header class="w-full pt-2 pb-space-sm flex flex-col gap-space-sm">
+<!-- Row 1: Actions, Badges & Counter -->
+<div class="flex items-center justify-between gap-space-sm">
+<!-- Close Button (Exit test) -->
+<button aria-label="إغلاق الاختبار" class="tactile-icon-btn w-11 h-11 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:opacity-80 transition-all duration-200">
+<span class="material-symbols-outlined text-[22px]" data-icon="close">close</span>
+</button>
+<!-- Test Calibration Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/60 shadow-sm">
+<span class="text-tertiary text-xs select-none">⚡</span>
+<span class="font-label text-label text-primary font-bold tracking-tight">اختبار تحديد المستوى</span>
+</div>
+<!-- Numerals Counter (Western numerals preserved) -->
+<div class="flex items-center justify-center font-latin font-bold text-sm tracking-wider px-2.5 py-1.5 rounded-xl bg-surface-container-high text-on-surface border border-outline-variant/40 min-w-[54px] text-center" dir="ltr">
+          07/20
+        </div>
+</div>
+<!-- RTL Progress Bar (35% filled, starting from right to left) -->
+<div class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden p-[2px] border border-outline-variant/40 flex justify-start">
+<div class="h-full bg-gradient-to-l from-primary to-primary-container rounded-full relative transition-all duration-500 ease-out" style="width: 35%;">
+<!-- Glossy shine reflection -->
+<div class="absolute inset-x-0 top-0 h-[40%] bg-white/30 rounded-t-full"></div>
+</div>
+</div>
+<!-- Upper Status Chips: CEFR Level & Category -->
+<div class="flex items-center justify-between pt-1 text-xs">
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-lg border border-outline-variant/40 text-on-surface-variant">
+<span class="select-none">🎓</span>
+<span class="font-label text-[11px] text-tertiary font-bold" dir="ltr">CEFR B1–B2</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body text-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+<span>القواعد والتركيب</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Central Activity Canvas -->
+<div class="flex-1 flex flex-col gap-3.5 my-1">
+<!-- Coach Box (AI Placement Assistant Tip) -->
+<section class="w-full bg-surface-container-low/90 rounded-2xl border-2 border-dashed border-outline-variant/80 p-3 flex flex-col gap-2 relative overflow-hidden" style="background-color: #1E2F33; border-color: #263D42;">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<!-- AI Coach Avatar Avatar Badge -->
+<div class="w-7 h-7 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="font-label text-label text-primary font-bold">مدرب الذكاء الاصطناعي</span>
+</div>
+<!-- Setting / info chip -->
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium">
+<span>نصيحة تحديد المستوى</span>
+<span class="material-symbols-outlined text-xs opacity-75" data-icon="settings">settings</span>
+</div>
+</div>
+<p class="font-body text-[13px] leading-relaxed text-on-surface-variant/90 pr-0.5" style="color: #A9BDBB;">
+          اختر الخيار الذي يبدو الأكثر طبيعية في الكتابة الرسمية ويُظهر استمرارية الحدث حتى الوقت الحاضر.
+        </p>
+</section>
+<!-- Main Question Card (Tactile Dark Card #1A2C33, 2px border #36505A, 5px bottom ledge) -->
+<article class="tactile-card rounded-2xl p-4 flex flex-col gap-3 relative overflow-hidden">
+<!-- Top metadata inside card -->
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-primary font-label text-[11px] font-bold border border-outline-variant/30">
+            إكمال الجملة
+          </span>
+<button aria-label="استمع للجملة" class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-surface-container hover:bg-surface-bright border border-outline-variant text-on-surface text-xs font-bold transition-colors">
+<span>استمع</span>
+<span class="text-sm select-none">🔊</span>
+</button>
+</div>
+<!-- English Sentence Prompt (LTR layout for English grammar drill) -->
+<div class="bg-surface-container-lowest/80 rounded-xl p-3.5 border border-outline-variant/40" dir="ltr" style="background-color: #10191B; border-color: #263D42;">
+<p class="font-latin text-[16px] leading-[26px] font-semibold text-on-surface tracking-wide">“The economic survey indicates that private investment 
+            <span class="inline-flex items-center justify-center min-w-[96px] h-7 mx-1 px-2 border-b-2 border-dashed text-primary font-bold rounded" style="border-color: #38E1D2; color: #38E1D2; background-color: rgba(46, 196, 182, 0.15);">
+              ________
+            </span> 
+            steadily since the new regulations were introduced.”</p>
+</div>
+<!-- Micro helper note -->
+<div class="flex items-center gap-1.5 text-[12px] text-outline text-right">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="lightbulb">lightbulb</span>
+<span>انتبه لدلالة الرابط الزمني <strong>since</strong> في سياق الجملة.</span>
+</div>
+</article>
+<!-- Multiple Choice Options (Tactile Answer Cards Stack) -->
+<section aria-label="خيارات الإجابة" class="flex flex-col gap-2.5 pt-1" style="background-color: #1E2F33; border-color: #263D42;">
+<!-- Option A: SELECTED STATE -->
+<button aria-pressed="true" class="tactile-option-selected w-full rounded-2xl p-3 flex items-center justify-between text-right cursor-pointer group">
+<div class="flex items-center gap-3">
+<!-- Chip Letter A -->
+<div class="w-8 h-8 rounded-xl bg-primary text-on-primary font-latin font-extrabold text-sm flex items-center justify-center shrink-0 shadow-sm" style="background-color: #2EC4B6; color: #101B1D;">
+              A
+            </div>
+<div class="flex flex-col">
+<span class="font-latin text-base font-bold text-primary tracking-wide" dir="ltr" style="color: #38E1D2;">has grown</span>
+<span class="font-body text-xs text-primary-fixed-dim/90 font-medium" style="color: #A9BDBB;">المضارع التام • المدة</span>
+</div>
+</div>
+<!-- Selected Checkmark indicator -->
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0" style="background-color: #2EC4B6; color: #101B1D;">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="check">check</span>
+</div>
+</button>
+<!-- Option B: IDLE -->
+<button aria-pressed="false" class="tactile-option-idle w-full rounded-2xl p-3 flex items-center justify-between text-right cursor-pointer group hover:border-outline">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-surface-container-highest text-on-surface-variant font-latin font-bold text-sm flex items-center justify-center shrink-0 border border-outline-variant/60" style="background-color: #1E2F33; border-color: #263D42; color: #E8F1F0;">
+              B
+            </div>
+<div class="flex flex-col">
+<span class="font-latin text-base font-bold text-on-surface tracking-wide" dir="ltr">grew</span>
+<span class="font-body text-xs text-outline font-normal">الماضي البسيط</span>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border border-outline-variant group-hover:border-outline shrink-0"></div>
+</button>
+<!-- Option C: IDLE -->
+<button aria-pressed="false" class="tactile-option-idle w-full rounded-2xl p-3 flex items-center justify-between text-right cursor-pointer group hover:border-outline">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-surface-container-highest text-on-surface-variant font-latin font-bold text-sm flex items-center justify-center shrink-0 border border-outline-variant/60" style="background-color: #1E2F33; border-color: #263D42; color: #E8F1F0;">
+              C
+            </div>
+<div class="flex flex-col">
+<span class="font-latin text-base font-bold text-on-surface tracking-wide" dir="ltr">is growing</span>
+<span class="font-body text-xs text-outline font-normal">المضارع المستمر</span>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border border-outline-variant group-hover:border-outline shrink-0"></div>
+</button>
+<!-- Option D: IDLE -->
+<button aria-pressed="false" class="tactile-option-idle w-full rounded-2xl p-3 flex items-center justify-between text-right cursor-pointer group hover:border-outline">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-surface-container-highest text-on-surface-variant font-latin font-bold text-sm flex items-center justify-center shrink-0 border border-outline-variant/60" style="background-color: #1E2F33; border-color: #263D42; color: #E8F1F0;">
+              D
+            </div>
+<div class="flex flex-col">
+<span class="font-latin text-base font-bold text-on-surface tracking-wide" dir="ltr">had grown</span>
+<span class="font-body text-xs text-outline font-normal">الماضي التام</span>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border border-outline-variant group-hover:border-outline shrink-0"></div>
+</button>
+</section>
+</div>
+<!-- Bottom Action Controls (Fixed learning drill layout) -->
+<footer class="w-full pt-3 pb-2 flex flex-col gap-2.5">
+<!-- Primary CTA: 56px height, rounded 16px, gradient coral to amber, 6px ledge, dark ink text, RTL forward arrow -->
+<button class="tactile-primary-cta w-full h-14 rounded-2xl flex items-center justify-center gap-2 text-[#1B0B04] font-title font-extrabold text-base tracking-tight cursor-pointer">
+<span>تحقق من الإجابة</span>
+<!-- RTL Forward Arrow points LEFT -->
+<span class="text-lg leading-none font-bold select-none">←</span>
+</button>
+<!-- Secondary Button: "I don't know this yet" -->
+<button class="tactile-secondary-btn w-full h-11 rounded-xl flex items-center justify-center gap-2 text-on-surface-variant hover:text-on-surface text-xs font-bold transition-all" style="color: #E8F1F0;">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span>
+<span>لا أعرف الإجابة بعد</span>
+</button>
+<!-- Bottom Footnote: Explaining Calibration Accuracy -->
+<p class="text-[11px] leading-4 text-center text-outline/80 px-2 font-body font-normal" style="color: #A9BDBB;">
+        التخطي يضبط دقة مستوى CEFR دون أي خصم للنقاط.
+      </p>
+</footer>
+</main>
+<script>
+    // Lightweight tactile selection micro-interaction
+    document.addEventListener('DOMContentLoaded', () => {
+      const options = document.querySelectorAll('[aria-label="خيارات الإجابة"] button');
+      
+      options.forEach(btn => {
+        btn.addEventListener('click', () => {
+          options.forEach(other => {
+            other.setAttribute('aria-pressed', 'false');
+            other.className = 'tactile-option-idle w-full rounded-2xl p-3 flex items-center justify-between text-right cursor-pointer group hover:border-outline';
+            const chip = other.querySelector('.w-8');
+            if (chip) {
+              chip.className = 'w-8 h-8 rounded-xl bg-surface-container-highest text-on-surface-variant font-latin font-bold text-sm flex items-center justify-center shrink-0 border border-outline-variant/60';
+            }
+            const indicator = other.lastElementChild;
+            if (indicator) {
+              indicator.className = 'w-5 h-5 rounded-full border border-outline-variant group-hover:border-outline shrink-0';
+              indicator.innerHTML = '';
+            }
+            const titleSpan = other.querySelector('.font-latin.text-base');
+            if (titleSpan) titleSpan.className = 'font-latin text-base font-bold text-on-surface tracking-wide';
+            const subSpan = other.querySelector('.font-body.text-xs');
+            if (subSpan) subSpan.className = 'font-body text-xs text-outline font-normal';
+          });
+
+          // Set active state
+          btn.setAttribute('aria-pressed', 'true');
+          btn.className = 'tactile-option-selected w-full rounded-2xl p-3 flex items-center justify-between text-right cursor-pointer group';
+          const chip = btn.querySelector('.w-8');
+          if (chip) {
+            chip.className = 'w-8 h-8 rounded-xl bg-primary text-on-primary font-latin font-extrabold text-sm flex items-center justify-center shrink-0 shadow-sm';
+          }
+          const indicator = btn.lastElementChild;
+          if (indicator) {
+            indicator.className = 'w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0';
+            indicator.innerHTML = '<span class="material-symbols-outlined text-sm font-bold" data-icon="check">check</span>';
+          }
+          const titleSpan = btn.querySelector('.font-latin.text-base');
+          if (titleSpan) titleSpan.className = 'font-latin text-base font-bold text-primary tracking-wide';
+          const subSpan = btn.querySelector('.font-body.text-xs');
+          if (subSpan) subSpan.className = 'font-body text-xs text-primary-fixed-dim/90 font-medium';
+        });
+      });
+    });
+  </script>
+</body></html>

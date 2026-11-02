@@ -119,14 +119,14 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased min-h-screen pb-44 selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- Mobile Screen Container (390px centered or edge-to-edge mobile view) -->
 <div class="w-full max-w-[390px] mx-auto min-h-screen bg-background flex flex-col relative">
 <!-- Top App Bar (Shared Component Anchor Pattern) -->
 <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 h-16 flex items-center justify-between shadow-[0_4px_0_#eae1d8] transition-all">
 <div class="flex items-center gap-2">
-<button aria-label="Go back" class="w-10 h-10 rounded-full flex items-center justify-center text-primary bg-surface-container border border-surface-variant shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform" type="button">
+<button aria-label="Go back" class="rounded-full flex items-center justify-center text-primary bg-surface-container border border-surface-variant shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform min-h-[44px] px-3" type="button">
 <span class="material-symbols-outlined text-[22px]">arrow_back</span>
 </button>
 <div class="flex flex-col">
@@ -136,11 +136,11 @@
 </div>
 <!-- Live Countdown Chip & Options -->
 <div class="flex items-center gap-1.5">
-<div class="flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed px-2.5 py-1.5 rounded-full border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c]">
+<div class="flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed px-2.5 py-1.5 rounded-full border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c] min-h-[44px]">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">timer</span>
 <span class="font-label-sm text-label-sm tabular-nums">18:45 left</span>
 </div>
-<button aria-label="Bookmark session" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:translate-y-[2px] transition-transform" type="button">
+<button aria-label="Bookmark session" class="rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:translate-y-[2px] transition-transform min-h-[44px] px-3" type="button">
 <span class="material-symbols-outlined text-[20px]">bookmark</span>
 </button>
 </div>
@@ -158,15 +158,15 @@
 <p class="font-label-md text-label-md text-on-surface">teacher-slot</p>
 </div>
 </div>
-<span class="font-label-sm text-label-sm text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-full border border-primary-fixed">Unassigned</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-full border border-primary-fixed min-h-[44px] inline-flex items-center">Unassigned</span>
 </div>
 <!-- Segment Switcher Tab Controls -->
 <div class="bg-surface-variant p-1.5 rounded-2xl flex items-center gap-1 shadow-inner" role="tablist">
-<button aria-selected="true" class="flex-1 py-2 px-3 rounded-xl bg-surface-container-lowest text-primary font-label-md text-label-md shadow-[0_3px_0_#d8cfc3] flex items-center justify-center gap-1.5 transition-all" role="tab" type="button">
+<button aria-selected="true" class="flex-1 py-2 px-3 rounded-xl bg-surface-container-lowest text-primary font-label-md text-label-md shadow-[0_3px_0_#d8cfc3] flex items-center justify-center gap-1.5 transition-all min-h-[44px]" role="tab" type="button">
 <span class="material-symbols-outlined text-[18px]">menu_book</span>
 <span>Passage</span>
 </button>
-<button aria-selected="false" class="flex-1 py-2 px-3 rounded-xl text-on-surface-variant font-label-md text-label-md hover:bg-surface-container flex items-center justify-center gap-1.5 transition-all" role="tab" type="button">
+<button aria-selected="false" class="flex-1 py-2 px-3 rounded-xl text-on-surface-variant font-label-md text-label-md hover:bg-surface-container flex items-center justify-center gap-1.5 transition-all min-h-[44px]" role="tab" type="button">
 <span class="material-symbols-outlined text-[18px]">quiz</span>
 <span>Questions (1–3)</span>
 <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
@@ -196,7 +196,7 @@
 <div class="bg-surface-container-low rounded-xl p-3.5 border border-surface-variant text-on-surface text-body-md font-body-md space-y-3 leading-relaxed">
 <p>
             Recent entomological assessments have challenged conventional assumptions regarding pollinator viability in heavily built environments. Contrary to expectations, dense metropolitan centers often foster robust colonies that outlive their countryside counterparts. This divergence is largely attributed to altered 
-            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5" type="button">
+            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5 min-h-[44px]" type="button">
 <span>foraging behavior</span>
 <span class="material-symbols-outlined text-[14px]">volume_up</span>
 </button>
@@ -204,17 +204,17 @@
           </p>
 <p>
             Whereas agricultural mono-cultures generate severe nutritional deficits after brief flowering windows, urban landscaping guarantees steady 
-            <button class="inline-flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed border border-secondary-fixed-dim px-2 py-0.5 rounded-lg shadow-[0_2px_0_#ffb86c] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5" type="button">
+            <button class="inline-flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed border border-secondary-fixed-dim px-2 py-0.5 rounded-lg shadow-[0_2px_0_#ffb86c] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5 min-h-[44px]" type="button">
 <span>biodiversity</span>
 <span class="material-symbols-outlined text-[14px]">translate</span>
 </button>
             across municipal parks and residential terraces. Such
-            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5" type="button">
+            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5 min-h-[44px]" type="button">
 <span>nutritional variety</span>
 <span class="material-symbols-outlined text-[14px]">info</span>
 </button>
             fortifies the immune profiles of 
-            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5" type="button">
+            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5 min-h-[44px]" type="button">
 <span>subsequent colonies</span>
 <span class="material-symbols-outlined text-[14px]">volume_up</span>
 </button>
@@ -222,7 +222,7 @@
           </p>
 </div>
 <!-- Inline Pronunciation / Vocabulary Hint Drawer Pill -->
-<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container border border-surface-variant">
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container border border-surface-variant min-h-[44px]">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-[20px]">school</span>
 <span class="font-label-sm text-label-sm text-on-surface">Tap underlined keywords to view lexical notes</span>

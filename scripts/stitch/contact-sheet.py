@@ -12,7 +12,9 @@ for d in sorted(os.listdir(SRC)):
     ims = []
     for m in ('light', 'dark'):
         f = os.path.join(p, m + '.png')
-        if os.path.exists(f):
+        try: ok = os.path.exists(f) and Image.open(f).verify() is None
+        except Exception: ok = False  # ảnh tải hỏng → ô xám, không làm hỏng cả tờ
+        if ok:
             im = Image.open(f).convert('RGB'); im = im.resize((W, max(1, round(im.height * W / im.width))))
             ims.append(im.crop((0, 0, W, min(H, im.height))))
         else: ims.append(Image.new('RGB', (W, 120), '#999'))

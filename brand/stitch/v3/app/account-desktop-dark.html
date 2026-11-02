@@ -163,25 +163,7 @@
 </div>
 </aside>
 <!-- Main Content Background (Workbench blurred under overlay) -->
-<main class="flex-1 p-8 lg:p-10 flex flex-col gap-8 opacity-30 pointer-events-none select-none">
-<div class="flex items-center justify-between">
-<div>
-<h1 class="text-3xl font-black text-[#E8F1F0]">Profile &amp; Academic Settings</h1>
-<p class="text-sm font-semibold text-[#A9BDBB]">Configure study targets, spaced repetition algorithm, and cloud storage.</p>
-</div>
-<div class="h-11 px-5 rounded-2xl bg-[#172427] border-2 border-[#23383D] flex items-center gap-2 font-bold text-sm text-[#A9BDBB]">
-<span class="material-symbols-rounded text-[#2DD4BF]">settings</span>
-<span>General Preferences</span>
-</div>
-</div>
-<!-- Backdrop Mock Cards -->
-<div class="grid grid-cols-3 gap-6">
-<div class="h-44 rounded-3xl bg-[#172427] border-2 border-[#23383D]"></div>
-<div class="h-44 rounded-3xl bg-[#172427] border-2 border-[#23383D]"></div>
-<div class="h-44 rounded-3xl bg-[#172427] border-2 border-[#23383D]"></div>
-</div>
-<div class="h-96 rounded-3xl bg-[#172427] border-2 border-[#23383D]"></div>
-</main>
+<main class="flex-1 p-8 lg:p-10 flex flex-col gap-8 opacity-30 pointer-events-none select-none"><div class="flex items-center justify-between"><div class="h-10 w-64 rounded-2xl bg-[#172427] border-2 border-[#23383D]"></div><div class="h-11 w-44 rounded-2xl bg-[#172427] border-2 border-[#23383D]"></div></div><div class="grid grid-cols-3 gap-6"><div class="h-44 rounded-3xl bg-[#172427] border-2 border-[#23383D]"></div><div class="h-44 rounded-3xl bg-[#172427] border-2 border-[#23383D]"></div><div class="h-44 rounded-3xl bg-[#172427] border-2 border-[#23383D]"></div></div><div class="h-96 rounded-3xl bg-[#172427] border-2 border-[#23383D]"></div></main>
 </div>
 <!-- Accessible Scrim / Modal Overlay for Bottom Sheet (Dark Tactile Night Focus View) -->
 <div class="fixed inset-0 bg-[#050C0D]/80 backdrop-blur-[4px] z-50 flex items-center justify-center p-4 lg:p-6 overflow-y-auto">
@@ -195,7 +177,7 @@
 </div>
 <div>
 <h2 class="text-lg font-black text-[#E8F1F0] tracking-tight">Account &amp; Sync</h2>
-<p class="text-xs font-bold text-[#A9BDBB]">Multi-device synchronization &amp; cloud credentials</p>
+<p class="text-xs font-bold text-[#E8F1F0]">Multi-device synchronization &amp; cloud credentials</p>
 </div>
 </div>
 <!-- Close Dialog Button (min 44x44px tap target, dark styled) -->
@@ -215,14 +197,14 @@
 <div class="flex flex-col">
 <div class="flex flex-wrap items-center gap-2">
 <span class="text-lg font-extrabold text-[#E8F1F0]">Alex Nguyen</span>
-<span class="px-2 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-[#3B250B] border border-[#78460F] text-[#FBBF24]">IELTS PRO</span>
-<span class="px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-[#16383B] border border-[#1D5452] text-[#2DD4BF]">Level 18</span>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-coral text-coral-ink border border-[#D97706]">IELTS PRO</span>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-[#0F3D3E] border border-[#2DD4BF]/50 text-[#FFFFFF]">Level 18</span>
 </div>
-<p class="text-sm font-semibold text-[#A9BDBB] break-all">alex.nguyen@example.com</p>
+<p class="text-sm font-semibold text-[#E8F1F0] break-all">alex.nguyen@example.com</p>
 <div class="flex items-center gap-1.5 mt-1">
 <span class="w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse"></span>
 <span class="text-xs font-bold text-[#2DD4BF]">Synced 2 min ago</span>
-<span class="text-xs font-medium text-[#A9BDBB]">· Automatic background cloud sync</span>
+<span class="text-xs font-bold text-[#E8F1F0]">· Automatic background cloud sync</span>
 </div>
 </div>
 </div>
@@ -233,85 +215,26 @@
 </button>
 </div>
 <!-- 2. Empty Teacher Slot (Required per spec: rounded empty placeholder labelled "teacher-slot", strictly NO person/photo) -->
-<div class="teacher-slot border-2 border-dashed border-[#2DD4BF]/60 bg-[#142A2C]/80 rounded-2xl p-4 flex items-center gap-4 transition-all">
-<div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-[#1A3B3E] border border-[#2DD4BF]/40 flex items-center justify-center text-[#2DD4BF]">
-<span class="material-symbols-rounded text-2xl">school</span>
-</div>
-<div class="flex-1">
-<div class="flex items-center gap-2">
-<span class="text-xs font-black uppercase tracking-wider text-[#2DD4BF]">TEACHER-SLOT</span>
-<span class="text-[11px] font-bold text-[#A9BDBB]">Coach Ama / Carlos</span>
-</div>
-<p class="text-xs font-semibold text-[#E8F1F0] mt-0.5">
-              "Your flashcard progress, spaced repetition intervals, and exam diagnostics stay synchronised across all your devices."
-            </p>
-</div>
-</div>
+<div class="teacher-slot border-2 border-dashed border-[#2DD4BF]/60 bg-[#142A2C]/80 rounded-2xl p-4 flex items-center gap-4 transition-all"><div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-[#1A3B3E] border border-[#2DD4BF]/50 flex items-center justify-center text-[#2DD4BF]"><span class="material-symbols-rounded text-2xl">school</span></div><div class="flex-1"><div class="flex items-center gap-2"><span class="text-xs font-black uppercase tracking-wider text-[#2DD4BF]">TEACHER-SLOT</span><span class="text-xs font-bold text-[#E8F1F0]">Coach Ama / Carlos</span></div><p class="text-xs font-semibold text-[#FFFFFF] mt-0.5">“Your flashcard progress, spaced repetition intervals, and exam diagnostics stay synchronised across all your devices.”</p></div></div>
 <!-- 3. Connected Devices List -->
 <div class="flex flex-col gap-3">
 <div class="flex items-center justify-between">
-<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#A9BDBB] flex items-center gap-2">
-<span class="material-symbols-rounded text-[#2DD4BF] text-lg">devices</span>
-<span>Active Devices (2)</span>
-</h3>
+<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#E8F1F0] flex items-center gap-2"><span class="material-symbols-rounded text-[#2DD4BF] text-lg">devices</span><span>Active Devices (2)</span></h3>
 <button class="text-xs font-extrabold text-[#2DD4BF] hover:underline flex items-center gap-1 min-h-[44px] px-2" type="button">
 <span class="material-symbols-rounded text-sm">add_circle</span>
 <span>Pair new device</span>
 </button>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-<!-- Device 1: Mobile Phone -->
-<div class="bg-[#1E2F33] border-2 border-[#2A4248] rounded-2xl p-4 flex items-center justify-between shadow-tactile-sm">
-<div class="flex items-center gap-3">
-<div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#172427] border border-[#2A4248] flex items-center justify-center text-[#2DD4BF]">
-<span class="material-symbols-rounded text-2xl">smartphone</span>
-</div>
-<div>
-<div class="flex items-center gap-1.5">
-<p class="text-sm font-extrabold text-[#E8F1F0]">iPhone 15 Pro</p>
-<span class="px-1.5 py-0.2 rounded bg-[#16383B] text-[#2DD4BF] font-black text-[10px]">CURRENT</span>
-</div>
-<p class="text-xs font-medium text-[#A9BDBB]">Lexkite Mobile App v2.4.0</p>
-<p class="text-[11px] font-semibold text-[#2DD4BF]">Active now · London, UK</p>
-</div>
-</div>
-<div class="w-8 h-8 rounded-full bg-[#16383B] border border-[#1D5452] flex items-center justify-center text-[#2DD4BF]">
-<span class="material-symbols-rounded text-lg">check_circle</span>
-</div>
-</div>
-<!-- Device 2: Browser Add-on -->
-<div class="bg-[#1E2F33] border-2 border-[#2A4248] rounded-2xl p-4 flex items-center justify-between shadow-tactile-sm">
-<div class="flex items-center gap-3">
-<div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#172427] border border-[#2A4248] flex items-center justify-center text-[#2DD4BF]">
-<span class="material-symbols-rounded text-2xl">extension</span>
-</div>
-<div>
-<div class="flex items-center gap-1.5">
-<p class="text-sm font-extrabold text-[#E8F1F0]">Chrome Browser Extension</p>
-</div>
-<p class="text-xs font-medium text-[#A9BDBB]">MacBook Pro · macOS</p>
-<p class="text-[11px] font-semibold text-[#A9BDBB]">Paired 3 days ago · Auto-sync ON</p>
-</div>
-</div>
-<button aria-label="Unlink device" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#172427] border border-[#2A4248] hover:bg-[#25393E] text-[#A9BDBB] hover:text-[#DC2626] flex items-center justify-center transition-all" type="button">
-<span class="material-symbols-rounded text-lg">link_off</span>
-</button>
-</div>
-</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5"><div class="bg-[#1E2F33] border-2 border-[#2A4248] rounded-2xl p-4 flex items-center justify-between shadow-tactile-sm"><div class="flex items-center gap-3"><div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#172427] border border-[#2A4248] flex items-center justify-center text-[#2DD4BF]"><span class="material-symbols-rounded text-2xl">smartphone</span></div><div><div class="flex items-center gap-1.5"><p class="text-sm font-extrabold text-[#E8F1F0]">iPhone 15 Pro</p><span class="px-2 py-0.5 rounded-md bg-[#2DD4BF] text-[#051013] font-black text-[10px]">CURRENT</span></div><p class="text-xs font-medium text-[#E8F1F0]">Lexkite Mobile App v2.4.0</p><p class="text-xs font-bold text-[#2DD4BF]">Active now · London, UK</p></div></div><div class="w-9 h-9 rounded-full bg-[#0F3D3E] border border-[#2DD4BF]/60 flex items-center justify-center text-[#2DD4BF]"><span class="material-symbols-rounded text-lg">check_circle</span></div></div><div class="bg-[#1E2F33] border-2 border-[#2A4248] rounded-2xl p-4 flex items-center justify-between shadow-tactile-sm"><div class="flex items-center gap-3"><div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#172427] border border-[#2A4248] flex items-center justify-center text-[#2DD4BF]"><span class="material-symbols-rounded text-2xl">extension</span></div><div><div class="flex items-center gap-1.5"><p class="text-sm font-extrabold text-[#E8F1F0]">Chrome Browser Extension</p></div><p class="text-xs font-medium text-[#E8F1F0]">MacBook Pro · macOS</p><p class="text-xs font-bold text-[#2DD4BF]">Paired 3 days ago · Auto-sync ON</p></div></div><button aria-label="Unlink device" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#172427] border border-[#2A4248] hover:bg-[#25393E] text-[#E8F1F0] hover:text-[#DC2626] flex items-center justify-center transition-all" type="button"><span class="material-symbols-rounded text-lg">link_off</span></button></div></div>
 </div>
 <!-- 4. Data Portability, Backup & Export Row -->
 <div class="bg-[#1E2F33] border-2 border-[#2A4248] rounded-2xl p-5 flex flex-col gap-4 shadow-tactile-sm">
 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#2A4248] pb-3">
 <div>
-<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#E8F1F0] flex items-center gap-2">
-<span class="material-symbols-rounded text-[#2DD4BF] text-lg">cloud_sync</span>
-<span>Data Portability &amp; Encrypted Backup</span>
-</h3>
-<p class="text-xs font-semibold text-[#A9BDBB] mt-0.5">45-day streak, 1,240 mastered words, and SM-2 retention curves</p>
+<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#E8F1F0] flex items-center gap-2"><span class="material-symbols-rounded text-[#2DD4BF] text-lg">devices</span><span>Active Devices (2)</span></h3>
+<p class="text-xs font-semibold text-[#E8F1F0] mt-0.5">45-day streak, 1,240 mastered words, and SM-2 retention curves</p>
 </div>
-<span class="px-2.5 py-1 rounded-full bg-[#16383B] border border-[#1D5452] text-[#2DD4BF] font-extrabold text-xs self-start sm:self-auto">
-              AES-256 Active
-            </span>
+<span class="px-2.5 py-1 rounded-full bg-[#0F3D3E] border border-[#2DD4BF]/50 text-[#FFFFFF] font-extrabold text-xs self-start sm:self-auto">AES-256 Active</span>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 <!-- Export Anki / CSV Button -->
@@ -320,7 +243,7 @@
 <span class="material-symbols-rounded text-[#2DD4BF] text-lg">download</span>
 <span>Export Vocabulary &amp; Decks (.apkg / .csv)</span>
 </span>
-<span class="material-symbols-rounded text-base text-[#A9BDBB]">chevron_right</span>
+<span class="material-symbols-rounded text-base text-[#2DD4BF]">chevron_right</span>
 </button>
 <!-- Export Full Study History JSON -->
 <button class="min-h-[48px] px-4 py-2.5 rounded-xl bg-[#172427] border-2 border-[#2A4248] hover:bg-[#203236] text-[#E8F1F0] font-bold text-xs flex items-center justify-between transition-all shadow-tactile-sm active:translate-y-0.5 active:shadow-none" type="button">
@@ -328,7 +251,7 @@
 <span class="material-symbols-rounded text-[#2DD4BF] text-lg">data_object</span>
 <span>Export Progress Logs &amp; Badges (JSON)</span>
 </span>
-<span class="material-symbols-rounded text-base text-[#A9BDBB]">chevron_right</span>
+<span class="material-symbols-rounded text-base text-[#2DD4BF]">chevron_right</span>
 </button>
 </div>
 </div>
@@ -352,9 +275,7 @@
 <span class="material-symbols-rounded text-[#DC2626] text-2xl shrink-0 mt-0.5">warning</span>
 <div>
 <p class="text-xs font-black text-[#DC2626] uppercase tracking-wider">Danger Zone</p>
-<p class="text-xs font-bold text-[#A9BDBB] leading-relaxed">
-                  Permanently delete account, streaks, flashcard progress, and cloud data. This action cannot be undone.
-                </p>
+<p class="text-xs font-bold text-[#E8F1F0] leading-relaxed">Permanently delete account, streaks, flashcard progress, and cloud data. This action cannot be undone.</p>
 </div>
 </div>
 <!-- Delete Account Button (Danger, separated, min 44x44px) -->
@@ -366,13 +287,7 @@
 </div>
 </div>
 <!-- Modal Footer Info Note -->
-<div class="px-6 py-3 bg-[#121E20] border-t-2 border-[#23383D] flex items-center justify-between text-[11px] font-bold text-[#A9BDBB]">
-<span class="flex items-center gap-1">
-<span class="material-symbols-rounded text-xs text-[#2DD4BF]">verified_user</span>
-<span>Zero-tracking pledge: Audio &amp; study telemetry strictly encrypted</span>
-</span>
-<span>Build 9428 · CEFR v2.4</span>
-</div>
+<div class="px-6 py-3 bg-[#121E20] border-t-2 border-[#23383D] flex items-center justify-between text-[11px] font-bold text-[#E8F1F0]"><span class="flex items-center gap-1"><span class="material-symbols-rounded text-xs text-[#2DD4BF]">verified_user</span><span>Zero-tracking pledge: Audio &amp; study telemetry strictly encrypted</span></span><span class="text-[#2DD4BF]">Build 9428 · CEFR v2.4</span></div>
 </div>
 </div>
 </body></html>
