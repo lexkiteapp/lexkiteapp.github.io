@@ -40,13 +40,26 @@ const cdp = (method, params) => new Promise(r => { const i = ++id; const tm = se
 const ev = async expr => { const r = await cdp('Runtime.evaluate', { expression: `(async () => { ${expr} })()`, awaitPromise: true, returnByValue: true }); if (r.result && r.result.exceptionDetails) return { __err: JSON.stringify(r.result.exceptionDetails).slice(0, 300) }; return r.result && r.result.result ? r.result.result.value : undefined; };
 if (!(await connect())) { fail('Không mở được DevTools của WebView'); finish(); }
 
-// ---- 1. bật cờ ads_android (lk.cfg) + nhóm a (không phải đối chứng) → tải lại ----
-await ev(`localStorage.setItem('lk.cfg', JSON.stringify({ at: Date.now() + 864e5, v: { ads_android: '1' } })); localStorage.setItem('lk.vid', 'aaaaaaaa'); localStorage.setItem('lk.ads', JSON.stringify({ firstAt: Date.now() - 3 * 864e5 })); return 1`);
-await ev('location.reload(); return 1'); try { ws.close(); } catch (e) { /* bỏ qua */ }
-await sleep(8000);
-if (!(await connect())) { fail('Mất DevTools sau khi tải lại'); finish(); }
-info.boot = await ev(`return { plat: Capacitor.getPlatform(), plugin: !!(Capacitor.Plugins && Capacitor.Plugins.AdMob), on: !!(window.Ads && Ads.on()) }`);
-console.log('boot', JSON.stringify(info.boot));
+// ---- 1. người dùng ĐÃ qua onboarding (máy mới cài mở #/welcome = vùng cấm HARD 'onboarding', policy.js ZONES – #444) + cờ ads_android (lk.cfg) + nhóm a → tải lại ----
+// Chờ lượt tải /api/config đầu tiên của app (app.js cfg()) ghi xong lk.cfg rồi mới ghi đè: nếu không, phản hồi đến muộn trên giả lập ghi đè cờ → Ads.on() = false.
+info.cfg0 = await ev(`for (let k = 0; k < 30 && !localStorage.getItem('lk.cfg'); k++) await new Promise(r => setTimeout(r, 500)); return !!localStorage.getItem('lk.cfg')`);
+const prep = `for (let k = 0; k < 30 && !(window.App && App.state && App.state.settings && App.saveSettings); k++) await new Promise(r => setTimeout(r, 500));
+  App.state.settings.onboarded = true; await App.saveSettings();
+  localStorage.setItem('lk.cfg', JSON.stringify({ at: Date.now() + 864e5, v: { ads_android: '1' } })); localStorage.setItem('lk.vid', 'aaaaaaaa'); localStorage.setItem('lk.ads', JSON.stringify({ firstAt: Date.now() - 3 * 864e5 })); return 1`;
+for (let k = 0; k < 3; k++) {
+  await ev(prep);
+  // mở lại như người dùng quay lại app (#/home) – tải lại giữ nguyên hash #/welcome của lần mở đầu thì vẫn là vùng cấm
+  await ev("history.replaceState(null, '', location.pathname + location.search + '#/home'); location.reload(); return 1"); try { ws.close(); } catch (e) { /* bỏ qua */ }
+  await sleep(8000);
+  if (!(await connect())) { fail('Mất DevTools sau khi tải lại'); finish(); }
+  // chờ vỏ ads.js + router vẽ trang đầu (app-loader nạp JS sau lần vẽ đầu)
+  info.boot = await ev(`for (let k = 0; k < 30 && !(window.Ads && window.App && location.hash); k++) await new Promise(r => setTimeout(r, 500));
+    return { plat: Capacitor.getPlatform(), plugin: !!(Capacitor.Plugins && Capacitor.Plugins.AdMob), on: !!(window.Ads && Ads.on()), cfg: (JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}).ads_android, hash: location.hash, onboarded: !!(App.state.settings || {}).onboarded }`);
+  console.log('boot', JSON.stringify(info.boot));
+  if (info.boot && info.boot.cfg === '1' && info.boot.onboarded && !/^#\/welcome/.test(info.boot.hash || '')) break;
+  console.log('… lk.cfg/onboarded/hash chưa đúng sau khi tải lại – ghi lại lần ' + (k + 2));
+}
+if (!info.boot || !info.boot.onboarded || /^#\/welcome/.test(info.boot.hash || '')) fail('App vẫn ở onboarding (' + JSON.stringify(info.boot && info.boot.hash) + ') – vùng cấm, bài test phải chạy như người dùng đã học');
 if (!info.boot || !info.boot.plugin) fail('Không có plugin AdMob trong bản build (ADS_NATIVE=1?)'); else ok('Plugin AdMob có trong app');
 if (!info.boot || !info.boot.on) fail('Vỏ Ads.on() = false dù lk.cfg ads_android = 1');
 
@@ -61,6 +74,8 @@ console.log('setup', JSON.stringify(info.setup));
 if (!info.setup || info.setup.testing !== true || !String(info.setup.unit).startsWith(TEST_PUB + '/') || !String(info.setup.inter).startsWith(TEST_PUB + '/')) { fail('Không phải mã THỬ của Google – dừng (không bao giờ gọi mã thật)'); finish(); }
 ok('testing = true, mã thử ' + info.setup.unit);
 if (!info.setup.can) fail('AdsRun.canReward("ai") = false');
+if (info.setup && !info.setup.can) console.log('why', JSON.stringify(await ev(`const P = AdsPolicy, r = (location.hash.replace(/^#\\/?/, '').split(/[/?]/)[0] || 'home');
+  return { plat: window.Capacitor && Capacitor.getPlatform(), on: Ads.on(), hash: location.hash, path: location.pathname, brk: !!document.querySelector('#aoHost, [data-ad-break]'), st: AdsRun._st && AdsRun._st(), zone: P.zone ? P.zone({ route: r, path: location.pathname }) : null, blocked: P.blocked({ plat: 'android', route: r, path: location.pathname }, 'rew') }`)));
 const adev = async () => { const v = await ev('return (window.__adev || []).slice()'); return Array.isArray(v) ? v : []; };
 const waitEv = async (re, ms) => { for (let t = 0; t < ms; t += 1000) { const l = await adev(); const e = l.find(x => re.test(x.n)); if (e) return e; await sleep(1000); } return null; };
 

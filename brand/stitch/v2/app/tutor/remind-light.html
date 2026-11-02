@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Tutor &amp; Reminders - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed": "#a4f1e7",
+            "primary-container": "#136a63",
+            "tertiary-fixed-dim": "#f5bf31",
+            "inverse-primary": "#88d4cb",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#ffd370",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-surface-variant": "#3f4947",
+            "on-primary-fixed-variant": "#00504a",
+            "on-tertiary-fixed": "#251a00",
+            "tertiary-container": "#785a00",
+            "inverse-on-surface": "#fdeee3",
+            "inverse-surface": "#372f28",
+            "surface-container-low": "#fff1e8",
+            "secondary": "#8c5000",
+            "outline": "#6f7977",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#9be7de",
+            "on-secondary-fixed": "#2d1600",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#88d4cb",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "surface-container-high": "#f4e5db",
+            "surface-container": "#faebe1",
+            "surface-dim": "#e6d7cd",
+            "on-background": "#211a14",
+            "surface": "#fff8f5",
+            "secondary-container": "#fd9500",
+            "surface-variant": "#efe0d6",
+            "primary": "#00504b",
+            "on-surface": "#211a14",
+            "surface-tint": "#126a63",
+            "secondary-fixed-dim": "#ffb872",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#ffdf9b",
+            "secondary-fixed": "#ffdcbf",
+            "on-secondary-container": "#633700",
+            "surface-container-highest": "#efe0d6",
+            "outline-variant": "#bec9c6",
+            "surface-bright": "#fff8f5",
+            "background": "#fff8f5",
+            "tertiary": "#5b4300"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-lg": "2rem",
+            "space-xl": "2.5rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "margin-lg": "3rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "margin-md": "2rem",
+            "gutter-md": "1.5rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex justify-center min-h-screen select-none font-body-md text-body-md">
+<!-- Mobile Canvas Frame: strictly 390px, no system frame, no status bar -->
+<main class="w-[390px] max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-28">
+<!-- INNER Top App Bar (56px tall) -->
+<header class="sticky top-0 z-40 bg-surface w-full h-14 px-space-md flex items-center justify-between shadow-[0_3px_0_0_#efe0d6]">
+<div class="flex items-center gap-3">
+<!-- Back circle button with tactile drop ledge -->
+<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#d8cdb6] active:translate-y-[2px] active:shadow-[0_1px_0_0_#d8cdb6] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Tutor &amp; reminders</h1>
+</div>
+<!-- Right slot intentionally clean/empty -->
+<div class="w-8"></div>
+</header>
+<!-- Main Content Stream -->
+<div class="px-space-md pt-space-lg flex flex-col gap-space-lg">
+<!-- 1) Card: Daily reminder -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_5px_0_0_#efe0d6] flex flex-col gap-4">
+<!-- Header row + toggle -->
+<div class="flex items-center justify-between pb-3 border-b border-surface-container">
+<span class="font-headline-sm text-[18px] text-on-surface font-extrabold tracking-tight">Daily reminder</span>
+<!-- Tactile Candy Toggle ON -->
+<button aria-checked="true" aria-label="Toggle daily reminders" class="w-14 h-8 bg-primary-container rounded-full border-2 border-[#0b423e] shadow-[0_3px_0_0_#0b423e] flex items-center justify-end px-1 relative transition-all active:translate-y-[1px]" role="switch" type="button">
+<span class="w-5 h-5 rounded-full bg-surface-container-lowest shadow-[0_2px_0_0_#bec9c6] block ring-1 ring-black/5"></span>
+</button>
+</div>
+<!-- Row: Time -->
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Time</span>
+<button class="flex items-center gap-1.5 bg-surface-container-low border-2 border-surface-variant px-3 py-1.5 rounded-full shadow-[0_2px_0_0_#d8cdb6] active:translate-y-[1px] active:shadow-none transition-all" type="button">
+<span class="font-headline-sm text-[15px] font-bold text-primary">19:30</span>
+<span class="material-symbols-outlined text-primary text-[18px]">expand_more</span>
+</button>
+</div>
+<!-- Row: Match my habit -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Match my habit</span>
+<!-- Toggle ON -->
+<button aria-checked="true" aria-label="Toggle match my habit" class="w-12 h-7 bg-primary-container rounded-full border-2 border-[#0b423e] shadow-[0_2px_0_0_#0b423e] flex items-center justify-end px-1 transition-all active:translate-y-[1px]" role="switch" type="button">
+<span class="w-4 h-4 rounded-full bg-surface-container-lowest shadow-[0_1.5px_0_0_#bec9c6] block"></span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-[#142427] font-medium leading-tight">Ama picks the time you usually study</p>
+</div>
+<!-- Row: Quiet hours -->
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-lg text-label-lg text-on-surface">Quiet hours</span>
+<button class="flex items-center gap-1 bg-surface-container-low border-2 border-surface-variant px-3 py-1.5 rounded-full shadow-[0_2px_0_0_#d8cdb6] active:translate-y-[1px] active:shadow-none transition-all" type="button">
+<span class="font-label-md text-label-md font-bold text-on-surface">22:00–07:00</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">chevron_right</span>
+</button>
+</div>
+<!-- Bottom calm note -->
+<div class="mt-1 pt-2.5 border-t border-surface-container flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px] text-primary">info</span>
+<span class="font-body-sm text-[13px] text-[#142427] font-semibold">At most 1 reminder a day</span>
+</div>
+</section>
+<!-- 2) Notification Preview Section -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center gap-1.5 px-1">
+<span class="material-symbols-outlined text-primary text-[18px]">notifications_active</span>
+<span class="font-label-sm text-label-sm font-extrabold uppercase tracking-wider text-primary">Notification preview</span>
+</div>
+<!-- Notification Bubble -->
+<div class="bg-surface-container-lowest rounded-2xl border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex items-start gap-3 relative">
+<!-- Empty dashed teacher slot circle (strictly no faces/people) -->
+<div class="w-9 h-9 min-w-[36px] rounded-full border-2 border-dashed border-[#a0aec0] bg-surface-container-low flex items-center justify-center">
+<span class="w-2 h-2 rounded-full bg-[#cbd5e1]"></span>
+</div>
+<div class="flex flex-col flex-1 pr-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-extrabold text-on-surface">Lexkite • Ama</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant font-bold">now</span>
+</div>
+<p class="font-body-sm text-[13px] leading-snug text-[#142427] font-medium mt-0.5">
+<span class="font-bold text-on-surface">Ama:</span> Yesterday 'affect' was tricky. Try again for 1 minute?
+            </p>
+</div>
+</div>
+</section>
+<!-- 3) Card: Session length -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_5px_0_0_#efe0d6] flex flex-col gap-3">
+<h2 class="font-headline-sm text-[18px] text-on-surface font-extrabold tracking-tight">Session length</h2>
+<!-- Tactile 3-option Segmented Control -->
+<div class="grid grid-cols-3 gap-2 bg-surface-container-low p-1.5 rounded-2xl border-2 border-surface-variant">
+<!-- 5 min (unselected) -->
+<button class="py-2.5 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] text-on-surface font-label-md text-label-md font-bold active:translate-y-[2px] active:shadow-none transition-all text-center" type="button">
+            5 min
+          </button>
+<!-- 10 min (selected) deep teal with 3px ledge -->
+<button class="py-2.5 rounded-DEFAULT bg-primary-container border-2 border-[#0b423e] shadow-[0_3px_0_0_#0b423e] text-on-primary font-label-md text-label-md font-extrabold transition-all text-center relative" type="button">
+            10 min
+          </button>
+<!-- 15 min (unselected) -->
+<button class="py-2.5 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] text-on-surface font-label-md text-label-md font-bold active:translate-y-[2px] active:shadow-none transition-all text-center" type="button">
+            15 min
+          </button>
+</div>
+</section>
+<!-- 4) Card: Your tutor -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_5px_0_0_#efe0d6] flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-[18px] text-on-surface font-extrabold tracking-tight">Your tutor</h2>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Tile 1 (Selected: Ama) -->
+<div class="relative bg-surface-container-low rounded-DEFAULT border-2 border-primary-container p-3 flex flex-col items-center shadow-[0_4px_0_0_#136a63]">
+<!-- Selection Checkmark Badge at top right -->
+<div class="absolute top-2 right-2 w-6 h-6 rounded-full bg-primary-container border-2 border-[#0b423e] flex items-center justify-center text-on-primary shadow-[0_1.5px_0_0_#0b423e]">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<!-- Pedestal + Teacher Slot Container -->
+<div class="w-full flex flex-col items-center pt-2 pb-1 relative">
+<!-- Empty dashed slot (STRICT: no faces, no persons) -->
+<div class="w-[96px] h-[112px] rounded-xl border-2 border-dashed border-primary-container/60 bg-surface flex flex-col items-center justify-center p-2 z-10 shadow-inner">
+<span class="material-symbols-outlined text-primary-container/40 text-[28px]">graphic_eq</span>
+</div>
+<!-- Rounded pedestal ledge same color as card surface -->
+<div class="w-[110px] h-3 bg-surface-container rounded-full border-t border-surface-variant -mt-1.5 z-20 shadow-[0_2px_0_0_#d8cdb6]"></div>
+</div>
+<!-- Identity labels -->
+<div class="mt-2 text-center flex flex-col items-center">
+<span class="font-label-lg text-label-lg font-extrabold text-on-surface">Ama</span>
+<span class="font-body-sm text-[12px] font-bold text-[#142427]">female voice</span>
+</div>
+</div>
+<!-- Tile 2 (Unselected: Carlos) -->
+<div class="relative bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-3 flex flex-col items-center shadow-[0_4px_0_0_#efe0d6] opacity-90 hover:opacity-100 transition-opacity">
+<!-- Pedestal + Teacher Slot Container -->
+<div class="w-full flex flex-col items-center pt-2 pb-1 relative">
+<!-- Empty dashed slot (STRICT: no faces, no persons) -->
+<div class="w-[96px] h-[112px] rounded-xl border-2 border-dashed border-[#a0aec0] bg-surface-container-low flex flex-col items-center justify-center p-2 z-10">
+<span class="material-symbols-outlined text-[#a0aec0] text-[28px]">graphic_eq</span>
+</div>
+<!-- Rounded pedestal ledge -->
+<div class="w-[110px] h-3 bg-surface-container rounded-full border-t border-surface-variant -mt-1.5 z-20 shadow-[0_2px_0_0_#d8cdb6]"></div>
+</div>
+<!-- Identity labels -->
+<div class="mt-2 text-center flex flex-col items-center">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Carlos</span>
+<span class="font-body-sm text-[12px] font-bold text-[#142427]">male voice</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- CANONICAL 64px Bottom Navigation Bar -->
+<!-- Docked full width bottom-0, active set to "Me", high contrast text/icons -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-16 bg-surface-container-lowest z-50 flex justify-around items-center px-space-sm border-t-2 border-surface-variant shadow-[0_-4px_0_0_#efe0d6]"><!-- 1. Today (Inactive: home icon) -->
+<button class="flex flex-col items-center justify-center text-[#211a14] px-space-sm py-space-xs transition-colors hover:text-primary active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<span class="font-label-sm text-[11px] font-extrabold tracking-tight mt-0.5">Today</span>
+</button>
+<!-- 2. Vocab (Inactive: open book + due badge dot) -->
+<button class="flex flex-col items-center justify-center text-[#211a14] px-space-sm py-space-xs transition-colors hover:text-primary active:translate-y-[1px] relative" type="button">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest block"></span>
+</div>
+<span class="font-label-sm text-[11px] font-extrabold tracking-tight mt-0.5">Vocab</span>
+</button>
+<!-- 3. Skills (Inactive: target / adjust icon) -->
+<button class="flex flex-col items-center justify-center text-[#211a14] px-space-sm py-space-xs transition-colors hover:text-primary active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined text-[22px]">adjust</span>
+<span class="font-label-sm text-[11px] font-extrabold tracking-tight mt-0.5">Skills</span>
+</button>
+<!-- 4. Tests (Inactive: flag icon) -->
+<button class="flex flex-col items-center justify-center text-[#211a14] px-space-sm py-space-xs transition-colors hover:text-primary active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined text-[22px]">flag</span>
+<span class="font-label-sm text-[11px] font-extrabold tracking-tight mt-0.5">Tests</span>
+</button>
+<!-- 5. Me (ACTIVE: pale-teal rounded pill container with bold teal text/icon) -->
+<button class="flex flex-col items-center justify-center bg-primary-fixed/40 text-primary-container rounded-DEFAULT px-3 py-1 border border-primary-fixed active:translate-y-[1px] transition-transform" type="button">
+<span class="material-symbols-outlined filled text-[22px] text-primary-container">person</span>
+<span class="font-label-sm text-[11px] font-extrabold text-primary-container tracking-tight mt-0.5">Me</span>
+</button></nav>
+</main>
+</body></html>
