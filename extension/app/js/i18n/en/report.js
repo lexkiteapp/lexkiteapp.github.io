@@ -2,6 +2,8 @@
 * Bản dịch 13 ngôn ngữ: scripts/i18n-fixed.json (dịch tay). Kiểm tra: i18n-missing / i18n-qa đọc cả nhóm tải lười (LAZY trong build-i18n.sh). */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 "Báo cáo sự cố": "Report a problem",
+"Lỗi {id} đã được sửa": "Issue {id} has been fixed",
+"Cảm ơn bạn đã báo – chạm để xem chi tiết.": "Thanks for reporting – tap to see the details.",
 "Báo lỗi của tôi": "My reports",
 "Báo lỗi {id}: {s}": "Report {id}: {s}",
 "Bạn chưa gửi báo lỗi nào.": "You haven't sent any reports yet.",

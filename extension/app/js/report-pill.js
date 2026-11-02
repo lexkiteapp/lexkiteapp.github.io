@@ -82,6 +82,9 @@
     d.addEventListener('focusout', function () { setTimeout(function () { b.classList.toggle('kb', typing(d.activeElement)); }, 0); });
     sync();
     // Đã từng gửi báo lỗi → lúc rảnh (≤ 1 lần/12 giờ) hỏi trạng thái mới để nhắc trong app
-    try { if (localStorage.getItem('lk.rp') && Date.now() - (+localStorage.getItem('lk.rpc') || 0) > 432e5) setTimeout(function () { load().then(function (R) { R.poll(); }, function () {}); }, 9000); } catch (x) { /* bỏ qua */ }
+    var poll = function (ms) { setTimeout(function () { load().then(function (R) { R.poll(); }, function () {}); }, ms); };
+    try { if (localStorage.getItem('lk.rp') && Date.now() - (+localStorage.getItem('lk.rpc') || 0) > 432e5) poll(9000); // ≤ 1 lần/12 giờ
+      else if (localStorage.getItem('lk.rp') && w.caches) caches.open('lk-meta').then(function (c) { return c.match('/__rep'); }).then(function (r) { return r && r.json(); }).then(function (m) { if (m && m.chk) poll(1500); }, function () {}); // vừa có báo đẩy "đã sửa" → hỏi ngay
+    } catch (x) { /* bỏ qua */ }
   });
 })(window, document);
