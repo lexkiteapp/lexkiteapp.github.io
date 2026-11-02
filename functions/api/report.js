@@ -170,6 +170,21 @@ export function userMail(row) {
   return { to: row.email, subject: '[Lexkite] ' + head, text: L.join('\n') };
 }
 
+// Thư cảm ơn ngay khi tạo phiếu (chỉ khi người báo để email + đồng ý): mã LX, mốc dự kiến (đã có mức AI nếu kịp), liên kết riêng #/report/<mã>
+export function thanksMail(row, eta) {
+  const t = mailT(row.lang), head = t('Báo lỗi {id}: {s}', { id: tid(row.id), s: t('Đã nhận') });
+  const L = [head, '', t('Cảm ơn bạn đã giúp Lexkite tốt hơn!'), ...(eta ? [etaText(eta, t)] : []), '', t('Lưu đường dẫn riêng này để theo dõi trạng thái:'), `${SITE}/app/#/report/${row.tok}`, '', '— Lexkite · ' + t('Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.')];
+  return { to: row.email, subject: '[Lexkite] ' + head, text: L.join('\n') };
+}
+async function thank(env, db, q, id) {
+  const r = await db.prepare('SELECT id, tok, cat, sev, lang, email, notify, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
+  if (!r || !r.notify || r.spam || r.sandbox || !EMAIL.test(r.email || '')) return false;
+  if (q.near('mail')) { await ev(db, id, 'system', 'mail-skipped', 'quota').run(); return false; }
+  const ok = await mail(env, 'user', thanksMail(r, etaOf(r.cat, r.sev, await etaCfg(db))));
+  await db.batch([ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', 'thanks'), ...(ok ? [q.use('mail')] : [])]).catch(() => {});
+  return ok;
+}
+
 // Sau khi tạo: chữ ký lỗi → phiếu gốc trùng (7 ngày) · số phiếu tương tự · AI/luật phân loại · thư quản trị theo mức · Issue cho Claude Code
 async function after(env, db, q, r) {
   if (r.spam) return;
@@ -253,7 +268,8 @@ async function create(request, env, b, bg) {
   await db.batch(w);
   if (cat === 'content' && ctx.cid && !spam && !ctx.sandbox) await flagContent(db, env, ctx.cid, who, now).catch(() => {});
   // AI phân loại + gom trùng + thư quản trị + GitHub Issue: chạy nền (waitUntil) – người dùng nhận mã ngay
-  const p = after(env, db, q, { id, cat, area, msg, email, notify, shot, errs, ctx, spam }).catch(() => {});
+  // Thư cảm ơn chạy sau AI phân loại (mốc theo mức P0–P3 nếu kịp); AI lỗi vẫn gửi (mốc theo loại)
+  const p = after(env, db, q, { id, cat, area, msg, email, notify, shot, errs, ctx, spam }).catch(() => {}).then(() => notify && thank(env, db, q, id)).catch(() => {});
   if (bg) bg(p); else await p;
   return json(request, 200, { ok: true, id: tid(id), token: tok, eta: etaOf(cat, null, await etaCfg(db)) });
 }

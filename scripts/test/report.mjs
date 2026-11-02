@@ -63,6 +63,16 @@ const am = mails.find(m => m.path === '/send');
 ok(am && am.body.subject.includes(c1.j.id) && am.body.text.includes('admin.html?r=1#reports') && am.body.text.includes('dict/record'), 'thư quản trị: mã LX, liên kết Quản trị, trang');
 ok(am && !JSON.stringify(am.body).includes(c1.j.token), 'thư quản trị không chứa mã riêng của người báo');
 ok(am && am.body.replyTo === 'reporter@example.com', 'thư quản trị: Reply-To = người báo đã đồng ý');
+// Thư cảm ơn ngay khi tạo phiếu (người báo để email + đồng ý): mã, mốc sau AI (P1 → 2–3 ngày), liên kết riêng; ghi lịch sử
+const tm = mails.find(m => m.path === '/user' && m.body.to === 'reporter@example.com');
+ok(tm && tm.body.subject === `[Lexkite] Report ${c1.j.id}: Received` && tm.body.text.includes('#/report/' + c1.j.token) && tm.body.text.includes('Expected: within 2–3 days') && tm.body.text.includes('Thank you'), 'thư cảm ơn khi tạo: mã LX, mốc theo mức AI, liên kết riêng: ' + JSON.stringify(tm && tm.body.text));
+ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act = 'mailed' AND note = 'thanks'").get().n === 1, 'thư cảm ơn ghi lịch sử (mailed · thanks)');
+{ mails.length = 0; mailOk = false;
+  const c2 = await call(good({ notify: true, email: 'zh@example.com', msg: '页面上的音标显示错误，请修复一下。', ctx: { route: 'dict/x', lang: 'zh', ver: '1', plat: 'web' } }), { ip: '10.0.0.77' });
+  const id2 = +c2.j.id.slice(3) - 1000, z = mails.find(m => m.body.to === 'zh@example.com'); mailOk = true;
+  ok(z && z.body.subject.includes('已收到') && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'mail-failed' AND note = 'thanks'").get(id2).n === 1, 'thư cảm ơn đúng ngôn ngữ; nhà gửi thư lỗi → ghi mail-failed (admin thấy)');
+  mails.length = 0; const c3 = await call(good({ msg: 'No email given, the audio button does nothing.' }), { ip: '10.0.0.78' });
+  ok(c3.s === 200 && !mails.some(m => m.path === '/user'), 'không để email → không thư cảm ơn'); }
 // AI phân loại + GitHub Issue (P1, lỗi nội dung) – đã làm sạch
 const t1 = sql.prepare('SELECT sev, ai, issue, sig FROM reports WHERE id = 1').get();
 ok(t1.sev === 'P1' && JSON.parse(t1.ai).by === 'ai' && t1.sig.length === 16, 'AI phân loại: lưu mức + kết quả + chữ ký lỗi');
