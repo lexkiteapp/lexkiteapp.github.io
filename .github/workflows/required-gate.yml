@@ -36,6 +36,8 @@ on:
       - 'Say it like a native – meanings'
       - 'size-guard'
       - 'Stitch diff'
+      - 'Stitch quality QC'
+      - 'Stitch refs QC'
       - 'Teach build'
       - 'teach-video'
       - 'Công cụ miễn phí (tools pages)'
