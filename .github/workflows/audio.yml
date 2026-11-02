@@ -26,6 +26,7 @@ jobs:
       shards: ${{ steps.c.outputs.shards }}
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: c
@@ -42,6 +43,7 @@ jobs:
     strategy: { max-parallel: 24, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }   # ngân sách runner nền: số shard đã tính động ở plan (chừa 8 cho PR – docs/CI-RUNNERS.md)
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài kokoro-js + ffmpeg (nén mp3 – ảnh máy chủ GitHub mới không còn sẵn ffmpeg)
@@ -67,6 +69,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/download-artifact@v4
@@ -80,14 +84,9 @@ jobs:
         run: |
           [ -d .media-out/audio/l ] && ls .media-out/audio/l | head -1 | grep -q . || { echo "không có file mới"; exit 0; }
           node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/l: thêm giọng Kokoro (run ${{ github.run_id }})"
-      - name: Gộp chỉ mục + đo độ phủ, nâng sàn
-        run: node scripts/gen-audio.mjs --index-only && node scripts/audio/coverage.mjs --ratchet
-      - name: Lưu chỉ mục vào repo
+      - name: Gộp chỉ mục + đo độ phủ, nâng sàn → main (sinh lại trên main mới nhất nếu workflow khác vừa đẩy – scripts/ci/commit-regen.sh)
         run: |
           rm -f ~/.ssh/m2
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          bash scripts/build-extension.sh >/dev/null   # bản add-on của audio-index.js phải khớp web/ (scripts/test/ext-sync.mjs)
-          git add web/js/listen/audio-index.js extension/app/js/listen/audio-index.js web/audio/coverage.json
-          git diff --cached --quiet && exit 0
-          git commit -qm "Âm thanh: thêm giọng Kokoro (còn ${{ needs.plan.outputs.left }} câu trước lượt này) [CF-Pages-Skip]"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+          bash scripts/ci/commit-regen.sh "Âm thanh: thêm giọng Kokoro (còn ${{ needs.plan.outputs.left }} câu trước lượt này) [CF-Pages-Skip] [skip ci]" \
+            'node scripts/gen-audio.mjs --index-only && node scripts/audio/coverage.mjs --ratchet' \
+            web/js/listen/audio-index.js extension/app/js/listen/audio-index.js web/audio/coverage.json

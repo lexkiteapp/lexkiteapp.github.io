@@ -652,7 +652,18 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 
 /* Bài tập từ bài mẫu */
 .bank { display: flex; flex-wrap: wrap; gap: .35rem; padding: .7rem; background: var(--surface-2); border-radius: 12px; }
-.gap { border: 0; border-bottom: 2px solid var(--primary); background: var(--primary-soft); border-radius: 6px 6px 0 0; padding: .1rem .35rem; font: inherit; color: inherit; margin: 0 .1rem; }
+.gap { border: 0; border-bottom: 2px solid var(--primary); background: var(--primary-soft); border-radius: 6px 6px 0 0; padding: .1rem .35rem; font: inherit; line-height: 1.25; vertical-align: baseline; color: inherit; margin: 0 .1rem; } /* line-height riêng: "font: inherit" kéo theo line-height của đoạn (2.3) → ô cao hơn dòng chữ, đẩy lệch chữ quanh ô */
+/* Đầu trang dính (.topbar 64 px) + thanh tab dưới cố định: focus ô nhập / liên kết #… / scrollIntoView dừng NGOÀI hai thanh,
+ * không để tiêu đề thẻ hay ô đang gõ nằm dưới thanh (lỗi "Desert Plants" bị che nửa trên iPhone) */
+html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
+@media (max-width: 1023px) { html { scroll-padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); } }
+/* Điền chữ còn thiếu (TOEFL Complete the Words): ô inline gọn, rộng theo SỐ CHỮ THIẾU (--n, đơn vị ch), cao bằng dòng chữ, gạch chân sát baseline;
+ * vùng chạm ≥ 44 px nằm ở nhãn bọc ngoài (::after trong suốt – chạm vào nhãn = focus ô), không làm ô to ra */
+.cw-text { font-size: 1.02rem; line-height: 2.7; } /* 2.7 × 16,3 px ≈ 44 px: vùng chạm 44 px của các dòng không chồng nhau */
+.cw-slot { position: relative; white-space: nowrap; cursor: text; }
+.cw-slot::after { content: ""; position: absolute; left: 50%; top: 50%; width: 100%; min-width: 44px; height: 44px; min-height: 44px; transform: translate(-50%, -50%); }
+.gap.cw { position: relative; z-index: 1; box-sizing: content-box; width: calc(var(--n, 2) * 1ch + .2em); height: 1.25em; padding: 0 .15em; margin: 0 .05em 0 0; border-radius: 4px 4px 0 0; -webkit-appearance: none; appearance: none; }
+.gap.cw:focus-visible, .gap.cw:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
 .gap.ok { border-color: var(--good); background: var(--good-soft); } .gap.no { border-color: var(--again); background: var(--again-soft); }
 .gsel { padding: .05rem .2rem; }
 .line { padding: .7rem 0; border-bottom: 1px dashed var(--line); } .line .lin { margin-top: .4rem; } .lhint { font-family: var(--ipa); letter-spacing: .02em; }
@@ -1105,11 +1116,12 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 .card.hover { transition: transform .15s ease, box-shadow .15s ease; }
 .card.hover:active { transform: scale(.985); }
 .bottom-nav a { transition: color .15s ease; }
-/* Mục đang mở: viên nền sau biểu tượng (kiểu Material 3 / Duolingo) + nhãn đậm – nhìn thấy ngay cả khi không phân biệt màu */
-.bottom-nav a span { display: inline-grid; place-items: center; min-width: 52px; height: 28px; border-radius: 999px; transition: transform .2s cubic-bezier(.2, .9, .3, 1.4), background-color .15s ease; }
-.bottom-nav a.active span { background: var(--primary-soft); transform: scale(1.06); }
+/* Mục đang mở: viên nền sau biểu tượng (kiểu Material 3 / Duolingo) + nhãn đậm – nhìn thấy ngay cả khi không phân biệt màu.
+ * Chỉ thanh tab cũ: thanh Stitch (.st-nav) có MỘT chỉ báo active là khối nền + viền của cả tab (build-stitch-css.mjs) – viên nền ở đây từng chồng lên icon và nhãn thành 2–3 khối */
+.bottom-nav:not(.st-nav) a span { display: inline-grid; place-items: center; min-width: 52px; height: 28px; border-radius: 999px; transition: transform .2s cubic-bezier(.2, .9, .3, 1.4), background-color .15s ease; }
+.bottom-nav:not(.st-nav) a.active span { background: var(--primary-soft); transform: scale(1.06); }
 .bottom-nav a.active bdi { font-weight: 800; }
-.bottom-nav a:active span { transform: scale(.92); }
+.bottom-nav:not(.st-nav) a:active span { transform: scale(.92); }
 /* Chuyển trang: chỉ vùng nội dung chuyển động, thanh trên/dưới đứng yên */
 /* Chuyển trang: chỉ mờ dần (không transform – không tạo khung chứa cho phần tử fixed/hộp thoại trong #view) */
 #view { animation: viewIn .18s ease-out; }
@@ -1153,6 +1165,7 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 /* Ô quảng cáo (docs/ADS.md): kích thước CỐ ĐỊNH từ lúc vẽ → 0 CLS; luôn có nhãn "Quảng cáo"; không nhận focus */
 .ad-slot { box-sizing: border-box; height: 290px; margin: 1.4rem auto .4rem; padding: .4rem; max-width: 340px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; text-align: center; contain: strict; }
 .ad-slot.empty ins { visibility: hidden; }
+.ad-slot[data-ad="done"] { margin-top: 2.5rem; } /* ô dưới thẻ kết quả: cách xa nút (chống bấm nhầm – chính sách AdSense) */
 .ad-slot .ad-label { height: 1rem; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-align: start; margin: 0 0 .3rem .2rem; }
 html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
 
@@ -1608,6 +1621,12 @@ body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "No
 /* 🚪 ExitGuard (web/js/exit-guard.js, khung §5d FOCUS): vùng chạm nút thoát ≥ 44 px (không đổi hình); thanh FOCUS chung khi màn thiếu nút (cờ lk.exitbar) */
 .lk-hit44 { position: relative; }
 .lk-hit44::after { content: ''; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%); }
-.lk-exitbar { position: sticky; top: 0; z-index: 20; min-height: 56px; margin: 0 0 .5rem; padding: 6px 0; background: var(--bg, transparent); }
+/* ExitGuard grow(): nút = hộp trong suốt ≥ 44 bọc phần nhìn thấy (.lk-face, cùng lớp với nút) – điểm ảnh giữ nguyên (docs/specs/exit-button.md) */
+.lk-grow { background: none !important; border-color: transparent !important; box-shadow: none !important; opacity: 1 !important; filter: none !important; }
+.lk-grow:active { transform: none !important; } /* nhấn: chỉ phần nhìn thấy (.lk-face, :active theo lớp gốc) */
+.lk-exitbar { position: sticky; top: 0; z-index: 20; min-height: 56px; margin: 0 0 .5rem; padding: max(6px, env(safe-area-inset-top)) 0 6px; background: var(--bg, transparent); }
 .lk-exitbar .lk-exit-x { width: 44px; height: 44px; flex: none; display: inline-grid; place-items: center; padding: 0; }
 .lk-exitbar .progress[hidden] { display: block; visibility: hidden; }
+/* ChoiceKit thang gợi ý + dòng dịch chạm để hiện (docs/specs/learn-flow-nav.md) – không dùng opacity cho chữ (cổng tương phản) */
+.ck-hint-btn{min-height:44px;padding:.4rem .9rem;border-radius:999px;border:1px dashed currentColor;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer}.ck-hint-btn.ck-dim{border-style:dotted;font-weight:500}.ck-hint-out p{margin:.4rem 0 0}.ck-hint-l2{font-weight:600}
+.ck-gloss{cursor:pointer;min-height:24px;border-radius:6px}.ck-gloss:not(.ck-gloss-on){filter:blur(5px);-webkit-user-select:none;user-select:none}.ck-gloss:focus-visible{outline:2px solid currentColor;outline-offset:2px}@media (prefers-reduced-motion:no-preference){.ck-gloss{transition:filter .15s}}

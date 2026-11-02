@@ -194,4 +194,5 @@ const group = list => { const m = {}; for (const x of list) { const k = x.replac
 if (ARG.has('--warn')) { warns.forEach(w => console.log('⚠', w)); console.log('cảnh báo:', group(warns)); }
 errs.slice(0, ARG.has('--all') ? 1e9 : 80).forEach(e => console.log('✗', e));
 console.log((errs.length ? '✗' : '✓') + ` content: ${errs.length} lỗi, ${warns.length} cảnh báo` + (errs.length ? ' · ' + group(errs) : ''));
+await import('./pack-gloss.mjs'); // cổng nghĩa gói 13 ngôn ngữ (ném lỗi nếu sai) – gắn ở đây để không đụng dòng npm test
 process.exit(errs.length ? 1 : 0);

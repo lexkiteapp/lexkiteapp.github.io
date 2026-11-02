@@ -1,3 +1,4 @@
+# ci-policy: all-paths – mỗi lần main đổi phải gắn tag + smoke site thật; nhóm chung không huỷ = 1 lượt chạy + 1 lượt mới nhất chờ
 # Mỗi lần đẩy main = Cloudflare Pages tự deploy production (tích hợp git của Cloudflare). Workflow này, cho MỖI commit đó:
 #  1) tag    – gắn tag chú thích prod-YYYYMMDD-HHMM-<sha7> (mốc rollback duy nhất, nhìn là biết bản nào đang/đã chạy);
 #  2) gate   – npm test (cổng chặn thật là mergecheck/npm test TRƯỚC khi push; Pages deploy theo push nên bước này là kiểm lại sau-push, đỏ → issue ci-failure);

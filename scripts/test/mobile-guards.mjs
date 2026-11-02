@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 const R = fileURLToPath(new URL('../../', import.meta.url)), rd = f => fs.readFileSync(R + f, 'utf8');
 let fail = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} mobile-guards: ${m}`); if (!c) fail++; };
-const app = rd('web/js/app.js');
+const app = rd('web/js/app.js'), dict = rd('web/js/dict-page.js'); // trang #/dict tách khỏi app.js (gói lười dictp) 01/11
 const pf = (app.match(/App\.prefetchAll = [^\n]+/) || [''])[0];
 ok(/let inflight = 0/.test(app) && /inflight\+\+/.test(app) && /finally\(\(\) => \{ inflight--; \}\)/.test(app), 'đếm số gói đang tải (need1)');
 ok(/inflight \|\| document\.readyState !== 'complete'/.test(pf), 'tải sẵn chỉ bắt đầu khi trang đã load và không còn gói đang tải (không giành băng thông 4G với trang đang mở → LCP)');
@@ -20,11 +20,22 @@ ok(/serve-web\.mjs out\/site 8080/.test(MQA), 'mobile-qa đo qua máy chủ có 
 ok(/app-loader\.mjs out\/site\/app\/index\.html/.test(MQA) && /esbuild@[\d.]+ .*--minify .*--outdir=\.\.\/out\/site/.test(MQA), 'mobile-qa đo bản phát hành như build-web.sh (JS khung app nạp sau lần vẽ đầu + rút gọn), không đo web/ thô');
 { const pd = rd('web/js/path-day.js');
   ok(/topIx\.m\.get\(id\)/.test(app) && /ds = days\(\);\n\s*await yieldMain\(\); if \(location\.hash !== h0\) return;/.test(pd) && /put\(chunk\(Math\.min\(flat\.length, Math\.max\(10, ciDay \+ 5\)\)\)\);/.test(pd) && /put\(chunk\(Math\.min\(flat\.length, pos \+ 8\)\)\);/.test(pd) && /await nextFrame\(\); if \(!body\.isConnected\) return;/.test(pd) && /requestAnimationFrame\(go\)/.test(pd), 'lộ trình: topicOf tra Map + nhường luồng trước khi vẽ + chặng đang mở vẽ theo lô NGÀY (lô đầu tới ngày hiện tại + 4, ≥ 10 ngày; sau đó 8 ngày/khung hình) (TBT #/path 197–245 ms)'); }
-ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(full\.word\)/.test(app), 'từ điển: khối Hiểu sâu nhớ theo từ + chờ trước lần vẽ đủ → không chèn muộn phía trên ô lưu (CLS 0,66–0,68 #/dict @360)');
-{ const sv = app.indexOf('id="saveCard"'), ph = app.indexOf('<div id="phraseBox"></div>'), rl = app.indexOf('<div id="related"></div>');
+ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(full\.word\)/.test(dict), 'từ điển: khối Hiểu sâu nhớ theo từ + chờ trước lần vẽ đủ → không chèn muộn phía trên ô lưu (CLS 0,66–0,68 #/dict @360)');
+{ const sv = dict.indexOf('id="saveCard"'), ph = dict.indexOf('<div id="phraseBox"></div>'), rl = dict.indexOf('<div id="related"></div>');
   ok(sv > 0 && ph > sv && rl > ph, 'từ điển: khối cụm từ (Lex.phrases) + từ liên quan (Datamuse, mạng ngoài) nằm SAU ô lưu → về muộn không gây CLS (0,66 @360)'); }
 { const st = rd('web/js/study.js'), ds = rd('web/js/distract.js');
   ok(/startWhen\(Promise\.all\(\[warmLib\(\), window\.VImg && VImg\.need \? VImg\.need\(items\.map\(w => w\.word\)\) : null\]\), next\)/.test(st) && /startWhen\(warmLib\(\)\.then\(\(\) => preDis\(seq\[0\]\)\), next\)/.test(st) && /view\.prepend\(bar\)/.test(st) && /setTimeout\(\(\) => preDis\(nq\), 0\)/.test(st) && /async function pickAsync\(/.test(ds) && /performance\.now\(\) - t0 < 8/.test(st) && /async function warm\(pool/.test(ds) && /Date\.now\(\) - t0 < 8/.test(ds),
     'trắc nghiệm/học thông minh: kho từ (+ mảnh chỉ mục ảnh VImg ở học thông minh) + bộ nhớ Distract làm nóng theo lát ≤ 8 ms trước câu đầu; phương án nhiễu tính theo lát (pickAsync) trước câu đầu và lúc rảnh cho câu sau (TBT #/practice từng 205–418 ms)'); }
+{ const tf = rd('web/js/toefl.js'), sb = rd('scripts/build-stitch-css.mjs'), gap = (css.match(/^\.gap \{[^}]*\}/m) || [''])[0], lhCw = +((css.match(/^\.cw-text \{[^}]*line-height: ([\d.]+)/m) || [])[1] || 0);
+  ok(/<label class="cw-slot">\$\{pre\}<input class="gap cw"[^>]*style="--n:\$\{miss\.length\}"/.test(tf) && !/data-cw[^>]*width:\$\{miss/.test(tf) && /line-height: 1\.25/.test(gap) && /vertical-align: baseline/.test(gap) && /\.gap\.cw \{[^}]*width: calc\(var\(--n, 2\) \* 1ch/.test(css) && /\.cw-slot::after \{[^}]*min-width: 44px;[^}]*min-height: 44px/.test(css) && lhCw * 16.32 >= 44, // 1.02rem × line-height
+    'điền chữ (TOEFL Complete the Words): ô inline rộng theo số chữ thiếu (ch), line-height riêng (không kéo line-height 2.3 của đoạn → ô cao hơn dòng, lệch gạch chân), vùng chạm 44 px ở nhãn bọc ngoài, dòng ≥ 44 px để vùng chạm không chồng nhau');
+  ok(/\.bottom-nav:not\(\.st-nav\) a span \{/.test(css) && /\.bottom-nav:not\(\.st-nav\) a\.active span \{/.test(css) && !/^\.bottom-nav a(\.active)? span \{/m.test(css) && !/\.st-tab\.active \.st-tabi\{background/.test(sb),
+    'thanh tab Stitch: tab đang chọn MỘT khối nền (viên nền icon/nhãn của thanh cũ không lọt vào .st-nav; .st-tabi không nền riêng) – từng thành 2–3 khối chồng nhau ở tab Luyện');
+  ok(/^html \{ scroll-padding-top: calc\(72px \+ env\(safe-area-inset-top, 0px\)\); \}/m.test(css), 'focus/anchor/scrollIntoView dừng dưới thanh trên dính (tiêu đề thẻ không bị che)'); }
+// Màn Stitch v2 (ux1 train): đầu trang dính có vùng an toàn (pt-safe/pb-safe phải được định nghĩa) + ::after mở vùng chạm có min ≥ 44 px (cổng mobile-qa đo min-width/min-height)
+{ const sv = rd('web/css/st-v2-practice.css'), sh = rd('web/js/st/v2/shell.js');
+  ok(!/pt-safe/.test(sh) || /\.st \.pt-safe\{padding-top:env\(safe-area-inset-top/.test(sv), 'lớp pt-safe của đầu trang Stitch có luật env(safe-area-inset-top)');
+  ok(/\.st \.pb-safe\{padding-bottom:env\(safe-area-inset-bottom/.test(sv), 'lớp pb-safe có luật env(safe-area-inset-bottom)');
+  ok(/:is\(a,button\)\[class\*="after:absolute"\]::after\{min-width:44px;min-height:44px\}/.test(sv), 'liên kết/nút mở vùng chạm bằng ::after có min 44 × 44 px'); }
 if (fail) { console.error(`✗ mobile-guards: ${fail} lỗi`); process.exit(1); }
 console.log('✓ mobile-guards: đạt');

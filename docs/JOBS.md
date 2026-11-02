@@ -29,6 +29,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 ## Lịch (UTC, theo giờ trong ngày)
 | Giờ UTC | Việc | Lịch cron | Ưu tiên | Tài nguyên | Phút | Ước lượng | Thuê |
 |---|---|---|---|---|---|---|---|
+| 00:00 | `ci-triage` | `*/10 * * * *`<br>`12 * * * *` | reports | gh_minutes | 1 | d1_internal_reads≈10 | — |
 | 00:00 | `health` | `0 0 * * *` | reports | gh_minutes | 45 | d1_main_reads≈20000 | — |
 | 00:00 | `seo-gsc` | `0 0 * * 1` | reports | gh_minutes | 2 | — | — |
 | 00:00 | `push` | `*/10 * * * *` | publishing | web_push | 1 | d1_internal_reads≈17000, d1_internal_writes≈2000 | — |
@@ -36,13 +37,14 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:04 | `ci-filler` | `4-59/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `blog-publish` | `7 */3 * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
-| 00:12 | `ci-triage` | `12 * * * *` | reports | gh_minutes | 5 | d1_internal_reads≈10 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
+| 00:17 | `free-tier-guard` | `35 1 * * *`<br>`17 * * * *` | reports | gh_minutes | 2 | — | — |
 | 00:17 | `required-gate` | `17,47 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:17 | `lexicon-expand` | `17 */3 * * *` | render | cf_pool, gh_minutes | 120 | cf_pool_neurons≈600000 | ✓ |
 | 00:20 | `word-audio` | `20 */4 * * *` | render | gh_minutes | 150 | — | — |
 | 00:23 | `pages-deploy` | `23 */3 * * *` | publishing | gh_minutes | 2 | — | — |
 | 00:41 | `ads-revenue-hourly` | `41 * * * *` | reports | gh_minutes, d1_main | 1 | d1_main_reads≈1100, d1_main_writes≈500 | — |
+| 00:47 | `cdn-mirror` | `47 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |
 | 00:52 | `social-auto` | `52 */2 * * *` | publishing | grabcast_social, d1_main | 3 | grabcast_social_calls≈60, d1_main_reads≈600, d1_main_writes≈120 | — |
 | 00:53 | `preview-site` | `53 */3 * * *` | publishing | gh_minutes | 8 | — | — |
@@ -52,15 +54,16 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 01:25 | `capacity-watch` | `25 1 * * *` | reports | d1_main, gh_minutes | 2 | d1_main_reads≈40 | — |
 | 01:30 | `pr-check` | `30 1 * * *` | publishing | gh_minutes | 10 | — | — |
 | 01:30 | `screens` | `30 1 * * *` | render | gh_minutes | 25 | — | — |
-| 01:35 | `free-tier-guard` | `35 1 * * *` | reports | gh_minutes | 2 | — | — |
 | 01:43 | `sentence-audio-asr` | `43 1-23/4 * * *` | render | gh_minutes | 170 | — | — |
 | 01:45 | `footage-archive` | `45 1,2,6,14,15,16,17,18,20,21,22 * * *` | archive | drive_pool, d1_internal, gh_minutes | 50 | d1_internal_reads≈3000, drive_calls≈700 | ✓ |
 | 01:50 | `contrast` | `50 1 * * *` | reports | gh_minutes | 15 | — | — |
 | 02:00 | `dict-stage` | `0 2 * * 2` | reports | gh_minutes | 5 | — | — |
+| 02:00 | `upgrade-audit` | `0 2 * * 1` | reports | gh_minutes | 2 | — | — |
 | 02:10 | `nav-render` | `10 2 * * *` | render | gh_minutes | 20 | — | — |
 | 02:17 | `content-protect` | `17 2 * * 0` | reports | gh_minutes | 10 | — | — |
 | 02:20 | `font-audit` | `20 2 * * 1` | reports | gh_minutes | 10 | — | — |
 | 02:30 | `i18n` | `30 2 * * *` | render | gemini, gh_minutes | 90 | — | — |
+| 02:30 | `world-scorecard` | `30 2 * * 1` | reports | gh_minutes | 15 | — | — |
 | 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000 | ✓ |
 | 03:20 | `visual-qa` | `20 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:40 | `mobile-qa` | `40 3 * * 1` | reports | gh_minutes | 30 | — | — |
@@ -98,6 +101,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | Việc hạ nguồn | Đọc qua | Việc/lịch |
 |---|---|---|
 | `scripts/content-score.mjs` – content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh) | `loadAllPlus` | content-qa.yml (score) |
+| `scripts/content-qa/lkf-check.mjs` – reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do | `loadAllPlus` | npm test + content-qa.yml (score) |
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |
