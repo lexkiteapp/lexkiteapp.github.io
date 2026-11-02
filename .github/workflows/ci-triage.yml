@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: scripts, sparse-checkout-cone-mode: true }
+        with: { sparse-checkout: "scripts\ninfra\n.github/workflows\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }  # cron-watch: đọc cron workflow + jobs.json paused + free-tier paused
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Quét lượt đỏ mới (scan)
