@@ -3,21 +3,24 @@
 // 2) Đường thay: cùng mô hình Kokoro-82M (Apache-2.0) + âm vị pt-br từ G2P chính thức của Kokoro (misaki EspeakG2P + espeak-ng đầy đủ, scripts/word-audio/pt_g2p.py –
 //    gói phonemizer kèm kokoro-js chỉ có tiếng Anh: lượt 41428871761) + giọng pf_dora (Ama, nữ) / pm_alex (Carlos, nam)
 //    tải từ onnx-community/Kokoro-82M-v1.0-ONNX. Không dùng được → thoát 3 (đổi sang Piper pt_BR, ghi trong spec).
-// Ra: $OUT/<giọng>/<từ>.wav + $OUT/probe.json → scripts/word-audio/pt_gate.py (−16 LUFS + nghe lại bằng Whisper đa ngôn ngữ).
+// Ra: $OUT/<giọng>/<từ>.<i>.wav + $OUT/probe.json → scripts/word-audio/pt_gate.py (−16 LUFS + nghe lại bằng Whisper đa ngôn ngữ).
+// PT_ALL=1 (lát 2, dựng cả bộ): mọi từ + câu ví dụ seed.json + core.json; mỗi dòng mang khóa audio/w = fnv(giọng|chữ|s3) như tiếng Anh (ui.js speak).
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { loadKokoro, trim } from './kokoro.mjs';
-import { readJSON, seedPath } from '../target/lib.mjs';
+import { readJSON, seedPath, deckWords } from '../target/lib.mjs';
 
 if (!process.env.CI) { console.error('Chỉ chạy trên CI (word-audio-pt.yml) – việc nặng không chạy trên máy'); process.exit(75); }
 const require = createRequire(path.join(process.env.NODE_PATH || process.cwd(), 'x.js'));
 const CARRIER = 'A palavra é:', OUT = process.env.OUT || 'out/pt-sample', N = +(process.env.PT_N || 20), VOICES = ['pf_dora', 'pm_alex'];
-const words = readJSON(seedPath('pt')).words.slice(0, N).map(w => w.word);
+const ALL = process.env.PT_ALL === '1';
+const words = ALL ? [...new Set(deckWords('pt').flatMap(w => [w.word, w.ex.pt]))] : readJSON(seedPath('pt')).words.slice(0, N).map(w => w.word);
+const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); }; // = ui.js / gen-word-audio
 fs.mkdirSync(OUT, { recursive: true });
-const probe = { words: words.length, at: new Date().toISOString() };
+const probe = { all: ALL, words: words.length, at: new Date().toISOString() };
 
 const k = await loadKokoro(require);
 const vdir = require.resolve('kokoro-js').replace(/dist\/.*$/, 'voices/');
@@ -53,8 +56,9 @@ for (const v of VOICES) {
     const mid = a => a.slice(1, -1), single = !/\s/.test(w.trim()), cands = [];
     if (single && PH[CARRIER]) cands.push(['cut', (await k.run([0, ...mid(k.phIds(PH[CARRIER])), ...mid(k.phIds(' ')), ...mid(k.phIds(p.p + '.')), 0], v, 0.9)).pcm]);
     cands.push(['dot', trim((await k.run(k.phIds(p.p + '.'), v, 0.9)).pcm)]);
-    const c = cands.map(([m, pcm], i) => { const f = path.join(OUT, v, w + '.' + i + '.wav'); k.wav(f, pcm); return { m, f, sec: +(pcm.length / 24000).toFixed(2) }; });
-    rows.push({ v, w, ph: p.p, f: c[0].f, cands: c });
+    const key = fnv(v + '|' + w.normalize('NFC').trim() + '|s3');
+    const c = cands.map(([m, pcm], i) => { const f = path.join(OUT, v, (ALL ? key : w) + '.' + i + '.wav'); k.wav(f, pcm); return { m, f, sec: +(pcm.length / 24000).toFixed(2) }; });
+    rows.push({ v, w, key, ph: p.p, f: c[0].f, cands: c });
   }
 }
 probe.rows = rows;

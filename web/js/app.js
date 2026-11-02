@@ -234,6 +234,7 @@
     readings: ['js/readings.js', 'js/readings-more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
     handsfree: ['js/handsfree.js'],
+    tlib: ['js/target-lib.js'], // 🌍 Thư viện + gợi ý từ ngôn ngữ đích (chỉ khi Target.cur() ≠ 'en' – docs/specs/target-language.md)
     reflex: ['js/reflex.js'],
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
@@ -545,7 +546,7 @@
   // nghĩa tiếng mẹ đẻ hiện tức thì & offline; từ chưa có trong gói mới dịch lúc chạy.
   // Nghĩa hiển thị DUY NHẤT cho mọi danh sách/thẻ: tiếng Việt chỉ khi người học chọn nghĩa tiếng Việt;
   // ngôn ngữ khác → nghĩa tiếng mẹ đẻ dịch sẵn (gói) → định nghĩa tiếng Anh. Không bao giờ rơi về tiếng Việt.
-  App.meanOf = x => { if (!x) return ''; if (x.gl) return x.gl[I18N.meanLang()] || x.gl.en || x.def || ''; /* thẻ ngôn ngữ đích khác: nghĩa 15 ngôn ngữ đi kèm thẻ */ if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word, x.pos)) || x.def || ''; };
+  App.meanOf = x => { if (!x) return ''; if (x.gl) return x.gl[I18N.meanLang() === 'vi' ? 'vi' : I18N.lang()] || x.gl.en || x.def || ''; /* thẻ ngôn ngữ đích khác: nghĩa 15 ngôn ngữ đi kèm thẻ – theo ngôn ngữ giao diện (meanLang chỉ có vi/en) */ if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word, x.pos)) || x.def || ''; };
   // Nội dung soạn tiếng Việt ở giao diện ≠ vi – không bao giờ hiện tiếng Việt (docs/I18N-PIPELINE.md §2.6)
   App.viHtml = (vi, en) => { const L = I18N.learnLang(); if (!vi || L === 'vi') return esc(vi || en || ''); if (L === 'en' && en) return `<span lang="en">${esc(en)}</span>`; return `<span class="tr-wait"${en ? ` data-en="${esc(en)}"` : ''}>${esc(vi)}</span>`; };
   // Dọn dẹp khi rời trang: nhiều module có thể đăng ký (App.onCleanup(fn)); App.cleanup (1 hàm) vẫn được hỗ trợ
@@ -640,14 +641,18 @@
     let items = [], idx = -1, timer = null, seq = 0;
     const render = () => {
       box.hidden = !items.length;
-      box.innerHTML = items.map((it, i) => `<a href="#/dict/${encodeURIComponent(it.word)}" class="${i === idx ? 'on' : ''}">${it.local ? '📗' : '🔎'} <b>${esc(it.word)}</b><span class="vi">${esc(it.vi || '')}</span></a>`).join('');
+      box.innerHTML = items.map((it, i) => `<a href="${it.tl ? '#/library?q=' : '#/dict/'}${encodeURIComponent(it.word)}"${it.tl ? ` lang="${it.tl}"` : ''} class="${i === idx ? 'on' : ''}">${it.local ? '📗' : '🔎'} <b>${esc(it.word)}</b><span class="vi">${esc(it.vi || '')}</span></a>`).join('');
     };
-    const go = w => { ++seq; items = []; box.hidden = true; input.value = ''; input.blur(); location.hash = `#/dict/${encodeURIComponent(w)}`; };
+    const go = w => { ++seq; items = []; box.hidden = true; input.value = ''; input.blur(); location.hash = `${window.Target && Target.cur() !== 'en' ? '#/library?q=' : '#/dict/'}${encodeURIComponent(w)}`; };
     input.addEventListener('input', () => {
       const q = input.value.trim().toLowerCase();
       clearTimeout(timer); idx = -1;
       if (!q) { items = []; ++seq; return render(); }
       const my = ++seq; App.typedAt = Date.now();
+      if (window.Target && Target.cur() !== 'en') { // ngôn ngữ đích ≠ en: gợi ý từ bộ của ngôn ngữ đó (không từ điển/Datamuse tiếng Anh) → mở Thư viện lọc theo từ
+        const tl = Target.cur();
+        return App.need('tlib').then(() => TLib.suggest(tl, q, 8)).then(r => { if (my !== seq) return; items = r.map(w => ({ word: w.word, vi: App.meanOf(w), local: true, tl })); render(); }).catch(() => {});
+      }
       const mine = window.Lex ? Lex.suggest(q, 6).then(r => r.map(x => ({ word: x.word, vi: App.meanOf(x.entry), local: true }))).catch(() => [])
         : Promise.resolve(Object.keys(INDEX).filter(k => k.startsWith(q)).slice(0, 6).map(k => ({ word: INDEX[k].word, vi: App.meanOf(INDEX[k]), local: true })));
       mine.then(local => { if (my !== seq) return; items = [...local, ...items.filter(i => !i.local && !local.some(l => l.word === i.word) && i.word.startsWith(q))].slice(0, 8); render(); }); // kết quả cũ về sau không đè
@@ -846,6 +851,7 @@
 
   // ================= THƯ VIỆN =================
   routes.library = function (arg, query) {
+    if (window.Target && Target.cur() !== 'en') return App.need('tlib').then(() => TLib.library(Target.cur(), query)); // đang học ngôn ngữ khác: bộ từ của ngôn ngữ đó
     // Mặc định mở đúng nhóm theo kỳ thi; người đang học dở → "Đang học"
     const ex = App.exam ? App.exam() : 'ielts';
     const tab = query.get('g') || (Object.keys(state.cards).length >= 10 ? 'mine' : ({ toeic: 'toeic', toefl: 'exam', general: 'core' })[ex] || 'topics');

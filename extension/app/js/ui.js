@@ -178,12 +178,13 @@
   g.audioUrls = (k, kind = 'l') => AUDIO_BASES.slice(baseAt()).map(b => b.replace(/l\/$/, kind + '/') + (kind === 'l' ? lk(k) : k) + '.mp3'); // mọi gốc còn dùng được, theo thứ tự
   g.audioFail = () => { cdnFail++; };
   g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
-  // opts: { rate, onSentence(i, text), onEnd(), voice: mã Kokoro (af_heart/am_michael…) hoặc who: 'ama'|'carlos' – giọng file + giới tính giọng máy dự phòng }
+  // opts: { rate, onSentence(i, text), onEnd(), noTl (bỏ qua file ngôn ngữ đích – đường dự phòng), voice: mã Kokoro (af_heart/am_michael…) hoặc who: 'ama'|'carlos' – giọng file + giới tính giọng máy dự phòng }
   // giọng Kokoro mặc định theo accent – bảng ngôn ngữ đích (web/js/target.js); thiếu Target → như cũ (en-US af_heart, còn lại bf_emma)
   const kvOf = a => (g.Target ? g.Target.kokoroVoice(a) : a === 'en-US' ? 'af_heart' : 'bf_emma');
   function tts(text, accent = 'en-GB', rate, opts = {}) {
     if (!text) return;
     stopHq();
+    if (!opts.noTl && tlFile(text, opts.who || opts.voice, rate, opts.onEnd, () => tts(text, g.Target.speechLang(g.Target.cur()), rate, { ...opts, noHq: true, noTl: true, gender: opts.gender || (/^[a-z]m_|carlos/.test(opts.who || opts.voice || '') ? 'male' : opts.who || opts.voice ? 'female' : '') }))) return;
     const kv = LA() && LA().kokoro(opts.voice || (opts.who && g.Chars && g.Chars.voice ? g.Chars.voice(opts.who) : ''));
     const gender = opts.gender || (kv ? kv.gender : LA() && opts.who ? LA().genderFor(opts.who) : '');
     if (g.KVoice && g.LISTEN_AUDIO && prefs().hqVoice !== false && !opts.noHq && LA()) {
@@ -266,9 +267,21 @@
   // speak(text, accent, url, slow): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm
   const wordMiss = new Set(), fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
   const WAV = '|s3'; // hậu tố khóa giọng từ đơn audio/w (scripts/word-audio-strong.mjs WAV) – mọi từ; bản s3 đã qua Whisper
+  // 🇧🇷 Ngôn ngữ đích ≠ en (web/js/target.js): từ/câu có file dựng sẵn đạt cổng → phát đúng giọng người nói (Ama nữ pf_dora / Carlos nam pm_alex,
+  // mặc định Ama); lỗi/thiếu file → fb (giọng máy đúng ngôn ngữ + giới). Trả true khi đã nhận phát. Cờ tắt → Target.cur() = 'en' → false (như cũ).
+  function tlFile(text, who, rate, onEnd, fb) {
+    const T = g.Target; if (!T || !T.fileKey || T.cur() === 'en' || !LA() || !g.audioUrls) return false;
+    const k = T.fileKey(T.voiceFor(who), text); if (!k) return false;
+    stopSpeak();
+    const my = speakSeq;
+    wordEl = LA().play(g.audioUrls(k, 'w'), { rate: rate && rate < 0.7 ? 0.7 : 1, onBase: () => g.audioFail(), onEnd: () => { if (onEnd) onEnd(); },
+      onFail: why => { wordEl = null; LA().note('tts', why + ' tl:' + k); if (my === speakSeq) fb(); } });
+    return true;
+  }
   function speak(text, accent, url, slow) {
     accent = accent || prefs().accent || 'en-GB';
     const fb = () => tts(text, accent, slow ? 0.55 : undefined);
+    if (g.Target && !g.Target.isEn(accent) && tlFile(text, '', slow ? 0.55 : undefined, null, () => tts(text, accent, slow ? 0.55 : undefined, { noHq: true, noTl: true }))) return;
     // Một giọng thống nhất: bỏ bản ghi âm tình nguyện viên (Wiktionary/dictionaryapi – mỗi từ một người, nhiều bản rè) khi máy có giọng đọc;
     // chỉ giữ file âm thanh của Lexkite. tts() tự ưu tiên giọng Kokoro chất lượng cao nếu có, rồi tới giọng máy tốt nhất.
     if (url && !/lexkite/.test(url) && 'speechSynthesis' in g) url = '';

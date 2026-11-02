@@ -114,5 +114,52 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(/'\/js\/target\.js'/.test(rd('web/sw.js')), 'sw.js cache target.js');
 }
 
+// ---------- 6) lát 2: ?pt=1, chỉ mục file giọng pt theo giáo viên, Thư viện/câu nhiễu pt (TLib), nghĩa theo ngôn ngữ giao diện ----------
+const fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
+{
+  const { sb, ls } = env(); sb.location = { search: '?x=1&pt=1' }; load(sb, 'web/js/target.js');
+  ok(ls.get('lk.pt') === '1' && sb.Target.cur() === 'pt', '?pt=1 → bật thử + ngôn ngữ đích pt');
+  const e2 = env(); e2.ls.set('lk.pt', '1'); e2.ls.set('lk.tl', 'pt'); e2.sb.location = { search: '?pt=0' }; load(e2.sb, 'web/js/target.js');
+  ok(!e2.ls.has('lk.pt') && e2.sb.Target.cur() === 'en', '?pt=0 → tắt, về en');
+  const e3 = env(); let calls = 0; e3.sb.fetch = async () => { calls++; return { ok: true, json: async () => ({}) }; }; load(e3.sb, 'web/js/target.js');
+  ok(calls === 0, 'cờ tắt → không tải chỉ mục giọng pt');
+}
+{
+  const { sb, ls } = env(); ls.set('lk.pt', '1'); ls.set('lk.tl', 'pt'); const asked = [];
+  sb.fetch = async u => { asked.push(u); return { ok: true, json: async () => ({ pf_dora: ['casa', 'Minha casa é pequena.'], pm_alex: ['casa'] }) }; };
+  load(sb, 'web/js/target.js'); const T = sb.Target; await new Promise(r => setTimeout(r, 0)); await new Promise(r => setTimeout(r, 0));
+  ok(asked.join() === 'js/target-pt-audio.json', 'pt bật → tải đúng chỉ mục js/target-pt-audio.json');
+  ok(T.fileKey('pf_dora', 'casa') === fnv36('pf_dora|casa|s3'), 'fileKey = fnv(giọng|chữ|s3) như audio/w tiếng Anh');
+  ok(T.fileKey('pf_dora', ' Minha casa é pequena. '.normalize('NFD')) === fnv36('pf_dora|Minha casa é pequena.|s3'), 'fileKey chuẩn hoá NFC + cắt khoảng trắng');
+  ok(T.fileKey('pm_alex', 'Minha casa é pequena.') === '' && T.fileKey('pf_dora', 'livro') === '', 'chữ chưa có file đạt → rỗng (giọng máy)');
+  ok(T.voiceFor('ama') === 'pf_dora' && T.voiceFor('carlos') === 'pm_alex' && T.voiceFor('am_michael') === 'pm_alex' && T.voiceFor('af_heart') === 'pf_dora' && T.voiceFor('bm_george') === 'pm_alex' && T.voiceFor('') === 'pf_dora', 'giọng giáo viên: Ama nữ pf_dora, Carlos/giọng nam pm_alex');
+  const ui = rd('web/js/ui.js');
+  ok(/if \(!opts\.noTl && tlFile\(/.test(ui) && (ui.match(/noTl: true/g) || []).length >= 2, 'ui.js: tts/speak thử file pt trước, đường dự phòng noTl (không lặp vô hạn)');
+}
+{
+  const { sb } = env(); const seed = readJSON('web/js/target-pt-seed.json');
+  const core = { v: 1, tl: 'pt', words: [{ ...seed.words[0] }, { ...seed.words[1], word: 'zzteste', rank: 9 }, ...Array.from({ length: 31 }, (_, i) => ({ ...seed.words[2], word: 'palavra' + String.fromCharCode(97 + (i % 26)) + i, rank: 100 - i }))] };
+  sb.fetch = async u => ({ ok: true, json: async () => structuredClone(/seed/.test(u) ? seed : core) });
+  sb.App = { meanOf: x => x.gl.vi, need: async () => {} }; sb.t = (k, o) => k.replace('{n}', o && o.n);
+  load(sb, 'web/js/target-lib.js'); const L = sb.TLib;
+  const ws = await L.words('pt');
+  ok(ws.length === seed.words.length + 32, 'TLib.words: seed + core, trùng từ#loại giữ bản seed');
+  const ds = L.decks(ws); ok(ds[0].id === 'seed' && ds.length === 3 && ds[1].words.length === 30 && ds[1].words[0].rank === 9, 'bộ: seed rồi bộ lõi 30 từ/bộ theo thứ hạng');
+  const c = L.cached('pt'); ok(c && c.length === ws.length && typeof c[0].ex === 'string' && c[0].tl === 'pt' && c[0].vi === seed.words[0].gl.vi, 'TLib.cached: dạng thẻ (ex chuỗi, tl) cho câu nhiễu');
+  const acc = seed.words.find(w => /[ãçéêáíóõú]/.test(w.word));
+  ok(!!acc, 'seed có từ mang dấu để kiểm gợi ý bỏ dấu');
+  if (acc) { const r = await L.suggest('pt', acc.word.normalize('NFD').replace(/[\u0300-\u036f]/g, '').slice(0, 4), 8); ok(r.some(w => w.word === acc.word), 'gợi ý pt bỏ dấu: ' + acc.word); }
+  ok(L.art({ pos: 'n', gender: 'f' }) === 'a ' && L.art({ pos: 'n', gender: 'm' }) === 'o ' && L.art({ pos: 'v' }) === '', 'mạo từ o/a thay nhãn giống');
+}
+{
+  const app = rd('web/js/app.js'), line = app.split('\n').find(l => l.includes('App.meanOf = x =>'));
+  const mk = (lang, mean) => { const s = { App: {}, I18N: { lang: () => lang, meanLang: () => mean } }; vm.createContext(s); vm.runInContext(line, s); return s.App.meanOf; };
+  const w = { gl: { vi: 'nhà', en: 'house', ja: '家' } };
+  ok(mk('ja', 'en')(w) === '家' && mk('vi', 'vi')(w) === 'nhà' && mk('en', 'en')(w) === 'house' && mk('ko', 'en')(w) === 'house', 'thẻ pt: nghĩa theo ngôn ngữ giao diện (ja → 家), thiếu → en');
+  ok(/tlib: \['js\/target-lib\.js'\]/.test(app) && /routes\.library = function[^\n]*\n\s*if \(window\.Target && Target\.cur\(\) !== 'en'\) return App\.need\('tlib'\)/.test(app), 'Thư viện + gói tlib khi học ngôn ngữ đích');
+  ok(/'lang:' \+ c\.tl/.test(rd('web/js/anki.js')) && /c\.ex && c\.tl\) \{ ex = c\.ex; exMeaning = c\.exEn/.test(rd('web/js/anki.js')), 'Anki/CSV: thẻ pt có nhãn lang:pt + nghĩa câu ví dụ');
+  ok(/tlLib\(\) \|\| shuffle\(TOPICS/.test(rd('web/js/study.js')) && /TLib\.cached\(tl\)\) take/.test(rd('web/js/study-modes.js')), 'mini-game: câu nhiễu pt lấy từ bộ pt, không từ tiếng Anh');
+}
+
 console.log(fails ? `✗ target-lang: ${fails}/${n} lỗi` : `✓ target-lang: ${n}/${n} đạt`);
 process.exit(fails ? 1 : 0);

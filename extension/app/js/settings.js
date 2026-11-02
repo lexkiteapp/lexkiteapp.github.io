@@ -9,21 +9,8 @@
   const R = window.Remind; // ⏰ js/remind.js (gói 'remind' nạp cùng trang Cài đặt – docs/REMINDERS.md)
   const adminTiles = () => [['overview', '📊', t('Tổng quan'), t('Người dùng, truy cập, việc cần xử lý')], ['analytics', '📈', t('Phân tích'), t('Nguồn truy cập, quốc gia, thiết bị, tốc độ')], ['users', '👥', t('Người dùng'), t('Danh sách, tìm kiếm, chi tiết')], ['inbox', '✉️', t('Hộp thư'), t('Tin nhắn liên hệ & trả lời')], ['alerts', '🚨', t('Cảnh báo'), t('Workflow, lỗi JavaScript, dung lượng')], ['quality', '🩺', t('Chất lượng'), t('Rà soát hằng ngày & bản dịch')], ['services', '🔑', t('Dịch vụ & API'), t('Tài khoản, khóa, hạn mức miễn phí')], ['settings', '⚙️', t('Cài đặt hệ thống'), t('Thông báo, hạn mức AI, Gemini API')]]
     .map(([id, ic, l, d]) => `<a class="adm-tile" href="${App.adminUrl(id)}" target="_blank" rel="noopener"><span class="adm-ic" aria-hidden="true">${ic}</span><span class="adm-tx"><b>${l}</b><small>${d}</small></span></a>`).join('');
-  // Bộ từ mẫu ngôn ngữ đích (content/target/<tl>/seed.json → bản sao web/js/target-<tl>-seed.json, scripts/target/build.mjs) → thẻ tl, khóa '<tl>:từ' (Core.tlKey)
-  async function addTlSeed(tl) {
-    const r = await fetch('js/target-' + tl + '-seed.json'); if (!r.ok) throw new Error('seed ' + r.status);
-    const j = await r.json(); let n = 0;
-    await Core.Cards.mutate(m => {
-      for (const w of j.words || []) {
-        const k = Core.tlKey(w.word, tl); if (m[k]) continue;
-        m[k] = Core.Cards.make({ word: w.word, pos: w.pos, ipa: w.ipa, def: w.gl.en, vi: w.gl.vi, ex: w.ex.pt, topic: tl + '-core', emoji: w.emoji || '📘', tl }, { gl: w.gl, exEn: w.ex.en, ...(w.gender ? { gender: w.gender } : {}), ...(w.img ? { img: w.img } : {}) });
-        n++;
-      }
-      return m;
-    });
-    if (window.Sync && Sync.schedule) Sync.schedule();
-    return n;
-  }
+  // Bộ từ mẫu ngôn ngữ đích (content/target/<tl>/seed.json → web/js/target-<tl>-seed.json) → thẻ tl – dùng chung TLib.add (web/js/target-lib.js, cũng là Thư viện)
+  const addTlSeed = tl => App.need('tlib').then(() => TLib.words(tl)).then(ws => TLib.add(tl, ws.filter(w => w.src === 'seed')));
   routes.settings = function () {
     const s = state.settings;
     const perm = 'Notification' in window ? Notification.permission : 'unsupported';

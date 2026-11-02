@@ -542,9 +542,10 @@ hr#answer{border:0;height:0;margin:0}
     const meaning = g.App && App.meanOf ? App.meanOf(c) : (c.vi || c.def || '');
     let ex = '', exMeaning = '';
     if (ctx) { ex = ctx.text.length > 300 ? ctx.text.slice(0, 300) + '…' : ctx.text; exMeaning = vi ? (ctx.vi || '') : ''; }
+    else if (c.ex && c.tl) { ex = c.ex; exMeaning = c.exEn || ''; } // thẻ ngôn ngữ đích (pt…): câu ví dụ pt + bản dịch tiếng Anh đi kèm thẻ (TLib.add)
     else if (c.ex) { ex = c.ex; exMeaning = vi && sent && sent.en === c.ex ? sent.vi || '' : ''; }
     else if (sent && sent.en) { ex = sent.en; exMeaning = vi ? sent.vi || '' : ''; }
-    return { word: c.word, ipa: c.ipa || '', meaning, def: c.def && c.def !== meaning ? c.def : '', ex, exMeaning, col: c.col || [], tags: ['lexkite', c.topic && c.topic !== 'mine' ? c.topic : '', c.level || '', c.deck ? 'anki:' + c.deck : ''].filter(Boolean), srs: c.srs };
+    return { word: c.word, ipa: c.ipa || '', meaning, def: c.def && c.def !== meaning ? c.def : '', ex, exMeaning, col: c.col || [], tags: ['lexkite', c.topic && c.topic !== 'mine' ? c.topic : '', c.level || '', c.deck ? 'anki:' + c.deck : '', c.tl ? 'lang:' + c.tl : '', c.tl && c.gender ? 'gender:' + c.gender : ''].filter(Boolean), srs: c.srs };
   }
 
   let S = null; // trạng thái hộp thoại đang mở

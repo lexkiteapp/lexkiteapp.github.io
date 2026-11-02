@@ -12,7 +12,15 @@ const VI_ONLY = /[ăơưđạảấầẩẫậắằẳẵặẹẻẽếềể
 const IPA_OK = /^[a-zɐɑɒæɓʙβɔɕçɗɖðʤəɘɚɛɜɝɞɟʄɡɠɢʛɦɧħɥʜɨɪʝɭɬɫɮʟɱɯɰŋɳɲɴøɵɸθœɶʘɹɺɾɻʀʁɽʂʃʈʧʉʊʋⱱʌɣɤʍχʎʏʑʐʒʔʡʕʢǀǁǂǃˈˌːˑ̃̊̍̚ʰʲʷ̥̩̯͡.\- ]+$/u;
 export const seedPath = tl => path.join(ROOT, 'content/target', tl, 'seed.json');
 export const webSeedPath = tl => path.join(ROOT, 'web/js', `target-${tl}-seed.json`);
+export const webCorePath = tl => path.join(ROOT, 'web/js', `target-${tl}-core.json`);
 export const readJSON = f => JSON.parse(fs.readFileSync(f, 'utf8'));
+export const corePath = tl => path.join(ROOT, 'content/target', tl, 'core.json');
+/** Mọi từ của ngôn ngữ đích: seed.json (soát tay) rồi core.json (bộ lõi đã duyệt, nếu có) – trùng lemma#loại giữ bản seed. */
+export function deckWords(tl) {
+  const out = [], seen = new Set();
+  for (const f of [seedPath(tl), corePath(tl)]) if (fs.existsSync(f)) for (const w of readJSON(f).words) { const k = w.word.toLowerCase() + '#' + w.pos; if (!seen.has(k)) { seen.add(k); out.push(w); } }
+  return out;
+}
 export const imgKeys = () => new Set(Object.keys(readJSON(path.join(ROOT, 'content/lexicon/img.json')).items || {}));
 const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 // từ (hoặc dạng chia exForm) xuất hiện nguyên vẹn trong câu ví dụ – ranh giới chữ Unicode
@@ -50,5 +58,5 @@ export function validate(deck, o = {}) {
 }
 
 /** Bản sao cho app: chỉ trường app dùng (settings.js addTlSeed) – dựng bởi scripts/target/build.mjs, test so khớp. */
-export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
+export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.rank ? { rank: w.rank } : {}), ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
 export const webSeedText = deck => JSON.stringify(webSeed(deck)) + '\n';

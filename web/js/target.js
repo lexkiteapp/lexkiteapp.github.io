@@ -8,10 +8,13 @@
   const TABLE = {
     en: { speech: null, rec: null, prefix: 'en', kokoro: { 'en-GB': 'bf_emma', 'en-US': 'af_heart' }, voices: {} /* = Chars.voice() như cũ */, wordFiles: true },
     // pt-BR: Kokoro-82M + âm vị espeak-ng pt-br (kokoro-js chỉ tự phiên âm tiếng Anh) – lý do + lượt mẫu: spec §Giọng. Chưa dựng file từ → giọng máy pt-BR.
+    // wordFiles = false: đường file từ tiếng Anh (ui.js speak, chỉ mục Lex/IELTS) KHÔNG dùng cho pt – pt có chỉ mục riêng (fileKey, web/js/target-pt-audio.json).
     pt: { speech: 'pt-BR', rec: 'pt-BR', prefix: 'pt', kokoro: { 'pt-BR': 'pf_dora' }, voices: { ama: 'pf_dora', carlos: 'pm_alex' }, wordFiles: false },
   };
   const LANGS = Object.keys(TABLE), KEY = 'lk.tl';
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage ? g.localStorage.getItem(k) : null; if (v === null) g.localStorage.removeItem(k); else g.localStorage.setItem(k, v); } catch (e) { /* chế độ riêng tư */ } return null; };
+  // ?pt=1 bật thử (bản preview cho chủ xem: cờ + ngôn ngữ đích pt), ?pt=0 tắt – như ?ret= (app.js retOn). Cờ production pt_pilot không đổi.
+  try { const q = /[?&]pt=([01])\b/.exec((g.location && g.location.search) || ''); if (q) { ls('lk.pt', q[1] === '1' ? '1' : null); ls(KEY, q[1] === '1' ? 'pt' : null); } } catch (e) { /* bỏ qua */ }
   function enabled() {
     if (ls('lk.pt') === '1') return true;
     try { const c = JSON.parse(ls('lk.cfg') || 'null'), v = c && c.v && c.v.pt_pilot; return v === true || v === '1' || v === 'true'; } catch (e) { return false; }
@@ -38,5 +41,19 @@
   const wordVoice = a => table(tlOfAccent(a)).wordFiles ? kokoroVoice(a) : '';
   const teacherVoice = (who, tl) => table(tl || cur()).voices[who] || '';
   const ofCard = c => (c && c.tl && TABLE[c.tl] ? c.tl : 'en');
-  g.Target = { LANGS, TABLE, enabled, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
+  // 🔊 File dựng sẵn của ngôn ngữ đích (word-audio-pt.yml all=1: Kokoro-82M, cùng cổng −16 LUFS + Whisper): chỉ mục {giọng: [từ/câu đạt]} → audio/w/<fnv(giọng|chữ|s3)>.mp3.
+  // Chỉ tải khi ngôn ngữ đích ≠ en (cờ tắt → không tải gì). fileKey '' = chưa có file đạt → giọng máy đúng ngôn ngữ/giới.
+  const AU = {}, fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
+  const nfc = x => String(x || '').normalize('NFC').trim();
+  function loadAudio(tl) {
+    if (!tl || tl === 'en' || AU[tl] || !g.fetch) return;
+    AU[tl] = {};
+    g.fetch('js/target-' + tl + '-audio.json').then(r => (r.ok ? r.json() : null)).then(j => { if (j) for (const v of Object.keys(j)) if (Array.isArray(j[v])) AU[tl][v] = new Set(j[v].map(nfc)); }).catch(() => { delete AU[tl]; });
+  }
+  const fileKey = (voice, text, tl) => { const a = AU[tl || cur()], t = nfc(text); return voice && a && a[voice] && a[voice].has(t) ? fnv36(voice + '|' + t + '|s3') : ''; };
+  // giọng ngôn ngữ đích cho người nói: 'ama'|'carlos' hoặc mã Kokoro tiếng Anh (?m_* = giọng nam → Carlos, còn lại → Ama)
+  const voiceFor = (whoOrVoice, tl) => { const vs = table(tl || cur()).voices, w = String(whoOrVoice || ''); return vs[w] || (/^[a-z]m_|carlos/.test(w) ? vs.carlos : vs.ama) || ''; };
+  g.addEventListener && g.addEventListener('lk:tl', e => loadAudio(e.detail));
+  loadAudio(cur());
+  g.Target = { LANGS, TABLE, enabled, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard, fileKey, voiceFor, loadAudio };
 })(typeof self !== 'undefined' ? self : this);

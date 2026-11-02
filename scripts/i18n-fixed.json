@@ -15992,6 +15992,51 @@
     "ru": "Не удалось загрузить набор слов. Повторите попытку позже.",
     "tr": "Kelime seti yüklenemedi. Lütfen daha sonra tekrar dene."
   },
+  "Tiếng Bồ Đào Nha (Brazil): {n} từ thông dụng, có phiên âm, nghĩa và câu ví dụ.": {
+    "es": "Portugués de Brasil: {n} palabras comunes con pronunciación, significados y frases de ejemplo.",
+    "pt": "Português do Brasil: {n} palavras comuns com pronúncia, significados e frases de exemplo.",
+    "fr": "Portugais du Brésil : {n} mots courants avec prononciation, sens et phrases d’exemple.",
+    "de": "Brasilianisches Portugiesisch: {n} häufige Wörter mit Aussprache, Bedeutungen und Beispielsätzen.",
+    "id": "Bahasa Portugis Brasil: {n} kata umum dengan pelafalan, arti, dan contoh kalimat.",
+    "th": "ภาษาโปรตุเกส (บราซิล): {n} คำที่ใช้บ่อย พร้อมการออกเสียง ความหมาย และประโยคตัวอย่าง",
+    "zh": "巴西葡萄牙语：{n} 个常用词，含发音、释义和例句。",
+    "ja": "ブラジルポルトガル語：発音・意味・例文つきのよく使う単語 {n} 語。",
+    "ko": "브라질 포르투갈어: 발음, 뜻, 예문이 있는 자주 쓰는 단어 {n}개.",
+    "hi": "ब्राज़ीली पुर्तगाली: उच्चारण, अर्थ और उदाहरण वाक्यों के साथ {n} आम शब्द।",
+    "ar": "البرتغالية البرازيلية: {n} كلمة شائعة مع النطق والمعاني وجمل الأمثلة.",
+    "ru": "Бразильский португальский: {n} частых слов с произношением, значениями и примерами.",
+    "tr": "Brezilya Portekizcesi: telaffuz, anlam ve örnek cümlelerle {n} yaygın kelime."
+  },
+  "Từ cơ bản": {
+    "es": "Palabras básicas",
+    "pt": "Palavras básicas",
+    "fr": "Mots de base",
+    "de": "Grundwörter",
+    "id": "Kata dasar",
+    "th": "คำพื้นฐาน",
+    "zh": "基础词",
+    "ja": "基本単語",
+    "ko": "기본 단어",
+    "hi": "बुनियादी शब्द",
+    "ar": "كلمات أساسية",
+    "ru": "Базовые слова",
+    "tr": "Temel kelimeler"
+  },
+  "Thông dụng {n}": {
+    "es": "Palabras comunes {n}",
+    "pt": "Palavras comuns {n}",
+    "fr": "Mots courants {n}",
+    "de": "Häufige Wörter {n}",
+    "id": "Kata umum {n}",
+    "th": "คำที่ใช้บ่อย {n}",
+    "zh": "常用词 {n}",
+    "ja": "よく使う単語 {n}",
+    "ko": "자주 쓰는 단어 {n}",
+    "hi": "आम शब्द {n}",
+    "ar": "كلمات شائعة {n}",
+    "ru": "Частые слова {n}",
+    "tr": "Yaygın kelimeler {n}"
+  },
   "Một bài nghe ngắn 5 phút trước khi ngủ nhé?": {
     "ko": "잠들기 전 5분 짧은 듣기 어때요?"
   },

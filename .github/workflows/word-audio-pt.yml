@@ -1,21 +1,24 @@
-# Giọng từ đơn tiếng Bồ Đào Nha (pt-BR) – lượt MẪU 20 từ (chạy tay; docs/specs/target-language.md §Giọng). Không đẩy gì vào repo, không dựng cả bộ.
+# Giọng từ đơn tiếng Bồ Đào Nha (pt-BR) – lượt MẪU 20 từ (chạy tay; docs/specs/target-language.md §Giọng). Không đẩy gì vào repo.
+# all=1 (lát 2): dựng CẢ BỘ (seed + core, từ + câu ví dụ) → cùng cổng (không nới) → chỉ file đạt lên kho media (audio/w/<fnv(giọng|chữ|s3)>.mp3, như word-audio.yml);
+# chỉ mục chữ đạt = artifact pt-word-index → commit vào web/js/target-pt-audio.json qua PR (app chỉ trỏ tới file đã có).
 # Dò kokoro-js có tự đọc pt không → Kokoro-82M + âm vị pt-br (misaki EspeakG2P, pt_g2p.py) (pf_dora = Ama, pm_alex = Carlos) → −16 LUFS + Whisper đa ngôn ngữ nghe lại (scripts/word-audio/pt_gate.py).
 name: word-audio-pt
 on:
   workflow_dispatch:
     inputs:
       n: { description: 'Số từ mẫu (từ content/target/pt/seed.json)', default: '20' }
+      all: { description: '1 = dựng cả bộ seed + core và đẩy file đạt lên kho media', default: '0' }
   pull_request:
     paths: ['scripts/word-audio/pt-sample.mjs', 'scripts/word-audio/pt_g2p.py', 'scripts/word-audio/pt_piper.py', 'scripts/word-audio/pt_gate.py', '.github/workflows/word-audio-pt.yml']
     types: [labeled]
-permissions: { contents: read }
+permissions: { contents: read }   # kho media đẩy bằng khoá deploy SSH riêng (MEDIA2_DEPLOY_KEY), không cần quyền ghi repo chính
 concurrency: { group: 'word-audio-pt-${{ github.ref }}', cancel-in-progress: true }
 jobs:
   sample:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.label.name == 'word-audio-pt' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    env: { OUT: out/pt-sample, PT_N: '${{ github.event.inputs.n || 20 }}', KOKORO_DTYPE: fp32 }
+    timeout-minutes: ${{ github.event.inputs.all == '1' && 170 || 60 }}   # cả bộ ~330 từ + câu × 2 giọng nghe bằng large-v3-turbo
+    env: { OUT: out/pt-sample, PT_N: '${{ github.event.inputs.n || 20 }}', PT_ALL: '${{ github.event.inputs.all || 0 }}', KOKORO_DTYPE: fp32 }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,7 +38,21 @@ jobs:
       - uses: actions/cache@v4
         with: { path: ~/.cache/huggingface, key: whisper-large-v3-turbo-ct2 }
       - name: Cổng −16 LUFS + nghe lại (Whisper large-v3-turbo, pt)
-        run: pip install -q "faster-whisper==1.2.1" "av==18.1.0" && python3 scripts/word-audio/pt_gate.py
+        run: pip install -q "faster-whisper==1.2.1" "av==18.1.0" && PT_PUBLISH=${{ env.PT_ALL == '1' && '.media-out' || '' }} python3 scripts/word-audio/pt_gate.py
+      - name: Khoá deploy kho media (all=1)
+        if: ${{ env.PT_ALL == '1' }}
+        env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
+      - name: Đẩy mp3 đạt lên kho media (all=1)
+        if: ${{ env.PT_ALL == '1' }}
+        run: |
+          node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/w: giọng từ pt-BR (Kokoro pf_dora/pm_alex, đã qua Whisper) – run ${{ github.run_id }}"
+          rm -f ~/.ssh/m2
+      - if: ${{ env.PT_ALL == '1' }}
+        uses: actions/upload-artifact@v4
+        with: { name: pt-word-index, path: out/pt-sample/index.json, retention-days: 30 }
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: pt-word-sample, path: out/pt-sample, retention-days: 14 }

@@ -59,18 +59,21 @@
     else if (src && src.startsWith('origin:')) list = cards.filter(c => App.origin(c) === src.slice(7));
     else if (src && src.startsWith('topic:')) { const t = App.topicOf(src.slice(6)); list = t ? t.words : []; } // gồm bài con lộ trình (ngsl1.3 – path.js)
     else list = cards;
-    if (list.length < 4 && (!src || src === 'deck')) list = shuffle(TOPICS.filter(t => t.group === 'topics').flatMap(t => t.words)).slice(0, 120);
+    if (list.length < 4 && (!src || src === 'deck')) list = tlLib() || shuffle(TOPICS.filter(t => t.group === 'topics').flatMap(t => t.words)).slice(0, 120);
     return list.map(norm);
   }
   const srcName = src => { const o = sourceList().find(o => o[0] === src), tp = !o && /^topic:/.test(src || '') && App.topicOf(src.slice(6)); return o ? o[1] : tp ? `${tp.emoji} ${tp.name}` : '📒 ' + t('Sổ từ của tôi'); };
   // Báo hoàn thành lượt (lộ trình ghi bước đã xong + màn thưởng cuối bài – path.js)
   const practiceDone = detail => window.dispatchEvent(new CustomEvent('lexkite:practice-done', { detail }));
   let libN = null, libW = null;
-  const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
+  // 🌍 Ngôn ngữ đích ≠ en: kho câu nhiễu = bộ từ của ngôn ngữ đó (TLib, web/js/target-lib.js) – không trộn từ/nghĩa tiếng Anh. null = đang học tiếng Anh.
+  const tlLib = () => { const tl = window.Target ? Target.cur() : 'en'; if (tl === 'en') return null; const c = window.TLib && TLib.cached(tl); if (c) return c.map(norm); App.need('tlib').then(() => TLib.words(tl)).catch(() => {}); return []; };
+  const libNorm = () => tlLib() || libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
   // Lượt trắc nghiệm đầu: chuẩn hóa kho (~20k từ) + làm đầy bộ nhớ của Distract theo LÁT ≤ 8 ms, nhường luồng chính giữa các lát
   // (trước đây 1 tác vụ ~100 ms ngay câu đầu → CPU chậm 4× ≈ 400 ms, TBT mobile #/practice > 200 ms). Kết quả y hệt libNorm().
   const yieldMain = () => new Promise(r => (window.scheduler && scheduler.yield ? scheduler.yield().then(r) : setTimeout(r, 0)));
   const warmLib = () => {
+    if (tlLib()) return Promise.resolve();
     if (libN && libN.length === TOPICS.length) return libW || Promise.resolve();
     return libW = (async () => {
       const len = TOPICS.length, all = TOPICS.flatMap(t => t.words), list = [];
@@ -95,7 +98,7 @@
       .then(out => { q.dis = out.length >= 3 ? { key, out } : null; }, () => { q.dis = null; });
   };
   const distractors = (w, list, n, key) => {
-    const base = list.length >= n + 1 ? list : TOPICS.flatMap(t => t.words).map(norm);
+    const base = list.length >= n + 1 ? list : tlLib() || TOPICS.flatMap(t => t.words).map(norm);
     // js/distract.js: cùng từ loại/trình độ/độ dài, không đồng nghĩa/cùng họ; sổ từ + thư viện
     if (window.Distract) { const out = Distract.pick(w, list.concat(libNorm()), { n, key, mean, seed: Math.random() }); if (out.length >= n) return out; }
     const same = shuffle(base.filter(x => x.word !== w.word && x[key] && x[key] !== w[key] && x.pos === w.pos));

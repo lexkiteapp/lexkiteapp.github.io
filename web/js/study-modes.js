@@ -31,7 +31,9 @@
     const take = list => { for (const x of list) { if (out.length >= 3) break; const m = x && x.word !== c.word && mean(x); if (m && !seen.has(norm(m))) { seen.add(norm(m)); out.push(m); } } };
     const cards = Object.values(App.state.cards || {}), mix = a => a.map(x => [Math.random(), x]).sort((p, q) => p[0] - q[0]).map(p => p[1]);
     take(mix(cards.filter(x => x.pos && x.pos === c.pos))); take(mix(cards));
-    if (out.length < 3 && g.IELTS_DATA && IELTS_DATA.TOPICS) take(mix([].concat(...IELTS_DATA.TOPICS.map(tp => tp.words || [])).slice(0, 400)));
+    const tl = g.Target && Target.cur() !== 'en' ? Target.cur() : '';
+    if (tl) { if (out.length < 3 && g.TLib && TLib.cached(tl)) take(mix(TLib.cached(tl))); } // ngôn ngữ đích: nghĩa nhiễu từ bộ của ngôn ngữ đó, không từ tiếng Anh
+    else if (out.length < 3 && g.IELTS_DATA && IELTS_DATA.TOPICS) take(mix([].concat(...IELTS_DATA.TOPICS.map(tp => tp.words || [])).slice(0, 400)));
     if (out.length < 3) return null;
     const all = mix([right, ...out]);
     return { all, right: all.indexOf(right) };
@@ -94,7 +96,7 @@
     const op = c._opt;
     return `<div class="rm-tag">🎧 ${t('Nghe chọn nghĩa')}</div>
       <button type="button" class="listen-big" id="rmPlay" aria-label="${t('Nghe')} (P)">🔊</button>
-      <div class="row center rm-btns"><button type="button" class="btn sm ghost" data-acc="en-US" aria-label="${t('Nghe giọng Anh–Mỹ')}">🇺🇸 US</button><button type="button" class="btn sm ghost" data-acc="en-GB" aria-label="${t('Nghe giọng Anh–Anh')}">🇬🇧 UK</button></div>
+      ${c.tl ? '' : `<div class="row center rm-btns"><button type="button" class="btn sm ghost" data-acc="en-US" aria-label="${t('Nghe giọng Anh–Mỹ')}">🇺🇸 US</button><button type="button" class="btn sm ghost" data-acc="en-GB" aria-label="${t('Nghe giọng Anh–Anh')}">🇬🇧 UK</button></div>`}
       <div class="rm-opts" role="group" aria-label="${t('Chọn nghĩa đúng')}">${op.all.map((m, i) => `<button type="button" class="btn rm-opt" data-opt="${i}" aria-keyshortcuts="${i + 1}"><kbd aria-hidden="true">${i + 1}</kbd><span>${esc(m)}</span></button>`).join('')}</div>
       <div id="typeRes" class="small" role="status" style="margin-top:.4rem"></div>`;
   }
@@ -132,7 +134,7 @@
     }
     if (mode === 'audio') {
       const op = c._opt; let replays = -1;
-      const play = acc => { replays++; if (!acc) return o.say(); const u = c.audio || '', us = /-us\.mp3$/.test(u); UI.speak(c.word, acc, acc === 'en-US' ? (us ? u : '') : (us ? '' : u)); };
+      const play = acc => { replays++; if (!acc || c.tl) return o.say(); /* thẻ ngôn ngữ đích: không có giọng Anh–Anh/Mỹ */ const u = c.audio || '', us = /-us\.mp3$/.test(u); UI.speak(c.word, acc, acc === 'en-US' ? (us ? u : '') : (us ? '' : u)); };
       setTimeout(() => play(), 250);
       $('#rmPlay').onclick = e => { e.stopPropagation(); play(); };
       document.querySelectorAll('[data-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); play(b.dataset.acc); });
