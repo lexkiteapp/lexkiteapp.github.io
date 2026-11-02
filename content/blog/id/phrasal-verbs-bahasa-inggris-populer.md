@@ -9,7 +9,7 @@ tags: [vocabulary, speaking, phrasal-verbs]
 keyword: "phrasal verbs bahasa inggris populer"
 cover: practice-learn
 coverAlt: "Tampilan latihan interaktif kuis kosakata bahasa Inggris pada aplikasi Lexkite"
-publishAt: ""
+publishAt: 2026-11-25T19:05:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

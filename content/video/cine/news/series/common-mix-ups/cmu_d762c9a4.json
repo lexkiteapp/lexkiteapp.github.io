@@ -1,7 +1,7 @@
 {
- "id": "cmu_28a25c23",
+ "id": "cmu_d762c9a4",
  "template": "mistake",
- "title": "Common Mix-ups #2 – A common mix-up with \"cashback\" (n): money returned to you as a reward for buying something",
+ "title": "Common Mix-ups #6 – miss vs lose",
  "teacher": "ama",
  "set": "classroom_board",
  "clips": [
@@ -31,7 +31,7 @@
  "error_lines": [
   "u_w"
  ],
- "error_re": "\\bi\\W+pay\\W+more\\b",
+ "error_re": "\\bi\\W+lost\\W+the\\b",
  "lines": [
   {
    "id": "u_h",
@@ -40,62 +40,59 @@
   },
   {
    "id": "u_w",
-   "text": "Cashback means I pay more.",
+   "text": "I lost the bus today.",
    "key": {
     "red": [
-     3,
-     4
+     1
     ]
    },
    "gap": 0.65
   },
   {
    "id": "u_k",
-   "text": "Natives say: Cashback means I get some money back.",
+   "text": "Natives say: I missed the bus today.",
    "key": {
     "green": [
-     5,
-     6,
-     7,
-     8
+     3
     ]
    },
    "gap": 0.65
   },
   {
    "id": "u_y",
-   "text": "Cashback returns money after you buy.",
+   "text": "You miss a bus, a train or a class. You lose things, like keys.",
    "key": {
     "yellow": [
-     0
+     1,
+     3,
+     10
     ]
    },
    "gap": 0.65
   },
   {
    "id": "u_x",
-   "text": "This card gives two percent cashback.",
+   "text": "Don't miss the train!",
    "gap": 0.65,
    "key": {
     "green": [
-     5
+     1
     ]
    }
   },
   {
    "id": "u_t",
-   "text": "In some stores, cashback also means taking cash at the till!",
+   "text": "You can also miss a person you love!",
    "key": {
     "yellow": [
-     3,
-     7
+     3
     ]
    },
    "gap": 0.65
   },
   {
    "id": "u_q",
-   "text": "Quick quiz! With blank, you get money back.",
+   "text": "Quick quiz! Don't blank your flight!",
    "key": {
     "yellow": [
      0,
@@ -106,7 +103,7 @@
   },
   {
    "id": "u_q2",
-   "text": "Cashback, or cash out?"
+   "text": "Miss, or lose?"
   },
   {
    "id": "_count",
@@ -115,7 +112,7 @@
   },
   {
    "id": "u_a",
-   "text": "Cashback! With cashback, you get money back.",
+   "text": "Miss! Don't miss your flight!",
    "key": {
     "green": [
      0,
@@ -154,12 +151,16 @@
     ],
     [
      [
-      "“Cashback means I ",
+      "“I ",
       "white"
      ],
      [
-      "pay more.”",
+      "lost ",
       "red"
+     ],
+     [
+      "the bus today.”",
+      "white"
      ]
     ]
    ],
@@ -191,11 +192,14 @@
      "st": "text",
      "segs": [
       [
-       "Cashback means I "
+       "I "
       ],
       [
-       "get",
+       "missed ",
        "green"
+      ],
+      [
+       "the bus today."
       ]
      ]
     },
@@ -203,23 +207,29 @@
      "st": "text",
      "segs": [
       [
-       "some money back.",
-       "green"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "cashback",
+       "missed",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/ˈkæʃbæk/"
+       "@ipa:/mɪst/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "lost",
+       "red"
+      ],
+      [
+       "”"
       ]
      ]
     }
@@ -257,7 +267,7 @@
        "@emoji:❌"
       ],
       [
-       " pay more",
+       " lost",
        "red"
       ]
      ]
@@ -269,7 +279,7 @@
        "@emoji:✅"
       ],
       [
-       " get some money back",
+       " missed",
        "green"
       ]
      ]
@@ -305,19 +315,14 @@
      "st": "text",
      "segs": [
       [
-       "This card gives two"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "percent "
+       "Don't "
       ],
       [
-       "cashback.",
+       "miss ",
        "green"
+      ],
+      [
+       "the train!"
       ]
      ]
     }
@@ -355,15 +360,23 @@
        "@emoji:💡"
       ],
       [
-       " CASH ",
+       " MISS ",
        "hl"
       ],
       [
-       "comes "
+       "the bus"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "LOSE ",
+       "hl"
       ],
       [
-       "BACK",
-       "hl"
+       "your keys"
       ]
      ]
     }
@@ -398,22 +411,14 @@
      "st": "text",
      "segs": [
       [
-       "With "
+       "Don't "
       ],
       [
-       "___, ",
+       "___ ",
        "green"
       ],
       [
-       "you"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "get money back."
+       "your flight!"
       ]
      ]
     }
@@ -434,8 +439,24 @@
   {
    "id": "quiz",
    "kind": "quiz",
-   "a": "cashback",
-   "b": "cash out",
+   "q": [
+    [
+     [
+      "Don't ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " your flight!",
+      "white"
+     ]
+    ]
+   ],
+   "a": "miss",
+   "b": "lose",
    "correct": "a",
    "reveal": [
     "u_a",
@@ -476,7 +497,7 @@
        "@emoji:❌"
       ],
       [
-       " pay more",
+       " lost",
        "red"
       ]
      ]
@@ -488,7 +509,7 @@
        "@emoji:✅"
       ],
       [
-       " get some money back",
+       " missed",
        "green"
       ]
      ]
@@ -497,14 +518,14 @@
      "st": "text",
      "segs": [
       [
-       "cashback",
+       "missed",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/ˈkæʃbæk/"
+       "@ipa:/mɪst/"
       ]
      ]
     }
@@ -538,13 +559,13 @@
  ],
  "series": {
   "name": "Common Mix-ups",
-  "ep": 2
+  "ep": 6
  },
  "source": {
-  "bank": "sb_28a25c23",
-  "pid": "m:cashback#n",
-  "cefr": "B1",
-  "diff": "medium",
-  "ipa": "/ˈkæʃbæk/"
+  "bank": "sb_d762c9a4",
+  "pid": "c:mixup:miss-lose",
+  "cefr": "A2",
+  "diff": "easy",
+  "ipa": "/mɪst/"
  }
 }

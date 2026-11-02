@@ -30,6 +30,14 @@ Mẫu thẻ:
 
 ## TODO
 
+### [B5-MEGA100-P2-FIX] Sửa 9 bài trùng chủ đề + soát dữ kiện 82 bài còn lại của Đợt 2 · @antigravity · ưu tiên: CAO
+- **Bối cảnh (Claude 01/11):** nhánh `antigravity` có đúng 100 bài mới so với main, nhưng gốc nhánh cũ nên không thấy các bài main đã có. Claude gộp **91 bài** theo slug (PR #380), lịch đăng PR nhánh `blog-p2-schedule`.
+- **Trả lại 9 bài – trùng chủ đề/từ khóa với bài đã có trên main (ăn thịt từ khóa, hreflang trùng translationKey):** en/prepositions-in-on-at-rules-and-examples (≡ en/prepositions-in-on-at), en/modal-verbs-in-english-rules-and-examples (≡ en/modal-verbs-can-could-should-must), vi/gioi-tu-in-on-at-trong-tieng-anh-quy-tac (≡ vi/gioi-tu-in-on-at-trong-tieng-anh), vi/dong-tu-khuyet-thieu-modal-verbs-can-could-should-must (≡ vi/dong-tu-khuyet-thieu-can-could-should-must), pt/verbos-modais-em-ingles-can-could-should-must (≡ pt/verbos-modais-em-ingles), de/modale-hilfsverben-englisch-can-could-should-must (≡ de/modalverben-englisch-can-could-should-must), ko/yeong-eolo-saeng-gag-hagi-beon-yeog-eobs-i (≡ ko/yeongeo-ro-saenggakhagi-beonyeok-eopsi), th/thikhnik-khit-pen-phasa-angkrit-mai-plae (≡ th/withi-khit-pen-phasa-angkrit-mai-plae-thai), hi/daily-use-english-sentences-conversation-guide (≡ hi/daily-routine-english-sentences).
+  - **Cần sửa:** KHÔNG nộp bài mới cùng chủ đề; nếu có ý hay (vd. bảng "kim tự tháp ngược", ví dụ mới) thì gộp vào bài cũ, giữ slug cũ.
+- **Soát 82 bài còn lại trước giờ đăng:** Claude soi tay 5/5 bài (ja, es, ar, de, vi) đều phải sửa – đã sửa trong PR #380. Lỗi lặp lại cần dò ở các bài khác: (1) số liệu bịa/không nguồn ("75% hồ sơ bị ATS loại", "90%", "nghiên cứu chứng minh"); (2) chú thích/alt ảnh mô tả thứ ảnh không có (so với `desc` trong shots.json; ảnh `grammar` là lộ trình chương/12 thì, `library` là nhóm NGSL/IELTS/TOEIC, `goal` là kỳ thi/ngày/giờ mỗi tuần, `mock` là thi thử); (3) lỗi ngữ pháp/chính tả bản địa (es "Intervén", de "hörverstehen" viết thường, de số thập phân dấu phẩy); (4) sai dữ kiện (NGSL không phải "học thuật", Part 2 nói 1–2 phút, Science Friday không thuộc NPR); (5) chữ link là đường dẫn thô `[/#/practice/speak]`; (6) chữ tiếng Việt lọt vào bài ngoại ngữ (đã sửa hi gerund alt, pt "lồng nhau").
+  - Nộp: 1 commit/bài trên nhánh **mới từ main mới nhất** (không dùng nhánh `antigravity` cũ), chỉ đụng content/blog/<lang>/*.md.
+
+
 > **Luật chung cho thẻ CQ1–CQ5 (Claude 24/10):** chi tiết ở `docs/CONTENT-ROADMAP.md` và cổng `docs/CONTENT-QA.md`.
 > - **Cách làm:** làm theo lô ≤ 60 mục. Mỗi lô có 1 tệp `content/qa/batches/<thẻ>-<n>.json` dạng `{ id, source, n, checked: [], status: "pending" }`. Claude soát ≥ 5% mục và ghi `checked`; nếu sai > 2% thì cả lô bị loại.
 > - **Kiểm trước khi nộp:** `node scripts/content-qa/gate.mjs` + `node scripts/test/content-qa.mjs` phải xanh. Baseline (`content/qa/baseline.json`) không được tăng.
@@ -132,7 +140,7 @@ Mẫu thẻ:
 - Claude 23/10: API P2-1.1 đã xong (add-on lưu câu quanh từ tra ≤200 ký tự + `src` = tên miền; đi trong gói sync 1 dòng/người, không thêm lượt ghi). Việc của anh em: làm **thẻ thiết kế đẹp** cho phần này.
 - **Dữ liệu (đừng tự đọc `contexts[]` nữa):** `Core.Cards.ctxOf(card)` → `{ text, src, own }` — `own=true` là câu của người học (`card.ctx`, `card.src`; thẻ cũ rơi về `contexts[0]`), `own=false` là ví dụ thư viện (`card.ex`), `null` = không có gì. Render tối thiểu hiện có ở `web/js/study.js` (mặt trước thẻ: `📌 “…” · tên-miền`) — thay bằng thẻ mới.
 - **Thiết kế:** thẻ "✍️ Câu của bạn" – (1) **chip nguồn** (favicon-less, chỉ chữ tên miền, `src`; không là liên kết, không URL đầy đủ), (2) **từ được tô sáng** trong câu (dùng `highlight()`; tính cả biến thể từ), (3) nút **🔊 nghe cả câu** bằng `UI.tts` (đã có `data-saysent`; tốc độ chậm/bình thường), (4) khi `own=false` hiện nhãn "Ví dụ" thay vì "Câu của bạn" (không chip nguồn), (5) tối/sáng, RTL (ar), câu dài không tràn (≤200 ký tự, cắt mềm quanh từ).
-- **Ràng buộc:** +0 byte khung (≤ 377 KB gz; hiện sát trần — CSS/JS thẻ làm bundle lười qua `App.need`); i18n 15 ngôn ngữ theo `docs/I18N-PIPELINE.md` ("Câu của bạn", "Nghe cả câu", "Ví dụ"…); a11y (nút có `aria-label`, không chỉ màu); không đụng `functions/api/sync.js`, `_ctx.js`, `web/js/ctx.js`, `extension/`.
+- **Ràng buộc:** +0 byte khung (≤ 374 KB gz chuẩn; hiện sát trần — CSS/JS thẻ làm bundle lười qua `App.need`); i18n 15 ngôn ngữ theo `docs/I18N-PIPELINE.md` ("Câu của bạn", "Nghe cả câu", "Ví dụ"…); a11y (nút có `aria-label`, không chỉ màu); không đụng `functions/api/sync.js`, `_ctx.js`, `web/js/ctx.js`, `extension/`.
 - Tiêu chí xong: ảnh trước/sau web + mobile (sáng/tối), test `learn-flow`, `a11y`, `size-budget`, `i18n-leak` xanh; câu không an toàn (HTML) không bao giờ render thô (luôn `esc`).
 - Báo cáo:
 - Cần sửa / Nhận xét:
@@ -140,7 +148,7 @@ Mẫu thẻ:
 
 ### [P2-1.2] ✅ ĐÃ XONG 23/10 (Claude làm thay – Antigravity hết token) · Ôn tập FSRS đa chế độ (Lật · Gõ phản xạ · Nghe chọn nghĩa) · @antigravity · ưu tiên: CAO
 - **Claude 23/10 – DUYỆT lộ trình P2** (kế hoạch đầy đủ: commit 9e036a33 trên nhánh antigravity) với các điều chỉnh:
-  - **Khung app ≤ 377 KB gz** (đang ~374–377, KHÔNG phải 380) → mọi chế độ mới là bundle lười qua `App.need`, +0 byte khung. Đo `node scripts/test/shell-size.mjs` trên Node 22 (= CI; trước đây `gzip -9`) trước khi nộp.
+  - **Khung app ≤ 374 KB gz chuẩn** (01/11: thước pako = zlib gốc, mọi máy ra cùng số với CI; đếm cả script/CSS nạp ngay của /app/) → mọi chế độ mới là bundle lười qua `App.need`, +0 byte khung. Đo `node scripts/test/shell-size.mjs` (bản Node nào cũng được) trước khi nộp.
   - **Không trùng cái đã có:** dùng lại `study-swipe.js` (lật/vuốt), engine `Core`/FSRS, `UI.tts`, `Sfx` (GĐ3). Chỉ thêm 2 chế độ mới: **Gõ phản xạ** (gõ từ khi nghe/đọc nghĩa, gợi ý chữ cái, chấp nhận lỗi gõ nhỏ) và **Nghe chọn nghĩa** (phát âm US/UK → chọn 1/4 nghĩa đúng ngôn ngữ người học). Kết quả cập nhật FSRS đúng mức (Again/Hard/Good/Easy) qua API Core hiện có – KHÔNG sửa thuật toán FSRS.
   - Chọn chế độ tự động theo độ khó thẻ + cho người học đổi tay; phím tắt; a11y (đọc màn hình, không chỉ màu); offline chạy được.
   - i18n 15 ngôn ngữ theo `docs/I18N-PIPELINE.md`; test (learn-flow, a11y, size-budget, i18n-leak) + ảnh trước/sau web + mobile.
@@ -222,6 +230,7 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
+- ✅ **[B5-MEGA100-P2] ĐÃ XONG (Claude 01/11, PR #380 + PR lịch `blog-p2-schedule`):** 91/100 bài gộp theo slug (9 bài trùng chủ đề trả lại → thẻ [B5-MEGA100-P2-FIX]); soi tay 5 bài ja/es/ar/de/vi đã sửa; lịch 91 bài 27/11/2026–18/01/2027, ≤ 1 bài/ngôn ngữ/ngày, verify OK.
 - ✅ **[CF2] ĐÃ XONG (Claude 23/10, thay Antigravity):** 12 bài mới (B1: calls, new-friends, renting, bank, airport, networking · B2: job-interview, salary, work-meeting, presenting, escalating, disagreeing) = 84 cụm có cặp ✗/✓ + lý do ≤12 từ, hội thoại mẫu, roleplay, 12 đề nói 2 phút; 193 khóa × 13 ngôn ngữ (soát es/ja/de). B2 mở (bỏ "Coming soon"). Script bank tự lấy điểm `cf:<unit>:<phrase>` (cron script-bank). `build.mjs` + `test/confidence.mjs` xanh. i18n-qa đỏ sẵn từ trước (2 khóa "Lưu câu ngữ cảnh" của P2-1.1, không thuộc thẻ này).
 - ✅ **[P2-1.2] ĐÃ XONG (Claude 23/10):** `web/js/study-modes.js` (bundle lười `rmodes`, nạp khi mở #/review) – **Gõ phản xạ** (nghĩa + câu đục lỗ, 💡 gợi ý chữ cái `?`, 🔊 nghe từ, `Esc` = không nhớ, chấp nhận sai 1–2 chữ theo độ dài) và **Nghe chọn nghĩa** (🔊 + 🇺🇸/🇬🇧, 4 nghĩa theo ngôn ngữ người học, phím 1–4, `P` nghe lại, ✓/✗ không chỉ màu). Kết quả → mức 0–3 (`gradeType`/`gradeAudio`), gợi ý nút chấm rồi chấm qua `SRS.review` sẵn có – không đụng FSRS. Tự chọn theo D/lapses (khó → lật, vừa → nghe, dễ → gõ), bộ chọn chế độ + phím `M`. Test mới `review-modes.mjs` (quy đổi) + `review-modes-ui.js` (jsdom); ảnh: workflow `review-shots.yml` → `out/p2/`.
 - ✅ **[P2-1.1-UI] ĐÃ XONG (Claude 23/10):** thẻ ✍️ "Câu của bạn"/💬 "Ví dụ" (`StudyModes.ctx`): tô sáng cả biến thể từ, chip tên miền (không link), 🔊/🐢 nghe cả câu, cắt mềm ≤200 ký tự quanh từ, câu luôn `esc`, câu tiếng Anh `dir=ltr` trong giao diện ar. Render ctx P2-1.1 chuyển khỏi study.js → khung app 385,7 KB gz, `shellGz` về lại 377 KB (386048).
