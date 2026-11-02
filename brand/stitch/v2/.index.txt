@@ -24,6 +24,10 @@ teacher-call-light d5c26ebf2dbc4c48916c37c296137fe9 (Lexkite v2 Light — Teache
 teacher-call-dark d486adc21af249a59708400ae6385b10 (Lexkite v2.1 Dark — Teacher Call fix)
 exam-readiness-light 7f69405209b44c7c8fe1fbd8ff1c4dfc (Lexkite v2.1 Light — Exam Readiness) + spliced 30/10: header streak icon = Tactile Flame from d91761d3 (owner-approved)
 exam-readiness-dark c6877409bff24b0b9aa4f33f4c1a9532 (Lexkite v2.1 Dark — Exam Readiness r2) + spliced 30/10: header streak icon = Tactile Flame from 4f0fb8dd (owner-approved)
+pas-sit-light 45068b5f4ec24ce28bc1a5ba8fd91bd6 (Lexkite Situation — Café & restaurant, contrast fix; key3 project 18075333702575270507; closest Stitch match to pas-sit-light.html, recorded 01/11)
+pas-sit-dark c08d044dcea84df89345f4de817fcb85 (Lexkite Situation — Café & restaurant, Tactile Night DONE-pill fix; key3 project 18075333702575270507)
+pas-drill-light d99a0c00da2c4af8b2df64250a03ba90 (Lexkite Speaking Drill — Say it in 3 beats, clean classes; key3 project 18075333702575270507)
+pas-drill-dark 3af039605d8b49a488407a9d39f5f7d1 (Lexkite Speaking Drill — Say it in 3 beats, Tactile Night; key3 project 18075333702575270507)
 hub-vocab-light 333b7fda885e4ec1af6a59fe613a0bbf (refs-factory key2 project 10804635390057604965, frame-hub tab-vocab)
 hub-vocab-dark 4c28bdfcfa5b4e9685212970ccfa147b (A2 1/11: Tactile Night edit of the light screen, same layout)
 hub-tests-light 0524306bdc5e485d8c5287570d1fe785 (refs-factory key2) – chưa port

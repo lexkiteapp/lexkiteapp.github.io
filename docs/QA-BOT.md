@@ -19,4 +19,5 @@ CLS ≤ 0,1 · INP đỏ > 500 ms (cảnh báo > 200) · long task đỏ > 500 m
 `scripts/test/qa-bot-baseline.json` = lỗi giao diện đã có lúc bật bot (chữ ký `loại|phần tử`). Lỗi MỚI ngoài baseline → đỏ; dòng baseline không còn tái hiện → đỏ "baseline cũ" (xoá dòng đó trong PR sửa). Không bao giờ THÊM dòng để làm xanh. Artifact `qa-bot` luôn có `baseline-seen.json` (lỗi đang thấy) để đối chiếu.
 
 ## Thêm màn mới
+Màn học mới: phân loại route trong `web/js/exit-guard.js` (bước exit-sweep, docs/specs/exit-button.md).
 Thêm `[tên, '/hash']` vào `STATES` trong `qa-bot.mjs`; hàng cần thẳng nhau → `ALIGN`.

@@ -17,5 +17,12 @@ export function request(url, { method = 'GET', headers = {}, body, timeout = 30,
     const i = out.lastIndexOf('\n'); return { status: Number(out.slice(i + 1)) || 0, body: out.slice(0, i) };
   } catch (e) { return { status: 0, body: '', error: e.message }; } finally { if (tmp) fs.rmSync(tmp, { force: true }); }
 }
+// Trình duyệt (Playwright): header CI chỉ gắn cho request CÙNG ORIGIN với trang kiểm. extraHTTPHeaders gắn cho MỌI origin
+// → font Google / beacon Cloudflare bị preflight CORS chặn ("Request header field x-lexkite-ci is not allowed") = lỗi giả.
+export const sameOrigin = base => { const o = new URL(base).origin; return u => { try { return new URL(String(u)).origin === o; } catch { return false; } }; };
+export async function routeCiHeader(ctx, base, value = ciHeaderValue()) {
+  if (!value) return;
+  await ctx.route(sameOrigin(base), r => r.continue({ headers: { ...r.request().headers(), 'x-lexkite-ci': value } }));
+}
 export const sleep = ms => new Promise(r => setTimeout(r, ms));
 export async function stdinText() { let s = ''; for await (const c of process.stdin) s += c; return s; } // đọc stdin kiểu async (readFileSync(0) lỗi EAGAIN với pipe)

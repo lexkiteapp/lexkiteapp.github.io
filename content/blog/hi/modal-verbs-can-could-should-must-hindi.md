@@ -145,6 +145,14 @@ quiz: [
 
 {{youtube: | Modal Verbs CAN COULD SHOULD MUST Masterclass in Hindi}}
 
+## संबंधित अध्ययन सामग्री
+
+- [कंडीशनल सेंटेंस नियम और प्रकार](/hi/blog/conditional-sentences-in-english-rules-hindi/)
+
+## संबंधित अध्ययन सामग्री
+
+- [एक्टिव और पैसिव वॉइस के नियम](/hi/blog/passive-voice-rules-in-english-hindi/)
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### Q1. क्या Should और Ought to का अर्थ एक ही होता है?
