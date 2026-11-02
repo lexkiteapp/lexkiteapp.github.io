@@ -146,7 +146,7 @@
   }
   /** Trạng thái vẽ ở thời điểm t: a = hình trước, b = hình hiện tại, k = tỉ lệ trộn sang b. */
   function stateAt(cues, t) {
-    t += LEAD; let i = 0; while (i < cues.length - 1 && cues[i + 1].start <= t) i++;
+    t += LEAD + BLEND / 2; let i = 0; while (i < cues.length - 1 && cues[i + 1].start <= t) i++;   // trộn CANH GIỮA mép hình (nửa trước, nửa sau): giữa chừng trộn = mép − LEAD
     const c = cues[i] || { value: 'X', start: 0 }, a = i > 0 ? cues[i - 1].value : 'X';
     return { a, b: c.value, k: Math.min(1, Math.max(0, (t - c.start) / BLEND)), i };
   }
