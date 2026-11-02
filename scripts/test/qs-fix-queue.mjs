@@ -24,4 +24,4 @@ ok(p.close.map(i => i.number).join() === '9', 'đóng mục hết lỗi CHỈ kh
 p = plan(gs, [], {}, { maxNew: 1 });
 ok(p.create.length === 1 && p.deferred === 2, 'trần mở mới mỗi đêm (điểm cao trước), phần còn lại hoãn');
 console.log(fails ? `✗ qs-fix-queue: ${fails} lỗi` : '✓ qs-fix-queue: nhóm, khử trùng, đóng an toàn, trần mở mới');
-process.exit(fails ? 1 : 0);
+if (fails) process.exit(1);   // không exit(0): được qa-fill.mjs import nối chuỗi
