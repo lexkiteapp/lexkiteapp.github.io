@@ -16,9 +16,11 @@
   const web = /^https?:$/.test(location.protocol) && /(^|\.)lexkite\.com$|^localhost$|^127\.0\.0\.1$|\.pages\.dev$/.test(location.hostname);
   const BASE = web ? '' : 'https://lexkite.com';
   try { if (/[?&#]vtest=1\b/.test(location.href)) ls('lvTest', '1'); } catch (e) { /* bỏ qua */ }
-  let MAN = null;
-  const manifest = () => MAN || (MAN = fetch(BASE + '/data/videos.json', { cache: 'no-cache' }).then(r => (r.ok ? r.json() : { items: [] }))
-    .then(m => (Array.isArray(m.items) ? m.items : []).filter(it => !it.test || ls('lvTest') === '1')).catch(() => { MAN = null; return []; }));
+  let RAW = null;
+  const raw = () => RAW || (RAW = fetch(BASE + '/data/videos.json', { cache: 'no-cache' }).then(r => (r.ok ? r.json() : {})).catch(() => { RAW = null; return {}; }));
+  const vis = a => (Array.isArray(a) ? a : []).filter(it => !it.test || ls('lvTest') === '1');
+  const manifest = () => raw().then(m => vis(m.items));   // short 9:16 (thẻ từ, ngữ pháp, ngày học)
+  const embeds = () => raw().then(m => vis(m.embeds));    // video nhúng bài học 4:5 + 16:9 (cờ lv_embed) – docs/VIDEO-MOTION.md §Embedded
   const seen = () => { try { return JSON.parse(ls('lvSeen') || '{}') || {}; } catch (e) { return {}; } };
   const last = () => { try { return JSON.parse(ls('lvLast') || 'null'); } catch (e) { return null; } };
   const sent = {};
@@ -41,7 +43,10 @@
 .lv-spin{position:absolute;inset:auto 0 0;margin:auto;top:0;width:44px;height:44px;border-radius:50%;border:4px solid #fff6;border-top-color:#fff}@media (prefers-reduced-motion:no-preference){.lv-spin{animation:lvs 1s linear infinite}}@keyframes lvs{to{transform:rotate(1turn)}}.lv-yt.on .lv-spin{display:none}
 .lv-bar{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:.5rem 0}.lv-x{min-height:40px}.lv-q{border:1px solid var(--line);border-radius:14px;padding:.8rem;margin-top:.6rem;max-width:520px;margin-inline:auto}
 .lv-q .lv-opts{display:grid;gap:.4rem;margin:.5rem 0}.lv-q button.lv-o{text-align:start;min-height:44px}.lv-q .ok{border-color:var(--ok,#1a7f37)}.lv-q .no{border-color:var(--bad,#b42318)}.lv-q button.lv-o:disabled{opacity:1}.lv-q button.lv-o:disabled:not(.ok):not(.no){opacity:.6}.lv-q .ok .lv-mk{color:var(--ok,#1a7f37)}.lv-q .no .lv-mk{color:var(--bad,#b42318)}
-@media (prefers-reduced-motion:no-preference){.lv-card{transition:transform .15s}.lv-card:hover{transform:translateY(-1px)}}`;
+@media (prefers-reduced-motion:no-preference){.lv-card{transition:transform .15s}.lv-card:hover{transform:translateY(-1px)}}
+.lv-em{margin:0 auto;width:100%;max-width:min(100%,calc((100dvh - 330px) * var(--ar)))}.lv-wide{max-width:min(100%,calc((100dvh - 300px) * var(--ar)))}.lv-em video{display:block;width:100%;height:auto;aspect-ratio:var(--ar);border-radius:16px;background:#000}
+.lv-chs{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem;align-items:center}.lv-chs>span{font-size:.78rem;font-weight:700;color:var(--muted);flex-basis:100%}.lv-ch{min-height:44px;border:1px solid var(--line);border-radius:999px;padding:.3rem .8rem;background:var(--card,var(--surface));color:inherit;font:inherit;font-size:.88rem;cursor:pointer;max-width:100%;text-align:start}
+.lv-ch time{color:var(--muted);margin-inline-end:.35rem;font-variant-numeric:tabular-nums}.lv-ch[aria-current=true]{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}.lv-ch:focus-visible{outline:3px solid var(--primary);outline-offset:2px}`;
     document.head.appendChild(s);
   }
 
@@ -175,6 +180,37 @@
       const it = pick(items, ctx); if (it && s.isConnected) card(s, it, ctx);
     }
   }
-  const LV = { scan, pick, manifest, play, ytBlocked, YT_WAIT, noYT: false, lastFallback: '' };
+  // 🎞️ Video nhúng một bước #/lesson (cờ lv_embed): CÙNG bố cục Remotion với short nhưng nhịp chậm, không phụ đề in sẵn, không kêu gọi theo dõi.
+  // Bản 4:5 (sq45) trong cột bài học trên điện thoại, 16:9 (wide) trên máy tính; phụ đề EN + chương = WebVTT; bìa JPG; chỉ tải khi bước mở (gọi embed()).
+  // Hết video (end card "Next step →") → o.onEnd() = bài học bấm chính nút bước tiếp của nó. Trả false khi không có video → bài học bỏ qua bước.
+  const wideNow = () => { try { return matchMedia('(min-width: 900px) and (orientation: landscape)').matches; } catch (e) { return false; } };
+  const vttT = x => { const p = String(x).split(':').map(Number); return p.reduce((a, b) => a * 60 + b, 0); };
+  const clock = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  const cues = txt => [...String(txt || '').replace(/\r/g, '').matchAll(/(\d{1,2}:\d{2}(?::\d{2})?\.\d{3})\s+-->\s+(\d{1,2}:\d{2}(?::\d{2})?\.\d{3})[^\n]*\n([^\n]+)/g)].map(m => ({ s: vttT(m[1]), e: vttT(m[2]), text: m[3].trim() }));
+  async function embed(slot, o) {
+    o = o || {}; const list = (await embeds()).filter(e => e && e.renditions && (e.renditions.sq45 || e.renditions.wide)); if (!list.length || !slot || !slot.isConnected) return false;
+    const ws = (o.words || []).map(x => String(x).toLowerCase()), it = list.find(e => (e.words || []).some(x => ws.includes(x))) || list[0];
+    const fmt = (wideNow() && it.renditions.wide) || !it.renditions.sq45 ? 'wide' : 'sq45', r = it.renditions[fmt];
+    css(); LV.fmt = fmt;
+    slot.innerHTML = `<figure class="lv-em lv-${fmt}" style="--ar:${+r.w || 16}/${+r.h || 9};margin:0 auto"><video controls playsinline preload="metadata" crossorigin="anonymous" poster="${esc(r.poster)}" width="${+r.w || 16}" height="${+r.h || 9}" aria-label="${esc(it.title)}" lang="en">
+      <source src="${esc(r.src)}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="${esc(r.vtt_en)}" default>${r.chapters ? `<track kind="chapters" srclang="en" label="Chapters" src="${esc(r.chapters)}">` : ''}</video>
+      <nav class="lv-chs" aria-label="${esc(T('Các phần của video'))}" hidden></nav><p class="lv-err small muted" role="status"></p></figure>`;
+    const v = slot.querySelector('video'), nav = slot.querySelector('.lv-chs');
+    v.addEventListener('loadedmetadata', () => { for (const tr of v.textTracks) if (tr.kind === 'captions') tr.mode = 'showing'; }, { once: true });
+    v.addEventListener('play', () => hit('view', it.id), { once: true });
+    v.addEventListener('error', () => { slot.querySelector('.lv-err').textContent = T('Không phát được video – thử lại sau.'); }, true);
+    v.addEventListener('ended', () => { hit('done', it.id); if (typeof o.onEnd === 'function') o.onEnd(it); }, { once: true });
+    if (r.chapters) fetch(r.chapters).then(x => (x.ok ? x.text() : '')).then(txt => {   // mốc chương: nút tua tới từng thẻ dạy (tiêu đề chương = nội dung EN)
+      const cs = cues(txt); if (!cs.length || !nav.isConnected) return;
+      nav.innerHTML = `<span aria-hidden="true">${esc(T('Các phần của video'))}</span>` + cs.map((c, i) => `<button type="button" class="lv-ch" data-i="${i}" aria-current="false"><time>${clock(c.s)}</time><bdi lang="en">${esc(c.text)}</bdi></button>`).join('');
+      nav.hidden = false;
+      const bs = [...nav.querySelectorAll('.lv-ch')];
+      bs.forEach(b => { b.onclick = () => { v.currentTime = cs[+b.dataset.i].s + 0.01; const p = v.play(); if (p && p.catch) p.catch(() => {}); }; });
+      const mark1 = () => { const t = v.currentTime; let k = -1; cs.forEach((c, i) => { if (t >= c.s - 0.05) k = i; }); bs.forEach((b, i) => b.setAttribute('aria-current', String(i === k))); };
+      v.addEventListener('timeupdate', mark1); mark1();
+    }).catch(() => {});
+    return true;
+  }
+  const LV = { scan, pick, manifest, embeds, embed, play, ytBlocked, YT_WAIT, noYT: false, lastFallback: '', fmt: '' };
   g.LessonVideo = LV;
 })(typeof self !== 'undefined' ? self : this);

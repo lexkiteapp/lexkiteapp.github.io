@@ -145,7 +145,7 @@ const WHERE = [
   ['API backend', 'functions/api/<tên>.js = /api/<tên>; helper functions/api/_*.js (quota, abuse…); test api-security.mjs'],
   ['Add-on', 'extension/{manifest.json,background.js,content.js,popup.js,newtab.js}; build scripts/build-extension.sh (web → extension/app); test ext-*.mjs; docs/CWS-RULES.md'],
   ['Blog / SEO', 'content/blog + scripts/blog-pipeline.mjs, build-blog.mjs, build-seo.mjs; workflow blog-daily; docs/BLOG-RUNBOOK.md'],
-  ['CI / việc nền', 'infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = package.json "test"; scripts/prepush.sh; docs/CI-RUNNERS.md'],
+  ['CI / việc nền', 'infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = scripts/test/suite.txt (npm test → run-suite.mjs); scripts/prepush.sh; docs/CI-RUNNERS.md'],
 ];
 const exists = p => files.some(f => f === p || f.startsWith(p.replace(/\/$/, '') + '/') || (/\.\w+$/.test(p) ? false : f.startsWith(p)));
 

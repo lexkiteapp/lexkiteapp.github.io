@@ -21,6 +21,7 @@ concurrency: { group: library-build, cancel-in-progress: false }
 jobs:
   plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 15   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { ids: '${{ steps.p.outputs.ids }}', count: '${{ steps.p.outputs.count }}' }
     steps:
       - uses: actions/checkout@v4
@@ -77,6 +78,7 @@ jobs:
     needs: [plan, build]
     if: always() && needs.plan.outputs.count != '0'
     runs-on: ubuntu-latest
+    timeout-minutes: 120   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -9,6 +9,9 @@ on:
     paths: ['web/js/**', 'web/app/**', 'scripts/test/profile-route.mjs', '.github/workflows/perf-profile.yml']
 permissions:
   contents: read
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   profile:
     runs-on: ubuntu-latest

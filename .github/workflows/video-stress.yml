@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 # Dựng thử ĐA DẠNG trên CI (không chạy trên máy anh chủ): 12 video song song (matrix) – khác seed × khuôn × chủ đề/bối cảnh × ngày/tối × dàn nhân vật.
 # Mỗi job: scripts/video/stress.mjs --only <i> → artifact stress-<i> (6 khung tóm tắt + report.json + video.mp4 + props/state). Job cuối gom lỗi vào Step Summary.
 # Chạy tay: Actions → "Dựng thử đa dạng (stress)" → Run workflow. Kho phòng/clip chưa có trên CI → nền gradient thương hiệu (VIDEO_ALLOW_STUDIO=1).
@@ -86,6 +87,7 @@ jobs:
     needs: render
     if: always()
     runs-on: ubuntu-latest
+    timeout-minutes: 20   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/download-artifact@v4
         with:

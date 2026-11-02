@@ -1,3 +1,4 @@
+# ci-policy: all-paths – bộ test lõi phải chạy trên mọi PR (cổng required-gate); PR mới huỷ lượt cũ qua concurrency
 # Bộ kiểm `npm test` DUY NHẤT (một định nghĩa): chạy trên MỌI pull_request vào main (cổng merge, đặt làm required check "npm test")
 # và được Prod release gọi lại (workflow_call) làm cổng sau-push → PR đỏ ở đây thì main không thể đỏ vì cùng lý do.
 # Không paths-filter (required check mà bị filter sẽ treo PR). Repo công khai → phút Actions miễn phí; PR không deploy Cloudflare Pages.

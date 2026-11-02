@@ -19,6 +19,7 @@ env:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    timeout-minutes: 20   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { list: '${{ steps.m.outputs.list }}', shards: '${{ steps.m.outputs.shards }}' }
     steps:
       - id: m

@@ -2,7 +2,7 @@
 // luật zone không đè luật khác, workflow có cổng + concurrency + timeout. Không mạng.
 import assert from 'node:assert/strict'; import fs from 'node:fs';
 import { hosts, mediaPath, audioPath, vimgPath, videoAsset, typeFor, cacheFor, merge, diff, IMMUTABLE, LIBRARY_CC } from '../cdn/hosts.mjs';
-import { RULES, REF, CORS, mergeRules, checkResponse, r2State } from '../cdn/cutover.mjs';
+import { RULES, REF, CORS, mergeRules, checkResponse, r2State, cacheHit } from '../cdn/cutover.mjs';
 import { s3Secret, tokenId } from '../cdn/creds.mjs';
 
 // 1) Lọc như workers/media (nhánh mặc định) + workers/audio
@@ -56,4 +56,12 @@ for (const step of wf.split('\n      - ').slice(1).filter(x => /mirror\.mjs|cred
 assert.ok(JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')).jobs.some(j => j.workflow === 'cdn-mirror.yml'));
 // 10) switch: gắn R2 lỗi → quay lại Worker ngay (không để tên miền trống)
 const cut = fs.readFileSync('scripts/cdn/cutover.mjs', 'utf8'); assert.match(cut, /catch \(e\) \{ summary\([^)]*quay lại Worker`\); await rollback\(h\); throw e; \}/);
+// 11) main-guard theo realpath: gọi qua symlink (/tmp → /private/tmp) vẫn chạy khối main – hồi quy 02/11 (switch im lặng)
+{ const { isMain } = await import('../lib/is-main.mjs'); const os = await import('node:os'), path = await import('node:path'), url = await import('node:url');
+  const d = fs.mkdtempSync(path.join(os.tmpdir(), 'im-')), f = path.join(d, 'a.mjs'), l = path.join(d, 'link'); fs.writeFileSync(f, ''); fs.symlinkSync(d, l);
+  assert.ok(isMain(url.pathToFileURL(fs.realpathSync(f)).href, path.join(l, 'a.mjs'))); assert.ok(!isMain(url.pathToFileURL(f).href, path.join(d, 'b.mjs'))); assert.ok(!isMain(url.pathToFileURL(f).href, undefined));
+  for (const p of ['scripts/cdn/cutover.mjs', 'scripts/cdn/creds.mjs']) assert.match(fs.readFileSync(p, 'utf8'), /if \(isMain\(import\.meta\.url\)\)/, p); }
+// 12) đo cache bằng GET: HIT/STALE/REVALIDATED đạt; DYNAMIC (HEAD/không cache), MISS, BYPASS, thiếu header → không đạt
+assert.ok(cacheHit('HIT') && cacheHit('REVALIDATED') && cacheHit('STALE')); assert.ok(!cacheHit('DYNAMIC') && !cacheHit('MISS') && !cacheHit('BYPASS') && !cacheHit(null));
+{ const cut = fs.readFileSync('scripts/cdn/cutover.mjs', 'utf8'); assert.doesNotMatch(cut, /method: 'HEAD'/); assert.match(cut, /r3 = await get\(\)/); }
 console.log('cdn-r2: OK');
