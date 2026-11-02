@@ -87,6 +87,7 @@
         { "who": "carlos", "en": "Great! Thanks for listening, everyone. See you next time!" }
       ],
       "checks": [
+        { "at": 2, "type": "tap", "line": 2 },
         { "at": 7, "type": "q", "q": "Where is Carlos going on Saturday?", "options": ["To the beach", "To the park", "To work"], "answer": 0, "why": "Carlos: “On Saturday, I'm going to the beach with my family.” → To the beach" },
         { "at": 7, "type": "q", "q": "What does Ama want to do on Saturday?", "options": ["Read a book", "Go swimming", "Watch a movie"], "answer": 0, "why": "Ama: “That sounds fun! I'm staying home. I want to read a good book.” → Read a book" },
         { "at": 7, "type": "q", "q": "What is Ama doing on Sunday?", "options": ["Making dinner for friends", "Visiting her family", "Going to the beach"], "answer": 0, "why": "Ama: “On Sunday, I'm making dinner for my friends.” → Making dinner for friends" }
@@ -104,6 +105,7 @@
         { "who": "carlos", "en": "Good advice! That's all for today. Bye!" }
       ],
       "checks": [
+        { "at": 3, "type": "tap", "line": 3 },
         { "at": 6, "type": "q", "q": "What time does Ama wake up?", "options": ["At six thirty", "At seven fifteen", "At seven thirty"], "answer": 0, "why": "Ama: “I wake up at six thirty. First, I drink a glass of water.” → At six thirty" },
         { "at": 6, "type": "q", "q": "What does Carlos usually eat for breakfast?", "options": ["Eggs and toast", "Fruit and yogurt", "Nothing"], "answer": 0, "why": "Carlos: “I usually have eggs and toast for breakfast.” → Eggs and toast" },
         { "at": 6, "type": "q", "q": "Why does Ama never skip breakfast?", "options": ["It gives her energy", "She is always hungry", "Her doctor says so"], "answer": 0, "why": "Ama: “I never skip breakfast. It gives me energy.” → It gives her energy" }

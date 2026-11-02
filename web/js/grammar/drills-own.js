@@ -3,6 +3,19 @@
  * sai thì hiện công thức + gợi ý (hint) + câu mẫu (a[0]). a = câu mẫu (test learnability.mjs: mọi câu mẫu phải khớp GRAMMAR_CHECK của bài). */
 (function (g) {
 const OWN = {
+// Chương nền A1 (starter.js)
+'be-am-is-are': [
+{ t: 'own', q: "Introduce yourself: your name, age and where you are from.", hint: "I am … I'm from …", a: ["I am Lan and I am twenty years old.", "I'm from Da Nang."], ex: "Chủ ngữ I đi với am (I am, I'm) → I am Lan; he/she/it đi với is, you/we/they đi với are." },
+{ t: 'own', q: "Describe a friend or a family member.", hint: "My friend is … He/She is …", a: ["My friend is very funny.", "My parents are teachers."], ex: "Một người (my friend) dùng is, hai người trở lên (my parents) dùng are → My parents are teachers." },
+],
+'a-an-plurals': [
+{ t: 'own', q: "Write about one thing and many things in your bag.", hint: "I have a/an … and two …", a: ["I have an apple and two books in my bag.", "There is a pen and three pencils in my bag."], ex: "Dùng an trước âm nguyên âm (an apple), a trước phụ âm (a pen); số nhiều thêm -s → two books." },
+{ t: 'own', q: "Write about the people in your family.", hint: "I have two brothers / many cousins …", a: ["I have two brothers and a sister.", "I have many cousins in Hanoi."], ex: "Sau two/many dùng danh từ số nhiều (brothers, cousins); một người dùng a + danh từ số ít → a sister." },
+],
+'prepositions-time-place-basic': [
+{ t: 'own', q: "When do you get up and go to school or work?", hint: "I get up at … on weekdays.", a: ["I get up at 6:30 on weekdays.", "I go to work at 8 in the morning."], ex: "Giờ cụ thể dùng at (at 6:30), thứ dùng on (on weekdays), buổi dùng in → in the morning." },
+{ t: 'own', q: "Where is your phone or your bag now?", hint: "My phone is on/in/under the …", a: ["My phone is on the table.", "My bag is next to my desk."], ex: "Vị trí dùng on (trên mặt), in (bên trong), under (bên dưới), next to (bên cạnh) + the/my + danh từ → on the table." },
+],
 'present-simple': [
 { t: 'own', q: "Write one true sentence about your daily routine.", hint: "I usually … every morning.", a: ["I usually drink tea every morning.", "My mother walks to work every day."], ex: "Thói quen hằng ngày dùng hiện tại đơn: I/you/we/they + V, he/she/it + V-s/es (walks, watches)." },
 { t: 'own', q: "Write a fact about your city or country.", hint: "It rains a lot in …", a: ["It rains a lot in my city in summer.", "Rice grows well in the Mekong Delta."], ex: "Sự thật chung về nơi bạn sống dùng hiện tại đơn; chủ ngữ số ít thì động từ thêm -s/es." },
