@@ -6,13 +6,17 @@ Người dùng báo lỗi → mã LX-xxxx + link riêng `#/report/<mã>` → AI 
 
 ## Thành phần
 - `web/js/report-pill.js` – nút nổi + bộ đệm 20 lỗi console; không nằm trong SHELL của `sw.js` (báo lỗi cần mạng); tự đăng ký route, **không sửa `app.js`** (chỉ 1 dòng `<script defer>` trong `web/index.html`).
-- `web/js/report.js` (tải lười) – form, ảnh đính kèm nén ≤ 300 KB trên máy, màn cảm ơn có Kit + mốc dự kiến, khóa gửi 30 s, trang trạng thái có dòng thời gian, nhắc trong app ≤ 1 lần/12 h.
+- `web/js/report.js` (tải lười) – form, ảnh đính kèm nén trên máy (`MAXPX`/`MAXB`, mặc định 1600 px / 300 KB – xem § Ảnh chụp), màn cảm ơn có Kit + mốc dự kiến, khóa gửi 30 s, trang trạng thái có dòng thời gian, nhắc trong app ≤ 1 lần/12 h.
 - `web/js/i18n/en/report.js` – nhóm chữ tải lười (`LAZY="report"` trong `build-i18n.sh`); 13 ngôn ngữ dịch tay trong `scripts/i18n-fixed.json`.
 - Add-on: mục "⚑ Báo cáo sự cố" trong popup – chỉ gửi **tên miền** tab đang xem, không thêm quyền.
 - `functions/api/report.js` (tạo phiếu, trạng thái theo mã riêng, lệnh admin, thư) · `functions/api/_triage.js` (AI phân loại, luật dự phòng, chữ ký lỗi, làm sạch, tạo GitHub Issue) · `web/js/admin-reports.js` (tab Báo lỗi + thẻ Chất lượng) · Worker `lexkite-mail` (`/send`, `/user` qua Resend/Brevo, tóm tắt ngày) · `scripts/report-cli.mjs`.
 
 ## Dữ liệu D1
-`reports` (tok, status new/ack/prog/fixed/wontfix/dup, cat bug/content/i18n/audio/account/idea, area, msg, email+notify chỉ khi người dùng đồng ý, uid, who = IP băm, ctx đã lọc, errs, sev P0–P3, sig, ai, issue, feat, fix_ver, reply công khai, note nội bộ, dup_of) · `report_shots` (không bao giờ công khai) · `report_events` · config `report_notify`, `report_eta`; cột `eta_x` (đầu vào mốc thông minh). Mọi lệnh admin ghi `admin_log`. Phiếu > 24 tháng tự xóa.
+`reports` (tok, status new/ack/prog/fixed/wontfix/dup, cat bug/content/i18n/audio/account/idea, area, msg, email+notify chỉ khi người dùng đồng ý, uid, who = IP băm, ctx đã lọc, errs, sev P0–P3, sig, ai, issue, feat, fix_ver, reply công khai, note nội bộ, dup_of) · ảnh chụp: R2 riêng `lexkite-report-shots` (cột `shot_b`), `report_shots` chỉ còn khi chưa gắn R2 (không bao giờ công khai) · `report_events` · config `report_notify`, `report_eta`; cột `eta_x` (đầu vào mốc thông minh). Mọi lệnh admin ghi `admin_log`. Phiếu > 24 tháng tự xóa.
+
+## Ảnh chụp (R2)
+Nhị phân trong bucket R2 **riêng tư** `lexkite-report-shots` (binding `REPORT_SHOTS`, khóa `report/<id>`, kiểu từ data URL; `reports.shot_b` = số byte) – không base64 trong D1. Quản trị xem qua URL ký HMAC 5 phút `/api/report-shot?id&e&s` (`functions/api/report-shot.js`: no-store, nosniff, CSP none; khóa `REPORT_SHOT_KEY` hoặc `LEXKITE_REPORT_CLI_KEY`; thiếu khóa → data URL qua op `shot`). AI phân loại lại đọc từ R2. Xóa ảnh 60 ngày sau khi đóng (fixed/wontfix/dup, mốc `fixed_at` hoặc `upd`; ≈ 2 % lượt gửi + op `shots-migrate`), ảnh không an toàn xóa ngay, phiếu > 24 tháng xóa cả ảnh. Chưa gắn binding → D1 như cũ.
+Workflow `report-shots.yml`: `setup` (tạo bucket, rồi bỏ `#` khối `[[r2_buckets]]` trong `wrangler.toml` – bucket chưa có thì Pages từ chối deploy) · `migrate` (thứ Hai + chạy tay: `report-cli.mjs shots-migrate --all`, lô 20, D1 → R2, xóa dòng, hết thì `VACUUM`; D1 từ chối VACUUM thì báo lại) · `bench` (PR đổi `report.js`: `scripts/report-shot-bench.mjs` nén mẫu thật bằng đúng `shrink()` ở 300 KB/1600 px và 150 KB/1280 px, OCR eng+vie so với ảnh gốc; chỉ hạ trần khi mọi mẫu ≥ 0,95 và trung bình ≥ 0,98 độ đọc của trần cũ). Thẻ Chất lượng: dung lượng ảnh R2 + % trên 10 GB miễn phí (chung các bucket của tài khoản) + số ảnh còn ở D1.
 
 ## Chống lạm dụng
 Hạn mức `report` + ≤ 5/giờ/IP + ô bẫy + chặn gửi < 2,5 s + điểm spam; body ≤ 600 KB; Turnstile tùy chọn.
@@ -42,8 +46,8 @@ Màn cảm ơn (Kit, mã, mốc theo loại: tài khoản 24 h, lỗi 2–3 ngà
 Thư cảm ơn ngay khi tạo phiếu (chỉ khi để email + đồng ý; chạy nền sau AI phân loại nên mốc theo mức P0–P3, AI lỗi vẫn gửi): mã LX, mốc dự kiến, liên kết riêng `#/report/<mã>`; lịch sử ghi `mailed`/`mail-failed` · `thanks`. Đổi trạng thái/phản hồi → thư cập nhật. Thư theo ngôn ngữ giao diện lúc gửi (`lang` của phiếu; mã lạ → tiếng Anh). Chữ lấy từ nhóm dịch `report` của app (một nguồn): `scripts/gen-report-mail-i18n.mjs` sinh `functions/api/_report-i18n.js` (chạy tự động cuối `scripts/i18n-fix.mjs`; `scripts/test/report.mjs` báo lệch nguồn). Thêm chữ thư mới: thêm khóa vào `MAIL_KEYS` + `en/report.js` + `i18n-fixed.json`, rồi `node scripts/i18n-fix.mjs`.
 
 ## Biến môi trường
-Thẻ Chất lượng (admin › Tổng quan) › **Cài đặt & bí mật** liệt kê mục còn thiếu + chỗ nhập (op `cfg`: `ai`, `gh`, `cli`, `mail_st` ok/no-key (Worker thư trả 501)/no-binding/failing/unknown, `push` ok/off/no-d1b) – chỉ cờ, không giá trị.
-Pages: `ADMIN_EMAILS`, `REPORT_NOTIFY_EMAIL`, `GH_ISSUES_TOKEN`, `LEXKITE_REPORT_CLI_KEY`, `CF_AI_TOKEN`/`CF_ACCOUNT_ID` (khi không có binding AI), `TURNSTILE_SECRET_KEY`. Worker mail: `RESEND_API_KEY`, `BREVO_API_KEY`.
+Thẻ Chất lượng (admin › Tổng quan) › **Cài đặt & bí mật** liệt kê mục còn thiếu + chỗ nhập (op `cfg`: `ai`, `gh`, `cli`, `mail_st` ok/no-key (Worker thư trả 501)/no-binding/failing/unknown, `push` ok/off/no-d1b, `r2`, `shot_sign`) – chỉ cờ, không giá trị.
+Pages: `ADMIN_EMAILS`, `REPORT_NOTIFY_EMAIL`, `GH_ISSUES_TOKEN`, `LEXKITE_REPORT_CLI_KEY`, `CF_AI_TOKEN`/`CF_ACCOUNT_ID` (khi không có binding AI), `TURNSTILE_SECRET_KEY`, (tùy chọn) `REPORT_SHOT_KEY`; binding R2 `REPORT_SHOTS`. Worker mail: `RESEND_API_KEY`, `BREVO_API_KEY`.
 
 ## Test
 `scripts/test/report.mjs`, `scripts/test/report-ui.mjs` (trong `npm test`).

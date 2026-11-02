@@ -11,7 +11,7 @@
   const CATS = [['bug', '🐞', 'Lỗi ứng dụng'], ['content', '📝', 'Nội dung sai'], ['i18n', '🌐', 'Bản dịch'], ['audio', '🔊', 'Âm thanh'], ['account', '💳', 'Thanh toán / tài khoản'], ['idea', '💡', 'Góp ý']];
   const ST = { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' };
   const CONTENT = /^(dict|topic|read|reading|grammar|model|task1|letters|course|toeic-test|listen-test|mock|toefl-p|roleplay|call|cbt|method|pron|phrases)$/; // trang có mã nội dung (từ, bài, đề…)
-  const MAXB = 300 * 1024, KEY = 'lk.rp';
+  const MAXB = 300 * 1024, MAXPX = 1600, KEY = 'lk.rp';
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const ls = { get(k, f) { try { const v = localStorage.getItem(k); return v == null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* bỏ qua */ } } };
   const mine = () => (Array.isArray(ls.get(KEY, [])) ? ls.get(KEY, []) : []);
@@ -82,18 +82,19 @@
   }
 
   // ---------- Ảnh chụp: người dùng đính kèm/dán ảnh → nén WebP/JPEG ≤ 300 KB ngay trên máy ----------
-  async function shrink(file) {
+  // Trần ảnh (MAXB, MAXPX): đo trên CI bằng OCR (scripts/report-shot-bench.mjs, workflow report-shots.yml) – chỉ hạ khi chữ vẫn đọc rõ như trần cũ
+  async function shrink(file, max0 = MAXPX, maxb = MAXB) {
     if (!file || !/^image\//.test(file.type)) throw new Error('type');
     const src = URL.createObjectURL(file);
     try {
       const img = await new Promise((y, n) => { const i = new Image(); i.onload = () => y(i); i.onerror = n; i.src = src; });
-      let max = 1600, q = 0.82;
+      let max = max0, q = 0.82;
       for (let k = 0; k < 9; k++) {
         const s = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight)), c = d.createElement('canvas');
         c.width = Math.max(1, Math.round(img.naturalWidth * s)); c.height = Math.max(1, Math.round(img.naturalHeight * s));
         const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
         let out = c.toDataURL('image/webp', q); if (!/^data:image\/webp/.test(out)) out = c.toDataURL('image/jpeg', q);
-        if (out.length * 0.75 <= MAXB) return out;
+        if (out.length * 0.75 <= maxb) return out;
         if (q > 0.5) q -= 0.12; else { q = 0.72; max = Math.round(max * 0.72); }
       }
       throw new Error('big');

@@ -36,6 +36,7 @@ on:
       - 'Perf profile'
       - 'QA bot'
       - 'Báo lỗi tự động theo PR (report-autofix)'
+      - 'Ảnh báo lỗi R2 (report-shots)'
       - 'Màn Ôn – chạm được'
       - 'Say it like a native – meanings'
       - 'size-guard'

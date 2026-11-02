@@ -5,6 +5,7 @@
 //   node scripts/report-cli.mjs resolve LX-1234 "Sửa IPA của record (v.)" <commit> [phiên bản]
 //   node scripts/report-cli.mjs progress <commit 40 ký tự> [pr] LX-1234 [LX-…]   (workflow report-autofix.yml gọi khi PR gộp)
 //   node scripts/report-cli.mjs pending [--json]
+//   node scripts/report-cli.mjs shots-migrate [--all]   (workflow report-shots.yml: ảnh D1 → R2 theo lô)
 // LEXKITE_API (tùy chọn) = https://lexkite.com
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import crypto from 'node:crypto'; import { fileURLToPath } from 'node:url';
 export function cliKey() {
@@ -36,6 +37,13 @@ async function main() {
     console.log(JSON.stringify(await call({ op: 'progress', commit: a[0], pr, ids })));
   } else if (cmd === 'pending') {
     const j = await call({ op: 'pending' }); console.log(a.includes('--json') ? JSON.stringify(j) : j.rows.map(r => r.id + ' ' + r.commit).join('\n') + `\nlive: ${j.live || '?'}`);
+  } else if (cmd === 'shots-migrate') { // lô 20 ảnh D1 → R2; --all: lặp tới khi hết (≤ 200 lô) rồi VACUUM
+    for (let i = 0; i < (a.includes('--all') ? 200 : 1); i++) {
+      const j = await call({ op: 'shots-migrate', n: 20, vacuum: a.includes('--all') });
+      if (j.error) { console.log(`::warning::${j.error} – còn ${j.left} ảnh trong D1 (gắn binding REPORT_SHOTS trước)`); break; }
+      console.log(`lô ${i + 1}: chuyển ${j.moved} (${Math.round(j.bytes / 1024)} KB) · lỗi ${j.failed} · hết hạn ${j.expired} · còn ${j.left}${j.vacuum ? ' · VACUUM ' + j.vacuum : ''}`);
+      if (!j.left || (!j.moved && j.failed)) break;
+    }
   } else { console.error('Dùng: report-cli.mjs queue [--json] | resolve LX-1234 "<ghi chú>" <commit> [phiên bản] | progress <commit> [pr] LX-… | pending'); process.exit(1); }
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch(e => { console.error('✗', e.message); process.exit(1); });

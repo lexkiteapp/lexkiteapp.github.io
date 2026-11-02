@@ -213,6 +213,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "report-shots",
+   "workflow": "report-shots.yml",
+   "cron": [
+    "41 4 * * 1"
+   ],
+   "priority": "archive",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "free-tier-guard",
    "workflow": "free-tier-guard.yml",
    "cron": [

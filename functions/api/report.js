@@ -7,7 +7,8 @@
  *   Quản trị (Authorization: Bearer <Firebase ID token>, cổng adminGate – ADMIN_EMAILS), mọi lệnh đều ghi admin_log ('report:<op>'):
  *     list · get · shot · set · merge · spam · export · stats · cfg
  * Chống lạm dụng: _quota.js gate('report') (thiết bị/IP/uid, phút + ngày) + ≤ 5 báo/giờ/IP (D1) + ô bẫy + gửi quá nhanh + điểm spam.
- * Ảnh chụp: data URL ≤ 300 KB (đã nén ở máy) lưu D1 bảng report_shots – không bao giờ công khai, chỉ lệnh quản trị 'shot' đọc được.
+ * Ảnh chụp (đã nén ở máy): NHỊ PHÂN trong R2 riêng (binding REPORT_SHOTS, khóa report/<id>, cột shot_b = số byte) – không bao giờ công khai; quản trị xem qua URL ký 5 phút
+ *   (/api/report-shot). Chưa gắn binding → data URL trong D1 report_shots như cũ (op shots-migrate chuyển dần sang R2). Xóa 60 ngày sau khi đóng (fixed/wontfix/dup).
  * Thư: báo lỗi mới → quản trị (Worker lexkite-mail, /send; REPORT_NOTIFY_EMAIL nếu có) theo chế độ config 'report_notify' (instant|digest|off);
  *      đổi trạng thái/phản hồi → người báo (nếu đã đồng ý) qua /user của Worker (Resend/Brevo). Trong app: trang #/report/<token> + nhắc khi mở app. */
 import { coordDb, d1bReady } from './_d1b.js';
@@ -58,7 +59,7 @@ export async function setup(db) {
     // Cổng QA nội dung (docs/CONTENT-QA.md §7): 1 phiếu "nội dung sai"/thiết bị/mục; đủ HIDE_N thiết bị → mục vào config 'content_hidden' (1 dòng, client đọc 1 lần/phiên)
     db.prepare('CREATE TABLE IF NOT EXISTS content_flags (cid TEXT NOT NULL, who TEXT NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (cid, who)) WITHOUT ROWID'),
   ]);
-  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT', 'pid TEXT']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
+  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT', 'pid TEXT', 'shot_b INTEGER']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
   await db.prepare('CREATE INDEX IF NOT EXISTS reports_sig ON reports (sig, at)').run().catch(() => {});
   ready = true;
 }
@@ -159,6 +160,44 @@ async function mail(env, path, payload) {
   MAIL_ST = r ? r.status : 0;
   return !!(r && r.ok);
 }
+// ---------- Ảnh chụp: R2 nhị phân (REPORT_SHOTS) – D1 chỉ khi chưa gắn binding ----------
+export const R2_FREE = 10 * 1024 ** 3;
+export const SHOT_KEY = id => 'report/' + (+id || 0), SHOT_TTL = 300e3, SHOT_KEEP = 60 * DAY;
+const MIMES = ['image/jpeg', 'image/webp', 'image/png'];
+const unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const b64 = u8 => { let s = ''; for (let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode(...u8.subarray(i, i + 0x8000)); return btoa(s); };
+/** data URL → { mime, bytes } (đã kiểm định dạng ở create). */
+export const fromDataUrl = d => { const i = String(d).indexOf(','), mime = String(d).slice(5, String(d).indexOf(';')); return { mime: MIMES.includes(mime) ? mime : 'image/jpeg', bytes: unb64(String(d).slice(i + 1)) }; };
+async function shotPut(env, id, data) {
+  const { mime, bytes } = fromDataUrl(data);
+  await env.REPORT_SHOTS.put(SHOT_KEY(id), bytes, { httpMetadata: { contentType: mime } });
+  return bytes.length;
+}
+/** Ảnh dạng data URL (cho AI phân loại lại / quản trị khi chưa có khóa ký): R2 trước, rồi D1. */
+async function shotData(env, db, id) {
+  const r = await db.prepare('SELECT has_shot, shot_b FROM reports WHERE id = ?').bind(id).first(); if (!r || !r.has_shot) return '';
+  if (r.shot_b && env.REPORT_SHOTS) { const o = await env.REPORT_SHOTS.get(SHOT_KEY(id)); if (o) { const ct = (o.httpMetadata && o.httpMetadata.contentType) || 'image/jpeg'; return `data:${MIMES.includes(ct) ? ct : 'image/jpeg'};base64,` + b64(new Uint8Array(await o.arrayBuffer())); } }
+  return ((await db.prepare('SELECT data FROM report_shots WHERE rid = ?').bind(id).first()) || {}).data || '';
+}
+async function shotDel(env, db, ids, by, act) {
+  if (!ids.length) return;
+  if (env.REPORT_SHOTS) await env.REPORT_SHOTS.delete(ids.map(SHOT_KEY)).catch(() => {});
+  await db.batch([db.prepare(`DELETE FROM report_shots WHERE rid IN (${ids.map(() => '?').join(', ')})`).bind(...ids), db.prepare(`UPDATE reports SET has_shot = 0, shot_b = NULL WHERE id IN (${ids.map(() => '?').join(', ')})`).bind(...ids), ...ids.map(id => ev(db, id, by, act))]);
+}
+/** Xóa ảnh của phiếu đã đóng (fixed/wontfix/dup) > 60 ngày (mốc: fixed_at, không có thì upd). */
+async function shotExpire(env, db, now = Date.now(), n = 50) {
+  const ids = ((await db.prepare("SELECT id FROM reports WHERE has_shot = 1 AND status IN ('fixed', 'wontfix', 'dup') AND COALESCE(fixed_at, upd) < ? LIMIT ?").bind(now - SHOT_KEEP, n).all()).results || []).map(r => r.id);
+  await shotDel(env, db, ids, 'system', 'shot-expired'); return ids.length;
+}
+const shotKey = env => env.REPORT_SHOT_KEY || env.LEXKITE_REPORT_CLI_KEY || '';
+export async function shotSig(key, id, exp) { return (await cliSign(key, 'shot', id + '.' + exp)).slice(0, 32); }
+/** URL xem ảnh ký HMAC, sống 5 phút: /api/report-shot?id=…&e=…&s=… (functions/api/report-shot.js kiểm). */
+export async function shotUrl(env, id, now = Date.now()) { const k = shotKey(env); if (!k) return ''; const e = now + SHOT_TTL; return `/api/report-shot?id=${id}&e=${e}&s=${await shotSig(k, id, e)}`; }
+export async function shotOk(env, id, e, s, now = Date.now()) {
+  const k = shotKey(env); if (!k || !(+id > 0) || !(+e > now) || +e > now + SHOT_TTL + 60e3 || !/^[0-9a-f]{32}$/.test(String(s || ''))) return false;
+  const want = await shotSig(k, +id, +e); let d = 0; for (let i = 0; i < 32; i++) d |= want.charCodeAt(i) ^ String(s).charCodeAt(i); return d === 0;
+}
+
 // Phiếu sang Đã sửa + máy báo có bật nhắc học (pid = id thiết bị push_subs) → hàng đợi push_now ở D1 nội bộ; cron workers/push gửi ≤ 10 phút sau.
 // Chưa cấu hình D1 nội bộ (D1B_*) hoặc phiếu không có pid → bỏ qua (thư/nhắc trong app vẫn chạy).
 async function pushFixed(env, db, id) {
@@ -226,7 +265,8 @@ async function after(env, db, q, r) {
   if (root) tri.duplicate_of = tid(root.id);
   // Ảnh 18+/bạo lực/máu me/thù ghét (AI soi) → xóa ảnh ngay, ẩn phiếu, không thư, không Issue
   if (tri.image_safety && !['ok', 'none'].includes(tri.image_safety)) {
-    await db.batch([db.prepare('DELETE FROM report_shots WHERE rid = ?').bind(r.id), db.prepare('UPDATE reports SET has_shot = 0, spam = 1, sev = ?, ai = ? WHERE id = ?').bind(tri.severity, JSON.stringify(tri), r.id), ev(db, r.id, 'ai', 'shot-removed', tri.image_safety)]);
+    if (env.REPORT_SHOTS) await env.REPORT_SHOTS.delete(SHOT_KEY(r.id)).catch(() => {});
+    await db.batch([db.prepare('DELETE FROM report_shots WHERE rid = ?').bind(r.id), db.prepare('UPDATE reports SET has_shot = 0, shot_b = NULL, spam = 1, sev = ?, ai = ? WHERE id = ?').bind(tri.severity, JSON.stringify(tri), r.id), ev(db, r.id, 'ai', 'shot-removed', tri.image_safety)]);
     return;
   }
   const eh = (await smartEta(db, r.cat, tri.severity, await etaCfg(db), r.id)).x || null; // mốc chính xác sau AI (trang trạng thái + thư cảm ơn)
@@ -293,10 +333,14 @@ async function create(request, env, b, bg) {
   const row = await db.prepare('INSERT INTO reports (tok, at, upd, status, cat, area, msg, email, notify, uid, who, lang, plat, ver, route, ctx, errs, has_shot, spam, sandbox, pid) VALUES (?, ?, ?, \'new\', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id')
     .bind(tok, now, now, cat, area, msg, email, notify ? 1 : 0, (who0 && who0.sub) || '', who, ctx.lang, ctx.plat, ctx.ver, ctx.route, JSON.stringify(ctx), JSON.stringify(errs), shot ? 1 : 0, spam, ctx.sandbox ? 1 : 0, pid).first();
   const id = row.id, w = [ev(db, id, 'reporter', 'create', spam ? 'spam' + (mod.why.length ? ' · ' + mod.why.join(', ') : '') : '')];
-  if (shot) w.push(db.prepare('INSERT INTO report_shots (rid, mime, data) VALUES (?, ?, ?)').bind(id, shot.slice(5, shot.indexOf(';')), shot));
+  if (shot) { // R2 nhị phân (không base64 trong D1); R2 lỗi/chưa gắn → D1 như cũ
+    let nb = 0; if (env.REPORT_SHOTS) nb = await shotPut(env, id, shot).catch(() => 0);
+    w.push(nb ? db.prepare('UPDATE reports SET shot_b = ? WHERE id = ?').bind(nb, id) : db.prepare('INSERT INTO report_shots (rid, mime, data) VALUES (?, ?, ?)').bind(id, shot.slice(5, shot.indexOf(';')), shot));
+  }
   // Dọn lười (≈1% lượt gửi): xóa báo lỗi > 24 tháng (chính sách quyền riêng tư) – kèm ảnh & lịch sử
-  if (Math.random() < 0.01) { const old = now - 730 * DAY; w.push(db.prepare('DELETE FROM report_shots WHERE rid IN (SELECT id FROM reports WHERE at < ?)').bind(old), db.prepare('DELETE FROM report_events WHERE rid IN (SELECT id FROM reports WHERE at < ?)').bind(old), db.prepare('DELETE FROM reports WHERE at < ?').bind(old)); }
+  if (Math.random() < 0.01) { const old = now - 730 * DAY; if (env.REPORT_SHOTS) { const o = ((await db.prepare('SELECT id FROM reports WHERE at < ? AND shot_b > 0 LIMIT 200').bind(old).all()).results || []).map(r => SHOT_KEY(r.id)); if (o.length) await env.REPORT_SHOTS.delete(o).catch(() => {}); } w.push(db.prepare('DELETE FROM report_shots WHERE rid IN (SELECT id FROM reports WHERE at < ?)').bind(old), db.prepare('DELETE FROM report_events WHERE rid IN (SELECT id FROM reports WHERE at < ?)').bind(old), db.prepare('DELETE FROM reports WHERE at < ?').bind(old)); }
   await db.batch(w);
+  if (Math.random() < 0.02) await shotExpire(env, db, now).catch(() => {}); // ảnh phiếu đã đóng > 60 ngày (≈ 2 % lượt gửi; op shots-migrate cũng dọn)
   if (cat === 'content' && ctx.cid && !spam && !ctx.sandbox) await flagContent(db, env, ctx.cid, who, now).catch(() => {});
   // AI phân loại + gom trùng + thư quản trị + GitHub Issue: chạy nền (waitUntil) – người dùng nhận mã ngay
   // Thư cảm ơn chạy sau AI phân loại (mốc theo mức P0–P3 nếu kịp); AI lỗi vẫn gửi (mốc theo loại)
@@ -338,7 +382,7 @@ export async function secrets(env, db) {
   const last = await db.prepare("SELECT act, note FROM report_events WHERE act IN ('mailed', 'mail-failed') ORDER BY id DESC LIMIT 1").first().catch(() => null);
   const mailSt = !env.MAIL ? 'no-binding' : !last ? 'unknown' : last.act === 'mailed' ? 'ok' : /\b501\b/.test(last.note || '') ? 'no-key' : 'failing';
   const push = !d1bReady(env) ? 'no-d1b' : !(+env.PUSH_PCT > 0 || String(env.FCM_ON || '') === '1') ? 'off' : 'ok';
-  return { mail_st: mailSt, push };
+  return { mail_st: mailSt, push, r2: !!env.REPORT_SHOTS, shot_sign: !!shotKey(env) };
 }
 const OPS = {
   async unhide(env, db, b) { // quản trị: hiện lại 1 mục đã sửa (xoá phiếu cũ để đếm lại từ 0)
@@ -366,7 +410,9 @@ const OPS = {
     let ctx = {}, errs = [], ai = null; try { ctx = JSON.parse(r.ctx || '{}'); errs = JSON.parse(r.errs || '[]'); ai = r.ai ? JSON.parse(r.ai) : null; } catch (e) { /* bỏ qua */ }
     return { ...rest, tid: tid(id), signed: !!uid, ctx, errs, ai, events, dups, people: 1 + dups.length, dup: r.dup_of ? tid(r.dup_of) : '', gh: !!env.GH_ISSUES_TOKEN };
   },
-  async shot(env, db, b) { const r = await db.prepare('SELECT data FROM report_shots WHERE rid = ?').bind(rid(b.id)).first(); return { data: r ? r.data : '' }; },
+  // Ảnh trong R2 → URL ký 5 phút (không qua JSON); chưa có khóa ký hoặc ảnh còn ở D1 → data URL
+  async shot(env, db, b) { const id = rid(b.id), r = await db.prepare('SELECT has_shot, shot_b FROM reports WHERE id = ?').bind(id).first(); if (!r || !r.has_shot) return { data: '' };
+    const url = r.shot_b && env.REPORT_SHOTS ? await shotUrl(env, id) : ''; return url ? { url } : { data: await shotData(env, db, id) }; },
   async set(env, db, b, who) { return apply(env, db, rid(b.id), b, who.email); },
 };
 async function apply(env, db, id0, b, by) {
@@ -418,7 +464,9 @@ Object.assign(OPS, {
     const days7 = Array.from({ length: 7 }, (_, i) => { const k = new Date(start + i * DAY).toISOString().slice(0, 10); return { day: k, n: (d[k] || {}).n || 0, fixed: (d[k] || {}).fixed || 0 }; });
     const fx = ((await db.prepare(`SELECT fixed_at - at AS dt FROM reports WHERE ${base} AND status = 'fixed' AND fixed_at > ? LIMIT 2000`).bind(now - 90 * DAY).all()).results || []).map(r => r.dt).filter(x => x >= 0);
     const m = median(fx);
-    return { byStatus, byArea, days7, medianFixH: m == null ? null : Math.round(m / 36e5 * 10) / 10, fixedN: fx.length, open: (byStatus.new || 0) + (byStatus.ack || 0) + (byStatus.prog || 0) };
+    const sh = (await db.prepare('SELECT COALESCE(SUM(shot_b), 0) AS b, COUNT(shot_b) AS n FROM reports WHERE has_shot = 1 AND shot_b > 0').first()) || {}, d1n = ((await db.prepare('SELECT COUNT(*) AS n FROM report_shots').first()) || {}).n || 0;
+    const shots = { r2: !!env.REPORT_SHOTS, bytes: sh.b || 0, n: sh.n || 0, d1: d1n, freeB: R2_FREE, pct: Math.round((sh.b || 0) / R2_FREE * 1e4) / 100 }; // R2 Free 10 GB/tài khoản (chung các bucket)
+    return { shots, byStatus, byArea, days7, medianFixH: m == null ? null : Math.round(m / 36e5 * 10) / 10, fixedN: fx.length, open: (byStatus.new || 0) + (byStatus.ack || 0) + (byStatus.prog || 0) };
   },
   async cfg(env, db, b, who) {
     if (b.eta && typeof b.eta === 'object') { const e = {}; for (const k of ['serious', 'normal', 'content']) { const v = Math.round(+b.eta[k]); if (!(v >= 1 && v <= 2160)) throw new Error('eta'); e[k] = v; } await db.prepare("INSERT OR REPLACE INTO config (k, v, at, by) VALUES ('report_eta', ?, ?, ?)").bind(JSON.stringify(e), Date.now(), who.email).run(); }
@@ -429,7 +477,7 @@ Object.assign(OPS, {
   async retriage(env, db, b, who) {
     const id = rid(b.id), r = await db.prepare('SELECT * FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
     let ctx = {}, errs = []; try { ctx = JSON.parse(r.ctx || '{}'); errs = JSON.parse(r.errs || '[]'); } catch (e) { /* bỏ qua */ }
-    const shot = r.has_shot ? ((await db.prepare('SELECT data FROM report_shots WHERE rid = ?').bind(id).first()) || {}).data : '';
+    const shot = r.has_shot ? await shotData(env, db, id).catch(() => '') : ''; // R2 hoặc D1
     const sim = (await db.prepare(`SELECT COUNT(*) AS n FROM reports WHERE id != ?1 AND spam = 0 AND at > ?2 AND (area = ?3 OR (?4 != '' AND sig = ?4))`).bind(id, Date.now() - 7 * DAY, r.area, r.sig || '').first() || {}).n || 0;
     const tri = await triage(env, { msg: r.msg, cat: r.cat, area: r.area, route: r.route, plat: r.plat, ver: r.ver, lang: r.lang, errs, shot, similar: sim, cands: [] });
     const eh = (await smartEta(db, r.cat, tri.severity, await etaCfg(db), id)).x || null;
@@ -461,6 +509,21 @@ Object.assign(OPS, {
       return { id: tid(r.id), kind: kind(r) ? 'feature' : 'bug', sev: r.sev || '', people: r.people, status: r.status, cat: r.cat, area: r.area, at: r.at, route: scrub(r.route), plat: r.plat, ver: r.ver, lang: r.lang,
         msg: scrub(r.msg).slice(0, 1500), errs: errs.map(e => scrub(e)), ai: { summary_vi: ai.summary_vi || '', type: ai.type || '', likely_cause: ai.likely_cause || '', suggested_fix: ai.suggested_fix || '', confidence: ai.confidence || 0, needs_human: ai.needs_human !== false || r.cat === 'account', by: ai.by || '' },
         issue: r.issue || '', screenshot: !!r.has_shot, admin: `${SITE}/admin.html?r=${r.id}#reports` }; }), total: rows.length };
+  },
+  // Chuyển ảnh cũ D1 → R2 theo lô (workflow report-shots.yml, HMAC): dọn ảnh hết hạn trước; hết lô + vacuum → VACUUM D1 (D1 từ chối thì báo lại, không lỗi)
+  async 'shots-migrate'(env, db, b) {
+    if (!env.REPORT_SHOTS) return { ok: false, error: 'no-r2-binding', left: ((await db.prepare('SELECT COUNT(*) AS n FROM report_shots').first()) || {}).n || 0 };
+    const expired = await shotExpire(env, db), n = Math.min(50, Math.max(1, Math.floor(+b.n) || 20)), rows = (await db.prepare('SELECT rid, data FROM report_shots ORDER BY rid LIMIT ?').bind(n).all()).results || [];
+    let moved = 0, bytes = 0, failed = 0;
+    for (const x of rows) {
+      let nb = 0; try { nb = /^data:image\/(jpeg|webp|png);base64,/.test(x.data || '') ? await shotPut(env, x.rid, x.data) : 0; } catch (e) { failed++; continue; }
+      await db.batch([nb ? db.prepare('UPDATE reports SET shot_b = ? WHERE id = ?').bind(nb, x.rid) : db.prepare('UPDATE reports SET has_shot = 0 WHERE id = ?').bind(x.rid), db.prepare('DELETE FROM report_shots WHERE rid = ?').bind(x.rid), ev(db, x.rid, 'system', nb ? 'shot-r2' : 'shot-bad')]);
+      if (nb) { moved++; bytes += nb; }
+    }
+    const left = ((await db.prepare('SELECT COUNT(*) AS n FROM report_shots').first()) || {}).n || 0;
+    let vacuum = '';
+    if (!left && b.vacuum) { try { await db.prepare('VACUUM').run(); vacuum = 'ok'; } catch (e) { vacuum = String(e && e.message || e).slice(0, 80); } }
+    return { ok: true, moved, bytes, failed, expired, left, vacuum };
   },
   // PR có mã LX-xxxx vừa gộp (workflow report-autofix.yml) → Đang xử lý + ghi commit chờ lên live (event 'pr'); lặp lại cùng commit = bỏ qua
   async progress(env, db, b, who) {
@@ -501,7 +564,7 @@ Object.assign(OPS, {
 });
 export const ADMIN_OPS = Object.keys(OPS);
 
-export const CLI_OPS = ['queue', 'resolve', 'progress', 'pending'];
+export const CLI_OPS = ['queue', 'resolve', 'progress', 'pending', 'shots-migrate'];
 const hex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
 export async function cliSign(key, ts, raw) { const k = await crypto.subtle.importKey('raw', new TextEncoder().encode(key), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']); return hex(await crypto.subtle.sign('HMAC', k, new TextEncoder().encode(ts + '.' + raw))); }
 async function cliOk(env, h, raw) {

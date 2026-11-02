@@ -42,7 +42,7 @@ const call = async (body, { ip = '10.0.0.' + ipN, token, origin = 'https://lexki
   const r = await R.onRequestPost({ request: new Request('https://lexkite.com/api/report', { method: 'POST', headers, body: typeof body === 'string' ? body : JSON.stringify(body) }), env });
   const text = await r.text(); let j = {}; try { j = JSON.parse(text); } catch (e) { /* bỏ qua */ } return { s: r.status, j, text, h: r.headers };
 };
-const SHOT = 'data:image/webp;base64,' + Buffer.from('RIFF0000WEBPVP8 fake').toString('base64');
+const DAY0 = 864e5, SHOT = 'data:image/webp;base64,' + Buffer.from('RIFF0000WEBPVP8 fake').toString('base64');
 const good = (extra = {}) => ({ op: 'create', cat: 'content', msg: 'The IPA for "record" (verb) is wrong on this page.', ms: 5000, ctx: { route: 'dict/record?x=secret', lang: 'en', ver: '20261017', plat: 'web', vw: '390x844', ua: 'Mozilla/5.0 test', cid: 'record', junk: 'should-drop', url: 'https://evil.example/full?token=1' }, errs: [], ...extra });
 
 // ---------- 1) Tạo báo lỗi ----------
@@ -393,6 +393,44 @@ ok(R.smartH(72, 0, 0) === 72 && R.smartH(24, 0, 5) === 36 && R.smartH(72, 100, 0
   await call({ op: 'set', id: c4.j.id, status: 'fixed' }, { token: ADM, env: E2 });
   ok(sql2.prepare('SELECT COUNT(*) AS n FROM push_now WHERE sid = ? AND rid = ?').get(ro.j.id, id4).n === 1, 'phiếu gắn từ màn cảm ơn → Đã sửa → có báo đẩy');
   globalThis.fetch = f0; }
+
+// Ảnh chụp → R2 nhị phân (item 6): không base64 trong D1, URL ký 5 phút, AI đọc từ R2, xóa 60 ngày sau khi đóng, chuyển ảnh cũ theo lô + VACUUM, dung lượng cho thẻ Chất lượng
+{ const objs = new Map(), R2 = { async put(k, v, o) { objs.set(k, { b: Buffer.from(v), ct: o && o.httpMetadata && o.httpMetadata.contentType }); }, async get(k) { const o = objs.get(k); return o ? { body: o.b, httpMetadata: { contentType: o.ct }, arrayBuffer: async () => o.b.buffer.slice(o.b.byteOffset, o.b.byteOffset + o.b.length) } : null; }, async delete(k) { for (const x of [].concat(k)) objs.delete(x); } };
+  const E3 = { ...ENV, REPORT_SHOTS: R2 }, raw = Buffer.from('RIFF0000WEBPVP8 fake');
+  const c = await call(good({ cat: 'bug', msg: 'Screenshot shows the quiz button overlapping text.', shot: SHOT }), { ip: '10.0.0.96', env: E3 }), id = +c.j.id.slice(3) - 1000;
+  const row = sql.prepare('SELECT has_shot, shot_b FROM reports WHERE id = ?').get(id), o = objs.get('report/' + id);
+  ok(row.has_shot === 1 && row.shot_b === raw.length && o && o.b.equals(raw) && o.ct === 'image/webp' && !sql.prepare('SELECT COUNT(*) AS n FROM report_shots WHERE rid = ?').get(id).n, 'R2: ảnh lưu NHỊ PHÂN (đúng byte, kiểu), không có dòng base64 trong D1');
+  const sh = await call({ op: 'shot', id: c.j.id }, { token: ADM, env: E3 }), u = new URL(sh.j.url || '/x', 'https://lexkite.com');
+  ok(/^\/api\/report-shot\?id=\d+&e=\d+&s=[0-9a-f]{32}$/.test(sh.j.url) && !sh.j.data, 'op shot: ảnh R2 → URL ký (không trả dữ liệu qua JSON)');
+  const RS = await import(new URL('../../functions/api/report-shot.js', import.meta.url)), get = q => RS.onRequestGet({ request: new Request('https://lexkite.com' + q), env: E3 });
+  const g1 = await get(u.pathname + u.search);
+  ok(g1.status === 200 && Buffer.from(await g1.arrayBuffer()).equals(raw) && g1.headers.get('Content-Type') === 'image/webp' && /no-store/.test(g1.headers.get('Cache-Control')) && g1.headers.get('X-Content-Type-Options') === 'nosniff', 'report-shot: chữ ký đúng → ảnh, không cache, nosniff');
+  const bad = u.search.replace(/s=([0-9a-f])/, (m, x) => 's=' + (x === '0' ? '1' : '0')), other = u.search.replace(/id=\d+/, 'id=' + (id + 1));
+  ok((await get(u.pathname + bad)).status === 403 && (await get(u.pathname + other)).status === 403 && (await get('/api/report-shot?id=' + id)).status === 403, 'report-shot: sửa chữ ký / đổi id / thiếu ký → 403');
+  ok(!(await R.shotOk(E3, id, Date.now() - 1, u.searchParams.get('s'))) && !(await R.shotOk(E3, id, Date.now() + 3600e3, u.searchParams.get('s'))) && !(await R.shotOk({ ...E3, LEXKITE_REPORT_CLI_KEY: '' }, id, u.searchParams.get('e'), u.searchParams.get('s'))), 'URL ký: hết 5 phút / hạn quá xa / không có khóa → từ chối');
+  aiCalls.length = 0; await call({ op: 'retriage', id: c.j.id }, { token: ADM, env: E3 });
+  ok(aiCalls[0] && aiCalls[0].body.messages[1].content.some(p => p.type === 'image_url' && p.image_url.url === SHOT), 'AI phân loại lại đọc ảnh từ R2');
+  const st = (await call({ op: 'stats' }, { token: ADM, env: E3 })).j.shots;
+  ok(st.r2 && st.bytes >= raw.length && st.n >= 1 && st.freeB === 10 * 1024 ** 3 && typeof st.pct === 'number', 'stats: dung lượng ảnh R2 + % trên 10 GB miễn phí: ' + JSON.stringify(st));
+  // chuyển ảnh cũ (D1) → R2
+  const old = await call(good({ cat: 'bug', msg: 'Old screenshot stored before R2 existed.', shot: SHOT }), { ip: '10.0.0.97' }), oid = +old.j.id.slice(3) - 1000;
+  ok(sql.prepare('SELECT COUNT(*) AS n FROM report_shots WHERE rid = ?').get(oid).n === 1, 'chưa gắn R2 → D1 như cũ');
+  const sd = await call({ op: 'shot', id: old.j.id }, { token: ADM, env: E3 }); ok(sd.j.data === SHOT, 'ảnh còn ở D1 → op shot trả data URL');
+  const nm = await (async () => { const b = { op: 'shots-migrate' }, raw0 = JSON.stringify(b), ts = String(Date.now()); return call(raw0, { ip: '10.7.7.9', env: ENV, cli: ts + '.' + await R.cliSign(CLI_KEY, ts, raw0) }); })();
+  ok(nm.j.error === 'no-r2-binding' && nm.j.left >= 1, 'shots-migrate: chưa gắn binding → báo, không xóa gì');
+  const mg = async body => { const raw0 = JSON.stringify(body), ts = String(Date.now()); return call(raw0, { ip: '10.7.7.9', env: E3, cli: ts + '.' + await R.cliSign(CLI_KEY, ts, raw0) }); };
+  let m; for (let i = 0; i < 10; i++) { m = await mg({ op: 'shots-migrate', n: 2, vacuum: true }); if (!m.j.left) break; }
+  ok(m.s === 200 && !m.j.left && !sql.prepare('SELECT COUNT(*) AS n FROM report_shots').get().n && objs.get('report/' + oid).b.equals(raw) && sql.prepare('SELECT shot_b FROM reports WHERE id = ?').get(oid).shot_b === raw.length && m.j.vacuum, 'shots-migrate: D1 → R2 theo lô, xóa dòng D1, hết thì VACUUM: ' + JSON.stringify(m.j));
+  // xóa 60 ngày sau khi đóng
+  sql.prepare("UPDATE reports SET status = 'fixed', fixed_at = ? WHERE id = ?").run(Date.now() - 61 * DAY0, id);
+  sql.prepare("UPDATE reports SET status = 'fixed', fixed_at = ? WHERE id = ?").run(Date.now() - 59 * DAY0, oid);
+  const ex = await mg({ op: 'shots-migrate' });
+  ok(ex.j.expired === 1 && !objs.has('report/' + id) && objs.has('report/' + oid) && sql.prepare('SELECT has_shot FROM reports WHERE id = ?').get(id).has_shot === 0 && sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = ? AND act = 'shot-expired'").get(id).n === 1, 'ảnh phiếu đã đóng > 60 ngày bị xóa (R2 + cờ), < 60 ngày giữ');
+  // AI soi ảnh xấu → xóa cả ở R2
+  const old2 = aiNext; aiNext = () => ({ severity: 'P3', area: 'other', type: 'other', summary_vi: 'x', image_safety: 'sexual', confidence: 0.9 });
+  const bd = await call(good({ cat: 'bug', msg: 'Look at this picture please, very important.', shot: SHOT }), { ip: '10.0.0.98', env: E3 }); aiNext = old2;
+  ok(!objs.has('report/' + (+bd.j.id.slice(3) - 1000)), 'ảnh không an toàn → xóa khỏi R2 ngay');
+  const cf = (await call({ op: 'cfg' }, { token: ADM, env: E3 })).j; ok(cf.r2 === true && cf.shot_sign === true && (await call({ op: 'cfg' }, { token: ADM })).j.r2 === false, 'cfg: cờ R2 + khóa ký URL'); }
 
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê`);

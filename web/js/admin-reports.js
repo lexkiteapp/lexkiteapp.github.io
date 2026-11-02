@@ -5,7 +5,8 @@
  * Mọi lệnh qua /api/report (cổng adminGate, ghi admin_log). Mọi dữ liệu người dùng hiển thị qua esc(). Chữ tiếng Anh ở bảng EN. */
 (function () {
   const EN = {
-    'Cài đặt & bí mật': 'Setup & secrets', 'Đủ': 'Ready', 'Thiếu': 'Missing', 'AI phân loại': 'AI triage', 'GitHub Issue cho Claude Code': 'GitHub issues for Claude Code', 'Tự động theo PR (LX-xxxx)': 'Auto status from PRs (LX-xxxx)',
+    'Cài đặt & bí mật': 'Setup & secrets', 'Ảnh chụp trên R2': 'Screenshots on R2', '{p}% của 10 GB miễn phí · {n} ảnh': '{p}% of the 10 GB free tier · {n} images', '{n} ảnh còn ở D1': '{n} still in D1',
+    'Pages: binding R2 REPORT_SHOTS → bucket lexkite-report-shots (wrangler.toml)': 'Pages: R2 binding REPORT_SHOTS → bucket lexkite-report-shots (wrangler.toml)', 'Pages: secret REPORT_SHOT_KEY (hoặc LEXKITE_REPORT_CLI_KEY) để ký URL xem ảnh': 'Pages: REPORT_SHOT_KEY (or LEXKITE_REPORT_CLI_KEY) secret to sign image URLs', 'Đủ': 'Ready', 'Thiếu': 'Missing', 'AI phân loại': 'AI triage', 'GitHub Issue cho Claude Code': 'GitHub issues for Claude Code', 'Tự động theo PR (LX-xxxx)': 'Auto status from PRs (LX-xxxx)',
     'Thư cho người báo': 'Reporter emails', 'Báo đẩy "đã sửa"': '"Fixed" push notifications', 'Chưa gửi thư nào – chưa biết': 'No email sent yet – unknown', 'Gửi thư đang lỗi – xem lịch sử phiếu': 'Emails are failing – check ticket history',
     'Pages: binding AI hoặc secret CF_AI_TOKEN + CF_ACCOUNT_ID': 'Pages: AI binding or CF_AI_TOKEN + CF_ACCOUNT_ID secrets', 'Pages: secret GH_ISSUES_TOKEN (PAT, Issues: Read & write)': 'Pages: GH_ISSUES_TOKEN secret (PAT, Issues: Read & write)',
     'Pages + GitHub Actions: secret LEXKITE_REPORT_CLI_KEY (≥ 32 ký tự, cùng giá trị)': 'Pages + GitHub Actions: LEXKITE_REPORT_CLI_KEY secret (≥ 32 chars, same value)', 'Worker lexkite-mail: secret RESEND_API_KEY hoặc BREVO_API_KEY': 'Worker lexkite-mail: RESEND_API_KEY or BREVO_API_KEY secret',
@@ -187,7 +188,7 @@
       q('#rpAsg').onchange = e => run('set', { asg: e.target.value }, false);
       q('#rpSpam').onclick = () => run('spam', { spam: !r.spam });
       q('#rpMg2').onclick = async () => { const into = q('#rpInto2').value.trim().toUpperCase(); if (!/^LX-\d+$/.test(into)) return; if (!confirm(T('Gộp {a} vào {b}? Người báo (nếu đồng ý nhận thư) sẽ được báo là trùng lặp.', { a: r.tid, b: into }))) return; try { await api('merge', { ids: [r.tid], into }); load(); drawer(r.tid); } catch (e) { msg(T('Lỗi: {e}', { e: e.message }), false); } };
-      const sb = q('#rpShot'); if (sb) sb.onclick = async () => { sb.disabled = true; try { const j = await api('shot', { id: r.tid }); if (/^data:image\/(jpeg|webp|png);base64,/.test(j.data || '')) { const img = new Image(); img.alt = T('Ảnh chụp màn hình'); img.src = j.data; sb.replaceWith(img); } } catch (e) { msg(T('Lỗi: {e}', { e: e.message }), false); sb.disabled = false; } };
+      const sb = q('#rpShot'); if (sb) sb.onclick = async () => { sb.disabled = true; try { const j = await api('shot', { id: r.tid }), src = /^\/api\/report-shot\?id=\d+&e=\d+&s=[0-9a-f]{32}$/.test(j.url || '') ? j.url : /^data:image\/(jpeg|webp|png);base64,/.test(j.data || '') ? j.data : ''; if (src) { const img = new Image(); img.alt = T('Ảnh chụp màn hình'); img.referrerPolicy = 'no-referrer'; img.src = src; sb.replaceWith(img); } /* R2: URL ký 5 phút · D1 cũ: data URL */ } catch (e) { msg(T('Lỗi: {e}', { e: e.message }), false); sb.disabled = false; } };
     }
     load();
     const open = new URLSearchParams(location.search).get('r'); if (/^\d{1,9}$/.test(open || '')) drawer('LX-' + (1000 + +open)); // liên kết từ thư báo quản trị
@@ -203,6 +204,7 @@
     el.innerHTML = `<div class="rp-head"><h3>${T('🐞 Báo lỗi người dùng – chất lượng')}</h3><a href="#reports" class="small">${T('Mở hộp báo lỗi →')}</a></div>
       <div class="rp-kpis" style="margin-top:.6rem"><div class="card kpi"><div class="l">${T('Đang mở')}</div><div class="v">${num(s.open)}</div><div class="s">${STS.slice(0, 3).map(([k, l]) => `${esc(T(l))} ${num(s.byStatus[k] || 0)}`).join(' · ')}</div></div>
         <div class="card kpi"><div class="l">${T('Thời gian sửa (trung vị, 90 ngày)')}</div><div class="v">${esc(fix)}</div><div class="s">n = ${num(s.fixedN)}</div></div>
+        ${s.shots ? `<div class="card kpi"><div class="l">${T('Ảnh chụp trên R2')}</div><div class="v">${esc(mb(s.shots.bytes))}</div><div class="s">${esc(T('{p}% của 10 GB miễn phí · {n} ảnh', { p: s.shots.pct, n: num(s.shots.n) }))}${s.shots.d1 ? ' · ' + esc(T('{n} ảnh còn ở D1', { n: num(s.shots.d1) })) : ''}</div></div>` : ''}
         <div class="card kpi"><div class="l">${T('Theo trạng thái')}</div><div class="s">${STS.map(([k, l]) => `<span class="rp-st ${k}">${esc(T(l))} ${num(s.byStatus[k] || 0)}</span>`).join(' ')}</div></div></div>
       <div class="rp-kpis" style="margin-top:.6rem"><div><h4 style="margin:.2rem 0 .4rem">${T('7 ngày qua')}</h4><div class="bars" role="img" aria-label="${esc(s.days7.map(d => d.day + ': ' + d.n).join(', '))}">${s.days7.map(d => `<div title="${esc(d.day)}: ${d.n} ${T('mới')} · ${d.fixed} ${T('đã sửa')}"><i style="height:${Math.max(3, d.n / m7 * 100)}%"></i><small>${esc(d.day.slice(8))}</small></div>`).join('')}</div></div>
         <div><h4 style="margin:.2rem 0 .4rem">${T('Theo khu vực (30 ngày)')}</h4>${s.byArea.length ? s.byArea.slice(0, 8).map(a => `<div class="rp-hbar"><span>${esc(T(AREAS[a.area] || a.area))}</span><span class="b"><i style="width:${a.n / mA * 100}%"></i></span><span>${num(a.n)}</span></div>`).join('') : `<p class="small muted">${T('chưa có')}</p>`}</div></div>`;
@@ -211,6 +213,7 @@
       x.innerHTML = `<h4 style="margin:.8rem 0 .4rem">${T('Cài đặt & bí mật')} · ${miss ? `<span class="rp-warn" style="display:inline">${T('Thiếu')} ${num(miss)}</span>` : T('Đủ')}</h4><ul class="small" style="margin:0;padding-inline-start:1.1rem">${list.map(i => `<li>${i.ok ? '✅' : '⚠️'} ${esc(T(i.label))}${i.ok ? '' : ` – <span class="muted">${esc(T(i.fix))}</span>`}</li>`).join('')}</ul>`;
       el.appendChild(x); }).catch(() => {});
   }
+  const mb = b => (b >= 1024 ** 3 ? (b / 1024 ** 3).toFixed(2) + ' GB' : (b / 1024 ** 2).toFixed(1) + ' MB');
   // Thẻ Chất lượng › Cài đặt & bí mật (thuần – test): cờ từ op cfg, không giá trị bí mật. Bí mật chỉ chủ app nhập (docs/REPORTS.md § Biến môi trường).
   function checks(c) {
     c = c || {};
@@ -219,6 +222,7 @@
       { k: 'gh', ok: !!c.gh, label: 'GitHub Issue cho Claude Code', fix: 'Pages: secret GH_ISSUES_TOKEN (PAT, Issues: Read & write)' },
       { k: 'cli', ok: !!c.cli, label: 'Tự động theo PR (LX-xxxx)', fix: 'Pages + GitHub Actions: secret LEXKITE_REPORT_CLI_KEY (≥ 32 ký tự, cùng giá trị)' },
       { k: 'mail', ok: c.mail_st === 'ok', label: 'Thư cho người báo', fix: { 'no-key': 'Worker lexkite-mail: secret RESEND_API_KEY hoặc BREVO_API_KEY', 'no-binding': 'Pages: service binding MAIL → lexkite-mail', failing: 'Gửi thư đang lỗi – xem lịch sử phiếu' }[c.mail_st] || 'Chưa gửi thư nào – chưa biết' },
+      { k: 'r2', ok: !!c.r2 && !!c.shot_sign, label: 'Ảnh chụp trên R2', fix: !c.r2 ? 'Pages: binding R2 REPORT_SHOTS → bucket lexkite-report-shots (wrangler.toml)' : 'Pages: secret REPORT_SHOT_KEY (hoặc LEXKITE_REPORT_CLI_KEY) để ký URL xem ảnh' },
       { k: 'push', ok: c.push === 'ok', label: 'Báo đẩy "đã sửa"', fix: c.push === 'off' ? 'Pages: biến PUSH_PCT > 0 hoặc FCM_ON = 1' : 'Pages: secret D1B_ACCOUNT_ID + D1B_TOKEN (D1 nội bộ)' },
     ];
   }
