@@ -147,3 +147,4 @@ Xem artifact `lipsync-lab` của run CI mới nhất (report.md, metrics.json, v
 - **Logic:** không phát (dừng/hết/chờ tải) → miệng về X trong 80 ms; tua/tốc độ theo `audio.currentTime`; mốc lệch độ dài mp3 > 120 ms / lỗi bản -ls → live; 1 AudioContext chung cho nhiều giáo viên; tiết kiệm dữ liệu → poster.
 - **Cờ:** `lk.lipsync` mặc định BẬT; `localStorage lk.lipsync=0` hoặc cfg `lipsync:false` = tắt (vòng clip).
 - **CI không gọi kho media:** call-e2e dựng WAV giả từ độ lớn tiếng đã lưu trong cues.js (đúng độ dài → chế độ pre).
+- **Lab:** workflow lipsync-lab.yml + trang web/lab/{face,lipsync}.html (dùng bởi scripts/lipsync/lab.mjs, drawn_frames.mjs) để ở nhánh `wip/lipsync-lab` – thêm lại khi ci-triage.yml rảnh (PR #429/#172); cổng sản xuất từng câu vẫn chạy trong audio.yml (call_cues.mjs).

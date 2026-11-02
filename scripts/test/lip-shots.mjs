@@ -62,7 +62,7 @@ async function open({ vp, theme, who }) {
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push('pageerror: ' + e.message));
   page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|favicon|googletagmanager|speechSynthesis|net::ERR/i.test(m.text())) errs.push('console: ' + m.text()); });
-  await page.addInitScript(MOCK);
+  await page.addInitScript(MOCK, { local: true });
   await page.addInitScript(w => { try { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); if (w) localStorage.setItem('lk.lsn.who', w); } catch (e) { /* */ } }, who || null);
   await page.goto(`${BASE}app/?sandbox=1&hl=vi#/welcome/setup`, { waitUntil: 'load' });
   await page.waitForTimeout(1500); await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {});
@@ -89,10 +89,10 @@ async function lesson(page) {
 
 for (const sc of SCREENS) for (const theme of ['light', 'dark']) for (const w of [375, 1280]) {
   const name = `${sc.id}-${sc.who}-${theme}-${w}`;
-  let ctx;
+  let ctx, pg;
   try {
     const o = await open({ vp: { width: w, height: w === 375 ? 812 : 800 }, theme, who: sc.pre });
-    ctx = o.ctx; const { page, errs } = o;
+    ctx = o.ctx; const { page, errs } = o; pg = page;
     await sc.run(page);
     await page.waitForSelector('.tch-rig.drawn canvas.tch-face', { timeout: 6000 }).catch(() => {});
     await page.waitForTimeout(1200); // giữa câu
@@ -106,6 +106,7 @@ for (const sc of SCREENS) for (const theme of ['light', 'dark']) for (const w of
     console.log('✓ ' + name, JSON.stringify(report[name]));
   } catch (e) {
     report[name] = { error: String(e && e.message || e).slice(0, 300) }; console.log('✗ ' + name + ' ' + report[name].error);
+    if (pg) { await pg.screenshot({ path: path.join(OUT, 'fail-' + name + '.png') }).catch(() => {}); console.log('  tại', await pg.evaluate(() => location.hash + ' · ' + document.body.innerText.slice(0, 160).replace(/\s+/g, ' ')).catch(() => '?')); }
   } finally { if (ctx) await ctx.close().catch(() => {}); }
 }
 fs.writeFileSync(path.join(OUT, 'lip.json'), JSON.stringify(report, null, 1));

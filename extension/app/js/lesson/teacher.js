@@ -139,7 +139,7 @@
     el.classList.add('tch'); el.innerHTML = `<div class="tch-rig">${Chars.img(who, { cls: 'tch-poster', kind: 'poster', size: 384 })}</div>`;
     const rig = el.firstChild;
     rig.firstChild.onerror = () => { el.style.display = 'none'; }; // thiếu tài sản (vd. bản add-on không kèm teach/) → ẩn giáo viên, bài vẫn chạy
-    let run = 0, dead = false, want = 0, mix = 0, draw = null, raf = 0, last = 0, lastK = '', fc = null, gate = null;
+    let lastTxt = '', run = 0, dead = false, want = 0, mix = 0, draw = null, raf = 0, last = 0, lastK = '', fc = null, gate = null;
     const V = [];
     const clips = () => {
       if (dead || lite()) return; // tiết kiệm dữ liệu / giảm chuyển động → poster tĩnh (vòng clip là chuyển động trang trí)
@@ -159,7 +159,7 @@
     // mặt vẽ (cả khi giảm chuyển động: miệng + chớp mắt vẫn chạy, bỏ nghiêng/gật/liếc – face() calm); tiết kiệm dữ liệu → poster. Lỗi nạp/thiếu tài sản → vòng clip.
     // Câu nói trong lúc đang nạp chờ tối đa 2 s (để câu đầu cũng có mốc CI, đúng bản -ls.mp3)
     if (mo.lip !== false && lipOn() && !saveData()) {
-      gate = Promise.race([lipLoad().then(() => { if (!dead) fc = face(rig, who, () => { fc = null; clips(); }); }, clips), new Promise(z => setTimeout(z, 2000))]).then(() => { gate = null; });
+      gate = lipLoad().then(() => { if (dead) return; fc = face(rig, who, () => { fc = null; clips(); }); if (hq && hq.el && !hq.el.paused) fc.speak({ audio: hq.el, text: lastTxt }); }, clips).then(() => { gate = null; });
     } else clips();
     // 1 vòng vẽ: chỉ chạy khi đang hiện (IntersectionObserver không cần – rAF tự dừng ở tab ẩn); trộn nói/nghe 160 ms
     function tick(now = performance.now()) {
@@ -187,7 +187,7 @@
         rig.classList.add('posed'); },
       // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – vòng nói chạy đúng độ dài file; thiếu file → giọng máy
       say(text, o = {}) {
-        if (gate) { const my0 = ++run; talking(true); gate.then(() => { if (my0 === run && !dead) api.say(text, o); }); return; }
+        lastTxt = text; // mặt vẽ đang nạp (gate): nói NGAY (không trễ câu đầu); nạp xong → mặt vẽ bám phần tử đang phát (live)
         if (fc && rig.classList.contains('posed')) api.pose(null);
         const my = ++run, rate = o.rate || 0.95;
         let ended = false; const end = () => { if (ended) return; ended = true; if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
@@ -205,9 +205,10 @@
         // không có file cả câu (chỉ mục LISTEN_AUDIO) → UI.tts: thử file từng câu cùng giọng rồi mới tới giọng máy (không tải 404 qua mọi gốc CDN)
         if (!key || !g.audioUrls || !g.LKAudio || (!cue && g.LISTEN_AUDIO && !g.LISTEN_AUDIO.has(key))) return tts();
         // LKAudio: thử lần lượt các gốc CDN (lỗi/404/quá giờ → gốc kế tiếp), hết gốc → giọng máy (ghi nhật ký dự phòng)
-        const h = hq = g.LKAudio.play(cue ? g.audioUrls(key + '-ls') : g.audioUrls(key), { rate: rate < 0.9 ? 0.75 : 1, // 🐢 nghe chậm
+        let h = null; // onEl chạy ĐỒNG BỘ trong play() trước khi gán h (phần tử gốc CDN đầu) → không đọc h ở TDZ
+        h = hq = g.LKAudio.play(cue ? g.audioUrls(key + '-ls') : g.audioUrls(key), { rate: rate < 0.9 ? 0.75 : 1, // 🐢 nghe chậm
           cross: !!(fc && !cue && fc.tap()), // live đo năng lượng tiếng (Web Audio cần CORS – gốc audio trả ACAO *)
-          onEl: a => { if (fc && hq === h) fc.speak({ audio: a, cue, text }); }, // mỗi gốc CDN thử = 1 phần tử mới → mặt vẽ bám đúng phần tử đang phát
+          onEl: a => { if (fc && (h === null || hq === h)) fc.speak({ audio: a, cue, text }); }, // mỗi gốc CDN thử = 1 phần tử mới → mặt vẽ bám đúng phần tử đang phát
           onBase: () => g.audioFail && g.audioFail(), onEnd: end,
           onFail: why => { if (hq !== h) return; hq = null; if (cue) return api.say(text, Object.assign({}, o, { plain: 1 })); g.LKAudio.note('tts', why + ' ' + o.voice); tts(); } });
       },
