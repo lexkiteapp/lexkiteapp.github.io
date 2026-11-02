@@ -1553,7 +1553,7 @@
     const rid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
     let vid, ret = 1;
     try { vid = localStorage.getItem('lk.vid'); if (!vid) { vid = rid(); ret = 0; localStorage.setItem('lk.vid', vid); } } catch (e) { vid = rid(); ret = 0; }
-    const cur = () => (location.hash.match(/^#\/([a-z0-9-]+)/) || [, 'home'])[1], sid = rid(), path = cur();
+    const cur = () => (location.hash.match(/^#\/([a-z0-9-]+)/) || [, 'home'])[1], sid = rid(), path = cur(), t0 = Date.now();
     // Nền tảng: app Capacitor tách iOS / Android (dòng cũ 'app' vẫn đọc được trong Quản trị)
     const cap = window.Capacitor, capP = cap && cap.getPlatform ? cap.getPlatform() : '';
     const plat = /^chrome-extension:/.test(location.protocol) ? 'ext' : capP === 'ios' || capP === 'android' ? capP : /^capacitor:/.test(location.protocol) || cap ? 'app' : matchMedia('(display-mode: standalone)').matches ? 'pwa' : 'web';
@@ -1571,12 +1571,27 @@
     // lk.noTrack = máy của quản trị (admin.js tự đặt khi mở trang Quản trị) → không gửi phiên (vẫn báo lỗi JS & nhận thông báo)
     let noTrack = false; try { noTrack = localStorage.getItem('lk.noTrack') === '1'; } catch (e) { /* bỏ qua */ }
     const inSample = !noTrack && (parseInt(vid.slice(0, 6), 36) % 1000) < rate * 1000;
+    // Gửi bù: /api chết (01/11 hạn mức Workers cạn → 7,9 giờ không ghi được phiên nào) → web cùng nguồn đọc được mã lỗi: 429/5xx/mất mạng
+    // → giữ phiên (theo sid, cộng dồn pv) trong lk.hitq; lần gửi thành công sau đó gửi lại với late:1 + t0 (máy chủ ghi vào ngày gốc, ≤ 36 giờ).
+    // App/add-on (khác nguồn, phản hồi opaque) vẫn dùng sendBeacon như cũ.
+    const Q = 'lk.hitq', qGet = () => { try { return JSON.parse(localStorage.getItem(Q) || '{}') || {}; } catch (e) { return {}; } }, qSet = q => { try { if (Object.keys(q).length) localStorage.setItem(Q, JSON.stringify(q)); else localStorage.removeItem(Q); } catch (e) { /* bỏ qua */ } };
+    // hb không xoá pv trong bộ nhớ (lần gửi sau mang lại) → không cộng; bản gửi bù hỏng lần nữa → thay, không cộng lại chính nó
+    const park = d => { const q = qGet(), o = !d.late && q[d.sid], p = { ...(o && o.pv) }; if (!d.hb) for (const [k, v] of Object.entries(d.pv || {})) p[k] = (p[k] || 0) + v; q[d.sid] = { ...d, hb: undefined, pv: Object.keys(p).length ? p : undefined, late: 1 }; for (const k of Object.keys(q).filter(k => !(q[k].t0 > Date.now() - 35 * 3600e3)).concat(Object.keys(q).slice(0, -20))) delete q[k]; qSet(q); };
+    let replayed = false;
+    const sendS = d => {
+      if (BASE || !window.fetch) return send(d);
+      fetch('/api/hit', { method: 'POST', body: JSON.stringify(d), keepalive: true, mode: 'same-origin' }).then(r => {
+        if (r.status === 429 || r.status >= 500) return park(d);
+        if (d.late) { const q = qGet(); delete q[d.sid]; qSet(q); }
+        if (!replayed) { replayed = true; for (const [k, v] of Object.entries(qGet())) if (k !== sid) sendS(v); }
+      }).catch(() => park(d));
+    };
     let lastSent = 0, pv = { [path]: 1 }; // pv: lượt xem từng trang kể từ lần gửi trước (máy chủ cộng dồn vào pageviews_day)
     const flush = (force, hb) => { // hb: nhịp "đang online" 3 phút – máy chủ có thể chỉ ghi Analytics Engine (lượt xem dồn sang lần gửi sau)
       if (since) { dur += (Date.now() - since) / 1000; since = document.visibilityState === 'visible' ? Date.now() : 0; }
       if (!inSample || (!force && Date.now() - lastSent < 60000)) return;
       lastSent = Date.now(); const d = pv; if (!hb) pv = {};
-      send({ t: 's', sid, vid, ret, path, cur: cur(), ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined, hb });
+      (document.visibilityState === 'visible' ? sendS : send)({ t: 's', sid, vid, ret, path, cur: cur(), ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined, hb, t0 });
     };
     addEventListener('hashchange', () => { pages++; const r = cur(); if (r in pv || Object.keys(pv).length < 20) pv[r] = (pv[r] || 0) + 1; });
     // "Đang online": gửi 1 lần sau 15 giây rồi nhịp 3 phút/lần khi tab đang hiển thị (ẩn tab → không gửi)
