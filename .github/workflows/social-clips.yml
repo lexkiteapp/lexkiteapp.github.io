@@ -94,6 +94,8 @@ jobs:
             qa/rig/*/native-qa.json
             qa/rig/*/report.md
             qa/rig/*/metrics.json
+            qa/rig/*/timeline.json
+            qa/rig/*/seg-*.wav
           retention-days: 30
   store:
     needs: render
