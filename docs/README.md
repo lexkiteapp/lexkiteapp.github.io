@@ -15,7 +15,7 @@
 | Runner GitHub / CI · việc nền, lịch, lease | `CI-RUNNERS.md` · `JOBS.md` (sinh từ `infra/jobs.json`) · `QUALITY-SWEEP.md` · bot QA `QA-BOT.md` |
 | Bàn giao việc đang chạy · việc tồn · chọn công nghệ | `HANDOFF.md` · `BACKLOG.md` · `TECH-RADAR.md` |
 | i18n 15 ngôn ngữ | `I18N-PIPELINE.md` |
-| Nội dung học: quy trình · chuẩn · cổng QA · lộ trình | `CONTENT-PIPELINE.md` · `CONTENT-RULES.md` · `CONTENT-QA.md` · `CONTENT-ROADMAP.md` · chuẩn đích + pha P0–P2 `CONTENT-WORLD-PLAN.md` |
+| Nội dung học: quy trình · chuẩn · cổng QA · lộ trình | `CONTENT-PIPELINE.md` · `CONTENT-RULES.md` · `CONTENT-QA.md` · `CONTENT-ROADMAP.md` · chuẩn đích + pha P0–P2 `CONTENT-WORLD-PLAN.md` · xưởng lô đêm `CONTENT-FACTORY.md` |
 | Lời giải đáp án · kho từ vựng · ảnh từ vựng · giọng từ | `EXPLAIN.md` · `LEXICON.md` · `VOCAB-IMG-STYLE.md` · `WORD-AUDIO.md` |
 | Say it like a native (thẻ phản xạ #/say + video react) | `SAY-NATIVE.md` |
 | Giao tiếp tự tin · nhắc học · lớp học · giáo viên trong app | `CONFIDENCE.md` · `REMINDERS.md` · `RETENTION.md` · `CLASSROOM.md` · `VIDEO-TEACHERS.md` |

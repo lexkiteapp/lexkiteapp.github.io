@@ -22,6 +22,7 @@ on:
       - 'call-qa'
       - 'capacity-sim'
       - 'Characters shots'
+      - 'Xưởng nội dung'
       - 'Content QA gate'
       - 'Trang từ điển (dict pages)'
       - 'Hiệu năng từ điển'

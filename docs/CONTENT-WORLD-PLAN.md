@@ -100,4 +100,7 @@ Chú thích cột: **Mục tiêu** đo được · **Cổng QA** tự động (p
 | P0-G | Nguồn giải thích en + `native-score` | `web/i18n/content/*`, `scripts/i18n-native-score.mjs` | trung bình ≥ 4,3/5, không mục < 3,5 |
 
 
+**Tiến độ dự kiến lấp bảng điểm (xưởng `CONTENT-FACTORY.md`, một dòng/đợt):**
+- Đợt 1 (02/11, Giao tiếp + Ngữ pháp): xưởng + kind `functions`, `mcq` chạy đêm (~100 chức năng/đêm, ~500 câu trắc nghiệm/đêm trước cổng) → sổ chức năng 100/100 ~04/11, trắc nghiệm 3.000 ~10/11; Ngữ pháp ≥ 95 ~20/11 khi bật thêm drill + bài C1/C2; Giao tiếp ≥ 95 ~25/11 khi bật gold/roleplay/cuộc gọi/tình huống (cần Kokoro trong luồng, đợt 1b).
+
 Nguồn phương pháp: englishprofile.org (EVP/EGP), oxfordlearnersdictionaries.com/about/wordlists, pearson.com GSE learning objectives, rm.coe.int (CEFR Companion Volume), cambridgeenglish.org exam format, ets.org (TOEFL 2026, TOEIC), ielts.org / britishcouncil.org (IELTS format, band descriptors), Swan & Smith *Learner English* (CUP, 2001).
