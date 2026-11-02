@@ -6,7 +6,7 @@ on:
     inputs:
       n: { description: 'Số từ mẫu (từ content/target/pt/seed.json)', default: '20' }
   pull_request:
-    paths: ['scripts/word-audio/pt-sample.mjs', 'scripts/word-audio/pt_g2p.py', 'scripts/word-audio/pt_gate.py', '.github/workflows/word-audio-pt.yml']
+    paths: ['scripts/word-audio/pt-sample.mjs', 'scripts/word-audio/pt_g2p.py', 'scripts/word-audio/pt_piper.py', 'scripts/word-audio/pt_gate.py', '.github/workflows/word-audio-pt.yml']
     types: [labeled]
 permissions: { contents: read }
 concurrency: { group: 'word-audio-pt-${{ github.ref }}', cancel-in-progress: true }
@@ -29,6 +29,9 @@ jobs:
         run: pip install -q "misaki==0.9.4" "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4"
       - name: Dò + dựng mẫu
         run: NODE_PATH=/tmp/kk/node_modules node scripts/word-audio/pt-sample.mjs
+      - name: Dự phòng theo spec – Piper pt_BR faber (nam) cùng cổng, để so sánh
+        if: ${{ env.PT_ALL != '1' }}
+        run: pip install -q "piper-tts==1.8.0" && python3 scripts/word-audio/pt_piper.py
       - name: Cổng −16 LUFS + nghe lại (Whisper small, pt)
         run: pip install -q "faster-whisper==1.2.1" "av==18.1.0" && python3 scripts/word-audio/pt_gate.py
       - if: always()
