@@ -212,6 +212,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "cdn-mirror",
+   "workflow": "cdn-mirror.yml",
+   "cron": [
+    "47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [
