@@ -10,7 +10,7 @@ on:
     inputs:
       templates: { description: 'comma list', default: 'drill,mistake,tip,ready' }
   pull_request:
-    paths: ['scripts/video/motion/**', 'scripts/teach/**', 'web/teach/characters.json', '.github/actions/video9-setup/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', '.github/workflows/video-motion.yml']
+    paths: ['scripts/video/motion/**', 'scripts/teach/**', 'web/teach/characters.json', '.github/actions/video9-setup/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', 'scripts/video/tpl/pilot5_voice.py', 'scripts/video/tpl/render_v9.py', 'scripts/video/tpl/qc_v9.py', 'scripts/video/tpl/pron.mjs', 'scripts/cine/news_voice.py', 'scripts/cine/whisper_det.py', '.github/workflows/video-motion.yml']   # + the voice/render/QC scripts this workflow runs (02/11: a news_voice fix did not trigger it)
 permissions: { contents: read }
 concurrency: { group: 'video-motion-${{ github.ref }}-${{ github.event.inputs.templates }}', cancel-in-progress: true }
 env:
