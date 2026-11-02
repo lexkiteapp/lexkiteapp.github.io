@@ -5,7 +5,7 @@
 //     from?: "<id>/<mode>" (màn gốc cho edit/variants), count?: 2..3 (variants) }
 //   Đầu ra: out/stitch/v3/<id>/<mode>[-vN].{html,png} + out/stitch/v3/state.json (trạng thái từng việc theo hash prompt, credit theo khoá/ngày).
 //   Chạy lại = tiếp tục: việc đã 'done' (cùng hash) bỏ qua; khoá hết hạn mức (429/RESOURCE_EXHAUSTED/"limit") nghỉ 15 phút rồi thử lại.
-//   Dùng: node scripts/stitch/batch.mjs <queue.json> [--out out/stitch/v3] [--only id1,id2] [--max N] [--dry]
+//   Dùng: node scripts/stitch/batch.mjs <queue.json> [--out out/stitch/v3] [--only id1,id2] [--max N] [--dry] [--allow-reserve --reserve-project <id>]
 import { spawnSync } from 'node:child_process';
 // fetch của Node chỉ đi qua proxy hệ thống (HTTPS_PROXY, sandbox) khi bật NODE_USE_ENV_PROXY → tự chạy lại với cờ đó.
 if ((process.env.HTTPS_PROXY || process.env.https_proxy) && !process.env.NODE_USE_ENV_PROXY) process.exit(spawnSync(process.execPath, process.argv.slice(1), { stdio: 'inherit', env: { ...process.env, NODE_USE_ENV_PROXY: '1' } }).status ?? 1);
@@ -19,7 +19,10 @@ const KEYS = [
   { name: 'key1', file: 'stitch-key', project: '7268539912208977707', ds: 'assets/1b7a8a3d3d52404bb332d9ba3f783547' },
   { name: 'key2', file: 'stitch-key-2', project: '10804635390057604965', ds: 'assets/11359391721543991869' },
   { name: 'key3', file: 'stitch-key-3', project: '18075333702575270507', ds: 'assets/16469239436252875897' },
-].map(k => { try { return { ...k, key: fs.readFileSync(path.join(os.homedir(), '.config/lexkite', k.file), 'utf8').trim() }; } catch { return null; } }).filter(Boolean);
+  // key4 = DỰ PHÒNG / dành cho dự án khác: KHÔNG nằm trong vòng xoay; chỉ dùng khi chạy với --allow-reserve
+  // (kèm --reserve-project <id> [--reserve-ds assets/<id>] vì tài khoản 4 chưa có project Lexkite Kit).
+  ...(argv.includes('--allow-reserve') ? [{ name: 'key4', file: 'stitch-key-4', project: opt('--reserve-project', ''), ds: opt('--reserve-ds', ''), reserve: true }] : []),
+].map(k => { try { return { ...k, key: fs.readFileSync(path.join(os.homedir(), '.config/lexkite', k.file), 'utf8').trim() }; } catch { return null; } }).filter(k => k && (!k.reserve || k.project || (console.error('key4 dự phòng: thiếu --reserve-project → bỏ qua'), false)));
 const SF = path.join(OUT, 'state.json'), day = new Date().toLocaleDateString('sv', { timeZone: 'Asia/Ho_Chi_Minh' });
 const st = fs.existsSync(SF) ? JSON.parse(fs.readFileSync(SF, 'utf8')) : { jobs: {}, credits: {} };
 const save = () => { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(SF + '.tmp', JSON.stringify(st, null, 1)); fs.renameSync(SF + '.tmp', SF); };

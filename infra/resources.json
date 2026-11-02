@@ -1173,6 +1173,12 @@
           "file": "~/.config/lexkite/stitch-key-3",
           "project": "18075333702575270507",
           "designSystem": "assets/16469239436252875897"
+        },
+        {
+          "key": "key4",
+          "file": "~/.config/lexkite/stitch-key-4",
+          "status": "reserved",
+          "note": "Dự phòng / dành cho dự án khác – KHÔNG trong vòng xoay batch.mjs; chỉ dùng với --allow-reserve --reserve-project <id>"
         }
       ],
       "cap": {
