@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Lexkite quick human check (Cloudflare Turnstile) for the app and browser add-on.">
 <title>Lexkite</title>
 <!-- Xác minh người thật cho app gốc (capacitor://localhost), trang add-on (chrome-extension://) và web: web/js/human.js nhúng trang này
      bằng iframe ẩn (?o=<origin trang mẹ>&l=<ngôn ngữ>) → giải Turnstile trên lexkite.com → postMessage token CHỈ tới origin trong danh sách cho phép.
      Trang mẹ gửi token tới POST /api/human để đổi lấy vé 12 h (functions/api/human.js). Header: web/_headers khối /human. Tài liệu docs/HUMAN.md -->
-<style>html,body{margin:0;background:transparent;font:14px system-ui,sans-serif}#w{display:flex;justify-content:center;padding:6px}</style>
+<style>:root{color-scheme:light dark}html,body{margin:0;background:Canvas;color:CanvasText;font:14px system-ui,sans-serif}#w{display:flex;justify-content:center;padding:6px}</style>
 </head>
 <body>
 <div id="w"></div>
