@@ -19,7 +19,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
 - Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
 - QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt; âm thanh chuẩn hoá −16 LUFS (cổng CI). Bài học: lời dẫn mỗi bài tập khớp dữ liệu, chú nghĩa bản ngữ đủ 15 ngôn ngữ.
-- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp (ngoại lệ: lớp game-feel tự duyệt khi ≥ 95); logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
+- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp (ngoại lệ: lớp game-feel tự duyệt khi ≥ 95); logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 374 KB gz chuẩn.
 - Một khung app (HARD): mọi ref/màn theo MỘT khung – điện thoại 390 px, top-bar cố định (hub/inner/modal), 5 tab Today/Vocab/Skills/Tests/Me, khoảng cách, thẻ, vị trí CTA và chỗ giáo viên; spec ở `docs/DESIGN-SYSTEM.md` §5d, dán vào mọi prompt; CI frame-consistency trượt khi lệch hoặc ra bản rộng desktop. Thoát mọi nơi (HARD): mọi màn học có Back/X rõ trên top-bar kiểu app (≥ 44 px; Esc, back hệ thống, vuốt iOS đều chạy; hỏi nhẹ nếu sắp mất tiến độ; không bao giờ nhốt người học) – CI kiểm.
 - Phiên: việc nặng (tách nền, render) CHỈ trên CI (script từ chối ngoài `$CI`); mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn (không /compact); đọc CODEMAP trước, tính năng lớn dùng spec-lite.
 <!-- auto:direction:end -->
@@ -49,7 +49,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
 
 ## 3. Ngân sách dung lượng
-- Khung app (shell) ≤ 377 KB gz (đo Node 22 = CI; không nâng) → tính năng mới phải tải lười. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).
+- Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`, máy = CI; không nâng) → tính năng mới tải lười; khóa: `shell-lazy.mjs`. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.
 - `scripts/test/size-budget.mjs`; ngưỡng `visual-qa.budget.json` chỉ được GIẢM.
 
@@ -91,8 +91,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
-- Lỗi gửi Kling do script (−93 cr) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; luôn dry-run in lệnh.
-- Gửi cả lô 8 plate (225 cr) không thử 1 trước – vi phạm CREDIT-RULES.
+- Lỗi Kling (script −93 cr, cả lô không thử 1) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; luôn dry-run in lệnh.
 - Cảnh footage làm 3 lượt vì thiếu danh sách clip – cảnh mới làm 1 lượt đủ 15 clip (`docs/archive/CINE-SCENE-STANDARD.md`).
 - CDN media.lexkite.com đệm bản cũ, bỏ qua `?v=` → fetch theo `gitSha`.
 - Play Data safety lần đầu thiếu dòng → đối chiếu `lexkite.com/en/privacy` mục 2 từng dòng.
@@ -121,7 +120,7 @@ Lịch sử đầy đủ (bài học 17–26/10, Kling, chroma key, kho, video, 
 ## Làm đúng 1 lần (anh chủ 24/10 – không sửa đi sửa lại)
 Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) đi qua 5 bước, ghi ngắn trong brief/PR:
 1. **Thiết kế trước 10 dòng** – mục tiêu đo được; tài nguyên dùng (D1 đọc/ghi, AI, Drive, GitHub phút, khung app KB); điểm hỏng có thể xảy ra + cách chặn; ai giữ file nào.
-2. **Checklist "Definition of Done" bắt buộc:** hạn mức (jobs.json + lease + ngân sách), không quét bảng, khung app ≤ 377 KB, i18n 15 ngôn ngữ, quyền riêng tư (không PII/URL đầy đủ), a11y, offline, có công tắc tắt + cách quay lại, test.
+2. **Checklist "Definition of Done" bắt buộc:** hạn mức (jobs.json + lease + ngân sách), không quét bảng, khung app ≤ 374 KB gz chuẩn, i18n 15 ngôn ngữ, quyền riêng tư (không PII/URL đầy đủ), a11y, offline, có công tắc tắt + cách quay lại, test.
 3. **Thử nhỏ → đo → mới nhân rộng** (1 clip / 1 bài / 60 ảnh / 1 lô) – chỉ nhân khi số đo đạt chuẩn.
 4. **Sửa theo LOẠI lỗi, không theo lần:** mỗi lỗi tìm gốc (5 lần "vì sao"), thêm 1 test/cổng chặn cả loại đó (vd. EXPLAIN chặn quét bảng, overflow gate chặn tràn chữ, lease fail-closed).
 5. **Một chủ mỗi mảng + agent ngắn** (TOKEN-RULES §9) – không 2 bên cùng sửa 1 file, không agent chạy dài.
