@@ -102,6 +102,8 @@ async function rollback(h) {
   }
   throw new Error('gắn lại Worker thất bại – làm tay: Workers › ' + h.worker + ' › Domains');
 }
+/** Trạng thái cache biên của GET đã lưu: HIT (hoặc STALE/REVALIDATED/UPDATING = vẫn phục vụ từ cache). DYNAMIC/BYPASS/MISS = không cache. */
+export const cacheHit = st => /^(HIT|STALE|REVALIDATED|UPDATING)$/i.test(String(st || ''));
 export function checkResponse(k, r, { range } = {}) {
   const bad = [], hd = n => r.headers.get(n) || '';
   if (r.status !== (range ? 206 : 200)) bad.push(`status ${r.status}`);
@@ -117,11 +119,13 @@ async function verify(name, h) {
   for (const k of st.sample) {
     const url = `https://${h.hostname}/${k}`, range = /\.mp4$/.test(k);
     const r1 = await fetch(url, { headers: { Origin: 'https://lexkite.com', ...(range ? { Range: 'bytes=0-99' } : {}) } }); await r1.arrayBuffer();
-    const r2 = await fetch(url, { headers: range ? { Range: 'bytes=0-99' } : {} }); await r2.arrayBuffer();
+    // Đo cache LUÔN bằng GET (Cloudflare không cache HEAD → HEAD luôn DYNAMIC, báo nhầm 02/11); lần 3 phải HIT (lần 1 có Origin → khoá Vary khác)
+    const get = async () => { const x = await fetch(url, { headers: range ? { Range: 'bytes=0-99' } : {} }); await x.arrayBuffer(); return x; };
+    const r2 = await get(), r3 = await get();
     const errs = checkResponse(k, r1, { range }); if (process.env.CDN_RULES === '1' && r1.headers.get('x-origin') !== 'r2') errs.push(`x-origin ${r1.headers.get('x-origin')}`); // X-Origin do Transform Rule (cần quyền zone)
-    const hit = r2.headers.get('cf-cache-status');
+    const hit = r3.headers.get('cf-cache-status'); if (!cacheHit(hit)) errs.push(`cache biên ${hit} (GET lần 3 phải HIT)`);
     if (errs.length) bad++;
-    console.log(`${errs.length ? '✗' : '✓'} ${k} ${r1.status} lần 2 ${hit}${errs.length ? ' – ' + errs.join(', ') : ''}`);
+    console.log(`${errs.length ? '✗' : '✓'} ${k} ${r1.status} GET lần 3 ${hit}${errs.length ? ' – ' + errs.join(', ') : ''}`);
   }
   console.log(`${name}: ${st.sample.length - bad}/${st.sample.length} đạt`);
   if (bad) process.exitCode = 1;
