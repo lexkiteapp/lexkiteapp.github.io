@@ -614,8 +614,41 @@ def T_call():
     end_card()
 
 
+def badge_chip(c, text, t_in, tone):   # chip in a card that has a ✓/✗ badge column: starts at the text column (c.lp), never under the badge
+    n = chip(c, text, t_in, tone); d = c.lp - PAD; n['box'] = [n['box'][0] + d, n['box'][1], n['box'][2] + d, n['box'][3]]; return n
+
+
+def T_react():
+    """Stitch brand/stitch/say/video-frame (owner OK 31/10) 'Say it like a native': pill header, situation hook (white + teal) while the teacher reacts
+    (registry pose in the silence), ONE big Kit card = register badge + the phrase in big coral letters + IPA chip + 'Repeat after me' pill, then the
+    meaning card (lexicon definition), swap ✓ / don't ✗ chat bubbles (a rude line is masked and never voiced), 2-option quiz, CTA."""
+    D = EP['data']; series_chip(); RT = dict(polite='good', neutral='chip', casual='chip', blunt='bad', rude='bad')
+    hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
+    title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, start('p') - 0.2, hook=True)
+    t_p, t_r, t_m = start('p'), at('r', 'Repeat'), start('m')
+    c = Card(RY0); b = chip(c, D['reg'].upper(), t_p, tone=RT[D['reg']]); rp = 'REPEAT AFTER ME'; rw = tw(rp, S['chip']) * 1.06 + 56
+    c.rows.append(dict(id=nid('c'), type='chip', text=rp, tone='chip', size=S['chip'], box=[PAD + c.inner - rw, b['box'][1], PAD + c.inner, b['box'][3]], **{'in': cue(t_r)}))
+    CUES.append(dict(node=c.rows[-1]['id'], t=t_r, tag=rp)); c.y += 20
+    c.text([[D['say'], 'coral']], S['big'], t_p, align='c', gap=GAP + 20)
+    iw = min(c.inner, tw(D['ipa'], S['ipa'], True) + 80)
+    n = c.add(dict(type='ipapill', text=D['ipa'], size=S['ipa'], box=[PAD + (c.inner - iw) / 2, 0, PAD + (c.inner + iw) / 2, 0], pairs=[[TH['ink'], TH['card'], S['ipa']]], **{'in': cue(t_p)}), 88)
+    IPA.append(dict(token=D['key'].lower(), ipa=D['ipa'], node=n['id'])); c.place(t_p, t_m - 0.2, 'a')
+    t_s = start('s'); c = Card(RY0); chip(c, 'MEANING', t_m)
+    c.text([[D['say'], 'coral']], S['body'], t_m); c.text([[D['mean'], 'ink']], S['body'], t_m); c.text([[D['define'], 'muted']], S['sub'], t_m); c.place(t_m, t_s - 0.2, 'a')
+    t_q = start('q'); y = RY0
+    if D['dont']:   # shown, never voiced (the spoken line says 'Not this!'); rude = first letter + dots
+        dn = D['dont']; c = Card(y, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=t_s); c.tail = 'l'
+        badge_chip(c, f"{dn['reg'].upper()} · DON'T SAY", t_s, 'bad'); tn = c.text([[dn['text'], 'onbad']], S['big'], t_s)[0]; y = c.place(t_s, t_q - 0.2, 'a')[3] + 30
+        strike_on(tn, dn['text'].rstrip('!.?'), at('s', 'this') + 0.15)
+    sw = D['swap']; t_w = at('s', 'Try') if D['dont'] else t_s
+    c = Card(y, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=t_w); c.tail = 'r'
+    badge_chip(c, f"{'SAY' if D['dont'] else 'OR SAY'} · {sw['reg'].upper()}", t_w, RT[sw['reg']]); c.text([[sw['text'], 'ongood']], S['body'], t_w); c.place(t_w, t_q - 0.2, 'b')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], t_q, start('a'), start('c') - 0.2)
+    end_card()
+
+
 dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, guess=T_guess, level=T_level,
-     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call)[EP['template']]()
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
@@ -651,6 +684,7 @@ if not FMT['cap']: CAPS = []
 
 # ---------------- host: speech-gated talk / listen segments (frames), one fixed transform ----------------
 FPS = o.fps; NF = int(round(TOTAL * FPS)); LEN = {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in ('talk', 'listen')}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
+if 'pose' in HG['clips']: LEN['pose'] = int(HG['clips']['pose']['frames'] * FPS / HG['clips']['pose']['fps'] - 0.25 * FPS)   # react: the reaction pose clip (host.py)
 spk = np.zeros(NF, bool)
 for a, b in SPEECH: spk[max(0, int((a - 0.05) * FPS)):min(NF, int(math.ceil((b + 0.05) * FPS)))] = True
 # close short silences (< 0.3 s) so the mouth does not flicker shut between words of one sentence
@@ -670,6 +704,23 @@ while f < NF:
     while n > 0:
         take = min(n, LEN[k] - pos[k]); SEG.append(dict(clip=k, from_=f, dur=take, start=pos[k])); pos[k] = (pos[k] + take) % LEN[k]; f += take; n -= take
 for s_ in SEG: s_['from'] = s_.pop('from_')
+PZ = EP.get('pose')
+if PZ and 'pose' in LEN:   # react: the reaction pose plays ONCE from its first frame in the silence after line PZ['after'] – never over speech, so talk/listen gating is unchanged
+    fa = int(math.ceil((end(PZ['after']) + 0.05) * FPS))
+    while fa < NF and spk[fa]: fa += 1
+    fb = fa
+    while fb < NF and not spk[fb] and fb - fa < LEN['pose']: fb += 1
+    fb = max(fa, fb - 2)   # 2 frames of listen before the next word (cross-fade back)
+    lab = ['talk' if x else 'listen' for x in spk]; lab[fa:fb] = ['pose'] * (fb - fa)
+    SEG = []; pos = dict(talk=0, listen=0, pose=0); f = 0
+    while f < NF:
+        k = lab[f]; g = f
+        while g < NF and lab[g] == k: g += 1
+        n = g - f
+        while n > 0:
+            take = min(n, LEN[k] - pos[k]); SEG.append(dict(clip=k, start=pos[k], dur=take)); SEG[-1]['from'] = f; pos[k] = (pos[k] + take) % LEN[k]; f += take; n -= take
+    assert any(s_['clip'] == 'pose' for s_ in SEG) and not any(spk[f_] for s_ in SEG if s_['clip'] == 'pose' for f_ in range(s_['from'], s_['from'] + s_['dur'])), ('pose window', fa, fb)
+if HG.get('bank') == 'sd': FMT['host_h'] = min(FMT['host_h'], HG['h'])   # SD bank (pose without -hd, host.py): never enlarge the teacher > 1.0x
 k = FMT['host_h'] / HG['h']; hw = HG['w'] * k; hb = HG['head']; BB = FMT.get('bubble')
 assert k <= 1.0, ('teacher would be enlarged > 1.0x', k)
 if BB:   # round call window: head + shoulders centred, head ~55 % of the window height (pure framing of the raw clip, no processing)
@@ -677,6 +728,7 @@ if BB:   # round call window: head + shoulders centred, head ~55 % of the window
     x0, y0 = (BB[0] + BB[2]) / 2 - cx, BB[1] + 0.44 * D - cy; box = [round(x0, 1), round(y0, 1), round(x0 + hw, 1), round(y0 + HG['h'] * k, 1)]
 else: box = [round(FMT['host_cx'] - hw / 2, 1), H - FMT['host_h'], round(FMT['host_cx'] + hw / 2, 1), H]
 HOST = dict(who=EP['teacher'], talk='host_talk.webm', listen='host_listen.webm', box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
+if 'pose' in LEN: HOST['pose'] = 'host_pose.webm'   # react reaction pose (TeachShort.jsx plays host[seg.clip])
 # ---- camera (social shorts): push-in on the hook, then a hard cut to a new framing at every sentence start, slow push inside each shot.
 # Scale is anchored at the top of the teacher's head, so the head never rises into the captions; source pixels never exceed 1.0x.
 SHOTS = []
@@ -764,6 +816,7 @@ qr.make_image(fill_color=TH['qr_ink'], back_color='white').save(f'{o.public}/qr.
 shutil.copy(f'{ROOT}/brand/social/logo/lexkite-app-icon.png', f'{o.public}/icon.png')
 os.makedirs(f'{o.public}/fonts', exist_ok=True); shutil.copy(FJ, f'{o.public}/fonts/jakarta.ttf'); shutil.copy(FN, f'{o.public}/fonts/noto.ttf')
 for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
+if 'pose' in LEN: shutil.copy(f'{o.host}/pose.webm', f'{o.public}/host_pose.webm')
 if EP['template'] == 'guess':   # picture from content/lexicon/img.json (licensed bank image, the same one the app shows) -> pic.png
     it = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items'][EP['data']['img']]; raw_ = f'{o.public}/_pic.webp'
     subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', raw_, it['url']], check=True)
