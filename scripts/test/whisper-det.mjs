@@ -10,6 +10,7 @@ ok(/set_random_seed\(0\)/.test(det) && /cpu_threads=THREADS/.test(det) && /DECOD
 ok(det.indexOf('os.environ.setdefault') < det.indexOf('from faster_whisper'), 'biến môi trường đặt TRƯỚC khi nạp CTranslate2');
 ok(/def snap_onsets\(/.test(det), 'whisper_det.py: snap_onsets (đầu từ sau quãng nghỉ → khung có tiếng đầu tiên) ở một nguồn');
 for (const f of ['scripts/cine/news_voice.py', 'scripts/video/align.py']) ok(/snap_onsets\(/.test(fs.readFileSync(path.join(R, f), 'utf8')) && !/def snap_onsets/.test(fs.readFileSync(path.join(R, f), 'utf8')), `${f}: dùng snap_onsets chung (asr_match so mốc tiếng thật, không so mốc im lặng của whisper)`);
+ok(/test_whisper_det\.py/.test(fs.readFileSync(path.join(R, '.github/workflows/video-motion.yml'), 'utf8')), 'video-motion chạy test đơn vị snap_onsets (scripts/cine/test_whisper_det.py)');
 const py = execFileSync('git', ['ls-files', '*.py'], { cwd: R, encoding: 'utf8' }).split('\n').filter(Boolean)
   .filter(f => f !== 'scripts/cine/whisper_det.py' && /faster_whisper|WhisperModel|whisper_det/.test(fs.readFileSync(path.join(R, f), 'utf8')));
 ok(py.length >= 5, `tìm thấy ${py.length} file dùng whisper`);

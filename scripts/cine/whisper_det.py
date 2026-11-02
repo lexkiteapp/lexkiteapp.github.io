@@ -33,10 +33,14 @@ def load_audio(path, sr=16000):
     return np.frombuffer(raw, np.int16).astype(np.float32) / 32768.0
 
 
+SIL = 12   # frames of 10 ms: >= 120 ms below threshold = a pause (stop closures inside a word are < 100 ms)
+
+
 def snap_onsets(audio, words, sr=16000, s='start', e='end'):
     """whisper tiny.en hay đặt từ đầu mỗi đoạn (và từ sau quãng nghỉ) bắt đầu từ lúc IM LẶNG (vd. "Wait" 0,0 s trong khi tiếng
     bắt đầu 0,42 s) → phụ đề bật sớm + đo lệch khẩu hình ~200–300 ms. Dời đầu từ tới khung 10 ms đầu tiên có năng lượng tiếng
-    (RMS > 8 % mức p95 của câu) trong chính khoảng [start, end) của từ; không bao giờ dời quá end − 40 ms."""
+    (RMS > 8 % mức p95 của câu) trong chính khoảng [start, end) của từ – nếu khoảng đó chứa quãng lặng ≥ SIL × 10 ms (đuôi từ trước + nghỉ)
+    thì lấy khung có tiếng đầu tiên SAU quãng lặng cuối; không bao giờ dời quá end − 40 ms."""
     import numpy as np
     hop = sr // 100
     n = len(audio) // hop
@@ -48,7 +52,9 @@ def snap_onsets(audio, words, sr=16000, s='start', e='end'):
         s0, e0 = int(w[s] * 100), int(w[e] * 100)
         voiced = np.nonzero(rms[s0:min(n, e0)] > thr)[0]
         if len(voiced):
-            t = (s0 + int(voiced[0])) / 100
+            gaps = np.nonzero(np.diff(voiced) > SIL)[0]   # a real pause INSIDE the span (02/11 r_q2: "is" 2.10–3.0 s held the tail of
+            k = int(voiced[gaps[-1] + 1]) if len(gaps) else int(voiced[0])   # "growing" to 2.43 s + silence to 2.79 s) -> the word starts after it
+            t = (s0 + k) / 100
             if t > w[s]:
                 w[s] = round(min(t, w[e] - 0.04), 3)
     return words

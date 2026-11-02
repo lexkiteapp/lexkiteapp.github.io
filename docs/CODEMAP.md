@@ -17,7 +17,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `content/` (2309 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (214 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (43 file): Hồ sơ listing Chrome/Edge/Apple/Play
-- `docs/` (179 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
+- `docs/` (175 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
 - API `/api/*` (35): account,admin,admin-clips,admin-prefs,admin-shorts,ads-report,ads-reward,ai,backlinks,capacity,class,config,contact,dictlookup,distribution,drive,growth,handoff,hit,i18nfix,img,jobs,keys,league,lexai,notices,ota,push,quota,report,social,social-auto,studio,sync,youtube
 - Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:655 s/test:294 s/video:101 js/vimg:64 s/cine:49 s/lib:35 s/vocab-img:31 s/lexicon:30 js/notes:27 js/grammar:26 js/st:23 js/readtest:21 js/lib:20 s/pron:19 js/get-app:15 js/toeic:15 s/ci:14 js/listen:12 s/word-audio:11 s/ops:9 js/write:9 s/footage:8 js/speak:7 js/usage:7 s/dict:6 s/sentence-audio:6 s/teach:6 js/pron:6 s/capacity:5 s/content-qa:5 s/quality:5 js/lesson:5 s/cdn:4 s/teacher:4 s/tts-ab:4 js/ads:4 js/toefl:4 js/vendor:4 s/explain:3 s/free-tier:3 s/ota:3 s/scriptbank:3 s/target:3 s/world:3 js/call:3 js/roleplay:3 js/tools:3
 
