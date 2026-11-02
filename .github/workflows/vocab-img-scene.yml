@@ -23,7 +23,7 @@ on:
       model: { description: 'Mô hình ảnh GrabCast (A/B, docs/VOCAB-IMG-STYLE.md); rỗng = mặc định flux-1-schnell, không gửi trường model', default: '' }
       only: { description: 'pilot: CHỈ các khoá này – tệp JSON {items} (vd. content/visual/pilot-40.json) hoặc danh sách phẩy · bắt đầu bằng + = THÊM vào pilot (thay input extra cũ, vd. +equal#adj,race#n)', default: '' }
       pool: { description: 'pilot: tail = vẽ từ ĐUÔI kho CF (chừa 10 tài khoản cuối cho giám khảo) – không chờ fill nhả phần đầu · rỗng = đầu kho như fill', default: '' }
-      style: { description: 'pilot: lite = MẪU phong cách ít chi tiết (scene.mjs SCENE_STYLE_LITE, chờ chủ duyệt) · rỗng = e4 đã duyệt. Lịch fill luôn rỗng', default: '' }
+      style: { description: 'pilot: lite = MẪU phong cách ít chi tiết (scene.mjs SCENE_STYLE_LITE) · liteplus = lite + 1–2 chi tiết then chốt không chữ (thẻ key, SCENE_STYLE_LITEPLUS) – chờ chủ duyệt · rỗng = e4 đã duyệt. Lịch fill luôn rỗng', default: '' }
       cands: { description: 'Ứng viên mỗi prompt ảnh cảnh (1–4): vẽ N ảnh cùng prompt, lọc cục bộ, chỉ ứng viên tốt nhất lên giám khảo, trượt → ứng viên kế (01/11 hướng b)', default: '1' }
       lab_run: { description: 'Lượt cũ (run id có vimg-scene-final) → tính lại đặc trưng giám khảo cảnh cho ảnh đã gán nhãn', default: '' }
 permissions:

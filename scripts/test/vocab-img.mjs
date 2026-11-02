@@ -332,4 +332,24 @@ else:
   ok(sc.sceneStyle({}) === sc.SCENE_STYLE_E4 && sc.sceneStyle({ VIMG_STYLE: 'lite' }) === sc.SCENE_STYLE_LITE && !/\b(text|letters?|words?|signs?|labels?)\b/i.test(sc.SCENE_STYLE_LITE), 'phong cách lite chỉ khi VIMG_STYLE=lite, không nhắc chữ');
   ok(/VIMG_STYLE: "\$\{\{ github\.event\.inputs\.mode == 'pilot' && github\.event\.inputs\.style \|\| '' \}\}"/.test(wf), 'workflow: style chỉ cho pilot');
 }
+// 8g. lite+ (VIMG_STYLE=liteplus): thẻ phải có key 1–2 chi tiết then chốt không chữ; cổng vũ khí/không an toàn cho MỌI thẻ cảnh (protected area#n "hunter with a gun" → api: unsafe)
+{ const sc = await import('../vocab-img/scene.mjs'), LP = { VIMG_STYLE: 'liteplus' };
+  const e = { w: 'mistake', pos: 'n', ex: ['x.'] }, c = { ex: 'x.', ps: 'a woman points at a big red cross mark on a blank sheet in front of a boy', check: 'Did the child get something wrong?', cap: 'a woman and a boy at a desk', who: 2, draw: 4 };
+  const key = 'a big red cross mark on a blank sheet; the boy looking surprised';
+  ok(sc.sceneStyle(LP) === sc.SCENE_STYLE_LITEPLUS && sc.sceneStyle({}) === sc.SCENE_STYLE_E4 && !/\b(text|letters?|words?|signs?|labels?)\b/i.test(sc.SCENE_STYLE_LITEPLUS) && /key details/.test(sc.SCENE_STYLE_LITEPLUS), 'lite+ chỉ khi VIMG_STYLE=liteplus, không nhắc chữ, bảo vẽ to chi tiết then chốt');
+  ok(sc.sceneOk(e, c, {}) === '' && sc.sceneOk(e, c, LP) === 'no key detail' && sc.sceneOk(e, { ...c, key }, LP) === '', 'lite+: thiếu key → viết lại thẻ; mặc định/fill không đòi key');
+  for (const [k, why] of [['a red cross; a sad face; a pencil', 'key has more than 2 details'], ['cross', 'key detail not 2-12 words'], ['a test paper with a red cross mark', 'key has a text object: paper'], ['a flashcard with a red cross mark', 'key has a text object: flashcard'],
+    ['the word wrong in red letters', 'key asks for text/symbol'], ['a big question mark above the boy', 'key uses a symbol: question mark'], ['a phone showing a red cross', 'key shows a screen'], ['a boy holding a toy gun', 'key is unsafe: gun']])
+    ok(sc.sceneOk(e, { ...c, key: k }, LP) === why, 'lite+ cổng key: ' + k + ' → ' + why);
+  const pa = { w: 'protected area', pos: 'n', ex: ['x.'] }, pc = { ...c, ps: 'a man in a ranger uniform stands in a forest raising his hand to stop a hunter with a gun', check: 'Is hunting not allowed in this place?' };
+  ok(sc.sceneOk(pa, pc, {}) === 'ps is unsafe: gun' && sc.sceneOk(pa, { ...pc, ps: 'a man in a ranger uniform stands in a forest raising his hand to stop a hunter with a rifle' }, {}) === 'ps is unsafe: rifle', 'cổng an toàn: vũ khí trong ps → loại cả lịch fill (e6)');
+  for (const ps of ['two men punch each other hard in a dark alley at night', 'a man with blood on his shirt sits alone on a park bench', 'a woman drinks beer at a noisy table with two friends', 'a man points a knife at a frightened woman in a dark street'])
+    ok(/^ps is unsafe/.test(sc.sceneOk(pa, { ...pc, ps }, {})), 'cổng an toàn chặn: ' + ps);
+  ok(sc.sceneOk({ w: 'gun', pos: 'n', ex: ['x.'] }, { ...pc, ps: 'one black toy gun lies on a wooden table beside a small box', check: 'Is there a tool that fires small objects?' }, {}) === '' && sc.sceneOk({ w: 'chop', pos: 'v', ex: ['x.'] }, { ...pc, ps: 'a woman chops carrots with a knife on a cutting board in a kitchen', check: 'Is the food being cut into small pieces?' }, {}) === '', 'cổng an toàn: chính từ đang học (gun#n) và dao khi nấu ăn vẫn được');
+  ok(sc.unsafeHit('a nurse draws blood from a woman arm while a lab worker holds a test tube', 'donor') === '' && sc.unsafeHit('a man points at a clipboard with bullet points', 'agenda') === '' && sc.unsafeHit('a soldier and a woman stand side by side holding shields', 'ally') === '' && sc.unsafeHit('a nurse takes a blood sample', 'blood test') === '' && sc.unsafeHit('a tray of glasses and a punch bowl', 'reception') === '', 'cổng an toàn không chặn oan: máu khi y tế, bullet points, lính không vũ khí, từ trong cụm đang học');
+  process.env.VIMG_STYLE = 'liteplus'; const p = sc.promptScene('mistake#n', { ...c, key }, 1); delete process.env.VIMG_STYLE;
+  ok(p.indexOf('Key details: a big red cross mark') > p.indexOf('in front of a boy') && p.indexOf('Minimal flat vector') > p.indexOf('Key details') && !sc.promptScene('mistake#n', { ...c, key }, 1).includes('Key detail'), 'lite+ prompt: câu cảnh → chi tiết then chốt → phong cách; ngoài lite+ không đưa key');
+  ok(sc.sceneSys(LP).includes('"key"') && /red cross mark/.test(sc.KEY_SYS) && sc.sceneSys({}) === sc.SCENE_SYS, 'lite+: lời nhắc thẻ thêm key (vật mang chữ → tờ trơn + dấu), mặc định giữ SCENE_SYS');
+  const KX = [...sc.KEY_SYS.matchAll(/"key":"([^"]+)"/g)].map(m => m[1]); ok(KX.length >= 3 && KX.every(k => sc.keyOk({ w: 'zz', pos: 'n' }, k) === ''), 'lite+: ví dụ key trong lời nhắc qua chính cổng keyOk');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);
