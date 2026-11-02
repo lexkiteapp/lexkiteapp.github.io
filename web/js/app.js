@@ -1576,7 +1576,7 @@
     // → giữ phiên (theo sid, cộng dồn pv) trong lk.hitq; lần gửi thành công sau đó gửi lại với late:1 + t0 (máy chủ ghi vào ngày gốc, ≤ 36 giờ).
     // App/add-on (khác nguồn, phản hồi opaque) vẫn dùng sendBeacon như cũ.
     const Q = 'lk.hitq', qGet = () => { try { return JSON.parse(localStorage.getItem(Q) || '{}') || {}; } catch (e) { return {}; } }, qSet = q => { try { if (Object.keys(q).length) localStorage.setItem(Q, JSON.stringify(q)); else localStorage.removeItem(Q); } catch (e) { /* bỏ qua */ } };
-    // hb không xoá pv trong bộ nhớ (lần gửi sau mang lại) → không cộng; bản gửi bù hỏng lần nữa → thay, không cộng lại chính nó
+    // hb không xóa pv trong bộ nhớ (lần gửi sau mang lại) → không cộng; bản gửi bù hỏng lần nữa → thay, không cộng lại chính nó
     const park = d => { const q = qGet(), o = !d.late && q[d.sid], p = { ...(o && o.pv) }; if (!d.hb) for (const [k, v] of Object.entries(d.pv || {})) p[k] = (p[k] || 0) + v; q[d.sid] = { ...d, hb: undefined, pv: Object.keys(p).length ? p : undefined, late: 1 }; for (const k of Object.keys(q).filter(k => !(q[k].t0 > Date.now() - 35 * 3600e3)).concat(Object.keys(q).slice(0, -20))) delete q[k]; qSet(q); };
     let replayed = false;
     const sendS = d => {
