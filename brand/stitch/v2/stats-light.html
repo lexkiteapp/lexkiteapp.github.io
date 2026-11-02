@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite v2.1 Light — Progress & Badges</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Outlined & Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            bgLight: '#FFF7EA',
+            ink: '#0F3D3E',
+            inkSecondary: '#4E6668',
+            inkMuted: '#7E9698',
+            cardBorder: '#EADEC8',
+            cardLedge: '#D8CFBC',
+            tealPrimary: '#2BA39A',
+            tealDeep: '#1F7A75',
+            tealLedge: '#12514D',
+            coral: '#F2553B',
+            amber: '#FFB054',
+            ctaLedge: '#B53A22',
+            gold: '#FFC94A',
+            goldLedge: '#CFA130',
+            success: '#2FBF71',
+            successLedge: '#1D9250',
+            purpleLedge: '#6E43A3',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFF7EA;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #0F3D3E;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+    }
+    
+    /* Tactile physics */
+    .tactile-card {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 5px 0 #D8CFBC;
+      border-radius: 20px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #FF7B54 0%, #F2553B 100%);
+      border: 2px solid #B53A22;
+      box-shadow: 0 4px 0 #B53A22;
+      border-radius: 9999px;
+      color: #FFFFFF;
+      font-weight: 800;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+    .tactile-btn-secondary {
+      background: #FFFFFF;
+      border: 2px solid #EADEC8;
+      box-shadow: 0 3px 0 #D8CFBC;
+      border-radius: 9999px;
+      color: #0F3D3E;
+      font-weight: 700;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+    .tactile-btn-teal {
+      background: linear-gradient(180deg, #32B6AC 0%, #2BA39A 100%);
+      border: 2px solid #1F7A75;
+      box-shadow: 0 4px 0 #12514D;
+      border-radius: 16px;
+      color: #FFFFFF;
+      font-weight: 800;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #12514D;
+    }
+    .badge-card {
+      border: 2px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      border-radius: 18px;
+      transition: transform 0.1s ease;
+    }
+    .badge-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+    .tab-item.active {
+      background: rgba(43, 163, 154, 0.12);
+      border: 2px solid #2BA39A;
+      border-radius: 14px;
+      color: #1F7A75;
+    }
+    /* Hide scrollbars */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFF7EA] flex justify-center pb-24">
+  <div class="w-full max-w-[390px] flex flex-col min-h-screen relative overflow-x-hidden">
+    
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-30 bg-[#FFF7EA]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-[#EADEC8]/70">
+      <div class="flex items-center gap-2.5">
+        <button class="w-10 h-10 rounded-full bg-white border-2 border-[#EADEC8] shadow-[0_3px_0_#D8CFBC] active:translate-y-[2px] active:shadow-[0_1px_0_#D8CFBC] flex items-center justify-center text-[#0F3D3E] transition-all">
+          <span class="material-symbols-rounded text-[22px]">arrow_back</span>
+        </button>
+        <h1 class="text-[19px] font-extrabold text-[#0F3D3E] tracking-tight">Progress & Badges</h1>
+      </div>
+      
+      <!-- Show Off Pill Button -->
+      <button class="tactile-btn-primary px-3.5 py-1.5 flex items-center gap-1.5 text-[13px] uppercase tracking-wide">
+        <span class="material-symbols-rounded text-[17px]">celebration</span>
+        <span>Show off</span>
+      </button>
+    </header>
+
+    <!-- Main Scrollable Content -->
+    <main class="flex-1 px-4 pt-3 flex flex-col gap-4">
+      
+      <!-- Level Hero Card & Grounded Teacher Stage -->
+      <div class="relative pt-2">
+        <div class="tactile-card p-4 relative z-10 overflow-hidden">
+          <!-- Top Row: Initial Avatar + Level Info -->
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <!-- Avatar Initial Tile -->
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2BA39A] to-[#1F7A75] border-2 border-[#12514D] shadow-[0_3px_0_#12514D] flex items-center justify-center text-white text-[20px] font-extrabold relative">
+                LK
+                <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#FFC94A] border-2 border-white flex items-center justify-center text-[10px] text-[#0F3D3E] font-bold">
+                  ★
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[12px] font-extrabold uppercase tracking-wider text-[#2BA39A] bg-[#2BA39A]/10 px-2 py-0.5 rounded-full">Level 7</span>
+                  <span class="text-[11px] font-bold text-[#7E9698]">TOP 5%</span>
+                </div>
+                <h2 class="text-[18px] font-extrabold text-[#0F3D3E] leading-tight mt-0.5">Word Explorer</h2>
+              </div>
+            </div>
+
+            <!-- Chips for Streak & Top Badge -->
+            <div class="flex flex-col items-end gap-1.5">
+              <div class="flex items-center gap-1 bg-[#FFF7EA] border-2 border-[#FFB054] px-2.5 py-1 rounded-full shadow-[0_2px_0_#D8CFBC]">
+                <span class="text-[#F2553B] text-[15px]">🔥</span>
+                <span class="text-[12px] font-extrabold text-[#0F3D3E]">14 Days</span>
+              </div>
+              <div class="flex items-center gap-1 bg-[#E8F8F5] border-2 border-[#2BA39A] px-2 py-0.5 rounded-full">
+                <span class="text-[12px]">🏆</span>
+                <span class="text-[11px] font-bold text-[#1F7A75]">Lexicon Elite</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- XP Progress Bar -->
+          <div class="mt-4 pt-3 border-t border-[#F2ECE1]">
+            <div class="flex items-center justify-between text-[13px] mb-1.5">
+              <span class="font-extrabold text-[#0F3D3E]">XP to Level 8</span>
+              <span class="font-bold text-[#4E6668]"><span class="text-[#2BA39A] font-extrabold">2,340</span> / 3,000 XP</span>
+            </div>
+            <div class="w-full h-4 bg-[#F2ECE1] rounded-full p-[2px] border border-[#EADEC8] overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-[#2BA39A] via-[#38C6BA] to-[#FFB054] rounded-full shadow-inner" style="width: 78%;"></div>
+            </div>
+            <div class="flex justify-between items-center mt-2 text-[11px] font-bold text-[#7E9698]">
+              <span>660 XP needed</span>
+              <span class="text-[#F2553B] font-extrabold">Estimated: 3 days</span>
+            </div>
+          </div>
+
+          <!-- Empty Grounded Teacher Stage Zone (Reserved for 2D teacher Ama/Carlos) -->
+          <div class="mt-4 pt-3 border-t border-[#F2ECE1] flex items-center justify-between bg-[#FFFBF4] -mx-4 -mb-4 px-4 py-3 border-b-0">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-[#2FBF71] animate-pulse"></div>
+              <span class="text-[12px] font-bold text-[#4E6668]">Teacher cheer zone active</span>
+            </div>
+            <div class="relative w-28 h-7 flex items-center justify-center">
+              <!-- Soft oval ground shadow for standing 2D teacher (NO drawn person) -->
+              <div class="w-24 h-3.5 bg-[#4A3B2C]/10 rounded-[100%] blur-[2px]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today's Quests Card -->
+      <div class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-[#FFF1ED] border border-[#FFB054] flex items-center justify-center text-[#F2553B]">
+              <span class="material-symbols-rounded text-[19px]">flag</span>
+            </div>
+            <div>
+              <h3 class="text-[16px] font-extrabold text-[#0F3D3E]">Today's Quests</h3>
+              <p class="text-[11px] font-bold text-[#7E9698]">Resets at midnight (3/3)</p>
+            </div>
+          </div>
+          <span class="text-[12px] font-extrabold text-[#2BA39A] bg-[#2BA39A]/10 px-2.5 py-0.5 rounded-full">+60 XP total</span>
+        </div>
+
+        <div class="flex flex-col gap-2.5">
+          <!-- Quest 1 -->
+          <div class="bg-[#FFFDF9] border border-[#EADEC8] rounded-2xl p-2.5 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5 flex-1">
+              <div class="w-7 h-7 rounded-lg bg-[#E6F5F4] text-[#2BA39A] flex items-center justify-center text-[15px]">
+                <span class="material-symbols-rounded text-[18px]">spellcheck</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between text-[12px] font-bold mb-1">
+                  <span class="text-[#0F3D3E]">Master 5 C1 collocations</span>
+                  <span class="text-[#7E9698]">5 / 5</span>
+                </div>
+                <div class="w-full h-2 bg-[#F2ECE1] rounded-full overflow-hidden">
+                  <div class="h-full bg-[#2FBF71] rounded-full" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 bg-[#E8F8F0] text-[#1D9250] border border-[#2FBF71]/30 px-2 py-1 rounded-full text-[11px] font-extrabold whitespace-nowrap">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              <span>+20 XP</span>
+            </div>
+          </div>
+
+          <!-- Quest 2 -->
+          <div class="bg-[#FFFDF9] border border-[#EADEC8] rounded-2xl p-2.5 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5 flex-1">
+              <div class="w-7 h-7 rounded-lg bg-[#FFF2DE] text-[#FFB054] flex items-center justify-center text-[15px]">
+                <span class="material-symbols-rounded text-[18px]">mic</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between text-[12px] font-bold mb-1">
+                  <span class="text-[#0F3D3E]">Complete 1 Speaking drill</span>
+                  <span class="text-[#7E9698]">1 / 1</span>
+                </div>
+                <div class="w-full h-2 bg-[#F2ECE1] rounded-full overflow-hidden">
+                  <div class="h-full bg-[#2FBF71] rounded-full" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 bg-[#E8F8F0] text-[#1D9250] border border-[#2FBF71]/30 px-2 py-1 rounded-full text-[11px] font-extrabold whitespace-nowrap">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              <span>+20 XP</span>
+            </div>
+          </div>
+
+          <!-- Quest 3 -->
+          <div class="bg-[#FFFDF9] border border-[#EADEC8] rounded-2xl p-2.5 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5 flex-1">
+              <div class="w-7 h-7 rounded-lg bg-[#FBEFFB] text-[#9C27B0] flex items-center justify-center text-[15px]">
+                <span class="material-symbols-rounded text-[18px]">history_edu</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between text-[12px] font-bold mb-1">
+                  <span class="text-[#0F3D3E]">Score ≥ 80% on mock quiz</span>
+                  <span class="text-[#7E9698]">1 / 1</span>
+                </div>
+                <div class="w-full h-2 bg-[#F2ECE1] rounded-full overflow-hidden">
+                  <div class="h-full bg-[#2FBF71] rounded-full" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 bg-[#E8F8F0] text-[#1D9250] border border-[#2FBF71]/30 px-2 py-1 rounded-full text-[11px] font-extrabold whitespace-nowrap">
+              <span class="material-symbols-rounded text-[14px]">check</span>
+              <span>+20 XP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Golden Moment Card (Spaced Repetition Prime Window) -->
+      <div class="tactile-card p-4 bg-gradient-to-b from-[#FFFDF9] to-[#FFF9EE] border-2 border-[#FFC94A]">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#FFC94A] to-[#FFB054] border-2 border-[#CFA130] shadow-[0_3px_0_#CFA130] flex items-center justify-center text-white">
+              <span class="material-symbols-rounded text-[22px]">auto_awesome</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <h3 class="text-[16px] font-extrabold text-[#0F3D3E]">Golden Moment</h3>
+                <span class="bg-[#FFB054]/20 text-[#B53A22] text-[10px] font-extrabold px-1.5 py-0.5 rounded-full uppercase">Optimal</span>
+              </div>
+              <p class="text-[12px] font-semibold text-[#4E6668]">Best brain consolidation window</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="text-[11px] font-bold text-[#7E9698] block">Peak retention</span>
+            <span class="text-[14px] font-extrabold text-[#F2553B]">in 2 h 14 min</span>
+          </div>
+        </div>
+
+        <p class="text-[12px] font-medium text-[#4E6668] mt-3 leading-relaxed">
+          Your hippocampus is primed for recall. Reviewing now locks 18 expiring words into permanent memory with 3x higher retention.
+        </p>
+
+        <button class="tactile-btn-teal w-full py-2.5 mt-3 flex items-center justify-center gap-2 text-[14px] tracking-wide">
+          <span class="material-symbols-rounded text-[18px]">bolt</span>
+          <span>Review 18 words now</span>
+        </button>
+      </div>
+
+      <!-- Memory Levels (SM-2 Spaced Repetition Breakdown) -->
+      <div class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h3 class="text-[16px] font-extrabold text-[#0F3D3E]">Memory Levels</h3>
+            <p class="text-[11px] font-bold text-[#7E9698]">248 total vocabulary words saved</p>
+          </div>
+          <a href="#" class="text-[13px] font-extrabold text-[#2BA39A] hover:underline flex items-center gap-0.5">
+            <span>Why?</span>
+            <span class="material-symbols-rounded text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- 4 Coloured Segment Bars -->
+        <div class="flex flex-col gap-2.5">
+          <!-- Level 4: Permanent -->
+          <div>
+            <div class="flex justify-between items-center text-[12px] mb-1">
+              <div class="flex items-center gap-1.5 font-extrabold text-[#0F3D3E]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#2FBF71]"></span>
+                <span>Permanent (Mastered)</span>
+              </div>
+              <span class="font-extrabold text-[#1F7A75]">142 words (57%)</span>
+            </div>
+            <div class="w-full h-2.5 bg-[#F2ECE1] rounded-full overflow-hidden">
+              <div class="h-full bg-[#2FBF71] rounded-full" style="width: 57%;"></div>
+            </div>
+          </div>
+
+          <!-- Level 3: Solid -->
+          <div>
+            <div class="flex justify-between items-center text-[12px] mb-1">
+              <div class="flex items-center gap-1.5 font-extrabold text-[#0F3D3E]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#2BA39A]"></span>
+                <span>Solid (Familiar)</span>
+              </div>
+              <span class="font-bold text-[#4E6668]">56 words (23%)</span>
+            </div>
+            <div class="w-full h-2.5 bg-[#F2ECE1] rounded-full overflow-hidden">
+              <div class="h-full bg-[#2BA39A] rounded-full" style="width: 23%;"></div>
+            </div>
+          </div>
+
+          <!-- Level 2: Training -->
+          <div>
+            <div class="flex justify-between items-center text-[12px] mb-1">
+              <div class="flex items-center gap-1.5 font-extrabold text-[#0F3D3E]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#FFB054]"></span>
+                <span>Training (In progress)</span>
+              </div>
+              <span class="font-bold text-[#4E6668]">32 words (13%)</span>
+            </div>
+            <div class="w-full h-2.5 bg-[#F2ECE1] rounded-full overflow-hidden">
+              <div class="h-full bg-[#FFB054] rounded-full" style="width: 13%;"></div>
+            </div>
+          </div>
+
+          <!-- Level 1: At Risk / Expiring -->
+          <div>
+            <div class="flex justify-between items-center text-[12px] mb-1">
+              <div class="flex items-center gap-1.5 font-extrabold text-[#0F3D3E]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#F2553B]"></span>
+                <span>At Risk (Due today)</span>
+              </div>
+              <span class="font-extrabold text-[#F2553B]">18 words (7%)</span>
+            </div>
+            <div class="w-full h-2.5 bg-[#F2ECE1] rounded-full overflow-hidden">
+              <div class="h-full bg-[#F2553B] rounded-full" style="width: 7%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your Week vs Last Week -->
+      <div class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-[16px] font-extrabold text-[#0F3D3E]">Your Week vs Last Week</h3>
+          <span class="text-[11px] font-extrabold uppercase bg-[#FFF7EA] border border-[#EADEC8] text-[#4E6668] px-2 py-0.5 rounded-full">Mon – Sun</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <!-- Stat 1 -->
+          <div class="bg-[#FFFDF9] border border-[#EADEC8] rounded-xl p-2.5">
+            <span class="text-[11px] font-bold text-[#7E9698] block">Study Time</span>
+            <div class="flex items-baseline justify-between mt-1">
+              <span class="text-[17px] font-extrabold text-[#0F3D3E]">3h 45m</span>
+              <span class="text-[12px] font-extrabold text-[#2FBF71] flex items-center">
+                ▲ +22%
+              </span>
+            </div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="bg-[#FFFDF9] border border-[#EADEC8] rounded-xl p-2.5">
+            <span class="text-[11px] font-bold text-[#7E9698] block">Words Drilled</span>
+            <div class="flex items-baseline justify-between mt-1">
+              <span class="text-[17px] font-extrabold text-[#0F3D3E]">148</span>
+              <span class="text-[12px] font-extrabold text-[#2FBF71] flex items-center">
+                ▲ +35%
+              </span>
+            </div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="bg-[#FFFDF9] border border-[#EADEC8] rounded-xl p-2.5">
+            <span class="text-[11px] font-bold text-[#7E9698] block">Accuracy Rate</span>
+            <div class="flex items-baseline justify-between mt-1">
+              <span class="text-[17px] font-extrabold text-[#0F3D3E]">91.4%</span>
+              <span class="text-[12px] font-extrabold text-[#2FBF71] flex items-center">
+                ▲ +4.2%
+              </span>
+            </div>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="bg-[#FFFDF9] border border-[#EADEC8] rounded-xl p-2.5">
+            <span class="text-[11px] font-bold text-[#7E9698] block">Hesitation Lag</span>
+            <div class="flex items-baseline justify-between mt-1">
+              <span class="text-[17px] font-extrabold text-[#0F3D3E]">1.8s</span>
+              <span class="text-[12px] font-extrabold text-[#2FBF71] flex items-center">
+                ▼ -0.6s
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Stat Tiles -->
+      <div class="grid grid-cols-2 gap-3">
+        <!-- Tile 1: Reviews -->
+        <div class="tactile-card p-3.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-[12px] font-extrabold text-[#4E6668]">Reviews</span>
+            <div class="w-8 h-8 rounded-xl bg-[#E6F5F4] border border-[#2BA39A]/30 flex items-center justify-center text-[#2BA39A]">
+              <span class="material-symbols-rounded text-[18px]">sync</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="text-[24px] font-extrabold text-[#0F3D3E] leading-none">1,420</div>
+            <span class="text-[11px] font-bold text-[#2BA39A]">Cards flipped</span>
+          </div>
+        </div>
+
+        <!-- Tile 2: Quizzes -->
+        <div class="tactile-card p-3.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-[12px] font-extrabold text-[#4E6668]">Quizzes</span>
+            <div class="w-8 h-8 rounded-xl bg-[#FFF2DE] border border-[#FFB054]/30 flex items-center justify-center text-[#FFB054]">
+              <span class="material-symbols-rounded text-[18px]">quiz</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="text-[24px] font-extrabold text-[#0F3D3E] leading-none">94</div>
+            <span class="text-[11px] font-bold text-[#FFB054]">Sprints finished</span>
+          </div>
+        </div>
+
+        <!-- Tile 3: Words spoken right -->
+        <div class="tactile-card p-3.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-[12px] font-extrabold text-[#4E6668]">Words Spoken</span>
+            <div class="w-8 h-8 rounded-xl bg-[#FFEBE7] border border-[#F2553B]/30 flex items-center justify-center text-[#F2553B]">
+              <span class="material-symbols-rounded text-[18px]">record_voice_over</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="text-[24px] font-extrabold text-[#0F3D3E] leading-none">386</div>
+            <span class="text-[11px] font-bold text-[#F2553B]">88% Native cadence</span>
+          </div>
+        </div>
+
+        <!-- Tile 4: Readings -->
+        <div class="tactile-card p-3.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-[12px] font-extrabold text-[#4E6668]">Readings</span>
+            <div class="w-8 h-8 rounded-xl bg-[#EFEAF6] border border-[#9C27B0]/30 flex items-center justify-center text-[#9C27B0]">
+              <span class="material-symbols-rounded text-[18px]">menu_book</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="text-[24px] font-extrabold text-[#0F3D3E] leading-none">42</div>
+            <span class="text-[11px] font-bold text-[#9C27B0]">Editorial passages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6-Month Activity Heatmap with Legend -->
+      <div class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h3 class="text-[16px] font-extrabold text-[#0F3D3E]">6-Month Activity</h3>
+            <p class="text-[11px] font-bold text-[#7E9698]">142 active days · 14 day streak</p>
+          </div>
+          <span class="text-[12px] font-extrabold text-[#F2553B] flex items-center gap-1">
+            <span>🔥</span> 14 streak
+          </span>
+        </div>
+
+        <!-- Calendar Heatmap Grid (Simulated 6 months: 22 weeks x 7 days) -->
+        <div class="bg-[#FFFDF9] border border-[#EADEC8] rounded-xl p-3 overflow-hidden">
+          <div class="flex justify-between text-[10px] font-bold text-[#7E9698] mb-1.5 px-0.5">
+            <span>May</span>
+            <span>Jun</span>
+            <span>Jul</span>
+            <span>Aug</span>
+            <span>Sep</span>
+            <span>Oct</span>
+          </div>
+          
+          <!-- Heatmap Matrix -->
+          <div class="grid grid-flow-col grid-rows-7 gap-[3px] justify-between">
+            <!-- Col 1 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <!-- Col 2 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <!-- Col 3 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <!-- Col 4 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <!-- Col 5 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <!-- Col 6 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <!-- Col 7 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <!-- Col 8 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <!-- Col 9 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <!-- Col 10 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <!-- Col 11 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#EADEC8]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <!-- Col 12 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#A2DCD7]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <!-- Col 13 -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#53BEB5]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <!-- Col 14 (Recent 14 days full flame streak) -->
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#2BA39A]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#1F7A75]"></div>
+            <div class="w-[10px] h-[10px] rounded-[2px] bg-[#FF7B54]"></div>
+          </div>
+
+          <!-- Heatmap Legend -->
+          <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-[#F2ECE1] text-[11px] font-bold text-[#7E9698]">
+            <span>Less active</span>
+            <div class="flex items-center gap-1.5">
+              <div class="w-3 h-3 rounded-[3px] bg-[#EADEC8]"></div>
+              <div class="w-3 h-3 rounded-[3px] bg-[#A2DCD7]"></div>
+              <div class="w-3 h-3 rounded-[3px] bg-[#53BEB5]"></div>
+              <div class="w-3 h-3 rounded-[3px] bg-[#2BA39A]"></div>
+              <div class="w-3 h-3 rounded-[3px] bg-[#1F7A75]"></div>
+              <div class="w-3 h-3 rounded-[3px] bg-[#FF7B54]"></div>
+            </div>
+            <span>High XP 🔥</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two Small Bar Charts (Reviews Last 14 Days & Due Next 14 Days) -->
+      <div class="grid grid-cols-2 gap-3">
+        <!-- Chart 1: Reviews, last 14 days -->
+        <div class="tactile-card p-3.5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[12px] font-extrabold text-[#0F3D3E]">Last 14 days</span>
+              <span class="text-[10px] font-bold text-[#2BA39A] bg-[#2BA39A]/10 px-1.5 py-0.5 rounded">Reviews</span>
+            </div>
+            <span class="text-[18px] font-extrabold text-[#0F3D3E] block mt-0.5">342 cards</span>
+          </div>
+
+          <!-- 14-day Mini Bars -->
+          <div class="h-16 flex items-end justify-between gap-[2px] mt-2 pt-2 border-b border-[#F2ECE1]">
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 35%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 50%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 40%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 65%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 80%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 60%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 75%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 55%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 90%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 70%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 85%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 95%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 65%;"></div>
+            <div class="w-[7px] bg-[#FF7B54] rounded-t-sm" style="height: 100%;"></div>
+          </div>
+          <div class="flex justify-between text-[9px] font-bold text-[#7E9698] mt-1">
+            <span>-14d</span>
+            <span>Today</span>
+          </div>
+        </div>
+
+        <!-- Chart 2: Due, next 14 days -->
+        <div class="tactile-card p-3.5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[12px] font-extrabold text-[#0F3D3E]">Next 14 days</span>
+              <span class="text-[10px] font-bold text-[#F2553B] bg-[#F2553B]/10 px-1.5 py-0.5 rounded">Due Q</span>
+            </div>
+            <span class="text-[18px] font-extrabold text-[#0F3D3E] block mt-0.5">188 due</span>
+          </div>
+
+          <!-- 14-day Due Projection Bars (Spaced decay curve) -->
+          <div class="h-16 flex items-end justify-between gap-[2px] mt-2 pt-2 border-b border-[#F2ECE1]">
+            <div class="w-[7px] bg-[#F2553B] rounded-t-sm" style="height: 85%;"></div>
+            <div class="w-[7px] bg-[#FFB054] rounded-t-sm" style="height: 70%;"></div>
+            <div class="w-[7px] bg-[#FFB054] rounded-t-sm" style="height: 60%;"></div>
+            <div class="w-[7px] bg-[#FFB054] rounded-t-sm" style="height: 50%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 45%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 38%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 55%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 30%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 25%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 35%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 20%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 18%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 15%;"></div>
+            <div class="w-[7px] bg-[#2BA39A] rounded-t-sm" style="height: 12%;"></div>
+          </div>
+          <div class="flex justify-between text-[9px] font-bold text-[#7E9698] mt-1">
+            <span>Tomorrow</span>
+            <span>+14d</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mastery Donut with Legend -->
+      <div class="tactile-card p-4">
+        <h3 class="text-[16px] font-extrabold text-[#0F3D3E] mb-1">Vocabulary Mastery</h3>
+        <p class="text-[11px] font-bold text-[#7E9698] mb-3">Overall retention across CEFR exam bands</p>
+
+        <div class="flex items-center gap-4">
+          <!-- Donut Graphic (SVG clean circle slices) -->
+          <div class="relative w-28 h-28 flex items-center justify-center flex-shrink-0">
+            <svg class="w-28 h-28 transform -rotate-90" viewBox="0 0 36 36">
+              <!-- Background Circle -->
+              <path class="text-[#F2ECE1]" stroke-width="4.5" stroke="currentColor" fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <!-- Mastered (57%) -->
+              <path class="text-[#2FBF71]" stroke-dasharray="57, 100" stroke-width="4.5" stroke-linecap="round" stroke="currentColor" fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <!-- Familiar (23%) -->
+              <path class="text-[#2BA39A]" stroke-dashoffset="-57" stroke-dasharray="23, 100" stroke-width="4.5" stroke="currentColor" fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <!-- Learning (13%) -->
+              <path class="text-[#FFB054]" stroke-dashoffset="-80" stroke-dasharray="13, 100" stroke-width="4.5" stroke="currentColor" fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <!-- Critical (7%) -->
+              <path class="text-[#F2553B]" stroke-dashoffset="-93" stroke-dasharray="7, 100" stroke-width="4.5" stroke="currentColor" fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <div class="absolute flex flex-col items-center justify-center text-center">
+              <span class="text-[20px] font-extrabold text-[#0F3D3E] leading-none">88%</span>
+              <span class="text-[9px] font-bold text-[#7E9698] uppercase tracking-wider mt-0.5">Strength</span>
+            </div>
+          </div>
+
+          <!-- Donut Legend Breakdown -->
+          <div class="flex-1 flex flex-col gap-1.5 text-[11px]">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#2FBF71]"></span>
+                <span class="font-bold text-[#0F3D3E]">Mastered</span>
+              </div>
+              <span class="font-extrabold text-[#1F7A75]">142 w (57%)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#2BA39A]"></span>
+                <span class="font-bold text-[#0F3D3E]">Familiar</span>
+              </div>
+              <span class="font-bold text-[#4E6668]">56 w (23%)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#FFB054]"></span>
+                <span class="font-bold text-[#0F3D3E]">In training</span>
+              </div>
+              <span class="font-bold text-[#4E6668]">32 w (13%)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#F2553B]"></span>
+                <span class="font-bold text-[#0F3D3E]">Due / Critical</span>
+              </div>
+              <span class="font-extrabold text-[#F2553B]">18 w (7%)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge Trophy Room Grid "Badges 12/30" -->
+      <div class="tactile-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h3 class="text-[16px] font-extrabold text-[#0F3D3E]">Trophy Showcase</h3>
+            <p class="text-[11px] font-bold text-[#7E9698]">Unlocked 12 / 30 badges</p>
+          </div>
+          <span class="text-[12px] font-extrabold text-[#B53A22] bg-[#FFB054]/20 px-2.5 py-0.5 rounded-full">40% Complete</span>
+        </div>
+
+        <!-- 3x3 + locked items grid -->
+        <div class="grid grid-cols-3 gap-2.5">
+          
+          <!-- Badge 1: 14 Day Flame (Unlocked) -->
+          <div class="badge-card bg-white p-2.5 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFF2DE] to-[#FFE5CC] border-2 border-[#FFB054] shadow-[0_2px_0_#CFA130] flex items-center justify-center text-[22px] mb-1.5">
+              🔥
+            </div>
+            <span class="text-[11px] font-extrabold text-[#0F3D3E] leading-tight">Streak Star</span>
+            <span class="text-[9px] font-bold text-[#2BA39A] mt-0.5">Tier 2 · 14d</span>
+          </div>
+
+          <!-- Badge 2: Fast Drill (Unlocked) -->
+          <div class="badge-card bg-white p-2.5 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFEBE7] to-[#FFD8CF] border-2 border-[#F2553B] shadow-[0_2px_0_#B53A22] flex items-center justify-center text-[#F2553B] mb-1.5">
+              <span class="material-symbols-rounded text-[24px]">bolt</span>
+            </div>
+            <span class="text-[11px] font-extrabold text-[#0F3D3E] leading-tight">Sprint Hero</span>
+            <span class="text-[9px] font-bold text-[#F2553B] mt-0.5">Tier 3 · 60s</span>
+          </div>
+
+          <!-- Badge 3: Exam Pro (Unlocked) -->
+          <div class="badge-card bg-white p-2.5 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#E6F5F4] to-[#D0ECE9] border-2 border-[#2BA39A] shadow-[0_2px_0_#12514D] flex items-center justify-center text-[#2BA39A] mb-1.5">
+              <span class="material-symbols-rounded text-[24px]">verified</span>
+            </div>
+            <span class="text-[11px] font-extrabold text-[#0F3D3E] leading-tight">IELTS 7.5</span>
+            <span class="text-[9px] font-bold text-[#1F7A75] mt-0.5">On Target</span>
+          </div>
+
+          <!-- Badge 4: Collocation Master (Unlocked) -->
+          <div class="badge-card bg-white p-2.5 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFF9E6] to-[#FFF1BF] border-2 border-[#FFC94A] shadow-[0_2px_0_#CFA130] flex items-center justify-center text-[22px] mb-1.5">
+              💎
+            </div>
+            <span class="text-[11px] font-extrabold text-[#0F3D3E] leading-tight">Collocator</span>
+            <span class="text-[9px] font-bold text-[#CFA130] mt-0.5">100 Academic</span>
+          </div>
+
+          <!-- Badge 5: Vocal Native (Unlocked) -->
+          <div class="badge-card bg-white p-2.5 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EFEAF6] to-[#DFCFF0] border-2 border-[#9C27B0] shadow-[0_2px_0_#6E43A3] flex items-center justify-center text-[#9C27B0] mb-1.5">
+              <span class="material-symbols-rounded text-[24px]">mic_double</span>
+            </div>
+            <span class="text-[11px] font-extrabold text-[#0F3D3E] leading-tight">Speech Cadence</span>
+            <span class="text-[9px] font-bold text-[#9C27B0] mt-0.5">Band 8.0 IPA</span>
+          </div>
+
+          <!-- Badge 6: Night Owl (Unlocked) -->
+          <div class="badge-card bg-white p-2.5 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#E8EEF8] to-[#D5E1F4] border-2 border-[#3F51B5] shadow-[0_2px_0_#283593] flex items-center justify-center text-[22px] mb-1.5">
+              🌙
+            </div>
+            <span class="text-[11px] font-extrabold text-[#0F3D3E] leading-tight">Night Owl</span>
+            <span class="text-[9px] font-bold text-[#3F51B5] mt-0.5">10 PM Drills</span>
+          </div>
+
+          <!-- Badge 7: LOCKED (Greyed out with lock) -->
+          <div class="badge-card bg-[#F8F5EE] border-dashed border-[#D8CFBC] p-2.5 flex flex-col items-center text-center opacity-70">
+            <div class="w-12 h-12 rounded-2xl bg-[#EADEC8]/40 border-2 border-[#D8CFBC] flex items-center justify-center text-[#7E9698] mb-1.5">
+              <span class="material-symbols-rounded text-[22px]">lock</span>
+            </div>
+            <span class="text-[11px] font-extrabold text-[#7E9698] leading-tight">30-Day Flame</span>
+            <span class="text-[9px] font-bold text-[#A9BFC1] mt-0.5">16d to unlock</span>
+          </div>
+
+          <!-- Badge 8: LOCKED -->
+          <div class="badge-card bg-[#F8F5EE] border-dashed border-[#D8CFBC] p-2.5 flex flex-col items-center text-center opacity-70">
+            <div class="w-12 h-12 rounded-2xl bg-[#EADEC8]/40 border-2 border-[#D8CFBC] flex items-center justify-center text-[#7E9698] mb-1.5">
+              <span class="material-symbols-rounded text-[22px]">lock</span>
+            </div>
+            <span class="text-[11px] font-extrabold text-[#7E9698] leading-tight">Lexicon Titan</span>
+            <span class="text-[9px] font-bold text-[#A9BFC1] mt-0.5">500 words</span>
+          </div>
+
+          <!-- Badge 9: LOCKED -->
+          <div class="badge-card bg-[#F8F5EE] border-dashed border-[#D8CFBC] p-2.5 flex flex-col items-center text-center opacity-70">
+            <div class="w-12 h-12 rounded-2xl bg-[#EADEC8]/40 border-2 border-[#D8CFBC] flex items-center justify-center text-[#7E9698] mb-1.5">
+              <span class="material-symbols-rounded text-[22px]">lock</span>
+            </div>
+            <span class="text-[11px] font-extrabold text-[#7E9698] leading-tight">Flawless 100</span>
+            <span class="text-[9px] font-bold text-[#A9BFC1] mt-0.5">100% Sprint</span>
+          </div>
+        </div>
+
+        <button class="tactile-btn-secondary w-full py-2 mt-3 text-[13px] text-[#4E6668] flex items-center justify-center gap-1">
+          <span>View all 30 badges</span>
+          <span class="material-symbols-rounded text-[16px]">expand_more</span>
+        </button>
+      </div>
+
+    </main>
+
+    <!-- Bottom Tab Bar (Fixed 5 tabs: Learn, Review, Train, Leagues, Me - active) -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-white/95 backdrop-blur-md border-t-2 border-[#EADEC8] px-2 py-2 flex items-center justify-between z-40">
+      
+      <!-- Tab 1: Learn -->
+      <a href="#" class="tab-item flex flex-col items-center justify-center flex-1 py-1 text-[#7E9698] hover:text-[#0F3D3E] transition-colors">
+        <span class="material-symbols-rounded text-[22px]">route</span>
+        <span class="text-[10px] font-extrabold tracking-tight mt-0.5">Learn</span>
+      </a>
+
+      <!-- Tab 2: Review -->
+      <a href="#" class="tab-item flex flex-col items-center justify-center flex-1 py-1 text-[#7E9698] hover:text-[#0F3D3E] transition-colors relative">
+        <span class="material-symbols-rounded text-[22px]">layers</span>
+        <span class="text-[10px] font-extrabold tracking-tight mt-0.5">Review</span>
+        <span class="absolute top-1 right-3 w-2 h-2 rounded-full bg-[#F2553B]"></span>
+      </a>
+
+      <!-- Tab 3: Train -->
+      <a href="#" class="tab-item flex flex-col items-center justify-center flex-1 py-1 text-[#7E9698] hover:text-[#0F3D3E] transition-colors">
+        <span class="material-symbols-rounded text-[22px]">fitness_center</span>
+        <span class="text-[10px] font-extrabold tracking-tight mt-0.5">Train</span>
+      </a>
+
+      <!-- Tab 4: Leagues -->
+      <a href="#" class="tab-item flex flex-col items-center justify-center flex-1 py-1 text-[#7E9698] hover:text-[#0F3D3E] transition-colors">
+        <span class="material-symbols-rounded text-[22px]">emoji_events</span>
+        <span class="text-[10px] font-extrabold tracking-tight mt-0.5">Leagues</span>
+      </a>
+
+      <!-- Tab 5: Me (ACTIVE) -->
+      <a href="#" class="tab-item active flex flex-col items-center justify-center flex-1 py-1 transition-colors">
+        <span class="material-symbols-rounded text-[22px] text-[#2BA39A]">person</span>
+        <span class="text-[10px] font-extrabold tracking-tight mt-0.5 text-[#2BA39A]">Me</span>
+      </a>
+
+    </nav>
+
+  </div>
+</body>
+</html>

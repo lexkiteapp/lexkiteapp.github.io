@@ -61,12 +61,15 @@
     v.tip = tip;
     return v;
   };
+  // Thao tác sổ lỗi dùng CHUNG cho trang cũ và khung Stitch v2 (web/js/ux1-mistakes.js, cờ ux1)
+  App.mistakesOpen = async (w = p => p) => { const list = await w(Store.get('mistakes', [])); if (migrate(list)) await w(Store.set('mistakes', list)); return list.filter(x => !x.fixed); };
+  App.mistakeSettle = async (key, ok) => { const all = await Store.get('mistakes', []); const it = all.find(x => x.key === key); if (it) { if (ok) it.fixed = true; else it.n = (it.n || 1) + 1; } await Store.set('mistakes', all); }; // đúng/Đã hiểu → đã sửa · sai → +1 lần sai
+  App.mistakeClearFixed = async () => Store.set('mistakes', (await Store.get('mistakes', [])).filter(x => !x.fixed));
+  App.mistakeCheck = (input, answer) => (window.QE && QE.norm ? QE.norm(input) === QE.norm(answer) : String(input).trim().toLowerCase() === String(answer).trim().toLowerCase());
   routes.mistakes = App.guard(async function (arg, query) {
     const w = App.W;
     const retry = !!(query && query.get && query.get('retry'));
-    const list = await w(Store.get('mistakes', []));
-    if (migrate(list)) await w(Store.set('mistakes', list));
-    const open = list.filter(x => !x.fixed);
+    const open = await App.mistakesOpen(w);
     view.innerHTML = `
       <div class="page-head"><div><h1>${UI.icon('book-x')} ${t('Sổ lỗi sai')}</h1><p class="muted">${t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.')}</p></div>
         <div class="row">${open.length ? (retry ? `<a class="btn" href="#/mistakes">${UI.icon('clipboard-list')} ${t('Xem danh sách')}</a>` : `<a class="btn primary" href="#/mistakes?retry=1">${UI.icon('repeat')} ${t('Làm lại lỗi sai')}</a>`) : ''}${open.length ? `<a class="btn" href="#/practice/learn?src=forgetting">🧠 ${t('Ôn từ sắp quên')}</a>` : ''}<button class="btn sm" id="clearFixed">${t('Dọn lỗi đã sửa')}</button></div></div>
@@ -92,9 +95,7 @@
       App.bindCommon(); UI.fillIpa($('#mList'));
       // Làm lại: tự nhớ đáp án trước khi xem (active recall) → đúng thì gỡ khỏi sổ, sai thì tăng số lần sai
       const settle = async (card, key, ok) => {
-        const all = await Store.get('mistakes', []); const it = all.find(x => x.key === key);
-        if (it) { if (ok) it.fixed = true; else it.n = (it.n || 1) + 1; }
-        await Store.set('mistakes', all);
+        await App.mistakeSettle(key, ok);
         if (ok) { App.reward({ xp: 3 }, card); Sfx.correct(); card.style.opacity = '.5'; setTimeout(() => card.remove(), 600); } else Sfx.wrong();
       };
       $$('[data-rt]').forEach(box => {
@@ -102,19 +103,18 @@
         const reveal = () => { ans.hidden = false; box.hidden = true; };
         const show = $('[data-show]', box); if (show) show.onclick = reveal;
         const chk = $('[data-chk]', box), inp = $('[data-in]', box);
-        if (chk) { const go = () => { const ok = window.QE && QE.norm ? QE.norm(inp.value) === QE.norm(it.answer) : inp.value.trim().toLowerCase() === String(it.answer).trim().toLowerCase(); reveal(); const self = $('[data-self]', card); if (self) self.hidden = true; settle(card, key, ok); }; chk.onclick = go; inp.onkeydown = e => { if (e.key === 'Enter') go(); }; }
+        if (chk) { const go = () => { const ok = App.mistakeCheck(inp.value, it.answer); reveal(); const self = $('[data-self]', card); if (self) self.hidden = true; settle(card, key, ok); }; chk.onclick = go; inp.onkeydown = e => { if (e.key === 'Enter') go(); }; }
         const okB = $('[data-ok]', card), noB = $('[data-no]', card);
         if (okB) okB.onclick = () => settle(card, key, true);
         if (noB) noB.onclick = () => { settle(card, key, false); $('[data-self]', card).hidden = true; };
       });
       $$('[data-fix]').forEach(b => b.onclick = async () => {
-        const all = await Store.get('mistakes', []); const it = all.find(x => x.key === b.dataset.fix); if (it) it.fixed = true;
-        await Store.set('mistakes', all); App.reward({ xp: 2 }, b); b.closest('.card').remove();
+        await App.mistakeSettle(b.dataset.fix, true); App.reward({ xp: 2 }, b); b.closest('.card').remove();
       });
     };
     draw('');
     $$('#mTabs button').forEach(b => b.onclick = () => { $$('#mTabs button').forEach(x => x.classList.toggle('on', x === b)); draw(b.dataset.k); });
-    $('#clearFixed').onclick = async () => { await Store.set('mistakes', (await Store.get('mistakes', [])).filter(x => !x.fixed)); toast(t('Đã dọn')); };
+    $('#clearFixed').onclick = async () => { await App.mistakeClearFixed(); toast(t('Đã dọn')); };
   });
 
   // KIỂM TRA ĐẦU VÀO (#/placement): js/placement.js – tải lười, ước tính thích ứng + khoảng band.

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite v2.1 Light — Mistakes Notebook</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error-container": "#93000a",
+            "tertiary": "#613f00",
+            "on-tertiary": "#ffffff",
+            "cta-gradient-end": "#FF9E3B",
+            "on-primary-container": "#98e5df",
+            "tertiary-fixed-dim": "#ffb94c",
+            "surface": "#f8faf9",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#291800",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#eff1f0",
+            "primary-fixed-dim": "#87d4cd",
+            "on-secondary-fixed-variant": "#900f00",
+            "card-border": "#E2E8E7",
+            "accent-teal": "#0D6964",
+            "on-tertiary-container": "#ffd08e",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#00201e",
+            "surface-container-high": "#e6e9e8",
+            "surface-container-lowest": "#ffffff",
+            "text-muted": "#4E5F62",
+            "on-secondary-container": "#5e0700",
+            "cta-ledge": "#B53A22",
+            "secondary-fixed-dim": "#ffb4a6",
+            "secondary-container": "#fe5d42",
+            "surface-dim": "#d8dada",
+            "tertiary-fixed": "#ffddb2",
+            "inverse-surface": "#2e3131",
+            "on-surface": "#191c1c",
+            "text-primary": "#10191B",
+            "background": "#f8faf9",
+            "surface-container": "#eceeed",
+            "primary-container": "#0d6964",
+            "error": "#ba1a1a",
+            "secondary": "#b42814",
+            "canvas-base": "#F6F8F7",
+            "outline-variant": "#bec9c7",
+            "surface-tint": "#0e6a65",
+            "tile-ledge": "#D5DEDC",
+            "primary-fixed": "#a3f0e9",
+            "card-surface": "#FFFFFF",
+            "surface-container-highest": "#e1e3e2",
+            "on-primary-fixed-variant": "#00504c",
+            "inverse-primary": "#87d4cd",
+            "on-tertiary-fixed-variant": "#624000",
+            "cta-gradient-start": "#F2553B",
+            "surface-bright": "#f8faf9",
+            "outline": "#6f7978",
+            "on-background": "#191c1c",
+            "secondary-fixed": "#ffdad3",
+            "interactive-tile": "#F0F4F3",
+            "on-secondary-fixed": "#3f0300",
+            "surface-variant": "#e1e3e2",
+            "accent-amber": "#B37800",
+            "on-surface-variant": "#3f4947",
+            "surface-container-low": "#f2f4f3",
+            "tertiary-container": "#805500",
+            "primary": "#004f4b",
+            "error-container": "#ffdad6"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem"
+          },
+          fontFamily: {
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "body-sm": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "body-md": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-lg-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "display-hero-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }],
+            "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "headline-sm": ["22px", { lineHeight: "30px", letterSpacing: "0em", fontWeight: "600" }],
+            "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "label-lg": ["15px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "700" }],
+            "headline-md": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical mechanical press tactile styles */
+    .tactile-btn {
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      border-bottom-width: 1px !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-canvas-base text-text-primary min-h-screen flex justify-center selection:bg-accent-teal selection:text-white antialiased font-body-md text-body-md" style="background-color: #0B171A; color: #EEF6F7;">
+<!-- Mobile Viewport Shell (390px target cap) -->
+<div class="w-full max-w-[420px] bg-canvas-base min-h-screen flex flex-col relative pb-24 shadow-xl" style="background-color: #0B171A; color: #EEF6F7;">
+<!-- TopAppBar (Shared Component Implementation) -->
+<header class="sticky top-0 z-40 shadow-sm border-b flex justify-between items-center w-full px-4 h-16 max-w-full" style="background-color: #0B171A; border-color: #233942;">
+<div class="flex items-center gap-3">
+<!-- Back Button -->
+<button aria-label="Go back" class="w-10 h-10 rounded-xl flex items-center justify-center tactile-btn active:translate-y-[2px] transition-transform duration-100" style="background-color: #142328; border: 1px solid #233942; border-bottom: 3px solid #0c181c; color: #EEF6F7;">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div>
+<h1 class="text-headline-sm font-headline-sm font-bold leading-tight" style="color: #EEF6F7;">Mistakes Notebook</h1>
+<p class="text-label-sm font-label-sm flex items-center gap-1.5 mt-0.5" style="color: #A9BFC1;">
+<span class="w-2 h-2 rounded-full inline-block" style="background-color: #2BA39A;"></span>
+14 items ready for mastery • 0 penalty
+</p>
+</div>
+</div>
+<!-- Right Chips: Streak & XP -->
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 rounded-full px-2.5 py-1 text-label-md font-label-md shadow-xs" style="background-color: rgba(242,85,59,0.15); border: 1px solid rgba(242,85,59,0.35); color: #FFB054;">
+<span class="material-symbols-outlined fill-1 text-[16px]" style="color: #F2553B;">local_fire_department</span>
+<span class="font-bold">14</span>
+</div>
+<div class="flex items-center gap-1 rounded-full px-2.5 py-1 text-label-md font-label-md shadow-xs" style="background-color: rgba(43,163,154,0.15); border: 1px solid rgba(43,163,154,0.35); color: #6bd8ce;">
+<span class="material-symbols-outlined fill-1 text-[16px]" style="color: #2BA39A;">bolt</span>
+<span class="font-bold">820 XP</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-4 pt-4 flex flex-col gap-4"><!-- Teacher Stage Row (Pedagogy & Motivation) -->
+<section class="flex items-end gap-3 pt-1">
+<!-- Empty Grounded Floor Spot for 2D Teacher Asset -->
+<div class="w-[88px] h-[104px] shrink-0 relative flex flex-col justify-end items-center pb-1">
+<div class="w-16 h-3 rounded-full blur-[2px]" style="background-color: rgba(0,0,0,0.5);"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center border border-dashed rounded-2xl p-1 text-center" style="background-color: rgba(20,35,40,0.7); border-color: #233942;">
+<span class="material-symbols-outlined text-2xl" style="color: #2BA39A;">school</span>
+<span class="text-label-sm font-label-sm text-[9px] mt-0.5" style="color: #A9BFC1;">Coach Ama</span>
+</div>
+</div>
+<!-- Speech Bubble Card with Tactile Ledge -->
+<div class="flex-1 rounded-2xl p-3.5 relative shadow-[0_4px_12px_rgba(0,0,0,0.3)]" style="background-color: #142328; border: 1px solid #233942; border-bottom: 4px solid #0c181c;">
+<!-- Speech tail pointing towards teacher stage -->
+<div class="absolute -left-2 bottom-4 w-3 h-3 rotate-45" style="background-color: #142328; border-left: 1px solid #233942; border-bottom: 1px solid #233942;"></div>
+<div class="relative z-10">
+<p class="font-body-sm text-body-sm font-medium leading-snug" style="color: #EEF6F7;">
+“Every mistake is just a point you haven't locked in yet. Let's fix these together!”
+</p>
+<div class="flex items-center gap-1.5 mt-2 pt-1 border-t" style="border-color: #233942;">
+<span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: #2BA39A;"></span>
+<span class="text-label-sm font-label-sm font-semibold" style="color: #2BA39A;">Teacher Ama • Lexkite Exam Lead</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Primary & Secondary Actions Row -->
+<section class="flex flex-col gap-2.5">
+<!-- Master CTA Button -->
+<button class="w-full py-3.5 px-6 rounded-xl font-label-lg text-label-lg tracking-wide shadow-md flex items-center justify-center gap-2 tactile-btn active:translate-y-[3px] font-bold text-white" style="background: linear-gradient(to right, #F2553B, #FF9E3B); border-bottom: 5px solid #B53A22;">
+<span class="material-symbols-outlined fill-1 text-[20px]">smart_toy</span>
+<span>Retry my mistakes</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<!-- Secondary Tactile Actions -->
+<div class="flex items-center justify-between gap-3 px-0.5">
+<button class="flex-1 py-2 px-3 rounded-xl font-label-md text-label-md flex items-center justify-center gap-1.5 tactile-btn" style="background-color: #142328; border: 1px solid #233942; border-bottom: 3px solid #0c181c; color: #2BA39A;">
+<span class="material-symbols-outlined text-[17px]">replay</span>
+<span>Review words I'm forgetting</span>
+</button>
+<button class="px-3 py-2 font-label-md text-label-md flex items-center gap-1 transition-colors" style="color: #A9BFC1;">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+<span>Clear fixed</span>
+</button>
+</div>
+</section>
+<!-- Kind Filter Tabs with Counts (Horizontal scrollable pill cluster) -->
+<nav class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-1 px-1">
+<!-- Active Tab: All 14 -->
+<button class="shrink-0 px-3.5 py-1.5 rounded-full text-white font-label-md text-label-md flex items-center gap-1.5 shadow-sm tactile-btn" style="background-color: #2BA39A; border-bottom: 3px solid #084744;">
+<span>All</span>
+<span class="px-1.5 py-0.2 rounded-full text-[11px] font-bold" style="background-color: rgba(255,255,255,0.2);">14</span>
+</button>
+<!-- Inactive Tab: Vocabulary 6 -->
+<button class="shrink-0 px-3.5 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1.5 tactile-btn" style="background-color: #142328; border: 1px solid #233942; border-bottom: 3px solid #0c181c; color: #A9BFC1;">
+<span>Vocabulary</span>
+<span class="px-1.5 py-0.2 rounded-full text-[11px] font-semibold" style="background-color: #1A2C33; color: #A9BFC1;">6</span>
+</button>
+<!-- Inactive Tab: Grammar 5 -->
+<button class="shrink-0 px-3.5 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1.5 tactile-btn" style="background-color: #142328; border: 1px solid #233942; border-bottom: 3px solid #0c181c; color: #A9BFC1;">
+<span>Grammar</span>
+<span class="px-1.5 py-0.2 rounded-full text-[11px] font-semibold" style="background-color: #1A2C33; color: #A9BFC1;">5</span>
+</button>
+<!-- Inactive Tab: Reading 2 -->
+<button class="shrink-0 px-3.5 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1.5 tactile-btn" style="background-color: #142328; border: 1px solid #233942; border-bottom: 3px solid #0c181c; color: #A9BFC1;">
+<span>Reading</span>
+<span class="px-1.5 py-0.2 rounded-full text-[11px] font-semibold" style="background-color: #1A2C33; color: #A9BFC1;">2</span>
+</button>
+<!-- Inactive Tab: Listening 1 -->
+<button class="shrink-0 px-3.5 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-1.5 tactile-btn" style="background-color: #142328; border: 1px solid #233942; border-bottom: 3px solid #0c181c; color: #A9BFC1;">
+<span>Listening</span>
+<span class="px-1.5 py-0.2 rounded-full text-[11px] font-semibold" style="background-color: #1A2C33; color: #A9BFC1;">1</span>
+</button>
+</nav>
+<!-- Mistakes Feed (Bento-styled Detailed Tactile Cards) -->
+<div class="flex flex-col gap-4">
+<!-- CARD 1: Gerund vs Bare Infinitive -->
+<article class="rounded-2xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.3)] relative overflow-hidden flex flex-col gap-3" style="background-color: #142328; border: 1px solid #233942; border-bottom: 5px solid #0c181c;">
+<!-- Top category accent strip -->
+<div class="absolute top-0 left-0 right-0 h-1" style="background-color: #2BA39A;"></div>
+<!-- Header Row -->
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-label-sm font-label-sm" style="background-color: rgba(43,163,154,0.15); border: 1px solid rgba(43,163,154,0.3); color: #2BA39A;">
+<span class="material-symbols-outlined text-[14px]">spellcheck</span>
+Grammar Slip • Gerunds
+</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full" style="background-color: #1A2C33; color: #A9BFC1;">
+Mistaken 3 times • Yesterday
+</span>
+</div>
+<!-- Sentence Prompt Box with speaker audio button -->
+<div class="rounded-xl p-3 flex items-start gap-2.5" style="background-color: #1A2C33; border: 1px solid #2A434D;">
+<button aria-label="Listen to sentence" class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs tactile-btn" style="background-color: #142328; border: 1px solid #233942; border-bottom: 2px solid #0c181c; color: #2BA39A;">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<p class="font-body-md text-body-md font-medium pt-0.5" style="color: #EEF6F7;">
+I like <span class="inline-block px-3 py-0.5 mx-1 border-b-2 border-dashed rounded font-semibold" style="background-color: rgba(43,163,154,0.15); border-color: #2BA39A; color: #2BA39A;">_____</span> to music on my daily commute.
+</p>
+</div>
+<!-- Error vs Correct Comparison Section -->
+<div class="grid grid-cols-1 gap-2">
+<!-- Incorrect Answer Row -->
+<div class="flex items-center justify-between p-2.5 rounded-xl" style="background-color: rgba(186,26,26,0.15); border: 1px solid rgba(186,26,26,0.35);">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-white" style="background-color: #BA1A1A;">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+<span class="text-label-sm font-label-sm font-bold" style="color: #FF8080;">Your answer:</span>
+<span class="font-body-md text-body-md font-bold line-through" style="color: #EEF6F7; text-decoration-color: #FF8080;">listen</span>
+</div>
+<span class="text-label-sm font-label-sm" style="color: #A9BFC1;">bare infinitive</span>
+</div>
+<!-- Correct Answer Row -->
+<div class="flex items-center justify-between p-2.5 rounded-xl" style="background-color: rgba(47,191,113,0.15); border: 1px solid rgba(47,191,113,0.35);">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-white" style="background-color: #2FBF71;">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-label-sm font-label-sm font-bold" style="color: #4EFA98;">Answer:</span>
+<span class="font-body-md text-body-md font-bold" style="color: #4EFA98;">listening</span>
+<span class="text-label-sm font-label-sm" style="color: #A9BFC1;">/ˈlɪs.ən.ɪŋ/</span>
+</div>
+<button aria-label="Listen to pronunciation" class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 tactile-btn" style="background-color: #142328; border: 1px solid #233942; color: #4EFA98;">
+<span class="material-symbols-outlined text-[15px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Tutor Tip Box -->
+<div class="rounded-xl p-3 flex items-start gap-2" style="background-color: rgba(244,191,64,0.1); border: 1px solid rgba(244,191,64,0.25);">
+<span class="material-symbols-outlined fill-1 text-[18px] shrink-0 mt-0.5" style="color: #F4BF40;">lightbulb</span>
+<p class="text-body-sm font-body-sm leading-relaxed" style="color: #FFD180;">
+<strong class="font-bold" style="color: #FFDF9E;">Tip:</strong> Preference verbs (<em>like, love, enjoy, avoid</em>) almost always take gerund (<strong>-ing</strong>) when discussing general habits or activities.
+</p>
+</div>
+<!-- Card Footer Action Cluster -->
+<div class="pt-1 flex flex-wrap items-center justify-between gap-2 border-t" style="border-color: #233942;">
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="px-2.5 py-1 rounded-lg text-label-sm font-label-sm transition-colors" style="background-color: #1A2C33; border: 1px solid #2A434D; color: #EEF6F7;">
+Open grammar rule
+</button>
+<button class="px-2.5 py-1 rounded-lg text-label-sm font-label-sm transition-colors" style="background-color: #1A2C33; border: 1px solid #2A434D; color: #EEF6F7;">
+Dictionary
+</button>
+<button class="px-2 py-1 rounded-lg text-label-sm font-label-sm transition-colors flex items-center gap-0.5" style="background-color: #1A2C33; border: 1px solid #2A434D; color: #EEF6F7;">
+<span class="material-symbols-outlined text-[13px]">add</span> Flashcard
+</button>
+</div>
+<!-- Got It Pill Button -->
+<button class="px-3.5 py-1.5 rounded-xl text-white text-label-sm font-label-sm flex items-center gap-1 shadow-xs tactile-btn font-semibold" style="background-color: #12514D; border: 1px solid #2BA39A; border-bottom: 3px solid #084744;">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Got it (+2 XP)</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: Homophone / Spelling Slip -->
+<article class="rounded-2xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.3)] relative overflow-hidden flex flex-col gap-3" style="background-color: #142328; border: 1px solid #233942; border-bottom: 5px solid #0c181c;">
+<!-- Category Accent Top Strip -->
+<div class="absolute top-0 left-0 right-0 h-1" style="background-color: #FFB054;"></div>
+<!-- Header Row -->
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-label-sm font-label-sm" style="background-color: rgba(255,176,84,0.15); border: 1px solid rgba(255,176,84,0.3); color: #FFB054;">
+<span class="material-symbols-outlined text-[14px]">auto_stories</span>
+Vocab Precision • IELTS Task 2
+</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full" style="background-color: #1A2C33; color: #A9BFC1;">
+Mistaken 2 times • Oct 24
+</span>
+</div>
+<!-- Sentence Prompt Box with speaker audio button -->
+<div class="rounded-xl p-3 flex items-start gap-2.5" style="background-color: #1A2C33; border: 1px solid #2A434D;">
+<button aria-label="Listen to sentence" class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs tactile-btn" style="background-color: #142328; border: 1px solid #233942; border-bottom: 2px solid #0c181c; color: #2BA39A;">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<p class="font-body-md text-body-md font-medium pt-0.5" style="color: #EEF6F7;">
+The budget cut will severely <span class="inline-block px-3 py-0.5 mx-1 border-b-2 border-dashed rounded font-semibold" style="background-color: rgba(43,163,154,0.15); border-color: #2BA39A; color: #2BA39A;">_____</span> laboratory research.
+</p>
+</div>
+<!-- Error vs Correct Comparison Section -->
+<div class="grid grid-cols-1 gap-2">
+<!-- Incorrect Answer Row -->
+<div class="flex items-center justify-between p-2.5 rounded-xl" style="background-color: rgba(186,26,26,0.15); border: 1px solid rgba(186,26,26,0.35);">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-white" style="background-color: #BA1A1A;">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+<span class="text-label-sm font-label-sm font-bold" style="color: #FF8080;">Your answer:</span>
+<span class="font-body-md text-body-md font-bold line-through" style="color: #EEF6F7; text-decoration-color: #FF8080;">effect</span>
+</div>
+<span class="text-label-sm font-label-sm" style="color: #A9BFC1;">noun form</span>
+</div>
+<!-- Correct Answer Row -->
+<div class="flex items-center justify-between p-2.5 rounded-xl" style="background-color: rgba(47,191,113,0.15); border: 1px solid rgba(47,191,113,0.35);">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-white" style="background-color: #2FBF71;">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-label-sm font-label-sm font-bold" style="color: #4EFA98;">Answer:</span>
+<span class="font-body-md text-body-md font-bold" style="color: #4EFA98;">affect</span>
+<span class="text-label-sm font-label-sm" style="color: #A9BFC1;">/əˈfɛkt/ (verb)</span>
+</div>
+<button aria-label="Listen to pronunciation" class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 tactile-btn" style="background-color: #142328; border: 1px solid #233942; color: #4EFA98;">
+<span class="material-symbols-outlined text-[15px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Tutor Tip Box -->
+<div class="rounded-xl p-3 flex items-start gap-2" style="background-color: rgba(244,191,64,0.1); border: 1px solid rgba(244,191,64,0.25);">
+<span class="material-symbols-outlined fill-1 text-[18px] shrink-0 mt-0.5" style="color: #F4BF40;">psychology</span>
+<p class="text-body-sm font-body-sm leading-relaxed" style="color: #FFD180;">
+<strong class="font-bold" style="color: #FFDF9E;">Tip:</strong> Use the <strong>RAVEN</strong> rule: <strong>R</strong>emember <strong>A</strong>ffect is a <strong>V</strong>erb, <strong>E</strong>ffect is a <strong>N</strong>oun.
+</p>
+</div>
+<!-- Card Footer Action Cluster -->
+<div class="pt-1 flex flex-wrap items-center justify-between gap-2 border-t" style="border-color: #233942;">
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="px-2.5 py-1 rounded-lg text-label-sm font-label-sm transition-colors" style="background-color: #1A2C33; border: 1px solid #2A434D; color: #EEF6F7;">
+Affect vs Effect guide
+</button>
+<button class="px-2.5 py-1 rounded-lg text-label-sm font-label-sm transition-colors" style="background-color: #1A2C33; border: 1px solid #2A434D; color: #EEF6F7;">
+Collocations
+</button>
+<button class="px-2 py-1 rounded-lg text-label-sm font-label-sm transition-colors flex items-center gap-0.5" style="background-color: #1A2C33; border: 1px solid #2A434D; color: #EEF6F7;">
+<span class="material-symbols-outlined text-[13px]">add</span> Flashcard
+</button>
+</div>
+<!-- Got It Pill Button -->
+<button class="px-3.5 py-1.5 rounded-xl text-white text-label-sm font-label-sm flex items-center gap-1 shadow-xs tactile-btn font-semibold" style="background-color: #12514D; border: 1px solid #2BA39A; border-bottom: 3px solid #084744;">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Got it (+2 XP)</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: Preposition Selection -->
+<article class="rounded-2xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.3)] relative overflow-hidden flex flex-col gap-3" style="background-color: #142328; border: 1px solid #233942; border-bottom: 5px solid #0c181c;">
+<!-- Category Accent Top Strip -->
+<div class="absolute top-0 left-0 right-0 h-1" style="background-color: #2BA39A;"></div>
+<!-- Header Row -->
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-label-sm font-label-sm" style="background-color: rgba(43,163,154,0.15); border: 1px solid rgba(43,163,154,0.3); color: #2BA39A;">
+<span class="material-symbols-outlined text-[14px]">record_voice_over</span>
+Collocation • Natural Native
+</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full" style="background-color: #1A2C33; color: #A9BFC1;">
+Mistaken 2 times • Oct 22
+</span>
+</div>
+<!-- Sentence Prompt Box with speaker audio button -->
+<div class="rounded-xl p-3 flex items-start gap-2.5" style="background-color: #1A2C33; border: 1px solid #2A434D;">
+<button aria-label="Listen to sentence" class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs tactile-btn" style="background-color: #142328; border: 1px solid #233942; border-bottom: 2px solid #0c181c; color: #2BA39A;">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<p class="font-body-md text-body-md font-medium pt-0.5" style="color: #EEF6F7;">
+I am confident that she is good <span class="inline-block px-3 py-0.5 mx-1 border-b-2 border-dashed rounded font-semibold" style="background-color: rgba(43,163,154,0.15); border-color: #2BA39A; color: #2BA39A;">_____</span> data analysis.
+</p>
+</div>
+<!-- Error vs Correct Comparison Section -->
+<div class="grid grid-cols-1 gap-2">
+<!-- Incorrect Answer Row -->
+<div class="flex items-center justify-between p-2.5 rounded-xl" style="background-color: rgba(186,26,26,0.15); border: 1px solid rgba(186,26,26,0.35);">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-white" style="background-color: #BA1A1A;">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+<span class="text-label-sm font-label-sm font-bold" style="color: #FF8080;">Your answer:</span>
+<span class="font-body-md text-body-md font-bold line-through" style="color: #EEF6F7; text-decoration-color: #FF8080;">in</span>
+</div>
+<span class="text-label-sm font-label-sm" style="color: #A9BFC1;">L1 interference</span>
+</div>
+<!-- Correct Answer Row -->
+<div class="flex items-center justify-between p-2.5 rounded-xl" style="background-color: rgba(47,191,113,0.15); border: 1px solid rgba(47,191,113,0.35);">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-white" style="background-color: #2FBF71;">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-label-sm font-label-sm font-bold" style="color: #4EFA98;">Answer:</span>
+<span class="font-body-md text-body-md font-bold" style="color: #4EFA98;">at</span>
+<span class="text-label-sm font-label-sm" style="color: #A9BFC1;">/æt/ (skill preposition)</span>
+</div>
+<button aria-label="Listen to pronunciation" class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 tactile-btn" style="background-color: #142328; border: 1px solid #233942; color: #4EFA98;">
+<span class="material-symbols-outlined text-[15px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Tutor Tip Box -->
+<div class="rounded-xl p-3 flex items-start gap-2" style="background-color: rgba(244,191,64,0.1); border: 1px solid rgba(244,191,64,0.25);">
+<span class="material-symbols-outlined fill-1 text-[18px] shrink-0 mt-0.5" style="color: #F4BF40;">verified</span>
+<p class="text-body-sm font-body-sm leading-relaxed" style="color: #FFD180;">
+<strong class="font-bold" style="color: #FFDF9E;">Tip:</strong> Say <strong>'good at'</strong> for subjects, skills, and sports. <em>'Good in'</em> is strictly reserved for general health condition or classroom behavior.
+</p>
+</div>
+<!-- Card Footer Action Cluster -->
+<div class="pt-1 flex flex-wrap items-center justify-between gap-2 border-t" style="border-color: #233942;">
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="px-2.5 py-1 rounded-lg text-label-sm font-label-sm transition-colors" style="background-color: #1A2C33; border: 1px solid #2A434D; color: #EEF6F7;">
+Prepositions list
+</button>
+<button class="px-2 py-1 rounded-lg text-label-sm font-label-sm transition-colors flex items-center gap-0.5" style="background-color: #1A2C33; border: 1px solid #2A434D; color: #EEF6F7;">
+<span class="material-symbols-outlined text-[13px]">add</span> Flashcard
+</button>
+</div>
+<!-- Got It Pill Button -->
+<button class="px-3.5 py-1.5 rounded-xl text-white text-label-sm font-label-sm flex items-center gap-1 shadow-xs tactile-btn font-semibold" style="background-color: #12514D; border: 1px solid #2BA39A; border-bottom: 3px solid #084744;">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Got it (+2 XP)</span>
+</button>
+</div>
+</article>
+</div></main>
+<!-- BottomNavBar (Shared Component implementation with exact tokens & active state 'Mistakes'/'Review') -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t shadow-[0_-4px_12px_rgba(0,0,0,0.5)]" style="background-color: #0B171A; border-color: #233942;">
+<!-- Learn Tab (Inactive) -->
+<button class="flex flex-col items-center justify-center pb-1 active:translate-y-[2px] transition-transform duration-100 flex-1 py-1 rounded-lg" style="color: #A9BFC1;">
+<span class="material-symbols-outlined text-[24px]">school</span>
+<span class="text-label-sm font-label-sm mt-0.5">Learn</span>
+</button>
+<!-- Review Tab (Inactive) -->
+<button class="flex flex-col items-center justify-center pb-1 active:translate-y-[2px] transition-transform duration-100 flex-1 py-1 rounded-lg" style="color: #A9BFC1;">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5">Review</span>
+</button>
+<!-- Mistakes Tab (ACTIVE: Exact Match with JSON 'Mistakes' & Notebook intent) -->
+<button class="flex flex-col items-center justify-center font-bold border-b-2 pb-1 active:translate-y-[2px] transition-transform duration-100 flex-1 py-1" style="color: #2BA39A; border-color: #2BA39A;">
+<span class="material-symbols-outlined fill-1 text-[24px]" style="color: #2BA39A;">auto_stories</span>
+<span class="text-label-sm font-label-sm mt-0.5" style="color: #2BA39A;">Mistakes</span>
+</button>
+<!-- Profile Tab (Inactive) -->
+<button class="flex flex-col items-center justify-center pb-1 active:translate-y-[2px] transition-transform duration-100 flex-1 py-1 rounded-lg" style="color: #A9BFC1;">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Profile</span>
+</button>
+</nav>
+</div>
+</body></html>

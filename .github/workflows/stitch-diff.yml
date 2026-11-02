@@ -39,7 +39,7 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: stitch-diff, path: out/stitch-diff, retention-days: 7 }
-      - name: QC cuối 1-1 (13 màn – RTL, giảm chuyển động, giáo viên không "dán đè", giọng = giáo viên, khớp miệng, âm hiệu ứng)
+      - name: QC cuối 1-1 (mọi màn FINAL – RTL, giảm chuyển động, giáo viên không "dán đè", giọng = giáo viên, khớp miệng, âm hiệu ứng)
         if: always()
         run: node scripts/test/final-qc.mjs web out/stitch-diff out/final-qc
       - if: always()

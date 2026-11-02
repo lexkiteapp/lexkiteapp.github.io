@@ -25,6 +25,7 @@ Code KHÔNG vẽ lại giao diện: bộ chuyển sinh khung, mình chỉ gắn 
 - `attr` {bộ chọn: {thuộc tính: biểu thức}} · `cls` {bộ chọn: {class mẫu: biểu thức class}} (class trả về phải viết nguyên văn trong file JS) ·
   `addClass` (chỉ class không đổi hình: cắt tràn, móc test) · `tag` {bộ chọn: {to:'a'}} · `after` {bộ chọn: biểu thức} (chèn, vd giáo viên) · `remove` (CHỈ chỗ giữ chỗ người/ảnh Stitch).
 - `repeat` [{list, as, variants {tên: bộ chọn mẫu}, samples (mọi mẫu Stitch cần gỡ), pick (biểu thức → tên khuôn), bind {tên: {phép…}}}] – danh sách thật, nhiều khuôn.
+- `recolor` {class mẫu: class thay} – đổi màu ĐỒNG LOẠT cả màn cho đạt tương phản AA (sắc có sẵn trong hệ; class không có = lỗi) · `pageCss: true` – màu lồng (brand.teal) + class `<style>` riêng của mẫu.
 - `shell: true` – chỉ màn Học: đầu trang + thanh tab chung (shell.js). Màn khác có header/nav riêng của Stitch → giữ; dùng chung → `remove` + tab qua mount.
 
 ## Luật

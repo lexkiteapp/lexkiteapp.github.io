@@ -213,6 +213,217 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
   ok(P.getElementById('gTarget').tagName === 'SELECT' && /input/.test(P.getElementById('gDate').tagName.toLowerCase()), 'goal (v2): đổi sang CEFR → điểm mục tiêu thành ô chọn A1–C2');
   delete App.state.settings.goal;
 }
+// ---------- Thư viện #/library (Stitch v2.1 library): khung mới giữ đủ ý trang cũ (tab nhóm, CEFR, lọc, Anki, Xem cả, Đang học + Thư viện của tôi) ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const P = w.document, A0 = App.anki, calls = []; App.anki = m => { calls.push(m); };
+  await go('#/library?g=all', '.v2-library');
+  ok($('.v2-library') && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page', 'library (v2): khung Stitch, tab Luyện đang chọn');
+  ok($('#libTabs [data-g="all"].on') && $('#libTabs [data-g="all"]').getAttribute('aria-pressed') === 'true' && $$('#libTabs [data-g]').length === w.IELTS_DATA.GROUPS.length + 2 && $('#libTabs [data-g="mine"]'), 'library (v2): #libTabs đủ nhóm + Tất cả + Đang học, .on/aria-pressed');
+  ok($$('.v2-library main section').length >= 3 && $$('.v2-library main section a[href^="#/topic/"]').length >= 6 && $('.v2-library [data-go-g]'), 'library (v2): mỗi nhóm thẻ bộ từ thật → #/topic/…, nhóm dài có "Xem cả n bộ" [data-go-g]');
+  ok($$('[data-lvf]').length === 7 && $('#libQ') && $('#libAnkiOut') && $('#libAnkiIn') && $('#libNewSet'), 'library (v2): 7 nút CEFR + ô lọc + Anki xuất/nhập + Tạo bộ từ');
+  $('#libAnkiOut').click(); $('#libAnkiIn').click(); $('#libNewSet').click();
+  ok(calls.join() === 'export,import,import', 'library (v2): Anki xuất/nhập + "Tạo bộ từ của bạn" gọi App.anki thật');
+  $('[data-lvf="B2"]').click(); await tick(30);
+  ok($('[data-lvf="B2"]').getAttribute('aria-pressed') === 'true' && $('[data-lvf="B2"]').classList.contains('on') && /lv=B2/.test(w.location.hash) && $$('.v2-library a[href*="?lv=B2"]').length > 0, 'library (v2): lọc CEFR B2 → aria-pressed, URL lv=B2, thẻ mở #/topic/…?lv=B2');
+  $('[data-lvf=""]').click(); await tick(30);
+  const qi = $('#libQ'); qi.value = 'zzzqqxx'; qi.dispatchEvent(new w.Event('input')); await tick(30);
+  ok($('[data-lib-empty]') && !$$('.v2-library main section a[href^="#/topic/"]').length && P.activeElement === $('#libQ') && $('#libQ').value === 'zzzqqxx', 'library (v2): lọc không khớp → thẻ trống, ô lọc giữ chữ + con trỏ');
+  $('#libQ').value = ''; $('#libQ').dispatchEvent(new w.Event('input')); await tick(30);
+  const gg = $('.v2-library [data-go-g]').getAttribute('data-go-g'); $('.v2-library [data-go-g]').click(); await tick(30);
+  ok($(`#libTabs [data-g="${gg}"]`).classList.contains('on') && new RegExp('g=' + gg + '$').test(w.location.hash) && $$('.v2-library main section').length === 1, 'library (v2): "Xem cả" chuyển sang tab nhóm đó, URL g=…');
+  const tp = w.IELTS_DATA.TOPICS[0]; await App.addWord(tp.words[0], { src: 'lookup' }, { silent: true });
+  await go('#/library?g=mine', '.v2-library');
+  ok($('#libTabs [data-g="mine"].on') && $(`.v2-library a[href="#/topic/${tp.id}"]`) && $('.v2-library a[href^="#/deck?from="]'), 'library (v2): tab Đang học = Thư viện của tôi (#/deck?from=…) + bộ đang học');
+  ok(!/display:none/.test($('.v2-library main > div').getAttribute('style') || '') && $$('.v2-library main > div button[data-href^="#/topic/"]').length === 1, 'library (v2): thẻ Gợi ý = bộ thật đang học dở → #/topic/…');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/library', '#libBody');
+  ok($('#libBody') && !$('.v2-library'), 'library: cờ tắt → trang cũ nguyên vẹn');
+  w.localStorage.setItem('lk.ux1', '1'); App.anki = A0;
+}
+// ---------- Bộ từ #/topic/:id (Stitch v2.1 topic): khung mới giữ đủ ý trang cũ ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const A0 = App.anki, calls = []; App.anki = (m, o) => { calls.push(m + ':' + (o && o.name)); };
+  const tp = App.topicOf('education'), lvs = [...new Set(tp.words.map(x => x.level).filter(Boolean))];
+  await go('#/topic/education', '.v2-topic');
+  ok($('.v2-topic') && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page' && $('.v2-topic a[href="#/library?g=topics"]'), 'topic (v2): khung Stitch, tab Luyện, quay lại #/library?g=nhóm');
+  ok(['learn', 'match', 'test'].every(m => $(`.v2-topic a[href="#/practice/${m}?src=topic:education"]`)) && $('.v2-topic a[href="#/handsfree/education"]'), 'topic (v2): 4 chế độ luyện (Học/Ghép thẻ/Kiểm tra/Rảnh tay) theo bộ');
+  $('#tpAnki').click(); ok(calls[0] === 'export:' + tp.name, 'topic (v2): #tpAnki xuất Anki đúng bộ');
+  const rows = () => $$('#wordList article');
+  ok(rows().length === Math.min(20, tp.words.length) && rows().every(a => a.querySelector('a.w[href^="#/dict/"]') && a.querySelector('[data-speak]')), 'topic (v2): #wordList – từ → #/dict/…, nút [data-speak]');
+  ok(lvs.length < 2 || ($$('#lvTabs [data-lv]').length === lvs.length + 1 && $('#lvTabs [data-lv=""].on')), 'topic (v2): #lvTabs đủ cấp CEFR + Tất cả (.on)');
+  { const big = w.IELTS_DATA.TOPICS.find(x => x.words.length > 20 && new Set(x.words.map(y => y.level)).size < 2) || w.IELTS_DATA.TOPICS.find(x => x.words.length > 20); await go('#/topic/' + big.id, '.v2-topic');
+    const n0 = rows().length, vis0 = !/display:none/.test($('#tpMore').parentElement.getAttribute('style') || ''); $('#tpMore').click(); await tick(20);
+    ok(n0 === 20 && vis0 && rows().length === big.words.filter(x => !$('#lvTabs [data-lv].on') || !$('#lvTabs [data-lv].on').dataset.lv || x.level === $('#lvTabs [data-lv].on').dataset.lv).length && /display:none/.test($('#tpMore').parentElement.getAttribute('style') || ''), 'topic (v2): bộ > 20 từ → 20 đầu + "Xem cả n từ" hiện đủ mọi từ');
+    await go('#/topic/education', '.v2-topic'); }
+  if (lvs.length > 1) { const L = lvs[0]; $(`#lvTabs [data-lv="${L}"]`).click(); await tick(20); ok($(`#lvTabs [data-lv="${L}"]`).classList.contains('on') && rows().length === Math.min(20, tp.words.filter(x => x.level === L).length), 'topic (v2): lọc CEFR chỉ còn từ cấp đó'); $('#lvTabs [data-lv=""]').click(); await tick(20); }
+  const seed = $('#wordList [data-add-seed][data-topic="education"]'), sw = seed && seed.getAttribute('data-add-seed');
+  if (seed) { seed.click(); for (let i = 0; i < 20 && !App.inDeck(sw); i++) await tick(30); await tick(50); }
+  ok(seed && App.inDeck(sw) && $(`#wordList [data-added="${sw}"]`) && $(`#wordList [data-added="${sw}"]`).disabled && /\d/.test($('#tCount').textContent), 'topic (v2): [data-add-seed] thêm 1 từ → hàng thành Đã thêm, #tCount cập nhật');
+  $('#addAll').click(); for (let i = 0; i < 60 && !tp.words.every(x => App.inDeck(x.word)); i++) await tick(30); await tick(50);
+  ok(tp.words.every(x => App.inDeck(x.word)) && $('#addAll').disabled && $('.v2-topic').textContent.includes('100%'), 'topic (v2): #addAll thêm mọi từ còn thiếu → nút tắt, 100%');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/topic/education', '#wordList');
+  ok($('#wordList') && !$('.v2-topic') && $('#addAll'), 'topic: cờ tắt → trang cũ nguyên vẹn');
+  w.localStorage.setItem('lk.ux1', '1'); App.anki = A0;
+}
+// ---------- Sổ từ #/deck (Stitch v2.1 deck): khung mới giữ đủ ý trang cũ (tìm, 3 bộ lọc, ?from=, Học/Kiểm tra, chia sẻ, xuất/nhập, Anki, sửa thẻ, phát âm, 400 thẻ, trống) ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const P = w.document, A0 = App.anki, X0 = App.xport, S0 = App.shareDeck, E0 = App.editCard, calls = [];
+  App.anki = (m, o) => { calls.push('anki:' + m + ':' + (o && o.shown ? o.shown.length : '-')); }; App.xport = o => { calls.push('xport:' + o.shown.length + ':' + o.name); }; App.shareDeck = (n, l) => { calls.push('share:' + l.length); }; App.editCard = (wd, after) => { calls.push('edit:' + wd); after && after(); };
+  const now = Date.now(), mk = (wd, vi, o) => Object.assign({ word: wd, vi, ipa: '/x/', emoji: '🧪', topic: 'mine', contexts: [], col: [], syn: [], ant: [], examples: [], added: now, srs: { ef: 2.5, interval: 0, reps: 0, lapses: 0, due: now + 864e5 } }, o);
+  const keep = { ...App.state.cards };
+  Object.assign(App.state.cards, { zzalpha: mk('zzalpha', 'thử một', { contexts: [{ text: 'the zzalpha test sentence', source: 'https://www.youtube.com/watch?v=1' }], added: now - 10 }),
+    zzbeta: mk('zzbeta', 'thử hai', { def: 'beta definition', srs: { ef: 2.5, interval: 30, reps: 5, lapses: 0, due: now - 1000, last: now - 40 * 864e5, S: 30, D: 5 } }) });
+  const N = Object.keys(App.state.cards).length;
+  await go('#/deck', '.v2-deck');
+  const R = $('.v2-deck'), row = wd => $$('#deckList [data-edit]').find(b => b.dataset.edit === wd);
+  ok(R && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page' && R.textContent.includes(String(N)) && $('.v2-deck [data-href="#/train"]'), 'deck (v2): khung Stitch, tab Luyện, đầu trang n từ đã lưu + quay lại');
+  ok($('#dkLearn').getAttribute('data-href') === '#/practice/learn?src=deck' && $('#dkTest').getAttribute('data-href') === '#/practice/test?src=deck', 'deck (v2): Học / Kiểm tra ?src=deck');
+  ok(['#shareBtn', '#exportBtn', '#importBtn', '#importFile', '#ankiOut', '#ankiIn', '#filterQ', '#filterTopic', '#filterFrom', '#filterM', '#deckList', '#dkFind', '#dkMic'].every(s => $(s)), 'deck (v2): đủ móc cũ (chia sẻ, xuất, nhập, Anki ×2, tìm, 3 bộ lọc, danh sách) + kính lúp + micro');
+  ok($$('#deckList [data-edit]').length === N && $$('#deckList [data-speak]').length === N && $(`#deckList a[href="#/dict/zzalpha"]`) && R.textContent.includes(App.meanOf(App.state.cards.zzalpha)) && $('#deckList').innerHTML.includes('zzalpha</span> test sentence'), 'deck (v2): mỗi thẻ: từ → #/dict/…, nghĩa, ngữ cảnh tô từ, [data-speak], [data-edit]');
+  ok(row('zzbeta').closest('#deckList > div').querySelector('.dk-due') && !row('zzalpha').closest('#deckList > div').querySelector('.dk-due') && /\d+%/.test(row('zzbeta').closest('#deckList > div').textContent), 'deck (v2): thẻ đến hạn = khuôn "Ôn hôm nay", có % nhớ FSRS');
+  ok($$('#filterTopic option').some(o => o.value === 'mine') && $$('#filterFrom option').some(o => o.value === 'forget') && $$('#filterM option').length === 5, 'deck (v2): bộ lọc bộ từ (Từ tự thêm), nguồn (+ Sắp quên), mức độ (5 lựa chọn)');
+  const q = $('#filterQ'); q.value = 'thử hai'; q.dispatchEvent(new w.Event('input')); await tick(20);
+  ok($$('#deckList [data-edit]').length === 1 && row('zzbeta') && P.activeElement === $('#filterQ') && $('#filterQ').value === 'thử hai', 'deck (v2): tìm theo nghĩa → chỉ còn thẻ khớp, ô tìm giữ chữ + con trỏ');
+  $('#exportBtn').click(); $('#shareBtn').click(); $('#ankiOut').click(); $('#ankiIn').click();
+  ok(calls.join() === 'xport:1:Sổ từ,share:1,anki:export:1,anki:import:-', 'deck (v2): xuất / chia sẻ / Anki xuất theo phần đang hiện + Anki nhập');
+  q.value = 'zzqqnone'; q.dispatchEvent(new w.Event('input')); await tick(20);
+  ok($('[data-deck-empty]') && !$$('#deckList [data-edit]').length, 'deck (v2): lọc không khớp → thông điệp trống');
+  $('#filterQ').value = ''; $('#filterQ').dispatchEvent(new w.Event('input')); await tick(20);
+  const fm = $('#filterM'); fm.value = '0'; fm.dispatchEvent(new w.Event('change')); await tick(20);
+  ok(row('zzalpha') && !row('zzbeta') && $('#filterM').value === '0' && P.activeElement === $('#filterM') && $('#filterM').closest('label').textContent.includes(w.t('Chưa học')) && $('#filterM').closest('label').querySelector('.animate-pulse'), 'deck (v2): lọc mức độ Chưa học → viên lọc tô (khuôn đang lọc) + hiện giá trị, giữ focus');
+  fm.value = ''; fm.dispatchEvent(new w.Event('change')); await tick(20);
+  const ft = $('#filterTopic'); ft.value = 'mine'; ft.dispatchEvent(new w.Event('change')); await tick(20);
+  ok(row('zzalpha') && row('zzbeta') && $$('#deckList [data-edit]').every(b => App.state.cards[b.dataset.edit].topic === 'mine'), 'deck (v2): lọc bộ từ "Từ tự thêm"');
+  ft.value = ''; ft.dispatchEvent(new w.Event('change')); await tick(20);
+  row('zzalpha').click(); await tick(20);
+  ok(calls.includes('edit:zzalpha') && $('.v2-deck'), 'deck (v2): [data-edit] mở hộp Sửa cũ (App.editCard), xong dựng lại khung');
+  let clicked = 0; $('#importFile').click = () => { clicked++; }; $('#importBtn').click(); ok(clicked === 1 && $('#importFile').getAttribute('accept') === 'application/json', 'deck (v2): Nhập → chọn file .json (#importFile)');
+  await go('#/deck?from=youtube', '.v2-deck');
+  ok($('#filterFrom').value === 'youtube' && row('zzalpha') && !row('zzbeta'), 'deck (v2): ?from=youtube lọc sẵn theo nguồn (link từ Thư viện của tôi / Ôn)');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/deck', '#deckList');
+  ok($('#deckList') && !$('.v2-deck') && $('#filterQ') && $('#ankiOut'), 'deck: cờ tắt → trang cũ nguyên vẹn');
+  App.state.cards = keep; App.anki = A0; App.xport = X0; App.shareDeck = S0; App.editCard = E0; w.localStorage.setItem('lk.ux1', '1');
+}
+// ---------- Sổ lỗi sai #/mistakes (Stitch v2.1 mistakes): khung mới giữ đủ ý trang cũ ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const S = w.Core.Store, now = Date.now(), D = 864e5;
+  const M = [
+    { kind: 'vocab', q: 'Nghĩa của “compulsory”?', qK: { k: 'Nghĩa của “{word}”?', v: { word: 'compulsory' } }, answer: 'bắt buộc', given: 'tùy chọn', explain: 'compulsory /kəmˈpʌlsəri/ = bắt buộc', ref: 'compulsory', key: 'mv1', n: 1, at: now, fixed: false },
+    { kind: 'vocab', q: 'Từ tiếng Anh nghĩa là “bắt buộc”?', qK: { k: 'Từ tiếng Anh nghĩa là “{vi}”?', v: { vi: 'bắt buộc' } }, answer: 'mandatory', given: 'optional', explain: 'mandatory /ˈmændətəri/ = bắt buộc', ref: 'mandatory', key: 'mv2', n: 4, at: now - D, fixed: false },
+    { kind: 'grammar', q: 'She ___ here since 2010.', answer: 'has lived', given: 'lives', explain: 'Hiện tại hoàn thành', ref: 'g1', key: 'mg1', n: 2, at: now - 2 * D, fixed: false },
+    { kind: 'reading', q: 'Bài 1: Q3', answer: 'The writer suggests that urban farms will feed most cities within ten years', given: 'x', explain: '', ref: 'r1', key: 'mr1', n: 1, at: now - 3 * D, fixed: false },
+    { kind: 'listening', q: 'Part 1: Q2', answer: 'Tuesday', given: 'Thursday', explain: '', ref: 'p1', key: 'ml1', n: 1, at: now - 4 * D, fixed: false },
+    { kind: 'vocab', q: 'Điền từ: x', answer: 'old', given: 'x', explain: '', ref: 'old', key: 'mx', n: 1, at: now, fixed: true }];
+  await S.set('mistakes', M);
+  await go('#/mistakes', '.v2-mistakes');
+  const R = () => $('.v2-mistakes'), cards = () => $$('#mList [data-mk]'), card = k => $(`#mList [data-mk="${k}"]`);
+  ok(R() && $('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page' && $('.v2-mistakes header button[data-href="#/me"]') && /Sổ lỗi sai|Mistakes/.test($('.v2-mistakes h1').textContent), 'mistakes (v2): khung Stitch, tab Tôi, quay lại #/me, tiêu đề Sổ lỗi sai');
+  const tImg = $('.v2-mistakes [data-m-teacher] img');
+  ok(tImg && /teach\/ama\/still-thinking\.webp/.test(tImg.getAttribute('src')) && !/Coach Ama/.test(R().textContent) && /ghi lại tự động|recorded automatically/i.test($('.v2-mistakes [data-m-teacher]').textContent), 'mistakes (v2): cô Ama tư thế thinking (Chars) ở chỗ giáo viên, lời thoại = mô tả cũ, không còn chỗ giữ Stitch');
+  ok($('#mRetry').getAttribute('data-href') === '#/mistakes?retry=1' && $('#mForget').getAttribute('data-href') === '#/practice/learn?src=forgetting' && $('#clearFixed') && /\b5\b/.test($('.v2-mistakes header p').textContent), 'mistakes (v2): Làm lại lỗi sai · Ôn từ sắp quên · Dọn lỗi đã sửa · đếm 5 lỗi chưa sửa');
+  ok($$('#mTabs [data-k]').length === 5 && $('#mTabs [data-k=""].on') && $('#mTabs [data-k="vocab"]').textContent.includes('2') && $('#mTabs [data-k="grammar"]').textContent.includes('1'), 'mistakes (v2): #mTabs Tất cả (.on) + 4 loại có đếm');
+  ok(cards().length === 5 && !card('mx') && $$('#mList [data-fix]').length === 5, 'mistakes (v2): #mList đủ 5 lỗi chưa sửa (bỏ lỗi đã sửa), mỗi thẻ có [data-fix] Đã hiểu');
+  ok(cards().every(c => c.querySelectorAll('[data-speak],[data-speak-text]').length <= 1 && c.querySelectorAll('.ipa').length <= 1 && !c.querySelector('[data-row="no"] [data-speak],[data-row="no"] [data-speak-text]') && !c.querySelector('[data-qsay],[data-asay]') && [...c.querySelectorAll('button')].filter(b => !/display:none/.test(b.getAttribute('style') || '')).every(b => b.getAttribute('aria-label') || b.textContent.trim())), 'mistakes (v2): mỗi thẻ ≤ 1 loa + ≤ 1 IPA, câu trả lời sai không có loa, không còn nút loa rỗng, mọi nút có nhãn');
+  const v1 = card('mv1'), v2 = card('mv2'), g1 = card('mg1');
+  ok(v1.querySelector('[data-speak="compulsory"]') && v1.querySelector('.ipa, [data-ipa-lazy]') && v1.querySelector('[data-row="ok"]').textContent.includes('bắt buộc') && /display:none/.test(v1.querySelector('[data-tip]').getAttribute('style') || ''), 'mistakes (v2): "Nghĩa của X?" – loa + IPA ở câu hỏi, đáp án là nghĩa, giải thích lặp → ẩn');
+  ok(v2.querySelector('[data-row="ok"] [data-speak="mandatory"]') && !v2.children[2].querySelector('[data-speak],[data-speak-text]'), 'mistakes (v2): "Từ tiếng Anh nghĩa là…" – loa ở đáp án, câu hỏi không lộ đáp án');
+  ok(g1.querySelector('[data-row="ok"] [data-speak="has lived"]') && g1.querySelector('[data-tip]').textContent.includes('Hiện tại hoàn thành') && g1.querySelector('[data-row="no"]').textContent.includes('lives'), 'mistakes (v2): ngữ pháp – Câu trả lời của bạn ✗, Đáp án ✓ có loa, giải thích hiện');
+  ok(g1.querySelector('a[href="#/grammar/g1"]') && v1.querySelector('a[href="#/dict/compulsory"]') && cards().filter(c => c.dataset.kind === 'vocab').every(c => { const r = c.querySelector('a[href^="#/dict/"]').getAttribute('href').slice(7), b = c.querySelector('[data-add-seed]'); return App.inDeck(decodeURIComponent(r)) ? /display:none/.test(b.getAttribute('style') || '') : b.getAttribute('data-add-seed') === decodeURIComponent(r); }) && card('mr1').querySelector('a[href="#/read/r1"]') && card('ml1').querySelector('a[href="#/listen/p1"]'), 'mistakes (v2): Xem lại bài · Tra lại từ + Flashcard · Đọc lại bài · Nghe lại phần này');
+  $('#mTabs [data-k="grammar"]').click(); await tick(20);
+  ok(cards().length === 1 && card('mg1') && $('#mTabs [data-k="grammar"]').classList.contains('on') && $('#mTabs [data-k="grammar"]').getAttribute('aria-pressed') === 'true', 'mistakes (v2): lọc theo loại (.on, aria-pressed)');
+  $('#mTabs [data-k=""]').click(); await tick(20);
+  card('mg1').querySelector('[data-fix]').click(); for (let i = 0; i < 20 && !(await S.get('mistakes', [])).find(x => x.key === 'mg1').fixed; i++) await tick(20);
+  ok((await S.get('mistakes', [])).find(x => x.key === 'mg1').fixed && !card('mg1'), 'mistakes (v2): [data-fix] Đã hiểu → đánh dấu đã sửa, thẻ biến mất');
+  $('#clearFixed').click(); for (let i = 0; i < 20 && (await S.get('mistakes', [])).some(x => x.fixed); i++) await tick(20);
+  ok(!(await S.get('mistakes', [])).some(x => x.fixed) && (await S.get('mistakes', [])).length === 4, 'mistakes (v2): #clearFixed dọn lỗi đã sửa');
+  await go('#/mistakes?retry=1', '[data-rt]');
+  ok($('#mRetry').getAttribute('data-href') === '#/mistakes' && cards()[0].dataset.mk === 'mv2' && cards().every(c => c.querySelector('[data-rt]') && c.querySelectorAll('[data-ans]').length && [...c.querySelectorAll('[data-ans]')].every(a => a.hidden)), 'mistakes (v2): làm lại – Xem danh sách, sai nhiều nhất lên trước, đáp án [data-ans] ẩn tới khi trả lời');
+  const c2 = card('mv2'); c2.querySelector('[data-in]').value = 'Mandatory'; c2.querySelector('[data-chk]').click();
+  for (let i = 0; i < 20 && !(await S.get('mistakes', [])).find(x => x.key === 'mv2').fixed; i++) await tick(20);
+  ok((await S.get('mistakes', [])).find(x => x.key === 'mv2').fixed && !c2.querySelector('[data-row="ok"]').closest('[data-ans]').hidden && c2.querySelector('[data-self]').hidden, 'mistakes (v2): gõ đúng đáp án → hiện đáp án, gỡ khỏi sổ (+3 XP)');
+  const cr = card('mr1'); ok(cr.querySelector('[data-show]') && !cr.querySelector('[data-in]'), 'mistakes (v2): đáp án dài → nút Hiện đáp án');
+  cr.querySelector('[data-show]').click(); ok(!cr.querySelector('[data-self]').hidden && cr.querySelector('[data-rt]').hidden, 'mistakes (v2): Hiện đáp án → tự chấm Mình làm đúng / Vẫn sai');
+  cr.querySelector('[data-no]').click(); for (let i = 0; i < 20 && (await S.get('mistakes', [])).find(x => x.key === 'mr1').n < 2; i++) await tick(20);
+  ok((await S.get('mistakes', [])).find(x => x.key === 'mr1').n === 2 && cr.querySelector('[data-self]').hidden, 'mistakes (v2): Vẫn sai → +1 lần sai');
+  await S.set('mistakes', []); await go('#/mistakes', '[data-m-empty]');
+  ok($('[data-m-empty]') && /display:none/.test($('#mRetry').getAttribute('style') || '') && !cards().length, 'mistakes (v2): sổ trống → thẻ "Không có lỗi sai nào cần xem lại", ẩn Làm lại');
+  await S.set('mistakes', M); w.localStorage.setItem('lk.ux1', '0'); await go('#/mistakes?x=1', '#mList .card');
+  ok($('#mList .card') && !R() && $('#mTabs') && $('#clearFixed'), 'mistakes: cờ tắt → trang cũ nguyên vẹn');
+  w.localStorage.setItem('lk.ux1', '1'); await S.set('mistakes', []);
+}
+// ---------- Từ điển #/dict (Stitch v2.1 dictionary): khung mới giữ đủ ý trang cũ ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const S = w.Core.Store, F0 = w.fetch, SP0 = App.savePhraseDialog; let spd = null;
+  const NOTES = JSON.parse(fs.readFileSync(path.join(WEB, 'js/notes/m.json'), 'utf8'));
+  w.fetch = async u => { u = String(u); const j = v => ({ ok: true, status: 200, json: async () => v, text: async () => JSON.stringify(v) });
+    if (/js\/notes\/m\.json/.test(u)) return j(NOTES); if (/rel_jjb=mitigate/.test(u)) return j([{ word: 'severe', score: 900 }]); if (/rel_ant=mitigate/.test(u)) return j([{ word: 'aggravate', score: 500 }]);
+    if (/ml=mitigate/.test(u)) return j([{ word: 'alleviate', score: 900, tags: ['f:5'] }]); return F0(u); };
+  App.savePhraseDialog = o => { spd = o; };
+  await S.set('recent', []); delete App.state.cards.mitigate;
+  await go('#/dict', '.v2-dictionary [data-d-empty]');
+  const R = () => $('.v2-dictionary');
+  ok(R() && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page' && $('#searchForm #q') && $('#searchForm button[type=submit]') && $$('[data-d-samples] a[href^="#/dict/"]').length === 6 && /display:none/.test($('#dEntry').getAttribute('style')), 'dict (v2): khung Stitch, tab Luyện, ô tra #searchForm/#q, thẻ trống + 6 từ mẫu, ẩn mục từ');
+  ok($('.v2-dictionary h1') && $('.v2-dictionary h1').textContent.trim() === w.t('Từ điển Anh – Việt') && $('.v2-dictionary [data-ext-cta="app"]') && $('#dBack') && $('.v2-dictionary button[data-href="#/deck"]'), 'dict (v2): tiêu đề + mô tả cũ, nút quay lại, Sổ từ (#/deck), thẻ add-on [data-ext-cta]');
+  $('#q').value = 'mitigate'; $('#searchForm').dispatchEvent(new w.Event('submit', { cancelable: true })); await tick(20);
+  ok(w.location.hash === '#/dict/mitigate', 'dict (v2): Tra từ → #/dict/<từ>');
+  await go('#/dict/mitigate', '#saveCard[style=""]'); await tick(150);
+  const E = $('#dEntry');
+  ok(R() && $('#dWord').textContent.trim() === 'mitigate' && !/display:none/.test(E.getAttribute('style')) && !$('[data-d-empty]'), 'dict (v2): mục từ thật (mitigate) – thẻ trống biến mất');
+  ok(E.querySelector('[data-speak="mitigate"][data-accent="en-GB"]') && E.querySelector('[data-speak="mitigate"][data-accent="en-US"]') && E.textContent.includes('/ˈmɪtɪɡeɪt/') && E.querySelector('[data-slow="mitigate"]'), 'dict (v2): 2 giọng UK/US có IPA + loa [data-accent], [data-slow] nghe chậm');
+  ok((w.I18N.meanLang() === 'en' ? /display:none/.test($('#dVi').parentElement.getAttribute('style')) : $('#dVi').textContent.includes(App.meanOf(w.IELTS_DATA.INDEX.mitigate))) && E.textContent.includes('to make something less harmful') && /C1/.test(E.textContent), 'dict (v2): nghĩa (ngôn ngữ nghĩa; en thuần → ẩn dòng như trang cũ) + định nghĩa + CEFR');
+  const tch = $('[data-d-teacher="ama"]');
+  ok(tch && !/display:none/.test(tch.getAttribute('style')) && /teach\/ama\/still-explain/.test(tch.querySelector('img').getAttribute('src')) && !tch.textContent.includes('Live Tutor') && /Writing Task 2/.test($('#dNote').textContent), 'dict (v2): cô Ama (Chars still explain) thay chỗ giữ người + ghi chú "Dùng khi thi" thật');
+  ok($('#quickSave') && !$('#quickSave').disabled && $('.v2-dictionary [data-href="#/practice/speak?w=mitigate"]') && $('#dEx [data-speak-text]') && $('#dEx').textContent.includes('mitigate the effects of climate change'), 'dict (v2): #quickSave, Luyện phát âm, ví dụ + [data-speak-text]');
+  ok($('#dCol [data-wc-say="mitigate the effects"]') && $('#dCol [data-wc-say="reduce"]') && $('#dCol a[href="#/dict/aggravate"]') && $('#dCol a[href="#/dict/severe"]') && $('#related a[href="#/dict/alleviate"]'), 'dict (v2): Hay đi với / Đồng nghĩa [data-wc-say] + Datamuse (đi kèm, trái nghĩa, #related gần nghĩa) → #/dict');
+  const nk = $$('#dNotes [data-wn]').map(x => x.dataset.wn).join(',');
+  ok(nk === 'm,e,u,f' && $('#dNotes [data-wn="e"] [data-wn-b] .line-through') && $('#dNotes [data-wn="f"] [data-wc-say="mitigation"]') && $('#dNotes [data-wn-b]').getAttribute('translate') === 'yes', 'dict (v2): Hiểu sâu = Mẹo nhớ · Lỗi hay gặp (sai/đúng) · Dùng khi thi · Họ từ');
+  const hu = $('#dNotes [data-wn-h="u"]'), bu = $('#dNotes [data-wn-b="u"]'); const c0 = /display:\s*none/.test(bu.getAttribute('style')); hu.click();
+  ok(c0 && !/none/.test(bu.style.display) && hu.getAttribute('aria-expanded') === 'true', 'dict (v2): bấm mục Hiểu sâu → mở/đóng (aria-expanded)');
+  ok($('#dPos') && $('#dPos').textContent.includes('to make something less harmful') && $('#ctx') && $('#ctxVi') && $('#trCtx') && $('#saveWord') && $('#phraseBox') && $('#addPhr'), 'dict (v2): Nghĩa theo từ loại, #saveCard (#ctx #ctxVi #trCtx #saveWord), #phraseBox + #addPhr');
+  ok((await S.get('recent', [])).includes('mitigate'), 'dict (v2): lưu "Gần đây"');
+  $('#addPhr').click(); ok(spd && spd.phrase === 'mitigate ', 'dict (v2): #addPhr mở hộp lưu cụm của bạn');
+  $('#ctx').value = 'We must mitigate the risk.'; $('#saveWord').click();
+  for (let i = 0; i < 40 && !(App.state.cards.mitigate && $('#quickSave') && $('#quickSave').disabled); i++) await tick(50);
+  const cm = App.state.cards.mitigate;
+  ok(cm && cm.contexts.some(c => c.text === 'We must mitigate the risk.') && $('#quickSave').disabled && !/display:none/.test($('#saveCard > div > div').getAttribute('style')), 'dict (v2): #saveWord lưu thẻ + ngữ cảnh → Đã có trong flashcard, chấm mức thuộc');
+  await go('#/dict', '[data-d-empty]');
+  ok($('.v2-dictionary a[href="#/dict/mitigate"][lang="en"]') && !/display:none/.test($('#searchForm').nextElementSibling.getAttribute('style') || ''), 'dict (v2): hàng Gần đây có từ vừa tra');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/dict/mitigate', '#result .entry-word');
+  ok($('#result .entry-word') && !R() && $('#searchForm') && $('#saveCard'), 'dict: cờ tắt → trang cũ nguyên vẹn');
+  w.fetch = F0; App.savePhraseDialog = SP0; delete App.state.cards.mitigate; w.localStorage.setItem('lk.ux1', '1');
+}
+// ---------- Tiến độ & huy hiệu #/stats (Stitch v2.1 stats): khung mới giữ đủ ý 2 lớp trang cũ, dữ liệu thật ----------
+{
+  w.localStorage.setItem('lk.ux1', '1'); const st = App.state, g = st.game, D = 864e5, K = w.Core.todayKey, now = Date.now();
+  const tp = w.IELTS_DATA.TOPICS[1]; for (const x of tp.words.slice(0, 4)) await App.addWord(x, null, { silent: true });
+  const c0 = st.cards[tp.words[0].word.toLowerCase()]; c0.srs = Object.assign(c0.srs, { reps: 2, last: now - 3 * D, due: now - 3600e3, interval: 2 }); // 1 thẻ đang ở thời điểm vàng
+  g.days[K()] = Object.assign(g.days[K()] || {}, { xp: 40, reviews: 12, newWords: 3, quizzes: 1 }); g.frozen = Object.assign({}, g.frozen, { [K(new Date(now - 9 * D))]: 1 });
+  g.badges = Object.assign({}, g.badges, { first: now - D, streak3: now }); g.total = Object.assign(g.total, { reviews: 321, quizzes: 7, spoken: 11, readings: 2 });
+  await go('#/stats', '.v2-stats');
+  const R = $('.v2-stats'), L = w.Game.levelOf(g.xp), qs = w.Game.questsFor(K()), vis = el => !/display:\s*none/.test(el.getAttribute('style') || '');
+  ok(R && $('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page' && $('.v2-stats header button[data-href="#/me"]') && $('.v2-stats header [data-share]') && /Tiến độ & huy hiệu|Progress & badges/.test($('.v2-stats h1').textContent), 'stats (v2): khung Stitch, tab Tôi, quay lại #/me, tiêu đề, [data-share] Khoe thành tích');
+  const ti = $('.v2-stats [data-st-teacher] img');
+  ok(ti && /teach\/carlos\/still-encourage\.webp/.test(ti.getAttribute('src')) && /hành trình chinh phục IELTS|IELTS journey/i.test(R.textContent) && !/Teacher cheer zone|TOP 5%|Native cadence/.test(R.textContent), 'stats (v2): thầy Carlos encourage (Chars) ở chỗ giáo viên, lời = mô tả cũ, không chữ giả của mẫu');
+  const pb = $('.v2-stats [role="progressbar"][aria-valuemax="' + L.need + '"]');
+  ok(R.textContent.includes(L.title) && pb && pb.getAttribute('aria-valuenow') === String(L.into) && $('.v2-stats [data-streak-freeze]') && R.textContent.includes(String(App.streak())), 'stats (v2): cấp + danh hiệu, thanh XP into/need, chuỗi ngày + 🧊 [data-streak-freeze]');
+  ok($$('#quests [data-quest]').length === qs.length && qs.every(q => $(`#quests [data-quest="${q.id}"]`) && R.textContent.includes(q.text)), 'stats (v2): #quests đủ ' + qs.length + ' nhiệm vụ thật hôm nay');
+  ok($('#goldenCard').getAttribute('data-g') === 'now' && $('#goldenCard button[data-href="#/review"]') && vis($('#goldenCard button')), 'stats (v2): #goldenCard thời điểm vàng (thẻ đến hạn → Ôn ngay #/review)');
+  ok([1, 2, 3, 4, 5].every(n => $(`#stLevels a[href="#/practice/learn?src=level:${n}"]`)) && $('.v2-stats a[href="#/method"]'), 'stats (v2): 5 cấp độ nhớ → #/practice/learn?src=level:n, Vì sao? → #/method');
+  ok(vis($('#weekCard')) && $$('#weekCard [data-wk]').length === 4, 'stats (v2): #weekCard tuần này so với tuần trước (4 ô)');
+  ok(['321', '7', '11', '2'].every(n => $('#stTotals').textContent.includes(n)), 'stats (v2): 4 ô tổng Lượt ôn / Bài luyện tập / Từ phát âm đúng / Bài đọc = số thật');
+  const cells = $$('#stHeat [data-day]');
+  ok(cells.length >= 26 * 7 && cells.length <= 27 * 7 && $(`#stHeat [data-day="${K(new Date(now - 9 * D))}"][data-frozen]`) && cells[cells.length - 1].getAttribute('data-day') === K() && cells.every(c => c.getAttribute('aria-label')), 'stats (v2): lịch 26 tuần tới hôm nay, ngày đóng băng 🧊, mỗi ô có nhãn');
+  ok($$('#stPast [role="img"]').length === 14 && $$('#stFc [role="img"]').length === 14, 'stats (v2): lượt ôn 14 ngày qua + dự báo 14 ngày tới');
+  ok($('#stMastery').textContent.includes(String(Object.keys(st.cards).length)), 'stats (v2): mức ghi nhớ – tổng số từ');
+  const bs = $$('#stBadges [data-badge]'), BN = w.Game.BADGES.length;
+  ok(bs.length === BN && bs.filter(b => b.dataset.got === '1').length === Object.keys(g.badges).length && bs[0].dataset.got === '1' && bs.filter(vis).length === Math.min(9, BN), 'stats (v2): mọi huy hiệu Game.BADGES (đã mở trước, 9 đầu)');
+  $('#stBadgeMore').click(); await tick(30);
+  ok($$('#stBadges [data-badge]').filter(vis).length === BN && $('#stBadgeMore').getAttribute('aria-expanded') === 'true', 'stats (v2): Xem cả huy hiệu → hiện hết');
+  ok(Array.from(R.querySelectorAll('button')).every(b => b.getAttribute('aria-label') || b.textContent.trim()), 'stats (v2): mọi nút có nhãn');
+  await go('#/stats?s=quests', '.v2-stats'); ok($('#quests') && $('.v2-stats'), 'stats (v2): ?s=quests vẫn vào khung mới');
+  w.localStorage.setItem('lk.ux1', '0'); await go('#/stats?x=1', '.badge-grid');
+  ok($('.badge-grid') && $('#quests') && $('#goldenCard') && !$('.v2-stats'), 'stats: cờ tắt → trang cũ nguyên vẹn (huy hiệu, nhiệm vụ, thời điểm vàng)');
+  w.localStorage.setItem('lk.ux1', '1');
+}
 // ---------- Gọi giáo viên #/call (Stitch v2.1 teacher-call): khung mới giữ đủ ý trang Gọi cũ ----------
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document;

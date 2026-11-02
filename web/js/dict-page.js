@@ -10,6 +10,7 @@
 
   // ================= TỪ ĐIỂN =================
   const lookedUp = new Set();
+  App.dictSeen = lk => !lookedUp.has(lk) && !!lookedUp.add(lk); // màn Stitch v2 Từ điển: lời mời add-on + thưởng 1 lần/ngày/từ như trang cũ
   routes.dict = App.guard(async function (q) {
     const fastP = q ? Dict.quick(q) : null, vimgP = App.vimgReady(q ? [q] : null); // tra song song với đọc 'recent' (từ trong kho: vài ms) + chỉ mục ảnh (cờ bật)
     const w = App.W, recent = await w(Store.get('recent', []));
@@ -158,15 +159,20 @@
     }
   });
 
-  // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
+  // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học (phrasesOf/relatedOf dùng chung với màn Stitch v2 ux1-dictionary.js)
   function phraseLib(e, lx) {
     const re = UI.wordRegex(e.word), lx2 = (lx || []).filter(w => re.test(w.word));
     return [...lx2, ...Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word) && !lx2.some(l => l.word === w.word))].slice(0, 10);
   }
-  function drawPhrases(e, lx) {
-    const el = $('#phraseBox'); if (!el) return;
+  function phrasesOf(e, lx) {
     const re = UI.wordRegex(e.word), lib = phraseLib(e, lx);
     const mine = Object.values(state.cards).filter(c => /\s/.test(c.word) && re.test(c.word) && !lib.some(l => l.word === c.word)).slice(0, 10);
+    return { lib, mine };
+  }
+  App.dictPhrases = phrasesOf;
+  function drawPhrases(e, lx) {
+    const el = $('#phraseBox'); if (!el) return;
+    const { lib, mine } = phrasesOf(e, lx);
     const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent-text);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
       <div class="row" style="margin-top:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${own || inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã lưu')}</span>` : `<button class="btn sm ghost" data-add-seed="${esc(w.word)}">+ ${t('Lưu cụm')}</button>`}</div></div>`;
     el.innerHTML = `<div style="margin-top:1rem"><div class="row between"><h3 style="margin:0">🧩 ${t('Cụm từ & cấu trúc với “{w}”', { w: esc(e.word) })}</h3><button class="btn sm" id="addPhr">＋ ${t('Lưu cụm / cấu trúc của bạn')}</button></div>
@@ -176,7 +182,7 @@
   }
 
   // Từ liên quan (Datamuse): tính từ hay đi kèm, danh từ hay đi kèm, trái nghĩa, gần nghĩa
-  async function loadRelated(e) {
+  async function relatedOf(e) {
     const w = encodeURIComponent(e.word);
     const get = async u => { try { const r = await fetch(u).then(r => r.json()); return Array.isArray(r) ? r : []; } catch (x) { return []; } };
     // Danh từ → tính từ hay đi kèm; tính từ → danh từ hay đi sau (tránh cụm vô nghĩa)
@@ -189,16 +195,22 @@
       get(`https://api.datamuse.com/words?ml=${w}&max=16&md=f`),
     ]);
     const jjb = isAdj ? [] : jjb0.filter(x => !STOP.has(x.word) && x.score > 300).slice(0, 10);
+    const syn = new Set(e.syn);
+    const stemE = e.word.slice(0, Math.max(5, e.word.length - 4));
+    const mlf = ml.filter(x => !syn.has(x.word) && !/\s/.test(x.word) && !x.word.startsWith(stemE) && !e.word.startsWith(x.word.slice(0, 6)) && +(((x.tags || []).find(t => t.startsWith('f:')) || 'f:0').slice(2)) >= 1).slice(0, 8);
+    return { jjb, jja, ant, mlf };
+  }
+  App.dictRelated = relatedOf;
+  async function loadRelated(e) {
+    const { jjb, jja, ant, mlf } = await relatedOf(e);
     const el = $('#related'); if (!el || parseHash().arg !== e.word && parseHash().arg.toLowerCase() !== e.word) return;
     const chips = (arr, fmt) => arr.map(x => `<a class="chip" href="#/dict/${encodeURIComponent(x.word)}">${esc(fmt(x.word))}</a>`).join(' ');
     let html = '';
     if (jjb.length) html += `<div style="margin-top:.6rem"><b>🧩 ${t('Tính từ hay đi với “{w}”:', { w: esc(e.word) })}</b> ${chips(jjb, x => `${x} ${e.word}`)}</div>`;
     if (jja.length) html += `<div style="margin-top:.6rem"><b>🧩 ${t('Danh từ hay đi sau:')}</b> ${chips(jja, x => `${e.word} ${x}`)}</div>`;
     if (ant.length) html += `<div style="margin-top:.6rem"><b>↔ ${t('Trái nghĩa:')}</b> ${chips(ant, x => x)}</div>`;
-    const syn = new Set(e.syn);
-    const stemE = e.word.slice(0, Math.max(5, e.word.length - 4));
-    const mlf = ml.filter(x => !syn.has(x.word) && !/\s/.test(x.word) && !x.word.startsWith(stemE) && !e.word.startsWith(x.word.slice(0, 6)) && +(((x.tags || []).find(t => t.startsWith('f:')) || 'f:0').slice(2)) >= 1).slice(0, 8);
     if (mlf.length) html += `<div style="margin-top:.6rem"><b>🔀 ${t('Từ gần nghĩa:')}</b> ${chips(mlf, x => x)}</div>`;
     el.innerHTML = html;
   }
+  if (window.__ux1Dict) window.__ux1Dict(); // màn Stitch v2 Từ điển (ux1-dictionary.js) bao routes.dict vừa dựng
 })();

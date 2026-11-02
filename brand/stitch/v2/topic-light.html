@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite v2.1 Light — Topic Detail</title>
+  <!-- Plus Jakarta Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Outlined & Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+              dark: '#0F3D3E',
+              muted: '#4E6668',
+              teal: '#0D6964',
+              tealLight: '#E8F5F4',
+              tealBorder: '#2BA39A',
+              tealLedge: '#12514D',
+              coral: '#F2553B',
+              coralLedge: '#B53A22',
+              amber: '#FFB054',
+              gold: '#FFC94A',
+              green: '#2FBF71',
+              greenLedge: '#218850',
+              greenLight: '#EAF8F1',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-btn': '0 5px 0 #B53A22',
+            'tactile-card': '0 4px 0 #D8CFBC',
+            'tactile-card-hover': '0 2px 0 #D8CFBC',
+            'tactile-pill': '0 3px 0 #D8CFBC',
+            'tactile-teal': '0 4px 0 #12514D',
+            'tactile-green': '0 3px 0 #218850',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Physical tactile push physics */
+    .tactile-press {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-press:active {
+      transform: translateY(3px);
+    }
+    .btn-coral-press:active {
+      box-shadow: 0 2px 0 #B53A22 !important;
+    }
+    .card-press:active {
+      box-shadow: 0 1px 0 #D8CFBC !important;
+    }
+    .pill-press:active {
+      box-shadow: 0 1px 0 #D8CFBC !important;
+    }
+    .green-press:active {
+      box-shadow: 0 1px 0 #218850 !important;
+    }
+    .teal-press:active {
+      box-shadow: 0 1px 0 #12514D !important;
+    }
+    /* Hide scrollbars but keep scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-[#0F3D3E] font-sans antialiased min-h-screen flex justify-center selection:bg-[#0D6964] selection:text-white">
+
+  <!-- Mobile Simulator Container (390px default mobile screen) -->
+  <div class="w-full max-w-[420px] min-h-screen bg-[#FFF7EA] flex flex-col relative pb-28">
+
+    <!-- Top Fixed App Bar / Header -->
+    <header class="sticky top-0 z-30 bg-[#FFF7EA]/90 backdrop-blur-md px-4 pt-3 pb-2 flex items-center justify-between border-b border-[#EADEC8]/70">
+      <a href="#" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white border border-[#EADEC8] shadow-[0_2px_0_#D8CFBC] active:translate-y-[2px] active:shadow-none transition-all group">
+        <span class="material-symbols-rounded text-base text-[#0D6964] transition-transform group-hover:-translate-x-0.5">arrow_back</span>
+        <span class="text-xs font-bold text-[#0D6964] tracking-tight">IELTS topics</span>
+      </a>
+
+      <!-- Header Streak & XP Badges -->
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-[#EADEC8] shadow-[0_2px_0_#D8CFBC]">
+          <span class="material-symbols-rounded text-sm text-[#F2553B]">local_fire_department</span>
+          <span class="text-xs font-extrabold text-[#0F3D3E]">14</span>
+        </div>
+        <div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-[#EADEC8] shadow-[0_2px_0_#D8CFBC]">
+          <span class="material-symbols-rounded text-sm text-[#FFB054]">bolt</span>
+          <span class="text-xs font-extrabold text-[#0F3D3E]">820</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="px-4 pt-3 flex flex-col gap-4">
+
+      <!-- TOPIC HERO CARD: "Opening one shiny box of words" -->
+      <div class="bg-white rounded-3xl p-5 border-2 border-[#EADEC8] shadow-[0_5px_0_#D8CFBC] relative overflow-hidden">
+        <!-- Subtle warm ambient top corner shine -->
+        <div class="absolute -right-8 -top-8 w-32 h-32 bg-[#FFFAF0] rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="flex items-start gap-4 mb-4 relative z-10">
+          <!-- Big Glossy Topic Tile / Sticker -->
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-b from-[#FFF2DC] to-[#FFE2BA] border-2 border-[#F6C98D] shadow-[0_4px_0_#E0A860] flex items-center justify-center text-3xl shrink-0 select-none">
+            🎓
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[10px] font-extrabold tracking-wider uppercase px-2 py-0.5 rounded-full bg-[#E8F5F4] text-[#0D6964] border border-[#2BA39A]/40">
+                IELTS BAND 7.0–8.5
+              </span>
+            </div>
+            <h1 class="text-2xl font-extrabold text-[#0F3D3E] tracking-tight leading-tight">
+              Education
+            </h1>
+            <p class="text-xs font-medium text-[#4E6668] mt-0.5 leading-snug">
+              Pedagogy, university reform, curriculum & academic metrics
+            </p>
+          </div>
+        </div>
+
+        <!-- Progress Metrics & Chips -->
+        <div class="flex items-center justify-between pt-1 pb-3 mb-3 border-t border-[#F2E8D8]">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#F5F2EA] text-[#0F3D3E] text-xs font-bold border border-[#EADEC8]">
+              <span class="material-symbols-rounded text-sm text-[#0D6964]">inventory_2</span>
+              40 words
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#EAF8F1] text-[#2FBF71] text-xs font-extrabold border border-[#2FBF71]/30">
+              <span class="material-symbols-rounded text-sm">check_circle</span>
+              12 added
+            </span>
+          </div>
+
+          <!-- Mini Topic Completion Ring -->
+          <div class="flex items-center gap-1.5 text-xs font-bold text-[#4E6668]">
+            <div class="w-6 h-6 rounded-full border-2 border-[#EADEC8] flex items-center justify-center relative">
+              <svg class="w-6 h-6 -rotate-90" viewBox="0 0 36 36">
+                <path class="text-[#EADEC8]" stroke-width="4" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="text-[#0D6964]" stroke-dasharray="30, 100" stroke-width="4" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+            </div>
+            <span class="text-[11px] font-extrabold text-[#0D6964]">30%</span>
+          </div>
+        </div>
+
+        <!-- Big Chunky Primary CTA -->
+        <button class="tactile-press btn-coral-press w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FF8042] text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 border border-[#E0442B] shadow-tactile-btn hover:brightness-105">
+          <span class="material-symbols-rounded text-xl leading-none">bookmark_add</span>
+          <span>+ Add 28 words to flashcards</span>
+        </button>
+      </div>
+
+      <!-- 2x2 ACTION TILES GRID + ANKI EXPORT -->
+      <section>
+        <div class="flex items-center justify-between mb-2.5 px-1">
+          <h2 class="text-xs font-extrabold tracking-wider uppercase text-[#4E6668]">Practice modes</h2>
+          <a href="#" class="inline-flex items-center gap-1 text-xs font-bold text-[#0D6964] hover:underline">
+            <span class="material-symbols-rounded text-sm">download</span>
+            <span>Anki export (.apkg)</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <!-- Action 1: Learn -->
+          <div class="tactile-press card-press bg-white rounded-2xl p-3 border-2 border-[#EADEC8] shadow-tactile-card flex items-center gap-3 cursor-pointer">
+            <div class="w-10 h-10 rounded-xl bg-[#E8F5F4] border border-[#2BA39A]/40 flex items-center justify-center text-[#0D6964] shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)]">
+              <span class="material-symbols-rounded text-xl">school</span>
+            </div>
+            <div class="min-w-0">
+              <h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight">Learn</h3>
+              <p class="text-[10px] font-semibold text-[#4E6668]">Spaced drill</p>
+            </div>
+          </div>
+
+          <!-- Action 2: Match cards -->
+          <div class="tactile-press card-press bg-white rounded-2xl p-3 border-2 border-[#EADEC8] shadow-tactile-card flex items-center gap-3 cursor-pointer">
+            <div class="w-10 h-10 rounded-xl bg-[#FFF2DC] border border-[#F6C98D] flex items-center justify-center text-[#E08A24] shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)]">
+              <span class="material-symbols-rounded text-xl">style</span>
+            </div>
+            <div class="min-w-0">
+              <h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight">Match cards</h3>
+              <p class="text-[10px] font-semibold text-[#4E6668]">Fast 60s pair</p>
+            </div>
+          </div>
+
+          <!-- Action 3: Test -->
+          <div class="tactile-press card-press bg-white rounded-2xl p-3 border-2 border-[#EADEC8] shadow-tactile-card flex items-center gap-3 cursor-pointer">
+            <div class="w-10 h-10 rounded-xl bg-[#FEEBE8] border border-[#F6AEA2] flex items-center justify-center text-[#F2553B] shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)]">
+              <span class="material-symbols-rounded text-xl">quiz</span>
+            </div>
+            <div class="min-w-0">
+              <h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight">Test</h3>
+              <p class="text-[10px] font-semibold text-[#4E6668]">Band scoring</p>
+            </div>
+          </div>
+
+          <!-- Action 4: Hands-free listening -->
+          <div class="tactile-press card-press bg-white rounded-2xl p-3 border-2 border-[#EADEC8] shadow-tactile-card flex items-center gap-3 cursor-pointer">
+            <div class="w-10 h-10 rounded-xl bg-[#EFEAF8] border border-[#D1C3EB] flex items-center justify-center text-[#7C55C7] shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)]">
+              <span class="material-symbols-rounded text-xl">headphones</span>
+            </div>
+            <div class="min-w-0">
+              <h3 class="text-xs font-extrabold text-[#0F3D3E] leading-tight">Hands-free</h3>
+              <p class="text-[10px] font-semibold text-[#4E6668]">Audio loop</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CEFR LEVEL SELECTOR TABS -->
+      <section class="mt-1">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <h2 class="text-xs font-extrabold tracking-wider uppercase text-[#4E6668]">Word deck breakdown</h2>
+          <span class="text-[11px] font-bold text-[#4E6668]">Sort: Frequency</span>
+        </div>
+
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+          <!-- CEFR: All -->
+          <button class="tactile-press teal-press px-3.5 py-1.5 rounded-full bg-[#0D6964] text-white text-xs font-extrabold border border-[#0D6964] shadow-tactile-teal shrink-0">
+            All <span class="ml-1 opacity-90 font-medium">40</span>
+          </button>
+
+          <!-- CEFR: B1 -->
+          <button class="tactile-press pill-press px-3.5 py-1.5 rounded-full bg-white text-[#0F3D3E] text-xs font-extrabold border border-[#EADEC8] shadow-tactile-pill shrink-0 hover:bg-[#FDFBF7]">
+            B1 <span class="ml-1 text-[#4E6668] font-semibold">14</span>
+          </button>
+
+          <!-- CEFR: B2 -->
+          <button class="tactile-press pill-press px-3.5 py-1.5 rounded-full bg-white text-[#0F3D3E] text-xs font-extrabold border border-[#EADEC8] shadow-tactile-pill shrink-0 hover:bg-[#FDFBF7]">
+            B2 <span class="ml-1 text-[#4E6668] font-semibold">18</span>
+          </button>
+
+          <!-- CEFR: C1 -->
+          <button class="tactile-press pill-press px-3.5 py-1.5 rounded-full bg-white text-[#0F3D3E] text-xs font-extrabold border border-[#EADEC8] shadow-tactile-pill shrink-0 hover:bg-[#FDFBF7]">
+            C1 <span class="ml-1 text-[#4E6668] font-semibold">8</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- TACTILE WORD CARDS LIST (5 Collective Card Rows) -->
+      <section class="flex flex-col gap-3 mt-1">
+
+        <!-- WORD 1: pedagogy (Added) -->
+        <article class="bg-white rounded-2xl p-4 border-2 border-[#EADEC8] shadow-tactile-card hover:border-[#2BA39A]/60 transition-colors">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <span class="text-2xl select-none">📖</span>
+              <div>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <h3 class="text-base font-extrabold text-[#0F3D3E] tracking-tight">pedagogy</h3>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#F2F4F3] text-[#4E6668]">NOUN</span>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#FFF2DC] text-[#9A6417] border border-[#F6C98D]">C1</span>
+                </div>
+                <div class="flex items-center gap-2 mt-0.5">
+                  <span class="text-xs font-semibold text-[#4E6668]">/ˈped.ə.ɡɒdʒ.i/</span>
+                  <button aria-label="Listen pronunciation" class="w-5 h-5 rounded-full bg-[#E8F5F4] text-[#0D6964] flex items-center justify-center hover:bg-[#0D6964] hover:text-white transition-colors">
+                    <span class="material-symbols-rounded text-xs">volume_up</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Added State Pill Button -->
+            <button class="tactile-press green-press inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#EAF8F1] text-[#2FBF71] border border-[#2FBF71]/40 text-xs font-extrabold shadow-tactile-green shrink-0">
+              <span class="material-symbols-rounded text-sm">check</span>
+              <span>Added</span>
+            </button>
+          </div>
+
+          <!-- Meaning & Definition -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2EFE8]">
+            <p class="text-xs font-bold text-[#0D6964]">
+              phương pháp giảng dạy, sư phạm học
+            </p>
+            <p class="text-xs text-[#4E6668] mt-0.5 leading-relaxed">
+              The method and practice of teaching, especially as an academic subject.
+            </p>
+          </div>
+
+          <!-- Example sentence -->
+          <div class="mt-2 p-2 rounded-xl bg-[#FFF7EA] border border-[#EADEC8]/70 text-xs text-[#0F3D3E] leading-relaxed">
+            <span class="font-bold text-[#0D6964]">“</span>The school adopted an interactive <span class="font-extrabold text-[#0D6964] underline decoration-[#0D6964]/40 decoration-2">pedagogy</span> to foster student debate.<span class="font-bold text-[#0D6964]">”</span>
+          </div>
+
+          <!-- Collocations Footnote -->
+          <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-[#4E6668]">
+            <span class="material-symbols-rounded text-xs text-[#0D6964]">link</span>
+            <span>Collocations:</span>
+            <span class="text-[#0D6964] font-bold">progressive pedagogy</span>
+            <span class="text-[#D8CFBC]">•</span>
+            <span class="text-[#0D6964] font-bold">critical pedagogy</span>
+          </div>
+        </article>
+
+        <!-- WORD 2: curriculum (Not added) -->
+        <article class="bg-white rounded-2xl p-4 border-2 border-[#EADEC8] shadow-tactile-card hover:border-[#2BA39A]/60 transition-colors">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <span class="text-2xl select-none">📚</span>
+              <div>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <h3 class="text-base font-extrabold text-[#0F3D3E] tracking-tight">curriculum</h3>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#F2F4F3] text-[#4E6668]">NOUN</span>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#E8F5F4] text-[#0D6964] border border-[#2BA39A]/40">B2</span>
+                </div>
+                <div class="flex items-center gap-2 mt-0.5">
+                  <span class="text-xs font-semibold text-[#4E6668]">/kəˈrɪk.jə.ləm/</span>
+                  <button aria-label="Listen pronunciation" class="w-5 h-5 rounded-full bg-[#E8F5F4] text-[#0D6964] flex items-center justify-center hover:bg-[#0D6964] hover:text-white transition-colors">
+                    <span class="material-symbols-rounded text-xs">volume_up</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- + Add Button Pill -->
+            <button class="tactile-press pill-press inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-[#0D6964] border-2 border-[#0D6964] text-xs font-extrabold shadow-[0_3px_0_#12514D] hover:bg-[#E8F5F4] shrink-0">
+              <span class="material-symbols-rounded text-sm">add</span>
+              <span>Add</span>
+            </button>
+          </div>
+
+          <!-- Meaning & Definition -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2EFE8]">
+            <p class="text-xs font-bold text-[#0D6964]">
+              chương trình giảng dạy
+            </p>
+            <p class="text-xs text-[#4E6668] mt-0.5 leading-relaxed">
+              The subjects comprising a course of study in a school or college.
+            </p>
+          </div>
+
+          <!-- Example sentence -->
+          <div class="mt-2 p-2 rounded-xl bg-[#FFF7EA] border border-[#EADEC8]/70 text-xs text-[#0F3D3E] leading-relaxed">
+            <span class="font-bold text-[#0D6964]">“</span>Modern AI literacy must be woven directly into the core <span class="font-extrabold text-[#0D6964] underline decoration-[#0D6964]/40 decoration-2">curriculum</span>.<span class="font-bold text-[#0D6964]">”</span>
+          </div>
+
+          <!-- Collocations Footnote -->
+          <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-[#4E6668]">
+            <span class="material-symbols-rounded text-xs text-[#0D6964]">link</span>
+            <span>Collocations:</span>
+            <span class="text-[#0D6964] font-bold">national curriculum</span>
+            <span class="text-[#D8CFBC]">•</span>
+            <span class="text-[#0D6964] font-bold">revise the curriculum</span>
+          </div>
+        </article>
+
+        <!-- WORD 3: holistic (Added) -->
+        <article class="bg-white rounded-2xl p-4 border-2 border-[#EADEC8] shadow-tactile-card hover:border-[#2BA39A]/60 transition-colors">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <span class="text-2xl select-none">🌐</span>
+              <div>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <h3 class="text-base font-extrabold text-[#0F3D3E] tracking-tight">holistic</h3>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#F2F4F3] text-[#4E6668]">ADJ</span>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#FFF2DC] text-[#9A6417] border border-[#F6C98D]">C1</span>
+                </div>
+                <div class="flex items-center gap-2 mt-0.5">
+                  <span class="text-xs font-semibold text-[#4E6668]">/həʊˈlɪs.tɪk/</span>
+                  <button aria-label="Listen pronunciation" class="w-5 h-5 rounded-full bg-[#E8F5F4] text-[#0D6964] flex items-center justify-center hover:bg-[#0D6964] hover:text-white transition-colors">
+                    <span class="material-symbols-rounded text-xs">volume_up</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Added State Pill Button -->
+            <button class="tactile-press green-press inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#EAF8F1] text-[#2FBF71] border border-[#2FBF71]/40 text-xs font-extrabold shadow-tactile-green shrink-0">
+              <span class="material-symbols-rounded text-sm">check</span>
+              <span>Added</span>
+            </button>
+          </div>
+
+          <!-- Meaning & Definition -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2EFE8]">
+            <p class="text-xs font-bold text-[#0D6964]">
+              toàn diện, mang tính tổng thể
+            </p>
+            <p class="text-xs text-[#4E6668] mt-0.5 leading-relaxed">
+              Characterized by the treatment of the whole person rather than just single symptoms.
+            </p>
+          </div>
+
+          <!-- Example sentence -->
+          <div class="mt-2 p-2 rounded-xl bg-[#FFF7EA] border border-[#EADEC8]/70 text-xs text-[#0F3D3E] leading-relaxed">
+            <span class="font-bold text-[#0D6964]">“</span>Top universities prioritize a <span class="font-extrabold text-[#0D6964] underline decoration-[#0D6964]/40 decoration-2">holistic</span> evaluation of student leadership skills.<span class="font-bold text-[#0D6964]">”</span>
+          </div>
+
+          <!-- Collocations Footnote -->
+          <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-[#4E6668]">
+            <span class="material-symbols-rounded text-xs text-[#0D6964]">link</span>
+            <span>Collocations:</span>
+            <span class="text-[#0D6964] font-bold">holistic approach</span>
+            <span class="text-[#D8CFBC]">•</span>
+            <span class="text-[#0D6964] font-bold">holistic assessment</span>
+          </div>
+        </article>
+
+        <!-- WORD 4: compulsory (Not added) -->
+        <article class="bg-white rounded-2xl p-4 border-2 border-[#EADEC8] shadow-tactile-card hover:border-[#2BA39A]/60 transition-colors">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <span class="text-2xl select-none">📌</span>
+              <div>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <h3 class="text-base font-extrabold text-[#0F3D3E] tracking-tight">compulsory</h3>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#F2F4F3] text-[#4E6668]">ADJ</span>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#E8F5F4] text-[#0D6964] border border-[#2BA39A]/40">B1</span>
+                </div>
+                <div class="flex items-center gap-2 mt-0.5">
+                  <span class="text-xs font-semibold text-[#4E6668]">/kəmˈpʌl.sər.i/</span>
+                  <button aria-label="Listen pronunciation" class="w-5 h-5 rounded-full bg-[#E8F5F4] text-[#0D6964] flex items-center justify-center hover:bg-[#0D6964] hover:text-white transition-colors">
+                    <span class="material-symbols-rounded text-xs">volume_up</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- + Add Button Pill -->
+            <button class="tactile-press pill-press inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-[#0D6964] border-2 border-[#0D6964] text-xs font-extrabold shadow-[0_3px_0_#12514D] hover:bg-[#E8F5F4] shrink-0">
+              <span class="material-symbols-rounded text-sm">add</span>
+              <span>Add</span>
+            </button>
+          </div>
+
+          <!-- Meaning & Definition -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2EFE8]">
+            <p class="text-xs font-bold text-[#0D6964]">
+              bắt buộc (theo luật hoặc quy định)
+            </p>
+            <p class="text-xs text-[#4E6668] mt-0.5 leading-relaxed">
+              Required by law or a rule; obligatory rather than elective.
+            </p>
+          </div>
+
+          <!-- Example sentence -->
+          <div class="mt-2 p-2 rounded-xl bg-[#FFF7EA] border border-[#EADEC8]/70 text-xs text-[#0F3D3E] leading-relaxed">
+            <span class="font-bold text-[#0D6964]">“</span>Secondary schooling remains strictly <span class="font-extrabold text-[#0D6964] underline decoration-[#0D6964]/40 decoration-2">compulsory</span> until age eighteen.<span class="font-bold text-[#0D6964]">”</span>
+          </div>
+
+          <!-- Collocations Footnote -->
+          <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-[#4E6668]">
+            <span class="material-symbols-rounded text-xs text-[#0D6964]">link</span>
+            <span>Collocations:</span>
+            <span class="text-[#0D6964] font-bold">compulsory attendance</span>
+            <span class="text-[#D8CFBC]">•</span>
+            <span class="text-[#0D6964] font-bold">compulsory subject</span>
+          </div>
+        </article>
+
+        <!-- WORD 5: tenure (Not added) -->
+        <article class="bg-white rounded-2xl p-4 border-2 border-[#EADEC8] shadow-tactile-card hover:border-[#2BA39A]/60 transition-colors">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <span class="text-2xl select-none">🏛️</span>
+              <div>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <h3 class="text-base font-extrabold text-[#0F3D3E] tracking-tight">tenure</h3>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#F2F4F3] text-[#4E6668]">NOUN</span>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#FFF2DC] text-[#9A6417] border border-[#F6C98D]">C1</span>
+                </div>
+                <div class="flex items-center gap-2 mt-0.5">
+                  <span class="text-xs font-semibold text-[#4E6668]">/ˈten.jər/</span>
+                  <button aria-label="Listen pronunciation" class="w-5 h-5 rounded-full bg-[#E8F5F4] text-[#0D6964] flex items-center justify-center hover:bg-[#0D6964] hover:text-white transition-colors">
+                    <span class="material-symbols-rounded text-xs">volume_up</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- + Add Button Pill -->
+            <button class="tactile-press pill-press inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-[#0D6964] border-2 border-[#0D6964] text-xs font-extrabold shadow-[0_3px_0_#12514D] hover:bg-[#E8F5F4] shrink-0">
+              <span class="material-symbols-rounded text-sm">add</span>
+              <span>Add</span>
+            </button>
+          </div>
+
+          <!-- Meaning & Definition -->
+          <div class="mt-2.5 pt-2 border-t border-[#F2EFE8]">
+            <p class="text-xs font-bold text-[#0D6964]">
+              biên chế vĩnh viễn (giảng viên), nhiệm kỳ
+            </p>
+            <p class="text-xs text-[#4E6668] mt-0.5 leading-relaxed">
+              Guaranteed permanent employment, especially as a university professor or researcher.
+            </p>
+          </div>
+
+          <!-- Example sentence -->
+          <div class="mt-2 p-2 rounded-xl bg-[#FFF7EA] border border-[#EADEC8]/70 text-xs text-[#0F3D3E] leading-relaxed">
+            <span class="font-bold text-[#0D6964]">“</span>Achieving academic <span class="font-extrabold text-[#0D6964] underline decoration-[#0D6964]/40 decoration-2">tenure</span> requires peer-reviewed journal citations.<span class="font-bold text-[#0D6964]">”</span>
+          </div>
+
+          <!-- Collocations Footnote -->
+          <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-[#4E6668]">
+            <span class="material-symbols-rounded text-xs text-[#0D6964]">link</span>
+            <span>Collocations:</span>
+            <span class="text-[#0D6964] font-bold">tenure-track position</span>
+            <span class="text-[#D8CFBC]">•</span>
+            <span class="text-[#0D6964] font-bold">grant tenure</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Bottom Load More / View All CTA -->
+      <div class="pt-2 text-center">
+        <button class="tactile-press card-press inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#EADEC8] text-xs font-extrabold text-[#0D6964] shadow-tactile-pill">
+          <span>View all 40 words</span>
+          <span class="material-symbols-rounded text-sm">expand_more</span>
+        </button>
+      </div>
+
+    </main>
+
+    <!-- FIXED 5-TAB BOTTOM NAVIGATION BAR (Train tab active) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t-2 border-[#EADEC8] shadow-[0_-4px_12px_rgba(0,0,0,0.03)] py-2">
+      <div class="max-w-[420px] mx-auto px-4 flex items-center justify-between">
+        
+        <!-- Tab 1: Learn -->
+        <a href="#" class="flex flex-col items-center gap-0.5 text-[#4E6668] hover:text-[#0D6964] px-2 py-1 transition-colors">
+          <span class="material-symbols-rounded text-2xl">route</span>
+          <span class="text-[10px] font-extrabold tracking-tight">Learn</span>
+        </a>
+
+        <!-- Tab 2: Review -->
+        <a href="#" class="flex flex-col items-center gap-0.5 text-[#4E6668] hover:text-[#0D6964] px-2 py-1 transition-colors relative">
+          <span class="material-symbols-rounded text-2xl">style</span>
+          <!-- Notification dot badge -->
+          <span class="absolute top-1 right-2 w-2 h-2 rounded-full bg-[#F2553B] border border-white"></span>
+          <span class="text-[10px] font-extrabold tracking-tight">Review</span>
+        </a>
+
+        <!-- Tab 3: Train (ACTIVE TAB with signature tactile 2px teal frame) -->
+        <a href="#" class="flex flex-col items-center gap-0.5 text-[#0D6964] px-3 py-1 rounded-xl bg-[#E8F5F4] border-2 border-[#0D6964] shadow-[0_2px_0_#12514D]">
+          <span class="material-symbols-rounded text-2xl font-bold">fitness_center</span>
+          <span class="text-[10px] font-extrabold tracking-tight">Train</span>
+        </a>
+
+        <!-- Tab 4: Leagues -->
+        <a href="#" class="flex flex-col items-center gap-0.5 text-[#4E6668] hover:text-[#0D6964] px-2 py-1 transition-colors">
+          <span class="material-symbols-rounded text-2xl">trophy</span>
+          <span class="text-[10px] font-extrabold tracking-tight">Leagues</span>
+        </a>
+
+        <!-- Tab 5: Me -->
+        <a href="#" class="flex flex-col items-center gap-0.5 text-[#4E6668] hover:text-[#0D6964] px-2 py-1 transition-colors">
+          <span class="material-symbols-rounded text-2xl">person</span>
+          <span class="text-[10px] font-extrabold tracking-tight">Me</span>
+        </a>
+
+      </div>
+    </nav>
+
+  </div>
+
+</body>
+</html>
+
