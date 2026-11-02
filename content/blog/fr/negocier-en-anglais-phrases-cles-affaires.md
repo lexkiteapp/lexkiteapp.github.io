@@ -38,38 +38,38 @@ Découvrez les expressions professionnelles indispensables pour guider chaque é
 ### 1. Ouverture de la séance et cadrage des ambitions
 Instaurez un climat d'écoute mutuelle tout en orientant la réunion vers la création de valeur commune :
 
-- *"Thank you for meeting with us today. We are genuinely excited about exploring this commercial partnership."* (Merci de nous recevoir aujourd'hui. Nous sommes ravis d'explorer cette opportunité de partenariat commercial.)
-- *"Our primary objective today is to reach a mutually beneficial agreement regarding the annual enterprise licensing tier."* (Notre objectif prioritaire aujourd'hui est d'aboutir à un accord mutuellement avantageux sur les conditions de licence annuelle.)
-- *"Before we dive into the specific pricing tiers, could we briefly align on the project delivery milestones?"* (Avant d'aborder la grille tarifaire détaillée, pourrions-nous nous accorder brièvement sur les jalons de livraison du projet ?)
-- *"We welcome your insights on these operational requirements so we can structure a proposal that supports both organizations."* (Nous apprécions vos retours sur ces exigences opérationnelles afin de concevoir une proposition profitable à nos deux entités.)
+- *"We deeply appreciate the opportunity to sit down with your committee today to define the scope of our collaboration."* (Nous apprécions grandement l'opportunité d'échanger avec votre comité aujourd'hui pour définir le périmètre de notre collaboration.)
+- *"Prior to examining individual line items, we suggest reviewing the implementation architecture to ensure full synchronization."* (Avant d'examiner chaque poste de coût, nous suggérons d'examiner l'architecture de déploiement pour garantir une parfaite synchronisation.)
+- *"Could your operational directors clarify the principal metrics that will define success for this enterprise integration?"* (Vos directeurs des opérations pourraient-ils préciser les principaux indicateurs qui mesureront le succès de cette intégration d'entreprise ?)
+- *"From our company's perspective, maintaining rigorous data privacy and governance constitutes our non-negotiable benchmark."* (Du point de vue de notre société, le respect rigoureux de la gouvernance et de la confidentialité des données constitue notre exigence absolue.)
 
 ### 2. Formuler des contre-propositions et des concessions conditionnelles
 En négociation professionnelle, une concession ne doit jamais être accordée sans contrepartie :
 
-- *"If your organization can commit to a two-year service agreement, we would certainly consider offering an eight percent volume discount."* (Si votre entreprise peut s'engager sur un contrat de deux ans, nous envisagerions volontiers une remise sur volume de huit pour cent.)
-- *"We could potentially shorten the delivery lead time to three weeks, provided that the initial deposit is finalized by Friday."* (Nous pourrions réduire le délai de livraison à trois semaines, à condition que le premier versement soit validé d'ici vendredi.)
-- *"From our standpoint, accommodating your requested payment terms is feasible, assuming your technical team handles first-line support."* (De notre point de vue, vos conditions de paiement sont acceptables, sous réserve que votre équipe technique prenne en charge le support de premier niveau.)
-- *"Would you be open to adjusting the warranty coverage window in exchange for dedicated quarterly account reviews?"* (Seriez-vous disposés à adapter la période de garantie en échange de revues trimestrielles personnalisées ?)
+- *"Should your procurement board greenlight a multi-year commitment, our management could authorize tiered volume concessions."* (Si votre comité d'achat valide un engagement pluriannuel, notre direction pourrait autoriser des remises sur volume échelonnées.)
+- *"We are positioned to advance the scheduled milestone handover by two weeks, assuming the initial deposit clears by Friday."* (Nous sommes en mesure d'avancer la livraison des jalons de deux semaines, sous réserve que l'acompte initial soit crédité d'ici vendredi.)
+- *"In the event that your technical personnel undertake direct user onboarding, we can certainly waive the deployment setup charges."* (Dans l'éventualité où vos techniciens prennent en charge la formation directe des utilisateurs, nous annulerons volontiers les frais d'installation.)
+- *"As long as your quarterly order volume remains above our agreed threshold, we will gladly absorb the international freight surcharges."* (Tant que votre volume de commandes trimestriel reste au-dessus du seuil convenu, nous prendrons en charge avec plaisir les suppléments de transport maritime.)
 
 ![Module de prononciation de Lexkite montrant l'expression cut down on avec un bouton microphone](media:practice-speak "Entraînez-vous à prononcer vos propositions commerciales à voix haute avec le microphone de Lexkite sur l'expression cut down on")
 
 ### 3. Refuser avec tact et débloquer les impasses
 Face à une exigence excessive susceptible de dégrader vos marges, opposez un refus courtois mais inébranlable :
 
-- *"I am afraid that an across-the-board fifteen percent rebate exceeds our current margin limits. However, we could bundle complimentary onboarding workshops instead."* (Je crains qu'une remise générale de quinze pour cent n'excède nos marges actuelles. En revanche, nous pourrions inclure des ateliers de formation sans frais supplémentaires.)
-- *"We completely understand your cash flow optimization priorities; nevertheless, a sixty-day payment term presents significant financial exposure for us."* (Nous comprenons parfaitement vos impératifs de trésorerie ; néanmoins, un délai de paiement à soixante jours représente une exposition financière trop lourde pour nous.)
-- *"It seems we have reached a slight impasse regarding unit pricing. Why don't we set this parameter aside for a moment and evaluate the maintenance provisions?"* (Il semble que nous soyons dans une petite impasse sur le tarif unitaire. Pourquoi ne pas mettre ce point en attente un instant pour aborder les clauses de maintenance ?)
-- *"Let us take a step back and examine the root operational bottleneck that this clause is meant to resolve."* (Prenons un peu de recul pour analyser le problème de fond que cette clause a vocation à résoudre.)
+- *"While we acknowledge your financial targets, that rebate level creates serious operational challenges for our delivery teams."* (Bien que nous comprenions vos objectifs financiers, ce niveau de remise pose d'importants défis opérationnels à nos équipes de livraison.)
+- *"Accepting that price point would necessitate trimming key service deliverables, which we strongly advise against."* (Accepter ce niveau de prix imposerait de réduire des livrables de service clés, ce que nous déconseillons vivement.)
+- *"We seem to have hit a stumbling block concerning hardware pricing; perhaps we could examine tailoring the warranty scope instead?"* (Nous semblons buter sur la tarification du matériel ; pourrions-nous plutôt étudier un ajustement sur mesure de la garantie ?)
+- *"Could we explore an alternative structure where milestone payments reflect completed deployment phases?"* (Pourrions-nous explorer un schéma alternatif où les échéances de paiement reflètent l'achèvement effectif des étapes de déploiement ?)
 
 ![Bibliothèque de vocabulaire de Lexkite regroupant plus de 6 800 mots organisés de A1 à C1](media:library "Enrichissez votre lexique des affaires et des contrats grâce aux plus de 6 800 termes de la bibliothèque de Lexkite de A1 à C1")
 
 ### 4. Conclure l'accord et formaliser les engagements
 Verrouillez chaque modalité avant le passage à la signature juridique :
 
-- *"To recap the terms we have agreed upon today: we will provide enterprise cloud hosting at ninety thousand dollars annually, with dedicated technical support."* (Pour récapituler les termes convenus aujourd'hui : nous fournirons l'hébergement cloud d'entreprise à quatre-vingt-dix mille dollars par an, avec support dédié.)
-- *"I believe we have addressed all principal concerns satisfactorily. Does this framework accurately reflect our consensus?"* (Je pense que nous avons répondu à l'ensemble des questions majeures. Ce cadre reflète-t-il fidèlement notre consensus ?)
-- *"We are very pleased with this productive outcome. Our legal counsel will prepare the master services agreement incorporating these stipulations by Thursday."* (Nous sommes très heureux de cet aboutissement constructif. Notre service juridique rédigera l'accord-cadre intégrant ces dispositions d'ici jeudi.)
-- *"Let us schedule a brief follow-up call on Friday to review the final draft and authorize the pilot rollout."* (Planifions un court point de suivi vendredi pour relire la version finale et autoriser le lancement de la phase pilote.)
+- *"Let us run through a brief summary of the stipulations confirmed today to ensure total mutual alignment."* (Passons en revue un bref récapitulatif des conditions validées aujourd'hui pour garantir un parfait alignement mutuel.)
+- *"Our corporate legal department will prepare the formal contract draft reflecting these negotiated stipulations by Thursday."* (Notre service juridique préparera le projet de contrat officiel reflétant ces clauses négociées d'ici jeudi.)
+- *"Subject to formal executive approval, we are poised to execute the commercial agreement early next week."* (Sous réserve de l'approbation formelle de la direction, nous sommes prêts à signer l'accord commercial au début de la semaine prochaine.)
+- *"We look forward to translating this commercial understanding into a long-lasting, successful venture."* (Nous avons hâte de concrétiser cette entente commerciale en une collaboration pérenne et fructueuse.)
 
 ## Quatre leviers tactiques pour négocier sans rogner vos prix
 
@@ -84,9 +84,9 @@ Lorsqu'une discussion achoppe sur le tarif, les négociateurs aguerris actionnen
 
 | Formulation abrupte ou cassante (À éviter) | Formulation diplomatique et persuasive (Recommandée) | Justification stratégique |
 |---|---|---|
-| *Your price is way too expensive.* | *Your pricing proposal sits slightly above our allocated fiscal budget.* | Déplace le débat vers votre cadre budgétaire sans dévaloriser l'offre partenaire. |
-| *We will never accept that clause.* | *I am afraid that particular condition poses significant operational friction for us.* | Rejette fermement la condition sans heurter l'interlocuteur sur le plan personnel. |
-| *You must sign this contract today.* | *We would appreciate finalizing the paperwork by end of day to guarantee these preferential terms.* | Suscite l'urgence commerciale par des bénéfices tangibles plutôt que par la contrainte. |
+| *Your quotation is completely unacceptable.* | *Your proposal sits slightly outside our budgeted expenditure ceiling.* | Déplace le débat vers votre cadre budgétaire sans dévaloriser l'offre partenaire. |
+| *We cannot agree to these terms.* | *That condition presents substantial administrative complexity for our legal division.* | Rejette fermement la condition en invoquant des contraintes juridiques objectives. |
+| *You must authorize this amendment now.* | *Finalizing the paperwork today allows us to secure these preferential terms for your account.* | Suscite l'urgence commerciale par des bénéfices tangibles plutôt que par la contrainte. |
 
 Pour enrichir votre pratique de l'anglais professionnel, consultez également nos guides sur les [expressions pour réunions en anglais](/fr/blog/reunion-en-anglais-expressions-utiles/) et la préparation d'[entretien d'embauche en anglais questions](/fr/blog/entretien-embauche-anglais-questions/).
 
