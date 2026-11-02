@@ -7,7 +7,7 @@ const YEAR = 31536000, DAY = 86400;
 // thử lần lượt m4 Pages → m4 raw (ngay sau push, trước khi Pages dựng xong / vượt giới hạn tệp Pages) → m1. Kho img mới: thêm vào đầu danh sách.
 // /m<N>/vimg/… = trực tiếp kho N. 404 chỉ cache 60 s (ảnh vừa đẩy phải hiện ngay ở lượt kiểm CDN).
 export const VIMG_ORIGINS = { m4: ['https://lexkiteapp.github.io/lexkite-media-4', 'https://raw.githubusercontent.com/lexkiteapp/lexkite-media-4/main'], m1: ['https://lexkiteapp.github.io/lexkite-media'] };
-const VIMG_ORDER = ['m4', 'm1'];
+export const VIMG_ORDER = ['m4', 'm1']; // scripts/vocab-img/cdn-check.mjs dùng chung (CI kiểm thẳng gốc, không qua Worker)
 async function vimg(req, url, ext) {
   const m = url.pathname.match(/^\/(?:(m\d+)\/)?vimg\/([0-9a-f]{16}(?:@2x)?\.(?:webp|avif))$/);
   if (!m || (m[1] && !VIMG_ORIGINS[m[1]])) return new Response('Not found', { status: 404, headers: { 'Cache-Control': 'public, max-age=60' } });

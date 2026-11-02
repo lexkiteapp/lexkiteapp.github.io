@@ -91,6 +91,6 @@ One structural frame for every Lexkite app screen. Taken from the Kit sheet (scr
 - **Gate:** `scripts/test/stitch-refs-qc.mjs` frame check: ref PNG must be phone width; top-bar and tab-bar crops are compared with the template of the same variant + theme (SSIM + token colours); tab labels must be exactly the five above, in order. Thresholds only go up.
 
 ## 6. Checks before shipping UI
-`npm test` (size budget: shell ≤ 377 KB gz, a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
+`npm test` (size budget: shell ≤ 374 KB gz (canonical gzip, scripts/lib/gz-canon.mjs), a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
 Mirror into the add-on with `bash scripts/build-extension.sh`. Never edit `extension/content.js` for app UI.
 - Module-only CSS (e.g. `.cbt-*` in `js/cbt.js`, `.lq-*` in `js/qengine.js`) is injected by its lazy bundle, so it stays outside the shell.

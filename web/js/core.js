@@ -257,6 +257,8 @@
   const Cards = {
     async all() { return normalize(await Store.get('cards', {})); },
     async save(map) { return serial(() => Store.set('cards', normalize(map))); },
+    // Đọc–sửa–ghi trong cùng khóa với add/ôn tập: gộp đồng bộ không đè câu trả lời ghi giữa lúc chờ mạng (docs/specs/account-flow.md)
+    async mutate(fn) { return serial(async () => Store.set('cards', normalize(fn(normalize(await Store.get('cards', {})))))); },
 
     make(entry, extra = {}) {
       return {

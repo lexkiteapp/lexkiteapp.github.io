@@ -4,7 +4,7 @@ title: "Template IELTS Speaking Part 2: โครงสร้างพูด 2 �
 description: "แจกฟรี template ielts speaking part 2 และ Part 3 โครงสร้างตอบตามหลัก PPF วิธีจดโน้ต 1 นาทีให้พูดได้ 2 นาทีเต็ม และตัวอย่างคำตอบระดับ Band 8"
 keyword: "template ielts speaking part 2"
 lang: th
-translationKey: ielts-speaking-part-2-template
+translationKey: ielts-speaking-part-2-cue-card
 category: ielts
 tags: [ielts, speaking, template]
 cover: speaking

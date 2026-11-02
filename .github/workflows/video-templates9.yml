@@ -1,5 +1,5 @@
 # video-templates9: ONE sample per v9 template (docs/VIDEO-TEMPLATES.md §14, teachers docs/VIDEO-TEACHERS.md) on the approved v8 one-shot engine.
-# Matrix over content/video/cine/news/templates-v1/<template>.json. 0 credits: Kokoro + Rhubarb + faster-whisper (word clock only) on the runner.
+# Matrix over content/video/cine/news/templates-v1/<template>.json. 0 credits: Kokoro + Rhubarb + faster-whisper (word clock + unprompted ASR back-check) on the runner.
 # NO GrabCast / Groq / Kling (scripts + hooks reviewed in templates-v1/reviewed-hooks.json). No store, no Drive, no publish (approval gate).
 # SHARDED: voice (1 job / template, identical audio for every shard) -> shard (N jobs / template, render_v9.py --frames i/N) -> merge (concat + audio mux + qc + phone copy + sheet).
 # shards=1 keeps the single-process render (the shard job renders everything, merge only runs qc etc.). Artifact per template: <t>.mp4 + phone/<t>.mp4 (< 30 MB) + timeline/qc/samples/src0 + frames/ + sheet.jpg.
@@ -68,6 +68,7 @@ jobs:
         run: |
           python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
           NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+          node scripts/video/tpl/pron.mjs audit-json "$SPEC" vo/vis3/pron.json   # Kokoro phonemes vs CMUdict + on-screen IPA vs bank -> qc_v9 pron_kokoro / ipa_token
           ls -la vo/vis3 | head -30
       - uses: actions/upload-artifact@v4
         with: { name: 'vo-${{ matrix.t }}-${{ github.run_number }}', path: vo/, retention-days: 3 }

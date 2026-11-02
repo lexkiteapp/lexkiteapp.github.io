@@ -195,7 +195,12 @@ export function evaluateFigshare(p, api) {
   if (!j || !j.id) return { ...out, state: 'error', note: 'api-json' };
   const want = p.expectLink || 'lexkite.com', refs = (j.references || []).map(u => `<a href="${String(u).replace(/"/g, '&quot;')}">`).join('');
   const links = targetLinks(String(j.description || '') + refs, want, j.url_public_html || p.url);
-  return { ...out, title: String(j.title || '').slice(0, 200), state: links.length ? 'ok' : 'link-missing', link: links.length > 0, rel: relSummary(links), noindex: null, links: links.slice(0, 5).map(l => l.href), via: 'api' };
+  // URL dạng chữ trong mô tả (Figshare tự gắn link khi hiển thị): vẫn là link sống. rel không đọc được (HTML chặn máy) → null = chưa rõ.
+  // 01/11: mô tả chỉ có "Latest version: https://lexkite.com/en/research/confused-words/ ." → báo nhầm link-gone (regression) trên bảng admin.
+  const plain = [...strip(String(j.description || '')).replace(/<[^>]*>/g, ' ').matchAll(/https?:\/\/[^\s<>"'()]+/gi)].map(m => m[0].replace(/[.,;:!?]+$/, ''))
+    .filter(h => { try { return hostIs(new URL(h).hostname, want); } catch { return false; } }).filter(h => !links.some(l => l.href === new URL(h).href));
+  const all = links.map(l => l.href).concat(plain.map(h => new URL(h).href)), n = all.length;
+  return { ...out, title: String(j.title || '').slice(0, 200), state: n ? 'ok' : 'link-missing', link: n > 0, rel: links.length ? relSummary(links) : null, noindex: null, links: all.slice(0, 5), via: 'api' };
 }
 
 export async function checkPlacement(p, get, { ghHeaders = {} } = {}) {
