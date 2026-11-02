@@ -217,6 +217,7 @@ jobs:
   news-plan:
     if: inputs.scene == 'news'
     runs-on: ubuntu-latest
+    timeout-minutes: 30   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs:
       shards: ${{ steps.p.outputs.shards }}
     steps:

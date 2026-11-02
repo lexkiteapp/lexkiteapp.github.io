@@ -3,6 +3,7 @@
 //   Access Key ID = id của token · Secret Access Key = SHA-256 (hex) của giá trị token. Token phải có quyền Workers R2 Storage.
 // CI: không cần secret R2_* riêng – dùng CLOUDFLARE_API_TOKEN sẵn có. Ghi vào $GITHUB_ENV, che (::add-mask::) trước khi ghi. Không in khoá.
 import crypto from 'node:crypto'; import fs from 'node:fs';
+import { isMain } from '../lib/is-main.mjs';
 import { ACCOUNT } from './hosts.mjs';
 
 export const s3Secret = token => crypto.createHash('sha256').update(token).digest('hex');
@@ -14,7 +15,7 @@ export async function tokenId(token, fetcher = fetch, account = ACCOUNT) {
   }
   return null;
 }
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMain(import.meta.url)) { // so realpath: /tmp ↔ /private/tmp (02/11: so chuỗi → khối main không chạy, switch im lặng 'thành công')
   const env = process.env;
   if (env.R2_ACCESS_KEY_ID && env.R2_SECRET_ACCESS_KEY) { console.log('creds: dùng secret R2_* có sẵn'); process.exit(0); }
   const tok = env.CLOUDFLARE_API_TOKEN; if (!tok) { console.error('creds: thiếu CLOUDFLARE_API_TOKEN'); process.exit(1); }
