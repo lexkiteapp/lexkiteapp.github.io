@@ -27,7 +27,7 @@ SAFE_T, SAFE_B, SAFE_X = 220, H - 380, 40   # vùng an toàn 9:16 (nút/tiêu đ
 TPL = spec.get('template', 'tip-card')
 REEL = TPL in ('say4', 'mispron', 'phrase', 'minpair')   # khuôn Reels (docs/specs/social-reels-templates.md)
 LISTT = TPL in ('say4', 'mispron')                        # danh sách 01–04: giáo viên thu nhỏ dưới danh sách, không thẻ phụ đề (dòng đang đọc = karaoke)
-HOOK_Y0, HOOK_Y1 = 232, {'phrase': 640, 'minpair': 560, 'say4': 400, 'mispron': 400}.get(TPL, 470)
+HOOK_Y0, HOOK_Y1 = 232, {'phrase': 640, 'minpair': 600, 'say4': 400, 'mispron': 400}.get(TPL, 470)
 TX, TY = (W - 1108) // 2, {'phrase': 650, 'minpair': 580}.get(TPL, 520)          # giáo viên: tỉ lệ 1:1 (không phóng to ảnh), thân dưới nằm sau thẻ phụ đề → không lộ đường cắt
 HDY = TY - 420                          # tay vẽ theo toạ độ thân (bản đầu TY = 420)
 CARD_Y0, CARD_Y1 = 1270, 1450
@@ -231,13 +231,15 @@ def reel_phrase(dr, t):
     txt(dr, (W / 2, HOOK_Y0 + 294), it['ipa'], fit(it['ipa'], f_ipa, 52, W - 2 * 110, 32), TEAL, 'mm')
     native_line(dr, W / 2, HOOK_Y0 + 360, it['native'], 46, 30, W - 2 * 110, MUTED)
 def mouth_zoom(im, fr):
-    """minpair: cận cảnh miệng (cùng khung mặt đang vẽ, phóng 1,33×) trong khung bo góc ở vai phải – người xem nhìn khẩu hình"""
+    """minpair: cận cảnh miệng (cùng khung mặt đang vẽ, phóng ~1,8×) trong khung bo góc ở vai phải – người xem nhìn khẩu hình.
+    Khung chỉ từ dưới mũi tới cằm (mắt cách miệng 76 px: khung ±85 cũ lấy cả mắt, miệng nhỏ – key frame lượt 02/11)"""
     R = RIGS[fr['who']]; mx, my = R['mouth']; base = BASES[fr['who']]
     face = base.copy(); face.alpha_composite(svg_img(fr['g'], base.width, base.height))
-    crop = face.crop((mx - 120, my - 85, mx + 120, my + 85)).resize((320, 227), Image.LANCZOS)   # 1,33×: khung nhỏ ở vai phải, không che mặt
-    x0, y0 = W - 48 - 320, CARD_Y0 - 227 - 30
-    mask = Image.new('L', crop.size, 0); ImageDraw.Draw(mask).rounded_rectangle((0, 0, *crop.size), 48, fill=255)
-    dr = ImageDraw.Draw(im); dr.rounded_rectangle((x0 - 8, y0 - 8, x0 + 328, y0 + 235), 54, fill=CARD, outline=TEAL, width=6)
+    ZW, ZH = 320, 196
+    crop = face.crop((mx - 90, my - 48, mx + 90, my + 62)).resize((ZW, ZH), Image.LANCZOS)   # 180×110 → 320×196: môi mở xuống dưới → khung lệch xuống 7 px
+    x0, y0 = W - 48 - ZW, CARD_Y0 - ZH - 30
+    mask = Image.new('L', crop.size, 0); ImageDraw.Draw(mask).rounded_rectangle((0, 0, *crop.size), 44, fill=255)
+    dr = ImageDraw.Draw(im); dr.rounded_rectangle((x0 - 8, y0 - 8, x0 + ZW + 8, y0 + ZH + 8), 50, fill=CARD, outline=TEAL, width=6)
     im.paste(crop, (x0, y0), mask)
 def reel_minpair(dr, t):
     """minpair: hook bản địa + 4 từ (IPA từ kho dưới mỗi từ), từ đang đọc sáng (mốc từ Kokoro)"""
@@ -250,10 +252,11 @@ def reel_minpair(dr, t):
     cw = (W - 2 * 72) / len(ITEMS)
     for i, it in enumerate(ITEMS):
         cx = 72 + cw * (i + .5); on = cur == it['en']
-        if on: dr.rounded_rectangle((cx - cw / 2 + 8, HOOK_Y0 + 118, cx + cw / 2 - 8, HOOK_Y1 - 22), 28, fill=hx(TOK['--surface-2']), outline=TEAL, width=5)
-        txt(dr, (cx, HOOK_Y0 + 180), it['en'], fit(it['en'], font, 70, cw - 30, 40), TEAL if on else HEAD, 'mm')
+        # khung từ đang đọc ôm cả từ + IPA + nghĩa (đáy 28 px dưới dòng nghĩa; lượt 02/11 viền cắt ngang "con cừu"), lùi 14 px khỏi mép thẻ
+        if on: dr.rounded_rectangle((cx - cw / 2 + 14, HOOK_Y0 + 118, cx + cw / 2 - 14, HOOK_Y0 + 298 + 44), 28, fill=hx(TOK['--surface-2']), outline=TEAL, width=5)
+        txt(dr, (cx, HOOK_Y0 + 180), it['en'], fit(it['en'], font, 70, cw - 44, 40), TEAL if on else HEAD, 'mm')
         txt(dr, (cx, HOOK_Y0 + 250), it['ipa'], fit(it['ipa'], f_ipa, 40, cw - 30, 26), TEAL, 'mm')
-        native_line(dr, cx, HOOK_Y0 + 298, it['native'], 30, 22, cw - 24, MUTED)
+        native_line(dr, cx, HOOK_Y0 + 298, it['native'], 30, 22, cw - 40, MUTED)
 
 def frame(fr, t):
     im = Image.new('RGBA', (W, H), BG + (255,))
