@@ -17651,6 +17651,52 @@
       ],
       "angle": "व्यावसायिक सौदों के लिए business english negotiation phrases: सशर्त छूट की पेशकश, गतिरोध दूर करना, प्रति-प्रस्ताव और सफल अनुबंध हस्ताक्षर के महत्वपूर्ण पैटर्न।",
       "intent": "informational"
+    },
+    {
+      "lang": "vi",
+      "slug": "thanh-ngu-tieng-anh-cong-so-thong-dung",
+      "keyword": "thành ngữ tiếng anh công sở",
+      "topic": "Thành ngữ tiếng Anh công sở: 50+ idioms thực chiến trong họp và giao tiếp doanh nghiệp",
+      "category": "tu-vung",
+      "tags": [
+        "thanh-ngu",
+        "business-english",
+        "cong-so",
+        "idioms"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Tổng hợp thành ngữ tiếng anh công sở thông dụng: hiểu đúng nghĩa bóng, ngữ cảnh sử dụng trong họp, đàm phán và gửi email chuyên nghiệp.",
+      "intent": "informational"
+    },
+    {
+      "lang": "en",
+      "slug": "business-english-idioms-workplace-guide",
+      "keyword": "business english idioms",
+      "topic": "Essential Business English Idioms: Master Corporate Jargon in Meetings and Emails",
+      "category": "tu-vung",
+      "tags": [
+        "idioms",
+        "business-english",
+        "workplace",
+        "speaking"
+      ],
+      "shots": [
+        "dict",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/practice/speak"
+      ],
+      "angle": "Comprehensive guide to business english idioms: decoding corporate jargon, nuanced meanings in boardrooms, negotiation calls, and executive emails.",
+      "intent": "informational"
     }
   ]
 }
