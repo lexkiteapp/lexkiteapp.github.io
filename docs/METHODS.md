@@ -36,7 +36,10 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 ## 2. Repo, remote, ship
 - **Ruleset main (26316463):** gộp khi `required-gate` xanh; cấm force-push/xoá; bot đẩy qua khoá deploy + `[skip ci]` – `docs/CI-RUNNERS.md` › required-gate.
 - Remote THẬT: `https://github.com/lexkiteapp/lexkiteapp.github.io` (nhánh `main`). `origin` cục bộ là repo cũ – KHÔNG dùng.
-- Push: fetch + rebase lên main của remote thật rồi `git push https://x-access-token:$(gh auth token)@github.com/lexkiteapp/lexkiteapp.github.io.git HEAD:main` (không in token). `gh` CLI lỗi TLS trong sandbox → gọi API bằng `curl` + `gh auth token`.
+- Push: fetch + rebase lên main của remote thật rồi `git push https://x-access-token:$(gh auth token)@github.com/lexkiteapp/lexkiteapp.github.io.git HEAD:main` (không in token).
+- GitHub API (token CHUNG 5.000/giờ): chỉ qua `bash scripts/ci/gh-api.sh [METHOD] /path [--repo] [--poll]` (ETag 304 miễn lượt; còn < 500 tự ngủ). Không curl trần.
+- Poll PR/CI ≥ 5 phút (`--poll`); thoát 75 = hết hạn mức, KHÔNG phải PR đóng/lỗi.
+- `gh` CLI lỗi TLS; Node fetch cần proxy → dùng vỏ `.sh`.
 - Ship: `~/.config/lexkite/ship.sh "<mô tả>"` (smoke → tsc → YAML → vi-lint → i18n → bump SW + add-on → commit → push → chờ live).
 - Smoke: `node scripts/test/smoke.js "$PWD/web"` (phải ra `ERRORS none`).
 - tsc: `npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json`.
@@ -60,7 +63,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Workflow "success" chưa đủ – đọc số liệu (từng báo xanh khi nhập 0 · lỗi 20). Workflow mới phải tự đỏ khi kết quả = 0.
 - Workflow nối nhau dùng `workflow_run`/dispatch (commit bằng `GITHUB_TOKEN` không kích hoạt `on: push`).
 - Thử 1 trước rồi mới chạy lô (áp dụng cả script/workflow).
-- **Runner GitHub (1/11, Pro = 40 runner):** chừa 8 cho PR/prod-release, phần rảnh `ci-filler` tự lấp từ `infra/ci-backlog.json` (`max-parallel` bắt buộc; repo giữ CÔNG KHAI để phút Actions miễn phí), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.
+- Runner: `docs/CI-RUNNERS.md` (Pro 40, chừa ≥ 16, repo CÔNG KHAI).
 - **Kiểm hình (27/10):** mọi màn mới qua `LKJC.visual` (journey-e2e/checks.js) 360/390 px: FAIL lớp nổi đè nút · tràn ngang · số liệu toàn 0; cảnh báo chữ cắt · ảnh đơn sắc · nút chính < 44 px.
 - Màn mới chưa có trong journey-e2e → thêm `h.shot()` (chụp = tự kiểm hình); toast chỉ qua `UI.toast` (tự xếp hàng sau modal).
 
