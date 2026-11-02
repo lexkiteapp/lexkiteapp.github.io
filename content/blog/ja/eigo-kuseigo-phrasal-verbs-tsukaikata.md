@@ -9,7 +9,7 @@ tags: [vocabulary, speaking, phrasal-verbs]
 keyword: "英語 句動詞 phrasal verbs 使い方"
 cover: practice-learn
 coverAlt: "Lexkiteアプリの英単語学習スマートラーニング問題画面"
-publishAt: ""
+publishAt: 2026-12-04T21:02:00+09:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

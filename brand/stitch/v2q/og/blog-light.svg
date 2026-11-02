@@ -1,0 +1,378 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" style="background:#FFF9F3; font-family:'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="ogBg" cx="30%" cy="25%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#FFF9F3" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#F6EADE" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="cardShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#7A5636" flood-opacity="0.09" />
+    </filter>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#136B66" flood-opacity="0.14" />
+    </filter>
+    <filter id="orangePencilGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#B45309" flood-opacity="0.25" />
+    </filter>
+
+    <!-- Kite Emblem Gradients -->
+    <linearGradient id="kiteTealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#0E5E58"/>
+    </linearGradient>
+    <linearGradient id="kiteOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+
+    <!-- Illustrated Notebook Gradients -->
+    <linearGradient id="notebookCover" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A7F79"/>
+      <stop offset="100%" stop-color="#0C4E49"/>
+    </linearGradient>
+    <linearGradient id="notebookPageLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F2EBE1"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E5D9CB"/>
+    </linearGradient>
+    <linearGradient id="notebookPageRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DDD0C0"/>
+      <stop offset="15%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FBF7F0"/>
+    </linearGradient>
+    <linearGradient id="ribbonBookmark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+
+    <!-- Pencil Gradients -->
+    <linearGradient id="pencilBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="pencilWood" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFEED9"/>
+      <stop offset="100%" stop-color="#F4D3B0"/>
+    </linearGradient>
+    <linearGradient id="pencilEraser" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FB7185"/>
+      <stop offset="100%" stop-color="#E11D48"/>
+    </linearGradient>
+
+    <!-- Gloss Highlight -->
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+
+  <!-- Playful Decorative Accents (Stars, Lozenges, Confetti Sparkles) -->
+  <g opacity="0.65">
+    <!-- Sunny star sparkles -->
+    <path d="M 120 220 Q 120 236 104 236 Q 120 236 120 252 Q 120 236 136 236 Q 120 236 120 220 Z" fill="#F59E0B"/>
+    <path d="M 640 90 Q 640 102 628 102 Q 640 102 640 114 Q 640 102 652 102 Q 640 102 640 90 Z" fill="#136B66"/>
+    <path d="M 1120 180 Q 1120 196 1104 196 Q 1120 196 1120 212 Q 1120 196 1136 196 Q 1120 196 1120 180 Z" fill="#F59E0B"/>
+    <path d="M 680 540 Q 680 552 668 552 Q 680 552 680 564 Q 680 552 692 552 Q 680 552 680 540 Z" fill="#14B8A6"/>
+
+    <!-- Floating circles & lozenges -->
+    <circle cx="580" cy="240" r="6" fill="#F59E0B" opacity="0.8"/>
+    <circle cx="70" cy="460" r="5" fill="#136B66" opacity="0.6"/>
+    <circle cx="1140" cy="430" r="8" fill="#F97316" opacity="0.7"/>
+    <rect x="670" cy="380" width="10" height="10" rx="3" transform="rotate(25 675 385)" fill="#14B8A6" opacity="0.6"/>
+    <rect x="1080" cy="100" width="12" height="12" rx="3" transform="rotate(18 1086 106)" fill="#F59E0B" opacity="0.75"/>
+    <rect x="90" cy="110" width="9" height="9" rx="2.5" transform="rotate(45 94 114)" fill="#0E5E58" opacity="0.4"/>
+  </g>
+
+  <!-- ==================== LEFT COLUMN: CONTENT ==================== -->
+  
+  <!-- 1. TOP-LEFT BRAND BADGE: Kite Logo + "Lexkite blog" -->
+  <g transform="translate(80, 72)">
+    <!-- Pill Ledge -->
+    <rect x="0" y="4" width="220" height="48" rx="24" fill="#E6D7C8"/>
+    <!-- Pill Face -->
+    <rect x="0" y="0" width="220" height="48" rx="24" fill="#FFFFFF" stroke="#F1E4D6" stroke-width="1.8"/>
+
+    <!-- Kite Emblem -->
+    <g transform="translate(34, 24)">
+      <!-- Top Wing -->
+      <polygon points="0,-14 10,-3 0,0 -10,-3" fill="url(#kiteOrangeGrad)"/>
+      <!-- Bottom Body -->
+      <polygon points="0,0 10,-3 0,14 -10,-3" fill="url(#kiteTealGrad)"/>
+      <!-- Ribbon String & Beads -->
+      <path d="M 0,14 Q 4,19 1,23 Q -2,26 2,30" fill="none" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="2" cy="30" r="1.8" fill="#E11D48"/>
+    </g>
+
+    <!-- Wordmark & Section -->
+    <text x="60" y="29" font-size="16" font-weight="900" fill="#136B66" letter-spacing="0.5">Lexkite</text>
+    <text x="130" y="29" font-size="15" font-weight="700" fill="#715C4B" letter-spacing="0.2">blog</text>
+    <circle cx="188" cy="24" r="3.5" fill="#F59E0B"/>
+  </g>
+
+  <!-- 2. CATEGORY & READING TIME CHIPS -->
+  <g transform="translate(80, 160)">
+    <!-- Chip 1: Category "IELTS Writing" (Teal tactile chip) -->
+    <g transform="translate(0, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="3" width="168" height="38" rx="19" fill="#0C4B47"/>
+      <!-- Chip Face -->
+      <rect x="0" y="0" width="168" height="38" rx="19" fill="#136B66"/>
+      <!-- Icon (Pen glyph) -->
+      <g transform="translate(20, 12)">
+        <path d="M 2,12 L 3,9 L 10,2 L 13,5 L 6,12 Z" fill="#5EEAD4"/>
+        <line x1="2" y1="12" x2="4" y2="10" stroke="#0E5E58" stroke-width="1.2"/>
+      </g>
+      <!-- Label (Crisp light text on deep teal, high contrast) -->
+      <text x="44" y="24" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="0.3">IELTS Writing</text>
+    </g>
+
+    <!-- Chip 2: Reading Time "8 min" (Tactile neutral pill with warm accent) -->
+    <g transform="translate(182, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="3" width="102" height="38" rx="19" fill="#E4D5C5"/>
+      <!-- Chip Face -->
+      <rect x="0" y="0" width="102" height="38" rx="19" fill="#FFFFFF" stroke="#EDE0D2" stroke-width="1.6"/>
+      <!-- Clock Icon -->
+      <circle cx="23" cy="19" r="7.5" fill="none" stroke="#F59E0B" stroke-width="2"/>
+      <polyline points="23,15 23,19 26,19" fill="none" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Label (Dark, high contrast) -->
+      <text x="38" y="24" font-size="14" font-weight="800" fill="#3B2E24">8 min</text>
+    </g>
+
+    <!-- Chip 3: Sub-badge "Task 2 Guide" -->
+    <g transform="translate(296, 0)">
+      <rect x="0" y="3" width="126" height="38" rx="19" fill="#E4D5C5"/>
+      <rect x="0" y="0" width="126" height="38" rx="19" fill="#FFF4EA" stroke="#FCD7B6" stroke-width="1.5"/>
+      <circle cx="18" cy="19" r="4" fill="#F97316"/>
+      <text x="29" y="24" font-size="13" font-weight="800" fill="#9A5012" letter-spacing="0.4">STRATEGY</text>
+    </g>
+  </g>
+
+  <!-- 3. BIG BOLD TWO-LINE TITLE: "How to get Band 7 / in IELTS Writing Task 2" -->
+  <g transform="translate(80, 275)">
+    <!-- Line 1 -->
+    <text x="0" y="0" font-size="52" font-weight="900" fill="#1A1816" letter-spacing="-1.2">
+      How to get Band 7
+    </text>
+    <!-- Line 2 -->
+    <text x="0" y="66" font-size="52" font-weight="900" fill="#136B66" letter-spacing="-1.2">
+      in IELTS Writing Task 2
+    </text>
+  </g>
+
+  <!-- 4. SUBTITLE / SUMMARY SNIPPET (Short label & value prop) -->
+  <g transform="translate(80, 420)">
+    <text x="0" y="0" font-size="20" font-weight="700" fill="#5A4E45" letter-spacing="-0.2">
+      Master cohesive paragraphing, Band 7+ vocabulary,
+    </text>
+    <text x="0" y="28" font-size="20" font-weight="700" fill="#5A4E45" letter-spacing="-0.2">
+      and scoring criteria with step-by-step model essays.
+    </text>
+  </g>
+
+  <!-- 5. BOTTOM BAR / CALLOUT: Tactile Button & Web domain -->
+  <g transform="translate(80, 508)">
+    <!-- Read Article Tactile Button (Sunny Orange with Deep Brown-Black Ink) -->
+    <g transform="translate(0, 0)">
+      <!-- Ledge -->
+      <rect x="0" y="5" width="190" height="50" rx="25" fill="#B45309"/>
+      <!-- Button Body -->
+      <rect x="0" y="0" width="190" height="50" rx="25" fill="#F59E0B"/>
+      <!-- Label in STRICT deep brown-black ink (#1C1003) -->
+      <text x="30" y="31" font-size="17" font-weight="900" fill="#1C1003" letter-spacing="0.3">Read Article</text>
+      <!-- Arrow Icon -->
+      <path d="M 144,25 L 138,20 M 144,25 L 138,30 M 130,25 L 144,25" fill="none" stroke="#1C1003" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Domain & Free Pill -->
+    <g transform="translate(225, 14)">
+      <text x="0" y="20" font-size="18" font-weight="800" fill="#136B66">lexkite.com</text>
+      <circle cx="120" cy="14" r="3" fill="#D3C3B3"/>
+      <text x="134" y="20" font-size="15" font-weight="700" fill="#715C4B">Free IELTS Prep</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== RIGHT COLUMN: GLOSSY ILLUSTRATED SCENE ==================== -->
+  <!-- Scene: Open Notebook + Pencil + Floating Little Kite (No persons, faces, or characters) -->
+  <g id="IllustratedScene" transform="translate(880, 315)">
+    <!-- Soft Backing Glow / Decorative Shadow Floor -->
+    <ellipse cx="0" cy="190" rx="240" ry="42" fill="#E8D7C5" opacity="0.6"/>
+    <ellipse cx="0" cy="190" rx="180" ry="24" fill="#DBC4AF" opacity="0.5"/>
+
+    <!-- Big Decorative Backing Card / Tactile Plate -->
+    <g transform="translate(-210, -220)" filter="url(#cardShadow)">
+      <!-- Physical 3D bottom ledge -->
+      <rect x="0" y="10" width="420" height="420" rx="48" fill="#E0CEBD"/>
+      <!-- Face -->
+      <rect x="0" y="0" width="420" height="420" rx="48" fill="#FFFFFF" stroke="#F5EDE4" stroke-width="2.5"/>
+      <!-- Subtle top inner sheen -->
+      <path d="M 2,48 C 2,22 22,2 48,2 L 372,2 C 398,2 418,22 418,48 L 418,140 C 310,120 110,120 2,140 Z" fill="url(#sheen)"/>
+    </g>
+
+    <!-- Mini Star Sparkles inside the card -->
+    <g opacity="0.8">
+      <path d="M -140 -150 Q -140 -140 -150 -140 Q -140 -140 -140 -130 Q -140 -140 -130 -140 Q -140 -140 -140 -150 Z" fill="#F59E0B"/>
+      <path d="M 140 120 Q 140 128 132 128 Q 140 128 140 136 Q 140 128 148 128 Q 140 128 140 120 Z" fill="#136B66"/>
+      <circle cx="160" cy="-140" r="5" fill="#F97316"/>
+      <circle cx="-160" cy="110" r="6" fill="#14B8A6"/>
+    </g>
+
+    <!-- ================= OPEN NOTEBOOK ================= -->
+    <!-- Slightly angled for dimensional perspective -->
+    <g id="OpenNotebook" transform="translate(0, 20) rotate(-6)">
+      <!-- Outer Hardcover Spine & Ledge Shadow -->
+      <path d="M -168,100 C -168,100 -80,108 0,108 C 80,108 168,100 168,100 L 168,112 C 168,112 80,120 0,120 C -80,120 -168,112 -168,112 Z" fill="#093835"/>
+      
+      <!-- Hardcover Base (Deep Teal) -->
+      <path d="M -168,-90 C -90,-85 0,-80 0,-80 C 0,-80 90,-85 168,-90 L 168,100 C 90,108 0,108 0,108 C 0,108 -90,108 -168,100 Z" fill="url(#notebookCover)" stroke="#0E5450" stroke-width="2"/>
+
+      <!-- LEFT PAGE STACK (Physical paper edge layers) -->
+      <path d="M -162,94 C -90,99 -4,99 -4,99 L -4,103 C -4,103 -90,103 -162,98 Z" fill="#D3C5B5"/>
+      <!-- Left Page Surface -->
+      <path d="M -162,-80 C -85,-78 -4,-73 -4,-73 L -4,96 C -4,96 -85,96 -162,92 Z" fill="url(#notebookPageLeft)"/>
+
+      <!-- RIGHT PAGE STACK -->
+      <path d="M 4,99 C 4,99 90,99 162,94 L 162,98 C 90,103 4,103 4,103 Z" fill="#D3C5B5"/>
+      <!-- Right Page Surface -->
+      <path d="M 4,-73 C 4,-73 85,-78 162,-80 L 162,92 C 85,96 4,96 4,96 Z" fill="url(#notebookPageRight)"/>
+
+      <!-- Center Spine Crease / Binding Shadow -->
+      <rect x="-4" y="-76" width="8" height="174" fill="#C5B6A4" opacity="0.7"/>
+      <line x1="0" y1="-76" x2="0" y2="98" stroke="#8E7C69" stroke-width="1.8"/>
+
+      <!-- Lined ruling on Left Page -->
+      <g stroke="#C4DDD9" stroke-width="2" stroke-linecap="round" opacity="0.85">
+        <line x1="-140" y1="-45" x2="-26" y2="-43"/>
+        <line x1="-140" y1="-20" x2="-26" y2="-18"/>
+        <line x1="-140" y1="5" x2="-26" y2="7"/>
+        <line x1="-140" y1="30" x2="-26" y2="32"/>
+        <line x1="-140" y1="55" x2="-26" y2="57"/>
+      </g>
+
+      <!-- Writing & Stamp Checklist on Left Page -->
+      <!-- Mini Band 7 Gold Badge Stamp on Left Page -->
+      <g transform="translate(-108, -48)">
+        <rect x="0" y="2" width="56" height="20" rx="10" fill="#D97706"/>
+        <rect x="0" y="0" width="56" height="20" rx="10" fill="#F59E0B"/>
+        <text x="28" y="14" font-size="9" font-weight="900" fill="#1C1003" text-anchor="middle">BAND 7.0</text>
+      </g>
+
+      <!-- Lined ruling on Right Page -->
+      <g stroke="#C4DDD9" stroke-width="2" stroke-linecap="round" opacity="0.85">
+        <line x1="26" y1="-43" x2="140" y2="-45"/>
+        <line x1="26" y1="-18" x2="140" y2="-20"/>
+        <line x1="26" y1="7" x2="140" y2="5"/>
+        <line x1="26" y1="32" x2="140" y2="30"/>
+        <line x1="26" y1="57" x2="140" y2="55"/>
+      </g>
+
+      <!-- Checklist Bullet ticks on Right Page (Sunny teal ticks) -->
+      <g transform="translate(32, -43)">
+        <circle cx="4" cy="0" r="4.5" fill="#136B66"/>
+        <polyline points="2,-0.5 3.5,1.5 6,-2" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(32, -18)">
+        <circle cx="4" cy="0" r="4.5" fill="#136B66"/>
+        <polyline points="2,-0.5 3.5,1.5 6,-2" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(32, 7)">
+        <circle cx="4" cy="0" r="4.5" fill="#F59E0B"/>
+        <polyline points="2,-0.5 3.5,1.5 6,-2" fill="none" stroke="#1C1003" stroke-width="1.2" stroke-linecap="round"/>
+      </g>
+
+      <!-- Golden Ribbon Bookmark trailing from bottom -->
+      <path d="M 0,98 Q -10,120 -8,145 L 6,136 L 14,147 Q 10,120 0,98 Z" fill="url(#ribbonBookmark)" filter="url(#softGlow)"/>
+    </g>
+
+    <!-- ================= CHUNKY GLOSSY PENCIL ================= -->
+    <!-- Positioned crossing gracefully next to the notebook -->
+    <g id="ChunkyPencil" transform="translate(100, 60) rotate(-38)" filter="url(#orangePencilGlow)">
+      <!-- Pencil 3D Ledge Shadow -->
+      <rect x="0" y="6" width="30" height="150" rx="15" fill="#92400E" opacity="0.3"/>
+
+      <!-- Pencil Body (Faceted Warm Amber Orange) -->
+      <rect x="0" y="24" width="30" height="110" rx="5" fill="url(#pencilBody)"/>
+      <!-- Facet shading stripes -->
+      <rect x="0" y="24" width="8" height="110" rx="3" fill="#FDE68A" opacity="0.6"/>
+      <rect x="22" y="24" width="8" height="110" rx="3" fill="#B45309" opacity="0.4"/>
+
+      <!-- Silver Ferrule Ring -->
+      <rect x="0" y="14" width="30" height="14" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1"/>
+      <line x1="0" y1="18" x2="30" y2="18" stroke="#94A3B8" stroke-width="1.2"/>
+      <line x1="0" y1="24" x2="30" y2="24" stroke="#94A3B8" stroke-width="1.2"/>
+
+      <!-- Pink/Coral Eraser Cap -->
+      <path d="M 0,14 C 0,3 30,3 30,14 Z" fill="url(#pencilEraser)"/>
+      <ellipse cx="15" cy="5" rx="7" ry="3" fill="#FDA4AF" opacity="0.7"/>
+
+      <!-- Sharpened Wooden Cone Tip -->
+      <polygon points="0,134 30,134 15,168" fill="url(#pencilWood)"/>
+      <!-- Graphite Tip -->
+      <polygon points="10,157 20,157 15,168" fill="#1E293B"/>
+
+      <!-- Specular Gloss streak -->
+      <rect x="6" y="26" width="4" height="96" rx="2" fill="#FFFFFF" opacity="0.65"/>
+    </g>
+
+    <!-- ================= LITTLE FLOATING KITE ================= -->
+    <!-- Playful hero brand companion soaring playfully above the notebook -->
+    <g id="FloatingKite" transform="translate(68, -125) rotate(14)">
+      <!-- Dynamic Ribbon Tail with candy bows/beads -->
+      <path d="M 0,44 Q -16,66 -4,86 Q 10,104 -2,124 Q -14,142 4,160" fill="none" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+      
+      <!-- Tail Ribbon Bows -->
+      <g transform="translate(-10, 76)">
+        <polygon points="-8,-4 0,0 -8,4" fill="#136B66"/>
+        <polygon points="8,-4 0,0 8,4" fill="#136B66"/>
+        <circle cx="0" cy="0" r="2.5" fill="#E11D48"/>
+      </g>
+      <g transform="translate(6, 110)">
+        <polygon points="-8,-4 0,0 -8,4" fill="#F97316"/>
+        <polygon points="8,-4 0,0 8,4" fill="#F97316"/>
+        <circle cx="0" cy="0" r="2.5" fill="#FDE68A"/>
+      </g>
+      <g transform="translate(-4, 148)">
+        <polygon points="-8,-4 0,0 -8,4" fill="#14B8A6"/>
+        <polygon points="8,-4 0,0 8,4" fill="#14B8A6"/>
+        <circle cx="0" cy="0" r="2.5" fill="#E11D48"/>
+      </g>
+
+      <!-- Kite Shadow / Dimensional Underlay -->
+      <polygon points="0,-40 38,-6 0,48 -38,-6" transform="translate(0, 8)" fill="#D4C0AD" opacity="0.6"/>
+
+      <!-- Kite Main Diamond Body -->
+      <!-- Top Half (Warm Sunny Amber-Orange) -->
+      <polygon points="0,-44 38,-8 0,0 -38,-8" fill="url(#kiteOrangeGrad)"/>
+      <!-- Bottom Half (Deep Gem Teal) -->
+      <polygon points="0,0 38,-8 0,44 -38,-8" fill="url(#kiteTealGrad)"/>
+
+      <!-- Spar Crossbars (Glossy gold spine lines) -->
+      <line x1="0" y1="-44" x2="0" y2="44" stroke="#FFFFFF" stroke-width="2.2" opacity="0.65"/>
+      <line x1="-38" y1="-8" x2="38" y2="-8" stroke="#FFFFFF" stroke-width="2.2" opacity="0.65"/>
+
+      <!-- Specular Gloss Crescent on top-left facet -->
+      <polygon points="0,-40 -34,-8 0,-2" fill="#FFFFFF" opacity="0.35"/>
+      <circle cx="-14" cy="-16" r="3.5" fill="#FFFFFF" opacity="0.8"/>
+
+      <!-- Surrounding magical sparkles -->
+      <path d="M -46 -24 Q -46 -18 -52 -18 Q -46 -18 -46 -12 Q -46 -18 -40 -18 Q -46 -18 -46 -24 Z" fill="#F59E0B"/>
+      <path d="M 44 -26 Q 44 -20 38 -20 Q 44 -20 44 -14 Q 44 -20 50 -20 Q 44 -20 44 -26 Z" fill="#14B8A6"/>
+      <circle cx="48" cy="18" r="3.5" fill="#F59E0B"/>
+    </g>
+
+    <!-- Additional Small Playful Pill Badge on the scene: "WRITING TASK 2" -->
+    <g transform="translate(-140, 140)">
+      <rect x="0" y="3" width="138" height="32" rx="16" fill="#D9C9B8"/>
+      <rect x="0" y="0" width="138" height="32" rx="16" fill="#FFFFFF" stroke="#EAE0D6" stroke-width="1.5"/>
+      <text x="69" y="20" font-size="12" font-weight="900" fill="#136B66" letter-spacing="0.8" text-anchor="middle">IELTS WRITING</text>
+    </g>
+  </g>
+</svg>

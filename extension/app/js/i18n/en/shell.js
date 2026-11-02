@@ -153,49 +153,20 @@
 'Đã thêm {n} từ – vào Ôn tập hoặc Học thông minh để bắt đầu!': 'Added {n} words. Head to Review or Smart learn to start!',
 
 // ---- Dictionary ----
-'Từ điển Anh – Việt': 'English – Vietnamese dictionary',
-'Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan': 'Oxford Languages definitions · UK/US IPA · bilingual examples · collocations · related words',
-'Nhập từ tiếng Anh, ví dụ: sustainable': 'Type an English word, e.g. sustainable',
-'Gần đây:': 'Recent:',
-'Tra bất kỳ từ tiếng Anh nào': 'Look up any English word',
-'Phiên âm UK/US, nghĩa tiếng Việt theo từ loại, định nghĩa Oxford Languages, câu ví dụ song ngữ, hình minh họa — rồi lưu vào flashcard kèm câu ngữ cảnh của riêng bạn.': 'UK/US IPA, meanings by part of speech, Oxford Languages definitions, bilingual examples and pictures — then save it as a flashcard with your own context sentence.',
-'Cài <b>add-on Chrome</b> để bấm đúp vào từ hoặc bôi đen câu trên bất kỳ trang web nào.': 'Install the <b>Chrome add-on</b> to double-click any word or highlight any sentence on the web.',
-'Đang tra “{q}”…': 'Looking up “{q}”…',
 'Không tìm thấy “{q}”.': 'No results for “{q}”.',
-'Gợi ý dịch: <b>{vi}</b>': 'Suggested translation: <b>{vi}</b>',
-'Kiểm tra chính tả hoặc kết nối mạng.': 'Check the spelling or your connection.',
 'Chậm': 'Slow',
 'Nghe chậm': 'Play slowly',
-'Đã có trong flashcard': 'In your flashcards',
 'Lưu flashcard': 'Save flashcard',
 'Ví dụ': 'Example',
 'Đồng nghĩa:': 'Synonyms:',
 'Định nghĩa': 'Definitions',
-'Định nghĩa bổ sung': 'More definitions',
 'Câu ví dụ song ngữ': 'Bilingual examples',
-'Oxford · dịch máy': 'Oxford · machine-translated',
-'Dùng làm ngữ cảnh': 'Use as context',
-'Thêm ngữ cảnh cho từ này': 'Add context to this word',
-'Lưu vào flashcard kèm ngữ cảnh': 'Save as a flashcard with context',
-'Câu bạn gặp từ này (bài đọc, phim, báo…) – ngữ cảnh giúp nhớ lâu gấp nhiều lần': 'The sentence where you met this word (article, film, news…). Context makes words stick far longer',
-'Dán câu có chứa “{w}”…': 'Paste a sentence containing “{w}”…',
 'Dịch câu': 'Translate',
 'Thêm ngữ cảnh': 'Add context',
-'Lưu vào flashcard': 'Save to flashcards',
-'{n} ngữ cảnh': '{n} contexts',
 'Đang dịch…': 'Translating…',
-'Không dịch được câu này.': "Couldn't translate this sentence.",
-'Đã cập nhật thẻ': 'Card updated',
-'Đã lưu “{w}” vào flashcard': 'Saved “{w}” to flashcards',
 'Đã lưu': 'Saved',
 'Lưu cụm': 'Save phrase',
-'Cụm từ & cấu trúc với “{w}”': 'Phrases & structures with “{w}”',
-'Lưu cụm / cấu trúc của bạn': 'Save your own phrase / structure',
-'Chưa có cụm nào trong thư viện. Mẹo: <b>bôi đen một cụm trong câu ví dụ</b> phía trên rồi bấm “🧩 Lưu cụm này”.': 'No phrases in the library yet. Tip: <b>highlight a phrase in an example above</b>, then tap “🧩 Save this phrase”.',
-'Tính từ hay đi với “{w}”:': 'Adjectives often used with “{w}”:',
-'Danh từ hay đi sau:': 'Nouns that often follow:',
 'Trái nghĩa:': 'Antonyms:',
-'Từ gần nghĩa:': 'Similar words:',
 
 // ---- My words (deck) ----
 'Sổ từ của bạn': 'Your words',
@@ -344,7 +315,7 @@
 /* Nhãn từ loại do Google trả về bằng tiếng Việt */
 (function (g) { Object.assign(g.I18N_DICT.en, { 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb', 'giới từ': 'preposition', 'liên từ': 'conjunction', 'đại từ': 'pronoun', 'thán từ': 'interjection', 'từ hạn định': 'determiner', 'viết tắt': 'abbreviation', 'cụm từ': 'phrase', 'tiền tố': 'prefix', 'hậu tố': 'suffix' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Nghĩa theo từ loại': 'Meanings by part of speech', 'Nguồn: Oxford Languages (qua Google), Wiktionary': 'Sources: Oxford Languages (via Google), Wiktionary' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Nghĩa theo từ loại': 'Meanings by part of speech', }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Tuần này của bạn': 'Your week', 'so với cả tuần trước': 'vs. all of last week', 'Lượt ôn': 'Reviews', 'Bài luyện': 'Quizzes', 'Ngày học': 'Days active' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Cài Lexkite như một app': 'Install Lexkite as an app', 'Mở nhanh từ màn hình chính, toàn màn hình, học được cả khi offline': 'Open from your home screen, full screen, works offline', 'Cài ngay – miễn phí': 'Install now – free', 'Đóng': 'Close' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {
@@ -417,10 +388,12 @@
 'Phong cách tiếng Anh của bạn (1 phút) →': 'Your English style (1 minute) →',
 }); })(typeof self !== 'undefined' ? self : this);
 /* Lời mời cài add-on (web/js/ext-cta.js) */
-(function (g) { Object.assign(g.I18N_DICT.en, {"Tra từ ngay trên mọi trang web": "Look up words on any website", "Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.": "Double-click any word while you read to see its meaning and IPA, and save it to your flashcards – with the Lexkite add-on for Chrome.", "Thêm vào Chrome": "Add to Chrome", "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.": "You've looked up a few words. With the free Lexkite add-on, you can look up words right on any website you read."}); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, {"Tra từ ngay trên mọi trang web": "Look up words on any website", "Thêm vào Chrome": "Add to Chrome", }); })(typeof self !== 'undefined' ? self : this);
 /* Khóa của nhóm tải lười (toefl/league/call/handoff) mà khung app vẽ ngay (thẻ trang chủ, nút) – giữ trong en.js */
-(function (g) { Object.assign(g.I18N_DICT.en, {"Dừng": "Stop", "Bài mẫu": "Model answer", "Dàn ý": "Outline", "Hoàn thành": "Finish", "Giải đấu tuần": "Weekly League", "Bảng xếp hạng 30 người học, thăng hạng mỗi tuần": "30-learner leaderboard, promote every week", "Bảng xếp hạng": "Leaderboard", "XP tuần": "Weekly XP", "Gọi Ama & Carlos": "Call Ama & Carlos", "Gọi lại": "Call again", "Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng": "Video-call speaking practice with gentle corrections", "Xong": "Done", "Chuyển dữ liệu": "Move data"}); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, {"Dừng": "Stop", "Bài mẫu": "Model answer", "Hoàn thành": "Finish", "Giải đấu tuần": "Weekly League", "Bảng xếp hạng 30 người học, thăng hạng mỗi tuần": "30-learner leaderboard, promote every week", "Bảng xếp hạng": "Leaderboard", "XP tuần": "Weekly XP", "Gọi Ama & Carlos": "Call Ama & Carlos", "Gọi lại": "Call again", "Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng": "Video-call speaking practice with gentle corrections", "Xong": "Done", "Chuyển dữ liệu": "Move data"}); })(typeof self !== 'undefined' ? self : this);
 /* Trang chủ gọn (1 thẻ "Học tiếp" + khối phụ) · chấm tab Từ vựng */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thêm cho hôm nay": "More for today", "{n} thẻ cần ôn": "{n} cards to review"}); })(typeof self !== 'undefined' ? self : this);
 /* Bài học trộn (#/lesson) trên trang chủ – khi cờ lesson_mix bật */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Bài học trộn": "Mixed lesson", "Nghe · nói · xếp câu từ chính các từ của bạn": "Listen, speak and build sentences with your own words"}); })(typeof self !== 'undefined' ? self : this);
+/* ExitGuard (web/js/exit-guard.js): hỏi khi thoát giữa bài */
+(function (g) { Object.assign(g.I18N_DICT.en, {"Thoát bây giờ sẽ mất tiến độ bài này?": "Leave now and lose your progress in this lesson?", "Thoát bài?": "Leave this lesson?", "Tiến độ đã được lưu – lần sau bạn học tiếp từ đây.": "Your progress is saved – next time you'll pick up right here.", "Tiếp tục học": "Keep learning", "Thoát bài học": "Quit lesson"}); })(typeof self !== 'undefined' ? self : this);

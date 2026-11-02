@@ -9,6 +9,7 @@
 // Dùng: node scripts/test/qa-bot.mjs [--root dist | --base https://lexkite.com] [--out out/qa-bot] [--only journeys,ui,perf,storage]
 //        [--widths 390,768,1440] [--themes light,dark] [--lessons 3] [--baseline scripts/test/qa-bot-baseline.json] [--write-baseline f.json]
 import { chromium, devices } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
@@ -56,6 +57,7 @@ const INIT = ({ seed, theme }) => {
 
 async function context(w, theme, { seed = {}, ux1 = 0 } = {}) {
   const ctx = await browser.newContext({ ...vp(w), colorScheme: theme, locale: 'en-US', reducedMotion: 'no-preference', serviceWorkers: 'block' });
+  await noProd(ctx, { off: !LOCAL }); // dist cục bộ (ci-filler/PR): 0 lượt prod · --base live sau Pages deploy = probe prod có chủ ý (≤ 1 lượt/deploy)
   const s = { 'sbx.settings': settings(theme), 'sbx.cards': JSON.stringify(CARDS), ...seed }; if (ux1) s['lk.ux1'] = '1';
   await ctx.addInitScript(INIT, { seed: s, theme });
   await ctx.addInitScript(DETECT);
@@ -63,7 +65,7 @@ async function context(w, theme, { seed = {}, ux1 = 0 } = {}) {
   await ctx.route('**/*', r => {
     const u = new URL(r.request().url());
     if (LOCAL && u.origin !== O) { const t = r.request().resourceType(); return r.fulfill({ status: 200, contentType: t === 'script' ? 'text/javascript' : t === 'stylesheet' ? 'text/css' : t === 'image' ? 'image/gif' : 'text/plain', body: t === 'image' ? Buffer.from('R0lGODlhAQABAAAAACw=', 'base64') : '' }); }
-    return r.continue();
+    return r.fallback(); // → noProd (media/audio → GitHub, /api → offline) rồi mạng
   });
   const watch = p => {
     p.on('pageerror', e => errs.push('exception: ' + String(e.message).slice(0, 180)));

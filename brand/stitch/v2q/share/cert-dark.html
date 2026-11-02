@@ -1,0 +1,397 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=1600"><style>html,body{margin:0;padding:0}svg{display:block}</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1130" width="1600" height="1130" style="background:#091518; font-family:'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Background Gradients (Tactile Night) -->
+    <radialGradient id="nightBgGrad" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#14282e"/>
+      <stop offset="55%" stop-color="#0c1b1f"/>
+      <stop offset="100%" stop-color="#091518"/>
+    </radialGradient>
+    
+    <radialGradient id="nightCardGlow" cx="50%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#162c32"/>
+      <stop offset="60%" stop-color="#112227"/>
+      <stop offset="100%" stop-color="#0d1b1f"/>
+    </radialGradient>
+
+    <!-- Deep Drop Shadows & 3D Ledges -->
+    <filter id="nightCardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="0" flood-color="#040b0d"/>
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+    <filter id="medallionShadowNight" x="-30%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="0" flood-color="#050e10" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="20" stdDeviation="16" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <filter id="pillShadowNight" x="-10%" y="-15%" width="120%" height="135%">
+      <feDropShadow dx="0" dy="5" stdDeviation="0" flood-color="#050e10"/>
+    </filter>
+
+    <filter id="tealGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#2dd4bf" flood-opacity="0.4"/>
+    </filter>
+
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#f59e0b" flood-opacity="0.35"/>
+    </filter>
+
+    <!-- Medallion & Ribbon Gradients -->
+    <linearGradient id="ribbonLeftNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="40%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="ribbonRightNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="45%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+
+    <!-- Gold Medallion Outer Scallop & Core (Tactile 3D Sheen) -->
+    <radialGradient id="goldOuterRingNight" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="35%" stop-color="#f59e0b"/>
+      <stop offset="80%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </radialGradient>
+
+    <radialGradient id="goldCoreNight" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="25%" stop-color="#fef3c7"/>
+      <stop offset="65%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </radialGradient>
+
+    <!-- Kite Logo Gradients (Glowing for Night) -->
+    <linearGradient id="kiteTealGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="kiteOrangeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="kiteYellowGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="kiteDeepTealGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#115e59"/>
+    </linearGradient>
+
+    <!-- Course Card Inner Surface Gradient -->
+    <linearGradient id="courseCardSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#172f36"/>
+      <stop offset="100%" stop-color="#112429"/>
+    </linearGradient>
+
+    <!-- Symbols -->
+    <g id="sparkle-gold">
+      <path d="M 0 -12 Q 1 -2 12 0 Q 1 2 0 12 Q -1 2 -12 0 Q -1 -2 0 -12 Z" fill="#f59e0b"/>
+    </g>
+    <g id="sparkle-teal">
+      <path d="M 0 -10 Q 1 -1 10 0 Q 1 1 0 10 Q -1 1 -10 0 Q -1 -1 0 -10 Z" fill="#2dd4bf"/>
+    </g>
+    <g id="mini-kite-night">
+      <polygon points="0,-10 7,0 0,0" fill="#fde047"/>
+      <polygon points="0,0 7,0 0,10" fill="#f97316"/>
+      <polygon points="-7,0 0,0 0,10" fill="#0d9488"/>
+      <polygon points="-7,0 0,-10 0,0" fill="#2dd4bf"/>
+    </g>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="1600" height="1130" fill="url(#nightBgGrad)"/>
+
+  <!-- Subtle Playful Star Dust in Outer Canvas -->
+  <use href="#sparkle-gold" x="120" y="90" transform="scale(0.85)" opacity="0.65"/>
+  <use href="#sparkle-teal" x="1480" y="110" transform="scale(0.95)" opacity="0.7"/>
+  <use href="#sparkle-gold" x="1500" y="1020" transform="scale(0.85)" opacity="0.65"/>
+  <use href="#sparkle-teal" x="110" y="1010" transform="scale(0.9)" opacity="0.7"/>
+  <circle cx="200" cy="560" r="4.5" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="1420" cy="520" r="5" fill="#2dd4bf" opacity="0.5"/>
+
+  <!-- ==============================================
+       MAIN TACTILE CERTIFICATE CARD (1440 x 990)
+       ============================================== -->
+  <g transform="translate(80, 70)" filter="url(#nightCardShadow)">
+    <!-- Base Card Fill with 3D bottom ledge effect -->
+    <rect width="1440" height="990" rx="42" fill="url(#nightCardGlow)" stroke="#22424b" stroke-width="3"/>
+    
+    <!-- Tactile Inner Border Frame -->
+    <rect x="24" y="24" width="1392" height="942" rx="30" fill="none" stroke="#19333a" stroke-width="2.5"/>
+    <rect x="36" y="36" width="1368" height="918" rx="24" fill="none" stroke="#2a525d" stroke-width="1.5" stroke-dasharray="10 8" opacity="0.95"/>
+
+    <!-- Decorative Corner Kites & Accents -->
+    <!-- Top-Left Corner -->
+    <g transform="translate(68, 68)">
+      <use href="#mini-kite-night" transform="scale(1.4)"/>
+      <circle cx="28" cy="0" r="3.5" fill="#f59e0b" opacity="0.8"/>
+      <circle cx="0" cy="28" r="3.5" fill="#2dd4bf" opacity="0.8"/>
+    </g>
+    <!-- Top-Right Corner -->
+    <g transform="translate(1372, 68)">
+      <use href="#mini-kite-night" transform="scale(1.4)"/>
+      <circle cx="-28" cy="0" r="3.5" fill="#f59e0b" opacity="0.8"/>
+      <circle cx="0" cy="28" r="3.5" fill="#2dd4bf" opacity="0.8"/>
+    </g>
+    <!-- Bottom-Left Corner -->
+    <g transform="translate(68, 922)">
+      <use href="#mini-kite-night" transform="scale(1.4)"/>
+      <circle cx="28" cy="0" r="3.5" fill="#2dd4bf" opacity="0.8"/>
+      <circle cx="0" cy="-28" r="3.5" fill="#f59e0b" opacity="0.8"/>
+    </g>
+    <!-- Bottom-Right Corner -->
+    <g transform="translate(1372, 922)">
+      <use href="#mini-kite-night" transform="scale(1.4)"/>
+      <circle cx="-28" cy="0" r="3.5" fill="#2dd4bf" opacity="0.8"/>
+      <circle cx="0" cy="-28" r="3.5" fill="#f59e0b" opacity="0.8"/>
+    </g>
+
+    <!-- Floating Playful Motifs Inside Frame -->
+    <use href="#sparkle-gold" x="180" y="210" opacity="0.75"/>
+    <use href="#sparkle-teal" x="1260" y="230" opacity="0.8"/>
+    <use href="#sparkle-gold" x="220" y="730" transform="scale(0.85)" opacity="0.7"/>
+    <use href="#sparkle-teal" x="1220" y="700" transform="scale(0.9)" opacity="0.8"/>
+    <circle cx="270" cy="470" r="4.5" fill="#f59e0b" opacity="0.6"/>
+    <circle cx="1170" cy="460" r="5" fill="#2dd4bf" opacity="0.6"/>
+
+    <!-- ==============================================
+         HEADER SECTION: Lexkite Brand Logo
+         ============================================== -->
+    <g transform="translate(720, 118)">
+      <!-- Logo Tile Container with 3D Ledge -->
+      <g filter="url(#pillShadowNight)">
+        <rect x="-140" y="-32" width="280" height="64" rx="32" fill="#0d1b1f" stroke="#25464f" stroke-width="2"/>
+      </g>
+      
+      <!-- Kite Graphic (Centered at x=-85) -->
+      <g transform="translate(-85, 0)">
+        <polygon points="0,-18 16,-2 0,-2" fill="url(#kiteTealGlow)"/>
+        <polygon points="16,-2 0,18 0,-2" fill="url(#kiteOrangeGlow)"/>
+        <polygon points="0,18 -16,-2 0,-2" fill="url(#kiteYellowGlow)"/>
+        <polygon points="-16,-2 0,-18 0,-2" fill="url(#kiteDeepTealGlow)"/>
+        <!-- Specular Glint -->
+        <circle cx="-3" cy="-6" r="3.5" fill="#ffffff" opacity="0.85"/>
+      </g>
+
+      <!-- Brand Typography (Luminous Crisp) -->
+      <text x="-56" y="8" font-size="28" font-weight="900" fill="#f0f7f8" letter-spacing="-0.5">Lexkite</text>
+      <circle cx="56" cy="-1" r="3.5" fill="#f59e0b"/>
+      <!-- Small caps label: IELTS PREP with strong, luminous ink (> 5:1 contrast) -->
+      <text x="68" y="6" font-size="14" font-weight="900" fill="#38e2cd" letter-spacing="1.4">IELTS PREP</text>
+    </g>
+
+    <!-- Top Badge Pill: "OFFICIAL MILESTONE" - Amber chip with deep brown-black text (#1c1003) -->
+    <g transform="translate(720, 205)">
+      <g filter="url(#pillShadowNight)">
+        <!-- Ledge -->
+        <rect x="-115" y="-13" width="230" height="34" rx="17" fill="#b45309"/>
+        <!-- Pill face: Vibrant gold/amber -->
+        <rect x="-115" y="-17" width="230" height="34" rx="17" fill="#f59e0b" stroke="#fcd34d" stroke-width="1.5"/>
+      </g>
+      <circle cx="-90" cy="0" r="4.5" fill="#1c1003"/>
+      <!-- Gold or amber chip carries deep brown-black text (#1c1003) for crisp readability -->
+      <text x="-76" y="5" font-size="12" font-weight="900" fill="#1c1003" letter-spacing="1.8">OFFICIAL MILESTONE</text>
+    </g>
+
+    <!-- Header Title: "Certificate of completion" (Crisp bright white) -->
+    <text x="720" y="285" text-anchor="middle" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="-1">Certificate of completion</text>
+
+    <!-- Subtitle / Intro Text (Strengthened ink > 5:1) -->
+    <text x="720" y="336" text-anchor="middle" font-size="20" font-weight="800" fill="#c3e1e6" letter-spacing="0.5">Proudly awarded to</text>
+
+    <!-- ==============================================
+         LEARNER NAME SECTION: Big "Minh Anh"
+         ============================================== -->
+    <g transform="translate(720, 420)">
+      <!-- Name Ribbon Accent Glow/Underline -->
+      <path d="M -340 0 Q 0 -12 340 0" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.85" filter="url(#goldGlow)"/>
+      
+      <!-- Big Bold Learner Name (Pure Crisp White) -->
+      <text x="0" y="-12" text-anchor="middle" font-size="64" font-weight="900" fill="#ffffff" letter-spacing="-1.5">Minh Anh</text>
+      
+      <!-- Tactile Star Accents flanking name -->
+      <use href="#sparkle-gold" x="-260" y="-34" transform="scale(1.2)" filter="url(#goldGlow)"/>
+      <use href="#sparkle-gold" x="260" y="-34" transform="scale(1.2)" filter="url(#goldGlow)"/>
+    </g>
+
+    <!-- "has completed" Tag (Tactile Chip with Strong Luminous Ink > 6:1) -->
+    <g transform="translate(720, 478)">
+      <rect x="-82" y="-13" width="164" height="32" rx="16" fill="#04201c"/>
+      <rect x="-82" y="-16" width="164" height="32" rx="16" fill="#0d463f" stroke="#2dd4bf" stroke-width="1.8"/>
+      <!-- Small caps / subtag label 'has completed' with strong, vibrant mint text -->
+      <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="900" fill="#6df6e2" letter-spacing="0.5">has completed</text>
+    </g>
+
+    <!-- ==============================================
+         COURSE NAME CARD: "IELTS Foundation — 30 lessons"
+         ============================================== -->
+    <g transform="translate(720, 560)">
+      <!-- Tactile Card Container with Ledge in dark teal -->
+      <g filter="url(#nightCardShadow)">
+        <!-- 3D bottom ledge -->
+        <rect x="-370" y="-38" width="740" height="88" rx="28" fill="#071316"/>
+        <!-- Face -->
+        <rect x="-370" y="-44" width="740" height="88" rx="28" fill="url(#courseCardSurface)" stroke="#274851" stroke-width="2"/>
+      </g>
+      
+      <!-- Decorative Icon Left: Open Book / Trophy Tile -->
+      <g transform="translate(-320, 0)">
+        <rect x="-24" y="-21" width="48" height="48" rx="14" fill="#09181b"/>
+        <rect x="-24" y="-24" width="48" height="48" rx="14" fill="#2d2208" stroke="#f59e0b" stroke-width="1.8"/>
+        <path d="M -12 -8 L 0 -12 L 12 -8 L 12 8 L 0 4 L -12 8 Z" fill="#f59e0b"/>
+        <line x1="0" y1="-12" x2="0" y2="4" stroke="#fef08a" stroke-width="2"/>
+      </g>
+
+      <!-- Course Title Text (Crisp Luminous Light Neutrals) -->
+      <text x="-270" y="7" text-anchor="start" font-size="28" font-weight="900" fill="#f0f7f8" letter-spacing="-0.5">IELTS Foundation — 30 lessons</text>
+
+      <!-- Badge Right: "100% PASS" Pill -->
+      <g transform="translate(268, 0)">
+        <rect x="-65" y="-15" width="130" height="36" rx="18" fill="#04201c"/>
+        <rect x="-65" y="-18" width="130" height="36" rx="18" fill="#0d4d44" stroke="#2dd4bf" stroke-width="1.8"/>
+        <circle cx="-45" cy="0" r="5" fill="#2dd4bf"/>
+        <path d="M -48 0 L -46 2 L -42 -2" fill="none" stroke="#092823" stroke-width="2" stroke-linecap="round"/>
+        <text x="-32" y="5" font-size="13" font-weight="900" fill="#5eead4" letter-spacing="0.4">100% PASS</text>
+      </g>
+    </g>
+
+    <!-- ==============================================
+         CENTRAL GLOSSY GOLD MEDALLION SEAL WITH RIBBONS
+         ============================================== -->
+    <g transform="translate(720, 715)">
+      <!-- Ribbon Tails Hanging Down Behind Seal -->
+      <!-- Left Ribbon Tail -->
+      <g filter="url(#medallionShadowNight)">
+        <path d="M -22 30 L -48 115 L -26 95 L -4 115 L -2 30 Z" fill="url(#ribbonLeftNight)" stroke="#78350f" stroke-width="2"/>
+      </g>
+      <!-- Right Ribbon Tail -->
+      <g filter="url(#medallionShadowNight)">
+        <path d="M 2 30 L 4 115 L 26 95 L 48 115 L 22 30 Z" fill="url(#ribbonRightNight)" stroke="#78350f" stroke-width="2"/>
+      </g>
+
+      <!-- Medallion Outer Scallop & Sunburst -->
+      <g filter="url(#medallionShadowNight)">
+        <!-- Outer Depth Ledge -->
+        <circle cx="0" cy="6" r="66" fill="#050e10"/>
+        <!-- Scalloped Sunburst Backing -->
+        <circle cx="0" cy="0" r="66" fill="#78350f"/>
+        <circle cx="0" cy="0" r="64" fill="url(#goldOuterRingNight)"/>
+        
+        <!-- Scallop details: 16 decorative gold pearls -->
+        <g fill="#fef08a" stroke="#b45309" stroke-width="1">
+          <circle cx="0" cy="-56" r="4"/>
+          <circle cx="21" cy="-52" r="4"/>
+          <circle cx="39" cy="-39" r="4"/>
+          <circle cx="52" cy="-21" r="4"/>
+          <circle cx="56" cy="0" r="4"/>
+          <circle cx="52" cy="21" r="4"/>
+          <circle cx="39" cy="39" r="4"/>
+          <circle cx="21" cy="52" r="4"/>
+          <circle cx="0" cy="56" r="4"/>
+          <circle cx="-21" cy="52" r="4"/>
+          <circle cx="-39" cy="39" r="4"/>
+          <circle cx="-52" cy="21" r="4"/>
+          <circle cx="-56" cy="0" r="4"/>
+          <circle cx="-52" cy="-21" r="4"/>
+          <circle cx="-39" cy="-39" r="4"/>
+          <circle cx="-21" cy="-52" r="4"/>
+        </g>
+
+        <!-- Medallion Rim Layer -->
+        <circle cx="0" cy="0" r="48" fill="#92400e"/>
+        <circle cx="0" cy="0" r="45" fill="url(#goldCoreNight)" stroke="#ffffff" stroke-width="2"/>
+
+        <!-- Glossy Specular Crescent Reflection (Top Edge) -->
+        <path d="M -34 -14 A 38 38 0 0 1 34 -14 A 36 28 0 0 0 -34 -14 Z" fill="#ffffff" opacity="0.75"/>
+
+        <!-- Seal Emboss Icon: 3D Laurel & Big Star -->
+        <polygon points="0,-22 6,-8 21,-7 10,4 14,19 0,10 -14,19 -10,4 -21,-7 -6,-8" fill="#78350f"/>
+        <polygon points="0,-24 5,-10 20,-9 9,3 13,17 0,9 -13,17 -9,3 -20,-9 -5,-10" fill="#f59e0b"/>
+        <!-- Star highlight -->
+        <circle cx="-2" cy="-8" r="4" fill="#fffbeb" opacity="0.9"/>
+      </g>
+
+      <!-- Seal Arc Text / Caption (Crisp, High Contrast Gold) -->
+      <text x="0" y="60" text-anchor="middle" font-size="11" font-weight="900" fill="#fef08a" letter-spacing="1.5">VERIFIED EXCELLENCE</text>
+    </g>
+
+    <!-- ==============================================
+         BOTTOM SECTION: Verification, Date & QR Code
+         ============================================== -->
+    <!-- Left Metadata Panel: Date & Verify Code -->
+    <g transform="translate(180, 840)">
+      <!-- Date Block -->
+      <g transform="translate(0, 0)">
+        <!-- DATE OF ISSUANCE label: Strong crisp ink > 5:1 contrast -->
+        <text x="0" y="0" font-size="12" font-weight="900" fill="#c3e1e6" letter-spacing="1.4">DATE OF ISSUANCE</text>
+        <text x="0" y="26" font-size="20" font-weight="900" fill="#f0f7f8">October 24, 2024</text>
+      </g>
+
+      <!-- Verify Code Block -->
+      <g transform="translate(240, 0)">
+        <!-- VERIFY CODE label: Strong crisp ink > 5:1 contrast -->
+        <text x="0" y="0" font-size="12" font-weight="900" fill="#c3e1e6" letter-spacing="1.4">VERIFY CODE</text>
+        
+        <!-- Tactile chip container in dark teal with vibrant text -->
+        <g transform="translate(0, 8)">
+          <rect x="-8" y="0" width="170" height="28" rx="8" fill="#061114"/>
+          <rect x="-8" y="-3" width="170" height="28" rx="8" fill="#12252a" stroke="#2dd4bf" stroke-width="1.8"/>
+          <text x="12" y="16" font-size="15" font-weight="900" fill="#38e2cd" letter-spacing="1">LXK-9842-FDN</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Right Corner: Authentic Tactile QR Code Box (Tactile Night) -->
+    <g transform="translate(1220, 805)">
+      <!-- Outer Card with tactile ledge -->
+      <g filter="url(#pillShadowNight)">
+        <rect x="-85" y="-11" width="170" height="110" rx="18" fill="#061114"/>
+        <rect x="-85" y="-15" width="170" height="110" rx="18" fill="#12252a" stroke="#25464f" stroke-width="2"/>
+      </g>
+      
+      <!-- QR Graphic Placeholder (Glowing Mint & Amber on Dark) -->
+      <g transform="translate(-70, 0)">
+        <!-- Top-Left Finder -->
+        <rect x="0" y="0" width="24" height="24" rx="4" fill="none" stroke="#2dd4bf" stroke-width="3"/>
+        <rect x="6" y="6" width="12" height="12" rx="2" fill="#2dd4bf"/>
+        
+        <!-- Top-Right Finder -->
+        <rect x="44" y="0" width="24" height="24" rx="4" fill="none" stroke="#2dd4bf" stroke-width="3"/>
+        <rect x="50" y="6" width="12" height="12" rx="2" fill="#2dd4bf"/>
+        
+        <!-- Bottom-Left Finder -->
+        <rect x="0" y="44" width="24" height="24" rx="4" fill="none" stroke="#2dd4bf" stroke-width="3"/>
+        <rect x="6" y="50" width="12" height="12" rx="2" fill="#2dd4bf"/>
+        
+        <!-- QR Bits -->
+        <rect x="30" y="4" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="30" y="14" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="30" y="32" width="8" height="8" rx="1.5" fill="#f59e0b"/>
+        <rect x="12" y="30" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="44" y="32" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="54" y="32" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="32" y="48" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="44" y="48" width="8" height="8" rx="1.5" fill="#2dd4bf"/>
+        <rect x="58" y="56" width="6" height="6" fill="#2dd4bf"/>
+        <rect x="44" y="60" width="6" height="6" fill="#f59e0b"/>
+      </g>
+
+      <!-- Label next to QR code (Crisp Mint & Neutral) -->
+      <g transform="translate(10, 20)">
+        <text x="0" y="0" font-size="11" font-weight="900" fill="#2dd4bf" letter-spacing="0.5">SCAN TO</text>
+        <text x="0" y="14" font-size="11" font-weight="900" fill="#2dd4bf" letter-spacing="0.5">VERIFY</text>
+        <text x="0" y="30" font-size="10" font-weight="800" fill="#c3e1e6">lexkite.com</text>
+      </g>
+    </g>
+
+    <!-- Bottom Center Footnote / Sign-off: Strengthened ink for clear readability (> 4.8:1) -->
+    <g transform="translate(720, 935)">
+      <text x="0" y="0" text-anchor="middle" font-size="12" font-weight="900" fill="#9ec4cb" letter-spacing="1.2">LEXKITE GAMIFIED LANGUAGE LEARNING • ACCREDITED SELF-STUDY</text>
+    </g>
+  </g>
+</svg></body></html>

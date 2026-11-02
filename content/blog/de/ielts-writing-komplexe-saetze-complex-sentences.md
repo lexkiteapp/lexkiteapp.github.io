@@ -33,6 +33,7 @@ quiz: [
     explain: "Band 7 verlangt den flexiblen Einsatz verschiedener komplexer Satzbaumuster bei guter Kontrolle, ohne dass der Text gekünstelt wirkt."
   }
 ]
+publishAt: 2026-11-28T09:33:00+01:00
 ---
 Wer die offiziellen IELTS Band Descriptors für das Schreibkriterium **Grammatical Range and Accuracy** liest, stößt bei Band 7 auf eine klare Vorgabe: *„Uses a variety of complex structures with good flexibility and control; frequently produces error-free sentences.“*
 
