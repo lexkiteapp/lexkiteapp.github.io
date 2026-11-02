@@ -212,7 +212,8 @@ jobs:
         with: { name: 'tv-bank-${{ github.run_id }}', path: 'bank/', retention-days: 90, if-no-files-found: ignore }   # banked videos (phone 9:16, embed 16:9, poster)
       - name: bank.json + BANK.md -> main (batch on main only; regenerated on the newest main – scripts/ci/commit-regen.sh)
         if: always() && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
-        run: bash scripts/ci/commit-regen.sh "teach-video: bank ${{ github.run_id }} [CF-Pages-Skip] [skip ci]" "python3 scripts/video/teach2d/bank.py merge $RUNNER_TEMP/bank-delta.json" content/video/teach2d/bank.json content/video/teach2d/BANK.md
+        run: |
+          bash scripts/ci/commit-regen.sh "teach-video: bank ${{ github.run_id }} [CF-Pages-Skip] [skip ci]" "python3 scripts/video/teach2d/bank.py merge $RUNNER_TEMP/bank-delta.json" content/video/teach2d/bank.json content/video/teach2d/BANK.md
       - name: Review sheet + score table (red when any episode < 90 or a gate fails, or nothing rendered)
         if: always()
         env: { LIST: '${{ needs.preqc.outputs.list }}' }
