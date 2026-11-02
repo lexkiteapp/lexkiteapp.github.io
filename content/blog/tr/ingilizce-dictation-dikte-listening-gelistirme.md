@@ -33,6 +33,7 @@ quiz: [
     explain: "Vurgu zamanlı bir dil olan İngilizce, cümlenin ana anlamını taşımayan gramer kelimelerini aşırı derecede sıkıştırır ve zayıflatır."
   }
 ]
+publishAt: 2026-11-23T08:01:00+03:00
 ---
 İngilizce film izlerken altyazıları açtığınızda her şeyi mükemmel anladığınızı, fakat altyazıyı kapattığınız anda konuşmaların aniden anlaşılmaz bir ses yığınına dönüştüğünü fark ettiniz mi?
 

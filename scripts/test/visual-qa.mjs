@@ -4,6 +4,7 @@
 // Dùng: node scripts/test/visual-qa.mjs <base> <thư-mục-ra>  → report.md + report.json + shots/ (ảnh cắt cho nhóm lỗi đầu bảng)
 // Ngưỡng chống lùi: scripts/test/visual-qa.budget.json (số nhóm lỗi tối đa theo loại; vượt → exit 1).
 import { chromium } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 import fs from 'fs';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -156,6 +157,7 @@ const STILL = '*,*::before,*::after{animation:none!important;transition:none!imp
 async function openCombo(browser, c) {
   const vp = VPS[c.v];
   const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, colorScheme: c.s, locale: c.l, reducedMotion: 'reduce' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage();
   page.on('pageerror', e => errs.push(`${tagOf(c)}: ${String(e.message).slice(0, 120)}`));
   await page.goto(`${BASE}/app/?sandbox=1&hl=${c.l}#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});

@@ -257,6 +257,40 @@
     "ans_say": "I will pay for you.",
     "quote": "It's my treat today!"
    }
+  },
+  {
+   "id": "t2_react_calmdown",
+   "template": "react",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 5,
+   "in": {
+    "series": "disagree",
+    "key": "calm down"
+   }
+  },
+  {
+   "id": "t2_react_lookintoit",
+   "template": "react",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 5,
+   "in": {
+    "series": "office",
+    "key": "I'll look into it"
+   }
+  },
+  {
+   "id": "t2_react_overthemoon",
+   "template": "react",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 1,
+   "in": {
+    "series": "not-fine",
+    "key": "over the moon",
+    "hook": "Passed your driving test"
+   }
   }
  ]
 }

@@ -6,7 +6,7 @@ on:
     inputs:
       part: { description: 'Phần: all | static | landing | legal | app | admin | blog | ext', required: false, default: 'all' }
   pull_request:
-    paths: ['web/css/**', 'web/js/**', 'web/**/*.html', 'extension/**/*.css', 'extension/**/*.html', 'scripts/test/font-audit.mjs', 'scripts/build-blog.mjs', 'scripts/lib/site-layout.mjs', '.github/workflows/font-audit.yml']
+    paths: ['web/css/**', 'web/js/**', 'web/**/*.html', 'extension/**/*.css', 'extension/**/*.html', 'scripts/test/font-audit.mjs', 'scripts/lib/qa-classify.mjs', 'scripts/build-blog.mjs', 'scripts/lib/site-layout.mjs', '.github/workflows/font-audit.yml']
   schedule:
     - cron: '20 2 * * 1'   # thứ Hai 09:20 giờ Việt Nam
 permissions:
