@@ -447,6 +447,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "I missed my flight. What ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " my options?",
+      "white"
+     ]
+    ]
+   ],
    "a": "is",
    "b": "are",
    "correct": "b",

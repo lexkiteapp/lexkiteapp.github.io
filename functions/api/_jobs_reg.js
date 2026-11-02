@@ -1064,6 +1064,20 @@ export const REG = {
     "d1_main_writes": 120
    },
    "lease": false
+  },
+  {
+   "id": "upgrade-audit",
+   "workflow": "upgrade-audit.yml",
+   "cron": [
+    "0 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
   }
  ]
 };
