@@ -97,31 +97,32 @@
 <!-- Mobile phone viewport container 390px wide -->
 <div class="w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-[84px] shadow-2xl overflow-x-hidden">
 <!-- 1. TOP BAR 56px: HUB VARIANT (Lexkite Kit Tactile Night) -->
-<header class="h-[56px] px-4 flex items-center justify-between border-b-2 border-[#102226] bg-[#091518] sticky top-0 z-40">
-<!-- Logo + Wordmark on the left -->
-<div class="flex items-center gap-2">
-<!-- Lexkite Teal Logo Mark -->
-<div class="w-8 h-8 rounded-xl bg-[#163a3f] border border-[#2dd4bf]/40 flex items-center justify-center text-[#2dd4bf] shadow-[0_2px_0_0_#060d0f]">
-<svg class="w-5 h-5 text-[#2dd4bf]" fill="currentColor" viewbox="0 0 24 24">
-<path d="M12 2L4 12l8 4 8-4-8-10zm0 18l-4-2 4-2 4 2-4 2z"></path>
-</svg>
+<header class="sticky top-0 z-40 w-full h-[56px] bg-[#0d191c] border-b-2 border-[#1f383f] flex items-center justify-between px-4 shadow-[0_4px_0_0_#051013]">
+<!-- Brand Left -->
+<div class="flex items-center gap-1">
+<div class="w-8 h-8 rounded-2xl bg-[#12423e] flex items-center justify-center text-[#6bd8ce] border border-[#2ba39a]/40 shadow-[0_2px_0_0_#061a18]">
+<span class="material-symbols-outlined text-[20px]" data-icon="kitesurfing">kitesurfing</span>
 </div>
-<span class="text-[19px] font-extrabold tracking-tight text-[#2dd4bf]">Lexkite</span>
+<span class="text-[20px] leading-7 font-['Plus_Jakarta_Sans'] font-extrabold text-[#6bd8ce] tracking-tight">Lexkite</span>
 </div>
-<!-- Right stats chips: IELTS chip, streak flame pill, star XP pill, avatar 'L' -->
-<div class="flex items-center gap-1.5">
-<span class="px-2.5 py-1 bg-[#10272c] text-[#6bd8ce] text-xs font-bold rounded-full border border-[#2dd4bf]/30">
+<!-- Hub Status Indicators Right -->
+<div class="flex items-center gap-1">
+<!-- Exam Badge -->
+<span class="text-[12px] leading-4 tracking-[0.04em] font-['Plus_Jakarta_Sans'] bg-[#102a2d] text-[#6bd8ce] px-2 py-0.5 rounded-full border border-[#1f4a4c]">
           IELTS
         </span>
-<div class="flex items-center gap-1 px-2 py-1 bg-[#28170c] text-[#fb923c] text-xs font-bold rounded-full border border-[#ea580c]/40">
-<span class="text-xs leading-none drop-shadow-[0_0_4px_rgba(249,115,22,0.6)]">🔥</span>
-<span>14</span>
+<!-- Flame Streak Pill -->
+<div class="flex items-center gap-1 bg-[#2b2212] px-2 py-0.5 rounded-full border border-[#4d381c] shadow-[0_2px_0_0_#140f06]">
+<span class="material-symbols-outlined text-[#ff9800] text-[16px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[12px] leading-4 tracking-[0.04em] font-['Plus_Jakarta_Sans'] text-[#ffd699] font-extrabold">14</span>
 </div>
-<div class="flex items-center gap-1 px-2 py-1 bg-[#292209] text-[#facc15] text-xs font-bold rounded-full border border-[#eab308]/40">
-<span class="text-xs leading-none drop-shadow-[0_0_4px_rgba(234,179,8,0.6)]">⭐</span>
-<span>820</span>
+<!-- Star XP Pill -->
+<div class="flex items-center gap-1 bg-[#2b2512] px-2 py-0.5 rounded-full border border-[#4d4019] shadow-[0_2px_0_0_#141106]">
+<span class="material-symbols-outlined text-[#f4bf40] text-[16px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[12px] leading-4 tracking-[0.04em] font-['Plus_Jakarta_Sans'] text-[#ffdf9e] font-extrabold">820</span>
 </div>
-<div class="w-7 h-7 rounded-full bg-[#133036] text-[#2dd4bf] flex items-center justify-center text-xs font-bold border border-[#2dd4bf]/40 shadow-[0_1px_0_0_#060d0f]">
+<!-- Round Avatar -->
+<div class="w-7 h-7 rounded-full bg-[#184e49] text-[#6bd8ce] flex items-center justify-center font-bold text-[12px] leading-4 tracking-[0.04em] border-2 border-[#206760] shadow-[0_2px_0_0_#051013]">
           L
         </div>
 </div>
@@ -217,34 +218,42 @@
 </div>
 </main>
 <!-- 3. BOTTOM TAB BAR 64px (CANONICAL LEXKITE 5 TABS - TACTILE NIGHT) -->
-<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-[#061114] border-t-2 border-[#1d383e] flex items-center justify-around px-2 z-50 shadow-[0_-4px_16px_rgba(0,0,0,0.5)]">
-<!-- 1. Today (ACTIVE: glowing teal pill, bright teal icon, bold teal label) -->
-<button class="flex flex-col items-center justify-center py-1 px-3 rounded-full bg-[#122e33] border border-[#2dd4bf]/30 transition-all">
-<span class="material-symbols-outlined text-[23px] text-[#2dd4bf]">home</span>
-<span class="text-[11px] font-extrabold text-[#2dd4bf] leading-tight">Today</span>
-</button>
-<!-- 2. Vocab (INACTIVE: slate text + red due badge) -->
-<button class="flex flex-col items-center justify-center py-1 px-2.5 transition-all relative">
-<div class="relative">
-<span class="material-symbols-outlined text-[23px] text-[#9db2b6]">menu_book</span>
-<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-[#f43f5e] shadow-[0_0_5px_rgba(244,63,94,0.7)]"></span>
+<nav class="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto h-16 bg-[#0b171a] border-t-2 border-[#1f383f] shadow-[0_-4px_0_0_#051013] z-50 flex items-center justify-around">
+<!-- Tab 1: Today (Active) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform">
+<div class="w-14 h-8 rounded-full bg-[#14383a] border border-[#1f5054] text-[#38d6c8] flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
 </div>
-<span class="text-[11px] font-bold text-[#9db2b6] leading-tight">Vocab</span>
+<span class="font-bold text-xs text-[#38d6c8] leading-tight">Today</span>
 </button>
-<!-- 3. Skills (INACTIVE: target icon, muted slate) -->
-<button class="flex flex-col items-center justify-center py-1 px-2.5 transition-all">
-<span class="material-symbols-outlined text-[23px] text-[#9db2b6]">target</span>
-<span class="text-[11px] font-bold text-[#9db2b6] leading-tight">Skills</span>
+<!-- Tab 2: Vocab (Inactive with red badge) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#a6c7c3]">
+<div class="relative flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#a6c7c3]" data-icon="menu_book">menu_book</span>
+<span class="absolute top-1 -right-1 w-2 h-2 rounded-full bg-[#ba1a1a] border-2 border-[#0b171a] ring-1 ring-[#ba1a1a]/50"></span>
+</div>
+<span class="font-medium text-xs text-[#a6c7c3] leading-tight">Vocab</span>
 </button>
-<!-- 4. Tests (INACTIVE: flag icon, muted slate) -->
-<button class="flex flex-col items-center justify-center py-1 px-2.5 transition-all">
-<span class="material-symbols-outlined text-[23px] text-[#9db2b6]">flag</span>
-<span class="text-[11px] font-bold text-[#9db2b6] leading-tight">Tests</span>
+<!-- Tab 3: Skills (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#a6c7c3]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#a6c7c3]" data-icon="track_changes">track_changes</span>
+</div>
+<span class="font-medium text-xs text-[#a6c7c3] leading-tight">Skills</span>
 </button>
-<!-- 5. Me (INACTIVE: person icon, muted slate) -->
-<button class="flex flex-col items-center justify-center py-1 px-2.5 transition-all">
-<span class="material-symbols-outlined text-[23px] text-[#9db2b6]">person</span>
-<span class="text-[11px] font-bold text-[#9db2b6] leading-tight">Me</span>
+<!-- Tab 4: Tests (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#a6c7c3]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#a6c7c3]" data-icon="flag">flag</span>
+</div>
+<span class="font-medium text-xs text-[#a6c7c3] leading-tight">Tests</span>
+</button>
+<!-- Tab 5: Me (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#a6c7c3]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#a6c7c3]" data-icon="person">person</span>
+</div>
+<span class="font-medium text-xs text-[#a6c7c3] leading-tight">Me</span>
 </button>
 </nav>
 </div>
