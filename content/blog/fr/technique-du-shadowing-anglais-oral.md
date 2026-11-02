@@ -59,6 +59,7 @@ quiz: [
     explain: "On écoute un extrait court de 30 à 60 secondes, une ou deux fois, pour saisir le sens global et le tempo avant toute répétition."
   }
 ]
+publishAt: 2026-12-06T07:12:00+01:00
 ---
 
 Maîtriser la **technique du shadowing anglais** est l'une des démarches les plus recommandées par les linguistes et les interprètes pour transformer un savoir théorique passif en une élocution orale dynamique, fluide et spontanée. De nombreux apprenants francophones font le même constat : ils comprennent sans difficulté des séries en version originale ou des articles de presse, mais se retrouvent bloqués lorsqu'il s'agit de s'exprimer dans une conversation réelle. La technique de l'ombrage vocal (*shadowing*) a été précisément conçue pour combler cet écart en automatisant les réflexes de la parole.

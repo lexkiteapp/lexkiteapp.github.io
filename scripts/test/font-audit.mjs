@@ -6,6 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import http from 'http';
+import { srOnlyHidden } from '../lib/qa-classify.mjs';
 
 const args = process.argv.slice(2);
 const PART = args.find((a, i) => !a.startsWith('--') && args[i - 1] !== '--base') || 'all';
@@ -74,7 +75,7 @@ const PARTS = {
 };
 
 // ---------- Kiểm trong trang ----------
-function inPage() {
+function inPage(srOnlyHidden) {   // srOnlyHidden: scripts/lib/qa-classify.mjs (truyền vào vì hàm chạy trong trang)
   const issues = [], stacks = {};
   const MONO_TAGS = new Set(['CODE', 'KBD', 'PRE', 'SAMP', 'TT']);
   const CTRL = new Set(['BUTTON', 'INPUT', 'SELECT', 'TEXTAREA']);
@@ -87,7 +88,7 @@ function inPage() {
   for (const f of document.fonts) if (f.status === 'loaded') { const k = f.family.replace(/["']/g, ''); const o = faces[k] || (faces[k] = { w: new Set(), it: false }); const [a, b] = String(f.weight).split(' ').map(Number); for (let w = a; w <= (b || a); w += 100) o.w.add(w); if (f.style !== 'normal') o.it = true; }
   const WEB = ['Be Vietnam Pro', 'Inter', 'Charis SIL'];
   const declared = new Set();
-  const visible = (el, cs) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && +cs.opacity > 0; };
+  const visible = (el, cs) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && +cs.opacity > 0 && !srOnlyHidden(cs, r); };   // .sr-only đúng chuẩn (1px + clip) = chữ cho trình đọc màn hình, mắt không thấy
   for (const el of document.querySelectorAll('body *')) {
     const isSvgText = el instanceof SVGTextContentElement && el.tagName === 'text';
     const own = [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());
@@ -143,7 +144,7 @@ async function browserScan(part, base) {
         await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
         await page.waitForTimeout(part === 'app' ? 900 : 300);
         await page.evaluate(() => document.fonts.ready);
-        Object.assign(r, await page.evaluate(inPage));
+        Object.assign(r, await page.evaluate(`(${inPage})(${srOnlyHidden})`));
         const shot = `${OUT}/${part}-${vp.name}-${url.replace(/^\w+:\/\/[^/]+/, '').replace(/[^\w]+/g, '_').slice(0, 60) || 'root'}.jpg`;
         await page.screenshot({ path: shot, type: 'jpeg', quality: 55 });
       } catch (e) { r.error = String(e.message || e).slice(0, 160); }

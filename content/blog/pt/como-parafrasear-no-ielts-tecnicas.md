@@ -48,6 +48,7 @@ quiz: [
     explain: "Parafrasear a proposta é apenas o primeiro passo; o texto indica que a introdução deve obrigatoriamente terminar com a tomada de posição (Thesis Statement)."
   }
 ]
+publishAt: 2026-12-16T19:34:00-03:00
 ---
 
 Dominar com perfeição **como parafrasear no ielts** é o divisor de águas entre estagnar na nota 6.5 e alcançar com segurança as faixas Band 7.5 a 8.5. No **IELTS Writing Task 2**, copiar o enunciado da prova na introdução é expressamente penalizado: os avaliadores simplesmente descontam as palavras repetidas da contagem total do texto. Desde a primeira linha da redação, sua autonomia vocabular e capacidade de reformulação são rigorosamente avaliadas.

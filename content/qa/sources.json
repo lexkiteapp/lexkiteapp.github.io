@@ -191,6 +191,21 @@
    ]
   },
   {
+   "id": "exam-spec",
+   "paths": [
+    "content/exams"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs"
+   ]
+  },
+  {
    "id": "writing",
    "paths": [
     "web/js/write"

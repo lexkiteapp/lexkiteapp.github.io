@@ -10,6 +10,7 @@ on:
     - cron: '20 3 * * 1'   # thứ Hai 10:20 giờ Việt Nam
 permissions:
   contents: read
+concurrency: { group: visual-qa, cancel-in-progress: false }   # ci-filler cần (infra/ci-backlog.json)
 jobs:
   vqa:
     runs-on: ubuntu-latest
