@@ -36,7 +36,7 @@
 - **Cache Rules miễn phí cho tĩnh**: có ích khi gốc **không** phải Worker (vd. CNAME proxied tới GitHub Pages + Cache Rule "Eligible for cache, Edge TTL 1 năm") → lượt lặp = 0 lượt Worker. Với route đã có Worker thì Worker chạy trước cache, Cache Rule không cứu được lượt.
 
 ## R2 – media/audio tĩnh và chốt $0 (02/11/2026)
-- **Hiện tại** (dry run cdn-mirror 02/11): **2,26 GB / 100.796 tệp** = media 932 MB / 32.792 tệp (blog, library, vimg m4+m1, video wv-*) + audio 1.330 MB / 68.004 tệp. Free: 10 GB · 1 triệu Class A · 10 triệu Class B / tháng.
+- **Hiện tại** (lượt chép đầu 02/11 10:00Z): **2,28 GB / 101.305 tệp** = media 932 MB / 32.792 tệp (blog, library, vimg m4+m1, video wv-*) + audio 1.344 MB / 68.513 tệp. Free: 10 GB · 1 triệu Class A · 10 triệu Class B / tháng.
 - **Tăng ước tính**: audio/l tăng 24.490 tệp ≈ 0,6 GB trong 9 ngày (24/10→02/11, chủ yếu backfill giọng câu) → **≈ 2 GB/tháng khi còn backfill** (chạm 80 % ≈ 3 tháng); ổn định ≈ 0,3 GB/tháng (vimg tới ~240 MB, video web ~50 MB/tháng, giọng từ mở rộng). Class A: lượt chép đầu ~100k PUT (10 %), sau đó vài nghìn/tháng. Class B: lượt trúng cache biên (Cache Rule immutable 1 năm) = 0; chỉ lượt trượt cache tính.
 - **Chốt $0** (free-tier guard mỗi giờ, `scripts/free-tier/intraday.mjs` `r2Gate`): % = lớn nhất của dung lượng / Class A / Class B (từ đầu tháng). **≥ 80 %** → issue `free-tier`. **≥ 90 %** → `cutover.mjs rollbackAll` (media + audio về Worker, nguồn GitHub) + `web/free-tier-state.json` `r2: "frozen"` → `cdn-mirror` không ghi, `media-store` lùi về repo GitHub. Không tự gỡ; gỡ tay (đầu tháng mới hoặc sau khi dọn): xoá trường `r2` rồi `cdn-mirror.yml` action `switch`. Test: `scripts/test/free-tier.mjs` (2,3 / 8,2 / 9,1 GB, Class A 80 %, Class B 9,5 triệu).
 

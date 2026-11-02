@@ -8,6 +8,7 @@
 // Token: CLOUDFLARE_API_TOKEN hoặc ~/.config/lexkite/cf-token – quyền: Workers R2 Storage Edit, Workers Scripts Edit,
 // Zone lexkite.com: Cache Rules Edit, Transform Rules Edit, DNS Edit. Không in token.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import { isMain } from '../lib/is-main.mjs';
 import { hosts, ACCOUNT, ZONE, typeFor, cacheFor } from './hosts.mjs';
 
 export const REF = 'lexkite_cdn_';
@@ -126,7 +127,7 @@ async function verify(name, h) {
   if (bad) process.exitCode = 1;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMain(import.meta.url)) { // so realpath: /tmp ↔ /private/tmp (02/11: so chuỗi → khối main không chạy, switch im lặng 'thành công')
   const [cmd] = process.argv.slice(2), i = process.argv.indexOf('--host'), name = i > 0 ? process.argv[i + 1] : '';
   const h = HOSTS[name];
   if (!['prepare', 'check'].includes(cmd) && !h) { console.error('dùng: check | prepare | switch|verify|rollback --host media|audio'); process.exit(2); }
