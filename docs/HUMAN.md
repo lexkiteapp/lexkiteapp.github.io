@@ -23,7 +23,7 @@ Không thêm quyền add-on mới (iframe trong trang add-on + `storage` sẵn c
 ## Biến môi trường (Cloudflare Pages → lexkite → Settings → Variables)
 - `TURNSTILE_SECRET_KEY` (đã có): bật cổng người thật cho contact/report ngay khi deploy; khóa ký vé dẫn xuất từ nó.
 - `HUMAN_TICKET_KEY` (tùy chọn, ≥ 32 ký tự ngẫu nhiên): khóa ký vé riêng – đặt nếu muốn xoay khóa vé độc lập với Turnstile.
-- `AI_HUMAN_ENFORCE` (mặc định chưa đặt = tắt): `1` → khách /api/ai không vé bị 403 `{ error: 'human' }` (máy khách mới tự xác minh rồi thử lại; add-on hiện "Mở Lexkite một lần để xác minh"). Khi tắt: khách không vé vẫn chạy nhưng **½ hạn mức ngày** (`_quota.js` `lowTrust`), có vé thì đủ.
+- `AI_HUMAN_ENFORCE` (mặc định chưa đặt = tắt): `1` → khách /api/ai không vé bị 403 `{ error: 'human' }` (máy khách mới tự xác minh rồi thử lại; add-on hiện "Mở Lexkite một lần để xác minh"). Khi tắt: khách không vé vẫn chạy nhưng **½ hạn mức ngày** (`_quota.js` `lowTrust`), có vé thì đủ. Cùng cờ này cho `/api/contact` + `/api/report`: Origin web (lexkite.com, *.lexkite.pages.dev) thiếu token/vé luôn 403; add-on/app gốc BẢN CŨ (Origin khác/không có) chỉ bị chặn khi cờ = `1` (`humanGate` `via:'legacy'`). Token sai → 403, siteverify lỗi → 503 luôn áp dụng.
 
 ## Khi nào bật `AI_HUMAN_ENFORCE=1`
 1. Bản web có `web/js/human.js` đã live ≥ 3 ngày (SW CACHE đã bump → người dùng nhận bản mới).

@@ -255,6 +255,10 @@ const shapeOk = j => JSON.stringify(Object.keys(j).sort()) === JSON.stringify([.
   const ct = (body, o = {}) => CT.onRequestPost({ request: req('/api/contact', body, { ip: freshIp(), ...o }), env: o.env || TS }).then(parse);
   const c0 = await ct(cbody());
   ok(c0.s === 403 && c0.j.error === 'human', 'contact: thiếu token/vé → 403');
+  const cx = o => ct(cbody(), { origin: 'chrome-extension://abcdefghijklmnopabcdefghijklmnop', ...o });
+  ok((await cx()).s === 200, 'contact: add-on/app BẢN CŨ (Origin không phải web) thiếu bằng chứng → vẫn gửi được khi cờ chưa bật (chuyển tiếp)');
+  ok((await cx({ env: { ...TS, AI_HUMAN_ENFORCE: '1' } })).s === 403, 'contact: cờ AI_HUMAN_ENFORCE=1 → add-on/app cũ thiếu bằng chứng → 403');
+  ok((await ct(cbody(), { origin: '' })).s === 200 && (await ct(cbody(), { origin: '', env: { ...TS, AI_HUMAN_ENFORCE: '1' } })).s === 403, 'contact: không Origin → như add-on cũ (theo cờ)');
   ok((await ct(cbody({ token: 'ts-wrong' }))).s === 403, 'contact: token sai → 403');
   tsMode = 'down'; const cd = await ct(cbody({ token: 'ts-good' }));
   ok(cd.s === 503 && cd.j.error === 'turnstile-unavailable', 'contact: siteverify lỗi mạng → 503 (fail closed, máy khách thử lại)');

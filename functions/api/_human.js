@@ -78,5 +78,10 @@ export async function humanGate(request, env, opt = {}) {
     if (v === 'ok') return { ok: true, via: 'turnstile' };
     return v === 'error' ? { ok: false, status: 503, error: 'turnstile-unavailable' } : { ok: false, status: 403, error: 'turnstile' };
   }
+  // Chuyển tiếp (02/11): add-on/app gốc BẢN CŨ chưa có web/js/human.js → không gửi được token/vé. Trang web luôn mới (sw.js) nên Origin web
+  // thiếu bằng chứng → chặn ngay; Origin khác (chrome-extension://, capacitor://, không Origin) chỉ chặn khi bật cờ chung AI_HUMAN_ENFORCE='1'
+  // (bật khi add-on mới lên CWS + app nhận OTA – docs/HUMAN.md). Origin giả được → đây là lớp chuyển tiếp, vẫn có hạn mức _quota.js + WAF RL.
+  if (!WEB_ORIGIN.test(request.headers.get('Origin') || '') && String(env.AI_HUMAN_ENFORCE || '') !== '1') return { ok: true, via: 'legacy' };
   return { ok: false, status: 403, error: 'human' };
 }
+const WEB_ORIGIN = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
