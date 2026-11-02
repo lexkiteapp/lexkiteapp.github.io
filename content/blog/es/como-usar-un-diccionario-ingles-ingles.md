@@ -33,6 +33,7 @@ quiz: [
     explain: "Las notas de colocación indican qué verbos, adjetivos y preposiciones acompañan naturalmente a cada palabra en el inglés real."
   }
 ]
+publishAt: 2026-11-22T12:27:00-06:00
 ---
 Al aprender un idioma, la tendencia natural de todo estudiante es buscar la traducción inmediata de cada palabra desconocida al español. Sin embargo, depender constantemente de un diccionario bilingüe crea un cuello de botella cognitivo invisible: tu cerebro traduce mentalmente antes de hablar, lo que genera pausas incómodas, combinaciones de palabras forzadas y construcciones que no suenan a inglés real. Aprender **cómo usar un diccionario inglés inglés** es el paso decisivo para empezar a pensar directamente en inglés y alcanzar una fluidez auténtica.
 

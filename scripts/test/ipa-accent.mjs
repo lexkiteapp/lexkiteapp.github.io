@@ -58,7 +58,7 @@ assert.equal(UI.audioFor({ audio: 'https://x/of-uk.mp3' }, 'en-US'), '', 'US kh�
 const src = f => fs.readFileSync(f, 'utf8');
 assert.match(src('web/js/study.js'), /UI\.pronHtml\(c\)/, 'thẻ học: 2 giọng');
 assert.doesNotMatch(src('web/js/study.js'), /speak\([cw]\.word, accent\(\), [cw]\.audio\)/, 'thẻ học phát bản ghi đúng giọng');
-assert.match(src('web/js/app.js'), /UI\.pronHtml\(e, \{ pills: true \}\)/, 'từ điển 2 giọng (viên riêng)');
+assert.match(src('web/js/dict-page.js'), /UI\.pronHtml\(e, \{ pills: true \}\)/, 'từ điển 2 giọng (viên riêng) – trang #/dict ở dict-page.js');
 assert.equal((UI.pronHtml({ word: 'water', ipa: '/ˈwɔːtə/', ipaUS: '/ˈwɔːtər/' }, { pills: true }).match(/^<span>|<\/span><span>/g) || []).length, 2, 'pills: 2 viên');
 for (const f of ['web/js/quick.js', 'web/js/reading.js', 'web/js/listening.js', 'web/js/phrases.js', 'web/js/handsfree.js']) assert.match(src(f), /UI\.ipaHtml\(/, f);
 assert.match(src('web/js/lesson/ui.js'), /UI\.pronHtml\(/, 'bài học 2 giọng');
@@ -92,4 +92,30 @@ assert.equal(ipaCount(UI.pronHtml({ word: 'of', ipa: '/ɒv/', ipaUS: '/ʌv/' }, 
 for (const h of [wt, cat, of]) { const urls = [...h.matchAll(/data-accent="([^"]+)"/g)].map(m => m[1]); assert.equal(new Set(urls).size, urls.length, 'không lặp loa cùng giọng'); }
 assert.equal(UI.pronHtml({ word: '' }), '');
 assert.equal(ipaCount(UI.pronHtml({ word: 'zzz' }), 'data-speak='), 2, 'chưa có IPA → vẫn 2 loa');
+
+// 6. Hồi quy dict-perf (đỏ từ 30/10): cổng "nhất quán" đọc IPA theo VỊ TRÍ (ipa[0]=UK, ipa[1]=US) nên khi US đứng trước (chưa chọn kỳ thi)
+//    báo "uk/us đảo" (record, went…) và cùng IPA → 1 IPA báo "us: undefined" (café, the…) dù kho đúng. Phải đọc theo NHÃN, mọi thứ tự.
+const { JSDOM } = await import('jsdom');
+const { readPron, READ_PRON_SRC } = await import('./pron-read.mjs');
+const dom = new JSDOM('<div class="pron"></div>'), pronEl = dom.window.document.querySelector('.pron');
+const SAMPLES = [
+  { word: 'record', ipa: '/ˈrekɔːd/', ipaUS: '/ˈrekərd/' }, { word: 'went', ipa: '/ɡəʊ/', ipaUS: '/ɡoʊ/' }, // 2 giọng khác
+  { word: 'café', ipa: '/ˈkæfeɪ/' }, { word: 'give up', ipa: '/ˈɡɪv ʌp/', ipaUS: '' }, { word: 'data', ipa: '/ˈdeɪtə/', ipaUS: '/ˈdeɪtə/' }, // cùng IPA → 1 IPA
+  { word: 'the', ipa: '/ðə/' }, { word: 'of', ipa: '/əv/', ipaUS: '/əv/', pos: 'prep' }, { word: 'her', ipa: '/hə/', ipaUS: '/hər/', pos: 'pron' } // hư từ (dạng mạnh không được tính)
+];
+for (const order of [['en-GB', 'en-US'], ['en-US', 'en-GB']]) for (const pills of [true, false]) for (const e of SAMPLES) {
+  pronEl.innerHTML = UI.pronHtml(e, { order, pills }) + '<span><b class="small">🐢 Chậm</b><button class="icon-btn sm">🔊</button></span>';
+  const shown = (p, a) => (UI.weakOf(e.word, p, a, e.pos) || {}).weak || p; // hư từ: IPA hiển thị là dạng yếu của giọng đó
+  const got = readPron(pronEl), want = { uk: shown(e.ipa, 'en-GB'), us: shown(e.ipaUS || e.ipa, 'en-US') };
+  assert.deepEqual({ ...got }, want, `readPron ${e.word} ${order[0]} trước${pills ? ' (viên)' : ''}`);
+}
+assert.deepEqual({ ...readPron(null) }, {});
+// dict-perf dùng đúng hàm này trong trang (không đọc theo vị trí nữa)
+const perf = src('scripts/test/dict-perf.mjs');
+assert.match(perf, /import \{ READ_PRON_SRC \} from '\.\/pron-read\.mjs'/, 'dict-perf dùng readPron chung');
+assert.match(perf, /\$\{READ_PRON_SRC\}\)\(document\.querySelector\('#result \.pron'\)\)/, 'dict-perf đọc IPA theo nhãn');
+assert.doesNotMatch(perf, /uk: ipa\[0\]|us: ipa\[1\]/, 'dict-perf không đọc IPA theo vị trí');
+assert.equal(typeof new Function(`return (${READ_PRON_SRC})`)(), 'function', 'READ_PRON_SRC chạy được độc lập trong trang');
+// Đổi cách hiển thị khối phát âm (ui.js) phải chạy lại cổng dict-perf
+assert.match(src('.github/workflows/dict-perf.yml'), /'web\/js\/ui\.js'/, 'dict-perf.yml theo dõi web/js/ui.js');
 console.log('✓ ipa-accent');

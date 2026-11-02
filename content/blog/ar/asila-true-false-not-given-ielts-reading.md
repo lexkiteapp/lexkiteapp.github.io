@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "true false not given ielts reading"
 cover: reading
 coverAlt: "قائمة مقالات القراءة في ليكسكايت لاختبار الآيلتس مصنفة من المستوى A2 إلى C1"
-publishAt: ""
+publishAt: 2026-11-27T21:28:00+03:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

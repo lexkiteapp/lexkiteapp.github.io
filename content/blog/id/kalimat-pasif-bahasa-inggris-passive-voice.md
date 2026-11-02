@@ -33,6 +33,7 @@ quiz: [
     explain: "Dalam deskripsi proses teknis dan industri, produk dan bahan yang diolah menjadi pusat perhatian, sehingga pelaku aksi tidak perlu ditonjolkan."
   }
 ]
+publishAt: 2026-11-29T07:58:00+07:00
 ---
 
 Dalam tata bahasa dan penulisan bahasa Inggris formal, kalimat pasif (*Passive Voice*) merupakan instrumen sintaksis yang sangat krusial. Berbeda dengan percakapan santai yang lebih mengutamakan kalimat aktif demi keringkasan, penulisan esai ilmiah, laporan penelitian, serta tes bahasa Inggris resmi seperti IELTS dan TOEFL menuntut penggunaan **kalimat pasif bahasa inggris passive voice** yang matang. Struktur ini berfungsi untuk mengalihkan sorotan dari siapa yang melakukan tindakan ke apa hasil tindakan tersebut, data yang ditemukan, atau proses yang tengah terjadi.

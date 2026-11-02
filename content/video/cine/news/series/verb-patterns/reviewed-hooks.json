@@ -4,8 +4,8 @@
   "vbp_116f3374": {
    "template": "mistake",
    "hook": "✗ Not / “I hate wait.”",
-   "hook_true": null,
-   "script_reviewed": false,
+   "hook_true": true,
+   "script_reviewed": true,
    "script": {
     "v_h": "Which pattern is right?",
     "v_w": "I hate wait.",
@@ -29,7 +29,9 @@
     "wrong_line": "v_w",
     "wrong": "I hate wait."
    },
-   "source": "sb_116f3374"
+   "source": "sb_116f3374",
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   },
   "vbp_24ac31f5": {
    "template": "mistake",
@@ -63,7 +65,7 @@
   },
   "vbp_097145e5": {
    "template": "mistake",
-   "hook": "✗ / “He admitted to break the vase.”",
+   "hook": "✗ “He admitted to break the vase.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -123,7 +125,7 @@
   },
   "vbp_112e385b": {
    "template": "mistake",
-   "hook": "✗ / “We were made wait for hours.”",
+   "hook": "✗ “We were made wait for hours.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {

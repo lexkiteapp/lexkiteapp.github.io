@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 const R = fileURLToPath(new URL('../../', import.meta.url)), rd = f => fs.readFileSync(R + f, 'utf8');
 let fail = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} mobile-guards: ${m}`); if (!c) fail++; };
-const app = rd('web/js/app.js');
+const app = rd('web/js/app.js'), dict = rd('web/js/dict-page.js'); // trang #/dict tách khỏi app.js (gói lười dictp) 01/11
 const pf = (app.match(/App\.prefetchAll = [^\n]+/) || [''])[0];
 ok(/let inflight = 0/.test(app) && /inflight\+\+/.test(app) && /finally\(\(\) => \{ inflight--; \}\)/.test(app), 'đếm số gói đang tải (need1)');
 ok(/inflight \|\| document\.readyState !== 'complete'/.test(pf), 'tải sẵn chỉ bắt đầu khi trang đã load và không còn gói đang tải (không giành băng thông 4G với trang đang mở → LCP)');
@@ -20,8 +20,8 @@ ok(/serve-web\.mjs out\/site 8080/.test(MQA), 'mobile-qa đo qua máy chủ có 
 ok(/app-loader\.mjs out\/site\/app\/index\.html/.test(MQA) && /esbuild@[\d.]+ .*--minify .*--outdir=\.\.\/out\/site/.test(MQA), 'mobile-qa đo bản phát hành như build-web.sh (JS khung app nạp sau lần vẽ đầu + rút gọn), không đo web/ thô');
 { const pd = rd('web/js/path-day.js');
   ok(/topIx\.m\.get\(id\)/.test(app) && /ds = days\(\);\n\s*await yieldMain\(\); if \(location\.hash !== h0\) return;/.test(pd) && /put\(chunk\(Math\.min\(flat\.length, Math\.max\(10, ciDay \+ 5\)\)\)\);/.test(pd) && /put\(chunk\(Math\.min\(flat\.length, pos \+ 8\)\)\);/.test(pd) && /await nextFrame\(\); if \(!body\.isConnected\) return;/.test(pd) && /requestAnimationFrame\(go\)/.test(pd), 'lộ trình: topicOf tra Map + nhường luồng trước khi vẽ + chặng đang mở vẽ theo lô NGÀY (lô đầu tới ngày hiện tại + 4, ≥ 10 ngày; sau đó 8 ngày/khung hình) (TBT #/path 197–245 ms)'); }
-ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(full\.word\)/.test(app), 'từ điển: khối Hiểu sâu nhớ theo từ + chờ trước lần vẽ đủ → không chèn muộn phía trên ô lưu (CLS 0,66–0,68 #/dict @360)');
-{ const sv = app.indexOf('id="saveCard"'), ph = app.indexOf('<div id="phraseBox"></div>'), rl = app.indexOf('<div id="related"></div>');
+ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(full\.word\)/.test(dict), 'từ điển: khối Hiểu sâu nhớ theo từ + chờ trước lần vẽ đủ → không chèn muộn phía trên ô lưu (CLS 0,66–0,68 #/dict @360)');
+{ const sv = dict.indexOf('id="saveCard"'), ph = dict.indexOf('<div id="phraseBox"></div>'), rl = dict.indexOf('<div id="related"></div>');
   ok(sv > 0 && ph > sv && rl > ph, 'từ điển: khối cụm từ (Lex.phrases) + từ liên quan (Datamuse, mạng ngoài) nằm SAU ô lưu → về muộn không gây CLS (0,66 @360)'); }
 { const st = rd('web/js/study.js'), ds = rd('web/js/distract.js');
   ok(/startWhen\(Promise\.all\(\[warmLib\(\), window\.VImg && VImg\.need \? VImg\.need\(items\.map\(w => w\.word\)\) : null\]\), next\)/.test(st) && /startWhen\(warmLib\(\)\.then\(\(\) => preDis\(seq\[0\]\)\), next\)/.test(st) && /view\.prepend\(bar\)/.test(st) && /setTimeout\(\(\) => preDis\(nq\), 0\)/.test(st) && /async function pickAsync\(/.test(ds) && /performance\.now\(\) - t0 < 8/.test(st) && /async function warm\(pool/.test(ds) && /Date\.now\(\) - t0 < 8/.test(ds),
