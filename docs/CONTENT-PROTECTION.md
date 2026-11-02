@@ -14,10 +14,10 @@ Cập nhật 17/10/2026. Phía máy chủ/Cloudflare (phiên chính). Phía buil
 |---|---|---|---|
 | `lexkite_scraper_ua` | Custom rule | Block | Host lexkite.com/www, đường dẫn nội dung (dưới), không phải `.xml`, UA trống hoặc chứa `python-requests`, `python-urllib`, `python-httpx`, `aiohttp`, `scrapy`, `go-http-client`, `httrack`, `wget`, `libwww`, `okhttp`, `colly` |
 | `lexkite_headless` | Custom rule | Managed challenge | Như trên nhưng chỉ trang HTML (không `/packs/`), UA `HeadlessChrome`/`PhantomJS` |
-| `lexkite_content_rl` | Rate limiting | Managed challenge | > **40 request / 10 s / IP** vào đường dẫn nội dung |
+| `lexkite_content_rl` | Rate limiting | Block 10 s | > **40 request / 10 s / IP** vào đường dẫn nội dung **+ đúng 4 API công khai** `/api/ai`, `/api/contact`, `/api/report`, `/api/handoff` (`API_RL`, từ 2/11/2026; gói Free chỉ 1 luật RL → chung bộ đếm; đã thử live: request thứ ~48 → 429, mở lại sau 10 s) |
 
 **Đường dẫn nội dung:** `/<lang>/blog/` (15 ngôn ngữ), `/blog/` (301 cũ), `/tu-vung/`, `/ngu-phap/`, `/samples/`, `/speaking/`, `/viet-thu/`, `/en/vocabulary/`, `/en/samples/`, `/en/speaking/`, `/packs/` (gói nghĩa app tải lười).
-**Không bao giờ nằm trong phạm vi:** `/api/*`, `/sw.js`, `/js/`, `/css/`, `/icons/`, `/audio/`, `/img/`, `/i18n/`, `/screenshots/`, RSS/sitemap (`*.xml`), `media.lexkite.com`, `audio.lexkite.com` (test `scripts/test/protection.mjs` chặn hồi quy).
+**Không bao giờ nằm trong phạm vi** (trừ 4 API khớp đúng đường dẫn ở luật RL): `/api/*`, `/sw.js`, `/js/`, `/css/`, `/icons/`, `/audio/`, `/img/`, `/i18n/`, `/screenshots/`, RSS/sitemap (`*.xml`), `media.lexkite.com`, `audio.lexkite.com` (test `scripts/test/protection.mjs` chặn hồi quy).
 **Miễn trừ mọi luật:** `cf.client.bot` (bot đã xác minh: Googlebot, Bingbot, Applebot, DuckDuckBot, Yandex, facebookexternalhit…). Luật custom còn miễn **header `X-Lexkite-CI`** = secret GitHub `LEXKITE_CI_HEADER` (bản sao `~/.config/lexkite/ci-header`, chmod 600; đã tạo 17/10/2026).
 
 **Vì sao các con số này:**

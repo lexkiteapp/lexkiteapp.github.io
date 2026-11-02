@@ -1,0 +1,7 @@
+# Lexkite security contact (RFC 9116). Please report vulnerabilities privately; we reply within 7 days.
+Contact: mailto:support@lexkite.com
+Contact: https://lexkite.com/app/#/contact
+Expires: 2027-11-01T00:00:00.000Z
+Preferred-Languages: en, vi
+Canonical: https://lexkite.com/.well-known/security.txt
+Policy: https://lexkite.com/en/terms.html
