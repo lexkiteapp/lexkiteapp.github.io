@@ -14,6 +14,7 @@
   "reduced_motion_variant": true,
   "caption_contrast": true,
   "frames_eq_duration": true,
+  "teacher_full_1x": true,
   "safe_zone_9x16": true,
   "caption_sync_kokoro": true,
   "english_spelling": true,
@@ -216,6 +217,38 @@
    "flicker": 0
   }
  ],
+ "teacher": {
+  "hook": {
+   "visH": 668,
+   "visFrac": 0.757,
+   "scale": 1,
+   "top": 602
+  },
+  "fix": {
+   "visH": 676,
+   "visFrac": 0.766,
+   "scale": 1,
+   "top": 594
+  },
+  "explain": {
+   "visH": 673,
+   "visFrac": 0.762,
+   "scale": 1,
+   "top": 597
+  },
+  "encourage": {
+   "visH": 672,
+   "visFrac": 0.761,
+   "scale": 1,
+   "top": 598
+  },
+  "happy": {
+   "visH": 669,
+   "visFrac": 0.758,
+   "scale": 1,
+   "top": 601
+  }
+ },
  "cost": {
   "kling_credits": 0,
   "usd": 0,

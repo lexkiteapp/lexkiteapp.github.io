@@ -14,6 +14,7 @@
   "reduced_motion_variant": true,
   "caption_contrast": true,
   "frames_eq_duration": true,
+  "teacher_full_1x": true,
   "safe_zone_9x16": true,
   "caption_sync_kokoro": true,
   "english_spelling": true,
@@ -33,8 +34,8 @@
  "above_b1": [],
  "deeplink": "#/vocab",
  "native_font": "BeVietnamPro-Bold.ttf",
- "lufs": -16.3,
- "truePeak": -1.5,
+ "lufs": -16.4,
+ "truePeak": -1.4,
  "voices": [
   {
    "who": "carlos",
@@ -84,7 +85,7 @@
    ],
    "kokoroOnsetMs": [
     70,
-    35
+    25
    ],
    "mouthOnsetMs": [
     -20,
@@ -204,6 +205,26 @@
    "flicker": 0
   }
  ],
+ "teacher": {
+  "hook": {
+   "visH": 628,
+   "visFrac": 0.746,
+   "scale": 1,
+   "top": 642
+  },
+  "explain": {
+   "visH": 676,
+   "visFrac": 0.766,
+   "scale": 1,
+   "top": 594
+  },
+  "encourage": {
+   "visH": 672,
+   "visFrac": 0.761,
+   "scale": 1,
+   "top": 598
+  }
+ },
  "cost": {
   "kling_credits": 0,
   "usd": 0,

@@ -14,6 +14,7 @@
   "reduced_motion_variant": true,
   "caption_contrast": true,
   "frames_eq_duration": true,
+  "teacher_full_1x": true,
   "safe_zone_9x16": true,
   "caption_sync_kokoro": true,
   "english_spelling": true,
@@ -124,7 +125,7 @@
    "alignChunksMs": [
     0
    ],
-   "visemePct": 99,
+   "visemePct": 100,
    "flicker": 0
   },
   {
@@ -168,30 +169,27 @@
    "hand": "",
    "dur": 4.175,
    "lagMs": -20,
-   "lagGlobalMs": -10,
+   "lagGlobalMs": -20,
    "lagChunksMs": [
     -20,
     0
    ],
    "lagEnvChunksMs": [
     -20,
-    -10
+    0
    ],
    "onsetDiffMs": [
-    0,
     0,
     0,
     0
    ],
    "kokoroOnsetMs": [
     60,
-    -5,
     0,
     -35
    ],
    "mouthOnsetMs": [
     -20,
-    null,
     -20,
     -10
    ],
@@ -204,6 +202,26 @@
    "flicker": 0
   }
  ],
+ "teacher": {
+  "hook": {
+   "visH": 628,
+   "visFrac": 0.746,
+   "scale": 1,
+   "top": 642
+  },
+  "fix": {
+   "visH": 636,
+   "visFrac": 0.755,
+   "scale": 0.997,
+   "top": 634
+  },
+  "explain": {
+   "visH": 636,
+   "visFrac": 0.755,
+   "scale": 0.997,
+   "top": 634
+  }
+ },
  "cost": {
   "kling_credits": 0,
   "usd": 0,

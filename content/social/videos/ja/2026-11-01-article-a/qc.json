@@ -14,6 +14,7 @@
   "reduced_motion_variant": true,
   "caption_contrast": true,
   "frames_eq_duration": true,
+  "teacher_full_1x": true,
   "safe_zone_9x16": true,
   "caption_sync_kokoro": true,
   "english_spelling": true,
@@ -34,7 +35,7 @@
  "deeplink": "#/grammar",
  "native_font": "NotoSansCJK-Bold.ttc",
  "lufs": -16.6,
- "truePeak": -1.5,
+ "truePeak": -1.4,
  "voices": [
   {
    "who": "carlos",
@@ -207,6 +208,26 @@
    "flicker": 0
   }
  ],
+ "teacher": {
+  "hook": {
+   "visH": 628,
+   "visFrac": 0.746,
+   "scale": 0.997,
+   "top": 642
+  },
+  "fix": {
+   "visH": 636,
+   "visFrac": 0.755,
+   "scale": 0.997,
+   "top": 634
+  },
+  "explain": {
+   "visH": 633,
+   "visFrac": 0.752,
+   "scale": 1,
+   "top": 637
+  }
+ },
  "cost": {
   "kling_credits": 0,
   "usd": 0,
