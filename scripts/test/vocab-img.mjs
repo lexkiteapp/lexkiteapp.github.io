@@ -327,4 +327,17 @@ else:
   ok(/--prefilter/.test(cr) && /--cands-only \$OUT\/cand2/.test(cr) && /--cands-only \$OUT\/recand/.test(cr) && /\$J --recand/.test(cr) && /--recand/.test(lj) && /gen-stats\.s\$\{SI\}\.a\$\{ATT\}\.\$\{i\}/.test(sg), 'ứng viên 2 vẽ khi cần: lọc cục bộ → giám khảo → ứng viên mới cho khoá trượt; gen-stats không ghi đè');
   ok(/VIMG_CANDS: \$\{\{ github\.event\.inputs\.cands \|\| '1' \}\}/.test(rd('.github/workflows/vocab-img-scene.yml')), 'workflow: input cands, lịch fill mặc định 1');
 }
+// Kiểm CDN trong CI: HEAD thẳng gốc Pages (thứ tự Worker), 0 lượt qua media.lexkite.com – 01/11–02/11 mỗi npm test HEAD ~1k ảnh qua Worker
+// → hạn mức Workers 100k/ngày cạn (1027), /api chết, Live traffic 0. Đỏ nếu ai đó trả cdnCheck về gọi CDN.
+{
+  const { cdnCheck, originUrls } = await import('../vocab-img/cdn-check.mjs');
+  const img = { base: 'https://media.lexkite.com/vimg/', items: { 'a#n': { h: 'aaaaaaaaaaaaaaaa', fmt: ['avif', 'webp'] }, 'b#n': { h: 'bbbbbbbbbbbbbbbb' }, 'c#n': { h: 'cccccccccccccccc' } } };
+  const seen = [], fake = async u => { seen.push(u); return { ok: /lexkite-media\/vimg\/(a|b)/.test(u) || /lexkite-media-4\/vimg\/a/.test(u), status: /lexkite-media(-4)?\/vimg\/(a|b)/.test(u) ? 200 : 404 }; };
+  const r = await cdnCheck(img, 1, 's', { fetcher: fake });
+  ok(seen.length > 0 && !seen.some(u => u.includes('media.lexkite.com')), 'cdnCheck mặc định: 0 lượt HEAD qua media.lexkite.com (Worker)');
+  ok(r.n === 4 && r.bad.length === 1 && /c#n/.test(r.bad[0]), 'cdnCheck: có ở m4 hoặc lùi m1 = đạt; thiếu ở mọi gốc = lỗi (' + JSON.stringify(r.bad) + ')');
+  ok(originUrls('https://media.lexkite.com/m1/vimg/0123456789abcdef.webp').length === 1 && originUrls('https://media.lexkite.com/vimg/x.webp') === null, 'originUrls khớp regex/thứ tự của Worker');
+  const s2 = []; await cdnCheck(img, 1, 's', { viaCdn: true, fetcher: async u => { s2.push(u); return { ok: true, status: 200 }; } });
+  ok(s2.every(u => u.startsWith('https://media.lexkite.com/vimg/')), '--via-cdn vẫn kiểm qua Worker thật khi chạy tay');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);
