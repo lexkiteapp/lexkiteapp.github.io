@@ -23,6 +23,7 @@ on:
       model: { description: 'Mô hình ảnh GrabCast (A/B, docs/VOCAB-IMG-STYLE.md); rỗng = mặc định flux-1-schnell, không gửi trường model', default: '' }
       only: { description: 'pilot: CHỈ các khoá này – tệp JSON {items} (vd. content/visual/pilot-40.json) hoặc danh sách phẩy · bắt đầu bằng + = THÊM vào pilot (thay input extra cũ, vd. +equal#adj,race#n)', default: '' }
       pool: { description: 'pilot: tail = vẽ từ ĐUÔI kho CF (chừa 10 tài khoản cuối cho giám khảo) – không chờ fill nhả phần đầu · rỗng = đầu kho như fill', default: '' }
+      style: { description: 'Phong cách ảnh cảnh (mọi lượt, cả lịch fill): rỗng = liteplus (02/11, mặc định – ít chi tiết + 1–2 chi tiết then chốt không chữ, thẻ key) · lite = ít chi tiết không key · e4 = phong cách cũ (quay về)', default: '' }
       cands: { description: 'Ứng viên mỗi prompt ảnh cảnh (1–4): vẽ N ảnh cùng prompt, lọc cục bộ, chỉ ứng viên tốt nhất lên giám khảo, trượt → ứng viên kế (01/11 hướng b)', default: '1' }
       lab_run: { description: 'Lượt cũ (run id có vimg-scene-final) → tính lại đặc trưng giám khảo cảnh cho ảnh đã gán nhãn', default: '' }
 permissions:
@@ -64,9 +65,10 @@ jobs:
           # 28/10: fill – dò nhanh PHẦN VẼ của kho (~60 neuron) trước khi bật 10 máy; < 10 tài khoản còn neuron → bỏ lượt (đêm 27/10: 4 lượt rỗng, mỗi lượt cài giám khảo 10 máy rồi mới thấy kho cạn)
           if [ "$MODE" = fill ] && [ "$PROBE_ALIVE" -lt 10 ]; then echo "⏹ phần vẽ của kho CF còn $PROBE_ALIVE tài khoản – bỏ lượt"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 31/10 pilot 41158516082: 15/121 sống → thẻ cảnh (đuôi kho) ăn hết, phần vẽ (đầu kho) cạn → 0 ảnh. Pilot cần CẢ hai: vẽ ≥ 10, viết ≥ 5
-          # pool=tail: pilot vẽ + viết thẻ + giám khảo đều ở đuôi → chỉ cần đuôi ≥ 15 (10 chừa giám khảo + vẽ/viết), không cần đầu (fill giữ)
-          NH=10; NT=5; [ "${{ github.event.inputs.pool }}" = tail ] && { NH=0; NT=15; }
-          if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt 10 ] || [ "$PROBE_HEAD" -lt $NH ] || [ "$PROBE_TAIL" -lt $NT ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần đầu $PROBE_HEAD, phần đuôi $PROBE_TAIL) – pilot bỏ lượt (cần đầu ≥ $NH, đuôi ≥ $NT)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
+          # pool=tail: pilot vẽ + viết thẻ + giám khảo đều ở đuôi → chỉ cần đuôi ≥ pilotFloor, không cần đầu (fill giữ sàn cũ)
+          # 02/11: sàn đuôi theo KÍCH THƯỚC việc (cf-direct.mjs pilotFloor) thay số cố định 15 – lượt 18 nghĩa cần ~4k neuron, đuôi 11 tài khoản ≈ 100k vẫn bị chặn
+          NA=10; NH=10; NT=5; [ "${{ github.event.inputs.pool }}" = tail ] && { NH=0; NT=$(node -e "import('./scripts/vocab-img/cf-direct.mjs').then(m=>console.log(m.pilotFloor(m.pilotSize(process.argv[1],process.argv[2]),process.argv[3])))" "${{ github.event.inputs.only }}" "${{ github.event.inputs.pick || '60:0:20' }}" "${{ github.event.inputs.variants || '1' }}"); NA=$NT; echo "sàn đuôi pilot: $NT tài khoản"; }
+          if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt $NA ] || [ "$PROBE_HEAD" -lt $NH ] || [ "$PROBE_TAIL" -lt $NT ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần đầu $PROBE_HEAD, phần đuôi $PROBE_TAIL) – pilot bỏ lượt (cần đầu ≥ $NH, đuôi ≥ $NT)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || '10' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
@@ -88,6 +90,7 @@ jobs:
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
+      VIMG_STYLE: "${{ github.event.inputs.style || 'liteplus' }}"   # 02/11 lite+ cho MỌI lượt (pilot 92 nghĩa 41396836982: lượt đầu 64,4 % vs 53,3 %, 146 vs 172,5 neuron/ảnh nhận) – input style=e4 quay về
       VIMG_CANDS: ${{ github.event.inputs.cands || '1' }}   # 01/11 hướng b: ứng viên/prompt (scene-gen.mjs → local_judge.py chọn); lịch fill = 1 tới khi pilot chứng minh
       AI_POOL_CF2_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc (lease ghi LEASE_AI_B_NEURONS=0)
       LEASE_SHARD: prep
@@ -168,6 +171,7 @@ jobs:
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
+      VIMG_STYLE: "${{ github.event.inputs.style || 'liteplus' }}"   # 02/11 lite+ cho MỌI lượt (pilot 92 nghĩa 41396836982: lượt đầu 64,4 % vs 53,3 %, 146 vs 172,5 neuron/ảnh nhận) – input style=e4 quay về
       VIMG_CANDS: ${{ github.event.inputs.cands || '1' }}   # 01/11 hướng b: ứng viên/prompt (scene-gen.mjs → local_judge.py chọn); lịch fill = 1 tới khi pilot chứng minh
       AI_POOL_CF2_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc (lease ghi LEASE_AI_B_NEURONS=0)
       LEASE_SHARD: ${{ matrix.shard }}
@@ -265,6 +269,7 @@ jobs:
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
+      VIMG_STYLE: "${{ github.event.inputs.style || 'liteplus' }}"   # 02/11 lite+ cho MỌI lượt (pilot 92 nghĩa 41396836982: lượt đầu 64,4 % vs 53,3 %, 146 vs 172,5 neuron/ảnh nhận) – input style=e4 quay về
       VIMG_CANDS: ${{ github.event.inputs.cands || '1' }}   # 01/11 hướng b: ứng viên/prompt (scene-gen.mjs → local_judge.py chọn); lịch fill = 1 tới khi pilot chứng minh
       AI_POOL_CF2_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc (lease ghi LEASE_AI_B_NEURONS=0)
       LEASE_SHARD: ${{ matrix.shard }}
@@ -453,6 +458,7 @@ jobs:
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
+      VIMG_STYLE: "${{ github.event.inputs.style || 'liteplus' }}"   # 02/11 lite+ cho MỌI lượt (pilot 92 nghĩa 41396836982: lượt đầu 64,4 % vs 53,3 %, 146 vs 172,5 neuron/ảnh nhận) – input style=e4 quay về
       VIMG_CANDS: ${{ github.event.inputs.cands || '1' }}   # 01/11 hướng b: ứng viên/prompt (scene-gen.mjs → local_judge.py chọn); lịch fill = 1 tới khi pilot chứng minh
       AI_POOL_CF2_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc (lease ghi LEASE_AI_B_NEURONS=0)
       LEASE_SHARD: lab
