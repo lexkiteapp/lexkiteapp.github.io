@@ -758,6 +758,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
 wav_out(f'{o.public}/voice.wav', mix); os.remove(raw); os.remove(f'{o.public}/_voice_n.wav')
 
 # ---------------- assets ----------------
+sys.path.insert(0, f'{ROOT}/scripts/media'); from origin import fetch as fetch_media   # noqa: E402  GitHub origin first, Worker last (2/11: Worker quota 429 broke every render)
 import qrcode   # noqa: E402
 qr = qrcode.QRCode(border=2, box_size=12, error_correction=qrcode.constants.ERROR_CORRECT_M); qr.add_data(EP['cta']['link']); qr.make(fit=True)
 qr.make_image(fill_color=TH['qr_ink'], back_color='white').save(f'{o.public}/qr.png')
@@ -766,7 +767,7 @@ os.makedirs(f'{o.public}/fonts', exist_ok=True); shutil.copy(FJ, f'{o.public}/fo
 for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
 if EP['template'] == 'guess':   # picture from content/lexicon/img.json (licensed bank image, the same one the app shows) -> pic.png
     it = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items'][EP['data']['img']]; raw_ = f'{o.public}/_pic.webp'
-    subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', raw_, it['url']], check=True)
+    fetch_media(it['url'], raw_)
     from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------
