@@ -14,6 +14,7 @@ const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ?
 const ROOT = arg('root', 'dist'), OUT = path.resolve(arg('out', 'out/nav-sweep')), STEPS = +arg('steps', '40');
 const KNOWN_F = new URL('./nav-sweep.known.json', import.meta.url);
 fs.mkdirSync(OUT + '/shots', { recursive: true });
+const ESSAY = 'Many people believe that cities should invest more in public transport, and I agree with this view. First, buses and trains reduce traffic and pollution, which improves health. Second, cheap transport helps students and workers reach school and jobs. However, the cost is high, so governments must plan carefully and share the budget fairly. In conclusion, the benefits are greater than the drawbacks.';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 let srv = null, O = arg('base', '');
 if (!O) { srv = await serve(ROOT, 0); O = srv.origin; }
@@ -56,9 +57,10 @@ const probe = () => {
   const bank = [...document.querySelectorAll('#lsnBank .lsn-tile:not(.used), [data-tile-bank] [data-i]:not(.used)')].filter(vis).length;
   const opt = [...v.querySelectorAll('.lsn-opt:not([disabled]), [data-opt]:not([disabled]), .opt:not([disabled]), .qk-btn:not([disabled])')].find(vis);
   const prog = !!v.querySelector('[role=progressbar], progress, .lsn-bar, .progress');
+  const match = [...v.querySelectorAll('.lsn-match .lsn-opt:not([disabled])')].some(vis);
   const sig = location.hash + '|' + (v.innerText || '').length + '|' + (p ? (p.id || p.className) + (p.textContent || '').trim().slice(0, 20) : '') + '|' + document.querySelectorAll('#lsnFoot *').length;
   return { learn: document.body.classList.contains('lk-learn'), hash: location.hash, end: !!end, nextLinks, exit: !!v.querySelector('[data-exit]'), prog, skip: [...document.querySelectorAll(SKIP)].some(vis),
-    primary: p ? (p.id ? '#' + p.id : p.tagName.toLowerCase() + '.' + [...p.classList].slice(0, 2).join('.')) : '', unanswered: !!unanswered, blank: !!blank, bank, opt: !!opt, sig };
+    primary: p ? (p.id ? '#' + p.id : p.tagName.toLowerCase() + '.' + [...p.classList].slice(0, 2).join('.')) : '', unanswered: !!unanswered, blank: !!blank, bank, opt: !!opt, match, sig };
 };
 
 const blur = page => page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur());
@@ -99,10 +101,15 @@ for (const [r, hash] of samples) {
       // trả lời thử bằng bàn phím – leo thang tới khi có nút chính (hoặc màn tự sang bước sau):
       // ① phím của màn (phím số đặt thẻ/chọn, gõ "a" vào ô trống) ② Tab tới thẻ/phương án đầu + Space (màn chưa có phím số)
       const pre0 = s.sig;
-      if (!s.primary || s.bank || s.unanswered || s.blank || s.opt) {
+      if (!s.primary || s.bank || s.unanswered || s.blank || s.opt || s.match) {
         await blur(page);
         if (s.bank) for (let i = 0; i < Math.min(s.bank, 12); i++) await page.keyboard.press('1');
-        else if (s.blank) { await page.evaluate(() => { const v = document.querySelector('#view'); const i = [...v.querySelectorAll('input[type=text], input:not([type]), textarea')].find(x => !x.disabled && !x.readOnly && !x.value && x.getBoundingClientRect().height > 0); if (i) i.focus(); }); await page.keyboard.type('a'); await page.keyboard.press('Enter'); await sleep(500); await blur(page); }
+        else if (s.match) { // nối cặp: chọn ô trái rồi ô phải cùng cặp (data-m) bằng Space – người học biết đáp án
+          for (let j = 0; j < 8; j++) { const ok = await page.evaluate(() => { const L = document.querySelector('.lsn-match .lsn-opt[data-s="w"]:not([disabled])') || document.querySelector('.lsn-match .lsn-opt:not([disabled])'); if (!L) return false; const R = [...document.querySelectorAll('.lsn-match .lsn-opt:not([disabled])')].find(x => x !== L && x.dataset.m === L.dataset.m); if (!R) return false; L.focus(); return true; }); if (!ok) break; await page.keyboard.press('Space'); await page.evaluate(() => { const L = document.activeElement; const R = [...document.querySelectorAll('.lsn-match .lsn-opt:not([disabled])')].find(x => x !== L && x.dataset.m === L.dataset.m); if (R) R.focus(); }); await page.keyboard.press('Space'); await sleep(350); await blur(page); }
+        } else if (s.blank) { // ô ngắn: "a"; bài viết (textarea): đoạn ~60 từ (màn viết đòi ≥ 30–40 từ mới chấm)
+          const area = await page.evaluate(() => { const v = document.querySelector('#view'); const i = [...v.querySelectorAll('input[type=text], input:not([type]), textarea')].find(x => !x.disabled && !x.readOnly && !x.value && x.getBoundingClientRect().height > 0); if (i) i.focus(); return !!(i && i.tagName === 'TEXTAREA'); });
+          if (area) { await page.keyboard.insertText(ESSAY); await sleep(300); await blur(page); } else { await page.keyboard.type('a'); await page.keyboard.press('Enter'); await sleep(500); await blur(page); }
+        }
         else if (s.unanswered || !s.primary) await page.keyboard.press('1');
         if (s.opt && !s.unanswered) { await page.evaluate(() => { const o = [...document.querySelectorAll('#view .lsn-opt:not([disabled]), #view [data-opt]:not([disabled]), #view .opt:not([disabled]), #view .qk-btn:not([disabled])')].find(x => x.getBoundingClientRect().height > 0); if (o) o.focus(); }); await page.keyboard.press('Space'); await blur(page); }
         await sleep(400);

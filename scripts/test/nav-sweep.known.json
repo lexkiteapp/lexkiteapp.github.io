@@ -1,15 +1,13 @@
 {
  "quick": [
-  "enter",
-  "end"
+  "enter"
  ],
  "reflex": [
   "enter",
   "end"
  ],
  "placement": [
-  "enter",
-  "end"
+  "enter"
  ],
  "handsfree": [
   "end",
@@ -68,7 +66,6 @@
   "end"
  ],
  "toeic-test": [
-  "enter",
   "end"
  ],
  "toeic-sw": [
@@ -89,7 +86,6 @@
   "enter"
  ],
  "letters": [
-  "enter",
   "end"
  ]
 }
