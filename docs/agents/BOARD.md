@@ -104,10 +104,11 @@ Mẫu thẻ:
 - **Mục tiêu:** Tiếp tục chỉ đạo của anh Quyền viết đủ 100 bài blog SEO Đợt 3 (nâng tổng kho từ 750 lên 850 bài toàn repo), giữ vững 100% tiêu chuẩn kỹ thuật (độ dài ≥ 1200 từ, title 30–65 ký tự, desc 110–160 ký tự, keyword chính xác ở 4 vị trí, shingle trùng lặp < 12.0%, caption truth 0 lỗi, link nội bộ app ≥ 2, link chéo cùng ngôn ngữ ≥ 4, để trống `publishAt: ""`).
 - **Tiến độ hiện tại:**
   - **Cụm 1: Tiếng Anh đàm phán thương lượng hợp đồng (`tieng-anh-dam-phan-thuong-luong`):** Đã hoàn tất xuất sắc **15 / 15 ngôn ngữ** (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI). Toàn bộ 15 bài đều độc lập cấu trúc ví dụ câu tiếng Anh, pass tuyệt đối 0 lỗi shingle trùng lặp trên toàn repo 765 bài (`blog-dupes.mjs` 0 lỗi).
-  - Đã tích lũy: **15 / 100 bài** của Đợt 3. Tổng kho hiện tại: **765 bài**.
+  - **Cụm 2: Thành ngữ tiếng Anh công sở thực chiến (`thanh-ngu-tieng-anh-cong-so`):** Đã hoàn tất xuất sắc **15 / 15 ngôn ngữ** (VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI). Đã paraphrase ví dụ độc lập từng ngôn ngữ, pass 100% `blog-check.mjs`, `blog-captions.mjs` và `blog-dupes.mjs` (0 lỗi, shingle cao nhất 12.0%).
+  - Đã tích lũy: **30 / 100 bài** của Đợt 3. Tổng kho hiện tại: **780 bài**.
 - **Kế hoạch tiếp theo:**
-  - Triển khai Cụm 2: **Lộ trình tự học TOEIC từ con số 0 đến 750+** hoặc **Thành ngữ tiếng Anh công sở thực chiến (Business Idioms)** cho 15 ngôn ngữ.
-- **Báo cáo:** (Đang viết liên tục)
+  - Triển khai Cụm 3: **Lộ trình tự học TOEIC từ con số 0 lên 750+ (`lo-trinh-tu-hoc-toeic-750`)** hoặc **Kỹ thuật Shadowing luyện nói tiếng Anh phản xạ (`ky-thuat-shadowing-luyen-noi-tieng-anh`)** cho 15 ngôn ngữ.
+- **Báo cáo:** (Đang viết liên tục theo yêu cầu của anh Quyền hướng tới 100/100 bài)
 - **Cần sửa / Nhận xét:**
 
 ### [B5-MEGA100-P2] Chiến dịch Đại quy mô 100 bài Blog SEO Chất lượng cao Đợt 2 (Đạt mốc 750 bài toàn repo) · @antigravity · ưu tiên: RẤT CAO
