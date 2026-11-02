@@ -25,7 +25,7 @@ jobs:
       HOST: "${{ inputs.host || 'all' }}"
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: "scripts\ninfra", sparse-checkout-cone-mode: false }
+        with: { sparse-checkout: "scripts\ninfra\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }  # r2 frozen (chốt $0) → không ghi
       - uses: actions/setup-node@v4
         with: { node-version: '24' }
       - name: R2 đã bật? (chưa → dừng trung tính)

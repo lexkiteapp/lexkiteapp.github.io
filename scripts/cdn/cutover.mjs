@@ -90,6 +90,8 @@ async function switchHost(h) {
   catch (e) { summary(`✗ ${e.message} → quay lại Worker`); await rollback(h); throw e; }
   console.log(`+ ${h.hostname} → R2 ${h.bucket} (${st.keys} khoá). Kiểm: node scripts/cdn/cutover.mjs verify --host ${Object.keys(HOSTS).find(k => HOSTS[k] === h)}`);
 }
+/** Chốt $0 (free-tier guard, R2 ≥ 90 %): mọi tên miền về Worker (nguồn GitHub). */
+export async function rollbackAll() { for (const h of Object.values(HOSTS)) await rollback(h); }
 async function rollback(h) {
   const d = await cf('DELETE', `${A}/r2/buckets/${h.bucket}/domains/custom/${h.hostname}`); console.log(d.ok ? `− ${h.hostname} ↛ R2` : `(R2 chưa gắn ${h.hostname}: ${d.status})`);
   for (let i = 0; i < 10; i++) {

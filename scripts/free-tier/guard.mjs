@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { evaluate, markdown, r2Class } from './limits.mjs';
-import { query as intradayQuery, hourly, project, decide, writeIntraday, pauseWorkflows, STATE as ISTATE } from './intraday.mjs';
+import { query as intradayQuery, hourly, project, decide, writeIntraday, pauseWorkflows, r2Usage, r2Gate, R2_FREE, STATE as ISTATE } from './intraday.mjs';
 
 const DAY = 864e5, dayOf = t => new Date(t).toISOString().slice(0, 10);
 const D1_MAIN = '7ce39cd0-9333-4843-bd6f-5ccbefbde670'; // lexkite-sync (functions/api/capacity.js D1_DB_ID)
@@ -135,7 +135,7 @@ async function main() {
 }
 
 /** Bản trong ngày (mỗi giờ): 1 truy vấn GraphQL, ngoại suy, dừng workflow gọi prod ≥ 60 %, shed + issue ≥ 80 % – scripts/free-tier/intraday.mjs. */
-export async function intradayMain({ dry = false, now = Date.now(), env = process.env, fetcher = fetch, file = ISTATE } = {}) {
+export async function intradayMain({ dry = false, now = Date.now(), env = process.env, fetcher = fetch, file = ISTATE, fallback = null } = {}) {
   const tok = env.CF_ANALYTICS_TOKEN, acct = String(env.CF_ACCOUNT_ID || '').replace(/[^a-f0-9]/gi, '');
   if (!tok || !acct) { console.log('⏭ free-tier intraday: chưa có CF_ANALYTICS_TOKEN – bỏ qua'); return null; }
   const r = await fetcher('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ query: intradayQuery(acct, now) }) });
@@ -151,15 +151,27 @@ export async function intradayMain({ dry = false, now = Date.now(), env = proces
   console.log(md);
   if (d.level !== 'ok') console.log(`::warning::Workers + Functions hôm nay ${(d.pct * 100).toFixed(0)} % (thực tế ${p.total}, ngoại suy ${p.projected})`);
   if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, md);
+  // Chốt $0 R2: ≥ 80 % hạn mức Free tháng → issue; ≥ 90 % → tên miền về Worker (nguồn GitHub) + đóng băng ghi R2 (state r2 = frozen)
+  const ru = r2Usage(a), rg = r2Gate(ru);
+  const r2md = `\nR2 tháng này: ${(ru.storage / 1024 ** 3).toFixed(2)} GB / 10 GB · Class A ${ru.a} / ${R2_FREE.a} · Class B ${ru.b} / ${R2_FREE.b} → **${rg.level}** (${(rg.pct * 100).toFixed(1)} % ${rg.key})${cur.r2 === 'frozen' ? ' · ĐÃ ĐÓNG BĂNG ghi R2' : ''}\n`;
+  console.log(r2md); if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, r2md);
+  if (rg.level !== 'ok') { console.log(`::warning::R2 ${(rg.pct * 100).toFixed(0)} % hạn mức Free (${rg.key})`); ev.alerts.push({ key: 'r2_' + rg.key, label: `R2 ${rg.key} (tháng)`, pct: rg.pct, level: 'alert', action: rg.level === 'fallback' ? 'Đã về Worker + GitHub và ngừng ghi R2 (chốt $0). Gỡ tay sau khi dọn/đầu tháng: docs/FREE-TIER.md §R2.' : 'Dọn tệp mồ côi / giảm đọc trượt cache; tới 90 % guard tự về GitHub.' }); }
+  let r2 = cur.r2, r2err = '';
+  if (!dry && rg.level === 'fallback' && cur.r2 !== 'frozen') {
+    r2 = 'frozen';
+    try { await (fallback || (async () => (await import('../cdn/cutover.mjs')).rollbackAll()))(); console.log('R2 ≥ 90 % → media/audio về Worker + GitHub'); }
+    catch (e) { r2err = 'rollback R2 lỗi: ' + e.message; console.log('::error::' + r2err); }
+  }
   let paused = cur.paused || [];
   if (!dry) {
     if (env.GITHUB_TOKEN) paused = await pauseWorkflows(env.GITHUB_TOKEN, { pause: d.pause, already: paused }, fetcher);
     else if (!d.pause) paused = [];
-    const w = writeIntraday({ ...d, paused }, now, file);
+    const w = writeIntraday({ ...d, paused, r2 }, now, file);
     if (w.changed) { console.log(`trạng thái → ${d.mode}/${d.level}, dừng [${paused.join(', ')}]`); if (env.GITHUB_OUTPUT) fs.appendFileSync(env.GITHUB_OUTPUT, `state_changed=1\nmode_changed=${w.modeChanged ? 1 : 0}\n`); }
-    if (d.level === 'alert' && env.GITHUB_TOKEN) await issue(env.GITHUB_TOKEN, ev, md, fetcher, { keepOpen: true });
+    if ((d.level === 'alert' || rg.level !== 'ok') && env.GITHUB_TOKEN) await issue(env.GITHUB_TOKEN, ev, md + r2md, fetcher, { keepOpen: true });
+    if (r2err) throw new Error(r2err);
   }
-  return { ...d, ...p, paused };
+  return { ...d, ...p, paused, r2: { ...rg, usage: ru, state: r2 } };
 }
 const PAUSE_NOTE = 'workflow nền gọi host prod (intraday.mjs PAUSE)';
 
