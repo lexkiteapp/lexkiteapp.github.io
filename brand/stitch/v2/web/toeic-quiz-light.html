@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOEIC Reading Part 5 Practice Quiz — Lexkite</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOEIC Reading Part 5 Practice Quiz — Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -26,48 +26,54 @@
               400: '#D8CFBC',
             },
             lexteal: {
-              DEFAULT: '#2BA39A',
+              DEFAULT: '#1F8A80',
               deep: '#0F3D3E',
-              mid: '#1F7A75',
-              dark: '#12514D',
-              light: '#E2F7F4',
-              surface: '#ECF9F7',
+              mid: '#0D5C56',
+              dark: '#073B36',
+              light: '#D8EFEA',
+              surface: '#D9F6F1',
             },
             coral: {
               DEFAULT: '#F2553B',
               hover: '#E0442B',
-              ledge: '#B53A22',
+              ledge: '#A7351F',
             },
             amber: {
               DEFAULT: '#FFB054',
-              soft: '#FFF2DF',
-              dark: '#D97706',
+              soft: '#FFECCC',
+              dark: '#613B00',
+            },
+            ink: {
+              DEFAULT: '#0F3D3E',
+              dark: '#1B0B04',
+              rich: '#073B36',
+              subtle: '#2E5150',
             },
             success: {
-              DEFAULT: '#2FBF71',
-              surface: '#EAF9F1',
-              border: '#A8E7C5',
-              dark: '#1E8E50',
+              DEFAULT: '#1B8F56',
+              surface: '#DDF8EB',
+              border: '#1B8F56',
+              dark: '#0A4D2E',
             }
           }
         }
       }
     }
   </script>
-  <style>
-    /* Lexkite Kit signature tactile button and card physics */
+<style>
+    /* Lexkite signature tactile button and card physics */
     .tactile-cta {
       background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
-      box-shadow: 0 5px 0 #B53A22, 0 10px 18px rgba(242, 85, 59, 0.22);
+      box-shadow: 0 4px 0 #A7351F, 0 10px 18px rgba(242, 85, 59, 0.22);
       transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .tactile-cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 0 #B53A22, 0 14px 22px rgba(242, 85, 59, 0.28);
+      box-shadow: 0 5px 0 #A7351F, 0 14px 22px rgba(242, 85, 59, 0.28);
     }
     .tactile-cta:active {
       transform: translateY(3px);
-      box-shadow: 0 2px 0 #B53A22, 0 4px 8px rgba(242, 85, 59, 0.2);
+      box-shadow: 0 1px 0 #A7351F, 0 4px 8px rgba(242, 85, 59, 0.2);
     }
 
     .tactile-card {
@@ -90,14 +96,9 @@
     }
 
     .answer-card.correct {
-      background: #ECF9F7;
-      border-color: #2BA39A;
-      box-shadow: 0 5px 0 #12514D, 0 0 0 1px #2BA39A;
-    }
-
-    .tactile-pill {
-      border: 2px solid #EADEC8;
-      box-shadow: 0 3px 0 #D8CFBC;
+      background: #D9F6F1;
+      border: 2px solid #1F8A80;
+      box-shadow: 0 5px 0 #073B36;
     }
 
     .tactile-secondary {
@@ -117,332 +118,290 @@
     }
 
     .kite-icon-badge {
-      box-shadow: 0 3px 0 #12514D;
+      box-shadow: 0 3px 0 #073B36;
     }
   </style>
 </head>
 <body class="bg-cream-100 text-lexteal-deep font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-soft selection:text-coral-ledge">
-
-  <!-- ================= TOP SITE HEADER (Identical to Lexkite Home Page) ================= -->
-  <header class="w-full bg-cream-100 border-b-2 border-cream-300 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      <!-- Logo: Kite Emblem + Lexkite -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-lexteal flex items-center justify-center kite-icon-badge transition-transform duration-150 group-hover:scale-105">
-          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L20 12L12 22L4 12L12 2Z" />
-            <path d="M12 22C12 22 13 24 16 24C19 24 18 21 16 19" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="flex items-center gap-1.5">
-          <span class="text-2xl font-extrabold tracking-tight text-lexteal-deep">Lexkite</span>
-          <span class="w-2 h-2 rounded-full bg-coral inline-block"></span>
-        </div>
-      </a>
-
-      <!-- Primary Nav Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-lexteal-deep/80">
-        <a href="#" class="hover:text-lexteal transition-colors">Courses</a>
-        <a href="#" class="hover:text-lexteal transition-colors">Dictionary</a>
-        <a href="#" class="hover:text-lexteal transition-colors">Blog</a>
-        <a href="#" class="text-lexteal flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-lexteal"></span>
+<!-- ================= TOP SITE HEADER ================= -->
+<header class="w-full bg-cream-100 border-b-2 border-cream-300 sticky top-0 z-50">
+<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo: Kite Emblem + Lexkite -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-lexteal flex items-center justify-center kite-icon-badge transition-transform duration-150 group-hover:scale-105">
+<svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L20 12L12 22L4 12L12 2Z"></path>
+<path d="M12 22C12 22 13 24 16 24C19 24 18 21 16 19" fill="none" stroke="white" stroke-linecap="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="text-2xl font-extrabold tracking-tight text-lexteal-deep">Lexkite</span>
+<span class="w-2.5 h-2.5 rounded-full bg-coral inline-block"></span>
+</div>
+</a>
+<!-- Primary Nav Links -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-bold text-lexteal-deep">
+<a class="hover:text-lexteal transition-colors" href="#">Courses</a>
+<a class="hover:text-lexteal transition-colors" href="#">Dictionary</a>
+<a class="hover:text-lexteal transition-colors" href="#">Blog</a>
+<a class="text-lexteal-deep font-extrabold flex items-center gap-2" href="#">
+<span class="w-2 h-2 rounded-full bg-lexteal-mid"></span>
           Practice Quiz
         </a>
-      </nav>
-
-      <!-- Trailing CTAs -->
-      <div class="flex items-center gap-4">
-        <a href="#" class="hidden sm:inline-block text-sm font-extrabold text-lexteal-deep/80 hover:text-lexteal px-3 py-2 transition-colors">
+</nav>
+<!-- Trailing CTAs -->
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-block text-sm font-extrabold text-lexteal-deep hover:text-lexteal px-3 py-2 transition-colors" href="#">
           Log in
         </a>
-        <a href="#" class="tactile-cta text-lexteal-deep text-sm font-extrabold px-6 py-3 rounded-2xl flex items-center gap-2">
-          <span>Start free</span>
-          <span class="material-symbols-rounded text-base font-bold">bolt</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ================= MAIN QUIZ WORKSPACE ================= -->
-  <main class="max-w-6xl mx-auto px-6 py-8 md:py-10 w-full flex-1 flex flex-col justify-center">
-
-    <!-- Top Utility & Progress Strip -->
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-      <div class="flex items-center gap-3">
-        <!-- Exam chip -->
-        <span class="inline-flex items-center gap-1.5 bg-white border-2 border-cream-300 px-3.5 py-1.5 rounded-full text-xs font-extrabold tracking-wider uppercase text-lexteal-mid shadow-[0_2px_0_#D8CFBC]">
-          <span class="w-2 h-2 rounded-full bg-amber"></span>
+<a class="tactile-cta text-ink-dark text-sm font-black px-6 py-3 rounded-2xl flex items-center gap-2" href="#">
+<span>Start free</span>
+<span class="material-symbols-outlined text-base font-bold">bolt</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ================= MAIN QUIZ WORKSPACE ================= -->
+<main class="max-w-6xl mx-auto px-6 py-8 md:py-10 w-full flex-1 flex flex-col justify-center">
+<!-- Top Utility & Progress Strip -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<div class="flex items-center gap-3">
+<!-- Exam chip -->
+<span class="inline-flex items-center gap-2 bg-white border-2 border-cream-300 px-3.5 py-1.5 rounded-full text-xs font-black tracking-wider uppercase text-lexteal-deep shadow-[0_2px_0_#D8CFBC]">
+<span class="w-2 h-2 rounded-full bg-amber-dark"></span>
           TOEIC Part 5 • Incomplete Sentences
         </span>
-
-        <!-- Question Counter -->
-        <span class="inline-flex items-center gap-1.5 bg-white border-2 border-cream-300 px-3.5 py-1.5 rounded-full text-xs font-extrabold text-lexteal-deep shadow-[0_2px_0_#D8CFBC]">
-          <span class="text-lexteal font-black">04</span> / 10
-        </span>
-      </div>
-
-      <!-- Friendly Timer Pill -->
-      <div class="flex items-center gap-2 bg-white border-2 border-cream-300 px-4 py-1.5 rounded-full shadow-[0_2px_0_#D8CFBC]">
-        <span class="material-symbols-rounded text-amber text-lg">timer</span>
-        <span class="text-xs font-mono font-bold tracking-tight text-lexteal-deep">00:45</span>
-      </div>
-    </div>
-
-    <!-- 2-Column Quiz Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-      <!-- LEFT COLUMN: Sentence Card + 4 Tactile Answers + Instant Feedback (8 Cols) -->
-      <div class="lg:col-span-8 flex flex-col gap-6">
-
-        <!-- Big Question Card -->
-        <div class="tactile-card p-7 md:p-9 relative overflow-hidden">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-extrabold tracking-wider uppercase text-lexteal-mid/70">
-              Grammar • Relative Pronouns & Clauses
+<!-- Question Counter -->
+<span class="inline-flex items-center gap-1.5 bg-white border-2 border-cream-300 px-3.5 py-1.5 rounded-full text-xs font-black text-lexteal-deep shadow-[0_2px_0_#D8CFBC]">
+<span class="text-lexteal-deep font-black">04</span>
+<span class="text-lexteal-deep font-bold">/ 10</span>
+</span>
+</div>
+<!-- Friendly Timer Pill -->
+<div class="flex items-center gap-2 bg-white border-2 border-cream-300 px-4 py-1.5 rounded-full shadow-[0_2px_0_#D8CFBC]">
+<span class="material-symbols-outlined text-amber-dark text-lg font-bold">timer</span>
+<span class="text-xs font-mono font-bold tracking-tight text-lexteal-deep">00:45</span>
+</div>
+</div>
+<!-- 2-Column Quiz Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Sentence Card + 4 Tactile Answers + Instant Feedback (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Big Question Card -->
+<div class="tactile-card p-7 md:p-9 relative overflow-hidden">
+<div class="flex items-center justify-between mb-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-[#D8EFEA] text-xs font-black tracking-wider uppercase text-[#0B4D46]">
+              Grammar • Relative Pronouns &amp; Clauses
             </span>
-            <span class="text-xs font-bold text-amber-dark bg-amber-soft px-2.5 py-1 rounded-lg">
+<span class="text-xs font-black text-[#523000] bg-[#FFECCC] px-2.5 py-1 rounded-lg border border-[#F2C980]/50">
               Difficulty: Medium
             </span>
-          </div>
-
-          <!-- Question Sentence with Distinct Blank -->
-          <p class="text-xl md:text-2xl font-bold leading-relaxed text-lexteal-deep">
+</div>
+<!-- Question Sentence with Distinct Blank -->
+<p class="text-xl md:text-2xl font-bold leading-relaxed text-lexteal-deep">
             “The quarterly financial report was delivered by Mr. Henderson, 
-            <span class="inline-flex items-center justify-center min-w-[130px] px-3 py-1 mx-1.5 rounded-xl border-2 border-dashed border-lexteal bg-lexteal-light/60 text-lexteal font-extrabold text-lg transition-colors">
+            <span class="inline-flex items-center justify-center min-w-[130px] px-3.5 py-1 mx-1.5 rounded-xl border-2 border-dashed border-[#1F8A80] bg-[#D9F6F1] text-[#073B36] font-extrabold text-lg transition-colors">
               whose
             </span>
             analysis of market trends proved exceptionally accurate.”
           </p>
-        </div>
-
-        <!-- 4 Tactile Answer Cards A-D -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-          <!-- Option A (Neutral) -->
-          <button class="answer-card p-4 text-left flex items-center gap-4 group">
-            <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 flex items-center justify-center font-extrabold text-lexteal-deep text-sm flex-shrink-0 group-hover:bg-cream-200">
+</div>
+<!-- 4 Tactile Answer Cards A-D -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Option A (Neutral) -->
+<button class="answer-card p-4 text-left flex items-center gap-4 group">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 flex items-center justify-center font-extrabold text-lexteal-deep text-sm flex-shrink-0 group-hover:bg-cream-200">
               A
             </div>
-            <span class="text-base font-bold text-lexteal-deep">who</span>
-          </button>
-
-          <!-- Option B (Correct Selected State with Green/Teal Ledge) -->
-          <button class="answer-card correct p-4 text-left flex items-center justify-between group">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 rounded-xl bg-lexteal text-white flex items-center justify-center font-black text-sm flex-shrink-0 shadow-[0_2px_0_#12514D]">
+<span class="text-base font-bold text-lexteal-deep">who</span>
+</button>
+<!-- Option B (Correct Selected State) -->
+<button class="answer-card correct p-4 text-left flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-[#126B63] text-white flex items-center justify-center font-black text-sm flex-shrink-0 shadow-[0_2px_0_#073B36]">
                 B
               </div>
-              <span class="text-base font-extrabold text-lexteal-deep">whose</span>
-            </div>
-            <span class="material-symbols-rounded text-lexteal text-2xl font-black">check_circle</span>
-          </button>
-
-          <!-- Option C (Neutral) -->
-          <button class="answer-card p-4 text-left flex items-center gap-4 group">
-            <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 flex items-center justify-center font-extrabold text-lexteal-deep text-sm flex-shrink-0 group-hover:bg-cream-200">
+<span class="text-base font-extrabold text-[#0B3833]">whose</span>
+</div>
+<span class="material-symbols-outlined text-[#126B63] text-2xl font-black">check_circle</span>
+</button>
+<!-- Option C (Neutral) -->
+<button class="answer-card p-4 text-left flex items-center gap-4 group">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 flex items-center justify-center font-extrabold text-lexteal-deep text-sm flex-shrink-0 group-hover:bg-cream-200">
               C
             </div>
-            <span class="text-base font-bold text-lexteal-deep">whom</span>
-          </button>
-
-          <!-- Option D (Neutral) -->
-          <button class="answer-card p-4 text-left flex items-center gap-4 group">
-            <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 flex items-center justify-center font-extrabold text-lexteal-deep text-sm flex-shrink-0 group-hover:bg-cream-200">
+<span class="text-base font-bold text-lexteal-deep">whom</span>
+</button>
+<!-- Option D (Neutral) -->
+<button class="answer-card p-4 text-left flex items-center gap-4 group">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 flex items-center justify-center font-extrabold text-lexteal-deep text-sm flex-shrink-0 group-hover:bg-cream-200">
               D
             </div>
-            <span class="text-base font-bold text-lexteal-deep">which</span>
-          </button>
-
-        </div>
-
-        <!-- Feedback Banner: Correct, Green, +XP + Short Explanation -->
-        <div class="bg-success-surface border-2 border-success-border rounded-2xl p-5 md:p-6 shadow-[0_5px_0_#A8E7C5] flex flex-col md:flex-row items-start md:items-center justify-between gap-5 animate-fade-in">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-2xl bg-success text-white flex items-center justify-center flex-shrink-0 shadow-[0_3px_0_#1E8E50]">
-              <span class="material-symbols-rounded text-2xl font-bold">check</span>
-            </div>
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="text-lg font-extrabold text-lexteal-deep">Spot on!</span>
-                <span class="bg-white border border-success-border text-success-dark font-black text-xs px-2 py-0.5 rounded-full">
+<span class="text-base font-bold text-lexteal-deep">which</span>
+</button>
+</div>
+<!-- Feedback Banner: Correct, Green, +XP + Short Explanation -->
+<div class="bg-[#DDF8EB] border-2 border-[#1B8F56] rounded-2xl p-5 md:p-6 shadow-[0_5px_0_#1B8F56] flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-[#1B8F56] text-white flex items-center justify-center flex-shrink-0 shadow-[0_3px_0_#0A4D2E]">
+<span class="material-symbols-outlined text-2xl font-bold">check</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-lg font-black text-[#0A4D2E]">Spot on!</span>
+<span class="bg-white border-2 border-[#1B8F56]/40 text-[#0A4D2E] font-black text-xs px-2.5 py-0.5 rounded-full shadow-[0_1px_0_rgba(27,143,86,0.3)]">
                   +15 XP
                 </span>
-              </div>
-              <p class="text-sm font-semibold text-lexteal-deep/80 leading-snug">
+</div>
+<p class="text-sm font-semibold text-lexteal-deep leading-snug">
                 Use <strong class="text-lexteal-deep font-bold">“whose”</strong> to show possession with the following noun (<em class="italic">analysis</em>).
               </p>
-            </div>
-          </div>
-
-          <!-- Next Question CTA -->
-          <button class="tactile-cta w-full md:w-auto text-lexteal-deep font-extrabold text-sm px-7 py-3.5 rounded-xl flex items-center justify-center gap-2 flex-shrink-0">
-            <span>Next question</span>
-            <span class="material-symbols-rounded text-base font-bold">arrow_forward</span>
-          </button>
-        </div>
-
-      </div>
-
-      <!-- RIGHT COLUMN: Side Card with 10 Question Dots & App Pitch CTA (4 Cols) -->
-      <div class="lg:col-span-4 flex flex-col gap-6">
-
-        <div class="tactile-card p-6 md:p-7 flex flex-col">
-          <!-- Side Header -->
-          <div class="flex items-center justify-between pb-5 mb-5 border-b-2 border-cream-200">
-            <span class="text-xs font-black tracking-wider uppercase text-lexteal-mid">Quiz Progress</span>
-            <span class="text-xs font-extrabold text-lexteal bg-lexteal-light px-2 py-1 rounded-md">3 of 10 done</span>
-          </div>
-
-          <!-- Progress Dots (10 questions) -->
-          <div class="grid grid-cols-5 gap-3 mb-6">
-            <!-- Q1 Done (Correct) -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-lexteal text-white flex items-center justify-center font-bold text-xs shadow-[0_2px_0_#12514D]">
-                <span class="material-symbols-rounded text-sm font-bold">check</span>
-              </div>
-              <span class="text-[10px] font-bold text-lexteal-mid">Q1</span>
-            </div>
-
-            <!-- Q2 Done (Correct) -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-lexteal text-white flex items-center justify-center font-bold text-xs shadow-[0_2px_0_#12514D]">
-                <span class="material-symbols-rounded text-sm font-bold">check</span>
-              </div>
-              <span class="text-[10px] font-bold text-lexteal-mid">Q2</span>
-            </div>
-
-            <!-- Q3 Done (Correct) -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-lexteal text-white flex items-center justify-center font-bold text-xs shadow-[0_2px_0_#12514D]">
-                <span class="material-symbols-rounded text-sm font-bold">check</span>
-              </div>
-              <span class="text-[10px] font-bold text-lexteal-mid">Q3</span>
-            </div>
-
-            <!-- Q4 Current (Active ring) -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-amber text-lexteal-deep border-2 border-amber-dark flex items-center justify-center font-black text-xs shadow-[0_3px_0_#D97706] scale-105">
+</div>
+</div>
+<!-- Next Question CTA -->
+<button class="tactile-cta w-full md:w-auto text-ink-dark font-black text-sm px-7 py-3.5 rounded-xl flex items-center justify-center gap-2 flex-shrink-0">
+<span>Next question</span>
+<span class="material-symbols-outlined text-base font-bold">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- RIGHT COLUMN: Side Card with 10 Question Dots & App Pitch CTA (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="tactile-card p-6 md:p-7 flex flex-col">
+<!-- Side Header -->
+<div class="flex items-center justify-between pb-5 mb-5 border-b-2 border-cream-200">
+<span class="text-xs font-black tracking-wider uppercase text-lexteal-deep">Quiz Progress</span>
+<span class="text-xs font-black text-[#0F3D3E] bg-[#D8EFEA] px-2.5 py-1 rounded-md border border-[#1F8A80]/30">3 of 10 done</span>
+</div>
+<!-- Progress Dots (10 questions) -->
+<div class="grid grid-cols-5 gap-3 mb-6">
+<!-- Q1 Done (Correct) -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-lexteal text-white flex items-center justify-center font-bold text-xs shadow-[0_2px_0_#073B36]">
+<span class="material-symbols-outlined text-base font-bold">check</span>
+</div>
+<span class="text-[10px] font-bold text-lexteal-deep">Q1</span>
+</div>
+<!-- Q2 Done (Correct) -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-lexteal text-white flex items-center justify-center font-bold text-xs shadow-[0_2px_0_#073B36]">
+<span class="material-symbols-outlined text-base font-bold">check</span>
+</div>
+<span class="text-[10px] font-bold text-lexteal-deep">Q2</span>
+</div>
+<!-- Q3 Done (Correct) -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-lexteal text-white flex items-center justify-center font-bold text-xs shadow-[0_2px_0_#073B36]">
+<span class="material-symbols-outlined text-base font-bold">check</span>
+</div>
+<span class="text-[10px] font-bold text-lexteal-deep">Q3</span>
+</div>
+<!-- Q4 Current (Active ring) -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-amber text-ink-dark border-2 border-amber-dark flex items-center justify-center font-black text-sm shadow-[0_3px_0_#613B00] scale-105">
                 4
               </div>
-              <span class="text-[10px] font-extrabold text-amber-dark">Now</span>
-            </div>
-
-            <!-- Q5 Upcoming -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-lexteal-deep/50 flex items-center justify-center font-bold text-xs">
+<span class="text-[10px] font-black text-ink-dark">Now</span>
+</div>
+<!-- Q5 Upcoming -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-[#3D5A58] flex items-center justify-center font-extrabold text-xs">
                 5
               </div>
-              <span class="text-[10px] font-bold text-cream-400">Q5</span>
-            </div>
-
-            <!-- Q6 Upcoming -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-lexteal-deep/50 flex items-center justify-center font-bold text-xs">
+<span class="text-[10px] font-bold text-[#3D5A58]">Q5</span>
+</div>
+<!-- Q6 Upcoming -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-[#3D5A58] flex items-center justify-center font-extrabold text-xs">
                 6
               </div>
-              <span class="text-[10px] font-bold text-cream-400">Q6</span>
-            </div>
-
-            <!-- Q7 Upcoming -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-lexteal-deep/50 flex items-center justify-center font-bold text-xs">
+<span class="text-[10px] font-bold text-[#3D5A58]">Q6</span>
+</div>
+<!-- Q7 Upcoming -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-[#3D5A58] flex items-center justify-center font-extrabold text-xs">
                 7
               </div>
-              <span class="text-[10px] font-bold text-cream-400">Q7</span>
-            </div>
-
-            <!-- Q8 Upcoming -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-lexteal-deep/50 flex items-center justify-center font-bold text-xs">
+<span class="text-[10px] font-bold text-[#3D5A58]">Q7</span>
+</div>
+<!-- Q8 Upcoming -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-[#3D5A58] flex items-center justify-center font-extrabold text-xs">
                 8
               </div>
-              <span class="text-[10px] font-bold text-cream-400">Q8</span>
-            </div>
-
-            <!-- Q9 Upcoming -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-lexteal-deep/50 flex items-center justify-center font-bold text-xs">
+<span class="text-[10px] font-bold text-[#3D5A58]">Q8</span>
+</div>
+<!-- Q9 Upcoming -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-[#3D5A58] flex items-center justify-center font-extrabold text-xs">
                 9
               </div>
-              <span class="text-[10px] font-bold text-cream-400">Q9</span>
-            </div>
-
-            <!-- Q10 Final -->
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-lexteal-deep/50 flex items-center justify-center font-bold text-xs">
+<span class="text-[10px] font-bold text-[#3D5A58]">Q9</span>
+</div>
+<!-- Q10 Final -->
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-10 h-10 rounded-xl bg-cream-100 border-2 border-cream-300 text-[#3D5A58] flex items-center justify-center font-extrabold text-xs">
                 10
               </div>
-              <span class="text-[10px] font-bold text-cream-400">Q10</span>
-            </div>
-          </div>
-
-          <!-- Micro Stat Row -->
-          <div class="bg-cream-50 border-2 border-cream-200 rounded-xl p-3 flex items-center justify-between mb-6">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-rounded text-coral text-base">local_fire_department</span>
-              <span class="text-xs font-bold text-lexteal-deep">Accuracy</span>
-            </div>
-            <span class="text-xs font-black text-lexteal-mid">100% (3/3)</span>
-          </div>
-
-          <!-- Tactile 'Practice more in the app' CTA -->
-          <div class="pt-2">
-            <button class="w-full tactile-secondary p-4 rounded-xl flex items-center justify-center gap-2 group">
-              <span class="material-symbols-rounded text-lexteal text-lg group-hover:rotate-12 transition-transform">phone_iphone</span>
-              <span class="text-sm font-extrabold text-lexteal-deep">Practice more in the app</span>
-            </button>
-            <p class="text-center text-[11px] font-semibold text-lexteal-deep/60 mt-2.5">
+<span class="text-[10px] font-bold text-[#3D5A58]">Q10</span>
+</div>
+</div>
+<!-- Micro Stat Row -->
+<div class="bg-cream-50 border-2 border-cream-200 rounded-xl p-3 flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#C73E1D] text-base font-bold">local_fire_department</span>
+<span class="text-xs font-bold text-lexteal-deep">Accuracy</span>
+</div>
+<span class="text-xs font-black text-lexteal-deep">100% (3/3)</span>
+</div>
+<!-- Tactile 'Practice more in the app' CTA -->
+<div class="pt-2">
+<button class="w-full tactile-secondary p-4 rounded-xl flex items-center justify-center gap-2 group">
+<span class="material-symbols-outlined text-lexteal text-lg group-hover:rotate-12 transition-transform">phone_iphone</span>
+<span class="text-sm font-black text-lexteal-deep">Practice more in the app</span>
+</button>
+<p class="text-center text-[11px] font-bold text-lexteal-deep/70 mt-2.5">
               100% free • 2,400+ TOEIC flashcards
             </p>
-          </div>
-        </div>
-
-        <!-- Quick Rule Anchor Box -->
-        <div class="bg-white border-2 border-cream-300 rounded-2xl p-5 shadow-[0_4px_0_#D8CFBC] flex items-center gap-4">
-          <div class="w-10 h-10 rounded-xl bg-amber-soft border border-amber/40 flex items-center justify-center text-amber-dark flex-shrink-0">
-            <span class="material-symbols-rounded text-xl">lightbulb</span>
-          </div>
-          <div class="text-xs">
-            <span class="font-extrabold text-lexteal-deep block mb-0.5">Examiner Rule</span>
-            <span class="text-lexteal-deep/70 font-semibold">Whose replaces <em class="italic">his/her/their</em> before any target noun.</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </main>
-
-  <!-- ================= FRIENDLY FOOTER (Lexkite Standard) ================= -->
-  <footer class="w-full bg-white border-t-2 border-cream-300 mt-12 py-8">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <!-- Brand & Tagline -->
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-lexteal flex items-center justify-center text-white font-black text-xs shadow-[0_2px_0_#12514D]">
+</div>
+</div>
+<!-- Quick Rule Anchor Box -->
+<div class="bg-white border-2 border-cream-300 rounded-2xl p-5 shadow-[0_4px_0_#D8CFBC] flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-[#FFECCC] border border-[#F2C980] flex items-center justify-center text-[#925800] flex-shrink-0">
+<span class="material-symbols-outlined text-xl font-bold">lightbulb</span>
+</div>
+<div class="text-xs">
+<span class="font-black text-lexteal-deep block mb-0.5">Examiner Rule</span>
+<span class="text-[#1B3533] font-semibold">Whose replaces <em class="italic font-bold">his/her/their</em> before any target noun.</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= FRIENDLY FOOTER ================= -->
+<footer class="w-full bg-white border-t-2 border-cream-300 mt-12 py-8">
+<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Brand & Tagline -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-lexteal flex items-center justify-center text-white font-black text-xs shadow-[0_2px_0_#073B36]">
           LK
         </div>
-        <div>
-          <span class="font-bold text-sm text-lexteal-deep">Lexkite Prep</span>
-          <span class="text-xs text-lexteal-deep/60 block font-medium">Tactile exam preparation for IELTS & TOEIC learners.</span>
-        </div>
-      </div>
-
-      <!-- Links -->
-      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-lexteal-deep/70">
-        <a href="#" class="hover:text-lexteal transition-colors">Speaking Drills</a>
-        <a href="#" class="hover:text-lexteal transition-colors">Academic Vocabulary</a>
-        <a href="#" class="hover:text-lexteal transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-lexteal transition-colors">Editorial Standards</a>
-      </div>
-
-      <!-- Copyright -->
-      <div class="text-xs font-semibold text-lexteal-deep/50">
+<div>
+<span class="font-black text-sm text-lexteal-deep">Lexkite Prep</span>
+<span class="text-xs text-[#2E5150] block font-semibold">Tactile exam preparation for IELTS &amp; TOEIC learners.</span>
+</div>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-lexteal-deep">
+<a class="hover:text-lexteal transition-colors" href="#">Speaking Drills</a>
+<a class="hover:text-lexteal transition-colors" href="#">Academic Vocabulary</a>
+<a class="hover:text-lexteal transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-lexteal transition-colors" href="#">Editorial Standards</a>
+</div>
+<!-- Copyright -->
+<div class="text-xs font-bold text-[#2E5150]">
         © 2026 Lexkite Inc. Free forever.
       </div>
-    </div>
-  </footer>
-
-</body>
-</html>
-
+</div>
+</footer>
+</body></html>

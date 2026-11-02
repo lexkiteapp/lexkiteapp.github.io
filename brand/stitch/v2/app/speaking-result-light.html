@@ -6,8 +6,7 @@
 <title>Lexkite IELTS - Speaking Result</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -17,24 +16,24 @@
         extend: {
           "colors": {
             "on-primary-fixed-variant": "#00504c",
-            "primary-container": "#136b66",
+            "primary-container": "#0F615A",
             "on-tertiary-container": "#ffd0c9",
             "surface-tint": "#106a65",
             "on-primary": "#ffffff",
             "on-error": "#ffffff",
             "error-container": "#ffdad6",
-            "on-secondary-fixed": "#2c1600",
+            "on-secondary-fixed": "#1C1003",
             "on-tertiary": "#ffffff",
             "on-tertiary-fixed-variant": "#8c170e",
             "primary": "#00514d",
-            "on-secondary-container": "#663b00",
+            "on-secondary-container": "#1C1003",
             "inverse-on-surface": "#f9efe6",
             "on-secondary": "#ffffff",
             "error": "#ba1a1a",
             "secondary-container": "#fe9d19",
             "surface-container-highest": "#eae1d8",
             "secondary-fixed": "#ffdcbc",
-            "outline": "#6f7978",
+            "outline": "#4A3E34",
             "inverse-surface": "#34302a",
             "on-secondary-fixed-variant": "#683c00",
             "on-background": "#1f1b16",
@@ -42,7 +41,7 @@
             "surface-container": "#f6ece4",
             "background": "#fff8f3",
             "primary-fixed": "#a4f0e9",
-            "on-primary-container": "#9ce9e2",
+            "on-primary-container": "#ffffff",
             "secondary": "#895100",
             "on-tertiary-fixed": "#410000",
             "surface-container-low": "#fcf2e9",
@@ -130,53 +129,54 @@
       -webkit-font-smoothing: antialiased;
       vertical-align: middle;
     }
-  </style>
-<style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
-<body class="bg-surface text-on-surface antialiased min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed pb-24">
-<!-- Top App Bar (Shared Components Anchor with route contextual details) -->
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed pb-24 max-w-[390px] mx-auto">
+<!-- Top App Bar -->
 <header class="sticky top-0 z-40 bg-surface shadow-[0_4px_0_#eae1d8]">
-<div class="flex justify-between items-center w-full px-4 h-16 max-w-screen-md mx-auto">
+<div class="flex justify-between items-center w-full px-4 h-16">
 <div class="flex items-center gap-space-sm">
-<button aria-label="Go back" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform duration-100" type="button">
-<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+<button aria-label="Go back" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
 </button>
 <div class="flex flex-col">
 <span class="font-headline-sm text-headline-sm text-primary">Speaking Practice</span>
-<span class="font-label-sm text-label-sm text-outline">#/speaking</span>
+<!-- Breadcrumb: #4A3E34 with >5:1 contrast against warm cream background -->
+<span class="font-label-sm text-label-sm text-[#4A3E34] font-bold">#/speaking</span>
 </div>
 </div>
 <div class="flex items-center gap-space-xs">
-<span class="bg-surface-container-high border-2 border-surface-variant text-on-surface px-2.5 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1 shadow-[0_2px_0_#eae1d8]">
-<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="record_voice_over" data-weight="fill" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+<!-- Part 2 Badge: deep brown-black ink (#1C1003) on amber container -->
+<span class="bg-secondary-fixed border-2 border-secondary-fixed-dim text-[#1C1003] px-2.5 py-1.5 min-h-[44px] rounded-full font-label-sm text-label-sm flex items-center gap-1 shadow-[0_2px_0_#eae1d8] font-bold">
+<span class="material-symbols-outlined text-[16px] text-[#895100]" data-icon="record_voice_over" data-weight="fill" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
           Part 2
         </span>
-<button aria-label="Audio controls" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform duration-100" type="button">
-<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+<button aria-label="Audio controls" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="volume_up">volume_up</span>
 </button>
 </div>
 </div>
 </header>
 <!-- Main Content Canvas -->
-<main class="w-full max-w-screen-md mx-auto px-margin py-space-md space-y-space-md">
+<main class="w-full px-margin py-space-md space-y-space-md">
 <!-- Header Hero Banner -->
 <section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_4px_0_#e2d8d0] relative overflow-hidden">
 <div class="flex items-start justify-between">
 <div class="space-y-space-xs">
-<div class="inline-flex items-center gap-1.5 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-3 py-1 rounded-full border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c]">
-<span class="material-symbols-outlined text-[16px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<!-- Badge strictly using deep brown-black ink (#1C1003) -->
+<div class="inline-flex items-center gap-1.5 bg-secondary-fixed text-[#1C1003] font-label-sm text-label-sm px-3 py-1 rounded-full border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c] font-bold">
+<span class="material-symbols-outlined text-[16px] text-[#895100]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
             Part 2 Cue Card
           </div>
 <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface pt-1">Speaking Analysis</h1>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Describe an impactful piece of technology you use daily.</p>
+<p class="font-body-sm text-body-sm text-[#3f4947]">Describe an impactful piece of technology you use daily.</p>
 </div>
-<!-- Completion Trophy/Star Graphic Pill -->
-<div class="w-14 h-14 rounded-2xl bg-secondary-container text-on-secondary-fixed border-2 border-secondary flex flex-col items-center justify-center shadow-[0_4px_0_#895100] transform rotate-2">
-<span class="material-symbols-outlined text-[28px]" data-icon="military_tech" data-weight="fill" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<!-- Completion Trophy/Star Graphic Pill with dark ink -->
+<div class="w-14 h-14 rounded-2xl bg-secondary-container text-[#1C1003] border-2 border-secondary flex flex-col items-center justify-center shadow-[0_4px_0_#895100] transform rotate-2">
+<span class="material-symbols-outlined text-[28px] text-[#1C1003]" data-icon="military_tech" data-weight="fill" style="font-variation-settings: 'FILL' 1;">military_tech</span>
 </div>
 </div>
 </section>
@@ -185,53 +185,57 @@
 <!-- Duration Tile -->
 <div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_4px_0_#e2d8d0] flex flex-col justify-between">
 <div class="flex items-center justify-between mb-space-sm">
-<span class="font-label-sm text-label-sm text-outline">Duration</span>
+<!-- Stat card label: deep readable warm slate #4A3E34 -->
+<span class="font-label-sm text-label-sm text-[#4A3E34] font-bold">Duration</span>
 <span class="w-8 h-8 rounded-xl bg-surface-container flex items-center justify-center text-primary border border-surface-variant shadow-[0_2px_0_#e2d8d0]">
-<span class="material-symbols-outlined text-[18px]" data-icon="timer">timer</span>
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="timer">timer</span>
 </span>
 </div>
 <div>
 <span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">1:52</span>
-<span class="block font-label-sm text-label-sm text-primary">Target: 2:00</span>
+<span class="block font-label-sm text-label-sm text-[#00514d] font-bold">Target: 2:00</span>
 </div>
 </div>
 <!-- Words/Min Tile -->
 <div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_4px_0_#e2d8d0] flex flex-col justify-between">
 <div class="flex items-center justify-between mb-space-sm">
-<span class="font-label-sm text-label-sm text-outline">Pacing</span>
-<span class="w-8 h-8 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c]">
-<span class="material-symbols-outlined text-[18px]" data-icon="speed">speed</span>
+<!-- Stat card label: deep readable warm slate #4A3E34 -->
+<span class="font-label-sm text-label-sm text-[#4A3E34] font-bold">Pacing</span>
+<span class="w-8 h-8 rounded-xl bg-secondary-fixed flex items-center justify-center text-[#1C1003] border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c]">
+<span class="material-symbols-outlined text-[18px] text-[#895100]" data-icon="speed">speed</span>
 </span>
 </div>
 <div>
 <span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">118</span>
-<span class="block font-label-sm text-label-sm text-secondary">Words / min</span>
+<span class="block font-label-sm text-label-sm text-[#895100] font-bold">Words / min</span>
 </div>
 </div>
 <!-- Total Words Tile -->
 <div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_4px_0_#e2d8d0] flex flex-col justify-between">
 <div class="flex items-center justify-between mb-space-sm">
-<span class="font-label-sm text-label-sm text-outline">Length</span>
+<!-- Stat card label: deep readable warm slate #4A3E34 -->
+<span class="font-label-sm text-label-sm text-[#4A3E34] font-bold">Length</span>
 <span class="w-8 h-8 rounded-xl bg-surface-container flex items-center justify-center text-primary border border-surface-variant shadow-[0_2px_0_#e2d8d0]">
-<span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span>
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="chat">chat</span>
 </span>
 </div>
 <div>
 <span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">221</span>
-<span class="block font-label-sm text-label-sm text-primary">Total words</span>
+<span class="block font-label-sm text-label-sm text-[#00514d] font-bold">Total words</span>
 </div>
 </div>
 <!-- Filler Words Tile -->
 <div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_4px_0_#e2d8d0] flex flex-col justify-between">
 <div class="flex items-center justify-between mb-space-sm">
-<span class="font-label-sm text-label-sm text-outline">Fillers</span>
+<!-- Stat card label: deep readable warm slate #4A3E34 -->
+<span class="font-label-sm text-label-sm text-[#4A3E34] font-bold">Fillers</span>
 <span class="w-8 h-8 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary border border-tertiary-fixed-dim shadow-[0_2px_0_#ffb4a8]">
-<span class="material-symbols-outlined text-[18px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="material-symbols-outlined text-[18px] text-[#8e190f]" data-icon="auto_awesome">auto_awesome</span>
 </span>
 </div>
 <div>
-<span class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary">4</span>
-<span class="block font-label-sm text-label-sm text-on-surface-variant">Low frequency</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-[#8e190f]">4</span>
+<span class="block font-label-sm text-label-sm text-[#382F26] font-bold">Low frequency</span>
 </div>
 </div>
 </section>
@@ -239,29 +243,30 @@
 <section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_4px_0_#e2d8d0]">
 <div class="flex items-center gap-space-md">
 <!-- Chunky tactile play button -->
-<button aria-label="Play recording" class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_4px_0_#0c4542] active:translate-y-[3px] active:shadow-[0_1px_0_#0c4542] transition-all shrink-0" id="playBtn" type="button">
-<span class="material-symbols-outlined text-[26px]" data-icon="play_arrow" data-weight="fill" id="playIcon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<button aria-label="Play recording" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[#0F615A] text-white flex items-center justify-center shadow-[0_4px_0_#0c4542] active:translate-y-[3px] active:shadow-[0_1px_0_#0c4542] transition-all shrink-0" id="playBtn" type="button">
+<span class="material-symbols-outlined text-[26px] text-white" data-icon="play_arrow" data-weight="fill" id="playIcon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
 </button>
 <!-- Waveform scrub & timestamp -->
 <div class="flex-1 space-y-1">
 <div class="flex justify-between items-center">
-<span class="font-label-sm text-label-sm text-primary font-bold">0:48</span>
-<span class="font-label-sm text-label-sm text-outline">1:52</span>
+<span class="font-label-sm text-label-sm text-[#00514d] font-bold">0:48</span>
+<!-- Audio timer '1:52': high-contrast deep ink #382F26 -->
+<span class="font-label-sm text-label-sm text-[#382F26] font-bold">1:52</span>
 </div>
 <!-- Waveform Bars Simulation -->
 <div class="h-7 bg-surface-container rounded-lg p-1 flex items-center gap-1 border border-surface-variant overflow-hidden">
-<span class="h-3 w-1 bg-primary-container rounded-full"></span>
-<span class="h-5 w-1 bg-primary-container rounded-full"></span>
-<span class="h-4 w-1 bg-primary-container rounded-full"></span>
-<span class="h-6 w-1 bg-primary-container rounded-full"></span>
-<span class="h-3 w-1 bg-primary-container rounded-full"></span>
-<span class="h-5 w-1 bg-primary-container rounded-full"></span>
-<span class="h-4 w-1 bg-primary-container rounded-full"></span>
-<span class="h-6 w-1 bg-primary-container rounded-full"></span>
-<span class="h-5 w-1 bg-primary-container rounded-full"></span>
-<span class="h-3 w-1 bg-primary-container rounded-full"></span>
+<span class="h-3 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-5 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-4 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-6 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-3 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-5 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-4 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-6 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-5 w-1 bg-[#0F615A] rounded-full"></span>
+<span class="h-3 w-1 bg-[#0F615A] rounded-full"></span>
 <!-- Scrub marker line -->
-<span class="h-6 w-1.5 bg-secondary-container rounded-full shadow-[0_0_4px_#fe9d19]"></span>
+<span class="h-6 w-1.5 bg-[#fe9d19] rounded-full shadow-[0_0_4px_#fe9d19]"></span>
 <!-- Unplayed remainder -->
 <span class="h-4 w-1 bg-surface-variant rounded-full"></span>
 <span class="h-5 w-1 bg-surface-variant rounded-full"></span>
@@ -276,7 +281,7 @@
 </div>
 </div>
 <!-- Speed toggle -->
-<button class="px-2.5 py-1.5 rounded-xl bg-surface-container-high border-2 border-surface-variant text-on-surface font-label-sm text-label-sm shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform shrink-0" id="speedBtn" type="button">
+<button class="min-h-[44px] min-w-[44px] px-2.5 py-1.5 rounded-xl bg-surface-container-high border-2 border-surface-variant text-[#1C1003] font-label-sm text-label-sm font-bold shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform shrink-0 flex items-center justify-center" id="speedBtn" type="button">
           1.0x
         </button>
 </div>
@@ -290,42 +295,44 @@
 </div>
 <!-- Color Legend Chips -->
 <div class="flex items-center gap-1.5">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-[0_2px_0_#0c4542]">
-<span class="w-1.5 h-1.5 rounded-full bg-on-primary-container"></span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#0F615A] text-white font-label-sm text-label-sm font-bold shadow-[0_2px_0_#0c4542]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#a4f0e9]"></span>
             Linking words
           </span>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c]">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-[#1C1003] font-label-sm text-label-sm border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#895100]"></span>
             Academic words
           </span>
 </div>
 </div>
 <!-- Transcript Passage with Recessed Well styling -->
 <div class="bg-surface-container-low rounded-xl p-space-md border border-surface-variant leading-relaxed">
-<p class="font-body-md text-body-md text-on-surface space-y-2">
+<p class="font-body-md text-body-md text-[#1f1b16] space-y-2">
           "One technological device I rely on constantly is my noise-cancelling headset.
-          <mark class="bg-primary-container text-on-primary px-1.5 py-0.5 rounded-md font-bold not-italic">Furthermore</mark>, it provides a 
-          <mark class="bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded-md font-bold not-italic border border-secondary-fixed-dim">substantial</mark> boost to my concentration when studying in noisy environments.
+          <!-- Variant 1: Pale Mint/Teal Tactile Highlight with Deep Forest Ink (#0D514D on #CCFBF1 with 1.5px border #14B8A6 > 7:1 contrast) -->
+<mark class="bg-[#CCFBF1] text-[#0D514D] font-extrabold px-2 py-0.5 rounded-md not-italic border-[1.5px] border-[#14B8A6] shadow-[0_1px_0_#5eead4]">Furthermore</mark>, it provides a 
+          <mark class="bg-secondary-fixed text-[#1C1003] font-black px-1.5 py-0.5 rounded-md not-italic border border-secondary-fixed-dim">substantial</mark> boost to my concentration when studying in noisy environments.
           Whenever I prepare for examination modules, 
-          <mark class="bg-primary-container text-on-primary px-1.5 py-0.5 rounded-md font-bold not-italic">consequently</mark>, my retention improves because external disturbances are eliminated.
+          <mark class="bg-[#0F615A] text-[#FFFFFF] font-black px-1.5 py-0.5 rounded-md not-italic">consequently</mark>, my retention improves because external disturbances are eliminated.
           The digital audio
-          <mark class="bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded-md font-bold not-italic border border-secondary-fixed-dim">infrastructure</mark> inside is truly fascinating..."
+          <mark class="bg-secondary-fixed text-[#1C1003] font-black px-1.5 py-0.5 rounded-md not-italic border border-secondary-fixed-dim">infrastructure</mark> inside is truly fascinating..."
         </p>
 </div>
 <!-- Short Feedback Notes List -->
 <div class="space-y-space-xs pt-1">
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Coach Observations</span>
+<!-- Item 5: Section header 'COACH OBSERVATIONS': deep dark slate/teal ink #1C3331 > 6:1 contrast -->
+<span class="font-label-sm text-label-sm text-[#1C3331] uppercase tracking-wider font-extrabold">Coach Observations</span>
 <ul class="space-y-2">
 <li class="flex items-start gap-2 text-on-surface font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-primary text-[18px] mt-0.5" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-[#00514d] text-[18px] mt-0.5 shrink-0" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span>Natural pacing maintained throughout the introductory statement.</span>
 </li>
 <li class="flex items-start gap-2 text-on-surface font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-primary text-[18px] mt-0.5" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-[#00514d] text-[18px] mt-0.5 shrink-0" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 <span>Noticeable reduction in hesitation pauses during the second minute.</span>
 </li>
 <li class="flex items-start gap-2 text-on-surface font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5" data-icon="lightbulb" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="material-symbols-outlined text-[#895100] text-[18px] mt-0.5 shrink-0" data-icon="lightbulb" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
 <span>Try substituting casual filler sounds ("like", "um") with deliberate silent pauses.</span>
 </li>
 </ul>
@@ -335,66 +342,68 @@
 <section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_4px_0_#e2d8d0] space-y-space-md">
 <div class="flex items-center justify-between">
 <div>
-<span class="font-label-sm text-label-sm text-outline">Projected Score</span>
+<!-- Item 6: 'Projected Score': high-contrast deep ink #382F26 -->
+<span class="font-label-sm text-label-sm text-[#382F26] font-bold">Projected Score</span>
 <h2 class="font-headline-md text-headline-md text-on-surface">AI Assessment</h2>
 </div>
 <!-- Bold Band Score Badge -->
 <div class="px-4 py-2 rounded-2xl bg-surface-container border-2 border-primary text-primary flex items-center gap-1.5 shadow-[0_3px_0_#00514d]">
-<span class="material-symbols-outlined text-[20px]" data-icon="grade" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="font-headline-sm text-headline-sm text-primary">Band 6.5</span>
 </div>
 </div>
 <!-- Micro breakdown tags -->
+<!-- Item 7: Subscore labels 'Fluency', 'Lexical', 'Pronun.' in deep legible ink #3D3228 > 4.5:1 -->
 <div class="grid grid-cols-3 gap-2">
 <div class="bg-surface-container-low rounded-xl p-2.5 border border-surface-variant text-center">
-<span class="block font-label-sm text-label-sm text-outline">Fluency</span>
+<span class="block font-label-sm text-label-sm text-[#3D3228] font-bold">Fluency</span>
 <span class="font-headline-sm text-headline-sm text-primary">7.0</span>
 </div>
 <div class="bg-surface-container-low rounded-xl p-2.5 border border-surface-variant text-center">
-<span class="block font-label-sm text-label-sm text-outline">Lexical</span>
+<span class="block font-label-sm text-label-sm text-[#3D3228] font-bold">Lexical</span>
 <span class="font-headline-sm text-headline-sm text-primary">6.5</span>
 </div>
 <div class="bg-surface-container-low rounded-xl p-2.5 border border-surface-variant text-center">
-<span class="block font-label-sm text-label-sm text-outline">Pronun.</span>
+<span class="block font-label-sm text-label-sm text-[#3D3228] font-bold">Pronun.</span>
 <span class="font-headline-sm text-headline-sm text-primary">6.5</span>
 </div>
 </div>
-<!-- Primary 3D tactile CTA button (Sunny orange with dark ink) -->
-<button class="w-full bg-secondary-container text-on-secondary-fixed py-3.5 px-4 rounded-xl border-2 border-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_4px_0_#895100] active:translate-y-[3px] active:shadow-[0_1px_0_#895100] transition-all" type="button">
-<span class="material-symbols-outlined text-[22px]" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<!-- Item 8: CTA strictly deep brown-black ink (#1C1003) on sunny orange container -->
+<button class="w-full min-h-[48px] bg-secondary-container text-[#1C1003] py-3.5 px-4 rounded-xl border-2 border-secondary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0_4px_0_#895100] active:translate-y-[3px] active:shadow-[0_1px_0_#895100] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#1C1003]" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
 <span>Grade with AI</span>
 </button>
 </section>
 </main>
-<!-- Bottom Navigation Bar (Shared Components Anchor execution) -->
-<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 max-w-screen-md mx-auto bg-surface shadow-[0_-4px_0_#eae1d8]">
+<!-- Bottom Navigation Bar: Exactly 5 tabs in order (Today, Vocab, Skills, Tests, Me) with Skills active -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-2 py-2 max-w-[390px] mx-auto bg-surface shadow-[0_-4px_0_#eae1d8] border-t border-surface-variant">
 <!-- Tab 1: Today (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container-high transition-transform duration-100 active:translate-y-[2px]" href="#/today">
-<span class="material-symbols-outlined" data-icon="today">today</span>
-<span class="font-label-sm text-label-sm">Today</span>
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#4A3E34] px-2 py-1 hover:bg-surface-container-high transition-transform duration-100 active:translate-y-[2px]" href="#/today">
+<span class="material-symbols-outlined text-[#4A3E34]" data-icon="today">today</span>
+<span class="font-label-sm text-label-sm font-bold">Today</span>
 </a>
 <!-- Tab 2: Vocab (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container-high transition-transform duration-100 active:translate-y-[2px]" href="#/vocab">
-<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
-<span class="font-label-sm text-label-sm">Vocab</span>
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#4A3E34] px-2 py-1 hover:bg-surface-container-high transition-transform duration-100 active:translate-y-[2px]" href="#/vocab">
+<span class="material-symbols-outlined text-[#4A3E34]" data-icon="menu_book">menu_book</span>
+<span class="font-label-sm text-label-sm font-bold">Vocab</span>
 </a>
-<!-- Tab 3: Skills (Active - Exact Semantic Match for Speaking skill result) -->
-<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary rounded-xl px-3 py-1 shadow-[0_3px_0_#0c4542] active:translate-y-[2px] transition-transform duration-100" href="#/skills">
-<span class="material-symbols-outlined" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
-<span class="font-label-sm text-label-sm">Skills</span>
+<!-- Tab 3: Skills (Active) -->
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] bg-[#0F615A] text-white rounded-xl px-3 py-1 shadow-[0_3px_0_#0c4542] active:translate-y-[2px] transition-transform duration-100" href="#/skills">
+<span class="material-symbols-outlined text-white" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm font-bold">Skills</span>
 </a>
 <!-- Tab 4: Tests (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container-high transition-transform duration-100 active:translate-y-[2px]" href="#/tests">
-<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
-<span class="font-label-sm text-label-sm">Tests</span>
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#4A3E34] px-2 py-1 hover:bg-surface-container-high transition-transform duration-100 active:translate-y-[2px]" href="#/tests">
+<span class="material-symbols-outlined text-[#4A3E34]" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm font-bold">Tests</span>
 </a>
 <!-- Tab 5: Me (Inactive) -->
-<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container-high transition-transform duration-100 active:translate-y-[2px]" href="#/me">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="font-label-sm text-label-sm">Me</span>
+<a class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] text-[#4A3E34] px-2 py-1 hover:bg-surface-container-high transition-transform duration-100 active:translate-y-[2px]" href="#/me">
+<span class="material-symbols-outlined text-[#4A3E34]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm font-bold">Me</span>
 </a>
 </nav>
-<!-- Lightweight Micro-interaction Script -->
+<!-- Micro-interaction Script -->
 <script>
     const playBtn = document.getElementById('playBtn');
     const playIcon = document.getElementById('playIcon');

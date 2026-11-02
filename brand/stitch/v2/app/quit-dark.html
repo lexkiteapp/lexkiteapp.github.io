@@ -3,7 +3,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=390, initial-scale=1.0" name="viewport"/>
-<title>Lexkite Quit Midway Confirm (Tactile Night)</title>
+<title>Lexkite Quit Midway Confirm - Variant 2 (Tactile Night)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -34,13 +34,13 @@
     /* Tactile 3D Button Effects */
     .tactile-btn-orange {
       background-color: #ff8c00;
-      box-shadow: 0 6px 0 0 #a84c00;
-      color: #1a0f02;
+      box-shadow: 0 5px 0 0 #b35300;
+      color: #1a0d00;
       transition: all 0.1s ease;
     }
     .tactile-btn-orange:active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 0 #a84c00;
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #b35300;
     }
 
     .tactile-btn-icon {
@@ -55,12 +55,16 @@
       box-shadow: 0 1px 0 0 #081316;
     }
 
-    /* Tactile sheet in dark teal */
-    .tactile-sheet {
-      background-color: #101d20;
-      border: 2px solid #233f47;
-      box-shadow: 0 8px 0 0 #060d0f;
-      border-radius: 24px 24px 20px 20px;
+    .tactile-pill-btn {
+      background-color: #16262a;
+      box-shadow: 0 3px 0 0 #081316;
+      border: 2px solid #2a4c55;
+      color: #cde2df;
+      transition: all 0.1s ease;
+    }
+    .tactile-pill-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #081316;
     }
 
     /* Speech Bubble Triangle Dark */
@@ -85,112 +89,147 @@
       border-bottom: 7px solid transparent;
       border-right: 9px solid #16262a;
     }
+
+    /* Tactile bottom sheet */
+    .tactile-bottom-sheet {
+      background-color: #152326;
+      border-top: 2px solid #2c4247;
+      border-left: 2px solid #2c4247;
+      border-right: 2px solid #2c4247;
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6), 0 -2px 0 0 #081316;
+    }
   </style>
 </head>
 <body>
 <div class="phone-container">
-<!-- TOP BAR (MODAL VARIANT: 56px, close X on left, title, nothing on right) -->
-<header class="w-full h-[56px] px-4 flex items-center justify-between border-b-2 border-[#1a2c32] bg-[#091518] shrink-0 z-30">
-<div class="flex items-center gap-3">
-<button aria-label="Close modal" class="tactile-btn-icon w-10 h-10 rounded-full flex items-center justify-center cursor-pointer">
-<span class="material-symbols-rounded text-[22px]">close</span>
+<!-- CRISP FULLY-READABLE LESSON LAYER (0% VEIL TOP HALF, SUBTLE 10% SCRIM LOWER HALF) -->
+<div class="flex flex-col min-h-full">
+<!-- TOP BAR: Close (X) button, drill progress bar, combo chip (>= 4.5:1 contrast) -->
+<header class="w-full h-[56px] px-4 flex items-center gap-3 border-b-2 border-[#1a2c32] bg-[#091518] shrink-0 z-10">
+<button aria-label="Close modal" class="tactile-btn-icon w-10 h-10 rounded-full flex items-center justify-center cursor-pointer shrink-0">
+<span class="material-symbols-rounded text-[22px] text-[#f0f7f6]">close</span>
 </button>
-<h1 class="text-[19px] font-extrabold text-[#f0f7f6] tracking-tight">Leave lesson?</h1>
+<!-- Drill Progress Bar -->
+<div class="flex-1 h-3.5 bg-[#121d20] border-2 border-[#233f47] rounded-full overflow-hidden p-0.5">
+<div class="w-3/5 h-full bg-[#6bd8ce] rounded-full shadow-[0_0_8px_rgba(107,216,206,0.5)]"></div>
 </div>
-<div><!-- Nothing on right as per MODAL spec --></div>
+<!-- High Contrast Combo Badge -->
+<div class="px-2.5 py-1 rounded-full bg-[#201a09] border-2 border-[#7a4e03] text-[#f4bf40] text-[11px] font-extrabold flex items-center gap-1 shrink-0">
+<span>🔥</span>
+<span>COMBO ×4</span>
+</div>
 </header>
-<!-- CONTENT AREA -->
-<main class="relative flex-1 flex flex-col justify-between overflow-hidden">
-<!-- BACKGROUND / DIMMED LESSON LAYER -->
-<div class="absolute inset-0 px-4 pt-3 flex flex-col gap-3 pointer-events-none select-none opacity-25 filter blur-[1.5px]">
-<!-- Dimmed lesson status bar -->
-<div class="flex items-center gap-2">
-<div class="w-7 h-7 rounded-full bg-[#16262a] border border-[#2a4c55] flex items-center justify-center text-[#879391]">
-<span class="material-symbols-rounded text-[18px]">close</span>
+<!-- TOP HALF OF PAUSED LESSON (COMPLETELY UNOBSCURED, 0% VEIL) -->
+<div class="px-4 pt-3.5 flex flex-col gap-3.5 z-10">
+<!-- Teacher Slot & Speech Bubble -->
+<div class="flex items-start gap-3">
+<!-- Empty dashed teacher slot box with mortarboard icon & label -->
+<div class="w-[110px] h-[130px] rounded-2xl border-2 border-dashed border-[#33535c] bg-[#101d20] flex flex-col items-center justify-center text-center p-2 shrink-0 shadow-[0_4px_0_0_#060d0f]">
+<span class="material-symbols-rounded text-[#6bd8ce] text-[30px] mb-1">school</span>
+<span class="text-[12px] font-extrabold text-[#d8e5e9] tracking-wider leading-none">TEACHER</span>
+<span class="text-[10px] font-bold text-[#879391] tracking-widest mt-0.5">SLOT</span>
 </div>
-<div class="flex-1 h-3 bg-[#121d20] border border-[#233f47] rounded-full overflow-hidden">
-<div class="w-3/5 h-full bg-[#6bd8ce] rounded-full"></div>
-</div>
-<div class="px-2.5 py-0.5 rounded-full bg-[#202c2f] border border-[#3d4947] text-[#f4bf40] text-[11px] font-bold">
-            🔥 COMBO ×4
-          </div>
-</div>
-<!-- Dimmed question card -->
-<div class="p-4 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col gap-2 mt-1">
-<span class="text-[11px] font-extrabold text-[#6bd8ce] uppercase tracking-wider">Question 4 of 10</span>
-<p class="text-[15px] font-bold text-[#f0f7f6]">Which word means <span class="text-[#6bd8ce] underline">very important</span>?</p>
-</div>
-<!-- Dimmed options grid -->
-<div class="grid grid-cols-2 gap-2.5 mt-1">
-<div class="p-3.5 rounded-2xl bg-[#162e31] border-2 border-[#6bd8ce] shadow-[0_4px_0_0_#003733] flex flex-col">
-<span class="text-[14px] font-extrabold text-[#6bd8ce]">crucial</span>
-<span class="text-[12px] font-medium text-[#9bc4be]">essential</span>
-</div>
-<div class="p-3.5 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
-<span class="text-[14px] font-extrabold text-[#f0f7f6]">trivial</span>
-<span class="text-[12px] font-medium text-[#879391]">minor</span>
-</div>
-<div class="p-3.5 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
-<span class="text-[14px] font-extrabold text-[#f0f7f6]">vague</span>
-<span class="text-[12px] font-medium text-[#879391]">unclear</span>
-</div>
-<div class="p-3.5 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
-<span class="text-[14px] font-extrabold text-[#f0f7f6]">casual</span>
-<span class="text-[12px] font-medium text-[#879391]">relaxed</span>
-</div>
-</div>
-</div>
-<!-- SEMI-TRANSPARENT BACKDROP OVERLAY / SCRIM -->
-<div class="absolute inset-0 bg-[#091518]/70 backdrop-blur-[2px] z-10"></div>
-<!-- TOP SECTION: EMPTY DASHED TEACHER SLOT UNDER TOP BAR -->
-<div class="relative z-20 px-4 pt-3 flex items-start gap-3">
-<!-- TEACHER SLOT: empty dashed rounded 120x140 box with word TEACHER SLOT inside, no person -->
-<div class="w-[120px] h-[140px] rounded-2xl border-2 border-dashed border-[#33535c] bg-[#101d20]/90 flex flex-col items-center justify-center text-center p-2 shrink-0 shadow-[0_4px_0_0_#060d0f]">
-<span class="material-symbols-rounded text-[#879391] text-[28px] mb-1">school</span>
-<span class="text-[12px] font-extrabold text-[#9bc4be] tracking-wider">TEACHER</span>
-<span class="text-[10px] font-semibold text-[#6d8a87]">SLOT</span>
-</div>
-<!-- Speech bubble to the right of the teacher slot -->
-<div class="relative flex-1 bg-[#16262a] border-2 border-[#2a4c55] rounded-2xl p-3.5 shadow-[0_4px_0_0_#081316] mt-2">
+<!-- Speech Bubble with Question badge and prompt text -->
+<div class="relative flex-1 bg-[#16262a] border-2 border-[#2a4c55] rounded-2xl p-3 shadow-[0_4px_0_0_#081316]">
 <div class="speech-notch"></div>
-<p class="text-[15px] font-extrabold text-[#f0f7f6] leading-tight">Wait, don’t go!</p>
-<p class="text-[12px] font-semibold text-[#9bc4be] mt-1 leading-snug">You’ll lose this lesson’s progress</p>
-</div>
-</div>
-<!-- BOTTOM SHEET: QUIT-MIDWAY CONFIRM PANEL -->
-<div class="relative z-20 px-4 pb-6 pt-2">
-<div class="tactile-sheet p-5 flex flex-col items-center text-center">
-<!-- Grab handle pill -->
-<div class="w-10 h-1 bg-[#2a4c55] rounded-full mb-4"></div>
-<!-- Glossy Illustrated Icon Badge -->
-<div class="w-16 h-16 rounded-full bg-[#201a09] border-2 border-[#7a4e03] flex items-center justify-center shadow-[0_4px_0_0_#140e02] mb-3 relative">
-<span class="material-symbols-rounded text-[34px] text-[#f4bf40]">hourglass_bottom</span>
-<!-- Alert badge accent -->
-<span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#e63946] text-white flex items-center justify-center text-[11px] font-black border-2 border-[#101d20]">!</span>
-</div>
-<!-- Heading -->
-<h2 class="text-[20px] font-extrabold text-[#f0f7f6] tracking-tight">Wait, don’t go!</h2>
-<!-- Subtext -->
-<p class="text-[13px] font-semibold text-[#9bc4be] mt-1 max-w-[260px] leading-relaxed">
-            You’ll lose this lesson’s progress
+<div class="inline-flex items-center px-2 py-0.5 rounded-md bg-[#202c2f] border border-[#3d4947] text-[10px] font-extrabold text-[#6bd8ce] uppercase tracking-wider mb-1.5">
+            QUESTION
+          </div>
+<p class="text-[15px] font-bold text-[#f0f7f6] leading-snug">
+            Which word means <span class="text-[#6bd8ce] underline decoration-2 underline-offset-2">very important</span>?
           </p>
-<!-- Daily streak retention tag -->
-<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#16262a] border border-[#2a4c55] text-[#f0f7f6] text-[12px] font-bold mt-3 mb-5">
-<span class="material-symbols-rounded text-[15px] text-[#f4bf40]">local_fire_department</span>
+</div>
+</div>
+<!-- Audio Controls: Listen again & Slower -->
+<div class="flex items-center gap-2">
+<button class="tactile-pill-btn px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-[12px] font-bold">
+<span class="material-symbols-rounded text-[18px] text-[#6bd8ce]">volume_up</span>
+<span>Listen again</span>
+</button>
+<button class="tactile-pill-btn px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-[12px] font-bold">
+<span class="material-symbols-rounded text-[18px] text-[#f4bf40]">slow_motion_video</span>
+<span>Slower</span>
+</button>
+</div>
+<!-- Answer Options Grid (Crisp 2x2 grid behind/under bottom sheet) -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Option A: crucial (selected) -->
+<div class="p-3 rounded-2xl bg-[#162e31] border-2 border-[#6bd8ce] shadow-[0_4px_0_0_#003733] flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-[11px] font-extrabold text-[#6bd8ce]">A</span>
+<span class="text-[15px] font-extrabold text-[#6bd8ce]">crucial</span>
+</div>
+<span class="text-[12px] font-medium text-[#9bc4be] ml-4">essential</span>
+</div>
+<span class="material-symbols-rounded text-[#6bd8ce] text-[20px]">check_circle</span>
+</div>
+<!-- Option B: trivial -->
+<div class="p-3 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-[11px] font-extrabold text-[#879391]">B</span>
+<span class="text-[15px] font-extrabold text-[#f0f7f6]">trivial</span>
+</div>
+<span class="text-[12px] font-medium text-[#879391] ml-4">minor</span>
+</div>
+<!-- Option C: vague -->
+<div class="p-3 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-[11px] font-extrabold text-[#879391]">C</span>
+<span class="text-[15px] font-extrabold text-[#f0f7f6]">vague</span>
+</div>
+<span class="text-[12px] font-medium text-[#879391] ml-4">unclear</span>
+</div>
+<!-- Option D: casual -->
+<div class="p-3 rounded-2xl bg-[#101d20] border-2 border-[#233f47] shadow-[0_4px_0_0_#060d0f] flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-[11px] font-extrabold text-[#879391]">D</span>
+<span class="text-[15px] font-extrabold text-[#f0f7f6]">casual</span>
+</div>
+<span class="text-[12px] font-medium text-[#879391] ml-4">relaxed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SUBTLE 10% SCRIM ONLY ON THE BOTTOM HALF (LESSON REMAINS FULLY CRISP & LEGIBLE) -->
+<div class="absolute inset-x-0 bottom-0 top-[280px] bg-[#091518]/10 pointer-events-none z-20"></div>
+<!-- BOTTOM SHEET: ANCHORED TACTILE SHEET WITH CONFIRMATION DIALOG -->
+<div class="absolute inset-x-0 bottom-0 z-30 tactile-bottom-sheet rounded-t-3xl pt-3 pb-6 px-5 flex flex-col items-center text-center">
+<!-- Drag Handle Pill -->
+<div class="w-11 h-1.5 bg-[#375359] rounded-full mb-3.5"></div>
+<!-- Alert Icon with Hourglass in Circular Warm Badge + Warning Mark -->
+<div class="relative w-14 h-14 rounded-full bg-[#201a09] border-2 border-[#7a4e03] flex items-center justify-center shadow-[0_3px_0_0_#140e02] mb-2.5">
+<span class="material-symbols-rounded text-[28px] text-[#f4bf40]">hourglass_bottom</span>
+<span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#ef4444] text-[#1a0d00] flex items-center justify-center text-[11px] font-black border-2 border-[#152326]">!</span>
+</div>
+<!-- Bold Title -->
+<h2 class="text-[20px] font-extrabold text-[#E8F1F0] tracking-tight leading-snug">
+      Wait, don’t go!
+    </h2>
+<p class="text-[14px] font-bold text-[#6bd8ce] mt-0.5">
+      Progress will be lost
+    </p>
+<!-- Descriptive Copy -->
+<p class="text-[13px] font-medium text-[#A9BDBB] mt-1.5 max-w-[310px] leading-relaxed">
+      Stay for 2 more minutes to finish your drill and keep your daily streak alive!
+    </p>
+<!-- Streak Reminder Pill with Amber Accent -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1b2b2f] border border-[#30484e] text-[#E8F1F0] text-[12px] font-bold mt-2.5 mb-4 shadow-sm">
+<span class="text-[#f4bf40] text-[14px]">🔥</span>
 <span>Day 14 streak on the line</span>
 </div>
-<!-- ACTIONS: Big tactile candy-orange button + red text button -->
-<div class="w-full flex flex-col gap-2.5">
-<button class="tactile-btn-orange w-full h-[54px] rounded-2xl flex items-center justify-center gap-2 text-[16px] font-extrabold cursor-pointer">
+<!-- ACTIONS -->
+<div class="w-full flex flex-col gap-2">
+<!-- Primary Action: Keep Learning tactile orange button with dark brown-black ink -->
+<button class="tactile-btn-orange w-full h-[52px] rounded-2xl flex items-center justify-center gap-2 text-[16px] font-extrabold cursor-pointer">
 <span>Keep learning</span>
-<span class="material-symbols-rounded text-[20px]">play_arrow</span>
+<span class="text-[18px] leading-none">▶</span>
 </button>
-<button class="w-full py-2.5 text-[14px] font-extrabold text-[#ff6b6b] hover:text-[#ff8787] active:text-[#e05353] transition-colors cursor-pointer">
-              End lesson
-            </button>
+<!-- Secondary Action: End lesson in clear coral text (#F87171) -->
+<button class="w-full py-2 text-[14px] font-extrabold text-[#F87171] hover:text-[#fca5a5] active:text-[#ef4444] transition-colors cursor-pointer">
+      End lesson
+    </button>
 </div>
 </div>
-</div>
-</main>
 </div>
 </body></html>

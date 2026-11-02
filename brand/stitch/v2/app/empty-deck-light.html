@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7,7 +6,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -120,9 +118,9 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
-<!-- Mobile Viewport Container (390px) -->
+<!-- Mobile Viewport Container (390px edge-to-edge) -->
 <main class="w-[390px] min-h-screen bg-surface flex flex-col relative pb-[84px] shadow-2xl overflow-x-hidden selection:bg-primary-fixed selection:text-primary">
 <!-- Top Bar: Exactly 56px, Inner Variant -->
 <header class="h-[56px] px-margin bg-surface border-b border-surface-variant flex items-center justify-between sticky top-0 z-40">
@@ -132,7 +130,7 @@
 <span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
 </button>
 <!-- Page Title -->
-<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">My deck</h1>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold">My deck</h1>
 </div>
 <!-- Action Button -->
 <button aria-label="Search and filter deck" class="w-10 h-10 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_3px_0_0_#efe0d6] active:translate-y-[3px] active:shadow-none transition-all">
@@ -145,17 +143,17 @@
 <div class="flex items-center gap-space-sm w-full">
 <!-- Empty Teacher Slot -->
 <div class="w-[120px] h-[140px] shrink-0 rounded-2xl border-2 border-dashed border-[#d8c7bc] bg-surface-container-low flex flex-col items-center justify-center select-none relative group">
-<span class="font-label-sm text-label-sm text-on-surface-variant tracking-widest font-extrabold uppercase">TEACHER</span>
+<span class="font-label-sm text-label-sm text-[#136a63] tracking-widest font-extrabold uppercase">TEACHER</span>
 </div>
 <!-- Speech Bubble -->
 <div class="flex-1 bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#efe0d6] relative">
 <!-- Bubble Left Pointer Arrow -->
 <div class="absolute -left-[9px] top-8 w-4 h-4 bg-surface-container-lowest border-l-2 border-b-2 border-surface-variant rotate-45"></div>
-<h2 class="font-label-lg text-label-lg text-primary font-extrabold tracking-tight flex items-center gap-1.5 mb-1">
+<h2 class="font-label-lg text-label-lg text-[#00201d] font-extrabold tracking-tight flex items-center gap-1.5 mb-1">
             Start your deck!
-            <span class="text-secondary-container">✦</span>
+            <span class="text-[#8c5000]">✦</span>
 </h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+<p class="font-body-sm text-body-sm text-[#2d3748] leading-snug font-medium">
             Every new word you bookmark while practicing will live right here.
           </p>
 </div>
@@ -164,22 +162,22 @@
 <div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant shadow-[0_5px_0_0_#efe0d6] p-space-lg flex flex-col items-center text-center mt-space-xs">
 <!-- Playful Illustrated Graphic: Treasure Box with Star -->
 <div class="w-24 h-24 mb-space-sm flex items-center justify-center relative">
-<svg class="drop-shadow-sm" fill="none" height="96" viewbox="0 0 96 96" width="96" xmlns="http://www.w3.org/2000/svg">
+<svg class="drop-shadow-sm" fill="none" height="96" viewBox="0 0 96 96" width="96" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<lineargradient gradientunits="userSpaceOnUse" id="boxGrad" x1="16" x2="80" y1="40" y2="86">
+<linearGradient gradientUnits="userSpaceOnUse" id="boxGrad" x1="16" x2="80" y1="40" y2="86">
 <stop stop-color="#198279"></stop>
 <stop offset="1" stop-color="#0f524c"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="cardGrad" x1="32" x2="64" y1="20" y2="54">
+</linearGradient>
+<linearGradient gradientUnits="userSpaceOnUse" id="cardGrad" x1="32" x2="64" y1="20" y2="54">
 <stop stop-color="#FFFDF9"></stop>
 <stop offset="1" stop-color="#F2E6DC"></stop>
-</lineargradient>
-<lineargradient gradientunits="userSpaceOnUse" id="starGrad" x1="40" x2="60" y1="6" y2="28">
+</linearGradient>
+<linearGradient gradientUnits="userSpaceOnUse" id="starGrad" x1="40" x2="60" y1="6" y2="28">
 <stop stop-color="#FFD659"></stop>
 <stop offset="1" stop-color="#FFA800"></stop>
-</lineargradient>
-<filter filterunits="userSpaceOnUse" height="92" id="shadowFilter" width="96" x="0" y="4">
-<fedropshadow dx="0" dy="3" flood-color="#0B423E" stddeviation="0"></fedropshadow>
+</linearGradient>
+<filter filterUnits="userSpaceOnUse" height="92" id="shadowFilter" width="96" x="0" y="4">
+<fedropshadow dx="0" dy="3" flood-color="#0B423E" stdDeviation="0"></fedropshadow>
 </filter>
 </defs>
 <!-- Back Card poking out -->
@@ -205,20 +203,20 @@
 <h3 class="font-headline-sm text-headline-sm text-[#0f1d1c] font-extrabold tracking-tight mb-space-xs">
           Your deck is empty
         </h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg leading-relaxed max-w-[280px]">
+<p class="font-body-sm text-body-sm text-[#2d3748] mb-space-lg leading-relaxed max-w-[280px] font-medium">
           Save unfamiliar words from drills or dictionary to build your personal flashcard deck.
         </p>
 <!-- CTA Buttons Stack -->
 <div class="w-full flex flex-col gap-space-sm">
-<!-- Primary CTA: Candy Orange Tactile Button -->
-<button class="w-full h-13 py-3 px-space-md rounded-DEFAULT bg-[#ff8800] border-2 border-[#b35300] shadow-[0_6px_0_0_#b35300] active:translate-y-[6px] active:shadow-none transition-all flex items-center justify-center gap-space-sm group">
-<span class="material-symbols-outlined text-[20px] text-[#1a0f02]" data-icon="search">search</span>
-<span class="font-label-lg text-label-lg font-extrabold text-[#1a0f02] tracking-wide">Look up a word</span>
+<!-- Primary CTA: Candy Orange Tactile Button with deep brown-black ink & 4px ledge -->
+<button class="w-full h-12 py-3 px-space-md rounded-DEFAULT bg-[#ff8800] border-2 border-[#b45309] shadow-[0_4px_0_0_#b45309] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-space-sm group">
+<span class="material-symbols-outlined text-[20px] text-[#1a0d00] font-bold" data-icon="search">search</span>
+<span class="font-label-lg text-label-lg font-extrabold text-[#1a0d00] tracking-wide">Look up a word</span>
 </button>
-<!-- Secondary CTA: Soft Cream / Teal Tactile Button -->
-<button class="w-full h-12 py-2.5 px-space-md rounded-DEFAULT bg-surface-container-lowest border-2 border-primary-container shadow-[0_4px_0_0_#136a63] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-space-sm">
-<span class="material-symbols-outlined text-[20px] text-primary-container" data-icon="folder_open">folder_open</span>
-<span class="font-label-lg text-label-lg font-extrabold text-primary-container tracking-wide">Browse word sets</span>
+<!-- Secondary CTA: Crisp white container, dark teal border, deep teal ink -->
+<button class="w-full h-12 py-2.5 px-space-md rounded-DEFAULT bg-surface-container-lowest border-2 border-[#136a63] shadow-[0_4px_0_0_#136a63] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-[#004d40] font-bold" data-icon="folder_open">folder_open</span>
+<span class="font-label-lg text-label-lg font-extrabold text-[#004d40] tracking-wide">Browse word sets</span>
 </button>
 </div>
 </div>
@@ -226,35 +224,35 @@
 <!-- Bottom Tab Navigation Bar: Exactly 64px Canonical Lexkite -->
 <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-surface-container-lowest border-t-2 border-surface-variant flex items-center justify-around px-space-xs z-50 shadow-[0_-2px_8px_rgba(0,0,0,0.02)]">
 <!-- Destination 1: Today -->
-<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#5a6664] hover:text-on-surface transition-colors">
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#475569] hover:text-on-surface transition-colors">
 <span class="material-symbols-outlined text-[22px]" data-icon="home">home</span>
-<span class="font-label-sm text-[11px] leading-tight font-bold mt-0.5">Today</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold mt-0.5">Today</span>
 </button>
 <!-- Destination 2: Vocab (Active) -->
 <button class="flex flex-col items-center justify-center flex-1 py-0.5 relative">
-<div class="flex items-center justify-center bg-[#d1f2ee] text-primary-container px-3.5 py-1 rounded-full shadow-[0_2px_0_0_#136a63] active:translate-y-[2px] active:shadow-none transition-all">
+<div class="flex items-center justify-center bg-[#cbfbf1] text-[#044e47] px-3.5 py-1 rounded-full shadow-[0_2px_0_0_#136a63] active:translate-y-[2px] active:shadow-none transition-all border border-[#136a63]/20">
 <div class="relative flex items-center">
-<span class="material-symbols-outlined text-[20px]" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="material-symbols-outlined text-[20px] text-[#044e47]" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
 <!-- Due Badge Dot -->
 <span class="absolute -top-1 -right-1.5 w-2 h-2 rounded-full bg-error border border-surface-container-lowest"></span>
 </div>
-<span class="font-label-sm text-[11px] leading-tight font-extrabold ml-1.5 text-primary-container">Vocab</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold ml-1.5 text-[#044e47]">Vocab</span>
 </div>
 </button>
 <!-- Destination 3: Skills -->
-<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#5a6664] hover:text-on-surface transition-colors">
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#475569] hover:text-on-surface transition-colors">
 <span class="material-symbols-outlined text-[22px]" data-icon="track_changes">track_changes</span>
-<span class="font-label-sm text-[11px] leading-tight font-bold mt-0.5">Skills</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold mt-0.5">Skills</span>
 </button>
 <!-- Destination 4: Tests -->
-<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#5a6664] hover:text-on-surface transition-colors">
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#475569] hover:text-on-surface transition-colors">
 <span class="material-symbols-outlined text-[22px]" data-icon="flag">flag</span>
-<span class="font-label-sm text-[11px] leading-tight font-bold mt-0.5">Tests</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold mt-0.5">Tests</span>
 </button>
 <!-- Destination 5: Me -->
-<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#5a6664] hover:text-on-surface transition-colors">
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-[#475569] hover:text-on-surface transition-colors">
 <span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
-<span class="font-label-sm text-[11px] leading-tight font-bold mt-0.5">Me</span>
+<span class="font-label-sm text-[11px] leading-tight font-extrabold mt-0.5">Me</span>
 </button>
 </nav>
 </main>

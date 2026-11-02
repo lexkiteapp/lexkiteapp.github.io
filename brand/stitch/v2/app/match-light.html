@@ -8,7 +8,6 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
     tailwind.config = {
@@ -131,7 +130,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface antialiased flex justify-center min-h-screen">
 <div class="w-[390px] min-h-screen bg-background flex flex-col relative select-none pb-28">
 <header class="h-14 px-4 flex items-center justify-between gap-3 bg-background sticky top-0 z-30 shadow-[0_3px_0_0_#efe0d6]">
@@ -146,8 +145,8 @@
 </div>
 </div>
 <div class="h-8 px-2.5 rounded-full bg-surface-container-high border-2 border-surface-variant flex items-center gap-1.5 shadow-[0_2px_0_0_#bec9c6]">
-<span class="material-symbols-outlined fill text-secondary-container text-[16px]">stars</span>
-<span class="font-label-sm text-label-sm text-on-surface">4/6</span>
+<span class="material-symbols-outlined fill text-[#8c5000] text-[16px]">stars</span>
+<span class="font-label-sm text-label-sm text-[#1f1406] font-extrabold">4/6</span>
 </div>
 </header>
 <main class="flex-1 px-4 pt-3 flex flex-col">
@@ -157,87 +156,99 @@
 <span class="font-label-md text-label-md text-primary font-extrabold tracking-wide">0:38</span>
 </div>
 <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-tertiary-fixed border-2 border-[#d49b10] shadow-[0_3px_0_0_#b5840d]">
-<span class="material-symbols-outlined fill text-tertiary text-[18px]">verified</span>
-<span class="font-label-md text-label-md text-on-tertiary-fixed font-extrabold">4/6 pairs</span>
+<span class="material-symbols-outlined fill text-[#5b4300] text-[18px]">verified</span>
+<span class="font-label-md text-label-md text-[#1a0d00] font-extrabold">4/6 pairs</span>
 </div>
 </div>
 <div class="flex justify-center mb-3">
-<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-surface-variant text-on-surface-variant">
-<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">+1 s per miss ⏱️</span>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-surface-variant text-[#1f1406]">
+<span class="w-2 h-2 rounded-full bg-[#8c5000] animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-[#1f1406] font-bold">+1 s per miss ⏱️</span>
 </div>
 </div>
 <div class="grid grid-cols-2 gap-2.5 flex-1">
-<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/60 border-2 border-outline-variant/60 flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#bec9c6]">
-<span class="font-headline-sm text-label-md text-on-surface-variant line-through decoration-2">meticulous</span>
-<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-extrabold mt-0.5">
-<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+<!-- Card 1: Matched (meticulous) -->
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/80 border-2 border-outline-variant flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#bec9c6]">
+<span class="font-headline-sm text-label-md text-[#475a58] line-through decoration-2 font-bold">meticulous</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-[#00504b] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px] text-[#00504b]">check_circle</span> Matched
           </span>
 </div>
-<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/60 border-2 border-outline-variant/60 flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#bec9c6]">
-<span class="font-headline-sm text-label-md text-on-surface-variant line-through decoration-2">very careful</span>
-<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-extrabold mt-0.5">
-<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+<!-- Card 2: Matched (very careful) -->
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/80 border-2 border-outline-variant flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#bec9c6]">
+<span class="font-headline-sm text-label-md text-[#475a58] line-through decoration-2 font-bold">very careful</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-[#00504b] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px] text-[#00504b]">check_circle</span> Matched
           </span>
 </div>
+<!-- Card 3: candid (ADJECTIVE) -->
 <div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
 <span class="font-headline-sm text-label-lg text-on-surface font-extrabold">candid</span>
-<span class="font-label-sm text-label-sm text-outline font-semibold">ADJECTIVE</span>
+<span class="font-label-sm text-label-sm text-[#3d5a58] font-bold tracking-wider">ADJECTIVE</span>
 </div>
+<!-- Card 4: frank & direct (MEANING) -->
 <div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
 <span class="font-headline-sm text-label-md text-on-surface font-bold leading-tight">frank &amp; direct</span>
-<span class="font-label-sm text-label-sm text-outline font-semibold">MEANING</span>
+<span class="font-label-sm text-label-sm text-[#3d5a58] font-bold tracking-wider">MEANING</span>
 </div>
+<!-- Card 5: ubiquitous (SELECTED) -->
 <div class="h-[76px] rounded-DEFAULT p-2.5 bg-primary-fixed/20 border-2 border-primary-container flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#00504b] translate-y-0.5 transition-all cursor-pointer relative ring-2 ring-primary-container/20">
 <div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary-container animate-ping"></div>
 <span class="font-headline-sm text-label-lg text-primary font-extrabold">ubiquitous</span>
-<span class="font-label-sm text-label-sm text-primary-container font-extrabold">SELECTED</span>
+<span class="font-label-sm text-label-sm text-[#00504b] font-extrabold tracking-wide">SELECTED</span>
 </div>
+<!-- Card 6: found everywhere (SELECTED) -->
 <div class="h-[76px] rounded-DEFAULT p-2.5 bg-primary-fixed/20 border-2 border-primary-container flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#00504b] translate-y-0.5 transition-all cursor-pointer relative ring-2 ring-primary-container/20">
 <div class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary-container animate-ping"></div>
 <span class="font-headline-sm text-label-md text-primary font-extrabold leading-tight">found everywhere</span>
-<span class="font-label-sm text-label-sm text-primary-container font-extrabold">SELECTED</span>
+<span class="font-label-sm text-label-sm text-[#00504b] font-extrabold tracking-wide">SELECTED</span>
 </div>
+<!-- Card 7: scrutinize (VERB) -->
 <div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
 <span class="font-headline-sm text-label-lg text-on-surface font-extrabold">scrutinize</span>
-<span class="font-label-sm text-label-sm text-outline font-semibold">VERB</span>
+<span class="font-label-sm text-label-sm text-[#3d5a58] font-bold tracking-wider">VERB</span>
 </div>
+<!-- Card 8: examine closely (MEANING) -->
 <div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
 <span class="font-headline-sm text-label-md text-on-surface font-bold leading-tight">examine closely</span>
-<span class="font-label-sm text-label-sm text-outline font-semibold">MEANING</span>
+<span class="font-label-sm text-label-sm text-[#3d5a58] font-bold tracking-wider">MEANING</span>
 </div>
+<!-- Card 9: pragmatic (ADJECTIVE) -->
 <div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
 <span class="font-headline-sm text-label-lg text-on-surface font-extrabold">pragmatic</span>
-<span class="font-label-sm text-label-sm text-outline font-semibold">ADJECTIVE</span>
+<span class="font-label-sm text-label-sm text-[#3d5a58] font-bold tracking-wider">ADJECTIVE</span>
 </div>
+<!-- Card 10: practical minded (MEANING) -->
 <div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-lowest border-2 border-surface-variant flex flex-col justify-center items-center text-center shadow-[0_5px_0_0_#efe0d6] active:translate-y-1 active:shadow-[0_1px_0_0_#efe0d6] transition-all cursor-pointer">
 <span class="font-headline-sm text-label-md text-on-surface font-bold leading-tight">practical minded</span>
-<span class="font-label-sm text-label-sm text-outline font-semibold">MEANING</span>
+<span class="font-label-sm text-label-sm text-[#3d5a58] font-bold tracking-wider">MEANING</span>
 </div>
-<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/60 border-2 border-outline-variant/60 flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#bec9c6]">
-<span class="font-headline-sm text-label-md text-on-surface-variant line-through decoration-2">lucid</span>
-<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-extrabold mt-0.5">
-<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+<!-- Card 11: Matched (lucid) -->
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/80 border-2 border-outline-variant flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#bec9c6]">
+<span class="font-headline-sm text-label-md text-[#475a58] line-through decoration-2 font-bold">lucid</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-[#00504b] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px] text-[#00504b]">check_circle</span> Matched
           </span>
 </div>
-<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/60 border-2 border-outline-variant/60 flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#bec9c6]">
-<span class="font-headline-sm text-label-sm text-on-surface-variant line-through decoration-2 leading-tight">clear &amp; easy to understand</span>
-<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-extrabold mt-0.5">
-<span class="material-symbols-outlined fill text-[14px]">check_circle</span> Matched
+<!-- Card 12: Matched (clear & easy to understand) -->
+<div class="h-[76px] rounded-DEFAULT p-2.5 bg-surface-container-high/80 border-2 border-outline-variant flex flex-col justify-center items-center text-center shadow-[0_2px_0_0_#bec9c6]">
+<span class="font-headline-sm text-label-sm text-[#475a58] line-through decoration-2 leading-tight font-bold">clear &amp; easy to understand</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-[#00504b] font-extrabold mt-0.5">
+<span class="material-symbols-outlined fill text-[14px] text-[#00504b]">check_circle</span> Matched
           </span>
 </div>
 </div>
 <div class="my-3 flex justify-center">
 <div class="h-9 px-4 rounded-full bg-secondary-fixed border-2 border-[#d97300] flex items-center gap-1.5 shadow-[0_3px_0_0_#c06200]">
-<span class="material-symbols-outlined fill text-on-secondary-fixed text-[18px]">bolt</span>
-<span class="font-label-md text-label-md text-on-secondary-fixed font-extrabold">2 in a row! Keep going!</span>
+<span class="material-symbols-outlined fill text-[#1a0d00] text-[18px]">bolt</span>
+<span class="font-label-md text-label-md text-[#1a0d00] font-extrabold">2 in a row! Keep going!</span>
 </div>
 </div>
 </main>
 <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] p-4 bg-background/95 backdrop-blur-sm z-40">
-<button class="w-full h-14 rounded-DEFAULT bg-secondary-container text-on-secondary-fixed font-headline-sm text-headline-sm font-extrabold flex items-center justify-center gap-2 border-2 border-[#d97300] shadow-[0_6px_0_0_#8c5000] active:translate-y-1.5 active:shadow-[0_0_0_0_#8c5000] transition-all duration-75" type="button">
+<button class="w-full h-14 rounded-DEFAULT bg-secondary-container text-[#1a0d00] font-headline-sm text-headline-sm font-extrabold flex items-center justify-center gap-2 border-2 border-[#d97300] shadow-[0_6px_0_0_#8c5000] active:translate-y-1.5 active:shadow-[0_0_0_0_#8c5000] transition-all duration-75" type="button">
 <span>Check Pairs</span>
-<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+<span class="material-symbols-outlined text-[24px] text-[#1a0d00]">arrow_forward</span>
 </button>
 </div>
 </div>

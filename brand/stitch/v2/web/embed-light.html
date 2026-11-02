@@ -8,7 +8,6 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
     tailwind.config = {
@@ -35,7 +34,7 @@
             "border-warm": "#EADEC8",
             "surface-variant": "#beebeb",
             "on-error": "#ffffff",
-            "text-muted": "#4E6668",
+            "text-muted": "#355153",
             "tertiary-fixed": "#ffdcbb",
             "on-primary-fixed": "#00201e",
             "on-surface-variant": "#3f4947",
@@ -59,7 +58,7 @@
             "on-tertiary-fixed-variant": "#683d00",
             "outline": "#6f7978",
             "error-container": "#ffdad6",
-            "on-secondary": "#ffffff",
+            "on-secondary": "#1B0B04",
             "tertiary-container": "#885100",
             "on-secondary-container": "#5e0700",
             "canvas-cream": "#FFF7EA",
@@ -122,7 +121,7 @@
   </script>
 <style>
     .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
       line-height: 1;
     }
     .ledge-candy {
@@ -150,7 +149,7 @@
       box-shadow: 0 5px 0 0 #D8CFBC, 0 8px 16px rgba(15, 61, 62, 0.05);
     }
     .code-glow {
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
@@ -167,19 +166,20 @@
 </a>
 <!-- Desktop Nav Links -->
 <nav class="hidden md:flex items-center space-x-8">
-<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary" href="#">Blog</a>
-<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary" href="#">Vocabulary</a>
-<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary" href="#">Samples</a>
+<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary font-medium" href="#">Blog</a>
+<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary font-medium" href="#">Vocabulary</a>
+<a class="text-text-muted hover:text-on-surface font-body-md text-body-md transition-colors hover:text-primary font-medium" href="#">Samples</a>
 <a class="text-primary border-b-2 border-primary font-bold pb-1 font-body-md text-body-md" href="#">Embeds</a>
 </nav>
 <!-- Right Trailing Actions -->
 <div class="flex items-center gap-space-md">
-<button class="flex items-center gap-1 text-text-muted hover:text-primary font-label-md text-label-md px-2.5 py-1.5 rounded-lg border border-border-warm bg-card-surface hover:border-outline transition-colors" title="Change Language">
-<span class="material-symbols-outlined text-[18px]" data-icon="language">language</span>
+<button class="flex items-center gap-1 text-[#1c4042] hover:text-primary font-label-md text-label-md px-2.5 py-1.5 rounded-lg border border-border-warm bg-card-surface hover:border-outline transition-colors font-bold" title="Change Language">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="language">language</span>
 <span>EN</span>
 </button>
-<a class="hidden sm:inline-block text-primary hover:text-primary-container font-label-lg text-label-lg transition-colors px-2 py-1" href="#">Log in</a>
-<a class="bg-secondary-container text-on-secondary px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all ledge-candy active:translate-y-0.5 inline-flex items-center justify-center" href="#">
+<a class="hidden sm:inline-block text-primary hover:text-primary-container font-label-lg text-label-lg transition-colors px-2 py-1 font-bold" href="#">Log in</a>
+<!-- High contrast CTA button: Deep ink on coral -->
+<a class="bg-secondary-container text-[#1B0B04] font-extrabold px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all ledge-candy active:translate-y-0.5 inline-flex items-center justify-center tracking-tight" href="#">
           Start free
         </a>
 </div>
@@ -190,7 +190,7 @@
 <!-- Hero Section -->
 <div class="max-w-3xl mb-12 text-left">
 <!-- Educator Pill -->
-<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-card-surface border border-border-warm text-primary font-label-sm text-label-sm uppercase tracking-wider mb-4 shadow-sm">
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-card-surface border border-border-warm text-primary font-label-sm text-label-sm uppercase tracking-wider mb-4 shadow-sm font-bold">
 <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
         FREE FOR EDUCATORS &amp; BLOGGERS
       </div>
@@ -202,16 +202,16 @@
       </p>
 <!-- Trust Badges Pill Row -->
 <div class="flex flex-wrap items-center gap-3">
-<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-text-muted font-label-md text-label-md">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-[#1e3e40] font-label-md text-label-md font-semibold">
 <span class="material-symbols-outlined text-primary text-[18px]" data-icon="verified_user">verified_user</span>
 <span>Zero cookies</span>
 </div>
-<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-text-muted font-label-md text-label-md">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-[#1e3e40] font-label-md text-label-md font-semibold">
 <span class="material-symbols-outlined text-primary text-[18px]" data-icon="visibility_off">visibility_off</span>
 <span>No tracking</span>
 </div>
-<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-text-muted font-label-md text-label-md">
-<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="bolt">bolt</span>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card-surface border border-border-warm text-[#1e3e40] font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[#B53A22] text-[18px]" data-icon="bolt">bolt</span>
 <span>Instant load (&lt;12ms)</span>
 </div>
 </div>
@@ -224,9 +224,9 @@
 <div class="flex items-center justify-between pb-3 px-2">
 <div class="flex items-center gap-2">
 <span class="w-2.5 h-2.5 rounded-full bg-primary-teal-light"></span>
-<span class="font-label-md text-label-md text-text-muted uppercase tracking-wider font-bold">LIVE PREVIEW</span>
+<span class="font-label-md text-label-md text-[#1e3e40] uppercase tracking-wider font-extrabold">LIVE PREVIEW</span>
 </div>
-<span class="text-text-muted font-label-sm text-label-sm bg-card-surface px-2.5 py-0.5 rounded-md border border-border-warm">
+<span class="text-[#2a4648] font-label-sm text-label-sm bg-card-surface px-2.5 py-0.5 rounded-md border border-border-warm font-semibold">
             Width: 420px · Responsive
           </span>
 </div>
@@ -242,8 +242,8 @@
 </span>
 <span class="font-label-md text-label-md text-primary font-bold">Word pair of the day</span>
 </div>
-<span class="px-2.5 py-0.5 rounded-full bg-[#FFF7EA] border border-tertiary-fixed-dim text-[#0F3D3E] font-label-sm text-label-sm font-bold flex items-center gap-1">
-<span class="material-symbols-outlined text-secondary-container text-[14px]" data-icon="star">star</span>
+<span class="px-2.5 py-0.5 rounded-full bg-[#FFF7EA] border border-[#DE9B47] text-[#0A2E2F] font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[#B53A22] text-[14px]" data-icon="star">star</span>
                 IELTS 7.5
               </span>
 </div>
@@ -255,32 +255,33 @@
 <div class="flex items-center justify-between mb-1">
 <span class="font-headline-sm text-headline-sm text-primary font-bold">affect</span>
 <button class="w-7 h-7 rounded-lg bg-card-surface border border-border-warm flex items-center justify-center text-primary hover:bg-[#F5ECE0] ledge-neutral-btn" title="Listen pronunciation">
-<span class="material-symbols-outlined text-[16px]" data-icon="volume_up">volume_up</span>
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="volume_up">volume_up</span>
 </button>
 </div>
-<span class="inline-block px-2 py-0.5 rounded bg-primary-container text-on-primary-container text-[11px] font-bold uppercase tracking-wider">
+<!-- Contrast Polish: soft teal bg with deep teal crisp text >4.5:1 -->
+<span class="inline-block px-2.5 py-0.5 rounded bg-[#C4F1EE] text-[#0B3D3B] text-[11px] font-extrabold uppercase tracking-wider border border-[#87D4CD]">
                     Verb
                   </span>
-<p class="text-body-sm text-body-sm text-text-muted mt-2 leading-tight">To influence or produce a change in.</p>
+<p class="text-body-sm text-body-sm text-[#2b4749] mt-2 leading-tight">To influence or produce a change in.</p>
 </div>
 <!-- Word 2 -->
 <div class="bg-[#FFF7EA] p-3 rounded-xl border border-border-warm">
 <div class="flex items-center justify-between mb-1">
 <span class="font-headline-sm text-headline-sm text-primary font-bold">effect</span>
 <button class="w-7 h-7 rounded-lg bg-card-surface border border-border-warm flex items-center justify-center text-primary hover:bg-[#F5ECE0] ledge-neutral-btn" title="Listen pronunciation">
-<span class="material-symbols-outlined text-[16px]" data-icon="volume_up">volume_up</span>
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="volume_up">volume_up</span>
 </button>
 </div>
-<span class="inline-block px-2 py-0.5 rounded bg-[#EADEC8] text-[#0F3D3E] text-[11px] font-bold uppercase tracking-wider">
+<span class="inline-block px-2.5 py-0.5 rounded bg-[#EADEC8] text-[#1B1202] text-[11px] font-extrabold uppercase tracking-wider border border-[#D8CFBC]">
                     Noun
                   </span>
-<p class="text-body-sm text-body-sm text-text-muted mt-2 leading-tight">The result or consequence of a cause.</p>
+<p class="text-body-sm text-body-sm text-[#2b4749] mt-2 leading-tight">The result or consequence of a cause.</p>
 </div>
 </div>
 <!-- Mini interactive drill -->
 <div class="mt-4 pt-4 border-t border-border-warm">
-<p class="font-label-md text-label-md text-on-surface mb-3 flex items-center gap-1.5">
-<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="quiz">quiz</span>
+<p class="font-label-md text-label-md text-on-surface mb-3 flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[#B53A22] text-[18px]" data-icon="quiz">quiz</span>
 <span>Complete the sentence:</span>
 </p>
 <div class="p-3 bg-canvas-cream rounded-xl border border-border-warm mb-3 text-body-md font-body-md text-on-surface">
@@ -292,21 +293,21 @@
 <button class="flex items-center justify-between p-3 rounded-xl border-2 border-primary bg-[#E2FFFF] transition-all" style="box-shadow: 0 4px 0 0 #004f4b;">
 <div class="flex items-center gap-2">
 <span class="w-6 h-6 rounded-md bg-primary text-on-primary font-bold text-xs flex items-center justify-center">A</span>
-<span class="font-label-lg text-label-lg text-primary">affect</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">affect</span>
 </div>
 <span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
 </button>
 <!-- Option B -->
 <button class="flex items-center justify-between p-3 rounded-xl border border-border-warm bg-card-surface hover:bg-[#FFF7EA] transition-all ledge-neutral-btn">
 <div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-md bg-[#FFF7EA] border border-border-warm text-text-muted font-bold text-xs flex items-center justify-center">B</span>
-<span class="font-label-lg text-label-lg text-on-surface">effect</span>
+<span class="w-6 h-6 rounded-md bg-[#FFF7EA] border border-border-warm text-[#2a4648] font-bold text-xs flex items-center justify-center">B</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">effect</span>
 </div>
 </button>
 </div>
 <!-- RAVEN Rule Micro-tip -->
-<div class="p-3 rounded-xl bg-[#FFF7EA] border border-tertiary-fixed-dim flex items-start gap-2.5">
-<span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px] shrink-0" data-icon="lightbulb">lightbulb</span>
+<div class="p-3 rounded-xl bg-[#FFF7EA] border border-[#DE9B47] flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#8B4E00] text-[20px] shrink-0" data-icon="lightbulb">lightbulb</span>
 <div class="text-body-sm font-body-sm text-[#0F3D3E]">
 <span class="font-bold">RAVEN Rule:</span> <strong>R</strong>emember <strong>A</strong>ffect is <strong>V</strong>erb, <strong>E</strong>ffect is <strong>N</strong>oun.
                   </div>
@@ -314,14 +315,14 @@
 </div>
 </div>
 <!-- Footer of widget -->
-<div class="pt-3 border-t border-border-warm flex items-center justify-between text-label-sm font-label-sm text-text-muted">
+<div class="pt-3 border-t border-border-warm flex items-center justify-between text-label-sm font-label-sm text-[#2a4648] font-semibold">
 <span class="flex items-center gap-1">
-<span class="material-symbols-outlined text-primary text-[14px]" data-icon="school">school</span>
+<span class="material-symbols-outlined text-primary text-[15px]" data-icon="school">school</span>
                 Daily Vocabulary Series
               </span>
 <a class="flex items-center gap-1 font-bold text-primary hover:underline" href="#">
 <span>Powered by Lexkite</span>
-<span class="material-symbols-outlined text-[13px]" data-icon="arrow_forward">arrow_forward</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -336,44 +337,44 @@
           </h2>
 <!-- Width Segmented Controls -->
 <div class="mb-5">
-<label class="block text-label-md font-label-md text-text-muted mb-2">Width Preset</label>
+<label class="block text-label-md font-label-md text-[#224143] font-bold mb-2">Width Preset</label>
 <div class="grid grid-cols-3 gap-2 p-1.5 bg-canvas-cream rounded-xl border border-border-warm">
-<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-text-muted bg-transparent hover:bg-card-surface transition-all">
+<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-[#2a4648] font-semibold bg-transparent hover:bg-card-surface transition-all">
                 Small (320px)
               </button>
-<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-on-primary bg-primary shadow-sm" style="box-shadow: 0 2px 0 0 #002826;">
+<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-on-primary bg-primary shadow-sm font-bold" style="box-shadow: 0 2px 0 0 #002826;">
                 Medium (420px)
               </button>
-<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-text-muted bg-transparent hover:bg-card-surface transition-all">
+<button class="py-2 px-3 rounded-lg text-body-sm font-label-md text-[#2a4648] font-semibold bg-transparent hover:bg-card-surface transition-all">
                 Wide (100%)
               </button>
 </div>
 </div>
 <!-- Theme Selectors -->
 <div class="mb-5">
-<label class="block text-label-md font-label-md text-text-muted mb-2">Color Atmosphere</label>
+<label class="block text-label-md font-label-md text-[#224143] font-bold mb-2">Color Atmosphere</label>
 <div class="grid grid-cols-2 gap-3">
-<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border-2 border-primary bg-[#E2FFFF] text-primary font-label-md" style="box-shadow: 0 3px 0 0 #004f4b;">
-<span class="material-symbols-outlined text-[18px]" data-icon="light_mode">light_mode</span>
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border-2 border-primary bg-[#E2FFFF] text-primary font-label-md font-bold" style="box-shadow: 0 3px 0 0 #004f4b;">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="light_mode">light_mode</span>
 <span>Light (Bright Day)</span>
 </button>
-<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-border-warm bg-card-surface text-text-muted font-label-md hover:bg-[#FFF7EA] ledge-neutral-btn">
-<span class="material-symbols-outlined text-[18px]" data-icon="dark_mode">dark_mode</span>
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-border-warm bg-card-surface text-[#2a4648] font-label-md font-semibold hover:bg-[#FFF7EA] ledge-neutral-btn">
+<span class="material-symbols-outlined text-[18px] text-[#2a4648]" data-icon="dark_mode">dark_mode</span>
 <span>Dark (Tactile Night)</span>
 </button>
 </div>
 </div>
 <!-- Exam Focus Chips -->
 <div class="mb-6">
-<label class="block text-label-md font-label-md text-text-muted mb-2">Curriculum / Exam Focus</label>
+<label class="block text-label-md font-label-md text-[#224143] font-bold mb-2">Curriculum / Exam Focus</label>
 <div class="flex flex-wrap gap-2">
-<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-primary text-on-primary shadow-sm" style="box-shadow: 0 2px 0 0 #002826;">
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-primary text-on-primary shadow-sm font-bold" style="box-shadow: 0 2px 0 0 #002826;">
                 IELTS Academic
               </button>
-<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-card-surface border border-border-warm text-text-muted hover:border-outline ledge-neutral-btn">
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-card-surface border border-border-warm text-[#2a4648] font-semibold hover:border-outline ledge-neutral-btn">
                 TOEIC Business
               </button>
-<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-card-surface border border-border-warm text-text-muted hover:border-outline ledge-neutral-btn">
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-card-surface border border-border-warm text-[#2a4648] font-semibold hover:border-outline ledge-neutral-btn">
                 General English
               </button>
 </div>
@@ -385,17 +386,18 @@
 <span class="material-symbols-outlined text-primary text-[18px]" data-icon="code">code</span>
 <span>Copy Embed Snippet</span>
 </label>
-<span class="text-label-sm font-label-sm text-text-muted">HTML iFrame</span>
+<span class="text-label-sm font-label-sm text-[#2a4648] font-semibold">HTML iFrame</span>
 </div>
-<div class="bg-[#053637] text-[#98E5DF] p-4 rounded-xl font-mono text-xs overflow-x-auto code-glow border border-[#0A4B4D] mb-4 selection:bg-secondary-container">
-<code>&lt;<span class="text-[#FE5D42]">iframe</span> <span class="text-[#FFDCBB]">src</span>=<span class="text-[#CFFCFD]">"https://lexkite.com/embed/word-pair?theme=light&amp;focus=ielts"</span> <span class="text-[#FFDCBB]">width</span>=<span class="text-[#CFFCFD]">"420"</span> <span class="text-[#FFDCBB]">height</span>=<span class="text-[#CFFCFD]">"340"</span> <span class="text-[#FFDCBB]">frameborder</span>=<span class="text-[#CFFCFD]">"0"</span> <span class="text-[#FFDCBB]">loading</span>=<span class="text-[#CFFCFD]">"lazy"</span>&gt;&lt;/<span class="text-[#FE5D42]">iframe</span>&gt;</code>
+<!-- Dark slate background (#071518) with ultra-high contrast tokens (>7:1) -->
+<div class="bg-[#071518] text-[#E0F8F6] p-4 rounded-xl font-mono text-xs overflow-x-auto code-glow border border-[#163035] mb-4 selection:bg-[#2BA39A] selection:text-[#071518]">
+<code><span class="text-[#849E9E]">&lt;</span><span class="text-[#FF7A60] font-bold">iframe</span> <span class="text-[#38E1D2] font-semibold">src</span>=<span class="text-[#FFEAA7]">"https://lexkite.com/embed/word-pair?theme=light&amp;focus=ielts"</span> <span class="text-[#38E1D2] font-semibold">width</span>=<span class="text-[#FFEAA7]">"420"</span> <span class="text-[#38E1D2] font-semibold">height</span>=<span class="text-[#FFEAA7]">"340"</span> <span class="text-[#38E1D2] font-semibold">frameborder</span>=<span class="text-[#FFEAA7]">"0"</span> <span class="text-[#38E1D2] font-semibold">loading</span>=<span class="text-[#FFEAA7]">"lazy"</span><span class="text-[#849E9E]">&gt;&lt;/</span><span class="text-[#FF7A60] font-bold">iframe</span><span class="text-[#849E9E]">&gt;</span></code>
 </div>
-<!-- Big Candy Primary Action Button with 5px bottom ledge -->
-<button class="w-full bg-secondary-container text-on-secondary py-3.5 px-6 rounded-xl font-label-lg text-label-lg transition-all flex items-center justify-center gap-2 cursor-pointer ledge-candy active:translate-y-1">
-<span class="material-symbols-outlined text-[20px]" data-icon="content_copy">content_copy</span>
+<!-- Big Candy Primary Action Button with deep ink text #1B0B04 (>7:1 contrast) -->
+<button class="w-full bg-secondary-container text-[#1B0B04] py-3.5 px-6 rounded-xl font-label-lg text-label-lg font-extrabold transition-all flex items-center justify-center gap-2 cursor-pointer ledge-candy active:translate-y-1">
+<span class="material-symbols-outlined text-[20px] text-[#1B0B04]" data-icon="content_copy">content_copy</span>
 <span>Copy code to clipboard</span>
 </button>
-<p class="text-center text-label-sm font-label-sm text-text-muted mt-2.5">
+<p class="text-center text-label-sm font-label-sm text-[#2b4749] font-medium mt-2.5">
               Works seamlessly on WordPress, Webflow, Notion, Ghost &amp; Canvas LMS
             </p>
 </div>
@@ -406,7 +408,7 @@
 <section class="mt-12 pt-10 border-t border-border-warm">
 <div class="max-w-2xl mb-8">
 <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-card-surface border border-border-warm text-primary font-label-sm text-label-sm font-bold uppercase mb-2">
-<span class="material-symbols-outlined text-[16px]" data-icon="military_tech">military_tech</span>
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="military_tech">military_tech</span>
           Vector Assets
         </div>
 <h2 class="text-headline-md font-headline-md text-primary tracking-tight mb-2">
@@ -423,10 +425,10 @@
 <div class="w-16 h-16 rounded-2xl bg-[#E2FFFF] border-2 border-[#87D4CD] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #2BA39A;">
 <span class="text-2xl font-extrabold text-primary">A1</span>
 </div>
-<span class="font-label-lg text-label-lg text-primary mb-1">Beginner</span>
-<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">Basic Vocab · 500w</span>
-<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+<span class="font-label-lg text-label-lg text-primary mb-1 font-bold">Beginner</span>
+<span class="text-body-sm font-body-sm text-[#2b4749] text-xs mb-4 font-medium">Basic Vocab · 500w</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm font-bold ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="code">code</span>
             Copy SVG
           </button>
 </div>
@@ -435,61 +437,61 @@
 <div class="w-16 h-16 rounded-2xl bg-[#D6F8F5] border-2 border-[#55C5BC] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #0D6964;">
 <span class="text-2xl font-extrabold text-primary">A2</span>
 </div>
-<span class="font-label-lg text-label-lg text-primary mb-1">Elementary</span>
-<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">Everyday Routine</span>
-<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+<span class="font-label-lg text-label-lg text-primary mb-1 font-bold">Elementary</span>
+<span class="text-body-sm font-body-sm text-[#2b4749] text-xs mb-4 font-medium">Everyday Routine</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm font-bold ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="code">code</span>
             Copy SVG
           </button>
 </div>
 <!-- B1 Intermediate -->
 <div class="bg-card-surface rounded-2xl border border-border-warm p-4 flex flex-col items-center text-center ledge-card-deep hover:border-primary transition-all">
 <div class="w-16 h-16 rounded-2xl bg-[#E8F3FF] border-2 border-[#8AC2FF] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #3A83D9;">
-<span class="text-2xl font-extrabold text-[#114D8B]">B1</span>
+<span class="text-2xl font-extrabold text-[#0B4078]">B1</span>
 </div>
-<span class="font-label-lg text-label-lg text-primary mb-1">Intermediate</span>
-<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">IELTS 4.0–5.0</span>
-<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+<span class="font-label-lg text-label-lg text-primary mb-1 font-bold">Intermediate</span>
+<span class="text-body-sm font-body-sm text-[#2b4749] text-xs mb-4 font-medium">IELTS 4.0–5.0</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm font-bold ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="code">code</span>
             Copy SVG
           </button>
 </div>
 <!-- B2 Upper-Intermediate (Most Popular) -->
-<div class="bg-card-surface rounded-2xl border-2 border-tertiary-fixed-dim p-4 flex flex-col items-center text-center relative ledge-card-deep transition-all">
-<span class="absolute -top-3 px-2 py-0.5 rounded-full bg-[#FFB054] text-[#0F3D3E] font-extrabold text-[10px] uppercase tracking-wider shadow-sm">
+<div class="bg-card-surface rounded-2xl border-2 border-[#E59737] p-4 flex flex-col items-center text-center relative ledge-card-deep transition-all">
+<span class="absolute -top-3 px-2 py-0.5 rounded-full bg-[#E59737] text-[#1B0B04] font-extrabold text-[10px] uppercase tracking-wider shadow-sm">
             Most Popular
           </span>
-<div class="w-16 h-16 rounded-2xl bg-[#FFF2DE] border-2 border-[#FFB054] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #D47E11;">
-<span class="text-2xl font-extrabold text-[#753D00]">B2</span>
+<div class="w-16 h-16 rounded-2xl bg-[#FFF2DE] border-2 border-[#DE9B47] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #A85A00;">
+<span class="text-2xl font-extrabold text-[#5C2E00]">B2</span>
 </div>
-<span class="font-label-lg text-label-lg text-primary mb-1">Upper-Inter.</span>
-<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">IELTS 5.5–6.5</span>
-<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+<span class="font-label-lg text-label-lg text-primary mb-1 font-bold">Upper-Inter.</span>
+<span class="text-body-sm font-body-sm text-[#2b4749] text-xs mb-4 font-medium">IELTS 5.5–6.5</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm font-bold ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="code">code</span>
             Copy SVG
           </button>
 </div>
 <!-- C1 Advanced -->
 <div class="bg-card-surface rounded-2xl border border-border-warm p-4 flex flex-col items-center text-center ledge-card-deep hover:border-secondary-container transition-all">
-<div class="w-16 h-16 rounded-2xl bg-[#FFEAE5] border-2 border-secondary-container flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #B53A22;">
-<span class="text-2xl font-extrabold text-secondary">C1</span>
+<div class="w-16 h-16 rounded-2xl bg-[#FFEAE5] border-2 border-[#E05037] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #B53A22;">
+<span class="text-2xl font-extrabold text-[#941A06]">C1</span>
 </div>
-<span class="font-label-lg text-label-lg text-primary mb-1">Advanced</span>
-<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">IELTS 7.0–8.0</span>
-<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+<span class="font-label-lg text-label-lg text-primary mb-1 font-bold">Advanced</span>
+<span class="text-body-sm font-body-sm text-[#2b4749] text-xs mb-4 font-medium">IELTS 7.0–8.0</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm font-bold ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="code">code</span>
             Copy SVG
           </button>
 </div>
 <!-- C2 Mastery -->
 <div class="bg-card-surface rounded-2xl border border-border-warm p-4 flex flex-col items-center text-center ledge-card-deep hover:border-secondary transition-all">
 <div class="w-16 h-16 rounded-2xl bg-[#F6E8F3] border-2 border-[#BC6EA7] flex items-center justify-center mb-3" style="box-shadow: 0 4px 0 0 #7A2865;">
-<span class="text-2xl font-extrabold text-[#5B1047]">C2</span>
+<span class="text-2xl font-extrabold text-[#4F0B3D]">C2</span>
 </div>
-<span class="font-label-lg text-label-lg text-primary mb-1">Mastery</span>
-<span class="text-body-sm font-body-sm text-text-muted text-xs mb-4">Native Fluency</span>
-<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm ledge-neutral-btn flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+<span class="font-label-lg text-label-lg text-primary mb-1 font-bold">Mastery</span>
+<span class="text-body-sm font-body-sm text-[#2b4749] text-xs mb-4 font-medium">Native Fluency</span>
+<button class="w-full py-1.5 px-3 rounded-lg border border-border-warm bg-[#FFF7EA] text-primary hover:bg-card-surface font-label-sm text-label-sm font-bold ledge-neutral-btn flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="code">code</span>
             Copy SVG
           </button>
 </div>
@@ -506,19 +508,19 @@
 </span>
 <span>Lexkite</span>
 </a>
-<p class="text-body-sm font-body-sm text-text-muted max-w-md">
+<p class="text-body-sm font-body-sm text-[#2b4749] max-w-md font-medium">
           © 2024 Lexkite Education Inc. Tactile learning tools for modern educators and bloggers.
         </p>
 </div>
 <nav class="flex flex-wrap gap-x-6 gap-y-2 text-label-md font-label-md">
-<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Product</a>
-<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Embed Docs</a>
-<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Widget API</a>
-<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Blog</a>
-<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Vocabulary Packs</a>
-<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a>
-<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Terms of Service</a>
-<a class="text-text-muted hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">System Status</a>
+<a class="text-[#2b4749] hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline font-semibold" href="#">Product</a>
+<a class="text-[#2b4749] hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline font-semibold" href="#">Embed Docs</a>
+<a class="text-[#2b4749] hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline font-semibold" href="#">Widget API</a>
+<a class="text-[#2b4749] hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline font-semibold" href="#">Blog</a>
+<a class="text-[#2b4749] hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline font-semibold" href="#">Vocabulary Packs</a>
+<a class="text-[#2b4749] hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline font-semibold" href="#">Privacy Policy</a>
+<a class="text-[#2b4749] hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline font-semibold" href="#">Terms of Service</a>
+<a class="text-[#2b4749] hover:text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline font-semibold" href="#">System Status</a>
 </nav>
 </div>
 </footer>

@@ -2,35 +2,40 @@
 
 <html lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>Lexkite Vocabulary Hub</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Vocabulary Hub (Bright Day)</title>
+<!-- Fonts & Material Symbols -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
+<script id="tailwind-config">
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-          },
           colors: {
-            brand: {
-              cream: '#fff8f5',
-              card: '#ffffff',
-              border: '#eedfd5',
-              ledge: '#dfcfc4',
-              teal: '#136a63',
-              tealDark: '#0b4a45',
-              tealSoft: '#e0f2f1',
-              orange: '#ff9200',
-              orangeLedge: '#cb6800',
-              ink: '#1c2221',
-              inkMuted: '#53605d',
-              orangeInk: '#221202',
-            }
+            "primary": "#00504b",
+            "primary-container": "#136a63",
+            "on-primary": "#ffffff",
+            "secondary": "#8c5000",
+            "secondary-container": "#fd9500",
+            "background": "#fff8f5",
+            "surface": "#fff8f5",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#fff1e8",
+            "surface-container": "#faebe1",
+            "surface-container-high": "#f4e5db",
+            "surface-container-highest": "#efe0d6",
+            "on-surface": "#211a14",
+            "on-surface-variant": "#3f4947",
+            "outline": "#6f7977",
+            "outline-variant": "#bec9c6"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
           }
         }
       }
@@ -38,321 +43,251 @@
   </script>
 <style>
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background-color: #fff8f5;
-      color: #1c2221;
-      margin: 0;
-      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    .tactile-card {
-      background: #ffffff;
-      border: 2px solid #eedfd5;
-      box-shadow: 0 5px 0 0 #dfcfc4;
-      border-radius: 20px;
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
     }
-    .tactile-btn-orange {
-      background: #ff9200;
-      border: 2px solid #e07700;
-      box-shadow: 0 5px 0 0 #b35900;
-      border-radius: 16px;
-      color: #221202;
-      transition: all 0.1s ease;
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
     }
-    .tactile-btn-orange:active {
-      transform: translateY(3px);
-      box-shadow: 0 2px 0 0 #b35900;
-    }
-    .tactile-tile {
-      background: #ffffff;
-      border: 2px solid #eedfd5;
-      box-shadow: 0 5px 0 0 #dfcfc4;
-      border-radius: 18px;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .tactile-tile:active {
-      transform: translateY(2px);
-      box-shadow: 0 3px 0 0 #dfcfc4;
-    }
-    .tactile-pill {
-      border: 1.5px solid #eedfd5;
-      box-shadow: 0 2px 0 0 #e2d2c7;
+    body {
+      min-height: max(884px, 100dvh);
     }
   </style>
 </head>
-<body class="bg-[#fff8f5] text-[#1c2221] min-h-screen flex justify-center">
-<!-- Full-width edge-to-edge dedicated mobile container (390px) -->
-<div class="w-full max-w-[390px] min-h-screen bg-[#fff8f5] flex flex-col relative pb-[80px]">
-<!-- TOP BAR (HUB variant: 56px height) -->
-<header class="h-[56px] w-full px-4 flex items-center justify-between bg-[#fff8f5] border-b-2 border-[#eedfd5] sticky top-0 z-40">
-<!-- Left: Kite logo + Lexkite wordmark -->
+<body class="bg-[#fff8f5] text-[#211a14] min-h-screen flex justify-center selection:bg-[#00504b] selection:text-white">
+<!-- Mobile Container: exactly 390px, 16px margins -->
+<main class="w-full max-w-[390px] min-h-screen flex flex-col bg-[#fff8f5] relative pb-28">
+<!-- 1. TOP BAR (56px, HUB variant, Bright Day) -->
+<header class="sticky top-0 z-50 h-[56px] w-full bg-[#ffffff]/95 backdrop-blur-md px-4 flex items-center justify-between border-b-2 border-[#eee2d9] shadow-[0_3px_0_#f0e3db]">
+<!-- Left: Logo & Wordmark -->
 <div class="flex items-center gap-2">
-<div class="w-8 h-8 rounded-lg bg-[#136a63] flex items-center justify-center text-white shadow-[0_2px_0_0_#0b4a45]">
-<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<path d="M12 2L19 9L12 22L5 9L12 2Z"></path>
-<path d="M5 9L19 9"></path>
-<path d="M12 2L12 22"></path>
-</svg>
+<div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#00504b] to-[#136a63] flex items-center justify-center shadow-[0_2px_0_#002b28] active:translate-y-0.5 transition-transform cursor-pointer">
+<span class="material-symbols-outlined fill text-[#88d4cb] text-xl" data-icon="change_history">change_history</span>
 </div>
-<span class="font-extrabold text-[20px] tracking-tight text-[#136a63]">Lexkite</span>
+<span class="font-extrabold text-[19px] tracking-tight text-[#152321] select-none">Lexkite</span>
 </div>
-<!-- Right: IELTS chip, 14 flame streak, 820 star XP, 'L' avatar -->
+<!-- Right: Badges & Profile Avatar -->
 <div class="flex items-center gap-1.5">
-<!-- IELTS chip -->
-<span class="px-2 py-0.5 rounded-full bg-[#e0f2f1] text-[#136a63] font-bold text-[11px] border border-[#b2dfdb]">IELTS</span>
-<!-- Flame streak pill -->
-<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#fff0e6] text-[#b34700] font-bold text-[12px] border border-[#ffd5bf]">
-<svg class="w-3.5 h-3.5 text-[#ff6600]" fill="currentColor" viewbox="0 0 24 24">
-<path d="M12 2c-.3 1.8-1.5 3.3-2.9 4.7C7.6 8.2 6 10.4 6 13c0 3.3 2.7 6 6 6s6-2.7 6-6c0-2.4-1.2-4.5-2.8-6.1-.9-.9-1.8-1.9-2.2-3.1-.3-.6-.7-1.2-1-1.8z"></path>
-</svg>
-<span>14</span>
+<!-- IELTS Exam Chip -->
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-[#e6f4f2] border border-[#a2d8d2] text-[#0d524b] tracking-wide">
+          IELTS
+        </span>
+<!-- Streak Pill -->
+<div class="flex items-center gap-1 bg-[#fff3e0] border border-[#ffd2a1] px-2 py-0.5 rounded-full shadow-[0_1.5px_0_#edd3bc]">
+<span class="material-symbols-outlined fill text-[#ea6700] text-sm" data-icon="local_fire_department">local_fire_department</span>
+<span class="text-xs font-extrabold text-[#3a1d00]">14</span>
 </div>
-<!-- Star XP pill -->
-<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#fef7e0] text-[#8a6100] font-bold text-[12px] border border-[#fdebb3]">
-<svg class="w-3.5 h-3.5 text-[#e6a100]" fill="currentColor" viewbox="0 0 24 24">
-<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-</svg>
-<span>820</span>
+<!-- Star XP Pill -->
+<div class="flex items-center gap-1 bg-[#fff9e6] border border-[#fae29f] px-2 py-0.5 rounded-full shadow-[0_1.5px_0_#edd3bc]">
+<span class="material-symbols-outlined fill text-[#cc8a00] text-sm" data-icon="star">star</span>
+<span class="text-xs font-extrabold text-[#3a2800]">820</span>
 </div>
-<!-- Round Avatar 'L' -->
-<div class="w-7 h-7 rounded-full bg-[#136a63] text-white font-extrabold text-[12px] flex items-center justify-center border-2 border-white shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
+<!-- Avatar Badge -->
+<div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#136a63] to-[#00504b] border-2 border-white flex items-center justify-center text-[12px] font-extrabold text-[#ffffff] shadow-[0_1.5px_0_#b7a89e] cursor-pointer">
           L
         </div>
 </div>
 </header>
-<!-- MAIN VOCABULARY HUB CONTENT -->
-<main class="flex-1 px-4 py-4 flex flex-col gap-4">
-<!-- SUBHEADER / STATUS ROW -->
+<!-- CONTENT CANVAS -->
+<div class="flex flex-col px-4 pt-5 gap-6">
+<!-- 2. SUB-HEADER / META ROW -->
+<section class="flex flex-col gap-2">
 <div class="flex items-center justify-between">
-<div>
-<span class="text-[11px] font-extrabold tracking-wider uppercase text-[#136a63] bg-[#e0f2f1] px-2 py-0.5 rounded-md">Lexical Bank</span>
-<h1 class="text-[22px] font-extrabold text-[#1c2221] mt-0.5 tracking-tight">Vocabulary Hub</h1>
+<span class="px-2.5 py-0.5 rounded-md bg-[#e6f4f2] border border-[#b2e2dc] text-[10px] font-extrabold tracking-widest text-[#00504b] uppercase">
+            LEXICAL BANK
+          </span>
+<div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#ffffff] border border-[#e5d6cd] shadow-sm">
+<span class="w-2 h-2 rounded-full bg-[#00504b]"></span>
+<span class="text-xs font-bold text-[#455250]">8,400 words</span>
 </div>
-<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white tactile-pill text-[12px] font-bold text-[#53605d]">
-<span class="w-2 h-2 rounded-full bg-[#136a63]"></span>
-<span>8,400 words</span>
 </div>
+<h1 class="text-2xl font-extrabold tracking-tight text-[#1a140e]">
+          Vocabulary Hub
+        </h1>
+</section>
+<!-- 3. "DUE TODAY" REVIEW CARD -->
+<section class="bg-[#ffffff] rounded-2xl border-2 border-[#e8dcd5] p-4 shadow-[0_5px_0_#e0d2c9] flex flex-col gap-4">
+<!-- Top row chips -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 bg-[#f5fbf9] border border-[#cbe4de] px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[#00504b] text-sm" data-icon="schedule">schedule</span>
+<span class="text-xs font-bold text-[#1a4440]">Spaced Repetition</span>
 </div>
-<!-- BIG 'DUE TODAY' HERO REVIEW CARD -->
-<section class="tactile-card p-4 relative overflow-hidden">
-<!-- Badge row -->
-<div class="flex items-center justify-between mb-3">
-<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#e8f5f4] text-[#136a63] font-bold text-[11px] border border-[#c1e5e2]">
-<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
-<polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-<span>Spaced Repetition</span>
+<span class="px-2.5 py-0.5 rounded-full bg-[#fff6db] border border-[#f5d77f] text-xs font-extrabold text-[#704f00] tracking-wide">
+            +45 XP
+          </span>
 </div>
-<span class="text-[12px] font-bold text-[#b34700] bg-[#fff2e8] px-2 py-0.5 rounded-md">+45 XP</span>
-</div>
-<!-- Main review stat & circular progress graphic -->
-<div class="flex items-center justify-between mb-4">
+<!-- Center Row: Metrics & Graphic Ring -->
+<div class="flex items-center justify-between pt-1">
 <div>
 <div class="flex items-baseline gap-1.5">
-<span class="text-[34px] font-black tracking-tight text-[#1c2221] leading-none">28</span>
-<span class="text-[16px] font-extrabold text-[#53605d]">words due</span>
+<span class="text-4xl font-extrabold text-[#1a140e] tracking-tight">28</span>
+<span class="text-sm font-extrabold text-[#00504b]">words due</span>
 </div>
-<p class="text-[13px] font-semibold text-[#53605d] mt-1.5">IELTS Academic &amp; Core Collocations</p>
+<p class="text-xs font-semibold text-[#576461] mt-0.5">IELTS Academic &amp; Core Collocations</p>
 </div>
-<!-- Circular mastery ring -->
-<div class="relative w-14 h-14 rounded-full bg-[#fff4eb] border-2 border-[#ffd9bf] flex items-center justify-center flex-shrink-0">
-<svg class="w-14 h-14 -rotate-90" viewbox="0 0 48 48">
-<circle cx="24" cy="24" fill="none" r="19" stroke="#fee0cc" stroke-width="4.5"></circle>
-<circle cx="24" cy="24" fill="none" r="19" stroke="#ff9200" stroke-dasharray="119.4" stroke-dashoffset="35" stroke-linecap="round" stroke-width="4.5"></circle>
+<!-- Circular Accent Progress Check -->
+<div class="relative w-14 h-14 rounded-full bg-[#fffaf5] border-2 border-[#ebdcd3] flex items-center justify-center shadow-[inset_0_1px_3px_rgba(0,0,0,0.06)]">
+<svg class="absolute inset-0 w-full h-full -rotate-90 p-1" viewbox="0 0 36 36">
+<path class="text-[#ede0d7]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#e27d00]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="72, 100" stroke-linecap="round" stroke-width="3.5"></path>
 </svg>
-<div class="absolute inset-0 flex items-center justify-center">
-<svg class="w-6 h-6 text-[#ff9200]" fill="currentColor" viewbox="0 0 24 24">
-<path d="M19 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 15l-4-4 1.41-1.41L12 14.17l5.59-5.59L19 10l-7 7z"></path>
-</svg>
+<span class="material-symbols-outlined fill text-[#e27d00] text-xl" data-icon="sync">sync</span>
 </div>
 </div>
-</div>
-<!-- Primary tactile candy-orange button -->
-<button class="tactile-btn-orange w-full py-3.5 px-4 font-extrabold text-[16px] flex items-center justify-center gap-2 cursor-pointer">
-<span class="tracking-wide">Review now</span>
-<svg class="w-5 h-5 text-[#221202]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
-<path d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
+<!-- Candy-Orange Tactile Button with deep brown-black ink -->
+<button class="w-full h-14 rounded-2xl bg-[#fd9500] hover:bg-[#f28e00] text-[#1a0d00] font-extrabold text-base flex items-center justify-center gap-1 shadow-[0_5px_0_#b56600] active:translate-y-1 active:shadow-[0_1px_0_#b56600] transition-all cursor-pointer">
+<span>Review now</span>
+<span class="material-symbols-outlined text-lg leading-none" data-icon="play_arrow">play_arrow</span>
 </button>
 </section>
-<!-- SECTION TITLE -->
-<div class="flex items-center justify-between pt-1">
-<h2 class="text-[17px] font-extrabold text-[#1c2221] tracking-tight">Explore Categories</h2>
-<span class="text-[12px] font-bold text-[#53605d]">7 collections</span>
+<!-- 4. "EXPLORE CATEGORIES" SECTION -->
+<section class="flex flex-col gap-3">
+<!-- Section Header -->
+<div class="flex items-center justify-between">
+<h2 class="text-base font-extrabold text-[#1a140e] tracking-tight">Explore Categories</h2>
+<span class="px-2 py-0.5 rounded-full bg-[#f4ebe4] border border-[#e4d6cc] text-[11px] font-bold text-[#00504b]">
+            7 collections
+          </span>
 </div>
-<!-- GRID OF CHUNKY ILLUSTRATED TILES (2 Columns) -->
+<!-- 2-Column Chunky Illustrated Grid -->
 <div class="grid grid-cols-2 gap-3">
-<!-- 1. DICTIONARY -->
-<div class="tactile-tile p-3.5 flex flex-col justify-between h-[126px] cursor-pointer">
+<!-- a) Dictionary -->
+<article class="bg-[#ffffff] border-2 border-[#e8dcd5] rounded-2xl p-3.5 shadow-[0_4px_0_#ded0c7] flex flex-col justify-between h-36 active:translate-y-0.5 active:shadow-[0_2px_0_#ded0c7] transition-all cursor-pointer">
 <div class="flex items-start justify-between">
-<div class="w-11 h-11 rounded-2xl bg-[#fef7e0] border-2 border-[#fae392] flex items-center justify-center shadow-[0_3px_0_0_#edd068]">
-<svg class="w-6 h-6 text-[#9a6700]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-</svg>
+<div class="w-10 h-10 rounded-xl bg-[#e6f4f2] border border-[#bfe4df] flex items-center justify-center shadow-[0_1.5px_0_#d3ede9]">
+<span class="material-symbols-outlined fill text-[#00504b] text-xl" data-icon="menu_book">menu_book</span>
 </div>
-<span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#f6eee7] text-[#53605d] border border-[#e6d6cb]">8,400</span>
+<span class="text-[11px] font-extrabold text-[#00504b] bg-[#e6f4f2] px-2 py-0.5 rounded-md border border-[#c1e5e0]">8,400</span>
 </div>
 <div>
-<h3 class="font-extrabold text-[15px] text-[#1c2221] leading-tight">Dictionary</h3>
-<p class="text-[11px] font-semibold text-[#53605d] mt-0.5">IELTS &amp; Academic</p>
+<h3 class="text-sm font-extrabold text-[#1a140e]">Dictionary</h3>
+<p class="text-[11px] font-semibold text-[#5a6764] truncate">IELTS &amp; Academic</p>
 </div>
-</div>
-<!-- 2. MY DECK -->
-<div class="tactile-tile p-3.5 flex flex-col justify-between h-[126px] cursor-pointer">
+</article>
+<!-- b) My deck -->
+<article class="bg-[#ffffff] border-2 border-[#e8dcd5] rounded-2xl p-3.5 shadow-[0_4px_0_#ded0c7] flex flex-col justify-between h-36 active:translate-y-0.5 active:shadow-[0_2px_0_#ded0c7] transition-all cursor-pointer">
 <div class="flex items-start justify-between">
-<div class="w-11 h-11 rounded-2xl bg-[#e0f2f1] border-2 border-[#b2dfdb] flex items-center justify-center shadow-[0_3px_0_0_#97ccc6]">
-<svg class="w-6 h-6 text-[#136a63]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<rect height="14" rx="2" width="16" x="2" y="7"></rect>
-<path d="M6 3h14a2 2 0 0 1 2 2v14"></path>
-</svg>
+<div class="w-10 h-10 rounded-xl bg-[#fff9e6] border border-[#fce7ab] flex items-center justify-center shadow-[0_1.5px_0_#fae092]">
+<span class="material-symbols-outlined fill text-[#8c6500] text-xl" data-icon="style">style</span>
 </div>
-<span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#e8f5f4] text-[#136a63] border border-[#c1e5e2]">142 saved</span>
+<span class="text-[11px] font-extrabold text-[#8c6500] bg-[#fff9e6] px-2 py-0.5 rounded-md border border-[#fce49e]">142 saved</span>
 </div>
 <div>
-<h3 class="font-extrabold text-[15px] text-[#1c2221] leading-tight">My deck</h3>
-<p class="text-[11px] font-semibold text-[#53605d] mt-0.5">Custom cards</p>
+<h3 class="text-sm font-extrabold text-[#1a140e]">My deck</h3>
+<p class="text-[11px] font-semibold text-[#5a6764] truncate">Custom cards</p>
 </div>
-</div>
-<!-- 3. WORD SETS -->
-<div class="tactile-tile p-3.5 flex flex-col justify-between h-[126px] cursor-pointer">
+</article>
+<!-- c) Word sets -->
+<article class="bg-[#ffffff] border-2 border-[#e8dcd5] rounded-2xl p-3.5 shadow-[0_4px_0_#ded0c7] flex flex-col justify-between h-36 active:translate-y-0.5 active:shadow-[0_2px_0_#ded0c7] transition-all cursor-pointer">
 <div class="flex items-start justify-between">
-<div class="w-11 h-11 rounded-2xl bg-[#fff0e6] border-2 border-[#ffd5bf] flex items-center justify-center shadow-[0_3px_0_0_#f4bd9f]">
-<svg class="w-6 h-6 text-[#c75300]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-</svg>
+<div class="w-10 h-10 rounded-xl bg-[#fff0ed] border border-[#fed4cd] flex items-center justify-center shadow-[0_1.5px_0_#fac6be]">
+<span class="material-symbols-outlined fill text-[#b0351f] text-xl" data-icon="folder">folder</span>
 </div>
-<span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#f6eee7] text-[#53605d] border border-[#e6d6cb]">36 sets</span>
+<span class="text-[11px] font-extrabold text-[#a0301a] bg-[#fff0ed] px-2 py-0.5 rounded-md border border-[#ffd2c8]">36 sets</span>
 </div>
 <div>
-<h3 class="font-extrabold text-[15px] text-[#1c2221] leading-tight">Word sets</h3>
-<p class="text-[11px] font-semibold text-[#53605d] mt-0.5">Topic clusters</p>
+<h3 class="text-sm font-extrabold text-[#1a140e]">Word sets</h3>
+<p class="text-[11px] font-semibold text-[#5a6764] truncate">Topic clusters</p>
 </div>
-</div>
-<!-- 4. PHRASES -->
-<div class="tactile-tile p-3.5 flex flex-col justify-between h-[126px] cursor-pointer">
+</article>
+<!-- d) Phrases -->
+<article class="bg-[#ffffff] border-2 border-[#e8dcd5] rounded-2xl p-3.5 shadow-[0_4px_0_#ded0c7] flex flex-col justify-between h-36 active:translate-y-0.5 active:shadow-[0_2px_0_#ded0c7] transition-all cursor-pointer">
 <div class="flex items-start justify-between">
-<div class="w-11 h-11 rounded-2xl bg-[#fce4ec] border-2 border-[#f8bbd0] flex items-center justify-center shadow-[0_3px_0_0_#e89daf]">
-<svg class="w-6 h-6 text-[#ad1457]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-</svg>
+<div class="w-10 h-10 rounded-xl bg-[#e6f4f2] border border-[#bfe4df] flex items-center justify-center shadow-[0_1.5px_0_#d3ede9]">
+<span class="material-symbols-outlined fill text-[#00504b] text-xl" data-icon="chat_bubble">chat_bubble</span>
 </div>
-<span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#f6eee7] text-[#53605d] border border-[#e6d6cb]">850</span>
+<span class="text-[11px] font-extrabold text-[#00504b] bg-[#e6f4f2] px-2 py-0.5 rounded-md border border-[#c1e5e0]">850</span>
 </div>
 <div>
-<h3 class="font-extrabold text-[15px] text-[#1c2221] leading-tight">Phrases</h3>
-<p class="text-[11px] font-semibold text-[#53605d] mt-0.5">Idioms &amp; spoken</p>
+<h3 class="text-sm font-extrabold text-[#1a140e]">Phrases</h3>
+<p class="text-[11px] font-semibold text-[#5a6764] truncate">Idioms &amp; spoken</p>
 </div>
-</div>
-<!-- 5. VERBS -->
-<div class="tactile-tile p-3.5 flex flex-col justify-between h-[126px] cursor-pointer">
+</article>
+<!-- e) Verbs -->
+<article class="bg-[#ffffff] border-2 border-[#e8dcd5] rounded-2xl p-3.5 shadow-[0_4px_0_#ded0c7] flex flex-col justify-between h-36 active:translate-y-0.5 active:shadow-[0_2px_0_#ded0c7] transition-all cursor-pointer">
 <div class="flex items-start justify-between">
-<div class="w-11 h-11 rounded-2xl bg-[#fff8e1] border-2 border-[#ffe082] flex items-center justify-center shadow-[0_3px_0_0_#ebca62]">
-<svg class="w-6 h-6 text-[#e65100]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-</svg>
+<div class="w-10 h-10 rounded-xl bg-[#fff3e0] border border-[#ffddb3] flex items-center justify-center shadow-[0_1.5px_0_#fed39f]">
+<span class="material-symbols-outlined fill text-[#b85b00] text-xl" data-icon="bolt">bolt</span>
 </div>
-<span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#f6eee7] text-[#53605d] border border-[#e6d6cb]">180</span>
+<span class="text-[11px] font-extrabold text-[#994c00] bg-[#fff3e0] px-2 py-0.5 rounded-md border border-[#ffdbad]">180</span>
 </div>
 <div>
-<h3 class="font-extrabold text-[15px] text-[#1c2221] leading-tight">Verbs</h3>
-<p class="text-[11px] font-semibold text-[#53605d] mt-0.5">Irregular &amp; phrasal</p>
+<h3 class="text-sm font-extrabold text-[#1a140e]">Verbs</h3>
+<p class="text-[11px] font-semibold text-[#5a6764] truncate">Irregular &amp; phrasal</p>
 </div>
-</div>
-<!-- 6. COLLOCATIONS -->
-<div class="tactile-tile p-3.5 flex flex-col justify-between h-[126px] cursor-pointer">
+</article>
+<!-- f) Collocations -->
+<article class="bg-[#ffffff] border-2 border-[#e8dcd5] rounded-2xl p-3.5 shadow-[0_4px_0_#ded0c7] flex flex-col justify-between h-36 active:translate-y-0.5 active:shadow-[0_2px_0_#ded0c7] transition-all cursor-pointer">
 <div class="flex items-start justify-between">
-<div class="w-11 h-11 rounded-2xl bg-[#e8eaf6] border-2 border-[#c5cae9] flex items-center justify-center shadow-[0_3px_0_0_#abb2de]">
-<svg class="w-6 h-6 text-[#283593]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-</svg>
+<div class="w-10 h-10 rounded-xl bg-[#e6f4f2] border border-[#bfe4df] flex items-center justify-center shadow-[0_1.5px_0_#d3ede9]">
+<span class="material-symbols-outlined fill text-[#00504b] text-xl" data-icon="link">link</span>
 </div>
-<span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#f6eee7] text-[#53605d] border border-[#e6d6cb]">610</span>
+<span class="text-[11px] font-extrabold text-[#00504b] bg-[#e6f4f2] px-2 py-0.5 rounded-md border border-[#c1e5e0]">610</span>
 </div>
 <div>
-<h3 class="font-extrabold text-[15px] text-[#1c2221] leading-tight">Collocations</h3>
-<p class="text-[11px] font-semibold text-[#53605d] mt-0.5">Academic pairs</p>
+<h3 class="text-sm font-extrabold text-[#1a140e]">Collocations</h3>
+<p class="text-[11px] font-semibold text-[#5a6764] truncate">Academic pairs</p>
 </div>
+</article>
 </div>
-</div>
-<!-- 7. WORD GAMES (Full Width chunky card) -->
-<div class="tactile-card p-4 flex items-center justify-between cursor-pointer">
+<!-- Full-Width "Word games" Card -->
+<article class="bg-[#ffffff] border-2 border-[#e8dcd5] rounded-2xl p-3.5 shadow-[0_4px_0_#ded0c7] flex items-center justify-between active:translate-y-0.5 active:shadow-[0_2px_0_#ded0c7] transition-all cursor-pointer mt-1">
 <div class="flex items-center gap-3">
-<div class="w-12 h-12 rounded-2xl bg-[#ffecb3] border-2 border-[#ffd54f] flex items-center justify-center shadow-[0_3px_0_0_#f4bd2a]">
-<svg class="w-6 h-6 text-[#b26a00]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<rect height="12" rx="4" width="20" x="2" y="6"></rect>
-<line x1="6" x2="10" y1="12" y2="12"></line>
-<line x1="8" x2="8" y1="10" y2="14"></line>
-<circle cx="15" cy="11" fill="currentColor" r="1"></circle>
-<circle cx="17" cy="13" fill="currentColor" r="1"></circle>
-</svg>
+<div class="w-11 h-11 rounded-xl bg-[#fff9e6] border border-[#fbe5a2] flex items-center justify-center shadow-[0_1.5px_0_#fae092]">
+<span class="material-symbols-outlined fill text-[#8c6500] text-2xl" data-icon="sports_esports">sports_esports</span>
 </div>
 <div>
-<div class="flex items-center gap-1.5">
-<h3 class="font-extrabold text-[16px] text-[#1c2221] leading-tight">Word games</h3>
-<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#ffebd6] text-[#b34700]">5 modes</span>
+<div class="flex items-center gap-2">
+<h3 class="text-sm font-extrabold text-[#1a140e]">Word games</h3>
+<span class="px-2 py-0.5 rounded bg-[#fff2cc] border border-[#fadc82] text-[10px] font-extrabold text-[#704f00]">
+                  5 modes
+                </span>
 </div>
-<p class="text-[12px] font-semibold text-[#53605d] mt-0.5">Speed Match, Crossword &amp; Quiz</p>
-</div>
-</div>
-<div class="w-8 h-8 rounded-full bg-[#f6eee7] border border-[#e6d6cb] flex items-center justify-center text-[#53605d]">
-<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
-<polyline points="9 18 15 12 9 6"></polyline>
-</svg>
+<p class="text-xs font-semibold text-[#5a6764]">Speed Match, Crossword &amp; Quiz</p>
 </div>
 </div>
-</main>
-<!-- BOTTOM TAB BAR (64px height, Vocab active with soft teal pill, badge, and bold label) -->
-<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto h-[64px] bg-white border-t-2 border-[#eedfd5] flex items-center justify-around px-2 z-50 shadow-[0_-2px_6px_rgba(0,0,0,0.03)]">
-<!-- 1. Today (house) -->
-<a class="flex flex-col items-center justify-center py-1 px-3 text-[#53605d] hover:text-[#136a63]" href="#/today">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
-<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-<polyline points="9 22 9 12 15 12 15 22"></polyline>
-</svg>
-<span class="text-[11px] font-bold">Today</span>
-</a>
-<!-- 2. Vocab (ACTIVE: open book with small red due badge, soft teal pill background, bold teal label) -->
-<a class="flex flex-col items-center justify-center" href="#/vocab">
-<div class="flex flex-col items-center justify-center px-4 py-1 rounded-full bg-[#e0f2f1] text-[#136a63]">
-<div class="relative">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-</svg>
-<!-- Small red due badge -->
-<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-[#e53935] ring-2 ring-white"></span>
+<span class="material-symbols-outlined text-[#00504b] text-xl pr-1" data-icon="chevron_right">chevron_right</span>
+</article>
+</section>
 </div>
-<span class="text-[11px] font-extrabold text-[#136a63]">Vocab</span>
+<!-- 5. BOTTOM TAB BAR (64px, HUB variant in Bright Day) -->
+<nav class="fixed bottom-0 max-w-[390px] w-full h-[64px] bg-[#ffffff] border-t-2 border-[#ebdcd3] flex items-center justify-around px-2 z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center gap-0.5 text-[#4a5855] hover:text-[#00504b] transition-colors py-1 px-3">
+<span class="material-symbols-outlined text-xl" data-icon="home">home</span>
+<span class="text-[11px] font-extrabold">Today</span>
+</button>
+<!-- Tab 2: Vocab (ACTIVE TAB) -->
+<button class="flex flex-col items-center justify-center gap-0.5 bg-[#e6f4f2] border border-[#9fdad3] text-[#00504b] rounded-xl py-1 px-3.5 shadow-[0_2px_0_#cbe4e0]">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined fill text-xl text-[#00504b]" data-icon="menu_book">menu_book</span>
+<!-- Red due badge dot -->
+<span class="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-[#ba1a1a] border border-[#ffffff]"></span>
 </div>
-</a>
-<!-- 3. Skills (target) -->
-<a class="flex flex-col items-center justify-center py-1 px-3 text-[#53605d] hover:text-[#136a63]" href="#/skills">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
-<circle cx="12" cy="12" r="6"></circle>
-<circle cx="12" cy="12" r="2"></circle>
-</svg>
-<span class="text-[11px] font-bold">Skills</span>
-</a>
-<!-- 4. Tests (flag) -->
-<a class="flex flex-col items-center justify-center py-1 px-3 text-[#53605d] hover:text-[#136a63]" href="#/tests">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
-<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-<line x1="4" x2="4" y1="22" y2="15"></line>
-</svg>
-<span class="text-[11px] font-bold">Tests</span>
-</a>
-<!-- 5. Me (person) -->
-<a class="flex flex-col items-center justify-center py-1 px-3 text-[#53605d] hover:text-[#136a63]" href="#/me">
-<svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
-<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-<circle cx="12" cy="7" r="4"></circle>
-</svg>
-<span class="text-[11px] font-bold">Me</span>
-</a>
+<span class="text-[11px] font-extrabold tracking-tight">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center gap-0.5 text-[#4a5855] hover:text-[#00504b] transition-colors py-1 px-3">
+<span class="material-symbols-outlined text-xl" data-icon="psychology">psychology</span>
+<span class="text-[11px] font-extrabold">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center gap-0.5 text-[#4a5855] hover:text-[#00504b] transition-colors py-1 px-3">
+<span class="material-symbols-outlined text-xl" data-icon="assignment">assignment</span>
+<span class="text-[11px] font-extrabold">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center gap-0.5 text-[#4a5855] hover:text-[#00504b] transition-colors py-1 px-3">
+<span class="material-symbols-outlined text-xl" data-icon="person">person</span>
+<span class="text-[11px] font-extrabold">Me</span>
+</button>
 </nav>
-</div>
+</main>
 </body></html>

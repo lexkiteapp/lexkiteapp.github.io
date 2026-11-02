@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
     tailwind.config = {
@@ -19,7 +18,7 @@
             "primary": "#6bd8ce",
             "on-secondary-fixed": "#3f0300",
             "primary-fixed-dim": "#6bd8ce",
-            "on-surface-variant": "#bcc9c7",
+            "on-surface-variant": "#C8DCDD",
             "surface-container": "#162125",
             "tertiary-container": "#ba8b00",
             "surface": "#091518",
@@ -53,7 +52,7 @@
             "surface-container-lowest": "#051013",
             "surface-container-highest": "#2b373a",
             "outline-variant": "#3d4947",
-            "outline": "#879391",
+            "outline": "#A0B5B7",
             "tertiary": "#f4bf40",
             "on-secondary": "#660800",
             "on-primary-container": "#00322e",
@@ -142,11 +141,11 @@
     }
 
     .tactile-answer-selected {
-      box-shadow: 0 5px 0 0 #102B2D;
+      box-shadow: 0 5px 0 0 #0a1f22;
     }
     .tactile-answer-selected:active {
       transform: translateY(2px);
-      box-shadow: 0 3px 0 0 #102B2D;
+      box-shadow: 0 3px 0 0 #0a1f22;
     }
 
     .tactile-btn-subtle {
@@ -161,7 +160,7 @@
 </head>
 <body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary-container">
 <!-- Desktop Web Header (TopNavBar Component) -->
-<header class="docked full-width top-0 sticky z-50 bg-surface dark:bg-surface border-b-2 border-surface-variant dark:border-outline-variant shadow-[0_4px_0_0_#343028]">
+<header class="docked full-width top-0 sticky z-50 bg-[#091518] border-b-2 border-surface-variant dark:border-outline-variant shadow-[0_4px_0_0_#051013]">
 <div class="flex justify-between items-center w-full px-margin max-w-7xl mx-auto h-20">
 <!-- Logo cluster -->
 <a class="text-headline-md font-headline-md font-extrabold text-primary dark:text-primary-fixed flex items-center gap-space-xs group" href="#">
@@ -176,26 +175,26 @@
 </div>
 <span class="text-title font-title text-white tracking-tight ml-2">Lexkite<span class="text-secondary ml-0.5 inline-block animate-pulse">●</span></span>
 </a>
-<!-- Center navigation links -->
+<!-- Center navigation links - High Contrast readability update -->
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-on-surface-variant dark:text-outline-variant font-label-lg text-label-lg transition-colors duration-150 hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container dark:hover:bg-surface-container-high rounded-lg px-3 py-1.5 active:translate-y-0.5" href="#">Blog</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-label-lg text-label-lg transition-colors duration-150 hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container dark:hover:bg-surface-container-high rounded-lg px-3 py-1.5 active:translate-y-0.5" href="#">Vocabulary</a>
-<a class="text-on-surface-variant dark:text-outline-variant font-label-lg text-label-lg transition-colors duration-150 hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container dark:hover:bg-surface-container-high rounded-lg px-3 py-1.5 active:translate-y-0.5" href="#">Samples</a>
+<a class="text-[#C8DCDD] hover:text-white font-label-lg text-label-lg transition-colors duration-150 hover:bg-surface-container dark:hover:bg-surface-container-high rounded-lg px-3 py-1.5 active:translate-y-0.5 font-bold" href="#">Blog</a>
+<a class="text-[#C8DCDD] hover:text-white font-label-lg text-label-lg transition-colors duration-150 hover:bg-surface-container dark:hover:bg-surface-container-high rounded-lg px-3 py-1.5 active:translate-y-0.5 font-bold" href="#">Vocabulary</a>
+<a class="text-[#C8DCDD] hover:text-white font-label-lg text-label-lg transition-colors duration-150 hover:bg-surface-container dark:hover:bg-surface-container-high rounded-lg px-3 py-1.5 active:translate-y-0.5 font-bold" href="#">Samples</a>
 <!-- Active Nav: Level Test -->
-<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 text-label-lg" href="#">Level Test</a>
+<a class="text-primary dark:text-primary-fixed font-extrabold border-b-2 border-primary dark:border-primary-fixed pb-1 text-label-lg" href="#">Level Test</a>
 </nav>
 <!-- Trailing actions -->
 <div class="flex items-center gap-space-md">
 <!-- Language selector -->
-<button class="flex items-center gap-1 text-on-surface-variant hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined" data-icon="language">language</span>
-<span class="font-bold text-xs tracking-wider">EN</span>
+<button class="flex items-center gap-1 text-[#C8DCDD] hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[#6bd8ce]" data-icon="language">language</span>
+<span class="font-extrabold text-xs tracking-wider">EN</span>
 </button>
-<a class="text-on-surface-variant hover:text-white font-title text-sm px-3 py-2 transition-colors hidden sm:block" href="#">Log in</a>
-<!-- Primary candy CTA button -->
-<button class="tactile-cta bg-gradient-to-r from-[#F2553B] to-[#FFB054] text-white font-extrabold text-xs tracking-wider uppercase px-5 py-3 rounded-xl flex items-center gap-1.5 shadow-[0_5px_0_0_#B53A22]">
-<span>Start Learning</span>
-<span class="text-sm">⚡</span>
+<a class="text-[#C8DCDD] hover:text-white font-title text-sm px-3 py-2 transition-colors hidden sm:block font-bold" href="#">Log in</a>
+<!-- Primary candy CTA button with high-contrast deep brown-black ink (#1B0B04) -->
+<button class="tactile-cta bg-gradient-to-r from-[#F2553B] to-[#FFB054] text-[#1B0B04] font-black text-xs tracking-wider uppercase px-5 py-3 rounded-xl flex items-center gap-1.5 shadow-[0_5px_0_0_#B53A22]">
+<span class="font-extrabold tracking-wider">Start Learning</span>
+<span class="text-sm font-black text-[#1B0B04]">⚡</span>
 </button>
 </div>
 </div>
@@ -208,17 +207,17 @@
 <!-- Left: Question Chip -->
 <div class="flex items-center gap-3">
 <div class="px-3 py-1.5 rounded-xl bg-surface-container-highest border border-outline-variant flex items-center gap-2 shadow-[inset_0_1px_2px_rgba(0,0,0,0.5)]">
-<span class="bg-primary text-on-primary-container text-[11px] font-extrabold px-1.5 py-0.5 rounded-md">07</span>
+<span class="bg-primary text-[#00322e] text-[11px] font-extrabold px-1.5 py-0.5 rounded-md">07</span>
 <span class="font-label text-label text-white tracking-widest uppercase">Question 7 of 20</span>
 </div>
-<span class="hidden sm:inline-block text-xs font-semibold text-outline">B2 CEFR Core Battery</span>
+<span class="hidden sm:inline-block text-xs font-bold text-[#A9C4C6]">B2 CEFR Core Battery</span>
 </div>
 <!-- Right: Live Estimate Badge -->
-<div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#113134] border border-primary/40 shadow-[0_0_12px_rgba(107,216,206,0.15)]">
+<div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#113134] border border-primary/50 shadow-[0_0_12px_rgba(107,216,206,0.15)]">
 <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
 <span class="text-xs font-bold text-white tracking-tight">Live Estimate:</span>
 <span class="text-xs font-extrabold text-primary">B2 Upper-Int.</span>
-<span class="text-[11px] font-medium text-on-surface-variant/80 hidden sm:inline">(IELTS ~6.5)</span>
+<span class="text-[11px] font-semibold text-[#A9C4C6] hidden sm:inline">(IELTS ~6.5)</span>
 </div>
 </div>
 <!-- Chunky Tactile Progress Bar -->
@@ -227,7 +226,7 @@
 <div class="w-full h-full bg-[linear-gradient(45deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.15)_75%,transparent_75%,transparent)] bg-[length:16px_16px]"></div>
 </div>
 </div>
-<div class="flex justify-between items-center text-[11px] font-bold text-outline mt-2 px-1">
+<div class="flex justify-between items-center text-[11px] font-bold text-[#A9C4C6] mt-2 px-1">
 <span>35% Completed</span>
 <span>Est. Time Left: 6m</span>
 </div>
@@ -238,12 +237,12 @@
 <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
 <!-- Top Row Category Chips -->
 <div class="flex items-center justify-between gap-4 mb-8">
-<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#183438] border border-primary/30 text-primary">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#183438] border border-primary/40 text-primary">
 <span class="text-base">🔤</span>
-<span class="font-label text-label tracking-wider uppercase text-primary-fixed">Sentence Completion • B2 Grammar</span>
+<span class="font-label text-label tracking-wider uppercase text-primary font-bold">Sentence Completion • B2 Grammar</span>
 </div>
-<div class="flex items-center gap-1.5 text-on-surface-variant text-xs font-semibold">
-<span class="material-symbols-outlined text-sm text-outline" data-icon="schedule">schedule</span>
+<div class="flex items-center gap-1.5 text-[#C8DCDD] text-xs font-semibold">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="schedule">schedule</span>
 <span>Take your time</span>
 </div>
 </div>
@@ -260,16 +259,16 @@
 <!-- Audio Action Bar -->
 <div class="mt-8 pt-6 border-t border-[#1F333B] flex items-center justify-between">
 <button class="tactile-btn-subtle px-4 py-2.5 rounded-xl bg-[#1D313A] border-2 border-[#36505A] text-white flex items-center gap-2.5 font-bold text-xs tracking-wider uppercase hover:bg-surface-bright active:translate-y-0.5">
-<span class="material-symbols-outlined text-primary" data-icon="volume_up">volume_up</span>
-<span>Listen to sentence</span>
+<span class="material-symbols-outlined text-primary text-lg" data-icon="volume_up">volume_up</span>
+<span class="text-[#E0EFF0]">Listen to sentence</span>
 </button>
-<span class="text-xs text-outline font-medium hidden sm:inline-block">Target skill: Verb vs. Noun collocation</span>
+<span class="text-xs text-[#A9C4C6] font-semibold hidden sm:inline-block">Target skill: Verb vs. Noun collocation</span>
 </div>
 </div>
 <!-- 3. Answer Choices (2x2 Grid) -->
 <div class="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
 <!-- Option A -->
-<button class="tactile-answer group w-full text-left bg-[#1A2C33] border-2 border-[#2E454F] hover:border-outline rounded-2xl p-5 flex items-center justify-between transition-all">
+<button class="tactile-answer group w-full text-left bg-[#1A2C33] border-2 border-[#2E454F] hover:border-primary/60 rounded-2xl p-5 flex items-center justify-between transition-all">
 <div class="flex items-center gap-4">
 <!-- Square Chip -->
 <div class="w-12 h-12 rounded-xl bg-surface-container-high border-2 border-[#36505A] flex items-center justify-center font-display text-lg font-extrabold text-white group-hover:text-primary transition-colors">
@@ -277,14 +276,14 @@
           </div>
 <div>
 <div class="font-display text-xl font-bold text-white group-hover:translate-x-0.5 transition-transform">affect</div>
-<div class="font-body text-xs font-semibold text-on-surface-variant">verb • to have an influence on</div>
+<div class="font-body text-xs font-semibold text-[#A9C4C6]">verb • to have an influence on</div>
 </div>
 </div>
 <!-- Empty Radio Circle -->
-<div class="w-6 h-6 rounded-full border-2 border-outline/50 flex items-center justify-center"></div>
+<div class="w-6 h-6 rounded-full border-2 border-[#A0B5B7] flex items-center justify-center"></div>
 </button>
-<!-- Option B (SELECTED STATE) -->
-<button class="tactile-answer-selected group w-full text-left bg-[#163639] border-2 border-primary rounded-2xl p-5 flex items-center justify-between relative shadow-[0_0_20px_rgba(43,163,154,0.18)]">
+<!-- Option B (SELECTED STATE - HIGH CONTRAST) -->
+<button class="tactile-answer-selected group w-full text-left bg-[#133336] border-2 border-[#2BA39A] rounded-2xl p-5 flex items-center justify-between relative shadow-[0_0_20px_rgba(43,163,154,0.22)]">
 <div class="flex items-center gap-4">
 <!-- Solid Teal Chip -->
 <div class="w-12 h-12 rounded-xl bg-primary-container border-2 border-primary text-on-primary-container flex items-center justify-center font-display text-lg font-extrabold shadow-[0_2px_0_0_#00504b]">
@@ -293,62 +292,62 @@
 <div>
 <div class="font-display text-xl font-extrabold text-white flex items-center gap-2">
               effect
-              <span class="text-[10px] bg-primary text-on-primary-container font-extrabold px-1.5 py-0.5 rounded uppercase">Your Pick</span>
+              <span class="text-[10px] bg-[#0B2326] text-[#5EEAD4] border border-[#2BA39A]/60 font-black px-2 py-0.5 rounded uppercase tracking-wider">Your Pick</span>
 </div>
-<div class="font-body text-xs font-semibold text-primary">noun • a result or outcome</div>
+<div class="font-body text-xs font-bold text-[#A9C4C6]">noun • a result or outcome</div>
 </div>
 </div>
 <!-- Solid Teal Checkmark Circle -->
-<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary-container shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
-<span class="material-symbols-outlined text-base font-bold" data-icon="check">check</span>
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-[#003733] shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+<span class="material-symbols-outlined text-base font-extrabold" data-icon="check">check</span>
 </div>
 </button>
 <!-- Option C -->
-<button class="tactile-answer group w-full text-left bg-[#1A2C33] border-2 border-[#2E454F] hover:border-outline rounded-2xl p-5 flex items-center justify-between transition-all">
+<button class="tactile-answer group w-full text-left bg-[#1A2C33] border-2 border-[#2E454F] hover:border-primary/60 rounded-2xl p-5 flex items-center justify-between transition-all">
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 rounded-xl bg-surface-container-high border-2 border-[#36505A] flex items-center justify-center font-display text-lg font-extrabold text-white group-hover:text-primary transition-colors">
             C
           </div>
 <div>
 <div class="font-display text-xl font-bold text-white group-hover:translate-x-0.5 transition-transform">affecting</div>
-<div class="font-body text-xs font-semibold text-on-surface-variant">present participle form</div>
+<div class="font-body text-xs font-semibold text-[#A9C4C6]">present participle form</div>
 </div>
 </div>
-<div class="w-6 h-6 rounded-full border-2 border-outline/50 flex items-center justify-center"></div>
+<div class="w-6 h-6 rounded-full border-2 border-[#A0B5B7] flex items-center justify-center"></div>
 </button>
 <!-- Option D -->
-<button class="tactile-answer group w-full text-left bg-[#1A2C33] border-2 border-[#2E454F] hover:border-outline rounded-2xl p-5 flex items-center justify-between transition-all">
+<button class="tactile-answer group w-full text-left bg-[#1A2C33] border-2 border-[#2E454F] hover:border-primary/60 rounded-2xl p-5 flex items-center justify-between transition-all">
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 rounded-xl bg-surface-container-high border-2 border-[#36505A] flex items-center justify-center font-display text-lg font-extrabold text-white group-hover:text-primary transition-colors">
             D
           </div>
 <div>
 <div class="font-display text-xl font-bold text-white group-hover:translate-x-0.5 transition-transform">effected</div>
-<div class="font-body text-xs font-semibold text-on-surface-variant">past participle form</div>
+<div class="font-body text-xs font-semibold text-[#A9C4C6]">past participle form</div>
 </div>
 </div>
-<div class="w-6 h-6 rounded-full border-2 border-outline/50 flex items-center justify-center"></div>
+<div class="w-6 h-6 rounded-full border-2 border-[#A0B5B7] flex items-center justify-center"></div>
 </button>
 </div>
 <!-- 4. Tactile Bottom Action Row -->
 <div class="w-full max-w-4xl mx-auto flex items-center justify-between pt-4 pb-12 border-t border-[#1B2F36]">
 <!-- Left Action -->
-<button class="px-5 py-3 rounded-xl text-on-surface-variant hover:text-white font-title text-sm tracking-wider uppercase flex items-center gap-2 transition-colors active:translate-y-0.5">
-<span class="material-symbols-outlined text-base" data-icon="redo">redo</span>
+<button class="px-5 py-3 rounded-xl text-[#C8DCDD] hover:text-white font-title text-sm tracking-wider uppercase flex items-center gap-2 transition-colors active:translate-y-0.5 font-bold">
+<span class="material-symbols-outlined text-base text-primary" data-icon="redo">redo</span>
 <span>Skip for now</span>
 </button>
-<!-- Right Primary CTA -->
-<button class="tactile-cta bg-gradient-to-r from-[#F2553B] to-[#FFB054] text-white font-display text-lg tracking-wide rounded-2xl px-10 py-4 flex items-center gap-3 font-extrabold shadow-[0_6px_0_0_#B53A22] active:translate-y-1">
-<span>Check Answer</span>
-<span class="material-symbols-outlined font-black" data-icon="arrow_forward">arrow_forward</span>
+<!-- Right Primary CTA - Deep ink (#1B0B04) on coral/amber button for > 4.5:1 contrast -->
+<button class="tactile-cta bg-gradient-to-r from-[#F2553B] to-[#FFB054] text-[#1B0B04] font-display text-lg tracking-wide rounded-2xl px-10 py-4 flex items-center gap-3 font-extrabold shadow-[0_6px_0_0_#B53A22] active:translate-y-1">
+<span class="font-black text-[#1B0B04]">Check Answer</span>
+<span class="material-symbols-outlined font-black text-[#1B0B04]" data-icon="arrow_forward">arrow_forward</span>
 </button>
 </div>
 </main>
-<!-- Desktop Web Footer (Footer Component) -->
-<footer class="w-full bg-[#051013] border-t-2 border-surface-variant dark:border-outline-variant py-8 mt-auto">
+<!-- Desktop Web Footer (Footer Component) - Slate-mint links >4.5:1 contrast -->
+<footer class="w-full bg-[#071012] border-t-2 border-[#202c2f] py-8 mt-auto">
 <div class="max-w-7xl mx-auto px-margin flex flex-col md:flex-row justify-between items-center gap-6">
 <!-- Brand & Copyright -->
-<div class="flex items-center gap-3 text-xs text-on-surface-variant">
+<div class="flex items-center gap-3 text-xs text-[#A9C4C6]">
 <div class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center">
 <svg class="w-4 h-4 text-primary" fill="currentColor" viewbox="0 0 24 24">
 <path d="M12 2L4 12L12 22L20 12L12 2Z"></path>
@@ -356,8 +355,8 @@
 </div>
 <span>© 2024 Lexkite Educational Media. All rights reserved. Tactile, joyous language mastery.</span>
 </div>
-<!-- Footer Navigation Links -->
-<div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-outline-variant">
+<!-- Footer Navigation Links with High Contrast Slate-Mint (#B8D4D6) -->
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold text-[#B8D4D6]">
 <a class="hover:text-primary transition-colors" href="#">Curriculum</a>
 <a class="hover:text-primary transition-colors" href="#">Vocabulary Lab</a>
 <a class="hover:text-primary transition-colors" href="#">Placement Test</a>
