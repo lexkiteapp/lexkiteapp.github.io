@@ -200,3 +200,4 @@ node scripts/say-native/build.mjs --check
 node scripts/test/hit-retry.mjs
 node scripts/test/ci-policy.mjs
 node scripts/test/suite-guard.mjs
+node scripts/test/codemap-budget.mjs
