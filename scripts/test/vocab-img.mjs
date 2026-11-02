@@ -202,6 +202,17 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   const fake = '# x\n===== GEMINI =====\nAIzaXXX\ngsk_YYY\n' + Array.from({ length: 7 }, (_, i) => `cf:${String(i).repeat(32)}:tok${i}`).join('\n') + `\ncf:${'6'.repeat(32)}:tok6b\npb:1-2`;
   const pa = cf.poolAccounts({ CF_POOL: fake });
   ok(cf.parsePool(fake).length === 8 && pa.length === 2 && pa[0].acct === '5'.repeat(32) && pa[1].toks.length === 2, 'tệp xuất kho khoá: chỉ dòng cf:, bỏ Gemini/Groq/khác, gộp token trùng tài khoản');
+  // 02/11 giữ chỗ pilot: CF_POOL_HOLD "<n>@<hạn>" → việc khác không thấy n tài khoản cuối; pilot thấy hết; hết hạn/sai định dạng → không giữ
+  { const P = { CF_POOL: Array.from({ length: 12 }, (_, i) => i.toString(16).repeat(32) + ':t').join(','), VIMG_POOL_SKIP: '0' }, fut = new Date(Date.now() + 36e5).toISOString(), past = new Date(Date.now() - 6e4).toISOString();
+    const ids = env => cf.poolAccounts({ ...P, ...env }).map(a => a.acct[0]).join('');
+    ok(ids({}) === '0123456789ab' && ids({ CF_POOL_HOLD: '4@' + fut }) === '01234567' && ids({ CF_POOL_HOLD: '4@' + fut, CF_POOL_ROLE: 'pilot' }) === '0123456789ab' && ids({ CF_POOL_HOLD: '4@' + past }) === '0123456789ab' && ids({ CF_POOL_HOLD: '4' }) === '0123456789ab' && ids({ CF_POOL_HOLD: 'x@' + fut }) === '0123456789ab', 'CF_POOL_HOLD: fill/lexicon bỏ n tài khoản cuối tới hạn; pilot thấy hết; hết hạn hay sai định dạng → không giữ');
+    ok(cf.poolHold({ CF_POOL_HOLD: '500@' + fut }) === 60 && cf.drawAccounts({ ...P, CF_POOL_HOLD: '4@' + fut, VIMG_DRAW_FROM: 'tail', VIMG_DRAW_SHARE: '0.5', VIMG_TAIL_KEEP: '2', CF_POOL_ROLE: 'pilot' }).map(a => a.acct[0]).join('') === '9876', 'giữ chỗ trần 60 tài khoản; pilot đuôi vẽ trên phần được giữ (một nguồn poolAccounts)');
+    const al = await import('../lib/ai-pool.mjs').catch(() => null); ok(!al || typeof al.createPool === 'function', 'ai-pool vẫn nạp được (tuyến cf2 dùng chung poolAccounts có giữ chỗ)');
+    const { execFileSync } = await import('child_process');
+    // chạy ĐÚNG mã pool_hold + _cf_accts của local_judge.py (tách khỏi tệp – không cần numpy/torch của giám khảo)
+    const src = rd('scripts/vocab-img/local_judge.py'), fn = n => src.slice(src.indexOf('def ' + n + '('), src.indexOf('\ndef ', src.indexOf('def ' + n + '(') + 4) + 1);
+    const py = (raw, role) => execFileSync('python3', ['-c', 'import os,re,json\n_CFV={"accts":None}\n' + fn('pool_hold') + fn('_cf_accts') + 'print(pool_hold(),"".join(a[0][0] for a in _cf_accts()))'], { env: { ...process.env, ...P, CF_POOL_HOLD: raw, CF_POOL_ROLE: role || '', CF_ACCOUNT_2: '', CF_AI_TOKEN_2: '' }, encoding: 'utf8' }).trim();
+    ok(py('4@' + fut) === '4 76543210' && py('4@' + fut, 'pilot') === '4 ba9876543210' && py('4@' + past) === '0 ba9876543210' && py('x') === '0 ba9876543210', 'giám khảo Python (local_judge.py) cùng luật giữ chỗ: fill bỏ n cuối, pilot thấy hết, hết hạn → không giữ'); }
   ok(Object.values(g.MODELS).every(m => cf.npiOf(m) < 1000 || /klein-9b/.test(m)), 'mọi mô hình trong MODELS có giá neuron ước tính');
   ok(cf.cfProvider(g.MODEL_DEFAULT, { CF_ACCOUNT_2: 'b', CF_AI_TOKEN_2: 'x' }).max === 0, 'VIMG_MAX_CF mặc định 0 = tắt');
   ok(cf.cfInput('@cf/black-forest-labs/flux-1-schnell', 'p').json.width === undefined && cf.cfInput('@cf/black-forest-labs/flux-2-dev', 'p').form, 'schnell không gửi cỡ; FLUX.2 gửi multipart');
