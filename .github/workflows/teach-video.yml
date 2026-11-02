@@ -216,7 +216,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && secrets.BOT_DEPLOY_KEY || '' }}" }   # bank.json -> main over the deploy key (ruleset), main batches only
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # bank.json -> main over the deploy key (ruleset); the push step itself runs on main dispatch only
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - uses: actions/download-artifact@v4
         with: { pattern: 'tv-*-${{ github.run_id }}', path: art }
