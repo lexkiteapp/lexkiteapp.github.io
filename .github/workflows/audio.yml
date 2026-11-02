@@ -33,8 +33,8 @@ jobs:
         run: |
           left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*'); echo "left=$left" >> "$GITHUB_OUTPUT"
           # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
-          echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "${{ github.event.inputs.shards || '24' }}")" >> "$GITHUB_OUTPUT"
-        env: { GITHUB_TOKEN: '${{ github.token }}' }
+          echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "$LX_SHARDS")" >> "$GITHUB_OUTPUT"
+        env: { GITHUB_TOKEN: '${{ github.token }}', LX_SHARDS: '${{ github.event.inputs.shards || ''24'' }}' }
   gen:
     needs: plan
     if: needs.plan.outputs.left != '0'
@@ -54,7 +54,9 @@ jobs:
           path: /tmp/kk/node_modules/@huggingface/transformers/.cache
           key: kokoro-82m-v1-q8
       - name: Tạo âm thanh
-        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}"
+        env:
+          LX_LIMIT: ${{ github.event.inputs.limit || '1500' }}
+        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "$LX_LIMIT"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

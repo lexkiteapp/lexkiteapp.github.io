@@ -126,9 +126,10 @@ jobs:
           SCENE: ${{ inputs.scene }}
           LESSONS: ${{ inputs.lessons }}
           LANG_DEF: ${{ inputs.lang }}
+          LX_VIRAL: ${{ inputs.viral }}
         run: |
           set -o pipefail
-          [ "${{ inputs.viral }}" = true ] || export VIRAL=0
+          [ "$LX_VIRAL" = true ] || export VIRAL=0
           mkdir -p out/qa; : > out/passed.txt
           fail=0; n=0
           for SC in ${SCENE//,/ }; do
@@ -181,6 +182,7 @@ jobs:
         env:
           KEY: ${{ secrets.SHORTS_DEPLOY_KEY }}
           LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
+          LX_SCENE: ${{ inputs.scene }}
         run: |
           [ -s out/passed.txt ] || { echo "không có bài đạt để lưu"; exit 0; }
           [ -n "$KEY" ] || { echo "::warning::thiếu secret SHORTS_DEPLOY_KEY – chỉ còn artifact 14 ngày"; exit 0; }
@@ -190,7 +192,7 @@ jobs:
           git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
-          cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ inputs.scene }}) [CF-Pages-Skip]" || exit 0
+          cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} ($LX_SCENE) [CF-Pages-Skip]" || exit 0
           for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4

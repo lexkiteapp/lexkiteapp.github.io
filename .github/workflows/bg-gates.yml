@@ -21,7 +21,9 @@ jobs:
     steps:
       - name: Bỏ shard thừa ở chế độ calib
         id: on
-        run: echo "run=$([ '${{ github.event.inputs.mode }}' = batch ] || [ '${{ matrix.shard }}' = 0 ] && echo 1 || echo 0)" >> $GITHUB_OUTPUT
+        env:
+          LX_MODE: ${{ github.event.inputs.mode }}
+        run: echo "run=$([ "$LX_MODE" = batch ] || [ '${{ matrix.shard }}' = 0 ] && echo 1 || echo 0)" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v4
         if: steps.on.outputs.run == '1'
       - uses: actions/setup-python@v5

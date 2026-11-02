@@ -5,9 +5,9 @@ compatibility_date = "2026-10-01"
 workers_dev = false
 preview_urls = false
 
+# Người nhận KHÔNG ghi cứng: gửi tới mọi địa chỉ đã xác minh trong Email Routing; địa chỉ nhận thông báo lấy từ secret NOTIFY_TO (docs/ADMIN-SECURITY.md)
 [[send_email]]
 name = "SEB"
-destination_address = "vintagezulilyjewelry@gmail.com"
 
 # Email cảnh báo tự động mỗi ngày 01:00 UTC (08:00 giờ VN) – chỉ gửi khi có mục cần xử lý
 [triggers]

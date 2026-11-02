@@ -10,14 +10,16 @@ const safeAddr = s => /^[^\s@<>"',;]+@[^\s@<>"',;]+\.[a-z]{2,}$/i.test(s || '') 
 
 const ALL_ALERT_TYPES = ['js_error', 'workflow_fail', 'inbox_new', 'quality_alert', 'i18n_missing', 'quota_warning'];
 
+// Địa chỉ nhận thông báo quản trị KHÔNG ghi cứng trong mã: đặt secret/biến NOTIFY_TO (hoặc ADMIN_EMAILS / SEB_TO cũ) trên Worker lexkite-mail
+// (lệnh: xem docs/ADMIN-SECURITY.md "Cứng hóa 02/11"). Chưa đặt → danh sách rỗng, bản tin/thư tới quản trị bị bỏ qua thay vì gửi nhầm.
 export function adminList(env) {
-  const s = env && (env.ADMIN_EMAILS || env.SEB_TO);
-  const list = String(s || 'vintagezulilyjewelry@gmail.com')
+  const s = env && (env.NOTIFY_TO || env.ADMIN_EMAILS || env.SEB_TO);
+  const list = String(s || '')
     .toLowerCase()
     .split(/[,\s]+/)
     .map(safeAddr)
     .filter(Boolean);
-  return list.length ? [...new Set(list)] : ['vintagezulilyjewelry@gmail.com'];
+  return [...new Set(list)];
 }
 
 export function resolvePref(rawPref, defaultJsThreshold = 50) {
@@ -60,7 +62,8 @@ export async function loadConfigAndKeys(db, keys) {
 
 export async function sendText(env, subject, text, reply, toAddr) {
   const from = 'contact@lexkite.com';
-  const to = safeAddr(toAddr) || env.SEB_TO || 'vintagezulilyjewelry@gmail.com';
+  const to = safeAddr(toAddr) || adminList(env)[0] || '';
+  if (!to) return { ok: false, status: 501, error: 'no-notify-to' };
   const r = safeAddr(reply && reply.addr);
   const raw = [
     `From: ${hdr('Lexkite')} <${from}>`,
@@ -239,7 +242,8 @@ export default {
     if (req.method !== 'POST') return new Response('no', { status: 405 });
     if (new URL(req.url).pathname === '/user') { const r = await sendUser(env, await req.json()); return Response.json(r, { status: r.status }); }
     const { subject, text, replyTo, replyName, to: reqTo, alertType } = await req.json();
-    const from = 'contact@lexkite.com', to = safeAddr(reqTo) || env.SEB_TO || 'vintagezulilyjewelry@gmail.com';
+    const from = 'contact@lexkite.com', to = safeAddr(reqTo) || adminList(env)[0] || '';
+    if (!to) return Response.json({ ok: false, error: 'no-notify-to' }, { status: 501 });
     const reply = safeAddr(replyTo);
 
     // Kiểm tra cài đặt adm_pref của người nhận nếu có alertType (truy vấn theo khóa 1 lần)
