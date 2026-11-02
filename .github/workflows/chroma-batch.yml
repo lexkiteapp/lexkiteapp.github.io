@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 # Tách nền PHÔNG XANH cả lô clip Kling song song (scripts/video/chroma_key.py) → mỗi clip: stacked.mp4 + meta.json + dải 6 khung soi.
 # Job cuối ghép "bảng soi" (sheet.jpg: mỗi hàng 1 clip, 6 khung trên nền magenta – lỗ thủng/viền xanh/bóng sàn lộ ngay) để duyệt nhanh.
 # Dùng: dispatch với clips = JSON [{"id":"carlos_talk","url":"https://…klingai.com/…mp4"}, …] (≤ 40 clip, URL chỉ Kling/lexkite).
@@ -11,6 +12,7 @@ permissions:
 jobs:
   plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 15   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { list: '${{ steps.p.outputs.list }}' }
     steps:
       - id: p
@@ -65,6 +67,7 @@ jobs:
     needs: key
     if: always()
     runs-on: ubuntu-latest
+    timeout-minutes: 60   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/download-artifact@v4
         with: { pattern: 'key-*', path: all }

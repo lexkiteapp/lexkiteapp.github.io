@@ -80,7 +80,7 @@ const AREAS = {
     ['collocation', has(6) * NV, VSTD, 12], ['đồng nghĩa', has(7) * NV, VSTD, 8], ['IPA Mỹ', has(10) * NV, VSTD, 5],
     ['ảnh theo nghĩa', imgN, VSTD, 15], ['C2', lvN('C2'), 1000, 10], ['A1', lvN('A1'), 1000, 5]] },
   grammar: { name: 'Ngữ pháp', err: ERR.grammar + GI.errors, items: grammar.length, gate: giRun.status === 0, parts: [
-    ...[['A1', 15], ['A2', 15], ['B1', 30], ['B2', 27], ['C1', 15], ['C2', 10]].map(([l, t]) => [`bài ${l}`, gLv(l), t, 8, l === 'A1' || l === 'C2']),
+    ...[['A1', 15], ['A2', 15], ['B1', 30], ['B2', 27], ['C1', 15], ['C2', 10]].map(([l, t]) => [`bài ${l}`, gLv(l), t, 8, l === 'C2']), // A1 có bài từ 2026-11 (web/js/grammar/starter.js) → về 0 là nguồn hỏng
     ['trắc nghiệm', n('Ngữ pháp – trắc nghiệm'), 3000, 20], ['tự luận', n('Ngữ pháp – tự luận'), 3000, 20],
     // chuẩn ~300 điểm A1–C2; "đã có bài đúng cấp" chỉ tăng khi viết bài mới cho điểm trong hàng chờ (targets.json "Ngữ pháp – bài <cấp>")
     ['kho điểm ngữ pháp', GI.points, 300, 12], ['điểm đã có bài đúng cấp', GI.taught, 300, 12]] },

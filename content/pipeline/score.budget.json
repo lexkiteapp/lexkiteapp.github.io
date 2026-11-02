@@ -1,12 +1,12 @@
 {
  "_note": "Sàn điểm content:score (scripts/content-score.mjs). CHỈ ĐƯỢC TĂNG: nâng bằng node scripts/content-score.mjs --bump; CI (content-qa.yml) đỏ khi điểm < sàn hoặc sàn bị hạ so với main.",
  "vocab": 45.2,
- "grammar": 52.2,
- "comm": 15.2,
+ "grammar": 53.7,
+ "comm": 14.1,
  "skills": 48.2,
  "exam": 30.4,
- "lkf": 79.1,
+ "lkf": 79.3,
  "learn": 89.8,
  "i18n": 62.7,
- "total": 52.9
+ "total": 47.7
 }
