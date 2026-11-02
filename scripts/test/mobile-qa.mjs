@@ -184,7 +184,10 @@ for (const vp of VPS) {
       await visit(page, route); pages++;
       add(vp.w, route, await page.evaluate(detect));
       add(vp.w, route, await keyboard(page, vp));
-      if (!route.startsWith('practice/') && route !== 'review') { const l = await langSwitch(page); if (l) errs.push(`${vp.w} #/${route}: nút ngôn ngữ ${l}`); }
+      // màn học (body.lk-learn, khung FOCUS bật mặc định – docs/specs/learn-flow-nav.md) không có thanh trên → thay vào đó phải có nút Thoát hiện + chạm được
+      const learn = await page.evaluate(() => document.body.classList.contains('lk-learn')).catch(() => false);
+      if (!learn) { const l = await langSwitch(page); if (l) errs.push(`${vp.w} #/${route}: nút ngôn ngữ ${l}`); }
+      else { const x = await page.evaluate(() => { const b = document.querySelector('#view [data-exit]'); if (!b) return 'không có'; const q = b.getBoundingClientRect(); if (q.width < 20 || q.height < 20) return 'bị ẩn'; const h = document.elementFromPoint(q.left + q.width / 2, q.top + q.height / 2); return h && (h === b || b.contains(h)) ? '' : 'bị che'; }).catch(e => 'lỗi ' + String(e.message).slice(0, 60)); if (x) errs.push(`${vp.w} #/${route}: nút Thoát màn học ${x}`); }
       if (route.startsWith('practice/') || route === 'review') {
         await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
         await page.evaluate(() => { window.__ev = []; });
@@ -261,6 +264,7 @@ if (hasOffer && offerSeen < VPS.length) fails.push(`ô Cơ hội thứ 2/Nhân �
 if (LH && lh.length < 4) fails.push(`Lighthouse chỉ chạy được ${lh.length} route`);
 if (errs.some(e => /không tới được thẻ kết quả|Nhân đôi XP/.test(e))) fails.push('luồng quiz/kết quả lỗi');
 if (errs.some(e => /nút ngôn ngữ/.test(e))) fails.push('nút đổi ngôn ngữ không hiện/không bấm được');
+if (errs.some(e => /nút Thoát màn học/.test(e))) fails.push('nút Thoát màn học không hiện/không bấm được');
 
 const report = { at: new Date().toISOString(), pages, count, maxCls, maxInp, maxLcp, maxTbt, lh, perf, issues, errs, fails, hasOffer, offerSeen };
 fs.writeFileSync(`${OUT}/report.json`, JSON.stringify(report, null, 1));
