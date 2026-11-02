@@ -93,8 +93,13 @@ export async function measure() {
   for (const r of uniq.filter(r => r.status === 'in_progress' || r.status === 'queued')) jobsByRun.push(((await gh(`/actions/runs/${r.id}/jobs?filter=latest&per_page=100`)) || {}).jobs || []);
   return { ...countJobs(jobsByRun), active: activeWorkflows(uniq) };
 }
+/** Cùng sha main và lượt gần nhất đã xanh → chạy lại chỉ tốn runner (thuần). */
+export const sameShaDone = (run, sha) => !!run && !!sha && run.head_sha === sha && run.conclusion === 'success';
+let mainSha;
 async function staleLeft(e) { // probe.stale_hours: còn việc nếu lượt hoàn tất gần nhất (mọi sự kiện) cũ hơn N giờ
   const r = ((((await gh(`/actions/workflows/${e.workflow}/runs?status=completed&branch=main&per_page=1`)) || {}).workflow_runs) || [])[0];
+  mainSha = mainSha || ((await gh('/commits/main')) || {}).sha;
+  if (sameShaDone(r, mainSha)) return 0;
   return !r || Date.now() - Date.parse(r.created_at) > e.probe.stale_hours * 3600e3 ? 1 : 0;
 }
 function cmdLeft(e) { // probe.cmd: in số việc còn theo left_re (nhóm 1); exit ≠ 0 → không dò được

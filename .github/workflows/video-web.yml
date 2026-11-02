@@ -60,6 +60,9 @@ jobs:
         if: steps.plan.outputs.todo != '0'
         env: { GITHUB_TOKEN: '${{ github.token }}', R2_ACCESS_KEY_ID: '${{ secrets.R2_ACCESS_KEY_ID }}', R2_SECRET_ACCESS_KEY: '${{ secrets.R2_SECRET_ACCESS_KEY }}' }
         run: node scripts/video/web-rendition.mjs publish
+      - name: Kiểm tài nguyên qua CDN (200 + CORS)
+        if: steps.plan.outputs.todo != '0'
+        run: node scripts/video/web-rendition.mjs verify
       - name: Manifest + kiểm schema
         if: ${{ steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }   # youtube_id (functions/api/youtube.js op ids)
