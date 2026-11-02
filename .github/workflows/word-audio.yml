@@ -24,6 +24,7 @@ jobs:
       shards: ${{ steps.c.outputs.shards }}
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: c
@@ -38,6 +39,7 @@ jobs:
     strategy: { max-parallel: 6, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
@@ -77,6 +79,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/download-artifact@v4
@@ -106,6 +109,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - uses: actions/cache@v4

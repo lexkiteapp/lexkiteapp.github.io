@@ -358,4 +358,17 @@ else:
   ok(sc.sceneSys(LP).includes('"key"') && /red cross mark/.test(sc.KEY_SYS) && sc.sceneSys({}) === sc.SCENE_SYS, 'lite+: lời nhắc thẻ thêm key (vật mang chữ → tờ trơn + dấu), mặc định giữ SCENE_SYS');
   const KX = [...sc.KEY_SYS.matchAll(/"key":"([^"]+)"/g)].map(m => m[1]); ok(KX.length >= 3 && KX.every(k => sc.keyOk({ w: 'zz', pos: 'n' }, k) === ''), 'lite+: ví dụ key trong lời nhắc qua chính cổng keyOk');
 }
+// Kiểm CDN trong CI: HEAD thẳng gốc Pages (thứ tự Worker), 0 lượt qua media.lexkite.com – 01/11–02/11 mỗi npm test HEAD ~1k ảnh qua Worker
+// → hạn mức Workers 100k/ngày cạn (1027), /api chết, Live traffic 0. Đỏ nếu ai đó trả cdnCheck về gọi CDN.
+{
+  const { cdnCheck, originUrls } = await import('../vocab-img/cdn-check.mjs');
+  const img = { base: 'https://media.lexkite.com/vimg/', items: { 'a#n': { h: 'aaaaaaaaaaaaaaaa', fmt: ['avif', 'webp'] }, 'b#n': { h: 'bbbbbbbbbbbbbbbb' }, 'c#n': { h: 'cccccccccccccccc' } } };
+  const seen = [], fake = async u => { seen.push(u); return { ok: /lexkite-media\/vimg\/(a|b)/.test(u) || /lexkite-media-4\/vimg\/a/.test(u), status: /lexkite-media(-4)?\/vimg\/(a|b)/.test(u) ? 200 : 404 }; };
+  const r = await cdnCheck(img, 1, 's', { fetcher: fake });
+  ok(seen.length > 0 && !seen.some(u => u.includes('media.lexkite.com')), 'cdnCheck mặc định: 0 lượt HEAD qua media.lexkite.com (Worker)');
+  ok(r.n === 4 && r.bad.length === 1 && /c#n/.test(r.bad[0]), 'cdnCheck: có ở m4 hoặc lùi m1 = đạt; thiếu ở mọi gốc = lỗi (' + JSON.stringify(r.bad) + ')');
+  ok(originUrls('https://media.lexkite.com/m1/vimg/0123456789abcdef.webp').length === 1 && originUrls('https://media.lexkite.com/vimg/x.webp') === null, 'originUrls khớp regex/thứ tự của Worker');
+  const s2 = []; await cdnCheck(img, 1, 's', { viaCdn: true, fetcher: async u => { s2.push(u); return { ok: true, status: 200 }; } });
+  ok(s2.every(u => u.startsWith('https://media.lexkite.com/vimg/')), '--via-cdn vẫn kiểm qua Worker thật khi chạy tay');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);

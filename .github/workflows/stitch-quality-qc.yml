@@ -1,0 +1,32 @@
+# ✨ QC mẫu Stitch "nâng chất lượng" (báo cáo tuần, huy hiệu, ảnh chia sẻ/OG, email): tương phản pixel 4.5/3 sáng+tối,
+# bản tối không thẻ trắng, 0 lỗi JS, sáng↔tối cùng nội dung, còn ô giáo viên, không tên icon Material hiện thành chữ.
+# Cùng chuẩn với stitch-refs-qc.yml (xưởng ref). Ngưỡng chỉ được nâng. Khi port vẫn qua stitch-diff/final-qc.
+name: Stitch quality QC
+on:
+  pull_request:
+    paths: ['brand/stitch/v2q/**', 'scripts/test/stitch-quality-qc.mjs', 'scripts/lib/pixel-contrast.mjs', '.github/workflows/stitch-quality-qc.yml']
+  push:
+    branches: [stitch-quality]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stitch-quality-qc-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 pngjs@7.0.0
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji >/dev/null || true
+      - name: Vẽ + chấm từng mẫu (sáng/tối)
+        run: node scripts/test/stitch-quality-qc.mjs brand/stitch/v2q out/stitch-quality-qc
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: stitch-quality-qc, path: out/stitch-quality-qc, retention-days: 14 }

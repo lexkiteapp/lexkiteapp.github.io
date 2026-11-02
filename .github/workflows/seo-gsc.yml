@@ -18,7 +18,7 @@ concurrency:
 jobs:
   gsc:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
@@ -47,3 +47,6 @@ jobs:
       - name: Tóm tắt
         if: steps.gsc.outputs.report != ''
         run: cat "${{ steps.gsc.outputs.report }}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Kiểm site thật (mẫu 3 URL/sitemap – canonical, hreflang, noindex, 404) – đỏ → ci-triage mở issue
+        if: always()
+        run: node scripts/seo/live-audit.mjs | tee -a "$GITHUB_STEP_SUMMARY"

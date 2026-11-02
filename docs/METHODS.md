@@ -19,7 +19,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
 - Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
 - QC cuối: khi đủ nhân vật + âm thanh + UI → CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khẩu hình, âm, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt; âm thanh chuẩn hoá −16 LUFS (cổng CI). Bài học: lời dẫn mỗi bài tập khớp dữ liệu, chú nghĩa bản ngữ đủ 15 ngôn ngữ.
-- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp (ngoại lệ: lớp game-feel tự duyệt khi ≥ 95); logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 374 KB gz chuẩn.
+- Duyệt (chủ 2/11): giao diện = điều phối + QC CI đạt → gộp; chủ báo lỗi sau; tiêu credit vẫn cần chủ OK. Logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 374 KB gz chuẩn.
 - Một khung app (HARD): mọi ref/màn theo MỘT khung – điện thoại 390 px, top-bar cố định (hub/inner/modal), 5 tab Today/Vocab/Skills/Tests/Me, khoảng cách, thẻ, vị trí CTA và chỗ giáo viên; spec ở `docs/DESIGN-SYSTEM.md` §5d, dán vào mọi prompt; CI frame-consistency trượt khi lệch hoặc ra bản rộng desktop. Thoát mọi nơi (HARD): mọi màn học có Back/X rõ trên top-bar kiểu app (≥ 44 px; Esc, back hệ thống, vuốt iOS đều chạy; hỏi nhẹ nếu sắp mất tiến độ; không bao giờ nhốt người học) – CI kiểm.
 - Phiên: việc nặng (tách nền, render) CHỈ trên CI (script từ chối ngoài `$CI`); mỗi khu vực 1 phiên; không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau; phiên dài → phiên mới với bàn giao ngắn (không /compact); đọc CODEMAP trước, tính năng lớn dùng spec-lite.
 <!-- auto:direction:end -->
@@ -27,7 +27,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 ## 1. Điều phối
 - Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình (quy tắc vàng: `COORDINATION.md`).
 - Phiên/agent: ≤ 2 phiên làm việc, tự thu gọn phiên dài, xoay agent con, lưu trữ phiên xong – `TOKEN-RULES.md` §9.
-- Duyệt hình (chủ 28/10 tối: tự duyệt ủy quyền đã THU HỒI): mọi thay đổi hình cần chủ OK trên ảnh. Ngoại lệ duy nhất (chủ 29/10): lớp game-feel (`GAME-FEEL.md`) tự QC + gộp khi điểm trung thực ≥ 95/100.
+- Duyệt hình (chủ 2/11, thay luật 28/10): giao diện = điều phối + QC CI đạt (npm test, visual-qa, qa-bot, frame/contrast/exit-guard/overlap, axe, new-ui-qa) → gộp; chủ báo lỗi sau; game-feel vẫn ≥ 95 (`GAME-FEEL.md`). Tiêu credit (Kling…) vẫn cần chủ OK (`CREDIT-RULES.md`).
 - Vùng file: `docs/COORDINATION.md` (cuối file). `web/js/app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE khi được duyệt.
 - Antigravity nhận/trả việc qua `docs/agents/BOARD.md`; phiên chính nghiệm thu (diff, test, chạy thật, soi alt) rồi cherry-pick/gộp TAY (không merge nhánh cũ – xem §8).
 - Báo cáo của agent khác chỉ là báo cáo → tự kiểm (diff, test, live). Dừng thật: `stop_session`. Hết hạn mức giữa chừng: nhắn agent làm tiếp, không chạy lại từ đầu.
@@ -91,8 +91,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
-- Lỗi Kling (script −93 cr, cả lô không thử 1) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; luôn dry-run in lệnh.
-- Cảnh footage làm 3 lượt vì thiếu danh sách clip – cảnh mới làm 1 lượt đủ 15 clip (`docs/archive/CINE-SCENE-STANDARD.md`).
+- Lỗi Kling/footage (script, cả lô, nhiều lượt) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; dry-run, thử 1 trước.
 - CDN media.lexkite.com đệm bản cũ, bỏ qua `?v=` → fetch theo `gitSha`.
 - Play Data safety lần đầu thiếu dòng → đối chiếu `lexkite.com/en/privacy` mục 2 từng dòng.
 - Không đăng nhập tài khoản thật để test; dùng `?sandbox=1`, fixture CI.
@@ -100,7 +99,8 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.
 - Credit: 20/10 phí ~1.100 cr do làm cả lô trước khi duyệt định dạng → chỉ chi khi anh ghi rõ số cho đúng việc; trần từng hạng mục.
 - Worktree agent có thể bắt đầu từ lịch sử CŨ (origin cũ) → brief luôn ghi "làm trên main mới nhất của lexkiteapp".
-- Bản clone tạm tên chung (`$TMPDIR/lk`) bị phiên khác `rm -rf` giữa chừng (24/10, mất 1 lượt sửa) → clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad để chạy lại.
+- Clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad → archive § Lỗi Kling.
+- Video IPA lấy theo từ gốc (waiting /weɪt/) + whisper có prompt kịch bản che lỗi phát âm → IPA chỉ từ kho theo đúng token (`pron.mjs`), ASR không prompt (28/10).
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.

@@ -6,6 +6,7 @@
 //    Đang làm dở → hộp hỏi "Tiếp tục học" (ở lại, màn còn nguyên) / "Thoát" (rời màn).
 // Dùng: node scripts/test/exit-sweep.mjs [--root dist | --base URL] [--out out/exit-sweep] [--themes light,dark]
 import { chromium, devices } from 'playwright';
+import { noProd } from './lib/no-prod.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
@@ -29,6 +30,7 @@ const FIXED = { lesson: '/lesson/go?demo=1', mock: '/mock/run?s=reading&r=1&l=1'
 
 const ctxOf = async (theme, flag = true) => {
   const ctx = await browser.newContext({ ...devices['Pixel 7'], viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 }, colorScheme: theme, locale: 'en-US', serviceWorkers: 'block' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th.th })); if (th.flag) localStorage.setItem('lk.exitbar', '1'); } catch { /* */ } }, { th: theme, flag });
   return ctx;
 };
@@ -132,6 +134,7 @@ for (const theme of THEMES) {
 const notes = [];
 for (const W of [768, 1440]) {
   const ctx = await browser.newContext({ viewport: { width: W, height: 900 }, colorScheme: THEMES[0], locale: 'en-US', serviceWorkers: 'block' });
+  await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th })); localStorage.setItem('lk.exitbar', '1'); } catch { /* */ } }, THEMES[0]);
   for (const [r, hash] of samples) {
     const where = `${r} @${W} (${hash})`, page = await ctx.newPage();
