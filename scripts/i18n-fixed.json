@@ -15932,6 +15932,66 @@
   "Nói 2 phút theo thẻ đề": {
     "ko": "큐카드를 보고 2분 동안 말하기"
   },
+  "Ngôn ngữ đang học": {
+    "es": "Idioma que aprendes",
+    "pt": "Idioma que você aprende",
+    "fr": "Langue apprise",
+    "de": "Lernsprache",
+    "id": "Bahasa yang dipelajari",
+    "th": "ภาษาที่กำลังเรียน",
+    "zh": "正在学习的语言",
+    "ja": "学習中の言語",
+    "ko": "학습 중인 언어",
+    "hi": "सीखी जा रही भाषा",
+    "ar": "اللغة التي تتعلمها",
+    "ru": "Изучаемый язык",
+    "tr": "Öğrenilen dil"
+  },
+  "Thêm 30 từ cơ bản": {
+    "es": "Añadir 30 palabras básicas",
+    "pt": "Adicionar 30 palavras básicas",
+    "fr": "Ajouter 30 mots de base",
+    "de": "30 Grundwörter hinzufügen",
+    "id": "Tambah 30 kata dasar",
+    "th": "เพิ่มคำพื้นฐาน 30 คำ",
+    "zh": "添加 30 个基础词",
+    "ja": "基本単語を30語追加",
+    "ko": "기본 단어 30개 추가",
+    "hi": "30 बुनियादी शब्द जोड़ें",
+    "ar": "أضف 30 كلمة أساسية",
+    "ru": "Добавить 30 базовых слов",
+    "tr": "30 temel kelime ekle"
+  },
+  "Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ": {
+    "es": "Se añadieron {n} palabras en portugués a tu lista de palabras",
+    "pt": "{n} palavras em português adicionadas à sua lista de palavras",
+    "fr": "{n} mots portugais ajoutés à votre liste de mots",
+    "de": "{n} portugiesische Wörter zu deiner Wortliste hinzugefügt",
+    "id": "{n} kata bahasa Portugis ditambahkan ke daftar katamu",
+    "th": "เพิ่มคำภาษาโปรตุเกส {n} คำลงในรายการคำศัพท์แล้ว",
+    "zh": "已将 {n} 个葡萄牙语单词加入你的单词本",
+    "ja": "ポルトガル語の単語を{n}語、単語帳に追加しました",
+    "ko": "포르투갈어 단어 {n}개를 단어장에 추가했습니다",
+    "hi": "{n} पुर्तगाली शब्द आपकी शब्द सूची में जोड़े गए",
+    "ar": "تمت إضافة {n} كلمة برتغالية إلى قائمة كلماتك",
+    "ru": "В ваш список слов добавлено португальских слов: {n}",
+    "tr": "Kelime listene {n} Portekizce kelime eklendi"
+  },
+  "Không tải được bộ từ, thử lại sau": {
+    "es": "No se pudo cargar el conjunto de palabras. Inténtalo más tarde.",
+    "pt": "Não foi possível carregar o conjunto de palavras. Tente novamente mais tarde.",
+    "fr": "Impossible de charger la série de mots. Réessayez plus tard.",
+    "de": "Die Wortgruppe konnte nicht geladen werden. Bitte versuche es später erneut.",
+    "id": "Kumpulan kata tidak dapat dimuat. Coba lagi nanti.",
+    "th": "โหลดชุดคำศัพท์ไม่ได้ ลองใหม่อีกครั้งภายหลัง",
+    "zh": "无法加载词组，请稍后再试。",
+    "ja": "単語セットを読み込めませんでした。後でもう一度お試しください。",
+    "ko": "단어 세트를 불러오지 못했습니다. 나중에 다시 시도해 주세요.",
+    "hi": "शब्द सेट लोड नहीं हो सका। कृपया बाद में फिर कोशिश करें।",
+    "ar": "تعذّر تحميل مجموعة الكلمات. حاول مرة أخرى لاحقًا.",
+    "ru": "Не удалось загрузить набор слов. Повторите попытку позже.",
+    "tr": "Kelime seti yüklenemedi. Lütfen daha sonra tekrar dene."
+  },
   "Một bài nghe ngắn 5 phút trước khi ngủ nhé?": {
     "ko": "잠들기 전 5분 짧은 듣기 어때요?"
   },
@@ -32804,5 +32864,20 @@
     "ar": "فصول الفيديو",
     "ru": "Главы видео",
     "tr": "Video bölümleri"
+  },
+  "Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.": {
+    "es": "Recibes este correo porque pediste novedades al enviar el reporte.",
+    "pt": "Você recebe este e-mail porque pediu atualizações ao enviar o relatório.",
+    "fr": "Vous recevez cet e-mail car vous avez demandé des mises à jour en envoyant le signalement.",
+    "de": "Du erhältst diese E-Mail, weil du beim Senden der Meldung Updates angefordert hast.",
+    "id": "Anda menerima email ini karena meminta kabar terbaru saat mengirim laporan.",
+    "th": "คุณได้รับอีเมลนี้เพราะเลือกรับข่าวสารอัปเดตตอนส่งรายงาน",
+    "zh": "你收到这封邮件，是因为你在提交反馈时选择了接收更新。",
+    "ja": "このメールは、報告の送信時に更新のお知らせを希望されたためお送りしています。",
+    "ko": "신고를 보낼 때 업데이트 받기를 선택하셔서 이 메일을 보내 드립니다.",
+    "hi": "आपको यह ईमेल इसलिए मिला क्योंकि रिपोर्ट भेजते समय आपने अपडेट पाने का विकल्प चुना था।",
+    "ar": "تصلك هذه الرسالة لأنك طلبت تلقي التحديثات عند إرسال البلاغ.",
+    "ru": "Вы получили это письмо, потому что при отправке сообщения попросили присылать обновления.",
+    "tr": "Bu e-postayı, raporu gönderirken güncelleme almayı seçtiğiniz için alıyorsunuz."
   }
 }

@@ -21,7 +21,7 @@
 | Giao tiếp tự tin · nhắc học · lớp học · giáo viên trong app | `CONFIDENCE.md` · `REMINDERS.md` · `RETENTION.md` · `CLASSROOM.md` · `VIDEO-TEACHERS.md` |
 | Thương hiệu (brand-check đọc – giữ mã màu) · hệ thiết kế · UX · port Stitch v2 | `BRAND-RULES.md` · `DESIGN-SYSTEM.md` · `UX-PUBLIC.md` · `UX-BENCHMARK.md` · `STITCH-V2-PORT.md` · `STITCH-COVERAGE.md` · `WEB-PAGES.md` (trang không phải app) |
 | Game feel: âm thanh, rung, chuyển động phản hồi, nhân vật phản ứng (pilot sau cờ `?feel=1`) | `GAME-FEEL.md` |
-| Báo lỗi người dùng LX-xxxx · hạn mức & chống lạm dụng | `REPORTS.md` · `QUOTAS.md` |
+| Báo lỗi người dùng LX-xxxx · hạn mức & chống lạm dụng | `REPORTS.md` · `QUOTAS.md` · quy mô/cụm/repro: `specs/report-scale.md` |
 | Chi phí/trần DAU · free-tier guard · mở rộng · dung lượng repo | `CAPACITY.md` · `FREE-TIER.md` · `SCALING-PLAN.md` · `STORAGE.md` |
 | Đồng bộ Drive · AI trên máy · OTA | `SYNC-DRIVE.md` · `AI-LOCAL.md` · `OTA.md` |
 | Add-on Chrome / Edge | `CWS-RULES.md` (+ `CWS-FEATURED.md`) · `EDGE-SUBMIT.md` |

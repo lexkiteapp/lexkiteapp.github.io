@@ -1,0 +1,39 @@
+# Sinh bộ từ lõi ngôn ngữ đích (pt-BR ~300 từ) – chạy tay; docs/specs/target-language.md. AI qua ai-pool chung (khóa miễn phí, như lexicon-expand):
+# soạn → 2 giám khảo khác họ → dịch ngược → cổng validate → mẫu soát ≥ 5 %. Kết quả = artifact (status pending-review), KHÔNG tự commit ở lát 1.
+name: target-content
+on:
+  workflow_dispatch:
+    inputs:
+      tl: { description: 'Ngôn ngữ đích', default: 'pt' }
+      n: { description: 'Số mục mới', default: '300' }
+      dry: { description: '1 = chỉ dựng danh sách ứng viên (không gọi AI)', default: '1' }
+  pull_request:
+    paths: ['scripts/target/**', 'content/target/**', '.github/workflows/target-content.yml']
+permissions: { contents: read, id-token: write }   # id-token: JWT OIDC cho /api/lexai
+concurrency: { group: 'target-content-${{ github.ref }}', cancel-in-progress: true }
+env:
+  CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kiểm seed + bản sao app
+        run: node scripts/target/build.mjs ${{ github.event.inputs.tl || 'pt' }} --check
+      - name: Ứng viên (khô) hoặc sinh + 2 giám khảo + dịch ngược + cổng
+        env:
+          CF_POOL: ${{ secrets.CF_POOL }}
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
+          VIMG_POOL_SKIP: '0'
+        run: node scripts/target/gen.mjs --tl ${{ github.event.inputs.tl || 'pt' }} --n ${{ github.event.inputs.n || 300 }} ${{ (github.event_name == 'pull_request' || github.event.inputs.dry == '1') && '--dry' || '' }}
+      - if: ${{ always() && github.event_name == 'workflow_dispatch' && github.event.inputs.dry != '1' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: target-core-${{ github.event.inputs.tl || 'pt' }}
+          path: content/target/${{ github.event.inputs.tl || 'pt' }}/core*.json
+          retention-days: 30
