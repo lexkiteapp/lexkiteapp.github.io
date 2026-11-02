@@ -61,7 +61,7 @@ const shot = async (page, name) => { await page.waitForTimeout(250); await page.
 async function open(o = {}) {
   const ctx = await browser.newContext({ locale: 'vi', permissions: ['microphone'], serviceWorkers: 'block', viewport: o.vp || { width: 1280, height: 800 }, deviceScaleFactor: 1, ...(o.video ? { recordVideo: { dir: path.join(OUT, 'video'), size: o.vp || { width: 1280, height: 800 } } } : {}) });
   await ctx.route(BASE + '**', serve);
-  await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)/, r => r.abort());
+  if (!o.audio) await ctx.route(/audio\.lexkite\.com|github\.io\/(lexkite-media|audio)/, r => r.abort()); // o.audio: cho tải tiếng thật (mặt vẽ phát theo mốc CI)
   await ctx.route('https://lexkite.com/api/**', r => r.request().method() === 'OPTIONS' ? r.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' } })
     : r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ ok: true, notices: [], unread_count: 0 }) }));
   const page = await ctx.newPage(), errs = [];
@@ -222,6 +222,37 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   ok(await noX(), '375 px: tổng kết không tràn ngang'); await shot(page, 'summary-m');
   ok(!errs.length, 'điện thoại: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ') : ''));
   await ctx.close();
+}
+
+// ===== 4b) Mặt VẼ khớp miệng (cờ lk.lipsync, docs/specs/call-lipsync.md): đầu trơn + lớp vector thay clip, nói & nghỉ (chớp/liếc), fps ≥ 50 ở CPU 4×, không lỗi JS =====
+// Tiếng thật từ kho media: câu có mốc CI (web/js/call/cues.js) phải phát chế độ "pre" (<khoá>-ls.mp3); video màn Call → lip-m.webm (gửi anh duyệt)
+{
+  // fps đo ở ngữ cảnh KHÔNG quay màn hình (bộ quay chiếm CPU trình duyệt); video gửi duyệt quay ở lượt sau, cùng màn
+  for (const rec of [false, true]) {
+  const { ctx, page, errs } = await open({ vp: { width: 375, height: 812 }, video: rec, audio: true });
+  await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
+  await go(page, '#/call/coffee'); await page.waitForSelector('#callGo'); await page.click('#callGo');
+  const on = await until(page, () => document.querySelector('.tch-rig.drawn .tch-face g.lk-face'), null, 15000).then(() => true, () => false);
+  ok(on, 'mặt vẽ: đầu trơn + mắt/mày/miệng vector thay clip');
+  ok(!(await page.$('.tch-cv')) && !(await page.$('.tch-rig video')), 'mặt vẽ: không tải clip WebGL');
+  if (!rec) {
+  const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  const a = (await state(page)).lip, modes = new Set();
+  for (let i = 0; i < 15; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes.add(l.mode); }
+  const b = (await state(page)).lip;
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
+  const fps = a && b ? Math.round(1000 * (b.frames - a.frames) / (b.now - a.now)) : 0;
+  ok(fps >= 50, `mặt vẽ: ${fps} fps ở CPU chậm 4× (≥ 50), khung > 50 ms: ${a && b ? b.long - a.long : '?'}`);
+  const cued = await page.evaluate(() => Object.keys((window.LK_CUES || {}).k || {}).length);
+  console.log(`  mặt vẽ: chế độ ${[...modes].join(', ')} · ${cued} câu Call có mốc CI`);
+  ok(!cued || modes.has('pre'), 'mặt vẽ: câu có mốc CI phát chế độ pre (bản -ls.mp3)');
+  }
+  if (rec) await shot(page, 'lip-m');
+  await until(page, () => /Đến lượt bạn|lượt bạn/i.test(document.body.textContent), null, 15000).catch(() => {});
+  const chip = await page.$('.v2s-teacher-call button:has-text("latte"), button:has-text("latte")'); if (chip) { await chip.click().catch(() => {}); await page.waitForTimeout(5000); }
+  ok(!errs.length, 'mặt vẽ: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ').slice(0, 300) : ''));
+  const vid = page.video(); await ctx.close(); if (vid) fs.copyFileSync(await vid.path(), path.join(OUT, 'lip-m.webm'));
+  }
 }
 
 // ===== 5) Tùy chọn: Whisper THẬT trên máy với mẫu âm thanh thu sẵn =====

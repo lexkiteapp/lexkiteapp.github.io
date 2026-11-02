@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Lip-sync lab</title>
+<!-- Trang THỬ NGHIỆM khớp miệng 2D (docs/specs/call-lipsync.md). Không có liên kết từ app; chỉ chạy khi ?lab=1 hoặc localStorage lk.lab=1. Không đụng luồng Call thật. -->
+<style>
+:root{--bg:#F4F7F6;--fg:#0F2A33;--card:#fff;--mut:#5B6B70;--acc:#0E7C86;--coral:#FF7A59}
+@media (prefers-color-scheme:dark){:root{--bg:#0B1A1F;--fg:#E6F0F2;--card:#12262C;--mut:#9DB1B6}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:16px}
+.row{display:flex;gap:16px;flex-wrap:wrap}.card{background:var(--card);border-radius:16px;padding:12px;flex:1 1 380px;min-width:0}
+.ls{position:relative;width:100%;max-width:420px;aspect-ratio:1108/960;margin:auto;overflow:hidden;border-radius:16px;background:linear-gradient(#DDEFF0,#BFE3E5)}
+.ls-head{position:absolute;inset:0;animation:bob 4.2s ease-in-out infinite;transform-origin:50% 90%}
+.ls-base{position:absolute;inset:0;width:100%;height:100%;transition:opacity .2s}.ls-m,.ls-eye{position:absolute;background-repeat:no-repeat;opacity:0;pointer-events:none}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-.5%) rotate(.35deg)}65%{transform:translateY(.3%) rotate(-.3deg)}}
+.render .ls-head{animation:none}
+.cap{min-height:2.6em;text-align:center;font-weight:600;margin:8px 0}
+button{font:inherit;border:0;border-radius:999px;padding:8px 14px;margin:3px;background:var(--acc);color:#fff;cursor:pointer}button.alt{background:var(--coral)}
+pre{white-space:pre-wrap;font-size:12px;color:var(--mut)}
+</style>
+</head>
+<body>
+<main id="app"><p>Trang thử nghiệm – thêm <code>?lab=1</code> vào địa chỉ.</p></main>
+<script src="../js/call/lipsync.js"></script>
+<script>
+(async () => {
+  const q = new URLSearchParams(location.search); let on = q.has('lab'); try { on = on || localStorage.getItem('lk.lab') === '1'; } catch (e) {}
+  if (!on) return;
+  const R = 'lipsync/', J = u => fetch(R + u).then(r => r.json());
+  const lines = await J('lines.json'), sheets = {};
+  for (const w of ['ama', 'carlos']) { try { sheets[w] = await J(w + '/sheet.json'); } catch (e) {} }
+  try { LipSync.setDict(await fetch('lipsync/cmudict.txt').then(r => r.ok ? r.text() : '')); } catch (e) {}
+  const app = document.getElementById('app'), render = q.has('render');
+  if (render) document.body.classList.add('render');
+  app.innerHTML = `<h1>Khớp miệng 2D – thử nghiệm</h1>
+    <div class="row">${Object.keys(sheets).map(w => `<div class="card"><div class="ls" id="ls-${w}"></div><div class="cap" id="cap-${w}"></div>
+      <div>${lines.filter(l => l.who === w).map((l, i) => `<button data-w="${w}" data-i="${lines.indexOf(l)}">${i + 1}</button>`).join('')}
+      <button class="alt" data-w="${w}" data-live="1">Live (chữ + năng lượng)</button></div></div>`).join('')}</div><pre id="log"></pre>`;
+  const P = {}, AC = new (window.AudioContext || window.webkitAudioContext)();
+  const sheetFor = (w, pose) => { const s = sheets[w], p = pose && s.poses && s.poses[pose];
+    return { ...s, img: R + w + '/' + s.img, base: R + w + '/' + (p ? p.base : s.base), roi: p ? p.roi : s.roi, blink: !p && s.blink ? { ...s.blink, img: R + w + '/' + s.blink.img } : null }; };
+  const mount = (w, pose) => (P[w] = LipSync.player(document.getElementById('ls-' + w), sheetFor(w, pose)));
+  Object.keys(sheets).forEach(w => mount(w));
+  const log = s => { document.getElementById('log').textContent = s; };
+  // Phát 1 câu: mode 'pre' (cues Rhubarb CI) hoặc 'live' (chỉ chữ + năng lượng Web Audio lúc chạy). Trả số đo.
+  async function say(i, mode = 'pre') {
+    const l = lines[i], p = mount(l.who, l.emo); document.getElementById('cap-' + l.who).textContent = l.text;
+    const a = new Audio(R + l.mp3); a.crossOrigin = 'anonymous'; a.preload = 'auto';
+    await new Promise(r => { a.oncanplaythrough = r; a.load(); });
+    let src = l.cues, an = null;
+    if (mode === 'live') { const n = AC.createMediaElementSource(a); an = AC.createAnalyser(); an.fftSize = 1024; n.connect(an); an.connect(AC.destination); src = { text: l.text, analyser: an }; }
+    if (AC.state === 'suspended') await AC.resume().catch(() => {});
+    const lat = (AC.outputLatency || AC.baseLatency || 0);
+    return new Promise(res => { p.done = cues => { const st = p.stats, el = (performance.now() - st.t0) / 1000;
+        const out = { i, who: l.who, mode, fps: +(st.frames / el).toFixed(1), long: st.long, worstMs: Math.round(st.worst * 1000), sw: st.sw, cues: mode === 'live' ? cues : null };
+        log(JSON.stringify({ ...out, sw: st.sw.length })); res(out); };
+      p.play(a, src, { latency: mode === 'live' ? 0 : lat }); a.play(); });
+  }
+  app.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; AC.resume();
+    if (b.dataset.live) { const ls = lines.filter(l => l.who === b.dataset.w); say(lines.indexOf(ls[Math.floor(Math.random() * ls.length)]), 'live'); } else say(+b.dataset.i); });
+  // Móc cho CI (scripts/lipsync/lab.mjs): đo phát thật + vẽ tĩnh từng khung để dựng video
+  window.lab = { lines, sheets, say, frame(i, t) { const l = lines[i]; if (!P[l.who] || P[l.who]._i !== i) { P[l.who] = mount(l.who, l.emo); P[l.who]._i = i; }
+    document.getElementById('cap-' + l.who).textContent = l.text; P[l.who].frame(l.cues, t); }, ready: true };
+})();
+</script>
+</body>
+</html>

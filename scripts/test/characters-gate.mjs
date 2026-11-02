@@ -20,6 +20,7 @@ if (C.poses.join() !== R.poses.join()) errs.push(`Chars.poses ≠ characters.jso
 const want = new Set();
 for (const who of IDS) {
   want.add(`${who}/poster.webp`).add(`${who}/avatar.webp`).add(`${who}/poster-2x.webp`).add(`${who}/avatar-2x.webp`);
+  want.add(`${who}/head-bare.webp`).add(`${who}/head-bare-2x.webp`); // đầu trơn cho mặt VẼ khớp miệng (scripts/lipsync/head_bare.py, Chars.img kind "head-bare")
   for (const p of R.poses) {
     const c = R.people[who].clips[p]; if (!c) { errs.push(`${who}: thiếu tư thế ${p}`); continue; }
     const pend = C.clip(who, p) !== `teach/${who}/${p}.mp4`;
