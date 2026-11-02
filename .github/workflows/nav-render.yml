@@ -17,7 +17,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Kiểm
+        env:
+          LX_BASE: ${{ github.event.inputs.base || 'https://lexkite.com/app/' }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium webkit firefox
-          node scripts/test/nav-render.mjs ${{ github.event.inputs.base || 'https://lexkite.com/app/' }}
+          node scripts/test/nav-render.mjs "$LX_BASE"

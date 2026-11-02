@@ -34,7 +34,9 @@ jobs:
         with: { node-version: 22 }
       - run: node scripts/test/motion-core.mjs
       - id: m
-        run: echo "list=$(python3 -c "import json,glob,os;a='${{ github.event.inputs.eps }}'.strip();print(json.dumps([x.strip() for x in a.split(',') if x.strip()] or sorted(os.path.basename(f)[:-5] for f in glob.glob('content/video/teach2d/eps/*.json'))))")" >> "$GITHUB_OUTPUT"
+        env:
+          LX_EPS: ${{ github.event.inputs.eps }}
+        run: echo "list=$(python3 -c "import json,glob,os;a=os.environ.get('LX_EPS','').strip();print(json.dumps([x.strip() for x in a.split(',') if x.strip()] or sorted(os.path.basename(f)[:-5] for f in glob.glob('content/video/teach2d/eps/*.json'))))")" >> "$GITHUB_OUTPUT"
   voice:
     needs: preqc
     runs-on: ubuntu-latest

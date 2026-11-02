@@ -36,7 +36,9 @@ jobs:
           git -C /tmp/shorts sparse-checkout set --no-cone '/shorts/index.json'; git -C /tmp/shorts checkout -q; rm -f ~/.ssh/shorts
       - name: Tạo gói đăng tay (Kho Drive)
         if: steps.todo.outputs.n != '0'
-        run: node scripts/ci/quota-skip.mjs node scripts/video/yt-pack.mjs --index /tmp/shorts/shorts/index.json ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+        env:
+          LX_DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+        run: node scripts/ci/quota-skip.mjs node scripts/video/yt-pack.mjs --index /tmp/shorts/shorts/index.json $LX_DRY_RUN
       - name: Đồng bộ kênh (chỉ đọc)
         id: sync
         run: node scripts/ci/quota-skip.mjs node scripts/video/yt-pack.mjs --sync

@@ -10,6 +10,18 @@ const { Store, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey } = Core;
 // Giao diện add-on theo 15 ngôn ngữ của web: vi = chữ gốc, en = bảng EN, ngôn ngữ khác = từ điển web (app/js/i18n/<lang>.js)
 const XLANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
+/*IMG-ALLOW*/
+// imgData chỉ tải ảnh từ nguồn ảnh minh họa thật của app (/api/img → Wikimedia Commons, Openverse và ảnh Flickr do Openverse trả) và hạ tầng Lexkite:
+// service worker có quyền host rộng nên KHÔNG được thành proxy tới mạng nội bộ/IP/host tùy ý do trang web gửi message.
+const IMG_HOSTS = ['upload.wikimedia.org', 'commons.wikimedia.org', 'api.openverse.org', 'api.openverse.engineering', 'staticflickr.com', 'lexkite.com', 'lexkite.pages.dev', 'lexkiteapp.github.io'];
+function imgUrlOk(u) {
+  let x; try { x = new URL(String(u || '')); } catch (e) { return false; }
+  if (x.protocol !== 'https:' || x.username || x.password || (x.port && x.port !== '443')) return false;
+  const h = x.hostname.toLowerCase();
+  if (!h.includes('.') || /^[\d.]+$/.test(h) || h.includes(':') || h === 'localhost' || h.endsWith('.localhost')) return false;
+  return IMG_HOSTS.some(a => h === a || h.endsWith('.' + a));
+}
+/*END-IMG-ALLOW*/
 let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en';
 const uiDicts = {};
 const I18NX = ['structs', 'toefl', 'league', 'call', 'handoff'];
@@ -435,12 +447,13 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       }
       case 'imgData': { // ảnh minh họa dạng data: URL cho trang có CSP chặn ảnh ngoài (chỉ http/https, chỉ ảnh, ≤ 600 KB, đệm 30 ảnh gần nhất)
         const u = String(msg.url || '');
-        if (!/^https:\/\//.test(u)) return reply({});
+        if (!imgUrlOk(u)) return reply({});
         self.__imgs = self.__imgs || new Map();
         if (self.__imgs.has(u)) return reply({ data: self.__imgs.get(u) });
         const ctl = new AbortController(), tm = setTimeout(() => ctl.abort(), 8000);
         try {
           const r = await fetch(u, { signal: ctl.signal, credentials: 'omit', referrerPolicy: 'no-referrer' });
+          if (r.redirected && !imgUrlOk(r.url)) return reply({}); // chuyển hướng ra ngoài danh sách cho phép → bỏ (không đọc nội dung)
           const b = r.ok ? await r.blob() : null;
           if (!b || !/^image\//.test(b.type) || b.size > 600 * 1024) return reply({});
           const bytes = new Uint8Array(await b.arrayBuffer()); let bin = '';

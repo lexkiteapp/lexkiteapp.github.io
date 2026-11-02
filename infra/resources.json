@@ -226,6 +226,9 @@
         "api.resend.com",
         "api.brevo.com"
       ],
+      "secrets": [
+        "NOTIFY_TO"
+      ],
       "cap": {
         "day": 100,
         "unit": "mail"

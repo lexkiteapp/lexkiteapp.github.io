@@ -23,20 +23,26 @@ jobs:
           npm ci --no-audit --no-fund && bash scripts/build-web.sh >/dev/null
           (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
       - name: Playwright matrix
+        env:
+          LX_BASE: ${{ github.event.inputs.base }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
           npx playwright install --with-deps chromium
-          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080
+          B="$LX_BASE"; [ "$B" = dist ] && B=http://localhost:8080
           node scripts/test/ux-public.mjs "$B" ux-out
       - name: App pattern sweep (every route, 1280/375, light/dark)
         if: ${{ !cancelled() }}
+        env:
+          LX_BASE: ${{ github.event.inputs.base }}
         run: |
-          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080
+          B="$LX_BASE"; [ "$B" = dist ] && B=http://localhost:8080
           node scripts/test/ux-sweep.mjs "$B" ux-out/sweep --check || echo "::warning::ux-sweep over budget"
       - name: Lighthouse
         if: ${{ !cancelled() && github.event.inputs.lh != '0' }}
+        env:
+          LX_BASE: ${{ github.event.inputs.base }}
         run: |
-          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080; mkdir -p ux-out/lh
+          B="$LX_BASE"; [ "$B" = dist ] && B=http://localhost:8080; mkdir -p ux-out/lh
           for p in "en/vocabulary/" "en/samples/" "en/speaking/" "app/?hl=en"; do
             k=$(echo "$p" | tr -c 'a-z0-9' '_')
             for i in 1 2 3; do npx -y lighthouse@12.2.1 "$B/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/m$i.json --quiet || true; done

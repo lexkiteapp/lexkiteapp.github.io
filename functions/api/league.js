@@ -19,6 +19,15 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 
 // Tuần bắt đầu thứ Hai 00:00 UTC – chung cho mọi múi giờ (công bằng toàn cầu)
 export function weekOf(ms = Date.now()) { const d = new Date(ms); const day = (d.getUTCDay() + 6) % 7; const mon = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() - day); return { key: new Date(mon).toISOString().slice(0, 10), start: mon, end: mon + 7 * 864e5 }; }
+// XP do máy khách gửi KHÔNG đáng tin (dữ liệu học nằm trong khối sync mã hóa/không cấu trúc, đọc lại để tính XP sẽ tốn D1 → không làm).
+// Thay vào đó kẹp theo tốc độ hợp lý: tối đa XP_BURST + XP_PER_MIN × số phút kể từ lần nộp trước (lần đầu của tuần: kể từ đầu tuần – học offline rồi mới nộp vẫn đúng),
+// và không vượt MAX_WEEK_XP. Giá trị vô lý bị kẹp chứ không bị loại (người dùng thật không mất điểm đã kiếm được từ từ). docs/ADMIN-SECURITY.md (mục "Cứng hóa 02/11").
+export const XP_BURST = 500, XP_PER_MIN = 3;
+export function capXp(claimed, row, weekStart, now) {
+  const prev = row && row.xp > 0 ? row.xp : 0, base = prev > 0 ? Math.max(row.updated || 0, weekStart) : weekStart;
+  const allowed = prev + XP_BURST + XP_PER_MIN * Math.max(0, (now - base) / 60000);
+  return Math.max(0, Math.min(MAX_WEEK_XP, Math.floor(allowed), Math.floor(+claimed || 0)));
+}
 // Biệt danh: 2–20 ký tự chữ (mọi ngôn ngữ), số, khoảng trắng, . _ - ; chặn dạng email/link
 export function cleanNick(s) { const n = String(s || '').normalize('NFC').replace(/\s+/g, ' ').trim(); if (!/^[\p{L}\p{N} ._-]{2,20}$/u.test(n) || /@|https?:|www\./i.test(n)) return ''; return profaneName(n) ? '' : n; } // biệt danh công khai: 1 từ tục cũng chặn
 
@@ -97,7 +106,7 @@ export async function onRequestPost({ request, env }) {
     const last = await settle(db, m, now);
     const row = await place(db, m, now);
     if (req.op === 'xp') {
-      const xp = Math.max(0, Math.min(MAX_WEEK_XP, Math.floor(+req.xp || 0)));
+      const xp = capXp(Math.floor(+req.xp || 0), row, wk.start, now);
       if (xp > row.xp) { await db.prepare('UPDATE league_week SET xp = ?3, updated = ?4 WHERE week = ?1 AND uid = ?2').bind(wk.key, uid, xp, now).run(); row.xp = xp; }
     }
     return json(request, 200, { member: { nick: m.nick, tier: m.tier, xp: row.xp }, week: wk, board: await board(db, wk.key, row.tier, row.grp, uid), last, rules: { group: GROUP, up: UP, down: DOWN, maxTier: MAX_TIER } });

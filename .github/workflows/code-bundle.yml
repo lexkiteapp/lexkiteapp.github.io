@@ -24,7 +24,9 @@ jobs:
         run: node scripts/jobs/lease.mjs acquire code-bundle
       - name: Bundle + diễn tập + tải 2 bản
         if: ${{ steps.lease.outputs.skip != '1' }}
-        run: node scripts/ops/code-bundle.mjs ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+        env:
+          LX_FORCE: ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+        run: node scripts/ops/code-bundle.mjs $LX_FORCE
       - name: Ghi sổ vào main
         if: ${{ steps.lease.outputs.skip != '1' }}
         run: |
