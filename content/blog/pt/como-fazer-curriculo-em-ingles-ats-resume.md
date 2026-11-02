@@ -9,7 +9,7 @@ tags: [curriculo-em-ingles, ats-resume, carreira]
 keyword: "como fazer currículo em inglês ats"
 cover: goal
 coverAlt: "Planejamento de carreira e metas de aprendizado de inglês profissional no Lexkite"
-publishAt: ""
+publishAt: 2026-12-08T20:30:00-03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

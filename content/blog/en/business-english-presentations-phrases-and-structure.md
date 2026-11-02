@@ -9,7 +9,7 @@ tags: [business-english, presentations, public-speaking, workplace]
 keyword: "business english presentations"
 cover: path
 coverAlt: "Workplace presentation skills and professional English learning on Lexkite"
-publishAt: ""
+publishAt: 2026-12-27T07:41:00+05:30
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -37,6 +37,7 @@
 - [CWS-FEATURED.md](CWS-FEATURED.md) — Checklist huy hiệu Featured trên Chrome Web Store: kỹ thuật & tuân thủ, listing & trải nghiệm, cách gửi xét, cách giữ huy hiệu; đọc khi: chuẩn bị listing add-on
 - [CWS-RULES.md](CWS-RULES.md) — Quy tắc Chrome Web Store và quy trình phát hành add-on: không mã từ xa, giới hạn cửa hàng, phát hành tự động, thiết lập workflow, kiểm thử; đọc khi: sửa extension/ hoặc phát hành add-on
 - [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) — Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên; đọc khi: mọi thay đổi giao diện
+- [STITCH-WEB.md](STITCH-WEB.md) — Thiết kế lại mọi trang web + add-on theo Stitch: 16 loại trang → file sinh trang → màn Stitch, luật port, thứ tự PR; đọc khi: đổi giao diện trang tĩnh/blog/công cụ/add-on
 - [WEB-PAGES](WEB-PAGES.md) — kiểm kê mọi trang không phải app + admin: trạng thái Stitch Kit, screen, PR chủ, cổng web-sweep; đọc khi đổi giao diện trang tĩnh/blog/SEO/pháp lý/admin
 - [STITCH-V2-PORT](STITCH-V2-PORT.md) — port màn Stitch v2 vào app bằng bộ chuyển tự động; đọc khi port/sửa màn v2
 - [STITCH-COVERAGE](STITCH-COVERAGE.md) — bảng màn đã/chưa port Stitch + lô kế tiếp (sinh từ stitch-coverage.json); đọc khi chọn lô port hoặc thêm màn/route mới
@@ -142,3 +143,5 @@
 - [LEXICON-expand-pilots-24-10.md](archive/LEXICON-expand-pilots-24-10.md) — Nhật ký pilot 5–10 kho từ 20k (24/10, nguyên văn từ LEXICON.md); đọc khi: tra vì sao có espeak/retry/dịch ngược theo ngôn ngữ
 - [LEXICON-ra-la-ok-29-10](archive/LEXICON-ra-la-ok-29-10.md) — bài học từng lớp lỗi lexicon-expand 29/10 (nguyên văn); đọc khi sửa cổng nghĩa/IPA của lexicon-expand
 - [LEXICON-img-pilot-23-10.md](archive/LEXICON-img-pilot-23-10.md) — Pilot ảnh minh hoạ s1 ngày 23/10 (nguyên văn từ LEXICON.md); đọc khi: tra số đo pilot ảnh đầu tiên.
+- [specs/upgrade-audit.md](specs/upgrade-audit.md) — Kiểm toán nâng cấp ≤1 trang so Duolingo/Anki/Elsa/Speak (UX, hiệu năng, a11y, nội dung, AI), số đo tự làm mới; đọc khi: chọn việc nâng chất lượng tiếp theo
+- [QA-BACKLOG.md](QA-BACKLOG.md) — Sổ lỗi do QA tự chạy phát hiện (1 dòng/lỗi: file sở hữu + cách tái hiện); đọc khi: chọn việc sửa chất lượng

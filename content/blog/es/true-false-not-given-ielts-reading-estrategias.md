@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "true false not given ielts reading"
 cover: reading
 coverAlt: "Lista de lecturas de IELTS Reading en Lexkite con textos graduados de nivel A2 a C1"
-publishAt: ""
+publishAt: 2026-11-26T07:30:00-06:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

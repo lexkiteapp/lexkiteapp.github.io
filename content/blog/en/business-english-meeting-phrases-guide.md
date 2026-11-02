@@ -9,7 +9,7 @@ tags: [business-english, meeting-phrases, workplace-communication]
 keyword: "business english meeting phrases"
 cover: path
 coverAlt: "Workplace English learning roadmap and communication skills on Lexkite"
-publishAt: ""
+publishAt: 2026-12-26T12:15:00+05:30
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

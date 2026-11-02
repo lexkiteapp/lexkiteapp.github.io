@@ -9,7 +9,7 @@ tags: [ielts, phaen-kan-rian, rian-duay-tua-eng]
 keyword: "แผนการเรียน ielts ด้วยตัวเอง"
 cover: path
 coverAlt: "หน้าจอ Your IELTS path ของ Lexkite แสดงเส้นทางการเรียนรู้แบ่งตาม Band เป้าหมาย"
-publishAt: ""
+publishAt: 2026-12-04T12:30:00+07:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -48,6 +48,7 @@ quiz: [
     explain: "Hata listesinde weather'ın kısa vadeli günlük koşulları, climate'ın ise onlarca yıllık uzun dönemli örüntüleri ifade ettiği vurgulanır; karıştırmak puan kaybettirir."
   }
 ]
+publishAt: 2026-11-26T21:30:00+03:00
 ---
 
 **IELTS çevre kelimeleri**, küresel ısınma, yenilenebilir enerjiye geçiş ve biyoçeşitliliğin korunması, **IELTS Writing Task 2** ve **IELTS Speaking Part 3** sınavlarında en sık karşınıza çıkacak ana başlıklardandır. Birçok aday çevre konulu kompozisyonlarda *«the environment is getting worse»*, *«we must protect nature»* ya da *«cars make dirty smoke»* gibi ortaokul seviyesinde basit kalıplara takılıp kalır. Bu durum, kelime bilgisi (Lexical Resource) puanınızın Band 5.5 veya 6.0 seviyesinde tıkanmasına yol açar.

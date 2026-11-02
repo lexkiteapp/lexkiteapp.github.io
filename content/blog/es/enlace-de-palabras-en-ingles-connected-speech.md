@@ -9,7 +9,7 @@ tags: [connected-speech, pronunciacion, listening, fonetica]
 keyword: "connected speech en inglés"
 cover: path
 coverAlt: "Ruta de aprendizaje de pronunciación fonética y habla conectada en Lexkite"
-publishAt: ""
+publishAt: 2026-12-04T12:56:00-06:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

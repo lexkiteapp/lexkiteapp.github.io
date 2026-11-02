@@ -9,7 +9,7 @@ tags: [vocabulary, speaking, phrasal-verbs]
 keyword: "common phrasal verbs in english"
 cover: practice-learn
 coverAlt: "Lexkite vocabulary practice exercise screen showing fill in the blanks interface"
-publishAt: ""
+publishAt: 2026-12-23T08:49:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

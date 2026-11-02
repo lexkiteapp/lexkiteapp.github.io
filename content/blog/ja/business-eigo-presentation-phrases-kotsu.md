@@ -9,7 +9,7 @@ tags: [presentation, business-eigo, speaking]
 keyword: "英語 プレゼンテーション フレーズ"
 cover: path
 coverAlt: "ビジネス英語プレゼンテーションと効果的な発話トレーニングの学習ロードマップ"
-publishAt: ""
+publishAt: 2026-12-13T20:58:00+09:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

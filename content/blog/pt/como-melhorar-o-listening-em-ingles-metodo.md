@@ -9,7 +9,7 @@ tags: [listening, ingles, compreensao-auditiva]
 keyword: "como melhorar o listening em inglês"
 cover: dict
 coverAlt: "Tela do dicionário Lexkite com pronúncia em áudio britânico e americano e transcrição fonética IPA"
-publishAt: ""
+publishAt: 2026-12-09T21:12:00-03:00
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

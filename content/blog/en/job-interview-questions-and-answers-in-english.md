@@ -9,7 +9,7 @@ tags: [job-interview, interview-questions, career-skills, speaking]
 keyword: "job interview questions in english"
 cover: path
 coverAlt: "Career English learning roadmap and interview preparation on Lexkite"
-publishAt: ""
+publishAt: 2026-12-30T20:25:00+05:30
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

@@ -33,6 +33,7 @@ quiz: [
     explain: "'sensible' sözcüğü good sense (sağduyu, mantık) kökünden gelir; 'sensitive' ise senses/feeling (duyarlılık, his) kökünden türemiştir"
   }
 ]
+publishAt: 2026-12-04T09:12:00+03:00
 ---
 
 İngilizce öğrenirken Türk öğrencilerin en çok zorlandığı ve sınavlarda sıkça puan kaybettiği konuların başında **ingilizcede en cok karistirilan kelimeler** (*confusing words*) gelir. Yazılışları veya telaffuzları birbirine çok benzeyen, Türkçe karşılıkları aynı gibi duran ancak İngilizcede farklı sözcük türlerine (*parts of speech*) ya da zıt yönlere sahip kelime çiftleri kafa karışıklığı yaratabilir.

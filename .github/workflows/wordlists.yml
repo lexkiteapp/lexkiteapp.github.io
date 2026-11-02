@@ -17,6 +17,7 @@ jobs:
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Làm giàu & kiểm tra
@@ -41,6 +42,6 @@ jobs:
           git config user.email "lexkite-bot@users.noreply.github.com"
           git add -A web/js/lib web/js/data.js content/wordlists extension/app/js extension/nt
           git diff --cached --quiet && exit 0
-          git commit -m "Kho từ theo kỳ thi: cập nhật tự động [CF-Pages-Skip]"
+          git commit -m "Kho từ theo kỳ thi: cập nhật tự động [CF-Pages-Skip] [skip ci]"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done
           exit 1

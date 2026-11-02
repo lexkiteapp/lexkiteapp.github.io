@@ -33,6 +33,7 @@ quiz: [
     explain: "El tercer condicional reflexiona sobre hechos pasados que ya no pueden alterarse: If + Past Perfect, would have + Past Participle."
   }
 ]
+publishAt: 2026-11-20T08:35:00-06:00
 ---
 Poder expresar posibilidades reales, imaginar futuros alternativos y analizar situaciones pasadas con precisión es indispensable para comunicarse con fluidez. En la gramática, las **oraciones condicionales en inglés** constituyen la estructura lógica que sostiene desde una negociación de negocios hasta un ensayo académico para exámenes oficiales. Muchos hispanohablantes tropiezan al formular estas frases debido a las diferencias entre el subjuntivo español y los tiempos verbales del inglés.
 

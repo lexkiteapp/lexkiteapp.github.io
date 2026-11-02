@@ -9,7 +9,7 @@ category: ky-nang
 tags: [listening, english-listening, listening-skills]
 cover: dict
 coverAlt: "Lexkite dictionary search interface with native pronunciation audio and meanings in Hindi"
-publishAt: ""
+publishAt: 2026-12-03T19:57:00+05:30
 factChecked: 2026-11-01
 author: Lexkite
 status: ready

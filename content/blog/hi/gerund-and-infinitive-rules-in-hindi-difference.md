@@ -9,7 +9,7 @@ tags: [gerund, infinitive, english-grammar-hindi]
 keyword: "gerund and infinitive rules in hindi"
 cover: dict
 coverAlt: "Lexkite dictionary interface with verb patterns, pronunciation audio and examples in Hindi"
-publishAt: ""
+publishAt: 2026-12-04T19:53:00+05:30
 factChecked: 2026-11-01
 author: Lexkite
 status: ready
