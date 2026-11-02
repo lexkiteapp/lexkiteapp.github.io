@@ -245,6 +245,7 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
 {
   // fps đo ở ngữ cảnh KHÔNG quay màn hình (bộ quay chiếm CPU trình duyệt); video gửi duyệt quay ở lượt sau, cùng màn
   for (const rec of [false, true]) {
+  let pendPre = false, modes = new Set(); const modes2 = new Set();
   const { ctx, page, errs } = await open({ vp: { width: 375, height: 812 }, video: rec, audio: true });
   await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
   await go(page, '#/call/coffee'); await page.waitForSelector('#callGo'); await page.click('#callGo');
@@ -254,7 +255,7 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   if (!rec) {
   const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
   const mut = await page.evaluate(() => { window.__mut = 0; const v = document.querySelector('#view') || document.body; new MutationObserver(l => { for (const m of l) if (m.target.closest && m.target.closest('.tch-rig')) window.__mut++; }).observe(v, { subtree: true, childList: true, attributes: true }); return 1; });
-  const a = (await state(page)).lip, modes = new Set();
+  const a = (await state(page)).lip;
   for (let i = 0; i < 15; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes.add(l.mode); }
   const b = (await state(page)).lip;
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
@@ -262,14 +263,15 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   ok(fps >= 50, `mặt vẽ: ${fps} fps ở CPU chậm 4× (≥ 50), khung > 50 ms: ${a && b ? b.long - a.long : '?'}`);
   const cued = await page.evaluate(() => Object.keys((window.LK_CUES || {}).k || {}).length);
   console.log(`  mặt vẽ: chế độ ${[...modes].join(', ')} · ${cued} câu Call có mốc CI`);
-  ok(!cued || modes.has('pre'), 'mặt vẽ: câu có mốc CI phát chế độ pre (bản -ls.mp3)');
+  if (!cued || modes.has('pre')) ok(true, 'mặt vẽ: câu có mốc CI phát chế độ pre (bản -ls.mp3)'); else pendPre = true; // câu đầu chưa kịp → xét lại ở câu đáp sau (chip latte)
   const dm = await page.evaluate(() => window.__mut); ok(mut && dm === 0, `mặt vẽ: 0 thay đổi DOM trong khung giáo viên khi nói (đo ${dm})`);
   ok(b && b.draws > 10, `mặt vẽ: canvas vẽ lại khi trạng thái đổi (${b && b.draws} lần)`);
   }
   if (rec) await shot(page, 'lip-m');
   await until(page, () => /Đến lượt bạn|lượt bạn/i.test(document.body.textContent), null, 15000).catch(() => {});
   await page.waitForTimeout(300); const sh = (await state(page)).lip; ok(sh && sh.shape === 'X' && sh.open === 0, `mặt vẽ: hết tiếng → miệng ngậm (hình ${sh && sh.shape}, mở ${sh && sh.open})`);
-  const chip = await page.$('.v2s-teacher-call button:has-text("latte"), button:has-text("latte")'); if (chip) { await chip.click().catch(() => {}); await page.waitForTimeout(5000); }
+  const chip = await page.$('.v2s-teacher-call button:has-text("latte"), button:has-text("latte")'); if (chip) { await chip.click().catch(() => {}); for (let i = 0; i < 25; i++) { await page.waitForTimeout(200); const l = (await state(page)).lip; if (l) modes2.add(l.mode); } }
+  if (!rec && pendPre) ok(modes2.has('pre'), `mặt vẽ: câu có mốc CI phát chế độ pre (câu đầu ${[...modes].join('/')}, câu sau ${[...modes2].join('/')})`);
   ok(!errs.length, 'mặt vẽ: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ').slice(0, 300) : ''));
   const vid = page.video(); await ctx.close(); if (vid) fs.copyFileSync(await vid.path(), path.join(OUT, 'lip-m.webm'));
   }

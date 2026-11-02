@@ -133,6 +133,8 @@
     return self;
   }
 
+  // nạp trước mặt vẽ lúc rảnh (teacher.js nạp khi vào màn có giáo viên, trước khi họ nói) → câu đầu tiên cũng có mặt vẽ + mốc CI (bản -ls.mp3), không chờ
+  try { if (lipOn() && !saveData()) (g.requestIdleCallback || setTimeout)(() => lipLoad().catch(() => {}), { timeout: 800 }); } catch (e) { /* bỏ qua */ }
   /** mount(el, who, { lip }) → { say(text, { rate, voice, onEnd }), stop(), destroy(), who } · lip: cho phép mặt vẽ khớp miệng (Call, sau cờ lk.lipsync) */
   function mount(el, who, mo = {}) {
     who = Chars.id(who); // nhân vật + tài sản: chỉ qua Chars (web/js/characters.js, nguồn web/teach/characters.json)
