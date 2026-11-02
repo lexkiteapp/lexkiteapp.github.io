@@ -66,7 +66,7 @@
     // Biểu đồ
     '{h}h: {n} phiên': '{h}:00 – {n} sessions', '{d}: {f} mới · {b} quay lại': '{d}: {f} new · {b} returning', 'Khách mới': 'New visitors', 'Quay lại': 'Returning',
     'PWA (web đã cài)': 'PWA (installed web)', 'Add-on Chrome': 'Chrome add-on', 'App (cũ)': 'App (legacy)',
-    'Lượt xem và khách 14 ngày qua': 'Views and visitors, last 14 days', '{d}: {v} lượt xem · {u} khách': '{d}: {v} views · {u} visitors', 'Lượt xem': 'Views', 'Khách': 'Visitors', 'Phiên theo ngày: {r}': 'Sessions per day: {r}',
+    'Lượt xem và khách 14 ngày qua': 'Views and visitors, last 14 days', '{d}: {v} lượt xem · {u} khách': '{d}: {v} views · {u} visitors', 'Lượt xem': 'Views', 'Khách': 'Visitors', 'Lượt xem (trục trái)': 'Views (left axis)', 'Khách (trục phải)': 'Visitors (right axis)', 'Hôm nay (đến giờ)': 'Today (so far)', 'Phiên theo ngày: {r}': 'Sessions per day: {r}',
     // Tổng quan
     'Cập nhật {t}': 'Updated {t}', 'Làm mới': 'Refresh', 'Tải lại số liệu': 'Reload data', 'Người thật': 'Real people', 'Học viên': 'Learners', 'Vận hành': 'Operations',
     'Người thật hôm nay': 'Humans today', 'Người thật 7 ngày': 'Humans · 7 days', 'Người thật 30 ngày': 'Humans · 30 days', 'thiết bị khác nhau': 'unique devices', 'hôm qua': 'yesterday', '7 ngày trước đó': 'previous 7 days', '30 ngày trước đó': 'previous 30 days',
@@ -690,19 +690,19 @@
   const durS = s => { s = Math.round(+s || 0); return s < 60 ? L('{s} giây', { s }) : L('{m}p {s}s', { m: Math.floor(s / 60), s: String(s % 60).padStart(2, '0') }); };
   const nf1 = x => (+x || 0).toLocaleString(LOC(), { maximumFractionDigits: 1 });
   // Biểu đồ vùng mượt 2 chuỗi (lượt xem + khách) – di chuột vào cột để xem số (title)
-  const areaChart = rows => {
-    if (!rows || !rows.length) return NODATA();
-    const W = Math.round(Math.min(1200, Math.max(320, main.clientWidth - 70))), H = 200, PL = 36, T = 12, B = 22, iw = W - PL - 8, ih = H - T - B, n = rows.length;
-    const max = Math.max(1, ...rows.map(r => +r.views || 0), ...rows.map(r => +r.visitors || 0)), nice = Math.ceil(max / Math.pow(10, Math.floor(Math.log10(max)))) * Math.pow(10, Math.floor(Math.log10(max)));
-    const X = i => PL + (n === 1 ? iw / 2 : i * iw / (n - 1)), Y = v => T + ih - (+v || 0) / nice * ih;
+  const areaChart = l => {
+    const { rows, maxV, maxU } = AdminSeries.seriesRows(l); // js/admin-series.js – thang riêng cho lượt xem (trái) và khách (phải)
+    if (!rows.length) return NODATA();
+    const W = Math.round(Math.min(1200, Math.max(320, main.clientWidth - 70))), H = 200, PL = 36, PR = 32, T = 12, B = 22, iw = W - PL - PR, ih = H - T - B, n = rows.length;
+    const X = i => PL + (n === 1 ? iw / 2 : i * iw / (n - 1)), Y = (v, m) => T + ih - (+v || 0) / m * ih;
     const smooth = pts => pts.map((p, i) => { if (!i) return `M${p[0].toFixed(1)},${p[1].toFixed(1)}`; const a = pts[i - 2] || pts[i - 1], b = pts[i - 1], c = p, d = pts[i + 1] || p, k = 6; return `C${(b[0] + (c[0] - a[0]) / k).toFixed(1)},${Math.min(T + ih, b[1] + (c[1] - a[1]) / k).toFixed(1)} ${(c[0] - (d[0] - b[0]) / k).toFixed(1)},${Math.min(T + ih, c[1] - (d[1] - b[1]) / k).toFixed(1)} ${c[0].toFixed(1)},${c[1].toFixed(1)}`; }).join(' ');
-    const pv = rows.map((r, i) => [X(i), Y(r.views)]), pu = rows.map((r, i) => [X(i), Y(r.visitors)]), lv = smooth(pv);
-    const grid = [0, .5, 1].map(f => `<line x1="${PL}" x2="${W - 8}" y1="${(T + ih - f * ih).toFixed(1)}" y2="${(T + ih - f * ih).toFixed(1)}" class="ac-grid"/><text x="${PL - 6}" y="${(T + ih - f * ih + 3).toFixed(1)}" text-anchor="end">${num(Math.round(nice * f))}</text>`).join('');
+    const pv = rows.map((r, i) => [X(i), Y(r.views, maxV)]), pu = rows.map((r, i) => [X(i), Y(r.visitors, maxU)]), lv = smooth(pv);
+    const grid = [0, .5, 1].map(f => { const y = (T + ih - f * ih).toFixed(1), ty = (T + ih - f * ih + 3).toFixed(1); return `<line x1="${PL}" x2="${W - PR}" y1="${y}" y2="${y}" class="ac-grid"/><text x="${PL - 6}" y="${ty}" text-anchor="end">${num(Math.round(maxV * f))}</text><text x="${W - PR + 6}" y="${ty}" text-anchor="start" class="ac-ax-u">${num(Math.round(maxU * f))}</text>`; }).join('');
     const dd = d => LANG === 'en' ? d.slice(5, 7) + '/' + d.slice(8) : d.slice(8) + '/' + d.slice(5, 7), cw = n > 1 ? iw / (n - 1) : iw;
     return `<svg class="area-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${L('Lượt xem và khách 14 ngày qua')}"><defs><linearGradient id="acFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--primary)" stop-opacity=".3"/><stop offset="1" stop-color="var(--primary)" stop-opacity="0"/></linearGradient></defs>
       ${grid}<path d="${lv} L${X(n - 1).toFixed(1)},${T + ih} L${X(0).toFixed(1)},${T + ih} Z" fill="url(#acFill)"/><path d="${lv}" class="ac-v"/><path d="${smooth(pu)}" class="ac-u"/>
-      ${rows.map((r, i) => `<g class="ac-col"><rect x="${(X(i) - cw / 2).toFixed(1)}" y="${T}" width="${cw.toFixed(1)}" height="${ih}" fill="transparent"/><line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${T}" y2="${T + ih}" class="ac-hl"/><circle cx="${pv[i][0].toFixed(1)}" cy="${pv[i][1].toFixed(1)}" r="3.5" class="ac-dv"/><circle cx="${pu[i][0].toFixed(1)}" cy="${pu[i][1].toFixed(1)}" r="3" class="ac-du"/>${i % 2 === (n - 1) % 2 ? `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="middle">${dd(r.day)}</text>` : ''}<title>${L('{d}: {v} lượt xem · {u} khách', { d: dd(r.day), v: num(r.views), u: num(r.visitors) })}</title></g>`).join('')}</svg>
-      <p class="small muted ac-legend"><span class="lg new"></span> ${L('Lượt xem')} <span class="lg vis"></span> ${L('Khách')}</p>`;
+      ${rows.map((r, i) => `<g class="ac-col"><rect x="${(X(i) - cw / 2).toFixed(1)}" y="${T}" width="${cw.toFixed(1)}" height="${ih}" fill="transparent"/><line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${T}" y2="${T + ih}" class="ac-hl"/><circle cx="${pv[i][0].toFixed(1)}" cy="${pv[i][1].toFixed(1)}" r="3.5" class="ac-dv"/><circle cx="${pu[i][0].toFixed(1)}" cy="${pu[i][1].toFixed(1)}" r="3" class="ac-du"/>${i % 2 === (n - 1) % 2 ? `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="middle">${r.today ? L('Hôm nay') : dd(r.day)}</text>` : ''}<title>${L('{d}: {v} lượt xem · {u} khách', { d: r.today ? L('Hôm nay (đến giờ)') : dd(r.day), v: num(r.views), u: num(r.visitors) })}</title></g>`).join('')}</svg>
+      <p class="small muted ac-legend"><span class="lg new"></span> ${L('Lượt xem (trục trái)')} <span class="lg vis"></span> ${L('Khách (trục phải)')}</p>`;
   };
   // Dòng "đã loại": máy tự động & quản trị hôm nay không cộng vào số người thật (để thấy bộ lọc đang chạy)
   const EXCL = { ci: 'CI của mình', 'ci-app': 'App trên máy ảo CI', ua: 'Bot/công cụ (UA)', bot: 'Bot đã xác minh', dc: 'Máy chủ đám mây', dev: 'Bản dev/preview', admin: 'Quản trị' };
@@ -725,7 +725,7 @@
         ${lt('⏱️', L('Thời gian TB'), t.s ? durS(t.dur) : '–', L('mỗi phiên hôm nay'))}
         ${lt('Σ', L('Tổng lượt xem'), num(tot.views), L('{n} khách từ trước đến nay', { n: num(tot.visitors) }))}
       </div>
-      <div class="ac-wrap"><div class="small muted ac-title">${L('14 ngày qua')}</div>${areaChart(l.series)}</div>`;
+      <div class="ac-wrap"><div class="small muted ac-title">${L('14 ngày qua')}</div>${areaChart(l)}</div>`;
   };
   const route = k => '#/' + (k || 'home');
   const liveGrid = l => {

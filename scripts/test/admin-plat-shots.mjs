@@ -9,11 +9,26 @@ let pw; try { pw = await import('playwright'); } catch (e) { console.log('admin-
 const require = createRequire(import.meta.url);
 let AXE = ''; try { AXE = fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8'); } catch (e) { /* thiếu axe-core → báo lỗi ở tag=after */ }
 const CONFIGS = [[360, 'light', 'vi'], [360, 'dark', 'vi'], [390, 'light', 'en'], [390, 'dark', 'en']];
+// Khổ web (máy tính): chỉ chụp + gác biểu đồ 14 ngày & tràn ngang (thẻ Nền tảng nằm trong lưới nhiều cột – gác 1 cột chỉ ở điện thoại)
+const DESK = [[1280, 'dark', 'vi'], [1280, 'light', 'en']];
 const browser = await pw.chromium.launch();
 const name = (w, th, l) => `plat-${w}-${th}-${l}.png`;
 
 if (process.argv[2] === '--compare') {
   const OUT = process.argv[3] || 'out/admin-plat', made = [];
+  // biểu đồ 14 ngày (thẻ Lưu lượng trực tiếp): TRƯỚC | SAU, điện thoại + web
+  for (const [w, th, l] of [...CONFIGS, ...DESK]) {
+    const fb = path.join(OUT, 'before-live-' + name(w, th, l)), fa = path.join(OUT, 'after-live-' + name(w, th, l)); if (!fs.existsSync(fa)) continue;
+    const cw = Math.min(w, 900), page = await browser.newPage({ viewport: { width: cw * 2 + 48, height: 300 } });
+    await page.setContent(`<body style="margin:0;background:#777;font:600 14px system-ui;color:#fff;display:flex;gap:16px;padding:16px;align-items:flex-start">${[['TRƯỚC', fb], ['SAU', fa]].map(([t, f]) => `<figure style="margin:0"><figcaption style="padding:0 0 6px">${t} · 14 ngày · ${w}px ${th} ${l.toUpperCase()}</figcaption>${fs.existsSync(f) ? `<img style="width:${cw}px;display:block" src="data:image/png;base64,${fs.readFileSync(f).toString('base64')}">` : '(không có ảnh)'}</figure>`).join('')}</body>`);
+    const f = path.join(OUT, `sheet-live-${w}-${th}-${l}.jpg`); await page.screenshot({ path: f, fullPage: true, type: 'jpeg', quality: 80 }); made.push(f); await page.close();
+  }
+  for (const [w, th, l] of DESK) {
+    const pb = path.join(OUT, 'before-page-' + name(w, th, l)), pa = path.join(OUT, 'after-page-' + name(w, th, l)); if (!fs.existsSync(pa)) continue;
+    const page = await browser.newPage({ viewport: { width: 1640, height: 300 } });
+    await page.setContent(`<body style="margin:0;background:#777;font:600 14px system-ui;color:#fff;display:flex;gap:16px;padding:16px;align-items:flex-start">${[['TRƯỚC', pb], ['SAU', pa]].map(([t, f]) => `<figure style="margin:0"><figcaption style="padding:0 0 6px">${t} · #analytics web ${w}px ${th} ${l.toUpperCase()}</figcaption>${fs.existsSync(f) ? `<img style="width:800px;display:block" src="data:image/png;base64,${fs.readFileSync(f).toString('base64')}">` : '(không có ảnh)'}</figure>`).join('')}</body>`);
+    const f = path.join(OUT, `sheet-page-${w}-${th}-${l}.jpg`); await page.screenshot({ path: f, fullPage: true, type: 'jpeg', quality: 72 }); made.push(f); await page.close();
+  }
   for (const [w, th, l] of CONFIGS) {
     const fb = path.join(OUT, 'before-' + name(w, th, l)), fa = path.join(OUT, 'after-' + name(w, th, l)); if (!fs.existsSync(fa)) continue;
     const img = f => fs.existsSync(f) ? `<img style="width:${w}px;display:block" src="data:image/png;base64,${fs.readFileSync(f).toString('base64')}">` : '<div style="width:360px;padding:20px">(không có ảnh)</div>';
@@ -35,14 +50,17 @@ const [WEB = 'web', OUT = 'out/admin-plat', TAG = 'after'] = process.argv.slice(
 const R = o => Object.entries(o).map(([k, n]) => ({ k, n }));
 // Số thật trong ảnh chụp của owner (1/11) + số thiết bị khác nhau server mới trả (15 máy dùng cả web và PWA)
 const LIVE = { ...FX.live, online: 3, viewing: R({ home: 1, review: 1, say: 1 }), today: { ...FX.live.today, visitors: 10 }, countries: R({ VN: 6, JP: 2, IN: 1, US: 1 }),
-  pagesToday: R({ home: 8, review: 3, say: 1 }), refs: R({ 'google.com': 3, 'facebook.com': 1 }), platsToday: R({ web: 17, android: 2, ext: 1 }), plats30: R({ web: 209, ext: 15, pwa: 12, android: 8, ios: 1 }), devToday: { v: 20, multi: 0 }, dev30: { v: 230, multi: 15 } };
+  pagesToday: R({ home: 8, review: 3, say: 1 }), refs: R({ 'google.com': 3, 'facebook.com': 1 }), platsToday: R({ web: 17, android: 2, ext: 1 }), plats30: R({ web: 209, ext: 15, pwa: 12, android: 8, ios: 1 }), devToday: { v: 20, multi: 0 }, dev30: { v: 230, multi: 15 },
+  // 14 ngày dạng số thật 2/11 (lượt xem ~25× khách); điểm hôm nay của chuỗi đệm còn 0/0 trong khi thẻ hôm nay đã đếm
+  series: FX.live.series.map((r, i, a) => i === a.length - 1 ? { ...r, views: 0, visitors: 0 } : { ...r, views: [120, 60, 70, 180, 190, 160, 140, 520, 430, 610, 1110, 887, 534, 689][i] || 300, visitors: [7, 3, 15, 12, 21, 23, 33, 31, 42, 43, 43, 41, 30, 38][i] || 20 }), day: FX.live.series[FX.live.series.length - 1].day };
 const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => window.__AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = () => {}; } }) };
   const U = { uid: 'plat', email: 'admin@example.com', displayName: 'Plat', photoURL: '', getIdToken: async () => 'x' };
   window.__AUTH = { currentUser: U, onAuthStateChanged: cb => setTimeout(() => cb(U), 0), signOut: async () => {}, signInWithPopup: async () => {} };`;
 const api = (p, b) => p === '/api/admin' ? (b.op === 'live' ? LIVE : FX[b.op] || { ok: true, rows: [] }) : p === '/api/admin-prefs' ? (b.op === 'get' ? { ok: true, pref: { tab: 'analytics', lang: 'vi', theme: 'auto' } } : { ok: true, rows: [] }) : p === '/api/drive' ? { alerts: [] } : { ok: true, rows: [] };
 const fails = [];
-for (const [width, scheme, lang] of CONFIGS) {
-  const ctx = await browser.newContext({ viewport: { width, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, colorScheme: scheme, serviceWorkers: 'block' });
+for (const [width, scheme, lang] of [...CONFIGS, ...DESK]) {
+  const desk = width > 900;
+  const ctx = await browser.newContext({ viewport: { width, height: desk ? 900 : 844 }, deviceScaleFactor: desk ? 1 : 2, isMobile: !desk, hasTouch: !desk, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.addInitScript(([l, th]) => { try { localStorage.setItem('lk.admLang', l); localStorage.setItem('lk.admTheme', th); } catch (e) { /* bỏ qua */ } }, [lang, scheme]);
   await ctx.route('**/*', r => {
     const req = r.request(), u = new URL(req.url());
@@ -59,10 +77,29 @@ for (const [width, scheme, lang] of CONFIGS) {
   const loc = page.locator('.card', { has: page.locator('.plat-tbl') }).first();
   await page.waitForTimeout(400); await loc.scrollIntoViewIfNeeded(); await page.waitForTimeout(150);
   await loc.screenshot({ path: path.join(OUT, `${TAG}-${name(width, scheme, lang)}`) });
+  const live = page.locator('#liveCard'); await live.scrollIntoViewIfNeeded(); await live.screenshot({ path: path.join(OUT, `${TAG}-live-${name(width, scheme, lang)}`) });
   const card = await loc.elementHandle();
   await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(100);
   await page.screenshot({ path: path.join(OUT, `${TAG}-page-${name(width, scheme, lang)}`), fullPage: true });
   if (TAG === 'after') {
+    // ---- Biểu đồ 14 ngày: khách có trục riêng (không nằm sát 0 cạnh lượt xem), điểm hôm nay = thẻ hôm nay ----
+    const ac = await page.evaluate(() => {
+      const o = [], svg = document.querySelector('#liveCard .area-chart'); if (!svg) return ['biểu đồ 14 ngày: không có'];
+      const H = svg.viewBox.baseVal.height, bb = p => { const b = p.getBBox(); return b.height / H; };
+      const u = svg.querySelector('.ac-u'), v = svg.querySelector('.ac-v');
+      if (bb(u) < 0.3) o.push(`biểu đồ 14 ngày: đường khách chỉ cao ${Math.round(bb(u) * 100)}% khung (trông như mất dữ liệu)`);
+      if (bb(v) < 0.3) o.push(`biểu đồ 14 ngày: đường lượt xem chỉ cao ${Math.round(bb(v) * 100)}% khung`);
+      if (svg.querySelectorAll('text.ac-ax-u').length !== 3) o.push('biểu đồ 14 ngày: thiếu nhãn trục phải (khách)');
+      const last = [...svg.querySelectorAll('.ac-col title')].pop().textContent, tv = (document.querySelector('#liveCard .lt-grid .lt:nth-child(2) .lt-v') || {}).textContent;
+      if (!last.includes(' ' + tv + ' ')) o.push(`biểu đồ 14 ngày: điểm hôm nay "${last}" khác thẻ Lượt xem hôm nay ${tv}`);
+      const r = svg.getBoundingClientRect(); if (r.right > document.documentElement.clientWidth + 1) o.push('biểu đồ 14 ngày: tràn mép phải');
+      return o;
+    });
+    for (const x of ac) fails.push(`${tag}: ${x}`);
+  }
+  if (TAG === 'after' && desk) {
+    if (await page.evaluate(() => document.scrollingElement.scrollWidth > document.documentElement.clientWidth + 1)) fails.push(`${tag}: cả trang tràn ngang`);
+  } else if (TAG === 'after') {
     const res = await card.evaluate((c, W) => {
       const o = [], rows = [...c.querySelectorAll('tbody tr')], over = document.scrollingElement.scrollWidth - innerWidth;
       if (over > 1) o.push(`trang tràn ngang ${over} px`);
@@ -131,6 +168,6 @@ for (const [width, scheme, lang] of CONFIGS) {
 }
 await browser.close();
 fs.writeFileSync(path.join(OUT, TAG + '.json'), JSON.stringify({ fails }, null, 1));
-if (TAG !== 'after') { console.log(`admin-plat-shots (${TAG}): đã chụp ${CONFIGS.length} ảnh`, fails.length ? JSON.stringify(fails) : ''); process.exit(0); }
+if (TAG !== 'after') { console.log(`admin-plat-shots (${TAG}): đã chụp ${CONFIGS.length + DESK.length} cấu hình`, fails.length ? JSON.stringify(fails) : ''); process.exit(0); }
 if (fails.length) { console.log('✗ admin-plat-shots:\n  ' + fails.join('\n  ')); process.exit(1); }
-console.log(`✓ admin-plat-shots: #analytics × ${CONFIGS.length} cấu hình (360/390, sáng/tối) – không tràn/thu nhỏ, đầu trang ≥ 44 px không đè, thẻ Nền tảng + thanh mọi thẻ cùng thang, tên nước đủ, chú giải 1 dải, axe 0 lỗi`);
+console.log(`✓ admin-plat-shots: #analytics × ${CONFIGS.length} cấu hình (360/390, sáng/tối) + web 1280 – biểu đồ 14 ngày 2 trục, – không tràn/thu nhỏ, đầu trang ≥ 44 px không đè, thẻ Nền tảng + thanh mọi thẻ cùng thang, tên nước đủ, chú giải 1 dải, axe 0 lỗi`);
