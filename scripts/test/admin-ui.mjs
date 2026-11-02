@@ -202,6 +202,18 @@ for (const t of ['overview', 'analytics', 'users', 'inbox', 'alerts', 'quality',
   ok($('#tabs a[aria-current]').dataset.tab === t && !$('.err-box'), `#${t} vẽ được, không lỗi`);
   leak('#' + t);
 }
+// Người dùng: cột quốc gia (cờ + tên theo ngôn ngữ admin), thẻ đếm theo quốc gia bấm để lọc, ô lọc quốc gia/ngày tham gia
+$('#tabs a[data-tab="users"]').click(); await tick(60);
+{ const rows = $$('#uTable tbody tr'), hdr = $$('#uTable thead th').map(t => t.textContent);
+  ok(hdr.includes('Country') && /🇻🇳/.test(rows[0].textContent) && /Vietnam/.test(rows[0].textContent) && /Unknown/.test(rows[1].textContent), 'Người dùng: cột quốc gia cờ + tên tiếng Anh, thiếu mã → "Unknown"');
+  ok($$('#uCc [data-cc]').length === 3 && /Japan/.test($('#uCc [data-cc]').textContent) === false && /Unknown country/.test($('#uCc').textContent), 'thẻ theo quốc gia: đủ dòng + nhóm chưa rõ');
+  ok($$('#fcc option').map(o => o.value).join() === ',JP,VN,??', 'ô lọc quốc gia xếp theo tên + "chưa rõ"');
+  const n0 = calls.length; $('#uCc [data-cc="JP"]').click(); await tick(40);
+  ok(calls.slice(n0).some(c => c.b.op === 'users' && c.b.cc === 'JP') && $('#uCc [data-cc="JP"]').getAttribute('aria-pressed') === 'true' && !$('#uclr').hidden, 'bấm quốc gia → lọc, nút Bỏ lọc hiện');
+  const fr = $('#ffrom'); fr.value = '2026-10-01'; fr.dispatchEvent(new w.Event('change')); await tick(40);
+  ok(calls.slice(n0).some(c => c.b.op === 'users' && c.b.from === '2026-10-01'), 'lọc ngày tham gia gửi from');
+  $('#uclr').click(); await tick(40); ok(calls[calls.length - 1].b.cc === '' && calls[calls.length - 1].b.from === '' && $('#uclr').hidden, 'Bỏ lọc → xóa mọi bộ lọc');
+  leak('#users quốc gia'); try { w.sessionStorage.removeItem('adm.uf'); } catch (e) { /* bỏ qua */ } }
 $('#tabs a[data-tab="overview"]').click(); await tick(60);
 ok(/Humans today/.test($('#main').textContent) && /▲ 25%/.test($('#main').textContent) && /Bot sessions excluded/.test($('#main').textContent) && /Active now/.test($('#main').textContent), 'Tổng quan: ô người thật + xu hướng + phiên bot đã loại + đang online');
 ok($('#main .spark') && $$('#main .kstat[data-go]').length >= 8, 'Tổng quan: đường mini + ô bấm được');
