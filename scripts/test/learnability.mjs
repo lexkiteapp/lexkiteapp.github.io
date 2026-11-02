@@ -37,5 +37,37 @@ for (const l of fs.readFileSync('content/video/scripts/bank/mixups.jsonl', 'utf8
 const chk = spawnSync('node', ['scripts/lesson/build-gold.mjs', '--check'], { encoding: 'utf8' });
 ok(chk.status === 0, 'gold.js cũ so với gold bank: ' + (chk.stderr || '').trim());
 
+// 6. Đầu ra tự do (tiêu chí j, lô 2 – 02/11): mọi bài ngữ pháp có ≥ 1 drill `own` (drills-own.js); câu mẫu PHẢI khớp mẫu nhận diện của bài
+//    (GRAMMAR_CHECK – cùng luật grammar.js chấm người học), lời giải cụ thể; câu thật của người học không bị chê oan (hồi quy regex quá hẹp)
+const { loadContent } = await import('../lib/content-load.mjs');
+const C = loadContent(), GC = C.GRAMMAR_CHECK || {};
+for (const gl of C.GRAMMAR) {
+  const own = (gl.drills || []).filter(d => d.t === 'own'), re = GC[gl.id] && new RegExp(GC[gl.id][0], 'iu');
+  ok(own.length >= 1 && own.length <= 2, `${gl.id}: cần 1–2 drill own (có ${own.length})`);
+  ok(re, `${gl.id}: thiếu GRAMMAR_CHECK – drill own không chấm được`);
+  for (const d of own) {
+    ok(String(d.q || '').trim() && String(d.hint || '').trim() && Array.isArray(d.a) && d.a.length, `${gl.id} own: thiếu q/hint/a`);
+    for (const x of d.a || []) ok(re && re.test(x), `${gl.id} own: câu mẫu không khớp GRAMMAR_CHECK – "${x}"`);
+    ok(L.specific(d.ex, d.a) === 1, `${gl.id} own: lời giải chưa cụ thể – "${d.ex}"`);
+  }
+}
+for (const [id, s] of [['present-simple', 'I usually drink tea every morning.'], ['subject-verb-agreement', 'Everyone in my family likes noodles.'], ['numbers-data-language', 'About 60% of my classmates walk to school.'],
+  ['future-forms', "I'm meeting my friends on Saturday."], ['modals-ability-permission', 'We are not allowed to use phones.'], ['punctuation', "My parents' house is small."], ['conditionals-0-1', 'If you heat ice, it melts.']])
+  ok(new RegExp(GC[id][0], 'iu').test(s), `GRAMMAR_CHECK ${id} chê oan câu đúng: "${s}"`);
+for (const [id, s] of [['present-perfect', 'I like apples very much.'], ['passive-voice', 'My dog likes to run.'], ['conditionals-2-3', 'She went home early.']])
+  ok(!new RegExp(GC[id][0], 'iu').test(s), `GRAMMAR_CHECK ${id} nhận nhầm câu không dùng cấu trúc: "${s}"`);
+ok(R.areas.grammar && R.units.filter(u => u.area === 'grammar').every(u => u.crit.j === 1), 'ngữ pháp: mọi bài phải có j = 1 (đầu ra tự do)');
+
+// 7. Phản hồi "vì sao" của truyện/radio (tiêu chí g): mọi câu hỏi hiểu có why = câu thoại có thật trong truyện + "→ đáp án"; engine truyền why sang mục q
+const ST = JSON.parse(fs.readFileSync('content/lesson/stories.json', 'utf8')).items;
+for (const s of ST) for (const c of (s.checks || []).filter(c => c.type === 'q')) {
+  const quote = /“([^”]+)”/.exec(c.why || '');
+  ok(quote && s.lines.some(l => l.en === quote[1]), `${s.id} "${c.q}": why phải trích nguyên văn một câu thoại của truyện`);
+  ok(String(c.why || '').endsWith('→ ' + c.options[c.answer]), `${s.id} "${c.q}": why phải kết bằng "→ đáp án đúng"`);
+}
+{ const E = {}; new Function('self', fs.readFileSync('web/js/lesson/engine.js', 'utf8'))(E);
+  const s0 = ST.find(s => s.checks.some(c => c.type === 'q')), it = E.LessonEngine.storyItems(s0, 'en', 1).find(x => x.type === 'q');
+  ok(it && it.why && it.why === s0.checks.find(c => c.type === 'q').why, 'engine.storyItems không truyền why sang câu hỏi hiểu'); }
+
 if (bad) { console.log(`✗ learnability: ${bad} lỗi`); process.exit(1); }
 console.log(`✓ learnability: luật đo + báo cáo + gold mixups (tổng ${R.total}/100)`);

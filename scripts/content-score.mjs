@@ -104,7 +104,7 @@ const AREAS = {
     ['nội dung có lo hợp lệ', LK.total.tagged, LK.total.items || 1, 35], ['mục tiêu đã có nội dung luyện', LK.objectivesUsed, 600, 25]] },
   // Điểm sư phạm trung bình từng mảng bài (12 tiêu chí a…l, chuẩn 100 = mọi bài đạt mọi tiêu chí áp dụng được)
   learn: { name: 'Dễ học – dễ nhớ', err: 0, gate: lnRun.status === 0, parts: Object.entries({ grammar: 'Ngữ pháp', path: 'Bài lộ trình', vocab: 'Bộ từ', skills: 'Kỹ năng' })
-    .map(([k, nm]) => [nm, LN.areas[k]?.score || 0, 100, 25])] },
+    .map(([k, nm]) => [nm, LN.areas[k]?.score || 0, 100, 25]) },
   i18n: { name: 'i18n', err: 0, parts: [
     ['ngôn ngữ đạt i18n-qa', qaRows.reduce((a, q) => a + (1 - Math.min(1, q.hard / NK)), 0), LANGS.length, 45],
     ['nhãn ngắn dịch tay', qaRows.reduce((a, q) => a + (1 - Math.min(1, q.short / NK)), 0), LANGS.length, 10],

@@ -32624,5 +32624,20 @@
     "ar": "تحدّث كأنك من أهل اللغة",
     "ru": "Говорите как носитель",
     "tr": "Anadil gibi konuş"
+  },
+  "Câu của bạn có thể khác câu mẫu: máy chỉ kiểm bạn đã dùng đúng cấu trúc của bài.": {
+    "es": "Tu frase puede ser distinta del modelo: solo comprobamos que uses la estructura de esta lección.",
+    "pt": "Sua frase pode ser diferente do modelo: só verificamos se você usou a estrutura desta lição.",
+    "fr": "Votre phrase peut différer du modèle : nous vérifions seulement que vous utilisez la structure de cette leçon.",
+    "de": "Dein Satz darf vom Muster abweichen: Wir prüfen nur, ob du die Struktur dieser Lektion verwendest.",
+    "id": "Kalimatmu boleh berbeda dari contoh: kami hanya memeriksa apakah kamu memakai struktur pelajaran ini.",
+    "th": "ประโยคของคุณไม่จำเป็นต้องเหมือนประโยคตัวอย่าง เราตรวจเพียงว่าคุณใช้โครงสร้างของบทนี้หรือไม่",
+    "zh": "你的句子可以与范例不同：我们只检查你是否用了本课的句型。",
+    "ja": "例文と違っていても大丈夫です。このレッスンの構文を使えているかだけをチェックします。",
+    "ko": "예문과 달라도 괜찮아요. 이 과의 구조를 사용했는지만 확인합니다.",
+    "hi": "आपका वाक्य उदाहरण से अलग हो सकता है: हम केवल यह जाँचते हैं कि आपने इस पाठ की संरचना का उपयोग किया है या नहीं।",
+    "ar": "يمكن أن تختلف جملتك عن المثال: نتحقق فقط من أنك استخدمت تركيب هذا الدرس.",
+    "ru": "Ваше предложение может отличаться от образца: мы проверяем только, использовали ли вы структуру этого урока.",
+    "tr": "Cümlen örnekten farklı olabilir: yalnızca bu dersin yapısını kullanıp kullanmadığını kontrol ediyoruz."
   }
 }
