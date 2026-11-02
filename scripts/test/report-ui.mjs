@@ -120,7 +120,7 @@ ok(v.querySelector('.lkr-list a[href="#/report/' + 'T'.repeat(24) + '"]'), '#/re
 { w.eval(rd('js/admin-reports.js')); const C = w.AdminReports._t.checks, by = (c, k) => C(c).find(i => i.k === k);
   const none = C({ mail_st: 'no-key', push: 'no-d1b' });
   ok(none.every(i => !i.ok && i.fix) && by({ mail_st: 'no-key' }, 'mail').fix.includes('RESEND_API_KEY') && by({ push: 'off' }, 'push').fix.includes('PUSH_PCT') && by({}, 'cli').fix.includes('LEXKITE_REPORT_CLI_KEY'), 'checks: thiếu bí mật → ⚠️ + chỗ nhập (thư 501 → RESEND/BREVO, push tắt → PUSH_PCT)');
-  ok(C({ ai: 1, gh: 1, cli: 1, mail_st: 'ok', push: 'ok' }).every(i => i.ok), 'checks: đủ cả → ✅'); }
+  ok(C({ ai: 1, gh: 1, cli: 1, mail_st: 'ok', push: 'ok', r2: 1, shot_sign: 1 }).every(i => i.ok) && !by({ r2: true }, 'r2').ok && by({}, 'r2').fix.includes('REPORT_SHOTS'), 'checks: đủ cả → ✅; R2 thiếu binding/khóa ký → ⚠️'); }
 
 // "Báo cho tôi khi sửa xong": chỉ khi chưa có push; bấm mới xin quyền; iOS Safari chưa thêm MH chính / đã chặn → ẩn; đăng ký ro + gắn vào phiếu
 { const X = R._t, nav = w.navigator, KEY = 'B'.repeat(87); let perm = 'default', asked = 0, subd = 0;
