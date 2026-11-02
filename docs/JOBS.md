@@ -99,6 +99,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | Việc hạ nguồn | Đọc qua | Việc/lịch |
 |---|---|---|
 | `scripts/content-score.mjs` – content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh) | `loadAllPlus` | content-qa.yml (score) |
+| `scripts/content-qa/lkf-check.mjs` – reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do | `loadAllPlus` | npm test + content-qa.yml (score) |
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |
