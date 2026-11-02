@@ -37,6 +37,7 @@ on:
       - 'size-guard'
       - 'Stitch diff'
       - 'Stitch quality QC'
+      - 'Stitch web'
       - 'Teach build'
       - 'teach-video'
       - 'Công cụ miễn phí (tools pages)'
