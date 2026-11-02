@@ -27,10 +27,11 @@ async function run(lang) {
   // Dịch máy giả lập: mọi dòng → "⟦T⟧" (để chỉ còn lỗi không qua đường dịch nào)
   w.fetch = async url => {
     const u = String(url);
+    if (DOWN && /\/api\/dictlookup\?src=gtx/.test(u)) return { ok: true, status: 200, json: async () => null, text: async () => 'null' }; // proxy khi Google 429/lỗi: 200 + null
     if (DOWN && /translate\.googleapis/.test(u)) return { ok: false, status: 429, json: async () => { throw new Error('429'); }, text: async () => '' };
     const cx = DOWN && u.match(/\/i18n\/content\/([a-z]{2})\.json$/), cf = cx && path.join(WEB, 'i18n', 'content', cx[1] + '.json');
     if (cf && fs.existsSync(cf)) { const j = JSON.parse(fs.readFileSync(cf, 'utf8')); if (SLOW) { preT0 = Date.now(); await new Promise(r => setTimeout(r, PRE_MS)); } return { ok: true, json: async () => j }; }
-    if (/translate\.googleapis/.test(u)) { const q = decodeURIComponent((u.match(/[?&]q=([^&]*)/) || [])[1] || ''); const out = q.split('\n').map(() => 'T').join('\n'); return { ok: true, json: async () => (/dj=1/.test(u) ? { sentences: [{ trans: out }] } : [[[out]]]) }; }
+    if (/translate\.googleapis|\/api\/dictlookup\?src=gtx/.test(u)) { const q = decodeURIComponent((u.match(/[?&]q=([^&]*)/) || [])[1] || ''); const out = q.split('\n').map(() => 'T').join('\n'); return { ok: true, json: async () => (/dj=1/.test(u) ? { sentences: [{ trans: out }] } : [[[out]]]) }; }
     return { ok: false, json: async () => ({}), text: async () => '' };
   };
   for (const f of scripts) {

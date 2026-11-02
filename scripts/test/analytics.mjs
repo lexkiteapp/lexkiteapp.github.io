@@ -138,6 +138,18 @@ ok(!sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE 'blog:drop%'").get(), 
 await hit({ t: 'q', ev: 'ret_on_d7' }, { ip: '6.6.6.7' }); await hit({ t: 'q', ev: 'ret_maybe_d7' }, { ip: '6.6.6.7' });
 ok(!!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'ret:ret_on_d7'").get() && !sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE '%ret_maybe%'").get(), 'thử nghiệm cờ ret: chỉ nhận 4 sự kiện cho phép');
 
+// Beacon dự phòng bằng fetch (app native capacitor://localhost, không sendBeacon): /api/hit không trả CORS → fetch chế độ cors
+// bị trình duyệt từ chối ("Load failed" – iOS E2E đỏ) dù máy chủ đã nhận. Beacon không đọc phản hồi → bắt buộc mode: 'no-cors'.
+{
+  const fsm = await import('node:fs');
+  for (const f of ['web/js/app.js', 'web/js/lesson-video.js', 'web/js/ads/run.js']) {
+    const src = fsm.readFileSync(f, 'utf8');
+    const calls = [...src.matchAll(/fetch\([^;]*?\/api\/hit'?[^)]*?\{([^}]*)\}/g)];
+    ok(calls.length > 0, `${f}: tìm thấy fetch /api/hit dự phòng`);
+    for (const c of calls) ok(/mode:\s*'no-cors'/.test(c[1]), `${f}: fetch /api/hit dự phòng phải mode 'no-cors' (${c[1].trim().slice(0, 80)})`);
+  }
+}
+
 Date.now = realNow;
 console.log(fails ? `✗ analytics: ${fails}/${n} lỗi` : `✓ analytics: ${n} kiểm tra đạt (loại bot/CI/quản trị, gộp sid, ngày giờ VN, % quốc gia, di chuyển dữ liệu)`);
 process.exit(fails ? 1 : 0);

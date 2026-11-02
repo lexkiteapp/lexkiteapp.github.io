@@ -48,6 +48,7 @@ quiz: [
     explain: "Son dört dakika ses kaydı ve karşılaştırmaya ayrılır; böylece tonlama sapmaları fark edilip düzeltilir."
   }
 ]
+publishAt: 2026-12-06T12:47:00+03:00
 ---
 
 **Shadowing tekniği ingilizce** öğreniminde, pasif gramer ve kelime bilgisini anlık, akıcı ve doğal bir konuşma becerisine dönüştürmenin en etkili ve bilimsel yöntemlerinden biridir. Pek çok dil öğrencisi tanıdık bir durumla karşılaşır: İngilizce bir makaleyi okurken veya altyazılı bir video izlerken cümleleri rahatlıkla anlar, fakat sıra konuşmaya geldiğinde çene kilitlenir, kelimeler boğazda düğümlenir ve konuşma son derece mekanik duyulur. Bu engelin sebebi kelime eksikliği değil, ağız kaslarının ve işitsel sinir ağlarının henüz otomatik motor tepki geliştirememiş olmasıdır.

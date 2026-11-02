@@ -33,6 +33,7 @@ quiz: [
     explain: "Eventos e medições situados no passado exigem o Simple Past para a narração de aumentos e quedas."
   }
 ]
+publishAt: 2026-12-04T20:27:00-03:00
 ---
 
 No módulo acadêmico do teste IELTS, a primeira tarefa da prova escrita (*Writing Task 1*) desafia os participantes a interpretar um conjunto de dados visuais — que pode se manifestar como um gráfico de linhas, gráfico de barras, gráfico de setores circulares ou uma tabela estatística — e compor um relatório analítico formal de no mínimo 150 palavras em aproximadamente 20 minutos. Conquistar uma avaliação de excelência em **ielts writing task 1 graficos** exige capacidade de síntese, agrupamento lógico de categorias e precisão léxica para retratar tendências ascendentes e descendentes.

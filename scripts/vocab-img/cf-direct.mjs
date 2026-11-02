@@ -3,6 +3,7 @@
 // CF_POOL: mỗi mục "account_id:token", ngăn bằng xuống dòng / phẩy / chấm phẩy; hoặc JSON [{"account":"…","token":"…"}]. KHÔNG bao giờ tài khoản chính (CF_ACCOUNT_1).
 // Mỗi tài khoản: 10.000 neuron/ngày (về 0 lúc 00:00 UTC), chừa VIMG_CF_RESERVE (10 %) → trần ảnh = floor(phần dùng / neuron mỗi ảnh của mô hình).
 // 4006 / 429 hết hạn mức / 401 / 403 → bỏ tài khoản đó tới hết lượt; 3040 (quá tải tạm) → người gọi thử lại.
+import { poolAccounts, poolHold } from '../lib/cf-pool.mjs';
 
 /** neuron ƯỚC TÍNH mỗi ảnh (bảng giá Workers AI 10/2026; schnell ra cố định 1024² × 4 bước, các mô hình khác 512²). Đo lại bằng analytics rồi sửa; ghi đè VIMG_NPI_<tên>. */
 export const NPI = {
@@ -29,23 +30,15 @@ export function parsePool(raw) {
   return out;
 }
 
-/** danh sách tài khoản dùng để vẽ (gộp token trùng tài khoản – token sau dự phòng khi token trước hỏng; không tài khoản chính) */
-export function poolAccounts(env = process.env) {
-  const by = new Map();
-  for (const [a, t] of parsePool(env.CF_POOL)) (by.get(a) || by.set(a, []).get(a)).push(t);
-  const skip = Math.max(0, +(env.VIMG_POOL_SKIP ?? 5)), out = [];
-  [...by].slice(skip).forEach(([a, toks], i) => out.push({ id: 'pool' + (i + skip), acct: a, tok: toks[0], toks }));
-  if (env.CF_ACCOUNT_2 && env.CF_AI_TOKEN_2 && env.VIMG_CF_USE_CF2 !== '0') out.push({ id: 'cf2', acct: env.CF_ACCOUNT_2, tok: env.CF_AI_TOKEN_2, toks: [env.CF_AI_TOKEN_2] });
-  const main = String(env.CF_ACCOUNT_1 || '').toLowerCase(), seen = new Set();
-  return out.filter(x => x.acct.toLowerCase() !== main && !seen.has(x.acct) && seen.add(x.acct));
-}
+/** danh sách tài khoản dùng để vẽ: MỘT nguồn scripts/lib/cf-pool.mjs (gồm giữ chỗ pilot CF_POOL_HOLD) – 02/11 bỏ bản chép trùng */
+export { poolAccounts, poolHold };
 
 /** thân yêu cầu theo họ mô hình: schnell JSON {prompt, steps} (không cỡ) · FLUX.2 multipart · còn lại JSON có width/height */
-export function cfInput(model, prompt, size = '512') {
-  const [w, h = w] = String(size || '512').toLowerCase().split('x').map(n => +n);
-  if (/flux-1-schnell$/.test(model)) return { json: { prompt, steps: 4 } };
-  if (/flux-2-/.test(model)) { const f = new FormData(); f.append('prompt', prompt); f.append('width', String(w)); f.append('height', String(h)); return { form: f }; }
-  return { json: { prompt, width: w, height: h } };
+export function cfInput(model, prompt, size = '512', seed) {
+  const [w, h = w] = String(size || '512').toLowerCase().split('x').map(n => +n), sd = seed != null ? { seed } : {};   // seed: ứng viên 2..N (VIMG_CANDS) – cùng prompt, khác hạt
+  if (/flux-1-schnell$/.test(model)) return { json: { prompt, steps: 4, ...sd } };
+  if (/flux-2-/.test(model)) { const f = new FormData(); f.append('prompt', prompt); f.append('width', String(w)); f.append('height', String(h)); if (seed != null) f.append('seed', String(seed)); return { form: f }; }
+  return { json: { prompt, width: w, height: h, ...sd } };
 }
 
 export class CfQuota extends Error {}
@@ -53,8 +46,8 @@ export class CfSafety extends Error {}
 const quotaish = s => /4006|daily free allocation|neurons?\b.*(limit|exceed)|quota/i.test(s);
 
 /** một ảnh trên một tài khoản → Buffer (JPEG/PNG/WebP) có .meta */
-export async function cfImage(a, model, prompt, size, F = fetch) {
-  const inp = cfInput(model, prompt, size);
+export async function cfImage(a, model, prompt, size, F = fetch, seed) {
+  const inp = cfInput(model, prompt, size, seed);
   const r = await F(`https://api.cloudflare.com/client/v4/accounts/${a.acct}/ai/run/${model}`, {
     method: 'POST', headers: { Authorization: 'Bearer ' + a.tok, ...(inp.json ? { 'Content-Type': 'application/json' } : {}) },
     body: inp.json ? JSON.stringify(inp.json) : inp.form,
@@ -65,6 +58,7 @@ export async function cfImage(a, model, prompt, size, F = fetch) {
   if (!r.ok || !j.success) {
     const m = `${r.status} ${JSON.stringify(j.errors || '').slice(0, 200)}`;
     if (r.status === 429 && !/3040/.test(m) || quotaish(m) || r.status === 401 || r.status === 403 || /10000|Authentication/.test(m)) throw new CfQuota(m);
+    if (seed != null && r.status === 400 && /seed/i.test(m)) return cfImage(a, model, prompt, size, F);   // mô hình không nhận seed → vẽ không hạt (vẫn ngẫu nhiên phía Cloudflare)
     if (/refused|nsfw|safety|Input prompt/i.test(m)) throw new CfSafety(m);
     const e = new Error(m); e.status = r.status === 429 ? 503 : r.status; throw e;   // 3040 quá tải tạm → coi như 5xx để thử lại
   }
@@ -91,10 +85,10 @@ export function cfProvider(model, env = process.env, F = fetch) {
   const cap = Math.min(+(env.VIMG_MAX_CF || 0), per * accts.length);
   return {
     id: 'cf', max: cap, stats, ok: () => accts.length > 0 && cap > 0,
-    async run(prompt) {
+    async run(prompt, o = {}) {
       for (let n = 0; n < accts.length; n++) {
         const a = accts[(i + n) % accts.length]; if (!(left.get(a.id) > 0)) continue;
-        try { const b = await cfImage(a, model, prompt, env.VIMG_SIZE, F); left.set(a.id, left.get(a.id) - 1); stats.ok++; stats.by_acct[a.id] = (stats.by_acct[a.id] || 0) + 1; i = (i + n + 1) % accts.length; return b; }
+        try { const b = await cfImage(a, model, prompt, env.VIMG_SIZE, F, o.seed); left.set(a.id, left.get(a.id) - 1); stats.ok++; stats.by_acct[a.id] = (stats.by_acct[a.id] || 0) + 1; i = (i + n + 1) % accts.length; return b; }
         catch (e) { if (e instanceof CfQuota && /^40[13]\b/.test(e.message) && a.toks && a.toks.indexOf(a.tok) < a.toks.length - 1) { a.tok = a.toks[a.toks.indexOf(a.tok) + 1]; n--; continue; }   // token hỏng → token kế của CÙNG tài khoản
           if (e instanceof CfQuota) { left.set(a.id, 0); stats.dead.push(a.id + ' ' + e.message.slice(0, 60)); continue; } throw e; }
       }

@@ -33,6 +33,7 @@ quiz: [
     explain: "'Algorithmic bias' (viés algorítmico) é um dos tópicos mais cobrados em redações sobre ética e privacidade na era digital."
   }
 ]
+publishAt: 2026-11-25T20:37:00-03:00
 ---
 O tema «Technology and Artificial Intelligence» é uma presença constante e recorrente nas provas oficiais do IELTS. Os tópicos de redação do **Writing Task 2** e as perguntas do **Speaking Part 3** frequentemente exigem que o candidato discuta os impactos da automação no emprego, a privacidade de dados biométricos, a dependência digital entre jovens ou o futuro dos carros autônomos.
 

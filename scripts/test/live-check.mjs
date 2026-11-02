@@ -1,6 +1,7 @@
 // Rà soát bản LIVE (chạy hằng ngày trong .github/workflows/health.yml): trang chính, API, dữ liệu, âm thanh, phiên bản.
 // Không cần khóa; lỗi nào cũng in ra và exit 1 → workflow đỏ → bản tin email 8h sáng (workers/mail) báo về.
 import fs from 'fs';
+import { readIndex } from '../sentence-audio/lib.mjs'; // audio-index.js dạng nén – chạy tệp
 const B = 'https://lexkite.com', bad = [], ok = [];
 // Header CI (secret LEXKITE_CI_HEADER): qua WAF + thống kê truy cập tự đếm là máy tự động (functions/api/hit.js) – không in giá trị
 const CI = process.env.LEXKITE_CI_HEADER ? { 'X-Lexkite-CI': process.env.LEXKITE_CI_HEADER.trim() } : {};
@@ -18,7 +19,7 @@ await json('/api/config');
 await check('/api/hit (POST)', async () => { const r = await get(B + '/api/hit', { method: 'POST', body: '{}' }); return r.status < 500 || 'HTTP ' + r.status; });
 await check('/api/sync từ chối token giả', async () => { const r = await get(B + '/api/sync', { method: 'POST', headers: { Authorization: 'Bearer x.y.z' }, body: '{"op":"pull"}' }); return r.status === 401 || 'HTTP ' + r.status; });
 for (const l of ['ja', 'ar']) { await json(`/packs/${l}.json`, j => Object.keys(j).length > 7000 || 'quá ít từ'); await json(`/i18n/explain/${l}.json`, j => Object.keys(j).length > 2000 || 'quá ít lời giải'); }
-await check('CDN âm thanh', async () => { const idx = fs.readFileSync('web/js/listen/audio-index.js', 'utf8'), k = ((idx.match(/new Set\("([^"]+)"/) || [])[1] || '').split(' ').pop(); if (!k) return 'không đọc được audio-index'; const r = await get('https://lexkiteapp.github.io/audio/l/' + k + '.mp3'); return r.ok || 'HTTP ' + r.status; });
+await check('CDN âm thanh', async () => { const k = [...readIndex().have].pop(); if (!k) return 'không đọc được audio-index'; const r = await get('https://lexkiteapp.github.io/lexkite-media-2/audio/l/' + k + '.mp3'); return r.ok || 'HTTP ' + r.status; });
 
 const out = `### 🌐 Live: ${ok.length} đạt · ${bad.length} lỗi\n` + (bad.length ? bad.map(b => '- ❌ ' + b).join('\n') : '- ✅ mọi kiểm tra đạt');
 console.log(out); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out + '\n');
