@@ -185,6 +185,7 @@ await ok('r2 gate: ngưỡng 80/90 % trên cả 3 hạn mức Free', () => {
   assert.equal(r2Gate({ storage: 8 * 1024 ** 3, a: 0, b: 0 }).level, 'alert'); assert.equal(r2Gate({ storage: 9 * 1024 ** 3, a: 0, b: 0 }).level, 'fallback');
   assert.equal(r2Gate({ storage: 0, a: 799999, b: 0 }).level, 'ok'); assert.equal(r2Gate({ storage: 0, a: 800000, b: 0 }).level, 'alert');
   const g = r2Gate({ storage: 1, a: 1, b: 9e6 }); assert.equal(g.level, 'fallback'); assert.equal(g.key, 'b');
+  assert.equal(r2Gate({ storage: 0, a: 0, b: 4999999 }).level, 'ok'); assert.equal(r2Gate({ storage: 0, a: 0, b: 5e6 }).level, 'warn'); // Class B ≥ 50 %: cảnh báo trượt cache
   assert.deepEqual(r2Usage({ r2s: [{ max: { payloadSize: 10, metadataSize: 2 } }], r2o: [{ dimensions: { actionType: 'PutObject' }, sum: { requests: 3 } }, { dimensions: { actionType: 'GetObject' }, sum: { requests: 5 } }, { dimensions: { actionType: 'DeleteObject' }, sum: { requests: 9 } }] }), { storage: 12, a: 3, b: 5 });
 });
 const r2Run = async (r2, { cur } = {}) => {
@@ -207,6 +208,7 @@ await ok('r2 9,1 GB (≥ 90 %): về Worker + GitHub 1 lần, đóng băng ghi, 
   const y = await r2Run(store(9.1), { cur: x.st }); assert.equal(y.fb.length, 0, 'đã đóng băng → không rollback lại'); assert.equal(y.st.r2, 'frozen');
   const z = await r2Run(store(1), { cur: x.st }); assert.equal(z.st.r2, 'frozen', 'không tự gỡ – gỡ tay (docs/FREE-TIER.md §R2)');
 });
+await ok('r2 Class B 6 triệu (≥ 50 %): chỉ cảnh báo, không issue, không về GitHub', async () => { const x = await r2Run({ r2s: [], r2o: [{ dimensions: { actionType: 'GetObject' }, sum: { requests: 6e6 } }] }); assert.equal(x.r.r2.level, 'warn'); assert.equal(x.fb.length, 0); assert.ok(!x.calls.includes('POST /issues')); });
 await ok('r2 Class B 9,5 triệu (≥ 90 %): về GitHub', async () => { const x = await r2Run({ r2s: [], r2o: [{ dimensions: { actionType: 'GetObject' }, sum: { requests: 9.5e6 } }] }); assert.equal(x.fb.length, 1); assert.equal(x.st.r2, 'frozen'); });
 await ok('đóng băng: mirror + media-store ngừng ghi R2', () => {
   const f = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ftz-')), 's.json');

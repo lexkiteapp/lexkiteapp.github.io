@@ -155,7 +155,8 @@ export async function intradayMain({ dry = false, now = Date.now(), env = proces
   const ru = r2Usage(a), rg = r2Gate(ru);
   const r2md = `\nR2 tháng này: ${(ru.storage / 1024 ** 3).toFixed(2)} GB / 10 GB · Class A ${ru.a} / ${R2_FREE.a} · Class B ${ru.b} / ${R2_FREE.b} → **${rg.level}** (${(rg.pct * 100).toFixed(1)} % ${rg.key})${cur.r2 === 'frozen' ? ' · ĐÃ ĐÓNG BĂNG ghi R2' : ''}\n`;
   console.log(r2md); if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, r2md);
-  if (rg.level !== 'ok') { console.log(`::warning::R2 ${(rg.pct * 100).toFixed(0)} % hạn mức Free (${rg.key})`); ev.alerts.push({ key: 'r2_' + rg.key, label: `R2 ${rg.key} (tháng)`, pct: rg.pct, level: 'alert', action: rg.level === 'fallback' ? 'Đã về Worker + GitHub và ngừng ghi R2 (chốt $0). Gỡ tay sau khi dọn/đầu tháng: docs/FREE-TIER.md §R2.' : 'Dọn tệp mồ côi / giảm đọc trượt cache; tới 90 % guard tự về GitHub.' }); }
+  if (rg.level === 'warn') console.log(`::warning::R2 Class B ${(rg.parts.b * 100).toFixed(0)} % hạn mức tháng (≥ 50 %) – nhiều lượt trượt cache biên: kiểm cf-cache-status (GET phải HIT; HEAD luôn DYNAMIC) và Cache Rule lexkite_cdn_cache`);
+  if (rg.level === 'alert' || rg.level === 'fallback') { console.log(`::warning::R2 ${(rg.pct * 100).toFixed(0)} % hạn mức Free (${rg.key})`); ev.alerts.push({ key: 'r2_' + rg.key, label: `R2 ${rg.key} (tháng)`, pct: rg.pct, level: 'alert', action: rg.level === 'fallback' ? 'Đã về Worker + GitHub và ngừng ghi R2 (chốt $0). Gỡ tay sau khi dọn/đầu tháng: docs/FREE-TIER.md §R2.' : 'Dọn tệp mồ côi / giảm đọc trượt cache; tới 90 % guard tự về GitHub.' }); }
   let r2 = cur.r2, r2err = '';
   if (!dry && rg.level === 'fallback' && cur.r2 !== 'frozen') {
     r2 = 'frozen';
@@ -168,7 +169,7 @@ export async function intradayMain({ dry = false, now = Date.now(), env = proces
     else if (!d.pause) paused = [];
     const w = writeIntraday({ ...d, paused, r2 }, now, file);
     if (w.changed) { console.log(`trạng thái → ${d.mode}/${d.level}, dừng [${paused.join(', ')}]`); if (env.GITHUB_OUTPUT) fs.appendFileSync(env.GITHUB_OUTPUT, `state_changed=1\nmode_changed=${w.modeChanged ? 1 : 0}\n`); }
-    if ((d.level === 'alert' || rg.level !== 'ok') && env.GITHUB_TOKEN) await issue(env.GITHUB_TOKEN, ev, md + r2md, fetcher, { keepOpen: true });
+    if ((d.level === 'alert' || rg.level === 'alert' || rg.level === 'fallback') && env.GITHUB_TOKEN) await issue(env.GITHUB_TOKEN, ev, md + r2md, fetcher, { keepOpen: true });
     if (r2err) throw new Error(r2err);
   }
   return { ...d, ...p, paused, r2: { ...rg, usage: ru, state: r2 } };

@@ -32,18 +32,18 @@ export function hourly(a) {
   return { hours, scripts };
 }
 // ---- Chốt $0 của R2 (media/audio tĩnh – docs/FREE-TIER.md §R2): hạn mức Free mỗi tháng; ≥ 80 % → issue, ≥ 90 % → về Worker + GitHub, ngừng ghi R2 ----
-export const R2_FREE = { storage: 10 * 1024 ** 3, a: 1e6, b: 10e6 }, R2_ISSUE = 0.8, R2_FALLBACK = 0.9;
+export const R2_FREE = { storage: 10 * 1024 ** 3, a: 1e6, b: 10e6 }, R2_ISSUE = 0.8, R2_FALLBACK = 0.9, R2_B_WARN = 0.5; // Class B ≥ 50 % = nhiều lượt trượt cache biên (lượt HIT không tính) → cảnh báo sớm
 /** GraphQL (r2s, r2o từ đầu tháng) → { storage (byte), a, b } (thao tác xoá miễn phí không tính). */
 export function r2Usage(a) {
   const storage = (a.r2s || []).reduce((s, g) => s + (+g.max.payloadSize || 0) + (+g.max.metadataSize || 0), 0), ops = { a: 0, b: 0 };
   for (const g of a.r2o || []) { const c = r2Class(g.dimensions.actionType); if (c !== 'free') ops[c] += +g.sum.requests || 0; }
   return { storage, ...ops };
 }
-/** Mức chốt R2: pct = lớn nhất trong 3 hạn mức. ok | alert (≥ 80 %) | fallback (≥ 90 %). */
+/** Mức chốt R2: pct = lớn nhất trong 3 hạn mức. ok | warn (Class B ≥ 50 % – trượt cache nhiều) | alert (≥ 80 %) | fallback (≥ 90 %). */
 export function r2Gate(u) {
   const parts = { storage: u.storage / R2_FREE.storage, a: u.a / R2_FREE.a, b: u.b / R2_FREE.b };
   const [key, pct] = Object.entries(parts).sort((x, y) => y[1] - x[1])[0];
-  return { key, pct, parts, level: pct >= R2_FALLBACK ? 'fallback' : pct >= R2_ISSUE ? 'alert' : 'ok' };
+  return { key, pct, parts, level: pct >= R2_FALLBACK ? 'fallback' : pct >= R2_ISSUE ? 'alert' : parts.b >= R2_B_WARN ? 'warn' : 'ok' };
 }
 
 /** Tổng tới giờ + ngoại suy tới 24:00 theo nhịp cửa sổ ≤ 3 giờ gần nhất (gồm giờ đang chạy dở). */
