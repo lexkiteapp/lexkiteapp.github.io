@@ -423,6 +423,9 @@ async function j7(lang) {
     await ctx.route('https://news.example.test/**', r => r.fulfill({ contentType: 'text/html', body: ART }));
     await ctx.route(/lexkite\.com|googleapis|dictionaryapi|tatoeba|wiktionary|datamuse|mymemory|wikimedia/, r => r.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
     ctx.on('page', p => p.on('pageerror', e => errs.push('pageerror ' + p.url().slice(0, 80) + ': ' + e.message.slice(0, 90) + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).map(x => x.trim()).join(' ').slice(0, 200))));
+    const tL = Date.now(), life = [], track = w => { life.push(`+SW@${Date.now() - tL}ms`); w.on('close', () => life.push(`-SW@${Date.now() - tL}ms`)); };
+    ctx.on('serviceworker', track); ctx.serviceWorkers().forEach(track); ctx.on('page', p => { life.push(`+page@${Date.now() - tL}ms ${p.url().slice(0, 50)}`); p.on('close', () => life.push(`-page@${Date.now() - tL}ms`)); });
+    diag.life = life;
     let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
     const base = `chrome-extension://${new URL(sw.url()).host}/`;
     await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);
@@ -459,7 +462,9 @@ async function j7(lang) {
     try {
       const sw2 = ctx.serviceWorkers()[0];
       const snap = sw2 ? await sw2.evaluate(async () => { const out = []; for (const t of await chrome.tabs.query({})) { if (!/^https?:/.test(t.url || '')) continue; try { const [r] = await chrome.scripting.executeScript({ target: { tabId: t.id }, func: () => ({ boot: !!window.__lkBoot && !window.__lkBoot.off, cs: !!window.__lkCS, popupEl: !!document.querySelector('ielts-lexi-popup'), sel: String(getSelection()).slice(0, 20), ready: document.readyState }) }); out.push({ url: t.url.slice(0, 40), ...r.result }); } catch (e) { out.push({ url: t.url.slice(0, 40), err: String(e.message).slice(0, 80) }); } } return out; }).catch(e => 'sw: ' + e.message) : 'SW đã mất (' + ctx.serviceWorkers().length + ' worker)';
-      console.log(`  ℹ [${tag}] chẩn đoán: ${diag.join(' | ')} · tab: ${JSON.stringify(snap)}`);
+      const sws = [];
+      for (const w of ctx.serviceWorkers()) sws.push(await w.evaluate(() => ({ url: self.location.href.slice(0, 60), id: typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.id ? 'có id' : 'KHÔNG id', apis: typeof chrome === 'undefined' ? [] : Object.keys(chrome).slice(0, 12), up: Math.round(performance.now()) })).catch(e => 'lỗi: ' + String(e.message).slice(0, 60)));
+      console.log(`  ℹ [${tag}] chẩn đoán: ${diag.join(' | ')} · vòng đời: ${(diag.life || []).join(' ')} · SW hiện có: ${JSON.stringify(sws)} · tab: ${JSON.stringify(snap)}`);
     } catch (e) { console.log(`  ℹ [${tag}] chẩn đoán lỗi: ${e.message}`); }
   }
   results.push({ id: 7, name: 'add-on', lang, dev: 'desktop', ok: !fails.length, fails, notes: [], ms: Date.now() - t0 });
