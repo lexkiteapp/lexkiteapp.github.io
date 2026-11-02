@@ -126,7 +126,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - [push,pr,manual,call] journey-e2e: Hành trình người dùng đầu-cuối…
 
 ## Test (245) → vùng phủ (file đích chi tiết: json `tests`)
-- `web/js`: account-delete account-flow account-ui admin-gate admin-ui ads-admin ads-cls ads analytics anki audio-play audio-voice call-engine choice-kit client-security clips-perf confidence criteria dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-targets get-app ipa-accent league learn-flow lex mobile-guards mobile-qa native-auth next-step pron-coach pron-pairs quick-ui report-ui retention sel-translate shell-size social-ui speak-ipa speak static-routes streak-flame streak-ui sync-drive target-lang tutor unit usage verbs video-web
+- `web/js`: account-delete account-flow account-ui admin-gate admin-ui ads-admin ads-cls ads analytics anki audio-play audio-voice call-engine choice-kit client-security clips-perf confidence criteria dict-sent-lang dictlookup drive-ui exit-guard ext-selection facade-perf feel focus-targets get-app ipa-accent league learn-flow lex mobile-guards mobile-qa native-auth next-step pron-coach pron-pairs quick-ui reminders report-ui retention sel-translate shell-size social-ui speak-ipa speak static-routes streak-flame streak-ui sync-drive target-lang tutor unit usage verbs video-web
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe call-e2e ci-policy clutter confidence-shots content-check contrast crawl d1-scan docs-budget e2e explain-shots final-qc i18n-switch lazyfix listing-check native-facade nav-render no-url-pathname profile-route pron-read qa-bot-diff review-done review-lookup review-modes-ui review-modes review-shots review-taps route-race run-suite screens seo-sitemap serve-web smoke toeic-read-e2e tools-ui ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep
 - `functions/api`: admin-ads-shots admin-dist-shots admin-guard admin-prefs ads-revenue ai-pool api-security capacity classroom clip-bulk dist-roles distribution drive hit-retry jobs keys live-check notices pr-check quota report schema-lock social-auto social-meta-oauth social-meta social-mgr social-proxy sync-ctx sync-pack user-mgmt ux1-rollout yt-manual
 - `scripts`: authority-pages axe blog-images bot-push-key brand-check ci-triage codemap-budget explain-check i18n-english i18n-single journey-e2e layout-guards lesson-content links-js mobile-polish mqa-parity pack-gloss pages-skip protection samples-ui sentence-asr tools-pages ux1 word-ipa world-scorecard
@@ -168,7 +168,6 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `web/data`: lesson-embed-e2e
 - `workers/dict`: dict-pages
 - `workers/mail`: mail-prefs
-- `workers/push`: reminders
 
 ## Mô-đun JS chính (19/957, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
 - `functions/api/` _keys.js: ALERT_MIN,MAIL_GAP,PROVIDERS,PROVIDER_IDS,cleanKey… →_quota.js,_schema.js ←6 (_meta_oauth.js,_meta_tokens.js,_social_auto.js) · _social_auto.js: AUTO_PLATS,AUTO_DEFAULT,PROVIDERS,cleanAuto,breakerMs… →_clip_logic.js,_grabcast.js,_keys.js ←4 (social-auto.js,social.js,callback.js) · admin-shorts.js: MANIFEST,okPath,signedPack,signed,_memo… →_d1guard.js,_shorts_data.js,admin.js ←5 (_social_auto.js,_social_mgr.js,admin-clips.js) · drive.js: isFootageRow,isBackupRow,isShortsRow,shortsCapacity,sha256Hex… →_backup.js,_d1b.js,_d1guard.js ←8 (admin-shorts.js,capacity.js,callback.js)
@@ -180,5 +179,5 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/sentence-audio/` corpus.mjs: collect →calls-exam.js,calls.js,data.js ←4 (coverage.mjs,gen-audio.mjs,merge.mjs) · lib.mjs: IDX,S2,readIndex,writeIndex,readLedger… →keyset.mjs,audio-index.js ←6 (audio-cdn-check.mjs,coverage.mjs,gen-audio.mjs)
 - `scripts/vocab-img/` strict.mjs: fnv,STRICT_V,COLORS,SHAPES,ICONIC… →style.mjs ←8 (cards.mjs,gen.mjs,icons.mjs) · style.mjs: STYLE,PEOPLE,fnv,promptFor,altFor… →- ←11 (cards.mjs,concept.mjs,gen.mjs)
 - `web/` sw.js →ads.js,ai.js,app.js ←1 (world-scorecard.mjs)
-- `web/js/` assist.js: Assist →ai.js,app.js ←4 (ai.js,task1.js,write.js)
+- `web/js/` admin.js: AdminUI →admin-ads.js,admin-backlinks.js,admin-chart.js ←1 (admin.html)
 - `web/js/toefl/` data1.js: TOEFL →- ←7 (app.js,nawl.js,toefl.js)
