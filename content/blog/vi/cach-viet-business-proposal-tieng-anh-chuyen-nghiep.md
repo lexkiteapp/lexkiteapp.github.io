@@ -175,4 +175,4 @@ Dưới đây là các thuật ngữ cốt lõi thường xuất hiện trong c�
 - **Service Level Agreement (SLA):** Thỏa thuận cam kết mức độ dịch vụ về thời gian phản hồi kỹ thuật và tỷ lệ khả dụng hệ thống.
 - **Non-Disclosure Agreement (NDA):** Thỏa thuận bảo mật thông tin kinh doanh và tài sản trí tuệ giữa các bên.
 
-Để nâng cao khả năng cạnh tranh trong sự nghiệp quốc tế, hãy bắt đầu rèn luyện kỹ năng viết và giao tiếp kinh doanh bài bản với [khoá học từ vựng trực tuyến Lexkite](/#/).
+Để nâng cao khả năng cạnh tranh trong sự nghiệp quốc tế, hãy bắt đầu rèn luyện kỹ năng viết và giao tiếp kinh doanh bài bản với [khóa học từ vựng trực tuyến Lexkite](/#/).
