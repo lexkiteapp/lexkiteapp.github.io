@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Bảng điểm chất lượng nội dung (docs/CONTENT-WORLD-PLAN.md §3.5, P0.7): 6 mảng × 0–100 + tổng, từ ĐỘ PHỦ × TỈ LỆ QUA CỔNG.
-// Số liệu dùng lại cổng có sẵn: content-check (--json → reports/content-stats.json + lỗi theo mảng), build-lexicon (kho từ một nguồn + mở rộng, loadAllPlus),
+// Bảng điểm chất lượng nội dung (docs/CONTENT-WORLD-PLAN.md §3.5, P0.7): 7 mảng × 0–100 + tổng, từ ĐỘ PHỦ × TỈ LỆ QUA CỔNG.
+// Số liệu dùng lại cổng có sẵn: lkf-check (khung Can-do, P0-C), content-check (--json → reports/content-stats.json + lỗi theo mảng), build-lexicon (kho từ một nguồn + mở rộng, loadAllPlus),
 // content/lexicon/img.json (ảnh theo nghĩa), i18n-qa (lỗi bản dịch 15 ngôn ngữ). 0 token, chỉ đọc repo.
 // Chuẩn đích (CHUAN) cố định theo "ông lớn" ở §2 của kế hoạch – KHÔNG hạ; khác targets.json (chỉ tiêu lô, được nâng dần).
 // Ngưỡng sàn: content/pipeline/score.budget.json (như scripts/test/visual-qa.budget.json) – điểm < sàn → exit 1; sàn chỉ được tăng.
@@ -40,6 +40,10 @@ const R = [...rows.values()], NV = R.length, has = i => R.filter(r => String(r[i
 const img = JSON.parse(rd('content/lexicon/img.json')).items || {};
 const imgN = [...rows.keys()].filter(k => img[k]).length;
 const lvN = l => R.filter(r => r[8] === l).length;
+
+// ---------- Cổng 4: lkf-check (khung Can-do + gắn lo, P0-C) ----------
+const lkfRun = spawnSync('node', ['scripts/content-qa/lkf-check.mjs'], { encoding: 'utf8' });
+const LK = ex('reports/lkf-coverage.json') ? JSON.parse(rd('reports/lkf-coverage.json')) : { objectives: 0, cellsOk: 0, objectivesUsed: 0, total: { tagged: 0, items: 0 }, errors: 1 };
 
 // ---------- Cổng 3: i18n-qa (15 ngôn ngữ) ----------
 const qa = spawnSync('node', ['scripts/i18n-qa.mjs'], { encoding: 'utf8' }).stdout || '';
@@ -85,6 +89,10 @@ const AREAS = {
   exam: { name: 'Đề thi', err: ERR.exam, parts: [
     ...Object.entries(EXAM_STD).map(([k, t]) => [k, S[k] ? n(k) : +T[k]?.have || 0, t, 5]), // loại chưa đếm trong content-check: số đếm tay ở targets.json (như content-queue)
     ...['a2', 'b1', 'b2', 'c1', 'c2'].map(l => [`Cambridge ${l.toUpperCase()}`, ls(`web/js/cambridge/${l}`, /\.js$/).length, 6, 8, 1])] },
+  // Chuẩn: ~600 mục tiêu (6 kỹ năng × 6 cấp × ≥ 15), mọi nội dung có lo; "mục tiêu có nội dung" đo khoảng trống thật (vd trung gian, A1, C2) – chỉ tăng khi thêm bài
+  lkf: { name: 'Khung Can-do', err: LK.errors, items: LK.total.items, gate: lkfRun.status === 0, parts: [
+    ['mục tiêu LKF tự soạn', LK.objectives, 600, 25], ['ô kỹ năng × cấp đủ ≥ 15', LK.cellsOk, 36, 15],
+    ['nội dung có lo hợp lệ', LK.total.tagged, LK.total.items || 1, 35], ['mục tiêu đã có nội dung luyện', LK.objectivesUsed, 600, 25]] },
   i18n: { name: 'i18n', err: 0, parts: [
     ['ngôn ngữ đạt i18n-qa', qaRows.reduce((a, q) => a + (1 - Math.min(1, q.hard / NK)), 0), LANGS.length, 45],
     ['nhãn ngắn dịch tay', qaRows.reduce((a, q) => a + (1 - Math.min(1, q.short / NK)), 0), LANGS.length, 10],
