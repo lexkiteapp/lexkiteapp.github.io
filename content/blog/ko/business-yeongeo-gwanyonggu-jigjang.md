@@ -28,16 +28,16 @@ qualityScore: 95
 
 - **Get the ball rolling**: 프로젝트나 계획의 첫 단추를 꿰어 본격적으로 착수하다.
   - *사용 맥락*: 킥오프 미팅을 시작하거나 팀원들에게 첫 번째 결과물 제출을 독려할 때 적합합니다.
-  - *실전 예문*: *"Let us get the ball rolling by confirming our project roadmap and primary milestones."* (오늘 프로젝트 로드맵과 주요 마일스톤을 확정하여 본격적으로 착수합시다).
+  - *실전 예문*: *"Can we get the ball rolling by prioritizing our quarterly product backlog?"* (이번 분기 제품 백로그 우선순위를 정하면서 본격적으로 시작해 볼까요?).
 - **Hit the ground running**: 입사 첫날부터 긴 적응 기간 없이 즉시 전력으로 뛰어난 성과를 내다.
   - *사용 맥락*: 경험 많은 시니어 엔지니어나 전문 컨설턴트를 채용할 때 자주 쓰이는 찬사입니다.
-  - *실전 예문*: *"Given his cloud migration background, Felix will hit the ground running on our infrastructure overhaul."* (클라우드 마이그레이션 경험이 풍부한 만큼, 펠릭스는 인프라 개편 작업에서 첫날부터 즉시 전력으로 활약할 것입니다).
+  - *실전 예문*: *"Our newly hired product owner will hit the ground running on user retention strategies."* (새로 채용된 프로덕트 오너는 유저 유지 전략 수립에 첫날부터 즉시 투입되어 성과를 낼 것입니다).
 - **On the same page**: 같은 목표를 공유하고 이해관계나 견해가 완벽하게 일치하다.
   - *사용 맥락*: 임원진 보고나 대형 계약 체결 전, 팀 내부의 공감대를 재확인할 때 필수적입니다.
-  - *실전 예문*: *"Before presenting to executive leadership, let us ensure all team leads are on the same page."* (경영진에게 보고하기 전에 모든 팀 리더가 동일한 방향으로 완벽히 공감대를 형성했는지 확인합시다).
+  - *실전 예문*: *"We need to verify that regional marketing heads stay on the same page."* (지역별 마케팅 총괄들이 같은 방향으로 완벽하게 공감대를 형성하고 있는지 확인할 필요가 있습니다).
 - **Bring to the table**: 협상이나 팀 협업에 실질적인 이점, 전문 지식 또는 핵심 자원을 기여하다.
   - *사용 맥락*: 외부 벤더사를 평가하거나 파트너십을 논의할 때 단골로 등장합니다.
-  - *실전 예문*: *"The external software vendor brings specialized compliance expertise to the table."* (외부 소프트웨어 벤더는 전문적인 규제 준수 지식을 우리에게 가져다줍니다).
+  - *실전 예문*: *"The strategic advisory firm brings proven international expansion frameworks to the table."* (그 전략 자문사는 검증된 해외 사업 확장 프레임워크를 팀에 제공해 줍니다).
 
 회의에서 유창한 발언력을 키우고 싶다면 [비즈니스 영어 회의 필수 표현 모음](/ko/blog/business-yeongeo-meeting-pyohyeon/)도 함께 살펴보세요.
 
@@ -47,16 +47,16 @@ qualityScore: 95
 
 - **Back to the drawing board**: 기존 계획의 실패를 인정하고 원점에서 백지상태로 다시 기획하다.
   - *사용 맥락*: 제안서가 반려되었을 때 팀의 사기를 북돋우며 새로운 대안을 모색할 때 유용합니다.
-  - *실전 예문*: *"Since the initial pilot study missed performance benchmarks, we must go back to the drawing board."* (초기 파일럿 테스트가 기준치에 미치지 못했으므로, 기획 단계로 돌아가 처음부터 다시 구상해야 합니다).
+  - *실전 예문*: *"Our initial algorithm failed accuracy criteria, so we are going back to the drawing board."* (초기 알고리즘이 정확도 기준을 충족하지 못했기 때문에 원점에서 처음부터 다시 설계하고 있습니다).
 - **Cut corners**: 비용이나 시간을 절약하기 위해 품질 검증이나 안전 절차를 부실하게 건너뛰다.
   - *사용 맥락*: 보안 규정 준수나 품질 보증 원칙을 지키기 위한 경고성 발언으로 쓰입니다.
-  - *실전 예문*: *"We refuse to cut corners on data encryption protocols merely to hit a quarterly release date."* (분기 출시 일정을 맞추겠다는 이유만으로 데이터 암호화 프로토콜에서 원칙을 어기거나 부실하게 처리할 수는 없습니다).
+  - *실전 예문*: *"We must never cut corners on payment gateway compliance standards."* (결제 게이트웨이 규제 준수 기준과 관련해서는 결코 부실하게 절차를 건너뛰어서는 안 됩니다).
 - **Bite the bullet**: 불가피한 고통이나 막대한 비용을 감수하고 과감하게 결단을 내리다.
   - *사용 맥락*: 적자 부서를 정리하거나 노후화된 사내 기간계를 교체할 때 사용됩니다.
-  - *실전 예문*: *"Our board decided to bite the bullet and replace the legacy enterprise ERP platform."* (이사회는 과감한 결단을 내려 노후화된 기업 ERP 시스템을 전면 교체하기로 결정했습니다).
+  - *실전 예문*: *"Management chose to bite the bullet and decommission outdated legacy servers."* (경영진은 결단을 내려 노후화된 레거시 서버들의 가동을 중단하기로 했습니다).
 - **Think outside the box**: 고정관념에서 벗어나 창의적이고 새로운 시각으로 해법을 찾다.
   - *사용 맥락*: 브레인스토밍 워크숍이나 차별화 전략 수립 회의에서 핵심적으로 강조됩니다.
-  - *실전 예문*: *"To outpace agile startups, our product development department must think outside the box."* (기민한 스타트업들을 앞서 나가기 위해 우리 제품 개발 부서는 기존의 틀을 깨는 발상을 해야 합니다).
+  - *실전 예문*: *"Our customer acquisition team has to think outside the box to beat competitive bidding."* (우리 고객 유치팀은 치열한 입찰 경쟁을 이겨내기 위해 기존의 틀을 깨는 발상을 해야 합니다).
 
 글로벌 파트너와의 비즈니스 계약을 앞두고 계신다면 [비즈니스 영어 협상 표현과 계약 노하우](/ko/blog/business-yeongeo-hyeobsang-pyohyeon-gyeyak/)도 큰 도움이 됩니다.
 
@@ -66,16 +66,16 @@ qualityScore: 95
 
 - **Touch base**: 상황을 점검하거나 짧게 정보를 공유하기 위해 간단히 연락을 주고받다.
   - *사용 맥락*: 5분 내외의 가벼운 화상 통화나 짧은 확인 메시지를 요청하는 맺음말로 안성맞춤입니다.
-  - *실전 예문*: *"I will touch base with your account manager on Friday to review the revised delivery schedule."* (수정된 납품 일정을 검토하기 위해 금요일에 담당 매니저와 간단히 상황을 점검하겠습니다).
+  - *실전 예문*: *"I will touch base with your team tomorrow morning to review rollout milestones."* (내일 아침 롤아웃 마일스톤을 점검하기 위해 귀하의 팀과 간단히 연락을 취하겠습니다).
 - **Keep someone in the loop**: 어떤 사안의 최신 진행 상황을 지속적으로 공유하여 소외되지 않게 하다.
   - *사용 맥락*: 이메일 참조(CC)를 걸거나 주요 의사결정권자에게 경과를 보고할 때 씁니다.
-  - *실전 예문*: *"Please keep our procurement team in the loop regarding vendor contract negotiations."* (벤더사와의 계약 협상 진행 상황에 대해 구매팀에도 계속 최신 내용을 공유해 주세요).
+  - *실전 예문*: *"Please keep senior partners in the loop throughout vendor procurement discussions."* (벤더 구매 협상 전반에 걸쳐 시니어 파트너들에게도 최신 상황을 계속 공유해 주시기 바랍니다).
 - **Call it a day**: 목표했던 작업량이 충분히 달성되었을 때 하루의 업무나 회의를 마무리하다.
   - *사용 맥락*: 긴급 장애 대응이나 마라톤 회의를 성공적으로 마친 후 퍼실리테이터가 종료를 선언할 때 씁니다.
-  - *실전 예문*: *"We resolved the primary server outage issues, so let us call it a day and review monitoring logs tomorrow."* (주요 서버 장애 원인을 해결했으니 오늘은 이만 마무리하고 내일 모니터링 로그를 확인합시다).
+  - *실전 예문*: *"We have finalized all urgent release notes, so let us call it a day."* (모든 긴급 릴리스 노트를 확정했으니 오늘은 여기서 업무를 마무리합시다).
 - **Up in the air**: 아직 최종 승인이 나지 않아 결정되지 않고 불확실하게 떠 있는 상태.
   - *사용 맥락*: 예산 승인 대기 중이거나 해외 출장 일정이 미정인 상황을 나타냅니다.
-  - *실전 예문*: *"The budget allocation for our European regional marketing campaign is still up in the air."* (유럽 지역 마케팅 캠페인을 위한 예산 배정은 아직 승인 대기 상태로 미정입니다).
+  - *실전 예문*: *"Corporate travel authorization for next month is currently up in the air."* (다음 달 해외 출장 승인 여부는 현재 결재 대기 중으로 미정 상태입니다).
 
 품격 있는 영문 비즈니스 서신을 작성하려면 [비즈니스 영어 이메일 표현과 템플릿](/ko/blog/business-yeongeo-email-pyohyeon/)을 참고하세요. 또한 말하기 감각은 스피킹 전용 공간 [/#/speaking](/#/speaking)에서, 마이크 음성 채점 기능은 [/#/practice/speak](/#/practice/speak)에서 바로 연습해보실 수 있습니다.
 
@@ -83,9 +83,9 @@ qualityScore: 95
 
 실제 외국계 기업의 주간 싱크업 미팅에서 원어민 팀장과 팀원이 관용구를 주고받는 대화 흐름을 살펴보면 표현의 생생한 쓰임새를 파악할 수 있습니다:
 
-- **Team Lead**: *"Good morning everyone. Let us get the ball rolling with the quarterly cloud migration status. Are all departments on the same page?"*
-- **Engineer**: *"Yes, we hit the ground running on Monday. However, regarding the legacy database, we had to go back to the drawing board after encountering latency spikes."*
-- **Team Lead**: *"Understood. We cannot cut corners on user data security. I will touch base with the infrastructure director this afternoon to allocate backup resources."*
+- **Director**: *"Welcome everyone. Shall we get the ball rolling with our infrastructure roadmap update?"*
+- **Dev Lead**: *"Sure thing. We hit the ground running with security patches, but we had to go back to the drawing board for database scaling."*
+- **Director**: *"Understood. Never cut corners on customer privacy. Let us touch base with external advisors before deploying."*
 
 이처럼 관용구는 독립적으로 쓰이기보다 프로젝트 진행 상황을 신속하게 묻고 답하는 과정에서 유기적으로 결합하여 업무 효율성을 극대화합니다.
 
