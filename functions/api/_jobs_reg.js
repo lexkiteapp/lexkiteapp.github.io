@@ -229,13 +229,14 @@ export const REG = {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [
+    "*/10 * * * *",
     "12 * * * *"
    ],
    "priority": "reports",
    "resources": [
     "gh_minutes"
    ],
-   "minutes": 5,
+   "minutes": 1,
    "est": {
     "d1_internal_reads": 10
    },
