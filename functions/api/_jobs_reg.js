@@ -200,7 +200,8 @@ export const REG = {
    "id": "free-tier-guard",
    "workflow": "free-tier-guard.yml",
    "cron": [
-    "35 1 * * *"
+    "35 1 * * *",
+    "17 * * * *"
    ],
    "priority": "reports",
    "resources": [
@@ -224,6 +225,33 @@ export const REG = {
    "est": {
     "d1_internal_reads": 10
    },
+   "lease": false
+  },
+  {
+   "id": "ci-filler",
+   "workflow": "ci-filler.yml",
+   "cron": [
+    "4-59/10 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "required-gate",
+   "workflow": "required-gate.yml",
+   "cron": [
+    "17,47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
    "lease": false
   },
   {
@@ -1036,6 +1064,20 @@ export const REG = {
     "d1_main_reads": 600,
     "d1_main_writes": 120
    },
+   "lease": false
+  },
+  {
+   "id": "upgrade-audit",
+   "workflow": "upgrade-audit.yml",
+   "cron": [
+    "0 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
    "lease": false
   }
  ]

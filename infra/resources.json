@@ -476,7 +476,7 @@
       "key": "gtx",
       "name": "Google Translate (gtx) & từ điển mở",
       "kind": "api",
-      "purpose": "Dịch máy lúc chạy (dự phòng – nội dung chính đã dịch sẵn ở web/i18n/content), nghĩa từ, phiên âm, ví dụ, ảnh minh họa",
+      "purpose": "Dịch máy lúc chạy (dự phòng – nội dung chính đã dịch sẵn ở web/i18n/content), nghĩa từ, phiên âm, ví dụ, ảnh minh họa. Web/app gọi gtx + dictionaryapi.dev qua proxy cùng nguồn functions/api/dictlookup.js (đệm biên, lỗi → 200 null, hạn mức translate); add-on gọi thẳng (host_permissions)",
       "console": "",
       "free": "Miễn phí, không cam kết (có thể bị giới hạn)",
       "upgrade": "Dịch sẵn lúc build (đã làm) / Gemini",
@@ -1125,6 +1125,34 @@
       "status": "Miễn phí (chờ secret)",
       "match": [
         "modal.com"
+      ]
+    },
+    {
+      "key": "teach-cdn",
+      "name": "Cloudflare Pages lexkite-teach (teach.lexkite.com) – ảnh/clip giáo viên",
+      "kind": "cdn",
+      "purpose": "Kho riêng ảnh + clip Ama/Carlos (web/teach/** → tên có băm sha256[:12], cache immutable 1 năm, CORS * cho WebGL). Deploy bởi .github/workflows/teach-cdn.yml (wrangler pages deploy, secret CLOUDFLARE_API_TOKEN), verify sha256 với web/teach/characters.json. Dự phòng: SW + Chars về /teach/ cùng gốc (giữ nguyên). Add-on dùng bản đóng gói. Spec docs/specs/teach-assets-cdn.md",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/pages/view/lexkite-teach",
+      "free": "Tài sản tĩnh Pages: băng thông + lượt tải không giới hạn · 20.000 tệp/bản · 25 MB/tệp",
+      "upgrade": "Không cần; chuyển R2 (mục blog-media-r2) nếu > 20.000 tệp hoặc tệp > 25 MB",
+      "status": "Miễn phí",
+      "match": [
+        "teach.lexkite.com",
+        "lexkite-teach.pages.dev",
+        "lexkite-teach"
+      ]
+    },
+    {
+      "key": "stitch",
+      "name": "Google Stitch (thiết kế UI, MCP)",
+      "kind": "design",
+      "purpose": "Sinh thiết kế màn hình app/web/add-on (project 'Lexkite English Exam Prep', hệ Tactile A tối / B sáng) qua MCP; chỉ dùng lúc thiết kế, KHÔNG chạy trong sản phẩm, không dán mã Tailwind",
+      "console": "https://stitch.withgoogle.com/",
+      "free": "Miễn phí ~400 credit/ngày/tài khoản",
+      "upgrade": "Hết quota → đổi tài khoản Google khác (chủ đăng nhập); khóa chỉ ở ~/.config/lexkite/stitch-key + cấu hình MCP người dùng, không vào repo",
+      "status": "Đang dùng (thiết kế)",
+      "match": [
+        "stitch.withgoogle.com"
       ]
     }
   ],

@@ -6,6 +6,7 @@
 Áp dụng cho phiên chính, mọi agent con và Antigravity. Mục tiêu: cùng kết quả, ít token hơn ≥ 50 %.
 
 ## 1. Đọc
+- BẢN ĐỒ MÃ: mọi phiên đọc `docs/CODEMAP.md` TRƯỚC (≤ 25 KB, tự sinh bởi `scripts/codemap.mjs`), tra vị trí code bằng `docs/codemap.json` (`node -e`/jq), rồi chỉ grep/mở đúng file bản đồ trỏ tới; cấm khám phá repo mù (ls/find/grep rộng).
 - Đầu phiên: chỉ `docs/README.md` + `docs/METHODS.md` + phần đang mở của `docs/agents/BOARD.md`. Tài liệu khác chỉ đọc khi đụng đúng vùng đó (README ghi "khi nào đọc").
 - Không đọc nguyên file lớn: dùng `grep -n` rồi `sed -n 'a,bp'`; JSON lớn → `python3 -c` lấy đúng khóa; log CI → `grep`/`tail` vài dòng.
 - Không bao giờ đọc file output/JSONL của agent; chờ thông báo kết quả.
@@ -18,6 +19,8 @@
 - Luôn ghi: "làm trên main mới nhất của github.com/lexkiteapp/lexkiteapp.github.io" (worktree agent có thể bắt đầu từ lịch sử cũ).
 - Việc máy móc (dịch, chuyển file, gộp, kiểm tra) → `model: sonnet`/`haiku`; việc thiết kế/khó mới dùng model mạnh.
 - Đặt trần token cho mỗi agent (~150k); vượt → dừng và báo.
+
+- **Đặc tả gọn trước khi code (anh chủ 31/10, kiểu Spec Kit rút gọn):** tính năng lớn (≥3 màn hoặc >½ ngày) → 1 file `docs/specs/<tên>.md` ≤1 trang: mục tiêu, tiêu chí "xong", danh sách việc, cổng kiểm tra; duyệt xong mới code. Việc nhỏ/sửa lỗi làm thẳng.
 
 ## 3. Chờ & theo dõi
 - CI/quota: 1 lệnh `until …; do sleep 20–120; done` hoặc hẹn giờ 1 lần (CronCreate); không hỏi trạng thái lặp lại (đã làm cạn D1 2 lần), không đọc file output của agent.
