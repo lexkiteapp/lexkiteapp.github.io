@@ -303,7 +303,7 @@ else:
   ok(/0 ảnh/.test(out) && !fs.existsSync(sh), 'scene_final: 0 ảnh → in "0 ảnh", không ghi tờ ảnh, thoát 0 (không ValueError)');
   fs.rmSync(d, { recursive: true, force: true });
   const wf = rd('.github/workflows/vocab-img-scene.yml');
-  ok(/id: probe\n\s+if: github\.event\.inputs\.mode != 'calibrate'/.test(wf) && /NH=10; NT=5; \[ "\$\{\{ github\.event\.inputs\.pool \}\}" = tail \] && \{ NH=0; NT=15; \}/.test(wf) && /\[ "\$MODE" = pilot \] && \{ \[ "\$PROBE_ALIVE" -lt 10 \] \|\| \[ "\$PROBE_HEAD" -lt \$NH \] \|\| \[ "\$PROBE_TAIL" -lt \$NT \]/.test(wf) && /PROBE_HEAD=\$\{\{ vars\.LX_PILOT/.test(wf), 'pilot cũng dò kho CF trước, đủ CẢ phần vẽ (đầu) lẫn phần viết thẻ (đuôi) – kho cạn → bỏ lượt rõ ràng (41146130096: 35 phút thẻ rỗng; 41158516082: thẻ ăn hết, vẽ 0)');
+  ok(/id: probe\n\s+if: github\.event\.inputs\.mode != 'calibrate'/.test(wf) && /NA=10; NH=10; NT=5; \[ "\$\{\{ github\.event\.inputs\.pool \}\}" = tail \] && \{ NH=0; NT=\$\(node/.test(wf) && /NA=\$NT;/.test(wf) && /\[ "\$MODE" = pilot \] && \{ \[ "\$PROBE_ALIVE" -lt \$NA \] \|\| \[ "\$PROBE_HEAD" -lt \$NH \] \|\| \[ "\$PROBE_TAIL" -lt \$NT \]/.test(wf) && /PROBE_HEAD=\$\{\{ vars\.LX_PILOT/.test(wf), 'pilot cũng dò kho CF trước, đủ CẢ phần vẽ (đầu) lẫn phần viết thẻ (đuôi) – kho cạn → bỏ lượt rõ ràng (41146130096: 35 phút thẻ rỗng; 41158516082: thẻ ăn hết, vẽ 0)');
   // pilot pool=tail (31/10): fill vét phần đầu ngay khi hồi → pilot vẽ từ đuôi, chừa 10 tài khoản cuối cho giám khảo; fill không bao giờ đổi
   { const { drawAccounts } = await import('../vocab-img/cf-direct.mjs'), H = c => c.repeat(32), pool = Array.from({ length: 40 }, (_, i) => (i < 10 ? H(String(i)) : H(String.fromCharCode(97 + (i % 6))).slice(0, 30) + String(i).padStart(2, '0')) + ':t').join(','), e = { CF_POOL: pool, VIMG_POOL_SKIP: '0', VIMG_DRAW_SHARE: '0.5' };
     const hd = drawAccounts(e).map(a => a.id), tl = drawAccounts({ ...e, VIMG_DRAW_FROM: 'tail' }).map(a => a.id);
@@ -331,6 +331,12 @@ else:
 { const sc = await import('../vocab-img/scene.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml');
   ok(sc.sceneStyle({}) === sc.SCENE_STYLE_E4 && sc.sceneStyle({ VIMG_STYLE: 'lite' }) === sc.SCENE_STYLE_LITE && !/\b(text|letters?|words?|signs?|labels?)\b/i.test(sc.SCENE_STYLE_LITE), 'phong cách lite chỉ khi VIMG_STYLE=lite, không nhắc chữ');
   ok(/VIMG_STYLE: "\$\{\{ github\.event\.inputs\.mode == 'pilot' && github\.event\.inputs\.style \|\| '' \}\}"/.test(wf), 'workflow: style chỉ cho pilot');
+}
+// 8h. 02/11 sàn tài khoản pilot đuôi theo kích thước việc (không cố định 15); lịch fill giữ sàn 10
+{ const cd = await import('../vocab-img/cf-direct.mjs'), wf = rd('.github/workflows/vocab-img-scene.yml');
+  ok(cd.pilotFloor(18) === 3 && cd.pilotFloor(0) === 3 && cd.pilotFloor(92) === 5 && cd.pilotFloor(92, 2) === 10 && cd.pilotFloor(200, 2) === 20, 'pilotFloor = max(3, ceil(nghĩa × biến thể × 250 × 2 / 10k))');
+  ok(cd.pilotSize('content/visual/pilot-lite.json') === 18 && cd.pilotSize('', '60:0:20') === 60 && cd.pilotSize('a#n,b#v') === 2 && cd.pilotSize('+a#n,b#v', '40:0:20') === 42, 'pilotSize: tệp {items} / danh sách phẩy / +thêm vào pick');
+  ok(/NT=\$\(node -e "import\('\.\/scripts\/vocab-img\/cf-direct\.mjs'\)\.then\(m=>console\.log\(m\.pilotFloor\(m\.pilotSize/.test(wf) && /\[ "\$MODE" = fill \] && \[ "\$PROBE_ALIVE" -lt 10 \]/.test(wf) && !/NT=15/.test(wf), 'workflow: sàn đuôi pilot theo pilotFloor, fill giữ sàn 10');
 }
 // 8g. lite+ (VIMG_STYLE=liteplus): thẻ phải có key 1–2 chi tiết then chốt không chữ; cổng vũ khí/không an toàn cho MỌI thẻ cảnh (protected area#n "hunter with a gun" → api: unsafe)
 { const sc = await import('../vocab-img/scene.mjs'), LP = { VIMG_STYLE: 'liteplus' };
