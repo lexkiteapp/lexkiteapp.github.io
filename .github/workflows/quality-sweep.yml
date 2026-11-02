@@ -221,6 +221,9 @@ jobs:
           elif [ -n "$num" ]; then
             gh issue comment "$num" --body "✅ Sạch ở lượt $RUN_ID: https://github.com/$REPO/actions/runs/$RUN_ID" >/dev/null; gh issue close "$num" >/dev/null; echo "đóng #$num"
           fi
+      - name: Hàng sửa – mỗi nhóm lỗi 1 issue qs-fix + area:* (khử trùng, tự đóng khi đêm sau hết; scripts/quality/fix-queue.mjs)
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: node scripts/quality/fix-queue.mjs qs-report/items.json
       - name: Dọn cache ảnh nền cũ (giữ bản mới nhất mỗi ngôn ngữ)
         run: gh cache list --key qs-baseline- --limit 100 --json id,key,createdAt --jq 'group_by(.key|split("-")[2])|map(sort_by(.createdAt)|reverse|.[1:][])|.[][]|.id' | xargs -r -n1 gh cache delete || true
       - name: Trả thuê

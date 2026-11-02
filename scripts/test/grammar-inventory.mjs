@@ -28,7 +28,9 @@ expect('bản thật xanh', run(INV, TGT), true);
 { const i = clone(INV); for (const p of i.points) p.lessons = p.lessons.filter(l => l !== 'idioms-style'); const t = clone(TGT);
   for (const p of i.points) if (p.level === 'B2' && !p.lessons.length && !t['Ngữ pháp – bài B2'].points.includes(p.id)) t['Ngữ pháp – bài B2'].points.push(p.id);
   expect('bài không có điểm', run(i, t), false, /bài idioms-style: chưa gắn điểm/); }
-{ const t = clone(TGT); t['Ngữ pháp – bài A1'].points = t['Ngữ pháp – bài A1'].points.filter(id => id !== 'be-present'); expect('điểm chưa dạy không vào hàng chờ', run(INV, t), false, /thiếu điểm chưa dạy "be-present"/); }
+{ const q = TGT['Ngữ pháp – bài A1'].points[0], t = clone(TGT); // điểm A1 đầu hàng chờ (đổi dần khi viết bài mới) – không gắn cứng id đã dạy
+  t['Ngữ pháp – bài A1'].points = t['Ngữ pháp – bài A1'].points.filter(id => id !== q); expect('điểm chưa dạy không vào hàng chờ', run(INV, t), false, new RegExp(`thiếu điểm chưa dạy "${q}"`)); }
+{ const i = clone(INV); pt(i, 'be-present').lessons = pt(i, 'be-present').lessons.filter(l => l !== 'be-am-is-are'); expect('gỡ bài A1 khỏi điểm → điểm phải về hàng chờ', run(i, TGT), false, /thiếu điểm chưa dạy "be-present"/); }
 { const t = clone(TGT); t['Ngữ pháp – bài B1'].points.push('present-perfect-unfinished'); expect('hàng chờ chứa điểm đã dạy', run(INV, t), false, /đã có bài cùng cấp/); }
 { const t = clone(TGT); t['Ngữ pháp – bài C2'].points.push('khong-co-diem'); expect('hàng chờ chứa điểm lạ', run(INV, t), false, /không có trong kho/); }
 { const t = clone(TGT); t['Ngữ pháp – bài C1'].have = 99; expect('have lệch số bài thật', run(INV, t), false, /have = 99 nhưng thực có/); }
