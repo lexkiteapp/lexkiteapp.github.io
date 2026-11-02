@@ -248,5 +248,8 @@
   // Dạng bài theo loại nút
   const KIND = { lesson: null, review: null, listen: ['gap', 'build', 'type', 'match'], speak: ['say', 'pic', 'gap'] };
 
-  g.LessonEngine = { HINTS, letterBank, pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
+  // Chiều cao tối đa của tấm phản hồi cố định: chừa phần trên cho giáo viên + nút nghe (bottoms = đáy của chúng, px từ đỉnh khung nhìn); không thấp hơn `floor` (đủ chip + Tiếp tục), không cao quá 80 % khung nhìn
+  const sheetCap = (vh, bottoms, o = {}) => { const gap = o.gap == null ? 8 : o.gap, floor = o.floor == null ? 224 : o.floor, need = Math.max(0, ...(bottoms || []).filter(Number.isFinite)); return Math.min(Math.round(vh * 0.8), Math.max(floor, Math.floor(vh - need - gap))); };
+
+  g.LessonEngine = { sheetCap, HINTS, letterBank, pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
 })(typeof self !== 'undefined' ? self : globalThis);

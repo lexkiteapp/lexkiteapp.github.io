@@ -44,7 +44,7 @@
 .tch-rig{position:absolute;inset:0;filter:drop-shadow(0 4px 5px rgb(0 0 0 / .22))}.tch::after{content:"";position:absolute;left:18%;right:18%;bottom:-3px;height:8px;border-radius:50%;background:radial-gradient(rgb(0 0 0 / .18),transparent 70%);z-index:-1}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
 /* bán thân: đầu + vai + áo tươi (áo gánh độ nổi trên nền tối như Duolingo, tóc giữ đen); eo mờ dần (không khung, không ô) – docs/CHARACTERS.md */
 .lsn-ask .tch,.lsn-duo .tch{-webkit-mask-image:linear-gradient(#000 80%,transparent 100%);mask-image:linear-gradient(#000 80%,transparent 100%)}.lsn-ask .tch .tch-rig,.lsn-duo .tch .tch-rig{overflow:hidden}.lsn-ask .tch-rig img,.lsn-ask .tch-rig canvas,.lsn-duo .tch-rig img,.lsn-duo .tch-rig canvas{inset:auto;left:50%;top:-2%;width:172%;height:auto;object-fit:fill;transform:translateX(-50%)}
-.lsn-tile.used{visibility:hidden}.lsn-opt.done{opacity:.35}.lsn-opt.miss{background:rgb(var(--st-error-container))}
+.lsn-tile{min-width:44px}.lsn-tile.used{visibility:hidden}.lsn-opt.done{opacity:.35}.lsn-opt.miss{background:rgb(var(--st-error-container))}
 .lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:80vh;overflow-y:auto;padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom))}
 .lsn-foot>*{max-width:608px;margin-inline:auto}.lsn-foot.sheet{display:flex;flex-direction:column;gap:1rem;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}.lsn-foot.sheet>*{width:100%}
 .lsn.st-end .lsn-ask,.lsn.st-end .lsn-meta{display:none}.lsn.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);animation:st-fade .18s ease both;pointer-events:none} /* tấm phản hồi: phần câu hỏi lùi sau lớp phủ (mẫu Stitch) */
@@ -57,7 +57,7 @@
 .lsn-map .lsn-node{position:relative;transform:translateX(var(--x));display:flex;flex-direction:column;align-items:center}
 .lsn-map .lsn-dot{width:76px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--muted);box-shadow:0 6px 0 var(--line);text-decoration:none}
 .lsn-map .lsn-dot svg{width:32px;height:32px}.lsn-map .lsn-node.done .lsn-dot{background:var(--done);color:var(--on-done);box-shadow:0 6px 0 var(--done-ink)}
-.lsn-map .lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:#fff;box-shadow:0 7px 0 var(--primary-ink);animation:lsnGlow 1.6s ease-in-out infinite}
+.lsn-map .lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:var(--primary-ink);box-shadow:0 7px 0 color-mix(in srgb,var(--primary) 62%,#000);animation:lsnGlow 1.6s ease-in-out infinite}
 .lsn-map .lsn-start{margin-bottom:.7rem;min-width:180px;animation:lsnBob 1.6s ease-in-out infinite}
 @keyframes lsnGlow{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 14px var(--primary))}}
 @keyframes lsnBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
@@ -127,7 +127,7 @@
     if (V2) v2shell(sh);
     else if (DUO) { /* khung truyện dựng ở frame() theo từng bước */ }
     else view.innerHTML = ST.lsnShell(Object.assign(sh, { story: story ? ST.lsnStory(story.kind === 'radio' ? '● ON AIR' : '') : '' })); // 🎨 mẫu Stitch "Speaking Micro-Drill" (web/js/st/lesson.js) – dự phòng khi chưa bật cờ ux1
-    const foot = document.createElement('div'); foot.className = ST.FOOT; foot.id = 'lsnFoot'; foot.hidden = V2 || DUO; document.body.appendChild(foot); L.foot = foot;
+    const foot = document.createElement('div'); foot.className = ST.FOOT; foot.style.maxHeight = ''; foot.id = 'lsnFoot'; foot.hidden = V2 || DUO; document.body.appendChild(foot); L.foot = foot;
     if (window.ResizeObserver) { footRO = new ResizeObserver(() => view.style.setProperty('--lsn-fh', foot.offsetHeight + 'px')); footRO.observe(foot); }
     // Chỉ bài thử (?demo=1): CI soát hình (scripts/test/new-ui-qa.mjs) nhảy thẳng tới 1 dạng bài – không đụng dữ liệu thật
     App.lessonDemo = demo ? { jump(type) { if (!L || L.dead) return false; const it = L.sess.q.find(x => x.type === type) || E.build(E.pickWords(DEMO(), { n: 4 }), { seed: 7, pool: DEMO(), hasImg: (w, p) => !!imgUrl(w, p), only: [type] })[0]; if (!it) return false; L.sess.q = [it].concat(L.sess.q.filter(x => x !== it)); next(); return true; },
@@ -164,7 +164,7 @@
   }
   const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; return n; };
   function v2foot(it, foot) {
-    foot.className = ST.FOOT; foot.innerHTML = ''; foot.hidden = true; // chân cố định chỉ dành cho tấm phản hồi
+    foot.className = ST.FOOT; foot.style.maxHeight = ''; foot.innerHTML = ''; foot.hidden = true; // chân cố định chỉ dành cho tấm phản hồi
     const q = view.querySelector('.lsn-qfoot'); q.hidden = false;
     $('#lsnPlay').hidden = $('#lsnSlow').hidden = !LISTENS(it);
     view.querySelectorAll('.lsn-skip2').forEach(x => x.remove());
@@ -264,7 +264,7 @@
       fill((it.type === 'pic' ? ST.lsnPic(imgUrl(it.word, it.card.pos), t('Ảnh minh họa')) : snd + ST.lsnSent(`<b>${esc(it.answer)}</b>`, true)) + ST.lsnMic('🎤 ' + t('Chạm để nói')), false);
     }
     // chân trang: bỏ qua nghe/nói + Kiểm tra
-    const foot = $('#lsnFoot'); foot.className = ST.FOOT;
+    const foot = $('#lsnFoot'); foot.className = ST.FOOT; foot.style.maxHeight = '';
     if (V) v2foot(it, foot); else foot.innerHTML = ST.lsnFoot({ skips: [LISTENS(it) ? ['lsnNoL', t('Không nghe được lúc này')] : null, SPEAKS(it) ? ['lsnNoS', t('Không nói được lúc này')] : null].filter(Boolean), check: SPEAKS(it) ? '' : t('Kiểm tra') });
     const slot = $('#lsnSndSlot'), sn = body.querySelector('.lsn-snd'); if (slot) { slot.innerHTML = ''; if (sn) slot.appendChild(sn); } // mẫu v2: 2 nút loa nằm trong bong bóng lời
     bindItem(it, audioText);
@@ -276,7 +276,7 @@
   function frame(it) {
     const want = it.type === 'line' || (it.type === 'q' && L.duo) ? 'duo' : 'q-' + (it.who || 'ama'); if (L.frame === want) return;
     [L.teacher, L.teachers && L.teachers.carlos].forEach(x => { if (x) { try { x.destroy(); } catch (e) { /* bỏ qua */ } } }); L.teacher = null; L.teachers = null; L.frame = want;
-    if (L.foot) { L.foot.hidden = true; L.foot.innerHTML = ''; L.foot.className = ST.FOOT; document.body.appendChild(L.foot); } // tấm phản hồi nằm trong khung cũ → đưa về body trước khi dựng khung mới
+    if (L.foot) { L.foot.hidden = true; L.foot.innerHTML = ''; L.foot.className = ST.FOOT; L.foot.style.maxHeight = ''; document.body.appendChild(L.foot); } // tấm phản hồi nằm trong khung cũ → đưa về body trước khi dựng khung mới
     if (want === 'duo') return duoMount();
     L.v2 = true; L.who = it.who || 'ama'; v2shell(L.sh);
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; } catch (e) { L.teacher = null; }
@@ -296,7 +296,7 @@
   }
   // Khung story-duo có 2 chế độ trên MỘT màn: thoại (khối câu hỏi ẩn, nút = Tiếp tục #lsnGo) / kiểm (khối câu hỏi + thẻ A/B/C hiện, nút = Kiểm tra #lsnCheck)
   function duoMode(q) {
-    const foot = $('#lsnFoot'); if (foot) { foot.hidden = true; foot.innerHTML = ''; foot.className = ST.FOOT; document.body.appendChild(foot); } // tấm phản hồi của câu trước → về body
+    const foot = $('#lsnFoot'); if (foot) { foot.hidden = true; foot.innerHTML = ''; foot.className = ST.FOOT; foot.style.maxHeight = ''; document.body.appendChild(foot); } // tấm phản hồi của câu trước → về body
     const lv = view.querySelector('#lsn'); if (lv) lv.classList.remove('st-dim');
     L.v2 = !!q; L.qblk.style.display = $('#lsnBody').style.display = q ? '' : 'none';
     const b = L.qfootEl.querySelector('button'), sp = b.querySelector('span:not(.material-symbols-outlined)');
@@ -329,7 +329,7 @@
     $('#lsnBub').innerHTML = `<b>${name}</b>` + (it.radio ? ` <span aria-hidden="true">🔊 · · ·</span>` : ST.lsnSub(it.sent, 'en'));
     const log = $('#lsnChat'); $('#lsnBody').innerHTML = ''; log.hidden = false;
     if (!it.radio) { const li = document.createElement('li'); li.className = 'lsn-ln ' + it.who; li.lang = 'en'; li.innerHTML = `<b>${name}</b> ${esc(it.sent)}`; log.appendChild(li); li.scrollIntoView({ block: 'nearest' }); }
-    const foot = $('#lsnFoot'); foot.className = ST.FOOT;
+    const foot = $('#lsnFoot'); foot.className = ST.FOOT; foot.style.maxHeight = '';
     foot.innerHTML = ST.lsnGo(t('Nghe lại'), t('Tiếp tục'));
     $('#lsnPlay').onclick = () => say(it.sent, false, it.who);
     $('#lsnGo').onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
@@ -403,6 +403,13 @@
 
   // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)
   const chips = ok => ST.lsnChips({ ok, face: ST.tStill(L.who === 'carlos' ? 'carlos' : 'ama', ok ? 'cheer' : 'concern'), okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
+  // Tấm phản hồi cố định (bản dự phòng không Stitch v2): giáo viên + nút nghe/nghe chậm của câu hỏi phải nằm TRÊN tấm, không bị đè (kể cả khi mở "Vì sao?" / Tăng điểm làm tấm cao) → hạn chiều cao tấm theo đáy các phần đó; phần dư cuộn trong tấm
+  function fitSheet() {
+    const foot = $('#lsnFoot'); if (!foot || foot.hidden || getComputedStyle(foot).position !== 'fixed') return;
+    foot.style.maxHeight = '';
+    const bottoms = ['#lsnTch', '#lsnTch2', '#lsnPlay', '#lsnSlow'].map(q => view.querySelector(q)).filter(e => e && !foot.contains(e)).map(e => e.getBoundingClientRect()).filter(r => r.width && r.height && r.top < innerHeight).map(r => r.bottom);
+    const cap = E.sheetCap(innerHeight, bottoms); if (cap < foot.offsetHeight) foot.style.maxHeight = cap + 'px';
+  }
   // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster": chip đúng/sai + chuỗi · thẻ giáo viên 2D · Tăng điểm · Vì sao? + Tiếp tục
   function feedback(it, ok, heard) {
     if (L.v2 && window.ST2 && ST2['feedback-correct'] && ST2['feedback-wrong']) return feedbackV2(it, ok);
@@ -418,6 +425,7 @@
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus();
     if (c) booster(it);
+    fitSheet();
   }
 
   // 🧩 Stitch v2.1 feedback-correct / feedback-wrong (khung tự sinh: brand/stitch/v2/bind/feedback-*.json): CHỈ tấm phản hồi, đặt TRONG luồng ngay chỗ chân Kiểm tra (không cố định → không che đáp án/ô nào).
@@ -492,13 +500,13 @@
     const box = $('#lsnBoost'); if (!box || !L || L.sess.cur !== it) return;
     const x = ((window.LESSON_GOLD || {})[E.norm(it.card.word)] || []).find(g => g.w && g.r); if (!x) return;
     box.innerHTML = ST.lsnBoost({ title: t('Tăng điểm'), bad: t('Hay sai'), good: t('Nói hay hơn'), w: x.w, r: x.r });
-    box.hidden = false; box.querySelector('.lsn-say').onclick = e => say(e.currentTarget.dataset.say, false, L.who);
+    box.hidden = false; box.querySelector('.lsn-say').onclick = e => say(e.currentTarget.dataset.say, false, L.who); fitSheet();
   }
 
   // "Giải thích" từ dữ liệu sẵn có, 0 lượt AI: gold bank (vì sao + sai → đúng + mẹo) → định nghĩa + ví dụ + câu của chính người học
   async function explain(it) {
     const box = $('#lsnXp'); if (!box) return;
-    if (!box.hidden) { box.hidden = true; return; }
+    if (!box.hidden) { box.hidden = true; fitSheet(); return; }
     box.hidden = false; box.textContent = '…';
     try { await App.need('lgold'); } catch (e) { /* ngoại tuyến → phần từ điển bên dưới */ }
     const c = it.card, G = (window.LESSON_GOLD || {})[E.norm(c.word)] || [];
@@ -517,6 +525,7 @@
     if (ex.length) h += `<p class="small"><span class="tiny muted">${t('Ví dụ:')}</span> ${ex.map(x => `<span lang="en">${esc(x)}</span>`).join(' · ')}</p>`;
     if (own) h += `<p class="small"><span class="tiny muted">🔎 ${t('Từ bạn đã tra')}:</span> <span lang="en">${esc(own)}</span></p>`;
     box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
+    fitSheet();
   }
 
   const weak0 = s => [...s.wrong.keys()].filter(k => k[0] !== '#');

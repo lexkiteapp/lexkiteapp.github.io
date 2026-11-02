@@ -363,6 +363,20 @@ ok(rewards.length === 1 && rewards[0].quizzes === 1, 'thật: ghi XP 1 lần');
 ok(!consoleErr.length, '0 lỗi console' + (consoleErr.length ? ': ' + consoleErr.slice(0, 3).join(' | ') : ''));
 w.localStorage.removeItem('lk.lsn.off');
 
+// ---------- Hồi quy soát hình (cổng CI new-ui-qa): tấm phản hồi không đè giáo viên/nút nghe · ô chữ 44 px · chấm bản đồ đủ tương phản ----------
+{
+  const UI_SRC = fs.readFileSync(path.join(WEB, 'js/lesson/ui.js'), 'utf8');
+  ok(E.sheetCap(740, [260, 300]) === 432 && E.sheetCap(800, [330]) === 462, 'sheetCap: tấm phản hồi chừa chỗ trên cho giáo viên + nút nghe (đáy 300 → tấm ≤ vh − 308)');
+  ok(E.sheetCap(640, [600]) === 224 && E.sheetCap(640, []) === 512 && E.sheetCap(640, [NaN, undefined]) === 512, 'sheetCap: không thấp hơn 224 px (đủ chip + Tiếp tục), tối đa 80 % khung nhìn, bỏ qua số lạ');
+  ok(/function fitSheet\(\)[\s\S]*E\.sheetCap\(innerHeight/.test(UI_SRC) && /#lsnPlay[^\n]*#lsnSlow/.test(UI_SRC), 'ui.js: fitSheet đo giáo viên + #lsnPlay + #lsnSlow');
+  const fb = UI_SRC.slice(UI_SRC.indexOf('function feedback(it, ok, heard)'), UI_SRC.indexOf('function feedbackV2'));
+  ok(/fitSheet\(\);/.test(fb), 'ui.js: feedback() gọi fitSheet sau khi dựng tấm');
+  ok(/booster\(it\) \{[\s\S]*?fitSheet\(\)/.test(UI_SRC) && /async function explain[\s\S]*?fitSheet\(\);\n  \}/.test(UI_SRC), 'ui.js: tấm co lại/mở rộng lại khi "Tăng điểm" / "Vì sao?" đổi chiều cao');
+  ok(UI_SRC.split('.className = ST.FOOT;').length === UI_SRC.split(".className = ST.FOOT; ").length && !/\.className = ST\.FOOT;(?! (?:L\.)?foot\.style\.maxHeight = '')/.test(UI_SRC), 'ui.js: mọi chỗ đặt lại chân bài học đều xoá max-height cũ của tấm');
+  ok(/\.lsn-tile\{min-width:44px\}/.test(UI_SRC), 'css: .lsn-tile min-width 44 px (ô chữ 1 ký tự «I», «a»)');
+  ok(/\.lsn-node\.next \.lsn-dot\{[^}]*color:var\(--primary-ink\)/.test(UI_SRC) && !/\.lsn-node\.next \.lsn-dot\{[^}]*color:#fff/.test(UI_SRC), 'css: chấm "tiếp theo" dùng --primary-ink (chế độ tối ≥ 3:1), không trắng cứng');
+}
+
 console.log(`\n${total - fails}/${total} lesson`);
 // Nội dung mọi từ × dạng × ngôn ngữ (docs/LESSON-UX-V2.md §4) – chạy kèm tại đây để package.json không đổi
 try { execFileSync(process.execPath, ['scripts/test/lesson-content.mjs'], { stdio: 'inherit' }); } catch (e) { fails++; console.error('✗ lesson-content'); }
