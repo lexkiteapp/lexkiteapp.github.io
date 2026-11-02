@@ -42,15 +42,41 @@
   },
   ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": {
    "data-href": "'#/deck'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1)": {
+   "href": "d.readyHref"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2)": {
+   "href": "d.trainHref"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(3)": {
+   "href": "d.permHref"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)": {
+   "href": "d.famHref",
+   "aria-label": "d.famAria"
   }
  },
  "addClass": {
-  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": "relative after:absolute after:-inset-y-4 after:inset-x-0 after:z-10 after:content-['']"
  },
  "tag": {
   ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > span:nth-child(1)": {
    "to": "button",
-   "addClass": "relative after:absolute after:-inset-y-3 after:inset-x-0 after:content-['']"
+   "addClass": "relative after:absolute after:-inset-y-3.5 after:inset-x-0 after:content-['']"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1)": {
+   "to": "a"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2)": {
+   "to": "a"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(3)": {
+   "to": "a"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)": {
+   "to": "a",
+   "addClass": "relative after:absolute after:-inset-y-3.5 after:inset-x-0 after:content-['']"
   }
  },
  "repeat": [
