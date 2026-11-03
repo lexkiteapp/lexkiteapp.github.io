@@ -100,7 +100,9 @@ def check_stills(who, ref):   # mọi ảnh tĩnh/poster: mắt mở (lỗi ch�
     ok = set(R.get('idle', {}).get('closed_ok', []))
     for f in sorted(os.listdir(f'{OUT}/{who}')):
         if not f.endswith('.webp') or f.startswith('avatar') or f'{who}/{f}' in ok: continue
-        s = openness(np.array(Image.open(f'{OUT}/{who}/{f}').convert('RGBA')), F['eye_y'])
+        im = Image.open(f'{OUT}/{who}/{f}')
+        if im.mode != 'RGBA': errs.append(f'{who}/{f}: mất alpha ({im.mode}) – nền đặc, không đặt được lên UI')
+        s = openness(np.array(im.convert('RGBA')), F['eye_y'])
         if not is_open(s, ref): errs.append(f'{who}/{f}: mắt nhắm (độ mở {s:.3f} < 45 % của {ref:.3f}) – chọn khung mắt mở (build.py dùng eyes.pick)')
 
 

@@ -83,13 +83,13 @@ for who, P in R['people'].items():
     SC2 = f'scale={SW * 2}:{H * 2}:flags=lanczos,pad={W * 2}:{H * 2}:{PX * 2}:0:black'
     FA2 = f"geq=lum='if(between(X,{PX * 2},{PX * 2 + SW * 2 - 1})*gte(lum(X,Y),12),lum(X,Y),0)*min(1,(H-Y)/(H*0.10))'"
     still = lambda cf, cm, fr, sc, fa, out: run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex',
-        f'[1:v]select=eq(n\\,{fr}),format=gray,crop={crop},{sc},{fa}[a];[0:v]select=eq(n\\,{fr}),crop={crop},{sc}[c];[c][a]alphamerge', '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', out)
+        f'[1:v]select=eq(n\\,{fr}),setpts=0,format=gray,crop={crop},{sc},{fa}[a];[0:v]select=eq(n\\,{fr}),setpts=0,crop={crop},{sc}[c];[c][a]alphamerge', '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', out)
     print(f'{who}: crop {crop} → {SW}x{H} đệm {PX} → {W}x{H}')
 
     def eye_scores(cf, cm, a, z):   # độ mở mắt từng khung [a, z) trên khung 1× đã cắt (cùng phép ghép với ảnh tĩnh)
         import numpy as np
         raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', cf, '-i', cm, '-filter_complex',
-                              f'[1:v]trim=start_frame={a}:end_frame={z},format=gray,crop={crop},{SC},{FA}[a];[0:v]trim=start_frame={a}:end_frame={z},crop={crop},{SC}[c];[c][a]alphamerge',
+                              f'[1:v]trim=start_frame={a}:end_frame={z},setpts=N/TB,format=gray,crop={crop},{SC},{FA}[a];[0:v]trim=start_frame={a}:end_frame={z},setpts=N/TB,crop={crop},{SC}[c];[c][a]alphamerge',
                               '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
         return [openness(f, F['eye_y']) for f in np.frombuffer(raw, np.uint8).reshape(-1, H, W, 4)]
 
@@ -146,7 +146,7 @@ for who, P in R['people'].items():
     cf, cm = f'{G}/kfull_pro/{t0}.mp4', f'{G}/kmask_pro/{t0}.mkv'
     p0 = open_frame(cf, cm, 0, 10 ** 6, 0, f'{who}/poster')   # poster: khung mắt mở sớm nhất của clip talk (trước: cứng khung 0)
     P['poster_frame'] = p0
-    run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]select=eq(n\\,{p0}),format=gray,crop={crop},{SC},{FA}[a];[0:v]select=eq(n\\,{p0}),crop={crop},{SC}[c];[c][a]alphamerge',
+    run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]select=eq(n\\,{p0}),setpts=0,format=gray,crop={crop},{SC},{FA}[a];[0:v]select=eq(n\\,{p0}),setpts=0,crop={crop},{SC}[c];[c][a]alphamerge',
         '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', f'{OUT}/{who}/poster.webp')
     S = round(P['eye_mouth'] * 5 / 2) * 2; AX, AY = round(P['eye'][0] - S / 2), round(P['eye'][1] - P['eye_mouth'] * 2.6); A = F['avatar']
     run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]format=gray,crop={S}:{S}:{AX}:{AY},scale={A}:{A}:flags=lanczos,{fade(0.22)}[a];[0:v]crop={S}:{S}:{AX}:{AY},scale={A}:{A}:flags=lanczos[c];[c][a]alphamerge',
@@ -163,7 +163,9 @@ for who, P in R['people'].items():
         if not os.path.exists(o): continue
         edge_qc(f'{who}/{pose}.mp4', vid_rgba(o), tol=8)
     for k in ['poster', 'poster-2x'] + [f'still-{p}' for p in R['poses'] if os.path.exists(f'{OUT}/{who}/still-{p}.webp')]:   # 👀 mắt mở (cổng lặp lại ở idle.py --check)
-        sc = openness(np.array(Image.open(f'{OUT}/{who}/{k}.webp').convert('RGBA')), F['eye_y'])
+        im = Image.open(f'{OUT}/{who}/{k}.webp')
+        if im.mode != 'RGBA': errs.append(f'{who}/{k}.webp: mất alpha ({im.mode}) – màu và mặt nạ không ghép đúng khung')
+        sc = openness(np.array(im.convert('RGBA')), F['eye_y'])
         if sc < 0.45 * ref: errs.append(f'{who}/{k}.webp: mắt nhắm (độ mở {sc:.4f} < 45 % ref {ref:.4f})')
     kb = sum(os.path.getsize(f'{OUT}/{who}/{k}') for k in ('talk.mp4', 'listen.mp4', 'poster.webp')) // 1024
     if kb > 420: errs.append(f'{who}: talk+listen+poster {kb} KB > 420 KB')
