@@ -7,7 +7,7 @@
 Người nói vi, en, ar, de, fr, hi, id, ja, ko, pt_BR, ru, th, tr, zh_CN (giao diện `es` → không chào khóa này) học tiếng TBN đủ mọi phần như khóa tiếng Anh: từ điển/Sổ từ/SRS, ngữ pháp + drills, lộ trình ngày, phát âm, nghe/nói, gọi điện AI, thi thử, video Teach2D, ảnh từ vựng, add-on tra từ. Tiếng Anh giữ nguyên từng byte (test hồi quy `target-lang` so ảnh chụp dữ liệu en).
 
 ## 2. Kiến trúc "ngôn ngữ đích" tổng quát
-- **Một bảng, không nhánh code**: `Target` thêm dòng `es` (speech lang `es-ES`, nhận giọng `es`, Kokoro, giáo viên, tiền tố lọc giọng máy, `wordFiles`). Mọi chỗ còn `if (pt)` từ lát 1 đổi thành tra bảng → thêm ngôn ngữ thứ 3 = thêm dòng + dữ liệu. Khóa thẻ `es:`+lemma, trường `tl:'es'`; đồng bộ/SRS/Ôn đã lọc theo `Target.cur()`.
+- **Một bảng, không nhánh code**: `Target` thêm dòng `es` (speech lang `es-419` → dự phòng `es-MX`/`es-US`, nhận giọng `es`, Kokoro, giáo viên, tiền tố lọc giọng máy, `wordFiles`). Mọi chỗ còn `if (pt)` từ lát 1 đổi thành tra bảng → thêm ngôn ngữ thứ 3 = thêm dòng + dữ liệu. Khóa thẻ `es:`+lemma, trường `tl:'es'`; đồng bộ/SRS/Ôn đã lọc theo `Target.cur()`.
 - **Dữ liệu theo tl**: `content/target/es/{schema,seed,core-*,grammar,drills,calls,exams}.json` cùng schema với pt (mở rộng: giống, số nhiều, bảng chia động từ, biến thể vùng). Mỗi module tải lười (`web/js/target/es/*.js` hoặc JSON CDN) → khung ≤ ngân sách shell, i18n ≤ 160 KB gz/ngôn ngữ không đổi.
 - **Engine dùng chung, tham số hoá `tl`**: qengine/drills, lesson engine + path-day, call engine, mock/CBT, pron coach, Teach2D (viseme lấy từ âm vị espeak → không phụ thuộc tiếng), explain-card. Mỗi engine có 1 chỗ đọc `Target.cur()`; không file nào chép đôi.
 - **Giải thích bản ngữ**: nguồn lời giải viết bằng **en** (khóa gốc cho tl ≠ en) → `i18n.yml`/gen-explain dịch 13 ngôn ngữ + vi (vi không phải nguồn ở khóa này); nhãn ngắn qua `i18n-fixed.json`. Nghĩa từ 14 ngôn ngữ: `lexicon-i18n.yml` thêm tham số `--tl es` (gói `web/packs/es/<lang>.json`).
@@ -19,10 +19,10 @@ Người nói vi, en, ar, de, fr, hi, id, ja, ko, pt_BR, ru, th, tr, zh_CN (giao
 | Khung cấp độ | CEFR (Hội đồng châu Âu, dùng tự do); PCIC Instituto Cervantes chỉ làm **danh mục đối chiếu**, không chép chữ | Không sao chép văn bản PCIC |
 | Tần suất từ | FrequencyWords es (OpenSubtitles 2018) – chỉ thứ hạng | CC BY-SA 4.0, ghi công |
 | Lemma, giống, chia động từ, IPA đối chiếu | Wiktionary qua kaikki.org – **chỉ để kiểm chéo trên CI**, không phát hành dữ liệu dẫn xuất | CC BY-SA; nội dung ship tự soạn |
-| IPA | espeak-ng `es` sinh + chuẩn hoá (`scripts/lexicon/ipa.mjs` thêm bảng es) | GPL công cụ, đầu ra tự do |
+| IPA | espeak-ng `es-419` (seseo, không ceceo) sinh + chuẩn hoá (`scripts/lexicon/ipa.mjs` thêm bảng es) | GPL công cụ, đầu ra tự do |
 | Câu ví dụ | Tự soạn qua ai-pool; Tatoeba chỉ để đo độ tự nhiên | Tatoeba CC BY 2.0 FR |
 | Kiểm ngữ pháp | LanguageTool es tự chạy trên runner (Java) + treebank UD AnCora để thử cổng | LGPL / CC BY 4.0 |
-| Giọng (MỘT giọng) | Kokoro-82M + espeak `es`: `ef_dora` (Ama), `em_alex` (Carlos), dựng sẵn trên CI; dự phòng Piper `es_ES` | Apache-2.0 / MIT |
+| Giọng (MỘT giọng) | Kokoro-82M + âm vị espeak `es-419`: `ef_dora` (Ama), `em_alex` (Carlos), dựng sẵn trên CI; dự phòng Piper `es_MX` | Apache-2.0 / MIT |
 | Nhận giọng | Whisper small đa ngôn ngữ (CI chấm), máy người dùng theo tầng thiết bị (luật on-device AI) – `whisper-tiny.en` hiện tại không dùng được cho es | MIT |
 | Thi thử | Định dạng DELE A1–C2 / SIELE tự soạn (`content/exams/spec/dele-*.json`, `siele.json`); ghi "luyện theo định dạng", không liên kết Cervantes, không đề thật | Tên thi là nhãn hiệu – chỉ mô tả |
 | Ảnh từ vựng | Tái dùng `img.json` khi trùng nghĩa `từ#loại` (ánh xạ es→en sense, kiểm tay mẫu); thiếu → `vocab-img-free.yml` | Không chữ trong ảnh (TEXT_OBJ) |
@@ -56,12 +56,14 @@ Mỗi phần ở §1 có đủ nội dung A1→C2 (từ vựng C1–C2 mở rộ
 
 ## 7. Rủi ro
 - **Hạn mức ai-pool** (≈ 3.000 từ × 14 ngôn ngữ + lời giải): chạy đêm, nối tiếp từ chỗ dừng; không chuyển sang dịch vụ trả phí khi chưa hỏi chủ.
-- **Giọng Kokoro es** chưa qua lượt mẫu → W0 quyết; trượt thì Piper `es_ES` (vẫn một giọng).
+- **Giọng Kokoro es** chưa qua lượt mẫu → W0 quyết; trượt thì Piper `es_MX` (vẫn một giọng). Lượt mẫu chấm thêm seseo: các từ có c/z (cielo, zapato) phải ra /s/, không ra /θ/.
 - **CC BY-SA lan truyền**: chỉ dùng Wiktionary/FrequencyWords làm thứ hạng/kiểm chéo, không ship dữ liệu dẫn xuất.
 - **Dung lượng**: dữ liệu es tải lười, không vào khung/i18n; size-budget chặn.
 - **Chồng chéo với tiếng Anh**: engine nào chưa tham số hoá `tl` → sửa engine (không chép); grep `Target.cur` trước khi viết.
 - **Nhận giọng trên máy yếu**: tầng thiết bị; máy yếu chấm qua CI/Worker miễn phí, không bỏ bài nói.
 
-## 8. Điểm cần chủ quyết
-1. **Chuẩn giọng/chính tả âm**: Tây Ban Nha (distinción, `es-ES`) hay Mỹ Latinh (seseo, `es-419`)? Luật một giọng → chọn một; đề xuất `es-ES` (khớp DELE, giọng Kokoro sẵn), ghi chú khác biệt Mỹ Latinh trong bài.
-2. Đồng ý tên hiển thị "Luyện định dạng DELE/SIELE" (không liên kết Cervantes).
+## 8. Quyết định chuẩn ngôn ngữ (chủ, 03/11/2026)
+**Tiếng TBN Mỹ Latinh trung tính** là chuẩn duy nhất cho giọng, IPA, ví dụ, đáp án và chấm điểm: seseo (c/z = /s/), `ustedes` cho số nhiều ngôi 2, từ vựng trung tính toàn vùng (computadora, carro/auto, celular, jugo). `vosotros`, ceceo/distinción và leísmo **chỉ** xuất hiện trong ghi chú "Ở Tây Ban Nha" (nhận biết khi nghe/đọc, không dạy chủ động, không bắt buộc trong đáp án). Cổng QC §5.1 thêm lint: câu chính không có dạng `vosotros` hay leísmo (trừ khối ghi chú). Thi thử DELE/SIELE vẫn hợp lệ vì cả hai chấp nhận mọi biến thể chuẩn.
+
+## 9. Điểm cần chủ quyết
+1. Đồng ý tên hiển thị "Luyện định dạng DELE/SIELE" (không liên kết Cervantes).
