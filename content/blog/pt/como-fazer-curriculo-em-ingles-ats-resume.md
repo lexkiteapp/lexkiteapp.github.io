@@ -85,7 +85,7 @@ Substitua expressões fracas e passivas como *"responsible for"* ou *"helped wit
 | Tipografia recomendada | Fontes padronizadas: Arial, Calibri, Times New Roman | Fontes artísticas ou não nativas que travam o leitor |
 | Formato de arquivo | PDF padrão pesquisável ou DOCX | PDF compactado como vetor/imagem não selecionável |
 
-Além do currículo, a comunicação escrita formal é indispensável para avançar no processo. Veja nossas orientações sobre [como escrever e-mail em inglês formal](/pt/blog/como-escrever-email-em-ingles-formal/) e prepare-se para as etapas orais com as dicas de [entrevista de emprego em inglês perguntas](/pt/blog/entrevista-de-emprego-em-ingles-perguntas/).
+Além do currículo, a comunicação escrita formal é indispensável para avançar no processo. Veja nossas orientações sobre [como escrever e-mail em inglês formal](/pt/blog/como-escrever-email-em-ingles-formal/), aprimore sua pontuação em testes corporativos com as dicas de [TOEIC Part 5 estratégias de gramática e tempo](/pt/blog/toeic-part-5-estrategias-gramatica-tempo/) e prepare-se para as etapas orais com as dicas de [entrevista de emprego em inglês perguntas](/pt/blog/entrevista-de-emprego-em-ingles-perguntas/).
 
 Para quem deseja atuar no mercado global, recomendamos também a leitura sobre [inglês para TI e trabalho remoto](/pt/blog/ingles-para-ti-e-trabalho-remoto/) e as expressões indispensáveis para [reuniões em inglês frases úteis](/pt/blog/reunioes-em-ingles-frases-uteis/).
 

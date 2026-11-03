@@ -44,7 +44,7 @@ Os textos simples surgem no início, enquanto as passagens múltiplas ocupam a r
 
 Para concluir as 54 perguntas sem chutes desesperados, administre a sua cota de 75 minutos com rigor cirúrgico:
 
-- **Parte 5 (30 questões)**: Finalizar em **10 minutos** (cerca de 20 segundos por questão).
+- **Parte 5 (30 questões)**: Finalizar em **10 minutos** (cerca de 20 segundos por questão) aplicando as técnicas de nosso guia [TOEIC Part 5 estratégias de gramática e tempo](/pt/blog/toeic-part-5-estrategias-gramatica-tempo/).
 - **Parte 6 (16 questões)**: Finalizar em **8 minutos** (cerca de 30 segundos por questão).
 - **Margem de segurança / Cartão-resposta**: **2 minutos**.
 - **Parte 7 (54 questões)**: Reservar **55 minutos integrais** (uma média de 60 segundos por questão).
