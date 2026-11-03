@@ -10,6 +10,9 @@
  },
  "items": {
   "grammar": {
+   "be-am-is-are": ["S.A1.01", "I.A1.02"],
+   "a-an-plurals": ["W.A1.05", "I.A1.04"],
+   "prepositions-time-place-basic": ["I.A1.07", "W.A1.02"],
    "present-simple": "S.A2.01",
    "present-continuous": "S.A2.05",
    "present-perfect": "S.B1.05",

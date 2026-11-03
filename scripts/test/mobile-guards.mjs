@@ -26,5 +26,17 @@ ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(fu
 { const st = rd('web/js/study.js'), ds = rd('web/js/distract.js');
   ok(/startWhen\(Promise\.all\(\[warmLib\(\), window\.VImg && VImg\.need \? VImg\.need\(items\.map\(w => w\.word\)\) : null\]\), next\)/.test(st) && /startWhen\(warmLib\(\)\.then\(\(\) => preDis\(seq\[0\]\)\), next\)/.test(st) && /view\.prepend\(bar\)/.test(st) && /setTimeout\(\(\) => preDis\(nq\), 0\)/.test(st) && /async function pickAsync\(/.test(ds) && /performance\.now\(\) - t0 < 8/.test(st) && /async function warm\(pool/.test(ds) && /Date\.now\(\) - t0 < 8/.test(ds),
     'trắc nghiệm/học thông minh: kho từ (+ mảnh chỉ mục ảnh VImg ở học thông minh) + bộ nhớ Distract làm nóng theo lát ≤ 8 ms trước câu đầu; phương án nhiễu tính theo lát (pickAsync) trước câu đầu và lúc rảnh cho câu sau (TBT #/practice từng 205–418 ms)'); }
+{ const tf = rd('web/js/toefl.js'), sb = rd('scripts/build-stitch-css.mjs'), gap = (css.match(/^\.gap \{[^}]*\}/m) || [''])[0], lhCw = +((css.match(/^\.cw-text \{[^}]*line-height: ([\d.]+)/m) || [])[1] || 0);
+  ok(/<label class="cw-slot">\$\{pre\}<input class="gap cw"[^>]*style="--n:\$\{miss\.length\}"/.test(tf) && !/data-cw[^>]*width:\$\{miss/.test(tf) && /line-height: 1\.25/.test(gap) && /vertical-align: baseline/.test(gap) && /\.gap\.cw \{[^}]*width: calc\(var\(--n, 2\) \* 1ch/.test(css) && /\.cw-slot::after \{[^}]*min-width: 44px;[^}]*min-height: 44px/.test(css) && lhCw * 16.32 >= 44, // 1.02rem × line-height
+    'điền chữ (TOEFL Complete the Words): ô inline rộng theo số chữ thiếu (ch), line-height riêng (không kéo line-height 2.3 của đoạn → ô cao hơn dòng, lệch gạch chân), vùng chạm 44 px ở nhãn bọc ngoài, dòng ≥ 44 px để vùng chạm không chồng nhau');
+  ok(/\.bottom-nav:not\(\.st-nav\) a span \{/.test(css) && /\.bottom-nav:not\(\.st-nav\) a\.active span \{/.test(css) && !/^\.bottom-nav a(\.active)? span \{/m.test(css) && !/\.st-tab\.active \.st-tabi\{background/.test(sb),
+    'thanh tab Stitch: tab đang chọn MỘT khối nền (viên nền icon/nhãn của thanh cũ không lọt vào .st-nav; .st-tabi không nền riêng) – từng thành 2–3 khối chồng nhau ở tab Luyện');
+  ok(/^html \{ scroll-padding-top: calc\(72px \+ env\(safe-area-inset-top, 0px\)\); \}/m.test(css), 'focus/anchor/scrollIntoView dừng dưới thanh trên dính (tiêu đề thẻ không bị che)'); }
+// Màn Stitch v2 (ux1 train): đầu trang dính có vùng an toàn (pt-safe/pb-safe phải được định nghĩa) + ::after mở vùng chạm có min ≥ 44 px (cổng mobile-qa đo min-width/min-height)
+{ const sv = rd('web/css/st-v2-ux1-pre.css'), sh = rd('web/js/st/v2/shell.js'); // tiền tố chung gói ux1 (build-stitch-css SHARED) – practice.css trỏ về nó
+  ok(/tiền tố chung: css\/st-v2-ux1-pre\.css/.test(rd('web/css/st-v2-practice.css')) && /'css\/st-v2-ux1-pre\.css', 'css\/st-v2-path\.css'/.test(rd('web/js/app.js')), 'gói ux1 nạp tiền tố chung st-v2-ux1-pre.css trước các màn v2');
+  ok(!/pt-safe/.test(sh) || /\.st \.pt-safe\{padding-top:env\(safe-area-inset-top/.test(sv), 'lớp pt-safe của đầu trang Stitch có luật env(safe-area-inset-top)');
+  ok(/\.st \.pb-safe\{padding-bottom:env\(safe-area-inset-bottom/.test(sv), 'lớp pb-safe có luật env(safe-area-inset-bottom)');
+  ok(/:is\(a,button\)\[class\*="after:absolute"\]::after\{min-width:44px;min-height:44px\}/.test(sv), 'liên kết/nút mở vùng chạm bằng ::after có min 44 × 44 px'); }
 if (fail) { console.error(`✗ mobile-guards: ${fail} lỗi`); process.exit(1); }
 console.log('✓ mobile-guards: đạt');

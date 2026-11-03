@@ -6,7 +6,7 @@
 name: QA bot
 on:
   pull_request:
-    paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
+    paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/nav-sweep.mjs', 'scripts/test/nav-sweep.known.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
   workflow_run:
     workflows: ['Pages deploy', 'Preview site']
     types: [completed]
@@ -66,6 +66,28 @@ jobs:
         with: { name: qa-bot, path: out/qa-bot, retention-days: 7, if-no-files-found: ignore }
       - name: Kết luận
         run: grep -q 'rc=0' out/qa-bot/rc && grep -q 'rc=0' out/qa-bot/exit-sweep/rc
+
+  # 🧭 nav-sweep (docs/specs/learn-flow-nav.md): mỗi màn học đi hết tới màn kết chỉ bằng bàn phím – song song với bot, chỉ trên dist của PR/nhánh
+  nav:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Cài + build dist
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh >/dev/null
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium >/dev/null
+          echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: nav-sweep
+        run: node scripts/test/nav-sweep.mjs --root dist --out out/nav-sweep --write-known
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: nav-sweep, path: out/nav-sweep, retention-days: 7, if-no-files-found: ignore }
 
   before-after:
     if: always() && github.event_name == 'pull_request'
