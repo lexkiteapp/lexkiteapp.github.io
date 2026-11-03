@@ -51,7 +51,7 @@ const TSW_KEYS = ['Giao diện theo hệ thống', 'Giao diện sáng', 'Giao di
 export const themeLabels = lang => {
   if (TSW_L[lang]) return TSW_L[lang];
   let D = {};
-  if (lang !== 'vi') try { const g = {}; vm.runInNewContext(rdWeb(`js/i18n/${lang}.js`), { self: g, window: g, globalThis: g }); D = (g.I18N_DICT || {})[lang] || {}; } catch (e) { D = {}; }
+  if (lang !== 'vi') try { const g = {}; vm.runInNewContext(lang === 'en' ? rdWeb('js/i18n/en.js') : fs.readFileSync(new URL(`../../i18n/ui/${lang}.js`, import.meta.url), 'utf8'), /* nguồn khóa nguyên câu – web/js/i18n/<lang>.js là gói khóa băm */ { self: g, window: g, globalThis: g }); D = (g.I18N_DICT || {})[lang] || {}; } catch (e) { D = {}; }
   const out = TSW_KEYS.map(k => lang === 'vi' ? k : D[k]);
   if (out.some(x => !x)) return (TSW_L[lang] = lang in LANG_NAMES && lang !== 'en' ? themeLabels('en') : out.map((x, i) => x || TSW_KEYS[i]));
   return (TSW_L[lang] = out);

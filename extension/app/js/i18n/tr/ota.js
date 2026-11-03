@@ -1,3 +1,3 @@
-/* UI tr – ota (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Có bản Lexkite mới":"Lexkite’in yeni sürümü var","Cập nhật để có tính năng mới và bản sửa lỗi.":"Yeni özellikler ve hata düzeltmeleri için güncelle.","Cập nhật":"Güncelle","Mở App Store":"App Store’u aç","Bản cập nhật đã sẵn sàng":"Güncelleme hazır","Khởi động lại":"Yeniden başlat","Cần cập nhật để tiếp tục dùng Lexkite.":"Lexkite’i kullanmaya devam etmek için lütfen güncelle."});
+/* SINH từ i18n/ui/tr/ota.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"_10gxfjx":"Lexkite’in yeni sürümü var","_o3h4s8":"Yeni özellikler ve hata düzeltmeleri için güncelle.","_19yqi3m":"Güncelle","_1534ca7":"App Store’u aç","_1b5hkil":"Güncelleme hazır","_cw4x79":"Yeniden başlat","_mle7ze":"Lexkite’i kullanmaya devam etmek için lütfen güncelle."});
 })(typeof self !== 'undefined' ? self : this);

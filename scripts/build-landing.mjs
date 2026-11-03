@@ -27,7 +27,7 @@ const merge = (a, b) => { const o = { ...a }; for (const [k, v] of Object.entrie
 const EN = JSON.parse(rd('content/landing/en.json'));
 export const copyOf = l => l === 'en' ? EN : merge(EN, JSON.parse(rd(`content/landing/${l}.json`)));
 // Nhãn ngắn lấy từ bản dịch giao diện app (cùng chữ với nút trong app): Quên/Khó/Nhớ/Dễ
-const dictOf = l => { if (l === 'vi') return null; const g = {}; new Function('self', rd(`web/js/i18n/${l}.js`))(g); return (g.I18N_DICT || {})[l] || {}; };
+const dictOf = l => { if (l === 'vi') return null; const g = {}; new Function('self', rd(l === 'en' ? 'web/js/i18n/en.js' : `i18n/ui/${l}.js`))(g); return (g.I18N_DICT || {})[l] || {}; };
 const EN_UI = dictOf('en');
 const ui = (l, k) => l === 'vi' ? k : ((dictOf._c ||= {})[l] ||= dictOf(l))[k] || EN_UI[k] || k;
 

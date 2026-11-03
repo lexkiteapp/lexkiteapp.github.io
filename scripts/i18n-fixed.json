@@ -14,7 +14,7 @@
     "ru": "Точность",
     "tr": "Doğruluk"
   },
-  "_note": "Bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa. scripts/i18n-fix.mjs áp vào web/js/i18n/<lang>.js sau mỗi lần dịch tự động.",
+  "_note": "Bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa. scripts/i18n-fix.mjs áp vào nguồn i18n/ui/<lang>.js (rồi sinh gói web/js/i18n/<lang> bằng i18n-pack) sau mỗi lần dịch tự động.",
   "Ghi chú": {
     "es": "Nota",
     "pt": "Nota",

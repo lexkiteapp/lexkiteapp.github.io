@@ -11,7 +11,7 @@ export const MAIL_KEYS = ['Báo lỗi {id}: {s}', 'Đã nhận', 'Mới', 'Đã 
   'Phản hồi từ Lexkite', 'Trùng với {id}', 'Đã sửa trong phiên bản {v}', 'Xem trạng thái', 'Dự kiến xử lý: {t}', 'trong {n} giờ', 'trong {a}–{b} ngày', 'trong 1 tuần', 'trong {n} ngày',
   'Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.', 'Lưu đường dẫn riêng này để theo dõi trạng thái:', 'Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.'];
 export const LANGS = ['vi', 'en', ...fs.readFileSync(path.join(ROOT, 'scripts/i18n-langs.txt'), 'utf8').split('\n').map(x => x.replace(/#.*/, '').trim()).filter(x => x && x !== 'en' && x !== 'vi')];
-const load = lang => { const ctx = {}; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(path.join(ROOT, 'web/js/i18n', lang, 'report.js'), 'utf8'), ctx); return (ctx.I18N_DICT || {})[lang] || {}; };
+const load = lang => { const ctx = {}; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(path.join(ROOT, lang === 'en' ? 'web/js/i18n' : 'i18n/ui', lang, 'report.js'), 'utf8'), ctx); return (ctx.I18N_DICT || {})[lang] || {}; };
 
 export function build() {
   const D = {};
@@ -19,7 +19,7 @@ export function build() {
     if (l === 'vi') continue;
     const d = load(l); D[l] = MAIL_KEYS.map(k => { if (typeof d[k] !== 'string' || !d[k]) throw new Error(`thiếu bản dịch ${l}: ${k}`); return d[k]; });
   }
-  return `/* FILE SINH TỰ ĐỘNG bằng scripts/gen-report-mail-i18n.mjs từ web/js/i18n/<lang>/report.js – đừng sửa tay (sửa bản dịch ở nguồn rồi chạy lại). */\n`
+  return `/* FILE SINH TỰ ĐỘNG bằng scripts/gen-report-mail-i18n.mjs từ i18n/ui/<lang>/report.js – đừng sửa tay (sửa bản dịch ở nguồn rồi chạy lại). */\n`
     + `export const MAIL_KEYS = ${JSON.stringify(MAIL_KEYS)};\nexport const MAIL_I18N = ${JSON.stringify(D, null, 0).replace(/\],"/g, '],\n"')};\n`;
 }
 
