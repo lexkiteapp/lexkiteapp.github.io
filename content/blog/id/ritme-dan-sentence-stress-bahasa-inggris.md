@@ -165,6 +165,6 @@ Membiasakan ritme bicara baru membutuhkan alat bantu interaktif yang mampu membe
 
 - **Kamus Fonetik Interaktif**: Periksa panduan bentuk lemah, bentuk kuat, dan letak suku kata bertekanan secara langsung di kamus Lexkite.
 - **Sistem Pengulangan Berkala FSRS**: Hafalkan frasa kerja, idiom, dan kolokasi penting agar meluncur lancar dari memori jangka panjang tanpa berpikir keras.
-- **Latihan Bicara Terpandu dengan Mikrofon**: Kunjungi [ruang latihan berbicara Lexkite](/#/practice/speak) untuk merekam pelafalan Anda, membandingkannya dengan penutur standar, dan mengasah intonasi kalimat sebelum pertemuan penting.
+- **Latihan Bicara Terpandu dengan Mikrofon**: Kunjungi [ruang latihan berbicara Lexkite](/#/practice/speak) untuk merekam pelafalan Anda, membandingkannya dengan penutur standar, dan mengasah intonasi kalimat sebelum pertemuan penting. Simak pula panduan komprehensif kami mengenai [cara latihan pelafalan bahasa Inggris mandiri](/id/blog/cara-latihan-pelafalan-bahasa-inggris/) untuk melatih fonem vokal dan konsonan Anda.
 
 Buka [aplikasi web Lexkite](/#/) sekarang dan rasakan bagaimana sentence stress bahasa Inggris mengubah cara Anda berkomunikasi di kancah internasional!

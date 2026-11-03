@@ -144,6 +144,7 @@ Uji ketepatan pelafalan Anda dan peroleh skor akurasi langsung di [latihan berbi
 ## Artikel Terkait untuk Memperdalam Kemampuan Bahasa Inggris Anda
 
 - **Pola Tata Bahasa**: Pelajari [Rumus kalimat tanya bahasa Inggris 5W1H dan kata bantu](/id/blog/rumus-kalimat-tanya-bahasa-inggris-5w1h/).
+- **Latihan Pelafalan Mandiri**: Praktikkan panduan 4 tahap dalam [Cara latihan pelafalan bahasa Inggris mandiri](/id/blog/cara-latihan-pelafalan-bahasa-inggris/).
 - **Kamus Mandiri**: Pahami panduan [Cara menggunakan kamus bahasa Inggris monolingual](/id/blog/cara-menggunakan-kamus-bahasa-inggris-monolingual/).
 - **Latihan Mendengarkan**: Tingkatkan ketajaman telinga dengan [Metode dictation bahasa Inggris](/id/blog/metode-dictation-meningkatkan-listening-bahasa-inggris/).
 - **Pola Pikir Percakapan**: Terapkan metode [Cara berpikir dalam bahasa Inggris tanpa menerjemahkan](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/).

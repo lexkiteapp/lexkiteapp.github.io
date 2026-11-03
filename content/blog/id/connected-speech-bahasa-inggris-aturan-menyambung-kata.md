@@ -98,7 +98,7 @@ Dalam aksen American English, ketika bunyi /t/ atau /d/ berada di antara dua bun
 
 Untuk melengkapi penguasaan bahasa Inggris praktis di dunia kerja, pelajari juga panduan kami mengenai [frasa bahasa Inggris untuk meeting kerja](/id/blog/frasa-bahasa-inggris-untuk-meeting-kerja/) dan strategi [presentasi bahasa Inggris](/id/blog/frasa-presentasi-bahasa-inggris-bisnis/).
 
-Selain itu, jika Anda ingin mempercepat refleks berbicara tanpa berpikir berbelit-belit, simak panduan [cara berpikir dalam bahasa Inggris tanpa menerjemahkan](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/) serta metode [cara meningkatkan listening bahasa Inggris](/id/blog/cara-meningkatkan-listening-bahasa-inggris-metode-5-tahap/).
+Selain itu, jika Anda ingin mempercepat refleks berbicara tanpa berpikir berbelit-belit, simak panduan [cara berpikir dalam bahasa Inggris tanpa menerjemahkan](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/) serta metode [cara meningkatkan listening bahasa Inggris](/id/blog/cara-meningkatkan-listening-bahasa-inggris-metode-5-tahap/). Untuk melatih kejelasan fonem dan ritme sejak awal, pelajari pula panduan komprehensif kami tentang [cara latihan pelafalan bahasa Inggris mandiri](/id/blog/cara-latihan-pelafalan-bahasa-inggris/).
 
 Anda dapat melatih penyambungan kata secara interaktif di [/#/speaking](/#/speaking) dan memeriksa akurasi artikulasi suara di [/#/practice/speak](/#/practice/speak).
 
