@@ -1120,7 +1120,7 @@
         <div class="card mt"><h3>${L('Phiên theo ngày')}</h3>${chart(padDays(a.daily, a.days), 's', L('Phiên theo ngày: {r}', { r: span }))}</div>
         <div class="adm-grid">
           <div class="card"><h3>${L('Nguồn truy cập')}</h3>${bars(a.refs, r => L(r.k), r => r.n, r => ` · ${dur(r.dur)}`)}</div>
-          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k), r => r.n, () => '', s.s)}</div>
+          <div class="card"><h3>${L('Quốc gia')}</h3>${bars(a.countries, r => FLAG(r.k) + ' · ' + cname(r.k), r => r.n, () => '', s.s)}</div>
           <div class="card"><h3>${L('Trang vào đầu tiên')}</h3>${bars(a.paths, r => '#/' + r.k)}</div>
           <div class="card"><h3>${L('Tần suất (số phiên mỗi khách)')}</h3>${bars(['1', '2–3', '4–7', '8–15', '16+'].map(k => (a.freq || []).find(f => f.k === k) || { k, n: 0 }), r => L('{k} lần', { k: r.k }))}</div>
           <div class="card"><h3>${L('Thiết bị')}</h3>${bars(a.devs)}<h3 class="mt">${L('Nền tảng@@h')}</h3>${bars(a.plats, r => platName(r.k))}</div>
