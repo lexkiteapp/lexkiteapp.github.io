@@ -3,7 +3,7 @@
 name: Phát audio (Chromium + WebKit)
 on:
   pull_request:
-    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/klocal*.js', 'web/js/lesson/teacher.js', 'web/js/settings.js', 'web/sw.js', 'web/audio/w/s3.tsv', 'web/data/offline-pack.json', 'scripts/audio/offline-pack.mjs', 'scripts/test/audio-*.mjs', '.github/workflows/audio-play.yml']
+    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/klocal*.js', 'web/js/lesson/teacher.js', 'web/js/lesson/ui.js', 'web/js/settings.js', 'scripts/test/teacher-bubble.mjs', 'web/sw.js', 'web/audio/w/s3.tsv', 'web/data/offline-pack.json', 'scripts/audio/offline-pack.mjs', 'scripts/test/audio-*.mjs', '.github/workflows/audio-play.yml']
   push:
     branches: [main]
     paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/klocal*.js', 'web/js/lesson/teacher.js', 'web/sw.js', 'scripts/test/audio-*.mjs']
@@ -29,3 +29,5 @@ jobs:
           npx playwright install --with-deps chromium webkit
       - name: Phát audio – Chromium + WebKit
         run: node scripts/test/audio-play.mjs chromium,webkit
+      - name: Bong bóng lời giáo viên – đuôi trỏ miệng, karaoke, RTL, giảm chuyển động (Chromium + WebKit)
+        run: npm i --no-save --no-audit --no-fund jsdom@25.0.1 && node scripts/test/teacher-bubble.mjs chromium,webkit

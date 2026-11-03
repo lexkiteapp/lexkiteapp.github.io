@@ -58,6 +58,7 @@ node scripts/test/next-step.mjs
 node scripts/confidence/build.mjs
 node scripts/test/confidence.mjs
 node scripts/test/lesson.mjs
+node scripts/test/teacher-bubble.mjs
 node scripts/test/ux1.mjs
 node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs

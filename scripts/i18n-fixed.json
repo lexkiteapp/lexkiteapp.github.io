@@ -33824,5 +33824,20 @@
     "ar": "كل ما تحتاج معرفته عن التعلّم مع Lexkite.",
     "ru": "Всё, что нужно знать об обучении с Lexkite.",
     "tr": "Lexkite ile öğrenmek hakkında bilmen gereken her şey."
+  },
+  "Phụ đề": {
+    "es": "Subtítulos",
+    "pt": "Legendas",
+    "fr": "Sous-titres",
+    "de": "Untertitel",
+    "id": "Teks",
+    "th": "คำบรรยาย",
+    "zh": "字幕",
+    "ja": "字幕",
+    "ko": "자막",
+    "hi": "कैप्शन",
+    "ar": "الترجمة",
+    "ru": "Субтитры",
+    "tr": "Altyazı"
   }
 }
