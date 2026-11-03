@@ -7,6 +7,7 @@
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
 - [ADS.md](ADS.md) — Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học; đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới
 - [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js
+- [ACCOUNTS-LEDGER.md](ACCOUNTS-LEDGER.md) — Sổ tài khoản & khóa trong Admin: dịch vụ/khóa thuộc email nào, giữ ở đâu (chỉ tên), hạn + nhắc 14 ngày, có/thiếu secret. Đọc khi thêm secret hoặc gia hạn token.
 - [ASSET-LIBRARY.md](ASSET-LIBRARY.md) — Kho tài nguyên hình ảnh mô-đun (nhân vật, biểu cảm, phòng, đạo cụ…) để ghép tổ hợp vô hạn cho video, Call Mia, roleplay, bài học; đọc khi: sản xuất hoặc ghép tài nguyên ảnh/nhân vật
 - [AUDIT-2026-10.md](AUDIT-2026-10.md) — Audit 17/10/2026 về SEO, pháp lý, khung trang, bảo mật (Critical/High/Medium/Low) cùng các sửa đã làm và đề xuất còn mở; đọc khi: tra lại vì sao một lỗi/chính sách được sửa
 - [AUTOMATION.md](AUTOMATION.md) — Quy trình tự động A→Z cho video học + phân phối trên GitHub Actions và Cloudflare ($0), mỗi bước có cổng QC; người chỉ duyệt ở 2 điểm; đọc khi: sửa đường ống tự động video/phân phối

@@ -614,10 +614,17 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .chart { width: 100%; height: auto; display: block; }
 .ch-ax { font: 600 11px var(--font); fill: var(--muted); } .ch-lg { font: 700 12px var(--font); fill: var(--text); }
 .ch-pie { font: 800 12px var(--font); fill: #fff; } .ch-map { font: 800 10px var(--font); fill: #fff; }
-.proc { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
-.pstep { flex: 1 1 140px; background: var(--surface); border: 2px solid var(--line); border-radius: 12px; padding: .6rem; font-size: .88rem; font-weight: 600; position: relative; }
+.t1fig { margin: 0; text-align: center; } .t1cap { font-weight: 700; color: var(--text); margin-bottom: .3rem; }
+.t1pie { width: 100%; max-width: 270px; height: auto; display: block; margin: 0 auto; }
+.t1map { width: 100%; max-width: 380px; height: auto; display: block; margin: 0 auto; }
+.ch-pie-o { font: 800 12px var(--font); fill: var(--text); }
+.ch-map-t { font: 800 14px var(--font); fill: var(--text); } .ch-map-f { fill: var(--surface); stroke: var(--line); }
+.ch-road { fill: var(--surface-3); } .ch-road-t { font: 700 11px var(--font); fill: var(--text); letter-spacing: .04em; }
+/* Quy trình = bậc thang dọc ở mọi độ rộng: hàng ngang tự xuống dòng làm mũi tên cuối hàng chỉ vào khoảng trống (figure-layout kiểm hướng mũi tên) */
+.proc { display: flex; flex-direction: column; align-items: stretch; gap: .25rem; max-width: 560px; margin: 0 auto; }
+.pstep { flex: none; background: var(--surface); border: 2px solid var(--line); border-radius: 12px; padding: .6rem; font-size: .88rem; font-weight: 600; position: relative; }
 .pnum { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: var(--primary-ink); font-size: .75rem; margin-right: .3rem; }
-.parrow { color: var(--primary); font-weight: 800; }
+.parrow { color: var(--primary); font-weight: 800; align-self: center; transform: rotate(90deg); line-height: 1; }
 
 /* Học ngữ pháp từng bước */
 .steps { display: flex; gap: .3rem; overflow-x: auto; padding: .3rem 0 .8rem; scrollbar-width: none; }
