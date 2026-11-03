@@ -40,3 +40,35 @@ ok(/timeout-minutes: 118/.test(loop), 'bước vòng lặp có timeout nhỏ hơ
 ok(/judge-budget\.mjs/.test(loop) && /VIMG_MAX_CF=\$BUD_CAP/.test(loop) && /--budget-min/.test(loop), 'vẽ theo ngân sách, chấm có --budget-min');
 ok(/VIMG_CONSENSUS: '1'/.test(y), 'giám khảo kép vẫn bật');
 console.log(`vocab-img-judge-budget: ${n} kiểm OK`);
+
+// 7. judge_run: cứu ảnh đã vẽ của lượt cũ (không vẽ lại) – chia shard phủ đủ, không trùng, copy đúng ảnh, chạy lại không nhân đôi
+{
+  const { prep, shardKeys, imagesOf, slug } = await import('../vocab-img/judge-run-prep.mjs');
+  const keys = Array.from({ length: 60 }, (_, i) => `word${i}#n`);
+  const N = 4, sets = Array.from({ length: N }, (_, i) => shardKeys(keys, i, N));
+  ok(sets.flat().length === 60 && new Set(sets.flat()).size === 60, 'các shard phủ đủ khoá, không trùng');
+  ok(slug('a b#n') === 'a-b__n', 'slug trùng local_judge');
+  ok(imagesOf(['x__n.a1.jpg', 'x__n.a1.c2.jpg', 'xy__n.a1.jpg', 'x__n.a2.jpg'], 'x#n').length === 3, 'ảnh + ứng viên của đúng khoá');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'jr-')), o = path.join(root, 'old/vimg-fill-0/out/vimg-fill');
+  fs.mkdirSync(path.join(o, 'raw'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'old/vimg-fill-0/keys.json'), JSON.stringify({ items: keys }));
+  fs.writeFileSync(path.join(o, 'targets.json'), JSON.stringify(Object.fromEntries(keys.map(k => [k, { kind: 'scene', prompt: 'p', target: 't' }]))));
+  fs.writeFileSync(path.join(o, 'gen-stats.s0.json'), '{}');
+  for (const k of keys) fs.writeFileSync(path.join(o, 'raw', slug(k) + '.a1.jpg'), 'x');
+  let tot = 0;
+  for (let i = 0; i < N; i++) {
+    const out = path.join(root, 'out' + i), r = prep({ src: path.join(root, 'old'), out, shard: [i, N] });
+    ok(r.mine === sets[i].length && fs.readdirSync(path.join(out, 'raw')).length === r.mine, `shard ${i}: đúng ảnh của mình`);
+    ok(Object.keys(JSON.parse(fs.readFileSync(path.join(out, 'targets.json')))).length === 60, 'targets.json đủ mọi khoá (giám khảo cần anh em)');
+    ok(fs.existsSync(path.join(out, 'gen-stats.s0.json')) === (i === 0), 'thống kê vẽ cũ chỉ đi cùng việc 0 (không nhân đôi neuron/ảnh)');
+    tot += r.images; prep({ src: path.join(root, 'old'), out, shard: [i, N] });   // chạy lại
+    ok(fs.readdirSync(path.join(out, 'raw')).length === r.mine, 'chạy lại không nhân đôi');
+  }
+  ok(tot === 60, 'tổng ảnh chuyển = 60');
+  fs.rmSync(root, { recursive: true });
+  ok(/judge_run: \{/.test(y) && /judge_run == ''/.test(y), 'workflow có input judge_run, bước vẽ bị bỏ khi dùng');
+  const jr = y.slice(y.indexOf('Chấm ảnh của lượt cũ'), y.indexOf('Biến thể 1..V'));
+  ok(/judge-run-prep\.mjs/.test(jr) && /--budget-min/.test(jr) && /timeout-minutes: 118/.test(jr) && !/scene-gen/.test(jr), 'nhánh judge_run: chuẩn bị + chấm có ngân sách + timeout, không gọi scene-gen');
+  ok(/judge_run: không nối lượt vẽ mới/.test(y), 'judge_run không tự nối lượt vẽ mới');
+}
+console.log(`vocab-img-judge-budget (judge_run): tổng ${n} kiểm OK`);

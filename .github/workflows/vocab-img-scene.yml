@@ -25,6 +25,7 @@ on:
       pool: { description: 'pilot: tail = vẽ từ ĐUÔI kho CF (chừa 10 tài khoản cuối cho giám khảo) – không chờ fill nhả phần đầu · rỗng = đầu kho như fill', default: '' }
       style: { description: 'Phong cách ảnh cảnh (mọi lượt, cả lịch fill): rỗng = liteplus (02/11, mặc định – ít chi tiết + 1–2 chi tiết then chốt không chữ, thẻ key) · lite = ít chi tiết không key · e4 = phong cách cũ (quay về)', default: '' }
       cands: { description: 'Ứng viên mỗi prompt ảnh cảnh (1–4): vẽ N ảnh cùng prompt, lọc cục bộ, chỉ ứng viên tốt nhất lên giám khảo, trượt → ứng viên kế (01/11 hướng b)', default: '1' }
+      judge_run: { description: 'fill: CHẤM ảnh đã vẽ của lượt này (run id có artifact vimg-fill-*), BỎ bước vẽ – chấm theo ngân sách giờ, chia việc theo shards (mặc định 6), rồi đăng như fill thường (idempotent)', default: '' }
       lab_run: { description: 'Lượt cũ (run id có vimg-scene-final) → tính lại đặc trưng giám khảo cảnh cho ảnh đã gán nhãn', default: '' }
 permissions:
   contents: read
@@ -69,7 +70,7 @@ jobs:
           # 02/11: sàn đuôi theo KÍCH THƯỚC việc (cf-direct.mjs pilotFloor) thay số cố định 15 – lượt 18 nghĩa cần ~4k neuron, đuôi 11 tài khoản ≈ 100k vẫn bị chặn
           NA=10; NH=10; NT=5; [ "${{ github.event.inputs.pool }}" = tail ] && { NH=0; NT=$(node -e "import('./scripts/vocab-img/cf-direct.mjs').then(m=>console.log(m.pilotFloor(m.pilotSize(process.argv[1],process.argv[2]),process.argv[3])))" "${{ github.event.inputs.only }}" "${{ github.event.inputs.pick || '60:0:20' }}" "${{ github.event.inputs.variants || '1' }}"); NA=$NT; echo "sàn đuôi pilot: $NT tài khoản"; }
           if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt $NA ] || [ "$PROBE_HEAD" -lt $NH ] || [ "$PROBE_TAIL" -lt $NT ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần đầu $PROBE_HEAD, phần đuôi $PROBE_TAIL) – pilot bỏ lượt (cần đầu ≥ $NH, đuôi ≥ $NT)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
-          if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || '10' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
+          if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || (github.event.inputs.judge_run != '' && '6' || '10') }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
           echo "per=$(( G / n ))" >> $GITHUB_OUTPUT
@@ -303,7 +304,7 @@ jobs:
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
       - name: Nghĩa còn thiếu ảnh (shard) + thẻ cảnh
-        if: steps.lease.outputs.skip != '1'
+        if: steps.lease.outputs.skip != '1' && github.event.inputs.judge_run == ''
         run: |
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           NK=$(( PER / 3 )); [ "$NK" -lt 5 ] && NK=5
@@ -312,8 +313,26 @@ jobs:
           mkdir -p $OUT && node scripts/vocab-img/scene.mjs --cards --keys keys.json --write --stats $OUT/cardstats.s${{ matrix.shard }}.json
           node scripts/vocab-img/scene.mjs --prune --keys keys.json
           mkdir -p $OUT && cp content/lexicon/vimg-scenes.json $OUT/cards.s${{ matrix.shard }}.json
+      - uses: actions/download-artifact@v4
+        if: steps.lease.outputs.skip != '1' && github.event.inputs.judge_run != ''
+        with: { pattern: 'vimg-fill-[0-9]*', path: old, run-id: '${{ github.event.inputs.judge_run }}', github-token: '${{ github.token }}' }
+      - name: Chấm ảnh của lượt cũ (judge_run) – không vẽ, ghi dần, theo ngân sách giờ
+        if: steps.lease.outputs.skip != '1' && github.event.inputs.judge_run != ''
+        timeout-minutes: 118
+        run: |
+          T0=$(date +%s); DEADLINE=$(( T0 + 6300 ))
+          { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
+          node scripts/vocab-img/judge-run-prep.mjs --src old --out $OUT --shard ${{ matrix.shard }}/$NSH
+          for a in $(seq 1 6); do
+            ls $OUT/raw/*.a$a.jpg >/dev/null 2>&1 || continue
+            BM=$(node -p "Math.max(1,(($DEADLINE-$(date +%s))/60-4)).toFixed(1)")
+            python3 -u scripts/vocab-img/local_judge.py --dir $OUT --attempt $a --budget-min $BM 2>&1 | awk 'NR%20==1||/giám khảo cục bộ|⏱/' | cut -c1-220 || true
+            [ -f $OUT/EXHAUSTED ] && break
+            grep -l '"vision_dead": true' $OUT/judge-api.a$a.*.json >/dev/null 2>&1 && { echo "⏹ giám khảo thị giác hết neuron – dừng sạch"; break; }
+          done
+          true
       - name: Biến thể 1..V – vẽ, chấm, nhận biến thể đầu qua giám khảo
-        if: steps.lease.outputs.skip != '1'
+        if: steps.lease.outputs.skip != '1' && github.event.inputs.judge_run == ''
         timeout-minutes: 118   # < job 130: bị huỷ thì bước tải artifact + trả thuê (if: always) vẫn còn giờ chạy
         run: |
           T0=$(date +%s); DEADLINE=$(( T0 + 6300 ))   # 105 phút cho vòng lặp; vẽ chỉ số ảnh mà giám khảo chấm kịp (judge-budget.mjs; 03/11 run 41569456017: vẽ 564 ảnh, chấm không kịp → huỷ → 0 ảnh)
@@ -438,6 +457,7 @@ jobs:
         env: { GH_TOKEN: '${{ github.token }}', CHAIN: '${{ vars.VIMG_CHAIN }}' }
         run: |
           [ "$CHAIN" = 0 ] && { echo "chuỗi tắt (VIMG_CHAIN=0)"; exit 0; }
+          [ -n "${{ github.event.inputs.judge_run }}" ] && { echo "judge_run: không nối lượt vẽ mới"; exit 0; }
           H=$(date -u +%H); [ "$H" -lt 2 ] && { echo "00–02 UTC: nhường kho từ (lexicon-expand 00:12) – cron 02:40 nối tiếp"; exit 0; }   # so trong bash: biểu thức GitHub coi '' == '0' → bước bị bỏ (26/10)
           if ls parts/*/out/vimg-fill/EXHAUSTED >/dev/null 2>&1; then echo "⏹ kho CF hết neuron ngày – chờ cron sau 00:00 UTC"; exit 0; fi
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
