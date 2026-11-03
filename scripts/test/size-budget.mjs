@@ -2,13 +2,15 @@
 //   1) Khung app (SHELL trong web/sw.js ∪ script/CSS nạp ngay trong web/app/index.html – tải ngay lần đầu, mọi thiết bị): tổng gzip ≤ budget.shellGz
 //      gzip CHUẨN (pako = zlib gốc, scripts/lib/gz-canon.mjs) → máy & CI ra cùng một số; không dùng zlib của Node (lệch theo bản dựng/CPU)
 //   2) Mỗi file dữ liệu tải lười (web/js/**): gzip ≤ budget.fileGz – lớn hơn thì tách lô (data1/data2…) để mạng yếu vẫn mượt
-//   3) Tổng web/js (trừ admin-*.js – chỉ trang quản trị): không vượt budget.totalJs (byte thô)
+//   3) Tổng web/js (trừ admin-*.js – chỉ trang quản trị – và nguồn dựng en.js không ai nạp; scripts/lib/js-budget.mjs): không vượt budget.totalJs (byte thô)
+//      Còn < 1% trống → cảnh báo sớm (::warning:: trên CI) để rà dữ liệu thừa TRƯỚC khi các PR cùng đỏ (3/11: main còn 12 KB, 5 PR đỏ cùng lúc)
 //   4) Cảnh báo content-check không được TĂNG so với mốc (chỉ được giảm; giảm thì tự hạ mốc bằng --update)
 // Dùng: node scripts/test/size-budget.mjs [--update]
 import fs from 'fs';
 import path from 'path';
 import { gzSize, firstLoadFiles, swShell } from '../lib/gz-canon.mjs'; // gzip chuẩn (pako = zlib gốc): cùng số trên máy & CI
 import { execFileSync } from 'child_process';
+import { jsTotal } from '../lib/js-budget.mjs'; // byte người học tải: bỏ admin-*.js + nguồn dựng en.js (đã gộp vào en.js)
 const B = 'scripts/test/budget.json', budget = JSON.parse(fs.readFileSync(B, 'utf8'));
 const gz = f => gzSize(fs.readFileSync(f)), kb = n => (n / 1024).toFixed(0) + ' KB';
 const errs = [];
@@ -21,16 +23,18 @@ const LAND_GZ = budget.landingGz || 16384; let landMax = 0;
 for (const f of ['web/index.html', ...fs.readdirSync('web').filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(`web/${d}/index.html`)).map(d => `web/${d}/index.html`)]) { const g = gz(f); landMax = Math.max(landMax, g); if (g > LAND_GZ) errs.push(`Trang giới thiệu ${f} ${kb(g)} gzip > ${kb(LAND_GZ)}`); }
 if (shellGz > budget.shellGz) errs.push(`Khung app ${kb(shellGz)} gzip > ngân sách ${kb(budget.shellGz)} – chuyển dữ liệu sang tải lười (App lazy) thay vì nạp lúc mở app; xem từng module: node scripts/test/shell-size.mjs`);
 // 2) + 3) File JS
-let total = 0; const big = [];
-const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith('.js')) { if (!/(^|\/)admin-[^/]*\.js$/.test(p)) total += fs.statSync(p).size; // admin-*.js: chỉ trang quản trị, không tải cho người học/add-on
+const { total } = jsTotal('.'), big = [];
+const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith('.js')) {
  const g = gz(p); if (g > budget.fileGz && !(budget.allowBig || []).includes(p)) big.push(`${p} ${kb(g)}`); } } };
 walk('web/js');
+const free = budget.totalJs - total;
+if (free >= 0 && free < budget.totalJs * 0.01) console.log(`${process.env.GITHUB_ACTIONS ? '::warning::' : '⚠ '}size-budget: web/js chỉ còn ${kb(free)} trống (< 1%) – rà dữ liệu trùng/thừa ngay, PR thêm JS kế tiếp sẽ đỏ`);
 if (big.length) errs.push(`File dữ liệu > ${kb(budget.fileGz)} gzip – tách lô: ${big.join(', ')}`);
 if (total > budget.totalJs) errs.push(`Tổng web/js ${(total / 1048576).toFixed(1)} MB > ${(budget.totalJs / 1048576).toFixed(1)} MB – rà dữ liệu trùng/thừa trước khi thêm`);
 // 4) Chất lượng nội dung (ratchet)
 let warn = -1; try { const out = execFileSync('node', ['scripts/test/content-check.mjs'], { encoding: 'utf8' }); warn = +((out.match(/(\d+) cảnh báo/) || [])[1] ?? -1); } catch (e) { errs.push('content-check lỗi: ' + String(e.stdout || e.message).split('\n').slice(-3).join(' ')); }
 if (warn >= 0 && warn > budget.contentWarn) errs.push(`Cảnh báo nội dung tăng ${budget.contentWarn} → ${warn} – nội dung mới phải đủ phiên âm/ví dụ/lời giải (xem docs/CONTENT-RULES.md)`);
 if (process.argv.includes('--update') || (warn >= 0 && warn < budget.contentWarn)) { if (warn >= 0) budget.contentWarn = warn; fs.writeFileSync(B, JSON.stringify(budget, null, 2) + '\n'); }
-const line = `khung ${kb(shellGz)}/${kb(budget.shellGz)} gz · giới thiệu ≤ ${kb(landMax)}/${kb(LAND_GZ)} gz · web/js ${(total / 1048576).toFixed(1)}/${(budget.totalJs / 1048576).toFixed(1)} MB · cảnh báo nội dung ${warn}/${budget.contentWarn}`;
+const line = `khung ${kb(shellGz)}/${kb(budget.shellGz)} gz · giới thiệu ≤ ${kb(landMax)}/${kb(LAND_GZ)} gz · web/js ${(total / 1048576).toFixed(1)}/${(budget.totalJs / 1048576).toFixed(1)} MB (còn ${kb(free)}) · cảnh báo nội dung ${warn}/${budget.contentWarn}`;
 if (errs.length) { console.error('✗ size-budget: ' + line + '\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log('✓ size-budget: ' + line);

@@ -1,9 +1,11 @@
 // Luật Cloudflare chống cào nội dung lexkite.com dưới dạng mã (idempotent). Luật dựng ở scripts/lib/cf-waf-rules.mjs.
 // Dùng: node scripts/cf-waf.mjs dry-run            in luật sẽ áp (che header bí mật) – không cần token
 //       node scripts/cf-waf.mjs perms              token hiện tại làm được gì (đọc WAF/rate limit/bot/hotlink)
-//       node scripts/cf-waf.mjs apply [--rl-action block] [--rl-requests 40]   ghi luật (giữ nguyên luật không phải lexkite_*)
+//       node scripts/cf-waf.mjs apply [--rl-action block] [--rl-requests 100]   ghi luật (giữ nguyên luật không phải lexkite_*)
 //       node scripts/cf-waf.mjs verify [--live]    so luật đang chạy với bản mong muốn (+ --live: gửi request thử thật)
 //       node scripts/cf-waf.mjs live               chỉ gửi request thử thật (không cần token; cần header CI) – CI hằng tuần
+//       node scripts/cf-waf.mjs events [ngày=7]    ai bị rate limit chặn (theo ASN/quốc gia/UA) – soi chặn nhầm người thật sau CGNAT
+//                                                  (token có Analytics Read: CF_ANALYTICS_TOKEN hoặc ~/.config/lexkite/cf-token; gói Free chỉ đọc sự kiện thô)
 // Token: CF_WAF_TOKEN hoặc ~/.config/lexkite/cf-waf-token (quyền Zone WAF Edit + Zone Read), dự phòng ~/.config/lexkite/cf-token.
 // Header CI: LEXKITE_CI_HEADER hoặc ~/.config/lexkite/ci-header (cùng giá trị secret GitHub LEXKITE_CI_HEADER). Không bao giờ in token/secret.
 import fs from 'node:fs'; import os from 'node:os'; import { execFileSync } from 'node:child_process';
@@ -71,6 +73,22 @@ function live() {
   return bad;
 }
 
+// Sự kiện thô (gói Free không có firewallEventsAdaptiveGroups) – gom theo IP để phân biệt scraper (1 IP, hàng trăm request) với CGNAT (nhiều UA trình duyệt, ASN nhà mạng)
+function events(days = 7) {
+  const tok = process.env.CF_ANALYTICS_TOKEN || readF('~/.config/lexkite/cf-token'); if (!tok) { console.error('✗ thiếu token Analytics'); process.exit(1); }
+  const since = new Date(Date.now() - days * 864e5).toISOString().replace(/\.\d+Z$/, 'Z'), until = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  const query = `{viewer{zones(filter:{zoneTag:"${ZONE}"}){firewallEventsAdaptive(limit:10000,filter:{datetime_geq:"${since}",datetime_leq:"${until}",source:"ratelimit"},orderBy:[datetime_DESC]){clientIP clientAsn clientASNDescription clientCountryName userAgent clientRequestPath datetime}}}}`;
+  const conf = `header = "Authorization: Bearer ${tok}"\nheader = "Content-Type: application/json"\n`, tmp = fs.mkdtempSync(`${os.tmpdir()}/cfwaf-`) + '/q.json';
+  fs.writeFileSync(tmp, JSON.stringify({ query }), { mode: 0o600 });
+  let r; try { r = JSON.parse(execFileSync('curl', ['-s', '-K', '-', 'https://api.cloudflare.com/client/v4/graphql', '--data-binary', `@${tmp}`], { input: conf, maxBuffer: 50e6 }).toString()); } finally { fs.rmSync(tmp, { force: true }); }
+  if (r.errors?.length) { console.error(`✗ ${r.errors.map(e => e.message).join('; ')}`); process.exit(1); }
+  const ev = r.data.viewer.zones[0].firewallEventsAdaptive, by = new Map();
+  for (const e of ev) { const k = e.clientIP; const g = by.get(k) || { n: 0, ua: new Set(), e }; g.n++; g.ua.add(e.userAgent.slice(0, 50)); by.set(k, g); }
+  console.log(`· ${ev.length} request bị rate limit chặn, ${by.size} IP, ${days} ngày`);
+  for (const g of [...by.values()].sort((a, b) => b.n - a.n).slice(0, 20)) console.log(`  ${String(g.n).padStart(5)}  AS${g.e.clientAsn} ${g.e.clientASNDescription.slice(0, 24)} (${g.e.clientCountryName}) · ${g.ua.size} UA: ${[...g.ua][0]}`);
+  if (ev.length === 10000) console.log('⚠ chạm 10.000 sự kiện – giảm số ngày');
+}
+
 function verify() {
   const want = buildRules({ ciSecret: SECRET, rl }); let bad = 0;
   for (const [k, ph] of Object.entries(PHASES)) {
@@ -86,9 +104,10 @@ function verify() {
 
 if (cmd === 'live') { if (!SECRET) { console.error('✗ thiếu LEXKITE_CI_HEADER'); process.exit(1); } const b = live(); if (b) { console.error(`✗ cf-waf live: ${b} kiểm tra sai`); process.exit(1); } console.log('✓ cf-waf live: WAF hoạt động đúng'); }
 else if (cmd === 'dry-run') { const r = buildRules({ ciSecret: SECRET, rl }); out(JSON.stringify(r, null, 1)); console.log(`· ${r.custom.length} luật custom (giới hạn Free 5) · ${r.ratelimit.length} luật rate limit (giới hạn Free 1) · độ dài biểu thức max ${Math.max(...[...r.custom, ...r.ratelimit].map(x => x.expression.length))}/4096`); }
+else if (cmd === 'events') events(Number(args[1]) || 7);
 else if (!TOKEN) { console.error('✗ thiếu token Cloudflare (CF_WAF_TOKEN hoặc ~/.config/lexkite/cf-waf-token)'); process.exit(1); }
 else if (cmd === 'perms') perms();
 else if (!SECRET) { console.error('✗ thiếu LEXKITE_CI_HEADER (~/.config/lexkite/ci-header)'); process.exit(1); }
 else if (cmd === 'apply') apply();
 else if (cmd === 'verify') verify();
-else { console.error('Lệnh: dry-run | perms | apply | verify [--live]'); process.exit(2); }
+else { console.error('Lệnh: dry-run | perms | apply | verify [--live] | live | events [ngày]'); process.exit(2); }

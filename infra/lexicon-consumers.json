@@ -184,6 +184,11 @@
    "what": "phiên âm từ điển (Anh/Mỹ) cho phương án render lại cụm ≤ 3 chữ trượt cổng ASR câu",
    "via": "loadAllPlus",
    "job": "sentence-audio-asr mỗi 4 giờ"
+  },
+  "scripts/tts-ab/coverage.mjs": {
+   "what": "docs/TTS-AB.md §Độ phủ – % chuỗi app phát có giọng Kokoro dựng sẵn (từ đơn audio/w + câu ví dụ audio/l của mọi từ trong chỉ mục tra từ)",
+   "via": "loadBrowserIndex",
+   "job": "tts-ab (độ phủ)"
   }
  },
  "todo": {
