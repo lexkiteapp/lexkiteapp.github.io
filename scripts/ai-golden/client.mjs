@@ -12,7 +12,7 @@ export function client() {
   return { A: ctx.AI._p, R: ctx.RP._p, ROLEPLAY: ctx.ROLEPLAY };
 }
 const C = client();
-export function ieltsReq(c) { const name = LANGS[c.lang || 'vi']; return { sys: C.A.forLang(C.A.SYS, name), prompt: C.A.forLang(C.A.gradeBody(c.kind, c.task, c.text, c.extra || ''), name), temp: 0.2, rp: false }; }
+export function ieltsReq(c) { const name = LANGS[c.lang || 'vi']; return { sys: C.A.forLang(C.A.SYS, name), prompt: C.A.forLang(C.A.gradeBody(c.kind, c.task, c.text, c.extra || ''), name), temp: 0, rp: false }; } // khớp máy chủ: chấm ở nhiệt độ 0
 export function rpCase(c) {
   const s = C.ROLEPLAY.find(x => x.id === c.scenario); if (!s) throw new Error('thiếu kịch bản ' + c.scenario);
   const hist = []; c.replies.forEach((r, t) => { hist.push({ who: 'ai', text: s.turns[t].a[c.L] }); hist.push({ who: 'me', text: r }); });

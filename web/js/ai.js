@@ -34,7 +34,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
   const learnName = () => { try { const L = I18N.learnLang(); return L === 'vi' ? 'Vietnamese' : ((I18N.LANGS[L] || ['English'])[0]); } catch (e) { return 'Vietnamese'; } };
   const forLang = (p, n = learnName()) => (n === 'Vietnamese' ? p : String(p).replace(/\bVietnamese\b/g, n));
   const gradeBody = (kind, task, text, extra = '') => kind === 'speaking'
-    ? `Assess this IELTS Speaking performance (machine transcript, punctuation may be missing). Questions and answers:\n${text}\n\n${SCHEMA(kind)}`
+    ? `Assess this IELTS Speaking performance. The answers are an automatic speech-recognition transcript: capitalisation, punctuation and sentence boundaries come from the machine, not the speaker – ignore them completely, never list them as errors and never lower a band for them; judge only what was said (grammar, vocabulary, fluency, coherence, length and development of ideas), as a live examiner would. Questions and answers:\n${text}\n\n${SCHEMA(kind)}`
     : `IELTS Writing ${kind === 'task1' ? 'Task 1 (Academic)' : 'Task 2'} question:\n"""${task}"""\n${extra ? `Data for Task 1:\n${extra}\n` : ''}\nCandidate's response (${(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length} words):\n"""${text}"""\n\n${SCHEMA(kind)}`;
 
   // Tự dò danh sách mô hình Gemini hiện có (Google hay đổi/ngừng mô hình cũ) – lưu 3 ngày
