@@ -72,7 +72,7 @@
   "usage": {"variant": "inner", "surface": ["usage"]},
   "verb": {"variant": "inner", "surface": ["verbs"]},
   "vocab": {"variant": "hub", "surface": ["hub-vocab"]},
-  "watch": {"variant": "inner", "surface": ["listening"]},
+  "watch": {"variant": "focus", "surface": ["listening"]},
   "welcome": {"variant": "focus", "surface": ["welcome"]},
   "write": {"variant": "focus", "surface": ["writing"]}
  }
