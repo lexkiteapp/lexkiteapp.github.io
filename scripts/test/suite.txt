@@ -18,6 +18,7 @@ node scripts/i18n-missing.mjs --strict
 node scripts/i18n-qa.mjs --strict
 node scripts/test/situations.mjs
 node scripts/speak/build.mjs
+node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
