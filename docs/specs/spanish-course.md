@@ -67,3 +67,7 @@ Mỗi phần ở §1 có đủ nội dung A1→C2 (từ vựng C1–C2 mở rộ
 
 ## 9. Điểm cần chủ quyết
 1. Đồng ý tên hiển thị "Luyện định dạng DELE/SIELE" (không liên kết Cervantes).
+
+## 10. Trạng thái
+- **W0** (03/11/2026): `Target` tổng quát hoá – mỗi ngôn ngữ đích = 1 dòng bảng (`flag`/`ls`/`label`/`fallback`), không còn nhánh `if (pt)` (test `target-lang` chặn); dòng `es` (es-419 → es-MX → es-US, nhận giọng es-MX vì Web Speech chưa có es-419 ổn định, Ama `ef_dora` / Carlos `em_alex`, `wordFiles:false`); cờ `es_course` (mặc định TẮT, hoặc `lk.es=1`); seed 30 từ `content/target/es/` (giống, `plural`, IPA es-419 seseo, nghĩa 15, ví dụ tự soạn; luật riêng qua `TL_RULES` trong `scripts/target/lib.mjs`). Lượt mẫu giọng: workflow chung `word-audio-tl.yml` (nhãn `word-audio-es`; bảng `scripts/word-audio/tl-voices.json`; thêm bước IPA seed ↔ espeak-ng + cổng seseo) – kết quả ghi ở PR W0.
+- **W1 cần**: `scripts/target/gen.mjs` còn lời nhắc/biến thể pt cứng → đưa vào bảng theo `tl` (lời nhắc es-419 trung tính, seseo, `plural`); `lexicon-i18n.yml --tl es`; nguồn FrequencyWords es; nếu Kokoro es trượt → Piper `es_MX` làm giọng duy nhất.
