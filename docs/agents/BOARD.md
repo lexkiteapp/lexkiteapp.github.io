@@ -117,7 +117,12 @@ Mẫu thẻ:
   - Cụm 2: Từ viết tắt tiếng Anh công sở thông dụng và quy chuẩn viết email (`viet-tat-tieng-anh-cong-so`) - 15 ngôn ngữ.
   - Cụm 3: Phân biệt các cặp từ vựng và Collocations dễ gây nhầm lẫn (`tu-de-nham-lan-trong-tieng-anh`) - 15 ngôn ngữ.
   - Cụm 4: Kỹ thuật kiểm soát thời gian bài thi IELTS Reading (`ielts-reading-kiem-soat-thoi-gian`) - 5 ngôn ngữ.
-- **Tiến độ:** Đang khởi động viết Cụm 1 (IELTS Speaking Part 3).
+- **Tiến độ:**
+  - ✅ **Hoàn thành trọn vẹn 15/15 ngôn ngữ Cụm 1** (`ielts-speaking-part-3-chien-luoc`): VI, EN, ES, PT, FR, DE, ID, JA, ZH, KO, RU, TR, TH, AR, HI (15 bài).
+  - ✅ **Hoàn thành 9 ngôn ngữ đầu tiên của Cụm 2** (`viet-tat-tieng-anh-cong-so`): VI, EN, ES, PT, FR, DE, ID, JA, ZH (9 bài).
+  - **Tổng kho bài viết toàn repo chính thức cán mốc:** **1.000 bài viết** (1.000 files `.md` trong `content/blog/`).
+  - 100% bài viết đạt chuẩn Quality Gates: `blog-captions` 0 lỗi (974 bài kiểm tra, 2393 ảnh hợp lệ), `vi-lint` PASS 100% (1269 files không lỗi), shingle nội bộ được phân tách độc lập.
+  - Đang tiếp tục viết các ngôn ngữ còn lại của Cụm 2, Cụm 3 và Cụm 4 theo kế hoạch.
 
 ### [B5-MEGA100-P4] ⏳ CHỜ DUYỆT (03/11) · Chiến dịch 100 bài Blog SEO Chất lượng cao Đợt 4 (Nâng tổng kho từ 850 lên 950 bài) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Thực hiện chỉ đạo của anh Quyền ("100 bài khác chất lượng nữa"), tiếp tục mở rộng kho nội dung chuẩn SEO đa ngôn ngữ chất lượng cao từ 850 bài lên **950 bài** toàn repo Lexkite (100 bài mới).
