@@ -18,6 +18,7 @@ const walk = (d, base = d) => fs.readdirSync(d, { withFileTypes: true }).flatMap
   if (e.isDirectory()) return SKIP.test(r + '/') ? [] : walk(p, base);
   return e.name.endsWith('.html') && !SKIP.test(r) ? [p] : [];
 });
+const SJ = {}, siteJs = r => SJ[r] ??= (fs.existsSync(path.join(r, 'js/site.js')) ? fs.readFileSync(path.join(r, 'js/site.js'), 'utf8') : '');
 const roots = process.argv[2] ? [process.argv[2]] : ['web', ...(fs.existsSync('dist') ? ['dist'] : [])];
 for (const root of roots) for (const f of walk(root)) {
   const h = fs.readFileSync(f, 'utf8'); if (!/^\s*<!doctype html/i.test(h)) continue; // mảnh HTML (partial) không phải trang
@@ -30,8 +31,8 @@ for (const root of roots) for (const f of walk(root)) {
   ok(head.includes(THEME_META) && (head.match(/<meta name="theme-color"/g) || []).length === 2, `${f}: theme-color phải là cặp sáng/tối theo nền (site-layout THEME_META)`);
   for (const [, c] of h.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)) if (themeCss(c) !== c) { ok(false, `${f}: còn @media (prefers-color-scheme) chưa đổi sang mẫu data-theme`); break; }
   if (/data-lsw/.test(h)) {
-    ok(/<button type="button" class="tsw" data-tsw/.test(h), `${f}: có nút ngôn ngữ nhưng thiếu nút giao diện`);
-    ok(h.includes("closest('[data-tsw]')") || h.includes('closest("[data-tsw]")') || h.includes(`/js/site-ui.js?v=${SITE_UI_V}`), `${f}: thiếu script nút giao diện`);
+    ok(/<button\b(?=[^>]*\stype="button")[^>]*\sdata-tsw[\s=>]/.test(h), `${f}: có nút ngôn ngữ nhưng thiếu nút giao diện`); // nút themeSwitch (.tsw) hoặc nút Stitch mang data-tsw (landing v3)
+    ok(h.includes("closest('[data-tsw]')") || h.includes('closest("[data-tsw]")') || h.includes(`/js/site-ui.js?v=${SITE_UI_V}`) || (/\/js\/site\.js\?v=/.test(h) && siteJs(root).includes(`/js/site-ui.js?v=${SITE_UI_V}`)), `${f}: thiếu script nút giao diện`); // landing: site.js (defer) nạp site-ui.js sau load
   }
   if (/class="site-foot"/.test(h)) ok((h.match(/class="tsb" data-tsv="(auto|light|dark)" aria-pressed/g) || []).length === 3, `${f}: chân trang thiếu viên 3 nút Tự động/Sáng/Tối (bản vẽ Stitch)`);
   // Trang có nút giao diện/ngôn ngữ nạp JS dùng chung đúng phiên bản (?v= = băm nội dung hiện tại – trang dựng cũ → đỏ)
