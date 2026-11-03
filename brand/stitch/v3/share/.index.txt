@@ -1,6 +1,4 @@
-# Stitch v3 kho mẫu – share (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
-15 La 222×42") · light: chỉ 1% sáng < 35% (bản sáng bị tối?) · dark: 3 vùng chạm < 44px (vd "Me 24×24") · dark: tương phản 1 chữ (vd "/" 1.61<4.5)
-EN (US)
+# Stitch v3 kho mẫu – share (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC 15 La 222×42") · light: chỉ 1% sáng < 35% (bản sáng bị tối?) · dark: 3 vùng chạm < 44px (vd "Me 24×24") · dark: tương phản 1 chữ (vd "/" 1.61<4.5) EN (US)
 reel-mispro-45 ab5314595cb949039049247ad21eafab 37852aa54ab244db89cd5a54d54c5c35 MOBILE QC | key5 project 7022870386131391655
 reel-mispro-916 642b62d2e040428a85dc34fc77355515 449aee4bf3f643f793e8f6288b820ca1 MOBILE QC | key3 project 18075333702575270507
 reel-near-45 077b1770bd134cac864074e94308977b 7a874947c91241679528c524d7febd14 MOBILE QC | key2 project 10804635390057604965

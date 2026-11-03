@@ -72,7 +72,8 @@ async function run(job, k) {
   else if (job.kind === 'edit') { tool = 'edit_screens'; args.selectedScreenIds = [base.screenId]; }
   else if (job.kind === 'variants') { tool = 'generate_variants'; args.selectedScreenIds = [base.screenId]; args.variantOptions = { variantCount: job.count || 3, creativeRange: 'EXPLORE', aspects: ['LAYOUT', 'COLOR_SCHEME', 'TEXT_FONT'] }; }
   else args.designSystem = k.ds;
-  if (DRY) { log('DRY', k.name, tool, tag(job)); return 'done'; }
+  // --dry: đánh dấu đã xem (chỉ trong bộ nhớ, không ghi state) – trước đây trả 'done' mà không đánh dấu nên worker lặp mãi một việc.
+  if (DRY) { log('DRY', k.name, tool, tag(job)); dryDone.add(h); return 'done'; }
   log('START', k.name, tool, tag(job)); const c = cred(k.name); c.used++; save();
   const r = await rpc(k, tool, args);
   if (r.limit) { c.used--; c.fail++; c.limitedAt = new Date().toISOString(); save(); log('LIMIT', k.name, r.err); return 'limit'; }
@@ -118,7 +119,7 @@ registerVariants();
 // Dừng êm: tạo file <out>/STOP → không nhận việc mới, chờ việc đang chạy xong.
 const stopped = () => fs.existsSync(path.join(OUT, 'STOP'));
 const queue = JSON.parse(fs.readFileSync(QUEUE, 'utf8')).filter(j => !ONLY?.length || ONLY.includes(j.id));
-const isDone = j => st.jobs[hash(j)]?.status === 'done' || ['timeout', 'failed'].includes(st.jobs[hash(j)]?.status);
+const dryDone = new Set(), isDone = j => dryDone.has(hash(j)) || st.jobs[hash(j)]?.status === 'done' || ['timeout', 'failed'].includes(st.jobs[hash(j)]?.status);
 let started = 0; const busy = new Set();
 async function worker(k) {
   for (;;) {

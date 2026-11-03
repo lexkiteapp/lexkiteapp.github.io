@@ -20,6 +20,7 @@ fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
 const rows = [];
 for (const s of SURF) { const f = path.join(SRC, s, '.index.txt'); if (!fs.existsSync(f)) continue;
   for (const l of fs.readFileSync(f, 'utf8').split('\n')) { if (!l.trim() || l.startsWith('#')) continue;
+    if (!/^\S+ [0-9a-f]{32} [0-9a-f]{32} (DESKTOP|MOBILE) /.test(l)) { console.error(`✗ ${s}/.index.txt: dòng hỏng (ghi chú có xuống dòng?) "${l.slice(0, 60)}" – sửa bằng scripts/stitch/import-v3.mjs`); process.exitCode = 1; continue; }
     const [head] = l.split(' | '), [page, , , dev, verdict, ...flags] = head.split(/\s+/);
     if (GATED(verdict) || ALL) rows.push({ s, page, gated: GATED(verdict), w: dev === 'DESKTOP' ? 1280 : 390, teacher: flags.includes('teacher-slot') }); } }
 const browser = await chromium.launch(), report = [];
